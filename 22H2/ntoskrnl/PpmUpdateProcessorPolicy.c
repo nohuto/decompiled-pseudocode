@@ -1,82 +1,81 @@
 /*
- * XREFs of PpmUpdateProcessorPolicy @ 0x14082E300
+ * XREFs of PpmUpdateProcessorPolicy @ 0x14078C7D0
  * Callers:
- *     PpmReapplyPerfPolicy @ 0x14082E210 (PpmReapplyPerfPolicy.c)
- *     PpmCheckInitProcessors @ 0x14082FE14 (PpmCheckInitProcessors.c)
- *     PpmRegisterPerfStates @ 0x14083009C (PpmRegisterPerfStates.c)
- *     PpmPerfReApplyStates @ 0x140986A84 (PpmPerfReApplyStates.c)
+ *     PpmPerfReApplyStates @ 0x14077A250 (PpmPerfReApplyStates.c)
+ *     PpmCheckInitProcessors @ 0x1407BA2D8 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x1407BA4A0 (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAEC0 (PpmReapplyPerfPolicy.c)
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x1402BFAEC (PopExecuteOnTargetProcessors.c)
- *     KiOrAffinityEx @ 0x1402C2A80 (KiOrAffinityEx.c)
- *     PpmUpdateTargetProcessorPolicy @ 0x14039069C (PpmUpdateTargetProcessorPolicy.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeOrAffinityEx @ 0x14022B1C0 (KeOrAffinityEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x1403447EC (PopExecuteOnTargetProcessors.c)
+ *     PpmUpdateTargetProcessorPolicy @ 0x1403A480C (PpmUpdateTargetProcessorPolicy.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
 {
-  struct _KPRCB *CurrentPrcb; // rax
+  int started; // eax
   __int64 *v5; // r14
-  unsigned __int64 v6; // r8
-  __int64 v7; // r8
-  unsigned __int64 v8; // rcx
-  unsigned __int64 v9; // rdx
-  __int64 *v10; // rsi
+  unsigned __int64 v6; // rcx
+  unsigned __int64 v7; // rdx
+  __int64 *v8; // rsi
   unsigned int i; // ebx
-  __int64 v12; // rdx
-  _DWORD v14[4]; // [rsp+20h] [rbp-E0h] BYREF
-  _DWORD v15[68]; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v10; // rdx
+  unsigned __int64 v11; // rax
+  unsigned __int64 v12; // rdx
+  _DWORD v14[4]; // [rsp+20h] [rbp-99h] BYREF
+  _DWORD v15[44]; // [rsp+30h] [rbp-89h] BYREF
 
   v14[0] = 0;
-  memset(&v15[2], 0, 0x100uLL);
-  LOWORD(CurrentPrcb) = PpmAllowedActions & *a1;
-  v5 = &PpmCurrentProfile[55 * dword_140C3D90C];
-  LOWORD(v14[0]) = (_WORD)CurrentPrcb;
+  memset(&v15[2], 0, 0xA0uLL);
+  LOWORD(started) = PpmAllowedActions & *a1;
+  v5 = &PpmCurrentProfile[342 * dword_140C2334C];
+  LOWORD(v14[0]) = started;
   if ( !a2 && (v14[0] & 0x400) != 0 )
   {
-    CurrentPrcb = KeGetCurrentPrcb();
-    if ( _bittest64((const signed __int64 *)&CurrentPrcb->FeatureBits, 0x27u) )
+    LOWORD(started) = 0;
+    if ( (KeGetCurrentPrcb()->FeatureBits & 0x8000000000LL) != 0 )
     {
-      v6 = __readmsr(0xDB0u);
-      CurrentPrcb = (struct _KPRCB *)(v6 & 0xFFFFFFFFFFFFFFFEuLL);
-      v7 = v6 | 1;
+      v11 = __readmsr(0xDB0u);
+      v12 = v11 & 0xFFFFFFFFFFFFFFFEuLL;
       if ( *((_BYTE *)v5 + 160) )
-        CurrentPrcb = (struct _KPRCB *)v7;
-      __writemsr(0xDB0u, (unsigned __int64)CurrentPrcb);
+        v12 = v11 | 1;
+      LOWORD(started) = v12;
+      __writemsr(0xDB0u, v12);
     }
   }
   v14[0] &= ~0x400u;
   if ( LOWORD(v14[0]) )
   {
-    v8 = (unsigned int)(10000 * *((_DWORD *)v5 + 15));
-    if ( v8 <= (unsigned int)KeMaximumIncrement )
-      LODWORD(v9) = 0;
+    v6 = (unsigned int)(10000 * *((_DWORD *)v5 + 15));
+    if ( v6 <= (unsigned int)KeMaximumIncrement )
+      LODWORD(v7) = 0;
     else
-      v9 = (v8 - (unsigned int)KeMaximumIncrement) / 0x2710;
-    PpmPerfTimeWindow = v9;
-    if ( !PpmPerfControlStartPolicyUpdate
-      || (LODWORD(CurrentPrcb) = PpmPerfControlStartPolicyUpdate(), (int)CurrentPrcb >= 0) )
+      v7 = (v6 - (unsigned int)KeMaximumIncrement) / 0x2710;
+    PpmPerfTimeWindow = v7;
+    if ( !PpmPerfControlStartPolicyUpdate || (started = PpmPerfControlStartPolicyUpdate(), started >= 0) )
     {
       if ( a2 )
       {
-        v10 = *(__int64 **)a2;
+        v8 = *(__int64 **)a2;
       }
       else
       {
         a2 = PpmPerfDomainHead;
-        v10 = &PpmPerfDomainHead;
+        v8 = &PpmPerfDomainHead;
       }
-      v15[0] = 2097153;
-      memset(&v15[1], 0, 0x104uLL);
-      while ( (__int64 *)a2 != v10 )
+      v15[0] = 1310721;
+      memset(&v15[1], 0, 0xA4uLL);
+      while ( (__int64 *)a2 != v8 )
       {
-        KiOrAffinityEx((char *)(a2 + 24), v15, v15, HIWORD(v15[0]));
-        for ( i = 0; i < *(_DWORD *)(a2 + 296); ++i )
+        KeOrAffinityEx((unsigned __int16 *)(a2 + 24), (unsigned __int16 *)v15, v15);
+        for ( i = 0; i < *(_DWORD *)(a2 + 200); ++i )
         {
-          v12 = *(_QWORD *)(a2 + 312) + 144LL * i;
-          if ( !*(_DWORD *)(v12 + 16) )
-            PpmUpdateTargetProcessorPolicy(a2, (_QWORD *)v12, v14, (__int64)(v5 + 5));
+          v10 = *(_QWORD *)(a2 + 216) + 136LL * i;
+          if ( !*(_DWORD *)(v10 + 16) )
+            PpmUpdateTargetProcessorPolicy(a2, (_QWORD *)v10, v14, (__int64)(v5 + 5));
         }
         a2 = *(_QWORD *)a2;
       }
@@ -85,10 +84,10 @@ __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
         (__int64)PpmUpdateProcessorPolicyCallback,
         (__int64)v14,
         (__int64)(v5 + 5));
-      LOWORD(CurrentPrcb) = (_WORD)PpmPerfControlCompletePolicyUpdate;
+      LOWORD(started) = (_WORD)PpmPerfControlCompletePolicyUpdate;
       if ( PpmPerfControlCompletePolicyUpdate )
-        LOWORD(CurrentPrcb) = PpmPerfControlCompletePolicyUpdate();
+        LOWORD(started) = PpmPerfControlCompletePolicyUpdate();
     }
   }
-  return (__int16)CurrentPrcb;
+  return started;
 }

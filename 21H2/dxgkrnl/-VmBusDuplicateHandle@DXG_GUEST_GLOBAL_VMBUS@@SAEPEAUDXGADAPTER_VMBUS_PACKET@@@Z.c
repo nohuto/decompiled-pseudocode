@@ -1,226 +1,172 @@
 /*
- * XREFs of ?VmBusDuplicateHandle@DXG_GUEST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036C5F0
+ * XREFs of ?VmBusDuplicateHandle@DXG_GUEST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02405B0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005CCCC (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?ReferenceAdapterByHostLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C030BD88 (-ReferenceAdapterByHostLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
- *     ?DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@Z @ 0x1C03627DC (-DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0364EA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C037E984 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPE.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@Z @ 0x1C0238A64 (-DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@.c)
+ *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C024D240 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_M.c)
+ *     ?ReferenceAdapterByHostLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C026AD78 (-ReferenceAdapterByHostLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
  */
 
-unsigned __int8 __fastcall DXG_GUEST_GLOBAL_VMBUS::VmBusDuplicateHandle(struct DXGADAPTER_VMBUS_PACKET *a1)
+unsigned __int8 __fastcall DXG_GUEST_GLOBAL_VMBUS::VmBusDuplicateHandle(struct DXGADAPTER_VMBUS_PACKET *a1, __int64 a2)
 {
-  __int64 v1; // rsi
-  PVOID v2; // r14
-  struct _KPROCESS *v3; // r15
+  __int64 v2; // rdi
+  PVOID v3; // rsi
+  struct _KPROCESS *v4; // r14
   DXGGLOBAL *Global; // rax
-  struct ADAPTER_RENDER **v5; // r13
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // rdi
-  int v10; // ebx
-  NTSTATUS v11; // eax
-  NTSTATUS v12; // eax
-  __int64 v13; // r9
-  struct DXG_VMBUS_CHANNEL_BASE *v14; // rbx
-  struct DXGKVMB_COMMAND_BASE *v15; // rcx
-  void *v16; // rdx
-  __int64 v17; // rax
-  int v18; // eax
-  __int64 v19; // rbx
-  struct _MDL *Object; // [rsp+28h] [rbp-E0h]
-  PVOID v22; // [rsp+58h] [rbp-B0h] BYREF
-  void *ProcessHandle; // [rsp+60h] [rbp-A8h] BYREF
-  PVOID v24; // [rsp+68h] [rbp-A0h] BYREF
-  void *Handle; // [rsp+70h] [rbp-98h] BYREF
-  struct _CLIENT_ID ClientId; // [rsp+78h] [rbp-90h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-80h] BYREF
-  struct DXGKVMB_COMMAND_BASE *v28[2]; // [rsp+B8h] [rbp-50h] BYREF
-  unsigned int v29; // [rsp+C8h] [rbp-40h]
-  struct _KAPC_STATE ApcState; // [rsp+1D8h] [rbp+D0h] BYREF
-  _BYTE v31[144]; // [rsp+208h] [rbp+100h] BYREF
+  struct ADAPTER_RENDER **v6; // r15
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rbx
+  __int64 v14; // rcx
+  int v15; // ebx
+  NTSTATUS v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  NTSTATUS v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  struct DXGGLOBAL *v24; // rax
+  struct _MDL *v25; // r9
+  int v26; // eax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rdi
+  __int64 v30; // rax
+  PVOID Object; // [rsp+30h] [rbp-D0h] BYREF
+  void *ProcessHandle; // [rsp+38h] [rbp-C8h] BYREF
+  PVOID v34; // [rsp+40h] [rbp-C0h] BYREF
+  void *Handle; // [rsp+48h] [rbp-B8h] BYREF
+  struct _CLIENT_ID ClientId; // [rsp+50h] [rbp-B0h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v38; // [rsp+90h] [rbp-70h] BYREF
+  int v39; // [rsp+98h] [rbp-68h]
+  int v40; // [rsp+9Ch] [rbp-64h]
+  int v41; // [rsp+A0h] [rbp-60h]
+  int v42; // [rsp+A8h] [rbp-58h]
+  __int64 v43; // [rsp+B0h] [rbp-50h]
+  int v44; // [rsp+B8h] [rbp-48h]
+  void *v45; // [rsp+C0h] [rbp-40h]
+  struct _KAPC_STATE ApcState; // [rsp+C8h] [rbp-38h] BYREF
+  _BYTE v47[144]; // [rsp+100h] [rbp+0h] BYREF
 
-  v1 = *((_QWORD *)a1 + 17);
+  v2 = *((_QWORD *)a1 + 10);
   Handle = 0LL;
-  v2 = 0LL;
-  v24 = 0LL;
   v3 = 0LL;
-  v22 = 0LL;
-  Global = DXGGLOBAL_GetGlobal();
-  v5 = (struct ADAPTER_RENDER **)DXGGLOBAL::ReferenceAdapterByHostLuid(
+  v34 = 0LL;
+  v4 = 0LL;
+  Object = 0LL;
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, a2);
+  v6 = (struct ADAPTER_RENDER **)DXGGLOBAL::ReferenceAdapterByHostLuid(
                                    Global,
-                                   *(struct _LUID *)(v1 + 24),
-                                   (unsigned __int64 *)&v22);
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v31, (struct DXGADAPTER *const)v5, 0LL);
-  if ( v5
-    && (v10 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v31, 0LL),
-        DXGADAPTER::ReleaseReference((DXGADAPTER *)v5),
-        v10 >= 0) )
+                                   *(struct _LUID *)(v2 + 24),
+                                   (unsigned __int64 *)&Object);
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v47, (struct DXGADAPTER *const)v6, 0LL);
+  if ( !v6
+    || (v15 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v47, 0LL),
+        DXGADAPTER::ReleaseReference((DXGADAPTER *)v6),
+        v15 < 0) )
   {
-    ClientId.UniqueProcess = *(HANDLE *)(v1 + 40);
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
-    ClientId.UniqueThread = 0LL;
-    *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-    ObjectAttributes.RootDirectory = 0LL;
-    ObjectAttributes.ObjectName = 0LL;
-    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    ProcessHandle = 0LL;
-    v11 = ZwOpenProcess(&ProcessHandle, 0x2000000u, &ObjectAttributes, &ClientId);
-    v9 = v11;
-    if ( v11 >= 0 )
+    v11 = WdLogNewEntry5_WdTrace(v8, v7, v9, v10);
+    LODWORD(v13) = -1073741811;
+    *(_QWORD *)(v11 + 24) = *(int *)(v2 + 28);
+    v14 = *(unsigned int *)(v2 + 24);
+    *(_QWORD *)(v11 + 32) = v14;
+    goto LABEL_12;
+  }
+  ClientId.UniqueProcess = *(HANDLE *)(v2 + 40);
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ClientId.UniqueThread = 0LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ProcessHandle = 0LL;
+  v16 = ZwOpenProcess(&ProcessHandle, 0x2000000u, &ObjectAttributes, &ClientId);
+  v13 = v16;
+  if ( v16 < 0
+    || (Object = 0LL,
+        v20 = ObReferenceObjectByHandle(ProcessHandle, 0, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL),
+        v4 = (struct _KPROCESS *)Object,
+        v13 = v20,
+        ZwClose(ProcessHandle),
+        (int)v13 < 0) )
+  {
+    v19 = WdLogNewEntry5_WdError(v18, v17);
+    *(_QWORD *)(v19 + 24) = *(_QWORD *)(v2 + 40);
+    *(_QWORD *)(v19 + 32) = v13;
+LABEL_11:
+    WdLogEvent5_WdError(v19);
+    goto LABEL_12;
+  }
+  LODWORD(v13) = DxgkpCreateSharedObjectFromHostDesc(v6[338], (const unsigned __int8 *)v2, (struct _LIST_ENTRY **)&v34);
+  if ( (int)v13 < 0 )
+  {
+    v23 = WdLogNewEntry5_WdError(v22, v21);
+    *(_QWORD *)(v23 + 24) = 12454LL;
+    WdLogEvent5_WdError(v23);
+    v3 = v34;
+    goto LABEL_12;
+  }
+  memset(&ApcState, 0, sizeof(ApcState));
+  KeStackAttachProcess(v4, &ApcState);
+  v3 = v34;
+  LODWORD(v13) = ObInsertObject(v34, 0LL, *(_DWORD *)(v2 + 48), 0, 0LL, &Handle);
+  KeUnstackDetachProcess(&ApcState);
+  if ( (int)v13 < 0 )
+  {
+    v19 = WdLogNewEntry5_WdError(v14, v12);
+    *(_QWORD *)(v19 + 24) = 12479LL;
+    goto LABEL_11;
+  }
+LABEL_12:
+  v43 = *(_QWORD *)(v2 + 32);
+  v45 = Handle;
+  v38 = 0LL;
+  v39 = 0;
+  v40 = 1;
+  v41 = 1011;
+  v42 = v13;
+  v44 = 8;
+  v24 = DXGGLOBAL::GetGlobal(v14, v12);
+  v26 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(
+          *((DXG_VMBUS_CHANNEL_BASE **)v24 + 197),
+          (struct DXGKVMB_COMMAND_BASE *)&v38,
+          0x38u,
+          v25);
+  v29 = v26;
+  if ( v26 < 0 )
+  {
+    v30 = WdLogNewEntry5_WdError(v28, v27);
+    *(_QWORD *)(v30 + 24) = v29;
+    WdLogEvent5_WdError(v30);
+    LODWORD(v13) = -1073741823;
+  }
+  if ( (int)v13 < 0 )
+  {
+    if ( Handle )
     {
-      v22 = 0LL;
-      v12 = ObReferenceObjectByHandle(ProcessHandle, 0, (POBJECT_TYPE)PsProcessType, 0, &v22, 0LL);
-      v3 = (struct _KPROCESS *)v22;
-      v9 = v12;
-      ZwClose(ProcessHandle);
-      if ( (int)v9 >= 0 )
-      {
-        LODWORD(v9) = DxgkpCreateSharedObjectFromHostDesc(
-                        v5[350],
-                        (const unsigned __int8 *)v1,
-                        (struct _LIST_ENTRY **)&v24,
-                        v13);
-        if ( (int)v9 >= 0 )
-        {
-          memset(&ApcState, 0, sizeof(ApcState));
-          KeStackAttachProcess(v3, &ApcState);
-          LODWORD(v9) = ObInsertObject(v24, 0LL, *(_DWORD *)(v1 + 48), 0, 0LL, &Handle);
-          KeUnstackDetachProcess(&ApcState);
-          if ( (int)v9 < 0 )
-          {
-            WdLogSingleEntry1(2LL, 14131LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"Failed to create nt handle in guest process",
-              14131LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-          }
-        }
-        else
-        {
-          WdLogSingleEntry1(2LL, 14099LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to create shared resource for guest",
-            14099LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          v2 = v24;
-        }
-      }
-      else
-      {
-        WdLogSingleEntry2(2LL, *(_QWORD *)(v1 + 40), v9);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to reference process by handle for process id 0x%I64x, Status=0x%.8x",
-          *(_QWORD *)(v1 + 40),
-          v9,
-          0LL,
-          0LL,
-          0LL);
-      }
+      ObCloseHandle(Handle, 1);
     }
-    else
+    else if ( v3 )
     {
-      WdLogSingleEntry2(2LL, *(_QWORD *)(v1 + 40), v11);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to open process handle for process id 0x%I64x, Status=0x%.8x",
-        *(_QWORD *)(v1 + 40),
-        v9,
-        0LL,
-        0LL,
-        0LL);
+      ObfDereferenceObject(v3);
     }
   }
-  else
-  {
-    v8 = WdLogNewEntry5_WdTrace(v7, v6);
-    LODWORD(v9) = -1073741811;
-    *(_QWORD *)(v8 + 24) = *(int *)(v1 + 28);
-    *(_QWORD *)(v8 + 32) = *(unsigned int *)(v1 + 24);
-  }
-  while ( 1 )
-  {
-    v14 = (struct DXG_VMBUS_CHANNEL_BASE *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 218);
-    *(_OWORD *)v28 = 0LL;
-    v29 = 0;
-    DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v28, v14, 0x38u, 0LL, 0LL, 0LL);
-    v15 = v28[0];
-    if ( v28[0] )
-      break;
-    LODWORD(v9) = -1073741801;
-    DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v28);
-  }
-  v16 = Handle;
-  v17 = *(_QWORD *)(v1 + 32);
-  *((_BYTE *)v28[0] + 12) = 1;
-  *((_DWORD *)v15 + 3) &= 0x1FFu;
-  *((_QWORD *)v15 + 4) = v17;
-  *((_QWORD *)v15 + 6) = v16;
-  *(_QWORD *)v15 = 0LL;
-  *((_DWORD *)v15 + 2) = 0;
-  *((_QWORD *)v15 + 2) = 1011LL;
-  *((_DWORD *)v15 + 6) = v9;
-  *((_DWORD *)v15 + 10) = 8;
-  v18 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(v14, (unsigned __int8 *)v28[1], v28[0], v29, Object);
-  if ( v18 >= 0 )
-  {
-    if ( (int)v9 >= 0 )
-      goto LABEL_21;
-  }
-  else
-  {
-    v19 = v18;
-    WdLogSingleEntry1(2LL, v18);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"VmBusSendCompleteTransaction failed: 0x%I64x",
-      v19,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  }
-  if ( Handle )
-  {
-    ObCloseHandle(Handle, 1);
-  }
-  else if ( v2 )
-  {
-    ObfDereferenceObject(v2);
-  }
-LABEL_21:
-  if ( v3 )
-    ObfDereferenceObject(v3);
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v28);
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v31);
+  if ( v4 )
+    ObfDereferenceObject(v4);
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v47, v27);
   return 0;
 }

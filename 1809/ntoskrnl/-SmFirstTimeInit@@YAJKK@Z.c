@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E68
+ * XREFs of ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E88
  * Callers:
- *     SmProcessCreateRequest @ 0x14066AE14 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x14066ADF4 (SmProcessCreateRequest.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -14,22 +14,22 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     SmFpCleanup @ 0x14011D680 (SmFpCleanup.c)
- *     MmStoreChargeResidentAvailableForRead @ 0x140175DFC (MmStoreChargeResidentAvailableForRead.c)
- *     ?SmCompressCtxStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z @ 0x14018E4E0 (-SmCompressCtxStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z.c)
- *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14018E554 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
- *     SmFpPreAllocate @ 0x14018E5E8 (SmFpPreAllocate.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ?SmReInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140302514 (-SmReInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmFpCleanup @ 0x14011D6A0 (SmFpCleanup.c)
+ *     MmStoreChargeResidentAvailableForRead @ 0x140175E1C (MmStoreChargeResidentAvailableForRead.c)
+ *     ?SmCompressCtxStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z @ 0x14018E500 (-SmCompressCtxStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z.c)
+ *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14018E574 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
+ *     SmFpPreAllocate @ 0x14018E608 (SmFpPreAllocate.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ?SmReInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140302614 (-SmReInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     MmStoreRegister @ 0x14074BD4C (MmStoreRegister.c)
- *     MmStoreCheckPagefiles @ 0x14074CF7C (MmStoreCheckPagefiles.c)
- *     ExAllocatePrivateWorkerPool @ 0x140754940 (ExAllocatePrivateWorkerPool.c)
- *     PsCreateMinimalProcess @ 0x14075754C (PsCreateMinimalProcess.c)
- *     SmRegistrationCtxStart @ 0x14076114C (SmRegistrationCtxStart.c)
+ *     MmStoreRegister @ 0x14074BD2C (MmStoreRegister.c)
+ *     MmStoreCheckPagefiles @ 0x14074CF5C (MmStoreCheckPagefiles.c)
+ *     ExAllocatePrivateWorkerPool @ 0x140754920 (ExAllocatePrivateWorkerPool.c)
+ *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
+ *     SmRegistrationCtxStart @ 0x14076112C (SmRegistrationCtxStart.c)
  */
 
 __int64 __fastcall SmFirstTimeInit(int a1, int a2)

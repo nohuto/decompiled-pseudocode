@@ -1,49 +1,72 @@
 /*
- * XREFs of MiSimpleAgePte @ 0x140635100
+ * XREFs of MiSimpleAgePte @ 0x14053BC00
  * Callers:
  *     <none>
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAgePteWorker @ 0x14027C0D0 (MiAgePteWorker.c)
- *     MiWalkVaCheckCommon @ 0x1402E3860 (MiWalkVaCheckCommon.c)
- *     MiGetVaAge @ 0x1402E3A30 (MiGetVaAge.c)
- *     MiInsertVmAccessedEntry @ 0x14046B668 (MiInsertVmAccessedEntry.c)
- *     MiSimpleAgeWorkingSetTail @ 0x14046BBB0 (MiSimpleAgeWorkingSetTail.c)
+ *     MiWalkVaCheckCommon @ 0x140286DA4 (MiWalkVaCheckCommon.c)
+ *     MiGetVaAge @ 0x140289770 (MiGetVaAge.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAgePteWorker @ 0x1402BA020 (MiAgePteWorker.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiInsertVmAccessedEntry @ 0x14053B340 (MiInsertVmAccessedEntry.c)
+ *     MiSimpleAgeWorkingSetTail @ 0x14053BF10 (MiSimpleAgeWorkingSetTail.c)
  */
 
 __int64 __fastcall MiSimpleAgePte(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v3; // r12
-  __int64 v7; // r15
-  __int64 v8; // rcx
-  _QWORD *v9; // rdi
-  BOOL v10; // esi
-  unsigned int *v11; // rcx
-  __int64 v13; // [rsp+60h] [rbp+8h] BYREF
+  unsigned __int64 v7; // rbx
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  _QWORD *v11; // rsi
+  __int64 v12; // rcx
+  __int64 v13; // rbx
+  BOOL v14; // ebp
+  unsigned int *v15; // rcx
+  __int64 v17; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = *(_QWORD *)(a1 + 24);
-  v13 = MI_READ_PTE_LOCK_FREE(a2);
-  v7 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v13) >> 12) & 0xFFFFFFFFFFLL)
-     - 0x220000000000LL;
-  if ( !(unsigned int)MiWalkVaCheckCommon(v3, a2, v7, a3 == 0, &v13) )
-    return 0LL;
-  v9 = *(_QWORD **)(a1 + 168);
-  v10 = MiGetVaAge(v8, (__int64)(a2 << 25) >> 16) == 0;
-  if ( (v13 & 0x20) != 0 )
+  v17 = MI_READ_PTE_LOCK_FREE(a2);
+  v7 = v17;
+  if ( MiPteInShadowRange((unsigned __int64)&v17)
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v7 & 1) != 0
+    && ((v7 & 0x20) == 0 || (v7 & 0x42) == 0) )
   {
-    v11 = (unsigned int *)v9[31];
-    if ( v11 && (unsigned __int64)((__int64)(a2 << 25) >> 16) <= 0x7FFFFFFEFFFFLL )
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
     {
-      if ( (unsigned int)MiInsertVmAccessedEntry(v11, (__int64)(a2 << 25) >> 16) )
+      v9 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v17 >> 3) & 0x1FF));
+      v10 = v7 | 0x20;
+      if ( (v9 & 0x20) == 0 )
+        v10 = v7;
+      v7 = v10;
+      if ( (v9 & 0x42) != 0 )
+        v7 = v10;
+    }
+  }
+  v11 = (_QWORD *)(48 * ((v7 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
+  if ( !(unsigned int)MiWalkVaCheckCommon(v3, a2, v11, a3 == 0, &v17) )
+    return 0LL;
+  v13 = *(_QWORD *)(a1 + 168);
+  v14 = MiGetVaAge(v12, (__int64)(a2 << 25) >> 16) == 0;
+  if ( (v17 & 0x20) != 0 )
+  {
+    v15 = *(unsigned int **)(v13 + 248);
+    if ( v15 && (unsigned __int64)((__int64)(a2 << 25) >> 16) <= 0x7FFFFFFEFFFFLL )
+    {
+      if ( (unsigned int)MiInsertVmAccessedEntry(v15, (__int64)(a2 << 25) >> 16) )
         return MiSimpleAgeWorkingSetTail(a1);
     }
     else
     {
-      MiAgePteWorker(v3, a2, (__int64)(a2 << 25) >> 16, v7, (__int64)v9, 3);
+      MiAgePteWorker(v3, a2, (__int64)(a2 << 25) >> 16, (__int64)v11, (unsigned int *)v13, 3);
     }
   }
-  if ( v10 )
-    return ++v9[5] >= v9[6] ? 4 : 0;
+  if ( v14 && (++*(_QWORD *)(v13 + 40), *(_QWORD *)(v13 + 40) >= *(_QWORD *)(v13 + 48)) )
+    return 3LL;
   else
     return 0LL;
 }

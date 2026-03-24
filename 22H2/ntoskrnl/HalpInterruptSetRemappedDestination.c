@@ -1,48 +1,56 @@
 /*
- * XREFs of HalpInterruptSetRemappedDestination @ 0x14031F928
+ * XREFs of HalpInterruptSetRemappedDestination @ 0x1404BB718
  * Callers:
- *     HalpInterruptSetDestination @ 0x14031F770 (HalpInterruptSetDestination.c)
+ *     HalpInterruptSetDestination @ 0x140378400 (HalpInterruptSetDestination.c)
  * Callees:
- *     HalpInterruptGetRemappedLineState @ 0x14031F9EC (HalpInterruptGetRemappedLineState.c)
- *     HalpInterruptDestinationToTarget @ 0x14031FA9C (HalpInterruptDestinationToTarget.c)
- *     HalpInterruptRemapUpdateDeliveryMode @ 0x14031FBCC (HalpInterruptRemapUpdateDeliveryMode.c)
- *     HalpIommuUpdateRemappingTableEntry @ 0x14036779C (HalpIommuUpdateRemappingTableEntry.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptDestinationToTarget @ 0x1403787A0 (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptRemapUpdateDeliveryMode @ 0x1403CD9BC (HalpInterruptRemapUpdateDeliveryMode.c)
+ *     HalpInterruptGetRemappedLineState @ 0x1404BB660 (HalpInterruptGetRemappedLineState.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x1404C5574 (HalpIommuUpdateRemappingTableEntry.c)
  */
 
-__int64 __fastcall HalpInterruptSetRemappedDestination(__int64 a1, _DWORD *a2, __int64 a3)
+__int64 __fastcall HalpInterruptSetRemappedDestination(unsigned int *a1, _DWORD *a2, __int64 a3)
 {
-  unsigned int v3; // ebx
+  unsigned int v4; // ebx
   __int64 v6; // rcx
-  __int64 v7; // rcx
-  _DWORD v9[2]; // [rsp+30h] [rbp-50h] BYREF
-  __int64 v10; // [rsp+38h] [rbp-48h]
-  _DWORD *v11; // [rsp+40h] [rbp-40h]
-  _OWORD v12[3]; // [rsp+48h] [rbp-38h] BYREF
-  __int64 v13; // [rsp+78h] [rbp-8h]
-  __int64 v14; // [rsp+A8h] [rbp+28h] BYREF
+  ULONG_PTR *v7; // rax
+  __int64 v8; // rcx
+  _DWORD v10[2]; // [rsp+20h] [rbp-50h] BYREF
+  __int64 v11; // [rsp+28h] [rbp-48h]
+  _DWORD *v12; // [rsp+30h] [rbp-40h]
+  _OWORD v13[3]; // [rsp+38h] [rbp-38h] BYREF
+  __int64 v14; // [rsp+68h] [rbp-8h]
+  ULONG_PTR *v15; // [rsp+98h] [rbp+28h] BYREF
 
-  v3 = 0;
+  v4 = 0;
+  v15 = 0LL;
   v14 = 0LL;
-  v13 = 0LL;
-  memset(v12, 0, sizeof(v12));
-  v9[1] = 0;
-  LODWORD(v11) = 0;
-  if ( (int)HalpInterruptGetRemappedLineState(a1, a2, &v14, v12) < 0 )
+  memset(v13, 0, sizeof(v13));
+  v10[1] = 0;
+  if ( (int)HalpInterruptGetRemappedLineState(a1, a2, &v15, (__int64)v13) >= 0 )
   {
-    HalpInterruptSetProblemEx(0, 18, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 844);
-    return (unsigned int)-1073741275;
+    v11 = a3;
+    v10[0] = 1;
+    v12 = a2 + 10;
+    if ( (int)HalpInterruptDestinationToTarget(v6, (__int64)v10, (__int64)&v13[1] + 8) >= 0 )
+    {
+      HalpInterruptRemapUpdateDeliveryMode((__int64)a2, (__int64)v13);
+      LOBYTE(v8) = *a2 == 3;
+      HalpIommuUpdateRemappingTableEntry(v8, a2[10] & 0x3FFFFFFF, v13);
+      return v4;
+    }
+    v7 = v15;
+    HalpInterruptLastProblem = 22;
+    if ( v15 )
+    {
+      *(ULONG_PTR *)((char *)v15 + 292) = 22LL;
+      v7[38] = (ULONG_PTR)"minkernel\\hals\\lib\\interrupts\\common\\connect.c";
+      *((_DWORD *)v7 + 78) = 853;
+    }
   }
-  v10 = a3;
-  v9[0] = 1;
-  v11 = a2 + 10;
-  if ( (int)HalpInterruptDestinationToTarget(v6, v9, (char *)&v12[1] + 8) < 0 )
+  else
   {
-    HalpInterruptSetProblemEx(v14, 22, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 866);
-    return (unsigned int)-1073741275;
+    HalpInterruptLastProblem = 18;
   }
-  HalpInterruptRemapUpdateDeliveryMode(a2, v12);
-  LOBYTE(v7) = *a2 == 3;
-  HalpIommuUpdateRemappingTableEntry(v7, a2[10] & 0x3FFFFFFF, v12);
-  return v3;
+  return (unsigned int)-1073741275;
 }

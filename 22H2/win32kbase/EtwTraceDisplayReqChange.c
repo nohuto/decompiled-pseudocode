@@ -1,30 +1,34 @@
 /*
- * XREFs of EtwTraceDisplayReqChange @ 0x1C0010B84
+ * XREFs of EtwTraceDisplayReqChange @ 0x1C00B743C
  * Callers:
- *     UserPowerInfoCallout @ 0x1C000FBD4 (UserPowerInfoCallout.c)
+ *     UserPowerInfoCallout @ 0x1C004FC50 (UserPowerInfoCallout.c)
  * Callees:
- *     McTemplateK0qhq_EtwWriteTransfer @ 0x1C013D140 (McTemplateK0qhq_EtwWriteTransfer.c)
+ *     McTemplateK0qhq_EtwWriteTransfer @ 0x1C01265F8 (McTemplateK0qhq_EtwWriteTransfer.c)
  */
 
-void __fastcall EtwTraceDisplayReqChange(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char __fastcall EtwTraceDisplayReqChange(int a1, __int64 a2, int a3)
 {
-  char v4; // di
-  char v5; // bl
-  _DWORD *v6; // rax
-  int v7; // ecx
-  int v8; // r8d
+  char result; // al
 
-  v4 = a1;
-  if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 0x2000000000008000LL) != 0
-    && (unsigned __int8)(byte_1C0283068 - 1) > 2u
-    && (qword_1C0283050 & 0x2000000000008000LL) != 0
-    && (qword_1C0283058 & 0x2000000000008000LL) == qword_1C0283058 )
+  if ( (W32kEtwEnabledKeyword & 0x2000000000008000LL) != 0 )
   {
-    v5 = gProtocolType == 0;
-    if ( (Microsoft_Windows_Win32kEnableBits & 8) != 0 )
+    result = byte_1C0249748 - 1;
+    if ( (unsigned __int8)(byte_1C0249748 - 1) > 2u && (qword_1C0249730 & 0x2000000000008000LL) != 0 )
     {
-      v6 = (_DWORD *)SGDGetUserSessionState(a1, 0x2000000000008000LL, a3, a4);
-      McTemplateK0qhq_EtwWriteTransfer(v7, (unsigned int)&DisplayReqChangeEvent, v8, *v6, v5, v4);
+      result = 0;
+      if ( (qword_1C0249738 & 0x2000000000008000LL) == qword_1C0249738 )
+      {
+        result = 0;
+        if ( (Microsoft_Windows_Win32kEnableBits & 8) != 0 )
+          return McTemplateK0qhq_EtwWriteTransfer(
+                   a1,
+                   (unsigned int)&DisplayReqChangeEvent,
+                   a3,
+                   0x8000,
+                   gProtocolType == 0,
+                   a1);
+      }
     }
   }
+  return result;
 }

@@ -1,67 +1,52 @@
 /*
- * XREFs of ??$AddProperty@UD2DVector4@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector4@@PEAI@Z @ 0x18001C668
+ * XREFs of ??$AddProperty@UD2DVector4@@@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector4@@PEAI@Z @ 0x1800BD6A4
  * Callers:
- *     ??$AddProperty@UD2DVector4@@@CPropertySet@@AEAAJIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector4@@@Z @ 0x18001C578 (--$AddProperty@UD2DVector4@@@CPropertySet@@AEAAJIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector4.c)
- *     ??$SetProperty@UD2DVector4@@@DataSourcePropertySet@@QEAAJIPEBUD2DVector4@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1801E1E84 (--$SetProperty@UD2DVector4@@@DataSourcePropertySet@@QEAAJIPEBUD2DVector4@@W4DCOMPOSITION_EXPRESS.c)
+ *     ??$AddProperty@U_D3DCOLORVALUE@@@CPropertySet@@AEAAJIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBU_D3DCOLORVALUE@@@Z @ 0x1800BBF88 (--$AddProperty@U_D3DCOLORVALUE@@@CPropertySet@@AEAAJIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBU_D3DCO.c)
+ *     ??$SetProperty@UD2DQuaternion@@@DataSourcePropertySet@@QEAAJIPEBUD2DQuaternion@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x18017F1E4 (--$SetProperty@UD2DQuaternion@@@DataSourcePropertySet@@QEAAJIPEBUD2DQuaternion@@W4DCOMPOSITION_E.c)
+ *     ??$SetProperty@UD2DVector4@@@DataSourcePropertySet@@QEAAJIPEBUD2DVector4@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x18017F660 (--$SetProperty@UD2DVector4@@@DataSourcePropertySet@@QEAAJIPEBUD2DVector4@@W4DCOMPOSITION_EXPRESS.c)
+ *     ??$SetProperty@U_D3DCOLORVALUE@@@DataSourcePropertySet@@QEAAJIPEBU_D3DCOLORVALUE@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x18017F954 (--$SetProperty@U_D3DCOLORVALUE@@@DataSourcePropertySet@@QEAAJIPEBU_D3DCOLORVALUE@@W4DCOMPOSITION.c)
+ *     ??$AddProperty@UD2DQuaternion@@@CPropertySet@@AEAAJIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DQuaternion@@@Z @ 0x1801E4DF8 (--$AddProperty@UD2DQuaternion@@@CPropertySet@@AEAAJIIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DQuat.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C4940 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
- *     ?RemoveAt@?$DynArray@PEAVCExcludeVisualReference@@$0A@@@QEAAJI@Z @ 0x1801B50FC (-RemoveAt@-$DynArray@PEAVCExcludeVisualReference@@$0A@@@QEAAJI@Z.c)
+ *     ?AddMultipleAndSet@?$DynArray@PEAVCBaseExpression@@$0A@@@QEAAJPEFBQEAVCBaseExpression@@I@Z @ 0x1800B882C (-AddMultipleAndSet@-$DynArray@PEAVCBaseExpression@@$0A@@@QEAAJPEFBQEAVCBaseExpression@@I@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8A24 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?RemoveAt@?$DynArray@PEAUTouchUpdateInfo@CTelemetryTouchLatencyAnalysis@@$0A@@@QEAAJI@Z @ 0x1800EC588 (-RemoveAt@-$DynArray@PEAUTouchUpdateInfo@CTelemetryTouchLatencyAnalysis@@$0A@@@QEAAJI@Z.c)
  */
 
 __int64 __fastcall PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::AddProperty<D2DVector4>(
         __int64 a1,
         int a2,
         _OWORD *a3,
-        _DWORD *a4)
+        unsigned int *a4)
 {
-  __int64 v5; // rbp
-  __int64 v7; // rsi
-  unsigned int v9; // r8d
-  int v10; // eax
-  unsigned int v11; // ecx
-  int v12; // edi
-  __int64 v14; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v5; // rdi
+  unsigned int v7; // esi
+  __int64 result; // rax
+  int v10; // ebp
+  __int64 v11; // [rsp+60h] [rbp+8h] BYREF
 
   *a4 = -1;
   v5 = *(unsigned int *)(a1 + 56);
-  v7 = *(unsigned int *)(a1 + 24);
+  v7 = *(_DWORD *)(a1 + 24);
   if ( (v5 & 0xE0000000) != 0 )
     return 2147483659LL;
-  LODWORD(v14) = a2;
-  v9 = v7 + 1;
-  HIDWORD(v14) = v5 & 0x1FFFFFFF;
-  if ( (int)v7 + 1 < (unsigned int)v7 )
+  LODWORD(v11) = a2;
+  HIDWORD(v11) = v5 & 0x1FFFFFFF;
+  result = DynArray<CBaseExpression *,0>::AddMultipleAndSet(a1, &v11);
+  if ( (int)result >= 0 )
   {
-    v12 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024362, 0xB5u, 0LL);
-  }
-  else
-  {
-    if ( v9 <= *(_DWORD *)(a1 + 20) )
-    {
-      *(_QWORD *)(*(_QWORD *)a1 + 8 * v7) = v14;
-      *(_DWORD *)(a1 + 24) = v9;
-      goto LABEL_5;
-    }
-    v10 = DynArrayImpl<0>::AddMultipleAndSet(a1, 8LL, 1LL, &v14);
-    v12 = v10;
+    v10 = DynArrayImpl<0>::Grow(a1 + 32, 1u, 16, 1, 0LL);
     if ( v10 >= 0 )
     {
-LABEL_5:
-      v12 = DynArrayImpl<0>::Grow((int)a1 + 32, 1, 16, 1, 0LL);
-      if ( v12 >= 0 )
-      {
-        *(_DWORD *)(a1 + 56) += 16;
-        *(_OWORD *)(v5 + *(_QWORD *)(a1 + 32)) = *a3;
-        *a4 = v7;
-        return 0LL;
-      }
-      DynArray<CExcludeVisualReference *,0>::RemoveAt(a1, (unsigned int)v7);
-      return (unsigned int)v12;
+      *(_DWORD *)(a1 + 56) += 16;
+      *(_OWORD *)(v5 + *(_QWORD *)(a1 + 32)) = *a3;
+      *a4 = v7;
+      return 0LL;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xC0u, 0LL);
+    else
+    {
+      DynArray<CTelemetryTouchLatencyAnalysis::TouchUpdateInfo *,0>::RemoveAt(a1, v7);
+      return (unsigned int)v10;
+    }
   }
-  return (unsigned int)v12;
+  return result;
 }

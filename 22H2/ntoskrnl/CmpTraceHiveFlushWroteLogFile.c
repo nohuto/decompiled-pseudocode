@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTraceHiveFlushWroteLogFile @ 0x140751064
+ * XREFs of CmpTraceHiveFlushWroteLogFile @ 0x14071CF98
  * Callers:
- *     HvWriteLogFile @ 0x1407512A4 (HvWriteLogFile.c)
+ *     HvWriteLogFile @ 0x14071CE2C (HvWriteLogFile.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall CmpTraceHiveFlushWroteLogFile(__int64 a1, int a2)

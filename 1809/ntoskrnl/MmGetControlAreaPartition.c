@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGetControlAreaPartition @ 0x1400E8860
+ * XREFs of MmGetControlAreaPartition @ 0x1400E8880
  * Callers:
- *     CcPurgeCacheSection @ 0x1400E7A80 (CcPurgeCacheSection.c)
- *     CcGetFlushedValidData @ 0x1400E87A0 (CcGetFlushedValidData.c)
- *     CcNotifyOfMappedWriteComplete @ 0x140138CD8 (CcNotifyOfMappedWriteComplete.c)
- *     CcDeleteSectionsForPartition @ 0x14026B254 (CcDeleteSectionsForPartition.c)
+ *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
+ *     CcGetFlushedValidData @ 0x1400E87C0 (CcGetFlushedValidData.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x140138CF8 (CcNotifyOfMappedWriteComplete.c)
+ *     CcDeleteSectionsForPartition @ 0x14026B354 (CcDeleteSectionsForPartition.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 ULONG_PTR __fastcall MmGetControlAreaPartition(__int64 a1)

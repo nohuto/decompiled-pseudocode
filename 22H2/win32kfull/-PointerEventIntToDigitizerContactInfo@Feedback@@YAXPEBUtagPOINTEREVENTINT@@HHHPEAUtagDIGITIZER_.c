@@ -1,7 +1,7 @@
 /*
- * XREFs of ?PointerEventIntToDigitizerContactInfo@Feedback@@YAXPEBUtagPOINTEREVENTINT@@HHHPEAUtagDIGITIZER_CONTACT_INFO@@@Z @ 0x1C01AD7B8
+ * XREFs of ?PointerEventIntToDigitizerContactInfo@Feedback@@YAXPEBUtagPOINTEREVENTINT@@HHHPEAUtagDIGITIZER_CONTACT_INFO@@@Z @ 0x1C01DA554
  * Callers:
- *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01AD114 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01D9D54 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,20 +13,30 @@ void __fastcall Feedback::PointerEventIntToDigitizerContactInfo(
         int a4,
         __int64 a5)
 {
-  int v7; // r8d
+  __int64 v7; // r8
   int v8; // eax
   int v9; // ecx
   int v10; // eax
   int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  __int64 v21; // r8
 
-  v7 = 0;
+  v7 = 0LL;
   *(_DWORD *)a5 = *((_DWORD *)this + 3);
   *(_QWORD *)(a5 + 4) = *((_QWORD *)this + 5);
   *(_DWORD *)(a5 + 36) = 0;
   *(_OWORD *)(a5 + 12) = *(_OWORD *)&gZero;
   if ( (_DWORD)a2 )
   {
-    v7 = 128;
+    v7 = 128LL;
     *(_DWORD *)(a5 + 36) = 128;
   }
   v8 = *((_DWORD *)this + 2);
@@ -54,17 +64,14 @@ void __fastcall Feedback::PointerEventIntToDigitizerContactInfo(
   else
     v11 = ~(_BYTE)v10 & 2 | 1;
   *(_DWORD *)(a5 + 32) = v11;
-  if ( *(_DWORD *)UPDWORDPointer(8236LL) )
-  {
-    if ( (_GetAsyncKeyState(16LL) & 0x8000u) != 0LL )
-      *(_DWORD *)(a5 + 36) |= 1u;
-    if ( (_GetAsyncKeyState(17LL) & 0x8000u) != 0LL )
-      *(_DWORD *)(a5 + 36) |= 2u;
-    if ( (_GetAsyncKeyState(164LL) & 0x8000u) != 0LL )
-      *(_DWORD *)(a5 + 36) |= 4u;
-    if ( (_GetAsyncKeyState(165LL) & 0x8000u) != 0LL )
-      *(_DWORD *)(a5 + 36) |= 0x10u;
-    if ( (_GetAsyncKeyState(91LL) & 0x8000u) != 0LL || (_GetAsyncKeyState(92LL) & 0x8000u) != 0LL )
-      *(_DWORD *)(a5 + 36) |= 8u;
-  }
+  if ( (_GetAsyncKeyState(16LL, a2, v7) & 0x8000u) != 0LL )
+    *(_DWORD *)(a5 + 36) |= 1u;
+  if ( (_GetAsyncKeyState(17LL, v12, v13) & 0x8000u) != 0LL )
+    *(_DWORD *)(a5 + 36) |= 2u;
+  if ( (_GetAsyncKeyState(164LL, v14, v15) & 0x8000u) != 0LL )
+    *(_DWORD *)(a5 + 36) |= 4u;
+  if ( (_GetAsyncKeyState(165LL, v16, v17) & 0x8000u) != 0LL )
+    *(_DWORD *)(a5 + 36) |= 0x10u;
+  if ( (_GetAsyncKeyState(91LL, v18, v19) & 0x8000u) != 0LL || (_GetAsyncKeyState(92LL, v20, v21) & 0x8000u) != 0LL )
+    *(_DWORD *)(a5 + 36) |= 8u;
 }

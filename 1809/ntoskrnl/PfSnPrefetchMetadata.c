@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnPrefetchMetadata @ 0x14065ECFC
+ * XREFs of PfSnPrefetchMetadata @ 0x14065ECDC
  * Callers:
- *     PfSnAsyncPrefetchStep @ 0x140663A84 (PfSnAsyncPrefetchStep.c)
+ *     PfSnAsyncPrefetchStep @ 0x140663A64 (PfSnAsyncPrefetchStep.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
  *     NtCreateEvent @ 0x14062CF50 (NtCreateEvent.c)
- *     PfSnPrefetchFileMetadata @ 0x14065CB04 (PfSnPrefetchFileMetadata.c)
- *     PfSnLogPrefetchMetadata @ 0x14065DA6C (PfSnLogPrefetchMetadata.c)
- *     PfpPrefetchEntireDirectory @ 0x14065EFC8 (PfpPrefetchEntireDirectory.c)
- *     PfSnFindPrefetchVolumeInfoInList @ 0x140660124 (PfSnFindPrefetchVolumeInfoInList.c)
+ *     PfSnPrefetchFileMetadata @ 0x14065CAE4 (PfSnPrefetchFileMetadata.c)
+ *     PfSnLogPrefetchMetadata @ 0x14065DA4C (PfSnLogPrefetchMetadata.c)
+ *     PfpPrefetchEntireDirectory @ 0x14065EFA8 (PfpPrefetchEntireDirectory.c)
+ *     PfSnFindPrefetchVolumeInfoInList @ 0x140660104 (PfSnFindPrefetchVolumeInfoInList.c)
  */
 
 __int64 __fastcall PfSnPrefetchMetadata(__int64 a1, int a2)

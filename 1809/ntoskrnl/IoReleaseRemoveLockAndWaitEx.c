@@ -1,8 +1,8 @@
 /*
- * XREFs of IoReleaseRemoveLockAndWaitEx @ 0x14016D020
+ * XREFs of IoReleaseRemoveLockAndWaitEx @ 0x14016D040
  * Callers:
- *     PopFxAcpiUnregisterDevice @ 0x1402E86B0 (PopFxAcpiUnregisterDevice.c)
- *     PopFxUnregisterDevice @ 0x14086A7CC (PopFxUnregisterDevice.c)
+ *     PopFxAcpiUnregisterDevice @ 0x1402E87B0 (PopFxAcpiUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x14086A7AC (PopFxUnregisterDevice.c)
  *     ViFilterDispatchPnp @ 0x140943260 (ViFilterDispatchPnp.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)

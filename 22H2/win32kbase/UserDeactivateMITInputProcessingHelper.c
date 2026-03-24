@@ -1,55 +1,34 @@
 /*
- * XREFs of UserDeactivateMITInputProcessingHelper @ 0x1C01EC9C0
+ * XREFs of UserDeactivateMITInputProcessingHelper @ 0x1C01B1FC0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     UninitializeInputSensorsOnSharedThread @ 0x1C01E92D8 (UninitializeInputSensorsOnSharedThread.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ?UninitializeInputSensors@@YAXXZ @ 0x1C01B1CF4 (-UninitializeInputSensors@@YAXXZ.c)
  */
 
-__int64 __fastcall UserDeactivateMITInputProcessingHelper(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall UserDeactivateMITInputProcessingHelper(PDEVICE_OBJECT a1, char a2)
 {
-  PDEVICE_OBJECT v4; // rcx
-  char v5; // bl
-  __int64 result; // rax
-  int v7; // edx
-  int v8; // r8d
-
-  v4 = WPP_GLOBAL_Control;
-  v5 = 1;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 5u;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-            && LOWORD(WPP_GLOBAL_Control->DeviceType);
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      2,
-      22,
-      (__int64)&WPP_fb9796299f7e36879c4ad881ea88b0c0_Traceguids);
-  result = (__int64)UninitializeInputSensorsOnSharedThread((__int64)v4, a2, a3, a4);
-  LOBYTE(v7) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (result = HIDWORD(WPP_GLOBAL_Control->Timer), (result & 2) != 0)
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 5u;
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v5 = 0;
-  if ( (_BYTE)v7 || v5 )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v8) = v5;
-    return WPP_RECORDER_AND_TRACE_SF_(
-             WPP_GLOBAL_Control->AttachedDevice,
-             v7,
-             v8,
-             WPP_GLOBAL_Control->DeviceExtension,
-             5,
-             2,
-             23,
-             (__int64)&WPP_fb9796299f7e36879c4ad881ea88b0c0_Traceguids);
+    a1 = WPP_GLOBAL_Control;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        5,
+        2,
+        25,
+        (__int64)&WPP_df1c4b029be03b6c5997ec023b76ba85_Traceguids);
   }
-  return result;
+  UninitializeInputSensors((__int64)a1, a2);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        5,
+        2,
+        26,
+        (__int64)&WPP_df1c4b029be03b6c5997ec023b76ba85_Traceguids);
+  }
 }

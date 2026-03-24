@@ -1,73 +1,79 @@
 /*
- * XREFs of NVMeWriteBufferFirmwareDownload @ 0x1C001F6BC
+ * XREFs of NVMeWriteBufferFirmwareDownload @ 0x1C0015C4C
  * Callers:
- *     ScsiToNVMe @ 0x1C0004650 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     NVMeZeroMemory @ 0x1C0005100 (NVMeZeroMemory.c)
- *     SrbAssignQueueId @ 0x1C0005238 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     GetControllerMaxTransferSize @ 0x1C000569C (GetControllerMaxTransferSize.c)
- *     GetFirmwareGranularity @ 0x1C00056D0 (GetFirmwareGranularity.c)
- *     NVMeSetSenseData @ 0x1C000E3C0 (NVMeSetSenseData.c)
- *     FillClippedSGL @ 0x1C001A758 (FillClippedSGL.c)
- *     NVMeQueueWorkItem @ 0x1C001DF70 (NVMeQueueWorkItem.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     GetControllerMaxTransferSize @ 0x1C0005CE0 (GetControllerMaxTransferSize.c)
+ *     GetFirmwareGranularity @ 0x1C0005D14 (GetFirmwareGranularity.c)
+ *     FillClippedSGL @ 0x1C00116F0 (FillClippedSGL.c)
+ *     NVMeQueueWorkItem @ 0x1C001522C (NVMeQueueWorkItem.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall NVMeWriteBufferFirmwareDownload(_DWORD *a1, __int64 a2)
 {
   unsigned int v3; // ebx
+  __int64 v5; // rdx
   __int64 SrbExtension; // rbp
-  unsigned __int8 *v6; // r8
-  unsigned int v7; // r15d
-  unsigned int v8; // esi
-  __int64 v9; // r9
-  char v10; // dl
-  unsigned int FirmwareGranularity; // r8d
+  unsigned __int64 v7; // r8
+  __int64 v8; // r9
+  unsigned int v9; // r15d
+  unsigned int v10; // esi
+  unsigned int FirmwareGranularity; // eax
   unsigned int v12; // r12d
+  __int64 v13; // rdx
 
   v3 = 0;
   SrbExtension = GetSrbExtension(a2);
-  v7 = v6[5] | ((v6[4] | (v6[3] << 8)) << 8);
-  v8 = v6[8] | ((v6[7] | (v6[6] << 8)) << 8);
-  if ( v6[5] & 3 | v6[8] & 3 )
+  v9 = *(unsigned __int8 *)(v7 + 5) | ((*(unsigned __int8 *)(v7 + 4) | (*(unsigned __int8 *)(v7 + 3) << 8)) << 8);
+  v10 = *(unsigned __int8 *)(v7 + 8) | ((*(unsigned __int8 *)(v7 + 7) | (*(unsigned __int8 *)(v7 + 6) << 8)) << 8);
+  if ( *(_BYTE *)(v7 + 5) & 3 | *(_BYTE *)(v7 + 8) & 3 )
   {
-    v10 = 6;
+    LOBYTE(v5) = 6;
     goto LABEL_12;
   }
-  if ( v8 > (unsigned int)GetControllerMaxTransferSize(a1) )
+  if ( v10 > (unsigned int)GetControllerMaxTransferSize(a1) )
     goto LABEL_3;
-  if ( (a1[8] & 0x800) == 0 )
+  if ( (a1[6] & 0x800) == 0 )
   {
-    NVMeQueueWorkItem((__int64)a1, (__int64)NVMeControllerValidateFirmwareActivateCapability, 0LL, v9);
-    a1[8] |= 0x800u;
+    NVMeQueueWorkItem((__int64)a1, (__int64)NVMeControllerValidateFirmwareActivateCapability, 0LL, v8);
+    a1[6] |= 0x800u;
   }
   FirmwareGranularity = GetFirmwareGranularity((__int64)a1);
+  v7 = FirmwareGranularity;
   if ( FirmwareGranularity )
   {
-    if ( v8 % FirmwareGranularity )
+    v5 = v10 % FirmwareGranularity;
+    if ( v10 % FirmwareGranularity )
     {
 LABEL_3:
-      v10 = 21;
+      LOBYTE(v5) = 21;
 LABEL_12:
-      NVMeSetSenseData(a2, v10, 5, 0x24u);
+      LOBYTE(v8) = 36;
+      LOBYTE(v7) = 5;
+      NVMeSetSenseData(a2, v5, v7, v8);
       return (unsigned int)-1056964602;
     }
   }
-  if ( (a1[16] & 8) != 0 )
+  if ( (a1[14] & 8) != 0 )
   {
-    *(_DWORD *)(SrbExtension + 4216) = v7;
+    *(_DWORD *)(SrbExtension + 4216) = v9;
     *(_BYTE *)(SrbExtension + 4253) |= 3u;
     SrbAssignQueueId((__int64)a1, a2);
     *(_BYTE *)(SrbExtension + 4096) = 17;
-    *(_DWORD *)(SrbExtension + 4140) = v7 >> 2;
-    *(_DWORD *)(SrbExtension + 4136) = (v8 >> 2) - 1;
+    *(_DWORD *)(SrbExtension + 4140) = v9 >> 2;
+    *(_DWORD *)(SrbExtension + 4136) = (v10 >> 2) - 1;
     *(_QWORD *)(SrbExtension + 4224) = NVMeWriteBufferFirmwareDownloadCompletion;
   }
   else
   {
     v12 = (((unsigned int)GetControllerMaxTransferSize(a1) - 1) >> 12) + 2;
     StorPortExtendedFunction(0LL, a1, 24 * v12 + 16, 1701672526LL);
-    NVMeSetSenseData(a2, 38, 0, 0);
+    LOBYTE(v13) = 38;
+    NVMeSetSenseData(a2, v13, 0LL, 0LL);
     return (unsigned int)-1056964605;
   }
   return v3;

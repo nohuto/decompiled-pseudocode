@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SignalGpuFenceAndPresentLimitSemaphore@CFlipToken@@IEAAX_N@Z @ 0x1C00056EC
+ * XREFs of ?SignalGpuFenceAndPresentLimitSemaphore@CFlipToken@@IEAAX_N@Z @ 0x1C001C79C
  * Callers:
- *     ?SignalFlipImmediate@CFlipToken@@UEAAXXZ @ 0x1C00056C0 (-SignalFlipImmediate@CFlipToken@@UEAAXXZ.c)
+ *     ?SignalFlipImmediate@CFlipToken@@UEAAXXZ @ 0x1C001C770 (-SignalFlipImmediate@CFlipToken@@UEAAXXZ.c)
  * Callees:
- *     ?SignalGpuFence@CompositionSurfaceObject@@QEAAJ_K0_N@Z @ 0x1C0004FF8 (-SignalGpuFence@CompositionSurfaceObject@@QEAAJ_K0_N@Z.c)
- *     ?SignalPresentLimitSemaphore@CompositionSurfaceObject@@QEAAX_K@Z @ 0x1C00057A0 (-SignalPresentLimitSemaphore@CompositionSurfaceObject@@QEAAX_K@Z.c)
+ *     ?SignalPresentLimitSemaphore@CompositionSurfaceObject@@QEAAX_K@Z @ 0x1C001C7F8 (-SignalPresentLimitSemaphore@CompositionSurfaceObject@@QEAAX_K@Z.c)
+ *     ?SignalGpuFence@CompositionSurfaceObject@@QEAAJ_K0_N@Z @ 0x1C001C8C0 (-SignalGpuFence@CompositionSurfaceObject@@QEAAJ_K0_N@Z.c)
  */
 
-void __fastcall CFlipToken::SignalGpuFenceAndPresentLimitSemaphore(CFlipToken *this, char a2)
+void __fastcall CFlipToken::SignalGpuFenceAndPresentLimitSemaphore(CFlipToken *this, bool a2)
 {
   unsigned __int64 v3; // rax
   unsigned __int64 v4; // rdx

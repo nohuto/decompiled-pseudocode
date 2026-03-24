@@ -1,7 +1,7 @@
 /*
- * XREFs of CmUnlockHiveSecurity @ 0x1406D0B28
+ * XREFs of CmUnlockHiveSecurity @ 0x1406D0B08
  * Callers:
- *     CmpCreateTombstone @ 0x14026D05C (CmpCreateTombstone.c)
+ *     CmpCreateTombstone @ 0x14026D15C (CmpCreateTombstone.c)
  *     CmpUndoDeleteKeyForTransEx @ 0x140581354 (CmpUndoDeleteKeyForTransEx.c)
  * Callees:
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)

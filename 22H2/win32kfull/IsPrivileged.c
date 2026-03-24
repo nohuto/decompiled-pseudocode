@@ -1,21 +1,23 @@
 /*
- * XREFs of IsPrivileged @ 0x1C0060DD8
+ * XREFs of IsPrivileged @ 0x1C011D26C
  * Callers:
- *     _RegisterUserApiHook @ 0x1C0048D78 (_RegisterUserApiHook.c)
- *     _RegisterDManipHook @ 0x1C00497B0 (_RegisterDManipHook.c)
- *     xxxWrapSendMessageBSM @ 0x1C0061020 (xxxWrapSendMessageBSM.c)
- *     ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C00B81DC (-InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z.c)
- *     NtUserRegisterBSDRWindow @ 0x1C00BB7C0 (NtUserRegisterBSDRWindow.c)
- *     NtUserPostThreadMessage @ 0x1C0115410 (NtUserPostThreadMessage.c)
- *     NtUserRegisterServicesProcess @ 0x1C01D9880 (NtUserRegisterServicesProcess.c)
+ *     ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C00D77D4 (-InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z.c)
+ *     NtUserPostThreadMessage @ 0x1C00DA2F0 (NtUserPostThreadMessage.c)
+ *     _RegisterUserApiHook @ 0x1C011CC58 (_RegisterUserApiHook.c)
+ *     _RegisterDManipHook @ 0x1C011CF64 (_RegisterDManipHook.c)
+ *     xxxWrapSendMessageBSM @ 0x1C011D180 (xxxWrapSendMessageBSM.c)
+ *     NtUserRegisterBSDRWindow @ 0x1C01338C0 (NtUserRegisterBSDRWindow.c)
+ *     NtUserRegisterServicesProcess @ 0x1C0200840 (NtUserRegisterServicesProcess.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall IsPrivileged(PPRIVILEGE_SET RequiredPrivileges)
 {
   BOOLEAN v2; // al
   unsigned int v3; // edi
+  __int64 v4; // rdx
+  __int64 v5; // r8
   _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+30h] [rbp-28h] BYREF
 
   memset(&SubjectContext, 0, sizeof(SubjectContext));
@@ -27,6 +29,6 @@ __int64 __fastcall IsPrivileged(PPRIVILEGE_SET RequiredPrivileges)
   SeUnlockSubjectContext(&SubjectContext);
   SeReleaseSubjectContext(&SubjectContext);
   if ( !(_BYTE)v3 )
-    UserSetLastError(1314LL);
+    UserSetLastError(1314LL, v4, v5);
   return v3;
 }

@@ -1,28 +1,28 @@
 /*
- * XREFs of PopDripsWatchdogDiagnosticWorker @ 0x14099C520
+ * XREFs of PopDripsWatchdogDiagnosticWorker @ 0x1408EF280
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PopDeepSleepEnabled @ 0x14028E628 (PopDeepSleepEnabled.c)
- *     PopCalculateIdleInformation @ 0x1403C76E0 (PopCalculateIdleInformation.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopDiagTraceCsDripsDivergence @ 0x140591C80 (PopDiagTraceCsDripsDivergence.c)
- *     PopDripsWatchdogCheckHwDivergence @ 0x14099C44C (PopDripsWatchdogCheckHwDivergence.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x14099C758 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x14099C994 (PopDripsWatchdogUpdateMetrics.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x1409A10D4 (PopDeepSleepWatchdogTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x1409A125C (PopDripsWatchdogTakeAction.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PopDeepSleepEnabled @ 0x14034AAD0 (PopDeepSleepEnabled.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopCalculateIdleInformation @ 0x140570350 (PopCalculateIdleInformation.c)
+ *     PopDiagTraceCsDripsDivergence @ 0x140570BC8 (PopDiagTraceCsDripsDivergence.c)
+ *     PopDripsWatchdogCheckHwDivergence @ 0x1408EF1A8 (PopDripsWatchdogCheckHwDivergence.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1408EF534 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x1408EF770 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x1408FA568 (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x1408FA6F0 (PopDripsWatchdogTakeAction.c)
  */
 
 _QWORD *__fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)
 {
-  ULONG *p_ActiveEntries; // rdi
-  __int64 v3; // rsi
+  ULONG *p_ActiveEntries; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v5; // rsi
+  int v4; // ebx
+  unsigned __int64 v5; // rbx
   unsigned __int8 v6; // r14
   struct _LIST_ENTRY *Flink; // rax
   ULONG v8; // ecx
@@ -45,24 +45,22 @@ _QWORD *__fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)
   v22 = 0LL;
   v23 = 0;
   v21 = 0LL;
-  v19 = 0LL;
-  v3 = MEMORY[0xFFFFF78000000008];
   CurrentThread = KeGetCurrentThread();
-  v20 = 0LL;
+  v19 = 0LL;
   --CurrentThread->KernelApcDisable;
+  v20 = 0LL;
   ExAcquireResourceExclusiveLite(Resource, 1u);
-  if ( ((__int64)Resource[1].SystemResourcesList.Flink & 4) != 0
-    && (p_ActiveEntries[45] & 2) != 0
-    && (unsigned __int64)(v3 - *((_QWORD *)p_ActiveEntries + 23)) >= 0x1312D00 )
+  if ( ((__int64)Resource[1].SystemResourcesList.Flink & 4) != 0 && (p_ActiveEntries[45] & 2) != 0 )
   {
     ++LODWORD(Resource[6].OwnerTable);
+    v4 = MEMORY[0xFFFFF78000000008];
     v17 = 0;
     v18 = 0LL;
     v16 = 0;
     PopCalculateIdleInformation((__int64)&v19);
     PopDripsWatchdogUpdateMetrics(
       (_DWORD)Resource,
-      v3,
+      v4,
       (unsigned int)&v19,
       (unsigned int)&v17,
       (__int64)&v18,
@@ -98,7 +96,7 @@ _QWORD *__fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)
         if ( !v17 && PopDeepSleepEnabled() )
           PopDeepSleepWatchdogTakeAction(&v21, Flink_high);
       }
-      else if ( !qword_140CF7D18 )
+      else if ( !qword_140C4FF58 )
       {
         PopDripsWatchdogTakeAction(&v21, Flink_high, OwnerTable);
       }

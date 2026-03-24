@@ -1,12 +1,12 @@
 /*
- * XREFs of CreateBitmapStrip @ 0x1C0076930
+ * XREFs of CreateBitmapStrip @ 0x1C00E2680
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     xxxSetWindowNCMetrics @ 0x1C0076530 (xxxSetWindowNCMetrics.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     xxxSetWindowNCMetrics @ 0x1C00E22DC (xxxSetWindowNCMetrics.c)
  * Callees:
- *     CleanupOEMBitmaps @ 0x1C00768C0 (CleanupOEMBitmaps.c)
- *     GreTextInitialized @ 0x1C007A410 (GreTextInitialized.c)
- *     ?CreateDPIBitmapStrip@@YAHI@Z @ 0x1C01159A0 (-CreateDPIBitmapStrip@@YAHI@Z.c)
+ *     ?CreateDPIBitmapStrip@@YAHI@Z @ 0x1C0045924 (-CreateDPIBitmapStrip@@YAHI@Z.c)
+ *     CleanupOEMBitmaps @ 0x1C00E2700 (CleanupOEMBitmaps.c)
+ *     GreTextInitialized @ 0x1C00E31F8 (GreTextInitialized.c)
  */
 
 __int64 CreateBitmapStrip()

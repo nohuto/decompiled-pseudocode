@@ -1,13 +1,13 @@
 /*
- * XREFs of ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB260
+ * XREFs of ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB860
  * Callers:
  *     <none>
  * Callees:
- *     xxxKeyEventEx @ 0x1C003D9F0 (xxxKeyEventEx.c)
- *     ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01EAFB8 (-NlsClearKeyStateToggle@@YAXE@Z.c)
- *     ?NlsGetCurrentInputMode@@YAEPEAE@Z @ 0x1C01EB174 (-NlsGetCurrentInputMode@@YAEPEAE@Z.c)
- *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C01EB8FC (-NlsTestKeyStateToggle@@YAHE@Z.c)
- *     NlsKbdSendIMEProc @ 0x1C01EB944 (NlsKbdSendIMEProc.c)
+ *     xxxKeyEventEx @ 0x1C004BFD0 (xxxKeyEventEx.c)
+ *     ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01AB5B8 (-NlsClearKeyStateToggle@@YAXE@Z.c)
+ *     ?NlsGetCurrentInputMode@@YAEPEAE@Z @ 0x1C01AB774 (-NlsGetCurrentInputMode@@YAEPEAE@Z.c)
+ *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C01ABEFC (-NlsTestKeyStateToggle@@YAHE@Z.c)
+ *     NlsKbdSendIMEProc @ 0x1C01ABFAC (NlsKbdSendIMEProc.c)
  */
 
 __int64 __fastcall NlsHiraganaModeProc(struct tagKE *a1, __int64 a2)

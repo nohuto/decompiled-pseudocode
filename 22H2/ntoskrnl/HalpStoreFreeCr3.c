@@ -1,30 +1,30 @@
 /*
- * XREFs of HalpStoreFreeCr3 @ 0x1403A8A3C
+ * XREFs of HalpStoreFreeCr3 @ 0x1403A1D14
  * Callers:
- *     HalpMapCR3Ex @ 0x140A90E10 (HalpMapCR3Ex.c)
+ *     HalpMapCR3Ex @ 0x14099A290 (HalpMapCR3Ex.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall HalpStoreFreeCr3(__int64 a1)
+__int64 __fastcall HalpStoreFreeCr3(unsigned int a1, __int64 a2)
 {
-  __int64 result; // rax
-  unsigned int v2; // edx
-  _QWORD *v3; // r8
+  unsigned int v2; // r9d
+  unsigned int v3; // r8d
+  _QWORD *v4; // rax
 
-  result = 0LL;
   v2 = 0;
-  v3 = HiberFreeCR3Pages;
-  while ( *v3 )
+  v3 = 0;
+  v4 = (_QWORD *)(HiberFreeCR3 + ((unsigned __int64)a1 << 7));
+  while ( *v4 )
   {
-    ++v2;
     ++v3;
-    if ( v2 >= 0x10 )
+    ++v4;
+    if ( v3 >= 0x10 )
       goto LABEL_6;
   }
-  HiberFreeCR3Pages[v2] = a1;
+  *(_QWORD *)(HiberFreeCR3 + 8 * (v3 + 16LL * a1)) = a2;
 LABEL_6:
-  if ( v2 == 16 )
-    return 3221225626LL;
-  return result;
+  if ( v3 == 16 )
+    return (unsigned int)-1073741670;
+  return v2;
 }

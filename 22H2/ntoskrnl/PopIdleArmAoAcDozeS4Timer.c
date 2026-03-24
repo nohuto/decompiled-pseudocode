@@ -1,20 +1,20 @@
 /*
- * XREFs of PopIdleArmAoAcDozeS4Timer @ 0x14059E208
+ * XREFs of PopIdleArmAoAcDozeS4Timer @ 0x14057C158
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x1407A7164 (PopUmpoProcessPowerMessage.c)
- *     PopUpdateSystemIdleContext @ 0x1408258D8 (PopUpdateSystemIdleContext.c)
- *     PopIdleCsStateChanged @ 0x14099BEEC (PopIdleCsStateChanged.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x14099C01C (PopUpdateSmartUserPresencePredictions.c)
+ *     PopUmpoProcessPowerMessage @ 0x1406F3434 (PopUmpoProcessPowerMessage.c)
+ *     PopUpdateSystemIdleContext @ 0x1408F12F4 (PopUpdateSystemIdleContext.c)
+ *     PopIdleCsStateChanged @ 0x1408F5684 (PopIdleCsStateChanged.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x1408F575C (PopUpdateSmartUserPresencePredictions.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250130 (KeSetTimer2.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopIdleChooseDozeS4Time @ 0x14059E358 (PopIdleChooseDozeS4Time.c)
- *     PopFilterCapabilities @ 0x1407A8C44 (PopFilterCapabilities.c)
- *     PopIsDozeSupported @ 0x140980BB4 (PopIsDozeSupported.c)
- *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x140992D68 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetTimer2 @ 0x14022BEC0 (KeSetTimer2.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopIdleChooseDozeS4Time @ 0x14057C29C (PopIdleChooseDozeS4Time.c)
+ *     PopIsDozeSupported @ 0x1406F4118 (PopIsDozeSupported.c)
+ *     PopFilterCapabilities @ 0x1406F4274 (PopFilterCapabilities.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x1408EC834 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
  */
 
 __int64 PopIdleArmAoAcDozeS4Timer()
@@ -31,33 +31,31 @@ __int64 PopIdleArmAoAcDozeS4Timer()
 
   v8 = 0LL;
   v7 = 0;
-  result = (__int64)memset(v6, 0, 0x4CuLL);
-  if ( PopPlatformAoAc )
+  memset(v6, 0, 0x4CuLL);
+  PopFilterCapabilities(&PopCapabilities, v6);
+  result = PopIsDozeSupported(v6);
+  v1 = 0;
+  if ( (_BYTE)result )
   {
-    PopFilterCapabilities(&PopCapabilities, v6);
-    result = PopIsDozeSupported(v6);
-    v1 = 0;
+    result = PopIdleChooseDozeS4Time(&v8, &v7);
     if ( (_BYTE)result )
     {
-      result = PopIdleChooseDozeS4Time(&v8, &v7);
-      if ( (_BYTE)result )
+      v2 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
+      if ( !byte_140C239A4 )
       {
-        v2 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
-        if ( !byte_140C3CD84 )
-        {
-          KeSetTimer2((__int64)&PopIdleAoAcDozeS4Timer, v8, 0LL, 0LL);
-          v1 = 1;
-          dword_140C3CD88 = v7;
-          byte_140C3CD84 = 1;
-        }
-        result = KxReleaseSpinLock((volatile signed __int64 *)&PopIdleAoAcDozeS4Lock);
-        if ( KiIrqlFlags )
+        KeSetTimer2((__int64)&PopIdleAoAcDozeS4Timer, v8, 0LL, 0LL);
+        v1 = 1;
+        dword_140C239A8 = v7;
+        byte_140C239A4 = 1;
+      }
+      KxReleaseSpinLock(&PopIdleAoAcDozeS4Lock);
+      result = (unsigned int)KiIrqlFlags;
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
         {
           result = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
-            && (unsigned __int8)result <= 0xFu
-            && (unsigned __int8)v2 <= 0xFu
-            && (unsigned __int8)result >= 2u )
+          if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v2 <= 0xFu && (unsigned __int8)result >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -68,10 +66,10 @@ __int64 PopIdleArmAoAcDozeS4Timer()
               result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
-        __writecr8(v2);
-        if ( v1 )
-          return PopTraceSystemIdleS0LowPowerDozeTimerArmed(v7, v8);
       }
+      __writecr8(v2);
+      if ( v1 )
+        return PopTraceSystemIdleS0LowPowerDozeTimerArmed(v7, v8);
     }
   }
   return result;

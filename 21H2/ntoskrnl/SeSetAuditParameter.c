@@ -1,7 +1,7 @@
 /*
- * XREFs of SeSetAuditParameter @ 0x140235C20
+ * XREFs of SeSetAuditParameter @ 0x1402AE000
  * Callers:
- *     CmpReportAuditVirtualizationEvent @ 0x1409188E8 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140871D98 (CmpReportAuditVirtualizationEvent.c)
  * Callees:
  *     <none>
  */

@@ -1,26 +1,26 @@
 /*
- * XREFs of MiMarkPrivateImageCfgBits @ 0x1406CF50C
+ * XREFs of MiMarkPrivateImageCfgBits @ 0x140713DA4
  * Callers:
- *     MiCommitVadCfgBits @ 0x1406F7664 (MiCommitVadCfgBits.c)
+ *     MiMarkProcessCfgBits @ 0x14061BF08 (MiMarkProcessCfgBits.c)
  * Callees:
- *     MiGetControlAreaLoadConfig @ 0x140281A3C (MiGetControlAreaLoadConfig.c)
- *     MiLocateVadEvent @ 0x1402EE0C8 (MiLocateVadEvent.c)
- *     MiVadMapsLargeImage @ 0x14030EC40 (MiVadMapsLargeImage.c)
- *     MiMarkPrivateOpenCfgBits @ 0x1406F5F44 (MiMarkPrivateOpenCfgBits.c)
- *     MiPopulateCfgBitMap @ 0x1406F5F80 (MiPopulateCfgBitMap.c)
+ *     MiVadMapsLargeImage @ 0x14021CC20 (MiVadMapsLargeImage.c)
+ *     MiLocateVadEvent @ 0x1402FE3B4 (MiLocateVadEvent.c)
+ *     MiGetControlAreaLoadConfig @ 0x14035F2D8 (MiGetControlAreaLoadConfig.c)
+ *     MiPopulateCfgBitMap @ 0x14061FDB8 (MiPopulateCfgBitMap.c)
+ *     MiMarkPrivateOpenCfgBits @ 0x1406A9198 (MiMarkPrivateOpenCfgBits.c)
  */
 
-__int64 __fastcall MiMarkPrivateImageCfgBits(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiMarkPrivateImageCfgBits(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 *v5; // r15
   __int64 v6; // r14
   unsigned __int64 v7; // rbx
-  __int64 v8; // rdi
+  unsigned __int64 v8; // rdi
   int v9; // r8d
   __int64 v10; // rax
   __int64 v11; // rdx
   __int64 ControlAreaLoadConfig; // rax
-  int v13; // r8d
+  __int64 v13; // r8
   __int64 result; // rax
   __int16 v15; // cx
   unsigned __int64 v16; // rax
@@ -32,7 +32,7 @@ __int64 __fastcall MiMarkPrivateImageCfgBits(__int64 a1, __int64 a2, __int64 a3)
   v8 = (*(unsigned int *)(a3 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a3 + 32) << 32)) << 12;
   if ( MiVadMapsLargeImage(a3) )
   {
-    result = MiMarkPrivateOpenCfgBits(a1, v8, v7, 0LL);
+    result = MiMarkPrivateOpenCfgBits(a1, v8, v7, 0);
     if ( (int)result < 0 )
       return result;
     v8 += (unsigned __int64)*(unsigned __int8 *)(MiLocateVadEvent(a3, 16LL) + 8) << 16;
@@ -56,5 +56,5 @@ __int64 __fastcall MiMarkPrivateImageCfgBits(__int64 a1, __int64 a2, __int64 a3)
     v7 += v17;
   }
   ControlAreaLoadConfig = MiGetControlAreaLoadConfig((__int64)v5);
-  return MiPopulateCfgBitMap(a1, *(_QWORD *)(ControlAreaLoadConfig + 8), v13, 0, v8, v7);
+  return MiPopulateCfgBitMap(a1, *(_QWORD *)(ControlAreaLoadConfig + 16), v13, 0, v8, v7);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepMakeLogonSessionsSiblings @ 0x1408A2980
+ * XREFs of SepMakeLogonSessionsSiblings @ 0x1408A2960
  * Callers:
- *     SepRmMakeLogonSessionsSiblingsWrkr @ 0x1408A2C30 (SepRmMakeLogonSessionsSiblingsWrkr.c)
+ *     SepRmMakeLogonSessionsSiblingsWrkr @ 0x1408A2C10 (SepRmMakeLogonSessionsSiblingsWrkr.c)
  * Callees:
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 __int64 __fastcall SepMakeLogonSessionsSiblings(_DWORD *a1, _DWORD *a2)

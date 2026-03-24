@@ -1,39 +1,41 @@
 /*
- * XREFs of ?SetStateOnDevice@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEAI@Z @ 0x1801E8500
+ * XREFs of ?SetStateOnDevice@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEAI@Z @ 0x1801A2700
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetShaderResourceView@CDrawListBitmap@@QEBAPEAUID3D11ShaderResourceView@@AEBVRenderTargetInfo@@PEAUPixelFormatInfo@@@Z @ 0x1801E4CF0 (-GetShaderResourceView@CDrawListBitmap@@QEBAPEAUID3D11ShaderResourceView@@AEBVRenderTargetInfo@@.c)
+ *     ?GetShaderResourceView@CDrawListBitmap@@QEBAPEAUID3D11ShaderResourceView@@PEAUPixelFormatInfo@@@Z @ 0x1800532BC (-GetShaderResourceView@CDrawListBitmap@@QEBAPEAUID3D11ShaderResourceView@@PEAUPixelFormatInfo@@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CWARPDrawListEntry::SetStateOnDevice(
         CWARPDrawListEntry *this,
-        const struct RenderTargetInfo **a2,
+        struct CD3DBatchExecutionContext *a2,
         unsigned int *a3)
 {
-  unsigned int v3; // ebx
+  unsigned int v4; // ebx
+  CDrawListBitmap *v5; // rcx
   struct ID3D11ShaderResourceView *ShaderResourceView; // rax
-  __int64 v7; // rcx
-  _QWORD v9[3]; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v8; // rcx
+  _QWORD v10[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  v3 = 0;
-  if ( *((_QWORD *)this + 7) )
+  v4 = 0;
+  v5 = (CWARPDrawListEntry *)((char *)this + 240);
+  if ( *(_OWORD *)v5 != 0LL )
   {
-    v9[0] = CDrawListBitmap::GetShaderResourceView((CWARPDrawListEntry *)((char *)this + 48), a2[14], 0LL);
-    v3 = 1;
+    v10[0] = CDrawListBitmap::GetShaderResourceView(v5, 0LL);
+    v4 = 1;
   }
-  if ( *((_QWORD *)this + 17) )
+  if ( *((_QWORD *)this + 43) || *((_QWORD *)this + 44) )
   {
-    ShaderResourceView = CDrawListBitmap::GetShaderResourceView((CWARPDrawListEntry *)((char *)this + 128), a2[14], 0LL);
-    v7 = v3++;
-    v9[v7] = ShaderResourceView;
+    ShaderResourceView = CDrawListBitmap::GetShaderResourceView((CWARPDrawListEntry *)((char *)this + 344), 0LL);
+    v8 = v4++;
+    v10[v8] = ShaderResourceView;
   }
-  if ( v3 )
-    (*(void (__fastcall **)(const struct RenderTargetInfo *, _QWORD, _QWORD, _QWORD *))(*(_QWORD *)a2[2] + 64LL))(
-      a2[2],
+  if ( v4 )
+    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD *))(**((_QWORD **)a2 + 2) + 64LL))(
+      *((_QWORD *)a2 + 2),
       0LL,
-      v3,
-      v9);
+      v4,
+      v10);
   return 0LL;
 }

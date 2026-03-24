@@ -1,18 +1,20 @@
 /*
- * XREFs of ??0CParticleEmitterVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C020D890
+ * XREFs of ??0CParticleEmitterVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3E08
  * Callers:
- *     ?GeneratedCreatePrivateMarshaler@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z @ 0x1C0031DE4 (-GeneratedCreatePrivateMarshaler@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C0029A24 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
  * Callees:
- *     ??0CVisualMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C0030544 (--0CVisualMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ??0CVisualMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z @ 0x1C0023060 (--0CVisualMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z.c)
  */
 
-DirectComposition::CParticleEmitterVisualMarshaler *__fastcall DirectComposition::CParticleEmitterVisualMarshaler::CParticleEmitterVisualMarshaler(
+__int64 __fastcall DirectComposition::CParticleEmitterVisualMarshaler::CParticleEmitterVisualMarshaler(
         DirectComposition::CParticleEmitterVisualMarshaler *this)
 {
-  DirectComposition::CVisualMarshaler::CVisualMarshaler((__int64)this, 120LL);
-  *(_QWORD *)this = &DirectComposition::CParticleEmitterVisualMarshaler::`vftable';
-  *((_QWORD *)this + 65) = 0LL;
-  *((_QWORD *)this + 66) = 0LL;
-  *((_QWORD *)this + 67) = 0LL;
-  return this;
+  __int64 v1; // rcx
+
+  DirectComposition::CVisualMarshaler::CVisualMarshaler((__int64)this, 117);
+  *(_QWORD *)v1 = &DirectComposition::CParticleEmitterVisualMarshaler::`vftable';
+  *(_QWORD *)(v1 + 512) = 0LL;
+  *(_QWORD *)(v1 + 520) = 0LL;
+  *(_DWORD *)(v1 + 528) = 0;
+  return v1;
 }

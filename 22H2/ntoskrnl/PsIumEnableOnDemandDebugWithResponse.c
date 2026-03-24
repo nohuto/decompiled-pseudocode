@@ -1,34 +1,31 @@
 /*
- * XREFs of PsIumEnableOnDemandDebugWithResponse @ 0x1409B6318
+ * XREFs of PsIumEnableOnDemandDebugWithResponse @ 0x14090C9D4
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     VslEnableOnDemandDebugWithResponse @ 0x1409422BC (VslEnableOnDemandDebugWithResponse.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     VslEnableOnDemandDebugWithResponse @ 0x14088F7BC (VslEnableOnDemandDebugWithResponse.c)
  */
 
-__int64 __fastcall PsIumEnableOnDemandDebugWithResponse(ULONG_PTR a1, const void *a2, unsigned int a3)
+__int64 __fastcall PsIumEnableOnDemandDebugWithResponse(void *a1, const void *a2, unsigned int a3)
 {
-  char PreviousMode; // r9
-  int v6; // ebx
+  NTSTATUS v5; // ebx
   PVOID Object; // [rsp+68h] [rbp+20h] BYREF
 
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v6 = ObpReferenceObjectByHandleWithTag(
+  v5 = ObReferenceObjectByHandleWithTag(
          a1,
-         0x2000,
-         (__int64)PsProcessType,
-         PreviousMode,
+         0x2000u,
+         (POBJECT_TYPE)PsProcessType,
+         KeGetCurrentThread()->PreviousMode,
          0x79517350u,
          &Object,
-         0LL,
          0LL);
-  if ( v6 >= 0 )
+  if ( v5 >= 0 )
   {
-    v6 = VslEnableOnDemandDebugWithResponse((__int64)Object, a2, a3);
+    v5 = VslEnableOnDemandDebugWithResponse((__int64)Object, a2, a3);
     ObfDereferenceObjectWithTag(Object, 0x79517350u);
   }
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

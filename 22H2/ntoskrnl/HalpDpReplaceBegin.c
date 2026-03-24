@@ -1,83 +1,102 @@
 /*
- * XREFs of HalpDpReplaceBegin @ 0x1409351D0
+ * XREFs of HalpDpReplaceBegin @ 0x140866500
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     HalpInterruptDpReplaceBegin @ 0x1405209FC (HalpInterruptDpReplaceBegin.c)
- *     HalpDpSortApicList @ 0x1409353B8 (HalpDpSortApicList.c)
- *     HalpBuildResumeStructures @ 0x140A95FB8 (HalpBuildResumeStructures.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpInterruptDpReplaceBegin @ 0x1404D699C (HalpInterruptDpReplaceBegin.c)
+ *     HalpDpSortApicList @ 0x1408666F8 (HalpDpSortApicList.c)
+ *     HalpBuildResumeStructures @ 0x14099834C (HalpBuildResumeStructures.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall HalpDpReplaceBegin(__int64 a1, __int64 *a2)
+__int64 __fastcall HalpDpReplaceBegin(__int64 a1, _QWORD *a2)
 {
-  int v2; // ebx
-  __int64 v5; // rbp
-  __int64 v6; // rsi
-  int v7; // ebx
-  __int64 Pool2; // rax
-  __int64 v9; // rdi
-  __int64 v10; // rdx
-  __int64 v11; // rax
-  void *v12; // rcx
-  int v14; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v2; // rax
+  int v3; // ebx
+  __int64 v6; // r15
+  __int64 v7; // rsi
+  int v8; // ebx
+  SIZE_T v9; // rbp
+  char *PoolWithTag; // rax
+  char *v11; // rdi
+  char v12; // bp
+  char v13; // al
+  __int64 v14; // rdx
+  PVOID v15; // rax
+  void *v16; // rcx
+  int v18; // [rsp+70h] [rbp+8h] BYREF
 
-  v2 = 0;
-  v14 = 0;
-  v5 = *(unsigned int *)(*(_QWORD *)(a1 + 16) + 16LL);
-  v6 = *(unsigned int *)(*(_QWORD *)(a1 + 8) + 16LL);
-  if ( (unsigned int)v5 < (unsigned int)v6 )
+  v2 = *(_QWORD *)(a1 + 16);
+  v3 = 0;
+  v18 = 0;
+  v6 = *(unsigned int *)(v2 + 16);
+  v7 = *(unsigned int *)(*(_QWORD *)(a1 + 8) + 16LL);
+  if ( (unsigned int)v6 < (unsigned int)v7 )
     return (unsigned int)-1073741811;
-  Pool2 = ExAllocatePool2(64LL, (unsigned int)(4 * (v5 + 2 * v6 + 32)), 1131176264LL);
-  v9 = Pool2;
-  if ( !Pool2 )
+  v9 = (unsigned int)(4 * (v6 + 2 * (v7 + 16)));
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v9, 0x206C6148u);
+  v11 = PoolWithTag;
+  if ( !PoolWithTag )
     return (unsigned int)-1073741670;
-  *(_DWORD *)Pool2 = v6;
-  *(_BYTE *)(Pool2 + 45) = (*(_DWORD *)a1 & 2) != 0;
-  if ( (_DWORD)v6 )
+  memset(PoolWithTag, 0, v9);
+  *(_DWORD *)v11 = v7;
+  v12 = 1;
+  v13 = (*(_DWORD *)a1 & 2) != 0;
+  v11[45] = v13;
+  if ( !(_DWORD)v7 )
   {
-    *(_QWORD *)(Pool2 + 8) = Pool2 + 128;
-    v10 = 4 * v6 + Pool2 + 128;
-    *(_QWORD *)(Pool2 + 16) = v10;
-    *(_QWORD *)(Pool2 + 24) = v10 + 4 * v5;
-    memmove((void *)(Pool2 + 128), (const void *)(*(_QWORD *)(a1 + 8) + 20LL), 4 * v6);
-    memmove(*(void **)(v9 + 16), (const void *)(*(_QWORD *)(a1 + 16) + 20LL), 4 * v5);
-    HalpDpSortApicList(*(_QWORD *)(v9 + 8), (unsigned int)v6);
-    HalpDpSortApicList(*(_QWORD *)(v9 + 16), (unsigned int)v5);
-    if ( (*(_DWORD *)a1 & 1) != 0 )
-      *(_BYTE *)(v9 + 44) = 1;
-    v7 = HalpInterruptDpReplaceBegin(
-           *(char **)(v9 + 8),
-           *(_DWORD **)(v9 + 16),
-           *(ULONG **)(v9 + 24),
-           *(_DWORD *)v9,
-           *(_BYTE *)(v9 + 44),
-           *(_BYTE *)(v9 + 45),
-           &v14);
-    if ( v7 < 0 )
-      goto LABEL_14;
-    v2 = v14;
-    *(_DWORD *)(v9 + 40) = v14;
-  }
-  if ( !*(_BYTE *)(v9 + 45) )
-  {
-LABEL_18:
-    *a2 = v9;
+LABEL_11:
+    if ( v13 )
+    {
+      if ( (_DWORD)v7 )
+      {
+        v15 = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(v3 * v7), 0x206C6148u);
+        *((_QWORD *)v11 + 4) = v15;
+        if ( !v15 )
+        {
+          v8 = -1073741670;
+          goto LABEL_15;
+        }
+      }
+      HalpBuildResumeStructures();
+    }
+    *a2 = v11;
     return 0;
   }
-  if ( !(_DWORD)v6
-    || (v11 = ExAllocatePool2(64LL, (unsigned int)(v2 * v6), 1131176264LL), (*(_QWORD *)(v9 + 32) = v11) != 0LL) )
+  *((_QWORD *)v11 + 1) = v11 + 128;
+  v14 = (__int64)&v11[4 * v7 + 128];
+  *((_QWORD *)v11 + 2) = v14;
+  *((_QWORD *)v11 + 3) = v14 + 4 * v6;
+  memmove(v11 + 128, (const void *)(*(_QWORD *)(a1 + 8) + 20LL), 4 * v7);
+  memmove(*((void **)v11 + 2), (const void *)(*(_QWORD *)(a1 + 16) + 20LL), 4 * v6);
+  HalpDpSortApicList(*((_QWORD *)v11 + 1), (unsigned int)v7);
+  HalpDpSortApicList(*((_QWORD *)v11 + 2), (unsigned int)v6);
+  if ( (*(_DWORD *)a1 & 1) != 0 )
+    v11[44] = 1;
+  else
+    v12 = v11[44];
+  v8 = HalpInterruptDpReplaceBegin(
+         *((char **)v11 + 1),
+         *((char **)v11 + 2),
+         *((ULONG **)v11 + 3),
+         *(_DWORD *)v11,
+         v12,
+         v11[45],
+         &v18);
+  if ( v8 >= 0 )
   {
-    HalpBuildResumeStructures();
-    goto LABEL_18;
+    v3 = v18;
+    v13 = v11[45];
+    *((_DWORD *)v11 + 10) = v18;
+    goto LABEL_11;
   }
-  v7 = -1073741670;
-LABEL_14:
-  v12 = *(void **)(v9 + 32);
-  if ( v12 )
-    ExFreePoolWithTag(v12, 0x436C6148u);
-  ExFreePoolWithTag((PVOID)v9, 0x436C6148u);
-  return (unsigned int)v7;
+LABEL_15:
+  v16 = (void *)*((_QWORD *)v11 + 4);
+  if ( v16 )
+    ExFreePoolWithTag(v16, 0x206C6148u);
+  ExFreePoolWithTag(v11, 0x206C6148u);
+  return (unsigned int)v8;
 }

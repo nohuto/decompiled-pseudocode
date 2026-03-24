@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerD0BusWakeOwnerNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0086860
+ * XREFs of ?PowerD0BusWakeOwnerNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C007D660
  * Callers:
  *     <none>
  * Callees:

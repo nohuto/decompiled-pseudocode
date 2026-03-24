@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateU0xqxxqq_EventWriteTransfer @ 0x18012EA9C
+ * XREFs of McTemplateU0xqxxqq_EventWriteTransfer @ 0x180154030
  * Callers:
- *     ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18004D644 (-RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z.c)
+ *     ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18006CE20 (-RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0xqxxqq_EventWriteTransfer(
+ULONG __fastcall McTemplateU0xqxxqq_EventWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -18,7 +18,7 @@ __int64 __fastcall McTemplateU0xqxxqq_EventWriteTransfer(
         char a8)
 {
   int v9; // [rsp+30h] [rbp-59h] BYREF
-  _BYTE v10[16]; // [rsp+40h] [rbp-49h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v10; // [rsp+40h] [rbp-49h] BYREF
   __int64 *v11; // [rsp+50h] [rbp-39h]
   __int64 v12; // [rsp+58h] [rbp-31h]
   int *v13; // [rsp+60h] [rbp-29h]
@@ -48,9 +48,9 @@ __int64 __fastcall McTemplateU0xqxxqq_EventWriteTransfer(
   v20 = 4LL;
   v22 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_SCHEDULE_RETIREFRAME,
            0LL,
-           7LL,
-           v10);
+           7u,
+           &v10);
 }

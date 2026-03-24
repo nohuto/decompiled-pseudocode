@@ -1,9 +1,9 @@
 /*
- * XREFs of GetProcessAndSessionId @ 0x1800FD4DC
+ * XREFs of GetProcessAndSessionId @ 0x1800B05EC
  * Callers:
- *     ?SendFrameStatisticsTelemetry@CTelemetryFrameStatistics@@AEAAX_K@Z @ 0x1800FD46C (-SendFrameStatisticsTelemetry@CTelemetryFrameStatistics@@AEAAX_K@Z.c)
+ *     ?SendFrameStatisticsTelemetry@CTelemetryFrameStatistics@@AEAAX_K@Z @ 0x1800B0580 (-SendFrameStatisticsTelemetry@CTelemetryFrameStatistics@@AEAAX_K@Z.c)
  * Callees:
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 BOOL __fastcall GetProcessAndSessionId(DWORD *a1, DWORD *a2)

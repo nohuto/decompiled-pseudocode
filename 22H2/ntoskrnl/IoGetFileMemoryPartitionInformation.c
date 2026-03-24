@@ -1,22 +1,12 @@
 /*
- * XREFs of IoGetFileMemoryPartitionInformation @ 0x1402A1C90
+ * XREFs of IoGetFileMemoryPartitionInformation @ 0x1402D6F4C
  * Callers:
- *     MiCreateImageOrDataSection @ 0x1407233C0 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x1406545A0 (MiCreateImageOrDataSection.c)
  * Callees:
- *     <none>
+ *     IopGetFileObjectExtension @ 0x1402D6F90 (IopGetFileObjectExtension.c)
  */
 
-__int64 __fastcall IoGetFileMemoryPartitionInformation(__int64 a1)
+__int64 __fastcall IoGetFileMemoryPartitionInformation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _QWORD *v1; // rdx
-  __int64 result; // rax
-
-  v1 = *(_QWORD **)(a1 + 208);
-  result = 0LL;
-  if ( v1 )
-  {
-    if ( v1 != IopRevocationExtension )
-      return v1[9];
-  }
-  return result;
+  return IopGetFileObjectExtension(a1, 8LL, 0LL, a4);
 }

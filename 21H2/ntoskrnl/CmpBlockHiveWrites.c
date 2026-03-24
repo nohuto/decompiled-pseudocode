@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpBlockHiveWrites @ 0x14071B99C
+ * XREFs of CmpBlockHiveWrites @ 0x14066FE50
  * Callers:
- *     CmpVEExecuteRealStoreParseLogic @ 0x14071A4E8 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpVEExecuteOpenLogic @ 0x1407C64A0 (CmpVEExecuteOpenLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140917708 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteOpenLogic @ 0x140654F90 (CmpVEExecuteOpenLogic.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x14066FC00 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870C28 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     CmpDeleteHive @ 0x1406BBAD8 (CmpDeleteHive.c)
- *     CmpGetNextHive @ 0x14071BA34 (CmpGetNextHive.c)
- *     CmpReferenceHive @ 0x14071BBD8 (CmpReferenceHive.c)
- *     HvLockHiveFlusherExclusive @ 0x140AB41FC (HvLockHiveFlusherExclusive.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
+ *     CmpGetNextHive @ 0x140670E04 (CmpGetNextHive.c)
+ *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
  */
 
 __int64 __fastcall CmpBlockHiveWrites(volatile signed __int32 *a1, int a2, volatile signed __int32 **a3)
@@ -25,17 +25,17 @@ __int64 __fastcall CmpBlockHiveWrites(volatile signed __int32 *a1, int a2, volat
       break;
     if ( a1 == (volatile signed __int32 *)NextHive || !a1 )
     {
-      if ( !a2 || (a2 & *(_DWORD *)(NextHive + 4112)) == a2 || NextHive == CmpMasterHive )
+      if ( !a2 || (a2 & *(_DWORD *)(NextHive + 4152)) == a2 || NextHive == CmpMasterHive )
       {
         CmpReferenceHive(NextHive);
         if ( a3 )
           *a3 = v8;
-        HvLockHiveFlusherExclusive(v8);
+        ExAcquirePushLockExclusiveEx((ULONG_PTR)(v8 + 18), 0LL);
       }
       if ( a1 == v8 )
       {
-        if ( _InterlockedExchangeAdd(v8 + 1058, 0xFFFFFFFF) == 1 )
-          CmpDeleteHive(v8);
+        if ( _InterlockedExchangeAdd(v8 + 1068, 0xFFFFFFFF) == 1 )
+          CmpDeleteHive((PVOID)v8);
         return 0LL;
       }
     }

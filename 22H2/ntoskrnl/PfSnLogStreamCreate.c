@@ -1,12 +1,11 @@
 /*
- * XREFs of PfSnLogStreamCreate @ 0x140773E38
+ * XREFs of PfSnLogStreamCreate @ 0x14062EED4
  * Callers:
- *     PfFileInfoNotify @ 0x1402DF520 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x14029DC90 (PfFileInfoNotify.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     PfSnLogHelper @ 0x140773DD8 (PfSnLogHelper.c)
- *     PfSnGetNLLogEntry @ 0x140773F8C (PfSnGetNLLogEntry.c)
- *     RtlUpcaseUnicodeString @ 0x140774000 (RtlUpcaseUnicodeString.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     PfSnLogHelper @ 0x14062F03C (PfSnLogHelper.c)
+ *     RtlUpcaseUnicodeString @ 0x14062F0C0 (RtlUpcaseUnicodeString.c)
  */
 
 __int64 __fastcall PfSnLogStreamCreate(__int64 a1)
@@ -17,21 +16,20 @@ __int64 __fastcall PfSnLogStreamCreate(__int64 a1)
   __int64 v5; // rsi
   unsigned __int64 v6; // rbx
   struct _EX_RUNDOWN_REF *v7; // r13
-  __int64 v8; // r8
-  __int64 *v9; // rcx
-  __int64 NLLogEntry; // rbx
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  UNICODE_STRING SourceString; // [rsp+30h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
-  __int64 *v16; // [rsp+80h] [rbp+30h] BYREF
+  __int64 *v8; // rdx
+  unsigned __int64 v9; // rbx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  UNICODE_STRING SourceString; // [rsp+20h] [rbp-20h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  __int64 *v15; // [rsp+70h] [rbp+30h] BYREF
 
   v1 = 0;
   v2 = *(unsigned __int16 *)(a1 + 34);
   v4 = (unsigned __int16)*(_DWORD *)(a1 + 32);
   *(_DWORD *)(&DestinationString.MaximumLength + 1) = 0;
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
-  v16 = 0LL;
+  v15 = 0LL;
   if ( v2 <= v4 )
   {
     return (unsigned int)-1073741637;
@@ -40,38 +38,36 @@ __int64 __fastcall PfSnLogStreamCreate(__int64 a1)
   {
     v5 = v2 - v4;
     v6 = ((unsigned __int64)(unsigned int)(2 * v5 + 70) + 15) >> 4;
-    v7 = PfSnLogHelper(*(_QWORD *)a1, v6, &v16);
+    v7 = (struct _EX_RUNDOWN_REF *)PfSnLogHelper(*(_QWORD *)a1, (unsigned int)v6, &v15);
     if ( v7 )
     {
-      v8 = *(_QWORD *)(a1 + 16);
-      v9 = v16;
-      *(_OWORD *)v16 = 0LL;
-      *v9 = (8LL * (unsigned int)(v6 - 1)) | 5;
-      v9[1] = v8;
-      NLLogEntry = PfSnGetNLLogEntry(
-                     v9,
-                     0LL,
-                     (unsigned int)(2 * v5 + 54),
-                     *(unsigned int *)(a1 + 40),
-                     *(_DWORD *)(a1 + 44));
+      v8 = v15;
       DestinationString.Length = 0;
-      DestinationString.Buffer = (wchar_t *)(NLLogEntry + 44);
-      v11 = (unsigned __int16)*(_DWORD *)(a1 + 32);
-      v12 = *(_QWORD *)(a1 + 24);
+      *(_OWORD *)v15 = 0LL;
+      *v8 = (8LL * (unsigned int)(v6 - 1)) | 5;
+      v9 = ((unsigned __int64)v8 + 23) & 0xFFFFFFFFFFFFFFF8uLL;
+      v8[1] = *(_QWORD *)(a1 + 16);
+      *(_QWORD *)v9 = 0LL;
+      DestinationString.Buffer = (wchar_t *)(v9 + 44);
+      v10 = (unsigned __int16)*(_DWORD *)(a1 + 32);
+      v11 = *(_QWORD *)(a1 + 24);
       DestinationString.MaximumLength = 2 * v5;
       SourceString.Length = 2 * v5;
       SourceString.MaximumLength = 2 * v5;
-      *(_QWORD *)(NLLogEntry + 24) = *(_QWORD *)(a1 + 8);
-      *(_DWORD *)(NLLogEntry + 32) = *(_DWORD *)(a1 + 48);
-      *(_QWORD *)(NLLogEntry + 16) = *(_QWORD *)(a1 + 16);
-      SourceString.Buffer = (wchar_t *)(v12 + 2 * v11);
-      LODWORD(v11) = *(_DWORD *)(NLLogEntry + 40) ^ (*(_DWORD *)(a1 + 36) ^ *(_DWORD *)(NLLogEntry + 40)) & 1;
-      *(_DWORD *)(NLLogEntry + 40) = v11;
-      *(_DWORD *)(NLLogEntry + 40) = v11 ^ ((unsigned __int8)v11 ^ (unsigned __int8)(2 * *(_DWORD *)(a1 + 36))) & 4;
-      *(_WORD *)(NLLogEntry + 42) = v5;
+      SourceString.Buffer = (wchar_t *)(v11 + 2 * v10);
+      LODWORD(v10) = *(_DWORD *)(v9 + 40);
+      *(_DWORD *)v9 = 8 * ((2 * v5 + 54) & 0xFFFFFFF);
+      *(_DWORD *)(v9 + 4) = *(_DWORD *)(a1 + 40);
+      *(_DWORD *)(v9 + 8) = *(_DWORD *)(a1 + 44);
+      *(_QWORD *)(v9 + 24) = *(_QWORD *)(a1 + 8);
+      *(_DWORD *)(v9 + 32) = *(_DWORD *)(a1 + 48);
+      *(_QWORD *)(v9 + 16) = *(_QWORD *)(a1 + 16);
+      *(_DWORD *)(v9 + 40) ^= (*(_DWORD *)(a1 + 36) ^ v10) & 1;
+      *(_DWORD *)(v9 + 40) ^= ((unsigned __int8)*(_DWORD *)(v9 + 40) ^ (unsigned __int8)(2 * *(_DWORD *)(a1 + 36))) & 4;
+      *(_WORD *)(v9 + 42) = v5;
       RtlUpcaseUnicodeString(&DestinationString, &SourceString, 0);
-      *(_WORD *)(NLLogEntry + 2 * v5 + 44) = 0;
-      ExReleaseRundownProtection_0(v7 + 45);
+      *(_WORD *)(v9 + 2 * v5 + 44) = 0;
+      ExReleaseRundownProtection(v7 + 45);
     }
     else
     {

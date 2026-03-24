@@ -1,123 +1,124 @@
 /*
- * XREFs of imp_WdfRegistryQueryUnicodeString @ 0x1C00708F0
+ * XREFs of imp_WdfRegistryQueryUnicodeString @ 0x1C005EBE0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C0015654 (-FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
- *     ?QueryValue@FxRegKey@@QEAAJPEBU_UNICODE_STRING@@KPEAXPEAK2@Z @ 0x1C002D4C4 (-QueryValue@FxRegKey@@QEAAJPEBU_UNICODE_STRING@@KPEAXPEAK2@Z.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     ?FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C000A094 (-FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z @ 0x1C005F7C4 (-_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z.c)
  */
 
 __int64 __fastcall imp_WdfRegistryQueryUnicodeString(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFKEY__ *Key,
-        _UNICODE_STRING *ValueName,
+        const _UNICODE_STRING *ValueName,
         wchar_t *ValueByteLength,
         _UNICODE_STRING *Value)
 {
-  FX_POOL_TRACKER *v7; // r14
-  _FX_DRIVER_GLOBALS *m_Globals; // rbx
+  _FX_DRIVER_GLOBALS *m_Globals; // rdi
   __int64 result; // rax
-  _UNICODE_STRING *v11; // rdi
+  _UNICODE_STRING *v10; // rbx
   unsigned __int64 MaximumLength; // rsi
-  unsigned int _a2; // edi
-  unsigned __int16 v14; // r9
-  ULONG Tag; // ecx
-  void *v16; // rax
-  int v17; // eax
-  unsigned int v18; // esi
-  size_t v19; // rbx
+  unsigned int _a2; // ebx
+  unsigned __int16 v13; // r9
+  FX_POOL_TRACKER *v14; // rbp
+  int v15; // eax
+  size_t v16; // rsi
+  int v17; // edi
   wchar_t *Buffer; // rax
-  FxRegKey *pKey; // [rsp+40h] [rbp-20h] BYREF
-  __m128i v22; // [rsp+50h] [rbp-10h] BYREF
-  ULONG_PTR retaddr; // [rsp+98h] [rbp+38h]
-  unsigned int dataLength; // [rsp+A0h] [rbp+40h] BYREF
-  unsigned int type; // [rsp+B0h] [rbp+50h] BYREF
+  FxRegKey *pKey; // [rsp+40h] [rbp-48h] BYREF
+  void *retaddr; // [rsp+88h] [rbp+0h]
+  unsigned int dataLength; // [rsp+90h] [rbp+8h] BYREF
+  unsigned int type; // [rsp+A0h] [rbp+18h] BYREF
 
-  v7 = 0LL;
   pKey = 0LL;
   type = 0;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Key, 0x1006u, (void **)&pKey);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Key,
+    0x1006u,
+    (void **)&pKey);
   m_Globals = pKey->m_Globals;
   if ( !ValueName )
-    FxVerifierNullBugCheck(m_Globals, retaddr);
+    FxVerifierNullBugCheck(m_Globals, (ULONG_PTR)retaddr);
   result = FxVerifierCheckIrqlLevel(m_Globals, 0);
   if ( (int)result >= 0 )
   {
     result = FxValidateUnicodeString(m_Globals, ValueName);
     if ( (int)result >= 0 )
     {
-      v11 = Value;
+      v10 = Value;
       if ( Value )
       {
         result = FxValidateUnicodeString(m_Globals, Value);
         if ( (int)result < 0 )
           return result;
-        MaximumLength = v11->MaximumLength;
+        MaximumLength = v10->MaximumLength;
         dataLength = MaximumLength;
         if ( !(_DWORD)MaximumLength )
         {
           _a2 = -1073741811;
-          v14 = 24;
-LABEL_9:
-          WPP_IFR_SF_qL(m_Globals, 2u, 2u, v14, WPP_FxRegistryAPI_cpp_Traceguids, Key, _a2);
+          v13 = 24;
+LABEL_8:
+          WPP_IFR_SF_qL(m_Globals, 2u, 2u, v13, WPP_FxRegistryAPI_cpp_Traceguids, Key, _a2);
           return _a2;
         }
-        Tag = m_Globals->Tag;
-        v16 = (void *)retaddr;
-        v22.m128i_i64[0] = 0LL;
-        v22.m128i_i64[1] = 256LL;
-        if ( !m_Globals->FxPoolTrackingOn )
-          v16 = 0LL;
-        v7 = (FX_POOL_TRACKER *)FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v22, MaximumLength, Tag, v16);
-        if ( !v7 )
+        v14 = (FX_POOL_TRACKER *)FxPoolAllocator(
+                                   m_Globals,
+                                   &m_Globals->FxPoolFrameworks,
+                                   1u,
+                                   MaximumLength,
+                                   m_Globals->Tag,
+                                   retaddr);
+        if ( !v14 )
         {
           _a2 = -1073741670;
-          v14 = 25;
-          goto LABEL_9;
+          v13 = 25;
+          goto LABEL_8;
         }
       }
       else
       {
         LODWORD(MaximumLength) = 0;
         dataLength = 0;
+        v14 = 0LL;
       }
-      v17 = FxRegKey::QueryValue(pKey, ValueName, MaximumLength, v7, &dataLength, &type);
-      v18 = v17;
-      if ( v17 < 0 )
+      v15 = FxRegKey::_QueryValue(pKey->m_Globals, pKey->m_Key, ValueName, MaximumLength, v14, &dataLength, &type);
+      v16 = dataLength;
+      v17 = v15;
+      if ( v15 >= 0 )
       {
-        if ( v17 != -2147483643 )
-          goto LABEL_25;
+        if ( type - 1 > 1 )
+          v17 = -1073741788;
+        if ( v17 >= 0 )
+          goto LABEL_17;
       }
-      else if ( type - 1 > 1 )
+      if ( v17 == -2147483643 )
       {
-        v18 = -1073741788;
-LABEL_25:
-        if ( v7 )
-          FxPoolFree(v7);
-        return v18;
+LABEL_17:
+        if ( ValueByteLength )
+          *ValueByteLength = dataLength;
       }
-      v19 = dataLength;
-      if ( ValueByteLength )
-        *ValueByteLength = dataLength;
       if ( v17 >= 0 )
       {
-        if ( v11 )
+        if ( v10 )
         {
-          memmove(v11->Buffer, v7, v19);
-          Buffer = v11->Buffer;
-          v11->Length = v19;
-          if ( !Buffer[((unsigned __int64)(unsigned __int16)v19 >> 1) - 1] )
-            v11->Length = v19 - 2;
+          memmove(v10->Buffer, v14, v16);
+          Buffer = v10->Buffer;
+          v10->Length = v16;
+          if ( !Buffer[((unsigned __int64)(unsigned __int16)v16 >> 1) - 1] )
+            v10->Length = v16 - 2;
         }
       }
-      goto LABEL_25;
+      if ( v14 )
+        FxPoolFree(v14);
+      return (unsigned int)v17;
     }
   }
   return result;

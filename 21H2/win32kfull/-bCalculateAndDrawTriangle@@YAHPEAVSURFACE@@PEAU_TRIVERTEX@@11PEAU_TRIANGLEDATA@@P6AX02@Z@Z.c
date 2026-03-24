@@ -1,13 +1,13 @@
 /*
- * XREFs of ?bCalculateAndDrawTriangle@@YAHPEAVSURFACE@@PEAU_TRIVERTEX@@11PEAU_TRIANGLEDATA@@P6AX02@Z@Z @ 0x1C0287C60
+ * XREFs of ?bCalculateAndDrawTriangle@@YAHPEAVSURFACE@@PEAU_TRIVERTEX@@11PEAU_TRIANGLEDATA@@P6AX02@Z@Z @ 0x1C014CDC8
  * Callers:
- *     ?bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_RECTL@@4PEAU_POINTL@@@Z @ 0x1C0288570 (-bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_R.c)
+ *     ?bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_RECTL@@4PEAU_POINTL@@@Z @ 0x1C014CBF0 (-bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_R.c)
  * Callees:
- *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C0009AF4 (-bUMPDSecurityGateEx@@YAHXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?bCalulateColorGradient@@YAHPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C0287E8C (-bCalulateColorGradient@@YAHPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z.c)
- *     ?lCalculateTriangleArea@@YAJPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C0288944 (-lCalculateTriangleArea@@YAJPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z.c)
- *     ?vCalculateLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@@Z @ 0x1C028899C (-vCalculateLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@@Z.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00CFBA8 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     ?vCalculateLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@@Z @ 0x1C014CFB4 (-vCalculateLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@@Z.c)
+ *     ?lCalculateTriangleArea@@YAJPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C014D388 (-lCalculateTriangleArea@@YAJPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z.c)
+ *     ?bCalulateColorGradient@@YAHPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C014D464 (-bCalulateColorGradient@@YAHPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall bCalculateAndDrawTriangle(
@@ -18,20 +18,18 @@ __int64 __fastcall bCalculateAndDrawTriangle(
         struct _TRIANGLEDATA *a5,
         void (*a6)(struct SURFACE *, struct _TRIANGLEDATA *))
 {
-  struct _TRIVERTEX *v6; // rbx
-  struct _TRIVERTEX *v8; // r10
-  struct _TRIVERTEX *v9; // rdi
-  struct _TRIVERTEX *v10; // rsi
+  struct _TRIVERTEX *v8; // r9
+  struct _TRIVERTEX *v9; // rbx
+  struct _TRIVERTEX *v10; // rdx
   int v11; // eax
-  struct _TRIANGLEDATA *v12; // r9
-  struct _TRIVERTEX *v13; // r8
+  struct _TRIVERTEX *v12; // rdx
+  struct _TRIANGLEDATA *v13; // r9
+  struct _TRIVERTEX *v14; // rdi
   LONG y; // edx
-  LONG v15; // ecx
-  LONG v16; // eax
+  LONG v16; // ecx
   int v17; // r8d
   _DWORD *v18; // rdx
 
-  v6 = a4;
   if ( !a6 )
     return 0LL;
   v8 = a2;
@@ -40,38 +38,37 @@ __int64 __fastcall bCalculateAndDrawTriangle(
     v8 = a3;
     a3 = a2;
   }
-  v9 = v8;
-  if ( v8->y > a4->y )
-  {
-    v9 = a4;
-    v6 = v8;
-  }
-  v10 = v9;
-  if ( a3->y <= v9->y )
-    v9 = a3;
+  v9 = a4;
+  if ( v8->y <= a4->y )
+    a4 = v8;
   else
-    v10 = a3;
-  v11 = lCalculateTriangleArea(v9, v10, v6, a5);
+    v9 = v8;
+  v10 = a3;
+  if ( a3->y <= a4->y )
+  {
+    v10 = a4;
+    a4 = a3;
+  }
+  v11 = lCalculateTriangleArea(a4, v10, v9, a5);
   if ( !v11 )
     return 0LL;
+  v14 = v12;
   if ( v11 < 0 )
   {
-    v13 = v10;
-    v10 = v6;
-    v6 = v13;
-    if ( (int)lCalculateTriangleArea(v9, v10, v13, v12) <= 0 )
+    v14 = v9;
+    v9 = v12;
+    if ( (int)lCalculateTriangleArea(a4, v14, v12, v13) <= 0 )
       return 0LL;
   }
-  y = v9->y;
+  y = a4->y;
   if ( y <= *((_DWORD *)a5 + 1) )
     y = *((_DWORD *)a5 + 1);
   *((_DWORD *)a5 + 28) = y;
-  v15 = v10->y;
-  if ( v15 <= v6->y )
-    v15 = v6->y;
-  v16 = *((_DWORD *)a5 + 3);
-  if ( v15 < v16 )
-    v16 = v15;
+  v16 = v14->y;
+  if ( v16 <= v9->y )
+    v16 = v9->y;
+  if ( v16 >= *((_DWORD *)a5 + 3) )
+    v16 = *((_DWORD *)a5 + 3);
   *((_DWORD *)a5 + 29) = v16;
   v17 = 0;
   if ( v16 - y > 0 )
@@ -86,28 +83,28 @@ __int64 __fastcall bCalculateAndDrawTriangle(
     }
     while ( v17 < *((_DWORD *)a5 + 29) - *((_DWORD *)a5 + 28) );
   }
+  if ( a4->Red > 0xFF00u )
+    a4->Red = -256;
+  if ( a4->Green > 0xFF00u )
+    a4->Green = -256;
+  if ( a4->Blue > 0xFF00u )
+    a4->Blue = -256;
+  if ( v14->Red > 0xFF00u )
+    v14->Red = -256;
+  if ( v14->Green > 0xFF00u )
+    v14->Green = -256;
+  if ( v14->Blue > 0xFF00u )
+    v14->Blue = -256;
   if ( v9->Red > 0xFF00u )
     v9->Red = -256;
   if ( v9->Green > 0xFF00u )
     v9->Green = -256;
   if ( v9->Blue > 0xFF00u )
     v9->Blue = -256;
-  if ( v10->Red > 0xFF00u )
-    v10->Red = -256;
-  if ( v10->Green > 0xFF00u )
-    v10->Green = -256;
-  if ( v10->Blue > 0xFF00u )
-    v10->Blue = -256;
-  if ( v6->Red > 0xFF00u )
-    v6->Red = -256;
-  if ( v6->Green > 0xFF00u )
-    v6->Green = -256;
-  if ( v6->Blue > 0xFF00u )
-    v6->Blue = -256;
-  bCalulateColorGradient(v9, v10, v6, a5);
-  vCalculateLine(v9, v10, a5);
-  vCalculateLine(v10, v6, a5);
-  vCalculateLine(v6, v9, a5);
+  bCalulateColorGradient(a4, v14, v9, a5);
+  vCalculateLine(a4, v14, a5);
+  vCalculateLine(v14, v9, a5);
+  vCalculateLine(v9, a4, a5);
   if ( bUMPDSecurityGateEx()
     && !*((_QWORD *)a5 + 19)
     && ((char *)a6 == (char *)vGradientFill4 || (char *)a6 == (char *)vGradientFill8) )

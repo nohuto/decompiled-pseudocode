@@ -1,9 +1,9 @@
 /*
- * XREFs of _DllMainStartup @ 0x1800FCDA0
+ * XREFs of _DllMainStartup @ 0x1800DB530
  * Callers:
  *     <none>
  * Callees:
- *     _DllMainCRTStartup @ 0x18010F834 (_DllMainCRTStartup.c)
+ *     _DllMainCRTStartup @ 0x1800E747C (_DllMainCRTStartup.c)
  */
 
 BOOL __stdcall DllMainStartup(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved)

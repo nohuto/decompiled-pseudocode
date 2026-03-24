@@ -4,15 +4,15 @@
  *     CmpCheckRegistry2 @ 0x1405D8EF0 (CmpCheckRegistry2.c)
  * Callees:
  *     CmpHKeyNameLen @ 0x140017934 (CmpHKeyNameLen.c)
- *     CmpKeySecurityIncrementReferenceCount @ 0x1401B34A4 (CmpKeySecurityIncrementReferenceCount.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     CmpKeySecurityIncrementReferenceCount @ 0x1401B34C4 (CmpKeySecurityIncrementReferenceCount.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     CmpCheckLeaf @ 0x1405D8BC0 (CmpCheckLeaf.c)
  *     CmpCheckValueList @ 0x1405D9450 (CmpCheckValueList.c)
  *     HvIsCellAllocated @ 0x1405DBB00 (HvIsCellAllocated.c)
  *     CmpIncrementCachedSecurityRefcount @ 0x1405DBC90 (CmpIncrementCachedSecurityRefcount.c)
  *     CmpGetIndexElementSize @ 0x1405DBEB0 (CmpGetIndexElementSize.c)
- *     HvMarkCellDirty @ 0x140800FD4 (HvMarkCellDirty.c)
+ *     HvMarkCellDirty @ 0x140800FB4 (HvMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpCheckKey(

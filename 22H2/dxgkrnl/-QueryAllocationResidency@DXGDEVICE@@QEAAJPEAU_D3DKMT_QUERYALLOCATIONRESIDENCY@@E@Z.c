@@ -1,168 +1,186 @@
 /*
- * XREFs of ?QueryAllocationResidency@DXGDEVICE@@QEAAJPEAU_D3DKMT_QUERYALLOCATIONRESIDENCY@@E@Z @ 0x1C02D84A4
+ * XREFs of ?QueryAllocationResidency@DXGDEVICE@@QEAAJPEAU_D3DKMT_QUERYALLOCATIONRESIDENCY@@E@Z @ 0x1C0228F60
  * Callers:
- *     DxgkQueryAllocationResidency @ 0x1C02DACE0 (DxgkQueryAllocationResidency.c)
+ *     DxgkQueryAllocationResidency @ 0x1C022AED0 (DxgkQueryAllocationResidency.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??1DXGSYNCOBJECTMUTEX@@QEAA@XZ @ 0x1C0015690 (--1DXGSYNCOBJECTMUTEX@@QEAA@XZ.c)
- *     ?GetAllocationSafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C001B784 (-GetAllocationSafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
- *     ?GetResourceSafe@DXGPROCESS@@QEAA?AVDXGRESOURCEREFERENCE@@I@Z @ 0x1C00250B0 (-GetResourceSafe@DXGPROCESS@@QEAA-AVDXGRESOURCEREFERENCE@@I@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ??1DXGRESOURCEREFERENCE@@QEAA@XZ @ 0x1C01C6300 (--1DXGRESOURCEREFERENCE@@QEAA@XZ.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C01CB650 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
- *     ?VmBusSendQueryAllocationResidency@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@EPEAU_D3DKMT_QUERYALLOCATIONRESIDENCY@@@Z @ 0x1C038C788 (-VmBusSendQueryAllocationResidency@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVIC.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C00038D4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?GetAllocationSafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C0015390 (-GetAllocationSafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
+ *     ?GetResourceSafe@DXGPROCESS@@QEAA?AVDXGRESOURCEREFERENCE@@I@Z @ 0x1C0025DE8 (-GetResourceSafe@DXGPROCESS@@QEAA-AVDXGRESOURCEREFERENCE@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ??1DXGRESOURCEREFERENCE@@QEAA@XZ @ 0x1C0101D00 (--1DXGRESOURCEREFERENCE@@QEAA@XZ.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C0107C00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ?VmBusSendQueryAllocationResidency@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@EPEAU_D3DKMT_QUERYALLOCATIONRESIDENCY@@@Z @ 0x1C024B270 (-VmBusSendQueryAllocationResidency@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVIC.c)
  */
 
-__int64 __fastcall DXGDEVICE::QueryAllocationResidency(
+int __fastcall DXGDEVICE::QueryAllocationResidency(
         struct DXGPROCESS **this,
         struct _D3DKMT_QUERYALLOCATIONRESIDENCY *a2,
         unsigned __int8 a3)
 {
-  unsigned __int8 v3; // r12
-  D3DKMT_HANDLE hResource; // r8d
-  UINT *p_AllocationCount; // r14
-  D3DKMT_ALLOCATIONRESIDENCYSTATUS v8; // ebx
-  ULONG_PTR i; // r15
-  int v11; // eax
+  __int64 hResource; // r8
+  _QWORD *v7; // rax
+  D3DKMT_ALLOCATIONRESIDENCYSTATUS v8; // esi
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  _QWORD *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  _QWORD *v15; // rax
+  ULONG_PTR Count; // r14
+  int v17; // eax
   _DWORD *pResidencyStatus; // rdx
-  __int64 v13; // rax
-  __int64 v14; // r15
-  __int64 v15; // r12
-  unsigned int *v16; // rdx
-  unsigned int v17; // r13d
-  struct DXGPROCESS *v18; // r9
-  D3DKMT_ALLOCATIONRESIDENCYSTATUS v19; // eax
-  D3DKMT_ALLOCATIONRESIDENCYSTATUS *v20; // r8
-  _BYTE v21[72]; // [rsp+50h] [rbp-48h] BYREF
-  struct _EX_RUNDOWN_REF *v22; // [rsp+A8h] [rbp+10h] BYREF
-  unsigned __int8 v23; // [rsp+B0h] [rbp+18h]
+  __int64 v19; // rdx
+  UINT i; // r14d
+  __int64 v21; // r15
+  unsigned int *v22; // rdx
+  unsigned int v23; // r12d
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  _QWORD *v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rdx
+  struct DXGPROCESS *v30; // r8
+  __int64 v31; // rcx
+  _QWORD *v32; // rax
+  D3DKMT_ALLOCATIONRESIDENCYSTATUS v33; // eax
+  ULONG64 v34; // rdx
+  D3DKMT_ALLOCATIONRESIDENCYSTATUS *v35; // r8
+  _BYTE v36[16]; // [rsp+30h] [rbp-38h] BYREF
+  struct _EX_RUNDOWN_REF *v37; // [rsp+78h] [rbp+10h] BYREF
 
-  v23 = a3;
-  v3 = a3;
   hResource = a2->hResource;
-  p_AllocationCount = &a2->AllocationCount;
-  if ( hResource && *p_AllocationCount )
+  if ( (_DWORD)hResource && a2->AllocationCount )
   {
-    WdLogSingleEntry2(3LL, this, -1073741811LL);
-    return 3221225485LL;
+    v7 = (_QWORD *)WdLogNewEntry5_WdWarning(this, a2, hResource);
+    v7[3] = this;
+    v7[4] = -1073741811LL;
+LABEL_46:
+    WdLogEvent5_WdWarning(v7);
+    return -1073741811;
   }
   v8 = D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINGPUMEMORY;
-  if ( (*((_BYTE *)this + 1901) & 1) != 0 )
+  if ( (*((_BYTE *)this + 1869) & 1) != 0 )
     return DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendQueryAllocationResidency(
-             (DXG_GUEST_VIRTUALGPU_VMBUS *)(*((_QWORD *)this[2] + 2) + 4472LL),
+             (DXG_GUEST_VIRTUALGPU_VMBUS *)(*((_QWORD *)this[2] + 2) + 4240LL),
              this[5],
              (struct DXGDEVICE *)this,
-             v3,
+             a3,
              a2);
-  if ( !hResource )
+  if ( !(_DWORD)hResource )
   {
-    v13 = *p_AllocationCount;
-    if ( (_DWORD)v13 )
+    if ( a2->AllocationCount )
     {
-      v14 = 0LL;
-      while ( 1 )
+      for ( i = 0; ; ++i )
       {
-        if ( (unsigned int)v14 >= *p_AllocationCount )
-          return 0LL;
-        if ( v3 )
+        if ( i >= a2->AllocationCount )
+          return 0;
+        if ( a3 )
         {
-          v15 = v14;
-          v16 = (unsigned int *)&a2->phAllocationList[v14];
-          if ( (unsigned __int64)v16 >= MmUserProbeAddress )
-            v16 = (unsigned int *)MmUserProbeAddress;
-          v17 = *v16;
+          v21 = i;
+          v22 = (unsigned int *)&a2->phAllocationList[v21];
+          if ( (unsigned __int64)v22 >= MmUserProbeAddress )
+            v22 = (unsigned int *)MmUserProbeAddress;
+          v23 = *v22;
         }
         else
         {
-          v15 = v14;
-          v17 = a2->phAllocationList[v14];
+          v21 = i;
+          v23 = a2->phAllocationList[v21];
         }
-        DXGPROCESS::GetAllocationSafe((__int64)this[5], (DXGALLOCATIONREFERENCE *)&v22, v17);
-        if ( !v22 )
+        DXGPROCESS::GetAllocationSafe((__int64)this[5], (DXGALLOCATIONREFERENCE *)&v37, v23);
+        if ( !v37 )
           break;
-        v18 = this[2];
-        if ( *(_QWORD *)(*(_QWORD *)(v22[1].Count + 16) + 16LL) != *((_QWORD *)v18 + 2) )
+        v29 = *(_QWORD *)(v37[1].Count + 16);
+        v30 = this[2];
+        v31 = *((_QWORD *)v30 + 2);
+        if ( *(_QWORD *)(v29 + 16) != v31 )
         {
-          WdLogSingleEntry3(2LL, this, v22, -1073741811LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Device 0x%p does not match allocation 0x%p owner, returning 0x%I64x",
-            (__int64)this,
-            (__int64)v22,
-            -1073741811LL,
-            0LL,
-            0LL);
+          v32 = (_QWORD *)WdLogNewEntry5_WdError(v31, v29);
+          v32[3] = this;
+          v32[4] = v37;
+          v32[5] = -1073741811LL;
+          WdLogEvent5_WdError(v32);
           goto LABEL_36;
         }
-        v19 = (*(unsigned int (__fastcall **)(_QWORD, ULONG_PTR))(*(_QWORD *)(*((_QWORD *)v18 + 95) + 8LL) + 168LL))(
-                *((_QWORD *)v18 + 96),
-                v22[3].Count);
-        if ( v23 )
+        v33 = (*(unsigned int (__fastcall **)(_QWORD, ULONG_PTR))(*(_QWORD *)(*((_QWORD *)v30 + 80) + 8LL) + 184LL))(
+                *((_QWORD *)v30 + 81),
+                v37[3].Count);
+        if ( a3 )
         {
-          v20 = &a2->pResidencyStatus[v15];
-          if ( (unsigned __int64)v20 >= MmUserProbeAddress )
-            v20 = (D3DKMT_ALLOCATIONRESIDENCYSTATUS *)MmUserProbeAddress;
-          *v20 = v19;
+          v35 = &a2->pResidencyStatus[v21];
+          v34 = MmUserProbeAddress;
+          if ( (unsigned __int64)v35 >= MmUserProbeAddress )
+            v35 = (D3DKMT_ALLOCATIONRESIDENCYSTATUS *)MmUserProbeAddress;
+          *v35 = v33;
         }
         else
         {
-          a2->pResidencyStatus[v15] = v19;
+          a2->pResidencyStatus[v21] = v33;
         }
-        DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v22);
-        v14 = (unsigned int)(v14 + 1);
-        v3 = v23;
+        DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v37, v34);
       }
-      WdLogSingleEntry3(3LL, this, v17, -1073741811LL);
+      v27 = (_QWORD *)WdLogNewEntry5_WdWarning(v25, v24, v26);
+      v27[3] = this;
+      v27[4] = v23;
+      v27[5] = -1073741811LL;
+      WdLogEvent5_WdWarning(v27);
 LABEL_36:
-      DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v22);
-      return 3221225485LL;
+      DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v37, v28);
+      return -1073741811;
     }
-    WdLogSingleEntry3(3LL, this, v13, -1073741811LL);
-    return 3221225485LL;
+    v7 = (_QWORD *)WdLogNewEntry5_WdWarning(this, a2, hResource);
+    v7[3] = this;
+    v7[4] = a2->AllocationCount;
+    v7[5] = -1073741811LL;
+    goto LABEL_46;
   }
-  DXGPROCESS::GetResourceSafe((__int64)this[5], (DXGRESOURCEREFERENCE *)&v22, hResource);
-  if ( !v22 )
+  DXGPROCESS::GetResourceSafe((__int64)this[5], (DXGRESOURCEREFERENCE *)&v37, hResource);
+  if ( !v37 )
   {
-    WdLogSingleEntry3(3LL, this, a2->hResource, -1073741811LL);
+    v12 = (_QWORD *)WdLogNewEntry5_WdWarning(v10, 0LL, v11);
+    v12[3] = this;
+    v12[4] = a2->hResource;
+    v12[5] = -1073741811LL;
+    WdLogEvent5_WdWarning(v12);
 LABEL_9:
-    DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE(&v22);
-    return 3221225485LL;
+    DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE(&v37, v13);
+    return -1073741811;
   }
-  if ( *(_QWORD *)(*(_QWORD *)(v22[1].Count + 16) + 16LL) != *((_QWORD *)this[2] + 2) )
+  v14 = *((_QWORD *)this[2] + 2);
+  if ( *(_QWORD *)(*(_QWORD *)(v37[1].Count + 16) + 16LL) != v14 )
   {
-    WdLogSingleEntry3(2LL, this, v22, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Device 0x%p does not match resource 0x%p owner, returning 0x%I64x",
-      (__int64)this,
-      (__int64)v22,
-      -1073741811LL,
-      0LL,
-      0LL);
+    v15 = (_QWORD *)WdLogNewEntry5_WdError(v14, v37);
+    v15[3] = this;
+    v15[4] = v37;
+    v15[5] = -1073741811LL;
+    WdLogEvent5_WdError(v15);
     goto LABEL_9;
   }
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v21, (struct DXGFASTMUTEX *const)&v22[10], 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v21);
-  for ( i = v22[3].Count; i; i = *(_QWORD *)(i + 64) )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v36, (struct DXGFASTMUTEX *const)&v37[10], 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v36);
+  Count = v37[3].Count;
+  if ( Count )
   {
-    v11 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)this[2] + 95) + 8LL) + 168LL))(
-            *((_QWORD *)this[2] + 96),
-            *(_QWORD *)(i + 24));
-    if ( v11 == 3 )
+    while ( 1 )
     {
-      v8 = D3DKMT_ALLOCATIONRESIDENCYSTATUS_NOTRESIDENT;
-      break;
+      v17 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)this[2] + 80) + 8LL) + 184LL))(
+              *((_QWORD *)this[2] + 81),
+              *(_QWORD *)(Count + 24));
+      if ( v17 == 3 )
+        break;
+      if ( v17 == 2 )
+        v8 = D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINSHAREDMEMORY;
+      Count = *(_QWORD *)(Count + 64);
+      if ( !Count )
+        goto LABEL_19;
     }
-    if ( v11 == 2 )
-      v8 = D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINSHAREDMEMORY;
+    v8 = D3DKMT_ALLOCATIONRESIDENCYSTATUS_NOTRESIDENT;
   }
-  if ( v3 )
+LABEL_19:
+  if ( a3 )
   {
     pResidencyStatus = a2->pResidencyStatus;
     if ( (unsigned __int64)pResidencyStatus >= MmUserProbeAddress )
@@ -173,7 +191,7 @@ LABEL_9:
   {
     *a2->pResidencyStatus = v8;
   }
-  DXGSYNCOBJECTMUTEX::~DXGSYNCOBJECTMUTEX((DXGSYNCOBJECTMUTEX *)v21);
-  DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE(&v22);
-  return 0LL;
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v36);
+  DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE(&v37, v19);
+  return 0;
 }

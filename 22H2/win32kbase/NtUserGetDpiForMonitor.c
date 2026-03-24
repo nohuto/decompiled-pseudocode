@@ -1,181 +1,166 @@
 /*
- * XREFs of NtUserGetDpiForMonitor @ 0x1C005DE70
+ * XREFs of NtUserGetDpiForMonitor @ 0x1C0010BE0
  * Callers:
  *     <none>
  * Callees:
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C004CDAC (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C004D320 (W32GetCurrentThreadDpiAwarenessContext.c)
- *     EngMulDiv @ 0x1C005A530 (EngMulDiv.c)
- *     HMValidateSharedHandle @ 0x1C005E0B0 (HMValidateSharedHandle.c)
- *     DrvGetCurrentDpiInfoFromHDev @ 0x1C005E15C (DrvGetCurrentDpiInfoFromHDev.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     UserSetLastStatus @ 0x1C00CDAF4 (UserSetLastStatus.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     DrvGetCurrentDpiInfoFromHDev @ 0x1C0010A40 (DrvGetCurrentDpiInfoFromHDev.c)
+ *     HMValidateSharedHandle @ 0x1C0010E18 (HMValidateSharedHandle.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002BEF4 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     EngMulDiv @ 0x1C00718C0 (EngMulDiv.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     UserSetLastStatus @ 0x1C01D1D38 (UserSetLastStatus.c)
  */
 
-__int64 __fastcall NtUserGetDpiForMonitor(__int64 a1, __int64 a2, INT *a3, INT *a4)
+__int64 __fastcall NtUserGetDpiForMonitor(__int64 a1, int a2, INT *a3, INT *a4)
 {
-  int v4; // r13d
   INT v6; // esi
   INT v7; // r14d
   __int64 v8; // rax
-  __int64 v9; // rbx
-  __int64 v10; // r15
-  int v11; // r12d
-  __int64 v12; // r8
-  _DWORD *v13; // rdx
-  ULONG64 v14; // rcx
-  __int64 v15; // r9
+  __int64 v9; // r13
+  __int64 v10; // rbx
+  int v11; // r15d
+  int CurrentThreadDpiAwarenessContext; // ecx
+  unsigned __int16 v13; // cx
+  _DWORD *v14; // rdx
+  ULONG64 v15; // rcx
   _DWORD *v16; // rdx
   INT v18; // edi
   NTSTATUS CurrentDpiInfoFromHDev; // eax
   __int64 v20; // rcx
-  __int64 v21; // rax
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v25; // rdx
-  INT v26; // edx
-  INT v27; // ebx
-  __int64 v28; // rcx
-  __int64 v29; // rax
-  INT v30; // edx
-  INT v31; // ebx
-  INT v32; // eax
-  INT v33[28]; // [rsp+30h] [rbp-98h] BYREF
+  __int64 v21; // rcx
+  INT v22; // edx
+  INT v23; // ebx
+  __int64 v24; // rcx
+  INT v25; // edx
+  INT v26; // ebx
+  INT v27; // eax
+  INT v28[28]; // [rsp+30h] [rbp-98h] BYREF
 
-  v4 = a2;
   v6 = 0;
   v7 = 0;
-  PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal(a1, a2, (__int64)a3, (__int64)a4);
+  EnterSharedCrit(0LL, 1LL);
   v8 = HMValidateSharedHandle(a1);
   v9 = v8;
-  if ( !v8 || (v10 = *(_QWORD *)(v8 + 80)) == 0 )
+  if ( !v8 || (v10 = *(_QWORD *)(v8 + 232)) == 0 )
   {
     v11 = 0;
     UserSetLastError(6LL);
-    goto LABEL_12;
+    goto LABEL_15;
   }
-  if ( v4 )
+  if ( a2 )
   {
     v18 = 96;
-    memset(v33, 0, 0x60uLL);
-    CurrentDpiInfoFromHDev = DrvGetCurrentDpiInfoFromHDev(v10, v33);
+    memset(v28, 0, 0x60uLL);
+    CurrentDpiInfoFromHDev = DrvGetCurrentDpiInfoFromHDev(v10, (__int64)v28);
     if ( CurrentDpiInfoFromHDev < 0 )
     {
       v11 = 0;
       UserSetLastStatus(CurrentDpiInfoFromHDev);
-      goto LABEL_12;
+      goto LABEL_15;
     }
     v11 = 1;
-    if ( v4 == 2 )
+    if ( a2 == 2 )
     {
       if ( (W32GetCurrentThreadDpiAwarenessContext() & 0xF) == 2 )
       {
-        v6 = v33[10];
-        v7 = v33[11];
+        v6 = v28[10];
+        v7 = v28[11];
       }
       else
       {
         if ( (W32GetCurrentThreadDpiAwarenessContext() & 0xF) == 1 )
         {
-          CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v23);
-          v25 = CurrentProcessWin32Process;
-          if ( CurrentProcessWin32Process )
-            v25 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-          v26 = *(unsigned __int16 *)(v25 + 284);
-          v18 = v26;
+          v22 = *(unsigned __int16 *)(PsGetCurrentProcessWin32Process(v21) + 284);
+          v18 = v22;
         }
         else
         {
-          v26 = 96;
+          v22 = 96;
         }
-        v27 = *(unsigned __int16 *)(*(_QWORD *)(v9 + 40) + 60LL);
-        v6 = EngMulDiv(v33[10], v26, v27);
-        v7 = EngMulDiv(v33[11], v18, v27);
+        v23 = *(unsigned __int16 *)(*(_QWORD *)(v9 + 40) + 64LL);
+        v6 = EngMulDiv(v28[10], v22, v23);
+        v7 = EngMulDiv(v28[11], v18, v23);
       }
-      if ( (v33[23] & 1) != 0 || (v33[23] & 2) != 0 || !v6 )
+      if ( (v28[23] & 1) != 0 || (v28[23] & 2) != 0 || !v6 )
       {
         v7 = 0;
         v6 = 0;
         UserSetLastError(50LL);
         v11 = 0;
       }
-      goto LABEL_21;
+      goto LABEL_24;
     }
-    if ( v4 == 1 )
+    if ( a2 == 1 )
     {
-      if ( !v33[14] || (v33[23] & 2) != 0 )
+      if ( !v28[14] || (v28[23] & 2) != 0 )
       {
         v7 = 96;
         v6 = 96;
       }
       else
       {
-        v6 = EngMulDiv(v33[14], 96, 100);
-        v7 = EngMulDiv(v33[15], 96, 100);
+        v6 = EngMulDiv(v28[14], 96, 100);
+        v7 = EngMulDiv(v28[15], 96, 100);
       }
       if ( (W32GetCurrentThreadDpiAwarenessContext() & 0xF) == 1 )
       {
-        v29 = PsGetCurrentProcessWin32Process(v28);
-        if ( v29 )
-          v29 &= -(__int64)(*(_QWORD *)v29 != 0LL);
-        v30 = *(unsigned __int16 *)(v29 + 284);
-        v18 = v30;
+        v25 = *(unsigned __int16 *)(PsGetCurrentProcessWin32Process(v24) + 284);
+        v18 = v25;
       }
       else
       {
         if ( (W32GetCurrentThreadDpiAwarenessContext() & 0xF) == 2 )
-          goto LABEL_21;
-        v30 = 96;
+          goto LABEL_24;
+        v25 = 96;
       }
-      v31 = *(unsigned __int16 *)(*(_QWORD *)(v9 + 40) + 60LL);
-      v6 = EngMulDiv(v6, v30, v31);
-      v7 = EngMulDiv(v7, v18, v31);
+      v26 = *(unsigned __int16 *)(*(_QWORD *)(v9 + 40) + 64LL);
+      v6 = EngMulDiv(v6, v25, v26);
+      v7 = EngMulDiv(v7, v18, v26);
     }
-LABEL_21:
-    if ( SLOBYTE(v33[23]) < 0 )
+LABEL_24:
+    if ( SLOBYTE(v28[23]) < 0 )
     {
-      v32 = v7;
+      v27 = v7;
       v7 = v6;
-      v6 = v32;
+      v6 = v27;
     }
-    goto LABEL_7;
+    goto LABEL_10;
   }
   v11 = 1;
   if ( (W32GetCurrentThreadDpiAwarenessContext() & 0xF) == 2 )
   {
-    v6 = *(unsigned __int16 *)(*(_QWORD *)(v9 + 40) + 60LL);
+    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext();
+    if ( (CurrentThreadDpiAwarenessContext & 0xF) == 2 && (CurrentThreadDpiAwarenessContext & 0x20000000) != 0 )
+      v13 = *(_WORD *)(*(_QWORD *)(v9 + 40) + 68LL);
+    else
+      v13 = *(_WORD *)(*(_QWORD *)(v9 + 40) + 64LL);
+    v6 = v13;
   }
   else if ( (W32GetCurrentThreadDpiAwarenessContext() & 0xF) == 1 )
   {
-    v21 = PsGetCurrentProcessWin32Process(v20);
-    v22 = v21;
-    if ( v21 )
-      v22 = -(__int64)(*(_QWORD *)v21 != 0LL) & v21;
-    v6 = *(unsigned __int16 *)(v22 + 284);
+    v6 = *(unsigned __int16 *)(PsGetCurrentProcessWin32Process(v20) + 284);
   }
   else
   {
     v6 = 96;
   }
   v7 = v6;
-LABEL_7:
-  v12 = (__int64)a3;
-  v13 = a3;
+LABEL_10:
+  v14 = a3;
   if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-    v13 = (_DWORD *)MmUserProbeAddress;
-  *v13 = *v13;
-  v14 = MmUserProbeAddress;
-  v15 = (__int64)a4;
+    v14 = (_DWORD *)MmUserProbeAddress;
+  *v14 = *v14;
+  v15 = MmUserProbeAddress;
   v16 = a4;
   if ( (unsigned __int64)a4 >= MmUserProbeAddress )
     v16 = (_DWORD *)MmUserProbeAddress;
   *v16 = *v16;
   *a3 = v6;
   *a4 = v7;
-LABEL_12:
-  UserSessionSwitchLeaveCrit(v14, (__int64)v16, v12, v15);
+LABEL_15:
+  UserSessionSwitchLeaveCrit(v15);
   return v11;
 }

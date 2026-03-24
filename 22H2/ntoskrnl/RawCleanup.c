@@ -1,37 +1,40 @@
 /*
- * XREFs of RawCleanup @ 0x140792128
+ * XREFs of RawCleanup @ 0x14062DCCC
  * Callers:
- *     RawDispatch @ 0x140791C40 (RawDispatch.c)
+ *     RawDispatch @ 0x14062D7F0 (RawDispatch.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     RawInitiateDeleteVolume @ 0x140321C68 (RawInitiateDeleteVolume.c)
- *     IoRemoveLinkShareAccessEx @ 0x140792210 (IoRemoveLinkShareAccessEx.c)
- *     FsRtlNotifyVolumeEvent @ 0x140875160 (FsRtlNotifyVolumeEvent.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     RawInitiateDeleteVolume @ 0x14026D9DC (RawInitiateDeleteVolume.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     IoRemoveLinkShareAccessEx @ 0x14062DD90 (IoRemoveLinkShareAccessEx.c)
+ *     FsRtlNotifyVolumeEvent @ 0x14076D7C0 (FsRtlNotifyVolumeEvent.c)
  */
 
 __int64 __fastcall RawCleanup(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, PIRP Irp, __int64 a3)
 {
-  struct _FAST_MUTEX *p_Resource; // r14
+  struct _FAST_MUTEX *p_PagingIoResource; // r14
   char v7; // bp
+  void *v8; // rax
 
-  p_Resource = (struct _FAST_MUTEX *)&AdvancedHeader[2].Resource;
+  p_PagingIoResource = (struct _FAST_MUTEX *)&AdvancedHeader[2].PagingIoResource;
   v7 = 0;
-  ExAcquireFastMutex((PFAST_MUTEX)&AdvancedHeader[2].Resource);
+  ExAcquireFastMutex((PFAST_MUTEX)&AdvancedHeader[2].PagingIoResource);
   IoRemoveLinkShareAccessEx(*(_QWORD *)(a3 + 48), (char *)&AdvancedHeader[1].Resource + 4, 0LL, 0LL);
-  if ( *(_QWORD *)(a3 + 48) == *(_QWORD *)&AdvancedHeader[1].BypassIoOpenCount )
+  v8 = *(void **)(a3 + 48);
+  if ( v8 == *(void **)&AdvancedHeader[2].NodeTypeCode )
   {
     *(_DWORD *)&AdvancedHeader[1].NodeTypeCode &= ~1u;
     v7 = 1;
-    *(_QWORD *)&AdvancedHeader[1].BypassIoOpenCount = 0LL;
+    *(_QWORD *)&AdvancedHeader[2].NodeTypeCode = 0LL;
+    v8 = *(void **)(a3 + 48);
   }
-  if ( *(void **)(a3 + 48) == AdvancedHeader[1].AePushLock )
+  if ( v8 == AdvancedHeader[1].ReservedContext )
   {
-    AdvancedHeader[1].AePushLock = 0LL;
+    AdvancedHeader[1].ReservedContext = 0LL;
     RawInitiateDeleteVolume(AdvancedHeader, 1, 0);
   }
-  ExReleaseFastMutex(p_Resource);
+  KeReleaseGuardedMutex(p_PagingIoResource);
   if ( v7 )
     FsRtlNotifyVolumeEvent(*(PFILE_OBJECT *)(a3 + 48), 5u);
   Irp->IoStatus.Status = 0;

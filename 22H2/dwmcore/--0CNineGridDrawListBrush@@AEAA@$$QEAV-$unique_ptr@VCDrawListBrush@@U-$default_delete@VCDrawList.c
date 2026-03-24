@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CNineGridDrawListBrush@@AEAA@$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_N@Z @ 0x18002F11C
+ * XREFs of ??0CNineGridDrawListBrush@@AEAA@$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_N@Z @ 0x1800080EC
  * Callers:
- *     ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x18002F030 (-Create@CNineGridDrawListBrush@@SAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawL.c)
+ *     ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x1800072F8 (-Create@CNineGridDrawListBrush@@SAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawL.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ __int64 __fastcall CNineGridDrawListBrush::CNineGridDrawListBrush(
   __int64 v8; // rcx
   __int64 result; // rax
 
-  *(_OWORD *)(a1 + 8) = *(_OWORD *)&_xmm;
+  *(_OWORD *)(a1 + 8) = _xmm;
   *(_QWORD *)a1 = &CNineGridDrawListBrush::`vftable';
   *(_BYTE *)(a1 + 52) = 0;
   *(_BYTE *)(a1 + 64) = 0;

@@ -1,22 +1,22 @@
 /*
- * XREFs of PopSetPowerActionState @ 0x14038B860
+ * XREFs of PopSetPowerActionState @ 0x140382B6C
  * Callers:
- *     PopExecutePowerAction @ 0x1407FEC6C (PopExecutePowerAction.c)
- *     PopPolicyWorkerAction @ 0x1407FF440 (PopPolicyWorkerAction.c)
- *     PopPolicyWorkerActionPromote @ 0x140808500 (PopPolicyWorkerActionPromote.c)
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
+ *     PopPolicyWorkerAction @ 0x140775870 (PopPolicyWorkerAction.c)
+ *     PopPolicyWorkerActionPromote @ 0x14077A020 (PopPolicyWorkerActionPromote.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopDeepSleepSetDisengageReason @ 0x1402D5F7C (PopDeepSleepSetDisengageReason.c)
- *     PopDeepSleepClearDisengageReason @ 0x1402D6004 (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x140281548 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402815D0 (PopDeepSleepClearDisengageReason.c)
  */
 
 __int64 __fastcall PopSetPowerActionState(char a1)
 {
   __int64 result; // rax
 
-  if ( byte_140C227C1 != a1 )
+  if ( byte_140C23441 != a1 )
   {
-    byte_140C227C1 = a1;
+    byte_140C23441 = a1;
     if ( a1 )
       return PopDeepSleepSetDisengageReason(5u);
     else

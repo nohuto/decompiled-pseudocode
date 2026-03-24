@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpOpenFirstMatchingSubKey @ 0x140827F34
+ * XREFs of PnpOpenFirstMatchingSubKey @ 0x140827F14
  * Callers:
- *     PiQueryRemovableDeviceOverride @ 0x1406FFD98 (PiQueryRemovableDeviceOverride.c)
- *     PiDevCfgConfigureDeviceLocation @ 0x140702094 (PiDevCfgConfigureDeviceLocation.c)
+ *     PiQueryRemovableDeviceOverride @ 0x1406FFD78 (PiQueryRemovableDeviceOverride.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x140702074 (PiDevCfgConfigureDeviceLocation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall PnpOpenFirstMatchingSubKey(

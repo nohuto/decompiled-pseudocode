@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBMISC_Is30DevicePresent @ 0x1C002E5B4
+ * XREFs of HUBMISC_Is30DevicePresent @ 0x1C002DF30
  * Callers:
- *     HUBPSM30_CheckingIfDeviceIsConnectedOnPortChangeInD3Cold @ 0x1C0011D60 (HUBPSM30_CheckingIfDeviceIsConnectedOnPortChangeInD3Cold.c)
+ *     HUBPSM30_CheckingIfDeviceIsConnectedOnPortChangeInD3Cold @ 0x1C0011860 (HUBPSM30_CheckingIfDeviceIsConnectedOnPortChangeInD3Cold.c)
  * Callees:
  *     <none>
  */

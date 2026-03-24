@@ -1,8 +1,8 @@
 /*
- * XREFs of ?bEqualEntries@XEPALOBJ@@QEAAHV1@@Z @ 0x1C009726C
+ * XREFs of ?bEqualEntries@XEPALOBJ@@QEAAHV1@@Z @ 0x1C0113400
  * Callers:
- *     EngHTBlt @ 0x1C009247C (EngHTBlt.c)
- *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C0096C18 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
+ *     EngHTBlt @ 0x1C0019F38 (EngHTBlt.c)
+ *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C01122B8 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CaptureLogicalCursorPosToQMouseMove@CMouseProcessor@@QEAAXPEAUtagQ@@@Z @ 0x1C003B22C
+ * XREFs of ?CaptureLogicalCursorPosToQMouseMove@CMouseProcessor@@QEAAXPEAUtagQ@@@Z @ 0x1C00423FC
  * Callers:
- *     CaptureLogicalCursorPosToQMouseMove @ 0x1C003B200 (CaptureLogicalCursorPosToQMouseMove.c)
+ *     CaptureLogicalCursorPosToQMouseMove @ 0x1C00423D0 (CaptureLogicalCursorPosToQMouseMove.c)
  * Callees:
- *     ?LogicalCursorPosFromDpiAwarenessContext@CMouseProcessor@@QEAA?AUtagPOINT@@K@Z @ 0x1C00B1C0C (-LogicalCursorPosFromDpiAwarenessContext@CMouseProcessor@@QEAA-AUtagPOINT@@K@Z.c)
+ *     ?LogicalCursorPosFromDpiAwarenessContext@CMouseProcessor@@QEAA?AUtagPOINT@@K@Z @ 0x1C009D278 (-LogicalCursorPosFromDpiAwarenessContext@CMouseProcessor@@QEAA-AUtagPOINT@@K@Z.c)
  */
 
 void __fastcall CMouseProcessor::CaptureLogicalCursorPosToQMouseMove(CMouseProcessor *this, struct tagQ *a2)
@@ -22,8 +22,8 @@ void __fastcall CMouseProcessor::CaptureLogicalCursorPosToQMouseMove(CMouseProce
   }
   else
   {
-    v4 = *(_QWORD *)((char *)this + 60);
-    v5 = *((_DWORD *)this + 17);
+    v4 = *(_QWORD *)((char *)this + 68);
+    v5 = *((_DWORD *)this + 19);
   }
   *((_QWORD *)a2 + 23) = v4;
   *((_DWORD *)a2 + 48) = v5;

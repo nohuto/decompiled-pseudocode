@@ -1,15 +1,15 @@
 /*
- * XREFs of NtReplacePartitionUnit @ 0x140654720
+ * XREFs of NtReplacePartitionUnit @ 0x1405C9FF0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140779C10 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiControlMakeUserModeCallersCopy @ 0x14077C610 (PiControlMakeUserModeCallersCopy.c)
- *     IoReplacePartitionUnit @ 0x140943170 (IoReplacePartitionUnit.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406356D0 (PiControlMakeUserModeCallersCopy.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     IoReplacePartitionUnit @ 0x14089E440 (IoReplacePartitionUnit.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtReplacePartitionUnit(unsigned __int64 a1, unsigned __int64 a2, int a3)
@@ -103,7 +103,7 @@ LABEL_33:
         v13 = *(_QWORD *)(*(_QWORD *)(v12 + 312) + 40LL);
         if ( v13 )
         {
-          if ( !_bittest((const signed __int32 *)(v13 + 396), 0x11u) )
+          if ( (*(_DWORD *)(v13 + 396) & 0x20000) == 0 )
           {
             v14 = PnpDeviceObjectFromDeviceInstanceWithTag(&v20, 1953261124LL);
             v7 = (struct _DEVICE_OBJECT *)v14;
@@ -112,7 +112,7 @@ LABEL_33:
               v15 = *(_QWORD *)(*(_QWORD *)(v14 + 312) + 40LL);
               if ( v15 )
               {
-                if ( !_bittest((const signed __int32 *)(v15 + 396), 0x11u) )
+                if ( (*(_DWORD *)(v15 + 396) & 0x20000) == 0 )
                 {
                   v9 = 0;
                   v10 = v6;
@@ -132,9 +132,9 @@ LABEL_34:
   }
 LABEL_35:
   if ( v6 )
-    ObfDereferenceObject(v6);
+    ObfDereferenceObjectWithTag(v6, 0x746C6644u);
   if ( v7 )
-    ObfDereferenceObject(v7);
+    ObfDereferenceObjectWithTag(v7, 0x746C6644u);
   if ( P )
     ExFreePoolWithTag(P, 0);
   if ( v18[0] )

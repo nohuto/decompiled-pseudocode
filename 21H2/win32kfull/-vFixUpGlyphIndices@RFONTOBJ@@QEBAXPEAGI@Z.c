@@ -1,32 +1,44 @@
 /*
- * XREFs of ?vFixUpGlyphIndices@RFONTOBJ@@QEBAXPEAGI@Z @ 0x1C00EAC98
+ * XREFs of ?vFixUpGlyphIndices@RFONTOBJ@@QEBAXPEAGI@Z @ 0x1C00FD8FC
  * Callers:
- *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C00359A0 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
- *     GreGetTextExtentW @ 0x1C00C43FC (GreGetTextExtentW.c)
- *     GreGetCharABCWidthsW @ 0x1C00EA92C (GreGetCharABCWidthsW.c)
- *     GreGetCharWidthW @ 0x1C013B81C (GreGetCharWidthW.c)
- *     GreGetTextExtentExW @ 0x1C015FAA8 (GreGetTextExtentExW.c)
+ *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C0095270 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
+ *     GreGetCharWidthW @ 0x1C00A28E4 (GreGetCharWidthW.c)
+ *     GreGetTextExtentW @ 0x1C00E36CC (GreGetTextExtentW.c)
+ *     GreGetCharABCWidthsW @ 0x1C00FD588 (GreGetCharABCWidthsW.c)
+ *     GreGetTextExtentExW @ 0x1C016DED4 (GreGetTextExtentExW.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall RFONTOBJ::vFixUpGlyphIndices(RFONTOBJ *this, unsigned __int16 *a2, int a3)
+void __fastcall RFONTOBJ::vFixUpGlyphIndices(RFONTOBJ *this, unsigned __int16 *a2, unsigned int a3)
 {
   __int64 v3; // r9
   __int64 v4; // rax
-  __int16 v5; // r9
-  unsigned __int16 *v6; // rcx
+  unsigned __int64 v5; // r9
+  __int16 v6; // r10
+  unsigned __int64 v7; // rax
 
   v3 = *(_QWORD *)(*(_QWORD *)this + 120LL);
   if ( (*(_DWORD *)(*(_QWORD *)(v3 + 16) + 4LL) & 2) != 0 )
   {
     v4 = *(_QWORD *)(v3 + 32);
-    v5 = *(unsigned __int8 *)(v4 + 108);
+    v5 = 0LL;
+    v6 = *(unsigned __int8 *)(v4 + 108);
     if ( *(_BYTE *)(v4 + 108) )
     {
-      v6 = &a2[a3];
-      while ( a2 < v6 )
-        *a2++ -= v5;
+      v7 = (2 * (unsigned __int64)a3 + 1) >> 1;
+      if ( a2 > &a2[a3] )
+        v7 = 0LL;
+      if ( v7 )
+      {
+        do
+        {
+          *a2 -= v6;
+          ++v5;
+          ++a2;
+        }
+        while ( v5 < v7 );
+      }
     }
   }
 }

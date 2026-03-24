@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpLogContextSwapEvent @ 0x14017C9F0
+ * XREFs of EtwpLogContextSwapEvent @ 0x14017CA10
  * Callers:
- *     EtwTraceContextSwap @ 0x14017C8E0 (EtwTraceContextSwap.c)
+ *     EtwTraceContextSwap @ 0x14017C900 (EtwTraceContextSwap.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x1400C75E0 (EtwpReserveTraceBuffer.c)
- *     EtwpReleaseTraceBuffer @ 0x140113878 (EtwpReleaseTraceBuffer.c)
- *     EtwpCCSwapTrace @ 0x14017CB40 (EtwpCCSwapTrace.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     EtwpStackTraceDispatcher @ 0x14030F41C (EtwpStackTraceDispatcher.c)
- *     EtwpReserveWithPebsIndex @ 0x1403114D8 (EtwpReserveWithPebsIndex.c)
- *     EtwpReserveWithPmcCounters @ 0x14031156C (EtwpReserveWithPmcCounters.c)
- *     EtwpTraceLastBranchRecord @ 0x140317D58 (EtwpTraceLastBranchRecord.c)
- *     EtwpTraceProcessorTrace @ 0x140317F3C (EtwpTraceProcessorTrace.c)
+ *     EtwpReserveTraceBuffer @ 0x1400C7600 (EtwpReserveTraceBuffer.c)
+ *     EtwpReleaseTraceBuffer @ 0x140113898 (EtwpReleaseTraceBuffer.c)
+ *     EtwpCCSwapTrace @ 0x14017CB60 (EtwpCCSwapTrace.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     EtwpStackTraceDispatcher @ 0x14030F51C (EtwpStackTraceDispatcher.c)
+ *     EtwpReserveWithPebsIndex @ 0x1403115D8 (EtwpReserveWithPebsIndex.c)
+ *     EtwpReserveWithPmcCounters @ 0x14031166C (EtwpReserveWithPmcCounters.c)
+ *     EtwpTraceLastBranchRecord @ 0x140317E58 (EtwpTraceLastBranchRecord.c)
+ *     EtwpTraceProcessorTrace @ 0x14031803C (EtwpTraceProcessorTrace.c)
  */
 
 __int64 __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3)

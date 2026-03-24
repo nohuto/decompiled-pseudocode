@@ -1,42 +1,45 @@
 /*
- * XREFs of ?IsShadowAxisAlignedRectToReceiver@CProjectedShadow@@AEBA_NXZ @ 0x180234EBC
+ * XREFs of ?IsShadowAxisAlignedRectToReceiver@CProjectedShadow@@AEBA_NXZ @ 0x180006278
  * Callers:
- *     ?ComputeShadowPath@CProjectedShadow@@AEBA?AW4Enum@ShadowPath@@PEAVCDrawingContext@@@Z @ 0x180232FD8 (-ComputeShadowPath@CProjectedShadow@@AEBA-AW4Enum@ShadowPath@@PEAVCDrawingContext@@@Z.c)
+ *     ?ComputeShadowPath@CProjectedShadow@@AEBA?AW4Enum@ShadowPath@@PEAVCDrawingContext@@@Z @ 0x18000C720 (-ComputeShadowPath@CProjectedShadow@@AEBA-AW4Enum@ShadowPath@@PEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ?Is2DAxisAlignedPreserving@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3X2_F@@@Z @ 0x180057A54 (-Is2DAxisAlignedPreserving@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3X2_F@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?IsRectangular@CProjectedShadowCaster@@QEBA_NXZ @ 0x180201984 (-IsRectangular@CProjectedShadowCaster@@QEBA_NXZ.c)
+ *     ?Is2DAxisAlignedPreserving@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3X2_F@@@Z @ 0x180007FC4 (-Is2DAxisAlignedPreserving@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?IsRectangular@CProjectedShadowCaster@@QEBA_NXZ @ 0x18000C884 (-IsRectangular@CProjectedShadowCaster@@QEBA_NXZ.c)
+ *     ?IsCloseRealZero@@YA_NMM@Z @ 0x180094488 (-IsCloseRealZero@@YA_NMM@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
-bool __fastcall CProjectedShadow::IsShadowAxisAlignedRectToReceiver(CProjectedShadowCaster **this)
+char __fastcall CProjectedShadow::IsShadowAxisAlignedRectToReceiver(CProjectedShadow *this)
 {
   bool IsRectangular; // al
-  const struct D2D_MATRIX_3X2_F *v3; // rdx
-  int v4; // xmm1_4
-  int v5; // xmm0_4
-  int v6; // xmm1_4
-  int v7; // xmm0_4
-  int v8; // xmm1_4
-  _DWORD v10[6]; // [rsp+20h] [rbp-28h] BYREF
+  char v3; // r8
+  const struct D2D_MATRIX_3X2_F *v4; // rdx
+  int v5; // xmm1_4
+  int v6; // xmm0_4
+  int v7; // xmm1_4
+  int v8; // xmm0_4
+  int v9; // xmm1_4
+  _DWORD v11[6]; // [rsp+20h] [rbp-28h] BYREF
 
-  IsRectangular = CProjectedShadowCaster::IsRectangular(this[10]);
-  LOBYTE(v3) = 0;
+  IsRectangular = CProjectedShadowCaster::IsRectangular(*((CProjectedShadowCaster **)this + 9));
+  v3 = 0;
   if ( IsRectangular
-    && COERCE_FLOAT(*((_DWORD *)this + 47) & _xmm) < 0.000081380211
-    && COERCE_FLOAT((_DWORD)this[25] & _xmm) < 0.000081380211 )
+    && IsCloseRealZero(*((float *)this + 45), 0.000081380211)
+    && IsCloseRealZero(*((float *)this + 48), 0.000081380211) )
   {
-    v4 = *((_DWORD *)this + 46);
-    v10[0] = *((_DWORD *)this + 45);
-    v5 = *((_DWORD *)this + 48);
-    v10[1] = v4;
-    v6 = *((_DWORD *)this + 49);
-    v10[2] = v5;
-    v7 = *((_DWORD *)this + 51);
-    v10[3] = v6;
-    v8 = *((_DWORD *)this + 52);
-    v10[4] = v7;
-    v10[5] = v8;
-    LOBYTE(v3) = D2DMatrixHelper::Is2DAxisAlignedPreserving((D2DMatrixHelper *)v10, v3);
+    v5 = *((_DWORD *)this + 44);
+    v11[0] = *((_DWORD *)this + 43);
+    v6 = *((_DWORD *)this + 46);
+    v11[1] = v5;
+    v7 = *((_DWORD *)this + 47);
+    v11[2] = v6;
+    v8 = *((_DWORD *)this + 49);
+    v11[3] = v7;
+    v9 = *((_DWORD *)this + 50);
+    v11[4] = v8;
+    v11[5] = v9;
+    if ( D2DMatrixHelper::Is2DAxisAlignedPreserving((D2DMatrixHelper *)v11, v4) )
+      return 1;
   }
-  return (char)v3;
+  return v3;
 }

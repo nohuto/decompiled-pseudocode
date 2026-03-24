@@ -1,19 +1,19 @@
 /*
- * XREFs of BiEnumerateSubKeys @ 0x14081287C
+ * XREFs of BiEnumerateSubKeys @ 0x140783528
  * Callers:
- *     BiDeleteKey @ 0x14080422C (BiDeleteKey.c)
- *     BiCleanupLoadedStores @ 0x140811F10 (BiCleanupLoadedStores.c)
- *     BiOpenSystemStore @ 0x140813744 (BiOpenSystemStore.c)
- *     BcdEnumerateObjects @ 0x140A1CC78 (BcdEnumerateObjects.c)
- *     BiBuildIdentifierList @ 0x140A1E890 (BiBuildIdentifierList.c)
+ *     BiDeleteKey @ 0x140779960 (BiDeleteKey.c)
+ *     BiCleanupLoadedStores @ 0x1407820A8 (BiCleanupLoadedStores.c)
+ *     BiOpenSystemStore @ 0x14078381C (BiOpenSystemStore.c)
+ *     BcdEnumerateObjects @ 0x14096ED0C (BcdEnumerateObjects.c)
+ *     BiBuildIdentifierList @ 0x140970928 (BiBuildIdentifierList.c)
  * Callees:
- *     BiSanitizeHandle @ 0x14025DBFC (BiSanitizeHandle.c)
- *     BiZwEnumerateKey @ 0x1403A77D4 (BiZwEnumerateKey.c)
- *     BiZwQueryKey @ 0x1403A7874 (BiZwQueryKey.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     BiSanitizeHandle @ 0x1402D333C (BiSanitizeHandle.c)
+ *     BiZwEnumerateKey @ 0x14039B528 (BiZwEnumerateKey.c)
+ *     BiZwQueryKey @ 0x14039B5C8 (BiZwQueryKey.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiEnumerateSubKeys(void *a1, _QWORD *a2, ULONG *a3)
@@ -28,9 +28,9 @@ __int64 __fastcall BiEnumerateSubKeys(void *a1, _QWORD *a2, ULONG *a3)
   __int64 v11; // rsi
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // rax
-  unsigned int v14; // r8d
-  unsigned int v15; // ecx
-  unsigned int v16; // eax
+  unsigned int v14; // edx
+  unsigned int v15; // eax
+  unsigned int v16; // ecx
   char *PoolWithTag; // rax
   char *v18; // r12
   __int64 v19; // r8
@@ -38,23 +38,24 @@ __int64 __fastcall BiEnumerateSubKeys(void *a1, _QWORD *a2, ULONG *a3)
   NTSTATUS v21; // eax
   char *v22; // r12
   unsigned int v24; // [rsp+34h] [rbp-B4h]
-  void *v25; // [rsp+38h] [rbp-B0h]
-  _QWORD *v26; // [rsp+40h] [rbp-A8h]
-  ULONG v27; // [rsp+48h] [rbp-A0h] BYREF
-  ULONG v28; // [rsp+4Ch] [rbp-9Ch]
-  _QWORD *v29; // [rsp+50h] [rbp-98h]
-  ULONG *v30; // [rsp+58h] [rbp-90h]
-  _QWORD *v31; // [rsp+60h] [rbp-88h]
-  ULONG *v32; // [rsp+68h] [rbp-80h]
-  int v33[4]; // [rsp+70h] [rbp-78h] BYREF
-  __int128 v34; // [rsp+80h] [rbp-68h]
-  __int128 v35; // [rsp+90h] [rbp-58h]
+  void *v25; // [rsp+40h] [rbp-A8h]
+  _QWORD *v26; // [rsp+48h] [rbp-A0h]
+  ULONG v27; // [rsp+50h] [rbp-98h] BYREF
+  ULONG v28; // [rsp+54h] [rbp-94h]
+  _QWORD *v29; // [rsp+58h] [rbp-90h]
+  ULONG *v30; // [rsp+60h] [rbp-88h]
+  _QWORD *v31; // [rsp+68h] [rbp-80h]
+  ULONG *v32; // [rsp+70h] [rbp-78h]
+  int v33[4]; // [rsp+78h] [rbp-70h] BYREF
+  __int128 v34; // [rsp+88h] [rbp-60h]
+  __int128 v35; // [rsp+98h] [rbp-50h]
 
   v30 = a3;
   v3 = a2;
   v29 = a2;
   v31 = a2;
   v32 = a3;
+  v28 = 0;
   *(_OWORD *)v33 = 0LL;
   v34 = 0LL;
   v35 = 0LL;
@@ -79,8 +80,8 @@ __int64 __fastcall BiEnumerateSubKeys(void *a1, _QWORD *a2, ULONG *a3)
         v10 = DWORD2(v34) + 2;
         if ( (unsigned int)(DWORD2(v34) + 2) < DWORD2(v34) )
         {
-          v10 = -1;
           v9 = -1073741675;
+          v10 = -1;
         }
         else
         {

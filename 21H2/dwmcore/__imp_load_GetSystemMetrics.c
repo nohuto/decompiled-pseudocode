@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_GetSystemMetrics @ 0x180102E2E
+ * XREFs of __imp_load_GetSystemMetrics @ 0x1800E8F5E
  * Callers:
  *     <none>
  * Callees:

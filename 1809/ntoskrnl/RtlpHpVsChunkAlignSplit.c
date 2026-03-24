@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsChunkAlignSplit @ 0x1401098F0
+ * XREFs of RtlpHpVsChunkAlignSplit @ 0x140109910
  * Callers:
- *     RtlpHpVsChunkFree @ 0x1400BD370 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsContextAddSubsegment @ 0x140109844 (RtlpHpVsContextAddSubsegment.c)
+ *     RtlpHpVsChunkFree @ 0x1400BD390 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsContextAddSubsegment @ 0x140109864 (RtlpHpVsContextAddSubsegment.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 unsigned __int64 __fastcall RtlpHpVsChunkAlignSplit(__int64 a1, __int64 a2, __int64 a3)

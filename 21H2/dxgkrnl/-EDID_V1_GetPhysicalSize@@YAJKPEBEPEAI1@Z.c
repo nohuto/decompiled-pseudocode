@@ -1,14 +1,16 @@
 /*
- * XREFs of ?EDID_V1_GetPhysicalSize@@YAJKPEBEPEAI1@Z @ 0x1C00188A8
+ * XREFs of ?EDID_V1_GetPhysicalSize@@YAJKPEBEPEAI1@Z @ 0x1C000BD78
  * Callers:
- *     ?GetPhysicalSize@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAI0@Z @ 0x1C01D2080 (-GetPhysicalSize@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAI0@Z.c)
- *     ?AddEdid@EDIDCACHE@DxgMonitor@@UEAAXU_LUID@@IEPEBEW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z @ 0x1C021A2C0 (-AddEdid@EDIDCACHE@DxgMonitor@@UEAAXU_LUID@@IEPEBEW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z.c)
+ *     MonitorGetDpiInfoFromDescriptor @ 0x1C01454BC (MonitorGetDpiInfoFromDescriptor.c)
+ *     ?AddEdid@EDIDCACHE@@QEAAXPEAVDXGADAPTER@@IEPEBEW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z @ 0x1C018D678 (-AddEdid@EDIDCACHE@@QEAAXPEAVDXGADAPTER@@IEPEBEW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z.c)
+ *     ?_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C018E22C (-_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SC.c)
+ *     ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFF48 (-UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
  * Callees:
- *     ?GetDetTimParser@EDID_PARSER@MonDescParser@@QEAA_NHAEAVEDID_PARSER_DETAILED_TIMING@2@_N@Z @ 0x1C00189C4 (-GetDetTimParser@EDID_PARSER@MonDescParser@@QEAA_NHAEAVEDID_PARSER_DETAILED_TIMING@2@_N@Z.c)
- *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C0018CC0 (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C000A26C (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ *     ?GetDetTimParser@EDID_PARSER@MonDescParser@@QEAA_NHAEAVEDID_PARSER_DETAILED_TIMING@2@_N@Z @ 0x1C000BE90 (-GetDetTimParser@EDID_PARSER@MonDescParser@@QEAA_NHAEAVEDID_PARSER_DETAILED_TIMING@2@_N@Z.c)
  */
 
-__int64 __fastcall EDID_V1_GetPhysicalSize(unsigned int a1, unsigned __int8 *a2, unsigned int *a3, unsigned int *a4)
+__int64 __fastcall EDID_V1_GetPhysicalSize(__int64 a1, unsigned __int8 *a2, unsigned int *a3, unsigned int *a4)
 {
   __int64 result; // rax
   bool v7; // r9
@@ -23,10 +25,10 @@ __int64 __fastcall EDID_V1_GetPhysicalSize(unsigned int a1, unsigned __int8 *a2,
   _QWORD v16[12]; // [rsp+20h] [rbp-68h] BYREF
   unsigned __int8 *v17; // [rsp+98h] [rbp+10h] BYREF
 
-  if ( !a2 || !a1 || !a3 || !a4 )
+  if ( !a2 || !a3 || !a4 )
     return 3221225485LL;
   v16[10] = 0LL;
-  result = MonDescParser::EDID_PARSER::Initialize((MonDescParser::EDID_PARSER *)v16, a2, a1);
+  result = MonDescParser::EDID_PARSER::Initialize((MonDescParser::EDID_PARSER *)v16, a2, 0x80u);
   if ( (int)result >= 0 )
   {
     v17 = 0LL;
@@ -46,13 +48,13 @@ __int64 __fastcall EDID_V1_GetPhysicalSize(unsigned int a1, unsigned __int8 *a2,
       if ( v12 < v8 )
         v14 = v8 - v12;
       if ( v14 >= 0xA )
-        goto LABEL_16;
+        goto LABEL_15;
       v15 = v13 - v9;
       if ( v13 < v9 )
         v15 = v9 - v13;
       if ( v15 >= 0xA )
       {
-LABEL_16:
+LABEL_15:
         v13 = v9;
         v12 = v8;
       }

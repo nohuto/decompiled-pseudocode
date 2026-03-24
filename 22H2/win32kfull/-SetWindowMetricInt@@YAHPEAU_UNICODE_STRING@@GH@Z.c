@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z @ 0x1C01C80BC
+ * XREFs of ?SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z @ 0x1C01D6C28
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C00B8E38 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
- *     ?xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z @ 0x1C00B8E9C (-xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z.c)
- *     ?SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z @ 0x1C01C7950 (-SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z.c)
- *     ?xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z @ 0x1C01C8170 (-xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C0131CE0 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
+ *     ?xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z @ 0x1C0131D44 (-xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z.c)
+ *     ?SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z @ 0x1C01D64B8 (-SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z.c)
+ *     ?xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z @ 0x1C01D6CF4 (-xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z.c)
  * Callees:
- *     UpdateWinIniInt @ 0x1C01C86A0 (UpdateWinIniInt.c)
+ *     UpdateWinIniInt @ 0x1C01D7540 (UpdateWinIniInt.c)
  */
 
 __int64 __fastcall SetWindowMetricInt(struct _UNICODE_STRING *a1, unsigned __int16 a2, unsigned int a3)
@@ -15,15 +15,15 @@ __int64 __fastcall SetWindowMetricInt(struct _UNICODE_STRING *a1, unsigned __int
   unsigned int v3; // r10d
 
   v3 = a3;
-  if ( a2 <= 0x8Fu )
+  if ( a2 <= 0x90u )
   {
-    if ( a2 != 143 && a2 != 64 && a2 != 65 && a2 != 136 && a2 != 137 && a2 != 138 && (unsigned int)a2 - 140 >= 2 )
+    if ( a2 < 0x8Fu && (a2 < 0x40u || a2 > 0x41u && (a2 <= 0x87u || a2 > 0x8Au && (a2 <= 0x8Bu || a2 > 0x8Du))) )
       return UpdateWinIniInt(a1, 23LL, a2, v3);
-LABEL_17:
+LABEL_15:
     v3 = -((int)(1440 * a3 + (*(unsigned __int16 *)(gpsi + 6998LL) >> 1)) / *(unsigned __int16 *)(gpsi + 6998LL));
     return UpdateWinIniInt(a1, 23LL, a2, v3);
   }
-  if ( a2 == 144 || a2 == 146 || a2 == 147 || a2 == 148 || a2 == 152 || a2 == 153 || a2 == 158 )
-    goto LABEL_17;
+  if ( a2 >= 0x92u && (a2 <= 0x94u || a2 > 0x97u && (a2 <= 0x99u || a2 == 158)) )
+    goto LABEL_15;
   return UpdateWinIniInt(a1, 23LL, a2, v3);
 }

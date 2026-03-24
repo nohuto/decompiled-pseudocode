@@ -1,23 +1,19 @@
 /*
- * XREFs of GetAdjustedPointerPixelLocation @ 0x1C01E7F10
+ * XREFs of GetAdjustedPointerPixelLocation @ 0x1C01AE700
  * Callers:
- *     GetAdjustedPointerLocations @ 0x1C00E58B0 (GetAdjustedPointerLocations.c)
- *     ?UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z @ 0x1C01D9F20 (-UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z.c)
+ *     ?UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z @ 0x1C01A0B50 (-UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z.c)
+ *     GetAdjustedPointerLocations @ 0x1C01AE650 (GetAdjustedPointerLocations.c)
  * Callees:
- *     LongLongToLong @ 0x1C009968C (LongLongToLong.c)
+ *     LongLongToLong @ 0x1C008123C (LongLongToLong.c)
  */
 
-__int64 __fastcall GetAdjustedPointerPixelLocation(__int64 a1, __int64 a2, LONG *a3)
+_BOOL8 __fastcall GetAdjustedPointerPixelLocation(__int64 a1, __int64 a2, LONG *a3)
 {
   __int64 v3; // rdx
-  unsigned int v4; // r9d
-  int v6; // [rsp+34h] [rbp+Ch]
-  int v7; // [rsp+3Ch] [rbp+14h]
+  int v5; // [rsp+34h] [rbp+Ch]
+  int v6; // [rsp+3Ch] [rbp+14h]
 
-  v7 = HIDWORD(a2);
-  v6 = HIDWORD(a1);
-  if ( LongLongToLong((int)a2 + (__int64)(int)a1, a3) < 0 )
-    return 0LL;
-  LOBYTE(v4) = LongLongToLong(v6 + (__int64)v7, (LONG *)(v3 + 4)) >= 0;
-  return v4;
+  v6 = HIDWORD(a2);
+  v5 = HIDWORD(a1);
+  return LongLongToLong((int)a2 + (__int64)(int)a1, a3) >= 0 && LongLongToLong(v5 + (__int64)v6, (LONG *)(v3 + 4)) >= 0;
 }

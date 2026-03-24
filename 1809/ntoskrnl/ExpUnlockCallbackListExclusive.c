@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpUnlockCallbackListExclusive @ 0x1401775F8
+ * XREFs of ExpUnlockCallbackListExclusive @ 0x140177618
  * Callers:
- *     ExCreateCallback @ 0x1406CA3A0 (ExCreateCallback.c)
- *     ExpDeleteCallback @ 0x1406E21F0 (ExpDeleteCallback.c)
+ *     ExCreateCallback @ 0x1406CA380 (ExCreateCallback.c)
+ *     ExpDeleteCallback @ 0x1406E21D0 (ExpDeleteCallback.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)

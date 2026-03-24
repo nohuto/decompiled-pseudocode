@@ -1,57 +1,56 @@
 /*
- * XREFs of ?xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z @ 0x1C0008AF0
+ * XREFs of ?xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z @ 0x1C0027B1C
  * Callers:
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     xxxMinimizeHungWindow @ 0x1C0224BB0 (xxxMinimizeHungWindow.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
+ *     xxxMinimizeHungWindow @ 0x1C023EBD0 (xxxMinimizeHungWindow.c)
  * Callees:
- *     ?ForceForegroundChangeOnMinimize@@YA_NPEAUtagWND@@0@Z @ 0x1C0008E0C (-ForceForegroundChangeOnMinimize@@YA_NPEAUtagWND@@0@Z.c)
- *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C005E3E8 (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
- *     SkipWindowOnMonitor @ 0x1C0095080 (SkipWindowOnMonitor.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C00E4DF4 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C00E5B60 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     GetThreadDesktopWindow @ 0x1C00EC080 (GetThreadDesktopWindow.c)
- *     GetLastTopMostWindow @ 0x1C00ECD80 (GetLastTopMostWindow.c)
- *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C01210F8 (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
+ *     SkipWindowOnMonitor @ 0x1C0028130 (SkipWindowOnMonitor.c)
+ *     GetLastTopMostWindow @ 0x1C0038C48 (GetLastTopMostWindow.c)
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C003AFFC (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ *     CanForceForeground @ 0x1C003C490 (CanForceForeground.c)
+ *     GetWindowCloakState @ 0x1C004DB6C (GetWindowCloakState.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F390 (WPP_RECORDER_SF_q.c)
+ *     GetThreadDesktopWindow @ 0x1C0103DD0 (GetThreadDesktopWindow.c)
  */
 
 __int64 __fastcall xxxActivateOnMinimize(struct tagWND *a1)
 {
-  int v1; // r14d
-  BOOL v3; // ebp
+  int v1; // r12d
+  BOOL v3; // r14d
   int v4; // r13d
   __int64 LastTopMostWindow; // rax
-  const struct tagWND *v6; // rdi
-  const struct tagWND *v7; // rbx
-  const struct tagWND *v8; // rsi
+  _QWORD *v6; // rdi
+  _QWORD *v7; // rbx
+  _QWORD *v8; // rsi
   __int64 v9; // rcx
-  unsigned int v10; // ebp
-  bool v11; // al
-  int v12; // edx
-  _UNKNOWN **v13; // r8
-  bool v14; // di
-  bool v15; // si
-  char ThreadId; // al
-  int v17; // r8d
-  int v18; // edx
-  __int64 v20; // rcx
+  __int64 v10; // rcx
   __int64 ThreadDesktopWindow; // rax
-  __int128 v22; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v23; // [rsp+60h] [rbp-38h]
+  unsigned int v12; // edi
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  int v18; // edx
+  __int128 v19; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v20; // [rsp+40h] [rbp-38h]
 
   v1 = 0;
-  v3 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 136LL) != 0LL;
+  v3 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 128LL) != 0LL;
   v4 = *(_DWORD *)(*((_QWORD *)a1 + 5) + 236LL);
-  v22 = 0LL;
-  v23 = 0LL;
-  if ( v4 != 1 || (LastTopMostWindow = GetLastTopMostWindow()) == 0 )
+  LastTopMostWindow = 0LL;
+  v19 = 0LL;
+  v20 = 0LL;
+  if ( v4 == 1 )
+    LastTopMostWindow = GetLastTopMostWindow();
+  if ( !LastTopMostWindow )
   {
     ThreadDesktopWindow = *((_QWORD *)a1 + 13);
-    goto LABEL_41;
+    goto LABEL_28;
   }
-  v6 = *(const struct tagWND **)(LastTopMostWindow + 88);
+  v6 = *(_QWORD **)(LastTopMostWindow + 88);
   while ( 1 )
   {
-    v7 = v3 ? *(const struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 136LL) : v6;
+    v7 = v3 ? *(_QWORD **)(*(_QWORD *)(gptiCurrent + 432LL) + 128LL) : v6;
     v8 = 0LL;
     if ( v7 )
     {
@@ -59,15 +58,17 @@ __int64 __fastcall xxxActivateOnMinimize(struct tagWND *a1)
       {
         if ( (*(_BYTE *)(_HMPheFromObject(v7) + 25) & 1) == 0 )
         {
-          v9 = *((_QWORD *)v7 + 5);
-          if ( (*(_BYTE *)(v9 + 27) & 8) == 0 && (*(_BYTE *)(v9 + 31) & 0x18) == 0x10 && !GetWindowCloakState(v7) )
+          v9 = v7[5];
+          if ( (*(_BYTE *)(v9 + 27) & 8) == 0
+            && (*(_BYTE *)(v9 + 31) & 0x18) == 0x10
+            && !(unsigned int)GetWindowCloakState(v7) )
           {
-            v20 = *((_QWORD *)v7 + 5);
-            if ( (*(_BYTE *)(v20 + 31) & 0x20) == 0
-              && (v4 != 1 || *(_DWORD *)(v20 + 236) == 1)
+            v10 = v7[5];
+            if ( ((*(_BYTE *)(v10 + 31) & 0x20) == 0 || (*(_BYTE *)(v10 + 23) & 7) == 1)
+              && (v4 != 1 || *(_DWORD *)(v10 + 236) == 1)
               && !(unsigned int)SkipWindowOnMonitor(v7) )
             {
-              if ( *(char *)(*((_QWORD *)v7 + 5) + 24LL) >= 0 )
+              if ( *(char *)(v7[5] + 24LL) >= 0 )
                 break;
               if ( !v8 )
                 v8 = v7;
@@ -81,7 +82,7 @@ __int64 __fastcall xxxActivateOnMinimize(struct tagWND *a1)
         }
         else
         {
-          v7 = (const struct tagWND *)*((_QWORD *)v7 + 11);
+          v7 = (_QWORD *)v7[11];
         }
       }
       while ( v7 );
@@ -98,67 +99,51 @@ __int64 __fastcall xxxActivateOnMinimize(struct tagWND *a1)
     v1 = 1;
     if ( v6 )
     {
-      ThreadDesktopWindow = *((_QWORD *)v6 + 13);
-      goto LABEL_41;
+      ThreadDesktopWindow = v6[13];
+      goto LABEL_28;
     }
     ThreadDesktopWindow = GetThreadDesktopWindow(0LL);
     if ( ThreadDesktopWindow )
-LABEL_41:
-      v6 = *(const struct tagWND **)(ThreadDesktopWindow + 112);
+LABEL_28:
+      v6 = *(_QWORD **)(ThreadDesktopWindow + 112);
     else
       v6 = 0LL;
   }
-  *(_QWORD *)&v22 = *(_QWORD *)(gptiCurrent + 416LL);
-  v10 = 3;
-  *(_QWORD *)(gptiCurrent + 416LL) = &v22;
-  *((_QWORD *)&v22 + 1) = v7;
+  *(_QWORD *)&v19 = *(_QWORD *)(gptiCurrent + 416LL);
+  v12 = 3;
+  *(_QWORD *)(gptiCurrent + 416LL) = &v19;
+  *((_QWORD *)&v19 + 1) = v7;
   HMLockObject(v7);
-  v11 = ForceForegroundChangeOnMinimize(a1, v7);
-  v13 = &WPP_RECORDER_INITIALIZED;
-  if ( v11 )
+  v13 = *((_QWORD *)a1 + 2);
+  if ( (*(_DWORD *)(v13 + 1232) & 0x40000) != 0 && *(struct tagWND **)(v13 + 1392) == a1 )
   {
-    v10 = 7;
-    v14 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-       && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    v15 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( v14 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    v16 = *(_QWORD *)(v13 + 432);
+    if ( v16 == gpqForeground && *(struct tagWND **)(v16 + 120) == a1 )
     {
-      ThreadId = (unsigned __int8)PsGetThreadId((PETHREAD)*gptiCurrent);
-      LOBYTE(v17) = v15;
-      LOBYTE(v18) = v14;
-      WPP_RECORDER_AND_TRACE_SF_D(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v18,
-        v17,
-        (_DWORD)gFullLog,
-        4,
-        2,
-        10,
-        (__int64)&WPP_ed1e6af35bd8314bede5e951feb0d948_Traceguids,
-        ThreadId);
-      v13 = &WPP_RECORDER_INITIALIZED;
+      v17 = *(_QWORD *)(v13 + 1400);
+      if ( v17 )
+      {
+        if ( *(_QWORD *)(v17 + 16) == gptiForeground
+          && *(_QWORD *)(v7[2] + 432LL) != gpqForeground
+          && !(unsigned int)CanForceForeground(*(_QWORD *)(v13 + 424)) )
+        {
+          v12 = 7;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v18) = 4;
+            WPP_RECORDER_SF_q(
+              (unsigned int)&WPP_0ee3406538873864a1af3aa425fcf58b_Traceguids,
+              v18,
+              2,
+              10,
+              (__int64)&WPP_0ee3406538873864a1af3aa425fcf58b_Traceguids,
+              gptiCurrent);
+          }
+        }
+      }
     }
   }
-  LOBYTE(v12) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-             && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-             && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v12 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v13) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_qq(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v12,
-      (_DWORD)v13,
-      (_DWORD)gFullLog,
-      4,
-      2,
-      11,
-      (__int64)&WPP_ed1e6af35bd8314bede5e951feb0d948_Traceguids,
-      *(_QWORD *)v7,
-      *(_QWORD *)a1);
-  }
-  xxxSetForegroundWindowWithOptions(v7, v10, 0LL, 0LL);
-  ThreadUnlock1();
+  xxxSetForegroundWindowWithOptions(v7, v12, 0LL);
+  ThreadUnlock1(v14);
   return 1LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CDataSourceReaderMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022F3C0
+ * XREFs of ?SetBufferProperty@CDataSourceReaderMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F6380
  * Callers:
  *     <none>
  * Callees:

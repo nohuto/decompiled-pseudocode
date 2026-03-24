@@ -1,29 +1,29 @@
 /*
- * XREFs of IopDereferencePassiveInterruptBlock @ 0x1403A2B4C
+ * XREFs of IopDereferencePassiveInterruptBlock @ 0x14050D170
  * Callers:
- *     IopPassiveInterruptWorker @ 0x1403A2C00 (IopPassiveInterruptWorker.c)
- *     IopDestroyPassiveInterruptBlock @ 0x1409582CC (IopDestroyPassiveInterruptBlock.c)
+ *     IopPassiveInterruptWorker @ 0x14050D4F0 (IopPassiveInterruptWorker.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x1408A16F0 (IopDestroyPassiveInterruptBlock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     IopAcquirePassiveInterruptBlockLock @ 0x1403A2D24 (IopAcquirePassiveInterruptBlockLock.c)
- *     IopAcquireGlobalPassiveInterruptListLock @ 0x1403A2E7C (IopAcquireGlobalPassiveInterruptListLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x14050D07C (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     IopAcquirePassiveInterruptBlockLock @ 0x14050D0F4 (IopAcquirePassiveInterruptBlockLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDereferencePassiveInterruptBlock(PVOID P)
 {
   char v2; // bp
-  unsigned __int8 v3; // di
-  unsigned __int8 v4; // di
-  _QWORD *v5; // rcx
-  PVOID *v6; // rax
-  unsigned __int8 CurrentIrql; // cl
+  _QWORD *v3; // rcx
+  PVOID *v4; // rax
+  unsigned __int8 CurrentIrql; // al
+  unsigned __int8 v6; // di
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v10; // eax
-  bool v11; // zf
-  unsigned __int8 v12; // al
+  int v9; // eax
+  bool v10; // zf
+  unsigned __int8 v11; // al
+  unsigned __int8 v12; // di
   struct _KPRCB *v13; // r9
   _DWORD *v14; // r8
   int v15; // eax
@@ -34,59 +34,59 @@ void __fastcall IopDereferencePassiveInterruptBlock(PVOID P)
   v16 = 0;
   v2 = 0;
   IopAcquireGlobalPassiveInterruptListLock(&v17);
-  IopAcquirePassiveInterruptBlockLock(P, &v16);
+  IopAcquirePassiveInterruptBlockLock((__int64)P, &v16);
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 48, 0xFFFFFFFF) == 1 )
   {
-    v5 = *(_QWORD **)P;
-    v6 = (PVOID *)*((_QWORD *)P + 1);
-    if ( *(PVOID *)(*(_QWORD *)P + 8LL) != P || *v6 != P )
+    v3 = *(_QWORD **)P;
+    v4 = (PVOID *)*((_QWORD *)P + 1);
+    if ( *(PVOID *)(*(_QWORD *)P + 8LL) != P || *v4 != P )
       __fastfail(3u);
-    *v6 = v5;
+    *v4 = v3;
     v2 = 1;
-    v5[1] = v6;
+    v3[1] = v4;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)P + 7);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  KxReleaseSpinLock((PKSPIN_LOCK)P + 7);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
   {
-    v3 = v16;
+    v6 = v16;
     if ( v16 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v3 = v16;
-      v10 = ~(unsigned __int16)(-1LL << (v16 + 1));
-      v11 = (v10 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v10;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v6 = v16;
+      v9 = ~(unsigned __int16)(-1LL << (v16 + 1));
+      v10 = (v9 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v9;
+      if ( v10 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   else
   {
-    v3 = v16;
+    v6 = v16;
   }
-  __writecr8(v3);
-  KxReleaseSpinLock((volatile signed __int64 *)&PassiveInterruptListLock);
-  if ( KiIrqlFlags && (v12 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v12 <= 0xFu )
+  __writecr8(v6);
+  KxReleaseSpinLock(&PassiveInterruptListLock);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (v11 = KeGetCurrentIrql(), v11 <= 0xFu) )
   {
-    v4 = v17;
-    if ( v17 <= 0xFu && v12 >= 2u )
+    v12 = v17;
+    if ( v17 <= 0xFu && v11 >= 2u )
     {
       v13 = KeGetCurrentPrcb();
       v14 = v13->SchedulerAssist;
-      v4 = v17;
+      v12 = v17;
       v15 = ~(unsigned __int16)(-1LL << (v17 + 1));
-      v11 = (v15 & v14[5]) == 0;
+      v10 = (v15 & v14[5]) == 0;
       v14[5] &= v15;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(v13);
+      if ( v10 )
+        KiRemoveSystemWorkPriorityKick((__int64)v13);
     }
   }
   else
   {
-    v4 = v17;
+    v12 = v17;
   }
-  __writecr8(v4);
+  __writecr8(v12);
   if ( v2 )
     ExFreePoolWithTag(P, 0x6269704Bu);
 }

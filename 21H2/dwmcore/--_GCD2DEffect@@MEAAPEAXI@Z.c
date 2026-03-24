@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCD2DEffect@@MEAAPEAXI@Z @ 0x18028DB70
+ * XREFs of ??_GCD2DEffect@@MEAAPEAXI@Z @ 0x18024D590
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1CD2DEffect@@MEAA@XZ @ 0x18028DAE0 (--1CD2DEffect@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CD2DEffect@@MEAA@XZ @ 0x18024D500 (--1CD2DEffect@@MEAA@XZ.c)
  */
 
 CD2DEffect *__fastcall CD2DEffect::`scalar deleting destructor'(CD2DEffect *this, char a2)

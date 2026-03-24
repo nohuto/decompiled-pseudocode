@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwInit @ 0x140B235FC
+ * XREFs of PiSwInit @ 0x140A534A0
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x1402DF2C0 (RtlInitializeGenericTableAvl.c)
- *     ExInitializeResourceLite @ 0x14030F740 (ExInitializeResourceLite.c)
- *     IoCreateDriver @ 0x14084F500 (IoCreateDriver.c)
+ *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
+ *     RtlInitializeGenericTableAvl @ 0x140264400 (RtlInitializeGenericTableAvl.c)
+ *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
  */
 
 NTSTATUS PiSwInit()
@@ -26,14 +26,14 @@ NTSTATUS PiSwInit()
     (PRTL_AVL_ALLOCATE_ROUTINE)PiSwAllocateGenericTableEntry,
     (PRTL_AVL_FREE_ROUTINE)PiSwFreeGenericTableEntry,
     0LL);
-  qword_140C44898 = (__int64)&PiSwGlobalPdoAssociationList;
+  qword_140C433D8 = (__int64)&PiSwGlobalPdoAssociationList;
   PiSwGlobalPdoAssociationList = (__int64)&PiSwGlobalPdoAssociationList;
   result = ExInitializeResourceLite(&PiSwLockObj);
   if ( result >= 0 )
   {
     LODWORD(v1) = 3014700;
     *((_QWORD *)&v1 + 1) = L"\\Driver\\SoftwareDevice";
-    return IoCreateDriver(&v1, (__int64 (__fastcall *)(void **, _QWORD))PiSwPdoDriverEntry);
+    return IoCreateDriver(&v1, (_DMA_OPERATIONS *)PiSwPdoDriverEntry);
   }
   return result;
 }

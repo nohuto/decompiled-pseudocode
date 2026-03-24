@@ -1,23 +1,22 @@
 /*
- * XREFs of PopClearConnectedStandbyMarker @ 0x140980758
+ * XREFs of PopClearConnectedStandbyMarker @ 0x1408E1134
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C78A0 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570498 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x14032D1F4 (PopBsdHandleRequest.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1403F76F4 (PopBsdHandleRequest.c)
  */
 
-void __fastcall PopClearConnectedStandbyMarker(int a1)
+void __fastcall PopClearConnectedStandbyMarker(char a1)
 {
   if ( !PopBsdSkipLogging )
   {
     PopAcquireRwLockExclusive((ULONG_PTR)&PopBsdUpdateLock);
     *(_QWORD *)&PopBsdPowerTransition = 0LL;
     BYTE8(PopBsdPowerTransition) &= ~2u;
-    BYTE11(PopBsdPowerTransition) ^= (BYTE11(PopBsdPowerTransition) ^ a1) & 0x3F;
-    BYTE7(xmmword_140CF7C90) = BYTE7(xmmword_140CF7C90) & 0xF | (16 * HIBYTE(a1));
-    PopBsdHandleRequest(3u);
-    PopReleaseRwLock(&PopBsdUpdateLock);
+    BYTE11(PopBsdPowerTransition) ^= (a1 ^ BYTE11(PopBsdPowerTransition)) & 0x3F;
+    PopBsdHandleRequest(1);
+    PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
   }
 }

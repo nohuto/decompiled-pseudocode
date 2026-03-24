@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDereferenceControlAreaPfnList @ 0x140119E0C
+ * XREFs of MiDereferenceControlAreaPfnList @ 0x140119E2C
  * Callers:
  *     MiCopyDataPageToImagePage @ 0x14002D340 (MiCopyDataPageToImagePage.c)
  *     MiGatherMappedPages @ 0x14007E6B0 (MiGatherMappedPages.c)
  *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)
  *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)
- *     MiReleaseInPageRefs @ 0x140117F88 (MiReleaseInPageRefs.c)
- *     MiPurgeImageSection @ 0x140176600 (MiPurgeImageSection.c)
- *     MiPurgeSubsection @ 0x1402A2B28 (MiPurgeSubsection.c)
- *     MiSplitDirectMapPage @ 0x1402B6C24 (MiSplitDirectMapPage.c)
+ *     MiReleaseInPageRefs @ 0x140117FA8 (MiReleaseInPageRefs.c)
+ *     MiPurgeImageSection @ 0x140176620 (MiPurgeImageSection.c)
+ *     MiPurgeSubsection @ 0x1402A2C28 (MiPurgeSubsection.c)
+ *     MiSplitDirectMapPage @ 0x1402B6D24 (MiSplitDirectMapPage.c)
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  *     MiInsertUnusedSubsection @ 0x14007B7DC (MiInsertUnusedSubsection.c)
  *     MiRemoveUnusedSubsection @ 0x14007BBC8 (MiRemoveUnusedSubsection.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiCheckForControlAreaDeletion @ 0x140119F1C (MiCheckForControlAreaDeletion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiCheckForControlAreaDeletion @ 0x140119F3C (MiCheckForControlAreaDeletion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 void __fastcall MiDereferenceControlAreaPfnList(__int64 a1, __int64 a2, __int64 a3, char a4)

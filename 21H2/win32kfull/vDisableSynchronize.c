@@ -1,9 +1,9 @@
 /*
- * XREFs of vDisableSynchronize @ 0x1C0113580
+ * XREFs of vDisableSynchronize @ 0x1C0127EF0
  * Callers:
  *     <none>
  * Callees:
- *     ?vDisableTimers@@YAXK@Z @ 0x1C0113640 (-vDisableTimers@@YAXK@Z.c)
+ *     ?vDisableTimers@@YAXK@Z @ 0x1C0127FB0 (-vDisableTimers@@YAXK@Z.c)
  */
 
 __int64 __fastcall vDisableSynchronize(__int64 a1)
@@ -42,9 +42,9 @@ __int64 __fastcall vDisableSynchronize(__int64 a1)
         vDisableSynchronizeNKAPCBegin,
         vDisableSynchronizeNKAPCBegin,
         vDisableSynchronizeNKAPC,
-        *(unsigned int *)(a1 + 2096));
+        *(unsigned int *)(a1 + 2128));
     else
-      vDisableTimers(*(_DWORD *)(a1 + 2096));
+      vDisableTimers(*(_DWORD *)(a1 + 2128));
     _m_prefetchw((const void *)(a1 + 40));
     do
     {

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwWriteVirtualMemory @ 0x14041BEA0
+ * XREFs of ZwWriteVirtualMemory @ 0x1403FAAE0
  * Callers:
- *     SepAdtCopyToLsaSharedMemory @ 0x1409CF0D0 (SepAdtCopyToLsaSharedMemory.c)
+ *     SepAdtCopyToLsaSharedMemory @ 0x14092582C (SepAdtCopyToLsaSharedMemory.c)
  * Callees:
  *     <none>
  */

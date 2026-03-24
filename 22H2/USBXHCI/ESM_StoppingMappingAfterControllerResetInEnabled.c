@@ -1,16 +1,16 @@
 /*
- * XREFs of ESM_StoppingMappingAfterControllerResetInEnabled @ 0x1C0051CE0
+ * XREFs of ESM_StoppingMappingAfterControllerResetInEnabled @ 0x1C004F070
  * Callers:
  *     <none>
  * Callees:
- *     TR_StopMapping @ 0x1C000FCC0 (TR_StopMapping.c)
+ *     TR_StopMapping @ 0x1C000F4D0 (TR_StopMapping.c)
  */
 
 __int64 __fastcall ESM_StoppingMappingAfterControllerResetInEnabled(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 v2; // rsi
-  unsigned int v3; // edi
+  __int64 v2; // rdi
+  unsigned int v3; // esi
 
   v1 = *(_QWORD *)(a1 + 960);
   if ( *(_BYTE *)(v1 + 37) )

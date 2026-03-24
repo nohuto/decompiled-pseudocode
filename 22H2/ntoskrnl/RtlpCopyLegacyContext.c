@@ -1,26 +1,33 @@
 /*
- * XREFs of RtlpCopyLegacyContext @ 0x14030D95C
+ * XREFs of RtlpCopyLegacyContext @ 0x14033E548
  * Callers:
- *     RtlpCopyExtendedContext @ 0x14030D2C0 (RtlpCopyExtendedContext.c)
- *     RtlCopyContext @ 0x1407709E0 (RtlCopyContext.c)
+ *     RtlCopyContext @ 0x1406C0EA8 (RtlCopyContext.c)
+ *     KeCopyContextFromUmsContext @ 0x1408BE48C (KeCopyContextFromUmsContext.c)
+ *     KeCopyContextToUmsContext @ 0x1408BE8AC (KeCopyContextToUmsContext.c)
+ *     KeUpdatePrimaryThreadContext @ 0x1408BEB2C (KeUpdatePrimaryThreadContext.c)
  * Callees:
- *     RtlpCopyLegacyContextAmd64 @ 0x14030D98C (RtlpCopyLegacyContextAmd64.c)
- *     RtlpCopyLegacyContextX86 @ 0x1403631E4 (RtlpCopyLegacyContextX86.c)
- *     RtlpCopyLegacyContextArm @ 0x1405AAEC4 (RtlpCopyLegacyContextArm.c)
- *     RtlpCopyLegacyContextArm64 @ 0x1405AB024 (RtlpCopyLegacyContextArm64.c)
+ *     RtlpCopyLegacyContextX86 @ 0x140316C38 (RtlpCopyLegacyContextX86.c)
+ *     RtlpCopyLegacyContextAmd64 @ 0x14033FDC0 (RtlpCopyLegacyContextAmd64.c)
+ *     RtlpCopyLegacyContextArm @ 0x14058F484 (RtlpCopyLegacyContextArm.c)
+ *     RtlpCopyLegacyContextArm64 @ 0x14058F5E4 (RtlpCopyLegacyContextArm64.c)
  */
 
-__int64 __fastcall RtlpCopyLegacyContext(__int64 a1, __int64 a2, int a3)
+void __fastcall RtlpCopyLegacyContext(char a1, __int64 a2, int a3, __int64 a4)
 {
-  __int64 result; // rax
-
   if ( (a3 & 0x10000) != 0 )
-    return RtlpCopyLegacyContextX86();
-  if ( (a3 & 0x100000) != 0 )
-    return RtlpCopyLegacyContextAmd64();
-  if ( (a3 & 0x200000) != 0 )
-    return RtlpCopyLegacyContextArm();
-  if ( (a3 & 0x400000) != 0 )
-    return RtlpCopyLegacyContextArm64();
-  return result;
+  {
+    RtlpCopyLegacyContextX86(a1, a2, a3, a4);
+  }
+  else if ( (a3 & 0x100000) != 0 )
+  {
+    RtlpCopyLegacyContextAmd64();
+  }
+  else if ( (a3 & 0x200000) != 0 )
+  {
+    RtlpCopyLegacyContextArm();
+  }
+  else if ( (a3 & 0x400000) != 0 )
+  {
+    RtlpCopyLegacyContextArm64();
+  }
 }

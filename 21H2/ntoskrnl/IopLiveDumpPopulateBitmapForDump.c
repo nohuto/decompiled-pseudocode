@@ -1,29 +1,29 @@
 /*
- * XREFs of IopLiveDumpPopulateBitmapForDump @ 0x140A67608
+ * XREFs of IopLiveDumpPopulateBitmapForDump @ 0x1409AD1C8
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x140A66300 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409ABEE0 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     RtlFindSetBitsEx @ 0x14030ACF0 (RtlFindSetBitsEx.c)
- *     RtlSetBitsEx @ 0x14030B740 (RtlSetBitsEx.c)
- *     RtlFindNextForwardRunClearEx @ 0x14045EF10 (RtlFindNextForwardRunClearEx.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14055A628 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x14055BD18 (IopLiveDumpTracePopulateBitmapForDumpDuration.c)
- *     IopLiveDumpRemoveSystemCacheFromDump @ 0x140A678E0 (IopLiveDumpRemoveSystemCacheFromDump.c)
+ *     RtlFindSetBitsEx @ 0x140228910 (RtlFindSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x1405089CC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x140509DDC (IopLiveDumpTracePopulateBitmapForDumpDuration.c)
+ *     RtlFindNextForwardRunClearEx @ 0x1405874F0 (RtlFindNextForwardRunClearEx.c)
+ *     IopLiveDumpRemoveSystemCacheFromDump @ 0x1409AD4A4 (IopLiveDumpRemoveSystemCacheFromDump.c)
  */
 
 char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
 {
   int v3; // eax
-  __int64 v4; // r14
-  unsigned __int64 v5; // rsi
-  unsigned __int64 *v6; // r15
+  __int64 v4; // r15
+  unsigned __int64 v5; // r14
+  unsigned __int64 *v6; // rsi
   unsigned __int64 SetBits; // rdi
-  unsigned __int64 v8; // rsi
+  unsigned __int64 v8; // r14
   __int64 v9; // rax
-  unsigned __int64 v10; // r14
+  unsigned __int64 v10; // r15
   unsigned __int64 v11; // r12
   unsigned __int64 v12; // rax
-  unsigned __int64 v13; // r14
+  unsigned __int64 v13; // r15
   int v14; // eax
   unsigned __int64 v15; // rax
   __int64 v16; // rax
@@ -103,13 +103,12 @@ char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
         }
         while ( SetBits < v19 );
       }
-      if ( v6 != (unsigned __int64 *)(a1 + 600) )
-        break;
-      if ( (*(_DWORD *)(a1 + 40) & 4) == 0 )
-        break;
-      v6 = (unsigned __int64 *)(a1 + 656);
+      if ( v6 == (unsigned __int64 *)(a1 + 600) && (*(_DWORD *)(a1 + 40) & 4) != 0 )
+        v6 = (unsigned __int64 *)(a1 + 656);
+      else
+        v6 = 0LL;
     }
-    while ( a1 != -656 );
+    while ( v6 );
   }
   v14 = *(_DWORD *)(a1 + 80);
   if ( (v14 & 0x80u) != 0 )

@@ -1,25 +1,26 @@
 /*
- * XREFs of MiIsPageTableLocked @ 0x14035DA4C
+ * XREFs of MiIsPageTableLocked @ 0x1403161D8
  * Callers:
- *     MiResetAccessBitPte @ 0x14027B900 (MiResetAccessBitPte.c)
- *     MiAgePte @ 0x14027BC40 (MiAgePte.c)
- *     MiWalkVaCheckCommon @ 0x1402E3860 (MiWalkVaCheckCommon.c)
+ *     MiWalkVaCheckCommon @ 0x140286DA4 (MiWalkVaCheckCommon.c)
+ *     MiTrimPte @ 0x140288F80 (MiTrimPte.c)
+ *     MiAgePte @ 0x1402B9AD0 (MiAgePte.c)
+ *     MiResetAccessBitPte @ 0x14039B0F0 (MiResetAccessBitPte.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiShouldLockPteDirectly @ 0x1402E5D04 (MiShouldLockPteDirectly.c)
- *     MiGetPageTableLockBuffer @ 0x1403195F8 (MiGetPageTableLockBuffer.c)
+ *     MiShouldLockPteDirectly @ 0x14028D0A0 (MiShouldLockPteDirectly.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPageTableLockBuffer @ 0x1402DB688 (MiGetPageTableLockBuffer.c)
  */
 
-_BOOL8 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)
+unsigned __int64 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)
 {
   char v2; // r8
   char v4; // r8
   unsigned __int64 v5; // rdx
-  __int64 v6; // r9
-  unsigned __int64 PageTableLockBuffer; // rax
+  __int64 v6; // rcx
+  __int64 v8; // rcx
   _QWORD *v9; // rax
   bool v10; // zf
-  __int64 v11; // rcx
+  char *PageTableLockBuffer; // rax
   int v12; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = *(_BYTE *)(a1 + 184);
@@ -31,13 +32,13 @@ _BOOL8 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)
     {
       if ( v4 == 7 )
       {
-        v9 = &unk_140C67300;
+        v9 = &unk_140C4E4F8;
       }
       else
       {
-        v9 = &unk_140C672F8;
+        v9 = &unk_140C4E4F0;
         if ( v4 != 5 )
-          v9 = &unk_140C67310;
+          v9 = &unk_140C4E508;
       }
     }
     else
@@ -45,25 +46,20 @@ _BOOL8 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)
       v9 = (_QWORD *)(a1 + 176);
     }
     v10 = *v9 == 0LL;
-    return !v10;
-  }
-  if ( !v4 && a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
-  {
-    v11 = *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28] + 624);
-    if ( v11 )
-    {
-      v10 = *(_DWORD *)(v11 + 4 * ((a2 >> 3) & 0x1FF)) == 0;
-      return !v10;
-    }
-  }
-  if ( MiShouldLockPteDirectly(a1, a2) )
-  {
-    PageTableLockBuffer = (unsigned __int64)MI_READ_PTE_LOCK_FREE(v5) >> 60;
   }
   else
   {
-    PageTableLockBuffer = (unsigned __int64)MiGetPageTableLockBuffer(v6, v5, &v12);
-    LODWORD(PageTableLockBuffer) = *(_DWORD *)PageTableLockBuffer >> v12;
+    if ( v4
+      || a2 < 0xFFFFF6FB7DBED000uLL
+      || a2 > 0xFFFFF6FB7DBEDFFFuLL
+      || (v8 = *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8] + 608)) == 0 )
+    {
+      if ( MiShouldLockPteDirectly(a1, a2) )
+        return ((unsigned __int64)MI_READ_PTE_LOCK_FREE(v5) >> 60) & 1;
+      PageTableLockBuffer = MiGetPageTableLockBuffer(v6, v5, &v12);
+      return ((*(_DWORD *)PageTableLockBuffer >> v12) & 1) != 0;
+    }
+    v10 = *(_DWORD *)(v8 + 4 * ((a2 >> 3) & 0x1FF)) == 0;
   }
-  return PageTableLockBuffer & 1;
+  return !v10;
 }

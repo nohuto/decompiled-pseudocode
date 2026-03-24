@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x18026674C
+ * XREFs of ?GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x180205134
  * Callers:
- *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x180231608 (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
- *     ?GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z @ 0x180232B20 (-GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x1801C820C (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
+ *     ?GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C9740 (-GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z.c)
  * Callees:
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18014CF54 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
  */
 
 float __fastcall CScrollScaleKeyframeAnimation::GetNaturalEndpoint(
@@ -15,17 +15,23 @@ float __fastcall CScrollScaleKeyframeAnimation::GetNaturalEndpoint(
 {
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  if ( !*((_BYTE *)this + 668) )
+  if ( !*((_BYTE *)this + 636) )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      196LL,
+      (void *)0xC4,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollscalekeyframeanimation.cpp",
       a4);
-  if ( *((_DWORD *)this + 166) != 18 )
+    __debugbreak();
+  }
+  if ( *((_DWORD *)this + 158) != 18 )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      197LL,
+      (void *)0xC5,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollscalekeyframeanimation.cpp",
       a4);
-  return *((float *)this + 148);
+    __debugbreak();
+  }
+  return *((float *)this + 140);
 }

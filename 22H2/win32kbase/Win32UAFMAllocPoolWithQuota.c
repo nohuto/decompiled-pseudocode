@@ -1,34 +1,24 @@
 /*
- * XREFs of Win32UAFMAllocPoolWithQuota @ 0x1C014FA50
+ * XREFs of Win32UAFMAllocPoolWithQuota @ 0x1C013A050
  * Callers:
- *     <none>
+ *     Win32UAFMAllocPoolWithQuotaZInit @ 0x1C013A0E0 (Win32UAFMAllocPoolWithQuotaZInit.c)
  * Callees:
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002C184 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?AdjustSize@?$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CA_K_K@Z @ 0x1C014FC90 (-AdjustSize@-$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CA_K_K@Z.c)
- *     ?GenerateCookie@?$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CAIXZ @ 0x1C014FD40 (-GenerateCookie@-$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CAIX.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall Win32UAFMAllocPoolWithQuota(__int64 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall Win32UAFMAllocPoolWithQuota(__int64 a1, unsigned int a2, __int64 a3)
 {
-  unsigned __int64 v4; // rax
-  unsigned int v5; // edx
-  NSInstrumentation::CLeakTrackingAllocator *v6; // rcx
-  __int64 v7; // rbx
-  __int64 Quota; // rdi
-  int Cookie; // eax
+  __int64 v3; // rbx
+  int v7; // eax
 
-  v4 = NSInstrumentation::UAFMitigationAllocator<Win32UAFMAllocatorCollection>::AdjustSize(a1);
-  v7 = 0LL;
-  if ( v4 )
-  {
-    Quota = NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(v6, 260LL, v4, v5);
-    if ( Quota )
-    {
-      Cookie = NSInstrumentation::UAFMitigationAllocator<Win32UAFMAllocatorCollection>::GenerateCookie();
-      *(_DWORD *)(Quota + 12) = Cookie;
-      v7 = Quota + 16;
-      *a3 = Cookie - 1;
-    }
-  }
-  return v7;
+  v3 = 0LL;
+  if ( qword_1C0256DB0 )
+    v7 = qword_1C0256DB0();
+  else
+    v7 = -1073741637;
+  if ( v7 < 0 )
+    return 0LL;
+  if ( qword_1C0256DB8 )
+    return qword_1C0256DB8(41LL, a1, a2, a3);
+  return v3;
 }

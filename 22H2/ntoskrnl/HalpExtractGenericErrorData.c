@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpExtractGenericErrorData @ 0x140518C24
+ * XREFs of HalpExtractGenericErrorData @ 0x1404CF8E4
  * Callers:
- *     HalpCheckAndReportGhes @ 0x14033532C (HalpCheckAndReportGhes.c)
+ *     HalpReadGenericErrorInfo @ 0x1404CFA38 (HalpReadGenericErrorInfo.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 void *__fastcall HalpExtractGenericErrorData(__int64 a1)

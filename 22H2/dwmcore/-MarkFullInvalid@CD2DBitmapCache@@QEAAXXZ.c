@@ -1,13 +1,12 @@
 /*
- * XREFs of ?MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ @ 0x1800E7D3C
+ * XREFs of ?MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ @ 0x1800CB304
  * Callers:
- *     ?GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034E64 (-GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFo.c)
- *     ?MarkFullDirty@CBitmapRealization@@UEAAXXZ @ 0x1800E7CEC (-MarkFullDirty@CBitmapRealization@@UEAAXXZ.c)
- *     ?MarkFullDirty@CRenderTargetBitmap@@UEAAXXZ @ 0x18029DC90 (-MarkFullDirty@CRenderTargetBitmap@@UEAAXXZ.c)
- *     ?MarkFullDirty@CColorKeyBitmapRealization@@UEAAXXZ @ 0x1802B0950 (-MarkFullDirty@CColorKeyBitmapRealization@@UEAAXXZ.c)
- *     ?MarkFullDirty@CWICBitmapRealization@@UEAAXXZ @ 0x1802B1470 (-MarkFullDirty@CWICBitmapRealization@@UEAAXXZ.c)
- *     ?MarkFullDirty@CDxHandleStereoBitmapRealization@@UEAAXXZ @ 0x1802B3564 (-MarkFullDirty@CDxHandleStereoBitmapRealization@@UEAAXXZ.c)
- *     ?VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x1802B5030 (-VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagREC.c)
+ *     ?GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180060E68 (-GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFo.c)
+ *     ?MarkFullDirty@CBitmapRealization@@UEAAXXZ @ 0x1800CB2D8 (-MarkFullDirty@CBitmapRealization@@UEAAXXZ.c)
+ *     ?MarkFullDirty@CRenderTargetBitmap@@UEAAXXZ @ 0x18019B498 (-MarkFullDirty@CRenderTargetBitmap@@UEAAXXZ.c)
+ *     ?MarkFullDirty@CColorKeyBitmapRealization@@UEAAXXZ @ 0x1802628A0 (-MarkFullDirty@CColorKeyBitmapRealization@@UEAAXXZ.c)
+ *     ?MarkFullDirty@CWICBitmapRealization@@UEAAXXZ @ 0x180263360 (-MarkFullDirty@CWICBitmapRealization@@UEAAXXZ.c)
+ *     ?MarkFullDirty@CDxHandleStereoBitmapRealization@@UEAAXXZ @ 0x180264E48 (-MarkFullDirty@CDxHandleStereoBitmapRealization@@UEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -17,31 +16,31 @@ void __fastcall CD2DBitmapCache::MarkFullInvalid(CD2DBitmapCache *this)
   __int64 v1; // rax
   __int64 v2; // r10
   __int64 i; // r9
-  int v4; // edi
-  int v5; // ebx
-  int v6; // r11d
-  int v7; // r10d
+  int v4; // r10d
+  int v5; // r11d
+  int v6; // ebx
+  int v7; // edi
   _DWORD *v8; // rdx
-  int v9; // esi
-  int v10; // edi
-  int v11; // ebx
-  int v12; // r11d
+  int v9; // edi
+  int v10; // esi
+  int v11; // r11d
+  int v12; // ebx
   _DWORD *v13; // rdx
 
   v1 = *((_QWORD *)this + 5);
   if ( v1 )
   {
-    v4 = *(_DWORD *)(v1 + 32);
-    v5 = *(_DWORD *)(v1 + 40);
-    v6 = *(_DWORD *)(v1 + 36);
-    v7 = *(_DWORD *)(v1 + 44);
+    v4 = *(_DWORD *)(v1 + 40);
+    v5 = *(_DWORD *)(v1 + 48);
+    v6 = *(_DWORD *)(v1 + 44);
+    v7 = *(_DWORD *)(v1 + 52);
     if ( v4 >= v5 || v6 >= v7 )
     {
-      **(_DWORD **)(v1 + 48) = 0;
+      **(_DWORD **)(v1 + 56) = 0;
     }
     else
     {
-      v8 = *(_DWORD **)(v1 + 48);
+      v8 = *(_DWORD **)(v1 + 56);
       *v8 = 2;
       v8[7] = v4;
       v8[8] = v5;

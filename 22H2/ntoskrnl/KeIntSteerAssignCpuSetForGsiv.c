@@ -1,13 +1,13 @@
 /*
- * XREFs of KeIntSteerAssignCpuSetForGsiv @ 0x140579DA0
+ * XREFs of KeIntSteerAssignCpuSetForGsiv @ 0x14052255C
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiIntSteerAssignCpuSet @ 0x140579F10 (KiIntSteerAssignCpuSet.c)
- *     KiIntSteerClearCpuSetAssignment @ 0x14057A110 (KiIntSteerClearCpuSetAssignment.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIntSteerAssignCpuSet @ 0x14052265C (KiIntSteerAssignCpuSet.c)
+ *     KiIntSteerClearCpuSetAssignment @ 0x1405226B8 (KiIntSteerClearCpuSetAssignment.c)
  */
 
 __int64 __fastcall KeIntSteerAssignCpuSetForGsiv(int a1, unsigned __int16 a2, __int64 a3)
@@ -41,19 +41,22 @@ __int64 __fastcall KeIntSteerAssignCpuSetForGsiv(int a1, unsigned __int16 a2, __
     }
     v8 = *(_QWORD *)v8;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&KiIntTrackSpinlock);
+  KxReleaseSpinLock(&KiIntTrackSpinlock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-      v15 = (v14 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v14;
-      if ( v15 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+        v15 = (v14 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v14;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v10);

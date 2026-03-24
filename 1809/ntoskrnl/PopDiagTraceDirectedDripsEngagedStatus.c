@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDirectedDripsEngagedStatus @ 0x140871EEC
+ * XREFs of PopDiagTraceDirectedDripsEngagedStatus @ 0x140871ECC
  * Callers:
- *     PopDirectedDripsEngagePs4 @ 0x140867BB0 (PopDirectedDripsEngagePs4.c)
- *     PopDirectedDripsTriggerTransition @ 0x1408687A0 (PopDirectedDripsTriggerTransition.c)
- *     PopDisengageDirectedDrips @ 0x140868894 (PopDisengageDirectedDrips.c)
+ *     PopDirectedDripsEngagePs4 @ 0x140867B90 (PopDirectedDripsEngagePs4.c)
+ *     PopDirectedDripsTriggerTransition @ 0x140868780 (PopDirectedDripsTriggerTransition.c)
+ *     PopDisengageDirectedDrips @ 0x140868874 (PopDisengageDirectedDrips.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDirectedDripsEngagedStatus(unsigned __int8 a1)

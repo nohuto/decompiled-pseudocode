@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpStartRMLog @ 0x14070E334
+ * XREFs of CmpStartRMLog @ 0x14070E314
  * Callers:
- *     CmpInitCmRM @ 0x14067F308 (CmpInitCmRM.c)
- *     CmpStartRMLogs @ 0x1406FAC08 (CmpStartRMLogs.c)
+ *     CmpInitCmRM @ 0x14067F2E8 (CmpInitCmRM.c)
+ *     CmpStartRMLogs @ 0x1406FABE8 (CmpStartRMLogs.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  *     CmpQueryFileSecurityDescriptor @ 0x1405B4B70 (CmpQueryFileSecurityDescriptor.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmpQueryNameString @ 0x140683674 (CmpQueryNameString.c)
- *     CmpStartCLFSLog @ 0x14070E7AC (CmpStartCLFSLog.c)
- *     CmpRmAnalysisPhase @ 0x1407F8FDC (CmpRmAnalysisPhase.c)
- *     CmpRmReDoPhase @ 0x1407F9204 (CmpRmReDoPhase.c)
- *     CmpRmUnDoPhase @ 0x1407F93C0 (CmpRmUnDoPhase.c)
+ *     CmpQueryNameString @ 0x140683654 (CmpQueryNameString.c)
+ *     CmpStartCLFSLog @ 0x14070E78C (CmpStartCLFSLog.c)
+ *     CmpRmAnalysisPhase @ 0x1407F8FBC (CmpRmAnalysisPhase.c)
+ *     CmpRmReDoPhase @ 0x1407F91E4 (CmpRmReDoPhase.c)
+ *     CmpRmUnDoPhase @ 0x1407F93A0 (CmpRmUnDoPhase.c)
  */
 
 __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetHoverSource@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETHOVERSOURCE@@@Z @ 0x1800F54C0
+ * XREFs of ?ProcessSetHoverSource@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETHOVERSOURCE@@@Z @ 0x1800DE678
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??4?$ComPtr@VCHoverPointerSource@@@WRL@Microsoft@@QEAAAEAV012@PEAVCHoverPointerSource@@@Z @ 0x1800F5518 (--4-$ComPtr@VCHoverPointerSource@@@WRL@Microsoft@@QEAAAEAV012@PEAVCHoverPointerSource@@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ??4?$ComPtr@VCHoverPointerSource@@@WRL@Microsoft@@QEAAAEAV012@PEAVCHoverPointerSource@@@Z @ 0x1800DE6D0 (--4-$ComPtr@VCHoverPointerSource@@@WRL@Microsoft@@QEAAAEAV012@PEAVCHoverPointerSource@@@Z.c)
  */
 
 __int64 __fastcall CInteraction::ProcessSetHoverSource(
@@ -20,11 +20,11 @@ __int64 __fastcall CInteraction::ProcessSetHoverSource(
   v5 = *((_DWORD *)a3 + 2);
   if ( v5 )
   {
-    Resource = CResourceTable::GetResource((__int64)a2, v5, 0x50u);
+    Resource = CResourceTable::GetResource((__int64)a2, v5, 0x4Fu);
     if ( Resource )
       v4 = Resource - 8;
   }
-  if ( v4 != *((_QWORD *)this + 35) )
-    Microsoft::WRL::ComPtr<CHoverPointerSource>::operator=((char *)this + 280, v4);
+  if ( v4 != *((_QWORD *)this + 34) )
+    Microsoft::WRL::ComPtr<CHoverPointerSource>::operator=((char *)this + 272, v4);
   return 0LL;
 }

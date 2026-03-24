@@ -1,41 +1,37 @@
 /*
- * XREFs of ?Thunk_SetBooleanValue_13@?$IDataSourceProxy_Receive@VBamoDataSourceProxyImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x1801E05C0
+ * XREFs of ?Thunk_SetBooleanValue_13@?$IDataSourceProxy_Receive@VBamoDataSourceProxyImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x180194370
  * Callers:
  *     <none>
  * Callees:
- *     ??0?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVCalloutWrapperObject@12@@Z @ 0x1800269A0 (--0-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBase.c)
- *     ??1?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800269E8 (--1-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ.c)
- *     ?AckReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAXXZ @ 0x1800F04C0 (-AckReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z @ 0x1800D737C (--0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall IDataSourceProxy_Receive<BamoImpl::BamoDataSourceProxyImpl>::Thunk_SetBooleanValue_13(
-        Microsoft::BamoImpl::BamoProxyImpl *this,
+        __int64 a1,
         unsigned int **a2)
 {
-  char v3; // di
-  unsigned int v4; // ebx
+  char v3; // si
+  unsigned int v4; // edi
   __int64 v5; // r8
-  unsigned int v6; // ebx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  const char *v9; // r9
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  _BYTE v13[40]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int v6; // eax
+  __int64 v7; // rbx
+  unsigned int v8; // edi
+  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = *(_BYTE *)a2[1];
   v4 = **a2;
-  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-    (__int64)v13,
-    *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*(_QWORD *)(*((_QWORD *)this + 2) + 24LL) + 32LL));
+  Microsoft::BamoImpl::DropAndReacquireLock::DropAndReacquireLock(
+    (Microsoft::BamoImpl::DropAndReacquireLock *)&v10,
+    *(struct Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 24LL) + 32LL));
   LOBYTE(v5) = v3;
-  v6 = (*(__int64 (__fastcall **)(char *, _QWORD, __int64))(*((_QWORD *)this - 2) + 120LL))((char *)this - 16, v4, v5);
-  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::~CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-    (__int64)v13,
-    v7,
-    v8,
-    v9);
-  Microsoft::BamoImpl::BamoProxyImpl::AckReference(this, v10, v11);
-  return v6;
+  v6 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(*(_QWORD *)(a1 - 16) + 72LL))(a1 - 16, v4, v5);
+  v7 = v10;
+  v8 = v6;
+  if ( v10 )
+  {
+    EnterCriticalSection((LPCRITICAL_SECTION)(v10 + 128));
+    *(_DWORD *)(v7 + 168) = GetCurrentThreadId();
+  }
+  return v8;
 }

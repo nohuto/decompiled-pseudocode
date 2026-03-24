@@ -1,7 +1,7 @@
 /*
- * XREFs of _tlgCreate1Sz_char @ 0x1C0307DC4
+ * XREFs of _tlgCreate1Sz_char @ 0x1C02DF848
  * Callers:
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C03076A8 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C02DF120 (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall tlgCreate1Sz_char(__int64 a1, _BYTE *a2)
   }
   else
   {
-    a2 = &unk_1C031F02C;
+    a2 = &unk_1C02F5020;
     result = 1LL;
   }
   *(_DWORD *)(a1 + 12) = 0;

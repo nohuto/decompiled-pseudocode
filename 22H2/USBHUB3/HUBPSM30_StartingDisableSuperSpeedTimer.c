@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_StartingDisableSuperSpeedTimer @ 0x1C0013810
+ * XREFs of HUBPSM30_StartingDisableSuperSpeedTimer @ 0x1C00122F0
  * Callers:
  *     <none>
  * Callees:

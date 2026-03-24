@@ -1,7 +1,7 @@
 /*
- * XREFs of WerWaitForSystemErrorHandler @ 0x1C025DABC
+ * XREFs of WerWaitForSystemErrorHandler @ 0x1C0260E4C
  * Callers:
- *     WerKernelSubmitReportForHungProcess @ 0x1C025D5F4 (WerKernelSubmitReportForHungProcess.c)
+ *     WerKernelSubmitReportForHungProcess @ 0x1C0260984 (WerKernelSubmitReportForHungProcess.c)
  * Callees:
  *     <none>
  */

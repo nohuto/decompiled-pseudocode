@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpInterruptInitializeLocalUnit @ 0x14037C0A0
+ * XREFs of HalpInterruptInitializeLocalUnit @ 0x1403A360C
  * Callers:
- *     HalpInterruptReinitializeThisProcessor @ 0x14037B900 (HalpInterruptReinitializeThisProcessor.c)
- *     HalpInterruptInitializeController @ 0x14037EC3C (HalpInterruptInitializeController.c)
- *     HalpInterruptResetThisProcessor @ 0x140504F50 (HalpInterruptResetThisProcessor.c)
+ *     HalpInterruptInitializeController @ 0x1403A2F58 (HalpInterruptInitializeController.c)
+ *     HalpInterruptReinitializeThisProcessor @ 0x1403A3038 (HalpInterruptReinitializeThisProcessor.c)
+ *     HalpInterruptResetThisProcessor @ 0x1404BC3D0 (HalpInterruptResetThisProcessor.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     HalpInitializeDeferredErrorVector @ 0x14037C338 (HalpInitializeDeferredErrorVector.c)
- *     HalpInitializeCmciVector @ 0x14037C664 (HalpInitializeCmciVector.c)
- *     HalpInterruptMarkProcessorStarted @ 0x14037DB88 (HalpInterruptMarkProcessorStarted.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpInterruptRestoreController @ 0x14051A9A8 (HalpInterruptRestoreController.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     HalpInterruptRestoreController @ 0x14038AEB0 (HalpInterruptRestoreController.c)
+ *     HalpInitializeDeferredErrorVector @ 0x1403A3848 (HalpInitializeDeferredErrorVector.c)
+ *     HalpInitializeCmciVector @ 0x1403A38B8 (HalpInitializeCmciVector.c)
+ *     HalpInterruptMarkProcessorStarted @ 0x1403A39AC (HalpInterruptMarkProcessorStarted.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x1404D19C8 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptInitializeLocalUnit(ULONG_PTR BugCheckParameter3)
@@ -20,36 +20,32 @@ __int64 __fastcall HalpInterruptInitializeLocalUnit(ULONG_PTR BugCheckParameter3
   __int64 v1; // r14
   int v3; // r15d
   int v4; // eax
-  unsigned int v5; // edi
-  __int64 v6; // r9
-  char v7; // di
-  __int64 (__fastcall *v8)(_QWORD, __int128 *); // rax
-  __int64 (__fastcall *v9)(_QWORD, unsigned int *, __int128 *, __int64); // rax
-  int v10; // eax
-  int v11; // edx
-  unsigned int v12; // ecx
-  __int64 v13; // rax
-  int v14; // ecx
-  __int64 v15; // rdx
-  int v17; // eax
-  int v18; // edx
-  __int64 v19; // rcx
-  __int64 (__fastcall *v20)(_QWORD); // rax
-  int v21; // r8d
-  ULONG_PTR v22; // r8
-  int v23; // eax
-  int BugCheckParameter4; // [rsp+20h] [rbp-58h]
-  __int128 v25; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v26; // [rsp+50h] [rbp-28h]
-  int v27; // [rsp+70h] [rbp-8h]
-  unsigned int v28; // [rsp+80h] [rbp+8h] BYREF
+  int v5; // edi
+  __int64 v6; // r8
+  __int64 v7; // r9
+  __int64 (__fastcall *v8)(_QWORD); // rax
+  int v9; // eax
+  char v11; // di
+  __int64 (__fastcall *v12)(_QWORD, __int128 *); // rax
+  int v13; // eax
+  int v14; // edx
+  unsigned int v15; // ecx
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  __int64 (__fastcall *v18)(_QWORD, unsigned int *, __int128 *, __int64); // rax
+  ULONG_PTR BugCheckParameter4; // r8
+  int v20; // eax
+  __int128 v21; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v22; // [rsp+50h] [rbp-28h]
+  int v23; // [rsp+70h] [rbp-8h]
+  unsigned int v24; // [rsp+80h] [rbp+8h] BYREF
 
-  v28 = 0;
-  LODWORD(v26) = 0;
-  v25 = 0LL;
+  v24 = 0;
+  v21 = 0LL;
+  v22 = 0LL;
   LODWORD(v1) = KeGetPcr()->Prcb.Number;
   _disable();
-  v3 = v27 & 0x200;
+  v3 = v23 & 0x200;
   v4 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(BugCheckParameter3 + 32))(
          *(_QWORD *)(BugCheckParameter3 + 16),
          (unsigned int)v1,
@@ -57,159 +53,162 @@ __int64 __fastcall HalpInterruptInitializeLocalUnit(ULONG_PTR BugCheckParameter3
   v5 = v4;
   if ( v4 < 0 )
   {
-    BugCheckParameter4 = 593;
-    v18 = 4;
-LABEL_36:
-    v14 = BugCheckParameter3;
-LABEL_38:
-    HalpInterruptSetProblemEx(
-      v14,
-      v18,
-      v4,
-      (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c",
-      BugCheckParameter4);
-    goto LABEL_25;
+    HalpInterruptLastProblem = 4;
+    *(_QWORD *)(BugCheckParameter3 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\intsup.c";
+    *(_DWORD *)(BugCheckParameter3 + 292) = 4;
+    *(_DWORD *)(BugCheckParameter3 + 296) = v4;
+    *(_DWORD *)(BugCheckParameter3 + 312) = 571;
+    goto LABEL_13;
   }
   if ( !KeGetPcr()->Prcb.Number )
-    HalpInterruptP0LocalId = v28;
-  HalpInterruptMarkProcessorStarted(v28);
+    HalpInterruptP0LocalId = v24;
+  HalpInterruptMarkProcessorStarted(v24);
   if ( *(_DWORD *)(HalpInterruptTargets + 24 * v1) )
   {
     if ( !HalpInterruptPhysicalModeOnly )
     {
-      v20 = *(__int64 (__fastcall **)(_QWORD))(BugCheckParameter3 + 80);
-      if ( v20 )
+      v8 = *(__int64 (__fastcall **)(_QWORD))(BugCheckParameter3 + 80);
+      if ( v8 )
       {
-        v21 = v20(*(_QWORD *)(BugCheckParameter3 + 16));
-        if ( v21 < 0 )
+        v9 = v8(*(_QWORD *)(BugCheckParameter3 + 16));
+        v6 = v9;
+        if ( v9 < 0 )
         {
           HalpInterruptSetProblemEx(
             BugCheckParameter3,
             6,
-            v21,
+            v9,
             (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c",
-            804);
-          KeBugCheckEx(0x5Cu, 0x200uLL, HalpInterruptLastProblem, BugCheckParameter3, v22);
+            782);
+          KeBugCheckEx(0x5Cu, 0x200uLL, HalpInterruptLastProblem, BugCheckParameter3, BugCheckParameter4);
         }
       }
     }
-    goto LABEL_20;
+    goto LABEL_8;
   }
-  if ( !HalpInterruptPhysicalModeOnly )
-  {
-    if ( !HalpInterruptClusterModeEnabled
-      && !HalpInterruptClusterModeForced
-      && (!HalpInterruptMaxClusterSize || (unsigned int)HalpInterruptProcessorCount <= HalpInterruptLogicalFlatLimit) )
-    {
-      LODWORD(v25) = 5;
-      v17 = 1 << v1;
-      goto LABEL_32;
-    }
-    if ( HalpInterruptNextCluster < (unsigned int)HalpInterruptMaxCluster
-      && (*(_DWORD *)(BugCheckParameter3 + 244) & 8) != 0 )
-    {
-      v7 = 1;
-      DWORD2(v25) = HalpInterruptNextCluster;
-      HIDWORD(v25) = 1 << HalpInterruptNextClusterIndex;
-      LODWORD(v25) = 6;
-      goto LABEL_10;
-    }
-  }
-  v17 = v28;
-  LODWORD(v25) = 4;
-LABEL_32:
-  v7 = 0;
-  DWORD2(v25) = v17;
+  v11 = 0;
   if ( HalpInterruptPhysicalModeOnly )
-    goto LABEL_43;
-LABEL_10:
-  v8 = *(__int64 (__fastcall **)(_QWORD, __int128 *))(BugCheckParameter3 + 80);
-  if ( v8 )
+    goto LABEL_34;
+  if ( !HalpInterruptClusterModeForced
+    && !HalpInterruptClusterModeEnabled
+    && (!HalpInterruptMaxClusterSize || (unsigned int)HalpInterruptProcessorCount <= HalpInterruptLogicalFlatLimit) )
   {
-    v10 = v8(*(_QWORD *)(BugCheckParameter3 + 16), &v25);
-    v11 = v25;
-LABEL_41:
-    v12 = DWORD2(v25);
-    goto LABEL_14;
+    LODWORD(v21) = 5;
+    DWORD2(v21) = 1 << v1;
+    goto LABEL_22;
   }
-  v9 = *(__int64 (__fastcall **)(_QWORD, unsigned int *, __int128 *, __int64))(BugCheckParameter3 + 144);
-  if ( !v9 )
+  if ( HalpInterruptNextCluster >= (unsigned int)HalpInterruptMaxCluster
+    || (*(_DWORD *)(BugCheckParameter3 + 220) & 8) == 0 )
   {
-LABEL_43:
-    v19 = HalpInterruptTargets;
-    *(_DWORD *)(HalpInterruptTargets + 24 * v1) = 4;
-    *(_DWORD *)(v19 + 24 * v1 + 8) = v28;
-LABEL_44:
-    KeAddProcessorAffinityEx((unsigned __int16 *)&HalpInterruptPhysicalTargets, v1);
-    goto LABEL_20;
+LABEL_34:
+    DWORD2(v21) = v24;
+    LODWORD(v21) = 4;
+    if ( HalpInterruptPhysicalModeOnly )
+      goto LABEL_35;
   }
-  LOBYTE(v6) = 1;
-  v7 = 0;
-  v10 = v9(*(_QWORD *)(BugCheckParameter3 + 16), &v28, &v25, v6);
-  v11 = v25;
-  if ( (_DWORD)v25 != 6 )
-    goto LABEL_41;
-  v12 = DWORD2(v25);
-  if ( DWORD2(v25) >= (unsigned int)HalpInterruptMaxCluster )
+  else
   {
-    DWORD2(v25) = v28;
-    LODWORD(v25) = 4;
-    goto LABEL_43;
+    v11 = 1;
+    DWORD2(v21) = HalpInterruptNextCluster;
+    HIDWORD(v21) = 1 << HalpInterruptNextClusterIndex;
+    LODWORD(v21) = 6;
   }
-LABEL_14:
-  if ( v10 < 0 )
-    goto LABEL_43;
-  HalpInterruptLogicalMode = 1;
-  if ( v11 == 6 )
+LABEL_22:
+  v12 = *(__int64 (__fastcall **)(_QWORD, __int128 *))(BugCheckParameter3 + 80);
+  if ( v12 )
   {
-    HalpInterruptClusterModeEnabled = 1;
-    if ( v12 > HalpInterruptNextCluster )
-      HalpInterruptNextCluster = v12;
+    v13 = v12(*(_QWORD *)(BugCheckParameter3 + 16), &v21);
+    v14 = v21;
+LABEL_24:
+    v15 = DWORD2(v21);
+    goto LABEL_25;
   }
-  if ( v7 )
+  v18 = *(__int64 (__fastcall **)(_QWORD, unsigned int *, __int128 *, __int64))(BugCheckParameter3 + 144);
+  if ( !v18 )
+    goto LABEL_35;
+  LOBYTE(v7) = 1;
+  v11 = 0;
+  v13 = v18(*(_QWORD *)(BugCheckParameter3 + 16), &v24, &v21, v7);
+  v14 = v21;
+  if ( (_DWORD)v21 != 6 )
+    goto LABEL_24;
+  v15 = DWORD2(v21);
+  if ( DWORD2(v21) >= (unsigned int)HalpInterruptMaxCluster )
   {
-    if ( ++HalpInterruptNextClusterIndex >= (unsigned int)HalpInterruptMaxClusterSize )
-    {
-      HalpInterruptNextClusterIndex = 0;
-      ++HalpInterruptNextCluster;
-    }
-  }
-  v13 = HalpInterruptTargets;
-  *(_OWORD *)(HalpInterruptTargets + 24 * v1) = v25;
-  *(_QWORD *)(v13 + 24 * v1 + 16) = v26;
-  if ( (_DWORD)v25 == 4 )
-    goto LABEL_44;
-LABEL_20:
-  v4 = HalpInitializeCmciVector(BugCheckParameter3, v28);
-  v5 = v4;
-  v14 = BugCheckParameter3;
-  if ( v4 < 0 )
-  {
-    BugCheckParameter4 = 825;
-    v18 = 10;
-    goto LABEL_38;
-  }
-  v4 = HalpInitializeDeferredErrorVector(BugCheckParameter3, v28);
-  v5 = v4;
-  if ( v4 < 0 )
-  {
-    BugCheckParameter4 = 838;
-    v18 = 38;
-    goto LABEL_36;
-  }
-  if ( (*(_DWORD *)(BugCheckParameter3 + 244) & 2) != 0 )
-    (*(void (__fastcall **)(_QWORD, _QWORD))(BugCheckParameter3 + 48))(*(_QWORD *)(BugCheckParameter3 + 16), 0LL);
-  if ( (unsigned int)(*(_DWORD *)(BugCheckParameter3 + 240) - 3) <= 1
-    && (*(_DWORD *)(BugCheckParameter3 + 248) & 1) != 0 )
-  {
-    LOBYTE(v15) = 1;
-    v23 = HalpInterruptRestoreController(BugCheckParameter3, v15);
-    v5 = v23;
-    if ( v23 < 0 )
-      KeBugCheckEx(0x5Cu, 0x200uLL, HalpInterruptLastProblem, 4uLL, v23);
+    v15 = v24;
+    v14 = 4;
+    LODWORD(v21) = 4;
+    v13 = -1073741823;
+    DWORD2(v21) = v24;
   }
 LABEL_25:
+  if ( v13 >= 0 )
+  {
+    HalpInterruptLogicalMode = 1;
+    if ( v14 == 6 )
+    {
+      HalpInterruptClusterModeEnabled = 1;
+      if ( v15 > HalpInterruptNextCluster )
+        HalpInterruptNextCluster = v15;
+    }
+    if ( v11 )
+    {
+      if ( ++HalpInterruptNextClusterIndex >= (unsigned int)HalpInterruptMaxClusterSize )
+      {
+        HalpInterruptNextClusterIndex = 0;
+        ++HalpInterruptNextCluster;
+      }
+    }
+    v16 = HalpInterruptTargets;
+    *(_OWORD *)(HalpInterruptTargets + 24 * v1) = v21;
+    *(_QWORD *)(v16 + 24 * v1 + 16) = v22;
+    if ( (_DWORD)v21 != 4 )
+      goto LABEL_8;
+    goto LABEL_36;
+  }
+LABEL_35:
+  v17 = HalpInterruptTargets;
+  *(_DWORD *)(HalpInterruptTargets + 24 * v1) = 4;
+  *(_DWORD *)(v17 + 24 * v1 + 8) = v24;
+LABEL_36:
+  KeAddProcessorAffinityEx(&HalpInterruptPhysicalTargets, v1);
+LABEL_8:
+  v5 = HalpInitializeCmciVector(BugCheckParameter3, v24, v6);
+  if ( v5 < 0 )
+  {
+    *(_DWORD *)(BugCheckParameter3 + 296) = v5;
+    HalpInterruptLastProblem = 10;
+    *(_DWORD *)(BugCheckParameter3 + 292) = 10;
+    *(_QWORD *)(BugCheckParameter3 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\intsup.c";
+    *(_DWORD *)(BugCheckParameter3 + 312) = 803;
+  }
+  else
+  {
+    v5 = HalpInitializeDeferredErrorVector(BugCheckParameter3, v24);
+    if ( v5 < 0 )
+    {
+      *(_DWORD *)(BugCheckParameter3 + 296) = v5;
+      HalpInterruptLastProblem = 38;
+      *(_DWORD *)(BugCheckParameter3 + 292) = 38;
+      *(_QWORD *)(BugCheckParameter3 + 304) = "minkernel\\hals\\lib\\interrupts\\common\\intsup.c";
+      *(_DWORD *)(BugCheckParameter3 + 312) = 816;
+    }
+    else
+    {
+      if ( (*(_DWORD *)(BugCheckParameter3 + 220) & 2) != 0 )
+        (*(void (__fastcall **)(_QWORD, _QWORD))(BugCheckParameter3 + 48))(*(_QWORD *)(BugCheckParameter3 + 16), 0LL);
+      if ( (unsigned int)(*(_DWORD *)(BugCheckParameter3 + 216) - 3) <= 1
+        && (*(_DWORD *)(BugCheckParameter3 + 224) & 1) != 0 )
+      {
+        v20 = HalpInterruptRestoreController(BugCheckParameter3, 1);
+        v5 = v20;
+        if ( v20 < 0 )
+          KeBugCheckEx(0x5Cu, 0x200uLL, HalpInterruptLastProblem, 4uLL, v20);
+      }
+    }
+  }
+LABEL_13:
   if ( v3 )
     _enable();
-  return v5;
+  return (unsigned int)v5;
 }

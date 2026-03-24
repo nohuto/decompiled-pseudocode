@@ -1,15 +1,15 @@
 /*
- * XREFs of BcdGetSystemStorePath @ 0x1408056F0
+ * XREFs of BcdGetSystemStorePath @ 0x1407823B4
  * Callers:
- *     BiLoadSystemStore @ 0x1408046A8 (BiLoadSystemStore.c)
+ *     BiLoadSystemStore @ 0x140781AD4 (BiLoadSystemStore.c)
  * Callees:
- *     wcscat_s @ 0x1403DF690 (wcscat_s.c)
- *     wcscpy_s @ 0x1403DF730 (wcscpy_s.c)
- *     BiGetSystemPartition @ 0x14080488C (BiGetSystemPartition.c)
- *     BiGetFirmwareType @ 0x1408065B4 (BiGetFirmwareType.c)
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     wcscat_s @ 0x1403D7AD0 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403D7B70 (wcscpy_s.c)
+ *     BiGetFirmwareType @ 0x1407848DC (BiGetFirmwareType.c)
+ *     BiLogMessage @ 0x140784C9C (BiLogMessage.c)
+ *     BiGetSystemPartition @ 0x140785E6C (BiGetSystemPartition.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
@@ -21,9 +21,9 @@ __int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
   wchar_t *v6; // rsi
   int v7; // ebx
   __int64 v8; // rax
-  __int64 v9; // rcx
-  unsigned int v10; // r14d
-  wchar_t *Pool2; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r14
+  wchar_t *PoolWithTag; // rax
   wchar_t *Src; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = 0LL;
@@ -62,13 +62,13 @@ __int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
     do
       ++v8;
     while ( v4[v8] );
-    v10 = v9 + v8 + 1;
-    Pool2 = (wchar_t *)ExAllocatePool2(258LL, 2LL * v10, 1262764866LL);
-    v2 = Pool2;
-    if ( Pool2 )
+    v10 = (unsigned int)(v9 + v8 + 1);
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2 * v10, 0x4B444342u);
+    v2 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      wcscpy_s(Pool2, v10, v6);
-      wcscat_s(v2, v10, v4);
+      wcscpy_s(PoolWithTag, (unsigned int)v10, v6);
+      wcscat_s(v2, (unsigned int)v10, v4);
       *a1 = v2;
     }
     else

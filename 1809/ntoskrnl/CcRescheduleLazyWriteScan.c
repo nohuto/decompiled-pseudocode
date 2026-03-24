@@ -1,8 +1,8 @@
 /*
- * XREFs of CcRescheduleLazyWriteScan @ 0x1400D77AC
+ * XREFs of CcRescheduleLazyWriteScan @ 0x1400D77CC
  * Callers:
- *     CcLazyWriteScan @ 0x1400D573C (CcLazyWriteScan.c)
- *     CcCoalescingCallBackHelper @ 0x140269030 (CcCoalescingCallBackHelper.c)
+ *     CcLazyWriteScan @ 0x1400D575C (CcLazyWriteScan.c)
+ *     CcCoalescingCallBackHelper @ 0x140269130 (CcCoalescingCallBackHelper.c)
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
  *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)

@@ -1,70 +1,65 @@
 /*
- * XREFs of PsUpdateActiveProcessAffinity @ 0x1409AD870
+ * XREFs of PsUpdateActiveProcessAffinity @ 0x140907AE4
  * Callers:
- *     KeStartDynamicProcessor @ 0x140961810 (KeStartDynamicProcessor.c)
+ *     KeStartDynamicProcessor @ 0x1408BB7C0 (KeStartDynamicProcessor.c)
  * Callees:
- *     KeIsSubsetAffinityEx @ 0x14020EF50 (KeIsSubsetAffinityEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     PspUnlockAffinityUpdateExclusive @ 0x1405E081C (PspUnlockAffinityUpdateExclusive.c)
- *     PsGetNextProcess @ 0x1407B6B90 (PsGetNextProcess.c)
- *     PspUpdateSingleProcessAffinity @ 0x1409AEB50 (PspUpdateSingleProcessAffinity.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeIsSubsetAffinityEx @ 0x140513640 (KeIsSubsetAffinityEx.c)
+ *     PspUnlockAffinityUpdateExclusive @ 0x140581954 (PspUnlockAffinityUpdateExclusive.c)
+ *     PsGetNextProcess @ 0x1406CE7A0 (PsGetNextProcess.c)
+ *     PspUpdateSingleProcessAffinity @ 0x1409087D0 (PspUpdateSingleProcessAffinity.c)
  */
 
-char PsUpdateActiveProcessAffinity()
+_QWORD *PsUpdateActiveProcessAffinity()
 {
   struct _KTHREAD *CurrentThread; // rdi
-  _OWORD *v1; // rbx
-  __int64 v2; // rcx
-  int *v3; // rax
-  __int128 v4; // xmm1
-  __int128 v5; // xmm0
-  __int128 v6; // xmm1
-  __int128 v7; // xmm0
-  __int128 v8; // xmm1
-  __int128 v9; // xmm0
-  __int128 v10; // xmm1
-  __int64 *NextProcess; // rax
-  __int64 *v12; // rbx
+  __int128 v1; // xmm1
+  __int128 v2; // xmm0
+  __int128 v3; // xmm1
+  __int128 v4; // xmm0
+  __int128 v5; // xmm1
+  __int128 v6; // xmm0
+  __int128 v7; // xmm1
+  __int128 v8; // xmm0
+  __int64 v9; // rax
+  _QWORD *v10; // rcx
+  unsigned __int64 NextProcess; // rax
+  _QWORD *v12; // rbx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PspAffinityUpdateLock, 0LL);
-  v1 = &PspLastUpdateAffinityMask;
-  if ( !(unsigned int)KeIsSubsetAffinityEx((__int64)KeActiveProcessors, (__int64)&PspLastUpdateAffinityMask) )
+  if ( !(unsigned int)KeIsSubsetAffinityEx((unsigned __int16 *)KeActiveProcessors, PspLastUpdateAffinityMask) )
   {
-    v2 = 2LL;
-    v3 = KeActiveProcessors;
-    do
-    {
-      v4 = *((_OWORD *)v3 + 1);
-      *v1 = *(_OWORD *)v3;
-      v5 = *((_OWORD *)v3 + 2);
-      v1[1] = v4;
-      v6 = *((_OWORD *)v3 + 3);
-      v1[2] = v5;
-      v7 = *((_OWORD *)v3 + 4);
-      v1[3] = v6;
-      v8 = *((_OWORD *)v3 + 5);
-      v1[4] = v7;
-      v9 = *((_OWORD *)v3 + 6);
-      v1[5] = v8;
-      v10 = *((_OWORD *)v3 + 7);
-      v3 += 32;
-      v1[6] = v9;
-      v1 += 8;
-      *(v1 - 1) = v10;
-      --v2;
-    }
-    while ( v2 );
-    *(_QWORD *)v1 = *(_QWORD *)v3;
+    v1 = *(_OWORD *)&KeActiveProcessors[8];
+    *(_OWORD *)PspLastUpdateAffinityMask = *(_OWORD *)KeActiveProcessors;
+    v2 = *(_OWORD *)&KeActiveProcessors[16];
+    *(_OWORD *)&PspLastUpdateAffinityMask[8] = v1;
+    v3 = *(_OWORD *)&KeActiveProcessors[24];
+    *(_OWORD *)&PspLastUpdateAffinityMask[16] = v2;
+    v4 = *(_OWORD *)&KeActiveProcessors[32];
+    *(_OWORD *)&PspLastUpdateAffinityMask[24] = v3;
+    v5 = *(_OWORD *)&KeActiveProcessors[40];
+    *(_OWORD *)&PspLastUpdateAffinityMask[32] = v4;
+    v6 = *(_OWORD *)&KeActiveProcessors[48];
+    *(_OWORD *)&PspLastUpdateAffinityMask[40] = v5;
+    v7 = *(_OWORD *)&KeActiveProcessors[64];
+    *(_OWORD *)&PspLastUpdateAffinityMask[48] = v6;
+    *(_OWORD *)&PspLastUpdateAffinityMask[56] = *(_OWORD *)&KeActiveProcessors[56];
+    v8 = *(_OWORD *)&KeActiveProcessors[72];
+    v9 = *(_QWORD *)&KeActiveProcessors[80];
+    v10 = 0LL;
+    *(_OWORD *)&PspLastUpdateAffinityMask[64] = v7;
+    *(_OWORD *)&PspLastUpdateAffinityMask[72] = v8;
+    *(_QWORD *)&PspLastUpdateAffinityMask[80] = v9;
     while ( 1 )
     {
-      NextProcess = PsGetNextProcess((_QWORD *)v2);
-      v12 = NextProcess;
+      NextProcess = PsGetNextProcess(v10);
+      v12 = (_QWORD *)NextProcess;
       if ( !NextProcess )
         break;
       PspUpdateSingleProcessAffinity(CurrentThread, NextProcess, KeActiveProcessors);
-      v2 = (__int64)v12;
+      v10 = v12;
     }
   }
   return PspUnlockAffinityUpdateExclusive((__int64)CurrentThread);

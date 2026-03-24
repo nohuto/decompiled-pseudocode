@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlIncrementCorrelationVector @ 0x1409BEE80
+ * XREFs of RtlIncrementCorrelationVector @ 0x140916150
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _snprintf_s @ 0x1403DE5B0 (_snprintf_s.c)
- *     sscanf_s @ 0x1403DF140 (sscanf_s.c)
- *     strcpy_s @ 0x1403DF230 (strcpy_s.c)
- *     RtlpGetCorrelationVectorLastDotPosition @ 0x1405AF7FC (RtlpGetCorrelationVectorLastDotPosition.c)
- *     RtlValidateCorrelationVector @ 0x1409BEFF0 (RtlValidateCorrelationVector.c)
- *     RtlpGetCorrelationVectorBufferLength @ 0x1409BF1C0 (RtlpGetCorrelationVectorBufferLength.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _snprintf_s @ 0x1403D69F0 (_snprintf_s.c)
+ *     sscanf_s @ 0x1403D7570 (sscanf_s.c)
+ *     strcpy_s @ 0x1403D7670 (strcpy_s.c)
+ *     RtlpGetCorrelationVectorLastDotPosition @ 0x14058CB9C (RtlpGetCorrelationVectorLastDotPosition.c)
+ *     RtlValidateCorrelationVector @ 0x1409162C0 (RtlValidateCorrelationVector.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x140916484 (RtlpGetCorrelationVectorBufferLength.c)
  */
 
 __int64 __fastcall RtlIncrementCorrelationVector(__int64 a1, __int64 a2, __int64 a3)

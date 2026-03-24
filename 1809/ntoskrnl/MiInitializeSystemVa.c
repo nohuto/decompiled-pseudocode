@@ -3,7 +3,7 @@
  * Callers:
  *     MmInitSystem @ 0x1409BC4E4 (MmInitSystem.c)
  * Callees:
- *     MiAssignSharedUserRanges @ 0x140187930 (MiAssignSharedUserRanges.c)
+ *     MiAssignSharedUserRanges @ 0x140187950 (MiAssignSharedUserRanges.c)
  *     MiRebaseDynamicRelocationRegions @ 0x1409D241C (MiRebaseDynamicRelocationRegions.c)
  *     MiSetSystemRegionTypes @ 0x1409D298C (MiSetSystemRegionTypes.c)
  *     MiAssignTopLevelRanges @ 0x1409D2A80 (MiAssignTopLevelRanges.c)

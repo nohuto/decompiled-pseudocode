@@ -1,35 +1,35 @@
 /*
- * XREFs of BmlGetModeCategoryForRegion @ 0x1C017ACBC
+ * XREFs of BmlGetModeCategoryForRegion @ 0x1C0147138
  * Callers:
- *     BmlCompareSourceModesWithMonitors @ 0x1C017AAF8 (BmlCompareSourceModesWithMonitors.c)
- *     BmlGetRecommendedContentSizeForPath @ 0x1C03BD650 (BmlGetRecommendedContentSizeForPath.c)
- *     _BmlGetPathModeListForPath @ 0x1C03BE18C (_BmlGetPathModeListForPath.c)
+ *     BmlCompareSourceModesWithMonitors @ 0x1C0146F88 (BmlCompareSourceModesWithMonitors.c)
+ *     BmlGetRecommendedContentSizeForPath @ 0x1C02EC318 (BmlGetRecommendedContentSizeForPath.c)
+ *     _BmlGetPathModeListForPath @ 0x1C02ECDC0 (_BmlGetPathModeListForPath.c)
  * Callees:
- *     ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C017AD14 (-BmlCompareModeExtents@@YA-AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z.c)
+ *     ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C0147638 (-BmlCompareModeExtents@@YA-AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z.c)
  */
 
 __int64 __fastcall BmlGetModeCategoryForRegion(__int64 a1, __int64 a2)
 {
   _DWORD *v2; // r10
   char v3; // r11
-  bool v5; // cf
+  bool v4; // cf
 
   if ( (unsigned int)BmlCompareModeExtents(a1, a2) != 1 )
   {
     if ( !v3 )
     {
+      if ( *v2 < 0x400u )
+        return 2LL;
       if ( *v2 != 1024 )
       {
-        if ( *v2 < 0x400u )
-          return 2LL;
-        v5 = v2[1] < 0x300u;
-        goto LABEL_7;
+        v4 = v2[1] < 0x300u;
+        goto LABEL_6;
       }
-      v5 = v2[1] < 0x300u;
+      v4 = v2[1] < 0x300u;
       if ( v2[1] != 768 )
       {
-LABEL_7:
-        if ( v5 )
+LABEL_6:
+        if ( v4 )
           return 2LL;
       }
     }

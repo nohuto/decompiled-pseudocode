@@ -1,16 +1,16 @@
 /*
- * XREFs of SepAddTokenOriginClaim @ 0x1409CC540
+ * XREFs of SepAddTokenOriginClaim @ 0x140922B50
  * Callers:
- *     SeSubProcessToken @ 0x140671BE0 (SeSubProcessToken.c)
- *     SeDuplicateTokenAndAddOriginClaim @ 0x1409CC1BC (SeDuplicateTokenAndAddOriginClaim.c)
+ *     SeSubProcessToken @ 0x140603B5C (SeSubProcessToken.c)
+ *     SeDuplicateTokenAndAddOriginClaim @ 0x1409227AC (SeDuplicateTokenAndAddOriginClaim.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140204870 (AuthzBasepSetSecurityAttributesToken.c)
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     RtlUShortAdd @ 0x1402DE190 (RtlUShortAdd.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402508E0 (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     RtlUShortAdd @ 0x1402B256C (RtlUShortAdd.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepAddTokenOriginClaim(_DWORD *a1, int a2, __int64 a3)
@@ -100,7 +100,7 @@ LABEL_9:
           if ( !Pool2 )
           {
             appended = -1073741670;
-            goto LABEL_22;
+            goto LABEL_23;
           }
         }
         RtlCopyUnicodeString(&Destination, &SourceString);
@@ -125,7 +125,7 @@ LABEL_9:
     }
   }
   Pool2 = Destination.Buffer;
-LABEL_22:
+LABEL_23:
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0x434F6553u);
   return (unsigned int)appended;

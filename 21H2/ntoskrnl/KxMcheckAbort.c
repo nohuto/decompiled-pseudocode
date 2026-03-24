@@ -1,9 +1,9 @@
 /*
- * XREFs of KxMcheckAbort @ 0x140431540
+ * XREFs of KxMcheckAbort @ 0x14040F100
  * Callers:
- *     KiMcheckAbort @ 0x140430F00 (KiMcheckAbort.c)
+ *     KiMcheckAbort @ 0x14040EBC0 (KiMcheckAbort.c)
  * Callees:
- *     KiHandleMcheck @ 0x1405696B0 (KiHandleMcheck.c)
+ *     KiHandleMcheck @ 0x140512720 (KiHandleMcheck.c)
  */
 
 __int64 __fastcall KxMcheckAbort(__int64 a1, __int64 a2, _DWORD *a3)
@@ -13,6 +13,6 @@ __int64 __fastcall KxMcheckAbort(__int64 a1, __int64 a2, _DWORD *a3)
 
   *a3 = 0;
   if ( (*(_BYTE *)(v3 + 240) & 1) == 0 )
-    *a3 = 16;
-  return KiHandleMcheck(a1, &v5);
+    a3 = 0LL;
+  return KiHandleMcheck(a1, &v5, a3);
 }

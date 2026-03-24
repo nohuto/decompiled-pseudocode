@@ -1,37 +1,38 @@
 /*
- * XREFs of IoAllocateIrp @ 0x14022E630
+ * XREFs of IoAllocateIrp @ 0x1403616C0
  * Callers:
- *     PopAllocateIrp @ 0x14028F314 (PopAllocateIrp.c)
- *     CcSetValidData @ 0x140354824 (CcSetValidData.c)
- *     SmKmIssueVolumeIo @ 0x1405CB65C (SmKmIssueVolumeIo.c)
- *     CmpGetVolumeClusterSize @ 0x14068936C (CmpGetVolumeClusterSize.c)
- *     WmipSendWmiIrp @ 0x1406C7448 (WmipSendWmiIrp.c)
- *     CmpFileFlushAndPurge @ 0x1407510D4 (CmpFileFlushAndPurge.c)
- *     IopSynchronousCall @ 0x1407688B4 (IopSynchronousCall.c)
- *     IopFilterResourceRequirementsCall @ 0x140790740 (IopFilterResourceRequirementsCall.c)
- *     PnpAsynchronousCall @ 0x1407954A4 (PnpAsynchronousCall.c)
- *     WmipGetFilePDO @ 0x1407C3F1C (WmipGetFilePDO.c)
- *     PopFxRegisterDeviceWorker @ 0x1408381FC (PopFxRegisterDeviceWorker.c)
- *     WmipSendWmiIrpToTraceDeviceList @ 0x14084A0E4 (WmipSendWmiIrpToTraceDeviceList.c)
- *     PopConnectToPolicyDevice @ 0x14084DFB0 (PopConnectToPolicyDevice.c)
- *     PopAcquireCoolingInterface @ 0x14084F044 (PopAcquireCoolingInterface.c)
- *     PpIrpAllocateDeviceUsageNotification @ 0x140854C40 (PpIrpAllocateDeviceUsageNotification.c)
- *     WmipSetTraceNotify @ 0x14086C250 (WmipSetTraceNotify.c)
- *     IopEjectDevice @ 0x14096CDC8 (IopEjectDevice.c)
- *     SmKmIsVolumeIoPossible @ 0x1409D8DAC (SmKmIsVolumeIoPossible.c)
+ *     CcSetValidData @ 0x1403615C4 (CcSetValidData.c)
+ *     PopAllocateIrp @ 0x1403707A0 (PopAllocateIrp.c)
+ *     SmKmIssueVolumeIo @ 0x14059DEE4 (SmKmIssueVolumeIo.c)
+ *     CmpFileFlushAndPurge @ 0x14071D008 (CmpFileFlushAndPurge.c)
+ *     CmpGetVolumeClusterSize @ 0x14071D1A8 (CmpGetVolumeClusterSize.c)
+ *     IopSynchronousCall @ 0x14071D3C0 (IopSynchronousCall.c)
+ *     IopFilterResourceRequirementsCall @ 0x140750270 (IopFilterResourceRequirementsCall.c)
+ *     WmipSendWmiIrp @ 0x140756D0C (WmipSendWmiIrp.c)
+ *     PnpAsynchronousCall @ 0x14076872C (PnpAsynchronousCall.c)
+ *     WmipSetTraceNotify @ 0x140780C58 (WmipSetTraceNotify.c)
+ *     WmipGetFilePDO @ 0x14078D304 (WmipGetFilePDO.c)
+ *     PopAcquireCoolingInterface @ 0x14079AE50 (PopAcquireCoolingInterface.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407B531C (PopFxRegisterDeviceWorker.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x1407C1DF4 (WmipSendWmiIrpToTraceDeviceList.c)
+ *     PopConnectToPolicyDevice @ 0x1407C4B28 (PopConnectToPolicyDevice.c)
+ *     PpIrpAllocateDeviceUsageNotification @ 0x1407C9EAC (PpIrpAllocateDeviceUsageNotification.c)
+ *     IopEjectDevice @ 0x1408B2A10 (IopEjectDevice.c)
+ *     SmKmIsVolumeIoPossible @ 0x14092B644 (SmKmIsVolumeIoPossible.c)
  * Callees:
- *     IopAllocateIrpPrivate @ 0x14022EFC0 (IopAllocateIrpPrivate.c)
- *     IopAllocateIrpWithExtension @ 0x14028FCA0 (IopAllocateIrpWithExtension.c)
- *     IovAllocateIrp @ 0x140AC1CE0 (IovAllocateIrp.c)
+ *     IopAllocateIrpPrivate @ 0x1402D2220 (IopAllocateIrpPrivate.c)
+ *     IopAllocateIrpWithExtension @ 0x1402E5F20 (IopAllocateIrpWithExtension.c)
+ *     IovAllocateIrp @ 0x1409C47B0 (IovAllocateIrp.c)
  */
 
+// local variable allocation has failed, the output may be wrong!
 PIRP __stdcall IoAllocateIrp(CCHAR StackSize, BOOLEAN ChargeQuota)
 {
   void *retaddr; // [rsp+28h] [rbp+0h]
 
   if ( !IopDispatchAllocateIrp )
-    return (PIRP)IopAllocateIrpPrivate(0LL, (unsigned __int8)StackSize, ChargeQuota);
-  if ( IopDispatchAllocateIrp == 2 || ViVerifyAllDrivers != 1 )
-    return (PIRP)IopAllocateIrpWithExtension(StackSize, (unsigned __int8)StackSize, ChargeQuota);
-  return (PIRP)IovAllocateIrp(0LL, (unsigned __int8)StackSize, ChargeQuota, retaddr);
+    return (PIRP)IopAllocateIrpPrivate(0LL, StackSize, ChargeQuota);
+  if ( IopDispatchAllocateIrp == 2 )
+    return (PIRP)IopAllocateIrpWithExtension(StackSize, StackSize, ChargeQuota);
+  return (PIRP)IovAllocateIrp(0LL, StackSize, ChargeQuota, retaddr);
 }

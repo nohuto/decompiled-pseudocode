@@ -1,15 +1,13 @@
 /*
- * XREFs of ?DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z @ 0x1C024CE58
+ * XREFs of ?DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z @ 0x1C025E2C4
  * Callers:
- *     DrawTextExWorker @ 0x1C024D1FC (DrawTextExWorker.c)
+ *     DrawTextExWorker @ 0x1C025E630 (DrawTextExWorker.c)
  * Callees:
- *     ?GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C007DC34 (-GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z.c)
- *     GetDPIServerInfo @ 0x1C00AB4C8 (GetDPIServerInfo.c)
- *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F8AA8 (--1EUDCCountRegion@@QEAA@XZ.c)
- *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FA9A0 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     IsSysFontAndDefaultMode @ 0x1C024D55C (IsSysFontAndDefaultMode.c)
- *     GreGetTextCharsetInfo @ 0x1C028E514 (GreGetTextCharsetInfo.c)
+ *     GreGetTextCharsetInfo @ 0x1C009B5B4 (GreGetTextCharsetInfo.c)
+ *     GetDPIServerInfo @ 0x1C00E0AC8 (GetDPIServerInfo.c)
+ *     GreGetTextMetricsW @ 0x1C00E3244 (GreGetTextMetricsW.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     IsSysFontAndDefaultMode @ 0x1C025E988 (IsSysFontAndDefaultMode.c)
  */
 
 __int64 __fastcall DT_InitDrawTextInfo(
@@ -19,32 +17,28 @@ __int64 __fastcall DT_InitDrawTextInfo(
         struct DRAWTEXTDATA *a4,
         struct tagDRAWTEXTPARAMS *a5)
 {
-  int v9; // r15d
-  int v10; // r12d
+  int v9; // esi
+  int v10; // edi
   __int64 result; // rax
   __int64 v12; // rcx
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  int TextMetricsW; // ebx
-  bool v16; // zf
-  int v17; // ebx
-  int v18; // esi
-  int v19; // r14d
+  int TextMetricsW; // eax
+  int v14; // r15d
+  int v15; // r14d
+  int v16; // r12d
   _DWORD *DPIServerInfo; // rax
-  int v21; // ebx
-  __int64 CurrentProcessWin32Process; // rax
-  int v23; // eax
-  int v24; // ecx
-  __int64 v25; // [rsp+28h] [rbp-A1h] BYREF
-  __int64 v26; // [rsp+30h] [rbp-99h] BYREF
-  __int128 v27; // [rsp+38h] [rbp-91h]
-  __int128 v28; // [rsp+48h] [rbp-81h]
-  __int128 v29; // [rsp+58h] [rbp-71h]
-  _OWORD v30[5]; // [rsp+78h] [rbp-51h] BYREF
-  _BYTE v31[48]; // [rsp+C8h] [rbp-1h] BYREF
+  int v18; // eax
+  int v19; // ecx
+  int v20; // edi
+  int v21; // eax
+  __int64 v22; // [rsp+28h] [rbp-71h] BYREF
+  __int64 v23; // [rsp+30h] [rbp-69h] BYREF
+  __int128 v24; // [rsp+38h] [rbp-61h]
+  __int128 v25; // [rsp+48h] [rbp-51h]
+  __int128 v26; // [rsp+58h] [rbp-41h]
+  _OWORD v27[5]; // [rsp+78h] [rbp-21h] BYREF
 
-  v26 = 0LL;
-  v25 = 0LL;
+  v23 = 0LL;
+  v22 = 0LL;
   if ( a5 )
   {
     v9 = *((_DWORD *)a5 + 2);
@@ -55,70 +49,61 @@ __int64 __fastcall DT_InitDrawTextInfo(
     v10 = 0;
     v9 = 0;
   }
-  result = GreGetDCPoint(a1, 1LL, &v26);
+  result = GreGetDCPoint(a1, 1LL, &v23);
   if ( (_DWORD)result )
   {
-    GreGetDCPoint(a1, 2LL, &v25);
-    *((_DWORD *)a4 + 5) = (((int)(v26 ^ v25) >> 31) & 0xFFFFFFFE) + 1;
-    *((_DWORD *)a4 + 6) = (((HIDWORD(v26) ^ HIDWORD(v25)) >> 31) & 0xFFFFFFFE) + 1;
+    GreGetDCPoint(a1, 2LL, &v22);
+    *((_DWORD *)a4 + 5) = (((int)(v23 ^ v22) >> 31) & 0xFFFFFFFE) + 1;
+    *((_DWORD *)a4 + 6) = (((HIDWORD(v23) ^ HIDWORD(v22)) >> 31) & 0xFFFFFFFE) + 1;
     if ( (a3 & 0x1000) != 0 || (unsigned int)IsSysFontAndDefaultMode(a1) )
     {
       DPIServerInfo = (_DWORD *)GetDPIServerInfo(v12);
-      v17 = DPIServerInfo[9];
-      v19 = DPIServerInfo[15];
-      v18 = DPIServerInfo[18];
-      GreGetTextCharsetInfo(*(_QWORD *)(gpDispInfo + 56LL));
+      v16 = DPIServerInfo[9];
+      v14 = DPIServerInfo[15];
+      v15 = DPIServerInfo[18];
+      GreGetTextCharsetInfo(*(HDC *)(gpDispInfo + 56LL), 0LL);
     }
     else
     {
-      memset_0(v30, 0, 0x44uLL);
-      v14 = SGDGetSessionState(v13);
-      EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v31, *(struct Gre::Full::SESSION_GLOBALS **)(v14 + 32));
-      TextMetricsW = GrepGetTextMetricsW(a1, (struct _TMW_INTERNAL *)v30, 1027);
-      EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v31);
-      v16 = TextMetricsW == 0;
-      v27 = v30[0];
-      v17 = v30[0];
-      v29 = v30[2];
-      v28 = v30[1];
-      if ( v16 )
-        v18 = 0;
+      memset(v27, 0, 0x44uLL);
+      TextMetricsW = GreGetTextMetricsW(a1, (struct _TMW_INTERNAL *)v27);
+      v24 = v27[0];
+      v25 = v27[1];
+      v14 = DWORD1(v27[1]);
+      v26 = v27[2];
+      if ( TextMetricsW )
+        v15 = v26;
       else
-        v18 = v29;
-      v19 = DWORD1(v28);
+        v15 = 0;
+      v16 = v24;
     }
-    v21 = *((_DWORD *)a4 + 6) * v17;
-    *((_DWORD *)a4 + 4) = 8 * v19;
-    *((_DWORD *)a4 + 14) = v18;
-    *((_DWORD *)a4 + 7) = v21;
+    v18 = v16 * *((_DWORD *)a4 + 6);
+    *((_DWORD *)a4 + 14) = v15;
+    *((_DWORD *)a4 + 7) = v18;
+    *((_DWORD *)a4 + 4) = 8 * v14;
     if ( gptiCurrent == gptiRit )
-    {
-      v23 = 0;
-    }
+      v19 = 0;
     else
-    {
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(gptiRit);
-      if ( CurrentProcessWin32Process )
-        CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-      v23 = *(_DWORD *)(CurrentProcessWin32Process + 752) & 4;
-    }
-    *((_DWORD *)a4 + 15) = v23;
-    if ( !v23 )
+      v19 = *(_DWORD *)(PsGetCurrentProcessWin32Process(gptiRit) + 760) & 4;
+    *((_DWORD *)a4 + 15) = v19;
+    if ( !v19 )
       *((_QWORD *)a4 + 6) = UserTextOutWInternal;
     *(struct tagRECT *)a4 = *a2;
     if ( v9 | v10 )
     {
-      v24 = v10 * *((_DWORD *)a4 + 5);
-      *(_DWORD *)a4 += v9 * *((_DWORD *)a4 + 5);
-      *((_DWORD *)a4 + 10) = v24;
-      *((_DWORD *)a4 + 2) -= v24;
+      *(_DWORD *)a4 += *((_DWORD *)a4 + 5) * v9;
+      v20 = *((_DWORD *)a4 + 5) * v10;
+      *((_DWORD *)a4 + 10) = v20;
+      *((_DWORD *)a4 + 2) -= v20;
     }
     else
     {
       *((_DWORD *)a4 + 10) = 0;
     }
-    result = 1LL;
-    *((_QWORD *)a4 + 4) = (unsigned int)(*((_DWORD *)a4 + 5) * (*((_DWORD *)a4 + 2) - *(_DWORD *)a4));
+    v21 = *((_DWORD *)a4 + 5) * (*((_DWORD *)a4 + 2) - *(_DWORD *)a4);
+    *((_DWORD *)a4 + 9) = 0;
+    *((_DWORD *)a4 + 8) = v21;
+    return 1LL;
   }
   return result;
 }

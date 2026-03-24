@@ -4,8 +4,8 @@
  *     PnprEndMirroring @ 0x140579740 (PnprEndMirroring.c)
  *     PnprInitiateReplaceOperation @ 0x140579814 (PnprInitiateReplaceOperation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KeResumeClockTimerSafe @ 0x14028E804 (KeResumeClockTimerSafe.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeResumeClockTimerSafe @ 0x14028E904 (KeResumeClockTimerSafe.c)
  *     KeRestoreMtrrBroadcast @ 0x140573264 (KeRestoreMtrrBroadcast.c)
  *     PnprGetMillisecondCounter @ 0x1405797BC (PnprGetMillisecondCounter.c)
  */

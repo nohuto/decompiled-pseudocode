@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlInitializeLargeMcbs @ 0x140B2603C
+ * XREFs of FsRtlInitializeLargeMcbs @ 0x140A6BE18
  * Callers:
- *     FsRtlInitSystem @ 0x140B25C04 (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140A6B9E0 (FsRtlInitSystem.c)
  * Callees:
- *     ExInitializeNPagedLookasideList @ 0x140250C10 (ExInitializeNPagedLookasideList.c)
- *     ExInitializePagedLookasideList @ 0x1406DA090 (ExInitializePagedLookasideList.c)
+ *     ExInitializeNPagedLookasideList @ 0x14037A6C0 (ExInitializeNPagedLookasideList.c)
+ *     ExInitializePagedLookasideList @ 0x1407113C0 (ExInitializePagedLookasideList.c)
  */
 
 void FsRtlInitializeLargeMcbs()
@@ -17,6 +17,6 @@ void FsRtlInitializeLargeMcbs()
     0x78uLL,
     0x6D695346u,
     4u);
-  ExInitializeNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList, 0LL, 0LL, 0x200u, 0x78uLL, 0x6D695346u, 4u);
+  ExInitializeNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList, 0LL, 0LL, 0, 0x78uLL, 0x6D695346u, 4u);
   ExInitializeNPagedLookasideList(&FsRtlFastMutexLookasideList, 0LL, 0LL, 0x200u, 0x38uLL, 0x6D665346u, 0x20u);
 }

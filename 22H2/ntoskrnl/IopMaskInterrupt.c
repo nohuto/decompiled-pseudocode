@@ -1,9 +1,9 @@
 /*
- * XREFs of IopMaskInterrupt @ 0x1403B355C
+ * XREFs of IopMaskInterrupt @ 0x14038C7C4
  * Callers:
- *     IoReportInterruptInactive @ 0x1403B3510 (IoReportInterruptInactive.c)
+ *     IoReportInterruptInactive @ 0x14038C790 (IoReportInterruptInactive.c)
  * Callees:
- *     KeMaskInterrupt @ 0x14031F3D4 (KeMaskInterrupt.c)
+ *     KeMaskInterrupt @ 0x1403769B0 (KeMaskInterrupt.c)
  */
 
 __int64 __fastcall IopMaskInterrupt(__int64 a1)
@@ -12,7 +12,7 @@ __int64 __fastcall IopMaskInterrupt(__int64 a1)
 
   v1 = *(_QWORD *)(a1 - 104) - ((*(_QWORD *)(a1 - 104) >> 1) & 0x5555555555555555LL);
   return KeMaskInterrupt(
-           (__int64 *)(a1 + 392),
+           (__int64 *)(a1 + 384),
            (0x101010101010101LL
           * (((v1 & 0x3333333333333333LL)
             + ((v1 >> 2) & 0x3333333333333333LL)

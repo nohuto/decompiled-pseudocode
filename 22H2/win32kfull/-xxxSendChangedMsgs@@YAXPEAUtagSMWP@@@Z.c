@@ -1,213 +1,146 @@
 /*
- * XREFs of ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0122B94
+ * XREFs of ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C006E8B8
  * Callers:
- *     xxxEndDeferWindowPosEx @ 0x1C0122FB0 (xxxEndDeferWindowPosEx.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006ED1C (xxxEndDeferWindowPosEx.c)
  * Callees:
- *     ?IsSingleThreadAttached@tagQ@@QEBA_NXZ @ 0x1C005CEA8 (-IsSingleThreadAttached@tagQ@@QEBA_NXZ.c)
- *     xxxNotifyMonitorChanged @ 0x1C008E76C (xxxNotifyMonitorChanged.c)
- *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C00A38A4 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
- *     ShouldHaveShadow @ 0x1C00ACE04 (ShouldHaveShadow.c)
- *     _anonymous_namespace_::EligibleWindow @ 0x1C00AE74C (_anonymous_namespace_--EligibleWindow.c)
- *     xxxRemoveShadow @ 0x1C00B3A30 (xxxRemoveShadow.c)
- *     ?CuratedWindowHidden@NotifyShell@@YAXPEAUtagWND@@W4HideSource@1@@Z @ 0x1C00B494C (-CuratedWindowHidden@NotifyShell@@YAXPEAUtagWND@@W4HideSource@1@@Z.c)
- *     ?IsShellParticipatesInSizing@@YA_NPEAUtagWND@@@Z @ 0x1C00C098C (-IsShellParticipatesInSizing@@YA_NPEAUtagWND@@@Z.c)
- *     CalcWindowFullScreen @ 0x1C00CF81C (CalcWindowFullScreen.c)
- *     ?xxxImeWindowPosChanged@@YAXPEAUtagSMWP@@@Z @ 0x1C00D28B0 (-xxxImeWindowPosChanged@@YAXPEAUtagSMWP@@@Z.c)
- *     PostIAMShellHookMessage @ 0x1C00D34E8 (PostIAMShellHookMessage.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
- *     DwmChildRectChange @ 0x1C00EDE40 (DwmChildRectChange.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     DirtyVisRgnTrackers @ 0x1C00F319C (DirtyVisRgnTrackers.c)
- *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C01210F8 (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?TrackedWindowPosChanged@NotifyShell@@YAXPEAUtagWND@@_N@Z @ 0x1C021DDD8 (-TrackedWindowPosChanged@NotifyShell@@YAXPEAUtagWND@@_N@Z.c)
- *     _anonymous_namespace_::WindowSizingUpdate @ 0x1C021DF6C (_anonymous_namespace_--WindowSizingUpdate.c)
- *     ?zzzApplyShadow@@YAHPEAUtagWND@@0@Z @ 0x1C0221478 (-zzzApplyShadow@@YAHPEAUtagWND@@0@Z.c)
- *     xxxAddShadow @ 0x1C0221654 (xxxAddShadow.c)
- *     xxxUpdateShadowZorder @ 0x1C02219BC (xxxUpdateShadowZorder.c)
- *     zzzMoveShadow @ 0x1C0221B1C (zzzMoveShadow.c)
+ *     DwmChildRectChange @ 0x1C004E0EC (DwmChildRectChange.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     ?PositioningChanged@NotifyShell@@YAXPEAUtagWND@@AEBUtagCVR@@@Z @ 0x1C006A944 (-PositioningChanged@NotifyShell@@YAXPEAUtagWND@@AEBUtagCVR@@@Z.c)
+ *     CalcWindowFullScreen @ 0x1C006A9C4 (CalcWindowFullScreen.c)
+ *     xxxNotifyMonitorChanged @ 0x1C006C5B4 (xxxNotifyMonitorChanged.c)
+ *     ?xxxImeWindowPosChanged@@YAXPEAUtagSMWP@@@Z @ 0x1C006DAAC (-xxxImeWindowPosChanged@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?PostIAMPosChangedNotification@@YAXPEAUtagCVR@@PEAUtagWND@@@Z @ 0x1C006EB78 (-PostIAMPosChangedNotification@@YAXPEAUtagCVR@@PEAUtagWND@@@Z.c)
+ *     ?IsStillWindowC@@YAHPEAUHWND__@@@Z @ 0x1C006ECE8 (-IsStillWindowC@@YAHPEAUHWND__@@@Z.c)
+ *     xxxRemoveShadow @ 0x1C007CA50 (xxxRemoveShadow.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     WindowHasShadow @ 0x1C00BBE54 (WindowHasShadow.c)
+ *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C00BBE88 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
+ *     ShouldHaveShadow @ 0x1C011B5CC (ShouldHaveShadow.c)
+ *     xxxAddShadow @ 0x1C013D9EC (xxxAddShadow.c)
+ *     ?zzzApplyShadow@@YAHPEAUtagWND@@0@Z @ 0x1C013DD1C (-zzzApplyShadow@@YAHPEAUtagWND@@0@Z.c)
+ *     xxxUpdateShadowZorder @ 0x1C023DB48 (xxxUpdateShadowZorder.c)
+ *     zzzMoveShadow @ 0x1C023DCF0 (zzzMoveShadow.c)
  */
 
-void __fastcall xxxSendChangedMsgs(struct tagSMWP *a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall xxxSendChangedMsgs(struct tagSMWP *a1, __int64 a2)
 {
-  int v4; // r15d
-  __int64 *v5; // rdi
-  __int64 v7; // rbx
-  __int64 v8; // rsi
-  __int64 v9; // rcx
-  __int64 *v10; // r14
-  __int64 v11; // rsi
-  unsigned __int64 v12; // rcx
-  int v13; // ecx
-  int v14; // edx
-  ULONG_PTR v15; // rbx
-  struct tagSHADOW *j; // rax
-  int v17; // r14d
-  __int64 v18; // rdx
-  unsigned int v19; // r8d
-  __int64 v20; // rax
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // rax
+  __int64 v2; // rbx
+  int v3; // ebp
+  unsigned __int64 v5; // rdi
+  __int64 ThreadWin32Thread; // rax
+  int v7; // r8d
+  char v8; // r8
+  int v9; // esi
+  __int64 v10; // rdx
+  int v11; // r8d
+  const struct tagCVR *v12; // r8
+  __int64 v13; // rcx
   struct tagWND **Shadow; // rax
-  struct tagRECT v26; // xmm0
-  __int64 v27; // rcx
-  __int64 v28; // rax
-  unsigned __int16 v29; // cx
-  struct tagRECT v30; // [rsp+50h] [rbp-68h] BYREF
-  __int128 i; // [rsp+60h] [rbp-58h] BYREF
-  __int64 v32; // [rsp+70h] [rbp-48h]
-  __int64 v33; // [rsp+C8h] [rbp+10h] BYREF
+  struct tagRECT v15; // xmm0
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  unsigned __int16 v18; // cx
+  struct tagRECT v19; // [rsp+50h] [rbp-48h] BYREF
+  __int128 v20; // [rsp+60h] [rbp-38h] BYREF
+  __int64 v21; // [rsp+70h] [rbp-28h]
+  __int64 v22; // [rsp+A0h] [rbp+8h] BYREF
 
-  v4 = *((_DWORD *)a1 + 7) - 1;
-  v5 = (__int64 *)*((_QWORD *)a1 + 5);
-  v32 = 0LL;
-  for ( i = 0LL; v4 >= 0; --v4 )
+  v2 = *((_QWORD *)a1 + 5);
+  v3 = *((_DWORD *)a1 + 7);
+  v20 = 0LL;
+  v21 = 0LL;
+  while ( --v3 >= 0 )
   {
-    v7 = *v5;
-    if ( *v5 )
+    if ( !*(_QWORD *)v2 )
+      goto LABEL_21;
+    LOBYTE(a2) = 1;
+    v5 = HMValidateHandleNoSecure(*(_QWORD *)v2, a2);
+    if ( !v5 )
     {
-      PsGetThreadWin32Thread(KeGetCurrentThread());
-      a2 = (unsigned __int16)v7;
-      if ( (unsigned __int64)(unsigned __int16)v7 < *(_QWORD *)(gpsi + 8LL)
-        && ((v8 = gSharedInfo[1] + LODWORD(gSharedInfo[2]) * (unsigned int)(unsigned __int16)v7,
-             v10 = (__int64 *)HMPkheFromPhe(v8),
-             LOWORD(v7) = WORD1(v7) & 0x7FFF,
-             (WORD1(v7) & 0x7FFF) == *(_WORD *)(v8 + 26))
-         || (_WORD)v7 == 0x7FFF
-         || !(_WORD)v7 && PsGetCurrentProcessWow64Process(v9, a2, a3))
-        && (*(_BYTE *)(v8 + 25) & 1) == 0
-        && *(_BYTE *)(v8 + 24) == 1
-        && (v11 = *v10) != 0 )
-      {
-        v12 = v5[1];
-        if ( v12 < 2 || v12 == -2LL || v12 == -1LL || HMValidateHandleNoSecure(v12, 1) )
-        {
-          v13 = *((_DWORD *)v5 + 8);
-          if ( (v13 & 0x40000) != 0 || (v5[4] & 0x18E7) == 0x1807 )
-          {
-            if ( (v13 & 0x10000) != 0 && (*(_DWORD *)(v11 + 320) & 0x200) != 0 )
-              PostIAMShellHookMessage(0x1Fu);
-          }
-          else
-          {
-            ThreadLockAlways(v11, &i);
-            if ( (*((_DWORD *)v5 + 8) & 0x80u) != 0 )
-              xxxRemoveShadow(v11);
-            v14 = *((_DWORD *)v5 + 8);
-            if ( (v14 & 0x40) != 0 )
-            {
-              if ( (unsigned int)ShouldHaveShadow((_QWORD *)v11) )
-                xxxAddShadow((struct tagWND *)v11);
-              v15 = v11;
-            }
-            else
-            {
-              v15 = v11;
-              if ( (*(_BYTE *)(*(_QWORD *)(v11 + 40) + 31LL) & 0x10) != 0 )
-              {
-                for ( j = gpshadowFirst; j; j = (struct tagSHADOW *)*((_QWORD *)j + 2) )
-                {
-                  if ( *(_QWORD *)j == v11 )
-                  {
-                    if ( (v14 & 0x21) == 1 )
-                    {
-                      if ( (v14 & 2) == 0 )
-                        zzzMoveShadow(v11);
-                    }
-                    else
-                    {
-                      Shadow = (struct tagWND **)FindShadow((struct tagWND *)v11);
-                      if ( Shadow )
-                        zzzApplyShadow(*Shadow, Shadow[1]);
-                    }
-                    if ( (v5[4] & 4) == 0 )
-                      xxxUpdateShadowZorder(v11);
-                    break;
-                  }
-                }
-              }
-            }
-            v17 = v5[4] & 0x9820;
-            if ( (unsigned int)IsWindowDesktopComposed(v15) && v17 != 6144 )
-            {
-              DwmChildRectChange((struct tagWND *)v15);
-              DirtyVisRgnTrackers(v15);
-            }
-            if ( (*(_DWORD *)(gptiCurrent + 1272LL) & 0x40000) == 0 || gptiCurrent == *(_QWORD *)(v15 + 16) )
-            {
-              _InterlockedIncrement(&glSendMessage);
-              xxxSendTransformableMessageTimeout(v15, 0, 0, 0LL, 1, 0);
-            }
-            else
-            {
-              if ( !tagQ::IsSingleThreadAttached(*(tagQ **)(gptiCurrent + 432LL)) )
-                goto LABEL_51;
-              v24 = *(_QWORD *)(gptiCurrent + 1440LL);
-              if ( !v24 )
-                goto LABEL_51;
-              if ( *(_QWORD *)(v24 + 16) == gptiCurrent )
-                MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 425LL);
-              if ( *(_QWORD *)(*(_QWORD *)(gptiCurrent + 1440LL) + 16LL) != *(_QWORD *)(v15 + 16) )
-              {
-LABEL_51:
-                v33 = 0LL;
-                xxxSendTransformableMessageTimeout(v15, 2, 100, (__int64)&v33, 1, 0);
-              }
-            }
-            if ( (*((_DWORD *)v5 + 39) & 0x40) != 0 )
-            {
-              if ( (v5[4] & 0x80000) != 0 )
-                v26 = *(struct tagRECT *)(*(_QWORD *)(v15 + 40) + 88LL);
-              else
-                v26 = *(struct tagRECT *)(v5 + 17);
-              v27 = v5[16];
-              v30 = v26;
-              v28 = ValidateHmonitorNoRip(v27);
-              if ( v28 )
-                v29 = *(_WORD *)(*(_QWORD *)(v28 + 40) + 60LL);
-              else
-                v29 = 0;
-              xxxNotifyMonitorChanged((struct tagWND *)v15, &v30, (struct tagBWL *)v5[20], v29);
-            }
-            if ( (v5[4] & 0x10000) != 0 && (*(_DWORD *)(v15 + 320) & 0x200) != 0 )
-              PostIAMShellHookMessage(0x1Fu);
-            if ( (*((_DWORD *)v5 + 8) & 0x80u) != 0 )
-              NotifyShell::CuratedWindowHidden(v15);
-            if ( (v5[4] & 0x1100C0) == 0
-              && (v5[4] & 3) != 3
-              && (*(_BYTE *)(*(_QWORD *)(v15 + 40) + 31LL) & 0x10) != 0
-              && !(unsigned int)GetWindowCloakState((struct tagTHREADINFO **)v15) )
-            {
-              v20 = *(_QWORD *)(v15 + 24);
-              if ( *(_QWORD *)(v20 + 328)
-                && (*(_DWORD *)(v20 + 336) & 0x10) != 0
-                && anonymous_namespace_::EligibleWindow((struct tagWND *)v15, 1) )
-              {
-                NotifyShell::TrackedWindowPosChanged((NotifyShell *)v15, 0LL, v19);
-              }
-              if ( IsShellParticipatesInSizing((struct tagWND *)v15, v18, v19) )
-                anonymous_namespace_::WindowSizingUpdate(v15);
-            }
-            CalcWindowFullScreen((struct tagWND *)v15);
-            if ( v17 != 6144 )
-              xxxWindowEvent(0x800Bu, (struct tagWND *)v15, 0, 0, 1);
-            ThreadUnlock1(v22, v21, v23);
-          }
-          goto LABEL_39;
-        }
-      }
-      else
-      {
-        *((_DWORD *)v5 + 8) = 6159;
-      }
-      *v5 = 0LL;
+      *(_DWORD *)(v2 + 32) = 6159;
+LABEL_37:
+      *(_QWORD *)v2 = 0LL;
+      goto LABEL_21;
     }
-LABEL_39:
-    v5 += 21;
+    if ( !(unsigned int)IsStillWindowC(*(HWND *)(v2 + 8)) )
+      goto LABEL_37;
+    if ( (*(_DWORD *)(v2 + 32) & 0x40000) != 0 || (*(_DWORD *)(v2 + 32) & 0x18E7) == 0x1807 )
+    {
+      PostIAMPosChangedNotification((struct tagCVR *)v2, (struct tagWND *)v5);
+    }
+    else
+    {
+      ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+      *(_QWORD *)&v20 = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = &v20;
+      *((_QWORD *)&v20 + 1) = v5;
+      HMLockObject(v5);
+      v7 = *(_DWORD *)(v2 + 32);
+      if ( (v7 & 0x80u) != 0 )
+      {
+        xxxRemoveShadow(v5);
+        v7 = *(_DWORD *)(v2 + 32);
+      }
+      if ( (v7 & 0x40) != 0 )
+      {
+        if ( (unsigned int)ShouldHaveShadow(v5) )
+          xxxAddShadow((struct tagWND *)v5);
+      }
+      else if ( (unsigned int)WindowHasShadow(v5) )
+      {
+        if ( (v8 & 1) == 0 || (v8 & 0x20) != 0 )
+        {
+          Shadow = (struct tagWND **)FindShadow((struct tagWND *)v5);
+          if ( Shadow )
+            zzzApplyShadow(*Shadow, Shadow[1]);
+        }
+        else if ( (v8 & 2) == 0 )
+        {
+          zzzMoveShadow(v5);
+        }
+        if ( (*(_DWORD *)(v2 + 32) & 4) == 0 )
+          xxxUpdateShadowZorder(v5);
+      }
+      v9 = *(_DWORD *)(v2 + 32) & 0x9820;
+      if ( (unsigned int)IsWindowDesktopComposed(v5) && v9 != 6144 )
+        DwmChildRectChange(v5, v10, v11);
+      if ( (*(_DWORD *)(gptiCurrent + 1232LL) & 0x40000) == 0 || gptiCurrent == *(_QWORD *)(v5 + 16) )
+      {
+        _InterlockedIncrement(&glSendMessage);
+        xxxSendTransformableMessageTimeout(v5, 0x47u, 0LL, (struct _LARGE_STRING *)v2, 0, 0, 0LL, 1, 0);
+      }
+      else if ( *(_DWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 392LL) != 1 )
+      {
+        v22 = 0LL;
+        xxxSendTransformableMessageTimeout(v5, 0x47u, 0LL, (struct _LARGE_STRING *)v2, 2u, 0x64u, &v22, 1, 0);
+      }
+      if ( (*(_DWORD *)(v2 + 156) & 0x40) != 0 )
+      {
+        if ( (*(_DWORD *)(v2 + 32) & 0x80000) != 0 )
+          v15 = *(struct tagRECT *)(*(_QWORD *)(v5 + 40) + 88LL);
+        else
+          v15 = *(struct tagRECT *)(v2 + 136);
+        v16 = *(_QWORD *)(v2 + 128);
+        v19 = v15;
+        v17 = ValidateHmonitorNoRip(v16);
+        if ( v17 )
+          v18 = *(_WORD *)(*(_QWORD *)(v17 + 40) + 64LL);
+        else
+          v18 = 0;
+        xxxNotifyMonitorChanged((struct tagWND *)v5, &v19, *(struct tagBWL **)(v2 + 160), v18);
+      }
+      PostIAMPosChangedNotification((struct tagCVR *)v2, (struct tagWND *)v5);
+      NotifyShell::PositioningChanged((NotifyShell *)v5, (struct tagWND *)v2, v12);
+      CalcWindowFullScreen((struct tagWND *)v5);
+      if ( v9 != 6144 )
+        xxxWindowEvent(0x800Bu, 1u);
+      ThreadUnlock1(v13);
+    }
+LABEL_21:
+    v2 += 168LL;
   }
   if ( (*gpsi & 4) != 0 )
-    xxxImeWindowPosChanged(a1, a2, a3, a4);
+    xxxImeWindowPosChanged(a1);
 }

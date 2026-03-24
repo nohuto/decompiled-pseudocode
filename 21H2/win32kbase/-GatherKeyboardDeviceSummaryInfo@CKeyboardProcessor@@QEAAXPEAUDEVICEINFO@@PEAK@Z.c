@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GatherKeyboardDeviceSummaryInfo@CKeyboardProcessor@@QEAAXPEAUDEVICEINFO@@PEAK@Z @ 0x1C00C4A28
+ * XREFs of ?GatherKeyboardDeviceSummaryInfo@CKeyboardProcessor@@QEAAXPEAUDEVICEINFO@@PEAK@Z @ 0x1C00C48BC
  * Callers:
- *     ?GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH111@Z @ 0x1C004A5F0 (-GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH111@Z.c)
+ *     ?GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH111@Z @ 0x1C00B87C8 (-GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH111@Z.c)
  * Callees:
- *     wcsncmp @ 0x1C00D6268 (wcsncmp.c)
+ *     wcsncmp @ 0x1C00C552C (wcsncmp.c)
  */
 
 void __fastcall CKeyboardProcessor::GatherKeyboardDeviceSummaryInfo(
@@ -18,13 +18,13 @@ void __fastcall CKeyboardProcessor::GatherKeyboardDeviceSummaryInfo(
   v3 = (const wchar_t *)*((_QWORD *)a2 + 27);
   if ( !v3 || wcsncmp(v3, L"\\??\\Root#RDP", 0xCuLL) )
   {
-    v6 = *((_BYTE *)a2 + 456);
-    if ( (unsigned __int8)(v6 - 7) <= 1u || v6 == 4 && *((_BYTE *)a2 + 457) != 0xFF )
+    v6 = *((_BYTE *)a2 + 464);
+    if ( (unsigned __int8)(v6 - 7) <= 1u || v6 == 4 && *((_BYTE *)a2 + 465) != 0xFF )
     {
       v7 = WORD2(gKeyboardInfo);
-      gKeyboardInfo = *(_OWORD *)((char *)a2 + 456);
-      qword_1C0294190 = *((_QWORD *)a2 + 59);
-      dword_1C0294198 = *((_DWORD *)a2 + 120);
+      gKeyboardInfo = *((_OWORD *)a2 + 29);
+      qword_1C024CB10 = *((_QWORD *)a2 + 60);
+      dword_1C024CB18 = *((_DWORD *)a2 + 122);
       if ( v7 > WORD2(gKeyboardInfo) )
         WORD2(gKeyboardInfo) = v7;
     }

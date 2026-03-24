@@ -1,56 +1,64 @@
 /*
- * XREFs of ACPIBusIrpQueryInstanceId @ 0x1C0092934
+ * XREFs of ACPIBusIrpQueryInstanceId @ 0x1C00A2000
  * Callers:
- *     ACPIBusIrpQueryId @ 0x1C0093F10 (ACPIBusIrpQueryId.c)
+ *     ACPIBusIrpQueryId @ 0x1C008FF00 (ACPIBusIrpQueryId.c)
  * Callees:
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     RtlStringCbPrintfW @ 0x1C004CF8C (RtlStringCbPrintfW.c)
- *     WPP_RECORDER_SF_qdLqss @ 0x1C004D1E8 (WPP_RECORDER_SF_qdLqss.c)
- *     ACPIAllocateBuffer @ 0x1C0092FC8 (ACPIAllocateBuffer.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     RtlStringCbPrintfW @ 0x1C004E02C (RtlStringCbPrintfW.c)
+ *     WPP_RECORDER_SF_qdLqss @ 0x1C004E4F4 (WPP_RECORDER_SF_qdLqss.c)
+ *     ACPIAllocateBuffer @ 0x1C008FA90 (ACPIAllocateBuffer.c)
  */
 
-__int64 __fastcall ACPIBusIrpQueryInstanceId(__int64 *a1, size_t *a2, _QWORD *a3)
+__int64 __fastcall ACPIBusIrpQueryInstanceId(_QWORD *a1, SIZE_T *a2, __int64 *a3)
 {
-  __int64 v6; // rax
+  PVOID v6; // rax
   size_t v7; // rdi
-  void *v8; // rbp
+  void *v8; // r14
   int v9; // eax
-  unsigned int v10; // ebx
+  int v10; // ebx
   __int64 v12; // rdx
   const char *v13; // rax
   const char *v14; // rcx
   __int64 v15; // r8
   __int64 v16; // rax
   __int64 v17; // rdx
-  void *Pool2; // rax
-  int v19; // [rsp+20h] [rbp-58h]
-  int v20; // [rsp+28h] [rbp-50h]
-  int v21; // [rsp+30h] [rbp-48h]
-  void *Src; // [rsp+80h] [rbp+8h] BYREF
-  size_t Size; // [rsp+88h] [rbp+10h] BYREF
+  PVOID PoolWithTag; // rax
+  int v19; // [rsp+20h] [rbp-40h]
+  int v20; // [rsp+28h] [rbp-38h]
+  int v21; // [rsp+30h] [rbp-30h]
+  void *Src; // [rsp+80h] [rbp+20h] BYREF
+  size_t Size; // [rsp+88h] [rbp+28h] BYREF
 
   Src = 0LL;
   Size = 0LL;
-  v6 = ACPIAllocateBuffer(a2, a3, 660LL);
+  v6 = ACPIAllocateBuffer(a2, (__int64)a3, 0x294uLL);
   v7 = *a2;
-  v8 = (void *)v6;
+  v8 = v6;
   *a1 = v6;
   if ( !v6 )
     goto LABEL_11;
-  v9 = ACPIGet((__int64)a3, 1145656671, 268959894, 0LL, 0, 0LL, 0LL, (__int64)&Src, (__int64)&Size);
+  v9 = ACPIGet(a3, 1145656671, 268959894, 0LL, 0, 0LL, 0LL, (__int64)&Src, (__int64)&Size);
   v10 = v9;
   if ( v9 != -1073741661 )
   {
     if ( v9 < 0 )
+      goto LABEL_9;
+LABEL_4:
+    if ( v7 >= Size )
     {
-      if ( v9 == -1073741772 )
+      memmove(v8, Src, Size);
+      if ( v10 >= 0 )
+        goto LABEL_6;
+LABEL_9:
+      if ( v10 == -1073741772 )
         goto LABEL_6;
       goto LABEL_12;
     }
-    goto LABEL_4;
+    goto LABEL_11;
   }
-  v16 = a3[77];
+  v16 = a3[72];
   if ( v16 )
   {
     v17 = -1LL;
@@ -58,35 +66,31 @@ __int64 __fastcall ACPIBusIrpQueryInstanceId(__int64 *a1, size_t *a2, _QWORD *a3
       ++v17;
     while ( *(_BYTE *)(v16 + v17) );
     Size = 2 * v17 + 2;
-    Pool2 = (void *)ExAllocatePool2(256LL, Size, 1399874369LL);
-    Src = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, Size, 0x53706341u);
+    Src = PoolWithTag;
+    if ( PoolWithTag )
     {
-      RtlStringCbPrintfW((NTSTRSAFE_PWSTR)Pool2, Size, L"%S", a3[77]);
+      memset(PoolWithTag, 0, Size);
+      RtlStringCbPrintfW((NTSTRSAFE_PWSTR)Src, Size, L"%S", a3[72]);
       v10 = 0;
-LABEL_4:
-      if ( v7 >= Size )
-      {
-        memmove(v8, Src, Size);
-        goto LABEL_6;
-      }
+      goto LABEL_4;
     }
 LABEL_11:
     v10 = -1073741670;
   }
 LABEL_12:
   v12 = 0LL;
-  v13 = (const char *)&unk_1C006FB8B;
-  v14 = (const char *)&unk_1C006FB8B;
+  v13 = byte_1C00701BA;
+  v14 = byte_1C00701BA;
   if ( a3 )
   {
     v15 = a3[1];
     v12 = (__int64)a3;
     if ( (v15 & 0x200000000000LL) != 0 )
     {
-      v13 = (const char *)a3[76];
+      v13 = (const char *)a3[71];
       if ( (v15 & 0x400000000000LL) != 0 )
-        v14 = (const char *)a3[77];
+        v14 = (const char *)a3[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -105,5 +109,5 @@ LABEL_12:
 LABEL_6:
   if ( Src )
     ExFreePoolWithTag(Src, 0x53706341u);
-  return v10;
+  return (unsigned int)v10;
 }

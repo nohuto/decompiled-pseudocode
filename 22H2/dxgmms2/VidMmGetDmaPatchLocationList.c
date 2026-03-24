@@ -1,5 +1,5 @@
 /*
- * XREFs of VidMmGetDmaPatchLocationList @ 0x1C0018A70
+ * XREFs of VidMmGetDmaPatchLocationList @ 0x1C0016280
  * Callers:
  *     <none>
  * Callees:

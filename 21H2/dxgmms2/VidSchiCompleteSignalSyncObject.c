@@ -1,24 +1,24 @@
 /*
- * XREFs of VidSchiCompleteSignalSyncObject @ 0x1C000B800
+ * XREFs of VidSchiCompleteSignalSyncObject @ 0x1C000CB40
  * Callers:
- *     VidSchSignalSyncObjectsFromGpu @ 0x1C0005C90 (VidSchSignalSyncObjectsFromGpu.c)
- *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C00087D0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
- *     VidSchiCompleteSignalCommmand @ 0x1C0019138 (VidSchiCompleteSignalCommmand.c)
- *     ?VidSchiCompleteHwQueueSignalPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z @ 0x1C003F638 (-VidSchiCompleteHwQueueSignalPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z.c)
- *     VidSchSubmitSignalToHwQueue @ 0x1C0042100 (VidSchSubmitSignalToHwQueue.c)
+ *     VidSchSignalSyncObjectsFromGpu @ 0x1C0007BD0 (VidSchSignalSyncObjectsFromGpu.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C000A060 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ *     VidSchiCompleteSignalCommmand @ 0x1C00165FC (VidSchiCompleteSignalCommmand.c)
+ *     ?VidSchiCompleteHwQueueSignalPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z @ 0x1C0036D94 (-VidSchiCompleteHwQueueSignalPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z.c)
+ *     VidSchSubmitSignalToHwQueue @ 0x1C003A3A0 (VidSchSubmitSignalToHwQueue.c)
  * Callees:
- *     VidSchiUnwaitMonitoredFences @ 0x1C000B960 (VidSchiUnwaitMonitoredFences.c)
- *     VidSchiUnwaitWaitQueuePacket @ 0x1C000EA80 (VidSchiUnwaitWaitQueuePacket.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     VidSchiPropagateCrossAdapterSignal @ 0x1C0039328 (VidSchiPropagateCrossAdapterSignal.c)
- *     VidSchiUnblockUnorderedWaiter @ 0x1C003AC04 (VidSchiUnblockUnorderedWaiter.c)
+ *     VidSchiUnwaitMonitoredFences @ 0x1C000CC70 (VidSchiUnwaitMonitoredFences.c)
+ *     VidSchiUnwaitWaitQueuePacket @ 0x1C0010DD0 (VidSchiUnwaitWaitQueuePacket.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiPropagateCrossAdapterSignal @ 0x1C003074C (VidSchiPropagateCrossAdapterSignal.c)
+ *     VidSchiUnblockUnorderedWaiter @ 0x1C0031FAC (VidSchiUnblockUnorderedWaiter.c)
  */
 
 void __fastcall VidSchiCompleteSignalSyncObject(__int64 a1, __int64 a2, char a3, unsigned __int64 *a4, char a5)
 {
-  __int64 v5; // r14
-  int v7; // edx
-  __int64 v11; // r9
+  __int64 v5; // rbp
+  __int64 v7; // rdx
+  _QWORD *v11; // rax
   unsigned __int64 v12; // rcx
   unsigned __int64 *v13; // rdx
   __int64 v14; // rcx
@@ -26,24 +26,28 @@ void __fastcall VidSchiCompleteSignalSyncObject(__int64 a1, __int64 a2, char a3,
   __int64 v16; // rax
   int v17; // edx
   int v18; // edx
-  _QWORD *v19; // rdi
-  int v20; // edx
-  __int64 v21; // rsi
-  _QWORD *v22; // rdx
-  unsigned __int64 v23; // rcx
-  unsigned int v24; // ecx
-  __int64 v25; // rdx
+  __int64 v19; // rbp
+  _QWORD *v20; // rdi
+  _QWORD *v21; // rdx
+  unsigned __int64 v22; // rcx
+  unsigned int v23; // ecx
+  _QWORD *v24; // rdx
+  _QWORD *v25; // rdx
   int v26; // ecx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v5 = *(_QWORD *)(a2 + 8);
-  v7 = *(_DWORD *)(a2 + 48);
-  if ( v7 == 4 )
+  v7 = *(unsigned int *)(a2 + 44);
+  if ( (_DWORD)v7 == 4 )
   {
 LABEL_2:
     if ( !*(_BYTE *)(a2 + 28) )
     {
-      WdLogSingleEntry3(4LL, a2, **(_QWORD **)(a2 + 64), *a4);
+      v11 = (_QWORD *)WdLogNewEntry5_WdEvent(a1, v7);
+      v11[3] = a2;
+      v11[4] = **(_QWORD **)(a2 + 64);
+      v11[5] = *a4;
+      WdLogEvent5_WdEvent(v11);
       v12 = *a4;
       v13 = *(unsigned __int64 **)(a2 + 64);
       if ( *(_BYTE *)(a2 + 29) )
@@ -55,11 +59,11 @@ LABEL_2:
       {
         *(_DWORD *)v13 = v12;
       }
-      VidSchiUnwaitMonitoredFences(a1, v5, 0LL, v11);
+      VidSchiUnwaitMonitoredFences(a1, v5, 0LL);
     }
-    goto LABEL_9;
+    goto LABEL_7;
   }
-  if ( v7 )
+  if ( (_DWORD)v7 )
   {
     v17 = v7 - 1;
     if ( v17 )
@@ -67,58 +71,58 @@ LABEL_2:
       v18 = v17 - 1;
       if ( v18 )
       {
-        v20 = v18 - 1;
-        if ( !v20 )
+        v7 = (unsigned int)(v18 - 1);
+        if ( !(_DWORD)v7 )
         {
           if ( *(_BYTE *)(a2 + 31) )
-            ((void (__fastcall *)(_QWORD))DxgCoreInterface[68])(*(_QWORD *)(a2 + 64));
+            ((void (__fastcall *)(_QWORD))DxgCoreInterface[63])(*(_QWORD *)(a2 + 64));
           else
             KeSetEvent(*(PRKEVENT *)(a2 + 56), 0, 0);
-          goto LABEL_9;
+          goto LABEL_7;
         }
-        if ( v20 != 2 )
-          goto LABEL_9;
+        if ( (_DWORD)v7 != 2 )
+          goto LABEL_7;
         goto LABEL_2;
       }
       if ( *(_BYTE *)(a2 + 27) )
       {
-        v21 = *(_QWORD *)(a2 + 208);
-        memset(&LockHandle, 0, sizeof(LockHandle));
-        KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v21 + 8), &LockHandle);
-        if ( *(_QWORD *)(v21 + 32) < *a4 )
-          *(_QWORD *)(v21 + 32) = *a4;
+        v19 = *(_QWORD *)(a2 + 208);
+        KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v19 + 8), &LockHandle);
+        if ( *(_QWORD *)(v19 + 32) < *a4 )
+          *(_QWORD *)(v19 + 32) = *a4;
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       }
       else if ( *(_QWORD *)(a2 + 72) < *a4 )
       {
         *(_QWORD *)(a2 + 72) = *a4;
       }
-      if ( *(_DWORD *)(a2 + 40) )
+      if ( *(_DWORD *)(a2 + 36) )
         VidSchiUnblockUnorderedWaiter(a1, a2, 0LL);
-      v19 = *(_QWORD **)(a2 + 96);
-      while ( v19 != (_QWORD *)(a2 + 96) )
+      v20 = *(_QWORD **)(a2 + 96);
+      while ( v20 != (_QWORD *)(a2 + 96) )
       {
-        v22 = v19 - 36;
-        v19 = (_QWORD *)*v19;
+        v21 = v20 - 36;
+        v20 = (_QWORD *)*v20;
         if ( *(_BYTE *)(a2 + 27) )
-          v23 = *(_QWORD *)(*(_QWORD *)(a2 + 208) + 32LL);
+          v22 = *(_QWORD *)(*(_QWORD *)(a2 + 208) + 32LL);
         else
-          v23 = *(_QWORD *)(a2 + 72);
-        if ( v22[38] <= v23 )
-          VidSchiUnwaitWaitQueuePacket(a1, v22, 0LL, 0LL);
+          v22 = *(_QWORD *)(a2 + 72);
+        if ( v21[38] <= v22 )
+          VidSchiUnwaitWaitQueuePacket(a1, v21, 0LL, 0LL);
       }
     }
     else
     {
-      v24 = *(_DWORD *)(a2 + 56);
-      if ( v24 < *(_DWORD *)(a2 + 60) )
+      v23 = *(_DWORD *)(a2 + 56);
+      if ( v23 < *(_DWORD *)(a2 + 60) )
       {
-        *(_DWORD *)(a2 + 56) = v24 + 1;
-        v25 = *(_QWORD *)(a2 + 96);
-        if ( v25 != a2 + 96 )
+        v24 = (_QWORD *)(a2 + 96);
+        *(_DWORD *)(a2 + 56) = v23 + 1;
+        if ( (_QWORD *)*v24 != v24 )
         {
-          *(_DWORD *)(a2 + 56) = v24;
-          VidSchiUnwaitWaitQueuePacket(a1, v25 - 288, 0LL, 0LL);
+          v25 = (_QWORD *)*v24;
+          *(_DWORD *)(a2 + 56) = v23;
+          VidSchiUnwaitWaitQueuePacket(a1, v25 - 36, 0LL, 0LL);
         }
       }
     }
@@ -137,12 +141,12 @@ LABEL_2:
       VidSchiUnwaitWaitQueuePacket(a1, v15, 0LL, 0LL);
     }
   }
-LABEL_9:
+LABEL_7:
   if ( *(_BYTE *)(a2 + 27) )
   {
     if ( a5 )
     {
-      v26 = *(_DWORD *)(a2 + 48);
+      v26 = *(_DWORD *)(a2 + 44);
       if ( ((v26 - 2) & 0xFFFFFFFC) == 0 && v26 != 3 )
         VidSchiPropagateCrossAdapterSignal(a2);
     }

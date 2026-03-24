@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ConfirmIndependentFlipEntry@CFlipExBuffer@@UEAAX_K0II0@Z @ 0x1C001E260
+ * XREFs of ?ConfirmIndependentFlipEntry@CFlipExBuffer@@UEAAX_K0II0@Z @ 0x1C001E080
  * Callers:
  *     <none>
  * Callees:
- *     DxgkConfirmToken @ 0x1C01E4FEC (DxgkConfirmToken.c)
+ *     DxgkConfirmToken @ 0x1C0175ABC (DxgkConfirmToken.c)
  */
 
 void __fastcall CFlipExBuffer::ConfirmIndependentFlipEntry(
@@ -14,13 +14,20 @@ void __fastcall CFlipExBuffer::ConfirmIndependentFlipEntry(
         unsigned int a5,
         unsigned __int64 a6)
 {
-  __int64 v9; // r8
+  _QWORD *v9; // rax
+  __int64 v10; // [rsp+50h] [rbp+8h]
 
-  if ( *((_DWORD *)this + 96) == 2 && *((_QWORD *)this + 67) == a6 )
+  if ( *((_DWORD *)this + 88) == 2 && *((_QWORD *)this + 60) == a6 )
   {
-    v9 = *((_QWORD *)this + 1);
-    *((_DWORD *)this + 96) = 3;
-    WdLogSingleEntry5(8LL, a3, v9, *((_QWORD *)this + 2), a5, a6);
+    v10 = *((_QWORD *)this + 1);
+    *((_DWORD *)this + 88) = 3;
+    v9 = (_QWORD *)WdLogNewEntry5_WdPresentTokenEvent();
+    v9[3] = a3;
+    v9[4] = v10;
+    v9[5] = *((_QWORD *)this + 2);
+    v9[6] = a5;
+    v9[7] = a6;
+    WdLogEvent5_WdPresentTokenEvent(v9);
     DxgkConfirmToken(a2, *((_QWORD *)this + 2), a6);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of XmPortDX @ 0x1403B8400
+ * XREFs of XmPortDX @ 0x140395F80
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmSetDataType @ 0x1403B8E88 (XmSetDataType.c)
+ *     XmSetDataType @ 0x140396CC8 (XmSetDataType.c)
  */
 
 __int64 __fastcall XmPortDX(__int64 a1)
@@ -14,6 +14,6 @@ __int64 __fastcall XmPortDX(__int64 a1)
   v1 = *(unsigned __int16 *)(a1 + 32);
   *(_DWORD *)(a1 + 120) = 1;
   *(_DWORD *)(a1 + 108) = v1;
-  XmSetDataType(a1);
+  XmSetDataType();
   return v2;
 }

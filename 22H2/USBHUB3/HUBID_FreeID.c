@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBID_FreeID @ 0x1C001DA80
+ * XREFs of HUBID_FreeID @ 0x1C001B1EC
  * Callers:
- *     HUBPDO_ReturnDeviceConfigInfo @ 0x1C00162F0 (HUBPDO_ReturnDeviceConfigInfo.c)
+ *     HUBPDO_ReturnDeviceConfigInfo @ 0x1C0014E10 (HUBPDO_ReturnDeviceConfigInfo.c)
  * Callees:
  *     <none>
  */

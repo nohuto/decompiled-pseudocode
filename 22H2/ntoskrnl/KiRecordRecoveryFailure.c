@@ -1,17 +1,14 @@
 /*
- * XREFs of KiRecordRecoveryFailure @ 0x14057B360
+ * XREFs of KiRecordRecoveryFailure @ 0x14052509C
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x14057A4BC (KiAttemptBugcheckRecovery.c)
- *     KiDeferredBugcheckRecoveryWorker @ 0x14057AE70 (KiDeferredBugcheckRecoveryWorker.c)
- *     KiHandleMultipleBugchecksDuringRecovery @ 0x14057B120 (KiHandleMultipleBugchecksDuringRecovery.c)
- *     KiScheduleBugcheckRecovery @ 0x14057B524 (KiScheduleBugcheckRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x140524CC4 (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
  */
 
 char __fastcall KiRecordRecoveryFailure(ULONG a1)
 {
   KiBugcheckRecoveryFailureReason = a1;
   IoAddTriageDumpDataBlock((ULONG)&KiBugcheckRecoveryFailureReason, (PVOID)4);
-  return IoAddTriageDumpDataBlock((ULONG)&KiBugcheckRecoveryInformation, (PVOID)0x4C);
+  return IoAddTriageDumpDataBlock((ULONG)&KiBugcheckRecoveryInformation, (PVOID)0x20);
 }

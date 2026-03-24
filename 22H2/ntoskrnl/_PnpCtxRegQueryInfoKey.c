@@ -1,25 +1,25 @@
 /*
- * XREFs of _PnpCtxRegQueryInfoKey @ 0x140877FDC
+ * XREFs of _PnpCtxRegQueryInfoKey @ 0x1406F9E0C
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140375490 (PipUpdateDeviceProducts.c)
- *     PiDrvDbResolveFilePathKeyValues @ 0x140815520 (PiDrvDbResolveFilePathKeyValues.c)
- *     DrvDbGetDeviceIdDriverInfMatches @ 0x140877C68 (DrvDbGetDeviceIdDriverInfMatches.c)
- *     PiCMEnumerateSubKeys @ 0x140969A4C (PiCMEnumerateSubKeys.c)
- *     PiDrvDbOverlayCopyKeys @ 0x140970238 (PiDrvDbOverlayCopyKeys.c)
- *     _CmGetDevicesInBaseContainerList @ 0x140A64334 (_CmGetDevicesInBaseContainerList.c)
- *     _CmRemoveDeviceFromContainerWorker @ 0x140A647EC (_CmRemoveDeviceFromContainerWorker.c)
- *     _CmRemovePanelDeviceWorker @ 0x140A66D74 (_CmRemovePanelDeviceWorker.c)
- *     _CmAppendDeclarativeFilterLevel @ 0x140A670AC (_CmAppendDeclarativeFilterLevel.c)
- *     _CmGetDeviceCompoundFiltersWorker @ 0x140A67E7C (_CmGetDeviceCompoundFiltersWorker.c)
- *     _CmGetInstallerClassCompoundFiltersWorker @ 0x140A68754 (_CmGetInstallerClassCompoundFiltersWorker.c)
- *     DrvDbDeleteObjectSubKey @ 0x140A6B02C (DrvDbDeleteObjectSubKey.c)
- *     DrvDbGetDeviceIdMappedPropertyKeys @ 0x140A6B568 (DrvDbGetDeviceIdMappedPropertyKeys.c)
- *     DrvDbGetObjectSubKeyCallback @ 0x140A6C580 (DrvDbGetObjectSubKeyCallback.c)
- *     DrvDbSetDeviceIdDriverInfMatches @ 0x140A6CA68 (DrvDbSetDeviceIdDriverInfMatches.c)
- *     PipResetDevices @ 0x140B436DC (PipResetDevices.c)
- *     PipMigrateCleanServiceCallback @ 0x140B953C0 (PipMigrateCleanServiceCallback.c)
+ *     PipUpdateDeviceProducts @ 0x1403C6D30 (PipUpdateDeviceProducts.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x1406F9A80 (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     DrvDbSetDeviceIdDriverInfMatches @ 0x1407285CC (DrvDbSetDeviceIdDriverInfMatches.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x14072CAE0 (_CmRemoveDeviceFromContainerWorker.c)
+ *     PiCMEnumerateSubKeys @ 0x1408B03BC (PiCMEnumerateSubKeys.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x1408B6168 (PiDrvDbOverlayCopyKeys.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x1408B7208 (PiDrvDbResolveFilePathKeyValues.c)
+ *     _CmGetDevicesInBaseContainerList @ 0x140976298 (_CmGetDevicesInBaseContainerList.c)
+ *     _CmRemovePanelDeviceWorker @ 0x140978C2C (_CmRemovePanelDeviceWorker.c)
+ *     _CmAppendDeclarativeFilterLevel @ 0x140979590 (_CmAppendDeclarativeFilterLevel.c)
+ *     _CmGetDeviceCompoundFiltersWorker @ 0x14097A02C (_CmGetDeviceCompoundFiltersWorker.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14097A940 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ *     DrvDbDeleteObjectSubKey @ 0x14097CDFC (DrvDbDeleteObjectSubKey.c)
+ *     DrvDbGetDeviceIdMappedPropertyKeys @ 0x14097D320 (DrvDbGetDeviceIdMappedPropertyKeys.c)
+ *     DrvDbGetObjectSubKeyCallback @ 0x14097E150 (DrvDbGetObjectSubKeyCallback.c)
+ *     PipResetDevices @ 0x140A53B50 (PipResetDevices.c)
+ *     PipMigrateCleanServiceCallback @ 0x140A90380 (PipMigrateCleanServiceCallback.c)
  * Callees:
- *     _RegRtlQueryInfoKey @ 0x14086B8B4 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlQueryInfoKey @ 0x140699968 (_RegRtlQueryInfoKey.c)
  */
 
 __int64 __fastcall PnpCtxRegQueryInfoKey(

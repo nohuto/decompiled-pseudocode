@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C00CCA80
+ * XREFs of ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C002EB28
  * Callers:
- *     DwmSyncHitTestQuery @ 0x1C00CA230 (DwmSyncHitTestQuery.c)
- *     DwmSyncDesktopSwitch @ 0x1C00CA504 (DwmSyncDesktopSwitch.c)
- *     DwmSyncNotifyMinimizing @ 0x1C00CBD30 (DwmSyncNotifyMinimizing.c)
- *     DwmSyncCaptureSurfaceBits @ 0x1C00CC4A8 (DwmSyncCaptureSurfaceBits.c)
- *     DwmSyncGetTitleBarInfo @ 0x1C00CC71C (DwmSyncGetTitleBarInfo.c)
- *     DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C00CC990 (DwmSyncFlushForceRenderAndWaitForBatch.c)
- *     DwmSyncGetCompositionAttribute @ 0x1C014E298 (DwmSyncGetCompositionAttribute.c)
- *     DwmSyncMagnUpdateWindowSharedTextures @ 0x1C0273230 (DwmSyncMagnUpdateWindowSharedTextures.c)
+ *     DwmSyncHitTestQuery @ 0x1C002ACF4 (DwmSyncHitTestQuery.c)
+ *     DwmSyncDesktopSwitch @ 0x1C002AE30 (DwmSyncDesktopSwitch.c)
+ *     DwmSyncNotifyMinimizing @ 0x1C002C59C (DwmSyncNotifyMinimizing.c)
+ *     DwmSyncCaptureSurfaceBits @ 0x1C002E3C4 (DwmSyncCaptureSurfaceBits.c)
+ *     DwmSyncGetTitleBarInfo @ 0x1C002E654 (DwmSyncGetTitleBarInfo.c)
+ *     DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C002E8E0 (DwmSyncFlushForceRenderAndWaitForBatch.c)
+ *     DwmSyncGetCompositionAttribute @ 0x1C002E9E0 (DwmSyncGetCompositionAttribute.c)
+ *     DwmSyncMagnUpdateWindowSharedTextures @ 0x1C02759A0 (DwmSyncMagnUpdateWindowSharedTextures.c)
  * Callees:
  *     <none>
  */

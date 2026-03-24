@@ -1,10 +1,10 @@
 /*
- * XREFs of BvgaReleaseResources @ 0x1403D8300
+ * XREFs of BvgaReleaseResources @ 0x1403B4DE0
  * Callers:
  *     <none>
  * Callees:
- *     InbvIsBootDriverInstalled @ 0x1403D8370 (InbvIsBootDriverInstalled.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     InbvIsBootDriverInstalled @ 0x1403B4E50 (InbvIsBootDriverInstalled.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void BvgaReleaseResources()

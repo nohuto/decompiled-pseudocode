@@ -1,11 +1,11 @@
 /*
- * XREFs of IopRevokeFileObjectForProcess @ 0x140284D10
+ * XREFs of IopRevokeFileObjectForProcess @ 0x140284E10
  * Callers:
- *     IopCheckHandleForRevocation @ 0x1402849A0 (IopCheckHandleForRevocation.c)
+ *     IopCheckHandleForRevocation @ 0x140284AA0 (IopCheckHandleForRevocation.c)
  * Callees:
  *     IopAllocateFileObjectExtension @ 0x140062920 (IopAllocateFileObjectExtension.c)
- *     IopCancelIrpsInFileObjectList @ 0x140121A0C (IopCancelIrpsInFileObjectList.c)
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x140676134 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     IopCancelIrpsInFileObjectList @ 0x140121A2C (IopCancelIrpsInFileObjectList.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x140676114 (IopCancelIrpsInThreadListForCurrentProcess.c)
  */
 
 __int64 __fastcall IopRevokeFileObjectForProcess(__int64 a1, int a2)

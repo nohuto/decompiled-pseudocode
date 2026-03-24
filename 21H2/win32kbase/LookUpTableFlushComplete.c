@@ -1,17 +1,17 @@
 /*
- * XREFs of LookUpTableFlushComplete @ 0x1C02C87EC
+ * XREFs of LookUpTableFlushComplete @ 0x1C027FA34
  * Callers:
- *     TlgAggregateFlush @ 0x1C0241244 (TlgAggregateFlush.c)
- *     TlgUnregisterAggregateProvider @ 0x1C02C8634 (TlgUnregisterAggregateProvider.c)
- *     ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C02C87A0 (-TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIP.c)
- *     ?TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C02C8C50 (-TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
- *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1C02C9710 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
+ *     TlgAggregateFlush @ 0x1C0200074 (TlgAggregateFlush.c)
+ *     TlgUnregisterAggregateProvider @ 0x1C027F8D8 (TlgUnregisterAggregateProvider.c)
+ *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1C0280690 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
+ *     ?TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C0280720 (-TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
+ *     ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C0280790 (-TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIP.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     FlushLookUpTableBucket @ 0x1C00BB74C (FlushLookUpTableBucket.c)
- *     ??$Write@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapperByVal@$07@@U2@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapperByVal@$07@@44AEBU?$_tlgWrapperByVal@$03@@5555@Z @ 0x1C00D3EBC (--$Write@U-$_tlgWrapperByRef@$0BA@@@U-$_tlgWrapperByVal@$07@@U2@U2@U-$_tlgWrapperByVal@$03@@U3@U.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     UpdateInternalStatsOnFlush @ 0x1C02C8A1C (UpdateInternalStatsOnFlush.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapperByVal@$07@@U2@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapperByVal@$07@@44AEBU?$_tlgWrapperByVal@$03@@5555@Z @ 0x1C01FF5DC (--$Write@U-$_tlgWrapperByRef@$0BA@@@U-$_tlgWrapperByVal@$07@@U2@U2@U-$_tlgWrapperByVal@$03@@U3@U.c)
+ *     FlushLookUpTableBucket @ 0x1C01FFBB8 (FlushLookUpTableBucket.c)
+ *     UpdateInternalStatsOnFlush @ 0x1C028080C (UpdateInternalStatsOnFlush.c)
  */
 
 void __fastcall LookUpTableFlushComplete(__int64 a1)
@@ -40,7 +40,7 @@ void __fastcall LookUpTableFlushComplete(__int64 a1)
     UpdateInternalStatsOnFlush();
     if ( *(_QWORD *)(v3 + 288) )
     {
-      if ( (unsigned int)dword_1C028DB58 > 5 && tlgKeywordOn((__int64)&dword_1C028DB58, 0x200000000000LL) )
+      if ( (unsigned int)dword_1C024A6D8 > 5 && tlgKeywordOn((__int64)&dword_1C024A6D8, 0x400000000000LL) )
       {
         v6 = *(_QWORD *)(*(_QWORD *)(a1 + 344) + 8LL);
         v7 = *(_OWORD *)(v6 - 16);
@@ -56,7 +56,7 @@ void __fastcall LookUpTableFlushComplete(__int64 a1)
         v13 = v4;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByRef<16>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
           v6,
-          byte_1C02667E2,
+          byte_1C0223676,
           v4,
           v5,
           v16,

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetDeviceInfo@InteractiveControlManager@@QEAAJKPEAUtagINTERACTIVECTRL_DEVICE_INFO@@@Z @ 0x1C0240750
+ * XREFs of ?GetDeviceInfo@InteractiveControlManager@@QEAAJKPEAUtagINTERACTIVECTRL_DEVICE_INFO@@@Z @ 0x1C02517CC
  * Callers:
- *     NtUserGetInteractiveControlDeviceInfo @ 0x1C01D1CE0 (NtUserGetInteractiveControlDeviceInfo.c)
+ *     NtUserGetInteractiveControlDeviceInfo @ 0x1C01F9A40 (NtUserGetInteractiveControlDeviceInfo.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0240074 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ?FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z @ 0x1C02406FC (-FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02510F4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z @ 0x1C0251778 (-FindDevice@InteractiveControlManager@@AEAAJKPEAXPEAPEAVInteractiveControlDevice@@PEAK@Z.c)
  */
 
 __int64 __fastcall InteractiveControlManager::GetDeviceInfo(
@@ -31,13 +31,13 @@ __int64 __fastcall InteractiveControlManager::GetDeviceInfo(
 
   v19 = 0LL;
   v18 = 0LL;
-  if ( (unsigned int)dword_1C0354150 > 4 )
+  if ( (unsigned int)dword_1C032A2F8 > 4 )
   {
     v21 = a2;
     v20[0] = (__int64)"InteractiveControlManager::GetDeviceInfo entry";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C0354150,
-      byte_1C031D88E,
+      (__int64)&dword_1C032A2F8,
+      byte_1C02F3076,
       (__int64)a3,
       a4,
       (void **)v20,
@@ -77,25 +77,25 @@ __int64 __fastcall InteractiveControlManager::GetDeviceInfo(
       *(_OWORD *)((char *)a3 + 4) = *(_OWORD *)((char *)v8 + 212);
     }
   }
-  else if ( (unsigned int)dword_1C0354150 > 2 )
+  else if ( (unsigned int)dword_1C032A2F8 > 2 )
   {
     v21 = Device;
     v20[0] = (__int64)"Function failed.";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C0354150,
-      byte_1C031D8C8,
+      (__int64)&dword_1C032A2F8,
+      byte_1C02F30B0,
       (__int64)v8,
       v9,
       (void **)v20,
       (__int64)&v21);
   }
-  if ( (unsigned int)dword_1C0354150 > 4 )
+  if ( (unsigned int)dword_1C032A2F8 > 4 )
   {
     v21 = v10;
     v20[0] = (__int64)"InteractiveControlManager::GetDeviceInfo exit";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C0354150,
-      byte_1C031D855,
+      (__int64)&dword_1C032A2F8,
+      byte_1C02F303D,
       (__int64)v8,
       v9,
       (void **)v20,

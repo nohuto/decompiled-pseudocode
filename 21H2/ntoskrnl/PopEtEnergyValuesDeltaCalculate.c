@@ -1,113 +1,117 @@
 /*
- * XREFs of PopEtEnergyValuesDeltaCalculate @ 0x1407A6130
+ * XREFs of PopEtEnergyValuesDeltaCalculate @ 0x140619558
  * Callers:
- *     PopEtEnergyTrackerUpdateAggregate @ 0x1407A5F60 (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x140619394 (PopEtEnergyTrackerUpdateAggregate.c)
  * Callees:
- *     RtlStateDurationDelta @ 0x1402F5E5C (RtlStateDurationDelta.c)
+ *     RtlStateDurationDelta @ 0x140254650 (RtlStateDurationDelta.c)
  */
 
-__int64 __fastcall PopEtEnergyValuesDeltaCalculate(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall PopEtEnergyValuesDeltaCalculate(__int64 a1, _QWORD *a2, __int64 a3, int *a4)
 {
-  __int64 v6; // rdi
-  __int64 v9; // rbx
-  int *v10; // rdx
-  __int64 v11; // rsi
-  __int64 v12; // rdx
-  int *v13; // rdx
-  __int64 v14; // rbx
+  _QWORD *v5; // rdi
+  int v6; // ebp
+  char *v7; // r14
+  __int64 v8; // r12
+  __int64 v11; // rcx
+  int *v12; // rdx
+  __int64 v13; // r15
+  __int64 v14; // rdx
+  int *v15; // rdx
+  __int64 v16; // r12
   __int64 result; // rax
-  __int64 v16; // rdx
-  __int64 v17; // rdx
-  __int64 v18; // r9
-  __int64 v19; // r8
-  int v20; // ecx
-  __int64 v21; // r14
-  __int64 v22; // r10
-  __int64 v23; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // r10
+  __int64 v20; // rdx
+  int v21; // ecx
+  __int64 v22; // rsi
+  __int64 v23; // r9
   __int64 v24; // r8
   __int64 v25; // rcx
-  __int64 v26; // r8
+  __int64 v26; // rdx
   __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // rcx
 
-  *(_QWORD *)(a3 + 64) = *(_QWORD *)(a2 + 64) - *(_QWORD *)(a1 + 64);
-  v6 = a2 - a1;
-  *(_QWORD *)(a3 + 72) = *(_QWORD *)(a2 + 72) - *(_QWORD *)(a1 + 72);
-  v9 = 3LL;
-  *(_QWORD *)(a3 + 80) = *(_QWORD *)(a2 + 80) - *(_QWORD *)(a1 + 80);
-  v10 = (int *)(a1 + 104);
-  *(_QWORD *)(a3 + 88) = *(_QWORD *)(a2 + 88) - *(_QWORD *)(a1 + 88);
-  *(_QWORD *)(a3 + 96) = *(_QWORD *)(a2 + 96) - *(_QWORD *)(a1 + 96);
-  v11 = a3 - a1;
+  v5 = a2;
+  *(_QWORD *)(a3 + 64) = a2[8] - *(_QWORD *)(a1 + 64);
+  v6 = 1;
+  v7 = (char *)a2 - a1;
+  *(_QWORD *)(a3 + 72) = a2[9] - *(_QWORD *)(a1 + 72);
+  v8 = 3LL;
+  *(_QWORD *)(a3 + 80) = a2[10] - *(_QWORD *)(a1 + 80);
+  v11 = a2[11];
+  v12 = (int *)(a1 + 104);
+  *(_QWORD *)(a3 + 88) = v11 - *(_QWORD *)(a1 + 88);
+  *(_QWORD *)(a3 + 96) = v5[12] - *(_QWORD *)(a1 + 96);
+  v13 = a3 - a1;
   do
   {
-    RtlStateDurationDelta((__int64)v10 + v11, v10, (unsigned int *)((char *)v10 + v6));
-    v10 = (int *)(v12 + 8);
-    --v9;
+    RtlStateDurationDelta((__int64)v12 + v13, v12, (unsigned int *)((char *)v12 + (_QWORD)v7));
+    v12 = (int *)(v14 + 8);
+    --v8;
   }
-  while ( v9 );
-  v13 = (int *)(a1 + 384);
-  v14 = 5LL;
+  while ( v8 );
+  v15 = (int *)(a1 + 384);
+  v16 = 5LL;
   do
   {
-    result = RtlStateDurationDelta((__int64)v13 + v11, v13, (unsigned int *)((char *)v13 + v6));
-    v13 = (int *)(v16 + 8);
-    --v14;
+    result = RtlStateDurationDelta((__int64)v15 + v13, v15, (unsigned int *)&v7[(_QWORD)v15]);
+    v15 = (int *)(v18 + 8);
+    --v16;
   }
-  while ( v14 );
-  v17 = a2 + 152;
-  v18 = 4LL;
-  *(_DWORD *)(a3 + 128) = *(_DWORD *)(a2 + 128) - *(_DWORD *)(a1 + 128);
-  v19 = 0LL;
-  *(_DWORD *)(a3 + 132) = *(_DWORD *)(a2 + 132) - *(_DWORD *)(a1 + 132);
-  *(_DWORD *)(a3 + 136) = *(_DWORD *)(a2 + 136) - *(_DWORD *)(a1 + 136);
-  *(_DWORD *)(a3 + 424) = *(_DWORD *)(a2 + 424) - *(_DWORD *)(a1 + 424);
-  v20 = *(_DWORD *)(a2 + 428) - *(_DWORD *)(a1 + 428);
-  v21 = a1 - a2;
-  *(_DWORD *)(a3 + 428) = v20;
-  v22 = a3 - a2;
-  *(_OWORD *)(a3 + 272) = *(_OWORD *)(a2 + 272);
-  *(_OWORD *)(a3 + 288) = *(_OWORD *)(a2 + 288);
-  *(_OWORD *)(a3 + 304) = *(_OWORD *)(a2 + 304);
-  *(_OWORD *)(a3 + 320) = *(_OWORD *)(a2 + 320);
-  *(_OWORD *)(a3 + 336) = *(_OWORD *)(a2 + 336);
-  *(_OWORD *)(a3 + 352) = *(_OWORD *)(a2 + 352);
-  *(_OWORD *)(a3 + 368) = *(_OWORD *)(a2 + 368);
+  while ( v16 );
+  v19 = 4LL;
+  *(_DWORD *)(a3 + 128) = *((_DWORD *)v5 + 32) - *(_DWORD *)(a1 + 128);
+  v20 = 0LL;
+  *(_DWORD *)(a3 + 132) = *((_DWORD *)v5 + 33) - *(_DWORD *)(a1 + 132);
+  *(_DWORD *)(a3 + 136) = *((_DWORD *)v5 + 34) - *(_DWORD *)(a1 + 136);
+  *(_DWORD *)(a3 + 424) = *((_DWORD *)v5 + 106) - *(_DWORD *)(a1 + 424);
+  v21 = *((_DWORD *)v5 + 107) - *(_DWORD *)(a1 + 428);
+  v22 = a1 - (_QWORD)v5;
+  *(_DWORD *)(a3 + 428) = v21;
+  v23 = a3 - (_QWORD)v5;
+  *(_OWORD *)(a3 + 272) = *((_OWORD *)v5 + 17);
+  *(_OWORD *)(a3 + 288) = *((_OWORD *)v5 + 18);
+  *(_OWORD *)(a3 + 304) = *((_OWORD *)v5 + 19);
+  *(_OWORD *)(a3 + 320) = *((_OWORD *)v5 + 20);
+  *(_OWORD *)(a3 + 336) = *((_OWORD *)v5 + 21);
+  *(_OWORD *)(a3 + 352) = *((_OWORD *)v5 + 22);
+  *(_OWORD *)(a3 + 368) = *((_OWORD *)v5 + 23);
   do
   {
-    v23 = *(_QWORD *)(v17 - 152) - *(_QWORD *)(v17 + v21 - 152);
-    *(_QWORD *)(v17 + v22 - 152) = v23;
-    v17 += 16LL;
-    v24 = v23 + v19;
-    v25 = *(_QWORD *)(v17 - 24) - *(_QWORD *)(v21 + v17 - 24);
-    *(_QWORD *)(v22 + v17 - 24) = v25;
-    v26 = v25 + v24;
-    *(_QWORD *)(v22 + v17 + 40) = *(_QWORD *)(v17 + 40) - *(_QWORD *)(v21 + v17 + 40);
-    v27 = *(_QWORD *)(v17 - 160) - *(_QWORD *)(v17 + v21 - 160);
-    *(_QWORD *)(v17 + v22 - 160) = v27;
-    v28 = v27 + v26;
-    v29 = *(_QWORD *)(v17 - 16) - *(_QWORD *)(v21 + v17 - 16);
-    *(_QWORD *)(v22 + v17 - 16) = v29;
-    v19 = v29 + v28;
-    *(_QWORD *)(v22 + v17 + 48) = *(_QWORD *)(v17 + 48) - *(_QWORD *)(v21 + v17 + 48);
-    --v18;
+    v24 = 2LL;
+    do
+    {
+      v25 = *v5 - *(_QWORD *)((char *)v5 + v22);
+      v26 = v25 + v20;
+      *(_QWORD *)((char *)v5 + v23) = v25;
+      v27 = v5[18] - *(_QWORD *)((char *)v5 + v22 + 144);
+      *(_QWORD *)((char *)v5 + v23 + 144) = v27;
+      v20 = v27 + v26;
+      *(_QWORD *)((char *)v5 + v23 + 208) = v5[26] - *(_QWORD *)((char *)v5 + v22 + 208);
+      ++v5;
+      --v24;
+    }
+    while ( v24 );
+    --v19;
   }
-  while ( v18 );
-  *a4 = !v19
-     && !*(_QWORD *)(a3 + 64)
-     && !*(_QWORD *)(a3 + 72)
-     && !*(_QWORD *)(a3 + 80)
-     && (*(_DWORD *)(a3 + 108) & 0x7FFFFFFF) == 0
-     && (*(_DWORD *)(a3 + 116) & 0x7FFFFFFF) == 0
-     && (*(_DWORD *)(a3 + 124) & 0x7FFFFFFF) == 0
-     && (*(_DWORD *)(a3 + 388) & 0x7FFFFFFF) == 0
-     && (*(_DWORD *)(a3 + 396) & 0x7FFFFFFF) == 0
-     && (*(_DWORD *)(a3 + 404) & 0x7FFFFFFF) == 0
-     && (*(_DWORD *)(a3 + 412) & 0x7FFFFFFF) == 0
-     && (*(_DWORD *)(a3 + 420) & 0x7FFFFFFF) == 0
-     && !*(_DWORD *)(a3 + 128)
-     && !*(_DWORD *)(a3 + 132)
-     && !*(_DWORD *)(a3 + 136);
+  while ( v19 );
+  if ( v20
+    || *(_QWORD *)(a3 + 64)
+    || *(_QWORD *)(a3 + 72)
+    || *(_QWORD *)(a3 + 80)
+    || (*(_DWORD *)(a3 + 108) & 0x7FFFFFFF) != 0
+    || (*(_DWORD *)(a3 + 116) & 0x7FFFFFFF) != 0
+    || (*(_DWORD *)(a3 + 124) & 0x7FFFFFFF) != 0
+    || (*(_DWORD *)(a3 + 388) & 0x7FFFFFFF) != 0
+    || (*(_DWORD *)(a3 + 396) & 0x7FFFFFFF) != 0
+    || (*(_DWORD *)(a3 + 404) & 0x7FFFFFFF) != 0
+    || (*(_DWORD *)(a3 + 412) & 0x7FFFFFFF) != 0
+    || (*(_DWORD *)(a3 + 420) & 0x7FFFFFFF) != 0
+    || *(_DWORD *)(a3 + 128)
+    || *(_DWORD *)(a3 + 132)
+    || *(_DWORD *)(a3 + 136) )
+  {
+    v6 = 0;
+  }
+  *a4 = v6;
   return result;
 }

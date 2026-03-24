@@ -1,9 +1,10 @@
 /*
- * XREFs of MiComputeDriverProtection @ 0x14081F558
+ * XREFs of MiComputeDriverProtection @ 0x1407A1DC0
  * Callers:
- *     MiProtectLargeKernelHalRange @ 0x14081F030 (MiProtectLargeKernelHalRange.c)
- *     MiProtectSystemImage @ 0x14081F240 (MiProtectSystemImage.c)
- *     MiGetBootImagePageProtection @ 0x140B4A488 (MiGetBootImagePageProtection.c)
+ *     MiProtectLargeKernelHalRange @ 0x1407A18A0 (MiProtectLargeKernelHalRange.c)
+ *     MiProtectSystemImage @ 0x1407A1ABC (MiProtectSystemImage.c)
+ *     MiCreateKernelHalSlabRange @ 0x140A4F6A0 (MiCreateKernelHalSlabRange.c)
+ *     MiGetBootImagePageProtection @ 0x140A4FD90 (MiGetBootImagePageProtection.c)
  * Callees:
  *     <none>
  */
@@ -19,9 +20,16 @@ __int64 __fastcall MiComputeDriverProtection(int a1, int a2)
   if ( a2 < 0 )
   {
     v4 = v2 & 2;
-    if ( a1 != 1 )
-      return v4 != 0 ? 6 : 4;
-    v2 = v4 != 0 ? 7 : 5;
+    if ( a1 == 1 )
+    {
+      v2 = v4 != 0 ? 7 : 5;
+    }
+    else
+    {
+      if ( v4 )
+        return 6;
+      v2 = 4;
+    }
   }
   if ( !v2 )
     return 24;

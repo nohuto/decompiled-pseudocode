@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsValidString@@YA_NPEBXKJ@Z @ 0x1C02A78E0
+ * XREFs of ?IsValidString@@YA_NPEBXKJ@Z @ 0x1C02A9174
  * Callers:
- *     ?IsValidIFIMETRICS@@YA_NPEBU_IFIMETRICS@@K@Z @ 0x1C02A77A0 (-IsValidIFIMETRICS@@YA_NPEBU_IFIMETRICS@@K@Z.c)
+ *     ?IsValidIFIMETRICS@@YA_NPEBU_IFIMETRICS@@K@Z @ 0x1C02A9010 (-IsValidIFIMETRICS@@YA_NPEBU_IFIMETRICS@@K@Z.c)
  * Callees:
  *     <none>
  */

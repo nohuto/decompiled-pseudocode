@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceBeginPointerFrameCommit @ 0x1C00DF040
+ * XREFs of EtwTraceBeginPointerFrameCommit @ 0x1C0121C00
  * Callers:
- *     rimGetCompleteFrameAndReleaseHoldingFrame @ 0x1C01A0738 (rimGetCompleteFrameAndReleaseHoldingFrame.c)
- *     ?CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z @ 0x1C01BE764 (-CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z.c)
+ *     ?CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z @ 0x1C018B6FC (-CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z.c)
+ *     ApiSetEtwTraceBeginPointerFrameCommit @ 0x1C01CE830 (ApiSetEtwTraceBeginPointerFrameCommit.c)
  * Callees:
- *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C00DF768 (McTemplateK0qqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C01253A4 (McTemplateK0qqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceBeginPointerFrameCommit(int a1, char a2, int a3)

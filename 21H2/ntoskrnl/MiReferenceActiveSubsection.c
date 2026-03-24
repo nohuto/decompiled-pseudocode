@@ -1,23 +1,24 @@
 /*
- * XREFs of MiReferenceActiveSubsection @ 0x140286DE0
+ * XREFs of MiReferenceActiveSubsection @ 0x140315D00
  * Callers:
- *     MiInsertInSystemSpace @ 0x14026D460 (MiInsertInSystemSpace.c)
- *     MiSessionInsertImage @ 0x1402D9A54 (MiSessionInsertImage.c)
- *     MiAddViewsForSection @ 0x140311CC0 (MiAddViewsForSection.c)
- *     MiUpControlAreaRefs @ 0x14058C330 (MiUpControlAreaRefs.c)
- *     MiMapImageInSystemSpace @ 0x1406F3884 (MiMapImageInSystemSpace.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
+ *     MiInsertInSystemSpace @ 0x1402FADE0 (MiInsertInSystemSpace.c)
+ *     MiAddViewsForSection @ 0x1403155F0 (MiAddViewsForSection.c)
+ *     MiSessionInsertImage @ 0x1403A2974 (MiSessionInsertImage.c)
+ *     MiUpControlAreaRefs @ 0x14052AB70 (MiUpControlAreaRefs.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiMapImageInSystemSpace @ 0x140715730 (MiMapImageInSystemSpace.c)
+ *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C91F8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiRemoveUnusedSubsection @ 0x14026EF44 (MiRemoveUnusedSubsection.c)
- *     MiIncrementSubsectionViewCount @ 0x140286EC0 (MiIncrementSubsectionViewCount.c)
- *     MiGetCommittedPages @ 0x140287C30 (MiGetCommittedPages.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x1405C48A0 (MiComputeCrossPartitionSectionCharges.c)
- *     MiGetSubsectionCharges @ 0x1405C4980 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405C4B8C (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiRemoveUnusedSubsection @ 0x1402F8B04 (MiRemoveUnusedSubsection.c)
+ *     MiIncrementSubsectionViewCount @ 0x140315DE0 (MiIncrementSubsectionViewCount.c)
+ *     MiGetCommittedPages @ 0x140316CD0 (MiGetCommittedPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x140554DE8 (MiComputeCrossPartitionSectionCharges.c)
+ *     MiGetSubsectionCharges @ 0x140554EC8 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, int a2, KIRQL a3)
@@ -41,13 +42,13 @@ __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, int 
   struct _KPRCB *v21; // r9
   _DWORD *v22; // r8
   int v23; // eax
+  unsigned __int8 v24; // al
+  struct _KPRCB *v25; // r9
+  _DWORD *v26; // r8
+  int v27; // eax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rdx
   _DWORD *SchedulerAssist; // r9
-  int v27; // eax
-  unsigned __int8 v28; // al
-  struct _KPRCB *v29; // r9
-  _DWORD *v30; // r8
   int v31; // eax
   unsigned __int8 v32; // al
   struct _KPRCB *v33; // r9
@@ -79,17 +80,17 @@ __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, int 
   {
     v10 = *BugCheckParameter2;
     if ( !BugCheckParameter2[1] )
-      goto LABEL_18;
+      goto LABEL_19;
     v11 = *(_QWORD *)(v10 + 64) != 0LL;
     v12 = MiIncrementSubsectionViewCount((ULONG_PTR)BugCheckParameter2);
-    if ( v12 > 1 )
+    if ( v12 > 1 && v11 && (*(_DWORD *)(v10 + 56) & 0x20) == 0 )
     {
-      if ( v11 && (*(_DWORD *)(v10 + 56) & 0x20) == 0 )
-      {
-        if ( (*((_BYTE *)BugCheckParameter2 + 34) & 8) != 0 )
-          MiRemoveUnusedSubsection((__int64)BugCheckParameter2);
-        *((_WORD *)BugCheckParameter2 + 16) |= 1u;
-      }
+      if ( (*((_BYTE *)BugCheckParameter2 + 34) & 8) != 0 )
+        MiRemoveUnusedSubsection((__int64)BugCheckParameter2);
+      *((_WORD *)BugCheckParameter2 + 16) |= 1u;
+    }
+    if ( v12 >= 2 )
+    {
       if ( v12 == 2 && (a2 & 0x20) != 0 && v43 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v40 + 72));
@@ -102,9 +103,9 @@ __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, int 
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              v27 = ~(unsigned __int16)(-1LL << v42);
-              v18 = (v27 & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= v27;
+              v31 = ~(unsigned __int16)(-1LL << v42);
+              v18 = (v31 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v31;
               if ( v18 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
@@ -112,7 +113,7 @@ __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, int 
         }
         __writecr8(v6);
         MiReturnCrossPartitionSectionCharges(
-          *(_QWORD *)(qword_140C51F48 + 8LL * (*(_WORD *)(v40 + 60) & 0x3FF)),
+          *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v40 + 60) & 0x3FF)),
           v9,
           v43);
         if ( !v5 )
@@ -125,16 +126,16 @@ __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, int 
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
-            v28 = KeGetCurrentIrql();
-            if ( v28 <= 0xFu && v6 <= 0xFu && v28 >= 2u )
+            v32 = KeGetCurrentIrql();
+            if ( v32 <= 0xFu && v6 <= 0xFu && v32 >= 2u )
             {
-              v29 = KeGetCurrentPrcb();
-              v30 = v29->SchedulerAssist;
-              v31 = ~(unsigned __int16)(-1LL << v42);
-              v18 = (v31 & v30[5]) == 0;
-              v30[5] &= v31;
+              v33 = KeGetCurrentPrcb();
+              v34 = v33->SchedulerAssist;
+              v35 = ~(unsigned __int16)(-1LL << v42);
+              v18 = (v35 & v34[5]) == 0;
+              v34[5] &= v35;
               if ( v18 )
-                KiRemoveSystemWorkPriorityKick(v29);
+                KiRemoveSystemWorkPriorityKick(v33);
             }
           }
         }
@@ -146,7 +147,7 @@ __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, int 
       break;
     v3 = v40;
     v4 = v43;
-LABEL_18:
+LABEL_19:
     if ( (a2 & 0x20) != 0 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
@@ -168,7 +169,7 @@ LABEL_18:
         }
       }
       __writecr8(v6);
-      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_140C51F48 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)), v9, v4);
+      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)), v9, v4);
       if ( !v5 )
         ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v3 + 72));
       return 3221225773LL;
@@ -215,7 +216,7 @@ LABEL_18:
         {
           if ( !BugCheckParameter2[1] )
           {
-LABEL_33:
+LABEL_34:
             ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
             if ( KiIrqlFlags )
             {
@@ -236,7 +237,7 @@ LABEL_33:
             }
             __writecr8(v6);
             MiReturnCrossPartitionSectionCharges(
-              *(_QWORD *)(qword_140C51F48 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)),
+              *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)),
               v9,
               v43);
             if ( !v5 )
@@ -250,7 +251,7 @@ LABEL_33:
           CommittedPages = MiGetCommittedPages(v3);
         }
         if ( v43 != CommittedPages )
-          goto LABEL_33;
+          goto LABEL_34;
       }
     }
     else
@@ -265,16 +266,16 @@ LABEL_33:
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v32 = KeGetCurrentIrql();
-        if ( v32 <= 0xFu && v6 <= 0xFu && v32 >= 2u )
+        v24 = KeGetCurrentIrql();
+        if ( v24 <= 0xFu && v6 <= 0xFu && v24 >= 2u )
         {
-          v33 = KeGetCurrentPrcb();
-          v34 = v33->SchedulerAssist;
-          v35 = ~(unsigned __int16)(-1LL << v42);
-          v18 = (v35 & v34[5]) == 0;
-          v34[5] &= v35;
+          v25 = KeGetCurrentPrcb();
+          v26 = v25->SchedulerAssist;
+          v27 = ~(unsigned __int16)(-1LL << v42);
+          v18 = (v27 & v26[5]) == 0;
+          v26[5] &= v27;
           if ( v18 )
-            KiRemoveSystemWorkPriorityKick(v33);
+            KiRemoveSystemWorkPriorityKick(v25);
         }
       }
     }

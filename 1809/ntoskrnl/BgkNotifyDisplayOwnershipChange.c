@@ -1,17 +1,17 @@
 /*
- * XREFs of BgkNotifyDisplayOwnershipChange @ 0x14016EAC0
+ * XREFs of BgkNotifyDisplayOwnershipChange @ 0x14016EAE0
  * Callers:
- *     BgkSetDisplayOwnership @ 0x140193FA0 (BgkSetDisplayOwnership.c)
- *     BgkNotifyDisplayOwnershipLost @ 0x14027DB00 (BgkNotifyDisplayOwnershipLost.c)
- *     BvgaNotifyDisplayOwnershipChange @ 0x14027DFD0 (BvgaNotifyDisplayOwnershipChange.c)
+ *     BgkSetDisplayOwnership @ 0x140193FC0 (BgkSetDisplayOwnership.c)
+ *     BgkNotifyDisplayOwnershipLost @ 0x14027DC00 (BgkNotifyDisplayOwnershipLost.c)
+ *     BvgaNotifyDisplayOwnershipChange @ 0x14027E0D0 (BvgaNotifyDisplayOwnershipChange.c)
  * Callees:
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExRundownCompleted @ 0x14008F8D0 (ExRundownCompleted.c)
- *     BgLibraryEnable @ 0x140159808 (BgLibraryEnable.c)
- *     BgkpTryEnableConsole @ 0x14016F968 (BgkpTryEnableConsole.c)
- *     InbvSetFunction @ 0x14018E3C4 (InbvSetFunction.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     BgLibraryEnable @ 0x140159828 (BgLibraryEnable.c)
+ *     BgkpTryEnableConsole @ 0x14016F988 (BgkpTryEnableConsole.c)
+ *     InbvSetFunction @ 0x14018E3E4 (InbvSetFunction.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     BgkResumeFinished @ 0x14056C684 (BgkResumeFinished.c)
  *     BgSetFrameBufferAccess @ 0x14094E008 (BgSetFrameBufferAccess.c)
  *     BgkpUnlockBgfxCodeSection @ 0x14094E3E0 (BgkpUnlockBgfxCodeSection.c)
@@ -100,7 +100,7 @@ __int64 __fastcall BgkNotifyDisplayOwnershipChange(char a1, __int64 (__fastcall 
     Interface = (void (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD))BgConsoleGetInterface();
     qword_14043C710 = (__int64)Interface;
     if ( Interface )
-      (*Interface)(0LL, 4291217094LL, (unsigned int)dword_1404DC950, 0LL);
+      (*Interface)(0LL, 4291217094LL, (unsigned int)dword_1404DC910, 0LL);
     BgkpTryEnableConsole();
     return (unsigned int)v2;
   }

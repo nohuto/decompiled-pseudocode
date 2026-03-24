@@ -1,13 +1,13 @@
 /*
- * XREFs of NtAddAtomEx @ 0x1407D1D40
+ * XREFs of NtAddAtomEx @ 0x140684130
  * Callers:
- *     NtAddAtom @ 0x140A01850 (NtAddAtom.c)
+ *     NtAddAtom @ 0x140956CF0 (NtAddAtom.c)
  * Callees:
- *     RtlAddAtomToAtomTableEx @ 0x140297670 (RtlAddAtomToAtomTableEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     RtlAddAtomToAtomTableEx @ 0x140259BB0 (RtlAddAtomToAtomTableEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtAddAtomEx(char *Src, size_t Size, _WORD *a3, unsigned int a4)
@@ -39,9 +39,9 @@ __int64 __fastcall NtAddAtomEx(char *Src, size_t Size, _WORD *a3, unsigned int a
   {
     if ( a3 )
     {
-      v10 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a3;
+      v10 = (__int64)a3;
+      if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
+        v10 = 0x7FFFFFFF0000LL;
       *(_WORD *)v10 = *(_WORD *)v10;
       v9 = v14;
     }

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopAddRemoveReqDescs @ 0x14081AD78
+ * XREFs of IopAddRemoveReqDescs @ 0x140752230
  * Callers:
- *     PnpFindBestConfigurationWorker @ 0x1408182F8 (PnpFindBestConfigurationWorker.c)
- *     PnpSelectFirstConfiguration @ 0x140818AEC (PnpSelectFirstConfiguration.c)
- *     IopBootAllocation @ 0x140819850 (IopBootAllocation.c)
- *     IopSelectNextConfiguration @ 0x14081D274 (IopSelectNextConfiguration.c)
+ *     PnpFindBestConfigurationWorker @ 0x140751F2C (PnpFindBestConfigurationWorker.c)
+ *     PnpSelectFirstConfiguration @ 0x14075219C (PnpSelectFirstConfiguration.c)
+ *     IopBootAllocation @ 0x1407B63C4 (IopBootAllocation.c)
+ *     IopSelectNextConfiguration @ 0x1407D02A0 (IopSelectNextConfiguration.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall IopAddRemoveReqDescs(__int64 a1, unsigned int a2, _QWORD *a3, char a4)
@@ -50,7 +50,7 @@ void __fastcall IopAddRemoveReqDescs(__int64 a1, unsigned int a2, _QWORD *a3, ch
           *v12 = v12;
           v13 = *(_QWORD **)(v10 + 48);
           if ( *v13 != v10 + 40 )
-            goto LABEL_21;
+            goto LABEL_20;
           v12[1] = v13;
           *v12 = v10 + 40;
           *v13 = v12;
@@ -75,7 +75,7 @@ void __fastcall IopAddRemoveReqDescs(__int64 a1, unsigned int a2, _QWORD *a3, ch
           if ( *(_QWORD **)(*v12 + 8LL) != v12
             || (v17 = *(_QWORD **)(*(_QWORD *)(v9 + 32) + 48LL), (_QWORD *)*v17 != v12) )
           {
-LABEL_21:
+LABEL_20:
             __fastfail(3u);
           }
           *v17 = v16;
@@ -87,10 +87,10 @@ LABEL_21:
             v18 = (_QWORD *)(v10 + 88);
             v19 = *(_QWORD *)(v10 + 88);
             if ( *(_QWORD *)(v19 + 8) != v10 + 88 )
-              goto LABEL_21;
+              goto LABEL_20;
             v20 = *(_QWORD **)(v10 + 96);
             if ( (_QWORD *)*v20 != v18 )
-              goto LABEL_21;
+              goto LABEL_20;
             *v20 = v19;
             *(_QWORD *)(v19 + 8) = v20;
             *(_QWORD *)(v10 + 96) = v10 + 88;

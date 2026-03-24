@@ -1,11 +1,11 @@
 /*
- * XREFs of SeCodeIntegrityInitializePolicy @ 0x140B6D928
+ * XREFs of SeCodeIntegrityInitializePolicy @ 0x140A70758
  * Callers:
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     SeSecureBootRegisterPolicy @ 0x140B6D9C8 (SeSecureBootRegisterPolicy.c)
- *     SepInitializeDebugOptions @ 0x140B6DCF4 (SepInitializeDebugOptions.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     SepInitializeDebugOptions @ 0x140A707F8 (SepInitializeDebugOptions.c)
+ *     SeSecureBootRegisterPolicy @ 0x140A7084C (SeSecureBootRegisterPolicy.c)
  */
 
 __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
@@ -23,14 +23,14 @@ __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
   v2 = 0LL;
   v3 = *(_QWORD *)(a1 + 240);
   if ( !v3
-    || (v2 = *(_QWORD *)(v3 + 2904)) == 0
+    || (v2 = *(_QWORD *)(v3 + 2872)) == 0
     || (v4 = *(unsigned int *)(v2 + 64), !(_DWORD)v4)
     || (v1 = SeSecureBootRegisterPolicy(*(unsigned int *)(v2 + 60) + v2 + 72, v4), v1 >= 0) )
   {
     SepInitializeDebugOptions();
-    if ( qword_140C37A20 )
+    if ( qword_140C1DB40 )
     {
-      v1 = qword_140C37A20(v2, &v7, &v6);
+      v1 = qword_140C1DB40(v2, &v7, &v6);
       if ( v1 >= 0 )
       {
         SeCiStateElements = v7;

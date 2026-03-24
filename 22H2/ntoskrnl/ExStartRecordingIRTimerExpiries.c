@@ -1,10 +1,11 @@
 /*
- * XREFs of ExStartRecordingIRTimerExpiries @ 0x140878F3C
+ * XREFs of ExStartRecordingIRTimerExpiries @ 0x14094F074
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C78A0 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570498 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void ExStartRecordingIRTimerExpiries()
@@ -13,12 +14,14 @@ void ExStartRecordingIRTimerExpiries()
   __int64 *v1; // rcx
   __int64 v2; // r8
   int v3; // eax
-  __int64 Pool2; // rax
-  void *v5; // rcx
+  SIZE_T v4; // rdi
+  PVOID PoolWithTag; // rax
+  __int64 v6; // rbx
+  void *v7; // rbx
 
   v0 = 0;
-  v1 = qword_140002720;
-  v2 = 17LL;
+  v1 = qword_140005250;
+  v2 = 16LL;
   do
   {
     v3 = *(unsigned __int8 *)v1;
@@ -27,11 +30,14 @@ void ExStartRecordingIRTimerExpiries()
     --v2;
   }
   while ( v2 );
-  Pool2 = ExAllocatePool2(64LL, (unsigned int)(4 * v0), 1767143493LL);
-  if ( Pool2 )
+  v4 = (unsigned int)(4 * v0);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x69547845u);
+  v6 = (__int64)PoolWithTag;
+  if ( PoolWithTag )
   {
-    v5 = (void *)_InterlockedExchange64(&ExpIRTimerExpiryCounts, Pool2);
-    if ( v5 )
-      ExFreePoolWithTag(v5, 0x69547845u);
+    memset(PoolWithTag, 0, (unsigned int)v4);
+    v7 = (void *)_InterlockedExchange64(&ExpIRTimerExpiryCounts, v6);
+    if ( v7 )
+      ExFreePoolWithTag(v7, 0x69547845u);
   }
 }

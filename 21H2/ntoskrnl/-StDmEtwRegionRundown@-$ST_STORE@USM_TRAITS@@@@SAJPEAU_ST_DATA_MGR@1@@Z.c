@@ -1,10 +1,10 @@
 /*
- * XREFs of ?StDmEtwRegionRundown@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1405F91C4
+ * XREFs of ?StDmEtwRegionRundown@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059B5E0
  * Callers:
- *     ?StGetStats@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405FA3A4 (-StGetStats@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StGetStats@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14059C814 (-StGetStats@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
  * Callees:
- *     SmEtwEnabled @ 0x140261818 (SmEtwEnabled.c)
- *     SmEtwLogRegionOp @ 0x1405FB2F0 (SmEtwLogRegionOp.c)
+ *     SmEtwEnabled @ 0x1402DAE08 (SmEtwEnabled.c)
+ *     SmEtwLogRegionOp @ 0x14059D8F0 (SmEtwLogRegionOp.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmEtwRegionRundown(__int64 a1)

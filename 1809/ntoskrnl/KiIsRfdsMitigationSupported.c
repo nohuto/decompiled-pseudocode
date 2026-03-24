@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsRfdsMitigationSupported @ 0x1401B45C4
+ * XREFs of KiIsRfdsMitigationSupported @ 0x1401B45E4
  * Callers:
- *     KeOptimizeSpecCtrlSettings @ 0x14018EDD0 (KeOptimizeSpecCtrlSettings.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x14018EDF0 (KeOptimizeSpecCtrlSettings.c)
  * Callees:
  *     <none>
  */

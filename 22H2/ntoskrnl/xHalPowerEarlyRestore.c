@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalPowerEarlyRestore @ 0x140A88B10
+ * XREFs of xHalPowerEarlyRestore @ 0x140990320
  * Callers:
  *     <none>
  * Callees:

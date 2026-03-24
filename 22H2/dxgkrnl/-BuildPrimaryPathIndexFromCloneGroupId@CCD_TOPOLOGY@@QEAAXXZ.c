@@ -1,72 +1,53 @@
 /*
- * XREFs of ?BuildPrimaryPathIndexFromCloneGroupId@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C01E8394
+ * XREFs of ?BuildPrimaryPathIndexFromCloneGroupId@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C013D360
  * Callers:
- *     ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C017DC5C (-ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C013B690 (-ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CCD_TOPOLOGY::BuildPrimaryPathIndexFromCloneGroupId(CCD_TOPOLOGY *this)
 {
-  unsigned int i; // r9d
-  __int64 v3; // r8
+  unsigned int i; // r8d
+  __int64 v3; // rdx
   unsigned __int16 v4; // ax
-  __int64 v5; // rdx
-  unsigned int j; // r8d
-  unsigned __int16 v7; // ax
-  __int64 v8; // r9
-  int v9; // r11d
-  unsigned int k; // r9d
-  __int64 v11; // rcx
-  unsigned __int16 v12; // ax
-  __int64 v13; // rdx
+  unsigned int j; // ecx
+  unsigned __int16 v6; // ax
+  __int64 v7; // r8
+  int v8; // r11d
+  unsigned int k; // r8d
+  unsigned __int16 v10; // ax
+  __int64 v11; // r9
 
   for ( i = 0; ; ++i )
   {
     v3 = *((_QWORD *)this + 8);
-    if ( v3 )
-    {
-      v4 = *(_WORD *)(v3 + 20);
-      v5 = *((_QWORD *)this + 8);
-    }
-    else
-    {
-      v5 = 0LL;
-      v4 = 0;
-    }
+    v4 = v3 ? *(_WORD *)(v3 + 20) : 0;
     if ( i >= v4 )
       break;
-    *(_QWORD *)(296LL * i + v3 + 56) &= ~0x4000000000000uLL;
+    *(_QWORD *)(272LL * i + v3 + 48) &= ~0x4000000000000uLL;
   }
   for ( j = 0; ; ++j )
   {
-    v7 = v5 ? *(_WORD *)(v5 + 20) : 0;
-    if ( j >= v7 )
+    v6 = v3 ? *(_WORD *)(v3 + 20) : 0;
+    if ( j >= v6 )
       break;
-    v8 = 296LL * j;
-    if ( (*(_QWORD *)(v8 + v5 + 56) & 0x4000000000000LL) == 0 )
+    v7 = 272LL * j;
+    if ( (*(_QWORD *)(v7 + v3 + 48) & 0x4000000000000LL) == 0 )
     {
-      v9 = *(_DWORD *)(v8 + v5 + 240);
+      v8 = *(_DWORD *)(v7 + v3 + 232);
       for ( k = j; ; ++k )
       {
-        v11 = *((_QWORD *)this + 8);
-        if ( v11 )
-        {
-          v12 = *(_WORD *)(v11 + 20);
-          v5 = *((_QWORD *)this + 8);
-        }
-        else
-        {
-          v5 = 0LL;
-          v12 = 0;
-        }
-        if ( k >= v12 )
+        v10 = v3 ? *(_WORD *)(v3 + 20) : 0;
+        v3 &= -(__int64)(v3 != 0);
+        if ( k >= v10 )
           break;
-        v13 = 296LL * k;
-        if ( *(_DWORD *)(v13 + v11 + 240) == v9 )
+        v11 = 272LL * k;
+        if ( *(_DWORD *)(v11 + v3 + 232) == v8 )
         {
-          *(_DWORD *)(v13 + v11 + 324) = j;
-          *(_QWORD *)(*((_QWORD *)this + 8) + v13 + 56) |= 0x4000000000000uLL;
+          *(_DWORD *)(v11 + v3 + 292) = j;
+          *(_QWORD *)(v11 + *((_QWORD *)this + 8) + 48) |= 0x4000000000000uLL;
+          v3 = *((_QWORD *)this + 8);
         }
       }
     }

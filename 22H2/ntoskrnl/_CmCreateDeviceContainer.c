@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmCreateDeviceContainer @ 0x14079B8DC
+ * XREFs of _CmCreateDeviceContainer @ 0x140758C54
  * Callers:
- *     _CmAddDeviceToContainerWorker @ 0x1407956A8 (_CmAddDeviceToContainerWorker.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140758A70 (_CmAddDeviceToContainerWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmCreateDeviceContainerWorker @ 0x14079BA3C (_CmCreateDeviceContainerWorker.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmCreateDeviceContainerWorker @ 0x140758DB8 (_CmCreateDeviceContainerWorker.c)
  */
 
 __int64 __fastcall CmCreateDeviceContainer(__int64 a1, __int64 a2, __int64 a3, HANDLE *a4, _BYTE *a5)
@@ -17,12 +17,14 @@ __int64 __fastcall CmCreateDeviceContainer(__int64 a1, __int64 a2, __int64 a3, H
   int DeviceContainerWorker; // eax
   int v11; // ebx
   int v12; // eax
-  HANDLE v14[12]; // [rsp+40h] [rbp-59h] BYREF
+  int v13; // ecx
+  int v14; // eax
+  HANDLE v16[12]; // [rsp+40h] [rbp-59h] BYREF
 
-  memset(v14, 0, 0x58uLL);
+  memset(v16, 0, 0x58uLL);
   v8 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 504);
-  HIDWORD(v14[4]) = 0;
-  LODWORD(v14[2]) = 4;
+  HIDWORD(v16[4]) = 0;
+  LODWORD(v16[2]) = 4;
   if ( v8 )
   {
     v9 = v8(a1, a2, 5LL);
@@ -33,50 +35,50 @@ __int64 __fastcall CmCreateDeviceContainer(__int64 a1, __int64 a2, __int64 a3, H
     else
     {
       if ( v9 == -1073741536 )
-        goto LABEL_17;
+        goto LABEL_18;
       if ( v9 )
-        goto LABEL_19;
+      {
+        v11 = -1073741595;
+        goto LABEL_21;
+      }
     }
   }
   DeviceContainerWorker = CmCreateDeviceContainerWorker(
                             a1,
                             a2,
-                            v14[2],
-                            (unsigned int)&v14[3],
-                            (__int64)&v14[4],
-                            SWORD2(v14[4]));
+                            v16[2],
+                            (unsigned int)&v16[3],
+                            (__int64)&v16[4],
+                            SWORD2(v16[4]));
   v11 = DeviceContainerWorker;
-  if ( v8 )
+  if ( !v8 )
+    goto LABEL_11;
+  LODWORD(v16[0]) = DeviceContainerWorker;
+  v12 = v8(a1, a2, 5LL);
+  v13 = v12;
+  if ( v12 == -1073741822 )
+    goto LABEL_11;
+  if ( v12 == -1073741536 )
   {
-    LODWORD(v14[0]) = DeviceContainerWorker;
-    v12 = v8(a1, a2, 5LL);
-    if ( v12 != -1073741822 )
-    {
-      if ( v12 != -1073741536 )
-      {
-        if ( !v12 )
-          goto LABEL_9;
-LABEL_19:
-        v11 = -1073741595;
-        goto LABEL_20;
-      }
-LABEL_17:
-      v11 = (int)v14[0];
-    }
+LABEL_18:
+    v11 = (int)v16[0];
+    goto LABEL_11;
   }
-LABEL_9:
+  v14 = v11;
+  if ( v13 )
+    v14 = -1073741595;
+  v11 = v14;
+LABEL_11:
   if ( v11 >= 0 && a4 )
   {
-    *a4 = v14[3];
-LABEL_12:
-    if ( a5 )
-      *a5 = v14[4];
-    return (unsigned int)v11;
+    *a4 = v16[3];
+    goto LABEL_14;
   }
-LABEL_20:
-  if ( v14[3] )
-    ZwClose(v14[3]);
-  if ( v11 >= 0 )
-    goto LABEL_12;
+LABEL_21:
+  if ( v16[3] )
+    ZwClose(v16[3]);
+LABEL_14:
+  if ( v11 >= 0 && a5 )
+    *a5 = v16[4];
   return (unsigned int)v11;
 }

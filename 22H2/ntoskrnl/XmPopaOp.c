@@ -1,19 +1,19 @@
 /*
- * XREFs of XmPopaOp @ 0x14039ECF0
+ * XREFs of XmPopaOp @ 0x1403C32A0
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmPopStack @ 0x1403B8E14 (XmPopStack.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
- *     XmStoreResult @ 0x1403B8FA8 (XmStoreResult.c)
+ *     XmStoreResult @ 0x1403966C0 (XmStoreResult.c)
+ *     XmPopStack @ 0x1403967BC (XmPopStack.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
  */
 
-__int64 __fastcall XmPopaOp(__int64 a1)
+_WORD *__fastcall XmPopaOp(__int64 a1)
 {
   unsigned int v2; // edi
-  int *v3; // rdx
-  unsigned int v4; // eax
-  __int64 result; // rax
+  unsigned __int16 *v3; // rdx
+  int v4; // eax
+  _WORD *result; // rax
   int v6; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 8;
@@ -22,9 +22,9 @@ __int64 __fastcall XmPopaOp(__int64 a1)
   do
   {
     if ( --v2 == 4 )
-      v3 = &v6;
+      v3 = (unsigned __int16 *)&v6;
     else
-      v3 = (int *)(a1 + 4 * (v2 + 6LL));
+      v3 = (unsigned __int16 *)(a1 + 4 * (v2 + 6LL));
     XmSetDestinationValue(a1, v3);
     v4 = XmPopStack(a1);
     result = XmStoreResult(a1, v4);

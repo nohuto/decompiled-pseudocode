@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFindPlaceholderVadToReplace @ 0x140660D70
+ * XREFs of MiFindPlaceholderVadToReplace @ 0x140555134
  * Callers:
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiLocateAddress @ 0x140217260 (MiLocateAddress.c)
- *     MiUnlockVad @ 0x140289B80 (MiUnlockVad.c)
- *     MiLockVad @ 0x14029C6B0 (MiLockVad.c)
- *     MiCheckSecuredVad @ 0x14071A124 (MiCheckSecuredVad.c)
+ *     MiLocateAddress @ 0x14025B070 (MiLocateAddress.c)
+ *     MiUnlockVad @ 0x140294CD8 (MiUnlockVad.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     MiCheckSecuredVad @ 0x1406DB1E8 (MiCheckSecuredVad.c)
  */
 
 __int64 __fastcall MiFindPlaceholderVadToReplace(unsigned __int64 a1, __int64 a2, char a3, int *a4)
 {
-  struct _KTHREAD *CurrentThread; // rsi
+  struct _KTHREAD *CurrentThread; // rdi
   __int64 **Address; // rax
   __int64 v10; // rbx
   int v11; // r9d
@@ -26,7 +26,9 @@ __int64 __fastcall MiFindPlaceholderVadToReplace(unsigned __int64 a1, __int64 a2
   v10 = (__int64)Address;
   if ( !Address )
     goto LABEL_11;
-  MiLockVad((__int64)CurrentThread, (__int64)Address);
+  --CurrentThread->SpecialApcDisable;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)(Address + 5), 0LL);
+  LOBYTE(CurrentThread[1].Queue) |= 0x80u;
   v11 = *(_DWORD *)(v10 + 48);
   if ( (v11 & 4) != 0
     || (v12 = *(unsigned int *)(v10 + 52),

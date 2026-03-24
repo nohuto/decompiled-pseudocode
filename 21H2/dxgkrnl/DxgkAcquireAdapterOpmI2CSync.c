@@ -1,59 +1,46 @@
 /*
- * XREFs of DxgkAcquireAdapterOpmI2CSync @ 0x1C01EDAF4
+ * XREFs of DxgkAcquireAdapterOpmI2CSync @ 0x1C0173B44
  * Callers:
- *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C0020F80 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
- *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x1C0064B48 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
- *     DpiIndirectCbOpmGetSrmListVersion @ 0x1C0064E20 (DpiIndirectCbOpmGetSrmListVersion.c)
- *     DpiIndirectCbOpmSetSrmList @ 0x1C0064FA0 (DpiIndirectCbOpmSetSrmList.c)
- *     DpiPdoDispatchInternalIoctl @ 0x1C01E4480 (DpiPdoDispatchInternalIoctl.c)
+ *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C001CC94 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
+ *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x1C0057FA4 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
+ *     DpiIndirectCbOpmGetSrmListVersion @ 0x1C00582A0 (DpiIndirectCbOpmGetSrmListVersion.c)
+ *     DpiIndirectCbOpmSetSrmList @ 0x1C0058430 (DpiIndirectCbOpmSetSrmList.c)
+ *     DpiPdoDispatchInternalIoctl @ 0x1C0169250 (DpiPdoDispatchInternalIoctl.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E350 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002A00 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
  */
 
-__int64 __fastcall DxgkAcquireAdapterOpmI2CSync(__int64 a1)
+__int64 __fastcall DxgkAcquireAdapterOpmI2CSync(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rbx
-  unsigned int v4; // ebx
+  __int64 v3; // rbx
+  __int64 v5; // rax
+  unsigned int v6; // ebx
+  __int64 v7; // rax
 
   if ( !a1 )
   {
-    v4 = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"No pAdapter specified, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return v4;
+    v5 = WdLogNewEntry5_WdError(0LL, a2);
+    v6 = -1073741811;
+    *(_QWORD *)(v5 + 24) = -1073741811LL;
+LABEL_8:
+    WdLogEvent5_WdError(v5);
+    return v6;
   }
-  v2 = *(_QWORD *)(a1 + 2792);
-  if ( !v2 )
+  v3 = *(_QWORD *)(a1 + 2696);
+  if ( !v3 )
   {
-    v4 = -1073741637;
-    WdLogSingleEntry2(2LL, a1, -1073741637LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Call DxgkReleaseAdapterOpmI2CSync on render only DXGADAPTER 0x%I64x, returning 0x%I64x.",
-      a1,
-      -1073741637LL,
-      0LL,
-      0LL,
-      0LL);
-    return v4;
+    v5 = WdLogNewEntry5_WdError(a1, a2);
+    v6 = -1073741637;
+    *(_QWORD *)(v5 + 24) = a1;
+    *(_QWORD *)(v5 + 32) = -1073741637LL;
+    goto LABEL_8;
   }
-  if ( *(struct _KTHREAD **)(v2 + 392) == KeGetCurrentThread() )
+  if ( *(struct _KTHREAD **)(v3 + 344) == KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 3925LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"!m_OpmI2CMutex.IsOwner()", 3925LL, 0LL, 0LL, 0LL, 0LL);
+    v7 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v7 + 24) = 3811LL;
+    WdLogEvent5_WdAssertion(v7);
   }
-  DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(v2 + 368));
+  DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(v3 + 328));
   return 0LL;
 }

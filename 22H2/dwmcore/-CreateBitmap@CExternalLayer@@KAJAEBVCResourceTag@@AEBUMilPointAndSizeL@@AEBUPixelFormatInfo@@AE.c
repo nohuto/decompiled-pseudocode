@@ -1,100 +1,92 @@
 /*
- * XREFs of ?CreateBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034A2C
+ * XREFs of ?CreateBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18005FE90
  * Callers:
- *     ?Create@CTreeEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCEffectBrush@@PEBVCVisual@@AEBUMilPointAndSizeF@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAV1@@Z @ 0x18000E460 (-Create@CTreeEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCEffectBrush@@PEBVCVis.c)
- *     ?Create@COffScreenRenderingLayer@@SAJAEBVCResourceTag@@PEAVIDeviceTarget@@AEBUMilPointAndSizeL@@VDisplayId@@W4Enum@CacheMode@@PEAPEAV1@@Z @ 0x18003475C (-Create@COffScreenRenderingLayer@@SAJAEBVCResourceTag@@PEAVIDeviceTarget@@AEBUMilPointAndSizeL@@.c)
- *     ?Create@CColorSpaceLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@W4DXGI_COLOR_SPACE_TYPE@@PEAPEAV1@@Z @ 0x1801F34CC (-Create@CColorSpaceLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@W4DXGI_COLOR_SPACE_TYPE@@P.c)
- *     ?Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCColorTransformResource@@PEAPEAV1@@Z @ 0x1801F3750 (-Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCColorTransformRes.c)
- *     ?Create@CFilterEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCFilterEffect@@PEBVCVisual@@AEBUMilPointAndSizeF@@PEAPEAV1@@Z @ 0x1801F4380 (-Create@CFilterEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCFilterEffect@@PEBVC.c)
- *     ?Create@CLinearInterpolationLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAV1@@Z @ 0x1801F4858 (-Create@CLinearInterpolationLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@AEBV-$TMilRect_@M.c)
- *     ?Create@CGammaBlendLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAPEAV1@@Z @ 0x1801F5150 (-Create@CGammaBlendLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAPEAV1@@Z.c)
- *     ?Create@CResampleLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@MMW4Enum@CompositionResampleMode@@PEAPEAV1@@Z @ 0x1801F564C (-Create@CResampleLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@MMW4Enum@CompositionResample.c)
+ *     ?Create@CFilterEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCFilterEffect@@PEBVCVisual@@AEBUMilPointAndSizeF@@PEAPEAV1@@Z @ 0x18000EA70 (-Create@CFilterEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCFilterEffect@@PEBVC.c)
+ *     ?Create@CTreeEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCEffectBrush@@PEBVCVisual@@AEBUMilPointAndSizeF@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAV1@@Z @ 0x18000EFDC (-Create@CTreeEffectLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAVCEffectBrush@@PEBVCVis.c)
+ *     ?Create@COffScreenRenderingLayer@@SAJAEBVCResourceTag@@PEAVIDeviceTarget@@AEBUMilPointAndSizeL@@VDisplayId@@W4Enum@CacheMode@@PEAPEAV1@@Z @ 0x18006144C (-Create@COffScreenRenderingLayer@@SAJAEBVCResourceTag@@PEAVIDeviceTarget@@AEBUMilPointAndSizeL@@.c)
+ *     ?Create@CColorSpaceLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@W4DXGI_COLOR_SPACE_TYPE@@PEAPEAV1@@Z @ 0x18018FC0C (-Create@CColorSpaceLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@W4DXGI_COLOR_SPACE_TYPE@@P.c)
+ *     ?Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAV?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@PEAPEAV1@@Z @ 0x18018FE9C (-Create@CColorTransformLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAV-$TValueResource@U.c)
+ *     ?Create@CLinearInterpolationLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAV1@@Z @ 0x180191168 (-Create@CLinearInterpolationLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@AEBV-$TMilRect_@M.c)
+ *     ?Create@CGammaBlendLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAPEAV1@@Z @ 0x1801919F0 (-Create@CGammaBlendLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAPEAV1@@Z.c)
+ *     ?Create@CResampleLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@MMW4Enum@CompositionResampleMode@@PEAPEAV1@@Z @ 0x180191F38 (-Create@CResampleLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@MMW4Enum@CompositionResample.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034B30 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x180034B74 (-GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034D70 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     McTemplateU0qqqq_EventWriteTransfer @ 0x18012E8A8 (McTemplateU0qqqq_EventWriteTransfer.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005FC34 (-GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FFF0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180060020 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180060D74 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
+ *     McTemplateU0qqqq_EventWriteTransfer @ 0x180153D6C (McTemplateU0qqqq_EventWriteTransfer.c)
  */
 
-__int64 CExternalLayer::CreateBitmap(CDeviceManager *a1, _DWORD *a2, __int64 a3, struct _LUID *a4, int a5, ...)
+__int64 __fastcall CExternalLayer::CreateBitmap(
+        __int64 a1,
+        _DWORD *a2,
+        __int64 a3,
+        struct _LUID *a4,
+        int a5,
+        CD3DDevice *a6)
 {
-  CD3DDevice *v5; // r13
-  _BYTE *v6; // r14
-  _BYTE *v7; // rsi
-  struct _LUID v10; // rdx
+  CD3DDevice *v6; // r14
+  int v11; // eax
+  CDeviceManager *v12; // rcx
   int ExistingDevice; // eax
-  unsigned int v12; // ecx
-  CD3DDevice *v13; // rbx
-  unsigned int v14; // edi
-  int v15; // eax
-  unsigned int v16; // ecx
-  __int64 v17; // rax
-  _DWORD v19[6]; // [rsp+40h] [rbp-18h] BYREF
-  __int64 v21; // [rsp+A8h] [rbp+50h] BYREF
-  __int64 v22; // [rsp+B0h] [rbp+58h]
-  struct _LUID *v23; // [rsp+B8h] [rbp+60h]
-  CD3DDevice *v24; // [rsp+C8h] [rbp+70h] BYREF
-  va_list va; // [rsp+C8h] [rbp+70h]
-  va_list va1; // [rsp+D0h] [rbp+78h] BYREF
+  __int64 v14; // rcx
+  unsigned int v15; // edi
+  int v16; // eax
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v20; // [rsp+78h] [rbp+38h] BYREF
+  int v21; // [rsp+88h] [rbp+48h] BYREF
+  int v22; // [rsp+8Ch] [rbp+4Ch]
 
-  va_start(va1, a5);
-  va_start(va, a5);
-  v24 = va_arg(va1, CD3DDevice *);
-  v23 = a4;
-  v22 = a3;
-  v5 = v24;
-  v6 = a2 + 3;
-  v7 = a2 + 2;
-  v21 = 0LL;
-  *(_QWORD *)v24 = 0LL;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  v6 = a6;
+  v20 = 0LL;
+  *(_QWORD *)a6 = 0LL;
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x80u) != 0 )
     McTemplateU0qqqq_EventWriteTransfer(
-      (unsigned int)&Microsoft_Windows_Dwm_Core_Provider_Context,
+      *a2 + a2[2],
       (unsigned int)&EVTDESC_ETWGUID_LAYEREVENT_BeginExternalLayer_Start,
       *a2,
       a2[1],
-      *(_BYTE *)a2 + *v7,
-      a2[1] + *v6);
-  v10 = *a4;
-  v19[0] = *(_DWORD *)v7;
-  v19[1] = *(_DWORD *)v6;
-  v24 = 0LL;
-  ExistingDevice = CDeviceManager::GetExistingDevice(a1, v10, (struct CD3DDevice **)va);
-  v13 = v24;
-  v14 = ExistingDevice;
+      *(_BYTE *)a2 + *((_BYTE *)a2 + 8),
+      a2[1] + *((_BYTE *)a2 + 12));
+  v11 = a2[2];
+  a6 = 0LL;
+  v21 = v11;
+  v22 = a2[3];
+  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&a6);
+  ExistingDevice = CDeviceManager::GetExistingDevice(v12, *a4, &a6);
+  v15 = ExistingDevice;
   if ( ExistingDevice < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, ExistingDevice, 0x21u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, ExistingDevice, 0x21u, 0LL);
   }
   else
   {
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(&v21);
-    v15 = CD3DDevice::CreateRenderTargetBitmap(v13, a1, v19, v22, v23, a5, &v21);
-    v14 = v15;
-    if ( v15 < 0 )
+    v16 = CD3DDevice::CreateRenderTargetBitmap(a6, a1, &v21, a3, a4, a5, &v20);
+    v15 = v16;
+    if ( v16 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x28u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x28u, 0LL);
     }
     else
     {
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
         McTemplateU0qqqq_EventWriteTransfer(
-          (unsigned int)&Microsoft_Windows_Dwm_Core_Provider_Context,
+          *a2 + a2[2],
           (unsigned int)&EVTDESC_ETWGUID_LAYEREVENT_BeginExternalLayer_Stop,
           *a2,
           a2[1],
-          *(_BYTE *)a2 + *v7,
-          a2[1] + *v6);
-      v17 = v21;
-      v21 = 0LL;
-      *(_QWORD *)v5 = v17;
+          *(_BYTE *)a2 + *((_BYTE *)a2 + 8),
+          a2[1] + *((_BYTE *)a2 + 12));
+      v18 = v20;
+      v20 = 0LL;
+      *(_QWORD *)v6 = v18;
     }
   }
-  if ( v13 )
-    CD3DDevice::Release(v13);
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v21);
-  return v14;
+  if ( a6 )
+    CD3DDevice::Release(a6);
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v20);
+  return v15;
 }

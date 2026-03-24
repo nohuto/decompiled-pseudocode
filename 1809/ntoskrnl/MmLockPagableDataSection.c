@@ -1,5 +1,5 @@
 /*
- * XREFs of MmLockPagableDataSection @ 0x140651680
+ * XREFs of MmLockPagableDataSection @ 0x140651660
  * Callers:
  *     VfInitSystemNoRebootNeeded @ 0x1409265A0 (VfInitSystemNoRebootNeeded.c)
  *     BgkpLockBgfxCodeSection @ 0x140950680 (BgkpLockBgfxCodeSection.c)
@@ -13,8 +13,8 @@
  *     MiLockPagableImageSection @ 0x14009ABB0 (MiLockPagableImageSection.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MiLookupDataTableEntry @ 0x1400DA570 (MiLookupDataTableEntry.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall MmLockPagableDataSection(PVOID AddressWithinSection)

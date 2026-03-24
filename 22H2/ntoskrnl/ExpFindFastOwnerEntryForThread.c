@@ -1,37 +1,42 @@
 /*
- * XREFs of ExpFindFastOwnerEntryForThread @ 0x1403CA294
+ * XREFs of ExpFindFastOwnerEntryForThread @ 0x14038EFC0
  * Callers:
- *     ExAcquireFastResourceExclusive @ 0x1403C9760 (ExAcquireFastResourceExclusive.c)
- *     ExIsFastResourceHeldExclusive @ 0x1403C9CC0 (ExIsFastResourceHeldExclusive.c)
- *     ExIsFastResourceHeld @ 0x1403C9E30 (ExIsFastResourceHeld.c)
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403C9FA0 (ExpFastResourceLegacyConvertExclusiveToShared.c)
- *     ExpFastResourceLegacyRelease @ 0x1403CA140 (ExpFastResourceLegacyRelease.c)
- *     ExpFastResourceLegacyIsAcquiredShared @ 0x14060A5F8 (ExpFastResourceLegacyIsAcquiredShared.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x14038DBD8 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     ExpFastResourceLegacyRelease @ 0x14038DDBC (ExpFastResourceLegacyRelease.c)
+ *     ExAcquireFastResourceExclusive @ 0x14038E5D0 (ExAcquireFastResourceExclusive.c)
+ *     ExIsFastResourceHeld @ 0x14038E900 (ExIsFastResourceHeld.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x14038E9B0 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceShared @ 0x14038EC80 (ExAcquireFastResourceShared.c)
+ *     ExIsFastResourceHeldExclusive @ 0x140390690 (ExIsFastResourceHeldExclusive.c)
+ *     ExpFastResourceLegacyIsAcquiredShared @ 0x1405B48B0 (ExpFastResourceLegacyIsAcquiredShared.c)
  * Callees:
  *     <none>
  */
 
 __int64 *__fastcall ExpFindFastOwnerEntryForThread(__int64 a1, __int64 a2, char a3, char a4)
 {
-  __int64 *v4; // rax
+  __int64 **v4; // rax
   __int64 *i; // rcx
   __int64 *v7; // rdx
+  __int64 *v8; // rcx
 
-  v4 = (__int64 *)(a1 + 1656 + (a3 != 0 ? 0x18 : 0));
-  for ( i = (__int64 *)*v4; ; i = (__int64 *)*i )
+  v4 = (__int64 **)(a1 + 1576 + (a3 != 0 ? 0x18 : 0));
+  for ( i = *v4; ; i = (__int64 *)*i )
   {
-    if ( i == v4 )
+    if ( i == (__int64 *)v4 )
       return 0LL;
     if ( i[3] == a2 )
       break;
   }
   if ( a4 && (*((_BYTE *)i + 17) & 2) == 0 )
   {
-    v7 = i + 5;
-    for ( i = (__int64 *)i[5]; i != v7; i = (__int64 *)*i )
+    v7 = (__int64 *)i[5];
+    v8 = i + 5;
+    while ( v7 != v8 )
     {
-      if ( (*((_BYTE *)i + 17) & 2) != 0 )
-        return i;
+      if ( (*((_BYTE *)v7 + 17) & 2) != 0 )
+        return v7;
+      v7 = (__int64 *)*v7;
     }
     return 0LL;
   }

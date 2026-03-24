@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDispatchForwardIrpWithExceptions @ 0x1C0052330
+ * XREFs of ACPIDispatchForwardIrpWithExceptions @ 0x1C0052DB0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDispatchForwardIrp @ 0x1C0001660 (ACPIDispatchForwardIrp.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001E60 (ACPIDispatchForwardIrp.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
  */
 
 __int64 __fastcall ACPIDispatchForwardIrpWithExceptions(ULONG_PTR BugCheckParameter3, PIRP Irp)

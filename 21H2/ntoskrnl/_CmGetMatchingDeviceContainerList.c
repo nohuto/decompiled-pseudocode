@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetMatchingDeviceContainerList @ 0x14083DD34
+ * XREFs of _CmGetMatchingDeviceContainerList @ 0x1407B02B4
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x14076D160 (_PnpDispatchDeviceContainer.c)
+ *     _PnpDispatchDeviceContainer @ 0x1406A9F00 (_PnpDispatchDeviceContainer.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _CmGetMatchingDeviceContainerListWorker @ 0x14083DE38 (_CmGetMatchingDeviceContainerListWorker.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmGetMatchingDeviceContainerListWorker @ 0x1407B03B8 (_CmGetMatchingDeviceContainerListWorker.c)
  */
 
 __int64 __fastcall CmGetMatchingDeviceContainerList(

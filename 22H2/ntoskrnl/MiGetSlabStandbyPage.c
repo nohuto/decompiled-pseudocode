@@ -1,96 +1,123 @@
 /*
- * XREFs of MiGetSlabStandbyPage @ 0x140656ECC
+ * XREFs of MiGetSlabStandbyPage @ 0x14055300C
  * Callers:
- *     MiGetSlabPage @ 0x14023BD50 (MiGetSlabPage.c)
+ *     MiGetPageFromSlabAllocator @ 0x140359630 (MiGetPageFromSlabAllocator.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140266510 (MiUnlinkPageFromListEx.c)
- *     MiReleasePageListLock @ 0x1402DDAD0 (MiReleasePageListLock.c)
- *     MiReInitializeFreeSlabPfn @ 0x140338F5C (MiReInitializeFreeSlabPfn.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDiscardTransitionPteEx @ 0x140650694 (MiDiscardTransitionPteEx.c)
- *     MiLockPageListAndFirstPage @ 0x140650C44 (MiLockPageListAndFirstPage.c)
+ *     MiUnlinkPageFromList @ 0x140217870 (MiUnlinkPageFromList.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     MiReInitializeFreeSlabPfn @ 0x1403761CC (MiReInitializeFreeSlabPfn.c)
+ *     MiDiscardTransitionPteEx @ 0x140388794 (MiDiscardTransitionPteEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetSlabStandbyPage(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // si
-  __int64 v4; // rdi
   _DWORD *SchedulerAssist; // r9
-  int v6; // eax
-  __int64 Page; // rax
-  __int64 v8; // r14
-  unsigned __int8 v9; // al
+  __int64 v5; // r14
+  __int64 v6; // rdi
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  unsigned __int8 v10; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v11; // r9
-  int v12; // eax
-  bool v13; // zf
-  ULONG_PTR v14; // rbx
+  _DWORD *v12; // r9
+  int v13; // eax
+  bool v14; // zf
   unsigned __int8 v15; // al
   struct _KPRCB *v16; // r9
   _DWORD *v17; // r8
   int v18; // eax
-  _BYTE v19[112]; // [rsp+20h] [rbp-98h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
+  int v20; // [rsp+70h] [rbp+30h] BYREF
 
-  if ( *(_QWORD *)(a1 + 128) == 0x3FFFFFFFFFLL )
+  *(_QWORD *)&LockHandle.OldIrql = 0LL;
+  if ( *(_QWORD *)(a1 + 80) == 0xFFFFFFFFFLL )
     return -1LL;
-  memset(v19, 0, 0x68uLL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  v4 = -1LL;
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    v6 = 4;
-    if ( CurrentIrql != 2 )
-      v6 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v6;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  Page = MiLockPageListAndFirstPage(a1 + 112, (__int64)v19);
-  v8 = Page;
-  if ( Page == -1 )
+  LockHandle.LockQueue.Next = 0LL;
+  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 96);
+  KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(a1 + 96));
+  v5 = *(_QWORD *)(a1 + 80);
+  if ( v5 == 0xFFFFFFFFFLL )
   {
+LABEL_14:
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     if ( KiIrqlFlags )
     {
-      v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v11 = CurrentPrcb->SchedulerAssist;
-        v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v13 = (v12 & v11[5]) == 0;
-        v11[5] &= v12;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v10 = KeGetCurrentIrql();
+        if ( v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v12 = CurrentPrcb->SchedulerAssist;
+          v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v14 = (v13 & v12[5]) == 0;
+          v12[5] &= v13;
+          if ( v14 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
+    v5 = -1LL;
   }
   else
   {
-    v14 = 48 * Page - 0x220000000000LL;
-    MiUnlinkPageFromListEx(v14, (unsigned int)(v19[0] != 0) + 1);
-    MiReleasePageListLock(a1 + 112, (__int64)v19);
-    MiDiscardTransitionPteEx(v14, 2048);
-    *(_BYTE *)(v14 + 34) = *(_BYTE *)(v14 + 34) & 0xF8 | 1;
-    MiReInitializeFreeSlabPfn((_QWORD *)v14, a1);
-    _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    while ( 1 )
+    {
+      v6 = 48 * v5 - 0x58000000000LL;
+      if ( !_interlockedbittestandset64((volatile signed __int32 *)(v6 + 24), 0x3FuLL) )
+        break;
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      v20 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 24), 0x3FuLL) )
+      {
+        do
+          KeYieldProcessorEx(&v20, v7, v8, v9);
+        while ( *(__int64 *)(v6 + 24) < 0 );
+      }
+      LockHandle.LockQueue.Next = 0LL;
+      LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 96);
+      KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(a1 + 96));
+      if ( v5 == *(_QWORD *)(a1 + 80) )
+        break;
+      _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      v5 = *(_QWORD *)(a1 + 80);
+      if ( v5 == 0xFFFFFFFFFLL )
+        goto LABEL_14;
+    }
+    MiUnlinkPageFromList(48 * v5 - 0x58000000000LL, 1);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    MiDiscardTransitionPteEx(48 * v5 - 0x58000000000LL, 2048);
+    MiReInitializeFreeSlabPfn(48 * v5 - 0x58000000000LL, a1);
+    _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags )
     {
-      v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v16 = KeGetCurrentPrcb();
-        v17 = v16->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v13 = (v18 & v17[5]) == 0;
-        v17[5] &= v18;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick((__int64)v16);
+        v15 = KeGetCurrentIrql();
+        if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+        {
+          v16 = KeGetCurrentPrcb();
+          v17 = v16->SchedulerAssist;
+          v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v14 = (v18 & v17[5]) == 0;
+          v17[5] &= v18;
+          if ( v14 )
+            KiRemoveSystemWorkPriorityKick((__int64)v16);
+        }
       }
     }
-    v4 = v8;
   }
   __writecr8(CurrentIrql);
-  return v4;
+  return v5;
 }

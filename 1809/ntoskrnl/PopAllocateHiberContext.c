@@ -1,18 +1,18 @@
 /*
- * XREFs of PopAllocateHiberContext @ 0x1406DF554
+ * XREFs of PopAllocateHiberContext @ 0x1406DF534
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
- *     MmGetHighestPhysicalPage @ 0x1400A88F8 (MmGetHighestPhysicalPage.c)
- *     MmBuildMdlForNonPagedPool @ 0x140101FA0 (MmBuildMdlForNonPagedPool.c)
- *     PoSetHiberRange @ 0x1401447B0 (PoSetHiberRange.c)
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopInternalAddToDumpFile @ 0x1402D3224 (PopInternalAddToDumpFile.c)
+ *     MmGetHighestPhysicalPage @ 0x1400A8918 (MmGetHighestPhysicalPage.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140101FC0 (MmBuildMdlForNonPagedPool.c)
+ *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
  *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
  *     BgkResumePrepare @ 0x14056B58C (BgkResumePrepare.c)
  *     PopDiscardRange @ 0x14056BA08 (PopDiscardRange.c)
@@ -20,20 +20,20 @@
  *     PopGenerateUnHibernatedMdl @ 0x14056BCDC (PopGenerateUnHibernatedMdl.c)
  *     PopGetBitlockerKeyLocation @ 0x14056BD8C (PopGetBitlockerKeyLocation.c)
  *     PopGetHwConfigurationSignature @ 0x14056BF24 (PopGetHwConfigurationSignature.c)
- *     MmLockPreChargedPagedPool @ 0x1406DF060 (MmLockPreChargedPagedPool.c)
- *     IoGetDumpStack @ 0x1406DF0A4 (IoGetDumpStack.c)
- *     PopLoadResumeContext @ 0x1406DF0F4 (PopLoadResumeContext.c)
- *     PopHiberInitializeResources @ 0x1406DF264 (PopHiberInitializeResources.c)
- *     MmMarkHiberRange @ 0x1406DF510 (MmMarkHiberRange.c)
- *     PopBcdSetPendingResume @ 0x1406DF998 (PopBcdSetPendingResume.c)
- *     PopFreeHiberContext @ 0x1406DFFC0 (PopFreeHiberContext.c)
- *     BcdForciblyUnloadStore @ 0x1406E173C (BcdForciblyUnloadStore.c)
- *     PopBcdEstablishResumeObject @ 0x1407118A8 (PopBcdEstablishResumeObject.c)
- *     BcdCloseStore @ 0x140711A28 (BcdCloseStore.c)
- *     BcdOpenStore @ 0x140712288 (BcdOpenStore.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     HvlpAllocatePageListResources @ 0x140817BFC (HvlpAllocatePageListResources.c)
- *     VslAllocateSecureHibernateResources @ 0x140817C98 (VslAllocateSecureHibernateResources.c)
+ *     MmLockPreChargedPagedPool @ 0x1406DF040 (MmLockPreChargedPagedPool.c)
+ *     IoGetDumpStack @ 0x1406DF084 (IoGetDumpStack.c)
+ *     PopLoadResumeContext @ 0x1406DF0D4 (PopLoadResumeContext.c)
+ *     PopHiberInitializeResources @ 0x1406DF244 (PopHiberInitializeResources.c)
+ *     MmMarkHiberRange @ 0x1406DF4F0 (MmMarkHiberRange.c)
+ *     PopBcdSetPendingResume @ 0x1406DF978 (PopBcdSetPendingResume.c)
+ *     PopFreeHiberContext @ 0x1406DFFA0 (PopFreeHiberContext.c)
+ *     BcdForciblyUnloadStore @ 0x1406E171C (BcdForciblyUnloadStore.c)
+ *     PopBcdEstablishResumeObject @ 0x140711888 (PopBcdEstablishResumeObject.c)
+ *     BcdCloseStore @ 0x140711A08 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x140712268 (BcdOpenStore.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     HvlpAllocatePageListResources @ 0x140817BDC (HvlpAllocatePageListResources.c)
+ *     VslAllocateSecureHibernateResources @ 0x140817C78 (VslAllocateSecureHibernateResources.c)
  */
 
 __int64 PopAllocateHiberContext()
@@ -89,15 +89,15 @@ __int64 PopAllocateHiberContext()
   PopHiberScratchPages = PopHiberLoaderScratchPages
                        + ((((unsigned __int64)(HighestPhysicalPage + 32) >> 3) + 4092) >> 12);
   memset(MemoryMap, 0, 0x1C8uLL);
-  MmLockPreChargedPagedPool((unsigned __int64)qword_140417A70);
+  MmLockPreChargedPagedPool((unsigned __int64)qword_140417870);
   PopNumberOfPagesForHibernateProcess = 0;
-  *((_OWORD *)v1 + 3) = xmmword_140417A90;
-  *((_QWORD *)v1 + 25) = qword_140417A80;
-  *((_QWORD *)v1 + 40) = qword_140417AD0;
-  *((_QWORD *)v1 + 27) = qword_140417AB0;
-  *((_QWORD *)v1 + 28) = qword_140417AE0;
-  *((_QWORD *)v1 + 29) = qword_140417AD8;
-  *((_OWORD *)v1 + 2) = xmmword_140417AA0;
+  *((_OWORD *)v1 + 3) = xmmword_140417890;
+  *((_QWORD *)v1 + 25) = qword_140417880;
+  *((_QWORD *)v1 + 40) = qword_1404178D0;
+  *((_QWORD *)v1 + 27) = qword_1404178B0;
+  *((_QWORD *)v1 + 28) = qword_1404178E0;
+  *((_QWORD *)v1 + 29) = qword_1404178D8;
+  *((_OWORD *)v1 + 2) = xmmword_1404178A0;
   *((_QWORD *)v1 + 9) = v1 + 64;
   *((_QWORD *)v1 + 8) = v1 + 64;
   if ( !FileObject )
@@ -130,9 +130,9 @@ LABEL_46:
     v10 = v8;
   v11 = *((_QWORD *)v1 + 27);
   v1[1] = v10;
-  v12 = qword_140417A88;
-  v13 = qword_140417A88 & 0xFFFFFFFFFFFFF000uLL;
-  v14 = qword_140417A88;
+  v12 = qword_140417888;
+  v13 = qword_140417888 & 0xFFFFFFFFFFFFF000uLL;
+  v14 = qword_140417888;
   *(_QWORD *)v11 = 0LL;
   *(_WORD *)(v11 + 10) = 0;
   *(_QWORD *)(v11 + 32) = v13;
@@ -143,8 +143,8 @@ LABEL_46:
   v15 = *((_QWORD *)v1 + 28);
   if ( v15 )
   {
-    v31 = qword_140417AD8;
-    v32 = qword_140417AD8;
+    v31 = qword_1404178D8;
+    v32 = qword_1404178D8;
     *(_QWORD *)v15 = 0LL;
     *(_WORD *)(v15 + 10) = 0;
     *(_DWORD *)(v15 + 40) = 4096;
@@ -197,7 +197,7 @@ LABEL_46:
     PoSetHiberRange(v1, 2u, &KdTimerDifference, 0LL, 0x20676244u);
     PoSetHiberRange(v1, 2u, &KdDebuggerLock, 0LL, 0x20676244u);
   }
-  MmMarkHiberRange((__int64)v1, xmmword_140417A48);
+  MmMarkHiberRange((__int64)v1, xmmword_140417848);
   ((void (__fastcall *)(char *))off_1403FE2E8[0])(v1);
   v20 = (4 * (unsigned __int64)(unsigned int)PopHiberScratchPages + 4095) >> 12;
   v21 = v20;

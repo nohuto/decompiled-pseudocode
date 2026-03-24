@@ -1,16 +1,16 @@
 /*
- * XREFs of WmipQuerySingleMultiple @ 0x1408B3D08
+ * XREFs of WmipQuerySingleMultiple @ 0x1408B3CE8
  * Callers:
- *     WmipIoControl @ 0x1406A9E00 (WmipIoControl.c)
- *     IoWMIQuerySingleInstanceMultiple @ 0x1408B2130 (IoWMIQuerySingleInstanceMultiple.c)
+ *     WmipIoControl @ 0x1406A9DE0 (WmipIoControl.c)
+ *     IoWMIQuerySingleInstanceMultiple @ 0x1408B2110 (IoWMIQuerySingleInstanceMultiple.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     WmipQuerySetExecuteSI @ 0x1405FBF88 (WmipQuerySetExecuteSI.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall WmipQuerySingleMultiple(

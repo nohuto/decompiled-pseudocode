@@ -1,19 +1,19 @@
 /*
- * XREFs of CopyObject @ 0x1C0056570
+ * XREFs of CopyObject @ 0x1C0069110
  * Callers:
  *     <none>
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     DupObjData @ 0x1C004AF24 (DupObjData.c)
- *     MatchObjType @ 0x1C004C084 (MatchObjType.c)
- *     MoveObjData @ 0x1C004C184 (MoveObjData.c)
- *     ValidateTarget @ 0x1C004D510 (ValidateTarget.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     WriteObject @ 0x1C00532C0 (WriteObject.c)
+ *     DupObjData @ 0x1C000A400 (DupObjData.c)
+ *     MatchObjType @ 0x1C000ABEC (MatchObjType.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     MoveObjData @ 0x1C0065580 (MoveObjData.c)
  */
 
-__int64 __fastcall CopyObject(__int64 a1, __int64 a2)
+__int64 __fastcall CopyObject(struct _SLIST_ENTRY *a1, __int64 a2)
 {
   char v4; // bp
   int v5; // eax
@@ -26,12 +26,12 @@ __int64 __fastcall CopyObject(__int64 a1, __int64 a2)
 
   v12 = 0LL;
   v4 = 0;
-  v5 = ValidateTarget(a1, *(_QWORD *)(a2 + 80) + 40LL, 0, (__int64)&v12);
+  v5 = ValidateTarget((__int64)a1, *(_QWORD *)(a2 + 80) + 40LL, 0, (__int64)&v12);
   v6 = v5;
   if ( v5 )
   {
     LogError(v5);
-    AcpiDiagTraceAmlError(a1, v6);
+    AcpiDiagTraceAmlError((__int64)a1, v6);
     v7 = 33;
     goto LABEL_11;
   }
@@ -42,7 +42,7 @@ __int64 __fastcall CopyObject(__int64 a1, __int64 a2)
     {
       v6 = -1072431098;
       LogError(-1072431098);
-      AcpiDiagTraceAmlError(a1, -1072431098);
+      AcpiDiagTraceAmlError((__int64)a1, -1072431098);
       v7 = 32;
 LABEL_11:
       PrintDebugMessage(v7, 0LL, 0LL, 0LL, 0LL);
@@ -54,12 +54,12 @@ LABEL_11:
   if ( v4 )
     v10 = WriteObject(a1, v8, v9);
   else
-    v10 = DupObjData(gpheapGlobal, v8, v9);
+    v10 = DupObjData((struct _SLIST_ENTRY *)gpheapGlobal, v8, v9);
   v6 = v10;
   if ( v10 )
   {
     LogError(v10);
-    AcpiDiagTraceAmlError(a1, v6);
+    AcpiDiagTraceAmlError((__int64)a1, v6);
     v7 = 31;
     goto LABEL_11;
   }

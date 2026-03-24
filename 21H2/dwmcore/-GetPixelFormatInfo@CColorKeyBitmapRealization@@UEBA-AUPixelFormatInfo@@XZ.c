@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CColorKeyBitmapRealization@@UEBA?AUPixelFormatInfo@@XZ @ 0x1802A1DD0
+ * XREFs of ?GetPixelFormatInfo@CColorKeyBitmapRealization@@UEBA?AUPixelFormatInfo@@XZ @ 0x180262890
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CColorKeyBitmapRealization::GetPixelFormatInfo(__int64 a1, __int64 a2)
@@ -11,8 +11,8 @@ __int64 __fastcall CColorKeyBitmapRealization::GetPixelFormatInfo(__int64 a1, __
   void (__fastcall ***v3)(_QWORD); // rcx
 
   v3 = (void (__fastcall ***)(_QWORD))(*(_QWORD *)(a1 - 32)
-                                     + 8LL
-                                     + *(int *)(*(_QWORD *)(*(_QWORD *)(a1 - 32) + 8LL) + 8LL));
+                                     + 24LL
+                                     + *(int *)(*(_QWORD *)(*(_QWORD *)(a1 - 32) + 24LL) + 8LL));
   (**v3)(v3);
   return a2;
 }

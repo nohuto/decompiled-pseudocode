@@ -1,9 +1,9 @@
 /*
- * XREFs of KiClearLastBranchRecordStack @ 0x14028D650
+ * XREFs of KiClearLastBranchRecordStack @ 0x14028D750
  * Callers:
- *     SwapContext @ 0x1401C42A0 (SwapContext.c)
+ *     SwapContext @ 0x1401C42C0 (SwapContext.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 KiClearLastBranchRecordStack()

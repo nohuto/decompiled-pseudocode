@@ -1,43 +1,35 @@
 /*
- * XREFs of HvpAddFreeCellHint @ 0x1407463C4
+ * XREFs of HvpAddFreeCellHint @ 0x140656770
  * Callers:
- *     HvpEnlistFreeCell @ 0x140746480 (HvpEnlistFreeCell.c)
+ *     HvpEnlistFreeCell @ 0x140655978 (HvpEnlistFreeCell.c)
  * Callees:
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HvpGetBinContextInitialize @ 0x140AF6200 (HvpGetBinContextInitialize.c)
- *     HvpMapEntryGetBinAddress @ 0x140AF6210 (HvpMapEntryGetBinAddress.c)
- *     HvpGetCellMap @ 0x140AF6280 (HvpGetCellMap.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HvpGetCellMap @ 0x140655DC0 (HvpGetCellMap.c)
  */
 
-__int64 __fastcall HvpAddFreeCellHint(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)
+__int64 __fastcall HvpAddFreeCellHint(ULONG_PTR BugCheckParameter2, unsigned int a2, unsigned int a3)
 {
-  __int64 v3; // r14
-  __int64 v5; // rdx
+  __int64 v4; // r14
   __int64 CellMap; // rax
-  __int64 v7; // rcx
-  ULONG_PTR v8; // r10
-  __int64 BinAddress; // rax
-  __int64 v10; // r11
-  __int64 v11; // rsi
-  ULONG v12; // edi
-  __int64 v13; // rbx
+  ULONG_PTR v6; // r10
+  __int64 v7; // r11
+  __int64 v8; // rsi
+  ULONG v9; // edi
   __int64 result; // rax
-  _WORD v15[12]; // [rsp+30h] [rbp-18h] BYREF
 
-  v3 = a3;
-  v15[0] = 0;
-  HvpGetBinContextInitialize(v15);
-  CellMap = HvpGetCellMap(BugCheckParameter2, v5);
+  v4 = a3;
+  CellMap = HvpGetCellMap(BugCheckParameter2, a2);
   if ( !CellMap )
-    KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v8, 0x2B9uLL);
-  BinAddress = HvpMapEntryGetBinAddress(v7, CellMap, v15);
-  v11 = 632 * v10;
-  v12 = *(_DWORD *)(BinAddress + 4) >> 12;
-  v13 = 632 * v10 + 24 * v3;
-  RtlSetBits((PRTL_BITMAP)(v13 + BugCheckParameter2 + 320), v12, *(_DWORD *)(BinAddress + 8) >> 12);
-  *(_DWORD *)(v13 + BugCheckParameter2 + 316) = v12;
-  result = (unsigned int)(1 << v3);
-  *(_DWORD *)(v11 + BugCheckParameter2 + 904) |= result;
+    KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v6, 0x2B9uLL);
+  v8 = 632 * v7;
+  v9 = *(_DWORD *)((*(_QWORD *)(CellMap + 8) & 0xFFFFFFFFFFFFFFF0uLL) + 4) >> 12;
+  RtlSetBits(
+    (PRTL_BITMAP)(BugCheckParameter2 + 632 * v7 + 24 * (v4 + 13)),
+    v9,
+    *(_DWORD *)((*(_QWORD *)(CellMap + 8) & 0xFFFFFFFFFFFFFFF0uLL) + 8) >> 12);
+  *(_DWORD *)(v8 + 24 * v4 + BugCheckParameter2 + 308) = v9;
+  result = (unsigned int)(1 << v4);
+  *(_DWORD *)(v8 + BugCheckParameter2 + 896) |= result;
   return result;
 }

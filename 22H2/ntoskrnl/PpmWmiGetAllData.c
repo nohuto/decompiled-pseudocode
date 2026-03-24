@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmWmiGetAllData @ 0x14099625C
+ * XREFs of PpmWmiGetAllData @ 0x1408F183C
  * Callers:
- *     PpmWmiDispatch @ 0x14084FA00 (PpmWmiDispatch.c)
+ *     PpmWmiDispatch @ 0x1407C66E0 (PpmWmiDispatch.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PpmPerfGetCurrentState @ 0x14032A3D8 (PpmPerfGetCurrentState.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     memset @ 0x140435400 (memset.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PpmPerfGetCurrentState @ 0x14031CC24 (PpmPerfGetCurrentState.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __int64 a4, int *a5, char a6)
@@ -52,7 +52,7 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
     ExAcquirePushLockSharedEx((ULONG_PTR)&PpmIdlePolicyLock, 0LL);
     v9 = PPM_IDLESTATES_DATA_GUID;
   }
-  v14 = a1[46];
+  v14 = a1[45];
   v15 = PPM_PERFSTATES_DATA_GUID - *a2;
   if ( PPM_PERFSTATES_DATA_GUID == *a2 )
     v15 = 0x26018D33012BAAB4LL - a2[1];
@@ -76,7 +76,7 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
     }
     else
     {
-      v16 = 32 * *(_DWORD *)(*a1 + 40LL) + 56;
+      v16 = 32 * *(_DWORD *)(*a1 + 32LL) + 56;
     }
   }
   else
@@ -118,16 +118,16 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
         if ( PPM_PERFMON_PERFSTATE_GUID == *a2 )
           v32 = 0x9E75876A060BA1B0uLL - a2[1];
         if ( !v32 && v14 )
-          PpmPerfGetCurrentState((__int64)(a1 - 4200), v22, 0LL, v22 + 2, v22 + 1, 0LL);
+          PpmPerfGetCurrentState((__int64)(a1 - 4096), (unsigned __int64)v22, 0LL, v22 + 2, v22 + 1, 0LL);
       }
       else
       {
-        v22[1] = *(_DWORD *)(*a1 + 40LL);
-        v22[2] = *(_DWORD *)(*a1 + 24LL);
-        v22[3] = *(_DWORD *)(*a1 + 32LL);
-        *((_QWORD *)v22 + 2) = *(a1 - 4175);
+        v22[1] = *(_DWORD *)(*a1 + 32LL);
+        v22[2] = *(_DWORD *)(*a1 + 16LL);
+        v22[3] = *(_DWORD *)(*a1 + 24LL);
+        *((_QWORD *)v22 + 2) = *(a1 - 4071);
         v27 = *a1;
-        v28 = *(_DWORD *)(*a1 + 40LL);
+        v28 = *(_DWORD *)(*a1 + 32LL);
         if ( v28 )
         {
           v29 = 0LL;
@@ -135,15 +135,15 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
           v31 = v28;
           do
           {
-            v29 += 344LL;
-            *(v30 - 2) = *(_DWORD *)(v29 + *a1 + 1048) / 0xAu;
-            *(v30 - 1) = *(_DWORD *)(v29 + *a1 + 1056);
-            *v30 = *(_DWORD *)(v27 + 732);
+            v29 += 248LL;
+            *(v30 - 2) = *(_DWORD *)(v29 + *a1 + 752) / 0xAu;
+            *(v30 - 1) = *(_DWORD *)(v29 + *a1 + 760);
+            *v30 = *(_DWORD *)(v27 + 532);
             v30 += 8;
-            *((_BYTE *)v30 - 28) = *(_BYTE *)(v27 + 736);
-            *((_BYTE *)v30 - 27) = *(_BYTE *)(v27 + 737);
-            *((_BYTE *)v30 - 26) = *(_BYTE *)(v29 + *a1 + 1104);
-            *((_QWORD *)v30 - 3) = *(unsigned int *)(v29 + *a1 + 1060);
+            *((_BYTE *)v30 - 28) = *(_BYTE *)(v27 + 536);
+            *((_BYTE *)v30 - 27) = *(_BYTE *)(v27 + 537);
+            *((_BYTE *)v30 - 26) = *(_BYTE *)(v29 + *a1 + 808);
+            *((_QWORD *)v30 - 3) = *(unsigned int *)(v29 + *a1 + 764);
             *(v30 - 4) = 1;
             --v31;
           }
@@ -154,12 +154,12 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
     else
     {
       *v22 = 0;
-      v22[1] = *(_DWORD *)(v14 + 440);
+      v22[1] = *(_DWORD *)(v14 + 316);
       *((_QWORD *)v22 + 1) = 0LL;
       *((_QWORD *)v22 + 2) = 0LL;
       *((_BYTE *)v22 + 28) = 100;
-      *((_BYTE *)v22 + 29) = *(_BYTE *)(v14 + 481);
-      v22[8] = HIDWORD(PpmCurrentProfile[55 * dword_140C3D90C + 7]);
+      *((_BYTE *)v22 + 29) = *(_BYTE *)(v14 + 353);
+      v22[8] = HIDWORD(PpmCurrentProfile[342 * dword_140C2334C + 7]);
       *((_QWORD *)v22 + 5) = *(_QWORD *)(v14 + 32);
       v22[16] = 1;
     }
@@ -178,7 +178,7 @@ __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __
   v21 = 0;
 LABEL_48:
   if ( v13 )
-    PopReleaseRwLock((__int64 *)&PpmIdlePolicyLock);
+    PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
   result = (unsigned int)v21;
   if ( v21 < 0 )
     v20 = 0;

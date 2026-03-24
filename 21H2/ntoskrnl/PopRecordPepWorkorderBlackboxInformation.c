@@ -1,25 +1,26 @@
 /*
- * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x1405DF34C
+ * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x14057F3EC
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x1409A0C98 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x1408FA9E0 (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PopRecordPepWorkorderBlackboxInformation()
 {
-  unsigned int v0; // edi
-  void *v1; // rbx
+  unsigned int v0; // esi
+  _DWORD *v1; // rbx
   unsigned __int64 v2; // rbp
   __int64 *v3; // rax
   __int64 v4; // rcx
-  __int64 v5; // rsi
-  _DWORD *Pool2; // rax
+  SIZE_T v5; // rdi
+  _DWORD *PoolWithTag; // rax
   _DWORD *v7; // r8
   __int64 *i; // r9
   unsigned __int64 v9; // kr00_8
@@ -56,14 +57,15 @@ LABEL_13:
   else
   {
     v5 = 48 * v4 + 64;
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, v5, 1111641936LL);
-    v1 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v5, 0x42424F50u);
+    v1 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = 1;
-      v7 = Pool2 + 4;
-      Pool2[1] = v5;
-      Pool2[2] = v0;
+      memset(PoolWithTag, 0, v5);
+      *v1 = 1;
+      v7 = v1 + 4;
+      v1[1] = v5;
+      v1[2] = v0;
       for ( i = (__int64 *)PopWorkOrderList; i != &PopWorkOrderList; v7 += 12 )
       {
         v9 = MEMORY[0xFFFFF78000000008] - i[20];

@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_CreateRectRgnIndirect @ 0x180102E9A
+ * XREFs of __imp_load_CreateRectRgnIndirect @ 0x1800E8FDC
  * Callers:
  *     <none>
  * Callees:

@@ -1,35 +1,34 @@
 /*
- * XREFs of NtUserRemoteRedrawScreen @ 0x1C01FBE80
+ * XREFs of NtUserRemoteRedrawScreen @ 0x1C0200FC0
  * Callers:
  *     <none>
  * Callees:
- *     RemoteRedrawScreen @ 0x1C015359C (RemoteRedrawScreen.c)
+ *     RemoteRedrawScreen @ 0x1C0163584 (RemoteRedrawScreen.c)
  */
 
 __int64 NtUserRemoteRedrawScreen()
 {
   __int64 v0; // rdx
   __int64 v1; // rcx
+  __int64 v2; // r8
   __int64 CurrentProcess; // rax
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // rcx
-  unsigned int v6; // ebx
+  __int64 v4; // rcx
+  unsigned int v5; // ebx
 
-  EnterCrit(0LL, 0LL);
-  CurrentProcess = PsGetCurrentProcess(v1, v0);
-  v5 = gpepCSRSS;
+  EnterCrit(0LL, 1LL);
+  CurrentProcess = PsGetCurrentProcess(v1, v0, v2);
+  v4 = gpepCSRSS;
   if ( CurrentProcess == gpepCSRSS )
   {
     if ( gnShadowers || gbConnected )
-      v6 = RemoteRedrawScreen(gpepCSRSS, v3, v4);
+      v5 = RemoteRedrawScreen(gpepCSRSS);
     else
-      v6 = -1073741823;
+      v5 = -1073741823;
   }
   else
   {
-    v6 = -1073741790;
+    v5 = -1073741790;
   }
-  UserSessionSwitchLeaveCrit(v5);
-  return v6;
+  UserSessionSwitchLeaveCrit(v4);
+  return v5;
 }

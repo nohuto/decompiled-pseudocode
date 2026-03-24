@@ -1,9 +1,9 @@
 /*
- * XREFs of WppCleanupKm @ 0x1C02BFC08
+ * XREFs of WppCleanupKm @ 0x1C027EA94
  * Callers:
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C0134470 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011BB50 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall WppCleanupKm(__int64 a1)
@@ -13,19 +13,19 @@ void __fastcall WppCleanupKm(__int64 a1)
   v1 = WPP_GLOBAL_Control;
   if ( WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control )
   {
-    if ( *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Type == 4 )
+    if ( WPPTraceSuite == 4 )
     {
       while ( v1 )
       {
         if ( v1->Vpb )
         {
-          ((void (*)(void))WPP_MAIN_CB.DeviceQueue.Lock)();
+          ((void (*)(void))pfnEtwUnregister)();
           v1->Vpb = 0LL;
         }
         v1 = v1->NextDevice;
       }
     }
-    else if ( *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Type == 2 )
+    else if ( WPPTraceSuite == 2 )
     {
       IoWMIRegistrationControl(WPP_GLOBAL_Control, 0x80000002);
     }

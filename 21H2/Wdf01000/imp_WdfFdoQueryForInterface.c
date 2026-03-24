@@ -1,14 +1,14 @@
 /*
- * XREFs of imp_WdfFdoQueryForInterface @ 0x1C0018790
+ * XREFs of imp_WdfFdoQueryForInterface @ 0x1C0039510
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z @ 0x1C0019CCC (-QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z @ 0x1C004F890 (-QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 int __fastcall imp_WdfFdoQueryForInterface(
@@ -33,7 +33,11 @@ int __fastcall imp_WdfFdoQueryForInterface(
   params.Type = 4098;
   *(_DWORD *)&params.Offset = 0;
   *(&params.Offset + 2) = 0;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Fdo, 0x1030u, (void **)&pDeviceBase);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Fdo,
+    0x1030u,
+    (void **)&pDeviceBase);
   m_Globals = pDeviceBase->m_Globals;
   pDevice = 0LL;
   if ( !InterfaceType )
@@ -43,13 +47,8 @@ int __fastcall imp_WdfFdoQueryForInterface(
   result = FxVerifierCheckIrqlLevel(m_Globals, 0);
   if ( result >= 0 )
   {
-    if ( pDeviceBase->QueryInterface(pDeviceBase, &params) >= 0
-      && (pDevice->m_Legacy || pDevice->m_PkgPnp->m_Type != 4353) )
-    {
-      WPP_IFR_SF_qL(m_Globals, 2u, 0x12u, 0x10u, WPP_FxDeviceFdoAPI_cpp_Traceguids, Fdo, 0xC000000D);
-      return -1073741811;
-    }
-    else
+    if ( pDeviceBase->QueryInterface(pDeviceBase, &params) < 0
+      || !pDevice->m_Legacy && pDevice->m_PkgPnp->m_Type == 4353 )
     {
       return FxDeviceBase::QueryForInterface(
                pDeviceBase,
@@ -59,6 +58,11 @@ int __fastcall imp_WdfFdoQueryForInterface(
                Version,
                InterfaceSpecificData,
                0LL);
+    }
+    else
+    {
+      WPP_IFR_SF_qL(m_Globals, 2u, 0x12u, 0x10u, WPP_FxDeviceFdoAPI_cpp_Traceguids, Fdo, 0xC000000D);
+      return -1073741811;
     }
   }
   return result;

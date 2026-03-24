@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00C86C0
+ * XREFs of ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00E4CF0
  * Callers:
- *     FinishStockFontInit @ 0x1C00C81E0 (FinishStockFontInit.c)
- *     FinishStockFontReinit @ 0x1C00C8A00 (FinishStockFontReinit.c)
- *     bInitStockFontsInternal @ 0x1C0390308 (bInitStockFontsInternal.c)
- *     bInitOneStockFontInternal @ 0x1C03906EC (bInitOneStockFontInternal.c)
- *     bInitSystemFont @ 0x1C039242C (bInitSystemFont.c)
+ *     FinishStockFontInit @ 0x1C00E4810 (FinishStockFontInit.c)
+ *     FinishStockFontReinit @ 0x1C00E5160 (FinishStockFontReinit.c)
+ *     bInitStockFontsInternal @ 0x1C0393344 (bInitStockFontsInternal.c)
+ *     bInitOneStockFontInternal @ 0x1C0393720 (bInitOneStockFontInternal.c)
+ *     bInitSystemFont @ 0x1C039534C (bInitSystemFont.c)
  * Callees:
  *     <none>
  */

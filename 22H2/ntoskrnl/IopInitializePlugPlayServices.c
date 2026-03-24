@@ -1,258 +1,246 @@
 /*
- * XREFs of IopInitializePlugPlayServices @ 0x140B42004
+ * XREFs of IopInitializePlugPlayServices @ 0x140A52280
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     PipSetDevNodeState @ 0x14022AEA4 (PipSetDevNodeState.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     PnpRequestDeviceAction @ 0x140358A44 (PnpRequestDeviceAction.c)
- *     PnpDiagnosticTrace @ 0x140362508 (PnpDiagnosticTrace.c)
- *     PiDmaGuardInitialize @ 0x140375428 (PiDmaGuardInitialize.c)
- *     PnpGetRegistryDword @ 0x1403A070C (PnpGetRegistryDword.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     IoCreateDevice @ 0x14076B4E0 (IoCreateDevice.c)
- *     PipSetDevNodeUserFlags @ 0x140790BCC (PipSetDevNodeUserFlags.c)
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
- *     _CmSetDeviceRegProp @ 0x140798B3C (_CmSetDeviceRegProp.c)
- *     _CmAddDeviceToContainer @ 0x14079BC88 (_CmAddDeviceToContainer.c)
- *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x14079BDE4 (PnpQueryAndSaveDeviceNodeCapabilities.c)
- *     _CmCreateDevice @ 0x1407D7C24 (_CmCreateDevice.c)
- *     IopCreateRegistryKeyEx @ 0x1407DAA18 (IopCreateRegistryKeyEx.c)
- *     PipAllocateDeviceNode @ 0x1407DAC30 (PipAllocateDeviceNode.c)
- *     PnpMapDeviceObjectToDeviceInstance @ 0x1407E22C8 (PnpMapDeviceObjectToDeviceInstance.c)
- *     TlgRegisterAggregateProvider @ 0x140803364 (TlgRegisterAggregateProvider.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408034B4 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     IoCreateDriver @ 0x140812780 (IoCreateDriver.c)
- *     IopPortInitialize @ 0x1408130D8 (IopPortInitialize.c)
- *     IopOpenRegistryKeyEx @ 0x1408135F0 (IopOpenRegistryKeyEx.c)
- *     PiPnpRtlInit @ 0x140813794 (PiPnpRtlInit.c)
- *     PnpAllocateDeviceInstancePath @ 0x140814AB8 (PnpAllocateDeviceInstancePath.c)
- *     IopDmaInitialize @ 0x140814B78 (IopDmaInitialize.c)
- *     IopIrqInitialize @ 0x140814BF0 (IopIrqInitialize.c)
- *     IopBusNumberInitialize @ 0x140814C58 (IopBusNumberInitialize.c)
- *     CmRegisterSystemHiveLimitCallback @ 0x140814DA8 (CmRegisterSystemHiveLimitCallback.c)
- *     IopMemInitialize @ 0x140816A54 (IopMemInitialize.c)
- *     PipUpdateSetupInProgress @ 0x140862910 (PipUpdateSetupInProgress.c)
- *     PnpCopyDeviceInstancePath @ 0x140866334 (PnpCopyDeviceInstancePath.c)
- *     PipUpdateAsyncOptionsCallback @ 0x140875BB0 (PipUpdateAsyncOptionsCallback.c)
- *     TraceLoggingUnregister_EtwUnregister @ 0x1409417E8 (TraceLoggingUnregister_EtwUnregister.c)
- *     IoDeleteDriver @ 0x1409473D0 (IoDeleteDriver.c)
- *     PipUpdateSetupInProgressNotify @ 0x140952178 (PipUpdateSetupInProgressNotify.c)
- *     PnpLogEvent @ 0x140958B60 (PnpLogEvent.c)
- *     PiDcHandleSystemFirmwareUpdate @ 0x14095B2C0 (PiDcHandleSystemFirmwareUpdate.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     PiCslInitialize @ 0x140B3F384 (PiCslInitialize.c)
- *     PiSwInit @ 0x140B3F42C (PiSwInit.c)
- *     PiInitCacheGroupInformation @ 0x140B3F8E8 (PiInitCacheGroupInformation.c)
- *     PipInitDeviceOverrideCache @ 0x140B3F9C8 (PipInitDeviceOverrideCache.c)
- *     PipCheckSystemFirmwareUpdated @ 0x140B3FC3C (PipCheckSystemFirmwareUpdated.c)
- *     PiDcInit @ 0x140B42CC0 (PiDcInit.c)
- *     PpInitializeBootDDB @ 0x140B42D24 (PpInitializeBootDDB.c)
- *     PiUEventInit @ 0x140B42DC4 (PiUEventInit.c)
- *     PiAuCreateSecurityObjects @ 0x140B42FB0 (PiAuCreateSecurityObjects.c)
- *     PnpDiagInitialize @ 0x140B4300C (PnpDiagInitialize.c)
- *     PiDeviceDependencyInit @ 0x140B43154 (PiDeviceDependencyInit.c)
- *     PiDqInit @ 0x140B431C8 (PiDqInit.c)
- *     PipMigratePnpState @ 0x140B4324C (PipMigratePnpState.c)
- *     PpDevCfgInit @ 0x140B43330 (PpDevCfgInit.c)
- *     PipProcessPendingServices @ 0x140B435C4 (PipProcessPendingServices.c)
- *     PipProcessPendingOsExtensionResources @ 0x140B43650 (PipProcessPendingOsExtensionResources.c)
- *     PipResetDevices @ 0x140B436DC (PipResetDevices.c)
- *     PnpBusTypeGuidInitialize @ 0x140B438F0 (PnpBusTypeGuidInitialize.c)
- *     IopInitializeResourceMap @ 0x140B44840 (IopInitializeResourceMap.c)
- *     PiDmInit @ 0x140B60EA0 (PiDmInit.c)
- *     PnpInitializePnpWatchdogs @ 0x140B64BBC (PnpInitializePnpWatchdogs.c)
- *     PipHardwareConfigInit @ 0x140B6D528 (PipHardwareConfigInit.c)
- *     PnpInitializeNotification @ 0x140B6EFE8 (PnpInitializeNotification.c)
- *     PiInitFirmwareResources @ 0x140B6FC80 (PiInitFirmwareResources.c)
- *     ArbInitializeOsInaccessibleRange @ 0x140B729C8 (ArbInitializeOsInaccessibleRange.c)
- *     PnpInitializeDeviceEvents @ 0x140B745DC (PnpInitializeDeviceEvents.c)
- *     PpProfileInit @ 0x140B759DC (PpProfileInit.c)
- *     PiKsrNotifyInitialize @ 0x140B96390 (PiKsrNotifyInitialize.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     KeInitializeSemaphore @ 0x1402D6DB0 (KeInitializeSemaphore.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     IoDeleteDevice @ 0x140360200 (IoDeleteDevice.c)
+ *     KeInitializeGuardedMutex @ 0x1403609E0 (KeInitializeGuardedMutex.c)
+ *     PipSetDevNodeState @ 0x14036EEA8 (PipSetDevNodeState.c)
+ *     PnpRequestDeviceAction @ 0x14036F614 (PnpRequestDeviceAction.c)
+ *     PnpDiagnosticTrace @ 0x14037BE48 (PnpDiagnosticTrace.c)
+ *     PiDmaGuardInitialize @ 0x1403B6CC8 (PiDmaGuardInitialize.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     IoCreateDevice @ 0x140719130 (IoCreateDevice.c)
+ *     IopCreateRegistryKeyEx @ 0x14073C1E4 (IopCreateRegistryKeyEx.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     _CmSetDeviceRegProp @ 0x1407404B0 (_CmSetDeviceRegProp.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x140747844 (PnpQueryAndSaveDeviceNodeCapabilities.c)
+ *     PipSetDevNodeUserFlags @ 0x1407487CC (PipSetDevNodeUserFlags.c)
+ *     _CmCreateDevice @ 0x140749068 (_CmCreateDevice.c)
+ *     PipAllocateDeviceNode @ 0x14074E0D4 (PipAllocateDeviceNode.c)
+ *     PnpMapDeviceObjectToDeviceInstance @ 0x1407523B0 (PnpMapDeviceObjectToDeviceInstance.c)
+ *     _CmAddDeviceToContainer @ 0x140758914 (_CmAddDeviceToContainer.c)
+ *     CmRegisterSystemHiveLimitCallback @ 0x1407A1F40 (CmRegisterSystemHiveLimitCallback.c)
+ *     IopPortInitialize @ 0x1407A1FCC (IopPortInitialize.c)
+ *     IopMemInitialize @ 0x1407A2064 (IopMemInitialize.c)
+ *     IopDmaInitialize @ 0x1407A2148 (IopDmaInitialize.c)
+ *     IopIrqInitialize @ 0x1407A21C0 (IopIrqInitialize.c)
+ *     IopBusNumberInitialize @ 0x1407A2228 (IopBusNumberInitialize.c)
+ *     PipUpdateSetupInProgress @ 0x1407A3400 (PipUpdateSetupInProgress.c)
+ *     PiPnpRtlInit @ 0x1407A3780 (PiPnpRtlInit.c)
+ *     IoCreateDriver @ 0x1407A5330 (IoCreateDriver.c)
+ *     PnpCopyDeviceInstancePath @ 0x1407A5614 (PnpCopyDeviceInstancePath.c)
+ *     PnpAllocateDeviceInstancePath @ 0x1407A5630 (PnpAllocateDeviceInstancePath.c)
+ *     IopOpenRegistryKeyEx @ 0x1407ACA90 (IopOpenRegistryKeyEx.c)
+ *     TraceLoggingUnregister_EtwUnregister @ 0x140882780 (TraceLoggingUnregister_EtwUnregister.c)
+ *     IoDeleteDriver @ 0x140893B80 (IoDeleteDriver.c)
+ *     PipUpdateSetupInProgressNotify @ 0x14089B8A8 (PipUpdateSetupInProgressNotify.c)
+ *     PnpLogEvent @ 0x1408A1F4C (PnpLogEvent.c)
+ *     PiDcHandleSystemFirmwareUpdate @ 0x1408A36A0 (PiDcHandleSystemFirmwareUpdate.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     IopInitializeResourceMap @ 0x140A39780 (IopInitializeResourceMap.c)
+ *     PnpDeviceCompletionQueueInitialize @ 0x140A50DD0 (PnpDeviceCompletionQueueInitialize.c)
+ *     PiInitFirmwareResources @ 0x140A50E48 (PiInitFirmwareResources.c)
+ *     PnpInitializeLegacyBusInformationTable @ 0x140A50E9C (PnpInitializeLegacyBusInformationTable.c)
+ *     ArbInitializeOsInaccessibleRange @ 0x140A50EC4 (ArbInitializeOsInaccessibleRange.c)
+ *     PipMigratePnpState @ 0x140A51084 (PipMigratePnpState.c)
+ *     PiDmInit @ 0x140A51170 (PiDmInit.c)
+ *     IopQueryDeviceResetRegistrySettings @ 0x140A51260 (IopQueryDeviceResetRegistrySettings.c)
+ *     PipHardwareConfigInit @ 0x140A512F4 (PipHardwareConfigInit.c)
+ *     PiAuCreateSecurityObjects @ 0x140A516E8 (PiAuCreateSecurityObjects.c)
+ *     PiDqInit @ 0x140A51FA0 (PiDqInit.c)
+ *     PpDevCfgInit @ 0x140A52024 (PpDevCfgInit.c)
+ *     PiUEventInit @ 0x140A52E88 (PiUEventInit.c)
+ *     PiDcInit @ 0x140A53024 (PiDcInit.c)
+ *     PpInitializeBootDDB @ 0x140A53088 (PpInitializeBootDDB.c)
+ *     PiKsrInitialize @ 0x140A531E8 (PiKsrInitialize.c)
+ *     PiCslInitialize @ 0x140A53224 (PiCslInitialize.c)
+ *     PnpTraceInitialize @ 0x140A532C8 (PnpTraceInitialize.c)
+ *     PnpDiagInitialize @ 0x140A53304 (PnpDiagInitialize.c)
+ *     PipProcessPendingOperations @ 0x140A53368 (PipProcessPendingOperations.c)
+ *     PiSwInit @ 0x140A534A0 (PiSwInit.c)
+ *     PiDaInit @ 0x140A53550 (PiDaInit.c)
+ *     PnpBusTypeGuidInitialize @ 0x140A5358C (PnpBusTypeGuidInitialize.c)
+ *     PnpInitializeNotification @ 0x140A53618 (PnpInitializeNotification.c)
+ *     PnpInitializeDeviceEvents @ 0x140A5375C (PnpInitializeDeviceEvents.c)
+ *     PnpInitializePnpWatchdogs @ 0x140A53858 (PnpInitializePnpWatchdogs.c)
+ *     PiDmaGuardProcessRegistry @ 0x140A538C4 (PiDmaGuardProcessRegistry.c)
+ *     PpProfileInit @ 0x140A539E4 (PpProfileInit.c)
+ *     PnpInitializeDeviceActions @ 0x140A53A7C (PnpInitializeDeviceActions.c)
+ *     PiDeviceDependencyInit @ 0x140A53ADC (PiDeviceDependencyInit.c)
+ *     PipResetDevices @ 0x140A53B50 (PipResetDevices.c)
+ *     PipCheckSystemFirmwareUpdated @ 0x140A5CA78 (PipCheckSystemFirmwareUpdated.c)
+ *     PipInitDeviceOverrideCache @ 0x140A5CBAC (PipInitDeviceOverrideCache.c)
+ *     PiInitCacheGroupInformation @ 0x140A5CE20 (PiInitCacheGroupInformation.c)
  */
 
-int __fastcall IopInitializePlugPlayServices(__int64 a1, __int64 a2)
+__int64 __fastcall IopInitializePlugPlayServices(__int64 a1, __int64 a2)
 {
-  int result; // eax
-  __int64 *v4; // rax
-  int v5; // edx
-  __int64 v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
+  unsigned int *v3; // rbx
+  unsigned int *v4; // rdi
+  __int64 result; // rax
+  int v6; // edx
+  __int64 v7; // rcx
+  int v8; // edx
+  __int64 v9; // rcx
   int CachedContextBaseKey; // ebx
-  int v10; // edx
-  __int64 v11; // rcx
-  int v12; // edx
-  __int64 v13; // rcx
-  int v14; // edx
-  __int64 v15; // rcx
-  void *v16; // rbx
-  struct _DEVICE_OBJECT *v17; // rsi
-  PDEVICE_OBJECT v18; // rcx
-  __int64 v19; // rcx
-  __int64 v20; // rcx
-  unsigned int *v21; // rbx
-  unsigned int *v22; // rdi
-  __int64 v23; // [rsp+48h] [rbp-C0h] BYREF
+  int v11; // edx
+  __int64 v12; // rcx
+  int v13; // edx
+  __int64 v14; // rcx
+  int v15; // edx
+  __int64 v16; // rcx
+  HANDLE v17; // rbx
+  struct _DEVICE_OBJECT *v18; // rsi
+  PDEVICE_OBJECT v19; // rcx
+  ULONGLONG v20; // rax
+  __int64 v21; // rcx
+  __int64 v22; // [rsp+48h] [rbp-C0h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-B8h] BYREF
   PVOID P; // [rsp+58h] [rbp-B0h] BYREF
-  UNICODE_STRING v26; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v27; // [rsp+70h] [rbp-98h] BYREF
-  HANDLE KeyHandle; // [rsp+78h] [rbp-90h] BYREF
-  PVOID v29; // [rsp+80h] [rbp-88h] BYREF
-  void *v30; // [rsp+88h] [rbp-80h] BYREF
-  PVOID v31; // [rsp+90h] [rbp-78h] BYREF
-  PVOID v32; // [rsp+98h] [rbp-70h] BYREF
-  __int128 v33; // [rsp+A0h] [rbp-68h] BYREF
-  PDEVICE_OBJECT DeviceObject; // [rsp+B0h] [rbp-58h] BYREF
-  UNICODE_STRING v35; // [rsp+B8h] [rbp-50h] BYREF
-  ULONG Disposition; // [rsp+C8h] [rbp-40h] BYREF
-  int v37; // [rsp+CCh] [rbp-3Ch] BYREF
-  UNICODE_STRING GuidString; // [rsp+D0h] [rbp-38h] BYREF
-  UNICODE_STRING v39; // [rsp+E0h] [rbp-28h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+F0h] [rbp-18h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+100h] [rbp-8h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+130h] [rbp+28h] BYREF
-  __int64 v43; // [rsp+140h] [rbp+38h]
-  __int64 v44; // [rsp+148h] [rbp+40h]
-  struct _EVENT_DATA_DESCRIPTOR v45; // [rsp+158h] [rbp+50h] BYREF
-  PDEVICE_OBJECT *p_DeviceObject; // [rsp+178h] [rbp+70h]
-  __int64 v47; // [rsp+180h] [rbp+78h]
-  __int128 *v48; // [rsp+188h] [rbp+80h]
-  __int64 v49; // [rsp+190h] [rbp+88h]
-  PVOID *v50; // [rsp+198h] [rbp+90h]
-  __int64 v51; // [rsp+1A0h] [rbp+98h]
-  PVOID *v52; // [rsp+1A8h] [rbp+A0h]
-  __int64 v53; // [rsp+1B0h] [rbp+A8h]
-  void **v54; // [rsp+1B8h] [rbp+B0h]
-  __int64 v55; // [rsp+1C0h] [rbp+B8h]
-  PVOID *v56; // [rsp+1C8h] [rbp+C0h]
-  __int64 v57; // [rsp+1D0h] [rbp+C8h]
-  PVOID *p_P; // [rsp+1D8h] [rbp+D0h]
-  __int64 v59; // [rsp+1E0h] [rbp+D8h]
-  __int64 *v60; // [rsp+1E8h] [rbp+E0h]
-  __int64 v61; // [rsp+1F0h] [rbp+E8h]
-  UNICODE_STRING *v62; // [rsp+1F8h] [rbp+F0h]
-  __int64 v63; // [rsp+200h] [rbp+F8h]
+  UNICODE_STRING v25; // [rsp+60h] [rbp-A8h] BYREF
+  HANDLE KeyHandle; // [rsp+70h] [rbp-98h] BYREF
+  PVOID v27; // [rsp+78h] [rbp-90h] BYREF
+  void *v28; // [rsp+80h] [rbp-88h] BYREF
+  PVOID v29; // [rsp+88h] [rbp-80h] BYREF
+  PVOID v30; // [rsp+90h] [rbp-78h] BYREF
+  PVOID v31; // [rsp+98h] [rbp-70h] BYREF
+  HANDLE v32; // [rsp+A0h] [rbp-68h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+A8h] [rbp-60h] BYREF
+  ULONG Disposition; // [rsp+B0h] [rbp-58h] BYREF
+  int v35; // [rsp+B4h] [rbp-54h] BYREF
+  UNICODE_STRING v36; // [rsp+B8h] [rbp-50h] BYREF
+  UNICODE_STRING GuidString; // [rsp+C8h] [rbp-40h] BYREF
+  UNICODE_STRING v38; // [rsp+D8h] [rbp-30h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+E8h] [rbp-20h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+F8h] [rbp-10h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+128h] [rbp+20h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v42; // [rsp+138h] [rbp+30h] BYREF
+  PDEVICE_OBJECT *p_DeviceObject; // [rsp+158h] [rbp+50h]
+  __int64 v44; // [rsp+160h] [rbp+58h]
+  HANDLE *v45; // [rsp+168h] [rbp+60h]
+  __int64 v46; // [rsp+170h] [rbp+68h]
+  PVOID *v47; // [rsp+178h] [rbp+70h]
+  __int64 v48; // [rsp+180h] [rbp+78h]
+  PVOID *v49; // [rsp+188h] [rbp+80h]
+  __int64 v50; // [rsp+190h] [rbp+88h]
+  PVOID *v51; // [rsp+198h] [rbp+90h]
+  __int64 v52; // [rsp+1A0h] [rbp+98h]
+  void **v53; // [rsp+1A8h] [rbp+A0h]
+  __int64 v54; // [rsp+1B0h] [rbp+A8h]
+  PVOID *v55; // [rsp+1B8h] [rbp+B0h]
+  __int64 v56; // [rsp+1C0h] [rbp+B8h]
+  PVOID *p_P; // [rsp+1C8h] [rbp+C0h]
+  __int64 v58; // [rsp+1D0h] [rbp+C8h]
+  UNICODE_STRING *v59; // [rsp+1D8h] [rbp+D0h]
+  __int64 v60; // [rsp+1E0h] [rbp+D8h]
 
-  *(_QWORD *)&v33 = 0LL;
+  v32 = 0LL;
   Handle = 0LL;
-  v30 = 0LL;
-  *(_DWORD *)(&v26.MaximumLength + 1) = 0;
+  v28 = 0LL;
+  *(_DWORD *)(&v25.MaximumLength + 1) = 0;
   DeviceObject = 0LL;
   Disposition = 0;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  v29 = 0LL;
+  v27 = 0LL;
   P = 0LL;
+  v29 = 0LL;
+  v30 = 0LL;
   v31 = 0LL;
-  v32 = 0LL;
   KeyHandle = 0LL;
-  *(_DWORD *)(&v35.MaximumLength + 1) = 0;
+  *(_DWORD *)(&v36.MaximumLength + 1) = 0;
   *(_DWORD *)(&GuidString.MaximumLength + 1) = 0;
-  LOBYTE(v23) = 0;
+  LOBYTE(v22) = 0;
   DestinationString = 0LL;
-  v39 = 0LL;
+  v38 = 0LL;
   if ( (_DWORD)a2 )
   {
     if ( (_DWORD)a2 != 1 )
-      return -1073741584;
+      return (unsigned int)-1073741584;
     result = PnpDiagInitialize();
-    if ( result >= 0 )
+    if ( (int)result >= 0 )
     {
-      TlgRegisterAggregateProvider(&dword_140C03918);
-      TlgRegisterAggregateProvider(&dword_140C06958);
-      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C06920, 0LL, 0LL);
+      PnpTraceInitialize();
       result = PiDcInit(1LL);
-      if ( result >= 0 )
+      if ( (int)result >= 0 )
       {
         result = PiUEventInit(1LL);
-        if ( result >= 0 )
+        if ( (int)result >= 0 )
         {
-          v19 = *(_QWORD *)(a1 + 240);
+          v20 = *(_QWORD *)(a1 + 240) + 136LL;
           *(_QWORD *)&UserData.Size = 80LL;
-          v44 = 8LL;
-          UserData.Ptr = v19 + 136;
-          v43 = v19 + 3864;
-          PnpDiagnosticTrace(&KMPnPEvt_OsLoader_Time, 2u, &UserData);
-          if ( (unsigned int)dword_140C06758 > 4 && tlgKeywordOn((__int64)&dword_140C06758, 0x400000000000LL) )
+          UserData.Ptr = v20;
+          PnpDiagnosticTrace(&KMPnPEvt_OsLoader_Time, 1u, &UserData);
+          if ( (unsigned int)dword_140C02E70 > 4 && tlgKeywordOn((__int64)&dword_140C02E70, 0x400000000000LL) )
           {
-            v20 = *(_QWORD *)(a1 + 240);
-            DeviceObject = *(PDEVICE_OBJECT *)(v20 + 136);
+            v21 = *(_QWORD *)(a1 + 240);
+            DeviceObject = *(PDEVICE_OBJECT *)(v21 + 136);
             p_DeviceObject = &DeviceObject;
-            v47 = 8LL;
-            *(_QWORD *)&v33 = *(_QWORD *)(v20 + 144);
-            v48 = &v33;
-            v49 = 8LL;
-            v32 = *(PVOID *)(v20 + 152);
-            v50 = &v32;
-            v51 = 8LL;
-            v31 = *(PVOID *)(v20 + 160);
-            v52 = &v31;
-            v53 = 8LL;
-            v30 = *(void **)(v20 + 184);
-            v54 = &v30;
-            v55 = 8LL;
-            v29 = *(PVOID *)(v20 + 192);
-            v56 = &v29;
-            v57 = 8LL;
-            P = *(PVOID *)(v20 + 168);
+            v44 = 8LL;
+            v32 = *(HANDLE *)(v21 + 144);
+            v45 = &v32;
+            v46 = 8LL;
+            v31 = *(PVOID *)(v21 + 152);
+            v47 = &v31;
+            v48 = 8LL;
+            v30 = *(PVOID *)(v21 + 160);
+            v49 = &v30;
+            v50 = 8LL;
+            v29 = *(PVOID *)(v21 + 184);
+            v51 = &v29;
+            v52 = 8LL;
+            v28 = *(void **)(v21 + 192);
+            v53 = &v28;
+            v54 = 8LL;
+            v27 = *(PVOID *)(v21 + 168);
+            v55 = &v27;
+            v56 = 8LL;
+            P = *(PVOID *)(v21 + 176);
             p_P = &P;
-            v59 = 8LL;
-            v27 = *(_QWORD *)(v20 + 176);
-            v60 = &v27;
-            v61 = 8LL;
-            *(_QWORD *)&v35.Length = *(_QWORD *)(v20 + 3864);
-            v62 = &v35;
-            v63 = 8LL;
+            v58 = 8LL;
+            *(_QWORD *)&v36.Length = *(_QWORD *)(v21 + 2496);
+            v59 = &v36;
+            v60 = 8LL;
             tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_140C06758,
-              (unsigned __int8 *)byte_14002C79F,
+              (__int64)&dword_140C02E70,
+              (unsigned __int8 *)byte_140024FFF,
               0LL,
               0LL,
               0xBu,
-              &v45);
+              &v42);
           }
-          TraceLoggingUnregister_EtwUnregister((__int64)&dword_140C06758);
+          TraceLoggingUnregister_EtwUnregister((__int64)&dword_140C02E70);
           result = PiPnpRtlInit(1u);
-          if ( result >= 0 )
+          if ( (int)result >= 0 )
           {
             result = PiCslInitialize();
-            if ( result >= 0 )
+            if ( (int)result >= 0 )
             {
               CachedContextBaseKey = PiDmaGuardInitialize(1);
-              if ( CachedContextBaseKey < 0 )
-                return CachedContextBaseKey;
-              *(_QWORD *)&v35.Length = 0LL;
-              if ( (int)KsrGetFirmwareInformation(&v35) >= 0 )
+              if ( CachedContextBaseKey >= 0 )
               {
-                PnpKsrEnabled = 1;
-                result = PiKsrNotifyInitialize();
-                if ( result < 0 )
+                result = PiKsrInitialize();
+                if ( (int)result < 0 )
                   return result;
+                PnpRequestDeviceAction(*((PVOID *)IopRootDeviceNode + 4), 10, 0, 0LL, 0LL, 0LL, 0LL);
+                KeInitializeEvent(&PnpShutdownEvent, NotificationEvent, 0);
+                if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 0x400) == 0 )
+                  PpInitializeBootDDB(a1, 1LL);
+                return 0;
               }
-              else
-              {
-                PnpKsrEnabled = 0;
-              }
-              PnpRequestDeviceAction(*((PVOID *)IopRootDeviceNode + 4), 0xAu, 0, 0LL, 0LL, 0LL, 0LL);
-              LOWORD(PnpShutdownEvent.Header.Lock) = 0;
-              PnpShutdownEvent.Header.WaitListHead.Blink = &PnpShutdownEvent.Header.WaitListHead;
-              PnpShutdownEvent.Header.WaitListHead.Flink = &PnpShutdownEvent.Header.WaitListHead;
-              PnpShutdownEvent.Header.Size = 6;
-              PnpShutdownEvent.Header.SignalState = 0;
-              if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 0x400) == 0 )
-                PpInitializeBootDDB(a1, 1LL);
-              return 0;
+              return (unsigned int)CachedContextBaseKey;
             }
           }
         }
@@ -263,7 +251,7 @@ int __fastcall IopInitializePlugPlayServices(__int64 a1, __int64 a2)
   {
     PnPInitialized = 0;
     PnpSystemHiveLimits = 80;
-    dword_140C6AE3C = 90;
+    dword_140C50D34 = 90;
     CmRegisterSystemHiveLimitCallback(a1, a2, (__int64)&PnpSystemHiveLimits);
     PnpSystemHiveTooLarge = 0;
     ObjectAttributes.ObjectName = &CmRegistryMachineHardwareDescriptionSystemName;
@@ -273,336 +261,297 @@ int __fastcall IopInitializePlugPlayServices(__int64 a1, __int64 a2)
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     if ( ZwCreateKey(&KeyHandle, 0xF003Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition) >= 0 )
     {
-      if ( IopGetRegistryValue(KeyHandle, L"OldSystemBiosDate", 0, &v29) >= 0 )
+      if ( IopGetRegistryValue(KeyHandle, L"OldSystemBiosDate", 0, &v27) >= 0 )
       {
-        v21 = (unsigned int *)v29;
-        if ( v29 )
+        v3 = (unsigned int *)v27;
+        if ( v27 )
         {
           if ( IopGetRegistryValue(KeyHandle, L"SystemBiosDate", 0, &P) >= 0 )
           {
-            v22 = (unsigned int *)P;
+            v4 = (unsigned int *)P;
             if ( P )
             {
-              RtlInitUnicodeString(&DestinationString, (PCWSTR)((char *)v21 + v21[2]));
-              RtlInitUnicodeString(&v39, (PCWSTR)((char *)v22 + v22[2]));
-              PnpLogEvent((const void **)&DestinationString, (const void **)&v39, 1073741868, 0LL, 0);
-              ExFreePoolWithTag(v22, 0);
+              RtlInitUnicodeString(&DestinationString, (PCWSTR)((char *)v3 + v3[2]));
+              RtlInitUnicodeString(&v38, (PCWSTR)((char *)v4 + v4[2]));
+              PnpLogEvent((const void **)&DestinationString, (const void **)&v38, 1073741868, 0LL, 0);
+              ExFreePoolWithTag(v4, 0);
             }
           }
-          ExFreePoolWithTag(v21, 0);
+          ExFreePoolWithTag(v3, 0);
         }
       }
       ZwClose(KeyHandle);
     }
-    qword_140C5CAC8 = 0LL;
-    qword_140C5CA88 = (__int64)&PnpDeviceCompletionQueue;
-    *(_QWORD *)&PnpDeviceCompletionQueue = &PnpDeviceCompletionQueue;
-    dword_140C5CA90 = 0;
-    qword_140C5CAB8 = (__int64)&qword_140C5CAB0;
-    qword_140C5CAB0 = (__int64)&qword_140C5CAB0;
-    qword_140C5CAA0 = (__int64)&qword_140C5CA98;
-    qword_140C5CA98 = (__int64)&qword_140C5CA98;
-    byte_140C5CAA8 = 5;
-    byte_140C5CAAA = 8;
-    dword_140C5CAAC = 0;
-    dword_140C5CAC0 = 0x7FFFFFFF;
-    PiInitFirmwareResources(a1);
-    if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 0x400) == 0 )
-      PpInitializeBootDDB(a1, 0LL);
-    PipInitDeviceOverrideCache();
-    LOWORD(PnpSystemDeviceEnumerationComplete.Header.Lock) = 0;
-    PnpSystemDeviceEnumerationComplete.Header.WaitListHead.Blink = &PnpSystemDeviceEnumerationComplete.Header.WaitListHead;
-    PnpSystemDeviceEnumerationComplete.Header.WaitListHead.Flink = &PnpSystemDeviceEnumerationComplete.Header.WaitListHead;
-    PnpSystemDeviceEnumerationComplete.Header.Size = 6;
-    PnpSystemDeviceEnumerationComplete.Header.SignalState = 0;
-    result = PiInitCacheGroupInformation();
-    if ( result >= 0 )
+    result = PnpDeviceCompletionQueueInitialize();
+    if ( (int)result >= 0 )
     {
-      PpRegistrySemaphore.Header.Type = 5;
-      PpRegistrySemaphore.Header.WaitListHead.Blink = &PpRegistrySemaphore.Header.WaitListHead;
-      PpRegistrySemaphore.Header.WaitListHead.Flink = &PpRegistrySemaphore.Header.WaitListHead;
-      v4 = (__int64 *)&IopLegacyBusInformationTable;
-      PpRegistrySemaphore.Header.Size = 8;
-      PpRegistrySemaphore.Header.SignalState = 1;
-      PpRegistrySemaphore.Limit = 1;
-      do
+      PiInitFirmwareResources(a1);
+      if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 0x400) == 0 )
+        PpInitializeBootDDB(a1, 0LL);
+      PipInitDeviceOverrideCache();
+      KeInitializeEvent(&PnpSystemDeviceEnumerationComplete, NotificationEvent, 0);
+      result = PiInitCacheGroupInformation();
+      if ( (int)result >= 0 )
       {
-        v4[1] = (__int64)v4;
-        *v4 = (__int64)v4;
-        v4 += 2;
-      }
-      while ( (__int64)v4 < (__int64)&IopLegacyDeviceNode );
-      IopInitializeResourceMap(a1);
-      IopAllocateBootResourcesRoutine = (__int64)&IopReportBootResources;
-      IopInitReservedResourceList = 0LL;
-      PnpDefaultInterfaceType = 1;
-      ArbInitializeOsInaccessibleRange((unsigned int)dword_140C65BE0);
-      CachedContextBaseKey = IopPortInitialize(v6, v5);
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      CachedContextBaseKey = IopMemInitialize(v8, v7);
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      CachedContextBaseKey = IopDmaInitialize(v11, v10);
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      CachedContextBaseKey = IopIrqInitialize(v13, v12);
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      CachedContextBaseKey = IopBusNumberInitialize(v15, v14);
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      CachedContextBaseKey = PiPnpRtlInit(0);
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      PipMigratePnpState();
-      CachedContextBaseKey = PiDmInit();
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 4, (__int64)&v30);
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      v26.Buffer = L"Control\\Pnp";
-      *(_DWORD *)&v26.Length = 1572886;
-      if ( (int)IopCreateRegistryKeyEx(&Handle, v30, &v26, 0xF003Fu, 0, 0LL) >= 0 )
-      {
-        if ( IopGetRegistryValue(Handle, L"BootOptions", 0, &v31) >= 0 )
+        KeInitializeSemaphore(&PpRegistrySemaphore, 1, 1);
+        result = PnpInitializeLegacyBusInformationTable();
+        if ( (int)result >= 0 )
         {
-          if ( *((_DWORD *)v31 + 1) == 4 && *((_DWORD *)v31 + 3) == 4 )
-            PnpBootOptions = *(_DWORD *)((char *)v31 + *((unsigned int *)v31 + 2));
-          ExFreePoolWithTag(v31, 0);
-        }
-        if ( IopGetRegistryValue(Handle, L"FindBestConfigurationTimeout", 0, &v32) >= 0 )
-        {
-          if ( *((_DWORD *)v32 + 1) == 4 && *((_DWORD *)v32 + 3) == 4 )
-            PnpFindBestConfigurationTimeout = *(_DWORD *)((char *)v32 + *((unsigned int *)v32 + 2));
-          ExFreePoolWithTag(v32, 0);
-        }
-        LODWORD(v27) = 0;
-        if ( (int)PnpGetRegistryDword(Handle, (__int64)L"DmaGuardTestMode", &v27) >= 0 && (_DWORD)v27 == 1 )
-          PipDmaGuardTestMode = 1;
-        qword_140C5D6D0 = (__int64)PipUpdateAsyncOptionsCallback;
-        qword_140C5D6D8 = (__int64)Handle;
-        *(_QWORD *)PnpAsyncOptionsWorkItem = 0LL;
-        PipUpdateAsyncOptionsCallback(Handle);
-        Handle = 0LL;
-      }
-      *(_DWORD *)&v26.Length = 4063292;
-      v26.Buffer = L"\\Registry\\Machine\\System\\Setup";
-      if ( IopOpenRegistryKeyEx(&Handle, 0LL, &v26, 0x20019u) >= 0 )
-      {
-        PipUpdateSetupInProgress(Handle);
-        if ( IopGetRegistryValue(Handle, L"Upgrade", 0, &P) >= 0 )
-        {
-          if ( *((_DWORD *)P + 1) == 4 && *((_DWORD *)P + 3) == 4 && *(_DWORD *)((char *)P + *((unsigned int *)P + 2)) )
-            PnpSetupUpgradeInProgress = 1;
-          ExFreePoolWithTag(P, 0);
-        }
-        if ( IopGetRegistryValue(Handle, L"RollbackActive", 0, &P) >= 0 )
-        {
-          if ( *((_DWORD *)P + 1) == 4 && *((_DWORD *)P + 3) == 4 && *(_DWORD *)((char *)P + *((unsigned int *)P + 2)) )
-            PnpSetupRollbackActiveInProgress = 1;
-          ExFreePoolWithTag(P, 0);
-        }
-        if ( PnpSetupInProgress || PnpSetupOOBEInProgress )
-        {
-          qword_140C5D690 = (__int64)PipUpdateSetupInProgressCallback;
-          qword_140C5D698 = (__int64)Handle;
-          *(_QWORD *)PnpSetupWorkItem = 0LL;
-          PipUpdateSetupInProgressNotify(Handle, 0);
-        }
-        else
-        {
-          ZwClose(Handle);
-        }
-        Handle = 0LL;
-      }
-      CachedContextBaseKey = PipHardwareConfigInit((GUID *)(*(_QWORD *)(a1 + 240) + 2568LL));
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      PipCheckSystemFirmwareUpdated(&v23);
-      CachedContextBaseKey = PiDcInit(0LL);
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      CachedContextBaseKey = PiAuCreateSecurityObjects();
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      CachedContextBaseKey = PiDqInit();
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      CachedContextBaseKey = PpDevCfgInit();
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      PipResetDevices();
-      CachedContextBaseKey = CmCreateDevice(
-                               *(__int64 *)&PiPnpRtlCtx,
-                               (__int64)L"HTREE\\ROOT\\0",
-                               983103,
-                               (HANDLE *)&v33,
-                               0LL,
-                               0);
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      v16 = (void *)v33;
-      CmSetDeviceRegProp(
-        *(__int64 *)&PiPnpRtlCtx,
-        (__int64)L"HTREE\\ROOT\\0",
-        v33,
-        0x25u,
-        1u,
-        (__int64)L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}",
-        0x4Eu,
-        0);
-      v37 = 0;
-      CmSetDeviceRegProp(
-        *(__int64 *)&PiPnpRtlCtx,
-        (__int64)L"HTREE\\ROOT\\0",
-        (__int64)v16,
-        0xBu,
-        4u,
-        (__int64)&v37,
-        4u,
-        0);
-      ZwClose(v16);
-      qword_140C5CC98 = (__int64)&IopPendingEjects;
-      IopPendingEjects = (__int64)&IopPendingEjects;
-      qword_140C5CB08 = (__int64)&IopPendingSurpriseRemovals;
-      IopPendingSurpriseRemovals = &IopPendingSurpriseRemovals;
-      ExInitializeResourceLite(&IopDeviceTreeLock);
-      ExInitializeResourceLite(&IopSurpriseRemoveListLock);
-      ExInitializeResourceLite(&PiEngineLock);
-      PnpSpinLock = 0LL;
-      PiResourceListLock.Event.Header.WaitListHead.Blink = &PiResourceListLock.Event.Header.WaitListHead;
-      PiResourceListLock.Event.Header.WaitListHead.Flink = &PiResourceListLock.Event.Header.WaitListHead;
-      PnpRebuildPowerRelationsQueueLock.Event.Header.WaitListHead.Blink = &PnpRebuildPowerRelationsQueueLock.Event.Header.WaitListHead;
-      PnpRebuildPowerRelationsQueueLock.Event.Header.WaitListHead.Flink = &PnpRebuildPowerRelationsQueueLock.Event.Header.WaitListHead;
-      PiResourceListLock.Count = 1;
-      PiResourceListLock.Owner = 0LL;
-      PiResourceListLock.Contention = 0;
-      LOWORD(PiResourceListLock.Event.Header.Lock) = 1;
-      PiResourceListLock.Event.Header.Size = 6;
-      PiResourceListLock.Event.Header.SignalState = 0;
-      PnpRebuildPowerRelationsQueueLock.Count = 1;
-      PnpRebuildPowerRelationsQueueLock.Owner = 0LL;
-      PnpRebuildPowerRelationsQueueLock.Contention = 0;
-      LOWORD(PnpRebuildPowerRelationsQueueLock.Event.Header.Lock) = 1;
-      PnpRebuildPowerRelationsQueueLock.Event.Header.Size = 6;
-      PnpRebuildPowerRelationsQueueLock.Event.Header.SignalState = 0;
-      CachedContextBaseKey = PiDeviceDependencyInit();
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      _InterlockedExchange64((volatile __int64 *)&PnpDeviceActionThread, 0LL);
-      PnpEnumerationInProgress = 0;
-      PnpEnumerationLock.Header.WaitListHead.Blink = &PnpEnumerationLock.Header.WaitListHead;
-      PnpEnumerationLock.Header.WaitListHead.Flink = &PnpEnumerationLock.Header.WaitListHead;
-      qword_140C5B4A8 = (__int64)&PnpEnumerationRequestList;
-      PnpEnumerationRequestList = (__int64)&PnpEnumerationRequestList;
-      LOWORD(PnpEnumerationLock.Header.Lock) = 0;
-      PnpEnumerationLock.Header.Size = 6;
-      PnpEnumerationLock.Header.SignalState = 1;
-      PpProfileInit();
-      IopWarmEjectPdo = 0LL;
-      IopWarmEjectLock.Header.WaitListHead.Blink = &IopWarmEjectLock.Header.WaitListHead;
-      IopWarmEjectLock.Header.WaitListHead.Flink = &IopWarmEjectLock.Header.WaitListHead;
-      LOWORD(IopWarmEjectLock.Header.Lock) = 1;
-      v26.Buffer = L"\\Driver\\PnpManager";
-      IopWarmEjectLock.Header.Size = 6;
-      IopWarmEjectLock.Header.SignalState = 1;
-      *(_DWORD *)&v26.Length = 2490404;
-      CachedContextBaseKey = IoCreateDriver(&v26, (__int64 (__fastcall *)(void **, _QWORD))PipPnPDriverEntry);
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      CachedContextBaseKey = IoCreateDevice(PnpDriverObject, 0, 0LL, 4u, 0, 0, &DeviceObject);
-      if ( CachedContextBaseKey < 0 )
-        return CachedContextBaseKey;
-      v17 = DeviceObject;
-      v18 = DeviceObject;
-      DeviceObject->Flags |= 0x1000u;
-      CachedContextBaseKey = PipAllocateDeviceNode((__int64)v18, (__int64)&IopRootDeviceNode);
-      if ( IopRootDeviceNode )
-      {
-        PipSetDevNodeFlags((__int64)IopRootDeviceNode, 305);
-        PipSetDevNodeUserFlags((__int64)IopRootDeviceNode, 10);
-        *((_DWORD *)IopRootDeviceNode + 165) = -2;
-        CachedContextBaseKey = PnpAllocateDeviceInstancePath((__int64)IopRootDeviceNode, 0x1Au);
-        if ( CachedContextBaseKey >= 0 )
-        {
-          *(_DWORD *)&v35.Length = 1703960;
-          v35.Buffer = (wchar_t *)L"HTREE\\ROOT\\0";
-          PnpCopyDeviceInstancePath((__int64)IopRootDeviceNode, &v35);
-          CachedContextBaseKey = PnpMapDeviceObjectToDeviceInstance(
-                                   *((_QWORD *)IopRootDeviceNode + 4),
-                                   (__int64)IopRootDeviceNode + 40);
-          if ( CachedContextBaseKey >= 0 )
+          IopInitializeResourceMap(a1);
+          IopAllocateBootResourcesRoutine = (__int64)&IopReportBootResources;
+          IopInitReservedResourceList = 0LL;
+          PnpDefaultInterfaceType = 1;
+          ArbInitializeOsInaccessibleRange(dword_140C4DEE0);
+          CachedContextBaseKey = IopPortInitialize(v7, v6);
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          CachedContextBaseKey = IopMemInitialize(v9, v8);
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          CachedContextBaseKey = IopDmaInitialize(v12, v11);
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          CachedContextBaseKey = IopIrqInitialize(v14, v13);
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          CachedContextBaseKey = IopBusNumberInitialize(v16, v15);
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          CachedContextBaseKey = PiPnpRtlInit(0);
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          PipMigratePnpState();
+          CachedContextBaseKey = PiDmInit();
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 4, (__int64)&v28);
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          v25.Buffer = L"Control\\Pnp";
+          *(_DWORD *)&v25.Length = 1572886;
+          if ( (int)IopCreateRegistryKeyEx(&Handle, v28, &v25, 0xF003Fu, 0, 0LL) >= 0 )
           {
-            *(_DWORD *)&GuidString.Length = 5111884;
-            GuidString.Buffer = (wchar_t *)L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}";
-            RtlGUIDFromString(&GuidString, (GUID *)((char *)IopRootDeviceNode + 664));
-            PnpQueryAndSaveDeviceNodeCapabilities((__int64)IopRootDeviceNode);
-            PipSetDevNodeState((__int64)IopRootDeviceNode, 778);
-            goto LABEL_43;
+            if ( IopGetRegistryValue(Handle, L"AsynchronousOptions", 0, &v29) >= 0 )
+            {
+              if ( *((_DWORD *)v29 + 1) == 4 && *((_DWORD *)v29 + 3) == 4 )
+                PnpAsyncOptions = *(_DWORD *)((char *)v29 + *((unsigned int *)v29 + 2));
+              ExFreePoolWithTag(v29, 0);
+            }
+            if ( IopGetRegistryValue(Handle, L"BootOptions", 0, &v30) >= 0 )
+            {
+              if ( *((_DWORD *)v30 + 1) == 4 && *((_DWORD *)v30 + 3) == 4 )
+                PnpBootOptions = *(_DWORD *)((char *)v30 + *((unsigned int *)v30 + 2));
+              ExFreePoolWithTag(v30, 0);
+            }
+            if ( IopGetRegistryValue(Handle, L"FindBestConfigurationTimeout", 0, &v31) >= 0 )
+            {
+              if ( *((_DWORD *)v31 + 1) == 4 && *((_DWORD *)v31 + 3) == 4 )
+                PnpFindBestConfigurationTimeout = *(_DWORD *)((char *)v31 + *((unsigned int *)v31 + 2));
+              ExFreePoolWithTag(v31, 0);
+            }
+            PiDmaGuardProcessRegistry(Handle);
+            IopQueryDeviceResetRegistrySettings(Handle);
+            ZwClose(Handle);
           }
-        }
-      }
-      else
-      {
-        IoDeleteDevice(v17);
-        IoDeleteDriver((unsigned __int16 *)PnpDriverObject);
-        if ( CachedContextBaseKey >= 0 )
-        {
-LABEL_43:
-          CachedContextBaseKey = CmAddDeviceToContainer(
-                                   *(__int64 *)&PiPnpRtlCtx,
-                                   (__int64)L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}",
-                                   (__int64)L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}",
-                                   (__int64)L"HTREE\\ROOT\\0",
-                                   0LL);
-          if ( CachedContextBaseKey >= 0 )
+          *(_DWORD *)&v25.Length = 4063292;
+          v25.Buffer = L"\\Registry\\Machine\\System\\Setup";
+          if ( IopOpenRegistryKeyEx(&Handle, 0LL, &v25, 0x20019u) >= 0 )
           {
-            if ( (_BYTE)v23 )
-              PiDcHandleSystemFirmwareUpdate();
-            PnpInitializePnpWatchdogs();
-            CachedContextBaseKey = PnpInitializeDeviceEvents();
+            PipUpdateSetupInProgress(Handle);
+            if ( IopGetRegistryValue(Handle, L"Upgrade", 0, &P) >= 0 )
+            {
+              if ( *((_DWORD *)P + 1) == 4
+                && *((_DWORD *)P + 3) == 4
+                && *(_DWORD *)((char *)P + *((unsigned int *)P + 2)) )
+              {
+                PnpSetupUpgradeInProgress = 1;
+              }
+              ExFreePoolWithTag(P, 0);
+            }
+            if ( IopGetRegistryValue(Handle, L"RollbackActive", 0, &P) >= 0 )
+            {
+              if ( *((_DWORD *)P + 1) == 4
+                && *((_DWORD *)P + 3) == 4
+                && *(_DWORD *)((char *)P + *((unsigned int *)P + 2)) )
+              {
+                PnpSetupRollbackActiveInProgress = 1;
+              }
+              ExFreePoolWithTag(P, 0);
+            }
+            if ( PnpSetupInProgress || PnpSetupOOBEInProgress )
+            {
+              qword_140C457D0 = (__int64)PipUpdateSetupInProgressCallback;
+              qword_140C457D8 = (__int64)Handle;
+              *(_QWORD *)PnpSetupWorkItem = 0LL;
+              PipUpdateSetupInProgressNotify(Handle, 0);
+            }
+            else
+            {
+              ZwClose(Handle);
+            }
+            Handle = 0LL;
+          }
+          CachedContextBaseKey = PipHardwareConfigInit((GUID *)(*(_QWORD *)(a1 + 240) + 2568LL));
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          PipCheckSystemFirmwareUpdated(&v22);
+          CachedContextBaseKey = PiDcInit(0LL);
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          CachedContextBaseKey = PiAuCreateSecurityObjects();
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          CachedContextBaseKey = PiDqInit();
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          CachedContextBaseKey = PpDevCfgInit();
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          PipResetDevices();
+          CachedContextBaseKey = CmCreateDevice(
+                                   *(__int64 *)&PiPnpRtlCtx,
+                                   (__int64)L"HTREE\\ROOT\\0",
+                                   983103,
+                                   &v32,
+                                   0LL,
+                                   0);
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          v17 = v32;
+          CmSetDeviceRegProp(
+            *(__int64 *)&PiPnpRtlCtx,
+            (__int64)L"HTREE\\ROOT\\0",
+            (__int64)v32,
+            0x25u,
+            1u,
+            (__int64)L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}",
+            0x4Eu,
+            0);
+          v35 = 0;
+          CmSetDeviceRegProp(
+            *(__int64 *)&PiPnpRtlCtx,
+            (__int64)L"HTREE\\ROOT\\0",
+            (__int64)v17,
+            0xBu,
+            4u,
+            (__int64)&v35,
+            4u,
+            0);
+          ZwClose(v17);
+          qword_140C44BF8 = (__int64)&IopPendingEjects;
+          IopPendingEjects = (__int64)&IopPendingEjects;
+          qword_140C44BE8 = (__int64)&IopPendingSurpriseRemovals;
+          IopPendingSurpriseRemovals = &IopPendingSurpriseRemovals;
+          ExInitializeResourceLite(&IopDeviceTreeLock);
+          ExInitializeResourceLite(&IopSurpriseRemoveListLock);
+          ExInitializeResourceLite(&PnpDevicePropertyLock);
+          ExInitializeResourceLite(&PiEngineLock);
+          PnpSpinLock = 0LL;
+          KeInitializeGuardedMutex(&PiResourceListLock);
+          PnpRebuildPowerRelationsQueueLock.Count = 1;
+          PnpRebuildPowerRelationsQueueLock.Event.Header.WaitListHead.Blink = &PnpRebuildPowerRelationsQueueLock.Event.Header.WaitListHead;
+          PnpRebuildPowerRelationsQueueLock.Event.Header.WaitListHead.Flink = &PnpRebuildPowerRelationsQueueLock.Event.Header.WaitListHead;
+          PnpRebuildPowerRelationsQueueLock.Owner = 0LL;
+          PnpRebuildPowerRelationsQueueLock.Contention = 0;
+          LOWORD(PnpRebuildPowerRelationsQueueLock.Event.Header.Lock) = 1;
+          PnpRebuildPowerRelationsQueueLock.Event.Header.Size = 6;
+          PnpRebuildPowerRelationsQueueLock.Event.Header.SignalState = 0;
+          CachedContextBaseKey = PiDeviceDependencyInit();
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          CachedContextBaseKey = PnpInitializeDeviceActions();
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          PpProfileInit();
+          IopWarmEjectPdo = 0LL;
+          KeInitializeEvent(&IopWarmEjectLock, SynchronizationEvent, 1u);
+          *(_DWORD *)&v25.Length = 2490404;
+          v25.Buffer = L"\\Driver\\PnpManager";
+          CachedContextBaseKey = IoCreateDriver(&v25, (_DMA_OPERATIONS *)PipPnPDriverEntry);
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          CachedContextBaseKey = IoCreateDevice(PnpDriverObject, 0, 0LL, 4u, 0, 0, &DeviceObject);
+          if ( CachedContextBaseKey < 0 )
+            return (unsigned int)CachedContextBaseKey;
+          v18 = DeviceObject;
+          v19 = DeviceObject;
+          DeviceObject->Flags |= 0x1000u;
+          CachedContextBaseKey = PipAllocateDeviceNode((__int64)v19, &IopRootDeviceNode);
+          if ( !IopRootDeviceNode )
+          {
+            IoDeleteDevice(v18);
+            IoDeleteDriver((PADAPTER_OBJECT)PnpDriverObject);
+LABEL_73:
             if ( CachedContextBaseKey >= 0 )
             {
-              PnpInitializeNotification();
-              CachedContextBaseKey = PnpBusTypeGuidInitialize();
+              CachedContextBaseKey = CmAddDeviceToContainer(
+                                       *(__int64 *)&PiPnpRtlCtx,
+                                       (__int64)L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}",
+                                       (__int64)L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}",
+                                       (__int64)L"HTREE\\ROOT\\0",
+                                       0LL);
               if ( CachedContextBaseKey >= 0 )
               {
-                LOWORD(PnpReplaceEvent.Header.Lock) = 1;
-                PnpReplaceEvent.Header.WaitListHead.Blink = &PnpReplaceEvent.Header.WaitListHead;
-                PnpReplaceEvent.Header.WaitListHead.Flink = &PnpReplaceEvent.Header.WaitListHead;
-                PnpReplaceEvent.Header.Size = 6;
-                PnpReplaceEvent.Header.SignalState = 1;
-                CachedContextBaseKey = PiSwInit();
+                if ( (_BYTE)v22 )
+                  PiDcHandleSystemFirmwareUpdate();
+                PnpInitializePnpWatchdogs();
+                CachedContextBaseKey = PnpInitializeDeviceEvents();
                 if ( CachedContextBaseKey >= 0 )
                 {
-                  CachedContextBaseKey = PiUEventInit(0LL);
+                  PnpInitializeNotification();
+                  CachedContextBaseKey = PnpBusTypeGuidInitialize();
                   if ( CachedContextBaseKey >= 0 )
                   {
-                    *(_QWORD *)&v33 = 2359330LL;
-                    *((_QWORD *)&v33 + 1) = L"\\Driver\\DeviceApi";
-                    CachedContextBaseKey = IoCreateDriver(
-                                             &v33,
-                                             (__int64 (__fastcall *)(void **, _QWORD))PiDaDriverEntry);
+                    KeInitializeEvent(&PnpReplaceEvent, SynchronizationEvent, 1u);
+                    CachedContextBaseKey = PiSwInit();
                     if ( CachedContextBaseKey >= 0 )
                     {
-                      CachedContextBaseKey = PiDmaGuardInitialize(0);
+                      CachedContextBaseKey = PiUEventInit(0LL);
                       if ( CachedContextBaseKey >= 0 )
                       {
-                        if ( (int)PipProcessPendingServices() >= 0 )
-                          PipProcessPendingOsExtensionResources();
-                        PnpRequestDeviceAction(*((PVOID *)IopRootDeviceNode + 4), 0xAu, 0, 0LL, 0LL, 0LL, 0LL);
+                        CachedContextBaseKey = PiDaInit();
+                        if ( CachedContextBaseKey >= 0 )
+                        {
+                          CachedContextBaseKey = PiDmaGuardInitialize(0);
+                          if ( CachedContextBaseKey >= 0 )
+                          {
+                            PipProcessPendingOperations();
+                            PnpRequestDeviceAction(*((PVOID *)IopRootDeviceNode + 4), 10, 0, 0LL, 0LL, 0LL, 0LL);
+                          }
+                        }
                       }
                     }
                   }
                 }
               }
             }
+            return (unsigned int)CachedContextBaseKey;
           }
+          PipSetDevNodeFlags((__int64)IopRootDeviceNode, 305);
+          PipSetDevNodeUserFlags((__int64)IopRootDeviceNode, 10);
+          *((_DWORD *)IopRootDeviceNode + 165) = -2;
+          CachedContextBaseKey = PnpAllocateDeviceInstancePath((__int64)IopRootDeviceNode, 0x1Au);
+          if ( CachedContextBaseKey >= 0 )
+          {
+            *(_DWORD *)&v36.Length = 1703960;
+            v36.Buffer = (wchar_t *)L"HTREE\\ROOT\\0";
+            PnpCopyDeviceInstancePath((__int64)IopRootDeviceNode, &v36);
+            CachedContextBaseKey = PnpMapDeviceObjectToDeviceInstance(
+                                     *((_QWORD *)IopRootDeviceNode + 4),
+                                     (__int64)IopRootDeviceNode + 40);
+            if ( CachedContextBaseKey >= 0 )
+            {
+              *(_DWORD *)&GuidString.Length = 5111884;
+              GuidString.Buffer = L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}";
+              RtlGUIDFromString(&GuidString, (GUID *)((char *)IopRootDeviceNode + 664));
+              PnpQueryAndSaveDeviceNodeCapabilities((__int64)IopRootDeviceNode);
+              PipSetDevNodeState((__int64)IopRootDeviceNode, 776);
+              goto LABEL_73;
+            }
+          }
+          return (unsigned int)CachedContextBaseKey;
         }
       }
-      return CachedContextBaseKey;
     }
   }
   return result;

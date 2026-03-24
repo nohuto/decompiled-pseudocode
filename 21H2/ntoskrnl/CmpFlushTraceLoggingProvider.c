@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpFlushTraceLoggingProvider @ 0x140910800
+ * XREFs of CmpFlushTraceLoggingProvider @ 0x14086A758
  * Callers:
- *     CmShutdownSystem2 @ 0x14053EE38 (CmShutdownSystem2.c)
+ *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
  * Callees:
- *     TlgAggregateFlush @ 0x1406527A8 (TlgAggregateFlush.c)
- *     CmpFlushUnsupportedOperationTelemetry @ 0x1406D6FD0 (CmpFlushUnsupportedOperationTelemetry.c)
+ *     TlgAggregateFlush @ 0x1405C9440 (TlgAggregateFlush.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x140725A44 (CmpFlushUnsupportedOperationTelemetry.c)
  */
 
 void CmpFlushTraceLoggingProvider()
 {
   CmpFlushUnsupportedOperationTelemetry();
-  TlgAggregateFlush((__int64)&dword_140C03868);
+  TlgAggregateFlush((__int64)&dword_140C02130);
 }

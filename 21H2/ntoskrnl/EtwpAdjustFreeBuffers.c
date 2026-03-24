@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpAdjustFreeBuffers @ 0x1407987F0
+ * XREFs of EtwpAdjustFreeBuffers @ 0x140642D70
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x14079885C (EtwpFlushActiveBuffers.c)
- *     EtwpLogger @ 0x140799440 (EtwpLogger.c)
+ *     EtwpFlushActiveBuffers @ 0x140643C10 (EtwpFlushActiveBuffers.c)
+ *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
  * Callees:
- *     EtwpAllocateFreeBuffers @ 0x14026187C (EtwpAllocateFreeBuffers.c)
- *     EtwpQueryUsedProcessorCount @ 0x1402E1C80 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140265E58 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpAllocateFreeBuffers @ 0x1402ED308 (EtwpAllocateFreeBuffers.c)
  */
 
 __int64 __fastcall EtwpAdjustFreeBuffers(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall EtwpAdjustFreeBuffers(__int64 a1)
   v1 = 0;
   if ( (*(_DWORD *)(a1 + 12) & 0x40000) == 0 )
   {
-    v3 = *(_DWORD *)(a1 + 228);
+    v3 = *(_DWORD *)(a1 + 244);
     UsedProcessorCount = EtwpQueryUsedProcessorCount(a1);
     if ( v3 < UsedProcessorCount
       && UsedProcessorCount - v3 != (unsigned int)EtwpAllocateFreeBuffers(a1, UsedProcessorCount - v3) )

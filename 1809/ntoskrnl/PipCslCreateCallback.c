@@ -1,10 +1,10 @@
 /*
  * XREFs of PipCslCreateCallback @ 0x1409AADB0
  * Callers:
- *     PiCslInitialize @ 0x1409F626C (PiCslInitialize.c)
+ *     PiCslInitialize @ 0x1409F627C (PiCslInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ExCreateCallback @ 0x1406CA3A0 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ExCreateCallback @ 0x1406CA380 (ExCreateCallback.c)
  */
 
 NTSTATUS PipCslCreateCallback()

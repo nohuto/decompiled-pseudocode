@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepRegistryEnumValue @ 0x1408491AC
+ * XREFs of KsepRegistryEnumValue @ 0x14084918C
  * Callers:
- *     KsepDbQueryRegistryDeviceDataList @ 0x140847AA4 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x140847A84 (KsepDbQueryRegistryDeviceDataList.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1400F4C94 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x1400F4CBC (KsepPoolAllocatePaged.c)
- *     ZwEnumerateValueKey @ 0x1401B83D0 (ZwEnumerateValueKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
+ *     ZwEnumerateValueKey @ 0x1401B83F0 (ZwEnumerateValueKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 NTSTATUS __fastcall KsepRegistryEnumValue(HANDLE KeyHandle, ULONG Index, unsigned __int64 a3, void *a4, __int64 *a5)

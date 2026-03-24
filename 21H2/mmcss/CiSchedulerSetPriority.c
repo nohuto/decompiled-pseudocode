@@ -1,13 +1,12 @@
 /*
- * XREFs of CiSchedulerSetPriority @ 0x1C0002A60
+ * XREFs of CiSchedulerSetPriority @ 0x1C0001940
  * Callers:
- *     CiSchedulerUpdateTaskIndexPriorities @ 0x1C0002020 (CiSchedulerUpdateTaskIndexPriorities.c)
- *     CiSchedulerCommitPriority @ 0x1C00027F0 (CiSchedulerCommitPriority.c)
- *     CiSchedulerAddThread @ 0x1C00028E0 (CiSchedulerAddThread.c)
- *     CiSchedulerThreadFunction @ 0x1C0002F80 (CiSchedulerThreadFunction.c)
- *     CiProcessSuspend @ 0x1C0004B64 (CiProcessSuspend.c)
+ *     CiSchedulerCommitPriority @ 0x1C0001760 (CiSchedulerCommitPriority.c)
+ *     CiSchedulerAddThread @ 0x1C0001850 (CiSchedulerAddThread.c)
+ *     CiSchedulerUpdateTaskIndexPriorities @ 0x1C0002C20 (CiSchedulerUpdateTaskIndexPriorities.c)
+ *     CiProcessSuspend @ 0x1C00048B4 (CiProcessSuspend.c)
  * Callees:
- *     CiLogSchedulerEvent @ 0x1C0003F10 (CiLogSchedulerEvent.c)
+ *     CiLogSchedulerEvent @ 0x1C0003C60 (CiLogSchedulerEvent.c)
  */
 
 char __fastcall CiSchedulerSetPriority(__int64 a1)
@@ -40,7 +39,7 @@ char __fastcall CiSchedulerSetPriority(__int64 a1)
   if ( *(unsigned __int8 *)(a1 + 107) != v3 )
   {
     *(_BYTE *)(a1 + 107) = v3;
-    if ( byte_1C00073C0 )
+    if ( byte_1C0007370 )
       CiLogSchedulerEvent(a1, v3);
     KeSetActualBasePriorityThread(*(_QWORD *)(a1 + 96), v4);
   }

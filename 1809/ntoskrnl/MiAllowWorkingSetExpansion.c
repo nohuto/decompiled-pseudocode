@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllowWorkingSetExpansion @ 0x1400F32F4
+ * XREFs of MiAllowWorkingSetExpansion @ 0x1400F3314
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406798D8 (MmInitializeProcessAddressSpace.c)
- *     MiInitializeSystemWorkingSetList @ 0x140715B68 (MiInitializeSystemWorkingSetList.c)
- *     MmInitializeHandBuiltProcess @ 0x14075E88C (MmInitializeHandBuiltProcess.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140715B48 (MiInitializeSystemWorkingSetList.c)
+ *     MmInitializeHandBuiltProcess @ 0x14075E86C (MmInitializeHandBuiltProcess.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiReturnWsToExpansionList @ 0x1400F3364 (MiReturnWsToExpansionList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInsertSessionWorkingSet @ 0x1401B4EE4 (MiInsertSessionWorkingSet.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiReturnWsToExpansionList @ 0x1400F3384 (MiReturnWsToExpansionList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertSessionWorkingSet @ 0x1401B4F04 (MiInsertSessionWorkingSet.c)
  */
 
 __int64 __fastcall MiAllowWorkingSetExpansion(__int64 a1)

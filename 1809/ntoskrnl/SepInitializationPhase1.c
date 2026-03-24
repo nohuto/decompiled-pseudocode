@@ -1,17 +1,17 @@
 /*
- * XREFs of SepInitializationPhase1 @ 0x140726F44
+ * XREFs of SepInitializationPhase1 @ 0x140726F24
  * Callers:
- *     SeInitServerSilo @ 0x14089B7E4 (SeInitServerSilo.c)
+ *     SeInitServerSilo @ 0x14089B7C4 (SeInitServerSilo.c)
  *     SeInitSystem @ 0x1409AB3BC (SeInitSystem.c)
  * Callees:
  *     RtlInitString @ 0x140002070 (RtlInitString.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     SddlBaseInitialize @ 0x14017D05C (SddlBaseInitialize.c)
- *     SepInitProcessAuditSd @ 0x14017D0CC (SepInitProcessAuditSd.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateEvent @ 0x1401B8A70 (ZwCreateEvent.c)
- *     ZwCreateDirectoryObject @ 0x1401B9590 (ZwCreateDirectoryObject.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     SddlBaseInitialize @ 0x14017D07C (SddlBaseInitialize.c)
+ *     SepInitProcessAuditSd @ 0x14017D0EC (SepInitProcessAuditSd.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
+ *     ZwCreateDirectoryObject @ 0x1401B95B0 (ZwCreateDirectoryObject.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
@@ -20,8 +20,8 @@
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     SepInitializeCodeIntegrity @ 0x140727768 (SepInitializeCodeIntegrity.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     SepInitializeCodeIntegrity @ 0x140727748 (SepInitializeCodeIntegrity.c)
  *     SepInitializeSingletonAttributesStructures @ 0x1409AD9A0 (SepInitializeSingletonAttributesStructures.c)
  *     SepInitializeAuthorizationCallbacks @ 0x1409ADD7C (SepInitializeAuthorizationCallbacks.c)
  *     SeMakeAnonymousLogonTokenNoEveryone @ 0x1409AE3B0 (SeMakeAnonymousLogonTokenNoEveryone.c)

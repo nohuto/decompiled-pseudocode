@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkInitializeDpi @ 0x1C01D3860
+ * XREFs of DxgkInitializeDpi @ 0x1C016EB60
  * Callers:
  *     <none>
  * Callees:
- *     ?SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ @ 0x1C01D3878 (-SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ.c)
+ *     ?SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ @ 0x1C016EB78 (-SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ.c)
  */
 
 __int64 __fastcall DxgkInitializeDpi(DpiPersistence *a1)

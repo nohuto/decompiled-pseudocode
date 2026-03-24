@@ -1,43 +1,38 @@
 /*
- * XREFs of VerifierMmAllocateContiguousMemory @ 0x140AE3440
+ * XREFs of VerifierMmAllocateContiguousMemory @ 0x1409E5DF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViTargetTrackContiguousMemory @ 0x140ACCD80 (ViTargetTrackContiguousMemory.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD6FAC (VfFaultsInjectResourceFailure.c)
- *     VfFillAllocatedMemory @ 0x140ADB00C (VfFillAllocatedMemory.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetTrackContiguousMemory @ 0x1409D76C0 (ViTargetTrackContiguousMemory.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC83C (VfFaultsInjectResourceFailure.c)
+ *     VfAllocPoolNotification @ 0x1409DFFC4 (VfAllocPoolNotification.c)
+ *     VfFillAllocatedMemory @ 0x1409E0004 (VfFillAllocatedMemory.c)
  */
 
 _SLIST_ENTRY *__fastcall VerifierMmAllocateContiguousMemory(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter2)
 {
-  int v4; // edi
-  _SLIST_ENTRY *v5; // rax
+  int v5; // edi
   _SLIST_ENTRY *v6; // rbx
   unsigned __int64 retaddr; // [rsp+48h] [rbp+0h]
 
-  if ( (unsigned int)VfFaultsInjectResourceFailure(0)
-    || (VfRuleClasses & 0x40000) != 0
-    && ViFnAutoFailInject
-    && (unsigned __int8)ViFnAutoFailInject("MmAllocateContiguousMemory") )
-  {
+  if ( (unsigned int)VfFaultsInjectResourceFailure(0) )
     return 0LL;
-  }
-  v4 = (MmVerifierData & 0x2000000) != 0 ? 4 : 64;
+  v5 = (MmVerifierData & 0x2000000) != 0 ? 4 : 64;
   if ( (MmVerifierData & 0x4000000) != 0 && BugCheckParameter2 < 0x100000000LL )
     VerifierBugCheckIfAppropriate(0xC4u, 0x141uLL, BugCheckParameter2, BugCheckParameter3, 0LL);
-  v5 = (_SLIST_ENTRY *)((__int64 (__fastcall *)(ULONG_PTR, _QWORD, ULONG_PTR, _QWORD, int, unsigned int))pXdvMmAllocateContiguousNodeMemory)(
+  v6 = (_SLIST_ENTRY *)((__int64 (__fastcall *)(ULONG_PTR, _QWORD, ULONG_PTR, _QWORD, int, unsigned int))pXdvMmAllocateContiguousNodeMemory)(
                          BugCheckParameter3,
                          0LL,
                          BugCheckParameter2,
                          0LL,
-                         v4,
+                         v5,
                          0x80000000);
-  v6 = v5;
-  if ( v5 )
+  VfAllocPoolNotification();
+  if ( v6 )
   {
-    VfFillAllocatedMemory(v5, BugCheckParameter3);
+    VfFillAllocatedMemory(v6, BugCheckParameter3);
     if ( (MmVerifierData & 8) != 0 )
       ViTargetTrackContiguousMemory(retaddr, v6, BugCheckParameter3);
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Convert_scRGB_float_To_sRGB_UINT16@@YAGM@Z @ 0x18027FC24
+ * XREFs of ?Convert_scRGB_float_To_sRGB_UINT16@@YAGM@Z @ 0x18021ECFC
  * Callers:
- *     ?GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BD890 (-GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z.c)
+ *     ?GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021AAE0 (-GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z.c)
  * Callees:
- *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800F790C (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
- *     floor_0 @ 0x18011B8CC (floor_0.c)
+ *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800D1798 (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
+ *     floor @ 0x1800E7ED8 (floor.c)
  */
 
 __int64 __fastcall Convert_scRGB_float_To_sRGB_UINT16(float a1)
@@ -21,13 +21,8 @@ __int64 __fastcall Convert_scRGB_float_To_sRGB_UINT16(float a1)
   v3 = Convert_scRGB_Channel_To_sRGB_Byte(a1);
   if ( (unsigned int)v3 >= 0xFE )
     v3 = 254LL;
-  do
-  {
-    if ( GammaLUT_sRGB_to_scRGB[v3] <= v1 )
-      break;
+  while ( (unsigned int)v3 <= 0xFE && GammaLUT_sRGB_to_scRGB[v3] > v1 )
     v3 = (unsigned int)(v3 - 1);
-  }
-  while ( (unsigned int)v3 <= 0xFE );
   if ( (unsigned int)v3 >= 0xFE )
     v3 = 254LL;
   do
@@ -42,7 +37,7 @@ __int64 __fastcall Convert_scRGB_float_To_sRGB_UINT16(float a1)
     v3 = 254LL;
   return (unsigned int)(65793
                       * (((_DWORD)v3 << 8)
-                       + (int)floor_0(
+                       + (int)floor(
                                 (v1 - GammaLUT_sRGB_to_scRGB[v3])
                               / (float)(GammaLUT_sRGB_to_scRGB[(unsigned int)(v3 + 1)] - GammaLUT_sRGB_to_scRGB[v3])
                               * 256.0

@@ -1,5 +1,5 @@
 /*
- * XREFs of KeSetProfileIrql @ 0x140B50EF0
+ * XREFs of KeSetProfileIrql @ 0x140A39680
  * Callers:
  *     <none>
  * Callees:

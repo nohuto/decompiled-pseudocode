@@ -1,13 +1,13 @@
 /*
- * XREFs of MmZeroPageFileAtShutdown @ 0x14084C7A4
+ * XREFs of MmZeroPageFileAtShutdown @ 0x14084C784
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
- *     PopEnableHiberFile @ 0x140745F9C (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x140745F7C (PopEnableHiberFile.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  */
 

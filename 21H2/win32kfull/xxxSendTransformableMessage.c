@@ -1,14 +1,18 @@
 /*
- * XREFs of xxxSendTransformableMessage @ 0x1C004EBC0
+ * XREFs of xxxSendTransformableMessage @ 0x1C010FC74
  * Callers:
- *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C004DF70 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
- *     ?xxxSendPosMessage@@YAXPEAUtagWND@@IPEAUtagWINDOWPOS@@@Z @ 0x1C0159B20 (-xxxSendPosMessage@@YAXPEAUtagWND@@IPEAUtagWINDOWPOS@@@Z.c)
+ *     ?xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C0167BF4 (-xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW.c)
  * Callees:
- *     xxxSendTransformableMessageTimeout @ 0x1C0050D70 (xxxSendTransformableMessageTimeout.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C0059990 (xxxSendTransformableMessageTimeout.c)
  */
 
-__int64 __fastcall xxxSendTransformableMessage(ULONG_PTR a1, __int64 a2, __int64 a3, __int64 a4, int a5)
+__int64 __fastcall xxxSendTransformableMessage(
+        unsigned __int64 a1,
+        unsigned int a2,
+        unsigned __int64 a3,
+        struct _LARGE_STRING *a4,
+        int a5)
 {
   _InterlockedIncrement(&glSendMessage);
-  return xxxSendTransformableMessageTimeout(a1, 0, 0, 0LL, 1, a5);
+  return xxxSendTransformableMessageTimeout(a1, a2, a3, a4, 0, 0, 0LL, 1, a5);
 }

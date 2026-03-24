@@ -1,9 +1,9 @@
 /*
- * XREFs of ?StaticThreadThunk@FxSystemThread@@CAXPEAX@Z @ 0x1C002FB50
+ * XREFs of ?StaticThreadThunk@FxSystemThread@@CAXPEAX@Z @ 0x1C0091100
  * Callers:
  *     <none>
  * Callees:
- *     ?Thread@FxSystemThread@@AEAAXXZ @ 0x1C002FB68 (-Thread@FxSystemThread@@AEAAXXZ.c)
+ *     ?Thread@FxSystemThread@@AEAAXXZ @ 0x1C0091118 (-Thread@FxSystemThread@@AEAAXXZ.c)
  */
 
 void __fastcall FxSystemThread::StaticThreadThunk(FxSystemThread *Context)

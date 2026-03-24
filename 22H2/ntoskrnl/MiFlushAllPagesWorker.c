@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFlushAllPagesWorker @ 0x140639D54
+ * XREFs of MiFlushAllPagesWorker @ 0x14038282C
  * Callers:
- *     MiFlushAllPages @ 0x140639C7C (MiFlushAllPages.c)
+ *     MiFlushAllPages @ 0x140382774 (MiFlushAllPages.c)
  * Callees:
- *     MiStoreUpdateMemoryConditions @ 0x140222F90 (MiStoreUpdateMemoryConditions.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     CcNotifyWriteBehindEx @ 0x140536AF0 (CcNotifyWriteBehindEx.c)
- *     MiCanFlushMakeProgress @ 0x140638C0C (MiCanFlushMakeProgress.c)
- *     MiWakeModifiedPageWriter @ 0x14063BCA8 (MiWakeModifiedPageWriter.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     MiStoreUpdateMemoryConditions @ 0x14033A2F4 (MiStoreUpdateMemoryConditions.c)
+ *     MiCanFlushMakeProgress @ 0x1403502E0 (MiCanFlushMakeProgress.c)
+ *     MiWakeModifiedPageWriter @ 0x140350344 (MiWakeModifiedPageWriter.c)
+ *     CcNotifyWriteBehindEx @ 0x140382808 (CcNotifyWriteBehindEx.c)
  */
 
 _QWORD *__fastcall MiFlushAllPagesWorker(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -19,23 +19,23 @@ _QWORD *__fastcall MiFlushAllPagesWorker(__int64 a1, __int64 a2, unsigned __int6
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  _InterlockedIncrement((volatile signed __int32 *)(a1 + 824));
-  _InterlockedIncrement((volatile signed __int32 *)(a1 + 828));
+  _InterlockedIncrement((volatile signed __int32 *)(a1 + 784));
+  _InterlockedIncrement((volatile signed __int32 *)(a1 + 788));
   do
   {
     if ( !(unsigned int)MiCanFlushMakeProgress(a1, 0) || a4 && *(_DWORD *)(a4 + 4) )
       break;
-    KeSetEvent((PRKEVENT)(a1 + 832), 0, 0);
+    KeSetEvent((PRKEVENT)(a1 + 792), 0, 0);
     MiWakeModifiedPageWriter(a1, -1LL);
-    CcNotifyWriteBehindEx(2u, *(_QWORD *)(a1 + 200));
-    if ( *(_DWORD *)(a1 + 1192) )
+    CcNotifyWriteBehindEx(2, *(_QWORD *)(a1 + 176));
+    if ( *(_DWORD *)(a1 + 1160) )
       MiStoreUpdateMemoryConditions(a1);
     KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&Mi30Milliseconds);
     if ( KiQueryUnbiasedInterruptTime() - a2 > a3 )
       break;
   }
-  while ( *(_QWORD *)(a1 + 17600) > 0x32uLL );
-  _InterlockedAdd((volatile signed __int32 *)(a1 + 824), 0xFFFFFFFF);
-  _InterlockedAdd((volatile signed __int32 *)(a1 + 828), 0xFFFFFFFF);
+  while ( *(_QWORD *)(a1 + 7488) > 0x32uLL );
+  _InterlockedAdd((volatile signed __int32 *)(a1 + 784), 0xFFFFFFFF);
+  _InterlockedAdd((volatile signed __int32 *)(a1 + 788), 0xFFFFFFFF);
   return KeLeaveCriticalRegionThread((__int64)CurrentThread);
 }

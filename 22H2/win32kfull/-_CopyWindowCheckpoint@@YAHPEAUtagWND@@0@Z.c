@@ -1,53 +1,53 @@
 /*
- * XREFs of ?_CopyWindowCheckpoint@@YAHPEAUtagWND@@0@Z @ 0x1C01F3EB4
+ * XREFs of ?_CopyWindowCheckpoint@@YAHPEAUtagWND@@0@Z @ 0x1C0004888
  * Callers:
- *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F49BC (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
- *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F56B0 (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0003D2C (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0003FD4 (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
  * Callees:
- *     CkptRestore @ 0x1C00C7A4C (CkptRestore.c)
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     CkptRestore @ 0x1C00411F0 (CkptRestore.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall _CopyWindowCheckpoint(struct tagWND *a1, struct tagWND *a2, __int64 a3, __int64 a4)
+__int64 __fastcall _CopyWindowCheckpoint(struct tagWND *a1, struct tagWND *a2)
 {
-  unsigned int v5; // ebx
+  unsigned int v3; // ebx
   __int64 Prop; // rax
-  __int128 v8; // xmm1
-  __int128 v9; // xmm0
-  int v10; // eax
-  _DWORD *v11; // rax
-  __int128 v13; // [rsp+20h] [rbp-40h] BYREF
-  __int128 v14; // [rsp+30h] [rbp-30h]
-  __int128 v15; // [rsp+40h] [rbp-20h] BYREF
-  int v16; // [rsp+50h] [rbp-10h]
+  __int128 v6; // xmm1
+  __int128 v7; // xmm0
+  int v8; // eax
+  __int64 v9; // rax
+  __int128 v11; // [rsp+20h] [rbp-40h] BYREF
+  __int128 v12; // [rsp+30h] [rbp-30h]
+  __int128 v13; // [rsp+40h] [rbp-20h] BYREF
+  int v14; // [rsp+50h] [rbp-10h]
 
-  v5 = 0;
-  Prop = GetProp((__int64)a1, *((unsigned __int16 *)&WPP_MAIN_CB.DeviceQueue.Size + 1), 1LL, a4);
+  v3 = 0;
+  Prop = GetProp(a1, WORD2(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc), 1LL);
   if ( Prop )
   {
-    v8 = *(_OWORD *)(Prop + 16);
-    v13 = *(_OWORD *)Prop;
-    v9 = *(_OWORD *)(Prop + 32);
-    v10 = *(_DWORD *)(Prop + 48);
+    v6 = *(_OWORD *)(Prop + 16);
+    v11 = *(_OWORD *)Prop;
+    v7 = *(_OWORD *)(Prop + 32);
+    v8 = *(_DWORD *)(Prop + 48);
+    v12 = v6;
     v14 = v8;
-    v16 = v10;
-    v15 = v9;
+    v13 = v7;
     if ( (unsigned int)IsWindowDesktopComposed(a1) )
     {
-      TransformRectBetweenCoordinateSpaces(&v13, &v13, a2, a1);
-      TransformPointBetweenCoordinateSpaces(&v15, &v15, a2, a1);
-      TransformPointBetweenCoordinateSpaces((char *)&v15 + 8, (char *)&v15 + 8, a2, a1);
+      TransformRectBetweenCoordinateSpaces(&v11, &v11, a2, a1);
+      TransformPointBetweenCoordinateSpaces(&v13, &v13, a2, a1);
+      TransformPointBetweenCoordinateSpaces((char *)&v13 + 8, (char *)&v13 + 8, a2, a1);
     }
-    v11 = CkptRestore(a2, &v13);
-    if ( v11 )
+    v9 = CkptRestore(a2, &v11);
+    if ( v9 )
     {
-      v5 = 1;
-      *(_OWORD *)v11 = v13;
-      *((_OWORD *)v11 + 1) = v14;
-      *((_OWORD *)v11 + 2) = v15;
-      v11[12] = v16;
+      v3 = 1;
+      *(_OWORD *)v9 = v11;
+      *(_OWORD *)(v9 + 16) = v12;
+      *(_OWORD *)(v9 + 32) = v13;
+      *(_DWORD *)(v9 + 48) = v14;
     }
   }
-  return v5;
+  return v3;
 }

@@ -1,34 +1,29 @@
 /*
- * XREFs of _wcsset_s @ 0x1403D96B0
+ * XREFs of _wcsset_s @ 0x1403D1C90
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcsset_s(wchar_t *Dst, size_t SizeInWords, wchar_t Value)
 {
-  wchar_t *v3; // rax
+  wchar_t *i; // rax
 
   if ( !Dst || !SizeInWords )
     goto LABEL_8;
-  v3 = Dst;
-  if ( *Dst )
+  for ( i = Dst; *i; ++i )
   {
-    do
-    {
-      if ( !--SizeInWords )
-        break;
-      *v3++ = Value;
-    }
-    while ( *v3 );
-    if ( !SizeInWords )
-    {
-      *Dst = 0;
+    if ( !--SizeInWords )
+      break;
+    *i = Value;
+  }
+  if ( !SizeInWords )
+  {
+    *Dst = 0;
 LABEL_8:
-      xHalTimerWatchdogStop();
-      return 22;
-    }
+    xHalTimerWatchdogStop();
+    return 22;
   }
   return 0;
 }

@@ -1,253 +1,240 @@
 /*
- * XREFs of PfpRpFileKeyUpdate @ 0x1406D98E0
+ * XREFs of PfpRpFileKeyUpdate @ 0x140601860
  * Callers:
- *     PfFileInfoNotify @ 0x1402DF520 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x14029DC90 (PfFileInfoNotify.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     RtlUpcaseUnicodeChar @ 0x1406DA330 (RtlUpcaseUnicodeChar.c)
- *     PfpRpRehashIfNeeded @ 0x1407B31E4 (PfpRpRehashIfNeeded.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     RtlUpcaseUnicodeChar @ 0x140601D90 (RtlUpcaseUnicodeChar.c)
+ *     PfpRpRehashIfNeeded @ 0x140602060 (PfpRpRehashIfNeeded.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpFileKeyUpdate(__int64 a1, __int64 a2, int a3)
 {
-  unsigned int v3; // ebp
-  PVOID v4; // r12
-  int v5; // ebx
-  _QWORD *v7; // rdi
-  _QWORD *v8; // r14
-  int v9; // eax
-  __int64 v10; // r15
-  struct _EX_RUNDOWN_REF *v11; // r13
-  unsigned int v12; // eax
-  WCHAR *v13; // rbx
-  __int64 v14; // rax
-  __int64 v15; // rsi
-  WCHAR *i; // rbp
+  unsigned int v3; // r14d
+  int v5; // eax
+  PVOID v8; // r12
+  _QWORD *v9; // rdi
+  unsigned int v10; // eax
+  WCHAR *v11; // rbx
+  __int64 v12; // rax
+  __int64 v13; // rsi
+  WCHAR *j; // rbp
+  unsigned __int8 v15; // al
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v18; // rax
-  int v19; // r11d
-  __int64 v20; // r10
-  __int64 v21; // r9
-  __int64 v22; // rdx
-  unsigned int v23; // r10d
-  _QWORD *v24; // rcx
-  __int64 v26; // rsi
+  int v17; // r11d
+  __int64 v18; // r10
+  __int64 v19; // r9
+  __int64 v20; // rdx
+  void *v21; // rsi
+  unsigned int v22; // r10d
+  char v23; // al
+  unsigned __int64 v24; // r9
+  _QWORD *v25; // rcx
   unsigned __int64 v27; // r10
-  _QWORD *j; // rdx
+  _QWORD *i; // rdx
   _QWORD *v29; // rcx
   void *v30; // rcx
-  PVOID Pool2; // [rsp+20h] [rbp-78h] BYREF
-  __int64 v32; // [rsp+28h] [rbp-70h]
-  PVOID P; // [rsp+30h] [rbp-68h]
-  __int64 v34; // [rsp+40h] [rbp-58h]
-  WCHAR v36; // [rsp+A8h] [rbp+10h]
-  unsigned int v38; // [rsp+B8h] [rbp+20h]
+  PVOID PoolWithTag; // [rsp+20h] [rbp-68h] BYREF
+  unsigned __int64 v32; // [rsp+28h] [rbp-60h]
+  unsigned __int64 v33; // [rsp+30h] [rbp-58h]
+  unsigned __int64 v34; // [rsp+38h] [rbp-50h]
+  PEX_RUNDOWN_REF RunRef; // [rsp+40h] [rbp-48h]
+  unsigned int v36; // [rsp+90h] [rbp+8h]
+  _QWORD *P; // [rsp+98h] [rbp+10h]
+  __int64 v38; // [rsp+A8h] [rbp+20h]
 
   v3 = 0;
-  v4 = 0LL;
-  v5 = a3;
-  v7 = 0LL;
-  v32 = *(_QWORD *)(a2 + 16);
-  v8 = 0LL;
-  v9 = *(_DWORD *)(a1 + 152);
-  v10 = a1;
+  v38 = *(_QWORD *)(a2 + 16);
+  v5 = *(_DWORD *)(a1 + 152);
   P = 0LL;
-  Pool2 = 0LL;
-  v38 = 0;
-  if ( (v9 & 1) == 0 )
+  PoolWithTag = 0LL;
+  v8 = 0LL;
+  v36 = 0;
+  v9 = 0LL;
+  if ( (v5 & 1) == 0 )
+    return 3221225600LL;
+  RunRef = (PEX_RUNDOWN_REF)(a1 + 136);
+  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 136)) )
+    return 3221225600LL;
+  if ( !a3 )
   {
-    v3 = -1073741696;
-    goto LABEL_26;
-  }
-  v11 = (struct _EX_RUNDOWN_REF *)(a1 + 136);
-  if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 136)) )
-  {
-    v3 = -1073741696;
-    goto LABEL_26;
-  }
-  if ( !v5 )
-  {
-    v15 = 0LL;
-    goto LABEL_10;
-  }
-  P = (PVOID)ExAllocatePool2(256LL, 24LL, 1262904912LL);
-  v8 = P;
-  if ( P )
-  {
-    v12 = 2 * (*(_DWORD *)(v10 + 4) >> 5);
-    if ( *(_DWORD *)v10 >= v12 )
+    v13 = 0LL;
+LABEL_9:
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    ExAcquirePushLockExclusiveEx(a1 + 48, 0LL);
+    if ( a3 )
     {
-      if ( !v12 )
-        v12 = 64;
-      v38 = v12;
-      Pool2 = (PVOID)ExAllocatePool2(256LL, 8LL * v12, 1212573264LL);
-      v4 = Pool2;
-      if ( !Pool2 )
-        v38 = 0;
-    }
-    v13 = *(WCHAR **)(a2 + 24);
-    v14 = *(unsigned __int16 *)(a2 + 34);
-    v15 = 314159LL;
-    for ( i = &v13[v14]; v13 < i; v15 = HIBYTE(v36) + 37 * ((unsigned __int8)v36 + 37 * v15) )
-      v36 = RtlUpcaseUnicodeChar(*v13++);
-    if ( v15 )
-    {
-      v5 = a3;
-      v3 = 0;
-LABEL_10:
-      CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
-      ExAcquirePushLockExclusiveEx(v10 + 48, 0LL);
-      if ( v5 )
+      v17 = *(_DWORD *)(a1 + 4) >> 5;
+      v18 = -1LL << (*(_BYTE *)(a1 + 4) & 0x1F);
+      v19 = v38 & v18;
+      v34 = (v38 & (unsigned __int64)v18) >> 32;
+      v33 = (v38 & (unsigned __int64)v18) >> 24;
+      v32 = (v38 & (unsigned __int64)v18) >> 16;
+      if ( v17 )
       {
-        v18 = v32;
-        v19 = *(_DWORD *)(v10 + 4) >> 5;
-        v20 = -1LL << (*(_BYTE *)(v10 + 4) & 0x1F);
-        v21 = v32 & v20;
-        if ( v19 )
-        {
-          v34 = v32 & v20;
-          v10 = a1;
-          v22 = *(_QWORD *)(a1 + 8)
-              + 8
-              * ((((v32 & (unsigned __int64)v20) >> 56)
+        v20 = *(_QWORD *)(a1 + 8)
+            + 8
+            * ((((v38 & (unsigned __int64)v18) >> 56)
+              + 37
+              * ((unsigned __int8)((v38 & (unsigned __int64)v18) >> 48)
+               + 37
+               * ((unsigned __int8)((unsigned __int16)((v38 & (unsigned __int64)v18) >> 32) >> 8)
                 + 37
-                * ((unsigned __int8)((v32 & (unsigned __int64)v20) >> 48)
+                * ((unsigned __int8)v34
                  + 37
-                 * ((unsigned __int8)((unsigned __int16)((v32 & (unsigned __int64)v20) >> 32) >> 8)
+                 * ((unsigned __int8)v33
                   + 37
-                  * ((unsigned __int8)((v32 & (unsigned __int64)v20) >> 32)
+                  * ((unsigned __int8)v32
                    + 37
-                   * ((((unsigned int)v32 & (unsigned int)v20) >> 24)
-                    + 37
-                    * ((unsigned __int8)(((unsigned int)v32 & (unsigned int)v20) >> 16)
-                     + 37
-                     * ((unsigned __int8)((unsigned __int16)(v32 & v20) >> 8) + 37 * ((unsigned __int8)v21 + 11623883)))))))) & (unsigned int)(v19 - 1));
-          while ( 1 )
+                   * ((unsigned __int8)((unsigned __int16)(v38 & v18) >> 8)
+                    + 37 * ((unsigned int)(unsigned __int8)v19 + 11623883)))))))) & (unsigned int)(v17 - 1));
+        while ( 1 )
+        {
+          v20 = *(_QWORD *)v20;
+          if ( (v20 & 1) != 0 )
+            break;
+          if ( v19 == (v18 & *(_QWORD *)(v20 + 8)) )
           {
-            v22 = *(_QWORD *)v22;
-            if ( (v22 & 1) != 0 )
-              break;
-            if ( v21 == (v20 & *(_QWORD *)(v22 + 8)) )
-            {
-              v8 = P;
-              v3 = 0;
-              *(_QWORD *)(v22 + 16) = v15;
-              goto LABEL_19;
-            }
+            *(_QWORD *)(v20 + 16) = v13;
+            goto LABEL_15;
           }
-          v18 = v32;
         }
-        else
-        {
-          v10 = a1;
-        }
-        v8 = P;
-        v3 = 0;
-        *(_QWORD *)P = 0LL;
-        v8[1] = v18;
-        v8[2] = v15;
-        if ( (unsigned int)PfpRpRehashIfNeeded(v10, &Pool2, v38) )
-        {
-          v23 = *(_DWORD *)(v10 + 4);
-          P = (PVOID)(v8[1] & (-1LL << (v23 & 0x1F)));
-          v24 = (_QWORD *)(*(_QWORD *)(v10 + 8)
-                         + 8
-                         * ((((unsigned __int64)P >> 56)
+      }
+      *P = 0LL;
+      P[1] = v38;
+      P[2] = v13;
+      if ( (unsigned int)PfpRpRehashIfNeeded(a1, &PoolWithTag, v36) )
+      {
+        v22 = *(_DWORD *)(a1 + 4);
+        v21 = 0LL;
+        v23 = v22 & 0x1F;
+        v24 = P[1] & (-1LL << (v22 & 0x1F));
+        v25 = (_QWORD *)(*(_QWORD *)(a1 + 8)
+                       + 8
+                       * ((HIBYTE(v24)
+                         + 37
+                         * ((unsigned __int8)((P[1] & (unsigned __int64)(-1LL << v23)) >> 48)
+                          + 37
+                          * ((unsigned __int8)((unsigned __int16)((P[1] & (unsigned __int64)(-1LL << v23)) >> 32) >> 8)
                            + 37
-                           * (BYTE6(P)
+                           * ((unsigned __int8)((P[1] & (unsigned __int64)(-1LL << v23)) >> 32)
                             + 37
-                            * (BYTE5(P)
+                            * ((((_DWORD)P[1] & (unsigned int)(-1 << v23)) >> 24)
                              + 37
-                             * (BYTE4(P)
+                             * ((unsigned __int8)(((_DWORD)P[1] & (unsigned int)(-1 << v23)) >> 16)
                               + 37
-                              * (BYTE3(P)
-                               + 37 * (BYTE2(P) + 37 * (BYTE1(P) + 37 * ((unsigned int)(unsigned __int8)P + 11623883)))))))) & ((v23 >> 5) - 1)));
-          *v8 = *v24;
-          *v24 = v8;
-          v8 = 0LL;
-          ++*(_DWORD *)v10;
-        }
-        else
-        {
-          v3 = -1073741670;
-        }
-LABEL_19:
-        v11 = (struct _EX_RUNDOWN_REF *)(v10 + 136);
+                              * (37 * ((unsigned __int8)v24 + 11623883)
+                               + (unsigned __int8)((unsigned __int16)(P[1] & (-1 << v23)) >> 8)))))))) & ((v22 >> 5) - 1)));
+        *P = *v25;
+        *v25 = P;
+        ++*(_DWORD *)a1;
       }
       else
       {
-        v26 = v32;
-LABEL_30:
-        if ( *(_DWORD *)v10 )
-        {
-          v27 = v26 & (-1LL << (*(_DWORD *)(v10 + 4) & 0x1F));
-          for ( j = (_QWORD *)(*(_QWORD *)(v10 + 8)
-                             + 8
-                             * ((37
-                               * (BYTE6(v27)
+        v3 = -1073741670;
+        v21 = P;
+      }
+    }
+    else
+    {
+LABEL_28:
+      if ( *(_DWORD *)a1 )
+      {
+        v27 = v38 & (-1LL << (*(_DWORD *)(a1 + 4) & 0x1F));
+        for ( i = (_QWORD *)(*(_QWORD *)(a1 + 8)
+                           + 8
+                           * ((37
+                             * (BYTE6(v27)
+                              + 37
+                              * (BYTE5(v27)
+                               + 37
+                               * (BYTE4(v27)
                                 + 37
-                                * (BYTE5(v27)
+                                * ((((unsigned int)v38 & (-1 << (*(_DWORD *)(a1 + 4) & 0x1F))) >> 24)
                                  + 37
-                                 * (BYTE4(v27)
+                                 * ((unsigned __int8)(((unsigned int)v38 & (-1 << (*(_DWORD *)(a1 + 4) & 0x1F))) >> 16)
                                   + 37
-                                  * ((((unsigned int)v26 & (-1 << (*(_DWORD *)(v10 + 4) & 0x1F))) >> 24)
-                                   + 37
-                                   * ((unsigned __int8)(((unsigned int)v26 & (-1 << (*(_DWORD *)(v10 + 4) & 0x1F))) >> 16)
-                                    + 37
-                                    * ((unsigned __int8)((unsigned __int16)(v26 & (-1 << (*(_DWORD *)(v10 + 4) & 0x1F))) >> 8)
-                                     + 37 * ((unsigned __int8)v27 + 11623883)))))))
-                               + HIBYTE(v27)) & ((*(_DWORD *)(v10 + 4) >> 5) - 1))); ; j = (_QWORD *)*j )
+                                  * ((unsigned __int8)((unsigned __int16)(v38 & (-1 << (*(_DWORD *)(a1 + 4) & 0x1F))) >> 8)
+                                   + 37 * ((unsigned __int8)v27 + 11623883)))))))
+                             + HIBYTE(v27)) & ((*(_DWORD *)(a1 + 4) >> 5) - 1))); ; i = (_QWORD *)*i )
+        {
+          v29 = (_QWORD *)*i;
+          if ( (*i & 1) != 0 )
+            break;
+          if ( ((-1LL << (*(_DWORD *)(a1 + 4) & 0x1F)) & v29[1]) == v27 )
           {
-            v29 = (_QWORD *)*j;
-            if ( (*j & 1) != 0 )
-              break;
-            if ( ((-1LL << (*(_DWORD *)(v10 + 4) & 0x1F)) & v29[1]) == v27 )
-            {
-              *j = *v29;
-              --*(_DWORD *)v10;
-              *v29 |= 0x8000000000000002uLL;
-              if ( *(_QWORD **)(v10 + 16) == v29 )
-                *(_QWORD *)(v10 + 16) = v10 + 24;
-              *v29 = v7;
-              v7 = v29;
-              goto LABEL_30;
-            }
+            *i = *v29;
+            --*(_DWORD *)a1;
+            *v29 |= 0x8000000000000002uLL;
+            if ( *(_QWORD **)(a1 + 16) == v29 )
+              *(_QWORD *)(a1 + 16) = a1 + 24;
+            *v29 = v9;
+            v9 = v29;
+            goto LABEL_28;
           }
         }
       }
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v10 + 48), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)(v10 + 48));
-      KeAbPostRelease(v10 + 48);
-      KeLeaveCriticalRegion();
-      v4 = Pool2;
-      goto LABEL_23;
+LABEL_15:
+      v21 = P;
     }
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 48), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 48));
+    KeAbPostRelease(a1 + 48);
+    KeLeaveCriticalRegion();
+    v8 = PoolWithTag;
+    goto LABEL_21;
+  }
+  P = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x4B466650u);
+  if ( P )
+  {
+    v10 = 2 * (*(_DWORD *)(a1 + 4) >> 5);
+    if ( *(_DWORD *)a1 >= v10 )
+    {
+      v36 = 2 * (*(_DWORD *)(a1 + 4) >> 5);
+      if ( !v10 )
+      {
+        v10 = 64;
+        v36 = 64;
+      }
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * v10, 0x48466650u);
+      v8 = PoolWithTag;
+      if ( !PoolWithTag )
+        v36 = 0;
+    }
+    v11 = *(WCHAR **)(a2 + 24);
+    v12 = *(unsigned __int16 *)(a2 + 34);
+    v13 = 314159LL;
+    for ( j = &v11[v12]; v11 < j; v13 = 37 * (v15 + 37 * v13) )
+      v15 = RtlUpcaseUnicodeChar(*v11++);
+    if ( v13 )
+      goto LABEL_9;
+    v21 = P;
     v3 = -1073741747;
   }
   else
   {
     v3 = -1073741670;
+    v21 = 0LL;
   }
-LABEL_23:
-  ExReleaseRundownProtection_0(v11);
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0);
-  while ( v7 )
+LABEL_21:
+  ExReleaseRundownProtection(RunRef);
+  if ( v21 )
+    ExFreePoolWithTag(v21, 0);
+  while ( v9 )
   {
-    v30 = v7;
-    v7 = (_QWORD *)*v7;
+    v30 = v9;
+    v9 = (_QWORD *)*v9;
     ExFreePoolWithTag(v30, 0);
   }
-LABEL_26:
-  if ( v4 )
-    ExFreePoolWithTag(v4, 0);
+  if ( v8 )
+    ExFreePoolWithTag(v8, 0);
   return v3;
 }

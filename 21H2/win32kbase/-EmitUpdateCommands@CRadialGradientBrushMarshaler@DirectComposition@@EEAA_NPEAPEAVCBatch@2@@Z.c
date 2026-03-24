@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EmitUpdateCommands@CRadialGradientBrushMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021D680
+ * XREFs of ?EmitUpdateCommands@CRadialGradientBrushMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E6F10
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021CF78 (-EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5c5007ec3893961da529f7dc53bef9f5___ @ 0x1C021D510 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_5c5007ec3893961da529f7dc53bef9f.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_758d646b7318cb107400d278b3f5dc2e___ @ 0x1C021D588 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_758d646b7318cb107400d278b3f5dc2.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_af4543a610b17e58df63bc52b09796d8___ @ 0x1C021D600 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_af4543a610b17e58df63bc52b09796d.c)
+ *     ?EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E6804 (-EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5c5007ec3893961da529f7dc53bef9f5___ @ 0x1C01E6DB0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_5c5007ec3893961da529f7dc53bef9f.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_758d646b7318cb107400d278b3f5dc2e___ @ 0x1C01E6E24 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_758d646b7318cb107400d278b3f5dc2.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_af4543a610b17e58df63bc52b09796d8___ @ 0x1C01E6E9C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_af4543a610b17e58df63bc52b09796d.c)
  */
 
 char __fastcall DirectComposition::CRadialGradientBrushMarshaler::EmitUpdateCommands(

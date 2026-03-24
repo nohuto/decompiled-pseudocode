@@ -1,13 +1,13 @@
 /*
- * XREFs of ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C0107A0C
+ * XREFs of ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C00468C8
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
  * Callees:
- *     xxxReleaseCapture @ 0x1C00AA35C (xxxReleaseCapture.c)
- *     ??0MenuStateOwnerLockxxxUnlock@@QEAA@PEAUtagMENUSTATE@@@Z @ 0x1C01DB7A8 (--0MenuStateOwnerLockxxxUnlock@@QEAA@PEAUtagMENUSTATE@@@Z.c)
- *     ?xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z @ 0x1C021B934 (-xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z.c)
- *     xxxEndScroll @ 0x1C0241878 (xxxEndScroll.c)
- *     xxxEndMenu @ 0x1C0245A6C (xxxEndMenu.c)
+ *     xxxReleaseCapture @ 0x1C00DAE50 (xxxReleaseCapture.c)
+ *     ??0MenuStateOwnerLockxxxUnlock@@QEAA@PEAUtagMENUSTATE@@@Z @ 0x1C01DFF34 (--0MenuStateOwnerLockxxxUnlock@@QEAA@PEAUtagMENUSTATE@@@Z.c)
+ *     ?xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z @ 0x1C02217F4 (-xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z.c)
+ *     xxxEndScroll @ 0x1C0245904 (xxxEndScroll.c)
+ *     xxxEndMenu @ 0x1C024A3F4 (xxxEndMenu.c)
  */
 
 void __fastcall xxxDWP_DoCancelMode(struct tagWND *a1)
@@ -41,7 +41,7 @@ void __fastcall xxxDWP_DoCancelMode(struct tagWND *a1)
     v6 = *(_QWORD *)(gptiCurrent + 672LL);
     if ( v6 )
     {
-      *(_DWORD *)(v6 + 200) |= 8u;
+      *(_DWORD *)(v6 + 196) |= 8u;
       *(_DWORD *)(gptiCurrent + 488LL) &= ~0x8000u;
       CCursorClip::ClearClip(gpCursorClip);
     }

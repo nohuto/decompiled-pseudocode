@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInsertHotPatchRecord @ 0x1408558B0
+ * XREFs of MiInsertHotPatchRecord @ 0x140855890
  * Callers:
- *     MiLoadHotPatch @ 0x1408559F8 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140855C58 (MiLoadHotPatchForUserSid.c)
- *     MmRegisterHotPatch @ 0x1409F71C0 (MmRegisterHotPatch.c)
+ *     MiLoadHotPatch @ 0x1408559D8 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140855C38 (MiLoadHotPatchForUserSid.c)
+ *     MmRegisterHotPatch @ 0x1409F71D0 (MmRegisterHotPatch.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -12,7 +12,7 @@
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiCompareHotPatchNodes @ 0x140854A98 (MiCompareHotPatchNodes.c)
+ *     MiCompareHotPatchNodes @ 0x140854A78 (MiCompareHotPatchNodes.c)
  */
 
 void __fastcall MiInsertHotPatchRecord(unsigned __int64 *a1, _QWORD *a2, int a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIInternalClearFlags @ 0x1C002E528
+ * XREFs of ACPIInternalClearFlags @ 0x1C0002320
  * Callers:
- *     ACPIDockIrpEject @ 0x1C007AAD0 (ACPIDockIrpEject.c)
- *     ACPIDockIrpStartDevice @ 0x1C007BA20 (ACPIDockIrpStartDevice.c)
- *     ACPIBusAndFilterIrpEject @ 0x1C007D4E0 (ACPIBusAndFilterIrpEject.c)
- *     ACPIDetectFilterMatch @ 0x1C0082660 (ACPIDetectFilterMatch.c)
- *     ACPIInitStopDevice @ 0x1C0087AF4 (ACPIInitStopDevice.c)
- *     ACPIInternalSetSpare @ 0x1C00884A8 (ACPIInternalSetSpare.c)
- *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C00952FC (ACPISystemPowerQueryDeviceCapabilities.c)
- *     PcisuppReleasePciInterfaces @ 0x1C009A0BC (PcisuppReleasePciInterfaces.c)
+ *     ACPIInitStopDevice @ 0x1C0090C3C (ACPIInitStopDevice.c)
+ *     ACPIInternalSetSpare @ 0x1C009C950 (ACPIInternalSetSpare.c)
+ *     ACPIDetectFilterMatch @ 0x1C009DD14 (ACPIDetectFilterMatch.c)
+ *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C009F074 (ACPISystemPowerQueryDeviceCapabilities.c)
+ *     ACPIDockIrpEject @ 0x1C00AB550 (ACPIDockIrpEject.c)
+ *     ACPIDockIrpStartDevice @ 0x1C00AC580 (ACPIDockIrpStartDevice.c)
+ *     ACPIBusAndFilterIrpEject @ 0x1C00AD6D0 (ACPIBusAndFilterIrpEject.c)
+ *     PcisuppReleasePciInterfaces @ 0x1C00B6B38 (PcisuppReleasePciInterfaces.c)
  * Callees:
  *     <none>
  */

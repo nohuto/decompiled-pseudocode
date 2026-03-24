@@ -1,96 +1,124 @@
 /*
- * XREFs of FinishStockFontInit @ 0x1C00863A0
+ * XREFs of FinishStockFontInit @ 0x1C00E44C0
  * Callers:
- *     FinishStockFontReinit @ 0x1C00885B0 (FinishStockFontReinit.c)
- *     ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0088D28 (-AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     FinishStockFontReinit @ 0x1C00E4E10 (FinishStockFontReinit.c)
+ *     ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0134370 (-AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ.c)
  * Callees:
- *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C0076E28 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
- *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0079B78 (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     GreCreateFontIndirectW @ 0x1C007B6E8 (GreCreateFontIndirectW.c)
- *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00858A4 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
- *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C0085D30 (-bSetStockFont@@YAHPEAXHH@Z.c)
- *     ?vInitEmergencyStockFont@@YAXPEBG@Z @ 0x1C0086574 (-vInitEmergencyStockFont@@YAXPEBG@Z.c)
- *     ?IsCurrentThreadAddInitialFontsThread@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0113788 (-IsCurrentThreadAddInitialFontsThread@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C009B920 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00A1C50 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     GreCreateFontIndirectW @ 0x1C00B9E30 (GreCreateFontIndirectW.c)
+ *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00E3DCC (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00E4680 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
+ *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00E49A0 (-bSetStockFont@@YAHPEAXHH@Z.c)
  */
 
-void __fastcall FinishStockFontInit(__int64 c)
+void __fastcall FinishStockFontInit(unsigned int c)
 {
-  unsigned int v1; // esi
-  Gre::Base *v2; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v3; // rdi
-  __int64 v4; // rcx
-  __int64 v5; // rbx
+  __int64 v2; // rbx
+  __int128 v3; // xmm0
+  __int128 v4; // xmm1
+  __m128i v5; // xmm2
   __int128 v6; // xmm0
   __int128 v7; // xmm1
-  __m128i v8; // xmm2
-  __int128 v9; // xmm0
-  __int128 v10; // xmm1
-  __int64 FontIndirectW; // rax
-  int v12; // edx
-  const unsigned __int16 *v13; // rcx
-  __int64 v14; // rcx
-  INT a[4]; // [rsp+20h] [rbp-60h] BYREF
-  __int128 v16; // [rsp+30h] [rbp-50h]
-  __int128 v17; // [rsp+40h] [rbp-40h]
-  __int128 v18; // [rsp+50h] [rbp-30h]
-  __int128 v19; // [rsp+60h] [rbp-20h]
-  __int64 v20; // [rsp+70h] [rbp-10h]
-  int v21; // [rsp+78h] [rbp-8h]
-  __int64 v22; // [rsp+98h] [rbp+18h] BYREF
+  int v8; // edx
+  struct PFF *v9; // r15
+  __int64 i; // rsi
+  __int64 v11; // rdi
+  struct _FONTHASH **v12; // [rsp+40h] [rbp-39h] BYREF
+  INT a[4]; // [rsp+50h] [rbp-29h] BYREF
+  __int128 v14; // [rsp+60h] [rbp-19h]
+  __int128 v15; // [rsp+70h] [rbp-9h]
+  __int128 v16; // [rsp+80h] [rbp+7h]
+  __int128 v17; // [rsp+90h] [rbp+17h]
+  __int64 v18; // [rsp+A0h] [rbp+27h]
+  int v19; // [rsp+A8h] [rbp+2Fh]
+  unsigned int v20; // [rsp+E8h] [rbp+6Fh] BYREF
+  struct PFF *v21; // [rsp+F0h] [rbp+77h] BYREF
+  __int64 v22; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  v1 = c;
-  if ( *(_BYTE *)(*(_QWORD *)(SGDGetSessionState(c) + 32) + 23560LL)
+  if ( UmfdHostLifeTimeManager::s_SessionRasterizerInitialized
     || UmfdHostLifeTimeManager::IsCurrentProcessUmfdHost()
-    || UmfdHostLifeTimeManager::IsCurrentThreadAddInitialFontsThread() )
+    || UmfdHostLifeTimeManager::s_CsrssAddInitialFontsThread == KeGetCurrentThread() )
   {
-    v3 = Gre::Base::Globals(v2);
-    LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v22, *(struct HLFONT__ **)(*((_QWORD *)v3 + 396) + 136LL), 0LL);
-    v5 = v22;
+    LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v22, (struct HLFONT__ *)gahStockObjects[17], 0LL);
+    v2 = v22;
     if ( v22 )
     {
-      *(_DWORD *)(v22 + 276) = -((*(_DWORD *)(v22 + 276) * v1 + 36) / 0x48);
-      v6 = *(_OWORD *)(v5 + 292);
-      v7 = *(_OWORD *)(v5 + 308);
-      v21 = *(_DWORD *)(v5 + 364);
-      v8 = *(__m128i *)(v5 + 276);
+      *(_DWORD *)(v22 + 276) = -((c * *(_DWORD *)(v22 + 276) + 36) / 0x48);
+      v3 = *(_OWORD *)(v2 + 292);
+      v4 = *(_OWORD *)(v2 + 308);
+      v19 = *(_DWORD *)(v2 + 364);
+      v5 = *(__m128i *)(v2 + 276);
+      v14 = v3;
+      v6 = *(_OWORD *)(v2 + 324);
+      v15 = v4;
+      v7 = *(_OWORD *)(v2 + 340);
       v16 = v6;
-      v9 = *(_OWORD *)(v5 + 324);
+      v18 = *(_QWORD *)(v2 + 356);
+      *(_QWORD *)&a[2] = v5.m128i_i64[1];
       v17 = v7;
-      v10 = *(_OWORD *)(v5 + 340);
-      v18 = v9;
-      v20 = *(_QWORD *)(v5 + 356);
-      *(_QWORD *)&a[2] = v8.m128i_i64[1];
-      v19 = v10;
-      a[0] = EngMulDiv(_mm_cvtsi128_si32(v8), 96, v1);
-      a[1] = EngMulDiv(v8.m128i_i32[1], 96, v1);
-      FontIndirectW = GreCreateFontIndirectW((__int64)a, 8u);
-      v4 = *((_QWORD *)v3 + 397);
-      *(_QWORD *)(v4 + 136) = FontIndirectW;
+      a[0] = EngMulDiv(_mm_cvtsi128_si32(v5), 96, c);
+      a[1] = EngMulDiv(v5.m128i_i32[1], 96, c);
+      gahStockObjects96[17] = (void *)GreCreateFontIndirectW((__int64)a, 8u);
     }
-    if ( v1 > 0x6C )
+    if ( c > 0x6C )
     {
       FinishStockFontInitInternal(
         L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Gre_Initialize\\LargeFont",
         0);
-      v12 = 1;
+      v8 = 1;
     }
     else
     {
-      if ( (*(_DWORD *)(*(_QWORD *)(SGDGetSessionState(v4) + 32) + 19384LL) & 2) != 0 )
+      if ( (dword_1C0339BE0 & 2) != 0 )
         FinishStockFontInitInternal(
           L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Gre_Initialize\\LargeFont",
           0);
-      v12 = 0;
+      v8 = 0;
     }
     FinishStockFontInitInternal(
       L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Gre_Initialize\\SmallFont",
-      v12);
-    vInitEmergencyStockFont(v13);
-    v14 = *((_QWORD *)v3 + 396);
-    if ( !*(_QWORD *)(v14 + 128) )
-      bSetStockFont(*(Gre::Base **)(v14 + 104), 16, 0);
-    *((_QWORD *)v3 + 76) = *(_QWORD *)(*((_QWORD *)v3 + 396) + 104LL);
-    if ( v5 )
-      DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT((struct LFONT *)v5);
+      v8);
+    v21 = 0LL;
+    v20 = 0;
+    v12 = gpPFTPublic;
+    if ( !gppfeMapperDefault )
+    {
+      if ( (unsigned int)PUBLIC_PFTOBJ::bLoadAFont(
+                           (PUBLIC_PFTOBJ *)&v12,
+                           L"\\SystemRoot\\System32\\winsrv.dll",
+                           &v20,
+                           2u,
+                           &v21,
+                           0LL,
+                           0) )
+      {
+        if ( v20 )
+        {
+          v9 = v21;
+          if ( v21 )
+          {
+            for ( i = 0LL; (unsigned int)i < v20; i = (unsigned int)(i + 1) )
+            {
+              if ( gppfeMapperDefault )
+                break;
+              v11 = *((_QWORD *)v9 + i + 27);
+              if ( v11
+                && !_wcsicmp(
+                      (const wchar_t *)(*(_QWORD *)(v11 + 32) + *(int *)(*(_QWORD *)(v11 + 32) + 16LL)),
+                      L"SYSTEM") )
+              {
+                gppfeMapperDefault = (struct PFE *)v11;
+              }
+            }
+          }
+        }
+      }
+    }
+    if ( !gahStockObjects[16] )
+      bSetStockFont(gahStockObjects[13], 16, 0);
+    DcAttrDefault[37] = gahStockObjects[13];
+    if ( v2 )
+      DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT((struct LFONT *)v2);
   }
 }

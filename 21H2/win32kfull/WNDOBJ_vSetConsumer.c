@@ -1,5 +1,5 @@
 /*
- * XREFs of WNDOBJ_vSetConsumer @ 0x1C0284BA0
+ * XREFs of WNDOBJ_vSetConsumer @ 0x1C0287FD0
  * Callers:
  *     <none>
  * Callees:

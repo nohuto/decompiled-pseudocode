@@ -1,7 +1,7 @@
 /*
- * XREFs of PopFxEnableWorkOrderWatchdog @ 0x1401007BC
+ * XREFs of PopFxEnableWorkOrderWatchdog @ 0x1401007DC
  * Callers:
- *     PopFxPluginWork @ 0x140100650 (PopFxPluginWork.c)
+ *     PopFxPluginWork @ 0x140100670 (PopFxPluginWork.c)
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -34,13 +34,13 @@ __int64 __fastcall PopFxEnableWorkOrderWatchdog(__int64 a1)
       *(_QWORD *)(v1 + 152) = 0LL;
       *(_QWORD *)(v1 + 160) = v3;
       ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopWorkOrderLock, 0LL);
-      v4 = (__int64 *)qword_140418A88;
-      if ( *(__int64 **)qword_140418A88 != &PopWorkOrderList )
+      v4 = (__int64 *)qword_140418E88;
+      if ( *(__int64 **)qword_140418E88 != &PopWorkOrderList )
         __fastfail(3u);
-      *(_QWORD *)(v1 + 8) = qword_140418A88;
+      *(_QWORD *)(v1 + 8) = qword_140418E88;
       *(_QWORD *)v1 = &PopWorkOrderList;
       *v4 = v1;
-      qword_140418A88 = v1;
+      qword_140418E88 = v1;
       v5 = _InterlockedExchangeAdd64((volatile signed __int64 *)&PopWorkOrderLock, 0xFFFFFFFFFFFFFFFFuLL);
       if ( (v5 & 2) != 0 && (v5 & 4) == 0 )
         ExfTryToWakePushLock((volatile signed __int64 *)&PopWorkOrderLock);

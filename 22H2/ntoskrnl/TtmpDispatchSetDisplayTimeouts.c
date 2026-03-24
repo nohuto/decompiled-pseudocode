@@ -1,36 +1,36 @@
 /*
- * XREFs of TtmpDispatchSetDisplayTimeouts @ 0x1409A6B34
+ * XREFs of TtmpDispatchSetDisplayTimeouts @ 0x1409011E0
  * Callers:
- *     TtmDispatchApi @ 0x1409A603C (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409006E4 (TtmDispatchApi.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x1409A62E8 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiTerminalSetDisplayTimeouts @ 0x1409AB68C (TtmiTerminalSetDisplayTimeouts.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     TtmiTerminalSetDisplayTimeouts @ 0x1408FDCBC (TtmiTerminalSetDisplayTimeouts.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x140900984 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpDispatchSetDisplayTimeouts(__int64 a1)
 {
   int v2; // eax
-  __int64 v3; // rsi
+  _DWORD *v3; // rsi
   unsigned int v4; // edi
-  PVOID v5; // rbx
+  struct _DMA_ADAPTER *v5; // rbx
   __int64 v7; // [rsp+50h] [rbp+8h] BYREF
-  PVOID Object; // [rsp+58h] [rbp+10h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp+10h] BYREF
 
   v7 = 0LL;
-  Object = 0LL;
-  v2 = TtmpAcquireSessionFromTerminalHandle(*(void **)(a1 + 8), 1, 1, &v7, &Object);
-  v3 = v7;
+  DmaAdapter = 0LL;
+  v2 = TtmpAcquireSessionFromTerminalHandle(*(void **)(a1 + 8), 1, 1, &v7, (__int64 *)&DmaAdapter);
+  v3 = (_DWORD *)v7;
   v4 = v2;
-  v5 = Object;
+  v5 = DmaAdapter;
   if ( v2 >= 0 )
   {
-    if ( !*((_DWORD *)Object + 7) )
+    if ( !HIDWORD(DmaAdapter[1].DmaOperations) )
       *(_BYTE *)(v7 + 240) = 0;
-    TtmiTerminalSetDisplayTimeouts(v3, v5, *(unsigned int *)(a1 + 16), *(unsigned int *)(a1 + 20));
+    TtmiTerminalSetDisplayTimeouts(v3, (__int64)v5, *(_DWORD *)(a1 + 16), *(_DWORD *)(a1 + 20));
     v4 = 0;
   }
   else
@@ -43,6 +43,6 @@ __int64 __fastcall TtmpDispatchSetDisplayTimeouts(__int64 a1)
     KeLeaveCriticalRegion();
   }
   if ( v5 )
-    ObfDereferenceObject(v5);
+    HalPutDmaAdapter(v5);
   return v4;
 }

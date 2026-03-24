@@ -1,125 +1,124 @@
 /*
- * XREFs of VidSchiRun_PriorityTable @ 0x1C00B7870
+ * XREFs of VidSchiRun_PriorityTable @ 0x1C008E0A0
  * Callers:
- *     VidSchiWorkerThread @ 0x1C00B7750 (VidSchiWorkerThread.c)
+ *     VidSchiWorkerThread @ 0x1C008DFC0 (VidSchiWorkerThread.c)
  * Callees:
- *     VidSchiDecrementContextReference @ 0x1C0001F40 (VidSchiDecrementContextReference.c)
- *     VidSchiIncrementContextReference @ 0x1C0004A20 (VidSchiIncrementContextReference.c)
- *     VidSchiScheduleCommandToRun @ 0x1C000A430 (VidSchiScheduleCommandToRun.c)
- *     VidSchIsTDRPending @ 0x1C000B500 (VidSchIsTDRPending.c)
- *     VidSchiSubmitMmIoFlipCommand @ 0x1C00126D0 (VidSchiSubmitMmIoFlipCommand.c)
- *     VidSchiSubmitWaitCommand @ 0x1C00141D4 (VidSchiSubmitWaitCommand.c)
- *     VidSchiRewindPacket @ 0x1C0014310 (VidSchiRewindPacket.c)
- *     VidSchiSetTransferContextRunningTime @ 0x1C0014770 (VidSchiSetTransferContextRunningTime.c)
- *     VidSchiAdjustWorkerThreadPriority @ 0x1C0016190 (VidSchiAdjustWorkerThreadPriority.c)
- *     VidSchiSubmitSignalCommand @ 0x1C0016500 (VidSchiSubmitSignalCommand.c)
- *     ?VidschiUnselectContext@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0016620 (-VidschiUnselectContext@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
- *     VidSchiSubmitSoftwareCommand @ 0x1C0017074 (VidSchiSubmitSoftwareCommand.c)
- *     VidSchiProcessCompletedQueuePacket @ 0x1C00182EC (VidSchiProcessCompletedQueuePacket.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     VidSchiSubmitRenderVirtualCommand @ 0x1C00AD180 (VidSchiSubmitRenderVirtualCommand.c)
- *     VidSchiSubmitPagingCommand @ 0x1C01064F4 (VidSchiSubmitPagingCommand.c)
- *     VidSchiSubmitRenderCommand @ 0x1C01069AC (VidSchiSubmitRenderCommand.c)
- *     VidSchiRecoverFromTDR @ 0x1C010A104 (VidSchiRecoverFromTDR.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C0002FF0 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchiScheduleCommandToRun @ 0x1C000B0A0 (VidSchiScheduleCommandToRun.c)
+ *     VidSchIsTDRPending @ 0x1C000C140 (VidSchIsTDRPending.c)
+ *     VidSchiIncrementContextReference @ 0x1C0011440 (VidSchiIncrementContextReference.c)
+ *     VidSchiDecrementContextReference @ 0x1C0011630 (VidSchiDecrementContextReference.c)
+ *     VidSchiAdjustWorkerThreadPriority @ 0x1C0012CA0 (VidSchiAdjustWorkerThreadPriority.c)
+ *     VidSchiRewindPacket @ 0x1C0013890 (VidSchiRewindPacket.c)
+ *     VidSchiSetTransferContextRunningTime @ 0x1C0013A20 (VidSchiSetTransferContextRunningTime.c)
+ *     VidSchiSubmitWaitCommand @ 0x1C0013AB8 (VidSchiSubmitWaitCommand.c)
+ *     VidSchiSubmitSignalCommand @ 0x1C0013F50 (VidSchiSubmitSignalCommand.c)
+ *     ?VidschiUnselectContext@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C00140A0 (-VidschiUnselectContext@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
+ *     VidSchiSubmitSoftwareCommand @ 0x1C0014878 (VidSchiSubmitSoftwareCommand.c)
+ *     VidSchiProcessCompletedQueuePacket @ 0x1C0016D9C (VidSchiProcessCompletedQueuePacket.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiSubmitRenderVirtualCommand @ 0x1C007DD90 (VidSchiSubmitRenderVirtualCommand.c)
+ *     VidSchiSubmitPagingCommand @ 0x1C0085280 (VidSchiSubmitPagingCommand.c)
+ *     VidSchiSubmitRenderCommand @ 0x1C00CF04C (VidSchiSubmitRenderCommand.c)
+ *     VidSchiRecoverFromTDR @ 0x1C00D307C (VidSchiRecoverFromTDR.c)
  */
 
-__int64 __fastcall VidSchiRun_PriorityTable(struct _VIDSCH_GLOBAL *a1)
+__int64 __fastcall VidSchiRun_PriorityTable(__int64 a1)
 {
   __int64 v2; // rax
-  __int64 v3; // rbx
-  struct _VIDSCH_CONTEXT *v4; // rdi
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // rax
-  __int64 v8; // rsi
-  __int64 v9; // r15
-  int v10; // eax
-  __int64 v11; // r14
-  _QWORD *v12; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  int v15; // eax
-  char v17; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v3; // rdx
+  __int64 v4; // rbx
+  struct _VIDSCH_CONTEXT *v5; // rdi
+  __int64 v6; // rax
+  __int64 v7; // rsi
+  __int64 v8; // r15
+  int v9; // eax
+  __int64 v10; // r14
+  _QWORD *v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  int v14; // eax
+  char v16; // [rsp+50h] [rbp+8h] BYREF
 
   while ( 1 )
   {
-    v17 = 0;
-    v2 = VidSchiScheduleCommandToRun(a1, &v17);
-    v3 = v2;
+    v16 = 0;
+    v2 = VidSchiScheduleCommandToRun(a1, &v16);
+    v4 = v2;
     if ( v2 )
     {
-      v4 = *(struct _VIDSCH_CONTEXT **)(v2 + 88);
-      if ( v17 && (unsigned int)(*((_DWORD *)a1 + 753) - 2) > 1 )
+      v5 = *(struct _VIDSCH_CONTEXT **)(v2 + 88);
+      if ( v16 && (unsigned int)(*(_DWORD *)(a1 + 2916) - 2) > 1 )
       {
-        VidSchiSetTransferContextRunningTime((__int64)v4, 0LL, 0);
-        VidSchiRewindPacket(v3, 0, 1, 0);
-        VidschiUnselectContext(v4);
+        VidSchiSetTransferContextRunningTime((__int64)v5, 0LL, 0);
+        VidSchiRewindPacket(v4, 0LL, 1, 0);
+        VidschiUnselectContext(v5);
       }
       else
       {
-        VidSchiIncrementContextReference((__int64)v4);
-        v7 = *(_QWORD *)(v3 + 88);
-        v8 = *(_QWORD *)(v7 + 104);
-        v9 = *(_QWORD *)(v7 + 96);
-        v10 = *(_DWORD *)(v3 + 48);
-        v11 = *(_QWORD *)(v8 + 32);
-        if ( v10 )
+        VidSchiIncrementContextReference((__int64)v5, v3);
+        v6 = *(_QWORD *)(v4 + 88);
+        v7 = *(_QWORD *)(v6 + 104);
+        v8 = *(_QWORD *)(v6 + 96);
+        v9 = *(_DWORD *)(v4 + 48);
+        v10 = *(_QWORD *)(v7 + 32);
+        if ( v9 )
         {
-          switch ( v10 )
+          switch ( v9 )
           {
             case 8:
-              VidSchiSubmitPagingCommand((struct _VIDSCH_QUEUE_PACKET *)v3);
+              VidSchiSubmitPagingCommand((struct _VIDSCH_QUEUE_PACKET *)v4);
               break;
             case 3:
-              VidSchiSubmitMmIoFlipCommand((struct _VIDSCH_QUEUE_PACKET *)v3, v5, v6);
+              VidSchiSubmitMmIoFlipCommand((struct _VIDSCH_QUEUE_PACKET *)v4);
               break;
             case 4:
-              VidSchiSubmitWaitCommand((struct _VIDSCH_QUEUE_PACKET *)v3);
+              VidSchiSubmitWaitCommand((struct _VIDSCH_QUEUE_PACKET *)v4);
               break;
             case 5:
-              VidSchiSubmitSignalCommand((struct _VIDSCH_QUEUE_PACKET *)v3);
+              VidSchiSubmitSignalCommand((struct _VIDSCH_QUEUE_PACKET *)v4);
               break;
             case 6:
-              v12 = (_QWORD *)(v3 + 320);
-              if ( *(_DWORD *)(v3 + 312) != 5 )
-                v12 = (_QWORD *)*v12;
-              (*(void (__fastcall **)(_QWORD *))(v3 + 296))(v12);
-              VidSchiProcessCompletedQueuePacket((struct _VIDSCH_QUEUE_PACKET *)v3, v13, v14);
+              v11 = (_QWORD *)(v4 + 320);
+              if ( (unsigned int)(*(_DWORD *)(v4 + 312) - 5) > 1 )
+                v11 = (_QWORD *)*v11;
+              (*(void (__fastcall **)(_QWORD *))(v4 + 296))(v11);
+              VidSchiProcessCompletedQueuePacket((struct _VIDSCH_QUEUE_PACKET *)v4, v12, v13);
               break;
             case 7:
-              VidSchiSubmitSoftwareCommand((struct _VIDSCH_QUEUE_PACKET *)v3);
+              VidSchiSubmitSoftwareCommand((struct _VIDSCH_QUEUE_PACKET *)v4);
               break;
           }
         }
         else
         {
-          if ( (*(_BYTE *)(v11 + 3036) & 1) != 0
-            || VidSchIsTDRPending(*(_QWORD *)(v8 + 32))
-            || *(_BYTE *)(v8 + 204)
-            || _InterlockedCompareExchange((volatile signed __int32 *)(v8 + 200), 0, 0) )
+          if ( (*(_BYTE *)(v10 + 2940) & 1) != 0
+            || VidSchIsTDRPending(*(_QWORD *)(v7 + 32))
+            || *(_BYTE *)(v7 + 204)
+            || _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 200), 0, 0) )
           {
-            *(_DWORD *)(v3 + 64) &= ~4u;
+            *(_DWORD *)(v4 + 64) &= ~4u;
           }
-          if ( (*(_DWORD *)(v3 + 64) & 4) != 0 )
+          if ( (*(_DWORD *)(v4 + 64) & 4) != 0 )
           {
-            _InterlockedDecrement((volatile signed __int32 *)(v9 + 2872));
-            RtlSetBitEx(v11 + 488, *(unsigned __int16 *)(v9 + 4));
+            _InterlockedDecrement((volatile signed __int32 *)(v8 + 2864));
+            RtlSetBitEx(v10 + 480);
           }
-          if ( (*(_DWORD *)(v3 + 272) & 0x8000000) != 0 )
-            VidSchiSubmitRenderVirtualCommand((_VIDSCH_QUEUE_PACKET *)v3);
+          if ( (*(_DWORD *)(v4 + 272) & 0x8000000) != 0 )
+            VidSchiSubmitRenderVirtualCommand((_VIDSCH_QUEUE_PACKET *)v4);
           else
-            VidSchiSubmitRenderCommand((struct _VIDSCH_QUEUE_PACKET *)v3);
+            VidSchiSubmitRenderCommand((struct _VIDSCH_QUEUE_PACKET *)v4);
         }
-        VidSchiAdjustWorkerThreadPriority((__int64)v4);
-        VidSchiSetTransferContextRunningTime((__int64)v4, 0LL, 0);
-        VidschiUnselectContext(v4);
-        VidSchiDecrementContextReference(v4, 0);
+        VidSchiAdjustWorkerThreadPriority((__int64)v5);
+        VidSchiSetTransferContextRunningTime((__int64)v5, 0LL, 0);
+        VidschiUnselectContext(v5);
+        VidSchiDecrementContextReference(v5, 0);
       }
     }
-    if ( VidSchIsTDRPending((__int64)a1) )
+    if ( VidSchIsTDRPending(a1) )
     {
-      v15 = *((_DWORD *)a1 + 753);
-      if ( v15 != 2 && v15 != 3 )
+      v14 = *(_DWORD *)(a1 + 2916);
+      if ( v14 != 2 && v14 != 3 )
         break;
     }
   }

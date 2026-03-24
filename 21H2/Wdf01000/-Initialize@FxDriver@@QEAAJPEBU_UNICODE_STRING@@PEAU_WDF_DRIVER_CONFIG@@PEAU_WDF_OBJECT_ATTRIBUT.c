@@ -1,15 +1,16 @@
 /*
- * XREFs of ?Initialize@FxDriver@@QEAAJPEBU_UNICODE_STRING@@PEAU_WDF_DRIVER_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0022E2C
+ * XREFs of ?Initialize@FxDriver@@QEAAJPEBU_UNICODE_STRING@@PEAU_WDF_DRIVER_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0053CA0
  * Callers:
- *     imp_WdfDriverCreate @ 0x1C0027650 (imp_WdfDriverCreate.c)
+ *     imp_WdfDriverCreate @ 0x1C004BEB0 (imp_WdfDriverCreate.c)
  * Callees:
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     ?AllocateDriverObjectExtensionAndStoreFxDriver@FxDriver@@QEAAJXZ @ 0x1C0023098 (-AllocateDriverObjectExtensionAndStoreFxDriver@FxDriver@@QEAAJXZ.c)
- *     ?_Create@FxDisposeList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C002494C (-_Create@FxDisposeList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
- *     ?ConfigureConstraints@FxDriver@@QEAAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C002585C (-ConfigureConstraints@FxDriver@@QEAAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
- *     ?MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C0026218 (-MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
- *     WPP_IFR_SF_qZ @ 0x1C0069FD4 (WPP_IFR_SF_qZ.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     ?_RequiresRemLock@FxDevice@@SA?AW4FxDeviceRemLockAction@@EE@Z @ 0x1C00136F8 (-_RequiresRemLock@FxDevice@@SA-AW4FxDeviceRemLockAction@@EE@Z.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     ?MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C003BC4C (-MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
+ *     ?ConfigureConstraints@FxDriver@@QEAAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0053B60 (-ConfigureConstraints@FxDriver@@QEAAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
+ *     WPP_IFR_SF_qZ @ 0x1C005417C (WPP_IFR_SF_qZ.c)
+ *     ?_Create@FxDisposeList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C0055358 (-_Create@FxDisposeList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
+ *     ?AllocateDriverObjectExtensionAndStoreFxDriver@FxDriver@@QEAAJXZ @ 0x1C005564C (-AllocateDriverObjectExtensionAndStoreFxDriver@FxDriver@@QEAAJXZ.c)
  */
 
 __int64 __fastcall FxDriver::Initialize(
@@ -18,26 +19,22 @@ __int64 __fastcall FxDriver::Initialize(
         _WDF_DRIVER_CONFIG *Config,
         _WDF_OBJECT_ATTRIBUTES *DriverAttributes)
 {
-  _FX_DRIVER_GLOBALS *m_Globals; // rbp
+  _FX_DRIVER_GLOBALS *m_Globals; // r15
   _DRIVER_OBJECT *m_DriverObject; // rdx
   int DriverObjectExtensionAndStoreFxDriver; // ebx
-  __int64 v11; // rdx
-  __int64 (__fastcall *v12)(_DEVICE_OBJECT *, _IRP *); // r8
-  unsigned __int16 v13; // r9
+  unsigned int v11; // r8d
+  unsigned __int16 v12; // r9
   unsigned __int16 Length; // ax
-  void *v15; // r8
-  unsigned __int16 v16; // cx
-  _FX_DRIVER_GLOBALS *v17; // rax
-  unsigned __int64 v18; // r15
-  FX_POOL **v19; // rax
-  wchar_t *v20; // rax
-  wchar_t *Buffer; // rax
-  unsigned int DriverInitFlags; // ecx
-  _DRIVER_EXTENSION *DriverExtension; // rax
-  __int64 v24; // rcx
-  const _GUID *level; // [rsp+20h] [rbp-48h]
-  __m128i v27; // [rsp+40h] [rbp-28h] BYREF
-  void *retaddr; // [rsp+68h] [rbp+0h]
+  _FX_DRIVER_GLOBALS *v14; // rcx
+  unsigned __int64 v15; // rbp
+  FX_POOL **v16; // rax
+  __int64 (__fastcall *v17)(_DEVICE_OBJECT *, _IRP *); // rdx
+  _DRIVER_EXTENSION *DriverExtension; // rcx
+  bool v19; // zf
+  __int64 v20; // r9
+  __int64 (__fastcall *v21)(_DEVICE_OBJECT *, _IRP *); // rcx
+  const _GUID *Tag; // [rsp+20h] [rbp-38h]
+  void *Caller; // [rsp+58h] [rbp+0h]
 
   m_Globals = this->m_Globals;
   FxObject::MarkNoDeleteDDI(this, ObjectLock);
@@ -60,28 +57,16 @@ __int64 __fastcall FxDriver::Initialize(
         if ( ArgRegistryPath )
         {
           Length = ArgRegistryPath->Length;
-          v15 = retaddr;
+          v14 = this->m_Globals;
           this->m_RegistryPath.Length = ArgRegistryPath->Length;
-          v27.m128i_i64[0] = 0LL;
-          v16 = Length + 2;
-          v27.m128i_i64[1] = 256LL;
-          v17 = this->m_Globals;
-          this->m_RegistryPath.MaximumLength = v16;
-          if ( !v17->FxPoolTrackingOn )
-            v15 = 0LL;
-          v18 = v16;
-          v19 = FxPoolAllocator(v17, &v17->FxPoolFrameworks, &v27, v16, v17->Tag, v15);
-          this->m_RegistryPath.Buffer = (wchar_t *)v19;
-          if ( v19 )
+          v15 = (unsigned __int16)(Length + 2);
+          this->m_RegistryPath.MaximumLength = Length + 2;
+          v16 = FxPoolAllocator(v14, &v14->FxPoolFrameworks, 1u, v15, v14->Tag, Caller);
+          this->m_RegistryPath.Buffer = (wchar_t *)v16;
+          if ( v16 )
           {
-            memmove(v19, ArgRegistryPath->Buffer, ArgRegistryPath->Length);
-            this->m_RegistryPath.Buffer[(v18 >> 1) - 1] = 0;
-            v20 = wcsrchr(this->m_RegistryPath.Buffer, 0x5Cu);
-            if ( v20 )
-              Buffer = v20 + 1;
-            else
-              Buffer = this->m_RegistryPath.Buffer;
-            this->m_ServiceName = Buffer;
+            memmove(v16, ArgRegistryPath->Buffer, ArgRegistryPath->Length);
+            this->m_RegistryPath.Buffer[(v15 >> 1) - 1] = 0;
           }
           else
           {
@@ -96,11 +81,11 @@ __int64 __fastcall FxDriver::Initialize(
         }
         else if ( DriverObjectExtensionAndStoreFxDriver >= 0 )
         {
-          DriverInitFlags = Config->DriverInitFlags;
-          if ( (DriverInitFlags & 2) == 0 )
+          LODWORD(v17) = Config->DriverInitFlags;
+          if ( ((unsigned __int8)v17 & 2) == 0 )
           {
             DriverExtension = this->m_DriverObject.m_DriverObject->DriverExtension;
-            if ( (DriverInitFlags & 1) != 0 )
+            if ( ((unsigned __int8)v17 & 1) != 0 )
             {
               DriverExtension->AddDevice = 0LL;
               this->m_DriverObject.m_DriverObject->DriverUnload = (void (__fastcall *)(_DRIVER_OBJECT *))((unsigned __int64)FxDriver::Unload & -(__int64)(Config->EvtDriverUnload != 0LL));
@@ -110,26 +95,29 @@ __int64 __fastcall FxDriver::Initialize(
               DriverExtension->AddDevice = FxDriver::AddDevice;
               this->m_DriverObject.m_DriverObject->DriverUnload = FxDriver::Unload;
             }
-            v24 = 112LL;
-            v11 = 28LL;
+            LOBYTE(v11) = 0;
             do
             {
-              v12 = FxDevice::DispatchWithLock;
-              *(_QWORD *)((char *)&this->m_DriverObject.m_DriverObject->Type + v24) = FxDevice::DispatchWithLock;
-              v24 += 8LL;
-              --v11;
+              v19 = (unsigned int)FxDevice::_RequiresRemLock(v11, 0) == 0;
+              v21 = (__int64 (__fastcall *)(_DEVICE_OBJECT *, _IRP *))FxDevice::Dispatch;
+              v17 = FxDevice::DispatchWithLock;
+              if ( !v19 )
+                v21 = FxDevice::DispatchWithLock;
+              LOBYTE(v11) = v11 + 1;
+              *(_QWORD *)((char *)&this->m_DriverObject.m_DriverObject->Type + v20) = v21;
+              v12 = v20 + 8;
             }
-            while ( v11 );
+            while ( (unsigned __int8)v11 <= 0x1Bu );
           }
           if ( (_BYTE)KdDebuggerEnabled == 1 && !(_BYTE)KdDebuggerNotPresent )
             this->m_DebuggerConnected = 1;
           if ( (Config->DriverInitFlags & 1) != 0 && !Config->EvtDriverUnload )
             WPP_IFR_SF_qZ(
               m_Globals,
+              (unsigned __int8)v17,
               v11,
-              (unsigned int)v12,
-              v13,
-              level,
+              v12,
+              Tag,
               this->m_DriverObject.m_DriverObject,
               &this->m_RegistryPath);
         }

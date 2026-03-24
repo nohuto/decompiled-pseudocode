@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmNotifyDeviceInput @ 0x1409A1A20
+ * XREFs of TtmNotifyDeviceInput @ 0x1408FBFC0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     TtmpFindDeviceByToken @ 0x1409A27A8 (TtmpFindDeviceByToken.c)
- *     TtmiGetTerminalById @ 0x1409A3220 (TtmiGetTerminalById.c)
- *     TtmiResetTerminalTimeouts @ 0x1409A33CC (TtmiResetTerminalTimeouts.c)
- *     TtmiAcquireCurrentSession @ 0x1409A4B90 (TtmiAcquireCurrentSession.c)
- *     TtmiLogDeviceInputNotified @ 0x1409A7DA4 (TtmiLogDeviceInputNotified.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     TtmpFindDeviceByToken @ 0x1408FCD48 (TtmpFindDeviceByToken.c)
+ *     TtmiGetTerminalById @ 0x1408FD7DC (TtmiGetTerminalById.c)
+ *     TtmiResetTerminalTimeouts @ 0x1408FD8E8 (TtmiResetTerminalTimeouts.c)
+ *     TtmiAcquireCurrentSession @ 0x1408FEFC4 (TtmiAcquireCurrentSession.c)
+ *     TtmiLogDeviceInputNotified @ 0x140902240 (TtmiLogDeviceInputNotified.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
 void __fastcall TtmNotifyDeviceInput(unsigned int a1, __int64 a2, int a3)
@@ -39,7 +39,7 @@ void __fastcall TtmNotifyDeviceInput(unsigned int a1, __int64 a2, int a3)
   v9 = TtmiAcquireCurrentSession(&v19);
   if ( v9 < 0 )
   {
-    TtmiLogError("TtmNotifyDeviceInput", 760LL, (unsigned int)v9, 0xFFFFFFFFLL);
+    TtmiLogError("TtmNotifyDeviceInput", 761LL, (unsigned int)v9, 0xFFFFFFFFLL);
 LABEL_3:
     v11 = v19;
     goto LABEL_4;
@@ -47,7 +47,7 @@ LABEL_3:
   v11 = v19;
   if ( (*(_DWORD *)(v19 + 4) & 4) != 0 )
   {
-    v12 = 768LL;
+    v12 = 769LL;
     v13 = 3221226581LL;
 LABEL_9:
     TtmiLogError("TtmNotifyDeviceInput", v12, v13, 0xFFFFFFFFLL);
@@ -56,7 +56,7 @@ LABEL_9:
   DeviceByToken = TtmpFindDeviceByToken(v19, a1, a2, &v17);
   if ( !DeviceByToken )
   {
-    v12 = 785LL;
+    v12 = 786LL;
     v13 = 3221226021LL;
     goto LABEL_9;
   }
@@ -69,7 +69,7 @@ LABEL_9:
   if ( TerminalById < 0 )
   {
     v13 = (unsigned int)TerminalById;
-    v12 = 804LL;
+    v12 = 805LL;
     goto LABEL_9;
   }
   if ( (a3 & 1) != 0 )

@@ -1,20 +1,19 @@
 /*
- * XREFs of IoGetDevicePropertyData @ 0x1407914F0
+ * XREFs of IoGetDevicePropertyData @ 0x1406B2E60
  * Callers:
- *     PopFxQueryBiosDeviceName @ 0x140321914 (PopFxQueryBiosDeviceName.c)
- *     HalpAreDriversDmarCompatible @ 0x14038EF58 (HalpAreDriversDmarCompatible.c)
- *     HalpIommuDeviceGetDomainTypes @ 0x14050DAE8 (HalpIommuDeviceGetDomainTypes.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x140588D84 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxIsDevicePotentialDripsConstraint @ 0x14058A85C (PopFxIsDevicePotentialDripsConstraint.c)
- *     IopGetInterruptConnectionData @ 0x14078F6A0 (IopGetInterruptConnectionData.c)
- *     IopGetSessionIdFromPDO @ 0x140791464 (IopGetSessionIdFromPDO.c)
- *     PnprIsMemoryDevice @ 0x1409663F0 (PnprIsMemoryDevice.c)
- *     PnprIsProcessorDevice @ 0x1409664A8 (PnprIsProcessorDevice.c)
- *     VfGetDmaAdapter @ 0x140AC7560 (VfGetDmaAdapter.c)
+ *     PopFxQueryBiosDeviceName @ 0x14036E964 (PopFxQueryBiosDeviceName.c)
+ *     HalpAreDriversDmarCompatible @ 0x1403790E4 (HalpAreDriversDmarCompatible.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1405695C4 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxIsDevicePotentialDripsConstraint @ 0x14056AF00 (PopFxIsDevicePotentialDripsConstraint.c)
+ *     IopGetSessionIdFromPDO @ 0x14073A6FC (IopGetSessionIdFromPDO.c)
+ *     IopGetInterruptConnectionData @ 0x140761F1C (IopGetInterruptConnectionData.c)
+ *     PnprIsMemoryDevice @ 0x1408ADC70 (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x1408ADD28 (PnprIsProcessorDevice.c)
+ *     VfGetDmaAdapter @ 0x1409CBE70 (VfGetDmaAdapter.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PnpGetDevicePropertyData @ 0x140791588 (PnpGetDevicePropertyData.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PnpGetDevicePropertyData @ 0x1406B2EF8 (PnpGetDevicePropertyData.c)
  */
 
 NTSTATUS __stdcall IoGetDevicePropertyData(
@@ -32,9 +31,11 @@ NTSTATUS __stdcall IoGetDevicePropertyData(
   UNICODE_STRING *p_DriverName; // rcx
   char *v13; // rcx
   unsigned __int16 *v14; // rdi
-  _WORD *v15; // rcx
-  __int64 v16; // rax
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v16; // rcx
   __int64 v17; // rcx
+  _WORD *v18; // rcx
+  __int64 v19; // rcx
 
   if ( !Pdo )
     goto LABEL_16;
@@ -59,26 +60,32 @@ NTSTATUS __stdcall IoGetDevicePropertyData(
     if ( v13 )
     {
       v14 = (unsigned __int16 *)(v13 + 40);
-      IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)0x388);
+      IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)0x310);
       if ( *v14 )
       {
         IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
         IoAddTriageDumpDataBlock(*((_QWORD *)v14 + 1), (PVOID)*v14);
       }
-      v15 = (char *)Pdo->DeviceObjectExtension->DeviceNode + 56;
-      if ( *v15 )
+      DeviceObjectExtension = Pdo->DeviceObjectExtension;
+      v16 = (char *)DeviceObjectExtension->DeviceNode + 56;
+      if ( *v16 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v15, (PVOID)2);
+        IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
         IoAddTriageDumpDataBlock(
           *((_QWORD *)Pdo->DeviceObjectExtension->DeviceNode + 8),
           (PVOID)*((unsigned __int16 *)Pdo->DeviceObjectExtension->DeviceNode + 28));
+        DeviceObjectExtension = Pdo->DeviceObjectExtension;
       }
-      v16 = *((_QWORD *)Pdo->DeviceObjectExtension->DeviceNode + 2);
-      if ( v16 && *(_WORD *)(v16 + 56) )
+      v17 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+      if ( v17 )
       {
-        IoAddTriageDumpDataBlock(v16 + 56, (PVOID)2);
-        v17 = *((_QWORD *)Pdo->DeviceObjectExtension->DeviceNode + 2);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(v17 + 64), (PVOID)*(unsigned __int16 *)(v17 + 56));
+        v18 = (_WORD *)(v17 + 56);
+        if ( *v18 )
+        {
+          IoAddTriageDumpDataBlock((ULONG)v18, (PVOID)2);
+          v19 = *((_QWORD *)Pdo->DeviceObjectExtension->DeviceNode + 2);
+          IoAddTriageDumpDataBlock(*(_QWORD *)(v19 + 64), (PVOID)*(unsigned __int16 *)(v19 + 56));
+        }
       }
     }
 LABEL_16:

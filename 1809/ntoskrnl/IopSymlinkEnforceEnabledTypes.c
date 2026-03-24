@@ -1,7 +1,7 @@
 /*
- * XREFs of IopSymlinkEnforceEnabledTypes @ 0x140762900
+ * XREFs of IopSymlinkEnforceEnabledTypes @ 0x1407628E0
  * Callers:
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
  * Callees:
  *     FsRtlAllocateExtraCreateParameter @ 0x1405C81E0 (FsRtlAllocateExtraCreateParameter.c)
  *     FsRtlInsertExtraCreateParameter @ 0x14060D460 (FsRtlInsertExtraCreateParameter.c)

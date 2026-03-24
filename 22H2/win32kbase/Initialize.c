@@ -1,17 +1,19 @@
 /*
- * XREFs of Initialize @ 0x1C00C232C
+ * XREFs of Initialize @ 0x1C0068BC4
  * Callers:
- *     Win32UserInitialize @ 0x1C02DBF90 (Win32UserInitialize.c)
+ *     Win32UserInitialize @ 0x1C0297BBC (Win32UserInitialize.c)
  * Callees:
- *     OpenCacheKeyEx @ 0x1C00371E0 (OpenCacheKeyEx.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     OpenCacheKeyEx @ 0x1C00278B0 (OpenCacheKeyEx.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-int Initialize()
+__int64 Initialize()
 {
-  void *v0; // rax
-  int v1; // ebx
-  void *v2; // rdi
+  unsigned int v0; // ebx
+  int v1; // edi
+  void *v2; // rsi
+  __int64 result; // rax
   int v4; // [rsp+30h] [rbp-40h] BYREF
   int v5; // [rsp+34h] [rbp-3Ch] BYREF
   ULONG ResultLength; // [rsp+38h] [rbp-38h] BYREF
@@ -21,7 +23,8 @@ int Initialize()
 
   v5 = 0;
   UIPrivelegeIsolation::fEnforce = 0;
-  LODWORD(v0) = RtlQueryElevationFlags(&v5);
+  RtlQueryElevationFlags(&v5);
+  v0 = 1;
   if ( (v5 & 1) != 0 )
   {
     v1 = 0;
@@ -30,9 +33,8 @@ int Initialize()
     v4 = gdwPolicyFlags;
     while ( 1 )
     {
-      v0 = OpenCacheKeyEx(0LL, 49LL, 131097LL, &v4);
-      v2 = v0;
-      if ( !v0 )
+      v2 = OpenCacheKeyEx(0LL, 49LL, 0x20019u, &v4);
+      if ( !v2 )
         break;
       RtlInitUnicodeString(&DestinationString, L"EnableUIPI");
       if ( ZwQueryValueKey(
@@ -41,25 +43,41 @@ int Initialize()
              KeyValuePartialInformation,
              KeyValueInformation,
              0x14u,
-             &ResultLength) >= 0 )
+             &ResultLength) < 0 )
+      {
+        if ( !v4 )
+          v1 = 1;
+      }
+      else
       {
         v1 = v9;
         v4 = 0;
       }
-      else if ( !v4 )
-      {
-        v1 = 1;
-      }
-      LODWORD(v0) = ZwClose(v2);
+      ZwClose(v2);
       if ( !v4 )
       {
         UIPrivelegeIsolation::fEnforce = 0;
         if ( !v1 )
-          return (int)v0;
+          goto LABEL_9;
         break;
       }
     }
     UIPrivelegeIsolation::fEnforce = 1;
   }
-  return (int)v0;
+  else
+  {
+    v0 = 0;
+  }
+LABEL_9:
+  if ( qword_1C0256918 )
+    result = qword_1C0256918();
+  else
+    result = 3221225659LL;
+  if ( (int)result >= 0 )
+  {
+    result = (__int64)qword_1C0256920;
+    if ( qword_1C0256920 )
+      return qword_1C0256920(v0, UIPrivelegeIsolation::fEnforce);
+  }
+  return result;
 }

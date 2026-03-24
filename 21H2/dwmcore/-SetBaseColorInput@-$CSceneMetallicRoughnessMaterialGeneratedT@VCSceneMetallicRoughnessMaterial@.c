@@ -1,38 +1,36 @@
 /*
- * XREFs of ?SetBaseColorInput@?$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCScenePbrMaterial@@@@QEAAJPEAVCSceneMaterialInput@@@Z @ 0x1801A2298
+ * XREFs of ?SetBaseColorInput@?$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCScenePbrMaterial@@@@QEAAJPEAVCSceneMaterialInput@@@Z @ 0x18017055C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?OnBaseColorInputChanged@CSceneMetallicRoughnessMaterial@@QEAAXXZ @ 0x1801EAD9C (-OnBaseColorInputChanged@CSceneMetallicRoughnessMaterial@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CSceneMetallicRoughnessMaterialGeneratedT<CSceneMetallicRoughnessMaterial,CScenePbrMaterial>::SetBaseColorInput(
         struct CResource **this,
         struct CResource *a2)
 {
-  unsigned int v2; // ebx
+  unsigned int v2; // edi
   int v5; // eax
   __int64 v6; // rcx
-  struct CResource *v7; // rcx
 
   v2 = 0;
-  if ( a2 != this[21] )
+  if ( a2 != this[20] )
   {
     v5 = CResource::RegisterNotifier((CResource *)this, a2);
     v2 = v5;
     if ( v5 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0xEC6u);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0xE70u, 0LL);
     }
     else
     {
-      CResource::UnRegisterNotifierInternal((CResource *)this, this[21]);
-      v7 = *this;
-      this[21] = a2;
-      (*((void (__fastcall **)(struct CResource **, _QWORD, _QWORD))v7 + 9))(this, 0LL, 0LL);
+      CResource::UnRegisterNotifierInternal((CResource *)this, this[20]);
+      this[20] = a2;
+      CSceneMetallicRoughnessMaterial::OnBaseColorInputChanged((CSceneMetallicRoughnessMaterial *)this);
     }
   }
   return v2;

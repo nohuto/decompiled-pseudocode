@@ -1,17 +1,17 @@
 /*
- * XREFs of VslFreeSecureHibernateResources @ 0x1409320D0
+ * XREFs of VslFreeSecureHibernateResources @ 0x14088F818
  * Callers:
- *     PopFreeHiberContext @ 0x140800338 (PopFreeHiberContext.c)
+ *     PopFreeHiberContext @ 0x140776FBC (PopFreeHiberContext.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 VslFreeSecureHibernateResources()
+NTSTATUS VslFreeSecureHibernateResources()
 {
   _BYTE v1[112]; // [rsp+20h] [rbp-88h] BYREF
 
   memset(v1, 0, 0x68uLL);
-  return VslpEnterIumSecureMode(2u, 37, 0, (__int64)v1);
+  return VslpEnterIumSecureMode(2u, 36, 0, (__int64)v1);
 }

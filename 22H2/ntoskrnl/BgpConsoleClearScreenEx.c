@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpConsoleClearScreenEx @ 0x140AF2428
+ * XREFs of BgpConsoleClearScreenEx @ 0x1409F6718
  * Callers:
- *     BgpConsoleInitialize @ 0x140AEF6A0 (BgpConsoleInitialize.c)
- *     BgpConsoleClearScreen @ 0x140AF23F0 (BgpConsoleClearScreen.c)
+ *     BgpConsoleInitialize @ 0x1409F4820 (BgpConsoleInitialize.c)
+ *     BgpConsoleClearScreen @ 0x1409F66E0 (BgpConsoleClearScreen.c)
  * Callees:
- *     BgpClearScreen @ 0x140671B60 (BgpClearScreen.c)
+ *     BgpClearScreen @ 0x1405C41B4 (BgpClearScreen.c)
  */
 
 __int64 BgpConsoleClearScreenEx()
@@ -12,34 +12,35 @@ __int64 BgpConsoleClearScreenEx()
   __int64 v0; // rax
   unsigned int v1; // ecx
   int v2; // r8d
-  _DWORD *v3; // r9
-  __int64 v4; // r10
+  _DWORD *v3; // r10
+  __int64 v4; // r9
   unsigned int v5; // eax
   __int64 v6; // r11
-  unsigned int i; // ebx
-  __int64 v8; // rcx
-  __int64 v9; // rdx
+  __int64 i; // rbx
+  __int64 v8; // rdx
+  __int64 v9; // rax
 
-  v0 = qword_140CF7BA0;
-  v1 = *(_DWORD *)(qword_140CF7BA0 + 16);
-  *(_DWORD *)(qword_140CF7BA0 + 68) = 0;
+  v0 = qword_140CDB158;
+  v1 = *(_DWORD *)(qword_140CDB158 + 16);
+  *(_DWORD *)(qword_140CDB158 + 68) = 0;
   *(_DWORD *)(v0 + 72) = 0;
   v2 = BgpClearScreen(v1);
   if ( v2 >= 0 )
   {
-    v3 = (_DWORD *)qword_140CF7BA0;
+    v3 = (_DWORD *)qword_140CDB158;
     v4 = 0LL;
-    v5 = *(_DWORD *)(qword_140CF7BA0 + 4);
+    v5 = *(_DWORD *)(qword_140CDB158 + 4);
     v6 = 80LL;
     do
     {
-      for ( i = 0; i < v5; v5 = v3[1] )
+      for ( i = 0LL; (unsigned int)i < v5; v5 = v3[1] )
       {
-        v8 = v4 + i++;
-        v9 = 3 * v8;
-        LOWORD(v3[v9 + 22]) = 32;
-        v3[3 * v8 + 21] = v3[4];
-        v3[v9 + 20] = v3[3];
+        v8 = 3 * (v4 + i);
+        LOWORD(v3[v8 + 22]) = 32;
+        v9 = v4 + i + 7;
+        i = (unsigned int)(i + 1);
+        v3[3 * v9] = v3[4];
+        v3[v8 + 20] = v3[3];
       }
       v4 += 25LL;
       --v6;

@@ -1,23 +1,22 @@
 /*
- * XREFs of KdpCommandString @ 0x140AB627C
+ * XREFs of KdpCommandString @ 0x1409B9600
  * Callers:
- *     KdpTrap @ 0x140AB137C (KdpTrap.c)
+ *     KdpTrap @ 0x1409BAA20 (KdpTrap.c)
  * Callees:
- *     KiRestoreProcessorControlState @ 0x14041E610 (KiRestoreProcessorControlState.c)
- *     KiSaveProcessorControlState @ 0x14041E6E0 (KiSaveProcessorControlState.c)
- *     KdExitDebugger @ 0x140AB1008 (KdExitDebugger.c)
- *     KdEnterDebugger @ 0x140AB1144 (KdEnterDebugger.c)
- *     KdpCopyContext @ 0x140AB15FC (KdpCopyContext.c)
- *     KdpReportCommandStringStateChange @ 0x140AB5388 (KdpReportCommandStringStateChange.c)
+ *     KiRestoreProcessorControlState @ 0x1403FD7F0 (KiRestoreProcessorControlState.c)
+ *     KiSaveProcessorControlState @ 0x1403FD8C0 (KiSaveProcessorControlState.c)
+ *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
+ *     KdpReportCommandStringStateChange @ 0x1409B7B48 (KdpReportCommandStringStateChange.c)
+ *     KdpCopyContext @ 0x1409B9B28 (KdpCopyContext.c)
  */
 
-void __fastcall KdpCommandString(char **a1, char **a2, char a3, __int64 a4, __int64 a5)
+void __fastcall KdpCommandString(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)
 {
   bool v8; // al
-  struct _KPRCB *CurrentPrcb; // rdi
-  char v10; // bp
+  struct _KPRCB *CurrentPrcb; // rbx
+  char v10; // si
   int v11; // edx
-  int v12; // ebx
 
   if ( !a3 && !(_BYTE)KdDebuggerNotPresent )
   {
@@ -25,11 +24,9 @@ void __fastcall KdpCommandString(char **a1, char **a2, char a3, __int64 a4, __in
     CurrentPrcb = KeGetCurrentPrcb();
     v10 = v8;
     KiSaveProcessorControlState((__int64)&CurrentPrcb->ProcessorState, v11);
-    KdpCopyContext((char *)CurrentPrcb->Context, CurrentPrcb->ContextFlagsInit & *(_DWORD *)(a4 + 48), (_BYTE *)a4);
+    KdpCopyContext(CurrentPrcb->Context, *(unsigned int *)(a4 + 48), a4);
     KdpReportCommandStringStateChange(a1, a2, (__int64)CurrentPrcb->Context);
-    v12 = *(_DWORD *)(a4 + 48);
-    KdpCopyContext((char *)a4, CurrentPrcb->ContextFlagsInit & v12, CurrentPrcb->Context);
-    *(_DWORD *)(a4 + 48) = v12;
+    KdpCopyContext(a4, CurrentPrcb->Context->ContextFlags, CurrentPrcb->Context);
     KiRestoreProcessorControlState((__int64)&CurrentPrcb->ProcessorState);
     KdExitDebugger(v10);
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfPdoClearEjectionRelationsDevices @ 0x1C005B000
+ * XREFs of imp_WdfPdoClearEjectionRelationsDevices @ 0x1C0038E50
  * Callers:
  *     <none>
  * Callees:
- *     ?GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@@PEAPEAU1@PEAPEAVFxDevice@@@Z @ 0x1C001C314 (-GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@.c)
- *     ?ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ @ 0x1C00834B0 (-ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ.c)
+ *     ?GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@@PEAPEAU1@PEAPEAVFxDevice@@@Z @ 0x1C0001928 (-GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@.c)
+ *     ?ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ @ 0x1C0078F70 (-ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ.c)
  */
 
 void __fastcall imp_WdfPdoClearEjectionRelationsDevices(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFDEVICE__ *Device)
@@ -15,7 +15,7 @@ void __fastcall imp_WdfPdoClearEjectionRelationsDevices(_WDF_DRIVER_GLOBALS *Dri
   pFxDriverGlobals = 0LL;
   pPkgPdo = 0LL;
   if ( (int)GetPdoPackageFromDeviceHandle(
-              (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+              (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
               Device,
               "imp_WdfPdoClearEjectionRelationsDevices",
               &pPkgPdo,

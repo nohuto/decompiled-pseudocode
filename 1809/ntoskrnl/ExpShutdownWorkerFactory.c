@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpShutdownWorkerFactory @ 0x1400FADC0
+ * XREFs of ExpShutdownWorkerFactory @ 0x1400FADE0
  * Callers:
- *     NtShutdownWorkerFactory @ 0x1400F99C0 (NtShutdownWorkerFactory.c)
- *     ExpCloseWorkerFactory @ 0x1406857E0 (ExpCloseWorkerFactory.c)
+ *     NtShutdownWorkerFactory @ 0x1400F99E0 (NtShutdownWorkerFactory.c)
+ *     ExpCloseWorkerFactory @ 0x1406857C0 (ExpCloseWorkerFactory.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     ExpLeaveWorkerFactoryAwayMode @ 0x14008DEC8 (ExpLeaveWorkerFactoryAwayMode.c)
  *     KeDeregisterObjectNotification @ 0x14008DF20 (KeDeregisterObjectNotification.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeCancelTimer2 @ 0x1400FAF50 (KeCancelTimer2.c)
- *     IoSetIoCompletionEx2 @ 0x1400FD5C8 (IoSetIoCompletionEx2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeCancelTimer2 @ 0x1400FAF70 (KeCancelTimer2.c)
+ *     IoSetIoCompletionEx2 @ 0x1400FD5E8 (IoSetIoCompletionEx2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpShutdownWorkerFactory(char *Object)

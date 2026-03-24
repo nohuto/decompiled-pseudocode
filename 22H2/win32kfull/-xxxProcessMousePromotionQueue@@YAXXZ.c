@@ -1,97 +1,96 @@
 /*
- * XREFs of ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C01F8818
+ * XREFs of ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C0218E30
  * Callers:
- *     xxxCleanupThreadPointerInputInfo @ 0x1C009BA60 (xxxCleanupThreadPointerInputInfo.c)
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C01F8A18 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
- *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C01F8C9C (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     xxxCleanupThreadPointerInputInfo @ 0x1C00FD5D0 (xxxCleanupThreadPointerInputInfo.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219068 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0219274 (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
  * Callees:
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     xxxWaitForDITMouseInjectionFlush @ 0x1C01ACF24 (xxxWaitForDITMouseInjectionFlush.c)
- *     ?DequeueMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C01F7C04 (-DequeueMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
- *     ?xxxSendMousePromotion@@YAXAEBUtagMOUSE_PROMOTION_ENTRY@@H@Z @ 0x1C01F8E18 (-xxxSendMousePromotion@@YAXAEBUtagMOUSE_PROMOTION_ENTRY@@H@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     xxxWaitForDITMouseInjectionFlush @ 0x1C011C824 (xxxWaitForDITMouseInjectionFlush.c)
+ *     ?DequeueMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C021821C (-DequeueMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
+ *     ?xxxSendMousePromotion@@YAXAEBUtagMOUSE_PROMOTION_ENTRY@@H@Z @ 0x1C02193BC (-xxxSendMousePromotion@@YAXAEBUtagMOUSE_PROMOTION_ENTRY@@H@Z.c)
  */
 
-void __fastcall xxxProcessMousePromotionQueue(__int64 a1)
+void xxxProcessMousePromotionQueue(void)
 {
-  int v1; // ebp
-  __int64 v2; // rcx
-  __int64 v3; // rcx
-  struct tagMOUSE_PROMOTION_QUEUE *v4; // rsi
-  __int64 v5; // rax
+  int v0; // edi
   struct tagMOUSE_PROMOTION_ENTRY *i; // rax
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  bool v5; // cl
+  int v6; // esi
   __int64 v7; // rcx
-  __int64 v8; // rcx
-  bool v9; // bl
-  int v10; // ebx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
   __int64 ThreadWin32Thread; // rax
-  __int64 v16; // rdi
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int64 v21; // rcx
-  __int128 v22; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v23; // [rsp+30h] [rbp-18h]
+  __int64 v9; // rbx
+  __int128 v10; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v11; // [rsp+40h] [rbp-18h]
 
-  v22 = 0LL;
-  v23 = 0LL;
-  v1 = 0;
-  if ( !*(_QWORD *)(SGDGetUserSessionState(a1) + 16312) )
+  v0 = 0;
+  v10 = 0LL;
+  v11 = 0LL;
+  if ( !qword_1C0339BD0 && qword_1C0339B50 )
   {
-    v4 = (struct tagMOUSE_PROMOTION_QUEUE *)(SGDGetUserSessionState(v2) + 16184);
-    if ( *(_QWORD *)v4 )
+    dword_1C0339BD8 &= ~1u;
+    qword_1C0339BD0 = gptiCurrent;
+    for ( i = DequeueMousePromotionEntry((struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0339B50);
+          ;
+          i = DequeueMousePromotionEntry((struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0339B50) )
     {
-      v5 = SGDGetUserSessionState(v3);
-      *(_DWORD *)(v5 + 16320) &= ~1u;
-      *(_QWORD *)(v5 + 16312) = gptiCurrent;
-      for ( i = DequeueMousePromotionEntry(v4); ; i = DequeueMousePromotionEntry(v4) )
+      v9 = (__int64)i;
+      if ( !i )
+        break;
+      v5 = (unsigned __int8)HasCapture()
+        && !(unsigned int)CheckIntegrityAccessToCapture(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 880LL));
+      if ( glDitMouseHandling || (*(_DWORD *)(v9 + 44) & 0x20) != 0 && v5 )
       {
-        v16 = (__int64)i;
-        if ( !i )
-          break;
-        v9 = (unsigned __int8)HasCapture()
-          && !(unsigned int)CheckIntegrityAccessToCapture(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 888LL));
-        if ( *(_DWORD *)(SGDGetUserSessionState(v8) + 15976) || (*(_DWORD *)(v16 + 44) & 0x20) != 0 && v9 )
-        {
-          v10 = 1;
-          v1 = 1;
-        }
-        else
-        {
-          v10 = 0;
-        }
-        PushW32ThreadLock(v16, &v22, (__int64)SpbApcRundown);
-        UserSessionSwitchLeaveCrit(v12, v11, v13, v14);
-        xxxSendMousePromotion((const struct tagMOUSE_PROMOTION_ENTRY *)v16, v10);
-        EnterCrit(1LL, 0LL);
-        ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-        *(_QWORD *)(ThreadWin32Thread + 16) = v22;
-        Win32FreePool((void *)v16);
+        v6 = 1;
+        v0 = 1;
       }
-      if ( *(_DWORD *)(SGDGetUserSessionState(v7) + 15976) )
+      else
       {
-        if ( !(unsigned __int8)IsInputThread(v18, v17, v19) )
-        {
-          xxxWaitForDITMouseInjectionFlush();
-LABEL_20:
-          *(_QWORD *)(SGDGetUserSessionState(v18) + 16312) = 0LL;
-          return;
-        }
+        v6 = 0;
       }
-      else if ( v1 )
+      PushW32ThreadLock(v9, &v10, (__int64)SpbApcRundown);
+      if ( gdwInAtomicOperation )
       {
-        goto LABEL_20;
+        v7 = gdwExtraInstrumentations;
+        if ( (gdwExtraInstrumentations & 1) != 0 )
+          KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
       }
-      UserSessionSwitchLeaveCrit(v18, v17, v19, v20);
-      ProcessMouseEvent(v21);
-      EnterCrit(1LL, 0LL);
-      goto LABEL_20;
+      UserSessionSwitchLeaveCrit(v7);
+      xxxSendMousePromotion((const struct tagMOUSE_PROMOTION_ENTRY *)v9, v6);
+      EnterCrit(0LL, 1LL);
+      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      *(_QWORD *)(ThreadWin32Thread + 16) = v10;
+      Win32FreePool((void *)v9);
     }
+    if ( glDitMouseHandling )
+    {
+      if ( !(unsigned __int8)IsInputThread(v3, v2, v4) )
+      {
+        xxxWaitForDITMouseInjectionFlush();
+LABEL_26:
+        qword_1C0339BD0 = 0LL;
+        return;
+      }
+    }
+    else
+    {
+      if ( v0 )
+        goto LABEL_26;
+      if ( gdwInAtomicOperation )
+      {
+        v3 = gdwExtraInstrumentations;
+        if ( (gdwExtraInstrumentations & 1) != 0 )
+          KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+      }
+    }
+    UserSessionSwitchLeaveCrit(v3);
+    ProcessMouseEvent();
+    EnterCrit(0LL, 1LL);
+    goto LABEL_26;
   }
 }

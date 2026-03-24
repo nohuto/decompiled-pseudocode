@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$ReleaseInterface@UIAdapter@@@@YAXAEAPEAUIAdapter@@@Z @ 0x1C007DA48
+ * XREFs of ??$ReleaseInterface@UIAdapter@@@@YAXAEAPEAUIAdapter@@@Z @ 0x1C0066D08
  * Callers:
- *     ?DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ @ 0x1C0010740 (-DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ.c)
- *     ?EnableCascadedSignaling@CFlipExBuffer@@QEAAJPEAUCSM_BUFFER_INFO@@@Z @ 0x1C007DF4C (-EnableCascadedSignaling@CFlipExBuffer@@QEAAJPEAUCSM_BUFFER_INFO@@@Z.c)
+ *     ?DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ @ 0x1C001330C (-DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ.c)
+ *     ?EnableCascadedSignaling@CFlipExBuffer@@QEAAJPEAUCSM_BUFFER_INFO@@@Z @ 0x1C0066D58 (-EnableCascadedSignaling@CFlipExBuffer@@QEAAJPEAUCSM_BUFFER_INFO@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ReleaseInterface<IAdapter>(__int64 *a1)

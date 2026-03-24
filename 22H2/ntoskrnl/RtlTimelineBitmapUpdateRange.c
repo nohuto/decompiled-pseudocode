@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlTimelineBitmapUpdateRange @ 0x1403561E4
+ * XREFs of RtlTimelineBitmapUpdateRange @ 0x1403056D4
  * Callers:
- *     PoEnergyContextUpdateComponentPower @ 0x1406A7514 (PoEnergyContextUpdateComponentPower.c)
- *     PsQueryProcessEnergyValues @ 0x1407424E0 (PsQueryProcessEnergyValues.c)
- *     PoEnergyContextCleanup @ 0x1407B12D0 (PoEnergyContextCleanup.c)
+ *     PsQueryProcessEnergyValues @ 0x1405E92D0 (PsQueryProcessEnergyValues.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x14060526C (PoEnergyContextUpdateComponentPower.c)
+ *     PoEnergyContextCleanup @ 0x14061410C (PoEnergyContextCleanup.c)
  * Callees:
  *     <none>
  */
@@ -35,10 +35,10 @@ __int64 __fastcall RtlTimelineBitmapUpdateRange(__int64 *a1, unsigned int a2, un
     LODWORD(v12) = a3;
     v7 = a3 - v6;
     v8 = 1;
-    if ( v7 >= 0x20 )
-      v9 = 0;
-    else
+    if ( v7 < 0x20 )
       v9 = HIDWORD(v12) << v7;
+    else
+      v9 = 0;
   }
   v10 = v8 | v9;
   while ( 1 )

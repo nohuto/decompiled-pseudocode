@@ -6,9 +6,9 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiAllowGuardFault @ 0x140117C98 (MiAllowGuardFault.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiAllowGuardFault @ 0x140117CB8 (MiAllowGuardFault.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiAccessCheck(

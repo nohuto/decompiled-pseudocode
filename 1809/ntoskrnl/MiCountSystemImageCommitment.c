@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCountSystemImageCommitment @ 0x14017341C
+ * XREFs of MiCountSystemImageCommitment @ 0x14017343C
  * Callers:
- *     MiSessionUpdateImageCharges @ 0x140173388 (MiSessionUpdateImageCharges.c)
+ *     MiSessionUpdateImageCharges @ 0x1401733A8 (MiSessionUpdateImageCharges.c)
  * Callees:
  *     MiGetSubsectionDriverProtos @ 0x14001B7BC (MiGetSubsectionDriverProtos.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -12,10 +12,10 @@
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C70 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiFreePrivateFixupEntryForSystemImage @ 0x140173668 (MiFreePrivateFixupEntryForSystemImage.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiFreePrivateFixupEntryForSystemImage @ 0x140173688 (MiFreePrivateFixupEntryForSystemImage.c)
  */
 
 unsigned __int64 __fastcall MiCountSystemImageCommitment(__int64 a1)

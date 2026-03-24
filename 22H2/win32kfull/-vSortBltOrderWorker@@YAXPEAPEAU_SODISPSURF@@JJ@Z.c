@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z @ 0x1C02B31EC
+ * XREFs of ?vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z @ 0x1C02A6CA8
  * Callers:
- *     ??0MULTISORTBLTORDER@@QEAA@PEAU_VDEV@@JJ@Z @ 0x1C02AE3C4 (--0MULTISORTBLTORDER@@QEAA@PEAU_VDEV@@JJ@Z.c)
+ *     ??0MULTISORTBLTORDER@@QEAA@PEAU_VDEV@@JJ@Z @ 0x1C02A0C10 (--0MULTISORTBLTORDER@@QEAA@PEAU_VDEV@@JJ@Z.c)
  * Callees:
- *     ?isSorted@@YA_NPEAU_SODISPSURF@@0JJ@Z @ 0x1C02B2DC0 (-isSorted@@YA_NPEAU_SODISPSURF@@0JJ@Z.c)
+ *     ?isSorted@@YA_NPEAU_SODISPSURF@@0JJ@Z @ 0x1C02A6890 (-isSorted@@YA_NPEAU_SODISPSURF@@0JJ@Z.c)
  */
 
 void __fastcall vSortBltOrderWorker(struct _SODISPSURF **a1, int a2, int a3)
@@ -28,10 +28,8 @@ void __fastcall vSortBltOrderWorker(struct _SODISPSURF **a1, int a2, int a3)
       break;
     v8 = v3;
     v9 = 0;
-    do
+    while ( v11 && !v9 )
     {
-      if ( v9 )
-        break;
       v10 = *(struct _SODISPSURF **)v11;
       if ( isSorted(v3, v11, v5, v4) )
       {
@@ -58,7 +56,6 @@ void __fastcall vSortBltOrderWorker(struct _SODISPSURF **a1, int a2, int a3)
         v9 = 1;
       }
     }
-    while ( v11 );
     v12 = v3;
     if ( v9 )
       v12 = (struct _SODISPSURF *)i;

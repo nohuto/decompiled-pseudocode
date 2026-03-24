@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMakeTransitionHeatBatch @ 0x1402CEB14
+ * XREFs of MiMakeTransitionHeatBatch @ 0x1402CEC14
  * Callers:
  *     MmCopyToCachedPage @ 0x140033050 (MmCopyToCachedPage.c)
  *     MiHandleTransitionFault @ 0x14003B680 (MiHandleTransitionFault.c)
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
  *     MiTryLockLeafPage @ 0x140082A0C (MiTryLockLeafPage.c)
  *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiGetPrototypePteBoundaries @ 0x1402C7564 (MiGetPrototypePteBoundaries.c)
- *     MiAddPageToHeatRanges @ 0x1402CE9D0 (MiAddPageToHeatRanges.c)
- *     MiGetTransitionPageHeatList @ 0x1402CEAC4 (MiGetTransitionPageHeatList.c)
+ *     MiGetPrototypePteBoundaries @ 0x1402C7664 (MiGetPrototypePteBoundaries.c)
+ *     MiAddPageToHeatRanges @ 0x1402CEAD0 (MiAddPageToHeatRanges.c)
+ *     MiGetTransitionPageHeatList @ 0x1402CEBC4 (MiGetTransitionPageHeatList.c)
  */
 
 __int64 __fastcall MiMakeTransitionHeatBatch(_QWORD *a1, __int64 a2, unsigned __int64 a3)

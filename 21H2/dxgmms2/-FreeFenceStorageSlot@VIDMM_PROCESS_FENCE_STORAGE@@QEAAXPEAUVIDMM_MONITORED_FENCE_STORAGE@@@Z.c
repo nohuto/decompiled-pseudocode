@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FreeFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C0017694
+ * XREFs of ?FreeFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C0015804
  * Callers:
- *     ?FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z @ 0x1C0017658 (-FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z.c)
+ *     ?FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z @ 0x1C00157C8 (-FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -9,13 +9,12 @@
 void __fastcall VIDMM_PROCESS_FENCE_STORAGE::FreeFenceStorageSlot(KSPIN_LOCK *this, KSPIN_LOCK **a2)
 {
   KSPIN_LOCK *v4; // r8
-  KSPIN_LOCK v5; // rcx
+  KSPIN_LOCK v5; // rdx
   KSPIN_LOCK **v6; // rax
   KSPIN_LOCK **v7; // rax
   KSPIN_LOCK v8; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(this + 7, &LockHandle);
   v4 = *a2;
   v4[12] = (*a2)[12] & ~(1LL << ((unsigned __int64)*((unsigned int *)a2 + 4) >> 6));

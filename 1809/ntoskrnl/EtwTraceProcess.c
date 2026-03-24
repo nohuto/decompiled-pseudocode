@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceProcess @ 0x14066C548
+ * XREFs of EtwTraceProcess @ 0x14066C528
  * Callers:
  *     PspExitProcess @ 0x140608E0C (PspExitProcess.c)
  *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
  * Callees:
  *     TraceLoggingProviderEnabled @ 0x1400129D8 (TraceLoggingProviderEnabled.c)
- *     IoSetThreadHardErrorMode @ 0x1400EED30 (IoSetThreadHardErrorMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     IoSetThreadHardErrorMode @ 0x1400EED50 (IoSetThreadHardErrorMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     EtwpWriteAppStateChange @ 0x1405B18E4 (EtwpWriteAppStateChange.c)
  *     EtwpWriteProcessStarted @ 0x1405B2408 (EtwpWriteProcessStarted.c)
@@ -14,8 +14,8 @@
  *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x1405B38C0 (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
  *     EtwpEnumerateAddressSpace @ 0x1405F5E18 (EtwpEnumerateAddressSpace.c)
  *     EtwpInitStateChangeInfo @ 0x14060DB80 (EtwpInitStateChangeInfo.c)
- *     EtwpWriteProcessEvent @ 0x14066C6E4 (EtwpWriteProcessEvent.c)
- *     EtwpLogProcessPerfCtrs @ 0x1408B840C (EtwpLogProcessPerfCtrs.c)
+ *     EtwpWriteProcessEvent @ 0x14066C6C4 (EtwpWriteProcessEvent.c)
+ *     EtwpLogProcessPerfCtrs @ 0x1408B83EC (EtwpLogProcessPerfCtrs.c)
  */
 
 void __fastcall EtwTraceProcess(PEPROCESS Process, __int16 a2)

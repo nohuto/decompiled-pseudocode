@@ -1,20 +1,19 @@
 /*
- * XREFs of ?GetWarpDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x1802772A0
+ * XREFs of ?GetWarpDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x180238C6C
  * Callers:
- *     ?CreateRenderTargetBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x18003DF5C (-CreateRenderTargetBitmap@CaptureBitsResponse@@IEAAJXZ.c)
- *     ?AddShadowToShape@CCursorState@@AEAA?AV?$shared_ptr@UShapeData@CCursorState@@@std@@AEBV23@@Z @ 0x180268E4C (-AddShadowToShape@CCursorState@@AEAA-AV-$shared_ptr@UShapeData@CCursorState@@@std@@AEBV23@@Z.c)
+ *     ?CreateRenderTargetBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x18003083C (-CreateRenderTargetBitmap@CaptureBitsResponse@@IEAAJXZ.c)
  * Callees:
- *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18006ACA0 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?GetWarpAdapterLuid@CDisplayManager@@QEAA?AU_LUID@@XZ @ 0x180277568 (-GetWarpAdapterLuid@CDisplayManager@@QEAA-AU_LUID@@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F200 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ?GetWarpAdapterLuid@CDisplayManager@@QEAA?AU_LUID@@XZ @ 0x180238A40 (-GetWarpAdapterLuid@CDisplayManager@@QEAA-AU_LUID@@XZ.c)
  */
 
 __int64 __fastcall CDeviceManager::GetWarpDevice(CDeviceManager *this, struct CD3DDevice **a2)
 {
   unsigned int v2; // ebx
-  _BYTE *v4; // rcx
+  struct CD3DDevice *v4; // rcx
   __int64 i; // rax
   struct _LUID *WarpAdapterLuid; // rax
   CDeviceManager *v7; // rcx
@@ -22,26 +21,27 @@ __int64 __fastcall CDeviceManager::GetWarpDevice(CDeviceManager *this, struct CD
   __int64 v9; // rcx
   int v10; // edi
   struct _RTL_CRITICAL_SECTION *v12; // [rsp+40h] [rbp+8h] BYREF
+  struct _LUID v13; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = 0;
   *a2 = 0LL;
-  v12 = &stru_1803D75A8;
-  EnterCriticalSection(&stru_1803D75A8);
-  for ( i = xmmword_1803D75D0; i != *((_QWORD *)&xmmword_1803D75D0 + 1); i += 16LL )
+  v12 = &CriticalSection;
+  EnterCriticalSection(&CriticalSection);
+  for ( i = qword_18034B648; i != (_QWORD)xmmword_18034B650; i += 16LL )
   {
-    v4 = *(_BYTE **)i;
-    if ( *(int *)(*(_QWORD *)i + 1088LL) >= 0 && v4[1509] )
+    v4 = *(struct CD3DDevice **)i;
+    if ( *(int *)(*(_QWORD *)i + 1128LL) >= 0 && *((_QWORD *)v4 + 76) )
     {
-      *a2 = (struct CD3DDevice *)v4;
-      CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v4 + 8));
+      *a2 = v4;
+      CMILCOMBase::InternalAddRef(v4);
       goto LABEL_9;
     }
   }
-  WarpAdapterLuid = (struct _LUID *)CDisplayManager::GetWarpAdapterLuid((CDisplayManager *)v4);
+  WarpAdapterLuid = (struct _LUID *)CDisplayManager::GetWarpAdapterLuid((struct _RTL_CRITICAL_SECTION *)v4, &v13);
   Device = CDeviceManager::GetDevice(v7, *WarpAdapterLuid, a2);
   v10 = Device;
   if ( Device < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v9, &dword_180377E10, 2LL, Device, 0x10Cu);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, &dword_1802F0D88, 2u, Device, 0xF5u, 0LL);
   v2 = v10;
 LABEL_9:
   CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v12);

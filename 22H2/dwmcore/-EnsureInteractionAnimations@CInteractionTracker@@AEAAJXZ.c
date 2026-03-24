@@ -1,111 +1,118 @@
 /*
- * XREFs of ?EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ @ 0x180232390
+ * XREFs of ?EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ @ 0x1801C90A0
  * Callers:
- *     ?TransitionToInContact@CInteractionTracker@@AEAAXXZ @ 0x180235D3C (-TransitionToInContact@CInteractionTracker@@AEAAXXZ.c)
- *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x180235D98 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
+ *     ?TransitionToInContact@CInteractionTracker@@AEAAXXZ @ 0x1801CCFC0 (-TransitionToInContact@CInteractionTracker@@AEAAXXZ.c)
+ *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x1801CD010 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??2CInteractionTrackerPositionAnimation@@SAPEAX_K@Z @ 0x180230A98 (--2CInteractionTrackerPositionAnimation@@SAPEAX_K@Z.c)
- *     ??4?$ComPtr@VCInteractionTrackerPositionAnimation@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteractionTrackerPositionAnimation@@@Z @ 0x180230AC8 (--4-$ComPtr@VCInteractionTrackerPositionAnimation@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteractionT.c)
- *     ??4?$ComPtr@VCInteractionTrackerScaleAnimation@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteractionTrackerScaleAnimation@@@Z @ 0x180230B28 (--4-$ComPtr@VCInteractionTrackerScaleAnimation@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteractionTrac.c)
- *     ??0CScrollAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1802648CC (--0CScrollAnimation@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CInteractionTrackerPositionAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1802668D8 (--0CInteractionTrackerPositionAnimation@@QEAA@PEAVCComposition@@@Z.c)
- *     ?Initialize@CInteractionTrackerPositionAnimation@@QEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z @ 0x180266D10 (-Initialize@CInteractionTrackerPositionAnimation@@QEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z.c)
- *     ?Initialize@CInteractionTrackerScaleAnimation@@QEAAJPEAVCInteractionTracker@@@Z @ 0x1802673AC (-Initialize@CInteractionTrackerScaleAnimation@@QEAAJPEAVCInteractionTracker@@@Z.c)
- *     ??0CMotion@@QEAA@XZ @ 0x18026E698 (--0CMotion@@QEAA@XZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??2CInteractionTrackerPositionAnimation@@SAPEAX_K@Z @ 0x18016C1CC (--2CInteractionTrackerPositionAnimation@@SAPEAX_K@Z.c)
+ *     ??4?$ComPtr@VCInteractionTrackerPositionAnimation@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteractionTrackerPositionAnimation@@@Z @ 0x1801C7780 (--4-$ComPtr@VCInteractionTrackerPositionAnimation@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteractionT.c)
+ *     ??0CScrollAnimation@@QEAA@PEAVCComposition@@@Z @ 0x180203258 (--0CScrollAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CInteractionTrackerPositionAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1802052C0 (--0CInteractionTrackerPositionAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?Initialize@CInteractionTrackerPositionAnimation@@QEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z @ 0x1802056F0 (-Initialize@CInteractionTrackerPositionAnimation@@QEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z.c)
+ *     ?Initialize@CInteractionTrackerScaleAnimation@@QEAAJPEAVCInteractionTracker@@@Z @ 0x180205D78 (-Initialize@CInteractionTrackerScaleAnimation@@QEAAJPEAVCInteractionTracker@@@Z.c)
+ *     ??0CMotion@@QEAA@XZ @ 0x18020DF74 (--0CMotion@@QEAA@XZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CInteractionTracker::EnsureInteractionAnimations(struct CComposition **this)
 {
-  __int64 *v1; // r14
-  CScrollAnimation *v3; // rax
-  CScrollAnimation *v4; // rsi
-  CInteractionTrackerScaleAnimation *v5; // rcx
-  int v6; // r9d
-  unsigned int v7; // ebx
-  int v8; // eax
-  _QWORD *v9; // rbx
-  CInteractionTrackerPositionAnimation *v10; // rax
-  CInteractionTrackerScaleAnimation **v11; // rbx
-  CInteractionTrackerPositionAnimation *v12; // rax
-  unsigned int v14; // [rsp+20h] [rbp-18h]
+  CScrollAnimation *v2; // rax
+  CScrollAnimation *v3; // rsi
+  CInteractionTrackerScaleAnimation *v4; // rcx
+  int v5; // r9d
+  unsigned int v6; // ebx
+  int v7; // eax
+  _QWORD *v8; // rbx
+  CInteractionTrackerPositionAnimation *v9; // rax
+  CInteractionTrackerScaleAnimation **v10; // rbx
+  CInteractionTrackerPositionAnimation *v11; // rax
+  unsigned int v13; // [rsp+20h] [rbp-18h]
   void *retaddr; // [rsp+38h] [rbp+0h]
+  struct CComposition *v15; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = (__int64 *)(this + 41);
+  if ( !this[40] )
+  {
+    v2 = (CScrollAnimation *)DefaultHeap::AllocClear(0x268uLL);
+    v3 = v2;
+    if ( !v2 )
+      ModuleFailFastForHRESULT(2147942414LL, retaddr);
+    CScrollAnimation::CScrollAnimation(v2, this[2]);
+    *(_QWORD *)v3 = &CInteractionTrackerScaleAnimation::`vftable';
+    CMotion::CMotion((CScrollAnimation *)((char *)v3 + 432));
+    *((_QWORD *)v3 + 54) = &CScaleMotion::`vftable';
+    v4 = this[40];
+    if ( v4 != v3 )
+    {
+      (*(void (__fastcall **)(CScrollAnimation *))(*(_QWORD *)v3 + 8LL))(v3);
+      v15 = this[40];
+      this[40] = v3;
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v15);
+      v4 = this[40];
+    }
+    if ( !v4 )
+    {
+      v13 = 3193;
+LABEL_8:
+      v5 = -2147024882;
+      v6 = -2147024882;
+LABEL_9:
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v4, 0LL, 0, v5, v13, 0LL);
+      return v6;
+    }
+    v7 = CInteractionTrackerScaleAnimation::Initialize(v4, (struct CInteractionTracker *)this);
+    v6 = v7;
+    if ( v7 < 0 )
+    {
+      v13 = 3195;
+LABEL_13:
+      v5 = v7;
+      goto LABEL_9;
+    }
+  }
+  v8 = this + 41;
   if ( !this[41] )
   {
-    v3 = (CScrollAnimation *)DefaultHeap::AllocClear(0x258uLL);
-    v4 = v3;
-    if ( !v3 )
-      ModuleFailFastForHRESULT(2147942414LL, retaddr);
-    CScrollAnimation::CScrollAnimation(v3, this[2]);
-    *(_QWORD *)v4 = &CInteractionTrackerScaleAnimation::`vftable';
-    CMotion::CMotion((CScrollAnimation *)((char *)v4 + 456));
-    *((_QWORD *)v4 + 57) = &CScaleMotion::`vftable';
-    Microsoft::WRL::ComPtr<CInteractionTrackerScaleAnimation>::operator=(v1, (__int64)v4);
-    v5 = (CInteractionTrackerScaleAnimation *)*v1;
-    if ( !*v1 )
+    v9 = (CInteractionTrackerPositionAnimation *)CInteractionTrackerPositionAnimation::operator new();
+    if ( v9 )
+      v9 = CInteractionTrackerPositionAnimation::CInteractionTrackerPositionAnimation(v9, this[2]);
+    Microsoft::WRL::ComPtr<CInteractionTrackerPositionAnimation>::operator=((__int64 *)this + 41, (__int64)v9);
+    if ( !*v8 )
     {
-      v14 = 3210;
-LABEL_6:
       v6 = -2147024882;
-      v7 = -2147024882;
-LABEL_7:
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)v5, 0LL, 0, v6, v14, 0LL);
-      return v7;
+      MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2147024882, 0xC81u, 0LL);
+      return v6;
     }
-    v8 = CInteractionTrackerScaleAnimation::Initialize(v5, (struct CInteractionTracker *)this);
-    v7 = v8;
-    if ( v8 < 0 )
+    v7 = CInteractionTrackerPositionAnimation::Initialize(*v8, this, 0LL);
+    v6 = v7;
+    if ( v7 < 0 )
     {
-      v14 = 3212;
-LABEL_11:
-      v6 = v8;
-      goto LABEL_7;
+      v13 = 3203;
+      goto LABEL_13;
     }
   }
-  v9 = this + 42;
+  v10 = this + 42;
   if ( !this[42] )
   {
-    v10 = (CInteractionTrackerPositionAnimation *)CInteractionTrackerPositionAnimation::operator new();
-    if ( v10 )
-      v10 = CInteractionTrackerPositionAnimation::CInteractionTrackerPositionAnimation(v10, this[2]);
-    Microsoft::WRL::ComPtr<CInteractionTrackerPositionAnimation>::operator=((__int64 *)this + 42, (__int64)v10);
-    if ( !*v9 )
+    v11 = (CInteractionTrackerPositionAnimation *)CInteractionTrackerPositionAnimation::operator new();
+    if ( v11 )
+      v11 = CInteractionTrackerPositionAnimation::CInteractionTrackerPositionAnimation(v11, this[2]);
+    Microsoft::WRL::ComPtr<CInteractionTrackerPositionAnimation>::operator=((__int64 *)this + 42, (__int64)v11);
+    v4 = *v10;
+    if ( !*v10 )
     {
-      v7 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2147024882, 0xC92u, 0LL);
-      return v7;
+      v13 = 3209;
+      goto LABEL_8;
     }
-    v8 = CInteractionTrackerPositionAnimation::Initialize(*v9, this, 0LL);
-    v7 = v8;
-    if ( v8 < 0 )
+    v7 = CInteractionTrackerPositionAnimation::Initialize(v4, this, 1LL);
+    v6 = v7;
+    if ( v7 < 0 )
     {
-      v14 = 3220;
-      goto LABEL_11;
-    }
-  }
-  v11 = this + 43;
-  if ( !this[43] )
-  {
-    v12 = (CInteractionTrackerPositionAnimation *)CInteractionTrackerPositionAnimation::operator new();
-    if ( v12 )
-      v12 = CInteractionTrackerPositionAnimation::CInteractionTrackerPositionAnimation(v12, this[2]);
-    Microsoft::WRL::ComPtr<CInteractionTrackerPositionAnimation>::operator=((__int64 *)this + 43, (__int64)v12);
-    v5 = *v11;
-    if ( !*v11 )
-    {
-      v14 = 3226;
-      goto LABEL_6;
-    }
-    v8 = CInteractionTrackerPositionAnimation::Initialize(v5, this, 1LL);
-    v7 = v8;
-    if ( v8 < 0 )
-    {
-      v14 = 3228;
-      goto LABEL_11;
+      v13 = 3211;
+      goto LABEL_13;
     }
   }
   return 0;

@@ -1,20 +1,20 @@
 /*
- * XREFs of ?UMPDDrvTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KI@Z @ 0x1C02BE8A0
+ * XREFs of ?UMPDDrvTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KI@Z @ 0x1C02AC290
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C0299418 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
- *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C029955C (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
- *     ?bPrepareBitmapsForClient@UMPDOBJ@@QEAAHPEAPEAU_SURFOBJ@@0@Z @ 0x1C0299AF0 (-bPrepareBitmapsForClient@UMPDOBJ@@QEAAHPEAPEAU_SURFOBJ@@0@Z.c)
- *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C0299CDC (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
- *     ?pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z @ 0x1C029A094 (-pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B78D8 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?RestoreBitmaps@UMPDOBJ@@QEAAXPEAU_SURFOBJ@@00PEAX11111HHHHHH@Z @ 0x1C02B8190 (-RestoreBitmaps@UMPDOBJ@@QEAAXPEAU_SURFOBJ@@00PEAX11111HHHHHH@Z.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ?bThunkLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00PEAPEAX11111PEAH22222PEAK@Z @ 0x1C02BF060 (-bThunkLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00PEAPEAX11111PEAH22222PEAK@Z.c)
+ *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C001ECD8 (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
+ *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C001ED70 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
+ *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C001F008 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A190C (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ?pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z @ 0x1C014E394 (-pxlo@UMPDOBJ@@QEAAHPEAPEAU_XLATEOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bPrepareBitmapsForClient@UMPDOBJ@@QEAAHPEAPEAU_SURFOBJ@@0@Z @ 0x1C016B398 (-bPrepareBitmapsForClient@UMPDOBJ@@QEAAHPEAPEAU_SURFOBJ@@0@Z.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?RestoreBitmaps@UMPDOBJ@@QEAAXPEAU_SURFOBJ@@00PEAX11111HHHHHH@Z @ 0x1C02A8E04 (-RestoreBitmaps@UMPDOBJ@@QEAAXPEAU_SURFOBJ@@00PEAX11111HHHHHH@Z.c)
+ *     ?bThunkLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00PEAPEAX11111PEAH22222PEAK@Z @ 0x1C02AC928 (-bThunkLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00PEAPEAX11111PEAH22222PEAK@Z.c)
  */
 
 __int64 __fastcall UMPDDrvTransparentBlt(
@@ -51,16 +51,7 @@ __int64 __fastcall UMPDDrvTransparentBlt(
   struct _CLIPOBJ *v32; // [rsp+D8h] [rbp-38h]
   struct _RECTL *v33; // [rsp+E0h] [rbp-30h]
   struct _RECTL *v34; // [rsp+E8h] [rbp-28h]
-  _DWORD v35[4]; // [rsp+F0h] [rbp-20h] BYREF
-  __int64 v36; // [rsp+100h] [rbp-10h]
-  struct _SURFOBJ *v37; // [rsp+108h] [rbp-8h] BYREF
-  struct _SURFOBJ *v38; // [rsp+110h] [rbp+0h] BYREF
-  void *v39; // [rsp+118h] [rbp+8h] BYREF
-  struct _XLATEOBJ *v40; // [rsp+120h] [rbp+10h] BYREF
-  void *v41; // [rsp+128h] [rbp+18h] BYREF
-  void *v42; // [rsp+130h] [rbp+20h] BYREF
-  unsigned int v43; // [rsp+138h] [rbp+28h]
-  unsigned int v44; // [rsp+13Ch] [rbp+2Ch]
+  _QWORD v35[10]; // [rsp+F0h] [rbp-20h] BYREF
 
   v8 = 0;
   v33 = a5;
@@ -79,12 +70,12 @@ __int64 __fastcall UMPDDrvTransparentBlt(
   v28 = 0LL;
   v29 = 0LL;
   v27 = 0LL;
-  memset_0(v35, 0, 0x50uLL);
+  memset(v35, 0, sizeof(v35));
   v15 = v31;
   if ( !v31 || !(unsigned int)UMPDOBJ::bPrepareBitmapsForClient(v13, &v26, v14) )
     goto LABEL_20;
   v16 = v26;
-  if ( !*((_DWORD *)v15 + 110) )
+  if ( !*((_DWORD *)v15 + 106) )
     goto LABEL_9;
   if ( a4 )
     v17 = ((4 * a4->cEntries + 7) & 0xFFFFFFF8) + 168;
@@ -117,28 +108,26 @@ __int64 __fastcall UMPDDrvTransparentBlt(
   {
     v8 = 0;
 LABEL_9:
-    v35[0] = 80;
-    v35[1] = 74;
-    v36 = *(_QWORD *)v15;
-    v39 = v32;
-    v41 = v33;
-    v42 = v34;
-    v43 = a7;
-    v44 = a8;
-    v37 = a1;
-    v38 = v16;
-    v40 = a4;
-    if ( (unsigned int)UMPDOBJ::pso(v15, (UMPDOBJ *)((char *)v15 + 64), &v37) )
+    v35[0] = 0x4A00000050LL;
+    v35[2] = *(_QWORD *)v15;
+    v35[5] = v32;
+    v35[7] = v33;
+    v35[8] = v34;
+    v35[9] = __PAIR64__(a8, a7);
+    v35[3] = a1;
+    v35[4] = v16;
+    v35[6] = a4;
+    if ( (unsigned int)UMPDOBJ::pso(v15, (UMPDOBJ *)((char *)v15 + 64), (struct _SURFOBJ **)&v35[3]) )
     {
-      if ( (unsigned int)UMPDOBJ::pso(v15, (UMPDOBJ *)((char *)v15 + 80), &v38) )
+      if ( (unsigned int)UMPDOBJ::pso(v15, (UMPDOBJ *)((char *)v15 + 80), (struct _SURFOBJ **)&v35[4]) )
       {
-        if ( (unsigned int)UMPDOBJ::ThunkDDIOBJ(v15, (UMPDOBJ *)((char *)v15 + 112), (const void **)&v39, 0x18u, 0LL) )
+        if ( (unsigned int)UMPDOBJ::ThunkDDIOBJ(v15, (UMPDOBJ *)((char *)v15 + 112), (const void **)&v35[5], 0x18u, 0LL) )
         {
-          if ( (unsigned int)UMPDOBJ::pxlo(v15, &v40) )
+          if ( (unsigned int)UMPDOBJ::pxlo(v15, (struct _XLATEOBJ **)&v35[6]) )
           {
-            if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v41, 0x10u) )
+            if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v35[7], 0x10u) )
             {
-              if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v42, 0x10u) )
+              if ( (unsigned int)UMPDOBJ::ThunkMemBlock(v15, (const void **)&v35[8], 0x10u) )
               {
                 LODWORD(Size) = 4;
                 if ( (unsigned int)UMPDOBJ::Thunk(v15, v35, 0x50u, &v21, Size) != -1 )
@@ -153,7 +142,7 @@ LABEL_9:
       }
     }
   }
-  if ( *((_DWORD *)v15 + 110) )
+  if ( *((_DWORD *)v15 + 106) )
     UMPDOBJ::RestoreBitmaps(
       v15,
       (unsigned __int64)a1,

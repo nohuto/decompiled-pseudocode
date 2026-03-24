@@ -1,96 +1,121 @@
 /*
- * XREFs of KeIntSteerPeriodic @ 0x140221460
+ * XREFs of KeIntSteerPeriodic @ 0x140229440
  * Callers:
- *     PpmParkSteerInterrupts @ 0x140256900 (PpmParkSteerInterrupts.c)
+ *     PpmParkSteerInterrupts @ 0x140228E20 (PpmParkSteerInterrupts.c)
  * Callees:
- *     KiIntSteerDistributeInterrupts @ 0x140221588 (KiIntSteerDistributeInterrupts.c)
- *     KiIntSteerCalculateDistribution @ 0x1402216B0 (KiIntSteerCalculateDistribution.c)
- *     KiIntSteerLogStatus @ 0x14022185C (KiIntSteerLogStatus.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiCopyAffinityEx @ 0x1402544A0 (KiCopyAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIntSteerEtwEventEnabled @ 0x140220AF0 (KiIntSteerEtwEventEnabled.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiIntSteerDistributeInterrupts @ 0x140229620 (KiIntSteerDistributeInterrupts.c)
+ *     KiIntSteerCalculateDistribution @ 0x140229770 (KiIntSteerCalculateDistribution.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     KeCopyAffinityEx @ 0x1402BBAE0 (KeCopyAffinityEx.c)
+ *     KiIntSteerLogState @ 0x140377A24 (KiIntSteerLogState.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KeIntSteerPeriodic(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KeIntSteerPeriodic(__int64 a1, unsigned int a2)
 {
-  __int64 v8; // rsi
-  unsigned __int64 v9; // rbp
-  __int64 v10; // rax
-  __int64 v11; // rax
-  __int64 v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v21; // eax
-  bool v22; // zf
-  __int128 v23; // [rsp+20h] [rbp-78h] BYREF
-  __int128 v24; // [rsp+30h] [rbp-68h] BYREF
-  __int128 v25; // [rsp+40h] [rbp-58h] BYREF
+  unsigned __int8 CurrentIrql; // bl
+  _DWORD *SchedulerAssist; // r10
+  __int64 *i; // rdi
+  __int64 *j; // rsi
+  unsigned __int8 v9; // al
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *v11; // r8
+  int v12; // eax
+  bool v13; // zf
+  int v14; // [rsp+40h] [rbp-69h] BYREF
+  __int128 v15; // [rsp+48h] [rbp-61h] BYREF
+  __int64 v16; // [rsp+58h] [rbp-51h]
+  struct _EVENT_DATA_DESCRIPTOR v17; // [rsp+60h] [rbp-49h] BYREF
+  __int64 v18; // [rsp+70h] [rbp-39h]
+  __int64 v19; // [rsp+78h] [rbp-31h]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+80h] [rbp-29h] BYREF
+  int *v21; // [rsp+90h] [rbp-19h]
+  __int64 v22; // [rsp+98h] [rbp-11h]
+  int *v23; // [rsp+A0h] [rbp-9h]
+  __int64 v24; // [rsp+A8h] [rbp-1h]
+  int *v25; // [rsp+B0h] [rbp+7h]
+  __int64 v26; // [rsp+B8h] [rbp+Fh]
+  __int64 *v27; // [rsp+C0h] [rbp+17h]
+  int v28; // [rsp+C8h] [rbp+1Fh]
+  int v29; // [rsp+CCh] [rbp+23h]
 
-  if ( a2 )
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(2uLL);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
-    v8 = a2;
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  else
+  KxAcquireSpinLock(&KiIntTrackSpinlock);
+  KiIntSteerCalculateDistribution(a1, a2);
+  KeCopyAffinityEx(&KiIntSteerMask, a1);
+  KiIntSteerMaskCount = a2;
+  if ( KiIntSteerEtwEventEnabled((__int64)&PPM_ETW_INTERRUPT_STEERING_MASK_CHANGE) )
   {
-    v8 = a4;
-    if ( a3 )
-      v8 = a3;
+    *(_QWORD *)&UserData.Size = 4LL;
+    UserData.Ptr = (ULONGLONG)&KiIntSteerLoadPercent;
+    v22 = 4LL;
+    v21 = &KiIntTrackRootCount;
+    v24 = 4LL;
+    v23 = &KiIntSteerMaskCount;
+    v25 = &KiIntSteerMask;
+    v26 = 2LL;
+    v29 = 0;
+    v27 = &qword_140C2B248;
+    v28 = 160 * (unsigned __int16)KiIntSteerMask;
+    EtwWriteEx(KiIntSteerEtwHandle, &PPM_ETW_INTERRUPT_STEERING_MASK_CHANGE, 0LL, 0, 0LL, 0LL, 5u, &UserData);
   }
-  v9 = KeAcquireSpinLockRaiseToDpc(&KiIntTrackSpinlock);
-  v25 = 0LL;
-  if ( a2 )
+  v14 = 0;
+  v16 = 0LL;
+  v15 = 0LL;
+  if ( KiIntSteerEtwEventEnabled((__int64)&PPM_ETW_INTERRUPT_STEERING_PROC_CHANGE) )
   {
-    if ( *(_WORD *)a2 )
-      v10 = *(_QWORD *)(a2 + 8);
-    else
-      v10 = 0LL;
-    *(_QWORD *)&v25 = v10;
+    *((_QWORD *)&v15 + 1) = qword_140CFC848;
+    *(_QWORD *)&v15 = KeActiveProcessors;
+    while ( !(unsigned int)KeEnumerateNextProcessor(&v14, (unsigned __int16 **)&v15) )
+    {
+      v17.Ptr = (ULONGLONG)&v14;
+      *(_QWORD *)&v17.Size = 4LL;
+      v19 = 4LL;
+      v18 = KiProcessorBlock[v14] + 11672;
+      EtwWriteEx(KiIntSteerEtwHandle, &PPM_ETW_INTERRUPT_STEERING_PROC_CHANGE, 0LL, 0, 0LL, 0LL, 2u, &v17);
+    }
   }
-  v24 = 0LL;
-  if ( a3 )
+  if ( KiIntSteerEtwEventEnabled((__int64)PPM_ETW_INTERRUPT_STEERING_STATE_RETARGET) )
   {
-    if ( *(_WORD *)a3 )
-      v11 = *(_QWORD *)(a3 + 8);
-    else
-      v11 = 0LL;
-    *(_QWORD *)&v24 = v11;
+    for ( i = (__int64 *)KiIntTrackRootList; i != &KiIntTrackRootList; i = (__int64 *)*i )
+    {
+      if ( i[22] != i[20] )
+      {
+        for ( j = (__int64 *)i[2]; j != i + 2; j = (__int64 *)*j )
+          KiIntSteerLogState(j, PPM_ETW_INTERRUPT_STEERING_STATE_RETARGET);
+      }
+    }
   }
-  v23 = 0LL;
-  if ( *(_WORD *)a4 )
-    v12 = *(_QWORD *)(a4 + 8);
-  else
-    v12 = 0LL;
-  *(_QWORD *)&v23 = v12;
-  KiCopyAffinityEx(&KiIntSteerMask, HIWORD(KiIntSteerMask), v8);
-  ((void (__fastcall *)(__int64, __int128 *, __int128 *, __int128 *))KiIntSteerCalculateDistribution)(
-    a1,
-    &v25,
-    &v24,
-    &v23);
-  KiIntSteerLogStatus(0LL);
-  KiIntSteerDistributeInterrupts(v14, v13, v15, v16, v23, *((_QWORD *)&v23 + 1));
+  KiIntSteerDistributeInterrupts();
   KxReleaseSpinLock(&KiIntTrackSpinlock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-      v22 = (v21 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v21;
-      if ( v22 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v9 = KeGetCurrentIrql();
+      if ( v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v11 = CurrentPrcb->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v13 = (v12 & v11[5]) == 0;
+        v11[5] &= v12;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
-  __writecr8(v9);
+  __writecr8(CurrentIrql);
   return 0LL;
 }

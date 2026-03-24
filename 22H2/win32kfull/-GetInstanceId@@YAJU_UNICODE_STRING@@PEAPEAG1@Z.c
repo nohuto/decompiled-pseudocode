@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetInstanceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01A4674
+ * XREFs of ?GetInstanceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01CDF00
  * Callers:
- *     ?GetTiltKeyName@@YAJU_UNICODE_STRING@@PEAPEAGH@Z @ 0x1C01A471C (-GetTiltKeyName@@YAJU_UNICODE_STRING@@PEAPEAGH@Z.c)
+ *     ?GetTiltKeyName@@YAJU_UNICODE_STRING@@PEAPEAGH@Z @ 0x1C01CDFA8 (-GetTiltKeyName@@YAJU_UNICODE_STRING@@PEAPEAGH@Z.c)
  * Callees:
  *     <none>
  */

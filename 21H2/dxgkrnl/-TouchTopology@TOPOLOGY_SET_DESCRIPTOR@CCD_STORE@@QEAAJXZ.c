@@ -1,8 +1,8 @@
 /*
- * XREFs of ?TouchTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJXZ @ 0x1C01DF238
+ * XREFs of ?TouchTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJXZ @ 0x1C0160768
  * Callers:
- *     ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C01DECF4 (-SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z.c)
- *     _anonymous_namespace_::_UpdateTimestampTopologySetCallback @ 0x1C01DF220 (_anonymous_namespace_--_UpdateTimestampTopologySetCallback.c)
+ *     ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C01601D4 (-SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z.c)
+ *     _anonymous_namespace_::_UpdateTimestampTopologySetCallback @ 0x1C0160750 (_anonymous_namespace_--_UpdateTimestampTopologySetCallback.c)
  * Callees:
  *     <none>
  */
@@ -11,16 +11,29 @@ __int64 __fastcall CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::TouchTopology(CCD_STORE::
 {
   const WCHAR *v2; // rdx
   NTSTATUS v3; // eax
-  unsigned int v4; // edi
-  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdi
+  _QWORD *v8; // rax
+  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = (const WCHAR *)*((_QWORD *)this + 8);
-  v6 = MEMORY[0xFFFFF78000000014];
-  v3 = RtlWriteRegistryValue(0x40000000u, v2, L"Timestamp", 0xBu, &v6, 8u);
-  v4 = v3;
+  v9 = MEMORY[0xFFFFF78000000014];
+  v3 = RtlWriteRegistryValue(0x40000000u, v2, L"Timestamp", 0xBu, &v9, 8u);
+  v6 = v3;
   if ( v3 < 0 )
-    WdLogSingleEntry5(2LL, v3, SHIDWORD(v6), (unsigned int)v6, *((int *)this + 15), *((unsigned int *)this + 14));
+  {
+    v8 = (_QWORD *)WdLogNewEntry5_WdError(v5, v4);
+    v8[3] = v6;
+    v8[4] = SHIDWORD(v9);
+    v8[5] = (unsigned int)v9;
+    v8[6] = *((int *)this + 15);
+    v8[7] = *((unsigned int *)this + 14);
+    WdLogEvent5_WdError(v8);
+  }
   else
-    *((_QWORD *)this + 7) = v6;
-  return v4;
+  {
+    *((_QWORD *)this + 7) = v9;
+  }
+  return (unsigned int)v6;
 }

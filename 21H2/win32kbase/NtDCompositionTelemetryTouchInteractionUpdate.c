@@ -1,27 +1,27 @@
 /*
- * XREFs of NtDCompositionTelemetryTouchInteractionUpdate @ 0x1C00076D0
+ * XREFs of NtDCompositionTelemetryTouchInteractionUpdate @ 0x1C0003260
  * Callers:
  *     <none>
  * Callees:
- *     ?AddInteractionUpdateInfo@CTelemetryInfo@DirectComposition@@QEAAJPEAUTOUCH_TELEMETRY_UPDATE_INFO@@@Z @ 0x1C0006F94 (-AddInteractionUpdateInfo@CTelemetryInfo@DirectComposition@@QEAAJPEAUTOUCH_TELEMETRY_UPDATE_INFO.c)
- *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0010268 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?AddInteractionUpdateInfo@CTelemetryInfo@DirectComposition@@QEAAJPEAUTOUCH_TELEMETRY_UPDATE_INFO@@@Z @ 0x1C0003364 (-AddInteractionUpdateInfo@CTelemetryInfo@DirectComposition@@QEAAJPEAUTOUCH_TELEMETRY_UPDATE_INFO.c)
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005DB28 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall NtDCompositionTelemetryTouchInteractionUpdate(unsigned int a1, size_t Size, char *Src)
 {
   int updated; // ebx
   struct DirectComposition::CApplicationChannel *v7; // rdi
-  struct DirectComposition::CApplicationChannel *v9; // [rsp+28h] [rbp-120h] BYREF
-  _BYTE v10[224]; // [rsp+30h] [rbp-118h] BYREF
+  struct DirectComposition::CApplicationChannel *v9; // [rsp+28h] [rbp-A0h] BYREF
+  _BYTE v10[96]; // [rsp+30h] [rbp-98h] BYREF
 
   updated = 0;
   v9 = 0LL;
-  memset(v10, 0, 0xD8uLL);
-  if ( !Src || Size != 216 )
+  memset(v10, 0, 0x58uLL);
+  if ( !Src || Size != 88 )
     updated = -1073741811;
   if ( updated >= 0 )
   {
@@ -33,7 +33,7 @@ __int64 __fastcall NtDCompositionTelemetryTouchInteractionUpdate(unsigned int a1
     if ( updated >= 0 )
     {
       updated = DirectComposition::CTelemetryInfo::AddInteractionUpdateInfo(
-                  (DirectComposition::CTelemetryInfo ***)v9 + 194,
+                  (struct DirectComposition::CApplicationChannel *)((char *)v9 + 528),
                   (struct TOUCH_TELEMETRY_UPDATE_INFO *)v10);
       (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v7)(v7);
     }

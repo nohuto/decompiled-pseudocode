@@ -1,12 +1,12 @@
 /*
- * XREFs of IrqArbIrqFromGsiv @ 0x1C00B690C
+ * XREFs of IrqArbIrqFromGsiv @ 0x1C00B70AC
  * Callers:
- *     IrqArbGetNextAllocationRange @ 0x1C009A780 (IrqArbGetNextAllocationRange.c)
- *     IrqArbpFindSuitableRangePci @ 0x1C009D25C (IrqArbpFindSuitableRangePci.c)
- *     IrqArbpAssignIrqFromLinkNode @ 0x1C00B6B6C (IrqArbpAssignIrqFromLinkNode.c)
- *     IrqPolicyGetDistributionDisposition @ 0x1C00BDE8C (IrqPolicyGetDistributionDisposition.c)
+ *     IrqArbGetNextAllocationRange @ 0x1C0093DA0 (IrqArbGetNextAllocationRange.c)
+ *     IrqArbpFindSuitableRangePci @ 0x1C0096AB8 (IrqArbpFindSuitableRangePci.c)
+ *     IrqArbpAssignIrqFromLinkNode @ 0x1C00B730C (IrqArbpAssignIrqFromLinkNode.c)
+ *     IrqPolicyGetDistributionDisposition @ 0x1C00BCAA0 (IrqPolicyGetDistributionDisposition.c)
  * Callees:
- *     IrqArbpLookupIsaOverrideByGsiv @ 0x1C009BAFC (IrqArbpLookupIsaOverrideByGsiv.c)
+ *     IrqArbpLookupIsaOverrideByGsiv @ 0x1C00951E8 (IrqArbpLookupIsaOverrideByGsiv.c)
  */
 
 __int64 __fastcall IrqArbIrqFromGsiv(int a1)

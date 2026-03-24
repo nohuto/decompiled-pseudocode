@@ -1,10 +1,10 @@
 /*
- * XREFs of EngUnmapFontFile @ 0x1C0287260
+ * XREFs of EngUnmapFontFile @ 0x1C028A3A0
  * Callers:
  *     <none>
  * Callees:
- *     vUnmapFile @ 0x1C00EF3E8 (vUnmapFile.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     vUnmapFile @ 0x1C00E667C (vUnmapFile.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void __stdcall EngUnmapFontFile(ULONG_PTR iFile)

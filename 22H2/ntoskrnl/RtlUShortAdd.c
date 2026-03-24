@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlUShortAdd @ 0x1403223E4
+ * XREFs of RtlUShortAdd @ 0x140309CBC
  * Callers:
- *     FsRtlValidateReparsePointBuffer @ 0x140322190 (FsRtlValidateReparsePointBuffer.c)
- *     VrpBuildKeyPath @ 0x14068DE10 (VrpBuildKeyPath.c)
- *     IopAllocateUnicodeString @ 0x1407941E8 (IopAllocateUnicodeString.c)
- *     RtlpCreateServerAcl @ 0x140794260 (RtlpCreateServerAcl.c)
- *     SepAddTokenOriginClaim @ 0x1407E3BD4 (SepAddTokenOriginClaim.c)
- *     PspSiloInitializeSystemRootSymlink @ 0x1409AD83C (PspSiloInitializeSystemRootSymlink.c)
- *     RtlAddResourceAttributeAce @ 0x1409BB270 (RtlAddResourceAttributeAce.c)
- *     AslPathWildcardFindFirst @ 0x140A555C4 (AslPathWildcardFindFirst.c)
- *     AslpPathWildcardAllocMatchNode @ 0x140A56658 (AslpPathWildcardAllocMatchNode.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A6A42C (_SysCtxRegOpenCurrentUserKey.c)
- *     VfSuspectDriversAllocateEntry @ 0x140ADB394 (VfSuspectDriversAllocateEntry.c)
+ *     FsRtlValidateReparsePointBuffer @ 0x140309A70 (FsRtlValidateReparsePointBuffer.c)
+ *     VrpBuildKeyPath @ 0x1405D5420 (VrpBuildKeyPath.c)
+ *     RtlpCreateServerAcl @ 0x140695804 (RtlpCreateServerAcl.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072E318 (_SysCtxRegOpenCurrentUserKey.c)
+ *     IopAllocateUnicodeString @ 0x140745B4C (IopAllocateUnicodeString.c)
+ *     PspSiloInitializeSystemRootSymlink @ 0x140906B10 (PspSiloInitializeSystemRootSymlink.c)
+ *     RtlAddResourceAttributeAce @ 0x1409125C0 (RtlAddResourceAttributeAce.c)
+ *     SepAddTokenOriginClaim @ 0x140922BA0 (SepAddTokenOriginClaim.c)
+ *     AslPathWildcardFindFirst @ 0x140968B44 (AslPathWildcardFindFirst.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140969CB0 (AslpPathWildcardAllocMatchNode.c)
+ *     VfSuspectDriversAllocateEntry @ 0x1409D9838 (VfSuspectDriversAllocateEntry.c)
  * Callees:
  *     <none>
  */

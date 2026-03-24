@@ -1,7 +1,7 @@
 /*
- * XREFs of ?yCompute@DDA_CLIPLINE@@QEAAJJ@Z @ 0x1C02F47EC
+ * XREFs of ?yCompute@DDA_CLIPLINE@@QEAAJJ@Z @ 0x1C014B314
  * Callers:
- *     ?vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C02F4428 (-vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
+ *     ?vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C014B170 (-vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
  * Callees:
  *     <none>
  */

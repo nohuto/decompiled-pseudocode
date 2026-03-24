@@ -1,11 +1,11 @@
 /*
- * XREFs of CcPinRead @ 0x1406A5510
+ * XREFs of CcPinRead @ 0x1406EF1A0
  * Callers:
  *     <none>
  * Callees:
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
- *     CcUnpinData @ 0x1406FE6A0 (CcUnpinData.c)
- *     CcAllocateObcb @ 0x14080C6EC (CcAllocateObcb.c)
+ *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
+ *     CcUnpinData @ 0x1406E7C70 (CcUnpinData.c)
+ *     CcAllocateObcb @ 0x14077D2AC (CcAllocateObcb.c)
  */
 
 BOOLEAN __stdcall CcPinRead(
@@ -37,7 +37,7 @@ BOOLEAN __stdcall CcPinRead(
   QuadPart = FileOffset->QuadPart;
   Obcb = 0LL;
   v17 = &Obcb;
-  __incgsdword(4 * (Flags & 1) + 33880);
+  __incgsdword(4 * (Flags & 1) + 33048);
   KeGetCurrentThread()[1].Timer.DueTime.HighPart = 0;
   SharedCacheMap = FileObject->SectionObjectPointer->SharedCacheMap;
   v10 = Buffer;
@@ -68,11 +68,11 @@ BOOLEAN __stdcall CcPinRead(
                              (SharedCacheMap[38] & 0x200) == 0,
                              0,
                              v6,
-                             (ULONG_PTR *)v13,
-                             (__int64 *)&v18,
+                             (__int64 *)v13,
+                             &v18,
                              &v19) )
     {
-      __incgsdword(0x8494u);
+      __incgsdword(0x8154u);
       v15 = 0;
       goto LABEL_12;
     }
@@ -84,7 +84,7 @@ BOOLEAN __stdcall CcPinRead(
     *v10 = v18;
   v15 = 1;
 LABEL_12:
-  __addgsdword(0x8498u, KeGetCurrentThread()[1].Timer.DueTime.HighPart);
+  __addgsdword(0x8158u, KeGetCurrentThread()[1].Timer.DueTime.HighPart);
   if ( !v15 && Obcb )
     CcUnpinData(Obcb);
   return v15;

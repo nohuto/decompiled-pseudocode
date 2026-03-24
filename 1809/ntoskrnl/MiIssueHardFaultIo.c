@@ -2,13 +2,13 @@
  * XREFs of MiIssueHardFaultIo @ 0x14001B5C8
  * Callers:
  *     MiIssueHardFault @ 0x14001BCD0 (MiIssueHardFault.c)
- *     MiPfCoalesceAndIssueIOs @ 0x14012E258 (MiPfCoalesceAndIssueIOs.c)
- *     MiPfIssueCoalesceCandidates @ 0x1402AEDCC (MiPfIssueCoalesceCandidates.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x14012E278 (MiPfCoalesceAndIssueIOs.c)
+ *     MiPfIssueCoalesceCandidates @ 0x1402AEECC (MiPfIssueCoalesceCandidates.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     IoPageReadEx @ 0x1400DE720 (IoPageReadEx.c)
- *     SmPageRead @ 0x14014F76C (SmPageRead.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
+ *     SmPageRead @ 0x14014F78C (SmPageRead.c)
  */
 
 __int64 __fastcall MiIssueHardFaultIo(__int64 a1, int a2, __int64 a3)

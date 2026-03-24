@@ -1,11 +1,11 @@
 /*
- * XREFs of SPCallServerHandleGetAppPolicyValue @ 0x1406C11A0
+ * XREFs of SPCallServerHandleGetAppPolicyValue @ 0x1406C1180
  * Callers:
- *     sub_140685860 @ 0x140685860 (sub_140685860.c)
+ *     sub_140685840 @ 0x140685840 (sub_140685840.c)
  * Callees:
- *     StringCbLengthW @ 0x1400FD0D0 (StringCbLengthW.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     StringCbLengthW @ 0x1400FD0F0 (StringCbLengthW.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

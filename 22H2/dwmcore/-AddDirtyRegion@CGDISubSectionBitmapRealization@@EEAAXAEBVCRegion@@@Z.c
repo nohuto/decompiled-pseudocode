@@ -1,19 +1,21 @@
 /*
- * XREFs of ?AddDirtyRegion@CGDISubSectionBitmapRealization@@EEAAXAEBVCRegion@@@Z @ 0x1802B0C1C
+ * XREFs of ?AddDirtyRegion@CGDISubSectionBitmapRealization@@EEAAXAEBVCRegion@@@Z @ 0x180262B3C
  * Callers:
- *     ?AddDirtyRegion@CGDISubSectionBitmapRealization@@$0PPPPPPPM@A@EAAXAEBVCRegion@@@Z @ 0x180122000 (-AddDirtyRegion@CGDISubSectionBitmapRealization@@$0PPPPPPPM@A@EAAXAEBVCRegion@@@Z.c)
+ *     ?AddDirtyRegion@CGDISubSectionBitmapRealization@@$0PPPPPPPM@A@EAAXAEBVCRegion@@@Z @ 0x1800F8150 (-AddDirtyRegion@CGDISubSectionBitmapRealization@@$0PPPPPPPM@A@EAAXAEBVCRegion@@@Z.c)
  * Callees:
- *     ??0CRegion@@QEAA@AEBUMilRectU@@@Z @ 0x1800461B0 (--0CRegion@@QEAA@AEBUMilRectU@@@Z.c)
- *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180046478 (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180047D50 (-Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?AddDirtyRegion@CBitmapRealization@@UEAAXAEBVCRegion@@@Z @ 0x1800E2580 (-AddDirtyRegion@CBitmapRealization@@UEAAXAEBVCRegion@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?Offset@CRgnData@Internal@FastRegion@@QEAA_NHH@Z @ 0x1801B252C (-Offset@CRgnData@Internal@FastRegion@@QEAA_NHH@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ??0CRegion@@QEAA@AEBUMilRectU@@@Z @ 0x18003A810 (--0CRegion@@QEAA@AEBUMilRectU@@@Z.c)
+ *     ?AddDirtyRegion@CSectionBitmapRealization@@UEAAXAEBVCRegion@@@Z @ 0x180043ED8 (-AddDirtyRegion@CSectionBitmapRealization@@UEAAXAEBVCRegion@@@Z.c)
+ *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180098C7C (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ?Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180098D6C (-Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
+ *     ?Offset@CRgnData@Internal@FastRegion@@QEAA_NHH@Z @ 0x18025F968 (-Offset@CRgnData@Internal@FastRegion@@QEAA_NHH@Z.c)
  */
 
-void __fastcall CGDISubSectionBitmapRealization::AddDirtyRegion(struct tagRECT *this, int **a2)
+void __fastcall CGDISubSectionBitmapRealization::AddDirtyRegion(
+        struct tagRECT *this,
+        const struct FastRegion::Internal::CRgnData **a2)
 {
   int v3; // eax
   int v4; // eax
@@ -24,7 +26,7 @@ void __fastcall CGDISubSectionBitmapRealization::AddDirtyRegion(struct tagRECT *
 
   v6 = 0;
   v5 = (FastRegion::Internal::CRgnData *)&v6;
-  v3 = FastRegion::CRegion::Copy((int **)&v5, a2);
+  v3 = FastRegion::CRegion::Copy(&v5, a2);
   if ( v3 < 0 )
     ModuleFailFastForHRESULT(v3, retaddr);
   CRegion::CRegion((CRegion *)v7, this - 6);
@@ -35,7 +37,7 @@ void __fastcall CGDISubSectionBitmapRealization::AddDirtyRegion(struct tagRECT *
   {
     FastRegion::Internal::CRgnData::Offset(v5, -this[-6].left, -this[-6].top);
     if ( *(_DWORD *)v5 )
-      CBitmapRealization::AddDirtyRegion((CBitmapRealization *)&this[-9], (const struct CRegion *)&v5);
+      CSectionBitmapRealization::AddDirtyRegion((CSectionBitmapRealization *)&this[-4], (const struct CRegion *)&v5);
   }
   FastRegion::CRegion::FreeMemory(v7);
   FastRegion::CRegion::FreeMemory((void **)&v5);

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpPsProvTraceJob @ 0x1409E37A8
+ * XREFs of EtwpPsProvTraceJob @ 0x140937318
  * Callers:
- *     EtwTraceJob @ 0x1409E21EC (EtwTraceJob.c)
+ *     EtwTraceJob @ 0x140935D48 (EtwTraceJob.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTraceJob(__int64 a1, int a2, __int16 a3)
@@ -30,9 +30,9 @@ NTSTATUS __fastcall EtwpPsProvTraceJob(__int64 a1, int a2, __int16 a3)
     v3 = (const EVENT_DESCRIPTOR *)JobTerminate;
   }
   *(_QWORD *)&UserData.Size = 16LL;
-  UserData.Ptr = a1 + 1432;
+  UserData.Ptr = a1 + 1240;
   v7 = 4LL;
-  v6 = a1 + 1428;
+  v6 = a1 + 1236;
   v8 = &v10;
   v9 = 4LL;
   return EtwWrite(EtwpPsProvRegHandle, v3, 0LL, 3u, &UserData);

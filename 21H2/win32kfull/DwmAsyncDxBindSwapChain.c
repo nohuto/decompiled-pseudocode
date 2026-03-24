@@ -1,7 +1,7 @@
 /*
- * XREFs of DwmAsyncDxBindSwapChain @ 0x1C014F41C
+ * XREFs of DwmAsyncDxBindSwapChain @ 0x1C015EE1C
  * Callers:
- *     ?NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z @ 0x1C014F364 (-NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z.c)
+ *     ?NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z @ 0x1C015ED74 (-NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ __int64 __fastcall DwmAsyncDxBindSwapChain(PVOID Object, __int64 a2, __int64 a3)
     v7 = 0LL;
     v9[0] = a2;
     LODWORD(v6[0]) = 3932180;
-    v8 = 1073741883;
+    v8 = 1073741882;
     v9[1] = a3;
     EtwBindSwapChain(a2, a3);
     v4 = LpcRequestPort(Object, v6);

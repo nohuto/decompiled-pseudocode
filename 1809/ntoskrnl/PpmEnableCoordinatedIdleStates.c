@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEnableCoordinatedIdleStates @ 0x140866728
+ * XREFs of PpmEnableCoordinatedIdleStates @ 0x140866708
  * Callers:
- *     PpmInstallCoordinatedIdleStates @ 0x140866770 (PpmInstallCoordinatedIdleStates.c)
- *     PpmInstallPlatformIdleStates @ 0x140866D10 (PpmInstallPlatformIdleStates.c)
+ *     PpmInstallCoordinatedIdleStates @ 0x140866750 (PpmInstallCoordinatedIdleStates.c)
+ *     PpmInstallPlatformIdleStates @ 0x140866CF0 (PpmInstallPlatformIdleStates.c)
  * Callees:
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PpmGetDeepSleepPlatformStateIndex @ 0x1402D3E1C (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopFxEnablePlatformStates @ 0x1402D7F10 (PopFxEnablePlatformStates.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x1402D3F1C (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopFxEnablePlatformStates @ 0x1402D8010 (PopFxEnablePlatformStates.c)
  */
 
 __int64 __fastcall PpmEnableCoordinatedIdleStates(int *a1, char a2)

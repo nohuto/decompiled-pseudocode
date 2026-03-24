@@ -1,11 +1,10 @@
 /*
- * XREFs of ZwCreateWnfStateName @ 0x14041C0E0
+ * XREFs of ZwCreateWnfStateName @ 0x1403FB3A0
  * Callers:
- *     ExpTrackTableInsertLimit @ 0x140608C0C (ExpTrackTableInsertLimit.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     PiUEventInitClientRegistrationContext @ 0x1407821E4 (PiUEventInitClientRegistrationContext.c)
- *     PspAllocateAndQueryProcessNotificationChannel @ 0x1407D1644 (PspAllocateAndQueryProcessNotificationChannel.c)
- *     PopCreateNotificationName @ 0x1407E3790 (PopCreateNotificationName.c)
+ *     PspAllocateAndQueryProcessNotificationChannel @ 0x140604C58 (PspAllocateAndQueryProcessNotificationChannel.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x14065CC90 (PspAllocateAndQueryNotificationChannel.c)
+ *     PopCreateNotificationName @ 0x1406A3A70 (PopCreateNotificationName.c)
+ *     PiUEventInitClientRegistrationContext @ 0x14071824C (PiUEventInitClientRegistrationContext.c)
  * Callees:
  *     <none>
  */

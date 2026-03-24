@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetBudgetAndVisibilityState@VIDMM_DEVICE@@QEAAXPEA_NPEAW4VIDMM_BUDGET_PRIORITY_BAND@@@Z @ 0x1C00DEB68
+ * XREFs of ?GetBudgetAndVisibilityState@VIDMM_DEVICE@@QEAAXPEA_NPEAW4VIDMM_BUDGET_PRIORITY_BAND@@@Z @ 0x1C00B923C
  * Callers:
- *     ?CanSuspendThisDevice@VIDMM_DEVICE@@QEAA_NPEAV1@W4VIDMM_SUSPEND_CANDIDATE_PASS@@W4VIDMM_BUDGET_PRIORITY_BAND@@@Z @ 0x1C00DDE5C (-CanSuspendThisDevice@VIDMM_DEVICE@@QEAA_NPEAV1@W4VIDMM_SUSPEND_CANDIDATE_PASS@@W4VIDMM_BUDGET_P.c)
+ *     ?CanSuspendThisDevice@VIDMM_DEVICE@@QEAA_NPEAV1@W4VIDMM_SUSPEND_CANDIDATE_PASS@@W4VIDMM_BUDGET_PRIORITY_BAND@@@Z @ 0x1C00B88F4 (-CanSuspendThisDevice@VIDMM_DEVICE@@QEAA_NPEAV1@W4VIDMM_SUSPEND_CANDIDATE_PASS@@W4VIDMM_BUDGET_P.c)
  * Callees:
  *     <none>
  */
@@ -21,24 +21,24 @@ void __fastcall VIDMM_DEVICE::GetBudgetAndVisibilityState(
   if ( v3 )
   {
     v5 = 0;
-    if ( *(_DWORD *)(*(_QWORD *)this + 7016LL) )
+    if ( *(_DWORD *)(*(_QWORD *)this + 7000LL) )
     {
       while ( 1 )
       {
         v6 = (_QWORD *)(*(_QWORD *)(v3 + 48) + 296LL * v5);
         if ( v6[25] > v6[3] || v6[26] > v6[4] )
           break;
-        if ( ++v5 >= *(_DWORD *)(*(_QWORD *)this + 7016LL) )
+        if ( ++v5 >= *(_DWORD *)(*(_QWORD *)this + 7000LL) )
           goto LABEL_8;
       }
       *a2 = 1;
     }
 LABEL_8:
     v7 = *(_QWORD *)(*(_QWORD *)(v3 + 40) + 32LL);
-    if ( (*(_DWORD *)(v7 + 424) & 4) != 0 )
+    if ( *(_BYTE *)(v7 + 346) )
       *(_DWORD *)a3 = 0;
     else
-      *(_DWORD *)a3 = 2 - ((*(_DWORD *)(v7 + 432) & 1) != 0);
+      *(_DWORD *)a3 = 2 - ((*(_DWORD *)(v7 + 352) & 1) != 0);
   }
   else
   {

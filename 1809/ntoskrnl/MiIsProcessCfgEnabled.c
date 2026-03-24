@@ -8,8 +8,8 @@
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
  *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
  *     MiCfgMarkValidEntries @ 0x1405F631C (MiCfgMarkValidEntries.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544C0 (MiMapViewOfPhysicalSection.c)
- *     MmValidateUserCallTarget @ 0x14085C2A8 (MmValidateUserCallTarget.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
+ *     MmValidateUserCallTarget @ 0x14085C288 (MmValidateUserCallTarget.c)
  * Callees:
  *     <none>
  */

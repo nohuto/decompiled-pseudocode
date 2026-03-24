@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExAllocateCacheAwareRundownProtection @ 0x140A9C2A0
+ * XREFs of VerifierExAllocateCacheAwareRundownProtection @ 0x1409E48C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfCheckPoolType @ 0x140A82F58 (VfCheckPoolType.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfCheckPoolType @ 0x1409C7D64 (VfCheckPoolType.c)
  */
 
 __int64 __fastcall VerifierExAllocateCacheAwareRundownProtection(unsigned int a1, unsigned int a2)

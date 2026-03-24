@@ -1,22 +1,35 @@
 /*
- * XREFs of ?OnComponentsChanged@CSceneNode@@QEAAXXZ @ 0x18023E414
+ * XREFs of ?OnComponentsChanged@CSceneNode@@QEAAXXZ @ 0x1801EBCC8
  * Callers:
- *     ?SetOrAppendComponents@?$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV?$span@PEAVCSceneComponent@@$0?0@gsl@@_N@Z @ 0x1801A3F6C (-SetOrAppendComponents@-$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV-$span@PEAV.c)
+ *     ?SetOrAppendComponents@?$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV?$span@PEAVCSceneComponent@@$0?0@gsl@@_N@Z @ 0x180171E20 (-SetOrAppendComponents@-$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV-$span@PEAV.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HydrateSpectreResources@CSceneComponent@@QEAAJPEAVCSceneNode@@@Z @ 0x18025BB84 (-HydrateSpectreResources@CSceneComponent@@QEAAJPEAVCSceneNode@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?HydrateSpectreResources@CSceneComponent@@QEAAJPEAVCSceneNode@@@Z @ 0x18020B104 (-HydrateSpectreResources@CSceneComponent@@QEAAJPEAVCSceneNode@@@Z.c)
  */
 
 void __fastcall CSceneNode::OnComponentsChanged(CSceneNode *this)
 {
-  CSceneComponent **v2; // rsi
-  CSceneComponent **i; // rdi
+  __int64 v1; // rbx
+  CSceneComponent **v3; // r14
+  unsigned __int64 v4; // rsi
 
-  if ( *((_QWORD *)this + 17) )
+  v1 = 0LL;
+  if ( *((_QWORD *)this + 16) )
   {
-    v2 = (CSceneComponent **)*((_QWORD *)this + 13);
-    for ( i = (CSceneComponent **)*((_QWORD *)this + 12); i != v2; ++i )
-      CSceneComponent::HydrateSpectreResources(*i, this);
+    v3 = (CSceneComponent **)*((_QWORD *)this + 11);
+    v4 = (unsigned __int64)(*((_QWORD *)this + 12) - (_QWORD)v3 + 7LL) >> 3;
+    if ( (unsigned __int64)v3 > *((_QWORD *)this + 12) )
+      v4 = 0LL;
+    if ( v4 )
+    {
+      do
+      {
+        CSceneComponent::HydrateSpectreResources(*v3, this);
+        ++v1;
+        ++v3;
+      }
+      while ( v1 != v4 );
+    }
     (*(void (__fastcall **)(CSceneNode *, _QWORD, _QWORD))(*(_QWORD *)this + 72LL))(this, 0LL, 0LL);
   }
 }

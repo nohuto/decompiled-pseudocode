@@ -1,82 +1,63 @@
 /*
- * XREFs of IoRequestDeviceRemovalForReset @ 0x1409572E0
+ * XREFs of IoRequestDeviceRemovalForReset @ 0x1408A0600
  * Callers:
  *     <none>
  * Callees:
- *     PnpRequestDeviceAction @ 0x140358A44 (PnpRequestDeviceAction.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     McTemplateK0hzr0_EtwWriteTransfer @ 0x14050CB28 (McTemplateK0hzr0_EtwWriteTransfer.c)
+ *     IopAllocateUnicodeString @ 0x140745B4C (IopAllocateUnicodeString.c)
+ *     IopFreeResetRemovalContext @ 0x1408A0920 (IopFreeResetRemovalContext.c)
+ *     IopQueueDeviceResetEvent @ 0x1408A099C (IopQueueDeviceResetEvent.c)
+ *     PnpTraceRequestDeviceRemovalForReset @ 0x1408B2040 (PnpTraceRequestDeviceRemovalForReset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IoRequestDeviceRemovalForReset(_QWORD *Object, int a2)
+__int64 __fastcall IoRequestDeviceRemovalForReset(PVOID Object, unsigned int a2)
 {
-  __int64 v3; // rcx
-  unsigned int v4; // edx
-  __int64 v6; // rcx
-  _WORD *v7; // rcx
-  __int64 v8; // rcx
-  unsigned __int16 *v9; // rsi
-  _WORD *v10; // rcx
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  __int64 v13; // [rsp+50h] [rbp+8h] BYREF
+  char *PoolWithTag; // rax
+  __int64 v5; // rbx
+  char *v6; // rsi
+  int v7; // edi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
 
-  if ( !Object )
-    goto LABEL_19;
-  v3 = *(_QWORD *)(Object[39] + 40LL);
-  if ( !v3 || (*(_DWORD *)(v3 + 396) & 0x20000) != 0 )
-  {
-    IoAddTriageDumpDataBlock((ULONG)Object, (PVOID)*((unsigned __int16 *)Object + 1));
-    v6 = Object[1];
-    if ( v6 )
-    {
-      IoAddTriageDumpDataBlock(v6, (PVOID)(unsigned int)*(__int16 *)(v6 + 2));
-      v7 = (_WORD *)(Object[1] + 56LL);
-      if ( *v7 )
-      {
-        IoAddTriageDumpDataBlock((ULONG)v7, (PVOID)2);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(Object[1] + 64LL), (PVOID)*(unsigned __int16 *)(Object[1] + 56LL));
-      }
-    }
-    v8 = *(_QWORD *)(Object[39] + 40LL);
-    if ( v8 )
-    {
-      v9 = (unsigned __int16 *)(v8 + 40);
-      IoAddTriageDumpDataBlock(v8, (PVOID)0x388);
-      if ( *v9 )
-      {
-        IoAddTriageDumpDataBlock((ULONG)v9, (PVOID)2);
-        IoAddTriageDumpDataBlock(*((_QWORD *)v9 + 1), (PVOID)*v9);
-      }
-      v10 = (_WORD *)(*(_QWORD *)(Object[39] + 40LL) + 56LL);
-      if ( *v10 )
-      {
-        IoAddTriageDumpDataBlock((ULONG)v10, (PVOID)2);
-        IoAddTriageDumpDataBlock(
-          *(_QWORD *)(*(_QWORD *)(Object[39] + 40LL) + 64LL),
-          (PVOID)*(unsigned __int16 *)(*(_QWORD *)(Object[39] + 40LL) + 56LL));
-      }
-      v11 = *(_QWORD *)(*(_QWORD *)(Object[39] + 40LL) + 16LL);
-      if ( v11 && *(_WORD *)(v11 + 56) )
-      {
-        IoAddTriageDumpDataBlock(v11 + 56, (PVOID)2);
-        v12 = *(_QWORD *)(*(_QWORD *)(Object[39] + 40LL) + 16LL);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(v12 + 64), (PVOID)*(unsigned __int16 *)(v12 + 56));
-      }
-    }
-LABEL_19:
-    KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)Object, 0LL, 0LL);
-  }
-  v13 = 0LL;
-  if ( (a2 & 4) != 0 )
-  {
-    LODWORD(v13) = 2;
-    v4 = 6;
-  }
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xE0uLL, 0x45706E50u);
+  v5 = 0LL;
+  v6 = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_2;
+  memset(PoolWithTag, 0, 0xE0uLL);
+  KeInitializeDpc((PRKDPC)v6 + 1, (PKDEFERRED_ROUTINE)PfSnTracingStateDpcRoutine, v6);
+  KeInitializeTimerEx((PKTIMER)v6, NotificationTimer);
+  *((_QWORD *)v6 + 19) = v6;
+  *((_QWORD *)v6 + 18) = IopRetryDeviceRemovalForReset;
+  *((_QWORD *)v6 + 16) = 0LL;
+  ObfReferenceObjectWithTag(Object, 0x52706E50u);
+  *((_QWORD *)v6 + 23) = Object;
+  *((_QWORD *)v6 + 20) = 0LL;
+  *((_DWORD *)v6 + 48) = 0;
+  *((_DWORD *)v6 + 54) = a2;
+  *(_OWORD *)(v6 + 200) = 0LL;
+  if ( (int)IopAllocateUnicodeString((__int64)(v6 + 200), 0x200u) >= 0 )
+    v7 = IopQueueDeviceResetEvent(v6);
   else
+LABEL_2:
+    v7 = -1073741670;
+  PnpTraceRequestDeviceRemovalForReset(Object, a2, (unsigned int)v7);
+  if ( v7 >= 0 )
   {
-    LODWORD(v13) = a2;
-    v4 = 26;
+    if ( Object )
+      v5 = *(_QWORD *)(*((_QWORD *)Object + 39) + 40LL);
+    if ( (byte_140C1327B & 8) != 0 )
+      McTemplateK0hzr0_EtwWriteTransfer(v9, v8, v10, *(_WORD *)(v5 + 40) >> 1, *(_QWORD *)(v5 + 48));
   }
-  return PnpRequestDeviceAction(Object, v4, 1, &v13, 0LL, 0LL, 0LL);
+  else if ( v6 )
+  {
+    IopFreeResetRemovalContext(v6);
+  }
+  return (unsigned int)v7;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of xwcschr @ 0x1C020D15C
+ * XREFs of xwcschr @ 0x1C018C05C
  * Callers:
- *     ParseModeCap @ 0x1C020D024 (ParseModeCap.c)
+ *     ParseModeCap @ 0x1C018BF1C (ParseModeCap.c)
  * Callees:
  *     <none>
  */

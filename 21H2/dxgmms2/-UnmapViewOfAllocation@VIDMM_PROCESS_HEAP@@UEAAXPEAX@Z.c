@@ -1,63 +1,64 @@
 /*
- * XREFs of ?UnmapViewOfAllocation@VIDMM_PROCESS_HEAP@@UEAAXPEAX@Z @ 0x1C00F2AC0
+ * XREFs of ?UnmapViewOfAllocation@VIDMM_PROCESS_HEAP@@UEAAXPEAX@Z @ 0x1C00CE080
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C001CDD4 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C007C35C (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
+ *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C0076188 (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
  */
 
-void __fastcall VIDMM_PROCESS_HEAP::UnmapViewOfAllocation(VIDMM_PROCESS_HEAP *this, void **a2, __int64 a3, __int64 a4)
+void __fastcall VIDMM_PROCESS_HEAP::UnmapViewOfAllocation(VIDMM_PROCESS_HEAP *this, PVOID *a2, __int64 a3)
 {
-  __int64 CurrentProcess; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  _QWORD *v10; // rcx
-  int v11; // eax
-  void *v12; // rsi
-  void *v13; // rbx
-  struct _EPROCESS *v14; // rax
-  __int64 v15; // rbx
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  __int64 v17; // rcx
+  __int64 v4; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  _QWORD *v8; // rax
+  int v9; // eax
+  PVOID v10; // rbx
+  void *CurrentProcess; // rax
+  __int64 v12; // rax
+  __int64 v13; // rax
 
-  CurrentProcess = PsGetCurrentProcess(this, a2, a3, a4);
-  v10 = (_QWORD *)*((_QWORD *)this + 1);
-  if ( CurrentProcess != *v10 )
-    WdLogSingleEntry5(0LL, 270LL, 30LL, 0LL, 0LL, 0LL);
-  v11 = *(_DWORD *)a2;
+  v4 = **((_QWORD **)this + 1);
+  if ( PsGetCurrentProcess(this, a2, a3) != v4 )
+  {
+    v8 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v6, v5);
+    v8[5] = 0LL;
+    v8[6] = 0LL;
+    v8[7] = 0LL;
+    v8[3] = 270LL;
+    v8[4] = 30LL;
+    WdLogEvent5_WdCriticalError(v8);
+  }
+  v9 = *(_DWORD *)a2;
   if ( (*(_DWORD *)a2 & 2) != 0 )
   {
-    v12 = a2[11];
-    if ( (v11 & 1) != 0 )
+    v10 = a2[11];
+    if ( (v9 & 1) != 0 )
     {
-      v13 = a2[4];
-      v14 = (struct _EPROCESS *)PsGetCurrentProcess(v10, v7, v8, v9);
-      VidMmUnmapViewAsync(v14, v13, v12);
+      CurrentProcess = (void *)PsGetCurrentProcess(v6, v5, v7);
+      VidMmUnmapViewAsync(CurrentProcess, a2[4], v10);
     }
     else
     {
-      v15 = PsGetCurrentProcess(v10, v7, v8, v9);
-      VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-      (*((void (__fastcall **)(__int64, void *))VirtualMemoryInterface + 4))(v15, v12);
+      v12 = PsGetCurrentProcess(v6, v5, v7);
+      MmUnmapViewOfSection(v12);
     }
     *(_DWORD *)a2 &= ~2u;
 LABEL_13:
     a2[11] = 0LL;
     return;
   }
-  if ( (v11 & 4) != 0 )
+  if ( (v9 & 4) != 0 )
   {
-    if ( (v11 & 1) != 0 )
+    if ( (v9 & 1) != 0 )
       VidMmUnmapViewAsync(0LL, a2[4], a2[11]);
     else
       MmUnmapViewInSystemSpace(a2[11]);
     *(_DWORD *)a2 &= ~4u;
     goto LABEL_13;
   }
-  WdLogSingleEntry1(1LL, 2490LL);
-  DxgkLogInternalTriageEvent(v17, 0x40000LL);
+  v13 = WdLogNewEntry5_WdAssertion(v6, v5, v7);
+  *(_QWORD *)(v13 + 24) = 2515LL;
+  WdLogEvent5_WdAssertion(v13);
 }

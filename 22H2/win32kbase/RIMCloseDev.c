@@ -1,15 +1,13 @@
 /*
- * XREFs of RIMCloseDev @ 0x1C007AB28
+ * XREFs of RIMCloseDev @ 0x1C00AC34C
  * Callers:
- *     RIMUnregisterForInput @ 0x1C0071570 (RIMUnregisterForInput.c)
- *     rimOnPnpArrived @ 0x1C0076A78 (rimOnPnpArrived.c)
- *     rimOnPnpRemoveComplete @ 0x1C0078518 (rimOnPnpRemoveComplete.c)
- *     RIMOpenDev @ 0x1C007A138 (RIMOpenDev.c)
- *     rimFakePnpRemoveComplete @ 0x1C019A7A0 (rimFakePnpRemoveComplete.c)
- *     rimOnPnpQueryRemove @ 0x1C019A980 (rimOnPnpQueryRemove.c)
+ *     rimOnPnpRemoveComplete @ 0x1C0052D38 (rimOnPnpRemoveComplete.c)
+ *     RIMUnregisterForInput @ 0x1C0054610 (RIMUnregisterForInput.c)
+ *     rimOnPnpArrived @ 0x1C0056904 (rimOnPnpArrived.c)
+ *     rimFakePnpRemoveComplete @ 0x1C00AC19C (rimFakePnpRemoveComplete.c)
+ *     rimOnPnpQueryRemove @ 0x1C016DBA8 (rimOnPnpQueryRemove.c)
  * Callees:
- *     ??0PoWin32CalloutDeadlockTracker@@QEAA@W4_POPWIN32CALLOUT_WATCHDOG_STATE_INDEX@@@Z @ 0x1C00D02EC (--0PoWin32CalloutDeadlockTracker@@QEAA@W4_POPWIN32CALLOUT_WATCHDOG_STATE_INDEX@@@Z.c)
- *     ??1PoWin32CalloutDeadlockTracker@@QEAA@XZ @ 0x1C00D0390 (--1PoWin32CalloutDeadlockTracker@@QEAA@XZ.c)
+ *     <none>
  */
 
 __int64 __fastcall RIMCloseDev(__int64 a1)
@@ -19,10 +17,8 @@ __int64 __fastcall RIMCloseDev(__int64 a1)
   NTSTATUS v4; // eax
   void *v5; // rcx
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+20h] [rbp-18h] BYREF
-  char v8; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = 0;
-  PoWin32CalloutDeadlockTracker::PoWin32CalloutDeadlockTracker(&v8, 4LL);
   v3 = *(void **)(a1 + 224);
   if ( v3 )
   {
@@ -39,6 +35,5 @@ __int64 __fastcall RIMCloseDev(__int64 a1)
     *(_QWORD *)(a1 + 224) = 0LL;
     *(_DWORD *)(a1 + 184) &= 0xFFFFFE7F;
   }
-  PoWin32CalloutDeadlockTracker::~PoWin32CalloutDeadlockTracker((PoWin32CalloutDeadlockTracker *)&v8);
   return v2;
 }

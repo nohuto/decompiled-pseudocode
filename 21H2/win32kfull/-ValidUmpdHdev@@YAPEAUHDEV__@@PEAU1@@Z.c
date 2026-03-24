@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z @ 0x1C014B8D4
+ * XREFs of ?ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z @ 0x1C015AF84
  * Callers:
- *     NtGdiEngAssociateSurface @ 0x1C014B6D0 (NtGdiEngAssociateSurface.c)
- *     NtGdiGetDhpdev @ 0x1C02B3570 (NtGdiGetDhpdev.c)
+ *     NtGdiEngAssociateSurface @ 0x1C015AC70 (NtGdiEngAssociateSurface.c)
+ *     NtGdiGetDhpdev @ 0x1C02B5180 (NtGdiGetDhpdev.c)
  * Callees:
  *     <none>
  */

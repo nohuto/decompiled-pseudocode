@@ -1,73 +1,67 @@
 /*
- * XREFs of ExBlockOnAddressPushLock @ 0x1403481B0
+ * XREFs of ExBlockOnAddressPushLock @ 0x1402F4BA0
  * Callers:
- *     CmpWaitForLateUnloadWorker @ 0x1402EC614 (CmpWaitForLateUnloadWorker.c)
- *     RtlpCSparseBitmapWaitOnAddress @ 0x1405B7570 (RtlpCSparseBitmapWaitOnAddress.c)
- *     CmFcManagerFlushFeatureUsage @ 0x14067F5CC (CmFcManagerFlushFeatureUsage.c)
- *     CmFcpManagerProcessUsageDataProviders @ 0x14067FD84 (CmFcpManagerProcessUsageDataProviders.c)
- *     MiLockImageSection @ 0x1406F5820 (MiLockImageSection.c)
- *     CmpTransSearchAddTrans @ 0x140768A4C (CmpTransSearchAddTrans.c)
- *     CmLoadAppKey @ 0x140769B50 (CmLoadAppKey.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1407BAC40 (ExpBlockOnLockedHandleEntry.c)
- *     CmpRollbackLightWeightTransaction @ 0x1407D0DB0 (CmpRollbackLightWeightTransaction.c)
- *     RtlUpdateSwapReference @ 0x140810658 (RtlUpdateSwapReference.c)
- *     PopBatteryUpdateCurrentState @ 0x140873CCC (PopBatteryUpdateCurrentState.c)
- *     PsSetVmProcessorHostProcess @ 0x1409B0B68 (PsSetVmProcessorHostProcess.c)
- *     CmUnRegisterCallback @ 0x140A0F270 (CmUnRegisterCallback.c)
+ *     CmpWaitForLateUnloadWorker @ 0x140347F08 (CmpWaitForLateUnloadWorker.c)
+ *     RtlpCSparseBitmapWaitOnAddress @ 0x140595750 (RtlpCSparseBitmapWaitOnAddress.c)
+ *     MiLockImageSection @ 0x14063C7FC (MiLockImageSection.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140665448 (ExpBlockOnLockedHandleEntry.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1406A5420 (CmpRollbackLightWeightTransaction.c)
+ *     CmLoadAppKey @ 0x1406E8CDC (CmLoadAppKey.c)
+ *     CmpTransSearchAddTrans @ 0x14076644C (CmpTransSearchAddTrans.c)
+ *     PopBatteryUpdateCurrentState @ 0x14078E378 (PopBatteryUpdateCurrentState.c)
+ *     RtlUpdateSwapReference @ 0x1407CABDC (RtlUpdateSwapReference.c)
+ *     CmUnRegisterCallback @ 0x140869C60 (CmUnRegisterCallback.c)
+ *     CmShutdownSystem @ 0x14086B948 (CmShutdownSystem.c)
+ *     PsSetVmProcessorHostProcess @ 0x140909DF8 (PsSetVmProcessorHostProcess.c)
  * Callees:
- *     ExpUnblockPushLock @ 0x140209468 (ExpUnblockPushLock.c)
- *     ExBlockPushLock @ 0x140348270 (ExBlockPushLock.c)
- *     ExTimedWaitForUnblockPushLock @ 0x140348290 (ExTimedWaitForUnblockPushLock.c)
- *     memset @ 0x140435400 (memset.c)
+ *     ExBlockPushLock @ 0x1402F4C60 (ExBlockPushLock.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x1402F4C80 (ExTimedWaitForUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x1402F4D68 (ExpUnblockPushLock.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall ExBlockOnAddressPushLock(
-        volatile __int64 *a1,
-        _QWORD *a2,
-        _QWORD *a3,
-        unsigned __int64 a4,
-        __int64 a5)
+__int64 __fastcall ExBlockOnAddressPushLock(__int64 a1, _QWORD *a2, _QWORD *a3, unsigned __int64 a4, __int64 a5)
 {
   int v9; // ebx
-  int v10; // ebx
-  int v11; // ebx
-  bool v12; // zf
+  bool v10; // zf
+  int v12; // ebx
+  int v13; // ebx
   _BYTE v14[64]; // [rsp+20h] [rbp-48h] BYREF
 
   memset(v14, 0, sizeof(v14));
   ExBlockPushLock(a1, v14);
   if ( a4 > 8 )
-    goto LABEL_8;
+    goto LABEL_10;
   v9 = a4 - 1;
   if ( v9 )
   {
-    v10 = v9 - 1;
-    if ( v10 )
+    v12 = v9 - 1;
+    if ( v12 )
     {
-      v11 = v10 - 2;
-      if ( v11 )
+      v13 = v12 - 2;
+      if ( v13 )
       {
-        if ( v11 != 4 )
-          goto LABEL_8;
-        v12 = *a2 == *a3;
+        if ( v13 != 4 )
+          goto LABEL_10;
+        v10 = *a2 == *a3;
       }
       else
       {
-        v12 = *(_DWORD *)a2 == *(_DWORD *)a3;
+        v10 = *(_DWORD *)a2 == *(_DWORD *)a3;
       }
     }
     else
     {
-      v12 = *(_WORD *)a2 == *(_WORD *)a3;
+      v10 = *(_WORD *)a2 == *(_WORD *)a3;
     }
   }
   else
   {
-    v12 = *(_BYTE *)a2 == *(_BYTE *)a3;
+    v10 = *(_BYTE *)a2 == *(_BYTE *)a3;
   }
-  if ( v12 )
+  if ( v10 )
     return ExTimedWaitForUnblockPushLock(a1, v14, a5);
-LABEL_8:
-  ExpUnblockPushLock(a1, v14, 0);
+LABEL_10:
+  ExpUnblockPushLock(a1, v14, 0LL);
   return 0LL;
 }

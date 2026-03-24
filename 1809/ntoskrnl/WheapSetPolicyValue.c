@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapSetPolicyValue @ 0x1408DC3BC
+ * XREFs of WheapSetPolicyValue @ 0x1408DC39C
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x140321778 (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x140321878 (WheapWmiExecutePolicyManagementMethod.c)
  * Callees:
  *     <none>
  */
@@ -24,10 +24,10 @@ __int64 __fastcall WheapSetPolicyValue(unsigned int a1, unsigned int *a2)
   {
     v2 = *a2;
     v3 = a1;
-    if ( *a2 >= dword_140909B90[6 * a1] && v2 <= dword_140909B94[6 * a1] )
+    if ( *a2 >= dword_140909B70[6 * a1] && v2 <= dword_140909B74[6 * a1] )
     {
       _mm_lfence();
-      v4 = (&off_140909B88)[3 * a1];
+      v4 = (&off_140909B68)[3 * a1];
       if ( *v4 == -1 )
       {
         v5 = 0;

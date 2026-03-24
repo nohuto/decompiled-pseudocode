@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetMenuRightAlignHint@MenuHelpers@@YA_NXZ @ 0x1C023EFC0
+ * XREFs of ?GetMenuRightAlignHint@MenuHelpers@@YA_NXZ @ 0x1C02437B0
  * Callers:
- *     ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C022F9FC (-xxxMNPositionHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUt.c)
- *     xxxMNOpenHierarchy @ 0x1C02325D0 (xxxMNOpenHierarchy.c)
- *     xxxTrackPopupMenuEx @ 0x1C024614C (xxxTrackPopupMenuEx.c)
+ *     ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C0236330 (-xxxMNPositionHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUt.c)
+ *     xxxMNOpenHierarchy @ 0x1C0239AB8 (xxxMNOpenHierarchy.c)
+ *     xxxTrackPopupMenuEx @ 0x1C024ABB0 (xxxTrackPopupMenuEx.c)
  * Callees:
- *     GetUserHandedness @ 0x1C01E8E90 (GetUserHandedness.c)
+ *     GetUserHandedness @ 0x1C01EE890 (GetUserHandedness.c)
  */
 
 bool __fastcall MenuHelpers::GetMenuRightAlignHint(MenuHelpers *this)

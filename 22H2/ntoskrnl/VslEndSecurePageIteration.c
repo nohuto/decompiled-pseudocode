@@ -1,24 +1,24 @@
 /*
- * XREFs of VslEndSecurePageIteration @ 0x14054AE00
+ * XREFs of VslEndSecurePageIteration @ 0x1404FBE50
  * Callers:
- *     HvlpEndSecurePageListIteration @ 0x14054A1F8 (HvlpEndSecurePageListIteration.c)
+ *     HvlpEndSecurePageListIteration @ 0x1404FB23C (HvlpEndSecurePageListIteration.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslEndSecurePageIteration(unsigned __int8 a1, _DWORD *a2)
+NTSTATUS __fastcall VslEndSecurePageIteration(unsigned __int8 a1, _DWORD *a2)
 {
   __int64 v3; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD v5[14]; // [rsp+20h] [rbp-88h] BYREF
 
   v3 = a1;
   memset(v5, 0, 0x68uLL);
   v5[1] = v3;
   result = VslpEnterIumSecureMode(2u, 2049, 0, (__int64)v5);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     if ( a2 )
       *a2 = v5[2];

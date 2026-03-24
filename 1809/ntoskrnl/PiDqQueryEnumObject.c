@@ -8,7 +8,7 @@
  *     PiDqQueryAppendActionEntry @ 0x1405917B8 (PiDqQueryAppendActionEntry.c)
  *     PiDqQueryEvaluateFilter @ 0x14059552C (PiDqQueryEvaluateFilter.c)
  *     PiPnpRtlApplyMandatoryFilters @ 0x140595FCC (PiPnpRtlApplyMandatoryFilters.c)
- *     PiDqQueryAddObjectToResultSet @ 0x1406C993C (PiDqQueryAddObjectToResultSet.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x1406C991C (PiDqQueryAddObjectToResultSet.c)
  */
 
 __int64 __fastcall PiDqQueryEnumObject(_QWORD *a1, __int64 a2)

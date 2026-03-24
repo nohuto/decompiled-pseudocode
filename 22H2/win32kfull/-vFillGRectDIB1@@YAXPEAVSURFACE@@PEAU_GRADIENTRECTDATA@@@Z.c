@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vFillGRectDIB1@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02F7550
+ * XREFs of ?vFillGRectDIB1@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02D07F0
  * Callers:
  *     <none>
  * Callees:
- *     ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C02DC42C (-XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z.c)
+ *     ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C0153D04 (-XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z.c)
  */
 
 void __fastcall vFillGRectDIB1(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
@@ -109,7 +109,7 @@ void __fastcall vFillGRectDIB1(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
         if ( v13 < (int)(v13 + v12) )
         {
           v19 = (_BYTE *)(v6 + v13 / 8);
-          v40 = (char *)&unk_1C0329CA0 + 16 * (((_BYTE)v3 + (_BYTE)v11) & 0xFu);
+          v40 = (char *)&gDitherMatrix16x16Default + 16 * (((_BYTE)v3 + (_BYTE)v11) & 0xFu);
           v20 = v13 + v45;
           v21 = v12;
           do
@@ -125,7 +125,7 @@ void __fastcall vFillGRectDIB1(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
             v14 += v33;
             ++v20;
             v25 = v18 + 1;
-            *v19 = *v19 & ~(1 << (7 - v18)) | (byte_1C03299A0[Xlate555[~(_BYTE)v24 & 0x1F | v23]] << (7 - v18));
+            *v19 = *v19 & ~(1 << (7 - v18)) | (vTranslateIdentity[Xlate555[~(_BYTE)v24 & 0x1F | v23]] << (7 - v18));
             v26 = v19 + 1;
             if ( v18 != 7 )
               v26 = v19;

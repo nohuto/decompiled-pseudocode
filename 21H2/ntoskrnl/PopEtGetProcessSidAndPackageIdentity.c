@@ -1,41 +1,41 @@
 /*
- * XREFs of PopEtGetProcessSidAndPackageIdentity @ 0x1406745EC
+ * XREFs of PopEtGetProcessSidAndPackageIdentity @ 0x140698894
  * Callers:
- *     PopEtGetProcessAppId @ 0x140673C3C (PopEtGetProcessAppId.c)
+ *     PopEtGetProcessAppId @ 0x140698028 (PopEtGetProcessAppId.c)
  * Callees:
- *     RtlQueryPackageIdentity @ 0x140204280 (RtlQueryPackageIdentity.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     SeQueryUserSidToken @ 0x14066A374 (SeQueryUserSidToken.c)
- *     PsQueryProcessAttributesByToken @ 0x14070BA70 (PsQueryProcessAttributesByToken.c)
+ *     RtlQueryPackageIdentity @ 0x14024F4D0 (RtlQueryPackageIdentity.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     PsQueryProcessAttributesByToken @ 0x140601050 (PsQueryProcessAttributesByToken.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     SeQueryUserSidToken @ 0x140706E24 (SeQueryUserSidToken.c)
  */
 
-__int64 __fastcall PopEtGetProcessSidAndPackageIdentity(__int64 a1, _DWORD *a2, __int64 a3)
+void __fastcall PopEtGetProcessSidAndPackageIdentity(struct _KPROCESS *a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v6; // rsi
-  unsigned __int64 v8; // [rsp+50h] [rbp+8h] BYREF
-  unsigned __int64 v9; // [rsp+58h] [rbp+10h] BYREF
+  struct _DMA_ADAPTER *v6; // rsi
+  size_t v7; // [rsp+50h] [rbp+8h] BYREF
+  size_t v8; // [rsp+58h] [rbp+10h] BYREF
 
   *(_DWORD *)a3 = 0;
   *(_QWORD *)a2 = 0LL;
-  a2[2] = 0;
-  LOBYTE(v8) = 0;
-  v6 = PsReferencePrimaryTokenWithTag(a1, 0x746C6644u);
-  PsQueryProcessAttributesByToken(v6, &v8, &v9);
-  if ( (_BYTE)v8 )
+  *(_DWORD *)(a2 + 8) = 0;
+  LOBYTE(v7) = 0;
+  v6 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(a1);
+  PsQueryProcessAttributesByToken((__int64)v6, &v7, &v8);
+  if ( (_BYTE)v7 )
   {
-    v8 = 256LL;
-    v9 = 132LL;
-    if ( (int)RtlQueryPackageIdentity(v6, (int)a3 + 4, (int)&v8, (int)a3 + 260, (__int64)&v9, 0LL) >= 0 )
+    v7 = 256LL;
+    v8 = 132LL;
+    if ( RtlQueryPackageIdentity((int)v6, (wchar_t *)(a3 + 4), &v7, (wchar_t *)(a3 + 260), &v8, 0LL) >= 0 )
     {
-      *(_WORD *)a3 = (v8 >> 1) - 1;
-      *(_WORD *)(a3 + 2) = (v9 >> 1) - 1;
+      *(_WORD *)a3 = (v7 >> 1) - 1;
+      *(_WORD *)(a3 + 2) = (v8 >> 1) - 1;
     }
   }
-  if ( (int)SeQueryUserSidToken(v6, a2, 0x44u, (ULONG *)&v8) < 0 )
+  if ( (int)SeQueryUserSidToken(v6, a2, 68LL) < 0 )
   {
     *(_QWORD *)a2 = 0LL;
-    a2[2] = 0;
+    *(_DWORD *)(a2 + 8) = 0;
   }
-  return ObFastDereferenceObject((signed __int64 *)(a1 + 1208), v6, 0x746C6644u);
+  ObFastDereferenceObject((signed __int64 *)&a1[1].Affinity.Bitmap[5], v6);
 }

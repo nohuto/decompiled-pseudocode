@@ -1,45 +1,35 @@
 /*
- * XREFs of EditionDeactivateMitInput @ 0x1C00FCE60
+ * XREFs of EditionDeactivateMitInput @ 0x1C010BA90
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WaitForRitToCompleteLastCommand @ 0x1C00FD15C (WaitForRitToCompleteLastCommand.c)
- *     WakeRIT @ 0x1C00FD22C (WakeRIT.c)
- *     MasterInputThreadPrepareForRitTakeover @ 0x1C00FD2F0 (MasterInputThreadPrepareForRitTakeover.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
+ *     WaitForRitToCompleteLastCommand @ 0x1C010BD0C (WaitForRitToCompleteLastCommand.c)
+ *     WakeRIT @ 0x1C010BE30 (WakeRIT.c)
+ *     MasterInputThreadPrepareForRitTakeover @ 0x1C010BEF4 (MasterInputThreadPrepareForRitTakeover.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 __int64 EditionDeactivateMitInput()
 {
-  __int64 v0; // rdx
-  __int64 v1; // r8
   __int64 result; // rax
-  PDEVICE_OBJECT v3; // rcx
+  int v1; // edx
+  int v2; // ecx
+  unsigned int v3; // ebx
 
-  EtwTraceDitShutdown();
-  result = gbMIT;
-  if ( gbMIT )
+  result = EtwTraceDitShutdown();
+  if ( gbDIT )
   {
-    v3 = WPP_GLOBAL_Control;
-    LOBYTE(v0) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x8000) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    LOBYTE(v1) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( (_BYTE)v0 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v0,
-        v1,
-        10,
-        4,
-        16,
-        10,
-        (__int64)&WPP_055ba95d3db539c1bc3dd3c9a24dcb47_Traceguids);
-    gbInMitRitHandOff = 1;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v1) = 4;
+      WPP_RECORDER_SF_(v2, v1, 16, 10, (__int64)&WPP_3cb6299528b236cb5502aa74caef15e0_Traceguids);
+    }
+    gbDITInHitTest = 1;
     _InterlockedExchange(&glDitMouseHandling, 0);
-    MasterInputThreadPrepareForRitTakeover(v3, v0, v1);
-    gbMIT = 0;
+    v3 = gdwDITWakeReason & 1 | 8;
+    MasterInputThreadPrepareForRitTakeover();
+    gbDIT = 0;
     if ( gbTouchInjectionBlockedOnDIT )
       KeSetEvent(gpkeDITTouchInjectionResponseEvent, 1, 0);
     if ( gbMouseInjectionBlockedOnDIT )
@@ -48,16 +38,23 @@ __int64 EditionDeactivateMitInput()
       HMAssignmentUnlock(&gpDitTouchInjectionDeviceInfo);
     if ( gbCompositionInputSinkQueryBlockedOnDIT )
       KeSetEvent((PRKEVENT)gpkeDITCompositionInputSinkQueryResponseEvent, 1, 0);
+    gdwInAtomicOperation = 0;
     gdwDeferWinEvent = 0;
     if ( gpIOCPDispatcher )
     {
       IOCPDispatcher::Close(gpIOCPDispatcher, 1);
       IOCPDispatcher_Destroy();
     }
-    WakeRIT(8LL);
+    WakeRIT(v3);
     WaitForRitToCompleteLastCommand();
-    gbInMitRitHandOff = 0;
-    return EnterLeaveCritMitRitHandOffHazard::ReleaseAllWaiters();
+    gbDITInHitTest = 0;
+    result = gcDITHitTestWaiters;
+    if ( gcDITHitTestWaiters )
+    {
+      KeReleaseSemaphore(gpsemDITHitTestWaiters, 0, gcDITHitTestWaiters, 0);
+      result = gcDITHitTestWaiters;
+      gcDITHitTestWaiters = 0;
+    }
   }
   return result;
 }

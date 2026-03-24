@@ -1,14 +1,14 @@
 /*
- * XREFs of PopAvlFindOrMakeStatsForAudio @ 0x1406DB758
+ * XREFs of PopAvlFindOrMakeStatsForAudio @ 0x1406DB738
  * Callers:
- *     PopStatsNotifyAudioState @ 0x1406DB6EC (PopStatsNotifyAudioState.c)
+ *     PopStatsNotifyAudioState @ 0x1406DB6CC (PopStatsNotifyAudioState.c)
  * Callees:
  *     RtlLookupElementGenericTableAvl @ 0x140006BF0 (RtlLookupElementGenericTableAvl.c)
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
  *     RtlInsertElementGenericTableAvl @ 0x140006F00 (RtlInsertElementGenericTableAvl.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PopFreeUnicodeString @ 0x1405882E0 (PopFreeUnicodeString.c)
  *     PopUnicodeStringDeepCopy @ 0x140588974 (PopUnicodeStringDeepCopy.c)
  */

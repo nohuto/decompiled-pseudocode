@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDmObjectManagerInit @ 0x14072CA48
+ * XREFs of PiDmObjectManagerInit @ 0x14072CA28
  * Callers:
  *     PiDmInit @ 0x1409BD6F4 (PiDmInit.c)
  * Callees:
  *     RtlInitializeGenericTableAvl @ 0x140006820 (RtlInitializeGenericTableAvl.c)
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
  */
 
 void __fastcall PiDmObjectManagerInit(__int64 a1, int a2)

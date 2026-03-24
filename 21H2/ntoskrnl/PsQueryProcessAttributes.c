@@ -1,22 +1,22 @@
 /*
- * XREFs of PsQueryProcessAttributes @ 0x14070BA00
+ * XREFs of PsQueryProcessAttributes @ 0x140600F24
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x14036A698 (PopPowerRequestCreateCommon.c)
- *     PspAssignProcessToJob @ 0x1406879B8 (PspAssignProcessToJob.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
- *     PfpPrivSourceEnum @ 0x140711614 (PfpPrivSourceEnum.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     PopCreateUserPowerRequest @ 0x14067CD9C (PopCreateUserPowerRequest.c)
+ *     PfpPrivSourceEnum @ 0x1406CE0D0 (PfpPrivSourceEnum.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     PsQueryProcessAttributesByToken @ 0x14070BA70 (PsQueryProcessAttributesByToken.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     PsQueryProcessAttributesByToken @ 0x140601050 (PsQueryProcessAttributesByToken.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
  */
 
-__int64 __fastcall PsQueryProcessAttributes(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall PsQueryProcessAttributes(struct _KPROCESS *a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v6; // rbx
+  struct _DMA_ADAPTER *v6; // rbx
 
-  v6 = PsReferencePrimaryTokenWithTag(a1, 0x746C6644u);
+  v6 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(a1);
   PsQueryProcessAttributesByToken(v6, a2, a3);
-  return ObFastDereferenceObject((signed __int64 *)(a1 + 1208), v6, 0x746C6644u);
+  ObFastDereferenceObject((signed __int64 *)&a1[1].Affinity.Bitmap[5], v6);
 }

@@ -1,1 +1,0 @@
-/*\n * XREFs of sub_1C0010860 @ 0x1C0010860\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall sub_1C0010860(__int64 a1, _DWORD *a2, __int64 a3, _QWORD *a4, int a5, _QWORD *a6)\n{\n  __int64 v6; // rcx\n\n  v6 = *(_QWORD *)(a1 + 64);\n  *a2 = 32;\n  *a4 = &word_1C000B360;\n  *a6 = *(_QWORD *)(v6 + 24);\n  return 0LL;\n}\n

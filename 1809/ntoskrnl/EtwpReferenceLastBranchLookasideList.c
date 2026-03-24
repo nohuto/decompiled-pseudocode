@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpReferenceLastBranchLookasideList @ 0x1408C9A38
+ * XREFs of EtwpReferenceLastBranchLookasideList @ 0x1408C9A18
  * Callers:
- *     EtwpUpdateLastBranchTracingConfiguration @ 0x1408C9AB8 (EtwpUpdateLastBranchTracingConfiguration.c)
+ *     EtwpUpdateLastBranchTracingConfiguration @ 0x1408C9A98 (EtwpUpdateLastBranchTracingConfiguration.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

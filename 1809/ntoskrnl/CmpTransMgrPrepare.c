@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpTransMgrPrepare @ 0x1406FCDFC
+ * XREFs of CmpTransMgrPrepare @ 0x1406FCDDC
  * Callers:
- *     CmKtmNotification @ 0x1406942D0 (CmKtmNotification.c)
- *     CmpRmUnDoPhase @ 0x1407F93C0 (CmpRmUnDoPhase.c)
+ *     CmKtmNotification @ 0x1406942B0 (CmKtmNotification.c)
+ *     CmpRmUnDoPhase @ 0x1407F93A0 (CmpRmUnDoPhase.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
@@ -12,17 +12,17 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpGetNextActiveHive @ 0x1405B1474 (CmpGetNextActiveHive.c)
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
  *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
- *     CmpTransMgrSyncHive @ 0x1406FD134 (CmpTransMgrSyncHive.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
+ *     CmpTransMgrSyncHive @ 0x1406FD114 (CmpTransMgrSyncHive.c)
  */
 
 __int64 __fastcall CmpTransMgrPrepare(__int64 a1, __int64 a2, _DWORD *a3, _BYTE *a4)

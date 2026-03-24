@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FreeAllReservedRequests@FxIoQueue@@AEAAXE@Z @ 0x1C0082780
+ * XREFs of ?FreeAllReservedRequests@FxIoQueue@@AEAAXE@Z @ 0x1C00779D4
  * Callers:
- *     ?AssignForwardProgressPolicy@FxIoQueue@@QEAAJPEAU_WDF_IO_QUEUE_FORWARD_PROGRESS_POLICY@@@Z @ 0x1C002F8F4 (-AssignForwardProgressPolicy@FxIoQueue@@QEAAJPEAU_WDF_IO_QUEUE_FORWARD_PROGRESS_POLICY@@@Z.c)
- *     ?Dispose@FxIoQueue@@UEAAEXZ @ 0x1C0081AB0 (-Dispose@FxIoQueue@@UEAAEXZ.c)
+ *     ?Dispose@FxIoQueue@@UEAAEXZ @ 0x1C0075FA0 (-Dispose@FxIoQueue@@UEAAEXZ.c)
+ *     ?AssignForwardProgressPolicy@FxIoQueue@@QEAAJPEAU_WDF_IO_QUEUE_FORWARD_PROGRESS_POLICY@@@Z @ 0x1C00777C4 (-AssignForwardProgressPolicy@FxIoQueue@@QEAAJPEAU_WDF_IO_QUEUE_FORWARD_PROGRESS_POLICY@@@Z.c)
  * Callees:
- *     ?FreeRequest@FxRequest@@QEAAXXZ @ 0x1C0068670 (-FreeRequest@FxRequest@@QEAAXXZ.c)
+ *     ?FreeRequest@FxRequest@@QEAAXXZ @ 0x1C004EDA0 (-FreeRequest@FxRequest@@QEAAXXZ.c)
  */
 
 void __fastcall FxIoQueue::FreeAllReservedRequests(FxIoQueue *this, unsigned __int8 Verify)

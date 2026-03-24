@@ -1,17 +1,17 @@
 /*
- * XREFs of DxgkShutdown @ 0x1C0301AD0
+ * XREFs of DxgkShutdown @ 0x1C0261710
  * Callers:
  *     <none>
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?NotifyShutdown@DXGGLOBAL@@QEAAXXZ @ 0x1C030AEB0 (-NotifyShutdown@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?NotifyShutdown@DXGGLOBAL@@QEAAXXZ @ 0x1C026A338 (-NotifyShutdown@DXGGLOBAL@@QEAAXXZ.c)
  */
 
 __int64 __fastcall DxgkShutdown(__int64 a1, IRP *a2)
 {
   DXGGLOBAL *Global; // rax
 
-  Global = DXGGLOBAL_GetGlobal();
+  Global = DXGGLOBAL::GetGlobal(a1, (__int64)a2);
   DXGGLOBAL::NotifyShutdown(Global);
   a2->IoStatus.Information = 0LL;
   a2->IoStatus.Status = 0;

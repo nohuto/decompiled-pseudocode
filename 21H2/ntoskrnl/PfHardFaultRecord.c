@@ -1,9 +1,9 @@
 /*
- * XREFs of PfHardFaultRecord @ 0x14027B334
+ * XREFs of PfHardFaultRecord @ 0x1402AE114
  * Callers:
- *     MiIssueHardFault @ 0x14027A1F0 (MiIssueHardFault.c)
+ *     MiIssueHardFault @ 0x14030E9B0 (MiIssueHardFault.c)
  * Callees:
- *     EtwGetKernelTraceTimestampSilo @ 0x14027B3C0 (EtwGetKernelTraceTimestampSilo.c)
+ *     EtwGetKernelTraceTimestampSilo @ 0x1402AE19C (EtwGetKernelTraceTimestampSilo.c)
  */
 
 __int64 __fastcall PfHardFaultRecord(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, __int64 a6)
@@ -13,14 +13,14 @@ __int64 __fastcall PfHardFaultRecord(__int64 a1, __int64 a2, int a3, __int64 a4,
   *(_QWORD *)(a1 + 32) = a2;
   *(_QWORD *)(a1 + 40) = a4;
   *(_QWORD *)(a1 + 48) = *(_QWORD *)(a5 + 24);
-  *(_DWORD *)(a1 + 56) = *(_DWORD *)(a6 + 1232);
+  *(_DWORD *)(a1 + 56) = *(_DWORD *)(a6 + 1152);
   *(_DWORD *)(a1 + 60) = a3;
   if ( (PerfGlobalGroupMask & 0x2000) != 0 )
     EtwGetKernelTraceTimestampSilo(a1, 0x2000LL, *(_QWORD *)(*(_QWORD *)(a6 + 544) + 2160LL));
   else
     *(_OWORD *)a1 = 0LL;
-  result = (unsigned int)dword_140CF5E54;
-  if ( (dword_140CF5E54 & 1) != 0 )
+  result = (unsigned int)dword_140CEC354;
+  if ( (dword_140CEC354 & 1) != 0 )
   {
     result = MEMORY[0xFFFFF78000000320];
     *(_QWORD *)(a1 + 64) = MEMORY[0xFFFFF78000000320];

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?UpdateGlobalCursorOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@AEBUtagPOINT@@PEBUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00575D0
+ * XREFs of ?UpdateGlobalCursorOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@AEBUtagPOINT@@PEBUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004657C
  * Callers:
- *     ?DeliverMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@AEBVCInputDest@@AEBUInputDeliveryContext@1@PEAU_mouseCursorEvent@@@Z @ 0x1C0057458 (-DeliverMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@AEBVCInputDest@@AEBUInputDel.c)
- *     UpdateGlobalCursorOwner @ 0x1C00E5C20 (UpdateGlobalCursorOwner.c)
+ *     ?DeliverMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@AEBVCInputDest@@AEBUInputDeliveryContext@1@PEAU_mouseCursorEvent@@@Z @ 0x1C00464AC (-DeliverMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@AEBVCInputDest@@AEBUInputDel.c)
+ *     UpdateGlobalCursorOwner @ 0x1C01AF480 (UpdateGlobalCursorOwner.c)
  * Callees:
- *     IsPostIAMShellHookMessageExSupported @ 0x1C0013E0C (IsPostIAMShellHookMessageExSupported.c)
- *     EtwTraceWakePump @ 0x1C00573C0 (EtwTraceWakePump.c)
- *     CoalesceInputSourceMouseMoves @ 0x1C0057400 (CoalesceInputSourceMouseMoves.c)
- *     ApiSetEditionUpdateCursorOnMouseMove @ 0x1C0057738 (ApiSetEditionUpdateCursorOnMouseMove.c)
- *     ?OnGlobalCursorOwnerComputed@UpdatePointerGraphicDevice@CMouseProcessor@@QEAA_NXZ @ 0x1C00B5E68 (-OnGlobalCursorOwnerComputed@UpdatePointerGraphicDevice@CMouseProcessor@@QEAA_NXZ.c)
- *     ?PostQEventWork@CBaseProcessor@@IEAAXPEAUHWND__@@W4EventWorkId@1@I_K_J@Z @ 0x1C00BCDF0 (-PostQEventWork@CBaseProcessor@@IEAAXPEAUHWND__@@W4EventWorkId@1@I_K_J@Z.c)
- *     IsSetPointerSupported @ 0x1C00CC610 (IsSetPointerSupported.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     EtwTraceWakePump @ 0x1C00462A0 (EtwTraceWakePump.c)
+ *     CoalesceInputSourceMouseMoves @ 0x1C0046440 (CoalesceInputSourceMouseMoves.c)
+ *     ApiSetEditionUpdateCursorOnMouseMove @ 0x1C00466EC (ApiSetEditionUpdateCursorOnMouseMove.c)
+ *     ?OnGlobalCursorOwnerComputed@UpdatePointerGraphicDevice@CMouseProcessor@@QEAA_NXZ @ 0x1C00A69D4 (-OnGlobalCursorOwnerComputed@UpdatePointerGraphicDevice@CMouseProcessor@@QEAA_NXZ.c)
+ *     ?PostQEventWork@CBaseProcessor@@IEAAXPEAUHWND__@@W4EventWorkId@1@I_K_J@Z @ 0x1C00A9A60 (-PostQEventWork@CBaseProcessor@@IEAAXPEAUHWND__@@W4EventWorkId@1@I_K_J@Z.c)
+ *     IsPostIAMShellHookMessageExSupported @ 0x1C00AC540 (IsPostIAMShellHookMessageExSupported.c)
+ *     IsSetPointerSupported @ 0x1C00C4FDC (IsSetPointerSupported.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CMouseProcessor::UpdateGlobalCursorOwner(
@@ -25,49 +25,50 @@ void __fastcall CMouseProcessor::UpdateGlobalCursorOwner(
   _QWORD *updated; // rdi
   struct tagQ *v10; // rsi
   __int64 v11; // rbx
+  __int64 v12; // r8
 
   if ( !*(_DWORD *)a2 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 5160LL);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 4985LL);
   if ( *((_DWORD *)a2 + 23) == 2 )
-  {
     v8 = (_QWORD *)*((_QWORD *)a2 + 10);
-    if ( v8 )
+  else
+    v8 = 0LL;
+  if ( v8 )
+  {
+    updated = (_QWORD *)ApiSetEditionUpdateCursorOnMouseMove(v8, *a3);
+    v10 = *(struct tagQ **)(v8[2] + 432LL);
+    if ( v10 != gpqCursor )
     {
-      updated = (_QWORD *)ApiSetEditionUpdateCursorOnMouseMove(v8, *a3);
-      v10 = *(struct tagQ **)(v8[2] + 432LL);
-      if ( v10 != gpqCursor )
+      if ( gpqCursor )
       {
-        if ( gpqCursor )
+        if ( *((_QWORD *)gpqCursor + 13) )
         {
-          if ( *((_QWORD *)gpqCursor + 14) )
+          CoalesceInputSourceMouseMoves(gpqCursor, a4);
+          EtwTraceWakePump(*(_QWORD *)(*((_QWORD *)gpqCursor + 13) + 16LL), 0LL, 0);
+          *((_DWORD *)gpqCursor + 97) |= 0x20u;
+          if ( qword_1C0256118 )
+            qword_1C0256118(*(_QWORD *)(*((_QWORD *)gpqCursor + 13) + 16LL), 2LL, v12);
+        }
+        if ( updated && *updated != *v8 )
+        {
+          if ( (int)IsPostIAMShellHookMessageExSupported() >= 0 && qword_1C0256B90 )
+            qword_1C0256B90(v8[3], 39LL, *v8);
+          v11 = updated[3];
+          if ( (*(_DWORD *)(v11 + 48) & 0x5C0) != 0 )
           {
-            CoalesceInputSourceMouseMoves(gpqCursor, a4);
-            EtwTraceWakePump(*(_QWORD *)(*((_QWORD *)gpqCursor + 14) + 16LL), 0LL, 0);
-            *((_DWORD *)gpqCursor + 99) |= 0x20u;
-            if ( qword_1C0295588 )
-              qword_1C0295588(*(_QWORD *)(*((_QWORD *)gpqCursor + 14) + 16LL), 2LL);
-          }
-          if ( updated && *updated != *v8 )
-          {
-            if ( (int)IsPostIAMShellHookMessageExSupported() >= 0 && qword_1C0295FA0 )
-              qword_1C0295FA0(v8[3], 39LL, *v8);
-            v11 = updated[3];
-            if ( (*(_DWORD *)(v11 + 48) & 0xDC0) != 0 )
-            {
-              CBaseProcessor::PostQEventWork(3520LL, **(_QWORD **)(v11 + 192), 1LL);
-              *(_DWORD *)(v11 + 48) &= 0xFFFFF23F;
-            }
+            CBaseProcessor::PostQEventWork(this, **(_QWORD **)(v11 + 184), 1LL);
+            *(_DWORD *)(v11 + 48) &= 0xFFFFFA3F;
           }
         }
-        gpqCursor = v10;
-        if ( qword_1C0296010 )
-          qword_1C0296010();
-        if ( CMouseProcessor::UpdatePointerGraphicDevice::OnGlobalCursorOwnerComputed((CMouseProcessor *)((char *)this + 3824))
-          && (int)IsSetPointerSupported() >= 0 )
-        {
-          if ( qword_1C02959E8 )
-            qword_1C02959E8(1LL);
-        }
+      }
+      gpqCursor = v10;
+      if ( qword_1C0256C00 )
+        qword_1C0256C00();
+      if ( CMouseProcessor::UpdatePointerGraphicDevice::OnGlobalCursorOwnerComputed((CMouseProcessor *)((char *)this + 3816))
+        && (int)IsSetPointerSupported() >= 0 )
+      {
+        if ( qword_1C02565D8 )
+          qword_1C02565D8(1LL);
       }
     }
   }

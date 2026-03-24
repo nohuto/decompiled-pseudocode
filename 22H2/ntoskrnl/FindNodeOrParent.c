@@ -1,47 +1,45 @@
 /*
- * XREFs of FindNodeOrParent @ 0x140327F20
+ * XREFs of FindNodeOrParent @ 0x140310674
  * Callers:
- *     RtlDeleteElementGenericTable @ 0x140327A50 (RtlDeleteElementGenericTable.c)
- *     RtlInsertElementGenericTable @ 0x140327B80 (RtlInsertElementGenericTable.c)
- *     RtlLookupElementGenericTableFull @ 0x1405AE580 (RtlLookupElementGenericTableFull.c)
+ *     RtlDeleteElementGenericTable @ 0x140310470 (RtlDeleteElementGenericTable.c)
+ *     RtlInsertElementGenericTable @ 0x140310500 (RtlInsertElementGenericTable.c)
+ *     RtlLookupElementGenericTableFull @ 0x14058BBD0 (RtlLookupElementGenericTableFull.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FindNodeOrParent(__int64 *a1, __int64 a2, _QWORD *a3)
 {
   __int64 v3; // rbx
-  __int64 result; // rax
-  __int64 v8; // rax
-  int v9; // eax
+  unsigned int v7; // edi
+  int v8; // eax
+  __int64 v9; // rax
 
   v3 = *a1;
   if ( !*a1 )
     return 0LL;
+  v7 = 1;
   while ( 1 )
   {
-    v9 = ((__int64 (__fastcall *)(__int64 *, __int64, __int64))a1[5])(a1, a2, v3 + 40);
-    if ( !v9 )
-      break;
-    if ( v9 != 1 )
-    {
-      result = 1LL;
-      goto LABEL_10;
-    }
-    v8 = *(_QWORD *)(v3 + 16);
+    v8 = ((__int64 (__fastcall *)(__int64 *, __int64, __int64))a1[5])(a1, a2, v3 + 40);
     if ( !v8 )
+      break;
+    if ( v8 != 1 )
+      goto LABEL_8;
+    v9 = *(_QWORD *)(v3 + 16);
+    if ( !v9 )
     {
-      result = 3LL;
-      goto LABEL_10;
+      v7 = 3;
+      goto LABEL_8;
     }
-LABEL_4:
-    v3 = v8;
+LABEL_6:
+    v3 = v9;
   }
-  v8 = *(_QWORD *)(v3 + 8);
-  if ( v8 )
-    goto LABEL_4;
-  result = 2LL;
-LABEL_10:
+  v9 = *(_QWORD *)(v3 + 8);
+  if ( v9 )
+    goto LABEL_6;
+  v7 = 2;
+LABEL_8:
   *a3 = v3;
-  return result;
+  return v7;
 }

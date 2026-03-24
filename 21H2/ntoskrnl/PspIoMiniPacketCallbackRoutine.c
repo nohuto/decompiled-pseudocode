@@ -1,13 +1,13 @@
 /*
- * XREFs of PspIoMiniPacketCallbackRoutine @ 0x1406BCC00
+ * XREFs of PspIoMiniPacketCallbackRoutine @ 0x140693F70
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
  */
 
-LONG_PTR __fastcall PspIoMiniPacketCallbackRoutine(__int64 a1, _DWORD *a2)
+void __fastcall PspIoMiniPacketCallbackRoutine(__int64 a1, struct _DMA_ADAPTER *a2)
 {
-  *a2 = 0;
-  return ObfDereferenceObject(a2);
+  *(_DWORD *)&a2->Version = 0;
+  HalPutDmaAdapter(a2);
 }

@@ -2,8 +2,8 @@
  * XREFs of IoCreateFileEx @ 0x14060B870
  * Callers:
  *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     IopOpenLinkOrRenameTarget @ 0x14068BA48 (IopOpenLinkOrRenameTarget.c)
- *     IoCreateFileSpecifyDeviceObjectHint @ 0x1406C6630 (IoCreateFileSpecifyDeviceObjectHint.c)
+ *     IopOpenLinkOrRenameTarget @ 0x14068BA28 (IopOpenLinkOrRenameTarget.c)
+ *     IoCreateFileSpecifyDeviceObjectHint @ 0x1406C6610 (IoCreateFileSpecifyDeviceObjectHint.c)
  * Callees:
  *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x14058194C (FsRtlpPrepareExtraCreateParametersForCreate.c)
  *     IopCreateFile @ 0x14060BAC0 (IopCreateFile.c)

@@ -1,15 +1,15 @@
 /*
- * XREFs of ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C01EB8FC
+ * XREFs of ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C01ABEFC
  * Callers:
- *     ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EAEA0 (-NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsConvOrNonConvProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB140 (-NlsConvOrNonConvProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsGetCurrentInputMode@@YAEPEAE@Z @ 0x1C01EB174 (-NlsGetCurrentInputMode@@YAEPEAE@Z.c)
- *     ?NlsHelpOrEndProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB1C0 (-NlsHelpOrEndProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB260 (-NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsKanaEventProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB3A0 (-NlsKanaEventProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsKanaModeToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB3F0 (-NlsKanaModeToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB450 (-NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsNumpadModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB550 (-NlsNumpadModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB4A0 (-NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsConvOrNonConvProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB740 (-NlsConvOrNonConvProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsGetCurrentInputMode@@YAEPEAE@Z @ 0x1C01AB774 (-NlsGetCurrentInputMode@@YAEPEAE@Z.c)
+ *     ?NlsHelpOrEndProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB7C0 (-NlsHelpOrEndProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB860 (-NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsKanaEventProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB9A0 (-NlsKanaEventProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsKanaModeToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB9F0 (-NlsKanaModeToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01ABA50 (-NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsNumpadModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01ABB50 (-NlsNumpadModeProc@@YAHPEAUtagKE@@_KK@Z.c)
  * Callees:
  *     <none>
  */

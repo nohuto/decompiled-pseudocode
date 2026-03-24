@@ -1,15 +1,15 @@
 /*
- * XREFs of MmMarkPhysicalMemoryAsGood @ 0x14062C5C0
+ * XREFs of MmMarkPhysicalMemoryAsGood @ 0x1405303A0
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlinkBadPages @ 0x14062AD80 (MiUnlinkBadPages.c)
+ *     MiUnlinkBadPages @ 0x14052F038 (MiUnlinkBadPages.c)
  */
 
 __int64 __fastcall MmMarkPhysicalMemoryAsGood(_DWORD *a1, _DWORD *a2)
 {
-  unsigned __int64 v4; // rcx
-  unsigned __int64 v5; // rdx
+  ULONG_PTR v4; // rcx
+  ULONG_PTR v5; // rdx
 
   if ( (*a1 & 0xFFF) != 0 )
     return 3221225711LL;

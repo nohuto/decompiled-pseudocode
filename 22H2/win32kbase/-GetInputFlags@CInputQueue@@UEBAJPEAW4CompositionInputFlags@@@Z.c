@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetInputFlags@CInputQueue@@UEBAJPEAW4CompositionInputFlags@@@Z @ 0x1C00CA040
+ * XREFs of ?GetInputFlags@CInputQueue@@UEBAJPEAW4CompositionInputFlags@@@Z @ 0x1C00BC680
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 __int64 __fastcall CInputQueue::GetInputFlags(CInputQueue *this, enum CompositionInputFlags *a2)
 {
-  *(_DWORD *)a2 = *((_DWORD *)this + 16);
+  *(_DWORD *)a2 = *((_DWORD *)this + 20);
   return 0LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CSpriteVectorShape::sc_StrokeDashOffset__ @ 0x180002F60
+ * XREFs of _dynamic_initializer_for__CSpriteVectorShape::sc_StrokeDashOffset__ @ 0x180002820
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CSpriteVectorShape::sc_StrokeDashOffset__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E4AF8 = (unsigned __int64)CSpriteVectorShape::SetRenderStrokeStyleInvalidatingAnimatedProperty;
-  qword_1803E4B08 = v1;
+  xmmword_180346328 = (unsigned __int64)CSpriteVectorShape::SetRenderStrokeStyleInvalidatingAnimatedProperty;
+  qword_180346338 = v1;
   return result;
 }

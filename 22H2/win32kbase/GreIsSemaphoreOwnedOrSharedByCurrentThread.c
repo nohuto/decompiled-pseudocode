@@ -1,8 +1,10 @@
 /*
- * XREFs of GreIsSemaphoreOwnedOrSharedByCurrentThread @ 0x1C0086F50
+ * XREFs of GreIsSemaphoreOwnedOrSharedByCurrentThread @ 0x1C004AB60
  * Callers:
- *     CheckOrAcquireDwmStateLock @ 0x1C0086ED4 (CheckOrAcquireDwmStateLock.c)
- *     GreIsDwmStateLocked @ 0x1C0086F20 (GreIsDwmStateLocked.c)
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C000DEF0 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     CheckOrAcquireDwmStateLock @ 0x1C004AA44 (CheckOrAcquireDwmStateLock.c)
+ *     GreIsDwmStateLocked @ 0x1C004AAD0 (GreIsDwmStateLocked.c)
+ *     UserReferenceDwmApiPort @ 0x1C004AAF0 (UserReferenceDwmApiPort.c)
  * Callees:
  *     <none>
  */

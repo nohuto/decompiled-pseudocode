@@ -1,13 +1,13 @@
 /*
- * XREFs of ?EnumSingleRegistry@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@PEAGW4DXGKP_HARDLINKTYPE@@W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0303800
+ * XREFs of ?EnumSingleRegistry@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@PEAGW4DXGKP_HARDLINKTYPE@@W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C02631CC
  * Callers:
- *     ?EnumSingleDriverKey@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0303754 (-EnumSingleDriverKey@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?EnumSingleDriverKey@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0263120 (-EnumSingleDriverKey@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x1C002B1B0 (__report_rangecheckfailure.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C0044448 (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
- *     ?EnumDriverFileLinks@CDriverStoreCopy@@IEAAJPEAGW4DXGKP_HARDLINKTYPE@@W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0303450 (-EnumDriverFileLinks@CDriverStoreCopy@@IEAAJPEAGW4DXGKP_HARDLINKTYPE@@W4DXGKP_HARDLINKOVERWRITET.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C0024950 (__report_rangecheckfailure.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C0038DF4 (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
+ *     ?EnumDriverFileLinks@CDriverStoreCopy@@IEAAJPEAGW4DXGKP_HARDLINKTYPE@@W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0262DFC (-EnumDriverFileLinks@CDriverStoreCopy@@IEAAJPEAGW4DXGKP_HARDLINKTYPE@@W4DXGKP_HARDLINKOVERWRITET.c)
  */
 
 NTSTATUS __fastcall CDriverStoreCopy::EnumSingleRegistry(__int64 a1, const void **a2, size_t *a3, int a4, int a5)
@@ -23,15 +23,11 @@ NTSTATUS __fastcall CDriverStoreCopy::EnumSingleRegistry(__int64 a1, const void 
     return -1073741823;
   memmove(v12, a2[1], v5);
   if ( (v5 & 0xFFFE) >= 0x206 )
-  {
     v11 = 518LL;
-  }
   else
-  {
     v11 = v5 & 0xFFFFFFFFFFFFFFFEuLL;
-    if ( (v5 & 0xFFFFFFFFFFFFFFFEuLL) >= 0x208 )
-      _report_rangecheckfailure();
-  }
+  if ( v11 >= 0x208 )
+    _report_rangecheckfailure();
   *(unsigned __int16 *)((char *)v12 + v11) = 0;
   result = RtlStringCbCatW(v12, v10, a3);
   if ( result >= 0 )

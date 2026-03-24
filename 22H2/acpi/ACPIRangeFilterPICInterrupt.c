@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIRangeFilterPICInterrupt @ 0x1C003B074
+ * XREFs of ACPIRangeFilterPICInterrupt @ 0x1C002F4EC
  * Callers:
- *     ACPIBusIrpQueryResourceRequirements @ 0x1C0080990 (ACPIBusIrpQueryResourceRequirements.c)
- *     ACPIBusIrpQueryResources @ 0x1C0080E90 (ACPIBusIrpQueryResources.c)
+ *     ACPIBusIrpQueryResources @ 0x1C009C0D0 (ACPIBusIrpQueryResources.c)
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C009C4B0 (ACPIBusIrpQueryResourceRequirements.c)
  * Callees:
  *     <none>
  */
@@ -14,8 +14,8 @@ __int64 __fastcall ACPIRangeFilterPICInterrupt(__int64 a1)
   unsigned int v3; // eax
   unsigned int v4; // r8d
   __int64 v5; // rax
-  unsigned int v6; // r11d
-  unsigned int v7; // r9d
+  unsigned int v7; // r11d
+  unsigned int v8; // r9d
 
   if ( a1 )
   {
@@ -29,7 +29,7 @@ __int64 __fastcall ACPIRangeFilterPICInterrupt(__int64 a1)
         v4 = 0;
         if ( v3 )
           break;
-LABEL_14:
+LABEL_6:
         ++v1;
         v2 += 32 * v3 + 8;
         if ( v1 >= *(_DWORD *)(a1 + 28) )
@@ -40,31 +40,31 @@ LABEL_14:
         v5 = 32LL * v4;
         if ( *(_BYTE *)(v5 + v2 + 9) == 2 )
         {
-          v6 = *(_DWORD *)(v5 + v2 + 16);
-          v7 = *(_DWORD *)(v5 + v2 + 20);
-          if ( v6 == 2 )
+          v7 = *(_DWORD *)(v5 + v2 + 16);
+          v8 = *(_DWORD *)(v5 + v2 + 20);
+          if ( v7 == 2 )
           {
-            if ( v7 != 2 )
-              goto LABEL_12;
+            if ( v8 != 2 )
+              goto LABEL_15;
             *(_BYTE *)(v5 + v2 + 9) = 0;
           }
           else
           {
-            if ( v7 != 2 )
+            if ( v8 != 2 )
             {
-              if ( v6 >= 2 || v7 <= 2 )
-                goto LABEL_13;
-LABEL_12:
+              if ( v7 >= 2 || v8 <= 2 )
+                goto LABEL_5;
+LABEL_15:
               *(_DWORD *)(v5 + v2 + 16) = 3;
-              goto LABEL_13;
+              goto LABEL_5;
             }
             *(_DWORD *)(v5 + v2 + 20) = 1;
           }
         }
-LABEL_13:
+LABEL_5:
         v3 = *(_DWORD *)(v2 + 4);
         if ( ++v4 >= v3 )
-          goto LABEL_14;
+          goto LABEL_6;
       }
     }
   }

@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmRemoveDeviceFromContainerWorker @ 0x140A26994
+ * XREFs of _CmRemoveDeviceFromContainerWorker @ 0x14072BC20
  * Callers:
- *     _CmRemoveDeviceFromContainer @ 0x140A26854 (_CmRemoveDeviceFromContainer.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14072BAEC (_CmRemoveDeviceFromContainer.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406994BC (_PnpCtxRegQueryInfoKey.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1407720B8 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x14078014C (_PnpCtxGetCachedContextBaseKey.c)
- *     _CmDeleteDeviceContainer @ 0x140A25858 (_CmDeleteDeviceContainer.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406C484C (_PnpCtxRegQueryInfoKey.c)
+ *     _CmDeleteDeviceContainer @ 0x14072BE7C (_CmDeleteDeviceContainer.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1407460B4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
  */
 
 __int64 __fastcall CmRemoveDeviceFromContainerWorker(__int64 a1, __int64 a2, __int64 a3, const WCHAR *a4, _BYTE *a5)
@@ -60,7 +60,7 @@ __int64 __fastcall CmRemoveDeviceFromContainerWorker(__int64 a1, __int64 a2, __i
           DestinationString = 0LL;
           if ( RtlInitUnicodeStringEx(&DestinationString, a4) >= 0 )
             ZwDeleteValueKey(KeyHandle, &DestinationString);
-          CachedContextBaseKey = PnpCtxRegQueryInfoKey(v13, (int)KeyHandle, 0, 0, (__int64)&v18, 0LL, 0LL);
+          CachedContextBaseKey = PnpCtxRegQueryInfoKey(v13, KeyHandle, 0LL, 0LL, &v18, 0LL, 0LL);
           if ( CachedContextBaseKey >= 0 )
           {
             if ( !v18 )
@@ -69,9 +69,9 @@ __int64 __fastcall CmRemoveDeviceFromContainerWorker(__int64 a1, __int64 a2, __i
                 v16 = *(_QWORD *)(v15 + 8);
               else
                 v16 = 0LL;
-              RegRtlDeleteTreeInternal((__int64)KeyHandle, 0LL, v16, 0);
+              RegRtlDeleteTreeInternal(KeyHandle, 0LL, v16, 0LL);
             }
-            CachedContextBaseKey = PnpCtxRegQueryInfoKey(v14, (int)Handle, (int)&v18, 0, 0LL, 0LL, 0LL);
+            CachedContextBaseKey = PnpCtxRegQueryInfoKey(v14, Handle, &v18, 0LL, 0LL, 0LL, 0LL);
             if ( CachedContextBaseKey >= 0 )
             {
               if ( !v18 )
@@ -80,7 +80,7 @@ __int64 __fastcall CmRemoveDeviceFromContainerWorker(__int64 a1, __int64 a2, __i
                 if ( CachedContextBaseKey >= 0 )
                   *a5 = 1;
               }
-              PnpObjectRaisePropertyChangeEvent(a1, (__int64)a4, 1LL, 0LL, 0LL, (__int64)&DEVPKEY_Device_ContainerId);
+              PnpObjectRaisePropertyChangeEvent(a1, (_DWORD)a4, 1, 0, 0LL, (__int64)&DEVPKEY_Device_ContainerId);
             }
           }
         }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiBuildAndOpenDeviceDirectoryPath @ 0x1409439F8
+ * XREFs of PiBuildAndOpenDeviceDirectoryPath @ 0x14089ECC0
  * Callers:
- *     IoGetDeviceDirectory @ 0x140943540 (IoGetDeviceDirectory.c)
+ *     IoGetDeviceDirectory @ 0x14089E810 (IoGetDeviceDirectory.c)
  * Callees:
- *     RtlUnicodeStringPrintfEx @ 0x1402D1840 (RtlUnicodeStringPrintfEx.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     IopAllocateUnicodeString @ 0x140769784 (IopAllocateUnicodeString.c)
- *     PiOpenDirectoryWithRoot @ 0x140944390 (PiOpenDirectoryWithRoot.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14036F060 (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IopAllocateUnicodeString @ 0x1407496AC (IopAllocateUnicodeString.c)
+ *     PiOpenDirectoryWithRoot @ 0x14089F630 (PiOpenDirectoryWithRoot.c)
  */
 
 __int64 __fastcall PiBuildAndOpenDeviceDirectoryPath(
@@ -16,27 +16,23 @@ __int64 __fastcall PiBuildAndOpenDeviceDirectoryPath(
         unsigned __int16 *a2,
         __int64 a3,
         __int64 a4,
-        __int64 *a5)
+        _QWORD *a5)
 {
-  void *v7; // rdi
-  __int64 v9; // r9
-  unsigned int v10; // ecx
+  __int64 v8; // r9
+  unsigned int v9; // ecx
   int UnicodeString; // ebx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v14; // [rsp+80h] [rbp+8h] BYREF
 
   DestinationString = 0LL;
-  v7 = 0LL;
-  v14 = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  v9 = -1LL;
+  v8 = -1LL;
   do
-    ++v9;
-  while ( *(_WORD *)(a3 + 2 * v9) );
-  v10 = *a2 + SourceString->Length + 20 + 2 * v9;
-  if ( v10 <= 0xFFFE )
+    ++v8;
+  while ( *(_WORD *)(a3 + 2 * v8) );
+  v9 = *a2 + SourceString->Length + 20 + 2 * v8;
+  if ( v9 <= 0xFFFE )
   {
-    UnicodeString = IopAllocateUnicodeString((__int64)&DestinationString, v10);
+    UnicodeString = IopAllocateUnicodeString((__int64)&DestinationString, v9);
     if ( UnicodeString >= 0 )
     {
       UnicodeString = RtlUnicodeStringPrintfEx(
@@ -50,11 +46,9 @@ __int64 __fastcall PiBuildAndOpenDeviceDirectoryPath(
                         a3);
       if ( UnicodeString >= 0 )
       {
-        UnicodeString = PiOpenDirectoryWithRoot(SourceString, &DestinationString, (__int64)&v14);
-        if ( UnicodeString < 0 )
-          v7 = (void *)v14;
-        else
-          *a5 = v14;
+        UnicodeString = PiOpenDirectoryWithRoot(SourceString, &DestinationString);
+        if ( UnicodeString >= 0 )
+          *a5 = 0LL;
       }
     }
   }
@@ -62,8 +56,6 @@ __int64 __fastcall PiBuildAndOpenDeviceDirectoryPath(
   {
     UnicodeString = -2147483643;
   }
-  RtlFreeUnicodeString(&DestinationString);
-  if ( v7 )
-    ZwClose(v7);
+  RtlFreeAnsiString(&DestinationString);
   return (unsigned int)UnicodeString;
 }

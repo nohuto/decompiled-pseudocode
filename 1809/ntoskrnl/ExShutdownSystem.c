@@ -8,9 +8,9 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ExpRecordShutdownTime @ 0x140319828 (ExpRecordShutdownTime.c)
+ *     ExpRecordShutdownTime @ 0x140319928 (ExpRecordShutdownTime.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ExSwapinWorkerThreads @ 0x1406E033C (ExSwapinWorkerThreads.c)
+ *     ExSwapinWorkerThreads @ 0x1406E031C (ExSwapinWorkerThreads.c)
  */
 
 __int64 ExShutdownSystem()
@@ -56,10 +56,10 @@ __int64 ExShutdownSystem()
       ObfDereferenceObject(ExpControlKey);
       ExpControlKey = 0LL;
     }
-    if ( qword_140409A98 )
+    if ( qword_140409A48 )
     {
-      ObfDereferenceObject(qword_140409A98);
-      qword_140409A98 = 0LL;
+      ObfDereferenceObject(qword_140409A48);
+      qword_140409A48 = 0LL;
     }
     if ( ExpProductTypeKey )
     {

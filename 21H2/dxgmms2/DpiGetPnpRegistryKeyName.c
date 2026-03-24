@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiGetPnpRegistryKeyName @ 0x1C001CA14
+ * XREFs of DpiGetPnpRegistryKeyName @ 0x1C0017680
  * Callers:
- *     ?ReadPhysicalAdapterConfiguration@VIDMM_GLOBAL@@IEAAXI@Z @ 0x1C00B27C0 (-ReadPhysicalAdapterConfiguration@VIDMM_GLOBAL@@IEAAXI@Z.c)
+ *     ?ReadPhysicalAdapterConfiguration@VIDMM_GLOBAL@@IEAAXI@Z @ 0x1C00983B4 (-ReadPhysicalAdapterConfiguration@VIDMM_GLOBAL@@IEAAXI@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DpiGetPnpRegistryKeyName(__int64 a1)

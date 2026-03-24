@@ -1,39 +1,39 @@
 /*
- * XREFs of SeAuditHandleCreation @ 0x1406CE5F8
+ * XREFs of SeAuditHandleCreation @ 0x1406B0F68
  * Callers:
- *     ObDuplicateObject @ 0x1407A1F80 (ObDuplicateObject.c)
+ *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
  * Callees:
- *     PsGetCurrentThreadProcessId @ 0x1402A7BC0 (PsGetCurrentThreadProcessId.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwDuplicateObject @ 0x14041BEE0 (ZwDuplicateObject.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x1407241BC (SepAdtPrivilegeObjectAuditAlarm.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x140882966 (SepAdtClassifyObjectIntoSubCategory.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409C8EE8 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1409C9C64 (SepAdtStagingEvent.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402ED5E0 (PsGetCurrentThreadProcessId.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1403FAB20 (ZwDuplicateObject.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14062792C (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F498 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x140920200 (SepAdtStagingEvent.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x140920980 (SepAdtClassifyObjectIntoSubCategory.c)
  */
 
-_UNKNOWN **__fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
+char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
 {
-  _UNKNOWN **result; // rax
+  _UNKNOWN **v3; // rax
   __int64 v4; // r15
   char v5; // si
   void *v6; // r14
-  PVOID v8; // rbx
+  struct _DMA_ADAPTER *v8; // rbx
   __int64 v9; // r8
   unsigned __int16 v10; // r13
   unsigned __int64 CurrentThreadProcessId; // rax
   unsigned __int64 v12; // rax
   __int64 v13; // rdx
-  int v14; // [rsp+48h] [rbp-90h]
+  int v15; // [rsp+48h] [rbp-90h]
   _UNKNOWN *retaddr; // [rsp+D8h] [rbp+0h] BYREF
   HANDLE TargetHandle; // [rsp+E0h] [rbp+8h] BYREF
-  void *v17; // [rsp+E8h] [rbp+10h] BYREF
+  void *v18; // [rsp+E8h] [rbp+10h] BYREF
   PVOID Object; // [rsp+F0h] [rbp+18h] BYREF
 
-  result = &retaddr;
-  v17 = a2;
+  v3 = &retaddr;
+  v18 = a2;
   v4 = *(_QWORD *)(a1 + 72);
   v5 = 0;
   TargetHandle = 0LL;
@@ -49,17 +49,17 @@ _UNKNOWN **__fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
   {
     if ( *(_BYTE *)(a1 + 124) )
     {
-      result = (_UNKNOWN **)SepAdtPrivilegeObjectAuditAlarm(
-                              (unsigned int)&SeSubsystemName,
-                              (int)a1 + 144,
-                              (int)a1 + 128,
-                              (_DWORD)a2,
-                              *(_QWORD *)(a1 + 32),
-                              *(_QWORD *)(a1 + 48),
-                              *(_QWORD *)(a1 + 56),
-                              *(_DWORD *)(a1 + 20),
-                              *(_QWORD *)v4,
-                              1);
+      LOBYTE(v3) = SepAdtPrivilegeObjectAuditAlarm(
+                     &SeSubsystemName,
+                     (unsigned __int16 *)(a1 + 144),
+                     (unsigned __int16 *)(a1 + 128),
+                     (unsigned __int64)a2,
+                     *(_QWORD *)(a1 + 32),
+                     *(_QWORD *)(a1 + 48),
+                     *(_QWORD *)(a1 + 56),
+                     *(_DWORD *)(a1 + 20),
+                     *(int **)v4,
+                     1);
       goto LABEL_6;
     }
   }
@@ -71,12 +71,12 @@ _UNKNOWN **__fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
   {
     Object = 0LL;
     ObReferenceObjectByHandle(TargetHandle, 0, 0LL, 0, &Object, 0LL);
-    v8 = Object;
+    v8 = (struct _DMA_ADAPTER *)Object;
   }
   LOBYTE(v9) = 1;
   v10 = SepAdtClassifyObjectIntoSubCategory(v8, a1 + 144, v9, 0LL);
   if ( v8 )
-    ObfDereferenceObject(v8);
+    HalPutDmaAdapter(v8);
   if ( TargetHandle )
   {
     ZwClose(TargetHandle);
@@ -86,7 +86,7 @@ _UNKNOWN **__fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
   v5 = SepAdtOpenObjectAuditAlarm(
          v10,
          (int)&SeSubsystemName,
-         (int)&v17,
+         (int)&v18,
          (int)a1 + 144,
          a1 + 128,
          v6,
@@ -104,21 +104,21 @@ _UNKNOWN **__fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
          v4 + 32,
          a1);
   v12 = PsGetCurrentThreadProcessId();
-  LOBYTE(v14) = 1;
-  result = (_UNKNOWN **)SepAdtStagingEvent(
-                          v10,
-                          v13,
-                          &v17,
-                          a1 + 144,
-                          a1 + 128,
-                          *(_QWORD *)(a1 + 32),
-                          *(_QWORD *)(a1 + 48),
-                          *(_DWORD *)(a1 + 24),
-                          *(_DWORD *)(a1 + 20),
-                          v14,
-                          v12,
-                          a1);
+  LOBYTE(v15) = 1;
+  LOBYTE(v3) = SepAdtStagingEvent(
+                 v10,
+                 v13,
+                 &v18,
+                 a1 + 144,
+                 a1 + 128,
+                 *(_QWORD *)(a1 + 32),
+                 *(_QWORD *)(a1 + 48),
+                 *(_DWORD *)(a1 + 24),
+                 *(_DWORD *)(a1 + 20),
+                 v15,
+                 v12,
+                 a1);
 LABEL_6:
   *(_BYTE *)(a1 + 10) = v5;
-  return result;
+  return (char)v3;
 }

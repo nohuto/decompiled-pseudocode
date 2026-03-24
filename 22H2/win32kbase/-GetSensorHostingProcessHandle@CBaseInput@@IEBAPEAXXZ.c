@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ @ 0x1C00AB2E4
+ * XREFs of ?GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ @ 0x1C008A13C
  * Callers:
- *     ?GetCursorUpdateHandle@CMouseSensor@@QEBAPEAXXZ @ 0x1C00AB220 (-GetCursorUpdateHandle@CMouseSensor@@QEBAPEAXXZ.c)
+ *     ?GetCursorUpdateHandle@CMouseSensor@@QEBAPEAXXZ @ 0x1C0088CA0 (-GetCursorUpdateHandle@CMouseSensor@@QEBAPEAXXZ.c)
  * Callees:
- *     LockProcessByClientId @ 0x1C00AB508 (LockProcessByClientId.c)
+ *     LockProcessByClientId @ 0x1C008A1D0 (LockProcessByClientId.c)
  */
 
 void *__fastcall CBaseInput::GetSensorHostingProcessHandle(CBaseInput *this)
@@ -14,7 +14,7 @@ void *__fastcall CBaseInput::GetSensorHostingProcessHandle(CBaseInput *this)
   void *Handle; // [rsp+50h] [rbp+8h] BYREF
   PVOID Object; // [rsp+58h] [rbp+10h] BYREF
 
-  v1 = *((int *)this + 334);
+  v1 = *((int *)this + 318);
   Object = 0LL;
   Handle = (void *)-1LL;
   if ( (int)LockProcessByClientId(v1, &Object) >= 0 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpBlkMceInitialize @ 0x140B174F0
+ * XREFs of HalpBlkMceInitialize @ 0x140A1A4F0
  * Callers:
- *     HalpBlkProcessorStartup @ 0x140B15010 (HalpBlkProcessorStartup.c)
+ *     HalpBlkProcessorStartup @ 0x140A18010 (HalpBlkProcessorStartup.c)
  * Callees:
  *     <none>
  */

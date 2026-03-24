@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CConversionSwapChain@@UEBA?AUPixelFormatInfo@@XZ @ 0x180292B44
+ * XREFs of ?GetPixelFormatInfo@CConversionSwapChain@@UEBA?AUPixelFormatInfo@@XZ @ 0x18024F8CC
  * Callers:
- *     ?GetPixelFormatInfo@CConversionSwapChain@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x18010A4F0 (-GetPixelFormatInfo@CConversionSwapChain@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CConversionSwapChain@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F7D80 (-GetPixelFormatInfo@CConversionSwapChain@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CConversionSwapChain::GetPixelFormatInfo(__int64 a1, __int64 a2)

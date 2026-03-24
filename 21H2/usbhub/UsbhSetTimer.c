@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhSetTimer @ 0x1C002D368
+ * XREFs of UsbhSetTimer @ 0x1C002E77C
  * Callers:
- *     UsbhSetOutOfBandwidthTimer @ 0x1C002D0CC (UsbhSetOutOfBandwidthTimer.c)
+ *     UsbhSetOutOfBandwidthTimer @ 0x1C002E4CC (UsbhSetOutOfBandwidthTimer.c)
  * Callees:
- *     UsbhReferenceListAdd @ 0x1C001AD54 (UsbhReferenceListAdd.c)
- *     UsbhReferenceListRemove @ 0x1C001DCEC (UsbhReferenceListRemove.c)
+ *     UsbhReferenceListAdd @ 0x1C0001AE8 (UsbhReferenceListAdd.c)
+ *     UsbhReferenceListRemove @ 0x1C001B88C (UsbhReferenceListRemove.c)
  */
 
 __int64 __fastcall UsbhSetTimer(__int64 a1, int a2, struct _KTIMER *a3, struct _KDPC *a4, int a5, char a6)

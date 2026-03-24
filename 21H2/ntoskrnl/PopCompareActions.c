@@ -1,7 +1,7 @@
 /*
- * XREFs of PopCompareActions @ 0x1407FF074
+ * XREFs of PopCompareActions @ 0x1407755FC
  * Callers:
- *     PopExecutePowerAction @ 0x1407FEC6C (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
  * Callees:
  *     <none>
  */

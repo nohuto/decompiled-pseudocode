@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdatePriorityClass@DXGDEVICE@@QEAAX_N@Z @ 0x1C0186AB8
+ * XREFs of ?UpdatePriorityClass@DXGDEVICE@@QEAAX_N@Z @ 0x1C00E519C
  * Callers:
- *     DXGDEVICE_UpdatePriorityClass @ 0x1C0003E30 (DXGDEVICE_UpdatePriorityClass.c)
+ *     DXGDEVICE_UpdatePriorityClass @ 0x1C0002080 (DXGDEVICE_UpdatePriorityClass.c)
  * Callees:
- *     ?SetSchedulingPriority@DXGCONTEXT@@QEAAXH_N@Z @ 0x1C0186B0C (-SetSchedulingPriority@DXGCONTEXT@@QEAAXH_N@Z.c)
+ *     ?SetSchedulingPriority@DXGCONTEXT@@QEAAXH_N@Z @ 0x1C00E51F0 (-SetSchedulingPriority@DXGCONTEXT@@QEAAXH_N@Z.c)
  */
 
 void __fastcall DXGDEVICE::UpdatePriorityClass(DXGDEVICE *this, bool a2)
@@ -11,7 +11,7 @@ void __fastcall DXGDEVICE::UpdatePriorityClass(DXGDEVICE *this, bool a2)
   int *v2; // rdi
   int *i; // rbx
 
-  v2 = (int *)((char *)this + 496);
-  for ( i = (int *)*((_QWORD *)this + 62); i != v2 && i; i = *(int **)i )
-    DXGCONTEXT::SetSchedulingPriority((DXGCONTEXT *)i, i[108], a2);
+  v2 = (int *)((char *)this + 464);
+  for ( i = (int *)*((_QWORD *)this + 58); i != v2 && i; i = *(int **)i )
+    DXGCONTEXT::SetSchedulingPriority((DXGCONTEXT *)i, i[112], a2);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of Isoch_Transfer_CompleteCancelable @ 0x1C004320C
+ * XREFs of Isoch_Transfer_CompleteCancelable @ 0x1C0042800
  * Callers:
- *     Isoch_ProcessTransferEventWithED1 @ 0x1C0006DF0 (Isoch_ProcessTransferEventWithED1.c)
- *     Isoch_RetrieveNextStage @ 0x1C0007C30 (Isoch_RetrieveNextStage.c)
- *     Isoch_MapStage @ 0x1C0008740 (Isoch_MapStage.c)
- *     Isoch_PrepareStage @ 0x1C0008870 (Isoch_PrepareStage.c)
- *     Isoch_CompleteStaleTransfers @ 0x1C0041D04 (Isoch_CompleteStaleTransfers.c)
- *     Isoch_CompleteTransfers @ 0x1C0041F9C (Isoch_CompleteTransfers.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001F10 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_RetrieveNextStage @ 0x1C0002D30 (Isoch_RetrieveNextStage.c)
+ *     Isoch_MapStage @ 0x1C0003780 (Isoch_MapStage.c)
+ *     Isoch_PrepareStage @ 0x1C00038C0 (Isoch_PrepareStage.c)
+ *     Isoch_CompleteStaleTransfers @ 0x1C0040E04 (Isoch_CompleteStaleTransfers.c)
+ *     Isoch_CompleteTransfers @ 0x1C004109C (Isoch_CompleteTransfers.c)
  * Callees:
- *     WPP_RECORDER_SF_DDqd @ 0x1C0001330 (WPP_RECORDER_SF_DDqd.c)
- *     TR_QueueDpcForTransferCompletion @ 0x1C000C644 (TR_QueueDpcForTransferCompletion.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Isoch_Transfer_PrepareForCompletion @ 0x1C00434E4 (Isoch_Transfer_PrepareForCompletion.c)
+ *     WPP_RECORDER_SF_DDqd @ 0x1C000568C (WPP_RECORDER_SF_DDqd.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Isoch_Transfer_PrepareForCompletion @ 0x1C0042AD8 (Isoch_Transfer_PrepareForCompletion.c)
  */
 
 char __fastcall Isoch_Transfer_CompleteCancelable(
@@ -29,9 +29,11 @@ char __fastcall Isoch_Transfer_CompleteCancelable(
   __int64 *v13; // rcx
   __int64 **v14; // rax
   int v15; // eax
-  __int64 v16; // rsi
-  __int64 **v17; // rcx
-  KIRQL v18; // bl
+  __int64 v16; // rdx
+  int v17; // r8d
+  __int64 v18; // rsi
+  __int64 **v19; // rcx
+  KIRQL v20; // bl
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
 
   v6 = (__int64 **)&retaddr;
@@ -48,25 +50,30 @@ char __fastcall Isoch_Transfer_CompleteCancelable(
     if ( v15 < 0 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v16 = *(_QWORD *)(a1 + 48);
+        v17 = *(unsigned __int8 *)(v16 + 135);
+        LOBYTE(v16) = 4;
         WPP_RECORDER_SF_DDqd(
           *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
-          4u,
-          *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL),
-          0x11u,
+          v16,
+          v17,
+          17,
           (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
-          *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL),
+          v17,
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
           a2[3],
           v15);
-      v16 = a1 + 400;
+      }
+      v18 = a1 + 400;
       *((_DWORD *)a2 + 16) = 2;
-      v6 = *(__int64 ***)(v16 + 8);
-      if ( *v6 == (__int64 *)v16 )
+      v6 = *(__int64 ***)(v18 + 8);
+      if ( *v6 == (__int64 *)v18 )
       {
-        *a2 = v16;
+        *a2 = v18;
         a2[1] = (__int64)v6;
         *v6 = a2;
-        *(_QWORD *)(v16 + 8) = a2;
+        *(_QWORD *)(v18 + 8) = a2;
         return (char)v6;
       }
       goto LABEL_23;
@@ -91,22 +98,22 @@ char __fastcall Isoch_Transfer_CompleteCancelable(
   Isoch_Transfer_PrepareForCompletion(a1, a2, a3, v8);
   if ( !a6 )
   {
-    v18 = KfRaiseIrql(2u);
+    v20 = KfRaiseIrql(2u);
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01023 + 2104))(
       WdfDriverGlobals,
       a2[3],
       *((unsigned int *)a2 + 17));
-    KeLowerIrql(v18);
+    KeLowerIrql(v20);
     goto LABEL_22;
   }
   *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
-  v17 = *(__int64 ***)(a1 + 424);
-  if ( *v17 != (__int64 *)(a1 + 416) )
+  v19 = *(__int64 ***)(a1 + 424);
+  if ( *v19 != (__int64 *)(a1 + 416) )
 LABEL_23:
     __fastfail(3u);
-  a2[1] = (__int64)v17;
+  a2[1] = (__int64)v19;
   *a2 = a1 + 416;
-  *v17 = a2;
+  *v19 = a2;
   *(_QWORD *)(a1 + 424) = a2;
   KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), *(_BYTE *)(a1 + 104));
   TR_QueueDpcForTransferCompletion(a1);

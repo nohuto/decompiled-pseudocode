@@ -1,22 +1,22 @@
 /*
- * XREFs of PopDiagTraceActiveCooling @ 0x140850F5C
+ * XREFs of PopDiagTraceActiveCooling @ 0x1407C08E0
  * Callers:
- *     PopThermalWorker @ 0x140850980 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x1407C0270 (PopThermalWorker.c)
  * Callees:
- *     ExSystemTimeToLocalTime @ 0x14022D770 (ExSystemTimeToLocalTime.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14036B86C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ExSystemTimeToLocalTime @ 0x1402D3270 (ExSystemTimeToLocalTime.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceActiveCooling(__int64 a1, __int64 a2, char a3, unsigned int a4)
 {
   bool v8; // cc
   void *DeviceAttachmentBaseRefWithTag; // rax
-  void *v10; // rdi
-  __int64 v11; // rax
+  void *v10; // rbx
+  __int64 v11; // rdx
   char *v12; // r9
   unsigned int v13; // r10d
   __int64 v14; // r11
@@ -61,50 +61,51 @@ void __fastcall PopDiagTraceActiveCooling(__int64 a1, __int64 a2, char a3, unsig
       DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(a2, 0x67446F50u);
       v10 = DeviceAttachmentBaseRefWithTag;
       if ( DeviceAttachmentBaseRefWithTag )
-      {
         v11 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
-        if ( v11 )
+      else
+        v11 = 0LL;
+      if ( v11 )
+      {
+        v20 = *(_WORD *)(v11 + 128) >> 1;
+        UserData.Ptr = (ULONGLONG)&v20;
+        *(_QWORD *)&UserData.Size = 2LL;
+        v26 = *(_QWORD *)(v11 + 136);
+        v27 = 2 * v20;
+        v28 = 0;
+        SystemTime.QuadPart = MEMORY[0xFFFFF78000000014];
+        ExSystemTimeToLocalTime(&SystemTime, &LocalTime);
+        v30 = 8LL;
+        p_LocalTime = &LocalTime;
+        v12 = &v33;
+        v32 = 2LL;
+        v13 = 0;
+        v14 = 10LL;
+        v21 = a3 != 0;
+        v31 = &v21;
+        do
         {
-          v20 = *(_WORD *)(v11 + 128) >> 1;
-          UserData.Ptr = (ULONGLONG)&v20;
-          *(_QWORD *)&UserData.Size = 2LL;
-          v26 = *(_QWORD *)(v11 + 136);
-          v27 = 2 * v20;
-          v28 = 0;
-          SystemTime.QuadPart = MEMORY[0xFFFFF78000000014];
-          ExSystemTimeToLocalTime(&SystemTime, &LocalTime);
-          v30 = 8LL;
-          p_LocalTime = &LocalTime;
-          v12 = &v33;
-          v32 = 2LL;
-          v13 = 0;
-          v14 = 10LL;
-          v21 = a3 != 0;
-          v31 = &v21;
-          do
-          {
-            v15 = v13;
-            *(_QWORD *)(v12 - 4) = 4LL;
-            ++v13;
-            v12 += 16;
-            v16 = *(_DWORD *)(a1 + 4 * v15 + 36);
-            v17 = &v36[v15];
-            *(_QWORD *)(v12 - 28) = v17;
-            *v17 = v16 / 0xA;
-            --v14;
-          }
-          while ( v14 );
-          v35 = 4LL;
-          v18 = *(_DWORD *)(a1 + 16) / 0xAu;
-          v34 = &v22;
-          v22 = v18;
-          v19 = &POP_ETW_EVENT_ACTIVE_COOLING_DIAGNOSTIC;
-          if ( a4 )
-            v19 = &POP_ETW_EVENT_ACTIVE_COOLING_OPERATIONAL;
-          EtwWrite(PopDiagHandle, v19, 0LL, 0xFu, &UserData);
+          v15 = v13;
+          *(_QWORD *)(v12 - 4) = 4LL;
+          ++v13;
+          v12 += 16;
+          v16 = *(_DWORD *)(a1 + 4 * v15 + 36);
+          v17 = &v36[v15];
+          *(_QWORD *)(v12 - 28) = v17;
+          *v17 = v16 / 0xA;
+          --v14;
         }
-        ObfDereferenceObjectWithTag(v10, 0x67446F50u);
+        while ( v14 );
+        v35 = 4LL;
+        v18 = *(_DWORD *)(a1 + 16) / 0xAu;
+        v34 = &v22;
+        v22 = v18;
+        v19 = &POP_ETW_EVENT_ACTIVE_COOLING_DIAGNOSTIC;
+        if ( a4 )
+          v19 = &POP_ETW_EVENT_ACTIVE_COOLING_OPERATIONAL;
+        EtwWrite(PopDiagHandle, v19, 0LL, 0xFu, &UserData);
       }
+      if ( v10 )
+        ObfDereferenceObjectWithTag(v10, 0x67446F50u);
     }
   }
 }

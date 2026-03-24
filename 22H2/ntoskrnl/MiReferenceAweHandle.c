@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReferenceAweHandle @ 0x14064BD88
+ * XREFs of MiReferenceAweHandle @ 0x14054DB8C
  * Callers:
- *     MiAllocateUserPhysicalPages @ 0x140A403C8 (MiAllocateUserPhysicalPages.c)
- *     MiCreateUserPhysicalView @ 0x140A417E8 (MiCreateUserPhysicalView.c)
- *     NtFreeUserPhysicalPages @ 0x140A42390 (NtFreeUserPhysicalPages.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4D38 (MiAllocateUserPhysicalPages.c)
+ *     MiCreateUserPhysicalView @ 0x1408D5BF8 (MiCreateUserPhysicalView.c)
+ *     NtFreeUserPhysicalPages @ 0x1408D6850 (NtFreeUserPhysicalPages.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiAweControlArea @ 0x1402A0D84 (MiAweControlArea.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1407336A0 (ObReferenceObjectByHandleWithTag.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiAweControlArea @ 0x1402966C8 (MiAweControlArea.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __fastcall MiReferenceAweHandle(HANDLE Handle, ACCESS_MASK a2, KPROCESSOR_MODE a3, PVOID *a4, _QWORD *a5)
@@ -37,7 +37,7 @@ NTSTATUS __fastcall MiReferenceAweHandle(HANDLE Handle, ACCESS_MASK a2, KPROCESS
   else
   {
     v10 = MiSectionControlArea((__int64)Object);
-    if ( (unsigned int)MiAweControlArea(v10) )
+    if ( MiAweControlArea(v10) )
     {
       *v6 = v11;
       return v12;

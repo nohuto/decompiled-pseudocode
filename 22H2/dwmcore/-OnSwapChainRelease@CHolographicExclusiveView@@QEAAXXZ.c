@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnSwapChainRelease@CHolographicExclusiveView@@QEAAXXZ @ 0x1802A88CC
+ * XREFs of ?OnSwapChainRelease@CHolographicExclusiveView@@QEAAXXZ @ 0x180256EE0
  * Callers:
- *     ?ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802ADCE8 (-ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ *     ?ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025BC64 (-ProcessReleaseExclusiveSwapChain@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x1802A86E0 (-DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x1802AC48C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x180256CE4 (-DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A660 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 void __fastcall CHolographicExclusiveView::OnSwapChainRelease(struct IUnknown **this)
@@ -13,18 +13,18 @@ void __fastcall CHolographicExclusiveView::OnSwapChainRelease(struct IUnknown **
   struct IUnknown *v2; // rax
   CHolographicInteropTaskQueue *lpVtbl; // rcx
 
-  if ( this[12] )
+  if ( this[11] )
   {
     CHolographicExclusiveView::DeactivateSwapChain((CHolographicExclusiveView *)this);
-    v2 = this[8];
+    v2 = this[7];
     lpVtbl = (CHolographicInteropTaskQueue *)v2[7].lpVtbl;
     if ( lpVtbl )
     {
       if ( LOBYTE(v2[30].lpVtbl) )
-        CHolographicInteropTaskQueue::PostMessageW(lpVtbl, 0x1Cu, this[12], 0LL, 0LL, 0LL, 0LL);
+        CHolographicInteropTaskQueue::PostMessageW(lpVtbl, 0x1Cu, this[11], 0LL, 0LL, 0LL, 0LL);
     }
-    ((void (__fastcall *)(struct IUnknown *))this[12]->lpVtbl->Release)(this[12]);
-    this[12] = 0LL;
-    *((_BYTE *)this + 82) = 0;
+    ((void (__fastcall *)(struct IUnknown *))this[11]->lpVtbl->Release)(this[11]);
+    this[11] = 0LL;
+    *((_BYTE *)this + 74) = 0;
   }
 }

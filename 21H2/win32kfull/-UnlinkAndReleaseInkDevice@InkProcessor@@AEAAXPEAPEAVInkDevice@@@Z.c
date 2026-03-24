@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z @ 0x1C024D10C
+ * XREFs of ?UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z @ 0x1C024FBC0
  * Callers:
- *     ??1InkProcessor@@AEAA@XZ @ 0x1C00EFCC4 (--1InkProcessor@@AEAA@XZ.c)
- *     ?OnDeviceRemoved@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C024CC7C (-OnDeviceRemoved@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ??1InkProcessor@@AEAA@XZ @ 0x1C012DE0C (--1InkProcessor@@AEAA@XZ.c)
+ *     ?OnDeviceRemoved@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F74C (-OnDeviceRemoved@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
- *     ??_EInkDevice@@UEAAPEAXI@Z @ 0x1C024C710 (--_EInkDevice@@UEAAPEAXI@Z.c)
+ *     ??_EInkDevice@@UEAAPEAXI@Z @ 0x1C024F250 (--_EInkDevice@@UEAAPEAXI@Z.c)
  */
 
 void __fastcall InkProcessor::UnlinkAndReleaseInkDevice(InkProcessor *this, struct InkDevice **a2)

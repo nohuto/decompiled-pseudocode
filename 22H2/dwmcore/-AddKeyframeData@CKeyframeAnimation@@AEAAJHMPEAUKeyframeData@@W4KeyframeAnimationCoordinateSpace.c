@@ -1,582 +1,386 @@
 /*
- * XREFs of ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x180055F08
+ * XREFs of ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800AAD18
  * Callers:
- *     ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x180055DB4 (-SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionC.c)
+ *     ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x1800AABB8 (-SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionC.c)
  * Callees:
- *     ?Create@XamlExponentialInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@MPEAPEAVKeyframeInterpolation@@@Z @ 0x18001CB94 (-Create@XamlExponentialInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimation.c)
- *     ?D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z @ 0x180023C48 (-D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z.c)
- *     ?CreateExpressionKeyframeValue@KeyframeValue@@SAXW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCKeyframeAnimation@@IPEAPEAV1@@Z @ 0x1800388E8 (-CreateExpressionKeyframeValue@KeyframeValue@@SAXW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCKeyframeAn.c)
- *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x180057F78 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??4?$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z @ 0x1800AC08C (--4-$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z.c)
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3@Z @ 0x1800BB224 (--$Write@U-$_tlgWrapperByVal@$03@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUI.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Create@XamlPowerInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@MPEAPEAVKeyframeInterpolation@@@Z @ 0x1800D851C (-Create@XamlPowerInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasing.c)
- *     ?Create@LinearInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@PEAPEAVKeyframeInterpolation@@@Z @ 0x1800D85F8 (-Create@LinearInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@PEAPEAVKeyframeInterpolation.c)
- *     ?Create@CubicBezierInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@MMMMPEAPEAVKeyframeInterpolation@@@Z @ 0x1800D8670 (-Create@CubicBezierInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@MMMMPEAPEAVKeyframeInte.c)
- *     ?Create@StepInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@HHH_N1PEAPEAVKeyframeInterpolation@@@Z @ 0x1800D87AC (-Create@StepInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@HHH_N1PEAPEAVKeyframeInterpola.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?CreateStartingValueKeyframeValue@KeyframeValue@@SAXW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCKeyframeAnimation@@PEAPEAV1@@Z @ 0x1800F6164 (-CreateStartingValueKeyframeValue@KeyframeValue@@SAXW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCKeyfram.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Create@XamlBackInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@MPEAPEAVKeyframeInterpolation@@@Z @ 0x1802679B4 (-Create@XamlBackInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingM.c)
- *     ?Create@XamlBounceInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@HMPEAPEAVKeyframeInterpolation@@@Z @ 0x180267A8C (-Create@XamlBounceInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasin.c)
- *     ?Create@XamlCircleInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@PEAPEAVKeyframeInterpolation@@@Z @ 0x180267B84 (-Create@XamlCircleInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasin.c)
- *     ?Create@XamlElasticInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@HMPEAPEAVKeyframeInterpolation@@@Z @ 0x180267C24 (-Create@XamlElasticInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasi.c)
- *     ?Create@XamlSineInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@PEAPEAVKeyframeInterpolation@@@Z @ 0x180267D00 (-Create@XamlSineInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingM.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
- *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18027C748 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ *     ?Create@XamlExponentialInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@MPEAPEAVKeyframeInterpolation@@@Z @ 0x18001DB78 (-Create@XamlExponentialInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimation.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Create@XamlPowerInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@MPEAPEAVKeyframeInterpolation@@@Z @ 0x1800A9104 (-Create@XamlPowerInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasing.c)
+ *     ?CreateStartingValueKeyframeValue@KeyframeValue@@SAXW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCKeyframeAnimation@@PEAPEAV1@@Z @ 0x1800A9998 (-CreateStartingValueKeyframeValue@KeyframeValue@@SAXW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCKeyfram.c)
+ *     ?Create@LinearInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@PEAPEAVKeyframeInterpolation@@@Z @ 0x1800A9D50 (-Create@LinearInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@PEAPEAVKeyframeInterpolation.c)
+ *     ?Create@StepInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@HHH_N1PEAPEAVKeyframeInterpolation@@@Z @ 0x1800AA008 (-Create@StepInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@HHH_N1PEAPEAVKeyframeInterpola.c)
+ *     ?CreateConstantKeyframeValue@KeyframeValue@@SAXPEBVCExpressionValue@@PEAPEAV1@@Z @ 0x1800AAAF0 (-CreateConstantKeyframeValue@KeyframeValue@@SAXPEBVCExpressionValue@@PEAPEAV1@@Z.c)
+ *     ?AddKeyframe@KeyframeSequence@@QEAAXIMPEAVKeyframeValue@@PEAVKeyframeInterpolation@@@Z @ 0x1800AB37C (-AddKeyframe@KeyframeSequence@@QEAAXIMPEAVKeyframeValue@@PEAVKeyframeInterpolation@@@Z.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC6A4 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ?Create@CubicBezierInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@MMMMPEAPEAVKeyframeInterpolation@@@Z @ 0x1800AC6BC (-Create@CubicBezierInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@MMMMPEAPEAVKeyframeInte.c)
+ *     ?D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z @ 0x1800C78EC (-D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C8D94 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     ??4?$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z @ 0x1801B1408 (--4-$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z.c)
+ *     ?CreateExpressionKeyframeValue@KeyframeValue@@SAXW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCKeyframeAnimation@@IPEAPEAV1@@Z @ 0x180205FE8 (-CreateExpressionKeyframeValue@KeyframeValue@@SAXW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCKeyframeAn.c)
+ *     ?Create@XamlBackInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@MPEAPEAVKeyframeInterpolation@@@Z @ 0x180206514 (-Create@XamlBackInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingM.c)
+ *     ?Create@XamlBounceInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@HMPEAPEAVKeyframeInterpolation@@@Z @ 0x1802065E8 (-Create@XamlBounceInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasin.c)
+ *     ?Create@XamlCircleInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@PEAPEAVKeyframeInterpolation@@@Z @ 0x1802066DC (-Create@XamlCircleInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasin.c)
+ *     ?Create@XamlElasticInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@HMPEAPEAVKeyframeInterpolation@@@Z @ 0x180206778 (-Create@XamlElasticInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasi.c)
+ *     ?Create@XamlSineInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingMode@@PEAPEAVKeyframeInterpolation@@@Z @ 0x180206854 (-Create@XamlSineInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@W4KeyframeAnimationEasingM.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::AddKeyframeData(
         __int64 a1,
         unsigned int a2,
-        __int64 a3,
+        float a3,
         __int64 a4,
         unsigned int a5)
 {
-  float v5; // xmm2_4
-  _DWORD *v7; // rbx
-  __int64 v8; // r12
-  __int128 v9; // xmm1
-  int v11; // r9d
-  int v12; // eax
-  unsigned int v13; // ecx
-  unsigned int v14; // edi
-  int v15; // ecx
-  unsigned int v16; // ecx
-  unsigned int v17; // ecx
-  unsigned int v18; // ecx
-  HANDLE ProcessHeap; // rax
-  char *v20; // rax
-  __int64 *v21; // rcx
-  float v22; // xmm6_4
-  __int64 v23; // r15
-  float *v24; // r14
-  int v25; // ecx
-  __int64 v26; // rsi
-  __int64 v27; // r12
-  _DWORD *v28; // rdi
+  __int128 v8; // xmm1
+  int v9; // r8d
+  int v10; // r8d
+  int v11; // r8d
+  int v12; // r8d
+  unsigned int v13; // edi
+  unsigned int v14; // ebx
+  int v15; // eax
+  __int64 v16; // rcx
+  unsigned int v17; // ebx
+  unsigned int v18; // ebx
+  __int64 v19; // r8
+  int v20; // eax
+  __int64 v21; // rcx
+  int v22; // r14d
+  int v23; // esi
+  int v24; // edi
+  int v25; // ebx
+  int v26; // eax
+  __int64 v27; // rcx
+  int v28; // eax
   __int64 v29; // rcx
-  __int64 v30; // rdi
+  int v30; // eax
   __int64 v31; // rcx
-  unsigned int v33; // ecx
-  int v34; // xmm1_4
-  unsigned int v35; // ecx
-  unsigned int v36; // ecx
-  bool v37; // al
-  int v38; // eax
-  int v39; // r9d
-  int v40; // r8d
-  int v41; // r9d
-  int v42; // r8d
-  int v43; // r9d
-  int v44; // r8d
-  int v45; // r9d
-  __int64 v46; // rdx
-  unsigned __int64 v47; // r9
-  int v48; // r8d
-  int v49; // r9d
-  __int64 v50; // rdx
-  __int64 v51; // rax
-  __m128 v52; // xmm2
-  __m128 v53; // rt1
-  int v54; // eax
-  int v55; // ebx
-  BOOL v56; // eax
-  char v57; // cl
-  HANDLE CurrentThread; // rax
-  HANDLE CurrentProcess; // rax
-  _DWORD *v60; // rcx
-  unsigned int v61; // [rsp+28h] [rbp-A1h]
-  unsigned int v62; // [rsp+28h] [rbp-A1h]
-  int v63; // [rsp+68h] [rbp-61h] BYREF
-  int v64; // [rsp+6Ch] [rbp-5Dh] BYREF
-  unsigned __int32 v65; // [rsp+70h] [rbp-59h]
-  float *v66; // [rsp+78h] [rbp-51h] BYREF
-  _DWORD *v67; // [rsp+80h] [rbp-49h] BYREF
-  _OWORD v68[4]; // [rsp+88h] [rbp-41h] BYREF
-  __int64 *v69; // [rsp+C8h] [rbp-1h] BYREF
-  int v70; // [rsp+D0h] [rbp+7h]
-  char v71; // [rsp+D4h] [rbp+Bh]
-  __int128 v72; // [rsp+D8h] [rbp+Fh] BYREF
-  void *retaddr; // [rsp+120h] [rbp+57h]
-  __int16 Response; // [rsp+140h] [rbp+77h] BYREF
+  unsigned int v32; // ebx
+  int v33; // eax
+  __int64 v34; // rcx
+  int v35; // r8d
+  int v36; // r8d
+  int v37; // r8d
+  unsigned int v38; // ebx
+  int v39; // eax
+  __int64 v40; // rcx
+  unsigned int v41; // ebx
+  float v42; // xmm6_4
+  int v43; // eax
+  __int64 v44; // rcx
+  unsigned int v45; // ebx
+  float v46; // xmm6_4
+  int v47; // eax
+  __int64 v48; // rcx
+  unsigned int v49; // edi
+  unsigned int v50; // ebx
+  int v51; // eax
+  __int64 v52; // rcx
+  int v53; // ecx
+  int v54; // ecx
+  int v55; // ecx
+  int v56; // ecx
+  int v57; // ecx
+  int v58; // ecx
+  int v59; // ecx
+  unsigned __int64 v60; // rcx
+  int v61; // eax
+  int v62; // xmm1_4
+  bool v63; // al
+  __int64 v64; // rdx
+  __int64 v65; // rdx
+  unsigned int v67; // [rsp+28h] [rbp-B1h]
+  struct KeyframeValue *v68[4]; // [rsp+48h] [rbp-91h] BYREF
+  _OWORD v69[4]; // [rsp+68h] [rbp-71h] BYREF
+  __int64 v70; // [rsp+A8h] [rbp-31h] BYREF
+  int v71; // [rsp+B0h] [rbp-29h]
+  char v72; // [rsp+B4h] [rbp-25h]
+  struct KeyframeInterpolation *v73; // [rsp+150h] [rbp+77h] BYREF
 
-  v7 = 0LL;
   g_dbgKeyFrameData = *(_OWORD *)a4;
-  v8 = a2;
-  v9 = *(_OWORD *)(a4 + 16);
-  v67 = 0LL;
-  v66 = 0LL;
-  xmmword_1803E5958 = v9;
-  xmmword_1803E5968 = *(_OWORD *)(a4 + 32);
-  v11 = *(_DWORD *)(a4 + 4);
-  if ( v11 > 65539 )
+  v68[0] = 0LL;
+  v8 = *(_OWORD *)(a4 + 16);
+  v73 = 0LL;
+  xmmword_1803471F0 = v8;
+  xmmword_180347200 = *(_OWORD *)(a4 + 32);
+  v9 = *(_DWORD *)(a4 + 4);
+  if ( v9 > 65539 )
   {
-    if ( v11 == 65540 )
+    v35 = v9 - 65540;
+    if ( v35 )
     {
-      v12 = XamlElasticInterpolation::Create(
-              a5,
-              (unsigned int)(int)*(float *)(a4 + 8),
-              (unsigned int)(int)*(float *)(a4 + 12));
-      v14 = v12;
-      if ( v12 < 0 )
+      v36 = v35 - 1;
+      if ( v36 )
       {
-        v61 = 1198;
-        goto LABEL_64;
+        v37 = v36 - 1;
+        if ( v37 )
+        {
+          if ( v37 != 1 )
+            goto LABEL_24;
+          v38 = (int)*(float *)(a4 + 8);
+          Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v73);
+          v39 = XamlSineInterpolation::Create(a5, v38, &v73);
+          v17 = v39;
+          if ( v39 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v40, 0LL, 0, v39, 0x4B2u, 0LL);
+            goto LABEL_63;
+          }
+        }
+        else
+        {
+          v41 = (int)*(float *)(a4 + 8);
+          v42 = *(float *)(a4 + 12);
+          Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v73);
+          v43 = XamlPowerInterpolation::Create(a5, v41, v42, (float **)&v73);
+          v17 = v43;
+          if ( v43 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v43, 0x4ABu, 0LL);
+            goto LABEL_63;
+          }
+        }
       }
-      goto LABEL_7;
-    }
-    if ( v11 == 65541 )
-    {
-      v12 = XamlExponentialInterpolation::Create(a5, (int)*(float *)(a4 + 8), *(float *)(a4 + 12), &v66);
-      v14 = v12;
-      if ( v12 < 0 )
+      else
       {
-        v61 = 1206;
-        goto LABEL_64;
+        v45 = (int)*(float *)(a4 + 8);
+        v46 = *(float *)(a4 + 12);
+        Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v73);
+        v47 = XamlExponentialInterpolation::Create(a5, v45, v46, (float **)&v73);
+        v17 = v47;
+        if ( v47 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v48, 0LL, 0, v47, 0x4A3u, 0LL);
+          goto LABEL_63;
+        }
       }
     }
     else
     {
-      v13 = v11 - 65542;
-      if ( v11 != 65542 )
+      v49 = (int)*(float *)(a4 + 8);
+      v50 = (int)*(float *)(a4 + 12);
+      Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v73);
+      v51 = XamlElasticInterpolation::Create(a5, v49, v50);
+      v17 = v51;
+      if ( v51 < 0 )
       {
-        if ( v11 == 65543 )
+        MilInstrumentationCheckHR_MaybeFailFast(v52, 0LL, 0, v51, 0x49Bu, 0LL);
+        goto LABEL_63;
+      }
+    }
+LABEL_32:
+    if ( *(_DWORD *)(a4 + 24) != 1 )
+    {
+      if ( *(_DWORD *)(a4 + 24) == 2 )
+      {
+        Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(v68);
+        KeyframeValue::CreateExpressionKeyframeValue(*(unsigned int *)(a1 + 144), a1, *(unsigned int *)(a4 + 32), v68);
+      }
+      else
+      {
+        if ( *(_DWORD *)(a4 + 24) != 3 )
         {
-          v12 = XamlSineInterpolation::Create(a5, (unsigned int)(int)*(float *)(a4 + 8), &v66);
-          v14 = v12;
-          if ( v12 < 0 )
-          {
-            v61 = 1221;
-            goto LABEL_64;
-          }
-          goto LABEL_7;
-        }
-        goto LABEL_74;
-      }
-      v12 = XamlPowerInterpolation::Create(a5, (unsigned int)(int)*(float *)(a4 + 8), a3, &v66);
-      v14 = v12;
-      if ( v12 < 0 )
-      {
-        v61 = 1214;
-        goto LABEL_64;
-      }
-    }
-  }
-  else
-  {
-    if ( v11 == 65539 )
-    {
-      v12 = XamlCircleInterpolation::Create(a5, (unsigned int)(int)*(float *)(a4 + 8), &v66);
-      v14 = v12;
-      if ( v12 < 0 )
-      {
-        v61 = 1189;
-        goto LABEL_64;
-      }
-      goto LABEL_7;
-    }
-    if ( v11 )
-    {
-      if ( v11 != 1 )
-      {
-        if ( v11 == 2 )
-        {
-          v12 = StepInterpolation::Create(
-                  a5,
-                  (unsigned int)(int)*(float *)(a4 + 8),
-                  (unsigned int)(int)*(float *)(a4 + 12),
-                  (unsigned int)(int)*(float *)(a4 + 16),
-                  (int)*(float *)(a4 + 20) & 1,
-                  ((int)*(float *)(a4 + 20) & 2) != 0,
-                  &v66);
-          v14 = v12;
-          if ( v12 >= 0 )
-            goto LABEL_7;
-          v61 = 1165;
-LABEL_64:
-          v39 = v12;
-LABEL_65:
-          MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v39, v61, 0LL);
-          goto LABEL_30;
-        }
-        v13 = v11 - 65537;
-        if ( v11 == 65537 )
-        {
-          v12 = XamlBackInterpolation::Create(a5, (unsigned int)(int)*(float *)(a4 + 8), a3, &v66);
-          v14 = v12;
-          if ( v12 < 0 )
-          {
-            v61 = 1173;
-            goto LABEL_64;
-          }
-          goto LABEL_7;
-        }
-        if ( v11 == 65538 )
-        {
-          v12 = XamlBounceInterpolation::Create(
-                  a5,
-                  (unsigned int)(int)*(float *)(a4 + 8),
-                  (unsigned int)(int)*(float *)(a4 + 12));
-          v14 = v12;
-          if ( v12 < 0 )
-          {
-            v61 = 1182;
-            goto LABEL_64;
-          }
-          goto LABEL_7;
-        }
-LABEL_74:
-        if ( (unsigned int)dword_1803E3798 > 4 && (unsigned __int8)tlgKeywordOn(&dword_1803E3798, 4LL) )
-        {
-          v63 = -2147024809;
-          v64 = v41;
-          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-            (unsigned int)&dword_1803E3798,
-            (unsigned int)&unk_180380FAB,
-            v40,
-            v41,
-            (__int64)&v64,
-            (__int64)&v63);
-        }
-        v61 = 1234;
-LABEL_79:
-        v14 = -2147024809;
-        v39 = -2147024809;
-        goto LABEL_65;
-      }
-      v12 = CubicBezierInterpolation::Create(a5);
-      v14 = v12;
-      if ( v12 < 0 )
-      {
-        v61 = 1148;
-        goto LABEL_64;
-      }
-    }
-    else
-    {
-      v12 = LinearInterpolation::Create(a5, &v66);
-      v14 = v12;
-      if ( v12 < 0 )
-      {
-        v61 = 1154;
-        goto LABEL_64;
-      }
-    }
-  }
-LABEL_7:
-  if ( *(_DWORD *)(a4 + 24) == 1 )
-  {
-    memset_0(v68, 0, sizeof(v68));
-    v15 = *(_DWORD *)(a1 + 152);
-    v69 = 0LL;
-    v70 = 18;
-    v71 = 0;
-    v16 = v15 - 11;
-    if ( v16 )
-    {
-      v17 = v16 - 6;
-      if ( !v17 )
-      {
-        v37 = *(float *)(a4 + 32) != 0.0;
-        v70 = 17;
-        LOBYTE(v68[0]) = v37;
-        goto LABEL_12;
-      }
-      v18 = v17 - 1;
-      if ( !v18 )
-      {
-        LODWORD(v68[0]) = *(_DWORD *)(a4 + 32);
-LABEL_12:
-        v71 = 1;
-LABEL_13:
-        ProcessHeap = GetProcessHeap();
-        v20 = (char *)HeapAlloc(ProcessHeap, 8u, 0x68uLL);
-        v7 = v20;
-        if ( !v20 )
-          ModuleFailFastForHRESULT(2147942414LL, retaddr);
-        *((_DWORD *)v20 + 2) = 0;
-        *(_QWORD *)v20 = &KeyframeValue::`vftable';
-        _InterlockedIncrement((volatile signed __int32 *)v20 + 2);
-        *((_DWORD *)v20 + 5) = 1;
-        CExpressionValue::CopyFrom((CExpressionValue *)(v20 + 24), (const struct CExpressionValue *)v68);
-        v21 = v69;
-        v7[4] = v7[24];
-        v67 = v7;
-        if ( v21 )
-        {
-          v51 = *v21;
-          v69 = 0LL;
-          (*(void (__fastcall **)(__int64 *))(v51 + 16))(v21);
-        }
-        goto LABEL_16;
-      }
-      v33 = v18 - 17;
-      if ( !v33 )
-      {
-        v34 = *(_DWORD *)(a4 + 36);
-        LODWORD(v68[0]) = *(_DWORD *)(a4 + 32);
-        DWORD1(v68[0]) = v34;
-        v70 = 35;
-        goto LABEL_12;
-      }
-      v35 = v33 - 17;
-      if ( !v35 )
-      {
-        v38 = *(_DWORD *)(a4 + 40);
-        *(_QWORD *)&v68[0] = *(_QWORD *)(a4 + 32);
-        v70 = 52;
-        DWORD2(v68[0]) = v38;
-        goto LABEL_12;
-      }
-      v36 = v35 - 17;
-      if ( !v36 )
-      {
-        v70 = 69;
-        goto LABEL_45;
-      }
-      v16 = v36 - 1;
-      if ( !v16 )
-      {
-        v70 = 70;
-LABEL_45:
-        v68[0] = *(_OWORD *)(a4 + 32);
-        goto LABEL_12;
-      }
-      if ( v16 == 1 )
-      {
-        D3DXQuaternionNormalize((struct D2DQuaternion *)&v72, (const struct D2DQuaternion *)(a4 + 32));
-        v70 = 71;
-        v68[0] = v72;
-        goto LABEL_12;
-      }
-      if ( (unsigned int)dword_1803E3798 > 4 && (unsigned __int8)tlgKeywordOn(&dword_1803E3798, 4LL) )
-      {
-        v64 = -2147024809;
-        v63 = v45;
-        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-          (unsigned int)&dword_1803E3798,
-          (unsigned int)&unk_180380F48,
-          v44,
-          v45,
-          (__int64)&v63,
-          (__int64)&v64);
-      }
-      v62 = 1328;
-    }
-    else
-    {
-      v46 = *(_QWORD *)(a1 + 464);
-      v47 = *(unsigned int *)(a4 + 32);
-      if ( v47 < (*(_QWORD *)(a1 + 472) - v46) >> 3 )
-      {
-        v50 = *(_QWORD *)(v46 + 8 * v47);
-        v70 = 11;
-        v71 = 1;
-        Microsoft::WRL::ComPtr<CPathData>::operator=(&v69, v50);
-        goto LABEL_13;
-      }
-      if ( (unsigned int)dword_1803E3798 > 4 && (unsigned __int8)tlgKeywordOn(&dword_1803E3798, 4LL) )
-      {
-        v64 = -2147024809;
-        v63 = v49;
-        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-          (unsigned int)&dword_1803E3798,
-          (unsigned int)&unk_180380EF1,
-          v48,
-          v49,
-          (__int64)&v63,
-          (__int64)&v64);
-      }
-      v62 = 1314;
-    }
-    v14 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, -2147024809, v62, 0LL);
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v69);
-    goto LABEL_30;
-  }
-  v13 = *(_DWORD *)(a4 + 24) - 2;
-  if ( *(_DWORD *)(a4 + 24) != 2 )
-  {
-    if ( *(_DWORD *)(a4 + 24) == 3 )
-    {
-      KeyframeValue::CreateStartingValueKeyframeValue(*(unsigned int *)(a1 + 152), a1, &v67);
-      goto LABEL_49;
-    }
-    if ( (unsigned int)dword_1803E3798 > 4 && (unsigned __int8)tlgKeywordOn(&dword_1803E3798, 4LL) )
-    {
-      v64 = -2147024809;
-      v63 = v43;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        (unsigned int)&dword_1803E3798,
-        (unsigned int)&unk_180380E9E,
-        v42,
-        v43,
-        (__int64)&v63,
-        (__int64)&v64);
-    }
-    v61 = 1343;
-    goto LABEL_79;
-  }
-  KeyframeValue::CreateExpressionKeyframeValue(*(unsigned int *)(a1 + 152), a1, *(_DWORD *)(a4 + 32), &v67);
-LABEL_49:
-  v7 = v67;
-LABEL_16:
-  v22 = v5 * 1000.0;
-  v23 = *(_QWORD *)(a1 + 392);
-  v24 = v66;
-  *(float *)&v65 = v5 * 1000.0;
-  if ( COERCE_UNSIGNED_INT(fabs(v5 * 1000.0)) > 0x497FFFF0 )
-  {
-    v52 = 0LL;
-    v52.m128_f32[0] = (float)(int)v22 - v22;
-    v53.m128_f32[0] = FLOAT_N0_5;
-    v65 = _mm_cmple_ss(v52, v53).m128_u32[0];
-    v25 = (int)v22 - v65;
-  }
-  else
-  {
-    *(float *)&v65 = v22 + 6291456.25;
-    v25 = (int)(v65 << 10) >> 11;
-  }
-  v26 = 3 * v8;
-  *(_DWORD *)(*(_QWORD *)(v23 + 104) + 8 * v26) = v25;
-  v27 = *(_QWORD *)(v23 + 104);
-  if ( *(_DWORD **)(v27 + 8 * v26 + 8) != v7 )
-  {
-    v28 = v7;
-    if ( v7 )
-    {
-      if ( (int)v7[2] < 0 && (IsDebuggerPresent() || (unsigned int)IsKernelDebuggerPresent()) )
-      {
-        while ( 1 )
-        {
-          v54 = IsKernelDebuggerPresent();
-          Response = 63;
-          v55 = v54;
-          if ( !v54 )
-          {
-            v56 = IsDebuggerPresent();
-            v57 = Response;
-            if ( v56 )
-              v57 = 103;
-            LOBYTE(Response) = v57;
-          }
-          DbgPrintEx(
-            0x65u,
+          v17 = -2003303421;
+          MilInstrumentationCheckHR_MaybeFailFast(
+            (unsigned int)(*(_DWORD *)(a4 + 24) - 2),
+            0LL,
             0,
-            "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
-            L"Tried to AddRef an object which has previously been freed (refcount went to 0).",
-            word_18033C310,
-            word_18033C310,
-            "Function: ",
-            L"CMILRefCountImpl::AddReference",
-            ", ",
-            L"onecoreuap\\windows\\dwm\\common\\shared\\refcountbase.cpp",
-            23);
-          if ( v55 )
+            -2003303421,
+            0x512u,
+            0LL);
+          goto LABEL_63;
+        }
+        Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(v68);
+        KeyframeValue::CreateStartingValueKeyframeValue(*(unsigned int *)(a1 + 144), a1, v68);
+      }
+LABEL_61:
+      KeyframeSequence::AddKeyframe(*(KeyframeSequence **)(a1 + 360), a2, a3, v68[0], v73);
+      v17 = 0;
+      goto LABEL_63;
+    }
+    memset_0(v69, 0, sizeof(v69));
+    v53 = *(_DWORD *)(a1 + 144);
+    v70 = 0LL;
+    v71 = 18;
+    v72 = 0;
+    v54 = v53 - 11;
+    if ( !v54 )
+    {
+      v64 = *(_QWORD *)(a1 + 432);
+      v60 = *(unsigned int *)(a4 + 32);
+      if ( v60 >= (*(_QWORD *)(a1 + 440) - v64) >> 3 )
+      {
+        v67 = 1282;
+        goto LABEL_58;
+      }
+      v65 = *(_QWORD *)(v64 + 8 * v60);
+      v71 = 11;
+      v72 = 1;
+      Microsoft::WRL::ComPtr<CPathData>::operator=(&v70, v65);
+LABEL_60:
+      Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(v68);
+      KeyframeValue::CreateConstantKeyframeValue((const struct CExpressionValue *)v69, v68);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v69);
+      goto LABEL_61;
+    }
+    v55 = v54 - 6;
+    if ( v55 )
+    {
+      v56 = v55 - 1;
+      if ( v56 )
+      {
+        v57 = v56 - 17;
+        if ( v57 )
+        {
+          v58 = v57 - 17;
+          if ( v58 )
           {
-            DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", (PCH)&Response, 2u);
-          }
-          else
-          {
-            DbgPrintEx(
-              0x65u,
-              0,
-              "(No kernel debugger is present.) Respond with:\n"
-              "  g                    -- Go (continue)\n"
-              "  eb 0x%p 'p';g  -- terminate Process\n"
-              "  eb 0x%p 't';g  -- terminate Thread\n"
-              " or regular debugging.\n",
-              &Response,
-              &Response);
-            __debugbreak();
-          }
-          if ( (char)Response > 98 )
-          {
-            if ( (char)Response == 103 )
-              break;
-            if ( (char)Response == 105 )
-              goto LABEL_124;
-            if ( (char)Response != 112 )
+            v59 = v58 - 17;
+            if ( v59 )
             {
-              if ( (char)Response != 116 )
-                goto LABEL_123;
-              goto LABEL_121;
-            }
-LABEL_122:
-            CurrentProcess = GetCurrentProcess();
-            TerminateProcess(CurrentProcess, 0xC0000001);
-LABEL_123:
-            DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
-          }
-          else
-          {
-            if ( (char)Response == 98 || (char)Response == 66 )
-            {
-              __debugbreak();
-              break;
-            }
-            if ( (char)Response == 71 )
-              break;
-            if ( (char)Response != 73 )
-            {
-              if ( (char)Response != 80 )
+              v60 = (unsigned int)(v59 - 1);
+              if ( (_DWORD)v60 )
               {
-                if ( (char)Response != 84 )
-                  goto LABEL_123;
-LABEL_121:
-                CurrentThread = GetCurrentThread();
-                TerminateThread(CurrentThread, 0xC0000001);
-                goto LABEL_123;
+                if ( (_DWORD)v60 != 1 )
+                {
+                  v67 = 1289;
+LABEL_58:
+                  v17 = -2003303421;
+                  MilInstrumentationCheckHR_MaybeFailFast(v60, 0LL, 0, -2003303421, v67, 0LL);
+                  CExpressionValue::~CExpressionValue((CExpressionValue *)v69);
+                  goto LABEL_63;
+                }
+                D3DXQuaternionNormalize((struct D2DQuaternion *)&v68[1], (const struct D2DQuaternion *)(a4 + 32));
+                v71 = 71;
+                v69[0] = *(_OWORD *)&v68[1];
+                goto LABEL_55;
               }
-              goto LABEL_122;
+              v71 = 70;
             }
-LABEL_124:
-            DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
+            else
+            {
+              v71 = 69;
+            }
+            v69[0] = *(_OWORD *)(a4 + 32);
+          }
+          else
+          {
+            v61 = *(_DWORD *)(a4 + 40);
+            *(_QWORD *)&v69[0] = *(_QWORD *)(a4 + 32);
+            v71 = 52;
+            DWORD2(v69[0]) = v61;
           }
         }
+        else
+        {
+          v62 = *(_DWORD *)(a4 + 36);
+          LODWORD(v69[0]) = *(_DWORD *)(a4 + 32);
+          DWORD1(v69[0]) = v62;
+          v71 = 35;
+        }
       }
-      _InterlockedIncrement(v28 + 2);
-      v7 = v67;
-    }
-    v29 = *(_QWORD *)(v27 + 8 * v26 + 8);
-    *(_QWORD *)(v27 + 8 * v26 + 8) = v28;
-    if ( v29 )
-      CMILRefCountBaseT<IMILRefCount>::InternalRelease(v29);
-  }
-  v30 = *(_QWORD *)(v23 + 104);
-  if ( *(float **)(v30 + 8 * v26 + 16) != v24 )
-  {
-    if ( v24 )
-      (**(void (__fastcall ***)(float *))v24)(v24);
-    v31 = *(_QWORD *)(v30 + 8 * v26 + 16);
-    *(_QWORD *)(v30 + 8 * v26 + 16) = v24;
-    if ( v31 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v31 + 8LL))(v31);
-  }
-  *(_BYTE *)(v23 + 140) |= 4u;
-  v14 = 0;
-LABEL_30:
-  if ( v66 )
-    (*(void (__fastcall **)(float *))(*(_QWORD *)v66 + 8LL))(v66);
-  if ( v7 )
-  {
-    if ( _InterlockedExchangeAdd(v7 + 2, 0xFFFFFFFF) == 1 )
-    {
-      CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v7 + 2));
-      (*(void (__fastcall **)(_DWORD *))(*(_QWORD *)v67 + 24LL))(v67);
-      if ( _InterlockedExchangeAdd(v7 + 2, 0xFFFFFFFF) == 1 )
+      else
       {
-        v60 = v67;
-        --v7[2];
-        (*(void (__fastcall **)(_DWORD *, __int64))(*(_QWORD *)v60 + 16LL))(v60, 1LL);
+        LODWORD(v69[0]) = *(_DWORD *)(a4 + 32);
       }
     }
+    else
+    {
+      v63 = *(float *)(a4 + 32) != 0.0;
+      v71 = 17;
+      LOBYTE(v69[0]) = v63;
+    }
+LABEL_55:
+    v72 = 1;
+    goto LABEL_60;
   }
-  return v14;
+  if ( v9 == 65539 )
+  {
+    v32 = (int)*(float *)(a4 + 8);
+    Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v73);
+    v33 = XamlCircleInterpolation::Create(a5, v32, &v73);
+    v17 = v33;
+    if ( v33 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v34, 0LL, 0, v33, 0x492u, 0LL);
+      goto LABEL_63;
+    }
+    goto LABEL_32;
+  }
+  if ( !v9 )
+  {
+    Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v73);
+    v30 = LinearInterpolation::Create(a5, &v73);
+    v17 = v30;
+    if ( v30 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0x46Fu, 0LL);
+      goto LABEL_63;
+    }
+    goto LABEL_32;
+  }
+  v10 = v9 - 1;
+  if ( !v10 )
+  {
+    Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v73);
+    v28 = CubicBezierInterpolation::Create(a5);
+    v17 = v28;
+    if ( v28 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0x469u, 0LL);
+      goto LABEL_63;
+    }
+    goto LABEL_32;
+  }
+  v11 = v10 - 1;
+  if ( !v11 )
+  {
+    v22 = (int)*(float *)(a4 + 8);
+    v23 = (int)*(float *)(a4 + 12);
+    v24 = (int)*(float *)(a4 + 16);
+    v25 = (int)*(float *)(a4 + 20);
+    Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v73);
+    v26 = StepInterpolation::Create(a5, v22, v23, v24, v25 & 1, (v25 & 2) != 0, &v73);
+    v17 = v26;
+    if ( v26 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0x47Au, 0LL);
+      goto LABEL_63;
+    }
+    goto LABEL_32;
+  }
+  v12 = v11 - 0xFFFF;
+  if ( !v12 )
+  {
+    v18 = (int)*(float *)(a4 + 8);
+    Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v73);
+    v20 = XamlBackInterpolation::Create(a5, v18, v19, &v73);
+    v17 = v20;
+    if ( v20 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x482u, 0LL);
+      goto LABEL_63;
+    }
+    goto LABEL_32;
+  }
+  if ( v12 != 1 )
+  {
+LABEL_24:
+    v17 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2003303421, 0x4B9u, 0LL);
+    goto LABEL_63;
+  }
+  v13 = (int)*(float *)(a4 + 8);
+  v14 = (int)*(float *)(a4 + 12);
+  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v73);
+  v15 = XamlBounceInterpolation::Create(a5, v13, v14);
+  v17 = v15;
+  if ( v15 >= 0 )
+    goto LABEL_32;
+  MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x48Bu, 0LL);
+LABEL_63:
+  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v73);
+  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(v68);
+  return v17;
 }

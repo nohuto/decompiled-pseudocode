@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDmAddCacheReferenceForObject @ 0x1406F1B00
+ * XREFs of PiDmAddCacheReferenceForObject @ 0x1406F1AE0
  * Callers:
  *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
- *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x1406F19CC (PiPnpRtlGatherInstallerClassChangeInfo.c)
- *     IopRegisterDeviceInterface @ 0x140709AF4 (IopRegisterDeviceInterface.c)
- *     IopProcessSetInterfaceState @ 0x14070F918 (IopProcessSetInterfaceState.c)
- *     PiDmListInitEnumCallback @ 0x14072C770 (PiDmListInitEnumCallback.c)
- *     PiPnpRtlEnsureObjectCached @ 0x140828D4C (PiPnpRtlEnsureObjectCached.c)
+ *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x1406F19AC (PiPnpRtlGatherInstallerClassChangeInfo.c)
+ *     IopRegisterDeviceInterface @ 0x140709AD4 (IopRegisterDeviceInterface.c)
+ *     IopProcessSetInterfaceState @ 0x14070F8F8 (IopProcessSetInterfaceState.c)
+ *     PiDmListInitEnumCallback @ 0x14072C750 (PiDmListInitEnumCallback.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x140828D2C (PiPnpRtlEnsureObjectCached.c)
  * Callees:
  *     RtlLookupElementGenericTableFullAvl @ 0x140006B20 (RtlLookupElementGenericTableFullAvl.c)
  *     RtlInsertElementGenericTableFullAvl @ 0x140006F70 (RtlInsertElementGenericTableFullAvl.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PiDmInitializeComparisonObject @ 0x140598AE8 (PiDmInitializeComparisonObject.c)
  *     PiDmGetObjectManagerForObjectType @ 0x140598CD0 (PiDmGetObjectManagerForObjectType.c)
  *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
- *     PiDmObjectCreate @ 0x1406F1C50 (PiDmObjectCreate.c)
+ *     PiDmObjectCreate @ 0x1406F1C30 (PiDmObjectCreate.c)
  */
 
 __int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, wchar_t *a2, volatile signed __int32 **a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of xxxGenerateIAMKey @ 0x1C00F159C
+ * XREFs of xxxGenerateIAMKey @ 0x1C00D71AC
  * Callers:
- *     xxxSetShellWindow @ 0x1C00F1340 (xxxSetShellWindow.c)
+ *     xxxSetShellWindow @ 0x1C00D6FA0 (xxxSetShellWindow.c)
  * Callees:
- *     ?xxxCallGenerateIAMKey@@YAJPEAUtagIAM_KKEY@@@Z @ 0x1C01CE7F8 (-xxxCallGenerateIAMKey@@YAJPEAUtagIAM_KKEY@@@Z.c)
+ *     ?xxxCallGenerateIAMKey@@YAJPEAUtagIAM_KKEY@@@Z @ 0x1C01D260C (-xxxCallGenerateIAMKey@@YAJPEAUtagIAM_KKEY@@@Z.c)
  */
 
 __int64 __fastcall xxxGenerateIAMKey(__int64 a1)
@@ -13,17 +13,21 @@ __int64 __fastcall xxxGenerateIAMKey(__int64 a1)
   __int64 v3; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 0LL;
-  v1 = a1 + 264;
-  if ( (unsigned int)SystemPrng(&v3, 8LL) )
+  v1 = a1 + 272;
+  result = SystemPrng(&v3, 8LL);
+  if ( (_DWORD)result )
   {
-    result = v3;
     *(_QWORD *)(v1 + 8) = v3;
-LABEL_3:
-    *(_DWORD *)v1 = 1;
-    return result;
+    goto LABEL_3;
   }
   result = xxxCallGenerateIAMKey((struct tagIAM_KKEY *)v1);
-  if ( (int)result >= 0 )
-    goto LABEL_3;
+  if ( (int)result < 0 )
+  {
+    result = 0LL;
+LABEL_3:
+    if ( !(_DWORD)result )
+      return result;
+  }
+  *(_DWORD *)v1 = 1;
   return result;
 }

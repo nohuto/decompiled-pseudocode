@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCreateEmptyHiveClone @ 0x1407F65F8
+ * XREFs of CmpCreateEmptyHiveClone @ 0x1407F65D8
  * Callers:
  *     CmpReorganizeHive @ 0x1405A6F70 (CmpReorganizeHive.c)
  * Callees:
  *     CmpHiveInitialize @ 0x1405A717C (CmpHiveInitialize.c)
  *     CmpAllocate @ 0x1405A72D0 (CmpAllocate.c)
  *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
- *     CmpDestroyHive @ 0x1407F6798 (CmpDestroyHive.c)
- *     HvHiveStartEmptyClone @ 0x1407F7274 (HvHiveStartEmptyClone.c)
+ *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
+ *     HvHiveStartEmptyClone @ 0x1407F7254 (HvHiveStartEmptyClone.c)
  */
 
 __int64 __fastcall CmpCreateEmptyHiveClone(_QWORD *a1, __int64 a2)

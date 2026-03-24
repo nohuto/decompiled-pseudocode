@@ -1,89 +1,89 @@
 /*
- * XREFs of ?Reset@DXGDEVICE@@QEAAXXZ @ 0x1C02E73F8
+ * XREFs of ?Reset@DXGDEVICE@@QEAAXXZ @ 0x1C02566CC
  * Callers:
- *     ?Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02C452C (-Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?StopDisplayDevices@ADAPTER_RENDER@@QEAAXW4DXGADAPTER_DEVICELISTTYPE@@PEAVDXGADAPTER@@E@Z @ 0x1C02C4BD8 (-StopDisplayDevices@ADAPTER_RENDER@@QEAAXW4DXGADAPTER_DEVICELISTTYPE@@PEAVDXGADAPTER@@E@Z.c)
+ *     ?Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0216870 (-Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?StopDisplayDevices@ADAPTER_RENDER@@QEAAXW4DXGADAPTER_DEVICELISTTYPE@@PEAVDXGADAPTER@@E@Z @ 0x1C0216F20 (-StopDisplayDevices@ADAPTER_RENDER@@QEAAXW4DXGADAPTER_DEVICELISTTYPE@@PEAVDXGADAPTER@@E@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?Reset@DXGOVERLAY@@QEAAXXZ @ 0x1C0329B74 (-Reset@DXGOVERLAY@@QEAAXXZ.c)
- *     ?SendWnfNotification@DXGPROCESS@@QEAAJPEBU_WNF_STATE_NAME@@PEAXK@Z @ 0x1C03371C0 (-SendWnfNotification@DXGPROCESS@@QEAAJPEBU_WNF_STATE_NAME@@PEAXK@Z.c)
- *     ?VmBusSendMarkDeviceAsError@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEBU_D3DKMT_MARKDEVICEASERROR@@@Z @ 0x1C0379D14 (-VmBusSendMarkDeviceAsError@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEBU.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?VmBusSendMarkDeviceAsError@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEBU_D3DKMT_MARKDEVICEASERROR@@@Z @ 0x1C0249ABC (-VmBusSendMarkDeviceAsError@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEBU.c)
+ *     ?SendWnfNotification@DXGPROCESS@@QEAAJPEBU_WNF_STATE_NAME@@PEAXK@Z @ 0x1C0285E6C (-SendWnfNotification@DXGPROCESS@@QEAAJPEBU_WNF_STATE_NAME@@PEAXK@Z.c)
  */
 
 void __fastcall DXGDEVICE::Reset(DXGDEVICE *this)
 {
-  DXGOVERLAY *i; // rdi
-  bool v3; // zf
-  __int64 v4; // rdx
-  const struct _WNF_STATE_NAME *v5; // rdx
-  unsigned int v6; // r9d
-  DXG_GUEST_VIRTUALGPU_VMBUS *v7; // rcx
-  struct DXGPROCESS *v8; // rdx
-  DXGPROCESS *v9; // rcx
-  _BYTE v10[16]; // [rsp+50h] [rbp-18h] BYREF
-  int v11; // [rsp+70h] [rbp+8h] BYREF
-  _D3DKMT_MARKDEVICEASERROR v12; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 *i; // rdi
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  bool v9; // zf
+  __int64 v10; // rdx
+  const struct _WNF_STATE_NAME *v11; // rdx
+  unsigned int v12; // r9d
+  DXG_GUEST_VIRTUALGPU_VMBUS *v13; // rcx
+  struct DXGPROCESS *v14; // rdx
+  DXGPROCESS *v15; // rcx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  _BYTE v19[24]; // [rsp+20h] [rbp-18h] BYREF
+  int v20; // [rsp+40h] [rbp+8h] BYREF
+  _D3DKMT_MARKDEVICEASERROR v21; // [rsp+48h] [rbp+10h] BYREF
 
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*((_QWORD *)this + 2) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 1592LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceExclusiveOwner()",
-      1592LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v4 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v4 + 24) = 1593LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v10, (struct DXGFASTMUTEX *const)(*((_QWORD *)this + 2) + 744LL), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v10);
-  for ( i = (DXGOVERLAY *)*((_QWORD *)this + 60); i != (DXGDEVICE *)((char *)this + 480) && i; i = *(DXGOVERLAY **)i )
-    DXGOVERLAY::Reset(i);
-  DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v10);
-  v3 = (*((_BYTE *)this + 1869) & 1) == 0;
-  v4 = *((_QWORD *)this + 2);
-  *((_DWORD *)this + 144) = 2;
-  if ( v3 )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v19, (struct DXGFASTMUTEX *const)(*((_QWORD *)this + 2) + 728LL), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v19);
+  for ( i = (__int64 *)*((_QWORD *)this + 60); i != (__int64 *)((char *)this + 480) && i; i = (__int64 *)*i )
   {
-    if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(v4 + 624) + 8LL) + 576LL))(*((_QWORD *)this + 96)) )
+    if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*(_QWORD *)(i[2] + 16) + 16LL)) )
+    {
+      v8 = WdLogNewEntry5_WdAssertion(v7, v5);
+      *(_QWORD *)(v8 + 24) = 226LL;
+      WdLogEvent5_WdAssertion(v8);
+    }
+    *((_DWORD *)i + 8) = -1;
+    *((_DWORD *)i + 7) = 2;
+  }
+  DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v19, v5);
+  v9 = (*((_BYTE *)this + 1869) & 1) == 0;
+  v10 = *((_QWORD *)this + 2);
+  *((_DWORD *)this + 144) = 2;
+  if ( v9 )
+  {
+    if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(v10 + 616) + 8LL) + 576LL))(*((_QWORD *)this + 96)) )
       *((_DWORD *)this + 144) = 3;
     else
-      (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 624LL) + 8LL) + 208LL))(
+      (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 616LL) + 8LL) + 208LL))(
         *((_QWORD *)this + 96),
         22LL);
   }
   else
   {
-    v7 = (DXG_GUEST_VIRTUALGPU_VMBUS *)(*(_QWORD *)(v4 + 16) + 4344LL);
-    v8 = (struct DXGPROCESS *)*((_QWORD *)this + 5);
-    v12.hDevice = *((_DWORD *)this + 109);
-    v12.Reason = 0x80000000;
-    DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendMarkDeviceAsError(v7, v8, this, &v12);
+    v13 = (DXG_GUEST_VIRTUALGPU_VMBUS *)(*(_QWORD *)(v10 + 16) + 4240LL);
+    v14 = (struct DXGPROCESS *)*((_QWORD *)this + 5);
+    v21.hDevice = *((_DWORD *)this + 109);
+    v21.Reason = 0x80000000;
+    DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendMarkDeviceAsError(v13, v14, this, &v21);
   }
-  v9 = (DXGPROCESS *)*((_QWORD *)this + 5);
-  v11 = 1;
-  if ( (int)DXGPROCESS::SendWnfNotification(v9, v5, &v11, v6) < 0 )
+  v15 = (DXGPROCESS *)*((_QWORD *)this + 5);
+  v20 = 1;
+  if ( (int)DXGPROCESS::SendWnfNotification(v15, v11, &v20, v12) < 0 )
   {
-    WdLogSingleEntry1(2LL, 1656LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DXGPROCESS::SendWnfNotification failed during DXGDEVICE::Reset.",
-      1656LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v18 = WdLogNewEntry5_WdError(v17, v16);
+    *(_QWORD *)(v18 + 24) = 1657LL;
+    WdLogEvent5_WdError(v18);
   }
-  if ( v10[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v10);
+  if ( v19[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v19, v16);
 }

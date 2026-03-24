@@ -1,14 +1,14 @@
 /*
- * XREFs of KdpSysReadControlSpace @ 0x140AB2BB8
+ * XREFs of KdpSysReadControlSpace @ 0x1409B9F1C
  * Callers:
- *     KdSystemDebugControl @ 0x1409721A0 (KdSystemDebugControl.c)
- *     KdpReadControlSpace @ 0x140AB2AF8 (KdpReadControlSpace.c)
+ *     KdSystemDebugControl @ 0x1408B9BB0 (KdSystemDebugControl.c)
+ *     KdpReadControlSpace @ 0x1409B77B4 (KdpReadControlSpace.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KdpCopyMemoryChunks @ 0x140AB12A4 (KdpCopyMemoryChunks.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
  */
 
-__int64 __fastcall KdpSysReadControlSpace(ULONG a1, unsigned __int64 a2, char *a3, unsigned int a4, _DWORD *a5)
+__int64 __fastcall KdpSysReadControlSpace(ULONG a1, unsigned __int64 a2, char *a3, unsigned int a4, __int64 a5)
 {
   _DWORD *v5; // rsi
   __int64 v8; // rdi
@@ -19,16 +19,16 @@ __int64 __fastcall KdpSysReadControlSpace(ULONG a1, unsigned __int64 a2, char *a
   unsigned int v14; // r8d
   __int64 v16; // [rsp+30h] [rbp-18h] BYREF
 
-  v5 = a5;
+  v5 = (_DWORD *)a5;
   v16 = 0LL;
   v8 = a1;
-  *a5 = 0;
+  *(_DWORD *)a5 = 0;
   if ( a1 >= KeQueryActiveProcessorCountEx(0xFFFFu) )
     return 3221225473LL;
   v10 = KiProcessorBlock[v8];
   if ( !v10 )
     return 3221225473LL;
-  a5 = (_DWORD *)KiProcessorBlock[v8];
+  a5 = KiProcessorBlock[v8];
   if ( a2 > 3 )
     return 3221225473LL;
   if ( !(_DWORD)a2 )
@@ -40,10 +40,8 @@ __int64 __fastcall KdpSysReadControlSpace(ULONG a1, unsigned __int64 a2, char *a
   v11 = a2 - 1;
   if ( !v11 )
   {
-    v13 = (__int64 *)&a5;
-LABEL_12:
-    v14 = 8;
-    goto LABEL_8;
+    v13 = &a5;
+    goto LABEL_12;
   }
   v12 = v11 - 1;
   if ( v12 )
@@ -51,14 +49,16 @@ LABEL_12:
     if ( v12 == 1 )
     {
       v13 = (__int64 *)(v10 + 8);
-      goto LABEL_12;
+LABEL_12:
+      v14 = 8;
+      goto LABEL_13;
     }
     return 3221225473LL;
   }
   v13 = (__int64 *)(v10 + 256);
   v14 = 240;
-LABEL_8:
+LABEL_13:
   if ( v14 > a4 )
     v14 = a4;
-  return KdpCopyMemoryChunks(a3, (__int64)v13, v14, 0, 5, v5);
+  return KdpCopyMemoryChunks(a3, v13, v14, 0, 5u, v5);
 }

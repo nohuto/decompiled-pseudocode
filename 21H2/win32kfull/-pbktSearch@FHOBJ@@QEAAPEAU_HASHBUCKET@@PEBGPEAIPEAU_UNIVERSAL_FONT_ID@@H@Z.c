@@ -1,15 +1,15 @@
 /*
- * XREFs of ?pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C0013374
+ * XREFs of ?pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00BBCF8
  * Callers:
- *     ?bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z @ 0x1C0012370 (-bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z.c)
- *     ?bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z @ 0x1C0012850 (-bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z.c)
- *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C0012B4C (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
- *     ?bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z @ 0x1C001D360 (-bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z.c)
- *     ?bFindBitmapFont@MAPPER@@QEAAHPEBG@Z @ 0x1C001EF44 (-bFindBitmapFont@MAPPER@@QEAAHPEBG@Z.c)
- *     ?ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C013AF74 (-ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
- *     ?ppfeFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C02A5A6C (-ppfeFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@@Z.c)
+ *     ?bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z @ 0x1C005FB50 (-bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z.c)
+ *     ?bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z @ 0x1C00A03A4 (-bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z.c)
+ *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C00BA340 (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
+ *     ?bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z @ 0x1C00BBA10 (-bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z.c)
+ *     ?bFindBitmapFont@MAPPER@@QEAAHPEBG@Z @ 0x1C010021C (-bFindBitmapFont@MAPPER@@QEAAHPEBG@Z.c)
+ *     ?ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C014EDC0 (-ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
+ *     ?ppfeFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C02A7898 (-ppfeFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@@Z.c)
  * Callees:
- *     ?iHash@@YAIPEBGI@Z @ 0x1C0013DA8 (-iHash@@YAIPEBGI@Z.c)
+ *     ?iHash@@YAIPEBGI@Z @ 0x1C00BBE28 (-iHash@@YAIPEBGI@Z.c)
  */
 
 struct _HASHBUCKET *__fastcall FHOBJ::pbktSearch(
@@ -26,7 +26,7 @@ struct _HASHBUCKET *__fastcall FHOBJ::pbktSearch(
   unsigned int v12; // eax
   __int64 *v13; // rcx
   int v14; // eax
-  bool v15; // zf
+  BOOL v15; // edx
   unsigned __int16 v17; // ax
   const unsigned __int16 *v18; // rdx
 
@@ -59,9 +59,15 @@ LABEL_6:
       {
         v14 = *((_DWORD *)v13 + 15);
         if ( v14 == 1 && *(_DWORD *)v5 == 1 )
+        {
           v15 = *((_DWORD *)v13 + 16) == *((_DWORD *)v5 + 1);
+        }
         else
-          v15 = v14 == *(_DWORD *)v5;
+        {
+          if ( v14 == *(_DWORD *)v5 )
+            return (struct _HASHBUCKET *)v13;
+          v15 = 0;
+        }
         if ( v15 )
           return (struct _HASHBUCKET *)v13;
       }
@@ -75,14 +81,14 @@ LABEL_6:
           {
             v17 = *++v18;
             if ( *v18 != *(const unsigned __int16 *)((char *)v18 + (char *)v13 - (char *)a2 + 60) )
-              goto LABEL_13;
+              goto LABEL_14;
           }
           if ( a5 || (v13[4] & 2) == 0 )
             return (struct _HASHBUCKET *)v13;
           v9 = v13;
         }
       }
-LABEL_13:
+LABEL_14:
       v13 = (__int64 *)*v13;
       if ( !v13 )
         return (struct _HASHBUCKET *)v9;

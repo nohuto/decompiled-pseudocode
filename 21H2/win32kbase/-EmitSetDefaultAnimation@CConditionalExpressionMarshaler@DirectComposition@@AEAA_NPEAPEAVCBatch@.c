@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetDefaultAnimation@CConditionalExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022B2DC
+ * XREFs of ?EmitSetDefaultAnimation@CConditionalExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EB38C
  * Callers:
- *     ?EmitUpdateCommands@CConditionalExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022B400 (-EmitUpdateCommands@CConditionalExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CConditionalExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EB4B0 (-EmitUpdateCommands@CConditionalExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CConditionalExpressionMarshaler::EmitSetDefaultAnimation(
@@ -17,7 +17,7 @@ char __fastcall DirectComposition::CConditionalExpressionMarshaler::EmitSetDefau
   _DWORD *v8; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 1;
-  if ( (*((_DWORD *)this + 4) & 0x800) == 0 )
+  if ( (*((_DWORD *)this + 4) & 0x400) == 0 )
   {
     v4 = 0;
     v8 = 0LL;
@@ -28,12 +28,12 @@ char __fastcall DirectComposition::CConditionalExpressionMarshaler::EmitSetDefau
       *(_QWORD *)(v5 + 1) = 0LL;
       v5[3] = 0;
       v5[1] = 120;
-      v5[2] = *((_DWORD *)this + 8);
-      v6 = *((_QWORD *)this + 19);
+      v5[2] = *((_DWORD *)this + 6);
+      v6 = *((_QWORD *)this + 18);
       if ( v6 )
-        v4 = *(_DWORD *)(v6 + 32);
+        v4 = *(_DWORD *)(v6 + 24);
       v5[3] = v4;
-      *((_DWORD *)this + 4) |= 0x800u;
+      *((_DWORD *)this + 4) |= 0x400u;
     }
     else
     {

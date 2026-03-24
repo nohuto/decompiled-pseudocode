@@ -1,20 +1,26 @@
 /*
- * XREFs of CmpFreeKeyControlBlock @ 0x14069FA30
+ * XREFs of CmpFreeKeyControlBlock @ 0x140719B20
  * Callers:
- *     CmpCleanUpKCBCacheTable @ 0x14069F904 (CmpCleanUpKCBCacheTable.c)
- *     CmpDecommisssionKcb @ 0x14069FA08 (CmpDecommisssionKcb.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x1406FEA54 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
- *     CmpDeleteKeyObject @ 0x1407C2680 (CmpDeleteKeyObject.c)
- *     CmpCreateKeyControlBlock @ 0x1407C3850 (CmpCreateKeyControlBlock.c)
- *     CmpCloneToUnbackedKcb @ 0x140914D00 (CmpCloneToUnbackedKcb.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140915544 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
+ *     CmpUnlockTwoKcbs @ 0x1405F3950 (CmpUnlockTwoKcbs.c)
+ *     CmEnumerateValueKey @ 0x1405F4EF0 (CmEnumerateValueKey.c)
+ *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
+ *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
+ *     DelistKeyBodyFromKCB @ 0x140667930 (DelistKeyBodyFromKCB.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406934B0 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x1406F2EB0 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpUnlockKcbStack @ 0x1406FB440 (CmpUnlockKcbStack.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
+ *     CmpCleanUpKCBCacheTable @ 0x140719A14 (CmpCleanUpKCBCacheTable.c)
+ *     CmpCloneToUnbackedKcb @ 0x14086EADC (CmpCloneToUnbackedKcb.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x14086F1D4 (CmpSearchKeyControlBlockTreeEx.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140346D64 (CmpFreeTransientPoolWithTag.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY __fastcall CmpFreeKeyControlBlock(ULONG_PTR BugCheckParameter2)
@@ -38,11 +44,11 @@ PSLIST_ENTRY __fastcall CmpFreeKeyControlBlock(ULONG_PTR BugCheckParameter2)
     CmpFreeTransientPoolWithTag((void *)v3, 0x624E4D43u);
   *(_DWORD *)(BugCheckParameter2 + 8) |= 0x10000u;
   *(_QWORD *)(BugCheckParameter2 + 32) = 0LL;
-  ++dword_140CE1C5C;
-  if ( LOWORD(CmpKcbLookaside.Alignment) >= (unsigned __int16)word_140CE1C50 )
+  ++dword_140CDB4DC;
+  if ( LOWORD(CmpKcbLookaside.Alignment) >= (unsigned __int16)word_140CDB4D0 )
   {
-    ++dword_140CE1C60;
-    result = (PSLIST_ENTRY)((__int64 (__fastcall *)(ULONG_PTR, union _SLIST_HEADER *))qword_140CE1C78)(
+    ++dword_140CDB4E0;
+    result = (PSLIST_ENTRY)((__int64 (__fastcall *)(ULONG_PTR, union _SLIST_HEADER *))qword_140CDB4F8)(
                              BugCheckParameter2,
                              &CmpKcbLookaside);
   }
@@ -50,6 +56,6 @@ PSLIST_ENTRY __fastcall CmpFreeKeyControlBlock(ULONG_PTR BugCheckParameter2)
   {
     result = RtlpInterlockedPushEntrySList(&CmpKcbLookaside, (PSLIST_ENTRY)BugCheckParameter2);
   }
-  _InterlockedDecrement64(qword_140D3D2E0);
+  _InterlockedDecrement64(qword_140D2EFA0);
   return result;
 }

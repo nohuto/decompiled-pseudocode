@@ -1,37 +1,34 @@
 /*
- * XREFs of ?UMPDDrvDriverFn@@YAHPEAXPEAH@Z @ 0x1C02B96CC
+ * XREFs of ?UMPDDrvDriverFn@@YAHPEAXPEAH@Z @ 0x1C01161F0
  * Callers:
- *     ?UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z @ 0x1C02C042C (-UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z.c)
+ *     ?UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z @ 0x1C0116058 (-UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B78D8 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A190C (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall UMPDDrvDriverFn(void *a1, int *a2)
 {
-  unsigned int v3; // ebx
+  unsigned int v4; // ebx
   size_t Size; // [rsp+20h] [rbp-48h]
   UMPDOBJ *v7; // [rsp+30h] [rbp-38h] BYREF
-  _DWORD v8[2]; // [rsp+38h] [rbp-30h] BYREF
-  __int64 v9; // [rsp+40h] [rbp-28h]
-  __int64 v10; // [rsp+48h] [rbp-20h]
-  void *v11; // [rsp+50h] [rbp-18h]
+  __int128 v8; // [rsp+38h] [rbp-30h] BYREF
+  __int128 v9; // [rsp+48h] [rbp-20h]
 
-  v3 = 0;
-  v9 = 0LL;
   XUMPDOBJ::XUMPDOBJ((XUMPDOBJ *)&v7);
+  v4 = 0;
+  v8 = 0LL;
   v9 = 0LL;
   if ( v7 )
   {
-    v8[1] = 108;
-    v8[0] = 32;
-    v10 = *(_QWORD *)v7;
-    v11 = a1;
+    *(_QWORD *)&v8 = 0x6C00000020LL;
+    *(_QWORD *)&v9 = *(_QWORD *)v7;
+    *((_QWORD *)&v9 + 1) = a1;
     LODWORD(Size) = 416;
-    LOBYTE(v3) = (unsigned int)UMPDOBJ::Thunk(v7, v8, 0x20u, a2, Size) != -1;
+    LOBYTE(v4) = (unsigned int)UMPDOBJ::Thunk(v7, &v8, 0x20u, a2, Size) != -1;
   }
   XUMPDOBJ::~XUMPDOBJ(&v7);
-  return v3;
+  return v4;
 }

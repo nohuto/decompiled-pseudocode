@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpWriteOffsetArrayToFile @ 0x140A1B01C
+ * XREFs of CmpWriteOffsetArrayToFile @ 0x14087167C
  * Callers:
- *     CmDumpKeyToFile @ 0x140A0AB54 (CmDumpKeyToFile.c)
- *     CmpFlushBackupHive @ 0x140A1A998 (CmpFlushBackupHive.c)
+ *     CmpFlushBackupHive @ 0x140870F90 (CmpFlushBackupHive.c)
+ *     CmDumpKey @ 0x14087BD68 (CmDumpKey.c)
  * Callees:
- *     ZwSetInformationFile @ 0x14041AB80 (ZwSetInformationFile.c)
- *     ZwFlushBuffersFile @ 0x14041B000 (ZwFlushBuffersFile.c)
- *     CmpDoFileWrite @ 0x1406895CC (CmpDoFileWrite.c)
+ *     ZwSetInformationFile @ 0x1403F9F00 (ZwSetInformationFile.c)
+ *     ZwFlushBuffersFile @ 0x1403FA380 (ZwFlushBuffersFile.c)
+ *     CmpDoFileWrite @ 0x1406EA3AC (CmpDoFileWrite.c)
  */
 
 NTSTATUS __fastcall CmpWriteOffsetArrayToFile(__int64 a1, unsigned int a2, __int64 a3, int a4, HANDLE FileHandle)
@@ -23,7 +23,7 @@ NTSTATUS __fastcall CmpWriteOffsetArrayToFile(__int64 a1, unsigned int a2, __int
   result = ZwSetInformationFile(FileHandle, &IoStatusBlock, &v10, 8u, FileEndOfFileInformation);
   if ( result >= 0 )
   {
-    result = CmpDoFileWrite(FileHandle, v8, a3, a2, 0);
+    result = CmpDoFileWrite(FileHandle, v8, a3, (struct _LOOKASIDE_LIST_EX *)a2, 0);
     if ( result >= 0 )
       return ZwFlushBuffersFile(FileHandle, &IoStatusBlock);
   }

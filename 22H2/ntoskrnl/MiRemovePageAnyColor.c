@@ -1,136 +1,118 @@
 /*
- * XREFs of MiRemovePageAnyColor @ 0x1402EB774
+ * XREFs of MiRemovePageAnyColor @ 0x1402EC29C
  * Callers:
- *     MiGetPage @ 0x14026D240 (MiGetPage.c)
- *     MiGetFreeOrZeroPageAnyColor @ 0x1402E80D4 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x1402EC204 (MiGetFreeOrZeroPageAnyColor.c)
  * Callees:
- *     MiGetPerfectColorHeadPage @ 0x14026DAF0 (MiGetPerfectColorHeadPage.c)
- *     MiSlistGetFreePage @ 0x1402EB994 (MiSlistGetFreePage.c)
+ *     MiSlistGetFreePage @ 0x1402EC520 (MiSlistGetFreePage.c)
+ *     MiGetPerfectColorHeadPage @ 0x1402EC698 (MiGetPerfectColorHeadPage.c)
  */
 
 __int64 __fastcall MiRemovePageAnyColor(__int64 a1, unsigned int a2, int a3)
 {
+  __int64 v3; // r9
+  __int16 v4; // r11
   unsigned int v5; // ebx
-  unsigned __int64 v6; // r10
-  unsigned int v7; // edx
-  _BOOL8 v8; // r14
-  _QWORD *v9; // rcx
-  unsigned int v10; // esi
-  _QWORD *v11; // r11
-  unsigned int v12; // r12d
-  unsigned int v13; // r15d
-  unsigned __int64 v14; // rax
-  unsigned __int64 v15; // rdi
-  __int64 v16; // rax
-  unsigned __int64 v17; // rcx
-  _QWORD *v18; // r9
-  unsigned int v19; // r8d
-  unsigned int v20; // r8d
-  unsigned __int64 v21; // rcx
+  _BOOL8 v6; // r14
+  unsigned __int64 v7; // rdx
+  _QWORD *v8; // rcx
+  unsigned int v9; // ebp
+  unsigned __int64 v10; // r12
+  unsigned int v11; // r15d
+  unsigned __int64 v12; // r13
+  unsigned int v13; // edi
+  unsigned int v14; // esi
+  unsigned __int64 v15; // rdx
+  _DWORD *v16; // r8
+  unsigned int v17; // r10d
+  unsigned int v18; // ecx
   __int64 result; // rax
-  __int64 v23; // rdx
-  __int64 v24; // rdx
-  unsigned int v25; // ecx
-  char v26; // al
-  _DWORD v27[2]; // [rsp+30h] [rbp-58h] BYREF
-  __int64 v28; // [rsp+38h] [rbp-50h]
-  __int64 v29; // [rsp+40h] [rbp-48h]
-  _QWORD *v30; // [rsp+90h] [rbp+8h]
-  unsigned __int64 v31; // [rsp+A8h] [rbp+20h]
+  unsigned int v20; // r10d
+  int v21; // r9d
+  unsigned int v22; // r8d
+  char v23; // cl
+  __int64 v24; // [rsp+30h] [rbp-58h]
+  BOOL v27; // [rsp+A8h] [rbp+20h] BYREF
+  BOOL v28; // [rsp+ACh] [rbp+24h]
 
+  v3 = a1;
+  v4 = a3;
   v5 = a2;
-  v6 = *(_QWORD *)(a1 + 16) + 25408 * ((unsigned __int64)a2 >> byte_140C65B8D);
-  if ( (a3 & 0x400) != 0 )
-    v7 = 0;
-  else
-    v7 = ((a3 & 0x800) != 0) + 1;
-  v8 = (a3 & 2) == 0;
+  v6 = (a3 & 2) == 0;
+  v7 = *(_QWORD *)(a1 + 16) + 4544 * ((unsigned __int64)a2 >> byte_140C4DE8C);
   if ( (unsigned int)MmNumberOfChannels > 1 )
-    v9 = (_QWORD *)(v6 + 8
-                       * (v8 + 2LL * (unsigned __int8)(MiChannelMaximumPowerOf2Mask & (v5 >> byte_140C65B8E)) + 2867));
+    v8 = (_QWORD *)(v7 + 8 * (v6 + 2LL * (unsigned __int8)(MiChannelMaximumPowerOf2Mask & (v5 >> byte_140C4DE8D)) + 527));
   else
-    v9 = (_QWORD *)(v6 + 22752 + 8LL * ((a3 & 2) == 0));
-  if ( *v9 )
+    v8 = (_QWORD *)(v7 + 4128 + 8 * v6);
+  if ( !*v8 )
+    return 0LL;
+  v9 = dword_140C4DEF8;
+  v10 = 0LL;
+  v11 = v5;
+  v12 = v7 + 16 * (v6 + 252);
+  v24 = *(_QWORD *)(v3 + 8 * v6 + 2176);
+  v13 = 0;
+  v14 = dword_140C4DEF8 + 1;
+  while ( 1 )
   {
-    v10 = dword_140C65BF8;
-    v11 = 0LL;
-    v12 = v5;
-    v30 = 0LL;
-    v13 = dword_140C65BF8 + 1;
-    v29 = *(_QWORD *)(a1 + 8 * v8 + 2496) + 88LL * dword_140C65BFC * v7;
-    v28 = v7;
-    v14 = v6 + 16 * (v8 + 2 * (v7 + 702LL));
-    v31 = v14;
-    v15 = 0LL;
     while ( 1 )
     {
-      v16 = *(_QWORD *)(v14 + 8);
-      v17 = (unsigned __int64)(v5 & v10) >> 6;
-      v18 = (_QWORD *)(v16 + 8 * v17);
-      if ( v11 == v18 )
-        goto LABEL_10;
-      v30 = (_QWORD *)(v16 + 8 * v17);
-      v11 = v30;
-      v15 = *v18 & ~((1LL << (v5 & v10 & 0x3F)) - 1);
-      if ( (a3 & 0x4000) != 0 )
+      v15 = v5 & v9;
+      v16 = (_DWORD *)(*(_QWORD *)(v12 + 8) + 4 * (v15 >> 5));
+      if ( (_DWORD *)v10 != v16 )
       {
-        v24 = 0LL;
-        v25 = (unsigned __int8)v12 & (unsigned __int8)v10 & 0xF;
-        do
+        v10 = *(_QWORD *)(v12 + 8) + 4 * ((unsigned __int64)(v5 & v9) >> 5);
+        v13 = *v16 & (-1 << (v15 & 0x1F));
+        if ( (v4 & 0x4000) != 0 )
         {
-          v26 = v25;
-          v25 += 16;
-          v24 |= 1LL << (v26 & 0x3F);
+          v21 = 0;
+          v22 = (unsigned __int8)v11 & (unsigned __int8)v9 & 0xF;
+          do
+          {
+            v23 = v22 & 0x1F;
+            v22 += 16;
+            v21 |= 1 << v23;
+          }
+          while ( v22 < 0x20 && v22 <= v9 );
+          v13 &= ~v21;
+          v3 = a1;
         }
-        while ( v25 < 0x40 && v25 <= v10 );
-        v23 = ~v24;
+        else if ( ((v15 ^ v14) & 0xFFFFFFFFFFFFFFE0uLL) == 0 )
+        {
+          v13 &= (1 << (v14 & 0x1F)) - 1;
+        }
+      }
+      v17 = v5 & v9 & 0xFFFFFFE0;
+      if ( v13 )
+        break;
+      v20 = v17 + 32;
+      if ( v20 >= v14 )
+      {
+        v10 = 0LL;
+        if ( !v11 || v14 != v9 + 1 )
+          return 0LL;
+        v14 = v11 & v9;
+        v5 = v11 & ~v9;
       }
       else
       {
-        if ( ((v5 & v10 ^ (unsigned __int64)v13) & 0xFFFFFFFFFFFFFFC0uLL) != 0 )
-          goto LABEL_10;
-        v23 = (1LL << (v13 & 0x3F)) - 1;
+        v5 = v20 + (~v9 & v5);
       }
-      v15 &= v23;
-LABEL_10:
-      v19 = v5 & v10 & 0xFFFFFFC0;
-      if ( v15 )
-      {
-        _BitScanForward64(&v21, v15);
-        v15 &= ~(1LL << v21);
-        v5 = v21 + v19 + (~v10 & v5);
-        if ( v28 == 1 )
-        {
-          v27[0] = (a3 & 2) == 0;
-          v27[1] = v27[0];
-          result = MiSlistGetFreePage(a1, v27, v5);
-          if ( result )
-            return result;
-        }
-        result = MiGetPerfectColorHeadPage(a1, v29 + 88LL * v5, v5, (a3 & 2) == 0, a3);
-        if ( result )
-          return result;
-        v11 = v30;
-      }
-      else
-      {
-        v20 = v19 + 64;
-        if ( v20 >= v13 )
-        {
-          v11 = 0LL;
-          v30 = 0LL;
-          if ( (v12 & v10) == 0 || v13 != v10 + 1 )
-            return 0LL;
-          v13 = v12 & v10;
-          v5 = v12 & ~v10;
-        }
-        else
-        {
-          v5 = v20 + (~v10 & v5);
-        }
-      }
-      v14 = v31;
     }
+    _BitScanForward(&v18, v13);
+    v27 = v6;
+    v28 = v6;
+    v5 = v18 + v17 + (~v9 & v5);
+    v13 &= ~(1 << v18);
+    result = MiSlistGetFreePage(v3, &v27, v5);
+    if ( result )
+      return result;
+    result = MiGetPerfectColorHeadPage(a1, (unsigned int)v24 + 40 * v5, v5, v6, a3);
+    if ( result == 1 )
+      break;
+    if ( result )
+      return result;
+    v3 = a1;
+    v4 = a3;
   }
-  return 0LL;
+  return 1LL;
 }

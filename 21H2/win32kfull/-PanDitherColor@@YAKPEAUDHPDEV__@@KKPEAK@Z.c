@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PanDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z @ 0x1C0292AF0
+ * XREFs of ?PanDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z @ 0x1C02950E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     EngDitherColor @ 0x1C0285400 (EngDitherColor.c)
- *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C0294FAC (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     EngDitherColor @ 0x1C0288840 (EngDitherColor.c)
+ *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C0297528 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
  */
 
 __int64 __fastcall PanDitherColor(struct DHPDEV__ *a1, ULONG a2, ULONG a3, unsigned int *a4)

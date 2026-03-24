@@ -1,10 +1,10 @@
 /*
- * XREFs of PopGenerateUnHibernatedMdl @ 0x140AA2BDC
+ * XREFs of PopGenerateUnHibernatedMdl @ 0x140996C70
  * Callers:
- *     PopAllocateHiberContext @ 0x140987DE8 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140777B44 (PopAllocateHiberContext.c)
  * Callees:
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     PopGenerateScratchMdl @ 0x14058EC04 (PopGenerateScratchMdl.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
+ *     PopGenerateScratchMdl @ 0x140387D30 (PopGenerateScratchMdl.c)
  */
 
 PMDL __fastcall PopGenerateUnHibernatedMdl(__int64 a1, __int64 a2)
@@ -42,6 +42,6 @@ PMDL __fastcall PopGenerateUnHibernatedMdl(__int64 a1, __int64 a2)
     }
   }
   v11 = __rdtsc();
-  qword_140C3D3A8 += (((unsigned __int64)HIDWORD(v11) << 32) | (unsigned int)v11) - v3;
+  qword_140C23FA8 += (((unsigned __int64)HIDWORD(v11) << 32) | (unsigned int)v11) - v3;
   return v6;
 }

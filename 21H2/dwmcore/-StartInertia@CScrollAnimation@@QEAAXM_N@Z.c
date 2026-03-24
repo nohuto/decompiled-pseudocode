@@ -1,12 +1,12 @@
 /*
- * XREFs of ?StartInertia@CScrollAnimation@@QEAAXM_N@Z @ 0x180254948
+ * XREFs of ?StartInertia@CScrollAnimation@@QEAAXM_N@Z @ 0x1802040B4
  * Callers:
- *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x18021E3F8 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
- *     ?CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x18025404C (-CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
+ *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x1801CD3E0 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
+ *     ?CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x1802037FC (-CalculateInertiaValue@CScrollAnimation@@AEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateType@1@@Z @ 0x180218DD0 (-AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateTy.c)
- *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180264F84 (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateType@1@@Z @ 0x1801C7D5C (-AddOrUpdatePendingInertiaStateChange@CInteractionTracker@@QEAAXW4ScrollAxis@@MW4TrackerUpdateTy.c)
+ *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180214050 (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
  */
 
 void __fastcall CScrollAnimation::StartInertia(CScrollAnimation *this, float a2, char a3)
@@ -25,25 +25,25 @@ void __fastcall CScrollAnimation::StartInertia(CScrollAnimation *this, float a2,
   __int64 v16; // rax
   __int64 v17; // rax
 
-  v3 = *((_QWORD *)this + 44);
+  v3 = *((_QWORD *)this + 41);
   if ( v3 )
     v6 = *(_QWORD *)(v3 + 16);
   else
     v6 = 0LL;
-  *((_QWORD *)this + 45) = *(_QWORD *)(*((_QWORD *)this + 2) + 608LL);
-  v7 = *((_DWORD *)this + 85);
-  *((_DWORD *)this + 84) = 2;
+  *((_QWORD *)this + 42) = *(_QWORD *)(*((_QWORD *)this + 2) + 456LL);
+  v7 = *((_DWORD *)this + 79);
+  *((_DWORD *)this + 78) = 2;
   CInteractionTracker::AddOrUpdatePendingInertiaStateChange(v6, v7, a2, 0);
   LOBYTE(v8) = a3;
   (*(void (__fastcall **)(CScrollAnimation *, __int64, __int64))(*(_QWORD *)this + 344LL))(this, v9, v8);
-  v10 = *((_QWORD *)this + 44);
+  v10 = *((_QWORD *)this + 41);
   if ( v10 )
     v10 = *(_QWORD *)(v10 + 16);
-  ActiveChainingHelper = InteractionSourceManager::TryGetActiveChainingHelper((InteractionSourceManager *)(v10 + 200));
+  ActiveChainingHelper = InteractionSourceManager::TryGetActiveChainingHelper((InteractionSourceManager *)(v10 + 192));
   v12 = ActiveChainingHelper;
   if ( !a3 && ActiveChainingHelper )
   {
-    v13 = *((int *)this + 85);
+    v13 = *((int *)this + 79);
     v14 = 3 * v13;
     *((_BYTE *)ActiveChainingHelper + 4 * v14) &= 0xFCu;
     *((_DWORD *)ActiveChainingHelper + v14 + 1) = 0;
@@ -64,7 +64,7 @@ void __fastcall CScrollAnimation::StartInertia(CScrollAnimation *this, float a2,
     }
     while ( v17 );
   }
-  *((_OWORD *)this + 27) = 0LL;
-  *((_BYTE *)this + 368) &= ~4u;
-  *((_QWORD *)this + 56) = 0LL;
+  *(_OWORD *)((char *)this + 408) = 0LL;
+  *((_BYTE *)this + 344) &= ~4u;
+  *((_QWORD *)this + 53) = 0LL;
 }

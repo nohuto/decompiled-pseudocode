@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bIsTriangleInBounds@@YAHPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C028C860
+ * XREFs of ?bIsTriangleInBounds@@YAHPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C014D164
  * Callers:
- *     ?bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_RECTL@@4PEAU_POINTL@@@Z @ 0x1C028CC84 (-bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_R.c)
+ *     ?bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_RECTL@@4PEAU_POINTL@@@Z @ 0x1C014C640 (-bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_R.c)
  * Callees:
  *     <none>
  */
@@ -13,47 +13,41 @@ _BOOL8 __fastcall bIsTriangleInBounds(
         struct _TRIANGLEDATA *a4)
 {
   LONG x; // r10d
-  LONG v5; // r11d
-  LONG y; // ecx
-  LONG v7; // eax
-  LONG v8; // edx
-  LONG v9; // eax
+  LONG v6; // ebx
+  LONG y; // r8d
+  bool v8; // cc
+  LONG v9; // ecx
+  LONG v10; // eax
+  LONG v11; // edx
+  LONG v12; // eax
+  LONG v13; // edi
+  LONG v14; // r10d
 
   x = a1->x;
-  if ( a1->x >= a2->x )
-  {
-    v5 = a2->x;
-    if ( x > a2->x )
-      goto LABEL_5;
-  }
-  else
-  {
-    v5 = a1->x;
-  }
-  x = a2->x;
-LABEL_5:
+  v6 = x;
   y = a1->y;
-  v7 = a2->y;
-  if ( y >= v7 )
-  {
-    v8 = a2->y;
-    if ( y > v7 )
-      goto LABEL_9;
-  }
-  else
-  {
-    v8 = y;
-  }
-  y = v7;
-LABEL_9:
-  if ( v5 >= a3->x )
-    v5 = a3->x;
-  if ( x <= a3->x )
-    x = a3->x;
-  v9 = a3->y;
-  if ( v8 >= v9 )
-    v8 = a3->y;
-  if ( y <= v9 )
-    y = a3->y;
-  return v5 < *((_DWORD *)a4 + 2) && x > *(_DWORD *)a4 && v8 < *((_DWORD *)a4 + 3) && y > *((_DWORD *)a4 + 1);
+  v8 = a1->x < a2->x;
+  v9 = y;
+  if ( x <= a2->x )
+    x = a2->x;
+  if ( !v8 )
+    v6 = a2->x;
+  v10 = a2->y;
+  v11 = a3->y;
+  if ( y >= v10 )
+    v9 = v10;
+  if ( y <= v10 )
+    y = v10;
+  v12 = a3->x;
+  v13 = a3->x;
+  if ( x > a3->x )
+    v13 = x;
+  v14 = a3->y;
+  if ( v9 < v11 )
+    v14 = v9;
+  if ( y > v11 )
+    v11 = y;
+  if ( v6 < v12 )
+    v12 = v6;
+  return v12 < *((_DWORD *)a4 + 2) && v13 > *(_DWORD *)a4 && v14 < *((_DWORD *)a4 + 3) && v11 > *((_DWORD *)a4 + 1);
 }

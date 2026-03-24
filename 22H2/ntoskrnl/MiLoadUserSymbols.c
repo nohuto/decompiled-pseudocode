@@ -1,37 +1,43 @@
 /*
- * XREFs of MiLoadUserSymbols @ 0x140A30B64
+ * XREFs of MiLoadUserSymbols @ 0x1407D0D2C
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
  * Callees:
- *     DbgUnicodeStringToAnsiString @ 0x14020AA14 (DbgUnicodeStringToAnsiString.c)
- *     MiReferenceControlAreaFile @ 0x1402A22B4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A23C0 (MiDereferenceControlAreaFile.c)
- *     DbgLoadUserImageSymbols @ 0x1405A7774 (DbgLoadUserImageSymbols.c)
- *     RtlFreeAnsiString @ 0x140756D50 (RtlFreeAnsiString.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402D7994 (MiDereferenceControlAreaFile.c)
+ *     DbgUnicodeStringToAnsiString @ 0x140372834 (DbgUnicodeStringToAnsiString.c)
+ *     DbgLoadUserImageSymbols @ 0x1403CC498 (DbgLoadUserImageSymbols.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
-void __fastcall MiLoadUserSymbols(__int64 a1)
+void __fastcall MiLoadUserSymbols(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v2; // rax
-  __int64 v3; // rsi
-  int v4; // ebx
-  STRING AnsiString; // [rsp+30h] [rbp-38h] BYREF
+  ULONG_PTR v6; // rax
+  unsigned __int64 v7; // rsi
+  __int64 v8; // rcx
+  int v9; // r15d
+  int v10; // r12d
+  int v11; // ebx
+  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-28h] BYREF
 
-  AnsiString = 0LL;
-  v2 = MiReferenceControlAreaFile(a1);
-  v3 = v2;
-  if ( *(_WORD *)(v2 + 88) )
+  UnicodeString = 0LL;
+  v6 = MiReferenceControlAreaFile(a1);
+  v7 = v6;
+  if ( *(_WORD *)(v6 + 88) )
   {
-    v4 = DbgUnicodeStringToAnsiString(&AnsiString, (PCUNICODE_STRING)(v2 + 88));
-    MiDereferenceControlAreaFile(a1, v3);
-    if ( v4 )
+    v8 = *(_QWORD *)(*(_QWORD *)a1 + 56LL);
+    v9 = *(_DWORD *)(v8 + 68);
+    v10 = *(_DWORD *)(v8 + 60);
+    v11 = DbgUnicodeStringToAnsiString((PANSI_STRING)&UnicodeString, (PCUNICODE_STRING)(v6 + 88));
+    MiDereferenceControlAreaFile(a1, v7);
+    if ( v11 == 1 )
     {
-      DbgLoadUserImageSymbols();
-      RtlFreeAnsiString(&AnsiString);
+      DbgLoadUserImageSymbols((__int64)&UnicodeString, a2, a3, v9, v10);
+      RtlFreeAnsiString(&UnicodeString);
     }
   }
   else
   {
-    MiDereferenceControlAreaFile(a1, v2);
+    MiDereferenceControlAreaFile(a1, v6);
   }
 }

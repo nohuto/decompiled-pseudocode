@@ -1,15 +1,15 @@
 /*
  * XREFs of MiInitializePagedPoolEvents @ 0x1409BD640
  * Callers:
- *     MiInitializeMemoryEvents @ 0x14072B9BC (MiInitializeMemoryEvents.c)
+ *     MiInitializeMemoryEvents @ 0x14072B99C (MiInitializeMemoryEvents.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     MiFreePoolPagesLeft @ 0x1400EF544 (MiFreePoolPagesLeft.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     MiFreePoolPagesLeft @ 0x1400EF564 (MiFreePoolPagesLeft.c)
  */
 
 __int64 MiInitializePagedPoolEvents()

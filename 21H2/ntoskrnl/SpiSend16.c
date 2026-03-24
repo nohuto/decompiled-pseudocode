@@ -1,14 +1,14 @@
 /*
- * XREFs of SpiSend16 @ 0x1406565BC
+ * XREFs of SpiSend16 @ 0x1405CB5DC
  * Callers:
- *     SpiMax311GetByte @ 0x140656270 (SpiMax311GetByte.c)
- *     SpiMax311PutByte @ 0x140656340 (SpiMax311PutByte.c)
- *     SpiMax311RxReady @ 0x1406563D0 (SpiMax311RxReady.c)
- *     SpiMax311SetBaud @ 0x140656430 (SpiMax311SetBaud.c)
- *     SpiMax311TxEmpty @ 0x140656584 (SpiMax311TxEmpty.c)
+ *     SpiMax311GetByte @ 0x1405CB280 (SpiMax311GetByte.c)
+ *     SpiMax311PutByte @ 0x1405CB360 (SpiMax311PutByte.c)
+ *     SpiMax311RxReady @ 0x1405CB3F0 (SpiMax311RxReady.c)
+ *     SpiMax311SetBaud @ 0x1405CB450 (SpiMax311SetBaud.c)
+ *     SpiMax311TxEmpty @ 0x1405CB5A4 (SpiMax311TxEmpty.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     SpiInit @ 0x140656118 (SpiInit.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     SpiInit @ 0x1405CB128 (SpiInit.c)
  */
 
 __int64 __fastcall SpiSend16(__int64 *a1, __int64 a2, __int64 a3)
@@ -18,10 +18,10 @@ __int64 __fastcall SpiSend16(__int64 *a1, __int64 a2, __int64 a3)
 
   v3 = *a1;
   v4 = (unsigned __int16)a2;
-  SpiInit(*a1, a2, a3, word_140D03CC8);
-  ((void (__fastcall *)(__int64, __int64))off_140C06A58[0])(v3 + 16, 2LL);
-  ((void (__fastcall *)(__int64, _QWORD))off_140C06A58[0])(v3 + 96, v4);
-  while ( (((__int64 (__fastcall *)(__int64))off_140C06A50[0])(v3 + 40) & 0xD) != 0xC )
+  SpiInit(*a1, a2, a3, word_140CF9AA8);
+  ((void (__fastcall *)(__int64, __int64))off_140C053E8)(v3 + 16, 2LL);
+  ((void (__fastcall *)(__int64, _QWORD))off_140C053E8)(v3 + 96, v4);
+  while ( (((__int64 (__fastcall *)(__int64))off_140C053E0)(v3 + 40) & 0xD) != 0xC )
     ;
-  return ((__int64 (__fastcall *)(__int64))off_140C06A50[0])(v3 + 96);
+  return ((__int64 (__fastcall *)(__int64))off_140C053E0)(v3 + 96);
 }

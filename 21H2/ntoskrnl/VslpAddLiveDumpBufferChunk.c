@@ -1,38 +1,37 @@
 /*
- * XREFs of VslpAddLiveDumpBufferChunk @ 0x14054FC7C
+ * XREFs of VslpAddLiveDumpBufferChunk @ 0x1404FDC3C
  * Callers:
- *     VslSetupLiveDumpBufferInSk @ 0x14054F814 (VslSetupLiveDumpBufferInSk.c)
+ *     VslSetupLiveDumpBufferInSk @ 0x1404FD7D8 (VslSetupLiveDumpBufferInSk.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslpAddLiveDumpBufferChunk(char *BaseAddress, int a2)
+NTSTATUS __fastcall VslpAddLiveDumpBufferChunk(char *BaseAddress, int a2)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v5; // rbx
-  _QWORD v6[14]; // [rsp+20h] [rbp-88h] BYREF
+  PHYSICAL_ADDRESS PhysicalAddress; // rax
+  _QWORD v7[14]; // [rsp+20h] [rbp-88h] BYREF
 
-  memset(v6, 0, 0x68uLL);
-  result = 0LL;
-  do
+  memset(v7, 0, 0x68uLL);
+  for ( result = 0; result >= 0; result = VslpEnterIumSecureMode(2u, 55, 0, (__int64)v7) )
   {
     if ( !a2 )
       break;
     v5 = 0LL;
     do
     {
+      PhysicalAddress = MmGetPhysicalAddress(BaseAddress);
       --a2;
-      v6[v5 + 2] = (unsigned __int64)MmGetPhysicalAddress(BaseAddress).QuadPart >> 12;
       BaseAddress += 4096;
+      v7[v5 + 2] = (unsigned __int64)PhysicalAddress.QuadPart >> 12;
       v5 = (unsigned int)(v5 + 1);
     }
     while ( (unsigned int)v5 < 0xB && a2 );
-    LODWORD(v6[1]) = v5;
-    result = VslpEnterIumSecureMode(2u, 57, 0, (__int64)v6);
+    LODWORD(v7[1]) = v5;
   }
-  while ( (int)result >= 0 );
   return result;
 }

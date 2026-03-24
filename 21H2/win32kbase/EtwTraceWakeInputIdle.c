@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceWakeInputIdle @ 0x1C0092A90
+ * XREFs of EtwTraceWakeInputIdle @ 0x1C007F900
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C01501A8 (McTemplateK0p_EtwWriteTransfer.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C01259C0 (McTemplateK0p_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceWakeInputIdle(__int64 a1, __int64 a2)

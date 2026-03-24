@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpCheckDriverDependencies @ 0x140946BB8
+ * XREFs of PnpCheckDriverDependencies @ 0x1408A1A48
  * Callers:
- *     PipProcessPendingObjects @ 0x140B50770 (PipProcessPendingObjects.c)
+ *     PipProcessPendingObjects @ 0x140A910E0 (PipProcessPendingObjects.c)
  * Callees:
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlQueryValue @ 0x14077FC64 (_RegRtlQueryValue.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x14078014C (_PnpCtxGetCachedContextBaseKey.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x140642318 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
  */
 
 __int64 __fastcall PnpCheckDriverDependencies(wchar_t *Str1, _BYTE *a2, __int64 a3)
@@ -20,7 +20,7 @@ __int64 __fastcall PnpCheckDriverDependencies(wchar_t *Str1, _BYTE *a2, __int64 
   int v10; // eax
   int v11; // eax
   int v12; // eax
-  __int64 v13; // rcx
+  __int64 v14; // rax
   int v15; // [rsp+30h] [rbp-20h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-18h] BYREF
   HANDLE v17; // [rsp+40h] [rbp-10h] BYREF
@@ -39,14 +39,12 @@ __int64 __fastcall PnpCheckDriverDependencies(wchar_t *Str1, _BYTE *a2, __int64 
   v19 = 0;
   v21 = 0;
   CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 4, (__int64)&v18);
-  if ( CachedContextBaseKey < 0 )
-    goto LABEL_35;
-  if ( !*Str1 )
-    goto LABEL_34;
-  do
+  if ( CachedContextBaseKey >= 0 )
   {
-    if ( wcsicmp(Str1, L"*") && !v5 )
+    for ( ; *Str1; Str1 += v14 + 1 )
     {
+      if ( !wcsicmp(Str1, L"*") || v5 )
+        goto LABEL_36;
       if ( !v17 )
       {
         v7 = 0LL;
@@ -57,12 +55,12 @@ __int64 __fastcall PnpCheckDriverDependencies(wchar_t *Str1, _BYTE *a2, __int64 
         if ( v8 == -1073741772 || v8 == -1073741444 )
         {
           v5 = 1;
-LABEL_28:
+LABEL_35:
           CachedContextBaseKey = 0;
-          goto LABEL_29;
+          goto LABEL_36;
         }
         if ( v8 < 0 )
-          goto LABEL_35;
+          goto LABEL_29;
       }
       if ( Handle )
       {
@@ -75,51 +73,51 @@ LABEL_28:
       v10 = SysCtxRegOpenKey(v9, (__int64)v17, (__int64)Str1, 0, 1u, (__int64)&Handle);
       CachedContextBaseKey = v10;
       if ( v10 == -1073741772 || v10 == -1073741444 )
-        goto LABEL_28;
-      if ( v10 < 0 )
         goto LABEL_35;
+      if ( v10 < 0 )
+        goto LABEL_29;
       LODWORD(v20) = 4;
       v11 = RegRtlQueryValue(Handle, L"Phase", &v21, &v19, (unsigned int *)&v20);
       CachedContextBaseKey = v11;
       if ( v11 == -1073741772 )
-        goto LABEL_40;
+      {
+        CachedContextBaseKey = 0;
+        goto LABEL_27;
+      }
       if ( v11 == -1073741444 )
-        goto LABEL_28;
-      if ( v11 < 0 )
         goto LABEL_35;
+      if ( v11 < 0 )
+        goto LABEL_29;
       if ( v19 != 2 )
-        goto LABEL_33;
+        break;
       LODWORD(v20) = 4;
       v12 = RegRtlQueryValue(Handle, L"LastAttemptStatus", &v21, &v15, (unsigned int *)&v20);
       CachedContextBaseKey = v12;
       if ( v12 == -1073741772 )
       {
-LABEL_40:
         CachedContextBaseKey = 0;
-        goto LABEL_33;
+        break;
       }
       if ( v12 == -1073741444 )
-        goto LABEL_28;
-      if ( v12 < 0 )
         goto LABEL_35;
+      if ( v12 < 0 )
+        goto LABEL_29;
       if ( v15 )
-        goto LABEL_33;
+        break;
+LABEL_36:
+      v14 = -1LL;
+      do
+        ++v14;
+      while ( Str1[v14] );
     }
-LABEL_29:
-    v13 = -1LL;
-    do
-      ++v13;
-    while ( Str1[v13] );
-    Str1 += v13 + 1;
+    if ( CachedContextBaseKey >= 0 )
+    {
+LABEL_27:
+      if ( !*Str1 )
+        *a2 = 1;
+    }
   }
-  while ( *Str1 );
-  if ( CachedContextBaseKey < 0 )
-    goto LABEL_35;
-LABEL_33:
-  if ( !*Str1 )
-LABEL_34:
-    *a2 = 1;
-LABEL_35:
+LABEL_29:
   if ( v17 )
     ZwClose(v17);
   if ( Handle )

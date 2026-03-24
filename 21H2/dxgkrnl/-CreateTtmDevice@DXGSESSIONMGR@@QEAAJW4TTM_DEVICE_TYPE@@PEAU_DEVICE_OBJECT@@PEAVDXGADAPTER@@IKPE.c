@@ -1,13 +1,12 @@
 /*
- * XREFs of ?CreateTtmDevice@DXGSESSIONMGR@@QEAAJW4TTM_DEVICE_TYPE@@PEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPEBGPEAPEAX@Z @ 0x1C020B8AC
+ * XREFs of ?CreateTtmDevice@DXGSESSIONMGR@@QEAAJW4TTM_DEVICE_TYPE@@PEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPEAPEAX@Z @ 0x1C018B1FC
  * Callers:
- *     ?_CreateTtmDevice@DXGMONITOR@@QEAAJXZ @ 0x1C020B6F8 (-_CreateTtmDevice@DXGMONITOR@@QEAAJXZ.c)
+ *     ?_CreateTtmDevice@DXGMONITOR@@QEAAJXZ @ 0x1C018B43C (-_CreateTtmDevice@DXGMONITOR@@QEAAJXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Initialize@CTTMDEVICE@@QEAAJPEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPEBG@Z @ 0x1C0205680 (-Initialize@CTTMDEVICE@@QEAAJPEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPEBG@Z.c)
- *     ?QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z @ 0x1C020B9B0 (-QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z.c)
- *     ??0CTTMDEVICE@@QEAA@W4TTM_DEVICE_TYPE@@@Z @ 0x1C020BA90 (--0CTTMDEVICE@@QEAA@W4TTM_DEVICE_TYPE@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?Initialize@CTTMDEVICE@@AEAAJPEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IK@Z @ 0x1C018B11C (-Initialize@CTTMDEVICE@@AEAAJPEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IK@Z.c)
+ *     ?QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z @ 0x1C018B2EC (-QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z.c)
+ *     ??0CTTMDEVICE@@AEAA@W4TTM_DEVICE_TYPE@@@Z @ 0x1C018B3D4 (--0CTTMDEVICE@@AEAA@W4TTM_DEVICE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall DXGSESSIONMGR::CreateTtmDevice(
@@ -17,76 +16,69 @@ __int64 __fastcall DXGSESSIONMGR::CreateTtmDevice(
         struct DXGADAPTER *a4,
         unsigned int a5,
         unsigned int a6,
-        wchar_t *Src,
-        CTTMDEVICE **a8)
+        CTTMDEVICE **a7)
 {
-  __int64 v11; // rax
-  CTTMDEVICE *v12; // rax
-  CTTMDEVICE *v13; // rbx
-  int v14; // eax
-  __int64 v15; // rbp
+  PVOID v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  CTTMDEVICE *v15; // rbx
   int v16; // eax
-  const wchar_t *v18; // r9
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rbp
+  int v20; // eax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  _QWORD *v24; // rax
 
-  if ( a8 && (a3 || a4) && ((a5 + 3) & 0xFFFFFFFD) != 0 )
+  if ( a7 && (a3 || a4) && ((a5 + 3) & 0xFFFFFFFD) != 0 )
   {
-    v11 = operator new[](0x398uLL, 0x4B677844u, 256LL, (__int64)a4);
-    if ( v11 && (v12 = (CTTMDEVICE *)CTTMDEVICE::CTTMDEVICE(v11, 1299018836LL), (v13 = v12) != 0LL) )
+    v10 = operator new[](0x398uLL, 0x4B677844u, PagedPool);
+    if ( v10 )
+      v15 = (CTTMDEVICE *)CTTMDEVICE::CTTMDEVICE(v10, 1299018836LL);
+    else
+      v15 = 0LL;
+    if ( v15 )
     {
-      v14 = CTTMDEVICE::Initialize(v12, a3, a4, a5, a6, Src);
-      v15 = v14;
-      if ( v14 < 0 )
+      v16 = CTTMDEVICE::Initialize(v15, a3, a4, a5, a6);
+      v19 = v16;
+      if ( v16 < 0
+        || (v20 = CSERIALIZEDWORKQUEUE::QueueSerializedWorkItem(
+                    (CSERIALIZEDWORKQUEUE *)(a1 + 376),
+                    (void (*)(void *))DXGSESSIONMGR::CreateTtmDeviceWorker,
+                    v15),
+            v19 = v20,
+            v20 < 0) )
       {
-        WdLogSingleEntry3(2LL, a5, a4, v14);
-        v18 = L"Failed to initialize TTM device for target 0x%I64x on adapter 0x%I64x, (Status = 0x%I64x).";
+        v24 = (_QWORD *)WdLogNewEntry5_WdError(v18, v17);
+        v24[3] = a5;
+        v24[4] = a4;
+        v24[5] = v19;
+        WdLogEvent5_WdError(v24);
+        return (unsigned int)v19;
       }
       else
       {
-        v16 = CSERIALIZEDWORKQUEUE::QueueSerializedWorkItem(
-                (CSERIALIZEDWORKQUEUE *)(a1 + 376),
-                (void (*)(void *))DXGSESSIONMGR::CreateTtmDeviceWorker,
-                v13);
-        v15 = v16;
-        if ( v16 >= 0 )
-        {
-          *a8 = v13;
-          return 0LL;
-        }
-        WdLogSingleEntry3(2LL, a5, a4, v16);
-        v18 = L"Failed to queue a Serialized work item to create TTM device for target 0x%I64x on adapter 0x%I64x, (Status = 0x%I64x).";
+        *a7 = v15;
+        return 0LL;
       }
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v18, a5, (__int64)a4, v15, 0LL, 0LL);
-      return (unsigned int)v15;
     }
     else
     {
-      WdLogSingleEntry2(6LL, a5, a4);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to allocate new TTM device for target 0x%I64x on adapter 0x%I64x.",
-        a5,
-        (__int64)a4,
-        0LL,
-        0LL,
-        0LL);
+      v23 = WdLogNewEntry5_WdLowResource(v12, v11, v13, v14);
+      *(_QWORD *)(v23 + 24) = a5;
+      *(_QWORD *)(v23 + 32) = a4;
+      WdLogEvent5_WdLowResource(v23);
       return 3221225495LL;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified invalid paramters, returing 0x%I64x.",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v22 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v22 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v22);
     return 3221225485LL;
   }
 }

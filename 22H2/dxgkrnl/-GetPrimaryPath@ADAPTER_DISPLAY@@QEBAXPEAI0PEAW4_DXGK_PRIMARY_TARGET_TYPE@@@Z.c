@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z @ 0x1C0043000
+ * XREFs of ?GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z @ 0x1C001A408
  * Callers:
- *     DpiEnterSystemDisplay @ 0x1C001BEC0 (DpiEnterSystemDisplay.c)
- *     DxgkIsBootPrimarySource @ 0x1C01E1C00 (DxgkIsBootPrimarySource.c)
- *     ?DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z @ 0x1C03AE68C (-DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z.c)
+ *     DpiEnterSystemDisplay @ 0x1C0020290 (DpiEnterSystemDisplay.c)
+ *     DxgkIsBootPrimarySource @ 0x1C0168090 (DxgkIsBootPrimarySource.c)
+ *     ?DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z @ 0x1C02DECF4 (-DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z.c)
  * Callees:
  *     <none>
  */
@@ -20,9 +20,9 @@ void __fastcall ADAPTER_DISPLAY::GetPrimaryPath(
 
   if ( *(_DWORD *)(*((_QWORD *)this + 2) + 200LL) == 1 )
   {
-    v4 = *((_DWORD *)this + 36);
-    v5 = *((_DWORD *)this + 35);
-    v6 = *((_DWORD *)this + 34);
+    v4 = *((_DWORD *)this + 32);
+    v5 = *((_DWORD *)this + 31);
+    v6 = *((_DWORD *)this + 30);
   }
   else
   {

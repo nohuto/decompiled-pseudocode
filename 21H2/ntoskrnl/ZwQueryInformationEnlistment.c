@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryInformationEnlistment @ 0x14041E160
+ * XREFs of ZwQueryInformationEnlistment @ 0x1403FCCE0
  * Callers:
- *     DifZwQueryInformationEnlistmentWrapper @ 0x140624670 (DifZwQueryInformationEnlistmentWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

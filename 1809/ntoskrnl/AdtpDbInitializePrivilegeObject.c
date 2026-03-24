@@ -1,9 +1,9 @@
 /*
- * XREFs of AdtpDbInitializePrivilegeObject @ 0x140181AA8
+ * XREFs of AdtpDbInitializePrivilegeObject @ 0x140181AC8
  * Callers:
- *     AdtpInitializeAuditingCommon @ 0x140737208 (AdtpInitializeAuditingCommon.c)
+ *     AdtpInitializeAuditingCommon @ 0x1407371E8 (AdtpInitializeAuditingCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  */
 
 __int64 AdtpDbInitializePrivilegeObject()

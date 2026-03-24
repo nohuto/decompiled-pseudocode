@@ -1,15 +1,15 @@
 /*
- * XREFs of SmKmStoreFileGetExtents @ 0x1408ADE08
+ * XREFs of SmKmStoreFileGetExtents @ 0x1408ADDE8
  * Callers:
- *     SmKmStoreFileCreate @ 0x1408AD670 (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreate @ 0x1408AD650 (SmKmStoreFileCreate.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoSetThreadHardErrorMode @ 0x1400EED30 (IoSetThreadHardErrorMode.c)
- *     SmArrayGrow @ 0x140158308 (SmArrayGrow.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwFsControlFile @ 0x1401B8890 (ZwFsControlFile.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     IoSetThreadHardErrorMode @ 0x1400EED50 (IoSetThreadHardErrorMode.c)
+ *     SmArrayGrow @ 0x140158328 (SmArrayGrow.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwFsControlFile @ 0x1401B88B0 (ZwFsControlFile.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

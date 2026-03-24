@@ -1,11 +1,11 @@
 /*
- * XREFs of VfPendingShouldForce @ 0x140AD2A8C
+ * XREFs of VfPendingShouldForce @ 0x1409D59CC
  * Callers:
- *     IovpCallDriver1 @ 0x140ACD170 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x1409CFC5C (IovpCallDriver1.c)
  * Callees:
- *     VfRandomGetNumber @ 0x140AC3358 (VfRandomGetNumber.c)
- *     VfDriverIsKernelImageAddress @ 0x140ACB714 (VfDriverIsKernelImageAddress.c)
- *     VfTargetDriversIsEnabled @ 0x140ACC614 (VfTargetDriversIsEnabled.c)
+ *     VfRandomGetNumber @ 0x1409C62A0 (VfRandomGetNumber.c)
+ *     VfDriverIsKernelImageAddress @ 0x1409C88D0 (VfDriverIsKernelImageAddress.c)
+ *     VfTargetDriversIsEnabled @ 0x1409D6F40 (VfTargetDriversIsEnabled.c)
  */
 
 __int64 __fastcall VfPendingShouldForce(
@@ -17,63 +17,63 @@ __int64 __fastcall VfPendingShouldForce(
         unsigned __int64 a6)
 {
   unsigned int v6; // ebx
-  int v9; // eax
-  unsigned __int64 v10; // rcx
+  __int64 v9; // rcx
+  int v10; // eax
   int v11; // ecx
   int v12; // eax
-  int v13; // edx
-  int v14; // ecx
-  int v15; // ecx
-  int v16; // ecx
-  bool v17; // zf
+  int v13; // eax
+  int v14; // eax
+  bool v15; // zf
+  int v16; // edx
 
   v6 = 0;
-  if ( (a1 & 0x200) != 0 && a2 < 2u && !*(_QWORD *)(a5 + 216) )
+  if ( (a1 & 0x200) != 0
+    && a2 < 2u
+    && !*(_QWORD *)(a5 + 216)
+    && !VfDriverIsKernelImageAddress(a6)
+    && (unsigned int)VfTargetDriversIsEnabled(v9)
+    && (*(_DWORD *)(a3 + 16) & 0xC0) == 0
+    && !*(_BYTE *)(a3 + 65)
+    && VfRandomGetNumber(0, 0x64u) < ViPendingProbability )
   {
-    LOBYTE(v9) = VfDriverIsKernelImageAddress(a6);
-    if ( !v9
-      && (unsigned int)VfTargetDriversIsEnabled(v10)
-      && (*(_DWORD *)(a3 + 16) & 0xC0) == 0
-      && !*(_BYTE *)(a3 + 65)
-      && VfRandomGetNumber(0, 0x64u) < ViPendingProbability )
+    v10 = *a4;
+    if ( v10 == 13 )
+      v11 = *((_DWORD *)a4 + 6);
+    else
+      v11 = a4[1];
+    v12 = v10 - 12;
+    if ( v12 )
     {
-      v11 = *a4;
-      if ( v11 == 13 )
+      v13 = v12 - 1;
+      if ( v13 )
       {
-        v12 = *((_DWORD *)a4 + 6);
-      }
-      else
-      {
-        v12 = a4[1];
-        v14 = v11 - 12;
+        v14 = v13 - 4;
         if ( !v14 )
-          return v12 != 2;
-        v15 = v14 - 1;
-        if ( v15 )
         {
-          v16 = v15 - 4;
-          if ( v16 )
-          {
-            if ( v16 != 10 )
-              return 1;
-            v17 = v12 == 2;
-          }
-          else
-          {
-            v17 = v12 == 1;
-          }
-          LOBYTE(v6) = !v17;
+          v15 = v11 == 1;
+          goto LABEL_17;
+        }
+        if ( v14 == 10 )
+        {
+          v15 = v11 == 2;
+LABEL_17:
+          LOBYTE(v6) = !v15;
           return v6;
         }
+        return 1;
       }
-      if ( v12 != 589916 && v12 != 589904 )
+      if ( v11 != 589916 && v11 != 589904 )
       {
-        if ( (unsigned int)(v12 - 589824) > 0x14 || (v13 = 1118481, !_bittest(&v13, v12 - 589824)) )
+        if ( (unsigned int)(v11 - 589824) > 0x14 || (v16 = 1118481, !_bittest(&v16, v11 - 589824)) )
         {
-          if ( v12 != 590400 )
+          if ( v11 != 590400 )
             return 1;
         }
       }
+    }
+    else if ( v11 != 2 )
+    {
+      return 1;
     }
   }
   return v6;

@@ -1,9 +1,10 @@
 /*
- * XREFs of ??0DCOBJ@@QEAA@XZ @ 0x1C0131300
+ * XREFs of ??0DCOBJ@@QEAA@XZ @ 0x1C0137920
  * Callers:
- *     <none>
+ *     GreDrawStream @ 0x1C00839D0 (GreDrawStream.c)
+ *     ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C016ABE4 (-bEndDocInternal@@YAHPEAUHDC__@@KG@Z.c)
  * Callees:
- *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C013E430 (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C0169DAC (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
  */
 
 DCOBJ *__fastcall DCOBJ::DCOBJ(DCOBJ *this)

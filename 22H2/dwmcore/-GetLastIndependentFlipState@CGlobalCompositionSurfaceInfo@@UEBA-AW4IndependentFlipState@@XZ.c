@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetLastIndependentFlipState@CGlobalCompositionSurfaceInfo@@UEBA?AW4IndependentFlipState@@XZ @ 0x1801079F0
+ * XREFs of ?GetLastIndependentFlipState@CGlobalCompositionSurfaceInfo@@UEBA?AW4IndependentFlipState@@XZ @ 0x1800E2DB0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CGlobalCompositionSurfaceInfo::GetLastIndependentFlipState(__int64 a1)
 {
-  return *(unsigned int *)(a1 + 280);
+  return *(unsigned int *)(a1 + 256);
 }

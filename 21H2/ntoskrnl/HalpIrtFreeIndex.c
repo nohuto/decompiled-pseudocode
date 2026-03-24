@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIrtFreeIndex @ 0x140909FA0
+ * XREFs of HalpIrtFreeIndex @ 0x140865E18
  * Callers:
- *     HalpInterruptRemap @ 0x1403D57DC (HalpInterruptRemap.c)
- *     HalpInterruptUnmap @ 0x140908918 (HalpInterruptUnmap.c)
+ *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
+ *     HalpInterruptUnmap @ 0x140761838 (HalpInterruptUnmap.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     RtlClearBits @ 0x140347580 (RtlClearBits.c)
- *     HalpIommuFreeRemappingTableEntry @ 0x140510D20 (HalpIommuFreeRemappingTableEntry.c)
- *     HalpIrtReleaseDeviceAperture @ 0x14090A0D0 (HalpIrtReleaseDeviceAperture.c)
+ *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     HalpIommuFreeRemappingTableEntry @ 0x1404C55B0 (HalpIommuFreeRemappingTableEntry.c)
+ *     HalpIrtReleaseDeviceAperture @ 0x140865F48 (HalpIrtReleaseDeviceAperture.c)
  */
 
 __int64 __fastcall HalpIrtFreeIndex(unsigned int a1, ULONG a2, int a3)

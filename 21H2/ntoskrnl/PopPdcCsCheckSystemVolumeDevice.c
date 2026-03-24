@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPdcCsCheckSystemVolumeDevice @ 0x140B3116C
+ * XREFs of PopPdcCsCheckSystemVolumeDevice @ 0x140A73F08
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x14041B840 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     PopNetIsDisconnectStandbyActive @ 0x14080A3F8 (PopNetIsDisconnectStandbyActive.c)
- *     PopPdcCsDeviceNotification @ 0x140996FDC (PopPdcCsDeviceNotification.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1403FA480 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     PopPdcCsDeviceNotification @ 0x1408EFE24 (PopPdcCsDeviceNotification.c)
+ *     PopNetIsDisconnectStandbyActive @ 0x1408F1E7C (PopNetIsDisconnectStandbyActive.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 PopPdcCsCheckSystemVolumeDevice()
@@ -74,7 +74,7 @@ __int64 PopPdcCsCheckSystemVolumeDevice()
       ZwClose(FileHandle);
     PopAcquirePolicyLock();
     PopNetIsDisconnectStandbyActive(&v1);
-    byte_140C23417 = (unsigned int)(v1 - 3) > 1;
+    byte_140C24077 = (unsigned int)(v1 - 3) > 1;
     return PopReleasePolicyLock();
   }
   return result;

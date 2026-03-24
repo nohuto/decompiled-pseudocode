@@ -1,15 +1,15 @@
 /*
- * XREFs of ?VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CB0C
+ * XREFs of ?VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0037870
  * Callers:
- *     ?VidSchiCompleteHwQueueSignalPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z @ 0x1C001C81C (-VidSchiCompleteHwQueueSignalPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z.c)
- *     ?VidSchiCompleteHwQueueWaitPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CA30 (-VidSchiCompleteHwQueueWaitPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z @ 0x1C00416F4 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z.c)
+ *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0036548 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?VidSchiCompleteHwQueueSignalPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z @ 0x1C0036D04 (-VidSchiCompleteHwQueueSignalPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z.c)
+ *     ?VidSchiCompleteHwQueueWaitPacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0036E98 (-VidSchiCompleteHwQueueWaitPacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
  * Callees:
- *     VidSchiCheckPendingDeviceCommand @ 0x1C0009EC0 (VidSchiCheckPendingDeviceCommand.c)
- *     VidSchiProfilePerformanceTick @ 0x1C000AA30 (VidSchiProfilePerformanceTick.c)
- *     VidSchiSignalRegisteredEvent @ 0x1C00140B4 (VidSchiSignalRegisteredEvent.c)
- *     ?VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CC9C (-VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     ?VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z @ 0x1C001D3A4 (-VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z.c)
+ *     VidSchiCheckPendingDeviceCommand @ 0x1C000AD40 (VidSchiCheckPendingDeviceCommand.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C000B6D0 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiSignalRegisteredEvent @ 0x1C0013678 (VidSchiSignalRegisteredEvent.c)
+ *     ?VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0037A00 (-VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z @ 0x1C0038590 (-VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z.c)
  */
 
 void __fastcall VidSchiFreeCompletedHwQueuePacket(struct _VIDSCH_QUEUE_PACKET *a1)
@@ -51,18 +51,18 @@ void __fastcall VidSchiFreeCompletedHwQueuePacket(struct _VIDSCH_QUEUE_PACKET *a
     v10 = (unsigned int)(v10 + 1);
   }
   VidSchiSetHwQueueState(v2, v10);
-  _InterlockedDecrement((volatile signed __int32 *)(v6 + 724));
-  _InterlockedDecrement((volatile signed __int32 *)(v4 + 2884));
+  _InterlockedDecrement((volatile signed __int32 *)(v6 + 716));
+  _InterlockedDecrement((volatile signed __int32 *)(v4 + 2876));
   _InterlockedDecrement((volatile signed __int32 *)(v5 + 1580));
   _InterlockedDecrement((volatile signed __int32 *)(v2 + 148));
   _InterlockedDecrement((volatile signed __int32 *)(v3 + 240));
   VidSchiProfilePerformanceTick(9LL, v6, v4, 0LL, 0LL, (__int64)a1, 0LL, 0LL);
   VidSchiCheckPendingDeviceCommand((_QWORD *)v5);
   VidSchiSignalRegisteredEvent(v6, (struct _KEVENT **)(v4 + 424));
-  VidSchiSignalRegisteredEvent(v6, (struct _KEVENT **)(v6 + 1656));
+  VidSchiSignalRegisteredEvent(v6, (struct _KEVENT **)(v6 + 1640));
   *(_QWORD *)(v4 + 328) = MEMORY[0xFFFFF78000000320];
   KeSetEvent((PRKEVENT)(v4 + 296), 0, 0);
-  *(_QWORD *)(v6 + 1504) = MEMORY[0xFFFFF78000000320];
-  KeSetEvent((PRKEVENT)(v6 + 1472), 0, 0);
+  *(_QWORD *)(v6 + 1488) = MEMORY[0xFFFFF78000000320];
+  KeSetEvent((PRKEVENT)(v6 + 1456), 0, 0);
   VidSchiFreeQueuePacket((struct VIDSCH_HW_QUEUE *)v2, a1);
 }

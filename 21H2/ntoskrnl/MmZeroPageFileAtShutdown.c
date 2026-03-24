@@ -1,35 +1,39 @@
 /*
- * XREFs of MmZeroPageFileAtShutdown @ 0x1409681E4
+ * XREFs of MmZeroPageFileAtShutdown @ 0x1408C4BF4
  * Callers:
- *     PopEnableHiberFile @ 0x140818E88 (PopEnableHiberFile.c)
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
- *     PopGracefulShutdown @ 0x140A6AEC0 (PopGracefulShutdown.c)
+ *     PopEnableHiberFile @ 0x1407910F0 (PopEnableHiberFile.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
+ *     PopGracefulShutdown @ 0x1409B0F60 (PopGracefulShutdown.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
  */
 
 __int64 MmZeroPageFileAtShutdown()
 {
   int v0; // ebx
-  ULONG ResultLength; // [rsp+30h] [rbp-19h] BYREF
-  HANDLE KeyHandle; // [rsp+38h] [rbp-11h] BYREF
-  UNICODE_STRING ValueName; // [rsp+40h] [rbp-9h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp+7h] BYREF
-  __int128 KeyValueInformation; // [rsp+80h] [rbp+37h] BYREF
-  int v7; // [rsp+90h] [rbp+47h]
+  ULONG ResultLength; // [rsp+30h] [rbp-29h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-21h] BYREF
+  _QWORD v4[2]; // [rsp+40h] [rbp-19h] BYREF
+  UNICODE_STRING ValueName; // [rsp+50h] [rbp-9h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+7h] BYREF
+  __int128 KeyValueInformation; // [rsp+90h] [rbp+37h] BYREF
+  int v8; // [rsp+A0h] [rbp+47h]
 
   KeyHandle = 0LL;
-  memset(&ObjectAttributes.Attributes + 1, 0, 20);
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   ResultLength = 0;
+  memset(&ObjectAttributes.Attributes + 1, 0, 20);
+  v8 = 0;
   v0 = 0;
   ObjectAttributes.RootDirectory = 0LL;
-  v7 = 0;
+  v4[1] = L"\\registry\\machine\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management";
+  ObjectAttributes.Length = 48;
   ValueName.Buffer = L"ClearPageFileAtShutdown";
-  ObjectAttributes.ObjectName = &CmRegistryMachineSystemCurrentControlSetControlSessionManagerMemoryManagement;
+  v4[0] = 11141288LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v4;
   KeyValueInformation = 0LL;
   *(_QWORD *)&ValueName.Length = 3145774LL;
   ObjectAttributes.Attributes = 576;
@@ -43,6 +47,6 @@ __int64 MmZeroPageFileAtShutdown()
   ObCloseHandle(KeyHandle, 0);
   if ( !v0 )
     return 0LL;
-  byte_140C529C2 = 1;
+  byte_140C4E6C2 = 1;
   return 1LL;
 }

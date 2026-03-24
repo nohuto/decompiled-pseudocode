@@ -1,7 +1,7 @@
 /*
- * XREFs of VidSchiIncrementDeviceReference @ 0x1C0013520
+ * XREFs of VidSchiIncrementDeviceReference @ 0x1C00115A4
  * Callers:
- *     VidSchiCreateDeviceInternal @ 0x1C0098844 (VidSchiCreateDeviceInternal.c)
+ *     VidSchiCreateDeviceInternal @ 0x1C00816A0 (VidSchiCreateDeviceInternal.c)
  * Callees:
  *     <none>
  */

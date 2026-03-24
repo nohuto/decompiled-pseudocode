@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpDmaGrowContiguousMapBuffers @ 0x1409345D0
+ * XREFs of HalpDmaGrowContiguousMapBuffers @ 0x1408653B4
  * Callers:
- *     HalpGrowMapBufferWorker @ 0x140501AA0 (HalpGrowMapBufferWorker.c)
- *     HalpAllocateMapRegisters @ 0x1409336F0 (HalpAllocateMapRegisters.c)
+ *     HalpGrowMapBufferWorker @ 0x1404B8EB0 (HalpGrowMapBufferWorker.c)
+ *     HalpAllocateMapRegisters @ 0x140864700 (HalpAllocateMapRegisters.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MmFreePagesFromMdl @ 0x1402EBFB0 (MmFreePagesFromMdl.c)
- *     HalpDmaCommitContiguousMapBuffers @ 0x14039BF9C (HalpDmaCommitContiguousMapBuffers.c)
- *     MmFreeContiguousMemory @ 0x1403C2FA0 (MmFreeContiguousMemory.c)
- *     HalpDmaAllocateContiguousMemory @ 0x1405104D0 (HalpDmaAllocateContiguousMemory.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     MmFreeContiguousMemory @ 0x1402E9070 (MmFreeContiguousMemory.c)
+ *     MmFreePagesFromMdl @ 0x1403294B0 (MmFreePagesFromMdl.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x1403BB6AC (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaAllocateContiguousMemory @ 0x1404C6738 (HalpDmaAllocateContiguousMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalpDmaGrowContiguousMapBuffers(__int64 a1, unsigned int a2)
@@ -28,7 +28,7 @@ void __fastcall HalpDmaGrowContiguousMapBuffers(__int64 a1, unsigned int a2)
   v10.QuadPart = 0LL;
   v3 = a2;
   P = 0LL;
-  if ( *(_BYTE *)(a1 + 153) )
+  if ( *(_BYTE *)(a1 + 145) )
     v2 = a2;
   while ( v3 )
   {
@@ -60,7 +60,7 @@ void __fastcall HalpDmaGrowContiguousMapBuffers(__int64 a1, unsigned int a2)
     }
     else
     {
-      if ( !*(_BYTE *)(a1 + 153) || v2 <= 0x10 || v3 <= 0x10 )
+      if ( !*(_BYTE *)(a1 + 145) || v2 <= 0x10 || v3 <= 0x10 )
         return;
       v2 = 16;
     }

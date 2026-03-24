@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMapSystemImage @ 0x140682104
+ * XREFs of MiMapSystemImage @ 0x1406820E4
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408543E8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408543C8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
@@ -10,11 +10,11 @@
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     MiAddMappedPtes @ 0x1405DF500 (MiAddMappedPtes.c)
- *     MiBytesToMapSystemImage @ 0x1406521FC (MiBytesToMapSystemImage.c)
- *     MiChargeSystemImageCommitment @ 0x14068321C (MiChargeSystemImageCommitment.c)
- *     MiDereferencePerSessionProtos @ 0x1406C8FD0 (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1406C90E8 (MiCreatePerSessionProtos.c)
- *     MiDeleteSessionDriverProtos @ 0x1406E1A78 (MiDeleteSessionDriverProtos.c)
+ *     MiBytesToMapSystemImage @ 0x1406521DC (MiBytesToMapSystemImage.c)
+ *     MiChargeSystemImageCommitment @ 0x1406831FC (MiChargeSystemImageCommitment.c)
+ *     MiDereferencePerSessionProtos @ 0x1406C8FB0 (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1406C90C8 (MiCreatePerSessionProtos.c)
+ *     MiDeleteSessionDriverProtos @ 0x1406E1A58 (MiDeleteSessionDriverProtos.c)
  */
 
 __int64 __fastcall MiMapSystemImage(__int64 a1, unsigned __int64 a2)

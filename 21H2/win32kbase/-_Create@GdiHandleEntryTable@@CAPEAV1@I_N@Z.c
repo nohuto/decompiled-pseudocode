@@ -1,20 +1,20 @@
 /*
- * XREFs of ?_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z @ 0x1C0055B6C
+ * XREFs of ?_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z @ 0x1C006BA80
  * Callers:
- *     ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C001F710 (-AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z.c)
- *     ?Create@GdiHandleEntryDirectory@@SAPEAV1@PEAU_ENTRY@@I@Z @ 0x1C0055ACC (-Create@GdiHandleEntryDirectory@@SAPEAV1@PEAU_ENTRY@@I@Z.c)
+ *     ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C002BB50 (-AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z.c)
+ *     ?Create@GdiHandleEntryDirectory@@SAPEAV1@PEAU_ENTRY@@I@Z @ 0x1C006B9EC (-Create@GdiHandleEntryDirectory@@SAPEAV1@PEAU_ENTRY@@I@Z.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC74 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Create@EntryDataLookupTable@GdiHandleEntryTable@@SAPEAV12@I@Z @ 0x1C0055C14 (-Create@EntryDataLookupTable@GdiHandleEntryTable@@SAPEAV12@I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     Win32AllocPool @ 0x1C002AE60 (Win32AllocPool.c)
+ *     ?Create@EntryDataLookupTable@GdiHandleEntryTable@@SAPEAV12@I@Z @ 0x1C006BB18 (-Create@EntryDataLookupTable@GdiHandleEntryTable@@SAPEAV12@I@Z.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 struct GdiHandleEntryTable *__fastcall GdiHandleEntryTable::_Create(unsigned int a1, char a2)
 {
   unsigned int v2; // edi
   unsigned int v5; // eax
-  _QWORD *v6; // rbx
+  __int64 v6; // rbx
   struct GdiHandleEntryTable::EntryDataLookupTable *v7; // rax
 
   v2 = 0;
@@ -28,30 +28,24 @@ struct GdiHandleEntryTable *__fastcall GdiHandleEntryTable::_Create(unsigned int
     if ( v2 + 32 < v2 )
       return 0LL;
   }
-  v6 = (_QWORD *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                   (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-                   260LL,
-                   v5,
-                   1668572487);
+  v6 = Win32AllocPool(v5, 0x63746547u);
   if ( !v6 )
     return (struct GdiHandleEntryTable *)v6;
   v7 = GdiHandleEntryTable::EntryDataLookupTable::Create(a1);
-  v6[3] = v7;
+  *(_QWORD *)(v6 + 24) = v7;
   if ( v7 )
   {
     if ( a2 )
     {
-      *v6 = v6 + 4;
-      memset(v6 + 4, 0, v2);
+      *(_QWORD *)v6 = v6 + 32;
+      memset((void *)(v6 + 32), 0, v2);
     }
-    *((_DWORD *)v6 + 5) = 0;
-    *((_DWORD *)v6 + 4) = 0;
-    *((_DWORD *)v6 + 2) = a1;
-    *((_DWORD *)v6 + 3) = -1;
+    *(_DWORD *)(v6 + 20) = 0;
+    *(_DWORD *)(v6 + 16) = 0;
+    *(_DWORD *)(v6 + 8) = a1;
+    *(_DWORD *)(v6 + 12) = -1;
     return (struct GdiHandleEntryTable *)v6;
   }
-  NSInstrumentation::CLeakTrackingAllocator::Free(
-    (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-    v6);
+  Win32FreePool(v6);
   return 0LL;
 }

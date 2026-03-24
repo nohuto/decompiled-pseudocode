@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlMultiByteToUnicodeSize @ 0x140774210
+ * XREFs of RtlMultiByteToUnicodeSize @ 0x1406F6AE0
  * Callers:
- *     RtlxOemStringToUnicodeSize @ 0x1407741E0 (RtlxOemStringToUnicodeSize.c)
+ *     RtlxAnsiStringToUnicodeSize @ 0x1406F6AB0 (RtlxAnsiStringToUnicodeSize.c)
+ *     RtlxOemStringToUnicodeSize @ 0x140760510 (RtlxOemStringToUnicodeSize.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1406DA5E0 (RtlpIsUtf8Process.c)
- *     RtlUTF8ToUnicodeN @ 0x1406DA680 (RtlUTF8ToUnicodeN.c)
+ *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
+ *     RtlUTF8ToUnicodeN @ 0x140699310 (RtlUTF8ToUnicodeN.c)
  */
 
 NTSTATUS __stdcall RtlMultiByteToUnicodeSize(
@@ -13,14 +13,11 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeSize(
         const CHAR *MultiByteString,
         ULONG BytesInMultiByteString)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
-  ULONG v7; // edx
-  __int16 v8; // r9
-  __int64 v9; // r8
-  __int64 v11; // rax
-  signed __int32 v12[8]; // [rsp+0h] [rbp-38h] BYREF
+  ULONG v4; // edi
+  __int64 v8; // rax
 
-  if ( RtlpIsUtf8Process() )
+  v4 = 0;
+  if ( RtlpIsUtf8Process(0) )
   {
     if ( BytesInMultiByteString )
       RtlUTF8ToUnicodeN(0LL, 0, BytesInUnicodeString, MultiByteString, BytesInMultiByteString);
@@ -29,24 +26,21 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeSize(
   }
   else
   {
-    _InterlockedOr(v12, 0);
-    CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v9 = CurrentServerSiloGlobals[151];
-    if ( *((_WORD *)CurrentServerSiloGlobals + 538) == v8 )
+    if ( !(_BYTE)NlsMbCodePageTag )
     {
-      v7 = 2 * BytesInMultiByteString;
+      v4 = 2 * BytesInMultiByteString;
       goto LABEL_4;
     }
-    for ( ; BytesInMultiByteString; v7 += 2 )
+    for ( ; BytesInMultiByteString; v4 += 2 )
     {
-      v11 = *(unsigned __int8 *)MultiByteString;
+      v8 = *(unsigned __int8 *)MultiByteString;
       --BytesInMultiByteString;
       ++MultiByteString;
-      if ( *(_WORD *)(v9 + 2 * v11) != v8 )
+      if ( NlsLeadByteInfoTable[v8] )
       {
         if ( !BytesInMultiByteString )
         {
-          v7 += 2;
+          v4 += 2;
           break;
         }
         --BytesInMultiByteString;
@@ -54,7 +48,7 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeSize(
       }
     }
 LABEL_4:
-    *BytesInUnicodeString = v7;
+    *BytesInUnicodeString = v4;
   }
   return 0;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HvGetHiveLogFileStatus @ 0x140750D54
+ * XREFs of HvGetHiveLogFileStatus @ 0x140723A48
  * Callers:
- *     CmpGenerateFlushControlData @ 0x140753D7C (CmpGenerateFlushControlData.c)
+ *     CmpGenerateFlushControlData @ 0x140723504 (CmpGenerateFlushControlData.c)
  * Callees:
- *     RtlAreBitsClear @ 0x140220900 (RtlAreBitsClear.c)
- *     CmpIsWriteQueueActive @ 0x1402F6BD4 (CmpIsWriteQueueActive.c)
- *     HvpCountSetRangesInVector @ 0x1407071F4 (HvpCountSetRangesInVector.c)
+ *     PoIsInitializedStopWatch @ 0x14034C198 (PoIsInitializedStopWatch.c)
+ *     RtlAreBitsClear @ 0x1403621A0 (RtlAreBitsClear.c)
+ *     HvpCountSetRangesInVector @ 0x1406BF180 (HvpCountSetRangesInVector.c)
  */
 
 char __fastcall HvGetHiveLogFileStatus(__int64 a1, unsigned int a2, int *a3)
@@ -15,8 +15,9 @@ char __fastcall HvGetHiveLogFileStatus(__int64 a1, unsigned int a2, int *a3)
   __int64 v7; // rax
   int v8; // edx
   unsigned __int64 v9; // rax
-  unsigned __int64 v10; // rax
-  int v11; // edx
+  __int64 v10; // rcx
+  unsigned __int64 v11; // rax
+  int v12; // edx
 
   v4 = a2;
   v6 = (unsigned int)(*(_DWORD *)(a1 + 104) << 9)
@@ -24,11 +25,11 @@ char __fastcall HvGetHiveLogFileStatus(__int64 a1, unsigned int a2, int *a3)
      + 8LL * (unsigned int)HvpCountSetRangesInVector((PRTL_BITMAP)(a1 + 88));
   if ( RtlAreBitsClear((PRTL_BITMAP)(a1 + 88), 0, 8u) )
     v6 += 4104LL;
-  v7 = *(unsigned int *)(a1 + 180);
+  v7 = *(unsigned int *)(a1 + 176);
   v8 = 0;
   *a3 = 0;
   v9 = v6 + v7;
-  if ( *(_BYTE *)(a1 + 195) )
+  if ( *(_BYTE *)(a1 + 191) )
   {
     v8 = 2;
     *a3 = 2;
@@ -38,31 +39,33 @@ char __fastcall HvGetHiveLogFileStatus(__int64 a1, unsigned int a2, int *a3)
     v8 |= 4u;
     *a3 = v8;
   }
-  if ( *(_DWORD *)(a1 + 172) == -1 )
+  if ( *(_DWORD *)(a1 + 168) == -1 )
   {
     v8 |= 8u;
     *a3 = v8;
   }
   if ( v8 )
   {
-    LOBYTE(v10) = CmpIsWriteQueueActive((_QWORD *)(a1 + 4208));
-    if ( (_BYTE)v10 )
+    LOBYTE(v11) = PoIsInitializedStopWatch((_QWORD *)(a1 + 4248));
+    if ( (_BYTE)v11 )
     {
-      v11 = v8 | 1;
+      v12 = v8 | 1;
       goto LABEL_14;
     }
   }
-  if ( v6 + (unsigned __int64)*(unsigned int *)(a1 + 180) >= v4 )
+  v10 = *(unsigned int *)(a1 + 176);
+  if ( v10 + v6 >= v4 )
   {
     v8 |= 0x10u;
     *a3 = v8;
+    LODWORD(v10) = *(_DWORD *)(a1 + 176);
   }
-  v10 = v6 + *(unsigned int *)(a1 + 180);
-  if ( v10 >= v4 )
+  v11 = v6 + (unsigned int)v10;
+  if ( v11 >= v4 )
   {
-    v11 = v8 | 0x20;
+    v12 = v8 | 0x20;
 LABEL_14:
-    *a3 = v11;
+    *a3 = v12;
   }
-  return v10;
+  return v11;
 }

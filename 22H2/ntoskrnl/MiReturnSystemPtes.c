@@ -1,35 +1,34 @@
 /*
- * XREFs of MiReturnSystemPtes @ 0x140345E38
+ * XREFs of MiReturnSystemPtes @ 0x14031B16C
  * Callers:
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiReleaseSmallPteMappings @ 0x1402CBF20 (MiReleaseSmallPteMappings.c)
- *     MiAttemptCoalesce @ 0x140345CF0 (MiAttemptCoalesce.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     MiAttemptCoalesce @ 0x1402C95B0 (MiAttemptCoalesce.c)
  * Callees:
- *     MiReturnSystemVa @ 0x140213B74 (MiReturnSystemVa.c)
+ *     MiReturnSystemVa @ 0x14027AC68 (MiReturnSystemVa.c)
  */
 
-unsigned __int64 __fastcall MiReturnSystemPtes(__int64 a1, int a2, __int64 a3, __int64 a4, int a5)
+__int64 __fastcall MiReturnSystemPtes(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  __int64 v5; // rax
+  __int64 v4; // rax
+  __int64 v5; // r10
   int v6; // r11d
-  __int64 v7; // r10
-  __int64 v9; // rdx
-  int v10; // r8d
-  unsigned __int64 v11; // rdx
+  __int64 v7; // rdx
+  int v8; // r8d
+  unsigned __int64 v9; // rdx
 
-  v5 = *(_QWORD *)(a1 + 16);
-  v6 = *(_DWORD *)(a1 + 24);
+  v4 = *(_QWORD *)(a1 + 16);
+  v5 = 16 * a2;
+  v6 = *(_DWORD *)(a1 + 24) & 4;
+  if ( !v6 )
+    v5 = a2;
+  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 88), -a3);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 56), -a3);
   v7 = 16 * a3;
-  if ( (v6 & 1) == 0 )
+  if ( !v6 )
     v7 = a3;
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 80), -a4);
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 48), -a4);
-  v9 = 16 * a4;
-  if ( (v6 & 1) == 0 )
-    v9 = a4;
-  v10 = *(_DWORD *)(a1 + 28);
-  v11 = (((v5 + 8 * v7) << 25) + (v9 << 28)) >> 16;
-  if ( a2 == 1 )
-    v10 = 13;
-  return MiReturnSystemVa((v5 + 8 * v7) << 25 >> 16, v11, v10, (_QWORD *)((a5 != 0) + 1LL));
+  v8 = *(_DWORD *)(a1 + 28);
+  v9 = (((v4 + 8 * v5) << 25) + (v7 << 28)) >> 16;
+  if ( a4 == 1 )
+    v8 = 13;
+  return MiReturnSystemVa((v4 + 8 * v5) << 25 >> 16, v9, v8);
 }

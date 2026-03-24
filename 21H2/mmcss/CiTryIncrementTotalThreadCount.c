@@ -1,7 +1,7 @@
 /*
- * XREFs of CiTryIncrementTotalThreadCount @ 0x1C0002860
+ * XREFs of CiTryIncrementTotalThreadCount @ 0x1C00017D0
  * Callers:
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
  * Callees:
  *     <none>
  */

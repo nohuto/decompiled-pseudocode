@@ -1,16 +1,22 @@
 /*
- * XREFs of EtwpReserveWithPmcCounters @ 0x14062F694
+ * XREFs of EtwpReserveWithPmcCounters @ 0x1405A94C8
  * Callers:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     EtwpLogContextSwapEvent @ 0x1403ABB10 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     EtwpLogContextSwapEvent @ 0x1403AEE10 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x1402ABBF0 (EtwpReserveTraceBuffer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __int64 a4, __int64 *a5, int a6)
+unsigned __int64 __fastcall EtwpReserveWithPmcCounters(
+        __int64 a1,
+        __int16 a2,
+        int a3,
+        __int64 a4,
+        signed __int64 *a5,
+        __int16 a6)
 {
   int v8; // r15d
   unsigned int v9; // r12d
@@ -18,8 +24,8 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
   unsigned __int8 CurrentIrql; // bl
   unsigned __int8 v12; // cl
   _DWORD *SchedulerAssist; // r9
-  __int64 v14; // rax
-  __int64 v15; // rsi
+  unsigned __int64 v14; // rax
+  unsigned __int64 v15; // rsi
   struct _KPRCB *v16; // r9
   _DWORD *v17; // r8
   int v18; // eax
@@ -30,7 +36,7 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
   int v24; // eax
   __int64 v25; // [rsp+70h] [rbp+8h]
 
-  v25 = *(_QWORD *)(a1 + 1016);
+  v25 = *(_QWORD *)(a1 + 1000);
   v8 = *(_DWORD *)(v25 + 20);
   v9 = 8 * (unsigned __int8)v8 + 16;
   v10 = v9 + a3;
@@ -48,7 +54,7 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
       }
     }
   }
-  v14 = EtwpReserveTraceBuffer(a1, v10, a4, a5, a6);
+  v14 = EtwpReserveTraceBuffer((unsigned int *)a1, v10, a4, a5, a6);
   v15 = v14;
   if ( v14 )
   {
@@ -58,7 +64,7 @@ __int64 __fastcall EtwpReserveWithPmcCounters(__int64 a1, __int16 a2, int a3, __
     *(_DWORD *)v14 = (unsigned __int8)a6 | ((unsigned __int8)v8 << 8) | 0xC0110000;
     v21 = *(_QWORD *)(v25 + 8LL * KeGetPcr()->Prcb.Number + 24);
     if ( v21 )
-      ((void (__fastcall *)(__int64, __int64))off_140C01E28[0])(v21, v14 + 16);
+      ((void (__fastcall *)(__int64, unsigned __int64))off_140C007D8[0])(v21, v14 + 16);
     else
       memset((void *)(v14 + 16), 0, 8LL * (unsigned __int8)v8);
     if ( CurrentIrql < 2u )

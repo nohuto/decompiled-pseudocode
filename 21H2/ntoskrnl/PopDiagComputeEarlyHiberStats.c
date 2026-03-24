@@ -1,43 +1,29 @@
 /*
- * XREFs of PopDiagComputeEarlyHiberStats @ 0x140A48CA4
+ * XREFs of PopDiagComputeEarlyHiberStats @ 0x1409905B8
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PpmConvertTime @ 0x14029394C (PpmConvertTime.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     HvlQueryHypervisorTscAdjustment @ 0x1403828F4 (HvlQueryHypervisorTscAdjustment.c)
+ *     PopCaptureTimeOnProcZero @ 0x140990688 (PopCaptureTimeOnProcZero.c)
  */
 
 __int64 PopDiagComputeEarlyHiberStats()
 {
-  __int64 *v0; // rbx
-  __int64 v1; // rdi
+  __int64 HypervisorTscAdjustment; // rax
+  __int64 v1; // rcx
   __int64 result; // rax
-  __int64 v3; // rsi
-  unsigned __int64 v4; // rcx
 
-  qword_140C22E28 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140C1D010;
-  v0 = &qword_140001B28;
-  v1 = 59LL;
-  qword_140C22DF0 = 1000LL * *(unsigned int *)(KeGetPrcb(0) + 68);
-  do
-  {
-    if ( (v0[1] & 0x20000000) != 0 )
-    {
-      v4 = *(__int64 *)((char *)&qword_140C22D18 + *v0);
-      if ( v4 > (unsigned __int64)PopSstDiagResumeClock )
-        v4 -= *((_QWORD *)&PopSstDiagResumeClock + 1);
-      v3 = *v0;
-      *(__int64 *)((char *)&qword_140C22D18 + v3) = PpmConvertTime(
-                                                      v4,
-                                                      1000000LL * KeGetCurrentPrcb()->MHz,
-                                                      PopQpcFrequency);
-    }
-    v0 += 3;
-    --v1;
-  }
-  while ( v1 );
-  result = qword_140C22DE8 - qword_140C22D80;
-  qword_140C22D78 = qword_140C22DE8 - qword_140C22D80;
+  qword_140C23AA8 = PopCaptureTimeOnProcZero();
+  qword_140C23A70 = 1000LL * *(unsigned int *)(KeGetPrcb(0) + 68);
+  HypervisorTscAdjustment = HvlQueryHypervisorTscAdjustment();
+  v1 = qword_140C23A68 - HypervisorTscAdjustment;
+  qword_140C23A98 = HypervisorTscAdjustment;
+  result = qword_140C23A90 + HypervisorTscAdjustment;
+  qword_140C23A80 -= result;
+  qword_140C23AA0 -= result;
+  qword_140C23A68 = v1;
+  qword_140C23AA8 -= result;
+  qword_140C239F8 = v1 - qword_140C23A00;
   return result;
 }

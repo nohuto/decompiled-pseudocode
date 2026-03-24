@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpShutdownReset @ 0x14050AC80
+ * XREFs of HalpShutdownReset @ 0x1404BE660
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalReturnToFirmware @ 0x14050A7E0 (HalReturnToFirmware.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalReturnToFirmware @ 0x1404BE1A0 (HalReturnToFirmware.c)
  */
 
 void __fastcall __noreturn HalpShutdownReset(
@@ -23,10 +23,10 @@ void __fastcall __noreturn HalpShutdownReset(
   {
     do
     {
-      if ( (++v5 & dword_140C4C47C) != 0 || !qword_140C4C480 )
+      if ( (++v5 & dword_140C4A17C) != 0 || !qword_140C4A180 )
         _mm_pause();
       else
-        qword_140C4C480(v5, a2, a3);
+        qword_140C4A180(v5);
     }
     while ( *a5 );
   }

@@ -1,23 +1,23 @@
 /*
- * XREFs of xxxSetWindowPosAndBand @ 0x1C0048AFC
+ * XREFs of xxxSetWindowPosAndBand @ 0x1C006BDD0
  * Callers:
- *     xxxSetWindowPos @ 0x1C0048A4C (xxxSetWindowPos.c)
- *     xxxResetTooltip @ 0x1C0118B6C (xxxResetTooltip.c)
- *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C023E738 (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
+ *     xxxResetTooltip @ 0x1C002B3FC (xxxResetTooltip.c)
+ *     xxxSetWindowPos @ 0x1C006BC54 (xxxSetWindowPos.c)
+ *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C0242C3C (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
  * Callees:
- *     xxxEndDeferWindowPosEx @ 0x1C004720C (xxxEndDeferWindowPosEx.c)
- *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C0048C48 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
- *     InternalBeginDeferWindowPos @ 0x1C0048E6C (InternalBeginDeferWindowPos.c)
- *     xxxRedrawWindow @ 0x1C004A1EC (xxxRedrawWindow.c)
- *     ?IsWindowGhosted@@YAHPEBUtagWND@@@Z @ 0x1C0062EF0 (-IsWindowGhosted@@YAHPEBUtagWND@@@Z.c)
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C007B728 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     ?xxxHandleHealthyWindow@@YAHPEAUtagWND@@@Z @ 0x1C0144620 (-xxxHandleHealthyWindow@@YAHPEAUtagWND@@@Z.c)
- *     ?FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z @ 0x1C01CC428 (-FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z.c)
+ *     xxxHandleHealthyWindow @ 0x1C00035B0 (xxxHandleHealthyWindow.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00675D0 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     InternalBeginDeferWindowPos @ 0x1C006BA00 (InternalBeginDeferWindowPos.c)
+ *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C006BA90 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006EDBC (xxxEndDeferWindowPosEx.c)
+ *     xxxRedrawWindow @ 0x1C0072354 (xxxRedrawWindow.c)
+ *     IsWindowGhosted @ 0x1C007E69C (IsWindowGhosted.c)
+ *     ?FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z @ 0x1C01CFFD0 (-FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z.c)
  */
 
 __int64 __fastcall xxxSetWindowPosAndBand(
         struct tagWND *a1,
-        __int64 a2,
+        __int64 *a2,
         int a3,
         int a4,
         int a5,
@@ -28,12 +28,12 @@ __int64 __fastcall xxxSetWindowPosAndBand(
   int v8; // ebx
   int v9; // esi
   int v10; // ebp
-  unsigned int v11; // r14d
-  unsigned int v14; // r8d
+  int v11; // r14d
+  int v14; // r8d
   _BYTE *v15; // rdx
   int v16; // r15d
   int v17; // r12d
-  __int64 v18; // rax
+  void *v18; // rax
   struct tagSMWP *v19; // rax
   __int64 v21; // rcx
   __int64 v22; // rax
@@ -73,7 +73,7 @@ __int64 __fastcall xxxSetWindowPosAndBand(
     if ( v22 )
     {
       v23 = *(_QWORD *)(v22 + 40);
-      if ( (*(_BYTE *)(v23 + 31) & 0x10) != 0 && !(unsigned int)IsRectEmptyInl((const struct tagRECT *)(v23 + 88)) )
+      if ( (*(_BYTE *)(v23 + 31) & 0x10) != 0 && !IsRectEmptyInl((const struct tagRECT *)(v23 + 88)) )
       {
         FixBogusSWP(a1, &v24, &v25, v17, v16, v8);
         v10 = v25;
@@ -85,10 +85,10 @@ __int64 __fastcall xxxSetWindowPosAndBand(
   v18 = InternalBeginDeferWindowPos(v14);
   if ( !v18 )
     return 0LL;
-  v19 = (struct tagSMWP *)_DeferWindowPos(v18, a1, a2, v11, v10, v17, v16, v8, a8);
-  if ( !v19 || !(unsigned int)xxxEndDeferWindowPosEx(v19, v8 & 0x4000) )
+  v19 = (struct tagSMWP *)_DeferWindowPos((__int64)v18, a1, a2, v11, v10, v17, v16, v8, a8);
+  if ( !v19 || !(unsigned int)xxxEndDeferWindowPosEx(v19) )
     return 0LL;
   if ( v9 )
-    xxxRedrawWindow(a1, 0LL, 0LL, 1157LL);
+    xxxRedrawWindow(a1);
   return 1LL;
 }

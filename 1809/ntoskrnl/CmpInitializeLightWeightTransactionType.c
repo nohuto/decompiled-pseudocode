@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpInitializeLightWeightTransactionType @ 0x140730624
+ * XREFs of CmpInitializeLightWeightTransactionType @ 0x140730604
  * Callers:
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     ObCreateObjectTypeEx @ 0x1407289FC (ObCreateObjectTypeEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
  */
 
 __int64 CmpInitializeLightWeightTransactionType()

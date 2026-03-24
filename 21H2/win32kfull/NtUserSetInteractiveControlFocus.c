@@ -1,56 +1,49 @@
 /*
- * XREFs of NtUserSetInteractiveControlFocus @ 0x1C01FD470
+ * XREFs of NtUserSetInteractiveControlFocus @ 0x1C02020D0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     IsShellProcess @ 0x1C007B10C (IsShellProcess.c)
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C010C048 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
- *     ?SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND@@@Z @ 0x1C024FCA0 (-SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND.c)
+ *     IsShellProcess @ 0x1C003C638 (IsShellProcess.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5E60 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND@@@Z @ 0x1C0252CB4 (-SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserSetInteractiveControlFocus(unsigned __int16 a1, unsigned int a2, __int64 a3)
 {
-  __int64 ThreadWin32Thread; // rdi
-  char v7; // r14
-  int v8; // esi
-  __int64 v9; // rcx
-  struct InteractiveControlManager *v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int128 v15; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-38h]
-  int v17; // [rsp+80h] [rbp+18h]
+  __int64 v6; // rdi
+  __int64 v7; // rcx
+  __int64 v8; // rsi
+  struct InteractiveControlManager *v9; // rax
+  __int64 v10; // rcx
+  __int128 v12; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v13; // [rsp+30h] [rbp-28h]
 
-  v16 = 0LL;
-  v15 = 0LL;
-  EnterCrit(0LL, 0LL);
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v7 = 0;
+  v12 = 0LL;
+  v13 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v6 = 0LL;
   if ( (unsigned int)IsShellProcess(*(_QWORD *)(gptiCurrent + 424LL)) )
+    gbValidateHandleForIL = 0;
+  if ( a3 )
   {
-    v8 = *(_DWORD *)(ThreadWin32Thread + 1508);
-    v7 = 1;
-    *(_DWORD *)(ThreadWin32Thread + 1508) = 0;
+    v8 = ValidateHwnd(a3);
+    if ( !v8 )
+      goto LABEL_10;
   }
   else
   {
-    v8 = v17;
+    v8 = 0LL;
   }
-  if ( !a3 || (a3 = ValidateHwnd(a3)) != 0 )
-  {
-    *(_QWORD *)&v15 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v15;
-    *((_QWORD *)&v15 + 1) = a3;
-    if ( a3 )
-      HMLockObject(a3);
-    v10 = InteractiveControlManager::Instance();
-    a3 = (int)InteractiveControlManager::SetDeviceFocus(v10, a1, a2, a3, v15, *((_QWORD *)&v15 + 1), v16) >= 0;
-    ThreadUnlock1(v12, v11, v13);
-  }
-  if ( v7 )
-    *(_DWORD *)(ThreadWin32Thread + 1508) = v8;
-  UserSessionSwitchLeaveCrit(v9);
-  return a3;
+  *(_QWORD *)&v12 = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = &v12;
+  *((_QWORD *)&v12 + 1) = v8;
+  if ( v8 )
+    HMLockObject(v8);
+  v9 = InteractiveControlManager::Instance();
+  LOBYTE(v6) = (int)InteractiveControlManager::SetDeviceFocus(v9, a1, a2, v8, v12, *((_QWORD *)&v12 + 1), v13) >= 0;
+  ThreadUnlock1(v10);
+LABEL_10:
+  UserSessionSwitchLeaveCrit(v7);
+  return v6;
 }

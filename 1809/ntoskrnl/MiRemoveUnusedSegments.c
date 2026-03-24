@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRemoveUnusedSegments @ 0x1402A2F30
+ * XREFs of MiRemoveUnusedSegments @ 0x1402A3030
  * Callers:
- *     MiProcessDereferenceList @ 0x140154030 (MiProcessDereferenceList.c)
- *     MiDereferenceSegmentThread @ 0x140187580 (MiDereferenceSegmentThread.c)
+ *     MiProcessDereferenceList @ 0x140154050 (MiProcessDereferenceList.c)
+ *     MiDereferenceSegmentThread @ 0x1401875A0 (MiDereferenceSegmentThread.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     MiProcessDereferenceList @ 0x140154030 (MiProcessDereferenceList.c)
- *     CcUnmapInactiveViews @ 0x14026A860 (CcUnmapInactiveViews.c)
- *     MiDeleteCachedSegment @ 0x1402A1764 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x1402A1918 (MiDeleteCachedSubsection.c)
- *     MiShouldTrimUnusedSegments @ 0x1402A3304 (MiShouldTrimUnusedSegments.c)
+ *     MiProcessDereferenceList @ 0x140154050 (MiProcessDereferenceList.c)
+ *     CcUnmapInactiveViews @ 0x14026A960 (CcUnmapInactiveViews.c)
+ *     MiDeleteCachedSegment @ 0x1402A1864 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
+ *     MiShouldTrimUnusedSegments @ 0x1402A3404 (MiShouldTrimUnusedSegments.c)
  */
 
 __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, unsigned __int64 a2)

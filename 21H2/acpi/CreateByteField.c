@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateByteField @ 0x1C002C850
+ * XREFs of CreateByteField @ 0x1C0029020
  * Callers:
  *     <none>
  * Callees:
- *     CreateXField @ 0x1C0018484 (CreateXField.c)
+ *     CreateXField @ 0x1C00291A8 (CreateXField.c)
  */
 
 __int64 __fastcall CreateByteField(__int64 a1, __int64 a2)

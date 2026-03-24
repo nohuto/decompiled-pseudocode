@@ -1,21 +1,22 @@
 /*
- * XREFs of MiLockPageAndSetDirty @ 0x14033E534
+ * XREFs of MiLockPageAndSetDirty @ 0x14030FA6C
  * Callers:
- *     MiIssueHardFault @ 0x14027A1F0 (MiIssueHardFault.c)
- *     MiCopyToUserVa @ 0x14028DF40 (MiCopyToUserVa.c)
- *     MiMakePteClean @ 0x14028ECFC (MiMakePteClean.c)
- *     MiValidFault @ 0x140291FC0 (MiValidFault.c)
- *     NtLockVirtualMemory @ 0x1402E5D90 (NtLockVirtualMemory.c)
- *     MmSetPageProtection @ 0x1403C2120 (MmSetPageProtection.c)
+ *     MiValidFault @ 0x140209750 (MiValidFault.c)
+ *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
+ *     MiCopyToUserVa @ 0x14030E538 (MiCopyToUserVa.c)
+ *     MiIssueHardFault @ 0x14030E9B0 (MiIssueHardFault.c)
+ *     MiMakePteClean @ 0x14030F56C (MiMakePteClean.c)
+ *     MiMakeCombineCandidateClean @ 0x140369D8C (MiMakeCombineCandidateClean.c)
+ *     MmSetPageProtection @ 0x140379C80 (MmSetPageProtection.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x1402E20D0 (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiCaptureDirtyBitToPfn @ 0x14033C2A0 (MiCaptureDirtyBitToPfn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14030FB10 (MiCaptureDirtyBitToPfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiLockPageAndSetDirty(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall MiLockPageAndSetDirty(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   __int64 v4; // rsi
   unsigned __int8 v6; // di
@@ -28,24 +29,24 @@ void __fastcall MiLockPageAndSetDirty(__int64 a1, __int64 a2, __int64 a3, __int6
   int v13; // [rsp+38h] [rbp+10h] BYREF
 
   v4 = 0LL;
-  if ( (_DWORD)a2 )
+  if ( (_DWORD)a2 == 1 )
   {
     v13 = 0;
     v6 = 17;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v13, a2, a3, a4);
+        KeYieldProcessorEx(&v13, a2, a3, (__int64)a4);
       while ( *(__int64 *)(a1 + 24) < 0 );
     }
   }
   else
   {
-    v6 = MiLockPageInline(a1);
+    v6 = MiLockPageInline(a1, a2, a3, a4);
   }
   v7 = MiCaptureDirtyBitToPfn(a1);
   if ( v7 )
-    v4 = *(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+    v4 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL));
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   if ( v7 )
     MiReleasePageFileInfo(v4, v7, 1);

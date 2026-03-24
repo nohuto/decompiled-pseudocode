@@ -1,16 +1,8 @@
 /*
- * XREFs of MiAddPageToHeatRanges @ 0x1405B7574
+ * XREFs of MiAddPageToHeatRanges @ 0x14055F4FC
  * Callers:
- *     MiGetLargePageChain @ 0x140266158 (MiGetLargePageChain.c)
- *     MiGetLargePage @ 0x140267060 (MiGetLargePage.c)
- *     MiDemoteLocalLargePage @ 0x1402CA210 (MiDemoteLocalLargePage.c)
- *     MiUpdatePfnForPrefetchByPte @ 0x140316E90 (MiUpdatePfnForPrefetchByPte.c)
- *     MiWalkEntireImage @ 0x140336B30 (MiWalkEntireImage.c)
- *     MmSetPfnListInfo @ 0x1403C4E98 (MmSetPfnListInfo.c)
- *     MiSplitDirectMapPage @ 0x1405A0B10 (MiSplitDirectMapPage.c)
- *     MiChangePageHeatImmediate @ 0x1405B766C (MiChangePageHeatImmediate.c)
- *     MiMakeTransitionHeatBatch @ 0x1405B7B38 (MiMakeTransitionHeatBatch.c)
- *     MiAllocateLargeZeroPages @ 0x1405C0D40 (MiAllocateLargeZeroPages.c)
+ *     MiAddPageToHeatList @ 0x1403F7C88 (MiAddPageToHeatList.c)
+ *     MiMakeTransitionHeatBatch @ 0x14055FA70 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     <none>
  */

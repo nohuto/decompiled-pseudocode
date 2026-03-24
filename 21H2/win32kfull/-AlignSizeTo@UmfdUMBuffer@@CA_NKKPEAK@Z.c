@@ -1,22 +1,24 @@
 /*
- * XREFs of ?AlignSizeTo@UmfdUMBuffer@@CA_NKKPEAK@Z @ 0x1C011CDD8
+ * XREFs of ?AlignSizeTo@UmfdUMBuffer@@CA_NKKPEAK@Z @ 0x1C00D19C0
  * Callers:
- *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C000CB7C (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
- *     ?AllocTemporaryBuffer@UmfdUMBuffer@@AEAA_NK@Z @ 0x1C02DC794 (-AllocTemporaryBuffer@UmfdUMBuffer@@AEAA_NK@Z.c)
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C00A66DC (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     ?AllocTemporaryBuffer@UmfdUMBuffer@@AEAA_NK@Z @ 0x1C02DFA64 (-AllocTemporaryBuffer@UmfdUMBuffer@@AEAA_NK@Z.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall UmfdUMBuffer::AlignSizeTo(unsigned int a1, __int64 a2, unsigned int *a3)
+bool __fastcall UmfdUMBuffer::AlignSizeTo(unsigned int a1, __int64 a2, unsigned int *a3)
 {
+  unsigned int v3; // edx
+  bool result; // al
+
+  v3 = -1;
+  if ( a1 + 4095 >= a1 )
+    v3 = a1 + 4095;
+  *a3 = v3;
   if ( a1 + 4095 < a1 )
-  {
-    *a3 = -1;
     return 0;
-  }
-  else
-  {
-    *a3 = (a1 + 4095) & 0xFFFFF000;
-    return 1;
-  }
+  result = 1;
+  *a3 = v3 & 0xFFFFF000;
+  return result;
 }

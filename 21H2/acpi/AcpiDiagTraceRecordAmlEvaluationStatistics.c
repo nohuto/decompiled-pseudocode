@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiDiagTraceRecordAmlEvaluationStatistics @ 0x1C0048A14
+ * XREFs of AcpiDiagTraceRecordAmlEvaluationStatistics @ 0x1C004A034
  * Callers:
- *     FreeContext @ 0x1C00694F8 (FreeContext.c)
+ *     FreeContext @ 0x1C0068074 (FreeContext.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0023FBC (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0023FEC (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C000FB50 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C000FB80 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 char __fastcall AcpiDiagTraceRecordAmlEvaluationStatistics(__int64 a1)
@@ -27,9 +27,9 @@ char __fastcall AcpiDiagTraceRecordAmlEvaluationStatistics(__int64 a1)
   if ( (_QWORD)v1 )
   {
     v1 = (unsigned __int64)(MEMORY[0xFFFFF78000000008] - v1) * (unsigned __int128)0x346DC5D63886594BuLL;
-    if ( (unsigned int)(*((_QWORD *)&v1 + 1) >> 11) >= 0x3E8 && (unsigned int)dword_1C007E0E8 > 5 )
+    if ( (unsigned int)(*((_QWORD *)&v1 + 1) >> 11) >= 0x3E8 && (unsigned int)dword_1C007F0E8 > 5 )
     {
-      LOBYTE(v1) = tlgKeywordOn((__int64)&dword_1C007E0E8);
+      LOBYTE(v1) = tlgKeywordOn((__int64)&dword_1C007F0E8);
       if ( (_BYTE)v1 )
       {
         v9 = 2LL;
@@ -41,8 +41,8 @@ char __fastcall AcpiDiagTraceRecordAmlEvaluationStatistics(__int64 a1)
         v6 = v2;
         v13 = 4LL;
         LOBYTE(v1) = tlgWriteTransfer_EtwWriteTransfer(
-                       (__int64)&dword_1C007E0E8,
-                       (unsigned __int8 *)dword_1C0071F48,
+                       (__int64)&dword_1C007F0E8,
+                       (unsigned __int8 *)dword_1C0072650,
                        v2,
                        v3,
                        5u,

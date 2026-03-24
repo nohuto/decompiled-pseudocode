@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C00767A0
+ * XREFs of ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C00E2534
  * Callers:
- *     SetIconMetrics @ 0x1C00761C4 (SetIconMetrics.c)
- *     SetMinMetrics @ 0x1C00763E0 (SetMinMetrics.c)
- *     xxxSetWindowNCMetrics @ 0x1C0076530 (xxxSetWindowNCMetrics.c)
+ *     SetIconMetrics @ 0x1C00E1F70 (SetIconMetrics.c)
+ *     SetMinMetrics @ 0x1C00E218C (SetMinMetrics.c)
+ *     xxxSetWindowNCMetrics @ 0x1C00E22DC (xxxSetWindowNCMetrics.c)
  * Callees:
  *     <none>
  */

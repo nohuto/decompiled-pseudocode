@@ -1,43 +1,43 @@
 /*
- * XREFs of MiCloneProcessAddressSpace @ 0x1409806C8
+ * XREFs of MiCloneProcessAddressSpace @ 0x1408D9060
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x14070A4FC (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1407114D4 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MiIsStoreProcess @ 0x1402365F4 (MiIsStoreProcess.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403107C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiCloneVads @ 0x1405B99AC (MiCloneVads.c)
- *     MiCreateCloneChain @ 0x1405BA158 (MiCreateCloneChain.c)
- *     MiCreateForkWsles @ 0x1405BA3BC (MiCreateForkWsles.c)
- *     MiInsertClone @ 0x1405BB8B4 (MiInsertClone.c)
- *     MiLockDownWorkingSet @ 0x1405BB938 (MiLockDownWorkingSet.c)
- *     MiLockVadRange @ 0x1406F7D78 (MiLockVadRange.c)
- *     MiUnlockVadRange @ 0x1406F7F40 (MiUnlockVadRange.c)
- *     MiAllocateChildVads @ 0x1409800F4 (MiAllocateChildVads.c)
- *     MiBuildNewCloneDescriptor @ 0x14098056C (MiBuildNewCloneDescriptor.c)
- *     MiDeleteInsertedCloneVads @ 0x140980A20 (MiDeleteInsertedCloneVads.c)
- *     MiFreeCloneDescriptor @ 0x140980D40 (MiFreeCloneDescriptor.c)
- *     MiMapChildLargePageVads @ 0x140980FA0 (MiMapChildLargePageVads.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     MiIsStoreProcess @ 0x14026A4B0 (MiIsStoreProcess.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403183E0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiCloneVads @ 0x140559328 (MiCloneVads.c)
+ *     MiCreateCloneChain @ 0x140559AC0 (MiCreateCloneChain.c)
+ *     MiCreateForkWsles @ 0x140559DAC (MiCreateForkWsles.c)
+ *     MiInsertClone @ 0x14055B274 (MiInsertClone.c)
+ *     MiLockDownWorkingSet @ 0x14055B2F8 (MiLockDownWorkingSet.c)
+ *     MiLockVadRange @ 0x14061DC20 (MiLockVadRange.c)
+ *     MiUnlockVadRange @ 0x140620130 (MiUnlockVadRange.c)
+ *     MiAllocateChildVads @ 0x1408D8A90 (MiAllocateChildVads.c)
+ *     MiBuildNewCloneDescriptor @ 0x1408D8F04 (MiBuildNewCloneDescriptor.c)
+ *     MiDeleteInsertedCloneVads @ 0x1408D93B4 (MiDeleteInsertedCloneVads.c)
+ *     MiFreeCloneDescriptor @ 0x1408D96E8 (MiFreeCloneDescriptor.c)
+ *     MiMapChildLargePageVads @ 0x1408D9960 (MiMapChildLargePageVads.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCloneProcessAddressSpace(_KPROCESS *BugCheckParameter1, _KPROCESS *a2, int a3)
 {
-  char v3; // r12
-  int v6; // r13d
-  int v7; // r15d
+  char v3; // r15
+  int v6; // r12d
+  int v7; // r13d
   _QWORD *v8; // r14
   _KPROCESS *Process; // rdi
   __int64 v10; // r8
   _DWORD *v11; // r9
   __int64 v13; // r8
   _DWORD *v14; // r9
-  int v15; // r12d
+  int v15; // r15d
   int v16; // edi
-  _QWORD *v17; // r12
+  _QWORD *v17; // r15
   _QWORD *v18; // rbx
   _QWORD *v19; // rax
   _DWORD *v20; // r9
@@ -74,10 +74,10 @@ __int64 __fastcall MiCloneProcessAddressSpace(_KPROCESS *BugCheckParameter1, _KP
     KiStackAttachProcess(BugCheckParameter1, 0LL, (__int64)v32, v14);
   }
   v15 = v3 & 1;
-  v30 = BugCheckParameter1[1].ActiveProcessors.StaticBitmap[28];
-  if ( !*(_QWORD *)(v30 + 344) || v15 )
+  v30 = BugCheckParameter1[1].ActiveProcessorsPadding[8];
+  if ( !*(_QWORD *)(v30 + 360) || v15 )
   {
-    v29 = MiLockVadRange((__int64)BugCheckParameter1, 0xFFFFFFFFFFFFFFFFuLL, 0xFFFFFFFFFFFFFFFFuLL, 1);
+    v29 = MiLockVadRange((__int64)BugCheckParameter1, 0xFFFFFFFFFFFFFFFFuLL, 0xFFFFFFFFFFFFFFFFuLL, 0);
     if ( v29 )
     {
       v16 = MiCreateCloneChain(a2, &P);
@@ -88,7 +88,7 @@ __int64 __fastcall MiCloneProcessAddressSpace(_KPROCESS *BugCheckParameter1, _KP
         goto LABEL_10;
       if ( v15 )
       {
-        v19 = MiBuildNewCloneDescriptor(a2, 2LL, *(_QWORD *)(v30 + 344));
+        v19 = MiBuildNewCloneDescriptor(a2, 2LL, *(_QWORD *)(v30 + 360));
         v8 = v19;
         if ( !v19 )
         {
@@ -104,10 +104,10 @@ __int64 __fastcall MiCloneProcessAddressSpace(_KPROCESS *BugCheckParameter1, _KP
       {
         P = 0LL;
         v16 = MiMapChildLargePageVads(a2, v28);
-        MiUnlockVadRange((__int64)BugCheckParameter1, 0xFFFFFFFFFFFFFFFFuLL, v29, 1);
+        MiUnlockVadRange((__int64)BugCheckParameter1, 0xFFFFFFFFFFFFFFFFuLL, v29, 0);
         if ( v6 )
         {
-          KiUnstackDetachProcess((__int64)v32, 0LL);
+          KiUnstackDetachProcess((__int64)v32, 0);
           v6 = 0;
         }
         if ( v31 != a2 )
@@ -149,7 +149,7 @@ LABEL_38:
           v7 = 0;
           if ( v6 )
           {
-            KiUnstackDetachProcess((__int64)v32, 0LL);
+            KiUnstackDetachProcess((__int64)v32, 0);
             v6 = 0;
           }
           if ( !v25 )
@@ -181,13 +181,13 @@ LABEL_13:
       v16 = -1073741558;
     }
 LABEL_10:
-    MiUnlockVadRange((__int64)BugCheckParameter1, 0xFFFFFFFFFFFFFFFFuLL, v29, 1);
+    MiUnlockVadRange((__int64)BugCheckParameter1, 0xFFFFFFFFFFFFFFFFuLL, v29, 0);
     goto LABEL_11;
   }
   v16 = -1073741637;
 LABEL_15:
   if ( v6 )
-    KiUnstackDetachProcess((__int64)v32, 0LL);
+    KiUnstackDetachProcess((__int64)v32, 0);
   if ( v7 )
     MiLockDownWorkingSet(a2, 0, v13, v14);
   MiDeleteInsertedCloneVads(a2);

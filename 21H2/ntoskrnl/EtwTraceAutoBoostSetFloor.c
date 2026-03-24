@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceAutoBoostSetFloor @ 0x14062D548
+ * XREFs of EtwTraceAutoBoostSetFloor @ 0x1405A74EC
  * Callers:
- *     KiAbApplyWakeupBoost @ 0x1403597CC (KiAbApplyWakeupBoost.c)
- *     KiAbSetMinimumThreadPriority @ 0x14035A424 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbApplyWakeupBoost @ 0x1402F197C (KiAbApplyWakeupBoost.c)
+ *     KiAbSetMinimumThreadPriority @ 0x1402F1D84 (KiAbSetMinimumThreadPriority.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140281380 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceAutoBoostSetFloor(
@@ -32,7 +32,7 @@ __int64 __fastcall EtwTraceAutoBoostSetFloor(
   int v21; // [rsp+48h] [rbp-18h]
   int v22; // [rsp+4Ch] [rbp-14h]
 
-  v15 = *(_DWORD *)(a1 + 1232);
+  v15 = *(_DWORD *)(a1 + 1152);
   v17 = a6;
   v14 = a2;
   v16 = a3;

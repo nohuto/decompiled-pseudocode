@@ -1,15 +1,15 @@
 /*
- * XREFs of wcscmp @ 0x1403DB2F0
+ * XREFs of wcscmp @ 0x1403D3840
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA46C (_CmGetDeviceMappedPropertyFromComposite.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x14077DE68 (SepCleanupLUIDDeviceMapDirectory.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x14079B574 (_CmGetDeviceContainerIdFromBase.c)
- *     _CmValidateDeviceContainerName @ 0x14079B890 (_CmValidateDeviceContainerName.c)
- *     PiDcUpdateDeviceContainerMembership @ 0x14079BAD0 (PiDcUpdateDeviceContainerMembership.c)
- *     PiDqDispatch @ 0x1407F9510 (PiDqDispatch.c)
- *     EtwStartAutoLogger @ 0x14083DD38 (EtwStartAutoLogger.c)
- *     PiDcContainerRequiresConfiguration @ 0x140878020 (PiDcContainerRequiresConfiguration.c)
- *     HdlspAddLogEntry @ 0x140AEAB20 (HdlspAddLogEntry.c)
+ *     _CmValidateDeviceContainerName @ 0x14068D4D0 (_CmValidateDeviceContainerName.c)
+ *     PiDqDispatch @ 0x1406A79D0 (PiDqDispatch.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406B558C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x1406F79AC (SepCleanupLUIDDeviceMapDirectory.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14075875C (PiDcUpdateDeviceContainerMembership.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140758E58 (PiDcContainerRequiresConfiguration.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x14075A16C (_CmGetDeviceContainerIdFromBase.c)
+ *     EtwStartAutoLogger @ 0x140796424 (EtwStartAutoLogger.c)
+ *     HdlspAddLogEntry @ 0x1409EEAE0 (HdlspAddLogEntry.c)
  * Callees:
  *     <none>
  */

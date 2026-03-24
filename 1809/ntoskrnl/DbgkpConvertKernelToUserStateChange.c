@@ -1,7 +1,7 @@
 /*
- * XREFs of DbgkpConvertKernelToUserStateChange @ 0x14080E8C4
+ * XREFs of DbgkpConvertKernelToUserStateChange @ 0x14080E8A4
  * Callers:
- *     NtWaitForDebugEvent @ 0x140810320 (NtWaitForDebugEvent.c)
+ *     NtWaitForDebugEvent @ 0x140810300 (NtWaitForDebugEvent.c)
  * Callees:
  *     <none>
  */

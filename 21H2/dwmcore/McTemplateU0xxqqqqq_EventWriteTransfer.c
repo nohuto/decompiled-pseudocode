@@ -1,13 +1,10 @@
 /*
- * XREFs of McTemplateU0xxqqqqq_EventWriteTransfer @ 0x18024956C
+ * XREFs of McTemplateU0xxqqqqq_EventWriteTransfer @ 0x1801F9488
  * Callers:
- *     ?DisableIndependentFlip@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ @ 0x180004EA8 (-DisableIndependentFlip@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ.c)
- *     ?EnableIndependentFlip@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJI@Z @ 0x1800161B0 (-EnableIndependentFlip@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJI@Z.c)
- *     ?SetIndependentFlipNotify@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_N@Z @ 0x180017C98 (-SetIndependentFlipNotify@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_N@Z.c)
- *     ?SetIndependentFlipDuration@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJI@Z @ 0x180249070 (-SetIndependentFlipDuration@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJI@Z.c)
+ *     ?SetIndependentFlip@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_N0III@Z @ 0x1801F8FE0 (-SetIndependentFlip@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_N0III@Z.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxqqqqq_EventWriteTransfer(__int64 a1, __int64 a2, ...)

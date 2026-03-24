@@ -1,17 +1,21 @@
 /*
- * XREFs of WheapPersistPageForMemoryError @ 0x140643FCC
+ * XREFs of WheapPersistPageForMemoryError @ 0x1405BBB58
  * Callers:
- *     WheaRecoveryBugCheck @ 0x1406435C0 (WheaRecoveryBugCheck.c)
- *     WheaReportHwError @ 0x140643630 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
  * Callees:
- *     HalSetEnvironmentVariableEx @ 0x140508800 (HalSetEnvironmentVariableEx.c)
- *     WheapErrorContainsMemorySection @ 0x14064514C (WheapErrorContainsMemorySection.c)
+ *     HalSetEnvironmentVariableEx @ 0x1404BBD90 (HalSetEnvironmentVariableEx.c)
+ *     MmGetPageBadStatus @ 0x14052F810 (MmGetPageBadStatus.c)
+ *     WheapErrorContainsMemorySection @ 0x1405BC8F4 (WheapErrorContainsMemorySection.c)
  */
 
 void __fastcall WheapPersistPageForMemoryError(__int64 a1)
 {
   __int64 v1; // rax
-  __int64 v2; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  _DWORD *v4; // r9
+  unsigned __int64 v5; // rbx
+  unsigned __int64 v6; // [rsp+40h] [rbp+8h] BYREF
 
   if ( (*(_BYTE *)(a1 + 104) & 0x20) != 0 )
   {
@@ -20,8 +24,13 @@ void __fastcall WheapPersistPageForMemoryError(__int64 a1)
     {
       if ( (*(_BYTE *)v1 & 2) != 0 )
       {
-        v2 = *(_QWORD *)(v1 + 16) >> 12;
-        HalSetEnvironmentVariableEx(L"UncorrectedBadMemoryPage", (int)&WheapHardwareErrorGuid, (__int64)&v2, 8, 7);
+        v5 = *(_QWORD *)(v1 + 16);
+        v6 = v5;
+        if ( !(unsigned int)MmGetPageBadStatus(&v6, v2, v3, v4) )
+        {
+          v6 = v5 >> 12;
+          HalSetEnvironmentVariableEx(L"UncorrectedBadMemoryPage", (int)&WheapHardwareErrorGuid, (__int64)&v6, 8, 7);
+        }
       }
     }
   }

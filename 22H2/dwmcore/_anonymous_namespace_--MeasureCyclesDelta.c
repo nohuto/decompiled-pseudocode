@@ -1,7 +1,7 @@
 /*
- * XREFs of _anonymous_namespace_::MeasureCyclesDelta @ 0x180051040
+ * XREFs of _anonymous_namespace_::MeasureCyclesDelta @ 0x1800C72F8
  * Callers:
- *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x180050DFC (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
+ *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x180071D98 (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
  * Callees:
  *     <none>
  */

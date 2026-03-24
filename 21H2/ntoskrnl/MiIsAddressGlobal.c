@@ -1,21 +1,23 @@
 /*
- * XREFs of MiIsAddressGlobal @ 0x14027DAD4
+ * XREFs of MiIsAddressGlobal @ 0x14031EB10
  * Callers:
- *     MiMakePageAvoidRead @ 0x1402BBEE0 (MiMakePageAvoidRead.c)
- *     MiPfnShareCountIsZero @ 0x1402BF640 (MiPfnShareCountIsZero.c)
- *     MiGetPageChain @ 0x140323D70 (MiGetPageChain.c)
- *     MiResolveTransitionFault @ 0x140325B30 (MiResolveTransitionFault.c)
+ *     MiResolveTransitionFault @ 0x140216790 (MiResolveTransitionFault.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
+ *     MiPfnShareCountIsZero @ 0x140326190 (MiPfnShareCountIsZero.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
+ *     <none>
  */
 
 __int64 __fastcall MiIsAddressGlobal(unsigned __int64 a1)
 {
   if ( a1 < 0xFFFF800000000000uLL )
-    return HIBYTE(word_140C51864);
-  if ( (unsigned int)MiGetSystemRegionType(a1) == 1 || a1 >= 0xFFFFF68000000000uLL && a1 <= 0xFFFFF6FFFFFFFFFFuLL )
-    return 0LL;
-  if ( a1 >= qword_140C540C0 && a1 <= qword_140C51BF0 )
-    return HIBYTE(word_140C51864);
-  return (unsigned __int8)word_140C51864;
+    return HIBYTE(word_140C4E008);
+  if ( byte_140C4F9C8[((a1 >> 39) & 0x1FF) - 256] != 1 && (a1 < 0xFFFFF68000000000uLL || a1 > 0xFFFFF6FFFFFFFFFFuLL) )
+  {
+    if ( a1 < qword_140C4FB38 || a1 > qword_140C4E368 )
+      return (unsigned __int8)word_140C4E008;
+    return HIBYTE(word_140C4E008);
+  }
+  return 0LL;
 }

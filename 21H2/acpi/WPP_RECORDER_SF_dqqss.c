@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_Dqqss @ 0x1C005766C
+ * XREFs of WPP_RECORDER_SF_Dqqss @ 0x1C0056FF4
  * Callers:
- *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C00228E4 (ACPIInternalInterruptPolarityCacheGetPolarity.c)
+ *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C000E31C (ACPIInternalInterruptPolarityCacheGetPolarity.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_Dqqss(
@@ -68,7 +68,7 @@ __int64 __fastcall WPP_RECORDER_SF_Dqqss(
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, char *, __int64, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_95d701b52be23d9498d45ac18e77591e_Traceguids,
+      &WPP_93e06651ed773e0c6f8a5613c80b6645_Traceguids,
       17LL,
       &a6,
       4LL,
@@ -96,5 +96,5 @@ __int64 __fastcall WPP_RECORDER_SF_Dqqss(
     while ( *(_BYTE *)(v12 + v11) );
   }
   LOWORD(v22) = 17;
-  return WppAutoLogTrace(a1, 2LL, 6LL, &WPP_95d701b52be23d9498d45ac18e77591e_Traceguids, v22, &a6);
+  return WppAutoLogTrace(a1, 2LL, 6LL, &WPP_93e06651ed773e0c6f8a5613c80b6645_Traceguids, v22, &a6);
 }

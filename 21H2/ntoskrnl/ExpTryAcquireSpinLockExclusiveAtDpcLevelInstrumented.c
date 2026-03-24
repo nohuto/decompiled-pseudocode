@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140461C46
+ * XREFs of ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5DF0
  * Callers:
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140356250 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
  * Callees:
- *     PerfLogSpinLockAcquire @ 0x140632C48 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x1405AB3D4 (PerfLogSpinLockAcquire.c)
  */
 
 __int64 __fastcall ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented(volatile signed __int32 *a1)
@@ -12,8 +12,8 @@ __int64 __fastcall ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented(volatile
   int v2; // r11d
   char v3; // r9
   unsigned __int64 v4; // rax
-  unsigned int InterruptCount; // r10d
-  unsigned __int64 v7; // rax
+  int InterruptCount; // r10d
+  __int64 v7; // rax
 
   CurrentPrcb = KeGetCurrentPrcb();
   v2 = 0;
@@ -35,7 +35,7 @@ __int64 __fastcall ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented(volatile
   if ( v3 )
   {
     v7 = __rdtsc();
-    PerfLogSpinLockAcquire((_DWORD)a1, v7, v7 - v2, 0, InterruptCount, 3);
+    PerfLogSpinLockAcquire((__int64)a1, v7, v7 - v2, 0, InterruptCount, 3);
   }
   return 1LL;
 }

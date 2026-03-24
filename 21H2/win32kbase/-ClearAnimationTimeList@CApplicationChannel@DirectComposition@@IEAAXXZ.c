@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ClearAnimationTimeList@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C000B908
+ * XREFs of ?ClearAnimationTimeList@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C0093A64
  * Callers:
- *     ?CompleteDisconnection@CApplicationChannel@DirectComposition@@MEAAX_N@Z @ 0x1C000B750 (-CompleteDisconnection@CApplicationChannel@DirectComposition@@MEAAX_N@Z.c)
- *     ?BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z @ 0x1C0012700 (-BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z.c)
+ *     ?BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z @ 0x1C005DE20 (-BuildBatch@CApplicationChannel@DirectComposition@@IEAA_NPEAPEAVCBatch@2@0_N@Z.c)
+ *     ?CompleteDisconnection@CApplicationChannel@DirectComposition@@MEAAX_N@Z @ 0x1C0093890 (-CompleteDisconnection@CApplicationChannel@DirectComposition@@MEAAX_N@Z.c)
  * Callees:
- *     ?Release@CAnimationTimeList@DirectComposition@@QEAAKXZ @ 0x1C00B1AB0 (-Release@CAnimationTimeList@DirectComposition@@QEAAKXZ.c)
- *     ?UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z @ 0x1C00B3AF0 (-UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z.c)
+ *     ?Release@CAnimationTimeList@DirectComposition@@QEAAKXZ @ 0x1C0099624 (-Release@CAnimationTimeList@DirectComposition@@QEAAKXZ.c)
+ *     ?UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z @ 0x1C009B1D0 (-UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z.c)
  */
 
 void __fastcall DirectComposition::CApplicationChannel::ClearAnimationTimeList(

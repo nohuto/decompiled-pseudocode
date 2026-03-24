@@ -1,11 +1,11 @@
 /*
- * XREFs of bInitCacheTable @ 0x1C0285D80
+ * XREFs of bInitCacheTable @ 0x1C0288E4C
  * Callers:
- *     InitFNTCache @ 0x1C00E2390 (InitFNTCache.c)
+ *     InitFNTCache @ 0x1C00E56F0 (InitFNTCache.c)
  * Callees:
- *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00E2C80 (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
- *     vUnmapFontCacheFile @ 0x1C00EF388 (vUnmapFontCacheFile.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00E6104 (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
+ *     vUnmapFontCacheFile @ 0x1C00E661C (vUnmapFontCacheFile.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall bInitCacheTable(int a1, int a2, __int64 a3, int *a4, __int64 a5, __int64 a6, int a7)
@@ -22,29 +22,29 @@ __int64 __fastcall bInitCacheTable(int a1, int a2, __int64 a3, int *a4, __int64 
   __int64 v19; // rcx
 
   v7 = a2 + 200;
-  v9 = qword_1C0335DA8;
+  v9 = qword_1C033ABE8;
   v10 = (unsigned int)(a1 + v7);
   v11 = 768 * a1;
   v12 = a2 << 11;
   v13 = 0;
   v16 = v12 + 768 * a1 + ((80 * v10 + 327) & 0xFFFFFFF8);
-  if ( *(_QWORD *)qword_1C0335DA8 )
+  if ( *(_QWORD *)qword_1C033ABE8 )
   {
     vUnmapFontCacheFile();
-    v9 = qword_1C0335DA8;
+    v9 = qword_1C033ABE8;
   }
   v17 = *(void **)(v9 + 96);
   if ( v17 )
   {
     ZwClose(v17);
-    v9 = qword_1C0335DA8;
-    *(_QWORD *)(qword_1C0335DA8 + 96) = 0LL;
+    v9 = qword_1C033ABE8;
+    *(_QWORD *)(qword_1C033ABE8 + 96) = 0LL;
   }
   if ( (unsigned int)bMapFileRetainHandle((const unsigned __int16 *)v17, (struct _FILEVIEW *)(v9 + 48), v16, a4) )
   {
-    v18 = qword_1C0335DA8;
-    v19 = *(_QWORD *)(qword_1C0335DA8 + 56);
-    *(_QWORD *)qword_1C0335DA8 = v19;
+    v18 = qword_1C033ABE8;
+    v19 = *(_QWORD *)(qword_1C033ABE8 + 56);
+    *(_QWORD *)qword_1C033ABE8 = v19;
     memset((void *)(v19 + 72), 255, 0xF4uLL);
     memset((void *)(*(_QWORD *)v18 + 320LL), 0, 80 * v10);
     *(_DWORD *)(*(_QWORD *)v18 + 12LL) = a7;

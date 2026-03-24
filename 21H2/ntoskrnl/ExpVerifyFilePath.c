@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpVerifyFilePath @ 0x1409FF178
+ * XREFs of ExpVerifyFilePath @ 0x140952DC8
  * Callers:
- *     ExpSetBootEntry @ 0x1409FD4A0 (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x1409FDC88 (ExpSetDriverEntry.c)
- *     ExpVerifyWindowsOsOptions @ 0x1409FF2C4 (ExpVerifyWindowsOsOptions.c)
- *     NtEnumerateBootEntries @ 0x1409FF6B0 (NtEnumerateBootEntries.c)
- *     NtTranslateFilePath @ 0x140A01A20 (NtTranslateFilePath.c)
+ *     ExpSetBootEntry @ 0x140951100 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x1409518F4 (ExpSetDriverEntry.c)
+ *     ExpVerifyWindowsOsOptions @ 0x140952F24 (ExpVerifyWindowsOsOptions.c)
+ *     NtEnumerateBootEntries @ 0x140953310 (NtEnumerateBootEntries.c)
+ *     NtTranslateFilePath @ 0x140955910 (NtTranslateFilePath.c)
  * Callees:
- *     ExpSafeWcslen @ 0x1409FD474 (ExpSafeWcslen.c)
+ *     ExpSafeWcslen @ 0x1409510D0 (ExpSafeWcslen.c)
  */
 
 __int64 __fastcall ExpVerifyFilePath(unsigned __int64 a1, unsigned __int64 a2)
@@ -20,11 +20,12 @@ __int64 __fastcall ExpVerifyFilePath(unsigned __int64 a1, unsigned __int64 a2)
   unsigned __int64 v7; // r10
   char v8; // al
   _WORD *v9; // rax
-  unsigned int v11; // eax
-  unsigned __int64 v12; // rdx
-  __int64 v13; // r8
-  int v14; // eax
-  int v15; // r9d
+  __int64 v10; // rax
+  unsigned int v12; // eax
+  unsigned __int64 v13; // rdx
+  __int64 v14; // r8
+  int v15; // eax
+  int v16; // r9d
 
   if ( a1 > a2 )
     return 3221225485LL;
@@ -50,8 +51,8 @@ __int64 __fastcall ExpVerifyFilePath(unsigned __int64 a1, unsigned __int64 a2)
     return 3221225485LL;
   if ( v5 <= 2 )
   {
-    v14 = ExpSafeWcslen((_WORD *)(a1 + 12), a2);
-    v15 = -1;
+    v15 = ExpSafeWcslen((_WORD *)(a1 + 12), a2);
+    v16 = -1;
   }
   else
   {
@@ -73,13 +74,20 @@ __int64 __fastcall ExpVerifyFilePath(unsigned __int64 a1, unsigned __int64 a2)
           {
             v9 = i;
             if ( (unsigned __int64)i >= v7 )
-              break;
-            while ( *v9 )
+              goto LABEL_25;
+            do
             {
-              if ( (unsigned __int64)++v9 >= v7 )
-                return 3221225485LL;
+              if ( !*v9 )
+                break;
+              ++v9;
             }
-            if ( (unsigned int)(v9 - i) == -1 )
+            while ( (unsigned __int64)v9 < v7 );
+            if ( (unsigned __int64)v9 >= v7 )
+LABEL_25:
+              LODWORD(v10) = -1;
+            else
+              v10 = v9 - i;
+            if ( (_DWORD)v10 == -1 )
               break;
           }
           v2 += (*(unsigned __int8 *)(v2 + 3) << 8) | (unsigned __int64)*(unsigned __int8 *)(v2 + 2);
@@ -87,12 +95,12 @@ __int64 __fastcall ExpVerifyFilePath(unsigned __int64 a1, unsigned __int64 a2)
       }
       return 3221225485LL;
     }
-    v11 = ExpSafeWcslen((_WORD *)(a1 + 12), a2);
-    if ( v11 == -1 )
+    v12 = ExpSafeWcslen((_WORD *)(a1 + 12), a2);
+    if ( v12 == -1 )
       return 3221225485LL;
-    v14 = ExpSafeWcslen((_WORD *)(v13 + 2 * (v11 + 1LL)), v12);
+    v15 = ExpSafeWcslen((_WORD *)(v14 + 2 * (v12 + 1LL)), v13);
   }
-  if ( v14 == v15 )
+  if ( v15 == v16 )
     return 3221225485LL;
   return 0LL;
 }

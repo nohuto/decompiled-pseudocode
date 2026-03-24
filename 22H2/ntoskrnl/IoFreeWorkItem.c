@@ -1,10 +1,10 @@
 /*
- * XREFs of IoFreeWorkItem @ 0x14031D3D0
+ * XREFs of IoFreeWorkItem @ 0x1403187F0
  * Callers:
- *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x14031D380 (PnpDeviceCompletionRequestDestroyWorkItem.c)
+ *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x14037D970 (PnpDeviceCompletionRequestDestroyWorkItem.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoFreeWorkItem(PIO_WORKITEM IoWorkItem)

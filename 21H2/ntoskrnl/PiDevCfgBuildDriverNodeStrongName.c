@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDevCfgBuildDriverNodeStrongName @ 0x1407460F8
+ * XREFs of PiDevCfgBuildDriverNodeStrongName @ 0x14073B7C0
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1402D17BC (RtlUnicodeStringPrintf.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlHashUnicodeString @ 0x14078C240 (RtlHashUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x14036EF9C (RtlUnicodeStringPrintf.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlHashUnicodeString @ 0x140636CA0 (RtlHashUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall PiDevCfgBuildDriverNodeStrongName(
@@ -78,6 +78,6 @@ __int64 __fastcall PiDevCfgBuildDriverNodeStrongName(
       v15 = -1073741670;
     }
   }
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   return (unsigned int)v15;
 }

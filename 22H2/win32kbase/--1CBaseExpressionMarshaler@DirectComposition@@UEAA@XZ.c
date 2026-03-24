@@ -1,21 +1,21 @@
 /*
- * XREFs of ??1CBaseExpressionMarshaler@DirectComposition@@UEAA@XZ @ 0x1C0030C28
+ * XREFs of ??1CBaseExpressionMarshaler@DirectComposition@@UEAA@XZ @ 0x1C0022430
  * Callers:
- *     ??_ECExpressionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0030C60 (--_ECExpressionMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
- *     ??_ECBaseExpressionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C020BA70 (--_ECBaseExpressionMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
- *     ??_ECConditionalExpressionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C020BCC0 (--_ECConditionalExpressionMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
- *     ??_ECInjectionAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C020BEC0 (--_ECInjectionAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_GCKeyframeAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0021AA0 (--_GCKeyframeAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_ECBaseExpressionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0022150 (--_ECBaseExpressionMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_ECConditionalExpressionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D40C0 (--_ECConditionalExpressionMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_ECInjectionAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D4320 (--_ECInjectionAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 void __fastcall DirectComposition::CBaseExpressionMarshaler::~CBaseExpressionMarshaler(
         DirectComposition::CBaseExpressionMarshaler *this)
 {
-  void *v1; // rdx
+  __int64 v1; // rcx
 
-  v1 = (void *)*((_QWORD *)this + 11);
   *(_QWORD *)this = &DirectComposition::CBaseExpressionMarshaler::`vftable';
+  v1 = *((_QWORD *)this + 11);
   if ( v1 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v1);
+    Win32FreePool(v1);
 }

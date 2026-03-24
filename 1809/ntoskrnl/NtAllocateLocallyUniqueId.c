@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAllocateLocallyUniqueId @ 0x140696F80
+ * XREFs of NtAllocateLocallyUniqueId @ 0x140696F60
  * Callers:
  *     <none>
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtAllocateLocallyUniqueId(LUID *LocallyUniqueId)

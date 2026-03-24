@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DeferMessage@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C000BD5C
+ * XREFs of ?DeferMessage@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C00057B8
  * Callers:
- *     DeferMessagesOnQueue @ 0x1C000BBE8 (DeferMessagesOnQueue.c)
- *     ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C005CB08 (-RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z.c)
+ *     DeferMessagesOnQueue @ 0x1C00056B8 (DeferMessagesOnQueue.c)
+ *     ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C0012504 (-RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpObjectRaiseDeleteEvent @ 0x1408FB0B8
+ * XREFs of _PnpObjectRaiseDeleteEvent @ 0x1408FB098
  * Callers:
- *     _PnpDeleteObjectDispatch @ 0x1408F9F10 (_PnpDeleteObjectDispatch.c)
- *     _CmRaiseDeleteEvent @ 0x1408FAEB4 (_CmRaiseDeleteEvent.c)
+ *     _PnpDeleteObjectDispatch @ 0x1408F9EF0 (_PnpDeleteObjectDispatch.c)
+ *     _CmRaiseDeleteEvent @ 0x1408FAE94 (_CmRaiseDeleteEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall PnpObjectRaiseDeleteEvent(

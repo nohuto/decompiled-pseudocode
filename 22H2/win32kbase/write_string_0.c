@@ -1,9 +1,9 @@
 /*
- * XREFs of write_string_0 @ 0x1C00CFAD8
+ * XREFs of write_string_0 @ 0x1C00C6DE8
  * Callers:
- *     _woutput_l @ 0x1C00CF0DC (_woutput_l.c)
+ *     _woutput_l @ 0x1C00C6450 (_woutput_l.c)
  * Callees:
- *     write_char_0 @ 0x1C00CFA2C (write_char_0.c)
+ *     write_char_0 @ 0x1C00C6D3C (write_char_0.c)
  */
 
 __int16 __fastcall write_string_0(wchar_t *a1, int a2, FILE *a3, _DWORD *a4)
@@ -21,8 +21,14 @@ __int16 __fastcall write_string_0(wchar_t *a1, int a2, FILE *a3, _DWORD *a4)
       {
         --v7;
         LOWORD(flag) = write_char_0(*a1++, a3, a4);
+        if ( *a4 == -1 )
+        {
+          if ( gbl_errno != 42 )
+            return flag;
+          LOWORD(flag) = write_char_0(0x3Fu, a3, a4);
+        }
       }
-      while ( *a4 != -1 && v7 > 0 );
+      while ( v7 > 0 );
     }
   }
   else

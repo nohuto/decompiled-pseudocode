@@ -1,10 +1,10 @@
 /*
- * XREFs of TouchTargetingClipContact @ 0x1C024DE58
+ * XREFs of TouchTargetingClipContact @ 0x1C025F114
  * Callers:
- *     ?ClipContact@@YAXPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@HPEBUtagRECT@@@Z @ 0x1C01E3F84 (-ClipContact@@YAXPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@HPEBUtagRECT@@@Z.c)
+ *     ?ClipContact@@YAXPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@HPEBUtagRECT@@@Z @ 0x1C02148A0 (-ClipContact@@YAXPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@HPEBUtagRECT@@@Z.c)
  * Callees:
- *     IntersectRect @ 0x1C00D0330 (IntersectRect.c)
- *     ?_TTClip@@YAXPEAUtagTOUCHTARGETINGCONTACT@@JW4tagCLIP_SIDE@@@Z @ 0x1C024D794 (-_TTClip@@YAXPEAUtagTOUCHTARGETINGCONTACT@@JW4tagCLIP_SIDE@@@Z.c)
+ *     IntersectRect @ 0x1C00750C0 (IntersectRect.c)
+ *     ?_TTClip@@YAXPEAUtagTOUCHTARGETINGCONTACT@@JW4tagCLIP_SIDE@@@Z @ 0x1C025EB64 (-_TTClip@@YAXPEAUtagTOUCHTARGETINGCONTACT@@JW4tagCLIP_SIDE@@@Z.c)
  */
 
 __int64 __fastcall TouchTargetingClipContact(int *a1, int *a2, int a3, int *a4)

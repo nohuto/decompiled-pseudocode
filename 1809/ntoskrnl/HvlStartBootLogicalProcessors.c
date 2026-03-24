@@ -1,22 +1,22 @@
 /*
- * XREFs of HvlStartBootLogicalProcessors @ 0x14017EA70
+ * XREFs of HvlStartBootLogicalProcessors @ 0x14017EA90
  * Callers:
  *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
  * Callees:
  *     MmFreeIndependentPages @ 0x140001010 (MmFreeIndependentPages.c)
- *     MmAllocateIndependentPagesEx @ 0x140108F9C (MmAllocateIndependentPagesEx.c)
- *     qsort @ 0x1401962C0 (qsort.c)
- *     HvlpCommitLpIndices @ 0x1401B3C9C (HvlpCommitLpIndices.c)
- *     HvlpUpdateLpcbIndex @ 0x1401B3DA0 (HvlpUpdateLpcbIndex.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     HvlpEnableNextLogicalProcessor @ 0x140271C9C (HvlpEnableNextLogicalProcessor.c)
- *     HvlpGetLpcbByApicId @ 0x140271E7C (HvlpGetLpcbByApicId.c)
- *     HvlpQueryApicIdAndNumaNode @ 0x140272228 (HvlpQueryApicIdAndNumaNode.c)
- *     HvlpSelectLpSet @ 0x140272350 (HvlpSelectLpSet.c)
- *     HvlpSelectVpSet @ 0x140272794 (HvlpSelectVpSet.c)
- *     HvlNotifyAllProcessorsStarted @ 0x140274964 (HvlNotifyAllProcessorsStarted.c)
- *     HvlpDiscoverTopologyLocal @ 0x1408179B8 (HvlpDiscoverTopologyLocal.c)
+ *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
+ *     HvlpCommitLpIndices @ 0x1401B3CBC (HvlpCommitLpIndices.c)
+ *     HvlpUpdateLpcbIndex @ 0x1401B3DC0 (HvlpUpdateLpcbIndex.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x140271D9C (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpGetLpcbByApicId @ 0x140271F7C (HvlpGetLpcbByApicId.c)
+ *     HvlpQueryApicIdAndNumaNode @ 0x140272328 (HvlpQueryApicIdAndNumaNode.c)
+ *     HvlpSelectLpSet @ 0x140272450 (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x140272894 (HvlpSelectVpSet.c)
+ *     HvlNotifyAllProcessorsStarted @ 0x140274A64 (HvlNotifyAllProcessorsStarted.c)
+ *     HvlpDiscoverTopologyLocal @ 0x140817998 (HvlpDiscoverTopologyLocal.c)
  */
 
 __int64 __fastcall HvlStartBootLogicalProcessors(int a1)

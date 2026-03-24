@@ -1,9 +1,9 @@
 /*
- * XREFs of MmCreateMirror @ 0x14084E490
+ * XREFs of MmCreateMirror @ 0x14084E470
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
- *     ZwQueryLicenseValue @ 0x1401BAAF0 (ZwQueryLicenseValue.c)
+ *     ZwQueryLicenseValue @ 0x1401BAB10 (ZwQueryLicenseValue.c)
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  */

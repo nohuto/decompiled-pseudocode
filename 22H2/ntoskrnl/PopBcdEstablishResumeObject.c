@@ -1,19 +1,19 @@
 /*
- * XREFs of PopBcdEstablishResumeObject @ 0x140804514
+ * XREFs of PopBcdEstablishResumeObject @ 0x140782180
  * Callers:
- *     PoInitHiberServices @ 0x14080406C (PoInitHiberServices.c)
- *     PopAllocateHiberContext @ 0x140987DE8 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140777B44 (PopAllocateHiberContext.c)
+ *     PoInitHiberServices @ 0x14079AED8 (PoInitHiberServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     BcdQueryObject @ 0x14080447C (BcdQueryObject.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x140804DD8 (PopBcdSetDefaultResumeObjectElements.c)
- *     BcdGetElementDataWithFlags @ 0x14080723C (BcdGetElementDataWithFlags.c)
- *     BcdCloseObject @ 0x140807480 (BcdCloseObject.c)
- *     BcdOpenObject @ 0x1408074C4 (BcdOpenObject.c)
- *     PopBcdRegenerateResumeObject @ 0x14099CCB4 (PopBcdRegenerateResumeObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x140782DF4 (PopBcdSetDefaultResumeObjectElements.c)
+ *     BcdQueryObject @ 0x140783204 (BcdQueryObject.c)
+ *     BcdOpenObject @ 0x140783940 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140783ACC (BcdCloseObject.c)
+ *     BcdGetElementDataWithFlags @ 0x1407840C0 (BcdGetElementDataWithFlags.c)
+ *     PopBcdRegenerateResumeObject @ 0x1408F58D4 (PopBcdRegenerateResumeObject.c)
  */
 
-__int64 __fastcall PopBcdEstablishResumeObject(__int64 a1, __int64 *a2)
+__int64 __fastcall PopBcdEstablishResumeObject(__int64 a1, _QWORD *a2)
 {
   __int64 v3; // rbx
   int ElementDataWithFlags; // edi
@@ -46,7 +46,7 @@ __int64 __fastcall PopBcdEstablishResumeObject(__int64 a1, __int64 *a2)
     ElementDataWithFlags = v7;
     if ( v7 >= 0 )
     {
-      ElementDataWithFlags = BcdQueryObject(v14, 1, (__int64)&v15, 0LL);
+      ElementDataWithFlags = BcdQueryObject(v14, 1LL, &v15, 0LL);
       if ( ElementDataWithFlags >= 0 )
       {
         if ( (HIDWORD(v15) & 0xF0000000) == 0x10000000
@@ -86,12 +86,14 @@ LABEL_10:
   {
     if ( !v3 )
       return (unsigned int)ElementDataWithFlags;
+    goto LABEL_16;
   }
-  else if ( a2 )
+  if ( !a2 )
   {
-    *a2 = v3;
+LABEL_16:
+    BcdCloseObject(v3);
     return (unsigned int)ElementDataWithFlags;
   }
-  BcdCloseObject(v3);
+  *a2 = v3;
   return (unsigned int)ElementDataWithFlags;
 }

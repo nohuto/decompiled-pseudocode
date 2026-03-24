@@ -1,10 +1,12 @@
 /*
- * XREFs of ?FxCalculateObjectTotalSize2@@YAJPEAU_FX_DRIVER_GLOBALS@@GG_KPEA_K@Z @ 0x1C00243D0
+ * XREFs of ?FxCalculateObjectTotalSize2@@YAJPEAU_FX_DRIVER_GLOBALS@@GG_KPEA_K@Z @ 0x1C000B440
  * Callers:
- *     ?FxCalculateObjectTotalSize@@YAJPEAU_FX_DRIVER_GLOBALS@@GGPEAU_WDF_OBJECT_ATTRIBUTES@@PEA_K@Z @ 0x1C00216DC (-FxCalculateObjectTotalSize@@YAJPEAU_FX_DRIVER_GLOBALS@@GGPEAU_WDF_OBJECT_ATTRIBUTES@@PEA_K@Z.c)
- *     ?Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0023D98 (-Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
+ *     ?_Create@FxRequest@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_IRP@@PEAVFxIoTarget@@W4FxRequestIrpOwnership@@W4FxRequestConstructorCaller@@PEAPEAV1@@Z @ 0x1C000B22C (-_Create@FxRequest@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_IRP@@PEAVFxIoTar.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0051FCC (-Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
+ *     ?FxCalculateObjectTotalSize@@YAJPEAU_FX_DRIVER_GLOBALS@@GGPEAU_WDF_OBJECT_ATTRIBUTES@@PEA_K@Z @ 0x1C00565D0 (-FxCalculateObjectTotalSize@@YAJPEAU_FX_DRIVER_GLOBALS@@GGPEAU_WDF_OBJECT_ATTRIBUTES@@PEA_K@Z.c)
  * Callees:
- *     WPP_IFR_SF_DDid @ 0x1C006B36C (WPP_IFR_SF_DDid.c)
+ *     WPP_IFR_SF_DDid @ 0x1C0056860 (WPP_IFR_SF_DDid.c)
  */
 
 __int64 __fastcall FxCalculateObjectTotalSize2(
@@ -19,7 +21,7 @@ __int64 __fastcall FxCalculateObjectTotalSize2(
   unsigned __int64 v8; // r8
   unsigned __int64 v10; // rdx
   unsigned __int64 v11; // r9
-  unsigned int id; // ebx
+  int id; // ebx
   unsigned __int64 v14; // rcx
   unsigned __int64 v15; // rax
   unsigned __int64 v16; // rcx
@@ -38,21 +40,22 @@ __int64 __fastcall FxCalculateObjectTotalSize2(
   {
 LABEL_17:
     WPP_IFR_SF_DDid(FxDriverGlobals, v10, v8, v11, v17, globals, level, ContextSize, id);
-    return id;
+    return (unsigned int)id;
   }
   if ( !ContextSize )
   {
 LABEL_5:
-    if ( (id & 0x80000000) == 0 )
+    if ( id >= 0 )
     {
-      if ( !FxDriverGlobals->FxVerifierHandle )
-        return id;
-      if ( v10 + 48 >= v10 )
-        v8 = v10 + 48;
-      id = v10 + 48 < v10 ? 0xC0000095 : 0;
-      *Total = v8;
-      if ( v10 + 48 >= v10 )
-        return id;
+      if ( FxDriverGlobals->FxVerifierHandle )
+      {
+        if ( v10 + 48 >= v10 )
+          v8 = v10 + 48;
+        id = v10 + 48 < v10 ? 0xC0000095 : 0;
+        *Total = v8;
+      }
+      if ( id >= 0 )
+        return (unsigned int)id;
     }
     goto LABEL_17;
   }

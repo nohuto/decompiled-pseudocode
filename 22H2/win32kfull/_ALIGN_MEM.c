@@ -1,11 +1,11 @@
 /*
- * XREFs of _ALIGN_MEM @ 0x1C015853A
+ * XREFs of _ALIGN_MEM @ 0x1C001D67C
  * Callers:
- *     BuildBltAAInfo @ 0x1C0259950 (BuildBltAAInfo.c)
- *     BuildExpandAAInfo @ 0x1C0259B30 (BuildExpandAAInfo.c)
- *     BuildShrinkAAInfo @ 0x1C025A6D0 (BuildShrinkAAInfo.c)
- *     BuildTileAAInfo @ 0x1C025ADF0 (BuildTileAAInfo.c)
- *     SetupAAHeader @ 0x1C025B898 (SetupAAHeader.c)
+ *     BuildShrinkAAInfo @ 0x1C0001E10 (BuildShrinkAAInfo.c)
+ *     SetupAAHeader @ 0x1C001CDD8 (SetupAAHeader.c)
+ *     BuildExpandAAInfo @ 0x1C00D3830 (BuildExpandAAInfo.c)
+ *     BuildBltAAInfo @ 0x1C0102F60 (BuildBltAAInfo.c)
+ *     BuildTileAAInfo @ 0x1C02657B0 (BuildTileAAInfo.c)
  * Callees:
  *     <none>
  */

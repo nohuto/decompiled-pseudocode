@@ -1,7 +1,7 @@
 /*
- * XREFs of BcpCursorLessThan @ 0x140327B64
+ * XREFs of BcpCursorLessThan @ 0x140327C64
  * Callers:
- *     BcpDisplayProgress @ 0x140328230 (BcpDisplayProgress.c)
+ *     BcpDisplayProgress @ 0x140328330 (BcpDisplayProgress.c)
  * Callees:
  *     <none>
  */

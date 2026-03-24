@@ -1,17 +1,18 @@
 /*
- * XREFs of _GetAltTabInfo @ 0x1C01EE528
+ * XREFs of _GetAltTabInfo @ 0x1C01F3D44
  * Callers:
- *     NtUserGetAltTabInfo @ 0x1C01F3650 (NtUserGetAltTabInfo.c)
+ *     NtUserGetAltTabInfo @ 0x1C01F8D50 (NtUserGetAltTabInfo.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C00E7390 (-getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@.c)
- *     TextCopy @ 0x1C00E74B4 (TextCopy.c)
- *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01ED460 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C00FD288 (-getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@.c)
+ *     TextCopy @ 0x1C00FD3AC (TextCopy.c)
+ *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01F2BE0 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
  */
 
-__int64 __fastcall GetAltTabInfo(int a1, __int64 a2, CHAR *a3, ULONG a4, int a5)
+__int64 __fastcall GetAltTabInfo(int a1, __int64 a2, __int64 a3, ULONG a4, int a5)
 {
+  CHAR *v6; // rbx
   __int64 v8; // rdi
   struct tagSwitchWndInfo *v9; // rax
   __int64 v10; // rax
@@ -19,8 +20,9 @@ __int64 __fastcall GetAltTabInfo(int a1, __int64 a2, CHAR *a3, ULONG a4, int a5)
   ULONG BytesInMultiByteString[4]; // [rsp+30h] [rbp-28h] BYREF
   __int128 v14; // [rsp+40h] [rbp-18h] BYREF
 
+  v6 = (CHAR *)a3;
   v8 = a1;
-  if ( gspwndAltTab && (v9 = Getpswi((struct tagWND *)gspwndAltTab)) != 0LL )
+  if ( gspwndAltTab && (v9 = Getpswi(gspwndAltTab), (a3 = (__int64)v9) != 0) )
   {
     *(_DWORD *)(a2 + 4) = *((_DWORD *)v9 + 10);
     *(_DWORD *)(a2 + 8) = *((_DWORD *)v9 + 14);
@@ -39,17 +41,17 @@ __int64 __fastcall GetAltTabInfo(int a1, __int64 a2, CHAR *a3, ULONG a4, int a5)
         {
           BytesInMultiByteString[0] = 0;
           RtlUnicodeToMultiByteN(
-            a3,
+            v6,
             a4 - 1,
             BytesInMultiByteString,
             *(PCWCH *)(v10 + 184),
             *(_DWORD *)(*(_QWORD *)(v10 + 40) + 184LL));
           if ( BytesInMultiByteString[0] >= a4 )
           {
-            *a3 = 0;
+            *v6 = 0;
             return 0LL;
           }
-          a3[BytesInMultiByteString[0]] = 0;
+          v6[BytesInMultiByteString[0]] = 0;
         }
         else
         {
@@ -57,23 +59,23 @@ __int64 __fastcall GetAltTabInfo(int a1, __int64 a2, CHAR *a3, ULONG a4, int a5)
           StrName = tagWND::ProtectedLargeUnicodeStringWNDstrName::getStrName(
                       (tagWND::ProtectedLargeUnicodeStringWNDstrName *)(v10 + 184),
                       (struct _LARGE_UNICODE_STRING *)&v14);
-          TextCopy((__int64)StrName, a3, a4);
+          TextCopy((__int64)StrName, v6, a4);
         }
       }
       else if ( a5 )
       {
-        *a3 = 0;
+        *v6 = 0;
       }
       else
       {
-        *(_WORD *)a3 = 0;
+        *(_WORD *)v6 = 0;
       }
     }
     return 1LL;
   }
   else
   {
-    UserSetLastError(1168LL, a2);
+    UserSetLastError(1168LL, a2, a3);
     return 0LL;
   }
 }

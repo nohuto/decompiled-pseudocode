@@ -1,9 +1,9 @@
 /*
- * XREFs of KeConnectInterruptForHal @ 0x140175E30
+ * XREFs of KeConnectInterruptForHal @ 0x140175E50
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeConnectInterruptForHal(__int64 a1)

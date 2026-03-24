@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmCheckPausePpmEngineForSx @ 0x1401428AC
+ * XREFs of PpmCheckPausePpmEngineForSx @ 0x1401428CC
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
- *     PpmPerfUpdateQosDisableReasons @ 0x14016C804 (PpmPerfUpdateQosDisableReasons.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x14016C824 (PpmPerfUpdateQosDisableReasons.c)
  */
 
 __int64 PpmCheckPausePpmEngineForSx()

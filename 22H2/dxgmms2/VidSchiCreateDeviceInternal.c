@@ -1,47 +1,51 @@
 /*
- * XREFs of VidSchiCreateDeviceInternal @ 0x1C00900F0
+ * XREFs of VidSchiCreateDeviceInternal @ 0x1C007FAC0
  * Callers:
- *     VidSchCreateDevice @ 0x1C0090000 (VidSchCreateDevice.c)
- *     VidSchCreateSystemDevices @ 0x1C00C1F44 (VidSchCreateSystemDevices.c)
+ *     VidSchCreateDevice @ 0x1C007FEF0 (VidSchCreateDevice.c)
+ *     VidSchCreateSystemDevices @ 0x1C0096A64 (VidSchCreateSystemDevices.c)
  * Callees:
- *     VidSchiIncrementDeviceReference @ 0x1C0004A5C (VidSchiIncrementDeviceReference.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0005F38 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     VidSchiInterlockedInsertTailList @ 0x1C00071C0 (VidSchiInterlockedInsertTailList.c)
- *     ?GetKmdProcessHandle@DXGPROCESS@@QEBAPEAXI@Z @ 0x1C00179FC (-GetKmdProcessHandle@DXGPROCESS@@QEBAPEAXI@Z.c)
- *     ?DdiCreateDevice@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_CREATEDEVICE@@@Z @ 0x1C00198C8 (-DdiCreateDevice@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_CREATEDEVICE@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0ppqpttqpqp_EtwWriteTransfer @ 0x1C003DC28 (McTemplateK0ppqpttqpqp_EtwWriteTransfer.c)
- *     VidSchTerminateDevice @ 0x1C00896D0 (VidSchTerminateDevice.c)
- *     VidSchSetQueuedPresentLimit @ 0x1C00903D0 (VidSchSetQueuedPresentLimit.c)
- *     VidSchiOpenProcessAdapterInfo @ 0x1C00905CC (VidSchiOpenProcessAdapterInfo.c)
- *     VidSchiReadDeviceConfiguration @ 0x1C0090ADC (VidSchiReadDeviceConfiguration.c)
- *     VidSchControlVSyncDevice @ 0x1C0090D20 (VidSchControlVSyncDevice.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C00016E0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     VidSchiInterlockedInsertTailList @ 0x1C0007B20 (VidSchiInterlockedInsertTailList.c)
+ *     VidSchiIncrementDeviceReference @ 0x1C0011494 (VidSchiIncrementDeviceReference.c)
+ *     ?DdiCreateDevice@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_CREATEDEVICE@@@Z @ 0x1C0017868 (-DdiCreateDevice@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_CREATEDEVICE@@@Z.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     McTemplateK0ppqpttq_EtwWriteTransfer @ 0x1C002D2D4 (McTemplateK0ppqpttq_EtwWriteTransfer.c)
+ *     VidSchiOpenProcessAdapterInfo @ 0x1C007F514 (VidSchiOpenProcessAdapterInfo.c)
+ *     VidSchSetQueuedPresentLimit @ 0x1C007FDE0 (VidSchSetQueuedPresentLimit.c)
+ *     VidSchiReadDeviceConfiguration @ 0x1C007FE38 (VidSchiReadDeviceConfiguration.c)
+ *     VidSchTerminateDevice @ 0x1C007FF30 (VidSchTerminateDevice.c)
+ *     VidSchControlVSyncDevice @ 0x1C00884D0 (VidSchControlVSyncDevice.c)
  */
 
-__int64 __fastcall VidSchiCreateDeviceInternal(__int64 a1, __int128 *a2, __int64 a3, __int64 *a4)
+__int64 __fastcall VidSchiCreateDeviceInternal(__int64 a1, __int64 a2, __int64 a3, char **a4)
 {
-  struct DXGPROCESS *Current; // r15
-  __int64 Pool2; // rax
-  __int64 v10; // rbx
-  __int128 v11; // xmm0
-  __int64 v12; // xmm1_8
-  __int64 v13; // rdi
-  unsigned __int64 v14; // rdx
+  struct DXGPROCESS *Current; // rbp
+  char *PoolWithTag; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  char *v12; // rbx
+  __int64 v13; // xmm1_8
+  __int64 v14; // rdi
   int v15; // eax
-  __int64 v16; // rsi
-  __int64 v17; // r8
-  int v18; // ecx
-  int v19; // eax
-  unsigned int v21; // edx
-  DXGK_MULTIPLANE_OVERLAY_POST_COMPOSITION *KmdProcessHandle; // rax
-  ADAPTER_RENDER *v23; // rcx
-  bool v24; // zf
+  __int64 v16; // r8
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  __int64 v22; // rcx
+  _QWORD *v23; // rax
+  ADAPTER_RENDER *v24; // rcx
+  bool v25; // zf
+  int v26; // r14d
+  int v27; // ebp
   HANDLE CurrentProcessId; // rax
-  __int64 v26; // rcx
-  __int64 v27; // rcx
-  unsigned int v28; // edi
-  int v29; // eax
-  struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 v30; // [rsp+70h] [rbp-48h] BYREF
+  __int64 v29; // rcx
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rbp
+  int v34; // eax
+  _DXGKARG_CREATEDEVICE v35; // [rsp+50h] [rbp-38h] BYREF
 
   *a4 = 0LL;
   if ( (*(_DWORD *)a2 & 1) != 0 )
@@ -52,135 +56,149 @@ __int64 __fastcall VidSchiCreateDeviceInternal(__int64 a1, __int128 *a2, __int64
   {
     if ( !a3 )
     {
-      WdLogSingleEntry0(3LL);
+      v30 = WdLogNewEntry5_WdWarning(a1, a2);
+      WdLogEvent5_WdWarning(v30);
       return 3221225485LL;
     }
     Current = DXGPROCESS::GetCurrent();
   }
-  Pool2 = ExAllocatePool2(64LL, 1712LL, 862021974LL);
-  v10 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x6A8uLL, 0x33616956u);
+  v12 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)Pool2 = 862021974;
-    *(_QWORD *)(Pool2 + 8) = a3;
-    ExInitializeResourceLite((PERESOURCE)(Pool2 + 968));
-    v11 = *a2;
-    *(_DWORD *)(v10 + 504) = -1;
-    v12 = *((_QWORD *)a2 + 2);
-    *(_OWORD *)(v10 + 48) = v11;
-    *(_QWORD *)(v10 + 32) = a1;
-    *(_QWORD *)(v10 + 64) = v12;
-    VidSchiReadDeviceConfiguration(v10);
-    *(_QWORD *)(v10 + 80) = v10 + 72;
-    *(_QWORD *)(v10 + 72) = v10 + 72;
-    *(_QWORD *)(v10 + 96) = v10 + 88;
-    *(_QWORD *)(v10 + 88) = v10 + 88;
-    *(_QWORD *)(v10 + 1616) = v10 + 1608;
-    *(_QWORD *)(v10 + 1608) = v10 + 1608;
-    *(_QWORD *)(v10 + 128) = v10 + 120;
-    *(_QWORD *)(v10 + 120) = v10 + 120;
-    *(_QWORD *)(v10 + 144) = v10 + 136;
-    *(_QWORD *)(v10 + 136) = v10 + 136;
-    *(_QWORD *)(v10 + 160) = v10 + 152;
-    *(_QWORD *)(v10 + 152) = v10 + 152;
-    *(_QWORD *)(v10 + 176) = v10 + 168;
-    *(_QWORD *)(v10 + 168) = v10 + 168;
-    VidSchSetQueuedPresentLimit(v10, 0LL);
-    memset64((void *)(v10 + 376), 1uLL, 0x10uLL);
-    VidSchiIncrementDeviceReference(v10);
-    VidSchiInterlockedInsertTailList((KSPIN_LOCK *)(a1 + 1728), a1 + 296, (_QWORD *)(v10 + 104), 0LL);
+    memset(PoolWithTag, 0, 0x6A8uLL);
+    *(_DWORD *)v12 = 862021974;
+    *((_QWORD *)v12 + 1) = a3;
+    ExInitializeResourceLite((PERESOURCE)(v12 + 968));
+    *((_QWORD *)v12 + 4) = a1;
+    *((_OWORD *)v12 + 3) = *(_OWORD *)a2;
+    v13 = *(_QWORD *)(a2 + 16);
+    *((_DWORD *)v12 + 126) = -1;
+    *((_QWORD *)v12 + 8) = v13;
+    VidSchiReadDeviceConfiguration(v12);
+    *((_QWORD *)v12 + 10) = v12 + 72;
+    *((_QWORD *)v12 + 9) = v12 + 72;
+    *((_QWORD *)v12 + 12) = v12 + 88;
+    *((_QWORD *)v12 + 11) = v12 + 88;
+    *((_QWORD *)v12 + 202) = v12 + 1608;
+    *((_QWORD *)v12 + 201) = v12 + 1608;
+    *((_QWORD *)v12 + 16) = v12 + 120;
+    *((_QWORD *)v12 + 15) = v12 + 120;
+    *((_QWORD *)v12 + 18) = v12 + 136;
+    *((_QWORD *)v12 + 17) = v12 + 136;
+    *((_QWORD *)v12 + 20) = v12 + 152;
+    *((_QWORD *)v12 + 19) = v12 + 152;
+    *((_QWORD *)v12 + 22) = v12 + 168;
+    *((_QWORD *)v12 + 21) = v12 + 168;
+    VidSchSetQueuedPresentLimit(v12, 0LL);
+    memset64(v12 + 376, 1uLL, 0x10uLL);
+    VidSchiIncrementDeviceReference((__int64)v12);
+    VidSchiInterlockedInsertTailList((KSPIN_LOCK *)(a1 + 1712), a1 + 288, (_QWORD *)v12 + 13, 0LL);
     if ( (*(_DWORD *)a2 & 1) != 0 )
     {
-      v13 = g_pVidSchSystemProcess;
+      v21 = g_pVidSchSystemProcess;
+      *((_QWORD *)v12 + 5) = g_pVidSchSystemProcess;
+      v14 = v21;
     }
     else
     {
-      v13 = *((_QWORD *)Current + 8);
-      if ( v13 )
-        v13 = *(_QWORD *)(v13 + 24);
+      v14 = *((_QWORD *)Current + 8);
+      if ( v14 )
+        v14 = *(_QWORD *)(v14 + 24);
+      *((_QWORD *)v12 + 5) = v14;
     }
-    v14 = *(unsigned int *)(a1 + 4);
-    *(_QWORD *)(v10 + 40) = v13;
-    v15 = *(_DWORD *)(*(_QWORD *)(v13 + 2624) + 4 * (v14 >> 5));
-    if ( _bittest(&v15, v14 & 0x1F) )
+    v15 = *(_DWORD *)(*(_QWORD *)(v14 + 2616) + 4 * ((unsigned __int64)*(unsigned int *)(a1 + 4) >> 5));
+    if ( _bittest(&v15, *(_DWORD *)(a1 + 4) & 0x1F) )
     {
-      LODWORD(v16) = -1073741790;
-      goto LABEL_28;
+      LODWORD(v14) = -1073741790;
     }
-    LODWORD(v16) = VidSchiOpenProcessAdapterInfo(v13, a1);
-    if ( (int)v16 >= 0 )
+    else
     {
-      v18 = *(_DWORD *)a2;
-      *(_BYTE *)(v10 + 240) = 1;
-      if ( (v18 & 1) != 0 )
+      LODWORD(v14) = VidSchiOpenProcessAdapterInfo(v14, a1);
+      if ( (int)v14 >= 0 )
       {
-        v21 = *(_DWORD *)(a1 + 4);
-        memset(&v30, 0, 24);
-        v30.OutputFlags.Value = _mm_cvtsi128_si32((__m128i)0LL) | 1;
-        KmdProcessHandle = (DXGK_MULTIPLANE_OVERLAY_POST_COMPOSITION *)DXGPROCESS::GetKmdProcessHandle(Current, v21);
-        v23 = *(ADAPTER_RENDER **)(a1 + 8);
-        v30.pPostComposition = KmdProcessHandle;
-        LODWORD(v16) = ADAPTER_RENDER::DdiCreateDevice(v23, &v30);
-        if ( (int)v16 < 0 )
-          goto LABEL_28;
-        v24 = bTracingEnabled == 0;
-        *(_QWORD *)(v10 + 16) = *(_QWORD *)&v30.VidPnSourceId;
-        if ( !v24 )
+        v12[240] = 1;
+        if ( (*(_DWORD *)a2 & 1) != 0 )
         {
-          CurrentProcessId = PsGetCurrentProcessId();
-          if ( (byte_1C0076981 & 4) != 0 )
-            McTemplateK0ppqpttqpqp_EtwWriteTransfer(
-              v26,
-              &EventCreateDevice,
-              v17,
-              CurrentProcessId,
-              *(_QWORD *)(a1 + 16));
-        }
-      }
-      else
-      {
-        *(_QWORD *)(v10 + 16) = *(_QWORD *)(a3 + 616);
-      }
-      if ( (*(_DWORD *)(v10 + 48) & 2) == 0 )
-      {
-LABEL_15:
-        *a4 = v10;
-        return (unsigned int)v16;
-      }
-      if ( *(_BYTE *)(a1 + 2212) )
-      {
-        v28 = 0;
-        if ( !*(_DWORD *)(a1 + 40) )
-          goto LABEL_15;
-        while ( 1 )
-        {
-          if ( *(_DWORD *)(*(_QWORD *)(a1 + 8LL * v28 + 3200) + 4LL) )
+          memset(&v35, 0, 24);
+          v22 = *(unsigned int *)(a1 + 4);
+          v35.Flags.Value = _mm_cvtsi128_si32((__m128i)0LL) | 1;
+          v23 = *(_QWORD **)(*((_QWORD *)Current + 6) + 8 * v22);
+          if ( v23 )
+            v23 = (_QWORD *)v23[2];
+          v24 = *(ADAPTER_RENDER **)(a1 + 8);
+          v35.hKmdProcess = v23;
+          LODWORD(v14) = ADAPTER_RENDER::DdiCreateDevice(v24, &v35);
+          if ( (int)v14 < 0 )
+            goto LABEL_32;
+          v25 = bTracingEnabled == 0;
+          *((_QWORD *)v12 + 2) = v35.hDevice;
+          if ( !v25 )
           {
-            LOBYTE(v17) = 1;
-            v29 = VidSchControlVSyncDevice(v10, 2LL, v17, v28);
-            v16 = v29;
-            if ( v29 < 0 )
-              break;
+            v26 = *((_DWORD *)v12 + 12) >> 2;
+            v27 = *((_DWORD *)v12 + 12) >> 1;
+            CurrentProcessId = PsGetCurrentProcessId();
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+              McTemplateK0ppqpttq_EtwWriteTransfer(
+                v29,
+                &EventCreateDevice,
+                v16,
+                CurrentProcessId,
+                *(_QWORD *)(a1 + 16),
+                -1,
+                v12,
+                v27 & 1,
+                v26 & 1);
           }
-          if ( ++v28 >= *(_DWORD *)(a1 + 40) )
-            goto LABEL_15;
         }
+        else
+        {
+          *((_QWORD *)v12 + 2) = *(_QWORD *)(a3 + 584);
+        }
+        if ( (*((_DWORD *)v12 + 12) & 2) == 0 )
+        {
+LABEL_14:
+          *a4 = v12;
+          return (unsigned int)v14;
+        }
+        if ( *(_BYTE *)(a1 + 2132) )
+        {
+          v33 = 0LL;
+          if ( !*(_DWORD *)(a1 + 40) )
+            goto LABEL_14;
+          while ( 1 )
+          {
+            if ( *(_DWORD *)(*(_QWORD *)(a1 + 8 * v33 + 3104) + 4LL) )
+            {
+              LOBYTE(v16) = 1;
+              v34 = VidSchControlVSyncDevice(v12, 2LL, v16, (unsigned int)v33);
+              v14 = v34;
+              if ( v34 < 0 )
+                break;
+            }
+            v33 = (unsigned int)(v33 + 1);
+            if ( (unsigned int)v33 >= *(_DWORD *)(a1 + 40) )
+              goto LABEL_14;
+          }
+        }
+        else
+        {
+          LOBYTE(v16) = 1;
+          v18 = VidSchControlVSyncDevice(v12, 2LL, v16, 4294967293LL);
+          v14 = v18;
+          if ( v18 >= 0 )
+            goto LABEL_14;
+        }
+        v32 = WdLogNewEntry5_WdAssertion(v20, v19, v16);
+        *(_QWORD *)(v32 + 24) = v14;
+        WdLogEvent5_WdAssertion(v32);
       }
-      else
-      {
-        LOBYTE(v17) = 1;
-        v19 = VidSchControlVSyncDevice(v10, 2LL, v17, 4294967293LL);
-        v16 = v19;
-        if ( v19 >= 0 )
-          goto LABEL_15;
-      }
-      WdLogSingleEntry1(1LL, v16);
-      DxgkLogInternalTriageEvent(v27, 0x40000LL);
     }
-LABEL_28:
-    VidSchTerminateDevice((char *)v10);
-    return (unsigned int)v16;
+LABEL_32:
+    VidSchTerminateDevice(v12);
+    return (unsigned int)v14;
   }
-  WdLogSingleEntry0(3LL);
+  v31 = WdLogNewEntry5_WdWarning(v11, v10);
+  WdLogEvent5_WdWarning(v31);
   return 3221225495LL;
 }

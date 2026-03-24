@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetClipForHitTest@CVisual@@UEBAPEAVCGeometry@@XZ @ 0x1800E85D0
+ * XREFs of ?GetClipForHitTest@CVisual@@UEBAPEAVCGeometry@@XZ @ 0x1800EB740
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,5 @@
 
 struct CGeometry *__fastcall CVisual::GetClipForHitTest(CVisual *this)
 {
-  if ( (*((_BYTE *)this + 102) & 1) != 0 )
-    return 0LL;
-  else
-    return (struct CGeometry *)*((_QWORD *)this + 31);
+  return (struct CGeometry *)*((_QWORD *)this + 30);
 }

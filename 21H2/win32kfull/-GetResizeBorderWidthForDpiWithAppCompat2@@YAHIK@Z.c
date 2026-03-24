@@ -1,51 +1,48 @@
 /*
- * XREFs of ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C00BBD80
+ * XREFs of ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C004BA58
  * Callers:
- *     _AdjustWindowRectExForDpi @ 0x1C006DA8C (_AdjustWindowRectExForDpi.c)
- *     GetResizeBorderWidthForDpi @ 0x1C00BB5D8 (GetResizeBorderWidthForDpi.c)
- *     GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00BBC5C (GetWindowBordersForDpiWithCompatFlags2.c)
+ *     GetWindowBordersWithDpiAwareness @ 0x1C004AEAC (GetWindowBordersWithDpiAwareness.c)
+ *     _AdjustWindowRectExForDpi @ 0x1C004E77C (_AdjustWindowRectExForDpi.c)
+ *     GetResizeBorderWidthForDpi @ 0x1C00E0E90 (GetResizeBorderWidthForDpi.c)
+ *     GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00E11E4 (GetWindowBordersForDpiWithCompatFlags2.c)
  * Callees:
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     GetDpiCacheSlot @ 0x1C00671E0 (GetDpiCacheSlot.c)
- *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01E4D60 (_ScaleSystemMetricForDPIWithoutCache.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
+ *     GetDpiCacheSlot @ 0x1C006152C (GetDpiCacheSlot.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01EA5E0 (_ScaleSystemMetricForDPIWithoutCache.c)
  */
 
-__int64 __fastcall GetResizeBorderWidthForDpiWithAppCompat2(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall GetResizeBorderWidthForDpiWithAppCompat2(unsigned int a1, int a2)
 {
-  int v3; // esi
-  unsigned int v4; // edi
-  unsigned int v5; // ebx
+  unsigned int v4; // ebx
   int DpiDependentMetric; // eax
 
-  v3 = a2;
-  v4 = a1;
   if ( (a2 & 0x10000000) != 0 )
   {
     return 1;
   }
   else
   {
-    v5 = ((int)a1 * *(_DWORD *)(Get96DpiServerInfo(a1, a2, a3) + 4) + 48) / 96;
-    if ( (v3 & 0x20000000) != 0 )
+    v4 = (int)(a1 * *(_DWORD *)(Get96DpiServerInfo() + 4) + 48) / 96;
+    if ( (a2 & 0x20000000) != 0 )
     {
-      if ( v4 == *(unsigned __int16 *)(gpsi + 6998LL) )
+      if ( a1 == *(unsigned __int16 *)(gpsi + 6998LL) )
       {
         DpiDependentMetric = *(_DWORD *)(gpsi + 2400LL);
       }
-      else if ( v4 == 96 )
+      else if ( a1 == 96 )
       {
         DpiDependentMetric = *(_DWORD *)(gpsi + 2520LL);
       }
-      else if ( (unsigned int)GetDpiCacheSlot(v4) == -1 )
+      else if ( (unsigned int)GetDpiCacheSlot(a1) == -1 )
       {
-        DpiDependentMetric = ScaleSystemMetricForDPIWithoutCache(29LL, v4);
+        DpiDependentMetric = ScaleSystemMetricForDPIWithoutCache(29LL, a1);
       }
       else
       {
-        DpiDependentMetric = GetDpiDependentMetric(29LL, v4);
+        DpiDependentMetric = GetDpiDependentMetric(29LL, a1);
       }
-      v5 += DpiDependentMetric;
+      v4 += DpiDependentMetric;
     }
   }
-  return v5;
+  return v4;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlLengthSidAsUnicodeString @ 0x14065A9D4
+ * XREFs of RtlLengthSidAsUnicodeString @ 0x14065A9B4
  * Callers:
- *     RtlFormatCurrentUserKeyPath @ 0x14065A5C0 (RtlFormatCurrentUserKeyPath.c)
- *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x1408DB750 (ExpWnfGetPermanentPerUserDataStoreHandle.c)
- *     AdtpBuildSidListString @ 0x1408EF748 (AdtpBuildSidListString.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x14065A5A0 (RtlFormatCurrentUserKeyPath.c)
+ *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x1408DB730 (ExpWnfGetPermanentPerUserDataStoreHandle.c)
+ *     AdtpBuildSidListString @ 0x1408EF728 (AdtpBuildSidListString.c)
  * Callees:
  *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
  */

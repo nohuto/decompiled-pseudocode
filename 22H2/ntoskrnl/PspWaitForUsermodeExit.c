@@ -1,13 +1,15 @@
 /*
- * XREFs of PspWaitForUsermodeExit @ 0x1409B3EDC
+ * XREFs of PspWaitForUsermodeExit @ 0x14090B33C
  * Callers:
- *     PspWaitOnAllProcessesJobCallback @ 0x1409B3540 (PspWaitOnAllProcessesJobCallback.c)
- *     PsShutdownSystem @ 0x1409B35F4 (PsShutdownSystem.c)
+ *     PspShutdownCsrProcess @ 0x1409066A0 (PspShutdownCsrProcess.c)
+ *     PspWaitOnAllProcessesJobCallback @ 0x140909D60 (PspWaitOnAllProcessesJobCallback.c)
+ *     PsShutdownSystem @ 0x14090AA44 (PsShutdownSystem.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PsGetNextProcessThread @ 0x140742FC0 (PsGetNextProcessThread.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetNextProcessThread @ 0x140657980 (PsGetNextProcessThread.c)
+ *     PsQuitNextProcessThread @ 0x1406A62F0 (PsQuitNextProcessThread.c)
  */
 
 __int64 __fastcall PspWaitForUsermodeExit(__int64 a1)
@@ -26,7 +28,7 @@ LABEL_1:
     if ( (*((_DWORD *)NextProcessThread + 29) & 0x400) == 0 && !*((_BYTE *)NextProcessThread + 4) )
     {
       ObfReferenceObjectWithTag(NextProcessThread, 0x65547350u);
-      ObfDereferenceObjectWithTag(v4, 0x6E457350u);
+      PsQuitNextProcessThread(v4);
       KeWaitForSingleObject(v4, Executive, 0, 0, 0LL);
       ObfDereferenceObjectWithTag(v4, 0x65547350u);
       goto LABEL_1;

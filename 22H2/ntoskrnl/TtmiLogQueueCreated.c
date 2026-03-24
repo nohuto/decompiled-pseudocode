@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogQueueCreated @ 0x1409A8DAC
+ * XREFs of TtmiLogQueueCreated @ 0x14090332C
  * Callers:
- *     TtmiCreateEventQueue @ 0x1409AC09C (TtmiCreateEventQueue.c)
+ *     TtmiCreateEventQueue @ 0x140905488 (TtmiCreateEventQueue.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x14036F3B0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     PsGetProcessSessionIdEx @ 0x140315400 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogQueueCreated(__int64 a1)
@@ -22,9 +22,9 @@ void __fastcall TtmiLogQueueCreated(__int64 a1)
   int v10; // [rsp+78h] [rbp-20h]
   int v11; // [rsp+7Ch] [rbp-1Ch]
 
-  if ( (unsigned int)dword_140D53948 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140D53948, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL) )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
       v8 = 0;
@@ -35,7 +35,7 @@ void __fastcall TtmiLogQueueCreated(__int64 a1)
       v4 = a1;
       v9 = &v4;
       v10 = 8;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D53948, (unsigned __int8 *)word_1400331C2, 0LL, 0LL, 4u, &v5);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D2D8C8, (unsigned __int8 *)word_14002B462, 0LL, 0LL, 4u, &v5);
     }
   }
 }

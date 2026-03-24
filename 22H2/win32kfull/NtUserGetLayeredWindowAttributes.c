@@ -1,12 +1,12 @@
 /*
- * XREFs of NtUserGetLayeredWindowAttributes @ 0x1C00101F0
+ * XREFs of NtUserGetLayeredWindowAttributes @ 0x1C01FA070
  * Callers:
  *     <none>
  * Callees:
- *     _GetLayeredWindowAttributes @ 0x1C0010328 (_GetLayeredWindowAttributes.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _GetLayeredWindowAttributes @ 0x1C013DFBC (_GetLayeredWindowAttributes.c)
  */
 
 __int64 __fastcall NtUserGetLayeredWindowAttributes(__int64 a1, _DWORD *a2, _BYTE *a3, _DWORD *a4)
@@ -15,54 +15,53 @@ __int64 __fastcall NtUserGetLayeredWindowAttributes(__int64 a1, _DWORD *a2, _BYT
   __int64 v9; // rbx
   int LayeredWindowAttributes; // ebx
   __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  char v16; // [rsp+20h] [rbp-38h] BYREF
-  _BYTE v17[3]; // [rsp+21h] [rbp-37h] BYREF
-  int v18; // [rsp+24h] [rbp-34h] BYREF
-  _DWORD v19[12]; // [rsp+28h] [rbp-30h] BYREF
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  BYTE v15[4]; // [rsp+20h] [rbp-38h] BYREF
+  unsigned int v16; // [rsp+24h] [rbp-34h] BYREF
+  unsigned int v17[6]; // [rsp+28h] [rbp-30h] BYREF
+  _BYTE v18[24]; // [rsp+40h] [rbp-18h] BYREF
 
-  v18 = 0;
   v16 = 0;
-  v19[0] = 0;
-  EnterSharedCrit();
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v17);
+  v15[0] = 0;
+  v17[0] = 0;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v18);
   v8 = ValidateHwnd(a1);
   v9 = v8;
   if ( !v8 )
-    goto LABEL_19;
-  if ( (unsigned int)IsWindowDesktopComposed(v8) && (*(_DWORD *)(*(_QWORD *)(v9 + 40) + 232LL) & 2) != 0 )
+    goto LABEL_2;
+  if ( (unsigned int)IsWindowDesktopComposed(v8) && (*(_DWORD *)(*(_QWORD *)(v9 + 40) + 232LL) & 0x20) != 0 )
   {
-    UserSetLastError(87LL);
-LABEL_19:
+    UserSetLastError(87LL, v11, v12);
+LABEL_2:
     LayeredWindowAttributes = 0;
-    goto LABEL_17;
+    goto LABEL_19;
   }
-  LayeredWindowAttributes = GetLayeredWindowAttributes(v9, &v18, &v16, v19);
+  LayeredWindowAttributes = GetLayeredWindowAttributes(v9, &v16, v15, v17);
   if ( LayeredWindowAttributes )
   {
     if ( a2 )
     {
       if ( (unsigned __int64)a2 >= MmUserProbeAddress )
         a2 = (_DWORD *)MmUserProbeAddress;
-      *a2 = v18;
+      *a2 = v16;
     }
     if ( a3 )
     {
       if ( (unsigned __int64)a3 >= MmUserProbeAddress )
         a3 = (_BYTE *)MmUserProbeAddress;
-      *a3 = v16;
+      *a3 = v15[0];
     }
     if ( a4 )
     {
       if ( (unsigned __int64)a4 >= MmUserProbeAddress )
         a4 = (_DWORD *)MmUserProbeAddress;
-      *a4 = v19[0] & 3;
+      *a4 = v17[0] & 3;
     }
   }
-LABEL_17:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v17);
-  UserSessionSwitchLeaveCrit(v12, v11, v13, v14);
+LABEL_19:
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v18);
+  UserSessionSwitchLeaveCrit(v13);
   return LayeredWindowAttributes;
 }

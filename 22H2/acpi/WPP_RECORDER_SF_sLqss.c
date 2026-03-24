@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_RECORDER_SF_sLqss @ 0x1C00157B4
+ * XREFs of WPP_RECORDER_SF_sLqss @ 0x1C004CCCC
  * Callers:
- *     ACPIBuildDevicePowerNodes @ 0x1C000C5A4 (ACPIBuildDevicePowerNodes.c)
- *     ACPIBuildDeviceResetPowerNode @ 0x1C000CAD0 (ACPIBuildDeviceResetPowerNode.c)
- *     ACPIBuildWakeEventDeviceContext @ 0x1C00140F0 (ACPIBuildWakeEventDeviceContext.c)
+ *     ACPIBuildDevicePowerNodes @ 0x1C0015E24 (ACPIBuildDevicePowerNodes.c)
+ *     ACPIBuildDeviceResetPowerNode @ 0x1C004B128 (ACPIBuildDeviceResetPowerNode.c)
+ *     ACPIBuildWakeEventDeviceContext @ 0x1C004C584 (ACPIBuildWakeEventDeviceContext.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_sLqss(
@@ -20,10 +20,10 @@ __int64 __fastcall WPP_RECORDER_SF_sLqss(
         const char *a9,
         const char *a10)
 {
-  const char *v10; // rbp
+  const char *v10; // rdi
   __int64 v11; // rbx
   const char *v12; // rsi
-  const char *v14; // rdi
+  const char *v14; // rbp
   unsigned int v15; // r14d
   __int64 v16; // r9
   __int64 v17; // r9
@@ -36,14 +36,12 @@ __int64 __fastcall WPP_RECORDER_SF_sLqss(
   const char *v24; // rcx
   __int64 v25; // rcx
   __int64 v26; // rax
-  __int64 v27; // rax
-  __int64 v28; // rbx
-  int v30; // [rsp+20h] [rbp-78h]
+  int v28; // [rsp+20h] [rbp-78h]
 
-  v10 = a6;
+  v10 = a10;
   v11 = -1LL;
   v12 = a9;
-  v14 = a10;
+  v14 = a6;
   v15 = a4;
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
   {
@@ -95,7 +93,7 @@ __int64 __fastcall WPP_RECORDER_SF_sLqss(
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, const ULONG_PTR *, _QWORD, const char *, __int64, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+      &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       v15,
       v24,
       v23,
@@ -109,56 +107,28 @@ __int64 __fastcall WPP_RECORDER_SF_sLqss(
       v17,
       0LL);
   }
-  if ( v14 )
+  if ( v10 )
   {
     v25 = -1LL;
     do
       ++v25;
-    while ( v14[v25] );
+    while ( v10[v25] );
   }
-  if ( !v14 )
-    v14 = "NULL";
   if ( v12 )
   {
     v26 = -1LL;
     do
       ++v26;
     while ( v12[v26] );
-    v27 = v26 + 1;
   }
-  else
-  {
-    v27 = 5LL;
-  }
-  if ( !v12 )
-    v12 = "NULL";
   if ( a6 )
   {
     do
       ++v11;
     while ( a6[v11] );
-    v28 = v11 + 1;
-  }
-  else
-  {
-    v28 = 5LL;
   }
   if ( !a6 )
-    v10 = "NULL";
-  LOWORD(v30) = v15;
-  return WppAutoLogTrace(
-           a1,
-           2LL,
-           10LL,
-           &WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
-           v30,
-           v10,
-           v28,
-           &a7,
-           4LL,
-           &a8,
-           8LL,
-           v12,
-           v27,
-           v14);
+    v14 = "NULL";
+  LOWORD(v28) = v15;
+  return WppAutoLogTrace(a1, 2LL, 10LL, &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids, v28, v14);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of CheckDesktopPolicyChange @ 0x1C0149030
+ * XREFs of CheckDesktopPolicyChange @ 0x1C011D8A0
  * Callers:
  *     <none>
  * Callees:
- *     OpenCacheKeyEx @ 0x1C0019FB0 (OpenCacheKeyEx.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     OpenCacheKeyEx @ 0x1C0026440 (OpenCacheKeyEx.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CheckDesktopPolicyChange(const UNICODE_STRING *a1)
@@ -25,7 +25,7 @@ __int64 __fastcall CheckDesktopPolicyChange(const UNICODE_STRING *a1)
   ResultLength = 0;
   KeyInformation = 0LL;
   v12 = 0LL;
-  v3 = OpenCacheKeyEx(a1, 4LL, 131097LL, &v9);
+  v3 = OpenCacheKeyEx(a1, 4LL, 0x20019u, &v9);
   if ( v3 )
   {
     v4 = ZwQueryKey(v3, KeyBasicInformation, &KeyInformation, 0x18u, &ResultLength);
@@ -39,14 +39,14 @@ __int64 __fastcall CheckDesktopPolicyChange(const UNICODE_STRING *a1)
     v6 = gdwPolicyFlags & 0xFFFFFFFB;
   }
   gdwPolicyFlags = v6;
-  if ( qword_1C02A0610 != KeyInformation )
+  if ( qword_1C0259678 != KeyInformation )
   {
-    qword_1C02A0610 = KeyInformation;
+    qword_1C0259678 = KeyInformation;
     v1 = 1;
   }
   KeyInformation = 0LL;
   v9 = 2;
-  v7 = OpenCacheKeyEx(a1, 4LL, 131097LL, &v9);
+  v7 = OpenCacheKeyEx(a1, 4LL, 0x20019u, &v9);
   if ( v7 )
   {
     ZwQueryKey(v7, KeyBasicInformation, &KeyInformation, 0x18u, &ResultLength);
@@ -58,9 +58,9 @@ __int64 __fastcall CheckDesktopPolicyChange(const UNICODE_STRING *a1)
     v8 = gdwPolicyFlags & 0xFFFFFFFD;
   }
   gdwPolicyFlags = v8;
-  if ( qword_1C02A0618 != KeyInformation )
+  if ( qword_1C0259680 != KeyInformation )
   {
-    qword_1C02A0618 = KeyInformation;
+    qword_1C0259680 = KeyInformation;
     return 1;
   }
   return v1;

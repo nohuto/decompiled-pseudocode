@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_WaitingForPollingIntervalForResetCompletion @ 0x1C0013BA0
+ * XREFs of HUBPSM30_WaitingForPollingIntervalForResetCompletion @ 0x1C0012680
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPSM30_WaitingForPollingIntervalForResetCompletion(__int64 a1)

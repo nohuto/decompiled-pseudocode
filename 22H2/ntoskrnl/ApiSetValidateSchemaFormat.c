@@ -1,160 +1,139 @@
 /*
- * XREFs of ApiSetValidateSchemaFormat @ 0x14061473C
+ * XREFs of ApiSetValidateSchemaFormat @ 0x1405BE224
  * Callers:
- *     ApiSetComposeSchema_V7 @ 0x140416F98 (ApiSetComposeSchema_V7.c)
- *     ApiSetComposeSchema @ 0x140614A14 (ApiSetComposeSchema.c)
+ *     ApiSetComposeSchema @ 0x1405BE4E0 (ApiSetComposeSchema.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x14035EF30 (ApiSetpSearchForApiSet.c)
- *     ApiSetValidateSchemaExtensionFormat_V7 @ 0x140416C6C (ApiSetValidateSchemaExtensionFormat_V7.c)
- *     ApiSetValidateSchemaFormat_V7 @ 0x140416DB0 (ApiSetValidateSchemaFormat_V7.c)
+ *     ApiSetpSearchForApiSet @ 0x1403A2C30 (ApiSetpSearchForApiSet.c)
  */
 
-__int64 __fastcall ApiSetValidateSchemaFormat(__int64 a1, unsigned int a2)
+__int64 __fastcall ApiSetValidateSchemaFormat(_DWORD *a1, unsigned int a2)
 {
-  unsigned int v4; // ecx
-  unsigned int v6; // r8d
-  __int64 v7; // rax
-  unsigned int v8; // ecx
-  unsigned int v9; // edi
-  __int64 i; // r14
-  unsigned int *v11; // rsi
-  unsigned int v12; // ecx
-  __int64 v13; // rax
-  unsigned int v14; // ecx
-  unsigned int v15; // eax
-  __int64 v16; // r10
-  int v17; // ecx
-  __int64 v18; // rdx
-  __int64 v19; // r15
-  _DWORD *v20; // rax
-  unsigned int v21; // r9d
-  unsigned int v22; // esi
+  unsigned int v4; // esi
+  __int64 v5; // r14
+  unsigned int v6; // eax
+  unsigned int v7; // ebp
+  __int64 v8; // r15
+  __int64 v9; // r12
+  unsigned int *v10; // rdi
+  unsigned int v11; // ecx
+  __int64 v12; // rax
+  unsigned int v13; // ecx
+  unsigned int v14; // eax
+  __int64 v15; // r9
+  int v16; // ecx
+  __int64 i; // rdx
+  _DWORD *v18; // rax
+  unsigned int v19; // r8d
+  unsigned int v20; // r10d
+  unsigned int v21; // ecx
+  unsigned int v22; // r8d
   unsigned int v23; // ecx
-  unsigned int v24; // r9d
+  int v24; // ecx
   unsigned int v25; // eax
-  unsigned __int64 v26; // rcx
-  unsigned int v27; // eax
 
-  if ( *(_BYTE *)a1 == 7 )
+  if ( *a1 > 4u )
   {
-    if ( (*(_BYTE *)(a1 + 2) & 2) != 0 )
-      return ApiSetValidateSchemaExtensionFormat_V7(a1, a2);
-    return ApiSetValidateSchemaFormat_V7(a1);
-  }
-  v4 = *(_DWORD *)a1;
-  if ( v4 == 6 )
-  {
-    if ( (*(_DWORD *)(a1 + 8) & 4) == 0 )
+    if ( a2 >= 0x1C )
     {
-LABEL_10:
-      if ( a2 >= 0x1C )
+      v4 = a1[1];
+      if ( v4 <= a2 )
       {
-        v6 = *(_DWORD *)(a1 + 4);
-        if ( v6 <= a2 )
+        v5 = (unsigned int)a1[3];
+        v6 = 24 * v5;
+        if ( (unsigned __int64)(24 * v5) > 0xFFFFFFFF )
+          return (unsigned int)-1073741675;
+        v7 = v6 + 28;
+        if ( v6 >= 0xFFFFFFE4 )
+          return (unsigned int)-1073741675;
+        if ( v7 <= v4 )
         {
-          v7 = *(unsigned int *)(a1 + 12);
-          v8 = 24 * v7;
-          if ( (unsigned __int64)(24 * v7) > 0xFFFFFFFF )
-            return (unsigned int)-1073741675;
-          v9 = v8 + 28;
-          if ( v8 >= 0xFFFFFFE4 )
-            return (unsigned int)-1073741675;
-          if ( v9 <= v6 )
+          v8 = 0LL;
+          if ( (_DWORD)v5 )
           {
-            for ( i = 0LL; (unsigned int)i < (unsigned int)v7; i = (unsigned int)(i + 1) )
+            v9 = (unsigned int)a1[4];
+            do
             {
-              v11 = (unsigned int *)(a1 + *(unsigned int *)(a1 + 16) + 24 * i);
-              v12 = v11[2];
-              if ( v12 > 0xFFFF )
+              v10 = (_DWORD *)((char *)&a1[6 * v8] + v9);
+              v11 = v10[2];
+              if ( v11 > 0xFFFF )
                 return (unsigned int)-1073741596;
-              if ( v11[3] > 0xFFFF )
+              if ( v10[3] > 0xFFFF )
                 return (unsigned int)-1073741596;
-              v13 = v11[1];
-              if ( (_DWORD)v13 )
+              v12 = v10[1];
+              if ( (_DWORD)v12 )
               {
-                if ( (unsigned int)v13 < v9 )
+                if ( (unsigned int)v12 < v7 )
                   return (unsigned int)-1073741596;
               }
-              v14 = v13 + v12;
-              if ( v14 < (unsigned int)v13 )
+              v13 = v12 + v11;
+              if ( v13 < (unsigned int)v12 )
                 return (unsigned int)-1073741675;
-              if ( v14 > v6 )
+              if ( v13 > v4 )
                 return (unsigned int)-1073741596;
               if ( (unsigned int *)ApiSetpSearchForApiSet(
-                                     (_DWORD *)a1,
-                                     (const WCHAR *)(a1 + v13),
-                                     *((_WORD *)v11 + 6) >> 1) != v11 )
+                                     a1,
+                                     (const WCHAR *)((char *)a1 + v12),
+                                     *((_WORD *)v10 + 6) >> 1) != v10 )
                 return (unsigned int)-1073741596;
-              v15 = v11[4];
-              if ( v15 )
+              v14 = v10[4];
+              if ( v14 )
               {
-                if ( v15 < v9 )
+                if ( v14 < v7 )
                   return (unsigned int)-1073741596;
               }
-              v16 = v11[5];
-              v17 = 20 * v16;
-              if ( (unsigned __int64)(20 * v16) > 0xFFFFFFFF || v15 + v17 < v15 )
+              v15 = v10[5];
+              v16 = 20 * v15;
+              if ( (unsigned __int64)(20 * v15) > 0xFFFFFFFF || v14 + v16 < v14 )
                 return (unsigned int)-1073741675;
-              v6 = *(_DWORD *)(a1 + 4);
-              if ( v15 + v17 > v6 )
+              if ( v14 + v16 > v4 )
                 return (unsigned int)-1073741596;
-              v18 = 0LL;
-              if ( (_DWORD)v16 )
+              for ( i = 0LL; (unsigned int)i < (unsigned int)v15; i = (unsigned int)(i + 1) )
               {
-                v19 = v11[4];
-                do
+                v18 = (_DWORD *)((char *)&a1[5 * i] + v10[4]);
+                v19 = v18[2];
+                if ( v19 > 0xFFFF )
+                  return (unsigned int)-1073741596;
+                v20 = v18[4];
+                if ( v20 > 0xFFFF )
+                  return (unsigned int)-1073741596;
+                v21 = v18[1];
+                if ( v21 )
                 {
-                  v20 = (_DWORD *)(a1 + v19 + 20 * v18);
-                  v21 = v20[2];
-                  if ( v21 > 0xFFFF )
+                  if ( v21 < v7 )
                     return (unsigned int)-1073741596;
-                  v22 = v20[4];
-                  if ( v22 > 0xFFFF )
-                    return (unsigned int)-1073741596;
-                  v23 = v20[1];
-                  if ( v23 )
-                  {
-                    if ( v23 < v9 )
-                      return (unsigned int)-1073741596;
-                  }
-                  v24 = v23 + v21;
-                  if ( v24 < v23 )
-                    return (unsigned int)-1073741675;
-                  if ( v24 > v6 )
-                    return (unsigned int)-1073741596;
-                  v25 = v20[3];
-                  if ( v25 )
-                  {
-                    if ( v25 < v9 )
-                      return (unsigned int)-1073741596;
-                  }
-                  if ( v22 + v25 < v25 )
-                    return (unsigned int)-1073741675;
-                  if ( v22 + v25 > v6 )
-                    return (unsigned int)-1073741596;
-                  v18 = (unsigned int)(v18 + 1);
                 }
-                while ( (unsigned int)v18 < (unsigned int)v16 );
+                v22 = v21 + v19;
+                if ( v22 < v21 )
+                  return (unsigned int)-1073741675;
+                if ( v22 > v4 )
+                  return (unsigned int)-1073741596;
+                v23 = v18[3];
+                if ( v23 )
+                {
+                  if ( v23 < v7 )
+                    return (unsigned int)-1073741596;
+                }
+                if ( v20 + v23 < v23 )
+                  return (unsigned int)-1073741675;
+                if ( v20 + v23 > v4 )
+                  return (unsigned int)-1073741596;
               }
-              LODWORD(v7) = *(_DWORD *)(a1 + 12);
+              v8 = (unsigned int)(v8 + 1);
             }
-            v26 = 8LL * (unsigned int)v7;
-            if ( v26 <= 0xFFFFFFFF )
-            {
-              v27 = *(_DWORD *)(a1 + 20);
-              if ( v27 + (unsigned int)v26 >= v27 )
-                return v6 < v27 + (unsigned int)v26 ? 0xC00000E4 : 0;
-            }
-            return (unsigned int)-1073741675;
+            while ( (unsigned int)v8 < (unsigned int)v5 );
           }
+          v24 = 8 * v5;
+          if ( (unsigned __int64)(8 * v5) <= 0xFFFFFFFF )
+          {
+            v25 = a1[5];
+            if ( v25 + v24 >= v25 )
+              return v4 < v25 + v24 ? 0xC00000E4 : 0;
+          }
+          return (unsigned int)-1073741675;
         }
       }
-      return (unsigned int)-1073741596;
     }
-    if ( *(_BYTE *)(a1 + 28) == 7 )
-      return ApiSetValidateSchemaFormat_V7(a1);
+    return (unsigned int)-1073741596;
   }
-  if ( v4 > 4 )
-    goto LABEL_10;
   return (unsigned int)-1073741637;
 }

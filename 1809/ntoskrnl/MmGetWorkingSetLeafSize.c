@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetWorkingSetLeafSize @ 0x1400F0D98
+ * XREFs of MmGetWorkingSetLeafSize @ 0x1400F0DB8
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x14066CFFC (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14066CFDC (ExpQuerySystemPerformanceInformation.c)
  * Callees:
- *     MiGetCurrentMultiplexedVm @ 0x1400EF4C4 (MiGetCurrentMultiplexedVm.c)
- *     MiTranslateWsType @ 0x1400EF500 (MiTranslateWsType.c)
+ *     MiGetCurrentMultiplexedVm @ 0x1400EF4E4 (MiGetCurrentMultiplexedVm.c)
+ *     MiTranslateWsType @ 0x1400EF520 (MiTranslateWsType.c)
  */
 
 char *__fastcall MmGetWorkingSetLeafSize(int a1)

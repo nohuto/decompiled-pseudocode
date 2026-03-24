@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwPhysicalSurfCreateEvent @ 0x1C00A8550
+ * XREFs of EtwPhysicalSurfCreateEvent @ 0x1C0096730
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0xqxq_EtwWriteTransfer @ 0x1C0179084 (McTemplateK0xqxq_EtwWriteTransfer.c)
+ *     McTemplateK0xqxq_EtwWriteTransfer @ 0x1C014CE24 (McTemplateK0xqxq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwPhysicalSurfCreateEvent(int a1, int a2, int a3, char a4)

@@ -1,11 +1,10 @@
 /*
- * XREFs of AccessPTPEnabledStatus @ 0x1C0095B90
+ * XREFs of AccessPTPEnabledStatus @ 0x1C000C2F0
  * Callers:
- *     EnablePTPDevices @ 0x1C0134C80 (EnablePTPDevices.c)
- *     RIMApiSetSetUserPTPEnabledPreference @ 0x1C0192B68 (RIMApiSetSetUserPTPEnabledPreference.c)
+ *     EnablePTPDevices @ 0x1C011C1A0 (EnablePTPDevices.c)
  * Callees:
- *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C0095F84 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C000C540 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 __fastcall AccessPTPEnabledStatus(int a1, int a2, _DWORD *a3)

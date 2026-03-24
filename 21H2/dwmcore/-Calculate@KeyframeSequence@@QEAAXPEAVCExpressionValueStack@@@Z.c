@@ -1,169 +1,233 @@
 /*
- * XREFs of ?Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z @ 0x18004EDD4
+ * XREFs of ?Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z @ 0x1800ABA70
  * Callers:
- *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x18004ECF0 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
- *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x18006FDA0 (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
+ *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800A9A4C (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
+ *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800ABFB4 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
  * Callees:
- *     ?GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x18004F148 (-GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z.c)
- *     ?GetIsComplete@Timer@@QEBA_NXZ @ 0x18004F1FC (-GetIsComplete@Timer@@QEBA_NXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D5E60 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800A9824 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x1800ABEB8 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
+ *     ?SampleStartingValue@CKeyframeAnimation@@AEAAJXZ @ 0x1800ACE18 (-SampleStartingValue@CKeyframeAnimation@@AEAAJXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??4?$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z @ 0x1801B17D8 (--4-$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPathData@@@Z.c)
+ *     ?ProcessInnerExpression@CKeyframeAnimation@@QEAAJIPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x1801D1848 (-ProcessInnerExpression@CKeyframeAnimation@@QEAAJIPEAVCExpressionValueStack@@PEAVCExpressionValu.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall KeyframeSequence::Calculate(KeyframeSequence *this, struct CExpressionValueStack *a2)
 {
-  int *v4; // rsi
-  int v5; // eax
-  int v6; // r8d
-  int v7; // edi
-  int v8; // r8d
-  char v9; // r10
-  int v10; // r11d
-  int v11; // edx
-  int v12; // ecx
-  int v13; // r9d
+  unsigned int v2; // r14d
+  struct CExpressionValueStack *v3; // r15
+  int v5; // ecx
+  int v6; // edx
+  int v7; // esi
+  char v8; // r8
+  char v9; // r9
+  int v10; // edi
+  int v11; // r12d
+  bool v12; // cc
+  int v13; // r8d
   float v14; // xmm1_4
-  int *v15; // r9
-  int v16; // edx
+  int *v15; // rdx
+  int v16; // ecx
   int v17; // edi
-  unsigned int v18; // r11d
-  __int64 v19; // rcx
+  unsigned int v18; // r14d
+  __int64 v19; // r8
   unsigned int v20; // ecx
   __int64 v21; // rdi
   unsigned int v22; // edx
-  __int64 v23; // r14
-  __int64 v24; // r15
-  int Value; // eax
-  unsigned int v26; // ecx
-  int v27; // eax
-  unsigned int v28; // ecx
-  __int128 v29; // xmm1
-  __int64 v30; // rdi
-  __int128 v31; // xmm0
-  __int128 v32; // xmm1
-  __int64 v33; // rcx
-  __int64 v34; // rcx
-  int v35; // eax
-  int v36; // ecx
-  _QWORD v37[2]; // [rsp+40h] [rbp-C0h] BYREF
-  _OWORD v38[4]; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v39; // [rsp+90h] [rbp-70h]
-  int v40; // [rsp+98h] [rbp-68h]
-  char v41; // [rsp+9Ch] [rbp-64h]
-  _BYTE v42[64]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v43; // [rsp+E0h] [rbp-20h]
-  int v44; // [rsp+E8h] [rbp-18h]
-  char v45; // [rsp+ECh] [rbp-14h]
-  _BYTE v46[64]; // [rsp+F0h] [rbp-10h] BYREF
-  __int64 v47; // [rsp+130h] [rbp+30h]
-  int v48; // [rsp+138h] [rbp+38h]
-  char v49; // [rsp+13Ch] [rbp+3Ch]
-  void *retaddr; // [rsp+1A8h] [rbp+A8h]
+  __int64 v23; // rsi
+  __int64 v24; // r14
+  CKeyframeAnimation **v25; // rcx
+  int v26; // edx
+  CKeyframeAnimation **v27; // rcx
+  int v28; // edx
+  int v29; // eax
+  int v30; // ecx
+  __int128 v31; // xmm1
+  __int64 v32; // rdi
+  __int128 v33; // xmm0
+  __int128 v34; // xmm1
+  __int64 v35; // rcx
+  __int64 v36; // rcx
+  __int64 v37; // rcx
+  int v38; // edx
+  CKeyframeAnimation *v39; // r13
+  __int64 v40; // r15
+  int v41; // r15d
+  int v42; // eax
+  unsigned int v43; // r14d
+  int v44; // eax
+  unsigned int v45; // r14d
+  int v46; // eax
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  int v49; // eax
+  __int64 v50; // rcx
+  int v51; // edx
+  CKeyframeAnimation *v52; // r13
+  __int64 v53; // r15
+  int v54; // eax
+  __int64 v55; // rdx
+  int v56; // r15d
+  __int64 v57; // rcx
+  int v58; // eax
+  __int64 v59; // rcx
+  __int64 v60; // rcx
+  struct CExpressionValueStack *v61; // [rsp+48h] [rbp-C0h] BYREF
+  _OWORD v62[4]; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v63; // [rsp+98h] [rbp-70h] BYREF
+  int v64; // [rsp+A0h] [rbp-68h]
+  char v65; // [rsp+A4h] [rbp-64h]
+  _OWORD v66[4]; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 v67; // [rsp+E8h] [rbp-20h] BYREF
+  int v68; // [rsp+F0h] [rbp-18h]
+  char v69; // [rsp+F4h] [rbp-14h]
+  _OWORD v70[4]; // [rsp+F8h] [rbp-10h] BYREF
+  __int64 v71; // [rsp+138h] [rbp+30h]
+  int v72; // [rsp+140h] [rbp+38h]
+  char v73; // [rsp+144h] [rbp+3Ch]
+  void *retaddr; // [rsp+1B0h] [rbp+A8h]
 
-  if ( *((_DWORD *)this + 28) < 2u )
+  v2 = *((_DWORD *)this + 28);
+  v3 = a2;
+  v61 = a2;
+  if ( v2 < 2 )
     ModuleFailFastForHRESULT(2147549183LL, retaddr);
-  v4 = (int *)((char *)this + 80);
   v5 = *((_DWORD *)this + 23);
   v6 = *((_DWORD *)this + 20);
-  if ( v5 >= v6 )
+  if ( v5 < v6 )
   {
-    v6 = *((_DWORD *)this + 23);
+    v7 = *((_DWORD *)this + 20);
+  }
+  else
+  {
+    v7 = v5;
     if ( v5 > *((_DWORD *)this + 21) )
-      v6 = *((_DWORD *)this + 21);
+      v7 = *((_DWORD *)this + 21);
   }
-  if ( (*((_BYTE *)this + 140) & 8) != 0 )
-    v6 = *((_DWORD *)this + 30) - v6;
-  v7 = v6 - *((_DWORD *)this + 31);
-  if ( Timer::GetIsComplete((KeyframeSequence *)((char *)this + 80))
-    || v7 < 0
-    || v7 > *((_DWORD *)this + 32)
-    || (v9 & 0x20) != 0 )
+  v8 = *((_BYTE *)this + 140);
+  v9 = v8 & 8;
+  if ( (v8 & 8) != 0 )
+    v7 = *((_DWORD *)this + 30) - v7;
+  v10 = v7 - *((_DWORD *)this + 31);
+  v11 = 0;
+  if ( !*((_BYTE *)this + 96) )
   {
-    v11 = v4[3];
-    v12 = *v4;
-    if ( v11 < *v4 )
-    {
-      v13 = *v4;
-    }
-    else
-    {
-      v13 = v4[3];
-      if ( v11 > v4[1] )
-        v13 = v4[1];
-    }
-    v14 = (float)v4[2];
-    if ( (float)((float)v13 / v14) == 0.0 )
-    {
-      if ( (v9 & 8) != 0 )
-      {
-LABEL_44:
-        v35 = *((_DWORD *)this + 30);
-        v36 = v10 - 1;
-        goto LABEL_42;
-      }
-    }
-    else
-    {
-      if ( v11 >= v12 )
-      {
-        v12 = v4[3];
-        if ( v11 > *((_DWORD *)this + 21) )
-          v12 = *((_DWORD *)this + 21);
-      }
-      if ( (float)((float)v12 / v14) != 1.0 )
-      {
-        v15 = (int *)*((_QWORD *)this + 13);
-        v16 = 0;
-        *((_DWORD *)this + 29) = 0;
-        *(_QWORD *)((char *)this + 124) = 0LL;
-        v17 = *v15;
-        v18 = v10 - 1;
-        if ( v18 )
-        {
-          while ( 1 )
-          {
-            v19 = (unsigned int)(v16 + 1);
-            if ( v15[6 * v19] > v17 + v8 )
-              break;
-            ++v16;
-            if ( (unsigned int)v19 >= v18 )
-              goto LABEL_24;
-          }
-          *((_DWORD *)this + 29) = v16;
-          *((_DWORD *)this + 31) = v15[6 * v16] - v17;
-          *((_DWORD *)this + 32) = v15[6 * v19] - v15[6 * v16];
-        }
-        goto LABEL_24;
-      }
-      if ( (v9 & 8) == 0 )
-        goto LABEL_44;
-    }
-    v35 = 0;
-    v36 = 0;
-LABEL_42:
-    *((_DWORD *)this + 29) = v36;
-    *((_DWORD *)this + 31) = v35;
-    *((_DWORD *)this + 32) = 0;
-LABEL_24:
-    *((_BYTE *)this + 140) &= ~0x20u;
+    if ( v5 < v6 )
+      goto LABEL_70;
+    if ( v5 >= *((_DWORD *)this + 21) )
+      goto LABEL_13;
+    goto LABEL_10;
   }
-  memset_0(v46, 0, sizeof(v46));
-  v47 = 0LL;
-  v48 = 18;
-  v49 = 0;
-  memset_0(v42, 0, sizeof(v42));
-  v43 = 0LL;
-  v44 = 18;
-  v45 = 0;
-  memset_0(v38, 0, sizeof(v38));
-  v39 = 0LL;
-  v40 = 18;
-  v41 = 0;
+  v12 = v5 < v6;
+  if ( v5 > v6 )
+  {
+    if ( v5 > *((_DWORD *)this + 21) )
+    {
+LABEL_13:
+      v12 = v5 < v6;
+      goto LABEL_14;
+    }
+LABEL_10:
+    if ( v10 >= 0 && v10 <= *((_DWORD *)this + 32) && (v8 & 0x20) == 0 )
+      goto LABEL_28;
+    goto LABEL_13;
+  }
+LABEL_14:
+  if ( !v12 )
+  {
+    v13 = *((_DWORD *)this + 21);
+    if ( v5 <= v13 )
+      v13 = v5;
+    goto LABEL_17;
+  }
+LABEL_70:
+  v13 = *((_DWORD *)this + 20);
+LABEL_17:
+  v14 = (float)*((int *)this + 22);
+  if ( (float)((float)v13 / v14) == 0.0 )
+  {
+    if ( v9 )
+    {
+      v42 = *((_DWORD *)this + 30);
+      v43 = v2 - 1;
+    }
+    else
+    {
+      v42 = 0;
+      v43 = 0;
+    }
+    *((_DWORD *)this + 29) = v43;
+    *((_DWORD *)this + 31) = v42;
+    *((_DWORD *)this + 32) = 0;
+  }
+  else
+  {
+    if ( v5 >= v6 )
+    {
+      v6 = v5;
+      if ( v5 > *((_DWORD *)this + 21) )
+        v6 = *((_DWORD *)this + 21);
+    }
+    if ( (float)((float)v6 / v14) == 1.0 )
+    {
+      if ( v9 )
+      {
+        v44 = 0;
+        v45 = 0;
+      }
+      else
+      {
+        v44 = *((_DWORD *)this + 30);
+        v45 = v2 - 1;
+      }
+      *((_DWORD *)this + 29) = v45;
+      *((_DWORD *)this + 31) = v44;
+      *((_DWORD *)this + 32) = 0;
+    }
+    else
+    {
+      v15 = (int *)*((_QWORD *)this + 13);
+      v16 = 0;
+      *((_DWORD *)this + 29) = 0;
+      *(_QWORD *)((char *)this + 124) = 0LL;
+      v17 = *v15;
+      v18 = v2 - 1;
+      if ( v18 )
+      {
+        while ( 1 )
+        {
+          v19 = (unsigned int)(v16 + 1);
+          if ( v15[6 * v19] > v17 + v7 )
+            break;
+          ++v16;
+          if ( (unsigned int)v19 >= v18 )
+            goto LABEL_27;
+        }
+        *((_DWORD *)this + 29) = v16;
+        *((_DWORD *)this + 31) = v15[6 * v16] - v17;
+        *((_DWORD *)this + 32) = v15[6 * v19] - v15[6 * v16];
+      }
+    }
+  }
+LABEL_27:
+  *((_BYTE *)this + 140) &= ~0x20u;
+LABEL_28:
+  memset_0(v66, 0, sizeof(v66));
+  v67 = 0LL;
+  v68 = 18;
+  v69 = 0;
+  memset_0(v62, 0, sizeof(v62));
+  v63 = 0LL;
+  v64 = 18;
+  v65 = 0;
+  memset_0(v70, 0, sizeof(v70));
+  v71 = 0LL;
+  v72 = 18;
+  v73 = 0;
   v20 = *((_DWORD *)this + 29);
   v21 = *((_QWORD *)this + 13);
   if ( v20 >= *((_DWORD *)this + 28) - 1 )
@@ -177,64 +241,249 @@ LABEL_24:
   }
   v23 = 3LL * v20;
   v24 = 3LL * v22;
-  Value = KeyframeValue::GetValue(*(KeyframeValue **)(v21 + 24LL * v22 + 8), a2, (struct CExpressionValue *)v46);
-  if ( Value < 0 )
+  v25 = *(CKeyframeAnimation ***)(v21 + 24LL * v22 + 8);
+  v26 = *((_DWORD *)v25 + 5);
+  if ( v26 == 1 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, Value, 0x1CDu, 0LL);
-    goto LABEL_50;
+    CExpressionValue::CopyFrom((CExpressionValue *)v66, (const struct CExpressionValue *)(v25 + 3));
+    goto LABEL_32;
   }
-  v27 = KeyframeValue::GetValue(*(KeyframeValue **)(v21 + 8 * v23 + 8), a2, (struct CExpressionValue *)v42);
-  if ( v27 < 0 )
+  v38 = v26 - 2;
+  if ( !v38 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0x1CEu, 0LL);
-LABEL_50:
-    v30 = v39;
+    v49 = CKeyframeAnimation::ProcessInnerExpression(v25[3], *((_DWORD *)v25 + 8), v3, (struct CExpressionValue *)v66);
+    v41 = v49;
+    if ( v49 >= 0 )
+      goto LABEL_54;
+    MilInstrumentationCheckHR_MaybeFailFast(v50, 0LL, 0, v49, 0x4Au, 0LL);
+LABEL_88:
+    MilInstrumentationCheckHR_MaybeFailFast(v48, 0LL, 0, v41, 0x1CDu, 0LL);
+    goto LABEL_39;
+  }
+  if ( v38 != 1 )
+    ModuleFailFastForHRESULT(2147549183LL, retaddr);
+  v39 = v25[3];
+  v40 = *((_QWORD *)v39 + 44);
+  if ( !*(_DWORD *)v40 )
+  {
+    v46 = CKeyframeAnimation::SampleStartingValue(v25[3]);
+    v11 = v46;
+    if ( v46 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v25, 0LL, 0, v46, 0x6B1u, 0LL);
+      goto LABEL_52;
+    }
+    v11 = 0;
+  }
+  if ( *(_DWORD *)v40 != 18 )
+  {
+    switch ( *(_DWORD *)v40 )
+    {
+      case 0xB:
+        v47 = *((_QWORD *)v39 + 53);
+        v68 = 11;
+        v69 = 1;
+        Microsoft::WRL::ComPtr<CPathData>::operator=(&v67, v47);
+        goto LABEL_52;
+      case 0x11:
+        LOBYTE(v66[0]) = *(_BYTE *)(v40 + 8);
+        v68 = 17;
+        goto LABEL_51;
+      case 0x23:
+        v68 = 35;
+        *(_QWORD *)&v66[0] = *(_QWORD *)(v40 + 8);
+        goto LABEL_51;
+      case 0x2A:
+        v68 = 42;
+        LODWORD(v66[0]) = *(_DWORD *)(v40 + 8);
+        goto LABEL_51;
+      case 0x34:
+        v68 = 52;
+        *(_QWORD *)&v66[0] = *(_QWORD *)(v40 + 8);
+        DWORD2(v66[0]) = *(_DWORD *)(v40 + 16);
+        goto LABEL_51;
+      case 0x45:
+        v68 = 69;
+        v66[0] = *(_OWORD *)(v40 + 8);
+        goto LABEL_51;
+      case 0x46:
+        v68 = 70;
+        v66[0] = *(_OWORD *)(v40 + 8);
+        goto LABEL_51;
+      case 0x47:
+        v68 = 71;
+        v66[0] = *(_OWORD *)(v40 + 8);
+        goto LABEL_51;
+      default:
+        v11 = -2147467259;
+        MilInstrumentationCheckHR_MaybeFailFast((__int64)v25, 0LL, 0, -2147467259, 0x6E4u, 0LL);
+        v41 = -2147467259;
+        goto LABEL_85;
+    }
+  }
+  LODWORD(v66[0]) = *(_DWORD *)(v40 + 8);
+LABEL_51:
+  v69 = 1;
+LABEL_52:
+  v41 = v11;
+  if ( v11 < 0 )
+  {
+LABEL_85:
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v25, 0LL, 0, v11, 0x50u, 0LL);
+    goto LABEL_88;
+  }
+  v11 = 0;
+LABEL_54:
+  v3 = v61;
+LABEL_32:
+  v27 = *(CKeyframeAnimation ***)(v21 + 8 * v23 + 8);
+  v28 = *((_DWORD *)v27 + 5);
+  if ( v28 == 1 )
+  {
+    CExpressionValue::CopyFrom((CExpressionValue *)v62, (const struct CExpressionValue *)(v27 + 3));
     goto LABEL_34;
   }
-  (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _BYTE *, _BYTE *, _OWORD *))(**(_QWORD **)(v21 + 8 * v23 + 16) + 32LL))(
+  v51 = v28 - 2;
+  if ( !v51 )
+  {
+    v58 = CKeyframeAnimation::ProcessInnerExpression(v27[3], *((_DWORD *)v27 + 8), v3, (struct CExpressionValue *)v62);
+    v56 = v58;
+    if ( v58 >= 0 )
+      goto LABEL_34;
+    MilInstrumentationCheckHR_MaybeFailFast(v59, 0LL, 0, v58, 0x4Au, 0LL);
+LABEL_115:
+    MilInstrumentationCheckHR_MaybeFailFast(v57, 0LL, 0, v56, 0x1CEu, 0LL);
+    goto LABEL_39;
+  }
+  if ( v51 != 1 )
+    ModuleFailFastForHRESULT(2147549183LL, retaddr);
+  v52 = v27[3];
+  v53 = *((_QWORD *)v52 + 44);
+  if ( !*(_DWORD *)v53 )
+  {
+    v54 = CKeyframeAnimation::SampleStartingValue(v27[3]);
+    v11 = v54;
+    if ( v54 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v27, 0LL, 0, v54, 0x6B1u, 0LL);
+      goto LABEL_111;
+    }
+    v11 = 0;
+  }
+  if ( *(_DWORD *)v53 != 18 )
+  {
+    switch ( *(_DWORD *)v53 )
+    {
+      case 0xB:
+        v55 = *((_QWORD *)v52 + 53);
+        v64 = 11;
+        v65 = 1;
+        Microsoft::WRL::ComPtr<CPathData>::operator=(&v63, v55);
+        goto LABEL_111;
+      case 0x11:
+        LOBYTE(v62[0]) = *(_BYTE *)(v53 + 8);
+        v64 = 17;
+        goto LABEL_110;
+      case 0x23:
+        v64 = 35;
+        *(_QWORD *)&v62[0] = *(_QWORD *)(v53 + 8);
+        goto LABEL_110;
+      case 0x2A:
+        v64 = 42;
+        LODWORD(v62[0]) = *(_DWORD *)(v53 + 8);
+        goto LABEL_110;
+      case 0x34:
+        v64 = 52;
+        *(_QWORD *)&v62[0] = *(_QWORD *)(v53 + 8);
+        DWORD2(v62[0]) = *(_DWORD *)(v53 + 16);
+        goto LABEL_110;
+      case 0x45:
+        v64 = 69;
+        v62[0] = *(_OWORD *)(v53 + 8);
+        goto LABEL_110;
+      case 0x46:
+        v64 = 70;
+        v62[0] = *(_OWORD *)(v53 + 8);
+        goto LABEL_110;
+      case 0x47:
+        v64 = 71;
+        v62[0] = *(_OWORD *)(v53 + 8);
+        goto LABEL_110;
+      default:
+        v11 = -2147467259;
+        MilInstrumentationCheckHR_MaybeFailFast((__int64)v27, 0LL, 0, -2147467259, 0x6E4u, 0LL);
+        v56 = -2147467259;
+        goto LABEL_108;
+    }
+  }
+  LODWORD(v62[0]) = *(_DWORD *)(v53 + 8);
+LABEL_110:
+  v65 = 1;
+LABEL_111:
+  v56 = v11;
+  if ( v11 < 0 )
+  {
+LABEL_108:
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v27, 0LL, 0, v11, 0x50u, 0LL);
+    goto LABEL_115;
+  }
+LABEL_34:
+  (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _OWORD *, _OWORD *, _OWORD *))(**(_QWORD **)(v21 + 8 * v23 + 16) + 24LL))(
     *(_QWORD *)(v21 + 8 * v23 + 16),
     *(_QWORD *)(v21 + 8 * v24 + 8),
     *(unsigned int *)(*(_QWORD *)(v21 + 8 * v24 + 8) + 16LL),
-    v46,
-    v42,
-    v38);
-  if ( Timer::GetIsComplete((Timer *)v4) )
-    *((_BYTE *)this + 140) &= ~2u;
-  v29 = v38[1];
-  v30 = v39;
-  *(_OWORD *)this = v38[0];
-  v31 = v38[2];
-  *((_OWORD *)this + 1) = v29;
-  v32 = v38[3];
-  *((_OWORD *)this + 2) = v31;
-  *((_OWORD *)this + 3) = v32;
-  if ( *((_QWORD *)this + 8) != v30 )
+    v66,
+    v62,
+    v70);
+  v29 = *((_DWORD *)this + 23);
+  v30 = *((_DWORD *)this + 20);
+  if ( *((_BYTE *)this + 96) )
   {
-    v37[0] = v30;
-    Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef(v37);
-    v37[0] = *((_QWORD *)this + 8);
-    *((_QWORD *)this + 8) = v30;
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(v37);
-    v30 = v39;
+    if ( v29 > v30 && v29 <= *((_DWORD *)this + 21) )
+      goto LABEL_37;
   }
-  *((_DWORD *)this + 18) = v40;
-  *((_BYTE *)this + 76) = v41;
-LABEL_34:
-  if ( v30 )
+  else if ( v29 >= v30 && v29 < *((_DWORD *)this + 21) )
   {
-    v39 = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v30 + 16LL))(v30);
+    goto LABEL_37;
   }
-  v33 = v43;
-  if ( v43 )
+  *((_BYTE *)this + 140) &= ~2u;
+LABEL_37:
+  v31 = v70[1];
+  v32 = v71;
+  *(_OWORD *)this = v70[0];
+  v33 = v70[2];
+  *((_OWORD *)this + 1) = v31;
+  v34 = v70[3];
+  *((_OWORD *)this + 2) = v33;
+  *((_OWORD *)this + 3) = v34;
+  if ( *((_QWORD *)this + 8) != v32 )
   {
-    v43 = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v33 + 16LL))(v33);
+    v61 = (struct CExpressionValueStack *)v32;
+    Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef((__int64 *)&v61);
+    v60 = *((_QWORD *)this + 8);
+    *((_QWORD *)this + 8) = v32;
+    if ( v60 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v60 + 16LL))(v60);
   }
-  v34 = v47;
-  if ( v47 )
+  *((_DWORD *)this + 18) = v72;
+  *((_BYTE *)this + 76) = v73;
+LABEL_39:
+  v35 = v71;
+  if ( v71 )
   {
-    v47 = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v34 + 16LL))(v34);
+    v71 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v35 + 16LL))(v35);
+  }
+  v36 = v63;
+  if ( v63 )
+  {
+    v63 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v36 + 16LL))(v36);
+  }
+  v37 = v67;
+  if ( v67 )
+  {
+    v67 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v37 + 16LL))(v37);
   }
 }

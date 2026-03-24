@@ -1,31 +1,26 @@
 /*
- * XREFs of CmObReferenceObjectByHandle @ 0x140AF63D0
+ * XREFs of CmObReferenceObjectByHandle @ 0x1406DD40C
  * Callers:
- *     CmLoadDifferencingKey @ 0x14069108C (CmLoadDifferencingKey.c)
- *     NtSetValueKey @ 0x1406D2AB0 (NtSetValueKey.c)
- *     NtEnumerateKey @ 0x1406DBEC0 (NtEnumerateKey.c)
- *     NtQueryValueKey @ 0x1406E2F20 (NtQueryValueKey.c)
- *     NtQueryMultipleValueKey @ 0x14070DE10 (NtQueryMultipleValueKey.c)
- *     NtEnumerateValueKey @ 0x14070E3E0 (NtEnumerateValueKey.c)
- *     NtDeleteValueKey @ 0x14070EAF0 (NtDeleteValueKey.c)
- *     NtDeleteKey @ 0x14070FD60 (NtDeleteKey.c)
- *     NtNotifyChangeMultipleKeys @ 0x140767040 (NtNotifyChangeMultipleKeys.c)
- *     NtFlushKey @ 0x1407ACA70 (NtFlushKey.c)
- *     NtLockRegistryKey @ 0x140848FA0 (NtLockRegistryKey.c)
- *     CmpSaveBootControlSet @ 0x140A0A5C8 (CmpSaveBootControlSet.c)
- *     CmOpenKeyForBugCheckRecovery @ 0x140A0D150 (CmOpenKeyForBugCheckRecovery.c)
- *     NtCompactKeys @ 0x140A0D420 (NtCompactKeys.c)
- *     NtCompressKey @ 0x140A0D6F0 (NtCompressKey.c)
- *     NtRenameKey @ 0x140A0E060 (NtRenameKey.c)
- *     NtReplaceKey @ 0x140A0E560 (NtReplaceKey.c)
- *     NtRestoreKey @ 0x140A0E8C0 (NtRestoreKey.c)
- *     NtSaveKeyEx @ 0x140A0EC80 (NtSaveKeyEx.c)
- *     NtSaveMergedKeys @ 0x140A0EF10 (NtSaveMergedKeys.c)
- *     CmSaveKeyToBuffer @ 0x140AF67B0 (CmSaveKeyToBuffer.c)
- *     CmpOpenSystemDriverHiveContext @ 0x140B72B88 (CmpOpenSystemDriverHiveContext.c)
+ *     NtQueryMultipleValueKey @ 0x140686BA0 (NtQueryMultipleValueKey.c)
+ *     NtFlushKey @ 0x140696C00 (NtFlushKey.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1406DC020 (NtNotifyChangeMultipleKeys.c)
+ *     NtSetValueKey @ 0x1406DCBB0 (NtSetValueKey.c)
+ *     NtDeleteValueKey @ 0x1406E1EF0 (NtDeleteValueKey.c)
+ *     NtDeleteKey @ 0x1406E5000 (NtDeleteKey.c)
+ *     CmLoadDifferencingKey @ 0x1406E737C (CmLoadDifferencingKey.c)
+ *     NtSaveKeyEx @ 0x140729810 (NtSaveKeyEx.c)
+ *     NtLockRegistryKey @ 0x1407C3710 (NtLockRegistryKey.c)
+ *     CmpSaveBootControlSet @ 0x140867AD0 (CmpSaveBootControlSet.c)
+ *     NtCompactKeys @ 0x140868050 (NtCompactKeys.c)
+ *     NtCompressKey @ 0x140868330 (NtCompressKey.c)
+ *     NtRenameKey @ 0x140868C80 (NtRenameKey.c)
+ *     NtReplaceKey @ 0x140869190 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x140869520 (NtRestoreKey.c)
+ *     NtSaveMergedKeys @ 0x1408697F0 (NtSaveMergedKeys.c)
+ *     CmpOpenSystemDriverHiveContext @ 0x140A61428 (CmpOpenSystemDriverHiveContext.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmObReferenceObjectByHandle(
@@ -33,34 +28,44 @@ __int64 __fastcall CmObReferenceObjectByHandle(
         ACCESS_MASK a2,
         __int64 a3,
         KPROCESSOR_MODE a4,
-        PVOID *a5,
+        struct _DMA_ADAPTER **a5,
         _QWORD *a6)
 {
-  _QWORD *v6; // rbx
-  struct _OBJECT_HANDLE_INFORMATION *v7; // rax
-  NTSTATUS v8; // edi
-  __int64 v10; // [rsp+30h] [rbp-18h] BYREF
-  PVOID Object; // [rsp+60h] [rbp+18h] BYREF
+  _QWORD *v6; // rdi
+  NTSTATUS v7; // eax
+  struct _DMA_ADAPTER *v8; // rcx
+  unsigned int v9; // ebx
+  __int64 v11; // [rsp+30h] [rbp-18h] BYREF
+  struct _DMA_ADAPTER *v12; // [rsp+60h] [rbp+18h] BYREF
 
+  v11 = 0LL;
+  v12 = 0LL;
   v6 = a6;
-  v7 = (struct _OBJECT_HANDLE_INFORMATION *)&v10;
-  v10 = 0LL;
-  Object = 0LL;
-  if ( !a6 )
-    v7 = 0LL;
-  v8 = ObReferenceObjectByHandle(a1, a2, (POBJECT_TYPE)CmKeyObjectType, a4, &Object, v7);
-  if ( v8 >= 0 )
+  v7 = ObReferenceObjectByHandle(
+         a1,
+         a2,
+         (POBJECT_TYPE)CmKeyObjectType,
+         a4,
+         (PVOID *)&v12,
+         (POBJECT_HANDLE_INFORMATION)((unsigned __int64)&v11 & -(__int64)(a6 != 0LL)));
+  v8 = v12;
+  v9 = v7;
+  if ( v7 >= 0 )
   {
-    if ( *(_DWORD *)Object == 1803104306 )
+    if ( *(_DWORD *)&v12->Version == 1803104306 )
     {
-      *a5 = Object;
+      *a5 = v12;
+      v8 = 0LL;
       if ( v6 )
-        *v6 = v10;
-      return 0LL;
+        *v6 = v11;
+      v9 = 0;
     }
-    v8 = -1073741816;
+    else
+    {
+      v9 = -1073741816;
+    }
   }
-  if ( Object )
-    ObfDereferenceObject(Object);
-  return (unsigned int)v8;
+  if ( v8 )
+    HalPutDmaAdapter(v8);
+  return v9;
 }

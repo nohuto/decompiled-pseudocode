@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmpInitiateModernStandbyTransition @ 0x1409A56A4
+ * XREFs of TtmpInitiateModernStandbyTransition @ 0x1408FFAB0
  * Callers:
- *     TtmpActivateSessionWorker @ 0x1409A52C8 (TtmpActivateSessionWorker.c)
- *     TtmpDeactivateSessionWorker @ 0x1409A54C0 (TtmpDeactivateSessionWorker.c)
+ *     TtmpActivateSessionWorker @ 0x1408FF6B8 (TtmpActivateSessionWorker.c)
+ *     TtmpDeactivateSessionWorker @ 0x1408FF8C0 (TtmpDeactivateSessionWorker.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PoTtmInitiatePowerStateTransition @ 0x140996DE8 (PoTtmInitiatePowerStateTransition.c)
- *     TtmiLogInitiateModernStandbyTransitionStart @ 0x1409A8BAC (TtmiLogInitiateModernStandbyTransitionStart.c)
- *     TtmiLogInitiateModernStandbyTransitionStop @ 0x1409A8CA0 (TtmiLogInitiateModernStandbyTransitionStop.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PoTtmInitiatePowerStateTransition @ 0x1408EFB78 (PoTtmInitiatePowerStateTransition.c)
+ *     TtmiLogInitiateModernStandbyTransitionStart @ 0x140902EA8 (TtmiLogInitiateModernStandbyTransitionStart.c)
+ *     TtmiLogInitiateModernStandbyTransitionStop @ 0x140902F9C (TtmiLogInitiateModernStandbyTransitionStop.c)
  */
 
 __int64 __fastcall TtmpInitiateModernStandbyTransition(__int64 a1, char a2, unsigned int a3)

@@ -1,19 +1,17 @@
 /*
- * XREFs of ?PushStacksForBspChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x1801B5874
+ * XREFs of ?PushStacksForBspChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x180199EB4
  * Callers:
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180091060 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18008A040 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     ?GetOpacityInternal@CVisual@@QEBAMXZ @ 0x1800456B4 (-GetOpacityInternal@CVisual@@QEBAMXZ.c)
- *     ?Push@?$CWatermarkStack@W4Enum@MilBackfaceVisibility@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBackfaceVisibility@@@Z @ 0x18004C000 (-Push@-$CWatermarkStack@W4Enum@MilBackfaceVisibility@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBackfaceVis.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Push@?$CWatermarkStack@M$0EA@$01$09@@QEAAJAEBM@Z @ 0x18008F04C (-Push@-$CWatermarkStack@M$0EA@$01$09@@QEAAJAEBM@Z.c)
- *     ?Push@?$CWatermarkStack@_N$0EA@$01$09@@QEAAJAEB_N@Z @ 0x1800D66A4 (-Push@-$CWatermarkStack@_N$0EA@$01$09@@QEAAJAEB_N@Z.c)
- *     ?Push@?$CWatermarkStack@I$0EA@$01$09@@QEAAJAEBI@Z @ 0x1801B2DEC (-Push@-$CWatermarkStack@I$0EA@$01$09@@QEAAJAEBI@Z.c)
- *     ?GetTopByReference@?$CWatermarkStack@M$0EA@$01$09@@QEBAPEBMXZ @ 0x1801B5050 (-GetTopByReference@-$CWatermarkStack@M$0EA@$01$09@@QEBAPEBMXZ.c)
- *     ?Push@?$CWatermarkStack@W4Enum@MilBitmapBorderMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmapBorderMode@@@Z @ 0x1801B54D8 (-Push@-$CWatermarkStack@W4Enum@MilBitmapBorderMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmapBorderM.c)
- *     ?Push@?$CWatermarkStack@W4Enum@MilBitmapInterpolationMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmapInterpolationMode@@@Z @ 0x1801B560C (-Push@-$CWatermarkStack@W4Enum@MilBitmapInterpolationMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmap.c)
- *     ?Push@?$CWatermarkStack@W4Enum@MilCompositingMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilCompositingMode@@@Z @ 0x1801B5740 (-Push@-$CWatermarkStack@W4Enum@MilCompositingMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilCompositingMod.c)
- *     ?PushTransformForChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x1801B5CB4 (-PushTransformForChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z.c)
+ *     ?Push@?$CWatermarkStack@W4StackStateType@COcclusionContext@@$0EA@$01$09@@QEAAJAEBW4StackStateType@COcclusionContext@@@Z @ 0x18003F564 (-Push@-$CWatermarkStack@W4StackStateType@COcclusionContext@@$0EA@$01$09@@QEAAJAEBW4StackStateTyp.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetOpacityInternal@CVisual@@QEBAMXZ @ 0x180068390 (-GetOpacityInternal@CVisual@@QEBAMXZ.c)
+ *     ?Push@?$CWatermarkStack@W4Enum@MilBitmapInterpolationMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmapInterpolationMode@@@Z @ 0x18008F40C (-Push@-$CWatermarkStack@W4Enum@MilBitmapInterpolationMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilBitmap.c)
+ *     ?Push@?$CWatermarkStack@M$0EA@$01$09@@QEAAJAEBM@Z @ 0x180094694 (-Push@-$CWatermarkStack@M$0EA@$01$09@@QEAAJAEBM@Z.c)
+ *     ?GetTopByReference@?$CWatermarkStack@W4Enum@MilBackfaceVisibility@@$0EA@$01$09@@QEBAPEBW4Enum@MilBackfaceVisibility@@XZ @ 0x1800CB730 (-GetTopByReference@-$CWatermarkStack@W4Enum@MilBackfaceVisibility@@$0EA@$01$09@@QEBAPEBW4Enum@Mi.c)
+ *     ?Push@?$CWatermarkStack@_N$0EA@$01$09@@QEAAJAEB_N@Z @ 0x180177C18 (-Push@-$CWatermarkStack@_N$0EA@$01$09@@QEAAJAEB_N@Z.c)
+ *     ?Push@?$CWatermarkStack@W4Enum@MilCompositingMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilCompositingMode@@@Z @ 0x180199C4C (-Push@-$CWatermarkStack@W4Enum@MilCompositingMode@@$0EA@$01$09@@QEAAJAEBW4Enum@MilCompositingMod.c)
+ *     ?PushTransformForChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x18019A300 (-PushTransformForChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z.c)
  */
 
 __int64 __fastcall CBspPreComputeHelper::PushStacksForBspChildVisual(
@@ -42,70 +40,74 @@ __int64 __fastcall CBspPreComputeHelper::PushStacksForBspChildVisual(
   int v24; // [rsp+50h] [rbp+20h] BYREF
 
   CBspPreComputeHelper::PushTransformForChildVisual(this, a2, a3);
-  if ( (*((_BYTE *)a3 + 104) & 0x40) != 0
-    && (v24 = *((int *)a3 + 52),
-        v5 = CWatermarkStack<enum MilBackfaceVisibility::Enum,64,2,10>::Push((unsigned int *)this + 32, &v24),
+  if ( (*((_BYTE *)a3 + 96) & 0x40) != 0
+    && (v24 = *((int *)a3 + 50),
+        v5 = CWatermarkStack<enum COcclusionContext::StackStateType,64,2,10>::Push((unsigned int *)this + 32, &v24),
         v7 = v5,
         v5 < 0) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x9Du);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x9Du, 0LL);
   }
   else
   {
-    v8 = *((_DWORD *)a3 + 26);
+    v8 = *((_DWORD *)a3 + 24);
     if ( (v8 & 2) != 0
       && (v24 = v8 << 18 >> 28,
           v9 = CWatermarkStack<enum MilBitmapInterpolationMode::Enum,64,2,10>::Push((unsigned int *)this + 40, &v24),
           v7 = v9,
           v9 < 0) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0xA3u);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xA3u, 0LL);
     }
-    else if ( (*((_BYTE *)a3 + 104) & 8) != 0
-           && (v24 = *((int *)a3 + 49),
-               v11 = CWatermarkStack<enum MilBitmapBorderMode::Enum,64,2,10>::Push((unsigned int *)this + 48, &v24),
+    else if ( (*((_BYTE *)a3 + 96) & 8) != 0
+           && (v24 = *((int *)a3 + 47),
+               v11 = CWatermarkStack<enum MilBitmapInterpolationMode::Enum,64,2,10>::Push(
+                       (unsigned int *)this + 48,
+                       &v24),
                v7 = v11,
                v11 < 0) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0xA9u);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xA9u, 0LL);
     }
-    else if ( (*((_BYTE *)a3 + 104) & 0x10) != 0
-           && (v24 = *((int *)a3 + 50),
+    else if ( (*((_BYTE *)a3 + 96) & 0x10) != 0
+           && (v24 = *((int *)a3 + 48),
                v13 = CWatermarkStack<enum MilCompositingMode::Enum,64,2,10>::Push((unsigned int *)this + 56, &v24),
                v7 = v13,
                v13 < 0) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0xAFu);
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0xAFu, 0LL);
     }
     else
     {
       OpacityInternal = CVisual::GetOpacityInternal(a3);
       if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(OpacityInternal - 1.0) & _xmm) < 0.0000011920929
         || (*(float *)&v24 = fminf(1.0, fmaxf(OpacityInternal, 0.0))
-                           * *(float *)CWatermarkStack<float,64,2,10>::GetTopByReference((__int64)this + 256),
+                           * *(float *)CWatermarkStack<enum MilBackfaceVisibility::Enum,64,2,10>::GetTopByReference((__int64)this + 256),
             v17 = CWatermarkStack<float,64,2,10>::Push(v16, &v24),
             v7 = v17,
             v17 >= 0) )
       {
-        if ( (*((_BYTE *)a3 + 101) & 0x40) != 0
-          && (LOBYTE(v24) = 1,
+        if ( *((char *)a3 + 93) >= 0
+          || (LOBYTE(v24) = 1,
               v19 = CWatermarkStack<bool,64,2,10>::Push((const void **)this + 36, &v24),
               v7 = v19,
-              v19 < 0) )
+              v19 >= 0) )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0LL, v19, 0xBEu);
+          v21 = CWatermarkStack<enum MilCompositingMode::Enum,64,2,10>::Push(
+                  (unsigned int *)this + 80,
+                  (_DWORD *)this + 88);
+          v7 = v21;
+          if ( v21 < 0 )
+            MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0xC2u, 0LL);
         }
         else
         {
-          v21 = CWatermarkStack<unsigned int,64,2,10>::Push((unsigned int *)this + 80, (_DWORD *)this + 88);
-          v7 = v21;
-          if ( v21 < 0 )
-            MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, v21, 0xC2u);
+          MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0xBEu, 0LL);
         }
       }
       else
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0LL, v17, 0xB8u);
+        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0xB8u, 0LL);
       }
     }
   }

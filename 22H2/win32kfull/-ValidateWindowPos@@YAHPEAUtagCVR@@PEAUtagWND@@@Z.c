@@ -1,125 +1,131 @@
 /*
- * XREFs of ?ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z @ 0x1C00F3624
+ * XREFs of ?ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z @ 0x1C006F670
  * Callers:
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00F58E4 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     xxxEndDeferWindowPosEx @ 0x1C0122FB0 (xxxEndDeferWindowPosEx.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068290 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006ED1C (xxxEndDeferWindowPosEx.c)
+ *     ?ValidateSmwp@@YAHPEAUtagSMWP@@PEAH@Z @ 0x1C006F5C4 (-ValidateSmwp@@YAHPEAUtagSMWP@@PEAH@Z.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
  */
 
-__int64 __fastcall ValidateWindowPos(struct tagCVR *a1, struct tagWND *a2)
+_BOOL8 __fastcall ValidateWindowPos(struct tagCVR *a1, struct tagWND *a2)
 {
-  __int64 v2; // rdi
-  __int64 v5; // rsi
-  unsigned int v6; // ebx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  _QWORD *v10; // r15
-  _QWORD *v11; // rdi
-  __int64 v12; // rax
-  __int64 v13; // rsi
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  __int64 v16; // r15
-  char v17; // dl
-  unsigned __int64 v18; // rcx
-  __int64 v19; // rax
-  _QWORD *v21; // rax
-  __int64 v22; // r9
-  char v23; // r10
+  unsigned __int64 v2; // rdi
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // rbx
+  unsigned __int64 v10; // rdi
+  __int64 v11; // rcx
+  _QWORD *v12; // r15
+  _QWORD *v13; // rbx
+  __int64 DesktopWindow; // rax
+  struct tagWND *v16; // rdx
+  struct tagWND *v17; // rdi
+  __int64 v18; // rax
+  struct tagWND *v19; // rbp
+  char v20; // r8
+  unsigned __int64 v21; // rcx
+  _QWORD *v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // r10
+  char v25; // r11
+  __int64 v26; // rax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v29; // rcx
+  __int64 CurrentThreadProcess; // rax
 
   v2 = *(_QWORD *)a1;
-  PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( (unsigned __int64)(unsigned __int16)v2 >= *(_QWORD *)(gpsi + 8LL) )
-    return 0LL;
-  v5 = gSharedInfo[1] + LODWORD(gSharedInfo[2]) * (unsigned int)(unsigned __int16)v2;
-  v6 = 0;
-  v10 = (_QWORD *)HMPkheFromPhe(v5);
-  LOWORD(v2) = WORD1(v2) & 0x7FFF;
-  if ( (WORD1(v2) & 0x7FFF) != *(_WORD *)(v5 + 26)
-    && (_WORD)v2 != 0x7FFF
-    && ((_WORD)v2 || !PsGetCurrentProcessWow64Process(v8, v7, v9)) )
+  CurrentThread = KeGetCurrentThread();
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v7, v6, v8),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v29),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
   {
-    return 0LL;
+    PsGetThreadWin32Thread(CurrentThread);
   }
-  if ( (*(_BYTE *)(v5 + 25) & 1) != 0 )
-    return 0LL;
-  if ( *(_BYTE *)(v5 + 24) != 1 )
-    return 0LL;
-  v11 = (_QWORD *)*v10;
-  if ( !*v10 )
-    return 0LL;
-  *((_QWORD *)a1 + 13) = v11[2];
-  if ( (*((_DWORD *)a1 + 8) & 4) != 0 )
-    return 1LL;
-  v12 = v11[3];
-  v13 = 0LL;
-  if ( v12 )
+  if ( (unsigned __int64)(unsigned __int16)v2 < *(_QWORD *)(gpsi + 8LL) )
   {
-    v14 = *(_QWORD *)(v12 + 8);
-    if ( v14 )
-      v13 = *(_QWORD *)(v14 + 24);
-  }
-  v15 = v11[5];
-  v16 = v11[13];
-  v17 = *(_BYTE *)(v15 + 19);
-  if ( v17 < 0 )
-    return 0LL;
-  v18 = *((_QWORD *)a1 + 1);
-  if ( v18 > 0xFFFFFFFFFFFFFFFDuLL )
-  {
-    if ( v16 != v13 )
-      return 0LL;
-    goto LABEL_17;
-  }
-  if ( v18 )
-  {
-    if ( v18 != 1 )
+    v9 = gSharedInfo[1] + (unsigned int)(unsigned __int16)v2 * LODWORD(gSharedInfo[2]);
+    v10 = v2 >> 16;
+    v12 = (_QWORD *)HMPkheFromPhe(v9);
+    if ( ((_WORD)v10 == *(_WORD *)(v9 + 26)
+       || (_WORD)v10 == 0xFFFF
+       || !(_WORD)v10 && PsGetCurrentProcessWow64Process(v11))
+      && (*(_BYTE *)(v9 + 25) & 1) == 0
+      && *(_BYTE *)(v9 + 24) == 1 )
     {
-      v21 = (_QWORD *)HMValidateHandleNoSecure(v18, 1);
-      if ( v21 && (v22 = v21[5], v23 = *(_BYTE *)(v22 + 19), v23 >= 0) )
+      v13 = (_QWORD *)*v12;
+      if ( *v12 )
       {
-        if ( v11 == v21 || v11[13] != v21[13] )
-          return 0LL;
-        if ( !a2 )
+        *((_QWORD *)a1 + 13) = v13[2];
+        if ( (*((_DWORD *)a1 + 8) & 4) != 0 )
           return 1LL;
-        if ( v16 != v13 )
-          goto LABEL_18;
-        if ( ((*(_BYTE *)(v11[5] + 19LL) & 4 ^ (*(unsigned __int8 *)(v11[5] + 24LL) >> 1) & 4) & 0xFFFFFFFC) == 0 )
+        DesktopWindow = GetDesktopWindow(v13);
+        v16 = (struct tagWND *)v13[13];
+        v17 = (struct tagWND *)DesktopWindow;
+        v18 = v13[5];
+        v19 = v16;
+        v20 = *(_BYTE *)(v18 + 19);
+        if ( v20 >= 0 )
         {
-          v19 = v21[11];
-LABEL_28:
-          if ( v19
-            && ((*(_BYTE *)(*(_QWORD *)(v19 + 40) + 19LL) & 4 ^ (*(unsigned __int8 *)(*(_QWORD *)(v19 + 40) + 24LL) >> 1) & 4) & 0xFFFFFFFC) != 0 )
+          v21 = *((_QWORD *)a1 + 1);
+          if ( v21 > 0xFFFFFFFFFFFFFFFDuLL )
+          {
+            if ( v16 != v17 )
+              return 0LL;
+            return !a2 || a2 == v16;
+          }
+          if ( v21 )
+          {
+            if ( v21 == 1 )
+              return !a2 || a2 == v16;
+            LOBYTE(v16) = 1;
+            v22 = (_QWORD *)HMValidateHandleNoSecure(v21, v16);
+            if ( !v22 || (v24 = v22[5], v25 = *(_BYTE *)(v24 + 19), v25 < 0) )
+            {
+              UserSetLastError(6LL, v23, (__int64)v22);
+              return 0LL;
+            }
+            if ( v13 == v22 )
+              return 0LL;
+            v16 = (struct tagWND *)v13[13];
+            if ( v16 != (struct tagWND *)v22[13] )
+              return 0LL;
+            if ( !a2 )
+              return 1LL;
+            if ( v19 != v17 )
+              return !a2 || a2 == v16;
+            if ( ((*(_BYTE *)(v13[5] + 19LL) & 4 ^ (*(unsigned __int8 *)(v13[5] + 24LL) >> 1) & 4) & 0xFFFFFFFC) != 0 )
+            {
+              if ( ((v25 & 4 ^ (*(unsigned __int8 *)(v24 + 24) >> 1) & 4) & 0xFFFFFFFC) == 0 )
+                return 0LL;
+              return !a2 || a2 == v16;
+            }
+            v26 = v22[11];
+          }
+          else
+          {
+            if ( !a2 )
+              return 1LL;
+            if ( v16 != v17 || ((v20 & 4 ^ (*(unsigned __int8 *)(v18 + 24) >> 1) & 4) & 0xFFFFFFFC) != 0 )
+              return !a2 || a2 == v16;
+            v26 = *((_QWORD *)a2 + 14);
+          }
+          if ( v26
+            && ((*(_BYTE *)(*(_QWORD *)(v26 + 40) + 19LL) & 4 ^ (*(unsigned __int8 *)(*(_QWORD *)(v26 + 40) + 24LL) >> 1) & 4) & 0xFFFFFFFC) != 0 )
           {
             return 0LL;
           }
-LABEL_18:
-          LOBYTE(v6) = a2 == (struct tagWND *)v11[13];
-          return v6;
+          return !a2 || a2 == v16;
         }
-        if ( ((v23 & 4 ^ (*(unsigned __int8 *)(v22 + 24) >> 1) & 4) & 0xFFFFFFFC) != 0 )
-          goto LABEL_18;
       }
-      else
-      {
-        UserSetLastError(6);
-      }
-      return 0LL;
     }
-LABEL_17:
-    if ( a2 )
-      goto LABEL_18;
-    return 1LL;
   }
-  if ( a2 )
-  {
-    if ( v16 != v13 || ((v17 & 4 ^ (*(unsigned __int8 *)(v15 + 24) >> 1) & 4) & 0xFFFFFFFC) != 0 )
-      goto LABEL_18;
-    v19 = *((_QWORD *)a2 + 14);
-    goto LABEL_28;
-  }
-  return 1LL;
+  return 0LL;
 }

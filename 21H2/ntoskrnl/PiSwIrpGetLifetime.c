@@ -1,13 +1,13 @@
 /*
- * XREFs of PiSwIrpGetLifetime @ 0x140953894
+ * XREFs of PiSwIrpGetLifetime @ 0x1408AEA70
  * Callers:
- *     PiSwDispatch @ 0x140764DB0 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14074D990 (PiSwDispatch.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     PiSwDeviceOperationsAllowed @ 0x140763000 (PiSwDeviceOperationsAllowed.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PiSwDeviceOperationsAllowed @ 0x14074D08C (PiSwDeviceOperationsAllowed.c)
  */
 
 __int64 __fastcall PiSwIrpGetLifetime(PIRP Irp)
@@ -37,7 +37,7 @@ __int64 __fastcall PiSwIrpGetLifetime(PIRP Irp)
       v2 = -1073741637;
     }
     ExReleaseResourceLite(&PiSwLockObj);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   else
   {

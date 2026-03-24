@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ReportProcessStates@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00D95A0
+ * XREFs of ?ReportProcessStates@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B3280
  * Callers:
- *     ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00D9688 (-ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B3368 (-ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ.c)
  * Callees:
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000209C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00024A4 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0014F50 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?ReportVaAllocatorState@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C00E46E8 (-ReportVaAllocatorState@CVirtualAddressAllocator@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001098 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001B74 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001C48 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?ReportVaAllocatorState@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C00BF51C (-ReportVaAllocatorState@CVirtualAddressAllocator@@QEAAXXZ.c)
  */
 
 void __fastcall VIDMM_GLOBAL::ReportProcessStates(struct _KTHREAD **this)
@@ -28,7 +28,7 @@ void __fastcall VIDMM_GLOBAL::ReportProcessStates(struct _KTHREAD **this)
     if ( v3 )
       CVirtualAddressAllocator::ReportVaAllocatorState(v3);
   }
-  for ( j = 0LL; (unsigned int)j < *((_DWORD *)this + 1754); j = (unsigned int)(j + 1) )
+  for ( j = 0LL; (unsigned int)j < *((_DWORD *)this + 1750); j = (unsigned int)(j + 1) )
   {
     v5 = this[j + 5052];
     if ( v5 )

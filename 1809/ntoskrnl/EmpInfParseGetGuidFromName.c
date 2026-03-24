@@ -6,8 +6,8 @@
  *     EmpParseRules @ 0x1409BEA68 (EmpParseRules.c)
  *     EmpParseTargetRules @ 0x1409BEFF4 (EmpParseTargetRules.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     EmpInfParseGetValueFromSectionAndKeyName @ 0x1409BF58C (EmpInfParseGetValueFromSectionAndKeyName.c)

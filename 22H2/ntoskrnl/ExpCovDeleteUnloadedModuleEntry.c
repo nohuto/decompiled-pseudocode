@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpCovDeleteUnloadedModuleEntry @ 0x140A06408
+ * XREFs of ExpCovDeleteUnloadedModuleEntry @ 0x1409573D0
  * Callers:
- *     ExCovReadjustUnloadedModuleEntry @ 0x140696D48 (ExCovReadjustUnloadedModuleEntry.c)
- *     ExpCovQueryInformation @ 0x140A0685C (ExpCovQueryInformation.c)
- *     ExpCovResetInformation @ 0x140A07104 (ExpCovResetInformation.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x1407733E0 (ExCovReadjustUnloadedModuleEntry.c)
+ *     ExpCovQueryInformation @ 0x14095782C (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x1409580B4 (ExpCovResetInformation.c)
  * Callees:
- *     ExpCovFreeUnloadedModuleEntry @ 0x140A06484 (ExpCovFreeUnloadedModuleEntry.c)
+ *     ExpCovFreeUnloadedModuleEntry @ 0x14095744C (ExpCovFreeUnloadedModuleEntry.c)
  */
 
 __int64 __fastcall ExpCovDeleteUnloadedModuleEntry(_QWORD *a1)
 {
-  _QWORD *v2; // rdx
-  void **v3; // rax
+  _QWORD *v2; // rax
+  void **v3; // rdx
   unsigned int v4; // edx
   unsigned int v5; // ebx
 

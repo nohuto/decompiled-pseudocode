@@ -3,8 +3,8 @@
  * Callers:
  *     sub_1406244D4 @ 0x1406244D4 (sub_1406244D4.c)
  *     sub_140624D6C @ 0x140624D6C (sub_140624D6C.c)
- *     WbAddHeapExecutedBlockToCache @ 0x14069158C (WbAddHeapExecutedBlockToCache.c)
- *     WbAddHeapExecutedBlockToLRU @ 0x14069169C (WbAddHeapExecutedBlockToLRU.c)
+ *     WbAddHeapExecutedBlockToCache @ 0x14069156C (WbAddHeapExecutedBlockToCache.c)
+ *     WbAddHeapExecutedBlockToLRU @ 0x14069167C (WbAddHeapExecutedBlockToLRU.c)
  * Callees:
  *     <none>
  */

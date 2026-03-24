@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vBrushPath4_8x8EnumRow@@YAXJPEAU_ROW@@KPEAX@Z @ 0x1C02F6960
+ * XREFs of ?vBrushPath4_8x8EnumRow@@YAXJPEAU_ROW@@KPEAX@Z @ 0x1C02CFB40
  * Callers:
  *     <none>
  * Callees:
- *     ?vPatCpyRow4_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02E6BB4 (-vPatCpyRow4_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
+ *     ?vPatCpyRow4_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02C6B7C (-vPatCpyRow4_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
  */
 
 void __fastcall vBrushPath4_8x8EnumRow(int a1, struct _ROW *a2, int a3, char *a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of draw_clrt_f_ntb_o_to_temp_start @ 0x1C0277360
+ * XREFs of draw_clrt_f_ntb_o_to_temp_start @ 0x1C0279030
  * Callers:
  *     <none>
  * Callees:
- *     ?vOrClearTypeGlyph@@YAXPEAU_GLYPHBITS@@IPEAEI@Z @ 0x1C02764F8 (-vOrClearTypeGlyph@@YAXPEAU_GLYPHBITS@@IPEAEI@Z.c)
+ *     ?vOrClearTypeGlyph@@YAXPEAU_GLYPHBITS@@IPEAEI@Z @ 0x1C0278CF0 (-vOrClearTypeGlyph@@YAXPEAU_GLYPHBITS@@IPEAEI@Z.c)
  */
 
 void __fastcall draw_clrt_f_ntb_o_to_temp_start(

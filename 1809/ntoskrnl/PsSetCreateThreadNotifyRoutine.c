@@ -1,9 +1,9 @@
 /*
- * XREFs of PsSetCreateThreadNotifyRoutine @ 0x140748140
+ * XREFs of PsSetCreateThreadNotifyRoutine @ 0x140748120
  * Callers:
  *     <none>
  * Callees:
- *     PspSetCreateThreadNotifyRoutine @ 0x1407481B0 (PspSetCreateThreadNotifyRoutine.c)
+ *     PspSetCreateThreadNotifyRoutine @ 0x140748190 (PspSetCreateThreadNotifyRoutine.c)
  */
 
 NTSTATUS __stdcall PsSetCreateThreadNotifyRoutine(PCREATE_THREAD_NOTIFY_ROUTINE NotifyRoutine)

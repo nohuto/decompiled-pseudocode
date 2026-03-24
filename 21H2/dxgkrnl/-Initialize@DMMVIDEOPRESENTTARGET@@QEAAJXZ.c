@@ -1,56 +1,76 @@
 /*
- * XREFs of ?Initialize@DMMVIDEOPRESENTTARGET@@QEAAJXZ @ 0x1C0213BB8
+ * XREFs of ?Initialize@DMMVIDEOPRESENTTARGET@@QEAAJXZ @ 0x1C0197D3C
  * Callers:
- *     ?AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@PEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z @ 0x1C0213A20 (-AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESEN.c)
- *     ?CreateDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIIAEAU_DXGK_CHILD_CAPABILITIES@@EPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C039FAA8 (-CreateDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIIAEAU_DXGK_CHILD_CAPABILITIES@@.c)
+ *     ?AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@PEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z @ 0x1C0197B70 (-AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESEN.c)
+ *     ?CreateDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIIAEAU_DXGK_CHILD_CAPABILITIES@@EPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C02E598C (-CreateDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIIAEAU_DXGK_CHILD_CAPABILITIES@@.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
-__int64 __fastcall DMMVIDEOPRESENTTARGET::Initialize(DMMVIDEOPRESENTTARGET *this, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall DMMVIDEOPRESENTTARGET::Initialize(DMMVIDEOPRESENTTARGET *this)
 {
-  __int64 v5; // rax
-  __int64 v6; // rax
-  __int64 v7; // rdi
-  __int64 v8; // rcx
-  __int64 v9; // rcx
+  PVOID v2; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  PIO_WORKITEM WorkItem; // rax
+  __int64 v8; // rax
+  __int64 v9; // rdi
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rax
 
-  v5 = operator new[](0xB0uLL, 0x4E506456u, 64LL, a4);
-  *((_QWORD *)this + 67) = v5;
-  if ( v5
-    && (*(_QWORD *)(v5 + 160) = 0LL,
-        *(_BYTE *)(*((_QWORD *)this + 67) + 168LL) = 0,
-        *(_BYTE *)(*((_QWORD *)this + 67) + 172LL) = 0,
-        *(_DWORD *)(*((_QWORD *)this + 67) + 152LL) = 0,
-        KeInitializeTimer((PKTIMER)(*((_QWORD *)this + 67) + 16LL)),
-        KeInitializeDpc(
-          (PRKDPC)(*((_QWORD *)this + 67) + 80LL),
-          (PKDEFERRED_ROUTINE)DMMVIDEOPRESENTTARGET::LinkTrainingTimeoutDpc,
-          *((PVOID *)this + 67)),
-        (*(_QWORD *)(*((_QWORD *)this + 67) + 144LL) = IoAllocateWorkItem((PDEVICE_OBJECT)g_pDriverObject)) != 0LL) )
+  v2 = operator new[](0xB0uLL, 0x4E506456u, (POOL_TYPE)512);
+  *((_QWORD *)this + 67) = v2;
+  if ( !v2 )
+    goto LABEL_8;
+  memset(v2, 0, 0xB0uLL);
+  *(_QWORD *)(*((_QWORD *)this + 67) + 160LL) = 0LL;
+  *(_BYTE *)(*((_QWORD *)this + 67) + 168LL) = 0;
+  *(_BYTE *)(*((_QWORD *)this + 67) + 172LL) = 0;
+  *(_DWORD *)(*((_QWORD *)this + 67) + 152LL) = 0;
+  KeInitializeTimer((PKTIMER)(*((_QWORD *)this + 67) + 16LL));
+  KeInitializeDpc(
+    (PRKDPC)(*((_QWORD *)this + 67) + 80LL),
+    (PKDEFERRED_ROUTINE)DMMVIDEOPRESENTTARGET::LinkTrainingTimeoutDpc,
+    *((PVOID *)this + 67));
+  WorkItem = IoAllocateWorkItem((PDEVICE_OBJECT)g_pDriverObject);
+  v4 = *((_QWORD *)this + 67);
+  *(_QWORD *)(v4 + 144) = WorkItem;
+  if ( *(_QWORD *)(*((_QWORD *)this + 67) + 144LL) )
   {
-    v6 = *((_QWORD *)this + 5);
-    if ( !v6 )
-    {
-      WdLogSingleEntry0(1LL);
-      v6 = *((_QWORD *)this + 5);
-    }
-    v7 = *(_QWORD *)(v6 + 88);
-    v8 = *(_QWORD *)(v7 + 8);
+    v8 = *((_QWORD *)this + 5);
     if ( !v8 )
     {
-      WdLogSingleEntry0(1LL);
-      v8 = *(_QWORD *)(v7 + 8);
+      v14 = WdLogNewEntry5_WdAssertion(v4, v3);
+      WdLogEvent5_WdAssertion(v14);
+      v8 = *((_QWORD *)this + 5);
     }
-    v9 = *(_QWORD *)(v8 + 16);
-    _InterlockedIncrement64((volatile signed __int64 *)(v9 + 24));
+    v9 = *(_QWORD *)(v8 + 88);
+    v10 = *(_QWORD *)(v9 + 8);
+    if ( !v10 )
+    {
+      v15 = WdLogNewEntry5_WdAssertion(0LL, v3);
+      WdLogEvent5_WdAssertion(v15);
+      v10 = *(_QWORD *)(v9 + 8);
+    }
+    v11 = *(_QWORD *)(v10 + 16);
+    _InterlockedIncrement64((volatile signed __int64 *)(v11 + 24));
     *(_QWORD *)(*((_QWORD *)this + 67) + 8LL) = this;
-    **((_QWORD **)this + 67) = v9;
+    **((_QWORD **)this + 67) = v11;
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry2(6LL, *((unsigned int *)this + 6), -1073741670LL);
+LABEL_8:
+    v13 = WdLogNewEntry5_WdLowResource(v4, v3, v5, v6);
+    *(_QWORD *)(v13 + 24) = *((unsigned int *)this + 6);
+    *(_QWORD *)(v13 + 32) = -1073741670LL;
+    WdLogEvent5_WdLowResource(v13);
     return 3221225626LL;
   }
 }

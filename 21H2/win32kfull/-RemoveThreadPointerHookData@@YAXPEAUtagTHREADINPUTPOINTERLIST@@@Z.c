@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveThreadPointerHookData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@@Z @ 0x1C00F3A94
+ * XREFs of ?RemoveThreadPointerHookData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@@Z @ 0x1C00FD9B4
  * Callers:
- *     xxxCleanupThreadPointerInputInfo @ 0x1C00F3A00 (xxxCleanupThreadPointerInputInfo.c)
- *     xxxPointerCallHook @ 0x1C01EAF28 (xxxPointerCallHook.c)
+ *     xxxCleanupThreadPointerInputInfo @ 0x1C00FD920 (xxxCleanupThreadPointerInputInfo.c)
+ *     xxxPointerCallHook @ 0x1C01F048C (xxxPointerCallHook.c)
  * Callees:
- *     ?FreeThreadPointerHookData@@YAXPEAUtagTHREADPOINTERDATA@@@Z @ 0x1C01EBAC4 (-FreeThreadPointerHookData@@YAXPEAUtagTHREADPOINTERDATA@@@Z.c)
+ *     ?FreeThreadPointerHookData@@YAXPEAUtagTHREADPOINTERDATA@@@Z @ 0x1C01F0FC0 (-FreeThreadPointerHookData@@YAXPEAUtagTHREADPOINTERDATA@@@Z.c)
  */
 
 void __fastcall RemoveThreadPointerHookData(struct tagTHREADINPUTPOINTERLIST *a1)

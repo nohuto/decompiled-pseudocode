@@ -1,8 +1,8 @@
 /*
- * XREFs of WmipFindISInDSByGuid @ 0x1408B467C
+ * XREFs of WmipFindISInDSByGuid @ 0x1408B465C
  * Callers:
- *     WmipUpdateDataSource @ 0x1408B4868 (WmipUpdateDataSource.c)
- *     WmipUpdateModifyGuid @ 0x1408B4BB4 (WmipUpdateModifyGuid.c)
+ *     WmipUpdateDataSource @ 0x1408B4848 (WmipUpdateDataSource.c)
+ *     WmipUpdateModifyGuid @ 0x1408B4B94 (WmipUpdateModifyGuid.c)
  * Callees:
  *     WmipReferenceEntry @ 0x140612C30 (WmipReferenceEntry.c)
  */

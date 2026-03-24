@@ -1,17 +1,17 @@
 /*
- * XREFs of PopReleaseAwaymodeLock @ 0x140A48C5C
+ * XREFs of PopReleaseAwaymodeLock @ 0x140990570
  * Callers:
- *     PopIssueActionRequest @ 0x1407FF888 (PopIssueActionRequest.c)
- *     PopPowerRequestCallbackAwayModeRequired @ 0x140989CC0 (PopPowerRequestCallbackAwayModeRequired.c)
+ *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
+ *     PopAwayModePowerRequest @ 0x1408E17D0 (PopAwayModePowerRequest.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
-char PopReleaseAwaymodeLock()
+_QWORD *PopReleaseAwaymodeLock()
 {
   if ( (struct _KTHREAD *)PopAwaymodeLockExclusiveThread == KeGetCurrentThread() )
     PopAwaymodeLockExclusiveThread = 0LL;
   ExReleasePushLockEx((ULONG_PTR)&PopAwaymodeLock, 0LL);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

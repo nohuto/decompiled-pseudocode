@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetFullscreenGammaRampAdjustment@DXGDEVICE@@QEAAXIPEAUDXGK_GAMMA_ADJUSTMENT@@@Z @ 0x1C02ED44C
+ * XREFs of ?SetFullscreenGammaRampAdjustment@DXGDEVICE@@QEAAXIPEAUDXGK_GAMMA_ADJUSTMENT@@@Z @ 0x1C02571D8
  * Callers:
- *     DxgkAdjustFullscreenGamma @ 0x1C02D08B0 (DxgkAdjustFullscreenGamma.c)
+ *     DxgkAdjustFullscreenGamma @ 0x1C0223100 (DxgkAdjustFullscreenGamma.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall DXGDEVICE::SetFullscreenGammaRampAdjustment(
@@ -15,8 +15,8 @@ void __fastcall DXGDEVICE::SetFullscreenGammaRampAdjustment(
   void *v6; // rcx
 
   v3 = a2;
-  v6 = (void *)*((_QWORD *)this + a2 + 211);
+  v6 = (void *)*((_QWORD *)this + a2 + 207);
   if ( v6 )
     operator delete(v6);
-  *((_QWORD *)this + v3 + 211) = a3;
+  *((_QWORD *)this + v3 + 207) = a3;
 }

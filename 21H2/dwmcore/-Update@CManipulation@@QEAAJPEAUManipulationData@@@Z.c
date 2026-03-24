@@ -1,35 +1,32 @@
 /*
- * XREFs of ?Update@CManipulation@@QEAAJPEAUManipulationData@@@Z @ 0x1801F4814
+ * XREFs of ?Update@CManipulation@@QEAAJPEAUManipulationData@@@Z @ 0x1801D4D74
  * Callers:
- *     ?Thunk_UpdateManipulation_108@?$IManipulation_Receive@VCManipulationManager@@@@SAJPEAXPEAPEAX@Z @ 0x1801807B0 (-Thunk_UpdateManipulation_108@-$IManipulation_Receive@VCManipulationManager@@@@SAJPEAXPEAPEAX@Z.c)
- *     ?InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x1801F3ECC (-InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z.c)
+ *     ?InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x1801D4458 (-InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z.c)
+ *     ?Thunk_UpdateManipulation_118@?$IManipulation_Receive@VCManipulationManager@@@@SAJPEAXPEAPEAX@Z @ 0x180228120 (-Thunk_UpdateManipulation_118@-$IManipulation_Receive@VCManipulationManager@@@@SAJPEAXPEAPEAX@Z.c)
  * Callees:
- *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x1800485B4 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4444444444444444444444444444@Z @ 0x1801F331C (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@U2@U2@U2@_ea_1801F331C.c)
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180065B20 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4444444444444444444444444444@Z @ 0x1801D391C (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U.c)
  */
 
-__int64 __fastcall CManipulation::Update(CManipulation *this, struct ManipulationData *a2)
+__int64 __fastcall CManipulation::Update(CManipulation *this, struct ManipulationData *a2, __int64 a3, __int64 a4)
 {
-  _OWORD *v2; // r9
-  int v4; // edi
-  __m128 v5; // xmm3
-  __m128 v6; // xmm2
-  float v7; // xmm5_4
-  float v8; // xmm4_4
-  float v9; // xmm6_4
-  float v10; // xmm7_4
-  char *v11; // rcx
-  __int128 v12; // xmm0
-  char *v13; // rdx
-  float v14; // eax
-  __int64 v15; // r8
-  int *v16; // r9
+  _OWORD *v4; // r8
+  int v6; // edi
+  __m128 v7; // xmm3
+  __m128 v8; // xmm2
+  float v9; // xmm5_4
+  float v10; // xmm4_4
+  float v11; // xmm6_4
+  float v12; // xmm7_4
+  char *v13; // rcx
+  __int128 v14; // xmm0
+  char *v15; // rdx
+  float v16; // eax
   unsigned __int8 v17; // cl
   __int64 v18; // rcx
   int v19; // eax
-  __int64 v20; // rax
+  CManipulation *v20; // r8
   __int64 v21; // rdx
   int v23; // [rsp+118h] [rbp-80h] BYREF
   int v24; // [rsp+11Ch] [rbp-7Ch] BYREF
@@ -63,77 +60,77 @@ __int64 __fastcall CManipulation::Update(CManipulation *this, struct Manipulatio
   CManipulation *v52; // [rsp+190h] [rbp-8h] BYREF
   float v53; // [rsp+198h] [rbp+0h]
 
-  v2 = (_OWORD *)((char *)this + 264);
-  v4 = *((_DWORD *)this + 105);
-  v5 = (__m128)*((unsigned int *)a2 + 9);
-  v6 = (__m128)*((unsigned int *)a2 + 10);
-  v7 = *((float *)a2 + 3);
-  v5.m128_f32[0] = v5.m128_f32[0] * *((float *)this + 75);
-  v6.m128_f32[0] = v6.m128_f32[0] * *((float *)this + 76);
-  v8 = *((float *)this + 71) + *((float *)a2 + 5);
-  v53 = *((float *)a2 + 11) * *((float *)this + 77);
-  v9 = *((float *)this + 70) + *((float *)a2 + 4);
-  v10 = *((float *)this + 69);
-  *(_OWORD *)((char *)this + 264) = *(_OWORD *)a2;
-  v11 = (char *)this + 392;
-  v2[1] = *((_OWORD *)a2 + 1);
-  v2[2] = *((_OWORD *)a2 + 2);
-  v2[3] = *((_OWORD *)a2 + 3);
-  v2[4] = *((_OWORD *)a2 + 4);
-  v2[5] = *((_OWORD *)a2 + 5);
-  v2[6] = *((_OWORD *)a2 + 6);
-  v12 = *((_OWORD *)a2 + 7);
-  v13 = (char *)a2 + 128;
-  *((_OWORD *)v11 - 1) = v12;
-  *(_OWORD *)v11 = *(_OWORD *)v13;
-  *((_OWORD *)v11 + 1) = *((_OWORD *)v13 + 1);
-  *((_OWORD *)v11 + 2) = *((_OWORD *)v13 + 2);
-  *((_QWORD *)v11 + 6) = *((_QWORD *)v13 + 6);
-  *((float *)this + 69) = v10 + v7;
-  *((float *)this + 70) = v9;
-  *((float *)this + 71) = v8;
-  v14 = v53;
-  *(_QWORD *)((char *)this + 300) = _mm_unpacklo_ps(v5, v6).m128_u64[0];
-  *((float *)this + 77) = v14;
-  if ( (unsigned int)dword_1803D0EF0 > 4 && tlgKeywordOn((__int64)&dword_1803D0EF0, 2LL) )
+  v4 = (_OWORD *)((char *)this + 256);
+  v6 = *((_DWORD *)this + 103);
+  v7 = (__m128)*((unsigned int *)a2 + 9);
+  v8 = (__m128)*((unsigned int *)a2 + 10);
+  v9 = *((float *)a2 + 3);
+  v7.m128_f32[0] = v7.m128_f32[0] * *((float *)this + 73);
+  v8.m128_f32[0] = v8.m128_f32[0] * *((float *)this + 74);
+  v10 = *((float *)this + 69) + *((float *)a2 + 5);
+  v53 = *((float *)a2 + 11) * *((float *)this + 75);
+  v11 = *((float *)this + 68) + *((float *)a2 + 4);
+  v12 = *((float *)this + 67);
+  v13 = (char *)this + 384;
+  *v4 = *(_OWORD *)a2;
+  v4[1] = *((_OWORD *)a2 + 1);
+  v4[2] = *((_OWORD *)a2 + 2);
+  v4[3] = *((_OWORD *)a2 + 3);
+  v4[4] = *((_OWORD *)a2 + 4);
+  v4[5] = *((_OWORD *)a2 + 5);
+  v4[6] = *((_OWORD *)a2 + 6);
+  v14 = *((_OWORD *)a2 + 7);
+  v15 = (char *)a2 + 128;
+  *((_OWORD *)v13 - 1) = v14;
+  *(_OWORD *)v13 = *(_OWORD *)v15;
+  *((_OWORD *)v13 + 1) = *((_OWORD *)v15 + 1);
+  *((_OWORD *)v13 + 2) = *((_OWORD *)v15 + 2);
+  *((_QWORD *)v13 + 6) = *((_QWORD *)v15 + 6);
+  *((float *)this + 67) = v12 + v9;
+  *((float *)this + 68) = v11;
+  *((float *)this + 69) = v10;
+  v16 = v53;
+  *(_QWORD *)((char *)this + 292) = _mm_unpacklo_ps(v7, v8).m128_u64[0];
+  *((float *)this + 75) = v16;
+  if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 2) != 0 && (qword_180344F08 & 2) == qword_180344F08 )
   {
-    v17 = *((_BYTE *)this + 444);
+    v17 = *((_BYTE *)this + 436);
     v52 = this;
     v23 = (v17 >> 1) & 1;
     v18 = v17 & 1;
-    v25 = *((_DWORD *)this + 110);
-    v26 = *((_DWORD *)this + 109);
-    v27 = *((_DWORD *)this + 108);
-    v28 = *((_DWORD *)this + 105);
-    v29 = *((_DWORD *)this + 103);
-    v30 = *((_DWORD *)this + 102);
-    v31 = *((_DWORD *)this + 101);
-    v32 = *((_DWORD *)this + 100);
-    v33 = *((_DWORD *)this + 99);
-    v34 = *((_DWORD *)this + 98);
-    v35 = *((_DWORD *)this + 104);
-    v36 = *((_DWORD *)this + 78);
-    v37 = *((_DWORD *)this + 81);
-    v38 = *((_DWORD *)this + 80);
-    v39 = *((_DWORD *)this + 79);
-    v40 = *((_DWORD *)this + 77);
-    v41 = *((_DWORD *)this + 76);
-    v42 = *((_DWORD *)this + 75);
-    v43 = *((_DWORD *)this + 74);
-    v44 = *((_DWORD *)this + 73);
-    v45 = *((_DWORD *)this + 72);
-    v46 = *((_DWORD *)this + 71);
-    v47 = *((_DWORD *)this + 70);
-    v48 = *((_DWORD *)this + 69);
-    v49 = *((_DWORD *)this + 68);
-    v50 = *((_DWORD *)this + 67);
-    v51 = *v16;
+    v25 = *((_DWORD *)this + 108);
+    v26 = *((_DWORD *)this + 107);
+    v27 = *((_DWORD *)this + 106);
+    v28 = *((_DWORD *)this + 103);
+    v29 = *((_DWORD *)this + 101);
+    v30 = *((_DWORD *)this + 100);
+    v31 = *((_DWORD *)this + 99);
+    v32 = *((_DWORD *)this + 98);
+    v33 = *((_DWORD *)this + 97);
+    v34 = *((_DWORD *)this + 96);
+    v35 = *((_DWORD *)this + 102);
+    v36 = *((_DWORD *)this + 76);
+    v37 = *((_DWORD *)this + 79);
+    v38 = *((_DWORD *)this + 78);
+    v39 = *((_DWORD *)this + 77);
+    v40 = *((_DWORD *)this + 75);
+    v41 = *((_DWORD *)this + 74);
+    v42 = *((_DWORD *)this + 73);
+    v43 = *((_DWORD *)this + 72);
+    v44 = *((_DWORD *)this + 71);
+    v45 = *((_DWORD *)this + 70);
+    v46 = *((_DWORD *)this + 69);
+    v47 = *((_DWORD *)this + 68);
+    v48 = *((_DWORD *)this + 67);
+    v49 = *((_DWORD *)this + 66);
+    v50 = *((_DWORD *)this + 65);
+    v51 = *(_DWORD *)v4;
     v24 = v18;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
       v18,
-      byte_18036FF22,
-      v15,
-      (__int64)v16,
+      byte_1802E8E99,
+      (__int64)v4,
+      a4,
       (__int64)&v52,
       (__int64)&v51,
       (__int64)&v50,
@@ -165,24 +162,26 @@ __int64 __fastcall CManipulation::Update(CManipulation *this, struct Manipulatio
       (__int64)&v24,
       (__int64)&v23);
   }
-  v19 = *((_DWORD *)this + 105);
-  if ( v19 == v4 )
+  v19 = *((_DWORD *)this + 103);
+  if ( v19 == v6 )
   {
-    if ( v19 || v4 )
+    if ( v19 || v6 )
     {
-      (*(void (__fastcall **)(CManipulation *, _QWORD, _QWORD))(*(_QWORD *)this + 72LL))(this, 0LL, 0LL);
-      goto LABEL_11;
+      v20 = 0LL;
+      v21 = 0LL;
     }
-    v20 = *(_QWORD *)this;
-    v21 = 10LL;
+    else
+    {
+      v20 = this;
+      v21 = 10LL;
+    }
   }
   else
   {
-    v20 = *(_QWORD *)this;
+    v20 = this;
     v21 = 7LL;
   }
-  (*(void (__fastcall **)(CManipulation *, __int64, CManipulation *))(v20 + 72))(this, v21, this);
-LABEL_11:
+  (*(void (__fastcall **)(CManipulation *, __int64, CManipulation *))(*(_QWORD *)this + 72LL))(this, v21, v20);
   CResource::InvalidateAnimationSources(this, 0);
   CResource::InvalidateAnimationSources(this, 1);
   CResource::InvalidateAnimationSources(this, 2);

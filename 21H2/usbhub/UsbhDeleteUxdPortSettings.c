@@ -1,28 +1,28 @@
 /*
- * XREFs of UsbhDeleteUxdPortSettings @ 0x1C005925C
+ * XREFs of UsbhDeleteUxdPortSettings @ 0x1C005A960
  * Callers:
- *     UsbhDeleteUxdSettings @ 0x1C005932C (UsbhDeleteUxdSettings.c)
+ *     UsbhDeleteUxdSettings @ 0x1C005AA30 (UsbhDeleteUxdSettings.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_S @ 0x1C003ADD0 (WPP_RECORDER_SF_S.c)
- *     RtlStringCbPrintfW @ 0x1C004436C (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003C0E0 (WPP_RECORDER_SF_S.c)
+ *     RtlStringCbPrintfW @ 0x1C004561C (RtlStringCbPrintfW.c)
  */
 
 NTSTATUS __fastcall UsbhDeleteUxdPortSettings(__int64 a1, const WCHAR *a2, unsigned int a3)
 {
-  int v4; // edx
-  int v5; // r8d
+  __int64 v4; // rdx
+  __int64 v5; // r8
   wchar_t pszDest[16]; // [rsp+30h] [rbp-38h] BYREF
 
   wcscpy(pszDest, L"uxd_port_nnn");
   RtlStringCbPrintfW(pszDest, 0x1AuLL, L"uxd_port_%3.3d", a3);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_S(
-      WPP_GLOBAL_Control->DeviceExtension,
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
       v4,
       v5,
-      29,
+      0x1Du,
       (__int64)&WPP_4aa30c1ba02a3b8c2a9c4e9b57ebe163_Traceguids,
-      (__int64)pszDest);
+      pszDest);
   return RtlDeleteRegistryValue(0x40000000u, a2, pszDest);
 }

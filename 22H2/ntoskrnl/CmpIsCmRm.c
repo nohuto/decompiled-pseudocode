@@ -1,39 +1,46 @@
 /*
- * XREFs of CmpIsCmRm @ 0x1406981A8
+ * XREFs of CmpIsCmRm @ 0x14066E974
  * Callers:
- *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
+ *     CmKtmNotification @ 0x14066E410 (CmKtmNotification.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     CmListGetNextElement @ 0x140AF66A8 (CmListGetNextElement.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     CmListGetNextElement @ 0x14066EA14 (CmListGetNextElement.c)
  */
 
-bool __fastcall CmpIsCmRm(_QWORD *a1)
+char __fastcall CmpIsCmRm(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  bool v3; // bl
+  char v2; // bl
   __int64 NextElement; // rax
-  __int64 v6; // [rsp+38h] [rbp+10h] BYREF
+  char v5; // r8
+  char v6; // al
+  __int64 v8; // [rsp+38h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v3 = 0;
-  v6 = 0LL;
+  v2 = 0;
+  v8 = 0LL;
   --CurrentThread->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&CmpRmListLock);
   while ( 1 )
   {
-    NextElement = CmListGetNextElement(&CmpRmListHead, &v6, 0LL);
+    NextElement = CmListGetNextElement(&CmpRmListHead, &v8, 0LL);
     if ( !NextElement )
       break;
     if ( (_QWORD *)NextElement == a1 )
     {
       if ( a1[6] && a1[7] && a1[4] )
-        v3 = a1[5] != 0LL;
+      {
+        v6 = 0;
+        if ( a1[5] )
+          v6 = v5 + 1;
+        v2 = v6;
+      }
       break;
     }
   }
   ExReleaseFastMutexUnsafe(&CmpRmListLock);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return v3;
+  return v2;
 }

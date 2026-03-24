@@ -1,27 +1,23 @@
 /*
- * XREFs of KiPublishProcessorFeatures @ 0x140B760B8
+ * XREFs of KiPublishProcessorFeatures @ 0x140A3FE38
  * Callers:
- *     KiSetProcessorSignature @ 0x140A8EAF4 (KiSetProcessorSignature.c)
+ *     KiSetProcessorSignature @ 0x14099DF64 (KiSetProcessorSignature.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall KiPublishProcessorFeatures(__int64 a1)
 {
-  __int16 v1; // r8
-  __int64 v2; // r9
   __int64 result; // rax
 
-  v1 = KeFeatureBits2;
-  v2 = MmWriteableSharedUserData;
-  *(_BYTE *)(MmWriteableSharedUserData + 661) = (KeFeatureBits2 & 2) != 0;
+  MEMORY[0xFFFFF78000000295] = (KeFeatureBits2 & 2) != 0;
   if ( (*(_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 132LL) & 0x2000) == 0 )
-    *(_BYTE *)(v2 + 663) = (v1 & 0x2000) != 0LL;
+    MEMORY[0xFFFFF78000000297] = (KeFeatureBits2 & 0x2000) != 0;
   result = KeLoaderBlock_0;
   if ( (*(_DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 132LL) & 0x8000) == 0 )
   {
-    result = (*(_QWORD *)(a1 + 35232) >> 33) & 1LL;
-    KeSmapEnabled = (*(_QWORD *)(a1 + 35232) >> 33) & 1;
+    result = (*(_QWORD *)(a1 + 34208) >> 33) & 1LL;
+    KeSmapEnabled = (*(_QWORD *)(a1 + 34208) >> 33) & 1;
   }
   return result;
 }

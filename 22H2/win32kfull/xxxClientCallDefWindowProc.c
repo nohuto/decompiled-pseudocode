@@ -1,52 +1,57 @@
 /*
- * XREFs of xxxClientCallDefWindowProc @ 0x1C01568E4
+ * XREFs of xxxClientCallDefWindowProc @ 0x1C02311B0
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
  */
 
-__int64 __fastcall xxxClientCallDefWindowProc(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall xxxClientCallDefWindowProc(__int64 *a1)
 {
-  int v4; // ebx
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 *v7; // rcx
+  int v1; // ebx
+  __int64 *v2; // rcx
   __int64 result; // rax
-  __int64 v9; // [rsp+38h] [rbp-40h] BYREF
-  int v10; // [rsp+40h] [rbp-38h]
-  int v11; // [rsp+44h] [rbp-34h]
-  __int64 v12; // [rsp+48h] [rbp-30h]
-  __int64 v13; // [rsp+50h] [rbp-28h]
-  int v14; // [rsp+58h] [rbp-20h]
-  __int64 v15; // [rsp+5Ch] [rbp-1Ch]
-  int v16; // [rsp+64h] [rbp-14h]
-  __int64 v17; // [rsp+80h] [rbp+8h] BYREF
-  int v18; // [rsp+88h] [rbp+10h] BYREF
-  unsigned __int64 v19; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v4; // [rsp+38h] [rbp-40h] BYREF
+  int v5; // [rsp+40h] [rbp-38h]
+  int v6; // [rsp+44h] [rbp-34h]
+  __int64 v7; // [rsp+48h] [rbp-30h]
+  __int64 v8; // [rsp+50h] [rbp-28h]
+  int v9; // [rsp+58h] [rbp-20h]
+  __int64 v10; // [rsp+5Ch] [rbp-1Ch]
+  int v11; // [rsp+64h] [rbp-14h]
+  __int64 v12; // [rsp+80h] [rbp+8h] BYREF
+  char v13; // [rsp+88h] [rbp+10h] BYREF
+  int v14; // [rsp+90h] [rbp+18h] BYREF
+  unsigned __int64 v15; // [rsp+98h] [rbp+20h] BYREF
 
-  v19 = 0LL;
-  v18 = 0;
+  v15 = 0LL;
+  v14 = 0;
+  v6 = 0;
   v11 = 0;
-  v16 = 0;
-  v9 = *a1;
-  v10 = *((_DWORD *)a1 + 2);
-  v12 = a1[2];
-  v13 = a1[3];
-  v14 = *((_DWORD *)a1 + 8);
-  v15 = *(__int64 *)((char *)a1 + 36);
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v17, a2, a3, a4);
+  v4 = *a1;
+  v5 = *((_DWORD *)a1 + 2);
+  v7 = a1[2];
+  v8 = a1[3];
+  v9 = *((_DWORD *)a1 + 8);
+  v10 = *(__int64 *)((char *)a1 + 36);
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v13);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v12);
   EtwTraceBeginCallback(128LL);
-  v4 = KeUserModeCallback(128LL, &v9, 48LL, &v19, &v18);
+  v1 = KeUserModeCallback(128LL, &v4, 48LL, &v15, &v14);
   EtwTraceEndCallback(128LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v17, v5, v6);
-  if ( v4 < 0 || v18 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v12);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v13);
+  if ( v1 < 0 || v14 != 24 )
     return 0LL;
-  v7 = (__int64 *)v19;
-  if ( v19 + 8 < v19 || v19 + 8 > MmUserProbeAddress )
-    v7 = (__int64 *)MmUserProbeAddress;
-  result = *v7;
-  v17 = *v7;
+  v2 = (__int64 *)v15;
+  if ( v15 + 8 < v15 || v15 + 8 > MmUserProbeAddress )
+    v2 = (__int64 *)MmUserProbeAddress;
+  result = *v2;
+  v12 = *v2;
   return result;
 }

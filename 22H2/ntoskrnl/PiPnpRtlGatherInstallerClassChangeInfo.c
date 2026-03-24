@@ -1,50 +1,48 @@
 /*
- * XREFs of PiPnpRtlGatherInstallerClassChangeInfo @ 0x140882C80
+ * XREFs of PiPnpRtlGatherInstallerClassChangeInfo @ 0x14076F93C
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140789030 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x1406AE700 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     PiDmGetObject @ 0x1406D81D0 (PiDmGetObject.c)
- *     _PnpStringFromGuid @ 0x140788364 (_PnpStringFromGuid.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407885C4 (PiDmAddCacheReferenceForObject.c)
- *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x14088485C (PiPnpRtlFreeInstallerClassChangeInfo.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PiDmGetObject @ 0x1406AF84C (PiDmGetObject.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x1406B1200 (_PnpStringFromGuid.c)
+ *     PiDmAddCacheReferenceForObject @ 0x140744E48 (PiDmAddCacheReferenceForObject.c)
+ *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x140771AEC (PiPnpRtlFreeInstallerClassChangeInfo.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiPnpRtlGatherInstallerClassChangeInfo(__int64 a1, _WORD *a2, PVOID *a3)
+__int64 __fastcall PiPnpRtlGatherInstallerClassChangeInfo(__int64 a1, wchar_t *a2, __int64 **a3)
 {
-  __int64 Pool2; // rax
+  __int64 *PoolWithTag; // rax
   int Object; // ebx
   int ObjectProperty; // eax
-  int v10; // eax
-  int v11; // [rsp+60h] [rbp-98h] BYREF
-  int v12; // [rsp+64h] [rbp-94h] BYREF
-  int v13[6]; // [rsp+68h] [rbp-90h] BYREF
-  wchar_t v14[40]; // [rsp+80h] [rbp-78h] BYREF
+  int v10; // [rsp+60h] [rbp-98h] BYREF
+  int v11; // [rsp+64h] [rbp-94h] BYREF
+  int v12[6]; // [rsp+68h] [rbp-90h] BYREF
+  wchar_t v13[40]; // [rsp+80h] [rbp-78h] BYREF
 
-  v12 = 0;
   v11 = 0;
-  *(_OWORD *)v13 = 0LL;
-  Pool2 = ExAllocatePool2(256LL, 24LL, 1198550608LL);
-  *a3 = (PVOID)Pool2;
-  if ( !Pool2 )
+  v10 = 0;
+  *(_OWORD *)v12 = 0LL;
+  PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x47706E50u);
+  *a3 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     Object = -1073741670;
-LABEL_16:
-    PiPnpRtlFreeInstallerClassChangeInfo(*a3);
-    *a3 = 0LL;
-    return (unsigned int)Object;
+    goto LABEL_10;
   }
+  *(_OWORD *)PoolWithTag = 0LL;
+  PoolWithTag[2] = 0LL;
   if ( a2 )
   {
-    Object = PiDmAddCacheReferenceForObject(2u, a2, (volatile signed __int32 **)(Pool2 + 16));
+    Object = PiDmAddCacheReferenceForObject(2u, a2, (volatile signed __int32 **)*a3 + 2);
     if ( Object < 0 )
-      goto LABEL_16;
+      goto LABEL_10;
   }
   Object = PiDmGetObject(1LL, a1, *a3);
   if ( (int)(Object + 0x80000000) >= 0 && Object != -1073741772 )
-    goto LABEL_16;
+    goto LABEL_10;
   ObjectProperty = PnpGetObjectProperty(
                      *(__int64 *)&PiPnpRtlCtx,
                      a1,
@@ -52,28 +50,32 @@ LABEL_16:
                      0LL,
                      0LL,
                      (__int64)&DEVPKEY_Device_ClassGuid,
-                     (__int64)&v12,
-                     (__int64)v13,
-                     16,
                      (__int64)&v11,
+                     (__int64)v12,
+                     16,
+                     (__int64)&v10,
                      0);
   Object = ObjectProperty;
   if ( ObjectProperty == -1073741275 || ObjectProperty == -1073741772 )
-    return 0;
-  if ( ObjectProperty < 0 )
-    goto LABEL_16;
-  Object = PnpStringFromGuid(v13, v14);
-  if ( Object < 0 )
-    goto LABEL_16;
-  v10 = PiDmGetObject(2LL, (__int64)v14, (_QWORD *)*a3 + 1);
-  Object = v10;
-  if ( v10 == -1073741772 )
   {
-    return 0;
+    Object = 0;
   }
-  else if ( v10 < 0 )
+  else
   {
-    goto LABEL_16;
+    if ( ObjectProperty < 0 )
+      goto LABEL_10;
+    Object = PnpStringFromGuid(v12, v13);
+    if ( Object < 0 )
+      goto LABEL_10;
+    Object = PiDmGetObject(2LL, (__int64)v13, *a3 + 1);
+    if ( Object == -1073741772 )
+      return 0;
+  }
+  if ( Object < 0 )
+  {
+LABEL_10:
+    PiPnpRtlFreeInstallerClassChangeInfo(*a3);
+    *a3 = 0LL;
   }
   return (unsigned int)Object;
 }

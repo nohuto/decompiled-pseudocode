@@ -1,14 +1,14 @@
 /*
- * XREFs of GrayShrinkDIB_CY @ 0x1C0268960
+ * XREFs of GrayShrinkDIB_CY @ 0x1C026B580
  * Callers:
  *     <none>
  * Callees:
- *     GetFixupScan @ 0x1C0005AE0 (GetFixupScan.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     AlphaBlendBGRF @ 0x1C02640B0 (AlphaBlendBGRF.c)
- *     MappingBGRF @ 0x1C0269064 (MappingBGRF.c)
+ *     GetFixupScan @ 0x1C00C79F0 (GetFixupScan.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     AlphaBlendBGRF @ 0x1C0266B00 (AlphaBlendBGRF.c)
+ *     MappingBGRF @ 0x1C026BC84 (MappingBGRF.c)
  */
 
 __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
@@ -157,8 +157,8 @@ __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
   v17 = *(unsigned __int16 *)(v84 + 14);
   v71 = *(_QWORD *)(v84 + 24);
   v18 = 4 * v77;
-  Size = v18;
   v19 = (char *)(v16 + 512);
+  Size = v18;
   v72 = (char *)(v16 + 512);
   v20 = (char *)v16 + v18 + 2048;
   v21 = &v20[v18];

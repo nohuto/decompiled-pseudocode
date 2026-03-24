@@ -1,21 +1,22 @@
 /*
- * XREFs of UsbhPdo_ReportPnPFailureProblem @ 0x1C00566C0
+ * XREFs of UsbhPdo_ReportPnPFailureProblem @ 0x1C0057D80
  * Callers:
- *     UsbhPdoPnp_QueryPnpDeviceState @ 0x1C00558A0 (UsbhPdoPnp_QueryPnpDeviceState.c)
+ *     UsbhPdoPnp_QueryPnpDeviceState @ 0x1C0056F40 (UsbhPdoPnp_QueryPnpDeviceState.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     RtlStringCbPrintfW @ 0x1C004436C (RtlStringCbPrintfW.c)
- *     UsbhSetPdoRegistryParameter @ 0x1C0046494 (UsbhSetPdoRegistryParameter.c)
- *     RtlUnalignedStringCbLengthW @ 0x1C0052920 (RtlUnalignedStringCbLengthW.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     RtlStringCbPrintfW @ 0x1C004561C (RtlStringCbPrintfW.c)
+ *     UsbhSetPdoRegistryParameter @ 0x1C0047814 (UsbhSetPdoRegistryParameter.c)
+ *     RtlUnalignedStringCbLengthW @ 0x1C0053F70 (RtlUnalignedStringCbLengthW.c)
  */
 
 void __fastcall UsbhPdo_ReportPnPFailureProblem(PDEVICE_OBJECT DeviceObject)
 {
   _DWORD *v2; // r14
   size_t v3; // rdi
-  wchar_t *Pool2; // rax
-  wchar_t *Data; // rbx
+  PVOID PoolWithTag; // rax
+  void *Data; // rbx
   PMESSAGE_RESOURCE_ENTRY *MessageResourceEntry; // [rsp+20h] [rbp-39h]
   size_t pcbLength; // [rsp+40h] [rbp-19h] BYREF
   int v8; // [rsp+48h] [rbp-11h] BYREF
@@ -35,19 +36,20 @@ void __fastcall UsbhPdo_ReportPnPFailureProblem(PDEVICE_OBJECT DeviceObject)
   if ( v2[705] )
   {
     v8 = PdoExt((__int64)DeviceObject)[705];
-    UsbhSetPdoRegistryParameter(DeviceObject, L"EnumerationFailureCode", 4u, &v8, 4u);
-    if ( RtlFindMessage(WPP_MAIN_CB.Queue.ListEntry.Blink[1].Blink, 0xBu, 0, v2[705], &v9) >= 0
+    UsbhSetPdoRegistryParameter(DeviceObject, L"EnumerationFailureCode", 4LL, &v8, 4u);
+    if ( RtlFindMessage(UsbhDriverObject->DriverStart, 0xBu, 0, v2[705], &v9) >= 0
       && RtlUnalignedStringCbLengthW((STRSAFE_PCUNZWCH)v9->Text, v9->Length - 4LL, &pcbLength) >= 0 )
     {
       v3 = pcbLength + 86;
       pcbLength += 86LL;
-      Pool2 = (wchar_t *)ExAllocatePool2(64LL, pcbLength, 1112885333LL);
-      Data = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), pcbLength, 0x42554855u);
+      Data = PoolWithTag;
+      if ( PoolWithTag )
       {
+        memset(PoolWithTag, 0, v3);
         LODWORD(MessageResourceEntry) = v2[705];
-        if ( RtlStringCbPrintfW(Pool2, v3, L"%s,#%d;%hs", v10, MessageResourceEntry, v9->Text) >= 0
-          && RtlUnalignedStringCbLengthW(Data, v3, &pcbLength) >= 0 )
+        if ( RtlStringCbPrintfW((NTSTRSAFE_PWSTR)Data, v3, L"%s,#%d;%hs", v10, MessageResourceEntry, v9->Text) >= 0
+          && RtlUnalignedStringCbLengthW((STRSAFE_PCUNZWCH)Data, v3, &pcbLength) >= 0 )
         {
           IoSetDevicePropertyData(DeviceObject, &DEVPKEY_Device_DriverProblemDesc, 0, 0, 0x19u, pcbLength + 2, Data);
         }

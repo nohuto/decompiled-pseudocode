@@ -1,84 +1,60 @@
 /*
- * XREFs of GreEnableEUDC @ 0x1C008A748
+ * XREFs of GreEnableEUDC @ 0x1C00E9258
  * Callers:
- *     NtGdiEnableEudc @ 0x1C008A730 (NtGdiEnableEudc.c)
- *     ?CleanUpEUDC@@YAXXZ @ 0x1C008A954 (-CleanUpEUDC@@YAXXZ.c)
+ *     NtGdiEnableEudc @ 0x1C00E6060 (NtGdiEnableEudc.c)
+ *     ?CleanUpEUDC@@YAXXZ @ 0x1C00E6560 (-CleanUpEUDC@@YAXXZ.c)
  * Callees:
- *     bAddAllFlEntry @ 0x1C00897FC (bAddAllFlEntry.c)
- *     ?GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C008A8C4 (-GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E13F4 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E1440 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     bDeleteAllFlEntry @ 0x1C0114C3C (bDeleteAllFlEntry.c)
- *     ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C029E3CC (-bSetupDefaultFlEntry@@YAHXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B8B8 (-GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     bDeleteAllFlEntry @ 0x1C00A2390 (bDeleteAllFlEntry.c)
+ *     bAddAllFlEntry @ 0x1C00E6908 (bAddAllFlEntry.c)
+ *     ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C029738C (-bSetupDefaultFlEntry@@YAHXZ.c)
  */
 
-__int64 __fastcall GreEnableEUDC(Gre::Base *a1)
+__int64 __fastcall GreEnableEUDC(int a1)
 {
-  int v1; // edi
-  struct Gre::Base::SESSION_GLOBALS *v2; // rsi
-  __int64 v3; // rcx
-  __int64 v4; // rbx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  int v8; // esi
-  int v9; // eax
-  unsigned int v10; // eax
-  bool v11; // zf
-  unsigned int v12; // edi
-  __int64 v14; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v15; // [rsp+40h] [rbp+18h] BYREF
+  int v2; // ebx
+  unsigned int v3; // edx
+  unsigned int v4; // eax
+  unsigned int v5; // edi
+  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = (int)a1;
-  v2 = Gre::Base::Globals(a1);
-  v4 = *(_QWORD *)(SGDGetSessionState(v3) + 32);
-  if ( *(_QWORD *)(v4 + 13272) && *(_QWORD *)(v4 + 13288) )
+  v7 = ghsemGreLock;
+  GreAcquireSemaphore(ghsemGreLock);
+  v2 = 0;
+  if ( !ghsemEUDC1 || !ghsemEnableEUDC )
   {
-    if ( (unsigned int)UmfdHostLifeTimeManager::GetSessionTextStackStatus() )
-    {
-      return 0LL;
-    }
-    else
-    {
-      v15 = *(_QWORD *)(v4 + 13288);
-      GreAcquireSemaphore(v15);
-      DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v14);
-      v14 = *((_QWORD *)v2 + 15);
-      GreAcquireSemaphore(v14);
-      if ( v1 )
-      {
-        GreAcquireSemaphore(*(_QWORD *)(v4 + 13272));
-        if ( *(_DWORD *)(v4 + 19356) == 1 && !*(_DWORD *)(v4 + 19360) && (unsigned int)bSetupDefaultFlEntry() )
-          *(_DWORD *)(v4 + 19360) = 1;
-        EtwTraceGreLockReleaseSemaphore(L"GreFullGlobals.hsemEUDC1");
-        GreReleaseSemaphoreInternal(*(_QWORD *)(v4 + 13272));
-      }
-      v8 = *(_DWORD *)(v4 + 13312);
-      if ( PsGetCurrentProcess(v6, v5, v7) == gpepCSRSS )
-        v9 = 0;
-      else
-        v9 = 2 - (v1 != 0);
-      *(_DWORD *)(v4 + 13312) |= v9;
-      if ( v1 )
-        v10 = bAddAllFlEntry(1);
-      else
-        v10 = bDeleteAllFlEntry();
-      v11 = *(_BYTE *)(v4 + 13296) == 0;
-      v12 = v10;
-      *(_DWORD *)(v4 + 13312) = v8;
-      if ( v11 )
-        *(_BYTE *)(v4 + 13296) = 1;
-      SEMOBJ::vUnlock((SEMOBJ *)&v14);
-      DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v14);
-      SEMOBJ::vUnlock((SEMOBJ *)&v15);
-      return v12;
-    }
+    if ( !gbAttemptedEnableEUDC )
+      gbAttemptedEnableEUDC = 1;
+    v2 = 1;
+    goto LABEL_11;
+  }
+  if ( (unsigned int)UmfdHostLifeTimeManager::GetSessionTextStackStatus() )
+  {
+LABEL_11:
+    v5 = v2;
+    goto LABEL_9;
+  }
+  GreAcquireSemaphore(ghsemEnableEUDC);
+  if ( a1 )
+  {
+    GreAcquireSemaphore(ghsemEUDC1);
+    if ( bReadyToInitializeFontAssocDefault == 1 && !bFinallyInitializeFontAssocDefault )
+      bFinallyInitializeFontAssocDefault = bSetupDefaultFlEntry() != 0;
+    EtwTraceGreLockReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
+    GreReleaseSemaphoreInternal(ghsemEUDC1);
+    v4 = bAddAllFlEntry(1, v3);
   }
   else
   {
-    if ( !*(_BYTE *)(v4 + 13296) )
-      *(_BYTE *)(v4 + 13296) = 1;
-    return 1LL;
+    v4 = bDeleteAllFlEntry();
   }
+  v5 = v4;
+  EtwTraceGreLockReleaseSemaphore(L"ghsemEnableEUDC", ghsemEnableEUDC);
+  GreReleaseSemaphoreInternal(ghsemEnableEUDC);
+  if ( !gbAttemptedEnableEUDC )
+    gbAttemptedEnableEUDC = 1;
+LABEL_9:
+  SEMOBJ::vUnlock((SEMOBJ *)&v7);
+  return v5;
 }

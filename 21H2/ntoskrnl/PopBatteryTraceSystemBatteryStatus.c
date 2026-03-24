@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryTraceSystemBatteryStatus @ 0x140369AC4
+ * XREFs of PopBatteryTraceSystemBatteryStatus @ 0x140399948
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x1407EE90C (PopBatteryApplyCompositeState.c)
- *     PopBatteryEtwCallback @ 0x140994BB0 (PopBatteryEtwCallback.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FC1C (PopBatteryApplyCompositeState.c)
+ *     PopBatteryEtwCallback @ 0x1408ED180 (PopBatteryEtwCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall PopBatteryTraceSystemBatteryStatus(char a1)
@@ -35,9 +35,9 @@ char __fastcall PopBatteryTraceSystemBatteryStatus(char a1)
     LOBYTE(v1) = EtwEventEnabled(PopBatteryEtwHandle, v2);
     if ( (_BYTE)v1 )
     {
-      if ( dword_140C229B4 )
+      if ( dword_140C23634 )
       {
-        v6 = xmmword_140C229E0;
+        v6 = xmmword_140C23660;
         v4 = 1;
       }
       else

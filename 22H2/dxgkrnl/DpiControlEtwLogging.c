@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiControlEtwLogging @ 0x1C0398FC8
+ * XREFs of DpiControlEtwLogging @ 0x1C02C692C
  * Callers:
- *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C0020A28 (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
+ *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C00239FC (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
  * Callees:
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0015C20 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000C8D0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 LONG __fastcall DpiControlEtwLogging(char a1, unsigned int a2, char a3)
@@ -15,8 +15,8 @@ LONG __fastcall DpiControlEtwLogging(char a1, unsigned int a2, char a3)
   __int64 v9; // r8
 
   AcquireMiniportListMutex();
-  byte_1C0140494 = a1;
-  v7 = qword_1C01404C8;
+  byte_1C00B2B15 = a1;
+  v7 = qword_1C00B2B40;
   if ( *(_QWORD *)v7 != v7 )
   {
     do
@@ -34,8 +34,8 @@ LONG __fastcall DpiControlEtwLogging(char a1, unsigned int a2, char a3)
       }
       v7 = *(_QWORD *)v7;
     }
-    while ( *(_QWORD *)v7 != qword_1C01404C8 );
+    while ( *(_QWORD *)v7 != qword_1C00B2B40 );
   }
-  _InterlockedExchange64(&qword_1C01404D8, 0LL);
+  _InterlockedExchange64(&qword_1C00B2B50, 0LL);
   return KeReleaseMutex(Mutex, 0);
 }

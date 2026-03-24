@@ -1,118 +1,108 @@
 /*
- * XREFs of MiStoreUpdateMemoryConditions @ 0x140222F90
+ * XREFs of MiStoreUpdateMemoryConditions @ 0x14033A2F4
  * Callers:
- *     MiAdjustModifiedPageLoad @ 0x14021F254 (MiAdjustModifiedPageLoad.c)
- *     MiModifiedPageWriter @ 0x1403B20D0 (MiModifiedPageWriter.c)
- *     MiFlushAllPagesWorker @ 0x140639D54 (MiFlushAllPagesWorker.c)
- *     MiFlushAllStoreSwapPages @ 0x140639E5C (MiFlushAllStoreSwapPages.c)
+ *     MiAdjustModifiedPageLoad @ 0x14033BADC (MiAdjustModifiedPageLoad.c)
+ *     MiFlushAllHintedStorePages @ 0x1403503A0 (MiFlushAllHintedStorePages.c)
+ *     MiFlushAllPagesWorker @ 0x14038282C (MiFlushAllPagesWorker.c)
+ *     MiModifiedPageWriter @ 0x1403BEA70 (MiModifiedPageWriter.c)
  * Callees:
- *     MiUseLowIoPriorityForModifiedPages @ 0x140222EF8 (MiUseLowIoPriorityForModifiedPages.c)
- *     KeQueryEffectiveBasePriorityThread @ 0x1402230F4 (KeQueryEffectiveBasePriorityThread.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetAvailablePagesBelowPriority @ 0x14025B9B0 (MiGetAvailablePagesBelowPriority.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9630 (KeSetActualBasePriorityThread.c)
- *     ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x140344B84 (-SmUpdateMemoryConditions@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ?SmDrainSList@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z @ 0x1405BED94 (-SmDrainSList@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     ?SmUpdateMemoryConditions@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z @ 0x14026730C (-SmUpdateMemoryConditions@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@W4_SMP_MEMORY_CONDITION@@K@Z.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ?SmDrainSList@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z @ 0x140328250 (-SmDrainSList@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14033A92C (MiGetAvailablePagesBelowPriority.c)
+ *     KeQueryEffectiveBasePriorityThread @ 0x14033A98C (KeQueryEffectiveBasePriorityThread.c)
+ *     MiUseLowIoPriorityForModifiedPages @ 0x14033A9BC (MiUseLowIoPriorityForModifiedPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiStoreUpdateMemoryConditions(__int64 a1)
 {
-  volatile LONG *v1; // r15
-  unsigned __int64 v3; // rdi
-  unsigned __int64 v4; // rbx
-  unsigned int v5; // r13d
-  int v6; // r12d
-  int v7; // r14d
+  unsigned __int64 v2; // rbx
+  int v3; // r15d
+  int v4; // ebp
+  int v5; // edi
   unsigned __int64 AvailablePagesBelowPriority; // rax
-  unsigned __int64 v9; // rcx
-  unsigned int v10; // ebx
-  __int64 v11; // rcx
-  char v12; // cl
+  unsigned __int64 v7; // rcx
+  int v8; // ebx
+  unsigned __int64 OldIrql; // rdi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r8
-  int v16; // eax
-  bool v17; // zf
-  signed __int32 v18[18]; // [rsp+0h] [rbp-48h] BYREF
+  _DWORD *SchedulerAssist; // r9
+  int v13; // eax
+  bool v14; // zf
+  signed __int32 v15[8]; // [rsp+0h] [rbp-58h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
-  v1 = (volatile LONG *)(a1 + 1352);
-  v3 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1352));
-  if ( *(_DWORD *)(a1 + 1268) )
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4928), &LockHandle);
+  v2 = *(_QWORD *)(a1 + 7104);
+  v3 = MiUseLowIoPriorityForModifiedPages(a1);
+  if ( v2 < 0xA0 )
   {
-    ExReleaseSpinLockExclusiveFromDpcLevel(v1);
-    v12 = KiIrqlFlags;
-    if ( !KiIrqlFlags )
-      goto LABEL_17;
-    goto LABEL_19;
-  }
-  v4 = *(_QWORD *)(a1 + 17216);
-  v5 = !MiUseLowIoPriorityForModifiedPages(a1);
-  if ( v4 < 0xA0 )
-  {
-    v10 = 0;
-    v6 = 1;
-    v7 = 18;
+    v8 = 0;
+    v5 = 18;
+    v4 = 1;
   }
   else
   {
-    v6 = 0;
-    if ( v4 < 0x420 )
+    v4 = 0;
+    if ( v2 < 0x420 )
     {
-      v10 = 1;
-      v7 = 18;
+      v8 = 1;
+      v5 = 18;
     }
     else
     {
-      v7 = 8;
+      v5 = 8;
       AvailablePagesBelowPriority = MiGetAvailablePagesBelowPriority(a1, 6LL);
-      if ( AvailablePagesBelowPriority < 3LL * *(_QWORD *)(*(_QWORD *)(a1 + 16920) + 2392LL) )
+      if ( AvailablePagesBelowPriority < 3LL * *(_QWORD *)(*(_QWORD *)(a1 + 6848) + 2392LL) )
       {
-        v10 = 2;
+        v8 = 2;
       }
       else
       {
-        v9 = *(_QWORD *)(a1 + 17824);
-        if ( v9 >= AvailablePagesBelowPriority + 0x2000 )
-          v10 = (v9 < AvailablePagesBelowPriority + 0x2000 + AvailablePagesBelowPriority) + 2;
+        v7 = *(_QWORD *)(a1 + 7600);
+        if ( v7 >= AvailablePagesBelowPriority + 0x2000 )
+          v8 = (v7 < AvailablePagesBelowPriority + 0x2000 + AvailablePagesBelowPriority) + 2;
         else
-          v10 = 4;
+          v8 = 4;
       }
     }
   }
-  if ( (unsigned int)KeQueryEffectiveBasePriorityThread(*(_QWORD *)(a1 + 1232)) != v7 )
-    KeSetActualBasePriorityThread(*(_QWORD *)(a1 + 1232));
-  if ( v6 )
-    KeSetEvent((PRKEVENT)(a1 + 1240), 0, 0);
-  v11 = *(_QWORD *)(*(_QWORD *)(a1 + 200) + 24LL);
-  if ( *(unsigned __int8 *)(v11 + 2040) != v10 || !v10 || *(unsigned __int8 *)(v11 + 2041) != v5 )
+  if ( (unsigned int)KeQueryEffectiveBasePriorityThread(*(_QWORD *)(a1 + 1192)) != v5 )
+    KeSetActualBasePriorityThread(*(_QWORD *)(a1 + 1192), v5);
+  if ( v4 )
+    KeSetEvent((PRKEVENT)(a1 + 1200), 0, 0);
+  if ( (unsigned __int8)byte_140D24168 != v8 || !v8 || byte_140D24169 != (v3 == 0) )
   {
-    *(_BYTE *)(v11 + 2040) = v10;
-    *(_BYTE *)(v11 + 2041) = v5;
-    _InterlockedOr(v18, 0);
-    SMKM_STORE_MGR<SM_TRAITS>::SmUpdateMemoryConditions(v11, v10, v5);
-    if ( !v10 )
-      SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList(*(_QWORD *)(*(_QWORD *)(a1 + 200) + 24LL) + 1408LL, 0LL);
+    byte_140D24168 = v8;
+    byte_140D24169 = v3 == 0;
+    _InterlockedOr(v15, 0);
+    SMKM_STORE_MGR<SM_TRAITS>::SmUpdateMemoryConditions((__int64)&SmGlobals, v8);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(v1);
-  v12 = KiIrqlFlags;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-LABEL_19:
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (v12 & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v17 = (v16 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v16;
-      if ( v17 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v14 = (v13 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v13;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
-LABEL_17:
-  __writecr8(v3);
+  __writecr8(OldIrql);
+  if ( !v8 )
+    SMKM_STORE_MGR<SM_TRAITS>::SmDrainSList(&stru_140D23F40, 0);
 }

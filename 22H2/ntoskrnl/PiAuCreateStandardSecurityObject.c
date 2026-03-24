@@ -1,30 +1,30 @@
 /*
- * XREFs of PiAuCreateStandardSecurityObject @ 0x140B43DC0
+ * XREFs of PiAuCreateStandardSecurityObject @ 0x140A51B9C
  * Callers:
- *     PiAuCreateSecurityObjects @ 0x140B42FB0 (PiAuCreateSecurityObjects.c)
+ *     PiAuCreateSecurityObjects @ 0x140A516E8 (PiAuCreateSecurityObjects.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x14069BD60 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x140710FF0 (RtlLengthSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     RtlValidSid @ 0x1407378A0 (RtlValidSid.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140782500 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x1407B52C0 (RtlValidSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1407EF640 (RtlSetGroupSecurityDescriptor.c)
- *     PiAuAllocateAndInitializeSid @ 0x140815A30 (PiAuAllocateAndInitializeSid.c)
- *     RtlAddAccessDeniedAceEx @ 0x140815AB0 (RtlAddAccessDeniedAceEx.c)
- *     RtlAddAccessAllowedAceEx @ 0x140875130 (RtlAddAccessAllowedAceEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlValidSid @ 0x1406D54E0 (RtlValidSid.c)
+ *     RtlValidSecurityDescriptor @ 0x1406D7CC0 (RtlValidSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406D8E90 (RtlLengthSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1406EFA00 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1406EFA60 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140767A50 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlAddAccessAllowedAceEx @ 0x140781870 (RtlAddAccessAllowedAceEx.c)
+ *     PiAuAllocateAndInitializeSid @ 0x1407A34F4 (PiAuAllocateAndInitializeSid.c)
+ *     RtlAddAccessDeniedAceEx @ 0x1407A3580 (RtlAddAccessDeniedAceEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuCreateStandardSecurityObject(PSID *a1)
 {
   ACL *v2; // rdi
-  void *v3; // r14
+  void *v3; // rsi
   unsigned int v4; // r13d
   PSID *v5; // r12
   unsigned int *v6; // r15
@@ -37,30 +37,31 @@ __int64 __fastcall PiAuCreateStandardSecurityObject(PSID *a1)
   ULONG v13; // ebx
   PVOID *v14; // rdx
   __int64 v15; // rax
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   unsigned int v17; // r15d
   PSID *v18; // r12
   ULONG v19; // eax
-  void *v20; // rax
-  PVOID *v21; // rsi
+  ULONG v20; // ebx
+  PVOID v21; // rax
+  PVOID *v22; // r14
   ULONG BufferLength[2]; // [rsp+38h] [rbp-D0h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+40h] [rbp-C8h] BYREF
-  __int64 v25; // [rsp+68h] [rbp-A0h]
-  PVOID v26[22]; // [rsp+78h] [rbp-90h] BYREF
+  __int64 v26; // [rsp+68h] [rbp-A0h]
+  PVOID v27[22]; // [rsp+78h] [rbp-90h] BYREF
 
   LOWORD(BufferLength[1]) = 1280;
   BufferLength[0] = 0;
-  v25 = 0LL;
+  v26 = 0LL;
   v2 = 0LL;
   v3 = 0LL;
-  memset(v26, 0, sizeof(v26));
+  memset(v27, 0, 0xA8uLL);
   v4 = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v5 = v26;
+  v5 = v27;
   v6 = (unsigned int *)PiAuSwDeviceCreateSidSubAuthorities;
   do
   {
-    Acl = PiAuAllocateAndInitializeSid(&v26[v4], (struct _SID_IDENTIFIER_AUTHORITY *)BufferLength, *v6);
+    Acl = PiAuAllocateAndInitializeSid(&v27[v4], (struct _SID_IDENTIFIER_AUTHORITY *)BufferLength, *v6);
     if ( Acl < 0 )
       goto LABEL_42;
     v8 = *(_QWORD *)SecurityDescriptor;
@@ -79,7 +80,7 @@ __int64 __fastcall PiAuCreateStandardSecurityObject(PSID *a1)
     {
       Acl = -1073741595;
 LABEL_42:
-      v11 = 22LL;
+      v11 = 21LL;
       goto LABEL_30;
     }
     ++v4;
@@ -87,18 +88,18 @@ LABEL_42:
     *(_QWORD *)SecurityDescriptor = v8 + 7;
     ++v5;
   }
-  while ( v4 < 0x16 );
-  v11 = 22LL;
-  v12 = 22LL;
+  while ( v4 < 0x15 );
+  v11 = 21LL;
+  v12 = 21LL;
   v13 = 4
-      * (*((unsigned __int8 *)*a1 + 1)
-       + *((unsigned __int8 *)a1[5] + 1)
+      * (*((unsigned __int8 *)a1[6] + 1)
+       + *((unsigned __int8 *)*a1 + 1)
        + *((unsigned __int8 *)a1[4] + 1)
+       + *((unsigned __int8 *)a1[5] + 1)
        + *((unsigned __int8 *)a1[3] + 1)
-       + *((unsigned __int8 *)a1[2] + 1)
-       + *((unsigned __int8 *)a1[6] + 1))
+       + *((unsigned __int8 *)a1[2] + 1))
       + 104;
-  v14 = v26;
+  v14 = v27;
   do
   {
     v15 = (__int64)*v14++;
@@ -106,11 +107,11 @@ LABEL_42:
     --v12;
   }
   while ( v12 );
-  Pool2 = (ACL *)ExAllocatePool2(256LL, v13, 0x20207050u);
-  v2 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v13, 0x20207050u);
+  v2 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Acl = RtlCreateAcl(Pool2, v13, 2u);
+    Acl = RtlCreateAcl(PoolWithTag, v13, 2u);
     if ( Acl >= 0 )
     {
       Acl = RtlAddAccessAllowedAceEx(v2, 2u, 0, 0x201E7u, a1[2]);
@@ -132,7 +133,7 @@ LABEL_42:
                 if ( Acl >= 0 )
                 {
                   v17 = 0;
-                  v18 = v26;
+                  v18 = v27;
                   while ( 1 )
                   {
                     Acl = RtlAddAccessAllowedAceEx(v2, 2u, 0, 0x80u, *v18);
@@ -140,7 +141,7 @@ LABEL_42:
                       break;
                     ++v17;
                     ++v18;
-                    if ( v17 >= 0x16 )
+                    if ( v17 >= 0x15 )
                     {
                       Acl = RtlCreateSecurityDescriptor(&SecurityDescriptor[8], 1u);
                       if ( Acl >= 0 )
@@ -159,11 +160,13 @@ LABEL_42:
                                     BufferLength[0] = v19,
                                     v19 >= 0x28) )
                               {
-                                v20 = (void *)ExAllocatePool2(256LL, v19, 0x20207050u);
-                                v3 = v20;
-                                if ( !v20 )
+                                v20 = v19;
+                                v21 = ExAllocatePoolWithTag(PagedPool, v19, 0x20207050u);
+                                v3 = v21;
+                                if ( !v21 )
                                   goto LABEL_39;
-                                Acl = RtlAbsoluteToSelfRelativeSD(&SecurityDescriptor[8], v20, BufferLength);
+                                memset(v21, 0, v20);
+                                Acl = RtlAbsoluteToSelfRelativeSD(&SecurityDescriptor[8], v3, BufferLength);
                                 if ( Acl >= 0 )
                                 {
                                   PiAuSecurityObject = v3;
@@ -195,12 +198,12 @@ LABEL_39:
     Acl = -1073741670;
   }
 LABEL_30:
-  v21 = v26;
+  v22 = v27;
   do
   {
-    if ( *v21 )
-      ExFreePoolWithTag(*v21, 0);
-    ++v21;
+    if ( *v22 )
+      ExFreePoolWithTag(*v22, 0);
+    ++v22;
     --v11;
   }
   while ( v11 );

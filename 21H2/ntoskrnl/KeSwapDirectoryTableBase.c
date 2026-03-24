@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSwapDirectoryTableBase @ 0x140216C28
+ * XREFs of KeSwapDirectoryTableBase @ 0x14038DA34
  * Callers:
- *     MiStealPage @ 0x1402E97D4 (MiStealPage.c)
+ *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
  * Callees:
- *     KeFlushProcessTb @ 0x1402171FC (KeFlushProcessTb.c)
- *     KeGenericCallDpc @ 0x140217420 (KeGenericCallDpc.c)
+ *     KeFlushProcessTb @ 0x140297284 (KeFlushProcessTb.c)
+ *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
  */
 
-__int64 __fastcall KeSwapDirectoryTableBase(__int64 a1, int a2, __int64 a3)
+char __fastcall KeSwapDirectoryTableBase(__int64 a1, int a2, __int64 a3)
 {
   __int64 v3; // rbx
   char v5; // [rsp+20h] [rbp-28h] BYREF
@@ -33,6 +33,6 @@ __int64 __fastcall KeSwapDirectoryTableBase(__int64 a1, int a2, __int64 a3)
   {
     v3 = *(_QWORD *)(a1 + 40);
   }
-  KeGenericCallDpc(KiSwapDirectoryTableBaseTarget, &v5);
+  KeGenericCallDpc((__int64)KiSwapDirectoryTableBaseTarget, (__int64)&v5);
   return KeFlushProcessTb(v3);
 }

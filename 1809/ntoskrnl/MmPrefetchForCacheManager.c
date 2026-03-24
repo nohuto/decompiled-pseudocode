@@ -1,18 +1,18 @@
 /*
- * XREFs of MmPrefetchForCacheManager @ 0x140662658
+ * XREFs of MmPrefetchForCacheManager @ 0x140662638
  * Callers:
- *     CcFetchDataForRead @ 0x1400AF6F0 (CcFetchDataForRead.c)
- *     CcPerformReadAhead @ 0x1400DDFA4 (CcPerformReadAhead.c)
- *     CcAsyncReadPrefetch @ 0x1400DFAAC (CcAsyncReadPrefetch.c)
+ *     CcFetchDataForRead @ 0x1400AF710 (CcFetchDataForRead.c)
+ *     CcPerformReadAhead @ 0x1400DDFC4 (CcPerformReadAhead.c)
+ *     CcAsyncReadPrefetch @ 0x1400DFACC (CcAsyncReadPrefetch.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MiReturnCcAccessLog @ 0x1400DFA4C (MiReturnCcAccessLog.c)
+ *     MiReturnCcAccessLog @ 0x1400DFA6C (MiReturnCcAccessLog.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
- *     MiPfExecuteReadList @ 0x1406627BC (MiPfExecuteReadList.c)
- *     MiReleaseReadListResources @ 0x1406628F0 (MiReleaseReadListResources.c)
- *     MiGetCcAccessLog @ 0x140662A88 (MiGetCcAccessLog.c)
+ *     MiPfExecuteReadList @ 0x14066279C (MiPfExecuteReadList.c)
+ *     MiReleaseReadListResources @ 0x1406628D0 (MiReleaseReadListResources.c)
+ *     MiGetCcAccessLog @ 0x140662A68 (MiGetCcAccessLog.c)
  */
 
 __int64 __fastcall MmPrefetchForCacheManager(

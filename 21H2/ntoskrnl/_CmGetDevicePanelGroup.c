@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmGetDevicePanelGroup @ 0x140A28A2C
+ * XREFs of _CmGetDevicePanelGroup @ 0x1407D40EC
  * Callers:
- *     _CmUpdateDevicePanel @ 0x14076E224 (_CmUpdateDevicePanel.c)
- *     _CmUpdateDevicePanelInterface @ 0x140A297B0 (_CmUpdateDevicePanelInterface.c)
+ *     _CmUpdateDevicePanel @ 0x1407476A8 (_CmUpdateDevicePanel.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140978E20 (_CmUpdateDevicePanelInterface.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,11 @@ __int64 __fastcall CmGetDevicePanelGroup(__int64 a1)
   int v2; // eax
 
   v1 = 0;
-  if ( (*(_BYTE *)a1 & 0x7Fu) < 2 )
+  if ( (*(_BYTE *)a1 & 0x7Fu) >= 2 )
+  {
+    return (unsigned __int8)(*(_DWORD *)(a1 + 12) >> 2);
+  }
+  else
   {
     v2 = *(_DWORD *)(a1 + 8);
     if ( (v2 & 4) != 0 )
@@ -24,10 +28,6 @@ __int64 __fastcall CmGetDevicePanelGroup(__int64 a1)
     {
       return 257;
     }
-  }
-  else
-  {
-    return (unsigned __int8)(*(_DWORD *)(a1 + 12) >> 2);
   }
   return v1;
 }

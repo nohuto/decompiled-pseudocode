@@ -1,32 +1,31 @@
 /*
- * XREFs of AlpcpReturnMessageOnInsufficientBuffer @ 0x1406C9174
+ * XREFs of AlpcpReturnMessageOnInsufficientBuffer @ 0x1406A8008
  * Callers:
- *     AlpcpReceiveMessage @ 0x1407AC930 (AlpcpReceiveMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x1407AD040 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     AlpcpExposeContextAttribute @ 0x1406C926C (AlpcpExposeContextAttribute.c)
- *     AlpcpInsertMessageLargeMessageQueue @ 0x1406C92E0 (AlpcpInsertMessageLargeMessageQueue.c)
- *     AlpcpInsertMessageCanceledQueue @ 0x14074B7A0 (AlpcpInsertMessageCanceledQueue.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x1407A6FD8 (AlpcpRemoveMessageFromPendingQueue.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x1405E38B0 (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpExposeContextAttribute @ 0x1406A8100 (AlpcpExposeContextAttribute.c)
+ *     AlpcpInsertMessageLargeMessageQueue @ 0x1406A8174 (AlpcpInsertMessageLargeMessageQueue.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x1406BDF6C (AlpcpInsertMessageCanceledQueue.c)
  */
 
 __int64 __fastcall AlpcpReturnMessageOnInsufficientBuffer(__int64 a1, _QWORD *a2, _OWORD *a3)
 {
-  signed __int64 *v3; // rdi
-  __int64 v7; // rdx
-  int v8; // eax
+  signed __int64 *v3; // rsi
+  int v7; // eax
 
   v3 = (signed __int64 *)(a1 + 352);
   *a3 = 0LL;
   a3[1] = 0LL;
   ExAcquirePushLockSharedEx(a1 + 352, 0LL);
-  v8 = *(_DWORD *)(a1 + 416);
+  v7 = *(_DWORD *)(a1 + 416) & 0x40;
   if ( a2[8] == a1 )
   {
-    if ( (v8 & 0x40) != 0 )
+    if ( v7 )
     {
       a2[8] = 0LL;
       a2[7] = 0LL;
@@ -43,10 +42,10 @@ LABEL_12:
     AlpcpExposeContextAttribute(a1, a2, a3, 0LL);
     return 3221225507LL;
   }
-  if ( (v8 & 0x40) == 0 )
+  if ( !v7 )
   {
     if ( a2[2] )
-      AlpcpRemoveMessageFromPendingQueue(a2, v7);
+      AlpcpRemoveMessageFromPendingQueue((__int64)a2);
     ++*((_WORD *)a2 - 15);
     AlpcpInsertMessageLargeMessageQueue(a1, a2);
     goto LABEL_12;

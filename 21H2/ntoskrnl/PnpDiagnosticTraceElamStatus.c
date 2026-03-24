@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDiagnosticTraceElamStatus @ 0x1403C5BB8
+ * XREFs of PnpDiagnosticTraceElamStatus @ 0x1403B8308
  * Callers:
- *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140B12720 (PnpNotifyEarlyLaunchStatusUpdate.c)
+ *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140A5EEE0 (PnpNotifyEarlyLaunchStatusUpdate.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PnpDiagnosticTraceElamStatus(PCEVENT_DESCRIPTOR EventDescriptor, int a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of DxgkGetDisplayManagerObjectType @ 0x1C01EA510
+ * XREFs of DxgkGetDisplayManagerObjectType @ 0x1C016F6A0
  * Callers:
  *     <none>
  * Callees:

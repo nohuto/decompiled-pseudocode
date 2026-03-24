@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBaseAnimation@CBaseAnimationMarshaler@DirectComposition@@UEAAPEAVCBaseAnimation@2@XZ @ 0x1C00CB150
+ * XREFs of ?GetBaseAnimation@CBaseAnimationMarshaler@DirectComposition@@UEAAPEAVCBaseAnimation@2@XZ @ 0x1C00BBF50
  * Callers:
  *     <none>
  * Callees:

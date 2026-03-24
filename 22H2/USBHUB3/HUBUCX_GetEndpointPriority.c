@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBUCX_GetEndpointPriority @ 0x1C0027304
+ * XREFs of HUBUCX_GetEndpointPriority @ 0x1C0024790
  * Callers:
- *     HUBUCX_CreateEndpointsInUCX @ 0x1C0027474 (HUBUCX_CreateEndpointsInUCX.c)
+ *     HUBUCX_CreateEndpointsInUCX @ 0x1C0024900 (HUBUCX_CreateEndpointsInUCX.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall HUBUCX_GetEndpointPriority(__int64 a1, __int64 a2, __int64 a3
   __int16 v22; // ax
   __int16 v23; // ax
 
-  v4 = *(_DWORD *)(a1 + 2704);
+  v4 = *(_DWORD *)(a1 + 2696);
   v5 = 0;
   if ( !v4 )
     return (unsigned int)-1073741275;
@@ -58,7 +58,7 @@ __int64 __fastcall HUBUCX_GetEndpointPriority(__int64 a1, __int64 a2, __int64 a3
   if ( v11 != v12 )
   {
     v19 = 0;
-    v20 = *(_QWORD *)(a1 + 2696);
+    v20 = *(_QWORD *)(a1 + 2688);
     while ( 1 )
     {
       v21 = *(_WORD *)(v20 + 20LL * v19);

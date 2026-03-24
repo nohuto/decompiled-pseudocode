@@ -1,18 +1,18 @@
 /*
- * XREFs of GreSetBkMode @ 0x1C00BFC20
+ * XREFs of GreSetBkMode @ 0x1C0045F3C
  * Callers:
- *     xxxDrawCaptionTemp @ 0x1C00B97AC (xxxDrawCaptionTemp.c)
- *     xxxMenuDraw @ 0x1C00BD4E0 (xxxMenuDraw.c)
- *     xxxDrawMenuItem @ 0x1C00BE508 (xxxDrawMenuItem.c)
- *     DrawFrameControl @ 0x1C00BF6FC (DrawFrameControl.c)
- *     FinalUserInit @ 0x1C00D43C4 (FinalUserInit.c)
- *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C021CC64 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
- *     ?xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z @ 0x1C023EB00 (-xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z.c)
- *     xxxMNInvertItem @ 0x1C0248188 (xxxMNInvertItem.c)
- *     xxxDrawState @ 0x1C024DD1C (xxxDrawState.c)
+ *     xxxMenuDraw @ 0x1C0043708 (xxxMenuDraw.c)
+ *     xxxDrawMenuItem @ 0x1C00447AC (xxxDrawMenuItem.c)
+ *     DrawFrameControl @ 0x1C0045C38 (DrawFrameControl.c)
+ *     FinalUserInit @ 0x1C00E5318 (FinalUserInit.c)
+ *     xxxDrawCaptionTemp @ 0x1C01590D4 (xxxDrawCaptionTemp.c)
+ *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C0223290 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
+ *     ?xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z @ 0x1C024302C (-xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z.c)
+ *     xxxMNInvertItem @ 0x1C024CD80 (xxxMNInvertItem.c)
+ *     xxxDrawState @ 0x1C0250D44 (xxxDrawState.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall GreSetBkMode(HDC a1, int a2)

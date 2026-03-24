@@ -1,173 +1,166 @@
 /*
- * XREFs of MiCombineIdenticalPages @ 0x1407EBA94
+ * XREFs of MiCombineIdenticalPages @ 0x140726870
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
- *     MmManagePartitionCombineMemory @ 0x140A455D8 (MmManagePartitionCombineMemory.c)
+ *     MmCombineIdenticalPages @ 0x140726820 (MmCombineIdenticalPages.c)
+ *     MmManagePartitionCombineMemory @ 0x1408DB8B8 (MmManagePartitionCombineMemory.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiCreateUltraThreadContext @ 0x1402EC3F0 (MiCreateUltraThreadContext.c)
- *     MiCombiningInProgress @ 0x14036EBEC (MiCombiningInProgress.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiCombineWorkingSet @ 0x140653488 (MiCombineWorkingSet.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     MiCombineAllPhysicalMemory @ 0x1406F9DC0 (MiCombineAllPhysicalMemory.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiInitializePageColorBase @ 0x14023EBF0 (MiInitializePageColorBase.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     MiCreateUltraThreadContext @ 0x14035465C (MiCreateUltraThreadContext.c)
+ *     MiGetNextPageColor @ 0x140357168 (MiGetNextPageColor.c)
+ *     MiDeleteUltraThreadContext @ 0x140357B5C (MiDeleteUltraThreadContext.c)
+ *     MiCombiningInProgress @ 0x140366608 (MiCombiningInProgress.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiCombineWorkingSet @ 0x14055CB64 (MiCombineWorkingSet.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     MiCombineAllPhysicalMemory @ 0x140727470 (MiCombineAllPhysicalMemory.c)
  */
 
 __int64 __fastcall MiCombineIdenticalPages(
-        unsigned __int16 *a1,
+        ULONG_PTR *a1,
         void *a2,
         int a3,
         void *a4,
         KPROCESSOR_MODE AccessMode,
         _QWORD *a6)
 {
-  PVOID v9; // rsi
-  PVOID v10; // r15
-  NTSTATUS v11; // eax
-  unsigned int v12; // ebx
-  struct _KTHREAD *CurrentThread; // r12
-  __int64 v14; // rdi
-  signed __int32 v15; // eax
-  signed __int32 v16; // edx
-  signed __int32 v17; // ecx
-  unsigned int v18; // eax
-  __int64 v20; // rax
-  NTSTATUS v21; // eax
+  struct _DMA_ADAPTER *v9; // rsi
+  struct _DMA_ADAPTER *v10; // r15
+  __int64 v11; // rax
+  NTSTATUS v12; // eax
+  unsigned int v13; // ebx
+  struct _KTHREAD *CurrentThread; // r13
+  ULONG_PTR *v15; // rdi
+  unsigned int NextPageColor; // eax
+  unsigned int v17; // eax
+  NTSTATUS v19; // eax
+  _DWORD *v20; // r9
   PVOID Object; // [rsp+30h] [rbp-D0h] BYREF
-  PVOID v23; // [rsp+38h] [rbp-C8h] BYREF
-  _DWORD v24[2]; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int16 *v25; // [rsp+48h] [rbp-B8h]
-  _QWORD *v26; // [rsp+50h] [rbp-B0h]
-  _QWORD v27[2]; // [rsp+58h] [rbp-A8h] BYREF
-  __int128 v28; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v29[42]; // [rsp+80h] [rbp-80h] BYREF
-  __int128 v30; // [rsp+1D0h] [rbp+D0h] BYREF
-  __int128 v31; // [rsp+1E0h] [rbp+E0h]
-  $115DCDF994C6370D29323EAB0E0C9502 v32; // [rsp+1F0h] [rbp+F0h] BYREF
+  PVOID v22; // [rsp+38h] [rbp-C8h] BYREF
+  _DWORD v23[2]; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG_PTR *v24; // [rsp+48h] [rbp-B8h]
+  _QWORD *v25; // [rsp+50h] [rbp-B0h]
+  _QWORD v26[2]; // [rsp+58h] [rbp-A8h] BYREF
+  __int128 v27; // [rsp+68h] [rbp-98h] BYREF
+  unsigned __int64 v28[10]; // [rsp+80h] [rbp-80h] BYREF
+  _QWORD v29[30]; // [rsp+D0h] [rbp-30h] BYREF
+  __int128 v30; // [rsp+1C0h] [rbp+C0h] BYREF
+  __int128 v31; // [rsp+1D0h] [rbp+D0h]
+  _OWORD v32[3]; // [rsp+1E0h] [rbp+E0h] BYREF
 
-  v25 = a1;
-  v26 = a6;
+  v24 = a1;
+  v25 = a6;
+  memset(v28, 0, sizeof(v28));
   v30 = 0LL;
   v31 = 0LL;
   memset(v29, 0, sizeof(v29));
   *a6 = 0LL;
   v9 = 0LL;
   v10 = 0LL;
-  memset(&v32, 0, sizeof(v32));
-  v28 = 0LL;
+  memset(v32, 0, sizeof(v32));
   if ( (a3 & 0xFFFFFFFC) != 0 )
     return (unsigned int)-1073741583;
+  v11 = -1LL;
   if ( (a3 & 2) != 0 )
   {
-    v20 = -1LL;
     if ( a4 )
-      v20 = (__int64)a4;
-    a4 = (void *)v20;
+      v11 = (__int64)a4;
+    a4 = (void *)v11;
   }
   else if ( a4 )
   {
     return (unsigned int)-1073741811;
   }
-  if ( (dword_140D1D1C8 & 1) != 0 )
+  if ( (dword_140CFB178 & 1) != 0 )
     return (unsigned int)-1073741637;
   if ( !a2
     || (Object = 0LL,
-        v11 = ObReferenceObjectByHandle(a2, 1u, (POBJECT_TYPE)ExEventObjectType, AccessMode, &Object, 0LL),
-        v10 = Object,
-        v12 = v11,
-        v11 >= 0) )
+        v12 = ObReferenceObjectByHandle(a2, 1u, (POBJECT_TYPE)ExEventObjectType, AccessMode, &Object, 0LL),
+        v10 = (struct _DMA_ADAPTER *)Object,
+        v13 = v12,
+        v12 >= 0) )
   {
     if ( a4 )
     {
-      v23 = 0LL;
-      v21 = ObReferenceObjectByHandle(a4, 0x18u, (POBJECT_TYPE)PsProcessType, AccessMode, &v23, 0LL);
-      v9 = v23;
-      v12 = v21;
-      if ( v21 < 0 )
+      v22 = 0LL;
+      v19 = ObReferenceObjectByHandle(a4, 0x18u, (POBJECT_TYPE)PsProcessType, AccessMode, &v22, 0LL);
+      v9 = (struct _DMA_ADAPTER *)v22;
+      v13 = v19;
+      if ( v19 < 0 )
       {
-LABEL_18:
+LABEL_14:
         if ( v9 )
         {
-          KiUnstackDetachProcess(&v32);
-          ObfDereferenceObject(v9);
+          KiUnstackDetachProcess((__int64)v32, 0);
+          HalPutDmaAdapter(v9);
         }
-        goto LABEL_20;
+        goto LABEL_16;
       }
-      KiStackAttachProcess((_KPROCESS *)v23, 0, (__int64)&v32);
+      KiStackAttachProcess((_KPROCESS *)v22, 0LL, (__int64)v32, v20);
     }
     CurrentThread = KeGetCurrentThread();
-    v14 = (__int64)(v25 + 8260);
-    if ( (a3 & 1) == 0 || v25 == MiSystemPartition )
+    v15 = v24 + 806;
+    if ( (a3 & 1) == 0 || v24 == &MiSystemPartition )
     {
       --CurrentThread->KernelApcDisable;
-      MiCombiningInProgress((__int64 *)v14, (unsigned __int64 *)&v29[2], 1);
-      v24[0] = 0;
-      v24[1] = -1;
-      v27[0] = qword_140C69828;
-      v27[1] = qword_140C69830;
-      v29[15] = (__int64)v27;
-      v29[16] = (__int64)v24;
-      v29[13] = (__int64)&v30;
-      v15 = dword_140C6735C;
-      LODWORD(v29[17]) = 2;
-      v29[0] = v14;
-      v29[1] = (__int64)v10;
-      HIDWORD(v29[17]) = a3;
-      do
-      {
-        v16 = v15 + 1;
-        v17 = v15;
-        if ( (unsigned int)(v15 + 1) < 2 )
-          v16 = 2;
-        LODWORD(v29[36]) = v16;
-        v15 = _InterlockedCompareExchange(&dword_140C6735C, v16, v15);
-      }
-      while ( v15 != v17 );
+      MiCombiningInProgress((__int64 *)v15, v28, 1);
+      v23[0] = 0;
+      v23[1] = -1;
+      v26[0] = qword_140C4ED98;
+      v26[1] = qword_140C4EDA0;
+      v29[5] = v26;
+      v29[6] = v23;
+      v29[2] = v28;
+      v29[3] = &v30;
+      LODWORD(v29[7]) = 2;
+      v29[0] = v15;
+      v29[1] = v10;
+      HIDWORD(v29[7]) = a3;
+      v27 = 0LL;
       MiInitializePageColorBase(
-        (__int64)&KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26],
+        (__int64)&KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6],
         0,
-        (__int64)&v28);
-      if ( (unsigned int)MiCreateUltraThreadContext((__int64)&v29[20], (__int64)&v28, 8, 0) )
+        (__int64)&v27);
+      NextPageColor = MiGetNextPageColor((__int64)&v27);
+      if ( (unsigned int)MiCreateUltraThreadContext((__int64)&v29[14], NextPageColor, 8) )
       {
         if ( (a3 & 2) != 0 )
         {
-          v29[14] = (__int64)v9 + 1664;
-          v18 = MiCombineWorkingSet((__int64)v29);
+          v29[4] = v9 + 104;
+          v17 = MiCombineWorkingSet((__int64)v29);
         }
         else
         {
-          v29[14] = 0LL;
-          v18 = MiCombineAllPhysicalMemory(v29);
+          v29[4] = 0LL;
+          v17 = MiCombineAllPhysicalMemory(v29);
         }
-        v12 = v18;
-        MiDeleteUltraThreadContext((__int64)&v29[20]);
-        *v26 = v30;
-        _InterlockedIncrement((volatile signed __int32 *)(v14 + 384));
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(v14 + 376), *((unsigned __int64 *)&v30 + 1));
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(v14 + 360), v31);
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(v14 + 368), *((unsigned __int64 *)&v31 + 1));
+        v13 = v17;
+        MiDeleteUltraThreadContext((__int64)&v29[14]);
+        *v25 = v30;
+        _InterlockedIncrement((volatile signed __int32 *)v15 + 96);
+        _InterlockedExchangeAdd64((volatile signed __int64 *)v15 + 47, *((unsigned __int64 *)&v30 + 1));
+        _InterlockedExchangeAdd64((volatile signed __int64 *)v15 + 45, v31);
+        _InterlockedExchangeAdd64((volatile signed __int64 *)v15 + 46, *((unsigned __int64 *)&v31 + 1));
       }
       else
       {
-        v12 = -1073741670;
+        v13 = -1073741670;
       }
-      MiCombiningInProgress((__int64 *)v14, (unsigned __int64 *)&v29[2], 0);
+      MiCombiningInProgress((__int64 *)v15, v28, 0);
       KeLeaveCriticalRegionThread((__int64)CurrentThread);
     }
     else
     {
-      v12 = -1073741637;
+      v13 = -1073741637;
     }
-    goto LABEL_18;
+    goto LABEL_14;
   }
-LABEL_20:
+LABEL_16:
   if ( v10 )
-    ObfDereferenceObject(v10);
-  return v12;
+    HalPutDmaAdapter(v10);
+  return v13;
 }

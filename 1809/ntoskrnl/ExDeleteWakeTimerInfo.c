@@ -1,8 +1,8 @@
 /*
- * XREFs of ExDeleteWakeTimerInfo @ 0x14031C4A0
+ * XREFs of ExDeleteWakeTimerInfo @ 0x14031C5A0
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopFreeWakeSource @ 0x14086B798 (PopFreeWakeSource.c)
+ *     PopFreeWakeSource @ 0x14086B778 (PopFreeWakeSource.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,27 +1,27 @@
 /*
- * XREFs of PiUEventInitClientRegistrationContext @ 0x14078DAB0
+ * XREFs of PiUEventInitClientRegistrationContext @ 0x1406E49AC
  * Callers:
- *     PiUEventHandleRegistration @ 0x14078D764 (PiUEventHandleRegistration.c)
+ *     PiUEventHandleRegistration @ 0x1406E20B0 (PiUEventHandleRegistration.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     KeInitializeGuardedMutex @ 0x1402E0710 (KeInitializeGuardedMutex.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x1402E0B30 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x14041D180 (ZwCreateWnfStateName.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14078EDC0 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x1402ED600 (RtlDeriveCapabilitySidsFromName.c)
+ *     KeInitializeGuardedMutex @ 0x1402EE570 (KeInitializeGuardedMutex.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1403FBD20 (ZwCreateWnfStateName.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *PiUEventInitClientRegistrationContext()
 {
   ACL *v0; // rbx
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v2; // rdi
   struct _FAST_MUTEX *v3; // rax
   PSID v4; // rsi
@@ -40,62 +40,55 @@ _QWORD *PiUEventInitClientRegistrationContext()
 
   *(_QWORD *)&SourceString.Length = 2752552LL;
   v15 = 0LL;
+  v0 = 0LL;
   SourceString.Buffer = L"lpacPnpNotifications";
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v0 = 0LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(256LL, 144LL, 1500540496LL);
-  v2 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x90uLL, 0x59706E50u);
+  v2 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, 0x90uLL);
-    v3 = (struct _FAST_MUTEX *)ExAllocatePool2(64LL, 56LL, 1500540496LL);
+    memset(PoolWithTag, 0, 0x90uLL);
+    v3 = (struct _FAST_MUTEX *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x59706E50u);
     v2[2] = v3;
-    if ( v3 )
+    if ( !v3 )
+      goto LABEL_18;
+    KeInitializeGuardedMutex(v3);
+    *((_DWORD *)v2 + 33) = 4;
+    v2[15] = v2 + 14;
+    v2[14] = v2 + 14;
+    *((_BYTE *)v2 + 140) = 1;
+    v2[13] = v2 + 12;
+    v2[12] = v2 + 12;
+    if ( RtlDeriveCapabilitySidsFromName(&SourceString, v17, Sid) < 0 )
+      goto LABEL_18;
+    if ( RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) < 0 )
+      goto LABEL_18;
+    v4 = SeLocalSystemSid;
+    if ( RtlSetOwnerSecurityDescriptor(SecurityDescriptor, SeLocalSystemSid, 1u) < 0
+      || (v5 = RtlLengthSid(SeLowMandatorySid),
+          v6 = RtlLengthSid(SeAllAppPackagesSid) + v5,
+          v7 = RtlLengthSid(SeWorldSid) + v6,
+          v8 = RtlLengthSid(v4) + v7,
+          v9 = v8 + RtlLengthSid(Sid) + 48,
+          v10 = (ACL *)ExAllocatePoolWithTag(PagedPool, v9, 0x59706E50u),
+          (v0 = v10) == 0LL)
+      || RtlCreateAcl(v10, v9, 2u) < 0
+      || (int)RtlpAddKnownAce((__int64)v0, 2u, 2, 0x10000000, (unsigned __int8 *)SeLocalSystemSid, 0) < 0
+      || (int)RtlpAddKnownAce((__int64)v0, 2u, 2, 1, (unsigned __int8 *)SeWorldSid, 0) < 0
+      || (int)RtlpAddKnownAce((__int64)v0, 2u, 2, 1, (unsigned __int8 *)SeAllAppPackagesSid, 0) < 0
+      || (int)RtlpAddKnownAce((__int64)v0, 2u, 2, 1, (unsigned __int8 *)SeLowMandatorySid, 0) < 0
+      || (int)RtlpAddKnownAce((__int64)v0, 2u, 2, 1, (unsigned __int8 *)Sid, 0) < 0
+      || RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v0, 0) < 0
+      || (int)ZwCreateWnfStateName((__int64)(v2 + 11), 3LL) < 0 )
     {
-      KeInitializeGuardedMutex(v3);
-      *((_DWORD *)v2 + 33) = 4;
-      v2[15] = v2 + 14;
-      v2[14] = v2 + 14;
-      *((_BYTE *)v2 + 140) = 1;
-      v2[13] = v2 + 12;
-      v2[12] = v2 + 12;
-      if ( RtlDeriveCapabilitySidsFromName(&SourceString, v17, Sid) >= 0
-        && RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) >= 0 )
-      {
-        v4 = SeLocalSystemSid;
-        if ( RtlSetOwnerSecurityDescriptor(SecurityDescriptor, SeLocalSystemSid, 1u) >= 0 )
-        {
-          v5 = RtlLengthSid(SeLowMandatorySid);
-          v6 = RtlLengthSid(SeAllAppPackagesSid) + v5;
-          v7 = RtlLengthSid(SeWorldSid) + v6;
-          v8 = RtlLengthSid(v4) + v7;
-          v9 = v8 + RtlLengthSid(Sid) + 48;
-          v10 = (ACL *)ExAllocatePool2(256LL, v9, 1500540496LL);
-          v0 = v10;
-          if ( v10 )
-          {
-            if ( RtlCreateAcl(v10, v9, 2u) >= 0
-              && (int)RtlpAddKnownAce((int)v0, 2, 2, 0x10000000, SeLocalSystemSid, 0) >= 0
-              && (int)RtlpAddKnownAce((int)v0, 2, 2, 1, SeWorldSid, 0) >= 0
-              && (int)RtlpAddKnownAce((int)v0, 2, 2, 1, SeAllAppPackagesSid, 0) >= 0
-              && (int)RtlpAddKnownAce((int)v0, 2, 2, 1, SeLowMandatorySid, 0) >= 0
-              && (int)RtlpAddKnownAce((int)v0, 2, 2, 1, Sid, 0) >= 0
-              && RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v0, 0) >= 0
-              && (int)ZwCreateWnfStateName((__int64)(v2 + 11), 3LL) >= 0 )
-            {
-              goto LABEL_15;
-            }
-          }
-        }
-      }
+LABEL_18:
+      v12 = (void *)v2[2];
+      if ( v12 )
+        ExFreePoolWithTag(v12, 0x59706E50u);
+      ExFreePoolWithTag(v2, 0x59706E50u);
+      v2 = 0LL;
     }
-    v12 = (void *)v2[2];
-    if ( v12 )
-      ExFreePoolWithTag(v12, 0x59706E50u);
-    ExFreePoolWithTag(v2, 0x59706E50u);
-    v2 = 0LL;
     if ( v0 )
-LABEL_15:
       ExFreePoolWithTag(v0, 0x59706E50u);
   }
   return v2;

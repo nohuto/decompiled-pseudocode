@@ -1,5 +1,5 @@
 /*
- * XREFs of MiResumeMarkPageLists @ 0x1403993E0
+ * XREFs of MiResumeMarkPageLists @ 0x14038DDE0
  * Callers:
  *     <none>
  * Callees:
@@ -9,6 +9,6 @@
 void __fastcall MiResumeMarkPageLists(__int64 a1, int a2)
 {
   if ( a2 )
-    *(_BYTE *)(a1 + 15588) = a2;
-  *(_BYTE *)(a1 + 15589) = 1;
+    *(_BYTE *)(a1 + 4828) = a2;
+  *(_BYTE *)(a1 + 4829) = 1;
 }

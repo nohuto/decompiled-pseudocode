@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsEmpty@CoordMap@@QEBA_NXZ @ 0x18002FB08
+ * XREFs of ?IsEmpty@CoordMap@@QEBA_NXZ @ 0x180007B2C
  * Callers:
- *     ?Initialize@CNineGridDrawListBrush@@AEAAJXZ @ 0x18002F200 (-Initialize@CNineGridDrawListBrush@@AEAAJXZ.c)
- *     ?EnumerateBrushes@CNineGridDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x180076920 (-EnumerateBrushes@CNineGridDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX.c)
+ *     ?Initialize@CNineGridDrawListBrush@@AEAAJXZ @ 0x18000771C (-Initialize@CNineGridDrawListBrush@@AEAAJXZ.c)
+ *     ?EnumerateBrushes@CNineGridDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x1800F2530 (-EnumerateBrushes@CNineGridDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhArmHubForWakeDetect @ 0x1C000AE98
+ * XREFs of UsbhArmHubForWakeDetect @ 0x1C0010064
  * Callers:
- *     UsbhSshSuspendHub @ 0x1C00063E0 (UsbhSshSuspendHub.c)
- *     UsbhFdoSetPowerDx_Action @ 0x1C0009A20 (UsbhFdoSetPowerDx_Action.c)
- *     UsbhArmHubWakeOnConnect @ 0x1C003B588 (UsbhArmHubWakeOnConnect.c)
+ *     UsbhSshSuspendHub @ 0x1C000D970 (UsbhSshSuspendHub.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000F880 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhArmHubWakeOnConnect @ 0x1C003C8B8 (UsbhArmHubWakeOnConnect.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhEtwLogHubIrpEvent @ 0x1C000C920 (UsbhEtwLogHubIrpEvent.c)
- *     UsbhDisarmHubForWakeDetect @ 0x1C001D300 (UsbhDisarmHubForWakeDetect.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C0012400 (UsbhEtwLogHubIrpEvent.c)
+ *     UsbhDisarmHubForWakeDetect @ 0x1C001B180 (UsbhDisarmHubForWakeDetect.c)
  */
 
 void __fastcall UsbhArmHubForWakeDetect(PDEVICE_OBJECT DeviceObject)

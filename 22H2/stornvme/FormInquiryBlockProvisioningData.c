@@ -1,52 +1,55 @@
 /*
- * XREFs of FormInquiryBlockProvisioningData @ 0x1C0012204
+ * XREFs of FormInquiryBlockProvisioningData @ 0x1C0011DB0
  * Callers:
- *     ScsiInquiryRequest @ 0x1C0019CE4 (ScsiInquiryRequest.c)
+ *     ScsiInquiryRequest @ 0x1C0005E04 (ScsiInquiryRequest.c)
  * Callees:
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     IsDeallocateSupported @ 0x1C0014B00 (IsDeallocateSupported.c)
- *     NVMeSetSenseData @ 0x1C00241F8 (NVMeSetSenseData.c)
+ *     IsDeallocateSupported @ 0x1C0005BA8 (IsDeallocateSupported.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
-__int64 __fastcall FormInquiryBlockProvisioningData(__int64 a1, __int64 a2)
+__int64 __fastcall FormInquiryBlockProvisioningData(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v6; // r10
-  __int64 SrbDataBuffer; // r11
-  unsigned __int8 v8; // di
-  _DWORD *v9; // rbx
-  unsigned int v10; // r9d
-  char v11; // al
+  __int64 v3; // r10
+  _DWORD *v5; // rbx
+  __int64 v6; // r9
+  unsigned __int8 v7; // dl
+  __int64 v8; // rsi
+  unsigned int v9; // r11d
+  char v10; // al
+  __int64 v11; // r9
   __int64 v12; // r10
-  __int64 v13; // r11
+  char v13; // r8
   char v14; // cl
-  __int64 v15; // rdx
-  char v16; // dl
-  char v17; // dl
-  _DWORD *v19; // [rsp+48h] [rbp+10h] BYREF
+  char v15; // r8
+  char v16; // r8
+  char v17; // r8
 
-  v19 = 0LL;
-  SrbDataBuffer = GetSrbDataBuffer(a2, &v19);
-  if ( *(_BYTE *)(v6 + 2) == 40 )
-    v8 = *(_BYTE *)(*(unsigned int *)(v6 + 52) + v6 + 10);
-  else
-    v8 = *(_BYTE *)(v6 + 7);
-  v9 = v19;
-  if ( *v19 >= 8u )
+  v3 = a2;
+  if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    *(_BYTE *)(SrbDataBuffer + 3) = 4;
-    LOBYTE(v3) = *(_BYTE *)(SrbDataBuffer + 5) & 0x98;
-    *(_WORD *)SrbDataBuffer = -19968;
-    *(_BYTE *)(SrbDataBuffer + 5) = v3;
-    v11 = IsDeallocateSupported(a1, v3);
-    v14 = v15 & 0x7F | (v11 != 0 ? 0x80 : 0);
-    LOBYTE(v15) = *(_BYTE *)(v13 + 6);
-    *(_BYTE *)(v13 + 5) = v14;
-    if ( *(_BYTE *)(*(_QWORD *)(a1 + 8LL * v8 + 1952) + 65LL) == (_BYTE)v10 )
+    v5 = (_DWORD *)(a2 + 60);
+    v6 = *(_QWORD *)(a2 + 64);
+    v7 = *(_BYTE *)(*(unsigned int *)(a2 + 52) + a2 + 10);
+  }
+  else
+  {
+    v6 = *(_QWORD *)(a2 + 24);
+    v5 = (_DWORD *)(a2 + 16);
+    v7 = *(_BYTE *)(a2 + 7);
+  }
+  v8 = v7;
+  if ( *v5 >= 8u )
+  {
+    *(_BYTE *)(v6 + 3) = 4;
+    *(_BYTE *)(v6 + 5) &= 0x98u;
+    *(_WORD *)v6 = -19968;
+    v10 = IsDeallocateSupported(a1);
+    v14 = v13 & 0x7F | (v10 != 0 ? 0x80 : 0);
+    v15 = *(_BYTE *)(v11 + 6);
+    *(_BYTE *)(v11 + 5) = v14;
+    if ( *(_BYTE *)(*(_QWORD *)(a1 + 8 * v8 + 1736) + 65LL) == (_BYTE)v9 )
     {
-      if ( (unsigned __int8)IsDeallocateSupported(a1, v15) )
+      if ( IsDeallocateSupported(a1) )
         v16 = v17 & 0xF8 | 1;
       else
         v16 = v17 & 0xF8;
@@ -55,17 +58,17 @@ __int64 __fastcall FormInquiryBlockProvisioningData(__int64 a1, __int64 a2)
     {
       v16 = v15 & 0xF8 | 2;
     }
-    *(_BYTE *)(v13 + 6) = v16;
-    *v9 = 8;
+    *(_BYTE *)(v11 + 6) = v16;
+    *v5 = 8;
     *(_BYTE *)(v12 + 3) = 1;
   }
   else
   {
-    LOBYTE(v5) = 36;
-    LOBYTE(v4) = 5;
-    LOBYTE(v3) = 6;
-    NVMeSetSenseData(v6, v3, v4, v5);
+    LOBYTE(v6) = 36;
+    LOBYTE(a3) = 5;
+    LOBYTE(a2) = 6;
+    NVMeSetSenseData(v3, a2, a3, v6);
     return (unsigned int)-1056964602;
   }
-  return v10;
+  return v9;
 }

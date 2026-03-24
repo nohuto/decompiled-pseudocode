@@ -1,9 +1,9 @@
 /*
- * XREFs of VertexTransfer::Transfer_VertexTransfer::CCopyOperator_Vertex_UVxN_VertexXYW_ColorDW____0_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x1802097B4
+ * XREFs of VertexTransfer::Transfer_VertexTransfer::CCopyOperator_Vertex_UVxN_VertexXYW_ColorDW____0_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x1801A6C44
  * Callers:
- *     ?TransferAliasedVertices@@YAXAEBV?$CCommonTransferParameters@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@@Z @ 0x18020983C (-TransferAliasedVertices@@YAXAEBV-$CCommonTransferParameters@U-$Vertex_UVxN@UVertexXYW_ColorDW@@.c)
+ *     ?TransferAliasedVertices@@YAXAEBVCDrawListPrimitive@@MAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@@Z @ 0x1801A6E38 (-TransferAliasedVertices@@YAXAEBVCDrawListPrimitive@@MAEBV-$StridedSpan@U-$Vertex_UVxN@UVertexXY.c)
  * Callees:
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
 _UNKNOWN **__fastcall VertexTransfer::Transfer_VertexTransfer::CCopyOperator_Vertex_UVxN_VertexXYW_ColorDW____0_Vertex_UVxN_VertexXYW_ColorDW___(
@@ -20,8 +20,8 @@ _UNKNOWN **__fastcall VertexTransfer::Transfer_VertexTransfer::CCopyOperator_Ver
   v2 = *(_DWORD *)(a1 + 20);
   for ( i = 0; i < v2; v6[3] = (_DWORD)result )
   {
-    v5 = (unsigned int *)(*(_QWORD *)(a1 + 8) + (int)(*(_DWORD *)(a1 + 16) * i));
-    v6 = (_DWORD *)(*(_QWORD *)(a1 + 56) + (int)(*(_DWORD *)(a1 + 64) * i));
+    v5 = (unsigned int *)(*(_QWORD *)(a1 + 8) + (int)(i * *(_DWORD *)(a1 + 16)));
+    v6 = (_DWORD *)(*(_QWORD *)(a1 + 56) + (int)(i * *(_DWORD *)(a1 + 64)));
     memcpy_0(v6, v5, (unsigned int)(8 * *(_DWORD *)(a1 + 40) + 16));
     result = (_UNKNOWN **)v5[3];
     ++i;

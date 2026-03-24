@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_CheckingIfHubIsInBootPath @ 0x1C0008130
+ * XREFs of HUBHSM_CheckingIfHubIsInBootPath @ 0x1C0007E20
  * Callers:
  *     <none>
  * Callees:

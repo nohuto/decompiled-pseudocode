@@ -1,15 +1,13 @@
 /*
- * XREFs of ?ProbeAndLockAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C00A1600
+ * XREFs of ?ProbeAndLockAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C00745C0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0005888 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0005C1C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0005CA4 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C00A17C0 (-Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SE.c)
- *     ?ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z @ 0x1C00B4A10 (-ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0001DF8 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0001E60 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C00023BC (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C0074924 (-Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SE.c)
+ *     ?ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z @ 0x1C00C01F8 (-ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z.c)
  */
 
 __int64 __fastcall VIDMM_RECYCLE_HEAP_MGR::ProbeAndLockAllocation(
@@ -22,113 +20,38 @@ __int64 __fastcall VIDMM_RECYCLE_HEAP_MGR::ProbeAndLockAllocation(
         char a7)
 {
   __int64 v7; // rax
-  struct DXGFASTMUTEX *v8; // rsi
-  struct _KTHREAD **v12; // rbx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  VIDMM_RECYCLE_MULTIRANGE *v15; // rbx
-  int v16; // edi
-  int *v17; // rbx
-  __int64 result; // rax
-  int v20; // r9d
-  __int64 v21; // rcx
-  __int64 v22; // rcx
-  __int64 v23; // rcx
-  __int64 v24; // rcx
-  __int64 v25; // rcx
-  unsigned int v26; // ebx
-  enum _LOCK_OPERATION v27; // [rsp+20h] [rbp-78h]
-  enum _LOCK_OPERATION v28; // [rsp+20h] [rbp-78h]
-  struct _KTHREAD **v29; // [rsp+50h] [rbp-48h]
-  char v30; // [rsp+58h] [rbp-40h]
-  _BYTE v31[16]; // [rsp+60h] [rbp-38h] BYREF
-  VIDMM_RECYCLE_MULTIRANGE *v32; // [rsp+A0h] [rbp+8h]
+  struct DXGFASTMUTEX *v8; // rdi
+  VIDMM_RECYCLE_MULTIRANGE *v12; // r15
+  int v13; // ebx
+  __int64 v15; // rax
+  enum _LOCK_OPERATION v16; // [rsp+20h] [rbp-58h]
+  enum _LOCK_OPERATION v17; // [rsp+20h] [rbp-58h]
+  char *v18; // [rsp+40h] [rbp-38h] BYREF
+  char v19; // [rsp+48h] [rbp-30h]
 
-  v7 = *((_QWORD *)a2 + 11);
+  v7 = *((_QWORD *)a2 + 12);
   v8 = (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328);
-  v29 = (struct _KTHREAD **)((char *)this + 1328);
-  v32 = *(VIDMM_RECYCLE_MULTIRANGE **)(v7 + 24);
-  v30 = 0;
+  v18 = (char *)this + 1328;
+  v19 = 0;
+  v12 = *(VIDMM_RECYCLE_MULTIRANGE **)(v7 + 24);
   if ( this == (VIDMM_RECYCLE_HEAP_MGR *)-1328LL )
   {
-    WdLogSingleEntry1(1LL, 592LL);
-    v27 = 592;
-    DxgkLogInternalTriageEvent(v21, 262146LL);
+    v15 = WdLogNewEntry5_WdAssertion(-1328LL, a2, a3);
+    *(_QWORD *)(v15 + 24) = 762LL;
+    WdLogEvent5_WdAssertion(v15);
   }
-  v12 = v29;
-  KeEnterCriticalRegion();
-  if ( v12[3] == KeGetCurrentThread() )
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v18);
+  v13 = VIDMM_RECYCLE_MULTIRANGE::Lock(v12, a2, a3, a4, v16, a6, a7);
+  if ( v19 )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v18);
+  if ( v13 < 0 )
   {
-    if ( *((int *)v12 + 8) <= 0 )
-    {
-      WdLogSingleEntry1(1LL, 491LL);
-      v27 = 491;
-      DxgkLogInternalTriageEvent(v22, 262146LL);
-    }
-    ++*((_DWORD *)v12 + 8);
+    VIDMM_RECYCLE_HEAP_MGR::ProcessDebounceListsGlobally(0);
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)&v18, v8);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v18);
+    v13 = VIDMM_RECYCLE_MULTIRANGE::Lock(v12, a2, a3, a4, v17, a6, a7);
+    if ( v19 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v18);
   }
-  else
-  {
-    if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(v12 + 1, 0LL) )
-    {
-      if ( bTracingEnabled )
-      {
-        v20 = *((_DWORD *)v12 + 9);
-        if ( v20 != -1 && (byte_1C0076981 & 1) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v13, (__int64)&EventBlockThread, v14, v20);
-      }
-      _InterlockedIncrement64((volatile signed __int64 *)v12 + 2);
-      ExAcquirePushLockExclusiveEx(v12 + 1, 0LL);
-    }
-    if ( v12[3] )
-    {
-      WdLogSingleEntry1(1LL, 515LL);
-      v27 = IoModifyAccess|IoWriteAccess|0x200;
-      DxgkLogInternalTriageEvent(v23, 262146LL);
-    }
-    if ( *((_DWORD *)v12 + 8) )
-    {
-      WdLogSingleEntry1(1LL, 516LL);
-      v27 = 516;
-      DxgkLogInternalTriageEvent(v24, 262146LL);
-    }
-    v12[3] = KeGetCurrentThread();
-    *((_DWORD *)v12 + 8) = 1;
-  }
-  v15 = v32;
-  v30 = 1;
-  v16 = VIDMM_RECYCLE_MULTIRANGE::Lock(v32, a2, a3, a4, v27, a6, a7);
-  if ( v30 )
-  {
-    v17 = (int *)v29;
-    v30 = 0;
-    if ( v29[3] != KeGetCurrentThread() )
-      WdLogSingleEntry5(0LL, 275LL, 4LL, v29, 0LL, 0LL);
-    if ( v17[8] <= 0 )
-    {
-      WdLogSingleEntry1(1LL, 535LL);
-      v28 = 535;
-      DxgkLogInternalTriageEvent(v25, 262146LL);
-    }
-    if ( v17[8]-- == 1 )
-    {
-      *((_QWORD *)v17 + 3) = 0LL;
-      ExReleasePushLockExclusiveEx(v17 + 2, 0LL);
-    }
-    KeLeaveCriticalRegion();
-    v15 = v32;
-  }
-  if ( v16 >= 0 )
-    return (unsigned int)v16;
-  VIDMM_RECYCLE_HEAP_MGR::ProcessDebounceListsGlobally(0);
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v31, v8);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v31);
-  result = VIDMM_RECYCLE_MULTIRANGE::Lock(v15, a2, a3, a4, v28, a6, a7);
-  v26 = result;
-  if ( v31[8] )
-  {
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v31);
-    return v26;
-  }
-  return result;
+  return (unsigned int)v13;
 }

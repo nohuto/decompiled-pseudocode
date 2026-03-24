@@ -1,63 +1,63 @@
 /*
- * XREFs of Register_SaveRestoreCHTNonArchitecturalRegisters @ 0x1C003EF48
+ * XREFs of Register_SaveRestoreCHTNonArchitecturalRegisters @ 0x1C003CCFC
  * Callers:
- *     Controller_WdfEvtDeviceD0Exit @ 0x1C000E9F0 (Controller_WdfEvtDeviceD0Exit.c)
- *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014500 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000B4D0 (Controller_WdfEvtDeviceD0Exit.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014CE0 (Controller_WdfEvtDeviceD0Entry.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
  */
 
 __int64 __fastcall Register_SaveRestoreCHTNonArchitecturalRegisters(__int64 a1, char a2)
 {
+  __int64 v2; // rax
   __int64 result; // rax
-  unsigned int v5; // ebx
-  unsigned int *v6; // rsi
-  unsigned int *v7; // rbp
-  int v8; // r8d
+  unsigned int v6; // ebx
+  unsigned int *v7; // rsi
+  unsigned int *v8; // rbp
   int v9; // ecx
-  int v10; // ecx
-  int v11; // eax
-  unsigned int v12; // ecx
+  int v10; // r8d
+  int v11; // ecx
+  int v12; // eax
   int v13; // r8d
   _DWORD v14[4]; // [rsp+20h] [rbp-38h] BYREF
 
-  result = *(_QWORD *)(a1 + 8);
+  v2 = *(_QWORD *)(a1 + 8);
   v14[0] = 35076;
   v14[1] = 35348;
   v14[2] = 35620;
-  if ( _bittest64((const signed __int64 *)(result + 336), 0x37u) )
+  result = *(_QWORD *)(v2 + 336);
+  if ( (result & 0x80000000000000LL) != 0 )
   {
-    v5 = 0;
-    v6 = v14;
+    v6 = 0;
+    v7 = v14;
     do
     {
-      v7 = (unsigned int *)(*(_QWORD *)(a1 + 24) + *v6);
-      result = XilRegister_ReadUlong(a1, v7);
-      v8 = result;
+      v8 = (unsigned int *)(*(_QWORD *)(a1 + 24) + *v7);
+      result = XilRegister_ReadUlong(a1, v8);
+      v9 = *(_DWORD *)(a1 + 120);
+      v10 = result;
       if ( a2 )
       {
-        v9 = *(_DWORD *)(a1 + 120);
         if ( (result & 0x2000000) != 0 )
-          v10 = v9 | (1 << v5);
+          v11 = v9 | (1 << v6);
         else
-          v10 = v9 & ~(1 << v5);
-        *(_DWORD *)(a1 + 120) = v10;
+          v11 = v9 & ~(1 << v6);
+        *(_DWORD *)(a1 + 120) = v11;
       }
       else
       {
-        v11 = *(_DWORD *)(a1 + 120);
-        v12 = v8 & 0xFDFFFFFF;
-        v13 = v8 | 0x2000000;
-        if ( !_bittest(&v11, v5) )
+        v12 = result & 0xFDFFFFFF;
+        v13 = v10 | 0x2000000;
+        if ( !_bittest(&v9, v6) )
           v13 = v12;
-        result = XilRegister_WriteUlong(a1, v7, v13);
+        result = XilRegister_WriteUlong(a1, v8, v13);
       }
-      ++v5;
       ++v6;
+      ++v7;
     }
-    while ( v5 < 3 );
+    while ( v6 < 3 );
   }
   return result;
 }

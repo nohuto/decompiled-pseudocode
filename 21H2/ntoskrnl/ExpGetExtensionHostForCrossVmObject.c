@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpGetExtensionHostForCrossVmObject @ 0x140A07EC0
+ * XREFs of ExpGetExtensionHostForCrossVmObject @ 0x14095C6F0
  * Callers:
- *     ExpAcquireCrossVmMutant @ 0x140A07BFC (ExpAcquireCrossVmMutant.c)
- *     ExpObCloseCrossVmEvent @ 0x140A07F10 (ExpObCloseCrossVmEvent.c)
- *     ExpObCloseCrossVmMutant @ 0x140A07F80 (ExpObCloseCrossVmMutant.c)
- *     ExpObDeleteCrossVmEvent @ 0x140A07FF0 (ExpObDeleteCrossVmEvent.c)
- *     ExpObDeleteCrossVmMutant @ 0x140A08040 (ExpObDeleteCrossVmMutant.c)
- *     ExpPulseCrossVmEvent @ 0x140A08084 (ExpPulseCrossVmEvent.c)
- *     ExpQueryCrossVmEvent @ 0x140A080E0 (ExpQueryCrossVmEvent.c)
- *     ExpReleaseCrossVmMutant @ 0x140A0814C (ExpReleaseCrossVmMutant.c)
- *     ExpResetCrossVmEvent @ 0x140A081A8 (ExpResetCrossVmEvent.c)
- *     ExpSetCrossVmEvent @ 0x140A08204 (ExpSetCrossVmEvent.c)
+ *     ExpAcquireCrossVmMutant @ 0x14095C39C (ExpAcquireCrossVmMutant.c)
+ *     ExpObCloseCrossVmEvent @ 0x14095C740 (ExpObCloseCrossVmEvent.c)
+ *     ExpObCloseCrossVmMutant @ 0x14095C7B0 (ExpObCloseCrossVmMutant.c)
+ *     ExpObDeleteCrossVmEvent @ 0x14095C820 (ExpObDeleteCrossVmEvent.c)
+ *     ExpObDeleteCrossVmMutant @ 0x14095C870 (ExpObDeleteCrossVmMutant.c)
+ *     ExpPulseCrossVmEvent @ 0x14095C8B4 (ExpPulseCrossVmEvent.c)
+ *     ExpQueryCrossVmEvent @ 0x14095C910 (ExpQueryCrossVmEvent.c)
+ *     ExpReleaseCrossVmMutant @ 0x14095C97C (ExpReleaseCrossVmMutant.c)
+ *     ExpResetCrossVmEvent @ 0x14095C9D8 (ExpResetCrossVmEvent.c)
+ *     ExpSetCrossVmEvent @ 0x14095CA34 (ExpSetCrossVmEvent.c)
  * Callees:
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
  */
 
 unsigned __int64 __fastcall ExpGetExtensionHostForCrossVmObject(__int64 a1, __int64 *a2)

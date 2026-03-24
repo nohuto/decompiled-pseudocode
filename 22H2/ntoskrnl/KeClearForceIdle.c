@@ -1,69 +1,108 @@
 /*
- * XREFs of KeClearForceIdle @ 0x14057CC30
+ * XREFs of KeClearForceIdle @ 0x140522DB8
  * Callers:
- *     PopDeepSleepSetDisengageReason @ 0x14028E728 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14034A558 (PopDeepSleepSetDisengageReason.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KeRemoveQueueDpcEx @ 0x14031EEF0 (KeRemoveQueueDpcEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiResetForceIdle @ 0x14057D1DC (KiResetForceIdle.c)
- *     KiSetForceIdleState @ 0x14057D324 (KiSetForceIdleState.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KeRemoveQueueDpcEx @ 0x1403214A0 (KeRemoveQueueDpcEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiResetForceIdle @ 0x140523560 (KiResetForceIdle.c)
+ *     KiSetForceIdleState @ 0x1405236E0 (KiSetForceIdleState.c)
  */
 
-void __fastcall KeClearForceIdle(__int64 a1, __int64 a2)
+char __fastcall KeClearForceIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  signed __int32 v4; // eax
-  signed __int32 v5; // ett
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  struct _KPRCB *CurrentPrcb; // rbx
+  _DWORD *SchedulerAssist; // rcx
+  int v6; // eax
+  bool v7; // zf
+  int v8; // eax
+  _DWORD *v9; // rcx
+  int v10; // eax
+  struct _KPRCB *v11; // rcx
+  _DWORD *v12; // rdx
+  int v14; // [rsp+30h] [rbp+8h] BYREF
 
   _disable();
-  v6 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
-  {
-    do
-      KeYieldProcessorEx(&v6);
-    while ( KiForceIdleLock );
-  }
-  if ( KiForceIdleDisabled )
-    goto LABEL_16;
-  switch ( KiForceIdleState )
-  {
-    case 1:
-      KiSetForceIdleState(0LL);
-      KeRemoveQueueDpcEx((__int64)&KiForceIdleStartDpc, 0);
-      goto LABEL_15;
-    case 2:
-      KiSetForceIdleState(0LL);
-      goto LABEL_15;
-    case 3:
-      if ( !KiForceIdleStartTime )
-        break;
-LABEL_15:
-      KiForceIdleStartTime = 0LL;
-      break;
-    case 4:
-      LOBYTE(a2) = 1;
-      KiResetForceIdle(3LL, a2);
-      break;
-  }
-LABEL_16:
-  _InterlockedAnd64(&KiForceIdleLock, 0LL);
   CurrentPrcb = KeGetCurrentPrcb();
-  SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-  if ( SchedulerAssist )
+  v14 = 0;
+  while ( 1 )
   {
-    _m_prefetchw(SchedulerAssist);
-    v4 = *SchedulerAssist;
+    SchedulerAssist = CurrentPrcb->SchedulerAssist;
+    if ( SchedulerAssist )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v6 = SchedulerAssist[6];
+        v7 = v6 == -1;
+        v8 = v6 + 1;
+        SchedulerAssist[6] = v8;
+        if ( v7 )
+          LOBYTE(v8) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+    if ( !_interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
+      break;
+    v9 = CurrentPrcb->SchedulerAssist;
+    if ( v9 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v10 = v9[6] - 1;
+        v9[6] = v10;
+        if ( !v10 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
     do
     {
-      v5 = v4;
-      v4 = _InterlockedCompareExchange(SchedulerAssist, v4 & 0xFFDFFFFF, v4);
+      KeYieldProcessorEx(&v14, a2, a3, a4);
+      LOBYTE(v8) = KiForceIdleLock;
     }
-    while ( v5 != v4 );
-    if ( (v4 & 0x200000) != 0 )
-      KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+    while ( KiForceIdleLock );
+  }
+  if ( !KiForceIdleDisabled )
+  {
+    if ( KiForceIdleState == 1 )
+    {
+      KiSetForceIdleState(0LL);
+      LOBYTE(v8) = KeRemoveQueueDpcEx((__int64)&KiForceIdleStartDpc, 0);
+    }
+    else if ( KiForceIdleState == 2 )
+    {
+      LOBYTE(v8) = KiSetForceIdleState(0LL);
+    }
+    else
+    {
+      if ( KiForceIdleState != 3 )
+      {
+        if ( KiForceIdleState == 4 )
+        {
+          LOBYTE(a2) = 1;
+          LOBYTE(v8) = KiResetForceIdle(3LL, a2);
+        }
+        goto LABEL_24;
+      }
+      LOBYTE(v8) = KiForceIdleStartTime;
+      if ( !KiForceIdleStartTime )
+        goto LABEL_24;
+    }
+    KiForceIdleStartTime = 0LL;
+  }
+LABEL_24:
+  _InterlockedAnd64(&KiForceIdleLock, 0LL);
+  v11 = KeGetCurrentPrcb();
+  v12 = v11->SchedulerAssist;
+  if ( v12 )
+  {
+    if ( v11->NestingLevel <= 1u )
+    {
+      v8 = v12[6] - 1;
+      v12[6] = v8;
+      if ( !v8 )
+        LOBYTE(v8) = KiRemoveSystemWorkPriorityKick((__int64)v11);
+    }
   }
   _enable();
+  return v8;
 }

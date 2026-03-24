@@ -5,7 +5,7 @@
  * Callees:
  *     RealSuccessor @ 0x1400069FC (RealSuccessor.c)
  *     FindNodeOrParent @ 0x1400071B0 (FindNodeOrParent.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 PVOID __stdcall RtlEnumerateGenericTableLikeADirectory(

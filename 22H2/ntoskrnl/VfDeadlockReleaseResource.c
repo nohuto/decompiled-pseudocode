@@ -1,67 +1,76 @@
 /*
- * XREFs of VfDeadlockReleaseResource @ 0x140AD8ECC
+ * XREFs of VfDeadlockReleaseResource @ 0x1409DE348
  * Callers:
- *     ViDeadlockExReleaseFastMutexUnsafe_Entry @ 0x140ADA0D0 (ViDeadlockExReleaseFastMutexUnsafe_Entry.c)
- *     ViDeadlockExReleaseFastMutex_Entry @ 0x140ADA100 (ViDeadlockExReleaseFastMutex_Entry.c)
- *     ViDeadlockKeReleaseInStackQueuedSpinLockForDpc_Entry @ 0x140ADA3C0 (ViDeadlockKeReleaseInStackQueuedSpinLockForDpc_Entry.c)
- *     ViDeadlockKeReleaseMutant_Entry @ 0x140ADA400 (ViDeadlockKeReleaseMutant_Entry.c)
- *     ViDeadlockKeReleaseMutex_Entry @ 0x140ADA430 (ViDeadlockKeReleaseMutex_Entry.c)
- *     ViDeadlockKeReleaseSpinLockFromDpcLevel_Entry @ 0x140ADA460 (ViDeadlockKeReleaseSpinLockFromDpcLevel_Entry.c)
- *     ViDeadlockKeReleaseSpinLock_Entry @ 0x140ADA490 (ViDeadlockKeReleaseSpinLock_Entry.c)
+ *     VerifierKeReleaseInStackQueuedSpinLock @ 0x1409DAFC0 (VerifierKeReleaseInStackQueuedSpinLock.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockForDpc @ 0x1409DB080 (VerifierKeReleaseInStackQueuedSpinLockForDpc.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1409DB150 (VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     VerifierKeReleaseMutant @ 0x1409DB240 (VerifierKeReleaseMutant.c)
+ *     VerifierKeReleaseMutex @ 0x1409DB320 (VerifierKeReleaseMutex.c)
+ *     VerifierKeReleaseSpinLock @ 0x1409DB3E0 (VerifierKeReleaseSpinLock.c)
+ *     VerifierKeReleaseSpinLockFromDpcLevel @ 0x1409DB450 (VerifierKeReleaseSpinLockFromDpcLevel.c)
+ *     VerifierExReleaseFastMutex @ 0x1409E4910 (VerifierExReleaseFastMutex.c)
+ *     VerifierExReleaseFastMutexUnsafe @ 0x1409E49A0 (VerifierExReleaseFastMutexUnsafe.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140227700 (RtlCaptureStackBackTrace.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     VfReportIssueWithOptions @ 0x1405CFD90 (VfReportIssueWithOptions.c)
- *     ViLowerIrql @ 0x1405D1B48 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1405D1BC0 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockCanProceed @ 0x140AC179A (ViDeadlockCanProceed.c)
- *     ViDeadlockDetectionLock @ 0x140AD9DD8 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140AD9E10 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x140ADA280 (ViDeadlockFree.c)
- *     ViDeadlockPreprocessOptions @ 0x140ADA830 (ViDeadlockPreprocessOptions.c)
- *     ViDeadlockRemoveThread @ 0x140ADAC20 (ViDeadlockRemoveThread.c)
- *     ViDeadlockSearchResource @ 0x140ADAD80 (ViDeadlockSearchResource.c)
- *     ViDeadlockSearchThread @ 0x140ADAE28 (ViDeadlockSearchThread.c)
- *     ViIsThreadInsidePagingCodePaths @ 0x140ADAFA0 (ViIsThreadInsidePagingCodePaths.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CDE0 (RtlCaptureStackBackTrace.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     VfReportIssueWithOptions @ 0x1405A1D34 (VfReportIssueWithOptions.c)
+ *     ViLowerIrql @ 0x1405A23F8 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405A2470 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockCanProceed @ 0x1409DEE18 (ViDeadlockCanProceed.c)
+ *     ViDeadlockDetectionLock @ 0x1409DF2BC (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x1409DF2F4 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x1409DF5B8 (ViDeadlockFree.c)
+ *     ViDeadlockPreprocessOptions @ 0x1409DF828 (ViDeadlockPreprocessOptions.c)
+ *     ViDeadlockRemoveThread @ 0x1409DFBF8 (ViDeadlockRemoveThread.c)
+ *     ViDeadlockSearchResource @ 0x1409DFD40 (ViDeadlockSearchResource.c)
+ *     ViDeadlockSearchThread @ 0x1409DFDE8 (ViDeadlockSearchThread.c)
+ *     ViIsThreadInsidePagingCodePaths @ 0x1409DFF58 (ViIsThreadInsidePagingCodePaths.c)
  */
 
-PVOID __fastcall VfDeadlockReleaseResource(LONG *a1, int a2, __int64 a3, void *a4)
+PVOID __fastcall VfDeadlockReleaseResource(const void *a1, int a2, __int64 a3, void *a4)
 {
-  ULONG_PTR v4; // rdi
-  int v8; // r12d
+  __int64 *v4; // r14
+  ULONG_PTR v6; // rdi
+  int v9; // esi
   PVOID result; // rax
-  __int64 *v10; // r15
-  __int64 *v11; // r14
-  __int64 v12; // rax
-  unsigned int v13; // r10d
-  unsigned __int8 v14; // si
-  __int64 v15; // rbx
-  int *v16; // rax
-  int *v17; // rsi
-  int v18; // eax
-  __int16 v19; // cx
-  ULONG_PTR v20; // rax
-  __int64 v21; // r12
-  __int64 *v22; // rdi
-  __int16 v23; // cx
-  _DWORD *v24; // rax
-  unsigned int v25; // eax
-  __int64 **v26; // rcx
-  __int64 *v27; // rax
-  __int64 **v28; // rcx
-  __int64 *v29; // rax
-  _QWORD *v30; // rcx
-  _QWORD *v31; // rbx
-  unsigned __int8 v32; // [rsp+40h] [rbp-98h]
-  PVOID Entry; // [rsp+48h] [rbp-90h] BYREF
-  PVOID BackTrace[8]; // [rsp+50h] [rbp-88h] BYREF
+  __int64 *v11; // r13
+  unsigned int v12; // ecx
+  PVOID v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // r8
+  __int64 v16; // rbx
+  int *v17; // rax
+  int *v18; // rsi
+  int v19; // eax
+  __int16 v20; // cx
+  ULONG_PTR v21; // rax
+  __int64 v22; // r12
+  __int64 *v23; // rdi
+  __int16 v24; // cx
+  _DWORD *v25; // rax
+  int v26; // eax
+  __int64 **v27; // rcx
+  __int64 *v28; // rax
+  __int64 **v29; // rcx
+  __int64 *v30; // rax
+  int v31; // eax
+  _QWORD *v32; // rcx
+  _QWORD *v33; // rbx
+  unsigned __int8 v34; // [rsp+40h] [rbp-49h]
+  int v35; // [rsp+44h] [rbp-45h]
+  PVOID Entry; // [rsp+48h] [rbp-41h] BYREF
+  __int64 v37; // [rsp+50h] [rbp-39h]
+  PVOID BackTrace[8]; // [rsp+60h] [rbp-29h] BYREF
 
-  v4 = a2;
+  v4 = 0LL;
+  v37 = a3;
+  v6 = a2;
   Entry = 0LL;
   memset(BackTrace, 0, sizeof(BackTrace));
-  v8 = 0;
+  v35 = 0;
+  v9 = 0;
   result = (PVOID)ViDeadlockCanProceed(a1);
   if ( !(_DWORD)result )
     return result;
@@ -74,81 +83,72 @@ PVOID __fastcall VfDeadlockReleaseResource(LONG *a1, int a2, __int64 a3, void *a
   result = ViDeadlockGlobals;
   if ( *((int *)ViDeadlockGlobals + 8282) > 1024 )
     return result;
-  v10 = 0LL;
   v11 = 0LL;
   v12 = RtlCaptureStackBackTrace(2u, 8u, BackTrace, 0LL);
-  if ( (_WORD)v12 )
-  {
-    if ( (unsigned __int16)v12 >= 8u )
-      goto LABEL_9;
-  }
-  else
-  {
-    BackTrace[0] = a4;
-    v12 = 1LL;
-  }
-  BackTrace[v12] = 0LL;
-LABEL_9:
-  v32 = ViRaiseIrqlToDpcLevel();
-  v14 = v32;
-  ViDeadlockDetectionLock(v13);
-  v15 = MEMORY[0xFFFFF78000000320];
+  v13 = BackTrace[0];
+  if ( !v12 )
+    v13 = a4;
+  BackTrace[0] = v13;
+  v14 = 1LL;
+  if ( v12 )
+    v14 = v12;
+  if ( (unsigned int)v14 < 8 )
+    BackTrace[v14] = 0LL;
+  v34 = ViRaiseIrqlToDpcLevel();
+  ViDeadlockDetectionLock(1LL);
+  v16 = MEMORY[0xFFFFF78000000320];
   if ( ViDeadlockDetectionEnabled )
   {
-    v16 = (int *)ViDeadlockSearchResource(a1, &Entry);
-    v17 = v16;
-    if ( !v16 )
+    v17 = (int *)ViDeadlockSearchResource(a1, &Entry, v15);
+    v18 = v17;
+    if ( !v17 )
     {
-LABEL_57:
-      v14 = v32;
-      goto LABEL_58;
+      v9 = 0;
+      goto LABEL_59;
     }
-    v18 = *v16;
-    if ( v18 == (_DWORD)v4 )
-      goto LABEL_15;
-    if ( v18 == 7 )
+    v19 = *v17;
+    if ( v19 == (_DWORD)v6 )
+      goto LABEL_17;
+    if ( v19 == 7 )
     {
-      if ( (unsigned int)(v4 - 5) <= 1 )
+      if ( (unsigned int)(v6 - 5) <= 1 )
       {
-        *v17 = v4;
-        v18 = v4;
-        goto LABEL_15;
+        *v18 = v6;
+        v19 = v6;
+        goto LABEL_17;
       }
     }
-    else if ( v18 == 1 && (_DWORD)v4 == 2 )
+    else if ( v19 == 1 && (_DWORD)v6 == 2 )
     {
-      if ( *((_WORD *)v17 + 3) > 1u )
-        *((_WORD *)v17 + 3) = 1;
-LABEL_15:
-      v19 = *((_WORD *)v17 + 3);
-      if ( v19 )
+      if ( *((_WORD *)v18 + 3) > 1u )
+        *((_WORD *)v18 + 3) = 1;
+      v19 = 1;
+LABEL_17:
+      v20 = *((_WORD *)v18 + 3);
+      if ( v20 )
       {
-        v11 = (__int64 *)*((_QWORD *)v17 + 2);
-        v21 = *v11;
-        if ( (unsigned int)(v18 - 5) <= 1 )
-          v22 = (__int64 *)v11[1];
+        v4 = (__int64 *)*((_QWORD *)v18 + 2);
+        v22 = *v4;
+        if ( (unsigned int)(v19 - 5) <= 1 )
+          v23 = (__int64 *)v4[1];
         else
-          v22 = (__int64 *)v11[2];
-        v23 = v19 - 1;
-        *((_WORD *)v17 + 3) = v23;
-        if ( v23 )
+          v23 = (__int64 *)v4[2];
+        v24 = v20 - 1;
+        *((_WORD *)v18 + 3) = v24;
+        if ( !v24 )
         {
-          v8 = 0;
-        }
-        else
-        {
-          v24 = ViDeadlockGlobals;
-          *((_QWORD *)v17 + 2) = 0LL;
-          ++v24[8210];
-          if ( (int *)v22[7] == v17 )
+          v25 = ViDeadlockGlobals;
+          *((_QWORD *)v18 + 2) = 0LL;
+          ++v25[8210];
+          if ( (int *)v23[7] == v18 )
           {
-            *((_DWORD *)v22 + 18) &= ~1u;
-            v10 = v22;
+            *((_DWORD *)v23 + 18) &= ~1u;
+            v11 = v23;
           }
           else
           {
-            ++v24[8208];
-            if ( (ViDeadlockResourceTypeInfo[*(int *)v22[7]] & 4) == 0 && (ViDeadlockResourceTypeInfo[*v17] & 4) == 0 )
+            ++v25[8208];
+            if ( (ViDeadlockResourceTypeInfo[*(int *)v23[7]] & 4) == 0 && (ViDeadlockResourceTypeInfo[*v18] & 4) == 0 )
             {
               DbgPrintEx(0x5Du, 0, "Deadlock detection: Must release resources in reverse-order\n");
               DbgPrintEx(
@@ -156,85 +156,87 @@ LABEL_15:
                 0,
                 "Resource %p acquired before resource %p -- \nCurrent thread (%p) is trying to release %p first\n",
                 a1,
-                *(const void **)(v22[7] + 8),
-                v11,
+                *(const void **)(v23[7] + 8),
+                v4,
                 a1);
               ViDeadlockPreprocessOptions(
-                byte_140C0DE54,
+                byte_140C12F30,
                 "Releasing two locks in reverse order of their acquire.",
                 4099LL,
                 a1,
-                *(_QWORD *)(v22[7] + 8),
-                v11);
+                *(_QWORD *)(v23[7] + 8),
+                v4);
               VfReportIssueWithOptions(
                 0xC4u,
                 0x1003uLL,
                 (ULONG_PTR)a1,
-                *(_QWORD *)(v22[7] + 8),
-                (ULONG_PTR)v11,
-                byte_140C0DE54);
+                *(_QWORD *)(v23[7] + 8),
+                (ULONG_PTR)v4,
+                byte_140C12F30);
             }
-            while ( (int *)v22[7] != v17 )
+            while ( (int *)v23[7] != v18 )
             {
-              v22 = (__int64 *)*v22;
-              if ( !v22 )
-                goto LABEL_39;
+              v23 = (__int64 *)*v23;
+              if ( !v23 )
+                goto LABEL_42;
             }
-            v10 = v22;
-            v25 = v22[9] & 0xFFFFFFFE;
-            *((_DWORD *)v22 + 18) = v25;
-            if ( (v25 & 4) == 0 )
+            *((_DWORD *)v23 + 18) &= ~1u;
+            v11 = v23;
+            v26 = *((_DWORD *)v23 + 18);
+            if ( (v26 & 4) == 0 )
+            {
               ++*((_DWORD *)ViDeadlockGlobals + 8209);
-            *((_DWORD *)v22 + 18) |= 4u;
+              v26 = *((_DWORD *)v23 + 18);
+            }
+            *((_DWORD *)v23 + 18) = v26 | 4;
           }
-LABEL_39:
-          if ( (unsigned int)(*v17 - 5) <= 1 )
+LABEL_42:
+          if ( (unsigned int)(*v18 - 5) <= 1 )
           {
-            v28 = (__int64 **)v11[1];
-            if ( v28 )
+            v29 = (__int64 **)v4[1];
+            if ( v29 )
             {
               do
               {
-                if ( ((_DWORD)v28[9] & 1) != 0 && v28[8] == v11 )
+                if ( ((_DWORD)v29[9] & 1) != 0 && v29[8] == v4 )
                   break;
-                v29 = *v28;
-                v11[1] = (__int64)*v28;
-                v28 = (__int64 **)v29;
+                v30 = *v29;
+                v4[1] = (__int64)*v29;
+                v29 = (__int64 **)v30;
               }
-              while ( v29 );
+              while ( v30 );
             }
           }
           else
           {
-            v26 = (__int64 **)v11[2];
-            if ( v26 )
+            v27 = (__int64 **)v4[2];
+            if ( v27 )
             {
               do
               {
-                if ( ((_DWORD)v26[9] & 1) != 0 && v26[8] == v11 )
+                if ( ((_DWORD)v27[9] & 1) != 0 && v27[8] == v4 )
                   break;
-                v27 = *v26;
-                v11[2] = (__int64)*v26;
-                v26 = (__int64 **)v27;
+                v28 = *v27;
+                v4[2] = (__int64)*v27;
+                v27 = (__int64 **)v28;
               }
-              while ( v27 );
+              while ( v28 );
             }
           }
-          if ( !v10 )
-            goto LABEL_55;
-          v10[8] = 0LL;
-          --*((_DWORD *)v11 + 10);
-          if ( v21 != a3 )
-            *((_DWORD *)v10 + 18) |= 4u;
-          if ( *((_DWORD *)v11 + 10) )
+          if ( v11 )
           {
-LABEL_55:
-            v8 = 0;
-          }
-          else
-          {
-            v8 = 1;
-            ViDeadlockRemoveThread((__int64)v11);
+            v11[8] = 0LL;
+            v31 = --*((_DWORD *)v4 + 10);
+            if ( v22 != v37 )
+            {
+              *((_DWORD *)v11 + 18) |= 4u;
+              v31 = *((_DWORD *)v4 + 10);
+            }
+            if ( !v31 )
+            {
+              v35 = 1;
+              ViDeadlockRemoveThread((__int64)v4);
+            }
           }
         }
       }
@@ -242,43 +244,43 @@ LABEL_55:
       {
         ViDeadlockSearchThread(a3);
         ViDeadlockPreprocessOptions(
-          &dword_140C0DE68,
+          &dword_140C12F48,
           "Releasing lock 0x%p that is not owned by the current thread.",
           (const void *)0x1007);
-        v20 = ViDeadlockSearchThread(a3);
-        VfReportIssueWithOptions(0xC4u, 0x1007uLL, (ULONG_PTR)a1, (ULONG_PTR)v17, v20, &dword_140C0DE68);
+        v21 = ViDeadlockSearchThread(a3);
+        VfReportIssueWithOptions(0xC4u, 0x1007uLL, (ULONG_PTR)a1, (ULONG_PTR)v18, v21, &dword_140C12F48);
       }
-      goto LABEL_56;
+      goto LABEL_57;
     }
     ViDeadlockPreprocessOptions(
-      byte_140C0DE64,
+      byte_140C12F44,
       "Releasing lock 0x%p using mismatched API for this lock type.",
       (const void *)0x1009);
-    VfReportIssueWithOptions(0xC4u, 0x1009uLL, (ULONG_PTR)a1, *v17, v4, byte_140C0DE64);
-LABEL_56:
-    *(_OWORD *)(v17 + 46) = *(_OWORD *)BackTrace;
-    *(_OWORD *)(v17 + 50) = *(_OWORD *)&BackTrace[2];
-    *(_OWORD *)(v17 + 54) = *(_OWORD *)&BackTrace[4];
-    *(_OWORD *)(v17 + 58) = *(_OWORD *)&BackTrace[6];
-    goto LABEL_57;
+    VfReportIssueWithOptions(0xC4u, 0x1009uLL, (ULONG_PTR)a1, *v18, v6, byte_140C12F44);
+LABEL_57:
+    *(_OWORD *)(v18 + 46) = *(_OWORD *)BackTrace;
+    *(_OWORD *)(v18 + 50) = *(_OWORD *)&BackTrace[2];
+    *(_OWORD *)(v18 + 54) = *(_OWORD *)&BackTrace[4];
+    *(_OWORD *)(v18 + 58) = *(_OWORD *)&BackTrace[6];
+    v9 = v35;
   }
-LABEL_58:
-  if ( MEMORY[0xFFFFF78000000320] - v15 > *((_QWORD *)ViDeadlockGlobals + 1) )
-    *((_QWORD *)ViDeadlockGlobals + 1) = MEMORY[0xFFFFF78000000320] - v15;
+LABEL_59:
+  if ( MEMORY[0xFFFFF78000000320] - v16 > *((_QWORD *)ViDeadlockGlobals + 1) )
+    *((_QWORD *)ViDeadlockGlobals + 1) = MEMORY[0xFFFFF78000000320] - v16;
   ViDeadlockDetectionUnlock(1LL);
-  result = (PVOID)ViLowerIrql(v14);
-  v30 = Entry;
+  result = (PVOID)ViLowerIrql(v34);
+  v32 = Entry;
   if ( Entry )
   {
     do
     {
-      v31 = (_QWORD *)*v30;
-      result = (PVOID)ViDeadlockFree(v30);
-      v30 = v31;
+      v33 = (_QWORD *)*v32;
+      result = (PVOID)ViDeadlockFree(v32);
+      v32 = v33;
     }
-    while ( v31 );
+    while ( v33 );
   }
-  if ( v8 )
-    return (PVOID)ViDeadlockFree(v11);
+  if ( v9 )
+    return (PVOID)ViDeadlockFree(v4);
   return result;
 }

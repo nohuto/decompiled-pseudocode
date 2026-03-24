@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoGetDeviceDirectory @ 0x140ACFEF0
+ * XREFs of VerifierIoGetDeviceDirectory @ 0x1409D2B10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierIoGetDeviceDirectory(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIThermalReadTemperatureComplete @ 0x1C00419C0
+ * XREFs of ACPIThermalReadTemperatureComplete @ 0x1C0060090
  * Callers:
  *     <none>
  * Callees:
- *     ACPIThermalLoopEx @ 0x1C0041110 (ACPIThermalLoopEx.c)
- *     ACPIThermalUpdateTemperature @ 0x1C0042368 (ACPIThermalUpdateTemperature.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
+ *     ACPIThermalUpdateTemperature @ 0x1C0013534 (ACPIThermalUpdateTemperature.c)
  */
 
 __int64 __fastcall ACPIThermalReadTemperatureComplete(__int64 a1, __int64 a2, __int64 a3)
@@ -15,7 +15,7 @@ __int64 __fastcall ACPIThermalReadTemperatureComplete(__int64 a1, __int64 a2, __
   KIRQL v7; // al
   int v8; // ebp
   bool v9; // bp
-  __int64 v10; // rdx
+  int v10; // edx
 
   v3 = *(_DWORD *)(a2 + 48);
   v5 = *(_QWORD *)(a3 + 200);
@@ -32,7 +32,7 @@ __int64 __fastcall ACPIThermalReadTemperatureComplete(__int64 a1, __int64 a2, __
     v9 = 1;
     if ( v3 >= 0 )
     {
-      v10 = *(unsigned int *)(v5 + 224);
+      v10 = *(_DWORD *)(v5 + 224);
       *(_BYTE *)(v5 + 272) = 0;
       ACPIThermalUpdateTemperature(a3, v10);
     }

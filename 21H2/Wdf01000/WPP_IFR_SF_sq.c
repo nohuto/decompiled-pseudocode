@@ -1,14 +1,13 @@
 /*
- * XREFs of WPP_IFR_SF_sq @ 0x1C0013EA8
+ * XREFs of WPP_IFR_SF_sq @ 0x1C0038C64
  * Callers:
- *     imp_WdfObjectGetTypedContextWorker @ 0x1C00012B0 (imp_WdfObjectGetTypedContextWorker.c)
- *     imp_WdfPdoRetrieveIdentificationDescription @ 0x1C0001650 (imp_WdfPdoRetrieveIdentificationDescription.c)
- *     ?GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@@PEAPEAU1@PEAPEAVFxDevice@@@Z @ 0x1C001C314 (-GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@.c)
- *     ?FxObjectGetTypedContext@@YAPEAXPEAVFxObject@@PEBU_WDF_OBJECT_CONTEXT_TYPE_INFO@@@Z @ 0x1C006B2F4 (-FxObjectGetTypedContext@@YAPEAXPEAVFxObject@@PEBU_WDF_OBJECT_CONTEXT_TYPE_INFO@@@Z.c)
- *     VfWdfObjectGetTypedContext @ 0x1C00C5534 (VfWdfObjectGetTypedContext.c)
+ *     ?GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@@PEAPEAU1@PEAPEAVFxDevice@@@Z @ 0x1C0001928 (-GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@.c)
+ *     imp_WdfObjectGetTypedContextWorker @ 0x1C0002160 (imp_WdfObjectGetTypedContextWorker.c)
+ *     ?FxObjectGetTypedContext@@YAPEAXPEAVFxObject@@PEBU_WDF_OBJECT_CONTEXT_TYPE_INFO@@@Z @ 0x1C00567E8 (-FxObjectGetTypedContext@@YAPEAXPEAVFxObject@@PEBU_WDF_OBJECT_CONTEXT_TYPE_INFO@@@Z.c)
+ *     VfWdfObjectGetTypedContext @ 0x1C00C4514 (VfWdfObjectGetTypedContext.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_sq(
@@ -24,11 +23,11 @@ void __fastcall WPP_IFR_SF_sq(
   __int64 v8; // rdi
   unsigned __int64 v11; // rsi
   int v14; // eax
-  __int64 v15; // rdi
-  unsigned __int64 v16; // rsi
+  unsigned __int64 v15; // rsi
+  __int64 v16; // rcx
   __int64 v17; // rcx
-  __int64 v18; // rcx
-  const char *v19; // rax
+  const char *v18; // rax
+  __int64 v19; // rdi
 
   v7 = _a1;
   v8 = -1LL;
@@ -36,31 +35,31 @@ void __fastcall WPP_IFR_SF_sq(
   v14 = *(&WPP_GLOBAL_WDF_Control.Characteristics + 16 * v11 + (((flags - 1) >> 5) & 0x7FF));
   if ( _bittest(&v14, (flags - 1) & 0x1F) )
   {
-    v16 = v11 << 6;
-    if ( *((_BYTE *)&WPP_GLOBAL_WDF_Control.Flags + v16 + 1) >= level )
+    v15 = v11 << 6;
+    if ( *((_BYTE *)&WPP_GLOBAL_WDF_Control.Flags + v15 + 1) >= level )
     {
       if ( _a1 )
       {
-        v17 = -1LL;
+        v16 = -1LL;
         do
-          ++v17;
-        while ( _a1[v17] );
-        v18 = v17 + 1;
+          ++v16;
+        while ( _a1[v16] );
+        v17 = v16 + 1;
       }
       else
       {
-        v18 = 5LL;
+        v17 = 5LL;
       }
-      v19 = _a1;
+      v18 = _a1;
       if ( !_a1 )
-        v19 = "NULL";
+        v18 = "NULL";
       FxWmiTraceMessage(
-        *(unsigned __int64 *)((char *)&WPP_GLOBAL_WDF_Control.CurrentIrp + v16),
+        *(unsigned __int64 *)((char *)&WPP_GLOBAL_WDF_Control.CurrentIrp + v15),
         0x2Bu,
         traceGuid,
         id,
-        v19,
         v18,
+        v17,
         &_a2,
         8LL,
         0LL);
@@ -71,13 +70,13 @@ void __fastcall WPP_IFR_SF_sq(
     do
       ++v8;
     while ( _a1[v8] );
-    v15 = v8 + 1;
+    v19 = v8 + 1;
   }
   else
   {
-    v15 = 5LL;
+    v19 = 5LL;
   }
   if ( !_a1 )
     v7 = "NULL";
-  FxIFR(globals, level, flags, traceGuid, id, v7, v15, &_a2, 8LL, 0LL);
+  FxIFR(globals, level, flags, traceGuid, id, v7, v19, &_a2, 8LL, 0LL);
 }

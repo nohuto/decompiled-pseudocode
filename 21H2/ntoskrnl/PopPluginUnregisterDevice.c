@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginUnregisterDevice @ 0x1405CEFE4
+ * XREFs of PopPluginUnregisterDevice @ 0x14056E0FC
  * Callers:
- *     PopFxUnregisterDevice @ 0x14082310C (PopFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x1407B4F70 (PopFxUnregisterDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPluginUnregisterDevice(ULONG_PTR BugCheckParameter3, __int64 a2)

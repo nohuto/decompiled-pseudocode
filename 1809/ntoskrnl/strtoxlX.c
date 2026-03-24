@@ -1,12 +1,12 @@
 /*
- * XREFs of strtoxlX @ 0x140197DEC
+ * XREFs of strtoxlX @ 0x140197E0C
  * Callers:
- *     strtol @ 0x14019801C (strtol.c)
- *     strtolX @ 0x14019804C (strtolX.c)
- *     strtoul @ 0x14019807C (strtoul.c)
+ *     strtol @ 0x14019803C (strtol.c)
+ *     strtolX @ 0x14019806C (strtolX.c)
+ *     strtoul @ 0x14019809C (strtoul.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1401767E0 (xHalTimerWatchdogStop.c)
- *     __pctype_func @ 0x1401997DC (__pctype_func.c)
+ *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
+ *     __pctype_func @ 0x1401997FC (__pctype_func.c)
  */
 
 __int64 __fastcall strtoxlX(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a3, unsigned int a4, int a5, int a6)

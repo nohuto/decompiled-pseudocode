@@ -1,58 +1,56 @@
 /*
- * XREFs of DwmSyncGetCompositionAttribute @ 0x1C0013CA0
+ * XREFs of DwmSyncGetCompositionAttribute @ 0x1C002E940
  * Callers:
- *     NtUserGetWindowCompositionAttribute @ 0x1C00EF6D0 (NtUserGetWindowCompositionAttribute.c)
+ *     NtUserGetWindowCompositionAttribute @ 0x1C0068F70 (NtUserGetWindowCompositionAttribute.c)
  * Callees:
- *     ?DwmSyncLPCAllowed@@YAJXZ @ 0x1C006EA5C (-DwmSyncLPCAllowed@@YAJXZ.c)
- *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C006EA8C (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C002EA88 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmSyncGetCompositionAttribute(PVOID Object, __int64 a2, int a3, _QWORD *a4)
 {
   __int64 v4; // r15
-  int v8; // ebx
+  signed int v8; // ebx
   __int128 v9; // xmm0
   __int64 v10; // xmm1_8
   __int16 v11; // ax
   int v12; // eax
   __int64 v14; // [rsp+30h] [rbp-69h] BYREF
-  struct _PORT_MESSAGE v15; // [rsp+40h] [rbp-59h] BYREF
-  int v16; // [rsp+68h] [rbp-31h]
-  int v17; // [rsp+6Ch] [rbp-2Dh]
-  __int64 v18; // [rsp+70h] [rbp-29h]
-  int v19; // [rsp+78h] [rbp-21h]
-  int v20; // [rsp+7Ch] [rbp-1Dh]
-  __int128 Src; // [rsp+80h] [rbp-19h] BYREF
-  __int64 v22; // [rsp+90h] [rbp-9h]
+  _BYTE v15[88]; // [rsp+40h] [rbp-59h] BYREF
 
   v4 = a3;
   v8 = -1073741823;
   if ( Object )
   {
-    v8 = DwmSyncLPCAllowed();
-    if ( v8 >= 0 )
+    v8 = gbInVideoPnpCallout != 0 ? 0xC0000001 : 0;
+    if ( !gbInVideoPnpCallout )
     {
-      memset_0(&v15, 0, 0x58uLL);
+      memset(v15, 0, sizeof(v15));
       v9 = *(_OWORD *)a4;
       v10 = a4[2];
-      *(ULONG *)((char *)&v15.u1.Length + 2) = -2147483560;
-      v16 = 1073741867;
-      v17 = 1;
-      v18 = a2;
-      v19 = v4;
-      v11 = qword_1C03173C8[2 * v4];
-      Src = v9;
-      v15.u1.s1.DataLength = v11 + 24;
-      v20 = qword_1C03173C8[2 * v4];
-      v22 = v10;
+      *(_DWORD *)&v15[2] = -2147483560;
+      *(_DWORD *)&v15[40] = 1073741866;
+      *(_DWORD *)&v15[44] = 1;
+      *(_QWORD *)&v15[48] = a2;
+      *(_DWORD *)&v15[56] = v4;
+      v11 = qword_1C02EA978[2 * v4];
+      *(_OWORD *)&v15[64] = v9;
+      *(_WORD *)v15 = v11 + 24;
+      *(_DWORD *)&v15[60] = qword_1C02EA978[2 * v4];
+      *(_QWORD *)&v15[80] = v10;
       v14 = 88LL;
-      v12 = LpcSendWaitReceivePort(Object, 0x20000LL, &v15, &v15, &v14, 0LL);
-      v8 = SyncLpcCheckNtStatus(v12, &v15);
+      v12 = ((__int64 (__fastcall *)(PVOID, __int64, _BYTE *, _BYTE *, __int64 *, _QWORD))LpcSendWaitReceivePort)(
+              Object,
+              0x20000LL,
+              v15,
+              v15,
+              &v14,
+              0LL);
+      v8 = SyncLpcCheckNtStatus(v12, (struct _PORT_MESSAGE *)v15);
       if ( v8 >= 0 )
-        memmove(a4, &Src, qword_1C03173C8[2 * v4]);
+        memmove(a4, &v15[64], qword_1C02EA978[2 * v4]);
     }
     ObfDereferenceObject(Object);
   }

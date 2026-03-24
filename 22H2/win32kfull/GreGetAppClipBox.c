@@ -1,435 +1,332 @@
 /*
- * XREFs of GreGetAppClipBox @ 0x1C00D9B30
+ * XREFs of GreGetAppClipBox @ 0x1C00B670C
  * Callers:
- *     NtGdiGetAppClipBox @ 0x1C00D6000 (NtGdiGetAppClipBox.c)
+ *     NtGdiGetAppClipBox @ 0x1C00B6AD0 (NtGdiGetAppClipBox.c)
  * Callees:
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0099E60 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ?prgnRao@DC@@QEBAPEAVREGION@@XZ @ 0x1C00DA09C (-prgnRao@DC@@QEBAPEAVREGION@@XZ.c)
- *     ?prgnVisSnap@DC@@QEBAPEAVREGION@@XZ @ 0x1C00DA108 (-prgnVisSnap@DC@@QEBAPEAVREGION@@XZ.c)
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00DC274 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00E0C40 (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
- *     bCvtPts1 @ 0x1C00F7380 (bCvtPts1.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C011C124 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ?vLockIgnoreAttributes@XDCOBJ@@QEAAXPEAUHDC__@@@Z @ 0x1C011CB30 (-vLockIgnoreAttributes@XDCOBJ@@QEAAXPEAUHDC__@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C013E430 (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E4C0 (--0-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C02651F8 (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
- *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0266BBC (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ *     bCvtPts1 @ 0x1C0084C60 (bCvtPts1.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C008E8E0 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00ACA04 (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B297C (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00B2D5C (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00B6050 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FD8F4 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C0169C4C (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C0169DAC (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C0169E3C (--0-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A038 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall GreGetAppClipBox(HDC a1, LONG *a2)
 {
   unsigned int v3; // edi
-  DC *v5; // rcx
-  struct _DC_ATTR *UserAttr; // rax
-  unsigned int v7; // ebx
-  DC *v8; // rcx
-  struct _DC_ATTR *v9; // rax
-  __int64 v10; // rsi
-  DC *v12; // r10
-  struct REGION *v13; // rax
-  DC *v14; // r10
-  struct REGION *v15; // rbx
-  __int64 v16; // r9
-  LONG v17; // r8d
-  LONG v18; // r11d
-  __int64 v19; // rcx
-  LONG v20; // edx
-  LONG v21; // r8d
-  LONG v22; // r11d
-  int v23; // ecx
-  int v24; // eax
-  int v25; // eax
-  bool v26; // zf
-  int v27; // eax
-  __int64 v28; // rax
-  __int64 v29; // rax
-  int v30; // ebx
-  LONG v31; // edx
-  LONG v32; // eax
+  int v5; // ebx
+  unsigned __int64 v6; // r9
+  DC *v7; // r15
+  LONG v8; // r8d
+  LONG v9; // r10d
+  char *v10; // rcx
+  LONG v11; // edx
+  LONG v12; // r8d
+  LONG v13; // r10d
+  int v14; // ecx
+  int v15; // eax
+  bool v16; // zf
+  int v17; // eax
+  LONG v18; // edx
+  LONG v19; // eax
   LONG x; // r9d
-  LONG v34; // r11d
+  LONG v21; // r11d
+  LONG v22; // eax
+  LONG v23; // ebx
+  LONG v24; // eax
+  LONG v25; // eax
+  LONG v26; // ecx
+  LONG y; // r8d
+  bool v28; // cc
+  LONG v29; // r10d
+  LONG v30; // eax
+  LONG v31; // eax
+  LONG v32; // eax
+  LONG v33; // eax
+  LONG v34; // eax
   LONG v35; // eax
-  LONG v36; // ebx
+  LONG v36; // eax
   LONG v37; // eax
   LONG v38; // eax
-  LONG v39; // ecx
-  LONG y; // r8d
-  bool v41; // cc
-  LONG v42; // r10d
-  LONG v43; // eax
-  LONG v44; // eax
-  LONG v45; // r14d
-  LONG v46; // eax
-  LONG v47; // eax
-  LONG v48; // eax
-  LONG v49; // eax
-  LONG v50; // eax
-  LONG v51; // eax
-  LONG v52; // eax
-  LONG v53; // eax
-  LONG v54; // eax
-  LONG v55; // ecx
-  int v56; // [rsp+30h] [rbp-D0h] BYREF
-  DC *v57; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v58; // [rsp+40h] [rbp-C0h]
-  _BYTE v59[32]; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v60; // [rsp+68h] [rbp-98h] BYREF
-  int v61; // [rsp+74h] [rbp-8Ch]
-  _BYTE v62[32]; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v63[2]; // [rsp+A0h] [rbp-60h] BYREF
-  _BYTE v64[32]; // [rsp+B0h] [rbp-50h] BYREF
-  __int16 v65; // [rsp+D0h] [rbp-30h]
-  struct _POINTL v66; // [rsp+F0h] [rbp-10h] BYREF
-  LONG v67; // [rsp+F8h] [rbp-8h]
-  LONG v68; // [rsp+FCh] [rbp-4h]
-  LONG v69; // [rsp+100h] [rbp+0h]
-  int v70; // [rsp+104h] [rbp+4h]
-  LONG v71; // [rsp+108h] [rbp+8h]
-  int v72; // [rsp+10Ch] [rbp+Ch]
+  LONG v39; // eax
+  LONG v40; // eax
+  LONG v41; // ecx
+  DC *v43[2]; // [rsp+30h] [rbp-D0h] BYREF
+  char v44[32]; // [rsp+40h] [rbp-C0h] BYREF
+  struct REGION *v45; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned __int64 v46; // [rsp+68h] [rbp-98h] BYREF
+  int v47; // [rsp+74h] [rbp-8Ch]
+  _BYTE v48[32]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v49; // [rsp+A0h] [rbp-60h]
+  __int64 v50; // [rsp+A8h] [rbp-58h]
+  char v51[32]; // [rsp+B0h] [rbp-50h] BYREF
+  __int16 v52; // [rsp+D0h] [rbp-30h]
+  struct _POINTL v53; // [rsp+F0h] [rbp-10h] BYREF
+  LONG v54; // [rsp+F8h] [rbp-8h]
+  LONG v55; // [rsp+FCh] [rbp-4h]
+  LONG v56; // [rsp+100h] [rbp+0h]
+  int v57; // [rsp+104h] [rbp+4h]
+  LONG v58; // [rsp+108h] [rbp+8h]
+  int v59; // [rsp+10Ch] [rbp+Ch]
 
   v3 = 0;
-  v57 = 0LL;
-  v58 = 0LL;
-  UnexpectedThreadTerminationHandler<DCOBJ>::UnexpectedThreadTerminationHandler<DCOBJ>(v59);
-  XDCOBJ::vLockIgnoreAttributes((XDCOBJ *)&v57, a1);
-  v5 = v57;
-  if ( !v57 )
-    goto LABEL_7;
-  if ( (*((_DWORD *)v57 + 11) & 2) != 0 )
+  v43[0] = 0LL;
+  v43[1] = 0LL;
+  UnexpectedThreadTerminationHandler<DCOBJ>::UnexpectedThreadTerminationHandler<DCOBJ>(v44);
+  XDCOBJ::vLock((XDCOBJ *)v43, a1);
+  if ( !v43[0] )
   {
-LABEL_20:
-    if ( (*((_DWORD *)v5 + 130) & 4) != 0 )
+    EngSetLastError(6u);
+    v5 = 0;
+    goto LABEL_94;
+  }
+  if ( *((_WORD *)v43[0] + 6) == 1 )
+  {
+    v49 = 0LL;
+    v50 = 0LL;
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::UnexpectedThreadTerminationHandler<DLODCOBJ>(v51);
+    v52 = 256;
+    DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v48, (struct XDCOBJ *)v43, 1);
+    if ( (v48[24] & 1) == 0 )
     {
-      DC::vMarkTransformDirty(v5);
-      v5 = v57;
-    }
-    if ( !v5 )
-      goto LABEL_7;
-    if ( *((_WORD *)v5 + 6) != 1 )
-    {
-      TraceLoggingWriteUnsupportedGdiUsage(21LL, 0LL, *((unsigned __int16 *)v5 + 6));
-      EngSetLastError(6u);
-LABEL_31:
-      DCOBJ::~DCOBJ((DCOBJ *)&v57);
-      return v3;
-    }
-    v63[0] = 0LL;
-    v63[1] = 0LL;
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::UnexpectedThreadTerminationHandler<DLODCOBJ>(v64);
-    v65 = 256;
-    DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v62, (struct XDCOBJ *)&v57, 1);
-    if ( (v62[24] & 1) == 0 )
-    {
-      if ( (unsigned int)XDCOBJ::bFullScreen((XDCOBJ *)&v57) )
+      if ( (unsigned int)XDCOBJ::bFullScreen((XDCOBJ *)v43) )
       {
         *(_QWORD *)a2 = 0LL;
+        v5 = 3;
         *((_QWORD *)a2 + 1) = 0LL;
-        DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v62);
-        v3 = 3;
+LABEL_92:
+        DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v48);
+LABEL_94:
+        v3 = v5;
+        goto LABEL_95;
       }
-      else
-      {
-        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v62);
-        if ( v63[0] )
-          DLODCOBJ::vUnlock((DLODCOBJ *)v63);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v64);
-      }
-      goto LABEL_31;
+LABEL_86:
+      v5 = 0;
+      goto LABEL_92;
     }
-    if ( DC::prgnRao(v57) )
-      v13 = DC::prgnRao(v12);
-    else
-      v13 = DC::prgnVisSnap(v12);
-    v15 = v13;
-    *(_OWORD *)a2 = *(_OWORD *)((char *)v13 + 56);
+    v45 = XDCOBJ::prgnEffRao(v43);
+    *(_OWORD *)a2 = *((_OWORD *)v45 + 6);
     if ( *a2 >= a2[2] || a2[1] >= a2[3] )
     {
+      v7 = v43[0];
+      v5 = 1;
       *(_QWORD *)a2 = 0LL;
-      v7 = 1;
       *((_QWORD *)a2 + 1) = 0LL;
     }
     else
     {
-      EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v60, (struct XDCOBJ *)&v57, -2147482622);
-      v16 = v60;
-      if ( !v60 )
+      EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v46, (struct XDCOBJ *)v43, 0x80000402);
+      v6 = v46;
+      if ( !v46 )
+        goto LABEL_86;
+      v7 = v43[0];
+      v8 = a2[2];
+      v9 = a2[1];
+      v10 = (char *)v43[0] + 1024;
+      if ( (*((_DWORD *)v43[0] + 10) & 1) == 0 )
+        v10 = (char *)v43[0] + 1016;
+      v11 = *a2 - *(_DWORD *)v10;
+      *a2 = v11;
+      v12 = v8 - *(_DWORD *)v10;
+      a2[2] = v12;
+      v13 = v9 - *((_DWORD *)v10 + 1);
+      a2[1] = v13;
+      v14 = a2[3] - *((_DWORD *)v10 + 1);
+      a2[3] = v14;
+      v15 = *(_DWORD *)(v6 + 32);
+      if ( (v15 & 1) != 0 )
       {
-        v7 = 0;
-LABEL_125:
-        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v62);
-        if ( v63[0] )
-          DLODCOBJ::vUnlock((DLODCOBJ *)v63);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v64);
-        goto LABEL_8;
-      }
-      v14 = v57;
-      v17 = a2[2];
-      v18 = a2[1];
-      v19 = *((_DWORD *)v57 + 10) & 1;
-      v20 = *a2 - *((_DWORD *)v57 + 2 * v19 + 254);
-      *a2 = v20;
-      v21 = v17 - *((_DWORD *)v14 + 2 * v19 + 254);
-      a2[2] = v21;
-      v22 = v18 - *((_DWORD *)v14 + 2 * v19 + 255);
-      a2[1] = v22;
-      v23 = a2[3] - *((_DWORD *)v14 + 2 * v19 + 255);
-      a2[3] = v23;
-      v24 = *(_DWORD *)(v16 + 32);
-      if ( (v24 & 1) != 0 )
-      {
-        if ( (v24 & 0x43) == 0x43 || (v25 = bCvtPts1(v16, a2, 2LL), v14 = v57, v26 = v25 == 0, v27 = 0, !v26) )
-          v27 = 1;
-        if ( v61 )
+        if ( (v15 & 0x43) == 0x43 || (v16 = (unsigned int)bCvtPts1(v6, a2, 2LL) == 0, v17 = 0, !v16) )
+          v17 = 1;
+        if ( v47 )
         {
           ++*a2;
           ++a2[2];
         }
-        if ( v27 )
-        {
-          v28 = (__int64)v15 + 52;
-          if ( !v15 )
-            v28 = 28LL;
-          if ( *(_DWORD *)v28 == 1 )
-          {
-            v7 = 1;
-          }
-          else
-          {
-            v26 = v15 == 0LL;
-            v29 = (__int64)v15 + 48;
-            v30 = 0;
-            if ( v26 )
-              v29 = 24LL;
-            LOBYTE(v30) = *(_DWORD *)v29 > 0x38u;
-            v7 = v30 + 2;
-          }
-        }
+        if ( v17 )
+          v5 = RGNOBJ::iComplexity((RGNOBJ *)&v45);
         else
-        {
-          v7 = 0;
-        }
+          v5 = 0;
       }
       else
       {
-        v66.x = v20;
-        v67 = v21;
-        v69 = v20;
-        v70 = v23;
-        v71 = v21;
-        v72 = v23;
-        v66.y = v22;
-        v68 = v22;
-        EXFORMOBJ::bXform((EXFORMOBJ *)&v60, &v66, 4uLL);
-        v31 = v67;
-        v32 = v67;
-        x = v66.x;
-        v34 = v69;
-        if ( v66.x < v67 )
-          v32 = v66.x;
-        if ( v32 >= v69 )
+        v53.x = v11;
+        v54 = v12;
+        v56 = v11;
+        v57 = v14;
+        v58 = v12;
+        v59 = v14;
+        v53.y = v13;
+        v55 = v13;
+        EXFORMOBJ::bXform((EXFORMOBJ *)&v46, &v53, 4LL);
+        v18 = v54;
+        v19 = v54;
+        x = v53.x;
+        v21 = v56;
+        if ( v53.x < v54 )
+          v19 = v53.x;
+        if ( v19 >= v56 )
         {
-          v35 = v69;
+          v22 = v56;
         }
         else
         {
-          v35 = v67;
-          if ( v66.x < v67 )
-            v35 = v66.x;
+          v22 = v54;
+          if ( v53.x < v54 )
+            v22 = v53.x;
         }
-        v36 = v71;
-        if ( v35 >= v71 )
+        v23 = v58;
+        if ( v22 >= v58 )
         {
-          v38 = v71;
+          v25 = v58;
         }
         else
         {
-          v37 = v67;
-          if ( v66.x < v67 )
-            v37 = v66.x;
-          if ( v37 >= v69 )
+          v24 = v54;
+          if ( v53.x < v54 )
+            v24 = v53.x;
+          if ( v24 >= v56 )
           {
-            v38 = v69;
+            v25 = v56;
           }
           else
           {
-            v38 = v67;
-            if ( v66.x < v67 )
-              v38 = v66.x;
+            v25 = v54;
+            if ( v53.x < v54 )
+              v25 = v53.x;
           }
         }
-        v39 = v68;
-        y = v66.y;
-        v41 = v66.y < v68;
-        v42 = v70;
-        *a2 = v38;
-        v43 = v39;
-        if ( v41 )
-          v43 = y;
-        if ( v43 >= v42 )
+        v26 = v55;
+        y = v53.y;
+        v28 = v53.y < v55;
+        v29 = v57;
+        *a2 = v25;
+        v30 = v26;
+        if ( v28 )
+          v30 = y;
+        if ( v30 >= v29 )
         {
-          v44 = v42;
+          v31 = v29;
         }
         else
         {
-          v44 = v39;
-          if ( y < v39 )
-            v44 = y;
+          v31 = v26;
+          if ( y < v26 )
+            v31 = y;
         }
-        v45 = v72;
-        if ( v44 >= v72 )
+        if ( v31 >= v59 )
         {
-          v47 = v72;
+          v33 = v59;
         }
         else
         {
-          v46 = v39;
-          if ( y < v39 )
-            v46 = y;
-          if ( v46 >= v42 )
+          v32 = v26;
+          if ( y < v26 )
+            v32 = y;
+          if ( v32 >= v29 )
           {
-            v47 = v42;
+            v33 = v29;
           }
           else
           {
-            v47 = v39;
-            if ( y < v39 )
-              v47 = y;
+            v33 = v26;
+            if ( y < v26 )
+              v33 = y;
           }
         }
-        a2[1] = v47;
-        v48 = v31;
-        if ( x > v31 )
-          v48 = x;
-        if ( v48 <= v34 )
+        a2[1] = v33;
+        v34 = v18;
+        if ( x > v18 )
+          v34 = x;
+        if ( v34 <= v21 )
         {
-          v49 = v34;
+          v35 = v21;
         }
         else
         {
-          v49 = v31;
-          if ( x > v31 )
-            v49 = x;
+          v35 = v18;
+          if ( x > v18 )
+            v35 = x;
         }
-        if ( v49 <= v36 )
+        if ( v35 <= v23 )
         {
-          v31 = v36;
-        }
-        else
-        {
-          v50 = v31;
-          if ( x > v31 )
-            v50 = x;
-          if ( v50 <= v34 )
-          {
-            v31 = v34;
-          }
-          else if ( x > v31 )
-          {
-            v31 = x;
-          }
-        }
-        a2[2] = v31;
-        v51 = v39;
-        if ( y > v39 )
-          v51 = y;
-        if ( v51 <= v42 )
-        {
-          v52 = v42;
+          v18 = v23;
         }
         else
         {
-          v52 = v39;
-          if ( y > v39 )
-            v52 = y;
+          v36 = v18;
+          if ( x > v18 )
+            v36 = x;
+          if ( v36 <= v21 )
+          {
+            v18 = v21;
+          }
+          else if ( x > v18 )
+          {
+            v18 = x;
+          }
         }
-        if ( v52 <= v45 )
+        a2[2] = v18;
+        v37 = v26;
+        if ( y > v26 )
+          v37 = y;
+        if ( v37 <= v29 )
         {
-          v39 = v45;
+          v38 = v29;
         }
         else
         {
-          v53 = v39;
-          if ( y > v39 )
-            v53 = y;
-          if ( v53 <= v42 )
-          {
-            v39 = v42;
-          }
-          else if ( y > v39 )
-          {
+          v38 = v26;
+          if ( y > v26 )
+            v38 = y;
+        }
+        if ( v38 <= v59 )
+        {
+          v26 = v59;
+        }
+        else
+        {
+          v39 = v26;
+          if ( y > v26 )
             v39 = y;
+          if ( v39 <= v29 )
+          {
+            v26 = v29;
+          }
+          else if ( y > v26 )
+          {
+            v26 = y;
           }
         }
-        v14 = v57;
-        v7 = 3;
-        a2[3] = v39;
-      }
-      if ( !v7 )
-        goto LABEL_125;
-    }
-    if ( (*(_DWORD *)(*((_QWORD *)v14 + 122) + 108LL) & 1) != 0 )
-    {
-      v54 = *a2;
-      v55 = a2[2];
-      if ( *a2 > v55 )
-      {
-        *a2 = v55;
-        a2[2] = v54;
+        a2[3] = v26;
+        v5 = 3;
       }
     }
-    goto LABEL_125;
-  }
-  if ( HIDWORD(v58) )
-  {
-LABEL_19:
-    *((_DWORD *)v5 + 11) |= 2u;
-    v5 = v57;
-    LODWORD(v58) = 1;
-    goto LABEL_20;
-  }
-  UserAttr = XDCOBJ::GetUserAttr((XDCOBJ *)&v57);
-  if ( !UserAttr || DC::SaveAttributes(v57, UserAttr) )
-  {
-    v5 = v57;
-    goto LABEL_19;
-  }
-  _InterlockedDecrement((volatile signed __int32 *)v57 + 3);
-  v57 = 0LL;
-LABEL_7:
-  EngSetLastError(6u);
-  v7 = 0;
-LABEL_8:
-  v8 = v57;
-  if ( v57 )
-  {
-    if ( (_DWORD)v58 && (*((_DWORD *)v57 + 11) & 2) != 0 )
+    if ( v5 )
     {
-      if ( !HIDWORD(v58) )
+      if ( (*(_DWORD *)(*((_QWORD *)v7 + 122) + 108LL) & 1) != 0 )
       {
-        v9 = XDCOBJ::GetUserAttr((XDCOBJ *)&v57);
-        v8 = v57;
-        if ( v9 )
+        v40 = *a2;
+        v41 = a2[2];
+        if ( *a2 > v41 )
         {
-          DC::RestoreAttributes(v57, v9);
-          v8 = v57;
+          *a2 = v41;
+          a2[2] = v40;
         }
       }
-      *((_DWORD *)v8 + 11) &= ~2u;
-      v8 = v57;
-      LODWORD(v58) = 0;
     }
-    v56 = 0;
-    v10 = *(_QWORD *)v8;
-    HmgDecrementExclusiveReferenceCountEx(v8, HIDWORD(v58), &v56);
-    if ( v56 )
-      GrepDeleteDC(v10, 0x2000000LL);
+    goto LABEL_92;
   }
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v59);
-  return v7;
+  TraceLoggingWriteUnsupportedGdiUsage(21LL, 0LL, *((unsigned __int16 *)v43[0] + 6), 4LL, 0LL);
+  EngSetLastError(6u);
+LABEL_95:
+  DCOBJ::~DCOBJ((DCOBJ *)v43);
+  return v3;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsHardwareProtected@CDDASwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x18010A970
+ * XREFs of ?IsHardwareProtected@CDDASwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F8060
  * Callers:
  *     <none>
  * Callees:

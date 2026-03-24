@@ -1,116 +1,99 @@
 /*
- * XREFs of ?VmBusCreateContextVirtual@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0369490
+ * XREFs of ?VmBusCreateContextVirtual@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023DE00
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005C634 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGC.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005DE78 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?DxgkCreateContextVirtualImpl@@YAJPEAU_D3DKMT_CREATECONTEXTVIRTUAL@@E@Z @ 0x1C01693E8 (-DxgkCreateContextVirtualImpl@@YAJPEAU_D3DKMT_CREATECONTEXTVIRTUAL@@E@Z.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00405D4 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_VSYNCREMOTINGCTRL@@@@YAPEAUDXGKVMB_COMMAND_VSYNCREMOTINGC.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C0041850 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ?DxgkCreateContextVirtualImpl@@YAJPEAU_D3DKMT_CREATECONTEXTVIRTUAL@@E@Z @ 0x1C00E6470 (-DxgkCreateContextVirtualImpl@@YAJPEAU_D3DKMT_CREATECONTEXTVIRTUAL@@E@Z.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusCreateContextVirtual(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // r14
-  char v4; // di
-  __int64 v6; // rax
-  __int64 v7; // r8
-  _DWORD *v8; // rbx
-  unsigned __int64 v9; // rcx
-  __int64 v10; // rdx
-  unsigned int v11; // r15d
-  int v12; // eax
-  __int64 v13; // rbx
-  char v14[8]; // [rsp+58h] [rbp+7h] BYREF
-  DXGPUSHLOCK *v15; // [rsp+60h] [rbp+Fh]
-  int v16; // [rsp+68h] [rbp+17h]
-  _D3DKMT_CREATECONTEXTVIRTUAL v17; // [rsp+70h] [rbp+1Fh] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // r14
+  char v6; // bl
+  __int64 v7; // rcx
+  __int64 v9; // rax
+  __int64 v10; // r8
+  _DWORD *v11; // rdi
+  unsigned __int64 v12; // rdx
+  unsigned __int64 v13; // rcx
+  unsigned int v14; // r12d
+  int v15; // eax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r15
+  __int64 v19; // rax
+  char v20[8]; // [rsp+20h] [rbp-40h] BYREF
+  DXGPUSHLOCK *v21; // [rsp+28h] [rbp-38h]
+  int v22; // [rsp+30h] [rbp-30h]
+  _D3DKMT_CREATECONTEXTVIRTUAL v23; // [rsp+38h] [rbp-28h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v14, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v15);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 1;
-  v4 = 0;
-  v16 = 1;
-  if ( !*(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v20, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v21);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 1;
+  v6 = 0;
+  v22 = 1;
+  if ( !*(_BYTE *)(v4 + 165) )
   {
-    WdLogSingleEntry1(2LL, 1115LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The adapter is already closed by the guest",
-      1115LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v7 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v7 + 24) = 816LL;
 LABEL_3:
-    v3 = 0;
-    goto LABEL_4;
-  }
-  v6 = CastToVmBusCommand<DXGKVMB_COMMAND_VSYNCREMOTINGCTRL>((__int64)a1);
-  v8 = (_DWORD *)v6;
-  if ( !v6 )
-    goto LABEL_3;
-  v9 = *(unsigned int *)(v6 + 48);
-  v10 = *((unsigned int *)a1 + 36);
-  if ( v10 - 55 < v9 )
-  {
-    WdLogSingleEntry2(2LL, v10, 1121LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid packet size: 0x%I64x",
-      *((unsigned int *)a1 + 36),
-      1121LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_3;
-  }
-  v11 = v9 + 55;
-  v17.Flags.Value = *(_DWORD *)(v6 + 40);
-  v17.hDevice = *(_DWORD *)(v6 + 28);
-  v17.ClientHint = *(_DWORD *)(v6 + 44);
-  v17.NodeOrdinal = *(_DWORD *)(v6 + 32);
-  v17.EngineAffinity = *(_DWORD *)(v6 + 36);
-  v17.pPrivateDriverData = 0LL;
-  v17.PrivateDriverDataSize = 0;
-  *(_QWORD *)&v17.hContext = 0LL;
-  if ( (_DWORD)v9 )
-  {
-    v17.PrivateDriverDataSize = v9;
-    v17.pPrivateDriverData = (void *)(v6 + 52);
-  }
-  *(_DWORD *)(v6 + 24) = 0;
-  v12 = DxgkCreateContextVirtualImpl(&v17, 0, v7);
-  if ( v12 < 0 )
-  {
-    v13 = v12;
-    WdLogSingleEntry2(2LL, v12, 1148LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to create context: 0x%I64x",
-      v13,
-      1148LL,
-      0LL,
-      0LL,
-      0LL);
+    WdLogEvent5_WdError(v7);
+LABEL_4:
+    v5 = 0;
     goto LABEL_5;
   }
-  v8[6] = v17.hContext;
-  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), v8, v11);
-LABEL_4:
-  v4 = v3;
+  v9 = CastToVmBusCommand<DXGKVMB_COMMAND_VSYNCREMOTINGCTRL>((__int64)a1);
+  v11 = (_DWORD *)v9;
+  if ( !v9 )
+    goto LABEL_4;
+  v12 = *(unsigned int *)(v9 + 48);
+  v13 = *((unsigned int *)a1 + 22) - 55LL;
+  if ( v13 < v12 )
+  {
+    v7 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v7 + 24) = *((unsigned int *)a1 + 22);
+    *(_QWORD *)(v7 + 32) = 822LL;
+    goto LABEL_3;
+  }
+  v14 = v12 + 55;
+  v23.Flags.Value = *(_DWORD *)(v9 + 40);
+  v23.hDevice = *(_DWORD *)(v9 + 28);
+  v23.ClientHint = *(_DWORD *)(v9 + 44);
+  v23.NodeOrdinal = *(_DWORD *)(v9 + 32);
+  v23.EngineAffinity = *(_DWORD *)(v9 + 36);
+  v23.pPrivateDriverData = 0LL;
+  v23.PrivateDriverDataSize = 0;
+  *(_QWORD *)&v23.hContext = 0LL;
+  if ( (_DWORD)v12 )
+  {
+    v23.PrivateDriverDataSize = v12;
+    v23.pPrivateDriverData = (void *)(v9 + 52);
+  }
+  *(_DWORD *)(v9 + 24) = 0;
+  v15 = DxgkCreateContextVirtualImpl(&v23, 0, v10);
+  v18 = v15;
+  if ( v15 < 0 )
+  {
+    v19 = WdLogNewEntry5_WdError(v17, v16);
+    *(_QWORD *)(v19 + 24) = v18;
+    *(_QWORD *)(v19 + 32) = 849LL;
+    WdLogEvent5_WdError(v19);
+    goto LABEL_6;
+  }
+  v11[6] = v23.hContext;
+  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), v11, v14);
 LABEL_5:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v14);
-  return v4;
+  v6 = v5;
+LABEL_6:
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v20);
+  return v6;
 }

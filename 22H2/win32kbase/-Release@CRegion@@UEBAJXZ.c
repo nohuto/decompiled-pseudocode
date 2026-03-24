@@ -1,21 +1,22 @@
 /*
- * XREFs of ?Release@CRegion@@UEBAJXZ @ 0x1C009B810
+ * XREFs of ?Release@CRegion@@UEBAJXZ @ 0x1C0085A90
  * Callers:
  *     <none>
  * Callees:
- *     ?SetEmpty@CRegion@@UEAAXXZ @ 0x1C007D200 (-SetEmpty@CRegion@@UEAAXXZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?SetEmpty@CRegion@@UEAAXXZ @ 0x1C0092670 (-SetEmpty@CRegion@@UEAAXXZ.c)
  */
 
-__int64 __fastcall CRegion::Release(volatile signed __int32 *P)
+__int64 __fastcall CRegion::Release(CRegion *this)
 {
   unsigned __int32 v2; // edi
 
-  v2 = _InterlockedDecrement(P + 2);
-  if ( !v2 && P )
+  v2 = _InterlockedDecrement((volatile signed __int32 *)this + 2);
+  if ( !v2 && this )
   {
-    *(_QWORD *)P = &CRegion::`vftable';
-    CRegion::SetEmpty((CRegion *)P);
-    ExFreePool((PVOID)P);
+    *(_QWORD *)this = &CRegion::`vftable';
+    CRegion::SetEmpty(this);
+    Win32FreePool((__int64)this);
   }
   return v2;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MmUpdateMdlTracker @ 0x140584F10
+ * XREFs of MmUpdateMdlTracker @ 0x140531270
  * Callers:
- *     IopProbeAndLockPages @ 0x14029C520 (IopProbeAndLockPages.c)
- *     IopProbeAndLockPages_0 @ 0x14029C568 (IopProbeAndLockPages_0.c)
- *     IopProbeAndLockPages_1 @ 0x1403198A0 (IopProbeAndLockPages_1.c)
- *     IopProbeAndLockPages_2 @ 0x14055A55C (IopProbeAndLockPages_2.c)
- *     IopProbeAndLockPages_3 @ 0x14055A5BC (IopProbeAndLockPages_3.c)
- *     NtWriteFileGather @ 0x1406E3F70 (NtWriteFileGather.c)
+ *     IopProbeAndLockPages @ 0x1402081F0 (IopProbeAndLockPages.c)
+ *     IopProbeAndLockPages_0 @ 0x1402C1DC4 (IopProbeAndLockPages_0.c)
+ *     IopProbeAndLockPages_1 @ 0x1402E7A50 (IopProbeAndLockPages_1.c)
+ *     IopProbeAndLockPages_2 @ 0x140508820 (IopProbeAndLockPages_2.c)
+ *     IopProbeAndLockPages_3 @ 0x140508880 (IopProbeAndLockPages_3.c)
+ *     NtWriteFileGather @ 0x14069A620 (NtWriteFileGather.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _BOOL8 __fastcall MmUpdateMdlTracker(unsigned __int64 a1, __int64 a2, __int64 a3)
@@ -30,7 +30,7 @@ _BOOL8 __fastcall MmUpdateMdlTracker(unsigned __int64 a1, __int64 a2, __int64 a3
   if ( !v3 )
     v3 = PsInitialSystemProcess;
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
-  i = v3[1].ActiveProcessors.StaticBitmap[11];
+  i = v3[1].ActiveProcessors.Bitmap[11];
   if ( !i )
     return 0LL;
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(i + 24), &LockHandle);

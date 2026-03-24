@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBUCX_GetRootHubInfoUsingUCXIoctlComplete @ 0x1C0025030
+ * XREFs of HUBUCX_GetRootHubInfoUsingUCXIoctlComplete @ 0x1C0024C00
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_GetRootHubInfoUsingUCXIoctlComplete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -30,7 +30,7 @@ __int64 __fastcall HUBUCX_GetRootHubInfoUsingUCXIoctlComplete(__int64 a1, __int6
       2u,
       3u,
       0x28u,
-      (__int64)&WPP_a5663512bb0f384af60f2cebe8e2cf44_Traceguids,
+      (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
       v8);
   }
   HUBSM_AddEvent(a4 + 1264, ((v4 >> 31) & 0xFFFFFFFC) + 2042);

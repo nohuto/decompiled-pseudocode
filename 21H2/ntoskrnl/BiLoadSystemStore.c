@@ -1,19 +1,19 @@
 /*
- * XREFs of BiLoadSystemStore @ 0x140811FE0
+ * XREFs of BiLoadSystemStore @ 0x140781BD4
  * Callers:
- *     BiOpenSystemStore @ 0x140813744 (BiOpenSystemStore.c)
+ *     BiOpenSystemStore @ 0x14078381C (BiOpenSystemStore.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     BiLogFileOwnerProcess @ 0x14064CD50 (BiLogFileOwnerProcess.c)
- *     BiAddStoreFromFile @ 0x14081210C (BiAddStoreFromFile.c)
- *     BiMarkTreatAsSystemStore @ 0x140812260 (BiMarkTreatAsSystemStore.c)
- *     BcdCloseStore @ 0x1408124A0 (BcdCloseStore.c)
- *     BcdGetSystemStorePath @ 0x140812698 (BcdGetSystemStorePath.c)
- *     BiIsSystemStore @ 0x1408127B8 (BiIsSystemStore.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     BiLogFileOwnerProcess @ 0x1405C3B80 (BiLogFileOwnerProcess.c)
+ *     BiAddStoreFromFile @ 0x140781DD8 (BiAddStoreFromFile.c)
+ *     BiMarkTreatAsSystemStore @ 0x140781F20 (BiMarkTreatAsSystemStore.c)
+ *     BcdCloseStore @ 0x140782414 (BcdCloseStore.c)
+ *     BcdGetSystemStorePath @ 0x1407824B4 (BcdGetSystemStorePath.c)
+ *     BiIsSystemStore @ 0x1407833A8 (BiIsSystemStore.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiLoadSystemStore(_QWORD *a1)

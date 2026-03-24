@@ -1,132 +1,112 @@
 /*
- * XREFs of EmpEvaluateTargetRule @ 0x14032D784
+ * XREFs of EmpEvaluateTargetRule @ 0x1403746B8
  * Callers:
- *     EmpEvaluateUpdateRuleEvalState @ 0x1403A22FC (EmpEvaluateUpdateRuleEvalState.c)
- *     EmClientRuleEvaluate @ 0x140A87D30 (EmClientRuleEvaluate.c)
+ *     EmpEvaluateUpdateRuleEvalState @ 0x1403C4F54 (EmpEvaluateUpdateRuleEvalState.c)
+ *     EmClientRuleEvaluate @ 0x140990340 (EmClientRuleEvaluate.c)
  * Callees:
- *     EmpEvaluateNodeLink @ 0x14032D9D4 (EmpEvaluateNodeLink.c)
- *     EmpAllocatePool @ 0x14032DDD4 (EmpAllocatePool.c)
- *     EmpFreePool @ 0x14032DE14 (EmpFreePool.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EmpEvaluateNodeLink @ 0x1403748FC (EmpEvaluateNodeLink.c)
+ *     EmpFreePool @ 0x140374CF8 (EmpFreePool.c)
+ *     EmpAllocatePool @ 0x140374D2C (EmpAllocatePool.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EmpEvaluateTargetRule(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v4; // rbp
+  __int64 Pool; // rbp
   __int64 v5; // r14
-  unsigned int v6; // r13d
-  __int64 v7; // rbx
-  __int64 v8; // r15
-  void *Pool2; // rdi
-  int v10; // eax
+  __int64 v6; // rbx
+  __int64 v7; // r15
+  unsigned int v8; // r13d
+  unsigned int v9; // r12d
+  void *v10; // rdi
   unsigned int v11; // r12d
   unsigned int v12; // esi
-  unsigned int v13; // r10d
-  __int64 v14; // rdi
-  __int64 v15; // r11
-  int v16; // r8d
-  unsigned int v17; // edx
-  _QWORD *v18; // r9
-  __int64 v19; // rax
-  unsigned int i; // r9d
-  int v21; // eax
-  __int64 v22; // rcx
-  unsigned int v23; // ebx
-  unsigned int v25; // [rsp+60h] [rbp-78h]
-  ULONGLONG v26; // [rsp+68h] [rbp-70h] BYREF
-  __int64 v27; // [rsp+70h] [rbp-68h]
-  __int64 v28; // [rsp+78h] [rbp-60h]
-  void *v29; // [rsp+80h] [rbp-58h]
-  int v30; // [rsp+E0h] [rbp+8h] BYREF
-  __int64 v31; // [rsp+E8h] [rbp+10h]
-  int v32; // [rsp+F0h] [rbp+18h]
-  unsigned int v33; // [rsp+F8h] [rbp+20h]
+  unsigned int v13; // r8d
+  _QWORD *v14; // r9
+  __int64 v15; // rax
+  unsigned int i; // r8d
+  int v17; // eax
+  __int64 v18; // rcx
+  unsigned int v20; // [rsp+60h] [rbp-78h]
+  __int64 v21; // [rsp+70h] [rbp-68h]
+  __int64 v22; // [rsp+78h] [rbp-60h]
+  PVOID PoolWithTag; // [rsp+80h] [rbp-58h]
+  int v24; // [rsp+E0h] [rbp+8h]
+  unsigned int v27; // [rsp+F8h] [rbp+20h]
 
-  v32 = a3;
-  v31 = a2;
-  v4 = 0LL;
-  v28 = *(_QWORD *)(a1 + 8);
+  Pool = 0LL;
+  v22 = *(_QWORD *)(a1 + 8);
   v5 = 0LL;
-  v6 = 1;
-  v7 = *(unsigned int *)(v28 + 40);
-  v8 = *(unsigned int *)(v28 + 44);
-  v27 = *(_QWORD *)(a1 + 16);
-  Pool2 = (void *)ExAllocatePool2(256LL, 4096LL, 1986350405LL);
-  v29 = Pool2;
-  v10 = 0;
-  v26 = (ULONGLONG)Pool2;
-  if ( Pool2 )
-    v10 = 4096;
-  v25 = v10;
-  v30 = v10;
-  if ( !(_DWORD)v7 && !(_DWORD)v8 )
+  v6 = *(unsigned int *)(v22 + 40);
+  v7 = *(unsigned int *)(v22 + 44);
+  v8 = 1;
+  v21 = *(_QWORD *)(a1 + 16);
+  v9 = 0;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x76654D45u);
+  v10 = PoolWithTag;
+  if ( PoolWithTag )
+    v9 = 4096;
+  v20 = v9;
+  v24 = v9;
+  if ( !(_DWORD)v6 && !(_DWORD)v7 )
   {
-    v11 = 0;
-    v33 = 1;
-    v13 = 0;
-    v12 = 0;
+    v27 = 1;
     goto LABEL_9;
   }
-  v11 = v8 + v7;
-  v33 = *(_DWORD *)(a1 + 24) / (unsigned int)(v8 + v7);
-  if ( (_DWORD)v7 )
+  v27 = *(_DWORD *)(a1 + 24) / (unsigned int)(v7 + v6);
+  if ( (_DWORD)v6 )
   {
-    v4 = EmpAllocatePool(8 * v7, &v26, &v30);
-    if ( !v4 )
+    Pool = EmpAllocatePool(8 * v6);
+    if ( !Pool )
       goto LABEL_22;
   }
-  if ( !(_DWORD)v8 || (v5 = EmpAllocatePool(4 * v8, &v26, &v30)) != 0 )
+  if ( !(_DWORD)v7 || (v5 = EmpAllocatePool(4 * v7)) != 0 )
   {
-    v12 = 0;
-    v13 = v8 + v7;
-    if ( !v33 )
+    if ( !v27 )
     {
 LABEL_18:
-      v23 = v25;
       if ( v5 )
-        EmpFreePool(v5, Pool2, v25);
+        EmpFreePool(v5, v10, v9);
       goto LABEL_20;
     }
 LABEL_9:
-    v14 = v28;
+    v11 = v7 + v6;
+    v12 = 0;
     do
     {
-      v15 = v27;
-      v16 = v12 * v11;
-      v17 = 0;
-      if ( (_DWORD)v7 )
+      v13 = 0;
+      if ( (_DWORD)v6 )
       {
-        v18 = (_QWORD *)v4;
+        v14 = (_QWORD *)Pool;
         do
         {
-          v19 = v16 + v17++;
-          *v18++ = *((_QWORD *)EmpStringTable + *(unsigned int *)(v15 + 4 * v19));
+          v15 = v12 * v11 + v13++;
+          *v14++ = *((_QWORD *)EmpStringTable + *(unsigned int *)(v21 + 4 * v15));
         }
-        while ( v17 < (unsigned int)v7 );
+        while ( v13 < (unsigned int)v6 );
       }
-      for ( i = v7; i < v13; *(_DWORD *)(v5 + 4 * v22) = v21 )
+      for ( i = v6; i < v11; *(_DWORD *)(v5 + 4 * v18) = v17 )
       {
-        v21 = *(_DWORD *)(v15 + 4LL * (v16 + i));
-        v22 = i - (unsigned int)v7;
+        v17 = *(_DWORD *)(v21 + 4LL * (v12 * v11 + i));
+        v18 = i - (unsigned int)v6;
         ++i;
       }
-      v6 = EmpEvaluateNodeLink(*(_QWORD *)(v14 + 96), v4, v7, v5, v8, v31, v32, 0LL, 0, v26, v30);
-      if ( v6 - 1 <= 1 )
+      v8 = EmpEvaluateNodeLink(*(_QWORD *)(v22 + 96), Pool, v6, v5, v7, a2, a3, 0LL, 0, (ULONGLONG)PoolWithTag, v24);
+      if ( v8 - 1 <= 1 )
         break;
       ++v12;
-      v13 = v11;
     }
-    while ( v12 < v33 );
-    Pool2 = v29;
+    while ( v12 < v27 );
+    v10 = PoolWithTag;
+    v9 = v20;
     goto LABEL_18;
   }
-  v23 = v25;
 LABEL_20:
-  if ( v4 )
-    EmpFreePool(v4, Pool2, v23);
+  if ( Pool )
+    EmpFreePool(Pool, v10, v9);
 LABEL_22:
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x76654D45u);
-  return v6;
+  if ( v10 )
+    ExFreePoolWithTag(v10, 0x76654D45u);
+  return v8;
 }

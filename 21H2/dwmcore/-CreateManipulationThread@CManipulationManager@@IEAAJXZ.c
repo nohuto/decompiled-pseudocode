@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CreateManipulationThread@CManipulationManager@@IEAAJXZ @ 0x18002C90C
+ * XREFs of ?CreateManipulationThread@CManipulationManager@@IEAAJXZ @ 0x1800B5C74
  * Callers:
- *     ?Initialize@CManipulationManager@@IEAAJXZ @ 0x18002C6B8 (-Initialize@CManipulationManager@@IEAAJXZ.c)
+ *     ?Initialize@CManipulationManager@@IEAAJXZ @ 0x1800B5A48 (-Initialize@CManipulationManager@@IEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CManipulationManager::CreateManipulationThread(HANDLE *this)
@@ -21,11 +21,11 @@ __int64 __fastcall CManipulationManager::CreateManipulationThread(HANDLE *this)
   if ( *((_BYTE *)this + 176) )
   {
     v3 = -2147467260;
-    dwCreationFlags = 950;
+    dwCreationFlags = 913;
 LABEL_8:
     v6 = v3;
 LABEL_10:
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, &dword_1803444A0, 3u, v6, dwCreationFlags, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_1802DD028, 3u, v6, dwCreationFlags, 0LL);
     return v3;
   }
   v2 = (*((__int64 (__fastcall **)(HANDLE *))*this + 7))(this);
@@ -33,17 +33,17 @@ LABEL_10:
   if ( v2 < 0 )
   {
     v6 = v2;
-    dwCreationFlags = 953;
+    dwCreationFlags = 916;
     goto LABEL_10;
   }
   v4 = CreateThread(0LL, 0LL, CManipulationManager::s_ThreadMain, v1, 4u, &ThreadId);
-  LODWORD(this) = ThreadId;
+  this = (HANDLE *)ThreadId;
   v1[21] = v4;
   CManipulationManager::s_dwManipulationThreadId = (unsigned int)this;
   if ( !v4 )
   {
     v3 = -2147024882;
-    dwCreationFlags = 967;
+    dwCreationFlags = 930;
     goto LABEL_8;
   }
   SetThreadDescription(v4, L"DWM Manipulation Thread");

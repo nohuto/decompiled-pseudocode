@@ -1,44 +1,44 @@
 /*
- * XREFs of ?GetVirtualizedCursorSize@@YAXPEAUtagCURSOR@@PEAH1@Z @ 0x1C00287B8
+ * XREFs of ?GetVirtualizedCursorSize@@YAXPEAUtagCURSOR@@PEAH1@Z @ 0x1C0066F34
  * Callers:
- *     _DrawIconEx @ 0x1C0028030 (_DrawIconEx.c)
- *     NtUserDrawIconEx @ 0x1C0028220 (NtUserDrawIconEx.c)
- *     NtUserGetIconSize @ 0x1C0028390 (NtUserGetIconSize.c)
+ *     NtUserDrawIconEx @ 0x1C0043DF0 (NtUserDrawIconEx.c)
+ *     _DrawIconEx @ 0x1C0043EF4 (_DrawIconEx.c)
+ *     ?_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z @ 0x1C0066A58 (-_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z.c)
+ *     NtUserGetIconSize @ 0x1C010F280 (NtUserGetIconSize.c)
  * Callees:
- *     GetCursorSizeFromIndex @ 0x1C0027404 (GetCursorSizeFromIndex.c)
- *     ?ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z @ 0x1C002BFB8 (-ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     ?ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z @ 0x1C0067014 (-ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z.c)
+ *     GetCursorSizeFromIndex @ 0x1C0120FDC (GetCursorSizeFromIndex.c)
  */
 
 void __fastcall GetVirtualizedCursorSize(struct tagCURSOR *a1, int *a2, int *a3)
 {
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  int v8; // ebx
+  __int64 v6; // rcx
+  unsigned int v7; // ebx
   unsigned int DpiForSystem; // eax
   INT CursorSizeFromIndex; // ebx
 
   *a2 = *((_DWORD *)a1 + 35);
   *a3 = *((_DWORD *)a1 + 36);
-  v8 = 0;
+  v7 = 0;
   if ( ShouldVirtualizeIconCursorSize(a1) )
   {
-    DpiForSystem = GetDpiForSystem(v7, v6);
+    DpiForSystem = GetDpiForSystem(v6);
     if ( DpiForSystem >= 0x90 )
     {
       if ( DpiForSystem >= 0xC0 )
       {
         if ( DpiForSystem >= 0x120 )
-          v8 = 4 - (DpiForSystem < 0x180);
+          v7 = 4 - (DpiForSystem < 0x180);
         else
-          v8 = 2;
+          v7 = 2;
       }
       else
       {
-        v8 = 1;
+        v7 = 1;
       }
     }
-    CursorSizeFromIndex = GetCursorSizeFromIndex(v8);
+    CursorSizeFromIndex = GetCursorSizeFromIndex(v7);
     *a2 = EngMulDiv(*a2, CursorSizeFromIndex, *((_DWORD *)a1 + 19));
     *a3 = EngMulDiv(*a3, CursorSizeFromIndex, *((_DWORD *)a1 + 19));
   }

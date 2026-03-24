@@ -1,25 +1,25 @@
 /*
- * XREFs of ?xxxDWP_Paint@@YAXPEAUtagWND@@@Z @ 0x1C00CD814
+ * XREFs of ?xxxDWP_Paint@@YAXPEAUtagWND@@@Z @ 0x1C0045FEC
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
  * Callees:
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00ABF38 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     xxxBeginPaint @ 0x1C00CDA00 (xxxBeginPaint.c)
- *     xxxEndPaint @ 0x1C00CEAA0 (xxxEndPaint.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     xxxEndPaint @ 0x1C00461A0 (xxxEndPaint.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0067530 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     xxxBeginPaint @ 0x1C007D854 (xxxBeginPaint.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void __fastcall xxxDWP_Paint(struct tagWND *a1)
 {
   __int64 v2; // rcx
-  _BYTE v3[80]; // [rsp+20h] [rbp-68h] BYREF
+  _BYTE v3[72]; // [rsp+20h] [rbp-68h] BYREF
 
-  memset_0(v3, 0, 0x48uLL);
+  memset(v3, 0, sizeof(v3));
   v2 = *((_QWORD *)a1 + 5);
-  if ( (*(_BYTE *)(v2 + 20) & 4) == 0 || IsRectEmptyInl((const struct tagRECT *)(v2 + 104)) )
+  if ( (*(_BYTE *)(v2 + 20) & 4) == 0 || (unsigned int)IsRectEmptyInl((const struct tagRECT *)(v2 + 104)) )
   {
     if ( xxxBeginPaint(a1) )
-      xxxEndPaint(a1, v3);
+      xxxEndPaint(a1);
   }
 }

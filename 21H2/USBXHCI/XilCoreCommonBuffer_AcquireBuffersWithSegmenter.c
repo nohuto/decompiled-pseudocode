@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCoreCommonBuffer_AcquireBuffersWithSegmenter @ 0x1C0009F1C
+ * XREFs of XilCoreCommonBuffer_AcquireBuffersWithSegmenter @ 0x1C0009C0C
  * Callers:
- *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009E10 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009B00 (XilCoreCommonBuffer_AcquireBuffers.c)
  * Callees:
- *     XilCoreCommonBuffer_AcquireBufferWithSegmenter @ 0x1C000A058 (XilCoreCommonBuffer_AcquireBufferWithSegmenter.c)
- *     WPP_RECORDER_SF_qDD @ 0x1C0016390 (WPP_RECORDER_SF_qDD.c)
+ *     XilCoreCommonBuffer_AcquireBufferWithSegmenter @ 0x1C0009D48 (XilCoreCommonBuffer_AcquireBufferWithSegmenter.c)
+ *     WPP_RECORDER_SF_qdd @ 0x1C0015C18 (WPP_RECORDER_SF_qdd.c)
  */
 
 __int64 __fastcall XilCoreCommonBuffer_AcquireBuffersWithSegmenter(
@@ -28,7 +28,7 @@ __int64 __fastcall XilCoreCommonBuffer_AcquireBuffersWithSegmenter(
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
     LOBYTE(v12) = 5;
-    WPP_RECORDER_SF_qDD(
+    WPP_RECORDER_SF_qdd(
       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
       (_DWORD)v12,
       8,
@@ -44,7 +44,7 @@ __int64 __fastcall XilCoreCommonBuffer_AcquireBuffersWithSegmenter(
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v12) = 3;
-      WPP_RECORDER_SF_qDD(
+      WPP_RECORDER_SF_qdd(
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
         (_DWORD)v12,
         8,

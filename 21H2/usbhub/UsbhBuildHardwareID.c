@@ -1,18 +1,19 @@
 /*
- * XREFs of UsbhBuildHardwareID @ 0x1C004F438
+ * XREFs of UsbhBuildHardwareID @ 0x1C00509B0
  * Callers:
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
- *     UsbhCreatePdo @ 0x1C0052C50 (UsbhCreatePdo.c)
- *     UsbhUpdateUxdSettings @ 0x1C005A420 (UsbhUpdateUxdSettings.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
+ *     UsbhCreatePdo @ 0x1C00542B4 (UsbhCreatePdo.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005BAE4 (UsbhUpdateUxdSettings.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_dDD @ 0x1C0047C4C (WPP_RECORDER_SF_dDD.c)
- *     UsbhMakeId @ 0x1C0050478 (UsbhMakeId.c)
- *     WPP_RECORDER_SF_Sd @ 0x1C00507CC (WPP_RECORDER_SF_Sd.c)
- *     WPP_RECORDER_SF_Sqd @ 0x1C0050930 (WPP_RECORDER_SF_Sqd.c)
- *     UsbhBuildUxdPnpId @ 0x1C0058FF0 (UsbhBuildUxdPnpId.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     Feature_2473223486__private_IsEnabledDeviceUsage @ 0x1C001CFD8 (Feature_2473223486__private_IsEnabledDeviceUsage.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C0048FCC (WPP_RECORDER_SF_DDD.c)
+ *     UsbhMakeId @ 0x1C0051A64 (UsbhMakeId.c)
+ *     WPP_RECORDER_SF_Sd @ 0x1C0051E1C (WPP_RECORDER_SF_Sd.c)
+ *     WPP_RECORDER_SF_Sqd @ 0x1C0051F80 (WPP_RECORDER_SF_Sqd.c)
+ *     UsbhBuildUxdPnpId @ 0x1C005A6C0 (UsbhBuildUxdPnpId.c)
  */
 
 __int64 __fastcall UsbhBuildHardwareID(__int64 a1, __int64 a2, __int64 a3)
@@ -35,7 +36,7 @@ __int64 __fastcall UsbhBuildHardwareID(__int64 a1, __int64 a2, __int64 a3)
   __int64 v21; // rax
   int v22; // r8d
   char v23; // dl
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   int v25; // edx
   int v26; // r8d
   __int64 v27; // r10
@@ -61,7 +62,7 @@ __int64 __fastcall UsbhBuildHardwareID(__int64 a1, __int64 a2, __int64 a3)
               *(_QWORD *)(a3 + 8),
               v10,
               14,
-              (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids,
+              (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids,
               *(_QWORD *)(a3 + 8),
               *(_QWORD *)(a3 + 8),
               *(_DWORD *)(a3 + 4));
@@ -75,7 +76,7 @@ __int64 __fastcall UsbhBuildHardwareID(__int64 a1, __int64 a2, __int64 a3)
           0,
           1u,
           0xFu,
-          (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids);
+          (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids);
     }
     v11 = *((unsigned __int16 *)v8 + 704);
     v12 = *((unsigned __int16 *)v8 + 705);
@@ -83,29 +84,29 @@ __int64 __fastcall UsbhBuildHardwareID(__int64 a1, __int64 a2, __int64 a3)
     v30 = v11;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     {
-      WPP_RECORDER_SF_dDD(
+      WPP_RECORDER_SF_DDD(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         0LL,
         v7,
         0x10u,
-        (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids,
+        (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids,
         v11,
         v12,
         v13);
       LOWORD(v11) = v30;
     }
     Log(a1, 4096, 1752648004, (unsigned __int16)v11, v12);
-    Id = UsbhMakeId(0, (unsigned int)L"USB\\VID_nnnn", 0, (unsigned int)&v31, 0, 4, v14, 0LL);
+    Id = UsbhMakeId(0, (int)L"USB\\VID_nnnn", 0, (int)&v31, 0, 4, v14, 0LL);
     if ( Id )
     {
-      v18 = UsbhMakeId(0, (unsigned int)L"&PID_nnnn", Id, (unsigned int)&v31, 0, 4, v12, 0LL);
+      v18 = UsbhMakeId(0, (int)L"&PID_nnnn", Id, (int)&v31, 0, 4, v12, 0LL);
       if ( v18 )
       {
-        v19 = UsbhMakeId(1, (unsigned int)L"&REV_nnnn", v18, (unsigned int)&v31, 1, 4, v13, 0LL);
-        v20 = UsbhMakeId(0, (unsigned int)L"USB\\VID_nnnn", v19, (unsigned int)&v31, 0, 4, v30, 0LL);
+        v19 = UsbhMakeId(1, (int)L"&REV_nnnn", v18, (int)&v31, 1, 4, v13, 0LL);
+        v20 = UsbhMakeId(0, (int)L"USB\\VID_nnnn", v19, (int)&v31, 0, 4, v30, 0LL);
         if ( v20 )
         {
-          v21 = UsbhMakeId(0, (unsigned int)L"&PID_nnnn", v20, (unsigned int)&v31, 2, 4, v12, 0LL);
+          v21 = UsbhMakeId(0, (int)L"&PID_nnnn", v20, (int)&v31, 2, 4, v12, 0LL);
           if ( v21 )
           {
             v23 = v31;
@@ -119,7 +120,7 @@ __int64 __fastcall UsbhBuildHardwareID(__int64 a1, __int64 a2, __int64 a3)
                 0,
                 v22,
                 18,
-                (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids,
+                (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids,
                 v21,
                 v23);
             }
@@ -148,22 +149,26 @@ __int64 __fastcall UsbhBuildHardwareID(__int64 a1, __int64 a2, __int64 a3)
   }
   else
   {
-    Pool2 = ExAllocatePool2(64LL, 26LL, 1112885333LL);
-    if ( Pool2 )
+    Feature_2473223486__private_IsEnabledDeviceUsage();
+    PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0x1AuLL, 0x42554855u);
+    if ( PoolWithTag )
     {
-      *(_OWORD *)Pool2 = *(_OWORD *)L"USB\\UNKNOWN";
-      *(_DWORD *)(Pool2 + 16) = *(_DWORD *)L"OWN";
-      *(_WORD *)(Pool2 + 20) = aUsbUnknown[10];
-      *(_QWORD *)(a3 + 8) = Pool2;
+      *(_OWORD *)PoolWithTag = 0LL;
+      PoolWithTag[2] = 0LL;
+      *((_WORD *)PoolWithTag + 12) = 0;
+      *(_OWORD *)PoolWithTag = *(_OWORD *)L"USB\\UNKNOWN";
+      *((_DWORD *)PoolWithTag + 4) = *(_DWORD *)L"OWN";
+      *((_WORD *)PoolWithTag + 10) = aUsbUnknown[10];
+      *(_QWORD *)(a3 + 8) = PoolWithTag;
       *(_DWORD *)(a3 + 4) = 26;
-      Log(a1, 4096, 1751733537, Pool2, 26LL);
+      Log(a1, 4096, 1751733537, (__int64)PoolWithTag, 26LL);
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
         WPP_RECORDER_SF_Sqd(
           WPP_GLOBAL_Control->DeviceExtension,
           v25,
           v26,
           17,
-          (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids,
+          (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids,
           v27,
           v27,
           26);

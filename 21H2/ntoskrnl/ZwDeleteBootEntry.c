@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwDeleteBootEntry @ 0x14041D220
+ * XREFs of ZwDeleteBootEntry @ 0x1403FBDC0
  * Callers:
- *     DifZwDeleteBootEntryWrapper @ 0x14061F510 (DifZwDeleteBootEntryWrapper.c)
- *     BiDeleteBootEntry @ 0x140A1F760 (BiDeleteBootEntry.c)
+ *     BiDeleteBootEntry @ 0x140971804 (BiDeleteBootEntry.c)
  * Callees:
  *     <none>
  */

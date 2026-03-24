@@ -3,15 +3,15 @@
  * Callers:
  *     EtwpSwitchBuffer @ 0x140014FB8 (EtwpSwitchBuffer.c)
  *     EtwpPrepareDirtyBuffer @ 0x140015598 (EtwpPrepareDirtyBuffer.c)
- *     EtwpAllocateFreeBuffers @ 0x1400DD134 (EtwpAllocateFreeBuffers.c)
- *     EtwpRelinquishCompressionTarget @ 0x1403156BC (EtwpRelinquishCompressionTarget.c)
- *     EtwpRotateCompressionTarget @ 0x14031570C (EtwpRotateCompressionTarget.c)
+ *     EtwpAllocateFreeBuffers @ 0x1400DD154 (EtwpAllocateFreeBuffers.c)
+ *     EtwpRelinquishCompressionTarget @ 0x1403157BC (EtwpRelinquishCompressionTarget.c)
+ *     EtwpRotateCompressionTarget @ 0x14031580C (EtwpRotateCompressionTarget.c)
  *     EtwpFlushActiveBuffers @ 0x1405C2178 (EtwpFlushActiveBuffers.c)
- *     EtwpCompleteBuffer @ 0x1406D4198 (EtwpCompleteBuffer.c)
+ *     EtwpCompleteBuffer @ 0x1406D4178 (EtwpCompleteBuffer.c)
  * Callees:
  *     EtwpUnlockBufferList @ 0x140015480 (EtwpUnlockBufferList.c)
  *     EtwpLockBufferList @ 0x1400154CC (EtwpLockBufferList.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall EtwpEnqueueAvailableBuffer(__int64 a1, unsigned int *a2, unsigned int a3)

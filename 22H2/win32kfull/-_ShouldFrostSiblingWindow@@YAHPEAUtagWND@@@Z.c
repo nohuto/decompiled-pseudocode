@@ -1,11 +1,11 @@
 /*
- * XREFs of ?_ShouldFrostSiblingWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F42A0
+ * XREFs of ?_ShouldFrostSiblingWindow@@YAHPEAUtagWND@@@Z @ 0x1C0209998
  * Callers:
- *     ?xxxRegisterSiblingFrostWindow@@YAHPEAUHWND__@@0@Z @ 0x1C01F53F8 (-xxxRegisterSiblingFrostWindow@@YAHPEAUHWND__@@0@Z.c)
+ *     xxxRegisterSiblingFrostWindow @ 0x1C0209D20 (xxxRegisterSiblingFrostWindow.c)
  * Callees:
- *     IsWindowBeingDestroyed @ 0x1C00CF084 (IsWindowBeingDestroyed.c)
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
+ *     IsWindowBeingDestroyed @ 0x1C003883C (IsWindowBeingDestroyed.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
  */
 
 __int64 __fastcall _ShouldFrostSiblingWindow(struct tagWND *a1)
@@ -14,10 +14,9 @@ __int64 __fastcall _ShouldFrostSiblingWindow(struct tagWND *a1)
   __int64 v2; // rsi
   _QWORD *v4; // r14
   __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rdx
-  __int64 v8; // r9
-  __int64 v9; // rax
+  __int64 v6; // rdx
+  int v7; // eax
+  __int64 v8; // rax
 
   v1 = 0;
   v2 = *((_QWORD *)a1 + 2);
@@ -27,19 +26,23 @@ __int64 __fastcall _ShouldFrostSiblingWindow(struct tagWND *a1)
     && (*(_BYTE *)(v5 + 31) & 0x10) != 0
     && *(_QWORD *)(v2 + 456) == grpdeskRitInput )
   {
-    v7 = *(unsigned __int16 *)(gpsi + 900LL);
-    if ( **(_WORD **)(*((_QWORD *)a1 + 17) + 8LL) != (_WORD)v7
-      && !GetProp((__int64)a1, v7, 1LL, v6)
-      && !GetProp((__int64)a1, *(unsigned __int16 *)(gpsi + 1378LL), 1LL, v8)
+    v6 = *(unsigned __int16 *)(gpsi + 900LL);
+    if ( **(_WORD **)(*((_QWORD *)a1 + 17) + 8LL) != (_WORD)v6
+      && !GetProp((__int64)a1, v6, 1LL)
+      && !GetProp((__int64)a1, *(unsigned __int16 *)(gpsi + 1378LL), 1LL)
       && (*(_DWORD *)(*(_QWORD *)(v2 + 424) + 12LL) & 0x8000000) == 0
       && *v4 != gpepCSRSS
-      && !(unsigned int)IsProcessDwm(*v4)
-      && (*(_DWORD *)(v2 + 632) > 0x9900u || (*(_DWORD *)(v2 + 648) & 0x80000) == 0)
-      && a1 != (struct tagWND *)GetDesktopWindow((__int64)a1) )
+      && !(unsigned int)IsProcessDwm(*v4) )
     {
-      v9 = *(_QWORD *)(v2 + 464);
-      if ( a1 != *(struct tagWND **)(v9 + 168) && a1 != *(struct tagWND **)(v9 + 184) )
-        return 1;
+      v7 = 0;
+      if ( *(_DWORD *)(v2 + 632) <= 0x9900u )
+        v7 = *(_DWORD *)(v2 + 648);
+      if ( (v7 & 0x80000) == 0 && a1 != (struct tagWND *)GetDesktopWindow((__int64)a1) )
+      {
+        v8 = *(_QWORD *)(v2 + 464);
+        if ( a1 != *(struct tagWND **)(v8 + 168) && a1 != *(struct tagWND **)(v8 + 184) )
+          return 1;
+      }
     }
   }
   return v1;

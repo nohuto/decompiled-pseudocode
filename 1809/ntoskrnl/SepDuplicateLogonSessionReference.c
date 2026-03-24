@@ -1,7 +1,7 @@
 /*
- * XREFs of SepDuplicateLogonSessionReference @ 0x14013A900
+ * XREFs of SepDuplicateLogonSessionReference @ 0x14013A920
  * Callers:
- *     SepFilterToken @ 0x140657CEC (SepFilterToken.c)
+ *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
  * Callees:
  *     SepReferenceLogonSession @ 0x1405BD6F4 (SepReferenceLogonSession.c)
  */

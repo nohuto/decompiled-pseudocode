@@ -1,13 +1,13 @@
 /*
- * XREFs of PiInitFirmwareResources @ 0x140B30F30
+ * XREFs of PiInitFirmwareResources @ 0x140A50E48
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     IopCreateRegistryKeyEx @ 0x14067A8B0 (IopCreateRegistryKeyEx.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlStringFromGUID @ 0x140745490 (RtlStringFromGUID.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUID @ 0x14067A7C0 (RtlStringFromGUID.c)
+ *     IopCreateRegistryKeyEx @ 0x14073FD44 (IopCreateRegistryKeyEx.c)
  */
 
 __int64 __fastcall PiInitFirmwareResources(__int64 a1)
@@ -61,7 +61,7 @@ __int64 __fastcall PiInitFirmwareResources(__int64 a1)
             if ( v2 < 0 )
               break;
             v2 = IopCreateRegistryKeyEx(&KeyHandle, Handle, &GuidString, 0xF003Fu, 0, 0LL);
-            RtlFreeUnicodeString(&GuidString);
+            RtlFreeAnsiString(&GuidString);
             if ( v2 < 0 )
               break;
             v8 = KeyHandle;

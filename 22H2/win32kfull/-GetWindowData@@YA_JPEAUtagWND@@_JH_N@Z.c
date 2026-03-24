@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetWindowData@@YA_JPEAUtagWND@@_JH_N@Z @ 0x1C01CC060
+ * XREFs of ?GetWindowData@@YA_JPEAUtagWND@@_JH_N@Z @ 0x1C01F5BF4
  * Callers:
- *     NtUserfnGETWINDOWDATA @ 0x1C01E0790 (NtUserfnGETWINDOWDATA.c)
+ *     NtUserfnGETWINDOWDATA @ 0x1C0100690 (NtUserfnGETWINDOWDATA.c)
  * Callees:
  *     <none>
  */
@@ -11,18 +11,18 @@ __int64 __fastcall GetWindowData(struct tagWND *a1, __int64 a2, int a3, char a4)
   __int64 v4; // r11
   __int64 v5; // r10
   int v7; // r8d
-  __int64 v8; // rdx
-  __int64 v9; // rbx
+  __int64 v8; // r9
+  __int64 v9; // rdx
   unsigned __int64 v10; // rcx
   __int64 v11; // rax
 
   v4 = *((_QWORD *)a1 + 5);
   v5 = 0LL;
-  v7 = a3 - *(_DWORD *)(v4 + 248);
+  v7 = a3 - *(_DWORD *)(v4 + 252);
   if ( v7 < 0 )
     return v5;
-  if ( (*(_DWORD *)(v4 + 232) & 0x10) != 0 )
-    v8 = *(_QWORD *)(v4 + 296) + *(_QWORD *)(*((_QWORD *)a1 + 3) + 136LL);
+  if ( (*(_DWORD *)(v4 + 232) & 0x800) != 0 )
+    v8 = *(_QWORD *)(v4 + 296) + *(_QWORD *)(*((_QWORD *)a1 + 3) + 128LL);
   else
     v8 = *(_QWORD *)(v4 + 296);
   if ( a2 )

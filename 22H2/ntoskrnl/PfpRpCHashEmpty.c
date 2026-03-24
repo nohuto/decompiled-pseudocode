@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpRpCHashEmpty @ 0x14084FB8C
+ * XREFs of PfpRpCHashEmpty @ 0x1407C62A8
  * Callers:
- *     PfpRpControlRequestReset @ 0x14084FB34 (PfpRpControlRequestReset.c)
+ *     PfpRpControlRequestReset @ 0x1407C6250 (PfpRpControlRequestReset.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpRpCHashEmpty(__int64 a1, __int64 a2, volatile signed __int64 *a3)
@@ -16,8 +16,8 @@ void __fastcall PfpRpCHashEmpty(__int64 a1, __int64 a2, volatile signed __int64 
   int v4; // r10d
   unsigned int v7; // eax
   unsigned int v8; // eax
-  volatile signed __int64 *v9; // rdi
   struct _KTHREAD *CurrentThread; // rax
+  volatile signed __int64 *v10; // rdi
   struct _KTHREAD *v11; // rax
   void *v12; // rbp
   __int128 v13; // [rsp+20h] [rbp-28h]
@@ -42,9 +42,9 @@ void __fastcall PfpRpCHashEmpty(__int64 a1, __int64 a2, volatile signed __int64 
     v8 = v4;
   *(_QWORD *)&v13 = 0LL;
   *((_QWORD *)&v13 + 1) = v8;
-  v9 = (volatile signed __int64 *)(a1 + 128);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
+  v10 = (volatile signed __int64 *)(a1 + 128);
   ExAcquirePushLockExclusiveEx(a1 + 128, 0LL);
   v11 = KeGetCurrentThread();
   v12 = *(void **)a2;
@@ -56,9 +56,9 @@ void __fastcall PfpRpCHashEmpty(__int64 a1, __int64 a2, volatile signed __int64 
     ExfTryToWakePushLock(a3);
   KeAbPostRelease((ULONG_PTR)a3);
   KeLeaveCriticalRegion();
-  if ( (_InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v9);
-  KeAbPostRelease((ULONG_PTR)v9);
+  if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v10);
+  KeAbPostRelease((ULONG_PTR)v10);
   KeLeaveCriticalRegion();
   if ( v12 )
     ExFreePoolWithTag(v12, 0);

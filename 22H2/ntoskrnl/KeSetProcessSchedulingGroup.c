@@ -1,37 +1,33 @@
 /*
- * XREFs of KeSetProcessSchedulingGroup @ 0x1402047EC
+ * XREFs of KeSetProcessSchedulingGroup @ 0x14035C0AC
  * Callers:
- *     PspSetProcessSchedulingGroup @ 0x14068373C (PspSetProcessSchedulingGroup.c)
- *     PspTerminateProcess @ 0x1406839D4 (PspTerminateProcess.c)
+ *     PspSetProcessSchedulingGroup @ 0x14068EEB0 (PspSetProcessSchedulingGroup.c)
+ *     PspTerminateProcess @ 0x1407075F0 (PspTerminateProcess.c)
  * Callees:
- *     KiSetThreadSchedulingGroup @ 0x140204900 (KiSetThreadSchedulingGroup.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiSetThreadSchedulingGroup @ 0x14035D5B8 (KiSetThreadSchedulingGroup.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeSetProcessSchedulingGroup(__int64 a1, __int64 a2)
 {
-  unsigned __int8 CurrentIrql; // bl
-  __int64 v5; // r15
+  unsigned __int8 CurrentIrql; // di
+  __int64 v5; // r12
+  _QWORD *i; // rbx
   _DWORD *SchedulerAssist; // r9
-  __int64 v8; // rax
-  _QWORD *i; // rdi
-  unsigned __int8 v10; // al
+  unsigned __int8 v9; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v12; // r9
-  int v13; // edx
-  bool v14; // zf
+  _DWORD *v11; // r9
+  int v12; // edx
+  bool v13; // zf
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    LODWORD(v8) = 4;
-    if ( CurrentIrql != 2 )
-      v8 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v8;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
   v5 = *(_QWORD *)(a1 + 880);
@@ -47,16 +43,19 @@ __int64 __fastcall KeSetProcessSchedulingGroup(__int64 a1, __int64 a2)
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
   if ( KiIrqlFlags )
   {
-    v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v12 = CurrentPrcb->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v14 = (v13 & v12[5]) == 0;
-      v12[5] &= v13;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v9 = KeGetCurrentIrql();
+      if ( v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v11 = CurrentPrcb->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v13 = (v12 & v11[5]) == 0;
+        v11[5] &= v12;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);

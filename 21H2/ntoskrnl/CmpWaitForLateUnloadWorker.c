@@ -1,29 +1,29 @@
 /*
- * XREFs of CmpWaitForLateUnloadWorker @ 0x1402A4298
+ * XREFs of CmpWaitForLateUnloadWorker @ 0x14027EEF8
  * Callers:
- *     CmpDeleteKeyObject @ 0x1407C2680 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x1406675C0 (CmpDeleteKeyObject.c)
  * Callees:
- *     ExBlockOnAddressPushLock @ 0x140369460 (ExBlockOnAddressPushLock.c)
- *     CmUnlockHive @ 0x14071F27C (CmUnlockHive.c)
- *     CmLockHive @ 0x14071F2B8 (CmLockHive.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExBlockOnAddressPushLock @ 0x14029CC60 (ExBlockOnAddressPushLock.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
  */
 
-__int64 __fastcall CmpWaitForLateUnloadWorker(__int64 a1)
+void CmpWaitForLateUnloadWorker()
 {
-  int v2; // ebx
-  __int64 result; // rax
-  int v4; // [rsp+40h] [rbp+8h] BYREF
+  char v0; // [rsp+40h] [rbp+8h] BYREF
 
-  ((void (*)(void))CmLockHive)();
   while ( 1 )
   {
-    v4 = *(_DWORD *)(a1 + 4800);
-    v2 = v4;
-    result = CmUnlockHive(a1);
-    if ( !v2 )
+    ExAcquireFastMutex(&CmpWorkerEngineLock);
+    v0 = CmpWorkerEngineWorkItemActive;
+    KeReleaseGuardedMutex(&CmpWorkerEngineLock);
+    if ( !v0 )
       break;
-    ExBlockOnAddressPushLock(a1 + 4808, a1 + 4800, (unsigned int)&v4, 4, 0LL);
-    CmLockHive(a1);
+    ExBlockOnAddressPushLock(
+      (unsigned int)&CmpWorkerEngineFinishedEvent,
+      (unsigned int)&CmpWorkerEngineWorkItemActive,
+      (unsigned int)&v0,
+      1,
+      0LL);
   }
-  return result;
 }

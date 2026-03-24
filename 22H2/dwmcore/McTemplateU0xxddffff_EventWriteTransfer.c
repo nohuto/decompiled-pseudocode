@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0xxddffff_EventWriteTransfer @ 0x1801F0C18
+ * XREFs of McTemplateU0xxddffff_EventWriteTransfer @ 0x18018BBD0
  * Callers:
- *     ?ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_CAPTUREBITS@@@Z @ 0x1801F041C (-ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERREN.c)
+ *     ?ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_CAPTUREBITS@@@Z @ 0x18018B3E8 (-ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERREN.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxddffff_EventWriteTransfer(__int64 a1, __int64 a2, ...)
@@ -80,7 +80,7 @@ ULONG McTemplateU0xxddffff_EventWriteTransfer(__int64 a1, __int64 a2, ...)
   v17 = 4LL;
   v19 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_ETWGUID_MAGNIFIERRENDERTARGET_CAPTUREBITS_Start,
            v21,
            9u,

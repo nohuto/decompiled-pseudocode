@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlGetHostNtSystemRoot @ 0x1407641F8
+ * XREFs of RtlGetHostNtSystemRoot @ 0x1407641D8
  * Callers:
- *     IoConfigureCrashDump @ 0x14018848C (IoConfigureCrashDump.c)
+ *     IoConfigureCrashDump @ 0x1401884AC (IoConfigureCrashDump.c)
  *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
  * Callees:
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)

@@ -1,64 +1,67 @@
 /*
- * XREFs of KdpCloseRemoteFile @ 0x140A7294C
+ * XREFs of KdpCloseRemoteFile @ 0x1409B6970
  * Callers:
- *     KdPullRemoteFileEx @ 0x140A6F360 (KdPullRemoteFileEx.c)
+ *     KdPullRemoteFileEx @ 0x1409B6780 (KdPullRemoteFileEx.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KdEnterDebugger @ 0x140A6F7A0 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x140A6F900 (KdExitDebugger.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
  */
 
 __int64 __fastcall KdpCloseRemoteFile(int a1)
 {
   __int64 v1; // rbx
   char v3; // di
-  __int64 v4; // rax
-  int v5; // eax
-  int v6; // [rsp+38h] [rbp-39h] BYREF
-  _DWORD v7[2]; // [rsp+40h] [rbp-31h] BYREF
-  _QWORD *v8; // [rsp+48h] [rbp-29h]
-  __int128 v9; // [rsp+50h] [rbp-21h] BYREF
-  _QWORD v10[8]; // [rsp+68h] [rbp-9h] BYREF
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  int v6; // eax
+  int v7; // [rsp+38h] [rbp-39h] BYREF
+  _DWORD v8[2]; // [rsp+40h] [rbp-31h] BYREF
+  _QWORD *v9; // [rsp+48h] [rbp-29h]
+  __int128 v10; // [rsp+50h] [rbp-21h] BYREF
+  _QWORD v11[8]; // [rsp+68h] [rbp-9h] BYREF
 
   v1 = (unsigned int)(a1 - 1);
-  memset(v10, 0, sizeof(v10));
+  memset(v11, 0, sizeof(v11));
   if ( (unsigned int)v1 >= 0x10 )
     return 3221225485LL;
-  v3 = KdEnterDebugger(0LL);
-  if ( KdpRemoteFiles[v1] )
+  v3 = KdEnterDebugger(0LL, 0LL);
+  v4 = KdpRemoteFiles[v1];
+  if ( v4 )
   {
-    for ( v10[1] = KdpRemoteFiles[v1]; ; v10[1] = v4 )
+    for ( v11[1] = KdpRemoteFiles[v1]; ; v11[1] = v5 )
     {
-      v7[1] = 0;
-      v6 = 0;
-      LODWORD(v10[0]) = 13363;
-      v7[0] = 4194368;
-      v8 = v10;
-      v9 = 0LL;
-      KdSendPacket(11LL, v7, 0LL, &KdpContext);
+      v8[1] = 0;
+      v7 = 0;
+      LODWORD(v11[0]) = 13363;
+      v8[0] = 4194368;
+      v9 = v11;
+      v10 = 0LL;
+      KdSendPacket(11LL, v8, 0LL, &KdpContext);
       if ( (_BYTE)KdDebuggerNotPresent )
       {
-        v5 = -1073740972;
-        HIDWORD(v10[0]) = -1073740972;
+        v6 = -1073740972;
+        HIDWORD(v11[0]) = -1073740972;
         goto LABEL_10;
       }
-      WORD1(v9) = 12288;
-      *((_QWORD *)&v9 + 1) = &KdpMessageBuffer;
-      if ( !(unsigned int)KdReceivePacket(11LL, v7, &v9, &v6, &KdpContext) )
+      WORD1(v10) = 4096;
+      *((_QWORD *)&v10 + 1) = &KdpMessageBuffer;
+      if ( !(unsigned int)KdReceivePacket(11LL, v8, &v10, &v7, &KdpContext) )
         break;
-      v4 = KdpRemoteFiles[v1];
-      HIDWORD(v10[0]) = 0;
+      v5 = KdpRemoteFiles[v1];
+      HIDWORD(v11[0]) = 0;
     }
-    v5 = HIDWORD(v10[0]);
+    v6 = HIDWORD(v11[0]);
 LABEL_10:
-    if ( v5 >= 0 )
+    if ( v6 >= 0 )
       KdpRemoteFiles[v1] = 0LL;
   }
   else
   {
-    HIDWORD(v10[0]) = -1073741811;
+    HIDWORD(v11[0]) = -1073741811;
   }
-  KdExitDebugger(v3);
-  return HIDWORD(v10[0]);
+  LOBYTE(v4) = v3;
+  KdExitDebugger(v4);
+  return HIDWORD(v11[0]);
 }

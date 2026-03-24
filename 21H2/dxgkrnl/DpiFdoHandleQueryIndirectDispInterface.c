@@ -1,75 +1,84 @@
 /*
- * XREFs of DpiFdoHandleQueryIndirectDispInterface @ 0x1C0390A10
+ * XREFs of DpiFdoHandleQueryIndirectDispInterface @ 0x1C02D3600
  * Callers:
  *     <none>
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     DpiQueryMiniportInterface @ 0x1C01FA410 (DpiQueryMiniportInterface.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     DpiQueryMiniportInterface @ 0x1C017FA18 (DpiQueryMiniportInterface.c)
  */
 
 __int64 __fastcall DpiFdoHandleQueryIndirectDispInterface(__int64 a1, __int16 a2, __int16 a3, _OWORD *a4)
 {
-  __int64 v8; // rdi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rdi
+  __int64 v12; // rax
+  __int64 v14; // rax
   int MiniportInterface; // ebx
-  __int128 v11; // xmm1
-  __int128 v12; // xmm0
-  __int128 v13; // xmm1
-  __int128 v14; // xmm0
-  __int128 v15; // xmm1
-  __int128 v16; // xmm0
-  __int64 v17; // [rsp+20h] [rbp-98h]
-  _OWORD v18[7]; // [rsp+30h] [rbp-88h] BYREF
+  __int128 v16; // xmm1
+  __int128 v17; // xmm0
+  __int128 v18; // xmm1
+  __int128 v19; // xmm0
+  __int128 v20; // xmm1
+  __int128 v21; // xmm0
+  __int64 v22; // [rsp+20h] [rbp-98h]
+  _OWORD v23[7]; // [rsp+30h] [rbp-88h] BYREF
 
-  memset(v18, 0, sizeof(v18));
-  v8 = *(_QWORD *)(a1 + 64);
+  memset(v23, 0, sizeof(v23));
+  v11 = *(_QWORD *)(a1 + 64);
   if ( a3 == 3 )
   {
     if ( (unsigned __int16)a2 >= 0x70u )
     {
       KeEnterCriticalRegion();
-      if ( *(_BYTE *)(v8 + 484) )
-        DpiCheckForOutstandingD3Requests(v8);
-      ExAcquireResourceSharedLite(*(PERESOURCE *)(v8 + 168), 1u);
+      if ( *(_BYTE *)(v11 + 484) )
+        DpiCheckForOutstandingD3Requests(v11);
+      ExAcquireResourceSharedLite(*(PERESOURCE *)(v11 + 168), 1u);
       MiniportInterface = DpiQueryMiniportInterface(
                             a1,
                             (__int64)&GUID_DEVINTERFACE_INDIRECT_DISP_KMD,
                             a2,
                             3,
-                            v17,
-                            (__int64)v18);
+                            v22,
+                            (__int64)v23);
       if ( MiniportInterface >= 0 )
       {
-        v11 = v18[1];
-        *a4 = v18[0];
-        v12 = v18[2];
-        a4[1] = v11;
-        v13 = v18[3];
-        a4[2] = v12;
-        v14 = v18[4];
-        a4[3] = v13;
-        v15 = v18[5];
-        a4[4] = v14;
-        v16 = v18[6];
-        a4[5] = v15;
-        a4[6] = v16;
+        v16 = v23[1];
+        *a4 = v23[0];
+        v17 = v23[2];
+        a4[1] = v16;
+        v18 = v23[3];
+        a4[2] = v17;
+        v19 = v23[4];
+        a4[3] = v18;
+        v20 = v23[5];
+        a4[4] = v19;
+        v21 = v23[6];
+        a4[5] = v20;
+        a4[6] = v21;
       }
-      if ( *(_BYTE *)(v8 + 484) )
-        DpiEnableD3Requests(*(_QWORD *)(v8 + 24));
-      ExReleaseResourceLite(*(PERESOURCE *)(v8 + 168));
+      if ( *(_BYTE *)(v11 + 484) )
+        DpiEnableD3Requests(*(_QWORD *)(v11 + 24));
+      ExReleaseResourceLite(*(PERESOURCE *)(v11 + 168));
       KeLeaveCriticalRegion();
     }
     else
     {
+      v14 = WdLogNewEntry5_WdError(v9, v8);
       MiniportInterface = -1073741789;
-      WdLogSingleEntry1(2LL, -1073741789LL);
+      *(_QWORD *)(v14 + 24) = -1073741789LL;
+      WdLogEvent5_WdError(v14);
     }
     return (unsigned int)MiniportInterface;
   }
   else
   {
-    WdLogSingleEntry1(3LL, 0LL);
+    v12 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+    *(_QWORD *)(v12 + 24) = 0LL;
+    WdLogEvent5_WdWarning(v12);
     return 3221225659LL;
   }
 }

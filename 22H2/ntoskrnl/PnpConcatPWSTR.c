@@ -1,29 +1,29 @@
 /*
- * XREFs of PnpConcatPWSTR @ 0x1407FB058
+ * XREFs of PnpConcatPWSTR @ 0x14068CC14
  * Callers:
- *     PiDqOpenUserObjectRegKey @ 0x1407FAB88 (PiDqOpenUserObjectRegKey.c)
- *     PiSwInstanceInfoInit @ 0x14081B9A0 (PiSwInstanceInfoInit.c)
- *     PiSwGetChildPdo @ 0x1408495C0 (PiSwGetChildPdo.c)
- *     PipCheckForDenyExecute @ 0x140867174 (PipCheckForDenyExecute.c)
- *     PiSwStopDestroy @ 0x14086A198 (PiSwStopDestroy.c)
+ *     PiDqOpenUserObjectRegKey @ 0x14068C868 (PiDqOpenUserObjectRegKey.c)
+ *     PipCheckForDenyExecute @ 0x140744FB0 (PipCheckForDenyExecute.c)
+ *     PiSwStopDestroy @ 0x14074BAC8 (PiSwStopDestroy.c)
+ *     PiSwInstanceInfoInit @ 0x14074CE80 (PiSwInstanceInfoInit.c)
+ *     PiSwGetChildPdo @ 0x1407705FC (PiSwGetChildPdo.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14022C660 (RtlStringCchLengthW.c)
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     RtlStringCbCatW @ 0x140370FC4 (RtlStringCbCatW.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     RtlStringCchLengthW @ 0x14032DFD4 (RtlStringCchLengthW.c)
+ *     RtlStringCbCatW @ 0x14032E278 (RtlStringCbCatW.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpConcatPWSTR(size_t cchMax, ULONG Tag, PVOID *a3, unsigned __int64 a4)
 {
   ULONGLONG v7; // r11
-  unsigned __int64 v8; // r14
+  unsigned __int64 v8; // rsi
   STRSAFE_PCNZWCH *v9; // rdi
   NTSTATUS v10; // ebx
   __int64 v11; // r11
-  _WORD *Pool2; // rax
-  unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // r14
+  _WORD *PoolWithTag; // rax
+  unsigned __int64 v13; // rax
+  unsigned __int64 v14; // rsi
   NTSTRSAFE_PCWSTR *v15; // rdi
   ULONGLONG pullResult; // [rsp+20h] [rbp-18h] BYREF
   size_t pcchLength[2]; // [rsp+28h] [rbp-10h] BYREF
@@ -60,9 +60,9 @@ __int64 __fastcall PnpConcatPWSTR(size_t cchMax, ULONG Tag, PVOID *a3, unsigned 
   v10 = RtlULongLongMult(v7, 2uLL, &pullResult);
   if ( v10 < 0 )
     goto LABEL_19;
-  Pool2 = (_WORD *)ExAllocatePool2(256LL, pullResult, Tag);
-  *a3 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, pullResult, Tag);
+  *a3 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     v10 = -1073741670;
 LABEL_19:
@@ -73,7 +73,7 @@ LABEL_19:
     }
     return (unsigned int)v10;
   }
-  *Pool2 = 0;
+  *PoolWithTag = 0;
   v13 = v19;
   v14 = 0LL;
   if ( v19 )

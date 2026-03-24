@@ -1,9 +1,9 @@
 /*
- * XREFs of BiConvertQualifiedPartitionToBootEnvironment @ 0x1408F103C
+ * XREFs of BiConvertQualifiedPartitionToBootEnvironment @ 0x1408F101C
  * Callers:
- *     BiConvertElementToRegistryData @ 0x140713EB4 (BiConvertElementToRegistryData.c)
+ *     BiConvertElementToRegistryData @ 0x140713E94 (BiConvertElementToRegistryData.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

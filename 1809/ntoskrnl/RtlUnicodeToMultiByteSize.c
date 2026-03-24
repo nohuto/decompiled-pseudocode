@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUnicodeToMultiByteSize @ 0x14067C340
+ * XREFs of RtlUnicodeToMultiByteSize @ 0x14067C320
  * Callers:
- *     wcstombs @ 0x1401979A0 (wcstombs.c)
- *     RtlxUnicodeStringToOemSize @ 0x14067BEB0 (RtlxUnicodeStringToOemSize.c)
+ *     wcstombs @ 0x1401979C0 (wcstombs.c)
+ *     RtlxUnicodeStringToOemSize @ 0x14067BE90 (RtlxUnicodeStringToOemSize.c)
  * Callees:
- *     RtlUnicodeToUTF8N @ 0x1406BF670 (RtlUnicodeToUTF8N.c)
+ *     RtlUnicodeToUTF8N @ 0x1406BF650 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToMultiByteSize(

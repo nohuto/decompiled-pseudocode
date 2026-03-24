@@ -1,16 +1,16 @@
 /*
- * XREFs of ?QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z @ 0x1C01AFBA0
+ * XREFs of ?QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z @ 0x1C012FED8
  * Callers:
- *     ?_ResolveCloneGroupOnAdapter@CCD_BTL_CLONE_GROUP_RESOLVER@@AEAAJPEAVDXGADAPTER@@IPEAVDMMVIDPN@@@Z @ 0x1C01AF874 (-_ResolveCloneGroupOnAdapter@CCD_BTL_CLONE_GROUP_RESOLVER@@AEAAJPEAVDXGADAPTER@@IPEAVDMMVIDPN@@@.c)
- *     ?LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z @ 0x1C01B72F8 (-LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z.c)
- *     ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C01DECF4 (-SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z.c)
+ *     ?_ResolveCloneGroupOnAdapter@CCD_BTL_CLONE_GROUP_RESOLVER@@AEAAJPEAVDXGADAPTER@@IPEAVDMMVIDPN@@@Z @ 0x1C012FBCC (-_ResolveCloneGroupOnAdapter@CCD_BTL_CLONE_GROUP_RESOLVER@@AEAAJPEAVDXGADAPTER@@IPEAVDMMVIDPN@@@.c)
+ *     ?LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z @ 0x1C0146248 (-LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z.c)
+ *     ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C01601D4 (-SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall CCD_SET_STRING_ID::QueryCloneInfo(
         CCD_SET_STRING_ID *this,
-        unsigned int a2,
+        __int64 a2,
         unsigned int *a3,
         unsigned int *a4,
         unsigned int *a5)
@@ -21,13 +21,15 @@ __int64 __fastcall CCD_SET_STRING_ID::QueryCloneInfo(
   unsigned int v11; // r9d
   unsigned int v12; // ecx
   int v13; // eax
-  __int64 v15; // rdx
+  __int64 v15; // r8
+  __int64 v16; // rax
 
   v5 = *((unsigned __int16 *)this + 16);
-  v7 = a2;
-  if ( a2 >= v5 || !a3 )
+  v7 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= v5 || !a3 )
   {
-    WdLogSingleEntry0(1LL);
+    v16 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v16);
     LOWORD(v5) = *((_WORD *)this + 16);
   }
   if ( (unsigned int)v7 >= (unsigned __int16)v5 || !a3 )

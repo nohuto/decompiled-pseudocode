@@ -1,25 +1,25 @@
 /*
- * XREFs of IopSetDeviceSecurityDescriptors @ 0x1408104FC
+ * XREFs of IopSetDeviceSecurityDescriptors @ 0x140780C90
  * Callers:
- *     IopGetSetSecurityObject @ 0x14071E8F0 (IopGetSetSecurityObject.c)
+ *     IopGetSetSecurityObject @ 0x14064F760 (IopGetSetSecurityObject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     IopSetDeviceSecurityDescriptor @ 0x1406DB04C (IopSetDeviceSecurityDescriptor.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x14076B26C (IopSetDeviceSecurityDescriptor.c)
  */
 
 __int64 __fastcall IopSetDeviceSecurityDescriptors(
-        PVOID *a1,
-        PVOID *a2,
+        struct _DMA_ADAPTER *a1,
+        struct _DMA_ADAPTER *a2,
         ULONG *a3,
         void *a4,
         POOL_TYPE a5,
         GENERIC_MAPPING *a6)
 {
   unsigned int v7; // edi
-  PVOID *v10; // rbx
+  struct _DMA_ADAPTER *v10; // rbx
   unsigned int v11; // eax
-  PVOID *v12; // rsi
+  struct _DMA_ADAPTER *DmaOperations; // rsi
 
   v7 = 0;
   v10 = a2;
@@ -27,14 +27,14 @@ __int64 __fastcall IopSetDeviceSecurityDescriptors(
   do
   {
     v11 = IopSetDeviceSecurityDescriptor((__int64)v10, a3, a4, a5, a6);
-    v12 = (PVOID *)v10[3];
+    DmaOperations = (struct _DMA_ADAPTER *)v10[1].DmaOperations;
     if ( v10 == a1 )
       v7 = v11;
-    if ( v12 )
-      ObfReferenceObject(v10[3]);
-    ObfDereferenceObject(v10);
-    v10 = v12;
+    if ( DmaOperations )
+      ObfReferenceObject(v10[1].DmaOperations);
+    HalPutDmaAdapter(v10);
+    v10 = DmaOperations;
   }
-  while ( v12 );
+  while ( DmaOperations );
   return v7;
 }

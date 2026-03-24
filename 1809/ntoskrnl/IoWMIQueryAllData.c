@@ -1,9 +1,9 @@
 /*
- * XREFs of IoWMIQueryAllData @ 0x14075F2F0
+ * XREFs of IoWMIQueryAllData @ 0x14075F2D0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     WmipQueryAllData @ 0x14059DBCC (WmipQueryAllData.c)
  */
 

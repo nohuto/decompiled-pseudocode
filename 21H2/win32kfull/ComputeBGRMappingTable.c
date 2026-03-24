@@ -1,18 +1,18 @@
 /*
- * XREFs of ComputeBGRMappingTable @ 0x1C025E794
+ * XREFs of ComputeBGRMappingTable @ 0x1C0261908
  * Callers:
- *     CreateDyesColorMappingTable @ 0x1C0093DC8 (CreateDyesColorMappingTable.c)
- *     CreateHalftoneBrushPat @ 0x1C025F874 (CreateHalftoneBrushPat.c)
+ *     CreateDyesColorMappingTable @ 0x1C001B8B0 (CreateDyesColorMappingTable.c)
+ *     CreateHalftoneBrushPat @ 0x1C02629E4 (CreateHalftoneBrushPat.c)
  * Callees:
- *     MulFD6 @ 0x1C00945F0 (MulFD6.c)
- *     DivFD6 @ 0x1C00952E0 (DivFD6.c)
- *     RaisePower @ 0x1C0095584 (RaisePower.c)
- *     FD6DivL @ 0x1C009588C (FD6DivL.c)
- *     MulDivFD6Pairs @ 0x1C00972DC (MulDivFD6Pairs.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     CacheRGBToXYZ @ 0x1C025E6A4 (CacheRGBToXYZ.c)
- *     ScaleRGB @ 0x1C025F538 (ScaleRGB.c)
+ *     MulFD6 @ 0x1C001C0DC (MulFD6.c)
+ *     DivFD6 @ 0x1C001CDDC (DivFD6.c)
+ *     RaisePower @ 0x1C001F508 (RaisePower.c)
+ *     FD6DivL @ 0x1C001F814 (FD6DivL.c)
+ *     MulDivFD6Pairs @ 0x1C011B400 (MulDivFD6Pairs.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     CacheRGBToXYZ @ 0x1C0261818 (CacheRGBToXYZ.c)
+ *     ScaleRGB @ 0x1C02626AC (ScaleRGB.c)
  */
 
 __int64 __fastcall ComputeBGRMappingTable(__int64 a1, __int64 a2, __int128 *a3, _BYTE *a4)

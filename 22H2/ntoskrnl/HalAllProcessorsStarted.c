@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllProcessorsStarted @ 0x140B76D50
+ * XREFs of HalAllProcessorsStarted @ 0x140A74130
  * Callers:
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
  * Callees:
- *     HalpInitSystemHelper @ 0x140A8C358 (HalpInitSystemHelper.c)
+ *     HalpInitSystemHelper @ 0x14099B988 (HalpInitSystemHelper.c)
  */
 
 bool HalAllProcessorsStarted()

@@ -1,16 +1,12 @@
 /*
- * XREFs of MiReleaseWriteInProgressCharges @ 0x14028C9B4
+ * XREFs of MiReleaseWriteInProgressCharges @ 0x140255824
  * Callers:
- *     MiAddPageToInsertList @ 0x140276C78 (MiAddPageToInsertList.c)
- *     MiBuildMappedCluster @ 0x14028B8B0 (MiBuildMappedCluster.c)
- *     MiWriteComplete @ 0x14028C230 (MiWriteComplete.c)
- *     MiFreeModWriterEntry @ 0x14028C978 (MiFreeModWriterEntry.c)
- *     MiUnlockMdlWritePages @ 0x140334830 (MiUnlockMdlWritePages.c)
- *     MiFinishHardFault @ 0x140334C40 (MiFinishHardFault.c)
- *     MmUnmapViewInSystemCache @ 0x140335870 (MmUnmapViewInSystemCache.c)
- *     MiGatherPagefilePages @ 0x14037AFC0 (MiGatherPagefilePages.c)
+ *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
+ *     MiFreeModWriterEntry @ 0x1402557E8 (MiFreeModWriterEntry.c)
+ *     MiBuildMappedCluster @ 0x1402560D0 (MiBuildMappedCluster.c)
+ *     MiGatherPagefilePages @ 0x1402688A4 (MiGatherPagefilePages.c)
  * Callees:
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
  */
 
 unsigned __int64 __fastcall MiReleaseWriteInProgressCharges(__int64 a1, unsigned __int64 a2, int a3)
@@ -92,6 +88,6 @@ LABEL_8:
     }
   }
   if ( v3 )
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), v3);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v3);
   return result;
 }

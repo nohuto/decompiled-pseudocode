@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCheckUnloadDriver @ 0x1403D8834
+ * XREFs of IopCheckUnloadDriver @ 0x14037C4EC
  * Callers:
- *     IopUnloadDriver @ 0x140856DC0 (IopUnloadDriver.c)
- *     IovpUnloadDriver @ 0x140A81078 (IovpUnloadDriver.c)
+ *     IopUnloadDriver @ 0x140769798 (IopUnloadDriver.c)
+ *     IovpUnloadDriver @ 0x1409C5A18 (IovpUnloadDriver.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
  */
 
 __int64 __fastcall IopCheckUnloadDriver(_QWORD *Object, char *a2)
@@ -30,7 +30,7 @@ __int64 __fastcall IopCheckUnloadDriver(_QWORD *Object, char *a2)
     v6 = -1073741808;
 LABEL_15:
     KeReleaseQueuedSpinLock(0xAuLL, v4);
-    ObfDereferenceObject(Object);
+    ObfDereferenceObjectWithTag(Object, 0x746C6644u);
     return v6;
   }
   *a2 = 1;
@@ -52,11 +52,10 @@ LABEL_15:
   if ( (*((_DWORD *)Object + 4) & 0x80u) != 0 && Object[1] )
   {
     *a2 = 0;
+    v8 = 0;
   }
-  else if ( v8 )
-  {
+  if ( v8 )
     *((_DWORD *)Object + 4) |= 1u;
-  }
   KeReleaseQueuedSpinLock(0xAuLL, v4);
   return 3221225473LL;
 }

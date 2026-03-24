@@ -1,12 +1,12 @@
 /*
- * XREFs of HalAllocateAdapterChannel @ 0x140456840
+ * XREFs of HalAllocateAdapterChannel @ 0x1404B8AA0
  * Callers:
- *     HalBuildScatterGatherListV2 @ 0x140221330 (HalBuildScatterGatherListV2.c)
- *     HalRealAllocateAdapterChannelV2 @ 0x140458150 (HalRealAllocateAdapterChannelV2.c)
+ *     HalBuildScatterGatherListV2 @ 0x14028E2A0 (HalBuildScatterGatherListV2.c)
+ *     HalRealAllocateAdapterChannelV2 @ 0x1404CC960 (HalRealAllocateAdapterChannelV2.c)
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x14023A8D0 (HalpDmaGetAdapterVersion.c)
- *     HalAllocateAdapterChannelV2 @ 0x140457ED8 (HalAllocateAdapterChannelV2.c)
- *     HalpAllocateAdapterChannel @ 0x140517630 (HalpAllocateAdapterChannel.c)
+ *     HalpDmaGetAdapterVersion @ 0x1402B62B0 (HalpDmaGetAdapterVersion.c)
+ *     HalpAllocateAdapterChannel @ 0x1404CA3D0 (HalpAllocateAdapterChannel.c)
+ *     HalAllocateAdapterChannelV2 @ 0x1404CC6E4 (HalAllocateAdapterChannelV2.c)
  */
 
 __int64 __fastcall HalAllocateAdapterChannel(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

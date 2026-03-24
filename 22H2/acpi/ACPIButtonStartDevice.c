@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIButtonStartDevice @ 0x1C00820C0
+ * XREFs of ACPIButtonStartDevice @ 0x1C0090E40
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalSetDeviceInterface @ 0x1C002EF2C (ACPIInternalSetDeviceInterface.c)
+ *     ACPIInternalSetDeviceInterface @ 0x1C000D230 (ACPIInternalSetDeviceInterface.c)
  */
 
 __int64 __fastcall ACPIButtonStartDevice(struct _DEVICE_OBJECT *a1, IRP *a2)

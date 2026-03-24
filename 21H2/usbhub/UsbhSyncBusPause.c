@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhSyncBusPause @ 0x1C0030E9C
+ * XREFs of UsbhSyncBusPause @ 0x1C0032244
  * Callers:
- *     UsbhHardReset_Action @ 0x1C003C838 (UsbhHardReset_Action.c)
- *     Usbh_HRS_Queued @ 0x1C003D128 (Usbh_HRS_Queued.c)
- *     UsbhAsyncStop @ 0x1C0041C0C (UsbhAsyncStop.c)
- *     Usbh_FDO_WaitPnpStop @ 0x1C0043FE0 (Usbh_FDO_WaitPnpStop.c)
+ *     UsbhHardReset_Action @ 0x1C003DA18 (UsbhHardReset_Action.c)
+ *     Usbh_HRS_Queued @ 0x1C003E308 (Usbh_HRS_Queued.c)
+ *     UsbhAsyncStop @ 0x1C0042EBC (UsbhAsyncStop.c)
+ *     Usbh_FDO_WaitPnpStop @ 0x1C0045290 (Usbh_FDO_WaitPnpStop.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 __int64 __fastcall UsbhSyncBusPause(struct _DEVICE_OBJECT *a1, __int64 a2, int a3)

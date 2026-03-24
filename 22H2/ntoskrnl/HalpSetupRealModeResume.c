@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpSetupRealModeResume @ 0x14041A430
+ * XREFs of HalpSetupRealModeResume @ 0x1403F97A0
  * Callers:
- *     HaliAcpiSleep @ 0x140528000 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140385840 (HaliAcpiSleep.c)
  * Callees:
- *     HalpInterruptSetProcessorStartContext @ 0x140376EC0 (HalpInterruptSetProcessorStartContext.c)
- *     KeSaveStateForHibernate @ 0x14041F430 (KeSaveStateForHibernate.c)
+ *     HalpInterruptBuildStartupStub @ 0x1403A0E80 (HalpInterruptBuildStartupStub.c)
+ *     KeSaveStateForHibernate @ 0x1403FE550 (KeSaveStateForHibernate.c)
  */
 
-__int64 __fastcall HalpSetupRealModeResume(__int64 a1, int a2)
+__int64 __fastcall HalpSetupRealModeResume(_QWORD *a1, int a2)
 {
-  __int64 v2; // rax
+  _QWORD *v2; // rax
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
-  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v5; // [rsp+30h] [rbp+8h] BYREF
 
   v5 = a1;
   *(_DWORD *)HalpWakeVector = a2;
-  HalpInterruptSetProcessorStartContext(0LL, 0LL, 0);
-  KeSaveStateForHibernate(v5 + 144);
+  HalpInterruptBuildStartupStub((PVOID *)&v5, 0LL, a1 + 18, HalpTiledCr3Addresses);
+  KeSaveStateForHibernate(v5 + 18);
   v2 = v5;
-  *(_QWORD *)(v5 + 632) = retaddr;
-  *(_QWORD *)(v2 + 536) = &v5;
-  *(_QWORD *)(v2 + 504) = 1LL;
+  v5[79] = retaddr;
+  v2[67] = &v5;
+  v2[63] = 1LL;
   return 0LL;
 }

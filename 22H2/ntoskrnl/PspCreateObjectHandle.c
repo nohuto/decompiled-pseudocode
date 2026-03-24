@@ -1,13 +1,13 @@
 /*
- * XREFs of PspCreateObjectHandle @ 0x14073FCC0
+ * XREFs of PspCreateObjectHandle @ 0x1406C3584
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     PspInsertThread @ 0x14073F3AC (PspInsertThread.c)
- *     PsCreateMinimalProcess @ 0x140853DBC (PsCreateMinimalProcess.c)
- *     PspCreateProcess @ 0x14085CC20 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x14060A630 (NtCreateUserProcess.c)
+ *     PspInsertThread @ 0x1406C1DE8 (PspInsertThread.c)
+ *     PsCreateMinimalProcess @ 0x140798E60 (PsCreateMinimalProcess.c)
+ *     PspCreateProcess @ 0x1407CE380 (PspCreateProcess.c)
  * Callees:
- *     SePrivilegeObjectAuditAlarm @ 0x1406C33C0 (SePrivilegeObjectAuditAlarm.c)
- *     ObOpenObjectByPointer @ 0x1407379D0 (ObOpenObjectByPointer.c)
+ *     SePrivilegeObjectAuditAlarm @ 0x140627CF0 (SePrivilegeObjectAuditAlarm.c)
+ *     ObOpenObjectByPointer @ 0x140653F10 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall PspCreateObjectHandle(void *a1, __int64 a2, struct _OBJECT_TYPE *a3)

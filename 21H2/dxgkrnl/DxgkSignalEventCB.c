@@ -1,130 +1,74 @@
 /*
- * XREFs of DxgkSignalEventCB @ 0x1C005EAE0
+ * XREFs of DxgkSignalEventCB @ 0x1C0041E20
  * Callers:
- *     ?CallDxgkSignalEventCbAtDispatch@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z @ 0x1C004FC64 (-CallDxgkSignalEventCbAtDispatch@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z.c)
- *     ?DrtTestSignalEventCb@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z @ 0x1C02FEF50 (-DrtTestSignalEventCb@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z.c)
+ *     ?CallDxgkSignalEventCbAtDispatch@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z @ 0x1C0043DA8 (-CallDxgkSignalEventCbAtDispatch@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z.c)
+ *     ?DrtTestSignalEventCb@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z @ 0x1C025F474 (-DrtTestSignalEventCb@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?VmBusSendAsyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C005DF24 (-VmBusSendAsyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z.c)
- *     ?DxgkSignalEventCBPaged@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z @ 0x1C03624E8 (-DxgkSignalEventCBPaged@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage @ 0x1C0026138 (Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage.c)
+ *     ?DxgkSignalEventCBCblt@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z @ 0x1C0026B50 (-DxgkSignalEventCBCblt@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z.c)
+ *     ?VmBusSendAsyncMessage@@YAJPEAUVMBCHANNEL__@@PEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C00418FC (-VmBusSendAsyncMessage@@YAJPEAUVMBCHANNEL__@@PEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z.c)
+ *     ?DxgkSignalEventCBPaged@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z @ 0x1C0238834 (-DxgkSignalEventCBPaged@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z.c)
  */
 
 __int64 __fastcall DxgkSignalEventCB(struct _DXGKARGCB_SIGNALEVENT *a1)
 {
-  struct _DXGKARGCB_SIGNALEVENT::$3484840290AF70A1F2DEBFE8F287B9A7::$345C9315266921A5615E194C0B7E8CDB Flags; // eax
-  __int64 v3; // rdi
-  __int64 v4; // rbx
-  int v5; // edx
-  int v6; // ecx
-  int v7; // r8d
-  const wchar_t *v8; // rax
+  __int64 v2; // rdx
+  struct _MDL *v3; // r9
+  struct VMBCHANNEL__ *v5; // rcx
   HANDLE hEvent; // rax
-  DXG_VMBUS_CHANNEL_BASE *v10; // rcx
-  void *v11; // rax
-  int v12; // eax
-  int v13; // edx
-  int v14; // ecx
-  int v15; // r8d
-  const wchar_t *v16; // rax
-  _QWORD *hDxgkProcess; // rdx
-  struct DXGGLOBAL *Global; // rax
-  DXG_VMBUS_CHANNEL_BASE *v20; // r10
-  unsigned __int64 v21; // rdx
-  HANDLE v22; // rax
-  int v23; // eax
-  unsigned __int8 v24[16]; // [rsp+68h] [rbp+17h] BYREF
-  unsigned __int64 v25; // [rsp+78h] [rbp+27h]
-  HANDLE v26; // [rsp+80h] [rbp+2Fh]
-  __int128 v27; // [rsp+88h] [rbp+37h]
+  int v7; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rbx
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // [rsp+20h] [rbp-40h] BYREF
+  int v14; // [rsp+28h] [rbp-38h]
+  int v15; // [rsp+2Ch] [rbp-34h]
+  int v16; // [rsp+30h] [rbp-30h]
+  int v17; // [rsp+34h] [rbp-2Ch]
+  HANDLE v18; // [rsp+38h] [rbp-28h]
+  __int64 v19; // [rsp+40h] [rbp-20h]
+  __int16 v20; // [rsp+48h] [rbp-18h]
+  int v21; // [rsp+4Ah] [rbp-16h]
+  __int16 v22; // [rsp+4Eh] [rbp-12h]
 
-  Flags = (struct _DXGKARGCB_SIGNALEVENT::$3484840290AF70A1F2DEBFE8F287B9A7::$345C9315266921A5615E194C0B7E8CDB)a1->Flags;
-  LODWORD(v3) = 0;
-  if ( *(unsigned int *)&Flags >= 2 )
+  if ( (unsigned int)Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage() && (a1->Flags & 1) != 0 )
+    return DxgkSignalEventCBCblt(a1, v2);
+  v5 = (struct VMBCHANNEL__ *)*((_QWORD *)a1->hDxgkProcess + 14);
+  if ( v5 )
   {
-    v4 = 16177LL;
-    WdLogSingleEntry1(2LL, 16177LL);
-    if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) == 0 )
-      return 3221225485LL;
-    v8 = L"Reserved flags are set";
-LABEL_25:
-    McTemplateK0zqqzxxxxx_EtwWriteTransfer(v6, v5, v7, 0LL, 0, -1, v8, v4, 0LL, 0LL, 0LL, 0LL);
+    v19 = *((_QWORD *)a1->hDxgkProcess + 9);
+    v17 = 0;
+    hEvent = a1->hEvent;
+    v21 = 0;
+    v22 = 0;
+    v16 = v19 != 0 ? 3 : 0;
+    v13 = 0LL;
+    v14 = 0;
+    v15 = 2;
+    v18 = hEvent;
+    v20 = 0;
+    v7 = VmBusSendAsyncMessage(v5, (struct DXGKVMB_COMMAND_BASE *)&v13, 48LL, v3);
+    v10 = v7;
+    if ( v7 < 0 )
+    {
+      v11 = WdLogNewEntry5_WdError(v9, v8);
+      *(_QWORD *)(v11 + 24) = v10;
+      WdLogEvent5_WdError(v11);
+    }
+    return (unsigned int)v10;
+  }
+  else if ( KeGetCurrentIrql() < 2u )
+  {
+    return DxgkSignalEventCBPaged(a1);
+  }
+  else
+  {
+    v12 = WdLogNewEntry5_WdError(0LL, v2);
+    *(_QWORD *)(v12 + 24) = 14275LL;
+    WdLogEvent5_WdError(v12);
     return 3221225485LL;
   }
-  if ( (*(_BYTE *)&Flags & 1) != 0 )
-  {
-    hEvent = a1->hEvent;
-    v10 = *(DXG_VMBUS_CHANNEL_BASE **)hEvent;
-    if ( !*(_QWORD *)hEvent )
-    {
-      KeSetEvent(*((PRKEVENT *)hEvent + 1), 0, 0);
-      return (unsigned int)v3;
-    }
-    v11 = (void *)*((_QWORD *)hEvent + 1);
-    *(_OWORD *)v24 = 0LL;
-    v24[12] = 2;
-    *(_DWORD *)&v24[12] = *(_WORD *)&v24[12] & 0x1FF;
-    v25 = 0LL;
-    v26 = v11;
-    v27 = 0uLL;
-    v12 = DXG_VMBUS_CHANNEL_BASE::VmBusSendAsyncMessage(v10, v24, (struct DXGKVMB_COMMAND_BASE *)v24, 0x30u);
-    v3 = v12;
-    if ( v12 >= 0 )
-      return (unsigned int)v3;
-    WdLogSingleEntry1(2LL, v12);
-    if ( !bTracingEnabled )
-      return (unsigned int)v3;
-    LOBYTE(v14) = BYTE3(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) == 0 )
-      return (unsigned int)v3;
-    v16 = L"Failed to send SIGNALGUESTEVENT command: 0x%I64x";
-LABEL_12:
-    McTemplateK0zqqzxxxxx_EtwWriteTransfer(v14, v13, v15, 0LL, 0, -1, v16, v3, 0LL, 0LL, 0LL, 0LL);
-    return (unsigned int)v3;
-  }
-  hDxgkProcess = a1->hDxgkProcess;
-  if ( *((_BYTE *)a1->hDxgkProcess + 128) )
-  {
-    *(_QWORD *)v24 = a1->hEvent;
-    *(_QWORD *)&v24[8] = hDxgkProcess[5];
-    v25 = 0LL;
-    Global = DXGGLOBAL_GetGlobal();
-    return (*((__int64 (__fastcall **)(unsigned __int8 *))Global + 3))(v24);
-  }
-  v20 = (DXG_VMBUS_CHANNEL_BASE *)hDxgkProcess[15];
-  if ( v20 )
-  {
-    v21 = hDxgkProcess[10];
-    *(_OWORD *)v24 = 0LL;
-    v24[12] = 2;
-    *(_DWORD *)&v24[12] = *(_WORD *)&v24[12] & 0x1FF;
-    v22 = a1->hEvent;
-    v25 = v21 != 0 ? 3uLL : 0;
-    v27 = v21;
-    v26 = v22;
-    v23 = DXG_VMBUS_CHANNEL_BASE::VmBusSendAsyncMessage(v20, v24, (struct DXGKVMB_COMMAND_BASE *)v24, 0x30u);
-    v3 = v23;
-    if ( v23 >= 0 )
-      return (unsigned int)v3;
-    WdLogSingleEntry1(2LL, v23);
-    if ( !bTracingEnabled )
-      return (unsigned int)v3;
-    LOBYTE(v14) = BYTE3(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) == 0 )
-      return (unsigned int)v3;
-    v16 = L"Failed to send SIGNALGUESTEVENT  command: 0x%I64x";
-    goto LABEL_12;
-  }
-  if ( KeGetCurrentIrql() >= 2u )
-  {
-    v4 = 16226LL;
-    WdLogSingleEntry1(2LL, 16226LL);
-    if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) == 0 )
-      return 3221225485LL;
-    v8 = L"Invalid IRQL for DxgkCbSignalEvent";
-    goto LABEL_25;
-  }
-  return DxgkSignalEventCBPaged(a1);
 }

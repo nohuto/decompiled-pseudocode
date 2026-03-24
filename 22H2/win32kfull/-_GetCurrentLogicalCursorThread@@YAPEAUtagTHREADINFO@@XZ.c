@@ -1,21 +1,46 @@
 /*
- * XREFs of ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C005D5D8
+ * XREFs of ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004B674
  * Callers:
- *     ?zzzShowCursor@@YAH_N@Z @ 0x1C005AF60 (-zzzShowCursor@@YAH_N@Z.c)
- *     CheckCursorClipAccess @ 0x1C005D510 (CheckCursorClipAccess.c)
- *     ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C00AA3A4 (-UnlinkCursor@@YAXPEAUtagCURSOR@@@Z.c)
- *     ?zzzSetCursorPos@@YA_NHH@Z @ 0x1C01A8AB8 (-zzzSetCursorPos@@YA_NHH@Z.c)
- *     ?_CreateEmptyCursorObject@@YAPEAUHICON__@@_N@Z @ 0x1C01C0B70 (-_CreateEmptyCursorObject@@YAPEAUHICON__@@_N@Z.c)
+ *     ?zzzSetCursorPos@@YA_NHH@Z @ 0x1C0013324 (-zzzSetCursorPos@@YA_NHH@Z.c)
+ *     CheckCursorClipAccess @ 0x1C003DC40 (CheckCursorClipAccess.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00486FC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?_CreateEmptyCursorObject@@YAPEAUHICON__@@_N@Z @ 0x1C0048B24 (-_CreateEmptyCursorObject@@YAPEAUHICON__@@_N@Z.c)
+ *     ?_FindExistingCursorIcon@@YAPEAUtagCURSOR@@GPEAU_UNICODE_STRING@@PEAU1@PEAUtagCURSORFIND@@@Z @ 0x1C0049A50 (-_FindExistingCursorIcon@@YAPEAUtagCURSOR@@GPEAU_UNICODE_STRING@@PEAU1@PEAUtagCURSORFIND@@@Z.c)
+ *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C004B5B8 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     ?_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z @ 0x1C0065454 (-_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z.c)
+ *     ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C011C180 (-UnlinkCursor@@YAXPEAUtagCURSOR@@@Z.c)
+ *     ?zzzShowCursor@@YAH_N@Z @ 0x1C01256F4 (-zzzShowCursor@@YAH_N@Z.c)
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     <none>
  */
 
-struct tagTHREADINFO *_GetCurrentLogicalCursorThread(void)
+struct tagTHREADINFO *__fastcall _GetCurrentLogicalCursorThread(__int64 a1)
 {
-  struct tagTHREADINFO *result; // rax
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v2; // rdi
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 *ThreadWin32Thread; // rax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v10; // rcx
+  __int64 CurrentThreadProcess; // rax
 
-  result = PtiCurrentShared();
-  if ( (*((_DWORD *)result + 318) & 0x8000000) != 0 )
-    return (struct tagTHREADINFO *)*((_QWORD *)result + 190);
-  return result;
+  CurrentThread = KeGetCurrentThread();
+  v2 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v4, v3, v5),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v10),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v2 = *ThreadWin32Thread;
+  }
+  if ( (*(_DWORD *)(v2 + 1232) & 0x8000000) != 0 )
+    return *(struct tagTHREADINFO **)(v2 + 1488);
+  else
+    return (struct tagTHREADINFO *)v2;
 }

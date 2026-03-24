@@ -1,14 +1,15 @@
 /*
- * XREFs of VerifierMmAllocateContiguousNodeMemory @ 0x140A9F6A0
+ * XREFs of VerifierMmAllocateContiguousNodeMemory @ 0x1409E6110
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfCheckPageProtection @ 0x140A82EB0 (VfCheckPageProtection.c)
- *     ViTargetTrackContiguousMemory @ 0x140A8B450 (ViTargetTrackContiguousMemory.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsInjectResourceFailure @ 0x140A96B0C (VfFaultsInjectResourceFailure.c)
- *     VfFillAllocatedMemory @ 0x140A9A1DC (VfFillAllocatedMemory.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfCheckPageProtection @ 0x1409C7CBC (VfCheckPageProtection.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetTrackContiguousMemory @ 0x1409D76B0 (ViTargetTrackContiguousMemory.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC82C (VfFaultsInjectResourceFailure.c)
+ *     VfAllocPoolNotification @ 0x1409DFFB4 (VfAllocPoolNotification.c)
+ *     VfFillAllocatedMemory @ 0x1409DFFF4 (VfFillAllocatedMemory.c)
  */
 
 _SLIST_ENTRY *__fastcall VerifierMmAllocateContiguousNodeMemory(
@@ -19,8 +20,7 @@ _SLIST_ENTRY *__fastcall VerifierMmAllocateContiguousNodeMemory(
         unsigned int a5,
         int a6)
 {
-  _SLIST_ENTRY *v11; // rax
-  _SLIST_ENTRY *v12; // rbx
+  _SLIST_ENTRY *v11; // rbx
   unsigned __int64 retaddr; // [rsp+48h] [rbp+0h]
 
   VfCheckPageProtection(a5, retaddr);
@@ -35,12 +35,12 @@ _SLIST_ENTRY *__fastcall VerifierMmAllocateContiguousNodeMemory(
                           a4,
                           a5,
                           a6);
-  v12 = v11;
+  VfAllocPoolNotification();
   if ( v11 )
   {
     VfFillAllocatedMemory(v11, BugCheckParameter3);
     if ( (MmVerifierData & 8) != 0 )
-      ViTargetTrackContiguousMemory(retaddr, v12, BugCheckParameter3);
+      ViTargetTrackContiguousMemory(retaddr, v11, BugCheckParameter3);
   }
-  return v12;
+  return v11;
 }

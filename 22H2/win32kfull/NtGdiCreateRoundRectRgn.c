@@ -1,77 +1,83 @@
 /*
- * XREFs of NtGdiCreateRoundRectRgn @ 0x1C02A8DE0
+ * XREFs of NtGdiCreateRoundRectRgn @ 0x1C00A3080
  * Callers:
  *     <none>
  * Callees:
- *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C007E760 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??0EBOX@@QEAA@AEAVERECTL@@H@Z @ 0x1C02C557C (--0EBOX@@QEAA@AEAVERECTL@@H@Z.c)
- *     ?bRoundRect@@YAHAEAVEPATHOBJ@@AEAVEBOX@@JJ@Z @ 0x1C02C5E04 (-bRoundRect@@YAHAEAVEPATHOBJ@@AEAVEBOX@@JJ@Z.c)
+ *     ?bRoundRect@@YAHAEAVEPATHOBJ@@AEAVEBOX@@JJ@Z @ 0x1C00A04E4 (-bRoundRect@@YAHAEAVEPATHOBJ@@AEAVEBOX@@JJ@Z.c)
+ *     ??0EBOX@@QEAA@AEAVERECTL@@H@Z @ 0x1C00A3228 (--0EBOX@@QEAA@AEAVERECTL@@H@Z.c)
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C00BCBC4 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-struct HOBJ__ *__fastcall NtGdiCreateRoundRectRgn(unsigned int a1, unsigned int a2, int a3, int a4, int a5, int a6)
+HRGN __fastcall NtGdiCreateRoundRectRgn(unsigned int a1, unsigned int a2, int a3, int a4, unsigned int a5)
 {
-  int v10; // r8d
-  unsigned int v12; // esi
-  unsigned int v13; // edi
-  unsigned int v14; // ebx
-  struct HOBJ__ *v15; // rbx
-  ULONG v16; // ecx
-  struct OBJECT *v17; // [rsp+20h] [rbp-E0h] BYREF
-  int v18; // [rsp+28h] [rbp-D8h]
-  int v19; // [rsp+2Ch] [rbp-D4h]
-  _BYTE v20[8]; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v21; // [rsp+38h] [rbp-C8h]
-  _DWORD v22[20]; // [rsp+B0h] [rbp-50h] BYREF
+  int v9; // r8d
+  HRGN v10; // rbx
+  HRGN v11; // rdi
+  ULONG v13; // ecx
+  unsigned __int64 v14; // [rsp+28h] [rbp-E0h] BYREF
+  int v15; // [rsp+30h] [rbp-D8h]
+  int v16; // [rsp+34h] [rbp-D4h]
+  _QWORD v17[16]; // [rsp+38h] [rbp-D0h] BYREF
+  _DWORD v18[20]; // [rsp+B8h] [rbp-50h] BYREF
 
-  PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v20);
-  if ( !v21 )
+  PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v17);
+  v10 = 0LL;
+  if ( !v17[1] )
   {
+    v13 = 8;
+LABEL_22:
+    EngSetLastError(v13);
+    goto LABEL_16;
+  }
+  v14 = __PAIR64__(a2, a1);
+  v15 = a3;
+  v16 = a4;
+  if ( (((a1 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
+    || (((a4 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
+    || (((a3 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
+    || (((a2 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0 )
+  {
+    v13 = 87;
+    goto LABEL_22;
+  }
+  EBOX::EBOX((EBOX *)v18, (struct ERECTL *)&v14, v9);
+  if ( v18[0] )
+  {
+    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v14);
+    if ( v14 )
+    {
+LABEL_11:
+      v11 = RGNOBJ::hrgnAssociate((RGNOBJ *)&v14);
+      if ( !v11 )
+        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v14);
+      goto LABEL_13;
+    }
+LABEL_19:
     EngSetLastError(8u);
-    PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v20);
-    return 0LL;
+    v11 = 0LL;
+LABEL_13:
+    if ( v15 == 1 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v14);
+    goto LABEL_15;
   }
-  v17 = (struct OBJECT *)__PAIR64__(a2, a1);
-  v18 = a3;
-  v19 = a4;
-  if ( (a1 & 0xF8000000) != 0 && (a1 & 0xF8000000) != -134217728
-    || (v12 = a4 & 0xF8000000) != 0 && v12 != -134217728
-    || (v13 = a3 & 0xF8000000) != 0 && v13 != -134217728
-    || (v14 = a2 & 0xF8000000) != 0 && v14 != -134217728 )
+  if ( (unsigned int)bRoundRect((struct EPATHOBJ *)v17, (struct EBOX *)v18, a5) && EPATHOBJ::bFlatten((EPATHOBJ *)v17) )
   {
-    v16 = 87;
-  }
-  else
-  {
-    EBOX::EBOX((EBOX *)v22, (struct ERECTL *)&v17, v10);
-    if ( v22[0] )
+    v14 = 0LL;
+    v15 = 0;
+    RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v14, (struct EPATHOBJ *)v17, 1u, 0LL);
+    if ( v14 )
     {
-      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v17);
-      if ( v17 )
-        goto LABEL_12;
+      RGNOBJ::vTighten((RGNOBJ *)&v14);
+      goto LABEL_11;
     }
-    else if ( (unsigned int)bRoundRect((struct EPATHOBJ *)v20, (struct EBOX *)v22, a5, a6) )
-    {
-      if ( EPATHOBJ::bFlatten((EPATHOBJ *)v20) )
-      {
-        v17 = 0LL;
-        RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v17, (struct EPATHOBJ *)v20, 1u, 0LL);
-        if ( v17 )
-        {
-          RGNOBJ::vTighten((RGNOBJ *)&v17);
-LABEL_12:
-          v15 = RGNOBJ::hrgnAssociate(&v17);
-          if ( !v15 )
-            RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v17);
-          goto LABEL_21;
-        }
-      }
-    }
-    v16 = 8;
+    goto LABEL_19;
   }
-  EngSetLastError(v16);
-  v15 = 0LL;
-LABEL_21:
-  PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v20);
-  return v15;
+  EngSetLastError(8u);
+  v11 = 0LL;
+LABEL_15:
+  v10 = v11;
+LABEL_16:
+  PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v17);
+  return v10;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetNextElementIndex@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAEKPEAK@Z @ 0x1C0269FF8
+ * XREFs of ?GetNextElementIndex@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAEKPEAK@Z @ 0x1C0271984
  * Callers:
- *     MonitorAPIProcessTerminating @ 0x1C00A0670 (MonitorAPIProcessTerminating.c)
+ *     MonitorAPIProcessTerminating @ 0x1C010CFD0 (MonitorAPIProcessTerminating.c)
  * Callees:
  *     <none>
  */

@@ -1,42 +1,34 @@
 /*
- * XREFs of rimAbIsPointerSuppressedByGlobalPenDeadzone @ 0x1C017BA84
+ * XREFs of rimAbIsPointerSuppressedByGlobalPenDeadzone @ 0x1C0158C30
  * Callers:
- *     rimAbSuppressLowerRankActivityInFrame @ 0x1C017C960 (rimAbSuppressLowerRankActivityInFrame.c)
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C01598CC (rimAbSuppressLowerRankActivityInFrame.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     rimAbIsPointInGlobalPenDeadzone @ 0x1C017B7B0 (rimAbIsPointInGlobalPenDeadzone.c)
- *     WPP_RECORDER_AND_TRACE_SF_dDdd @ 0x1C017E1AC (WPP_RECORDER_AND_TRACE_SF_dDdd.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimAbIsPointInGlobalPenDeadzone @ 0x1C01589FC (rimAbIsPointInGlobalPenDeadzone.c)
+ *     WPP_RECORDER_SF_dDdd @ 0x1C015A89C (WPP_RECORDER_SF_dDdd.c)
  */
 
-__int64 __fastcall rimAbIsPointerSuppressedByGlobalPenDeadzone(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall rimAbIsPointerSuppressedByGlobalPenDeadzone(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int IsPointInGlobalPenDeadzone; // edi
-  __int64 v8; // r9
-  char v9; // bl
-  int v10; // edx
-  int v11; // r8d
+  __int64 v7; // r8
+  int v8; // edx
+  int v9; // r8d
+  int v10; // r9d
+  __int128 v12; // [rsp+50h] [rbp-28h] BYREF
 
   IsPointInGlobalPenDeadzone = 0;
-  if ( !*(_DWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 436) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 167);
-  v9 = 1;
+  if ( !gDeviceArbitrationType )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 163);
   if ( (unsigned int)(*(_DWORD *)(a2 + 24) - 1) <= 3 )
   {
-    IsPointInGlobalPenDeadzone = rimAbIsPointInGlobalPenDeadzone(a1, a2 + 156, a3, v8);
+    v7 = *(_QWORD *)(a3 + 40);
+    v12 = *(_OWORD *)(a2 + 176);
+    IsPointInGlobalPenDeadzone = rimAbIsPointInGlobalPenDeadzone(a1, &v12, v7);
     if ( IsPointInGlobalPenDeadzone )
     {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-      {
-        v9 = 0;
-      }
-      if ( v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v10) = v9;
-        LOBYTE(v11) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_dDdd(WPP_GLOBAL_Control->AttachedDevice, v10, v11, (_DWORD)WPP_GLOBAL_Control);
-      }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_dDdd(*(_DWORD *)(a3 + 12), v8, v9, v10);
     }
   }
   return IsPointInGlobalPenDeadzone;

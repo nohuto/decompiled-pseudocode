@@ -1,12 +1,12 @@
 /*
- * XREFs of HalReportResourceUsage @ 0x140AFC970
+ * XREFs of HalReportResourceUsage @ 0x140A3CE50
  * Callers:
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     HalpInitSystemHelper @ 0x140A56C48 (HalpInitSystemHelper.c)
- *     HalpReportResourceUsage @ 0x140AF77F8 (HalpReportResourceUsage.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     HalpInitSystemHelper @ 0x14099C0C8 (HalpInitSystemHelper.c)
+ *     HalpReportResourceUsage @ 0x140A39D8C (HalpReportResourceUsage.c)
  */
 
 void __fastcall HalReportResourceUsage(int a1)
@@ -25,7 +25,7 @@ void __fastcall HalReportResourceUsage(int a1)
     case 0:
       HalpInitSystemHelper(0x1Bu, 28, 0LL);
       RtlInitUnicodeString(&DestinationString, L"ACPI x64 platform");
-      HalpReportResourceUsage(&DestinationString);
+      HalpReportResourceUsage((__int64)&DestinationString);
       return;
     case 1:
       v1 = 30;

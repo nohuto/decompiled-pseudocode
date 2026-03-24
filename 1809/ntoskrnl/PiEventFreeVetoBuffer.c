@@ -1,7 +1,7 @@
 /*
- * XREFs of PiEventFreeVetoBuffer @ 0x1406F027C
+ * XREFs of PiEventFreeVetoBuffer @ 0x1406F025C
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF7B0 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

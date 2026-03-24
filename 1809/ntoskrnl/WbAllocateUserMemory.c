@@ -1,7 +1,7 @@
 /*
- * XREFs of WbAllocateUserMemory @ 0x140690B98
+ * XREFs of WbAllocateUserMemory @ 0x140690B78
  * Callers:
- *     sub_1406901F0 @ 0x1406901F0 (sub_1406901F0.c)
+ *     sub_1406901D0 @ 0x1406901D0 (sub_1406901D0.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -10,10 +10,10 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     WbAllocateMemoryBlock @ 0x14068FD80 (WbAllocateMemoryBlock.c)
- *     sub_140690DC4 @ 0x140690DC4 (sub_140690DC4.c)
- *     WbFreeMemoryBlock @ 0x140691044 (WbFreeMemoryBlock.c)
- *     sub_14069176C @ 0x14069176C (sub_14069176C.c)
+ *     WbAllocateMemoryBlock @ 0x14068FD60 (WbAllocateMemoryBlock.c)
+ *     sub_140690DA4 @ 0x140690DA4 (sub_140690DA4.c)
+ *     WbFreeMemoryBlock @ 0x140691024 (WbFreeMemoryBlock.c)
+ *     sub_14069174C @ 0x14069174C (sub_14069174C.c)
  */
 
 __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3, _QWORD *a4)
@@ -58,7 +58,7 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
     while ( 1 )
     {
       v6 = *(PVOID **)((unsigned int)(v12 * *(_DWORD *)(a1 + 184)) + *(_QWORD *)(a1 + 200));
-      v8 = sub_140690DC4(v6, a2, v21);
+      v8 = sub_140690DA4(v6, a2, v21);
       if ( v8 < 0 )
         goto LABEL_29;
       if ( !v21[0] && (unsigned int)++v12 < *(_DWORD *)(a1 + 188) )
@@ -81,7 +81,7 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
     if ( v8 < 0 )
       goto LABEL_29;
     v7 = BaseAddress;
-    v8 = sub_140690DC4(BaseAddress, a2, v21);
+    v8 = sub_140690DA4(BaseAddress, a2, v21);
     if ( v8 < 0 )
       goto LABEL_17;
     v15 = KeGetCurrentThread();
@@ -92,7 +92,7 @@ __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3,
       ExfAcquirePushLockExclusiveEx(v10, v16, (ULONG_PTR)v10);
     if ( v18 )
       *(_BYTE *)(v18 + 26) |= 1u;
-    v8 = sub_14069176C((int)a1 + 184, (_DWORD)BaseAddress, v17, (unsigned int)BaseAddress[4], 8, -1);
+    v8 = sub_14069174C((int)a1 + 184, (_DWORD)BaseAddress, v17, (unsigned int)BaseAddress[4], 8, -1);
     v19 = _InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v19 & 2) != 0 && (v19 & 4) == 0 )
       ExfTryToWakePushLock((volatile signed __int64 *)v10);

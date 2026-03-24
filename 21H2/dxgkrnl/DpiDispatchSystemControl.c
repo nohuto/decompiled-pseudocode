@@ -1,61 +1,66 @@
 /*
- * XREFs of DpiDispatchSystemControl @ 0x1C0388210
+ * XREFs of DpiDispatchSystemControl @ 0x1C02C79D0
  * Callers:
  *     <none>
  * Callees:
- *     LoadEtwStackLocation @ 0x1C001C3A4 (LoadEtwStackLocation.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pt_EtwWriteTransfer @ 0x1C0044CF4 (McTemplateK0pt_EtwWriteTransfer.c)
- *     McTemplateK0phbr1q_EtwWriteTransfer @ 0x1C005FDE8 (McTemplateK0phbr1q_EtwWriteTransfer.c)
+ *     LoadEtwStackLocation @ 0x1C0009880 (LoadEtwStackLocation.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C003A2E0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0phbr1q_EtwWriteTransfer @ 0x1C0052444 (McTemplateK0phbr1q_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DpiDispatchSystemControl(__int64 a1, IRP *a2)
 {
-  __int64 v2; // rsi
+  __int64 v2; // rbp
   char v3; // r14
   _BYTE *EtwStackLocation; // rax
   __int64 v7; // rcx
   __int64 v8; // r8
   NTSTATUS v9; // eax
-  unsigned int v10; // ebx
-  __int64 v11; // r8
-  __int64 (__fastcall *v13)(__int64, IRP *); // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // rbx
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 (__fastcall *v18)(__int64, IRP *); // rax
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
   __int64 RemlockSize; // [rsp+20h] [rbp-F8h]
-  _BYTE v16[80]; // [rsp+40h] [rbp-D8h] BYREF
-  __int128 v17; // [rsp+90h] [rbp-88h]
-  __int128 v18; // [rsp+A0h] [rbp-78h]
-  __int128 v19; // [rsp+B0h] [rbp-68h]
-  __int128 v20; // [rsp+C0h] [rbp-58h]
-  __int64 v21; // [rsp+D0h] [rbp-48h]
+  _BYTE v21[80]; // [rsp+40h] [rbp-D8h] BYREF
+  __int128 v22; // [rsp+90h] [rbp-88h]
+  __int128 v23; // [rsp+A0h] [rbp-78h]
+  __int128 v24; // [rsp+B0h] [rbp-68h]
+  __int128 v25; // [rsp+C0h] [rbp-58h]
+  __int64 v26; // [rsp+D0h] [rbp-48h]
 
   v2 = *(_QWORD *)(a1 + 64);
   v3 = 0;
   if ( bTracingEnabled )
   {
-    EtwStackLocation = LoadEtwStackLocation(v16, (__int64)a2);
-    v17 = *(_OWORD *)EtwStackLocation;
-    v18 = *((_OWORD *)EtwStackLocation + 1);
-    v19 = *((_OWORD *)EtwStackLocation + 2);
-    v20 = *((_OWORD *)EtwStackLocation + 3);
-    v21 = *((_QWORD *)EtwStackLocation + 8);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    EtwStackLocation = LoadEtwStackLocation(v21, (__int64)a2);
+    v22 = *(_OWORD *)EtwStackLocation;
+    v23 = *((_OWORD *)EtwStackLocation + 1);
+    v24 = *((_OWORD *)EtwStackLocation + 2);
+    v25 = *((_OWORD *)EtwStackLocation + 3);
+    v26 = *((_QWORD *)EtwStackLocation + 8);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       McTemplateK0phbr1q_EtwWriteTransfer(v7, &EventEnterDpiDispatchSystemControl, v8, a1);
   }
   v9 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 64), a2, File, 1u, 0x20u);
-  v10 = v9;
+  v13 = v9;
   if ( v9 >= 0 )
   {
-    v13 = *(__int64 (__fastcall **)(__int64, IRP *))(v2 + 144);
+    v18 = *(__int64 (__fastcall **)(__int64, IRP *))(v2 + 144);
     v3 = 1;
-    if ( v13 )
+    if ( v18 )
     {
-      v10 = v13(a1, a2);
-      if ( v10 != -1073741637 )
+      LODWORD(v13) = v18(a1, a2);
+      if ( (_DWORD)v13 != -1073741637 )
         goto LABEL_7;
     }
-    v10 = -1073741637;
+    LODWORD(v13) = -1073741637;
     if ( *(_BYTE *)(v2 + 56) == 1 )
     {
       if ( *(_QWORD *)(v2 + 160) )
@@ -65,7 +70,7 @@ __int64 __fastcall DpiDispatchSystemControl(__int64 a1, IRP *a2)
         {
           ++a2->CurrentLocation;
           a2->Tail.Overlay.CurrentStackLocation = CurrentStackLocation + 1;
-          v10 = IofCallDriver(*(PDEVICE_OBJECT *)(v2 + 160), a2);
+          LODWORD(v13) = IofCallDriver(*(PDEVICE_OBJECT *)(v2 + 160), a2);
           goto LABEL_7;
         }
       }
@@ -73,22 +78,19 @@ __int64 __fastcall DpiDispatchSystemControl(__int64 a1, IRP *a2)
   }
   else
   {
-    WdLogSingleEntry1(3LL, v9);
+    v14 = WdLogNewEntry5_WdWarning(v11, v10, v12);
+    *(_QWORD *)(v14 + 24) = v13;
+    WdLogEvent5_WdWarning(v14);
   }
-  a2->IoStatus.Status = v10;
+  a2->IoStatus.Status = v13;
   IofCompleteRequest(a2, 0);
   if ( v3 == 1 )
 LABEL_7:
     IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 64), a2, 0x20u);
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
   {
-    LODWORD(RemlockSize) = v10;
-    McTemplateK0pt_EtwWriteTransfer(
-      (REGHANDLE *)&DxgkControlGuid_Context,
-      &EventExitDpiDispatchSystemControl,
-      v11,
-      a1,
-      RemlockSize);
+    LODWORD(RemlockSize) = v13;
+    McTemplateK0pq_EtwWriteTransfer(v15, &EventExitDpiDispatchSystemControl, v16, a1, RemlockSize);
   }
-  return v10;
+  return (unsigned int)v13;
 }

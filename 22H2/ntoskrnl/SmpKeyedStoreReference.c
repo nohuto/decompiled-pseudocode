@@ -1,41 +1,37 @@
 /*
- * XREFs of SmpKeyedStoreReference @ 0x1405C9D98
+ * XREFs of SmpKeyedStoreReference @ 0x140263FC0
  * Callers:
- *     SmpPageWrite @ 0x1405C9E40 (SmpPageWrite.c)
+ *     SmpPageWrite @ 0x14026589C (SmpPageWrite.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     SmpKeyedStoreEntryGet @ 0x1403445F4 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreReference @ 0x140344B20 (SmKmStoreReference.c)
+ *     SmpKeyedStoreEntryGet @ 0x140264198 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreReference @ 0x1402672A8 (SmKmStoreReference.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
  */
 
-__int64 __fastcall SmpKeyedStoreReference(signed __int64 *BugCheckParameter2, __int64 a2, __int64 a3)
+__int64 __fastcall SmpKeyedStoreReference(volatile signed __int64 *BugCheckParameter2, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v6; // esi
-  __int64 v7; // rax
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rdi
-  __int64 v12; // [rsp+50h] [rbp+18h] BYREF
+  unsigned int v3; // esi
+  __int64 v6; // rax
+  __int64 v7; // rdi
 
-  v12 = a3;
   CurrentThread = KeGetCurrentThread();
-  v6 = -1;
+  v3 = -1;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)BugCheckParameter2, 0LL);
-  v7 = SmpKeyedStoreEntryGet((ULONG_PTR)BugCheckParameter2, &v12, 0, 1);
-  v10 = v7;
-  if ( v7 )
+  v6 = SmpKeyedStoreEntryGet((ULONG_PTR)BugCheckParameter2);
+  v7 = v6;
+  if ( v6 )
   {
-    SmKmStoreReference(a2, *(unsigned __int16 *)(v7 + 16), v8, v9);
-    v6 = *(unsigned __int16 *)(v10 + 16);
+    SmKmStoreReference(a2, *(unsigned __int16 *)(v6 + 16));
+    v3 = *(unsigned __int16 *)(v7 + 16);
   }
   if ( _InterlockedCompareExchange64(BugCheckParameter2, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(BugCheckParameter2);
   KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
   KeLeaveCriticalRegion();
-  return v6;
+  return v3;
 }

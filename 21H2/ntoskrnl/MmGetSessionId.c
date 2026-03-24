@@ -1,23 +1,24 @@
 /*
- * XREFs of MmGetSessionId @ 0x140300B40
+ * XREFs of MmGetSessionId @ 0x140253550
  * Callers:
- *     PspBindProcessSessionToJob @ 0x1406827E8 (PspBindProcessSessionToJob.c)
- *     ExCallSessionCallBack @ 0x1406A8F48 (ExCallSessionCallBack.c)
- *     EtwpStartLogger @ 0x1406EE2AC (EtwpStartLogger.c)
- *     PsInvokeWin32Callout @ 0x1406F83A0 (PsInvokeWin32Callout.c)
- *     EtwpPsProvTraceProcess @ 0x14070AFEC (EtwpPsProvTraceProcess.c)
- *     PspInitializeProcessSecurity @ 0x14070F0D8 (PspInitializeProcessSecurity.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     MmCreatePeb @ 0x140755B70 (MmCreatePeb.c)
- *     PsGetThreadSessionId @ 0x1407B6780 (PsGetThreadSessionId.c)
- *     ExpGetProcessInformation @ 0x1407B6CA0 (ExpGetProcessInformation.c)
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
- *     PopInvokeWin32Callout @ 0x1407F2AD0 (PopInvokeWin32Callout.c)
- *     SeExchangePrimaryToken @ 0x140847260 (SeExchangePrimaryToken.c)
- *     PopDirectedDripsSendSuspendResumeNotification @ 0x14098C390 (PopDirectedDripsSendSuspendResumeNotification.c)
- *     PopSendSuspendResumeApplicationNotification @ 0x14098FDE4 (PopSendSuspendResumeApplicationNotification.c)
- *     EtwpPoolRunDown @ 0x1409EAB74 (EtwpPoolRunDown.c)
- *     ExGetSessionBigPoolInformation @ 0x1409F5D80 (ExGetSessionBigPoolInformation.c)
+ *     EtwpPsProvTraceProcess @ 0x140602CDC (EtwpPsProvTraceProcess.c)
+ *     MmCreatePeb @ 0x140611D98 (MmCreatePeb.c)
+ *     PsGetThreadSessionId @ 0x140612A80 (PsGetThreadSessionId.c)
+ *     PspBindProcessSessionToJob @ 0x140613568 (PspBindProcessSessionToJob.c)
+ *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     PopInvokeWin32Callout @ 0x14067B7C8 (PopInvokeWin32Callout.c)
+ *     ExCallSessionCallBack @ 0x140683678 (ExCallSessionCallBack.c)
+ *     PspInitializeProcessSecurity @ 0x1406D6400 (PspInitializeProcessSecurity.c)
+ *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
+ *     ExpGetProcessInformation @ 0x1406F1260 (ExpGetProcessInformation.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     SeExchangePrimaryToken @ 0x1407BBC44 (SeExchangePrimaryToken.c)
+ *     MmGetSessionMappedViewInformation @ 0x1408C48D0 (MmGetSessionMappedViewInformation.c)
+ *     PopDirectedDripsSendSuspendResumeNotification @ 0x1408E39AC (PopDirectedDripsSendSuspendResumeNotification.c)
+ *     PopInputDisabled @ 0x1408F510C (PopInputDisabled.c)
+ *     EtwpPoolRunDown @ 0x14093E300 (EtwpPoolRunDown.c)
+ *     ExGetSessionBigPoolInformation @ 0x140949F60 (ExGetSessionBigPoolInformation.c)
  * Callees:
  *     <none>
  */

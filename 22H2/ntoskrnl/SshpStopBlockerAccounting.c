@@ -1,9 +1,9 @@
 /*
- * XREFs of SshpStopBlockerAccounting @ 0x14032D678
+ * XREFs of SshpStopBlockerAccounting @ 0x14058005C
  * Callers:
- *     SshpSetBlockerActive @ 0x14032D618 (SshpSetBlockerActive.c)
- *     SshpSetCollectionActive @ 0x1403AF5A8 (SshpSetCollectionActive.c)
- *     SshpWriteBlocker @ 0x1405A2E50 (SshpWriteBlocker.c)
+ *     SshpSetBlockerActive @ 0x140315B50 (SshpSetBlockerActive.c)
+ *     SshpSetCollectionActive @ 0x14057FD7C (SshpSetCollectionActive.c)
+ *     SshpWriteBlocker @ 0x14058010C (SshpWriteBlocker.c)
  * Callees:
  *     <none>
  */
@@ -13,45 +13,47 @@ unsigned __int64 __fastcall SshpStopBlockerAccounting(__int64 a1, unsigned __int
   unsigned __int64 result; // rax
   unsigned __int64 v5; // r10
   __int64 v6; // r9
-  unsigned __int64 v8; // rcx
+  unsigned __int64 v7; // rdx
+  __int64 *v8; // r11
   unsigned int v9; // r8d
-  __int64 *v10; // r11
-  __int64 v11; // rdx
 
-  result = *(_QWORD *)(a1 + 24);
+  result = *(_QWORD *)(a1 + 16);
   v5 = a2;
   v6 = a1 + ((unsigned __int64)((*(_DWORD *)(a1 + 8) & 1) == 0) << 7);
   if ( a2 >= result )
   {
-    v8 = a2 - result;
+    v7 = a2 - result;
+    *(_QWORD *)(v6 + 24) += v7;
+    v8 = SshpAccountingBucketLimits;
     v9 = 0;
-    *(_QWORD *)(v6 + 32) += a2 - result;
-    v10 = PopFxAccountingBucketLimits;
     while ( 1 )
     {
-      v11 = v9 + 1;
-      if ( v8 >= *v10 && v8 < PopFxAccountingBucketLimits[v11] )
-        break;
-      ++v10;
+      if ( v7 >= *v8 )
+      {
+        result = v9 + 1;
+        if ( v7 < SshpAccountingBucketLimits[result] )
+          break;
+      }
       ++v9;
-      if ( (unsigned int)v11 >= 5 )
-        goto LABEL_7;
+      ++v8;
+      if ( v9 >= 5 )
+        goto LABEL_10;
     }
     result = v9;
     if ( a3 )
     {
-      ++*(_DWORD *)(v6 + 4LL * v9 + 140);
-      *(_QWORD *)(v6 + 8LL * v9 + 80) += v8;
+      ++*(_DWORD *)(v6 + 4LL * v9 + 132);
+      *(_QWORD *)(v6 + 8LL * v9 + 72) += v7;
     }
     else
     {
-      ++*(_DWORD *)(v6 + 4LL * v9 + 120);
-      *(_QWORD *)(v6 + 8LL * v9 + 40) += v8;
+      ++*(_DWORD *)(v6 + 4LL * v9 + 112);
+      *(_QWORD *)(v6 + 8LL * v9 + 32) += v7;
     }
   }
-LABEL_7:
+LABEL_10:
   if ( a3 == 1 )
     v5 = 0LL;
-  *(_QWORD *)(a1 + 24) = v5;
+  *(_QWORD *)(a1 + 16) = v5;
   return result;
 }

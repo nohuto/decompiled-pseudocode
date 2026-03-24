@@ -1,28 +1,27 @@
 /*
- * XREFs of ?VideoProcessorBlt@CRenderTargetBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x1802B1940
+ * XREFs of ?VideoProcessorBlt@CRenderTargetBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x18019B4B0
  * Callers:
- *     ?VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x1802B5030 (-VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagREC.c)
- *     ?VideoProcessorBlt@CStereoRenderTargetBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x1802B6080 (-VideoProcessorBlt@CStereoRenderTargetBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE.c)
+ *     ?VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x180266850 (-VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagREC.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?VideoProcessorBlt@CD3DDevice@@QEAAJPEAUID3D11Resource@@IW4DXGI_COLOR_SPACE_TYPE@@IIAEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@0II2@Z @ 0x18028E92C (-VideoProcessorBlt@CD3DDevice@@QEAAJPEAUID3D11Resource@@IW4DXGI_COLOR_SPACE_TYPE@@IIAEBUtagRECT@.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?VideoProcessorBlt@CD3DDevice@@QEAAJPEAUID3D11Resource@@IW4DXGI_COLOR_SPACE_TYPE@@IIAEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@0II2@Z @ 0x180240608 (-VideoProcessorBlt@CD3DDevice@@QEAAJPEAUID3D11Resource@@IW4DXGI_COLOR_SPACE_TYPE@@IIAEBUtagRECT@.c)
  */
 
 __int64 __fastcall CRenderTargetBitmap::VideoProcessorBlt(
         __int64 a1,
         __int64 a2,
-        int a3,
+        unsigned int a3,
         unsigned int a4,
         __int64 a5,
-        unsigned int a6,
+        int a6,
         __int64 a7,
         __int64 a8)
 {
-  void (__fastcall ***v12)(_QWORD, unsigned int *); // rcx
+  void (__fastcall ***v12)(_QWORD, _DWORD *); // rcx
   int v13; // eax
   __int64 v14; // rcx
   unsigned int v15; // ebx
@@ -39,14 +38,14 @@ __int64 __fastcall CRenderTargetBitmap::VideoProcessorBlt(
   __int64 v27; // [rsp+70h] [rbp-61h] BYREF
   __int64 (__fastcall ***v28)(_QWORD); // [rsp+78h] [rbp-59h] BYREF
   __int64 v29; // [rsp+80h] [rbp-51h] BYREF
-  unsigned int v30[2]; // [rsp+88h] [rbp-49h] BYREF
-  unsigned int v31[12]; // [rsp+90h] [rbp-41h] BYREF
+  _DWORD v30[2]; // [rsp+88h] [rbp-49h] BYREF
+  _DWORD v31[12]; // [rsp+90h] [rbp-41h] BYREF
 
   v29 = 0LL;
   v28 = 0LL;
   v27 = 0LL;
-  (*(void (__fastcall **)(__int64, unsigned int *))(*(_QWORD *)a2 + 80LL))(a2, v31);
-  v12 = (void (__fastcall ***)(_QWORD, unsigned int *))(a1 + *(int *)(*(_QWORD *)(a1 - 104) + 20LL) - 104LL);
+  (*(void (__fastcall **)(__int64, _DWORD *))(*(_QWORD *)a2 + 80LL))(a2, v31);
+  v12 = (void (__fastcall ***)(_QWORD, _DWORD *))(a1 + *(int *)(*(_QWORD *)(a1 - 104) + 20LL) - 104LL);
   (**v12)(v12, v30);
   v13 = (**(__int64 (__fastcall ***)(__int64, GUID *, __int64 *))a2)(
           a2,

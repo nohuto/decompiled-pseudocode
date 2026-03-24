@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTpSetFlagsZeroSignParity @ 0x140AB36C0
+ * XREFs of KiTpSetFlagsZeroSignParity @ 0x140A13640
  * Callers:
- *     KiTpEmulateGroup0Instruction @ 0x140AB23B0 (KiTpEmulateGroup0Instruction.c)
- *     KiTpEmulateGroup1Instruction @ 0x140AB26C8 (KiTpEmulateGroup1Instruction.c)
- *     KiTpEmulateInstruction @ 0x140AB28B8 (KiTpEmulateInstruction.c)
- *     KiTpSetFlagsAdd @ 0x140AB34D0 (KiTpSetFlagsAdd.c)
- *     KiTpSetFlagsSub @ 0x140AB35BC (KiTpSetFlagsSub.c)
+ *     KiTpEmulateGroup0Instruction @ 0x140A123B4 (KiTpEmulateGroup0Instruction.c)
+ *     KiTpEmulateGroup1Instruction @ 0x140A126D0 (KiTpEmulateGroup1Instruction.c)
+ *     KiTpEmulateInstruction @ 0x140A128C0 (KiTpEmulateInstruction.c)
+ *     KiTpSetFlagsAdd @ 0x140A13450 (KiTpSetFlagsAdd.c)
+ *     KiTpSetFlagsSub @ 0x140A1353C (KiTpSetFlagsSub.c)
  * Callees:
  *     <none>
  */

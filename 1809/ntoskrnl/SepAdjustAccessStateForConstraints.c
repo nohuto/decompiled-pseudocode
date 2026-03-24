@@ -1,13 +1,13 @@
 /*
- * XREFs of SepAdjustAccessStateForConstraints @ 0x1407056DC
+ * XREFs of SepAdjustAccessStateForConstraints @ 0x1407056BC
  * Callers:
- *     CmpSetAccessStateForBackupRestore @ 0x140705610 (CmpSetAccessStateForBackupRestore.c)
- *     SeAdjustAccessStateForTrustLabel @ 0x14089C0E0 (SeAdjustAccessStateForTrustLabel.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x1407055F0 (CmpSetAccessStateForBackupRestore.c)
+ *     SeAdjustAccessStateForTrustLabel @ 0x14089C0C0 (SeAdjustAccessStateForTrustLabel.c)
  * Callees:
  *     SepFilterCheck @ 0x140052760 (SepFilterCheck.c)
- *     SepLocateTokenTrustLevel @ 0x1400A8FE4 (SepLocateTokenTrustLevel.c)
- *     SeGetTrustLabelAce @ 0x1400AA930 (SeGetTrustLabelAce.c)
- *     RtlSidDominatesForTrust @ 0x1400AD180 (RtlSidDominatesForTrust.c)
+ *     SepLocateTokenTrustLevel @ 0x1400A9004 (SepLocateTokenTrustLevel.c)
+ *     SeGetTrustLabelAce @ 0x1400AA950 (SeGetTrustLabelAce.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
  */
 
 __int64 __fastcall SepAdjustAccessStateForConstraints(__int64 a1, __int64 a2, char a3, __int64 a4)

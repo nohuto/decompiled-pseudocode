@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C00A7DF4
+ * XREFs of ??_GCAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C009A30C
  * Callers:
- *     ??_ECAnimationMarshaler@DirectComposition@@WBA@EAAPEAXI@Z @ 0x1C00D8590 (--_ECAnimationMarshaler@DirectComposition@@WBA@EAAPEAXI@Z.c)
+ *     ??_ECAnimationMarshaler@DirectComposition@@WBA@EAAPEAXI@Z @ 0x1C00D1A30 (--_ECAnimationMarshaler@DirectComposition@@WBA@EAAPEAXI@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??1CAnimationMarshaler@DirectComposition@@UEAA@XZ @ 0x1C00A7E38 (--1CAnimationMarshaler@DirectComposition@@UEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ??1CAnimationMarshaler@DirectComposition@@UEAA@XZ @ 0x1C009A344 (--1CAnimationMarshaler@DirectComposition@@UEAA@XZ.c)
  */
 
 DirectComposition::CAnimationMarshaler *__fastcall DirectComposition::CAnimationMarshaler::`scalar deleting destructor'(
@@ -12,7 +12,7 @@ DirectComposition::CAnimationMarshaler *__fastcall DirectComposition::CAnimation
         char a2)
 {
   DirectComposition::CAnimationMarshaler::~CAnimationMarshaler(this);
-  if ( (a2 & 1) != 0 && this )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)this);
+  if ( (a2 & 1) != 0 )
+    Win32FreePool((__int64)this);
   return this;
 }

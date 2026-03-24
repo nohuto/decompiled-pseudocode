@@ -1,28 +1,27 @@
 /*
- * XREFs of MmWaitForCacheManagerPrefetch @ 0x14027C6DC
+ * XREFs of MmWaitForCacheManagerPrefetch @ 0x1402FB588
  * Callers:
- *     MmWaitMultipleForCacheManagerPrefetch @ 0x14027DB4C (MmWaitMultipleForCacheManagerPrefetch.c)
- *     CcFetchDataForRead @ 0x140329470 (CcFetchDataForRead.c)
- *     CcPerformReadAhead @ 0x14035E3C4 (CcPerformReadAhead.c)
+ *     MmWaitMultipleForCacheManagerPrefetch @ 0x1402F9980 (MmWaitMultipleForCacheManagerPrefetch.c)
+ *     CcPerformReadAhead @ 0x1402F9DF0 (CcPerformReadAhead.c)
+ *     CcFetchDataForRead @ 0x140320A30 (CcFetchDataForRead.c)
  * Callees:
- *     MiPfCompletePrefetchIos @ 0x1402792E0 (MiPfCompletePrefetchIos.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     MiReleaseReadListResources @ 0x1406FACF8 (MiReleaseReadListResources.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiPfCompletePrefetchIos @ 0x1402FCB00 (MiPfCompletePrefetchIos.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiReleaseReadListResources @ 0x1406E8B14 (MiReleaseReadListResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmWaitForCacheManagerPrefetch(_DWORD *P)
 {
-  unsigned int v1; // ebp
+  int v1; // ebp
   _QWORD *v2; // r14
-  int v3; // esi
+  unsigned int v3; // esi
   _QWORD *v4; // rdi
   int v5; // ebx
-  struct _KTHREAD *CurrentThread; // rcx
 
-  v1 = 0;
+  v1 = P[26];
   v2 = P;
-  v3 = P[26] & 1;
+  v3 = 0;
   do
   {
     v4 = (_QWORD *)*v2;
@@ -31,17 +30,10 @@ __int64 __fastcall MmWaitForCacheManagerPrefetch(_DWORD *P)
     ExFreePoolWithTag(v2, 0);
     v2 = v4;
     if ( v5 < 0 )
-      v1 = v5;
+      v3 = v5;
   }
   while ( v4 );
-  if ( v3 )
-  {
-    CurrentThread = KeGetCurrentThread();
-    if ( CurrentThread->SpecialApcDisable++ == -1
-      && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    {
-      KiCheckForKernelApcDelivery();
-    }
-  }
-  return v1;
+  if ( (v1 & 1) != 0 )
+    KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
+  return v3;
 }

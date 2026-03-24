@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDeletePerSessionProtos @ 0x140136F84
+ * XREFs of MiDeletePerSessionProtos @ 0x140136FA4
  * Callers:
- *     MiFreeSubsectionProtos @ 0x1406C9410 (MiFreeSubsectionProtos.c)
- *     MiDeleteSessionDriverProtos @ 0x1406E1A78 (MiDeleteSessionDriverProtos.c)
+ *     MiFreeSubsectionProtos @ 0x1406C93F0 (MiFreeSubsectionProtos.c)
+ *     MiDeleteSessionDriverProtos @ 0x1406E1A58 (MiDeleteSessionDriverProtos.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
@@ -16,7 +16,7 @@
  *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
  *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)
  *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     KeSetPagePrivilege @ 0x14028DB20 (KeSetPagePrivilege.c)
+ *     KeSetPagePrivilege @ 0x14028DC20 (KeSetPagePrivilege.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

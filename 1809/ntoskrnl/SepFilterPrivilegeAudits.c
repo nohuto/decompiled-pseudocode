@@ -1,5 +1,5 @@
 /*
- * XREFs of SepFilterPrivilegeAudits @ 0x1406AE560
+ * XREFs of SepFilterPrivilegeAudits @ 0x1406AE540
  * Callers:
  *     SepAdtAuditPrivilegeUseWithContext @ 0x1405BB990 (SepAdtAuditPrivilegeUseWithContext.c)
  *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)

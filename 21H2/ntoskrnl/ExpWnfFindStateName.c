@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpWnfFindStateName @ 0x140798300
+ * XREFs of ExpWnfFindStateName @ 0x14060F480
  * Callers:
- *     ExpWnfCreateNameInstance @ 0x14066FED4 (ExpWnfCreateNameInstance.c)
- *     ExpWnfLookupNameInstance @ 0x140798234 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfCreateNameInstance @ 0x14060DA34 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfLookupNameInstance @ 0x14060F3B4 (ExpWnfLookupNameInstance.c)
  * Callees:
  *     <none>
  */

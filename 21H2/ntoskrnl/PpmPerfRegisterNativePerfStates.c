@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfRegisterNativePerfStates @ 0x140848BD0
+ * XREFs of PpmPerfRegisterNativePerfStates @ 0x1407B9AD0
  * Callers:
  *     <none>
  * Callees:
- *     PpmRegisterPerfStates @ 0x140848C18 (PpmRegisterPerfStates.c)
+ *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
  */
 
 __int64 __fastcall PpmPerfRegisterNativePerfStates(__int64 a1)

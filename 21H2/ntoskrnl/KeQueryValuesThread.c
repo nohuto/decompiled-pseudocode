@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryValuesThread @ 0x140302C20
+ * XREFs of KeQueryValuesThread @ 0x1402540D0
  * Callers:
- *     ExpGetProcessInformation @ 0x1407B6CA0 (ExpGetProcessInformation.c)
- *     PsQueryStatisticsProcess @ 0x1407B81B0 (PsQueryStatisticsProcess.c)
- *     NtQueryInformationThread @ 0x1407BF670 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
+ *     PsQueryStatisticsProcess @ 0x140618CC0 (PsQueryStatisticsProcess.c)
+ *     ExpGetProcessInformation @ 0x1406F1260 (ExpGetProcessInformation.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryValuesThread(__int64 a1, _DWORD *a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -163,13 +163,13 @@ LABEL_5:
         if ( v14 == 1 || (unsigned __int8)(v14 - 3) <= 3u )
           goto LABEL_8;
         LOBYTE(v11) = 2;
-        goto LABEL_39;
+        goto LABEL_36;
       }
       if ( *(_BYTE *)(a1 + 388) == 1 )
         break;
       if ( *(_BYTE *)(a1 + 388) == 2 )
       {
-LABEL_39:
+LABEL_36:
         v29 = *(unsigned int *)(a1 + 536);
         if ( (int)v29 >= 0 )
         {
@@ -190,13 +190,13 @@ LABEL_128:
           }
           while ( _interlockedbittestandset64((volatile signed __int32 *)(v12 + 48), 0LL) )
           {
-            v46 = v30->SchedulerAssist;
-            if ( v46 )
+            v44 = v30->SchedulerAssist;
+            if ( v44 )
             {
               if ( v30->NestingLevel <= 1u )
               {
-                v66 = v46[6] - 1;
-                v46[6] = v66;
+                v66 = v44[6] - 1;
+                v44[6] = v66;
                 if ( !v66 )
                   KiRemoveSystemWorkPriorityKick(v30);
               }
@@ -204,13 +204,13 @@ LABEL_128:
             do
               KeYieldProcessorEx(v76, (__int64)v10, a3, (__int64)SchedulerAssist);
             while ( *(_QWORD *)(v12 + 48) );
-            v47 = v30->SchedulerAssist;
-            if ( v47 )
+            v45 = v30->SchedulerAssist;
+            if ( v45 )
             {
               if ( v30->NestingLevel <= 1u )
               {
-                v67 = v47[6];
-                v47[6] = v67 + 1;
+                v67 = v45[6];
+                v45[6] = v67 + 1;
                 if ( v67 == -1 )
                   goto LABEL_128;
               }
@@ -218,9 +218,9 @@ LABEL_128:
           }
           if ( a1 == *(_QWORD *)(v12 + 8) )
             goto LABEL_8;
-LABEL_34:
+LABEL_31:
           _InterlockedAnd64((volatile signed __int64 *)(v12 + 48), 0LL);
-          goto LABEL_35;
+          goto LABEL_32;
         }
       }
       else
@@ -277,7 +277,7 @@ LABEL_98:
             goto LABEL_8;
           if ( *(_BYTE *)(a1 + 388) == 3 && *(_DWORD *)(a1 + 536) == (_DWORD)v24 )
             __fastfail(0x1Eu);
-          goto LABEL_34;
+          goto LABEL_31;
         }
       }
     }
@@ -301,13 +301,13 @@ LABEL_116:
       }
       while ( _interlockedbittestandset64((volatile signed __int32 *)(v12 + 48), 0LL) )
       {
-        v44 = v40->SchedulerAssist;
-        if ( v44 )
+        v46 = v40->SchedulerAssist;
+        if ( v46 )
         {
           if ( v40->NestingLevel <= 1u )
           {
-            v62 = v44[6] - 1;
-            v44[6] = v62;
+            v62 = v46[6] - 1;
+            v46[6] = v62;
             if ( !v62 )
               KiRemoveSystemWorkPriorityKick(v40);
           }
@@ -315,13 +315,13 @@ LABEL_116:
         do
           KeYieldProcessorEx(&v80, (__int64)v10, a3, (__int64)SchedulerAssist);
         while ( *(_QWORD *)(v12 + 48) );
-        v45 = v40->SchedulerAssist;
-        if ( v45 )
+        v47 = v40->SchedulerAssist;
+        if ( v47 )
         {
           if ( v40->NestingLevel <= 1u )
           {
-            v63 = v45[6];
-            v45[6] = v63 + 1;
+            v63 = v47[6];
+            v47[6] = v63 + 1;
             if ( v63 == -1 )
               goto LABEL_116;
           }
@@ -329,14 +329,14 @@ LABEL_116:
       }
       if ( *(_BYTE *)(a1 + 388) == 1 && *(_DWORD *)(a1 + 536) == (_DWORD)v34 )
         goto LABEL_8;
-      goto LABEL_34;
+      goto LABEL_31;
     }
     v35 = KeGetCurrentPrcb();
     v36 = (unsigned int)v34;
     LODWORD(v36) = v34 & 0x7FFFFFFF;
     v79 = 0;
     v37 = v35->SchedulerAssist;
-    v13 = *(volatile signed __int32 **)(KiProcessorBlock[v36] + 34888);
+    v13 = *(volatile signed __int32 **)(KiProcessorBlock[v36] + 33864);
     if ( v37 )
     {
       if ( v35->NestingLevel <= 1u )
@@ -379,7 +379,7 @@ LABEL_107:
     if ( *(_BYTE *)(a1 + 388) == 1 && *(_DWORD *)(a1 + 536) == (_DWORD)v34 )
       break;
     _InterlockedAnd64((volatile signed __int64 *)v13, 0LL);
-LABEL_35:
+LABEL_32:
     v27 = KeGetCurrentPrcb();
     v28 = v27->SchedulerAssist;
     if ( !v28 || v27->NestingLevel > 1u )

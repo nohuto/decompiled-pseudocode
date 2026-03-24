@@ -1,15 +1,15 @@
 /*
- * XREFs of PiUpdateDevicePanel @ 0x140799150
+ * XREFs of PiUpdateDevicePanel @ 0x140744734
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PipProcessStartPhase3 @ 0x14079BED4 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x140747010 (PipProcessStartPhase3.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x140798CA4 (PnpDeviceObjectToDeviceInstance.c)
- *     _CmUpdateDevicePanel @ 0x14079920C (_CmUpdateDevicePanel.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x140743594 (PnpDeviceObjectToDeviceInstance.c)
+ *     _CmUpdateDevicePanel @ 0x140743B48 (_CmUpdateDevicePanel.c)
  */
 
 __int64 __fastcall PiUpdateDevicePanel(__int64 a1, HANDLE a2)
@@ -32,9 +32,9 @@ __int64 __fastcall PiUpdateDevicePanel(__int64 a1, HANDLE a2)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);
-  updated = CmUpdateDevicePanel(*(_QWORD *)&PiPnpRtlCtx, *(_QWORD *)(a1 + 48), Handle);
+  updated = CmUpdateDevicePanel(*(__int64 *)&PiPnpRtlCtx, *(const WCHAR **)(a1 + 48), (__int64)Handle);
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 LABEL_4:
   if ( Handle && Handle != a2 )
     ZwClose(Handle);

@@ -3,12 +3,12 @@
  * Callers:
  *     CmpInitializePreloadedHives @ 0x1409C3A28 (CmpInitializePreloadedHives.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
  *     CmpLinkHiveToMaster @ 0x1405B8C48 (CmpLinkHiveToMaster.c)
- *     CmpSetupLoggingState @ 0x14073257C (CmpSetupLoggingState.c)
+ *     CmpSetupLoggingState @ 0x14073255C (CmpSetupLoggingState.c)
  */
 
 __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2)

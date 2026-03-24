@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CalcSurfaceSyncRefresh@CFlipToken@@UEAAII@Z @ 0x1C0079450
+ * XREFs of ?CalcSurfaceSyncRefresh@CFlipToken@@UEAAII@Z @ 0x1C0019470
  * Callers:
  *     <none>
  * Callees:

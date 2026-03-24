@@ -1,15 +1,15 @@
 /*
- * XREFs of DxEngLockShareSem @ 0x1C0176B20
+ * XREFs of DxEngLockShareSem @ 0x1C014A7D0
  * Callers:
- *     ?W32kAcquireDynamicModeChangeLockShared@@YAXXZ @ 0x1C0176960 (-W32kAcquireDynamicModeChangeLockShared@@YAXXZ.c)
+ *     ?W32kAcquireDynamicModeChangeLockShared@@YAXXZ @ 0x1C014A6C0 (-W32kAcquireDynamicModeChangeLockShared@@YAXXZ.c)
  * Callees:
- *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C0089800 (EtwTraceGreLockAcquireSemaphoreShared.c)
+ *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C007F220 (EtwTraceGreLockAcquireSemaphoreShared.c)
  */
 
 __int64 __fastcall DxEngLockShareSem(__int64 a1, __int64 a2, int a3)
 {
   if ( ghsemDynamicModeChange )
-    ExEnterPriorityRegionAndAcquireResourceShared(ghsemDynamicModeChange, a2);
+    ExEnterPriorityRegionAndAcquireResourceShared(ghsemDynamicModeChange);
   EtwTraceGreLockAcquireSemaphoreShared((__int64)L"ghsemDynamicModeChange", (int)ghsemDynamicModeChange, a3);
   return 1LL;
 }

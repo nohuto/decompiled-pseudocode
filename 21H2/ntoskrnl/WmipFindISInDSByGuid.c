@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipFindISInDSByGuid @ 0x1409DE468
+ * XREFs of WmipFindISInDSByGuid @ 0x1407C4280
  * Callers:
- *     WmipUpdateDataSource @ 0x1409DE80C (WmipUpdateDataSource.c)
- *     WmipUpdateModifyGuid @ 0x1409DEB60 (WmipUpdateModifyGuid.c)
+ *     WmipUpdateDataSource @ 0x1407C3FC8 (WmipUpdateDataSource.c)
+ *     WmipUpdateModifyGuid @ 0x1407C4120 (WmipUpdateModifyGuid.c)
  * Callees:
- *     WmipReferenceEntry @ 0x140784160 (WmipReferenceEntry.c)
+ *     WmipReferenceEntry @ 0x14063EBE4 (WmipReferenceEntry.c)
  */
 
 _QWORD *__fastcall WmipFindISInDSByGuid(__int64 a1, _QWORD *a2)
@@ -16,10 +16,8 @@ _QWORD *__fastcall WmipFindISInDSByGuid(__int64 a1, _QWORD *a2)
   __int64 v7; // rdx
 
   v2 = (_QWORD *)(a1 + 40);
-  for ( i = *(_QWORD **)(a1 + 40); ; i = (_QWORD *)*i )
+  for ( i = *(_QWORD **)(a1 + 40); i != v2; i = (_QWORD *)*i )
   {
-    if ( i == v2 )
-      return 0LL;
     v5 = i - 5;
     v6 = i[2];
     if ( v6 )
@@ -28,9 +26,11 @@ _QWORD *__fastcall WmipFindISInDSByGuid(__int64 a1, _QWORD *a2)
       if ( *a2 == *(_QWORD *)(v6 + 72) )
         v7 = a2[1] - *(_QWORD *)(v6 + 80);
       if ( !v7 )
-        break;
+      {
+        WmipReferenceEntry((ULONG_PTR)(i - 5));
+        return v5;
+      }
     }
   }
-  WmipReferenceEntry((ULONG_PTR)(i - 5));
-  return v5;
+  return 0LL;
 }

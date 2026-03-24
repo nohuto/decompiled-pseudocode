@@ -1,32 +1,30 @@
 /*
- * XREFs of MiReturnVadQuota @ 0x1406FB444
+ * XREFs of MiReturnVadQuota @ 0x14063BEB0
  * Callers:
- *     MiFinishVadDeletion @ 0x140289BF0 (MiFinishVadDeletion.c)
+ *     MiFinishVadDeletion @ 0x140297440 (MiFinishVadDeletion.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
- *     MiVadPureReserve @ 0x140277A50 (MiVadPureReserve.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14028B210 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiVadPureReserve @ 0x14021B950 (MiVadPureReserve.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140298A60 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140298A90 (PsReturnProcessPagedPoolQuota.c)
  */
 
-__int64 __fastcall MiReturnVadQuota(__int64 a1, struct _KPROCESS *a2, int a3)
+unsigned __int64 __fastcall MiReturnVadQuota(__int64 a1, struct _KPROCESS *a2, int a3)
 {
-  __int64 v6; // rax
-  unsigned __int64 v7; // rcx
-  __int64 result; // rax
+  __int64 v3; // r9
+  unsigned __int64 result; // rax
 
-  v6 = *(unsigned int *)(a1 + 52);
-  LODWORD(v6) = v6 & 0x7FFFFFFF;
-  v7 = v6 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31);
-  result = 0x7FFFFFFFDLL;
-  if ( v7 >= 0x7FFFFFFFDLL )
+  v3 = *(unsigned int *)(a1 + 52);
+  LODWORD(v3) = v3 & 0x7FFFFFFF;
+  result = v3 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31);
+  if ( result >= 0x7FFFFFFFDLL )
   {
-    if ( v7 == 0x7FFFFFFFDLL )
+    if ( result == 0x7FFFFFFFDLL )
       return PsReturnProcessNonPagedPoolQuota(a2, 64LL);
   }
   else
   {
     result = PsReturnProcessNonPagedPoolQuota(a2, 136LL);
-    if ( a3 )
+    if ( a3 == 1 )
     {
       result = MiVadPureReserve(a1);
       if ( !(_DWORD)result )

@@ -3,9 +3,9 @@
  * Callers:
  *     NtAlpcQueryInformationMessage @ 0x140614880 (NtAlpcQueryInformationMessage.c)
  *     NtAlpcImpersonateClientOfPort @ 0x140637740 (NtAlpcImpersonateClientOfPort.c)
- *     NtAlpcImpersonateClientContainerOfPort @ 0x140849F40 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x140849F20 (NtAlpcImpersonateClientContainerOfPort.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall AlpcpCaptureIdMessage(__int64 a1, _DWORD *a2, _DWORD *a3)

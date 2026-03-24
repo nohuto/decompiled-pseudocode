@@ -1,24 +1,24 @@
 /*
- * XREFs of ?CreateRegion@@YAJPEAPEAUIRegion@@@Z @ 0x1C009B870
+ * XREFs of ?CreateRegion@@YAJPEAPEAUIRegion@@@Z @ 0x1C0085AE0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
  */
 
 __int64 __fastcall CreateRegion(struct IRegion **a1)
 {
-  __int64 Pool2; // rax
+  __int64 v2; // rax
   struct IRegion *v3; // rdx
 
-  Pool2 = ExAllocatePool2(256LL, 24LL, 1852273223LL);
-  v3 = (struct IRegion *)Pool2;
-  if ( Pool2 )
+  v2 = Win32AllocPool(24LL, 0x6E677247u);
+  v3 = (struct IRegion *)v2;
+  if ( v2 )
   {
-    *(_DWORD *)(Pool2 + 12) = 0;
-    *(_QWORD *)(Pool2 + 16) = 0LL;
-    *(_QWORD *)Pool2 = &CRegion::`vftable';
-    *(_DWORD *)(Pool2 + 8) = 1;
+    *(_DWORD *)(v2 + 12) = 0;
+    *(_QWORD *)(v2 + 16) = 0LL;
+    *(_QWORD *)v2 = &CRegion::`vftable';
+    *(_DWORD *)(v2 + 8) = 1;
   }
   else
   {

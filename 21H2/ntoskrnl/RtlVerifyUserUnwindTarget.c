@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlVerifyUserUnwindTarget @ 0x1409BFF78
+ * XREFs of RtlVerifyUserUnwindTarget @ 0x14091A994
  * Callers:
- *     KiVerifyContextIpForUserCet @ 0x14056E110 (KiVerifyContextIpForUserCet.c)
+ *     KiVerifyContextIpForUserCet @ 0x1403F2DF8 (KiVerifyContextIpForUserCet.c)
  * Callees:
- *     bsearch_s @ 0x1403E1950 (bsearch_s.c)
- *     RtlGetImageBaseAndLoadConfig @ 0x1405EEB40 (RtlGetImageBaseAndLoadConfig.c)
- *     RtlpFindDynamicEHContinuationTarget @ 0x1409C019C (RtlpFindDynamicEHContinuationTarget.c)
+ *     bsearch_s @ 0x1403D2590 (bsearch_s.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1403F88A8 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlpFindDynamicEHContinuationTarget @ 0x14091AB88 (RtlpFindDynamicEHContinuationTarget.c)
  */
 
 __int64 __fastcall RtlVerifyUserUnwindTarget(unsigned __int64 a1, int a2, __int64 a3)

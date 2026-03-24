@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRevokeExecutePte @ 0x140358590
+ * XREFs of MiRevokeExecutePte @ 0x1403751D0
  * Callers:
  *     <none>
  * Callees:
- *     MiGetPfnProtection @ 0x1402160D4 (MiGetPfnProtection.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     MiWriteValidPteNewProtection @ 0x1402846E0 (MiWriteValidPteNewProtection.c)
+ *     MiWriteValidPteNewProtection @ 0x140290080 (MiWriteValidPteNewProtection.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiGetPfnProtection @ 0x140339C98 (MiGetPfnProtection.c)
  */
 
 __int64 __fastcall MiRevokeExecutePte(__int64 a1, unsigned __int64 a2)
@@ -24,7 +24,7 @@ __int64 __fastcall MiRevokeExecutePte(__int64 a1, unsigned __int64 a2)
     if ( v8 >= 0 )
     {
       v6 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v8);
-      if ( (MiGetPfnProtection(0xFFFFFFFFFFLL, v4, 48 * ((v6 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL) & 2) == 0 )
+      if ( (MiGetPfnProtection(0xFFFFFFFFFLL, v4, 48 * ((v6 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL) & 2) == 0 )
       {
         MiWriteValidPteNewProtection(a2, v5 | 0x8000000000000000uLL);
         MiInsertTbFlushEntry(*(_QWORD *)(a1 + 168), v4, 1LL, 0);

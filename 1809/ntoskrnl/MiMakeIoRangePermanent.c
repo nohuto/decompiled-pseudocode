@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMakeIoRangePermanent @ 0x1402AB90C
+ * XREFs of MiMakeIoRangePermanent @ 0x1402ABA0C
  * Callers:
- *     MiMakeIoRangePermanentDpc @ 0x1402ABBC0 (MiMakeIoRangePermanentDpc.c)
+ *     MiMakeIoRangePermanentDpc @ 0x1402ABCC0 (MiMakeIoRangePermanentDpc.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRemoveUnmappedIoNode @ 0x1400E59B0 (MiRemoveUnmappedIoNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnmappedIoNode @ 0x1400E59D0 (MiRemoveUnmappedIoNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

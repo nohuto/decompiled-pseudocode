@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_Stage_AcquireMdl @ 0x1C001A86E
+ * XREFs of Bulk_Stage_AcquireMdl @ 0x1C0044648
  * Callers:
- *     Bulk_PrepareStage @ 0x1C000F538 (Bulk_PrepareStage.c)
+ *     Bulk_PrepareStage @ 0x1C000D984 (Bulk_PrepareStage.c)
  * Callees:
- *     WPP_RECORDER_SF_DDDqq @ 0x1C000EBF0 (WPP_RECORDER_SF_DDDqq.c)
+ *     WPP_RECORDER_SF_DDDqq @ 0x1C000CFB8 (WPP_RECORDER_SF_DDDqq.c)
  */
 
 __int64 __fastcall Bulk_Stage_AcquireMdl(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall Bulk_Stage_AcquireMdl(__int64 a1)
   char *v8; // r15
   struct _MDL *Mdl; // rax
   int v10; // r8d
-  PIRP Irp; // [rsp+20h] [rbp-48h]
+  int v11; // edx
 
   v2 = 0;
   v3 = *(_QWORD *)(*(_QWORD *)a1 + 56LL);
@@ -44,7 +44,11 @@ __int64 __fastcall Bulk_Stage_AcquireMdl(__int64 a1)
     else
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_DDDqq(*(_QWORD *)(*(_QWORD *)(v3 + 56) + 80LL), 2u, v10, 0x1Cu, (__int64)Irp);
+      {
+        v11 = *(unsigned __int8 *)(*(_QWORD *)(v3 + 48) + 135LL);
+        LOBYTE(v11) = 2;
+        WPP_RECORDER_SF_DDDqq(*(_QWORD *)(*(_QWORD *)(v3 + 56) + 80LL), v11, v10, 28);
+      }
       return (unsigned int)-1073741670;
     }
   }

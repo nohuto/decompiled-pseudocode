@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z @ 0x1C0240608
+ * XREFs of ?ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z @ 0x1C0251684
  * Callers:
- *     ?UpdateInputTarget@InteractiveControlDevice@@QEAAPEAUtagWND@@I@Z @ 0x1C0246904 (-UpdateInputTarget@InteractiveControlDevice@@QEAAPEAUtagWND@@I@Z.c)
+ *     ?UpdateInputTarget@InteractiveControlDevice@@QEAAPEAUtagWND@@I@Z @ 0x1C0257F14 (-UpdateInputTarget@InteractiveControlDevice@@QEAAPEAUtagWND@@I@Z.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0240074 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C024660C (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02510F4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C0257C38 (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
  */
 
 __int64 __fastcall InteractiveControlManager::ClearDeviceFocus(
@@ -14,7 +14,7 @@ __int64 __fastcall InteractiveControlManager::ClearDeviceFocus(
         __int64 a4)
 {
   _QWORD *v5; // rbx
-  __int64 v6; // rdi
+  __int64 v6; // rsi
   __int64 v7; // r8
   __int64 v8; // r9
   _QWORD v10[3]; // [rsp+30h] [rbp-18h] BYREF
@@ -22,13 +22,13 @@ __int64 __fastcall InteractiveControlManager::ClearDeviceFocus(
   __int64 v12; // [rsp+60h] [rbp+18h] BYREF
 
   LODWORD(v11) = a2;
-  if ( (unsigned int)dword_1C0354150 > 4 )
+  if ( (unsigned int)dword_1C032A2F8 > 4 )
   {
     LODWORD(v11) = 0;
     v12 = (__int64)"InteractiveControlManager::ClearDeviceFocus entry";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C0354150,
-      byte_1C031D88E,
+      (__int64)&dword_1C032A2F8,
+      byte_1C02F3076,
       a3,
       a4,
       (void **)&v12,
@@ -46,14 +46,14 @@ __int64 __fastcall InteractiveControlManager::ClearDeviceFocus(
   while ( v6 );
   v10[1] = 0LL;
   v10[0] = this;
-  HMAssignmentLock(v10, 0LL);
-  if ( (unsigned int)dword_1C0354150 > 4 )
+  HMAssignmentLock(v10);
+  if ( (unsigned int)dword_1C032A2F8 > 4 )
   {
     LODWORD(v11) = 0;
     v12 = (__int64)"InteractiveControlManager::ClearDeviceFocus exit";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C0354150,
-      byte_1C031D855,
+      (__int64)&dword_1C032A2F8,
+      byte_1C02F303D,
       v7,
       v8,
       (void **)&v12,

@@ -1,50 +1,51 @@
 /*
- * XREFs of MiAssignSystemVa @ 0x140B63A74
+ * XREFs of MiAssignSystemVa @ 0x140A50B28
  * Callers:
- *     MiAssignTopLevelRanges @ 0x140B6379C (MiAssignTopLevelRanges.c)
+ *     MiAssignTopLevelRanges @ 0x140A508A8 (MiAssignTopLevelRanges.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     RtlFindClearBitsAndSet @ 0x140295D80 (RtlFindClearBitsAndSet.c)
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     RtlFindClearBitsAndSet @ 0x1402509C0 (RtlFindClearBitsAndSet.c)
  */
 
-__int64 __fastcall MiAssignSystemVa(ULONG NumberToClear, unsigned int a2)
+__int64 __fastcall MiAssignSystemVa(ULONG NumberToFind, unsigned int a2)
 {
-  ULONG v4; // esi
+  ULONG v4; // ebp
   int v5; // ebx
+  unsigned __int8 v6; // al
   ULONG ClearBitsAndSet; // eax
-  __int64 v7; // rdi
-  unsigned __int8 v8; // al
-  ULONG v9; // ebx
+  ULONG v8; // edi
+  ULONG v10; // ebx
   RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
-  *(_QWORD *)&BitMapHeader.SizeOfBitMap = 256LL;
-  BitMapHeader.Buffer = (unsigned int *)&xmmword_140C67060;
-  if ( NumberToClear <= 2 )
+  *(&BitMapHeader.SizeOfBitMap + 1) = 0;
+  BitMapHeader.SizeOfBitMap = 256;
+  BitMapHeader.Buffer = (unsigned int *)&xmmword_140C4E258;
+  if ( NumberToFind <= 2 )
   {
-    v8 = ExGenRandom(1);
+    v6 = ExGenRandom(1);
     v5 = 8;
     goto LABEL_7;
   }
-  v4 = dword_140C67080;
+  v4 = dword_140C4E278;
   v5 = a2 >= 4 ? 0x10 : 0;
   while ( 1 )
   {
-    ClearBitsAndSet = RtlFindClearBitsAndSet(&BitMapHeader, NumberToClear, v4);
-    v7 = ClearBitsAndSet;
+    ClearBitsAndSet = RtlFindClearBitsAndSet(&BitMapHeader, NumberToFind, v4);
+    v8 = ClearBitsAndSet;
     if ( ClearBitsAndSet == -1 )
       return 0LL;
     if ( ClearBitsAndSet == v4 || !v5 )
       break;
     --v5;
-    RtlClearBits(&BitMapHeader, ClearBitsAndSet, NumberToClear);
-    v8 = ExGenRandom(1);
+    RtlClearBits(&BitMapHeader, ClearBitsAndSet, NumberToFind);
+    v6 = ExGenRandom(1);
 LABEL_7:
-    v4 = v8;
+    v4 = v6;
   }
-  v9 = ClearBitsAndSet + NumberToClear;
+  v10 = ClearBitsAndSet + NumberToFind;
   if ( a2 != 1 )
-    v9 = (unsigned __int8)(v9 + (unsigned int)ExGenRandom(1) % a2);
-  dword_140C67080 = v9;
-  return (v7 - 256) << 39;
+    v10 = (unsigned __int8)(v10 + (unsigned int)ExGenRandom(1) % a2);
+  dword_140C4E278 = v10;
+  return (v8 - 256LL) << 39;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpParseSignatureName @ 0x1409FCF20
+ * XREFs of ExpParseSignatureName @ 0x140950E14
  * Callers:
- *     ExpConvertSignatureName @ 0x1409FBD0C (ExpConvertSignatureName.c)
+ *     ExpConvertSignatureName @ 0x14094F7B0 (ExpConvertSignatureName.c)
  * Callees:
- *     wcsncpy_s @ 0x1403DF8D0 (wcsncpy_s.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     ExpTranslateHexStringToGUID @ 0x1409FE244 (ExpTranslateHexStringToGUID.c)
- *     ExpTranslateHexStringToULONG @ 0x1409FE3C8 (ExpTranslateHexStringToULONG.c)
- *     ExpTranslateHexStringToULONGLONG @ 0x1409FE468 (ExpTranslateHexStringToULONGLONG.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     wcsncpy_s @ 0x1403D7D20 (wcsncpy_s.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     ExpTranslateHexStringToGUID @ 0x14095263C (ExpTranslateHexStringToGUID.c)
+ *     ExpTranslateHexStringToULONG @ 0x1409527C0 (ExpTranslateHexStringToULONG.c)
+ *     ExpTranslateHexStringToULONGLONG @ 0x140952860 (ExpTranslateHexStringToULONGLONG.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ExpParseSignatureName(
@@ -19,44 +19,45 @@ NTSTATUS __fastcall ExpParseSignatureName(
         __int64 a4,
         __int64 a5,
         __int64 a6,
-        bool *a7,
+        char *a7,
         char *a8)
 {
-  wchar_t v9; // dx
-  bool v12; // r12
-  char v13; // r10
-  char v14; // r15
+  wchar_t v8; // r10
+  bool v11; // r8
+  char v13; // dl
+  char v14; // r12
   __int64 v15; // rdi
   wchar_t v16; // cx
+  char v17; // r15
   NTSTATUS result; // eax
-  wchar_t *Pool2; // rax
-  wchar_t *v19; // r14
-  int v20; // eax
-  int v21; // ebx
-  __int64 v22; // rdi
-  wchar_t *v23; // r14
-  int v24; // eax
-  const wchar_t *v25; // r8
-  unsigned int v26; // ecx
-  __int64 v27; // rbx
-  __int64 v28; // rdi
-  int v29; // edx
-  const wchar_t *v30; // r8
-  unsigned int v31; // ecx
-  __int64 v32; // rbx
-  int v33; // eax
-  int v34; // r9d
-  const wchar_t *v35; // r8
-  unsigned int v36; // ecx
-  __int64 v37; // rbx
+  wchar_t *PoolWithTag; // rax
+  wchar_t *v20; // r14
+  int v21; // eax
+  int v22; // ebx
+  __int64 v23; // rdi
+  wchar_t *v24; // r14
+  int v25; // eax
+  const wchar_t *v26; // r8
+  unsigned int v27; // ecx
+  __int64 v28; // rbx
+  __int64 v29; // rdi
+  int v30; // edx
+  const wchar_t *v31; // r8
+  unsigned int v32; // ecx
+  __int64 v33; // rbx
+  int v34; // eax
+  int v35; // r9d
+  const wchar_t *v36; // r8
+  unsigned int v37; // ecx
+  __int64 v38; // rbx
   UNICODE_STRING GuidString; // [rsp+20h] [rbp-48h] BYREF
 
-  v9 = *Src;
-  GuidString = 0LL;
-  v12 = v9 == 123;
+  v8 = *Src;
+  v11 = *Src == 123;
   v13 = 0;
   v14 = 0;
   LODWORD(v15) = 0;
+  GuidString = 0LL;
   if ( a2 )
   {
     do
@@ -64,157 +65,150 @@ NTSTATUS __fastcall ExpParseSignatureName(
       v16 = Src[(unsigned int)v15];
       if ( v16 == 41 )
         break;
-      if ( v9 == 123 )
+      if ( v8 == 123 )
       {
         if ( v16 == 125 )
         {
           v13 = 1;
-          goto LABEL_9;
+          break;
         }
       }
       else if ( v16 == 45 )
       {
-        goto LABEL_9;
+        break;
       }
       LODWORD(v15) = v15 + 1;
     }
     while ( (unsigned int)v15 < a2 );
   }
-  if ( v9 == 123 )
+  if ( v8 == 123 && !v13 )
     return -1073741811;
-LABEL_9:
-  if ( (unsigned int)v15 <= 8 )
+  v17 = v11;
+  if ( (unsigned int)v15 > 8 )
+    v17 = 1;
+  if ( v17 != 1 || v13 != 1 )
   {
-    if ( v9 != 123 )
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, 2LL * (unsigned int)(v15 + 1), 0x72766E45u);
+    v20 = PoolWithTag;
+    if ( !PoolWithTag )
+      return -1073741670;
+    wcsncpy_s(PoolWithTag, (unsigned int)(v15 + 1), Src, (unsigned int)v15);
+    v20[(unsigned int)v15] = 0;
+    if ( v17 )
+      v21 = ExpTranslateHexStringToGUID(v20, a3);
+    else
+      v21 = ExpTranslateHexStringToULONG(v20, a3);
+    v22 = v21;
+    ExFreePoolWithTag(v20, 0);
+    if ( v22 < 0 )
+      return v22;
+    v14 = 0;
+LABEL_24:
+    if ( (unsigned int)v15 < a2 )
     {
-LABEL_15:
-      Pool2 = (wchar_t *)ExAllocatePool2(64LL, 2LL * (unsigned int)(v15 + 1), 1920364101LL);
-      v19 = Pool2;
-      if ( !Pool2 )
-        return -1073741670;
-      wcsncpy_s(Pool2, (unsigned int)(v15 + 1), Src, (unsigned int)v15);
-      v19[(unsigned int)v15] = 0;
-      if ( v12 )
-        v20 = ExpTranslateHexStringToGUID(v19, a3);
-      else
-        v20 = ExpTranslateHexStringToULONG(v19, a3);
-      v21 = v20;
-      ExFreePoolWithTag(v19, 0);
-      if ( v21 < 0 )
-        return v21;
-      v14 = 0;
-LABEL_22:
-      if ( (unsigned int)v15 >= a2 )
-        return -1073741811;
       if ( Src[(unsigned int)v15] != 45 )
       {
-LABEL_45:
-        if ( Src[(unsigned int)v15] == 41 && (v12 || v14) )
+LABEL_46:
+        if ( (unsigned int)v15 < a2 && Src[(unsigned int)v15] == 41 && (v17 || v14) )
         {
-          *a7 = v12;
+          *a7 = v17;
           *a8 = v14;
           return 0;
         }
         return -1073741811;
       }
-      v22 = (unsigned int)(v15 + 1);
+      v23 = (unsigned int)(v15 + 1);
       v14 = 1;
-      if ( (unsigned int)v22 >= a2 )
-        return -1073741811;
-      v23 = (wchar_t *)ExAllocatePool2(64LL, 34LL, 1920364101LL);
-      if ( v23 )
+      if ( (unsigned int)v23 < a2 )
       {
-        v24 = v22;
-        v25 = &Src[v22];
-        do
+        v24 = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x22uLL, 0x72766E45u);
+        if ( v24 )
         {
-          if ( Src[v22] == 45 )
-            break;
-          v22 = (unsigned int)(v22 + 1);
+          v25 = v23;
+          v26 = &Src[v23];
+          do
+          {
+            if ( Src[v23] == 45 )
+              break;
+            v23 = (unsigned int)(v23 + 1);
+          }
+          while ( (unsigned int)v23 < a2 );
+          v27 = v23 - v25;
+          if ( (unsigned int)(v23 - v25 - 1) > 7 )
+            goto LABEL_51;
+          v28 = v27;
+          wcsncpy_s(v24, 0x11uLL, v26, v27);
+          v24[v28] = 0;
+          v22 = ExpTranslateHexStringToULONG(v24, a4);
+          if ( v22 < 0 )
+          {
+LABEL_52:
+            ExFreePoolWithTag(v24, 0);
+            return v22;
+          }
+          v29 = (unsigned int)(v23 + 1);
+          if ( (unsigned int)v29 >= a2 )
+            goto LABEL_51;
+          v30 = v29;
+          v31 = &Src[v29];
+          do
+          {
+            if ( Src[v29] == 45 )
+              break;
+            v29 = (unsigned int)(v29 + 1);
+          }
+          while ( (unsigned int)v29 < a2 );
+          v32 = v29 - v30;
+          if ( (unsigned int)(v29 - v30 - 1) > 0xF )
+            goto LABEL_51;
+          v33 = v32;
+          wcsncpy_s(v24, 0x11uLL, v31, v32);
+          v24[v33] = 0;
+          v34 = ExpTranslateHexStringToULONGLONG(v24, a5);
+          if ( v34 < 0 )
+          {
+            v22 = v34;
+            goto LABEL_52;
+          }
+          v15 = (unsigned int)(v29 + 1);
+          if ( (unsigned int)v15 >= a2 )
+            goto LABEL_51;
+          v35 = v15;
+          v36 = &Src[v15];
+          do
+          {
+            if ( Src[v15] == 41 )
+              break;
+            v15 = (unsigned int)(v15 + 1);
+          }
+          while ( (unsigned int)v15 < a2 );
+          v37 = v15 - v35;
+          if ( (unsigned int)(v15 - v35 - 1) > 0xF )
+          {
+LABEL_51:
+            v22 = -1073741811;
+            goto LABEL_52;
+          }
+          v38 = v37;
+          wcsncpy_s(v24, 0x11uLL, v36, v37);
+          v24[v38] = 0;
+          v22 = ExpTranslateHexStringToULONGLONG(v24, a6);
+          ExFreePoolWithTag(v24, 0);
+          if ( v22 < 0 )
+            return v22;
+          goto LABEL_46;
         }
-        while ( (unsigned int)v22 < a2 );
-        v26 = v22 - v24;
-        if ( (unsigned int)(v22 - v24 - 1) > 7 )
-          goto LABEL_49;
-        v27 = v26;
-        wcsncpy_s(v23, 0x11uLL, v25, v26);
-        v23[v27] = 0;
-        v21 = ExpTranslateHexStringToULONG(v23, a4);
-        if ( v21 < 0 )
-        {
-LABEL_50:
-          ExFreePoolWithTag(v23, 0);
-          return v21;
-        }
-        v28 = (unsigned int)(v22 + 1);
-        if ( (unsigned int)v28 >= a2 )
-          goto LABEL_49;
-        v29 = v28;
-        v30 = &Src[v28];
-        do
-        {
-          if ( Src[v28] == 45 )
-            break;
-          v28 = (unsigned int)(v28 + 1);
-        }
-        while ( (unsigned int)v28 < a2 );
-        v31 = v28 - v29;
-        if ( (unsigned int)(v28 - v29 - 1) > 0xF )
-          goto LABEL_49;
-        v32 = v31;
-        wcsncpy_s(v23, 0x11uLL, v30, v31);
-        v23[v32] = 0;
-        v33 = ExpTranslateHexStringToULONGLONG(v23, a5);
-        if ( v33 < 0 )
-        {
-          v21 = v33;
-          goto LABEL_50;
-        }
-        v15 = (unsigned int)(v28 + 1);
-        if ( (unsigned int)v15 >= a2 )
-          goto LABEL_49;
-        v34 = v15;
-        v35 = &Src[v15];
-        do
-        {
-          if ( Src[v15] == 41 )
-            break;
-          v15 = (unsigned int)(v15 + 1);
-        }
-        while ( (unsigned int)v15 < a2 );
-        v36 = v15 - v34;
-        if ( (unsigned int)(v15 - v34 - 1) > 0xF )
-        {
-LABEL_49:
-          v21 = -1073741811;
-          goto LABEL_50;
-        }
-        v37 = v36;
-        wcsncpy_s(v23, 0x11uLL, v35, v36);
-        v23[v37] = 0;
-        v21 = ExpTranslateHexStringToULONGLONG(v23, a6);
-        ExFreePoolWithTag(v23, 0);
-        if ( v21 < 0 )
-          return v21;
-        if ( (unsigned int)v15 < a2 )
-          goto LABEL_45;
-        return -1073741811;
+        return -1073741670;
       }
-      return -1073741670;
     }
+    return -1073741811;
   }
-  else
-  {
-    v12 = 1;
-  }
-  if ( v13 != 1 )
-    goto LABEL_15;
   LODWORD(v15) = v15 + 1;
   GuidString.Buffer = Src;
   GuidString.Length = 2 * v15;
   GuidString.MaximumLength = 2 * v15;
   result = RtlGUIDFromString(&GuidString, a3);
   if ( result >= 0 )
-    goto LABEL_22;
+    goto LABEL_24;
   return result;
 }

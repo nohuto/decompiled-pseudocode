@@ -1,30 +1,31 @@
 /*
- * XREFs of CmpDeleteHive @ 0x1406BBAD8
+ * XREFs of CmpDeleteHive @ 0x14071C6F4
  * Callers:
- *     CmpDestroyHive @ 0x14065A7E0 (CmpDestroyHive.c)
- *     CmpUnlockDeletedHashEntryByKcb @ 0x14067EC64 (CmpUnlockDeletedHashEntryByKcb.c)
- *     CmpDereferenceHive @ 0x1406A5F0C (CmpDereferenceHive.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x1406FEA54 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpUnblockHiveWrites @ 0x14071A730 (CmpUnblockHiveWrites.c)
- *     CmpUnblockTwoHiveWrites @ 0x14071A784 (CmpUnblockTwoHiveWrites.c)
- *     CmpBlockTwoHiveWrites @ 0x14071B284 (CmpBlockTwoHiveWrites.c)
- *     CmpUnlockHashEntry @ 0x14071B8C0 (CmpUnlockHashEntry.c)
- *     CmpBlockHiveWrites @ 0x14071B99C (CmpBlockHiveWrites.c)
- *     CmpGetNextHive @ 0x14071BA34 (CmpGetNextHive.c)
- *     CmpUnlockHashEntryByKcb @ 0x14071C050 (CmpUnlockHashEntryByKcb.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1407350A0 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
- *     CmpDelayCloseWorker @ 0x1407C0D40 (CmpDelayCloseWorker.c)
- *     CmpDeleteKeyObject @ 0x1407C2680 (CmpDeleteKeyObject.c)
- *     CmpWalkOneLevel @ 0x1407C8AE0 (CmpWalkOneLevel.c)
- *     CmpUnlockHashEntryByIndex @ 0x14091C9E8 (CmpUnlockHashEntryByIndex.c)
+ *     CmpUnlockHashEntry @ 0x1405EC638 (CmpUnlockHashEntry.c)
+ *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
+ *     CmpUnlockHashEntryByKcb @ 0x14066C050 (CmpUnlockHashEntryByKcb.c)
+ *     CmpUnlockDeletedHashEntryByKcb @ 0x14066CA24 (CmpUnlockDeletedHashEntryByKcb.c)
+ *     CmpUnblockHiveWrites @ 0x14066FDA8 (CmpUnblockHiveWrites.c)
+ *     CmpBlockHiveWrites @ 0x14066FE50 (CmpBlockHiveWrites.c)
+ *     CmLoadAppKey @ 0x14066FEEC (CmLoadAppKey.c)
+ *     CmpGetNextHive @ 0x140670E04 (CmpGetNextHive.c)
+ *     CmpUnblockTwoHiveWrites @ 0x140672258 (CmpUnblockTwoHiveWrites.c)
+ *     CmpBlockTwoHiveWrites @ 0x140672454 (CmpBlockTwoHiveWrites.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406934B0 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x1406F2EB0 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDereferenceHive @ 0x14071C6CC (CmpDereferenceHive.c)
+ *     CmpDestroyHive @ 0x140728F38 (CmpDestroyHive.c)
+ *     CmpUnfreezeHive @ 0x140730C38 (CmpUnfreezeHive.c)
+ *     CmpQuitNextHive @ 0x14076DB94 (CmpQuitNextHive.c)
+ *     CmpUnlockHashEntryByIndex @ 0x140875BBC (CmpUnlockHashEntryByIndex.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     HvFreeDirtyData @ 0x140689A8C (HvFreeDirtyData.c)
- *     CmpDeleteKcbCache @ 0x1406BBBA8 (CmpDeleteKcbCache.c)
- *     CmpReleaseGlobalQuota @ 0x14079CF18 (CmpReleaseGlobalQuota.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     CmpReleaseGlobalQuota @ 0x140709E4C (CmpReleaseGlobalQuota.c)
+ *     CmpDeleteKcbCache @ 0x14071C7B0 (CmpDeleteKcbCache.c)
+ *     HvFreeDirtyData @ 0x14071C81C (HvFreeDirtyData.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpDeleteHive(_QWORD *P)
@@ -34,9 +35,8 @@ void __fastcall CmpDeleteHive(_QWORD *P)
   _QWORD *v4; // rax
   void *v5; // rcx
   void *v6; // rcx
-  void *v7; // rcx
 
-  v1 = P + 201;
+  v1 = P + 200;
   if ( (_QWORD *)*v1 != v1 )
   {
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
@@ -48,17 +48,14 @@ void __fastcall CmpDeleteHive(_QWORD *P)
     ExReleasePushLockEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
   }
   *(_DWORD *)P = -1160724768;
-  HvFreeDirtyData((__int64)P);
+  HvFreeDirtyData(P);
   CmpDeleteKcbCache(P);
-  v5 = (void *)P[231];
+  v5 = (void *)P[230];
   if ( v5 )
     ExFreePoolWithTag(v5, 0x624E4D43u);
-  v6 = (void *)P[233];
+  v6 = (void *)P[232];
   if ( v6 )
     ExFreePoolWithTag(v6, 0);
-  v7 = (void *)P[602];
-  if ( v7 )
-    ExFreePoolWithTag(v7, 0);
-  CmpReleaseGlobalQuota(4824LL);
+  CmpReleaseGlobalQuota(0x12E8u);
   ExFreePoolWithTag(P, 0);
 }

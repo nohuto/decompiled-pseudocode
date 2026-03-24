@@ -1,22 +1,22 @@
 /*
- * XREFs of SeAssignPrimaryToken @ 0x1408471EC
+ * XREFs of SeAssignPrimaryToken @ 0x1407BBBD0
  * Callers:
- *     PspInitializeProcessSecurity @ 0x14070F0D8 (PspInitializeProcessSecurity.c)
+ *     PspInitializeProcessSecurity @ 0x1406D6400 (PspInitializeProcessSecurity.c)
  * Callees:
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ObInitializeFastReference @ 0x14070F2D8 (ObInitializeFastReference.c)
- *     SeAuditingWithTokenForSubcategory @ 0x14079D560 (SeAuditingWithTokenForSubcategory.c)
- *     SeDeassignPrimaryToken @ 0x1407E0C48 (SeDeassignPrimaryToken.c)
- *     SepAuditAssignPrimaryToken @ 0x140847400 (SepAuditAssignPrimaryToken.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x140608730 (SeAuditingWithTokenForSubcategory.c)
+ *     SeDeassignPrimaryToken @ 0x140613F74 (SeDeassignPrimaryToken.c)
+ *     ObInitializeFastReference @ 0x1406D65FC (ObInitializeFastReference.c)
+ *     SepAuditAssignPrimaryToken @ 0x1407BBDE4 (SepAuditAssignPrimaryToken.c)
  */
 
-__int64 __fastcall SeAssignPrimaryToken(__int64 a1, _BYTE *a2)
+ULONG_PTR __fastcall SeAssignPrimaryToken(__int64 a1, _BYTE *a2)
 {
-  if ( SeAuditingWithTokenForSubcategory(133, 0LL) )
+  if ( SeAuditingWithTokenForSubcategory(134, 0LL) )
     SepAuditAssignPrimaryToken(a1, a2);
   if ( *(_QWORD *)(a1 + 1208) )
     SeDeassignPrimaryToken(a1);
   ObfReferenceObject(a2);
   a2[204] = 1;
-  return ObInitializeFastReference((__int64 *)(a1 + 1208), (__int64)a2);
+  return ObInitializeFastReference((ULONG_PTR *)(a1 + 1208), (ULONG_PTR)a2);
 }

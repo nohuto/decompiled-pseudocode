@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpSetupBootProcessorEarlyHypercallPages @ 0x14054558C
+ * XREFs of HvlpSetupBootProcessorEarlyHypercallPages @ 0x1404F3FA8
  * Callers:
- *     HvlPhase0Initialize @ 0x140824AA0 (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x140796CFC (HvlPhase0Initialize.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvlpSetupBootProcessorEarlyHypercallPages(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall HvlpSetupBootProcessorEarlyHypercallPages(__int64 a1)
 
   v7 = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
-  v2 = ((__int64 (__fastcall *)(__int64, __int64, __int64 *))qword_140C01D68)(a1, 6LL, &v7);
+  v2 = ((__int64 (__fastcall *)(__int64, __int64, __int64 *))qword_140C00718)(a1, 6LL, &v7);
   if ( !v2 )
     return 3221225626LL;
   CurrentPrcb->HypercallCachedPages = (void *)v2;

@@ -1,46 +1,58 @@
 /*
- * XREFs of CreateServiceSid @ 0x1C03C3044
+ * XREFs of CreateServiceSid @ 0x1C02F0C38
  * Callers:
- *     DxgkPrepareCcdDatabaseForAccess @ 0x1C03C373C (DxgkPrepareCcdDatabaseForAccess.c)
+ *     DxgkPrepareCcdDatabaseForAccess @ 0x1C02F0D38 (DxgkPrepareCcdDatabaseForAccess.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1?$unique_storage@U?$resource_policy@PEAU_ACL@@$$A6AXPEAU1@@_E$1?FreePoolWithTag@?$pool_helpers@PEAU_ACL@@$0ELGHHIEE@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C006BA04 (--1-$unique_storage@U-$resource_policy@PEAU_ACL@@$$A6AXPEAU1@@_E$1-FreePoolWithTag@-$pool_helper.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ??$invoke@P6AXPEAU_KEY_BASIC_INFORMATION@@@ZAEAPEAU1@@wistd@@YAX$$QEAP6AXPEAU_KEY_BASIC_INFORMATION@@@ZAEAPEAU1@@Z @ 0x1C0028854 (--$invoke@P6AXPEAU_KEY_BASIC_INFORMATION@@@ZAEAPEAU1@@wistd@@YAX$$QEAP6AXPEAU_KEY_BASIC_INFORMAT.c)
  */
 
 _QWORD *__fastcall CreateServiceSid(_QWORD *a1, ULONG *a2)
 {
   ULONG v4; // eax
-  void *Pool2; // rax
-  void *v6; // rbx
-  ULONG i; // ebp
-  ULONG v8; // edi
-  PULONG v9; // rax
-  void *v11; // [rsp+20h] [rbp-38h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+28h] [rbp-30h] BYREF
+  PVOID PoolWithTag; // rax
+  ULONG v6; // edi
+  void *v7; // rbx
+  PULONG v8; // rax
+  ULONG v9; // ecx
+  void *v11; // [rsp+20h] [rbp-28h] BYREF
+  void (__fastcall *v12)(void *); // [rsp+28h] [rbp-20h] BYREF
+  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp-18h] BYREF
 
   v4 = RtlLengthRequiredSid(6u);
-  Pool2 = (void *)ExAllocatePool2(256LL, v4, 1265072196LL);
-  v11 = Pool2;
-  v6 = Pool2;
-  if ( Pool2
-    && (*(_DWORD *)IdentifierAuthority.Value = 0,
-        *(_WORD *)&IdentifierAuthority.Value[4] = 1280,
-        RtlInitializeSid(Pool2, &IdentifierAuthority, 6u) >= 0) )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v4, 0x4B677844u);
+  v6 = 0;
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    for ( i = 0; i < 6; ++i )
+    *(_DWORD *)IdentifierAuthority.Value = 0;
+    *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
+    if ( RtlInitializeSid(PoolWithTag, &IdentifierAuthority, 6u) >= 0 )
     {
-      v8 = *a2;
-      v9 = RtlSubAuthoritySid(v6, i);
-      ++a2;
-      *v9 = v8;
+      do
+      {
+        v8 = RtlSubAuthoritySid(v7, v6);
+        v9 = *a2;
+        ++v6;
+        ++a2;
+        *v8 = v9;
+      }
+      while ( v6 < 6 );
+      *a1 = v7;
     }
-    v11 = 0LL;
-    *a1 = v6;
+    else
+    {
+      *a1 = 0LL;
+      v12 = wil::details::pool_helpers<_ACL *,1265072196>::FreePoolWithTag;
+      v11 = v7;
+      wistd::invoke<void (*)(_KEY_BASIC_INFORMATION *),_KEY_BASIC_INFORMATION * &>(
+        (__int64 (__fastcall **)(_QWORD))&v12,
+        &v11);
+    }
   }
   else
   {
     *a1 = 0LL;
   }
-  __1__unique_storage_U__resource_policy_PEAU_ACL____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_ACL___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__IEAA_XZ(&v11);
   return a1;
 }

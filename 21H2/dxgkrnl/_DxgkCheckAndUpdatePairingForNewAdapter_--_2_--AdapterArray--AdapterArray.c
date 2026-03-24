@@ -1,53 +1,51 @@
 /*
- * XREFs of _DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::AdapterArray @ 0x1C02CE340
+ * XREFs of _DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::AdapterArray @ 0x1C0220880
  * Callers:
- *     ?DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z @ 0x1C021BA30 (-DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z.c)
+ *     ?DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z @ 0x1C019F8E0 (-DxgkCheckAndUpdatePairingForNewAdapter@@YAXPEAVDXGADAPTER@@PEAE@Z.c)
  * Callees:
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0002C48 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0019FF4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 __int64 __fastcall DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::AdapterArray(
         __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+        unsigned int a2)
 {
-  __int64 v5; // rbp
-  __int64 v6; // rax
-  bool v7; // cf
-  unsigned __int64 v8; // rax
-  __int64 v9; // rax
-  __int64 v10; // rbx
+  __int64 v3; // rbp
+  __int64 v4; // rax
+  bool v5; // cf
+  SIZE_T v6; // rax
+  char *v7; // rax
+  char *v8; // rbx
 
   *(_DWORD *)a1 = 0;
   *(_DWORD *)(a1 + 4) = 0;
   *(_QWORD *)(a1 + 8) = 0LL;
-  v5 = a2;
-  v6 = 16LL * a2;
+  v3 = a2;
+  v4 = 16LL * a2;
   if ( !is_mul_ok(a2, 0x10uLL) )
+    v4 = -1LL;
+  v5 = __CFADD__(v4, 8LL);
+  v6 = v4 + 8;
+  if ( v5 )
     v6 = -1LL;
-  v7 = __CFADD__(v6, 8LL);
-  v8 = v6 + 8;
+  v7 = (char *)operator new[](v6, 0x4B677844u, PagedPool);
   if ( v7 )
-    v8 = -1LL;
-  v9 = operator new[](v8, 0x4B677844u, 256LL, a4);
-  if ( v9 )
   {
-    v10 = v9 + 8;
-    *(_QWORD *)v9 = v5;
+    v8 = v7 + 8;
+    *(_QWORD *)v7 = v3;
     `vector constructor iterator'(
-      (char *)(v9 + 8),
+      v7 + 8,
       16LL,
-      (unsigned int)v5,
-      (void (__fastcall *)(char *))wistd::unique_ptr<DxgMonitor::WmiMonitorDescriptor,wistd::default_delete<DxgMonitor::WmiMonitorDescriptor>>::unique_ptr<DxgMonitor::WmiMonitorDescriptor,wistd::default_delete<DxgMonitor::WmiMonitorDescriptor>>);
-    *(_QWORD *)(a1 + 8) = v10;
-    if ( v10 )
-      *(_DWORD *)(a1 + 4) = v5;
+      (unsigned int)v3,
+      (void (__fastcall *)(char *))CAutoRefCountedBuffer::CAutoRefCountedBuffer);
   }
   else
   {
-    *(_QWORD *)(a1 + 8) = 0LL;
+    v8 = 0LL;
   }
+  *(_QWORD *)(a1 + 8) = v8;
+  if ( v8 )
+    *(_DWORD *)(a1 + 4) = v3;
   return a1;
 }

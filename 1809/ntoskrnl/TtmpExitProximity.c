@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmpExitProximity @ 0x14087F19C
+ * XREFs of TtmpExitProximity @ 0x14087F17C
  * Callers:
- *     TtmiSetPendingOnOffRequest @ 0x14087EDA4 (TtmiSetPendingOnOffRequest.c)
- *     TtmiTerminalMonitorControl @ 0x14087EE58 (TtmiTerminalMonitorControl.c)
+ *     TtmiSetPendingOnOffRequest @ 0x14087ED84 (TtmiSetPendingOnOffRequest.c)
+ *     TtmiTerminalMonitorControl @ 0x14087EE38 (TtmiTerminalMonitorControl.c)
  * Callees:
- *     TtmiScheduleSessionWorker @ 0x140880240 (TtmiScheduleSessionWorker.c)
- *     TtmiLogExitProximity @ 0x140883F1C (TtmiLogExitProximity.c)
+ *     TtmiScheduleSessionWorker @ 0x140880220 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogExitProximity @ 0x140883EFC (TtmiLogExitProximity.c)
  */
 
 __int64 __fastcall TtmpExitProximity(__int64 a1, unsigned int *a2)

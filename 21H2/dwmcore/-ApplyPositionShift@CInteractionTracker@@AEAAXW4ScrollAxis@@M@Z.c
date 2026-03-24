@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ApplyPositionShift@CInteractionTracker@@AEAAXW4ScrollAxis@@M@Z @ 0x180219288
+ * XREFs of ?ApplyPositionShift@CInteractionTracker@@AEAAXW4ScrollAxis@@M@Z @ 0x1801C81F8
  * Callers:
- *     ?ProcessApplyPositionShift@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_APPLYPOSITIONSHIFT@@PEBXI@Z @ 0x18021B9E0 (-ProcessApplyPositionShift@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTI.c)
+ *     ?ProcessApplyPositionShift@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_APPLYPOSITIONSHIFT@@PEBXI@Z @ 0x1801CA534 (-ProcessApplyPositionShift@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTI.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x180113E04 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
- *     ?SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z @ 0x18021D3B0 (-SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801C8390 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z @ 0x1801CC3EC (-SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 char __fastcall CInteractionTracker::ApplyPositionShift(__int64 a1, int a2, float a3)
@@ -20,7 +20,7 @@ char __fastcall CInteractionTracker::ApplyPositionShift(__int64 a1, int a2, floa
   int v10; // [rsp+28h] [rbp-20h]
   void *retaddr; // [rsp+48h] [rbp+0h]
 
-  v3 = *(_DWORD *)(a1 + 176);
+  v3 = *(_DWORD *)(a1 + 168);
   if ( v3 )
   {
     LODWORD(v4) = v3 - 1;
@@ -33,20 +33,20 @@ char __fastcall CInteractionTracker::ApplyPositionShift(__int64 a1, int a2, floa
         {
           if ( v5 != 1 )
             ModuleFailFastForHRESULT(2147942487LL, retaddr);
-          v4 = *(_QWORD *)(v6 + 344);
+          v4 = *(_QWORD *)(v6 + 336);
         }
         else
         {
-          v4 = *(_QWORD *)(v6 + 336);
+          v4 = *(_QWORD *)(v6 + 328);
         }
-        *(float *)(v4 + 600) = a3 + *(float *)(v4 + 600);
+        *(float *)(v4 + 616) = a3 + *(float *)(v4 + 616);
       }
     }
   }
   else
   {
-    v7 = *(_DWORD *)(a1 + 88);
-    v9 = *(_QWORD *)(a1 + 80);
+    v7 = *(_DWORD *)(a1 + 80);
+    v9 = *(_QWORD *)(a1 + 72);
     v10 = v7;
     if ( a2 )
       *((float *)&v9 + 1) = *((float *)&v9 + 1) + a3;

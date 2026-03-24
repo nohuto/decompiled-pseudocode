@@ -1,8 +1,8 @@
 /*
- * XREFs of AdtpCleanupParameterAllocations @ 0x140188C8C
+ * XREFs of AdtpCleanupParameterAllocations @ 0x140188CAC
  * Callers:
- *     AdtpWriteToEtwEx @ 0x1403258D0 (AdtpWriteToEtwEx.c)
- *     AdtpWriteToEtw @ 0x14074D584 (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtwEx @ 0x1403259D0 (AdtpWriteToEtwEx.c)
+ *     AdtpWriteToEtw @ 0x14074D564 (AdtpWriteToEtw.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

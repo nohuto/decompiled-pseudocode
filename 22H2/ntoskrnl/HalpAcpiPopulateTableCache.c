@@ -1,34 +1,29 @@
 /*
- * XREFs of HalpAcpiPopulateTableCache @ 0x140B667EC
+ * XREFs of HalpAcpiPopulateTableCache @ 0x140A6597C
  * Callers:
- *     HalpAcpiInitSystem @ 0x140A90C00 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x1409A0060 (HalpAcpiInitSystem.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
  */
 
 __int64 __fastcall HalpAcpiPopulateTableCache(__int64 a1)
 {
-  unsigned int v1; // ebx
-  struct _WORK_QUEUE_ITEM *v2; // rax
+  struct _WORK_QUEUE_ITEM *v1; // rax
+  unsigned int v2; // ebx
 
-  v1 = 0;
-  HalpPiix4Detected.Header.Size = 6;
-  LOWORD(HalpPiix4Detected.Header.Lock) = 0;
-  HalpPiix4Detected.Header.SignalState = 0;
-  HalpPiix4Detected.Header.WaitListHead.Blink = &HalpPiix4Detected.Header.WaitListHead;
-  HalpPiix4Detected.Header.WaitListHead.Flink = &HalpPiix4Detected.Header.WaitListHead;
-  v2 = (struct _WORK_QUEUE_ITEM *)HalpMmAllocCtxAlloc(a1, 32LL);
-  if ( v2 )
+  v1 = (struct _WORK_QUEUE_ITEM *)HalpMmAllocCtxAlloc(a1, 32LL);
+  v2 = 0;
+  if ( v1 )
   {
-    v2->Parameter = v2;
-    v2->WorkerRoutine = (void (__fastcall *)(void *))HalpAcpiPopulateTableCacheWork;
-    v2->List.Flink = 0LL;
-    ExQueueWorkItem(v2, DelayedWorkQueue);
+    v1->Parameter = v1;
+    v1->WorkerRoutine = (void (__fastcall *)(void *))HalpAcpiPopulateTableCacheWork;
+    v1->List.Flink = 0LL;
+    ExQueueWorkItem(v1, DelayedWorkQueue);
   }
   else
   {
-    return (unsigned int)-1073741670;
+    return (unsigned int)-1073741801;
   }
-  return v1;
+  return v2;
 }

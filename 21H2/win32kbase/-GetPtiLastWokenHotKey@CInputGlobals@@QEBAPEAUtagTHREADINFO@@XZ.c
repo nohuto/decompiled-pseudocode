@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPtiLastWokenHotKey@CInputGlobals@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C00B6C40
+ * XREFs of ?GetPtiLastWokenHotKey@CInputGlobals@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C00A4280
  * Callers:
  *     <none>
  * Callees:

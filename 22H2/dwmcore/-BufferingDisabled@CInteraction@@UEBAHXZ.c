@@ -1,5 +1,5 @@
 /*
- * XREFs of ?BufferingDisabled@CInteraction@@UEBAHXZ @ 0x180106EC0
+ * XREFs of ?BufferingDisabled@CInteraction@@UEBAHXZ @ 0x1800E2A10
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CInteraction::BufferingDisabled(CInteraction *this)
 {
-  return (*((unsigned __int8 *)this + 128) >> 6) & 1;
+  return (*((unsigned __int8 *)this + 184) >> 5) & 1;
 }

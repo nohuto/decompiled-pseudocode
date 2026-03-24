@@ -1,9 +1,9 @@
 /*
- * XREFs of IsHangulLV @ 0x1405B04A4
+ * XREFs of IsHangulLV @ 0x14058D924
  * Callers:
- *     CanComposeHangul @ 0x1405B03FC (CanComposeHangul.c)
- *     ComposeHangulLVT @ 0x1405B0470 (ComposeHangulLVT.c)
- *     Normalization__NormalizeCharacter @ 0x1409C13E8 (Normalization__NormalizeCharacter.c)
+ *     CanComposeHangul @ 0x14058D87C (CanComposeHangul.c)
+ *     ComposeHangulLVT @ 0x14058D8F0 (ComposeHangulLVT.c)
+ *     Normalization__NormalizeCharacter @ 0x1409185E0 (Normalization__NormalizeCharacter.c)
  * Callees:
  *     <none>
  */

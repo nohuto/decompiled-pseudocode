@@ -1,7 +1,7 @@
 /*
- * XREFs of ?BuildDeviceHeader@@YAHPEAEKPEAKGG@Z @ 0x1C019EE4C
+ * XREFs of ?BuildDeviceHeader@@YAHPEAEKPEAKGG@Z @ 0x1C016AA10
  * Callers:
- *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C019F1F8 (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
+ *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C016ADBC (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
  * Callees:
  *     <none>
  */

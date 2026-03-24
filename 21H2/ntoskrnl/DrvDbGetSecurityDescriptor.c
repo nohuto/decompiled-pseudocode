@@ -1,87 +1,91 @@
 /*
- * XREFs of DrvDbGetSecurityDescriptor @ 0x140A305C4
+ * XREFs of DrvDbGetSecurityDescriptor @ 0x14097E8FC
  * Callers:
- *     DrvDbLoadDatabaseNode @ 0x1406C1D24 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x14063E754 (DrvDbLoadDatabaseNode.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x1402EF430 (RtlSubAuthoritySid.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x1407254F0 (RtlLengthSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x140726610 (RtlValidSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140744160 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14078ED60 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14078EDC0 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlValidSid @ 0x1407B4660 (RtlValidSid.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
+ *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140676C10 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140768430 (RtlAbsoluteToSelfRelativeSD.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void *DrvDbGetSecurityDescriptor()
 {
-  void *v0; // rdi
-  void *Pool2; // rax
-  void *Src; // r12
-  void *v3; // rax
-  void *v4; // r15
-  void *v5; // rax
-  void *v6; // r14
-  void *v7; // rax
-  void *v8; // rsi
+  void *v0; // r13
+  PVOID PoolWithTag; // rax
+  void *Src; // r15
+  PVOID v3; // rax
+  void *v4; // r14
+  PVOID v5; // rax
+  void *v6; // rsi
+  PVOID v7; // rax
+  void *v8; // rdi
   ULONG v9; // ebx
   ULONG v10; // ebx
   ULONG v11; // ebx
   ACL *v12; // rax
-  ACL *v13; // r13
+  ACL *v13; // r12
   ULONG v14; // eax
-  void *v15; // rax
-  void *v16; // rbx
-  _OWORD SecurityDescriptor[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v19; // [rsp+50h] [rbp-10h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+A0h] [rbp+40h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v21; // [rsp+A8h] [rbp+48h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v22; // [rsp+B0h] [rbp+50h] BYREF
+  ULONG v15; // r13d
+  PVOID v16; // rax
+  void *v17; // rbx
+  _OWORD SecurityDescriptor[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v20; // [rsp+50h] [rbp-18h]
+  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+48h] BYREF
+  struct _SID_IDENTIFIER_AUTHORITY v22; // [rsp+B8h] [rbp+50h] BYREF
+  struct _SID_IDENTIFIER_AUTHORITY v23; // [rsp+C0h] [rbp+58h] BYREF
+  void *v24; // [rsp+C8h] [rbp+60h]
 
-  v0 = 0LL;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
+  v24 = 0LL;
   *(_DWORD *)IdentifierAuthority.Value = 0;
-  *(_DWORD *)v21.Value = 0;
-  *(_WORD *)&v21.Value[4] = 768;
   *(_DWORD *)v22.Value = 0;
-  *(_WORD *)&v22.Value[4] = 256;
-  v19 = 0LL;
+  *(_WORD *)&v22.Value[4] = 768;
+  *(_DWORD *)v23.Value = 0;
+  *(_WORD *)&v23.Value[4] = 256;
+  v20 = 0LL;
+  v0 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  Pool2 = (void *)ExAllocatePool2(256LL, 12LL, 1111770192LL);
-  Src = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xCuLL, 0x42444450u);
+  Src = PoolWithTag;
+  if ( PoolWithTag )
   {
-    if ( RtlInitializeSid(Pool2, &IdentifierAuthority, 1u) >= 0 )
+    if ( RtlInitializeSid(PoolWithTag, &IdentifierAuthority, 1u) >= 0 )
     {
       *RtlSubAuthoritySid(Src, 0) = 18;
       if ( RtlValidSid(Src) )
       {
-        v3 = (void *)ExAllocatePool2(256LL, 12LL, 1111770192LL);
+        v3 = ExAllocatePoolWithTag(PagedPool, 0xCuLL, 0x42444450u);
         v4 = v3;
         if ( v3 )
         {
-          if ( RtlInitializeSid(v3, &v21, 1u) >= 0 )
+          if ( RtlInitializeSid(v3, &v22, 1u) >= 0 )
           {
             *RtlSubAuthoritySid(v4, 0) = 4;
             if ( RtlValidSid(v4) )
             {
-              v5 = (void *)ExAllocatePool2(256LL, 12LL, 1111770192LL);
+              v5 = ExAllocatePoolWithTag(PagedPool, 0xCuLL, 0x42444450u);
               v6 = v5;
               if ( v5 )
               {
-                if ( RtlInitializeSid(v5, &v22, 1u) >= 0 )
+                if ( RtlInitializeSid(v5, &v23, 1u) >= 0 )
                 {
                   *RtlSubAuthoritySid(v6, 0) = 0;
                   if ( RtlValidSid(v6) )
                   {
-                    v7 = (void *)ExAllocatePool2(256LL, 16LL, 1111770192LL);
+                    v7 = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x42444450u);
                     v8 = v7;
                     if ( v7 )
                     {
@@ -94,7 +98,7 @@ void *DrvDbGetSecurityDescriptor()
                           v9 = RtlLengthSid(v6);
                           v10 = RtlLengthSid(v4) + v9;
                           v11 = RtlLengthSid(Src) + 32 + v10;
-                          v12 = (ACL *)ExAllocatePool2(256LL, v11, 1111770192LL);
+                          v12 = (ACL *)ExAllocatePoolWithTag(PagedPool, v11, 0x42444450u);
                           v13 = v12;
                           if ( v12 )
                           {
@@ -114,17 +118,30 @@ void *DrvDbGetSecurityDescriptor()
                                 *(_DWORD *)IdentifierAuthority.Value = v14;
                                 if ( v14 >= 0x28 )
                                 {
-                                  v15 = (void *)ExAllocatePool2(256LL, v14, 1111770192LL);
-                                  v16 = v15;
-                                  if ( v15 )
+                                  v15 = v14;
+                                  v16 = ExAllocatePoolWithTag(PagedPool, v14, 0x42444450u);
+                                  v17 = v16;
+                                  if ( v16 )
                                   {
+                                    memset(v16, 0, v15);
                                     if ( RtlAbsoluteToSelfRelativeSD(
                                            SecurityDescriptor,
-                                           v15,
+                                           v17,
                                            (PULONG)IdentifierAuthority.Value) < 0 )
-                                      ExFreePoolWithTag(v16, 0);
+                                    {
+                                      v0 = v24;
+                                    }
                                     else
-                                      v0 = v16;
+                                    {
+                                      v0 = v17;
+                                      v17 = 0LL;
+                                    }
+                                    if ( v17 )
+                                      ExFreePoolWithTag(v17, 0);
+                                  }
+                                  else
+                                  {
+                                    v0 = v24;
                                   }
                                 }
                               }

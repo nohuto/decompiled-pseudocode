@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReleaseAllReferences@CSceneMetallicRoughnessMaterialMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0225D90
+ * XREFs of ?ReleaseAllReferences@CSceneMetallicRoughnessMaterialMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01DC5F0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?ReleaseAllReferences@CScenePbrMaterialMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0225E80 (-ReleaseAllReferences@CScenePbrMaterialMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseAllReferences@CScenePbrMaterialMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01DC6D0 (-ReleaseAllReferences@CScenePbrMaterialMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel.c)
  */
 
 void __fastcall DirectComposition::CSceneMetallicRoughnessMaterialMarshaler::ReleaseAllReferences(
@@ -14,17 +14,17 @@ void __fastcall DirectComposition::CSceneMetallicRoughnessMaterialMarshaler::Rel
   struct DirectComposition::CResourceMarshaler *v4; // rdx
   struct DirectComposition::CResourceMarshaler *v5; // rdx
 
-  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 16);
+  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 15);
   if ( v4 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
-    *((_QWORD *)this + 16) = 0LL;
+    *((_QWORD *)this + 15) = 0LL;
   }
-  v5 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 20);
+  v5 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 19);
   if ( v5 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v5);
-    *((_QWORD *)this + 20) = 0LL;
+    *((_QWORD *)this + 19) = 0LL;
   }
   DirectComposition::CScenePbrMaterialMarshaler::ReleaseAllReferences(this, a2);
 }

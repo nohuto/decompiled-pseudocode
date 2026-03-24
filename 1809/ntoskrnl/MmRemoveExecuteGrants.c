@@ -1,14 +1,14 @@
 /*
- * XREFs of MmRemoveExecuteGrants @ 0x140139F84
+ * XREFs of MmRemoveExecuteGrants @ 0x140139FA4
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void MmRemoveExecuteGrants()

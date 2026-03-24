@@ -1,16 +1,16 @@
 /*
- * XREFs of ?SendKeyboardInput@Detail@Keyboard@IVRootDeliver@@YAJAEBUCONTAINER_ID@@AEBU_KEYBOARD_INPUT_DATA@@PEAX@Z @ 0x1C01F4640
+ * XREFs of ?SendKeyboardInput@Detail@Keyboard@IVRootDeliver@@YAJAEBUCONTAINER_ID@@AEBU_KEYBOARD_INPUT_DATA@@PEAX@Z @ 0x1C01BB644
  * Callers:
- *     NtMITSynthesizeKeyboardInput @ 0x1C0005F10 (NtMITSynthesizeKeyboardInput.c)
+ *     ?VirtualizeKeyboardInput@Keyboard@IVRootDeliver@@YA?AW4_SYNTHESIZED_KEYBOARD_PROCESSING_RESULT@@W4_SYNTHESIZE_KEYBOARD_OPTIONS@@AEBUCONTAINER_ID@@AEBU_KEYBOARD_INPUT_DATA@@PEAX@Z @ 0x1C01BD0A4 (-VirtualizeKeyboardInput@Keyboard@IVRootDeliver@@YA-AW4_SYNTHESIZED_KEYBOARD_PROCESSING_RESULT@@.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C0033980 (HMValidateHandleNoSecure.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0043E30 (RawInputManagerDeviceObjectResolveHandle.c)
- *     ??0CIVGenericSerializer@@QEAA@W4IVPacketType@@@Z @ 0x1C01E89EC (--0CIVGenericSerializer@@QEAA@W4IVPacketType@@@Z.c)
- *     ?ivrIVSend@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z @ 0x1C01F0028 (-ivrIVSend@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z.c)
- *     ?SerializeKeyboardInputForContainer@Detail@Keyboard@IVRootDeliver@@YAJAEAVCIVGenericSerializer@@AEBU_UNICODE_STRING@@AEBU_KEYBOARD_INPUT_DATA@@@Z @ 0x1C01F62B4 (-SerializeKeyboardInputForContainer@Detail@Keyboard@IVRootDeliver@@YAJAEAVCIVGenericSerializer@@.c)
- *     ??1CIVSerializer@@UEAA@XZ @ 0x1C01FCFCC (--1CIVSerializer@@UEAA@XZ.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     HMValidateHandleNoSecure @ 0x1C00454C0 (HMValidateHandleNoSecure.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0057C60 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     ??0CIVSerializer@@QEAA@_K@Z @ 0x1C01B3CF4 (--0CIVSerializer@@QEAA@_K@Z.c)
+ *     ??1CIVSerializer@@QEAA@XZ @ 0x1C01B3D5C (--1CIVSerializer@@QEAA@XZ.c)
+ *     ?ivrIVSend@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z @ 0x1C01BA3D8 (-ivrIVSend@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z.c)
+ *     ?SerializeKeyboardInputForContainer@Detail@Keyboard@IVRootDeliver@@YAJAEAUCIVSerializer@@AEBU_UNICODE_STRING@@AEBU_KEYBOARD_INPUT_DATA@@@Z @ 0x1C01BCF64 (-SerializeKeyboardInputForContainer@Detail@Keyboard@IVRootDeliver@@YAJAEAUCIVSerializer@@AEBU_UN.c)
  */
 
 __int64 __fastcall IVRootDeliver::Keyboard::Detail::SendKeyboardInput(
@@ -19,131 +19,129 @@ __int64 __fastcall IVRootDeliver::Keyboard::Detail::SendKeyboardInput(
         const struct _KEYBOARD_INPUT_DATA *a3,
         void *a4)
 {
-  PVOID v6; // r12
-  __int64 v7; // rax
-  int v8; // edx
-  int v9; // r8d
-  int v10; // r14d
-  char v11; // bl
+  const struct _UNICODE_STRING *v5; // rsi
+  PVOID v7; // rbx
+  __int64 v8; // rax
+  int v9; // eax
+  int v10; // edx
+  unsigned int v11; // ebx
   int v12; // edx
-  int v13; // r8d
-  const struct _KEYBOARD_INPUT_DATA *v14; // r9
-  PDEVICE_OBJECT v15; // rcx
-  bool v16; // bl
-  __int16 v17; // ax
-  struct _UNICODE_STRING v19; // [rsp+58h] [rbp-9h] BYREF
-  _QWORD v20[6]; // [rsp+68h] [rbp+7h] BYREF
-  char *v21; // [rsp+E0h] [rbp+7Fh] BYREF
+  int v14; // edx
+  const struct _KEYBOARD_INPUT_DATA *v15; // r9
+  int v16; // edi
+  _DWORD *v17; // rcx
+  struct _ETHREAD *CurrentThread; // r9
+  unsigned int v19; // edx
+  int v20; // eax
+  struct CONTAINER_ID *v21; // [rsp+30h] [rbp-31h]
+  struct _UNICODE_STRING v22; // [rsp+48h] [rbp-19h] BYREF
+  void *v23; // [rsp+58h] [rbp-9h] BYREF
+  unsigned int v24[2]; // [rsp+60h] [rbp-1h]
+  __int64 v25; // [rsp+68h] [rbp+7h]
+  char *v26; // [rsp+E0h] [rbp+7Fh] BYREF
 
-  v21 = 0LL;
-  v6 = 0LL;
-  v19 = 0LL;
-  v7 = HMValidateHandleNoSecure((int)a3, 19);
-  if ( v7 )
+  v5 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    v10 = RawInputManagerDeviceObjectResolveHandle(*(char **)(v7 + 24), 3u, 0, (PVOID *)&v21);
-    if ( v10 < 0 )
-    {
-      v11 = 1;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || !_bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xBu)
-        || (LOBYTE(v8) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 2u) )
-      {
-        LOBYTE(v8) = 0;
-      }
-      if ( (_BYTE)v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v9) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_D(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v8,
-          v9,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          2,
-          12,
-          41,
-          (__int64)&WPP_f2a84c97bb1638316b1e2b9619b34032_Traceguids,
-          v10);
-      }
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || !_bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xBu)
-        || (LOBYTE(v8) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-      {
-        LOBYTE(v8) = 0;
-      }
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-        v11 = 0;
-      if ( (_BYTE)v8 || v11 )
-      {
-        LOBYTE(v9) = v11;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v8,
-          v9,
-          WPP_GLOBAL_Control->DeviceExtension,
-          5,
-          12,
-          42,
-          (__int64)&WPP_f2a84c97bb1638316b1e2b9619b34032_Traceguids);
-      }
-      return (unsigned int)v10;
-    }
-    v6 = v21;
-    v19 = *(struct _UNICODE_STRING *)(v21 + 296);
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      (_DWORD)a2,
+      12,
+      61,
+      (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
   }
-  CIVGenericSerializer::CIVGenericSerializer(v20);
-  if ( v20[2] )
+  v7 = 0LL;
+  v26 = 0LL;
+  v22 = 0LL;
+  v8 = HMValidateHandleNoSecure((unsigned __int64)a3, 19);
+  if ( v8 )
   {
-    v10 = IVRootDeliver::Keyboard::Detail::SerializeKeyboardInputForContainer(
-            (IVRootDeliver::Keyboard::Detail *)v20,
-            &v19,
-            a2,
-            v14);
-    if ( v10 < 0 )
-      goto LABEL_40;
-    v16 = 1;
-    v10 = ivrIVSend((const struct CIVSerializer *)v20, 1u, this);
-    if ( v10 >= 0 )
-      goto LABEL_40;
-    v15 = WPP_GLOBAL_Control;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || !_bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xBu)
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 2u )
+    v9 = RawInputManagerDeviceObjectResolveHandle(*(char **)(v8 + 24), 3u, 0, (PVOID *)&v26);
+    v11 = v9;
+    if ( v9 < 0 )
     {
-      v16 = 0;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v10) = 2;
+        WPP_RECORDER_SF_d((_DWORD)gBaseLog, v10, 12, 62, (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids, v9);
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+          {
+            LOBYTE(v12) = 5;
+            WPP_RECORDER_SF_(
+              WPP_GLOBAL_Control->DeviceExtension,
+              v12,
+              12,
+              63,
+              (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+          }
+        }
+      }
+      return v11;
     }
-    LOBYTE(v13) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v16 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_40;
-    v17 = 44;
+    v7 = v26;
+    v22 = *(struct _UNICODE_STRING *)(v26 + 296);
+  }
+  CIVSerializer::CIVSerializer((CIVSerializer *)&v23, 40LL);
+  if ( v25 )
+  {
+    v16 = IVRootDeliver::Keyboard::Detail::SerializeKeyboardInputForContainer(
+            (IVRootDeliver::Keyboard::Detail *)&v23,
+            &v22,
+            v5,
+            v15);
+    if ( v16 >= 0 )
+    {
+      v17 = v23;
+      CurrentThread = KeGetCurrentThread();
+      v19 = v24[0];
+      *((_QWORD *)v23 + 1) = 5LL;
+      *v17 = v19 - 16;
+      v17[1] = 1;
+      v20 = ivrIVSend(v17, v19, CurrentThread, CurrentThread, 1u, this);
+      v16 = v20;
+      if ( v20 >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v7 = v26;
+      }
+      else
+      {
+        LODWORD(v21) = v20;
+        LOBYTE(v14) = 2;
+        WPP_RECORDER_SF_d((_DWORD)gBaseLog, v14, 12, 65, (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids, v21);
+        v7 = v26;
+      }
+    }
   }
   else
   {
-    v10 = -1073741801;
-    v15 = WPP_GLOBAL_Control;
-    v16 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-       && _bittest((const signed __int32 *)&WPP_GLOBAL_Control->Timer + 1, 0xBu)
-       && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u;
-    LOBYTE(v13) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v16 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_40;
-    v17 = 43;
+    v16 = -1073741801;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v14) = 2;
+      WPP_RECORDER_SF_d(
+        (_DWORD)gBaseLog,
+        v14,
+        12,
+        64,
+        (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids,
+        -1073741801);
+    }
   }
-  LOBYTE(v12) = v16;
-  WPP_RECORDER_AND_TRACE_SF_D(
-    v15->AttachedDevice,
-    v12,
-    v13,
-    WPP_MAIN_CB.Queue.ListEntry.Flink,
-    2,
-    12,
-    v17,
-    (__int64)&WPP_f2a84c97bb1638316b1e2b9619b34032_Traceguids,
-    v10);
-LABEL_40:
-  if ( v6 )
-    ObfDereferenceObject(v6);
-  v20[0] = &CIVGenericSerializer::`vftable';
-  CIVSerializer::~CIVSerializer((CIVSerializer *)v20);
-  return (unsigned int)v10;
+  if ( v7 )
+    ObfDereferenceObject(v7);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(v14) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      v14,
+      12,
+      66,
+      (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+  }
+  CIVSerializer::~CIVSerializer((CIVSerializer *)&v23);
+  return (unsigned int)v16;
 }

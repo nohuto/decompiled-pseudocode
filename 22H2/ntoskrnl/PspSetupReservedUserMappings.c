@@ -1,60 +1,65 @@
 /*
- * XREFs of PspSetupReservedUserMappings @ 0x1407DF14C
+ * XREFs of PspSetupReservedUserMappings @ 0x14069895C
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ZwAllocateVirtualMemory @ 0x14041A9A0 (ZwAllocateVirtualMemory.c)
- *     ZwAllocateVirtualMemoryEx @ 0x14041B560 (ZwAllocateVirtualMemoryEx.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ZwAllocateVirtualMemory @ 0x1403F9D20 (ZwAllocateVirtualMemory.c)
  */
 
-__int64 __fastcall PspSetupReservedUserMappings(_KPROCESS *a1, $115DCDF994C6370D29323EAB0E0C9502 *a2, _QWORD *a3)
+__int64 __fastcall PspSetupReservedUserMappings(_KPROCESS *a1, __int64 a2, _QWORD *a3, _DWORD *a4)
 {
-  int v5; // ebx
-  int VirtualMemory; // esi
-  unsigned __int64 v8; // rbx
-  __int64 v9; // rbp
-  ULONG_PTR RegionSize; // [rsp+80h] [rbp+18h] BYREF
-  PVOID BaseAddress; // [rsp+88h] [rbp+20h] BYREF
+  int v6; // ebx
+  NTSTATUS VirtualMemory; // esi
+  unsigned __int64 v9; // rbx
+  __int64 v10; // rbp
+  ULONG_PTR RegionSize; // [rsp+60h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp+20h] BYREF
 
   BaseAddress = 0LL;
   RegionSize = 0LL;
-  v5 = *(_DWORD *)(a3[26] + 8LL) & 0x1000060;
-  if ( !v5 && !a3[32] )
+  v6 = *(_DWORD *)(a3[26] + 8LL) & 0x60;
+  if ( !v6 && !a3[32] )
     return 0LL;
   VirtualMemory = 0;
-  KiStackAttachProcess(a1, 0, (__int64)a2);
-  if ( v5 == 0x1000000 || !v5 )
-    goto LABEL_11;
+  KiStackAttachProcess(a1, 0LL, a2, a4);
+  if ( !v6 )
+    goto LABEL_10;
   BaseAddress = (PVOID)4;
-  if ( v5 == 32 )
+  if ( v6 == 32 )
   {
     RegionSize = 1048320LL;
   }
-  else if ( v5 == 64 )
+  else if ( v6 == 64 )
   {
     RegionSize = 16776960LL;
   }
   VirtualMemory = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x2000u, 4u);
   if ( VirtualMemory >= 0 )
   {
-LABEL_11:
-    v8 = 0LL;
+LABEL_10:
+    v9 = 0LL;
     if ( a3[32] )
     {
-      v9 = 0LL;
+      v10 = 0LL;
       do
       {
-        VirtualMemory = ZwAllocateVirtualMemoryEx(-1LL, v9 + a3[35]);
+        VirtualMemory = ZwAllocateVirtualMemory(
+                          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                          (PVOID *)(v10 + a3[35]),
+                          0LL,
+                          (PSIZE_T)(v10 + a3[35] + 8),
+                          0x2000u,
+                          4u);
         if ( VirtualMemory < 0 )
           break;
-        ++v8;
-        v9 += 16LL;
+        ++v9;
+        v10 += 16LL;
       }
-      while ( v8 < a3[32] );
+      while ( v9 < a3[32] );
     }
   }
-  KiUnstackDetachProcess(a2);
+  KiUnstackDetachProcess(a2, 0);
   return (unsigned int)VirtualMemory;
 }

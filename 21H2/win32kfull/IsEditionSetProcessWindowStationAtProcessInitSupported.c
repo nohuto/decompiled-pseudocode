@@ -1,5 +1,5 @@
 /*
- * XREFs of IsEditionSetProcessWindowStationAtProcessInitSupported @ 0x1C00F0710
+ * XREFs of IsEditionSetProcessWindowStationAtProcessInitSupported @ 0x1C0104C60
  * Callers:
  *     <none>
  * Callees:

@@ -1,41 +1,33 @@
 /*
- * XREFs of HvlLpReadMultipleMsr @ 0x1405472A0
+ * XREFs of HvlLpReadMultipleMsr @ 0x1404F5730
  * Callers:
  *     <none>
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14039D8F0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x14039DF90 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlLpReadMultipleMsr(int a1, unsigned int a2, int *a3, _QWORD *a4)
 {
-  __int64 v8; // r14
-  __int64 *v9; // rsi
+  __int64 v8; // r15
+  __int64 *v9; // r14
   __int64 v10; // rax
   _DWORD *v11; // rdx
   int v12; // ecx
   unsigned int v13; // ebx
   __int64 v14; // rcx
   _QWORD *v16; // [rsp+28h] [rbp-48h]
-  __int128 v17; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v18; // [rsp+40h] [rbp-30h]
-  __int64 v19; // [rsp+48h] [rbp-28h]
-  __int128 v20; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v21; // [rsp+60h] [rbp-10h]
-  __int64 v22; // [rsp+68h] [rbp-8h]
+  _OWORD v17[2]; // [rsp+30h] [rbp-40h] BYREF
+  _OWORD v18[2]; // [rsp+50h] [rbp-20h] BYREF
 
-  v21 = 0LL;
-  LODWORD(v22) = 0;
-  v18 = 0LL;
-  LODWORD(v19) = 0;
-  v20 = 0LL;
-  v17 = 0LL;
+  memset(v18, 0, sizeof(v18));
+  memset(v17, 0, sizeof(v17));
   if ( 16 * a2 > 0x1000 )
     return 3221225485LL;
   v8 = a2;
-  v16 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v20, 1, 0LL, 16LL * a2);
-  v9 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v17, 2, 0LL, 16LL * a2);
+  v16 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v18, 1, 0LL, 16LL * a2);
+  v9 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v17, 2, 0LL, 16LL * a2);
   if ( a2 )
   {
     v10 = a2;
@@ -63,7 +55,7 @@ __int64 __fastcall HvlLpReadMultipleMsr(int a1, unsigned int a2, int *a3, _QWORD
     }
     while ( v8 );
   }
-  HvlpReleaseHypercallPage((__int64)&v17);
-  HvlpReleaseHypercallPage((__int64)&v20);
+  HvlpReleaseHypercallPage((__int64)v17);
+  HvlpReleaseHypercallPage((__int64)v18);
   return v13;
 }

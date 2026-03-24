@@ -1,9 +1,9 @@
 /*
- * XREFs of efCos @ 0x1C009C110
+ * XREFs of efCos @ 0x1C00A3BE0
  * Callers:
  *     <none>
  * Callees:
- *     efSin @ 0x1C009C140 (efSin.c)
+ *     efSin @ 0x1C00A3C10 (efSin.c)
  */
 
 __int64 __fastcall efCos(unsigned int a1)

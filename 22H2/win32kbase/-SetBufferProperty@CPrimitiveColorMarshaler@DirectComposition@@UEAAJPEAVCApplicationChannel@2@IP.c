@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CPrimitiveColorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0223850
+ * XREFs of ?SetBufferProperty@CPrimitiveColorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E9800
  * Callers:
  *     <none>
  * Callees:
- *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00656B0 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
+ *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0094868 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CPrimitiveColorMarshaler::SetBufferProperty(
@@ -29,7 +29,7 @@ __int64 __fastcall DirectComposition::CPrimitiveColorMarshaler::SetBufferPropert
       *(_OWORD *)((char *)this + 56) = *(_OWORD *)a4;
       *a6 = 1;
     }
-    if ( *((_QWORD *)this + 5) )
+    if ( *((_QWORD *)this + 4) )
     {
       DirectComposition::CApplicationChannel::UnbindAllAnimations(a2, this);
       *a6 = 1;

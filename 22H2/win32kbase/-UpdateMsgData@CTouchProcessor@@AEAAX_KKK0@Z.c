@@ -1,37 +1,30 @@
 /*
- * XREFs of ?UpdateMsgData@CTouchProcessor@@AEAAX_KKK0@Z @ 0x1C01D9E10
+ * XREFs of ?UpdateMsgData@CTouchProcessor@@AEAAX_KKK0@Z @ 0x1C01A0A54
  * Callers:
- *     ?CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@KH@Z @ 0x1C01BD108 (-CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@.c)
+ *     ?CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@KH@Z @ 0x1C018A058 (-CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z @ 0x1C01C7440 (-GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z.c)
- *     ?ReferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C01D2390 (-ReferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
- *     ?UnreferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C01D8778 (-UnreferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?ReferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C019AE48 (-ReferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
+ *     ?UnreferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C019F9D8 (-UnreferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
  */
 
-void __fastcall CTouchProcessor::UpdateMsgData(CTouchProcessor *this, __int64 a2, int a3, int a4, unsigned __int64 a5)
+void __fastcall CTouchProcessor::UpdateMsgData(struct _KTHREAD **this, _DWORD *a2, int a3, int a4, unsigned __int64 a5)
 {
-  struct CPointerMsgData *NonConstMsgData; // rdi
-  CTouchProcessor *v9; // rcx
-  struct CPointerMsgData *v10; // rbx
-
-  NonConstMsgData = CTouchProcessor::GetNonConstMsgData(this, a2);
-  v10 = CTouchProcessor::GetNonConstMsgData(v9, a5);
-  if ( *((struct _KTHREAD **)this + 5) != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 10596);
-  if ( (*((_DWORD *)NonConstMsgData + 9) & 0x20) != 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 10602);
-  *((_DWORD *)NonConstMsgData + 7) = a3;
-  *((_DWORD *)NonConstMsgData + 8) = a4;
-  if ( v10 )
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9971);
+  if ( (a2[9] & 0x20) != 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 9977);
+  a2[8] = a4;
+  a2[7] = a3;
+  if ( a5 )
   {
-    if ( (*((_DWORD *)v10 + 9) & 0x40) != 0 )
+    if ( (*(_DWORD *)(a5 + 36) & 0x40) != 0 )
     {
-      if ( (*((_DWORD *)NonConstMsgData + 9) & 0x40) != 0 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 10625);
-      CTouchProcessor::ReferenceMsgData(this, (__int64)NonConstMsgData, 1);
-      CTouchProcessor::UnreferenceMsgData((struct _KTHREAD **)this, (unsigned __int64)v10, 1);
+      if ( (a2[9] & 0x40) != 0 )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10000);
+      CTouchProcessor::ReferenceMsgData((__int64)this, (__int64)a2, 1);
+      CTouchProcessor::UnreferenceMsgData(this, a5, 1);
     }
-    *((_DWORD *)v10 + 9) |= 0x20u;
+    *(_DWORD *)(a5 + 36) |= 0x20u;
   }
 }

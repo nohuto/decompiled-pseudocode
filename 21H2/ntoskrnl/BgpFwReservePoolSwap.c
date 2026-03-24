@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpFwReservePoolSwap @ 0x140AAB1AC
+ * XREFs of BgpFwReservePoolSwap @ 0x1409F11AC
  * Callers:
- *     ResFwFreeContext @ 0x140AAB07C (ResFwFreeContext.c)
- *     BgpFwLibraryInitialize @ 0x140AAD490 (BgpFwLibraryInitialize.c)
+ *     ResFwFreeContext @ 0x1409F107C (ResFwFreeContext.c)
+ *     BgpFwLibraryInitialize @ 0x1409F29E8 (BgpFwLibraryInitialize.c)
  * Callees:
- *     BgpFwInitializeReservePool @ 0x140AADC80 (BgpFwInitializeReservePool.c)
+ *     BgpFwInitializeReservePool @ 0x1409F35B8 (BgpFwInitializeReservePool.c)
  */
 
 __int64 __fastcall BgpFwReservePoolSwap(int a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -15,19 +15,19 @@ __int64 __fastcall BgpFwReservePoolSwap(int a1, __int64 a2, unsigned int a3, __i
   {
     if ( a1 == 1 )
     {
-      qword_140C54910 = qword_140C54880;
-      dword_140C54930 = dword_140C5487C;
-      result = (unsigned int)dword_140C54878;
-      HintIndex = dword_140C54878;
-      stru_140C54920 = (RTL_BITMAP)xmmword_140C54888;
+      qword_140C50768 = qword_140C506E0;
+      dword_140C50788 = dword_140C506DC;
+      result = (unsigned int)dword_140C506D8;
+      HintIndex = dword_140C506D8;
+      BitMapHeader = (RTL_BITMAP)xmmword_140C506E8;
     }
   }
   else
   {
-    dword_140C54878 = HintIndex;
-    qword_140C54880 = qword_140C54910;
-    dword_140C5487C = dword_140C54930;
-    xmmword_140C54888 = (__int128)stru_140C54920;
+    dword_140C506D8 = HintIndex;
+    qword_140C506E0 = qword_140C50768;
+    dword_140C506DC = dword_140C50788;
+    xmmword_140C506E8 = (__int128)BitMapHeader;
     return BgpFwInitializeReservePool(a2, a3, a4);
   }
   return result;

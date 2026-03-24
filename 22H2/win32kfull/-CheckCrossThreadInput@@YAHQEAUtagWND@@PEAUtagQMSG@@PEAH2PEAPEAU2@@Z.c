@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z @ 0x1C00A232C
+ * XREFs of ?CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z @ 0x1C00C1298
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     xxxRetrievePointerInputMessage @ 0x1C01C5070 (xxxRetrievePointerInputMessage.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     xxxRetrievePointerInputMessage @ 0x1C01F0108 (xxxRetrievePointerInputMessage.c)
  * Callees:
- *     CalcWakeMask @ 0x1C012A4C0 (CalcWakeMask.c)
- *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01B56F8 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ *     CalcWakeMask @ 0x1C0057700 (CalcWakeMask.c)
+ *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01E0760 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
  */
 
 __int64 __fastcall CheckCrossThreadInput(
@@ -23,7 +23,7 @@ __int64 __fastcall CheckCrossThreadInput(
 
   v9 = (struct tagTHREADINFO *)gptiCurrent;
   if ( *(_QWORD *)(gptiCurrent + 672LL)
-    || *(struct tagQMSG **)(*(_QWORD *)(gptiCurrent + 432LL) + 88LL) != a2
+    || *(struct tagQMSG **)(*(_QWORD *)(gptiCurrent + 432LL) + 80LL) != a2
     || a2 == (struct tagQMSG *)1 )
   {
     goto LABEL_7;
@@ -38,7 +38,7 @@ __int64 __fastcall CheckCrossThreadInput(
   if ( (v10 & 0x40) != 0
     || (v11 = *((_DWORD *)a1 + 65)) == 0
     || (v11 & 2) == 0
-    || (v13 = CalcWakeMask(*((unsigned int *)a2 + 6), *((unsigned int *)a2 + 6), 0LL),
+    || (v13 = CalcWakeMask(*((_DWORD *)a2 + 6), *((_DWORD *)a2 + 6), 0),
         (v13 & 2) == 0 || v9 == *((struct tagTHREADINFO **)a1 + 33)) )
   {
 LABEL_7:

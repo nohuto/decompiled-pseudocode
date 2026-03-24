@@ -1,53 +1,25 @@
 /*
- * XREFs of ??4CDrawListBitmap@@QEAAAEAV0@AEBV0@@Z @ 0x180094470
+ * XREFs of ??4CDrawListBitmap@@QEAAAEAV0@AEBV0@@Z @ 0x180051BFC
  * Callers:
- *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@@Z @ 0x180010390 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache.c)
- *     ?GetInputBrushParameters@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@IIPEAUEffectInput@@@Z @ 0x18002E834 (-GetInputBrushParameters@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@IIPEAUE.c)
- *     ??0CCommonRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@01@Z @ 0x1800929DC (--0CCommonRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@01@Z.c)
- *     _lambda_6f49ef1c5e266dfff6ad3ca7d4dec8df_::_lambda_invoker_cdecl_ @ 0x180094210 (_lambda_6f49ef1c5e266dfff6ad3ca7d4dec8df_--_lambda_invoker_cdecl_.c)
- *     ?InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@_N@Z @ 0x1801FAAD8 (-InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributes.c)
- *     ??4WARPDrawListEntryBitmapDesc@@QEAAAEAU0@AEBU0@@Z @ 0x1801FFD60 (--4WARPDrawListEntryBitmapDesc@@QEAAAEAU0@AEBU0@@Z.c)
+ *     ??0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V?$span@PEBVCDrawListBrush@@$0?0@gsl@@V?$span@_N$0?0@3@@Z @ 0x18004F74C (--0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V-$span@PEBVCDrawListBrush@@$0-0@gsl@@V-.c)
+ *     ??4EffectInput@@QEAAAEAU0@AEBU0@@Z @ 0x1800500C4 (--4EffectInput@@QEAAAEAU0@AEBU0@@Z.c)
+ *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2_F@@PEAVCDrawListCache@@@Z @ 0x1800B9780 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2.c)
+ *     ??0CCommonRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@01@Z @ 0x1800B9D94 (--0CCommonRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@01@Z.c)
+ *     ?GetInputBrushParameters@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@IIPEAUEffectInput@@@Z @ 0x1800C5A94 (-GetInputBrushParameters@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@IIPEAUE.c)
+ *     _lambda_611de328e1bb62dc15d573c6a00f4466_::operator() @ 0x1800EEFB4 (_lambda_611de328e1bb62dc15d573c6a00f4466_--operator().c)
+ *     ?InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x18019CAEC (-InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributes.c)
+ *     ??4WARPDrawListEntryBitmapDesc@@QEAAAEAU0@AEBU0@@Z @ 0x1801A1820 (--4WARPDrawListEntryBitmapDesc@@QEAAAEAU0@AEBU0@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??4?$com_ptr_t@VIBitmapResource@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapResource@@@Z @ 0x180040F68 (--4-$com_ptr_t@VIBitmapResource@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapResourc.c)
+ *     ??4?$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapRealization@@@Z @ 0x180051C50 (--4-$com_ptr_t@VIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIBitmapReal.c)
  */
 
-__int64 *__fastcall CDrawListBitmap::operator=(__int64 *a1, __int64 *a2)
+__int64 __fastcall CDrawListBitmap::operator=(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rsi
-  __int64 v4; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // rsi
-  __int64 v9; // rcx
-  __int64 v11; // rcx
-  __int64 v12; // rcx
-
-  v2 = *a1;
-  v4 = *a2;
-  *a1 = *a2;
-  if ( v4 )
-  {
-    v6 = *(int *)(*(_QWORD *)(v4 + 8) + 4LL) + v4 + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 8LL))(v6);
-  }
-  if ( v2 )
-  {
-    v11 = v2 + *(int *)(*(_QWORD *)(v2 + 8) + 4LL) + 8LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
-  }
-  v7 = a2[1];
-  v8 = a1[1];
-  a1[1] = v7;
-  if ( v7 )
-  {
-    v9 = v7 + 8 + *(int *)(*(_QWORD *)(v7 + 8) + 4LL);
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 8LL))(v9);
-  }
-  if ( v8 )
-  {
-    v12 = v8 + *(int *)(*(_QWORD *)(v8 + 8) + 4LL) + 8LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
-  }
-  *((_BYTE *)a1 + 16) = *((_BYTE *)a2 + 16);
+  wil::com_ptr_t<IBitmapResource,wil::err_returncode_policy>::operator=((__int64 *)a1, *(_QWORD *)a2);
+  wil::com_ptr_t<IBitmapRealization,wil::err_returncode_policy>::operator=(a1 + 8, *(_QWORD *)(a2 + 8));
+  *(_OWORD *)(a1 + 16) = *(_OWORD *)(a2 + 16);
+  *(_QWORD *)(a1 + 32) = *(_QWORD *)(a2 + 32);
+  *(_BYTE *)(a1 + 40) = *(_BYTE *)(a2 + 40);
   return a1;
 }

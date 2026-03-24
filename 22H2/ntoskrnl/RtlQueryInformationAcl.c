@@ -1,75 +1,60 @@
 /*
- * XREFs of RtlQueryInformationAcl @ 0x140736640
+ * XREFs of RtlQueryInformationAcl @ 0x1406D8860
  * Callers:
- *     SepSetProcessTrustLabelAceForToken @ 0x1402B3710 (SepSetProcessTrustLabelAceForToken.c)
- *     SepAppendAceToTokenDefaultDacl @ 0x14036FE1C (SepAppendAceToTokenDefaultDacl.c)
- *     SepAppendAceToTokenObjectAcl @ 0x1406BD110 (SepAppendAceToTokenObjectAcl.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1403226D4 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403F82C4 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406D8200 (SepAppendAceToTokenObjectAcl.c)
  * Callees:
- *     <none>
+ *     RtlFirstFreeAce @ 0x1406D4640 (RtlFirstFreeAce.c)
  */
 
-__int64 __fastcall RtlQueryInformationAcl(unsigned __int8 *a1, unsigned int *a2, unsigned int a3, int a4)
+__int64 __fastcall RtlQueryInformationAcl(unsigned __int8 *a1, _DWORD *a2, unsigned int a3, int a4)
 {
-  unsigned int v4; // r10d
-  int v6; // r9d
-  unsigned int v7; // r10d
-  unsigned __int8 *v8; // rdx
-  int v9; // r8d
-  unsigned int v10; // r9d
-  unsigned __int8 *v11; // rax
-  int v12; // edx
+  int v4; // esi
+  int v6; // ecx
+  int v8; // r9d
+  __int64 v9; // rcx
+  int v10; // ecx
+  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = *a1;
-  if ( (unsigned __int8)(v4 - 2) > 2u )
-    return 3221225485LL;
-  v6 = a4 - 1;
-  if ( !v6 )
+  v4 = 0;
+  v6 = *a1;
+  v12 = 0LL;
+  if ( (unsigned __int8)(v6 - 2) <= 2u )
   {
-    if ( a3 >= 4 )
+    v8 = a4 - 1;
+    if ( v8 )
     {
-      *a2 = v4;
-      return 0LL;
-    }
-    return 3221225507LL;
-  }
-  if ( v6 == 1 )
-  {
-    if ( a3 >= 0xC )
-    {
-      v7 = *((unsigned __int16 *)a1 + 2);
-      v8 = a1 + 8;
-      v9 = 0;
-      v10 = 0;
-      if ( *((_WORD *)a1 + 2) )
+      if ( v8 != 1 )
+        return 3221225475LL;
+      if ( a3 >= 0xC )
       {
-        while ( v8 < &a1[*((unsigned __int16 *)a1 + 1)] )
+        if ( RtlFirstFreeAce((__int64)a1, &v12) )
         {
-          ++v10;
-          v8 += *((unsigned __int16 *)v8 + 1);
-          if ( v10 >= v7 )
-            goto LABEL_8;
+          v9 = v12;
+          *a2 = *((unsigned __int16 *)a1 + 2);
+          if ( v9 )
+          {
+            v10 = v9 - (_DWORD)a1;
+            a2[1] = v10;
+            v4 = *((unsigned __int16 *)a1 + 1) - v10;
+          }
+          else
+          {
+            a2[1] = *((unsigned __int16 *)a1 + 1);
+          }
+          a2[2] = v4;
+          return 0LL;
         }
         return 3221225485LL;
       }
-LABEL_8:
-      v11 = &a1[*((unsigned __int16 *)a1 + 1)];
-      *a2 = v7;
-      if ( v8 > v11 )
-        v8 = 0LL;
-      if ( v8 )
-      {
-        v12 = (_DWORD)v8 - (_DWORD)a1;
-        a2[1] = v12;
-        v9 = *((unsigned __int16 *)a1 + 1) - v12;
-      }
-      else
-      {
-        a2[1] = *((unsigned __int16 *)a1 + 1);
-      }
-      a2[2] = v9;
+    }
+    else if ( a3 >= 4 )
+    {
+      *a2 = v6;
       return 0LL;
     }
     return 3221225507LL;
   }
-  return 3221225475LL;
+  return 3221225485LL;
 }

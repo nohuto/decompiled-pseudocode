@@ -1,15 +1,15 @@
 /*
- * XREFs of ?AddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIIIHII@Z @ 0x1C0002580
+ * XREFs of ?AddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIIIHII@Z @ 0x1C0002660
  * Callers:
- *     NtDCompositionAddCrossDeviceVisualChild @ 0x1C0002550 (NtDCompositionAddCrossDeviceVisualChild.c)
+ *     NtDCompositionAddCrossDeviceVisualChild @ 0x1C0002630 (NtDCompositionAddCrossDeviceVisualChild.c)
  * Callees:
- *     ?CreateSystemVisualForCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C000232C (-CreateSystemVisualForCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVR.c)
- *     ?CompleteAddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIIVResourceHandle@@HI0@Z @ 0x1C0002720 (-CompleteAddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIIVResourceHand.c)
- *     ?GetSystemVisualFromCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C0002D30 (-GetSystemVisualFromCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVRes.c)
- *     ?ReleaseCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAXVResourceHandle@@@Z @ 0x1C0005E84 (-ReleaseCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAXVResourceHandle@@@Z.c)
- *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0010268 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     ?ReleaseSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z @ 0x1C0013F54 (-ReleaseSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?CreateSystemVisualForCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C00027B4 (-CreateSystemVisualForCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVR.c)
+ *     ?CompleteAddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIIVResourceHandle@@HI0@Z @ 0x1C000295C (-CompleteAddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIIVResourceHand.c)
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005DB28 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     ?ReleaseSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z @ 0x1C005F6D4 (-ReleaseSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?GetSystemVisualFromCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C01D4C3C (-GetSystemVisualFromCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVRes.c)
+ *     ?ReleaseCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAXVResourceHandle@@@Z @ 0x1C01D4F38 (-ReleaseCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAXVResourceHandle@@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::AddCrossChannelVisualChild(
@@ -25,14 +25,14 @@ __int64 __fastcall DirectComposition::CApplicationChannel::AddCrossChannelVisual
   unsigned int v8; // ebx
   int SystemVisualFromCrossChannelVisualChild; // esi
   __int64 v11; // r14
-  DirectComposition::CApplicationChannel *v13; // r15
+  struct DirectComposition::CApplicationChannel *v13; // r15
   int SystemVisualForCrossChannelVisualChild; // eax
-  DirectComposition::CApplicationChannel *v15; // r15
-  DirectComposition::CApplicationChannel *v17; // rdi
-  DirectComposition::CApplicationChannel *v18; // rdi
+  struct DirectComposition::CApplicationChannel *v15; // r15
+  struct DirectComposition::CApplicationChannel *v17; // rdi
+  struct DirectComposition::CApplicationChannel *v18; // rdi
   unsigned int v19; // [rsp+40h] [rbp-10h] BYREF
   unsigned int v20; // [rsp+44h] [rbp-Ch] BYREF
-  DirectComposition::CApplicationChannel *v21; // [rsp+48h] [rbp-8h] BYREF
+  struct DirectComposition::CApplicationChannel *v21; // [rsp+48h] [rbp-8h] BYREF
   unsigned int v24; // [rsp+B8h] [rbp+68h]
 
   v7 = 0;
@@ -44,7 +44,7 @@ __int64 __fastcall DirectComposition::CApplicationChannel::AddCrossChannelVisual
   if ( !a6 || a6 == a1 )
   {
     v24 = a7;
-LABEL_4:
+LABEL_3:
     if ( a3 != a1 )
     {
       v21 = 0LL;
@@ -66,7 +66,7 @@ LABEL_4:
         {
           SystemVisualFromCrossChannelVisualChild = -1073741811;
         }
-        (**(void (__fastcall ***)(DirectComposition::CApplicationChannel *))v13)(v13);
+        (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v13)(v13);
       }
       a4 = 0;
     }
@@ -94,10 +94,10 @@ LABEL_4:
                                                       v24,
                                                       v7);
         }
-        (**(void (__fastcall ***)(DirectComposition::CApplicationChannel *))v15)(v15);
+        (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v15)(v15);
       }
     }
-    goto LABEL_16;
+    goto LABEL_15;
   }
   v21 = 0LL;
   SystemVisualFromCrossChannelVisualChild = DirectComposition::CApplicationChannel::ReferenceHandleAndLock(a6, &v21);
@@ -109,13 +109,13 @@ LABEL_4:
                                                 v21,
                                                 a7,
                                                 (struct ResourceHandle *)&v19);
-    (**(void (__fastcall ***)(DirectComposition::CApplicationChannel *))v17)(v17);
+    (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v17)(v17);
     v7 = v19;
   }
   v24 = 0;
   if ( SystemVisualFromCrossChannelVisualChild >= 0 )
-    goto LABEL_4;
-LABEL_16:
+    goto LABEL_3;
+LABEL_15:
   if ( v7 )
     DirectComposition::CConnection::ReleaseSystemResource(v11, v7);
   if ( v8 )
@@ -127,7 +127,7 @@ LABEL_16:
       {
         v18 = v21;
         DirectComposition::CApplicationChannel::ReleaseCrossChannelVisualChild(v21, v8);
-        (**(void (__fastcall ***)(DirectComposition::CApplicationChannel *))v18)(v18);
+        (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v18)(v18);
       }
     }
     DirectComposition::CConnection::ReleaseSystemResource(v11, v8);

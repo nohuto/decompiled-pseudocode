@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiFdoPendingCreatePdoCompletion @ 0x1C03889CC
+ * XREFs of DpiFdoPendingCreatePdoCompletion @ 0x1C02C81CC
  * Callers:
- *     DpiPdoIsChildConnected @ 0x1C01F35DC (DpiPdoIsChildConnected.c)
- *     DpiPdoAddPdo @ 0x1C0205A28 (DpiPdoAddPdo.c)
- *     DpiPdoPollingWorkItem @ 0x1C03978B0 (DpiPdoPollingWorkItem.c)
+ *     DpiPdoIsChildConnected @ 0x1C01795D4 (DpiPdoIsChildConnected.c)
+ *     DpiPdoAddPdo @ 0x1C0179C7C (DpiPdoAddPdo.c)
+ *     DpiPdoPollingWorkItem @ 0x1C02D92E0 (DpiPdoPollingWorkItem.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemUpdateInflightScenarioTable @ 0x1409DAB80
+ * XREFs of WdipSemUpdateInflightScenarioTable @ 0x140930130
  * Callers:
- *     WdipSemLogInflightLimitExceededInformation @ 0x1409DA90C (WdipSemLogInflightLimitExceededInformation.c)
+ *     WdipSemLogInflightLimitExceededInformation @ 0x14092FEB4 (WdipSemLogInflightLimitExceededInformation.c)
  * Callees:
- *     WdipSemFastAllocate @ 0x14081538C (WdipSemFastAllocate.c)
- *     WdipSemQueryInflightScenarioTable @ 0x1409DAA5C (WdipSemQueryInflightScenarioTable.c)
+ *     WdipSemFastAllocate @ 0x1407889C0 (WdipSemFastAllocate.c)
+ *     WdipSemQueryInflightScenarioTable @ 0x140930004 (WdipSemQueryInflightScenarioTable.c)
  */
 
 __int64 __fastcall WdipSemUpdateInflightScenarioTable(_QWORD *a1, __int16 a2, _DWORD *a3, __int64 a4)

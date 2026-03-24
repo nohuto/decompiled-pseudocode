@@ -1,12 +1,12 @@
 /*
- * XREFs of SepTokenFromAccessInformation @ 0x1402E1484
+ * XREFs of SepTokenFromAccessInformation @ 0x1402665D4
  * Callers:
- *     SeQuerySecurityAttributesTokenAccessInformation @ 0x14024C270 (SeQuerySecurityAttributesTokenAccessInformation.c)
- *     SeTokenFromAccessInformation @ 0x1402583A0 (SeTokenFromAccessInformation.c)
- *     SeAccessCheckFromState @ 0x1402E12F0 (SeAccessCheckFromState.c)
+ *     SeQuerySecurityAttributesTokenAccessInformation @ 0x140250340 (SeQuerySecurityAttributesTokenAccessInformation.c)
+ *     SeAccessCheckFromState @ 0x140266430 (SeAccessCheckFromState.c)
+ *     SeTokenFromAccessInformation @ 0x1402CEAF0 (SeTokenFromAccessInformation.c)
  * Callees:
- *     RtlSidHashInitialize @ 0x1402E1660 (RtlSidHashInitialize.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlSidHashInitialize @ 0x140355DE0 (RtlSidHashInitialize.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 unsigned int *__fastcall SepTokenFromAccessInformation(unsigned int **a1, __int64 a2)

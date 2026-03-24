@@ -1,39 +1,47 @@
 /*
- * XREFs of ??1VIDMM_SEGMENT@@UEAA@XZ @ 0x1C00E9B90
+ * XREFs of ??1VIDMM_SEGMENT@@UEAA@XZ @ 0x1C00C6000
  * Callers:
- *     ??_EVIDMM_SEGMENT@@UEAAPEAXI@Z @ 0x1C0032B60 (--_EVIDMM_SEGMENT@@UEAAPEAXI@Z.c)
- *     ??1VIDMM_SYSMEM_SEGMENT@@UEAA@XZ @ 0x1C00E790C (--1VIDMM_SYSMEM_SEGMENT@@UEAA@XZ.c)
- *     ??1VIDMM_APERTURE_SEGMENT@@UEAA@XZ @ 0x1C00E7950 (--1VIDMM_APERTURE_SEGMENT@@UEAA@XZ.c)
- *     ??1VIDMM_MEMORY_SEGMENT@@UEAA@XZ @ 0x1C00E8968 (--1VIDMM_MEMORY_SEGMENT@@UEAA@XZ.c)
+ *     ??_EVIDMM_SEGMENT@@UEAAPEAXI@Z @ 0x1C00285D0 (--_EVIDMM_SEGMENT@@UEAAPEAXI@Z.c)
+ *     ??1VIDMM_SYSMEM_SEGMENT@@UEAA@XZ @ 0x1C00C2A7C (--1VIDMM_SYSMEM_SEGMENT@@UEAA@XZ.c)
+ *     ??1VIDMM_APERTURE_SEGMENT@@UEAA@XZ @ 0x1C00C2AC0 (--1VIDMM_APERTURE_SEGMENT@@UEAA@XZ.c)
+ *     ??1VIDMM_MEMORY_SEGMENT@@UEAA@XZ @ 0x1C00C4864 (--1VIDMM_MEMORY_SEGMENT@@UEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     ??_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z @ 0x1C002D7AC (--_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z.c)
- *     ?ReportSegment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00B0D90 (-ReportSegment@VIDMM_SEGMENT@@QEAAXXZ.c)
- *     ?FreeForwardProgressMdl@VIDMM_SEGMENT@@IEAAXXZ @ 0x1C00EA8DC (-FreeForwardProgressMdl@VIDMM_SEGMENT@@IEAAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     ??_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z @ 0x1C0028594 (--_GVIDMM_LINEAR_POOL@@QEAAPEAXI@Z.c)
+ *     ?ReportSegment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C0092F90 (-ReportSegment@VIDMM_SEGMENT@@QEAAXXZ.c)
+ *     ?FreeForwardProgressMdl@VIDMM_SEGMENT@@IEAAXXZ @ 0x1C00C6D4C (-FreeForwardProgressMdl@VIDMM_SEGMENT@@IEAAXXZ.c)
  */
 
 void __fastcall VIDMM_SEGMENT::~VIDMM_SEGMENT(void **this, __int64 a2, __int64 a3)
 {
   bool v3; // zf
-  struct _MDL *v5; // rcx
-  VIDMM_LINEAR_POOL *v6; // rcx
+  __int64 v5; // rax
+  struct _MDL *v6; // rcx
+  VIDMM_LINEAR_POOL *v7; // rcx
 
   v3 = bTracingEnabled == 0;
   *this = &VIDMM_SEGMENT::`vftable';
   if ( !v3 )
     VIDMM_SEGMENT::ReportSegment((VIDMM_SEGMENT *)this, a2, a3);
   if ( this[17] != this + 17 )
-    WdLogSingleEntry5(0LL, 270LL, 12LL, this, 0LL, 0LL);
+  {
+    v5 = WdLogNewEntry5_WdCriticalError(this, a2);
+    *(_QWORD *)(v5 + 24) = 270LL;
+    *(_QWORD *)(v5 + 32) = 12LL;
+    *(_QWORD *)(v5 + 40) = this;
+    *(_OWORD *)(v5 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v5);
+  }
   operator delete(this[31]);
   VIDMM_SEGMENT::FreeForwardProgressMdl((VIDMM_SEGMENT *)this);
-  v5 = (struct _MDL *)this[34];
-  if ( v5 )
+  v6 = (struct _MDL *)this[34];
+  if ( v6 )
   {
-    MmFreePagesFromMdl(v5);
+    MmFreePagesFromMdl(v6);
     ExFreePoolWithTag(this[34], 0);
     this[34] = 0LL;
   }
-  v6 = (VIDMM_LINEAR_POOL *)this[19];
-  if ( v6 )
-    VIDMM_LINEAR_POOL::`scalar deleting destructor'(v6);
+  v7 = (VIDMM_LINEAR_POOL *)this[19];
+  if ( v7 )
+    VIDMM_LINEAR_POOL::`scalar deleting destructor'(v7);
 }

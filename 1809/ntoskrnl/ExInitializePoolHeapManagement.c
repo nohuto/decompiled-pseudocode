@@ -1,12 +1,12 @@
 /*
- * XREFs of ExInitializePoolHeapManagement @ 0x14018D258
+ * XREFs of ExInitializePoolHeapManagement @ 0x14018D278
  * Callers:
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
- *     ExCreateHeap @ 0x140170208 (ExCreateHeap.c)
- *     ExpDetermineLargePagePolicy @ 0x14018D488 (ExpDetermineLargePagePolicy.c)
- *     RtlHpKInitializeHeapManager @ 0x14018D528 (RtlHpKInitializeHeapManager.c)
- *     RtlpDynamicLookasideInitialize @ 0x1401B7B58 (RtlpDynamicLookasideInitialize.c)
+ *     ExCreateHeap @ 0x140170228 (ExCreateHeap.c)
+ *     ExpDetermineLargePagePolicy @ 0x14018D4A8 (ExpDetermineLargePagePolicy.c)
+ *     RtlHpKInitializeHeapManager @ 0x14018D548 (RtlHpKInitializeHeapManager.c)
+ *     RtlpDynamicLookasideInitialize @ 0x1401B7B78 (RtlpDynamicLookasideInitialize.c)
  */
 
 __int64 ExInitializePoolHeapManagement()

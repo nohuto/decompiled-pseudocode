@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpProcessThreadImageRundown @ 0x14081454C
+ * XREFs of EtwpProcessThreadImageRundown @ 0x140797628
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140814360 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     PsEnumProcesses @ 0x1406BF0AC (PsEnumProcesses.c)
- *     PsLookupProcessByProcessId @ 0x1407A8720 (PsLookupProcessByProcessId.c)
- *     EtwpProcessEnumCallback @ 0x140814660 (EtwpProcessEnumCallback.c)
- *     EtwpIsStackWalkingEnabled @ 0x140814BE8 (EtwpIsStackWalkingEnabled.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
+ *     PsEnumProcesses @ 0x1406CE06C (PsEnumProcesses.c)
+ *     EtwpProcessEnumCallback @ 0x140797740 (EtwpProcessEnumCallback.c)
+ *     EtwpIsStackWalkingEnabled @ 0x140797F64 (EtwpIsStackWalkingEnabled.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpProcessThreadImageRundown(__int64 a1, __int64 a2, char a3, unsigned int **a4, unsigned int a5)
@@ -32,8 +32,8 @@ __int64 __fastcall EtwpProcessThreadImageRundown(__int64 a1, __int64 a2, char a3
     v10 = 1284LL;
   BYTE2(v14[8]) = EtwpIsStackWalkingEnabled(a2, v10);
   if ( a1 && (*(_DWORD *)(a1 + 16) & 0x40) != 0 && (*(_DWORD *)(a2 + 12) & 0x2000000) != 0 )
-    v14[1] = (char *)&EtwpObjectTypeFilter + 20 * *(unsigned __int8 *)(a2 + 818);
-  v14[2] = ExAllocatePool2(64LL, 0x2000LL, 1953985605LL);
+    v14[1] = (char *)&EtwpObjectTypeFilter + 20 * *(unsigned __int8 *)(a2 + 834);
+  v14[2] = ExAllocatePoolWithTag(NonPagedPoolNx, 0x2000uLL, 0x74777445u);
   if ( v14[2] )
     LOWORD(v14[3]) = 0x2000;
   if ( a5 && a4 )

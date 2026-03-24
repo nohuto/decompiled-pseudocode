@@ -1,34 +1,37 @@
 /*
- * XREFs of DeleteHrgnClip @ 0x1C008ED20
+ * XREFs of DeleteHrgnClip @ 0x1C00D4ED0
  * Callers:
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
  * Callees:
- *     RevalidateDCE @ 0x1C008F0E0 (RevalidateDCE.c)
+ *     RevalidateDCE @ 0x1C00D52B0 (RevalidateDCE.c)
  */
 
 __int64 __fastcall DeleteHrgnClip(__int64 a1)
 {
-  _QWORD *v1; // rdi
-  unsigned int v2; // eax
+  int v2; // eax
+  unsigned __int64 v3; // rcx
   __int64 result; // rax
   __int64 v5; // rdx
   __int64 v6; // rcx
 
-  v1 = (_QWORD *)(a1 + 40);
-  v2 = *(_DWORD *)(a1 + 64) & 0xFFFFFF3F;
-  *(_DWORD *)(a1 + 64) = v2;
+  *(_DWORD *)(a1 + 64) &= 0xFFFFFF3F;
+  v2 = *(_DWORD *)(a1 + 64);
   if ( (v2 & 0x40000) != 0 )
   {
     *(_DWORD *)(a1 + 64) = v2 & 0xFFFBFFFF;
   }
   else
   {
-    if ( *v1 > 2uLL )
+    v3 = *(_QWORD *)(a1 + 40);
+    if ( v3 > 2 )
+    {
       GreMarkDeletableRgn();
-    DeleteMaybeSpecialRgn(*v1);
+      v3 = *(_QWORD *)(a1 + 40);
+    }
+    DeleteMaybeSpecialRgn(v3);
   }
   result = DeleteMaybeSpecialRgn(*(_QWORD *)(a1 + 48));
-  *v1 = 0LL;
+  *(_QWORD *)(a1 + 40) = 0LL;
   *(_QWORD *)(a1 + 48) = 0LL;
   if ( (*(_DWORD *)(a1 + 64) & 0x2000) == 0 )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PutScatterGatherList@FxDmaScatterGatherTransaction@@AEAAXPEAU_SCATTER_GATHER_LIST@@@Z @ 0x1C0037E22
+ * XREFs of ?PutScatterGatherList@FxDmaScatterGatherTransaction@@AEAAXPEAU_SCATTER_GATHER_LIST@@@Z @ 0x1C0035334
  * Callers:
- *     ?ReleaseResources@FxDmaScatterGatherTransaction@@UEAAXE@Z @ 0x1C0037E90 (-ReleaseResources@FxDmaScatterGatherTransaction@@UEAAXE@Z.c)
- *     ?TransferCompleted@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0037EF0 (-TransferCompleted@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
+ *     ?ReleaseResources@FxDmaScatterGatherTransaction@@UEAAXE@Z @ 0x1C00353A0 (-ReleaseResources@FxDmaScatterGatherTransaction@@UEAAXE@Z.c)
+ *     ?TransferCompleted@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0035660 (-TransferCompleted@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxDmaScatterGatherTransaction::PutScatterGatherList(

@@ -1,11 +1,11 @@
 /*
- * XREFs of FontAssocDefaultRoutine @ 0x1C0295610
+ * XREFs of FontAssocDefaultRoutine @ 0x1C0297BE0
  * Callers:
  *     <none>
  * Callees:
- *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C0014850 (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
- *     cCapString @ 0x1C0014ABC (cCapString.c)
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0014ED0 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0064CBC (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00A09FC (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
+ *     cCapString @ 0x1C00BBE54 (cCapString.c)
  */
 
 __int64 __fastcall FontAssocDefaultRoutine(wchar_t *Str1, __int64 a2, char *a3)
@@ -31,7 +31,7 @@ __int64 __fastcall FontAssocDefaultRoutine(wchar_t *Str1, __int64 a2, char *a3)
     }
     else
     {
-      cCapString((WCHAR *)&word_1C0335DB0, (WCHAR *)a3, 32);
+      cCapString(word_1C033ABF0, (WCHAR *)a3, 32);
     }
   }
   else

@@ -1,25 +1,24 @@
 /*
- * XREFs of KeInvalidateAllCaches @ 0x140259C80
+ * XREFs of KeInvalidateAllCaches @ 0x1403A4E00
  * Callers:
- *     KeFlushIoBuffers @ 0x140232370 (KeFlushIoBuffers.c)
- *     MiChangePageAttributeBatch @ 0x1402680C0 (MiChangePageAttributeBatch.c)
- *     MiChangePageAttributeContiguous @ 0x14026873C (MiChangePageAttributeContiguous.c)
- *     KeInvalidateRangeAllCachesNoIpi @ 0x140268B50 (KeInvalidateRangeAllCachesNoIpi.c)
- *     MiFlushCacheMdl @ 0x140398948 (MiFlushCacheMdl.c)
- *     MiRemovePhysicalMemoryBatchComplete @ 0x140419138 (MiRemovePhysicalMemoryBatchComplete.c)
- *     KeInvalidateRangeAllCaches @ 0x140570E60 (KeInvalidateRangeAllCaches.c)
- *     MiFlushCacheRange @ 0x1405B2400 (MiFlushCacheRange.c)
- *     MiInitializeCacheFlushing @ 0x140B08B40 (MiInitializeCacheFlushing.c)
+ *     KeFlushIoBuffers @ 0x1402A7EB0 (KeFlushIoBuffers.c)
+ *     MiChangePageAttributeContiguous @ 0x1402CF8B8 (MiChangePageAttributeContiguous.c)
+ *     MiChangePageAttributeBatch @ 0x1403035A0 (MiChangePageAttributeBatch.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1403038F0 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KeInvalidateRangeAllCaches @ 0x14051B0F0 (KeInvalidateRangeAllCaches.c)
+ *     MiFlushCacheMdl @ 0x1405544B8 (MiFlushCacheMdl.c)
+ *     MiFlushCacheRange @ 0x140554514 (MiFlushCacheRange.c)
+ *     MiInitializeCacheFlushing @ 0x140A54B0C (MiInitializeCacheFlushing.c)
  * Callees:
- *     KxSetTimeStampBusy @ 0x140240404 (KxSetTimeStampBusy.c)
- *     KiIpiSendRequestEx @ 0x1402F42D4 (KiIpiSendRequestEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxSetTimeStampBusy @ 0x14024A678 (KxSetTimeStampBusy.c)
+ *     KiIpiSendRequestEx @ 0x14033B9A0 (KiIpiSendRequestEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN KeInvalidateAllCaches(void)
 {
   unsigned __int8 CurrentIrql; // bl
-  unsigned int CurrentPrcb; // esi
+  struct _KPRCB *CurrentPrcb; // rsi
   _DWORD *SchedulerAssist; // r9
   unsigned __int8 v4; // al
   struct _KPRCB *v5; // r10
@@ -34,10 +33,17 @@ BOOLEAN KeInvalidateAllCaches(void)
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
   }
-  CurrentPrcb = (unsigned int)KeGetCurrentPrcb();
+  CurrentPrcb = KeGetCurrentPrcb();
   if ( KxSetTimeStampBusy(&KiCacheFlushTimeStamp) )
   {
-    KiIpiSendRequestEx(CurrentPrcb, 1, 0, 0, 6LL, (__int64)KeSweepLocalCaches, 0LL);
+    KiIpiSendRequestEx(
+      (__int64)CurrentPrcb,
+      1u,
+      0LL,
+      0LL,
+      6LL,
+      (__int64 (__fastcall *)(__int64))KeSweepLocalCaches,
+      0LL);
     _InterlockedIncrement(&KiCacheFlushTimeStamp);
   }
   if ( KiIrqlFlags )

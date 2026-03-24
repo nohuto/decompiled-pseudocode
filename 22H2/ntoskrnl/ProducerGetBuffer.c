@@ -1,19 +1,18 @@
 /*
- * XREFs of ProducerGetBuffer @ 0x140AA614C
+ * XREFs of ProducerGetBuffer @ 0x140994F58
  * Callers:
- *     PopCountDataAsProduced @ 0x140AA21E4 (PopCountDataAsProduced.c)
- *     PopRequestRead @ 0x140AA3C40 (PopRequestRead.c)
+ *     PopCountDataAsProduced @ 0x140994CFC (PopCountDataAsProduced.c)
+ *     PopRequestRead @ 0x1409B1994 (PopRequestRead.c)
  * Callees:
- *     PopHiberCheckForDebugBreak @ 0x140AA2F14 (PopHiberCheckForDebugBreak.c)
+ *     PopHiberCheckForDebugBreak @ 0x140994FFC (PopHiberCheckForDebugBreak.c)
  */
 
-__int64 __fastcall ProducerGetBuffer(__int64 a1, unsigned int a2, unsigned int a3, char a4)
+unsigned __int64 __fastcall ProducerGetBuffer(__int64 a1, unsigned int a2, unsigned int a3, char a4)
 {
   __int64 v4; // rbp
   __int64 v6; // rsi
-  unsigned __int64 v8; // rdx
-  __int64 result; // rax
-  unsigned __int64 v10; // r8
+  unsigned __int64 v8; // r8
+  unsigned __int64 result; // rax
 
   v4 = a3;
   v6 = a2;
@@ -28,14 +27,16 @@ __int64 __fastcall ProducerGetBuffer(__int64 a1, unsigned int a2, unsigned int a
   }
   while ( 1 )
   {
-    v8 = *(unsigned int *)(a1 + 8);
-    if ( (unsigned int)v6 <= (int)v8 + *(_DWORD *)(a1 + 56) - *(_DWORD *)(a1 + 32) )
-      break;
-    if ( (a4 & 1) != 0 )
+    if ( (unsigned int)v6 <= *(_DWORD *)(a1 + 56) + *(_DWORD *)(a1 + 8) - *(_DWORD *)(a1 + 32) )
     {
-      result = 0LL;
-      goto LABEL_14;
+      v8 = *(_QWORD *)(a1 + 32);
+      result = *(_QWORD *)a1 + v8 % *(unsigned int *)(a1 + 8);
+      *(_QWORD *)(a1 + 16) -= v4;
+      *(_QWORD *)(a1 + 32) = v8 + v6;
+      goto LABEL_4;
     }
+    if ( (a4 & 1) != 0 )
+      break;
     *(_DWORD *)(a1 + 24) = 0;
     do
     {
@@ -53,11 +54,8 @@ __int64 __fastcall ProducerGetBuffer(__int64 a1, unsigned int a2, unsigned int a
       while ( *(_DWORD *)(a1 + 24) );
     }
   }
-  v10 = *(_QWORD *)(a1 + 32);
-  result = *(_QWORD *)a1 + (unsigned int)(v10 % v8);
-  *(_QWORD *)(a1 + 16) -= v4;
-  *(_QWORD *)(a1 + 32) = v10 + v6;
-LABEL_14:
+  result = 0LL;
+LABEL_4:
   *(_DWORD *)(a1 + 24) = 0;
   return result;
 }

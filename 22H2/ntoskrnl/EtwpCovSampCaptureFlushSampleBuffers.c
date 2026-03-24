@@ -1,40 +1,31 @@
 /*
- * XREFs of EtwpCovSampCaptureFlushSampleBuffers @ 0x1406032E0
+ * XREFs of EtwpCovSampCaptureFlushSampleBuffers @ 0x1405AEB70
  * Callers:
- *     EtwpCovSampCaptureContextStop @ 0x140603108 (EtwpCovSampCaptureContextStop.c)
- *     EtwpCovSampCaptureFlush @ 0x1409F0FC0 (EtwpCovSampCaptureFlush.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1405AE99C (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureFlush @ 0x140942820 (EtwpCovSampCaptureFlush.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033ADA0 (KeQueryMaximumProcessorCountEx.c)
- *     EtwpCovSampTryAcquireBufferLock @ 0x14046A088 (EtwpCovSampTryAcquireBufferLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCovSampSampleBufferDecRef @ 0x140603C90 (EtwpCovSampSampleBufferDecRef.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140344740 (KeQueryMaximumProcessorCountEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampSampleBufferDecRef @ 0x1405AF7B0 (EtwpCovSampSampleBufferDecRef.c)
+ *     EtwpCovSampTryAcquireBufferLock @ 0x1405AFB70 (EtwpCovSampTryAcquireBufferLock.c)
  */
 
-unsigned int __fastcall EtwpCovSampCaptureFlushSampleBuffers(__int64 a1)
+ULONG __fastcall EtwpCovSampCaptureFlushSampleBuffers(__int64 a1)
 {
-  unsigned int result; // eax
+  ULONG result; // eax
   __int64 v3; // rdi
   __int64 v4; // rbp
-  __int64 v5; // rsi
-  __int64 v6; // rax
-  __int64 v7; // r9
-  unsigned int v8; // edx
-  unsigned int v9; // ecx
-  int v10; // r8d
-  __int64 v11; // rcx
-  __int64 v12; // rbx
-  __int64 v13; // rax
+  KSPIN_LOCK v5; // rsi
+  unsigned int v6; // edx
+  unsigned int v7; // ecx
+  KSPIN_LOCK *v8; // rbx
+  KSPIN_LOCK v9; // rax
   unsigned __int8 CurrentIrql; // al
-  unsigned __int8 v15; // bl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v18; // eax
-  bool v19; // zf
-  unsigned __int8 v20; // [rsp+40h] [rbp+8h] BYREF
-  int v21; // [rsp+48h] [rbp+10h]
+  bool v13; // zf
 
-  v20 = 0;
   result = KeQueryMaximumProcessorCountEx(0xFFFFu);
   if ( result )
   {
@@ -43,45 +34,40 @@ unsigned int __fastcall EtwpCovSampCaptureFlushSampleBuffers(__int64 a1)
     do
     {
       v5 = 0LL;
-      v6 = (*(_QWORD *)(a1 + 8) >> 4) & 0x1FFLL;
-      v7 = *(_QWORD *)(v3 + ExSaPageArrays);
-      v8 = ((unsigned int)*(_QWORD *)(a1 + 8) >> 13) & 0x3FFFF;
-      _BitScanReverse(&v9, v8);
-      v10 = 1 << v9;
-      v11 = v9 - 2;
-      v21 = v11;
-      v12 = *(_QWORD *)(*(_QWORD *)(v7 + 8 * v11) + 8LL * (v8 ^ v10) + 8) + 8 * v6;
-      result = EtwpCovSampTryAcquireBufferLock((volatile signed __int32 *)v12, &v20);
+      v6 = ((unsigned int)*(_QWORD *)(a1 + 8) >> 13) & 0x3FFFF;
+      _BitScanReverse(&v7, v6);
+      v8 = (KSPIN_LOCK *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v3 + ExSaPageArrays) + 8LL * (v7 - 2))
+                                    + 8LL * (v6 ^ (1 << v7))
+                                    + 8)
+                        + 8 * ((*(_QWORD *)(a1 + 8) >> 4) & 0x1FFLL));
+      result = EtwpCovSampTryAcquireBufferLock(v8);
       if ( result )
       {
-        v13 = *(_QWORD *)(v12 + 8);
-        if ( v13 )
+        v9 = v8[1];
+        if ( v9 )
         {
-          *(_QWORD *)(v12 + 8) = 0LL;
-          v5 = v13;
+          v8[1] = 0LL;
+          v5 = v9;
         }
-        KxReleaseSpinLock((volatile signed __int64 *)v12);
-        if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+        KxReleaseSpinLock(v8);
+        if ( KiIrqlFlags )
         {
-          v15 = v20;
-          if ( v20 <= 0xFu && CurrentIrql >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v15 = v20;
-            v18 = ~(unsigned __int16)(-1LL << (v20 + 1));
-            v19 = (v18 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v18;
-            if ( v19 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v13 = (SchedulerAssist[5] & 0xFFFF0001) == 0;
+              SchedulerAssist[5] &= 0xFFFF0001;
+              if ( v13 )
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
           }
         }
-        else
-        {
-          v15 = v20;
-        }
-        result = v15;
-        __writecr8(v15);
+        result = 0;
+        __writecr8(0LL);
         if ( v5 )
           result = EtwpCovSampSampleBufferDecRef(a1, v5);
       }

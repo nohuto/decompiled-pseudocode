@@ -1,11 +1,11 @@
 /*
- * XREFs of PopBootLoaderTraceProcess @ 0x140988490
+ * XREFs of PopBootLoaderTraceProcess @ 0x14077A018
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     BapdWriteEtwEvents @ 0x140373E08 (BapdWriteEtwEvents.c)
- *     EtwUnregister @ 0x1407C1390 (EtwUnregister.c)
- *     BapdRecordFirmwareBootStats @ 0x140A88E78 (BapdRecordFirmwareBootStats.c)
+ *     BapdWriteEtwEvents @ 0x14039A928 (BapdWriteEtwEvents.c)
+ *     EtwUnregister @ 0x14075F9C0 (EtwUnregister.c)
+ *     BapdRecordFirmwareBootStats @ 0x140999250 (BapdRecordFirmwareBootStats.c)
  */
 
 void PopBootLoaderTraceProcess()
@@ -16,13 +16,13 @@ void PopBootLoaderTraceProcess()
   _DWORD *v3; // rax
   __int64 v4; // rdx
 
-  v0 = qword_140C3CE60;
-  if ( qword_140C3CE60 )
+  v0 = qword_140C23A80;
+  if ( qword_140C23A80 )
   {
     BapdRecordFirmwareBootStats();
-    v1 = qword_140C06778;
-    qword_140C06778 = 0LL;
-    dword_140C06758 = 0;
+    v1 = qword_140C02E90;
+    qword_140C02E90 = 0LL;
+    dword_140C02E70 = 0;
     EtwUnregister(v1);
     v2 = *(_QWORD *)(v0 + 216);
     if ( v2 )

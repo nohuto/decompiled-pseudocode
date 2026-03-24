@@ -1,150 +1,150 @@
 /*
- * XREFs of MiFillNoReservationCluster @ 0x1406394D8
+ * XREFs of MiFillNoReservationCluster @ 0x140318F70
  * Callers:
- *     MiGatherPagefilePages @ 0x14063A1B4 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1403318B4 (MiGatherPagefilePages.c)
  * Callees:
- *     MiReservePageFileSpace @ 0x140284880 (MiReservePageFileSpace.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiReferencePageForModifiedWrite @ 0x1403497E0 (MiReferencePageForModifiedWrite.c)
- *     qsort @ 0x1403D9DD0 (qsort.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiIsStoreVirtualPagefileFull @ 0x14065C03C (MiIsStoreVirtualPagefileFull.c)
+ *     MiReservePageFileSpace @ 0x14023CB00 (MiReservePageFileSpace.c)
+ *     MiReferencePageForModifiedWrite @ 0x14025614C (MiReferencePageForModifiedWrite.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiSufficientAvailablePages @ 0x14033E480 (MiSufficientAvailablePages.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
  */
 
-__int64 __fastcall MiFillNoReservationCluster(__int64 a1, __int64 a2, _QWORD *a3, unsigned int a4)
+__int64 __fastcall MiFillNoReservationCluster(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int16 v4; // ax
-  __int64 v7; // r14
-  __int64 v8; // rbp
+  _QWORD *v4; // r14
+  __int64 v6; // rax
+  _QWORD *v7; // r13
+  unsigned int v8; // esi
   __int64 v9; // r15
-  __int64 v10; // rdi
-  unsigned __int64 v11; // rsi
+  __int64 v10; // rbx
+  unsigned __int64 v11; // rdi
   unsigned __int8 v12; // al
   struct _KPRCB *v13; // r10
-  _DWORD *v14; // r9
-  int v15; // eax
-  bool v16; // zf
-  __int64 v17; // rax
-  unsigned __int64 v18; // r13
+  int v14; // eax
+  bool v15; // zf
+  unsigned __int64 v16; // r12
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v22; // eax
-  int v23; // r13d
-  unsigned __int8 v24; // cl
-  struct _KPRCB *v25; // r10
-  _DWORD *v26; // r9
+  int v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // r8
+  _DWORD *v23; // r9
+  int v24; // r12d
+  unsigned __int8 v25; // cl
+  struct _KPRCB *v26; // r10
   int v27; // eax
-  char v29; // [rsp+68h] [rbp+10h]
+  char v29; // [rsp+60h] [rbp+8h]
+  unsigned int v30; // [rsp+70h] [rbp+18h]
 
-  v4 = *(_WORD *)(a2 + 204);
-  if ( (v4 & 0x40) != 0 )
-  {
-    if ( *(_QWORD *)(88LL * (v4 & 0xF) + a1 + 3904) )
-      v7 = 88LL * (*(_WORD *)(a2 + 204) & 0xF) + a1 + 3904;
-    else
-      v7 = a1 + 3776;
-  }
-  else
-  {
-    v7 = a1 + 3648;
-    if ( !*(_QWORD *)(a1 + 3648) && (unsigned int)MiIsStoreVirtualPagefileFull() )
-    {
-      if ( *(_QWORD *)(88LL * *(unsigned int *)(a1 + 1188) + a1 + 3904) )
-        v7 = 88LL * *(unsigned int *)(a1 + 1188) + a1 + 3904;
-      else
-        v7 = a1 + 3776;
-    }
-  }
-  v8 = 0LL;
+  v30 = a3;
+  v4 = (_QWORD *)a2;
+  if ( !a1[290] || (v6 = (unsigned int)a1[289], a4 = 5 * v6, v7 = &a1[10 * v6 + 704], !*v7) )
+    v7 = a1 + 688;
+  v8 = 0;
   v29 = 1;
   do
   {
-    v9 = *(_QWORD *)(v7 + 16);
-    if ( v9 == 0x3FFFFFFFFFLL )
+    v9 = v7[2];
+    if ( v9 == 0xFFFFFFFFFLL )
       break;
-    v10 = 48 * v9 - 0x220000000000LL;
-    v11 = (unsigned __int8)MiLockPageInline(v10);
-    if ( v9 != *(_QWORD *)(v7 + 16) )
-      goto LABEL_13;
-    if ( !*(_DWORD *)(a1 + 1076) )
-      goto LABEL_34;
-    v17 = *(_QWORD *)(v10 + 40);
-    if ( v17 >= 0 || (v17 & 0x10000000000LL) == 0 && *(__int64 *)(v10 + 8) > 0 )
-      goto LABEL_34;
-    if ( !(unsigned int)MiSufficientAvailablePages(a1, 0xA0uLL) )
-      goto LABEL_34;
-    v18 = *(_QWORD *)(v10 + 8) | 0x8000000000000000uLL;
+    v10 = 48 * v9 - 0x58000000000LL;
+    v11 = (unsigned __int8)MiLockPageInline(v10, a2, a3, (_DWORD *)a4);
+    if ( v9 != v7[2] )
+      goto LABEL_7;
+    if ( !a1[259]
+      || !(unsigned int)MI_PFN_IS_PROTO(48 * v9 - 0x58000000000LL)
+      || (*(_QWORD *)(v10 + 40) & 0x1000000000LL) == 0 && *(__int64 *)(v10 + 8) > 0
+      || !(unsigned int)MiSufficientAvailablePages(a1, 160LL) )
+    {
+      goto LABEL_28;
+    }
+    v16 = *(_QWORD *)(v10 + 8) | 0x8000000000000000uLL;
     _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-        v16 = (v22 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v22;
-        if ( v16 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
+          v15 = (v20 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v20;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v11);
-    MiReservePageFileSpace(a1, v18, 0LL);
-    v11 = (unsigned __int8)MiLockPageInline(48 * v9 - 0x220000000000LL);
-    if ( v9 != *(_QWORD *)(v7 + 16) )
+    MiReservePageFileSpace((__int64)a1, v16, 0LL);
+    v11 = (unsigned __int8)MiLockPageInline(48 * v9 - 0x58000000000LL, v21, v22, v23);
+    if ( v9 != v7[2] )
     {
-LABEL_13:
+LABEL_7:
       _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( KiIrqlFlags )
       {
-        v12 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v12 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v13 = KeGetCurrentPrcb();
-          v14 = v13->SchedulerAssist;
-          v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-          v16 = (v15 & v14[5]) == 0;
-          v14[5] &= v15;
-          if ( v16 )
-            KiRemoveSystemWorkPriorityKick((__int64)v13);
+          v12 = KeGetCurrentIrql();
+          if ( v12 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v12 >= 2u )
+          {
+            v13 = KeGetCurrentPrcb();
+            a2 = -1LL << ((unsigned __int8)v11 + 1);
+            a4 = (__int64)v13->SchedulerAssist;
+            v14 = ~(unsigned __int16)a2;
+            v15 = (v14 & *(_DWORD *)(a4 + 20)) == 0;
+            a3 = (unsigned int)v14 & *(_DWORD *)(a4 + 20);
+            *(_DWORD *)(a4 + 20) = a3;
+            if ( v15 )
+              KiRemoveSystemWorkPriorityKick(v13);
+          }
         }
       }
       __writecr8(v11);
     }
     else
     {
-LABEL_34:
-      v23 = MiReferencePageForModifiedWrite(48 * v9 - 0x220000000000LL, v29);
+LABEL_28:
+      v24 = MiReferencePageForModifiedWrite(48 * v9 - 0x58000000000LL, v29);
       _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( KiIrqlFlags )
       {
-        v24 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v24 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v25 = KeGetCurrentPrcb();
-          v26 = v25->SchedulerAssist;
-          v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-          v16 = (v27 & v26[5]) == 0;
-          v26[5] &= v27;
-          if ( v16 )
-            KiRemoveSystemWorkPriorityKick((__int64)v25);
+          v25 = KeGetCurrentIrql();
+          if ( v25 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v25 >= 2u )
+          {
+            v26 = KeGetCurrentPrcb();
+            a2 = -1LL << ((unsigned __int8)v11 + 1);
+            a4 = (__int64)v26->SchedulerAssist;
+            v27 = ~(unsigned __int16)a2;
+            v15 = (v27 & *(_DWORD *)(a4 + 20)) == 0;
+            a3 = (unsigned int)v27 & *(_DWORD *)(a4 + 20);
+            *(_DWORD *)(a4 + 20) = a3;
+            if ( v15 )
+              KiRemoveSystemWorkPriorityKick(v26);
+          }
         }
       }
       __writecr8((unsigned __int8)v11);
-      if ( !v23 )
+      if ( !v24 )
         break;
       v29 &= ~1u;
-      v8 = (unsigned int)(v8 + 1);
-      *a3++ = v9;
-      if ( v23 == 3 && (unsigned int)v8 >= 0x10 )
+      ++v8;
+      *v4++ = v9;
+      if ( v24 == 3 && v8 >= 0x10 )
         break;
     }
   }
-  while ( (unsigned int)v8 < a4 );
-  if ( (unsigned int)v8 > 1 )
-    qsort(&a3[-v8], (unsigned int)v8, 8uLL, MiModifiedWriterNoReservationSort);
-  return (unsigned int)v8;
+  while ( v8 < v30 );
+  if ( v8 > 1 )
+    qsort(&v4[-v8], v8, 8uLL, (int (__cdecl *)(const void *, const void *))MiModifiedWriterNoReservationSort);
+  return v8;
 }

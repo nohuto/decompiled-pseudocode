@@ -1,12 +1,11 @@
 /*
- * XREFs of ?SendEnqueueFlipExToken@DXG_GUEST_COMPOSITIONOBJECTCHANNEL@@QEAAJI_K0PEAUtagCloneableFlipTokenData@@@Z @ 0x1C02E3B58
+ * XREFs of ?SendEnqueueFlipExToken@DXG_GUEST_COMPOSITIONOBJECTCHANNEL@@QEAAJI_K0PEAUtagCloneableFlipTokenData@@@Z @ 0x1C028E900
  * Callers:
- *     ?VailSendEnqueueFlipExToken@DXGSESSIONDATA@@QEAAJI_K0PEAUtagCloneableFlipTokenData@@@Z @ 0x1C0363678 (-VailSendEnqueueFlipExToken@DXGSESSIONDATA@@QEAAJI_K0PEAUtagCloneableFlipTokenData@@@Z.c)
+ *     ?VailSendEnqueueFlipExToken@DXGSESSIONDATA@@QEAAJI_K0PEAUtagCloneableFlipTokenData@@@Z @ 0x1C02B8074 (-VailSendEnqueueFlipExToken@DXGSESSIONDATA@@QEAAJI_K0PEAUtagCloneableFlipTokenData@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 __int64 __fastcall DXG_GUEST_COMPOSITIONOBJECTCHANNEL::SendEnqueueFlipExToken(
@@ -28,34 +27,41 @@ __int64 __fastcall DXG_GUEST_COMPOSITIONOBJECTCHANNEL::SendEnqueueFlipExToken(
   __int128 v19; // xmm1
   __int128 v20; // xmm0
   __int128 v21; // xmm1
-  __int64 v22; // rax
+  int v22; // eax
   int v23; // eax
-  __int64 v24; // rdi
-  __int64 v25; // rdx
-  unsigned int v27; // [rsp+58h] [rbp-B0h] BYREF
-  int v28; // [rsp+60h] [rbp-A8h] BYREF
-  int v29; // [rsp+64h] [rbp-A4h]
-  int v30; // [rsp+68h] [rbp-A0h]
-  int v31; // [rsp+6Ch] [rbp-9Ch]
-  _DWORD v32[4]; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v33; // [rsp+80h] [rbp-88h]
-  __int64 v34; // [rsp+88h] [rbp-80h]
-  _BYTE v35[456]; // [rsp+90h] [rbp-78h] BYREF
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // rbx
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rcx
+  unsigned int v32; // [rsp+38h] [rbp-D0h] BYREF
+  int v33; // [rsp+40h] [rbp-C8h] BYREF
+  int v34; // [rsp+44h] [rbp-C4h]
+  int v35; // [rsp+48h] [rbp-C0h]
+  int v36; // [rsp+4Ch] [rbp-BCh]
+  _DWORD v37[4]; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v38; // [rsp+60h] [rbp-A8h]
+  __int64 v39; // [rsp+68h] [rbp-A0h]
+  _BYTE v40[452]; // [rsp+70h] [rbp-98h] BYREF
+  int v41; // [rsp+234h] [rbp+12Ch]
 
-  v32[0] = 1886220131;
-  v32[1] = -1073741823;
-  v32[2] = 9;
-  memset(v35, 0, sizeof(v35));
-  v31 = 0;
-  v9 = v35;
-  v32[3] = a2;
-  v28 = 1886220131;
+  v37[0] = 1886220131;
+  v37[2] = 9;
+  v41 = 0;
+  v37[1] = -1073741823;
+  memset(v40, 0, sizeof(v40));
+  v36 = 0;
+  v9 = v40;
   v11 = 3LL;
-  v29 = -1073741823;
-  v30 = 10;
-  v27 = 16;
-  v33 = a3;
-  v34 = a4;
+  v33 = 1886220131;
+  v34 = -1073741823;
+  v35 = 10;
+  v32 = 16;
+  v37[3] = a2;
+  v38 = a3;
+  v39 = a4;
   do
   {
     v12 = *((_OWORD *)a5 + 1);
@@ -83,47 +89,44 @@ __int64 __fastcall DXG_GUEST_COMPOSITIONOBJECTCHANNEL::SendEnqueueFlipExToken(
   v20 = *((_OWORD *)a5 + 2);
   v9[1] = v19;
   v21 = *((_OWORD *)a5 + 3);
-  v22 = *((_QWORD *)a5 + 8);
+  v22 = *((_DWORD *)a5 + 16);
   v9[2] = v20;
   v9[3] = v21;
-  *((_QWORD *)v9 + 8) = v22;
+  *((_DWORD *)v9 + 16) = v22;
   v23 = (*(__int64 (__fastcall **)(_QWORD, _DWORD *, __int64, int *, unsigned int *))(**((_QWORD **)this + 1) + 32LL))(
           *((_QWORD *)this + 1),
-          v32,
+          v37,
           488LL,
-          &v28,
-          &v27);
-  v24 = v23;
-  if ( v23 < 0 )
+          &v33,
+          &v32);
+  v27 = v23;
+  if ( v23 >= 0 )
   {
-    WdLogSingleEntry2(2LL, v23, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"SendSyncMessage returns error from host. Returning 0x%I64x",
-      v24,
-      (__int64)this,
-      0LL,
-      0LL,
-      0LL);
-    return (unsigned int)v24;
+    if ( v32 == 16 )
+    {
+      if ( v35 == 10 )
+      {
+        LODWORD(v27) = v34;
+        return (unsigned int)v27;
+      }
+      v29 = WdLogNewEntry5_WdWarning(v25, v24, v26);
+      v30 = v35;
+    }
+    else
+    {
+      v29 = WdLogNewEntry5_WdWarning(v25, v24, v26);
+      v30 = v32;
+    }
+    *(_QWORD *)(v29 + 24) = v30;
+    *(_QWORD *)(v29 + 32) = -1073741823LL;
+    WdLogEvent5_WdWarning(v29);
+    LODWORD(v27) = -1073741823;
   }
-  if ( v27 != 16 )
+  else
   {
-    v25 = v27;
-LABEL_7:
-    WdLogSingleEntry2(3LL, v25, -1073741823LL);
-    LODWORD(v24) = -1073741823;
-    return (unsigned int)v24;
+    v28 = WdLogNewEntry5_WdWarning(v25, v24, v26);
+    *(_QWORD *)(v28 + 24) = v27;
+    WdLogEvent5_WdWarning(v28);
   }
-  if ( v30 != 10 )
-  {
-    v25 = v30;
-    goto LABEL_7;
-  }
-  LODWORD(v24) = v29;
-  if ( v29 < 0 )
-    WdLogSingleEntry2(3LL, v29, this);
-  return (unsigned int)v24;
+  return (unsigned int)v27;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpPortQueryBasicInfo @ 0x14069B430
+ * XREFs of AlpcpPortQueryBasicInfo @ 0x1406821C0
  * Callers:
- *     NtAlpcQueryInformation @ 0x14069B200 (NtAlpcQueryInformation.c)
+ *     NtAlpcQueryInformation @ 0x140681F90 (NtAlpcQueryInformation.c)
  * Callees:
  *     <none>
  */

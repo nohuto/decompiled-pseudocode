@@ -1,5 +1,5 @@
 /*
- * XREFs of MiLockPartitionSystemThreads @ 0x140193DE0
+ * XREFs of MiLockPartitionSystemThreads @ 0x140193E00
  * Callers:
  *     MiEnablePartitionMappedWrites @ 0x14061BE6C (MiEnablePartitionMappedWrites.c)
  * Callees:

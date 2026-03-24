@@ -9,11 +9,11 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiMakeSystemLeavesNonZero @ 0x14016A3C0 (MiMakeSystemLeavesNonZero.c)
- *     MiReplicatePteChange @ 0x140174EF4 (MiReplicatePteChange.c)
- *     KeCopyPage @ 0x1401C09B0 (KeCopyPage.c)
- *     MiMakeLargePageTable @ 0x1402B4FE8 (MiMakeLargePageTable.c)
- *     MiArePageContentsZero @ 0x1402BF668 (MiArePageContentsZero.c)
+ *     MiMakeSystemLeavesNonZero @ 0x14016A3E0 (MiMakeSystemLeavesNonZero.c)
+ *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
+ *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
+ *     MiMakeLargePageTable @ 0x1402B50E8 (MiMakeLargePageTable.c)
+ *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
  *     MxCopyPage @ 0x1409BFDC8 (MxCopyPage.c)
  */
 

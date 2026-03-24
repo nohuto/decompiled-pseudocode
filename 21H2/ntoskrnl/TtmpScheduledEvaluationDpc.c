@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmpScheduledEvaluationDpc @ 0x1405DFE20
+ * XREFs of TtmpScheduledEvaluationDpc @ 0x140580D40
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
  */
 
 void __fastcall TtmpScheduledEvaluationDpc(

@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhFdoReturnTopologyAddress @ 0x1C00308D8
+ * XREFs of UsbhFdoReturnTopologyAddress @ 0x1C0031C80
  * Callers:
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhBuildTopologyAddress @ 0x1C00484A8 (UsbhBuildTopologyAddress.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhBuildTopologyAddress @ 0x1C0049828 (UsbhBuildTopologyAddress.c)
  */
 
 __int64 __fastcall UsbhFdoReturnTopologyAddress(__int64 a1, ULONG_PTR a2, IRP *a3)

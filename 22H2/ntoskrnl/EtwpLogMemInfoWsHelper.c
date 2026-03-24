@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpLogMemInfoWsHelper @ 0x1409E6118
+ * XREFs of EtwpLogMemInfoWsHelper @ 0x140936D80
  * Callers:
- *     EtwpLogMemInfoWs @ 0x1408A7044 (EtwpLogMemInfoWs.c)
+ *     EtwpLogMemInfoWs @ 0x140936A5C (EtwpLogMemInfoWs.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpLogMemInfoWsHelper(__int64 a1, _DWORD *a2)
@@ -26,12 +26,12 @@ void __fastcall EtwpLogMemInfoWsHelper(__int64 a1, _DWORD *a2)
   v5 = v2;
   if ( a1 )
   {
-    EtwpLogKernelEvent((__int64)&UserData, *(_QWORD *)(a1 + 1096), *(_DWORD *)a1, 2u, 0x27Du, 0x401804u);
+    EtwpLogKernelEvent((__int64)&UserData, *(_QWORD *)(a1 + 1080), *(_DWORD *)a1, 2u, 0x27Du, 0x401804u);
   }
   else
   {
-    EtwTraceKernelEvent((int)&UserData, 2, 0x20800000u, 637, 4200452);
-    if ( EtwpHostSiloState != -4540 && (*(_DWORD *)(EtwpHostSiloState + 4544) & 0x800000) != 0 )
-      EtwWrite(EtwpMemoryProvRegHandle, &THREATINT_PROTECTVM_REMOTE, 0LL, 2u, &UserData);
+    EtwTraceKernelEvent((__int64)&UserData, 2u, 0x20800000u, 0x27Du, 0x401804u);
+    if ( EtwpHostSiloState != -4516 && (*(_DWORD *)(EtwpHostSiloState + 4520) & 0x800000) != 0 )
+      EtwWrite(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MEMINFO_WS, 0LL, 2u, &UserData);
   }
 }

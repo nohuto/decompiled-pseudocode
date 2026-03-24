@@ -1,9 +1,10 @@
 /*
- * XREFs of VrpDereferenceJobContext @ 0x1407E6CCC
+ * XREFs of VrpDereferenceJobContext @ 0x1405D2914
  * Callers:
- *     VrpOriginalKeyNameParameterCleanup @ 0x14036A1D0 (VrpOriginalKeyNameParameterCleanup.c)
+ *     VrpOriginalKeyNameParameterCleanup @ 0x140200010 (VrpOriginalKeyNameParameterCleanup.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall VrpDereferenceJobContext(void *a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSanityCheckHiberFile @ 0x1408017F8
+ * XREFs of PopSanityCheckHiberFile @ 0x14078E278
  * Callers:
- *     PopCreateHiberFile @ 0x140801108 (PopCreateHiberFile.c)
- *     PopResizeHiberFile @ 0x140801624 (PopResizeHiberFile.c)
+ *     PopResizeHiberFile @ 0x140776CC8 (PopResizeHiberFile.c)
+ *     PopCreateHiberFile @ 0x1407919C0 (PopCreateHiberFile.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ZwFsControlFile @ 0x14041BE80 (ZwFsControlFile.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ZwFsControlFile @ 0x1403FAAC0 (ZwFsControlFile.c)
  */
 
 __int64 __fastcall PopSanityCheckHiberFile(void *a1, __int64 a2, _QWORD *a3, __int64 **a4, _DWORD *a5)

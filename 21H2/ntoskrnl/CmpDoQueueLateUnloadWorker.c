@@ -1,41 +1,44 @@
 /*
- * XREFs of CmpDoQueueLateUnloadWorker @ 0x1406CE3EC
+ * XREFs of CmpDoQueueLateUnloadWorker @ 0x1406725FC
  * Callers:
- *     CmReleaseLoadKeyContext @ 0x1406800D0 (CmReleaseLoadKeyContext.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x1406FEA54 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpDoFlushNextHive @ 0x1407174E0 (CmpDoFlushNextHive.c)
- *     CmpDereferenceKeyControlBlock @ 0x14071BF40 (CmpDereferenceKeyControlBlock.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1407350A0 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
- *     CmpDelayDerefKeyControlBlock @ 0x1407C0C50 (CmpDelayDerefKeyControlBlock.c)
- *     CmpDeleteKeyObject @ 0x1407C2680 (CmpDeleteKeyObject.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1405EE99C (CmpDelayDerefKeyControlBlock.c)
+ *     CmReleaseLoadKeyContext @ 0x140671FD0 (CmReleaseLoadKeyContext.c)
+ *     CmpDoFlushNextHive @ 0x140672310 (CmpDoFlushNextHive.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406934B0 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     CmpReferenceHive @ 0x14071BBD8 (CmpReferenceHive.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
+ *     CmWorkerEngineQueueWorkItem @ 0x1406BA104 (CmWorkerEngineQueueWorkItem.c)
  */
 
-__int64 __fastcall CmpDoQueueLateUnloadWorker(__int64 a1)
+char __fastcall CmpDoQueueLateUnloadWorker(__int64 a1)
 {
   volatile signed __int64 *v1; // rdi
-  WORK_QUEUE_TYPE v4; // r8d
+  signed __int64 v3; // rsi
+  char v4; // al
 
-  v1 = (volatile signed __int64 *)(a1 + 1680);
-  ExAcquirePushLockExclusiveEx(a1 + 1680, 0LL);
-  *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4236), 1u) & 0x7F) + 4240) = 19;
-  if ( **(_QWORD **)(a1 + 2936) == 2LL )
+  v1 = (volatile signed __int64 *)(a1 + 1672);
+  v3 = a1 + 2952;
+  ExAcquirePushLockExclusiveEx(a1 + 1672, 0LL);
+  *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4276), 1u) & 0x7F) + 4280) = 19;
+  if ( **(_QWORD **)(a1 + 2928) == 2LL && !*(_QWORD *)(a1 + 2944) )
   {
-    *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4236), 1u) & 0x7F) + 4240) = 20;
-    if ( !_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 4800), 1, 0) )
+    *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4276), 1u) & 0x7F) + 4280) = 20;
+    if ( !_InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 2944), v3, 0LL) )
     {
-      *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4236), 1u) & 0x7F) + 4240) = 21;
+      *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4276), 1u) & 0x7F) + 4280) = 21;
+      *(_DWORD *)(v3 + 16) = 1;
+      *(_QWORD *)(v3 + 24) = CmpLateUnloadHiveWorker;
+      *(_QWORD *)(v3 + 32) = a1;
       CmpReferenceHive(a1);
-      ExQueueWorkItem(*(PWORK_QUEUE_ITEM *)(a1 + 4816), v4);
+      CmWorkerEngineQueueWorkItem(v3);
     }
   }
-  if ( (_InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+  v4 = _InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v4 & 2) != 0 && (v4 & 4) == 0 )
     ExfTryToWakePushLock(v1);
   return KeAbPostRelease((ULONG_PTR)v1);
 }

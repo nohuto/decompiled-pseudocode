@@ -1,79 +1,74 @@
 /*
- * XREFs of MiSystemImageHasPrivateFixups @ 0x140279474
+ * XREFs of MiSystemImageHasPrivateFixups @ 0x14031A798
  * Callers:
- *     MiCompleteProtoPteFault @ 0x1403203D0 (MiCompleteProtoPteFault.c)
+ *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MiOffsetToProtos @ 0x140286F90 (MiOffsetToProtos.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-unsigned __int64 __fastcall MiSystemImageHasPrivateFixups(unsigned __int64 a1, _QWORD *a2, _DWORD *a3, __int64 a4)
+unsigned __int64 __fastcall MiSystemImageHasPrivateFixups(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
 {
   int SystemRegionType; // eax
-  unsigned __int64 v8; // rdi
-  KIRQL v9; // al
-  __int64 *v10; // r9
-  unsigned __int64 v11; // rsi
-  unsigned __int64 v12; // r8
-  unsigned __int64 v13; // rbx
-  __int64 v15; // rcx
+  unsigned __int64 v7; // rdi
+  KIRQL v8; // al
+  __int64 *v9; // rdx
+  unsigned __int64 v10; // rsi
+  unsigned __int64 v11; // r8
+  unsigned __int64 v12; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rax
   _DWORD *SchedulerAssist; // r9
-  int v19; // edx
-  bool v20; // zf
-  __int64 v21; // [rsp+48h] [rbp+10h] BYREF
+  int v17; // edx
+  bool v18; // zf
 
   *a3 = 0;
   *a2 = 0LL;
-  if ( (__int64 *)qword_140C4F480 == &qword_140C4F480 )
+  if ( (__int64 *)qword_140C4CCC0 == &qword_140C4CCC0 )
     return 0LL;
-  SystemRegionType = MiGetSystemRegionType(a1, a2, a3, a4);
+  SystemRegionType = MiGetSystemRegionType(a1);
   if ( SystemRegionType != 12 && SystemRegionType != 1 )
     return 0LL;
-  v8 = 0LL;
-  v9 = ExAcquireSpinLockShared(&dword_140C4F4A4);
-  v10 = (__int64 *)qword_140C4F480;
-  v11 = v9;
-  while ( v10 != &qword_140C4F480 )
+  v7 = 0LL;
+  v8 = ExAcquireSpinLockShared(&dword_140C4CCE4);
+  v9 = (__int64 *)qword_140C4CCC0;
+  v10 = v8;
+  while ( v9 != &qword_140C4CCC0 )
   {
-    v12 = v10[2];
-    if ( a1 >= v12 && a1 <= v10[3] )
+    v11 = v9[2];
+    if ( a1 >= v11 && a1 <= v9[3] )
     {
-      v13 = (a1 - v12) >> 12;
-      if ( _bittest(*(const signed __int32 **)(v10[5] + 8), v13) )
+      v12 = (a1 - v11) >> 12;
+      if ( _bittest(*(const signed __int32 **)(v9[5] + 8), v12) )
       {
-        v21 = 0LL;
-        v8 = v12 - v10[4];
-        v15 = v10[6];
-        *a3 = v13;
-        *a2 = MiOffsetToProtos(v15, (unsigned __int64)(unsigned int)v13 << 12, &v21);
+        v7 = v11 - v9[4];
+        *a2 = v9[6];
+        *a3 = v12;
       }
       break;
     }
-    v10 = (__int64 *)*v10;
+    v9 = (__int64 *)*v9;
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4F4A4);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4CCE4);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-        v20 = (v19 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v19;
-        if ( v20 )
+        v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+        v18 = (v17 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v17;
+        if ( v18 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
-  __writecr8(v11);
-  return v8;
+  __writecr8(v10);
+  return v7;
 }

@@ -1,38 +1,37 @@
 /*
- * XREFs of PiPnpRtlEnsureObjectCached @ 0x14095A234
+ * XREFs of PiPnpRtlEnsureObjectCached @ 0x1408A31CC
  * Callers:
- *     PiCMCreateDevice @ 0x1409684E0 (PiCMCreateDevice.c)
+ *     PiCMCreateDevice @ 0x1408AF490 (PiCMCreateDevice.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1406D81D0 (PiDmGetObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407885C4 (PiDmAddCacheReferenceForObject.c)
- *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140788EE0 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlObjectEventCreate @ 0x140789A18 (PiPnpRtlObjectEventCreate.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     PiPnpRtlEndOperation @ 0x1406ACCB8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406AD460 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1406AE094 (PiPnpRtlObjectEventCreate.c)
+ *     PiDmGetObject @ 0x1406AF84C (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     PiDmAddCacheReferenceForObject @ 0x140744E48 (PiDmAddCacheReferenceForObject.c)
  */
 
-__int64 __fastcall PiPnpRtlEnsureObjectCached(__int64 a1, _WORD *a2)
+__int64 __fastcall PiPnpRtlEnsureObjectCached(__int64 a1, wchar_t *a2)
 {
   int Object; // eax
   int v4; // edi
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR v6; // rbx
-  ULONG_PTR v7; // rcx
-  struct _KTHREAD *v8; // rax
-  int v9; // ebx
-  char *v11; // [rsp+20h] [rbp-10h] BYREF
+  struct _KTHREAD *v7; // rax
+  int v8; // ebx
+  char *v10; // [rsp+20h] [rbp-10h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+60h] [rbp+30h] BYREF
   PVOID P; // [rsp+68h] [rbp+38h] BYREF
 
   BugCheckParameter2 = 0LL;
   P = 0LL;
-  v11 = 0LL;
-  Object = PiDmGetObject(1LL, (__int64)a2, &BugCheckParameter2);
+  v10 = 0LL;
+  Object = PiDmGetObject(1LL, (__int64)a2, (__int64 *)&BugCheckParameter2);
   v4 = Object;
   if ( Object < 0 )
   {
@@ -42,24 +41,24 @@ __int64 __fastcall PiPnpRtlEnsureObjectCached(__int64 a1, _WORD *a2)
       if ( v4 >= 0 )
       {
         CurrentThread = KeGetCurrentThread();
-        v6 = BugCheckParameter2;
-        v7 = BugCheckParameter2;
         --CurrentThread->KernelApcDisable;
-        ExAcquirePushLockExclusiveEx(v7, 0LL);
+        v6 = BugCheckParameter2;
+        ExAcquirePushLockExclusiveEx(BugCheckParameter2, 0LL);
         *(_DWORD *)(v6 + 32) |= 1u;
-        ExReleasePushLockEx((__int64 *)v6, 0LL);
-        KeLeaveCriticalRegion();
-        if ( (int)PiPnpRtlBeginOperation((__int64 **)&P) < 0 )
-          goto LABEL_11;
-        v8 = KeGetCurrentThread();
-        --v8->KernelApcDisable;
-        ExAcquireResourceSharedLite(&PiPnpRtlRemoveOperationDispatchLock, 1u);
-        v9 = PiPnpRtlObjectEventCreate(a2, 1u, (__int64)P, &v11);
-        ExReleaseResourceLite(&PiPnpRtlRemoveOperationDispatchLock);
-        KeLeaveCriticalRegion();
-        if ( v9 >= 0 && v11 )
-          *((_DWORD *)v11 + 1) |= 1u;
-        PiPnpRtlEndOperation((PVOID **)P);
+        ExReleasePushLockEx(v6, 0LL);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        if ( (int)PiPnpRtlBeginOperation(&P) >= 0 )
+        {
+          v7 = KeGetCurrentThread();
+          --v7->KernelApcDisable;
+          ExAcquireResourceSharedLite(&PiPnpRtlRemoveOperationDispatchLock, 1u);
+          v8 = PiPnpRtlObjectEventCreate((__int64)a2, 1u, (__int64)P, &v10);
+          ExReleaseResourceLite(&PiPnpRtlRemoveOperationDispatchLock);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          if ( v8 >= 0 && v10 )
+            *((_DWORD *)v10 + 1) |= 1u;
+          PiPnpRtlEndOperation((PVOID **)P);
+        }
       }
     }
   }
@@ -67,9 +66,7 @@ __int64 __fastcall PiPnpRtlEnsureObjectCached(__int64 a1, _WORD *a2)
   {
     v4 = 0;
   }
-  v6 = BugCheckParameter2;
-LABEL_11:
-  if ( v6 )
-    PiDmObjectRelease((char *)v6);
+  if ( BugCheckParameter2 )
+    PiDmObjectRelease((unsigned int *)BugCheckParameter2);
   return (unsigned int)v4;
 }

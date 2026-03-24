@@ -1,9 +1,9 @@
 /*
- * XREFs of MiHotPatchImageTreeCompare @ 0x140855608
+ * XREFs of MiHotPatchImageTreeCompare @ 0x1408555E8
  * Callers:
- *     MiDeleteImageHotPatchState @ 0x140854CFC (MiDeleteImageHotPatchState.c)
- *     MiGetHotPatchEntry @ 0x140854FF8 (MiGetHotPatchEntry.c)
- *     PsCallEnclave @ 0x14088D5A0 (PsCallEnclave.c)
+ *     MiDeleteImageHotPatchState @ 0x140854CDC (MiDeleteImageHotPatchState.c)
+ *     MiGetHotPatchEntry @ 0x140854FD8 (MiGetHotPatchEntry.c)
+ *     PsCallEnclave @ 0x14088D580 (PsCallEnclave.c)
  * Callees:
  *     <none>
  */

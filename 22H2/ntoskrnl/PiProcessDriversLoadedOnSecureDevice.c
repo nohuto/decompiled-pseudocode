@@ -1,18 +1,18 @@
 /*
- * XREFs of PiProcessDriversLoadedOnSecureDevice @ 0x14096F5B8
+ * XREFs of PiProcessDriversLoadedOnSecureDevice @ 0x1408B5474
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406C82E4 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x14073DE28 (PipCallDriverAddDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PnpQueryInterface @ 0x1407FD8F0 (PnpQueryInterface.c)
- *     PnpRequestDeviceRemoval @ 0x14086788C (PnpRequestDeviceRemoval.c)
- *     PnpTraceSecureDeviceEnumeration @ 0x14096C520 (PnpTraceSecureDeviceEnumeration.c)
- *     PipUnprotectDevice @ 0x14096F688 (PipUnprotectDevice.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PnpRequestDeviceRemoval @ 0x14074C54C (PnpRequestDeviceRemoval.c)
+ *     PnpQueryInterface @ 0x1407653A4 (PnpQueryInterface.c)
+ *     PnpTraceSecureDeviceEnumeration @ 0x1408B21A0 (PnpTraceSecureDeviceEnumeration.c)
+ *     PipUnprotectDevice @ 0x1408B5544 (PipUnprotectDevice.c)
  */
 
 __int64 __fastcall PiProcessDriversLoadedOnSecureDevice(__int64 a1)
 {
-  _QWORD *v2; // rcx
+  struct _DEVICE_OBJECT *v2; // rcx
   int v3; // ebx
   __int128 v5; // [rsp+30h] [rbp-48h] BYREF
   __int128 v6; // [rsp+40h] [rbp-38h]
@@ -20,7 +20,7 @@ __int64 __fastcall PiProcessDriversLoadedOnSecureDevice(__int64 a1)
   __int64 v8; // [rsp+60h] [rbp-18h]
 
   v5 = 0LL;
-  v2 = *(_QWORD **)(a1 + 32);
+  v2 = *(struct _DEVICE_OBJECT **)(a1 + 32);
   v6 = 0LL;
   v7 = 0LL;
   v8 = 0LL;
@@ -29,7 +29,7 @@ __int64 __fastcall PiProcessDriversLoadedOnSecureDevice(__int64 a1)
     v3 = PipUnprotectDevice(a1);
     if ( v3 < 0 )
     {
-      PnpRequestDeviceRemoval(a1, 0, 48, -1073741790);
+      PnpRequestDeviceRemoval(a1, 0, 0x30u, -1073741790);
       v3 = -1073741106;
     }
   }

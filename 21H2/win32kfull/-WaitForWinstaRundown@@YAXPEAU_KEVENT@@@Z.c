@@ -1,5 +1,5 @@
 /*
- * XREFs of ?WaitForWinstaRundown@@YAXPEAU_KEVENT@@@Z @ 0x1C01228B0
+ * XREFs of ?WaitForWinstaRundown@@YAXPEAU_KEVENT@@@Z @ 0x1C01371B0
  * Callers:
  *     <none>
  * Callees:

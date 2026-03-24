@@ -1,57 +1,45 @@
 /*
- * XREFs of ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0088D28
+ * XREFs of ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0134370
  * Callers:
- *     NtGdiAddInitialFonts @ 0x1C0088CA0 (NtGdiAddInitialFonts.c)
+ *     NtGdiAddInitialFonts @ 0x1C0134310 (NtGdiAddInitialFonts.c)
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C007AC00 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
- *     FinishStockFontInit @ 0x1C00863A0 (FinishStockFontInit.c)
- *     UserOnGreTextReady @ 0x1C0088E50 (UserOnGreTextReady.c)
- *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C0089520 (-bInitializeEUDCInternal@@YAHXZ.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C00173F0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     FinishStockFontInit @ 0x1C00E44C0 (FinishStockFontInit.c)
+ *     UserOnGreTextReady @ 0x1C00E5F8C (UserOnGreTextReady.c)
+ *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00E6600 (-bInitializeEUDCInternal@@YAHXZ.c)
  */
 
-char __fastcall UmfdHostLifeTimeManager::AddInitialFonts(__int64 a1)
+char UmfdHostLifeTimeManager::AddInitialFonts(void)
 {
-  __int64 v1; // rdi
-  NTSTATUS v2; // eax
-  bool v3; // si
+  NTSTATUS v0; // eax
+  bool v1; // di
   __int64 HDEV; // rbx
-  Gre::Base *v5; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v6; // rax
-  struct _KEVENT *v7; // rcx
-  bool v8; // bl
-  __int64 v10; // rax
-  char v11; // [rsp+60h] [rbp+8h] BYREF
+  bool v3; // bl
+  char v5; // [rsp+60h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  if ( KeReadStateEvent(*(PRKEVENT *)(v1 + 23568)) )
+  if ( KeReadStateEvent(UmfdHostLifeTimeManager::s_InitialFontsAddedEvent) )
     return 1;
-  v2 = KeWaitForSingleObject(*(PVOID *)(v1 + 23576), Executive, 1, 0, 0LL);
-  if ( v2 < 0 || v2 == 192 )
+  v0 = KeWaitForSingleObject(UmfdHostLifeTimeManager::s_SessionRasterizerOnHostReadyEvent, Executive, 1, 0, 0LL);
+  if ( v0 < 0 || v0 == 192 )
   {
-    KeSetEvent(*(PRKEVENT *)(v1 + 23568), 0, 0);
+    KeSetEvent(UmfdHostLifeTimeManager::s_InitialFontsAddedEvent, 0, 0);
     return 0;
   }
   else
   {
-    v3 = (unsigned int)bInitializeEUDCInternal() != 0;
+    v1 = (unsigned int)bInitializeEUDCInternal() != 0;
     HDEV = UserGetHDEV();
-    v6 = Gre::Base::Globals(v5);
-    SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)&v11, *((HSEMAPHORE *)v6 + 10));
-    LODWORD(HDEV) = *(_DWORD *)(HDEV + 2148);
-    SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v11);
-    FinishStockFontInit((unsigned int)HDEV);
-    if ( !*(_QWORD *)(v1 + 19504) )
-    {
-      v10 = *(_QWORD *)(v1 + 20272);
-      if ( !v10 || !*(_DWORD *)(v10 + 28) )
-        DbgkWerCaptureLiveKernelDump(L"win32kfull.sys", 356LL, 13LL, 0LL, 0LL, 0LL, 0LL, 0LL, 1);
-    }
-    v7 = *(struct _KEVENT **)(v1 + 23552);
-    *(_BYTE *)(v1 + 23560) = 1;
-    KeSetEvent(v7, 0, 0);
-    v8 = (unsigned int)UserOnGreTextReady() != 0 && v3;
-    KeSetEvent(*(PRKEVENT *)(v1 + 23568), 0, 0);
-    return v8;
+    SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)&v5, ghsemDynamicModeChange);
+    LODWORD(HDEV) = *(_DWORD *)(HDEV + 2180);
+    SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v5);
+    FinishStockFontInit(HDEV);
+    if ( !gppfeMapperDefault )
+      DbgkWerCaptureLiveKernelDump(L"win32kfull.sys", 356LL, 13LL);
+    UmfdHostLifeTimeManager::s_SessionRasterizerInitialized = 1;
+    KeSetEvent(UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent, 0, 0);
+    v3 = UserOnGreTextReady() && v1;
+    KeSetEvent(UmfdHostLifeTimeManager::s_InitialFontsAddedEvent, 0, 0);
+    return v3;
   }
 }

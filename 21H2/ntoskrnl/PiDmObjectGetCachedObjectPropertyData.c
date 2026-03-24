@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDmObjectGetCachedObjectPropertyData @ 0x14077B3D4
+ * XREFs of PiDmObjectGetCachedObjectPropertyData @ 0x140636E84
  * Callers:
- *     PiDmObjectGetCachedObjectProperty @ 0x14077AF18 (PiDmObjectGetCachedObjectProperty.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1406368E0 (PiDmObjectGetCachedObjectProperty.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     PiDmGetObject @ 0x14077B0A4 (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x14077B394 (PiDmObjectRelease.c)
- *     PiDmGetCacheKeys @ 0x14077B4E4 (PiDmGetCacheKeys.c)
- *     PiDmGetCachedKeyIndex @ 0x14077B534 (PiDmGetCachedKeyIndex.c)
- *     PiDmCacheDataDecode @ 0x14077B594 (PiDmCacheDataDecode.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
+ *     PiDmGetCacheKeys @ 0x140636F9C (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x140636FEC (PiDmGetCachedKeyIndex.c)
+ *     PiDmCacheDataDecode @ 0x14063742C (PiDmCacheDataDecode.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedObjectPropertyData(
@@ -31,8 +31,8 @@ __int64 __fastcall PiDmObjectGetCachedObjectPropertyData(
   __int64 v15; // rbp
   unsigned int v16; // edx
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int *v18; // rdi
-  unsigned int *v19; // rcx
+  ULONG_PTR v18; // rdi
+  _DWORD *v19; // rcx
   unsigned int v21; // [rsp+30h] [rbp-28h] BYREF
   _QWORD v22[4]; // [rsp+38h] [rbp-20h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+70h] [rbp+18h] BYREF
@@ -59,17 +59,17 @@ __int64 __fastcall PiDmObjectGetCachedObjectPropertyData(
       }
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v18 = (unsigned int *)BugCheckParameter2;
+      v18 = BugCheckParameter2;
       ExAcquirePushLockSharedEx(BugCheckParameter2, 0LL);
-      v19 = &v18[4 * v15 + 28 + 2 * v15];
-      if ( *v19 <= 1 )
+      v19 = (_DWORD *)(v18 + 8 * (v15 + 2 * v15 + 14));
+      if ( *v19 <= 1u )
         Object = -1073741802;
       else
         Object = PiDmCacheDataDecode(v19, a5, a6, a7, a8);
-      ExReleasePushLockEx((ULONG_PTR)v18, 0LL);
-      KeLeaveCriticalRegion();
+      ExReleasePushLockEx(v18, 0LL);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       if ( v12 )
-        PiDmObjectRelease(v18);
+        PiDmObjectRelease((unsigned int *)BugCheckParameter2);
     }
   }
   return (unsigned int)Object;

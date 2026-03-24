@@ -5,7 +5,7 @@
  *     CcSetDirtyInMask @ 0x140031460 (CcSetDirtyInMask.c)
  *     CcUninitializeCacheMap @ 0x14007C530 (CcUninitializeCacheMap.c)
  *     CcWriteBehindInternal @ 0x14007D2F0 (CcWriteBehindInternal.c)
- *     CcDecrementOpenCount @ 0x1400ACF80 (CcDecrementOpenCount.c)
+ *     CcDecrementOpenCount @ 0x1400ACFA0 (CcDecrementOpenCount.c)
  * Callees:
  *     <none>
  */

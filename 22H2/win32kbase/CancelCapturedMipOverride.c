@@ -1,17 +1,17 @@
 /*
- * XREFs of CancelCapturedMipOverride @ 0x1C01E7BF0
+ * XREFs of CancelCapturedMipOverride @ 0x1C01AE3A0
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C005304C (_anonymous_namespace_--GetMouseProcessor.c)
- *     ?RemoveMipOverrideOnMouseOwner@CMouseProcessor@@QEAAXXZ @ 0x1C01FACE8 (-RemoveMipOverrideOnMouseOwner@CMouseProcessor@@QEAAXXZ.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0043E8C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     ?RemoveMipOverrideOnMouseOwner@CMouseProcessor@@QEAAXXZ @ 0x1C01C1E1C (-RemoveMipOverrideOnMouseOwner@CMouseProcessor@@QEAAXXZ.c)
  */
 
-void __fastcall CancelCapturedMipOverride(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void CancelCapturedMipOverride()
 {
   CMouseProcessor *MouseProcessor; // rax
 
-  MouseProcessor = (CMouseProcessor *)anonymous_namespace_::GetMouseProcessor(a1, a2, a3, a4);
+  MouseProcessor = (CMouseProcessor *)anonymous_namespace_::GetMouseProcessor();
   if ( MouseProcessor )
     CMouseProcessor::RemoveMipOverrideOnMouseOwner(MouseProcessor);
 }

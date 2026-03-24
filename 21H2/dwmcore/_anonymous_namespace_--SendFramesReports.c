@@ -1,12 +1,12 @@
 /*
- * XREFs of _anonymous_namespace_::SendFramesReports @ 0x1800EEB30
+ * XREFs of _anonymous_namespace_::SendFramesReports @ 0x1800D3A30
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::SendFramesReport @ 0x1800751DC (_anonymous_namespace_--SendFramesReport.c)
- *     _anonymous_namespace_::FramesReport::_FramesReport @ 0x1800EEC44 (_anonymous_namespace_--FramesReport--_FramesReport.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     _anonymous_namespace_::SendFramesReport @ 0x18004B7F8 (_anonymous_namespace_--SendFramesReport.c)
+ *     _anonymous_namespace_::FramesReport::_FramesReport @ 0x1800D3B44 (_anonymous_namespace_--FramesReport--_FramesReport.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 void __fastcall anonymous_namespace_::SendFramesReports(PTP_CALLBACK_INSTANCE Instance, PVOID Context, PTP_WORK Work)
@@ -18,10 +18,10 @@ void __fastcall anonymous_namespace_::SendFramesReports(PTP_CALLBACK_INSTANCE In
   void *v7; // rbx
   struct _SLIST_ENTRY *v8; // rcx
   struct _SLIST_ENTRY *i; // rax
-  __int64 OutputBuffer[2]; // [rsp+30h] [rbp-38h] BYREF
+  _QWORD OutputBuffer[2]; // [rsp+30h] [rbp-38h] BYREF
   _SLIST_HEADER ListHead; // [rsp+40h] [rbp-28h] BYREF
 
-  v3 = InterlockedFlushSList((PSLIST_HEADER)qword_1803D33C8 + 3);
+  v3 = InterlockedFlushSList((PSLIST_HEADER)qword_1803471C8 + 3);
   if ( v3 )
   {
     InitializeSListHead(&ListHead);
@@ -42,14 +42,14 @@ void __fastcall anonymous_namespace_::SendFramesReports(PTP_CALLBACK_INSTANCE In
     v6 = InterlockedFlushSList(&ListHead);
     while ( v6 )
     {
-      OutputBuffer[0] = (__int64)v6;
+      OutputBuffer[0] = v6;
       anonymous_namespace_::SendFramesReport(OutputBuffer);
       v7 = (void *)OutputBuffer[0];
       v6 = v6->Next;
       if ( OutputBuffer[0] )
       {
         anonymous_namespace_::FramesReport::_FramesReport(OutputBuffer[0]);
-        operator delete(v7, 0xC0uLL);
+        operator delete(v7);
       }
     }
   }

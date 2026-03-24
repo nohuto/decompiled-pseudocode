@@ -1,12 +1,12 @@
 /*
- * XREFs of PoDiagTraceIRTimerSleepStudyRundown @ 0x140590F94
+ * XREFs of PoDiagTraceIRTimerSleepStudyRundown @ 0x14056FA6C
  * Callers:
- *     ExStopRecordingIRTimerExpiries @ 0x1409FB65C (ExStopRecordingIRTimerExpiries.c)
+ *     ExStopRecordingIRTimerExpiries @ 0x14094F100 (ExStopRecordingIRTimerExpiries.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PoDiagTraceIRTimerSleepStudyRundown(int a1, __int16 a2, const WCHAR *a3)

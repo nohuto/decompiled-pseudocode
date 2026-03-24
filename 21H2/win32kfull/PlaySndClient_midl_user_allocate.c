@@ -1,12 +1,12 @@
 /*
- * XREFs of PlaySndClient_midl_user_allocate @ 0x1C00FA3F0
+ * XREFs of PlaySndClient_midl_user_allocate @ 0x1C0101960
  * Callers:
- *     PlaySoundPostMessage @ 0x1C03775FC (PlaySoundPostMessage.c)
+ *     PlaySoundPostMessage @ 0x1C037B4B0 (PlaySoundPostMessage.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall PlaySndClient_midl_user_allocate(__int64 a1)
+PVOID __fastcall PlaySndClient_midl_user_allocate(SIZE_T NumberOfBytes)
 {
-  return ExAllocatePool2(256LL, a1, 1399025746LL);
+  return ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x53637052u);
 }

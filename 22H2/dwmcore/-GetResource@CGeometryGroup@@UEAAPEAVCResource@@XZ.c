@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetResource@CGeometryGroup@@UEAAPEAVCResource@@XZ @ 0x1801071E0
+ * XREFs of ?GetResource@CGeometryGroup@@UEAAPEAVCResource@@XZ @ 0x1800E2450
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CResource *__fastcall CGeometryGroup::GetResource(CGeometryGroup *this)
 {
-  return (CGeometryGroup *)((char *)this - 144);
+  return (CGeometryGroup *)((char *)this - 136);
 }

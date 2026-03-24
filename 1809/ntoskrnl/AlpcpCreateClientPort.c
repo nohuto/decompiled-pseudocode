@@ -2,7 +2,7 @@
  * XREFs of AlpcpCreateClientPort @ 0x14061506C
  * Callers:
  *     AlpcpConnectPort @ 0x1406144A4 (AlpcpConnectPort.c)
- *     NtSecureConnectPort @ 0x1406A5B40 (NtSecureConnectPort.c)
+ *     NtSecureConnectPort @ 0x1406A5B20 (NtSecureConnectPort.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
@@ -12,7 +12,7 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
  *     ObReferenceObjectByName @ 0x1405C8DA0 (ObReferenceObjectByName.c)
  *     ObReferenceObjectByNameEx @ 0x14061145C (ObReferenceObjectByNameEx.c)
  *     AlpcpCheckConnectionSecurity @ 0x140613280 (AlpcpCheckConnectionSecurity.c)
@@ -25,7 +25,7 @@
  *     AlpcpAllocateBlob @ 0x14061849C (AlpcpAllocateBlob.c)
  *     AlpcInitializeHandleTable @ 0x140619C84 (AlpcInitializeHandleTable.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     SeCreateClientSecurity @ 0x1406491F0 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurity @ 0x1406491D0 (SeCreateClientSecurity.c)
  */
 
 __int64 __fastcall AlpcpCreateClientPort(

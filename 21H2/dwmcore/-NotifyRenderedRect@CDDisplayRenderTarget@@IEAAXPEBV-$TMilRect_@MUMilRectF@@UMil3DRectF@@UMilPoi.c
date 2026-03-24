@@ -1,43 +1,62 @@
 /*
- * XREFs of ?NotifyRenderedRect@CDDisplayRenderTarget@@IEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x1801C8868
+ * XREFs of ?NotifyRenderedRect@CDDisplayRenderTarget@@IEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x18018C644
  * Callers:
- *     ?RenderComposeTop@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z @ 0x1801C90AC (-RenderComposeTop@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z.c)
- *     ?RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV?$span@PEBVCVisual@@$0?0@gsl@@PEAVCComposeTop@@@Z @ 0x1801C93C0 (-RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV-$spa.c)
+ *     ?RenderComposeTop@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z @ 0x18018CAE0 (-RenderComposeTop@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z.c)
+ *     ?RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCComposeTop@@@Z @ 0x18018CE0C (-RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCCompo.c)
  * Callees:
- *     ?PixelAlign@@YA?AV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@AEBUMilRectF@@@Z @ 0x1800882E4 (-PixelAlign@@YA-AV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUnique.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800AE500 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?NotifyRenderedRect@CDDisplaySwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18027BCF0 (-NotifyRenderedRect@CDDisplaySwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3.c)
+ *     ?PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z @ 0x180077274 (-PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?DesktopRectToRenderTargetRect@CDDisplayRenderTarget@@IEAAX_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18018C434 (-DesktopRectToRenderTargetRect@CDDisplayRenderTarget@@IEAAX_NAEBV-$TMilRect_@MUMilRectF@@UMil3DR.c)
+ *     ?NotifyRenderedRect@CDDisplaySwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18023A660 (-NotifyRenderedRect@CDDisplaySwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3.c)
  */
 
-__int64 __fastcall CDDisplayRenderTarget::NotifyRenderedRect(__int64 a1, __int128 *a2, char a3, __int64 a4)
+__int64 __fastcall CDDisplayRenderTarget::NotifyRenderedRect(__int64 a1, float *a2, char a3)
 {
-  bool v5; // cf
-  _DWORD *v6; // rax
-  __int64 v7; // rcx
+  int v4; // eax
+  __int64 v5; // r8
+  float v6; // xmm0_4
+  int v7; // edx
+  int v8; // eax
+  __int64 v9; // r8
+  float v10; // xmm0_4
+  int v11; // eax
+  __int64 v12; // r8
+  float v13; // xmm0_4
+  int v14; // edx
+  __int64 v15; // rcx
+  __int128 *v16; // rdx
   __int64 result; // rax
-  __int128 v9; // [rsp+20h] [rbp-38h] BYREF
-  _DWORD v10[4]; // [rsp+30h] [rbp-28h] BYREF
+  __int128 v18; // [rsp+20h] [rbp-28h] BYREF
 
   if ( a2 )
   {
-    if ( !a3 )
+    v18 = 0LL;
+    if ( a3 )
     {
-      v5 = *(_BYTE *)(a1 + 11209) != 0;
-      v9 = 0LL;
-      CMILMatrix::Transform2DBoundsHelper<0>(a1 + (v5 ? 18336LL : 18200LL), (__int64)a2, (float *)&v9, a4);
-      a2 = &v9;
+      CDDisplayRenderTarget::DesktopRectToRenderTargetRect(a1, (__int64)a2, (__int64)a2, &v18);
     }
-    v6 = PixelAlign(v10, (__int64)a2);
-    v7 = *(_QWORD *)(a1 + 176);
-    a2 = &v9;
-    v9 = *(_OWORD *)v6;
+    else
+    {
+      v4 = PixelAlign(*a2, 0);
+      v6 = *(float *)(v5 + 4);
+      LODWORD(v18) = v4;
+      v8 = PixelAlign(v6, v7);
+      v10 = *(float *)(v9 + 8);
+      DWORD1(v18) = v8;
+      v11 = PixelAlign(v10, 1);
+      v13 = *(float *)(v12 + 12);
+      DWORD2(v18) = v11;
+      HIDWORD(v18) = PixelAlign(v13, v14);
+    }
+    v15 = *(_QWORD *)(a1 + 168);
+    v16 = &v18;
   }
   else
   {
-    v7 = *(_QWORD *)(a1 + 176);
+    v15 = *(_QWORD *)(a1 + 168);
+    v16 = 0LL;
   }
-  result = CDDisplaySwapChain::NotifyRenderedRect(v7, a2);
-  *(_BYTE *)(a1 + 18576) = 1;
+  result = CDDisplaySwapChain::NotifyRenderedRect(v15 + 64, v16);
+  *(_BYTE *)(a1 + 18620) = 1;
   return result;
 }

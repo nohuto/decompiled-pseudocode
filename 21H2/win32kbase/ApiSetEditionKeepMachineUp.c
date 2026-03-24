@@ -1,72 +1,45 @@
 /*
- * XREFs of ApiSetEditionKeepMachineUp @ 0x1C007DDE0
+ * XREFs of ApiSetEditionKeepMachineUp @ 0x1C00482E4
  * Callers:
- *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C007DBA0 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
+ *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C0048090 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall ApiSetEditionKeepMachineUp(unsigned int a1, __int64 a2, __int64 a3, unsigned int a4)
+__int64 __fastcall ApiSetEditionKeepMachineUp(unsigned int a1, unsigned int a2, unsigned int a3, unsigned int a4)
 {
-  unsigned int v5; // ebp
-  unsigned int v6; // r14d
-  PDEVICE_OBJECT v8; // rcx
-  char v9; // bl
-  void *v10; // r9
-  unsigned int v11; // edi
-  void *v13; // r8
+  unsigned int v6; // ebp
+  unsigned int v8; // ebx
+  int v9; // eax
 
-  v5 = a3;
   v6 = a2;
-  v8 = WPP_GLOBAL_Control;
-  v9 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  v10 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      a2,
       10,
       52,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  v11 = 0;
-  if ( qword_1C029CB38 && (int)qword_1C029CB38(v8, a2, a3, v10) >= 0 && qword_1C029CB40 )
-    v11 = qword_1C029CB40(a1, v6, v5, a4);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    LOBYTE(a2) = 0;
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v9 = 0;
-  if ( (_BYTE)a2 || v9 )
+  v8 = 0;
+  if ( qword_1C0257F18 )
+    v9 = qword_1C0257F18();
+  else
+    v9 = -1073741637;
+  if ( v9 >= 0 && qword_1C0257F20 )
+    v8 = qword_1C0257F20(a1, v6, a3, a4);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    v13 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-    LOBYTE(v13) = v9;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      (_DWORD)v13,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      a2,
       10,
       53,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  return v11;
+  return v8;
 }

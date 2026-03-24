@@ -1,62 +1,64 @@
 /*
- * XREFs of EngCloseFNTCache @ 0x1C0089CDC
+ * XREFs of EngCloseFNTCache @ 0x1C00E61F0
  * Callers:
- *     xxxLW_LoadFonts @ 0x1C0088F60 (xxxLW_LoadFonts.c)
- *     EngFntCacheAllocInternal @ 0x1C028A3EC (EngFntCacheAllocInternal.c)
+ *     xxxLW_LoadFonts @ 0x1C00E6120 (xxxLW_LoadFonts.c)
+ *     EngFntCacheAllocInternal @ 0x1C0288ADC (EngFntCacheAllocInternal.c)
  * Callees:
- *     bSetFntCacheReg @ 0x1C0088514 (bSetFntCacheReg.c)
- *     ComputeFileviewCheckSum @ 0x1C0088700 (ComputeFileviewCheckSum.c)
- *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C0089E94 (-vCleanUpFntCacheInternal@@YAXXZ.c)
+ *     bSetFntCacheReg @ 0x1C00E5994 (bSetFntCacheReg.c)
+ *     ComputeFileviewCheckSum @ 0x1C00E5D48 (ComputeFileviewCheckSum.c)
+ *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00E6238 (-vCleanUpFntCacheInternal@@YAXXZ.c)
  */
 
-void __fastcall EngCloseFNTCache(__int64 a1)
+void EngCloseFNTCache()
 {
-  __int64 v1; // rbx
-  int v2; // ecx
-  _DWORD *v3; // rax
-  __int64 v4; // rcx
-  int v5; // edx
-  unsigned int v6; // ecx
+  char v0; // al
+  _DWORD *v1; // rdx
+  int v2; // edx
+  int v3; // eax
+  int v4; // eax
+  unsigned int v5; // ecx
 
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  v2 = *(_DWORD *)(v1 + 19384);
-  if ( (v2 & 3) != 0 )
+  v0 = dword_1C0339BE0;
+  if ( (dword_1C0339BE0 & 3) != 0 )
   {
-    v3 = *(_DWORD **)(v1 + 19392);
-    if ( v3 )
+    v1 = (_DWORD *)qword_1C0339BE8;
+    if ( qword_1C0339BE8 )
     {
-      if ( (v2 & 2) != 0 && *(_QWORD *)v3 && v3[5] )
+      if ( (dword_1C0339BE0 & 2) == 0 )
+        goto LABEL_4;
+      if ( *(_QWORD *)qword_1C0339BE8 && *(_DWORD *)(qword_1C0339BE8 + 20) )
       {
-        *(_DWORD *)(*(_QWORD *)v3 + 20LL) = v3[2];
-        *(_DWORD *)(**(_QWORD **)(v1 + 19392) + 36LL) = *(_DWORD *)(*(_QWORD *)(v1 + 19392) + 32LL)
-                                                      - *(_DWORD *)(*(_QWORD *)(v1 + 19392) + 24LL);
-        ***(_DWORD ***)(v1 + 19392) = ComputeFileviewCheckSum(
-                                        (_DWORD *)(**(_QWORD **)(v1 + 19392) + 4LL),
-                                        *(_DWORD *)(**(_QWORD **)(v1 + 19392) + 24LL) - 4);
+        *(_DWORD *)(*(_QWORD *)qword_1C0339BE8 + 20LL) = *(_DWORD *)(qword_1C0339BE8 + 8);
+        *(_DWORD *)(*(_QWORD *)v1 + 36LL) = v1[8] - v1[6];
+        v3 = ComputeFileviewCheckSum((_DWORD *)(*(_QWORD *)v1 + 4LL), *(_DWORD *)(*(_QWORD *)v1 + 24LL) - 4);
+        v1 = (_DWORD *)qword_1C0339BE8;
+        **(_DWORD **)qword_1C0339BE8 = v3;
+        v0 = dword_1C0339BE0;
       }
-      v4 = *(_QWORD *)(v1 + 19392);
-      v5 = *(_DWORD *)(v4 + 16);
-      if ( (*(_DWORD *)(v1 + 19384) & 2) != 0 )
+      if ( (v0 & 2) != 0 )
       {
-        if ( *(_DWORD *)(v4 + 12) != v5 )
-          bSetFntCacheReg(1u, v5);
+        v4 = v1[4];
+        if ( v1[3] != v4 )
+          bSetFntCacheReg(1u, v4);
+        v2 = 0;
         v5 = 0;
-        v6 = 0;
       }
       else
       {
-        if ( (v5 & 3) == 0 )
+LABEL_4:
+        v2 = v1[4];
+        if ( (v2 & 3) == 0 )
         {
-LABEL_6:
+LABEL_5:
           vCleanUpFntCacheInternal();
           return;
         }
-        v6 = 1;
+        v5 = 1;
       }
-      bSetFntCacheReg(v6, v5);
-      goto LABEL_6;
+      bSetFntCacheReg(v5, v2);
+      goto LABEL_5;
     }
   }
-  *(_DWORD *)(v1 + 19384) = 0;
-  *(_BYTE *)(v1 + 19404) = 1;
+  dword_1C0339BE0 = 0;
+  gbFntCacheClosed = 1;
 }

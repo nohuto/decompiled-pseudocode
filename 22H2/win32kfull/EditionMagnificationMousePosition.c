@@ -1,12 +1,12 @@
 /*
- * XREFs of EditionMagnificationMousePosition @ 0x1C01F6B70
+ * XREFs of EditionMagnificationMousePosition @ 0x1C0213930
  * Callers:
  *     <none>
  * Callees:
- *     PtInRect @ 0x1C00D0A58 (PtInRect.c)
- *     MagInputTransform @ 0x1C0155EF2 (MagInputTransform.c)
- *     AcquireMagInputLock @ 0x1C01F6B30 (AcquireMagInputLock.c)
- *     MagnificationTransformPoint @ 0x1C01F6C64 (MagnificationTransformPoint.c)
+ *     PtInRect @ 0x1C004DE1C (PtInRect.c)
+ *     AcquireMagInputLock @ 0x1C010FAF8 (AcquireMagInputLock.c)
+ *     MagInputTransform @ 0x1C0213988 (MagInputTransform.c)
+ *     MagnificationTransformPoint @ 0x1C0213A44 (MagnificationTransformPoint.c)
  */
 
 __int64 __fastcall EditionMagnificationMousePosition(unsigned __int64 *a1)

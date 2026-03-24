@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CGenericMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C021FEA0
+ * XREFs of ?ReleaseAllReferences@CGenericMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F6BD0
  * Callers:
  *     <none>
  * Callees:
- *     ?FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z @ 0x1C021FE70 (-FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F6BA0 (-FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CGenericMarshaler::ReleaseAllReferences(
@@ -18,12 +18,11 @@ void __fastcall DirectComposition::CGenericMarshaler::ReleaseAllReferences(
   v4 = &v2[*((_QWORD *)this + 9)];
   while ( v2 != v4 )
   {
-    v5 = *v2;
+    v5 = 0LL;
     if ( *((_BYTE *)*v2 + 4) == 4 )
-    {
-      if ( v5 )
-        DirectComposition::CReferenceProperty::FreeValue(v5, a2);
-    }
+      v5 = *v2;
+    if ( v5 )
+      DirectComposition::CReferenceProperty::FreeValue(v5, a2);
     ++v2;
   }
 }

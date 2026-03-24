@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlIssueFileNotificationFsctl @ 0x140835AC8
+ * XREFs of FsRtlIssueFileNotificationFsctl @ 0x14078D5B4
  * Callers:
- *     PopCreateHiberFile @ 0x140800B90 (PopCreateHiberFile.c)
- *     IopInitializeCrashDump @ 0x1408347D8 (IopInitializeCrashDump.c)
- *     MiCreatePagingFile @ 0x140834C2C (MiCreatePagingFile.c)
- *     PopResizeHiberFile @ 0x140988F90 (PopResizeHiberFile.c)
+ *     PopResizeHiberFile @ 0x140773D58 (PopResizeHiberFile.c)
+ *     PopCreateHiberFile @ 0x14079BC20 (PopCreateHiberFile.c)
+ *     MiCreatePagingFile @ 0x1407B6DDC (MiCreatePagingFile.c)
+ *     IopInitializeCrashDump @ 0x1407B7FA8 (IopInitializeCrashDump.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140251430 (IoBuildDeviceIoControlRequest.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14022BAA0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall FsRtlIssueFileNotificationFsctl(PFILE_OBJECT FileObject, __int64 a2, __int128 *a3)
@@ -29,7 +29,6 @@ NTSTATUS __fastcall FsRtlIssueFileNotificationFsctl(PFILE_OBJECT FileObject, __i
 
   memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
-  v14 = 0LL;
   KeInitializeEvent(&Event, NotificationEvent, 0);
   RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
   v6 = IoBuildDeviceIoControlRequest(0x90204u, RelatedDeviceObject, 0LL, 0, 0LL, 0, 0, &Event, &IoStatusBlock);

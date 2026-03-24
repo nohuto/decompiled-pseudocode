@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerNoteHpetMaskingBehavior @ 0x1403BC848
+ * XREFs of HalpTimerNoteHpetMaskingBehavior @ 0x1403AA25C
  * Callers:
- *     HalpTimerInitialize @ 0x1403BC620 (HalpTimerInitialize.c)
+ *     HalpTimerInitialize @ 0x1403AA034 (HalpTimerInitialize.c)
  * Callees:
- *     HalpFindTimer @ 0x1403ACEFC (HalpFindTimer.c)
+ *     HalpFindTimer @ 0x14039D458 (HalpFindTimer.c)
  */
 
 ULONG_PTR *HalpTimerNoteHpetMaskingBehavior()

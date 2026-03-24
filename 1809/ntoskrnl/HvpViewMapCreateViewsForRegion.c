@@ -2,12 +2,12 @@
  * XREFs of HvpViewMapCreateViewsForRegion @ 0x1405A524C
  * Callers:
  *     HvpViewMapStart @ 0x1405A51A0 (HvpViewMapStart.c)
- *     HvpViewMapExtendStorage @ 0x1406CC5C0 (HvpViewMapExtendStorage.c)
+ *     HvpViewMapExtendStorage @ 0x1406CC5A0 (HvpViewMapExtendStorage.c)
  * Callees:
  *     CmSiGetMemoryAllocationGranularity @ 0x14000F124 (CmSiGetMemoryAllocationGranularity.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     CmSiUnmapViewOfSection @ 0x14013606C (CmSiUnmapViewOfSection.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     CmSiUnmapViewOfSection @ 0x14013608C (CmSiUnmapViewOfSection.c)
  *     HvpViewMapCreateView @ 0x1405A5570 (HvpViewMapCreateView.c)
  *     HvpViewMapMakeViewRangeValid @ 0x1405A5658 (HvpViewMapMakeViewRangeValid.c)
  */

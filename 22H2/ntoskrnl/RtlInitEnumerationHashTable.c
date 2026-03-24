@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlInitEnumerationHashTable @ 0x14036F6E0
+ * XREFs of RtlInitEnumerationHashTable @ 0x14031EB70
  * Callers:
- *     SepCleanupMarkedForDeletionEntries @ 0x14036F3DC (SepCleanupMarkedForDeletionEntries.c)
- *     RtlInitWeakEnumerationHashTable @ 0x1403D7520 (RtlInitWeakEnumerationHashTable.c)
- *     SepFindMatchingLowBoxNumberEntries @ 0x1409D170C (SepFindMatchingLowBoxNumberEntries.c)
- *     SepRmDestroyCapTable @ 0x1409D242C (SepRmDestroyCapTable.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x1402512F4 (SepCleanupMarkedForDeletionEntries.c)
+ *     RtlInitWeakEnumerationHashTable @ 0x140588A10 (RtlInitWeakEnumerationHashTable.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x14092533C (SepFindMatchingLowBoxNumberEntries.c)
+ *     SepRmDestroyCapTable @ 0x140926088 (SepRmDestroyCapTable.c)
  * Callees:
- *     RtlpPopulateContext @ 0x14036F754 (RtlpPopulateContext.c)
+ *     RtlpPopulateContext @ 0x140250EE0 (RtlpPopulateContext.c)
  */
 
 BOOLEAN __stdcall RtlInitEnumerationHashTable(
@@ -18,7 +18,7 @@ BOOLEAN __stdcall RtlInitEnumerationHashTable(
   __int128 v7; // [rsp+20h] [rbp-28h] BYREF
 
   v7 = 0LL;
-  RtlpPopulateContext(HashTable, &v7);
+  RtlpPopulateContext(HashTable, (__int64)&v7, 0);
   v4 = (struct _LIST_ENTRY *)v7;
   ++HashTable->NumEnumerators;
   if ( v4->Flink == v4 )

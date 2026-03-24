@@ -1,30 +1,28 @@
 /*
- * XREFs of xxxDrawScrollBar @ 0x1C00149D0
+ * XREFs of xxxDrawScrollBar @ 0x1C0157970
  * Callers:
- *     ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C009E2A0 (-xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z.c)
- *     xxxDrawWindowFrame @ 0x1C00C6FE0 (xxxDrawWindowFrame.c)
+ *     xxxDrawWindowFrame @ 0x1C004BA7C (xxxDrawWindowFrame.c)
+ *     ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C00F63F0 (-xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z.c)
  * Callees:
- *     ?xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z @ 0x1C0014A74 (-xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z.c)
- *     GetWndSBDisableFlags @ 0x1C00C7848 (GetWndSBDisableFlags.c)
- *     CalcSBStuff @ 0x1C00C7878 (CalcSBStuff.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     CalcSBStuff @ 0x1C0063D00 (CalcSBStuff.c)
+ *     ?xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z @ 0x1C0157A04 (-xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z.c)
+ *     GetWndSBDisableFlags @ 0x1C0157EDC (GetWndSBDisableFlags.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall xxxDrawScrollBar(struct tagWND *a1, HDC a2, unsigned int a3)
 {
   __int64 v6; // rcx
-  struct tagSBCALC *v7; // rbx
+  int *v7; // rdi
   unsigned int WndSBDisableFlags; // eax
-  _BYTE v9[64]; // [rsp+30h] [rbp-68h] BYREF
+  char v9; // [rsp+30h] [rbp-68h] BYREF
 
-  memset_0(v9, 0, sizeof(v9));
   v6 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 720LL);
   if ( v6 && a1 == *(struct tagWND **)(v6 + 8) && (*(_DWORD *)v6 & 4) == 0 && a3 == ((*(_DWORD *)v6 >> 1) & 1) )
-    v7 = *(struct tagSBCALC **)(v6 + 96);
+    v7 = *(int **)(v6 + 96);
   else
-    v7 = (struct tagSBCALC *)v9;
-  CalcSBStuff(a1, v7, a3);
+    v7 = (int *)&v9;
+  CalcSBStuff((__int64)a1, v7, a3);
   WndSBDisableFlags = GetWndSBDisableFlags(a1, a3);
-  xxxDrawSB2(a1, v7, a2, a3, WndSBDisableFlags);
+  xxxDrawSB2(a1, (struct tagSBCALC *)v7, a2, a3, WndSBDisableFlags);
 }

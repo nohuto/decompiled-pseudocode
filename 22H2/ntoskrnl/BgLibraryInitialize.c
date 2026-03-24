@@ -1,17 +1,18 @@
 /*
- * XREFs of BgLibraryInitialize @ 0x140AEF53C
+ * XREFs of BgLibraryInitialize @ 0x1409F1854
  * Callers:
- *     PopRestoreHiberContext @ 0x140AA45CC (PopRestoreHiberContext.c)
- *     PopInvokeSystemStateHandler @ 0x140AA865C (PopInvokeSystemStateHandler.c)
- *     BgkInitialize @ 0x140B9E198 (BgkInitialize.c)
+ *     PopInvokeSystemStateHandler @ 0x14099324C (PopInvokeSystemStateHandler.c)
+ *     PopRestoreHiberContext @ 0x140993CC8 (PopRestoreHiberContext.c)
+ *     BgkInitialize @ 0x140A96F04 (BgkInitialize.c)
  * Callees:
- *     BgpFwLibraryInitialize @ 0x140AEEC38 (BgpFwLibraryInitialize.c)
+ *     KeGetCurrentIrql @ 0x14021FA90 (KeGetCurrentIrql.c)
+ *     BgpFwLibraryInitialize @ 0x1409F29E8 (BgpFwLibraryInitialize.c)
  */
 
-__int64 __fastcall BgLibraryInitialize(__int64 a1, unsigned int a2)
+__int64 __fastcall BgLibraryInitialize(__int64 a1, int a2)
 {
   if ( a2 == -1 || KeGetCurrentIrql() <= 2u )
-    return BgpFwLibraryInitialize(a1, a2);
+    return BgpFwLibraryInitialize();
   else
     return 3221225473LL;
 }

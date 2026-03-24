@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vSpDrawCursor@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@1@Z @ 0x1C0280C94
+ * XREFs of ?vSpDrawCursor@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@1@Z @ 0x1C0283498
  * Callers:
- *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0155F90 (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C016466C (-vSpComposite@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C002C6B0 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00398B0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C00D9510 (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
- *     OffBitBlt @ 0x1C0114EC4 (OffBitBlt.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084EE0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B59BC (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C010F50C (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     OffBitBlt @ 0x1C0129EF0 (OffBitBlt.c)
  */
 
 void __fastcall vSpDrawCursor(
@@ -17,22 +17,22 @@ void __fastcall vSpDrawCursor(
         struct _RECTL *a4,
         struct _POINTL *a5)
 {
+  __int64 v8; // rdx
   PVOID *p_pvScan0; // rdi
   int hsurf; // eax
-  __int64 v10; // rax
-  __int64 v11; // rbx
-  __int64 v12; // r14
+  __int64 v11; // rax
+  __int64 v12; // rbx
   int v13; // ecx
   BOOL (__stdcall *v14)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // r12
   BOOL (__stdcall *v15)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // rcx
   struct _POINTL *v16; // r15
   POINTL *v17; // r13
-  __int64 v18; // r14
-  __int64 v19; // rbp
-  __int64 v20; // rbx
-  int v21; // eax
-  __int64 v22; // [rsp+20h] [rbp-98h]
-  struct _RECTL *v23; // [rsp+40h] [rbp-78h]
+  __int64 v18; // rbp
+  __int64 v19; // r14
+  int y; // eax
+  __int64 v21; // rbx
+  int v22; // eax
+  __int64 v23; // [rsp+20h] [rbp-98h]
   __int64 v24; // [rsp+70h] [rbp-48h] BYREF
   __int64 v25; // [rsp+78h] [rbp-40h]
   __int64 v26; // [rsp+C0h] [rbp+8h] BYREF
@@ -44,14 +44,14 @@ void __fastcall vSpDrawCursor(
   v26 = 0LL;
   if ( *((_QWORD *)a1 + 15) )
   {
-    v22 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 32LL) + 104LL);
+    v23 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 32LL) + 104LL);
     v24 = 0LL;
     if ( !(unsigned int)EXLATEOBJ::bInitXlateObj(
                           &v24,
                           0LL,
                           0,
                           (__int64)ppalMono,
-                          v22,
+                          v23,
                           (__int64)ppalDefault,
                           (__int64)ppalDefault,
                           0,
@@ -60,7 +60,7 @@ void __fastcall vSpDrawCursor(
                           0) )
     {
 LABEL_57:
-      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v24);
+      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v24, v8);
       return;
     }
     p_pvScan0 = 0LL;
@@ -73,17 +73,15 @@ LABEL_57:
         GreLockDisplayDevice(a3->hdev);
       }
     }
-    v10 = *((_QWORD *)a1 + 15);
-    v11 = 0LL;
-    v12 = v10;
-    if ( v10 )
+    v11 = *((_QWORD *)a1 + 15);
+    v12 = 0LL;
+    if ( v11 )
     {
-      v13 = *(_DWORD *)(v10 + 88);
+      v13 = *(_DWORD *)(v11 + 88);
       if ( (v13 & 0x80004000) != 0 && (v13 & 0x200) == 0 )
       {
-        v11 = v10 - 24;
-        GreLockDisplayDevice(*(_QWORD *)(v10 - 24 + 48));
-        v12 = *((_QWORD *)a1 + 15);
+        v12 = v11 - 24;
+        GreLockDisplayDevice(*(_QWORD *)(v11 - 24 + 48));
       }
     }
     v14 = EngBitBlt;
@@ -113,10 +111,9 @@ LABEL_57:
 LABEL_27:
       v15 = EngBitBlt;
     else
-      v15 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)a3->hdev + 163);
+      v15 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)a3->hdev + 164);
 LABEL_28:
     v16 = a5;
-    v23 = a4;
     v17 = &gptlZero;
     v25 = v24;
     OffBitBlt(
@@ -124,43 +121,43 @@ LABEL_28:
       v27,
       (__int64)a3,
       &gptlZero,
-      v12,
+      *((_QWORD *)a1 + 15),
       0LL,
       0LL,
       v24,
-      &v23->left,
+      &a4->left,
       (__int64 *)a5,
       0LL,
       0LL,
       0LL,
       34952);
-    if ( v11 )
-      GreUnlockDisplayDevice(*(_QWORD *)(v11 + 48));
+    if ( v12 )
+      GreUnlockDisplayDevice(*(_QWORD *)(v12 + 48));
     v18 = *((_QWORD *)a1 + 16);
     LODWORD(v26) = v16->x;
     if ( v18 )
     {
+      y = v16->y;
       v17 = (POINTL *)((char *)a1 + 136);
-      HIDWORD(v26) = v16->y;
       v19 = 0LL;
     }
     else
     {
       v18 = *((_QWORD *)a1 + 15);
       v19 = v25;
-      HIDWORD(v26) = v16->y + (*(int *)(v18 + 36) >> 1);
-      v20 = 0LL;
-      if ( !v18 )
-        goto LABEL_37;
+      y = v16->y + (*(int *)(v18 + 36) >> 1);
     }
-    v21 = *(_DWORD *)(v18 + 88);
-    v20 = 0LL;
-    if ( (v21 & 0x80004000) != 0 && (v21 & 0x200) == 0 )
+    HIDWORD(v26) = y;
+    v21 = 0LL;
+    if ( v18 )
     {
-      v20 = v18 - 24;
-      GreLockDisplayDevice(*(_QWORD *)(v18 - 24 + 48));
+      v22 = *(_DWORD *)(v18 + 88);
+      if ( (v22 & 0x80004000) != 0 && (v22 & 0x200) == 0 )
+      {
+        v21 = v18 - 24;
+        GreLockDisplayDevice(*(_QWORD *)(v18 - 24 + 48));
+      }
     }
-LABEL_37:
     if ( a3->iType == 1 )
     {
       if ( bAllowShareAccess(a3)
@@ -187,8 +184,8 @@ LABEL_53:
           0LL,
           0LL,
           26214);
-        if ( v20 )
-          GreUnlockDisplayDevice(*(_QWORD *)(v20 + 48));
+        if ( v21 )
+          GreUnlockDisplayDevice(*(_QWORD *)(v21 + 48));
         if ( p_pvScan0 )
           GreUnlockDisplayDevice(p_pvScan0[6]);
         goto LABEL_57;
@@ -204,7 +201,7 @@ LABEL_53:
       }
     }
     if ( ((__int64)a3[1].hsurf & 1) != 0 )
-      v14 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)a3->hdev + 163);
+      v14 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)a3->hdev + 164);
     goto LABEL_53;
   }
 }

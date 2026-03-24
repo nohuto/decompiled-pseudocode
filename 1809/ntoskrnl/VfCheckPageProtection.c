@@ -1,7 +1,7 @@
 /*
  * XREFs of VfCheckPageProtection @ 0x140927548
  * Callers:
- *     VfCheckNxPageProtection @ 0x1403099E0 (VfCheckNxPageProtection.c)
+ *     VfCheckNxPageProtection @ 0x140309AE0 (VfCheckNxPageProtection.c)
  *     VerifierMmAllocateContiguousNodeMemory @ 0x140944030 (VerifierMmAllocateContiguousNodeMemory.c)
  *     VerifierMmCreateSection @ 0x140944690 (VerifierMmCreateSection.c)
  *     VerifierMmMapIoSpaceEx @ 0x1409449D0 (VerifierMmMapIoSpaceEx.c)
@@ -14,7 +14,7 @@
  *     VfZwMapViewOfSection @ 0x140947B50 (VfZwMapViewOfSection.c)
  *     VfZwProtectVirtualMemory @ 0x1409487C0 (VfZwProtectVirtualMemory.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViCiPreprocessOptions @ 0x1409276E0 (ViCiPreprocessOptions.c)
  *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
  */
@@ -24,11 +24,11 @@ void __fastcall VfCheckPageProtection(unsigned int a1, ULONG_PTR a2)
   if ( (MmVerifierData & 0x2000000) != 0 && (a1 & 0xF0) != 0 )
   {
     ViCiPreprocessOptions(
-      byte_140405444,
+      byte_140405438,
       "The caller 0x%p specified an executable page protection 0x%x.",
       (const void *)0x2001,
       a2);
-    VfReportIssueWithOptions(0xC4u, 0x2001uLL, a2, a1, 0LL, byte_140405444);
+    VfReportIssueWithOptions(0xC4u, 0x2001uLL, a2, a1, 0LL, byte_140405438);
     if ( (MmVerifierData & 0x1000) != 0 )
       ViTargetIncrementCounter(a2, 268LL);
     _InterlockedIncrement(&dword_14041AA14);

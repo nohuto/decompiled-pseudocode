@@ -1,11 +1,11 @@
 /*
- * XREFs of PspTrySetProcessPebThrottlingFlags @ 0x1408891D0
+ * XREFs of PspTrySetProcessPebThrottlingFlags @ 0x1408891B0
  * Callers:
  *     <none>
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspTrySetProcessPebThrottlingFlags(_KPROCESS *a1, char a2)

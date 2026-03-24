@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CHolographicDisplayMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022CD70
+ * XREFs of ?SetBufferProperty@CHolographicDisplayMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01ED4A0
  * Callers:
  *     <none>
  * Callees:
@@ -22,10 +22,10 @@ __int64 __fastcall DirectComposition::CHolographicDisplayMarshaler::SetBufferPro
   {
     if ( a3 == 2 && a5 == 8 )
     {
-      if ( (*((_DWORD *)this + 18) & 2) == 0 )
+      if ( (*((_DWORD *)this + 16) & 2) == 0 )
       {
-        *((_QWORD *)this + 11) = *a4;
-        *((_DWORD *)this + 18) |= 2u;
+        *((_QWORD *)this + 10) = *a4;
+        *((_DWORD *)this + 16) |= 2u;
 LABEL_11:
         *a6 = 1;
         return v6;
@@ -35,10 +35,10 @@ LABEL_11:
   }
   else if ( a5 == 16 )
   {
-    if ( (*((_DWORD *)this + 18) & 1) == 0 )
+    if ( (*((_DWORD *)this + 16) & 1) == 0 )
     {
-      *((_OWORD *)this + 6) = *(_OWORD *)a4;
-      *((_DWORD *)this + 18) |= 1u;
+      *(_OWORD *)((char *)this + 88) = *(_OWORD *)a4;
+      *((_DWORD *)this + 16) |= 1u;
       goto LABEL_11;
     }
     return (unsigned int)-1073741790;

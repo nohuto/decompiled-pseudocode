@@ -1,105 +1,119 @@
 /*
- * XREFs of MiUnlockVad @ 0x140281C44
+ * XREFs of MiUnlockVad @ 0x140314658
  * Callers:
- *     MiWaitForVadDeletion @ 0x140202010 (MiWaitForVadDeletion.c)
- *     MiDeleteEmptyPageTables @ 0x14029F6FC (MiDeleteEmptyPageTables.c)
- *     MiLockAddressSpaceToo @ 0x140310450 (MiLockAddressSpaceToo.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140373BAC (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MiInsertViewOfPhysicalSection @ 0x1403D5614 (MiInsertViewOfPhysicalSection.c)
- *     MiReleaseCommitForResetPages @ 0x140580FA4 (MiReleaseCommitForResetPages.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x140581158 (MiReleaseOutSwappedProcessCommit.c)
- *     MiCanDeleteEnclave @ 0x1405A862C (MiCanDeleteEnclave.c)
- *     MiFindPlaceholderVadToReplace @ 0x1405B2088 (MiFindPlaceholderVadToReplace.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1406BF9AC (MiAllocateNewSubAllocatedRegion.c)
- *     MiUnlockVadRange @ 0x1406F7F40 (MiUnlockVadRange.c)
- *     MmCleanProcessAddressSpace @ 0x1406F89A4 (MmCleanProcessAddressSpace.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1407B8B60 (MiReserveUserMemory.c)
- *     MiAllocateVirtualMemory @ 0x1407BE3C0 (MiAllocateVirtualMemory.c)
- *     MiMapViewOfPhysicalSection @ 0x140852834 (MiMapViewOfPhysicalSection.c)
- *     MiCoalescePlaceholderAllocations @ 0x14096D8A8 (MiCoalescePlaceholderAllocations.c)
- *     MiApplyImageHotPatchRequest @ 0x140971DC0 (MiApplyImageHotPatchRequest.c)
- *     MiDeleteVadHotPatchState @ 0x140972F98 (MiDeleteVadHotPatchState.c)
- *     MiPrepareToHotPatchVad @ 0x140976DFC (MiPrepareToHotPatchVad.c)
- *     MiInitializeVsmEnclave @ 0x14097A228 (MiInitializeVsmEnclave.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x14097A714 (MiLoadSectionIntoVsmEnclave.c)
- *     MiTerminateEnclave @ 0x14097AB60 (MiTerminateEnclave.c)
+ *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
+ *     MiLockAddressSpaceToo @ 0x1402BD720 (MiLockAddressSpaceToo.c)
+ *     MiFinishVadDeletion @ 0x140316DC0 (MiFinishVadDeletion.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x14035A26C (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiInsertViewOfPhysicalSection @ 0x1403C6DC8 (MiInsertViewOfPhysicalSection.c)
+ *     MiDeleteEmptyPageTables @ 0x1403F4F90 (MiDeleteEmptyPageTables.c)
+ *     MiReleaseCommitForResetPages @ 0x14052C554 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x14052C708 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiCanDeleteEnclave @ 0x140549668 (MiCanDeleteEnclave.c)
+ *     MiFindPlaceholderVadToReplace @ 0x1405551F4 (MiFindPlaceholderVadToReplace.c)
+ *     MiWaitForVadDeletion @ 0x14055BE10 (MiWaitForVadDeletion.c)
+ *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiUnlockVadRange @ 0x140620130 (MiUnlockVadRange.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x14069F198 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MmCleanProcessAddressSpace @ 0x1406EB24C (MmCleanProcessAddressSpace.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C2C08 (MiMapViewOfPhysicalSection.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408C87A4 (MiCoalescePlaceholderAllocations.c)
+ *     MiPerformImageHotPatch @ 0x1408CCEC4 (MiPerformImageHotPatch.c)
+ *     MiSetImageHotPatchAllowed @ 0x1408CE504 (MiSetImageHotPatchAllowed.c)
+ *     MiInitializeVsmEnclave @ 0x1408D3098 (MiInitializeVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x1408D3570 (MiLoadSectionIntoVsmEnclave.c)
+ *     MiTerminateEnclave @ 0x1408D3B58 (MiTerminateEnclave.c)
  * Callees:
- *     KiAbThreadRemoveBoostsSlow @ 0x14022B568 (KiAbThreadRemoveBoostsSlow.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14034EE30 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiUnlockVad(__int64 a1, __int64 a2)
+char __fastcall MiUnlockVad(__int64 a1, __int64 a2)
 {
   ULONG_PTR v2; // rsi
-  struct _KTHREAD *CurrentThread; // rdi
-  unsigned int SessionId; // ecx
-  char *p_Process; // rbx
-  __int64 v7; // r8
-  __int64 v8; // rdx
-  int v9; // r9d
-  __int64 result; // rax
+  struct _KTHREAD *CurrentThread; // rbx
+  unsigned int SessionId; // edx
+  unsigned __int8 v6; // r14
+  unsigned int v7; // r8d
+  bool v8; // zf
+  __int64 v9; // rcx
+  __int64 v10; // rdi
+  __int64 v11; // rdx
+  $C459BD0D405E8E46662177FB3D0A143F *v12; // rax
+  __int64 v13; // rcx
 
-  *(_BYTE *)(a1 + 1384) &= ~0x80u;
+  *(_BYTE *)(a1 + 1304) &= ~0x80u;
   v2 = a2 + 40;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 40), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(a2 + 40);
   CurrentThread = KeGetCurrentThread();
-  if ( v2 - qword_140C50630 < 0x8000000000LL )
+  if ( (unsigned int)MiGetSystemRegionType(v2) == 1 )
     SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
   else
     SessionId = -1;
-  _disable();
-  p_Process = (char *)&CurrentThread[1].Process;
-  v7 = v2 & 0x7FFFFFFFFFFFFFFCLL;
-  v8 = 0LL;
-  while ( (*(_QWORD *)p_Process & 0x7FFFFFFFFFFFFFFCLL) != v7
-       || !p_Process[18]
-       || (*(_DWORD *)p_Process & 1) != 0
-       || *((_DWORD *)p_Process + 2) != SessionId )
+  --CurrentThread->SpecialApcDisable;
+  v6 = ++CurrentThread->AbAllocationRegionCount;
+  v7 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  while ( 1 )
   {
-    v8 = (unsigned int)(v8 + 1);
-    p_Process += 96;
-    if ( (unsigned int)v8 >= 6 )
-      goto LABEL_18;
-  }
-  p_Process[18] = 0;
-  if ( p_Process )
-  {
-    if ( *(__int64 *)p_Process < 0 )
+    v8 = !_BitScanReverse((unsigned int *)&v9, v7);
+    if ( v8 )
+      break;
+    v10 = (__int64)&CurrentThread->LockEntries[v9];
+    v7 &= ~(1 << v9);
+    if ( (*(_BYTE *)(v10 + 26) & 1) != 0
+      && (*(_DWORD *)(v10 + 32) & 1) == 0
+      && (*(_QWORD *)(v10 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v2 & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v10 + 40) == SessionId )
     {
-      *p_Process |= 2u;
-      _enable();
-      KiAbEntryRemoveFromTree(p_Process, v8, v7);
-      _disable();
+      *(_BYTE *)(v10 + 26) &= ~1u;
+      if ( *(_QWORD *)(v10 + 32) )
+      {
+        if ( v10 )
+        {
+          *(_BYTE *)(v10 + 32) |= 2u;
+          if ( *(__int64 *)(v10 + 32) < 0 )
+            KiAbEntryRemoveFromTree(v10);
+          *(_DWORD *)(v10 + 88) &= 0xFFFE0000;
+          *(_BYTE *)(v10 + 25) &= ~1u;
+          *(_QWORD *)(v10 + 32) = 0LL;
+          v11 = (signed __int64)(v10 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+          if ( v6 == 1 )
+            CurrentThread->AbEntrySummary |= 1 << v11;
+          else
+            _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v11);
+          goto LABEL_17;
+        }
+        break;
+      }
     }
-    v9 = *((_DWORD *)p_Process + 22);
-    *((_DWORD *)p_Process + 22) = 0;
-    p_Process[17] = 0;
-    *(_QWORD *)p_Process = 0LL;
-    result = (unsigned __int8)p_Process[16];
-    CurrentThread->AbEntrySummary |= 1 << result;
-    _enable();
-    if ( v9 )
-      result = KiAbThreadRemoveBoostsSlow((ULONG_PTR)CurrentThread, v2, v9);
-    goto LABEL_15;
   }
-LABEL_18:
-  result = *((unsigned int *)&CurrentThread->MiscFlags + 1);
-  if ( (result & 0x10000) == 0 )
+  if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
     KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v2, SessionId, 0LL);
-  _enable();
-LABEL_15:
-  if ( (*(_WORD *)(a1 + 486))++ == 0xFFFF )
+LABEL_17:
+  --CurrentThread->AbAllocationRegionCount;
+  LOBYTE(v12) = KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
+  v8 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v8 )
   {
-    result = a1 + 152;
-    if ( *(_QWORD *)result != result )
-      return KiCheckForKernelApcDelivery();
+    v12 = &CurrentThread->152;
+    if ( ($C459BD0D405E8E46662177FB3D0A143F *)v12->ApcState.ApcListHead[0].Flink != v12 )
+      LOBYTE(v12) = KiCheckForKernelApcDelivery(v13);
   }
-  return result;
+  v8 = (*(_WORD *)(a1 + 486))++ == 0xFFFF;
+  if ( v8 )
+  {
+    v12 = ($C459BD0D405E8E46662177FB3D0A143F *)(a1 + 152);
+    if ( ($C459BD0D405E8E46662177FB3D0A143F *)v12->ApcState.ApcListHead[0].Flink != v12 )
+      LOBYTE(v12) = KiCheckForKernelApcDelivery(v13);
+  }
+  return (char)v12;
 }

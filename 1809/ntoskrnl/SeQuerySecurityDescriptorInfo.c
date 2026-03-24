@@ -4,10 +4,10 @@
  *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1405BBBC0 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
  *     ObQuerySecurityDescriptorInfo @ 0x1405C833C (ObQuerySecurityDescriptorInfo.c)
  *     CmpQueryKeySecurity @ 0x1405CB550 (CmpQueryKeySecurity.c)
- *     IopGetSetSecurityObject @ 0x1406990F0 (IopGetSetSecurityObject.c)
- *     EtwQueryPerformanceTraceInformation @ 0x1408B9380 (EtwQueryPerformanceTraceInformation.c)
+ *     IopGetSetSecurityObject @ 0x1406990D0 (IopGetSetSecurityObject.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x1408B9360 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     RtlpFilterSacl @ 0x1405CBBE8 (RtlpFilterSacl.c)
  */
 

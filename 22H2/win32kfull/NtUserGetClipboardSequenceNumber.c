@@ -1,25 +1,22 @@
 /*
- * XREFs of NtUserGetClipboardSequenceNumber @ 0x1C0017A10
+ * XREFs of NtUserGetClipboardSequenceNumber @ 0x1C0030000
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0018758 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0030448 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
  */
 
 __int64 NtUserGetClipboardSequenceNumber()
 {
   struct tagWINDOWSTATION *v0; // rax
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  unsigned int v5; // ebx
+  __int64 v1; // rcx
+  unsigned int v2; // ebx
 
-  EnterSharedCrit();
+  EnterSharedCrit(0LL, 1LL);
   v0 = CheckClipboardAccess();
-  v5 = 0;
+  v2 = 0;
   if ( v0 )
-    v5 = *((_DWORD *)v0 + 36);
-  UserSessionSwitchLeaveCrit(v2, v1, v3, v4);
-  return v5;
+    v2 = *((_DWORD *)v0 + 36);
+  UserSessionSwitchLeaveCrit(v1);
+  return v2;
 }

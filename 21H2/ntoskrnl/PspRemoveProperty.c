@@ -1,19 +1,19 @@
 /*
- * XREFs of PspRemoveProperty @ 0x1403882F0
+ * XREFs of PspRemoveProperty @ 0x1402922F8
  * Callers:
- *     PsSetThreadProperty @ 0x1403882B0 (PsSetThreadProperty.c)
- *     PsSetJobProperty @ 0x1405E0580 (PsSetJobProperty.c)
- *     PspEmptyPropertySet @ 0x1407A08FC (PspEmptyPropertySet.c)
+ *     PsSetThreadProperty @ 0x1402923D0 (PsSetThreadProperty.c)
+ *     PsSetJobProperty @ 0x1405814B0 (PsSetJobProperty.c)
+ *     PspEmptyPropertySet @ 0x14064CB48 (PspEmptyPropertySet.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     PspFindPropertySetEntry @ 0x140224080 (PspFindPropertySetEntry.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     PspFindPropertySetEntry @ 0x140292908 (PspFindPropertySetEntry.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PspRemoveProperty(_QWORD *a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall PspRemoveProperty(__int64 a1, __int64 a2, _QWORD *a3)
 {
   unsigned __int64 v6; // rbp
   PVOID *PropertySetEntry; // rax
@@ -26,7 +26,7 @@ __int64 __fastcall PspRemoveProperty(_QWORD *a1, __int64 a2, _QWORD *a3)
   int v15; // eax
   bool v16; // zf
 
-  v6 = KeAcquireSpinLockRaiseToDpc(a1 + 2);
+  v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 16));
   PropertySetEntry = (PVOID *)PspFindPropertySetEntry(a1, a2);
   v8 = PropertySetEntry;
   if ( PropertySetEntry )
@@ -40,7 +40,7 @@ __int64 __fastcall PspRemoveProperty(_QWORD *a1, __int64 a2, _QWORD *a3)
     *v10 = (PVOID *)v9;
     v9[1] = (PVOID *)v10;
   }
-  KxReleaseSpinLock(a1 + 2);
+  KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 16));
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

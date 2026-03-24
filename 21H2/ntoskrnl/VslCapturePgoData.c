@@ -1,13 +1,13 @@
 /*
- * XREFs of VslCapturePgoData @ 0x140931660
+ * XREFs of VslCapturePgoData @ 0x14088EE10
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     VslpUnlockPagesForTransfer @ 0x1403A0EB4 (VslpUnlockPagesForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x1403A0F08 (VslpLockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x140394074 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403940C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall VslCapturePgoData(size_t Size, struct _MDL *a2)
@@ -36,7 +36,7 @@ __int64 __fastcall VslCapturePgoData(size_t Size, struct _MDL *a2)
       v9[2] = v8[0];
       v9[3] = v8[7];
       v9[1] = v4;
-      v5 = VslpEnterIumSecureMode(2u, 76, 0, (__int64)v9);
+      v5 = VslpEnterIumSecureMode(2u, 74, 0, (__int64)v9);
       VslpUnlockPagesForTransfer(v8);
       if ( v5 == -2147483622 )
         return 0;

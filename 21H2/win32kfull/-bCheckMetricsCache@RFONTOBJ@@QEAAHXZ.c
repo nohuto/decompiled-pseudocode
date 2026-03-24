@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C001AFA4
+ * XREFs of ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C009CB9C
  * Callers:
- *     xInsertMetricsPlusRFONTOBJ @ 0x1C0018FE0 (xInsertMetricsPlusRFONTOBJ.c)
- *     xInsertMetricsRFONTOBJ @ 0x1C001ACD8 (xInsertMetricsRFONTOBJ.c)
- *     ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C001B4D8 (-bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z.c)
+ *     ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C009AF78 (-bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z.c)
+ *     xInsertMetricsPlusRFONTOBJ @ 0x1C009CA18 (xInsertMetricsPlusRFONTOBJ.c)
+ *     xInsertMetricsRFONTOBJ @ 0x1C009D6B0 (xInsertMetricsRFONTOBJ.c)
  * Callees:
- *     <none>
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
  */
 
 __int64 __fastcall RFONTOBJ::bCheckMetricsCache(RFONTOBJ *this)
@@ -18,7 +18,7 @@ __int64 __fastcall RFONTOBJ::bCheckMetricsCache(RFONTOBJ *this)
      + (-(__int64)(*(_DWORD *)(*(_QWORD *)this + 640LL) != 0) & 0xFFFFFFFFFFFFFFD8uLL)
      + 64 <= *(_QWORD *)(*(_QWORD *)this + 520LL) )
     return 1LL;
-  result = Win32AllocPool(1824LL, 1667326791LL);
+  result = PALLOCMEM2(0x720uLL);
   if ( result )
   {
     *(_QWORD *)result = v1[67];

@@ -1,16 +1,16 @@
 /*
- * XREFs of BiGetPhysicalDriveName @ 0x140A5D0A0
+ * XREFs of BiGetPhysicalDriveName @ 0x14096FDDC
  * Callers:
- *     BiCreatePartitionDevice @ 0x140808C60 (BiCreatePartitionDevice.c)
- *     BiGetDriveLayoutBlock @ 0x140809DB8 (BiGetDriveLayoutBlock.c)
+ *     BiGetDriveLayoutBlock @ 0x140782C38 (BiGetDriveLayoutBlock.c)
+ *     BiCreatePartitionDevice @ 0x140784FC0 (BiCreatePartitionDevice.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     BiGetVolumeDiskExtentsInformation @ 0x140A5D1F0 (BiGetVolumeDiskExtentsInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     BiGetVolumeDiskExtentsInformation @ 0x14096FF2C (BiGetVolumeDiskExtentsInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetPhysicalDriveName(PCWSTR SourceString, wchar_t **a2)
@@ -18,7 +18,7 @@ __int64 __fastcall BiGetPhysicalDriveName(PCWSTR SourceString, wchar_t **a2)
   NTSTATUS v3; // ebx
   int VolumeDiskExtentsInformation; // eax
   unsigned int *v5; // rdi
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v7; // rsi
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-40h] BYREF
@@ -26,14 +26,15 @@ __int64 __fastcall BiGetPhysicalDriveName(PCWSTR SourceString, wchar_t **a2)
   HANDLE FileHandle; // [rsp+B0h] [rbp+30h] BYREF
   PVOID P; // [rsp+B8h] [rbp+38h]
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle = 0LL;
   P = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   IoStatusBlock = 0LL;
@@ -47,11 +48,11 @@ __int64 __fastcall BiGetPhysicalDriveName(PCWSTR SourceString, wchar_t **a2)
     {
       if ( *(_DWORD *)P == 1 )
       {
-        Pool2 = (wchar_t *)ExAllocatePool2(258LL, 62LL, 1262764866LL);
-        v7 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x3EuLL, 0x4B444342u);
+        v7 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          v3 = RtlStringCbPrintfW(Pool2, 0x3EuLL, L"\\??\\PhysicalDrive%lu", v5[2]);
+          v3 = RtlStringCbPrintfW(PoolWithTag, 0x3EuLL, L"\\??\\PhysicalDrive%lu", v5[2]);
           if ( v3 < 0 )
             ExFreePoolWithTag(v7, 0x4B444342u);
           else

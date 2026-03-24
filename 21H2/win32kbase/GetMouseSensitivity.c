@@ -1,25 +1,22 @@
 /*
- * XREFs of GetMouseSensitivity @ 0x1C01E7B00
+ * XREFs of GetMouseSensitivity @ 0x1C01AE840
  * Callers:
  *     <none>
  * Callees:
- *     ?GetMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEBAIXZ @ 0x1C00B5160 (-GetMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEBAIXZ.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?GetMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEBAIXZ @ 0x1C00A3EA0 (-GetMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEBAIXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall GetMouseSensitivity(_DWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall GetMouseSensitivity(_DWORD *a1)
 {
-  CDeviceAcceleration *v3; // rbx
+  CDeviceAcceleration *v1; // rbx
 
-  v3 = qword_1C0288098;
+  v1 = qword_1C0246098;
   if ( a1 )
   {
-    if ( (unsigned int)(*((_DWORD *)qword_1C0288098 + 26) - 1) > 0x13 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-    *a1 = *((_DWORD *)v3 + 27);
+    if ( (unsigned int)(*((_DWORD *)qword_1C0246098 + 26) - 1) > 0x13 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 535);
+    *a1 = *((_DWORD *)v1 + 27);
   }
-  return CMouseAcceleration::MOUSE_SENSITIVITY_INFO::GetMouseSensitivity(
-           (CDeviceAcceleration *)((char *)v3 + 104),
-           a2,
-           a3);
+  return CMouseAcceleration::MOUSE_SENSITIVITY_INFO::GetMouseSensitivity((CDeviceAcceleration *)((char *)v1 + 104));
 }

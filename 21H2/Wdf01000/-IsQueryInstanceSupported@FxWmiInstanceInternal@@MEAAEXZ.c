@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsQueryInstanceSupported@FxWmiInstanceInternal@@MEAAEXZ @ 0x1C005E6B0
+ * XREFs of ?IsQueryInstanceSupported@FxWmiInstanceInternal@@MEAAEXZ @ 0x1C003ED00
  * Callers:
  *     <none>
  * Callees:

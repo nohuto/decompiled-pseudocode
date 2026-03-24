@@ -1,9 +1,9 @@
 /*
- * XREFs of NtLoadKeyEx @ 0x14067CDE0
+ * XREFs of NtLoadKeyEx @ 0x14066E520
  * Callers:
- *     NtLoadKey @ 0x140864950 (NtLoadKey.c)
+ *     NtLoadKey @ 0x140781B80 (NtLoadKey.c)
  * Callees:
- *     CmLoadDifferencingKey @ 0x14067CE4C (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
  */
 
 __int64 __fastcall NtLoadKeyEx(

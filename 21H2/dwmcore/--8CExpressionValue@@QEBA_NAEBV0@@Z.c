@@ -1,50 +1,44 @@
 /*
- * XREFs of ??8CExpressionValue@@QEBA_NAEBV0@@Z @ 0x180052380
+ * XREFs of ??8CExpressionValue@@QEBA_NAEBV0@@Z @ 0x180074830
  * Callers:
- *     ?SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z @ 0x180019498 (-SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z.c)
- *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180050DC0 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z @ 0x180051C60 (-SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z.c)
+ *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180073600 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z @ 0x180074090 (-SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z.c)
+ *     ?SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z @ 0x1800E2CF0 (-SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z.c)
  * Callees:
- *     memcmp_0 @ 0x180105173 (memcmp_0.c)
- *     ??8CPathData@@QEBA_NAEBV0@@Z @ 0x18011399A (--8CPathData@@QEBA_NAEBV0@@Z.c)
- *     ??8D2DQuaternion@@QEBAHAEBU0@@Z @ 0x18026C490 (--8D2DQuaternion@@QEBAHAEBU0@@Z.c)
+ *     memcmp_0 @ 0x1800F47CF (memcmp_0.c)
+ *     ??8CPathData@@QEBA_NAEBV0@@Z @ 0x1801B182C (--8CPathData@@QEBA_NAEBV0@@Z.c)
+ *     ??8D2DQuaternion@@QEBAHAEBU0@@Z @ 0x18021C094 (--8D2DQuaternion@@QEBAHAEBU0@@Z.c)
  */
 
 __int64 __fastcall CExpressionValue::operator==(_DWORD *Buf1, _DWORD *a2, __int64 a3)
 {
-  int v3; // eax
-  char v5; // cl
+  int v4; // ecx
+  char v5; // al
   __int64 result; // rax
   __int64 v7; // rax
-  unsigned __int64 v8; // rcx
-  __int64 v9; // rax
+  __int64 v8; // rax
+  unsigned __int64 v9; // rcx
   __int64 v10; // rax
   __int64 v11; // rax
 
-  v3 = Buf1[18];
   LOBYTE(a3) = 0;
-  if ( v3 != a2[18] )
+  v4 = Buf1[18];
+  if ( v4 != a2[18] )
     return (unsigned __int8)a3;
   v5 = *((_BYTE *)Buf1 + 76);
   if ( v5 != *((_BYTE *)a2 + 76) )
     return (unsigned __int8)a3;
   if ( !v5 )
     goto LABEL_6;
-  if ( v3 == 35 )
+  if ( v4 == 18 )
   {
-    if ( *(_QWORD *)Buf1 != *(_QWORD *)a2 )
+    if ( *(float *)Buf1 != *(float *)a2 )
       return (unsigned __int8)a3;
 LABEL_6:
     LOBYTE(a3) = 1;
     return (unsigned __int8)a3;
   }
-  if ( v3 == 17 )
-  {
-    if ( *(_BYTE *)Buf1 != *(_BYTE *)a2 )
-      return (unsigned __int8)a3;
-    goto LABEL_6;
-  }
-  switch ( v3 )
+  switch ( v4 )
   {
     case 11:
       v11 = *((_QWORD *)Buf1 + 8);
@@ -53,19 +47,23 @@ LABEL_6:
       else
         LOBYTE(a3) = v11 == *((_QWORD *)a2 + 8);
       return (unsigned __int8)a3;
-    case 18:
-    case 42:
-      if ( *(float *)Buf1 == *(float *)a2 )
-        goto LABEL_6;
-      result = 0LL;
+    case 17:
+      LOBYTE(a3) = *(_BYTE *)Buf1 == *(_BYTE *)a2;
+      return (unsigned __int8)a3;
+    case 35:
+      result = *(_QWORD *)Buf1 == *(_QWORD *)a2;
       break;
+    case 42:
+      if ( *(float *)Buf1 != *(float *)a2 )
+        return (unsigned __int8)a3;
+      goto LABEL_6;
     case 52:
-      v8 = *(_QWORD *)Buf1 - *(_QWORD *)a2;
+      v9 = *(_QWORD *)Buf1 - *(_QWORD *)a2;
       if ( *(_QWORD *)Buf1 == *(_QWORD *)a2 )
-        v8 = (unsigned int)Buf1[2] - (unsigned __int64)(unsigned int)a2[2];
-      if ( !v8 )
-        goto LABEL_6;
-      result = 0LL;
+        v9 = (unsigned int)Buf1[2] - (unsigned __int64)(unsigned int)a2[2];
+      if ( v9 )
+        return (unsigned __int8)a3;
+      result = 1LL;
       break;
     case 69:
       v10 = *(_QWORD *)Buf1 - *(_QWORD *)a2;
@@ -85,14 +83,14 @@ LABEL_6:
       LOBYTE(a3) = (unsigned int)D2DQuaternion::operator==(Buf1, a2, a3) != 0;
       return (unsigned __int8)a3;
     case 104:
-      v9 = *(_QWORD *)Buf1 - *(_QWORD *)a2;
+      v8 = *(_QWORD *)Buf1 - *(_QWORD *)a2;
       if ( *(_QWORD *)Buf1 == *(_QWORD *)a2 )
       {
-        v9 = *((_QWORD *)Buf1 + 1) - *((_QWORD *)a2 + 1);
-        if ( !v9 )
-          v9 = *((_QWORD *)Buf1 + 2) - *((_QWORD *)a2 + 2);
+        v8 = *((_QWORD *)Buf1 + 1) - *((_QWORD *)a2 + 1);
+        if ( !v8 )
+          v8 = *((_QWORD *)Buf1 + 2) - *((_QWORD *)a2 + 2);
       }
-      if ( v9 )
+      if ( v8 )
         return (unsigned __int8)a3;
       result = 1LL;
       break;

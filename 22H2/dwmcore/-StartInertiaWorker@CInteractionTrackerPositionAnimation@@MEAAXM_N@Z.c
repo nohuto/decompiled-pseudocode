@@ -1,18 +1,17 @@
 /*
- * XREFs of ?StartInertiaWorker@CInteractionTrackerPositionAnimation@@MEAAXM_N@Z @ 0x180266F20
+ * XREFs of ?StartInertiaWorker@CInteractionTrackerPositionAnimation@@MEAAXM_N@Z @ 0x180205920
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801329B2 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
- *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x180232888 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
- *     ?GetInertiaDecayRate@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x180232A84 (-GetInertiaDecayRate@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
- *     ?GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z @ 0x180232AB4 (-GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z.c)
- *     ?GetBoundedEndpoint@CScrollAnimation@@QEBAMXZ @ 0x180264FA0 (-GetBoundedEndpoint@CScrollAnimation@@QEBAMXZ.c)
- *     ?GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ @ 0x18026500C (-GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ.c)
- *     ?GetCurrentVelocity@CMotion@@QEBAMXZ @ 0x18026EBF0 (-GetCurrentVelocity@CMotion@@QEBAMXZ.c)
- *     ?StartInertia@CMotion@@IEAAXMM_N0@Z @ 0x18026EEE4 (-StartInertia@CMotion@@IEAAXMM_N0@Z.c)
- *     ?IsInertiaEnabledForAxis@InteractionSourceManager@@QEBA_NW4ScrollAxis@@@Z @ 0x180274B30 (-IsInertiaEnabledForAxis@InteractionSourceManager@@QEBA_NW4ScrollAxis@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801C7FE0 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C94D0 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?GetInertiaDecayRate@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C96A0 (-GetInertiaDecayRate@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z @ 0x1801C96D0 (-GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z.c)
+ *     ?GetBoundedEndpoint@CScrollAnimation@@QEBAMXZ @ 0x180203908 (-GetBoundedEndpoint@CScrollAnimation@@QEBAMXZ.c)
+ *     ?GetCurrentVelocity@CMotion@@QEBAMXZ @ 0x18020E440 (-GetCurrentVelocity@CMotion@@QEBAMXZ.c)
+ *     ?StartInertia@CPositionMotion@@QEAAXMMMMMM_N0@Z @ 0x18020F214 (-StartInertia@CPositionMotion@@QEAAXMMMMMM_N0@Z.c)
+ *     ?IsInertiaEnabledForAxis@InteractionSourceManager@@QEBA_NW4ScrollAxis@@@Z @ 0x1802133D8 (-IsInertiaEnabledForAxis@InteractionSourceManager@@QEBA_NW4ScrollAxis@@@Z.c)
  */
 
 void __fastcall CInteractionTrackerPositionAnimation::StartInertiaWorker(
@@ -20,48 +19,39 @@ void __fastcall CInteractionTrackerPositionAnimation::StartInertiaWorker(
         float a2,
         bool a3)
 {
-  __int64 v5; // rcx
-  struct CInteractionTracker *InteractionTracker; // rsi
+  __int64 v3; // rsi
   float MostRecentCenterPoint; // xmm10_4
-  CMotion *v8; // rax
+  CMotion *v7; // rax
   float CurrentVelocity; // xmm7_4
   float BoundedEndpoint; // xmm6_4
-  char IsInertiaEnabledForAxis; // bp
-  int v12; // r11d
+  char IsInertiaEnabledForAxis; // r15
   float InertiaDecayRate; // xmm9_4
-  CInteractionTracker *v14; // rcx
+  CInteractionTracker *v12; // rcx
   float CurrentValue; // xmm0_4
 
-  InteractionTracker = CScrollAnimation::GetInteractionTracker(this);
-  MostRecentCenterPoint = CInteractionTracker::GetMostRecentCenterPoint(
-                            (__int64)InteractionTracker,
-                            2,
-                            *(_DWORD *)(v5 + 340));
-  v8 = (CMotion *)(*(__int64 (__fastcall **)(CInteractionTrackerPositionAnimation *))(*(_QWORD *)this + 328LL))(this);
-  CurrentVelocity = CMotion::GetCurrentVelocity(v8);
+  v3 = *((_QWORD *)this + 41);
+  if ( v3 )
+    v3 = *(_QWORD *)(v3 + 16);
+  MostRecentCenterPoint = CInteractionTracker::GetMostRecentCenterPoint(v3, 2, *((_DWORD *)this + 79));
+  v7 = (CMotion *)(*(__int64 (__fastcall **)(CInteractionTrackerPositionAnimation *))(*(_QWORD *)this + 328LL))(this);
+  CurrentVelocity = CMotion::GetCurrentVelocity(v7);
   BoundedEndpoint = 0.0;
-  if ( a3 && (*((_BYTE *)this + 344) & 1) != 0 )
+  if ( a3 && (*((_BYTE *)this + 320) & 1) != 0 )
     CurrentVelocity = 0.0;
-  IsInertiaEnabledForAxis = InteractionSourceManager::IsInertiaEnabledForAxis(
-                              (char *)InteractionTracker + 200,
-                              *((unsigned int *)this + 85));
-  InertiaDecayRate = CInteractionTracker::GetInertiaDecayRate((float *)InteractionTracker, v12);
-  if ( CInteractionTracker::AreInteractionAnimationsAlive(v14) )
-    BoundedEndpoint = CScrollAnimation::GetBoundedEndpoint(*((CScrollAnimation **)InteractionTracker + 41));
-  CurrentValue = CInteractionTracker::GetCurrentValue((__int64)InteractionTracker, 2);
-  *((_DWORD *)this + 149) = 0;
-  *((_DWORD *)this + 143) = 0;
-  *((float *)this + 125) = a2;
-  *((float *)this + 150) = a2;
-  *((float *)this + 144) = CurrentValue;
-  *((float *)this + 151) = CurrentValue;
-  *((float *)this + 147) = BoundedEndpoint;
-  *((float *)this + 146) = MostRecentCenterPoint;
-  CMotion::StartInertia(
-    (CInteractionTrackerPositionAnimation *)((char *)this + 456),
+  IsInertiaEnabledForAxis = InteractionSourceManager::IsInertiaEnabledForAxis(v3 + 192, *((unsigned int *)this + 79));
+  InertiaDecayRate = CInteractionTracker::GetInertiaDecayRate((float *)v3, *((_DWORD *)this + 79));
+  if ( CInteractionTracker::AreInteractionAnimationsAlive(v12) )
+    BoundedEndpoint = CScrollAnimation::GetBoundedEndpoint(*(CScrollAnimation **)(v3 + 320));
+  CurrentValue = CInteractionTracker::GetCurrentValue(v3, 2);
+  CPositionMotion::StartInertia(
+    (CInteractionTrackerPositionAnimation *)((char *)this + 432),
     CurrentVelocity,
+    a2,
+    CurrentValue,
+    BoundedEndpoint,
+    MostRecentCenterPoint,
     InertiaDecayRate,
     IsInertiaEnabledForAxis,
     a3);
-  *((_BYTE *)this + 344) &= ~1u;
+  *((_BYTE *)this + 320) &= ~1u;
 }

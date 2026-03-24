@@ -1,11 +1,11 @@
 /*
- * XREFs of IopErrorLogGetEntry @ 0x1403A5A64
+ * XREFs of IopErrorLogGetEntry @ 0x140371338
  * Callers:
- *     IopErrorLogThread @ 0x14080FDC0 (IopErrorLogThread.c)
+ *     IopErrorLogThread @ 0x140755770 (IopErrorLogThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 IopErrorLogGetEntry()

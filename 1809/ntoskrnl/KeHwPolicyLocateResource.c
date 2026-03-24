@@ -3,7 +3,7 @@
  * Callers:
  *     KiLoadPolicyFromImage @ 0x140573804 (KiLoadPolicyFromImage.c)
  * Callees:
- *     LdrResSearchResource @ 0x14068AD50 (LdrResSearchResource.c)
+ *     LdrResSearchResource @ 0x14068AD30 (LdrResSearchResource.c)
  *     KiHwPolicyFindDriverImage @ 0x1409D3D58 (KiHwPolicyFindDriverImage.c)
  */
 

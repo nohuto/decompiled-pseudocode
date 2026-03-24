@@ -1,42 +1,34 @@
 /*
- * XREFs of ?PushWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXPEAU_ETHREAD@@@Z @ 0x1C001342C
+ * XREFs of ?PushWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXPEAU_ETHREAD@@@Z @ 0x1C000D0D8
  * Callers:
- *     ?EnsureGdiOutput@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@PEAE2PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01C3530 (-EnsureGdiOutput@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@PEAE2PEAU_DXGK_DISPL.c)
- *     ?DxgkCddPushWorkerThreadOfOwner@@YAXQEAX0PEAU_ETHREAD@@@Z @ 0x1C01E9820 (-DxgkCddPushWorkerThreadOfOwner@@YAXQEAX0PEAU_ETHREAD@@@Z.c)
+ *     ?EnsureGdiOutput@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@PEAE2PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C014CC2C (-EnsureGdiOutput@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@PEAE2PEAU_DXGK_DISPL.c)
+ *     ?DxgkCddPushWorkerThreadOfOwner@@YAXQEAX0PEAU_ETHREAD@@@Z @ 0x1C014CF30 (-DxgkCddPushWorkerThreadOfOwner@@YAXQEAX0PEAU_ETHREAD@@@Z.c)
  * Callees:
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 void __fastcall DXGADAPTER::PushWorkerThreadOfExclusiveOwner(PERESOURCE *this, struct _ERESOURCE *a2)
 {
-  int v4; // edx
-  int v5; // ecx
-  int v6; // r8d
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rax
 
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this) )
   {
-    WdLogSingleEntry1(1LL, 2949LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v5,
-          v4,
-          v6,
-          0,
-          2,
-          -1,
-          (__int64)L"IsCoreResourceExclusiveOwner()",
-          2949LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v6 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v6 + 24) = 2991LL;
+    WdLogEvent5_WdAssertion(v6);
   }
   if ( this[24] )
-    WdLogSingleEntry5(0LL, 275LL, 17LL, this, 0LL, 0LL);
+  {
+    v7 = WdLogNewEntry5_WdCriticalError(v5, v4);
+    *(_QWORD *)(v7 + 24) = 275LL;
+    *(_QWORD *)(v7 + 32) = 17LL;
+    *(_QWORD *)(v7 + 40) = this;
+    *(_OWORD *)(v7 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v7);
+  }
   this[24] = this[23];
   this[23] = a2;
 }

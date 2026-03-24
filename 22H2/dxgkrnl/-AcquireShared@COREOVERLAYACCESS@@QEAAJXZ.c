@@ -1,12 +1,12 @@
 /*
- * XREFs of ?AcquireShared@COREOVERLAYACCESS@@QEAAJXZ @ 0x1C00550B4
+ * XREFs of ?AcquireShared@COREOVERLAYACCESS@@QEAAJXZ @ 0x1C0047688
  * Callers:
- *     DxgkFlipOverlay @ 0x1C03365D0 (DxgkFlipOverlay.c)
- *     DxgkGetOverlayState @ 0x1C0336BB0 (DxgkGetOverlayState.c)
- *     DxgkUpdateOverlay @ 0x1C0337280 (DxgkUpdateOverlay.c)
+ *     DxgkFlipOverlay @ 0x1C027BFC0 (DxgkFlipOverlay.c)
+ *     DxgkGetOverlayState @ 0x1C027C480 (DxgkGetOverlayState.c)
+ *     DxgkUpdateOverlay @ 0x1C027CA80 (DxgkUpdateOverlay.c)
  * Callees:
- *     ?AcquireShared@COREACCESS@@QEAAXPEAD@Z @ 0x1C000A958 (-AcquireShared@COREACCESS@@QEAAXPEAD@Z.c)
- *     ?Release@COREACCESS@@QEAAXXZ @ 0x1C000A9D0 (-Release@COREACCESS@@QEAAXXZ.c)
+ *     ?Release@COREACCESS@@QEAAXXZ @ 0x1C0004EF0 (-Release@COREACCESS@@QEAAXXZ.c)
+ *     ?AcquireShared@COREACCESS@@QEAAXPEAD@Z @ 0x1C0005530 (-AcquireShared@COREACCESS@@QEAAXPEAD@Z.c)
  */
 
 __int64 __fastcall COREOVERLAYACCESS::AcquireShared(COREOVERLAYACCESS *this)

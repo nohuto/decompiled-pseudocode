@@ -1,5 +1,5 @@
 /*
- * XREFs of ViIrpDatabaseAcquireLockExclusive @ 0x14030B4E8
+ * XREFs of ViIrpDatabaseAcquireLockExclusive @ 0x14030B5E8
  * Callers:
  *     IovpCompleteRequest2 @ 0x14092F620 (IovpCompleteRequest2.c)
  *     VfIoFreeIrp @ 0x14093027C (VfIoFreeIrp.c)
@@ -8,7 +8,7 @@
  *     VfIrpDatabaseEntryInsertAndLock @ 0x14093E2D0 (VfIrpDatabaseEntryInsertAndLock.c)
  *     VfIrpDatabaseEntryReleaseLock @ 0x14093E3A4 (VfIrpDatabaseEntryReleaseLock.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
  */
 
 KIRQL __fastcall ViIrpDatabaseAcquireLockExclusive(KIRQL *a1)

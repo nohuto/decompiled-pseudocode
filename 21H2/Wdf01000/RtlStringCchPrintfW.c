@@ -1,23 +1,30 @@
 /*
- * XREFs of RtlStringCchPrintfW @ 0x1C0052D18
+ * XREFs of RtlStringCchPrintfW @ 0x1C002E328
  * Callers:
- *     LibraryRegisterClient @ 0x1C0028570 (LibraryRegisterClient.c)
- *     ?PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ @ 0x1C00290A4 (-PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ.c)
- *     ?ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z @ 0x1C005FDF8 (-ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z.c)
+ *     LibraryRegisterClient @ 0x1C002E160 (LibraryRegisterClient.c)
+ *     ?ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z @ 0x1C0041664 (-ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z.c)
+ *     ?PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ @ 0x1C0081B54 (-PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ.c)
  * Callees:
- *     RtlStringVPrintfWorkerW @ 0x1C0052D64 (RtlStringVPrintfWorkerW.c)
+ *     RtlStringVPrintfWorkerW @ 0x1C002E450 (RtlStringVPrintfWorkerW.c)
  */
 
-int RtlStringCchPrintfW(wchar_t *pszDest, unsigned __int64 cchDest, wchar_t *pszFormat, ...)
+__int64 RtlStringCchPrintfW(wchar_t *pszDest, unsigned __int64 cchDest, wchar_t *pszFormat, ...)
 {
-  int result; // eax
+  int v3; // r9d
   va_list va; // [rsp+68h] [rbp+20h] BYREF
 
   va_start(va, pszFormat);
-  if ( cchDest - 1 <= 0x7FFFFFFE )
-    return RtlStringVPrintfWorkerW(pszDest, cchDest, (unsigned __int64 *)pszFormat, pszFormat, va);
-  result = -1073741811;
-  if ( cchDest )
-    *pszDest = 0;
-  return result;
+  v3 = 0;
+  if ( cchDest - 1 > 0x7FFFFFFE )
+    v3 = -1073741811;
+  if ( v3 < 0 )
+  {
+    if ( cchDest )
+      *pszDest = 0;
+  }
+  else
+  {
+    return (unsigned int)RtlStringVPrintfWorkerW(pszDest, cchDest, (unsigned __int64 *)pszFormat, pszFormat, va);
+  }
+  return (unsigned int)v3;
 }

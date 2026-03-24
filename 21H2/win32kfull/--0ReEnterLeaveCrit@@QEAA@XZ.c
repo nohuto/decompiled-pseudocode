@@ -1,32 +1,33 @@
 /*
- * XREFs of ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00791A0
+ * XREFs of ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C004F094
  * Callers:
- *     UnmapDesktop @ 0x1C0078E40 (UnmapDesktop.c)
- *     EditionParseDesktop @ 0x1C0079050 (EditionParseDesktop.c)
- *     ?zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z @ 0x1C009C088 (-zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z.c)
- *     ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z @ 0x1C00FF328 (-ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z.c)
- *     UserJobCallout @ 0x1C0101E20 (UserJobCallout.c)
- *     DestroyWindowStation @ 0x1C0103EB0 (DestroyWindowStation.c)
- *     UserDetachQueueFromInputWindow @ 0x1C010E3C8 (UserDetachQueueFromInputWindow.c)
- *     FreeDesktop @ 0x1C011D500 (FreeDesktop.c)
- *     FreeWindowStation @ 0x1C011E7C0 (FreeWindowStation.c)
- *     xxxProcessHidInput @ 0x1C01D1B50 (xxxProcessHidInput.c)
- *     EditionIsUsermodeRIMAccessAllowed @ 0x1C01D4190 (EditionIsUsermodeRIMAccessAllowed.c)
- *     UserBeep @ 0x1C0214878 (UserBeep.c)
- *     UserRedrawDesktop @ 0x1C0239BEC (UserRedrawDesktop.c)
- *     UserKillTimer @ 0x1C0243A90 (UserKillTimer.c)
- *     UserSetTimer @ 0x1C0243AE8 (UserSetTimer.c)
+ *     EditionParseDesktop @ 0x1C004EA20 (EditionParseDesktop.c)
+ *     UnmapDesktop @ 0x1C004EB70 (UnmapDesktop.c)
+ *     MapDesktop @ 0x1C004EE50 (MapDesktop.c)
+ *     UserDetachQueueFromInputWindow @ 0x1C00F2F58 (UserDetachQueueFromInputWindow.c)
+ *     ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@PEAPEAUtagWND@@@Z @ 0x1C010AD38 (-ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@PEAPEAUtagWND@@@Z.c)
+ *     UserJobCallout @ 0x1C0114020 (UserJobCallout.c)
+ *     DestroyWindowStation @ 0x1C01150D0 (DestroyWindowStation.c)
+ *     FreeWindowStation @ 0x1C0123A60 (FreeWindowStation.c)
+ *     EditionIsUsermodeRIMAccessAllowed @ 0x1C012AFA0 (EditionIsUsermodeRIMAccessAllowed.c)
+ *     FreeDesktop @ 0x1C012C1E0 (FreeDesktop.c)
+ *     ?zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z @ 0x1C0167380 (-zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z.c)
+ *     xxxProcessHidInput @ 0x1C01D60A0 (xxxProcessHidInput.c)
+ *     UserBeep @ 0x1C0219C78 (UserBeep.c)
+ *     UserRedrawDesktop @ 0x1C023E508 (UserRedrawDesktop.c)
+ *     UserKillTimer @ 0x1C0248204 (UserKillTimer.c)
+ *     UserSetTimer @ 0x1C024825C (UserSetTimer.c)
  * Callees:
- *     IS_USERCRIT_OWNED @ 0x1C0079494 (IS_USERCRIT_OWNED.c)
+ *     <none>
  */
 
 ReEnterLeaveCrit *__fastcall ReEnterLeaveCrit::ReEnterLeaveCrit(ReEnterLeaveCrit *this)
 {
-  int v2; // eax
+  BOOLEAN IsResourceAcquiredExclusiveLite; // al
 
-  v2 = IS_USERCRIT_OWNED();
-  *(_DWORD *)this = v2;
-  if ( !v2 )
-    EnterCrit(1LL, 0LL);
+  IsResourceAcquiredExclusiveLite = ExIsResourceAcquiredExclusiveLite(gpresUser);
+  *(_DWORD *)this = IsResourceAcquiredExclusiveLite;
+  if ( !IsResourceAcquiredExclusiveLite )
+    EnterCrit(0LL, 1LL);
   return this;
 }

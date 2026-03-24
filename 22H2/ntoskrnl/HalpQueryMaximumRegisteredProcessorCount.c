@@ -1,65 +1,69 @@
 /*
- * XREFs of HalpQueryMaximumRegisteredProcessorCount @ 0x1403776B0
+ * XREFs of HalpQueryMaximumRegisteredProcessorCount @ 0x1403A1C74
  * Callers:
- *     HalEnumerateProcessors @ 0x1403766E0 (HalEnumerateProcessors.c)
- *     HalpInterruptGetNextProcessorLocalId @ 0x140376FA8 (HalpInterruptGetNextProcessorLocalId.c)
- *     HalStartNextProcessor @ 0x140377100 (HalStartNextProcessor.c)
- *     HalpTimerSelectRoles @ 0x14037A8FC (HalpTimerSelectRoles.c)
- *     HalpTscReserveResources @ 0x1403B16B8 (HalpTscReserveResources.c)
- *     HalStartDynamicProcessor @ 0x140504D00 (HalStartDynamicProcessor.c)
- *     HalpHvInitMcaStatusMsrCache @ 0x14050B0F0 (HalpHvInitMcaStatusMsrCache.c)
- *     EmonAllocateResources @ 0x14051CE3C (EmonAllocateResources.c)
- *     HalpTscReportSyncStatus @ 0x140861BC4 (HalpTscReportSyncStatus.c)
- *     EmonInitializeProfiling @ 0x140A89F00 (EmonInitializeProfiling.c)
- *     HalpMcaInitializePcrContext @ 0x140A90488 (HalpMcaInitializePcrContext.c)
- *     EmonCompleteInitializeProfiling @ 0x140A91210 (EmonCompleteInitializeProfiling.c)
- *     HalpDpStartProcessor @ 0x140A97C34 (HalpDpStartProcessor.c)
- *     Amd64InitializeProfiling @ 0x140A98840 (Amd64InitializeProfiling.c)
- *     HalpPreAllocateKInterrupts @ 0x140B76804 (HalpPreAllocateKInterrupts.c)
+ *     HalStartNextProcessor @ 0x1403A0DA0 (HalStartNextProcessor.c)
+ *     HalpInterruptGetNextProcessorLocalId @ 0x1403A1BB4 (HalpInterruptGetNextProcessorLocalId.c)
+ *     HalpTimerSelectRoles @ 0x1403B0F2C (HalpTimerSelectRoles.c)
+ *     HalEnumerateProcessors @ 0x1403B4820 (HalEnumerateProcessors.c)
+ *     HalpPteReserveResources @ 0x1403BB580 (HalpPteReserveResources.c)
+ *     HalpAllocateCR3Root @ 0x1403CB3C8 (HalpAllocateCR3Root.c)
+ *     HalpTscReserveResources @ 0x1403CC928 (HalpTscReserveResources.c)
+ *     HalStartDynamicProcessor @ 0x1404BC230 (HalStartDynamicProcessor.c)
+ *     HalpHvInitMcaStatusMsrCache @ 0x1404C1FD0 (HalpHvInitMcaStatusMsrCache.c)
+ *     EmonAllocateResources @ 0x1404D30F8 (EmonAllocateResources.c)
+ *     HalpTscReportSyncStatus @ 0x1407D29B0 (HalpTscReportSyncStatus.c)
+ *     EmonCompleteInitializeProfiling @ 0x14099F8E0 (EmonCompleteInitializeProfiling.c)
+ *     HalpMcaInitializePcrContext @ 0x14099FEAC (HalpMcaInitializePcrContext.c)
+ *     EmonInitializeProfiling @ 0x1409A0330 (EmonInitializeProfiling.c)
+ *     HalpDpStartProcessor @ 0x1409A8B94 (HalpDpStartProcessor.c)
+ *     Amd64InitializeProfiling @ 0x1409A9860 (Amd64InitializeProfiling.c)
+ *     HalpPreAllocateKInterrupts @ 0x140A739EC (HalpPreAllocateKInterrupts.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     HalQueryMaximumProcessorCount @ 0x14037FEF0 (HalQueryMaximumProcessorCount.c)
- *     ZwQueryLicenseValue @ 0x14041D260 (ZwQueryLicenseValue.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AD70 (HalQueryMaximumProcessorCount.c)
+ *     ZwQueryLicenseValue @ 0x1403FC4A0 (ZwQueryLicenseValue.c)
  */
 
 __int64 HalpQueryMaximumRegisteredProcessorCount()
 {
   __int64 result; // rax
-  int v1; // ett
+  __int64 v1; // rcx
+  int v2; // ett
   unsigned __int32 MaximumProcessorCount; // ebx
   struct _KPRCB *CurrentPrcb; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int32 v5; // [rsp+60h] [rbp+20h] BYREF
-  int v6; // [rsp+68h] [rbp+28h] BYREF
-  int v7; // [rsp+70h] [rbp+30h] BYREF
+  unsigned __int32 v6; // [rsp+60h] [rbp+20h] BYREF
+  int v7; // [rsp+68h] [rbp+28h] BYREF
+  int v8; // [rsp+70h] [rbp+30h] BYREF
 
-  v6 = 0;
   v7 = 0;
-  v5 = 0;
+  v8 = 0;
+  v6 = 0;
   DestinationString = 0LL;
-  _m_prefetchw(&dword_140D0CF04);
-  LODWORD(result) = dword_140D0CF04;
+  _m_prefetchw(&dword_140CED9B0);
+  LODWORD(result) = dword_140CED9B0;
   do
   {
-    v1 = result;
-    result = (unsigned int)_InterlockedCompareExchange(&dword_140D0CF04, result, result);
+    v1 = (unsigned int)result;
+    v2 = result;
+    result = (unsigned int)_InterlockedCompareExchange(&dword_140CED9B0, result, result);
   }
-  while ( v1 != (_DWORD)result );
+  while ( v2 != (_DWORD)result );
   if ( !(_DWORD)result )
   {
-    MaximumProcessorCount = HalQueryMaximumProcessorCount();
-    if ( MaximumProcessorCount > 0x800 )
-      MaximumProcessorCount = 2048;
+    MaximumProcessorCount = HalQueryMaximumProcessorCount(v1);
+    if ( MaximumProcessorCount > 0x500 )
+      MaximumProcessorCount = 1280;
     RtlInitUnicodeString(&DestinationString, L"Kernel-RegisteredProcessors");
-    if ( (int)ZwQueryLicenseValue(&DestinationString, &v7, &v5, 4LL, &v6) >= 0 && v6 == 4 && v7 == 4 )
+    if ( (int)ZwQueryLicenseValue(&DestinationString, &v8, &v6, 4LL, &v7) >= 0 && v7 == 4 && v8 == 4 )
     {
       CurrentPrcb = KeGetCurrentPrcb();
-      v5 *= CurrentPrcb->CoresPerPhysicalProcessor * CurrentPrcb->LogicalProcessorsPerCore;
-      if ( MaximumProcessorCount > v5 )
-        MaximumProcessorCount = v5;
+      v6 *= CurrentPrcb->CoresPerPhysicalProcessor * CurrentPrcb->LogicalProcessorsPerCore;
+      if ( MaximumProcessorCount > v6 )
+        MaximumProcessorCount = v6;
     }
     result = MaximumProcessorCount;
-    _InterlockedExchange(&dword_140D0CF04, MaximumProcessorCount);
+    _InterlockedExchange(&dword_140CED9B0, MaximumProcessorCount);
   }
   return result;
 }

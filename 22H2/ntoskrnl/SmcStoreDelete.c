@@ -1,27 +1,27 @@
 /*
- * XREFs of SmcStoreDelete @ 0x1409DB568
+ * XREFs of SmcStoreDelete @ 0x14092DE00
  * Callers:
- *     SmcProcessStoreCreateRequest @ 0x1409D854C (SmcProcessStoreCreateRequest.c)
- *     SmcProcessStoreDeleteRequest @ 0x1409D86B8 (SmcProcessStoreDeleteRequest.c)
+ *     SmcProcessStoreCreateRequest @ 0x14092ADCC (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreDeleteRequest @ 0x14092AF14 (SmcProcessStoreDeleteRequest.c)
  * Callees:
- *     ExRundownCompleted @ 0x140208880 (ExRundownCompleted.c)
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     SmStoreDelete @ 0x1409D7BD4 (SmStoreDelete.c)
- *     SmcCacheReference @ 0x1409DAEA0 (SmcCacheReference.c)
- *     SmcStoreEntryFind @ 0x1409DB6D8 (SmcStoreEntryFind.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     ExRundownCompleted @ 0x1402517A0 (ExRundownCompleted.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     SmStoreDelete @ 0x14092A4D0 (SmStoreDelete.c)
+ *     SmcCacheReference @ 0x14092D754 (SmcCacheReference.c)
+ *     SmcStoreEntryFind @ 0x14092DF68 (SmcStoreEntryFind.c)
  */
 
 __int64 __fastcall SmcStoreDelete(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
 {
-  char v6; // r12
+  char v6; // r15
   struct _PRIVILEGE_SET *v8; // rbp
-  __int64 v9; // rdi
+  struct _EX_RUNDOWN_REF v9; // rdi
   unsigned int v10; // edi
   struct _KTHREAD *CurrentThread; // rax
   volatile signed __int64 *v12; // rsi
@@ -31,29 +31,29 @@ __int64 __fastcall SmcStoreDelete(__int64 a1, unsigned int a2, unsigned int a3, 
 
   v6 = a2;
   v8 = 0LL;
-  v9 = SmcCacheReference(a1, a2);
-  if ( v9 )
+  v9.Count = SmcCacheReference(a1, a2).Count;
+  if ( v9.Count )
   {
     CurrentThread = KeGetCurrentThread();
-    v12 = (volatile signed __int64 *)(v9 + 160);
     --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(v9 + 160, 0LL);
-    v13 = (_DWORD *)SmcStoreEntryFind(v9, a3, a4);
+    v12 = (volatile signed __int64 *)(v9.Count + 160);
+    ExAcquirePushLockExclusiveEx(v9.Count + 160, 0LL);
+    v13 = (_DWORD *)SmcStoreEntryFind(v9.Count, a3, a4);
     v14 = v13;
     if ( v13 )
     {
       v13[1] |= 4u;
       *v13 = -1;
       if ( (_InterlockedExchangeAdd64(v12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)(v9 + 160));
-      KeAbPostRelease(v9 + 160);
+        ExfTryToWakePushLock((volatile signed __int64 *)(v9.Count + 160));
+      KeAbPostRelease(v9.Count + 160);
       KeLeaveCriticalRegion();
       ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)v14 + 2);
       ExRundownCompleted((PEX_RUNDOWN_REF)v14 + 2);
-      SmStoreDelete(a1 - 2128, a4, a3);
+      SmStoreDelete(a4, a3);
       v15 = KeGetCurrentThread();
       --v15->KernelApcDisable;
-      ExAcquirePushLockExclusiveEx(v9 + 160, 0LL);
+      ExAcquirePushLockExclusiveEx(v9.Count + 160, 0LL);
       v8 = (struct _PRIVILEGE_SET *)*((_QWORD *)v14 + 1);
       *((_QWORD *)v14 + 1) = 0LL;
       v14[1] &= ~4u;
@@ -67,7 +67,7 @@ __int64 __fastcall SmcStoreDelete(__int64 a1, unsigned int a2, unsigned int a3, 
       ExfTryToWakePushLock(v12);
     KeAbPostRelease((ULONG_PTR)v12);
     KeLeaveCriticalRegion();
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(32LL * (v6 & 0xF) + a1 + 8));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(32LL * (v6 & 0xF) + a1 + 8));
     if ( v8 )
       CmSiFreeMemory(v8);
   }

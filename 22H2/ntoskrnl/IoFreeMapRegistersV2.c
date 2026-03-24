@@ -1,13 +1,11 @@
 /*
- * XREFs of IoFreeMapRegistersV2 @ 0x14045D460
+ * XREFs of IoFreeMapRegistersV2 @ 0x1404CCEE0
  * Callers:
- *     HalPutScatterGatherListV2 @ 0x1403CE2D8 (HalPutScatterGatherListV2.c)
- *     IoFreeAdapterChannelV2 @ 0x14045D270 (IoFreeAdapterChannelV2.c)
- *     IoFreeMapRegistersThunk @ 0x1405011D4 (IoFreeMapRegistersThunk.c)
+ *     IoFreeMapRegisters @ 0x1403A25A0 (IoFreeMapRegisters.c)
  * Callees:
- *     HalpDmaFreeMapRegisters @ 0x14045BE96 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045D18E (HalpDmaProcessMapRegisterQueueV2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C79F8 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404CCC28 (HalpDmaProcessMapRegisterQueueV2.c)
  */
 
 void __fastcall IoFreeMapRegistersV2(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -15,15 +13,14 @@ void __fastcall IoFreeMapRegistersV2(__int64 a1, _QWORD *a2, unsigned int a3)
   __int64 v3; // r14
   char v5; // bp
   unsigned __int8 CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // r11
-  int v8; // eax
-  unsigned __int8 v9; // al
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int8 v8; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v11; // r8
-  int v12; // eax
-  bool v13; // zf
+  _DWORD *v10; // r8
+  int v11; // eax
+  bool v12; // zf
 
-  v3 = *(_QWORD *)(a1 + 160);
+  v3 = *(_QWORD *)(a1 + 152);
   if ( v3 && a2 )
   {
     v5 = 0;
@@ -35,30 +32,30 @@ void __fastcall IoFreeMapRegistersV2(__int64 a1, _QWORD *a2, unsigned int a3)
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        v8 = 4;
-        if ( CurrentIrql != 2 )
-          v8 = (-1LL << (CurrentIrql + 1)) & 4;
-        SchedulerAssist[5] |= v8;
+        SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
       }
       v5 = 1;
     }
     if ( a3 )
       HalpDmaFreeMapRegisters(a1, a2, a3);
-    HalpDmaProcessMapRegisterQueueV2(v3, *(_BYTE *)(a1 + 442));
+    HalpDmaProcessMapRegisterQueueV2(v3, *(_BYTE *)(a1 + 434));
     if ( v5 )
     {
       if ( KiIrqlFlags )
       {
-        v9 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v11 = CurrentPrcb->SchedulerAssist;
-          v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v13 = (v12 & v11[5]) == 0;
-          v11[5] &= v12;
-          if ( v13 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v8 = KeGetCurrentIrql();
+          if ( v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v10 = CurrentPrcb->SchedulerAssist;
+            v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v12 = (v11 & v10[5]) == 0;
+            v10[5] &= v11;
+            if ( v12 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(CurrentIrql);

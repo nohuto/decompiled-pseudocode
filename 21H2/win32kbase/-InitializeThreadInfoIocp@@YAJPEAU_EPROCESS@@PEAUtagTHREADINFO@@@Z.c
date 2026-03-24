@@ -1,20 +1,19 @@
 /*
- * XREFs of ?InitializeThreadInfoIocp@@YAJPEAU_EPROCESS@@PEAUtagTHREADINFO@@@Z @ 0x1C003A908
+ * XREFs of ?InitializeThreadInfoIocp@@YAJPEAU_EPROCESS@@PEAUtagTHREADINFO@@@Z @ 0x1C0024B70
  * Callers:
- *     xxxCreateThreadInfo @ 0x1C003911C (xxxCreateThreadInfo.c)
+ *     xxxCreateThreadInfo @ 0x1C003D918 (xxxCreateThreadInfo.c)
  * Callees:
- *     ProtectHandle @ 0x1C003AA94 (ProtectHandle.c)
+ *     ProtectHandle @ 0x1C0024ACC (ProtectHandle.c)
  */
 
 __int64 __fastcall InitializeThreadInfoIocp(struct _EPROCESS *a1, void **a2)
 {
   _QWORD *v2; // r14
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   void *v6; // rcx
-  HANDLE *v7; // rdi
-  __int64 v8; // rdx
-  __int64 v9; // r9
-  char v11; // [rsp+38h] [rbp-38h]
+  void **v7; // rdi
+  int v8; // edx
+  char v10; // [rsp+38h] [rbp-38h]
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
   PVOID Object; // [rsp+A8h] [rbp+38h] BYREF
 
@@ -40,12 +39,11 @@ __int64 __fastcall InitializeThreadInfoIocp(struct _EPROCESS *a1, void **a2)
     return (unsigned int)v5;
   }
   v7 = a2 + 179;
-  v11 = 0;
-  v5 = ObDuplicateObject(a1, *v2, a1, a2 + 179, 0, 0, 2, v11);
+  v10 = 0;
+  v5 = ObDuplicateObject(a1, *v2, a1, a2 + 179, 0, 0, 2, v10);
   if ( v5 < 0 )
     goto LABEL_11;
-  LOBYTE(v9) = 1;
-  v5 = ProtectHandle(*v7, v8, 0LL, v9);
+  v5 = ProtectHandle(*v7, v8, 0LL, 1);
   if ( v5 < 0 )
   {
     ObCloseHandle(*v7, 1);
@@ -59,5 +57,5 @@ LABEL_11:
     *v7 = 0LL;
     return (unsigned int)v5;
   }
-  return (unsigned int)ZwAssociateWaitCompletionPacket(*v7, *v2, a2[180], 0LL);
+  return (unsigned int)ZwAssociateWaitCompletionPacket(*v7, *v2, a2[180], 0LL, 1LL, 0, 0LL, 0LL);
 }

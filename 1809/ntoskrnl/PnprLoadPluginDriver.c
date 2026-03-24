@@ -1,15 +1,15 @@
 /*
- * XREFs of PnprLoadPluginDriver @ 0x1408352D8
+ * XREFs of PnprLoadPluginDriver @ 0x1408352B8
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1408337A0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x140833780 (PnpReplacePartitionUnit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
- *     MmUnloadSystemImage @ 0x14070EED0 (MmUnloadSystemImage.c)
- *     PnprGetPluginDriverImagePath @ 0x140834BE4 (PnprGetPluginDriverImagePath.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
+ *     MmUnloadSystemImage @ 0x14070EEB0 (MmUnloadSystemImage.c)
+ *     PnprGetPluginDriverImagePath @ 0x140834BC4 (PnprGetPluginDriverImagePath.c)
  */
 
 __int64 __fastcall PnprLoadPluginDriver(ULONG_PTR *a1, _DWORD *a2)

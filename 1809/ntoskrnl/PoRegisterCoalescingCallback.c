@@ -1,15 +1,15 @@
 /*
- * XREFs of PoRegisterCoalescingCallback @ 0x140748380
+ * XREFs of PoRegisterCoalescingCallback @ 0x140748360
  * Callers:
- *     CmpCmdInit @ 0x140747E28 (CmpCmdInit.c)
+ *     CmpCmdInit @ 0x140747E08 (CmpCmdInit.c)
  *     CcInitializeCacheManager @ 0x1409B06D8 (CcInitializeCacheManager.c)
  *     PopCoalescingInitialize @ 0x1409D1E34 (PopCoalescingInitialize.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     ExCompareExchangeCallBack @ 0x14018665C (ExCompareExchangeCallBack.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExCompareExchangeCallBack @ 0x14018667C (ExCompareExchangeCallBack.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

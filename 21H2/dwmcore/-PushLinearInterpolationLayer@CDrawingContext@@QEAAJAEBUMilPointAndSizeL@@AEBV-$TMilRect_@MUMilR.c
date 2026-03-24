@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PushLinearInterpolationLayer@CDrawingContext@@QEAAJAEBUMilPointAndSizeL@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801B3BB0
+ * XREFs of ?PushLinearInterpolationLayer@CDrawingContext@@QEAAJAEBUMilPointAndSizeL@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801782FC
  * Callers:
- *     ?Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4Enum@MilStretch@@AEBVRenderTargetInfo@@@Z @ 0x18005C920 (-Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
+ *     ?Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4Enum@MilStretch@@AEBVRenderTargetInfo@@@Z @ 0x180060120 (-Update@CCachedTarget@CCachedVisualImage@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x1800BA748 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
- *     ??_GCLinearInterpolationLayer@@UEAAPEAXI@Z @ 0x1801AF5A0 (--_GCLinearInterpolationLayer@@UEAAPEAXI@Z.c)
- *     ?Create@CLinearInterpolationLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAV1@@Z @ 0x1801DC278 (-Create@CLinearInterpolationLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@AEBV-$TMilRect_@M.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x1800622C4 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
+ *     ??_GCLinearInterpolationLayer@@UEAAPEAXI@Z @ 0x180174910 (--_GCLinearInterpolationLayer@@UEAAPEAXI@Z.c)
+ *     ?Create@CLinearInterpolationLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAV1@@Z @ 0x180191538 (-Create@CLinearInterpolationLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@AEBV-$TMilRect_@M.c)
  */
 
 __int64 __fastcall CDrawingContext::PushLinearInterpolationLayer(CDrawingContext *this, __int128 *a2, __int64 a3)
@@ -27,7 +27,7 @@ __int64 __fastcall CDrawingContext::PushLinearInterpolationLayer(CDrawingContext
   v3 = *((_QWORD *)this + 5);
   v16 = 0LL;
   v5 = *((_QWORD *)this + 4);
-  v6 = *(_DWORD *)(v3 + 928);
+  v6 = *(_DWORD *)(v3 + 968);
   v7 = *((_DWORD *)a2 + 2);
   v15 = *a2;
   if ( v6 < v7 )
@@ -41,7 +41,7 @@ __int64 __fastcall CDrawingContext::PushLinearInterpolationLayer(CDrawingContext
   v11 = v9;
   if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0xEE1u);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xE82u, 0LL);
   }
   else
   {
@@ -49,7 +49,7 @@ __int64 __fastcall CDrawingContext::PushLinearInterpolationLayer(CDrawingContext
     v11 = v12;
     if ( v12 >= 0 )
       return v11;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0xEE7u);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0xE88u, 0LL);
   }
   if ( v16 )
     CLinearInterpolationLayer::`scalar deleting destructor'(v16, 1);

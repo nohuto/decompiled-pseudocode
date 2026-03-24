@@ -1,10 +1,10 @@
 /*
- * XREFs of WMI_GetPropertyString @ 0x1C008AD38
+ * XREFs of WMI_GetPropertyString @ 0x1C00847C0
  * Callers:
- *     WMI_QueryInstanceDeviceNodeInfo @ 0x1C003F5E0 (WMI_QueryInstanceDeviceNodeInfo.c)
+ *     WMI_QueryInstanceDeviceNodeInfo @ 0x1C003D300 (WMI_QueryInstanceDeviceNodeInfo.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0044BC0 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall WMI_GetPropertyString(__int64 a1, unsigned int a2, void *a3, unsigned int a4)

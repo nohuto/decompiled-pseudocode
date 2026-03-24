@@ -1,74 +1,80 @@
 /*
- * XREFs of ?Create@CContentResource@@SAJ_KPEAVCFlipPropertySet@@PEAPEAVCContentResourceState@@@Z @ 0x1C0081124
+ * XREFs of ?Create@CContentResource@@SAJ_KPEAVCFlipPropertySet@@PEAPEAVCContentResourceState@@@Z @ 0x1C006DFA4
  * Callers:
- *     ?AddContent@CFlipManager@@QEAAJ_KPEAVCFlipPropertySet@@@Z @ 0x1C007C3EC (-AddContent@CFlipManager@@QEAAJ_KPEAVCFlipPropertySet@@@Z.c)
+ *     ?AddContent@CFlipManager@@QEAAJ_KPEAVCFlipPropertySet@@@Z @ 0x1C006AA8C (-AddContent@CFlipManager@@QEAAJ_KPEAVCFlipPropertySet@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C007BF68 (-Release@CFlipResource@@QEAAKXZ.c)
- *     ??0CFlipResource@@QEAA@_KPEAVCFlipPropertySet@@@Z @ 0x1C007ED28 (--0CFlipResource@@QEAA@_KPEAVCFlipPropertySet@@@Z.c)
- *     ??2?$DXGQUOTAALLOCATOR@$0BAA@$0HDHCEDEG@@@SAPEAX_K@Z @ 0x1C007F548 (--2-$DXGQUOTAALLOCATOR@$0BAA@$0HDHCEDEG@@@SAPEAX_K@Z.c)
- *     ?Initialize@CContentResource@@IEAAJXZ @ 0x1C008124C (-Initialize@CContentResource@@IEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C006BCB8 (-Release@CFlipResource@@QEAAKXZ.c)
+ *     ??2?$DXGQUOTAALLOCATOR@$00$0HDHCEDEG@@@SAPEAX_K@Z @ 0x1C006BFD0 (--2-$DXGQUOTAALLOCATOR@$00$0HDHCEDEG@@@SAPEAX_K@Z.c)
+ *     ??0CFlipResource@@QEAA@_KPEAVCFlipPropertySet@@@Z @ 0x1C006D9F8 (--0CFlipResource@@QEAA@_KPEAVCFlipPropertySet@@@Z.c)
+ *     ?Initialize@CContentResource@@IEAAJXZ @ 0x1C006E0E0 (-Initialize@CContentResource@@IEAAJXZ.c)
  */
 
-__int64 __fastcall CContentResource::Create(
-        __int64 a1,
-        struct CFlipPropertySet *a2,
-        struct CContentResourceState **a3,
-        __int64 a4)
+__int64 __fastcall CContentResource::Create(__int64 a1, struct CFlipPropertySet *a2, struct CContentResourceState **a3)
 {
-  CFlipResource *Pool2; // rax
-  CFlipResource *v8; // rbx
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  int v11; // edi
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rax
-  __int64 v15; // rdx
-  char v16; // cl
-  __int64 v17; // rax
+  struct CContentResourceState *v3; // rbx
+  CFlipResource *PoolWithQuotaTag; // rax
+  CFlipResource *v8; // rdi
+  int v9; // esi
+  struct CContentResourceState *v10; // rax
+  int v11; // eax
 
-  Pool2 = (CFlipResource *)ExAllocatePool2(257LL, 72LL, 1919107910LL, a4);
-  v8 = Pool2;
-  if ( Pool2 )
+  v3 = 0LL;
+  PoolWithQuotaTag = (CFlipResource *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x48uLL, 0x72634346u);
+  v8 = PoolWithQuotaTag;
+  if ( PoolWithQuotaTag )
   {
-    CFlipResource::CFlipResource(Pool2, a1, a2);
+    CFlipResource::CFlipResource(PoolWithQuotaTag, a1, a2);
     *((_QWORD *)v8 + 6) = 0LL;
     *((_QWORD *)v8 + 7) = 0LL;
     *(_QWORD *)v8 = &CContentResource::`vftable';
-    *((_WORD *)v8 + 32) = 0;
-    v11 = CContentResource::Initialize(v8);
-    if ( v11 >= 0 )
+    *((_BYTE *)v8 + 64) = 0;
+  }
+  else
+  {
+    v8 = 0LL;
+  }
+  if ( v8 )
+  {
+    v9 = CContentResource::Initialize(v8);
+    if ( v9 >= 0 )
     {
-      v14 = DXGQUOTAALLOCATOR<256,1936868166>::operator new(v10, v9, v12, v13);
-      v15 = v14;
-      if ( v14 )
+      v10 = (struct CContentResourceState *)DXGQUOTAALLOCATOR<1,1936868166>::operator new();
+      v3 = v10;
+      if ( v10 )
       {
-        v16 = *(_BYTE *)(v14 + 32);
-        *(_QWORD *)v14 = &CFlipResourceState::`vftable';
-        *(_QWORD *)(v14 + 24) = v8;
-        *(_BYTE *)(v14 + 32) = v16 & 0xF0 | 1;
-        *(_QWORD *)(v14 + 16) = v14 + 8;
-        *(_QWORD *)(v14 + 8) = v14 + 8;
-        v17 = *(_QWORD *)(v14 + 24);
-        *a3 = (struct CContentResourceState *)v15;
-        ++*(_DWORD *)(v17 + 24);
-        *(_QWORD *)(v15 + 40) = 0LL;
-        *(_QWORD *)(v15 + 48) = 0LL;
-        *(_QWORD *)(v15 + 56) = 0LL;
-        *(_BYTE *)(v15 + 64) &= 0xFCu;
-        *(_QWORD *)v15 = &CContentResourceState::`vftable';
+        *((_QWORD *)v10 + 3) = v8;
+        *(_QWORD *)v10 = &CFlipResourceState::`vftable';
+        *((_BYTE *)v10 + 32) = *((_BYTE *)v10 + 32) & 0xF0 | 1;
+        *((_QWORD *)v10 + 2) = (char *)v10 + 8;
+        *((_QWORD *)v10 + 1) = (char *)v10 + 8;
+        ++*(_DWORD *)(*((_QWORD *)v10 + 3) + 24LL);
+        *((_QWORD *)v10 + 5) = 0LL;
+        *((_QWORD *)v10 + 6) = 0LL;
+        *((_BYTE *)v10 + 56) &= 0xFCu;
+        *(_QWORD *)v10 = &CContentResourceState::`vftable';
       }
       else
       {
+        v3 = 0LL;
+      }
+      v11 = v9;
+      if ( !v3 )
         v11 = -1073741801;
+      v9 = v11;
+      if ( v11 >= 0 )
+      {
+        *a3 = v3;
+        v3 = 0LL;
       }
     }
     CFlipResource::Release(v8);
+    if ( v3 )
+      (*(void (__fastcall **)(struct CContentResourceState *, __int64))(*(_QWORD *)v3 + 32LL))(v3, 1LL);
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return (unsigned int)v11;
+  return (unsigned int)v9;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?bNextFigure@READER@@IEAAHXZ @ 0x1C02F18A0
+ * XREFs of ?bNextFigure@READER@@IEAAHXZ @ 0x1C0141438
  * Callers:
- *     ??0STYLER@@QEAA@AEAVEPATHOBJ@@PEBU_LINEATTRS@@@Z @ 0x1C02F1120 (--0STYLER@@QEAA@AEAVEPATHOBJ@@PEBU_LINEATTRS@@@Z.c)
- *     ?vNextPoint@LINER@@AEAAXXZ @ 0x1C02F2BD0 (-vNextPoint@LINER@@AEAAXXZ.c)
+ *     ??0STYLER@@QEAA@AEAVEPATHOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C013F34C (--0STYLER@@QEAA@AEAVEPATHOBJ@@PEAU_LINEATTRS@@@Z.c)
+ *     ?vNextPoint@LINER@@AEAAXXZ @ 0x1C01405EC (-vNextPoint@LINER@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -25,8 +25,8 @@ __int64 __fastcall READER::bNextFigure(READER *this)
       v5 = v4 | 1;
     else
       v5 = v4 & 0xFFFFFFFE;
-    *((_DWORD *)this + 10) = v5;
     v6 = *((unsigned int *)this + 3);
+    *((_DWORD *)this + 10) = v5;
     v7 = *((_QWORD *)this + 2);
     *((_QWORD *)this + 3) = v7;
     *((_QWORD *)this + 4) = v7 + 8 * v6;

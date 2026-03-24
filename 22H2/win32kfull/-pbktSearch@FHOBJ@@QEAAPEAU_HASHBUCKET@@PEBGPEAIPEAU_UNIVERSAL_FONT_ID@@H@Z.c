@@ -1,15 +1,15 @@
 /*
- * XREFs of ?pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00A0568
+ * XREFs of ?pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00BB998
  * Callers:
- *     ?bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z @ 0x1C00044B0 (-bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z.c)
- *     ?bFindBitmapFont@MAPPER@@QEAAHPEBG@Z @ 0x1C0098B28 (-bFindBitmapFont@MAPPER@@QEAAHPEBG@Z.c)
- *     ?bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z @ 0x1C010F8C0 (-bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z.c)
- *     ?bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z @ 0x1C011608C (-bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z.c)
- *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C011681C (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
- *     ?ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C0277604 (-ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
- *     ?ppfeFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C02B4E0C (-ppfeFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@@Z.c)
+ *     ?bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z @ 0x1C005FAB0 (-bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z.c)
+ *     ?bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z @ 0x1C00A0314 (-bInsert@FHOBJ@@QEAAHAEAVPFEOBJ@@@Z.c)
+ *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C00B9FE0 (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
+ *     ?bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z @ 0x1C00BB6B0 (-bScanLists@FHOBJ@@QEAAHPEAVEFSOBJ@@PEBGKPEAU_EFFILTER_INFO@@@Z.c)
+ *     ?bFindBitmapFont@MAPPER@@QEAAHPEBG@Z @ 0x1C00FFECC (-bFindBitmapFont@MAPPER@@QEAAHPEBG@Z.c)
+ *     ?ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C014E810 (-ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
+ *     ?ppfeFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C02A7268 (-ppfeFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@@Z.c)
  * Callees:
- *     ?iHash@@YAIPEBGI@Z @ 0x1C0115910 (-iHash@@YAIPEBGI@Z.c)
+ *     ?iHash@@YAIPEBGI@Z @ 0x1C00BBAC8 (-iHash@@YAIPEBGI@Z.c)
  */
 
 struct _HASHBUCKET *__fastcall FHOBJ::pbktSearch(
@@ -20,65 +20,79 @@ struct _HASHBUCKET *__fastcall FHOBJ::pbktSearch(
         int a5)
 {
   struct _UNIVERSAL_FONT_ID *v5; // r10
-  unsigned int *v6; // r11
-  __int64 *v9; // rsi
+  __int64 *v9; // rbp
   unsigned int v10; // eax
-  unsigned int v11; // eax
-  __int64 *i; // rdx
-  int v13; // eax
-  bool v14; // zf
-  unsigned __int16 v16; // ax
-  const unsigned __int16 *v17; // rcx
+  __int64 v11; // r11
+  unsigned int v12; // eax
+  __int64 *v13; // rcx
+  int v14; // eax
+  BOOL v15; // edx
+  unsigned __int16 v17; // ax
+  const unsigned __int16 *v18; // rdx
 
   v5 = a4;
-  v6 = a3;
   v9 = 0LL;
   if ( a2 )
   {
-    v11 = iHash(a2, *(_DWORD *)(*((_QWORD *)this + 1) + 8LL));
+    v12 = iHash(a2, *(_DWORD *)(*((_QWORD *)this + 1) + 8LL));
+    goto LABEL_6;
   }
-  else
+  if ( a4 )
   {
-    if ( !a4 )
-      return 0LL;
     v10 = *(_DWORD *)a4;
     if ( *(_DWORD *)a4 == 1 )
       v10 = *((_DWORD *)a4 + 1);
-    v11 = v10 % *(_DWORD *)(*((_QWORD *)this + 1) + 8LL);
-  }
-  if ( v6 )
-    *v6 = v11;
-  for ( i = *(__int64 **)(*((_QWORD *)this + 1) + 8LL * v11 + 40); i; i = (__int64 *)*i )
-  {
-    if ( v5 )
+    v11 = *((_QWORD *)this + 1);
+    v12 = v10 % *(_DWORD *)(v11 + 8);
+LABEL_6:
+    if ( a3 )
     {
-      v13 = *((_DWORD *)i + 15);
-      if ( v13 == 1 && *(_DWORD *)v5 == 1 )
-        v14 = *((_DWORD *)i + 16) == *((_DWORD *)v5 + 1);
-      else
-        v14 = v13 == *(_DWORD *)v5;
-      if ( v14 )
-        return (struct _HASHBUCKET *)i;
+      *a3 = v12;
+      v11 = *((_QWORD *)this + 1);
     }
-    else if ( a2 && (!a5 || (i[4] & 2) != 0) )
+    v13 = *(__int64 **)(v11 + 8LL * v12 + 40);
+    if ( !v13 )
+      return (struct _HASHBUCKET *)v9;
+    while ( 1 )
     {
-      v16 = *a2;
-      v17 = a2;
-      if ( *a2 == *((_WORD *)i + 30) )
+      if ( v5 )
       {
-        while ( v16 )
+        v14 = *((_DWORD *)v13 + 15);
+        if ( v14 == 1 && *(_DWORD *)v5 == 1 )
         {
-          v16 = *++v17;
-          if ( *v17 != *(const unsigned __int16 *)((char *)v17 + (char *)i - (char *)a2 + 60) )
-            goto LABEL_20;
+          v15 = *((_DWORD *)v13 + 16) == *((_DWORD *)v5 + 1);
         }
-        if ( a5 || (i[4] & 2) == 0 )
-          return (struct _HASHBUCKET *)i;
-        v9 = i;
+        else
+        {
+          if ( v14 == *(_DWORD *)v5 )
+            return (struct _HASHBUCKET *)v13;
+          v15 = 0;
+        }
+        if ( v15 )
+          return (struct _HASHBUCKET *)v13;
       }
+      else if ( a2 && (!a5 || (v13[4] & 2) != 0) )
+      {
+        v17 = *a2;
+        v18 = a2;
+        if ( *a2 == *((_WORD *)v13 + 30) )
+        {
+          while ( v17 )
+          {
+            v17 = *++v18;
+            if ( *v18 != *(const unsigned __int16 *)((char *)v18 + (char *)v13 - (char *)a2 + 60) )
+              goto LABEL_14;
+          }
+          if ( a5 || (v13[4] & 2) == 0 )
+            return (struct _HASHBUCKET *)v13;
+          v9 = v13;
+        }
+      }
+LABEL_14:
+      v13 = (__int64 *)*v13;
+      if ( !v13 )
+        return (struct _HASHBUCKET *)v9;
     }
-LABEL_20:
-    ;
   }
-  return (struct _HASHBUCKET *)v9;
+  return 0LL;
 }

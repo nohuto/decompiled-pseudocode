@@ -1,28 +1,27 @@
 /*
- * XREFs of _OpenWindowStation @ 0x1C00CFD84
+ * XREFs of _OpenWindowStation @ 0x1C0010164
  * Callers:
- *     NtUserOpenWindowStation @ 0x1C00CEC80 (NtUserOpenWindowStation.c)
- *     xxxResolveDesktop @ 0x1C00CF130 (xxxResolveDesktop.c)
- *     xxxResolveDesktopForWOW @ 0x1C01E43F8 (xxxResolveDesktopForWOW.c)
+ *     NtUserOpenWindowStation @ 0x1C000EF10 (NtUserOpenWindowStation.c)
+ *     xxxResolveDesktop @ 0x1C000F4F0 (xxxResolveDesktop.c)
+ *     xxxResolveDesktopForWOW @ 0x1C01E9C64 (xxxResolveDesktopForWOW.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall OpenWindowStation(__int64 a1, int a2, __int64 a3)
 {
   NTSTATUS v3; // eax
   ULONG v5; // eax
-  __int64 v6; // rdx
-  __int64 v7; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v6; // [rsp+78h] [rbp+20h] BYREF
 
-  v7 = 0LL;
+  v6 = 0LL;
   LOBYTE(a3) = 1;
-  v3 = ObOpenObjectByName(a1, ExWindowStationObjectType, a3, 0LL, a2, 0LL, &v7);
+  v3 = ObOpenObjectByName(a1, ExWindowStationObjectType, a3, 0LL, a2, 0LL, &v6);
   if ( v3 < 0 )
   {
     v5 = RtlNtStatusToDosError(v3);
-    UserSetLastError(v5, v6);
+    UserSetLastError(v5);
     return 0LL;
   }
-  return v7;
+  return v6;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtQueryInformationPort @ 0x140965FF0
+ * XREFs of NtQueryInformationPort @ 0x1408C2010
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtQueryInformationPort(HANDLE Handle, __int64 a2, volatile void *a3, unsigned int a4, _DWORD *a5)
@@ -35,7 +35,7 @@ __int64 __fastcall NtQueryInformationPort(HANDLE Handle, __int64 a2, volatile vo
     {
       if ( a5 )
         *a5 = 0;
-      ObfDereferenceObject(Object);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     }
   }
   else

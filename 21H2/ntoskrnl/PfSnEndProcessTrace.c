@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnEndProcessTrace @ 0x1407D936C
+ * XREFs of PfSnEndProcessTrace @ 0x1406BA3DC
  * Callers:
- *     PfSnOperationProcess @ 0x1407D8338 (PfSnOperationProcess.c)
- *     PspExitProcess @ 0x1407DB734 (PspExitProcess.c)
- *     PfSnFailProcessTrace @ 0x1407F8C9C (PfSnFailProcessTrace.c)
+ *     PfSnOperationProcess @ 0x1406BA234 (PfSnOperationProcess.c)
+ *     PspExitProcess @ 0x1406CD37C (PspExitProcess.c)
+ *     PfSnFailProcessTrace @ 0x140734CC0 (PfSnFailProcessTrace.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     PfSnReferenceProcessTrace @ 0x1402CD7F0 (PfSnReferenceProcessTrace.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     memcmp @ 0x1403E1D90 (memcmp.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     PfSnReferenceProcessTrace @ 0x14031E2C0 (PfSnReferenceProcessTrace.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
  */
 
 __int64 __fastcall PfSnEndProcessTrace(__int64 a1, signed __int32 a2, const void *a3)
@@ -33,7 +33,7 @@ __int64 __fastcall PfSnEndProcessTrace(__int64 a1, signed __int32 a2, const void
     {
       v6 = -1073741198;
     }
-    ExReleaseRundownProtection(v7 + 45);
+    ExReleaseRundownProtection_0(v7 + 45);
   }
   else
   {

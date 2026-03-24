@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_IqLL @ 0x1C0007418
+ * XREFs of WPP_RECORDER_SF_IqLL @ 0x1C0019A80
  * Callers:
- *     ACPIDetectCouldExtensionBeInRelation @ 0x1C00932F8 (ACPIDetectCouldExtensionBeInRelation.c)
+ *     ACPIDetectCouldExtensionBeInRelation @ 0x1C009DDA4 (ACPIDetectCouldExtensionBeInRelation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_IqLL(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)

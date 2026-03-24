@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SetPlaybackRate@CKeyframeAnimation@@AEAAXM@Z @ 0x1800E3F48
+ * XREFs of ?SetPlaybackRate@CKeyframeAnimation@@AEAAXM@Z @ 0x1800D81C8
  * Callers:
- *     ?SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180045BC0 (-SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
- *     ?ProcessSetPlaybackRate@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETPLAYBACKRATE@@@Z @ 0x180222830 (-ProcessSetPlaybackRate@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMA.c)
+ *     ?SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800C3E50 (-SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?ProcessSetPlaybackRate@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETPLAYBACKRATE@@@Z @ 0x1801D1B3C (-ProcessSetPlaybackRate@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMA.c)
  * Callees:
  *     <none>
  */
@@ -14,14 +14,14 @@ void __fastcall CKeyframeAnimation::SetPlaybackRate(CKeyframeAnimation *this, fl
   __int64 v4; // rdx
   char v5; // al
 
-  if ( *((float *)this + 130) != a2 )
+  if ( *((float *)this + 124) != a2 )
   {
     if ( a2 != 0.0 )
     {
       if ( a2 >= 0.0 )
       {
         v2 = fmaxf(a2, 0.0625);
-        v3 = FLOAT_16_0;
+        v3 = *(float *)&FLOAT_16_0;
       }
       else
       {
@@ -30,8 +30,8 @@ void __fastcall CKeyframeAnimation::SetPlaybackRate(CKeyframeAnimation *this, fl
       }
       a2 = fminf(v3, v2);
     }
-    v4 = *((_QWORD *)this + 48);
-    *((float *)this + 130) = a2;
+    v4 = *((_QWORD *)this + 45);
+    *((float *)this + 124) = a2;
     v5 = *(_BYTE *)(v4 + 140) & 0xEF;
     *(_BYTE *)(v4 + 140) = v5 | (a2 >= 0.0 ? 0 : 0x10);
     *(_BYTE *)(v4 + 96) = (v5 & 0x10 | (a2 >= 0.0 ? 0 : 0x10)) != 0;

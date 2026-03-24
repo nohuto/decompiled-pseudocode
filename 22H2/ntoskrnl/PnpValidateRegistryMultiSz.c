@@ -1,18 +1,20 @@
 /*
- * XREFs of PnpValidateRegistryMultiSz @ 0x1403CE174
+ * XREFs of PnpValidateRegistryMultiSz @ 0x14039277C
  * Callers:
- *     PiDevCfgResolveMultiSzValue @ 0x14087E5B4 (PiDevCfgResolveMultiSzValue.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14095F2B8 (PiDevCfgQueryIncludedDriverNode.c)
- *     PiDevCfgResolveVariableExpression @ 0x140960200 (PiDevCfgResolveVariableExpression.c)
- *     PiDevCfgResolveVariableFormatString @ 0x140961490 (PiDevCfgResolveVariableFormatString.c)
+ *     PiDevCfgResolveMultiSzValue @ 0x14077B23C (PiDevCfgResolveMultiSzValue.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x1408A7698 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PiDevCfgResolveVariableExpression @ 0x1408A8160 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgResolveVariableFormatString @ 0x1408A93D0 (PiDevCfgResolveVariableFormatString.c)
  * Callees:
- *     PnpValidateMultiSzData @ 0x1403CE1A8 (PnpValidateMultiSzData.c)
+ *     PnpValidateMultiSzData @ 0x14036E3C8 (PnpValidateMultiSzData.c)
  */
 
-char __fastcall PnpValidateRegistryMultiSz(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+bool __fastcall PnpValidateRegistryMultiSz(_DWORD *a1)
 {
-  LOBYTE(a4) = 0;
+  char v1; // r9
+
+  v1 = 0;
   if ( a1[1] == 7 )
-    LOBYTE(a4) = (unsigned __int8)PnpValidateMultiSzData((char *)a1 + (unsigned int)a1[2], (unsigned int)a1[3], a3, a4) != 0;
-  return a4;
+    return PnpValidateMultiSzData((_DWORD *)((char *)a1 + (unsigned int)a1[2]), a1[3]) != 0;
+  return v1;
 }

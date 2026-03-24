@@ -4,8 +4,8 @@
  *     MiWaitForCollidedFaultComplete @ 0x140003F00 (MiWaitForCollidedFaultComplete.c)
  *     MiCopyDataPageToImagePage @ 0x14002D340 (MiCopyDataPageToImagePage.c)
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
- *     MiMakeImagePageOk @ 0x1402C44FC (MiMakeImagePageOk.c)
- *     MiIdealClusterPage @ 0x1402C6B14 (MiIdealClusterPage.c)
+ *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
+ *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiChargeForLockedPage @ 0x14002DE70 (MiChargeForLockedPage.c)

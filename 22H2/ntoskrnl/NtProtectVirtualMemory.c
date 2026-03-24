@@ -1,74 +1,71 @@
 /*
- * XREFs of NtProtectVirtualMemory @ 0x1406F9280
+ * XREFs of NtProtectVirtualMemory @ 0x1405F8E40
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     MiMakeProtectionMask @ 0x140276860 (MiMakeProtectionMask.c)
- *     PsIsProcessLoggingEnabled @ 0x140338640 (PsIsProcessLoggingEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     MmProtectVirtualMemory @ 0x1406F9820 (MmProtectVirtualMemory.c)
- *     EtwTiLogProtectExecVm @ 0x1408A7ACA (EtwTiLogProtectExecVm.c)
- *     VslDebugProtectSecureProcessMemory @ 0x140941E88 (VslDebugProtectSecureProcessMemory.c)
+ *     KeUnstackDetachProcess @ 0x140207580 (KeUnstackDetachProcess.c)
+ *     MiMakeProtectionMask @ 0x14021A9E0 (MiMakeProtectionMask.c)
+ *     KeStackAttachProcess @ 0x14025B970 (KeStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MmProtectVirtualMemory @ 0x1405FA060 (MmProtectVirtualMemory.c)
+ *     EtwTiLogProtectExecVm @ 0x1406296A8 (EtwTiLogProtectExecVm.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     VslDebugProtectSecureProcessMemory @ 0x14088F388 (VslDebugProtectSecureProcessMemory.c)
  */
 
-__int64 __fastcall NtProtectVirtualMemory(ULONG_PTR a1, unsigned __int64 *a2, __int64 *a3, int a4, _DWORD *a5)
+NTSTATUS __fastcall NtProtectVirtualMemory(void *a1, unsigned __int64 *a2, _QWORD *a3, int a4, _DWORD *a5)
 {
-  ULONG_PTR v8; // r10
-  unsigned __int64 v9; // rdx
-  int v10; // esi
+  void *v7; // r10
+  unsigned __int64 v8; // r9
+  int v9; // esi
+  int ProtectionMask; // r13d
   struct _KTHREAD *CurrentThread; // rax
-  _KPROCESS *Process; // rbx
-  char PreviousMode; // cl
-  __int64 v14; // rcx
-  __int64 v15; // rcx
-  __int64 v16; // rcx
-  unsigned __int64 v17; // rax
-  __int64 v18; // r15
-  unsigned __int64 v19; // rdx
-  __int64 result; // rax
-  _BYTE *v21; // rdi
-  int v22; // eax
-  int v23; // ebx
-  char v24; // r11
-  unsigned __int8 v25; // [rsp+40h] [rbp-A8h]
-  int v26; // [rsp+44h] [rbp-A4h] BYREF
-  unsigned __int64 v27; // [rsp+48h] [rbp-A0h] BYREF
-  int ProtectionMask; // [rsp+50h] [rbp-98h]
-  PVOID Object; // [rsp+58h] [rbp-90h] BYREF
-  __int64 v30; // [rsp+60h] [rbp-88h] BYREF
-  _DWORD *v31; // [rsp+68h] [rbp-80h]
-  _KPROCESS *v32; // [rsp+70h] [rbp-78h]
-  $115DCDF994C6370D29323EAB0E0C9502 v33; // [rsp+78h] [rbp-70h] BYREF
+  _KPROCESS *Process; // rdi
+  KPROCESSOR_MODE PreviousMode; // dl
+  __int64 v14; // rdx
+  __int64 v15; // rdx
+  __int64 v16; // rdx
+  unsigned __int64 v17; // rcx
+  unsigned __int64 v18; // r14
+  NTSTATUS result; // eax
+  _BYTE *v20; // rbx
+  int v21; // eax
+  int v22; // edi
+  char v23; // r8
+  unsigned __int8 v24; // [rsp+40h] [rbp-A8h]
+  unsigned int v25; // [rsp+44h] [rbp-A4h] BYREF
+  unsigned __int64 v26; // [rsp+48h] [rbp-A0h] BYREF
+  PVOID Object; // [rsp+50h] [rbp-98h] BYREF
+  __int64 v28; // [rsp+58h] [rbp-90h] BYREF
+  _QWORD *v29; // [rsp+60h] [rbp-88h]
+  _DWORD *v30; // [rsp+68h] [rbp-80h]
+  struct _KAPC_STATE ApcState; // [rsp+70h] [rbp-78h] BYREF
 
-  v8 = a1;
-  v9 = (unsigned __int64)a5;
-  v31 = a5;
-  memset(&v33, 0, sizeof(v33));
-  v10 = 0;
+  v29 = a3;
+  v7 = a1;
+  v8 = (unsigned __int64)a5;
+  v30 = a5;
+  memset(&ApcState, 0, sizeof(ApcState));
+  v9 = 0;
   Object = 0LL;
-  v27 = 0LL;
-  v30 = 0LL;
-  v26 = 0;
+  v26 = 0LL;
+  v28 = 0LL;
+  v25 = 0;
   if ( a4 == 0x80000000 || a4 == 0x10000000 )
   {
-    ProtectionMask = 24;
+    LOBYTE(ProtectionMask) = 24;
   }
   else
   {
     ProtectionMask = MiMakeProtectionMask(a4 & 0xFF807FF);
     if ( ProtectionMask == -1 )
-      return 3221225541LL;
-    v9 = (unsigned __int64)v31;
+      return -1073741755;
   }
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
-  v32 = Process;
   PreviousMode = CurrentThread->PreviousMode;
-  v25 = PreviousMode;
+  v24 = PreviousMode;
   if ( PreviousMode )
   {
     v14 = (__int64)a2;
@@ -79,76 +76,70 @@ __int64 __fastcall NtProtectVirtualMemory(ULONG_PTR a1, unsigned __int64 *a2, __
     if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
       v15 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v15 = *(_QWORD *)v15;
-    v16 = v9;
-    if ( v9 >= 0x7FFFFFFF0000LL )
+    v16 = v8;
+    if ( v8 >= 0x7FFFFFFF0000LL )
       v16 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v16 = *(_DWORD *)v16;
     v17 = *a2;
-    v27 = *a2;
+    v26 = *a2;
     v18 = *a3;
-    v30 = *a3;
-    PreviousMode = v25;
+    v28 = *a3;
+    PreviousMode = v24;
   }
   else
   {
     v18 = *a3;
-    v30 = *a3;
+    v28 = *a3;
     v17 = *a2;
-    v27 = *a2;
+    v26 = *a2;
   }
-  if ( !v18 )
-    return 3221225485LL;
-  v19 = v18 + v17 - 1;
-  if ( v19 < v17 || v19 > 0x7FFFFFFEFFFFLL )
-    return 3221225485LL;
-  result = ObpReferenceObjectByHandleWithTag(
-             v8,
-             8,
-             (__int64)PsProcessType,
+  if ( v17 > 0x7FFFFFFEFFFFLL )
+    return -1073741584;
+  if ( 0x7FFFFFFF0000LL - v17 < v18 || !v18 )
+    return -1073741583;
+  result = ObReferenceObjectByHandleWithTag(
+             v7,
+             8u,
+             (POBJECT_TYPE)PsProcessType,
              PreviousMode,
              0x76506D4Du,
              &Object,
-             0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    v21 = Object;
+    v20 = Object;
     if ( Process != Object )
     {
-      KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)&v33);
-      v10 = 1;
+      KeStackAttachProcess((PRKPROCESS)Object, &ApcState);
+      v9 = 1;
     }
-    if ( (v21[992] & 1) != 0 )
-      v22 = VslDebugProtectSecureProcessMemory(
-              (_DWORD)v21,
+    if ( (v20[992] & 1) != 0 )
+      v21 = VslDebugProtectSecureProcessMemory(
+              (_DWORD)v20,
               (_DWORD)Process,
-              (unsigned int)&v27,
-              (unsigned int)&v30,
+              (unsigned int)&v26,
+              (unsigned int)&v28,
               a4,
-              (__int64)&v26);
+              (__int64)&v25);
     else
-      v22 = MmProtectVirtualMemory(
+      v21 = MmProtectVirtualMemory(
               (_DWORD)Process,
-              (_DWORD)v21,
-              (unsigned int)&v27,
-              (unsigned int)&v30,
+              (_DWORD)v20,
+              (unsigned int)&v26,
+              (unsigned int)&v28,
               a4,
-              (__int64)&v26);
-    v23 = v22;
-    LODWORD(Object) = v22;
-    if ( v10 )
-      KiUnstackDetachProcess(&v33);
-    if ( v23 >= 0
-      && (((unsigned __int8)MiMakeProtectionMask(v26 & 0xFFF807FF) | (unsigned __int8)ProtectionMask) & 2) != 0 )
-    {
-      if ( (unsigned int)PsIsProcessLoggingEnabled((__int64)v32, (__int64)v21, 8) )
-        EtwTiLogProtectExecVm((_DWORD)v21, v25, v27, v18, a4, v24);
-    }
-    ObfDereferenceObjectWithTag(v21, 0x76506D4Du);
-    *a3 = v30;
-    *a2 = v27;
-    *v31 = v26;
-    return (unsigned int)v23;
+              (__int64)&v25);
+    v22 = v21;
+    LODWORD(Object) = v21;
+    if ( v9 )
+      KeUnstackDetachProcess(&ApcState);
+    if ( v22 >= 0 && (((unsigned __int8)MiMakeProtectionMask(v25) | (unsigned __int8)ProtectionMask) & 2) != 0 )
+      EtwTiLogProtectExecVm((_DWORD)v20, v24, v26, v18, a4, v23);
+    ObfDereferenceObjectWithTag(v20, 0x76506D4Du);
+    *v29 = v28;
+    *a2 = v26;
+    *v30 = v25;
+    return v22;
   }
   return result;
 }

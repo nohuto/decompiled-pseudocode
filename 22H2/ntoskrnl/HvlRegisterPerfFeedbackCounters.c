@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlRegisterPerfFeedbackCounters @ 0x140546E4C
+ * XREFs of HvlRegisterPerfFeedbackCounters @ 0x1404F7EB4
  * Callers:
- *     PpmPerfRegisterHvPerfStateCounters @ 0x14099DAC0 (PpmPerfRegisterHvPerfStateCounters.c)
+ *     PpmPerfRegisterHvPerfStateCounters @ 0x1408F69D0 (PpmPerfRegisterHvPerfStateCounters.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     HvlpSetPowerProperty @ 0x1405472F0 (HvlpSetPowerProperty.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvlpSetPowerProperty @ 0x1404F8398 (HvlpSetPowerProperty.c)
  */
 
 __int64 __fastcall HvlRegisterPerfFeedbackCounters(int a1, __int128 *a2)
@@ -16,23 +16,24 @@ __int64 __fastcall HvlRegisterPerfFeedbackCounters(int a1, __int128 *a2)
   __int128 v8; // xmm0
   __int128 v9; // xmm1
   __int64 v10; // rdx
-  _OWORD v12[26]; // [rsp+20h] [rbp-1A8h] BYREF
+  __int64 v11; // r8
+  _OWORD v13[26]; // [rsp+20h] [rbp-1A8h] BYREF
 
-  memset(v12, 0, 0x194uLL);
+  memset(v13, 0, 0x198uLL);
   v4 = *a2;
-  LODWORD(v12[0]) = 1;
+  LODWORD(v13[0]) = 1;
   v5 = a2[1];
-  DWORD2(v12[0]) = a1;
-  v12[1] = v4;
+  DWORD2(v13[0]) = a1;
+  v13[1] = v4;
   v6 = a2[2];
-  v12[2] = v5;
+  v13[2] = v5;
   v7 = a2[3];
-  v12[3] = v6;
+  v13[3] = v6;
   v8 = a2[4];
-  v12[4] = v7;
+  v13[4] = v7;
   v9 = a2[5];
-  v12[5] = v8;
-  *(_QWORD *)&v12[7] = *((_QWORD *)a2 + 12);
-  v12[6] = v9;
-  return HvlpSetPowerProperty(v12, v10);
+  v13[5] = v8;
+  *(_QWORD *)&v13[7] = *((_QWORD *)a2 + 12);
+  v13[6] = v9;
+  return HvlpSetPowerProperty(v13, v10, v11);
 }

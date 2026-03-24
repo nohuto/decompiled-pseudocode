@@ -1,25 +1,21 @@
 /*
- * XREFs of EditionDoHotKeys @ 0x1C0050070
+ * XREFs of EditionDoHotKeys @ 0x1C0104F00
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00500BC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
- *     ?IsSAS@@YA_NEPEAI@Z @ 0x1C00506D4 (-IsSAS@@YA_NEPEAI@Z.c)
+ *     xxxDoHotKeyStuff @ 0x1C0104F50 (xxxDoHotKeyStuff.c)
+ *     IsSAS @ 0x1C0105608 (IsSAS.c)
  */
 
-__int64 __fastcall EditionDoHotKeys(
-        unsigned __int8 a1,
-        unsigned __int8 a2,
-        int a3,
-        unsigned int a4,
-        struct tagINPUT_MESSAGE_SOURCE *a5,
-        _DWORD *a6)
+__int64 __fastcall EditionDoHotKeys(unsigned __int8 a1, char a2, __int64 a3, __int64 a4, __int64 a5, _DWORD *a6)
 {
-  unsigned int v8; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v7; // rcx
+  char v9; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( !xxxDoHotKeyStuff(a1, a3 != 0, a4, a5) )
+  if ( !(unsigned int)xxxDoHotKeyStuff(a1) )
     return 0LL;
-  if ( IsSAS(a2, &v8) )
+  LOBYTE(v7) = a2;
+  if ( (unsigned int)IsSAS(v7, &v9) )
   {
     *a6 = 1;
     return 0LL;

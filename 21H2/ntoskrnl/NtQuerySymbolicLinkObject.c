@@ -1,19 +1,19 @@
 /*
- * XREFs of NtQuerySymbolicLinkObject @ 0x1407B0FE0
+ * XREFs of NtQuerySymbolicLinkObject @ 0x140686650
  * Callers:
- *     AdtpInitializeDriveLetters @ 0x14084D204 (AdtpInitializeDriveLetters.c)
- *     IopStoreSystemPartitionInformation @ 0x140B0E88C (IopStoreSystemPartitionInformation.c)
- *     IopReassignSystemRoot @ 0x140B2BC5C (IopReassignSystemRoot.c)
+ *     AdtpInitializeDriveLetters @ 0x14079E9B8 (AdtpInitializeDriveLetters.c)
+ *     IopStoreSystemPartitionInformation @ 0x140A615B8 (IopStoreSystemPartitionInformation.c)
+ *     IopReassignSystemRoot @ 0x140A700D8 (IopReassignSystemRoot.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2, _DWORD *a3)
@@ -71,7 +71,7 @@ __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int64 a2,
     BugCheckParameter2 = (ULONG_PTR)Object - 32;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)Object - 32, 0LL);
     if ( (*((_DWORD *)v11 + 7) & 0x10) != 0 )
-      RtlInitUnicodeString((PUNICODE_STRING)Src, &word_140867F00);
+      RtlInitUnicodeString((PUNICODE_STRING)Src, &word_1407D7BA0);
     else
       *(_OWORD *)Src = *(_OWORD *)(v11 + 8);
     v12 = (int)Src[0];
@@ -87,8 +87,8 @@ LABEL_18:
           *a3 = HIWORD(v12);
 LABEL_20:
         ExReleasePushLockEx(BugCheckParameter2, 0LL);
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-        ObfDereferenceObject(Object);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        HalPutDmaAdapter((PADAPTER_OBJECT)Object);
         return (unsigned int)v19;
       }
     }

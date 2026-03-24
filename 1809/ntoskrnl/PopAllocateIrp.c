@@ -1,7 +1,7 @@
 /*
- * XREFs of PopAllocateIrp @ 0x14017271C
+ * XREFs of PopAllocateIrp @ 0x14017273C
  * Callers:
- *     PopRequestPowerIrp @ 0x140172540 (PopRequestPowerIrp.c)
+ *     PopRequestPowerIrp @ 0x140172560 (PopRequestPowerIrp.c)
  *     PopNotifyDevice @ 0x140568C68 (PopNotifyDevice.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
@@ -12,14 +12,14 @@
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     IoReuseIrp @ 0x1400DF770 (IoReuseIrp.c)
- *     PopFxLockDevice @ 0x14015B038 (PopFxLockDevice.c)
- *     PopFxAllocatePowerIrp @ 0x14017301C (PopFxAllocatePowerIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     IoReuseIrp @ 0x1400DF790 (IoReuseIrp.c)
+ *     PopFxLockDevice @ 0x14015B058 (PopFxLockDevice.c)
+ *     PopFxAllocatePowerIrp @ 0x14017303C (PopFxAllocatePowerIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     VfIrpWatermark @ 0x1409306B4 (VfIrpWatermark.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpDeleteRangeListEntry @ 0x140817BE8
+ * XREFs of RtlpDeleteRangeListEntry @ 0x140760C28
  * Callers:
- *     RtlpCopyRangeListEntry @ 0x140817490 (RtlpCopyRangeListEntry.c)
- *     RtlFreeRangeList @ 0x140817B80 (RtlFreeRangeList.c)
+ *     RtlpCopyRangeListEntry @ 0x1407608B0 (RtlpCopyRangeListEntry.c)
+ *     RtlFreeRangeList @ 0x140760BB0 (RtlFreeRangeList.c)
  * Callees:
- *     RtlpFreeRangeListEntry @ 0x140817C48 (RtlpFreeRangeListEntry.c)
+ *     RtlpFreeRangeListEntry @ 0x140760C88 (RtlpFreeRangeListEntry.c)
  */
 
 __int64 __fastcall RtlpDeleteRangeListEntry(_QWORD *Entry)

@@ -1,40 +1,40 @@
 /*
- * XREFs of VfIrpDatabaseEntryReleaseLock @ 0x140AA5BCC
+ * XREFs of VfIrpDatabaseEntryReleaseLock @ 0x1409E092C
  * Callers:
- *     IovCancelIrp @ 0x140A805A8 (IovCancelIrp.c)
- *     IovpLocalCompletionRoutine @ 0x140A80D10 (IovpLocalCompletionRoutine.c)
- *     IovpCallDriver1 @ 0x140A8B840 (IovpCallDriver1.c)
- *     IovpCallDriver2 @ 0x140A8BD60 (IovpCallDriver2.c)
- *     IovpCheckIrpForCriticalTracking @ 0x140A8C014 (IovpCheckIrpForCriticalTracking.c)
- *     IovpCompleteRequest1 @ 0x140A8C08C (IovpCompleteRequest1.c)
- *     IovpCompleteRequest2 @ 0x140A8C1BC (IovpCompleteRequest2.c)
- *     IovpCompleteRequest3 @ 0x140A8C54C (IovpCompleteRequest3.c)
- *     IovpCompleteRequest4 @ 0x140A8C5D4 (IovpCompleteRequest4.c)
- *     VfIoAllocateIrp1 @ 0x140A8CDBC (VfIoAllocateIrp1.c)
- *     VfIoAllocateIrp2 @ 0x140A8CE34 (VfIoAllocateIrp2.c)
- *     VfIoFreeIrp @ 0x140A8CEB8 (VfIoFreeIrp.c)
- *     VfIoInitializeIrp @ 0x140A8D070 (VfIoInitializeIrp.c)
- *     VfIrpWatermark @ 0x140A8D2FC (VfIrpWatermark.c)
- *     VfPendingMoreProcessingRequired @ 0x140A90FE0 (VfPendingMoreProcessingRequired.c)
- *     ViPendingCompleteAfterWait @ 0x140A91260 (ViPendingCompleteAfterWait.c)
- *     VfPacketReleaseLock @ 0x140A9C190 (VfPacketReleaseLock.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AA5A48 (VfIrpDatabaseEntryFindAndLock.c)
+ *     IovAllocateIrp @ 0x1409C47A0 (IovAllocateIrp.c)
+ *     IovCancelIrp @ 0x1409C4F5C (IovCancelIrp.c)
+ *     IovpLocalCompletionRoutine @ 0x1409C56C0 (IovpLocalCompletionRoutine.c)
+ *     IovpCallDriver1 @ 0x1409CFC4C (IovpCallDriver1.c)
+ *     IovpCallDriver2 @ 0x1409D0144 (IovpCallDriver2.c)
+ *     IovpCheckIrpForCriticalTracking @ 0x1409D0448 (IovpCheckIrpForCriticalTracking.c)
+ *     IovpCompleteRequest1 @ 0x1409D04C0 (IovpCompleteRequest1.c)
+ *     IovpCompleteRequest2 @ 0x1409D05F0 (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest3 @ 0x1409D0980 (IovpCompleteRequest3.c)
+ *     IovpCompleteRequest4 @ 0x1409D0A08 (IovpCompleteRequest4.c)
+ *     VfIoAllocateIrp2 @ 0x1409D11C8 (VfIoAllocateIrp2.c)
+ *     VfIoFreeIrp @ 0x1409D124C (VfIoFreeIrp.c)
+ *     VfIoInitializeIrp @ 0x1409D1404 (VfIoInitializeIrp.c)
+ *     VfIrpWatermark @ 0x1409D169C (VfIrpWatermark.c)
+ *     VfSetIoBuildRequest @ 0x1409D16D8 (VfSetIoBuildRequest.c)
+ *     VfPendingMoreProcessingRequired @ 0x1409D58A0 (VfPendingMoreProcessingRequired.c)
+ *     ViPendingCompleteAfterWait @ 0x1409D5B24 (ViPendingCompleteAfterWait.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x1409E07A8 (VfIrpDatabaseEntryFindAndLock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x140602294 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x1406022DC (ViIrpDatabaseReleaseLockExclusive.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140A81AE8 (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405A260C (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405A2654 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x1409C63B0 (VfUtilAddressRangeRemoveCheckEmpty.c)
  */
 
 __int64 __fastcall VfIrpDatabaseEntryReleaseLock(_QWORD *a1)
 {
   bool v1; // zf
   unsigned __int64 v3; // rdi
-  char *v4; // rcx
-  char *v5; // rax
-  char **v6; // rdx
+  _QWORD *v4; // rcx
+  _QWORD *v5; // rax
+  _QWORD *v6; // rdx
   _QWORD *v7; // rax
   unsigned __int64 v8; // rdi
   _QWORD *v9; // rbp
@@ -64,18 +64,18 @@ __int64 __fastcall VfIrpDatabaseEntryReleaseLock(_QWORD *a1)
     ViIrpDatabaseAcquireLockExclusive(&v13);
     if ( !*((_DWORD *)a1 + 5) )
     {
-      v4 = (char *)(a1 + 4);
-      v5 = (char *)a1[4];
-      v6 = (char **)a1[5];
-      if ( *((_QWORD **)v5 + 1) != a1 + 4 || *v6 != v4 )
+      v4 = a1 + 4;
+      v5 = (_QWORD *)a1[4];
+      v6 = (_QWORD *)a1[5];
+      if ( (_QWORD *)v5[1] != a1 + 4 || (_QWORD *)*v6 != v4 )
         __fastfail(3u);
       *v6 = v5;
-      *((_QWORD *)v5 + 1) = v6;
+      v5[1] = v6;
       a1[5] = a1 + 4;
-      *(_QWORD *)v4 = v4;
-      if ( *(char **)v5 == v5 )
+      *v4 = v4;
+      if ( (_QWORD *)*v5 == v5 )
       {
-        v7 = (_QWORD *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned int)((v5 - (_BYTE *)ViIrpDatabase) >> 4));
+        v7 = (_QWORD *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned int)(((__int64)v5 - ViIrpDatabase) >> 4));
         *v7 = 0LL;
         v7[1] = 0LL;
       }

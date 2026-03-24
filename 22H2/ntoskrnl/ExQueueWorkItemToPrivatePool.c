@@ -1,22 +1,22 @@
 /*
- * XREFs of ExQueueWorkItemToPrivatePool @ 0x14046B0EE
+ * XREFs of ExQueueWorkItemToPrivatePool @ 0x14038AE38
  * Callers:
- *     ?SmAsyncReadQueueInsert@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_ASYNC_READ_QUEUE@1@PEAU_SM_ASYNC_DIRECT_READ_CTX@1@K@Z @ 0x1405BE554 (-SmAsyncReadQueueInsert@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_ASYNC_READ_QUEUE@1@PEAU_.c)
+ *     ?SmAsyncReadQueueInsert@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_ASYNC_READ_QUEUE@1@PEAU_SM_ASYNC_DIRECT_READ_CTX@1@K@Z @ 0x14038ACE0 (-SmAsyncReadQueueInsert@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_ASYNC_READ_QUEUE@1@PEAU_SM_ASY.c)
  * Callees:
- *     ExpQueueWorkItem @ 0x1402B7670 (ExpQueueWorkItem.c)
- *     ExpValidateWorkItem @ 0x1402B7E50 (ExpValidateWorkItem.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     ExpValidateWorkItem @ 0x14023E058 (ExpValidateWorkItem.c)
+ *     ExpQueueWorkItem @ 0x140240E10 (ExpQueueWorkItem.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall ExQueueWorkItemToPrivatePool(_QWORD *BugCheckParameter2, int a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall ExQueueWorkItemToPrivatePool(_QWORD *BugCheckParameter2, int a2, __int64 a3, __int64 a4)
 {
-  int v5; // esi
+  unsigned int v4; // esi
   __int64 result; // rax
 
-  v5 = a4;
+  v4 = a4;
   if ( (unsigned __int64)(a4 - 1) > 6
     || (ExpValidateWorkItem(BugCheckParameter2, a2 + 32),
-        result = ExpQueueWorkItem(*(_QWORD *)(a5 + 16), BugCheckParameter2, a2, 0xFFFFFFFF, v5),
+        result = ExpQueueWorkItem(*((_QWORD *)PspSystemPartition + 2), BugCheckParameter2, a2, 0xFFFFFFFF, v4),
         !(_BYTE)result) )
   {
     KeBugCheckEx(0xE4u, 5uLL, (ULONG_PTR)BugCheckParameter2, a2 + 32, 0xFFFFFFFFuLL);

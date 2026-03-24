@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FindNewAllocOwner@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C008385C
+ * XREFs of ?FindNewAllocOwner@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0064D60
  * Callers:
- *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0093DF0 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006BD00 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
  * Callees:
- *     ?VidMmRecordAlloc@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@PEAVVIDMM_SEGMENT@@_KW4VIDMM_ALLOC_RECORD_TYPE@@@Z @ 0x1C0002298 (-VidMmRecordAlloc@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@PEAVVID.c)
+ *     ?VidMmRecordAlloc@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@PEAVVIDMM_SEGMENT@@_KW4VIDMM_ALLOC_RECORD_TYPE@@@Z @ 0x1C0001160 (-VidMmRecordAlloc@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@PEAVVID.c)
  */
 
 struct _VIDMM_LOCAL_ALLOC *__fastcall VIDMM_GLOBAL::FindNewAllocOwner(
@@ -15,7 +15,7 @@ struct _VIDMM_LOCAL_ALLOC *__fastcall VIDMM_GLOBAL::FindNewAllocOwner(
   __int64 v6; // rdi
   __int64 v7; // r9
 
-  v4 = (_QWORD **)((char *)a2 + 272);
+  v4 = (_QWORD **)((char *)a2 + 288);
   v5 = *v4;
   do
   {
@@ -25,11 +25,11 @@ struct _VIDMM_LOCAL_ALLOC *__fastcall VIDMM_GLOBAL::FindNewAllocOwner(
     v5 = (_QWORD *)*v5;
   }
   while ( (*(_BYTE *)(v6 + 32) & 2) != 0 );
-  v7 = *((_QWORD *)a2 + 15);
+  v7 = *((_QWORD *)a2 + 16);
   if ( v7 )
   {
-    VidMmRecordAlloc(this, (__int64)a2, *((_QWORD *)a2 + 11), v7, *((_QWORD *)a2 + 2), 1);
-    VidMmRecordAlloc(this, (__int64)a2, v6, *((_QWORD *)a2 + 15), *((_QWORD *)a2 + 2), 0);
+    VidMmRecordAlloc(this, (__int64)a2, *((_QWORD *)a2 + 12), v7, *((_QWORD *)a2 + 2), 1);
+    VidMmRecordAlloc(this, (__int64)a2, v6, *((_QWORD *)a2 + 16), *((_QWORD *)a2 + 2), 0);
   }
   return (struct _VIDMM_LOCAL_ALLOC *)v6;
 }

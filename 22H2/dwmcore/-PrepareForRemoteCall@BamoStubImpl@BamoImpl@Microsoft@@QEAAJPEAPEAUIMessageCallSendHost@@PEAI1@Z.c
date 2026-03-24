@@ -1,13 +1,11 @@
 /*
- * XREFs of ?PrepareForRemoteCall@BamoStubImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@Z @ 0x1801E12A8
+ * XREFs of ?PrepareForRemoteCall@BamoStubImpl@BamoImpl@Microsoft@@QEAAJPEAPEAUIMessageCallSendHost@@PEAI1@Z @ 0x18017EA48
  * Callers:
- *     ?OnRegisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z @ 0x1801E0FFC (-OnRegisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z.c)
- *     ?OnUnregisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z @ 0x1801E113C (-OnUnregisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z.c)
+ *     ?OnRegisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z @ 0x18017E69C (-OnRegisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z.c)
+ *     ?OnUnregisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z @ 0x18017E7BC (-OnUnregisterError@BamoDataProviderRegistrarStubImpl@BamoImpl@@QEAAJI@Z.c)
  * Callees:
- *     ?GetSendHost@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEBAPEAUIMessageCallSendHost@@XZ @ 0x1800AD754 (-GetSendHost@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEBAPEAUIMessageCallSendHost@@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?GetItemId@BamoPrincipalImpl@BamoImpl@Microsoft@@QEBAIXZ @ 0x1800FF8A4 (-GetItemId@BamoPrincipalImpl@BamoImpl@Microsoft@@QEBAIXZ.c)
- *     ?TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z @ 0x1801BBBE0 (-TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z.c)
+ *     ?GetSendHost@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEBAPEAUIMessageCallSendHost@@XZ @ 0x1800D6C30 (-GetSendHost@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEBAPEAUIMessageCallSendHost@@XZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall Microsoft::BamoImpl::BamoStubImpl::PrepareForRemoteCall(
@@ -16,39 +14,31 @@ __int64 __fastcall Microsoft::BamoImpl::BamoStubImpl::PrepareForRemoteCall(
         unsigned int *a3,
         unsigned int *a4)
 {
-  Microsoft::BamoImpl::BaseBamoPeerImpl *v4; // r10
-  bool v8; // zf
-  __int64 v9; // rcx
-  unsigned int ItemId; // eax
+  Microsoft::BamoImpl::BaseBamoPeerImpl *v7; // rcx
+  __int64 v8; // rax
+  unsigned int v9; // ecx
   __int64 result; // rax
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  v4 = (Microsoft::BamoImpl::BaseBamoPeerImpl *)*((_QWORD *)this + 4);
-  v8 = *((_BYTE *)this + 56) == 0;
-  v9 = *(_QWORD *)(*((_QWORD *)v4 + 3) + 32LL);
-  if ( v8 || !*(_QWORD *)(v9 + 64) )
+  if ( *((_BYTE *)this + 32)
+    && (v7 = (Microsoft::BamoImpl::BaseBamoPeerImpl *)*((_QWORD *)this + 5),
+        *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v7 + 3) + 32LL) + 56LL)) )
   {
-    if ( v9 )
-      Microsoft::BamoImpl::BaseBamoConnectionImpl::TrackError(
-        (struct Microsoft::BamoImpl::ConnectionIndirector **)v9,
-        0x87B20805,
-        0);
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x181,
-      (int)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoStub.inl",
-      (const char *)0x87B20805LL);
-    return 2276591621LL;
+    *a2 = Microsoft::BamoImpl::BaseBamoPeerImpl::GetSendHost(v7);
+    v8 = *((_QWORD *)this + 3);
+    *a3 = *(_DWORD *)(*((_QWORD *)this + 5) + 36LL);
+    v9 = *(_DWORD *)(v8 + 24);
+    result = 0LL;
+    *a4 = v9;
   }
   else
   {
-    *a2 = Microsoft::BamoImpl::BaseBamoPeerImpl::GetSendHost(v4);
-    *a3 = *(_DWORD *)(*((_QWORD *)this + 4) + 36LL);
-    ItemId = Microsoft::BamoImpl::BamoPrincipalImpl::GetItemId(*((Microsoft::BamoImpl::BamoPrincipalImpl **)this + 3));
-    ++*((_DWORD *)this + 4);
-    *a4 = ItemId;
-    result = 0LL;
-    *((_BYTE *)this + 60) = 1;
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x122,
+      (__int64)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoStub.inl",
+      (const char *)0x87B20805LL);
+    return 2276591621LL;
   }
   return result;
 }

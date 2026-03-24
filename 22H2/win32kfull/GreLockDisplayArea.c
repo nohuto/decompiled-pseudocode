@@ -1,81 +1,80 @@
 /*
- * XREFs of GreLockDisplayArea @ 0x1C02839D0
+ * XREFs of GreLockDisplayArea @ 0x1C0285298
  * Callers:
- *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00317F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00726C4 (zzzLockDisplayAreaAndInvalidateDCCache.c)
  * Callees:
- *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B7D4 (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00ABF38 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00DC2A8 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0266514 (-bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B7698 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C00B7700 (-bWrapped@ERECTL@@QEBAHXZ.c)
+ *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00F0C8C (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall GreLockDisplayArea(__int64 a1, struct tagRECT *a2)
+void __fastcall GreLockDisplayArea(__int64 a1, struct _RECTL *a2)
 {
-  Gre::Base *v4; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v5; // rbx
-  __int64 v6; // rcx
-  __int64 v7; // r14
-  __int64 v8; // rsi
-  struct tagRECT v9; // xmm6
-  __int64 v10; // rbx
-  void (__fastcall *v11)(_QWORD, struct _RECTL *); // rax
-  void (__fastcall *v12)(_QWORD, struct tagRECT *); // r14
-  struct tagRECT v13; // [rsp+20h] [rbp-50h] BYREF
-  struct tagRECT v14; // [rsp+30h] [rbp-40h] BYREF
-  struct _RECTL v15; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v4; // r14
+  __int64 v5; // rsi
+  struct _RECTL v6; // xmm6
+  __int64 v7; // rbx
+  int v8; // ecx
+  int v9; // edx
+  void (__fastcall *v10)(_QWORD, struct _RECTL *); // rax
+  void (__fastcall *v11)(_QWORD, struct _RECTL *); // rsi
+  struct _RECTL v12; // [rsp+20h] [rbp-50h] BYREF
+  struct _RECTL v13; // [rsp+30h] [rbp-40h] BYREF
+  struct _RECTL v14; // [rsp+40h] [rbp-30h] BYREF
 
   v13 = *a2;
   ERECTL::vOrder((ERECTL *)&v13);
-  if ( !IsRectEmptyInl(&v13) )
+  if ( !ERECTL::bWrapped((ERECTL *)&v13) )
   {
-    v5 = Gre::Base::Globals(v4);
-    v6 = *((_QWORD *)v5 + 14);
-    if ( *(_DWORD *)(a1 + 140) )
+    if ( *(_DWORD *)(a1 + 148) )
     {
-      v7 = 0LL;
-      if ( !(unsigned int)GreIsSemaphoreOwnedByCurrentThread(v6) )
+      v4 = 0LL;
+      if ( !(unsigned int)GreIsSemaphoreOwnedByCurrentThread(ghsemSprite) )
       {
-        GreAcquireSemaphore(*((_QWORD *)v5 + 14));
-        EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemSprite", *((_QWORD *)v5 + 14), 5LL);
-        v7 = 1LL;
+        GreAcquireSemaphore(ghsemSprite);
+        EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemSprite", ghsemSprite, 5LL);
+        v4 = 1LL;
       }
-      v8 = 0LL;
-      if ( *(_DWORD *)(a1 + 140) )
+      v5 = 0LL;
+      if ( *(_DWORD *)(a1 + 148) )
       {
-        v9 = v13;
+        v6 = v13;
         do
         {
-          v10 = *(_QWORD *)(*(_QWORD *)(a1 + 144) + 8 * v8);
-          v14 = v9;
-          v13.left = *(_DWORD *)(v10 + 2560);
-          v13.top = *(_DWORD *)(v10 + 2564);
-          ERECTL::bOffsetSubtract((ERECTL *)&v14, (const struct _POINTL *)&v13, 0);
-          if ( bIntersect((const struct _RECTL *)&v14, (const struct _RECTL *)(v10 + 120), &v15) )
+          v7 = *(_QWORD *)(*(_QWORD *)(a1 + 152) + 8 * v5);
+          v12 = v6;
+          v8 = *(_DWORD *)(v7 + 2584);
+          v9 = *(_DWORD *)(v7 + 2588);
+          v12.right = v6.right - v8;
+          v12.top = v6.top - v9;
+          v12.bottom = v6.bottom - v9;
+          v12.left = v13.left - v8;
+          if ( bIntersect(&v12, (const struct _RECTL *)(v7 + 128), &v14) )
           {
-            if ( v7 )
-              SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(v10 + 200));
-            v11 = *(void (__fastcall **)(_QWORD, struct _RECTL *))(v10 + 3472);
-            if ( v11 )
-              v11(*(_QWORD *)(v10 + 1768), &v15);
+            if ( v4 )
+              SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(v7 + 208));
+            v10 = *(void (__fastcall **)(_QWORD, struct _RECTL *))(v7 + 3496);
+            if ( v10 )
+              v10(*(_QWORD *)(v7 + 1800), &v14);
           }
-          v8 = (unsigned int)(v8 + 1);
+          v5 = (unsigned int)(v5 + 1);
         }
-        while ( (unsigned int)v8 < *(_DWORD *)(a1 + 140) );
+        while ( (unsigned int)v5 < *(_DWORD *)(a1 + 148) );
       }
     }
     else
     {
-      v12 = *(void (__fastcall **)(_QWORD, struct tagRECT *))(a1 + 3472);
-      if ( !(unsigned int)GreIsSemaphoreOwnedByCurrentThread(v6) )
+      v11 = *(void (__fastcall **)(_QWORD, struct _RECTL *))(a1 + 3496);
+      if ( !(unsigned int)GreIsSemaphoreOwnedByCurrentThread(ghsemSprite) )
       {
-        GreAcquireSemaphore(*((_QWORD *)v5 + 14));
-        EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemSprite", *((_QWORD *)v5 + 14), 5LL);
-        SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(a1 + 200));
+        GreAcquireSemaphore(ghsemSprite);
+        EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemSprite", ghsemSprite, 5LL);
+        SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(a1 + 208));
       }
-      if ( v12 )
-        v12(*(_QWORD *)(a1 + 1768), a2);
+      if ( v11 )
+        v11(*(_QWORD *)(a1 + 1800), a2);
     }
   }
 }

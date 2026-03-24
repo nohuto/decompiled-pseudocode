@@ -1,41 +1,52 @@
 /*
- * XREFs of HvpAddDummyBinToHive @ 0x140A1DCE0
+ * XREFs of HvpAddDummyBinToHive @ 0x140873C98
  * Callers:
- *     HvpPerformLogFileRecovery @ 0x14080093C (HvpPerformLogFileRecovery.c)
+ *     HvpPerformLogFileRecovery @ 0x14087410C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     HvpPointMapEntriesToBuffer @ 0x1407502DC (HvpPointMapEntriesToBuffer.c)
- *     HvpAllocateBin @ 0x1407506DC (HvpAllocateBin.c)
- *     HvpFreeBin @ 0x1407E9ED8 (HvpFreeBin.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvpPointMapEntriesToBuffer @ 0x14072242C (HvpPointMapEntriesToBuffer.c)
+ *     HvpAllocateBin @ 0x140723D8C (HvpAllocateBin.c)
+ *     HvpFreeBin @ 0x140724FA0 (HvpFreeBin.c)
  */
 
-__int64 __fastcall HvpAddDummyBinToHive(ULONG_PTR BugCheckParameter2, int a2, _QWORD *a3)
+__int64 __fastcall HvpAddDummyBinToHive(ULONG_PTR BugCheckParameter2, __int64 a2, int a3, _QWORD *a4)
 {
   int Bin; // ebx
-  _DWORD *v7; // rbx
-  void *v8; // r8
-  void *v10; // [rsp+68h] [rbp+20h] BYREF
+  _DWORD *v8; // rbx
+  bool v9; // zf
+  void *v10; // r8
+  void *v12; // [rsp+58h] [rbp+10h] BYREF
 
-  v10 = 0LL;
-  Bin = HvpAllocateBin(BugCheckParameter2, 4096LL, 0, 0x30334D43u, (__int64 *)&v10);
+  v12 = 0LL;
+  Bin = HvpAllocateBin(BugCheckParameter2, 4096LL, 0, 0x30334D43u, (__int64 *)&v12);
   if ( Bin < 0 )
   {
-    v8 = v10;
+    v10 = v12;
   }
   else
   {
-    v7 = v10;
-    memset(v10, 0, 0x1000uLL);
-    *v7 = 0;
-    v7[1] = a2;
-    v7[2] = 4096;
-    v7[8] = -4064;
-    HvpPointMapEntriesToBuffer(BugCheckParameter2, (__int64)v7, 4096, a2, 1, 0LL);
-    v8 = 0LL;
-    *a3 = v7;
+    v8 = v12;
+    memset(v12, 0, 0x1000uLL);
+    v9 = BYTE3(NlsMbCodePageTag) == 0;
+    v8[1] = a3;
+    v8[2] = 4096;
+    if ( v9 && (CmpBootType & 6) == 0 )
+    {
+      *v8 = 0;
+      v8[8] = -4064;
+    }
+    else
+    {
+      *v8 = 1852400232;
+      v8[8] = 4064;
+      *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 4088LL) |= 4u;
+    }
+    HvpPointMapEntriesToBuffer(BugCheckParameter2, (__int64)v8, 4096, a3, 1, 0LL);
+    v10 = 0LL;
+    *a4 = v8;
     Bin = 0;
   }
-  if ( v8 )
-    HvpFreeBin(BugCheckParameter2, 0x1000u, (unsigned __int64)v8);
+  if ( v10 )
+    HvpFreeBin(BugCheckParameter2, 0x1000u, (unsigned __int64)v10);
   return (unsigned int)Bin;
 }

@@ -1,37 +1,37 @@
 /*
- * XREFs of SeSetSessionIdToken @ 0x1407F16F4
+ * XREFs of SeSetSessionIdToken @ 0x14069D5A0
  * Callers:
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C9410 (SepCopyAnonymousTokenAndSetSilo.c)
- *     SepCopyClientTokenAndSetSilo @ 0x1409C95C0 (SepCopyClientTokenAndSetSilo.c)
- *     SeSetSessionIdTokenWithLinked @ 0x1409C9710 (SeSetSessionIdTokenWithLinked.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x14091C690 (SepCopyAnonymousTokenAndSetSilo.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14091C81C (SepCopyClientTokenAndSetSilo.c)
+ *     SeSetSessionIdTokenWithLinked @ 0x14091C990 (SeSetSessionIdTokenWithLinked.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     MmGetSessionObjectById @ 0x1402C0B30 (MmGetSessionObjectById.c)
- *     SepSetTokenSessionById @ 0x1406B7AE0 (SepSetTokenSessionById.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1407EF74C (SepDereferenceLowBoxNumberEntry.c)
- *     SepSetTokenLowboxNumber @ 0x1407F4DBC (SepSetTokenLowboxNumber.c)
+ *     MmGetSessionObjectById @ 0x140206324 (MmGetSessionObjectById.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     SepSetTokenSessionById @ 0x140604300 (SepSetTokenSessionById.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1406355DC (SepDereferenceLowBoxNumberEntry.c)
+ *     SepSetTokenLowboxNumber @ 0x14070F0FC (SepSetTokenLowboxNumber.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall SeSetSessionIdToken(PACCESS_TOKEN Token, ULONG SessionId)
 {
   NTSTATUS v2; // esi
-  void *SessionObjectById; // rdi
+  struct _DMA_ADAPTER *SessionObjectById; // rdi
   struct _KTHREAD *CurrentThread; // rax
   bool v7; // zf
   __int64 v9; // rdx
   signed __int32 v10[8]; // [rsp+0h] [rbp-38h] BYREF
-  PVOID Object; // [rsp+40h] [rbp+8h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = 0;
   SessionObjectById = 0LL;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   if ( !SeTokenDoesNotTrackSessionObject )
-    SessionObjectById = MmGetSessionObjectById(SessionId, *(__int64 *)&SessionId);
+    SessionObjectById = (struct _DMA_ADAPTER *)MmGetSessionObjectById(SessionId, *(__int64 *)&SessionId);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(*((PERESOURCE *)Token + 6), 1u);
@@ -53,7 +53,7 @@ NTSTATUS __stdcall SeSetSessionIdToken(PACCESS_TOKEN Token, ULONG SessionId)
     }
     if ( *((_DWORD *)Token + 30) != SessionId )
     {
-      SepSetTokenSessionById((__int64)Token, SessionId, 1, (__int64)SessionObjectById, &Object);
+      SepSetTokenSessionById((__int64)Token, SessionId, 1, (__int64)SessionObjectById, &DmaAdapter);
       SessionObjectById = 0LL;
     }
     v7 = (*((_DWORD *)Token + 50) & 0x4000) == 0;
@@ -65,8 +65,8 @@ NTSTATUS __stdcall SeSetSessionIdToken(PACCESS_TOKEN Token, ULONG SessionId)
   ExReleaseResourceLite(*((PERESOURCE *)Token + 6));
   KeLeaveCriticalRegion();
   if ( SessionObjectById )
-    ObfDereferenceObject(SessionObjectById);
-  if ( Object )
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter(SessionObjectById);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   return v2;
 }

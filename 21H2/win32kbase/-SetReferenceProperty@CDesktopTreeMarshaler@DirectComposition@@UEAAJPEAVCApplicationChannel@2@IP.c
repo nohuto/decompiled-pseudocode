@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetReferenceProperty@CDesktopTreeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00C3DB0
+ * XREFs of ?SetReferenceProperty@CDesktopTreeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00B5E60
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseRootVisual@CDesktopTreeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00C3E58 (-ReleaseRootVisual@CDesktopTreeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseRootVisual@CDesktopTreeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00B5F28 (-ReleaseRootVisual@CDesktopTreeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CDesktopTreeMarshaler::SetReferenceProperty(
@@ -27,12 +27,12 @@ __int64 __fastcall DirectComposition::CDesktopTreeMarshaler::SetReferencePropert
            a4,
            195LL) )
     {
-      v9 = (DirectComposition::CDesktopTreeMarshaler *)*((_QWORD *)a4 + 25);
+      v9 = (DirectComposition::CDesktopTreeMarshaler *)*((_QWORD *)a4 + 24);
       if ( !v9 )
       {
         DirectComposition::CDesktopTreeMarshaler::ReleaseRootVisual(this, a2);
-        *((_QWORD *)a4 + 25) = this;
-        *((_QWORD *)this + 9) = a4;
+        *((_QWORD *)a4 + 24) = this;
+        *((_QWORD *)this + 8) = a4;
         DirectComposition::CResourceMarshaler::AddRef(a4);
         *((_DWORD *)this + 4) |= 0x40u;
         *a5 = 1;
@@ -43,7 +43,7 @@ __int64 __fastcall DirectComposition::CDesktopTreeMarshaler::SetReferencePropert
     }
     return (unsigned int)-1073741811;
   }
-  if ( *((_QWORD *)this + 9) )
+  if ( *((_QWORD *)this + 8) )
   {
     DirectComposition::CDesktopTreeMarshaler::ReleaseRootVisual(this, a2);
     *a5 = 1;

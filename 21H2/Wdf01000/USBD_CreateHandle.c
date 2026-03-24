@@ -1,14 +1,14 @@
 /*
- * XREFs of USBD_CreateHandle @ 0x1C00903A8
+ * XREFs of USBD_CreateHandle @ 0x1C008F69C
  * Callers:
- *     ?InitDevice@FxUsbDevice@@QEAAJK@Z @ 0x1C007F964 (-InitDevice@FxUsbDevice@@QEAAJK@Z.c)
+ *     ?InitDevice@FxUsbDevice@@QEAAJK@Z @ 0x1C0073130 (-InitDevice@FxUsbDevice@@QEAAJK@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     USBDInternal_BuildAndSendQueryInterfaceSynchronously @ 0x1C008FCC8 (USBDInternal_BuildAndSendQueryInterfaceSynchronously.c)
- *     USBDInternal_BuildServicePath @ 0x1C008FE44 (USBDInternal_BuildServicePath.c)
- *     USBDInternal_QueryUsbVerifierSettings @ 0x1C009011C (USBDInternal_QueryUsbVerifierSettings.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     USBDInternal_BuildAndSendQueryInterfaceSynchronously @ 0x1C008EFB8 (USBDInternal_BuildAndSendQueryInterfaceSynchronously.c)
+ *     USBDInternal_BuildServicePath @ 0x1C008F134 (USBDInternal_BuildServicePath.c)
+ *     USBDInternal_QueryUsbVerifierSettings @ 0x1C008F410 (USBDInternal_QueryUsbVerifierSettings.c)
  */
 
 __int64 __fastcall USBD_CreateHandle(
@@ -39,13 +39,10 @@ __int64 __fastcall USBD_CreateHandle(
   servicePath = 0LL;
   if ( KeGetCurrentIrql() )
   {
-    if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+    if ( g_EnableDbgPrints )
       DbgPrintEx(0x4Du, 0, "Irql Too High\n");
     v11 = -1073741496;
-LABEL_24:
-    if ( !USBDHandle )
-      goto LABEL_61;
-    goto LABEL_60;
+    goto LABEL_58;
   }
   if ( !g_NonPagedPoolInitialized )
   {
@@ -62,29 +59,29 @@ LABEL_24:
   g_NonPagedPoolInitialized = 1;
   if ( !DeviceObject )
   {
-    if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+    if ( g_EnableDbgPrints )
       DbgPrintEx(0x4Du, 0, "DeviceObject cannot be NULL\n");
-LABEL_23:
+LABEL_14:
     v11 = -1073741811;
-    goto LABEL_24;
+    goto LABEL_58;
   }
   if ( !TargetDeviceObject )
   {
-    if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+    if ( g_EnableDbgPrints )
       DbgPrintEx(0x4Du, 0, "TargetDeviceObject cannot be NULL\n");
-    goto LABEL_23;
+    goto LABEL_14;
   }
   if ( USBDClientContractVersion < 0x602 )
   {
-    if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+    if ( g_EnableDbgPrints )
       DbgPrintEx(0x4Du, 0, "USBDClientContractVersion %d not supported\n", USBDClientContractVersion);
-    goto LABEL_23;
+    goto LABEL_14;
   }
   if ( !PoolTag )
   {
-    if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+    if ( g_EnableDbgPrints )
       DbgPrintEx(0x4Du, 0, "PoolTag must be specified\n");
-    goto LABEL_23;
+    goto LABEL_14;
   }
   if ( USBDHandle )
   {
@@ -93,16 +90,11 @@ LABEL_23:
     v5 = PoolWithTag;
     if ( !PoolWithTag )
     {
-      if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+      if ( g_EnableDbgPrints )
         DbgPrintEx(0x4Du, 0, "Allocation Failed\n");
       v6 = servicePath;
       v11 = -1073741670;
-LABEL_60:
-      *USBDHandle = v5;
-LABEL_61:
-      if ( v6 )
-        ExFreePoolWithTag(v6, PoolTag);
-      return (unsigned int)v11;
+      goto LABEL_58;
     }
     memset(PoolWithTag, 0, 0xE8uLL);
     v6 = servicePath;
@@ -125,7 +117,7 @@ LABEL_61:
     v11 = InterfaceSynchronously;
     if ( InterfaceSynchronously < 0 )
     {
-      if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+      if ( g_EnableDbgPrints )
         DbgPrintEx(
           0x4Du,
           3u,
@@ -143,7 +135,7 @@ LABEL_61:
       v11 = v15;
       if ( v15 < 0 )
       {
-        v16 = LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) == 0;
+        v16 = g_EnableDbgPrints == 0;
         *((_DWORD *)v5 + 54) = 1536;
         if ( !v16 )
           DbgPrintEx(
@@ -153,7 +145,58 @@ LABEL_61:
             TargetDeviceObject,
             v15);
         v11 = 0;
-        goto LABEL_39;
+LABEL_37:
+        if ( g_EnableDbgPrints )
+          DbgPrintEx(0x4Du, 3u, "USBD_CreateHandle Successful: usbdHandleInfo 0x%p\n", v5);
+        if ( *((_DWORD *)v5 + 54) == 1536 )
+        {
+          memset(&usbBusInterface, 0, sizeof(usbBusInterface));
+          *(_DWORD *)&usbBusInterface.Size = 65608;
+          v14 = USBDInternal_BuildAndSendQueryInterfaceSynchronously(
+                  DeviceObject,
+                  TargetDeviceObject,
+                  &USB_BUS_INTERFACE_USBDI_GUID,
+                  (_INTERFACE *)&usbBusInterface);
+          v11 = v14;
+          if ( v14 < 0 )
+          {
+            if ( g_EnableDbgPrints )
+              DbgPrintEx(
+                0x4Du,
+                0,
+                "Core stack (TargetDevieObject 0x%p) failed query to USB_BUS_INTERFACE_USBDI_GUID : USB_BUSIF_USBDI_VERSION_1, 0x%x\n",
+                TargetDeviceObject,
+                v14);
+            *((_DWORD *)v5 + 54) = -1;
+            v11 = 0;
+            goto LABEL_59;
+          }
+          IsDeviceHighSpeed = (unsigned __int8)usbBusInterface.IsDeviceHighSpeed;
+          if ( usbBusInterface.IsDeviceHighSpeed )
+            IsDeviceHighSpeed = usbBusInterface.IsDeviceHighSpeed(usbBusInterface.BusContext);
+          *((_BYTE *)v5 + 224) = IsDeviceHighSpeed;
+          usbBusInterface.InterfaceDereference(usbBusInterface.BusContext);
+        }
+        if ( v11 < 0 )
+        {
+          if ( v20 )
+          {
+            v18 = (void (__fastcall *)(_QWORD))*((_QWORD *)v5 + 14);
+            if ( v18 )
+              v18(*((_QWORD *)v5 + 6));
+          }
+          ExFreePoolWithTag(v5, PoolTag);
+          v5 = 0LL;
+LABEL_58:
+          if ( !USBDHandle )
+            goto LABEL_60;
+        }
+LABEL_59:
+        *USBDHandle = v5;
+LABEL_60:
+        if ( v6 )
+          ExFreePoolWithTag(v6, PoolTag);
+        return (unsigned int)v11;
       }
     }
     else
@@ -161,54 +204,9 @@ LABEL_61:
       *((_DWORD *)v5 + 54) = *((unsigned __int16 *)v5 + 5);
     }
     v20 = 1;
-LABEL_39:
-    if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
-      DbgPrintEx(0x4Du, 3u, "USBD_CreateHandle Successful: usbdHandleInfo 0x%p\n", v5);
-    if ( *((_DWORD *)v5 + 54) == 1536 )
-    {
-      memset(&usbBusInterface, 0, sizeof(usbBusInterface));
-      *(_DWORD *)&usbBusInterface.Size = 65608;
-      v14 = USBDInternal_BuildAndSendQueryInterfaceSynchronously(
-              DeviceObject,
-              TargetDeviceObject,
-              &USB_BUS_INTERFACE_USBDI_GUID,
-              (_INTERFACE *)&usbBusInterface);
-      v11 = v14;
-      if ( v14 >= 0 )
-      {
-        IsDeviceHighSpeed = (unsigned __int8)usbBusInterface.IsDeviceHighSpeed;
-        if ( usbBusInterface.IsDeviceHighSpeed )
-          IsDeviceHighSpeed = usbBusInterface.IsDeviceHighSpeed(usbBusInterface.BusContext);
-        *((_BYTE *)v5 + 224) = IsDeviceHighSpeed;
-        usbBusInterface.InterfaceDereference(usbBusInterface.BusContext);
-      }
-      else
-      {
-        if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
-          DbgPrintEx(
-            0x4Du,
-            0,
-            "Core stack (TargetDevieObject 0x%p) failed query to USB_BUS_INTERFACE_USBDI_GUID : USB_BUSIF_USBDI_VERSION_1, 0x%x\n",
-            TargetDeviceObject,
-            v14);
-        *((_DWORD *)v5 + 54) = -1;
-        v11 = 0;
-      }
-    }
-    else if ( v11 < 0 )
-    {
-      if ( v20 )
-      {
-        v18 = (void (__fastcall *)(_QWORD))*((_QWORD *)v5 + 14);
-        if ( v18 )
-          v18(*((_QWORD *)v5 + 6));
-      }
-      ExFreePoolWithTag(v5, PoolTag);
-      v5 = 0LL;
-    }
-    goto LABEL_60;
+    goto LABEL_37;
   }
-  if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+  if ( g_EnableDbgPrints )
     DbgPrintEx(0x4Du, 0, "USBDHandle cannot be NULL\n");
   return (unsigned int)-1073741811;
 }

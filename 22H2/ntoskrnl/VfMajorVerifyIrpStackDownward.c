@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMajorVerifyIrpStackDownward @ 0x140AD4250
+ * XREFs of VfMajorVerifyIrpStackDownward @ 0x1409D7D04
  * Callers:
- *     IovpCallDriver1 @ 0x140ACD170 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x1409CFC5C (IovpCallDriver1.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall VfMajorVerifyIrpStackDownward(
@@ -22,12 +22,12 @@ __int64 (__fastcall *__fastcall VfMajorVerifyIrpStackDownward(
     v10 = (*a4 != 0xFF) + 28LL;
   else
     v10 = (unsigned __int8)*a4;
-  v11 = (void (__fastcall *)(__int64))*((_QWORD *)&unk_140D72620 + 12 * v10);
+  v11 = (void (__fastcall *)(__int64))*((_QWORD *)&unk_140D4C0D0 + 12 * v10);
   if ( v11 )
     v11(a1);
-  result = qword_140D730A0;
-  if ( qword_140D730A0 )
-    return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))qword_140D730A0(
+  result = qword_140D4CB50;
+  if ( qword_140D4CB50 )
+    return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))qword_140D4CB50(
                                                                                              a1,
                                                                                              a2,
                                                                                              a3,

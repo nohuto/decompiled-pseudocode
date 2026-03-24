@@ -4,8 +4,8 @@
  *     NtManagePartition @ 0x140608170 (NtManagePartition.c)
  * Callees:
  *     MiQueryMemoryListInformation @ 0x140091074 (MiQueryMemoryListInformation.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MiGetChannelInformation @ 0x1406086FC (MiGetChannelInformation.c)
  */
 

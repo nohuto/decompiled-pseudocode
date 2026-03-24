@@ -1,21 +1,25 @@
 /*
- * XREFs of HvUnlockHiveFilePages @ 0x1407EA52C
+ * XREFs of HvUnlockHiveFilePages @ 0x1406A5904
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x1402F634C (CmpRecheckHiveVolumePolicy.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x140361750 (CmpRecheckHiveVolumePolicy.c)
  * Callees:
- *     HvpViewMapAdjustFlag @ 0x14082B02C (HvpViewMapAdjustFlag.c)
+ *     HvpViewMapAdjustFlag @ 0x1407AE2AC (HvpViewMapAdjustFlag.c)
  */
 
-__int64 __fastcall HvUnlockHiveFilePages(__int64 a1)
+int __fastcall HvUnlockHiveFilePages(__int64 a1)
 {
-  __int64 result; // rax
+  int result; // eax
 
-  result = *(unsigned int *)(a1 + 160);
+  result = *(_DWORD *)(a1 + 160);
   if ( (result & 0x800000) != 0 )
   {
     if ( (result & 0x20000) != 0 )
-      result = HvpViewMapAdjustFlag(a1 + 224);
-    *(_DWORD *)(a1 + 160) &= ~0x800000u;
+    {
+      HvpViewMapAdjustFlag(a1 + 216);
+      result = *(_DWORD *)(a1 + 160);
+    }
+    result &= ~0x800000u;
+    *(_DWORD *)(a1 + 160) = result;
   }
   return result;
 }

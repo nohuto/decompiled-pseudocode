@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InitMapSharedSection@@YAJPEAU_EPROCESS@@PEAU_USERCONNECT@@@Z @ 0x1C00794C4
+ * XREFs of ?InitMapSharedSection@@YAJPEAU_EPROCESS@@PEAU_USERCONNECT@@@Z @ 0x1C004D7B4
  * Callers:
- *     NtUserProcessConnect @ 0x1C0079860 (NtUserProcessConnect.c)
+ *     NtUserProcessConnect @ 0x1C004D290 (NtUserProcessConnect.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00788F8 (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F430 (WPP_RECORDER_SF_q.c)
  */
 
 __int64 __fastcall InitMapSharedSection(struct _EPROCESS *a1, struct _USERCONNECT *a2)
@@ -13,7 +13,7 @@ __int64 __fastcall InitMapSharedSection(struct _EPROCESS *a1, struct _USERCONNEC
   __int64 ProcessWin32Process; // rax
   __int64 result; // rax
   int v6; // edx
-  int v7; // r8d
+  int v7; // ecx
   int v8; // edi
   __int64 v9; // rax
   __int64 v10; // r9
@@ -28,19 +28,11 @@ __int64 __fastcall InitMapSharedSection(struct _EPROCESS *a1, struct _USERCONNEC
   v16 = 0LL;
   v2 = a2;
   v17 = 0LL;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)a2,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (unsigned int)&WPP_6ef41bf7ba8b3874ce66483ce5bf9e7b_Traceguids,
-      4,
-      3,
-      14,
-      (__int64)&WPP_6ef41bf7ba8b3874ce66483ce5bf9e7b_Traceguids);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)a1, (_DWORD)a2, 3, 14, (__int64)&WPP_5beb818f3182338190d7890059714f79_Traceguids);
+  }
   ProcessWin32Process = PsGetProcessWin32Process(a1);
   if ( ProcessWin32Process && *(_QWORD *)(ProcessWin32Process + 744) )
   {
@@ -55,22 +47,10 @@ __int64 __fastcall InitMapSharedSection(struct _EPROCESS *a1, struct _USERCONNEC
     result = MmMapViewOfSection(ghSectionShared, a1, &v16, 0LL, 0LL, &v15, &v14, 2, 0x400000, 2);
     if ( (int)result < 0 )
       return result;
-    LOBYTE(v6) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_q(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v6,
-        v7,
-        15,
-        4,
-        3,
-        15,
-        (__int64)&WPP_6ef41bf7ba8b3874ce66483ce5bf9e7b_Traceguids,
-        v16);
+      LOBYTE(v6) = 4;
+      WPP_RECORDER_SF_q(v7, v6, 3, 15, (__int64)&WPP_5beb818f3182338190d7890059714f79_Traceguids, v16);
     }
     v14 = 0LL;
     v15 = 2101248LL;
@@ -90,19 +70,19 @@ __int64 __fastcall InitMapSharedSection(struct _EPROCESS *a1, struct _USERCONNEC
   }
   *((_QWORD *)v2 + 5) = v10;
   v11 = 31LL;
-  *((_QWORD *)v2 + 1) = v10 + gSharedInfo - gpvSharedAlloc;
-  *((_QWORD *)v2 + 2) = v16 + *((_QWORD *)&gSharedInfo + 1) - gpvSharedBase;
-  *((_DWORD *)v2 + 6) = *((_DWORD *)&gSharedInfo + 4);
-  *((_QWORD *)v2 + 4) = v10 + *((_QWORD *)&gSharedInfo + 3) - gpvSharedAlloc;
-  *((_DWORD *)v2 + 136) = *((_DWORD *)&gSharedInfo + 134);
-  *((_QWORD *)v2 + 69) = v10 + *((_QWORD *)&gSharedInfo + 68) - gpvSharedAlloc;
-  *((_DWORD *)v2 + 140) = *((_DWORD *)&gSharedInfo + 138);
+  *((_QWORD *)v2 + 1) = v10 + gSharedInfo[0] - gpvSharedAlloc;
+  *((_QWORD *)v2 + 2) = v16 + gSharedInfo[1] - gpvSharedBase;
+  *((_DWORD *)v2 + 6) = gSharedInfo[2];
+  *((_QWORD *)v2 + 4) = v10 + gSharedInfo[3] - gpvSharedAlloc;
+  *((_DWORD *)v2 + 136) = gSharedInfo[67];
+  *((_QWORD *)v2 + 69) = v10 + gSharedInfo[68] - gpvSharedAlloc;
+  *((_DWORD *)v2 + 140) = gSharedInfo[69];
   v12 = (_QWORD *)((char *)v2 + 56);
-  *((_QWORD *)v2 + 71) = v10 + *((_QWORD *)&gSharedInfo + 70) - gpvSharedAlloc;
+  *((_QWORD *)v2 + 71) = v10 + gSharedInfo[70] - gpvSharedAlloc;
   do
   {
-    *((_DWORD *)v12 - 2) = *(_DWORD *)((char *)v12 + gSharedInfo - (_QWORD)v2 - 16);
-    v13 = *(_QWORD *)((char *)v12 + gSharedInfo - (_QWORD)v2 - 8);
+    *((_DWORD *)v12 - 2) = *(_DWORD *)((char *)v12 + gSharedInfo[0] - (_QWORD)v2 - 16);
+    v13 = *(_QWORD *)((char *)v12 + gSharedInfo[0] - (_QWORD)v2 - 8);
     if ( v13 )
       v13 = v10 + v13 - gpvSharedAlloc;
     *v12 = v13;
@@ -110,7 +90,5 @@ __int64 __fastcall InitMapSharedSection(struct _EPROCESS *a1, struct _USERCONNEC
     --v11;
   }
   while ( v11 );
-  result = 0LL;
-  *((_DWORD *)v2 + 144) = gCallerKernelAbiVersion;
-  return result;
+  return 0LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of XilCommand_AllocateSecureResources @ 0x1C00312B0
+ * XREFs of XilCommand_AllocateSecureResources @ 0x1C002F720
  * Callers:
- *     XilCommand_AllocateResources @ 0x1C001BC30 (XilCommand_AllocateResources.c)
+ *     XilCommand_AllocateResources @ 0x1C0015AFC (XilCommand_AllocateResources.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall XilCommand_AllocateSecureResources(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall XilCommand_AllocateSecureResources(__int64 a1)
   __int64 v4; // rcx
   int v5; // eax
   int v6; // edx
-  unsigned int v7; // edi
+  unsigned int v7; // ebx
   int v8; // edx
   int v9; // r8d
   int v10; // r9d
@@ -28,7 +28,6 @@ __int64 __fastcall XilCommand_AllocateSecureResources(__int64 a1)
   __int128 v17; // [rsp+70h] [rbp+2Fh] BYREF
   __int128 v18; // [rsp+80h] [rbp+3Fh]
 
-  DWORD1(v17) = 0;
   v2 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL);
   v3 = *(_QWORD *)(a1 + 32);
   v4 = *(_QWORD *)(v2 + 112);
@@ -60,7 +59,7 @@ __int64 __fastcall XilCommand_AllocateSecureResources(__int64 a1)
           v6,
           7,
           14,
-          (__int64)&WPP_db21d8d52d393cb96c062fdb7e607301_Traceguids,
+          (__int64)&WPP_4b601d8e2e913b6c42a65f3f32a61124_Traceguids,
           v17);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v8, v9, v10);
@@ -72,7 +71,7 @@ __int64 __fastcall XilCommand_AllocateSecureResources(__int64 a1)
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v6) = 2;
-    WPP_RECORDER_SF_d(*(_QWORD *)(v2 + 72), v6, 7, 13, (__int64)&WPP_db21d8d52d393cb96c062fdb7e607301_Traceguids, v5);
+    WPP_RECORDER_SF_d(*(_QWORD *)(v2 + 72), v6, 7, 13, (__int64)&WPP_4b601d8e2e913b6c42a65f3f32a61124_Traceguids, v5);
   }
   return v7;
 }

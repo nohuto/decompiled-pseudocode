@@ -1,11 +1,11 @@
 /*
- * XREFs of VidSchiProcessGpuEngineTimeoutDpc @ 0x1C0045440
+ * XREFs of VidSchiProcessGpuEngineTimeoutDpc @ 0x1C003AE30
  * Callers:
- *     VidSchDdiNotifyDpc @ 0x1C000E160 (VidSchDdiNotifyDpc.c)
- *     VidSchDdiNotifyDpcWorker @ 0x1C0039F74 (VidSchDdiNotifyDpcWorker.c)
+ *     VidSchDdiNotifyDpc @ 0x1C0006B20 (VidSchDdiNotifyDpc.c)
+ *     VidSchDdiNotifyDpcWorker @ 0x1C002ED78 (VidSchDdiNotifyDpcWorker.c)
  * Callees:
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C00032E4 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00033A8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011E50 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00128EC (-Release@AcquireSpinLock@@QEAAXXZ.c)
  */
 
 void __fastcall VidSchiProcessGpuEngineTimeoutDpc(PSLIST_ENTRY ListEntry)
@@ -16,12 +16,12 @@ void __fastcall VidSchiProcessGpuEngineTimeoutDpc(PSLIST_ENTRY ListEntry)
   __int16 v4; // [rsp+40h] [rbp-18h]
 
   Next = ListEntry[2].Next;
-  ExpInterlockedPushEntrySList((PSLIST_HEADER)&Next[385], ListEntry);
-  v2 = *((_QWORD *)&Next[1].Next + 1) + 1728LL;
+  ExpInterlockedPushEntrySList((PSLIST_HEADER)&Next[382], ListEntry);
+  v2 = *((_QWORD *)&Next[1].Next + 1) + 1712LL;
   v4 = 256;
   v3[0] = v2;
   AcquireSpinLock::Acquire((Acquire *)v3);
-  *((_DWORD *)&Next[126].Next + 3) = 1;
-  *((_BYTE *)&Next[126].Next + 10) = 1;
+  HIDWORD(Next[126].Next) = 1;
+  BYTE2(Next[126].Next) = 1;
   AcquireSpinLock::Release((AcquireSpinLock *)v3);
 }

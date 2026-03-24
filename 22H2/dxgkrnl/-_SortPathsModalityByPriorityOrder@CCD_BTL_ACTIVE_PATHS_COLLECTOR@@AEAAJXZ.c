@@ -1,23 +1,28 @@
 /*
- * XREFs of ?_SortPathsModalityByPriorityOrder@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJXZ @ 0x1C017F9BC
+ * XREFs of ?_SortPathsModalityByPriorityOrder@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@AEAAJXZ @ 0x1C013A828
  * Callers:
- *     ?CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z @ 0x1C017F8E8 (-CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z.c)
- *     ?RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C01E872C (-RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z.c)
+ *     ?CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z @ 0x1C013A4AC (-CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z.c)
+ *     ?RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C016BFBC (-RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z.c)
  * Callees:
- *     qsort_0 @ 0x1C0023EB1 (qsort_0.c)
+ *     qsort_0 @ 0x1C0024911 (qsort_0.c)
  */
 
 __int64 __fastcall CCD_BTL_ACTIVE_PATHS_COLLECTOR::_SortPathsModalityByPriorityOrder(
         CCD_BTL_ACTIVE_PATHS_COLLECTOR *this)
 {
   __int64 v1; // rcx
+  __int16 v2; // ax
 
   v1 = *(_QWORD *)(*(_QWORD *)this + 64LL);
-  if ( v1 && *(_WORD *)(v1 + 20) )
+  if ( v1 )
+    v2 = *(_WORD *)(v1 + 20);
+  else
+    v2 = 0;
+  if ( v2 )
     qsort_0(
-      (void *)(v1 + 56),
+      (void *)(v1 + 48),
       *(unsigned __int16 *)(v1 + 20),
-      0x128uLL,
+      0x110uLL,
       CCD_BTL_ACTIVE_PATHS_COLLECTOR::_SortPathsModalityByPriorityOrderQSortCallback);
   return 0LL;
 }

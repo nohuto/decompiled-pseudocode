@@ -1,88 +1,89 @@
 /*
- * XREFs of CcPurgeAndClearCacheSection @ 0x1402F12D4
+ * XREFs of CcPurgeAndClearCacheSection @ 0x14026F814
  * Callers:
- *     CcSetFileSizesEx @ 0x1402F0FA0 (CcSetFileSizesEx.c)
+ *     CcSetFileSizesEx @ 0x14022DA90 (CcSetFileSizesEx.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     CcGetVirtualAddress @ 0x140264CD0 (CcGetVirtualAddress.c)
- *     MmSetAddressRangeModifiedEx @ 0x14027F0B0 (MmSetAddressRangeModifiedEx.c)
- *     MmFlushSection @ 0x140287370 (MmFlushSection.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1402A13B0 (CcReferenceSharedCacheMapFileObject.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A23E0 (ObFastDereferenceObjectDeferDelete.c)
- *     CcSetDirtyInMask @ 0x1402C8FC0 (CcSetDirtyInMask.c)
- *     CcPurgeCacheSection @ 0x1402F07D0 (CcPurgeCacheSection.c)
- *     CcUpdateSharedCacheMapFlag @ 0x14034BD34 (CcUpdateSharedCacheMapFlag.c)
- *     memset @ 0x140435400 (memset.c)
+ *     CcPurgeCacheSection @ 0x140270FA0 (CcPurgeCacheSection.c)
+ *     CcDereferenceSharedCacheMapFileObject @ 0x140275E04 (CcDereferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x140275E50 (CcReferenceSharedCacheMapFileObject.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14028FCC0 (MmSetAddressRangeModifiedEx.c)
+ *     CcGetVirtualAddress @ 0x1402A15A0 (CcGetVirtualAddress.c)
+ *     CcSetDirtyInMask @ 0x1402B6B00 (CcSetDirtyInMask.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x14031195C (CcUpdateSharedCacheMapFlag.c)
+ *     MmFlushSection @ 0x14033D70C (MmFlushSection.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall CcPurgeAndClearCacheSection(__int64 a1, LARGE_INTEGER *a2)
 {
   LARGE_INTEGER *v2; // r14
-  unsigned __int64 v4; // r13
-  BOOLEAN v5; // bl
+  int v4; // r9d
+  __int64 v5; // r13
+  BOOLEAN v6; // bl
   __int64 result; // rax
-  __int64 QuadPart; // rbx
-  unsigned int v8; // r12d
-  __int64 v9; // rbx
-  struct _KEVENT *v10; // rcx
-  __int64 v11; // r8
-  int v12; // [rsp+30h] [rbp-78h] BYREF
-  LONGLONG v13; // [rsp+38h] [rbp-70h] BYREF
-  __int64 v14[2]; // [rsp+40h] [rbp-68h] BYREF
+  LONGLONG QuadPart; // rbx
+  unsigned int v9; // r12d
+  __int64 v10; // rbx
+  struct _KEVENT *v11; // rcx
+  __int64 v12; // r8
+  char v13; // [rsp+30h] [rbp-78h] BYREF
+  LONGLONG v14; // [rsp+38h] [rbp-70h] BYREF
+  _QWORD v15[2]; // [rsp+40h] [rbp-68h] BYREF
   void *VirtualAddress; // [rsp+50h] [rbp-58h]
-  struct _IO_STATUS_BLOCK v16; // [rsp+58h] [rbp-50h] BYREF
+  _OWORD v17[5]; // [rsp+58h] [rbp-50h] BYREF
 
   v2 = a2;
-  v13 = 0LL;
-  v16 = 0LL;
-  v14[0] = 0LL;
+  v14 = 0LL;
+  v17[0] = 0LL;
+  v15[0] = 0LL;
   if ( (*(_DWORD *)(a1 + 152) & 0x2000) != 0 )
   {
     if ( ((unsigned __int8)a2 & 1) == 0 )
       return 3221226549LL;
     v2 = (LARGE_INTEGER *)((unsigned __int64)a2 ^ 1);
   }
-  v4 = CcReferenceSharedCacheMapFileObject(a1);
-  v14[1] = v4;
+  v5 = CcReferenceSharedCacheMapFileObject(a1);
+  v15[1] = v5;
   if ( (v2->LowPart & 0xFFF) == 0 )
     goto LABEL_3;
   QuadPart = v2->QuadPart;
-  v13 = v2->QuadPart;
-  v2 = (LARGE_INTEGER *)&v13;
-  if ( *(_QWORD *)(a1 + 176) && *(_QWORD *)(a1 + 88) )
+  v14 = v2->QuadPart;
+  v2 = (LARGE_INTEGER *)&v14;
+  if ( *(_QWORD *)(a1 + 168) && *(_QWORD *)(a1 + 88) )
   {
-    v8 = 4096 - (QuadPart & 0xFFF);
-    VirtualAddress = (void *)CcGetVirtualAddress(a1, QuadPart, v14, &v12, 1, 0);
-    memset(VirtualAddress, 0, v8);
+    v9 = 4096 - (QuadPart & 0xFFF);
+    VirtualAddress = (void *)CcGetVirtualAddress(a1, QuadPart, (unsigned int)v15, (unsigned int)&v13, 1, 0);
+    memset(VirtualAddress, 0, v9);
     if ( QuadPart > *(_QWORD *)(a1 + 48) )
     {
-      MmSetAddressRangeModifiedEx((unsigned __int64)VirtualAddress, 1LL);
-      LOBYTE(v11) = 1;
-      CcUpdateSharedCacheMapFlag(a1, 0x20000LL, v11);
+      MmSetAddressRangeModifiedEx(VirtualAddress, 1LL);
+      LOBYTE(v12) = 1;
+      CcUpdateSharedCacheMapFlag(a1, 0x20000LL, v12);
     }
     else
     {
-      CcSetDirtyInMask(a1, &v13, v8, 0LL);
+      CcSetDirtyInMask(a1, &v14, v9, 0LL);
     }
-    v13 = v8 + QuadPart;
-    v9 = *(_QWORD *)(v14[0] + 8);
-    if ( !(unsigned __int16)_InterlockedDecrement((volatile signed __int32 *)(v14[0] + 16)) )
+    v14 = v9 + QuadPart;
+    v10 = *(_QWORD *)(v15[0] + 8LL);
+    if ( !(unsigned __int16)_InterlockedDecrement((volatile signed __int32 *)(v15[0] + 16LL)) )
     {
-      v10 = *(struct _KEVENT **)(v9 + 192);
-      if ( v10 )
-        KeSetEvent(v10, 0, 0);
-      _InterlockedDecrement((volatile signed __int32 *)(v9 + 552));
+      v11 = *(struct _KEVENT **)(v10 + 184);
+      if ( v11 )
+        KeSetEvent(v11, 0, 0);
+      _InterlockedDecrement((volatile signed __int32 *)(v10 + 544));
     }
     goto LABEL_3;
   }
-  MmFlushSection(*(_QWORD *)(v4 + 40), &v13, 1uLL, 0LL, &v16, 0);
-  result = (unsigned int)v16.Status;
-  if ( v16.Status >= 0 )
+  MmFlushSection(*(_QWORD *)(v5 + 40), (unsigned int)&v14, 1, v4, (__int64)v17, 0);
+  result = LODWORD(v17[0]);
+  if ( SLODWORD(v17[0]) >= 0 )
   {
 LABEL_3:
-    v5 = CcPurgeCacheSection(*(PSECTION_OBJECT_POINTERS *)(v4 + 40), v2, 0, 0);
-    ObFastDereferenceObjectDeferDelete((signed __int64 *)(a1 + 96), v4, 0x63536343u);
-    return v5 == 0 ? 0xC0000435 : 0;
+    v6 = CcPurgeCacheSection(*(PSECTION_OBJECT_POINTERS *)(v5 + 40), v2, 0, 0);
+    CcDereferenceSharedCacheMapFileObject(a1, v5);
+    return v6 == 0 ? 0xC0000435 : 0;
   }
   return result;
 }

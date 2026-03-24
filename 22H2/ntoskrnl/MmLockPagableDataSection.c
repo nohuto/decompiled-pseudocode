@@ -1,23 +1,21 @@
 /*
- * XREFs of MmLockPagableDataSection @ 0x1406AD5B0
+ * XREFs of MmLockPagableDataSection @ 0x1406FE5A0
  * Callers:
- *     DifMmLockPagableDataSectionWrapper @ 0x1405E7390 (DifMmLockPagableDataSectionWrapper.c)
- *     HalpPowerInitSystem @ 0x140A90A30 (HalpPowerInitSystem.c)
- *     VfInitDifWithoutReboot @ 0x140AC3C04 (VfInitDifWithoutReboot.c)
- *     VfInitSystemNoRebootNeeded @ 0x140AC3CE8 (VfInitSystemNoRebootNeeded.c)
- *     BgkpLockBgfxCodeSection @ 0x140AF0550 (BgkpLockBgfxCodeSection.c)
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
- *     MiLockPagableSections @ 0x140B62918 (MiLockPagableSections.c)
- *     HeadlessInit @ 0x140B76EC4 (HeadlessInit.c)
+ *     HalpPowerInitSystem @ 0x1409A09F0 (HalpPowerInitSystem.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409C6D50 (VfInitSystemNoRebootNeeded.c)
+ *     BgkpLockBgfxCodeSection @ 0x1409F3730 (BgkpLockBgfxCodeSection.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiLockPagableSections @ 0x140A545BC (MiLockPagableSections.c)
+ *     HeadlessInit @ 0x140A74260 (HeadlessInit.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x1402136C0 (MiLookupDataTableEntry.c)
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     MiLockPagableImageSection @ 0x14025A6C0 (MiLockPagableImageSection.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140284790 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     MiLockPagableImageSection @ 0x14029CB80 (MiLockPagableImageSection.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14029D260 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     MiLookupDataTableEntry @ 0x140358CCC (MiLookupDataTableEntry.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall MmLockPagableDataSection(PVOID AddressWithinSection)
@@ -39,7 +37,7 @@ PVOID __stdcall MmLockPagableDataSection(PVOID AddressWithinSection)
   v3 = 0LL;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PsLoadedModuleResource, 1u);
-  v4 = MiLookupDataTableEntry((unsigned __int64)AddressWithinSection, 0)[6];
+  v4 = *(_QWORD *)(MiLookupDataTableEntry((unsigned __int64)AddressWithinSection, 0) + 48);
   v5 = (char *)AddressWithinSection - v4;
   v6 = RtlImageNtHeader(v4);
   v7 = *(unsigned __int16 *)(v6 + 6);

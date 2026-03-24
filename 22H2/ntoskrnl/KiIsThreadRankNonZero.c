@@ -1,45 +1,53 @@
 /*
- * XREFs of KiIsThreadRankNonZero @ 0x140308EB0
+ * XREFs of KiIsThreadRankNonZero @ 0x14024CDC0
  * Callers:
- *     KiUpdateThreadSchedulingProperties @ 0x140204EA0 (KiUpdateThreadSchedulingProperties.c)
- *     KiCheckForEffectivePriorityChange @ 0x1402064E4 (KiCheckForEffectivePriorityChange.c)
- *     KeQueryEffectiveBasePriorityThread @ 0x1402230F4 (KeQueryEffectiveBasePriorityThread.c)
- *     KiCommitRescheduleContextEntry @ 0x140242E70 (KiCommitRescheduleContextEntry.c)
- *     KiSetPriorityThread @ 0x1402B05A0 (KiSetPriorityThread.c)
- *     KiRemoveBoostThread @ 0x1402BB220 (KiRemoveBoostThread.c)
- *     KiUpdateThreadPriority @ 0x140307A60 (KiUpdateThreadPriority.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x1403084DC (KiTransitionSchedulingGroupGeneration.c)
- *     KiApplyForegroundBoostThread @ 0x14034FED8 (KiApplyForegroundBoostThread.c)
- *     KiInitializePriorityState @ 0x140383020 (KiInitializePriorityState.c)
- *     KeQueryEffectivePriorityThread @ 0x1403AE790 (KeQueryEffectivePriorityThread.c)
+ *     KiSetPriorityThread @ 0x14022FC10 (KiSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     KiUpdateThreadPriority @ 0x1402307C0 (KiUpdateThreadPriority.c)
+ *     KiRemoveBoostThread @ 0x14024A840 (KiRemoveBoostThread.c)
+ *     KiDirectSwitchThread @ 0x14024C1B0 (KiDirectSwitchThread.c)
+ *     KiSearchForNewThread @ 0x140256518 (KiSearchForNewThread.c)
+ *     KiSelectNextThread @ 0x1402568EC (KiSelectNextThread.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     KiQuantumEnd @ 0x140257550 (KiQuantumEnd.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x140258040 (KiGroupSchedulingQuantumEnd.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x14025923C (KiGroupSchedulingGenerationEnd.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x140259550 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x140259970 (KiDeferGroupSchedulingPreemption.c)
+ *     KiDeferredReadySingleThread @ 0x1402C4550 (KiDeferredReadySingleThread.c)
+ *     KiSwapThread @ 0x1402C6D60 (KiSwapThread.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x1402C7A00 (KiSearchForNewThreadOnProcessor.c)
+ *     KiCheckForEffectivePriorityChange @ 0x1402DE540 (KiCheckForEffectivePriorityChange.c)
+ *     KeYieldExecution @ 0x1402F64D0 (KeYieldExecution.c)
+ *     KeQueryEffectiveBasePriorityThread @ 0x14033A98C (KeQueryEffectiveBasePriorityThread.c)
+ *     KiSchedulerApc @ 0x140342C10 (KiSchedulerApc.c)
+ *     KiApplyForegroundBoostThread @ 0x14035B5EC (KiApplyForegroundBoostThread.c)
+ *     KeUpdateThreadSchedulingProperties @ 0x14035D8C8 (KeUpdateThreadSchedulingProperties.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x14035E53C (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KeQueryEffectivePriorityThread @ 0x1403763E0 (KeQueryEffectivePriorityThread.c)
+ *     KeTransitionProcessorParkState @ 0x1405253EC (KeTransitionProcessorParkState.c)
+ *     KiConfigureSchedulingInformation @ 0x14099F9F0 (KiConfigureSchedulingInformation.c)
  * Callees:
- *     KiIsThreadConstrainedBySchedulingGroup @ 0x140308F6C (KiIsThreadConstrainedBySchedulingGroup.c)
- *     KiCheckForMaxOverQuotaScb @ 0x140308F8C (KiCheckForMaxOverQuotaScb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x14024CE70 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall KiIsThreadRankNonZero(__int64 a1, struct _KPRCB *a2)
 {
-  int v3; // ebx
-  __int64 v4; // r10
+  int ThreadEffectiveRankNonZero; // ebx
   unsigned __int8 CurrentIrql; // di
-  struct _KPRCB *CurrentPrcb; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rdx
-  __int64 v9; // rdx
-  __int64 v10; // rdx
-  _DWORD *SchedulerAssist; // rsi
-  __int64 v13; // rdx
-  unsigned __int8 v14; // al
-  struct _KPRCB *v15; // r9
-  _DWORD *v16; // r8
-  int v17; // eax
-  bool v18; // zf
+  struct _KPRCB *CurrentPrcb; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rax
+  _DWORD *SchedulerAssist; // r9
+  struct _KPRCB *v10; // r9
+  _DWORD *v11; // r8
+  int v12; // eax
+  bool v13; // zf
 
   if ( *(char *)(a1 + 195) >= 16 || !*(_QWORD *)(a1 + 104) )
     return 0;
-  v3 = 0;
-  v4 = -1LL;
+  ThreadEffectiveRankNonZero = 0;
   if ( a2 )
   {
     CurrentIrql = 2;
@@ -52,71 +60,46 @@ bool __fastcall KiIsThreadRankNonZero(__int64 a1, struct _KPRCB *a2)
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == 2 )
-        LODWORD(v13) = 4;
-      else
-        v13 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v13;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     CurrentPrcb = KeGetCurrentPrcb();
   }
-  v7 = *(_QWORD *)(a1 + 104);
-  if ( v7 )
+  v6 = *(_QWORD *)(a1 + 104);
+  if ( v6 )
   {
-    v8 = CurrentPrcb->ScbOffset + v7;
-    if ( v8 )
+    v7 = CurrentPrcb->ScbOffset + v6;
+    if ( v7 )
     {
       if ( a2 )
       {
-        if ( (unsigned __int8)KiIsThreadConstrainedBySchedulingGroup(a1) )
-        {
-          if ( (unsigned __int8)KiCheckForMaxOverQuotaScb(v9, v9) )
-          {
-            v3 = -1;
-          }
-          else
-          {
-            do
-            {
-              v3 = *(_DWORD *)(v10 + 116);
-              if ( v3 )
-                break;
-              v10 = *(_QWORD *)(v10 + 408);
-            }
-            while ( v10 );
-          }
-        }
+        ThreadEffectiveRankNonZero = KiGetThreadEffectiveRankNonZero(a1, v7, 0, 0, 0LL);
       }
       else
       {
         do
         {
-          v3 = (*(unsigned __int8 *)(v8 + 112) >> 3) & 1;
-          if ( v3 )
+          ThreadEffectiveRankNonZero = (*(unsigned __int8 *)(v7 + 112) >> 3) & 1;
+          if ( ThreadEffectiveRankNonZero )
             break;
-          v8 = *(_QWORD *)(v8 + 408);
+          v7 = *(_QWORD *)(v7 + 408);
         }
-        while ( v8 );
+        while ( v7 );
       }
     }
   }
   if ( CurrentIrql < 2u )
   {
-    if ( KiIrqlFlags )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
     {
-      v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v14 - 2) <= 0xDu )
-      {
-        v15 = KeGetCurrentPrcb();
-        v16 = v15->SchedulerAssist;
-        v17 = ~(unsigned __int16)(v4 << (CurrentIrql + 1));
-        v18 = (v17 & v16[5]) == 0;
-        v16[5] &= v17;
-        if ( v18 )
-          KiRemoveSystemWorkPriorityKick(v15);
-      }
+      v10 = KeGetCurrentPrcb();
+      v11 = v10->SchedulerAssist;
+      v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+      v13 = (v12 & v11[5]) == 0;
+      v11[5] &= v12;
+      if ( v13 )
+        KiRemoveSystemWorkPriorityKick(v10);
     }
     __writecr8(CurrentIrql);
   }
-  return v3 != 0;
+  return ThreadEffectiveRankNonZero != 0;
 }

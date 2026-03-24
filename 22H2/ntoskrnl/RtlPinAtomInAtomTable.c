@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlPinAtomInAtomTable @ 0x1407D1010
+ * XREFs of RtlPinAtomInAtomTable @ 0x1406936D0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     RtlpLookupLowBox @ 0x140297594 (RtlpLookupLowBox.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     RtlpLockAtomTable @ 0x140718140 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x14073FD58 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlpLookupLowBox @ 0x14025A2B8 (RtlpLookupLowBox.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     RtlpLockAtomTable @ 0x14061BE34 (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x14061BE80 (RtlpAtomMapAtomToHandleEntry.c)
  */
 
 __int64 __fastcall RtlPinAtomInAtomTable(__int64 a1, unsigned __int16 a2)
 {
   int v4; // eax
   unsigned __int64 v5; // rax
-  _QWORD *v6; // rax
+  __int64 *v6; // rax
   unsigned int v8; // [rsp+20h] [rbp-28h]
 
   if ( !RtlpLockAtomTable((_DWORD *)a1) )

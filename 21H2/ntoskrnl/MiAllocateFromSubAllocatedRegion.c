@@ -1,158 +1,153 @@
 /*
- * XREFs of MiAllocateFromSubAllocatedRegion @ 0x140709A08
+ * XREFs of MiAllocateFromSubAllocatedRegion @ 0x14064C180
  * Callers:
- *     MiCreatePebOrTeb @ 0x1407099A4 (MiCreatePebOrTeb.c)
+ *     MiCreatePebOrTeb @ 0x14064C104 (MiCreatePebOrTeb.c)
  * Callees:
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140281A58 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     RtlFindClearBitsAndSetEx @ 0x14029E780 (RtlFindClearBitsAndSetEx.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x14030B538 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14030B6D0 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiLockVad @ 0x14030B7F0 (MiLockVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x14030B820 (LOCK_ADDRESS_SPACE.c)
- *     MiReferenceVad @ 0x14030EB64 (MiReferenceVad.c)
- *     MiVadDeleted @ 0x14030EB80 (MiVadDeleted.c)
- *     MiCommitExistingVad @ 0x14032C1B0 (MiCommitExistingVad.c)
- *     MiUnlockAndDereferenceVad @ 0x14032E700 (MiUnlockAndDereferenceVad.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1406BF9AC (MiAllocateNewSubAllocatedRegion.c)
- *     MiFreeToSubAllocatedRegion @ 0x14079EF3C (MiFreeToSubAllocatedRegion.c)
+ *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
+ *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x14025B390 (MiReferenceVad.c)
+ *     RtlFindClearBitsAndSetEx @ 0x1402793D0 (RtlFindClearBitsAndSetEx.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14031528C (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x140316758 (MiLockVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316788 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14031698C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x14069F198 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiFreeToSubAllocatedRegion @ 0x1406E9484 (MiFreeToSubAllocatedRegion.c)
  */
 
-__int64 __fastcall MiAllocateFromSubAllocatedRegion(int a1, __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 MiAllocateFromSubAllocatedRegion(unsigned int a1, __int64 a2, unsigned __int64 *a3, ...)
 {
-  __int64 v4; // rdi
-  unsigned __int64 v5; // rbp
-  struct _KTHREAD *CurrentThread; // rbx
-  unsigned __int64 v7; // r13
-  __int64 Process; // r14
-  __int64 v9; // r12
-  _QWORD *v10; // r12
-  _QWORD *v11; // rsi
+  __int64 v3; // r14
+  unsigned __int64 v4; // r12
+  __int64 v5; // rbx
+  unsigned __int64 v6; // rbp
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 Process; // r15
+  __int64 v9; // rdi
+  __int64 v10; // r13
+  __int64 v11; // r14
+  __int64 *v12; // rdi
   unsigned __int64 ClearBitsAndSet; // rax
-  unsigned __int64 v13; // rdx
-  int v14; // ecx
-  unsigned int v15; // eax
-  bool v16; // zf
+  unsigned __int64 v14; // rdx
+  int v15; // ecx
+  unsigned int v16; // eax
   char *v17; // rcx
-  int v18; // ebx
-  int NewSubAllocatedRegion; // esi
-  __int64 v21; // rax
-  _QWORD *v22; // rcx
-  __int16 v23; // [rsp+B0h] [rbp+8h] BYREF
-  __int16 v24; // [rsp+B2h] [rbp+Ah]
-  __int64 v25; // [rsp+B8h] [rbp+10h]
-  unsigned __int64 *v26; // [rsp+C0h] [rbp+18h]
-  int v27; // [rsp+C8h] [rbp+20h] BYREF
-  int v28; // [rsp+CCh] [rbp+24h]
+  int NewSubAllocatedRegion; // edi
+  __int64 *v20; // rcx
+  __int64 **v21; // rax
+  int v22; // [rsp+50h] [rbp-68h] BYREF
+  __int64 v23; // [rsp+58h] [rbp-60h]
+  __int64 v24; // [rsp+60h] [rbp-58h]
+  __int64 v28; // [rsp+D8h] [rbp+20h] BYREF
+  va_list va; // [rsp+D8h] [rbp+20h]
+  va_list va1; // [rsp+E0h] [rbp+28h] BYREF
 
-  v28 = HIDWORD(a4);
-  v26 = a3;
-  v25 = a2;
-  v24 = HIWORD(a1);
-  v27 = 0;
-  v4 = 0LL;
-  v23 = 0;
+  va_start(va1, a3);
+  va_start(va, a3);
+  v28 = va_arg(va1, _QWORD);
+  v3 = (int)a1;
+  v4 = (unsigned __int64)(a2 + 4095) >> 12;
+  v22 = 0;
   v5 = 0LL;
+  LOWORD(v28) = 0;
+  v6 = 0LL;
   *a3 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v7 = (unsigned __int64)(a2 + 4095) >> 12;
   Process = (__int64)CurrentThread->ApcState.Process;
-  v9 = *(_QWORD *)(Process + 1680);
+  v9 = *(_QWORD *)(Process + 1680) + 48LL;
   --CurrentThread->SpecialApcDisable;
+  v24 = v9;
   LOCK_ADDRESS_SPACE((__int64)CurrentThread, Process);
   if ( (*(_DWORD *)(Process + 1124) & 0x20) != 0 )
   {
-    UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);
-    v16 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v16 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
-    return 3221225738LL;
+    NewSubAllocatedRegion = -1073741558;
+LABEL_16:
+    UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, Process);
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+    return (unsigned int)NewSubAllocatedRegion;
   }
-  else
+  v10 = 2 * (v3 + 17);
+  v11 = v9 + 16 * (v3 + 17);
+  v23 = v11;
+  while ( 2 )
   {
-    v10 = (_QWORD *)(v9 + 312);
-    while ( 1 )
+    LOCK_PAGE_TABLE_COMMITMENT((__int64)CurrentThread, Process);
+    v12 = *(__int64 **)(v9 + 8 * v10);
+    while ( v12 != (__int64 *)v11 )
     {
-      LOCK_PAGE_TABLE_COMMITMENT((__int64)CurrentThread, Process);
-      v11 = (_QWORD *)*v10;
-      if ( (_QWORD *)*v10 != v10 )
+      ClearBitsAndSet = RtlFindClearBitsAndSetEx(
+                          (unsigned __int64 *)v12 - 2,
+                          v4,
+                          (unsigned __int64)*((unsigned int *)v12 + 8) >> 2);
+      v14 = ClearBitsAndSet;
+      if ( ClearBitsAndSet != -1LL )
       {
-        while ( 1 )
+        *((_DWORD *)v12 + 6) += v4;
+        v15 = v12[4] & 3 | (4 * (v4 + ClearBitsAndSet));
+        v16 = *((_DWORD *)v12 + 6);
+        *((_DWORD *)v12 + 8) = v15;
+        if ( v16 >= *((_DWORD *)v12 + 7) )
         {
-          ClearBitsAndSet = RtlFindClearBitsAndSetEx(v11 - 2, v7, (unsigned __int64)*((unsigned int *)v11 + 8) >> 2);
-          v13 = ClearBitsAndSet;
-          if ( ClearBitsAndSet != -1LL )
-            break;
-          v11 = (_QWORD *)*v11;
-          if ( v11 == v10 )
-            goto LABEL_7;
-        }
-        *((_DWORD *)v11 + 6) += v7;
-        v14 = v11[4] & 3 | (4 * (ClearBitsAndSet + v7));
-        v15 = *((_DWORD *)v11 + 6);
-        *((_DWORD *)v11 + 8) = v14;
-        if ( v15 >= *((_DWORD *)v11 + 7) )
-        {
-          v21 = *v11;
-          if ( *(_QWORD **)(*v11 + 8LL) != v11 || (v22 = (_QWORD *)v11[1], (_QWORD *)*v22 != v11) )
+          v20 = (__int64 *)*v12;
+          if ( *(__int64 **)(*v12 + 8) != v12 || (v21 = (__int64 **)v12[1], *v21 != v12) )
             __fastfail(3u);
-          *v22 = v21;
-          *(_QWORD *)(v21 + 8) = v22;
-          *v11 = 0LL;
+          *v21 = v20;
+          v20[1] = (__int64)v21;
+          *v12 = 0LL;
         }
-        v4 = v11[2];
-        v5 = (v13 << 12)
-           + ((*(unsigned int *)(v4 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v4 + 32) << 32)) << 12);
-      }
-LABEL_7:
-      UNLOCK_PAGE_TABLE_COMMITMENT((__int64)CurrentThread, Process);
-      if ( v4 )
+        v5 = v12[2];
+        v11 = v23;
+        v6 = (v14 << 12)
+           + ((*(unsigned int *)(v5 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v5 + 32) << 32)) << 12);
         break;
-      NewSubAllocatedRegion = MiAllocateNewSubAllocatedRegion(0, v7);
-      if ( NewSubAllocatedRegion < 0 )
-      {
-        UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);
-        v16 = CurrentThread->SpecialApcDisable++ == -1;
-        if ( v16
-          && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-        {
-          KiCheckForKernelApcDelivery();
-        }
-        return (unsigned int)NewSubAllocatedRegion;
       }
+      v12 = (__int64 *)*v12;
+      v11 = v23;
     }
-    MiReferenceVad(v4);
-    UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);
-    MiLockVad((__int64)CurrentThread, v4);
-    v16 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v16 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
-    if ( (unsigned int)MiVadDeleted(v4) )
+    UNLOCK_PAGE_TABLE_COMMITMENT((__int64)CurrentThread, Process);
+    if ( !v5 )
     {
-      MiUnlockAndDereferenceVad(v17);
-      return 3221225738LL;
+      NewSubAllocatedRegion = MiAllocateNewSubAllocatedRegion(a1, v4);
+      if ( NewSubAllocatedRegion >= 0 )
+      {
+        v9 = v24;
+        continue;
+      }
+      goto LABEL_16;
     }
-    v18 = MiCommitExistingVad(
-            (ULONG_PTR)v17,
-            v5,
-            v25,
-            (*(_DWORD *)(v4 + 48) >> 7) & 0x1F,
-            0,
-            0LL,
-            0,
-            0,
-            0LL,
-            &v27,
-            &v23);
-    if ( v18 < 0 )
+    break;
+  }
+  MiReferenceVad(v5);
+  UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, Process);
+  MiLockVad((__int64)CurrentThread, v5);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  if ( !(unsigned int)MiVadDeleted(v5) )
+  {
+    NewSubAllocatedRegion = MiCommitExistingVad(
+                              (ULONG_PTR)v17,
+                              v6,
+                              a2,
+                              (*(_DWORD *)(v5 + 48) >> 7) & 0x1F,
+                              0,
+                              0LL,
+                              0,
+                              0LL,
+                              &v22,
+                              (__int64 *)va);
+    if ( NewSubAllocatedRegion < 0 )
     {
-      MiFreeToSubAllocatedRegion((PVOID)v4);
+      MiFreeToSubAllocatedRegion((PVOID)v5);
     }
     else
     {
-      MiUnlockAndDereferenceVad((char *)v4);
-      *v26 = v5;
+      MiUnlockAndDereferenceVad((char *)v5);
+      *a3 = v6;
     }
-    return (unsigned int)v18;
+    return (unsigned int)NewSubAllocatedRegion;
   }
+  MiUnlockAndDereferenceVad(v17);
+  return 3221225738LL;
 }

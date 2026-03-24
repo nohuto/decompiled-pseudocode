@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlUpdateImportRelocationsInImage @ 0x1401B5FEC
+ * XREFs of RtlUpdateImportRelocationsInImage @ 0x1401B600C
  * Callers:
  *     MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D2744 (MiApplyRetpolineFixupsToKernelAndHal.c)
- *     MiApplyImportOptimizationToBootDrivers @ 0x1409F6F30 (MiApplyImportOptimizationToBootDrivers.c)
+ *     MiApplyImportOptimizationToBootDrivers @ 0x1409F6F40 (MiApplyImportOptimizationToBootDrivers.c)
  * Callees:
- *     RtlCaptureRetpolineImportRvas @ 0x1401B5EA8 (RtlCaptureRetpolineImportRvas.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlApplyImportRelocationToImage @ 0x1402F6A44 (RtlApplyImportRelocationToImage.c)
- *     RtlpCaptureDynamicRelocationTableRva @ 0x1402F74A4 (RtlpCaptureDynamicRelocationTableRva.c)
- *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1402F7570 (RtlpCaptureRetpolineBinaryInfoForImage.c)
+ *     RtlCaptureRetpolineImportRvas @ 0x1401B5EC8 (RtlCaptureRetpolineImportRvas.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlApplyImportRelocationToImage @ 0x1402F6B44 (RtlApplyImportRelocationToImage.c)
+ *     RtlpCaptureDynamicRelocationTableRva @ 0x1402F75A4 (RtlpCaptureDynamicRelocationTableRva.c)
+ *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1402F7670 (RtlpCaptureRetpolineBinaryInfoForImage.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

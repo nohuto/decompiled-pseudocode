@@ -3,12 +3,12 @@
  * Callers:
  *     ExIsSpecialPoolAddress @ 0x14000E140 (ExIsSpecialPoolAddress.c)
  *     ExFreeLargePool @ 0x14009ADD0 (ExFreeLargePool.c)
- *     ExFreeHeapPages @ 0x14015B254 (ExFreeHeapPages.c)
- *     ExpHpCompactionRoutine @ 0x1401B7750 (ExpHpCompactionRoutine.c)
+ *     ExFreeHeapPages @ 0x14015B274 (ExFreeHeapPages.c)
+ *     ExpHpCompactionRoutine @ 0x1401B7770 (ExpHpCompactionRoutine.c)
  * Callees:
  *     RtlpHpGetOwnerHeap @ 0x14000E6C0 (RtlpHpGetOwnerHeap.c)
  *     MiDeterminePoolType @ 0x14007BF30 (MiDeterminePoolType.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExGetHeapFromVA(ULONG_PTR BugCheckParameter3)

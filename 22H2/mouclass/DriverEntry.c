@@ -1,1 +1,364 @@
-/*\n * XREFs of DriverEntry @ 0x1C00112E0\n * Callers:\n *     GsDriverEntry @ 0x1C0011010 (GsDriverEntry.c)\n * Callees:\n *     WPP_RECORDER_SF_d @ 0x1C00024A0 (WPP_RECORDER_SF_d.c)\n *     __security_check_cookie @ 0x1C00029B0 (__security_check_cookie.c)\n *     memmove @ 0x1C0002C00 (memmove.c)\n *     memset @ 0x1C0002F00 (memset.c)\n *     MouseClassLogError @ 0x1C0004BA8 (MouseClassLogError.c)\n *     WPP_RECORDER_SF_ @ 0x1C0005CCC (WPP_RECORDER_SF_.c)\n *     MouseAddDeviceEx @ 0x1C000D540 (MouseAddDeviceEx.c)\n *     MouCreateClassObject @ 0x1C000D790 (MouCreateClassObject.c)\n *     MouDeterminePortsServiced @ 0x1C000DAE0 (MouDeterminePortsServiced.c)\n *     WppInitKm @ 0x1C000DFB0 (WppInitKm.c)\n *     WppLoadTracingSupport @ 0x1C000E070 (WppLoadTracingSupport.c)\n *     WppCleanupKm @ 0x1C000F570 (WppCleanupKm.c)\n *     MouConfiguration @ 0x1C0011080 (MouConfiguration.c)\n */\n\nNTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)\n{\n  PVOID v2; // r14\n  __int64 v5; // rdx\n  void *Pool2; // rax\n  __int64 v7; // rdx\n  const wchar_t *v8; // rdx\n  int v9; // eax\n  int v10; // edx\n  int v11; // r8d\n  unsigned __int64 v12; // rdx\n  unsigned __int64 v13; // rdx\n  __int64 v14; // rdx\n  unsigned int v15; // edi\n  __int64 *v16; // rax\n  int i; // edi\n  __int64 v18; // rdx\n  int v20; // eax\n  PVOID v21; // rdi\n  const WCHAR *v22; // rdx\n  _BYTE *DeviceExtension; // rcx\n  int v24; // eax\n  int v25; // edx\n  int v26; // r8d\n  void *v27; // rcx\n  int v28; // eax\n  char *v29; // rsi\n  void *v30; // rcx\n  const WCHAR *v31; // rdx\n  int v32; // r12d\n  void *v33; // rcx\n  _QWORD *v34; // rax\n  _QWORD *v35; // rsi\n  REGHANDLE v36; // rcx\n  char v37[4]; // [rsp+20h] [rbp-E0h]\n  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF\n  unsigned int v39; // [rsp+50h] [rbp-B0h] BYREF\n  PDEVICE_OBJECT v40; // [rsp+58h] [rbp-A8h] BYREF\n  PFILE_OBJECT FileObject; // [rsp+60h] [rbp-A0h] BYREF\n  struct _UNICODE_STRING Destination; // [rsp+68h] [rbp-98h] BYREF\n  GUID ProviderId; // [rsp+78h] [rbp-88h] BYREF\n  PVOID P[3]; // [rsp+88h] [rbp-78h] BYREF\n  _BYTE v45[512]; // [rsp+A0h] [rbp-60h] BYREF\n\n  WPP_MAIN_CB.Timer = (PIO_TIMER)1;\n  v40 = 0LL;\n  v39 = 0;\n  *(_DWORD *)(&Destination.MaximumLength + 1) = 0;\n  v2 = 0LL;\n  DestinationString = 0LL;\n  P[0] = 0LL;\n  FileObject = 0LL;\n  *(_QWORD *)&WPP_MAIN_CB.Type = 0LL;\n  WPP_MAIN_CB.DriverObject = (struct _DRIVER_OBJECT *)&WPP_ThisDir_CTLGUID_MouClassTraceGuid;\n  WPP_MAIN_CB.NextDevice = 0LL;\n  WPP_MAIN_CB.CurrentIrp = 0LL;\n  WPP_MAIN_CB.DeviceExtension = 0LL;\n  WPP_MAIN_CB.DeviceType = 0;\n  WppLoadTracingSupport();\n  WPP_MAIN_CB.CurrentIrp = 0LL;\n  WppInitKm((__int64)DriverObject, (__int64)RegistryPath);\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(v5) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v5, 1LL);\n  }\n  ProviderId = (GUID)*((_OWORD *)EventInformation - 1);\n  if ( RegHandle )\n    __fastfail(5u);\n  xmmword_1C000A038 = 0LL;\n  if ( !EtwRegister(&ProviderId, (PETWENABLECALLBACK)tlgEnableCallback, &dword_1C000A010, &RegHandle) )\n    EtwSetInformation(RegHandle, EventProviderSetTraits, EventInformation, *(unsigned __int16 *)EventInformation);\n  memset(&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, 0, 0x3E0uLL);\n  qword_1C000A528 = (__int64)&qword_1C000A520;\n  qword_1C000A520 = (__int64)&qword_1C000A520;\n  RtlInitUnicodeString(&DestinationString, 0LL);\n  LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceObject) = 1;\n  WPP_MAIN_CB.Queue.Wcb.CurrentIrp = 0LL;\n  LODWORD(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) = 0;\n  KeInitializeEvent((PRKEVENT)&WPP_MAIN_CB.AlignmentRequirement, SynchronizationEvent, 0);\n  *(_DWORD *)&::DestinationString.Length = 0x2000000;\n  ::DestinationString.Buffer = (PWSTR)&unk_1C000A320;\n  memset(v45, 0, sizeof(v45));\n  *(_DWORD *)&Destination.Length = 0x2000000;\n  Destination.Buffer = (PWSTR)v45;\n  word_1C000A300 = RegistryPath->Length;\n  word_1C000A302 = RegistryPath->Length + 2;\n  Pool2 = (void *)ExAllocatePool2(64LL, (unsigned __int16)word_1C000A302, 1131769677LL);\n  ::P = Pool2;\n  if ( Pool2 )\n  {\n    memmove(Pool2, RegistryPath->Buffer, RegistryPath->Length);\n    *((_WORD *)::P + ((unsigned __int64)RegistryPath->Length >> 1)) = 0;\n    MouConfiguration((__int64)DriverObject, v8);\n    if ( !LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )\n    {\n      v20 = MouCreateClassObject(DriverObject, (__int128 *)&WPP_MAIN_CB.DeviceQueue.32, &v40, (PWSTR *)P, 1);\n      i = v20;\n      if ( v20 < 0 )\n      {\n        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n        {\n          LOBYTE(v12) = 2;\n          WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v12, v11, 12, *(_DWORD *)v37, v20);\n        }\n        v2 = P[0];\n        goto LABEL_20;\n      }\n      v21 = P[0];\n      v22 = (const WCHAR *)P[0];\n      DeviceExtension = v40->DeviceExtension;\n      *(_QWORD *)DeviceExtension = v40;\n      *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels = DeviceExtension;\n      DeviceExtension[64] = 0;\n      v24 = MouseAddDeviceEx((__int64)DeviceExtension, v22, 0LL);\n      if ( v24 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      {\n        LOBYTE(v25) = 2;\n        WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v25, v26, 13, *(_DWORD *)v37, v24);\n      }\n      ExFreePoolWithTag(v21, 0);\n      P[0] = 0LL;\n      v40->Flags &= ~0x80u;\n    }\n    RtlCopyUnicodeString(&Destination, &::DestinationString);\n    Destination.Length -= 10;\n    RtlAppendUnicodeToString(&Destination, L"Port");\n    v9 = MouDeterminePortsServiced(&Destination.Length, &v39);\n    if ( v9 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n    {\n      LOBYTE(v10) = 2;\n      WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v10, v11, 14, *(_DWORD *)v37, v9);\n    }\n    LODWORD(v12) = Destination.Length;\n    if ( Destination.MaximumLength < (unsigned __int64)Destination.Length + 2 )\n    {\n      i = -1073741823;\n    }\n    else\n    {\n      v13 = (unsigned __int64)Destination.Length >> 1;\n      Destination.Buffer[v13 + 1] = 0;\n      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      {\n        LOBYTE(v13) = 4;\n        WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v13, v11, 15, *(_DWORD *)v37, v39);\n      }\n      DestinationString.MaximumLength = Destination.Length + 24;\n      DestinationString.Buffer = (PWSTR)ExAllocatePool2(\n                                          256LL,\n                                          (unsigned __int16)(Destination.Length + 24),\n                                          1131769677LL);\n      if ( !DestinationString.Buffer )\n      {\n        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n        {\n          LOBYTE(v14) = 2;\n          WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v14, 1LL);\n        }\n        i = -1073741823;\n        LODWORD(P[0]) = DestinationString.MaximumLength;\n        MouseClassLogError(DriverObject, -1073414143, 20008, -1073741823, 1u, P, 0);\n        DestinationString.MaximumLength = 0;\n        goto LABEL_49;\n      }\n      RtlAppendUnicodeToString(&DestinationString, L"\\Device\\");\n      RtlAppendUnicodeToString(&DestinationString, Destination.Buffer);\n      RtlAppendUnicodeToString(&DestinationString, L"0");\n      LODWORD(v12) = DestinationString.Length;\n      if ( DestinationString.MaximumLength < (unsigned __int64)DestinationString.Length + 2 )\n      {\n        i = -1073741823;\n      }\n      else\n      {\n        v15 = 0;\n        v12 = (unsigned __int64)DestinationString.Length >> 1;\n        for ( DestinationString.Buffer[v12 + 1] = 0; v15 < HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock); ++v15 )\n        {\n          if ( v15 >= v39 )\n            break;\n          DestinationString.Buffer[((unsigned __int64)DestinationString.Length >> 1) - 1] = v15 + 48;\n          v28 = MouCreateClassObject(DriverObject, (__int128 *)&WPP_MAIN_CB.DeviceQueue.32, &v40, (PWSTR *)P, 1);\n          if ( v28 >= 0 )\n          {\n            v29 = (char *)v40->DeviceExtension;\n            *(_QWORD *)v29 = v40;\n            v29[64] = 0;\n            v40->Flags &= ~0x80u;\n            if ( IoGetDeviceObjectPointer(&DestinationString, 0x80u, &FileObject, (PDEVICE_OBJECT *)v29 + 2) )\n            {\n              v30 = (void *)*((_QWORD *)v29 + 13);\n              if ( v30 )\n              {\n                ExFreePoolWithTag(v30, 0);\n                *((_QWORD *)v29 + 15) = 0LL;\n                *((_QWORD *)v29 + 14) = 0LL;\n                *((_QWORD *)v29 + 13) = 0LL;\n              }\n              IoDeleteDevice(*(PDEVICE_OBJECT *)v29);\n              v2 = P[0];\n            }\n            else\n            {\n              v2 = P[0];\n              v31 = (const WCHAR *)P[0];\n              v40->StackSize = *(_BYTE *)(*((_QWORD *)v29 + 2) + 76LL) + 1;\n              v32 = MouseAddDeviceEx((__int64)v29, v31, (__int64)FileObject);\n              if ( !*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n                *((_QWORD *)v29 + 42) = FileObject;\n              if ( v2 )\n              {\n                ExFreePoolWithTag(v2, 0);\n                v2 = 0LL;\n                P[0] = 0LL;\n              }\n              if ( v32 >= 0 )\n              {\n                v34 = (_QWORD *)qword_1C000A528;\n                v35 = v29 + 320;\n                if ( *(__int64 **)qword_1C000A528 != &qword_1C000A520 )\n                  __fastfail(3u);\n                *v35 = &qword_1C000A520;\n                v35[1] = v34;\n                *v34 = v35;\n                qword_1C000A528 = (__int64)v35;\n              }\n              else\n              {\n                if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n                {\n                  ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n                  FileObject = (PFILE_OBJECT)*((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine\n                                             + 3 * *((unsigned int *)v29 + 45));\n                  *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *((unsigned int *)v29 + 45)) = 0LL;\n                  *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *((unsigned int *)v29 + 45) + 19) = 1;\n                  *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *((unsigned int *)v29 + 45) + 1) = 0LL;\n                  ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n                }\n                else if ( *((_QWORD *)v29 + 42) )\n                {\n                  FileObject = (PFILE_OBJECT)*((_QWORD *)v29 + 42);\n                  *((_QWORD *)v29 + 42) = 0LL;\n                }\n                if ( FileObject )\n                  ObfDereferenceObject(FileObject);\n                v33 = (void *)*((_QWORD *)v29 + 13);\n                if ( v33 )\n                {\n                  ExFreePoolWithTag(v33, 0);\n                  *((_QWORD *)v29 + 15) = 0LL;\n                  *((_QWORD *)v29 + 14) = 0LL;\n                  *((_QWORD *)v29 + 13) = 0LL;\n                }\n                IoDeleteDevice(*(PDEVICE_OBJECT *)v29);\n              }\n            }\n          }\n          else\n          {\n            MouseClassLogError(DriverObject, -1073414143, 20008, v28, 0, 0LL, 0);\n            v2 = P[0];\n          }\n        }\n        v16 = (__int64 *)qword_1C000A520;\n        for ( i = 0; v16 != &qword_1C000A520; v16 = (__int64 *)*v16 )\n          ++WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters;\n      }\n    }\n  }\n  else\n  {\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n    {\n      LOBYTE(v7) = 2;\n      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v7, 1LL);\n    }\n    i = -1073741823;\n    LODWORD(P[0]) = RegistryPath->Length + 2;\n    MouseClassLogError(DriverObject, -1073414143, 20002, -1073741823, 1u, P, 0);\n  }\nLABEL_20:\n  if ( DestinationString.MaximumLength )\n    ExFreePoolWithTag(DestinationString.Buffer, 0);\n  if ( v2 )\n    ExFreePoolWithTag(v2, 0);\n  if ( i >= 0 )\n  {\n    IoRegisterDriverReinitialization(DriverObject, (PDRIVER_REINITIALIZE)MouseClassFindMorePorts, 0LL);\n    i = 0;\n    DriverObject->MajorFunction[0] = (PDRIVER_DISPATCH)MouseClassCreate;\n    DriverObject->MajorFunction[2] = (PDRIVER_DISPATCH)MouseClassClose;\n    DriverObject->MajorFunction[3] = (PDRIVER_DISPATCH)MouseClassRead;\n    DriverObject->MajorFunction[9] = (PDRIVER_DISPATCH)MouseClassFlush;\n    DriverObject->MajorFunction[14] = (PDRIVER_DISPATCH)MouseClassDeviceControl;\n    DriverObject->MajorFunction[15] = (PDRIVER_DISPATCH)MouseClassPassThrough;\n    DriverObject->MajorFunction[18] = (PDRIVER_DISPATCH)MouseClassCleanup;\n    DriverObject->MajorFunction[27] = (PDRIVER_DISPATCH)MousePnP;\n    DriverObject->MajorFunction[23] = (PDRIVER_DISPATCH)MouseClassSystemControl;\n    DriverObject->MajorFunction[22] = (PDRIVER_DISPATCH)MouseClassPower;\n    DriverObject->DriverExtension->AddDevice = (PDRIVER_ADD_DEVICE)MouseAddDevice;\n    goto LABEL_26;\n  }\nLABEL_49:\n  if ( ::P )\n  {\n    ExFreePoolWithTag(::P, 0);\n    ::P = 0LL;\n  }\n  if ( WPP_MAIN_CB.Queue.Wcb.DeviceRoutine )\n  {\n    ExFreePoolWithTag(WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 0);\n    WPP_MAIN_CB.Queue.Wcb.DeviceRoutine = 0LL;\n  }\n  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n  {\n    v27 = *(void **)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 104LL);\n    if ( v27 )\n    {\n      ExFreePoolWithTag(v27, 0);\n      *(_OWORD *)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 112LL) = 0uLL;\n      *(_QWORD *)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 104LL) = 0LL;\n    }\n    IoDeleteDevice(**(PDEVICE_OBJECT **)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);\n    *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels = 0LL;\n  }\nLABEL_26:\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n  {\n    LOBYTE(v12) = 4;\n    WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v12, v11, 17, *(_DWORD *)v37, i);\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n    {\n      if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )\n      {\n        LOBYTE(v18) = 5;\n        WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v18, 1LL);\n      }\n    }\n  }\n  if ( i < 0 )\n  {\n    v36 = RegHandle;\n    RegHandle = 0LL;\n    dword_1C000A010 = 0;\n    EtwUnregister(v36);\n    WppCleanupKm((__int64)DriverObject);\n  }\n  return i;\n}\n
+/*
+ * XREFs of DriverEntry @ 0x1C000F500
+ * Callers:
+ *     GsDriverEntry @ 0x1C000F010 (GsDriverEntry.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002410 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0002950 (__security_check_cookie.c)
+ *     memmove @ 0x1C0002A80 (memmove.c)
+ *     memset @ 0x1C0002D40 (memset.c)
+ *     MouseClassLogError @ 0x1C00045F8 (MouseClassLogError.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000572C (WPP_RECORDER_SF_.c)
+ *     MouseAddDeviceEx @ 0x1C000C720 (MouseAddDeviceEx.c)
+ *     MouDeterminePortsServiced @ 0x1C000C830 (MouDeterminePortsServiced.c)
+ *     MouCreateClassObject @ 0x1C000CBA0 (MouCreateClassObject.c)
+ *     WppInitKm @ 0x1C000CEF0 (WppInitKm.c)
+ *     WppLoadTracingSupport @ 0x1C000CFB0 (WppLoadTracingSupport.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C000D100 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     WppCleanupKm @ 0x1C000E5B4 (WppCleanupKm.c)
+ *     MouConfiguration @ 0x1C000F080 (MouConfiguration.c)
+ */
+
+NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
+{
+  PVOID v2; // r14
+  __int64 v5; // rdx
+  PVOID PoolWithTag; // rax
+  __int64 v7; // rdx
+  int v8; // eax
+  int v9; // edx
+  int v10; // r8d
+  unsigned __int64 v11; // rdx
+  unsigned __int64 v12; // rdx
+  WCHAR *v13; // rax
+  __int64 v14; // rdx
+  unsigned int v15; // edi
+  __int64 *v16; // rax
+  int i; // edi
+  __int64 v18; // rdx
+  int v20; // eax
+  PVOID v21; // rdi
+  const WCHAR *v22; // rdx
+  _BYTE *DeviceExtension; // rcx
+  int v24; // eax
+  int v25; // edx
+  int v26; // r8d
+  void *v27; // rcx
+  int v28; // eax
+  char *v29; // rsi
+  void *v30; // rcx
+  const WCHAR *v31; // rdx
+  int v32; // r15d
+  void *v33; // rcx
+  _QWORD *v34; // rax
+  _QWORD *v35; // rsi
+  REGHANDLE v36; // rcx
+  char v37[4]; // [rsp+20h] [rbp-E0h]
+  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned int v39; // [rsp+50h] [rbp-B0h] BYREF
+  PDEVICE_OBJECT v40; // [rsp+58h] [rbp-A8h] BYREF
+  PFILE_OBJECT FileObject; // [rsp+60h] [rbp-A0h] BYREF
+  struct _UNICODE_STRING Destination; // [rsp+68h] [rbp-98h] BYREF
+  PVOID P[3]; // [rsp+78h] [rbp-88h] BYREF
+  _BYTE v44[512]; // [rsp+90h] [rbp-70h] BYREF
+
+  WPP_MAIN_CB.Timer = (PIO_TIMER)1;
+  v40 = 0LL;
+  v39 = 0;
+  *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
+  v2 = 0LL;
+  DestinationString = 0LL;
+  P[0] = 0LL;
+  FileObject = 0LL;
+  *(_QWORD *)&WPP_MAIN_CB.Type = 0LL;
+  WPP_MAIN_CB.DriverObject = (struct _DRIVER_OBJECT *)&WPP_ThisDir_CTLGUID_MouClassTraceGuid;
+  WPP_MAIN_CB.NextDevice = 0LL;
+  WPP_MAIN_CB.CurrentIrp = 0LL;
+  WPP_MAIN_CB.DeviceExtension = 0LL;
+  WPP_MAIN_CB.DeviceType = 0;
+  WppLoadTracingSupport();
+  WPP_MAIN_CB.CurrentIrp = 0LL;
+  WppInitKm((__int64)DriverObject, (__int64)RegistryPath);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(v5) = 5;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v5, 1LL);
+  }
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation();
+  memset(&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, 0, 0x3E0uLL);
+  qword_1C00094C8 = (__int64)&qword_1C00094C0;
+  qword_1C00094C0 = (__int64)&qword_1C00094C0;
+  RtlInitUnicodeString(&DestinationString, 0LL);
+  LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceObject) = 1;
+  WPP_MAIN_CB.Queue.Wcb.CurrentIrp = 0LL;
+  LODWORD(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) = 0;
+  KeInitializeEvent((PRKEVENT)&WPP_MAIN_CB.AlignmentRequirement, SynchronizationEvent, 0);
+  *(_DWORD *)&::DestinationString.Length = 0x2000000;
+  ::DestinationString.Buffer = (PWSTR)&unk_1C00092C0;
+  memset(v44, 0, sizeof(v44));
+  *(_DWORD *)&Destination.Length = 0x2000000;
+  Destination.Buffer = (PWSTR)v44;
+  word_1C00092A0 = RegistryPath->Length;
+  word_1C00092A2 = RegistryPath->Length + 2;
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, (unsigned __int16)word_1C00092A2, 0x43756F4Du);
+  ::P = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    memmove(PoolWithTag, RegistryPath->Buffer, RegistryPath->Length);
+    *((_WORD *)::P + ((unsigned __int64)RegistryPath->Length >> 1)) = 0;
+    MouConfiguration();
+    if ( !LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )
+    {
+      v20 = MouCreateClassObject(DriverObject, (__int128 *)&WPP_MAIN_CB.DeviceQueue.32, &v40, (PWSTR *)P, 1);
+      i = v20;
+      if ( v20 < 0 )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v11) = 2;
+          WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v11, v10, 12, *(_DWORD *)v37, v20);
+        }
+        v2 = P[0];
+        goto LABEL_17;
+      }
+      v21 = P[0];
+      v22 = (const WCHAR *)P[0];
+      DeviceExtension = v40->DeviceExtension;
+      *(_QWORD *)DeviceExtension = v40;
+      *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels = DeviceExtension;
+      DeviceExtension[64] = 0;
+      v24 = MouseAddDeviceEx((__int64)DeviceExtension, v22, 0LL);
+      if ( v24 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v25) = 2;
+        WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v25, v26, 13, *(_DWORD *)v37, v24);
+      }
+      ExFreePoolWithTag(v21, 0);
+      P[0] = 0LL;
+      v40->Flags &= ~0x80u;
+    }
+    RtlCopyUnicodeString(&Destination, &::DestinationString);
+    Destination.Length -= 10;
+    RtlAppendUnicodeToString(&Destination, L"Port");
+    v8 = MouDeterminePortsServiced(&Destination.Length, &v39);
+    if ( v8 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v9) = 2;
+      WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 14, *(_DWORD *)v37, v8);
+    }
+    LODWORD(v11) = Destination.Length;
+    if ( Destination.MaximumLength < (unsigned __int64)Destination.Length + 2 )
+    {
+      i = -1073741823;
+    }
+    else
+    {
+      v12 = (unsigned __int64)Destination.Length >> 1;
+      Destination.Buffer[v12 + 1] = 0;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v12) = 4;
+        WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v12, v10, 15, *(_DWORD *)v37, v39);
+      }
+      DestinationString.MaximumLength = Destination.Length + 24;
+      v13 = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)(Destination.Length + 24), 0x43756F4Du);
+      DestinationString.Buffer = v13;
+      if ( !v13 )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v14) = 2;
+          WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v14, 1LL);
+        }
+        i = -1073741823;
+        LODWORD(P[0]) = DestinationString.MaximumLength;
+        MouseClassLogError(DriverObject, -1073414143, 20008, -1073741823, 1u, P, 0);
+        DestinationString.MaximumLength = 0;
+        goto LABEL_45;
+      }
+      memset(v13, 0, DestinationString.MaximumLength);
+      RtlAppendUnicodeToString(&DestinationString, L"\\Device\\");
+      RtlAppendUnicodeToString(&DestinationString, Destination.Buffer);
+      RtlAppendUnicodeToString(&DestinationString, L"0");
+      LODWORD(v11) = DestinationString.Length;
+      if ( DestinationString.MaximumLength < (unsigned __int64)DestinationString.Length + 2 )
+      {
+        i = -1073741823;
+      }
+      else
+      {
+        v15 = 0;
+        v11 = (unsigned __int64)DestinationString.Length >> 1;
+        for ( DestinationString.Buffer[v11 + 1] = 0; v15 < HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock); ++v15 )
+        {
+          if ( v15 >= v39 )
+            break;
+          DestinationString.Buffer[((unsigned __int64)DestinationString.Length >> 1) - 1] = v15 + 48;
+          v28 = MouCreateClassObject(DriverObject, (__int128 *)&WPP_MAIN_CB.DeviceQueue.32, &v40, (PWSTR *)P, 1);
+          if ( v28 >= 0 )
+          {
+            v29 = (char *)v40->DeviceExtension;
+            *(_QWORD *)v29 = v40;
+            v29[64] = 0;
+            v40->Flags &= ~0x80u;
+            if ( IoGetDeviceObjectPointer(&DestinationString, 0x80u, &FileObject, (PDEVICE_OBJECT *)v29 + 2) )
+            {
+              v30 = (void *)*((_QWORD *)v29 + 13);
+              if ( v30 )
+              {
+                ExFreePoolWithTag(v30, 0);
+                *((_QWORD *)v29 + 15) = 0LL;
+                *((_QWORD *)v29 + 14) = 0LL;
+                *((_QWORD *)v29 + 13) = 0LL;
+              }
+              IoDeleteDevice(*(PDEVICE_OBJECT *)v29);
+              v2 = P[0];
+            }
+            else
+            {
+              v2 = P[0];
+              v31 = (const WCHAR *)P[0];
+              v40->StackSize = *(_BYTE *)(*((_QWORD *)v29 + 2) + 76LL) + 1;
+              v32 = MouseAddDeviceEx((__int64)v29, v31, (__int64)FileObject);
+              if ( !*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+                *((_QWORD *)v29 + 42) = FileObject;
+              if ( v2 )
+              {
+                ExFreePoolWithTag(v2, 0);
+                v2 = 0LL;
+                P[0] = 0LL;
+              }
+              if ( v32 >= 0 )
+              {
+                v34 = (_QWORD *)qword_1C00094C8;
+                v35 = v29 + 320;
+                if ( *(__int64 **)qword_1C00094C8 != &qword_1C00094C0 )
+                  __fastfail(3u);
+                *v35 = &qword_1C00094C0;
+                v35[1] = v34;
+                *v34 = v35;
+                qword_1C00094C8 = (__int64)v35;
+              }
+              else
+              {
+                if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+                {
+                  ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+                  FileObject = (PFILE_OBJECT)*((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine
+                                             + 3 * *((unsigned int *)v29 + 45));
+                  *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *((unsigned int *)v29 + 45)) = 0LL;
+                  *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *((unsigned int *)v29 + 45) + 19) = 1;
+                  *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * *((unsigned int *)v29 + 45) + 1) = 0LL;
+                  ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+                }
+                else if ( *((_QWORD *)v29 + 42) )
+                {
+                  FileObject = (PFILE_OBJECT)*((_QWORD *)v29 + 42);
+                  *((_QWORD *)v29 + 42) = 0LL;
+                }
+                if ( FileObject )
+                  ObfDereferenceObject(FileObject);
+                v33 = (void *)*((_QWORD *)v29 + 13);
+                if ( v33 )
+                {
+                  ExFreePoolWithTag(v33, 0);
+                  *((_QWORD *)v29 + 15) = 0LL;
+                  *((_QWORD *)v29 + 14) = 0LL;
+                  *((_QWORD *)v29 + 13) = 0LL;
+                }
+                IoDeleteDevice(*(PDEVICE_OBJECT *)v29);
+              }
+            }
+          }
+          else
+          {
+            MouseClassLogError(DriverObject, -1073414143, 20008, v28, 0, 0LL, 0);
+            v2 = P[0];
+          }
+        }
+        v16 = (__int64 *)qword_1C00094C0;
+        for ( i = 0; v16 != &qword_1C00094C0; v16 = (__int64 *)*v16 )
+          ++WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters;
+      }
+    }
+  }
+  else
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v7) = 2;
+      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v7, 1LL);
+    }
+    i = -1073741823;
+    LODWORD(P[0]) = RegistryPath->Length + 2;
+    MouseClassLogError(DriverObject, -1073414143, 20002, -1073741823, 1u, P, 0);
+  }
+LABEL_17:
+  if ( DestinationString.MaximumLength )
+    ExFreePoolWithTag(DestinationString.Buffer, 0);
+  if ( v2 )
+    ExFreePoolWithTag(v2, 0);
+  if ( i >= 0 )
+  {
+    IoRegisterDriverReinitialization(DriverObject, (PDRIVER_REINITIALIZE)MouseClassFindMorePorts, 0LL);
+    i = 0;
+    DriverObject->MajorFunction[0] = (PDRIVER_DISPATCH)MouseClassCreate;
+    DriverObject->MajorFunction[2] = (PDRIVER_DISPATCH)MouseClassClose;
+    DriverObject->MajorFunction[3] = (PDRIVER_DISPATCH)MouseClassRead;
+    DriverObject->MajorFunction[9] = (PDRIVER_DISPATCH)MouseClassFlush;
+    DriverObject->MajorFunction[14] = (PDRIVER_DISPATCH)MouseClassDeviceControl;
+    DriverObject->MajorFunction[15] = (PDRIVER_DISPATCH)MouseClassPassThrough;
+    DriverObject->MajorFunction[18] = (PDRIVER_DISPATCH)MouseClassCleanup;
+    DriverObject->MajorFunction[27] = (PDRIVER_DISPATCH)MousePnP;
+    DriverObject->MajorFunction[23] = (PDRIVER_DISPATCH)MouseClassSystemControl;
+    DriverObject->MajorFunction[22] = (PDRIVER_DISPATCH)MouseClassPower;
+    DriverObject->DriverExtension->AddDevice = (PDRIVER_ADD_DEVICE)MouseAddDevice;
+    goto LABEL_23;
+  }
+LABEL_45:
+  if ( ::P )
+  {
+    ExFreePoolWithTag(::P, 0);
+    ::P = 0LL;
+  }
+  if ( WPP_MAIN_CB.Queue.Wcb.DeviceRoutine )
+  {
+    ExFreePoolWithTag(WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 0);
+    WPP_MAIN_CB.Queue.Wcb.DeviceRoutine = 0LL;
+  }
+  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+  {
+    v27 = *(void **)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 104LL);
+    if ( v27 )
+    {
+      ExFreePoolWithTag(v27, 0);
+      *(_OWORD *)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 112LL) = 0uLL;
+      *(_QWORD *)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 104LL) = 0LL;
+    }
+    IoDeleteDevice(**(PDEVICE_OBJECT **)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
+    *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels = 0LL;
+  }
+LABEL_23:
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v11) = 4;
+    WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v11, v10, 17, *(_DWORD *)v37, i);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      {
+        LOBYTE(v18) = 5;
+        WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v18, 1LL);
+      }
+    }
+  }
+  if ( i < 0 )
+  {
+    v36 = RegHandle;
+    RegHandle = 0LL;
+    dword_1C0009010 = 0;
+    EtwUnregister(v36);
+    WppCleanupKm((__int64)DriverObject);
+  }
+  return i;
+}

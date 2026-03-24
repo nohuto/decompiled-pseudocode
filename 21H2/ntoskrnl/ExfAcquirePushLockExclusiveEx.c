@@ -1,109 +1,103 @@
 /*
- * XREFs of ExfAcquirePushLockExclusiveEx @ 0x14029F120
+ * XREFs of ExfAcquirePushLockExclusiveEx @ 0x1402F2C90
  * Callers:
- *     ExfAcquireReleasePushLockExclusive @ 0x14024BA7C (ExfAcquireReleasePushLockExclusive.c)
- *     ExfAcquireCacheAwarePushLockExclusiveEx @ 0x14029EC30 (ExfAcquireCacheAwarePushLockExclusiveEx.c)
- *     ExfAcquirePushLockExclusive @ 0x14029F100 (ExfAcquirePushLockExclusive.c)
- *     ExpSaPageGroupAllocateMemory @ 0x14029FB3C (ExpSaPageGroupAllocateMemory.c)
- *     ExpSaAllocatorAllocate @ 0x14029FDC4 (ExpSaAllocatorAllocate.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A3C30 (ExAcquireAutoExpandPushLockExclusive.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExpSetTimerObject @ 0x1402E33D0 (ExpSetTimerObject.c)
- *     FsRtlInsertPerStreamContext @ 0x1402F8CF0 (FsRtlInsertPerStreamContext.c)
- *     ExpDeleteTimer @ 0x140356E00 (ExpDeleteTimer.c)
- *     NtCancelTimer @ 0x140356F50 (NtCancelTimer.c)
- *     ExpSaAllocatorFree @ 0x140360FD4 (ExpSaAllocatorFree.c)
- *     ExpSaPageGroupFreeMemory @ 0x140361290 (ExpSaPageGroupFreeMemory.c)
- *     FlushLookUpTableBucket @ 0x140386944 (FlushLookUpTableBucket.c)
- *     ExWakeTimersPause @ 0x1403983A0 (ExWakeTimersPause.c)
- *     ExpAcquireFannedOutPushLockExclusive @ 0x14039F294 (ExpAcquireFannedOutPushLockExclusive.c)
- *     ExpSaPageGroupDescriptorFree @ 0x1403A0424 (ExpSaPageGroupDescriptorFree.c)
- *     ExpSaPageGroupDescriptorAllocate @ 0x1403A61E8 (ExpSaPageGroupDescriptorAllocate.c)
- *     DifExfAcquirePushLockExclusiveWrapper @ 0x140609C80 (DifExfAcquirePushLockExclusiveWrapper.c)
- *     ExGetWakeTimerList @ 0x14063DABC (ExGetWakeTimerList.c)
- *     ExInitializeDeviceAts @ 0x14063E8C0 (ExInitializeDeviceAts.c)
- *     ExUninitializeDeviceAts @ 0x14063EC3C (ExUninitializeDeviceAts.c)
- *     ExShareAddressSpaceWithDevice @ 0x14063F7C0 (ExShareAddressSpaceWithDevice.c)
- *     ExSvmBeginDeviceReset @ 0x140640500 (ExSvmBeginDeviceReset.c)
- *     ExSvmFinalizeDeviceReset @ 0x140640800 (ExSvmFinalizeDeviceReset.c)
- *     ExpSvmDereferenceDevice @ 0x140641354 (ExpSvmDereferenceDevice.c)
- *     WheaSelLogSetNtSchedulerAvailability @ 0x140643104 (WheaSelLogSetNtSchedulerAvailability.c)
- *     ExpWnfAllocateNextPersistentNameSequence @ 0x1406608E8 (ExpWnfAllocateNextPersistentNameSequence.c)
- *     ExpWnfCreateNameInstance @ 0x14066FED4 (ExpWnfCreateNameInstance.c)
- *     ExUuidCreate @ 0x140681B30 (ExUuidCreate.c)
- *     ExpWnfCreateProcessContext @ 0x1406C4AE4 (ExpWnfCreateProcessContext.c)
- *     WbInPlaceEncryptionUnloadModule @ 0x1406D5C1C (WbInPlaceEncryptionUnloadModule.c)
- *     WbHeapExecutionUnloadModule @ 0x1406D5CF8 (WbHeapExecutionUnloadModule.c)
- *     ExpWnfDispatchKernelSubscription @ 0x1406D7D74 (ExpWnfDispatchKernelSubscription.c)
- *     NtAllocateUuids @ 0x1406DC3C0 (NtAllocateUuids.c)
- *     ExpWnfDeleteScopeById @ 0x1407914BC (ExpWnfDeleteScopeById.c)
- *     ExpWnfDeleteProcessContext @ 0x1407919CC (ExpWnfDeleteProcessContext.c)
- *     ExpWnfDeleteNameInstance @ 0x140791CAC (ExpWnfDeleteNameInstance.c)
- *     ExpWnfDeleteStateData @ 0x14079204C (ExpWnfDeleteStateData.c)
- *     ExpWnfDeleteSubscription @ 0x14079240C (ExpWnfDeleteSubscription.c)
- *     ExpWnfDeliverThreadNotifications @ 0x140792EFC (ExpWnfDeliverThreadNotifications.c)
- *     ExpWnfCompleteThreadSubscriptions @ 0x1407931C0 (ExpWnfCompleteThreadSubscriptions.c)
- *     ExpWnfWriteStateData @ 0x14079350C (ExpWnfWriteStateData.c)
- *     ExpWnfInsertSubscriptionInPendingQueue @ 0x140793A34 (ExpWnfInsertSubscriptionInPendingQueue.c)
- *     ExpWnfResolveScopeInstance @ 0x140798334 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfSubscribeNameInstance @ 0x14079A254 (ExpWnfSubscribeNameInstance.c)
- *     ExpWnfUpdateSubscription @ 0x14079A690 (ExpWnfUpdateSubscription.c)
- *     WbRemoveWarbirdProcess @ 0x1407E15B4 (WbRemoveWarbirdProcess.c)
- *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1407E1968 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
- *     WbFreeMemoryBlockRegion @ 0x1407E1CA4 (WbFreeMemoryBlockRegion.c)
- *     WbAddHeapExecutedBlockToCache @ 0x1407E1DC8 (WbAddHeapExecutedBlockToCache.c)
- *     WbAddHeapExecutedBlockToLRU @ 0x1407E1EF8 (WbAddHeapExecutedBlockToLRU.c)
- *     WbGetWarbirdProcess @ 0x1407E2D60 (WbGetWarbirdProcess.c)
- *     WbMoveHeapExecutedBlockToBackOfLRU @ 0x1407E3770 (WbMoveHeapExecutedBlockToBackOfLRU.c)
- *     WbGetWarbirdThread @ 0x1407E3900 (WbGetWarbirdThread.c)
- *     WbAllocateUserMemory @ 0x1407E43F0 (WbAllocateUserMemory.c)
- *     WbAllocateSlots @ 0x1407E4720 (WbAllocateSlots.c)
- *     TlgRegisterAggregateProviderEx @ 0x140828004 (TlgRegisterAggregateProviderEx.c)
- *     ExRegisterExtension @ 0x1408484A0 (ExRegisterExtension.c)
- *     ExRegisterHost @ 0x1408486C4 (ExRegisterHost.c)
- *     ExpKdPullRemoteFileForUser @ 0x1408536D4 (ExpKdPullRemoteFileForUser.c)
- *     NtSetUuidSeed @ 0x140855FA0 (NtSetUuidSeed.c)
- *     PdcAcquireRwLockExclusive @ 0x1409C581C (PdcAcquireRwLockExclusive.c)
- *     ExUnregisterExtension @ 0x140A02740 (ExUnregisterExtension.c)
- *     NtReleaseKeyedEvent @ 0x140A06FF0 (NtReleaseKeyedEvent.c)
- *     NtWaitForKeyedEvent @ 0x140A073C0 (NtWaitForKeyedEvent.c)
- *     ExpWnfDeleteScopeInstances @ 0x140A083CC (ExpWnfDeleteScopeInstances.c)
- *     WheaSelLogCheckPoint @ 0x140A087A4 (WheaSelLogCheckPoint.c)
- *     WheaRegisterInUsePageOfflineNotification @ 0x140A08D90 (WheaRegisterInUsePageOfflineNotification.c)
- *     WheaUnregisterInUsePageOfflineNotification @ 0x140A08F00 (WheaUnregisterInUsePageOfflineNotification.c)
- *     WheapCallInUsePageNotificationCallbacks @ 0x140A0921C (WheapCallInUsePageNotificationCallbacks.c)
- *     WheapPfaReset @ 0x140A0A16C (WheapPfaReset.c)
- *     WheapPredictiveFailureAnalysis @ 0x140A0A2E8 (WheapPredictiveFailureAnalysis.c)
- *     sub_140A0EFB4 @ 0x140A0EFB4 (sub_140A0EFB4.c)
- *     sub_140A0F208 @ 0x140A0F208 (sub_140A0F208.c)
- *     sub_140A0F914 @ 0x140A0F914 (sub_140A0F914.c)
- *     sub_140A100D4 @ 0x140A100D4 (sub_140A100D4.c)
- *     WheaConfigureErrorSource @ 0x140A55520 (WheaConfigureErrorSource.c)
- *     WheaUnconfigureErrorSource @ 0x140A6D3D0 (WheaUnconfigureErrorSource.c)
- *     WheaInitialize @ 0x140AFF910 (WheaInitialize.c)
- *     ExpWorkerInitialization @ 0x140B240EC (ExpWorkerInitialization.c)
+ *     NtCancelTimer @ 0x140248B00 (NtCancelTimer.c)
+ *     ExpSetTimerObject @ 0x140249420 (ExpSetTimerObject.c)
+ *     ExpDeleteTimer @ 0x1402601A0 (ExpDeleteTimer.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A2710 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x1402C3044 (ExfAcquireReleasePushLockExclusive.c)
+ *     ExfAcquireCacheAwarePushLockExclusiveEx @ 0x1402F2B30 (ExfAcquireCacheAwarePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockExclusive @ 0x1402F2C70 (ExfAcquirePushLockExclusive.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     FlushLookUpTableBucket @ 0x140375A48 (FlushLookUpTableBucket.c)
+ *     ExWakeTimersPause @ 0x14038D260 (ExWakeTimersPause.c)
+ *     ExpAcquireFannedOutPushLockExclusive @ 0x1403912D0 (ExpAcquireFannedOutPushLockExclusive.c)
+ *     ExpSaAllocatorAllocate @ 0x1403915CC (ExpSaAllocatorAllocate.c)
+ *     ExpSaPageGroupAllocateMemory @ 0x140391A3C (ExpSaPageGroupAllocateMemory.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x140391DE8 (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaAllocatorFree @ 0x140394354 (ExpSaAllocatorFree.c)
+ *     ExpSaPageGroupFreeMemory @ 0x14039455C (ExpSaPageGroupFreeMemory.c)
+ *     ExGetWakeTimerList @ 0x1405B6148 (ExGetWakeTimerList.c)
+ *     ExShareAddressSpaceWithDevice @ 0x1405B7280 (ExShareAddressSpaceWithDevice.c)
+ *     ExSvmBeginDeviceReset @ 0x1405B7F00 (ExSvmBeginDeviceReset.c)
+ *     ExSvmFinalizeDeviceReset @ 0x1405B8330 (ExSvmFinalizeDeviceReset.c)
+ *     ExpSvmDereferenceDevice @ 0x1405B8E74 (ExpSvmDereferenceDevice.c)
+ *     ExpSaPageGroupDescriptorFree @ 0x1405BA4DC (ExpSaPageGroupDescriptorFree.c)
+ *     WbAddWarbirdEncryptionSegment @ 0x1405D6CE0 (WbAddWarbirdEncryptionSegment.c)
+ *     WbDecryptEncryptionSegment @ 0x1405D6EA4 (WbDecryptEncryptionSegment.c)
+ *     WbReEncryptEncryptionSegment @ 0x1405D6F68 (WbReEncryptEncryptionSegment.c)
+ *     WbGetInitializedEncryptionSegment @ 0x1405D702C (WbGetInitializedEncryptionSegment.c)
+ *     ExpWnfCreateNameInstance @ 0x14060DA34 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfDeliverThreadNotifications @ 0x14060E014 (ExpWnfDeliverThreadNotifications.c)
+ *     ExpWnfCompleteThreadSubscriptions @ 0x14060E2DC (ExpWnfCompleteThreadSubscriptions.c)
+ *     ExpWnfResolveScopeInstance @ 0x14060F4B4 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfSubscribeNameInstance @ 0x14060FD38 (ExpWnfSubscribeNameInstance.c)
+ *     ExpWnfUpdateSubscription @ 0x140610160 (ExpWnfUpdateSubscription.c)
+ *     ExpWnfWriteStateData @ 0x1406104B0 (ExpWnfWriteStateData.c)
+ *     ExpWnfInsertSubscriptionInPendingQueue @ 0x140610A00 (ExpWnfInsertSubscriptionInPendingQueue.c)
+ *     ExpWnfDeleteNameInstance @ 0x140610DD0 (ExpWnfDeleteNameInstance.c)
+ *     ExpWnfDeleteStateData @ 0x140611174 (ExpWnfDeleteStateData.c)
+ *     ExpWnfDeleteProcessContext @ 0x140612EE8 (ExpWnfDeleteProcessContext.c)
+ *     ExpWnfDeleteSubscription @ 0x140613128 (ExpWnfDeleteSubscription.c)
+ *     ExpWnfDeleteScopeById @ 0x1406135B8 (ExpWnfDeleteScopeById.c)
+ *     WbMoveHeapExecutedBlockToBackOfLRU @ 0x14064D550 (WbMoveHeapExecutedBlockToBackOfLRU.c)
+ *     WbGetWarbirdThread @ 0x14064EAD0 (WbGetWarbirdThread.c)
+ *     WbGetWarbirdProcess @ 0x14064F044 (WbGetWarbirdProcess.c)
+ *     WbAllocateUserMemory @ 0x1406875F4 (WbAllocateUserMemory.c)
+ *     WbAllocateSlots @ 0x1406878DC (WbAllocateSlots.c)
+ *     WbAddHeapExecutedBlockToCache @ 0x140688030 (WbAddHeapExecutedBlockToCache.c)
+ *     WbAddHeapExecutedBlockToLRU @ 0x140688144 (WbAddHeapExecutedBlockToLRU.c)
+ *     WbRemoveWarbirdProcess @ 0x1406A2524 (WbRemoveWarbirdProcess.c)
+ *     WbInPlaceEncryptionUnloadModule @ 0x1406A2768 (WbInPlaceEncryptionUnloadModule.c)
+ *     WbHeapExecutionUnloadModule @ 0x1406A287C (WbHeapExecutionUnloadModule.c)
+ *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1406A2980 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
+ *     ExpWnfCreateProcessContext @ 0x1406A7D84 (ExpWnfCreateProcessContext.c)
+ *     WbFreeMemoryBlockRegion @ 0x1406A8B64 (WbFreeMemoryBlockRegion.c)
+ *     ExpWnfDispatchKernelSubscription @ 0x1406AB6C4 (ExpWnfDispatchKernelSubscription.c)
+ *     NtAllocateUuids @ 0x1406B9660 (NtAllocateUuids.c)
+ *     ExUuidCreate @ 0x1407208B0 (ExUuidCreate.c)
+ *     ExpWnfAllocateNextPersistentNameSequence @ 0x140733204 (ExpWnfAllocateNextPersistentNameSequence.c)
+ *     ExRegisterExtension @ 0x14079D800 (ExRegisterExtension.c)
+ *     ExRegisterHost @ 0x14079DA20 (ExRegisterHost.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1407A4BEC (TlgRegisterAggregateProviderEx.c)
+ *     NtSetUuidSeed @ 0x1407C7300 (NtSetUuidSeed.c)
+ *     PdcAcquireRwLockExclusive @ 0x14091BACC (PdcAcquireRwLockExclusive.c)
+ *     ExUnregisterExtension @ 0x140956A00 (ExUnregisterExtension.c)
+ *     NtReleaseKeyedEvent @ 0x14095B240 (NtReleaseKeyedEvent.c)
+ *     NtWaitForKeyedEvent @ 0x14095B600 (NtWaitForKeyedEvent.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14095B9CC (ExpKdPullRemoteFileForUser.c)
+ *     ExpWnfDeleteScopeInstances @ 0x14095CBFC (ExpWnfDeleteScopeInstances.c)
+ *     WheaRegisterInUsePageOfflineNotification @ 0x14095D420 (WheaRegisterInUsePageOfflineNotification.c)
+ *     WheaUnregisterInUsePageOfflineNotification @ 0x14095D5A0 (WheaUnregisterInUsePageOfflineNotification.c)
+ *     WheapCallInUsePageNotificationCallbacks @ 0x14095D874 (WheapCallInUsePageNotificationCallbacks.c)
+ *     WheapPfaReset @ 0x14095E5C4 (WheapPfaReset.c)
+ *     WheapPredictiveFailureAnalysis @ 0x14095E740 (WheapPredictiveFailureAnalysis.c)
+ *     WheaConfigureErrorSource @ 0x1409A0440 (WheaConfigureErrorSource.c)
+ *     WheaUnconfigureErrorSource @ 0x1409B3770 (WheaUnconfigureErrorSource.c)
+ *     WheaInitialize @ 0x140A6305C (WheaInitialize.c)
+ *     ExpWorkerInitialization @ 0x140A6AE74 (ExpWorkerInitialization.c)
  * Callees:
- *     KeAbPreWait @ 0x14029F580 (KeAbPreWait.c)
- *     RtlBackoff @ 0x14029F5C0 (RtlBackoff.c)
- *     ExpOptimizePushLockList @ 0x14029F640 (ExpOptimizePushLockList.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeAbPreWait @ 0x1402F30C0 (KeAbPreWait.c)
+ *     RtlBackoff @ 0x1402F3100 (RtlBackoff.c)
+ *     ExpOptimizePushLockList @ 0x1402F3184 (ExpOptimizePushLockList.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-signed __int64 __fastcall ExfAcquirePushLockExclusiveEx(unsigned __int64 *a1, __int64 a2, __int64 a3)
+signed __int64 __fastcall ExfAcquirePushLockExclusiveEx(unsigned __int64 *a1, __int64 a2, ULONG_PTR a3)
 {
-  unsigned __int64 v6; // rdi
-  __int64 v7; // r13
+  unsigned __int64 v6; // rdx
+  unsigned __int64 v7; // r8
+  unsigned __int64 v8; // r9
+  unsigned __int64 v9; // rdi
+  __int64 v10; // r13
   signed __int64 result; // rax
-  bool v9; // cl
-  __int64 v10; // rdx
-  unsigned __int64 v11; // rdx
-  bool v12; // zf
-  signed __int64 v13; // rax
+  bool v12; // cl
+  __int64 v13; // rdx
+  bool v14; // zf
+  signed __int64 v15; // rax
   int i; // ecx
-  unsigned __int64 v16; // r8
-  unsigned __int64 v17; // r9
   unsigned __int64 v18; // rcx
   unsigned __int64 v19; // rax
   _QWORD Object[8]; // [rsp+30h] [rbp-40h] BYREF
@@ -112,41 +106,41 @@ signed __int64 __fastcall ExfAcquirePushLockExclusiveEx(unsigned __int64 *a1, __
   memset(Object, 0, sizeof(Object));
   v21 = 0;
   _m_prefetchw(a1);
-  v6 = *a1;
-  v7 = (unsigned int)(unsigned __int8)v21 + 3;
-  while ( (v6 & 1) != 0 )
+  v9 = *a1;
+  v10 = (unsigned int)(unsigned __int8)v21 + 3;
+  while ( (v9 & 1) != 0 )
   {
     if ( a2 )
       KeAbPreWait(a2);
-    v9 = 0;
+    v12 = 0;
     Object[7] = a2;
-    HIDWORD(Object[6]) = v7;
+    HIDWORD(Object[6]) = v10;
     Object[5] = 0LL;
-    if ( (v6 & 2) != 0 )
+    if ( (v9 & 2) != 0 )
     {
       Object[4] = 0LL;
       LODWORD(Object[6]) = -1;
-      Object[3] = v6 & 0xFFFFFFFFFFFFFFF0uLL;
-      v11 = (unsigned __int64)Object | v6 & 8 | 7;
-      v9 = (v6 & 4) == 0;
+      Object[3] = v9 & 0xFFFFFFFFFFFFFFF0uLL;
+      v6 = (unsigned __int64)Object | v9 & 8 | 7;
+      v12 = (v9 & 4) == 0;
     }
     else
     {
-      v10 = 11LL;
+      v13 = 11LL;
       Object[4] = Object;
-      LODWORD(Object[6]) = v6 >> 4;
+      LODWORD(Object[6]) = v9 >> 4;
       if ( SLODWORD(Object[6]) <= 1 )
-        v10 = v7;
-      v11 = (unsigned __int64)Object | v10;
-      if ( !(unsigned int)(v6 >> 4) )
+        v13 = v10;
+      v6 = (unsigned __int64)Object | v13;
+      if ( !(unsigned int)(v9 >> 4) )
         LODWORD(Object[6]) = -2;
     }
-    v13 = _InterlockedCompareExchange64((volatile signed __int64 *)a1, v11, v6);
-    v12 = v6 == v13;
-    v6 = v13;
-    if ( !v12 )
+    v15 = _InterlockedCompareExchange64((volatile signed __int64 *)a1, v6, v9);
+    v14 = v9 == v15;
+    v9 = v15;
+    if ( !v14 )
       goto LABEL_13;
-    if ( v9 )
+    if ( v12 )
       ExpOptimizePushLockList(a1);
     Object[2] = &Object[1];
     Object[1] = &Object[1];
@@ -157,27 +151,30 @@ signed __int64 __fastcall ExfAcquirePushLockExclusiveEx(unsigned __int64 *a1, __
     {
       if ( MEMORY[0xFFFFF78000000297] )
       {
-        v16 = __rdtsc();
-        v17 = v16 + (unsigned int)ExpSpinCycleCount;
+        v7 = __rdtsc();
+        v8 = v7 + (unsigned int)ExpSpinCycleCount;
         while ( 1 )
         {
+          v6 = 0LL;
           __asm { monitorx rax, rcx, rdx }
           if ( (Object[6] & 0x200000000LL) == 0 )
             break;
-          v18 = v16;
+          v18 = v7;
           v19 = __rdtsc();
-          v16 = v19;
-          if ( v19 <= v18 || v19 >= v17 )
+          v6 = (unsigned __int64)HIDWORD(v19) << 32;
+          v7 = v19;
+          if ( v19 <= v18 || v19 >= v8 )
             break;
           __asm { mwaitx  rax, rcx, rbx }
         }
       }
       else
       {
-        for ( i = 0;
-              (Object[6] & 0x200000000LL) != 0 && i != ExpSpinCycleCount / (unsigned int)MEMORY[0xFFFFF780000002D6];
-              ++i )
+        for ( i = 0; ; ++i )
         {
+          v6 = HIDWORD(Object[6]);
+          if ( (Object[6] & 0x200000000LL) == 0 || i == ExpSpinCycleCount / (unsigned int)MEMORY[0xFFFFF780000002D6] )
+            break;
           _mm_pause();
         }
       }
@@ -186,16 +183,16 @@ signed __int64 __fastcall ExfAcquirePushLockExclusiveEx(unsigned __int64 *a1, __
       KeWaitForSingleObject(Object, WrPushLock, 0, 0, 0LL);
 LABEL_14:
     if ( a2 )
-      a2 = KeAbPreAcquire(a3, a2, 0LL);
+      a2 = KeAbPreAcquire(a3);
   }
-  result = _InterlockedCompareExchange64((volatile signed __int64 *)a1, v6 + 1, v6);
-  if ( v6 != result )
+  result = _InterlockedCompareExchange64((volatile signed __int64 *)a1, v9 + 1, v9);
+  if ( v9 != result )
   {
     if ( a2 )
       KeAbPreWait(a2);
 LABEL_13:
-    RtlBackoff(&v21);
-    v6 = *a1;
+    RtlBackoff(&v21, v6, v7, v8);
+    v9 = *a1;
     _m_prefetchw(a1);
     goto LABEL_14;
   }

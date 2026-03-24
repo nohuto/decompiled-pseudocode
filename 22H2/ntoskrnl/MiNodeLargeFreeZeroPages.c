@@ -1,60 +1,64 @@
 /*
- * XREFs of MiNodeLargeFreeZeroPages @ 0x1402D75E0
+ * XREFs of MiNodeLargeFreeZeroPages @ 0x1402994C0
  * Callers:
- *     MiSignalLargePageRebuild @ 0x14021D444 (MiSignalLargePageRebuild.c)
- *     MiWakePageZeroing @ 0x14021E7C4 (MiWakePageZeroing.c)
- *     MiCheckZeroFreeRebalance @ 0x1402D9100 (MiCheckZeroFreeRebalance.c)
- *     MiNodeFreeZeroPages @ 0x1402E8524 (MiNodeFreeZeroPages.c)
- *     MiRebuildLargePages @ 0x14065DE60 (MiRebuildLargePages.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234880 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiWakePageZeroing @ 0x14027F7A8 (MiWakePageZeroing.c)
+ *     MiNodeFreeZeroPages @ 0x140299324 (MiNodeFreeZeroPages.c)
+ *     MiCheckZeroFreeRebalance @ 0x1402993D0 (MiCheckZeroFreeRebalance.c)
+ *     MiSignalLargePageRebuild @ 0x14033BFF0 (MiSignalLargePageRebuild.c)
+ *     MiRebuildLargePages @ 0x14038CFC0 (MiRebuildLargePages.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiNodeLargeFreeZeroPages(_QWORD *a1, unsigned int a2, int a3)
 {
-  __int64 v3; // r11
-  __int64 v4; // r15
-  __int64 *v5; // r9
-  __int64 v7; // r10
-  _QWORD *v8; // rdi
-  __int64 v9; // rsi
-  __int64 v10; // rcx
+  __int64 v3; // rbp
+  __int64 v4; // rbx
+  __int64 *v5; // rsi
+  __int64 v7; // r11
+  _QWORD *v8; // r9
+  __int64 v9; // r10
+  __int64 v10; // r14
   __int64 v11; // rax
-  __int64 v12; // r8
+  __int64 v12; // rcx
+  __int64 v13; // r8
 
   v3 = 0LL;
   v4 = a3;
   v5 = MiLargePageSizes;
   v7 = 0LL;
   v8 = a1;
-  v9 = 3LL;
+  v9 = a3;
+  v10 = 3LL;
   do
   {
     if ( a2 == 4 )
     {
+      v9 = v4;
       if ( (_DWORD)v4 == 2 )
         v11 = *v8 + v8[1];
       else
-        v11 = a1[v4 + v7];
+        v11 = a1[v7 + v4];
     }
     else
     {
-      v10 = v7 + 4 * (a2 + 4 * v4);
-      v11 = a1[v10 + 6]
-          + a1[v10 + 7]
-          + a1[v10 + 9]
-          + a1[v10 + 38]
-          + a1[v10 + 39]
-          + a1[v10 + 41]
-          + a1[v10 + 8]
-          + a1[v10 + 40];
+      v12 = v7 + 4 * (a2 + 4 * v9);
+      v11 = a1[v12 + 6]
+          + a1[v12 + 7]
+          + a1[v12 + 9]
+          + a1[v12 + 38]
+          + a1[v12 + 39]
+          + a1[v12 + 41]
+          + a1[v12 + 8]
+          + a1[v12 + 40];
     }
-    v12 = v11 * *v5++;
+    v13 = v11 * *v5++;
     v8 += 134;
-    v3 += v12;
+    v3 += v13;
     v7 += 134LL;
-    --v9;
+    --v10;
   }
-  while ( v9 );
+  while ( v10 );
   return v3;
 }

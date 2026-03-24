@@ -1,27 +1,27 @@
 /*
- * XREFs of WheapLogInitEvent @ 0x1408575AC
+ * XREFs of WheapLogInitEvent @ 0x1407AF948
  * Callers:
- *     WheaInitialize @ 0x140B4C7E8 (WheaInitialize.c)
+ *     WheaInitialize @ 0x140A6305C (WheaInitialize.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     WheaLogInternalEvent @ 0x1403810A0 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     WheaLogInternalEvent @ 0x1403BA6F0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void WheapLogInitEvent()
 {
-  char *Pool2; // rdi
+  char *PoolWithTag; // rdi
   __int64 *v1; // rdx
   int i; // r8d
   __int64 *v3; // rcx
   __int64 v4; // r9
   char *v5; // rax
   __int128 v6; // xmm1
-  struct _LIST_ENTRY *Flink; // rsi
+  REGHANDLE v7; // rsi
   unsigned int v8; // ebx
   _DWORD *v9; // rax
   _DWORD *v10; // rbx
@@ -39,16 +39,16 @@ void WheapLogInitEvent()
   unsigned int v22; // [rsp+80h] [rbp+3Fh]
   int v23; // [rsp+84h] [rbp+43h]
 
-  Size = 1072 * dword_140CF7B1C;
-  Pool2 = (char *)ExAllocatePool2(66LL, (unsigned int)(1072 * dword_140CF7B1C), 1634035799LL);
-  if ( Pool2 )
+  Size = 1072 * dword_140CDB11C;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(1072 * dword_140CDB11C), 0x61656857u);
+  if ( PoolWithTag )
   {
-    v1 = (__int64 *)qword_140CF7B28;
-    for ( i = 0; v1 != &qword_140CF7B28; v1 = (__int64 *)*v1 )
+    v1 = (__int64 *)qword_140CDB128;
+    for ( i = 0; v1 != &qword_140CDB128; v1 = (__int64 *)*v1 )
     {
       v3 = v1;
       v4 = 8LL;
-      v5 = &Pool2[1072 * i];
+      v5 = &PoolWithTag[1072 * i];
       do
       {
         *(_OWORD *)v5 = *(_OWORD *)v3;
@@ -70,27 +70,27 @@ void WheapLogInitEvent()
       *((_OWORD *)v5 + 1) = *((_OWORD *)v3 + 1);
       *((_OWORD *)v5 + 2) = *((_OWORD *)v3 + 2);
     }
-    Flink = WheapDispatchPtr.Queue.ListEntry.Flink;
+    v7 = WheapEtwHandle;
     v8 = Size;
     UserData.Reserved = 0;
     v17 = 0;
     v20 = 0;
     v23 = 0;
-    UserData.Ptr = (ULONGLONG)&dword_140CF7B1C;
+    UserData.Ptr = (ULONGLONG)&dword_140CDB11C;
     p_Size_4 = &Size_4;
     p_Size = &Size;
     UserData.Size = 4;
     Size_4 = 10;
     v16 = 4;
     v19 = 4;
-    v21 = Pool2;
+    v21 = PoolWithTag;
     v22 = Size;
-    if ( EtwEventEnabled((REGHANDLE)WheapDispatchPtr.Queue.ListEntry.Flink, &EVENT_WHEA_INIT_OP) == 1 )
+    if ( EtwEventEnabled(WheapEtwHandle, &EVENT_WHEA_INIT_OP) == 1 )
     {
-      EtwWrite((REGHANDLE)Flink, &EVENT_WHEA_INIT_OP, 0LL, 4u, &UserData);
+      EtwWrite(v7, &EVENT_WHEA_INIT_OP, 0LL, 4u, &UserData);
       v8 = Size;
     }
-    v9 = (_DWORD *)ExAllocatePool2(66LL, v8 + 32LL, 1634035799LL);
+    v9 = ExAllocatePoolWithTag(NonPagedPoolNx, v8 + 32LL, 0x61656857u);
     v10 = v9;
     if ( v9 )
     {
@@ -103,10 +103,10 @@ void WheapLogInitEvent()
       v9[4] = 1280201291;
       v9[6] = 2;
       v9[7] = v11;
-      memmove(v9 + 8, Pool2, Size);
+      memmove(v9 + 8, PoolWithTag, Size);
       WheaLogInternalEvent(v10);
       ExFreePoolWithTag(v10, 0x61656857u);
     }
-    ExFreePoolWithTag(Pool2, 0x61656857u);
+    ExFreePoolWithTag(PoolWithTag, 0x61656857u);
   }
 }

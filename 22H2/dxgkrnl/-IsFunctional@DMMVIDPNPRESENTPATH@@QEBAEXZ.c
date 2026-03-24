@@ -1,49 +1,69 @@
 /*
- * XREFs of ?IsFunctional@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0001A18
+ * XREFs of ?IsFunctional@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C000B924
  * Callers:
- *     ?IsFunctional@DMMVIDPN@@QEBAEI@Z @ 0x1C016D6C0 (-IsFunctional@DMMVIDPN@@QEBAEI@Z.c)
- *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C0178EE0 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
- *     ?IsVidPnPathModeMatch@DMMVIDPNPRESENTPATH@@QEBA_NAEBV1@E@Z @ 0x1C03B97AC (-IsVidPnPathModeMatch@DMMVIDPNPRESENTPATH@@QEBA_NAEBV1@E@Z.c)
+ *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C0146674 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
+ *     ?IsVidPnPathModeMatch@DMMVIDPNPRESENTPATH@@QEBA_NAEBV1@E@Z @ 0x1C0147F1C (-IsVidPnPathModeMatch@DMMVIDPNPRESENTPATH@@QEBA_NAEBV1@E@Z.c)
+ *     ?IsFunctional@DMMVIDPN@@QEBAEI@Z @ 0x1C016B2B0 (-IsFunctional@DMMVIDPN@@QEBAEI@Z.c)
  * Callees:
- *     ?IsFunctionalContentScalingType@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0001AC4 (-IsFunctionalContentScalingType@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@.c)
- *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C0001D80 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?IsFunctionalContentRotationType@DMMVIDPNPRESENTPATH@@SAEW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z @ 0x1C0002C60 (-IsFunctionalContentRotationType@DMMVIDPNPRESENTPATH@@SAEW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@.c)
- *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0007078 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
- *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C000A568 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
+ *     ?IsFunctionalContentScalingType@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0006D30 (-IsFunctionalContentScalingType@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0009724 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000A974 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     ?IsFunctionalContentRotationType@DMMVIDPNPRESENTPATH@@SAEW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z @ 0x1C000C3C4 (-IsFunctionalContentRotationType@DMMVIDPNPRESENTPATH@@SAEW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@.c)
  */
 
-bool __fastcall DMMVIDPNPRESENTPATH::IsFunctional(DMMVIDPNPRESENTPATH *this)
+unsigned __int8 __fastcall DMMVIDPNPRESENTPATH::IsFunctional(DMMVIDPNPRESENTPATH *this)
 {
-  struct DMMVIDPNTARGETMODESET *v2; // rax
-  struct DMMVIDPNTARGETMODESET *v3; // rax
-  struct DMMVIDPNTARGETMODESET *v5; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v1; // rdx
+  __int64 v3; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v10; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(*((DMMVIDPNTARGET **)this + 11));
-  v5 = v2;
-  if ( *((struct DMMVIDPNTARGETMODESET **)v2 + 6) == (struct DMMVIDPNTARGETMODESET *)((char *)v2 + 48)
-    || !*((_QWORD *)v2 + 18) )
+  v1 = *((_QWORD *)this + 11);
+  v3 = *(_QWORD *)(v1 + 104);
+  if ( v3 )
   {
-    auto_rc<DMMVIDPNSOURCEMODESET>::reset(&v5, 0LL);
+    _InterlockedIncrement((volatile signed __int32 *)(v3 + 96));
+    v4 = *(_QWORD *)(v1 + 104);
   }
   else
   {
-    auto_rc<DMMVIDPNSOURCEMODESET>::reset(&v5, 0LL);
-    v3 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(*((DMMVIDPNTARGET **)this + 12));
-    v5 = v3;
-    if ( *((struct DMMVIDPNTARGETMODESET **)v3 + 6) == (struct DMMVIDPNTARGETMODESET *)((char *)v3 + 48)
-      || !*((_QWORD *)v3 + 18) )
+    v4 = 0LL;
+  }
+  v10 = v4;
+  if ( *(_QWORD *)(v4 + 48) == v4 + 48 || !*(_QWORD *)(v4 + 144) )
+  {
+    auto_rc<DMMVIDPNSOURCEMODESET>::reset(&v10, 0LL);
+  }
+  else
+  {
+    auto_rc<DMMVIDPNSOURCEMODESET>::reset(&v10, 0LL);
+    v5 = *((_QWORD *)this + 12);
+    v6 = *(_QWORD *)(v5 + 104);
+    if ( v6 )
     {
-      auto_rc<DMMVIDPNTARGETMODESET>::reset(&v5, 0LL);
+      _InterlockedIncrement((volatile signed __int32 *)(v6 + 96));
+      v7 = *(_QWORD *)(v5 + 104);
     }
     else
     {
-      auto_rc<DMMVIDPNTARGETMODESET>::reset(&v5, 0LL);
-      if ( DMMVIDPNPRESENTPATH::IsFunctionalContentScalingType(
-             this,
-             *((enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *)this + 28)) )
+      v7 = 0LL;
+    }
+    v9 = v7;
+    if ( *(_QWORD *)(v7 + 48) == v7 + 48 || !*(_QWORD *)(v7 + 144) )
+    {
+      auto_rc<DMMVIDPNTARGETMODESET>::reset(&v9, 0LL);
+    }
+    else
+    {
+      auto_rc<DMMVIDPNTARGETMODESET>::reset(&v9, 0LL);
+      if ( DMMVIDPNPRESENTPATH::IsFunctionalContentScalingType(this, *((_DWORD *)this + 28))
+        && DMMVIDPNPRESENTPATH::IsFunctionalContentRotationType(*((enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION *)this + 29)) )
       {
-        return DMMVIDPNPRESENTPATH::IsFunctionalContentRotationType(*((enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION *)this
-                                                                    + 29)) != 0;
+        return 1;
       }
     }
   }

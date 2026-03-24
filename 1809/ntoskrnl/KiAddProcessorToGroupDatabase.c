@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAddProcessorToGroupDatabase @ 0x14017E358
+ * XREFs of KiAddProcessorToGroupDatabase @ 0x14017E378
  * Callers:
- *     KiConfigureInitialNodes @ 0x14017E188 (KiConfigureInitialNodes.c)
- *     KxInitializeProcessorState @ 0x140729E24 (KxInitializeProcessorState.c)
+ *     KiConfigureInitialNodes @ 0x14017E1A8 (KiConfigureInitialNodes.c)
+ *     KxInitializeProcessorState @ 0x140729E04 (KxInitializeProcessorState.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
  */
 
 _QWORD *__fastcall KiAddProcessorToGroupDatabase(__int64 a1, int a2)

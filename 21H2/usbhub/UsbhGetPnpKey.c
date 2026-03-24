@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhGetPnpKey @ 0x1C0059868
+ * XREFs of UsbhGetPnpKey @ 0x1C005AF84
  * Callers:
- *     UsbhBuildUxdPnpId @ 0x1C0058FF0 (UsbhBuildUxdPnpId.c)
+ *     UsbhBuildUxdPnpId @ 0x1C005A6C0 (UsbhBuildUxdPnpId.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
  */
 
 NTSTATUS __fastcall UsbhGetPnpKey(__int64 a1, __int64 a2, const GUID *a3, _QWORD *a4, _DWORD *a5)

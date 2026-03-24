@@ -1,9 +1,9 @@
 /*
- * XREFs of KeResumeClockTimer @ 0x14056FA0C
+ * XREFs of KeResumeClockTimer @ 0x140383558
  * Callers:
- *     PopHandleNextState @ 0x140AA81DC (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x1409938B0 (PopHandleNextState.c)
  * Callees:
- *     KiResumeClockTimer @ 0x14056FEE8 (KiResumeClockTimer.c)
+ *     KiResumeClockTimer @ 0x140383570 (KiResumeClockTimer.c)
  */
 
 __int64 KeResumeClockTimer()

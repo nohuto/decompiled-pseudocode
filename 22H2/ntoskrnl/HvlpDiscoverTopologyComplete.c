@@ -1,24 +1,24 @@
 /*
- * XREFs of HvlpDiscoverTopologyComplete @ 0x140B940B4
+ * XREFs of HvlpDiscoverTopologyComplete @ 0x140A8F044
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4610 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x1403CE9B8 (HvlPhase2Initialize.c)
  * Callees:
- *     HvlpDiscoverTopologyWorker @ 0x140941458 (HvlpDiscoverTopologyWorker.c)
+ *     HvlpDiscoverTopologyWorker @ 0x14088E8B8 (HvlpDiscoverTopologyWorker.c)
  */
 
 int *HvlpDiscoverTopologyComplete()
 {
   int *result; // rax
-  unsigned int v1; // esi
-  unsigned int v2; // r9d
+  unsigned int v1; // edi
+  unsigned int v2; // edx
   int *v3; // rbx
-  unsigned int v4; // r10d
+  unsigned int v4; // r8d
   unsigned int v5; // ebp
   unsigned int v6; // r14d
   bool v7; // zf
-  char v8; // r8
+  char v8; // r10
   char v9; // r11
-  _DWORD *v10; // rdx
+  _DWORD *v10; // r9
   char v11; // cl
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
@@ -26,26 +26,26 @@ int *HvlpDiscoverTopologyComplete()
   v1 = 0;
   if ( (_DWORD)HvlpLogicalProcessorCount )
   {
-    v2 = dword_140D18E10;
-    v3 = &dword_140D2A9B8;
-    v4 = dword_140D18E14;
+    v2 = dword_140CF687C;
+    v3 = &dword_140D042E8;
+    v4 = dword_140CF6880;
     do
     {
       if ( v3[4] == -1 )
       {
         result = (int *)HvlpDiscoverTopologyWorker();
-        v2 = dword_140D18E10;
-        v4 = dword_140D18E14;
+        v2 = dword_140CF687C;
+        v4 = dword_140CF6880;
       }
       v5 = v3[2];
       v6 = v3[3];
       if ( v5 > v2 )
         v2 = v3[2];
-      dword_140D18E10 = v2;
+      dword_140CF687C = v2;
       if ( v6 > v4 )
         v4 = v6;
       v7 = *((_BYTE *)v3 + 104) == 0;
-      dword_140D18E14 = v4;
+      dword_140CF6880 = v4;
       if ( !v7 )
       {
         v8 = 1;
@@ -53,7 +53,7 @@ int *HvlpDiscoverTopologyComplete()
         v9 = 1;
         if ( HvlpLogicalProcessorRegions == v3 - 2 )
           goto LABEL_19;
-        v10 = &unk_140D2A9C0;
+        v10 = &unk_140D042F0;
         do
         {
           if ( *((_BYTE *)v10 + 96) )

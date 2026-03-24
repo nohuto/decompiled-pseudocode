@@ -1,20 +1,20 @@
 /*
- * XREFs of KeValidateBugCheckCallbackRecord @ 0x140569588
+ * XREFs of KeValidateBugCheckCallbackRecord @ 0x140517AD8
  * Callers:
- *     IopDumpCallAddPagesCallbacks @ 0x140552638 (IopDumpCallAddPagesCallbacks.c)
- *     IopDumpCallRemovePagesCallbacks @ 0x140552790 (IopDumpCallRemovePagesCallbacks.c)
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056A774 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
- *     KiInvokeBugCheckEntryCallbacks @ 0x14056A96C (KiInvokeBugCheckEntryCallbacks.c)
- *     IopLiveDumpAddTriageDumpData @ 0x140A9A2A0 (IopLiveDumpAddTriageDumpData.c)
- *     IopLiveDumpCallRemovePagesCallbacks @ 0x140A9A5D4 (IopLiveDumpCallRemovePagesCallbacks.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x140503980 (IopDumpCallAddPagesCallbacks.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x140503AD0 (IopDumpCallRemovePagesCallbacks.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14051852C (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x1405186E8 (KiInvokeBugCheckEntryCallbacks.c)
+ *     IopLiveDumpAddTriageDumpData @ 0x1409AB3C0 (IopLiveDumpAddTriageDumpData.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x1409AB700 (IopLiveDumpCallRemovePagesCallbacks.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
- *     IoIsPartialDumpRetry @ 0x140550880 (IoIsPartialDumpRetry.c)
+ *     MmIsAddressValidEx @ 0x14028CB70 (MmIsAddressValidEx.c)
+ *     IoIsPartialDumpRetry @ 0x140502348 (IoIsPartialDumpRetry.c)
  */
 
 bool __fastcall KeValidateBugCheckCallbackRecord(__int64 a1, int a2, _QWORD *a3)
 {
-  bool IsAddressValid; // di
+  bool v3; // di
   __int64 v7; // r15
   unsigned __int64 v8; // rbp
   unsigned __int64 v9; // rsi
@@ -22,7 +22,7 @@ bool __fastcall KeValidateBugCheckCallbackRecord(__int64 a1, int a2, _QWORD *a3)
   __int64 v11; // rcx
   bool result; // al
 
-  IsAddressValid = 0;
+  v3 = 0;
   v7 = 0LL;
   if ( (a1 & 7) == 0 )
   {
@@ -50,12 +50,12 @@ LABEL_5:
           v10 = *(int *)(a1 + 40);
           v11 = *(_QWORD *)(a1 + 16);
           if ( *(_QWORD *)(a1 + 32) == v11 + v10 + *(_QWORD *)(a1 + 24) && (_DWORD)v10 == a2 )
-            IsAddressValid = MmIsAddressValidEx(v11);
+            v3 = MmIsAddressValidEx(v11) != 0;
         }
       }
     }
   }
-  result = IsAddressValid;
+  result = v3;
   *a3 = v7;
   return result;
 }

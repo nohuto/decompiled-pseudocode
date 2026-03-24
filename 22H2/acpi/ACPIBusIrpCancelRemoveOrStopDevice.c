@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIBusIrpCancelRemoveOrStopDevice @ 0x1C007E360
+ * XREFs of ACPIBusIrpCancelRemoveOrStopDevice @ 0x1C00ADC20
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
- *     EnableDisableRegionSpacesForDevice @ 0x1C0039AFC (EnableDisableRegionSpacesForDevice.c)
- *     ACPIThermalAcquireCoolingInterfaces @ 0x1C003FAF8 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIThermalAcquireCoolingInterfaces @ 0x1C000DE20 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     EnableDisableRegionSpacesForDevice @ 0x1C005C920 (EnableDisableRegionSpacesForDevice.c)
  */
 
 __int64 __fastcall ACPIBusIrpCancelRemoveOrStopDevice(ULONG_PTR a1, IRP *a2)
@@ -15,7 +15,7 @@ __int64 __fastcall ACPIBusIrpCancelRemoveOrStopDevice(ULONG_PTR a1, IRP *a2)
   unsigned __int8 MinorFunction; // si
   _DWORD *DeviceExtension; // rax
   __int64 v5; // rbx
-  int v6; // eax
+  int v6; // ecx
   __int64 v7; // rcx
   char *IrpText; // rax
   const char *v9; // r8
@@ -26,18 +26,21 @@ __int64 __fastcall ACPIBusIrpCancelRemoveOrStopDevice(ULONG_PTR a1, IRP *a2)
   v5 = (__int64)DeviceExtension;
   if ( (DeviceExtension[2] & 0x204000) != 0x200000LL )
   {
-    if ( DeviceExtension[92] == 1 )
+    if ( DeviceExtension[82] == 1 )
     {
-      v6 = DeviceExtension[93];
-      *(_DWORD *)(v5 + 368) = v6;
-      if ( v6 == 3 && (*(_DWORD *)(v5 + 668) & 0x300) != 0 )
-        EnableDisableRegionSpacesForDevice(v5, 1);
+      v6 = DeviceExtension[83];
+      DeviceExtension[82] = v6;
+      if ( v6 == 3 && (DeviceExtension[157] & 0x300) != 0 )
+        EnableDisableRegionSpacesForDevice((__int64)DeviceExtension, 1);
     }
-    if ( !*(_QWORD *)(v5 + 656) )
+    if ( !*(_QWORD *)(v5 + 616) )
       ACPIThermalAcquireCoolingInterfaces(v5);
   }
   a2->IoStatus.Status = 0;
   IofCompleteRequest(a2, 0);
+  v7 = 0x200000000000LL;
+  if ( (*(_QWORD *)(v5 + 8) & 0x200000000000LL) != 0 )
+    v7 = 0x400000000000LL;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     IrpText = ACPIDebugGetIrpText(v7, MinorFunction);
@@ -46,9 +49,9 @@ __int64 __fastcall ACPIBusIrpCancelRemoveOrStopDevice(ULONG_PTR a1, IRP *a2)
       4u,
       5u,
       0x19u,
-      (__int64)&WPP_efe410a963c03a77fa130710cec25e42_Traceguids,
+      (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
       (char)a2,
-      (__int64)IrpText,
+      IrpText,
       0,
       v5,
       v9,

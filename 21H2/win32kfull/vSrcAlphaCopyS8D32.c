@@ -1,52 +1,57 @@
 /*
- * XREFs of vSrcAlphaCopyS8D32 @ 0x1C00DCC90
+ * XREFs of vSrcAlphaCopyS8D32 @ 0x1C00D66B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall vSrcAlphaCopyS8D32(__int64 a1, int a2, int a3, __int64 a4, int a5, int a6, int a7, int a8)
+unsigned __int8 *__fastcall vSrcAlphaCopyS8D32(__int64 a1, int a2, int a3, __int64 a4, int a5, int a6, int a7, int a8)
 {
-  int v8; // esi
-  unsigned __int8 *v9; // rbp
-  int *v10; // rdi
-  __int64 v11; // r12
-  unsigned __int8 *v12; // r11
-  int *i; // rax
+  int v8; // edi
+  unsigned __int8 *result; // rax
+  unsigned __int8 *v10; // r11
+  unsigned __int64 i; // rbx
+  unsigned __int64 v12; // r10
+  _DWORD *v13; // r9
   __int64 v14; // rcx
 
   v8 = a8;
-  v9 = (unsigned __int8 *)(a1 + a2);
-  v10 = (int *)(a4 + 4LL * a5);
-  if ( a8 )
+  result = (unsigned __int8 *)a2;
+  v10 = (unsigned __int8 *)(a2 + a1);
+  for ( i = a4 + 4LL * a5; v8; --v8 )
   {
-    v11 = (unsigned int)(a6 - a5);
-    do
+    v12 = (unsigned int)(a6 - a5);
+    result = v10;
+    v13 = (_DWORD *)i;
+    if ( i > i + 4 * v12 )
+      v12 = 0LL;
+    if ( v12 )
     {
-      v12 = v9;
-      for ( i = v10; i < &v10[v11]; ++i )
+      do
       {
-        v14 = *v12;
+        v14 = *result;
         if ( (_BYTE)v14 )
         {
           if ( (unsigned __int8)v14 >= 0x72u )
           {
-            *i = 0xFFFFFF;
+            *v13 = 0xFFFFFF;
           }
           else
           {
             _mm_lfence();
-            *i = alAlpha_255[*((unsigned __int8 *)off_1C03260D0 + 4 * v14 + 2)] | (((alAlpha_255[*((unsigned __int8 *)off_1C03260D0
-                                                                                                 + 4 * v14)] << 8) | alAlpha_255[*((unsigned __int8 *)off_1C03260D0 + 4 * v14 + 1)]) << 8);
+            *v13 = alAlpha_255[*((unsigned __int8 *)off_1C032B0D0 + 4 * v14 + 2)] | ((alAlpha_255[*((unsigned __int8 *)off_1C032B0D0
+                                                                                                  + 4 * v14
+                                                                                                  + 1)] | (alAlpha_255[*((unsigned __int8 *)off_1C032B0D0 + 4 * v14)] << 8)) << 8);
           }
         }
-        ++v12;
+        ++result;
+        ++v13;
       }
-      v9 += a3;
-      v10 = (int *)((char *)v10 + a7);
-      --v8;
+      while ( result - v10 < v12 );
     }
-    while ( v8 );
+    v10 += a3;
+    i += a7;
   }
+  return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwModifyDriverEntry @ 0x1401BA370
+ * XREFs of ZwModifyDriverEntry @ 0x1401BA390
  * Callers:
  *     <none>
  * Callees:

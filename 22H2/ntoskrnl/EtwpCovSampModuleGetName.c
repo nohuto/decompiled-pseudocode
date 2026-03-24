@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampModuleGetName @ 0x1409F27A8
+ * XREFs of EtwpCovSampModuleGetName @ 0x14094535C
  * Callers:
- *     EtwpCovSampContextGetModule @ 0x1409F133C (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampContextGetModule @ 0x140943470 (EtwpCovSampContextGetModule.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x1407B7570 (RtlDuplicateUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlDuplicateUnicodeString @ 0x14066FCD0 (RtlDuplicateUnicodeString.c)
  */
 
 __int64 __fastcall EtwpCovSampModuleGetName(__int64 a1, __int64 a2, const UNICODE_STRING *a3)
@@ -55,6 +55,6 @@ __int64 __fastcall EtwpCovSampModuleGetName(__int64 a1, __int64 a2, const UNICOD
     if ( v12 )
       (*(void (**)(void))(FltMgrCallbacks + 32))();
   }
-  RtlFreeUnicodeString(&StringOut);
+  RtlFreeAnsiString(&StringOut);
   return (unsigned int)v6;
 }

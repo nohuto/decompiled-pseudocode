@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsDisjointCapableSku@DisjointExperienceConfig@DefaultMultiScreenConfig@@YA_NXZ @ 0x1C004D60C
+ * XREFs of ?IsDisjointCapableSku@DisjointExperienceConfig@DefaultMultiScreenConfig@@YA_NXZ @ 0x1C0049BC8
  * Callers:
- *     ?DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities@@@Z @ 0x1C004D444 (-DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities.c)
+ *     ?DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities@@@Z @ 0x1C0049A08 (-DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities.c)
  * Callees:
  *     <none>
  */

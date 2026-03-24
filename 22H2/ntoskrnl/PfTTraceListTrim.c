@@ -1,66 +1,53 @@
 /*
- * XREFs of PfTTraceListTrim @ 0x14097F45C
+ * XREFs of PfTTraceListTrim @ 0x1408E064C
  * Callers:
- *     PfTTraceListAdd @ 0x14075F1E8 (PfTTraceListAdd.c)
- *     PfTCleanup @ 0x14097F218 (PfTCleanup.c)
+ *     PfTTraceListAdd @ 0x14062FFAC (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x1408E040C (PfTCleanup.c)
  * Callees:
  *     <none>
  */
 
-__int64 *__fastcall PfTTraceListTrim(int a1, unsigned int a2, __int64 a3)
+void ***__fastcall PfTTraceListTrim(int a1, unsigned int a2, void ***a3)
 {
-  unsigned int v3; // r9d
-  int *v4; // r11
-  int *v6; // r10
-  __int64 *v7; // rdx
-  __int64 *result; // rax
-  __int64 v9; // rcx
-  int v10; // ecx
-  __int64 **v11; // rcx
+  int *v4; // r10
+  int *v5; // r9
+  void **v6; // rdx
+  void ***result; // rax
+  void **v8; // rcx
+  int v9; // ecx
+  void **v10; // rcx
 
-  v3 = dword_140C65458;
-  v4 = &dword_140C65564;
-  v6 = &dword_140C65460;
-  if ( a1 == 1 )
-    v3 = dword_140C65460;
-  v7 = &qword_140C65448;
+  v4 = &dword_140C4FEE4;
   if ( a1 != 1 )
-  {
-    v4 = (int *)&unk_140C65560;
-    v6 = &dword_140C65458;
-  }
-  result = &qword_140C65438;
+    v4 = (int *)&unk_140C4FEE0;
+  v5 = &dword_140C4FDE0;
   if ( a1 != 1 )
-    v7 = &qword_140C65438;
-  if ( v3 > a2 )
+    v5 = &dword_140C4FDD8;
+  v6 = (void **)&unk_140C4FDC8;
+  result = (void ***)&unk_140C4FDB8;
+  if ( a1 != 1 )
+    v6 = (void **)&unk_140C4FDB8;
+  while ( *v5 > a2 )
   {
-    do
+    result = (void ***)*v6;
+    if ( *v6 == v6 )
+      break;
+    if ( result[1] != v6
+      || (v8 = *result, (*result)[1] != result)
+      || ((*v6 = v8, v8[1] = v6, *((_DWORD *)result + 7))
+        ? (v9 = *((_DWORD *)result + 12))
+        : (v9 = *((_DWORD *)result + 9)),
+          --*v5,
+          *v4 += v9,
+          v10 = a3[1],
+          *v10 != a3) )
     {
-      result = (__int64 *)*v7;
-      if ( (__int64 *)*v7 == v7 )
-        break;
-      if ( (__int64 *)result[1] == v7 )
-      {
-        v9 = *result;
-        if ( *(__int64 **)(*result + 8) == result )
-        {
-          *v7 = v9;
-          *(_QWORD *)(v9 + 8) = v7;
-          v10 = *((_DWORD *)result + 7) ? *((_DWORD *)result + 12) : *((_DWORD *)result + 9);
-          --*v6;
-          *v4 += v10;
-          v11 = *(__int64 ***)(a3 + 8);
-          if ( *v11 == (__int64 *)a3 )
-            continue;
-        }
-      }
       __fastfail(3u);
-      *result = a3;
-      result[1] = (__int64)v11;
-      *v11 = result;
-      *(_QWORD *)(a3 + 8) = result;
     }
-    while ( *v6 > a2 );
+    *result = (void **)a3;
+    result[1] = v10;
+    *v10 = result;
+    a3[1] = (void **)result;
   }
   return result;
 }

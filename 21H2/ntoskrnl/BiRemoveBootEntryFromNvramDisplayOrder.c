@@ -1,11 +1,11 @@
 /*
- * XREFs of BiRemoveBootEntryFromNvramDisplayOrder @ 0x140A20978
+ * XREFs of BiRemoveBootEntryFromNvramDisplayOrder @ 0x140972A10
  * Callers:
- *     BiBindEfiEntries @ 0x140A1E590 (BiBindEfiEntries.c)
+ *     BiBindEfiEntries @ 0x140970628 (BiBindEfiEntries.c)
  * Callees:
- *     BiQueryBootEntryOrder @ 0x140A207C4 (BiQueryBootEntryOrder.c)
- *     BiSetBootEntryOrder @ 0x140A20A2C (BiSetBootEntryOrder.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     BiQueryBootEntryOrder @ 0x14097285C (BiQueryBootEntryOrder.c)
+ *     BiSetBootEntryOrder @ 0x140972AC4 (BiSetBootEntryOrder.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiRemoveBootEntryFromNvramDisplayOrder(__int64 a1)

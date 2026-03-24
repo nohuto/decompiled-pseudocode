@@ -1,5 +1,5 @@
 /*
- * XREFs of ?cjSize@EPATHOBJ@@QEAAKXZ @ 0x1C00CD560
+ * XREFs of ?cjSize@EPATHOBJ@@QEAAKXZ @ 0x1C00BE770
  * Callers:
  *     <none>
  * Callees:

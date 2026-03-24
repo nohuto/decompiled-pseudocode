@@ -1,58 +1,60 @@
 /*
- * XREFs of ?xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z @ 0x1C01C9F1C
+ * XREFs of ?xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F3580
  * Callers:
- *     xxxNextWindow @ 0x1C01CA504 (xxxNextWindow.c)
- *     xxxOldNextWindow @ 0x1C01CACD8 (xxxOldNextWindow.c)
+ *     xxxNextWindow @ 0x1C01F3B6C (xxxNextWindow.c)
+ *     xxxOldNextWindow @ 0x1C01F43B0 (xxxOldNextWindow.c)
  * Callees:
- *     xxxSetWindowPos @ 0x1C0028898 (xxxSetWindowPos.c)
- *     ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C008B640 (-xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z.c)
- *     GetMonitorWorkRect @ 0x1C00C46A8 (GetMonitorWorkRect.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
- *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01C9008 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
+ *     GetMonitorWorkRect @ 0x1C0041390 (GetMonitorWorkRect.c)
+ *     xxxSetWindowPos @ 0x1C006BBB4 (xxxSetWindowPos.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
+ *     ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C00F5200 (-xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z.c)
+ *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01F2620 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
  */
 
-__int64 __fastcall xxxShowSwitchWindow(struct tagWND *a1)
+__int64 __fastcall xxxShowSwitchWindow(struct tagWND *a1, __int64 a2)
 {
-  struct tagWND *v1; // rbx
-  __int64 v2; // rsi
-  struct tagSwitchWndInfo *v3; // rax
-  struct tagSwitchWndInfo *v4; // rdi
-  struct tagSwitchWndInfo *v5; // rax
-  struct tagSwitchWndInfo *v6; // rax
-  __int128 v8; // [rsp+40h] [rbp-18h] BYREF
+  struct tagWND *v2; // rbx
+  __int64 v3; // rsi
+  struct tagSwitchWndInfo *v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  struct tagSwitchWndInfo *v7; // rdi
+  struct tagSwitchWndInfo *v8; // rax
+  struct tagSwitchWndInfo *v9; // rax
+  __int128 v11; // [rsp+40h] [rbp-18h] BYREF
 
-  v1 = (struct tagWND *)gspwndAltTab;
-  v2 = *(_QWORD *)(GetDispInfo(a1) + 96);
-  v3 = Getpswi(v1);
-  v4 = v3;
-  if ( !v3
-    || *((_DWORD *)v3 + 27) && (_GetKeyState(18LL) & 0x8000u) == 0LL
-    || !*((_DWORD *)v4 + 27) && (_GetAsyncKeyState(18LL) & 0x8000u) == 0LL )
+  v2 = gspwndAltTab;
+  v3 = *(_QWORD *)(GetDispInfo(a1, a2) + 96);
+  v4 = Getpswi(v2);
+  v7 = v4;
+  if ( !v4
+    || *((_DWORD *)v4 + 27) && (_GetKeyState(18LL) & 0x8000u) == 0LL
+    || !*((_DWORD *)v7 + 27) && (_GetAsyncKeyState(18LL, v5, v6) & 0x8000u) == 0LL )
   {
     return 0LL;
   }
-  v8 = *GetMonitorWorkRect(&v8, v2);
-  xxxSetWindowPos(v1, -1LL, 0LL, 0LL, 0, 0, 27);
-  if ( (*(_BYTE *)(*((_QWORD *)v1 + 5) + 31LL) & 0x10) == 0 )
+  v11 = *GetMonitorWorkRect(&v11, v3);
+  xxxSetWindowPos(v2, -1LL, 0LL, 0LL, 0, 0, 27);
+  if ( (*(_BYTE *)(*((_QWORD *)v2 + 5) + 31LL) & 0x10) == 0 )
   {
-    v5 = Getpswi(v1);
-    if ( !v5 )
+    v8 = Getpswi(v2);
+    if ( !v8 )
       return 0LL;
     xxxSetWindowPos(
-      v1,
+      v2,
       -1LL,
-      (unsigned int)(((int)v8 + DWORD2(v8) - *((_DWORD *)v5 + 19)) / 2),
-      (unsigned int)((DWORD1(v8) + HIDWORD(v8) - *((_DWORD *)v5 + 20)) / 2),
-      *((_DWORD *)v5 + 19),
-      *((_DWORD *)v5 + 20),
+      (unsigned int)(((int)v11 + DWORD2(v11) - *((_DWORD *)v8 + 19)) / 2),
+      (unsigned int)((DWORD1(v11) + HIDWORD(v11) - *((_DWORD *)v8 + 20)) / 2),
+      *((_DWORD *)v8 + 19),
+      *((_DWORD *)v8 + 20),
       80);
   }
-  xxxInternalUpdateWindow(v1, 1u);
-  xxxWindowEvent(0x14u, v1, -4, 0, 1);
-  v6 = Getpswi(v1);
-  if ( v6 )
+  xxxInternalUpdateWindow(v2, 1u);
+  xxxWindowEvent(0x14u, v2, -4, 0, 1u);
+  v9 = Getpswi(v2);
+  if ( v9 )
   {
-    xxxWindowEvent(0x8005u, v1, -4, *((_DWORD *)v6 + 17) + 1 + *((_DWORD *)v6 + 14) * *((_DWORD *)v6 + 18), 1);
+    xxxWindowEvent(0x8005u, v2, -4, *((_DWORD *)v9 + 17) + 1 + *((_DWORD *)v9 + 14) * *((_DWORD *)v9 + 18), 1u);
     return 1LL;
   }
   return 0LL;

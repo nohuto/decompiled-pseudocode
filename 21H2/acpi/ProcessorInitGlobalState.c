@@ -1,34 +1,33 @@
 /*
- * XREFs of ProcessorInitGlobalState @ 0x1C00BEB6C
+ * XREFs of ProcessorInitGlobalState @ 0x1C00BF064
  * Callers:
- *     AcpiIrqLibInitializeGlobalState @ 0x1C00BEA3C (AcpiIrqLibInitializeGlobalState.c)
+ *     AcpiIrqLibInitializeGlobalState @ 0x1C00BEF34 (AcpiIrqLibInitializeGlobalState.c)
  * Callees:
- *     memset @ 0x1C0030080 (memset.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 ProcessorInitGlobalState()
 {
-  size_t v0; // rbx
-  void *Pool2; // rax
-  USHORT MaximumGroupCount; // ax
-  __int64 result; // rax
+  SIZE_T v0; // rbx
+  PVOID PoolWithTag; // rax
+  SIZE_T v2; // rbx
+  PVOID v3; // rax
 
   v0 = 8LL * KeQueryMaximumProcessorCountEx(0xFFFFu);
-  Pool2 = (void *)ExAllocatePool2(256LL, v0, 1232102209LL);
-  ProcessorByNtNumber = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v0, 0x49706341u);
+  ProcessorByNtNumber = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, v0);
-    qword_1C0080618 = (__int64)&ProcessorGroupListHead;
+    memset(PoolWithTag, 0, v0);
+    qword_1C0081568 = (__int64)&ProcessorGroupListHead;
     ProcessorGroupListHead = (__int64)&ProcessorGroupListHead;
-    MaximumGroupCount = KeQueryMaximumGroupCount();
-    ProcessorGroupByNumber = ExAllocatePool2(256LL, 8LL * MaximumGroupCount, 1232102209LL);
-    if ( ProcessorGroupByNumber )
+    v2 = 8LL * KeQueryMaximumGroupCount();
+    v3 = ExAllocatePoolWithTag(PagedPool, v2, 0x49706341u);
+    ProcessorGroupByNumber = (__int64)v3;
+    if ( v3 )
     {
-      KeInitializeAffinityEx2(&ProcessorpPreferredCpuSet, 32LL);
-      result = 0LL;
-      ProcessorPreferredCpuSetSpecified = 0;
-      return result;
+      memset(v3, 0, v2);
+      return 0LL;
     }
     ExFreePoolWithTag(ProcessorByNtNumber, 0);
     ProcessorByNtNumber = 0LL;

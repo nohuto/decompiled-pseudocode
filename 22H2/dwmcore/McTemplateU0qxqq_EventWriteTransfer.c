@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0qxqq_EventWriteTransfer @ 0x180248A68
+ * XREFs of McTemplateU0qxqq_EventWriteTransfer @ 0x1801E3888
  * Callers:
- *     ?ProcessAddPrimitives@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_ADDPRIMITIVES@@@Z @ 0x1800E1514 (-ProcessAddPrimitives@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_ADD.c)
+ *     ?ProcessAddPrimitives@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_ADDPRIMITIVES@@@Z @ 0x18005A044 (-ProcessAddPrimitives@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_ADD.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0qxqq_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -41,7 +41,7 @@ ULONG McTemplateU0qxqq_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ..
   v12 = 4LL;
   va_copy(v11, va2);
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_DCOMPEVENT_PRIMITIVEGROUP_UPDATE,
            a3,
            5u,

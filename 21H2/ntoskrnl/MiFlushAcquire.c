@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFlushAcquire @ 0x14036B354
+ * XREFs of MiFlushAcquire @ 0x1402A0C88
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1407BE3C0 (MiAllocateVirtualMemory.c)
- *     MmFlushVirtualMemory @ 0x1407F0478 (MmFlushVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     MmFlushVirtualMemory @ 0x140689134 (MmFlushVirtualMemory.c)
  * Callees:
- *     MiReferenceSubsection @ 0x140286D4C (MiReferenceSubsection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiReferenceSubsection @ 0x14031555C (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiFlushAcquire(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)
+__int64 __fastcall MiFlushAcquire(__int64 a1, __int64 a2, __int64 a3)
 {
   volatile LONG *v3; // rbp
   unsigned __int64 v7; // rdi
@@ -55,8 +55,8 @@ __int64 __fastcall MiFlushAcquire(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)
   {
     if ( a2 )
     {
-      MiReferenceSubsection(a2);
-      MiReferenceSubsection(a3);
+      MiReferenceSubsection(a2, 0LL);
+      MiReferenceSubsection(a3, 0LL);
       v8 = *(_QWORD *)(a1 + 40);
     }
     *(_QWORD *)(a1 + 40) = v8 + 1;

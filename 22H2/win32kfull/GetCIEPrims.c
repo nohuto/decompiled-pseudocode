@@ -1,7 +1,7 @@
 /*
- * XREFs of GetCIEPrims @ 0x1C0056F58
+ * XREFs of GetCIEPrims @ 0x1C0112AE8
  * Callers:
- *     HT_CreateDeviceHalftoneInfo @ 0x1C0056A60 (HT_CreateDeviceHalftoneInfo.c)
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C0112328 (HT_CreateDeviceHalftoneInfo.c)
  * Callees:
  *     <none>
  */

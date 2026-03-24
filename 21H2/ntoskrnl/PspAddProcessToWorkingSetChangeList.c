@@ -1,13 +1,13 @@
 /*
- * XREFs of PspAddProcessToWorkingSetChangeList @ 0x1409AFDD8
+ * XREFs of PspAddProcessToWorkingSetChangeList @ 0x1409089C0
  * Callers:
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     PspSetJobLimitsProcessCallback @ 0x1406E7D70 (PspSetJobLimitsProcessCallback.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     PspSetJobLimitsProcessCallback @ 0x1406C2EE0 (PspSetJobLimitsProcessCallback.c)
  * Callees:
- *     MmEnforceWorkingSetLimit @ 0x1402091B0 (MmEnforceWorkingSetLimit.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x140302BD0 (ObReferenceObjectSafeWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     MmEnforceWorkingSetLimit @ 0x1402521D8 (MmEnforceWorkingSetLimit.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall PspAddProcessToWorkingSetChangeList(_KPROCESS *Object)
@@ -19,8 +19,8 @@ char __fastcall PspAddProcessToWorkingSetChangeList(_KPROCESS *Object)
   LODWORD(PoolWithTag) = Object[1].DirectoryTableBase;
   if ( (PoolWithTag & 1) == 0 )
   {
-    v3 = Object[1].Affinity.StaticBitmap[16];
-    if ( (*(_DWORD *)(v3 + 1040) & 1) != 0 )
+    v3 = Object[1].Affinity.Bitmap[16];
+    if ( (*(_DWORD *)(v3 + 848) & 1) != 0 )
     {
       LOBYTE(PoolWithTag) = ObReferenceObjectSafeWithTag((__int64)Object);
       if ( (_BYTE)PoolWithTag )
@@ -29,15 +29,15 @@ char __fastcall PspAddProcessToWorkingSetChangeList(_KPROCESS *Object)
         if ( PoolWithTag )
         {
           *(_QWORD *)(PoolWithTag + 16) = Object;
-          *(_QWORD *)(PoolWithTag + 32) = *(_QWORD *)(v3 + 992);
-          *(_QWORD *)(PoolWithTag + 24) = *(_QWORD *)(v3 + 984);
-          v4 = (__int64 *)qword_140CF5E68;
-          if ( *(__int64 **)qword_140CF5E68 != &PspWorkingSetChangeHead )
+          *(_QWORD *)(PoolWithTag + 32) = *(_QWORD *)(v3 + 800);
+          *(_QWORD *)(PoolWithTag + 24) = *(_QWORD *)(v3 + 792);
+          v4 = (__int64 *)qword_140C13268;
+          if ( *(__int64 **)qword_140C13268 != &PspWorkingSetChangeHead )
             __fastfail(3u);
           *(_QWORD *)PoolWithTag = &PspWorkingSetChangeHead;
           *(_QWORD *)(PoolWithTag + 8) = v4;
           *v4 = PoolWithTag;
-          qword_140CF5E68 = PoolWithTag;
+          qword_140C13268 = PoolWithTag;
         }
         else
         {

@@ -1,9 +1,9 @@
 /*
- * XREFs of PDEVOBJ_vProfileDriverWrap @ 0x1C0113FB0
+ * XREFs of PDEVOBJ_vProfileDriverWrap @ 0x1C01297D0
  * Callers:
  *     <none>
  * Callees:
- *     ?vProfileDriver@PDEVOBJ@@QEAAXXZ @ 0x1C0113FC8 (-vProfileDriver@PDEVOBJ@@QEAAXXZ.c)
+ *     ?vProfileDriver@PDEVOBJ@@QEAAXXZ @ 0x1C01297E8 (-vProfileDriver@PDEVOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall PDEVOBJ_vProfileDriverWrap(PDEVOBJ *a1)

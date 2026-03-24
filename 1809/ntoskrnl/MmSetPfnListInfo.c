@@ -1,5 +1,5 @@
 /*
- * XREFs of MmSetPfnListInfo @ 0x14013FC70
+ * XREFs of MmSetPfnListInfo @ 0x14013FC90
  * Callers:
  *     PfpPfnPrioRequest @ 0x14062A220 (PfpPfnPrioRequest.c)
  * Callees:
@@ -10,12 +10,12 @@
  *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     MiIdentifyPfn @ 0x1400A7EC0 (MiIdentifyPfn.c)
- *     MiRelinkStandbyPage @ 0x1400F0A18 (MiRelinkStandbyPage.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAddPageToHeatRanges @ 0x1402CE9D0 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x1402CEE40 (MiNotifyPageHeat.c)
+ *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
+ *     MiRelinkStandbyPage @ 0x1400F0A38 (MiRelinkStandbyPage.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAddPageToHeatRanges @ 0x1402CEAD0 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
  */
 
 __int64 __fastcall MmSetPfnListInfo(__int64 a1, _QWORD *a2, int a3)

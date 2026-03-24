@@ -1,66 +1,63 @@
 /*
- * XREFs of IopLiveDumpGetCapturePagesNoLock @ 0x140A66CEC
+ * XREFs of IopLiveDumpGetCapturePagesNoLock @ 0x1409AC884
  * Callers:
- *     IopLiveDumpGetNtMergePages @ 0x14093C98C (IopLiveDumpGetNtMergePages.c)
- *     IopLiveDumpBufferDumpData @ 0x140A6581C (IopLiveDumpBufferDumpData.c)
+ *     IopLiveDumpGetNtMergePages @ 0x140898444 (IopLiveDumpGetNtMergePages.c)
+ *     IopLiveDumpBufferDumpData @ 0x1409AB3FC (IopLiveDumpBufferDumpData.c)
  * Callees:
- *     RtlFindSetBitsEx @ 0x14030ACF0 (RtlFindSetBitsEx.c)
+ *     RtlFindSetBitsEx @ 0x140228910 (RtlFindSetBitsEx.c)
  */
 
-unsigned __int64 __fastcall IopLiveDumpGetCapturePagesNoLock(
+void __fastcall IopLiveDumpGetCapturePagesNoLock(
         unsigned __int64 *a1,
         __int64 a2,
         __int64 a3,
         unsigned int a4,
-        _DWORD *a5,
+        int *a5,
         _QWORD *a6)
 {
-  unsigned __int64 result; // rax
-  __int64 v7; // rdi
-  unsigned __int64 v8; // rbp
-  __int64 v13; // rcx
-  int v14; // eax
+  __int64 v6; // rdi
+  unsigned __int64 v7; // rbp
+  int v12; // eax
+  char v13; // r14
+  unsigned __int64 SetBits; // rax
   __int64 v15; // rcx
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
+  __int64 v16; // rcx
 
-  result = (unsigned __int64)&retaddr;
-  v7 = -1LL;
-  v8 = *(_QWORD *)(a2 + 48);
+  v6 = -1LL;
+  v7 = *(_QWORD *)(a2 + 48);
   *a5 = 0;
-  if ( v8 != -1LL )
+  if ( v7 != -1LL )
   {
+    v12 = 0;
+    v13 = 1;
     if ( a4 )
     {
       while ( 1 )
       {
-        result = RtlFindSetBitsEx(a1, 1uLL, v8);
-        if ( result < v8 || result == -1LL )
+        SetBits = RtlFindSetBitsEx(a1, 1uLL, v7);
+        if ( SetBits < v7 || SetBits == -1LL )
           break;
-        v13 = (unsigned int)*a5;
-        v8 = result + 1;
-        *(_QWORD *)(a3 + 8 * v13) = result;
-        v14 = v13 + 1;
-        *a5 = v13 + 1;
-        if ( (int)v13 + 1 >= a4 )
+        v15 = (unsigned int)*a5;
+        v7 = SetBits + 1;
+        *(_QWORD *)(a3 + 8 * v15) = SetBits;
+        v12 = v15 + 1;
+        *a5 = v15 + 1;
+        if ( (int)v15 + 1 >= a4 )
           goto LABEL_8;
       }
+      v12 = *a5;
+      v13 = 0;
     }
-    else
-    {
-      v14 = 0;
 LABEL_8:
-      result = (unsigned int)(v14 - 1);
-      v7 = *(_QWORD *)(a3 + 8 * result) + 1LL;
-    }
+    if ( v13 )
+      v6 = *(_QWORD *)(a3 + 8LL * (unsigned int)(v12 - 1)) + 1LL;
   }
-  *(_QWORD *)(a2 + 48) = v7;
+  *(_QWORD *)(a2 + 48) = v6;
   if ( *a5 )
   {
-    v15 = *(_QWORD *)(a2 + 56);
+    v16 = *(_QWORD *)(a2 + 56);
     *(_DWORD *)(a2 + 40) = *a5;
-    *a6 = v15;
-    result = v15 + 1;
-    *(_QWORD *)(a2 + 56) = v15 + 1;
+    *a6 = v16;
+    *(_QWORD *)(a2 + 56) = v16 + 1;
   }
-  return result;
 }

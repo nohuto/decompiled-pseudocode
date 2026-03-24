@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLightWeightCommitAddKeyUoW @ 0x140803610
+ * XREFs of CmpLightWeightCommitAddKeyUoW @ 0x1408035F0
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A3C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpAssignSecurityToKcb @ 0x1405ACAE4 (CmpAssignSecurityToKcb.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408035C0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightSwapParentSubKeyList @ 0x140804CA0 (CmpLightWeightSwapParentSubKeyList.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408035A0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightSwapParentSubKeyList @ 0x140804C80 (CmpLightWeightSwapParentSubKeyList.c)
  */
 
 __int64 __fastcall CmpLightWeightCommitAddKeyUoW(__int64 a1, _QWORD *a2)

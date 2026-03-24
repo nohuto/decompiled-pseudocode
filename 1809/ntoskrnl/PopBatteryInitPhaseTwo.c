@@ -3,8 +3,8 @@
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     PopReadUlongPowerKey @ 0x140190C48 (PopReadUlongPowerKey.c)
- *     EtwRegister @ 0x1406BE560 (EtwRegister.c)
+ *     PopReadUlongPowerKey @ 0x140190C68 (PopReadUlongPowerKey.c)
+ *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
  */
 
 NTSTATUS PopBatteryInitPhaseTwo()

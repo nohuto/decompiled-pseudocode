@@ -1,8 +1,8 @@
 /*
- * XREFs of GetSharedResourceData @ 0x1C00590F8
+ * XREFs of GetSharedResourceData @ 0x1C004AEB8
  * Callers:
- *     ?OpenInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJPEAXI_NPEAPEAVCResourceMarshaler@2@@Z @ 0x1C005841C (-OpenInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJPEAXI_NPEAPEAVCResourceM.c)
- *     ?CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00585EC (-CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarsh.c)
+ *     ?OpenInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJPEAXI_NPEAPEAVCResourceMarshaler@2@@Z @ 0x1C004A8DC (-OpenInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJPEAXI_NPEAPEAVCResourceM.c)
+ *     ?CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C004AC64 (-CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarsh.c)
  * Callees:
  *     <none>
  */
@@ -14,173 +14,162 @@ char __fastcall GetSharedResourceData(unsigned int a1, __int64 a2)
   unsigned int v4; // ecx
   unsigned int v5; // ecx
   unsigned int v6; // ecx
-  __int64 (__fastcall *v7)(); // rax
-  unsigned int v9; // ecx
+  __int64 (__fastcall *v7)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **); // rax
+  __int64 (__fastcall *v9)(); // rax
   unsigned int v10; // ecx
   unsigned int v11; // ecx
-  __int64 (__fastcall *v12)(); // rax
+  unsigned int v12; // ecx
   unsigned int v13; // ecx
-  unsigned int v14; // ecx
-  unsigned int v15; // ecx
-  unsigned int v16; // ecx
-  unsigned int v17; // ecx
 
   *(_DWORD *)a2 = a1;
   v2 = 1;
-  if ( a1 <= 0x7E )
+  if ( a1 <= 0x6C )
   {
-    if ( a1 == 126 )
+    if ( a1 == 108 )
     {
-      *(_QWORD *)(a2 + 8) = CreateSharedReadPrimitiveColorMarshaler;
-      v12 = CreateSharedWritePrimitiveColorMarshaler;
-      goto LABEL_17;
-    }
-    if ( a1 > 0x4E )
-    {
-      v9 = a1 - 87;
-      if ( !v9 )
-      {
-        *(_QWORD *)(a2 + 8) = CreateSharedReadInteractionMarshaler;
-        v12 = CreateSharedInteractionMarshaler;
-        goto LABEL_17;
-      }
-      v10 = v9 - 5;
-      if ( !v10 )
-      {
-        *(_QWORD *)(a2 + 8) = CreateSharedReadLegacyAnimationTriggerMarshaler;
-        v12 = CreateSharedWriteLegacyAnimationTriggerMarshaler;
-        goto LABEL_17;
-      }
-      v11 = v10 - 12;
-      if ( !v11 )
-      {
-        *(_QWORD *)(a2 + 8) = CreateSharedReadTransformMarshaler;
-        v12 = CreateSharedManipulationTransformMarshaler;
-LABEL_17:
-        *(_QWORD *)(a2 + 16) = v12;
-        return v2;
-      }
-      v13 = v11 - 3;
-      if ( v13 )
-      {
-        if ( v13 != 1 )
-          return 0;
-        v12 = CreateSharedMatrixTransform3DMarshaler;
-      }
-      else
-      {
-        v12 = CreateSharedMatrixTransformMarshaler;
-      }
-LABEL_28:
       *(_QWORD *)(a2 + 8) = 0LL;
-      goto LABEL_17;
+      v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedMatrixTransform3DMarshaler;
+      goto LABEL_9;
     }
-    switch ( a1 )
+    if ( a1 <= 0x4C )
     {
-      case 0x4Eu:
-        *(_QWORD *)(a2 + 8) = CreateSharedReadHolographicInteropTextureMarshaler;
-        v12 = CreateSharedHolographicInteropTextureMarshaler;
-        goto LABEL_17;
-      case 0x22u:
-        v7 = CreateSharedReadCompositionLightMarshaler;
-        break;
-      case 0x20u:
-        v12 = CreateSharedCompositionDistantLightMarshaler;
-        goto LABEL_28;
-      case 0x27u:
-        v12 = CreateSharedCompositionSpotLightMarshaler;
-        goto LABEL_28;
-      case 0x1Eu:
-        v12 = CreateSharedCompositionAmbientLightMarshaler;
-        goto LABEL_28;
-      case 0x24u:
-        v12 = CreateSharedCompositionPointLightMarshaler;
-        goto LABEL_28;
-      case 0x2Du:
-        v7 = CreateSharedReadContentMarshaler;
-        break;
-      default:
-        return 0;
+      switch ( a1 )
+      {
+        case 0x4Cu:
+          *(_QWORD *)(a2 + 8) = CreateSharedReadHolographicInteropTextureMarshaler;
+          v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedHolographicInteropTextureMarshaler;
+          goto LABEL_9;
+        case 0x22u:
+          v9 = CreateSharedReadCompositionLightMarshaler;
+LABEL_21:
+          *(_QWORD *)(a2 + 16) = 0LL;
+          *(_QWORD *)(a2 + 8) = v9;
+          return v2;
+        case 0x20u:
+          *(_QWORD *)(a2 + 8) = 0LL;
+          v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedCompositionDistantLightMarshaler;
+          goto LABEL_9;
+        case 0x1Eu:
+          *(_QWORD *)(a2 + 8) = 0LL;
+          v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedCompositionAmbientLightMarshaler;
+          goto LABEL_9;
+        case 0x12u:
+          *(_DWORD *)a2 = 130;
+          v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedClientProjectedShadowCasterMarshaler;
+          goto LABEL_8;
+        case 0x24u:
+          *(_QWORD *)(a2 + 8) = 0LL;
+          v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedCompositionPointLightMarshaler;
+          goto LABEL_9;
+        case 0x27u:
+          *(_QWORD *)(a2 + 8) = 0LL;
+          v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedCompositionSpotLightMarshaler;
+          goto LABEL_9;
+      }
     }
-LABEL_24:
-    *(_QWORD *)(a2 + 16) = 0LL;
-    goto LABEL_9;
-  }
-  if ( a1 <= 0xC3 )
-  {
-    if ( a1 == 195 )
+    else
     {
-      v7 = CreateHostVisualMarshaler;
-      goto LABEL_8;
-    }
-    v14 = a1 - 129;
-    if ( !v14 )
-    {
-      *(_QWORD *)(a2 + 8) = CreateSharedClientProjectedShadowCasterMarshaler;
-      v12 = CreateSharedHostProjectedShadowCasterMarshaler;
-      goto LABEL_17;
-    }
-    v15 = v14 - 7;
-    if ( !v15 )
-    {
-      v7 = CreateSharedReadCaptureControllerMarshaler;
-      goto LABEL_53;
-    }
-    v16 = v15 - 6;
-    if ( !v16 )
-    {
-      *(_QWORD *)(a2 + 8) = CreateSharedReadRemoteAppRenderTargetMarshaler;
-      v12 = CreateSharedWriteRemoteAppRenderTargetMarshaler;
-      goto LABEL_17;
-    }
-    v17 = v16 - 8;
-    if ( !v17 )
-    {
-      *(_QWORD *)(a2 + 8) = CreateSharedReadScalarMarshaler;
-      v12 = CreateSharedWriteScalarMarshaler;
-      goto LABEL_17;
-    }
-    if ( v17 - 35 <= 1 )
-    {
-      v7 = CreateSharedReadTransformMarshaler;
-      goto LABEL_24;
+      switch ( a1 )
+      {
+        case 'h':
+          *(_QWORD *)(a2 + 8) = CreateSharedReadTransformMarshaler;
+          v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedManipulationTransformMarshaler;
+          goto LABEL_9;
+        case 'W':
+          *(_QWORD *)(a2 + 8) = CreateSharedReadInteractionMarshaler;
+          v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedInteractionMarshaler;
+          goto LABEL_9;
+        case '\\':
+          *(_QWORD *)(a2 + 8) = CreateSharedReadLegacyAnimationTriggerMarshaler;
+          v7 = CreateSharedWriteLegacyAnimationTriggerMarshaler;
+          goto LABEL_9;
+        case 'N':
+          *(_DWORD *)a2 = 130;
+          v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedHostProjectedShadowCasterMarshaler;
+          goto LABEL_8;
+        case 'k':
+          *(_QWORD *)(a2 + 8) = 0LL;
+          v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedMatrixTransformMarshaler;
+          goto LABEL_9;
+      }
     }
     return 0;
   }
-  v3 = a1 - 199;
+  if ( a1 <= 0xBA )
+  {
+    if ( a1 == 186 )
+      goto LABEL_47;
+    v10 = a1 - 126;
+    if ( !v10 )
+    {
+      *(_QWORD *)(a2 + 8) = CreateSharedReadPrimitiveColorMarshaler;
+      v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedWritePrimitiveColorMarshaler;
+      goto LABEL_9;
+    }
+    v11 = v10 - 11;
+    if ( !v11 )
+    {
+      *(_DWORD *)a2 = 16;
+      v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedReadCaptureControllerMarshaler;
+      goto LABEL_8;
+    }
+    v12 = v11 - 6;
+    if ( !v12 )
+    {
+      *(_QWORD *)(a2 + 8) = CreateSharedReadRemoteAppRenderTargetMarshaler;
+      v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedWriteRemoteAppRenderTargetMarshaler;
+      goto LABEL_9;
+    }
+    v13 = v12 - 8;
+    if ( !v13 )
+    {
+      *(_QWORD *)(a2 + 8) = CreateSharedReadScalarMarshaler;
+      v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedWriteScalarMarshaler;
+      goto LABEL_9;
+    }
+    if ( v13 == 34 )
+    {
+LABEL_47:
+      v9 = CreateSharedReadTransformMarshaler;
+      goto LABEL_21;
+    }
+    return 0;
+  }
+  v3 = a1 - 195;
   if ( !v3 )
   {
-    v7 = CreateSharedReadVisualReferenceMarshaler;
-    goto LABEL_24;
+    v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateHostVisualMarshaler;
+    goto LABEL_8;
   }
-  v4 = v3 - 1;
+  v4 = v3 - 3;
   if ( !v4 )
   {
-    v12 = CreateSharedVisualReferenceControllerMarshaler;
-    goto LABEL_28;
+    v9 = CreateSharedReadVisualReferenceMarshaler;
+    goto LABEL_21;
   }
   v5 = v4 - 1;
   if ( !v5 )
   {
-    *(_QWORD *)(a2 + 8) = CreateSharedReadSurfaceMarshaler;
-    v12 = CreateSharedVisualSurfaceMarshaler;
-    goto LABEL_17;
+    *(_QWORD *)(a2 + 8) = 0LL;
+    v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedVisualReferenceControllerMarshaler;
+    goto LABEL_9;
   }
-  v6 = v5 - 1;
+  v6 = v5 - 2;
   if ( v6 )
   {
-    if ( v6 != 3 )
-      return 0;
-    v7 = CreateSharedWriteCaptureControllerMarshaler;
-LABEL_53:
-    *(_DWORD *)a2 = 17;
-    goto LABEL_8;
+    if ( v6 == 3 )
+    {
+      *(_DWORD *)a2 = 16;
+      v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateSharedWriteCaptureControllerMarshaler;
+      goto LABEL_8;
+    }
+    return 0;
   }
   *(_DWORD *)a2 = 195;
-  v7 = CreateVisualTargetMarshaler;
+  v7 = (__int64 (__fastcall *)(const struct DirectComposition::CSharedSystemResource *, int, struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **))CreateVisualTargetMarshaler;
 LABEL_8:
-  *(_QWORD *)(a2 + 16) = v7;
-LABEL_9:
   *(_QWORD *)(a2 + 8) = v7;
+LABEL_9:
+  *(_QWORD *)(a2 + 16) = v7;
   return v2;
 }

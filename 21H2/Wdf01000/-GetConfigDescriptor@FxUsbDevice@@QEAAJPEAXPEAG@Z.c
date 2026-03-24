@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetConfigDescriptor@FxUsbDevice@@QEAAJPEAXPEAG@Z @ 0x1C007CEDC
+ * XREFs of ?GetConfigDescriptor@FxUsbDevice@@QEAAJPEAXPEAG@Z @ 0x1C007070C
  * Callers:
- *     imp_WdfUsbTargetDeviceRetrieveConfigDescriptor @ 0x1C00788F0 (imp_WdfUsbTargetDeviceRetrieveConfigDescriptor.c)
+ *     imp_WdfUsbTargetDeviceRetrieveConfigDescriptor @ 0x1C006B540 (imp_WdfUsbTargetDeviceRetrieveConfigDescriptor.c)
  * Callees:
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
  */
 
 __int64 __fastcall FxUsbDevice::GetConfigDescriptor(

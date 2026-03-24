@@ -1,87 +1,58 @@
 /*
- * XREFs of MiEmptyKernelStackCache @ 0x140644800
+ * XREFs of MiEmptyKernelStackCache @ 0x1403CFBA4
  * Callers:
- *     MiFindContiguousPagesEx @ 0x1403BA9B8 (MiFindContiguousPagesEx.c)
- *     MiDeletePartitionResources @ 0x1406594F8 (MiDeletePartitionResources.c)
- *     MmRelocatePfnList @ 0x140A3C9F8 (MmRelocatePfnList.c)
- *     MiScrubNode @ 0x140A466E0 (MiScrubNode.c)
+ *     MiFindContiguousPages @ 0x140281D60 (MiFindContiguousPages.c)
+ *     MiScrubNode @ 0x140563F8C (MiScrubNode.c)
+ *     MmRelocatePfnList @ 0x1408D1B2C (MmRelocatePfnList.c)
  * Callees:
- *     MiPruneCachedStackList @ 0x14021EB20 (MiPruneCachedStackList.c)
- *     MiDeleteCachedKernelStack @ 0x14021EB84 (MiDeleteCachedKernelStack.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     MiDeleteCachedKernelShadowStack @ 0x1406443C4 (MiDeleteCachedKernelShadowStack.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     MiDeleteCachedKernelStack @ 0x14033B6EC (MiDeleteCachedKernelStack.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
  */
 
-__int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
+__int64 MiEmptyKernelStackCache()
 {
   __int64 result; // rax
-  unsigned int i; // edi
-  __int64 v6; // rbx
-  __int64 v7; // rcx
-  unsigned int j; // edi
-  __int64 v9; // r14
-  unsigned __int64 Alignment; // rax
-  union _SLIST_HEADER *v11; // rbx
-  union _SLIST_HEADER *v12; // rbp
-  union _SLIST_HEADER *v13; // rbx
-  union _SLIST_HEADER *v14; // rbp
-  struct _SLIST_ENTRY v15; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v16; // [rsp+30h] [rbp-28h]
-  _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
+  unsigned int i; // ebx
+  __int64 v2; // rcx
+  unsigned int j; // ebx
+  __int64 v4; // rsi
+  __int64 v5; // rdi
+  union _SLIST_HEADER *v6; // rbp
+  PSLIST_ENTRY v7; // rax
+  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = (__int64)&retaddr;
-  if ( a2 || (byte_140C65B8F & 1) == 0 )
+  if ( (MiFlags & 0x800) != 0 )
   {
-    result = (__int64)MiSystemPartition;
-    if ( a1 == (union _SLIST_HEADER *)MiSystemPartition )
+    for ( i = 0; i < (unsigned int)KeNumberProcessors_0; ++i )
     {
-      for ( i = 0; i < (unsigned int)KeNumberProcessors_0; ++i )
+      result = KeGetPrcb(i);
+      if ( *(_QWORD *)(result + 32520) )
       {
-        result = KeGetPrcb(i);
-        v6 = result;
-        if ( *(_QWORD *)(result + 33352) )
-        {
-          v7 = _InterlockedExchange64((volatile __int64 *)(result + 33352), 0LL);
-          if ( v7 )
-            result = MiDeleteCachedKernelStack(v7);
-        }
-        if ( *(_QWORD *)(v6 + 37944) )
-        {
-          v16 = 0LL;
-          v15 = 0LL;
-          result = _InterlockedExchange64((volatile __int64 *)(v6 + 37944), 0LL);
-          *(_QWORD *)&v16 = result;
-          if ( result )
-            result = (__int64)MiDeleteCachedKernelShadowStack(a1, &v15, 0);
-        }
+        v2 = _InterlockedExchange64((volatile __int64 *)(result + 32520), 0LL);
+        if ( v2 )
+          result = MiDeleteCachedKernelStack(v2);
       }
     }
     for ( j = 0; j < (unsigned __int16)KeNumberNodes; ++j )
     {
-      v9 = 25408LL * j;
-      Alignment = a1[1].Alignment;
-      v11 = (union _SLIST_HEADER *)(v9 + Alignment + 23200);
-      v12 = v11 + 6;
-      if ( v11 < &v11[6] )
+      v4 = 2LL;
+      v5 = 11LL * j;
+      do
       {
-        do
+        v6 = &SListHead[v5];
+        while ( 1 )
         {
-          MiPruneCachedStackList((__int64)a1, v11, 0, 0);
-          v11 += 2;
+          v7 = RtlpInterlockedPopEntrySList(v6);
+          if ( !v7 )
+            break;
+          MiDeleteCachedKernelStack((__int64)v7);
         }
-        while ( v11 < v12 );
-        Alignment = a1[1].Alignment;
+        v5 += 2LL;
+        --v4;
       }
-      if ( a2 )
-      {
-        v13 = (union _SLIST_HEADER *)(v9 + Alignment + 23296);
-        v14 = v13 + 6;
-        while ( v13 < v14 )
-        {
-          MiPruneCachedStackList((__int64)a1, v13, 0, 1);
-          v13 += 2;
-        }
-      }
+      while ( v4 );
       result = (unsigned __int16)KeNumberNodes;
     }
   }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ?UpdateBufferDirtyRegion@CCompositionSurface@@IEAAJ_KAEBUIRegion@@W4DXGI_ALPHA_MODE@@@Z @ 0x1C0001658
+ * XREFs of ?UpdateBufferDirtyRegion@CCompositionSurface@@IEAAJ_KAEBUIRegion@@W4DXGI_ALPHA_MODE@@@Z @ 0x1C00666A8
  * Callers:
- *     ?UpdateDirtyRegions@CCompositionToken@@QEAAJXZ @ 0x1C00015B4 (-UpdateDirtyRegions@CCompositionToken@@QEAAJXZ.c)
+ *     ?UpdateDirtyRegions@CCompositionToken@@QEAAJXZ @ 0x1C0064594 (-UpdateDirtyRegions@CCompositionToken@@QEAAJXZ.c)
  * Callees:
- *     ?FromBuffer@CFlipExBuffer@@SAPEAV1@PEAVCCompositionBuffer@@@Z @ 0x1C00016E8 (-FromBuffer@CFlipExBuffer@@SAPEAV1@PEAVCCompositionBuffer@@@Z.c)
- *     ?NotifyDirty@CCompositionBuffer@@QEAAXAEBUIRegion@@PEBUScrollOptimization@@@Z @ 0x1C0001720 (-NotifyDirty@CCompositionBuffer@@QEAAXAEBUIRegion@@PEBUScrollOptimization@@@Z.c)
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00103F0 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0011B50 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?FromBuffer@CFlipExBuffer@@SAPEAV1@PEAVCCompositionBuffer@@@Z @ 0x1C0066240 (-FromBuffer@CFlipExBuffer@@SAPEAV1@PEAVCCompositionBuffer@@@Z.c)
+ *     ?NotifyDirty@CCompositionBuffer@@QEAAXAEBUIRegion@@PEBUScrollOptimization@@@Z @ 0x1C0066B78 (-NotifyDirty@CCompositionBuffer@@QEAAXAEBUIRegion@@PEBUScrollOptimization@@@Z.c)
  */
 
 __int64 __fastcall CCompositionSurface::UpdateBufferDirtyRegion(
         CCompositionSurface *a1,
-        unsigned __int64 a2,
+        __int64 a2,
         const struct IRegion *a3)
 {
   int Buffer; // ebx
@@ -24,11 +24,11 @@ __int64 __fastcall CCompositionSurface::UpdateBufferDirtyRegion(
   if ( Buffer >= 0 )
   {
     v5 = v8;
-    if ( (*(unsigned __int8 (__fastcall **)(struct CCompositionBuffer *))(*(_QWORD *)v8 + 88LL))(v8) )
+    if ( (*(unsigned __int8 (__fastcall **)(struct CCompositionBuffer *))(*(_QWORD *)v8 + 80LL))(v8) )
     {
       v6 = CFlipExBuffer::FromBuffer(v5);
-      if ( *((_DWORD *)v6 + 95) == -1 )
-        *((_DWORD *)v6 + 95) = 0;
+      if ( *((_DWORD *)v6 + 87) == -1 )
+        *((_DWORD *)v6 + 87) = 0;
       *((_DWORD *)v6 + 12) = 1;
       CCompositionBuffer::NotifyDirty(v6, a3, 0LL);
     }

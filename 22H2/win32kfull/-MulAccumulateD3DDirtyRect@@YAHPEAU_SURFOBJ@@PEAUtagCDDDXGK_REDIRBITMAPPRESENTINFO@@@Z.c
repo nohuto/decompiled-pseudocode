@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MulAccumulateD3DDirtyRect@@YAHPEAU_SURFOBJ@@PEAUtagCDDDXGK_REDIRBITMAPPRESENTINFO@@@Z @ 0x1C015B1A0
+ * XREFs of ?MulAccumulateD3DDirtyRect@@YAHPEAU_SURFOBJ@@PEAUtagCDDDXGK_REDIRBITMAPPRESENTINFO@@@Z @ 0x1C02A10A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall MulAccumulateD3DDirtyRect(struct _SURFOBJ *a1, struct tagCDDDXGK_REDIRBITMAPPRESENTINFO *a2)
@@ -15,7 +15,7 @@ __int64 __fastcall MulAccumulateD3DDirtyRect(struct _SURFOBJ *a1, struct tagCDDD
   v2 = 0;
   v3 = *(_QWORD *)(*((_QWORD *)a1->dhsurf + 1) + 8LL * *((unsigned int *)a1->dhsurf + 4));
   v4 = *(unsigned int (__fastcall **)(__int64, struct tagCDDDXGK_REDIRBITMAPPRESENTINFO *, _QWORD))(*(_QWORD *)(v3 + 24)
-                                                                                                  + 3448LL);
+                                                                                                  + 3472LL);
   if ( v4 )
     return v4(v3, a2, 0LL);
   return v2;

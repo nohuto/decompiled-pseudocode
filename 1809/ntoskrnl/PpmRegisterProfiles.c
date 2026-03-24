@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmRegisterProfiles @ 0x140756BA4
+ * XREFs of PpmRegisterProfiles @ 0x140756B84
  * Callers:
- *     PdcPoPpmRegisterProfiles @ 0x140756B90 (PdcPoPpmRegisterProfiles.c)
+ *     PdcPoPpmRegisterProfiles @ 0x140756B70 (PdcPoPpmRegisterProfiles.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
@@ -9,11 +9,11 @@
  *     RtlStringCchLengthW @ 0x14000733C (RtlStringCchLengthW.c)
  *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
  *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     RtlStringCbLengthW @ 0x14011CAA8 (RtlStringCbLengthW.c)
- *     PpmResetProfileSettings @ 0x14018E7F0 (PpmResetProfileSettings.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlStringCbLengthW @ 0x14011CAC8 (RtlStringCbLengthW.c)
+ *     PpmResetProfileSettings @ 0x14018E810 (PpmResetProfileSettings.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PpmEventTraceProfiles @ 0x140756D88 (PpmEventTraceProfiles.c)
+ *     PpmEventTraceProfiles @ 0x140756D68 (PpmEventTraceProfiles.c)
  */
 
 __int64 __fastcall PpmRegisterProfiles(unsigned __int8 a1, __int64 a2)

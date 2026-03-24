@@ -1,23 +1,23 @@
 /*
- * XREFs of UserGetMiniWinInfo @ 0x1C0005308
+ * XREFs of UserGetMiniWinInfo @ 0x1C0008C0C
  * Callers:
- *     GreTransferSpriteStateToDwmState @ 0x1C00ECC20 (GreTransferSpriteStateToDwmState.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C00EA5BC (GreTransferSpriteStateToDwmState.c)
  * Callees:
- *     ?InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z @ 0x1C0020F78 (-InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z.c)
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     ?InitializeMiniWinInfo@@YAXQEAUtagWND@@PEAUtagMINIWINDOWINFO@@@Z @ 0x1C00BEC40 (-InitializeMiniWinInfo@@YAXQEAUtagWND@@PEAUtagMINIWINDOWINFO@@@Z.c)
  */
 
 __int64 __fastcall UserGetMiniWinInfo(__int64 a1, struct tagMINIWINDOWINFO *a2, _DWORD *a3)
 {
   struct tagMINIWINDOWINFO *v3; // rbp
   unsigned int v5; // ebx
-  const struct tagWND *v6; // rax
-  const struct tagWND *v7; // rdi
+  struct tagWND *v6; // rax
+  struct tagWND *v7; // rdi
 
   v3 = a2;
   LOBYTE(a2) = 1;
   v5 = 0;
-  v6 = (const struct tagWND *)HMValidateHandleNoSecure(a1, a2);
+  v6 = (struct tagWND *)HMValidateHandleNoSecure(a1, a2);
   v7 = v6;
   if ( v6 )
   {

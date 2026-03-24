@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlQueryPackageIdentity @ 0x1400A5010
+ * XREFs of RtlQueryPackageIdentity @ 0x1400A5030
  * Callers:
  *     ExpGetProcessInformation @ 0x1405E6B60 (ExpGetProcessInformation.c)
- *     PfSnCheckModernApp @ 0x140667720 (PfSnCheckModernApp.c)
- *     EtwpQueryTokenPackageInfo @ 0x14066CD6C (EtwpQueryTokenPackageInfo.c)
- *     PopEtGetProcessSidAndPackageIdentity @ 0x14069F4EC (PopEtGetProcessSidAndPackageIdentity.c)
- *     PspIdentityBasedJobBreakaway @ 0x140889380 (PspIdentityBasedJobBreakaway.c)
- *     EtwpApplyPackageIdFilter @ 0x1408C1CDC (EtwpApplyPackageIdFilter.c)
+ *     PfSnCheckModernApp @ 0x140667700 (PfSnCheckModernApp.c)
+ *     EtwpQueryTokenPackageInfo @ 0x14066CD4C (EtwpQueryTokenPackageInfo.c)
+ *     PopEtGetProcessSidAndPackageIdentity @ 0x14069F4CC (PopEtGetProcessSidAndPackageIdentity.c)
+ *     PspIdentityBasedJobBreakaway @ 0x140889360 (PspIdentityBasedJobBreakaway.c)
+ *     EtwpApplyPackageIdFilter @ 0x1408C1CBC (EtwpApplyPackageIdFilter.c)
  * Callees:
- *     RtlQueryPackageClaims @ 0x1400A5570 (RtlQueryPackageClaims.c)
+ *     RtlQueryPackageClaims @ 0x1400A5590 (RtlQueryPackageClaims.c)
  */
 
 __int64 __fastcall RtlQueryPackageIdentity(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _BYTE *a6)

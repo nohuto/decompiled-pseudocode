@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlCopyRead @ 0x14092D040
+ * XREFs of FsRtlCopyRead @ 0x14088A610
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlIsNtstatusExpected @ 0x140247160 (FsRtlIsNtstatusExpected.c)
- *     IoSetTopLevelIrp @ 0x140288140 (IoSetTopLevelIrp.c)
- *     IoGetTopLevelIrp @ 0x140288160 (IoGetTopLevelIrp.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     CcCopyReadEx @ 0x14032A8C0 (CcCopyReadEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
+ *     CcCopyReadEx @ 0x140320720 (CcCopyReadEx.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     IoSetTopLevelIrp @ 0x140356C20 (IoSetTopLevelIrp.c)
+ *     IoGetTopLevelIrp @ 0x140356C40 (IoGetTopLevelIrp.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __stdcall FsRtlCopyRead(
@@ -58,8 +58,8 @@ BOOLEAN __stdcall FsRtlCopyRead(
       __incgsdword(0x2EC4u);
       if ( !ExAcquireResourceSharedLite(*((PERESOURCE *)FsContext + 1), 0) )
       {
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-        __incgsdword(0x8480u);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        __incgsdword(0x8140u);
         return 0;
       }
       v16 = 1;
@@ -79,7 +79,7 @@ BOOLEAN __stdcall FsRtlCopyRead(
              DeviceObject)) )
     {
       ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       __incgsdword(0x2ECCu);
       return 0;
     }
@@ -92,7 +92,7 @@ BOOLEAN __stdcall FsRtlCopyRead(
         IoStatus->Information = 0LL;
 LABEL_22:
         ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         return v16;
       }
       LODWORD(v9) = v19 - FileOffset->LowPart;

@@ -7,7 +7,7 @@
  *     PiUEventEstimateRequiredClientBufferSize @ 0x140006544 (PiUEventEstimateRequiredClientBufferSize.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PiUEventNotifyClientPendingEvent(__int64 a1)

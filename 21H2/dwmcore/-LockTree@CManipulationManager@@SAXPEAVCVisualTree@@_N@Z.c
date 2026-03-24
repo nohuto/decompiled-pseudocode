@@ -1,8 +1,8 @@
 /*
- * XREFs of ?LockTree@CManipulationManager@@SAXPEAVCVisualTree@@_N@Z @ 0x18017C8D0
+ * XREFs of ?LockTree@CManipulationManager@@SAXPEAVCVisualTree@@_N@Z @ 0x180225030
  * Callers:
- *     ?OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z @ 0x18017D2A0 (-OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z.c)
- *     ?OnHoverContact@CManipulationContext@@QEAAJPEAVCInteraction@@IW4InputType@@@Z @ 0x180183364 (-OnHoverContact@CManipulationContext@@QEAAJPEAVCInteraction@@IW4InputType@@@Z.c)
+ *     ?OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z @ 0x180225910 (-OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z.c)
+ *     ?OnHoverContact@CManipulationContext@@QEAAJPEAVCInteraction@@IW4InputType@@@Z @ 0x180234D24 (-OnHoverContact@CManipulationContext@@QEAAJPEAVCInteraction@@IW4InputType@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ void __fastcall CManipulationManager::LockTree(struct CVisualTree *a1, char a2)
 {
   RTL_SRWLOCK *v2; // rcx
 
-  v2 = (RTL_SRWLOCK *)(*((_QWORD *)a1 + 2) + 672LL);
+  v2 = (RTL_SRWLOCK *)(*((_QWORD *)a1 + 2) + 520LL);
   if ( a2 )
     AcquireSRWLockShared(v2);
   else

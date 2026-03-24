@@ -1,17 +1,18 @@
 /*
- * XREFs of __longjmp_internal @ 0x14041AF90
+ * XREFs of __longjmp_internal @ 0x1403F9BA0
  * Callers:
- *     longjmp @ 0x1403DF970 (longjmp.c)
+ *     longjmp @ 0x1403D0670 (longjmp.c)
  * Callees:
- *     RtlUnwind @ 0x140387A90 (RtlUnwind.c)
+ *     RtlUnwindEx @ 0x140275A30 (RtlUnwindEx.c)
  */
 
 __int64 __fastcall _longjmp_internal(__int64 a1, __int64 a2)
 {
   __int64 v2; // r10
-  _QWORD v4[3]; // [rsp+20h] [rbp-28h] BYREF
-  int v5; // [rsp+38h] [rbp-10h]
-  __int64 v6; // [rsp+40h] [rbp-8h]
+  _QWORD v4[3]; // [rsp+30h] [rbp-508h] BYREF
+  int v5; // [rsp+48h] [rbp-4F0h]
+  __int64 v6; // [rsp+50h] [rbp-4E8h]
+  _BYTE v7[1240]; // [rsp+60h] [rbp-4D8h] BYREF
 
   if ( !a2 )
     a2 = 1LL;
@@ -26,7 +27,7 @@ __int64 __fastcall _longjmp_internal(__int64 a1, __int64 a2)
       v4[2] = v2;
       v5 = v2 + 1;
       v6 = a1;
-      RtlUnwind(*(_QWORD *)a1, *(_QWORD *)(a1 + 80), v4, a2);
+      RtlUnwindEx(*(_QWORD *)a1, *(_QWORD *)(a1 + 80), v4, a2, (__int64)v7, v2);
     }
   }
   _mm_lfence();

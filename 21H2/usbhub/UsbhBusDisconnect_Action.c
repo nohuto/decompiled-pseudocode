@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhBusDisconnect_Action @ 0x1C0030A90
+ * XREFs of UsbhBusDisconnect_Action @ 0x1C0031E38
  * Callers:
- *     Usbh_BS_BusSuspend @ 0x1C000FE40 (Usbh_BS_BusSuspend.c)
- *     Usbh_BS_BusPause @ 0x1C0010190 (Usbh_BS_BusPause.c)
+ *     Usbh_BS_BusSuspend @ 0x1C0002D20 (Usbh_BS_BusSuspend.c)
+ *     Usbh_BS_BusPause @ 0x1C0003070 (Usbh_BS_BusPause.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhPCE_BusDisconnect @ 0x1C00338F4 (UsbhPCE_BusDisconnect.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhPCE_BusDisconnect @ 0x1C0034C58 (UsbhPCE_BusDisconnect.c)
  */
 
 _DWORD *__fastcall UsbhBusDisconnect_Action(__int64 a1, __int64 a2)

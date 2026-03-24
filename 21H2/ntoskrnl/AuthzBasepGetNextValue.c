@@ -1,13 +1,13 @@
 /*
- * XREFs of AuthzBasepGetNextValue @ 0x140218EAC
+ * XREFs of AuthzBasepGetNextValue @ 0x1402500A4
  * Callers:
- *     AuthzBasepEvaluateSetRelationship @ 0x140218C94 (AuthzBasepEvaluateSetRelationship.c)
- *     AuthzBasepValueInSet @ 0x140218D80 (AuthzBasepValueInSet.c)
- *     AuthzBasepDeviceMemberOf @ 0x14064AFB8 (AuthzBasepDeviceMemberOf.c)
- *     AuthzBasepMemberOf @ 0x14064B0FC (AuthzBasepMemberOf.c)
+ *     AuthzBasepValueInSet @ 0x14024FF78 (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateSetRelationship @ 0x14025019C (AuthzBasepEvaluateSetRelationship.c)
+ *     AuthzBasepDeviceMemberOf @ 0x1405C1EE0 (AuthzBasepDeviceMemberOf.c)
+ *     AuthzBasepMemberOf @ 0x1405C2028 (AuthzBasepMemberOf.c)
  * Callees:
- *     AuthzBasepGetConstantOperand @ 0x140219CE4 (AuthzBasepGetConstantOperand.c)
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x140300374 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14024E6B8 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     AuthzBasepGetConstantOperand @ 0x14024F278 (AuthzBasepGetConstantOperand.c)
  */
 
 __int64 __fastcall AuthzBasepGetNextValue(__int64 a1, __int64 a2)
@@ -28,7 +28,11 @@ __int64 __fastcall AuthzBasepGetNextValue(__int64 a1, __int64 a2)
       v8 = *(_DWORD *)(a1 + 24);
       if ( (unsigned int)v5 < v8 )
       {
-        ConstantOperand = AuthzBasepGetConstantOperand(*(_QWORD *)(a1 + 32) + v5, v8 - (unsigned int)v5, a2, &v9);
+        ConstantOperand = AuthzBasepGetConstantOperand(
+                            (char *)(*(_QWORD *)(a1 + 32) + v5),
+                            v8 - (unsigned int)v5,
+                            a2,
+                            &v9);
         if ( *(_BYTE *)(a2 + 4) )
           return (unsigned int)-1073741406;
         else

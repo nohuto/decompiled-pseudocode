@@ -5,8 +5,8 @@
  *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
  *     ObCompleteObjectDuplication @ 0x140612FA0 (ObCompleteObjectDuplication.c)
- *     ObInheritObjectHandle @ 0x1406969C4 (ObInheritObjectHandle.c)
- *     ObCaptureObjectStateForDuplication @ 0x1406A5948 (ObCaptureObjectStateForDuplication.c)
+ *     ObInheritObjectHandle @ 0x1406969A4 (ObInheritObjectHandle.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1406A5928 (ObCaptureObjectStateForDuplication.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
@@ -18,15 +18,15 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     PspReturnQuota @ 0x1400BE9B0 (PspReturnQuota.c)
- *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x14013A7C0 (OBJECT_HEADER_TO_PROCESS_INFO.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     PspReturnQuota @ 0x1400BE9D0 (PspReturnQuota.c)
+ *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x14013A7E0 (OBJECT_HEADER_TO_PROCESS_INFO.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ObpDeleteNameCheck @ 0x1405A9740 (ObpDeleteNameCheck.c)
  *     SeComputeQuotaInformationSize @ 0x1405C9BB0 (SeComputeQuotaInformationSize.c)
  *     PsReturnSharedPoolQuota @ 0x1405CACA8 (PsReturnSharedPoolQuota.c)
- *     ObpLockHandleDataBaseEntry @ 0x140697C90 (ObpLockHandleDataBaseEntry.c)
- *     ObpUnlockHandleDatabaseEntry @ 0x1408618CC (ObpUnlockHandleDatabaseEntry.c)
+ *     ObpLockHandleDataBaseEntry @ 0x140697C70 (ObpLockHandleDataBaseEntry.c)
+ *     ObpUnlockHandleDatabaseEntry @ 0x1408618AC (ObpUnlockHandleDatabaseEntry.c)
  */
 
 __int64 __fastcall ObpIncrementHandleCountEx(

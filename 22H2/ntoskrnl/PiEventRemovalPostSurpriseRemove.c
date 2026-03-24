@@ -1,27 +1,27 @@
 /*
- * XREFs of PiEventRemovalPostSurpriseRemove @ 0x1408834B4
+ * XREFs of PiEventRemovalPostSurpriseRemove @ 0x14074CD2C
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PnpUnlinkDeviceRemovalRelations @ 0x140868334 (PnpUnlinkDeviceRemovalRelations.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140883540 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x14074A960 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x14074AADC (PnpUnlinkDeviceRemovalRelations.c)
  */
 
-__int64 __fastcall PiEventRemovalPostSurpriseRemove(__int64 a1, unsigned int a2, __int64 *a3)
+_QWORD *__fastcall PiEventRemovalPostSurpriseRemove(__int64 a1, int a2, __int64 *a3)
 {
   __int64 v3; // rax
-  _QWORD *v7; // rbx
+  __int64 v7; // rbx
 
   v3 = *(_QWORD *)(a1 + 152);
   if ( v3 )
-    v7 = *(_QWORD **)(*(_QWORD *)(v3 + 312) + 40LL);
+    v7 = *(_QWORD *)(*(_QWORD *)(v3 + 312) + 40LL);
   else
     v7 = 0LL;
   PnpUnlinkDeviceRemovalRelations(a1, *a3);
-  if ( !v7[2] )
+  if ( !*(_QWORD *)(v7 + 16) )
   {
-    ++*(_DWORD *)(v7[81] + 656LL);
-    v7[81] |= 1uLL;
+    ++*(_DWORD *)(*(_QWORD *)(v7 + 648) + 656LL);
+    *(_QWORD *)(v7 + 648) |= 1uLL;
   }
-  return PnpQueuePendingSurpriseRemoval(v7[4], a3, *(unsigned int *)(a1 + 16), a2);
+  return PnpQueuePendingSurpriseRemoval(*(PVOID *)(v7 + 32), (_QWORD **)a3, *(_DWORD *)(a1 + 16), a2);
 }

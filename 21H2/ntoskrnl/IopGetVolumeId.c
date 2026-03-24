@@ -1,16 +1,16 @@
 /*
- * XREFs of IopGetVolumeId @ 0x14093449C
+ * XREFs of IopGetVolumeId @ 0x140733450
  * Callers:
- *     IopTrackLink @ 0x1406D3128 (IopTrackLink.c)
+ *     IopTrackLink @ 0x1406809F0 (IopTrackLink.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140342880 (IoBuildDeviceIoControlRequest.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 NTSTATUS __fastcall IopGetVolumeId(struct _FILE_OBJECT *Object, __int64 a2)
@@ -18,8 +18,8 @@ NTSTATUS __fastcall IopGetVolumeId(struct _FILE_OBJECT *Object, __int64 a2)
   struct _DEVICE_OBJECT *RelatedDeviceObject; // r14
   PIRP v5; // rax
   IRP *v6; // rbx
-  NTSTATUS result; // eax
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  NTSTATUS result; // eax
   __int128 v9; // xmm0
   struct _KEVENT Event; // [rsp+50h] [rbp-39h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-21h] BYREF

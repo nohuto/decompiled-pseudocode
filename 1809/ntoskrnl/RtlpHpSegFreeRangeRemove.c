@@ -3,10 +3,10 @@
  * Callers:
  *     RtlpHpSegPageRangeAllocate @ 0x14000B270 (RtlpHpSegPageRangeAllocate.c)
  *     RtlpHpSegPageRangeCoalesce @ 0x14000B82C (RtlpHpSegPageRangeCoalesce.c)
- *     RtlpHpSegLargeRangeAllocate @ 0x14018D108 (RtlpHpSegLargeRangeAllocate.c)
- *     RtlpHpSegContextCompact @ 0x1401B63A8 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x14018D128 (RtlpHpSegLargeRangeAllocate.c)
+ *     RtlpHpSegContextCompact @ 0x1401B63C8 (RtlpHpSegContextCompact.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall RtlpHpSegFreeRangeRemove(__int64 a1, __int64 a2)

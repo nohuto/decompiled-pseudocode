@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ECD2DBitmapCache@@MEAAPEAXI@Z @ 0x1802A18F0
+ * XREFs of ??_ECD2DBitmapCache@@MEAAPEAXI@Z @ 0x18019B6F0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CD2DBitmapCache@@MEAA@XZ @ 0x180068058 (--1CD2DBitmapCache@@MEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CD2DBitmapCache@@MEAA@XZ @ 0x180064160 (--1CD2DBitmapCache@@MEAA@XZ.c)
  */
 
 CD2DBitmapCache *__fastcall CD2DBitmapCache::`vector deleting destructor'(CD2DBitmapCache *this, char a2)

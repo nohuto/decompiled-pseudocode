@@ -1,48 +1,53 @@
 /*
- * XREFs of ?DpiBrightness3GetCaps@@YAJPEAXKPEAU_DXGK_BRIGHTNESS_CAPS@@@Z @ 0x1C038EA50
+ * XREFs of ?DpiBrightness3GetCaps@@YAJPEAXKPEAU_DXGK_BRIGHTNESS_CAPS@@@Z @ 0x1C02CFB10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C01B40A0 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01B445C (DpiAcquireCoreSyncAccessSafe.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0121730 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C01219AC (DpiAcquireCoreSyncAccessSafe.c)
  */
 
 __int64 __fastcall DpiBrightness3GetCaps(_QWORD *a1, unsigned int a2, struct _DXGK_BRIGHTNESS_CAPS *a3)
 {
   __int64 v3; // rdi
   int v7; // eax
-  unsigned int v8; // ebx
-  __int64 v9; // r9
-  __int64 (__fastcall *v10)(_QWORD, _QWORD, struct _DXGK_BRIGHTNESS_CAPS *); // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rbx
+  __int64 v11; // rax
+  __int64 v12; // r9
+  __int64 (__fastcall *v13)(_QWORD, _QWORD, struct _DXGK_BRIGHTNESS_CAPS *); // rax
 
   v3 = a1[8];
-  KeWaitForSingleObject((PVOID)(v3 + 4392), Executive, 0, 0, 0LL);
+  KeWaitForSingleObject((PVOID)(v3 + 4464), Executive, 0, 0, 0LL);
   v7 = DpiAcquireCoreSyncAccessSafe((__int64)a1, 0);
-  v8 = v7;
+  v10 = v7;
   if ( v7 >= 0 )
   {
-    v9 = 0LL;
-    if ( *(_WORD *)(v3 + 4666) == 3 )
-      v9 = v3 + 4664;
-    if ( v9 )
+    v12 = 0LL;
+    if ( *(_WORD *)(v3 + 4738) == 3 )
+      v12 = v3 + 4736;
+    if ( v12 )
     {
-      v10 = *(__int64 (__fastcall **)(_QWORD, _QWORD, struct _DXGK_BRIGHTNESS_CAPS *))(v9 + 48);
-      if ( v10 )
-        v8 = v10(*(_QWORD *)(v9 + 8), a2, a3);
+      v13 = *(__int64 (__fastcall **)(_QWORD, _QWORD, struct _DXGK_BRIGHTNESS_CAPS *))(v12 + 48);
+      if ( v13 )
+        LODWORD(v10) = v13(*(_QWORD *)(v12 + 8), a2, a3);
       else
-        v8 = -1073741661;
+        LODWORD(v10) = -1073741661;
     }
     else
     {
-      v8 = -1073741637;
+      LODWORD(v10) = -1073741637;
     }
     DpiReleaseCoreSyncAccessSafe((__int64)a1, 0);
   }
   else
   {
-    WdLogSingleEntry1(2LL, v7);
+    v11 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v11 + 24) = v10;
+    WdLogEvent5_WdError(v11);
   }
-  KeReleaseMutex((PRKMUTEX)(v3 + 4392), 0);
-  return v8;
+  KeReleaseMutex((PRKMUTEX)(v3 + 4464), 0);
+  return (unsigned int)v10;
 }

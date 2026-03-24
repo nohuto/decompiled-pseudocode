@@ -1,182 +1,117 @@
 /*
- * XREFs of ?Broadcast@InputConfig@@SAXXZ @ 0x1C009F464
+ * XREFs of ?Broadcast@InputConfig@@SAXXZ @ 0x1C006D65C
  * Callers:
- *     ?_NotifyExternalComponents@CInputConfig@@AEAAXXZ @ 0x1C009F3EC (-_NotifyExternalComponents@CInputConfig@@AEAAXXZ.c)
- *     _lambda_ebe346d30a668a9733c532f644f5367b_::_lambda_invoker_cdecl_ @ 0x1C00C6040 (_lambda_ebe346d30a668a9733c532f644f5367b_--_lambda_invoker_cdecl_.c)
+ *     ?_NotifyExternalComponents@CInputConfig@@AEAAXXZ @ 0x1C006D5EC (-_NotifyExternalComponents@CInputConfig@@AEAAXXZ.c)
+ *     _lambda_ebe346d30a668a9733c532f644f5367b_::_lambda_invoker_cdecl_ @ 0x1C00B84C0 (_lambda_ebe346d30a668a9733c532f644f5367b_--_lambda_invoker_cdecl_.c)
  * Callees:
- *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C003B6C4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
- *     ?_CanSendMessageToDestinationInternal@InputExtensibilityCallout@@AEBA_NW4_MIT_ENDPOINT@@@Z @ 0x1C003B78C (-_CanSendMessageToDestinationInternal@InputExtensibilityCallout@@AEBA_NW4_MIT_ENDPOINT@@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32AllocPoolZInit @ 0x1C0028440 (Win32AllocPoolZInit.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C004CFF4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
+ *     ?_CanSendMessageToDestinationInternal@InputExtensibilityCallout@@AEBA_NW4_MIT_ENDPOINT@@@Z @ 0x1C004D0B4 (-_CanSendMessageToDestinationInternal@InputExtensibilityCallout@@AEBA_NW4_MIT_ENDPOINT@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 void InputConfig::Broadcast(void)
 {
   InputExtensibilityCallout *v0; // rdi
   char *v1; // rbx
-  __int64 v2; // r8
-  CInputConfig *v3; // r13
-  __int64 v4; // rdx
-  CInputConfig *v5; // rcx
-  CInputConfig *i; // r12
-  _QWORD **v7; // rdi
-  __int64 v8; // rcx
-  unsigned int v9; // r15d
-  unsigned int v10; // ebp
-  PVOID v11; // rsi
-  __int64 v12; // rdx
-  __int64 Pool2; // rbx
-  unsigned int v14; // esi
-  int v15; // ecx
-  _QWORD **v16; // rdi
-  _QWORD *j; // r9
-  _OWORD *v18; // r8
-  _OWORD *v19; // rdx
-  __int128 v20; // xmm1
-  _OWORD *v21; // r8
-  __int64 v22; // rcx
-  unsigned __int64 v23; // rax
-  __int64 v24; // rax
-  char v25; // r14
-  PVOID BackTrace[28]; // [rsp+20h] [rbp-108h] BYREF
+  CInputConfig *v2; // r15
+  CInputConfig *v3; // rax
+  CInputConfig *i; // r14
+  _QWORD **v5; // rsi
+  unsigned int v6; // ebp
+  unsigned int v7; // ebx
+  char *v8; // rax
+  __int64 v9; // rdi
+  int v10; // ecx
+  __int64 *v11; // rsi
+  unsigned int v12; // ebp
+  __int64 *j; // r9
+  _OWORD *v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rcx
+  unsigned __int64 v17; // rax
+  _BYTE v18[216]; // [rsp+24h] [rbp-104h] BYREF
 
   v0 = gpInputExtensibilityCallout;
   v1 = (char *)gpInputExtensibilityCallout + 8;
   KeEnterCriticalRegion();
   ExAcquirePushLockSharedEx(v1, 0LL);
-  LOBYTE(v0) = InputExtensibilityCallout::_CanSendMessageToDestinationInternal((__int64)v0, 7LL, v2);
+  LOBYTE(v0) = InputExtensibilityCallout::_CanSendMessageToDestinationInternal((__int64)v0, 7);
   ExReleasePushLockSharedEx(v1, 0LL);
   KeLeaveCriticalRegion();
   if ( (_BYTE)v0 )
   {
-    v3 = gpInputConfig;
+    v2 = gpInputConfig;
     KeEnterCriticalRegion();
     ExAcquireResourceSharedLite(CInputConfig::slock, 1u);
-    v5 = *(CInputConfig **)v3;
-    for ( i = **(CInputConfig ***)v3; ; i = *(CInputConfig **)i )
+    v3 = *(CInputConfig **)v2;
+    for ( i = **(CInputConfig ***)v2; ; i = *(CInputConfig **)i )
     {
-      v7 = 0LL;
-      if ( v5 != v3 )
-        v7 = (_QWORD **)((char *)v5 + 16);
-      if ( !v7 )
+      if ( v3 == v2 || (v5 = (_QWORD **)((char *)v3 + 16), v3 == (CInputConfig *)-16LL) )
       {
-LABEL_6:
+LABEL_12:
         ExReleaseResourceLite(CInputConfig::slock);
         KeLeaveCriticalRegion();
-        memset((char *)BackTrace + 4, 0, 0xD8uLL);
-        LODWORD(BackTrace[0]) = 1;
-        InputExtensibilityCallout::CoreMsgSendMessage(v8, 7);
+        memset(v18, 0, sizeof(v18));
+        InputExtensibilityCallout::CoreMsgSendMessage(v15, 7);
         return;
       }
-      v9 = *((_DWORD *)v7 + 363);
-      if ( v9 > 1 )
+      v6 = *((_DWORD *)v3 + 359);
+      if ( v6 > 1 )
       {
-        v23 = 200LL * (v9 - 1);
-        if ( v23 > 0xFFFFFFFF || (v10 = v23 + 220, (unsigned int)v23 >= 0xFFFFFF24) )
+        v17 = 200LL * (v6 - 1);
+        if ( v17 > 0xFFFFFFFF || (v7 = v17 + 220, (unsigned int)v17 >= 0xFFFFFF24) )
         {
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(0xFFFFFFFFLL, v4, 1866690121LL);
-          goto LABEL_19;
+          v7 = 0;
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1037LL);
         }
+        if ( !v7 )
+          goto LABEL_16;
       }
       else
       {
-        v10 = 220;
+        v7 = 220;
       }
-      v11 = gpLeakTrackingAllocator;
-      v12 = v10;
-      if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x6F436E49) == 0x6F436E49
-        && (v24 = 0LL, *((_DWORD *)gpLeakTrackingAllocator + 11)) )
-      {
-        while ( *((_DWORD *)gpLeakTrackingAllocator + v24) != 1866690121 )
-        {
-          if ( ++v24 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-            goto LABEL_11;
-        }
-        v25 = 0;
-        if ( v10 < 0x1000uLL || (v10 & 0xFFF) != 0 )
-        {
-          v25 = 1;
-          v12 = v10 + 16LL;
-        }
-        Pool2 = ExAllocatePool2(260LL, v12);
-        if ( !Pool2 )
-          goto LABEL_6;
-        memset(BackTrace, 0, 0xA0uLL);
-        RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-        if ( !v25 || (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
-        {
-          if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                   v11,
-                                   Pool2,
-                                   BackTrace) )
-          {
-LABEL_36:
-            ExFreePoolWithTag((PVOID)Pool2, 0);
-            goto LABEL_6;
-          }
-          goto LABEL_13;
-        }
-        if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                 v11,
-                                 Pool2,
-                                 BackTrace) )
-          goto LABEL_36;
-        Pool2 += 16LL;
-      }
-      else
-      {
-LABEL_11:
-        Pool2 = ExAllocatePool2(260LL, v10);
-      }
-      if ( !Pool2 )
-        goto LABEL_6;
-LABEL_13:
-      *(_DWORD *)Pool2 = 0;
-      v14 = 0;
-      *(_QWORD *)(Pool2 + 4) = *v7;
-      v15 = *((_DWORD *)v7 + 2);
-      v16 = v7 + 182;
-      *(_DWORD *)(Pool2 + 12) = v15;
-      *(_DWORD *)(Pool2 + 16) = v9;
+      v8 = (char *)Win32AllocPoolZInit(v7, 1866690121LL);
+      v9 = (__int64)v8;
+      if ( !v8 )
+        goto LABEL_12;
+      *(_DWORD *)v8 = 0;
+      *(_QWORD *)(v8 + 4) = *v5;
+      v10 = *((_DWORD *)v5 + 2);
+      v11 = (__int64 *)(v5 + 178);
+      *((_DWORD *)v8 + 4) = v6;
+      v12 = 0;
+      *((_DWORD *)v8 + 3) = v10;
       KeEnterCriticalRegion();
       ExAcquireResourceSharedLite(CInputConfig::slock, 1u);
-      for ( j = *v16; ; j = (_QWORD *)*j )
+      for ( j = (__int64 *)*v11; j != v11 && j != (__int64 *)-16LL; j = (__int64 *)*j )
       {
-        v18 = 0LL;
-        if ( j != v16 )
-          v18 = j + 2;
-        if ( !v18 )
-          break;
-        v19 = (_OWORD *)(200LL * v14 + Pool2 + 20);
-        *v19 = *v18;
-        v19[1] = v18[1];
-        v19[2] = v18[2];
-        v19[3] = v18[3];
-        v19[4] = v18[4];
-        v19[5] = v18[5];
-        v19[6] = v18[6];
-        v19 += 8;
-        v20 = v18[7];
-        v21 = v18 + 8;
-        ++v14;
-        *(v19 - 1) = v20;
-        *v19 = *v21;
-        v19[1] = v21[1];
-        v19[2] = v21[2];
-        v19[3] = v21[3];
-        *((_QWORD *)v19 + 8) = *((_QWORD *)v21 + 8);
+        v14 = (_OWORD *)(200LL * v12 + v9 + 20);
+        *v14 = *((_OWORD *)j + 1);
+        v14[1] = *((_OWORD *)j + 2);
+        v14[2] = *((_OWORD *)j + 3);
+        v14[3] = *((_OWORD *)j + 4);
+        v14[4] = *((_OWORD *)j + 5);
+        v14[5] = *((_OWORD *)j + 6);
+        v14[6] = *((_OWORD *)j + 7);
+        v14 += 8;
+        ++v12;
+        *(v14 - 1) = *((_OWORD *)j + 8);
+        *v14 = *((_OWORD *)j + 9);
+        v14[1] = *((_OWORD *)j + 10);
+        v14[2] = *((_OWORD *)j + 11);
+        v14[3] = *((_OWORD *)j + 12);
+        *((_QWORD *)v14 + 8) = j[26];
       }
       ExReleaseResourceLite(CInputConfig::slock);
       KeLeaveCriticalRegion();
-      InputExtensibilityCallout::CoreMsgSendMessage(v22, 7);
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        (char *)Pool2);
-LABEL_19:
-      v5 = i;
+      InputExtensibilityCallout::CoreMsgSendMessage(v16, 7);
+      Win32FreePool(v9);
+LABEL_16:
+      v3 = i;
     }
   }
 }

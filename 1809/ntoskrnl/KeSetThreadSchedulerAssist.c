@@ -1,16 +1,16 @@
 /*
- * XREFs of KeSetThreadSchedulerAssist @ 0x140297C44
+ * XREFs of KeSetThreadSchedulerAssist @ 0x140297D44
  * Callers:
- *     VmSetThreadSchedulerAssist @ 0x14030B630 (VmSetThreadSchedulerAssist.c)
+ *     VmSetThreadSchedulerAssist @ 0x14030B730 (VmSetThreadSchedulerAssist.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeSetPriorityThread @ 0x1400CD850 (KeSetPriorityThread.c)
- *     KiAcquireThreadStateLock @ 0x1400CFA30 (KiAcquireThreadStateLock.c)
- *     KiReleaseThreadStateLock @ 0x1400D8044 (KiReleaseThreadStateLock.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x1401B49B0 (KiReadGuestSchedulerAssistPriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeCheckAndApplyBamQos @ 0x140297B90 (KeCheckAndApplyBamQos.c)
+ *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
+ *     KiAcquireThreadStateLock @ 0x1400CFA50 (KiAcquireThreadStateLock.c)
+ *     KiReleaseThreadStateLock @ 0x1400D8064 (KiReleaseThreadStateLock.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1401B49D0 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeCheckAndApplyBamQos @ 0x140297C90 (KeCheckAndApplyBamQos.c)
  */
 
 void __fastcall KeSetThreadSchedulerAssist(PKTHREAD Thread, void *a2, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBounds@CProjectedShadow@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18011E240
+ * XREFs of ?GetBounds@CProjectedShadow@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F61B0
  * Callers:
  *     <none>
  * Callees:

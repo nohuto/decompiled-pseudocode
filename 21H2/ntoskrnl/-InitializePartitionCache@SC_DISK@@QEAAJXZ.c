@@ -1,19 +1,19 @@
 /*
- * XREFs of ?InitializePartitionCache@SC_DISK@@QEAAJXZ @ 0x14065120C
+ * XREFs of ?InitializePartitionCache@SC_DISK@@QEAAJXZ @ 0x1405C6EB0
  * Callers:
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140930388 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088D908 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  * Callees:
- *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1406513D8 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKE@Z @ 0x140930250 (-Allocate@SC_ENV@@SAPEAX_KKE@Z.c)
+ *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1405C707C (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_K@Z @ 0x14088D7D0 (-Allocate@SC_ENV@@SAPEAX_K@Z.c)
  */
 
-__int64 __fastcall SC_DISK::InitializePartitionCache(SC_DISK *this, unsigned int a2, unsigned __int8 a3)
+__int64 __fastcall SC_DISK::InitializePartitionCache(SC_DISK *this)
 {
-  void *v4; // rax
+  void *v2; // rax
 
-  v4 = SC_ENV::Allocate(1 << *((_DWORD *)this + 60), a2, a3);
-  *((_QWORD *)this + 33) = v4;
-  if ( v4 )
+  v2 = SC_ENV::Allocate(1 << *((_DWORD *)this + 58));
+  *((_QWORD *)this + 32) = v2;
+  if ( v2 )
     return SC_DISK::ResetPartitionCache(this);
   else
     return 3221225626LL;

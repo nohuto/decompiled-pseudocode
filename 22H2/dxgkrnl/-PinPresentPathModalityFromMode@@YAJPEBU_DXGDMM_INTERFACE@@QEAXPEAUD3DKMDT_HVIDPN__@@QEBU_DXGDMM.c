@@ -1,512 +1,416 @@
 /*
- * XREFs of ?PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_KPEAU_DXGK_DISPLAYMODE_INFO@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EEPEAPEAU2@@Z @ 0x1C01F434C
+ * XREFs of ?PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_KPEAU_D3DKMT_DISPLAYMODE@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EEPEAPEAU2@@Z @ 0x1C025DA64
  * Callers:
- *     ?CreateFunctionalVidPnWithEnabledVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EPEAU_DXGK_DISPLAYMODE_INFO@@PEAPEAUD3DKMDT_HVIDPN__@@PEAPEBU_DXGDMM_VIDPN_INTERFACE@@PEAY0BA@I@Z @ 0x1C01F40B0 (-CreateFunctionalVidPnWithEnabledVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIW4_D3DKMDT_VIDPN_PR.c)
+ *     CreateFunctionalVidPnWithEnabledVidPnSource @ 0x1C025EC9C (CreateFunctionalVidPnWithEnabledVidPnSource.c)
  * Callees:
- *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C0002F24 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
- *     ?IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z @ 0x1C0003930 (-IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?BmlGetPathModalityForAdapterWithCoreAccessHeld@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAX_NW4DXGK_DIAG_CCD_BML_ORIGIN@@IPEAPEAUD3DKMDT_HVIDPN__@@@Z @ 0x1C016EBF4 (-BmlGetPathModalityForAdapterWithCoreAccessHeld@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAX_NW4DXGK_DI.c)
- *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C0171364 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
- *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C0180B78 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
- *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C0180EE4 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C019F020 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     DxgkGetGlobalRawmodeFlag @ 0x1C01EABA0 (DxgkGetGlobalRawmodeFlag.c)
- *     ?DmmGetMostImportantVidPnPathTargetsFromSource@@YAJQEAXPEAUD3DKMDT_HVIDPN__@@IQEAI@Z @ 0x1C01F4880 (-DmmGetMostImportantVidPnPathTargetsFromSource@@YAJQEAXPEAUD3DKMDT_HVIDPN__@@IQEAI@Z.c)
- *     ?RetrievePinnedModeForTarget@@YAJQEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPN__@@IPEAU_D3DKMDT_VIDPN_TARGET_MODE@@PEAU_D3DDDI_RATIONAL@@PEAI@Z @ 0x1C01F4938 (-RetrievePinnedModeForTarget@@YAJQEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPN__@@IPEAU_D3DKMD.c)
- *     ?ConvertVidPnPathToPathDescription@@YAJPEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@II_NPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C01F4A6C (-ConvertVidPnPathToPathDescription@@YAJPEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@QE.c)
- *     ?DmmCalculatePresentationVSync@@YAXPEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C01F4DA0 (-DmmCalculatePresentationVSync@@YAXPEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@PEAU_D3DDDI_RATIONAL@@@Z.c)
- *     ConvertGdiScalingToDMMScaling @ 0x1C0301650 (ConvertGdiScalingToDMMScaling.c)
- *     ?DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAU_D3DKMDT_2DREGION@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C03ACE24 (-DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3D.c)
- *     ?DmmGetDefaultScaling@@YAJQEAXPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C03AD150 (-DmmGetDefaultScaling@@YAJQEAXPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C000BAD8 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
+ *     ?IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z @ 0x1C000DAE8 (-IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?BmlGetPathModalityForAdapterWithCoreAccessHeld@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAX_NW4DXGK_DIAG_CCD_BML_ORIGIN@@IPEAPEAUD3DKMDT_HVIDPN__@@@Z @ 0x1C00EC704 (-BmlGetPathModalityForAdapterWithCoreAccessHeld@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAX_NW4DXGK_DI.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C012C6F0 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013D77C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C013DE80 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C013E924 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     ?DmmCalculatePresentationVSync@@YAXPEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C0144C30 (-DmmCalculatePresentationVSync@@YAXPEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@PEAU_D3DDDI_RATIONAL@@@Z.c)
+ *     ConvertGdiScalingToDMMScaling @ 0x1C0150558 (ConvertGdiScalingToDMMScaling.c)
+ *     DxgkGetGlobalRawmodeFlag @ 0x1C016D0D0 (DxgkGetGlobalRawmodeFlag.c)
+ *     ?ConvertD3DddiRotationToDmmRotation@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W4_D3DDDI_ROTATION@@@Z @ 0x1C025D600 (-ConvertD3DddiRotationToDmmRotation@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W4_D3DDDI_ROTAT.c)
+ *     ?ConvertVidPnPathToPathDescription@@YAJPEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@II_NPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C025D66C (-ConvertVidPnPathToPathDescription@@YAJPEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@QE.c)
+ *     ?RetrievePinnedModeForTarget@@YAJQEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPN__@@IPEAU_D3DKMDT_VIDPN_TARGET_MODE@@@Z @ 0x1C025E690 (-RetrievePinnedModeForTarget@@YAJQEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPN__@@IPEAU_D3DKMD.c)
+ *     ?DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAU_D3DKMDT_2DREGION@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C02DCE30 (-DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3D.c)
+ *     ?DmmGetDefaultScaling@@YAJQEAXPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C02DD188 (-DmmGetDefaultScaling@@YAJQEAXPEAW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z.c)
+ *     ?DmmGetMostImportantVidPnPathTargetsFromSource@@YAJQEAXPEAUD3DKMDT_HVIDPN__@@IQEAI@Z @ 0x1C02DD504 (-DmmGetMostImportantVidPnPathTargetsFromSource@@YAJQEAXPEAUD3DKMDT_HVIDPN__@@IQEAI@Z.c)
  */
 
 __int64 __fastcall PinPresentPathModalityFromMode(
-        void (__fastcall **a1)(__int64, struct D3DKMDT_HVIDPN__ *),
-        struct _D3DDDI_RATIONAL a2,
+        void (__fastcall **a1)(char *, struct D3DKMDT_HVIDPN__ *),
+        char *a2,
         struct D3DKMDT_HVIDPN__ *a3,
         struct _DXGDMM_VIDPN_INTERFACE *a4,
         struct D3DKMDT_HVIDPNTOPOLOGY__ *a5,
         struct _DXGDMM_VIDPNTOPOLOGY_INTERFACE *a6,
         unsigned int a7,
         unsigned __int64 a8,
-        struct _DXGK_DISPLAYMODE_INFO *a9,
+        struct _D3DKMT_DISPLAYMODE *a9,
         enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING a10,
         unsigned int a11,
-        struct _D3DDDI_RATIONAL a12,
+        unsigned int a12,
         struct D3DKMDT_HVIDPN__ **a13)
 {
-  struct D3DKMDT_HVIDPNTOPOLOGY__ *v15; // r15
-  struct _DXGDMM_VIDPNTOPOLOGY_INTERFACE *v16; // rbx
-  struct _DXGK_DISPLAYMODE_INFO *v17; // rdi
-  __int64 v18; // r13
-  __int64 (__fastcall *v19)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, unsigned __int64 *); // rax
-  int v20; // eax
-  __int64 v21; // rsi
-  unsigned __int16 v22; // ax
-  __int64 v23; // rbx
-  int MostImportantVidPnPathTargetsFromSource; // eax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  struct D3DKMDT_HVIDPNTOPOLOGY__ *v19; // r15
+  __int64 v20; // rax
+  struct _DXGDMM_VIDPNTOPOLOGY_INTERFACE *v21; // rbx
+  __int64 v22; // rax
+  const struct _D3DDDI_RATIONAL *v23; // r12
+  __int64 v24; // rax
   __int64 v25; // r14
-  unsigned int v26; // eax
-  __int64 v27; // r14
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rsi
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 (__fastcall *v28)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, unsigned __int64 *); // rax
   int v29; // eax
-  bool v30; // al
-  int v31; // eax
-  __int64 v32; // rdx
-  __int64 v33; // rcx
-  __int64 v34; // rax
-  struct DXGGLOBAL *Global; // rax
-  void *v36; // r14
-  __int64 v37; // rdx
-  int v38; // eax
-  __int64 v39; // rdx
-  __int64 v40; // rdx
-  __int64 v41; // rcx
-  __int64 v42; // rcx
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rbx
+  _QWORD *v33; // rax
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // r8
+  __int64 v38; // r9
+  unsigned __int16 v39; // ax
+  __int64 v40; // rax
+  __int64 v41; // rsi
+  __int64 v42; // rbx
+  int MostImportantVidPnPathTargetsFromSource; // eax
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  _QWORD *v46; // rax
+  unsigned int v47; // eax
+  __int64 v48; // rsi
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rdi
+  int v50; // eax
+  __int64 v51; // rdx
+  __int64 v52; // rcx
+  __int64 v53; // rcx
+  bool v54; // al
+  int v55; // eax
+  __int64 v56; // rcx
+  struct _D3DDDI_RATIONAL v57; // rax
+  __int64 v58; // r8
+  int v59; // eax
+  __int64 v60; // rdx
+  __int64 Numerator; // rcx
+  __int64 v62; // rcx
   unsigned int i; // edi
-  unsigned __int16 v44; // ax
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v45; // r14
+  unsigned __int16 v64; // ax
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v65; // r15
   unsigned int j; // esi
-  unsigned __int16 v47; // dx
-  int v48; // ebx
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v49; // rax
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v50; // rax
-  int v51; // ebx
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v67; // rax
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v68; // rax
+  __int64 v69; // rdx
+  __int64 v70; // r8
+  __int64 v71; // r9
+  int v72; // ebx
   struct DXGPROCESS *Current; // rax
-  struct D3DKMDT_HVIDPN__ **v53; // r15
-  __int64 v54; // rsi
-  int v55; // edi
-  int v56; // edi
-  struct D3DKMDT_HVIDPN__ *v57; // rdx
-  const struct _D3DDDI_RATIONAL *v58; // rbx
-  const wchar_t *v60; // r9
-  __int64 v61; // rdi
-  int v62; // edx
+  struct D3DKMDT_HVIDPN__ **v74; // r15
+  int v75; // edi
+  int v76; // edi
   unsigned int k; // ebx
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v64; // rax
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v78; // rax
   signed int PathModalityForAdapterWithCoreAccessHeld; // eax
-  __int64 Numerator; // [rsp+28h] [rbp-E0h]
-  __int64 v67; // [rsp+30h] [rbp-D8h]
-  struct _D3DKMDT_2DREGION *v68; // [rsp+38h] [rbp-D0h]
-  struct _D3DDDI_RATIONAL *v69; // [rsp+40h] [rbp-C8h]
-  unsigned __int64 v70; // [rsp+58h] [rbp-B0h] BYREF
-  _BYTE v71[64]; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v72; // [rsp+A8h] [rbp-60h]
-  _D3DKMDT_VIDPN_TARGET_MODE v73[2]; // [rsp+D8h] [rbp-30h] BYREF
-  struct _D3DDDI_RATIONAL v75; // [rsp+180h] [rbp+78h] BYREF
-  struct D3DKMDT_HVIDPN__ *v76; // [rsp+188h] [rbp+80h]
-  struct _DXGDMM_VIDPN_INTERFACE *v77; // [rsp+190h] [rbp+88h]
+  __int64 v80; // rdx
+  __int64 v81; // rcx
+  __int64 v82; // rdx
+  __int64 v83; // rcx
+  __int64 v84; // rax
+  _BYTE v85[64]; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v86; // [rsp+98h] [rbp-70h]
+  _D3DKMDT_VIDPN_TARGET_MODE v87; // [rsp+B8h] [rbp-50h] BYREF
+  unsigned __int64 v89; // [rsp+160h] [rbp+58h] BYREF
+  struct D3DKMDT_HVIDPN__ *v90; // [rsp+168h] [rbp+60h]
+  struct _DXGDMM_VIDPN_INTERFACE *v91; // [rsp+170h] [rbp+68h]
 
-  v77 = a4;
-  v76 = a3;
-  v75 = a2;
-  if ( !*(_QWORD *)&a2 )
+  v91 = a4;
+  v90 = a3;
+  if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 4134LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_hAdapter != NULL", 4134LL, 0LL, 0LL, 0LL, 0LL);
+    v16 = WdLogNewEntry5_WdAssertion(a1, 0LL);
+    *(_QWORD *)(v16 + 24) = 3990LL;
+    WdLogEvent5_WdAssertion(v16);
   }
   if ( !a3 )
   {
-    WdLogSingleEntry1(1LL, 4135LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_hVidPn != NULL", 4135LL, 0LL, 0LL, 0LL, 0LL);
+    v17 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v17 + 24) = 3991LL;
+    WdLogEvent5_WdAssertion(v17);
   }
   if ( !a4 )
   {
-    WdLogSingleEntry1(1LL, 4136LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_pDmmVidPnInterface != NULL", 4136LL, 0LL, 0LL, 0LL, 0LL);
+    v18 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v18 + 24) = 3992LL;
+    WdLogEvent5_WdAssertion(v18);
   }
-  v15 = a5;
+  v19 = a5;
   if ( !a5 )
   {
-    WdLogSingleEntry1(1LL, 4137LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_hVidPnTopology != NULL", 4137LL, 0LL, 0LL, 0LL, 0LL);
+    v20 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v20 + 24) = 3993LL;
+    WdLogEvent5_WdAssertion(v20);
   }
-  v16 = a6;
+  v21 = a6;
   if ( !a6 )
   {
-    WdLogSingleEntry1(1LL, 4138LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"i_pDmmVidPnTopologyInterface != NULL",
-      4138LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v22 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v22 + 24) = 3994LL;
+    WdLogEvent5_WdAssertion(v22);
   }
-  v17 = a9;
+  v23 = (const struct _D3DDDI_RATIONAL *)a9;
   if ( !a9 )
   {
-    WdLogSingleEntry1(1LL, 4139LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"io_pDisplayModeInfo != NULL", 4139LL, 0LL, 0LL, 0LL, 0LL);
+    v24 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v24 + 24) = 3995LL;
+    WdLogEvent5_WdAssertion(v24);
   }
-  v18 = a7;
+  v25 = a7;
   if ( a7 == -1 )
   {
-    WdLogSingleEntry1(1LL, 4140LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"i_VidPnSourceId != D3DDDI_ID_UNINITIALIZED",
-      4140LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v26 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v26 + 24) = 3996LL;
+    WdLogEvent5_WdAssertion(v26);
   }
   if ( !a13 )
   {
-    WdLogSingleEntry1(1LL, 4141LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"o_phFunctionalizedVidPn != NULL", 4141LL, 0LL, 0LL, 0LL, 0LL);
+    v27 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v27 + 24) = 3997LL;
+    WdLogEvent5_WdAssertion(v27);
   }
-  v19 = (__int64 (__fastcall *)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, unsigned __int64 *))*((_QWORD *)v16 + 15);
-  v70 = 0LL;
-  v20 = v19(v15, &v70);
-  v21 = v20;
-  if ( v20 >= 0 )
+  v28 = (__int64 (__fastcall *)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, unsigned __int64 *))*((_QWORD *)v21 + 15);
+  v89 = 0LL;
+  v29 = v28(v19, &v89);
+  v32 = v29;
+  if ( v29 < 0 )
   {
-    CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v71, v70, v70);
-    if ( v72 )
-      v22 = *(_WORD *)(v72 + 22);
-    else
-      v22 = 0;
-    if ( v22 < (unsigned __int16)v70 )
+    v33 = (_QWORD *)WdLogNewEntry5_WdError(v31, v30);
+    v33[3] = v25;
+    v33[4] = v19;
+    v33[5] = v32;
+    WdLogEvent5_WdError(v33);
+    return (unsigned int)v32;
+  }
+  CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v85, v89, v89);
+  v39 = v86;
+  if ( v86 )
+    v39 = *(_WORD *)(v86 + 22);
+  if ( v39 >= (unsigned __int16)v89 )
+  {
+    v42 = *(_QWORD *)(a2 + 316);
+    a10 = D3DKMDT_VPPS_UNINITIALIZED;
+    MostImportantVidPnPathTargetsFromSource = DmmGetMostImportantVidPnPathTargetsFromSource(
+                                                (DXGADAPTER *)a2,
+                                                a3,
+                                                v25,
+                                                (unsigned int *const)&a10);
+    v41 = MostImportantVidPnPathTargetsFromSource;
+    if ( MostImportantVidPnPathTargetsFromSource >= 0 )
     {
-      WdLogSingleEntry1(6LL, v70);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to allocate PathModality for 0x%I64x paths",
-        v70,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      LODWORD(v25) = -1073741801;
-    }
-    else
-    {
-      a10 = D3DKMDT_VPPS_UNINITIALIZED;
-      v23 = *(_QWORD *)(*(_QWORD *)&v75 + 404LL);
-      MostImportantVidPnPathTargetsFromSource = DmmGetMostImportantVidPnPathTargetsFromSource(
-                                                  *(DXGADAPTER **)&v75,
-                                                  a3,
-                                                  v18,
-                                                  (unsigned int *const)&a10);
-      v25 = MostImportantVidPnPathTargetsFromSource;
-      if ( MostImportantVidPnPathTargetsFromSource < 0 )
-      {
-        WdLogSingleEntry3(2LL, v18, v15, MostImportantVidPnPathTargetsFromSource);
-        v60 = L"Failed to find the most important paths originating from source 0x%I64x in topology 0x%I64x (status = 0x%I64x)";
-        v69 = 0LL;
-        v68 = (struct _D3DKMDT_2DREGION *)v25;
-        v67 = (__int64)v15;
-        Numerator = v18;
-LABEL_82:
-        v62 = 0x40000;
-LABEL_84:
-        DxgkLogInternalTriageEvent(0LL, v62, -1, (__int64)v60, Numerator, v67, (__int64)v68, (__int64)v69, 0LL);
-        goto LABEL_62;
-      }
-      v26 = 0;
+      v47 = 0;
       a7 = 0;
-      if ( v70 )
+      if ( v89 )
       {
-        v27 = 0LL;
+        v48 = 0LL;
         while ( 1 )
         {
-          a12.Numerator = 0;
+          a12 = 0;
           a11 = 0;
-          PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v71, v26);
-          v29 = (*((__int64 (__fastcall **)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, __int64, struct _D3DDDI_RATIONAL *, unsigned int *))a6
+          PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v85, v47);
+          v50 = (*((__int64 (__fastcall **)(struct D3DKMDT_HVIDPNTOPOLOGY__ *, __int64, unsigned int *, unsigned int *))a6
                  + 16))(
-                  v15,
-                  v27,
+                  v19,
+                  v48,
                   &a12,
                   &a11);
-          v25 = v29;
-          if ( v29 < 0 )
+          v41 = v50;
+          if ( v50 < 0 )
             break;
-          *((_DWORD *)PathDescriptor + 6) = a12.Numerator;
+          v53 = a12;
+          *((_DWORD *)PathDescriptor + 6) = a12;
           *((_DWORD *)PathDescriptor + 7) = a11;
           *(_QWORD *)PathDescriptor |= 0x8700000000000uLL;
-          *((_QWORD *)PathDescriptor + 2) = v23;
-          v30 = a12.Numerator != (_DWORD)v18 || *((_BYTE *)DXGGLOBAL::GetGlobal() + 304537);
-          v31 = ConvertVidPnPathToPathDescription(
-                  *(void **)&v75,
-                  v76,
-                  v77,
-                  a6,
-                  v15,
-                  a12.Numerator,
-                  a11,
-                  v30,
-                  PathDescriptor);
-          v25 = v31;
-          if ( v31 < 0 )
+          *((_QWORD *)PathDescriptor + 2) = v42;
+          v54 = a12 != (_DWORD)v25 || *((_BYTE *)DXGGLOBAL::GetGlobal(v53, v51) + 304369);
+          v55 = ConvertVidPnPathToPathDescription(a2, v90, v91, a6, v19, a12, a11, v54, PathDescriptor);
+          v41 = v55;
+          if ( v55 < 0 )
           {
-            WdLogSingleEntry4(2LL, a12.Numerator, a11, v15, v31);
-            v60 = L"Failed to convert paths from source 0x%I64x to target 0x%I64x in VidPn topology 0x%I64x to PathsModali"
-                   "ty (status = 0x%I64x)";
-            v69 = (struct _D3DDDI_RATIONAL *)v25;
-            v68 = (struct _D3DKMDT_2DREGION *)v15;
-            v67 = a11;
-            Numerator = a12.Numerator;
-            goto LABEL_82;
+            v46 = (_QWORD *)WdLogNewEntry5_WdError(v56, v44);
+            v46[3] = a12;
+            v46[4] = a11;
+            v46[5] = v19;
+            v46[6] = v41;
+            goto LABEL_54;
           }
-          if ( a12.Numerator == (_DWORD)v18 )
+          if ( a12 == (_DWORD)v25 )
           {
-            v32 = *((_QWORD *)PathDescriptor + 1);
-            *((_DWORD *)PathDescriptor + 24) = *(_DWORD *)v17;
-            *((_DWORD *)PathDescriptor + 25) = *((_DWORD *)v17 + 1);
+            *((_DWORD *)PathDescriptor + 24) = v23->Numerator;
+            *((_DWORD *)PathDescriptor + 25) = v23->Denominator;
             *((_QWORD *)PathDescriptor + 13) = *((_QWORD *)PathDescriptor + 12);
-            *((_DWORD *)PathDescriptor + 29) = *((_DWORD *)v17 + 2);
-            *((_BYTE *)PathDescriptor + 128) = (*((_DWORD *)v17 + 10) & 0x10) != 0;
+            *((_DWORD *)PathDescriptor + 29) = v23[1].Numerator;
+            *((_BYTE *)PathDescriptor + 128) = (v23[5].Numerator & 0x10) != 0;
             *(_QWORD *)PathDescriptor |= 0x100uLL;
-            v32 |= 0x100uLL;
-            v33 = *(_QWORD *)PathDescriptor;
-            *((_QWORD *)PathDescriptor + 1) = v32;
-            v33 |= 2uLL;
-            v34 = *((_QWORD *)v17 + 7);
-            v32 |= 2uLL;
-            *(_QWORD *)PathDescriptor = v33;
-            *((_QWORD *)PathDescriptor + 1) = v32;
-            *(_QWORD *)((char *)PathDescriptor + 52) = v34;
-            *((_QWORD *)PathDescriptor + 28) = *((_QWORD *)v17 + 2);
-            *((_DWORD *)PathDescriptor + 60) = *((_DWORD *)v17 + 18);
-            *(_QWORD *)PathDescriptor = v33 | 0x1000000;
-            *((_QWORD *)PathDescriptor + 1) = v32 | 0x1000000;
-            Global = DXGGLOBAL::GetGlobal();
-            v36 = (void *)v75;
-            if ( *((_BYTE *)Global + 304480)
-              && (int)DmmGetClientVidPnTargetModeInfo(
-                        *(void *const *)&v75,
-                        a11,
-                        0LL,
-                        0LL,
-                        0LL,
-                        0LL,
-                        (struct _D3DKMDT_2DREGION *)((char *)PathDescriptor + 44),
-                        0LL) >= 0 )
+            *((_QWORD *)PathDescriptor + 1) |= 0x100uLL;
+            v57 = v23[2];
+            *(_QWORD *)PathDescriptor |= 2uLL;
+            *((_QWORD *)PathDescriptor + 1) |= 2uLL;
+            *(struct _D3DDDI_RATIONAL *)((char *)PathDescriptor + 52) = v57;
+            if ( *((_BYTE *)DXGGLOBAL::GetGlobal(v56, v44) + 304320)
+              && DmmGetClientVidPnTargetModeInfo(
+                   a2,
+                   a11,
+                   0LL,
+                   0LL,
+                   0LL,
+                   0LL,
+                   (struct _D3DKMDT_2DREGION *)((char *)PathDescriptor + 44),
+                   0LL) >= 0 )
             {
               *(_QWORD *)PathDescriptor |= 1uLL;
               *((_QWORD *)PathDescriptor + 1) |= 1uLL;
             }
             if ( a11 == a10 )
             {
-              v37 = *((int *)v17 + 7);
-              switch ( *((_DWORD *)v17 + 7) )
-              {
-                case 1:
-                  v38 = 1;
-                  break;
-                case 2:
-                  v38 = 2;
-                  break;
-                case 3:
-                  v38 = 3;
-                  break;
-                case 4:
-                  v38 = 4;
-                  break;
-                default:
-                  v61 = *((int *)v17 + 7);
-                  WdLogSingleEntry1(2LL, v37);
-                  DxgkLogInternalTriageEvent(
-                    0LL,
-                    0x40000,
-                    -1,
-                    (__int64)L"Unknown orientation %I64d",
-                    v61,
-                    0LL,
-                    0LL,
-                    0LL,
-                    0LL);
-                  v17 = a9;
-                  v38 = 255;
-                  break;
-              }
+              v59 = ConvertD3DddiRotationToDmmRotation(v23[3].Denominator);
               *(_QWORD *)PathDescriptor |= 0x200uLL;
             }
             else
             {
               *(_QWORD *)PathDescriptor &= ~0x200uLL;
-              v38 = 0;
+              v59 = 0;
             }
-            v39 = *(_QWORD *)PathDescriptor;
-            *((_DWORD *)PathDescriptor + 33) = v38;
+            *((_DWORD *)PathDescriptor + 33) = v59;
             if ( a11 == a10 )
-              *((_DWORD *)PathDescriptor + 20) ^= (*((_DWORD *)PathDescriptor + 20) ^ *((_DWORD *)v17 + 6)) & 7;
-            v40 = v39 | 4;
-            *(_QWORD *)PathDescriptor = v40;
-            v41 = *((unsigned int *)v17 + 8);
-            if ( (unsigned int)(v41 - 1) <= 1 )
+              *((_DWORD *)PathDescriptor + 20) ^= (*((_DWORD *)PathDescriptor + 20) ^ v23[3].Numerator) & 7;
+            v60 = *(_QWORD *)PathDescriptor;
+            *(_QWORD *)PathDescriptor |= 4uLL;
+            Numerator = v23[4].Numerator;
+            if ( (unsigned int)(Numerator - 1) > 1 )
             {
-              ConvertGdiScalingToDMMScaling(v41, (char *)PathDescriptor + 136);
+              if ( (v60 & 0x40000000000LL) == 0 )
+                DmmGetDefaultScaling(a2, (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *)PathDescriptor + 34);
             }
-            else if ( (v40 & 0x40000000000LL) == 0 )
+            else
             {
-              DmmGetDefaultScaling(v36, (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *)PathDescriptor + 34);
+              ConvertGdiScalingToDMMScaling(Numerator, (_DWORD *)PathDescriptor + 34, v58);
             }
+            v44 = 0x40000000000LL;
             *(_QWORD *)PathDescriptor |= 0x40000000000uLL;
           }
           else
           {
-            *((_QWORD *)PathDescriptor + 1) |= *(_QWORD *)PathDescriptor & 0x18001820B8FLL;
+            *((_QWORD *)PathDescriptor + 1) |= *(_QWORD *)PathDescriptor & 0x18000820B8FLL;
           }
-          v26 = a7 + 1;
-          v27 = v26;
+          v47 = a7 + 1;
+          v48 = v47;
           ++a7;
-          if ( v26 >= v70 )
-            goto LABEL_42;
+          if ( v47 >= v89 )
+            goto LABEL_49;
         }
-        WdLogSingleEntry2(2LL, v15, v29);
-        v60 = L"Failed to enumerate the all the paths topology 0x%I64x (status = 0x%I64x)";
-        v69 = 0LL;
-        v68 = 0LL;
-        v67 = v25;
-        Numerator = (__int64)v15;
-        goto LABEL_82;
+        v46 = (_QWORD *)WdLogNewEntry5_WdError(v52, v51);
+        v46[3] = v19;
+        v46[4] = v41;
       }
-LABEL_42:
-      v42 = v72;
-      for ( i = 0; ; ++i )
+      else
       {
-        v44 = v42 ? *(_WORD *)(v42 + 20) : 0;
-        if ( i >= v44 )
-          break;
-        v45 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v71, i);
-        if ( (*(_QWORD *)v45 & 0x4000000000000LL) != 0 )
+LABEL_49:
+        v62 = v86;
+        for ( i = 0; ; ++i )
         {
-          v42 = v72;
-        }
-        else
-        {
-          for ( j = i; ; ++j )
+          v64 = v62 ? *(_WORD *)(v62 + 20) : 0;
+          if ( i >= v64 )
+            break;
+          v65 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v85, i);
+          if ( (*(_QWORD *)v65 & 0x4000000000000LL) != 0 )
           {
-            v42 = v72;
-            v47 = v72 ? *(_WORD *)(v72 + 20) : 0;
-            if ( j >= v47 )
-              break;
-            v48 = *((_DWORD *)v45 + 6);
-            v49 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v71, j);
-            if ( CCD_TOPOLOGY::IsMatchingSource(v49, (const struct _LUID *)v45 + 2, v48) )
+            v62 = v86;
+          }
+          else
+          {
+            for ( j = i; ; ++j )
             {
-              *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v71, j) + 46) = i | 0xFE540000;
-              v50 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v71, j);
-              *(_QWORD *)v50 |= 0x4000000000000uLL;
+              v62 = v86;
+              v44 = v86 ? *(unsigned __int16 *)(v86 + 20) : 0LL;
+              if ( j >= (unsigned __int16)v44 )
+                break;
+              v67 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v85, j);
+              if ( CCD_TOPOLOGY::IsMatchingSource(v67, (const struct _LUID *)v65 + 2, *((_DWORD *)v65 + 6)) )
+              {
+                *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v85, j) + 46) = i | 0xFE540000;
+                v68 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v85, j);
+                *(_QWORD *)v68 |= 0x4000000000000uLL;
+              }
             }
           }
         }
-      }
-      v51 = 0;
-      if ( DxgkGetGlobalRawmodeFlag() )
-        v51 = 0x20000;
-      Current = DXGPROCESS::GetCurrent(0x20000LL);
-      v53 = a13;
-      v54 = (__int64)v75;
-      v55 = v51 | 0x8000000;
-      if ( (*((_DWORD *)Current + 106) & 4) == 0 )
-        v55 = v51;
-      v56 = v55 | 0x40000;
-      if ( (int)BmlGetPathModalityForAdapterWithCoreAccessHeld(v72, *(_QWORD *)&v75, 1, 2, v56, (__int64)a13) < 0 )
-      {
-        for ( k = 0; k < v70; ++k )
+        v72 = 0;
+        if ( DxgkGetGlobalRawmodeFlag(v62, v44) )
+          v72 = 0x20000;
+        Current = DXGPROCESS::GetCurrent(0x20000LL, v69, v70, v71);
+        v74 = a13;
+        v75 = v72 | 0x8000000;
+        if ( !*((_BYTE *)Current + 346) )
+          v75 = v72;
+        v76 = v75 | 0x40000;
+        if ( (int)BmlGetPathModalityForAdapterWithCoreAccessHeld(v86, (__int64)a2, 1, 2, v76, (__int64)a13) >= 0 )
+          goto LABEL_79;
+        for ( k = 0; k < v89; ++k )
         {
-          v64 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v71, k);
-          if ( *((_DWORD *)v64 + 6) == (_DWORD)v18 )
-            *((_QWORD *)v64 + 1) &= 0xFFFFFFFFFEFFFFFDuLL;
+          v78 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v85, k);
+          if ( *((_DWORD *)v78 + 6) == (_DWORD)v25 )
+            *((_QWORD *)v78 + 1) &= ~2uLL;
         }
         PathModalityForAdapterWithCoreAccessHeld = BmlGetPathModalityForAdapterWithCoreAccessHeld(
-                                                     v72,
-                                                     v54,
+                                                     v86,
+                                                     (__int64)a2,
                                                      1,
                                                      2,
-                                                     v56,
-                                                     (__int64)v53);
-        v25 = PathModalityForAdapterWithCoreAccessHeld;
+                                                     v76,
+                                                     (__int64)v74);
+        v41 = PathModalityForAdapterWithCoreAccessHeld;
         DxgkLogCodePointPacket(
           0x1Eu,
           PathModalityForAdapterWithCoreAccessHeld,
-          a8 + (v18 & 0xFFFF0000),
+          a8 + (v25 & 0xFFFF0000),
           0,
-          *(_QWORD *)(v54 + 404));
-        if ( (int)v25 < 0 )
+          *(_QWORD *)(a2 + 316));
+        if ( (int)v41 >= 0 )
         {
-          WdLogSingleEntry1(2LL, v25);
-          v60 = L"After relaxing the refresh rate matching functionalize still failed (status = 0x%I64x)";
-          v69 = 0LL;
-          v68 = 0LL;
-          v67 = 0LL;
-          Numerator = v25;
+LABEL_79:
+          memset(&v87, 0, sizeof(v87));
+          LODWORD(v41) = RetrievePinnedModeForTarget(v91, *v74, a10, &v87);
+          if ( (int)v41 < 0 )
+          {
+            v84 = WdLogNewEntry5_WdAssertion(v83, v82);
+            *(_QWORD *)(v84 + 24) = 4292LL;
+            WdLogEvent5_WdAssertion(v84);
+            a1[8](a2, *v74);
+            *v74 = 0LL;
+          }
+          else
+          {
+            DmmCalculatePresentationVSync(&v87.VideoSignalInfo, (struct _D3DDDI_RATIONAL *)&v23[2]);
+            v23[1].Denominator = DmmMapVSyncFromRationalToInteger(
+                                   v23 + 2,
+                                   (unsigned int)((int)(*(_DWORD *)&v87.VideoSignalInfo.AdditionalSignalInfo << 29) >> 29),
+                                   0LL);
+          }
           goto LABEL_82;
         }
-      }
-      memset(v73, 0, 0x50uLL);
-      v57 = *v53;
-      v75 = 0LL;
-      a11 = 0;
-      LODWORD(v25) = RetrievePinnedModeForTarget(v77, v57, a10, v73, &v75, &a11);
-      if ( (int)v25 < 0 )
-      {
-        WdLogSingleEntry1(1LL, 4456LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"Failed to update refresh rate!",
-          4456LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        a1[8](v54, *v53);
-        *v53 = 0LL;
-        goto LABEL_62;
-      }
-      v58 = (const struct _D3DDDI_RATIONAL *)a9;
-      *((_QWORD *)a9 + 7) = v73[0].VideoSignalInfo.VSyncFreq;
-      v73[0].VideoSignalInfo.VSyncFreq = v75;
-      DmmCalculatePresentationVSync(&v73[0].VideoSignalInfo, (struct _D3DDDI_RATIONAL *)&v58[2]);
-      v58[1].Denominator = DmmMapVSyncFromRationalToInteger(
-                             v58 + 2,
-                             (enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING)((int)(*(_DWORD *)&v73[0].VideoSignalInfo.AdditionalSignalInfo << 29) >> 29),
-                             0LL);
-      if ( v58[9].Numerator != a11 )
-      {
-        WdLogSingleEntry1(1LL, 4450LL);
-        v60 = L"io_pDisplayModeInfo->BoostRefreshRateMultiplier == BoostRefreshRateMultiplier";
-        v69 = 0LL;
-        v62 = 262146;
-        v68 = 0LL;
-        v67 = 0LL;
-        Numerator = 4450LL;
-        goto LABEL_84;
+        v46 = (_QWORD *)WdLogNewEntry5_WdError(v81, v80);
+        v46[3] = v41;
       }
     }
-LABEL_62:
-    CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v71);
-    return (unsigned int)v25;
+    else
+    {
+      v46 = (_QWORD *)WdLogNewEntry5_WdError(v45, v44);
+      v46[3] = v25;
+      v46[4] = v19;
+      v46[5] = v41;
+    }
+LABEL_54:
+    WdLogEvent5_WdError(v46);
   }
-  WdLogSingleEntry3(2LL, v18, v15, v20);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Failed to determine number of paths originating from source 0x%I64x in topology 0x%I64x (status = 0x%I64x)",
-    v18,
-    (__int64)v15,
-    v21,
-    0LL,
-    0LL);
-  return (unsigned int)v21;
+  else
+  {
+    v40 = WdLogNewEntry5_WdLowResource(v36, v35, v37, v38);
+    *(_QWORD *)(v40 + 24) = v89;
+    WdLogEvent5_WdLowResource(v40);
+    LODWORD(v41) = -1073741801;
+  }
+LABEL_82:
+  CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v85);
+  return (unsigned int)v41;
 }

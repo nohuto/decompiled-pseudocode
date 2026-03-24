@@ -7,12 +7,12 @@
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     sprintf_s @ 0x14019B620 (sprintf_s.c)
- *     strcpy_s @ 0x14019B7A0 (strcpy_s.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     InbvPortGetByte @ 0x14032C15C (InbvPortGetByte.c)
- *     InbvPortPollOnly @ 0x14032C308 (InbvPortPollOnly.c)
+ *     sprintf_s @ 0x14019B640 (sprintf_s.c)
+ *     strcpy_s @ 0x14019B7C0 (strcpy_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     InbvPortGetByte @ 0x14032C25C (InbvPortGetByte.c)
+ *     InbvPortPollOnly @ 0x14032C408 (InbvPortPollOnly.c)
  *     HdlspSendStringAtBaud @ 0x14094D228 (HdlspSendStringAtBaud.c)
  */
 

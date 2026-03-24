@@ -1,36 +1,36 @@
 /*
- * XREFs of EtwTraceFreezeThawProcess @ 0x1409E2110
+ * XREFs of EtwTraceFreezeThawProcess @ 0x140935C6C
  * Callers:
- *     PsThawMultiProcess @ 0x140257280 (PsThawMultiProcess.c)
- *     PsFreezeProcess @ 0x1406C03F0 (PsFreezeProcess.c)
+ *     PsFreezeProcess @ 0x14067CC1C (PsFreezeProcess.c)
+ *     PsThawProcess @ 0x14067D0F8 (PsThawProcess.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void __fastcall EtwTraceFreezeThawProcess(__int64 a1, char a2)
+__int64 __fastcall EtwTraceFreezeThawProcess(__int64 a1, char a2)
 {
   const EVENT_DESCRIPTOR *v3; // rdx
-  int v4; // [rsp+30h] [rbp-38h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+38h] [rbp-30h] BYREF
-  __int64 v6; // [rsp+48h] [rbp-20h]
-  int v7; // [rsp+50h] [rbp-18h]
-  int v8; // [rsp+54h] [rbp-14h]
+  int v5; // [rsp+30h] [rbp-38h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v7; // [rsp+48h] [rbp-20h]
+  int v8; // [rsp+50h] [rbp-18h]
+  int v9; // [rsp+54h] [rbp-14h]
 
-  v4 = *(_DWORD *)(a1 + 1088);
-  v5.Ptr = (ULONGLONG)&v4;
-  v5.Reserved = 0;
-  v5.Size = 4;
-  v6 = a1 + 1128;
-  v8 = 0;
-  v7 = 8;
-  if ( EtwpHostSiloState != -4540 && (*(_DWORD *)(EtwpHostSiloState + 4548) & 2) != 0 )
+  v5 = *(_DWORD *)(a1 + 1088);
+  v6.Ptr = (ULONGLONG)&v5;
+  v6.Reserved = 0;
+  v6.Size = 4;
+  v7 = a1 + 1128;
+  v9 = 0;
+  v8 = 8;
+  if ( EtwpHostSiloState != -4516 && (*(_DWORD *)(EtwpHostSiloState + 4524) & 2) != 0 )
   {
     v3 = (const EVENT_DESCRIPTOR *)ProcessFreezeEvent;
     if ( !a2 )
       v3 = &ProcessThawEvent;
-    EtwWrite(EtwpPsProvRegHandle, v3, 0LL, 2u, &v5);
+    EtwWrite(EtwpPsProvRegHandle, v3, 0LL, 2u, &v6);
   }
-  EtwTraceKernelEvent((__int64)&v5, 1u, 0x40000002u, 805 - (a2 != 0), 0x501902u);
+  return EtwTraceKernelEvent((int)&v6, 1, 0x40000002u, 805 - (a2 != 0), 5249282);
 }

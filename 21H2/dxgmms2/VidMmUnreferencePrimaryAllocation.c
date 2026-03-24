@@ -1,5 +1,5 @@
 /*
- * XREFs of VidMmUnreferencePrimaryAllocation @ 0x1C002D640
+ * XREFs of VidMmUnreferencePrimaryAllocation @ 0x1C0023220
  * Callers:
  *     <none>
  * Callees:

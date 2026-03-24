@@ -1,20 +1,20 @@
 /*
- * XREFs of ACPIBusIrpQueryId @ 0x1C0093F10
+ * XREFs of ACPIBusIrpQueryId @ 0x1C008FF00
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalSetFlags @ 0x1C0001778 (ACPIInternalSetFlags.c)
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIBusAndFilterIrpQueryContainerId @ 0x1C0006718 (ACPIBusAndFilterIrpQueryContainerId.c)
- *     WPP_RECORDER_SF_qsdLqss @ 0x1C000859C (WPP_RECORDER_SF_qsdLqss.c)
- *     WPP_RECORDER_SF_qsdqss @ 0x1C0029A54 (WPP_RECORDER_SF_qsdqss.c)
- *     ACPIEmQueryFailDeviceResetOnOpenHandles @ 0x1C0061760 (ACPIEmQueryFailDeviceResetOnOpenHandles.c)
- *     ACPIBusIrpQueryCompatibleId @ 0x1C0092610 (ACPIBusIrpQueryCompatibleId.c)
- *     ACPIBusIrpQueryInstanceId @ 0x1C0092934 (ACPIBusIrpQueryInstanceId.c)
- *     ACPIBusIrpQueryDeviceId @ 0x1C0092A34 (ACPIBusIrpQueryDeviceId.c)
- *     ACPIBusIrpQueryHardwareId @ 0x1C0092C24 (ACPIBusIrpQueryHardwareId.c)
- *     ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule @ 0x1C00B57F8 (ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule.c)
+ *     ACPIInternalSetFlags @ 0x1C0002350 (ACPIInternalSetFlags.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsdLqss @ 0x1C0002DC4 (WPP_RECORDER_SF_qsdLqss.c)
+ *     WPP_RECORDER_SF_qsdqss @ 0x1C002B5AC (WPP_RECORDER_SF_qsdqss.c)
+ *     ACPIBusAndFilterIrpQueryContainerId @ 0x1C002E158 (ACPIBusAndFilterIrpQueryContainerId.c)
+ *     ACPIEmQueryFailDeviceResetOnOpenHandles @ 0x1C00609A0 (ACPIEmQueryFailDeviceResetOnOpenHandles.c)
+ *     ACPIBusIrpQueryHardwareId @ 0x1C008F720 (ACPIBusIrpQueryHardwareId.c)
+ *     ACPIBusIrpQueryDeviceId @ 0x1C0096300 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryCompatibleId @ 0x1C009670C (ACPIBusIrpQueryCompatibleId.c)
+ *     ACPIBusIrpQueryInstanceId @ 0x1C00A2000 (ACPIBusIrpQueryInstanceId.c)
+ *     ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule @ 0x1C00B61A0 (ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule.c)
  */
 
 __int64 __fastcall ACPIBusIrpQueryId(ULONG_PTR a1, IRP *a2)
@@ -23,128 +23,138 @@ __int64 __fastcall ACPIBusIrpQueryId(ULONG_PTR a1, IRP *a2)
   char v3; // si
   int Status; // r14d
   unsigned __int8 MinorFunction; // r13
-  _QWORD *DeviceExtension; // rax
+  __int64 DeviceExtension; // rax
   unsigned int Length; // ebx
   const char *v9; // r12
   _QWORD *v10; // rdi
-  int DeviceId; // eax
-  _WORD *v12; // rcx
-  __int64 v13; // rcx
-  char *v14; // rax
-  const char *v15; // r8
+  __int64 v11; // rcx
+  int v12; // eax
+  _WORD *v13; // rcx
+  __int64 v14; // rcx
+  char *v15; // rax
+  const char *v16; // r8
   char *IrpText; // rax
-  __int64 v18; // rdx
-  const char *v19; // r8
-  char v20; // r10
-  const char *v21; // r11
-  int v22; // [rsp+A8h] [rbp+48h] BYREF
+  __int64 v19; // rdx
+  const char *v20; // r8
+  char v21; // r10
+  const char *v22; // r11
+  int v23; // [rsp+A8h] [rbp+48h] BYREF
   PVOID P; // [rsp+B0h] [rbp+50h] BYREF
-  __int64 v24; // [rsp+B8h] [rbp+58h] BYREF
+  size_t v25; // [rsp+B8h] [rbp+58h] BYREF
 
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   v3 = 0;
   Status = a2->IoStatus.Status;
-  v22 = 0;
-  v24 = 0LL;
+  v23 = 0;
+  v25 = 0LL;
   P = 0LL;
   MinorFunction = CurrentStackLocation->MinorFunction;
-  DeviceExtension = (_QWORD *)ACPIInternalGetDeviceExtension(a1);
+  DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   Length = CurrentStackLocation->Parameters.Read.Length;
-  v9 = (const char *)&unk_1C006FB8B;
-  v10 = DeviceExtension;
+  v9 = byte_1C00701BA;
+  v10 = (_QWORD *)DeviceExtension;
   switch ( Length )
   {
     case 0u:
-      DeviceId = ACPIBusIrpQueryDeviceId((wchar_t **)&P, (size_t *)&v24, DeviceExtension);
+      v12 = ACPIBusIrpQueryDeviceId(&P, &v25, DeviceExtension, 0x200000000000LL);
       goto LABEL_7;
     case 1u:
-      DeviceId = ACPIBusIrpQueryHardwareId((wchar_t **)&P, (size_t *)&v24, (__int64)DeviceExtension);
+      v12 = ACPIBusIrpQueryHardwareId((wchar_t **)&P, &v25, DeviceExtension);
       goto LABEL_7;
     case 2u:
-      DeviceId = ACPIBusIrpQueryCompatibleId((wchar_t **)&P, (size_t *)&v24, (__int64)DeviceExtension);
+      v12 = ACPIBusIrpQueryCompatibleId(&P, &v25, DeviceExtension, 0x200000000000LL);
       goto LABEL_7;
-    case 3u:
-      DeviceId = ACPIBusIrpQueryInstanceId((__int64 *)&P, (size_t *)&v24, DeviceExtension);
-      goto LABEL_7;
-    case 5u:
-      DeviceId = ACPIBusAndFilterIrpQueryContainerId(&P, &v24, (__int64)DeviceExtension);
-LABEL_7:
-      Status = DeviceId;
-      goto LABEL_8;
   }
+  v11 = Length - 3;
+  if ( Length == 3 )
+  {
+    v12 = ACPIBusIrpQueryInstanceId(&P, &v25, DeviceExtension, 0x200000000000LL);
+LABEL_7:
+    Status = v12;
+    goto LABEL_8;
+  }
+  if ( Length == 5 )
+  {
+    v12 = ACPIBusAndFilterIrpQueryContainerId(&P, &v25, DeviceExtension);
+    goto LABEL_7;
+  }
+  if ( DeviceExtension && (*(_QWORD *)(DeviceExtension + 8) & 0x200000000000LL) != 0 )
+    v11 = 0x400000000000LL;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    IrpText = ACPIDebugGetIrpText(Length - 3, MinorFunction);
+    IrpText = ACPIDebugGetIrpText(v11, MinorFunction);
     WPP_RECORDER_SF_qsdqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      v18,
-      (__int64)v19,
+      v19,
+      (__int64)v20,
       0x2Au,
-      (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+      (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
       (char)a2,
       IrpText,
       Length,
-      v20,
       v21,
-      v19);
+      v22,
+      v20);
   }
 LABEL_8:
   if ( (AcpiOverrideAttributes & 0x100000) != 0 && Length - 1 <= 1 && Status >= 0 )
   {
-    v12 = P;
+    v13 = P;
     if ( !P )
       goto LABEL_10;
-    if ( (int)ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule(Length, P, &v22) >= 0 && v22 == 2 )
-      ACPIInternalSetFlags(v10 + 125, 0x800000uLL);
+    if ( (int)ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule(Length, P, &v23) >= 0 && v23 == 2 )
+      ACPIInternalSetFlags(v10 + 120, 0x800000uLL);
   }
-  v12 = P;
+  v13 = P;
 LABEL_10:
   if ( (AcpiOverrideAttributes & 0x200000) != 0 && Length - 1 <= 1 )
   {
-    if ( Status >= 0 )
+    if ( Status < 0 )
+      goto LABEL_19;
+    if ( v13 )
     {
-      if ( v12 )
-      {
-        if ( (int)ACPIEmQueryFailDeviceResetOnOpenHandles(Length, v12) >= 0 && v22 == 2 )
-          ACPIInternalSetFlags(v10 + 125, 0x40000000uLL);
-        v12 = P;
-      }
-      goto LABEL_12;
+      if ( (int)ACPIEmQueryFailDeviceResetOnOpenHandles(Length, v13) >= 0 && v23 == 2 )
+        ACPIInternalSetFlags(v10 + 120, 0x40000000uLL);
+      v13 = P;
     }
   }
-  else if ( Status >= 0 )
+  if ( Status >= 0 )
   {
-LABEL_12:
-    a2->IoStatus.Information = (unsigned __int64)v12;
+    a2->IoStatus.Information = (unsigned __int64)v13;
     goto LABEL_13;
   }
-  if ( v12 )
-    ExFreePoolWithTag(v12, 0x53706341u);
+LABEL_19:
+  if ( v13 )
+    ExFreePoolWithTag(v13, 0x53706341u);
 LABEL_13:
   a2->IoStatus.Status = Status;
   IofCompleteRequest(a2, 0);
   if ( v10 )
   {
+    v14 = 0x200000000000LL;
     v3 = (char)v10;
     if ( (v10[1] & 0x200000000000LL) != 0 )
-      v9 = (const char *)v10[76];
+    {
+      v9 = (const char *)v10[71];
+      v14 = 0x400000000000LL;
+    }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v14 = ACPIDebugGetIrpText(v13, MinorFunction);
+    v15 = ACPIDebugGetIrpText(v14, MinorFunction);
     WPP_RECORDER_SF_qsdLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
-      (__int64)v15,
+      (__int64)v16,
       0x2Bu,
-      (__int64)&WPP_e0390298aa1f3c0f48cd552b2cad3fe8_Traceguids,
+      (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
       (char)a2,
-      v14,
+      v15,
       Length,
       Status,
       v3,
       v9,
-      v15);
+      v16);
   }
   return (unsigned int)Status;
 }

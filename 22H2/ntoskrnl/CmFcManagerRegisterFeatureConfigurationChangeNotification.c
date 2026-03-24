@@ -1,17 +1,15 @@
 /*
- * XREFs of CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x140810CDC
+ * XREFs of CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x14087DB8C
  * Callers:
- *     CmFcRegisterFeatureConfigurationChangeNotification @ 0x140810CB8 (CmFcRegisterFeatureConfigurationChangeNotification.c)
+ *     CmFcRegisterFeatureConfigurationChangeNotification @ 0x14086B1B0 (CmFcRegisterFeatureConfigurationChangeNotification.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmpWorkItemQueueWork @ 0x140374BF0 (CmpWorkItemQueueWork.c)
- *     MiGetPfnLink @ 0x140374DEC (MiGetPfnLink.c)
- *     CmFcpInitializeChangeSubscription @ 0x140810B98 (CmFcpInitializeChangeSubscription.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     MiGetPfnLink @ 0x14032C1B0 (MiGetPfnLink.c)
+ *     CmFcpWorkItemQueueWork @ 0x1404ED90C (CmFcpWorkItemQueueWork.c)
+ *     CmFcpManagerAllocateChangeSubscription @ 0x14087E530 (CmFcpManagerAllocateChangeSubscription.c)
  */
 
 __int64 __fastcall CmFcManagerRegisterFeatureConfigurationChangeNotification(
@@ -19,57 +17,38 @@ __int64 __fastcall CmFcManagerRegisterFeatureConfigurationChangeNotification(
         __int64 a2,
         __int64 a3,
         _QWORD *a4,
-        _QWORD *a5)
+        __int64 *a5)
 {
-  unsigned int v5; // esi
-  char *Pool2; // rdi
+  unsigned int v6; // esi
+  __int64 v7; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v11; // rax
-  signed __int8 v12; // cf
-  __int64 v13; // rbp
-  _QWORD *v14; // rax
-  unsigned __int32 v16; // eax
+  __int64 *v9; // rax
 
-  v5 = 0;
-  if ( byte_140C14172 )
+  v6 = 0;
+  v7 = CmFcpManagerAllocateChangeSubscription();
+  if ( v7 )
   {
-    Pool2 = (char *)ExAllocatePool2(64LL, 96LL, 1665559875LL);
-    if ( !Pool2 )
-      goto LABEL_4;
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&stru_140C483B0, 0LL);
+    v9 = (__int64 *)qword_140C483C0;
+    if ( *(__int64 **)qword_140C483C0 != &qword_140C483B8 )
+      __fastfail(3u);
+    *(_QWORD *)v7 = &qword_140C483B8;
+    *(_QWORD *)(v7 + 8) = v9;
+    *v9 = v7;
+    qword_140C483C0 = v7;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140C483B0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140C483B0);
+    KeAbPostRelease((ULONG_PTR)&stru_140C483B0);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    if ( a4 && MiGetPfnLink((__int64)&qword_140C48198) != *a4 )
+      CmFcpWorkItemQueueWork((PWORK_QUEUE_ITEM)(v7 + 16));
+    *a5 = v7;
   }
   else
   {
-    v16 = _InterlockedIncrement(&dword_140C14174);
-    if ( v16 > 3 )
-      return (unsigned int)-1073741670;
-    Pool2 = (char *)&unk_140C14268 + 96 * v16 - 96;
-  }
-  CmFcpInitializeChangeSubscription((__int64)Pool2, a2, a3);
-LABEL_4:
-  if ( !Pool2 )
     return (unsigned int)-1073741670;
-  CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  v11 = KeAbPreAcquire((__int64)&stru_140C14250, 0LL);
-  v12 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140C14250, 0LL);
-  v13 = v11;
-  if ( v12 )
-    ExfAcquirePushLockExclusiveEx(&stru_140C14250, v11, (__int64)&stru_140C14250);
-  if ( v13 )
-    *(_BYTE *)(v13 + 18) = 1;
-  v14 = (_QWORD *)qword_140C14260;
-  if ( *(__int64 **)qword_140C14260 != &qword_140C14258 )
-    __fastfail(3u);
-  *(_QWORD *)Pool2 = &qword_140C14258;
-  *((_QWORD *)Pool2 + 1) = v14;
-  *v14 = Pool2;
-  qword_140C14260 = (__int64)Pool2;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140C14250, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140C14250);
-  KeAbPostRelease((ULONG_PTR)&stru_140C14250);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  if ( a4 && MiGetPfnLink((__int64)&qword_140C14038) != *a4 )
-    CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)(Pool2 + 16));
-  *a5 = Pool2;
-  return v5;
+  }
+  return v6;
 }

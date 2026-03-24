@@ -1,193 +1,214 @@
 /*
- * XREFs of ?CommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00AAA50
+ * XREFs of ?CommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0065E90
  * Callers:
- *     ?CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@U_DXGK_ALLOCATIONINFOFLAGS2@@PEAVDXGADAPTERALLOCATION@@PEAX6KE6PEAVVIDMM_PAGE_TABLE_BASE@@PEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00A7EB0 (-CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_D.c)
- *     ?ReclaimOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_ALLOC@@PEA_KPEAW4_D3DDDI_RECLAIM_RESULT@@@Z @ 0x1C00AF740 (-ReclaimOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_ALLOC@@PEA_KPEAW4_D3D.c)
+ *     ?CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@U_DXGK_ALLOCATIONINFOFLAGS2@@PEAVDXGADAPTERALLOCATION@@PEAX6KE6EPEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C005D110 (-CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_D.c)
+ *     ?ReclaimOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_ALLOC@@PEA_KPEAW4_D3DDDI_RECLAIM_RESULT@@@Z @ 0x1C007ACC0 (-ReclaimOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_ALLOC@@PEA_KPEAW4_D3D.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     ?DdiSetAllocationBackingStore@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETALLOCATIONBACKINGSTORE@@@Z @ 0x1C002C7CC (-DdiSetAllocationBackingStore@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETALLOCATIONBACKINGSTORE@@@Z.c)
- *     ?GetCurrentPartitionHandle@VIDMM_PROCESS@@SAPEAXXZ @ 0x1C008E118 (-GetCurrentPartitionHandle@VIDMM_PROCESS@@SAPEAXXZ.c)
- *     ?MapHostVirtualAddressToGuest@VIDMM_PROCESS@@QEAAJPEAX_KKKPEAPEAXPEA_K2@Z @ 0x1C00EF1C8 (-MapHostVirtualAddressToGuest@VIDMM_PROCESS@@QEAAJPEAX_KKKPEAPEAXPEA_K2@Z.c)
+ *     ?DdiSetAllocationBackingStore@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETALLOCATIONBACKINGSTORE@@@Z @ 0x1C0017904 (-DdiSetAllocationBackingStore@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETALLOCATIONBACKINGSTORE@@@Z.c)
+ *     ?GetCurrentPartitionHandle@VIDMM_PROCESS@@SAPEAXXZ @ 0x1C0068B30 (-GetCurrentPartitionHandle@VIDMM_PROCESS@@SAPEAXXZ.c)
+ *     ?MapHostVirtualAddressToGuest@VIDMM_PROCESS@@QEAAJPEAX_KKKPEAPEAXPEA_K2@Z @ 0x1C00B8F24 (-MapHostVirtualAddressToGuest@VIDMM_PROCESS@@QEAAJPEAX_KKKPEAPEAXPEA_K2@Z.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::CommitGlobalBackingStore(VIDMM_GLOBAL *this, struct _VIDMM_GLOBAL_ALLOC *a2)
 {
-  int v3; // edx
-  VIDMM_GLOBAL *v4; // rbx
-  int v5; // r15d
-  char *v6; // r12
-  _DWORD *v7; // rcx
-  unsigned __int64 *v8; // r13
-  unsigned __int64 v9; // rax
-  __int64 v10; // rdi
-  PVOID *v11; // r14
-  __int64 CurrentPartitionHandle; // rax
-  int v13; // eax
-  PVOID v14; // rcx
-  NTSTATUS inserted; // eax
-  int v16; // edx
-  int v17; // eax
-  int v18; // ecx
-  NTSTATUS v20; // eax
+  __int64 v3; // rdi
+  int v4; // edx
   PMDL PagesForMdl; // rax
-  __int64 v22; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // rax
+  _DWORD *v12; // rcx
+  PVOID *v13; // r14
+  unsigned __int64 v14; // rax
+  unsigned int v15; // esi
+  void *CurrentPartitionHandle; // rax
+  int v17; // eax
+  __int64 v18; // rcx
+  _QWORD *v19; // rax
+  PVOID v20; // rcx
+  NTSTATUS inserted; // eax
+  __int64 v22; // rdx
   __int64 v23; // rcx
-  __int64 v24; // rcx
-  __int64 v25; // rdx
-  int v26; // eax
-  __int64 v27; // rdx
-  ADAPTER_RENDER *v28; // rcx
-  _QWORD v29[2]; // [rsp+50h] [rbp-10h] BYREF
-  unsigned __int64 v31; // [rsp+A8h] [rbp+48h] BYREF
-  HANDLE Handle; // [rsp+B0h] [rbp+50h] BYREF
+  __int64 v24; // r8
+  __int64 v25; // rax
+  int v26; // edx
+  int v27; // eax
+  __int64 v28; // rcx
+  _QWORD *v29; // rax
+  PVOID v30; // rcx
+  bool v31; // zf
+  NTSTATUS v32; // eax
+  __int64 v33; // rcx
+  int v34; // eax
+  int v35; // edx
+  __int64 v36; // rax
+  __int64 v37; // rax
+  ADAPTER_RENDER *v38; // rcx
+  _QWORD v39[2]; // [rsp+40h] [rbp-28h] BYREF
+  unsigned __int64 v40; // [rsp+78h] [rbp+10h] BYREF
+  void *Handle; // [rsp+80h] [rbp+18h] BYREF
 
-  v3 = *((_DWORD *)a2 + 18);
-  v4 = this;
-  v5 = 0;
-  if ( (v3 & 0x2000) == 0 )
+  LODWORD(v3) = 0;
+  v4 = *((_DWORD *)a2 + 20);
+  if ( (v4 & 0x2000) != 0 )
   {
-    v6 = (char *)a2 + 536;
-    if ( (v3 & 0x40000) == 0 && (**(_DWORD **)v6 & 0x20008) == 0 )
+    if ( !*((_QWORD *)a2 + 64) )
     {
-LABEL_18:
-      v17 = *((_DWORD *)a2 + 17);
-      *((_DWORD *)a2 + 19) |= 0x20u;
-      _InterlockedExchangeAdd64(
-        (volatile signed __int64 *)(1616LL * (v17 & 0x3F) + *((_QWORD *)v4 + 5028) + 1584),
-        *((_QWORD *)a2 + 1));
-      v18 = *((_DWORD *)a2 + 18);
-      if ( (v18 & 0x400000) != 0 )
+      PagesForMdl = MmAllocatePagesForMdlEx(
+                      gs_PhysicalAddressZero,
+                      (PHYSICAL_ADDRESS)-1LL,
+                      gs_PhysicalAddressZero,
+                      *((_QWORD *)a2 + 1),
+                      (MEMORY_CACHING_TYPE)(2 - ((**((_DWORD **)a2 + 62) & 4) != 0)),
+                      4u);
+      *((_QWORD *)a2 + 64) = PagesForMdl;
+      if ( !PagesForMdl )
       {
-        v27 = *((_QWORD *)a2 + 49);
-        if ( v27 )
-        {
-          if ( (v18 & 0x800000) == 0 )
-          {
-            v29[0] = *(_QWORD *)(*(_QWORD *)v6 + 40LL);
-            v28 = (ADAPTER_RENDER *)*((_QWORD *)v4 + 2);
-            v29[1] = v27;
-            v5 = ADAPTER_RENDER::DdiSetAllocationBackingStore(
-                   v28,
-                   (struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *)v29);
-          }
-        }
+        v10 = WdLogNewEntry5_WdAssertion(v8, v7, v9);
+        *(_QWORD *)(v10 + 24) = 28259LL;
+        WdLogEvent5_WdAssertion(v10);
+        return 3221225495LL;
       }
-LABEL_19:
-      *((_DWORD *)a2 + 19) ^= (*((_DWORD *)a2 + 19) ^ (*((_DWORD *)a2 + 18) >> 14)) & 8;
-      return (unsigned int)v5;
     }
-    v7 = *(_DWORD **)v6;
-    v31 = 0LL;
-    if ( (*v7 & 0x400000) != 0 )
+    *((_DWORD *)a2 + 21) |= 0x40u;
+    goto LABEL_32;
+  }
+  if ( (v4 & 0x40000) != 0 || (**((_DWORD **)a2 + 62) & 0x20008) != 0 )
+  {
+    v12 = (_DWORD *)*((_QWORD *)a2 + 62);
+    v40 = 0LL;
+    if ( (*v12 & 0x400000) != 0 )
     {
-      v11 = (PVOID *)((char *)a2 + 384);
-      ObfReferenceObject(*((PVOID *)a2 + 48));
-      v8 = (unsigned __int64 *)((char *)a2 + 8);
+      v13 = (PVOID *)((char *)a2 + 352);
+      ObfReferenceObject(*((PVOID *)a2 + 44));
     }
     else
     {
-      v8 = (unsigned __int64 *)((char *)a2 + 8);
-      v9 = *((_QWORD *)a2 + 1);
-      v31 = v9;
-      v10 = ~(*v7 << 28) & 0x40000000 | 0x8040000u;
-      if ( (v3 & 0x100) != 0 )
+      v14 = *((_QWORD *)a2 + 1);
+      v40 = v14;
+      v15 = ~(*v12 << 28) & 0x40000000 | 0x8040000;
+      if ( (v4 & 0x100) != 0 )
       {
-        LODWORD(v10) = ~(*v7 << 28) & 0x40000000 | 0x80C0000;
-        v31 = (v9 + 0xFFFF) & 0xFFFFFFFFFFFF0000uLL;
+        v15 = ~(*v12 << 28) & 0x40000000 | 0x80C0000;
+        v40 = (v14 + 0xFFFF) & 0xFFFFFFFFFFFF0000uLL;
       }
-      v11 = (PVOID *)((char *)a2 + 384);
+      v13 = (PVOID *)((char *)a2 + 352);
       CurrentPartitionHandle = VIDMM_PROCESS::GetCurrentPartitionHandle();
-      v13 = MmCreateSection((char *)a2 + 384, 0LL, 0LL, &v31, 4, v10, CurrentPartitionHandle, 0LL);
-      v5 = v13;
-      if ( v13 < 0 )
+      v17 = MmCreateSection((char *)a2 + 352, 0LL, 0LL, &v40, 4, v15, CurrentPartitionHandle, 0LL);
+      v3 = v17;
+      if ( v17 < 0 )
       {
-        _InterlockedIncrement(&dword_1C00768DC);
-        WdLogSingleEntry4(6LL, a2, v31, v10, v13);
-        DxgkLogInternalTriageEvent(v23, 262145LL);
-        v4 = this;
+        _InterlockedIncrement(&dword_1C00507CC);
+        v19 = (_QWORD *)WdLogNewEntry5_WdLowResource(v18);
+        v19[3] = a2;
+        v19[4] = v40;
+        v19[5] = v15;
+        v19[6] = v3;
+        WdLogEvent5_WdLowResource(v19);
       }
-      if ( (**(_DWORD **)v6 & 0x20000000) != 0 && *v11 )
+      if ( (**((_DWORD **)a2 + 62) & 0x20000000) != 0 && *v13 )
       {
-        ObfReferenceObject(*v11);
-        v14 = *v11;
+        ObfReferenceObject(*v13);
+        v20 = *v13;
         Handle = 0LL;
-        inserted = ObInsertObject(v14, 0LL, 0, 0, 0LL, &Handle);
-        v5 = inserted;
+        inserted = ObInsertObject(v20, 0LL, 0, 0, 0LL, &Handle);
+        v3 = inserted;
         if ( inserted < 0 )
         {
-          WdLogSingleEntry2(1LL, a2, inserted);
-          v25 = 0x40000LL;
-LABEL_34:
-          DxgkLogInternalTriageEvent(v24, v25);
-          goto LABEL_35;
+          v25 = WdLogNewEntry5_WdAssertion(v23, v22, v24);
+          *(_QWORD *)(v25 + 24) = a2;
+          *(_QWORD *)(v25 + 32) = v3;
+          WdLogEvent5_WdAssertion(v25);
         }
-        ObCloseHandle(Handle, ((unsigned __int64)Handle & 0xFFFFFFFF80000000uLL) == 0);
+        else
+        {
+          ObCloseHandle(Handle, ((unsigned __int64)Handle & 0xFFFFFFFF80000000uLL) == 0);
+        }
       }
-      else if ( v5 < 0 )
-      {
-        goto LABEL_35;
-      }
+      if ( (int)v3 < 0 )
+        goto LABEL_39;
     }
-    v16 = *((_DWORD *)a2 + 18);
-    if ( (v16 & 0x4000) != 0 )
+    v26 = *((_DWORD *)a2 + 20);
+    if ( (v26 & 0x4000) != 0 )
     {
-      v26 = VIDMM_PROCESS::MapHostVirtualAddressToGuest(
-              *((VIDMM_PROCESS **)a2 + 68),
-              *v11,
-              *v8,
+      v27 = VIDMM_PROCESS::MapHostVirtualAddressToGuest(
+              *((VIDMM_PROCESS **)a2 + 63),
+              *v13,
+              *((_QWORD *)a2 + 1),
               0,
               4u,
-              (void **)a2 + 70,
-              (unsigned __int64 *)a2 + 71,
-              (void **)a2 + 69);
-      v5 = v26;
-      if ( v26 < 0 )
+              (void **)a2 + 65,
+              (unsigned __int64 *)a2 + 66,
+              (void **)a2 + 64);
+      v3 = v27;
+      if ( v27 < 0 )
       {
-        _InterlockedIncrement(&dword_1C00768E0);
-        WdLogSingleEntry4(6LL, a2, *v11, v26, 29576LL);
-LABEL_33:
-        v25 = 262145LL;
-        goto LABEL_34;
+        _InterlockedIncrement(&dword_1C00507D0);
+        v29 = (_QWORD *)WdLogNewEntry5_WdLowResource(v28);
+        v29[3] = a2;
+        v30 = *v13;
+        v29[6] = 28396LL;
+        goto LABEL_29;
       }
-      if ( (*((_DWORD *)a2 + 18) & 0x400000) == 0 )
-        goto LABEL_17;
+      v31 = (*((_DWORD *)a2 + 20) & 0x200000) == 0;
     }
-    else if ( (**(_DWORD **)v6 & 0x20008) == 0 && (v16 & 0x400000) == 0 )
+    else
     {
-LABEL_17:
-      if ( v5 >= 0 )
-        goto LABEL_18;
-LABEL_35:
-      if ( *v11 )
-        ObfDereferenceObject(*v11);
-      goto LABEL_19;
+      if ( (**((_DWORD **)a2 + 62) & 0x20008) != 0 )
+      {
+LABEL_27:
+        v32 = MmMapViewInSystemSpace(*v13, (PVOID *)a2 + 45, (PSIZE_T)a2 + 1);
+        v3 = v32;
+        if ( v32 >= 0 )
+        {
+          *((_DWORD *)a2 + 20) |= 0x800000u;
+LABEL_31:
+          if ( (int)v3 >= 0 )
+            goto LABEL_32;
+LABEL_39:
+          if ( *v13 )
+            ObfDereferenceObject(*v13);
+          goto LABEL_41;
+        }
+        _InterlockedIncrement(&dword_1C00507D0);
+        v29 = (_QWORD *)WdLogNewEntry5_WdLowResource(v33);
+        v29[3] = a2;
+        v30 = *v13;
+LABEL_29:
+        v29[5] = v3;
+        v29[4] = v30;
+        WdLogEvent5_WdLowResource(v29);
+        goto LABEL_31;
+      }
+      v31 = (v26 & 0x200000) == 0;
     }
-    v20 = MmMapViewInSystemSpace(*v11, (PVOID *)a2 + 49, v8);
-    v5 = v20;
-    if ( v20 >= 0 )
-    {
-      *((_DWORD *)a2 + 18) |= 0x1000000u;
-      goto LABEL_18;
-    }
-    _InterlockedIncrement(&dword_1C00768E0);
-    WdLogSingleEntry3(6LL, a2, *v11, v20);
-    goto LABEL_33;
+    if ( v31 )
+      goto LABEL_31;
+    goto LABEL_27;
   }
-  if ( *((_QWORD *)a2 + 69)
-    || (PagesForMdl = MmAllocatePagesForMdlEx(
-                        gs_PhysicalAddressZero,
-                        (PHYSICAL_ADDRESS)-1LL,
-                        gs_PhysicalAddressZero,
-                        *((_QWORD *)a2 + 1),
-                        (MEMORY_CACHING_TYPE)(2 - ((**((_DWORD **)a2 + 67) & 4) != 0)),
-                        4u),
-        (*((_QWORD *)a2 + 69) = PagesForMdl) != 0LL) )
+LABEL_32:
+  v34 = *((_DWORD *)a2 + 19);
+  *((_DWORD *)a2 + 21) |= 0x40u;
+  _InterlockedExchangeAdd64(
+    (volatile signed __int64 *)(1584LL * (v34 & 0x3F) + *((_QWORD *)this + 5027) + 1552),
+    *((_QWORD *)a2 + 1));
+  v35 = *((_DWORD *)a2 + 20);
+  if ( (v35 & 0x200000) != 0 && *((_QWORD *)a2 + 45) && (v35 & 0x400000) == 0 )
   {
-    *((_DWORD *)a2 + 19) |= 0x20u;
-    v6 = (char *)a2 + 536;
-    goto LABEL_18;
+    v36 = *((_QWORD *)a2 + 5);
+    if ( v36 )
+      v37 = *(_QWORD *)(v36 + 16);
+    else
+      v37 = *((_QWORD *)a2 + 6);
+    v39[1] = *((_QWORD *)a2 + 45);
+    v38 = (ADAPTER_RENDER *)*((_QWORD *)this + 2);
+    v39[0] = v37;
+    LODWORD(v3) = ADAPTER_RENDER::DdiSetAllocationBackingStore(
+                    v38,
+                    (const struct _DXGKARG_SETALLOCATIONBACKINGSTORE *)v39);
   }
-  WdLogSingleEntry1(1LL, 29439LL);
-  DxgkLogInternalTriageEvent(v22, 0x40000LL);
-  return 3221225495LL;
+LABEL_41:
+  *((_DWORD *)a2 + 21) ^= (*((_DWORD *)a2 + 21) ^ (*((_DWORD *)a2 + 20) >> 14)) & 8;
+  return (unsigned int)v3;
 }

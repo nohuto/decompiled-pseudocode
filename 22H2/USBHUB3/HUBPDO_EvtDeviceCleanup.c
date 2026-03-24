@@ -1,16 +1,16 @@
 /*
- * XREFs of HUBPDO_EvtDeviceCleanup @ 0x1C001A390
+ * XREFs of HUBPDO_EvtDeviceCleanup @ 0x1C00187A0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1C000C768 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
- *     HUBMISC_WaitForSignal @ 0x1C0032CDC (HUBMISC_WaitForSignal.c)
- *     HUBIDLE_AddEvent @ 0x1C003E9A4 (HUBIDLE_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     HUBPDO_BillboardCleanup @ 0x1C007D330 (HUBPDO_BillboardCleanup.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0013E20 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     HUBIDLE_AddEvent @ 0x1C003BAF4 (HUBIDLE_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBPDO_BillboardCleanup @ 0x1C0078BC4 (HUBPDO_BillboardCleanup.c)
  */
 
 void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
@@ -34,19 +34,18 @@ void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
   __int64 v17; // rax
   __int64 v18; // rax
   void *v19; // rcx
-  __int64 v20; // [rsp+28h] [rbp-60h]
-  char v21; // [rsp+98h] [rbp+10h] BYREF
-  int v22; // [rsp+A0h] [rbp+18h] BYREF
-  __int64 v23; // [rsp+A8h] [rbp+20h]
+  __int64 v20; // [rsp+28h] [rbp-30h]
+  char v21; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v22; // [rsp+70h] [rbp+18h]
 
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00690F8);
+         off_1C00660D0);
   v3 = *(struct _KEVENT **)(v2 + 24);
   v4 = *(_QWORD *)&v3[1].Header.Lock;
-  v23 = v4;
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 2) != 0 )
+  v22 = v4;
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 2) != 0 )
     McTemplateK0p_EtwWriteTransfer(v1, &USBHUB3_ETW_EVENT_DEVICE_CLEANUP_START, 0LL, v4);
   v5 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 424), "DRIPS SR Tag", File, 1u, 0x20u);
   if ( v5 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -54,8 +53,8 @@ void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
       (__int64)v3->Header.WaitListHead.Flink[89].Blink,
       2u,
       5u,
-      0x5Du,
-      (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+      0x55u,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       v5);
   IoReleaseRemoveLockAndWaitEx((PIO_REMOVE_LOCK)(v2 + 424), "DRIPS SR Tag", 0x20u);
   v6 = *(void **)(v2 + 408);
@@ -68,20 +67,10 @@ void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
       WdfDriverGlobals,
       v7,
       "DRIPS SR Tag",
-      6769LL,
+      6381LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
   }
-  v22 = 3;
-  if ( (unsigned int)wil_details_FeatureReporting_ReportUsageToServiceDirect(
-                       (volatile signed __int32 *)&Feature_UsbHubDripsWatchdogSurpriseRemove__private_reporting,
-                       0xE9742Au,
-                       0LL,
-                       0,
-                       2u)
-    && g_wil_details_pfnFeatureLoggingHook )
-  {
-    g_wil_details_pfnFeatureLoggingHook(15299626LL, &Feature_PLDRRecovery_logged_traits, 0LL, 1LL, &v22, 0LL, 0, 1LL);
-  }
+  wil_details_FeatureReporting_ReportUsageToService(0, 0LL, 1u, 3);
   v8 = *(void **)(v2 + 416);
   if ( v8 )
   {
@@ -92,7 +81,7 @@ void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
       WdfDriverGlobals,
       v9,
       "DRIPS IO Tag",
-      6777LL,
+      6389LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
   }
   v10 = (PVOID *)(v2 + 272);
@@ -109,8 +98,8 @@ void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
           *(_QWORD *)(*(_QWORD *)(v2 + 24) + 8LL),
           2u,
           5u,
-          0x5Cu,
-          (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+          0x54u,
+          (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
           v20);
       }
       *v10 = 0LL;
@@ -119,7 +108,7 @@ void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
     --v11;
   }
   while ( v11 );
-  v13 = v23;
+  v13 = v22;
   if ( (*(_DWORD *)(v2 + 32) & 0x1000) != 0 )
     HUBIDLE_AddEvent(v2 + 72, 6006LL, 0LL);
   v21 = 0;
@@ -131,7 +120,7 @@ void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
     WdfDriverGlobals,
     v15,
     "ControllerPowerReference Tag",
-    94LL,
+    93LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\ucx.h");
   (*(void (__fastcall **)(_QWORD, char *))(v14 + 560))(*(_QWORD *)(v14 + 248), &v21);
   KeClearEvent(v3 + 66);
@@ -147,7 +136,7 @@ void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
     WdfDriverGlobals,
     v17,
     "ControllerPowerReference Tag",
-    130LL,
+    129LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\ucx.h");
   v3->Header.WaitListHead.Blink = 0LL;
   v18 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, struct _KEVENT *))(WdfFunctions_01015 + 1632))(
@@ -157,7 +146,7 @@ void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
     WdfDriverGlobals,
     v18,
     "DSM PDO Tag",
-    6838LL,
+    6450LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
   v19 = *(void **)(v2 + 56);
   if ( v19 )
@@ -165,6 +154,6 @@ void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
     ExFreePoolWithTag(v19, 0x64334855u);
     *(_QWORD *)(v2 + 56) = 0LL;
   }
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 2) != 0 )
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 2) != 0 )
     McTemplateK0p_EtwWriteTransfer((__int64)v19, &USBHUB3_ETW_EVENT_DEVICE_CLEANUP_COMPLETE, 0LL, v13);
 }

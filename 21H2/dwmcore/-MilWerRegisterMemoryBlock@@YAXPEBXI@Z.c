@@ -1,12 +1,10 @@
 /*
- * XREFs of ?MilWerRegisterMemoryBlock@@YAXPEBXI@Z @ 0x1800EEFB8
+ * XREFs of ?MilWerRegisterMemoryBlock@@YAXPEBXI@Z @ 0x1800DBBAC
  * Callers:
- *     ?DoStackCapture@@YAXJIPEAX@Z @ 0x1800EEE38 (-DoStackCapture@@YAXJIPEAX@Z.c)
- *     ?CaptureDxgkRingBuffer@CFailFastInScope@@AEAAXXZ @ 0x180192F9C (-CaptureDxgkRingBuffer@CFailFastInScope@@AEAAXXZ.c)
- *     ?FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z @ 0x1801931C0 (-FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z.c)
- *     ?ProcessSegmentUpdate@CGenericInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GENERICINK_SEGMENTUPDATE@@PEBXI@Z @ 0x180216120 (-ProcessSegmentUpdate@CGenericInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GENERICINK_SEGMENTUPDA.c)
+ *     ?DoStackCapture@@YAXJIPEAX@Z @ 0x1800DBA40 (-DoStackCapture@@YAXJIPEAX@Z.c)
+ *     ?FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z @ 0x180155A90 (-FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall MilWerRegisterMemoryBlock(const void *a1, unsigned int a2)

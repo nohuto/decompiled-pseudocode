@@ -1,12 +1,12 @@
 /*
  * XREFs of PoRegisterPowerSettingCallback @ 0x140589EE0
  * Callers:
- *     HvlpRegisterPowerPolicyCallbacks @ 0x140277210 (HvlpRegisterPowerPolicyCallbacks.c)
+ *     HvlpRegisterPowerPolicyCallbacks @ 0x140277310 (HvlpRegisterPowerPolicyCallbacks.c)
  *     PopSetPowerSettingValue @ 0x14058B338 (PopSetPowerSettingValue.c)
- *     CmpInitializeLazyWriters @ 0x1407485D4 (CmpInitializeLazyWriters.c)
- *     PopIdleInitAoAcDozeS4Timer @ 0x140748738 (PopIdleInitAoAcDozeS4Timer.c)
- *     TtmInit @ 0x1407623C0 (TtmInit.c)
- *     TtmInitCurrentSession @ 0x14087F8A8 (TtmInitCurrentSession.c)
+ *     CmpInitializeLazyWriters @ 0x1407485B4 (CmpInitializeLazyWriters.c)
+ *     PopIdleInitAoAcDozeS4Timer @ 0x140748718 (PopIdleInitAoAcDozeS4Timer.c)
+ *     TtmInit @ 0x1407623A0 (TtmInit.c)
+ *     TtmInitCurrentSession @ 0x14087F888 (TtmInitCurrentSession.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  *     PopInitializePowerSettingCallbacks @ 0x1409D6B5C (PopInitializePowerSettingCallbacks.c)
  *     PpmInfoRegisterCallbacks @ 0x1409D6C38 (PpmInfoRegisterCallbacks.c)
@@ -15,10 +15,10 @@
  *     PopSetNotificationWork @ 0x1400041F0 (PopSetNotificationWork.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     RtlPcToFileName @ 0x14018E870 (RtlPcToFileName.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopEnsureErratumSubscribed @ 0x1402DB8E4 (PopEnsureErratumSubscribed.c)
+ *     RtlPcToFileName @ 0x14018E890 (RtlPcToFileName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopEnsureErratumSubscribed @ 0x1402DB9E4 (PopEnsureErratumSubscribed.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     EmClientRuleEvaluate @ 0x1405654A0 (EmClientRuleEvaluate.c)
  *     PopFindPowerSettingConfiguration @ 0x14058B7CC (PopFindPowerSettingConfiguration.c)
@@ -58,7 +58,7 @@ NTSTATUS __stdcall PoRegisterPowerSettingCallback(
 
   v27 = DeviceObject;
   v7 = SettingGuid;
-  v24 = dword_14041810C;
+  v24 = dword_1404180CC;
   v8 = 0;
   if ( (unsigned __int8)PopStateIsSessionSpecific(SettingGuid) )
     return -1073741811;
@@ -133,13 +133,13 @@ LABEL_25:
     }
     else
     {
-      v21 = (_QWORD *)qword_1404173A8;
-      if ( *(__int64 **)qword_1404173A8 == &PopRegisteredPowerSettingCallbacks )
+      v21 = (_QWORD *)qword_1404173C8;
+      if ( *(__int64 **)qword_1404173C8 == &PopRegisteredPowerSettingCallbacks )
       {
         *(_QWORD *)v12 = &PopRegisteredPowerSettingCallbacks;
         *((_QWORD *)v12 + 1) = v21;
         *v21 = v12;
-        qword_1404173A8 = (__int64)v12;
+        qword_1404173C8 = (__int64)v12;
 LABEL_18:
         v19 = 0;
         v8 = (unsigned int)PopOsInitPhase >= 3;

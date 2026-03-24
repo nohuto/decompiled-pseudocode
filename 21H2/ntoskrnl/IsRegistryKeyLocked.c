@@ -1,26 +1,26 @@
 /*
- * XREFs of IsRegistryKeyLocked @ 0x14080D780
+ * XREFs of IsRegistryKeyLocked @ 0x1407B44B0
  * Callers:
- *     NtLockProductActivationKeys @ 0x14080D370 (NtLockProductActivationKeys.c)
+ *     NtLockProductActivationKeys @ 0x1407B40D0 (NtLockProductActivationKeys.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall IsRegistryKeyLocked(void *a1, _BYTE *a2)
 {
   NTSTATUS v3; // ebx
-  PVOID v4; // rcx
-  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
+  struct _DMA_ADAPTER *v4; // rcx
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
 
-  Object = 0LL;
+  DmaAdapter = 0LL;
   *a2 = 0;
-  v3 = ObReferenceObjectByHandle(a1, 0x20019u, (POBJECT_TYPE)CmKeyObjectType, 0, &Object, 0LL);
+  v3 = ObReferenceObjectByHandle(a1, 0x20019u, (POBJECT_TYPE)CmKeyObjectType, 0, (PVOID *)&DmaAdapter, 0LL);
   if ( v3 >= 0 )
   {
-    v4 = Object;
-    *a2 = *(_BYTE *)(*((_QWORD *)Object + 1) + 8LL) & 0x80;
-    ObfDereferenceObject(v4);
+    v4 = DmaAdapter;
+    *a2 = (__int64)DmaAdapter->DmaOperations->PutDmaAdapter & 0x80;
+    HalPutDmaAdapter(v4);
   }
   return (unsigned int)v3;
 }

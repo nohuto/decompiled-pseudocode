@@ -1,7 +1,7 @@
 /*
- * XREFs of PspRegisterResource @ 0x1403A83D8
+ * XREFs of PspRegisterResource @ 0x1403C8D14
  * Callers:
- *     PsInitializeQuotaSystem @ 0x140B68CC8 (PsInitializeQuotaSystem.c)
+ *     PsInitializeQuotaSystem @ 0x140A6C13C (PsInitializeQuotaSystem.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ __int64 __fastcall PspRegisterResource(int a1, char a2, int a3)
   __int64 result; // rax
 
   PspResourceFlags[8 * a1] = a2;
-  dword_140D1F20C[2 * a1] = a3;
+  dword_140CFCB54[2 * a1] = a3;
   if ( (a2 & 2) != 0 )
     result = PspDefaultResourceLimits[a1] & 0xFFFFFF80 | 0x64;
   else

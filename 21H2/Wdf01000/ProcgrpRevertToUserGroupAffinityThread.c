@@ -1,9 +1,9 @@
 /*
- * XREFs of ProcgrpRevertToUserGroupAffinityThread @ 0x1C0091EB0
+ * XREFs of ProcgrpRevertToUserGroupAffinityThread @ 0x1C0091FD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ProcgrpRevertToUserGroupAffinityThread(_GROUP_AFFINITY *PreviousAffinity)
@@ -13,7 +13,7 @@ void __fastcall ProcgrpRevertToUserGroupAffinityThread(_GROUP_AFFINITY *Previous
     if ( PreviousAffinity->Mask )
     {
       if ( !PreviousAffinity->Group )
-        PfnKeRevertToUserAffinityThreadEx(PreviousAffinity->Mask);
+        (*(void (__fastcall **)(unsigned __int64))&WPP_GLOBAL_WDF_Control.DeviceLock.Header.Lock)(PreviousAffinity->Mask);
     }
     else
     {

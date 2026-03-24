@@ -1,20 +1,19 @@
 /*
- * XREFs of PipGetDriverKsrGuid @ 0x140953250
+ * XREFs of PipGetDriverKsrGuid @ 0x14089C7E4
  * Callers:
- *     IoEnumerateKsrPersistentMemoryEx @ 0x14055F9E0 (IoEnumerateKsrPersistentMemoryEx.c)
- *     IoReserveKsrPersistentMemoryEx @ 0x140952A70 (IoReserveKsrPersistentMemoryEx.c)
- *     PipGetPersistentMemory @ 0x140953418 (PipGetPersistentMemory.c)
+ *     IoReserveKsrPersistentMemory @ 0x14089C050 (IoReserveKsrPersistentMemory.c)
+ *     PipGetPersistentMemory @ 0x14089C9A8 (PipGetPersistentMemory.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     PipOpenServiceEnumKeys @ 0x14068E904 (PipOpenServiceEnumKeys.c)
- *     PipGetDriverKsrGuidRegistryValue @ 0x140953348 (PipGetDriverKsrGuidRegistryValue.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     PipOpenServiceEnumKeys @ 0x14073F08C (PipOpenServiceEnumKeys.c)
+ *     PipGetDriverKsrGuidRegistryValue @ 0x14089C8DC (PipGetDriverKsrGuidRegistryValue.c)
  */
 
 __int64 __fastcall PipGetDriverKsrGuid(__int64 a1, __int64 a2)
 {
   UNICODE_STRING *v3; // rcx
-  NTSTATUS v4; // eax
+  int v4; // eax
   HANDLE v5; // rdi
   NTSTATUS DriverKsrGuidRegistryValue; // ebx
   __int128 v8; // [rsp+30h] [rbp-40h] BYREF
@@ -31,12 +30,13 @@ __int64 __fastcall PipGetDriverKsrGuid(__int64 a1, __int64 a2)
   DriverKsrGuidRegistryValue = v4;
   if ( v4 >= 0 )
   {
+    *(&ObjectAttributes.Length + 1) = 0;
     memset(&ObjectAttributes.Attributes + 1, 0, 20);
     KeyHandle = 0LL;
     *((_QWORD *)&v8 + 1) = L"Parameters";
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v8;
     LODWORD(v8) = 1441812;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v8;
+    ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = Handle;
     ObjectAttributes.Attributes = 576;
     DriverKsrGuidRegistryValue = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);

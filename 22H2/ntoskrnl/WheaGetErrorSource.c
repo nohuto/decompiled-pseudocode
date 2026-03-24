@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaGetErrorSource @ 0x140610600
+ * XREFs of WheaGetErrorSource @ 0x1405BB040
  * Callers:
- *     WheaRemoveErrorSourceDeviceDriver @ 0x140A07B50 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x14095D160 (WheaRemoveErrorSourceDeviceDriver.c)
  * Callees:
- *     WheapGetErrorSource @ 0x140610F08 (WheapGetErrorSource.c)
+ *     WheapGetErrorSource @ 0x1405BBA0C (WheapGetErrorSource.c)
  */
 
 __int64 __fastcall WheaGetErrorSource(unsigned int a1)

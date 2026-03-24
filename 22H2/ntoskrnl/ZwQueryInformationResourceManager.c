@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryInformationResourceManager @ 0x14041D160
+ * XREFs of ZwQueryInformationResourceManager @ 0x1403FC3C0
  * Callers:
- *     DifZwQueryInformationResourceManagerWrapper @ 0x1405F49C0 (DifZwQueryInformationResourceManagerWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

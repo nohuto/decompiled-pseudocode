@@ -1,9 +1,9 @@
 /*
- * XREFs of HandleAsyncResizeComplete @ 0x1C0210238
+ * XREFs of HandleAsyncResizeComplete @ 0x1C0211088
  * Callers:
- *     NtUserLayoutCompleted @ 0x1C00A2930 (NtUserLayoutCompleted.c)
+ *     NtUserLayoutCompleted @ 0x1C011C5D0 (NtUserLayoutCompleted.c)
  * Callees:
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
  */
 
 __int64 __fastcall HandleAsyncResizeComplete(__int64 a1)
@@ -17,12 +17,15 @@ __int64 __fastcall HandleAsyncResizeComplete(__int64 a1)
   {
     if ( *(_QWORD *)(v2 + 16) == a1 )
     {
-      FindTimer(a1, 65522LL, 2u, 1, 0LL);
-      result = *(unsigned int *)(v2 + 200);
-      if ( (result & 0x100000) != 0 && (int)result < 0 )
+      result = FindTimer(a1, 65522LL, 2u, 1, 0LL);
+      if ( (*(_DWORD *)(v2 + 196) & 0x100000) != 0 )
       {
-        *(_DWORD *)(v2 + 200) = result & 0x7FFFFFFF;
-        return GenerateMouseMove(0LL);
+        result = *(unsigned int *)(v2 + 200);
+        if ( (result & 1) != 0 )
+        {
+          *(_DWORD *)(v2 + 200) = result & 0xFFFFFFFE;
+          return GenerateMouseMove(0LL);
+        }
       }
     }
   }

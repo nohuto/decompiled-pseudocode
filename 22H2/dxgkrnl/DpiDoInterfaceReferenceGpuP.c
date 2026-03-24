@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiDoInterfaceReferenceGpuP @ 0x1C03A27A0
+ * XREFs of DpiDoInterfaceReferenceGpuP @ 0x1C02D3900
  * Callers:
  *     <none>
  * Callees:
- *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0065D34 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C00590E0 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
  */
 
 LONG_PTR __fastcall DpiDoInterfaceReferenceGpuP(_DWORD *a1)

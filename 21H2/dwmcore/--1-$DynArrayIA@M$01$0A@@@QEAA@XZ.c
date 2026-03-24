@@ -1,13 +1,13 @@
 /*
- * XREFs of ??1?$DynArrayIA@M$01$0A@@@QEAA@XZ @ 0x1801037B0
+ * XREFs of ??1?$DynArrayIA@M$01$0A@@@QEAA@XZ @ 0x1801F0A10
  * Callers:
- *     ??1CComposition@@MEAA@XZ @ 0x18019233C (--1CComposition@@MEAA@XZ.c)
+ *     <none>
  * Callees:
  *     <none>
  */
 
 // attributes: thunk
-void __fastcall DynArrayIA<float,2,0>::~DynArrayIA<float,2,0>(void **a1)
+void __fastcall DynArrayIA<float,2,0>::~DynArrayIA<float,2,0>(__int64 a1)
 {
-  DynArrayImpl<1>::~DynArrayImpl<1>(a1);
+  DynArrayImpl<0>::~DynArrayImpl<0>(a1);
 }

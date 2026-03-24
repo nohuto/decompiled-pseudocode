@@ -1,11 +1,11 @@
 /*
- * XREFs of PopThermalCoolingPowerSettingCallback @ 0x1403A7580
+ * XREFs of PopThermalCoolingPowerSettingCallback @ 0x14039AF30
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopThermalZoneUpdateCoolingPolicy @ 0x14099089C (PopThermalZoneUpdateCoolingPolicy.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopThermalZoneUpdateCoolingPolicy @ 0x1408E7EDC (PopThermalZoneUpdateCoolingPolicy.c)
  */
 
 __int64 __fastcall PopThermalCoolingPowerSettingCallback(_QWORD *a1, int *a2, int a3)
@@ -18,9 +18,9 @@ __int64 __fastcall PopThermalCoolingPowerSettingCallback(_QWORD *a1, int *a2, in
   if ( *(_QWORD *)&GUID_SYSTEM_COOLING_POLICY.Data1 == *a1 )
     v6 = *(_QWORD *)GUID_SYSTEM_COOLING_POLICY.Data4 - a1[1];
   if ( !v6 && a3 == 4 )
-    dword_140C23308 = *a2;
+    dword_140C23EC8 = *a2;
   if ( !PopPlatformAoAc || (v7 = 1, PopConsoleDisplayState) )
-    v7 = dword_140C23308;
+    v7 = dword_140C23EC8;
   if ( v7 != PopCoolingMode )
   {
     PopCoolingMode = v7;

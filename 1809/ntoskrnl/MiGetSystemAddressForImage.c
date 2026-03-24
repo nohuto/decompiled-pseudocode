@@ -1,26 +1,26 @@
 /*
- * XREFs of MiGetSystemAddressForImage @ 0x140682F60
+ * XREFs of MiGetSystemAddressForImage @ 0x140682F40
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408543E8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408543C8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MiFreePrivateFixupEntryForSystemImage @ 0x140173668 (MiFreePrivateFixupEntryForSystemImage.c)
- *     MiSessionInsertImage @ 0x14017600C (MiSessionInsertImage.c)
- *     MiAddPrivateFixupEntryForSystemImage @ 0x140176A4C (MiAddPrivateFixupEntryForSystemImage.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiRelocateImage @ 0x14064FEE4 (MiRelocateImage.c)
- *     MiUnmapImageInSystemSpace @ 0x1406508AC (MiUnmapImageInSystemSpace.c)
- *     MiMapImageInSystemSpace @ 0x140650E60 (MiMapImageInSystemSpace.c)
- *     MiBytesToMapSystemImage @ 0x1406521FC (MiBytesToMapSystemImage.c)
- *     MiReservePrivilegedPtes @ 0x140683154 (MiReservePrivilegedPtes.c)
- *     MiImageSuitableForSystem @ 0x14068317C (MiImageSuitableForSystem.c)
- *     MiSelectSystemImageAddress @ 0x140683888 (MiSelectSystemImageAddress.c)
- *     MiReturnSystemImageAddress @ 0x14070E020 (MiReturnSystemImageAddress.c)
- *     MiReleasePrivilegedPtes @ 0x14070F598 (MiReleasePrivilegedPtes.c)
+ *     MiFreePrivateFixupEntryForSystemImage @ 0x140173688 (MiFreePrivateFixupEntryForSystemImage.c)
+ *     MiSessionInsertImage @ 0x14017602C (MiSessionInsertImage.c)
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x140176A6C (MiAddPrivateFixupEntryForSystemImage.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
+ *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
+ *     MiBytesToMapSystemImage @ 0x1406521DC (MiBytesToMapSystemImage.c)
+ *     MiReservePrivilegedPtes @ 0x140683134 (MiReservePrivilegedPtes.c)
+ *     MiImageSuitableForSystem @ 0x14068315C (MiImageSuitableForSystem.c)
+ *     MiSelectSystemImageAddress @ 0x140683868 (MiSelectSystemImageAddress.c)
+ *     MiReturnSystemImageAddress @ 0x14070E000 (MiReturnSystemImageAddress.c)
+ *     MiReleasePrivilegedPtes @ 0x14070F578 (MiReleasePrivilegedPtes.c)
  */
 
 unsigned __int64 __fastcall MiGetSystemAddressForImage(__int64 a1, int a2, _DWORD *a3)

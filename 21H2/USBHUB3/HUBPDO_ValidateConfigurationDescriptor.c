@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBPDO_ValidateConfigurationDescriptor @ 0x1C001560C
+ * XREFs of HUBPDO_ValidateConfigurationDescriptor @ 0x1C0015138
  * Callers:
- *     HUBPDO_ValidateSelectConfigUrb @ 0x1C0015808 (HUBPDO_ValidateSelectConfigUrb.c)
+ *     HUBPDO_ValidateSelectConfigUrb @ 0x1C0015334 (HUBPDO_ValidateSelectConfigUrb.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_c @ 0x1C000232C (WPP_RECORDER_SF_c.c)
- *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C003649C (HUBDESC_ValidateConfigurationDescriptorSet.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_c @ 0x1C0002150 (WPP_RECORDER_SF_c.c)
+ *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0035C28 (HUBDESC_ValidateConfigurationDescriptorSet.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_ValidateConfigurationDescriptor(__int64 a1, unsigned __int8 *a2, int a3)
@@ -34,7 +34,7 @@ __int64 __fastcall HUBPDO_ValidateConfigurationDescriptor(__int64 a1, unsigned _
   v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   v8 = *(_WORD *)(a1 + 1990);
   v9 = *(_QWORD *)(a1 + 8);
   v18 = 0LL;
@@ -63,19 +63,19 @@ __int64 __fastcall HUBPDO_ValidateConfigurationDescriptor(__int64 a1, unsigned _
         2u,
         5u,
         0x18u,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v12);
     return (unsigned int)-1073737984;
   }
   if ( *a2 < 9u )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dD(
         *(_QWORD *)(v9 + 1432),
         2u,
         5u,
         0x19u,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         *a2,
         9);
     return (unsigned int)-1073737984;
@@ -83,7 +83,7 @@ __int64 __fastcall HUBPDO_ValidateConfigurationDescriptor(__int64 a1, unsigned _
   if ( !*((_WORD *)a2 + 1) )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(v9 + 1432), 2u, 5u, 0x1Au, (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(v9 + 1432), 2u, 5u, 0x1Au, (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids);
     return (unsigned int)-1073737984;
   }
   if ( !(unsigned __int8)HUBDESC_ValidateConfigurationDescriptorSet(

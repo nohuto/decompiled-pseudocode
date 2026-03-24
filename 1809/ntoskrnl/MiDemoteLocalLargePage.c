@@ -2,15 +2,15 @@
  * XREFs of MiDemoteLocalLargePage @ 0x140064060
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiGetFreeOrZeroPageAnyColor @ 0x1400EB0B0 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x1400EB0D0 (MiGetFreeOrZeroPageAnyColor.c)
  * Callees:
  *     MiInsertLargePageInFreeOrZeroList @ 0x140036320 (MiInsertLargePageInFreeOrZeroList.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiNodeLargeFreeZeroPages @ 0x1400EE908 (MiNodeLargeFreeZeroPages.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1400EE928 (MiNodeLargeFreeZeroPages.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 volatile signed __int32 *__fastcall MiDemoteLocalLargePage(__int64 a1, unsigned int a2, __int16 a3, __int64 a4)

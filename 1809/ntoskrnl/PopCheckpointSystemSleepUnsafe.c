@@ -2,10 +2,10 @@
  * XREFs of PopCheckpointSystemSleepUnsafe @ 0x14057E0E4
  * Callers:
  *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
- *     PopIssueActionRequest @ 0x1406DE870 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
  * Callees:
- *     VslReportBugCheckProgress @ 0x14027BBC0 (VslReportBugCheckProgress.c)
- *     ExSetFirmwareEnvironmentVariable @ 0x1408CFB80 (ExSetFirmwareEnvironmentVariable.c)
+ *     VslReportBugCheckProgress @ 0x14027BCC0 (VslReportBugCheckProgress.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x1408CFB60 (ExSetFirmwareEnvironmentVariable.c)
  */
 
 NTSTATUS __fastcall PopCheckpointSystemSleepUnsafe(char a1)

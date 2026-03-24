@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeListPageContentsChanged @ 0x1402BF860
+ * XREFs of MiFreeListPageContentsChanged @ 0x1402BF960
  * Callers:
  *     MiZeroPage @ 0x140036A00 (MiZeroPage.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
  */
 
 __int64 __fastcall MiFreeListPageContentsChanged(unsigned __int64 a1)

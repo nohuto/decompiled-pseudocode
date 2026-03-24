@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpDmaGetMasterAdapterVersion @ 0x14045ADA4
+ * XREFs of HalpDmaGetMasterAdapterVersion @ 0x1404B8BDC
  * Callers:
- *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x14045AD4E (HalpDmaAllocateScatterPagesFromScatterPool.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x14050111C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x1404B8AC4 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x1404B8B1C (HalpDmaAllocateScatterPagesFromScatterPool.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall HalpDmaGetMasterAdapterVersion(__int64 a1)
   int v1; // edx
   __int64 result; // rax
 
-  v1 = *(_DWORD *)(a1 + 156);
+  v1 = *(_DWORD *)(a1 + 148);
   result = 2LL;
   if ( v1 != 2 )
   {

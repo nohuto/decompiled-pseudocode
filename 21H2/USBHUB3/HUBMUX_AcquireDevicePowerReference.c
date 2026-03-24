@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMUX_AcquireDevicePowerReference @ 0x1C0010774
+ * XREFs of HUBMUX_AcquireDevicePowerReference @ 0x1C001035C
  * Callers:
- *     HUBDSM_AcquiringPowerReferenceOnHubResume @ 0x1C001CB30 (HUBDSM_AcquiringPowerReferenceOnHubResume.c)
+ *     HUBDSM_AcquiringPowerReferenceOnHubResume @ 0x1C001C5F0 (HUBDSM_AcquiringPowerReferenceOnHubResume.c)
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 void __fastcall HUBMUX_AcquireDevicePowerReference(volatile signed __int32 *a1)

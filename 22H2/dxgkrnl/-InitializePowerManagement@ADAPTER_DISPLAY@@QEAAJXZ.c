@@ -1,35 +1,43 @@
 /*
- * XREFs of ?InitializePowerManagement@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C01F85AC
+ * XREFs of ?InitializePowerManagement@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C0213D90
  * Callers:
- *     ?InitializePowerManagement@DXGADAPTER@@AEAAJXZ @ 0x1C01F8E14 (-InitializePowerManagement@DXGADAPTER@@AEAAJXZ.c)
+ *     ?InitializePowerManagement@DXGADAPTER@@AEAAJXZ @ 0x1C019138C (-InitializePowerManagement@DXGADAPTER@@AEAAJXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?DmmSetVidPnTargetPowerComponentIndex@@YAJPEAVVIDPN_MGR@@II@Z @ 0x1C01F8644 (-DmmSetVidPnTargetPowerComponentIndex@@YAJPEAVVIDPN_MGR@@II@Z.c)
- *     ?DmmAreAllVidpnTargetsPowerComponents@@YAEPEAVVIDPN_MGR@@@Z @ 0x1C03AC4BC (-DmmAreAllVidpnTargetsPowerComponents@@YAEPEAVVIDPN_MGR@@@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?SetTargetPowerComponentIndex@VIDPN_MGR@@QEAAJII@Z @ 0x1C02E1660 (-SetTargetPowerComponentIndex@VIDPN_MGR@@QEAAJII@Z.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::InitializePowerManagement(ADAPTER_DISPLAY *this)
 {
   __int64 v1; // r15
-  int v2; // ebp
-  unsigned int v3; // edi
+  int v2; // ebx
+  unsigned int v3; // esi
   unsigned int v5; // r14d
-  __int64 v6; // rsi
+  __int64 v6; // rbp
   __int64 v7; // rax
+  VIDPN_MGR *v8; // rdi
+  unsigned int v9; // ebx
+  __int64 v10; // rdx
+  __int64 v12; // [rsp+50h] [rbp+8h] BYREF
 
   v1 = *((_QWORD *)this + 2);
   v2 = 0;
   v3 = 0;
-  v5 = *(_DWORD *)(v1 + 3168);
+  v5 = *(_DWORD *)(v1 + 2944);
   if ( v5 )
   {
     v6 = 0LL;
     do
     {
-      v7 = *(_QWORD *)(v1 + 3024);
-      if ( *(_DWORD *)(v6 + v7 + 208) == 1 )
+      v7 = *(_QWORD *)(v1 + 2800);
+      if ( *(_DWORD *)(v7 + v6 + 208) == 1 )
       {
-        v2 = DmmSetVidPnTargetPowerComponentIndex(*((struct VIDPN_MGR **)this + 13), *(_DWORD *)(v6 + v7 + 212), v3);
+        v8 = (VIDPN_MGR *)*((_QWORD *)this + 11);
+        v9 = *(_DWORD *)(v7 + v6 + 212);
+        EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v12, (__int64)v8);
+        v2 = VIDPN_MGR::SetTargetPowerComponentIndex(v8, v9, v3);
+        DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v12 + 40), v10);
         if ( v2 < 0 )
           break;
       }
@@ -38,18 +46,5 @@ __int64 __fastcall ADAPTER_DISPLAY::InitializePowerManagement(ADAPTER_DISPLAY *t
     }
     while ( v3 < v5 );
   }
-  if ( (*((_DWORD *)this + 6) & 0x40) == 0 || DmmAreAllVidpnTargetsPowerComponents(*((struct VIDPN_MGR **)this + 13)) )
-    return (unsigned int)v2;
-  WdLogSingleEntry1(2LL, 4321LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Driver reported USB4 monitor support but did not expose all targets as PoFx components",
-    4321LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  return 3221225485LL;
+  return (unsigned int)v2;
 }

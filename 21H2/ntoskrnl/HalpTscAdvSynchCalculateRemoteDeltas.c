@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTscAdvSynchCalculateRemoteDeltas @ 0x1403AC9F8
+ * XREFs of HalpTscAdvSynchCalculateRemoteDeltas @ 0x14039CED4
  * Callers:
- *     HalpTscAdvSynchLeader @ 0x1403AC640 (HalpTscAdvSynchLeader.c)
+ *     HalpTscAdvSynchLeader @ 0x14039CC94 (HalpTscAdvSynchLeader.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     HalpTscAdvSynchCalculateRemoteDelta @ 0x1403ACC4C (HalpTscAdvSynchCalculateRemoteDelta.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14039D104 (HalpTscAdvSynchCalculateRemoteDelta.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall HalpTscAdvSynchCalculateRemoteDeltas(
@@ -18,31 +18,34 @@ char __fastcall HalpTscAdvSynchCalculateRemoteDeltas(
         unsigned int a6)
 {
   __int64 *v6; // rdi
-  __int64 v8; // r13
-  unsigned int *v9; // r14
+  __int64 v8; // rcx
+  unsigned int *v10; // r14
   unsigned int v11; // ebx
   struct _KPRCB *CurrentPrcb; // rax
   int *v13; // rsi
   __int64 v14; // rax
   __int64 v15; // rdx
-  REGHANDLE v16; // r14
-  int v18; // [rsp+40h] [rbp-69h] BYREF
-  unsigned int v19; // [rsp+48h] [rbp-61h] BYREF
-  int v20; // [rsp+50h] [rbp-59h] BYREF
-  unsigned int *v21; // [rsp+58h] [rbp-51h]
-  __int64 v22; // [rsp+60h] [rbp-49h] BYREF
+  int v16; // eax
+  REGHANDLE v17; // r14
+  int v19; // [rsp+40h] [rbp-69h] BYREF
+  unsigned int v20; // [rsp+48h] [rbp-61h] BYREF
+  int v21; // [rsp+50h] [rbp-59h] BYREF
+  __int64 v22; // [rsp+58h] [rbp-51h]
+  unsigned int *v23; // [rsp+60h] [rbp-49h]
+  __int64 v24; // [rsp+68h] [rbp-41h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp-39h] BYREF
-  int *v24; // [rsp+80h] [rbp-29h]
-  __int64 v25; // [rsp+88h] [rbp-21h]
-  __int64 *v26; // [rsp+90h] [rbp-19h]
-  __int64 v27; // [rsp+98h] [rbp-11h]
-  int *v28; // [rsp+A0h] [rbp-9h]
-  __int64 v29; // [rsp+A8h] [rbp-1h]
+  int *v26; // [rsp+80h] [rbp-29h]
+  __int64 v27; // [rsp+88h] [rbp-21h]
+  __int64 *v28; // [rsp+90h] [rbp-19h]
+  __int64 v29; // [rsp+98h] [rbp-11h]
+  int *v30; // [rsp+A0h] [rbp-9h]
+  __int64 v31; // [rsp+A8h] [rbp-1h]
 
   v6 = (__int64 *)HalpTscDeltas;
   v8 = HalpTscNopCycles;
-  v9 = a3;
-  v21 = a3;
+  v23 = a3;
+  v10 = a3;
+  v22 = HalpTscNopCycles;
   v11 = 0;
   *a1 = 0LL;
   *a2 = 0LL;
@@ -61,7 +64,7 @@ char __fastcall HalpTscAdvSynchCalculateRemoteDeltas(
       }
       else
       {
-        v14 = HalpTscAdvSynchCalculateRemoteDelta(v11, v8 + 4LL * v11);
+        v14 = HalpTscAdvSynchCalculateRemoteDelta(v11, (unsigned int)HalpTscRequestedIterations, v8 + 4LL * v11);
         *v6 = v14;
         if ( v14 < *a1 )
           *a1 = v14;
@@ -69,30 +72,31 @@ char __fastcall HalpTscAdvSynchCalculateRemoteDeltas(
         if ( *v6 > *a2 )
         {
           *a2 = v15;
-          *v9 = v11;
+          *v10 = v11;
           v15 = *v6;
         }
-        v20 = *v13;
-        v22 = v15;
+        v16 = *v13;
+        v24 = v15;
+        v21 = v16;
         LODWORD(CurrentPrcb) = KeGetCurrentPrcb()->Number;
-        v19 = v11;
-        v18 = (int)CurrentPrcb;
+        v19 = (int)CurrentPrcb;
+        v20 = v11;
         if ( HalpDiagnosticEventsRegistered )
         {
-          v16 = HalpDiagnosticEventHandle;
+          v17 = HalpDiagnosticEventHandle;
           LOBYTE(CurrentPrcb) = EtwEventEnabled(HalpDiagnosticEventHandle, &HAL_ETW_EVENT_TIMER_PROC_DELTA_REPORT);
           if ( (_BYTE)CurrentPrcb )
           {
-            v27 = 8LL;
+            v29 = 8LL;
             *(_QWORD *)&UserData.Size = 4LL;
-            UserData.Ptr = (ULONGLONG)&v18;
-            v25 = 4LL;
-            v24 = (int *)&v19;
-            v29 = 4LL;
-            v26 = &v22;
-            v28 = &v20;
+            UserData.Ptr = (ULONGLONG)&v19;
+            v27 = 4LL;
+            v26 = (int *)&v20;
+            v31 = 4LL;
+            v28 = &v24;
+            v30 = &v21;
             LOBYTE(CurrentPrcb) = EtwWriteEx(
-                                    v16,
+                                    v17,
                                     &HAL_ETW_EVENT_TIMER_PROC_DELTA_REPORT,
                                     0LL,
                                     0,
@@ -101,8 +105,9 @@ char __fastcall HalpTscAdvSynchCalculateRemoteDeltas(
                                     4u,
                                     &UserData);
           }
-          v9 = v21;
+          v10 = v23;
         }
+        v8 = v22;
       }
       ++v11;
       ++v13;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PartitionTelemetryInputActivity@CChannel@@UEAAJI_K@Z @ 0x180017490
+ * XREFs of ?PartitionTelemetryInputActivity@CChannel@@UEAAJI_K@Z @ 0x18001B050
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
  */
 
 __int64 __fastcall CChannel::PartitionTelemetryInputActivity(CChannel *this, int a2, __int64 a3)

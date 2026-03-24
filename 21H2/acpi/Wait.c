@@ -1,28 +1,28 @@
 /*
- * XREFs of Wait @ 0x1C002A600
+ * XREFs of Wait @ 0x1C006B120
  * Callers:
  *     <none>
  * Callees:
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     GetObjectPath @ 0x1C00282F8 (GetObjectPath.c)
- *     WaitASLEvent @ 0x1C002A6C0 (WaitASLEvent.c)
- *     PushPost @ 0x1C002A7B8 (PushPost.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     GetObjectTypeName @ 0x1C0066810 (GetObjectTypeName.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
+ *     PushPost @ 0x1C0068278 (PushPost.c)
+ *     WaitASLEvent @ 0x1C00688BC (WaitASLEvent.c)
  */
 
-__int64 __fastcall Wait(__int64 a1, __int64 *a2)
+__int64 __fastcall Wait(struct _SLIST_ENTRY *a1, __int64 *a2)
 {
   unsigned int v4; // edi
   __int64 v5; // rcx
   char v6; // al
-  _BYTE *ObjectPath; // rsi
-  int ObjectTypeName; // eax
-  int v10; // r11d
+  _QWORD *ObjectPath; // rsi
+  const void *ObjectTypeName; // rax
+  const void *v9; // r11
 
-  v4 = ValidateArgTypes(a1, a2[10], 0, "OI");
+  v4 = ValidateArgTypes((__int64)a1, a2[10], 0, "OI");
   if ( !v4 )
   {
     v5 = *(_QWORD *)(a2[10] + 16);
@@ -35,28 +35,28 @@ __int64 __fastcall Wait(__int64 a1, __int64 *a2)
     }
     if ( *(_WORD *)(v5 + 66) == 7 )
     {
-      if ( *(_QWORD *)(a2[10] + 56) > 0xFFFFuLL )
+      if ( *(_QWORD *)(a2[10] + 56) <= 0xFFFFuLL )
       {
-        v4 = -1072431089;
-        LogError(3222536207LL);
-        AcpiDiagTraceAmlError(a1, 3222536207LL);
-        PrintDebugMessage(210, *(_QWORD *)(a2[10] + 56), 0, 0, 0LL);
+        v4 = PushPost(a1, (__int64)ProcessWait, 0LL, 0LL, a2[11]);
+        if ( !v4 )
+          return (unsigned int)WaitASLEvent((__int64)a1, *(_QWORD *)(a2[8] + 96), *(_WORD *)(a2[10] + 56));
       }
       else
       {
-        v4 = PushPost(a1, (unsigned int)ProcessWait, 0, 0, a2[11]);
-        if ( !v4 )
-          return (unsigned int)WaitASLEvent(a1, *(_QWORD *)(a2[8] + 96), *(unsigned __int16 *)(a2[10] + 56));
+        v4 = -1072431089;
+        LogError(-1072431089);
+        AcpiDiagTraceAmlError((__int64)a1, -1072431089);
+        PrintDebugMessage(210, *(const void **)(a2[10] + 56), 0LL, 0LL, 0LL);
       }
     }
     else
     {
       v4 = -1072431095;
-      LogError(3222536201LL);
-      AcpiDiagTraceAmlError(a1, 3222536201LL);
+      LogError(-1072431095);
+      AcpiDiagTraceAmlError((__int64)a1, -1072431095);
       ObjectPath = GetObjectPath(a2[8]);
-      ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(a2[8] + 66));
-      PrintDebugMessage(209, v10, ObjectTypeName, 0, 0LL);
+      ObjectTypeName = (const void *)GetObjectTypeName(*(unsigned __int16 *)(a2[8] + 66));
+      PrintDebugMessage(209, v9, ObjectTypeName, 0LL, 0LL);
       if ( ObjectPath )
         ExFreePoolWithTag(ObjectPath, 0);
     }

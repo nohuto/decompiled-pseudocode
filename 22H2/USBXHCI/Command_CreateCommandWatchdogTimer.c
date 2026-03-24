@@ -1,11 +1,11 @@
 /*
- * XREFs of Command_CreateCommandWatchdogTimer @ 0x1C00700FC
+ * XREFs of Command_CreateCommandWatchdogTimer @ 0x1C0070C54
  * Callers:
- *     Command_Create @ 0x1C006FFA4 (Command_Create.c)
+ *     Command_Create @ 0x1C0070AFC (Command_Create.c)
  * Callees:
- *     Controller_IsSecureDevice @ 0x1C000B128 (Controller_IsSecureDevice.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     Controller_IsSecureDevice @ 0x1C0009764 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Command_CreateCommandWatchdogTimer(_QWORD *a1)
@@ -26,9 +26,9 @@ __int64 __fastcall Command_CreateCommandWatchdogTimer(_QWORD *a1)
   v12 = 0LL;
   v2 = a1[1];
   v11 = 0LL;
+  v14 = 0LL;
   *((_QWORD *)&v12 + 1) = 0x100000001LL;
   v13 = 0LL;
-  v14 = 0LL;
   LODWORD(v11) = 56;
   IsSecureDevice = Controller_IsSecureDevice(v2);
   v8 = 0LL;
@@ -61,7 +61,7 @@ __int64 __fastcall Command_CreateCommandWatchdogTimer(_QWORD *a1)
       v5,
       7,
       12,
-      (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids,
+      (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids,
       v6);
   }
   return (unsigned int)v6;

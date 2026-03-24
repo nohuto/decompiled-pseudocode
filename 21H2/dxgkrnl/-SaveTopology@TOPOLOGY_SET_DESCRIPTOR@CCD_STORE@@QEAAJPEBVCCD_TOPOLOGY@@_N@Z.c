@@ -1,21 +1,21 @@
 /*
- * XREFs of ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C01DECF4
+ * XREFs of ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C01601D4
  * Callers:
- *     _anonymous_namespace_::_SaveTopologySetCallback @ 0x1C01DECC0 (_anonymous_namespace_--_SaveTopologySetCallback.c)
+ *     _anonymous_namespace_::_SaveTopologySetCallback @ 0x1C01601A0 (_anonymous_namespace_--_SaveTopologySetCallback.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0011E60 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     ?GetBitsPerPixel@@YAIW4_D3DDDIFORMAT@@@Z @ 0x1C0011EE8 (-GetBitsPerPixel@@YAIW4_D3DDDIFORMAT@@@Z.c)
- *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0013120 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C01ABE88 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
- *     ?GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ @ 0x1C01AF5C4 (-GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ.c)
- *     ?QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z @ 0x1C01AFBA0 (-QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z.c)
- *     _CcdOpenRegistrySubkey @ 0x1C01B78F8 (_CcdOpenRegistrySubkey.c)
- *     ?_WritePath@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAAJPEAXIPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C01DEF80 (-_WritePath@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAAJPEAXIPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z.c)
- *     _CcdWriteRegistryValues @ 0x1C01DF0AC (_CcdWriteRegistryValues.c)
- *     ?MapModalitySetIdPath@CCD_TOPOLOGY@@QEBAJIPEAG@Z @ 0x1C01DF1C8 (-MapModalitySetIdPath@CCD_TOPOLOGY@@QEBAJIPEAG@Z.c)
- *     ?TouchTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJXZ @ 0x1C01DF238 (-TouchTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A84C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     ?GetBitsPerPixel@@YAIW4_D3DDDIFORMAT@@@Z @ 0x1C000A8D4 (-GetBitsPerPixel@@YAIW4_D3DDDIFORMAT@@@Z.c)
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C000C518 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z @ 0x1C012FED8 (-QueryCloneInfo@CCD_SET_STRING_ID@@QEBAJIPEAI00@Z.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013527C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     _CcdOpenRegistrySubkey @ 0x1C01364B8 (_CcdOpenRegistrySubkey.c)
+ *     ?GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ @ 0x1C0137340 (-GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ.c)
+ *     ?_WritePath@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAAJPEAXIPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C016047C (-_WritePath@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAAJPEAXIPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z.c)
+ *     _CcdWriteRegistryValues @ 0x1C01605D8 (_CcdWriteRegistryValues.c)
+ *     ?MapModalitySetIdPath@CCD_TOPOLOGY@@QEBAJIPEAG@Z @ 0x1C01606F4 (-MapModalitySetIdPath@CCD_TOPOLOGY@@QEBAJIPEAG@Z.c)
+ *     ?TouchTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJXZ @ 0x1C0160768 (-TouchTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJXZ.c)
  */
 
 __int64 __fastcall CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::SaveTopology(
@@ -23,171 +23,218 @@ __int64 __fastcall CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::SaveTopology(
         const struct CCD_TOPOLOGY *a2)
 {
   int v3; // eax
-  unsigned int v4; // edi
-  void **ModalitySetId; // r12
-  unsigned int v6; // r8d
-  unsigned int v7; // esi
-  int v8; // eax
-  CCD_TOPOLOGY *v9; // rcx
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rax
-  CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *v11; // rcx
-  __int64 v12; // r15
-  __int64 v13; // rdi
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  void **ModalitySetId; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  unsigned int v10; // r8d
+  unsigned __int16 *v11; // r14
+  int v12; // r12d
+  unsigned int v13; // esi
   int v14; // eax
-  int v15; // r15d
-  int v16; // edx
-  int v17; // eax
+  __int64 v15; // rdx
+  CCD_TOPOLOGY *v16; // rcx
+  __int64 v17; // rbx
+  int v18; // eax
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rax
+  CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *v20; // rcx
+  __int64 v21; // r15
+  __int64 v22; // rbx
+  int v23; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r12
+  int v27; // eax
+  __int64 v28; // rdx
+  __int64 v29; // r12
+  unsigned int v30; // ecx
+  __int64 v31; // rax
+  int v32; // edx
+  int v33; // eax
   unsigned int BitsPerPixel; // eax
-  int v19; // edx
-  int v20; // eax
-  int v21; // eax
-  int v22; // eax
-  __int16 v23; // dx
-  __int64 v25; // rdx
+  int v35; // edx
+  int v36; // eax
+  __int64 v37; // rdx
+  __int64 v38; // r15
+  int v39; // eax
+  int v40; // eax
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // r15
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  _QWORD *v47; // rax
+  int v48; // ebx
   struct DXGGLOBAL *Global; // rax
-  HANDLE v27; // r8
-  const struct CCD_TOPOLOGY *v28; // r9
-  CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *v29; // rdx
-  __int64 v30; // rax
-  __int64 v31; // rcx
-  __int64 v32; // rcx
-  unsigned __int16 v33[2]; // [rsp+30h] [rbp-40h] BYREF
-  unsigned int v34; // [rsp+34h] [rbp-3Ch] BYREF
-  unsigned int v35; // [rsp+38h] [rbp-38h] BYREF
+  _QWORD *v50; // rax
+  _QWORD *v51; // rax
+  unsigned __int16 v52[2]; // [rsp+30h] [rbp-40h] BYREF
+  unsigned int v53; // [rsp+34h] [rbp-3Ch] BYREF
+  unsigned int v54; // [rsp+38h] [rbp-38h] BYREF
   HANDLE Handle; // [rsp+40h] [rbp-30h] BYREF
-  int v37; // [rsp+48h] [rbp-28h]
-  int v38; // [rsp+4Ch] [rbp-24h] BYREF
-  int v39; // [rsp+50h] [rbp-20h] BYREF
-  CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *v40; // [rsp+58h] [rbp-18h]
-  unsigned __int16 v41; // [rsp+60h] [rbp-10h] BYREF
+  ULONG v56; // [rsp+48h] [rbp-28h] BYREF
+  int v57; // [rsp+4Ch] [rbp-24h]
+  __int64 v58; // [rsp+50h] [rbp-20h] BYREF
+  CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *v59; // [rsp+58h] [rbp-18h]
+  wchar_t Dest; // [rsp+60h] [rbp-10h] BYREF
 
-  v40 = this;
+  v59 = this;
   v3 = CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::TouchTopology(this);
-  v4 = v3;
+  v6 = v3;
   if ( v3 < 0 )
   {
-    v25 = v3;
-LABEL_39:
-    WdLogSingleEntry4(2LL, v25, a2, *((_QWORD *)a2 + 8), 1LL);
-    return v4;
+    v47 = (_QWORD *)WdLogNewEntry5_WdError(v5, v4);
+    v47[3] = v6;
+LABEL_40:
+    v47[4] = a2;
+    v47[5] = *((_QWORD *)a2 + 8);
+    v47[6] = 1LL;
+    WdLogEvent5_WdError(v47);
+    return (unsigned int)v6;
   }
   ModalitySetId = CCD_TOPOLOGY::GetModalitySetId((void **)a2);
-  v6 = 0;
+  v10 = 0;
+  v11 = (unsigned __int16 *)ModalitySetId;
   if ( *(int *)ModalitySetId < 0 || !*((_WORD *)ModalitySetId + 4) )
   {
-    v25 = *(int *)ModalitySetId;
-    goto LABEL_39;
+    v47 = (_QWORD *)WdLogNewEntry5_WdError(v9, v8);
+    v47[3] = *(int *)v11;
+    goto LABEL_40;
   }
-  v37 = -1;
-  v7 = 0;
+  v12 = -1;
   Handle = 0LL;
+  v13 = 0;
   if ( *((_WORD *)ModalitySetId + 16) )
   {
     while ( 1 )
     {
-      v35 = v6;
-      v34 = v6;
-      v8 = CCD_SET_STRING_ID::QueryCloneInfo((CCD_SET_STRING_ID *)ModalitySetId, v7, &v35, 0LL, &v34);
-      if ( v8 < 0 )
+      v54 = v10;
+      v53 = v10;
+      v14 = CCD_SET_STRING_ID::QueryCloneInfo((CCD_SET_STRING_ID *)v11, v13, &v54, 0LL, &v53);
+      v17 = v14;
+      if ( v14 < 0 )
         break;
-      v33[0] = 0;
-      v8 = CCD_TOPOLOGY::MapModalitySetIdPath(a2, v7, v33);
-      if ( v8 < 0 )
+      v52[0] = 0;
+      v18 = CCD_TOPOLOGY::MapModalitySetIdPath(a2, v13, v52);
+      v17 = v18;
+      if ( v18 < 0 )
         break;
-      PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor(v9, v33[0]);
-      v12 = v35;
-      v13 = (__int64)PathDescriptor;
-      if ( v37 != v35 )
+      PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor(v16, v52[0]);
+      v21 = v54;
+      v22 = (__int64)PathDescriptor;
+      if ( v12 != v54 )
       {
-        v14 = RtlStringCbPrintfW(&v41, 6uLL, L"%02x", v35);
-        if ( v14 < 0 )
+        v23 = RtlStringCbPrintfW(&Dest, 6uLL, L"%02x", v54);
+        v26 = v23;
+        if ( v23 < 0 )
         {
-          v32 = 1LL;
-          goto LABEL_34;
+          v51 = (_QWORD *)WdLogNewEntry5_WdAssertion(v25, v24);
+          v51[3] = v26;
+          v51[4] = v13;
+          v51[5] = v21;
+          v51[6] = a2;
+          v51[7] = *((_QWORD *)a2 + 8);
+          goto LABEL_38;
         }
         if ( Handle )
           ZwClose(Handle);
-        v38 = 0;
-        v14 = CcdOpenRegistrySubkey((int)&Handle, 983103, *((_QWORD *)v40 + 8), &v41, (__int64)&v38);
-        if ( v14 < 0 )
+        v56 = 0;
+        v27 = CcdOpenRegistrySubkey((int)&Handle, 983103, *((_QWORD *)v59 + 8), &Dest, &v56);
+        v29 = v27;
+        if ( v27 < 0 )
         {
-          v32 = 2LL;
-LABEL_34:
-          WdLogSingleEntry5(v32, v14, v7, v12, a2, *((_QWORD *)a2 + 8));
-          goto LABEL_24;
+          v50 = (_QWORD *)WdLogNewEntry5_WdError(v20, v28);
+          v50[3] = v29;
+          v50[4] = v13;
+          v50[5] = v21;
+          goto LABEL_34;
         }
-        v37 = v12;
-        if ( !v34 )
+        v12 = v21;
+        if ( !v53 )
         {
-          v15 = *(_DWORD *)(v13 + 96);
-          v35 = *(_DWORD *)(v13 + 100);
-          *(_DWORD *)v33 = *(_DWORD *)(v13 + 112);
-          if ( (*(_QWORD *)v13 & 0x20000LL) != 0 )
+          v30 = *(_DWORD *)(v22 + 96);
+          *(_DWORD *)v52 = *(_DWORD *)(v22 + 100);
+          v57 = *(_DWORD *)(v22 + 112);
+          v31 = *(_QWORD *)v22;
+          v54 = v30;
+          if ( (v31 & 0x20000) != 0 )
           {
-            if ( (*(_QWORD *)v13 & 0x200LL) != 0 && ((*(_DWORD *)(v13 + 132) - 2) & 0xFFFFFFFD) == 0 )
+            if ( (v31 & 0x200) != 0 && ((*(_DWORD *)(v22 + 132) - 2) & 0xFFFFFFFD) == 0 )
             {
-              v16 = *(_DWORD *)(v13 + 156);
-              v17 = *(_DWORD *)(v13 + 152);
+              v32 = *(_DWORD *)(v22 + 156);
+              v33 = *(_DWORD *)(v22 + 152);
             }
             else
             {
-              v16 = *(_DWORD *)(v13 + 152);
-              v17 = *(_DWORD *)(v13 + 156);
+              v32 = *(_DWORD *)(v22 + 152);
+              v33 = *(_DWORD *)(v22 + 156);
             }
-            *(_DWORD *)(v13 + 100) = v17;
-            *(_DWORD *)(v13 + 96) = v16;
+            *(_DWORD *)(v22 + 100) = v33;
+            *(_DWORD *)(v22 + 96) = v32;
           }
-          BitsPerPixel = GetBitsPerPixel(*(_DWORD *)(v13 + 116));
-          *(_DWORD *)(v13 + 112) = v19 * (BitsPerPixel >> 3);
-          v20 = CcdWriteRegistryValues((_DWORD)Handle, 0, (unsigned int)&unk_1C012F6A0, 8, v13);
-          v11 = (CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *)v20;
-          if ( v20 < 0
-            || (*(_DWORD *)(v13 + 100) = v35,
-                *(_DWORD *)(v13 + 112) = *(_DWORD *)v33,
-                *(_DWORD *)(v13 + 96) = v15,
-                v39 = 4,
-                v21 = CcdWriteRegistryValues((_DWORD)Handle, 0, (unsigned int)&unk_1C012F630, 2, (__int64)&v39),
-                v11 = (CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *)v21,
-                v21 < 0) )
+          BitsPerPixel = GetBitsPerPixel(*(_DWORD *)(v22 + 116));
+          *(_DWORD *)(v22 + 112) = v35 * (BitsPerPixel >> 3);
+          v36 = CcdWriteRegistryValues((int)Handle, 0LL, v22);
+          v38 = v36;
+          if ( v36 < 0
+            || (*(_DWORD *)(v22 + 96) = v54,
+                *(_DWORD *)(v22 + 100) = *(_DWORD *)v52,
+                *(_DWORD *)(v22 + 112) = v57,
+                LODWORD(v58) = 3,
+                v39 = CcdWriteRegistryValues((int)Handle, 0LL, (__int64)&v58),
+                v38 = v39,
+                v39 < 0) )
           {
-            v27 = Handle;
-            v28 = 0LL;
-            v29 = v11;
-            v30 = v7;
-            v31 = 2LL;
-            goto LABEL_37;
+            v50 = (_QWORD *)WdLogNewEntry5_WdError(v20, v37);
+            v50[3] = v38;
+            v50[4] = Handle;
+            v50[5] = 0LL;
+            v50[6] = v13;
+            goto LABEL_35;
           }
         }
       }
-      v22 = CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::_WritePath(
-              v11,
+      v40 = CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::_WritePath(
+              v20,
               Handle,
-              v34,
-              (const struct D3DKMT_PATHMODALITY_DESCRIPTOR *)v13);
-      v6 = 0;
-      if ( v22 < 0 )
+              v53,
+              (const struct D3DKMT_PATHMODALITY_DESCRIPTOR *)v22);
+      v10 = 0;
+      v43 = v40;
+      if ( v40 < 0 )
       {
-        WdLogSingleEntry5(2LL, v22, v7, v34, a2, *((_QWORD *)a2 + 8));
+        v50 = (_QWORD *)WdLogNewEntry5_WdError(v42, v41);
+        v50[4] = v13;
+        v50[5] = v53;
+        v50[3] = v43;
+LABEL_34:
+        v50[6] = a2;
+        v50[7] = *((_QWORD *)a2 + 8);
+LABEL_35:
+        WdLogEvent5_WdError(v50);
         goto LABEL_24;
       }
-      if ( (*(_QWORD *)v13 & 0x800000000000LL) != 0
-        && IsInternalVideoOutput(*(enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)(v13 + 88))
-        && (v23 & 0x200) != 0 )
+      if ( (*(_QWORD *)v22 & 0x800000000000LL) != 0
+        && IsInternalVideoOutput(*(enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)(v22 + 88))
+        && (v44 & 0x200) != 0 )
       {
-        Global = DXGGLOBAL_GetGlobal();
-        v6 = 0;
-        *((_DWORD *)Global + 346) = *(_DWORD *)(v13 + 132);
+        v48 = *(_DWORD *)(v22 + 132);
+        Global = DXGGLOBAL::GetGlobal(v45, v44);
+        v10 = 0;
+        *((_DWORD *)Global + 310) = v48;
       }
-      if ( ++v7 >= *((unsigned __int16 *)ModalitySetId + 16) )
+      if ( ++v13 >= v11[16] )
         goto LABEL_24;
     }
-    v29 = (CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *)v8;
-    v31 = 1LL;
-    v30 = *((_QWORD *)a2 + 8);
-    v28 = a2;
-    v27 = (HANDLE)v7;
-LABEL_37:
-    WdLogSingleEntry4(v31, v29, v27, v28, v30);
+    v51 = (_QWORD *)WdLogNewEntry5_WdAssertion(v16, v15);
+    v51[3] = v17;
+    v51[4] = v13;
+    v51[5] = a2;
+    v51[6] = *((_QWORD *)a2 + 8);
+LABEL_38:
+    WdLogEvent5_WdAssertion(v51);
 LABEL_24:
     if ( Handle )
       ZwClose(Handle);

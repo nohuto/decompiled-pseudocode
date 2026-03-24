@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInsertStringAtom @ 0x1406B741C
+ * XREFs of RtlpInsertStringAtom @ 0x1406B73FC
  * Callers:
  *     RtlAddAtomToAtomTableEx @ 0x1400895B0 (RtlAddAtomToAtomTableEx.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExCreateHandleEx @ 0x1405D1380 (ExCreateHandleEx.c)
  *     ExMapHandleToPointer @ 0x1405F56A0 (ExMapHandleToPointer.c)
  *     ExDestroyHandle @ 0x1405FB318 (ExDestroyHandle.c)

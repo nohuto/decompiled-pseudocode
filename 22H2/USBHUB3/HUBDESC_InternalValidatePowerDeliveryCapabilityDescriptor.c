@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBDESC_InternalValidatePowerDeliveryCapabilityDescriptor @ 0x1C0039368
+ * XREFs of HUBDESC_InternalValidatePowerDeliveryCapabilityDescriptor @ 0x1C00362DC
  * Callers:
- *     HUBDESC_InternalValidateDeviceCapabilityDescriptor @ 0x1C003B4CC (HUBDESC_InternalValidateDeviceCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidateDeviceCapabilityDescriptor @ 0x1C0038400 (HUBDESC_InternalValidateDeviceCapabilityDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001484C (WPP_RECORDER_SF_DDD.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C0029678 (WPP_RECORDER_SF_DDDD.c)
- *     HUBDESC_ShouldEnforceWin8ValidationMutable @ 0x1C0035854 (HUBDESC_ShouldEnforceWin8ValidationMutable.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C0026A64 (WPP_RECORDER_SF_DDD.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C00322CC (WPP_RECORDER_SF_DDDD.c)
+ *     HUBDESC_ShouldEnforceWin8ValidationMutable @ 0x1C00327E4 (HUBDESC_ShouldEnforceWin8ValidationMutable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall HUBDESC_InternalValidatePowerDeliveryCapabilityDescriptor(
@@ -66,8 +66,8 @@ char __fastcall HUBDESC_InternalValidatePowerDeliveryCapabilityDescriptor(
         v8,
         2u,
         5u,
-        0x87u,
-        (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids,
+        0x85u,
+        (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
         v10,
         *a1,
         18,
@@ -82,7 +82,7 @@ LABEL_9:
         LODWORD(v22) = v15;
         LODWORD(v21) = *a1;
         LODWORD(v20) = v10;
-        WPP_RECORDER_SF_DDD(v8, 2u, v14, 0x89u, v16, v20, v21, v22);
+        WPP_RECORDER_SF_DDD(v8, 2u, v14, 0x87u, v16, v20, v21, v22);
       }
       (*(void (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 229LL);
     }
@@ -103,8 +103,8 @@ LABEL_9:
             v8,
             2u,
             5u,
-            0x8Bu,
-            (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids,
+            0x89u,
+            (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
             v20,
             v21,
             v22,
@@ -116,7 +116,7 @@ LABEL_9:
       {
         *(_BYTE *)(*(_QWORD *)(a2 + 80) + 42LL) = 1;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_(v8, 4u, 5u, 0x8Cu, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
+          WPP_RECORDER_SF_(v8, 4u, 5u, 0x8Au, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
       }
     }
     else
@@ -126,7 +126,7 @@ LABEL_9:
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         LODWORD(v20) = v10;
-        WPP_RECORDER_SF_d(v8, 2u, 5u, 0x8Au, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids, v20);
+        WPP_RECORDER_SF_d(v8, 2u, 5u, 0x88u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v20);
       }
       (*(void (__fastcall **)(_QWORD, __int64))(a2 + 24))(*(_QWORD *)(a2 + 40), 231LL);
     }
@@ -138,12 +138,12 @@ LABEL_35:
   *v5 = 1;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    WPP_RECORDER_SF_DDD(v8, 2u, v12, 0x88u, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids, v10, *a1, 18);
+    WPP_RECORDER_SF_DDD(v8, 2u, v12, 0x86u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v10, *a1, 18);
     goto LABEL_35;
   }
 LABEL_36:
   v9 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(v8, 2u, 5u, 0x8Du, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
+    WPP_RECORDER_SF_(v8, 2u, 5u, 0x8Bu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
   return v9;
 }

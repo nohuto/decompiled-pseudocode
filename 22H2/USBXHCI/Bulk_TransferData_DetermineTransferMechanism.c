@@ -1,49 +1,45 @@
 /*
- * XREFs of Bulk_TransferData_DetermineTransferMechanism @ 0x1C0012708
+ * XREFs of Bulk_TransferData_DetermineTransferMechanism @ 0x1C000D20C
  * Callers:
- *     Bulk_RetrieveNextStage @ 0x1C001200C (Bulk_RetrieveNextStage.c)
+ *     Bulk_RetrieveNextStage @ 0x1C000CD50 (Bulk_RetrieveNextStage.c)
  * Callees:
- *     TR_AcquireDoubleBuffer @ 0x1C0007410 (TR_AcquireDoubleBuffer.c)
- *     TR_IsUrbUsingChainedMdl @ 0x1C00074B4 (TR_IsUrbUsingChainedMdl.c)
+ *     TR_AcquireDoubleBuffer @ 0x1C000D28C (TR_AcquireDoubleBuffer.c)
+ *     TR_IsUrbUsingChainedMdl @ 0x1C000D330 (TR_IsUrbUsingChainedMdl.c)
  */
 
 void __fastcall Bulk_TransferData_DetermineTransferMechanism(__int64 a1)
 {
-  unsigned int v1; // r8d
+  unsigned int v1; // edx
   int v2; // ebx
-  __int64 v4; // rdx
-  unsigned int v5; // r8d
-  __int64 v6; // r9
-  _QWORD *v7; // rax
+  __int64 v3; // r8
+  __int64 v5; // rcx
+  unsigned __int16 v6; // ax
+  unsigned int v7; // edx
+  __int64 v8; // r8
+  __int64 v9; // rax
 
   v1 = *(_DWORD *)(a1 + 104);
   v2 = 0;
+  v3 = *(_QWORD *)(a1 + 56);
   if ( v1 )
   {
-    v4 = *(_QWORD *)(a1 + 48);
-    if ( *(_WORD *)(v4 + 2) != 8
-      && *(_WORD *)(v4 + 2) != 9
-      && *(_WORD *)(v4 + 2) != 10
-      && *(_WORD *)(v4 + 2) != 50
-      && *(_WORD *)(v4 + 2) != 55
-      && *(_WORD *)(v4 + 2) != 56
-      && (unsigned int)*(unsigned __int16 *)(v4 + 2) - 57 < 2 )
-    {
-      goto LABEL_9;
-    }
-    if ( *(_BYTE *)(*(_QWORD *)(a1 + 56) + 320LL) && v1 <= 8 )
+    v5 = *(_QWORD *)(a1 + 48);
+    v6 = *(_WORD *)(v5 + 2);
+    if ( v6 > 0x38u && v6 <= 0x3Au )
+      goto LABEL_8;
+    if ( *(_BYTE *)(v3 + 320) && v1 <= 8 )
     {
       v2 = 1;
-      goto LABEL_8;
+      goto LABEL_7;
     }
-    if ( TR_IsUrbUsingChainedMdl(v4)
-      || v5 > *(_DWORD *)(v6 + 24)
-      || (v7 = TR_AcquireDoubleBuffer(v6), *(_QWORD *)(a1 + 96) = v7, v2 = 2, !v7) )
+    if ( (unsigned __int8)TR_IsUrbUsingChainedMdl(v5)
+      || v7 > *(_DWORD *)(v8 + 24)
+      || (v9 = TR_AcquireDoubleBuffer(v8), *(_QWORD *)(a1 + 96) = v9, v2 = 2, !v9) )
     {
-LABEL_9:
+LABEL_8:
       v2 = 3;
     }
   }
-LABEL_8:
+LABEL_7:
   *(_DWORD *)(a1 + 76) = v2;
 }

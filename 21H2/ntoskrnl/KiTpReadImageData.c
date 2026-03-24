@@ -1,12 +1,12 @@
 /*
- * XREFs of KiTpReadImageData @ 0x14096324C
+ * XREFs of KiTpReadImageData @ 0x1408BD28C
  * Callers:
- *     KiTpSetupCompletion @ 0x140963330 (KiTpSetupCompletion.c)
+ *     KiTpSetupCompletion @ 0x1408BD370 (KiTpSetupCompletion.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall KiTpReadImageData(_KPROCESS *a1, char a2, const void *a3, _DWORD *a4, unsigned int Size)
@@ -28,6 +28,6 @@ __int64 __fastcall KiTpReadImageData(_KPROCESS *a1, char a2, const void *a3, _DW
   }
   memmove(a4, a3, Size);
   if ( a1 )
-    KiUnstackDetachProcess((__int64)v11, 0LL);
+    KiUnstackDetachProcess((__int64)v11, 0);
   return 0LL;
 }

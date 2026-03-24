@@ -1,23 +1,22 @@
 /*
- * XREFs of UsbhGetMaxPowerPerPort @ 0x1C002BFE4
+ * XREFs of UsbhGetMaxPowerPerPort @ 0x1C002D400
  * Callers:
- *     UsbhConfigureUsbHub @ 0x1C00293DC (UsbhConfigureUsbHub.c)
+ *     UsbhConfigureUsbHub @ 0x1C002A738 (UsbhConfigureUsbHub.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhGetHubPowerStatus @ 0x1C002BE98 (UsbhGetHubPowerStatus.c)
- *     UsbhGetStatus @ 0x1C002C278 (UsbhGetStatus.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhGetHubPowerStatus @ 0x1C002D2B4 (UsbhGetHubPowerStatus.c)
+ *     UsbhGetStatus @ 0x1C002D6A0 (UsbhGetStatus.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall UsbhGetMaxPowerPerPort(__int64 a1)
 {
   _DWORD *v2; // rbx
-  __int64 Pool2; // rax
-  _BYTE *v4; // rdi
-  unsigned int v5; // edx
+  _WORD *PoolWithTag; // rdi
+  unsigned int v4; // edx
   __int64 result; // rax
-  unsigned int v7; // ecx
+  unsigned int v6; // ecx
 
   v2 = FdoExt(a1);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -27,13 +26,13 @@ __int64 __fastcall UsbhGetMaxPowerPerPort(__int64 a1)
       1,
       34,
       (__int64)&WPP_17d2bee9f04934815023b5c023c5576c_Traceguids);
-  Pool2 = ExAllocatePool2(64LL, 2LL, 1112885333LL);
-  v4 = (_BYTE *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 2uLL, 0x42554855u);
+  if ( PoolWithTag )
   {
-    if ( (int)UsbhGetStatus(a1, Pool2) >= 0 )
+    *PoolWithTag = 0;
+    if ( (int)UsbhGetStatus(a1, (_DWORD)PoolWithTag) >= 0 )
     {
-      if ( (*v4 & 1) != 0 )
+      if ( (*(_BYTE *)PoolWithTag & 1) != 0 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
           WPP_RECORDER_SF_(
@@ -56,13 +55,13 @@ __int64 __fastcall UsbhGetMaxPowerPerPort(__int64 a1)
         v2[761] = 100;
       }
     }
-    ExFreePoolWithTag(v4, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
   UsbhGetHubPowerStatus(a1);
-  v5 = v2[759];
-  if ( v5 )
+  v4 = v2[759];
+  if ( v4 )
   {
-    result = v5;
+    result = v4;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -73,7 +72,7 @@ __int64 __fastcall UsbhGetMaxPowerPerPort(__int64 a1)
           1,
           37,
           (__int64)&WPP_17d2bee9f04934815023b5c023c5576c_Traceguids,
-          v5);
+          v4);
         return (unsigned int)v2[759];
       }
     }
@@ -83,10 +82,10 @@ __int64 __fastcall UsbhGetMaxPowerPerPort(__int64 a1)
     result = (unsigned int)v2[761];
     if ( !(_DWORD)result )
     {
-      v7 = v2[760];
+      v6 = v2[760];
       result = 500LL;
-      if ( v7 )
-        return v7;
+      if ( v6 )
+        return v6;
     }
   }
   return result;

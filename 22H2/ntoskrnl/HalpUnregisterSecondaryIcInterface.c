@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpUnregisterSecondaryIcInterface @ 0x14051A600
+ * XREFs of HalpUnregisterSecondaryIcInterface @ 0x1404D1450
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseSecondaryIcEntryShared @ 0x14037D520 (HalpReleaseSecondaryIcEntryShared.c)
- *     HalpDeleteSecondaryIcEntry @ 0x140519DAC (HalpDeleteSecondaryIcEntry.c)
- *     HalpFindSecondaryIcEntryFromObjectAndRange @ 0x140519ED4 (HalpFindSecondaryIcEntryFromObjectAndRange.c)
+ *     HalpDeleteSecondaryIcEntry @ 0x1404D0A60 (HalpDeleteSecondaryIcEntry.c)
+ *     HalpFindSecondaryIcEntryFromObjectAndRange @ 0x1404D0C6C (HalpFindSecondaryIcEntryFromObjectAndRange.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D1404 (HalpReleaseSecondaryIcEntryShared.c)
  */
 
 __int64 __fastcall HalpUnregisterSecondaryIcInterface(int a1, int a2, __int64 a3)
@@ -13,7 +13,6 @@ __int64 __fastcall HalpUnregisterSecondaryIcInterface(int a1, int a2, __int64 a3
   void *SecondaryIcEntryFromObjectAndRange; // rax
   __int64 v4; // rdi
   int v5; // ebx
-  __int64 v6; // rdx
 
   SecondaryIcEntryFromObjectAndRange = (void *)HalpFindSecondaryIcEntryFromObjectAndRange(a3, a1, a2);
   v4 = (__int64)SecondaryIcEntryFromObjectAndRange;
@@ -21,10 +20,7 @@ __int64 __fastcall HalpUnregisterSecondaryIcInterface(int a1, int a2, __int64 a3
   {
     v5 = HalpDeleteSecondaryIcEntry(SecondaryIcEntryFromObjectAndRange);
     if ( v5 < 0 )
-    {
-      LOBYTE(v6) = 1;
-      HalpReleaseSecondaryIcEntryShared(v4, v6);
-    }
+      HalpReleaseSecondaryIcEntryShared(v4, 1);
   }
   else
   {

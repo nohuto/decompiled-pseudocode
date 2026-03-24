@@ -1,14 +1,14 @@
 /*
- * XREFs of VslEnableKernelCfgTarget @ 0x140931F54
+ * XREFs of VslEnableKernelCfgTarget @ 0x14088F704
  * Callers:
- *     MiMarkKernelCfgTarget @ 0x1402D7FD0 (MiMarkKernelCfgTarget.c)
+ *     MiMarkKernelCfgTarget @ 0x1402C973C (MiMarkKernelCfgTarget.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslEnableKernelCfgTarget(__int64 a1)
+NTSTATUS __fastcall VslEnableKernelCfgTarget(__int64 a1)
 {
   _QWORD v3[14]; // [rsp+20h] [rbp-88h] BYREF
 

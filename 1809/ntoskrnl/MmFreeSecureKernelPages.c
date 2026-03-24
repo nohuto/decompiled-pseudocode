@@ -1,17 +1,17 @@
 /*
- * XREFs of MmFreeSecureKernelPages @ 0x1402C3034
+ * XREFs of MmFreeSecureKernelPages @ 0x1402C3134
  * Callers:
- *     MmAllocateSecureKernelPages @ 0x1402C2D4C (MmAllocateSecureKernelPages.c)
- *     PspIumAllocatePhysicalPages @ 0x1402EB54C (PspIumAllocatePhysicalPages.c)
- *     PspIumFreePartitionState @ 0x1402EB764 (PspIumFreePartitionState.c)
- *     PspIumFreePhysicalPages @ 0x1402EB82C (PspIumFreePhysicalPages.c)
+ *     MmAllocateSecureKernelPages @ 0x1402C2E4C (MmAllocateSecureKernelPages.c)
+ *     PspIumAllocatePhysicalPages @ 0x1402EB64C (PspIumAllocatePhysicalPages.c)
+ *     PspIumFreePartitionState @ 0x1402EB864 (PspIumFreePartitionState.c)
+ *     PspIumFreePhysicalPages @ 0x1402EB92C (PspIumFreePhysicalPages.c)
  * Callees:
  *     MiFreeSmallPageFromMdl @ 0x140029F10 (MiFreeSmallPageFromMdl.c)
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmFreeSecureKernelPages(ULONG_PTR a1, int a2)

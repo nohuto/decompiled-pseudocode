@@ -1,9 +1,9 @@
 /*
- * XREFs of Etw_CommandWaitlisted @ 0x1C00480C8
+ * XREFs of Etw_CommandWaitlisted @ 0x1C0047E34
  * Callers:
- *     Command_InternalSendCommand @ 0x1C0003E9C (Command_InternalSendCommand.c)
+ *     Command_InternalSendCommand @ 0x1C0006D80 (Command_InternalSendCommand.c)
  * Callees:
- *     McTemplateK0ppb16u_EtwWriteTransfer @ 0x1C0048AF0 (McTemplateK0ppb16u_EtwWriteTransfer.c)
+ *     McTemplateK0ppb16u_EtwWriteTransfer @ 0x1C00488B8 (McTemplateK0ppb16u_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_CommandWaitlisted(int a1, __int64 a2, __int64 a3, char a4)

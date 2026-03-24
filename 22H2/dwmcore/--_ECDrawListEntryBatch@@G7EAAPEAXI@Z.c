@@ -1,12 +1,12 @@
 /*
- * XREFs of ??_ECDrawListEntryBatch@@G7EAAPEAXI@Z @ 0x18011DB00
+ * XREFs of ??_ECDrawListEntryBatch@@G7EAAPEAXI@Z @ 0x1800F5CC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void *__fastcall CDrawListEntryBatch::`vector deleting destructor'(__int64 a1, unsigned int a2)
+CDrawListEntryBatch *__fastcall CDrawListEntryBatch::`vector deleting destructor'(__int64 a1, char a2)
 {
   return CDrawListEntryBatch::`scalar deleting destructor'((CDrawListEntryBatch *)(a1 - 8), a2);
 }

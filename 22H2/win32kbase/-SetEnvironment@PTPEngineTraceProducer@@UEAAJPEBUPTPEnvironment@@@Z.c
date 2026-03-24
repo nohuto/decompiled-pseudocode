@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetEnvironment@PTPEngineTraceProducer@@UEAAJPEBUPTPEnvironment@@@Z @ 0x1C0205700
+ * XREFs of ?SetEnvironment@PTPEngineTraceProducer@@UEAAJPEBUPTPEnvironment@@@Z @ 0x1C01C9F50
  * Callers:
- *     ?InitState@CPTPProcessor@@AEAAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01DF464 (-InitState@CPTPProcessor@@AEAAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
- *     ?UpdateEnvironment@CPTPProcessor@@AEAAXW4EnvironmentUpdateOptions@@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01E1058 (-UpdateEnvironment@CPTPProcessor@@AEAAXW4EnvironmentUpdateOptions@@PEAUtagHID_POINTER_DEVICE_INF.c)
+ *     ?InitState@CPTPProcessor@@AEAAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01A5EA8 (-InitState@CPTPProcessor@@AEAAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ *     ?UpdateEnvironment@CPTPProcessor@@AEAAXW4EnvironmentUpdateOptions@@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01A7C24 (-UpdateEnvironment@CPTPProcessor@@AEAAXW4EnvironmentUpdateOptions@@PEAUtagHID_POINTER_DEVICE_INF.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?TraceEnvironment@PTPEngineTraceProducer@@AEAAXPEBUPTPEnvironment@@@Z @ 0x1C02057B4 (-TraceEnvironment@PTPEngineTraceProducer@@AEAAXPEBUPTPEnvironment@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?TraceEnvironment@PTPEngineTraceProducer@@AEAAXPEBUPTPEnvironment@@@Z @ 0x1C01CA02C (-TraceEnvironment@PTPEngineTraceProducer@@AEAAXPEBUPTPEnvironment@@@Z.c)
  */
 
 __int64 __fastcall PTPEngineTraceProducer::SetEnvironment(
@@ -23,7 +23,7 @@ __int64 __fastcall PTPEngineTraceProducer::SetEnvironment(
   LODWORD(result) = (*(__int64 (__fastcall **)(_QWORD, const struct PTPEnvironment *))(**((_QWORD **)this + 3) + 8LL))(
                       *((_QWORD *)this + 3),
                       v2);
-  v5 = 4LL;
+  v5 = 3LL;
   v6 = (char *)this + 40;
   do
   {
@@ -43,7 +43,12 @@ __int64 __fastcall PTPEngineTraceProducer::SetEnvironment(
   while ( v5 );
   *(_OWORD *)v6 = *(_OWORD *)v2;
   *((_OWORD *)v6 + 1) = *((_OWORD *)v2 + 1);
-  *((_QWORD *)v6 + 4) = *((_QWORD *)v2 + 4);
-  *((_DWORD *)v6 + 10) = *((_DWORD *)v2 + 10);
+  *((_OWORD *)v6 + 2) = *((_OWORD *)v2 + 2);
+  *((_OWORD *)v6 + 3) = *((_OWORD *)v2 + 3);
+  *((_OWORD *)v6 + 4) = *((_OWORD *)v2 + 4);
+  *((_OWORD *)v6 + 5) = *((_OWORD *)v2 + 5);
+  *((_OWORD *)v6 + 6) = *((_OWORD *)v2 + 6);
+  *((_QWORD *)v6 + 14) = *((_QWORD *)v2 + 14);
+  *((_DWORD *)v6 + 30) = *((_DWORD *)v2 + 30);
   return (unsigned int)result;
 }

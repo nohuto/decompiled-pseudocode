@@ -1,26 +1,26 @@
 /*
- * XREFs of Simulator_InitializeInterface @ 0x1C00AB2A0
+ * XREFs of Simulator_InitializeInterface @ 0x1C00BB6C8
  * Callers:
- *     DriverEntry @ 0x1C00A7310 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00BB98C (DriverEntry.c)
  * Callees:
- *     Simulator_UnInitializeInterface @ 0x1C00AB548 (Simulator_UnInitializeInterface.c)
+ *     Simulator_UnInitializeInterface @ 0x1C00C08A4 (Simulator_UnInitializeInterface.c)
  */
 
 __int64 Simulator_InitializeInterface()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  struct _UNICODE_STRING v3; // [rsp+20h] [rbp-48h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
-  *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
-  DestinationString = 0LL;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v3 = 0LL;
   if ( !g_SimulatorCallbackObject )
   {
-    RtlInitUnicodeString(&DestinationString, L"\\Callback\\AcpiSimulator");
+    RtlInitUnicodeString(&v3, L"\\Callback\\AcpiSimulator");
     ObjectAttributes.RootDirectory = 0LL;
-    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.ObjectName = &v3;
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 16;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -32,7 +32,7 @@ __int64 Simulator_InitializeInterface()
                                         (PCALLBACK_FUNCTION)Simulator_CallbackWorker,
                                         0LL);
       if ( !g_SimulatorCallbackFuncHandle )
-        Simulator_UnInitializeInterface(v1, v0);
+        Simulator_UnInitializeInterface(v2, v1);
     }
     else
     {

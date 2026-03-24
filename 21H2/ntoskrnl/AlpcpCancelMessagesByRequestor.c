@@ -1,27 +1,27 @@
 /*
- * XREFs of AlpcpCancelMessagesByRequestor @ 0x14074E474
+ * XREFs of AlpcpCancelMessagesByRequestor @ 0x1405E2A50
  * Callers:
- *     AlpcpDisconnectPort @ 0x14074E130 (AlpcpDisconnectPort.c)
+ *     AlpcpDisconnectPort @ 0x1405E26FC (AlpcpDisconnectPort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphoreEx @ 0x14035AD70 (KeReleaseSemaphoreEx.c)
- *     AlpcpTransferQuotaMessage @ 0x140663348 (AlpcpTransferQuotaMessage.c)
- *     AlpcpReleaseMessageAttributesOnCancel @ 0x1406633A8 (AlpcpReleaseMessageAttributesOnCancel.c)
- *     PsReleaseProcessWakeCounter @ 0x140668680 (PsReleaseProcessWakeCounter.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1407A6A34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpClearOwnerPortMessage @ 0x1407A7064 (AlpcpClearOwnerPortMessage.c)
- *     AlpcpUnlockMessage @ 0x1407A7628 (AlpcpUnlockMessage.c)
- *     AlpcpReferenceBlob @ 0x1407A7F84 (AlpcpReferenceBlob.c)
- *     AlpcpTryLockForCachedReferenceBlob @ 0x1407A91A0 (AlpcpTryLockForCachedReferenceBlob.c)
+ *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     PsReleaseProcessWakeCounter @ 0x1405DE9D0 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x1405E2F90 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcpTransferQuotaMessage @ 0x1405E355C (AlpcpTransferQuotaMessage.c)
+ *     AlpcpClearOwnerPortMessage @ 0x1405E393C (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpTryLockForCachedReferenceBlob @ 0x1405E9260 (AlpcpTryLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
  */
 
 __int64 __fastcall AlpcpCancelMessagesByRequestor(__int64 a1, __int64 a2, ULONG_PTR *a3, unsigned int a4, __int64 a5)
 {
   int v5; // r10d
   __int64 v6; // rsi
-  bool v10; // zf
+  BOOL v10; // eax
   __int64 v11; // rax
   ULONG_PTR v12; // rdi
   unsigned int v13; // r12d
@@ -36,22 +36,31 @@ __int64 __fastcall AlpcpCancelMessagesByRequestor(__int64 a1, __int64 a2, ULONG_
   volatile signed __int64 *v23; // rsi
   __int64 v24; // rax
   ULONG_PTR *i; // rax
-  ULONG_PTR v27; // [rsp+80h] [rbp+18h]
-  int v28; // [rsp+88h] [rbp+20h]
+  ULONG_PTR BugCheckParameter2; // [rsp+80h] [rbp+18h]
+  unsigned int v28; // [rsp+88h] [rbp+20h]
 
   v5 = *(_DWORD *)(a2 + 416) & 6;
   v6 = a1;
   if ( (*(_DWORD *)(a1 + 416) & 6) == 4 )
-    v10 = v5 == 4;
-  else
-    v10 = v5 == 2;
-  if ( !v10 && a4 == 3 )
+  {
+    v10 = v5 != 4;
+    goto LABEL_3;
+  }
+  if ( v5 == 2 )
+  {
+    v10 = 0;
+LABEL_3:
+    if ( !v10 )
+      goto LABEL_5;
+  }
+  if ( a4 == 3 )
   {
     v28 = 1;
 LABEL_16:
     v11 = 176LL;
     goto LABEL_7;
   }
+LABEL_5:
   v28 = 0;
   if ( a4 <= 2 )
   {
@@ -67,7 +76,7 @@ LABEL_7:
   v13 = 0;
   while ( (ULONG_PTR *)v12 != a3 )
   {
-    v27 = v12;
+    BugCheckParameter2 = v12;
     if ( *(_QWORD *)(v12 + 24) == v6 || (*(_DWORD *)(v12 + 40) & 0x8000) != 0 )
     {
       AlpcpReferenceBlob(v12);
@@ -109,7 +118,7 @@ LABEL_7:
             if ( i == (ULONG_PTR *)v12 )
             {
               v17 = 1;
-              goto LABEL_29;
+              goto LABEL_30;
             }
           }
         }
@@ -121,12 +130,12 @@ LABEL_7:
       if ( *(_QWORD *)(v12 + 24) == v6 )
       {
         v17 = 0;
-LABEL_29:
+LABEL_30:
         if ( *(_QWORD *)(v12 + 64) )
-          goto LABEL_34;
+          goto LABEL_35;
         v18 = *(_DWORD *)(v12 + 40);
         if ( (v18 & 0x80u) != 0 )
-          goto LABEL_34;
+          goto LABEL_35;
         v19 = *(_QWORD *)(v12 + 32);
         v20 = v18 | 0x80;
         *(_BYTE *)(v12 + 244) = 0;
@@ -135,12 +144,12 @@ LABEL_29:
         *(_DWORD *)(v12 + 240) = 2621440;
         if ( v19 )
         {
-          if ( _InterlockedExchange64((volatile __int64 *)(v19 + 1400), 0LL) == v12 )
+          if ( _InterlockedExchange64((volatile __int64 *)(v19 + 1320), 0LL) == v12 )
           {
-            KeReleaseSemaphoreEx((volatile signed __int32 *)(*(_QWORD *)(v12 + 32) + 1240LL), 1LL, 1LL, v16, 2);
+            KeReleaseSemaphoreEx(*(_QWORD *)(v12 + 32) + 1160LL, 1LL, 1LL, v16, 2);
             *(_QWORD *)(v12 + 32) = 0LL;
             *(_WORD *)(v12 - 30) -= 3;
-            goto LABEL_34;
+            goto LABEL_35;
           }
         }
         else if ( (v20 & 0x200) == 0 )
@@ -149,7 +158,7 @@ LABEL_29:
           *(_QWORD *)(v12 + 80) = a5;
           **(_QWORD **)(a5 + 8) = v12 + 80;
           *(_QWORD *)(a5 + 8) = v12 + 80;
-LABEL_34:
+LABEL_35:
           AlpcpReleaseMessageAttributesOnCancel(v12, v28);
           *(_DWORD *)(v12 + 40) |= 0x200u;
           *(_WORD *)(v12 + 244) &= ~0x2000u;
@@ -171,12 +180,12 @@ LABEL_34:
             v12 = *a3;
           else
             v12 = *(_QWORD *)v12;
-          AlpcpUnlockMessage(v27);
+          AlpcpUnlockMessage(BugCheckParameter2);
           v6 = a1;
           continue;
         }
         --*(_WORD *)(v12 - 30);
-        goto LABEL_34;
+        goto LABEL_35;
       }
       --*(_WORD *)(v12 - 30);
       AlpcpUnlockMessage(v12);

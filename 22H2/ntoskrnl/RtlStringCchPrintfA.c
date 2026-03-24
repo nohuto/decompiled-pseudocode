@@ -1,46 +1,48 @@
 /*
- * XREFs of RtlStringCchPrintfA @ 0x14037507C
+ * XREFs of RtlStringCchPrintfA @ 0x1403B7F0C
  * Callers:
- *     IopCopyBootLogRegistryToFile @ 0x1408659D8 (IopCopyBootLogRegistryToFile.c)
- *     IopCreateArcName @ 0x14086FCF8 (IopCreateArcName.c)
- *     IopCreateArcNamesCd @ 0x140B3D2CC (IopCreateArcNamesCd.c)
- *     IopMarkBootPartition @ 0x140B3D4F0 (IopMarkBootPartition.c)
- *     IopCreateArcNames @ 0x140B3D704 (IopCreateArcNames.c)
- *     IopGetBootDiskInformation @ 0x140B94A0C (IopGetBootDiskInformation.c)
- *     IopApplySystemPartitionProt @ 0x140B94EE0 (IopApplySystemPartitionProt.c)
- *     PipCriticalDeviceWaitCallback @ 0x140B95140 (PipCriticalDeviceWaitCallback.c)
+ *     IopCreateArcName @ 0x140780218 (IopCreateArcName.c)
+ *     IopCopyBootLogRegistryToFile @ 0x14079A4DC (IopCopyBootLogRegistryToFile.c)
+ *     IopMarkBootPartition @ 0x140A61890 (IopMarkBootPartition.c)
+ *     IopCreateArcNames @ 0x140A61BAC (IopCreateArcNames.c)
+ *     IopCreateArcNamesCd @ 0x140A61E50 (IopCreateArcNamesCd.c)
+ *     IopGetBootDiskInformation @ 0x140A8F9DC (IopGetBootDiskInformation.c)
+ *     IopApplySystemPartitionProt @ 0x140A8FEC0 (IopApplySystemPartitionProt.c)
+ *     PipCriticalDeviceWaitCallback @ 0x140A90110 (PipCriticalDeviceWaitCallback.c)
  * Callees:
- *     _vsnprintf @ 0x1403D8470 (_vsnprintf.c)
+ *     _vsnprintf @ 0x1403D0A90 (_vsnprintf.c)
  */
 
 NTSTATUS RtlStringCchPrintfA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszFormat, ...)
 {
-  size_t v4; // rdi
-  NTSTATUS v5; // ebx
+  NTSTATUS v3; // edi
+  size_t v5; // rbx
   int v6; // eax
   va_list Args; // [rsp+68h] [rbp+20h] BYREF
 
   va_start(Args, pszFormat);
+  v3 = 0;
   if ( cchDest - 1 > 0x7FFFFFFE )
+    v3 = -1073741811;
+  if ( v3 < 0 )
   {
-    v5 = -1073741811;
     if ( cchDest )
       *pszDest = 0;
   }
   else
   {
-    v4 = cchDest - 1;
-    v5 = 0;
+    v5 = cchDest - 1;
+    v3 = 0;
     v6 = vsnprintf(pszDest, cchDest - 1, pszFormat, Args);
-    if ( v6 < 0 || v6 > v4 )
+    if ( v6 < 0 || v6 > v5 )
     {
-      pszDest[v4] = 0;
+      pszDest[v5] = 0;
       return -2147483643;
     }
-    else if ( v6 == v4 )
+    else if ( v6 == v5 )
     {
-      pszDest[v4] = 0;
+      pszDest[v5] = 0;
     }
   }
-  return v5;
+  return v3;
 }

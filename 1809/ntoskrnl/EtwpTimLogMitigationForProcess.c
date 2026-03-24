@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTimLogMitigationForProcess @ 0x1406BF1BC
+ * XREFs of EtwpTimLogMitigationForProcess @ 0x1406BF19C
  * Callers:
  *     MiAllowImageMap @ 0x1405F48B8 (MiAllowImageMap.c)
- *     EtwTimLogProhibitDynamicCode @ 0x1406BF18C (EtwTimLogProhibitDynamicCode.c)
- *     EtwTimLogProhibitWin32kSystemCalls @ 0x1408BD388 (EtwTimLogProhibitWin32kSystemCalls.c)
+ *     EtwTimLogProhibitDynamicCode @ 0x1406BF16C (EtwTimLogProhibitDynamicCode.c)
+ *     EtwTimLogProhibitWin32kSystemCalls @ 0x1408BD368 (EtwTimLogProhibitWin32kSystemCalls.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     EtwpTiFillThreadIdentity @ 0x140131F94 (EtwpTiFillThreadIdentity.c)
- *     EtwpTiFillProcessIdentity @ 0x140131FCC (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     EtwpTiFillThreadIdentity @ 0x140131FB4 (EtwpTiFillThreadIdentity.c)
+ *     EtwpTiFillProcessIdentity @ 0x140131FEC (EtwpTiFillProcessIdentity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpQueryProcessCommandLine @ 0x14066C878 (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessCommandLine @ 0x14066C858 (EtwpQueryProcessCommandLine.c)
  */
 
 void __fastcall EtwpTimLogMitigationForProcess(int a1, int a2, const EVENT_DESCRIPTOR *a3, __int64 a4)
@@ -120,7 +120,7 @@ void __fastcall EtwpTimLogMitigationForProcess(int a1, int a2, const EVENT_DESCR
     v35 = v15;
     v36[1] = 0;
     v38 = 8LL;
-    TlgWrite(&stru_1404002D0, &unk_140373AA6, 0LL, 0LL, 9u, &pData);
+    TlgWrite(&stru_1404002D0, &unk_140373BBD, 0LL, 0LL, 9u, &pData);
   }
   if ( v15 )
     ExFreePoolWithTag(v15, 0);

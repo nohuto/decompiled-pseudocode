@@ -4,13 +4,13 @@
  *     sub_140624870 @ 0x140624870 (sub_140624870.c)
  *     WbGetHeapExecutedBlock @ 0x14062490C (WbGetHeapExecutedBlock.c)
  *     WbHeapExecuteCall @ 0x140624ABC (WbHeapExecuteCall.c)
- *     WbFreeWarbirdProcess @ 0x14068FFB8 (WbFreeWarbirdProcess.c)
- *     sub_1406901F0 @ 0x1406901F0 (sub_1406901F0.c)
- *     WbHeapExecutionUnloadModule @ 0x1406B0BDC (WbHeapExecutionUnloadModule.c)
- *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1406B0CE0 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
+ *     WbFreeWarbirdProcess @ 0x14068FF98 (WbFreeWarbirdProcess.c)
+ *     sub_1406901D0 @ 0x1406901D0 (sub_1406901D0.c)
+ *     WbHeapExecutionUnloadModule @ 0x1406B0BBC (WbHeapExecutionUnloadModule.c)
+ *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1406B0CC0 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WbFreeUserMemory @ 0x1406B1BBC (WbFreeUserMemory.c)
+ *     WbFreeUserMemory @ 0x1406B1B9C (WbFreeUserMemory.c)
  */
 
 signed __int64 __fastcall sub_140624A54(__int64 a1, __int64 a2)

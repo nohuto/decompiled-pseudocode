@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpIsKcbLockAllowed @ 0x14076AC34
+ * XREFs of CmpIsKcbLockAllowed @ 0x140765D74
  * Callers:
- *     CmpFindSubkeyInHashByChildCell @ 0x1407697F0 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x140765B90 (CmpFindSubkeyInHashByChildCell.c)
  * Callees:
- *     CmpGetCorrectKcbLockOrder @ 0x14076AC78 (CmpGetCorrectKcbLockOrder.c)
+ *     CmpGetCorrectKcbLockOrder @ 0x14069D97C (CmpGetCorrectKcbLockOrder.c)
  */
 
-bool __fastcall CmpIsKcbLockAllowed(__int64 a1, __int64 a2, _BYTE *a3)
+bool __fastcall CmpIsKcbLockAllowed(unsigned __int64 a1, unsigned __int64 a2, _BYTE *a3)
 {
-  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
-  char v6; // [rsp+38h] [rbp+10h] BYREF
+  unsigned __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v6; // [rsp+38h] [rbp+10h] BYREF
 
   v5 = 0LL;
   *a3 = 0;

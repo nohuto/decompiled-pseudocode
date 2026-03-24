@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$SAFE_DELETE@VCD2DTarget@@@@YAXAEAPEAVCD2DTarget@@@Z @ 0x1800E66E4
+ * XREFs of ??$SAFE_DELETE@VCD2DTarget@@@@YAXAEAPEAVCD2DTarget@@@Z @ 0x180029F70
  * Callers:
- *     ?PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z @ 0x18008DD30 (-PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z.c)
- *     ?ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ @ 0x1800D1A9C (-ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ.c)
+ *     ?ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ @ 0x18002CED8 (-ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ.c)
+ *     ?PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z @ 0x180077430 (-PushTarget@CD2DContext@@UEAAJPEAVID2DContextOwner@@PEAVIDeviceTarget@@@Z.c)
  * Callees:
- *     ??_GCD2DTarget@@QEAAPEAXI@Z @ 0x1800E6710 (--_GCD2DTarget@@QEAAPEAXI@Z.c)
+ *     ??_GCD2DTarget@@QEAAPEAXI@Z @ 0x180029F9C (--_GCD2DTarget@@QEAAPEAXI@Z.c)
  */
 
 void *__fastcall SAFE_DELETE<CD2DTarget>(CD2DTarget **a1, unsigned int a2)

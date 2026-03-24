@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhGetTtDeviceHandle @ 0x1C0037D00
+ * XREFs of UsbhGetTtDeviceHandle @ 0x1C0038FD8
  * Callers:
- *     UsbhCreateDevice @ 0x1C001BC70 (UsbhCreateDevice.c)
+ *     UsbhCreateDevice @ 0x1C0019118 (UsbhCreateDevice.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 __int64 __fastcall UsbhGetTtDeviceHandle(__int64 a1, __int64 *a2, __int64 a3, _NAMED_PIPE_CREATE_PARAMETERS *a4)

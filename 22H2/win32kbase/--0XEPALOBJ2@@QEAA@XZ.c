@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0XEPALOBJ2@@QEAA@XZ @ 0x1C00D2464
+ * XREFs of ??0XEPALOBJ2@@QEAA@XZ @ 0x1C00C94C4
  * Callers:
- *     bDeletePalette @ 0x1C008B2F0 (bDeletePalette.c)
- *     ??$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00D3170 (--$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     bDeletePalette @ 0x1C0074320 (bDeletePalette.c)
+ *     ??$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBF54 (--$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z.c)
  * Callees:
- *     PushThreadGuardedObject @ 0x1C0049F70 (PushThreadGuardedObject.c)
+ *     PushThreadGuardedObject @ 0x1C002E110 (PushThreadGuardedObject.c)
  */
 
 XEPALOBJ2 *__fastcall XEPALOBJ2::XEPALOBJ2(XEPALOBJ2 *this)

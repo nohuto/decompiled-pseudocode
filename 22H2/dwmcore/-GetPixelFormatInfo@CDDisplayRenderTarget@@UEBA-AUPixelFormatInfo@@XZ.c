@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CDDisplayRenderTarget@@UEBA?AUPixelFormatInfo@@XZ @ 0x1801C4698
+ * XREFs of ?GetPixelFormatInfo@CDDisplayRenderTarget@@UEBA?AUPixelFormatInfo@@XZ @ 0x18016E61C
  * Callers:
- *     ?GetPixelFormatInfo@CDDisplayRenderTarget@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x18011C5E0 (-GetPixelFormatInfo@CDDisplayRenderTarget@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CDDisplayRenderTarget@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F47A0 (-GetPixelFormatInfo@CDDisplayRenderTarget@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
  *     <none>
  */
@@ -12,16 +12,16 @@ __int64 __fastcall CDDisplayRenderTarget::GetPixelFormatInfo(__int64 a1, __int64
   __int64 v3; // xmm0_8
   int v4; // eax
 
-  v2 = *(_QWORD *)(a1 - 18512);
+  v2 = *(_QWORD *)(a1 - 18488);
   if ( v2 )
   {
-    v3 = *(_QWORD *)(v2 + 432);
-    v4 = *(_DWORD *)(v2 + 440);
+    v3 = *(_QWORD *)(v2 + 240);
+    v4 = *(_DWORD *)(v2 + 248);
   }
   else
   {
-    v3 = *(_QWORD *)(a1 - 18584);
-    v4 = *(_DWORD *)(a1 - 18576);
+    v3 = *(_QWORD *)(a1 - 18568);
+    v4 = *(_DWORD *)(a1 - 18560);
   }
   *(_QWORD *)a2 = v3;
   *(_DWORD *)(a2 + 8) = v4;

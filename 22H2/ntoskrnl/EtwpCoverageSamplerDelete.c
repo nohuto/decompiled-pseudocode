@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageSamplerDelete @ 0x1409F31A0
+ * XREFs of EtwpCoverageSamplerDelete @ 0x140946370
  * Callers:
  *     <none>
  * Callees:
- *     EtwpCoverageSamplerCleanup @ 0x1409F3004 (EtwpCoverageSamplerCleanup.c)
+ *     EtwpCoverageSamplerCleanup @ 0x1409461E4 (EtwpCoverageSamplerCleanup.c)
  */
 
 void __fastcall EtwpCoverageSamplerDelete(__int64 a1)

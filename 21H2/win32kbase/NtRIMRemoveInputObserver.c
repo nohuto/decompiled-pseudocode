@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRIMRemoveInputObserver @ 0x1C0180F70
+ * XREFs of NtRIMRemoveInputObserver @ 0x1C0154130
  * Callers:
  *     <none>
  * Callees:

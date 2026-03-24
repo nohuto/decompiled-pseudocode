@@ -2,7 +2,7 @@
  * XREFs of FsRtlRemoveNodeFromTunnel @ 0x1400146B4
  * Callers:
  *     FsRtlPruneTunnelCache @ 0x1405C007C (FsRtlPruneTunnelCache.c)
- *     FsRtlDeleteKeyFromTunnelCache @ 0x1406B9450 (FsRtlDeleteKeyFromTunnelCache.c)
+ *     FsRtlDeleteKeyFromTunnelCache @ 0x1406B9430 (FsRtlDeleteKeyFromTunnelCache.c)
  * Callees:
  *     RtlDeleteNoSplay @ 0x140014470 (RtlDeleteNoSplay.c)
  *     FsRtlFreeTunnelNode @ 0x140014A04 (FsRtlFreeTunnelNode.c)

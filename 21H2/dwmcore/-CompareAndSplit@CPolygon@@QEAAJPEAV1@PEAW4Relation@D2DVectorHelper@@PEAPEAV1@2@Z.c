@@ -1,20 +1,20 @@
 /*
- * XREFs of ?CompareAndSplit@CPolygon@@QEAAJPEAV1@PEAW4Relation@D2DVectorHelper@@PEAPEAV1@2@Z @ 0x1801F9358
+ * XREFs of ?CompareAndSplit@CPolygon@@QEAAJPEAV1@PEAW4Relation@D2DVectorHelper@@PEAPEAV1@2@Z @ 0x1801F680C
  * Callers:
- *     ?PushPolygon@CBspNode@@QEAAJPEAVCPolygon@@_N@Z @ 0x180246EBC (-PushPolygon@CBspNode@@QEAAJPEAVCPolygon@@_N@Z.c)
+ *     ?PushPolygon@CBspNode@@QEAAJPEAVCPolygon@@_N@Z @ 0x1801FA834 (-PushPolygon@CBspNode@@QEAAJPEAVCPolygon@@_N@Z.c)
  * Callees:
- *     ?Transpose@CMILMatrix@@QEAAXXZ @ 0x18000DE4C (-Transpose@CMILMatrix@@QEAAXXZ.c)
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z @ 0x1800572F0 (-Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800CB358 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800DCDBC (-Invert@CMILMatrix@@QEAA_NXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z @ 0x1801B4CD4 (--$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z.c)
- *     ?ClassifyPoint@D2DVectorHelper@@YA?AW4Relation@1@AEBUD2D_VECTOR_4F@@0@Z @ 0x1801F92F8 (-ClassifyPoint@D2DVectorHelper@@YA-AW4Relation@1@AEBUD2D_VECTOR_4F@@0@Z.c)
- *     ?Create@CPolygon@@SAJPEAV?$DynArray@UPoint@CPolygon@@$0A@@@PEAV1@PEAPEAV1@@Z @ 0x1801FA104 (-Create@CPolygon@@SAJPEAV-$DynArray@UPoint@CPolygon@@$0A@@@PEAV1@PEAPEAV1@@Z.c)
- *     ?PlaneVectorIntersection@D2DVectorHelper@@YA?AUD2D_VECTOR_4F@@AEBU2@00@Z @ 0x1801FAAF0 (-PlaneVectorIntersection@D2DVectorHelper@@YA-AUD2D_VECTOR_4F@@AEBU2@00@Z.c)
- *     ?D3DXVec4TransformArray@@YAPEAUD2DVector4@@PEAU1@IPEBU1@IPEBUD2DMatrix@@I@Z @ 0x18026F0D4 (-D3DXVec4TransformArray@@YAPEAUD2DVector4@@PEAU1@IPEBU1@IPEBUD2DMatrix@@I@Z.c)
+ *     ?Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z @ 0x180041A78 (-Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800D6404 (-Invert@CMILMatrix@@QEAA_NXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ??$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z @ 0x180199724 (--$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z.c)
+ *     ?ClassifyPoint@D2DVectorHelper@@YA?AW4Relation@1@AEBUD2D_VECTOR_4F@@0@Z @ 0x1801F67AC (-ClassifyPoint@D2DVectorHelper@@YA-AW4Relation@1@AEBUD2D_VECTOR_4F@@0@Z.c)
+ *     ?Create@CPolygon@@SAJPEAV?$DynArray@UPoint@CPolygon@@$0A@@@PEAV1@PEAPEAV1@@Z @ 0x1801F7548 (-Create@CPolygon@@SAJPEAV-$DynArray@UPoint@CPolygon@@$0A@@@PEAV1@PEAPEAV1@@Z.c)
+ *     ?PlaneVectorIntersection@D2DVectorHelper@@YA?AUD2D_VECTOR_4F@@AEBU2@00@Z @ 0x1801F7EF0 (-PlaneVectorIntersection@D2DVectorHelper@@YA-AUD2D_VECTOR_4F@@AEBU2@00@Z.c)
+ *     ?GetTranspose@CMILMatrix@@QEBA?AV1@XZ @ 0x180210FEC (-GetTranspose@CMILMatrix@@QEBA-AV1@XZ.c)
+ *     ?D3DXVec4TransformArray@@YAPEAUD2DVector4@@PEAU1@IPEBU1@IPEBUD2DMatrix@@I@Z @ 0x18021EB64 (-D3DXVec4TransformArray@@YAPEAUD2DVector4@@PEAU1@IPEBU1@IPEBUD2DMatrix@@I@Z.c)
  */
 
 __int64 __fastcall CPolygon::CompareAndSplit(
@@ -24,687 +24,658 @@ __int64 __fastcall CPolygon::CompareAndSplit(
         struct CPolygon **a4,
         struct CPolygon **a5)
 {
-  __int128 v8; // xmm0
+  _BYTE *v6; // rdi
+  __int128 v7; // xmm0
+  unsigned int v8; // esi
   __int128 v9; // xmm1
   int v10; // eax
-  unsigned int v11; // ebx
-  int v12; // r12d
+  int v12; // ebx
   __int128 v13; // xmm0
-  int v14; // r15d
+  int v14; // r12d
   __int128 v15; // xmm1
-  __int64 v16; // rdx
-  struct Windows::Foundation::Numerics::float4x4 *v17; // r8
-  unsigned int v18; // edx
-  unsigned int v19; // r9d
-  __int128 v20; // xmm0
-  __int128 v21; // xmm1
-  struct D2D_VECTOR_4F v22; // xmm0
-  __int64 v23; // rdx
-  int v24; // r8d
-  __int128 v25; // xmm0
-  int v26; // esi
-  struct D2D_VECTOR_4F v27; // xmm6
-  unsigned int v28; // r10d
-  unsigned int v29; // edi
-  __int64 v30; // rax
-  int v31; // r8d
-  __int64 v32; // rcx
-  struct D2D_VECTOR_4F v33; // xmm7
-  int v34; // eax
-  _DWORD *v35; // rcx
-  int v36; // r9d
-  unsigned int v37; // r10d
-  int v38; // r11d
-  __int64 v39; // rcx
+  int v16; // r13d
+  __int64 v17; // rdx
+  struct Windows::Foundation::Numerics::float4x4 *v18; // r8
+  unsigned int v19; // edx
+  unsigned int v20; // r9d
+  __int64 Transpose; // rax
+  __int128 v22; // xmm1
+  __int128 v23; // xmm0
+  __int128 v24; // xmm1
+  struct D2D_VECTOR_4F v25; // xmm0
+  __int64 v26; // rdx
+  int v27; // r8d
+  __int128 v28; // xmm0
+  int v29; // r14d
+  struct D2D_VECTOR_4F v30; // xmm6
+  __int64 v31; // rax
+  int v32; // r8d
+  __int64 v33; // rcx
+  __int64 v34; // rax
+  struct D2D_VECTOR_4F v35; // xmm7
+  int v36; // eax
+  __int64 v37; // rcx
+  int v38; // r8d
+  int v39; // r9d
   unsigned int v40; // r10d
-  __m128i v41; // xmm0
-  _DWORD *v42; // rcx
-  __int64 v43; // rdx
-  int v44; // eax
-  int v45; // edi
+  int v41; // r11d
+  __int64 v42; // rcx
+  unsigned int v43; // r10d
+  __m128i v44; // xmm0
+  int v45; // eax
   unsigned int v46; // r8d
   __int64 v47; // rdx
   int v48; // eax
   __int64 v49; // rcx
-  _DWORD *v50; // rcx
-  __int64 v51; // rdx
-  int v52; // eax
-  __int64 v53; // rcx
-  __int64 v54; // rcx
-  unsigned int v55; // r10d
-  __m128i v56; // xmm0
-  _DWORD *v57; // rcx
-  __int64 v58; // rdx
-  int v59; // eax
-  unsigned int v60; // r8d
-  __int64 v61; // rdx
+  int v50; // eax
+  __int64 v51; // rcx
+  unsigned int v52; // r10d
+  __m128i v53; // xmm0
+  int v54; // eax
+  unsigned int v55; // r8d
+  __int64 v56; // rdx
+  int v57; // eax
+  unsigned int v58; // r8d
+  __int64 v59; // rcx
+  __int64 v60; // rdx
+  int v61; // eax
   int v62; // eax
-  unsigned int v63; // r8d
-  _DWORD *v64; // rcx
-  __int64 v65; // rdx
-  int v66; // eax
-  __int64 v67; // rcx
-  _DWORD *v68; // rcx
-  __int64 v69; // rdx
+  __int64 v63; // rax
+  unsigned int v64; // r8d
+  __int64 v65; // rcx
+  __int64 v66; // rdx
+  int v67; // eax
+  int v68; // eax
+  int v69; // eax
   int v70; // eax
-  __int64 v71; // rax
-  unsigned int v72; // r8d
-  _DWORD *v73; // rcx
-  __int64 v74; // rdx
+  int v71; // eax
+  int v72; // eax
+  __int64 v73; // r9
+  int v74; // r9d
   int v75; // eax
-  __int64 v76; // rcx
-  _DWORD *v77; // rcx
-  __int64 v78; // rdx
-  int v79; // eax
-  int v80; // eax
-  __int64 v81; // rcx
-  _DWORD *v82; // rcx
-  __int64 v83; // rdx
-  int v84; // eax
-  unsigned int v85; // r8d
-  _DWORD *v86; // rcx
-  __int64 v87; // rdx
-  int v88; // eax
-  __int64 v89; // rcx
-  __int64 v90; // r9
-  int v91; // r9d
-  int v92; // eax
-  __int64 v93; // r9
-  __int64 v94; // rax
-  __int64 v95; // rax
-  struct D2D_VECTOR_4F *v97; // [rsp+28h] [rbp-E0h]
-  unsigned int v98; // [rsp+28h] [rbp-E0h]
-  unsigned int v99; // [rsp+30h] [rbp-D8h]
-  unsigned int v100; // [rsp+38h] [rbp-D0h]
-  unsigned int v101; // [rsp+3Ch] [rbp-CCh]
-  __int64 v102; // [rsp+40h] [rbp-C8h] BYREF
-  __int64 v103; // [rsp+48h] [rbp-C0h] BYREF
-  _QWORD v104[3]; // [rsp+50h] [rbp-B8h] BYREF
-  int v105; // [rsp+68h] [rbp-A0h]
-  _QWORD v106[3]; // [rsp+70h] [rbp-98h] BYREF
-  __int128 v107; // [rsp+88h] [rbp-80h]
-  __int128 v108; // [rsp+98h] [rbp-70h]
-  __int128 v109; // [rsp+A8h] [rbp-60h]
-  int v110; // [rsp+B8h] [rbp-50h]
-  struct CPolygon **v111; // [rsp+C8h] [rbp-40h]
-  struct CPolygon **v112; // [rsp+D0h] [rbp-38h]
-  struct D2D_VECTOR_4F v113; // [rsp+D8h] [rbp-30h] BYREF
-  __int128 v114; // [rsp+E8h] [rbp-20h]
-  __int128 v115; // [rsp+F8h] [rbp-10h]
-  __int128 v116; // [rsp+108h] [rbp+0h]
-  int v117; // [rsp+118h] [rbp+10h]
-  struct D2D_VECTOR_4F v118; // [rsp+128h] [rbp+20h] BYREF
-  __int128 v119; // [rsp+138h] [rbp+30h]
-  __int128 v120; // [rsp+148h] [rbp+40h]
-  __int128 v121; // [rsp+158h] [rbp+50h]
-  int v122; // [rsp+168h] [rbp+60h]
-  struct D2D_VECTOR_4F v123; // [rsp+170h] [rbp+68h] BYREF
-  int v124; // [rsp+180h] [rbp+78h]
-  _BYTE v125[16]; // [rsp+188h] [rbp+80h] BYREF
-  struct D2D_VECTOR_4F v126; // [rsp+198h] [rbp+90h] BYREF
-  __m128i v127; // [rsp+1A8h] [rbp+A0h] BYREF
-  int v128; // [rsp+1B8h] [rbp+B0h]
-  struct D2D_VECTOR_4F v129; // [rsp+1C0h] [rbp+B8h] BYREF
-  int v130; // [rsp+1D0h] [rbp+C8h]
-  struct D2D_VECTOR_4F v131; // [rsp+1D8h] [rbp+D0h] BYREF
-  void *v132[2]; // [rsp+1E8h] [rbp+E0h] BYREF
-  int v133; // [rsp+1F8h] [rbp+F0h]
-  __int64 v134; // [rsp+1FCh] [rbp+F4h]
-  _BYTE v135[128]; // [rsp+208h] [rbp+100h] BYREF
-  void *v136[2]; // [rsp+288h] [rbp+180h] BYREF
-  int v137; // [rsp+298h] [rbp+190h]
-  __int64 v138; // [rsp+29Ch] [rbp+194h]
-  _BYTE v139[128]; // [rsp+2A8h] [rbp+1A0h] BYREF
+  __int64 v76; // r9
+  __int64 v77; // rax
+  __int64 v78; // rax
+  struct D2D_VECTOR_4F *v80; // [rsp+28h] [rbp-E0h]
+  unsigned int v81; // [rsp+28h] [rbp-E0h]
+  unsigned int v82; // [rsp+30h] [rbp-D8h]
+  unsigned __int64 v83; // [rsp+38h] [rbp-D0h]
+  __int64 v85; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 v86; // [rsp+50h] [rbp-B8h] BYREF
+  _QWORD v87[3]; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v88; // [rsp+70h] [rbp-98h]
+  struct CPolygon **v89; // [rsp+78h] [rbp-90h]
+  struct CPolygon **v90; // [rsp+80h] [rbp-88h]
+  __int128 v91; // [rsp+88h] [rbp-80h] BYREF
+  __int128 v92; // [rsp+98h] [rbp-70h]
+  __int128 v93; // [rsp+A8h] [rbp-60h]
+  __int128 v94; // [rsp+B8h] [rbp-50h]
+  int v95; // [rsp+C8h] [rbp-40h]
+  struct D2D_VECTOR_4F v96; // [rsp+D8h] [rbp-30h] BYREF
+  __int128 v97; // [rsp+E8h] [rbp-20h]
+  __int128 v98; // [rsp+F8h] [rbp-10h]
+  __int128 v99; // [rsp+108h] [rbp+0h]
+  int v100; // [rsp+118h] [rbp+10h]
+  struct D2D_VECTOR_4F v101; // [rsp+128h] [rbp+20h] BYREF
+  int v102; // [rsp+138h] [rbp+30h]
+  _BYTE v103[16]; // [rsp+140h] [rbp+38h] BYREF
+  _BYTE v104[72]; // [rsp+150h] [rbp+48h] BYREF
+  struct D2D_VECTOR_4F v105; // [rsp+198h] [rbp+90h] BYREF
+  __m128i v106; // [rsp+1A8h] [rbp+A0h] BYREF
+  int v107; // [rsp+1B8h] [rbp+B0h]
+  struct D2D_VECTOR_4F v108; // [rsp+1C0h] [rbp+B8h] BYREF
+  int v109; // [rsp+1D0h] [rbp+C8h]
+  struct D2D_VECTOR_4F v110; // [rsp+1D8h] [rbp+D0h] BYREF
+  _QWORD v111[2]; // [rsp+1E8h] [rbp+E0h] BYREF
+  int v112; // [rsp+1F8h] [rbp+F0h]
+  __int64 v113; // [rsp+1FCh] [rbp+F4h]
+  _BYTE v114[128]; // [rsp+208h] [rbp+100h] BYREF
+  _QWORD v115[2]; // [rsp+288h] [rbp+180h] BYREF
+  int v116; // [rsp+298h] [rbp+190h]
+  __int64 v117; // [rsp+29Ch] [rbp+194h]
+  _BYTE v118[128]; // [rsp+2A8h] [rbp+1A0h] BYREF
 
-  v111 = a4;
+  v111[1] = v114;
   *a4 = 0LL;
-  v132[0] = v135;
-  v132[1] = v135;
-  v112 = a5;
-  v136[0] = v139;
+  v115[0] = v118;
+  v6 = v114;
   *a5 = 0LL;
-  v8 = *((_OWORD *)a2 + 9);
-  v136[1] = v139;
+  v7 = *((_OWORD *)a2 + 9);
+  v8 = 6;
+  v115[1] = v118;
   v9 = *((_OWORD *)a2 + 10);
   v10 = *((_DWORD *)a2 + 52);
-  v11 = 0;
-  *(_OWORD *)&v106[1] = v8;
+  v91 = v7;
   v12 = 0;
   v13 = *((_OWORD *)a2 + 11);
   v14 = 0;
-  v133 = 6;
-  v107 = v9;
+  v90 = a5;
+  v92 = v9;
   v15 = *((_OWORD *)a2 + 12);
-  v134 = 6LL;
-  v137 = 6;
-  v138 = 6LL;
-  v108 = v13;
-  v109 = v15;
-  v110 = v10;
-  v117 = 0;
-  v102 = 0LL;
-  v103 = 0LL;
-  if ( CMILMatrix::Invert((CMILMatrix *)&v106[1], (__int64)a2, a3) )
+  v16 = 0;
+  v89 = a4;
+  v93 = v13;
+  v94 = v15;
+  v111[0] = v114;
+  v112 = 6;
+  v113 = 6LL;
+  v116 = 6;
+  v117 = 6LL;
+  v95 = v10;
+  v100 = 0;
+  v85 = 0LL;
+  v86 = 0LL;
+  if ( CMILMatrix::Invert((CMILMatrix *)&v91, (__int64)a2, 0LL) )
   {
-    CMILMatrix::Multiply(
-      (CPolygon *)((char *)this + 144),
-      (const struct CMILMatrix *)&v106[1],
-      (struct CMILMatrix *)&v106[1]);
+    CMILMatrix::Multiply((CPolygon *)((char *)this + 144), (const struct CMILMatrix *)&v91, (struct CMILMatrix *)&v91);
+    v8 = v113;
+    v6 = (_BYTE *)v111[0];
   }
   else
   {
-    *(_OWORD *)&v106[1] = _xmm;
-    v107 = _xmm;
-    BYTE1(v110) = BYTE1(v110) & 0xC0 | 0x17;
-    v108 = _xmm;
-    v109 = _xmm;
-    LOBYTE(v110) = 85;
+    v91 = _xmm;
+    v92 = _xmm;
+    v93 = _xmm;
+    v94 = _xmm;
+    LOWORD(v95) = 32085;
   }
-  if ( CMILMatrix::Invert((CMILMatrix *)&v106[1], v16, v17) )
+  if ( CMILMatrix::Invert((CMILMatrix *)&v91, v17, v18) )
   {
-    v118 = *(struct D2D_VECTOR_4F *)&v106[1];
-    v122 = v110;
-    v119 = v107;
-    v120 = v108;
-    v121 = v109;
-    CMILMatrix::Transpose((CMILMatrix *)&v118);
-    v117 = v122;
-    v113 = v118;
-    v20 = v120;
-    v114 = v119;
-    v21 = v121;
+    Transpose = CMILMatrix::GetTranspose(&v91, v104);
+    v8 = v113;
+    v6 = (_BYTE *)v111[0];
+    v22 = *(_OWORD *)(Transpose + 16);
+    v96 = *(struct D2D_VECTOR_4F *)Transpose;
+    v23 = *(_OWORD *)(Transpose + 32);
+    v97 = v22;
+    v24 = *(_OWORD *)(Transpose + 48);
+    v100 = *(_DWORD *)(Transpose + 64);
   }
   else
   {
-    v113 = (struct D2D_VECTOR_4F)_xmm;
-    v20 = _xmm;
-    v114 = _xmm;
-    v21 = _xmm;
-    BYTE1(v117) = BYTE1(v117) & 0xC0 | 0x17;
-    LOBYTE(v117) = 85;
+    v96 = (struct D2D_VECTOR_4F)_xmm;
+    v23 = _xmm;
+    v97 = _xmm;
+    v24 = _xmm;
+    LOWORD(v100) = 32085;
   }
-  v115 = v20;
-  v22 = (struct D2D_VECTOR_4F)*((_OWORD *)this + 8);
-  v116 = v21;
-  v126 = v22;
-  v131 = v22;
+  v98 = v23;
+  v25 = (struct D2D_VECTOR_4F)*((_OWORD *)this + 8);
+  v99 = v24;
+  v105 = v25;
+  v110 = v25;
   D3DXVec4TransformArray(
-    (struct D2DVector4 *)&v126,
-    v18,
-    (const struct D2DVector4 *)&v131,
+    (struct D2DVector4 *)&v105,
     v19,
-    (const struct D2DMatrix *)&v113,
-    v99);
-  v23 = *((_QWORD *)a2 + 2);
-  v24 = *((_DWORD *)a2 + 10);
-  v131 = v126;
-  v25 = *(_OWORD *)(v23 + 20LL * (unsigned int)(v24 - 2));
-  v26 = *(_DWORD *)(v23 + 20LL * (unsigned int)(v24 - 2) + 16);
-  v105 = v26;
-  v27 = *(struct D2D_VECTOR_4F *)(v23 + 20LL * (unsigned int)(v24 - 1));
-  *(_OWORD *)&v104[1] = v25;
-  v129 = v27;
-  v130 = *(_DWORD *)(v23 + 20LL * (unsigned int)(v24 - 1) + 16);
-  D2DVectorHelper::ClassifyPoint(&v126.x, (float *)&v104[1]);
-  v100 = D2DVectorHelper::ClassifyPoint(&v126.x, &v129.x);
-  v29 = v100;
-  v30 = v28;
-  v101 = v28;
-  if ( !v31 )
+    (const struct D2DVector4 *)&v110,
+    v20,
+    (const struct D2DMatrix *)&v96,
+    v82);
+  v26 = *((_QWORD *)a2 + 2);
+  v27 = *((_DWORD *)a2 + 10);
+  v110 = v105;
+  v28 = *(_OWORD *)(v26 + 20LL * (unsigned int)(v27 - 2));
+  v29 = *(_DWORD *)(v26 + 20LL * (unsigned int)(v27 - 2) + 16);
+  LODWORD(v88) = v29;
+  v30 = *(struct D2D_VECTOR_4F *)(v26 + 20LL * (unsigned int)(v27 - 1));
+  *(_OWORD *)&v87[1] = v28;
+  v108 = v30;
+  v109 = *(_DWORD *)(v26 + 20LL * (unsigned int)(v27 - 1) + 16);
+  D2DVectorHelper::ClassifyPoint(&v105.x, (float *)&v87[1]);
+  v83 = (unsigned int)D2DVectorHelper::ClassifyPoint(&v105.x, &v108.x);
+  v31 = 0LL;
+  if ( !v32 )
+    goto LABEL_134;
+  while ( 1 )
   {
-LABEL_119:
-    *(_DWORD *)a3 = v28;
-    goto LABEL_120;
-  }
-  do
-  {
-    v32 = *((_QWORD *)a2 + 2);
-    v33 = *(struct D2D_VECTOR_4F *)(v32 + 20 * v30);
-    HIDWORD(v104[0]) = *(_DWORD *)(v32 + 20 * v30 + 16);
-    v124 = HIDWORD(v104[0]);
-    v123 = v33;
-    v34 = D2DVectorHelper::ClassifyPoint(&v126.x, &v123.x);
-    LODWORD(v104[0]) = v34;
-    if ( v29 == 1 )
+    v33 = 5 * v31;
+    v34 = *((_QWORD *)a2 + 2);
+    v35 = *(struct D2D_VECTOR_4F *)(v34 + 4 * v33);
+    HIDWORD(v87[0]) = *(_DWORD *)(v34 + 4 * v33 + 16);
+    v101 = v35;
+    v102 = HIDWORD(v87[0]);
+    v36 = D2DVectorHelper::ClassifyPoint(&v105.x, &v101.x);
+    LODWORD(v87[0]) = v36;
+    if ( v38 == 1 )
+    {
+      if ( v39 != 2 )
+        goto LABEL_26;
+      v44 = _mm_loadu_si128((const __m128i *)D2DVectorHelper::PlaneVectorIntersection(
+                                               (D2DVectorHelper *)&v110,
+                                               &v105,
+                                               (const struct D2D_VECTOR_4F *)&v87[1],
+                                               &v108,
+                                               v80));
+      v107 = v29;
+      v106 = v44;
+      if ( v43 + 1 >= v43 )
+      {
+        if ( v43 + 1 <= v8 )
+        {
+          v37 = 5LL * v43;
+          *(__m128i *)&v6[4 * v37] = v44;
+          *(_DWORD *)&v6[4 * v37 + 16] = v107;
+          HIDWORD(v113) = v43 + 1;
+          goto LABEL_17;
+        }
+        v45 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v111, 20, 1, &v106);
+        v12 = v45;
+        if ( v45 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v45, 0xC0u, 0LL);
+      }
+      else
+      {
+        v12 = -2147024362;
+        MilInstrumentationCheckHR_MaybeFailFast(v42, 0LL, 0, -2147024362, 0xB5u, 0LL);
+      }
+      if ( v12 < 0 )
+      {
+        v81 = 271;
+        goto LABEL_110;
+      }
+LABEL_17:
+      v107 = 0;
+      v46 = HIDWORD(v117) + 1;
+      if ( (unsigned int)(HIDWORD(v117) + 1) >= HIDWORD(v117) )
+      {
+        if ( v46 <= (unsigned int)v117 )
+        {
+          v37 = v115[0];
+          v47 = 5LL * HIDWORD(v117);
+          *(__m128i *)(v115[0] + 4 * v47) = v106;
+          *(_DWORD *)(v37 + 4 * v47 + 16) = v107;
+          HIDWORD(v117) = v46;
+LABEL_21:
+          v40 = HIDWORD(v113);
+          v8 = v113;
+          v6 = (_BYTE *)v111[0];
+          v30 = v108;
+LABEL_26:
+          if ( v40 + 1 >= v40 )
+          {
+            if ( v40 + 1 <= v8 )
+            {
+              v12 = 0;
+              v49 = 5LL * v40;
+              *(struct D2D_VECTOR_4F *)&v6[4 * v49] = v30;
+              *(_DWORD *)&v6[4 * v49 + 16] = v109;
+              HIDWORD(v113) = v40 + 1;
+LABEL_33:
+              ++v14;
+              goto LABEL_107;
+            }
+            v50 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v111, 20, 1, &v108);
+            v12 = v50;
+            if ( v50 < 0 )
+              MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v50, 0xC0u, 0LL);
+          }
+          else
+          {
+            v12 = -2147024362;
+            MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
+          }
+          if ( v12 < 0 )
+          {
+            v81 = 279;
+            goto LABEL_110;
+          }
+          goto LABEL_33;
+        }
+        v48 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v115, 20, 1, &v106);
+        v12 = v48;
+        if ( v48 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v48, 0xC0u, 0LL);
+      }
+      else
+      {
+        v12 = -2147024362;
+        MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
+      }
+      if ( v12 < 0 )
+      {
+        v81 = 274;
+LABEL_110:
+        v74 = v12;
+        goto LABEL_111;
+      }
+      goto LABEL_21;
+    }
+    if ( v38 == 2 )
+    {
+      if ( v39 != 1 )
+        goto LABEL_51;
+      v53 = _mm_loadu_si128((const __m128i *)D2DVectorHelper::PlaneVectorIntersection(
+                                               (D2DVectorHelper *)v103,
+                                               &v105,
+                                               (const struct D2D_VECTOR_4F *)&v87[1],
+                                               &v108,
+                                               v80));
+      v107 = 0;
+      v106 = v53;
+      if ( v52 + 1 >= v52 )
+      {
+        if ( v52 + 1 <= v8 )
+        {
+          v37 = 5LL * v52;
+          *(__m128i *)&v6[4 * v37] = v53;
+          *(_DWORD *)&v6[4 * v37 + 16] = v107;
+          HIDWORD(v113) = v52 + 1;
+          goto LABEL_43;
+        }
+        v54 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v111, 20, 1, &v106);
+        v12 = v54;
+        if ( v54 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v54, 0xC0u, 0LL);
+      }
+      else
+      {
+        v12 = -2147024362;
+        MilInstrumentationCheckHR_MaybeFailFast(v51, 0LL, 0, -2147024362, 0xB5u, 0LL);
+      }
+      if ( v12 < 0 )
+      {
+        v81 = 296;
+        goto LABEL_110;
+      }
+LABEL_43:
+      v107 = v29;
+      v55 = HIDWORD(v117) + 1;
+      if ( (unsigned int)(HIDWORD(v117) + 1) >= HIDWORD(v117) )
+      {
+        if ( v55 <= (unsigned int)v117 )
+        {
+          v37 = v115[0];
+          v56 = 5LL * HIDWORD(v117);
+          *(__m128i *)(v115[0] + 4 * v56) = v106;
+          *(_DWORD *)(v37 + 4 * v56 + 16) = v107;
+          HIDWORD(v117) = v55;
+LABEL_50:
+          v30 = v108;
+LABEL_51:
+          v58 = HIDWORD(v117) + 1;
+          if ( (unsigned int)(HIDWORD(v117) + 1) >= HIDWORD(v117) )
+          {
+            if ( v58 <= (unsigned int)v117 )
+            {
+              v12 = 0;
+              v59 = v115[0];
+              v60 = 5LL * HIDWORD(v117);
+              *(struct D2D_VECTOR_4F *)(v115[0] + 4 * v60) = v30;
+              *(_DWORD *)(v59 + 4 * v60 + 16) = v109;
+              HIDWORD(v117) = v58;
+LABEL_58:
+              ++v16;
+              goto LABEL_107;
+            }
+            v61 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v115, 20, 1, &v108);
+            v12 = v61;
+            if ( v61 < 0 )
+              MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v61, 0xC0u, 0LL);
+          }
+          else
+          {
+            v12 = -2147024362;
+            MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
+          }
+          if ( v12 < 0 )
+          {
+            v81 = 305;
+            goto LABEL_110;
+          }
+          goto LABEL_58;
+        }
+        v57 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v115, 20, 1, &v106);
+        v12 = v57;
+        if ( v57 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v57, 0xC0u, 0LL);
+      }
+      else
+      {
+        v12 = -2147024362;
+        MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
+      }
+      if ( v12 < 0 )
+      {
+        v81 = 299;
+        goto LABEL_110;
+      }
+      goto LABEL_50;
+    }
+    v106 = (__m128i)v30;
+    if ( v39 == 1 )
     {
       if ( v36 != 2 )
+        goto LABEL_93;
+      v107 = 0;
+      if ( v40 + 1 >= v40 )
       {
-LABEL_20:
-        if ( v37 + 1 < v37 )
+        if ( v40 + 1 <= v8 )
         {
-          v11 = -2147024362;
-          v45 = -2147024362;
-          MilInstrumentationCheckHR_MaybeFailFast((__int64)v35, 0LL, 0LL, -2147024362, 0xB5u);
-        }
-        else
-        {
-          if ( v37 + 1 <= (unsigned int)v134 )
+          v37 = 5LL * v40;
+          *(struct D2D_VECTOR_4F *)&v6[4 * v37] = v30;
+          *(_DWORD *)&v6[4 * v37 + 16] = v107;
+          HIDWORD(v113) = v40 + 1;
+LABEL_68:
+          v107 = v109;
+          v63 = HIDWORD(v117);
+          v64 = HIDWORD(v117) + 1;
+          if ( (unsigned int)(HIDWORD(v117) + 1) >= HIDWORD(v117) )
           {
-            v50 = v132[0];
-            v11 = 0;
-            v51 = 5LL * v37;
-            *(struct D2D_VECTOR_4F *)((char *)v132[0] + 4 * v51) = v27;
-            v50[v51 + 4] = v130;
-            HIDWORD(v134) = v37 + 1;
-LABEL_24:
-            ++v12;
-            goto LABEL_70;
-          }
-          v52 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v132, 0x14u, 1, &v129);
-          v45 = v52;
-          v11 = v52;
-          if ( v52 >= 0 )
-            goto LABEL_24;
-          MilInstrumentationCheckHR_MaybeFailFast(v53, 0LL, 0LL, v52, 0xC0u);
-        }
-        v98 = 279;
-LABEL_79:
-        v91 = v45;
-        goto LABEL_80;
-      }
-      v41 = _mm_loadu_si128((const __m128i *)D2DVectorHelper::PlaneVectorIntersection(
-                                               (D2DVectorHelper *)&v131,
-                                               &v126,
-                                               (const struct D2D_VECTOR_4F *)&v104[1],
-                                               &v129,
-                                               v97));
-      v128 = v26;
-      v127 = v41;
-      if ( v40 + 1 < v40 )
-      {
-        v11 = -2147024362;
-        v45 = -2147024362;
-        MilInstrumentationCheckHR_MaybeFailFast(v39, 0LL, 0LL, -2147024362, 0xB5u);
-      }
-      else
-      {
-        if ( v40 + 1 <= (unsigned int)v134 )
-        {
-          v42 = v132[0];
-          v43 = 5LL * v40;
-          *(__m128i *)((char *)v132[0] + 4 * v43) = v41;
-          v42[v43 + 4] = v128;
-          HIDWORD(v134) = v40 + 1;
-          goto LABEL_14;
-        }
-        v44 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v132, 0x14u, 1, &v127);
-        v45 = v44;
-        v11 = v44;
-        if ( v44 >= 0 )
-        {
-LABEL_14:
-          v128 = 0;
-          v46 = HIDWORD(v138) + 1;
-          if ( (unsigned int)(HIDWORD(v138) + 1) < HIDWORD(v138) )
-          {
-            v11 = -2147024362;
-            v45 = -2147024362;
-            MilInstrumentationCheckHR_MaybeFailFast((__int64)v42, 0LL, 0LL, -2147024362, 0xB5u);
+            if ( v64 <= (unsigned int)v117 )
+              goto LABEL_71;
+            v68 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v115, 20, 1, &v106);
+            v12 = v68;
+            if ( v68 < 0 )
+              MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v68, 0xC0u, 0LL);
           }
           else
           {
-            if ( v46 <= (unsigned int)v138 )
-            {
-              v35 = v136[0];
-              v47 = 5LL * HIDWORD(v138);
-              *(__m128i *)((char *)v136[0] + 4 * v47) = v127;
-              v35[v47 + 4] = v128;
-              HIDWORD(v138) = v46;
-LABEL_17:
-              v37 = HIDWORD(v134);
-              v27 = v129;
-              goto LABEL_20;
-            }
-            v48 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v136, 0x14u, 1, &v127);
-            v45 = v48;
-            v11 = v48;
-            if ( v48 >= 0 )
-              goto LABEL_17;
-            MilInstrumentationCheckHR_MaybeFailFast((__int64)v35, 0LL, 0LL, v48, 0xC0u);
+            v12 = -2147024362;
+            MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
           }
-          v98 = 274;
-          goto LABEL_79;
+          if ( v12 < 0 )
+          {
+            v81 = 326;
+            goto LABEL_110;
+          }
+          goto LABEL_107;
         }
-        MilInstrumentationCheckHR_MaybeFailFast((__int64)v42, 0LL, 0LL, v44, 0xC0u);
-      }
-      v98 = 271;
-      goto LABEL_79;
-    }
-    if ( v29 == 2 )
-    {
-      if ( v36 != 1 )
-        goto LABEL_36;
-      v56 = _mm_loadu_si128((const __m128i *)D2DVectorHelper::PlaneVectorIntersection(
-                                               (D2DVectorHelper *)v125,
-                                               &v126,
-                                               (const struct D2D_VECTOR_4F *)&v104[1],
-                                               &v129,
-                                               v97));
-      v128 = 0;
-      v127 = v56;
-      if ( v55 + 1 < v55 )
-      {
-        v11 = -2147024362;
-        v45 = -2147024362;
-        MilInstrumentationCheckHR_MaybeFailFast(v54, 0LL, 0LL, -2147024362, 0xB5u);
+        v62 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v111, 20, 1, &v106);
+        v12 = v62;
+        if ( v62 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v62, 0xC0u, 0LL);
       }
       else
       {
-        if ( v55 + 1 <= (unsigned int)v134 )
-        {
-          v57 = v132[0];
-          v58 = 5LL * v55;
-          *(__m128i *)((char *)v132[0] + 4 * v58) = v56;
-          v57[v58 + 4] = v128;
-          HIDWORD(v134) = v55 + 1;
-          goto LABEL_31;
-        }
-        v59 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v132, 0x14u, 1, &v127);
-        v45 = v59;
-        v11 = v59;
-        if ( v59 >= 0 )
-        {
-LABEL_31:
-          v128 = v26;
-          v60 = HIDWORD(v138) + 1;
-          if ( (unsigned int)(HIDWORD(v138) + 1) < HIDWORD(v138) )
-          {
-            v11 = -2147024362;
-            v45 = -2147024362;
-            MilInstrumentationCheckHR_MaybeFailFast((__int64)v57, 0LL, 0LL, -2147024362, 0xB5u);
-          }
-          else
-          {
-            if ( v60 <= (unsigned int)v138 )
-            {
-              v35 = v136[0];
-              v61 = 5LL * HIDWORD(v138);
-              *(__m128i *)((char *)v136[0] + 4 * v61) = v127;
-              v35[v61 + 4] = v128;
-              HIDWORD(v138) = v60;
-LABEL_35:
-              v27 = v129;
-LABEL_36:
-              v63 = HIDWORD(v138) + 1;
-              if ( (unsigned int)(HIDWORD(v138) + 1) < HIDWORD(v138) )
-              {
-                v11 = -2147024362;
-                v45 = -2147024362;
-                MilInstrumentationCheckHR_MaybeFailFast((__int64)v35, 0LL, 0LL, -2147024362, 0xB5u);
-              }
-              else
-              {
-                if ( v63 <= (unsigned int)v138 )
-                {
-                  v64 = v136[0];
-                  v65 = 5LL * HIDWORD(v138);
-                  v11 = 0;
-                  *(struct D2D_VECTOR_4F *)((char *)v136[0] + 4 * v65) = v27;
-                  v64[v65 + 4] = v130;
-                  HIDWORD(v138) = v63;
-LABEL_40:
-                  ++v14;
-                  goto LABEL_70;
-                }
-                v66 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v136, 0x14u, 1, &v129);
-                v45 = v66;
-                v11 = v66;
-                if ( v66 >= 0 )
-                  goto LABEL_40;
-                MilInstrumentationCheckHR_MaybeFailFast(v67, 0LL, 0LL, v66, 0xC0u);
-              }
-              v98 = 305;
-              goto LABEL_79;
-            }
-            v62 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v136, 0x14u, 1, &v127);
-            v45 = v62;
-            v11 = v62;
-            if ( v62 >= 0 )
-              goto LABEL_35;
-            MilInstrumentationCheckHR_MaybeFailFast((__int64)v35, 0LL, 0LL, v62, 0xC0u);
-          }
-          v98 = 299;
-          goto LABEL_79;
-        }
-        MilInstrumentationCheckHR_MaybeFailFast((__int64)v57, 0LL, 0LL, v59, 0xC0u);
+        v12 = -2147024362;
+        MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
       }
-      v98 = 296;
-      goto LABEL_79;
-    }
-    v127 = (__m128i)v27;
-    if ( v36 == 1 )
-    {
-      if ( v34 == 2 )
+      if ( v12 < 0 )
       {
-        v128 = 0;
-        if ( v37 + 1 < v37 )
-        {
-          v11 = -2147024362;
-          v45 = -2147024362;
-          MilInstrumentationCheckHR_MaybeFailFast((__int64)v35, 0LL, 0LL, -2147024362, 0xB5u);
-        }
-        else
-        {
-          if ( v37 + 1 <= (unsigned int)v134 )
-          {
-            v68 = v132[0];
-            v69 = 5LL * v37;
-            *(struct D2D_VECTOR_4F *)((char *)v132[0] + 4 * v69) = v27;
-            v68[v69 + 4] = v128;
-            HIDWORD(v134) = v37 + 1;
-LABEL_47:
-            v128 = v130;
-            v71 = HIDWORD(v138);
-            v72 = HIDWORD(v138) + 1;
-            if ( (unsigned int)(HIDWORD(v138) + 1) < HIDWORD(v138) )
-            {
-              v11 = -2147024362;
-              v45 = -2147024362;
-              MilInstrumentationCheckHR_MaybeFailFast((__int64)v68, 0LL, 0LL, -2147024362, 0xB5u);
-              goto LABEL_94;
-            }
-            if ( v72 <= (unsigned int)v138 )
-              goto LABEL_49;
-            v75 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v136, 0x14u, 1, &v127);
-            v45 = v75;
-            v11 = v75;
-            if ( v75 < 0 )
-            {
-              MilInstrumentationCheckHR_MaybeFailFast(v76, 0LL, 0LL, v75, 0xC0u);
-LABEL_94:
-              v98 = 326;
-              goto LABEL_79;
-            }
-            goto LABEL_70;
-          }
-          v70 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v132, 0x14u, 1, &v127);
-          v45 = v70;
-          v11 = v70;
-          if ( v70 >= 0 )
-            goto LABEL_47;
-          MilInstrumentationCheckHR_MaybeFailFast((__int64)v68, 0LL, 0LL, v70, 0xC0u);
-        }
-        v98 = 323;
-        goto LABEL_79;
+        v81 = 323;
+        goto LABEL_110;
       }
+      goto LABEL_68;
     }
-    else if ( v36 == 2 && v34 == 1 )
+    if ( v39 != 2 || v36 != 1 )
     {
-      v128 = v38;
-      if ( v37 + 1 < v37 )
+LABEL_93:
+      if ( v40 + 1 >= v40 )
       {
-        v11 = -2147024362;
-        v45 = -2147024362;
-        MilInstrumentationCheckHR_MaybeFailFast((__int64)v35, 0LL, 0LL, -2147024362, 0xB5u);
+        if ( v40 + 1 > v8 )
+        {
+          v71 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v111, 20, 1, &v108);
+          v12 = v71;
+          if ( v71 < 0 )
+            MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v71, 0xC0u, 0LL);
+          goto LABEL_99;
+        }
+        v37 = 5LL * v40;
+        *(struct D2D_VECTOR_4F *)&v6[4 * v37] = v30;
+        *(_DWORD *)&v6[4 * v37 + 16] = v109;
+        HIDWORD(v113) = v40 + 1;
       }
       else
       {
-        if ( v37 + 1 <= (unsigned int)v134 )
-        {
-          v77 = v132[0];
-          v78 = 5LL * v37;
-          *(struct D2D_VECTOR_4F *)((char *)v132[0] + 4 * v78) = v27;
-          v77[v78 + 4] = v128;
-          HIDWORD(v134) = v37 + 1;
-LABEL_58:
-          v71 = HIDWORD(v138);
-          v128 = 0;
-          v72 = HIDWORD(v138) + 1;
-          if ( (unsigned int)(HIDWORD(v138) + 1) < HIDWORD(v138) )
-          {
-            v11 = -2147024362;
-            v45 = -2147024362;
-            MilInstrumentationCheckHR_MaybeFailFast((__int64)v77, 0LL, 0LL, -2147024362, 0xB5u);
-            goto LABEL_99;
-          }
-          if ( v72 <= (unsigned int)v138 )
-          {
-LABEL_49:
-            v73 = v136[0];
-            v74 = 5 * v71;
-            v11 = 0;
-            *(__m128i *)((char *)v136[0] + 4 * v74) = v127;
-            v73[v74 + 4] = v128;
-            HIDWORD(v138) = v72;
-            goto LABEL_70;
-          }
-          v80 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v136, 0x14u, 1, &v127);
-          v45 = v80;
-          v11 = v80;
-          if ( v80 < 0 )
-          {
-            MilInstrumentationCheckHR_MaybeFailFast(v81, 0LL, 0LL, v80, 0xC0u);
+        v12 = -2147024362;
+        MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
 LABEL_99:
-            v98 = 337;
-            goto LABEL_79;
-          }
-          goto LABEL_70;
+        if ( v12 < 0 )
+        {
+          v81 = 341;
+          goto LABEL_110;
         }
-        v79 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v132, 0x14u, 1, &v127);
-        v45 = v79;
-        v11 = v79;
-        if ( v79 >= 0 )
-          goto LABEL_58;
-        MilInstrumentationCheckHR_MaybeFailFast((__int64)v77, 0LL, 0LL, v79, 0xC0u);
       }
-      v98 = 334;
-      goto LABEL_79;
+      v64 = HIDWORD(v117) + 1;
+      if ( (unsigned int)(HIDWORD(v117) + 1) < HIDWORD(v117) )
+      {
+        v12 = -2147024362;
+        MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
+        goto LABEL_106;
+      }
+      if ( v64 > (unsigned int)v117 )
+      {
+        v72 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v115, 20, 1, &v108);
+        v12 = v72;
+        if ( v72 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v72, 0xC0u, 0LL);
+LABEL_106:
+        if ( v12 < 0 )
+        {
+          v81 = 342;
+          goto LABEL_110;
+        }
+        goto LABEL_107;
+      }
+      v65 = v115[0];
+      v66 = 5LL * HIDWORD(v117);
+      *(struct D2D_VECTOR_4F *)(v115[0] + 20LL * HIDWORD(v117)) = v108;
+      v67 = v109;
+LABEL_72:
+      *(_DWORD *)(v65 + 4 * v66 + 16) = v67;
+      v12 = 0;
+      HIDWORD(v117) = v64;
+      goto LABEL_107;
     }
-    if ( v37 + 1 < v37 )
+    v107 = v41;
+    if ( v40 + 1 < v40 )
     {
-      v11 = -2147024362;
-      v45 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)v35, 0LL, 0LL, -2147024362, 0xB5u);
-      goto LABEL_118;
+      v12 = -2147024362;
+      MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
+      goto LABEL_85;
     }
-    if ( v37 + 1 > (unsigned int)v134 )
+    if ( v40 + 1 > v8 )
     {
-      v84 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v132, 0x14u, 1, &v129);
-      v45 = v84;
-      v11 = v84;
-      if ( v84 >= 0 )
-        goto LABEL_66;
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)v82, 0LL, 0LL, v84, 0xC0u);
-LABEL_118:
-      v98 = 341;
-      goto LABEL_79;
+      v69 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v111, 20, 1, &v106);
+      v12 = v69;
+      if ( v69 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v69, 0xC0u, 0LL);
+LABEL_85:
+      if ( v12 < 0 )
+      {
+        v81 = 334;
+        goto LABEL_110;
+      }
+      goto LABEL_86;
     }
-    v82 = v132[0];
-    v83 = 5LL * v37;
-    *(struct D2D_VECTOR_4F *)((char *)v132[0] + 4 * v83) = v27;
-    v82[v83 + 4] = v130;
-    HIDWORD(v134) = v37 + 1;
-LABEL_66:
-    v85 = HIDWORD(v138) + 1;
-    if ( (unsigned int)(HIDWORD(v138) + 1) < HIDWORD(v138) )
+    v37 = 5LL * v40;
+    *(struct D2D_VECTOR_4F *)&v6[4 * v37] = v30;
+    *(_DWORD *)&v6[4 * v37 + 16] = v107;
+    HIDWORD(v113) = v40 + 1;
+LABEL_86:
+    v63 = HIDWORD(v117);
+    v107 = 0;
+    v64 = HIDWORD(v117) + 1;
+    if ( (unsigned int)(HIDWORD(v117) + 1) >= HIDWORD(v117) )
     {
-      v11 = -2147024362;
-      v45 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)v82, 0LL, 0LL, -2147024362, 0xB5u);
-      goto LABEL_115;
-    }
-    if ( v85 <= (unsigned int)v138 )
-    {
-      v86 = v136[0];
-      v87 = 5LL * HIDWORD(v138);
-      v11 = 0;
-      *(struct D2D_VECTOR_4F *)((char *)v136[0] + 4 * v87) = v129;
-      v86[v87 + 4] = v130;
-      HIDWORD(v138) = v85;
-      goto LABEL_70;
-    }
-    v88 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)v136, 0x14u, 1, &v129);
-    v45 = v88;
-    v11 = v88;
-    if ( v88 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v89, 0LL, 0LL, v88, 0xC0u);
-LABEL_115:
-      v98 = 342;
-      goto LABEL_79;
-    }
-LABEL_70:
-    v27 = v33;
-    v26 = v130;
-    v30 = v101 + 1;
-    v90 = v100;
-    v29 = v104[0];
-    v100 = v104[0];
-    *(struct D2D_VECTOR_4F *)&v104[1] = v129;
-    v105 = v130;
-    v129 = v33;
-    v130 = HIDWORD(v104[0]);
-    v101 = v30;
-  }
-  while ( (unsigned int)v30 < *((_DWORD *)a2 + 10) );
-  v28 = 0;
-  if ( !v12 )
-  {
-    if ( v14 )
-      goto LABEL_104;
-    goto LABEL_119;
-  }
-  if ( !v14 )
-  {
-    *(_DWORD *)a3 = 1;
-    goto LABEL_120;
-  }
-LABEL_104:
-  if ( v12 )
-  {
-    *(_DWORD *)a3 = 3;
-    v92 = CPolygon::Create(v132, a2, &v102, v90);
-    v11 = v92;
-    if ( v92 < 0 )
-    {
-      v98 = 376;
+      if ( v64 <= (unsigned int)v117 )
+      {
+LABEL_71:
+        v65 = v115[0];
+        v66 = 5 * v63;
+        *(__m128i *)(v115[0] + 20 * v63) = v106;
+        v67 = v107;
+        goto LABEL_72;
+      }
+      v70 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v115, 20, 1, &v106);
+      v12 = v70;
+      if ( v70 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v70, 0xC0u, 0LL);
     }
     else
     {
-      v92 = CPolygon::Create(v136, a2, &v103, v93);
-      v11 = v92;
-      if ( v92 >= 0 )
-      {
-        v94 = v102;
-        v102 = 0LL;
-        *v111 = (struct CPolygon *)v94;
-        v95 = v103;
-        v103 = 0LL;
-        *v112 = (struct CPolygon *)v95;
-        goto LABEL_120;
-      }
-      v98 = 377;
+      v12 = -2147024362;
+      MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
     }
-    v91 = v92;
-LABEL_80:
-    MilInstrumentationCheckHR_MaybeFailFast(v49, 0LL, 0LL, v91, v98);
-    goto LABEL_120;
+    if ( v12 < 0 )
+    {
+      v81 = 337;
+      goto LABEL_110;
+    }
+LABEL_107:
+    v30 = v35;
+    v29 = v109;
+    v31 = (unsigned int)(HIDWORD(v83) + 1);
+    v73 = (unsigned int)v83;
+    v83 = __PAIR64__(v31, v87[0]);
+    *(struct D2D_VECTOR_4F *)&v87[1] = v108;
+    LODWORD(v88) = v109;
+    v108 = v35;
+    v109 = HIDWORD(v87[0]);
+    if ( (unsigned int)v31 >= *((_DWORD *)a2 + 10) )
+      break;
+    v8 = v113;
+    v6 = (_BYTE *)v111[0];
   }
-  *(_DWORD *)a3 = 2;
-LABEL_120:
-  ReleaseInterface<CPolygon>(&v102);
-  ReleaseInterface<CPolygon>(&v103);
-  DynArrayImpl<1>::~DynArrayImpl<1>(v136);
-  DynArrayImpl<1>::~DynArrayImpl<1>(v132);
-  return v11;
+  if ( !v14 )
+  {
+    if ( v16 )
+      goto LABEL_122;
+LABEL_134:
+    *(_DWORD *)a3 = 0;
+    goto LABEL_135;
+  }
+  if ( v16 )
+  {
+LABEL_122:
+    if ( !v14 )
+    {
+      *(_DWORD *)a3 = 2;
+      goto LABEL_135;
+    }
+    *(_DWORD *)a3 = 3;
+    v75 = CPolygon::Create(v111, a2, &v85, v73);
+    v12 = v75;
+    if ( v75 < 0 )
+    {
+      v81 = 376;
+    }
+    else
+    {
+      v75 = CPolygon::Create(v115, a2, &v86, v76);
+      v12 = v75;
+      if ( v75 >= 0 )
+      {
+        v77 = v85;
+        v85 = 0LL;
+        *v89 = (struct CPolygon *)v77;
+        v78 = v86;
+        v86 = 0LL;
+        *v90 = (struct CPolygon *)v78;
+        goto LABEL_135;
+      }
+      v81 = 377;
+    }
+    v74 = v75;
+LABEL_111:
+    MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v74, v81, 0LL);
+    goto LABEL_135;
+  }
+  *(_DWORD *)a3 = 1;
+LABEL_135:
+  ReleaseInterface<CPolygon>(&v85);
+  ReleaseInterface<CPolygon>(&v86);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)v115);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)v111);
+  return (unsigned int)v12;
 }

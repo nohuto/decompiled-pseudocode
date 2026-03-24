@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiMemarbFindSuitableRange @ 0x1C00AF700
+ * XREFs of AcpiMemarbFindSuitableRange @ 0x1C00B0250
  * Callers:
  *     <none>
  * Callees:
- *     ArbFindSuitableRange @ 0x1C009D5B0 (ArbFindSuitableRange.c)
+ *     ArbFindSuitableRange @ 0x1C0091950 (ArbFindSuitableRange.c)
  */
 
 char __fastcall AcpiMemarbFindSuitableRange(__int64 a1, __int64 a2)

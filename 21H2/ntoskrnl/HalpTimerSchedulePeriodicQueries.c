@@ -1,45 +1,43 @@
 /*
- * XREFs of HalpTimerSchedulePeriodicQueries @ 0x1403BA9B4
+ * XREFs of HalpTimerSchedulePeriodicQueries @ 0x1403CE86C
  * Callers:
- *     HalpTimerInitSystem @ 0x1403BB0A0 (HalpTimerInitSystem.c)
- *     HalpTscFallbackToPlatformSource @ 0x14050DC38 (HalpTscFallbackToPlatformSource.c)
+ *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
+ *     HalpTscFallbackToPlatformSource @ 0x1404C1698 (HalpTscFallbackToPlatformSource.c)
  * Callees:
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
  */
 
 __int64 HalpTimerSchedulePeriodicQueries()
 {
   ULONG_PTR v0; // rbx
   ULONG_PTR v1; // rdi
-  int v2; // ecx
-  unsigned __int64 v3; // r8
-  unsigned __int64 v4; // rcx
-  unsigned __int64 v6; // r9
+  __int64 v2; // r11
+  ULONGLONG v3; // r10
+  ULONGLONG v5; // rax
+  ULONGLONG pullResult; // [rsp+40h] [rbp+8h] BYREF
+  ULONGLONG v7; // [rsp+48h] [rbp+10h] BYREF
 
+  pullResult = 0LL;
   v0 = HalpAlwaysOnCounter;
   v1 = HalpPerformanceCounter;
   if ( HalpAlwaysOnCounter )
     v0 = -(__int64)(*(_DWORD *)(HalpAlwaysOnCounter + 220) < 0x40u) & HalpAlwaysOnCounter;
   KeQueryPerformanceCounter(0LL);
   HalpTimerLastDpc = MEMORY[0xFFFFF78000000014];
-  v2 = *(_DWORD *)(v1 + 220);
-  if ( is_mul_ok(1LL << v2, 0xFAuLL) )
-    v3 = (unsigned __int64)(1LL << v2) * (unsigned __int128)0xFAuLL / *(unsigned __int64 *)(v1 + 192);
-  else
+  if ( RtlULongLongMult(1LL << *(_DWORD *)(v1 + 220), 0xFAuLL, &pullResult) < 0 )
     v3 = 120000LL;
-  v4 = v3;
+  else
+    v3 = pullResult / *(_QWORD *)(v1 + 192);
+  v7 = v3;
   if ( v0 )
   {
-    v6 = 1LL << *(_DWORD *)(v0 + 220);
-    if ( is_mul_ok(v6, 0xFAuLL) )
-      v4 = v6 * (unsigned __int128)0xFAuLL / *(unsigned __int64 *)(v0 + 192);
-    else
-      v4 = 120000LL;
+    v5 = RtlULongLongMult(v2 << *(_DWORD *)(v0 + 220), 0xFAuLL, &v7) < 0 ? 120000LL : v7 / *(_QWORD *)(v0 + 192);
+    if ( v5 < v3 )
+      v3 = v5;
   }
-  if ( v4 >= v3 )
-    v4 = v3;
-  if ( v4 > 0x1D4C0 || !v4 )
-    LODWORD(v4) = 120000;
-  return KiSetTimerEx((unsigned __int64)&HalpTimerPeriodicTimer, -10000LL * (int)v4, v4, 0, (__int64)&HalpTimerDpc);
+  if ( v3 - 1 > 0x1D4BF )
+    LODWORD(v3) = 120000;
+  return KiSetTimerEx((__int64)&HalpTimerPeriodicTimer, -10000LL * (int)v3, v3, 0, (__int64)&HalpTimerDpc);
 }

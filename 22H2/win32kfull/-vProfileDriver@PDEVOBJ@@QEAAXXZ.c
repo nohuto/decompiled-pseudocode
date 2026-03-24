@@ -1,173 +1,200 @@
 /*
- * XREFs of ?vProfileDriver@PDEVOBJ@@QEAAXXZ @ 0x1C00546BC
+ * XREFs of ?vProfileDriver@PDEVOBJ@@QEAAXXZ @ 0x1C0129438
  * Callers:
- *     PDEVOBJ_vProfileDriverWrap @ 0x1C0054670 (PDEVOBJ_vProfileDriverWrap.c)
+ *     PDEVOBJ_vProfileDriverWrap @ 0x1C0129420 (PDEVOBJ_vProfileDriverWrap.c)
  * Callees:
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C001EF80 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ?bDeleteSurface@SURFREF@@QEAAHH@Z @ 0x1C0054688 (-bDeleteSurface@SURFREF@@QEAAHH@Z.c)
- *     ?CreateCompatibleSurface@@YA?AVSURFREF@@PEAUHDEV__@@KPEAUHPALETTE__@@HHHHHHHHHKKPEAX@Z @ 0x1C0057ED0 (-CreateCompatibleSurface@@YA-AVSURFREF@@PEAUHDEV__@@KPEAUHPALETTE__@@HHHHHHHHHKKPEAX@Z.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00FA390 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C011BFB4 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084E50 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?CreateCompatibleSurface@@YA?AVSURFREF@@PEAUHDEV__@@KPEAUHPALETTE__@@HHHHHHHHHKKPEAX@Z @ 0x1C00AB3AC (-CreateCompatibleSurface@@YA-AVSURFREF@@PEAUHDEV__@@KPEAUHPALETTE__@@HHHHHHHHHKKPEAX@Z.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00AC9D8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2904 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B565C (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C016AF6C (-bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall PDEVOBJ::vProfileDriver(PDEVOBJ *this)
 {
-  struct Gre::Base::SESSION_GLOBALS *v2; // rax
+  __int64 v1; // rax
   __int64 v3; // rdx
-  struct Gre::Base::SESSION_GLOBALS *v4; // rbx
-  __int64 v5; // rax
-  Gre::Base *v6; // rcx
-  __int64 v7; // rax
-  __int64 *v8; // rdi
-  __int64 v9; // rbx
-  __int64 v10; // rax
-  __int64 v11; // r15
-  __int64 v12; // rsi
-  BOOL (__stdcall *v13)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, BLENDOBJ *); // r12
+  __int64 v4; // rax
+  __int64 v5; // r15
+  __int64 v6; // rsi
+  __int64 v7; // rdx
+  BOOL (__stdcall *v8)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, BLENDOBJ *); // r12
+  __int64 v9; // rdx
+  signed __int32 v10; // ett
+  BOOL (__stdcall *v11)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, BLENDOBJ *); // r10
+  __int64 v12; // rdx
+  __int64 v13; // rdx
   __int64 v14; // rdx
-  signed __int32 v15; // ett
-  BOOL (__stdcall *v16)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, BLENDOBJ *); // r10
+  __int64 v15; // rdx
+  signed __int32 v16; // ett
   __int64 v17; // rdx
   __int64 v18; // rdx
   signed __int32 v19; // ett
-  __int64 v20; // rdx
+  BOOL (__stdcall *v20)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG); // r10
   __int64 v21; // rdx
-  signed __int32 v22; // ett
-  BOOL (__stdcall *v23)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG); // r10
+  __int64 v22; // rdx
+  __int64 v23; // rdx
   __int64 v24; // rdx
-  Gre::Base *v25; // [rsp+88h] [rbp-80h] BYREF
-  Gre::Base *v26; // [rsp+90h] [rbp-78h] BYREF
-  Gre::Base *v27; // [rsp+98h] [rbp-70h] BYREF
-  Gre::Base *v28; // [rsp+A0h] [rbp-68h] BYREF
-  Gre::Base *v29; // [rsp+A8h] [rbp-60h] BYREF
-  Gre::Base *v30; // [rsp+B0h] [rbp-58h] BYREF
-  __int128 v31; // [rsp+B8h] [rbp-50h] BYREF
-  __int128 v32; // [rsp+C8h] [rbp-40h]
-  __int64 v33; // [rsp+D8h] [rbp-30h] BYREF
-  char v34; // [rsp+E0h] [rbp-28h]
-  int v35; // [rsp+E4h] [rbp-24h]
-  __int64 v36; // [rsp+E8h] [rbp-20h] BYREF
-  _DWORD v37[4]; // [rsp+F0h] [rbp-18h] BYREF
-  __int64 v38; // [rsp+100h] [rbp-8h]
-  int v39; // [rsp+108h] [rbp+0h]
-  int v40; // [rsp+10Ch] [rbp+4h]
-  _BYTE v41[32]; // [rsp+110h] [rbp+8h] BYREF
-  __int64 v42; // [rsp+130h] [rbp+28h]
-  __int128 v43; // [rsp+138h] [rbp+30h] BYREF
-  __int64 v44; // [rsp+148h] [rbp+40h]
-  int v45; // [rsp+150h] [rbp+48h]
-  _QWORD v46[2]; // [rsp+158h] [rbp+50h] BYREF
-  _BYTE v47[40]; // [rsp+168h] [rbp+60h] BYREF
-  __int64 v48; // [rsp+190h] [rbp+88h]
-  __int64 v49; // [rsp+198h] [rbp+90h]
-  __m128i v50; // [rsp+1A8h] [rbp+A0h] BYREF
-  int v51; // [rsp+1B8h] [rbp+B0h] BYREF
+  __int64 v25; // rdx
+  __int64 v26; // [rsp+88h] [rbp-80h] BYREF
+  __int64 v27; // [rsp+90h] [rbp-78h] BYREF
+  __int64 v28; // [rsp+98h] [rbp-70h] BYREF
+  __int64 v29; // [rsp+A0h] [rbp-68h] BYREF
+  __int64 v30; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 v31; // [rsp+B0h] [rbp-58h] BYREF
+  int v32; // [rsp+B8h] [rbp-50h] BYREF
+  __int64 v33; // [rsp+C0h] [rbp-48h]
+  __int64 v34; // [rsp+C8h] [rbp-40h]
+  __int64 v35; // [rsp+D0h] [rbp-38h]
+  __int64 v36; // [rsp+D8h] [rbp-30h] BYREF
+  char v37; // [rsp+E0h] [rbp-28h]
+  int v38; // [rsp+E4h] [rbp-24h]
+  __int64 v39; // [rsp+E8h] [rbp-20h] BYREF
+  _DWORD v40[4]; // [rsp+F0h] [rbp-18h] BYREF
+  __int64 v41; // [rsp+100h] [rbp-8h]
+  int v42; // [rsp+108h] [rbp+0h]
+  int v43; // [rsp+10Ch] [rbp+4h]
+  _BYTE v44[32]; // [rsp+110h] [rbp+8h] BYREF
+  __int64 v45; // [rsp+130h] [rbp+28h]
+  __int128 v46; // [rsp+138h] [rbp+30h] BYREF
+  __int64 v47; // [rsp+148h] [rbp+40h]
+  int v48; // [rsp+150h] [rbp+48h]
+  _QWORD v49[2]; // [rsp+158h] [rbp+50h] BYREF
+  _BYTE v50[40]; // [rsp+168h] [rbp+60h] BYREF
+  __int64 v51; // [rsp+190h] [rbp+88h]
+  __int64 v52; // [rsp+198h] [rbp+90h]
+  __m128i v53; // [rsp+1A8h] [rbp+A0h] BYREF
+  int v54; // [rsp+1B8h] [rbp+B0h] BYREF
   __m128i si128; // [rsp+1BCh] [rbp+B4h]
-  int v53; // [rsp+1CCh] [rbp+C4h]
+  int v56; // [rsp+1CCh] [rbp+C4h]
 
-  v2 = Gre::Base::Globals(this);
-  v3 = *(_QWORD *)this;
-  v37[3] = 0;
-  v40 = 0;
-  v4 = v2;
-  v31 = 0LL;
-  v32 = 0LL;
-  if ( (*(_DWORD *)(v3 + 40) & 1) != 0 )
+  v1 = *(_QWORD *)this;
+  v40[3] = 0;
+  v43 = 0;
+  if ( (*(_DWORD *)(v1 + 40) & 1) != 0 )
   {
-    DLODCOBJ::DLODCOBJ((DLODCOBJ *)v46);
-    v5 = *(_QWORD *)this;
-    v43 = 0LL;
-    v49 = 0LL;
-    v48 = 0LL;
-    v46[0] = 0LL;
-    v45 = 1;
-    v6 = (Gre::Base *)*(unsigned int *)(v5 + 40);
-    if ( ((unsigned __int8)v6 & 1) != 0 )
+    DLODCOBJ::DLODCOBJ((DLODCOBJ *)v49);
+    v3 = *(_QWORD *)this;
+    v46 = 0LL;
+    v52 = 0LL;
+    v51 = 0LL;
+    v49[0] = 0LL;
+    v48 = 1;
+    if ( (*(_DWORD *)(v3 + 40) & 1) != 0 )
     {
-      Gre::Base::Globals(v6);
-      v7 = *(_QWORD *)this;
-      *(_QWORD *)&v43 = *(_QWORD *)(*(_QWORD *)this + 48LL);
-      v44 = v7;
-      GreAcquireSemaphore(v43);
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v43, 11LL);
+      *(_QWORD *)&v46 = *(_QWORD *)(v3 + 48);
+      v47 = v3;
+      GreAcquireSemaphore(v46);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v46, 11LL);
     }
-    v36 = *((_QWORD *)v4 + 14);
-    GreAcquireSemaphore(v36);
-    v8 = (__int64 *)*((_QWORD *)v4 + 751);
-    v9 = *((_QWORD *)v4 + 750);
-    v10 = *(_QWORD *)this;
-    v11 = *(_QWORD *)(*(_QWORD *)this + 2528LL);
-    v12 = *(_QWORD *)(*(_QWORD *)this + 1776LL);
-    v53 = 0;
-    v51 = 0;
+    v39 = ghsemSprite;
+    GreAcquireSemaphore(ghsemSprite);
+    v4 = *(_QWORD *)this;
+    v5 = *(_QWORD *)(*(_QWORD *)this + 2552LL);
+    v6 = *(_QWORD *)(*(_QWORD *)this + 1808LL);
+    v56 = 0;
+    v54 = 0;
     si128 = _mm_load_si128((const __m128i *)&_xmm);
-    v50 = si128;
-    *(_DWORD *)(v10 + 2408) = 0;
-    v37[0] = 6;
-    v38 = *v8;
-    v33 = 0LL;
-    v34 = 0;
-    v35 = 0;
+    v53 = si128;
+    *(_DWORD *)(v4 + 2440) = 0;
+    v40[0] = 6;
+    v41 = *(_QWORD *)gppalRGB;
+    v36 = 0LL;
+    v37 = 0;
+    v38 = 0;
+    v28 = 0LL;
     v27 = 0LL;
     v26 = 0LL;
-    v25 = 0LL;
-    v37[1] = 40;
-    v37[2] = 40;
-    v39 = 1;
-    v13 = EngAlphaBlend;
-    if ( SURFMEM::bCreateDIB((SURFMEM *)&v33, (struct _DEVBITMAPINFO *)v37, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0)
-      && (unsigned int)EXLATEOBJ::bInitXlateObj(&v27, 0LL, 0LL, v8, v8, v9, v9, 0, 0, 0, 0)
-      && (unsigned int)EXLATEOBJ::bInitXlateObj(&v26, 0LL, 0LL, v12, v8, v9, v9, 0, 0, 0, 0)
-      && (unsigned int)EXLATEOBJ::bInitXlateObj(&v25, 0LL, 0LL, v8, v12, v9, v9, 0, 0, 0, 0) )
+    v40[1] = 40;
+    v40[2] = 40;
+    v42 = 1;
+    v8 = EngAlphaBlend;
+    if ( SURFMEM::bCreateDIB((SURFMEM *)&v36, (struct _DEVBITMAPINFO *)v40, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0)
+      && (unsigned int)EXLATEOBJ::bInitXlateObj(
+                         &v28,
+                         0LL,
+                         0,
+                         (__int64)gppalRGB,
+                         (__int64)gppalRGB,
+                         (__int64)ppalDefault,
+                         (__int64)ppalDefault,
+                         0,
+                         0,
+                         0,
+                         0)
+      && (unsigned int)EXLATEOBJ::bInitXlateObj(
+                         &v27,
+                         0LL,
+                         0,
+                         v6,
+                         (__int64)gppalRGB,
+                         (__int64)ppalDefault,
+                         (__int64)ppalDefault,
+                         0,
+                         0,
+                         0,
+                         0)
+      && (unsigned int)EXLATEOBJ::bInitXlateObj(
+                         &v26,
+                         0LL,
+                         0,
+                         (__int64)gppalRGB,
+                         v6,
+                         (__int64)ppalDefault,
+                         (__int64)ppalDefault,
+                         0,
+                         0,
+                         0,
+                         0) )
     {
-      v14 = *(_QWORD *)this;
-      *((_QWORD *)&v31 + 1) = v27;
-      *(_QWORD *)&v32 = v26;
-      *((_QWORD *)&v32 + 1) = v25;
-      WORD1(v31) = 511;
-      _m_prefetchw((const void *)(v14 + 40));
+      v9 = *(_QWORD *)this;
+      v33 = v28;
+      v34 = v27;
+      v35 = v26;
+      v32 = 33488896;
+      _m_prefetchw((const void *)(v9 + 40));
       do
-        v15 = *(_DWORD *)(v14 + 40);
-      while ( v15 != _InterlockedCompareExchange((volatile signed __int32 *)(v14 + 40), v15 & 0xFFFBFFFF, v15) );
-      if ( (*(_DWORD *)(v11 + 112) & 0x10000) != 0 )
-        v16 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, BLENDOBJ *))(*(_QWORD *)this + 3232LL);
+        v10 = *(_DWORD *)(v9 + 40);
+      while ( v10 != _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 40), v10 & 0xFFFBFFFF, v10) );
+      if ( (*(_DWORD *)(v5 + 112) & 0x10000) != 0 )
+        v11 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, BLENDOBJ *))(*(_QWORD *)this + 3256LL);
       else
-        v16 = EngAlphaBlend;
-      v17 = v33 + 24;
-      if ( !v33 )
-        v17 = 0LL;
-      if ( ((unsigned int (__fastcall *)(__int64, __int64, int *, Gre::Base *, __m128i *, __m128i *, __int128 *))v16)(
-             (v11 + 24) & -(__int64)(v11 != 0),
-             v17,
-             &v51,
-             v25,
-             &v50,
-             &v50,
-             &v31)
+        v11 = EngAlphaBlend;
+      v12 = v36 + 24;
+      if ( !v36 )
+        v12 = 0LL;
+      if ( ((unsigned int (__fastcall *)(__int64, __int64, int *, __int64, __m128i *, __m128i *, int *))v11)(
+             v5 + 24,
+             v12,
+             &v54,
+             v26,
+             &v53,
+             &v53,
+             &v32)
         && (*(_DWORD *)(*(_QWORD *)this + 40LL) & 0x40000) == 0 )
       {
-        *(_DWORD *)(*(_QWORD *)this + 2408LL) |= 2u;
+        *(_DWORD *)(*(_QWORD *)this + 2440LL) |= 2u;
         *(_DWORD *)(*(_QWORD *)this + 44LL) |= 2u;
       }
     }
-    EXLATEOBJ::vAltUnlock(&v25);
-    EXLATEOBJ::vAltUnlock(&v26);
-    EXLATEOBJ::vAltUnlock(&v27);
-    SURFMEM::~SURFMEM((SURFMEM *)&v33);
+    EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v26, v7);
+    EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v27, v13);
+    EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v28, v14);
+    SURFMEM::~SURFMEM((SURFMEM *)&v36);
     CreateCompatibleSurface(
-      v41,
+      (SURFREF *)v44,
       *(_QWORD *)this,
-      *(unsigned int *)(v11 + 96),
+      *(unsigned int *)(v5 + 96),
       0LL,
-      40,
-      40,
-      1,
+      0x28u,
+      0x28u,
+      1u,
       0,
       0,
       0,
@@ -177,80 +204,113 @@ void __fastcall PDEVOBJ::vProfileDriver(PDEVOBJ *this)
       0,
       0,
       0LL);
-    if ( v42 )
+    if ( v45 )
     {
+      v31 = 0LL;
       v30 = 0LL;
       v29 = 0LL;
-      v28 = 0LL;
-      if ( (unsigned int)EXLATEOBJ::bInitXlateObj(&v30, 0LL, 0LL, v12, v12, v9, v9, 0, 0, 0, 0)
-        && (unsigned int)EXLATEOBJ::bInitXlateObj(&v29, 0LL, 0LL, v12, v8, v9, v9, 0, 0, 0, 0)
-        && (unsigned int)EXLATEOBJ::bInitXlateObj(&v28, 0LL, 0LL, v8, v12, v9, v9, 0, 0, 0, 0) )
+      if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
+                           &v31,
+                           0LL,
+                           0,
+                           v6,
+                           v6,
+                           (__int64)ppalDefault,
+                           (__int64)ppalDefault,
+                           0,
+                           0,
+                           0,
+                           0)
+        && (unsigned int)EXLATEOBJ::bInitXlateObj(
+                           &v30,
+                           0LL,
+                           0,
+                           v6,
+                           (__int64)gppalRGB,
+                           (__int64)ppalDefault,
+                           (__int64)ppalDefault,
+                           0,
+                           0,
+                           0,
+                           0)
+        && (unsigned int)EXLATEOBJ::bInitXlateObj(
+                           &v29,
+                           0LL,
+                           0,
+                           (__int64)gppalRGB,
+                           v6,
+                           (__int64)ppalDefault,
+                           (__int64)ppalDefault,
+                           0,
+                           0,
+                           0,
+                           0) )
       {
-        v18 = *(_QWORD *)this;
-        *((_QWORD *)&v31 + 1) = v29;
-        *(_QWORD *)&v32 = v29;
-        *((_QWORD *)&v32 + 1) = v28;
-        LODWORD(v31) = 8716288;
-        _m_prefetchw((const void *)(v18 + 40));
+        v15 = *(_QWORD *)this;
+        v33 = v30;
+        v34 = v30;
+        v35 = v29;
+        v32 = 8716288;
+        _m_prefetchw((const void *)(v15 + 40));
         do
-          v19 = *(_DWORD *)(v18 + 40);
-        while ( v19 != _InterlockedCompareExchange((volatile signed __int32 *)(v18 + 40), v19 & 0xFFFBFFFF, v19) );
-        if ( (*(_DWORD *)(v11 + 112) & 0x10000) != 0 )
-          v13 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, BLENDOBJ *))(*(_QWORD *)this + 3232LL);
-        v20 = v42 + 24;
-        if ( !v42 )
-          v20 = 0LL;
-        if ( ((unsigned int (__fastcall *)(__int64, __int64, int *, Gre::Base *, __m128i *, __m128i *, __int128 *))v13)(
-               (v11 + 24) & -(__int64)(v11 != 0),
-               v20,
-               &v51,
-               v30,
-               &v50,
-               &v50,
-               &v31)
+          v16 = *(_DWORD *)(v15 + 40);
+        while ( v16 != _InterlockedCompareExchange((volatile signed __int32 *)(v15 + 40), v16 & 0xFFFBFFFF, v16) );
+        if ( (*(_DWORD *)(v5 + 112) & 0x10000) != 0 )
+          v8 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, BLENDOBJ *))(*(_QWORD *)this + 3256LL);
+        v17 = v45 + 24;
+        if ( !v45 )
+          v17 = 0LL;
+        if ( ((unsigned int (__fastcall *)(__int64, __int64, int *, __int64, __m128i *, __m128i *, int *))v8)(
+               v5 + 24,
+               v17,
+               &v54,
+               v31,
+               &v53,
+               &v53,
+               &v32)
           && (*(_DWORD *)(*(_QWORD *)this + 40LL) & 0x40000) == 0 )
         {
-          *(_DWORD *)(*(_QWORD *)this + 2408LL) |= 1u;
+          *(_DWORD *)(*(_QWORD *)this + 2440LL) |= 1u;
           *(_DWORD *)(*(_QWORD *)this + 44LL) |= 1u;
         }
       }
-      v21 = *(_QWORD *)this;
+      v18 = *(_QWORD *)this;
       _m_prefetchw((const void *)(*(_QWORD *)this + 40LL));
       do
-        v22 = *(_DWORD *)(v21 + 40);
-      while ( v22 != _InterlockedCompareExchange((volatile signed __int32 *)(v21 + 40), v22 & 0xFFFBFFFF, v22) );
-      if ( (*(_DWORD *)(v11 + 112) & 0x8000) != 0 )
-        v23 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG))(*(_QWORD *)this + 3256LL);
+        v19 = *(_DWORD *)(v18 + 40);
+      while ( v19 != _InterlockedCompareExchange((volatile signed __int32 *)(v18 + 40), v19 & 0xFFFBFFFF, v19) );
+      if ( (*(_DWORD *)(v5 + 112) & 0x8000) != 0 )
+        v20 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG))(*(_QWORD *)this + 3280LL);
       else
-        v23 = EngTransparentBlt;
-      v24 = v42 + 24;
-      if ( !v42 )
-        v24 = 0LL;
-      if ( ((unsigned int (__fastcall *)(__int64, __int64, _QWORD, _QWORD, __m128i *, __m128i *, int, _DWORD))v23)(
-             (v11 + 24) & -(__int64)(v11 != 0),
-             v24,
+        v20 = EngTransparentBlt;
+      v21 = v45 + 24;
+      if ( !v45 )
+        v21 = 0LL;
+      if ( ((unsigned int (__fastcall *)(__int64, __int64, _QWORD, _QWORD, __m128i *, __m128i *, int, _DWORD))v20)(
+             v5 + 24,
+             v21,
              0LL,
              0LL,
-             &v50,
-             &v50,
+             &v53,
+             &v53,
              1,
              0)
         && (*(_DWORD *)(*(_QWORD *)this + 40LL) & 0x40000) == 0 )
       {
         *(_DWORD *)(*(_QWORD *)this + 44LL) |= 4u;
       }
-      EXLATEOBJ::vAltUnlock(&v28);
-      EXLATEOBJ::vAltUnlock(&v29);
-      EXLATEOBJ::vAltUnlock(&v30);
+      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v29, v22);
+      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v30, v23);
+      EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v31, v24);
     }
-    SURFREF::bDeleteSurface((SURFREF *)v41, 0);
-    if ( v42 )
-      DEC_SHARE_REF_CNT(v42);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v41);
-    SEMOBJ::vUnlock((SEMOBJ *)&v36);
-    DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v43);
-    if ( v46[0] )
-      DLODCOBJ::vUnlock((DLODCOBJ *)v46);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v47);
+    SURFREF::bDeleteSurface(v44, 0LL, 0LL);
+    if ( v45 )
+      DEC_SHARE_REF_CNT(v45, v25);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v44);
+    SEMOBJ::vUnlock((SEMOBJ *)&v39);
+    DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v46);
+    if ( v49[0] )
+      DLODCOBJ::vUnlock((DLODCOBJ *)v49);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v50);
   }
 }

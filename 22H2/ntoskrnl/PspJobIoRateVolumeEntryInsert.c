@@ -1,16 +1,16 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryInsert @ 0x1405A44C8
+ * XREFs of PspJobIoRateVolumeEntryInsert @ 0x14058202C
  * Callers:
- *     PspSetJobIoRateControlForVolume @ 0x1409B2B64 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControlForVolume @ 0x140909474 (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockTrackerCompare @ 0x1405A4430 (MiLockTrackerCompare.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1402C0B10 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockTrackerCompare @ 0x140530C10 (MiLockTrackerCompare.c)
  */
 
-void __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v2; // r12
   __int64 v4; // rdi
@@ -21,15 +21,14 @@ void __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2)
   bool v9; // r8
   int v10; // esi
   unsigned __int64 v11; // rax
-  unsigned __int8 CurrentIrql; // al
+  __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // eax
-  bool v16; // zf
+  bool v15; // zf
 
-  v2 = (volatile LONG *)(a1 + 1672);
-  v4 = a1 + 1680;
-  v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1672));
+  v2 = (volatile LONG *)(a1 + 1456);
+  v4 = a1 + 1464;
+  v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1456));
   v6 = *(_QWORD *)(a2 + 24);
   v7 = *(_QWORD *)v4;
   v8 = v5;
@@ -78,19 +77,24 @@ LABEL_10:
   }
   RtlRbInsertNodeEx((unsigned __int64 *)v4, v7, v9, a2);
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-      v16 = (v15 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v8 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+        v15 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v15 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v8);
+  return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of VslDebugProtectSecureProcessMemory @ 0x140931B88
+ * XREFs of VslDebugProtectSecureProcessMemory @ 0x14088F338
  * Callers:
- *     MiProtectEnclavePages @ 0x1405A9744 (MiProtectEnclavePages.c)
- *     NtProtectVirtualMemory @ 0x1407BEBF0 (NtProtectVirtualMemory.c)
+ *     MiProtectEnclavePages @ 0x14054AB30 (MiProtectEnclavePages.c)
+ *     NtProtectVirtualMemory @ 0x1405F8E40 (NtProtectVirtualMemory.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslDebugProtectSecureProcessMemory(
+NTSTATUS __fastcall VslDebugProtectSecureProcessMemory(
         __int64 a1,
         __int64 a2,
         _QWORD *a3,
@@ -17,7 +17,7 @@ __int64 __fastcall VslDebugProtectSecureProcessMemory(
         unsigned int a5,
         _DWORD *a6)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD v11[14]; // [rsp+20h] [rbp-98h] BYREF
 
   memset(v11, 0, 0x68uLL);
@@ -26,8 +26,8 @@ __int64 __fastcall VslDebugProtectSecureProcessMemory(
   v11[4] = *a4;
   v11[5] = a5;
   v11[2] = a2;
-  result = VslpEnterIumSecureMode(2u, 39, 0, (__int64)v11);
-  if ( (int)result >= 0 )
+  result = VslpEnterIumSecureMode(2u, 38, 0, (__int64)v11);
+  if ( result >= 0 )
   {
     *a3 = v11[3];
     *a4 = v11[4];

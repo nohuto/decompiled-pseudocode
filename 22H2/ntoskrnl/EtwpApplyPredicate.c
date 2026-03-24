@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpApplyPredicate @ 0x140604CD4
+ * XREFs of EtwpApplyPredicate @ 0x1405B1544
  * Callers:
- *     EtwpApplyPayloadFilterInternal @ 0x140604468 (EtwpApplyPayloadFilterInternal.c)
+ *     EtwpApplyPayloadFilterInternal @ 0x1405B0CC8 (EtwpApplyPayloadFilterInternal.c)
  * Callees:
- *     strncmp @ 0x1403D8830 (strncmp.c)
- *     wcsncmp @ 0x1403DB3F0 (wcsncmp.c)
- *     EtwpGetFieldValue @ 0x140605244 (EtwpGetFieldValue.c)
- *     EtwpGetSignedFieldValue @ 0x1406052AC (EtwpGetSignedFieldValue.c)
- *     ExSystemExceptionFilter @ 0x140865F70 (ExSystemExceptionFilter.c)
+ *     strncmp @ 0x1403D0E40 (strncmp.c)
+ *     wcsncmp @ 0x1403D3940 (wcsncmp.c)
+ *     EtwpGetFieldValue @ 0x1405B1AAC (EtwpGetFieldValue.c)
+ *     EtwpGetSignedFieldValue @ 0x1405B1B14 (EtwpGetSignedFieldValue.c)
+ *     ExSystemExceptionFilter @ 0x1407D4E30 (ExSystemExceptionFilter.c)
  */
 
 char __fastcall EtwpApplyPredicate(unsigned __int16 *a1, int a2, __int64 a3, const char *a4, unsigned int a5, bool *a6)
 {
   const char *v6; // rdi
-  char v9; // r14
-  int v10; // r15d
+  char v9; // r15
+  int v10; // r12d
   int v11; // edx
   int v12; // edx
   int v13; // edx
@@ -26,154 +26,150 @@ char __fastcall EtwpApplyPredicate(unsigned __int16 *a1, int a2, __int64 a3, con
   char *v19; // rcx
   unsigned __int64 v20; // rdx
   __int64 v21; // rax
-  const wchar_t *v22; // rsi
-  char *j; // rcx
-  __int64 v24; // rcx
-  wchar_t v25; // r15
-  size_t v26; // r13
-  const char *v27; // r12
-  char *v28; // rsi
-  unsigned __int64 v29; // rax
-  const char *v30; // rsi
-  const char *i; // rcx
-  unsigned int v32; // ecx
-  const char *v33; // rdx
-  char v34; // r12
-  size_t v35; // r15
-  unsigned __int64 v36; // r13
-  unsigned __int64 v37; // rcx
-  __int64 v38; // rdx
-  bool v39; // zf
-  __int64 v40; // r8
-  __int64 v41; // rdx
-  __int64 v43; // [rsp+28h] [rbp-40h] BYREF
-  const char *v44; // [rsp+30h] [rbp-38h] BYREF
-  const char *v45; // [rsp+38h] [rbp-30h]
-  const char *v46; // [rsp+40h] [rbp-28h]
-  const wchar_t *v47; // [rsp+48h] [rbp-20h]
+  const wchar_t *v22; // r14
+  char *j; // rsi
+  __int64 v24; // rsi
+  wchar_t v25; // r12
+  const char *v26; // r13
+  char *v27; // r14
+  unsigned __int64 v28; // rax
+  const char *v29; // r14
+  const char *i; // rsi
+  unsigned int v31; // esi
+  const char *v32; // rcx
+  char v33; // r12
+  unsigned __int64 v34; // r13
+  unsigned __int64 v35; // rcx
+  __int64 v36; // rdx
+  bool v37; // zf
+  __int64 v38; // r8
+  __int64 v39; // rdx
+  __int64 v41; // [rsp+28h] [rbp-40h] BYREF
+  const char *v42; // [rsp+30h] [rbp-38h] BYREF
+  const char *v43; // [rsp+38h] [rbp-30h]
+  const char *v44; // [rsp+40h] [rbp-28h]
+  const wchar_t *v45; // [rsp+48h] [rbp-20h]
 
   v6 = a4;
-  v43 = 0LL;
-  v44 = 0LL;
+  v41 = 0LL;
+  v42 = 0LL;
   if ( !a5 )
     return 0;
   v9 = 0;
   v10 = *(unsigned __int16 *)(a3 + 2);
-  if ( !a2 )
-    return 0;
   v11 = a2 - 1;
   if ( !v11 )
   {
-    if ( !(unsigned __int8)EtwpGetSignedFieldValue(a4, a5, &v43) )
+    if ( !(unsigned __int8)EtwpGetSignedFieldValue(a4, a5, &v41) )
       return 0;
-    v40 = *(_QWORD *)(a3 + 8);
-    v41 = *(_QWORD *)(a3 + 16);
+    v38 = *(_QWORD *)(a3 + 8);
+    v39 = *(_QWORD *)(a3 + 16);
     if ( !v10 )
     {
-      v17 = v43 == v40;
-      goto LABEL_120;
+      v17 = v41 == v38;
+      goto LABEL_119;
     }
     if ( v10 != 1 )
     {
       switch ( v10 )
       {
         case 2:
-          v16 = v43 <= v40;
-          goto LABEL_121;
+          v16 = v41 <= v38;
+          goto LABEL_120;
         case 3:
-          v16 = v43 > v40;
-          goto LABEL_121;
+          v16 = v41 > v38;
+          goto LABEL_120;
         case 4:
-          v16 = v43 < v40;
-          goto LABEL_121;
+          v16 = v41 < v38;
+          goto LABEL_120;
         case 5:
-          v16 = v43 >= v40;
-          goto LABEL_121;
+          v16 = v41 >= v38;
+          goto LABEL_120;
         case 6:
-          if ( v40 > v43 || v43 > v41 )
-            goto LABEL_112;
+          if ( v38 > v41 || v41 > v39 )
+            goto LABEL_111;
           break;
         case 7:
-          if ( v43 >= v40 && v41 >= v43 )
-            goto LABEL_112;
+          if ( v41 >= v38 && v39 >= v41 )
+            goto LABEL_111;
           break;
         default:
-          if ( v10 != 8 || !v40 )
+          if ( v10 != 8 || !v38 )
             return 0;
-          v38 = v43 % v40;
-          goto LABEL_82;
+          v36 = v41 % v38;
+          goto LABEL_81;
       }
-LABEL_109:
+LABEL_108:
       v16 = 1;
-      goto LABEL_121;
+      goto LABEL_120;
     }
-    v39 = v43 == v40;
-LABEL_118:
-    v16 = !v39;
-    goto LABEL_121;
+    v37 = v41 == v38;
+LABEL_117:
+    v16 = !v37;
+    goto LABEL_120;
   }
   v12 = v11 - 1;
   if ( !v12 )
   {
-    if ( !(unsigned __int8)EtwpGetFieldValue(a4, a5, &v44) )
+    if ( !(unsigned __int8)EtwpGetFieldValue(a4, a5, &v42) )
       return 0;
     if ( !v10 )
     {
-      v17 = v44 == *(const char **)(a3 + 8);
-      goto LABEL_120;
+      v17 = v42 == *(const char **)(a3 + 8);
+      goto LABEL_119;
     }
     if ( v10 != 1 )
     {
       switch ( v10 )
       {
         case 2:
-          v16 = (unsigned __int64)v44 <= *(_QWORD *)(a3 + 8);
-          goto LABEL_121;
+          v16 = (unsigned __int64)v42 <= *(_QWORD *)(a3 + 8);
+          goto LABEL_120;
         case 3:
-          v16 = (unsigned __int64)v44 > *(_QWORD *)(a3 + 8);
-          goto LABEL_121;
+          v16 = (unsigned __int64)v42 > *(_QWORD *)(a3 + 8);
+          goto LABEL_120;
         case 4:
-          v16 = (unsigned __int64)v44 < *(_QWORD *)(a3 + 8);
-          goto LABEL_121;
+          v16 = (unsigned __int64)v42 < *(_QWORD *)(a3 + 8);
+          goto LABEL_120;
         case 5:
-          v16 = (unsigned __int64)v44 >= *(_QWORD *)(a3 + 8);
-          goto LABEL_121;
+          v16 = (unsigned __int64)v42 >= *(_QWORD *)(a3 + 8);
+          goto LABEL_120;
         case 6:
-          if ( *(_QWORD *)(a3 + 8) > (unsigned __int64)v44 || (unsigned __int64)v44 > *(_QWORD *)(a3 + 16) )
-            goto LABEL_112;
+          if ( *(_QWORD *)(a3 + 8) > (unsigned __int64)v42 || (unsigned __int64)v42 > *(_QWORD *)(a3 + 16) )
+            goto LABEL_111;
           break;
         case 7:
-          if ( (unsigned __int64)v44 >= *(_QWORD *)(a3 + 8) && *(_QWORD *)(a3 + 16) >= (unsigned __int64)v44 )
-            goto LABEL_112;
+          if ( (unsigned __int64)v42 >= *(_QWORD *)(a3 + 8) && *(_QWORD *)(a3 + 16) >= (unsigned __int64)v42 )
+            goto LABEL_111;
           break;
         case 8:
-          v37 = *(_QWORD *)(a3 + 8);
-          if ( !v37 )
+          v35 = *(_QWORD *)(a3 + 8);
+          if ( !v35 )
             return 0;
-          v38 = (unsigned __int64)v44 % v37;
-LABEL_82:
-          v17 = v38 == 0;
-          goto LABEL_120;
+          v36 = (unsigned __int64)v42 % v35;
+LABEL_81:
+          v17 = v36 == 0;
+          goto LABEL_119;
         default:
           return 0;
       }
-      goto LABEL_109;
+      goto LABEL_108;
     }
-    v39 = v44 == *(const char **)(a3 + 8);
-    goto LABEL_118;
+    v37 = v42 == *(const char **)(a3 + 8);
+    goto LABEL_117;
   }
   v13 = v12 - 1;
   if ( !v13 )
   {
-    v28 = (char *)a1 + a1[24];
-    v29 = (unsigned __int64)&v28[a1[25]];
-    v30 = &v28[*(_QWORD *)(a3 + 8)];
-    if ( (unsigned __int64)v30 >= v29 )
+    v27 = (char *)a1 + a1[24];
+    v28 = (unsigned __int64)&v27[a1[25]];
+    v29 = &v27[*(_QWORD *)(a3 + 8)];
+    if ( (unsigned __int64)v29 >= v28 )
       return 0;
-    for ( i = v30; *i && (unsigned __int64)i < v29; ++i )
+    for ( i = v29; *i && (unsigned __int64)i < v28; ++i )
       ;
-    v32 = (_DWORD)i - (_DWORD)v30;
-    if ( v32 )
+    v31 = (_DWORD)i - (_DWORD)v29;
+    if ( v31 )
     {
       if ( v10 != 20 )
       {
@@ -186,59 +182,59 @@ LABEL_82:
             v9 = 1;
           }
           v16 = v9;
-          if ( v32 == a5 )
+          if ( v31 == a5 )
           {
             v16 = 1;
-            v33 = v30;
-            while ( v32 )
+            while ( 1 )
             {
-              if ( *v6 != *v30 )
+              v32 = v29;
+              if ( !v31 )
+                break;
+              if ( *v6 != *v29 )
               {
                 v16 = 0;
                 break;
               }
-              v46 = ++v6;
-              v30 = v33 + 1;
-              v33 = v30;
-              v44 = v30;
-              --v32;
+              v44 = ++v6;
+              ++v29;
+              v42 = v32 + 1;
+              --v31;
             }
-LABEL_31:
+LABEL_30:
             if ( v9 )
             {
-LABEL_13:
+LABEL_12:
               v17 = !v16;
-LABEL_120:
+LABEL_119:
               v16 = v17;
             }
           }
-LABEL_121:
+LABEL_120:
           *a6 = v16;
           return 1;
         }
         v9 = 1;
       }
       v16 = v9;
-      if ( v32 > a5 )
-        goto LABEL_121;
-      v34 = *v30;
-      v35 = v32;
-      v36 = (unsigned __int64)&a4[a5 - (unsigned __int64)v32 + 1];
+      if ( v31 > a5 )
+        goto LABEL_120;
+      v33 = *v29;
+      v34 = (unsigned __int64)&a4[a5 - (unsigned __int64)v31 + 1];
       v16 = 0;
-      while ( (unsigned __int64)v6 < v36 )
+      while ( (unsigned __int64)v6 < v34 )
       {
-        if ( *v6 == v34 && !strncmp(v6, v30, v35) )
+        if ( *v6 == v33 && !strncmp(v6, v29, v31) )
         {
           v16 = 1;
-          goto LABEL_31;
+          goto LABEL_30;
         }
-        v46 = ++v6;
+        v44 = ++v6;
       }
-      goto LABEL_31;
+      goto LABEL_30;
     }
-LABEL_112:
+LABEL_111:
     v16 = 0;
-    goto LABEL_121;
+    goto LABEL_120;
   }
   v14 = v13 - 1;
   if ( !v14 )
@@ -276,39 +272,38 @@ LABEL_112:
               if ( *v22 != *(_WORD *)v6 )
               {
                 v16 = 0;
-                goto LABEL_31;
+                goto LABEL_30;
               }
               v6 += 2;
-              v45 = v6;
-              v47 = ++v22;
+              v43 = v6;
+              v45 = ++v22;
               LODWORD(v24) = v24 - 1;
             }
-            goto LABEL_31;
+            goto LABEL_30;
           }
-          goto LABEL_121;
+          goto LABEL_120;
         }
         v9 = 1;
       }
       v16 = v9;
       if ( (unsigned int)v24 > v18 )
-        goto LABEL_121;
+        goto LABEL_120;
       v25 = *v22;
-      v26 = (unsigned int)v24;
-      v27 = &v6[2 * (v18 - (unsigned __int64)(unsigned int)v24) + 2];
+      v26 = &v6[2 * (v18 - (unsigned __int64)(unsigned int)v24) + 2];
       v16 = 0;
-      while ( v6 < v27 )
+      while ( v6 < v26 )
       {
-        if ( *(_WORD *)v6 == v25 && !wcsncmp((const wchar_t *)v6, v22, v26) )
+        if ( *(_WORD *)v6 == v25 && !wcsncmp((const wchar_t *)v6, v22, (unsigned int)v24) )
         {
           v16 = 1;
-          goto LABEL_31;
+          goto LABEL_30;
         }
         v6 += 2;
-        v45 = v6;
+        v43 = v6;
       }
-      goto LABEL_31;
+      goto LABEL_30;
     }
-    goto LABEL_112;
+    goto LABEL_111;
   }
   if ( v14 == 1 && a5 == 16 )
   {
@@ -317,9 +312,9 @@ LABEL_112:
       v15 = *((_QWORD *)a4 + 1) - *(_QWORD *)(a3 + 16);
     v16 = v15 == 0;
     if ( v10 == 30 )
-      goto LABEL_121;
+      goto LABEL_120;
     if ( v10 == 31 )
-      goto LABEL_13;
+      goto LABEL_12;
   }
   return 0;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtCreateIRTimer @ 0x1406EBB70
+ * XREFs of NtCreateIRTimer @ 0x14078ECD0
  * Callers:
  *     <none>
  * Callees:
- *     NtCreateTimer2 @ 0x1407D53D0 (NtCreateTimer2.c)
+ *     NtCreateTimer2 @ 0x1406D4930 (NtCreateTimer2.c)
  */
 
-__int64 __fastcall NtCreateIRTimer(int a1, int a2, int a3)
+__int64 __fastcall NtCreateIRTimer(__int64 *a1, __int64 a2)
 {
-  return NtCreateTimer2(a1, a2, 0, 2, a3);
+  return NtCreateTimer2(a1, a2, 0LL, 2u);
 }

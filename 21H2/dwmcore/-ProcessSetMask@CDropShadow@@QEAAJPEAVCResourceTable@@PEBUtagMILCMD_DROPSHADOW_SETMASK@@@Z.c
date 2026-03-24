@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessSetMask@CDropShadow@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DROPSHADOW_SETMASK@@@Z @ 0x180212900
+ * XREFs of ?ProcessSetMask@CDropShadow@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DROPSHADOW_SETMASK@@@Z @ 0x1801BF4CC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?SetMask@ShadowIntermediates@CDropShadow@@QEAAJPEAV2@PEAVCBrush@@@Z @ 0x1800ED2FC (-SetMask@ShadowIntermediates@CDropShadow@@QEAAJPEAV2@PEAVCBrush@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?SetMask@ShadowIntermediates@CDropShadow@@QEAAJPEAV2@PEAVCBrush@@@Z @ 0x1800E1AE8 (-SetMask@ShadowIntermediates@CDropShadow@@QEAAJPEAV2@PEAVCBrush@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDropShadow::ProcessSetMask(
@@ -24,14 +24,14 @@ __int64 __fastcall CDropShadow::ProcessSetMask(
   v4 = 0;
   v5 = *((_DWORD *)a3 + 2);
   Resource = 0LL;
-  if ( !v5 || (Resource = (struct CBrush *)CResourceTable::GetResource((__int64)a2, v5, 0xFu)) != 0LL )
+  if ( !v5 || (Resource = (struct CBrush *)CResourceTable::GetResource((__int64)a2, v5, 0xEu)) != 0LL )
   {
-    if ( Resource != *((struct CBrush **)this + 17) )
+    if ( Resource != *((struct CBrush **)this + 18) )
     {
-      v9 = CDropShadow::ShadowIntermediates::SetMask((CDropShadow *)((char *)this + 128), this, Resource);
+      v9 = CDropShadow::ShadowIntermediates::SetMask((CDropShadow *)((char *)this + 136), this, Resource);
       v4 = v9;
       if ( v9 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0xBCu);
+        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xADu, 0LL);
       else
         (*(void (__fastcall **)(CDropShadow *, _QWORD, CDropShadow *))(*(_QWORD *)this + 72LL))(this, 0LL, this);
     }
@@ -39,7 +39,7 @@ __int64 __fastcall CDropShadow::ProcessSetMask(
   else
   {
     v4 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, -2003303421, 0xB6u);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0xA7u, 0LL);
   }
   return v4;
 }

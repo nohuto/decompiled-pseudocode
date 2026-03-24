@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiFdoCleanupGpuVirtualization @ 0x1C039AE30
+ * XREFs of DpiFdoCleanupGpuVirtualization @ 0x1C02C8EC0
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
- *     DpiFdoInitializeGpuVirtualization @ 0x1C0201C54 (DpiFdoInitializeGpuVirtualization.c)
- *     DpiFdoResetFdo @ 0x1C039D034 (DpiFdoResetFdo.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
+ *     DpiFdoInitializeGpuVirtualization @ 0x1C018B6B8 (DpiFdoInitializeGpuVirtualization.c)
+ *     DpiFdoResetFdo @ 0x1C02CC204 (DpiFdoResetFdo.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall DpiFdoCleanupGpuVirtualization(__int64 a1))(_QWORD)
@@ -22,103 +22,103 @@ __int64 (__fastcall *__fastcall DpiFdoCleanupGpuVirtualization(__int64 a1))(_QWO
   void (__fastcall *v11)(_QWORD); // rax
   __int64 (__fastcall *result)(_QWORD); // rax
 
-  if ( *(_QWORD *)(a1 + 2784) )
+  if ( *(_QWORD *)(a1 + 2768) )
   {
-    IoSetDeviceInterfaceState((PUNICODE_STRING)(a1 + 2776), 0);
-    v2 = *(void **)(a1 + 2784);
+    IoSetDeviceInterfaceState((PUNICODE_STRING)(a1 + 2760), 0);
+    v2 = *(void **)(a1 + 2768);
     if ( v2 )
     {
       ExFreePoolWithTag(v2, 0);
+      *(_QWORD *)(a1 + 2768) = 0LL;
+    }
+  }
+  if ( *(_QWORD *)(a1 + 2784) )
+  {
+    IoSetDeviceInterfaceState((PUNICODE_STRING)(a1 + 2776), 0);
+    v3 = *(void **)(a1 + 2784);
+    if ( v3 )
+    {
+      ExFreePoolWithTag(v3, 0);
       *(_QWORD *)(a1 + 2784) = 0LL;
     }
   }
   if ( *(_QWORD *)(a1 + 2800) )
   {
     IoSetDeviceInterfaceState((PUNICODE_STRING)(a1 + 2792), 0);
-    v3 = *(void **)(a1 + 2800);
-    if ( v3 )
+    v4 = *(void **)(a1 + 2800);
+    if ( v4 )
     {
-      ExFreePoolWithTag(v3, 0);
+      ExFreePoolWithTag(v4, 0);
       *(_QWORD *)(a1 + 2800) = 0LL;
     }
   }
   if ( *(_QWORD *)(a1 + 2816) )
   {
     IoSetDeviceInterfaceState((PUNICODE_STRING)(a1 + 2808), 0);
-    v4 = *(void **)(a1 + 2816);
-    if ( v4 )
+    v5 = *(void **)(a1 + 2816);
+    if ( v5 )
     {
-      ExFreePoolWithTag(v4, 0);
+      ExFreePoolWithTag(v5, 0);
       *(_QWORD *)(a1 + 2816) = 0LL;
     }
   }
   if ( *(_QWORD *)(a1 + 2832) )
   {
     IoSetDeviceInterfaceState((PUNICODE_STRING)(a1 + 2824), 0);
-    v5 = *(void **)(a1 + 2832);
-    if ( v5 )
+    v6 = *(void **)(a1 + 2832);
+    if ( v6 )
     {
-      ExFreePoolWithTag(v5, 0);
+      ExFreePoolWithTag(v6, 0);
       *(_QWORD *)(a1 + 2832) = 0LL;
     }
   }
   if ( *(_QWORD *)(a1 + 2848) )
   {
     IoSetDeviceInterfaceState((PUNICODE_STRING)(a1 + 2840), 0);
-    v6 = *(void **)(a1 + 2848);
-    if ( v6 )
+    v7 = *(void **)(a1 + 2848);
+    if ( v7 )
     {
-      ExFreePoolWithTag(v6, 0);
+      ExFreePoolWithTag(v7, 0);
       *(_QWORD *)(a1 + 2848) = 0LL;
     }
   }
   if ( *(_QWORD *)(a1 + 2864) )
   {
     IoSetDeviceInterfaceState((PUNICODE_STRING)(a1 + 2856), 0);
-    v7 = *(void **)(a1 + 2864);
-    if ( v7 )
-    {
-      ExFreePoolWithTag(v7, 0);
-      *(_QWORD *)(a1 + 2864) = 0LL;
-    }
-  }
-  if ( *(_QWORD *)(a1 + 2880) )
-  {
-    IoSetDeviceInterfaceState((PUNICODE_STRING)(a1 + 2872), 0);
-    v8 = *(void **)(a1 + 2880);
+    v8 = *(void **)(a1 + 2864);
     if ( v8 )
     {
       ExFreePoolWithTag(v8, 0);
-      *(_QWORD *)(a1 + 2880) = 0LL;
+      *(_QWORD *)(a1 + 2864) = 0LL;
     }
   }
-  v9 = *(void (__fastcall **)(_QWORD))(a1 + 5048);
+  v9 = *(void (__fastcall **)(_QWORD))(a1 + 5104);
   if ( v9 )
   {
-    v9(*(_QWORD *)(a1 + 5032));
-    *(_BYTE *)(a1 + 5016) = 0;
-    *(_QWORD *)(a1 + 5048) = 0LL;
+    v9(*(_QWORD *)(a1 + 5088));
+    *(_BYTE *)(a1 + 5072) = 0;
+    *(_QWORD *)(a1 + 5104) = 0LL;
   }
-  v10 = *(void (__fastcall **)(_QWORD))(a1 + 4920);
+  v10 = *(void (__fastcall **)(_QWORD))(a1 + 4976);
   if ( v10 )
   {
-    v10(*(_QWORD *)(a1 + 4904));
-    *(_BYTE *)(a1 + 4888) = 0;
-    *(_QWORD *)(a1 + 4920) = 0LL;
+    v10(*(_QWORD *)(a1 + 4960));
+    *(_BYTE *)(a1 + 4944) = 0;
+    *(_QWORD *)(a1 + 4976) = 0LL;
   }
-  v11 = *(void (__fastcall **)(_QWORD))(a1 + 5184);
+  v11 = *(void (__fastcall **)(_QWORD))(a1 + 5240);
   if ( v11 )
   {
-    v11(*(_QWORD *)(a1 + 5168));
-    *(_BYTE *)(a1 + 5152) = 0;
-    *(_QWORD *)(a1 + 5184) = 0LL;
-  }
-  result = *(__int64 (__fastcall **)(_QWORD))(a1 + 5240);
-  if ( result )
-  {
-    result = (__int64 (__fastcall *)(_QWORD))result(*(_QWORD *)(a1 + 5224));
+    v11(*(_QWORD *)(a1 + 5224));
     *(_BYTE *)(a1 + 5208) = 0;
     *(_QWORD *)(a1 + 5240) = 0LL;
+  }
+  result = *(__int64 (__fastcall **)(_QWORD))(a1 + 5296);
+  if ( result )
+  {
+    result = (__int64 (__fastcall *)(_QWORD))result(*(_QWORD *)(a1 + 5280));
+    *(_BYTE *)(a1 + 5264) = 0;
+    *(_QWORD *)(a1 + 5296) = 0LL;
   }
   return result;
 }

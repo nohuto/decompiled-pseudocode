@@ -1,14 +1,14 @@
 /*
- * XREFs of ?FindAdapterAndSourceForHash@DXGADAPTERSOURCEHASH@@QEAAJIPEAU_LUID@@PEAI@Z @ 0x1C030A218
+ * XREFs of ?FindAdapterAndSourceForHash@DXGADAPTERSOURCEHASH@@QEAAJIPEAU_LUID@@PEAI@Z @ 0x1C02696B0
  * Callers:
- *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C01658E0 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01A0EB0 (DxgkDisplayConfigDeviceInfo.c)
- *     ?ConvertLegacyQDCDWMClonePath@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C01DFA98 (-ConvertLegacyQDCDWMClonePath@CCD_TOPOLOGY@@QEAAJXZ.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C012C020 (DxgkDisplayConfigDeviceInfo.c)
+ *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C012D920 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
+ *     ?ConvertLegacyQDCDWMClonePath@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C0162C24 (-ConvertLegacyQDCDWMClonePath@CCD_TOPOLOGY@@QEAAJXZ.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetActualBufferSize@AUTOEXPANDALLOCATION@@QEAAIXZ @ 0x1C01EA048 (-GetActualBufferSize@AUTOEXPANDALLOCATION@@QEAAIXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?GetActualBufferSize@AUTOEXPANDALLOCATION@@QEAAIXZ @ 0x1C016F0D8 (-GetActualBufferSize@AUTOEXPANDALLOCATION@@QEAAIXZ.c)
  */
 
 __int64 __fastcall DXGADAPTERSOURCEHASH::FindAdapterAndSourceForHash(
@@ -17,34 +17,46 @@ __int64 __fastcall DXGADAPTERSOURCEHASH::FindAdapterAndSourceForHash(
         struct _LUID *a3,
         unsigned int *a4)
 {
-  unsigned int v8; // eax
-  struct _LUID *v9; // rcx
-  unsigned int v10; // ebx
-  _BYTE v12[24]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int ActualBufferSize; // eax
+  __int64 v9; // r8
+  _QWORD *v10; // r10
+  __int64 v11; // rcx
+  unsigned int v12; // esi
+  __int64 v13; // rdx
+  __int64 v14; // rax
+  struct _LUID *v15; // rcx
+  unsigned int v16; // ebx
+  _BYTE v18[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v12, this, 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v12);
-  v8 = (unsigned int)AUTOEXPANDALLOCATION::GetActualBufferSize((DXGADAPTERSOURCEHASH *)((char *)this + 48)) >> 4;
-  if ( v8 > 1 << *((_DWORD *)this + 17) )
-    v8 = 1 << *((_DWORD *)this + 17);
-  if ( a2 >= v8 )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v18, this, 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v18);
+  ActualBufferSize = AUTOEXPANDALLOCATION::GetActualBufferSize((DXGADAPTERSOURCEHASH *)((char *)this + 40));
+  v11 = *((unsigned int *)this + 15);
+  v12 = ActualBufferSize >> 4;
+  v13 = (unsigned int)(1 << v11);
+  if ( ActualBufferSize >> 4 > (unsigned int)v13 )
+    v12 = 1 << v11;
+  if ( a2 >= v12 )
   {
-    WdLogSingleEntry2(3LL, a2, v8);
+    v14 = WdLogNewEntry5_WdWarning(v11, v13, v9);
+    *(_QWORD *)(v14 + 32) = v12;
 LABEL_7:
-    v10 = -1073741811;
+    *(_QWORD *)(v14 + 24) = a2;
+    WdLogEvent5_WdWarning(v14);
+    v16 = -1073741811;
     goto LABEL_9;
   }
-  v9 = (struct _LUID *)(*((_QWORD *)this + 6) + 16LL * a2);
-  if ( (v9[1].HighPart & 1) == 0 )
+  v15 = (struct _LUID *)(*v10 + 16LL * a2);
+  if ( (v15[1].HighPart & 1) == 0 )
   {
-    WdLogSingleEntry1(3LL, a2);
+    v14 = WdLogNewEntry5_WdWarning(v15, v13, v9);
     goto LABEL_7;
   }
-  v10 = 0;
-  *a3 = *v9;
-  *a4 = v9[1].LowPart;
+  v16 = 0;
+  *a3 = *v15;
+  *a4 = v15[1].LowPart;
 LABEL_9:
-  if ( v12[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v12);
-  return v10;
+  if ( v18[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v18, v13);
+  return v16;
 }

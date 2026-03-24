@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RecordPStateChange@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z @ 0x1C0056E5C
+ * XREFs of ?RecordPStateChange@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z @ 0x1C0047C54
  * Callers:
- *     ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C00435D8 (-CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z.c)
+ *     ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C0037190 (-CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,6 @@ void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordPStateChange(LARGE_INT
   __int64 v8; // r8
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&this[3].QuadPart, &LockHandle);
   v4 = this[7].HighPart == -1;
   this[7].LowPart = a2;

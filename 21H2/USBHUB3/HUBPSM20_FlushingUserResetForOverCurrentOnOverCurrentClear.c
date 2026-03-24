@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM20_FlushingUserResetForOverCurrentOnOverCurrentClear @ 0x1C0010D60
+ * XREFs of HUBPSM20_FlushingUserResetForOverCurrentOnOverCurrentClear @ 0x1C0010950
  * Callers:
  *     <none>
  * Callees:

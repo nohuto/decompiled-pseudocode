@@ -1,41 +1,41 @@
 /*
- * XREFs of VmpPrefetchForVirtualFault @ 0x1409DD64C
+ * XREFs of VmpPrefetchForVirtualFault @ 0x14092F99C
  * Callers:
- *     VmAccessFault @ 0x1409DC0A0 (VmAccessFault.c)
+ *     VmAccessFault @ 0x14092E9B0 (VmAccessFault.c)
  * Callees:
- *     MmPrefetchVirtualAddresses @ 0x1406819E0 (MmPrefetchVirtualAddresses.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmPrefetchVirtualAddresses @ 0x1406FB400 (MmPrefetchVirtualAddresses.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VmpPrefetchForVirtualFault(unsigned __int64 a1, __int64 *a2, __int64 a3)
 {
-  __int64 Pool2; // rax
-  _DWORD *v7; // rbx
-  unsigned int v8; // edi
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v7; // rdi
+  unsigned int v8; // ebx
   _QWORD *v9; // rdx
-  __int64 v10; // r14
-  unsigned __int64 v11; // rdi
-  unsigned __int64 v12; // rcx
+  unsigned __int64 v10; // rbx
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rbx
   __int64 v13; // rax
   __int64 v14; // rax
 
-  Pool2 = ExAllocatePool2(64LL, 16 * (a3 + 2), 1984982358LL);
-  v7 = (_DWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 16 * (a3 + 2), 0x76506D56u);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 4) = 0;
-    *(_DWORD *)(Pool2 + 4) &= 0xFFFFFFF9;
-    v9 = (_QWORD *)((Pool2 + 39) & 0xFFFFFFFFFFFFFFF8uLL);
-    *(_QWORD *)(Pool2 + 8) = -1LL;
-    *(_QWORD *)(Pool2 + 16) = a3;
-    v10 = 16 * a3;
-    *(_DWORD *)Pool2 = 1;
-    *(_QWORD *)(Pool2 + 24) = v9;
-    if ( a1 < v10 + a1 )
+    PoolWithTag[1] = 0;
+    PoolWithTag[1] &= 0xFFFFFFF9;
+    v9 = (_QWORD *)(((unsigned __int64)PoolWithTag + 39) & 0xFFFFFFFFFFFFFFF8uLL);
+    *((_QWORD *)PoolWithTag + 1) = -1LL;
+    *((_QWORD *)PoolWithTag + 2) = a3;
+    v10 = a1 + 16 * a3;
+    *PoolWithTag = 1;
+    *((_QWORD *)PoolWithTag + 3) = v9;
+    if ( a1 < v10 )
     {
       v11 = a1 - (_QWORD)v9;
-      v12 = ((unsigned __int64)(v10 - 1) >> 4) + 1;
+      v12 = ((v10 - a1 - 1) >> 4) + 1;
       do
       {
         v13 = *a2++;

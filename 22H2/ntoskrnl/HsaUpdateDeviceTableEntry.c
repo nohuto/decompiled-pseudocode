@@ -1,20 +1,21 @@
 /*
- * XREFs of HsaUpdateDeviceTableEntry @ 0x140530DD0
+ * XREFs of HsaUpdateDeviceTableEntry @ 0x1404E4338
  * Callers:
- *     HalpHsapInitializeReservedDomain @ 0x14052E378 (HalpHsapInitializeReservedDomain.c)
- *     HsaAttachDeviceDomainInternal @ 0x14052F148 (HsaAttachDeviceDomainInternal.c)
- *     HsaProcessDeviceExceptions @ 0x1405308E8 (HsaProcessDeviceExceptions.c)
- *     HsaSetDevicePasidTable @ 0x140530C40 (HsaSetDevicePasidTable.c)
+ *     HalpHsapInitializeReservedDomain @ 0x1404E1634 (HalpHsapInitializeReservedDomain.c)
+ *     HsaAttachDeviceDomainInternal @ 0x1404E2438 (HsaAttachDeviceDomainInternal.c)
+ *     HsaProcessDeviceExceptions @ 0x1404E3EEC (HsaProcessDeviceExceptions.c)
+ *     HsaSetDevicePasidTable @ 0x1404E4240 (HsaSetDevicePasidTable.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HsaBuildDeviceTableEntry @ 0x14052F348 (HsaBuildDeviceTableEntry.c)
- *     HsaGetBlockedDomain @ 0x14053006C (HsaGetBlockedDomain.c)
- *     HsaIommuSendCommand @ 0x140530678 (HsaIommuSendCommand.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HsaBuildDeviceTableEntry @ 0x1404E2640 (HsaBuildDeviceTableEntry.c)
+ *     HsaGetBlockedDomain @ 0x1404E3670 (HsaGetBlockedDomain.c)
+ *     HsaIommuSendCommand @ 0x1404E3C48 (HsaIommuSendCommand.c)
+ *     HsaIommuWaitCommand @ 0x1404E3EB8 (HsaIommuWaitCommand.c)
  */
 
 __int64 *__fastcall HsaUpdateDeviceTableEntry(
-        KSPIN_LOCK a1,
+        unsigned __int64 *a1,
         int *a2,
         __int64 a3,
         char a4,
@@ -25,161 +26,131 @@ __int64 *__fastcall HsaUpdateDeviceTableEntry(
         __int64 a9,
         __int64 *a10)
 {
-  __int64 v11; // r10
   __int64 v12; // rsi
-  __int128 v13; // xmm1
-  __int128 v14; // xmm0
+  __int128 v13; // xmm0
+  char v14; // r12
   unsigned __int64 v15; // rbx
-  char v16; // di
-  char v17; // r13
-  PHYSICAL_ADDRESS PhysicalAddress; // rax
-  __int64 v19; // rcx
-  int v20; // edx
-  int v21; // r14d
+  __int64 v16; // rcx
+  int v17; // r9d
+  int v18; // edi
   __int16 BlockedDomain; // ax
-  KSPIN_LOCK *v23; // r15
-  int *v24; // r11
-  int v25; // ecx
-  unsigned int v26; // r14d
-  __int64 v27; // rdi
-  __int64 v28; // r9
-  __int128 v29; // rax
-  __int128 v30; // rt0
-  unsigned __int8 v31; // tt
-  int v32; // ebx
+  unsigned int v20; // eax
+  unsigned int i; // r8d
+  __int128 v22; // rax
+  __int128 v23; // rt0
+  unsigned __int8 v24; // tt
+  int v25; // ebx
+  unsigned int v26; // edi
   __int64 *result; // rax
-  char v34; // [rsp+60h] [rbp-69h]
-  char v35; // [rsp+61h] [rbp-68h]
-  unsigned __int64 v36[2]; // [rsp+68h] [rbp-61h] BYREF
-  __int128 v37; // [rsp+78h] [rbp-51h]
-  KSPIN_LOCK v38[2]; // [rsp+88h] [rbp-41h] BYREF
-  __int64 v39; // [rsp+98h] [rbp-31h]
-  __int64 *v40; // [rsp+A0h] [rbp-29h]
-  __int128 v41; // [rsp+A8h] [rbp-21h] BYREF
-  __int128 v42; // [rsp+B8h] [rbp-11h] BYREF
+  char v28; // [rsp+50h] [rbp-69h]
+  __int64 v29; // [rsp+58h] [rbp-61h] BYREF
+  __int64 v30; // [rsp+60h] [rbp-59h]
+  __int128 v31; // [rsp+68h] [rbp-51h]
+  __int64 *v32; // [rsp+78h] [rbp-41h]
+  unsigned __int64 v33[2]; // [rsp+80h] [rbp-39h] BYREF
+  __int128 v34; // [rsp+90h] [rbp-29h] BYREF
+  __int128 v35; // [rsp+A0h] [rbp-19h] BYREF
 
-  v11 = a1;
-  v12 = *(_QWORD *)(a1 + 24) + 32LL * (unsigned int)*a2;
-  *(_QWORD *)&v37 = a2;
-  v38[0] = a1;
-  v40 = a10;
-  v13 = *(_OWORD *)v12;
-  v35 = 0;
-  v14 = *(_OWORD *)(v12 + 16);
-  v39 = 0x10000LL;
-  v41 = v13;
-  v42 = v14;
-  if ( (v13 & 1) != 0 && !a7 )
+  v12 = a1[3] + 32LL * (unsigned int)*a2;
+  v32 = a10;
+  v28 = 0;
+  v30 = 0x10000LL;
+  v13 = *(_OWORD *)(v12 + 16);
+  v34 = *(_OWORD *)v12;
+  v35 = v13;
+  if ( (v34 & 1) != 0 && !a7 )
   {
-    v39 = WORD4(v13);
-    v35 = 1;
+    v30 = WORD4(v34);
+    v28 = 1;
   }
+  v14 = 0;
   v15 = 0LL;
-  v16 = 0;
-  v17 = 0;
-  v34 = 0;
   if ( a4 )
   {
-    if ( (v13 & 0x80000000000000LL) != 0 )
+    if ( (v34 & 0x80000000000000LL) != 0 )
     {
-      v17 = 1;
-      v15 = (DWORD2(v13) & 0xFFFF0000 | ((*((_QWORD *)&v13 + 1) & 0xFFFFF80000FFFFFFuLL | ((unsigned __int64)v13 >> 34) & 0x7000000) >> 11)) >> 13;
+      v14 = 1;
+      v15 = (DWORD2(v34) & 0xFFFF0000 | ((*((_QWORD *)&v34 + 1) & 0xFFFFF80000FFFFFFuLL | ((unsigned __int64)v34 >> 34) & 0x7000000) >> 11)) >> 13;
     }
-    v16 = BYTE12(v13) & 1;
   }
   else if ( a3 )
   {
-    v17 = 1;
-    PhysicalAddress = MmGetPhysicalAddress(*(PVOID *)(a3 + 40));
-    v16 = *(_BYTE *)(a3 + 65);
-    v11 = v38[0];
-    a2 = (int *)v37;
-    v34 = *(_BYTE *)(a3 + 64);
-    v15 = (unsigned __int64)PhysicalAddress.QuadPart >> 12;
+    v14 = 1;
+    v15 = (unsigned __int64)MmGetPhysicalAddress(*(PVOID *)(a3 + 40)).QuadPart >> 12;
   }
-  v19 = 0LL;
-  v36[0] = 0LL;
+  v16 = 0LL;
+  v29 = 0LL;
   if ( !a5 )
   {
-    LOWORD(v20) = WORD4(v13);
-    if ( (v13 & 0xE00) != 0x800 )
+    LOWORD(v17) = WORD4(v34);
+    if ( (v34 & 0xE00) != 0x800 )
     {
-      v21 = 0;
-      goto LABEL_19;
+      v18 = 0;
+      goto LABEL_18;
     }
-    v21 = 2;
-    v19 = (__int64)((_QWORD)v13 << 12) >> 24;
+    v18 = 2;
+    v16 = (__int64)((_QWORD)v34 << 12) >> 24;
+    goto LABEL_17;
+  }
+  v18 = *(_DWORD *)(a5 + 4);
+  if ( v18 == 1 )
+  {
+    BlockedDomain = HsaGetBlockedDomain((__int64)a1, a2, (unsigned __int64 *)&v29);
+    v16 = v29;
+    LOWORD(v17) = BlockedDomain;
     goto LABEL_18;
   }
-  v21 = *(_DWORD *)(a5 + 4);
-  if ( v21 == 1 )
+  v17 = *(_DWORD *)(a5 + 24);
+  if ( v18 == 2 )
   {
-    BlockedDomain = HsaGetBlockedDomain(v11, a2, v36);
-    v19 = v36[0];
-    LOWORD(v20) = BlockedDomain;
-    goto LABEL_19;
+    v16 = *(_QWORD *)(a5 + 16) >> 12;
+LABEL_17:
+    v29 = v16;
   }
-  v20 = *(_DWORD *)(a5 + 48);
-  if ( v21 == 2 )
-  {
-    v19 = *(_QWORD *)(a5 + 40) >> 12;
 LABEL_18:
-    v36[0] = v19;
-  }
-LABEL_19:
-  v23 = (KSPIN_LOCK *)v38[0];
-  HsaBuildDeviceTableEntry(v38[0], v15, v17, v34, v16, v20, v21, v19, &v42, 0LL, (__int64)&v41);
-  v24 = (int *)v37;
-  v25 = *(_DWORD *)(v37 + 4);
-  v26 = 1 << (3 - v25);
-  v27 = (unsigned int)(1 << v25);
-  if ( 1 << v25 )
+  HsaBuildDeviceTableEntry((__int64)a1, v15, v14, v17, v18, v16, &v35, 0LL, (__int64)&v34);
+  v20 = a2[1];
+  for ( i = 0; i < v20; v20 = a2[1] )
   {
-    v28 = (unsigned int)v27;
+    *((_QWORD *)&v22 + 1) = *(_QWORD *)(v12 + 8);
+    *(_QWORD *)&v31 = *(_QWORD *)v12;
+    *(_QWORD *)&v22 = v31;
+    *((_QWORD *)&v31 + 1) = *((_QWORD *)&v22 + 1);
     do
     {
-      *((_QWORD *)&v29 + 1) = *(_QWORD *)(v12 + 8);
-      *(_QWORD *)&v37 = *(_QWORD *)v12;
-      *(_QWORD *)&v29 = v37;
-      *((_QWORD *)&v37 + 1) = *((_QWORD *)&v29 + 1);
-      do
-      {
-        v30 = v29;
-        v31 = _InterlockedCompareExchange128(
-                (volatile signed __int64 *)v12,
-                *((signed __int64 *)&v41 + 1),
-                v41,
-                (signed __int64 *)&v30);
-        v29 = v30;
-        v37 = v30;
-      }
-      while ( !v31 );
-      v12 += 32LL * v26;
-      --v28;
+      v23 = v22;
+      v24 = _InterlockedCompareExchange128(
+              (volatile signed __int64 *)v12,
+              *((signed __int64 *)&v34 + 1),
+              v34,
+              (signed __int64 *)&v23);
+      v22 = v23;
+      v31 = v23;
     }
-    while ( v28 );
+    while ( !v24 );
+    ++i;
+    v12 += 32LL * (unsigned int)a2[2];
   }
-  if ( v35 )
+  if ( v28 )
   {
-    v32 = *v24;
-    if ( 1 << v25 )
+    v25 = *a2;
+    v26 = 0;
+    if ( v20 )
     {
       do
       {
-        v38[1] = 0LL;
-        v38[0] = (unsigned __int16)v32 | 0x2000000000000000LL;
-        HsaIommuSendCommand(v23, v38, a6);
-        v36[1] = 0LL;
-        v36[0] = 0x1000000000000000LL;
-        HsaIommuSendCommand(v23, v36, a6);
-        v32 += v26;
-        --v27;
+        v33[1] = 0LL;
+        v33[0] = (unsigned __int16)v25 | 0x2000000000000000LL;
+        HsaIommuSendCommand(a1, v33, a6);
+        HsaIommuWaitCommand(a1, a6);
+        v25 += a2[2];
+        ++v26;
       }
-      while ( v27 );
+      while ( v26 < a2[1] );
     }
   }
-  result = v40;
-  if ( v40 )
-    *v40 = v39;
+  result = v32;
+  if ( v32 )
+    *v32 = v30;
   return result;
 }

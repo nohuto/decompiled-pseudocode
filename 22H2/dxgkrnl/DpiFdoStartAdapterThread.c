@@ -1,46 +1,53 @@
 /*
- * XREFs of DpiFdoStartAdapterThread @ 0x1C0218580
+ * XREFs of DpiFdoStartAdapterThread @ 0x1C019EAB0
  * Callers:
- *     DpiSessionCreateCallback @ 0x1C01EAE28 (DpiSessionCreateCallback.c)
+ *     DpiSessionCreateCallback @ 0x1C016DA90 (DpiSessionCreateCallback.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
- *     DpiFdoStartAdapterThreadImpl @ 0x1C02185F0 (DpiFdoStartAdapterThreadImpl.c)
- *     DxgkEnsureVmBusInterface @ 0x1C0315EBC (DxgkEnsureVmBusInterface.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0187BE8 (DpiFdoStartAdapterThreadImpl.c)
+ *     DxgkEnsureVmBusInterface @ 0x1C026C7E0 (DxgkEnsureVmBusInterface.c)
  */
 
-void __fastcall DpiFdoStartAdapterThread(_BYTE *StartContext, __int64 a2)
+void __fastcall DpiFdoStartAdapterThread(int *StartContext)
 {
-  char v3; // di
+  char v2; // di
   NTSTATUS started; // esi
-  void *Pool2; // rax
-  void *v6; // rbp
-  char v7; // [rsp+30h] [rbp+8h] BYREF
+  int *PoolWithTag; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  int *v9; // rbp
+  __int64 v10; // rax
+  char v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v7 = 0;
-  v3 = 1;
+  v11 = 0;
   if ( StartContext )
-    v3 = *StartContext & 1;
-  LOBYTE(a2) = v3;
-  started = DpiFdoStartAdapterThreadImpl(StartContext, a2, &v7);
-  if ( v7 )
+    v2 = *(_BYTE *)StartContext & 1;
+  else
+    v2 = 1;
+  started = DpiFdoStartAdapterThreadImpl(StartContext, v2, &v11);
+  if ( v11 )
   {
     DxgkEnsureVmBusInterface();
-    Pool2 = (void *)ExAllocatePool2(256LL, 1552LL, 1953656900LL);
-    v6 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (int *)ExAllocatePoolWithTag(PagedPool, 0x610uLL, 0x74727044u);
+    v9 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memset(Pool2, 0, 0x610uLL);
-      started = DpiFdoStartAdapterThreadImpl(v6, 0LL, &v7);
-      ExFreePoolWithTag(v6, 0x74727044u);
+      memset(PoolWithTag, 0, 0x610uLL);
+      started = DpiFdoStartAdapterThreadImpl(v9, 0, &v11);
+      ExFreePoolWithTag(v9, 0x74727044u);
     }
     else
     {
       started = -1073741801;
-      WdLogSingleEntry1(6LL, -1073741801LL);
+      v10 = WdLogNewEntry5_WdLowResource(v6, v5, v7, v8);
+      *(_QWORD *)(v10 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v10);
     }
   }
   if ( StartContext )
     ExFreePoolWithTag(StartContext, 0x74727044u);
-  if ( !v3 )
+  if ( !v2 )
     PsTerminateSystemThread(started);
 }

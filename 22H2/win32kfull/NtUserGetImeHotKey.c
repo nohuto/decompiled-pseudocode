@@ -1,60 +1,79 @@
 /*
- * XREFs of NtUserGetImeHotKey @ 0x1C01D1AC0
+ * XREFs of NtUserGetImeHotKey @ 0x1C01F98E0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetImeHotKey@@YAHKPEAI0PEAPEAUHKL__@@@Z @ 0x1C01FBA18 (-GetImeHotKey@@YAHKPEAI0PEAPEAUHKL__@@@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?FindImeHotKeyByID@@YAPEAU_tagIMEHOTKEYOBJ@@PEBU1@K@Z @ 0x1C0117208 (-FindImeHotKeyByID@@YAPEAU_tagIMEHOTKEYOBJ@@PEBU1@K@Z.c)
  */
 
-__int64 __fastcall NtUserGetImeHotKey(__int64 a1, unsigned int *a2, unsigned int *a3, HKL *a4)
+__int64 __fastcall NtUserGetImeHotKey(int a1, _DWORD *a2, _DWORD *a3, struct _tagIMEHOTKEYOBJ **a4)
 {
-  unsigned int v7; // ebx
-  _DWORD *v8; // rdx
+  int v8; // ebx
   _DWORD *v9; // rdx
-  _QWORD *v10; // rdx
-  HKL *v11; // rsi
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  int ImeHotKey; // ebx
+  const struct _tagIMEHOTKEYOBJ *v10; // rcx
+  _DWORD *v11; // rdx
+  _QWORD *v12; // rdx
+  struct _tagIMEHOTKEYOBJ *ImeHotKeyByID; // rax
+  __int64 v14; // rdx
   __int64 v15; // r8
-  __int64 v16; // r9
-  unsigned int v18; // [rsp+20h] [rbp-38h] BYREF
-  unsigned int v19; // [rsp+24h] [rbp-34h] BYREF
-  HKL *v20; // [rsp+28h] [rbp-30h]
-  __int64 v21; // [rsp+30h] [rbp-28h] BYREF
+  struct _tagIMEHOTKEYOBJ *v16; // rcx
+  __int64 v17; // rcx
+  int v18; // edx
+  struct _tagIMEHOTKEYOBJ **v20; // [rsp+20h] [rbp-28h]
+  __int64 v21; // [rsp+28h] [rbp-20h] BYREF
 
-  v7 = a1;
-  v18 = 0;
-  v19 = 0;
   v21 = 0LL;
   v20 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  v8 = a2;
+  v8 = 1;
+  EnterSharedCrit(0LL, 1LL);
+  v9 = a2;
   if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-    v8 = (_DWORD *)MmUserProbeAddress;
-  *v8 = *v8;
-  v9 = a3;
-  if ( (unsigned __int64)a3 >= MmUserProbeAddress )
     v9 = (_DWORD *)MmUserProbeAddress;
   *v9 = *v9;
+  v10 = (const struct _tagIMEHOTKEYOBJ *)MmUserProbeAddress;
+  v11 = a3;
+  if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+    v11 = (_DWORD *)MmUserProbeAddress;
+  *v11 = *v11;
   if ( a4 )
   {
-    v10 = a4;
+    v10 = (const struct _tagIMEHOTKEYOBJ *)MmUserProbeAddress;
+    v12 = a4;
     if ( (unsigned __int64)a4 >= MmUserProbeAddress )
-      v10 = (_QWORD *)MmUserProbeAddress;
-    *v10 = *v10;
-    v20 = (HKL *)&v21;
+      v12 = (_QWORD *)MmUserProbeAddress;
+    *v12 = *v12;
+    v20 = (struct _tagIMEHOTKEYOBJ **)&v21;
   }
-  v11 = v20;
-  ImeHotKey = GetImeHotKey(v7, &v18, &v19, v20);
-  if ( ImeHotKey )
+  ImeHotKeyByID = FindImeHotKeyByID(v10, a1);
+  v16 = ImeHotKeyByID;
+  if ( !ImeHotKeyByID )
   {
-    *a2 = v18;
-    v13 = v19;
-    *a3 = v19;
-    if ( a4 )
-      *a4 = *v11;
+    v17 = 1419LL;
+LABEL_11:
+    UserSetLastError(v17, v14, v15);
+    v8 = 0;
+    goto LABEL_18;
   }
-  UserSessionSwitchLeaveCrit(v13, v12, v15, v16);
-  return ImeHotKey;
+  v14 = (__int64)v20;
+  if ( v20 )
+  {
+    *v20 = (struct _tagIMEHOTKEYOBJ *)*((_QWORD *)ImeHotKeyByID + 3);
+  }
+  else if ( *((_QWORD *)ImeHotKeyByID + 3) )
+  {
+    v17 = 87LL;
+    goto LABEL_11;
+  }
+  v18 = *((_DWORD *)ImeHotKeyByID + 3);
+  *a2 = *((_DWORD *)ImeHotKeyByID + 4);
+  *a3 = v18;
+  if ( a4 )
+  {
+    v16 = *v20;
+    *a4 = *v20;
+  }
+LABEL_18:
+  UserSessionSwitchLeaveCrit(v16);
+  return v8;
 }

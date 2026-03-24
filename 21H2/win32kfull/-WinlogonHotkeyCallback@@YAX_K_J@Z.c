@@ -1,9 +1,9 @@
 /*
- * XREFs of ?WinlogonHotkeyCallback@@YAX_K_J@Z @ 0x1C01D4060
+ * XREFs of ?WinlogonHotkeyCallback@@YAX_K_J@Z @ 0x1C01D95C0
  * Callers:
  *     <none>
  * Callees:
- *     ?TraceLoggingWinPHotKeyEvent@@YAXXZ @ 0x1C021F2EC (-TraceLoggingWinPHotKeyEvent@@YAXXZ.c)
+ *     ?TraceLoggingWinPHotKeyEvent@@YAXXZ @ 0x1C0225A44 (-TraceLoggingWinPHotKeyEvent@@YAXXZ.c)
  */
 
 void __fastcall WinlogonHotkeyCallback(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetLdtEntries @ 0x14041DCE0
+ * XREFs of ZwSetLdtEntries @ 0x1403FCEC0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmAsyncUpdateLargeVisRgn @ 0x1C0273180
+ * XREFs of DwmAsyncUpdateLargeVisRgn @ 0x1C02758F0
  * Callers:
- *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C00B4534 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
+ *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C00394E8 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncUpdateLargeVisRgn(PVOID Object, __int64 a2, int a3, __int64 a4)
@@ -17,7 +17,7 @@ __int64 __fastcall DwmAsyncUpdateLargeVisRgn(PVOID Object, __int64 a2, int a3, _
     memset(v10, 0, sizeof(v10));
     v10[0] = 4194328;
     LOWORD(v10[1]) = 0x8000;
-    v10[10] = 1073741956;
+    v10[10] = 1073741954;
     *(_QWORD *)&v10[11] = a2;
     *(_QWORD *)&v10[13] = a4;
     v10[15] = a3;

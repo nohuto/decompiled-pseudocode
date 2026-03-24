@@ -1,60 +1,63 @@
 /*
- * XREFs of PdcPoSleepStudyHelperSetPhaseActive @ 0x14085EBB0
+ * XREFs of PdcPoSleepStudyHelperSetPhaseActive @ 0x1407D51C0
  * Callers:
  *     <none>
  * Callees:
- *     SshpSetCollectionActive @ 0x1403AF5A8 (SshpSetCollectionActive.c)
+ *     SshpSetCollectionActive @ 0x14057FD7C (SshpSetCollectionActive.c)
  */
 
-void __fastcall PdcPoSleepStudyHelperSetPhaseActive(int a1, char a2)
+char __fastcall PdcPoSleepStudyHelperSetPhaseActive(int a1, char a2)
 {
-  __int64 v2; // rax
+  int v2; // ecx
   int v3; // ecx
   int v4; // ecx
   int v5; // ecx
   int v6; // ecx
-  int v7; // ecx
+  ULONG_PTR *v7; // rcx
+  char result; // al
 
-  if ( !a1 )
+  v2 = a1 - 1;
+  if ( v2 )
   {
-    v2 = 224LL;
-LABEL_3:
-    SshpSetCollectionActive((ULONG_PTR)&SshpBlockerCollections + v2, a2);
-    return;
+    v3 = v2 - 1;
+    if ( v3 )
+    {
+      v4 = v3 - 1;
+      if ( v4 )
+      {
+        v5 = v4 - 1;
+        if ( v5 )
+        {
+          v6 = v5 - 1;
+          if ( v6 )
+          {
+            if ( v6 != 3 )
+              return result;
+            v7 = (ULONG_PTR *)&unk_140C1E420;
+          }
+          else
+          {
+            v7 = (ULONG_PTR *)&unk_140C1E400;
+          }
+        }
+        else
+        {
+          v7 = (ULONG_PTR *)&unk_140C1E3E0;
+        }
+      }
+      else
+      {
+        v7 = (ULONG_PTR *)&unk_140C1E3C0;
+      }
+    }
+    else
+    {
+      v7 = (ULONG_PTR *)&unk_140C1E3A0;
+    }
   }
-  v3 = a1 - 1;
-  if ( !v3 )
+  else
   {
-    v2 = 32LL;
-    goto LABEL_3;
+    v7 = &qword_140C1E380;
   }
-  v4 = v3 - 1;
-  if ( !v4 )
-  {
-    v2 = 64LL;
-    goto LABEL_3;
-  }
-  v5 = v4 - 1;
-  if ( !v5 )
-  {
-    v2 = 96LL;
-    goto LABEL_3;
-  }
-  v6 = v5 - 1;
-  if ( !v6 )
-  {
-    v2 = 128LL;
-    goto LABEL_3;
-  }
-  v7 = v6 - 1;
-  if ( !v7 )
-  {
-    v2 = 160LL;
-    goto LABEL_3;
-  }
-  if ( v7 == 3 )
-  {
-    v2 = 192LL;
-    goto LABEL_3;
-  }
+  return SshpSetCollectionActive((ULONG_PTR)v7, a2);
 }

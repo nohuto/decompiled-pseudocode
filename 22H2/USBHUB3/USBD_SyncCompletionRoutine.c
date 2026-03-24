@@ -1,5 +1,5 @@
 /*
- * XREFs of USBD_SyncCompletionRoutine @ 0x1C001CDA0
+ * XREFs of USBD_SyncCompletionRoutine @ 0x1C001A530
  * Callers:
  *     <none>
  * Callees:

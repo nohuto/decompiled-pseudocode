@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFlushQueuedDpcsWorker @ 0x140251300
+ * XREFs of KiFlushQueuedDpcsWorker @ 0x1402C93C0
  * Callers:
  *     <none>
  * Callees:
- *     KiRequestSoftwareInterrupt @ 0x14022BA6C (KiRequestSoftwareInterrupt.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRequestSoftwareInterrupt @ 0x140293E54 (KiRequestSoftwareInterrupt.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiFlushQueuedDpcsWorker(__int64 a1)
@@ -19,9 +19,9 @@ __int64 __fastcall KiFlushQueuedDpcsWorker(__int64 a1)
   int v8; // eax
   bool v9; // zf
 
-  v1 = *(_DWORD *)(a1 + 13144);
-  result = v1 | *(_DWORD *)(a1 + 13192);
-  if ( v1 | *(_DWORD *)(a1 + 13192) )
+  v1 = *(_DWORD *)(a1 + 12504);
+  result = v1 | *(_DWORD *)(a1 + 12544);
+  if ( v1 | *(_DWORD *)(a1 + 12544) )
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);

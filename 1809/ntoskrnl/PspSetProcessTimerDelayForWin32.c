@@ -1,7 +1,7 @@
 /*
- * XREFs of PspSetProcessTimerDelayForWin32 @ 0x1402EA764
+ * XREFs of PspSetProcessTimerDelayForWin32 @ 0x1402EA864
  * Callers:
- *     PspApplyTimerDelayProcess @ 0x1402EA054 (PspApplyTimerDelayProcess.c)
+ *     PspApplyTimerDelayProcess @ 0x1402EA154 (PspApplyTimerDelayProcess.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)

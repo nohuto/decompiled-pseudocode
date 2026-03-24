@@ -1,62 +1,60 @@
 /*
- * XREFs of RtlpQueryLowBoxId @ 0x1402EF324
+ * XREFs of RtlpQueryLowBoxId @ 0x14025ABE8
  * Callers:
- *     RtlpLookupOrCreateLowBox @ 0x1402F1298 (RtlpLookupOrCreateLowBox.c)
- *     RtlpLookupLowBox @ 0x1402F349C (RtlpLookupLowBox.c)
- *     RtlpAllocateAtomTableEntry @ 0x1403547BC (RtlpAllocateAtomTableEntry.c)
+ *     RtlpLookupLowBox @ 0x14025AA58 (RtlpLookupLowBox.c)
+ *     RtlpLookupOrCreateLowBox @ 0x14025AACC (RtlpLookupOrCreateLowBox.c)
+ *     RtlpAllocateAtomTableEntry @ 0x140264168 (RtlpAllocateAtomTableEntry.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     SeQueryInformationToken @ 0x14079F290 (SeQueryInformationToken.c)
- *     PsReferenceEffectiveToken @ 0x1407B3B60 (PsReferenceEffectiveToken.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
+ *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
  */
 
 __int64 RtlpQueryLowBoxId()
 {
   __int64 v0; // rax
   int v1; // edi
-  void *v2; // rbx
-  void *v4; // rdi
-  PVOID TokenInformation; // [rsp+30h] [rbp-18h] BYREF
-  char v6; // [rsp+70h] [rbp+28h] BYREF
-  int v7; // [rsp+78h] [rbp+30h] BYREF
-  int v8; // [rsp+80h] [rbp+38h] BYREF
-  PVOID v9; // [rsp+88h] [rbp+40h] BYREF
+  struct _DMA_ADAPTER *v2; // rbx
+  struct _DMA_ADAPTER *v4; // rdi
+  PVOID TokenInformation; // [rsp+30h] [rbp-10h] BYREF
+  char v6; // [rsp+60h] [rbp+20h] BYREF
+  int v7; // [rsp+68h] [rbp+28h] BYREF
+  int v8; // [rsp+70h] [rbp+30h] BYREF
+  PVOID v9; // [rsp+78h] [rbp+38h] BYREF
 
   LODWORD(v9) = 0;
   v7 = 0;
   v8 = 0;
   v6 = 0;
-  v0 = PsReferenceEffectiveToken(KeGetCurrentThread(), 1836020801LL, &v7, &v6, &v8, 0LL);
+  v0 = PsReferenceEffectiveToken(
+         (unsigned int)KeGetCurrentThread(),
+         (unsigned int)&v7,
+         (unsigned int)&v6,
+         (unsigned int)&v8,
+         0LL);
   v1 = v7;
-  v2 = (void *)v0;
+  v2 = (struct _DMA_ADAPTER *)v0;
   if ( v7 == 2 && v8 < 2 )
   {
-    v4 = (void *)PsReferencePrimaryTokenWithTag(KeGetCurrentThread()->ApcState.Process, 1836020801LL);
+    v4 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(KeGetCurrentThread()->ApcState.Process);
     SeQueryInformationToken(v4, TokenIsAppContainer, &v9);
     if ( (_DWORD)v9 == 1 )
     {
       if ( v2 )
-        ObfDereferenceObjectWithTag(v2, 0x6D6F7441u);
+        HalPutDmaAdapter(v2);
       v2 = v4;
       v1 = 1;
     }
     else
     {
-      ObfDereferenceObjectWithTag(v4, 0x6D6F7441u);
+      HalPutDmaAdapter(v4);
       v1 = v7;
     }
   }
   LODWORD(TokenInformation) = 0;
   SeQueryInformationToken(v2, TokenAppContainerNumber, &TokenInformation);
-  if ( v1 == 1 )
-  {
-    ObFastDereferenceObject(&KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[5], v2, 1836020801LL);
-  }
-  else if ( v2 )
-  {
-    ObfDereferenceObjectWithTag(v2, 0x6D6F7441u);
-  }
+  if ( v1 == 1 || v2 )
+    HalPutDmaAdapter(v2);
   return (unsigned int)TokenInformation;
 }

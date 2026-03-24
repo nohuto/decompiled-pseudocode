@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUmsThreadYield @ 0x140845BF0
+ * XREFs of NtUmsThreadYield @ 0x140845BD0
  * Callers:
  *     <none>
  * Callees:
- *     KiIsPrimaryPresent @ 0x14029D404 (KiIsPrimaryPresent.c)
- *     KiUmsExceptionFilter @ 0x140845BC4 (KiUmsExceptionFilter.c)
+ *     KiIsPrimaryPresent @ 0x14029D504 (KiIsPrimaryPresent.c)
+ *     KiUmsExceptionFilter @ 0x140845BA4 (KiUmsExceptionFilter.c)
  */
 
 __int64 __fastcall NtUmsThreadYield(__int64 a1, __int64 a2, __int64 a3)

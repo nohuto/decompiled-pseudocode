@@ -1,149 +1,105 @@
 /*
- * XREFs of MiComputeMemoryNodeProcessorAssignments @ 0x140B62B24
+ * XREFs of MiComputeMemoryNodeProcessorAssignments @ 0x140A6E2CC
  * Callers:
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
+ *     MiZeroBootLargePages @ 0x1403CA524 (MiZeroBootLargePages.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x140221D10 (KeFindFirstSetRightGroupAffinity.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     KeQueryNodeActiveAffinity @ 0x140305880 (KeQueryNodeActiveAffinity.c)
- *     KeQueryNodeActiveAffinity2 @ 0x14036B530 (KeQueryNodeActiveAffinity2.c)
- *     MiGetEngineType @ 0x14039926C (MiGetEngineType.c)
- *     MiReassignProcessorsToMemoryOnlyNodes @ 0x140B9B3E4 (MiReassignProcessorsToMemoryOnlyNodes.c)
+ *     KeQueryNodeActiveAffinity @ 0x1403544E0 (KeQueryNodeActiveAffinity.c)
  */
 
-void MiComputeMemoryNodeProcessorAssignments()
+__int64 __fastcall MiComputeMemoryNodeProcessorAssignments(__int64 a1)
 {
-  unsigned int v0; // ebx
-  int v1; // r13d
-  __int64 v2; // r14
-  unsigned __int64 *v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  unsigned __int16 v6; // si
-  __int128 *PoolMm; // rdi
-  __int64 v8; // rax
-  __int128 *v9; // r12
-  __int64 v10; // r13
-  __int64 v11; // r15
-  int FirstSetRightGroupAffinity; // eax
-  __int64 EngineType; // rdx
-  __int64 v14; // r8
-  __int64 v15; // rcx
-  __int64 v16; // rax
-  unsigned __int64 v17; // rcx
-  unsigned __int64 v18; // rax
-  unsigned __int64 v19; // rax
-  unsigned __int64 v20; // rcx
-  int v21; // eax
-  __int128 v22; // [rsp+20h] [rbp-58h] BYREF
-  unsigned int Count; // [rsp+80h] [rbp+8h] BYREF
-  int v24; // [rsp+88h] [rbp+10h]
-  unsigned int v25; // [rsp+90h] [rbp+18h]
-  __int64 v26; // [rsp+98h] [rbp+20h]
+  unsigned int v1; // r13d
+  unsigned __int16 v2; // bp
+  __int64 v3; // r15
+  int v4; // esi
+  unsigned int v5; // ebx
+  __int64 v6; // rdx
+  _WORD *v7; // rdi
+  bool v8; // zf
+  int v9; // ecx
+  unsigned int v10; // edi
+  unsigned int v12; // ecx
+  __int64 v13; // rsi
+  __int64 v14; // r10
+  unsigned int *v15; // r8
+  unsigned int *v16; // rbx
+  __int64 v17; // r9
+  unsigned int v18; // r11d
+  __int64 v19; // rsi
+  unsigned __int64 v20; // r14
+  unsigned int v21; // r11d
+  unsigned __int64 v22; // rdx
+  __int16 v23; // ax
 
-  v0 = 0;
-  v25 = 0;
-  v1 = 0;
-  v24 = 0;
-  if ( KeNumberNodes )
+  v1 = dword_140C4DEE4;
+  v2 = 0;
+  v3 = a1;
+  v4 = 0;
+  v5 = 0;
+  if ( !KeNumberNodes )
+    return 1LL;
+  do
   {
-    do
+    v6 = *(_QWORD *)(v3 + 16) + 4544LL * v5;
+    v7 = (_WORD *)(v6 + 4488);
+    KeQueryNodeActiveAffinity(v5, (PGROUP_AFFINITY)(v6 + 4472), (PUSHORT)(v6 + 4488));
+    v8 = *v7 == 0;
+    v9 = v4 + 1;
+    v10 = (unsigned __int16)KeNumberNodes;
+    if ( !v8 )
+      v9 = v4;
+    ++v5;
+    v4 = v9;
+  }
+  while ( v5 < (unsigned __int16)KeNumberNodes );
+  if ( !v9 )
+    return 1LL;
+  v12 = 0;
+  if ( !KeNumberNodes )
+    return 1LL;
+  while ( 1 )
+  {
+    v13 = *(_QWORD *)(v3 + 16);
+    v14 = v13 + 4544LL * v12;
+    if ( !*(_WORD *)(v14 + 4488) )
     {
-      LOWORD(Count) = 0;
-      v2 = *(_QWORD *)(376LL * v0 + qword_140C65BA0 + 368);
-      KeQueryNodeActiveAffinity2(v0, 0LL, 0, &Count);
-      v6 = Count;
-      PoolMm = (__int128 *)(v2 + 32);
-      if ( (_WORD)Count )
+      v15 = (unsigned int *)(qword_140C4DE98 + 4LL * v12 * v10);
+      v16 = &v15[(unsigned __int16)KeNumberNodes];
+      while ( ++v15 < v16 )
       {
-        if ( (_WORD)Count != 1 )
-          PoolMm = (__int128 *)ExAllocatePoolMm(64, 16LL * (unsigned __int16)Count, 0x6147694Du, v0 | 0x80000000);
-        if ( PoolMm )
+        v17 = v13 + 4544LL * *v15;
+        v18 = *(unsigned __int16 *)(v17 + 4488) / v1;
+        if ( v18 >= 2 )
         {
-          KeQueryNodeActiveAffinity2(v0, (__int64)PoolMm, v6, &Count);
-        }
-        else
-        {
-          PoolMm = (__int128 *)(v2 + 32);
-          v6 = 1;
-          KeQueryNodeActiveAffinity(v0, (PGROUP_AFFINITY)(v2 + 32), (PUSHORT)&Count);
-        }
-      }
-      else
-      {
-        v6 = 1;
-      }
-      Count = v6;
-      if ( v6 )
-      {
-        v8 = v6;
-        v9 = PoolMm;
-        v26 = v6;
-        do
-        {
-          v10 = 0LL;
-          v22 = *v9;
-          v11 = v22;
-          if ( (_QWORD)v22 )
+          v19 = 0LL;
+          v20 = *(_QWORD *)(v17 + 4472);
+          v21 = (v1 * v18) >> 1;
+          if ( v21 )
           {
             do
             {
-              FirstSetRightGroupAffinity = KeFindFirstSetRightGroupAffinity((__int64)&v22);
-              EngineType = (int)MiGetEngineType(KiProcessorBlock[FirstSetRightGroupAffinity]);
-              ++*(_WORD *)(v2 + 2 * EngineType + 10);
-              v15 = *(_QWORD *)(v14 + 200);
-              v16 = v11 & ~v15;
-              *(_QWORD *)&v22 = v16;
-              v11 = v16;
-              if ( (v15 & v10) == 0 )
-              {
-                ++*(_WORD *)(v2 + 2 * EngineType + 16);
-                v10 |= *(_QWORD *)(v14 + 34912);
-              }
+              _BitScanForward64(&v22, v20);
+              ++v2;
+              v19 |= 1LL << v22;
+              v20 &= ~(1LL << v22);
             }
-            while ( v16 );
-            v8 = v26;
+            while ( v2 < v21 );
+            v3 = a1;
           }
-          ++v9;
-          v26 = --v8;
+          *(_QWORD *)(v17 + 4472) &= ~v19;
+          *(_QWORD *)(v14 + 4472) = v19;
+          v23 = *(_WORD *)(v17 + 4480);
+          *(_WORD *)(v14 + 4488) = v2;
+          *(_WORD *)(v14 + 4480) = v23;
+          *(_WORD *)(v17 + 4488) -= v2;
+          v2 = 0;
+          break;
         }
-        while ( v8 );
-        v0 = v25;
-        v1 = v24;
-        LOWORD(v5) = 0;
-        v4 = Count;
-        v3 = (unsigned __int64 *)PoolMm;
-        do
-        {
-          v17 = *v3;
-          v18 = *v3;
-          v3 += 2;
-          v19 = ((v17 - ((v18 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-              + (((v17 - ((v18 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL);
-          v20 = (0x101010101010101LL * ((v19 + (v19 >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
-          LOWORD(v20) = v5 + v20;
-          v5 = (unsigned __int16)v20;
-          --v4;
-        }
-        while ( v4 );
       }
-      else
-      {
-        v20 = 0LL;
-      }
-      *(_DWORD *)(v2 + 24) = v0;
-      v21 = v1 + 1;
-      *(_QWORD *)v2 = PoolMm;
-      if ( (_WORD)v20 )
-        v21 = v1;
-      *(_WORD *)(v2 + 8) = v6;
-      ++v0;
-      v24 = v21;
-      v1 = v21;
-      v25 = v0;
+      if ( v15 == v16 )
+        return 0LL;
     }
-    while ( v0 < (unsigned __int16)KeNumberNodes );
-    if ( v21 )
-      MiReassignProcessorsToMemoryOnlyNodes(v20, v3, v4, v5, v22, *((_QWORD *)&v22 + 1));
+    if ( ++v12 >= v10 )
+      return 1LL;
   }
 }

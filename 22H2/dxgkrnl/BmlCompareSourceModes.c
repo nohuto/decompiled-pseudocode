@@ -1,94 +1,81 @@
 /*
- * XREFs of BmlCompareSourceModes @ 0x1C03BCFB4
+ * XREFs of BmlCompareSourceModes @ 0x1C014766C
  * Callers:
- *     BmlGetNextBestSourceMode @ 0x1C017A320 (BmlGetNextBestSourceMode.c)
+ *     BmlGetNextBestSourceMode @ 0x1C0147254 (BmlGetNextBestSourceMode.c)
  * Callees:
- *     BmlCompareSourceModesWithMonitors @ 0x1C017AAF8 (BmlCompareSourceModesWithMonitors.c)
- *     ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C017AD14 (-BmlCompareModeExtents@@YA-AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z.c)
- *     BmlCompareModeRegions @ 0x1C017ADA0 (BmlCompareModeRegions.c)
- *     ?BmlCompareModeResolution@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C03BCE74 (-BmlCompareModeResolution@@YA-AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z.c)
- *     BmlComparePixelFormats @ 0x1C03BCF18 (BmlComparePixelFormats.c)
- *     BmlCompareSourceModesWithConstraint @ 0x1C03BD18C (BmlCompareSourceModesWithConstraint.c)
+ *     BmlCompareSourceModesWithMonitors @ 0x1C0146F88 (BmlCompareSourceModesWithMonitors.c)
+ *     BmlCompareSourceModesWithConstraint @ 0x1C0147190 (BmlCompareSourceModesWithConstraint.c)
+ *     BmlGetPixelFormatPreference @ 0x1C014779C (BmlGetPixelFormatPreference.c)
+ *     BmlCompareModeRegions @ 0x1C0147B44 (BmlCompareModeRegions.c)
+ *     BmlCompareSourceModesWithContentRes @ 0x1C02EBFDC (BmlCompareSourceModesWithContentRes.c)
  */
 
 __int64 __fastcall BmlCompareSourceModes(__int64 a1, __int64 a2, unsigned __int16 a3, __int64 a4, __int64 a5)
 {
-  __int64 v5; // r15
+  __int64 v5; // r12
+  __int64 v9; // rbx
+  unsigned int v10; // edi
   __int64 result; // rax
-  __int64 v10; // rbx
-  _DWORD *v11; // r14
-  int *v12; // r10
-  int *v13; // r10
-  int *v14; // r11
-  int v15; // eax
-  unsigned int *v16; // r11
-  int v17; // r9d
-  unsigned int v18; // r9d
-  unsigned int v19; // ebx
-  __int64 v20; // r8
-  unsigned int v21; // eax
-  int v22; // eax
-  int *v23; // r10
-  int *v24; // r11
-  int v25; // eax
-  int v26; // r9d
+  unsigned int v12; // ebx
+  int PixelFormatPreference; // r15d
+  int v14; // eax
+  __int64 v15; // r8
+  unsigned int v16; // eax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
 
   v5 = a3;
   if ( !a1 )
-    WdLogSingleEntry0(1LL);
+  {
+    v17 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    WdLogEvent5_WdAssertion(v17);
+  }
   if ( !a2 )
-    WdLogSingleEntry0(1LL);
+  {
+    v18 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v18);
+  }
   if ( a4 == a5 )
-    WdLogSingleEntry0(1LL);
+  {
+    v19 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v19);
+  }
   if ( !a4 )
     return 0xFFFFFFFFLL;
   if ( !a5 )
     return 1LL;
-  v10 = 120 * v5;
-  v11 = (_DWORD *)(a1 + 8);
-  if ( *(_BYTE *)(*(_QWORD *)(120 * v5 + a1 + 16) + 129LL) && (*v11 & 1) != 0
-    || (result = BmlCompareSourceModesWithConstraint(a1, (unsigned __int16)v5, a4, a5), !(_DWORD)result) )
+  v9 = 104 * v5;
+  v10 = 1;
+  if ( *(_BYTE *)(*(_QWORD *)(104 * v5 + a1 + 16) + 129LL) && (*(_DWORD *)(a1 + 8) & 1) != 0
+    || (result = BmlCompareSourceModesWithConstraint(a1, v5, a4, a5), !(_DWORD)result) )
   {
-    if ( !*(_BYTE *)(*(_QWORD *)(v10 + a1 + 16) + 129LL) )
-      goto LABEL_21;
-    if ( (*(_BYTE *)(v10 + a1 + 124) & 1) == 0 )
-      goto LABEL_21;
-    v12 = (int *)(v10 + a1 + 108);
-    if ( (*v11 & 3) == 0 && (unsigned int)BmlCompareModeExtents((int *)(v10 + a1 + 108), (_DWORD *)(v10 + a1 + 52)) != 1 )
-      goto LABEL_21;
-    if ( (unsigned int)BmlCompareModeResolution((int *)(a5 + 76), v12) == -1
-      || (v15 = BmlCompareModeResolution(v14, v13), v15 == v17) )
+    if ( !*(_BYTE *)(*(_QWORD *)(v9 + a1 + 16) + 129LL)
+      || (*(_DWORD *)(v9 + a1 + 116) & 1) == 0
+      || (result = BmlCompareSourceModesWithContentRes(a1, (unsigned __int16)v5, a4, a5), !(_DWORD)result) )
     {
-      v22 = BmlCompareModeResolution((int *)(a5 + 76), v13);
-      if ( v22 == v18 )
+      v12 = *(_DWORD *)(a4 + 96);
+      PixelFormatPreference = BmlGetPixelFormatPreference(*(unsigned int *)(a5 + 96));
+      v14 = BmlGetPixelFormatPreference(v12);
+      if ( v14 <= PixelFormatPreference )
       {
-        v25 = BmlCompareModeResolution(v24, v23);
-        if ( v25 == v26 )
+        if ( v14 >= PixelFormatPreference )
         {
-LABEL_21:
-          v19 = BmlComparePixelFormats(a4, a5, *(_DWORD *)(v10 + a1 + 120));
-          if ( !v19 )
+          v10 = BmlCompareModeRegions(a4 + 76, a5 + 76);
+          if ( v10 )
           {
-            v19 = BmlCompareModeRegions((unsigned int *)(a4 + 76), (unsigned int *)(a5 + 76));
-            if ( v19 )
-            {
-              v21 = BmlCompareSourceModesWithMonitors(a1, v5, v20, a4, a5);
-              if ( v21 )
-                return v21;
-            }
+            v16 = BmlCompareSourceModesWithMonitors(a1, v5, v15, a4, a5);
+            if ( v16 )
+              return v16;
           }
-          return v19;
         }
-        return 1;
+        else
+        {
+          return (unsigned int)-1;
+        }
       }
+      return v10;
     }
-    else
-    {
-      v18 = BmlCompareModeRegions((unsigned int *)(a5 + 76), v16);
-      if ( !v18 )
-        goto LABEL_21;
-    }
-    return v18;
   }
   return result;
 }

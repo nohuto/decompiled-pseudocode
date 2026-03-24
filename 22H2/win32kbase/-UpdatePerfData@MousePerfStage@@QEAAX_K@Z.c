@@ -1,8 +1,8 @@
 /*
- * XREFs of ?UpdatePerfData@MousePerfStage@@QEAAX_K@Z @ 0x1C00E6FE2
+ * XREFs of ?UpdatePerfData@MousePerfStage@@QEAAX_K@Z @ 0x1C01C3414
  * Callers:
- *     ?CollectMousePerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePerf@@@Z @ 0x1C0054E74 (-CollectMousePerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePerf@@@Z.c)
- *     ?CollectMousePacketPerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePacketPerf@@@Z @ 0x1C0055008 (-CollectMousePacketPerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePacketPerf@@@Z.c)
+ *     ?CollectMousePacketPerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePacketPerf@@@Z @ 0x1C0042AD4 (-CollectMousePacketPerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePacketPerf@@@Z.c)
+ *     ?CollectMousePerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePerf@@@Z @ 0x1C0042DE8 (-CollectMousePerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePerf@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,11 +12,9 @@ void __fastcall MousePerfStage::UpdatePerfData(MousePerfStage *this, unsigned __
   unsigned __int64 v3; // r8
   unsigned __int64 v4; // rax
   unsigned __int64 v5; // rcx
-  __int64 v6; // rax
-  unsigned __int64 v7; // rax
-  int v8; // ecx
-  bool v9; // zf
-  unsigned __int64 v10; // rcx
+  unsigned __int64 v6; // rax
+  bool v7; // zf
+  unsigned __int64 v8; // rcx
 
   if ( a2 )
   {
@@ -28,17 +26,14 @@ void __fastcall MousePerfStage::UpdatePerfData(MousePerfStage *this, unsigned __
     v5 = a2;
     if ( v4 < a2 )
       v5 = v4;
-    v6 = *((_QWORD *)this + 3);
+    v6 = a2 + *((_QWORD *)this + 3);
     *((_QWORD *)this + 1) = v5;
-    v7 = a2 + v6;
-    v8 = *((_DWORD *)this + 8);
-    v9 = v8 == -1;
-    v10 = (unsigned int)(v8 + 1);
-    *((_QWORD *)this + 3) = v7;
-    *((_DWORD *)this + 8) = v10;
-    if ( v9 )
+    v7 = (*((_DWORD *)this + 8))++ == -1;
+    v8 = *((unsigned int *)this + 8);
+    *((_QWORD *)this + 3) = v6;
+    if ( v7 )
       *((_QWORD *)this + 2) = 0LL;
     else
-      *((_QWORD *)this + 2) = v7 / v10;
+      *((_QWORD *)this + 2) = v6 / v8;
   }
 }

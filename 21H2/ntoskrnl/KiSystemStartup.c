@@ -1,14 +1,13 @@
 /*
- * XREFs of KiSystemStartup @ 0x140A47010
+ * XREFs of KiSystemStartup @ 0x14098F010
  * Callers:
  *     <none>
  * Callees:
- *     KiIdleLoop @ 0x140424300 (KiIdleLoop.c)
- *     KiInitializeXSave @ 0x140A56780 (KiInitializeXSave.c)
- *     KiInitializeBootStructures @ 0x140A57680 (KiInitializeBootStructures.c)
- *     KiInitializeKernel @ 0x140A580F0 (KiInitializeKernel.c)
- *     KiInitializeKernelShadowStacks @ 0x140A5B860 (KiInitializeKernelShadowStacks.c)
- *     KdInitSystem @ 0x140A70470 (KdInitSystem.c)
+ *     KiIdleLoop @ 0x140402950 (KiIdleLoop.c)
+ *     KiInitializeXSave @ 0x14099BC40 (KiInitializeXSave.c)
+ *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
+ *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
+ *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -21,18 +20,17 @@ NTSTATUS __stdcall __noreturn KiSystemStartup(PDRIVER_OBJECT DriverObject, PUNIC
   unsigned __int64 v7; // r8
   __int64 v8; // r8
   unsigned __int64 v10; // rdx
-  __int64 v11; // rax
-  unsigned int v13; // eax
-  void *v14; // rsp
-  __int64 v15; // rcx
-  __int64 v16; // rdx
-  unsigned __int64 v17; // r8
-  unsigned __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  unsigned __int64 v21; // rax
-  __int64 v22; // rax
+  void *v11; // rsp
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  unsigned __int64 v14; // r8
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  unsigned __int64 v18; // rax
+  __int64 v19; // rax
   struct _KTHREAD *CurrentThread; // rcx
+  bool v21; // zf
 
   KeLoaderBlock_0 = (__int64)DriverObject;
   if ( !*((_DWORD *)DriverObject->MajorFunction[3] + 9) )
@@ -63,7 +61,6 @@ NTSTATUS __stdcall __noreturn KiSystemStartup(PDRIVER_OBJECT DriverObject, PUNIC
   _mm_setcsr(*v2);
   if ( !v2[9] )
     *(_WORD *)(v8 + 80) = 15360;
-  __DS__ = 43;
   if ( !VslVsmEnabled )
   {
     _AX = 0;
@@ -78,56 +75,44 @@ NTSTATUS __stdcall __noreturn KiSystemStartup(PDRIVER_OBJECT DriverObject, PUNIC
   __writemsr(0xC0000102, __PAIR64__(v10, (int)v2 - 384));
   if ( !*MK_FP(43, v2 + 9) )
   {
-    _guard_dispatch_icall_fptr[0] = (__int64 (__fastcall *)())&guard_dispatch_icall;
+    _guard_dispatch_icall_fptr = (__int64 (__fastcall *)())&guard_dispatch_icall;
     _guard_check_icall_fptr[0] = (__int64 (__fastcall *)())guard_check_icall;
-  }
-  v11 = KiInitializeKernelShadowStacks(KeLoaderBlock_0);
-  if ( v11 )
-  {
-    _R8 = v11;
-    if ( !*MK_FP(43, *MK_FP(43, KeLoaderBlock_0 + 136) + 36LL) )
-    {
-      v13 = 1;
-      if ( (KiKernelCetAuditModeEnabled & 1) != 0 )
-        v13 = 3;
-      __writemsr(0x6A2u, v13);
-      __asm { setssbsy }
-    }
-    __asm
-    {
-      rstorssp qword ptr [r8]
-      saveprevssp
-    }
   }
   KiInitializeBootStructures(KeLoaderBlock_0);
   if ( !*MK_FP(43, *MK_FP(43, KeLoaderBlock_0 + 136) + 36LL) )
     KdInitSystem(0LL, KeLoaderBlock_0);
   KiInitializeXSave(KeLoaderBlock_0, (unsigned int)*MK_FP(43, *MK_FP(43, KeLoaderBlock_0 + 136) + 36LL));
   __writecr8(0xFuLL);
-  v14 = alloca((unsigned int)KiXSaveAreaLength);
-  v15 = *MK_FP(43, KeLoaderBlock_0 + 144);
-  v16 = *MK_FP(43, KeLoaderBlock_0 + 152);
+  v11 = alloca((unsigned int)KiXSaveAreaLength);
+  v12 = *MK_FP(43, KeLoaderBlock_0 + 144);
+  v13 = *MK_FP(43, KeLoaderBlock_0 + 152);
   if ( (KiKvaShadow & 1) != 0 )
   {
-    v17 = *MK_FP(43, *MK_FP(43, &KeGetPcr()->IdtBase) + 4216LL);
-    __writegsqword(0xA008u, v17);
+    v14 = *MK_FP(43, *MK_FP(43, &KeGetPcr()->IdtBase) + 4216LL);
+    __writegsqword(0x9008u, v14);
   }
   else
   {
-    v17 = *MK_FP(43, *MK_FP(43, &KeGetPcr()->TssBase) + 4LL);
+    v14 = *MK_FP(43, *MK_FP(43, &KeGetPcr()->TssBase) + 4LL);
   }
-  __writegsqword(0x1A8u, v17);
-  KiInitializeKernel(v15, v16);
+  __writegsqword(0x1A8u, v14);
+  KiInitializeKernel(v12, v13);
   if ( !*MK_FP(43, &KeGetPcr()->Prcb.Number) )
   {
-    v21 = __rdtsc();
-    v18 = __ROR8__(v21, 49);
-    v22 = __ROL8__(ExpSecurityCookieRandomData ^ v18 ^ v21, 16);
-    LOWORD(v22) = 0;
-    _security_cookie = __ROR8__(v22, 16);
+    v18 = __rdtsc();
+    v15 = __ROR8__(v18, 49);
+    v19 = __ROL8__(ExpSecurityCookieRandomData ^ v15 ^ v18, 16);
+    LOWORD(v19) = 0;
+    _security_cookie = __ROR8__(v19, 16);
     _security_cookie_complement = ~_security_cookie;
   }
   CurrentThread = KeGetCurrentThread();
   *MK_FP(43, &CurrentThread->WaitBlockFill11[70]) = 2;
-  KiIdleLoop((__int64)CurrentThread, v18, v19, v20);
+  do
+  {
+    v21 = KiBarrierWait == 0;
+    _mm_pause();
+  }
+  while ( !v21 );
+  KiIdleLoop((__int64)CurrentThread, v15, v16, v17);
 }

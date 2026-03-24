@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmSetInstallerClassRegPropWorker @ 0x140A255C0
+ * XREFs of _CmSetInstallerClassRegPropWorker @ 0x140975A50
  * Callers:
- *     _CmSetInstallerClassRegProp @ 0x140A2545C (_CmSetInstallerClassRegProp.c)
+ *     _CmSetInstallerClassRegProp @ 0x1409758EC (_CmSetInstallerClassRegProp.c)
  * Callees:
- *     _MapCmClassPropertyToRegValue @ 0x14024263C (_MapCmClassPropertyToRegValue.c)
- *     _CmClassPropertyRead @ 0x1402426B4 (_CmClassPropertyRead.c)
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     _CmClassPropertyWrite @ 0x14064F720 (_CmClassPropertyWrite.c)
- *     _RegRtlSetValue @ 0x1406D5A30 (_RegRtlSetValue.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x140715E20 (RtlValidRelativeSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x1407254F0 (RtlLengthSecurityDescriptor.c)
- *     _CmRaisePropertyChangeEvent @ 0x140770200 (_CmRaisePropertyChangeEvent.c)
- *     _PnpOpenPropertiesKey @ 0x14077EF20 (_PnpOpenPropertiesKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140789460 (_CmOpenInstallerClassRegKey.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     _MapCmClassPropertyToRegValue @ 0x14036F688 (_MapCmClassPropertyToRegValue.c)
+ *     _CmClassPropertyRead @ 0x14036F700 (_CmClassPropertyRead.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     _CmClassPropertyWrite @ 0x1405C64B8 (_CmClassPropertyWrite.c)
+ *     _PnpOpenPropertiesKey @ 0x1406454C4 (_PnpOpenPropertiesKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14066DC80 (RtlValidRelativeSecurityDescriptor.c)
+ *     _CmRaisePropertyChangeEvent @ 0x1407443D4 (_CmRaisePropertyChangeEvent.c)
+ *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassRegPropWorker(
@@ -38,8 +38,8 @@ __int64 __fastcall CmSetInstallerClassRegPropWorker(
   HANDLE v19; // rdx
   HANDLE v20; // rsi
   const wchar_t *v21; // rax
-  HANDLE v22; // r9
-  int v23; // eax
+  int v22; // eax
+  HANDLE v23; // r9
   __int64 v25; // [rsp+28h] [rbp-38h]
   HANDLE Handle; // [rsp+40h] [rbp-20h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-18h] BYREF
@@ -129,17 +129,14 @@ LABEL_31:
     {
       if ( SecurityDescriptorLength )
       {
-        v23 = RegRtlSetValue(v20, v21, a5, v12, SecurityDescriptorLength);
-        if ( v23 == -1073741444 )
+        v22 = RegRtlSetValue(v20, v21, a5, v12, SecurityDescriptorLength);
+        if ( v22 == -1073741444 )
         {
           inited = -1073741772;
           goto LABEL_56;
         }
-        if ( v23 < 0 )
-        {
-          inited = v23;
-          goto LABEL_56;
-        }
+        if ( v22 < 0 )
+          inited = v22;
       }
       else
       {
@@ -149,13 +146,14 @@ LABEL_31:
           inited = ZwDeleteValueKey(v20, &DestinationString);
         if ( inited == -1073741772 || inited == -1073741444 )
           inited = -1073741275;
-        if ( inited < 0 )
-          goto LABEL_56;
       }
-      v22 = Handle;
-      if ( a3 )
-        v22 = a3;
-      CmRaisePropertyChangeEvent(a1, a2, 2u, (__int64)v22, a4);
+      if ( inited >= 0 )
+      {
+        v23 = Handle;
+        if ( a3 )
+          v23 = a3;
+        CmRaisePropertyChangeEvent(a1, a2, 2u, (__int64)v23, a4);
+      }
       goto LABEL_56;
     }
 LABEL_55:

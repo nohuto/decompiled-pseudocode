@@ -1,16 +1,16 @@
 /*
- * XREFs of Buffer @ 0x1C0018F50
+ * XREFs of Buffer @ 0x1C000B340
  * Callers:
  *     <none>
  * Callees:
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintBuffData @ 0x1C0067BCC (PrintBuffData.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     PrintBuffData @ 0x1C0066874 (PrintBuffData.c)
  */
 
 __int64 __fastcall Buffer(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall Buffer(__int64 a1, __int64 a2)
   unsigned int v5; // edi
   __int64 v6; // rax
   unsigned int v7; // r8d
-  _SLIST_ENTRY *v8; // rax
+  __int64 v8; // rax
 
   v2 = *(_DWORD *)(a2 + 40) - *(_DWORD *)(a1 + 120);
   v5 = ValidateArgTypes(a1, *(_QWORD *)(a2 + 80), 0, "I");

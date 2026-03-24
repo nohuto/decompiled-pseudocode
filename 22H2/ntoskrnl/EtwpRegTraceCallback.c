@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRegTraceCallback @ 0x1408AB050
+ * XREFs of EtwpRegTraceCallback @ 0x14093B370
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmCallbackGetKeyObjectID @ 0x1408ABBD0 (CmCallbackGetKeyObjectID.c)
- *     EtwpCapturePreviousRegistryData @ 0x1409F43D4 (EtwpCapturePreviousRegistryData.c)
- *     EtwpCaptureRegistryData @ 0x1409F44E4 (EtwpCaptureRegistryData.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmCallbackGetKeyObjectID @ 0x140869AC0 (CmCallbackGetKeyObjectID.c)
+ *     EtwpCapturePreviousRegistryData @ 0x14093B1D4 (EtwpCapturePreviousRegistryData.c)
+ *     EtwpCaptureRegistryData @ 0x14093B2D8 (EtwpCaptureRegistryData.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRegTraceCallback(PVOID CallbackContext, PVOID Argument1, int *Argument2)
@@ -29,12 +29,12 @@ __int64 __fastcall EtwpRegTraceCallback(PVOID CallbackContext, PVOID Argument1, 
   __int128 v17; // xmm0
   __int64 v18; // rdx
   PVOID v19; // rax
-  __int64 v20; // r8
+  unsigned int v20; // r8d
   __int64 v21; // r14
-  __int64 v22; // rdx
+  const void *v22; // rdx
   __int64 v23; // rax
   __int64 v24; // rdx
-  __int64 v25; // r8
+  unsigned int v25; // r8d
   PVOID *v26; // rax
   __int128 v27; // xmm0
   int v28; // edx
@@ -47,64 +47,63 @@ __int64 __fastcall EtwpRegTraceCallback(PVOID CallbackContext, PVOID Argument1, 
   __int64 v35; // rax
   __int64 v36; // rdx
   PVOID v37; // rax
-  _DWORD *v38; // rax
-  char v39; // bl
-  __int64 **v40; // rax
-  __int64 *v41; // rcx
+  char v38; // bl
+  __int64 **v39; // rax
+  __int64 *v40; // rcx
+  __int64 v41; // rax
   __int64 v42; // rax
   __int64 v43; // rax
   __int64 v44; // rax
-  __int64 v45; // rax
-  ULONGLONG Buffer; // rax
-  ULONG Length; // r8d
-  __int64 v48; // rcx
-  __int64 v49; // rax
-  ULONG v50; // edi
-  ULONGLONG v51; // rax
-  ULONG v52; // r8d
-  __int64 v53; // rcx
+  ULONGLONG Buffer; // r8
+  ULONG Length; // eax
+  __int64 v47; // rcx
+  __int64 v48; // rax
+  ULONG v49; // edi
+  ULONGLONG v50; // rax
+  ULONG v51; // r8d
+  __int64 v52; // rcx
+  __int64 v53; // rax
   __int64 v54; // rax
-  __int64 v55; // rax
-  __int64 v56; // rcx
-  unsigned int v57; // ecx
+  __int64 v55; // rcx
+  unsigned int v56; // ecx
+  __int64 v57; // rax
   __int64 v58; // rax
-  __int64 v59; // rax
-  ULONG v60; // edx
-  __int64 v61; // rax
-  __int64 v62; // rcx
-  bool v63; // sf
-  int v65; // [rsp+38h] [rbp-D0h] BYREF
-  unsigned __int16 v66; // [rsp+3Ch] [rbp-CCh] BYREF
-  __int64 v67; // [rsp+40h] [rbp-C8h] BYREF
+  ULONG v59; // edx
+  __int64 v60; // rax
+  __int64 v61; // rcx
+  bool v62; // sf
+  int v64; // [rsp+38h] [rbp-D0h] BYREF
+  unsigned __int16 v65; // [rsp+3Ch] [rbp-CCh] BYREF
+  __int64 v66; // [rsp+40h] [rbp-C8h] BYREF
   PVOID Object; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v69; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v68; // [rsp+50h] [rbp-B8h] BYREF
   PVOID P; // [rsp+58h] [rbp-B0h] BYREF
-  int v71; // [rsp+60h] [rbp-A8h] BYREF
-  int v72; // [rsp+64h] [rbp-A4h] BYREF
-  __int64 v73; // [rsp+68h] [rbp-A0h] BYREF
-  PVOID v74; // [rsp+70h] [rbp-98h] BYREF
+  int v70; // [rsp+60h] [rbp-A8h] BYREF
+  int v71; // [rsp+64h] [rbp-A4h] BYREF
+  __int64 v72; // [rsp+68h] [rbp-A0h] BYREF
+  PVOID v73; // [rsp+70h] [rbp-98h] BYREF
   PCUNICODE_STRING ObjectName[4]; // [rsp+78h] [rbp-90h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+98h] [rbp-70h] BYREF
-  _QWORD v77[2]; // [rsp+A8h] [rbp-60h] BYREF
-  char v78; // [rsp+B8h] [rbp-50h] BYREF
+  _QWORD v76[2]; // [rsp+A8h] [rbp-60h] BYREF
+  char v77; // [rsp+B8h] [rbp-50h] BYREF
 
   memset(ObjectName, 0, 24);
   v4 = 0;
   v5 = 0LL;
-  v71 = 0;
+  v70 = 0;
   v6 = 0LL;
-  v69 = 0LL;
-  LODWORD(v67) = 0;
+  v68 = 0LL;
+  LODWORD(v66) = 0;
   v7 = 3;
   Object = 0LL;
   v8 = 0LL;
-  v74 = 0LL;
+  v73 = 0LL;
   v9 = 0;
   P = 0LL;
-  LODWORD(v73) = 0;
-  v72 = 0;
-  LOWORD(v65) = 0;
-  v66 = 0;
+  LODWORD(v72) = 0;
+  v71 = 0;
+  LOWORD(v64) = 0;
+  v65 = 0;
   if ( (int)Argument1 > 22 )
   {
     v28 = (_DWORD)Argument1 - 23;
@@ -117,16 +116,15 @@ __int64 __fastcall EtwpRegTraceCallback(PVOID CallbackContext, PVOID Argument1, 
       *(_OWORD *)&ObjectName[1] = ETW_REGISTRY_EVENT_QUERY_VALUE_KEY;
       v8 = *(unsigned __int16 **)(v36 + 8);
       Object = v37;
-      LODWORD(v69) = *(_DWORD *)(v36 + 16);
-      v38 = *(_DWORD **)(v36 + 40);
-      v20 = (unsigned int)*v38;
-      LODWORD(v67) = *v38;
+      LODWORD(v68) = *(_DWORD *)(v36 + 16);
+      v20 = **(_DWORD **)(v36 + 40);
+      LODWORD(v66) = v20;
       if ( (EtwpRegTraceOptions & 2) == 0 || Argument2[2] < 0 )
         goto LABEL_53;
-      v22 = *(_QWORD *)(v36 + 24);
+      v22 = *(const void **)(v36 + 24);
 LABEL_52:
-      LOWORD(v65) = EtwpCaptureRegistryData(&P, v22, v20, 0LL);
-      v9 = v65;
+      LOWORD(v64) = EtwpCaptureRegistryData(&P, v22, v20);
+      v9 = v64;
       goto LABEL_53;
     }
     v29 = v28 - 1;
@@ -137,8 +135,8 @@ LABEL_52:
       v4 = 40;
       Object = *(PVOID *)Argument2;
       *(_OWORD *)&ObjectName[1] = ETW_REGISTRY_EVENT_QUERY_MULTIPLE_VALUE_KEY;
-      HIDWORD(v69) = *(_DWORD *)(v35 + 16);
-      LODWORD(v67) = **(_DWORD **)(v35 + 32);
+      HIDWORD(v68) = *(_DWORD *)(v35 + 16);
+      LODWORD(v66) = **(_DWORD **)(v35 + 32);
       goto LABEL_53;
     }
     v30 = v29 - 3;
@@ -184,9 +182,9 @@ LABEL_52:
       Object = v34[1];
       if ( Argument2[2] >= 0 )
       {
-        v71 = *(_DWORD *)v34[8];
+        v70 = *(_DWORD *)v34[8];
 LABEL_46:
-        v74 = *(PVOID *)Argument2;
+        v73 = *(PVOID *)Argument2;
       }
     }
     v8 = *v34;
@@ -198,8 +196,8 @@ LABEL_46:
     v18 = *((_QWORD *)Argument2 + 2);
     Object = *(PVOID *)Argument2;
     *(_OWORD *)&ObjectName[1] = ETW_REGISTRY_EVENT_QUERY_KEY;
-    LODWORD(v69) = *(_DWORD *)(v18 + 8);
-    v20 = **(unsigned int **)(v18 + 32);
+    LODWORD(v68) = *(_DWORD *)(v18 + 8);
+    v20 = **(_DWORD **)(v18 + 32);
     goto LABEL_18;
   }
   v10 = (_DWORD)Argument1 - 1;
@@ -224,14 +222,14 @@ LABEL_46:
         v24 = *((_QWORD *)Argument2 + 2);
         *(_OWORD *)&ObjectName[1] = ETW_REGISTRY_EVENT_SET_VALUE_KEY;
         v8 = *(unsigned __int16 **)(v24 + 8);
-        LODWORD(v69) = *(_DWORD *)(v24 + 20);
+        LODWORD(v68) = *(_DWORD *)(v24 + 20);
         Object = *(PVOID *)Argument2;
-        v25 = *(unsigned int *)(v24 + 32);
-        LODWORD(v67) = *(_DWORD *)(v24 + 32);
+        v25 = *(_DWORD *)(v24 + 32);
+        LODWORD(v66) = v25;
         if ( (EtwpRegTraceOptions & 2) != 0 && Argument2[2] >= 0 )
         {
-          v9 = EtwpCaptureRegistryData(&P, *(_QWORD *)(v24 + 24), v25, 0LL);
-          LOWORD(v65) = v9;
+          v9 = EtwpCaptureRegistryData(&P, *(const void **)(v24 + 24), v25);
+          LOWORD(v64) = v9;
         }
         v5 = (_DWORD *)*((_QWORD *)Argument2 + 4);
         v4 = -15;
@@ -259,24 +257,24 @@ LABEL_46:
           v19 = *(PVOID *)Argument2;
           *(_OWORD *)&ObjectName[1] = v17;
           Object = v19;
-          HIDWORD(v69) = *(_DWORD *)(v18 + 8);
-          LODWORD(v69) = *(_DWORD *)(v18 + 12);
-          v20 = **(unsigned int **)(v18 + 32);
+          HIDWORD(v68) = *(_DWORD *)(v18 + 8);
+          LODWORD(v68) = *(_DWORD *)(v18 + 12);
+          v20 = **(_DWORD **)(v18 + 32);
           goto LABEL_13;
         }
         v18 = *((_QWORD *)Argument2 + 2);
         Object = *(PVOID *)Argument2;
         *(_OWORD *)&ObjectName[1] = ETW_REGISTRY_EVENT_SET_INFORMATION_KEY;
-        LODWORD(v69) = *(_DWORD *)(v18 + 8);
-        v20 = *(unsigned int *)(v18 + 24);
+        LODWORD(v68) = *(_DWORD *)(v18 + 8);
+        v20 = *(_DWORD *)(v18 + 24);
 LABEL_18:
         v4 = 112;
 LABEL_13:
         v21 = (__int64)Argument2;
-        LODWORD(v67) = v20;
+        LODWORD(v66) = v20;
         if ( (EtwpRegTraceOptions & 2) == 0 || Argument2[2] < 0 )
           goto LABEL_53;
-        v22 = *(_QWORD *)(v18 + 16);
+        v22 = *(const void **)(v18 + 16);
         goto LABEL_52;
       }
       v23 = *((_QWORD *)Argument2 + 2);
@@ -289,61 +287,61 @@ LABEL_20:
 LABEL_53:
       if ( (EtwpRegTraceOptions & 1) != 0 )
       {
-        v39 = 1;
+        v38 = 1;
         if ( Object )
         {
           CmCallbackGetKeyObjectID(&EtwpRegTraceCookie, Object, 0LL, ObjectName);
-          v9 = v65;
+          v9 = v64;
           v6 = ObjectName[0];
         }
       }
       else
       {
-        v39 = 0;
+        v38 = 0;
       }
       UserData.Ptr = (ULONGLONG)&Object;
       *(_QWORD *)&UserData.Size = 8LL;
       if ( (v4 & 4) != 0 )
       {
-        v77[1] = 8LL;
-        v77[0] = &v74;
-        v40 = (__int64 **)&v78;
+        v76[1] = 8LL;
+        v76[0] = &v73;
+        v39 = (__int64 **)&v77;
       }
       else
       {
         v7 = 2;
-        v40 = (__int64 **)v77;
+        v39 = (__int64 **)v76;
       }
-      v41 = &EtwpNull;
+      v40 = &EtwpNull;
       if ( v21 != 1 )
-        v41 = (__int64 *)(v21 + 8);
-      *v40 = v41;
-      v40[1] = (__int64 *)4;
+        v40 = (__int64 *)(v21 + 8);
+      *v39 = v40;
+      v39[1] = (__int64 *)4;
       if ( (v4 & 8) != 0 )
       {
-        v42 = 2LL * v7++;
-        *(&UserData.Ptr + v42) = (ULONGLONG)&v69 + 4;
-        *((_QWORD *)&UserData.Size + v42) = 4LL;
+        v41 = 2LL * v7++;
+        *(&UserData.Ptr + v41) = (ULONGLONG)&v68 + 4;
+        *((_QWORD *)&UserData.Size + v41) = 4LL;
       }
       if ( (v4 & 0x10) != 0 )
       {
-        v43 = 2LL * v7++;
-        *(&UserData.Ptr + v43) = (ULONGLONG)&v69;
-        *((_QWORD *)&UserData.Size + v43) = 4LL;
+        v42 = 2LL * v7++;
+        *(&UserData.Ptr + v42) = (ULONGLONG)&v68;
+        *((_QWORD *)&UserData.Size + v42) = 4LL;
       }
       if ( (v4 & 2) != 0 )
       {
-        v44 = 2LL * v7++;
-        *(&UserData.Ptr + v44) = (ULONGLONG)&v71;
-        *((_QWORD *)&UserData.Size + v44) = 4LL;
+        v43 = 2LL * v7++;
+        *(&UserData.Ptr + v43) = (ULONGLONG)&v70;
+        *((_QWORD *)&UserData.Size + v43) = 4LL;
       }
       if ( (v4 & 0x20) != 0 )
       {
-        v45 = 2LL * v7++;
-        *(&UserData.Ptr + v45) = (ULONGLONG)&v67;
-        *((_QWORD *)&UserData.Size + v45) = 4LL;
+        v44 = 2LL * v7++;
+        *(&UserData.Ptr + v44) = (ULONGLONG)&v66;
+        *((_QWORD *)&UserData.Size + v44) = 4LL;
       }
-      if ( v39 )
+      if ( v38 == 1 )
       {
         if ( v6 )
         {
@@ -353,88 +351,88 @@ LABEL_53:
             Length = v6->Length;
             if ( (_WORD)Length )
             {
-              v48 = 2LL * v7;
-              *(&UserData.Size + 2 * v48) = Length;
-              *(&UserData.Reserved + 2 * v48) = 0;
+              v47 = 2LL * v7;
+              *(&UserData.Ptr + v47) = Buffer;
+              *(&UserData.Reserved + 2 * v47) = 0;
               ++v7;
-              *(&UserData.Ptr + v48) = Buffer;
+              *(&UserData.Size + 2 * v47) = Length;
             }
           }
         }
       }
-      v49 = 2LL * v7;
-      v50 = v7 + 1;
-      *(&UserData.Ptr + v49) = (ULONGLONG)&EtwpNull;
-      *((_QWORD *)&UserData.Size + v49) = 2LL;
+      v48 = 2LL * v7;
+      v49 = v7 + 1;
+      *(&UserData.Ptr + v48) = (ULONGLONG)&EtwpNull;
+      *((_QWORD *)&UserData.Size + v48) = 2LL;
       if ( (v4 & 1) != 0 )
       {
         if ( v8 )
         {
-          v51 = *((_QWORD *)v8 + 1);
-          if ( v51 )
+          v50 = *((_QWORD *)v8 + 1);
+          if ( v50 )
           {
-            v52 = *v8;
-            if ( (_WORD)v52 )
+            v51 = *v8;
+            if ( (_WORD)v51 )
             {
-              v53 = 2LL * v50;
-              *(&UserData.Size + 2 * v53) = v52;
-              *(&UserData.Reserved + 2 * v53) = 0;
-              ++v50;
-              *(&UserData.Ptr + v53) = v51;
+              v52 = 2LL * v49;
+              *(&UserData.Size + 2 * v52) = v51;
+              *(&UserData.Reserved + 2 * v52) = 0;
+              ++v49;
+              *(&UserData.Ptr + v52) = v50;
             }
           }
         }
-        v54 = 2LL * v50++;
-        *(&UserData.Ptr + v54) = (ULONGLONG)&EtwpNull;
-        *((_QWORD *)&UserData.Size + v54) = 2LL;
+        v53 = 2LL * v49++;
+        *(&UserData.Ptr + v53) = (ULONGLONG)&EtwpNull;
+        *((_QWORD *)&UserData.Size + v53) = 2LL;
       }
       if ( (v4 & 0x40) != 0 )
       {
-        v55 = 2LL * v50++;
-        *(&UserData.Ptr + v55) = (ULONGLONG)&v65;
-        *((_QWORD *)&UserData.Size + v55) = 2LL;
+        v54 = 2LL * v49++;
+        *(&UserData.Ptr + v54) = (ULONGLONG)&v64;
+        *((_QWORD *)&UserData.Size + v54) = 2LL;
         if ( v9 )
         {
-          v56 = 2LL * v50++;
-          *(&UserData.Ptr + v56) = (ULONGLONG)P;
-          *(&UserData.Size + 2 * v56) = v9;
-          *(&UserData.Reserved + 2 * v56) = 0;
+          v55 = 2LL * v49++;
+          *(&UserData.Ptr + v55) = (ULONGLONG)P;
+          *(&UserData.Size + 2 * v55) = v9;
+          *(&UserData.Reserved + 2 * v55) = 0;
         }
       }
       if ( v4 < 0 )
       {
         if ( v5 )
         {
-          v57 = v5[2];
-          LODWORD(v73) = v57;
-          v72 = v5[1];
-          v66 = 2048;
-          if ( v57 <= 0x800 )
-            v66 = v57;
+          v56 = v5[2];
+          LODWORD(v72) = v56;
+          v71 = v5[1];
+          v65 = 2048;
+          if ( v56 <= 0x800 )
+            v65 = v56;
         }
-        v58 = 2LL * v50;
+        v57 = 2LL * v49;
+        *(&UserData.Ptr + v57) = (ULONGLONG)&v71;
+        *((_QWORD *)&UserData.Size + v57) = 4LL;
+        v58 = 2LL * (v49 + 1);
         *(&UserData.Ptr + v58) = (ULONGLONG)&v72;
         *((_QWORD *)&UserData.Size + v58) = 4LL;
-        v59 = 2LL * (v50 + 1);
-        *(&UserData.Ptr + v59) = (ULONGLONG)&v73;
-        *((_QWORD *)&UserData.Size + v59) = 4LL;
-        v60 = v66;
-        v61 = v50 + 2;
-        v50 += 3;
-        v61 *= 2LL;
-        *(&UserData.Ptr + v61) = (ULONGLONG)&v66;
-        *((_QWORD *)&UserData.Size + v61) = 2LL;
-        if ( (_WORD)v60 )
+        v59 = v65;
+        v60 = v49 + 2;
+        v49 += 3;
+        v60 *= 2LL;
+        *(&UserData.Ptr + v60) = (ULONGLONG)&v65;
+        *((_QWORD *)&UserData.Size + v60) = 2LL;
+        if ( (_WORD)v59 )
         {
-          v62 = 2LL * v50++;
-          *(&UserData.Ptr + v62) = (ULONGLONG)(v5 + 3);
-          *(&UserData.Size + 2 * v62) = v60;
-          *(&UserData.Reserved + 2 * v62) = 0;
+          v61 = 2LL * v49++;
+          *(&UserData.Ptr + v61) = (ULONGLONG)(v5 + 3);
+          *(&UserData.Size + 2 * v61) = v59;
+          *(&UserData.Reserved + 2 * v61) = 0;
         }
       }
-      if ( v21 == 1 || (v63 = *(int *)(v21 + 8) < 0, BYTE4(ObjectName[1]) = 1, !v63) )
+      if ( v21 == 1 || (v62 = *(int *)(v21 + 8) < 0, BYTE4(ObjectName[1]) = 1, !v62) )
         BYTE4(ObjectName[1]) = 2;
-      EtwWrite(EtwpRegTraceHandle, (PCEVENT_DESCRIPTOR)&ObjectName[1], 0LL, v50, &UserData);
+      EtwWrite(EtwpRegTraceHandle, (PCEVENT_DESCRIPTOR)&ObjectName[1], 0LL, v49, &UserData);
       if ( P )
         ExFreePoolWithTag(P, 0);
       if ( v5 )
@@ -448,6 +446,6 @@ LABEL_41:
     goto LABEL_20;
   }
   if ( (EtwpRegTraceOptions & 4) != 0 )
-    EtwpCapturePreviousRegistryData(Argument2, 4LL, 0LL, 0LL);
+    EtwpCapturePreviousRegistryData((__int64)Argument2);
   return 0LL;
 }

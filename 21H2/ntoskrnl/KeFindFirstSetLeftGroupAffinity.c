@@ -1,8 +1,8 @@
 /*
- * XREFs of KeFindFirstSetLeftGroupAffinity @ 0x14024C330
+ * XREFs of KeFindFirstSetLeftGroupAffinity @ 0x1402C20D0
  * Callers:
- *     MiTimeSingleLargePageZero @ 0x1403D4314 (MiTimeSingleLargePageZero.c)
- *     KeBuildLogicalProcessorSystemInformation @ 0x1406CD16C (KeBuildLogicalProcessorSystemInformation.c)
+ *     MiTimeSingleLargePageZero @ 0x1403B0510 (MiTimeSingleLargePageZero.c)
+ *     KeBuildLogicalProcessorSystemInformation @ 0x1406AC708 (KeBuildLogicalProcessorSystemInformation.c)
  * Callees:
  *     <none>
  */

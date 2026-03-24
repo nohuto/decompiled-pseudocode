@@ -1,31 +1,27 @@
 /*
- * XREFs of ?SetSize@CHolographicFrameProcessor@@UEAAJII@Z @ 0x1802AF210
+ * XREFs of ?SetSize@CHolographicFrameProcessor@@UEAAJII@Z @ 0x18025CDB0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ResizeWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z @ 0x1802A64C4 (-ResizeWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ResizeWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z @ 0x1802543C4 (-ResizeWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z.c)
  */
 
 __int64 __fastcall CHolographicFrameProcessor::SetSize(CHolographicFrameProcessor *this, int a2, int a3)
 {
-  RTL_SRWLOCK *v3; // r9
-  unsigned int v4; // ebx
+  unsigned int v3; // ebx
 
-  v3 = (RTL_SRWLOCK *)*((_QWORD *)this + 6);
-  v4 = 0;
-  if ( v3 )
+  v3 = 0;
+  if ( *((_QWORD *)this + 6) )
   {
     *((_DWORD *)this + 17) = a2;
     *((_DWORD *)this + 18) = a3;
-    CHolographicManager::ResizeWin32kInteropTexture(
-      v3,
-      (struct IUnknown *)(((unsigned __int64)this + 40) & -(__int64)(this != 0LL)));
+    CHolographicManager::ResizeWin32kInteropTexture(*((RTL_SRWLOCK **)this + 6), (struct IUnknown *)this + 5);
   }
   else
   {
-    v4 = -2147418113;
+    v3 = -2147418113;
     MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147418113, 0xF8u, 0LL);
   }
-  return v4;
+  return v3;
 }

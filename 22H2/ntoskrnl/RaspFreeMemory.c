@@ -1,26 +1,24 @@
 /*
- * XREFs of RaspFreeMemory @ 0x140385284
+ * XREFs of RaspFreeMemory @ 0x1403AD328
  * Callers:
- *     BgpRasPrintGlyph @ 0x140384924 (BgpRasPrintGlyph.c)
- *     RaspRectangleDestroy @ 0x140384E8C (RaspRectangleDestroy.c)
- *     RaspGetXExtent @ 0x140384EA4 (RaspGetXExtent.c)
- *     RaspRasterize @ 0x1403850C0 (RaspRasterize.c)
- *     RaspDestroySegmentList @ 0x1403851C0 (RaspDestroySegmentList.c)
- *     RaspGetUnscaledGlyphData @ 0x140385358 (RaspGetUnscaledGlyphData.c)
- *     RaspInitializeGlyphData @ 0x14038601C (RaspInitializeGlyphData.c)
- *     RaspGetCompositeGlyphList @ 0x14067351C (RaspGetCompositeGlyphList.c)
- *     RaspInitializeCompositeGlyphData @ 0x14067384C (RaspInitializeCompositeGlyphData.c)
- *     RaspLoadCompositeGlyphData @ 0x140673BB0 (RaspLoadCompositeGlyphData.c)
- *     RaspDestroyCachedBitmap @ 0x140AEEAE0 (RaspDestroyCachedBitmap.c)
+ *     BgpRasPrintGlyph @ 0x1403AC968 (BgpRasPrintGlyph.c)
+ *     RaspGetXExtent @ 0x1403ACF24 (RaspGetXExtent.c)
+ *     RaspRectangleDestroy @ 0x1403AD144 (RaspRectangleDestroy.c)
+ *     RaspRasterize @ 0x1403AD15C (RaspRasterize.c)
+ *     RaspDestroySegmentList @ 0x1403AD25C (RaspDestroySegmentList.c)
+ *     RaspGetUnscaledGlyphData @ 0x1403AD344 (RaspGetUnscaledGlyphData.c)
+ *     RaspScanConvert @ 0x1403AD430 (RaspScanConvert.c)
+ *     RaspInitializeGlyphData @ 0x1403AE050 (RaspInitializeGlyphData.c)
+ *     RaspGetCompositeGlyphList @ 0x1405C5A1C (RaspGetCompositeGlyphList.c)
+ *     RaspInitializeCompositeGlyphData @ 0x1405C5D54 (RaspInitializeCompositeGlyphData.c)
+ *     RaspLoadCompositeGlyphData @ 0x1405C60D0 (RaspLoadCompositeGlyphData.c)
+ *     RaspDestroyCachedBitmap @ 0x1409F4708 (RaspDestroyCachedBitmap.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
  */
 
-__int64 __fastcall RaspFreeMemory(__int64 a1, _QWORD *a2)
+void __fastcall RaspFreeMemory(__int64 a1, _QWORD *a2)
 {
-  __int64 result; // rax
-
   if ( !*a2 )
-    return BgpFwFreeMemory(a1);
-  return result;
+    BgpFwFreeMemory(a1);
 }

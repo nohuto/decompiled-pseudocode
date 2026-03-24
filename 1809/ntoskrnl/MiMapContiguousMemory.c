@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMapContiguousMemory @ 0x1400E5D84
+ * XREFs of MiMapContiguousMemory @ 0x1400E5DA4
  * Callers:
- *     MmMapIoSpaceEx @ 0x1400E5D40 (MmMapIoSpaceEx.c)
- *     MiAllocateContiguousMemory @ 0x1400E64FC (MiAllocateContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
+ *     MiAllocateContiguousMemory @ 0x1400E651C (MiAllocateContiguousMemory.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiMappingHasIoReferences @ 0x1400E63DC (MiMappingHasIoReferences.c)
- *     MiMapContiguousMemoryLarge @ 0x1401831C4 (MiMapContiguousMemoryLarge.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiInsertPteTracker @ 0x1402CD9C0 (MiInsertPteTracker.c)
+ *     MiMappingHasIoReferences @ 0x1400E63FC (MiMappingHasIoReferences.c)
+ *     MiMapContiguousMemoryLarge @ 0x1401831E4 (MiMapContiguousMemoryLarge.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiInsertPteTracker @ 0x1402CDAC0 (MiInsertPteTracker.c)
  */
 
 __int64 __fastcall MiMapContiguousMemory(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3, char a4)

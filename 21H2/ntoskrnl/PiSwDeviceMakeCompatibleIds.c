@@ -1,28 +1,28 @@
 /*
- * XREFs of PiSwDeviceMakeCompatibleIds @ 0x1407640D8
+ * XREFs of PiSwDeviceMakeCompatibleIds @ 0x14074E75C
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x140763800 (PiSwPdoPnPDispatch.c)
+ *     PiSwPdoPnPDispatch @ 0x14074F0C0 (PiSwPdoPnPDispatch.c)
  * Callees:
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiSwDeviceMakeCompatibleIds(__int64 a1, __int64 *a2)
+__int64 __fastcall PiSwDeviceMakeCompatibleIds(__int64 a1, _QWORD *a2)
 {
   const wchar_t *v2; // rbx
   unsigned int v3; // edi
   __int64 v6; // r14
-  __int64 v7; // rdx
-  __int64 Pool2; // rax
-  __int64 v9; // r12
-  _WORD *v10; // r14
-  _OWORD *v11; // rsi
-  __int64 result; // rax
-  __int64 v13; // rsi
-  __int64 v14; // rsi
+  __int64 v7; // rsi
+  __int64 v8; // rsi
+  __int64 v9; // rdx
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v11; // r12
+  _WORD *v12; // r14
+  _OWORD *v13; // rsi
+  __int64 v14; // r15
   __int64 v15; // r15
-  __int64 v16; // r15
+  __int64 result; // rax
 
   v2 = *(const wchar_t **)(a1 + 32);
   v3 = 0;
@@ -31,59 +31,59 @@ __int64 __fastcall PiSwDeviceMakeCompatibleIds(__int64 a1, __int64 *a2)
   {
     while ( *v2 )
     {
-      v13 = -1LL;
+      v7 = -1LL;
       do
-        ++v13;
-      while ( v2[v13] );
-      v14 = v13 + 1;
-      if ( wcsicmp(v2, &PiSwGenericRawCompatibleId) && wcsicmp(v2, &PiSwGenericCompatibleId) )
-        v6 += 2 * v14;
-      v2 += v14;
+        ++v7;
+      while ( v2[v7] );
+      v8 = v7 + 1;
+      if ( wcsicmp(v2, L"SWD\\GenericRaw") && wcsicmp(v2, L"SWD\\Generic") )
+        v6 += 2 * v8;
+      v2 += v8;
     }
   }
-  v7 = v6 + 30;
+  v9 = v6 + 30;
   if ( (*(_DWORD *)(a1 + 64) & 8) != 0 )
-    v7 = v6;
-  Pool2 = ExAllocatePool2(256LL, v7 + 26, 1466986064LL);
-  v9 = Pool2;
-  if ( Pool2 )
+    v9 = v6;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9 + 26, 0x57706E50u);
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v10 = *(_WORD **)(a1 + 32);
-    v11 = (_OWORD *)Pool2;
-    if ( v10 )
+    v12 = *(_WORD **)(a1 + 32);
+    v13 = PoolWithTag;
+    if ( v12 )
     {
-      while ( *v10 )
+      while ( *v12 )
       {
-        v15 = -1LL;
+        v14 = -1LL;
         do
-          ++v15;
-        while ( v10[v15] );
-        v16 = v15 + 1;
-        if ( wcsicmp(v10, &PiSwGenericRawCompatibleId) && wcsicmp(v10, &PiSwGenericCompatibleId) )
+          ++v14;
+        while ( v12[v14] );
+        v15 = v14 + 1;
+        if ( wcsicmp(v12, L"SWD\\GenericRaw") && wcsicmp(v12, L"SWD\\Generic") )
         {
-          memmove(v11, v10, 2 * v16);
-          v11 = (_OWORD *)((char *)v11 + 2 * v16);
+          memmove(v13, v12, 2 * v15);
+          v13 = (_OWORD *)((char *)v13 + 2 * v15);
         }
-        v10 += v16;
+        v12 += v15;
       }
     }
     if ( (*(_DWORD *)(a1 + 64) & 8) == 0 )
     {
-      *v11 = *(_OWORD *)&PiSwGenericRawCompatibleId;
-      *((_QWORD *)v11 + 2) = 0x52006300690072LL;
-      *((_DWORD *)v11 + 6) = 7798881;
-      *((_WORD *)v11 + 14) = 0;
-      v11 = (_OWORD *)((char *)v11 + 30);
+      *v13 = *(_OWORD *)L"SWD\\GenericRaw";
+      *((_QWORD *)v13 + 2) = *(_QWORD *)L"ricRaw";
+      *((_DWORD *)v13 + 6) = *(_DWORD *)L"aw";
+      *((_WORD *)v13 + 14) = PiSwGenericRawCompatibleId[14];
+      v13 = (_OWORD *)((char *)v13 + 30);
     }
-    *v11 = *(_OWORD *)&PiSwGenericCompatibleId;
-    *((_QWORD *)v11 + 2) = 0x6300690072LL;
-    *((_WORD *)v11 + 12) = 0;
+    *v13 = *(_OWORD *)L"SWD\\Generic";
+    *((_QWORD *)v13 + 2) = *(_QWORD *)L"ric";
+    *((_WORD *)v13 + 12) = 0;
   }
   else
   {
     v3 = -1073741670;
   }
   result = v3;
-  *a2 = v9;
+  *a2 = v11;
   return result;
 }

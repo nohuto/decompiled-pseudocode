@@ -5,7 +5,7 @@
  *     PiDqActionDataCreate @ 0x140591404 (PiDqActionDataCreate.c)
  *     PiDqQueryAppendActionEntry @ 0x1405917B8 (PiDqQueryAppendActionEntry.c)
  *     PiDqPropertyCallback @ 0x140595AB0 (PiDqPropertyCallback.c)
- *     PiDqIrpPropertySet @ 0x1406D58FC (PiDqIrpPropertySet.c)
+ *     PiDqIrpPropertySet @ 0x1406D58DC (PiDqIrpPropertySet.c)
  * Callees:
  *     <none>
  */

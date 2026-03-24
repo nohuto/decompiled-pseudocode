@@ -1,81 +1,73 @@
 /*
- * XREFs of GreLockVisRgn @ 0x1C0051080
+ * XREFs of GreLockVisRgn @ 0x1C003A140
  * Callers:
- *     DestroyMonitorDCs @ 0x1C00122F0 (DestroyMonitorDCs.c)
- *     GreSuspendDirectDraw @ 0x1C001C510 (GreSuspendDirectDraw.c)
- *     ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C001CB24 (-DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z.c)
- *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C0034BE0 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
- *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0038DD8 (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
- *     NtUserGetDC @ 0x1C004D400 (NtUserGetDC.c)
- *     xxxUserProcessCallout @ 0x1C0050580 (xxxUserProcessCallout.c)
- *     DestroyCacheDCEntries @ 0x1C0050FE8 (DestroyCacheDCEntries.c)
- *     xxxEnumDisplayMonitors @ 0x1C00595A0 (xxxEnumDisplayMonitors.c)
- *     UserGetMonitorDC @ 0x1C005B2C0 (UserGetMonitorDC.c)
- *     InitUserScreen @ 0x1C005CD6C (InitUserScreen.c)
- *     DestroyCacheDC @ 0x1C005D380 (DestroyCacheDC.c)
- *     DelayedDestroyCacheDC @ 0x1C00A065C (DelayedDestroyCacheDC.c)
- *     GreLockVisRgnSharedOrExclusive @ 0x1C016A640 (GreLockVisRgnSharedOrExclusive.c)
+ *     DelayedDestroyCacheDC @ 0x1C00087FC (DelayedDestroyCacheDC.c)
+ *     DestroyCacheDCEntries @ 0x1C00088C8 (DestroyCacheDCEntries.c)
+ *     DestroyCacheDC @ 0x1C0008970 (DestroyCacheDC.c)
+ *     ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C0011B48 (-DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z.c)
+ *     GreSuspendDirectDraw @ 0x1C0011C00 (GreSuspendDirectDraw.c)
+ *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C0012198 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
+ *     UserGetMonitorDC @ 0x1C0022638 (UserGetMonitorDC.c)
+ *     NtUserGetDC @ 0x1C0036B40 (NtUserGetDC.c)
+ *     _GetDCEx @ 0x1C0038070 (_GetDCEx.c)
+ *     GreLockVisRgnSharedOrExclusive @ 0x1C003A2F0 (GreLockVisRgnSharedOrExclusive.c)
+ *     xxxUserProcessCallout @ 0x1C003D2A0 (xxxUserProcessCallout.c)
+ *     InitUserScreen @ 0x1C006B23C (InitUserScreen.c)
+ *     xxxEnumDisplayMonitors @ 0x1C0070940 (xxxEnumDisplayMonitors.c)
+ *     DestroyMonitorDCs @ 0x1C00C34E0 (DestroyMonitorDCs.c)
+ *     GreRestoreDCInternal @ 0x1C00CC1F0 (GreRestoreDCInternal.c)
  * Callees:
- *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C016BC08 (McTemplateK0pqz_EtwWriteTransfer.c)
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C016BCC0 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C014CC98 (McTemplateK0pqz_EtwWriteTransfer.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CD50 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall GreLockVisRgn(__int64 a1)
+PVOID __fastcall GreLockVisRgn(__int64 a1, int a2, int a3)
 {
-  _QWORD *v1; // rbx
-  __int64 v2; // rcx
-  __int64 v3; // rdi
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  int v6; // r8d
-  struct _ERESOURCE *v7; // rdi
-  __int64 v8; // rdi
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  int v11; // r8d
-  struct _ERESOURCE *v12; // rdi
-  __int64 v13; // rbx
-  __int64 result; // rax
-  int v15; // edx
-  int v16; // r8d
-  __int64 v17; // rcx
+  HSEMAPHORE v3; // rcx
+  PVOID result; // rax
+  struct _ERESOURCE *v5; // rbx
+  struct _ERESOURCE *v6; // rbx
 
-  v1 = *(_QWORD **)(SGDGetSessionState(a1) + 24);
-  v2 = v1[10];
-  if ( v2 )
-    ExEnterPriorityRegionAndAcquireResourceShared(v2);
-  v3 = v1[10];
-  v5 = *(_QWORD *)(SGDGetSessionState(v2) + 24);
-  if ( *(_DWORD *)(v5 + 180) && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-    McTemplateK0pz_EtwWriteTransfer(
-      v5,
-      (unsigned int)&LockAcquireShared,
-      v6,
-      v3,
-      (__int64)L"GreBaseGlobals.hsemDynamicModeChange");
-  v7 = (struct _ERESOURCE *)v1[15];
-  if ( v7 )
+  v3 = ghsemDynamicModeChange;
+  if ( ghsemDynamicModeChange )
+    result = (PVOID)ExEnterPriorityRegionAndAcquireResourceShared(ghsemDynamicModeChange);
+  if ( gbLockEtw && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
+    result = (PVOID)McTemplateK0pz_EtwWriteTransfer(
+                      (_DWORD)v3,
+                      (unsigned int)&LockAcquireShared,
+                      a3,
+                      (_DWORD)ghsemDynamicModeChange,
+                      (__int64)L"ghsemDynamicModeChange");
+  v5 = (struct _ERESOURCE *)ghsemGreLock;
+  if ( ghsemGreLock )
   {
-    PsEnterPriorityRegion(v5, v4);
-    ExEnterCriticalRegionAndAcquireResourceExclusive(v7);
+    PsEnterPriorityRegion(v3);
+    result = ExEnterCriticalRegionAndAcquireResourceExclusive(v5);
   }
-  v8 = v1[15];
-  v10 = *(_QWORD *)(SGDGetSessionState(v5) + 24);
-  if ( *(_DWORD *)(v10 + 180) && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-    McTemplateK0pqz_EtwWriteTransfer(v10, v9, v11, v8, 2, (__int64)L"GreBaseGlobals.hsemGreLock");
-  v12 = (struct _ERESOURCE *)v1[11];
-  if ( v12 )
+  if ( gbLockEtw && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
+    result = (PVOID)McTemplateK0pqz_EtwWriteTransfer(
+                      (_DWORD)v3,
+                      a2,
+                      a3,
+                      (_DWORD)ghsemGreLock,
+                      2,
+                      (__int64)L"ghsemGreLock");
+  v6 = (struct _ERESOURCE *)ghsemDCVisRgn;
+  if ( ghsemDCVisRgn )
   {
-    PsEnterPriorityRegion(v10, v9);
-    ExEnterCriticalRegionAndAcquireResourceExclusive(v12);
+    PsEnterPriorityRegion(v3);
+    result = ExEnterCriticalRegionAndAcquireResourceExclusive(v6);
   }
-  v13 = v1[11];
-  result = SGDGetSessionState(v10);
-  v17 = *(_QWORD *)(result + 24);
-  if ( *(_DWORD *)(v17 + 180) )
+  if ( gbLockEtw )
   {
     if ( (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-      return McTemplateK0pqz_EtwWriteTransfer(v17, v15, v16, v13, 3, (__int64)L"GreBaseGlobals.hsemDCVisRgn");
+      return (PVOID)McTemplateK0pqz_EtwWriteTransfer(
+                      (_DWORD)v3,
+                      a2,
+                      a3,
+                      (_DWORD)ghsemDCVisRgn,
+                      3,
+                      (__int64)L"ghsemDCVisRgn");
   }
   return result;
 }

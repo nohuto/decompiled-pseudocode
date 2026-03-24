@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_ReadSettingsFromRegKey@PalmRejection@@YAXXZ @ 0x1C0207AA4
+ * XREFs of ?_ReadSettingsFromRegKey@PalmRejection@@YAXXZ @ 0x1C020745C
  * Callers:
- *     ?CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z @ 0x1C0207984 (-CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z.c)
+ *     ?CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z @ 0x1C0207348 (-CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z.c)
  * Callees:
- *     GetLocalMachineRegistryDWORDValues @ 0x1C00A0DF8 (GetLocalMachineRegistryDWORDValues.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     GetLocalMachineRegistryDWORDValues @ 0x1C00E1724 (GetLocalMachineRegistryDWORDValues.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall PalmRejection::_ReadSettingsFromRegKey(PalmRejection *this)

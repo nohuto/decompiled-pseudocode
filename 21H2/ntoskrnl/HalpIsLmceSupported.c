@@ -1,25 +1,29 @@
 /*
- * XREFs of HalpIsLmceSupported @ 0x1403AAC80
+ * XREFs of HalpIsLmceSupported @ 0x1403A0D48
  * Callers:
- *     HalpMcaSetProcessorConfig @ 0x140A53828 (HalpMcaSetProcessorConfig.c)
+ *     HalpMcaSetProcessorConfig @ 0x140999E48 (HalpMcaSetProcessorConfig.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403AAE50 (HalpGetCpuVendor.c)
+ *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
  */
 
 bool HalpIsLmceSupported()
 {
-  unsigned __int64 v0; // rax
+  char CpuInfo; // al
+  unsigned __int64 v1; // rax
   bool result; // al
-  unsigned __int64 v2; // rax
+  unsigned __int64 v3; // rax
+  unsigned __int8 v4; // [rsp+30h] [rbp+8h] BYREF
 
+  v4 = 0;
+  CpuInfo = HalpGetCpuInfo(0LL, 0LL, 0LL, &v4);
   result = 0;
-  if ( (unsigned __int8)HalpGetCpuVendor() == 2 )
+  if ( (v4 & (unsigned __int8)-(CpuInfo != 0)) == 2 )
   {
-    v0 = __readmsr(0x179u);
-    if ( (v0 & 0x8000000) != 0 )
+    v1 = __readmsr(0x179u);
+    if ( (v1 & 0x8000000) != 0 )
     {
-      v2 = __readmsr(0x3Au);
-      if ( (v2 & 0x100001) == 0x100001 )
+      v3 = __readmsr(0x3Au);
+      if ( (v3 & 0x100001) == 0x100001 )
         return 1;
     }
   }

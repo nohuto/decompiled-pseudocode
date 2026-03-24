@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpSetupCachedHypercallPages @ 0x14054218C
+ * XREFs of HvlpSetupCachedHypercallPages @ 0x1404F3CA8
  * Callers:
- *     HvlPhase1Initialize @ 0x1403872A4 (HvlPhase1Initialize.c)
- *     HvlInitializeProcessor @ 0x14081FAAC (HvlInitializeProcessor.c)
+ *     HvlPhase1Initialize @ 0x1403CF458 (HvlPhase1Initialize.c)
+ *     HvlInitializeProcessor @ 0x1407A0160 (HvlInitializeProcessor.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     InterlockedPushListSList @ 0x1404288A0 (InterlockedPushListSList.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     InitializeSListHead @ 0x140352660 (InitializeSListHead.c)
+ *     InterlockedPushListSList @ 0x140407060 (InterlockedPushListSList.c)
  */
 
 PSLIST_ENTRY __fastcall HvlpSetupCachedHypercallPages(union _SLIST_HEADER *a1)
@@ -19,9 +19,9 @@ PSLIST_ENTRY __fastcall HvlpSetupCachedHypercallPages(union _SLIST_HEADER *a1)
   PHYSICAL_ADDRESS PhysicalAddress; // rax
   PHYSICAL_ADDRESS v7; // rax
 
-  v1 = a1 + 2156;
-  v2 = a1[2160].Alignment + 0x2000;
-  InitializeSListHead(a1 + 2156);
+  v1 = a1 + 2100;
+  v2 = a1[2104].Alignment + 0x2000;
+  InitializeSListHead(a1 + 2100);
   v3 = (PHYSICAL_ADDRESS *)v2;
   v4 = (char *)v2;
   v5 = 3LL;

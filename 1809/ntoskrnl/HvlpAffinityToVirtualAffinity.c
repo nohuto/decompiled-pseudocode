@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpAffinityToVirtualAffinity @ 0x1402793A0
+ * XREFs of HvlpAffinityToVirtualAffinity @ 0x1402794A0
  * Callers:
- *     HvlSendSyntheticClusterIpi @ 0x1402751A0 (HvlSendSyntheticClusterIpi.c)
- *     HvlParkedVirtualProcessors @ 0x140276B6C (HvlParkedVirtualProcessors.c)
- *     HvlpPrepareFlushHeader @ 0x140279BA8 (HvlpPrepareFlushHeader.c)
+ *     HvlSendSyntheticClusterIpi @ 0x1402752A0 (HvlSendSyntheticClusterIpi.c)
+ *     HvlParkedVirtualProcessors @ 0x140276C6C (HvlParkedVirtualProcessors.c)
+ *     HvlpPrepareFlushHeader @ 0x140279CA8 (HvlpPrepareFlushHeader.c)
  * Callees:
  *     <none>
  */

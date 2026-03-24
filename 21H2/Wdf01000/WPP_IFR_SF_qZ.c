@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qZ @ 0x1C0069FD4
+ * XREFs of WPP_IFR_SF_qZ @ 0x1C005417C
  * Callers:
- *     ?Initialize@FxDriver@@QEAAJPEBU_UNICODE_STRING@@PEAU_WDF_DRIVER_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0022E2C (-Initialize@FxDriver@@QEAAJPEBU_UNICODE_STRING@@PEAU_WDF_DRIVER_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUT.c)
+ *     ?Initialize@FxDriver@@QEAAJPEBU_UNICODE_STRING@@PEAU_WDF_DRIVER_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0053CA0 (-Initialize@FxDriver@@QEAAJPEBU_UNICODE_STRING@@PEAU_WDF_DRIVER_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUT.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qZ(
@@ -25,60 +25,38 @@ void __fastcall WPP_IFR_SF_qZ(
 
   v7 = id;
   v9 = 10LL;
-  if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x10000) == 0 || BYTE1(WPP_GLOBAL_WDF_Control.Flags) < 4u )
-    goto LABEL_12;
-  if ( id && id->Buffer )
+  if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x10000) != 0 && BYTE1(WPP_GLOBAL_WDF_Control.Flags) >= 4u )
   {
-    Length = id->Length;
-    goto LABEL_7;
+    if ( id && id->Buffer )
+      Length = id->Length;
+    else
+      Length = 10LL;
+    if ( !id || (Buffer = id->Buffer) == 0LL )
+      Buffer = L"NULL";
+    if ( !id || (v12 = id, !id->Length) )
+      v12 = (const _UNICODE_STRING *)&unk_1C009B764;
+    FxWmiTraceMessage(
+      (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
+      43LL,
+      WPP_FxDriver_cpp_Traceguids,
+      0xFu,
+      &flags,
+      8LL,
+      v12,
+      2LL,
+      Buffer,
+      Length,
+      0LL);
   }
-  Length = 10LL;
-  if ( id )
-  {
-LABEL_7:
-    Buffer = id->Buffer;
-    if ( Buffer )
-      goto LABEL_9;
-  }
-  Buffer = L"NULL";
-  if ( !id )
-  {
-LABEL_10:
-    v12 = (const _UNICODE_STRING *)&unk_1C009BD14;
-    goto LABEL_11;
-  }
-LABEL_9:
-  v12 = id;
-  if ( !id->Length )
-    goto LABEL_10;
-LABEL_11:
-  FxWmiTraceMessage(
-    (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
-    43LL,
-    WPP_FxDriver_cpp_Traceguids,
-    0xFu,
-    &flags,
-    8LL,
-    v12,
-    2LL,
-    Buffer,
-    Length,
-    0LL);
-LABEL_12:
   if ( !v7 )
-    goto LABEL_22;
+    goto LABEL_18;
   if ( v7->Buffer )
     v9 = v7->Length;
   v13 = v7->Buffer;
   if ( !v13 )
-  {
-LABEL_22:
-    v13 = L"NULL";
-    if ( !v7 )
-      goto LABEL_18;
-  }
-  if ( !v7->Length )
 LABEL_18:
-    v7 = (const _UNICODE_STRING *)&unk_1C009BD14;
+    v13 = L"NULL";
+  if ( !v7 || !v7->Length )
+    v7 = (const _UNICODE_STRING *)&unk_1C009B764;
   FxIFR(globals, 4u, 0x11u, WPP_FxDriver_cpp_Traceguids, 0xFu, &flags, 8LL, v7, 2LL, v13, v9, 0LL);
 }

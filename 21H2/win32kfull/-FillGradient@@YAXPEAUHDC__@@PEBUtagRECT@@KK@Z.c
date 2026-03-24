@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FillGradient@@YAXPEAUHDC__@@PEBUtagRECT@@KK@Z @ 0x1C00BA304
+ * XREFs of ?FillGradient@@YAXPEAUHDC__@@PEBUtagRECT@@KK@Z @ 0x1C0159C14
  * Callers:
- *     ?FillCaptionGradient@@YAXPEAUHDC__@@PEBUtagRECT@@H@Z @ 0x1C00BA2B0 (-FillCaptionGradient@@YAXPEAUHDC__@@PEBUtagRECT@@H@Z.c)
+ *     ?FillCaptionGradient@@YAXPEAUHDC__@@PEBUtagRECT@@H@Z @ 0x1C0159BC0 (-FillCaptionGradient@@YAXPEAUHDC__@@PEBUtagRECT@@H@Z.c)
  * Callees:
- *     GreGradientFill @ 0x1C0087BF0 (GreGradientFill.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     GreGradientFill @ 0x1C00B63E4 (GreGradientFill.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall FillGradient(HDC a1, const struct tagRECT *a2, int a3, int a4)
@@ -26,5 +26,5 @@ void __fastcall FillGradient(HDC a1, const struct tagRECT *a2, int a3, int a4)
   v4.y = a2->top;
   right = a2->right;
   bottom = a2->bottom;
-  GreGradientFill(a1, &v4, 2u, byte_1C032CF68, 1u, 0);
+  GreGradientFill(a1, &v4, 2u, dword_1C0333AA0, 1u, 0);
 }

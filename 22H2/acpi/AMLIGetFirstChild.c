@@ -1,11 +1,11 @@
 /*
- * XREFs of AMLIGetFirstChild @ 0x1C004830C
+ * XREFs of AMLIGetFirstChild @ 0x1C001665C
  * Callers:
- *     ACPIBuildMissingChildren @ 0x1C000D8BC (ACPIBuildMissingChildren.c)
- *     EnableDisableCMOSRegions @ 0x1C0019EB4 (EnableDisableCMOSRegions.c)
- *     ACPIGpeBuildEventMasks @ 0x1C002BE64 (ACPIGpeBuildEventMasks.c)
- *     EnableDisableIPMIRegions @ 0x1C00887AC (EnableDisableIPMIRegions.c)
- *     EnableDisableRegions @ 0x1C008A58C (EnableDisableRegions.c)
+ *     EnableDisableCMOSRegions @ 0x1C0016500 (EnableDisableCMOSRegions.c)
+ *     ACPIGpeBuildEventMasks @ 0x1C001718C (ACPIGpeBuildEventMasks.c)
+ *     ACPIBuildMissingChildren @ 0x1C00174CC (ACPIBuildMissingChildren.c)
+ *     EnableDisableRegions @ 0x1C009D934 (EnableDisableRegions.c)
+ *     EnableDisableIPMIRegions @ 0x1C00B0090 (EnableDisableIPMIRegions.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ volatile signed __int32 *__fastcall AMLIGetFirstChild(_QWORD *a1)
   }
   else
   {
-    dword_1C006F938 = 0;
+    dword_1C0082908 = 0;
     v5 = (volatile signed __int32 *)(v4 + 15);
     pszDest = 0;
     if ( (gdwfAMLI & 4) != 0 )

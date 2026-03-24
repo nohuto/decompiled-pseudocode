@@ -1,60 +1,58 @@
 /*
- * XREFs of ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00A5928
+ * XREFs of ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F42D8
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0076FE0 (UmfdDispatchEscape.c)
- *     UmfdUninitializeThread @ 0x1C00A5910 (UmfdUninitializeThread.c)
+ *     ?UmfdEscHostUnhandledException@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00F42C0 (-UmfdEscHostUnhandledException@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
  * Callees:
- *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C0077ABC (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ?UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z @ 0x1C00A5A04 (-UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z.c)
- *     ??0UmfdHostExclusiveReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ @ 0x1C00A5A38 (--0UmfdHostExclusiveReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ.c)
- *     ?UmfdCancelServerOutstandingRequests@@YAJPEAX@Z @ 0x1C00A5A70 (-UmfdCancelServerOutstandingRequests@@YAJPEAX@Z.c)
- *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00A5A98 (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C0307468 (-Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00A8D30 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00F43AC (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
+ *     ?UmfdCancelServerOutstandingRequests@@YAJPEAX@Z @ 0x1C00F4448 (-UmfdCancelServerOutstandingRequests@@YAJPEAX@Z.c)
+ *     ?UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z @ 0x1C00F447C (-UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z.c)
+ *     ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C02DF014 (-Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ.c)
  */
 
 void UmfdHostLifeTimeManager::UninitializeThread(void)
 {
   __int64 ThreadWin32Thread; // rax
-  __int64 v1; // rcx
-  struct UmfdTls *v2; // rbx
+  struct UmfdTls *v1; // rbx
   void *ServerPort; // rdi
-  CMultipleConsumerWorkQueue::CWaitableWorkItem **v4; // rbx
-  __int64 v5; // rax
-  void *v6; // rcx
-  char v7; // [rsp+30h] [rbp+8h] BYREF
+  CMultipleConsumerWorkQueue::CWaitableWorkItem **v3; // rbx
+  __int64 v4; // rax
+  void *v5; // rcx
+  char v6; // [rsp+30h] [rbp+8h] BYREF
 
-  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   if ( ThreadWin32Thread && *(_QWORD *)(ThreadWin32Thread + 352) )
   {
-    UmfdHostLifeTimeManager::UmfdHostExclusiveReadyLock::UmfdHostExclusiveReadyLock((UmfdHostLifeTimeManager::UmfdHostExclusiveReadyLock *)&v7);
-    *(_BYTE *)(*(_QWORD *)(SGDGetSessionState(v1) + 32) + 23536LL) = 0;
-    PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v7);
-    v2 = UmfdTls::EnsureTls();
-    ServerPort = (void *)UmfdGetServerPort(*((unsigned int *)v2 + 2));
+    PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v6, (struct _EX_PUSH_LOCK *)&UmfdHostLifeTimeManager::s_ReadyLock);
+    UmfdHostLifeTimeManager::s_Ready = 0;
+    PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v6);
+    v1 = UmfdTls::EnsureTls();
+    ServerPort = (void *)UmfdGetServerPort(*((unsigned int *)v1 + 2));
     if ( ServerPort )
     {
-      v4 = (CMultipleConsumerWorkQueue::CWaitableWorkItem **)*((_QWORD *)v2 + 2);
-      if ( v4 )
+      v3 = (CMultipleConsumerWorkQueue::CWaitableWorkItem **)*((_QWORD *)v1 + 2);
+      if ( v3 )
       {
-        if ( *v4 )
+        if ( *v3 )
         {
-          CMultipleConsumerWorkQueue::CWaitableWorkItem::Cancel(*v4);
-          *v4 = 0LL;
+          CMultipleConsumerWorkQueue::CWaitableWorkItem::Cancel(*v3);
+          *v3 = 0LL;
         }
-        EngFreeMem(v4);
+        EngFreeMem(v3);
       }
       UmfdCancelServerOutstandingRequests(ServerPort);
     }
-    v5 = W32GetThreadWin32Thread(KeGetCurrentThread());
-    if ( v5 )
+    v4 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    if ( v4 )
     {
-      v6 = *(void **)(v5 + 352);
-      if ( v6 )
+      v5 = *(void **)(v4 + 352);
+      if ( v5 )
       {
-        *(_QWORD *)(v5 + 352) = 0LL;
-        UmfdTls::Destroy(v6);
+        *(_QWORD *)(v4 + 352) = 0LL;
+        UmfdTls::Destroy(v5);
       }
     }
   }

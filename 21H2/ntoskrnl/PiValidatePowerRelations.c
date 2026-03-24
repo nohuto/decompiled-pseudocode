@@ -1,9 +1,9 @@
 /*
- * XREFs of PiValidatePowerRelations @ 0x14080E0AC
+ * XREFs of PiValidatePowerRelations @ 0x14074C8C0
  * Callers:
- *     PiQueryPowerRelations @ 0x14080DBCC (PiQueryPowerRelations.c)
+ *     PiQueryPowerRelations @ 0x14074C3A4 (PiQueryPowerRelations.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 *__fastcall PiValidatePowerRelations(__int64 a1)
@@ -15,11 +15,11 @@ __int64 *__fastcall PiValidatePowerRelations(__int64 a1)
   __int64 ****v6; // rdx
   __int64 ***v7; // rcx
   __int64 i; // rcx
-  __int64 **v9; // rcx
-  _QWORD *v10; // rcx
-  __int64 *v11; // rcx
-  __int64 v12; // rcx
-  __int64 **v13; // rdx
+  __int64 *v9; // rcx
+  __int64 v10; // rcx
+  __int64 **v11; // rdx
+  __int64 **v12; // rcx
+  _QWORD *v13; // rcx
   __int64 **v14; // r10
   _QWORD *v15; // r10
   __int64 *v16; // [rsp+30h] [rbp-10h] BYREF
@@ -34,20 +34,20 @@ __int64 *__fastcall PiValidatePowerRelations(__int64 a1)
     if ( *v2 == (__int64 ***)v2 )
       break;
     if ( v3[1] != (__int64 **)v2
-      || (v9 = *v3, (*v3)[1] != (__int64 *)v3)
-      || (*v2 = (__int64 ***)v9, v9[1] = (__int64 *)v2, v10 = v17, *v17 != (__int64 *)&v16) )
+      || (v12 = *v3, (*v3)[1] != (__int64 *)v3)
+      || (*v2 = (__int64 ***)v12, v12[1] = (__int64 *)v2, v13 = v17, *v17 != (__int64 *)&v16) )
     {
 LABEL_26:
       __fastfail(3u);
     }
     v3[1] = v17;
     *v3 = &v16;
-    *v10 = v3;
+    *v13 = v3;
     v17 = (__int64 **)v3;
   }
   result = v16;
   if ( v16 == (__int64 *)&v16 )
-    goto LABEL_20;
+    goto LABEL_16;
   do
   {
     v5 = result[5] - 160;
@@ -83,23 +83,23 @@ LABEL_26:
   while ( 1 )
   {
     result = v16;
-LABEL_20:
+LABEL_16:
     if ( result == (__int64 *)&v16 )
       return result;
     if ( (__int64 **)result[1] != &v16 )
       goto LABEL_26;
-    v11 = (__int64 *)*result;
+    v9 = (__int64 *)*result;
     if ( *(__int64 **)(*result + 8) != result )
       goto LABEL_26;
     v16 = (__int64 *)*result;
-    v11[1] = (__int64)&v16;
-    v12 = result[2] + 32;
-    v13 = *(__int64 ***)(result[2] + 40);
-    if ( *v13 != (__int64 *)v12 )
+    v9[1] = (__int64)&v16;
+    v10 = result[2] + 32;
+    v11 = *(__int64 ***)(result[2] + 40);
+    if ( *v11 != (__int64 *)v10 )
       goto LABEL_26;
-    *result = v12;
-    result[1] = (__int64)v13;
-    *v13 = result;
-    *(_QWORD *)(v12 + 8) = result;
+    *result = v10;
+    result[1] = (__int64)v11;
+    *v11 = result;
+    *(_QWORD *)(v10 + 8) = result;
   }
 }

@@ -1,22 +1,21 @@
 /*
- * XREFs of ZwQueryVirtualMemory @ 0x14041AB00
+ * XREFs of ZwQueryVirtualMemory @ 0x1403F9E80
  * Callers:
- *     RtlpHpFixedHeapCreate @ 0x140362838 (RtlpHpFixedHeapCreate.c)
- *     KiVerifyContextXStateCetUEnabled @ 0x14045FAAC (KiVerifyContextXStateCetUEnabled.c)
- *     RtlCheckXfgFailureInformation @ 0x1405B1B00 (RtlCheckXfgFailureInformation.c)
- *     SepGetStackTraceHash @ 0x1405B7CCC (SepGetStackTraceHash.c)
- *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x1405C1808 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
- *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x1405C215C (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
- *     LdrpResGetMappingSize @ 0x14075A518 (LdrpResGetMappingSize.c)
- *     sub_140764104 @ 0x140764104 (sub_140764104.c)
- *     RtlCreateHeap @ 0x1407D9600 (RtlCreateHeap.c)
- *     EtwpTiQueryVad @ 0x1407E2CA0 (EtwpTiQueryVad.c)
- *     PspFreeUserFiberShadowStack @ 0x1409B1208 (PspFreeUserFiberShadowStack.c)
- *     PspFreeCurrentThreadUserShadowStack @ 0x1409B3C20 (PspFreeCurrentThreadUserShadowStack.c)
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E92A0 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1409EA738 (EtwTimLogRedirectionTrustPolicy.c)
- *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409EB298 (EtwTimLogUserCetSetContextIpValidationFailure.c)
- *     VfMiscMmUnmapLockedPages_Entry @ 0x140AE12B0 (VfMiscMmUnmapLockedPages_Entry.c)
+ *     RtlpHpFixedHeapCreate @ 0x14037AFC8 (RtlpHpFixedHeapCreate.c)
+ *     KiVerifyContextXStateCetUEnabled @ 0x140515F60 (KiVerifyContextXStateCetUEnabled.c)
+ *     SepGetStackTraceHash @ 0x140596050 (SepGetStackTraceHash.c)
+ *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x140599544 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
+ *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x140599D04 (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
+ *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1405D0494 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1405D09D0 (EtwTimLogRedirectionTrustPolicy.c)
+ *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1405D1528 (EtwTimLogUserCetSetContextIpValidationFailure.c)
+ *     sub_1406670B0 @ 0x1406670B0 (sub_1406670B0.c)
+ *     LdrpResGetMappingSize @ 0x1406710B0 (LdrpResGetMappingSize.c)
+ *     EtwpTiQueryVad @ 0x14069E23C (EtwpTiQueryVad.c)
+ *     RtlCreateHeap @ 0x140768180 (RtlCreateHeap.c)
+ *     PspFreeUserFiberShadowStack @ 0x14090A1C4 (PspFreeUserFiberShadowStack.c)
+ *     PspFreeCurrentThreadUserShadowStack @ 0x14090B078 (PspFreeCurrentThreadUserShadowStack.c)
+ *     VerifierMmUnmapLockedPages @ 0x1409E71E0 (VerifierMmUnmapLockedPages.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,12 @@
 /*
- * XREFs of UmfdIsCurrentProcessUmfdHostNoLock @ 0x1C009D500
+ * XREFs of UmfdIsCurrentProcessUmfdHostNoLock @ 0x1C00A8D70
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00A8D88 (-IsCurrentProcessUmfdHostNoLock@UmfdHostLifeTimeManager@@SA_NXZ.c)
  */
 
-_BOOL8 __fastcall UmfdIsCurrentProcessUmfdHostNoLock(__int64 a1)
+_BOOL8 UmfdIsCurrentProcessUmfdHostNoLock()
 {
-  __int64 v1; // rbx
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  return *(_QWORD *)(v1 + 23496) == PsGetCurrentProcess(v3, v2, v4);
+  return UmfdHostLifeTimeManager::IsCurrentProcessUmfdHostNoLock();
 }

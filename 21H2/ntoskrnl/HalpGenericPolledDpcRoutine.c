@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGenericPolledDpcRoutine @ 0x14024B730
+ * XREFs of HalpGenericPolledDpcRoutine @ 0x1404CFA20
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
  */
 
 void __fastcall HalpGenericPolledDpcRoutine(

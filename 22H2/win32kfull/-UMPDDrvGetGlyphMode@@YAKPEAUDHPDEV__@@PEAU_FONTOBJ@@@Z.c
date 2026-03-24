@@ -1,13 +1,13 @@
 /*
- * XREFs of ?UMPDDrvGetGlyphMode@@YAKPEAUDHPDEV__@@PEAU_FONTOBJ@@@Z @ 0x1C02BACF0
+ * XREFs of ?UMPDDrvGetGlyphMode@@YAKPEAUDHPDEV__@@PEAU_FONTOBJ@@@Z @ 0x1C013AEA0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?pfo@UMPDOBJ@@QEAAHPEAPEAU_FONTOBJ@@@Z @ 0x1C0299BD8 (-pfo@UMPDOBJ@@QEAAHPEAPEAU_FONTOBJ@@@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B78D8 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A190C (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ?pfo@UMPDOBJ@@QEAAHPEAPEAU_FONTOBJ@@@Z @ 0x1C013CA98 (-pfo@UMPDOBJ@@QEAAHPEAPEAU_FONTOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall UMPDDrvGetGlyphMode(struct DHPDEV__ *a1, struct _FONTOBJ *a2)
@@ -18,28 +18,24 @@ __int64 __fastcall UMPDDrvGetGlyphMode(struct DHPDEV__ *a1, struct _FONTOBJ *a2)
   size_t Size; // [rsp+20h] [rbp-50h]
   unsigned int v9; // [rsp+30h] [rbp-40h] BYREF
   UMPDOBJ *v10; // [rsp+38h] [rbp-38h] BYREF
-  _DWORD v11[2]; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v12; // [rsp+48h] [rbp-28h]
-  __int64 v13; // [rsp+50h] [rbp-20h]
-  struct DHPDEV__ *v14; // [rsp+58h] [rbp-18h]
-  struct _FONTOBJ *v15; // [rsp+60h] [rbp-10h] BYREF
+  __int128 v11; // [rsp+40h] [rbp-30h] BYREF
+  __int128 v12; // [rsp+50h] [rbp-20h]
+  struct _FONTOBJ *v13; // [rsp+60h] [rbp-10h] BYREF
 
-  v12 = 0LL;
   v9 = 0;
   XUMPDOBJ::XUMPDOBJ((XUMPDOBJ *)&v10);
-  v12 = 0LL;
   v4 = v10;
-  if ( !v10 )
-    goto LABEL_4;
-  v11[0] = 40;
-  v11[1] = 37;
-  v13 = *(_QWORD *)v10;
-  v14 = a1;
-  v15 = a2;
-  if ( !(unsigned int)UMPDOBJ::pfo(v10, (__m128i **)&v15)
-    || (LODWORD(Size) = 4, v5 = UMPDOBJ::Thunk(v4, v11, 0x28u, &v9, Size), v6 = v9, v5 == -1) )
+  v13 = 0LL;
+  v11 = 0LL;
+  v12 = 0LL;
+  if ( !v10
+    || (*(_QWORD *)&v11 = 0x2500000028LL,
+        *(_QWORD *)&v12 = *(_QWORD *)v10,
+        *((_QWORD *)&v12 + 1) = a1,
+        v13 = a2,
+        !(unsigned int)UMPDOBJ::pfo(v10, &v13))
+    || (LODWORD(Size) = 4, v5 = UMPDOBJ::Thunk(v4, &v11, 0x28u, &v9, Size), v6 = v9, v5 == -1) )
   {
-LABEL_4:
     v6 = 1;
   }
   XUMPDOBJ::~XUMPDOBJ(&v10);

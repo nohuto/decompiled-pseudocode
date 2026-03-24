@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x18025A904
+ * XREFs of ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180009A44
  * Callers:
- *     ?IsCasterInBetweenLightAndReceiver@CProjectedShadowScene@@AEBA_NPEBVCVisualTree@@PEBUCasterEntry@1@PEBUReceiverEntry@1@M@Z @ 0x1802364F8 (-IsCasterInBetweenLightAndReceiver@CProjectedShadowScene@@AEBA_NPEBVCVisualTree@@PEBUCasterEntry.c)
- *     ?SortVisuals@CDepthSortingLayer@@QEAA_NPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@AEBV?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@3@@Z @ 0x18025D340 (-SortVisuals@CDepthSortingLayer@@QEAA_NPEAV-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@.c)
+ *     ?IsCasterInBetweenLightAndReceiver@CProjectedShadowScene@@AEBA_NPEBVCVisualTree@@PEBUCasterEntry@1@PEBUReceiverEntry@1@M@Z @ 0x180009888 (-IsCasterInBetweenLightAndReceiver@CProjectedShadowScene@@AEBA_NPEBVCVisualTree@@PEBUCasterEntry.c)
+ *     ?SortVisuals@CDepthSortingLayer@@QEAA_NPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@AEBV?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@3@@Z @ 0x18020D8CC (-SortVisuals@CDepthSortingLayer@@QEAA_NPEAV-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?AreVisualsAbutting@CVisualDepthGeometry@@AEBA_NAEBV1@PEBUfloat3@Numerics@Foundation@Windows@@H@Z @ 0x18025A35C (-AreVisualsAbutting@CVisualDepthGeometry@@AEBA_NAEBV1@PEBUfloat3@Numerics@Foundation@Windows@@H@.c)
- *     ?FindIntersectionOfCornersAndLines@CVisualDepthGeometry@@AEBAXPEBV1@PEAUfloat3@Numerics@Foundation@Windows@@PEAH@Z @ 0x18025A4C0 (-FindIntersectionOfCornersAndLines@CVisualDepthGeometry@@AEBAXPEBV1@PEAUfloat3@Numerics@Foundati.c)
- *     ?FindOverlappingPoint@CVisualDepthGeometry@@AEBA_NAEBV1@PEAUfloat2@Numerics@Foundation@Windows@@@Z @ 0x18025A67C (-FindOverlappingPoint@CVisualDepthGeometry@@AEBA_NAEBV1@PEAUfloat2@Numerics@Foundation@Windows@@.c)
- *     ?IsBoundingBoxOverlappingXY@CVisualDepthGeometry@@AEBA_NAEBV1@@Z @ 0x18025AF0C (-IsBoundingBoxOverlappingXY@CVisualDepthGeometry@@AEBA_NAEBV1@@Z.c)
- *     ?IsCoplanar@CVisualDepthGeometry@@AEBA_NAEBV1@@Z @ 0x18025AF48 (-IsCoplanar@CVisualDepthGeometry@@AEBA_NAEBV1@@Z.c)
- *     ?PlaneLineIntersection@@YA_NAEBUfloat3@Numerics@Foundation@Windows@@000PEAU1234@@Z @ 0x18025B024 (-PlaneLineIntersection@@YA_NAEBUfloat3@Numerics@Foundation@Windows@@000PEAU1234@@Z.c)
- *     ?TreeOrder@CVisualDepthGeometry@@AEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x18025B0F4 (-TreeOrder@CVisualDepthGeometry@@AEBA-AW4RelativeOrder@@AEBV1@@Z.c)
+ *     ?FindIntersectionOfCornersAndLines@CVisualDepthGeometry@@AEBAXPEBV1@PEAUfloat3@Numerics@Foundation@Windows@@PEAH@Z @ 0x180009C0C (-FindIntersectionOfCornersAndLines@CVisualDepthGeometry@@AEBAXPEBV1@PEAUfloat3@Numerics@Foundati.c)
+ *     ?PlaneLineIntersection@@YA_NAEBUfloat3@Numerics@Foundation@Windows@@000PEAU1234@@Z @ 0x180009D84 (-PlaneLineIntersection@@YA_NAEBUfloat3@Numerics@Foundation@Windows@@000PEAU1234@@Z.c)
+ *     ?FindOverlappingPoint@CVisualDepthGeometry@@AEBA_NAEBV1@PEAUfloat2@Numerics@Foundation@Windows@@@Z @ 0x18000AD70 (-FindOverlappingPoint@CVisualDepthGeometry@@AEBA_NAEBV1@PEAUfloat2@Numerics@Foundation@Windows@@.c)
+ *     ?IsBoundingBoxOverlappingXY@CVisualDepthGeometry@@AEBA_NAEBV1@@Z @ 0x18000C2DC (-IsBoundingBoxOverlappingXY@CVisualDepthGeometry@@AEBA_NAEBV1@@Z.c)
+ *     ?IsCoplanar@CVisualDepthGeometry@@AEBA_NAEBV1@@Z @ 0x18000C8F0 (-IsCoplanar@CVisualDepthGeometry@@AEBA_NAEBV1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?AreVisualsAbutting@CVisualDepthGeometry@@AEBA_NAEBV1@PEBUfloat3@Numerics@Foundation@Windows@@H@Z @ 0x1802097E8 (-AreVisualsAbutting@CVisualDepthGeometry@@AEBA_NAEBV1@PEBUfloat3@Numerics@Foundation@Windows@@H@.c)
+ *     ?TreeOrder@CVisualDepthGeometry@@AEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x1802099E8 (-TreeOrder@CVisualDepthGeometry@@AEBA-AW4RelativeOrder@@AEBV1@@Z.c)
  */
 
 __int64 __fastcall CVisualDepthGeometry::GetRelativeOrder(__int64 a1, __int64 a2)
@@ -20,8 +20,8 @@ __int64 __fastcall CVisualDepthGeometry::GetRelativeOrder(__int64 a1, __int64 a2
   CVisualDepthGeometry *v5; // rcx
   const struct CVisualDepthGeometry *v6; // rdx
   CVisualDepthGeometry *v7; // rcx
-  int v9; // xmm6_4
-  int v10; // xmm7_4
+  int v8; // xmm6_4
+  int v9; // xmm7_4
   int v11; // [rsp+38h] [rbp-D0h] BYREF
   int v12; // [rsp+3Ch] [rbp-CCh] BYREF
   int v13; // [rsp+40h] [rbp-C8h]
@@ -37,80 +37,76 @@ __int64 __fastcall CVisualDepthGeometry::GetRelativeOrder(__int64 a1, __int64 a2
   float v23; // [rsp+78h] [rbp-90h]
   _BYTE v24[96]; // [rsp+88h] [rbp-80h] BYREF
 
-  if ( CVisualDepthGeometry::IsBoundingBoxOverlappingXY(
-         (CVisualDepthGeometry *)a1,
-         (const struct CVisualDepthGeometry *)a2) )
+  if ( !CVisualDepthGeometry::IsBoundingBoxOverlappingXY(
+          (CVisualDepthGeometry *)a1,
+          (const struct CVisualDepthGeometry *)a2) )
+    return 2LL;
+  v18 = 0;
+  v19 = 0;
+  if ( !CVisualDepthGeometry::FindOverlappingPoint(v5, v4, (struct Windows::Foundation::Numerics::float2 *)&v18) )
+    return 2LL;
+  if ( *(float *)(a2 + 16) > *(float *)(a1 + 28) )
+    return 1LL;
+  if ( *(float *)(a1 + 16) > *(float *)(a2 + 28) )
+    return 0LL;
+  if ( CVisualDepthGeometry::IsCoplanar((CVisualDepthGeometry *)a1, (const struct CVisualDepthGeometry *)a2) )
+    return CVisualDepthGeometry::TreeOrder(v7, v6);
+  v11 = 0;
+  CVisualDepthGeometry::FindIntersectionOfCornersAndLines(
+    v7,
+    v6,
+    (struct Windows::Foundation::Numerics::float3 *)v24,
+    &v11);
+  CVisualDepthGeometry::FindIntersectionOfCornersAndLines(
+    (CVisualDepthGeometry *)a2,
+    (const struct CVisualDepthGeometry *)a1,
+    (struct Windows::Foundation::Numerics::float3 *)v24,
+    &v11);
+  if ( v11 > 0
+    && !CVisualDepthGeometry::AreVisualsAbutting(
+          (CVisualDepthGeometry *)a1,
+          (const struct CVisualDepthGeometry *)a2,
+          (const struct Windows::Foundation::Numerics::float3 *)v24,
+          v11) )
   {
-    v18 = 0;
-    v19 = 0;
-    if ( CVisualDepthGeometry::FindOverlappingPoint(v5, v4, (struct Windows::Foundation::Numerics::float2 *)&v18) )
-    {
-      if ( *(float *)(a2 + 16) > *(float *)(a1 + 28) )
-        return 1LL;
-      if ( *(float *)(a1 + 16) > *(float *)(a2 + 28) )
-        return 0LL;
-      if ( CVisualDepthGeometry::IsCoplanar((CVisualDepthGeometry *)a1, (const struct CVisualDepthGeometry *)a2) )
-        return CVisualDepthGeometry::TreeOrder();
-      v11 = 0;
-      CVisualDepthGeometry::FindIntersectionOfCornersAndLines(
-        v7,
-        v6,
-        (struct Windows::Foundation::Numerics::float3 *)v24,
-        &v11);
-      CVisualDepthGeometry::FindIntersectionOfCornersAndLines(
-        (CVisualDepthGeometry *)a2,
-        (const struct CVisualDepthGeometry *)a1,
-        (struct Windows::Foundation::Numerics::float3 *)v24,
-        &v11);
-      if ( v11 > 0
-        && !CVisualDepthGeometry::AreVisualsAbutting(
-              (CVisualDepthGeometry *)a1,
-              (const struct CVisualDepthGeometry *)a2,
-              (const struct Windows::Foundation::Numerics::float3 *)v24,
-              v11) )
-      {
-        return CVisualDepthGeometry::TreeOrder();
-      }
-      v9 = v18;
-      v10 = v19;
-      v21 = 0.0;
-      v23 = 0.0;
-      v12 = 0;
-      v13 = 0;
-      v17 = 0;
-      v15 = v18;
-      v16 = v19;
-      v14 = 1065353216;
-      if ( PlaneLineIntersection(
-             (const struct Windows::Foundation::Numerics::float3 *)(a1 + 148),
-             (const struct Windows::Foundation::Numerics::float3 *)(a1 + 160),
-             (const struct Windows::Foundation::Numerics::float3 *)&v15,
-             (const struct Windows::Foundation::Numerics::float3 *)&v12,
-             (struct Windows::Foundation::Numerics::float3 *)&v20) )
-      {
-        v15 = 0;
-        v16 = 0;
-        v14 = 0;
-        v12 = v9;
-        v13 = v10;
-        v17 = 1065353216;
-        if ( PlaneLineIntersection(
-               (const struct Windows::Foundation::Numerics::float3 *)(a2 + 148),
-               (const struct Windows::Foundation::Numerics::float3 *)(a2 + 160),
-               (const struct Windows::Foundation::Numerics::float3 *)&v12,
-               (const struct Windows::Foundation::Numerics::float3 *)&v15,
-               (struct Windows::Foundation::Numerics::float3 *)&v22) )
-        {
-          if ( v21 <= v23 )
-          {
-            if ( v23 <= v21 )
-              return CVisualDepthGeometry::TreeOrder();
-            return 1LL;
-          }
-          return 0LL;
-        }
-      }
-    }
+LABEL_12:
+    v6 = (const struct CVisualDepthGeometry *)a2;
+    v7 = (CVisualDepthGeometry *)a1;
+    return CVisualDepthGeometry::TreeOrder(v7, v6);
   }
-  return 2LL;
+  v8 = v18;
+  v9 = v19;
+  v21 = 0.0;
+  v23 = 0.0;
+  v12 = 0;
+  v13 = 0;
+  v17 = 0;
+  v15 = v18;
+  v16 = v19;
+  v14 = 1065353216;
+  if ( !PlaneLineIntersection(
+          (const struct Windows::Foundation::Numerics::float3 *)(a1 + 148),
+          (const struct Windows::Foundation::Numerics::float3 *)(a1 + 160),
+          (const struct Windows::Foundation::Numerics::float3 *)&v15,
+          (const struct Windows::Foundation::Numerics::float3 *)&v12,
+          (struct Windows::Foundation::Numerics::float3 *)&v20) )
+    return 2LL;
+  v15 = 0;
+  v16 = 0;
+  v14 = 0;
+  v12 = v8;
+  v13 = v9;
+  v17 = 1065353216;
+  if ( !PlaneLineIntersection(
+          (const struct Windows::Foundation::Numerics::float3 *)(a2 + 148),
+          (const struct Windows::Foundation::Numerics::float3 *)(a2 + 160),
+          (const struct Windows::Foundation::Numerics::float3 *)&v12,
+          (const struct Windows::Foundation::Numerics::float3 *)&v15,
+          (struct Windows::Foundation::Numerics::float3 *)&v22) )
+    return 2LL;
+  if ( v21 > v23 )
+    return 0LL;
+  if ( v23 <= v21 )
+    goto LABEL_12;
+  return 1LL;
 }

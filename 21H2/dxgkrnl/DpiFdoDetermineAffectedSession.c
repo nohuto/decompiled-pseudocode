@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiFdoDetermineAffectedSession @ 0x1C0388968
+ * XREFs of DpiFdoDetermineAffectedSession @ 0x1C02C8168
  * Callers:
- *     DpiFdoHandleDevicePower @ 0x1C01F0950 (DpiFdoHandleDevicePower.c)
- *     DpiFdoStopAdapter @ 0x1C038B430 (DpiFdoStopAdapter.c)
+ *     DpiFdoHandleDevicePower @ 0x1C01771F0 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoStopAdapter @ 0x1C02CBE84 (DpiFdoStopAdapter.c)
  * Callees:
- *     DxgkDetermineAffectedSession @ 0x1C01FD110 (DxgkDetermineAffectedSession.c)
+ *     DxgkDetermineAffectedSession @ 0x1C0183108 (DxgkDetermineAffectedSession.c)
  */
 
 unsigned __int64 __fastcall DpiFdoDetermineAffectedSession(__int64 a1)
@@ -18,7 +18,7 @@ unsigned __int64 __fastcall DpiFdoDetermineAffectedSession(__int64 a1)
              (*(_BYTE *)(v1 + 3904) & 2) != 0,
              *(_BYTE *)(v1 + 3904) & 1,
              1,
-             *(_QWORD *)(v1 + 5728));
+             *(_QWORD *)(v1 + 5936));
   else
     return 0x300000000LL;
 }

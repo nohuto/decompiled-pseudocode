@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSaPageGroupFreeMemory @ 0x140167294
+ * XREFs of ExpSaPageGroupFreeMemory @ 0x1401672B4
  * Callers:
- *     ExpSaAllocatorFree @ 0x1401671C8 (ExpSaAllocatorFree.c)
+ *     ExpSaAllocatorFree @ 0x1401671E8 (ExpSaAllocatorFree.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -12,7 +12,7 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 bool __fastcall ExpSaPageGroupFreeMemory(__int64 a1, unsigned __int64 a2, unsigned int a3)

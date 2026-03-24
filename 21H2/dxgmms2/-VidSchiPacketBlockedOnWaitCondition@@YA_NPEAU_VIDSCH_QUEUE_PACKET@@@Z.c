@@ -1,11 +1,11 @@
 /*
- * XREFs of ?VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001F0C2
+ * XREFs of ?VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0037FE0
  * Callers:
- *     ?ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C001E78A (-ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z.c)
- *     ?VidSchiInsertCommandToHwQueue@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001ED4E (-VidSchiInsertCommandToHwQueue@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0035ACC (-ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z.c)
+ *     ?VidSchiInsertCommandToHwQueue@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0037BE8 (-VidSchiInsertCommandToHwQueue@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
  * Callees:
- *     ?CheckPrimaryAllocationReferences@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_PRIMARIES_REFERENCES@@_N@Z @ 0x1C001E48E (-CheckPrimaryAllocationReferences@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_PRIMARIES_REFERENCES@@_N@Z.c)
- *     ?VidSchiHwQueueFull@@YA_NPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C00400EC (-VidSchiHwQueueFull@@YA_NPEAUVIDSCH_HW_QUEUE@@@Z.c)
+ *     ?CheckPrimaryAllocationReferences@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_PRIMARIES_REFERENCES@@_N@Z @ 0x1C0023788 (-CheckPrimaryAllocationReferences@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_PRIMARIES_REFERENCES@@_N@Z.c)
+ *     ?VidSchiHwQueueFull@@YA_NPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0037B6C (-VidSchiHwQueueFull@@YA_NPEAUVIDSCH_HW_QUEUE@@@Z.c)
  */
 
 bool __fastcall VidSchiPacketBlockedOnWaitCondition(struct _VIDSCH_QUEUE_PACKET *a1)
@@ -15,15 +15,16 @@ bool __fastcall VidSchiPacketBlockedOnWaitCondition(struct _VIDSCH_QUEUE_PACKET 
   __int64 v3; // rcx
   __int64 v4; // rdx
   int v5; // eax
-  __int64 *v7; // rdx
-  __int64 v8; // rax
-  __int64 **v9; // rcx
-  _QWORD *v10; // rax
-  __int64 v11; // rcx
-  _QWORD *v12; // rdx
-  _QWORD *v13; // rax
-  __int64 v14; // rcx
-  _QWORD *v15; // rdx
+  char v7; // r8
+  __int64 *v8; // rdx
+  __int64 v9; // rax
+  __int64 **v10; // rcx
+  _QWORD *v11; // rcx
+  __int64 v12; // rax
+  _QWORD *v13; // rdx
+  _QWORD *v14; // rax
+  __int64 v15; // rcx
+  _QWORD *v16; // rdx
 
   v1 = (_QWORD *)*((_QWORD *)a1 + 12);
   v2 = a1;
@@ -31,25 +32,25 @@ bool __fastcall VidSchiPacketBlockedOnWaitCondition(struct _VIDSCH_QUEUE_PACKET 
   v4 = *(_QWORD *)(v3 + 32);
   if ( *(_BYTE *)(v3 + 204)
     || _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 200), 0, 0)
-    || *(_DWORD *)(v4 + 3012) )
+    || *(_DWORD *)(v4 + 2916) )
   {
-    v13 = v1 + 3;
-    v14 = v1[3];
-    if ( !v14 )
+    v14 = v1 + 3;
+    v15 = v1[3];
+    if ( !v15 )
       return 0;
-    if ( *(_QWORD **)(v14 + 8) == v13 )
+    if ( *(_QWORD **)(v15 + 8) == v14 )
     {
-      v15 = (_QWORD *)v1[4];
-      if ( (_QWORD *)*v15 == v13 )
+      v16 = (_QWORD *)v1[4];
+      if ( (_QWORD *)*v16 == v14 )
       {
-        *v15 = v14;
-        *(_QWORD *)(v14 + 8) = v15;
-        *v13 = 0LL;
+        *v16 = v15;
+        *(_QWORD *)(v15 + 8) = v16;
+        *v14 = 0LL;
         v1[4] = 0LL;
         return 0;
       }
     }
-    goto LABEL_25;
+    goto LABEL_28;
   }
   v5 = *((_DWORD *)v2 + 12);
   if ( v5 )
@@ -62,23 +63,25 @@ bool __fastcall VidSchiPacketBlockedOnWaitCondition(struct _VIDSCH_QUEUE_PACKET 
   }
   if ( (*((_DWORD *)v2 + 16) & 8) != 0 )
     return VidSchiHwQueueFull(*((struct VIDSCH_HW_QUEUE **)v2 + 12));
+  if ( *(_DWORD *)(v3 + 1576) || (v7 = 1, *(_BYTE *)(v4 + 51)) )
+    v7 = 0;
   if ( (unsigned int)VIDMM_GLOBAL::CheckPrimaryAllocationReferences(
                        (VIDMM_GLOBAL *)v3,
-                       (struct _VIDSCH_QUEUE_PACKET *)((char *)v2 + 472),
-                       *(_DWORD *)(v3 + 1576) == 0) != -1071775486 )
+                       (struct _VIDSCH_QUEUE_PACKET *)((char *)v2 + 464),
+                       v7) != -1071775486 )
   {
-    v10 = v1 + 3;
-    v11 = v1[3];
-    if ( v11 )
+    v11 = v1 + 3;
+    v12 = v1[3];
+    if ( v12 )
     {
-      if ( *(_QWORD **)(v11 + 8) != v10 )
-        goto LABEL_25;
-      v12 = (_QWORD *)v1[4];
-      if ( (_QWORD *)*v12 != v10 )
-        goto LABEL_25;
-      *v12 = v11;
-      *(_QWORD *)(v11 + 8) = v12;
-      *v10 = 0LL;
+      if ( *(_QWORD **)(v12 + 8) != v11 )
+        goto LABEL_28;
+      v13 = (_QWORD *)v1[4];
+      if ( (_QWORD *)*v13 != v11 )
+        goto LABEL_28;
+      *v13 = v12;
+      *(_QWORD *)(v12 + 8) = v13;
+      *v11 = 0LL;
       v1[4] = 0LL;
     }
     *((_DWORD *)v2 + 16) |= 8u;
@@ -86,18 +89,18 @@ bool __fastcall VidSchiPacketBlockedOnWaitCondition(struct _VIDSCH_QUEUE_PACKET 
   }
   if ( !v1[4] )
   {
-    v7 = v1 + 3;
-    v8 = *(_QWORD *)(*(_QWORD *)(v1[5] + 16LL) + 24LL) + 3536LL;
-    v9 = *(__int64 ***)(*(_QWORD *)(*(_QWORD *)(v1[5] + 16LL) + 24LL) + 3544LL);
-    if ( *v9 == (__int64 *)v8 )
+    v8 = v1 + 3;
+    v9 = *(_QWORD *)(*(_QWORD *)(v1[5] + 16LL) + 24LL) + 3432LL;
+    v10 = *(__int64 ***)(*(_QWORD *)(*(_QWORD *)(v1[5] + 16LL) + 24LL) + 3440LL);
+    if ( *v10 == (__int64 *)v9 )
     {
-      *v7 = v8;
-      v1[4] = v9;
-      *v9 = v7;
-      *(_QWORD *)(v8 + 8) = v7;
+      *v8 = v9;
+      v1[4] = v10;
+      *v10 = v8;
+      *(_QWORD *)(v9 + 8) = v8;
       return 1;
     }
-LABEL_25:
+LABEL_28:
     __fastfail(3u);
   }
   return 1;

@@ -1,5 +1,5 @@
 /*
- * XREFs of W32kStub_UserIsDisconnectConnection @ 0x1C01EED80
+ * XREFs of W32kStub_UserIsDisconnectConnection @ 0x1C016E870
  * Callers:
  *     <none>
  * Callees:

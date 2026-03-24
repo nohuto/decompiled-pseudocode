@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x14068F4AC
+ * XREFs of HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140725A88
  * Callers:
- *     HvHiveConvertLockedPagesToCowByPolicy @ 0x14068E564 (HvHiveConvertLockedPagesToCowByPolicy.c)
+ *     HvHiveConvertLockedPagesToCowByPolicy @ 0x14071C980 (HvHiveConvertLockedPagesToCowByPolicy.c)
  * Callees:
- *     HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x14068F14C (HvpMappedViewConvertLockedPagesToCOWByPolicy.c)
+ *     HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x140725B24 (HvpMappedViewConvertLockedPagesToCOWByPolicy.c)
  */
 
 __int64 __fastcall HvpViewMapConvertLockedPagesToCOWByPolicy(__int64 a1)
@@ -46,7 +46,7 @@ LABEL_17:
         else
           v4 = v5;
       }
-      result = HvpMappedViewConvertLockedPagesToCOWByPolicy(a1, (_QWORD *)v4);
+      result = HvpMappedViewConvertLockedPagesToCOWByPolicy(a1, v4);
       if ( (int)result < 0 )
         break;
       v2 = *(_QWORD *)(v4 + 48);

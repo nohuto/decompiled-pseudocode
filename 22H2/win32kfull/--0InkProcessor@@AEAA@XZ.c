@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0InkProcessor@@AEAA@XZ @ 0x1C003DD20
+ * XREFs of ??0InkProcessor@@AEAA@XZ @ 0x1C0133A64
  * Callers:
- *     ?Initialize@InkProcessor@@SAJXZ @ 0x1C003DC78 (-Initialize@InkProcessor@@SAJXZ.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
  * Callees:
- *     ?AddInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z @ 0x1C003DDC0 (-AddInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z.c)
- *     Feature_InkProcessor__private_ReportDeviceUsage @ 0x1C013DDD8 (Feature_InkProcessor__private_ReportDeviceUsage.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C0399AD8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ?AddInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z @ 0x1C0133B04 (-AddInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z.c)
+ *     Feature_InkProcessor__private_ReportDeviceUsage @ 0x1C0169828 (Feature_InkProcessor__private_ReportDeviceUsage.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C037A67C (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 InkProcessor *__fastcall InkProcessor::InkProcessor(InkProcessor *this)
@@ -25,7 +25,7 @@ InkProcessor *__fastcall InkProcessor::InkProcessor(InkProcessor *this)
   *((_QWORD *)this + 4) = &HideInkCursorProvider::`vftable';
   *((_QWORD *)this + 13) = (char *)this + 96;
   *((_QWORD *)this + 12) = (char *)this + 96;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C03540E0);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C032A288);
   *((_QWORD *)this + 3) = (char *)this + 16;
   *((_QWORD *)this + 2) = (char *)this + 16;
   Feature_InkProcessor__private_ReportDeviceUsage();

@@ -1,5 +1,5 @@
 /*
- * XREFs of IsPrecisionTouchPadEnabled @ 0x1C00C5AF0
+ * XREFs of IsPrecisionTouchPadEnabled @ 0x1C011C000
  * Callers:
  *     <none>
  * Callees:

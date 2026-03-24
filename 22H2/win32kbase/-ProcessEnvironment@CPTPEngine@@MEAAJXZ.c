@@ -1,11 +1,10 @@
 /*
- * XREFs of ?ProcessEnvironment@CPTPEngine@@MEAAJXZ @ 0x1C0201F90
+ * XREFs of ?ProcessEnvironment@CPTPEngine@@MEAAJXZ @ 0x1C01C66D0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0062EB0 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?UpdatePTPRightClickZone@CPTPEngine@@AEAAXXZ @ 0x1C0204A80 (-UpdatePTPRightClickZone@CPTPEngine@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?UpdatePTPRightClickZone@CPTPEngine@@AEAAXXZ @ 0x1C01C9354 (-UpdatePTPRightClickZone@CPTPEngine@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CPTPEngine::ProcessEnvironment(CPTPEngine *this)
@@ -13,54 +12,26 @@ __int64 __fastcall CPTPEngine::ProcessEnvironment(CPTPEngine *this)
   __int64 v2; // r8
   unsigned __int64 v3; // rcx
   double v4; // xmm0_8
-  unsigned __int64 v5; // rcx
-  double v6; // xmm0_8
-  unsigned __int64 v7; // rcx
-  unsigned __int64 v8; // rcx
-  int v9; // r8d
-  int v10; // edx
-  int v11; // edx
-  __int64 v12; // rcx
+  __int64 result; // rax
 
-  if ( !*((_BYTE *)this + 1200) )
+  if ( !*((_BYTE *)this + 1152) )
   {
     (*(void (__fastcall **)(CPTPEngine *))(*(_QWORD *)this + 56LL))(this);
-    *((_BYTE *)this + 1200) = 1;
+    *((_BYTE *)this + 1152) = 1;
   }
   CPTPEngine::UpdatePTPRightClickZone(this);
   v2 = *((_QWORD *)this + 12);
-  v3 = v2 * *((unsigned int *)this + 39);
-  *((_OWORD *)this + 243) = *((_OWORD *)this + 4);
-  v4 = (double)*((int *)this + 97);
-  *((_QWORD *)this + 469) = v3 / 0x3E8;
-  v5 = v2 * *((unsigned int *)this + 54);
-  *((double *)this + 475) = v4 / 1000.0;
-  v6 = (double)*((int *)this + 96) / 1000.0;
-  *((_QWORD *)this + 470) = v5 / 0x3E8;
-  v7 = v2 * *((unsigned int *)this + 72);
-  *((double *)this + 476) = v6;
-  *((_QWORD *)this + 471) = v7 / 0x3E8;
-  *((_QWORD *)this + 472) = v2 * (unsigned __int64)*((unsigned int *)this + 109) / 0x3E8;
-  *((_QWORD *)this + 473) = v2 * (unsigned __int64)*((unsigned int *)this + 77) / 0x3E8;
-  *((_QWORD *)this + 474) = v2 * (unsigned __int64)*((unsigned int *)this + 62) / 0x3E8;
-  v8 = v2 * *((unsigned int *)this + 47);
-  LODWORD(v2) = *((_DWORD *)this + 985) & 0xFFFFFFFC;
-  *((_QWORD *)this + 477) = v8 / 0x3E8;
-  *((_DWORD *)this + 985) = v2;
-  if ( !IsRectEmptyInl((const struct tagRECT *)((char *)this + 108)) )
-  {
-    v9 |= 1u;
-    *((_DWORD *)this + 985) = v9;
-  }
-  v10 = v9;
-  if ( (*((_DWORD *)this + 118) & 2) != 0 && !IsRectEmptyInl((const struct tagRECT *)((char *)this + 124)) )
-    v10 |= 2u;
-  v11 = v10 | 4;
-  *((_DWORD *)this + 985) = v11;
-  v12 = *(_QWORD *)((char *)this + 140) - *((_QWORD *)this + 4);
-  if ( !v12 )
-    v12 = *(_QWORD *)((char *)this + 148) - *((_QWORD *)this + 5);
-  if ( v12 )
-    *((_DWORD *)this + 985) = v11 & 0xFFFFFFFB;
-  return 0LL;
+  v3 = v2 * *((unsigned int *)this + 27);
+  *(_OWORD *)((char *)this + 3784) = *((_OWORD *)this + 4);
+  *((_QWORD *)this + 457) = v3 / 0x3E8;
+  *((_QWORD *)this + 458) = v2 * (unsigned __int64)*((unsigned int *)this + 42) / 0x3E8;
+  *((_QWORD *)this + 459) = v2 * (unsigned __int64)*((unsigned int *)this + 60) / 0x3E8;
+  *((_QWORD *)this + 460) = v2 * (unsigned __int64)*((unsigned int *)this + 97) / 0x3E8;
+  *((_QWORD *)this + 461) = v2 * (unsigned __int64)*((unsigned int *)this + 65) / 0x3E8;
+  *((_QWORD *)this + 462) = v2 * (unsigned __int64)*((unsigned int *)this + 50) / 0x3E8;
+  v4 = (double)*((int *)this + 92);
+  *((_QWORD *)this + 464) = v2 * (unsigned __int64)*((unsigned int *)this + 35) / 0x3E8;
+  result = 0LL;
+  *((double *)this + 463) = v4 / 1000.0;
+  return result;
 }

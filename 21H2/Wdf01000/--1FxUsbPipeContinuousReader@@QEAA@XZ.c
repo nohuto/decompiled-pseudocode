@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1FxUsbPipeContinuousReader@@QEAA@XZ @ 0x1C007939C
+ * XREFs of ??1FxUsbPipeContinuousReader@@QEAA@XZ @ 0x1C006C810
  * Callers:
- *     ??_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z @ 0x1C0079560 (--_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z.c)
+ *     ??_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z @ 0x1C006C9D0 (--_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?DeleteMemory@FxUsbPipeContinuousReader@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C0039116 (-DeleteMemory@FxUsbPipeContinuousReader@@IEAAXPEAVFxRequestBase@@@Z.c)
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C00529E0 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C002D6A4 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ?DeleteMemory@FxUsbPipeContinuousReader@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C006CBD8 (-DeleteMemory@FxUsbPipeContinuousReader@@IEAAXPEAVFxRequestBase@@@Z.c)
  */
 
 void __fastcall FxUsbPipeContinuousReader::~FxUsbPipeContinuousReader(FxUsbPipeContinuousReader *this)

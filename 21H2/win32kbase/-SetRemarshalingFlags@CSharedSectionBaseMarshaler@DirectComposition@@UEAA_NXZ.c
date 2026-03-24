@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CSharedSectionBaseMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C021FA80
+ * XREFs of ?SetRemarshalingFlags@CSharedSectionBaseMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01E9210
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 bool __fastcall DirectComposition::CSharedSectionBaseMarshaler::SetRemarshalingFlags(
         DirectComposition::CSharedSectionBaseMarshaler *this)
 {
-  return *((_QWORD *)this + 8) != 0LL;
+  return *((_QWORD *)this + 7) != 0LL;
 }

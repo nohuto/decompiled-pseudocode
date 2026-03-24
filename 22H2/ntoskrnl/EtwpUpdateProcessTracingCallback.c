@@ -1,53 +1,53 @@
 /*
- * XREFs of EtwpUpdateProcessTracingCallback @ 0x1409E7B40
+ * XREFs of EtwpUpdateProcessTracingCallback @ 0x1409345D0
  * Callers:
- *     EtwpEnableDisableUMGL @ 0x1409E7408 (EtwpEnableDisableUMGL.c)
- *     EtwpUpdatePerProcessTracing @ 0x1409E7A0C (EtwpUpdatePerProcessTracing.c)
+ *     EtwpUpdatePerProcessTracing @ 0x140934494 (EtwpUpdatePerProcessTracing.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpUpdateProcessTracingCallback(ULONG_PTR BugCheckParameter1, __int64 a2)
 {
   __int64 v4; // rdi
   struct _EX_RUNDOWN_REF *v5; // rbx
-  char v6; // r8
-  unsigned int v7; // edx
-  __int64 v8; // rax
-  __int64 *v9; // rcx
-  $115DCDF994C6370D29323EAB0E0C9502 v11; // [rsp+28h] [rbp-50h] BYREF
+  _DWORD *v6; // r9
+  char v7; // r8
+  unsigned int v8; // edx
+  __int64 v9; // rax
+  __int64 *v10; // rcx
+  _OWORD v12[3]; // [rsp+28h] [rbp-50h] BYREF
 
-  memset(&v11, 0, sizeof(v11));
+  memset(v12, 0, sizeof(v12));
   v4 = *(_QWORD *)(BugCheckParameter1 + 1360);
   if ( v4 )
   {
     v5 = (struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112);
-    if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
+    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
     {
-      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v11);
-      v6 = *(_BYTE *)(a2 + 4);
-      v7 = *(_DWORD *)a2;
-      if ( v6 )
-        _interlockedbittestandset((volatile signed __int32 *)(v4 + 888), v7);
+      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v12, v6);
+      v7 = *(_BYTE *)(a2 + 4);
+      v8 = *(_DWORD *)a2;
+      if ( v7 )
+        _interlockedbittestandset((volatile signed __int32 *)(v4 + 888), v8);
       else
-        _interlockedbittestandreset((volatile signed __int32 *)(v4 + 888), v7);
-      v8 = 0LL;
-      v9 = *(__int64 **)(BugCheckParameter1 + 1408);
+        _interlockedbittestandreset((volatile signed __int32 *)(v4 + 888), v8);
+      v9 = 0LL;
+      v10 = *(__int64 **)(BugCheckParameter1 + 1408);
+      if ( v10 )
+        v9 = *v10;
       if ( v9 )
-        v8 = *v9;
-      if ( v8 )
       {
-        if ( v6 )
-          _interlockedbittestandset((volatile signed __int32 *)(v8 + 576), v7);
+        if ( v7 )
+          _interlockedbittestandset((volatile signed __int32 *)(v9 + 576), v8);
         else
-          _interlockedbittestandreset((volatile signed __int32 *)(v8 + 576), v7);
+          _interlockedbittestandreset((volatile signed __int32 *)(v9 + 576), v8);
       }
-      KiUnstackDetachProcess(&v11);
-      ExReleaseRundownProtection_0(v5);
+      KiUnstackDetachProcess((__int64)v12, 0);
+      ExReleaseRundownProtection(v5);
     }
   }
   return 0LL;

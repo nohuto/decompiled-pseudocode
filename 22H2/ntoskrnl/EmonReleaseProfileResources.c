@@ -1,21 +1,21 @@
 /*
- * XREFs of EmonReleaseProfileResources @ 0x14051E110
+ * XREFs of EmonReleaseProfileResources @ 0x1404D4040
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     EmonReleaseProfileResourcesInternal @ 0x14051E1F0 (EmonReleaseProfileResourcesInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     EmonReleaseProfileResourcesInternal @ 0x1404D4120 (EmonReleaseProfileResourcesInternal.c)
  */
 
 __int64 __fastcall EmonReleaseProfileResources(_QWORD *a1)
 {
-  int v2; // edi
+  int v2; // esi
   KIRQL v3; // al
   _QWORD *v4; // rdx
-  unsigned __int64 v5; // rsi
+  unsigned __int64 v5; // rdi
   __int64 v6; // rax
   __int64 v7; // rcx
   unsigned __int8 CurrentIrql; // al
@@ -35,21 +35,23 @@ __int64 __fastcall EmonReleaseProfileResources(_QWORD *a1)
       __fastfail(3u);
     *v4 = v6;
     *(_QWORD *)(v6 + 8) = v4;
-    KxReleaseSpinLock((volatile signed __int64 *)&EmonReservedResourcesLock);
-    v7 = (unsigned int)KiIrqlFlags;
+    KxReleaseSpinLock(&EmonReservedResourcesLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v7 = (unsigned int)(v5 + 1);
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-        v12 = (v11 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v11;
-        if ( v12 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v7 = (unsigned int)(v5 + 1);
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+          v12 = (v11 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v11;
+          if ( v12 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v5);

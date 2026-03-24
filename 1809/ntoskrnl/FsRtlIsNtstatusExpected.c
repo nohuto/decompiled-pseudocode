@@ -1,25 +1,25 @@
 /*
- * XREFs of FsRtlIsNtstatusExpected @ 0x14012F230
+ * XREFs of FsRtlIsNtstatusExpected @ 0x14012F250
  * Callers:
  *     CcAcquireByteRangeForWrite @ 0x14001F590 (CcAcquireByteRangeForWrite.c)
  *     CcGetVacbMiss @ 0x1400216E0 (CcGetVacbMiss.c)
  *     CcMapAndCopyInToCache @ 0x1400321D0 (CcMapAndCopyInToCache.c)
  *     CcSetFileSizesEx @ 0x14007CFC0 (CcSetFileSizesEx.c)
- *     CcInitializeCacheMapEx @ 0x1400AC030 (CcInitializeCacheMapEx.c)
- *     CcCopyBytesToUserBuffer @ 0x1400B1900 (CcCopyBytesToUserBuffer.c)
- *     CcPerformReadAhead @ 0x1400DDFA4 (CcPerformReadAhead.c)
- *     CcAsyncReadPrefetch @ 0x1400DFAAC (CcAsyncReadPrefetch.c)
- *     CcMdlWriteComplete2 @ 0x1400E1908 (CcMdlWriteComplete2.c)
- *     FsRtlCancelNotify @ 0x14011B0F0 (FsRtlCancelNotify.c)
- *     FsRtlNormalizeNtstatus @ 0x14013F950 (FsRtlNormalizeNtstatus.c)
- *     CcLockSystemCacheBuffer @ 0x140269A24 (CcLockSystemCacheBuffer.c)
- *     RawDispatch @ 0x14064B460 (RawDispatch.c)
- *     FsRtlNotifyFilterReportChange @ 0x1406A0220 (FsRtlNotifyFilterReportChange.c)
- *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1406A0E80 (FsRtlNotifyFilterReportChangeLiteEx.c)
- *     FsRtlCopyRead @ 0x140813E70 (FsRtlCopyRead.c)
- *     FsRtlCopyWrite @ 0x1408140F0 (FsRtlCopyWrite.c)
- *     FsRtlMdlReadDev @ 0x1408148A0 (FsRtlMdlReadDev.c)
- *     FsRtlPrepareMdlWriteDev @ 0x140814B00 (FsRtlPrepareMdlWriteDev.c)
+ *     CcInitializeCacheMapEx @ 0x1400AC050 (CcInitializeCacheMapEx.c)
+ *     CcCopyBytesToUserBuffer @ 0x1400B1920 (CcCopyBytesToUserBuffer.c)
+ *     CcPerformReadAhead @ 0x1400DDFC4 (CcPerformReadAhead.c)
+ *     CcAsyncReadPrefetch @ 0x1400DFACC (CcAsyncReadPrefetch.c)
+ *     CcMdlWriteComplete2 @ 0x1400E1928 (CcMdlWriteComplete2.c)
+ *     FsRtlCancelNotify @ 0x14011B110 (FsRtlCancelNotify.c)
+ *     FsRtlNormalizeNtstatus @ 0x14013F970 (FsRtlNormalizeNtstatus.c)
+ *     CcLockSystemCacheBuffer @ 0x140269B24 (CcLockSystemCacheBuffer.c)
+ *     RawDispatch @ 0x14064B440 (RawDispatch.c)
+ *     FsRtlNotifyFilterReportChange @ 0x1406A0200 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1406A0E60 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlCopyRead @ 0x140813E50 (FsRtlCopyRead.c)
+ *     FsRtlCopyWrite @ 0x1408140D0 (FsRtlCopyWrite.c)
+ *     FsRtlMdlReadDev @ 0x140814880 (FsRtlMdlReadDev.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x140814AE0 (FsRtlPrepareMdlWriteDev.c)
  * Callees:
  *     <none>
  */

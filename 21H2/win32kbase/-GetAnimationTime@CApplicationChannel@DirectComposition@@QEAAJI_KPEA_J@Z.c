@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetAnimationTime@CApplicationChannel@DirectComposition@@QEAAJI_KPEA_J@Z @ 0x1C0214A18
+ * XREFs of ?GetAnimationTime@CApplicationChannel@DirectComposition@@QEAAJI_KPEA_J@Z @ 0x1C01D4B6C
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C008A134 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007E324 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ @ 0x1C0012B1C (-ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?GetAnimationTime@CAnimationMarshaler@DirectComposition@@IEAAX_KPEA_J@Z @ 0x1C021577C (-GetAnimationTime@CAnimationMarshaler@DirectComposition@@IEAAX_KPEA_J@Z.c)
+ *     ?ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ @ 0x1C005E1E4 (-ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?GetAnimationTime@CAnimationMarshaler@DirectComposition@@IEAAX_KPEA_J@Z @ 0x1C01D5D40 (-GetAnimationTime@CAnimationMarshaler@DirectComposition@@IEAAX_KPEA_J@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::GetAnimationTime(
@@ -16,14 +16,20 @@ __int64 __fastcall DirectComposition::CApplicationChannel::GetAnimationTime(
 {
   unsigned int v4; // ebx
   ULONGLONG v6; // rcx
-  __int64 v9; // rsi
+  __int64 v9; // rdi
 
   v4 = 0;
   v6 = (unsigned int)(a2 - 1);
-  if ( a2
-    && v6 < this[5].Alignment
-    && (_mm_lfence(), (v9 = *(_QWORD *)(v6 * this[5].Region + this[3].Region)) != 0)
-    && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v9 + 96LL))(v9, 2LL) )
+  if ( a2 && v6 < this[5].Alignment )
+  {
+    _mm_lfence();
+    v9 = *(_QWORD *)(v6 * this[5].Region + this[3].Region);
+  }
+  else
+  {
+    v9 = 0LL;
+  }
+  if ( v9 && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v9 + 96LL))(v9, 2LL) )
   {
     DirectComposition::CApplicationChannel::ProcessReturnedBatches(this);
     DirectComposition::CAnimationMarshaler::GetAnimationTime(

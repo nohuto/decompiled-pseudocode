@@ -1,43 +1,42 @@
 /*
- * XREFs of ?CalcInversedWorldInputBoundsFromVisibleWorldOutputBoundsRecursive@CFilterEffect@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@1PEAV3@2@Z @ 0x180203DE0
+ * XREFs of ?CalcInversedWorldInputBoundsFromVisibleWorldOutputBoundsRecursive@CFilterEffect@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@1PEAV3@2@Z @ 0x18000E140
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800AE2E0 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ?IsInfinite@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800B5DF4 (-IsInfinite@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x1800C9E90 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800CB358 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?InvertTransformToCalc2DBounds@CFilterEffect@@SA_NAEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV3@@Z @ 0x18020521C (-InvertTransformToCalc2DBounds@CFilterEffect@@SA_NAEBVCMILMatrix@@AEBV-$TMilRect_@MUMilRectF@@UM.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x18006BE00 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
+ *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800A7AB0 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?IsInfinite@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800C5704 (-IsInfinite@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?InvertTransformToCalc2DBounds@CFilterEffect@@SA_NAEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV3@@Z @ 0x1801B2C98 (-InvertTransformToCalc2DBounds@CFilterEffect@@SA_NAEBVCMILMatrix@@AEBV-$TMilRect_@MUMilRectF@@UM.c)
  */
 
 __int64 __fastcall CFilterEffect::CalcInversedWorldInputBoundsFromVisibleWorldOutputBoundsRecursive(
         _DWORD *a1,
         __int64 a2,
-        float *a3,
+        __int64 a3,
         __int64 a4,
-        float *a5,
-        float *a6)
+        __int64 a5,
+        __int64 a6)
 {
   int v6; // eax
-  __int128 v9; // xmm0
-  __int64 v10; // rcx
-  unsigned int v11; // ebx
-  __int64 v12; // rax
-  __int64 v13; // r15
-  __int64 v14; // rax
-  __int64 v15; // rsi
-  __int64 v16; // rcx
-  char v17; // al
-  __int64 v18; // rcx
-  __int64 v19; // rsi
-  int v20; // eax
+  __int64 v8; // r12
+  __int128 v10; // xmm0
+  unsigned int v11; // ecx
+  __int64 v12; // r14
+  __int64 v13; // rax
+  int v14; // edi
+  int v16; // r9d
+  __int64 v17; // rax
+  __int64 v18; // r14
+  __int64 v19; // rcx
+  char v20; // al
   __int64 v21; // rcx
-  __int64 v22; // rcx
-  __int64 v23; // r9
+  int v22; // eax
+  unsigned int v23; // ecx
   unsigned int v24; // eax
   __m128i v25; // xmm0
   int v26; // eax
@@ -48,250 +47,231 @@ __int64 __fastcall CFilterEffect::CalcInversedWorldInputBoundsFromVisibleWorldOu
   unsigned int v31; // r8d
   __int64 v32; // rcx
   __int64 v33; // rdx
-  int v34; // eax
-  __int64 v35; // rcx
-  int v36; // esi
-  __int64 v37; // r9
-  float v38; // xmm0_4
-  float v39; // xmm2_4
-  float v40; // xmm0_4
-  float v41; // xmm3_4
-  float v42; // xmm0_4
-  float v43; // xmm1_4
-  float v44; // xmm5_4
-  float v45; // xmm4_4
-  float v46; // xmm1_4
-  __int64 v48; // rcx
-  unsigned int v49; // [rsp+20h] [rbp-B9h]
-  int v51; // [rsp+48h] [rbp-91h]
-  __int128 v52; // [rsp+50h] [rbp-89h] BYREF
-  int v53; // [rsp+60h] [rbp-79h]
-  unsigned int v54; // [rsp+64h] [rbp-75h]
-  unsigned int v55; // [rsp+68h] [rbp-71h]
-  __int64 v56; // [rsp+70h] [rbp-69h]
-  __int128 v57; // [rsp+78h] [rbp-61h] BYREF
-  float v58; // [rsp+88h] [rbp-51h] BYREF
-  float v59; // [rsp+8Ch] [rbp-4Dh]
-  float v60; // [rsp+90h] [rbp-49h]
-  float v61; // [rsp+94h] [rbp-45h]
-  __int128 v62; // [rsp+98h] [rbp-41h] BYREF
-  __int128 v63; // [rsp+A8h] [rbp-31h] BYREF
-  _BYTE v64[20]; // [rsp+B8h] [rbp-21h] BYREF
-  __int128 v65; // [rsp+D0h] [rbp-9h] BYREF
+  float v34; // xmm0_4
+  float v35; // xmm1_4
+  float v36; // xmm0_4
+  float v37; // xmm2_4
+  float v38; // xmm1_4
+  int v39; // eax
+  unsigned int v40; // [rsp+20h] [rbp-B9h]
+  int v41; // [rsp+40h] [rbp-99h]
+  __int128 v43; // [rsp+50h] [rbp-89h] BYREF
+  __int64 v44; // [rsp+60h] [rbp-79h]
+  unsigned int v45; // [rsp+68h] [rbp-71h]
+  __int64 v46; // [rsp+70h] [rbp-69h]
+  __int128 v47; // [rsp+78h] [rbp-61h] BYREF
+  float v48; // [rsp+88h] [rbp-51h] BYREF
+  float v49; // [rsp+8Ch] [rbp-4Dh]
+  float v50; // [rsp+90h] [rbp-49h]
+  float v51; // [rsp+94h] [rbp-45h]
+  __int128 v52; // [rsp+98h] [rbp-41h] BYREF
+  __int128 v53; // [rsp+A8h] [rbp-31h] BYREF
+  _BYTE v54[20]; // [rsp+B8h] [rbp-21h] BYREF
+  __int128 v55; // [rsp+D0h] [rbp-9h] BYREF
 
   v6 = a1[8];
-  v53 = 0;
-  v54 = 0;
-  v55 = 0;
-  v10 = v6 ^ ((unsigned __int8)v6 ^ (unsigned __int8)(v6 + 2)) & 6u;
+  v8 = 0LL;
+  v43 = 0LL;
+  v10 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
+  v44 = 0LL;
+  v11 = v6 ^ ((unsigned __int8)v6 ^ (unsigned __int8)(v6 + 2)) & 6;
+  v45 = 0;
+  a1[8] = v11;
+  LOBYTE(v11) = (v6 ^ (v6 ^ (v6 + 2)) & 6) & 6;
+  v12 = a2;
+  v53 = v10;
   v52 = 0LL;
-  v9 = *(_OWORD *)&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
-  a1[8] = v10;
-  LOBYTE(v10) = (v6 ^ (v6 ^ (v6 + 2)) & 6) & 6;
-  v65 = 0LL;
-  v63 = v9;
-  v62 = 0LL;
-  if ( (_BYTE)v10 != 2 )
+  v55 = 0LL;
+  if ( (_BYTE)v11 == 2 )
   {
-    v49 = 406;
-    goto LABEL_3;
+    (*(void (__fastcall **)(_DWORD *, __int64, __int64, _DWORD *, __int128 *, __int128 *))(*(_QWORD *)a1 + 272LL))(
+      a1,
+      a2,
+      a3,
+      a1 + 34,
+      &v52,
+      &v55);
+    v13 = (int)a1[32];
+    if ( !(_DWORD)v13 )
+    {
+      TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a5, &v52);
+      v14 = 0;
+      *(_OWORD *)a6 = v55;
+      goto LABEL_4;
+    }
+    v46 = (int)a1[32];
+    v14 = 0;
+    v47 = 0LL;
+    if ( v13 > 0 )
+    {
+      do
+      {
+        v17 = *((_QWORD *)a1 + 15);
+        v47 = v52;
+        v18 = *(_QWORD *)(v17 + 8 * v8);
+        v19 = *(_QWORD *)(v18 + 24);
+        v41 = *(_DWORD *)(*((_QWORD *)a1 + 14) + 4 * v8);
+        if ( v19 )
+        {
+          v20 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v19 + 56LL))(v19, 59LL);
+          v21 = *(_QWORD *)(v18 + 24);
+          if ( v20 )
+          {
+            v12 = a2;
+            *(_OWORD *)v54 = v47;
+            v22 = (*(__int64 (__fastcall **)(__int64, __int64, _BYTE *, __int64, __int64, __int128 *))(*(_QWORD *)v21 + 256LL))(
+                    v21,
+                    a2,
+                    v54,
+                    v21 + 136,
+                    a5,
+                    &v47);
+            v14 = v22;
+            if ( v22 < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x1C0u, 0LL);
+              goto LABEL_4;
+            }
+          }
+          else
+          {
+            if ( !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v21 + 56LL))(v21, 40LL) )
+            {
+              v14 = -2147467263;
+              v40 = 469;
+LABEL_9:
+              v16 = v14;
+              goto LABEL_10;
+            }
+            v24 = *(_DWORD *)(v18 + 12) - *(_DWORD *)(v18 + 4);
+            v48 = 0.0;
+            v49 = 0.0;
+            v25 = _mm_cvtsi32_si128(v24);
+            v26 = *(_DWORD *)(v18 + 16) - *(_DWORD *)(v18 + 8);
+            v12 = a2;
+            LODWORD(v50) = _mm_cvtepi32_ps(v25).m128_u32[0];
+            v51 = (float)v26;
+            CMILMatrix::Transform2DBoundsHelper<1>(a2, &v48, &v48);
+            v27 = *(float *)&v47;
+            if ( v48 > *(float *)&v47 )
+            {
+              *(float *)&v47 = v48;
+              v27 = v48;
+            }
+            v28 = *((float *)&v47 + 1);
+            if ( v49 > *((float *)&v47 + 1) )
+            {
+              *((float *)&v47 + 1) = v49;
+              v28 = v49;
+            }
+            v29 = *((float *)&v47 + 2);
+            if ( *((float *)&v47 + 2) > v50 )
+            {
+              *((float *)&v47 + 2) = v50;
+              v29 = v50;
+            }
+            v30 = *((float *)&v47 + 3);
+            if ( *((float *)&v47 + 3) > v51 )
+            {
+              *((float *)&v47 + 3) = v51;
+              v30 = v51;
+            }
+            if ( v29 <= v27 || v30 <= v28 )
+              v47 = 0uLL;
+            TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a5, &v47);
+          }
+        }
+        else
+        {
+          TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a5, &v47);
+          v12 = a2;
+        }
+        if ( (float)(*((float *)&v47 + 2) - *(float *)&v47) > 0.0000099999997
+          && (float)(*((float *)&v47 + 3) - *((float *)&v47 + 1)) > 0.0000099999997 )
+        {
+          if ( !(unsigned __int8)CFilterEffect::InvertTransformToCalc2DBounds(v12, &v47, &v47) )
+          {
+            v40 = 484;
+            goto LABEL_7;
+          }
+          *(_DWORD *)v54 = v41;
+          *(_OWORD *)&v54[4] = v47;
+          v31 = v45 + 1;
+          if ( v45 + 1 >= v45 )
+          {
+            if ( v31 <= HIDWORD(v44) )
+            {
+              v32 = v43;
+              v33 = 5LL * v45;
+              v14 = 0;
+              *(_OWORD *)(v43 + 4 * v33) = *(_OWORD *)v54;
+              *(_DWORD *)(v32 + 4 * v33 + 16) = *(_DWORD *)&v54[16];
+              v45 = v31;
+              goto LABEL_38;
+            }
+            v39 = DynArrayImpl<0>::AddMultipleAndSet(&v43, 20LL, 1LL, v54);
+            v14 = v39;
+            if ( v39 < 0 )
+              MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v39, 0xC0u, 0LL);
+          }
+          else
+          {
+            v14 = -2147024362;
+            MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2147024362, 0xB5u, 0LL);
+          }
+          if ( v14 < 0 )
+          {
+            v40 = 487;
+            goto LABEL_9;
+          }
+        }
+LABEL_38:
+        ++v8;
+      }
+      while ( v8 < v46 );
+    }
+    (*(void (__fastcall **)(_DWORD *, __int128 *, __int128 *))(*(_QWORD *)a1 + 232LL))(a1, &v43, &v53);
+    CMILMatrix::Transform2DBoundsHelper<1>(v12, &v53, a6);
+    if ( (unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsInfinite(a6) )
+    {
+      if ( *(float *)a3 > *(float *)a6 )
+        *(_DWORD *)a6 = *(_DWORD *)a3;
+      v34 = *(float *)(a3 + 4);
+      if ( v34 > *(float *)(a6 + 4) )
+        *(float *)(a6 + 4) = v34;
+      v35 = *(float *)(a3 + 8);
+      v36 = *(float *)(a6 + 8);
+      if ( v36 > v35 )
+      {
+        *(float *)(a6 + 8) = v35;
+        v36 = v35;
+      }
+      v37 = *(float *)(a3 + 12);
+      v38 = *(float *)(a6 + 12);
+      if ( v38 > v37 )
+      {
+        *(float *)(a6 + 12) = v37;
+        v38 = v37;
+        v36 = *(float *)(a6 + 8);
+      }
+      if ( v36 <= *(float *)a6 || v38 <= *(float *)(a6 + 4) )
+      {
+        *(_QWORD *)(a6 + 8) = 0LL;
+        *(_QWORD *)a6 = 0LL;
+      }
+    }
   }
-  (*(void (__fastcall **)(_DWORD *, __int64, float *, _DWORD *, __int128 *, __int128 *))(*(_QWORD *)a1 + 256LL))(
-    a1,
-    a2,
-    a3,
-    a1 + 36,
-    &v62,
-    &v65);
-  v12 = (int)a1[34];
-  if ( !(_DWORD)v12 )
+  else
   {
-    TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a5, (float *)&v62);
-    v11 = 0;
-    *(_OWORD *)a6 = v65;
-    goto LABEL_47;
+    v40 = 406;
+LABEL_7:
+    v16 = -2147467259;
+    v14 = -2147467259;
+LABEL_10:
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v16, v40, 0LL);
   }
-  v11 = 0;
-  v56 = (int)a1[34];
-  v57 = 0LL;
-  if ( v12 <= 0 )
-  {
-LABEL_35:
-    (*(void (__fastcall **)(_DWORD *, __int128 *, __int128 *))(*(_QWORD *)a1 + 216LL))(a1, &v52, &v63);
-    CMILMatrix::Transform2DBoundsHelper<1>(a2, (__int64)&v63, a6, v37);
-    if ( TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsInfinite(a6) )
-    {
-      v38 = *a3;
-      v39 = *a6;
-      if ( *a3 > *a6 )
-      {
-        *a6 = v38;
-        v39 = v38;
-      }
-      v40 = a3[1];
-      v41 = a6[1];
-      if ( v40 > v41 )
-      {
-        a6[1] = v40;
-        v41 = v40;
-      }
-      v42 = a6[2];
-      v43 = a3[2];
-      v44 = v42;
-      if ( v42 > v43 )
-      {
-        a6[2] = v43;
-        v42 = v43;
-        v44 = v43;
-      }
-      v45 = a3[3];
-      v46 = a6[3];
-      if ( v46 > v45 )
-      {
-        a6[3] = v45;
-        v42 = v44;
-        v46 = v45;
-      }
-      if ( v42 <= v39 || v46 <= v41 )
-      {
-        a6[3] = 0.0;
-        a6[2] = 0.0;
-        a6[1] = 0.0;
-        *a6 = 0.0;
-      }
-    }
-    goto LABEL_47;
-  }
-  v13 = 0LL;
-  while ( 1 )
-  {
-    v14 = *((_QWORD *)a1 + 16);
-    v57 = v62;
-    v15 = *(_QWORD *)(v14 + 8 * v13);
-    v16 = *(_QWORD *)(v15 + 24);
-    v51 = *(_DWORD *)(*((_QWORD *)a1 + 15) + 4 * v13);
-    if ( v16 )
-    {
-      v17 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v16 + 56LL))(v16, 59LL);
-      v18 = *(_QWORD *)(v15 + 24);
-      if ( v17 )
-      {
-        *(_OWORD *)v64 = v57;
-        v19 = a2;
-        v20 = (*(__int64 (__fastcall **)(__int64, __int64, _BYTE *, __int64, float *, __int128 *))(*(_QWORD *)v18 + 240LL))(
-                v18,
-                a2,
-                v64,
-                v18 + 144,
-                a5,
-                &v57);
-        v11 = v20;
-        if ( v20 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0LL, v20, 0x1C0u);
-          goto LABEL_47;
-        }
-      }
-      else
-      {
-        if ( !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v18 + 56LL))(v18, 40LL) )
-        {
-          v11 = -2147467263;
-          MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, -2147467263, 0x1D5u);
-          goto LABEL_47;
-        }
-        v24 = *(_DWORD *)(v15 + 12) - *(_DWORD *)(v15 + 4);
-        v58 = 0.0;
-        v59 = 0.0;
-        v25 = _mm_cvtsi32_si128(v24);
-        v26 = *(_DWORD *)(v15 + 16) - *(_DWORD *)(v15 + 8);
-        v19 = a2;
-        LODWORD(v60) = _mm_cvtepi32_ps(v25).m128_u32[0];
-        v61 = (float)v26;
-        CMILMatrix::Transform2DBoundsHelper<1>(a2, (__int64)&v58, &v58, v23);
-        v27 = *(float *)&v57;
-        if ( v58 > *(float *)&v57 )
-        {
-          *(float *)&v57 = v58;
-          v27 = v58;
-        }
-        v28 = *((float *)&v57 + 1);
-        if ( v59 > *((float *)&v57 + 1) )
-        {
-          *((float *)&v57 + 1) = v59;
-          v28 = v59;
-        }
-        v29 = *((float *)&v57 + 2);
-        if ( *((float *)&v57 + 2) > v60 )
-        {
-          *((float *)&v57 + 2) = v60;
-          v29 = v60;
-        }
-        v30 = *((float *)&v57 + 3);
-        if ( *((float *)&v57 + 3) > v61 )
-        {
-          *((float *)&v57 + 3) = v61;
-          v30 = v61;
-        }
-        if ( v29 <= v27 || v30 <= v28 )
-          v57 = 0uLL;
-        TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a5, (float *)&v57);
-      }
-    }
-    else
-    {
-      TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a5, (float *)&v57);
-      v19 = a2;
-    }
-    if ( (float)(*((float *)&v57 + 2) - *(float *)&v57) <= 0.0000099999997
-      || (float)(*((float *)&v57 + 3) - *((float *)&v57 + 1)) <= 0.0000099999997 )
-    {
-      goto LABEL_34;
-    }
-    if ( !(unsigned __int8)CFilterEffect::InvertTransformToCalc2DBounds(v19, &v57, &v57) )
-      break;
-    *(_DWORD *)v64 = v51;
-    *(_OWORD *)&v64[4] = v57;
-    v31 = v55 + 1;
-    if ( v55 + 1 < v55 )
-    {
-      v11 = -2147024362;
-      v36 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, -2147024362, 0xB5u);
-      goto LABEL_51;
-    }
-    if ( v31 > v54 )
-    {
-      v34 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)&v52, 0x14u, 1, v64);
-      v36 = v34;
-      v11 = v34;
-      if ( v34 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0LL, v34, 0xC0u);
-LABEL_51:
-        MilInstrumentationCheckHR_MaybeFailFast(v48, 0LL, 0LL, v36, 0x1E7u);
-        goto LABEL_47;
-      }
-    }
-    else
-    {
-      v32 = v52;
-      v33 = 5LL * v55;
-      v11 = 0;
-      *(_OWORD *)(v52 + 4 * v33) = *(_OWORD *)v64;
-      *(_DWORD *)(v32 + 4 * v33 + 16) = *(_DWORD *)&v64[16];
-      v55 = v31;
-    }
-LABEL_34:
-    if ( ++v13 >= v56 )
-      goto LABEL_35;
-  }
-  v49 = 484;
-LABEL_3:
-  v11 = -2147467259;
-  MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, -2147467259, v49);
-LABEL_47:
+LABEL_4:
   a1[8] ^= (a1[8] ^ (2 * (a1[8] >> 1) - 2)) & 6;
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)&v52);
-  return v11;
+  DynArrayImpl<0>::~DynArrayImpl<0>(&v43);
+  return (unsigned int)v14;
 }

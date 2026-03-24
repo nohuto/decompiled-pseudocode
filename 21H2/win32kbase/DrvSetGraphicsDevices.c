@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvSetGraphicsDevices @ 0x1C00C53C0
+ * XREFs of DrvSetGraphicsDevices @ 0x1C0085D10
  * Callers:
  *     <none>
  * Callees:
- *     DrvUpdateGraphicsDeviceList @ 0x1C006ADB0 (DrvUpdateGraphicsDeviceList.c)
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0075F50 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001DEE0 (DrvUpdateGraphicsDeviceList.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0085D74 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
  */
 
-__int64 __fastcall DrvSetGraphicsDevices(char *a1)
+__int64 __fastcall DrvSetGraphicsDevices(unsigned __int16 *a1)
 {
   __int64 result; // rax
 
-  StringCchCopyW((char *)qword_1C0297068, (unsigned int)dword_1C0297070, a1);
+  StringCchCopyW((unsigned __int16 *)qword_1C0252288, (unsigned int)dword_1C0252290, a1);
   if ( gProtocolType )
   {
     gcRemoteNextGlobalDeviceNumber = 0;

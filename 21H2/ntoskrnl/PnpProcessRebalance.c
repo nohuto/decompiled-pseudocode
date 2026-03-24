@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpProcessRebalance @ 0x140564C24
+ * XREFs of PnpProcessRebalance @ 0x14051049C
  * Callers:
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphoreEx @ 0x14035AD70 (KeReleaseSemaphoreEx.c)
- *     PiCollapseRebalanceRequests @ 0x140564990 (PiCollapseRebalanceRequests.c)
- *     PipProcessDevNodeTree @ 0x140777578 (PipProcessDevNodeTree.c)
- *     PnpRebalance @ 0x14095A02C (PnpRebalance.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PiCollapseRebalanceRequests @ 0x140510204 (PiCollapseRebalanceRequests.c)
+ *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
+ *     PnpRebalance @ 0x1408B87A4 (PnpRebalance.c)
  */
 
 __int64 __fastcall PnpProcessRebalance(__int64 a1)
@@ -31,9 +31,9 @@ __int64 __fastcall PnpProcessRebalance(__int64 a1)
   else
     v3 = IopRootDeviceNode;
   v4 = *(_BYTE *)(a1 + 32);
-  if ( (unsigned int)(v3[75] - 789) <= 1 )
+  if ( (unsigned int)(v3[75] - 787) <= 1 )
   {
-    ObfDereferenceObject(v2);
+    ObfDereferenceObjectWithTag(v2, 0x746C6644u);
     return 3221225558LL;
   }
   else
@@ -45,8 +45,8 @@ __int64 __fastcall PnpProcessRebalance(__int64 a1)
     KeWaitForSingleObject(&PpRegistrySemaphore, DelayExecution, 0, 0, 0LL);
     LOBYTE(v6) = v4;
     v7 = PnpRebalance(v3, 0LL, 0LL, v6);
-    KeReleaseSemaphoreEx(&PpRegistrySemaphore.Header.Lock, 0LL, 1LL, v8, 0);
-    KeLeaveCriticalRegion();
+    KeReleaseSemaphoreEx((__int64)&PpRegistrySemaphore, 0LL, 1LL, v8, 0);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( v7 >= 0 )
     {
       LODWORD(v10) = 3;

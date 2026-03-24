@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpWheaReadMsrAddress @ 0x140518A70
+ * XREFs of HalpWheaReadMsrAddress @ 0x1404CF700
  * Callers:
- *     HalpMcaPopulateErrorData @ 0x14050343C (HalpMcaPopulateErrorData.c)
+ *     HalpMcaPopulateErrorData @ 0x1404BA5CC (HalpMcaPopulateErrorData.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x140380C44 (HalpGetCpuVendor.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpGetCpuVendor @ 0x1403A083C (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpWheaReadMsrAddress(__int64 a1, int a2)

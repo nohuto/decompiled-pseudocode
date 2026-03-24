@@ -1,93 +1,91 @@
 /*
- * XREFs of VfBuildMdlFromScatterGatherList @ 0x140AC6460
+ * XREFs of VfBuildMdlFromScatterGatherList @ 0x1409CAE40
  * Callers:
  *     <none>
  * Callees:
- *     IoAllocateMdl @ 0x14022E2C0 (IoAllocateMdl.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ViGetAdapterInformationInternal @ 0x140AC9E44 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140ACA158 (ViGetRealDmaAdapter.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CE758 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA60 (ViGetRealDmaOperation.c)
  */
 
-__int64 __fastcall VfBuildMdlFromScatterGatherList(int a1, __int64 a2, struct _MDL *a3, PMDL *a4)
+__int64 __fastcall VfBuildMdlFromScatterGatherList(__int64 a1, __int64 a2, struct _MDL *a3, PMDL *a4)
 {
-  _QWORD *v8; // rdi
-  __int64 RealDmaAdapter; // r12
+  _QWORD *v8; // rbx
   __int64 AdapterInformationInternal; // rax
-  _QWORD **v11; // rbx
-  volatile signed __int64 *v12; // r14
-  KIRQL v13; // al
-  _QWORD *v14; // r8
-  unsigned __int64 v15; // rbp
-  __int64 v16; // rdx
+  _QWORD *v10; // rsi
+  KSPIN_LOCK *v11; // r14
+  KIRQL v12; // al
+  _QWORD *v13; // rcx
+  unsigned __int64 v14; // rbp
+  _QWORD *v15; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v20; // eax
-  bool v21; // zf
+  int v19; // eax
+  bool v20; // zf
+  __int64 (__fastcall *RealDmaOperation)(__int64, __int64, struct _MDL *, PMDL *); // rax
   int v22; // eax
-  unsigned int v23; // ebx
+  unsigned int v23; // esi
   __int64 v24; // rbp
   PMDL Mdl; // rax
-  PMDL v26; // rsi
+  PMDL v26; // rdi
 
   v8 = 0LL;
-  RealDmaAdapter = ViGetRealDmaAdapter(a1);
   AdapterInformationInternal = ViGetAdapterInformationInternal(a1);
   if ( AdapterInformationInternal )
   {
     if ( *(_QWORD *)(a2 + 8) != -559026163LL )
-      goto LABEL_20;
-    v11 = (_QWORD **)(AdapterInformationInternal + 88);
-    if ( *v11 != v11 )
+      goto LABEL_21;
+    v10 = (_QWORD *)(AdapterInformationInternal + 56);
+    if ( (_QWORD *)*v10 != v10 )
     {
-      v12 = (volatile signed __int64 *)(AdapterInformationInternal + 104);
-      v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(AdapterInformationInternal + 104));
-      v14 = *v11;
-      v15 = v13;
-      v16 = (__int64)(*v11 - 9);
-      if ( v11 != *v11 )
+      v11 = (KSPIN_LOCK *)(AdapterInformationInternal + 72);
+      v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(AdapterInformationInternal + 72));
+      v13 = (_QWORD *)*v10;
+      v14 = v12;
+      while ( 1 )
       {
-        while ( *(_QWORD *)(v16 + 64) != a2 )
+        v15 = v13 - 9;
+        if ( v10 == v15 + 9 )
+          break;
+        if ( v15[8] == a2 )
         {
-          v16 = *v14 - 72LL;
-          v14 = (_QWORD *)*v14;
-          if ( v11 == v14 )
-            goto LABEL_9;
+          v8 = (_QWORD *)v15[12];
+          break;
         }
-        v8 = *(_QWORD **)(v16 + 96);
+        v13 = (_QWORD *)v15[9];
       }
-LABEL_9:
-      KxReleaseSpinLock(v12);
+      KxReleaseSpinLock(v11);
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
-          v21 = (v20 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v20;
-          if ( v21 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+            v20 = (v19 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v19;
+            if ( v20 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
-      __writecr8(v15);
+      __writecr8(v14);
     }
   }
   if ( *(_QWORD *)(a2 + 8) == -559026163LL && v8 )
     *(_QWORD *)(a2 + 8) = v8[6];
-LABEL_20:
-  v22 = (*(__int64 (__fastcall **)(__int64, __int64, struct _MDL *, PMDL *))(*(_QWORD *)(RealDmaAdapter + 8) + 120LL))(
-          RealDmaAdapter,
-          a2,
-          a3,
-          a4);
+LABEL_21:
+  RealDmaOperation = (__int64 (__fastcall *)(__int64, __int64, struct _MDL *, PMDL *))ViGetRealDmaOperation(a1);
+  v22 = RealDmaOperation(a1, a2, a3, a4);
   v23 = v22;
   if ( v8 )
   {

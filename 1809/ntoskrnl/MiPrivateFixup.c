@@ -1,5 +1,5 @@
 /*
- * XREFs of MiPrivateFixup @ 0x140125E20
+ * XREFs of MiPrivateFixup @ 0x140125E40
  * Callers:
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
  * Callees:
@@ -23,15 +23,15 @@
  *     MiObtainFaultCharges @ 0x140064D60 (MiObtainFaultCharges.c)
  *     MiInitializeReadInProgressPfn @ 0x1400656E0 (MiInitializeReadInProgressPfn.c)
  *     MiDereferenceControlAreaProbe @ 0x140094CEC (MiDereferenceControlAreaProbe.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiReturnFaultCharges @ 0x140134834 (MiReturnFaultCharges.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     MiRelocateImagePfn @ 0x1405DF930 (MiRelocateImagePfn.c)
- *     MiAllocateDriverPage @ 0x140653A34 (MiAllocateDriverPage.c)
+ *     MiAllocateDriverPage @ 0x140653A14 (MiAllocateDriverPage.c)
  */
 
 __int64 __fastcall MiPrivateFixup(__int64 a1, ULONG_PTR a2, int a3, __int64 a4, __int64 a5)

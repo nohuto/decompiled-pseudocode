@@ -1,41 +1,33 @@
 /*
- * XREFs of KeQueryDpcWatchdogInformation @ 0x1403245D0
+ * XREFs of KeQueryDpcWatchdogInformation @ 0x1402F1520
  * Callers:
- *     HalpCmcPollProcessor @ 0x1403809E8 (HalpCmcPollProcessor.c)
+ *     HalpCmcPollProcessor @ 0x1403A0410 (HalpCmcPollProcessor.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall KeQueryDpcWatchdogInformation(PKDPC_WATCHDOG_INFORMATION WatchdogInformation)
 {
-  struct _KPRCB *CurrentPrcb; // rdx
-  ULONG SingleDpcSoftTimeLimitTicks; // eax
-  unsigned int DpcTimeCount; // r8d
-  ULONG CumulativeDpcSoftTimeLimitTicks; // eax
-  unsigned int DpcWatchdogCount; // r8d
+  struct _KPRCB *CurrentPrcb; // rax
+  ULONG DpcTimeLimit; // ecx
+  ULONG DpcWatchdogPeriod; // ecx
 
   CurrentPrcb = KeGetCurrentPrcb();
   if ( KeGetCurrentIrql() < 2u )
     return -1073741823;
   *(_OWORD *)&WatchdogInformation->DpcTimeLimit = 0LL;
   WatchdogInformation->Reserved = 0;
-  SingleDpcSoftTimeLimitTicks = CurrentPrcb->SingleDpcSoftTimeLimitTicks;
-  if ( SingleDpcSoftTimeLimitTicks || (SingleDpcSoftTimeLimitTicks = CurrentPrcb->DpcTimeLimitTicks) != 0 )
+  DpcTimeLimit = CurrentPrcb->DpcTimeLimit;
+  if ( DpcTimeLimit )
   {
-    WatchdogInformation->DpcTimeLimit = SingleDpcSoftTimeLimitTicks;
-    DpcTimeCount = CurrentPrcb->DpcTimeCount;
-    if ( SingleDpcSoftTimeLimitTicks > DpcTimeCount )
-      WatchdogInformation->DpcTimeCount = SingleDpcSoftTimeLimitTicks - DpcTimeCount;
+    WatchdogInformation->DpcTimeLimit = DpcTimeLimit;
+    WatchdogInformation->DpcTimeCount = DpcTimeLimit - CurrentPrcb->DpcTimeCount;
   }
-  CumulativeDpcSoftTimeLimitTicks = CurrentPrcb->CumulativeDpcSoftTimeLimitTicks;
-  if ( CumulativeDpcSoftTimeLimitTicks || (CumulativeDpcSoftTimeLimitTicks = CurrentPrcb->DpcWatchdogPeriodTicks) != 0 )
+  DpcWatchdogPeriod = CurrentPrcb->DpcWatchdogPeriod;
+  if ( DpcWatchdogPeriod )
   {
-    WatchdogInformation->DpcWatchdogLimit = CumulativeDpcSoftTimeLimitTicks;
-    DpcWatchdogCount = CurrentPrcb->DpcWatchdogCount;
-    if ( CumulativeDpcSoftTimeLimitTicks <= DpcWatchdogCount )
-      WatchdogInformation->DpcWatchdogCount = 0;
-    else
-      WatchdogInformation->DpcWatchdogCount = CumulativeDpcSoftTimeLimitTicks - DpcWatchdogCount;
+    WatchdogInformation->DpcWatchdogLimit = DpcWatchdogPeriod;
+    WatchdogInformation->DpcWatchdogCount = DpcWatchdogPeriod - CurrentPrcb->DpcWatchdogCount;
   }
   return 0;
 }

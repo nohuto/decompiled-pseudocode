@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhRemoveAndDeletePdo @ 0x1C0056D50
+ * XREFs of UsbhRemoveAndDeletePdo @ 0x1C0058428
  * Callers:
- *     UsbhDeleteOrphanPdo @ 0x1C0053618 (UsbhDeleteOrphanPdo.c)
- *     UsbhDeletePdo @ 0x1C00537BC (UsbhDeletePdo.c)
+ *     UsbhDeleteOrphanPdo @ 0x1C0054C78 (UsbhDeleteOrphanPdo.c)
+ *     UsbhDeletePdo @ 0x1C0054E1C (UsbhDeletePdo.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhFreeID @ 0x1C004FAE8 (UsbhFreeID.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhFreeID @ 0x1C0051094 (UsbhFreeID.c)
  */
 
 void __fastcall UsbhRemoveAndDeletePdo(PDEVICE_OBJECT DeviceObject)
@@ -16,8 +16,8 @@ void __fastcall UsbhRemoveAndDeletePdo(PDEVICE_OBJECT DeviceObject)
 
   v2 = PdoExt((__int64)DeviceObject);
   RtlFreeUnicodeString((PUNICODE_STRING)v2 + 167);
-  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
-  WPP_MAIN_CB.Dpc.DeferredRoutine = (void (__fastcall *)(_KDPC *, void *, void *, void *))&WPP_MAIN_CB.Dpc.DeferredContext;
+  v3 = KeAcquireSpinLockRaiseToDpc(&HubG);
+  qword_1C006C500 = (__int64)&dword_1C006C508;
   UsbhFreeID((__int64)(v2 + 524));
   UsbhFreeID((__int64)(v2 + 520));
   UsbhFreeID((__int64)(v2 + 528));
@@ -28,8 +28,8 @@ void __fastcall UsbhRemoveAndDeletePdo(PDEVICE_OBJECT DeviceObject)
   UsbhFreeID((__int64)(v2 + 548));
   UsbhFreeID((__int64)(v2 + 556));
   UsbhFreeID((__int64)(v2 + 552));
-  WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
-  KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v3);
+  qword_1C006C500 = 0LL;
+  KeReleaseSpinLock(&HubG, v3);
   v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v2 + 351);
   if ( v2[704] == 1 )
   {

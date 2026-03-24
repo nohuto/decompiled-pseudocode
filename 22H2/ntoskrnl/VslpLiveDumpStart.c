@@ -1,14 +1,14 @@
 /*
- * XREFs of VslpLiveDumpStart @ 0x14054CF38
+ * XREFs of VslpLiveDumpStart @ 0x1404FDBE0
  * Callers:
- *     VslSetupLiveDumpBufferInSk @ 0x14054C954 (VslSetupLiveDumpBufferInSk.c)
+ *     VslSetupLiveDumpBufferInSk @ 0x1404FD458 (VslSetupLiveDumpBufferInSk.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslpLiveDumpStart(unsigned int a1, unsigned int a2, unsigned int a3)
+NTSTATUS __fastcall VslpLiveDumpStart(unsigned int a1, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // rdi
   __int64 v4; // rsi
@@ -22,5 +22,5 @@ __int64 __fastcall VslpLiveDumpStart(unsigned int a1, unsigned int a2, unsigned 
   v7[1] = v5;
   v7[2] = v3;
   v7[3] = v4;
-  return VslpEnterIumSecureMode(2u, 56, 0, (__int64)v7);
+  return VslpEnterIumSecureMode(2u, 54, 0, (__int64)v7);
 }

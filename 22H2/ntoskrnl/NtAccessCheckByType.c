@@ -1,23 +1,23 @@
 /*
- * XREFs of NtAccessCheckByType @ 0x140355000
+ * XREFs of NtAccessCheckByType @ 0x140310A70
  * Callers:
  *     <none>
  * Callees:
- *     SeAccessCheckByType @ 0x1402B3A90 (SeAccessCheckByType.c)
+ *     SeAccessCheckByType @ 0x140346F70 (SeAccessCheckByType.c)
  */
 
 __int64 __fastcall NtAccessCheckByType(
-        __int16 *a1,
-        void *a2,
-        void *a3,
-        unsigned int a4,
+        int a1,
+        int a2,
+        int a3,
+        int a4,
         __int64 a5,
-        unsigned int a6,
-        _OWORD *a7,
-        volatile void *a8,
-        _DWORD *a9,
-        unsigned int *a10,
-        _DWORD *a11)
+        int a6,
+        __int64 a7,
+        __int64 a8,
+        __int64 a9,
+        __int64 a10,
+        __int64 a11)
 {
   return SeAccessCheckByType(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, 0);
 }

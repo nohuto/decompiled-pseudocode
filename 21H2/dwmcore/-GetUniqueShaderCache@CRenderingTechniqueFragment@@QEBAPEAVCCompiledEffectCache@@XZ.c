@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetUniqueShaderCache@CRenderingTechniqueFragment@@QEBAPEAVCCompiledEffectCache@@XZ @ 0x1800359AC
+ * XREFs of ?GetUniqueShaderCache@CRenderingTechniqueFragment@@QEBAPEAVCCompiledEffectCache@@XZ @ 0x1800498E8
  * Callers:
- *     ?EnsureShaderCache@CBrushRenderingGraphBuilder@@IEAAJ_N@Z @ 0x180035B1C (-EnsureShaderCache@CBrushRenderingGraphBuilder@@IEAAJ_N@Z.c)
+ *     ?EnsureShaderCache@CBrushRenderingGraphBuilder@@IEAAJ_N@Z @ 0x1800497D4 (-EnsureShaderCache@CBrushRenderingGraphBuilder@@IEAAJ_N@Z.c)
  * Callees:
  *     <none>
  */

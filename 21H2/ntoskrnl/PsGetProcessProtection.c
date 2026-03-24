@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetProcessProtection @ 0x140253C00
+ * XREFs of PsGetProcessProtection @ 0x1402C9400
  * Callers:
- *     <none>
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

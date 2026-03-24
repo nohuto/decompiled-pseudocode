@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?vUnlock@PIDLOCKSPRITEAREA@@QAEXXZ @ 0xAED46
+ * Callers:
+ *     ?vSpRedrawSpriteOverlapPresent@@YGXPAUHDEV__@@@Z @ 0x3046E (-vSpRedrawSpriteOverlapPresent@@YGXPAUHDEV__@@@Z.c)
+ *     ?bEnum@ENUMUNDERLAYS@@QAEHPAPAU_SURFOBJ@@PAU_POINTL@@PAPAU_CLIPOBJ@@@Z @ 0x66A00 (-bEnum@ENUMUNDERLAYS@@QAEHPAPAU_SURFOBJ@@PAU_POINTL@@PAPAU_CLIPOBJ@@@Z.c)
+ *     ?bSpUpdateSprite@@YGHPAVSPRITE@@PAUHDC__@@PAU_POINTL@@PAUtagSIZE@@12KPAU_BLENDFUNCTION@@KPAU_RECTL@@@Z @ 0x9F6DC (-bSpUpdateSprite@@YGHPAVSPRITE@@PAUHDC__@@PAU_POINTL@@PAUtagSIZE@@12KPAU_BLENDFUNCTION@@KPAU_REC.c)
+ *     ?bSpBltFromScreen@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@PAU_POINTL@@4PAU_BRUSHOBJ@@4K@Z @ 0xE52D4 (-bSpBltFromScreen@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@PAU_POINTL@@4PAU_BRUS.c)
+ *     ?GdiMovePointer@@YGXPAU_SURFOBJ@@JJPAU_RECTL@@H@Z @ 0x1DAB6D (-GdiMovePointer@@YGXPAU_SURFOBJ@@JJPAU_RECTL@@H@Z.c)
+ *     ?bSpBltScreenToScreen@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@PAU_POINTL@@4PAU_BRUSHOBJ@@4K@Z @ 0x1DD39B (-bSpBltScreenToScreen@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@PAU_POINTL@@4PAU_.c)
+ * Callees:
+ *     ?vSpPIDUnlockSpriteArea@@YGXPAU_SPRITESTATE@@PAU_RECTL@@PAX@Z @ 0x1E1963 (-vSpPIDUnlockSpriteArea@@YGXPAU_SPRITESTATE@@PAU_RECTL@@PAX@Z.c)
+ */
+
+/*
+ * Hex-Rays decompilation failed for ?vUnlock@PIDLOCKSPRITEAREA@@QAEXXZ @ 0xAED46
+ * Reason: Hex-Rays returned no pseudocode for 0xAED46
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 00000000000AED46: mov     edi, edi
+ * 00000000000AED48: push    esi; struct _RECTL *
+ * 00000000000AED49: mov     esi, ecx
+ * 00000000000AED4B: mov     ecx, [esi]
+ * 00000000000AED4D: test    ecx, ecx
+ * 00000000000AED4F: jnz     loc_12894B
+ * 00000000000AED55: and     dword ptr [esi], 0
+ * 00000000000AED58: pop     esi
+ * 00000000000AED59: retn
+ * 000000000012894B: lea     edx, [esi+4]
+ * 000000000012894E: mov     eax, [edx]
+ * 0000000000128950: cmp     eax, [esi+0Ch]
+ * 0000000000128953: jz      loc_AED55
+ * 0000000000128959: mov     eax, [esi+8]
+ * 000000000012895C: cmp     eax, [esi+10h]
+ * 000000000012895F: jz      loc_AED55
+ * 0000000000128965: push    esi; struct _SPRITESTATE *
+ * 0000000000128966: call    ?vSpPIDUnlockSpriteArea@@YGXPAU_SPRITESTATE@@PAU_RECTL@@PAX@Z; vSpPIDUnlockSpriteArea(_SPRITESTATE *,_RECTL *,void *)
+ * 000000000012896B: jmp     loc_AED55
+ */

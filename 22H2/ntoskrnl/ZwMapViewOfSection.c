@@ -1,20 +1,19 @@
 /*
- * XREFs of ZwMapViewOfSection @ 0x14041ABA0
+ * XREFs of ZwMapViewOfSection @ 0x1403F9F20
  * Callers:
- *     CmSiMapViewOfSection @ 0x140207E98 (CmSiMapViewOfSection.c)
- *     RtlFileMapMapView @ 0x1403B0C90 (RtlFileMapMapView.c)
- *     DifZwMapViewOfSectionWrapper @ 0x1405F1020 (DifZwMapViewOfSectionWrapper.c)
- *     PiInitializeDDB @ 0x14069378C (PiInitializeDDB.c)
- *     IopIsNotNativeDriverImage @ 0x1409450F4 (IopIsNotNativeDriverImage.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x1409F6910 (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryElamCertInfo @ 0x1409F6B50 (ExpQueryElamCertInfo.c)
- *     CMFReadCompressedSegment @ 0x140A02670 (CMFReadCompressedSegment.c)
- *     CMFSystemThreadRoutine @ 0x140A02B70 (CMFSystemThreadRoutine.c)
- *     ApiSetpLoadSchemaImage @ 0x140A0A2BC (ApiSetpLoadSchemaImage.c)
- *     AslpFileLargeMapCreate @ 0x140A59AB0 (AslpFileLargeMapCreate.c)
- *     EmpMapPhysicalAddress @ 0x140B93E6C (EmpMapPhysicalAddress.c)
- *     CmpSetSystemBiosInformation @ 0x140B9986C (CmpSetSystemBiosInformation.c)
- *     CmpSetVideoBiosInformation @ 0x140B99C0C (CmpSetVideoBiosInformation.c)
+ *     CmSiMapViewOfSection @ 0x140361FF8 (CmSiMapViewOfSection.c)
+ *     RtlFileMapMapView @ 0x1403BD264 (RtlFileMapMapView.c)
+ *     PiInitializeDDB @ 0x14077E864 (PiInitializeDDB.c)
+ *     IopIsNotNativeDriverImage @ 0x140891974 (IopIsNotNativeDriverImage.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x14094A6EC (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryElamCertInfo @ 0x14094A928 (ExpQueryElamCertInfo.c)
+ *     CMFReadCompressedSegment @ 0x140958F40 (CMFReadCompressedSegment.c)
+ *     CMFSystemThreadRoutine @ 0x140959420 (CMFSystemThreadRoutine.c)
+ *     ApiSetpLoadSchemaImage @ 0x14095EE14 (ApiSetpLoadSchemaImage.c)
+ *     AslpFileLargeMapCreate @ 0x14096C454 (AslpFileLargeMapCreate.c)
+ *     EmpMapPhysicalAddress @ 0x140A477DC (EmpMapPhysicalAddress.c)
+ *     CmpSetVideoBiosInformation @ 0x140A592D0 (CmpSetVideoBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x140A594A0 (CmpSetSystemBiosInformation.c)
  * Callees:
  *     <none>
  */

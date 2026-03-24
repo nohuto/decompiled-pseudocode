@@ -1,9 +1,9 @@
 /*
- * XREFs of NtSetDefaultUILanguage @ 0x1407F42B0
+ * XREFs of NtSetDefaultUILanguage @ 0x14078BE30
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetPendingUILanguage @ 0x1407F44F0 (ExpSetPendingUILanguage.c)
+ *     ExpSetPendingUILanguage @ 0x14078C070 (ExpSetPendingUILanguage.c)
  */
 
 __int64 __fastcall NtSetDefaultUILanguage(__int16 a1)

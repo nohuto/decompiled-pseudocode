@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140A20924
+ * XREFs of CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x14072AE74
  * Callers:
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x140A1B788 (CmpDoAccessCheckOnLayeredSubtree.c)
- *     CmpPromoteSubtree @ 0x140A26C60 (CmpPromoteSubtree.c)
+ *     CmpPromoteSubtree @ 0x14072A0A8 (CmpPromoteSubtree.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x14072A620 (CmpDoAccessCheckOnLayeredSubtree.c)
  * Callees:
- *     CmpSubtreeEnumeratorBeginForKeyNodeStack @ 0x140A20628 (CmpSubtreeEnumeratorBeginForKeyNodeStack.c)
- *     CmpSubtreeEnumeratorStart @ 0x140A207E0 (CmpSubtreeEnumeratorStart.c)
+ *     CmpSubtreeEnumeratorBeginForKeyNodeStack @ 0x14072AEB0 (CmpSubtreeEnumeratorBeginForKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorStart @ 0x14072AF4C (CmpSubtreeEnumeratorStart.c)
  */
 
-__int64 __fastcall CmpSubtreeEnumeratorStartForKeyNodeStack(__int64 a1, __int16 *a2)
+__int64 __fastcall CmpSubtreeEnumeratorStartForKeyNodeStack(__int64 a1, unsigned __int16 *a2)
 {
   __int64 result; // rax
 

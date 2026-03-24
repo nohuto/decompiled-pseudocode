@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0txqqqtxtx_EtwWriteTransfer @ 0x1C003C55C
+ * XREFs of McTemplateK0txqqqtxtx_EtwWriteTransfer @ 0x1C0033940
  * Callers:
- *     VidSchEnterIndependentFlip @ 0x1C0019440 (VidSchEnterIndependentFlip.c)
- *     VidSchExitIndependentFlipInternal @ 0x1C00197B0 (VidSchExitIndependentFlipInternal.c)
+ *     VidSchEnterIndependentFlip @ 0x1C00343C0 (VidSchEnterIndependentFlip.c)
+ *     VidSchExitIndependentFlipInternal @ 0x1C003494C (VidSchExitIndependentFlipInternal.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C002E360 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023F6C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0txqqqtxtx_EtwWriteTransfer(

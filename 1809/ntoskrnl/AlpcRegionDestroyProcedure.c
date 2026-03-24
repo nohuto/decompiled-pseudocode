@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcRegionDestroyProcedure @ 0x1406B34A0
+ * XREFs of AlpcRegionDestroyProcedure @ 0x1406B3480
  * Callers:
  *     <none>
  * Callees:

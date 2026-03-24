@@ -1,107 +1,116 @@
 /*
- * XREFs of IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A9C050
+ * XREFs of IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1409AD120
  * Callers:
  *     <none>
  * Callees:
- *     RtlSetBitsEx @ 0x14028B2A0 (RtlSetBitsEx.c)
- *     RtlFindNextForwardRunClearEx @ 0x140463760 (RtlFindNextForwardRunClearEx.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559DDC (IopLiveDumpGetMillisecondCounter.c)
- *     MmTryIdentifyPage @ 0x1406267A0 (MmTryIdentifyPage.c)
- *     IopLiveDumpIsProcessPageIncluded @ 0x140A9B984 (IopLiveDumpIsProcessPageIncluded.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     RtlSetBitsEx @ 0x140297080 (RtlSetBitsEx.c)
+ *     MmTryIdentifyPage @ 0x1405347A8 (MmTryIdentifyPage.c)
+ *     RtlFindNextForwardRunClearEx @ 0x140587430 (RtlFindNextForwardRunClearEx.c)
  */
 
 __int64 __fastcall IopLiveDumpMirrorPhysicalMemoryCallback(unsigned __int64 a1, __int64 a2)
 {
-  __int64 v2; // rdi
-  unsigned __int64 v4; // rbp
-  unsigned __int64 v5; // rsi
+  LARGE_INTEGER PerformanceCounter; // rdi
+  __int64 v3; // rsi
   unsigned __int64 v6; // rcx
-  unsigned __int64 v7; // rax
-  unsigned __int64 NextForwardRunClear; // rax
-  unsigned __int64 v9; // r13
-  unsigned __int64 v10; // r15
+  unsigned __int64 v7; // r15
+  unsigned __int64 v8; // rbp
+  unsigned __int64 v9; // rax
+  unsigned __int64 NextForwardRunClear; // r13
   unsigned __int64 v11; // r14
   unsigned __int64 v12; // r12
   __int64 v13; // rcx
-  __int64 v14; // rax
-  unsigned __int64 v16[2]; // [rsp+20h] [rbp-68h] BYREF
+  LONGLONG v14; // rax
+  _QWORD v16[2]; // [rsp+20h] [rbp-68h] BYREF
   __int128 v17; // [rsp+30h] [rbp-58h] BYREF
   unsigned __int64 v18; // [rsp+40h] [rbp-48h]
   unsigned __int64 v19; // [rsp+90h] [rbp+8h] BYREF
-  __int64 MillisecondCounter; // [rsp+98h] [rbp+10h]
+  unsigned __int64 v20; // [rsp+98h] [rbp+10h]
 
-  v2 = IopLiveDumpContext;
   v19 = 0LL;
-  v4 = a1 >> 12;
-  MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
-  v5 = (a2 >> 12) + ((a2 & 0xFFF) != 0);
-  v6 = *(_QWORD *)(v2 + 576);
-  v7 = v5 + v4 - 1;
-  if ( v4 < v6 )
+  PerformanceCounter.QuadPart = 0LL;
+  v3 = IopLiveDumpContext;
+  if ( (*(_DWORD *)(IopLiveDumpContext + 80) & 0x80u) != 0 )
+    PerformanceCounter = KeQueryPerformanceCounter(0LL);
+  v6 = *(_QWORD *)(v3 + 576);
+  v7 = a1 >> 12;
+  v8 = (a2 >> 12) + ((a2 & 0xFFF) != 0);
+  v9 = v8 + v7 - 1;
+  if ( v7 < v6 )
   {
-    if ( v7 >= v6 )
+    if ( v9 >= v6 )
     {
-      v7 = v6 - 1;
-      v5 = v6 - v4;
+      v9 = v6 - 1;
+      v8 = v6 - v7;
     }
-    if ( v5 )
+    if ( v8 )
     {
-      v16[0] = v7 + 1;
-      v16[1] = *(_QWORD *)(v2 + 584);
+      v16[0] = v9 + 1;
+      v16[1] = *(_QWORD *)(v3 + 584);
       while ( 1 )
       {
-        NextForwardRunClear = RtlFindNextForwardRunClearEx(v16, v4, &v19);
-        v9 = v19;
-        v10 = NextForwardRunClear;
-        v11 = NextForwardRunClear ? v19 - v4 : v5;
+        NextForwardRunClear = RtlFindNextForwardRunClearEx((__int64)v16, v7, &v19);
+        v11 = NextForwardRunClear ? v19 - v7 : v8;
         if ( v11 )
           break;
-LABEL_20:
-        if ( v5 > v11 + v10 )
+LABEL_22:
+        if ( v8 <= v11 + NextForwardRunClear )
         {
-          v4 = v10 + v9;
-          v5 -= v11 + v10;
-          if ( v5 )
-            continue;
+          v8 = 0LL;
         }
-        goto LABEL_22;
+        else
+        {
+          v7 = NextForwardRunClear + v19;
+          v8 -= v11 + NextForwardRunClear;
+        }
+        if ( !v8 )
+          goto LABEL_26;
       }
-      v12 = v11;
-      while ( (*(_DWORD *)(v2 + 40) & 4) != 0 )
+      v12 = v7;
+      v20 = v11;
+      while ( 1 )
       {
+        if ( (*(_DWORD *)(v3 + 40) & 4) == 0 )
+          goto LABEL_14;
         v17 = 0LL;
         v18 = 0LL;
-        if ( !(unsigned int)MmTryIdentifyPage(v4, &v17) || !(unsigned int)IopLiveDumpIsProcessPageIncluded(v2, &v17) )
-          goto LABEL_19;
-        if ( v18 >= 0xFFFF800000000000uLL )
+        if ( (unsigned int)MmTryIdentifyPage(v12, (__int64)&v17) )
           break;
-        if ( v18 - 1 <= 0x7FFFFFFEFFFELL )
-        {
-          v13 = v2 + 656;
-          goto LABEL_18;
-        }
-LABEL_19:
-        ++v4;
-        if ( !--v12 )
-          goto LABEL_20;
+LABEL_21:
+        ++v12;
+        if ( !--v20 )
+          goto LABEL_22;
       }
-      v13 = v2 + 600;
-LABEL_18:
-      RtlSetBitsEx(v13, v4, 1uLL);
-      goto LABEL_19;
+      if ( v18 >= 0xFFFF800000000000uLL )
+      {
+LABEL_14:
+        v13 = v3 + 600;
+      }
+      else
+      {
+        if ( (*(_DWORD *)(v3 + 40) & 4) == 0 || v18 - 1 > 0x7FFFFFFEFFFELL )
+          goto LABEL_21;
+        v13 = v3 + 656;
+      }
+      RtlSetBitsEx(v13, v12, 1uLL);
+      goto LABEL_21;
     }
   }
-LABEL_22:
-  v14 = IopLiveDumpGetMillisecondCounter(0) - MillisecondCounter;
-  if ( (*(_DWORD *)(v2 + 80) & 1) != 0 )
+LABEL_26:
+  if ( (*(_DWORD *)(v3 + 80) & 0x80u) != 0 )
   {
-    *(_QWORD *)(v2 + 472) += a2;
-    *(_QWORD *)(v2 + 464) += v14;
-  }
-  else
-  {
-    *(_QWORD *)(v2 + 512) += a2;
-    *(_QWORD *)(v2 + 504) += v14;
+    v14 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - PerformanceCounter.QuadPart;
+    if ( (*(_DWORD *)(v3 + 80) & 1) != 0 )
+    {
+      *(_QWORD *)(v3 + 472) += a2;
+      *(_QWORD *)(v3 + 456) += v14;
+    }
+    else
+    {
+      *(_QWORD *)(v3 + 520) += a2;
+      *(_QWORD *)(v3 + 504) += v14;
+    }
   }
   return 0LL;
 }

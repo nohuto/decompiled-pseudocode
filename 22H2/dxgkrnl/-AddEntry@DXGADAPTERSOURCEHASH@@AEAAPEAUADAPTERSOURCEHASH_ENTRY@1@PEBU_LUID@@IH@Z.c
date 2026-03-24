@@ -1,13 +1,13 @@
 /*
- * XREFs of ?AddEntry@DXGADAPTERSOURCEHASH@@AEAAPEAUADAPTERSOURCEHASH_ENTRY@1@PEBU_LUID@@IH@Z @ 0x1C0224FE4
+ * XREFs of ?AddEntry@DXGADAPTERSOURCEHASH@@AEAAPEAUADAPTERSOURCEHASH_ENTRY@1@PEBU_LUID@@IH@Z @ 0x1C0186198
  * Callers:
- *     ?AddNewAdapterEntry@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@H@Z @ 0x1C0224F68 (-AddNewAdapterEntry@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@H@Z.c)
- *     ?FindHashForAdapterAndSource@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@IPEAI@Z @ 0x1C03131C4 (-FindHashForAdapterAndSource@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@IPEAI@Z.c)
+ *     ?AddNewAdapterEntry@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@H@Z @ 0x1C018611C (-AddNewAdapterEntry@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@H@Z.c)
+ *     ?FindHashForAdapterAndSource@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@IPEAI@Z @ 0x1C026A0F4 (-FindHashForAdapterAndSource@DXGADAPTERSOURCEHASH@@QEAAJPEBU_LUID@@IPEAI@Z.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
- *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C01E93B0 (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
- *     ?GetActualBufferSize@AUTOEXPANDALLOCATION@@QEAAIXZ @ 0x1C01EAD10 (-GetActualBufferSize@AUTOEXPANDALLOCATION@@QEAAIXZ.c)
- *     ?FindEntry@DXGADAPTERSOURCEHASH@@AEAAPEAUADAPTERSOURCEHASH_ENTRY@1@IHPEBU_LUID@@PEAI@Z @ 0x1C0313008 (-FindEntry@DXGADAPTERSOURCEHASH@@AEAAPEAUADAPTERSOURCEHASH_ENTRY@1@IHPEBU_LUID@@PEAI@Z.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C016D17C (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
+ *     ?GetActualBufferSize@AUTOEXPANDALLOCATION@@QEAAIXZ @ 0x1C016D968 (-GetActualBufferSize@AUTOEXPANDALLOCATION@@QEAAIXZ.c)
+ *     ?FindEntry@DXGADAPTERSOURCEHASH@@AEAAPEAUADAPTERSOURCEHASH_ENTRY@1@IHPEBU_LUID@@PEAI@Z @ 0x1C0269F60 (-FindEntry@DXGADAPTERSOURCEHASH@@AEAAPEAUADAPTERSOURCEHASH_ENTRY@1@IHPEBU_LUID@@PEAI@Z.c)
  */
 
 struct DXGADAPTERSOURCEHASH::ADAPTERSOURCEHASH_ENTRY *__fastcall DXGADAPTERSOURCEHASH::AddEntry(
@@ -18,58 +18,60 @@ struct DXGADAPTERSOURCEHASH::ADAPTERSOURCEHASH_ENTRY *__fastcall DXGADAPTERSOURC
 {
   _DWORD *Buffer; // rax
   unsigned int v9; // esi
-  unsigned int v10; // r10d
-  unsigned int v11; // ebp
+  unsigned int v10; // ebp
+  __int64 v11; // rax
   char *v12; // rbx
   struct DXGADAPTERSOURCEHASH::ADAPTERSOURCEHASH_ENTRY *Entry; // rbx
   int v14; // ecx
   struct DXGADAPTERSOURCEHASH::ADAPTERSOURCEHASH_ENTRY *result; // rax
 
-  if ( !*(_QWORD *)((char *)this + 60) )
+  if ( !*(_QWORD *)((char *)this + 52) )
   {
-    Buffer = AUTOEXPANDALLOCATION::GetBuffer((const void **)this + 6, 0x80u, 0);
+    Buffer = AUTOEXPANDALLOCATION::GetBuffer((DXGADAPTERSOURCEHASH *)((char *)this + 40), 0x80u, 0);
     if ( !Buffer )
       return 0LL;
     Buffer[1] = -1;
     *Buffer = -1;
     Buffer[2] = -1;
     Buffer[3] = Buffer[3] & 0xFFFFFFFC | 1;
-    *((_DWORD *)this + 16) = 1;
+    *((_DWORD *)this + 14) = 1;
     memset(Buffer + 4, 0, 0x70uLL);
   }
-  v9 = (unsigned int)AUTOEXPANDALLOCATION::GetActualBufferSize((DXGADAPTERSOURCEHASH *)((char *)this + 48)) >> 4;
-  v11 = 1 << *((_DWORD *)this + 17);
-  if ( v9 > v11 )
+  v9 = (unsigned int)AUTOEXPANDALLOCATION::GetActualBufferSize((DXGADAPTERSOURCEHASH *)((char *)this + 40)) >> 4;
+  v10 = 1 << *((_DWORD *)this + 15);
+  if ( v9 > v10 )
   {
-    v9 = 1 << *((_DWORD *)this + 17);
+    v9 = 1 << *((_DWORD *)this + 15);
   }
-  else if ( v9 != v11 )
+  else if ( v9 != v10 )
   {
-    if ( v10 == v9 )
+    v11 = *((unsigned int *)this + 14);
+    if ( (_DWORD)v11 == v9 )
     {
-      if ( v9 + 8 < v11 )
-        v11 = v9 + 8;
-      v12 = (char *)AUTOEXPANDALLOCATION::GetBuffer((const void **)this + 6, 16 * v11, 1);
-      memset(&v12[16 * v9 + 16], 0, 16LL * (v11 - v9 - 1));
+      if ( v9 + 8 < v10 )
+        v10 = v9 + 8;
+      v12 = (char *)AUTOEXPANDALLOCATION::GetBuffer((DXGADAPTERSOURCEHASH *)((char *)this + 40), 16 * v10, 1);
+      memset(&v12[16 * v9 + 16], 0, 16LL * (v10 - v9 - 1));
+      v11 = *((unsigned int *)this + 14);
     }
     else
     {
-      v12 = (char *)*((_QWORD *)this + 6);
+      v12 = (char *)*((_QWORD *)this + 5);
     }
-    Entry = (struct DXGADAPTERSOURCEHASH::ADAPTERSOURCEHASH_ENTRY *)&v12[16 * *((unsigned int *)this + 16)];
+    Entry = (struct DXGADAPTERSOURCEHASH::ADAPTERSOURCEHASH_ENTRY *)&v12[16 * v11];
     goto LABEL_9;
   }
-  Entry = DXGADAPTERSOURCEHASH::FindEntry(this, v10 % v9, 0, 0LL, 0LL);
+  Entry = DXGADAPTERSOURCEHASH::FindEntry(this, *((_DWORD *)this + 14) % v9, 0, 0LL, 0LL);
   if ( Entry )
   {
 LABEL_9:
-    v14 = *((_DWORD *)Entry + 3) | 1;
-    *((_DWORD *)Entry + 3) = v14;
+    *((_DWORD *)Entry + 3) |= 1u;
+    v14 = *((_DWORD *)Entry + 3);
     *(struct _LUID *)Entry = *a2;
     *((_DWORD *)Entry + 2) = a3;
     *((_DWORD *)Entry + 3) = v14 ^ ((unsigned __int8)v14 ^ (unsigned __int8)(2 * a4)) & 2;
     result = Entry;
-    ++*((_DWORD *)this + 16);
+    ++*((_DWORD *)this + 14);
     return result;
   }
   return 0LL;

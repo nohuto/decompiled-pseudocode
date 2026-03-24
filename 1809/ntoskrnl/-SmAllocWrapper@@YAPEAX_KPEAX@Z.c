@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x14013BA60
+ * XREFs of ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x14013BA80
  * Callers:
  *     SmpKeyedStoreEntryGet @ 0x140011FDC (SmpKeyedStoreEntryGet.c)
  * Callees:

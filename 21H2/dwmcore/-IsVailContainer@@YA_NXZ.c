@@ -1,36 +1,44 @@
 /*
- * XREFs of ?IsVailContainer@@YA_NXZ @ 0x18026BB8C
+ * XREFs of ?IsVailContainer@@YA_NXZ @ 0x180023CFC
  * Callers:
- *     ?UpdateLastTelemetryInfo@CTelemetryTouchLatencyAnalysis@InteractionLatencyTelemetry@@QEAAXPEBUTOUCH_TELEMETRY_UPDATE_INFO@@PEAUTouchUpdateInfo@2@_K@Z @ 0x18001A5B8 (-UpdateLastTelemetryInfo@CTelemetryTouchLatencyAnalysis@InteractionLatencyTelemetry@@QEAAXPEBUTO.c)
- *     ?SteadyStateFrameInputGlitch@InteractionTraceProvider@InteractionLatencyTelemetry@@SAXAEBUTouchScenarioInfo@2@II_KAEBUTELEMETRY_INTERACTION_FRAME_TIMES@@1@Z @ 0x18001A8C0 (-SteadyStateFrameInputGlitch@InteractionTraceProvider@InteractionLatencyTelemetry@@SAXAEBUTouchS.c)
- *     ?UpdateInteractionProgress@CTelemetryTouchLatencyAnalysis@InteractionLatencyTelemetry@@QEAAJPEBUTOUCH_TELEMETRY_UPDATE_INFO@@_K_NAEB_KIAEBU_LUID@@2PEAPEAUTouchUpdateInfo@2@@Z @ 0x18001AE6C (-UpdateInteractionProgress@CTelemetryTouchLatencyAnalysis@InteractionLatencyTelemetry@@QEAAJPEBU.c)
- *     ?ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@@PEAX@Z @ 0x18017E1F4 (-ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@.c)
- *     ?QueueFrame@GestureTargeting@TelemetryDebug@InputTraceLogging@@SAXAEBUtagTELEMETRY_POINTER_FRAME_TIMES@@@Z @ 0x18017E588 (-QueueFrame@GestureTargeting@TelemetryDebug@InputTraceLogging@@SAXAEBUtagTELEMETRY_POINTER_FRAME.c)
- *     IsSuperWetInkCompatibleVailContainer @ 0x1801A7C68 (IsSuperWetInkCompatibleVailContainer.c)
- *     ?CheckOcclusionState@CRemoteAppRenderTarget@@UEAAJXZ @ 0x1801C2160 (-CheckOcclusionState@CRemoteAppRenderTarget@@UEAAJXZ.c)
- *     ?FirstFrameInputGlitch@InteractionTraceProvider@InteractionLatencyTelemetry@@SAXAEBUTouchScenarioInfo@2@IIAEBUTELEMETRY_INTERACTION_FRAME_TIMES@@_K@Z @ 0x1801D29E0 (-FirstFrameInputGlitch@InteractionTraceProvider@InteractionLatencyTelemetry@@SAXAEBUTouchScenari.c)
- *     _anonymous_namespace_::CreateD3D12ResourcesInternal @ 0x18027D294 (_anonymous_namespace_--CreateD3D12ResourcesInternal.c)
+ *     ?UpdateInteractionProgress@CTelemetryTouchLatencyAnalysis@@QEAAJPEBUTOUCH_TELEMETRY_UPDATE_INFO@@_K_NAEB_KIAEBU_LUID@@2PEAPEAUTouchUpdateInfo@1@@Z @ 0x180022BDC (-UpdateInteractionProgress@CTelemetryTouchLatencyAnalysis@@QEAAJPEBUTOUCH_TELEMETRY_UPDATE_INFO@.c)
+ *     ?AnalyzeLatencyInformation@CTelemetryTouchLatencyAnalysis@@AEAAX_K0000000III0AEBUVAIL_TELEMETRY_TOUCH_INFO@1@@Z @ 0x1800230E8 (-AnalyzeLatencyInformation@CTelemetryTouchLatencyAnalysis@@AEAAX_K0000000III0AEBUVAIL_TELEMETRY_.c)
+ *     ?DetectInputGlitch@CTelemetryTouchLatencyAnalysis@@AEBAXAEAUTouchScenarioInfo@1@_K11111111III1@Z @ 0x18002321C (-DetectInputGlitch@CTelemetryTouchLatencyAnalysis@@AEBAXAEAUTouchScenarioInfo@1@_K11111111III1@Z.c)
+ *     ??4CLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAAAEAV01@AEBV01@@Z @ 0x180023C94 (--4CLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAAAEAV01@AEBV01@@Z.c)
+ *     ??HCLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAA?AV01@AEBV01@@Z @ 0x18015CB44 (--HCLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAA-AV01@AEBV01@@Z.c)
+ *     ??KCLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAA?AV01@I@Z @ 0x18015CBF8 (--KCLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAA-AV01@I@Z.c)
+ *     ?FirstFrameInputGlitch@InteractionTraceProvider@@SAXAEBUTouchScenarioInfo@CTelemetryTouchLatencyAnalysis@@II_K1111111@Z @ 0x18015DA20 (-FirstFrameInputGlitch@InteractionTraceProvider@@SAXAEBUTouchScenarioInfo@CTelemetryTouchLatency.c)
+ *     ?SendInteractionSummary@CTelemetryTouchLatencyAnalysis@@AEAAJXZ @ 0x180160388 (-SendInteractionSummary@CTelemetryTouchLatencyAnalysis@@AEAAJXZ.c)
+ *     ?SetMax@CLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAAXAEBV12@@Z @ 0x180160BB8 (-SetMax@CLatencyInfo@CTelemetryTouchLatencyAnalysis@@QEAAXAEBV12@@Z.c)
+ *     ?UpdateLastTelemetryInfo@CTelemetryTouchLatencyAnalysis@@QEAAXPEBUTOUCH_TELEMETRY_UPDATE_INFO@@PEAUTouchUpdateInfo@1@_K@Z @ 0x180161744 (-UpdateLastTelemetryInfo@CTelemetryTouchLatencyAnalysis@@QEAAXPEBUTOUCH_TELEMETRY_UPDATE_INFO@@P.c)
  * Callees:
- *     ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x18026BB08 (-RegGetHKLMDword@@YA_NQEBG0PEAK@Z.c)
+ *     ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x180024090 (-RegGetHKLMDword@@YA_NQEBG0PEAK@Z.c)
  */
 
 bool IsVailContainer(void)
 {
-  bool v0; // bl
-  unsigned int v2; // [rsp+30h] [rbp+8h] BYREF
+  __int16 v0; // ax
+  bool v2; // zf
+  unsigned int v3; // [rsp+30h] [rbp+8h] BYREF
 
-  v0 = 0;
-  if ( HIBYTE(word_1803D3B88) )
-    return word_1803D3B88;
-  if ( RegGetHKLMDword(L"Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows", L"IsVailContainer", &v2) )
+  if ( byte_180347571 )
   {
-    HIBYTE(word_1803D3B88) = 1;
-    v0 = v2 != 0;
-    LOBYTE(word_1803D3B88) = v2 != 0;
+    v0 = unk_180347570;
   }
   else
   {
-    word_1803D3B88 = 256;
+    if ( RegGetHKLMDword(L"Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows", L"IsVailContainer", &v3) )
+    {
+      v2 = v3 == 0;
+      BYTE1(v3) = 1;
+      LOBYTE(v3) = !v2;
+    }
+    else
+    {
+      LOWORD(v3) = 256;
+    }
+    v0 = v3;
+    unk_180347570 = v3;
   }
-  return v0;
+  return HIBYTE(v0) != 0 ? v0 : 0;
 }

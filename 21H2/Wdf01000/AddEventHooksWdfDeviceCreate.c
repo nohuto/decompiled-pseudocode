@@ -1,13 +1,13 @@
 /*
- * XREFs of AddEventHooksWdfDeviceCreate @ 0x1C00C4C90
+ * XREFs of AddEventHooksWdfDeviceCreate @ 0x1C00C3C90
  * Callers:
- *     imp_VfWdfDeviceCreate @ 0x1C00C08C0 (imp_VfWdfDeviceCreate.c)
+ *     imp_VfWdfDeviceCreate @ 0x1C00BF8F0 (imp_VfWdfDeviceCreate.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
- *     VfAddContextToHandle @ 0x1C00C52D4 (VfAddContextToHandle.c)
- *     VfAllocateContext @ 0x1C00C5428 (VfAllocateContext.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     VfAddContextToHandle @ 0x1C00C42D4 (VfAddContextToHandle.c)
+ *     VfAllocateContext @ 0x1C00C4430 (VfAllocateContext.c)
  */
 
 int __fastcall AddEventHooksWdfDeviceCreate(
@@ -18,7 +18,7 @@ int __fastcall AddEventHooksWdfDeviceCreate(
         WDFDEVICE__ **Device)
 {
   WDFDEVICE_INIT *v5; // rbx
-  _FX_DRIVER_GLOBALS *v10; // rcx
+  _FX_DRIVER_GLOBALS *DriverName; // rcx
   WDFDEVICE__ **v11; // rsi
   int result; // eax
   __int128 v13; // xmm1
@@ -29,8 +29,8 @@ int __fastcall AddEventHooksWdfDeviceCreate(
   __int128 v18; // xmm0
   __int128 v19; // xmm1
   signed int v20; // eax
-  int v21; // edi
-  FX_POOL_TRACKER *v22; // rbx
+  int v21; // ebx
+  FX_POOL_TRACKER *v22; // rdi
   WDFDEVICE__ *v23; // r8
   _VF_WDFDEVICECREATE_CONTEXT *v24; // rax
   __int128 v25; // xmm1
@@ -59,12 +59,12 @@ int __fastcall AddEventHooksWdfDeviceCreate(
 
   v5 = *DeviceInit;
   contextHeader = 0LL;
-  v10 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   if ( !v5 )
-    FxVerifierNullBugCheck(v10, retaddr);
+    FxVerifierNullBugCheck(DriverName, retaddr);
   v11 = Device;
   if ( !Device )
-    FxVerifierNullBugCheck(v10, retaddr);
+    FxVerifierNullBugCheck(DriverName, retaddr);
   if ( v5->PnpPower.PnpPowerEventCallbacks.Size != 144 )
   {
     result = 0;

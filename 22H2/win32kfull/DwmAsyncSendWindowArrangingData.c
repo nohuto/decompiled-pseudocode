@@ -1,42 +1,37 @@
 /*
- * XREFs of DwmAsyncSendWindowArrangingData @ 0x1C026D7B8
+ * XREFs of DwmAsyncSendWindowArrangingData @ 0x1C0274F30
  * Callers:
- *     bSetDevDragRect @ 0x1C006EAD0 (bSetDevDragRect.c)
- *     bMoveDevPreviewRect @ 0x1C028407C (bMoveDevPreviewRect.c)
- *     bSetDevPreviewRect @ 0x1C0284260 (bSetDevPreviewRect.c)
+ *     bSetDevDragRect @ 0x1C0029460 (bSetDevDragRect.c)
+ *     bMoveDevPreviewRect @ 0x1C028594C (bMoveDevPreviewRect.c)
+ *     bSetDevPreviewRect @ 0x1C0285B2C (bSetDevPreviewRect.c)
  * Callees:
- *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C00CD030 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncSendWindowArrangingData(PVOID Object, int a2, __int64 a3, __int128 *a4, __int64 a5)
 {
   unsigned int v9; // ebx
   __int128 v10; // xmm0
-  int v12; // [rsp+20h] [rbp-88h] BYREF
-  __int16 v13; // [rsp+24h] [rbp-84h]
-  int v14; // [rsp+48h] [rbp-60h]
-  int v15; // [rsp+4Ch] [rbp-5Ch]
-  __int64 v16; // [rsp+50h] [rbp-58h]
-  __int128 v17; // [rsp+58h] [rbp-50h]
-  __int64 v18; // [rsp+68h] [rbp-40h]
+  __int64 v11; // r8
+  __int64 v12; // r9
+  _QWORD v14[10]; // [rsp+20h] [rbp-88h] BYREF
 
   v9 = -1073741823;
-  IncrementDWMWindowUniqueness((__int64)Object);
+  _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    memset_0(&v12, 0, 0x50uLL);
+    memset(v14, 0, sizeof(v14));
     v10 = *a4;
-    v12 = 5242920;
-    v13 = 0x8000;
-    v18 = a5;
-    v14 = 1073741932;
-    v15 = a2;
-    v16 = a3;
-    v17 = v10;
-    EtwUpdateEvent(0LL, 1073741932LL);
-    v9 = LpcRequestPort(Object, &v12);
+    LODWORD(v14[0]) = 5242920;
+    WORD2(v14[0]) = 0x8000;
+    v14[9] = a5;
+    LODWORD(v14[5]) = 1073741928;
+    HIDWORD(v14[5]) = a2;
+    v14[6] = a3;
+    *(_OWORD *)&v14[7] = v10;
+    EtwUpdateEvent(0LL, 1073741928LL, v11, v12);
+    v9 = LpcRequestPort(Object, v14);
     ObfDereferenceObject(Object);
   }
   return v9;

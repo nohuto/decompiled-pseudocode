@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEtEnergyTrackerUpdateAggregate @ 0x1407B2590
+ * XREFs of PopEtEnergyTrackerUpdateAggregate @ 0x1406197F4
  * Callers:
- *     PopEtProcessSnapshotUpdate @ 0x1407B2298 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtProcessSnapshotUpdate @ 0x140619528 (PopEtProcessSnapshotUpdate.c)
  * Callees:
- *     PsAddProcessEnergyValues @ 0x1402C0878 (PsAddProcessEnergyValues.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PopEtEnergyValuesDeltaCalculate @ 0x1407B2758 (PopEtEnergyValuesDeltaCalculate.c)
- *     PopEtAggregateGet @ 0x1407B2B28 (PopEtAggregateGet.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     PsAddProcessEnergyValues @ 0x140254150 (PsAddProcessEnergyValues.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopEtEnergyValuesDeltaCalculate @ 0x1406199B8 (PopEtEnergyValuesDeltaCalculate.c)
+ *     PopEtAggregateGet @ 0x14061A308 (PopEtAggregateGet.c)
  */
 
 __int64 __fastcall PopEtEnergyTrackerUpdateAggregate(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -22,7 +22,7 @@ __int64 __fastcall PopEtEnergyTrackerUpdateAggregate(__int64 a1, __int64 a2, __i
   unsigned __int64 v14; // rdx
   unsigned int v15; // r9d
   int v16; // [rsp+20h] [rbp-1F8h] BYREF
-  __int64 v17; // [rsp+28h] [rbp-1F0h] BYREF
+  _DWORD *v17; // [rsp+28h] [rbp-1F0h] BYREF
   _BYTE v18[432]; // [rsp+30h] [rbp-1E8h] BYREF
 
   v17 = 0LL;
@@ -32,8 +32,8 @@ __int64 __fastcall PopEtEnergyTrackerUpdateAggregate(__int64 a1, __int64 a2, __i
   if ( !v16 )
   {
     PopEtAggregateGet(a1, a2 + 16, &v17);
-    v9 = (_DWORD *)v17;
-    PsAddProcessEnergyValues((_QWORD *)(v17 + 48), (__int64)v18);
+    v9 = v17;
+    PsAddProcessEnergyValues((__int64)(v17 + 12), (__int64)v18);
     v10 = *(_DWORD *)(a2 + 484);
     if ( v10 >= 0 )
     {
@@ -67,9 +67,9 @@ __int64 __fastcall PopEtEnergyTrackerUpdateAggregate(__int64 a1, __int64 a2, __i
     v15 = UnbiasedInterruptTime / 0x2710 - v13;
     if ( (unsigned int)(UnbiasedInterruptTime / 0x2710) - *(_DWORD *)(a2 + 488) <= v15 )
       v13 = *(_DWORD *)(a2 + 488);
-    result = (unsigned int)(v14 + v9[126] - v13);
-    v9[126] = result;
-    if ( (unsigned int)result > v15 )
+    result = (unsigned int)(v14 - v13);
+    v9[126] += result;
+    if ( v9[126] > v15 )
       v9[126] = v15;
     *(_DWORD *)(a2 + 488) = v14;
   }

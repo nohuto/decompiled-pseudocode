@@ -1,15 +1,15 @@
 /*
- * XREFs of Controller_ConfigureS0IdleSettings @ 0x1C006F1BC
+ * XREFs of Controller_ConfigureS0IdleSettings @ 0x1C0070814
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006D740 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     Controller_ExecuteDSM @ 0x1C006C218 (Controller_ExecuteDSM.c)
- *     Controller_UpdateIdleTimeout @ 0x1C006C49C (Controller_UpdateIdleTimeout.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Controller_ExecuteDSM @ 0x1C006EEB8 (Controller_ExecuteDSM.c)
+ *     Controller_UpdateIdleTimeout @ 0x1C0075A00 (Controller_UpdateIdleTimeout.c)
  */
 
 __int64 __fastcall Controller_ConfigureS0IdleSettings(_QWORD *a1)
@@ -29,7 +29,7 @@ __int64 __fastcall Controller_ConfigureS0IdleSettings(_QWORD *a1)
   int v14; // [rsp+110h] [rbp+67h] BYREF
 
   v14 = 0;
-  memset(v13, 0, 0x44uLL);
+  memset(v13, 0, 0x48uLL);
   memset(v12, 0, 0x48uLL);
   result = a1[42];
   if ( (result & 0x100000) != 0 )
@@ -38,7 +38,7 @@ __int64 __fastcall Controller_ConfigureS0IdleSettings(_QWORD *a1)
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return result;
     LOBYTE(v2) = 3;
-    result = WPP_RECORDER_SF_(a1[9], v2, 4, 21, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids);
+    result = WPP_RECORDER_SF_(a1[9], v2, 4, 21, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
   }
   else
   {
@@ -59,7 +59,7 @@ __int64 __fastcall Controller_ConfigureS0IdleSettings(_QWORD *a1)
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         LOBYTE(v4) = 4;
-        result = WPP_RECORDER_SF_d(a1[9], v4, 4, 22, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, result);
+        result = WPP_RECORDER_SF_d(a1[9], v4, 4, 22, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, result);
       }
       *((_DWORD *)a1 + 116) = 2;
     }
@@ -71,36 +71,20 @@ __int64 __fastcall Controller_ConfigureS0IdleSettings(_QWORD *a1)
         if ( v5 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
           LOBYTE(v6) = 3;
-          WPP_RECORDER_SF_d(a1[9], v6, 4, 23, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v5);
+          WPP_RECORDER_SF_d(a1[9], v6, 4, 23, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v5);
         }
       }
       ((void (__fastcall *)(_QWORD))v12[3])(v12[1]);
       result = (unsigned int)v14;
-      if ( v14 <= 1 )
-      {
-        *((_DWORD *)a1 + 116) = 2;
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          return result;
-        LOBYTE(v7) = 4;
-        result = WPP_RECORDER_SF_DD(
-                   a1[9],
-                   v7,
-                   4,
-                   24,
-                   (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
-                   result,
-                   1);
-      }
-      else
+      if ( v14 > 1 )
       {
         *((_DWORD *)a1 + 116) = 0;
-        Controller_UpdateIdleTimeout(a1, 10000);
+        Controller_UpdateIdleTimeout(a1, 5000LL);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
           LOBYTE(v8) = 4;
-          WPP_RECORDER_SF_d(a1[9], v8, 4, 25, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, 16);
+          WPP_RECORDER_SF_d(a1[9], v8, 4, 25, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, 136);
         }
-        memset(v13, 0, 0x48uLL);
         v9 = *a1;
         v13[1] = Controller_EvtPostPoFxRegisterDevice;
         v13[2] = Controller_EvtPrePoFxUnregisterDevice;
@@ -119,9 +103,24 @@ __int64 __fastcall Controller_ConfigureS0IdleSettings(_QWORD *a1)
                      v4,
                      4,
                      26,
-                     (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+                     (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
                      result);
         }
+      }
+      else
+      {
+        *((_DWORD *)a1 + 116) = 2;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          return result;
+        LOBYTE(v7) = 4;
+        result = WPP_RECORDER_SF_dd(
+                   a1[9],
+                   v7,
+                   4,
+                   24,
+                   (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
+                   result,
+                   1);
       }
     }
   }
@@ -133,7 +132,7 @@ __int64 __fastcall Controller_ConfigureS0IdleSettings(_QWORD *a1)
              v4,
              4,
              27,
-             (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+             (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
              *((_DWORD *)a1 + 116));
   }
   return result;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OfferAllocation@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00A3248
+ * XREFs of ?OfferAllocation@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00C7C40
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00ABE70 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008EC90 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
  * Callees:
- *     ?MarkGlobalAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z @ 0x1C009FC3C (-MarkGlobalAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z.c)
+ *     ?MarkGlobalAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z @ 0x1C0061D84 (-MarkGlobalAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z.c)
  */
 
 void __fastcall VIDMM_SEGMENT::OfferAllocation(VIDMM_GLOBAL **this, struct _VIDMM_GLOBAL_ALLOC *a2)
@@ -12,28 +12,28 @@ void __fastcall VIDMM_SEGMENT::OfferAllocation(VIDMM_GLOBAL **this, struct _VIDM
   char **v3; // rcx
   char *v4; // rdx
 
-  if ( *((_DWORD *)a2 + 112) == 1 )
+  if ( *((_DWORD *)a2 + 110) == 1 )
   {
-    if ( *(_WORD *)(*((_QWORD *)a2 + 66) + 4LL) == 2 )
+    if ( *(_WORD *)(*((_QWORD *)a2 + 64) + 4LL) == 2 )
     {
-      *((_DWORD *)a2 + 18) |= 0x40u;
-      VIDMM_GLOBAL::MarkGlobalAllocation(this[1], a2, 0LL, 0LL);
+      *((_DWORD *)a2 + 20) |= 0x40u;
+      VIDMM_GLOBAL::MarkGlobalAllocation(this[1], (DXGFASTMUTEX **)a2, 0LL, 0LL);
     }
   }
   else
   {
-    if ( *((_DWORD *)a2 + 112) == 2 )
+    if ( *((_DWORD *)a2 + 110) == 2 )
     {
       v2 = (char *)(this + 35);
     }
     else
     {
-      if ( *((_DWORD *)a2 + 112) != 3 )
+      if ( *((_DWORD *)a2 + 110) != 3 )
         return;
       v2 = (char *)(this + 37);
     }
     v3 = (char **)*((_QWORD *)v2 + 1);
-    v4 = (char *)a2 + 416;
+    v4 = (char *)a2 + 408;
     if ( *v3 != v2 )
       __fastfail(3u);
     *(_QWORD *)v4 = v2;

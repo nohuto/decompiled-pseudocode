@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0230210
+ * XREFs of ?Initialize@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01F7B80
  * Callers:
  *     <none>
  * Callees:

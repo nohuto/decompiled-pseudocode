@@ -8,11 +8,11 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     sub_140584234 @ 0x140584234 (sub_140584234.c)
  *     sub_140584268 @ 0x140584268 (sub_140584268.c)
  *     sub_140584490 @ 0x140584490 (sub_140584490.c)
- *     sub_14069176C @ 0x14069176C (sub_14069176C.c)
+ *     sub_14069174C @ 0x14069174C (sub_14069174C.c)
  */
 
 __int64 __fastcall WbAddWarbirdEncryptionSegment(__int64 a1, __int64 a2, _QWORD *a3)
@@ -51,7 +51,7 @@ __int64 __fastcall WbAddWarbirdEncryptionSegment(__int64 a1, __int64 a2, _QWORD 
   {
     if ( v10 == -1073741198 )
     {
-      v12 = sub_14069176C((int)a1 + 136, a2, v11, (unsigned int)&v18, 16, v16);
+      v12 = sub_14069174C((int)a1 + 136, a2, v11, (unsigned int)&v18, 16, v16);
       if ( v12 >= 0 )
         v12 = sub_140584490(a2);
     }

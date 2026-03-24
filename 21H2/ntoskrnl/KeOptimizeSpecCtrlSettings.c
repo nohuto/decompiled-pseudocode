@@ -1,24 +1,26 @@
 /*
- * XREFs of KeOptimizeSpecCtrlSettings @ 0x1403D5E00
+ * XREFs of KeOptimizeSpecCtrlSettings @ 0x1403C7840
  * Callers:
  *     <none>
  * Callees:
- *     KiUpdateSpeculationControl @ 0x14020C9F0 (KiUpdateSpeculationControl.c)
- *     KeExitRetpoline @ 0x14024B6F8 (KeExitRetpoline.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     KiIsBranchConfusionMitigationDesired @ 0x140418B44 (KiIsBranchConfusionMitigationDesired.c)
- *     KiIsBranchConfusionMitigationSupported @ 0x140418BA4 (KiIsBranchConfusionMitigationSupported.c)
- *     KiIsBranchConfusionPresent @ 0x140418BD8 (KiIsBranchConfusionPresent.c)
- *     KiIsRfdsMitigationDesired @ 0x140418C84 (KiIsRfdsMitigationDesired.c)
- *     KiIsRfdsMitigationSupported @ 0x140418C9C (KiIsRfdsMitigationSupported.c)
- *     KiIsSrsoMitigationDesired @ 0x140418CD8 (KiIsSrsoMitigationDesired.c)
- *     KiIsSrsoMitigationSupported @ 0x140418D80 (KiIsSrsoMitigationSupported.c)
- *     KiSetVirtualMitigationControl @ 0x140418DB8 (KiSetVirtualMitigationControl.c)
- *     HvlIsCoreSharingPossible @ 0x140543410 (HvlIsCoreSharingPossible.c)
- *     HvlIsStibpPairingRecommended @ 0x140543490 (HvlIsStibpPairingRecommended.c)
- *     KiAddSpecCtrlSsbdBit @ 0x140571314 (KiAddSpecCtrlSsbdBit.c)
- *     KiDetectAmdNonArchSsbdSupport @ 0x14057132C (KiDetectAmdNonArchSsbdSupport.c)
+ *     KiUpdateSpeculationControl @ 0x14021ED00 (KiUpdateSpeculationControl.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeExitRetpoline @ 0x14035E888 (KeExitRetpoline.c)
+ *     KiIsBranchConfusionMitigationDesired @ 0x1403F30F4 (KiIsBranchConfusionMitigationDesired.c)
+ *     KiIsBranchConfusionMitigationSupported @ 0x1403F3154 (KiIsBranchConfusionMitigationSupported.c)
+ *     KiIsBranchConfusionPresent @ 0x1403F3180 (KiIsBranchConfusionPresent.c)
+ *     KiIsRfdsMitigationDesired @ 0x1403F328C (KiIsRfdsMitigationDesired.c)
+ *     KiIsRfdsMitigationSupported @ 0x1403F32A4 (KiIsRfdsMitigationSupported.c)
+ *     KiIsSrsoMitigationDesired @ 0x1403F32E8 (KiIsSrsoMitigationDesired.c)
+ *     KiIsSrsoMitigationSupported @ 0x1403F3390 (KiIsSrsoMitigationSupported.c)
+ *     KiIsTsaMitigationDesired @ 0x1403F33D0 (KiIsTsaMitigationDesired.c)
+ *     KiIsTsaMitigationSupported @ 0x1403F33EC (KiIsTsaMitigationSupported.c)
+ *     KiSetVirtualMitigationControl @ 0x1403F34D0 (KiSetVirtualMitigationControl.c)
+ *     HvlIsCoreSharingPossible @ 0x1404F1B10 (HvlIsCoreSharingPossible.c)
+ *     HvlIsStibpPairingRecommended @ 0x1404F1B7C (HvlIsStibpPairingRecommended.c)
+ *     KiAddSpecCtrlSsbdBit @ 0x14051B5C0 (KiAddSpecCtrlSsbdBit.c)
+ *     KiDetectAmdNonArchSsbdSupport @ 0x14051B5D8 (KiDetectAmdNonArchSsbdSupport.c)
  */
 
 ULONG_PTR __fastcall KeOptimizeSpecCtrlSettings(ULONG_PTR Argument)
@@ -26,7 +28,7 @@ ULONG_PTR __fastcall KeOptimizeSpecCtrlSettings(ULONG_PTR Argument)
   struct _KPRCB *CurrentPrcb; // rbx
   __int64 CoreProcessorSet; // rdx
   __int64 v4; // rcx
-  unsigned __int64 v5; // r11
+  unsigned __int64 v5; // r10
   __int64 v6; // r9
   __int64 v7; // r8
   unsigned __int64 v8; // rcx
@@ -34,41 +36,47 @@ ULONG_PTR __fastcall KeOptimizeSpecCtrlSettings(ULONG_PTR Argument)
   unsigned __int64 v10; // r8
   signed __int32 v11; // eax
   unsigned int v12; // edi
-  unsigned int v13; // eax
-  __int16 v14; // r10
-  __int16 v15; // ax
-  unsigned __int16 v16; // ax
+  __int64 v13; // rdx
+  __int64 v14; // r10
+  __int16 v15; // r11
+  __int16 v16; // ax
+  unsigned __int16 v17; // ax
   unsigned __int16 *p_BpbNmiSpecCtrl; // rcx
-  unsigned __int64 v18; // rax
-  __int64 v19; // rcx
-  signed __int32 v20; // eax
-  int v21; // edi
-  unsigned int v22; // eax
-  __int64 v23; // r9
-  unsigned __int64 v24; // rcx
-  unsigned __int64 v25; // rax
-  char v26; // cl
-  unsigned __int64 v27; // rax
-  int v28; // ecx
-  __int64 v29; // rax
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  __int64 v32; // r8
-  __int64 v33; // r9
-  unsigned __int64 v34; // rax
-  unsigned __int64 v35; // rax
-  unsigned __int64 v36; // rax
-  signed __int32 v37; // eax
-  unsigned int v38; // edi
-  unsigned __int16 v39; // ax
-  unsigned int v40; // eax
-  _DWORD v42[6]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned __int64 v19; // rax
+  unsigned __int16 *v20; // rcx
+  signed __int32 v21; // eax
+  int v22; // edi
+  unsigned int i; // eax
+  __int64 v24; // rcx
+  __int64 v25; // r9
+  __int64 v26; // rdx
+  unsigned __int64 v27; // rcx
+  __int64 v28; // rdx
+  unsigned __int64 v29; // rax
+  char v30; // cl
+  unsigned __int64 v31; // rax
+  int v32; // ecx
+  __int64 v33; // rax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  __int64 v37; // r9
+  unsigned __int64 v38; // rax
+  unsigned __int64 v39; // rax
+  unsigned __int64 v40; // rax
+  unsigned __int64 v41; // rax
+  signed __int32 v42; // eax
+  unsigned int v43; // edi
+  unsigned __int16 v44; // ax
+  unsigned int v45; // eax
+  _DWORD v47[6]; // [rsp+20h] [rbp-18h] BYREF
   __int16 BpbKernelSpecCtrl; // [rsp+80h] [rbp+48h] BYREF
-  int v44; // [rsp+88h] [rbp+50h] BYREF
-  int v45; // [rsp+90h] [rbp+58h] BYREF
-  int v46; // [rsp+98h] [rbp+60h]
+  int v49; // [rsp+88h] [rbp+50h] BYREF
+  int v50; // [rsp+90h] [rbp+58h] BYREF
+  int v51; // [rsp+98h] [rbp+60h]
 
   CurrentPrcb = KeGetCurrentPrcb();
+  BpbKernelSpecCtrl = 0;
   CoreProcessorSet = CurrentPrcb->CoreProcessorSet;
   if ( ((CoreProcessorSet - 1) & CoreProcessorSet) != 0 )
     _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 2uLL);
@@ -143,17 +151,16 @@ LABEL_35:
   v10 = 0x80000000LL;
   if ( Argument )
   {
+    v49 = 0;
     v11 = _InterlockedDecrement((volatile signed __int32 *)Argument);
     v12 = ~v11 & 0x80000000;
     if ( (v11 & 0x7FFFFFFF) != 0 )
     {
-      v13 = *(_DWORD *)Argument & 0x80000000;
-      v44 = 0;
-      if ( v13 != v12 )
+      if ( (*(_DWORD *)Argument & 0x80000000) != v12 )
       {
         do
         {
-          KeYieldProcessorEx(&v44, CoreProcessorSet, 0x80000000LL, v6);
+          KeYieldProcessorEx(&v49, CoreProcessorSet, 0x80000000LL, v6);
           v10 = 0x80000000LL;
         }
         while ( (*(_DWORD *)Argument & 0x80000000) != v12 );
@@ -177,46 +184,48 @@ LABEL_35:
     {
       BpbKernelSpecCtrl = CurrentPrcb->BpbKernelSpecCtrl;
       KiAddSpecCtrlSsbdBit(&BpbKernelSpecCtrl, CoreProcessorSet, 0x80000000LL);
-      v39 = BpbKernelSpecCtrl;
+      v44 = BpbKernelSpecCtrl;
       CurrentPrcb->BpbKernelSpecCtrl = BpbKernelSpecCtrl;
-      CurrentPrcb->BpbUserSpecCtrl = v39;
+      CurrentPrcb->BpbUserSpecCtrl = v44;
     }
-    goto LABEL_160;
+    goto LABEL_169;
   }
   _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x1000000000uLL);
   CurrentPrcb->BpbFeatures |= 2u;
-  v14 = 1024;
+  v13 = 0x2000LL;
+  v14 = 0x4000LL;
+  v15 = 1024;
   if ( (KiSpeculationFeatures & 1) != 0 )
   {
     BpbKernelSpecCtrl = 1;
     if ( (KiSpeculationFeatures & 0x4000) != 0 )
     {
-      v15 = 3;
+      v16 = 3;
       BpbKernelSpecCtrl = 3;
     }
     else
     {
-      v15 = BpbKernelSpecCtrl;
+      v16 = BpbKernelSpecCtrl;
     }
-    CurrentPrcb->BpbKernelSpecCtrl = v15;
-    CurrentPrcb->BpbUserSpecCtrl = v15;
-    CurrentPrcb->BpbRetpolineExitSpecCtrl = v15;
-    if ( ((unsigned __int64)KiSpeculationFeatures & v5) != 0 || ((unsigned __int64)KiSpeculationFeatures & v6) != 0 )
+    CurrentPrcb->BpbKernelSpecCtrl = v16;
+    CurrentPrcb->BpbUserSpecCtrl = v16;
+    CurrentPrcb->BpbRetpolineExitSpecCtrl = v16;
+    if ( (KiSpeculationFeatures & 0x4000000000LL) != 0 || ((unsigned __int64)KiSpeculationFeatures & v6) != 0 )
     {
       BpbKernelSpecCtrl = CurrentPrcb->BpbKernelSpecCtrl;
-      KiAddSpecCtrlSsbdBit(&BpbKernelSpecCtrl, CoreProcessorSet, 0x80000000LL);
-      v16 = BpbKernelSpecCtrl;
+      KiAddSpecCtrlSsbdBit(&BpbKernelSpecCtrl, 0x2000LL, 0x80000000LL);
+      v17 = BpbKernelSpecCtrl;
       CurrentPrcb->BpbKernelSpecCtrl = BpbKernelSpecCtrl;
-      CurrentPrcb->BpbUserSpecCtrl = v16;
-      CurrentPrcb->BpbRetpolineExitSpecCtrl = v16;
+      CurrentPrcb->BpbUserSpecCtrl = v17;
+      CurrentPrcb->BpbRetpolineExitSpecCtrl = v17;
     }
     p_BpbNmiSpecCtrl = &CurrentPrcb->BpbNmiSpecCtrl;
     CurrentPrcb->BpbNmiSpecCtrl = 1;
-    if ( ((unsigned __int64)KiSpeculationFeatures & v5) != 0 || ((unsigned __int64)KiSpeculationFeatures & v6) != 0 )
-      KiAddSpecCtrlSsbdBit(p_BpbNmiSpecCtrl, CoreProcessorSet, v10);
-    if ( (KiSpeculationFeatures & 0x4000) != 0 )
+    if ( (KiSpeculationFeatures & 0x4000000000LL) != 0 || ((unsigned __int64)KiSpeculationFeatures & v6) != 0 )
+      KiAddSpecCtrlSsbdBit(p_BpbNmiSpecCtrl, v13, v10);
+    if ( ((unsigned __int64)KiSpeculationFeatures & v14) != 0 )
       *p_BpbNmiSpecCtrl |= 2u;
-    if ( (KiSpeculationFeatures & 0x2000) != 0 )
+    if ( ((unsigned __int64)KiSpeculationFeatures & v13) != 0 )
       *p_BpbNmiSpecCtrl |= 0x80u;
     if ( (KiSpeculationFeatures & 0x10000) != 0 )
     {
@@ -231,23 +240,26 @@ LABEL_35:
         if ( (KiSpeculationFeatures & 0x20000) != 0 )
         {
           _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x40000000000000uLL);
-          CurrentPrcb->BpbKernelSpecCtrl |= v14;
-          CurrentPrcb->BpbRetpolineExitSpecCtrl |= v14;
-          CurrentPrcb->BpbUserSpecCtrl |= v14;
-          *p_BpbNmiSpecCtrl |= v14;
+          CurrentPrcb->BpbKernelSpecCtrl |= v15;
+          CurrentPrcb->BpbRetpolineExitSpecCtrl |= v15;
+          CurrentPrcb->BpbUserSpecCtrl |= v15;
+          *p_BpbNmiSpecCtrl |= v15;
           goto LABEL_68;
         }
-        v18 = 0x20000000000000LL;
+        v19 = 0x20000000000000LL;
       }
       else
       {
-        v18 = 0x10000000000000LL;
+        v19 = 0x10000000000000LL;
       }
-      _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, v18);
+      _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, v19);
     }
 LABEL_68:
     if ( ((unsigned __int64)KiSpeculationFeatures & v6) == 0 )
-      goto LABEL_160;
+    {
+      v5 = 0x4000000000LL;
+      goto LABEL_169;
+    }
   }
   if ( (KiSpeculationFeatures & 0x10) != 0 )
   {
@@ -257,41 +269,39 @@ LABEL_68:
   {
     CurrentPrcb->BpbNmiSpecCtrl = 2;
   }
-  v19 = (__int64)&CurrentPrcb->PrcbPad12c[2];
-  if ( (KiSpeculationFeatures & 0x4000) != 0 )
-    *(_WORD *)v19 |= 2u;
-  if ( (KiSpeculationFeatures & 0x2000) != 0 )
+  v20 = &CurrentPrcb->BpbNmiSpecCtrl;
+  if ( ((unsigned __int64)KiSpeculationFeatures & v14) != 0 )
+    *v20 |= 2u;
+  if ( ((unsigned __int64)KiSpeculationFeatures & v13) != 0 )
   {
-    v19 = (__int64)&CurrentPrcb->PrcbPad12c[2];
+    v20 = &CurrentPrcb->BpbNmiSpecCtrl;
     CurrentPrcb->BpbNmiSpecCtrl |= 0x80u;
   }
-  if ( ((unsigned __int64)KiSpeculationFeatures & v5) != 0 || ((unsigned __int64)KiSpeculationFeatures & v6) != 0 )
-    KiAddSpecCtrlSsbdBit(v19, CoreProcessorSet, v10);
+  v5 = 0x4000000000LL;
+  if ( (KiSpeculationFeatures & 0x4000000000LL) != 0 || ((unsigned __int64)KiSpeculationFeatures & v6) != 0 )
+    KiAddSpecCtrlSsbdBit(v20, v13, v10);
   if ( (KiSpeculationFeatures & 1) == 0 )
   {
     if ( Argument )
     {
-      v20 = _InterlockedDecrement((volatile signed __int32 *)Argument);
-      v21 = v10 & ~v20;
-      if ( (v20 & 0x7FFFFFFF) != 0 )
+      v50 = 0;
+      v21 = _InterlockedDecrement((volatile signed __int32 *)Argument);
+      v22 = v10 & ~v21;
+      if ( (v21 & 0x7FFFFFFF) != 0 )
       {
-        v22 = v10 & *(_DWORD *)Argument;
-        v45 = 0;
-        while ( v22 != v21 )
-        {
-          KeYieldProcessorEx(&v45, CoreProcessorSet, v10, v6);
-          v22 = *(_DWORD *)Argument & 0x80000000;
-        }
+        for ( i = v10 & *(_DWORD *)Argument; i != v22; i = *(_DWORD *)Argument & 0x80000000 )
+          KeYieldProcessorEx(&v50, v13, v10, v6);
       }
       else
       {
-        *(_DWORD *)Argument = v21 | *(_DWORD *)(Argument + 4);
+        *(_DWORD *)Argument = v22 | *(_DWORD *)(Argument + 4);
       }
     }
+    v24 = 0x20000000000LL;
     if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
     {
       CurrentPrcb->BpbRetpolineState |= 4u;
-      KeExitRetpoline(v19, CoreProcessorSet, v10);
+      KeExitRetpoline(0x20000000000LL, v13, v10);
     }
     if ( (KiSpeculationFeatures & 2) != 0
       && (KiSpeculationFeatures & 0x4000) == 0
@@ -301,142 +311,160 @@ LABEL_68:
       _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x200000000uLL);
       CurrentPrcb->BpbFeatures |= 1u;
     }
-    v23 = 0LL;
-    if ( (KiSpeculationFeatures & 2) != 0
-      && (KiSpeculationFeatures & 0x40) != 0
-      && (KiSpeculationFeatures & 0x10) != 0
-      && (KiSpeculationFeatures & 0x4000) == 0
-      && (KiSpeculationFeatures & 0x10000000000LL) == 0 )
+    v25 = 0LL;
+    if ( (KiSpeculationFeatures & 2) != 0 && (KiSpeculationFeatures & 0x40) != 0 && (KiSpeculationFeatures & 0x10) != 0 )
     {
+      v26 = 0x10000000000LL;
+      if ( (KiSpeculationFeatures & 0x4000) != 0 || (KiSpeculationFeatures & 0x10000000000LL) != 0 )
+        goto LABEL_108;
       v10 = CurrentPrcb->CoreProcessorSet;
-      v24 = v10 - ((v10 >> 1) & 0x5555555555555555LL);
-      CoreProcessorSet = v24 & 0x3333333333333333LL;
-      v25 = ((v24 & 0x3333333333333333LL)
-           + ((v24 >> 2) & 0x3333333333333333LL)
-           + (((v24 & 0x3333333333333333LL) + ((v24 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL;
-      v19 = 0x101010101010101LL;
-      if ( (0x101010101010101LL * v25) >> 56 == 2
+      v27 = v10 - ((v10 >> 1) & 0x5555555555555555LL);
+      v28 = v27 & 0x3333333333333333LL;
+      v29 = ((v27 & 0x3333333333333333LL)
+           + ((v27 >> 2) & 0x3333333333333333LL)
+           + (((v27 & 0x3333333333333333LL) + ((v27 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL;
+      v24 = 0x101010101010101LL;
+      if ( (0x101010101010101LL * v29) >> 56 == 2
         && (!HvlHypervisorConnected
-         || !(unsigned __int8)HvlIsCoreSharingPossible(0x101010101010101LL, CoreProcessorSet, v10, 0LL)
+         || !(unsigned __int8)HvlIsCoreSharingPossible(0x101010101010101LL, v28, v10, 0LL)
          || (HvlpFlags & 2) != 0 && (unsigned __int8)HvlIsStibpPairingRecommended()) )
       {
-        v26 = CurrentPrcb->GroupIndex + 1;
-        _BitScanForward64(&v27, __ROR8__(v10, v26));
-        v28 = ((_BYTE)v27 + v26) & 0x3F;
-        v29 = v28 + (CurrentPrcb->Group << 6);
-        v46 = v28;
-        CurrentPrcb->PairPrcb = (_KPRCB *)KeGetPrcb(KiProcessorNumberToIndexMappingTable[v29]);
-        v23 = 1LL;
+        v30 = CurrentPrcb->GroupIndex + 1;
+        _BitScanForward64(&v31, __ROR8__(v10, v30));
+        v32 = ((_BYTE)v31 + v30) & 0x3F;
+        v33 = v32 + (CurrentPrcb->Group << 6);
+        v51 = v32;
+        CurrentPrcb->PairPrcb = (_KPRCB *)KeGetPrcb(KiProcessorNumberToIndexMappingTable[v33]);
+        v25 = 1LL;
         CurrentPrcb->PairRegister = 6;
       }
     }
+    v26 = 0x10000000000LL;
+LABEL_108:
     if ( (KiFeatureSettings & 0x20) != 0 && (KiSpeculationFeatures & 2) != 0 && (KiSpeculationFeatures & 0x40) != 0
       || (KiSpeculationFeatures & 2) != 0
       && (KiSpeculationFeatures & 0x40) != 0
-      && !(_DWORD)v23
+      && !(_DWORD)v25
       && (KiSpeculationFeatures & 0x10000000000LL) == 0
       && HvlHypervisorConnected
-      && (unsigned __int8)HvlIsCoreSharingPossible(v19, CoreProcessorSet, v10, v23) )
+      && (unsigned __int8)HvlIsCoreSharingPossible(v24, 0x10000000000LL, v10, v25) )
     {
       _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x100000000uLL);
     }
     if ( (KiSpeculationFeatures & 2) != 0
       && (KiSpeculationFeatures & 0x40) != 0
       && (KiSpeculationFeatures & 0x4000) != 0
-      && !(_DWORD)v23
-      && (KiSpeculationFeatures & 0x10000000000LL) == 0 )
+      && !(_DWORD)v25
+      && ((unsigned __int64)KiSpeculationFeatures & v26) == 0 )
     {
       _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x80000000000uLL);
     }
     if ( CurrentPrcb->CpuVendor == 1 && (KiSpeculationFeatures & 0x10) == 0 && (KiFeatureSettings & 0x40) == 0 )
     {
       _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x2000000000uLL);
-LABEL_127:
+LABEL_128:
       v5 = 0x4000000000LL;
-      goto LABEL_160;
+      goto LABEL_169;
     }
-    if ( (unsigned int)KiIsBranchConfusionPresent(CurrentPrcb, CoreProcessorSet, v10, v23) )
+    if ( (unsigned int)KiIsBranchConfusionPresent(CurrentPrcb, v26, v10) )
     {
       _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x8000uLL);
       if ( (unsigned int)KiIsBranchConfusionMitigationDesired(CurrentPrcb, &KiSpeculationFeatures) )
       {
-        if ( (unsigned int)KiIsBranchConfusionMitigationSupported(v31, &KiSpeculationFeatures) )
-          goto LABEL_134;
-        v34 = 0x200000000000LL;
+        if ( (unsigned int)KiIsBranchConfusionMitigationSupported(v35, &KiSpeculationFeatures) )
+          goto LABEL_135;
+        v38 = 0x200000000000LL;
       }
       else
       {
-        v34 = 0x100000000000LL;
+        v38 = 0x100000000000LL;
       }
-      _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, v34);
+      _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, v38);
     }
-LABEL_134:
-    if ( (KiSpeculationFeatures & 0x200000) == 0 )
-      goto LABEL_140;
-    if ( (unsigned int)KiIsSrsoMitigationSupported(v31, &KiSpeculationFeatures) )
+LABEL_135:
+    if ( (KiSpeculationFeatures & 0x2000000) == 0 )
+      goto LABEL_142;
+    if ( (unsigned int)KiIsTsaMitigationDesired() )
     {
-      if ( (unsigned int)KiIsSrsoMitigationDesired(CurrentPrcb, &KiSpeculationFeatures) )
-        goto LABEL_140;
-      v35 = 0x800000000000LL;
+      if ( (unsigned int)KiIsTsaMitigationSupported(CurrentPrcb) )
+      {
+        CurrentPrcb->BpbFeatures |= 0x40u;
+LABEL_142:
+        if ( (KiSpeculationFeatures & 0x200000) == 0 )
+          goto LABEL_148;
+        if ( (unsigned int)KiIsSrsoMitigationSupported(v35, &KiSpeculationFeatures) )
+        {
+          if ( (unsigned int)KiIsSrsoMitigationDesired(CurrentPrcb, &KiSpeculationFeatures) )
+            goto LABEL_148;
+          v40 = 0x800000000000LL;
+        }
+        else
+        {
+          v40 = 0x1000000000000LL;
+        }
+        _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, v40);
+LABEL_148:
+        if ( (KiSpeculationFeatures & 0x10000) != 0 )
+        {
+          if ( (KiFeatureSettings & 0x800000) == 0 )
+          {
+            v41 = 0x10000000000000LL;
+LABEL_156:
+            _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, v41);
+            goto LABEL_157;
+          }
+          if ( BYTE12(KiSpeculationFeatures) )
+          {
+            _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x80000000000000uLL);
+            CurrentPrcb->BpbFeatures ^= (CurrentPrcb->BpbFeatures ^ (16 * BYTE12(KiSpeculationFeatures))) & 0x30;
+          }
+          else
+          {
+            if ( (KiSpeculationFeatures & 0x20000) == 0 )
+            {
+              v41 = 0x20000000000000LL;
+              goto LABEL_156;
+            }
+            _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x40000000000000uLL);
+            CurrentPrcb->BpbKernelSpecCtrl |= 0x400u;
+            CurrentPrcb->BpbRetpolineExitSpecCtrl |= 0x400u;
+            CurrentPrcb->BpbUserSpecCtrl |= 0x400u;
+            CurrentPrcb->BpbNmiSpecCtrl |= 0x400u;
+          }
+        }
+LABEL_157:
+        if ( Argument )
+        {
+          v42 = _InterlockedDecrement((volatile signed __int32 *)Argument);
+          v43 = ~v42 & 0x80000000;
+          if ( (v42 & 0x7FFFFFFF) != 0 )
+          {
+            v47[0] = 0;
+            while ( (*(_DWORD *)Argument & 0x80000000) != v43 )
+              KeYieldProcessorEx(v47, v34, v36, v37);
+          }
+          else
+          {
+            *(_DWORD *)Argument = v43 | *(_DWORD *)(Argument + 4);
+          }
+        }
+        KiUpdateSpeculationControl(KeGetCurrentThread()->ApcState.Process);
+        goto LABEL_128;
+      }
+      v39 = 0x400000000000000LL;
     }
     else
     {
-      v35 = 0x1000000000000LL;
+      v39 = 0x200000000000000LL;
     }
-    _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, v35);
-LABEL_140:
-    if ( (KiSpeculationFeatures & 0x10000) != 0 )
-    {
-      if ( (KiFeatureSettings & 0x800000) == 0 )
-      {
-        v36 = 0x10000000000000LL;
-LABEL_148:
-        _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, v36);
-        goto LABEL_149;
-      }
-      if ( BYTE12(KiSpeculationFeatures) )
-      {
-        _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x80000000000000uLL);
-        CurrentPrcb->BpbFeatures ^= (CurrentPrcb->BpbFeatures ^ (16 * BYTE12(KiSpeculationFeatures))) & 0x30;
-      }
-      else
-      {
-        if ( (KiSpeculationFeatures & 0x20000) == 0 )
-        {
-          v36 = 0x20000000000000LL;
-          goto LABEL_148;
-        }
-        _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x40000000000000uLL);
-        CurrentPrcb->BpbKernelSpecCtrl |= 0x400u;
-        CurrentPrcb->BpbRetpolineExitSpecCtrl |= 0x400u;
-        CurrentPrcb->BpbUserSpecCtrl |= 0x400u;
-        CurrentPrcb->BpbNmiSpecCtrl |= 0x400u;
-      }
-    }
-LABEL_149:
-    if ( Argument )
-    {
-      v37 = _InterlockedDecrement((volatile signed __int32 *)Argument);
-      v38 = ~v37 & 0x80000000;
-      if ( (v37 & 0x7FFFFFFF) != 0 )
-      {
-        v42[0] = 0;
-        while ( (*(_DWORD *)Argument & 0x80000000) != v38 )
-          KeYieldProcessorEx(v42, v30, v32, v33);
-      }
-      else
-      {
-        *(_DWORD *)Argument = v38 | *(_DWORD *)(Argument + 4);
-      }
-    }
-    KiUpdateSpeculationControl(KeGetCurrentThread()->ApcState.Process);
-    goto LABEL_127;
+    _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, v39);
+    goto LABEL_142;
   }
-LABEL_160:
-  v40 = CurrentPrcb->BpbKernelSpecCtrl;
-  CurrentPrcb->BpbCurrentSpecCtrl = v40;
-  if ( (_WORD)v40 )
-    __writemsr(0x48u, v40);
+LABEL_169:
+  v45 = CurrentPrcb->BpbKernelSpecCtrl;
+  CurrentPrcb->BpbCurrentSpecCtrl = v45;
+  if ( (_WORD)v45 )
+    __writemsr(0x48u, v45);
   if ( ((unsigned __int64)KiSpeculationFeatures & v5) != 0 && KiSsbdMsr != 72 )
     __writemsr(KiSsbdMsr, KiSsbdBit | __readmsr(KiSsbdMsr));
   KiSetVirtualMitigationControl(CurrentPrcb);

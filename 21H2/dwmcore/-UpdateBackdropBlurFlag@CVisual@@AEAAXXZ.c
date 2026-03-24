@@ -1,80 +1,99 @@
 /*
- * XREFs of ?UpdateBackdropBlurFlag@CVisual@@AEAAXXZ @ 0x18008C4FC
+ * XREFs of ?UpdateBackdropBlurFlag@CVisual@@AEAAXXZ @ 0x18009D7BC
  * Callers:
- *     ?UpdateContentFlags@CVisual@@AEAAXXZ @ 0x18008C488 (-UpdateContentFlags@CVisual@@AEAAXXZ.c)
+ *     ?SetContent@CVisual@@MEAAJPEAVCContent@@@Z @ 0x18009D960 (-SetContent@CVisual@@MEAAJPEAVCContent@@@Z.c)
  * Callees:
- *     ?UpdateHasBackdropInputFlag@CVisual@@IEAAXPEBVCBackdropBrush@@@Z @ 0x18008C6E4 (-UpdateHasBackdropInputFlag@CVisual@@IEAAXPEBVCBackdropBrush@@@Z.c)
- *     ??0DbgString@DwmDbg@@QEAA@QEBDZZ @ 0x18008D5F4 (--0DbgString@DwmDbg@@QEAA@QEBDZZ.c)
- *     ?LogBrushEtwEvent@Backdrops@DwmDbg@@YAXVDbgString@2@PEBVCVisual@@0@Z @ 0x18008E708 (-LogBrushEtwEvent@Backdrops@DwmDbg@@YAXVDbgString@2@PEBVCVisual@@0@Z.c)
- *     ?GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ @ 0x1800D52C4 (-GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetContentAsBrushNoRef@CVisual@@QEBA_NPEAPEAVCBrush@@@Z @ 0x18009D904 (-GetContentAsBrushNoRef@CVisual@@QEBA_NPEAPEAVCBrush@@@Z.c)
+ *     ?PropagateBackdropUpdates@CVisual@@AEAAXHH@Z @ 0x18009F824 (-PropagateBackdropUpdates@CVisual@@AEAAXHH@Z.c)
+ *     ?GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ @ 0x1800C1728 (-GetBrushGraph@CBrush@@QEAAPEAVCBrushRenderingGraph@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall CVisual::UpdateBackdropBlurFlag(CVisual *this)
+void __fastcall CVisual::UpdateBackdropBlurFlag(CVisual **this)
 {
-  const struct CBackdropBrush *v2; // r15
-  __int64 v3; // rcx
-  unsigned __int8 v4; // si
-  char v5; // r14
-  unsigned __int8 v6; // bp
-  CBrush *v7; // rbx
+  char v2; // bp
+  char v3; // si
+  char v4; // di
+  CBrush *v5; // rdi
   struct CBrushRenderingGraph *BrushGraph; // rax
-  __int64 v9; // rbx
-  __int64 v10; // rax
-  __int64 v11; // rbx
-  __int64 v12; // rax
-  char v13; // [rsp+50h] [rbp+8h] BYREF
-  char v14; // [rsp+58h] [rbp+10h] BYREF
+  char v7; // dl
+  int v8; // r9d
+  CVisual *v9; // rcx
+  char v10; // dl
+  CVisual *v11; // rcx
+  CBrush *v12; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = 0LL;
-  v3 = *((_QWORD *)this + 32);
+  v2 = 0;
+  v3 = 0;
   v4 = 0;
-  v5 = 0;
-  v6 = 0;
-  if ( v3 && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v3 + 56LL))(v3, 15LL) )
+  if ( CVisual::GetContentAsBrushNoRef((CVisual *)this, &v12) )
   {
-    v7 = (CBrush *)*((_QWORD *)this + 32);
-    if ( (*(unsigned __int8 (__fastcall **)(CBrush *, __int64))(*(_QWORD *)v7 + 56LL))(v7, 203LL) )
+    v5 = v12;
+    if ( (*(unsigned __int8 (__fastcall **)(CBrush *, __int64))(*(_QWORD *)v12 + 56LL))(v12, 202LL) )
     {
-      v5 = 1;
-    }
-    else if ( (*(unsigned __int8 (__fastcall **)(CBrush *, __int64))(*(_QWORD *)v7 + 56LL))(v7, 13LL) )
-    {
-      v4 = 1;
+      v3 = 1;
+      v4 = 0;
     }
     else
     {
-      BrushGraph = CBrush::GetBrushGraph(v7);
+      BrushGraph = CBrush::GetBrushGraph(v5);
+      v4 = 0;
       if ( BrushGraph )
       {
-        v6 = *((_BYTE *)BrushGraph + 196);
-        v2 = (const struct CBackdropBrush *)*((_QWORD *)BrushGraph + 26);
-        v5 = *((_BYTE *)BrushGraph + 198);
+        v2 = *((_BYTE *)BrushGraph + 196);
+        v3 = *((_BYTE *)BrushGraph + 198);
         v4 = *((_BYTE *)BrushGraph + 197);
       }
     }
   }
-  if ( dword_1803D0F60 )
+  if ( v4 != ((*((_BYTE *)this + 94) & 8) != 0) )
+    *((_BYTE *)this + 94) ^= (*((_BYTE *)this + 94) ^ (8 * v4)) & 8;
+  v7 = *((_BYTE *)this + 264);
+  v8 = -1;
+  if ( v2 != (v7 & 1) )
   {
-    if ( v6 != ((*((_BYTE *)this + 102) & 8) != 0) )
+    v11 = this[10];
+    if ( v2 )
     {
-      v9 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)&v13, "m_fIsBackdropBlur=%d", v6);
-      v10 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)&v14, "Visual-IsBackdropBlurFlagChanged");
-      DwmDbg::Backdrops::LogBrushEtwEvent(v10, this, v9);
+      if ( v11 )
+      {
+        CVisual::PropagateBackdropUpdates(v11, 1, 0);
+        v7 = *((_BYTE *)this + 264);
+      }
+      v7 |= 1u;
     }
-    if ( v4 != ((*((_BYTE *)this + 272) & 2) != 0) )
+    else
     {
-      v11 = DwmDbg::DbgString::DbgString((DwmDbg::DbgString *)&v13, "m_fHasBlurredWallpaperBackdropInput=%d", v4);
-      v12 = DwmDbg::DbgString::DbgString(
-              (DwmDbg::DbgString *)&v14,
-              "Visual-HasBlurredWallpaperBackdropInputFlagChanged");
-      DwmDbg::Backdrops::LogBrushEtwEvent(v12, this, v11);
+      if ( v11 )
+      {
+        CVisual::PropagateBackdropUpdates(v11, -1, 0);
+        v7 = *((_BYTE *)this + 264);
+      }
+      v7 &= ~1u;
     }
+    *((_BYTE *)this + 264) = v7;
   }
-  *((_BYTE *)this + 102) &= ~8u;
-  *((_BYTE *)this + 272) &= ~2u;
-  *((_BYTE *)this + 102) |= 8 * (v6 & 1);
-  *((_BYTE *)this + 272) |= 2 * (v4 & 1);
-  CVisual::UpdateHasBackdropInputFlag(this, v2);
-  CVisual::UpdateHasWindowBackdropInputFlag(this, v5);
+  if ( v3 != ((v7 & 2) != 0) )
+  {
+    v9 = this[10];
+    if ( v3 )
+    {
+      if ( v9 )
+      {
+        CVisual::PropagateBackdropUpdates(v9, 0, 1);
+        v7 = *((_BYTE *)this + 264);
+      }
+      v10 = v7 | 2;
+    }
+    else
+    {
+      if ( v9 )
+      {
+        CVisual::PropagateBackdropUpdates(v9, 0, v8);
+        v7 = *((_BYTE *)this + 264);
+      }
+      v10 = v7 & 0xFD;
+    }
+    *((_BYTE *)this + 264) = v10;
+  }
 }

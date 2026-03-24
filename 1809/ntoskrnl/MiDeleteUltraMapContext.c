@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteUltraMapContext @ 0x1400E1824
+ * XREFs of MiDeleteUltraMapContext @ 0x1400E1844
  * Callers:
- *     MiDeleteUltraThreadContext @ 0x1400E17EC (MiDeleteUltraThreadContext.c)
- *     MiReclaimUnusedUltraMdlMaps @ 0x1400F0A94 (MiReclaimUnusedUltraMdlMaps.c)
- *     MiGetUltraMdlContext @ 0x1402CDEEC (MiGetUltraMdlContext.c)
+ *     MiDeleteUltraThreadContext @ 0x1400E180C (MiDeleteUltraThreadContext.c)
+ *     MiReclaimUnusedUltraMdlMaps @ 0x1400F0AB4 (MiReclaimUnusedUltraMdlMaps.c)
+ *     MiGetUltraMdlContext @ 0x1402CDFEC (MiGetUltraMdlContext.c)
  * Callees:
  *     MiGetUltraMapping @ 0x14003A740 (MiGetUltraMapping.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     MiReleaseNonPagedResources @ 0x1400E18C8 (MiReleaseNonPagedResources.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
  */
 
 void __fastcall MiDeleteUltraMapContext(__int64 a1, unsigned int a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C011BD28
+ * XREFs of ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C00D7B24
  * Callers:
- *     xxxSetInformationThread @ 0x1C00A6350 (xxxSetInformationThread.c)
+ *     xxxSetInformationThread @ 0x1C00D9030 (xxxSetInformationThread.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     IsPrivileged @ 0x1C00A2D80 (IsPrivileged.c)
- *     ?NotifyLogon@@YAHK@Z @ 0x1C011BFB8 (-NotifyLogon@@YAHK@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?NotifyLogon@@YAHK@Z @ 0x1C00D7AF0 (-NotifyLogon@@YAHK@Z.c)
+ *     IsPrivileged @ 0x1C011D5EC (IsPrivileged.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!

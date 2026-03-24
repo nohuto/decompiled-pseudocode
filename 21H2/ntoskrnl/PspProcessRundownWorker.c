@@ -1,18 +1,18 @@
 /*
- * XREFs of PspProcessRundownWorker @ 0x1409B17B0
+ * XREFs of PspProcessRundownWorker @ 0x14090B130
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PspRundownSingleProcess @ 0x140683990 (PspRundownSingleProcess.c)
- *     PsGetNextProcess @ 0x1407B6B90 (PsGetNextProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
+ *     PsGetNextProcess @ 0x1406CE7A0 (PsGetNextProcess.c)
  */
 
 __int64 PspProcessRundownWorker()
 {
-  __int64 *v0; // rcx
-  __int64 *NextProcess; // rax
-  __int64 *v2; // rbx
+  _QWORD *v0; // rcx
+  unsigned __int64 NextProcess; // rax
+  void *v2; // rbx
   void *v3; // rbx
   __int64 result; // rax
 
@@ -23,12 +23,12 @@ __int64 PspProcessRundownWorker()
     while ( 1 )
     {
       NextProcess = PsGetNextProcess(v0);
-      v2 = NextProcess;
+      v2 = (void *)NextProcess;
       if ( !NextProcess )
         break;
-      if ( _interlockedbittestandreset((volatile signed __int32 *)NextProcess + 280, 8u) )
+      if ( _interlockedbittestandreset((volatile signed __int32 *)(NextProcess + 1120), 8u) )
       {
-        PspRundownSingleProcess((__int64)NextProcess, 0);
+        PspRundownSingleProcess(NextProcess, 0);
         ObfDereferenceObjectWithTag(v2, 0x77537350u);
       }
       v0 = v2;

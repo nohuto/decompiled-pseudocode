@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bSetMagicColor@@YAHAEAVPDEVOBJ@@VXEPALOBJ@@KT_PAL_ULONG@@@Z @ 0x1C0175688
+ * XREFs of ?bSetMagicColor@@YAHAEAVPDEVOBJ@@VXEPALOBJ@@KT_PAL_ULONG@@@Z @ 0x1C0149354
  * Callers:
- *     GreSetMagicColors @ 0x1C0175868 (GreSetMagicColors.c)
+ *     GreSetMagicColors @ 0x1C0149538 (GreSetMagicColors.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ __int64 __fastcall bSetMagicColor(__int64 a1, __int64 a2, unsigned int a3, unsig
       *(_DWORD *)(a2 + 32) = v9;
       if ( v8 != a2 )
         *(_DWORD *)(v8 + 32) = v9;
-      v10 = *(_QWORD *)(*(_QWORD *)a1 + 1784LL);
+      v10 = *(_QWORD *)(*(_QWORD *)a1 + 1816LL);
       if ( v10 )
         *(_DWORD *)(*(_QWORD *)(v10 + 112) + 4LL * a3) = a4;
       HIBYTE(a4) = 0;
@@ -38,7 +38,7 @@ __int64 __fastcall bSetMagicColor(__int64 a1, __int64 a2, unsigned int a3, unsig
       v5 = 1;
       if ( a3 <= 0xA )
         v11 = a3;
-      dword_1C028F944[v11] = a4;
+      dword_1C024C384[v11] = a4;
       *(_DWORD *)(*((_QWORD *)ppalDefault + 14) + 4LL * v11) = a4;
     }
   }

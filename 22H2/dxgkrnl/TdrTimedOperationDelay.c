@@ -1,50 +1,40 @@
 /*
- * XREFs of TdrTimedOperationDelay @ 0x1C0050380
+ * XREFs of TdrTimedOperationDelay @ 0x1C0045420
  * Callers:
  *     <none>
  * Callees:
- *     ?_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z @ 0x1C0050134 (-_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z.c)
- *     TdrTimedOperationAllowToDebugTimeout @ 0x1C005019C (TdrTimedOperationAllowToDebugTimeout.c)
- *     TdrTimedOperationBugcheckOnTimeout @ 0x1C0050328 (TdrTimedOperationBugcheckOnTimeout.c)
+ *     ?_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z @ 0x1C00451D4 (-_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z.c)
+ *     TdrTimedOperationAllowToDebugTimeout @ 0x1C004523C (TdrTimedOperationAllowToDebugTimeout.c)
+ *     TdrTimedOperationBugcheckOnTimeout @ 0x1C00453C8 (TdrTimedOperationBugcheckOnTimeout.c)
  */
 
 __int64 __fastcall TdrTimedOperationDelay(
         struct _DXGK_TIMED_OPERATION *a1,
         KPROCESSOR_MODE a2,
         BOOLEAN a3,
-        union _LARGE_INTEGER *a4)
+        __int64 *a4)
 {
-  unsigned int v5; // ebp
-  union _LARGE_INTEGER v9; // rbx
-  __int64 QuadPart; // rcx
-  union _LARGE_INTEGER v11; // rax
-  union _LARGE_INTEGER v13; // [rsp+20h] [rbp-28h] BYREF
-  union _LARGE_INTEGER Interval; // [rsp+28h] [rbp-20h] BYREF
+  unsigned int v5; // esi
+  union _LARGE_INTEGER v9; // r10
+  __int64 QuadPart; // rax
+  union _LARGE_INTEGER v12; // [rsp+20h] [rbp-18h] BYREF
+  union _LARGE_INTEGER Interval; // [rsp+28h] [rbp-10h] BYREF
 
   v5 = 0;
-  v13.QuadPart = 0LL;
-  _TdrTimedOperationGetRelativeTimeLeft(a1, &v13);
-  v9 = v13;
-  if ( v13.QuadPart )
+  v12.QuadPart = 0LL;
+  _TdrTimedOperationGetRelativeTimeLeft(a1, &v12);
+  v9 = v12;
+  if ( v12.QuadPart )
   {
-    if ( KeGetCurrentIrql() <= 1u )
+    if ( KeGetCurrentIrql() <= 1u && a4 && *a4 )
     {
-      if ( a4 )
-      {
-        QuadPart = a4->QuadPart;
-        if ( a4->QuadPart )
-        {
-          v11.QuadPart = -QuadPart;
-          if ( QuadPart <= 0 )
-            v11 = *a4;
-          if ( v11.QuadPart < v9.QuadPart )
-            v11 = v9;
-          Interval = v11;
-          v5 = KeDelayExecutionThread(a2, a3, &Interval);
-          _TdrTimedOperationGetRelativeTimeLeft(a1, &v13);
-          v9 = v13;
-        }
-      }
+      QuadPart = -(__int64)abs64(*a4);
+      if ( QuadPart < v12.QuadPart )
+        QuadPart = v12.QuadPart;
+      Interval.QuadPart = QuadPart;
+      v5 = KeDelayExecutionThread(a2, a3, &Interval);
+      _TdrTimedOperationGetRelativeTimeLeft(a1, &v12);
+      v9 = v12;
     }
     if ( v9.QuadPart )
       return v5;

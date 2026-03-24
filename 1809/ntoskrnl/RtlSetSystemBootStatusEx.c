@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSetSystemBootStatusEx @ 0x140895F20
+ * XREFs of RtlSetSystemBootStatusEx @ 0x140895F00
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     RtlpSystemBootStatusRequest @ 0x14071C4F4 (RtlpSystemBootStatusRequest.c)
+ *     RtlpSystemBootStatusRequest @ 0x14071C4D4 (RtlpSystemBootStatusRequest.c)
  */
 
 __int64 __fastcall RtlSetSystemBootStatusEx(__int64 a1, unsigned int a2, void *a3)

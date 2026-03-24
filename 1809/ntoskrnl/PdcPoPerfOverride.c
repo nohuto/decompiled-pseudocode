@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcPoPerfOverride @ 0x14086ECC0
+ * XREFs of PdcPoPerfOverride @ 0x14086ECA0
  * Callers:
- *     PopPowerAggregatorExecuteActiveCallback @ 0x140875B70 (PopPowerAggregatorExecuteActiveCallback.c)
+ *     PopPowerAggregatorExecuteActiveCallback @ 0x140875B50 (PopPowerAggregatorExecuteActiveCallback.c)
  * Callees:
- *     PpmEndHighPerfRequest @ 0x140177AE8 (PpmEndHighPerfRequest.c)
- *     PpmBeginHighPerfRequest @ 0x1401785A0 (PpmBeginHighPerfRequest.c)
- *     PpmDisableHighPerfRequestDeferredExpiration @ 0x1402E30C4 (PpmDisableHighPerfRequestDeferredExpiration.c)
+ *     PpmEndHighPerfRequest @ 0x140177B08 (PpmEndHighPerfRequest.c)
+ *     PpmBeginHighPerfRequest @ 0x1401785C0 (PpmBeginHighPerfRequest.c)
+ *     PpmDisableHighPerfRequestDeferredExpiration @ 0x1402E31C4 (PpmDisableHighPerfRequestDeferredExpiration.c)
  */
 
 __int64 PdcPoPerfOverride()

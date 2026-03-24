@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpCleanupDeviceRegistryValues @ 0x140768024
+ * XREFs of PnpCleanupDeviceRegistryValues @ 0x140736390
  * Callers:
- *     PiBuildDeviceNodeInstancePath @ 0x1406DFC4C (PiBuildDeviceNodeInstancePath.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140766258 (PnpUnlinkDeviceRemovalRelations.c)
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x14081F220 (IoReportRootDevice.c)
+ *     PiBuildDeviceNodeInstancePath @ 0x140735B5C (PiBuildDeviceNodeInstancePath.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x140737C58 (PnpUnlinkDeviceRemovalRelations.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
+ *     IoReportRootDevice @ 0x1407C7E60 (IoReportRootDevice.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1402DECF0 (RtlDeleteElementGenericTableAvl.c)
- *     PpDeviceRegistration @ 0x14076B554 (PpDeviceRegistration.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     PpDeviceRegistration @ 0x14074BD60 (PpDeviceRegistration.c)
  */
 
 __int64 __fastcall PnpCleanupDeviceRegistryValues(__int64 a1)

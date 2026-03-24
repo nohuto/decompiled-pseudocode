@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetFloatAnimatableProperty@CVisualMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C0214050
+ * XREFs of ?GetFloatAnimatableProperty@CVisualMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C01E4F60
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C020D650 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CVisualMarshaler::GetFloatAnimatableProperty(
@@ -12,25 +12,34 @@ __int64 __fastcall DirectComposition::CVisualMarshaler::GetFloatAnimatableProper
         float *a3)
 {
   unsigned int v3; // r9d
-  int v4; // eax
+  int v4; // edx
+  int v5; // edx
+  int v6; // eax
 
   v3 = 0;
-  switch ( a2 )
+  if ( !a2 )
   {
-    case 0:
-      v4 = *((_DWORD *)this + 18);
-      goto LABEL_10;
-    case 1:
-      v4 = *((_DWORD *)this + 19);
-      goto LABEL_10;
-    case 2:
-      v4 = *((_DWORD *)this + 20);
-      goto LABEL_10;
-    case 25:
-      v4 = *((_DWORD *)this + 28);
-LABEL_10:
-      *(_DWORD *)a3 = v4;
-      return v3;
+    *a3 = *((float *)this + 18);
+    return v3;
   }
-  return (unsigned int)DirectComposition::CResourceMarshaler::GetFloatAnimatableProperty(this, a2, a3);
+  v4 = a2 - 1;
+  if ( !v4 )
+  {
+    v6 = *((_DWORD *)this + 19);
+    goto LABEL_9;
+  }
+  v5 = v4 - 1;
+  if ( !v5 )
+  {
+    v6 = *((_DWORD *)this + 20);
+    goto LABEL_9;
+  }
+  if ( v5 == 24 )
+  {
+    v6 = *((_DWORD *)this + 28);
+LABEL_9:
+    *(_DWORD *)a3 = v6;
+    return v3;
+  }
+  return (unsigned int)-1073741811;
 }

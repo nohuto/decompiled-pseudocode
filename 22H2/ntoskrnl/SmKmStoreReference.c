@@ -1,33 +1,31 @@
 /*
- * XREFs of SmKmStoreReference @ 0x140344B20
+ * XREFs of SmKmStoreReference @ 0x1402672A8
  * Callers:
- *     SmKmStoreReferenceEx @ 0x140344C68 (SmKmStoreReferenceEx.c)
- *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x1405C2C84 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
- *     ?StDmDeviceError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z @ 0x1405C52F0 (-StDmDeviceError@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z.c)
- *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C9744 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     SmpKeyedStoreReference @ 0x1405C9D98 (SmpKeyedStoreReference.c)
- *     ?SmStoreTerminate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_ST_ETW_TERMINATION_REASON@@J@Z @ 0x1405CD288 (-SmStoreTerminate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@W4_ST_E.c)
- *     SmIssueIo @ 0x1405CD578 (SmIssueIo.c)
- *     SmProcessListRequestExtended @ 0x1409D70A8 (SmProcessListRequestExtended.c)
+ *     SmpKeyedStoreReference @ 0x140263FC0 (SmpKeyedStoreReference.c)
+ *     SmKmStoreReferenceEx @ 0x1402673EC (SmKmStoreReferenceEx.c)
+ *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x140268360 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x140350084 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
+ *     ?SmStoreTerminate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_ST_ETW_TERMINATION_REASON@@J@Z @ 0x14059F7B8 (-SmStoreTerminate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@W4_ST_E.c)
+ *     SmIssueIo @ 0x14059FA5C (SmIssueIo.c)
+ *     SmProcessListRequestExtended @ 0x140929DA4 (SmProcessListRequestExtended.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
  */
 
-unsigned __int64 __fastcall SmKmStoreReference(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+unsigned __int64 __fastcall SmKmStoreReference(__int64 a1, unsigned int a2)
 {
-  struct _EX_RUNDOWN_REF *v5; // rax
-  struct _EX_RUNDOWN_REF *v6; // rbx
+  struct _EX_RUNDOWN_REF *v3; // rax
+  struct _EX_RUNDOWN_REF *v4; // rbx
 
-  v5 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a1, a2 & 0x3FF, a3, a4);
-  v6 = v5;
-  if ( !v5 || !ExAcquireRundownProtection_0(v5 + 1) )
-    return 0LL;
-  if ( (v6[4].Count & 0x3F) != a2 >> 10 )
+  v3 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a1, a2 & 0x3FF);
+  v4 = v3;
+  if ( v3 && ExAcquireRundownProtection(v3 + 1) )
   {
-    ExReleaseRundownProtection_0(v6 + 1);
-    return 0LL;
+    if ( (v4[4].Count & 0x3F) == a2 >> 10 )
+      return v4->Count;
+    ExReleaseRundownProtection(v4 + 1);
   }
-  return v6->Count;
+  return 0LL;
 }

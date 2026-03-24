@@ -1,19 +1,19 @@
 /*
- * XREFs of bDeleteSurface @ 0x1C0062930
+ * XREFs of bDeleteSurface @ 0x1C001CE70
  * Callers:
- *     GreDeleteObject @ 0x1C00472A0 (GreDeleteObject.c)
- *     EngDeleteSurface @ 0x1C0062910 (EngDeleteSurface.c)
- *     ?StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C00B0970 (-StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
- *     ?StubDispDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C00C4AA0 (-StubDispDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
- *     bDeleteBrush @ 0x1C00C64F0 (bDeleteBrush.c)
- *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00C68C0 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
- *     ?vDeleteIcmDIBs@BRUSH@@QEAAXXZ @ 0x1C0150CE8 (-vDeleteIcmDIBs@BRUSH@@QEAAXXZ.c)
- *     ?MulDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C015E550 (-MulDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
+ *     EngDeleteSurface @ 0x1C001CE50 (EngDeleteSurface.c)
+ *     bDeleteBrush @ 0x1C001D7B0 (bDeleteBrush.c)
+ *     GreDeleteObject @ 0x1C0039970 (GreDeleteObject.c)
+ *     ?vDeleteIcmDIBs@BRUSH@@QEAAXXZ @ 0x1C00835D4 (-vDeleteIcmDIBs@BRUSH@@QEAAXXZ.c)
+ *     ?StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C00A32D0 (-StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ *     ?StubDispDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C00B78A0 (-StubDispDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00B9C00 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
+ *     ?MulDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C0141800 (-MulDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C003F8A0 (--1SURFREF@@QEAA@XZ.c)
- *     ?bDeleteSurface@SURFREF@@QEAAHH@Z @ 0x1C004BD9C (-bDeleteSurface@SURFREF@@QEAAHH@Z.c)
- *     HmgShareLockCheckIgnoreStockBit @ 0x1C008B660 (HmgShareLockCheckIgnoreStockBit.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C0159C40 (--0SURFREF@@QEAA@XZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002CB94 (--1SURFREF@@QEAA@XZ.c)
+ *     HmgShareLockCheckIgnoreStockBit @ 0x1C0032E40 (HmgShareLockCheckIgnoreStockBit.c)
+ *     ?bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00C920C (-bDeleteSurface@SURFREF@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C013F580 (--0SURFREF@@QEAA@XZ.c)
  */
 
 __int64 __fastcall bDeleteSurface(__int64 a1)
@@ -30,7 +30,7 @@ __int64 __fastcall bDeleteSurface(__int64 a1)
   v4 = 0;
   v7 = v3;
   if ( v3 )
-    v4 = SURFREF::bDeleteSurface((SURFREF *)v6);
+    v4 = SURFREF::bDeleteSurface(v6, 0LL);
   SURFREF::~SURFREF((SURFREF *)v6);
   return v4;
 }

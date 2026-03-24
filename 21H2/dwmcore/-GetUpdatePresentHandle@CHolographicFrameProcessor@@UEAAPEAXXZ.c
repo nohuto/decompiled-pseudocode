@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetUpdatePresentHandle@CHolographicFrameProcessor@@UEAAPEAXXZ @ 0x1800FC9B0
+ * XREFs of ?GetUpdatePresentHandle@CHolographicFrameProcessor@@UEAAPEAXXZ @ 0x1800E39D0
  * Callers:
  *     <none>
  * Callees:

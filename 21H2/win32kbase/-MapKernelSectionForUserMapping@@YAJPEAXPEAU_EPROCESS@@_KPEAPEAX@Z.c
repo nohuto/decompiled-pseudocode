@@ -1,8 +1,8 @@
 /*
- * XREFs of ?MapKernelSectionForUserMapping@@YAJPEAXPEAU_EPROCESS@@_KPEAPEAX@Z @ 0x1C0082458
+ * XREFs of ?MapKernelSectionForUserMapping@@YAJPEAXPEAU_EPROCESS@@_KPEAPEAX@Z @ 0x1C007973C
  * Callers:
- *     ?Map@SURFACE@@QEAA?AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z @ 0x1C0082120 (-Map@SURFACE@@QEAA-AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z.c)
- *     ?AllocateSharedSection@@YAJKKPEAPEAX00@Z @ 0x1C016B9DC (-AllocateSharedSection@@YAJKKPEAPEAX00@Z.c)
+ *     ?Map@SURFACE@@QEAA?AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z @ 0x1C0079440 (-Map@SURFACE@@QEAA-AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z.c)
+ *     ?AllocateSharedSection@@YAJKKPEAPEAX00@Z @ 0x1C013EA18 (-AllocateSharedSection@@YAJKKPEAPEAX00@Z.c)
  * Callees:
  *     <none>
  */

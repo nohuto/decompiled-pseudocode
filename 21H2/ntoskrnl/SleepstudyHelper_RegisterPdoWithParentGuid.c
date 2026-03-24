@@ -1,12 +1,12 @@
 /*
- * XREFs of SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1409A13E0
+ * XREFs of SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1408FB530
  * Callers:
  *     <none>
  * Callees:
- *     SleepstudyHelperDestroyBlocker @ 0x14025B380 (SleepstudyHelperDestroyBlocker.c)
- *     SleepstudyHelperBuildBlocker @ 0x1407F1400 (SleepstudyHelperBuildBlocker.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407F15C0 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SleepstudyHelperCreateBlockerFromDevice @ 0x140853E30 (SleepstudyHelperCreateBlockerFromDevice.c)
+ *     SleepstudyHelperDestroyBlocker @ 0x140580B30 (SleepstudyHelperDestroyBlocker.c)
+ *     SleepstudyHelperBuildBlocker @ 0x1406B78F0 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x1406B7AB0 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x1408FB050 (SleepstudyHelperCreateBlockerFromDevice.c)
  */
 
 __int64 __fastcall SleepstudyHelper_RegisterPdoWithParentGuid(
@@ -16,10 +16,10 @@ __int64 __fastcall SleepstudyHelper_RegisterPdoWithParentGuid(
         KSPIN_LOCK **a4)
 {
   KSPIN_LOCK *v4; // rsi
-  __int64 *v5; // rbx
+  ULONG_PTR *v5; // rbx
   int v7; // eax
   int v8; // edi
-  __int64 *v10; // [rsp+20h] [rbp-28h] BYREF
+  ULONG_PTR *v10; // [rsp+20h] [rbp-28h] BYREF
   __int128 v11; // [rsp+28h] [rbp-20h] BYREF
   KSPIN_LOCK *v12; // [rsp+50h] [rbp+8h] BYREF
 

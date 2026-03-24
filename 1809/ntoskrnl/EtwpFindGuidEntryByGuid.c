@@ -1,18 +1,18 @@
 /*
  * XREFs of EtwpFindGuidEntryByGuid @ 0x1405C4190
  * Callers:
- *     NtTraceEvent @ 0x1400CB490 (NtTraceEvent.c)
+ *     NtTraceEvent @ 0x1400CB4B0 (NtTraceEvent.c)
  *     EtwpAddGuidEntry @ 0x1405C0A0C (EtwpAddGuidEntry.c)
  *     EtwpAddRegEntryToGroup @ 0x1405C2750 (EtwpAddRegEntryToGroup.c)
  *     EtwpRegisterUMGuid @ 0x1405C3970 (EtwpRegisterUMGuid.c)
- *     EtwpEnableGuid @ 0x140655F58 (EtwpEnableGuid.c)
- *     EtwpNotifyGuid @ 0x1406588A8 (EtwpNotifyGuid.c)
- *     EtwpRegisterProvider @ 0x1406BE5CC (EtwpRegisterProvider.c)
- *     EtwpDisallowedGuidAddition @ 0x1408B50C4 (EtwpDisallowedGuidAddition.c)
- *     EtwpDisallowedGuidRemoval @ 0x1408B5378 (EtwpDisallowedGuidRemoval.c)
- *     EtwpGetTraceGroupInfo @ 0x1408B5B84 (EtwpGetTraceGroupInfo.c)
- *     EtwpGetTraceGuidInfo @ 0x1408B5E98 (EtwpGetTraceGuidInfo.c)
- *     SendCaptureStateNotificationsWorker @ 0x1408C0640 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpEnableGuid @ 0x140655F38 (EtwpEnableGuid.c)
+ *     EtwpNotifyGuid @ 0x140658888 (EtwpNotifyGuid.c)
+ *     EtwpRegisterProvider @ 0x1406BE5AC (EtwpRegisterProvider.c)
+ *     EtwpDisallowedGuidAddition @ 0x1408B50A4 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x1408B5358 (EtwpDisallowedGuidRemoval.c)
+ *     EtwpGetTraceGroupInfo @ 0x1408B5B64 (EtwpGetTraceGroupInfo.c)
+ *     EtwpGetTraceGuidInfo @ 0x1408B5E78 (EtwpGetTraceGuidInfo.c)
+ *     SendCaptureStateNotificationsWorker @ 0x1408C0620 (SendCaptureStateNotificationsWorker.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)

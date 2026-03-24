@@ -1,14 +1,14 @@
 /*
- * XREFs of MiTrimWorkingSetBuildup @ 0x14011C6F8
+ * XREFs of MiTrimWorkingSetBuildup @ 0x14011C718
  * Callers:
  *     MiTrimPte @ 0x140087BD0 (MiTrimPte.c)
- *     MiTrimWorkingSetTail @ 0x14011C690 (MiTrimWorkingSetTail.c)
- *     MiTrimPteWorker @ 0x1402B3C34 (MiTrimPteWorker.c)
+ *     MiTrimWorkingSetTail @ 0x14011C6B0 (MiTrimWorkingSetTail.c)
+ *     MiTrimPteWorker @ 0x1402B3D34 (MiTrimPteWorker.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     RtlFindNextForwardRunClearCapped @ 0x14002B750 (RtlFindNextForwardRunClearCapped.c)
  *     MiSetVaAgeList @ 0x14003E2D0 (MiSetVaAgeList.c)
- *     MiFreeWsleList @ 0x1400B2A90 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
  */
 
 void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)

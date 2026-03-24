@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUpdateThunks @ 0x140B52AFC
+ * XREFs of MiUpdateThunks @ 0x140A92C6C
  * Callers:
- *     MiBootImageRelocated @ 0x140B52A10 (MiBootImageRelocated.c)
+ *     MiBootImageRelocated @ 0x140A92B80 (MiBootImageRelocated.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
  */
 
 void __fastcall MiUpdateThunks(__int64 a1, _QWORD *a2, __int64 a3, int a4)

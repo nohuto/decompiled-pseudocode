@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPluginQuerySocSubsystemCount @ 0x140986604
+ * XREFs of PopPluginQuerySocSubsystemCount @ 0x1408E5E68
  * Callers:
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x140984CE0 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x1408E4770 (PopFxInitializeSocSubsystemStaticInfo.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPluginQuerySocSubsystemCount(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
-  unsigned int v4; // r8d
+  unsigned int v4; // ecx
 
   result = PopFxProcessorPlugin;
   if ( PopFxProcessorPlugin )
@@ -19,8 +19,10 @@ __int64 __fastcall PopPluginQuerySocSubsystemCount(__int64 a1, __int64 a2)
     if ( (_BYTE)result )
     {
       v4 = *(_DWORD *)(a2 + 4);
-      if ( v4 - 1 > 0x3E7 )
-        PopFxBugCheck(0x706uLL, 0x24uLL, 0x53436F75uLL, v4);
+      if ( !v4 )
+        PopFxBugCheck(0x706uLL, 0x24uLL, 0x53436F75uLL, 0LL);
+      if ( v4 > 0x3E8 )
+        PopFxBugCheck(0x706uLL, 0x24uLL, 0x53436F75uLL, *(unsigned int *)(a2 + 4));
     }
   }
   return result;

@@ -1,16 +1,16 @@
 /*
- * XREFs of Crashdump_Command_SendCommand @ 0x1C004EA8C
+ * XREFs of Crashdump_Command_SendCommand @ 0x1C004BFB0
  * Callers:
- *     Crashdump_Command_TestCommandRingOperation @ 0x1C004EDF4 (Crashdump_Command_TestCommandRingOperation.c)
- *     Crashdump_Endpoint_SetDequeuePointer @ 0x1C004F748 (Crashdump_Endpoint_SetDequeuePointer.c)
- *     Crashdump_Endpoint_StopEndpoint @ 0x1C004F814 (Crashdump_Endpoint_StopEndpoint.c)
- *     Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004FDF4 (Crashdump_UsbDevice_ConfigureEndpoints.c)
- *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C0050060 (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
- *     Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C0050B40 (Crashdump_UsbDevice_SendAddressDeviceCommand.c)
- *     Crashdump_UsbDevice_SendEnableSlotCommand @ 0x1C0050DBC (Crashdump_UsbDevice_SendEnableSlotCommand.c)
- *     Crashdump_UsbDevice_SendResetDeviceCommand @ 0x1C0050E78 (Crashdump_UsbDevice_SendResetDeviceCommand.c)
+ *     Crashdump_Command_TestCommandRingOperation @ 0x1C004C328 (Crashdump_Command_TestCommandRingOperation.c)
+ *     Crashdump_Endpoint_SetDequeuePointer @ 0x1C004CC70 (Crashdump_Endpoint_SetDequeuePointer.c)
+ *     Crashdump_Endpoint_StopEndpoint @ 0x1C004CD3C (Crashdump_Endpoint_StopEndpoint.c)
+ *     Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004D31C (Crashdump_UsbDevice_ConfigureEndpoints.c)
+ *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004D588 (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
+ *     Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C004E070 (Crashdump_UsbDevice_SendAddressDeviceCommand.c)
+ *     Crashdump_UsbDevice_SendEnableSlotCommand @ 0x1C004E2EC (Crashdump_UsbDevice_SendEnableSlotCommand.c)
+ *     Crashdump_UsbDevice_SendResetDeviceCommand @ 0x1C004E3A8 (Crashdump_UsbDevice_SendResetDeviceCommand.c)
  * Callees:
- *     Crashdump_EventRing_Poll @ 0x1C004E400 (Crashdump_EventRing_Poll.c)
+ *     Crashdump_EventRing_Poll @ 0x1C004B92C (Crashdump_EventRing_Poll.c)
  */
 
 __int64 __fastcall Crashdump_Command_SendCommand(__int64 a1, __int64 a2, _OWORD *a3)
@@ -21,7 +21,7 @@ __int64 __fastcall Crashdump_Command_SendCommand(__int64 a1, __int64 a2, _OWORD 
   __int64 v9; // rax
   int v10; // eax
   unsigned int v11; // ebx
-  int v12; // r9d
+  int v12; // eax
   signed __int32 v14[8]; // [rsp+0h] [rbp-38h] BYREF
   __int64 v15; // [rsp+20h] [rbp-18h]
 
@@ -51,7 +51,7 @@ __int64 __fastcall Crashdump_Command_SendCommand(__int64 a1, __int64 a2, _OWORD 
     LODWORD(v15) = *(unsigned __int8 *)(a1 + 75);
     if ( (_BYTE)v12 == 1 )
     {
-      DbgPrintEx(0x93u, 3u, "XHCIDUMP: Command Completion event: Completion code: %u, slotId: %u\n");
+      DbgPrintEx(0x93u, 3u, "XHCIDUMP: Command Completion event: Completion code: %u, slotId: %u\n", 1, v15);
       if ( a3 )
         *a3 = *(_OWORD *)(a1 + 60);
     }

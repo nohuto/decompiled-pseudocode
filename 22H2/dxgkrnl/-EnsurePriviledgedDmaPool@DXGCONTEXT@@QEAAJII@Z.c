@@ -1,27 +1,56 @@
 /*
- * XREFs of ?EnsurePriviledgedDmaPool@DXGCONTEXT@@QEAAJII@Z @ 0x1C01E9B5C
+ * XREFs of ?EnsurePriviledgedDmaPool@DXGCONTEXT@@QEAAJII@Z @ 0x1C01623A8
  * Callers:
- *     ?Initialize@DXGCONTEXT@@QEAAJPEAXI@Z @ 0x1C018E504 (-Initialize@DXGCONTEXT@@QEAAJPEAXI@Z.c)
- *     ?AcquireDmaBuffer@DXGCONTEXT@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@PEAVCOREDEVICEACCESS@@E@Z @ 0x1C033B180 (-AcquireDmaBuffer@DXGCONTEXT@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@PEAVCOREDEVICEACCESS@@E@Z.c)
+ *     ?Initialize@DXGCONTEXT@@QEAAJPEAXI@Z @ 0x1C00F1C74 (-Initialize@DXGCONTEXT@@QEAAJPEAXI@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ??_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z @ 0x1C00031B4 (--_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0005090 (-Release@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0008BB0 (-AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
+ *     ??0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z @ 0x1C0008C04 (--0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?CreateSyncObject@DXGGLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@IPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@_NPEAVDXGPAGINGQUEUE@@PEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAIPEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C011A458 (-CreateSyncObject@DXGGLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@IPEAU_D3DDDI_SYNCHRONIZATIO.c)
  */
 
 __int64 __fastcall DXGCONTEXT::EnsurePriviledgedDmaPool(DXGCONTEXT *this, int a2, int a3)
 {
   __int64 v6; // rax
-  int v7; // ebx
-  char v9; // [rsp+20h] [rbp-48h]
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // rbx
+  int v10; // eax
+  __int64 v12; // rax
+  DXGDEVICESYNCOBJECT *v13; // rcx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  PERESOURCE *Global; // rax
+  __int64 v17; // rdx
+  struct DXGDEVICE *v18; // rdi
+  __int64 v19; // rcx
+  unsigned int v20; // r14d
+  struct ADAPTER_RENDER *v21; // rsi
+  __int64 v22; // rdx
+  struct DXGGLOBAL *v23; // rax
+  int SyncObject; // eax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // rax
+  char v29; // [rsp+20h] [rbp-B8h]
+  _BYTE v30[8]; // [rsp+60h] [rbp-78h] BYREF
+  char v31; // [rsp+68h] [rbp-70h]
+  _QWORD v32[10]; // [rsp+70h] [rbp-68h] BYREF
 
   if ( *((_QWORD *)this + 29) )
     return 0LL;
-  v9 = 1;
-  v6 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, DXGCONTEXT *, char, _DWORD, int, int, _DWORD, _DWORD))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 760LL) + 8LL) + 432LL))(
-         *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 768LL),
-         *((unsigned int *)this + 100),
-         *(_QWORD *)(*((_QWORD *)this + 2) + 792LL),
+  v29 = 1;
+  v6 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, DXGCONTEXT *, char, _DWORD, int, int, _DWORD, _DWORD))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 640LL) + 8LL) + 440LL))(
+         *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 648LL),
+         *((unsigned int *)this + 104),
+         *(_QWORD *)(*((_QWORD *)this + 2) + 760LL),
          this,
-         v9,
+         v29,
          *((_DWORD *)this + 50),
          a2,
          a3,
@@ -30,25 +59,75 @@ __int64 __fastcall DXGCONTEXT::EnsurePriviledgedDmaPool(DXGCONTEXT *this, int a2
   *((_QWORD *)this + 29) = v6;
   if ( v6 )
   {
-    v7 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 760LL)
-                                                        + 8LL)
-                                            + 440LL))(v6);
-    if ( v7 >= 0 )
+    LODWORD(v9) = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL)
+                                                                             + 640LL)
+                                                                 + 8LL)
+                                                     + 448LL))(v6);
+    if ( (int)v9 >= 0 )
     {
+      v10 = *((_DWORD *)this + 105);
       *((_DWORD *)this + 53) = a2;
       *((_DWORD *)this + 54) = a3;
-      return 0LL;
+      if ( (v10 & 0x10) == 0 )
+        return 0LL;
+      memset(v32, 0, sizeof(v32));
+      LODWORD(v32[0]) = 5;
+      *((_QWORD *)this + 31) = 0LL;
+      v32[1] = 0LL;
+      Global = (PERESOURCE *)DXGGLOBAL::GetGlobal(v15, v14);
+      DXGSYNCOBJECTLOCK::DXGSYNCOBJECTLOCK((DXGSYNCOBJECTLOCK *)v30, Global, 0);
+      DXGSYNCOBJECTLOCK::AcquireShared((DXGSYNCOBJECTLOCK *)v30, v17);
+      v18 = (struct DXGDEVICE *)*((_QWORD *)this + 2);
+      v19 = *((unsigned int *)this + 104);
+      v20 = 1 << v19;
+      v21 = (struct ADAPTER_RENDER *)*((_QWORD *)v18 + 2);
+      v23 = DXGGLOBAL::GetGlobal(v19, v22);
+      SyncObject = DXGGLOBAL::CreateSyncObject(
+                     (__int64)v23,
+                     v21,
+                     v18,
+                     v20,
+                     (__int64)v32,
+                     4u,
+                     0,
+                     0LL,
+                     0LL,
+                     (struct DXGDEVICESYNCOBJECT **)this + 30,
+                     0LL,
+                     0LL);
+      v9 = SyncObject;
+      if ( SyncObject >= 0 )
+      {
+        if ( v31 )
+          DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v30);
+        return 0LL;
+      }
+      v28 = WdLogNewEntry5_WdWarning(v26, v25, v27);
+      *(_QWORD *)(v28 + 24) = this;
+      *(_QWORD *)(v28 + 32) = v9;
+      WdLogEvent5_WdWarning(v28);
+      if ( v31 )
+        DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v30);
     }
   }
   else
   {
-    v7 = -1073741801;
-    WdLogSingleEntry2(3LL, this, -1073741801LL);
+    v12 = WdLogNewEntry5_WdWarning(v7, 0LL, v8);
+    LODWORD(v9) = -1073741801;
+    *(_QWORD *)(v12 + 24) = this;
+    *(_QWORD *)(v12 + 32) = -1073741801LL;
+    WdLogEvent5_WdWarning(v12);
+  }
+  v13 = (DXGDEVICESYNCOBJECT *)*((_QWORD *)this + 30);
+  if ( v13 )
+  {
+    DXGDEVICESYNCOBJECT::`scalar deleting destructor'(v13);
+    *((_QWORD *)this + 30) = 0LL;
   }
   if ( *((_QWORD *)this + 29) )
   {
-    (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 760LL) + 8LL) + 448LL))();
+    (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 640LL) + 8LL) + 456LL))();
     *((_QWORD *)this + 29) = 0LL;
   }
-  return (unsigned int)v7;
+  return (unsigned int)v9;
 }

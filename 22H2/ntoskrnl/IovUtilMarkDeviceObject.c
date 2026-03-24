@@ -1,10 +1,10 @@
 /*
- * XREFs of IovUtilMarkDeviceObject @ 0x1405CFD70
+ * XREFs of IovUtilMarkDeviceObject @ 0x1405A1CBC
  * Callers:
- *     VfIoDeleteDevice @ 0x140AD3214 (VfIoDeleteDevice.c)
- *     ViPnpVerifyMinorWasProcessedProperly @ 0x140AE8430 (ViPnpVerifyMinorWasProcessedProperly.c)
+ *     VfIoDeleteDevice @ 0x1409D6154 (VfIoDeleteDevice.c)
+ *     ViPnpVerifyMinorWasProcessedProperly @ 0x1409E3050 (ViPnpVerifyMinorWasProcessedProperly.c)
  * Callees:
- *     IovpUtilMarkDeviceObject @ 0x140AD3E10 (IovpUtilMarkDeviceObject.c)
+ *     IovpUtilMarkDeviceObject @ 0x1409D6D48 (IovpUtilMarkDeviceObject.c)
  */
 
 __int64 __fastcall IovUtilMarkDeviceObject(__int64 a1, __int64 a2)

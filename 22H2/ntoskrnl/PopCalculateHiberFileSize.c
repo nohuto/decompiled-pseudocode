@@ -1,13 +1,13 @@
 /*
- * XREFs of PopCalculateHiberFileSize @ 0x1408016AC
+ * XREFs of PopCalculateHiberFileSize @ 0x14078D708
  * Callers:
- *     PopEnableHiberFile @ 0x140803C60 (PopEnableHiberFile.c)
- *     PopAdjustHiberFile @ 0x140987D94 (PopAdjustHiberFile.c)
- *     PopHiberInitializeResources @ 0x1409888D4 (PopHiberInitializeResources.c)
- *     PopSetHiberFileSize @ 0x140989134 (PopSetHiberFileSize.c)
- *     PopSetHiberFileType @ 0x1409891D8 (PopSetHiberFileType.c)
+ *     PopAdjustHiberFile @ 0x140773C64 (PopAdjustHiberFile.c)
+ *     PopHiberInitializeResources @ 0x140777840 (PopHiberInitializeResources.c)
+ *     PopEnableHiberFile @ 0x14079B350 (PopEnableHiberFile.c)
+ *     PopSetHiberFileSize @ 0x1408E72F0 (PopSetHiberFileSize.c)
+ *     PopSetHiberFileType @ 0x1408E7400 (PopSetHiberFileType.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PopCalculateHiberFileSize(_QWORD *a1, unsigned __int8 *a2)
@@ -25,7 +25,7 @@ __int64 __fastcall PopCalculateHiberFileSize(_QWORD *a1, unsigned __int8 *a2)
   unsigned __int64 v14; // [rsp+10h] [rbp-18h]
 
   v4 = 2;
-  v5 = *(_QWORD *)(*(_QWORD *)qword_140C674C8 + 17040LL);
+  v5 = *(_QWORD *)(*(_QWORD *)qword_140C4E648 + 6928LL);
   v6 = 100;
   if ( (unsigned int)PopHiberFileSizePercent >= 0x28 )
   {

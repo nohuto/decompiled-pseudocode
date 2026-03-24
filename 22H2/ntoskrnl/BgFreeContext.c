@@ -1,26 +1,24 @@
 /*
- * XREFs of BgFreeContext @ 0x140AF2228
+ * XREFs of BgFreeContext @ 0x1409F1038
  * Callers:
- *     BgkResumeFinished @ 0x140A99AF8 (BgkResumeFinished.c)
+ *     BgkResumeFinished @ 0x1409905DC (BgkResumeFinished.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x140384860 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403848B0 (BgpFwAcquireLock.c)
- *     ResFwFreeContext @ 0x140AF2ED4 (ResFwFreeContext.c)
+ *     KeGetCurrentIrql @ 0x14021FA90 (KeGetCurrentIrql.c)
+ *     BgpFwReleaseLock @ 0x14039BBA8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039BBF8 (BgpFwAcquireLock.c)
+ *     ResFwFreeContext @ 0x1409F107C (ResFwFreeContext.c)
  */
 
-char BgFreeContext()
+void BgFreeContext()
 {
   PVOID v0; // rbx
-  char result; // al
 
-  v0 = qword_140D18490;
-  result = KeGetCurrentIrql();
-  if ( (unsigned __int8)result <= 2u && qword_140D18490 )
+  v0 = qword_140C50648;
+  if ( KeGetCurrentIrql() <= 2u && v0 )
   {
     BgpFwAcquireLock();
-    if ( (dword_140C0E4B0 & 1) != 0 )
+    if ( (dword_140C134F0 & 1) != 0 )
       ResFwFreeContext(v0);
-    return BgpFwReleaseLock();
+    BgpFwReleaseLock();
   }
-  return result;
 }

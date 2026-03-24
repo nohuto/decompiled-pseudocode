@@ -1,23 +1,23 @@
 /*
- * XREFs of PiRearrangeDeviceInstances @ 0x140883308
+ * XREFs of PiRearrangeDeviceInstances @ 0x140780F44
  * Callers:
- *     PiProcessDriverInstance @ 0x1407C22B0 (PiProcessDriverInstance.c)
+ *     PiProcessDriverInstance @ 0x14073C510 (PiProcessDriverInstance.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryKey @ 0x14041A960 (ZwQueryKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryKey @ 0x1403F9CE0 (ZwQueryKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiRearrangeDeviceInstances(HANDLE KeyHandle, int a2, int a3)
 {
   signed __int64 v6; // rax
-  signed __int64 v7; // rax
-  PVOID v8; // rbx
-  PVOID v9; // rcx
+  PVOID v7; // rcx
+  signed __int64 v8; // rax
+  PVOID v9; // rbx
   __int64 v10; // [rsp+30h] [rbp-59h]
   NTSTRSAFE_PWSTR ppszDestEnd; // [rsp+40h] [rbp-49h] BYREF
   UNICODE_STRING ValueName; // [rsp+48h] [rbp-41h] BYREF
@@ -40,28 +40,28 @@ void __fastcall PiRearrangeDeviceInstances(HANDLE KeyHandle, int a2, int a3)
   else
     ValueName.Length = 2 * v6;
   ValueName.Buffer = pszDest;
-  if ( IopGetRegistryValue(KeyHandle, pszDest, 0, &P) < 0 )
-  {
-    v9 = P;
-  }
-  else
+  if ( IopGetRegistryValue(KeyHandle, pszDest, 0, &P) >= 0 )
   {
     ZwDeleteValueKey(KeyHandle, &ValueName);
     LODWORD(v10) = a3;
     ppszDestEnd = pszDest;
     RtlStringCchPrintfExW(pszDest, 0xAuLL, &ppszDestEnd, 0LL, 0, L"%u", v10);
     ValueName.MaximumLength = 20;
-    v7 = ppszDestEnd - pszDest;
-    if ( (_DWORD)v7 == -1 )
+    v8 = ppszDestEnd - pszDest;
+    if ( (_DWORD)v8 == -1 )
       ValueName.Length = 20;
     else
-      ValueName.Length = 2 * v7;
-    v8 = P;
+      ValueName.Length = 2 * v8;
+    v9 = P;
     ValueName.Buffer = pszDest;
     ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, (char *)P + *((unsigned int *)P + 2), *((_DWORD *)P + 3));
-    ExFreePoolWithTag(v8, 0);
-    v9 = 0LL;
-  }
-  if ( v9 )
     ExFreePoolWithTag(v9, 0);
+    v7 = 0LL;
+  }
+  else
+  {
+    v7 = P;
+  }
+  if ( v7 )
+    ExFreePoolWithTag(v7, 0);
 }

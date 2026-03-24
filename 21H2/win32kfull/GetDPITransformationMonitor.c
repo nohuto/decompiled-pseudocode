@@ -1,23 +1,23 @@
 /*
- * XREFs of GetDPITransformationMonitor @ 0x1C01DF820
+ * XREFs of GetDPITransformationMonitor @ 0x1C01E5670
  * Callers:
- *     ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01EBCF8 (-MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAP.c)
- *     ?xxxQueryLegacyActivation@@YA_JPEAUtagWND@@0FPEBUtagPOINTEREVENTINT@@@Z @ 0x1C01EC71C (-xxxQueryLegacyActivation@@YA_JPEAUtagWND@@0FPEBUtagPOINTEREVENTINT@@@Z.c)
- *     EditionDoPointerDPITransforms @ 0x1C01EC9D0 (EditionDoPointerDPITransforms.c)
- *     PointerInfoCopyOutHelperInternal @ 0x1C01ECD10 (PointerInfoCopyOutHelperInternal.c)
- *     ?GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C024F350 (-GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z.c)
+ *     ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F11FC (-MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAP.c)
+ *     ?xxxQueryLegacyActivation@@YA_JPEAUtagWND@@0FPEBUtagPOINTEREVENTINT@@@Z @ 0x1C01F1DBC (-xxxQueryLegacyActivation@@YA_JPEAUtagWND@@0FPEBUtagPOINTEREVENTINT@@@Z.c)
+ *     EditionDoPointerDPITransforms @ 0x1C01F20A0 (EditionDoPointerDPITransforms.c)
+ *     PointerInfoCopyOutHelperInternal @ 0x1C01F24A0 (PointerInfoCopyOutHelperInternal.c)
+ *     ?GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C0252360 (-GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z.c)
  * Callees:
- *     _GetTopLevelWindow @ 0x1C0075BF0 (_GetTopLevelWindow.c)
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     _MonitorFromPoint @ 0x1C007B350 (_MonitorFromPoint.c)
+ *     _MonitorFromPoint @ 0x1C0042100 (_MonitorFromPoint.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     _GetTopLevelWindow @ 0x1C006FCC0 (_GetTopLevelWindow.c)
  */
 
-__int64 __fastcall GetDPITransformationMonitor(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall GetDPITransformationMonitor(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v2; // rbx
+  __int64 v2; // rbx
   __int64 TopLevelWindow; // rax
   __int64 v5; // rax
-  unsigned __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
   unsigned __int64 v8; // [rsp+40h] [rbp+18h] BYREF
   __int64 v9; // [rsp+48h] [rbp+20h] BYREF
 

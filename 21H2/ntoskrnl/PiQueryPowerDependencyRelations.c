@@ -1,15 +1,15 @@
 /*
- * XREFs of PiQueryPowerDependencyRelations @ 0x14080E218
+ * XREFs of PiQueryPowerDependencyRelations @ 0x14074CA28
  * Callers:
- *     PiQueryPowerRelations @ 0x14080DBCC (PiQueryPowerRelations.c)
+ *     PiQueryPowerRelations @ 0x14074C3A4 (PiQueryPowerRelations.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PiGetProviderList @ 0x140775110 (PiGetProviderList.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1407756F4 (PnpAcquireDependencyRelationsLock.c)
- *     PiEnumerateProviderListEntry @ 0x140942730 (PiEnumerateProviderListEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x140639C1C (PnpAcquireDependencyRelationsLock.c)
+ *     PiGetProviderList @ 0x140741958 (PiGetProviderList.c)
+ *     PiEnumerateProviderListEntry @ 0x14089D92C (PiEnumerateProviderListEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryPowerDependencyRelations(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall PiQueryPowerDependencyRelations(__int64 a1)
   _QWORD *v15; // rcx
   __int64 v16; // rbp
   _QWORD *v17; // rax
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v19; // rcx
   _QWORD *v20; // rax
   __int64 v21; // rbp
@@ -77,7 +77,7 @@ LABEL_13:
           || (*v13 = v12, *(_QWORD *)(v12 + 8) = v13, v14 = v9[3], *(_QWORD **)(v14 + 8) != v9 + 3)
           || (v15 = (_QWORD *)v9[4], (_QWORD *)*v15 != v9 + 3) )
         {
-LABEL_28:
+LABEL_29:
           __fastfail(3u);
         }
         *v15 = v14;
@@ -100,21 +100,30 @@ LABEL_28:
         {
           v17 = (_QWORD *)*v5;
           if ( (_QWORD *)*v5 == v5 )
+            goto LABEL_25;
+          do
           {
-LABEL_24:
-            Pool2 = ExAllocatePool2(64LL, 56LL, 1920421956LL);
-            v19 = (_QWORD *)Pool2;
-            if ( !Pool2 )
+            if ( v17[5] == v16 + 160 )
+              break;
+            v17 = (_QWORD *)*v17;
+          }
+          while ( v17 != v5 );
+          if ( v17 == v5 )
+          {
+LABEL_25:
+            PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x72775044u);
+            v19 = PoolWithTag;
+            if ( !PoolWithTag )
             {
               v2 = -1073741670;
               break;
             }
-            *(_BYTE *)(Pool2 + 48) = 1;
-            *(_QWORD *)(Pool2 + 16) = v3;
-            *(_QWORD *)(Pool2 + 40) = v16 + 160;
+            *((_BYTE *)PoolWithTag + 48) = 1;
+            PoolWithTag[2] = v3;
+            PoolWithTag[5] = v16 + 160;
             v20 = (_QWORD *)v5[1];
             if ( (_QWORD *)*v20 != v5 )
-              goto LABEL_28;
+              goto LABEL_29;
             *v19 = v5;
             v21 = v16 + 176;
             v19[1] = v20;
@@ -123,20 +132,11 @@ LABEL_24:
             v22 = v19 + 3;
             v23 = *(_QWORD **)(v21 + 8);
             if ( *v23 != v21 )
-              goto LABEL_28;
+              goto LABEL_29;
             *v22 = v21;
             v22[1] = v23;
             *v23 = v22;
             *(_QWORD *)(v21 + 8) = v22;
-          }
-          else
-          {
-            while ( v17[5] != v16 + 160 )
-            {
-              v17 = (_QWORD *)*v17;
-              if ( v17 == v5 )
-                goto LABEL_24;
-            }
           }
         }
       }

@@ -1,13 +1,12 @@
 /*
- * XREFs of HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0033E60
+ * XREFs of HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0030F70
  * Callers:
- *     HUBDSM_ValidatingMSOSContainerIdDescriptor @ 0x1C0021C30 (HUBDSM_ValidatingMSOSContainerIdDescriptor.c)
- *     HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0023040 (HUBDSM_AddingDeviceToGlobalChildList.c)
- *     HUBDTX_ValidateAndCacheMSOSContainerIdDescriptorHeader @ 0x1C002C4E0 (HUBDTX_ValidateAndCacheMSOSContainerIdDescriptorHeader.c)
- *     HUBDTX_ValidateAndCacheSerialNumberStringDescriptor @ 0x1C002CBE0 (HUBDTX_ValidateAndCacheSerialNumberStringDescriptor.c)
+ *     HUBDSM_ValidatingMSOSContainerIdDescriptor @ 0x1C001F390 (HUBDSM_ValidatingMSOSContainerIdDescriptor.c)
+ *     HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0020A40 (HUBDSM_AddingDeviceToGlobalChildList.c)
+ *     HUBDTX_ValidateAndCacheSerialNumberStringDescriptor @ 0x1C0029B38 (HUBDTX_ValidateAndCacheSerialNumberStringDescriptor.c)
  * Callees:
- *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0014258 (McTemplateK0ppqq_EtwWriteTransfer.c)
- *     HUBMISC_VerifierDbgBreak @ 0x1C0032EBC (HUBMISC_VerifierDbgBreak.c)
+ *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0012D2C (McTemplateK0ppqq_EtwWriteTransfer.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
  */
 
 void __fastcall HUBMISC_LogDescriptorValidationErrorForDevice(__int64 a1, ULONG a2)
@@ -16,7 +15,7 @@ void __fastcall HUBMISC_LogDescriptorValidationErrorForDevice(__int64 a1, ULONG 
 
   if ( a1 )
   {
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x100) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
     {
       v4 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 8) + 200LL);
       McTemplateK0ppqq_EtwWriteTransfer(

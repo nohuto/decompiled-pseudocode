@@ -1,16 +1,16 @@
 /*
- * XREFs of ?SpTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KK@Z @ 0x1C00D6940
+ * XREFs of ?SpTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KK@Z @ 0x1C010EDC0
  * Callers:
  *     <none>
  * Callees:
- *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C0031BF0 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C0032504 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     OffTransparentBlt @ 0x1C00D6B88 (OffTransparentBlt.c)
- *     ?bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z @ 0x1C00D77FC (-bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z.c)
- *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C00D9510 (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
- *     EngTransparentBlt @ 0x1C0111310 (EngTransparentBlt.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C0096648 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
+ *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C0096930 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     EngTransparentBlt @ 0x1C00D07E0 (EngTransparentBlt.c)
+ *     OffTransparentBlt @ 0x1C010EFFC (OffTransparentBlt.c)
+ *     ?bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z @ 0x1C010F4D4 (-bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z.c)
+ *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C010F50C (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SpTransparentBlt(
@@ -31,45 +31,42 @@ __int64 __fastcall SpTransparentBlt(
   HDEV v14; // rcx
   int v15; // eax
   PVOID *v16; // rdi
-  struct _CLIPOBJ *v17; // r13
   USHORT *p_iType; // r14
-  BOOL (__stdcall *v19)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG); // rcx
+  BOOL (__stdcall *v18)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG); // rcx
   __int64 ThreadWin32Thread; // rax
-  struct _SURFOBJ *v22; // [rsp+60h] [rbp-A0h] BYREF
-  PVOID *v23; // [rsp+68h] [rbp-98h] BYREF
-  struct _CLIPOBJ *v24; // [rsp+70h] [rbp-90h] BYREF
-  struct _POINTL v25; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v26; // [rsp+80h] [rbp-80h]
-  __int64 v27; // [rsp+88h] [rbp-78h]
-  __int64 v28; // [rsp+90h] [rbp-70h]
-  _BYTE v29[912]; // [rsp+A0h] [rbp-60h] BYREF
+  struct _SURFOBJ *v21; // [rsp+60h] [rbp-A0h] BYREF
+  PVOID *v22; // [rsp+68h] [rbp-98h] BYREF
+  struct _CLIPOBJ *v23; // [rsp+70h] [rbp-90h] BYREF
+  struct _POINTL v24; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v25; // [rsp+80h] [rbp-80h]
+  __int64 v26; // [rsp+88h] [rbp-78h]
+  __int64 *v27[114]; // [rsp+90h] [rbp-70h] BYREF
 
-  v25 = 0LL;
+  v24 = 0LL;
   v9 = 1;
-  v28 = (__int64)a4;
+  v26 = (__int64)a4;
   hdev = a2->hdev;
-  v22 = a1;
-  v24 = a3;
-  v27 = (__int64)prclDst;
-  v26 = (__int64)prclSrc;
-  if ( !hdev || *((struct _SURFOBJ **)hdev + 14) != a2 )
+  v21 = a1;
+  v23 = a3;
+  v25 = (__int64)prclSrc;
+  if ( !hdev || *((struct _SURFOBJ **)hdev + 15) != a2 )
   {
-    ENUMUNDERLAYS::ENUMUNDERLAYS((ENUMUNDERLAYS *)v29, a1, a3, prclDst);
+    ENUMUNDERLAYS::ENUMUNDERLAYS((ENUMUNDERLAYS *)v27, a1, a3, prclDst);
     while ( 1 )
     {
-      if ( !(unsigned int)ENUMUNDERLAYS::bEnum((ENUMUNDERLAYS *)v29, &v22, &v25, &v24) )
+      if ( !(unsigned int)ENUMUNDERLAYS::bEnum(v27, &v21, &v24, &v23) )
         return v9;
-      v11 = v22;
+      v11 = v21;
       p_pvScan0 = 0LL;
-      v23 = 0LL;
-      if ( v22 )
+      v22 = 0LL;
+      if ( v21 )
       {
-        hsurf = (int)v22[1].hsurf;
+        hsurf = (int)v21[1].hsurf;
         if ( (hsurf & 0x80004000) != 0 && (hsurf & 0x200) == 0 )
         {
-          p_pvScan0 = &v22[-1].pvScan0;
-          v14 = v22->hdev;
-          v23 = &v22[-1].pvScan0;
+          p_pvScan0 = &v21[-1].pvScan0;
+          v14 = v21->hdev;
+          v22 = &v21[-1].pvScan0;
           GreLockDisplayDevice(v14);
         }
       }
@@ -80,7 +77,7 @@ __int64 __fastcall SpTransparentBlt(
         v16 = &a2[-1].pvScan0;
         GreLockDisplayDevice(a2->hdev);
       }
-      if ( (unsigned int)NEEDDDILOCK::bRender((NEEDDDILOCK *)&v23, &v24) )
+      if ( (unsigned int)NEEDDDILOCK::bRender((NEEDDDILOCK *)&v22, &v23) )
         break;
 LABEL_17:
       if ( v16 )
@@ -88,7 +85,6 @@ LABEL_17:
       if ( p_pvScan0 )
         GreUnlockDisplayDevice(p_pvScan0[6]);
     }
-    v17 = v24;
     p_iType = &v11->iType;
     if ( v11->iType == 1 )
     {
@@ -101,13 +97,13 @@ LABEL_17:
           && (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 20LL) & 0x8000) != 0 )
         {
           ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-          p_pvScan0 = v23;
-          LODWORD(v11) = (_DWORD)v22;
-          v19 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG))(*(_QWORD *)(ThreadWin32Thread + 280) + 112LL);
+          p_pvScan0 = v22;
+          LODWORD(v11) = (_DWORD)v21;
+          v18 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG))(*(_QWORD *)(ThreadWin32Thread + 280) + 112LL);
           goto LABEL_16;
         }
-        p_pvScan0 = v23;
-        v11 = v22;
+        p_pvScan0 = v22;
+        v11 = v21;
       }
       if ( *p_iType == 1 && (unsigned int)bAllowShareAccess(v11) )
       {
@@ -116,34 +112,34 @@ LABEL_17:
           && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
            || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108)) )
         {
-          p_pvScan0 = v23;
-          LODWORD(v11) = (_DWORD)v22;
+          p_pvScan0 = v22;
+          LODWORD(v11) = (_DWORD)v21;
           goto LABEL_26;
         }
-        p_pvScan0 = v23;
-        v11 = v22;
+        p_pvScan0 = v22;
+        v11 = v21;
       }
     }
     if ( ((__int64)v11[1].hsurf & 0x8000) != 0 )
     {
-      v19 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG))*((_QWORD *)v11->hdev + 168);
+      v18 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, RECTL *, ULONG, ULONG))*((_QWORD *)v11->hdev + 169);
 LABEL_16:
       v9 &= OffTransparentBlt(
-              (int)v19,
-              (int)&v25,
+              (int)v18,
+              (int)&v24,
               (int)v11,
               (int)&gptlZero,
               (__int64)a2,
-              v17,
-              v28,
-              v27,
+              v23,
               v26,
+              (__int64)prclDst,
+              v25,
               iTransColor,
               ulReserved);
       goto LABEL_17;
     }
 LABEL_26:
-    v19 = EngTransparentBlt;
+    v18 = EngTransparentBlt;
     goto LABEL_16;
   }
   return EngTransparentBlt(a1, a2, a3, a4, prclDst, prclSrc, iTransColor, ulReserved);

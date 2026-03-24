@@ -1,14 +1,14 @@
 /*
- * XREFs of Isoch_ProcessTransferRingEmptyEvent @ 0x1C000A880
+ * XREFs of Isoch_ProcessTransferRingEmptyEvent @ 0x1C00422A0
  * Callers:
- *     Isoch_ProcessTransferEventWithED0 @ 0x1C000AB84 (Isoch_ProcessTransferEventWithED0.c)
+ *     Isoch_ProcessTransferEventWithED0 @ 0x1C0041F88 (Isoch_ProcessTransferEventWithED0.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     Isoch_MapTransfers @ 0x1C000A788 (Isoch_MapTransfers.c)
- *     WPP_RECORDER_SF_DDDL @ 0x1C000A9A8 (WPP_RECORDER_SF_DDDL.c)
- *     Controller_GetFrameNumber @ 0x1C000AA60 (Controller_GetFrameNumber.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     Isoch_MapTransfers @ 0x1C0001D00 (Isoch_MapTransfers.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_GetFrameNumber @ 0x1C00319B4 (Controller_GetFrameNumber.c)
+ *     WPP_RECORDER_SF_DDDL @ 0x1C00433FC (WPP_RECORDER_SF_DDDL.c)
  */
 
 void __fastcall Isoch_ProcessTransferRingEmptyEvent(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ void __fastcall Isoch_ProcessTransferRingEmptyEvent(__int64 a1, __int64 a2)
   __int64 v11; // rdx
 
   v4 = 0;
-  FrameNumber = Controller_GetFrameNumber(*(_QWORD *)(a1 + 40), 1LL, 0LL, 0LL);
+  FrameNumber = Controller_GetFrameNumber(*(_QWORD *)(a1 + 40), 1, 0LL, 0LL);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_DDDL(
       *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
@@ -51,7 +51,7 @@ void __fastcall Isoch_ProcessTransferRingEmptyEvent(__int64 a1, __int64 a2)
     {
       v10 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
       LOBYTE(v10) = 4;
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dd(
         *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
         v10,
         14,

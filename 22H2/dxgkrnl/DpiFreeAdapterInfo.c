@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiFreeAdapterInfo @ 0x1C0399088
+ * XREFs of DpiFreeAdapterInfo @ 0x1C02C6A74
  * Callers:
- *     DpiGetAdapterInfo @ 0x1C01FB478 (DpiGetAdapterInfo.c)
- *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02B6644 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ *     DpiGetAdapterInfo @ 0x1C0192E7C (DpiGetAdapterInfo.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C020C968 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
- *     DxgkFreeUnicodeString @ 0x1C021D03C (DxgkFreeUnicodeString.c)
+ *     DxgkFreeUnicodeString @ 0x1C0196230 (DxgkFreeUnicodeString.c)
  */
 
 void __fastcall DpiFreeAdapterInfo(_BYTE *a1)
@@ -14,16 +14,13 @@ void __fastcall DpiFreeAdapterInfo(_BYTE *a1)
     DxgkFreeUnicodeString((__int64)(a1 + 8));
     DxgkFreeUnicodeString((__int64)(a1 + 24));
     DxgkFreeUnicodeString((__int64)(a1 + 40));
+    DxgkFreeUnicodeString((__int64)(a1 + 136));
+    DxgkFreeUnicodeString((__int64)(a1 + 152));
     DxgkFreeUnicodeString((__int64)(a1 + 72));
-    DxgkFreeUnicodeString((__int64)(a1 + 88));
-    DxgkFreeUnicodeString((__int64)(a1 + 56));
+    DxgkFreeUnicodeString((__int64)(a1 + 96));
+    DxgkFreeUnicodeString((__int64)(a1 + 168));
     DxgkFreeUnicodeString((__int64)(a1 + 184));
-    DxgkFreeUnicodeString((__int64)(a1 + 200));
-    DxgkFreeUnicodeString((__int64)(a1 + 120));
-    DxgkFreeUnicodeString((__int64)(a1 + 144));
-    DxgkFreeUnicodeString((__int64)(a1 + 216));
-    DxgkFreeUnicodeString((__int64)(a1 + 232));
-    DxgkFreeUnicodeString((__int64)(a1 + 272));
-    DxgkFreeUnicodeString((__int64)(a1 + 288));
+    DxgkFreeUnicodeString((__int64)(a1 + 224));
+    DxgkFreeUnicodeString((__int64)(a1 + 240));
   }
 }

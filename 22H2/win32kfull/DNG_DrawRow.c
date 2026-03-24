@@ -1,11 +1,11 @@
 /*
- * XREFs of DNG_DrawRow @ 0x1C00534B0
+ * XREFs of DNG_DrawRow @ 0x1C00CA200
  * Callers:
- *     DNG_StretchCol @ 0x1C00039FC (DNG_StretchCol.c)
- *     RenderNineGridInternal @ 0x1C0052990 (RenderNineGridInternal.c)
+ *     DNG_StretchCol @ 0x1C00C8B10 (DNG_StretchCol.c)
+ *     RenderNineGridInternal @ 0x1C00C94E0 (RenderNineGridInternal.c)
  * Callees:
- *     DNG_StretchRow @ 0x1C00537B8 (DNG_StretchRow.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     DNG_StretchRow @ 0x1C00CA680 (DNG_StretchRow.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 unsigned __int64 __fastcall DNG_DrawRow(__int64 a1)
@@ -33,9 +33,9 @@ unsigned __int64 __fastcall DNG_DrawRow(__int64 a1)
   unsigned int v22; // r10d
   int v23; // esi
   _DWORD *v24; // r9
-  unsigned __int64 v25; // rbx
-  _DWORD *v26; // rax
-  unsigned __int64 v27; // r11
+  _DWORD *v25; // rax
+  unsigned __int64 v26; // r11
+  unsigned __int64 v27; // rbx
   bool v28; // cf
   __int64 v29; // rcx
   __int64 v30; // r8
@@ -51,15 +51,15 @@ unsigned __int64 __fastcall DNG_DrawRow(__int64 a1)
   int v40; // r8d
   unsigned int v41; // ebx
   int v42; // edx
-  _DWORD *v43; // r10
+  _DWORD *v43; // r11
   __int64 v44; // rax
-  int v45; // r11d
+  int v45; // r10d
   __int64 v46; // rcx
   _DWORD *v47; // rdx
   unsigned __int64 v48; // r9
-  __int64 v49; // rcx
-  _DWORD *v50; // rax
-  unsigned __int64 v51; // r8
+  _DWORD *v49; // rcx
+  unsigned __int64 v50; // rcx
+  __int64 v51; // rcx
 
   v1 = *(_DWORD *)(a1 + 168);
   v3 = *(_QWORD *)(a1 + 8);
@@ -135,15 +135,15 @@ unsigned __int64 __fastcall DNG_DrawRow(__int64 a1)
           v48 = v4 + 4 * v44;
           if ( v40 > 0 && (unsigned int)v40 < 0x3FFFFFFF && v41 < 0x3FFFFFFF )
           {
-            v49 = v40;
-            v50 = &v43[v40];
-            if ( v43 < v50
+            v49 = &v43[v40];
+            if ( v43 < v49
               && *(_QWORD *)(a1 + 216) <= (unsigned __int64)v43
-              && (unsigned __int64)v50 <= *(_QWORD *)(a1 + 224) )
+              && (unsigned __int64)v49 <= *(_QWORD *)(a1 + 224) )
             {
-              v51 = v48 + 4LL * (int)v41;
-              if ( v48 < v51 && *(_QWORD *)(a1 + 232) <= v48 && v51 <= *(_QWORD *)(a1 + 240) && v39 >= 0 )
+              v50 = v48 + 4LL * (int)v41;
+              if ( v48 < v50 && *(_QWORD *)(a1 + 232) <= v48 && v50 <= *(_QWORD *)(a1 + 240) && v39 >= 0 )
               {
+                v51 = v40;
                 do
                 {
                   *v43 = *v47;
@@ -154,9 +154,9 @@ unsigned __int64 __fastcall DNG_DrawRow(__int64 a1)
                   }
                   ++v43;
                   ++v47;
-                  --v49;
+                  --v51;
                 }
-                while ( v49 );
+                while ( v51 );
               }
             }
           }
@@ -167,36 +167,39 @@ unsigned __int64 __fastcall DNG_DrawRow(__int64 a1)
           v22 = *(_DWORD *)(a1 + 184);
           v23 = *(_DWORD *)(a1 + 188);
           v24 = (_DWORD *)(v18 + 4LL * *(int *)(a1 + 204));
-          v25 = v18 + 4LL * *(int *)(a1 + 208);
-          v26 = (_DWORD *)(v4 + 4 * (v14 + *(unsigned int *)(a1 + 180)));
-          v27 = v4 + 4 * (v14 + *(_DWORD *)(a1 + 52) - v17);
-          if ( *(_QWORD *)(a1 + 216) <= (unsigned __int64)v24
-            && v25 <= *(_QWORD *)(a1 + 224)
-            && *(_QWORD *)(a1 + 232) <= (unsigned __int64)v26
-            && v27 <= *(_QWORD *)(a1 + 240)
-            && (unsigned __int64)v24 < v25 )
+          v25 = (_DWORD *)(v4 + 4 * (v14 + *(unsigned int *)(a1 + 180)));
+          v26 = v4 + 4 * (v14 + *(_DWORD *)(a1 + 52) - v17);
+          if ( *(_QWORD *)(a1 + 216) <= (unsigned __int64)v24 )
           {
-            do
+            v27 = v18 + 4LL * *(int *)(a1 + 208);
+            if ( v27 <= *(_QWORD *)(a1 + 224)
+              && *(_QWORD *)(a1 + 232) <= (unsigned __int64)v25
+              && v26 <= *(_QWORD *)(a1 + 240)
+              && (unsigned __int64)v24 < v27 )
             {
-              if ( (unsigned __int64)v26 >= v27 )
-                break;
-              v28 = v22 + v23 < v22;
-              *v24 = *v26;
-              v22 += v23;
-              ++v24;
-              v26 += v28 + v21;
+              do
+              {
+                if ( (unsigned __int64)v25 >= v26 )
+                  break;
+                v28 = v22 + v23 < v22;
+                *v24 = *v25;
+                v22 += v23;
+                ++v24;
+                v25 += v28 + v21;
+              }
+              while ( (unsigned __int64)v24 < v27 );
             }
-            while ( (unsigned __int64)v24 < v25 );
           }
         }
       }
+      v17 = *(_DWORD *)(a1 + 56);
       v18 += 4LL * *(int *)(a1 + 88);
     }
     v29 = *(int *)(a1 + 84);
-    *(_DWORD *)(a1 + 56) += v29;
-    result = v15 + v29;
     v30 = v4 + 4 * (v15 + v29);
-    if ( *(_DWORD *)(a1 + 56) >= (int)v29 )
+    result = (unsigned int)(v29 + v17);
+    *(_DWORD *)(a1 + 56) = result;
+    if ( (int)result >= (int)v29 )
     {
       v31 = *(_DWORD *)(a1 + 172);
       result = (unsigned int)(*(_DWORD *)(a1 + 20) - v31);

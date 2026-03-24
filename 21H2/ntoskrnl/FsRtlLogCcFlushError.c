@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlLogCcFlushError @ 0x14092D830
+ * XREFs of FsRtlLogCcFlushError @ 0x14088ADF0
  * Callers:
- *     CcMmLogLostDelayedWriteError @ 0x14053A580 (CcMmLogLostDelayedWriteError.c)
+ *     CcMmLogLostDelayedWriteError @ 0x1404EA5C8 (CcMmLogLostDelayedWriteError.c)
  * Callees:
- *     MmIsWriteErrorFatal @ 0x14028D31C (MmIsWriteErrorFatal.c)
- *     IoAllocateErrorLogEntry @ 0x1403A70E0 (IoAllocateErrorLogEntry.c)
- *     IoWriteErrorLogEntry @ 0x1403A7210 (IoWriteErrorLogEntry.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     IoRaiseInformationalHardError @ 0x140557960 (IoRaiseInformationalHardError.c)
+ *     MmIsWriteErrorFatal @ 0x140255928 (MmIsWriteErrorFatal.c)
+ *     IoAllocateErrorLogEntry @ 0x1403805B0 (IoAllocateErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x140380A80 (IoWriteErrorLogEntry.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     IoRaiseInformationalHardError @ 0x140505F30 (IoRaiseInformationalHardError.c)
  */
 
 NTSTATUS __stdcall FsRtlLogCcFlushError(
@@ -102,7 +102,7 @@ LABEL_29:
       break;
   }
 LABEL_30:
-  __incgsdword(0x847Cu);
+  __incgsdword(0x813Cu);
   if ( (Flags & 1) == 0 )
     IoRaiseInformationalHardError(v11, FileName, 0LL);
   if ( (Flags & 2) == 0 )

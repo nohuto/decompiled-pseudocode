@@ -1,9 +1,9 @@
 /*
- * XREFs of HalFreeCommonBuffer @ 0x1403993C0
+ * XREFs of HalFreeCommonBuffer @ 0x140382230
  * Callers:
  *     <none>
  * Callees:
- *     MmFreeContiguousMemory @ 0x140213DA0 (MmFreeContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x140295F20 (MmFreeContiguousMemory.c)
  */
 
 void __stdcall HalFreeCommonBuffer(

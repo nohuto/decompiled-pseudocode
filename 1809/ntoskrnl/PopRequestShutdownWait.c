@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRequestShutdownWait @ 0x140740784
+ * XREFs of PopRequestShutdownWait @ 0x140740764
  * Callers:
- *     PoRequestShutdownEvent @ 0x140740740 (PoRequestShutdownEvent.c)
+ *     PoRequestShutdownEvent @ 0x140740720 (PoRequestShutdownEvent.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of ComputeInputColorInfo @ 0x1C00F5EB8
+ * XREFs of ComputeInputColorInfo @ 0x1C001D7A0
  * Callers:
- *     SetupAAHeader @ 0x1C006DC90 (SetupAAHeader.c)
- *     GetDstBFInfo @ 0x1C025E228 (GetDstBFInfo.c)
+ *     SetupAAHeader @ 0x1C001CE78 (SetupAAHeader.c)
+ *     GetDstBFInfo @ 0x1C02615B8 (GetDstBFInfo.c)
  * Callees:
  *     <none>
  */
@@ -83,7 +83,7 @@ LABEL_17:
       goto LABEL_18;
     }
   }
-  *(_QWORD *)(a5 + 16) = InputAABFDATAToAA24;
+  *(_QWORD *)(a5 + 16) = &InputAABFDATAToAA24;
   if ( (*a4 & 1) != 0 )
   {
     *v6 |= 1u;

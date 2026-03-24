@@ -1,10 +1,9 @@
 /*
- * XREFs of ACPIReleaseHardwareGlobalLock @ 0x1C00394DC
+ * XREFs of ACPIReleaseHardwareGlobalLock @ 0x1C005C628
  * Callers:
- *     ACPIReleaseGlobalLock @ 0x1C003939C (ACPIReleaseGlobalLock.c)
- *     ACPIStartNextGlobalLockRequest @ 0x1C0039524 (ACPIStartNextGlobalLockRequest.c)
+ *     ACPIStartNextGlobalLockRequest @ 0x1C000EAE0 (ACPIStartNextGlobalLockRequest.c)
  * Callees:
- *     WRITE_PM1_CONTROL @ 0x1C0038F44 (WRITE_PM1_CONTROL.c)
+ *     WRITE_PM1_CONTROL @ 0x1C000FDF0 (WRITE_PM1_CONTROL.c)
  */
 
 __int64 ACPIReleaseHardwareGlobalLock()

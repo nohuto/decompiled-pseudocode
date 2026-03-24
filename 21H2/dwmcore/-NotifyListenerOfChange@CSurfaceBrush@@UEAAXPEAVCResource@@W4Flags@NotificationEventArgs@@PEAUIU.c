@@ -1,17 +1,35 @@
 /*
- * XREFs of ?NotifyListenerOfChange@CSurfaceBrush@@UEAAXPEAVCResource@@W4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800D3DD0
+ * XREFs of ?NotifyListenerOfChange@CSurfaceBrush@@UEAAXPEAVCResource@@W4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800C2B20
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CSurfaceBrush::NotifyListenerOfChange(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CSurfaceBrush::NotifyListenerOfChange(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
-  __int64 v5; // r9
+  __int64 v5; // rsi
+  unsigned int v6; // edi
 
   v5 = a1;
-  if ( (_DWORD)a3 != 1 )
+  if ( a3 != 1 )
     v5 = a4;
-  return CBrush::NotifyListenerOfChange(a1, a2, a3, v5);
+  v6 = a3;
+  if ( a3 == 14 && !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)a2 + 56LL))(a2, 14LL) )
+  {
+    v6 = 0;
+LABEL_11:
+    v5 = a1;
+    goto LABEL_7;
+  }
+  if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)a2 + 56LL))(a2, 53LL)
+    || (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)a2 + 56LL))(a2, 130LL)
+    || (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)a2 + 56LL))(a2, 131LL) )
+  {
+    goto LABEL_11;
+  }
+LABEL_7:
+  if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)a2 + 56LL))(a2, 195LL) && !v6 )
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)a2 + 72LL))(a2, 5LL);
+  return (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(*(_QWORD *)a2 + 72LL))(a2, v6, v5);
 }

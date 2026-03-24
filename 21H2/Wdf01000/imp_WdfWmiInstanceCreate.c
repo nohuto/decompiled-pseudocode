@@ -1,20 +1,20 @@
 /*
- * XREFs of imp_WdfWmiInstanceCreate @ 0x1C0025AA0
+ * XREFs of imp_WdfWmiInstanceCreate @ 0x1C003D8D0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     FxIsEqualGuid @ 0x1C001C72C (FxIsEqualGuid.c)
- *     ?AddInstance@FxWmiProvider@@QEAAJPEAVFxWmiInstance@@E@Z @ 0x1C001D0E8 (-AddInstance@FxWmiProvider@@QEAAJPEAVFxWmiInstance@@E@Z.c)
- *     ?_Create@FxWmiInstanceExternal@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxWmiProvider@@PEAU_WDF_WMI_INSTANCE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAUWDFWMIINSTANCE__@@PEAPEAV1@@Z @ 0x1C0025C18 (-_Create@FxWmiInstanceExternal@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxWmiProvider@@PEAU_WDF_WMI_INSTA.c)
- *     ?_Create@FxWmiProvider@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WMI_PROVIDER_CONFIG@@PEAPEAUWDFWMIPROVIDER__@@PEAPEAV1@@Z @ 0x1C0025E7C (-_Create@FxWmiProvider@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_WDF_OBJECT_ATTRIBUTES@@.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_DDd @ 0x1C0052E4C (WPP_IFR_SF_DDd.c)
- *     WPP_IFR_SF_qqqd @ 0x1C00532C0 (WPP_IFR_SF_qqqd.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_DDd @ 0x1C002E6DC (WPP_IFR_SF_DDd.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C002EB50 (WPP_IFR_SF_qqqd.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     FxIsEqualGuid @ 0x1C0039BCC (FxIsEqualGuid.c)
+ *     ?AddInstance@FxWmiProvider@@QEAAJPEAVFxWmiInstance@@E@Z @ 0x1C003E07C (-AddInstance@FxWmiProvider@@QEAAJPEAVFxWmiInstance@@E@Z.c)
+ *     ?_Create@FxWmiProvider@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WMI_PROVIDER_CONFIG@@PEAPEAUWDFWMIPROVIDER__@@PEAPEAV1@@Z @ 0x1C003E4DC (-_Create@FxWmiProvider@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_WDF_OBJECT_ATTRIBUTES@@.c)
+ *     ?_Create@FxWmiInstanceExternal@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxWmiProvider@@PEAU_WDF_WMI_INSTANCE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAUWDFWMIINSTANCE__@@PEAPEAV1@@Z @ 0x1C003F120 (-_Create@FxWmiInstanceExternal@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxWmiProvider@@PEAU_WDF_WMI_INSTA.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
  */
 
 int __fastcall imp_WdfWmiInstanceCreate(
@@ -24,14 +24,14 @@ int __fastcall imp_WdfWmiInstanceCreate(
         _WDF_OBJECT_ATTRIBUTES *InstanceAttributes,
         WDFWMIINSTANCE__ **Instance)
 {
-  _FX_DRIVER_GLOBALS *v5; // rdi
+  _FX_DRIVER_GLOBALS *DriverName; // rdi
+  int result; // eax
   WDFWMIPROVIDER__ *Provider; // rdx
   _WDF_WMI_PROVIDER_CONFIG *ProviderConfig; // rax
+  int v12; // esi
   FxPowerPolicyOwnerSettings *m_Owner; // rsi
-  int result; // eax
-  int v13; // eax
-  FxWmiInstanceExternal *v14; // rdi
-  int v15; // esi
+  int v14; // eax
+  FxWmiInstanceExternal *v15; // rdi
   __int64 v16; // rcx
   FxWmiInstanceExternal *pInstance; // [rsp+50h] [rbp-20h] BYREF
   WDFWMIINSTANCE__ *hInstance; // [rsp+58h] [rbp-18h] BYREF
@@ -41,15 +41,15 @@ int __fastcall imp_WdfWmiInstanceCreate(
   FxDevice *pDevice; // [rsp+B0h] [rbp+40h] BYREF
 
   pProvider = 0LL;
-  v5 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   hInstance = 0LL;
   pInstance = 0LL;
   if ( !InstanceConfig )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, retaddr);
   if ( InstanceConfig->Size != 64 )
   {
     WPP_IFR_SF_DDd(
-      v5,
+      DriverName,
       (unsigned __int8)Device,
       0x12u,
       0xBu,
@@ -63,60 +63,65 @@ int __fastcall imp_WdfWmiInstanceCreate(
   ProviderConfig = InstanceConfig->ProviderConfig;
   if ( Provider )
   {
-    if ( !ProviderConfig )
+    if ( ProviderConfig )
     {
-      FxObjectHandleGetPtr(v5, (unsigned __int64)Provider, 0x1004u, (void **)&pProvider);
-LABEL_9:
-      v13 = FxWmiInstanceExternal::_Create(
-              pProvider->m_Globals,
-              pProvider,
-              InstanceConfig,
-              InstanceAttributes,
-              &hInstance,
-              &pInstance);
-      v14 = pInstance;
-      v15 = v13;
-      if ( v13 < 0 || InstanceConfig->Register && (v15 = FxWmiProvider::AddInstance(pProvider, pInstance, 0), v15 < 0) )
-      {
-        if ( v14 )
-        {
-          FxObject::ClearEvtCallbacks(v14);
-          ((void (*)(void))v14->DeleteObject)();
-        }
-        if ( InstanceConfig->ProviderConfig )
-        {
-          FxObject::ClearEvtCallbacks(pProvider);
-          (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 48LL))(v16);
-        }
-      }
-      else if ( Instance )
-      {
-        *Instance = hInstance;
-      }
-      return v15;
+      v12 = -1073741811;
+      WPP_IFR_SF_qqqd(
+        DriverName,
+        2u,
+        0x12u,
+        0xDu,
+        WPP_FxWmiAPI_cpp_Traceguids,
+        InstanceConfig,
+        Provider,
+        (__int64)ProviderConfig,
+        -1073741811);
+      return v12;
     }
-    v15 = -1073741811;
-    WPP_IFR_SF_qqqd(
-      v5,
-      2u,
-      0x12u,
-      0xDu,
-      WPP_FxWmiAPI_cpp_Traceguids,
-      InstanceConfig,
-      Provider,
-      (__int64)ProviderConfig,
-      -1073741811);
-    return v15;
+    FxObjectHandleGetPtr(DriverName, (unsigned __int64)Provider, 0x1004u, (void **)&pProvider);
+LABEL_19:
+    v14 = FxWmiInstanceExternal::_Create(
+            pProvider->m_Globals,
+            pProvider,
+            InstanceConfig,
+            InstanceAttributes,
+            &hInstance,
+            &pInstance);
+    v15 = pInstance;
+    v12 = v14;
+    if ( v14 < 0 )
+      goto LABEL_25;
+    if ( InstanceConfig->Register )
+      v12 = FxWmiProvider::AddInstance(pProvider, pInstance, 0);
+    if ( v12 < 0 )
+    {
+LABEL_25:
+      if ( v15 )
+      {
+        FxObject::ClearEvtCallbacks(v15);
+        ((void (*)(void))v15->DeleteObject)();
+      }
+      if ( InstanceConfig->ProviderConfig )
+      {
+        FxObject::ClearEvtCallbacks(pProvider);
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 48LL))(v16);
+      }
+    }
+    else if ( Instance )
+    {
+      *Instance = hInstance;
+    }
+    return v12;
   }
   if ( !ProviderConfig )
   {
-    v15 = -1073741811;
-    WPP_IFR_SF_qL(v5, 2u, 0x12u, 0xCu, WPP_FxWmiAPI_cpp_Traceguids, InstanceConfig, 0xC000000D);
-    return v15;
+    v12 = -1073741811;
+    WPP_IFR_SF_qL(DriverName, 2u, 0x12u, 0xCu, WPP_FxWmiAPI_cpp_Traceguids, InstanceConfig, 0xC000000D);
+    return v12;
   }
   pDevice = 0LL;
   hProvider = 0LL;
-  FxObjectHandleGetPtr(v5, (unsigned __int64)Device, 0x1002u, (void **)&pDevice);
+  FxObjectHandleGetPtr(DriverName, (unsigned __int64)Device, 0x1002u, (void **)&pDevice);
   m_Owner = pDevice->m_PkgPnp->m_PowerPolicyMachine.m_Owner;
   if ( m_Owner
     && (FxIsEqualGuid(&InstanceConfig->ProviderConfig->Guid, &GUID_POWER_DEVICE_ENABLE)
@@ -124,11 +129,11 @@ LABEL_9:
      || FxIsEqualGuid(&InstanceConfig->ProviderConfig->Guid, &GUID_POWER_DEVICE_WAKE_ENABLE)
      && m_Owner->m_WakeSettings.WmiInstance) )
   {
-    WPP_IFR_SF_(v5, 2u, 0x12u, 0xEu, WPP_FxWmiAPI_cpp_Traceguids);
+    WPP_IFR_SF_(DriverName, 2u, 0x12u, 0xEu, WPP_FxWmiAPI_cpp_Traceguids);
     return -1073741055;
   }
-  result = FxWmiProvider::_Create(v5, Device, 0LL, InstanceConfig->ProviderConfig, &hProvider, &pProvider);
+  result = FxWmiProvider::_Create(DriverName, Device, 0LL, InstanceConfig->ProviderConfig, &hProvider, &pProvider);
   if ( result >= 0 )
-    goto LABEL_9;
+    goto LABEL_19;
   return result;
 }

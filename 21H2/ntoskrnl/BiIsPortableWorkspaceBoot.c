@@ -1,13 +1,13 @@
 /*
- * XREFs of BiIsPortableWorkspaceBoot @ 0x140A1D808
+ * XREFs of BiIsPortableWorkspaceBoot @ 0x14096F8A8
  * Callers:
- *     BiBindEfiEntries @ 0x140A1E590 (BiBindEfiEntries.c)
- *     BiExportBcdObjects @ 0x140A1F9F4 (BiExportBcdObjects.c)
+ *     BiBindEfiEntries @ 0x140970628 (BiBindEfiEntries.c)
+ *     BiExportBcdObjects @ 0x140971A98 (BiExportBcdObjects.c)
  * Callees:
- *     BiGetRegistryValue @ 0x140812F84 (BiGetRegistryValue.c)
- *     BiOpenKey @ 0x140813164 (BiOpenKey.c)
- *     BiCloseKey @ 0x1408132F0 (BiCloseKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     BiGetRegistryValue @ 0x140783DF8 (BiGetRegistryValue.c)
+ *     BiOpenKey @ 0x140784404 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078458C (BiCloseKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 bool BiIsPortableWorkspaceBoot()
@@ -28,7 +28,7 @@ bool BiIsPortableWorkspaceBoot()
                 0LL,
                 L"PortableOperatingSystem",
                 (__int64)L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control",
-                4u,
+                4,
                 &P,
                 &v3) >= 0 )
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x1800CD958
+ * XREFs of ?AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x1800278F8
  * Callers:
- *     ?CreateChannel@CInternalMilCmdConnection@@QEAAJPEAUIDwmChannelProvider@@PEAPEAVCChannel@@@Z @ 0x1800CD79C (-CreateChannel@CInternalMilCmdConnection@@QEAAJPEAUIDwmChannelProvider@@PEAPEAVCChannel@@@Z.c)
+ *     ?CreateKernelChannel@CInternalMilCmdConnection@@AEAAJPEAPEAVCChannel@@@Z @ 0x180027680 (-CreateKernelChannel@CInternalMilCmdConnection@@AEAAJPEAPEAVCChannel@@@Z.c)
  * Callees:
- *     ?AssignEntry@HANDLE_TABLE@@QEAAJIK@Z @ 0x18009C66C (-AssignEntry@HANDLE_TABLE@@QEAAJIK@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x1800CDB34 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
+ *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x1800281E0 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AssignEntry@HANDLE_TABLE@@QEAAJIK@Z @ 0x18005ED10 (-AssignEntry@HANDLE_TABLE@@QEAAJIK@Z.c)
  */
 
 __int64 __fastcall CChannelTable::AssignChannelEntry(
@@ -14,28 +14,28 @@ __int64 __fastcall CChannelTable::AssignChannelEntry(
         struct CLIENT_CHANNEL_HANDLE_ENTRY **a3)
 {
   int MasterTableEntry; // eax
-  __int64 v7; // rcx
+  unsigned int v7; // ecx
   unsigned int v8; // ebx
   struct CLIENT_CHANNEL_HANDLE_ENTRY *v9; // rsi
   HANDLE EventW; // rax
   signed int LastError; // eax
-  __int64 v13; // rcx
+  unsigned int v13; // ecx
   unsigned int v14; // [rsp+20h] [rbp-18h]
   struct CLIENT_CHANNEL_HANDLE_ENTRY *v15; // [rsp+58h] [rbp+20h] BYREF
 
   v15 = 0LL;
-  MasterTableEntry = HANDLE_TABLE::AssignEntry(this, a2, 1);
+  MasterTableEntry = HANDLE_TABLE::AssignEntry(this, a2, 1u);
   v8 = MasterTableEntry;
   if ( MasterTableEntry < 0 )
   {
-    v14 = 69;
+    v14 = 57;
     goto LABEL_13;
   }
   MasterTableEntry = CChannelTable::GetMasterTableEntry(this, a2, &v15);
   v8 = MasterTableEntry;
   if ( MasterTableEntry < 0 )
   {
-    v14 = 71;
+    v14 = 59;
 LABEL_13:
     MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, MasterTableEntry, v14, 0LL);
     return v8;
@@ -58,7 +58,7 @@ LABEL_13:
       v8 = (unsigned __int16)LastError | 0x80070000;
     if ( (v8 & 0x80000000) == 0 )
       v8 = -2003304445;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v8, 0x4Au, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v8, 0x3Eu, 0LL);
   }
   return v8;
 }

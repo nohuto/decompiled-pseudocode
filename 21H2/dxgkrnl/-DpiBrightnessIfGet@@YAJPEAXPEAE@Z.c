@@ -1,40 +1,40 @@
 /*
- * XREFs of ?DpiBrightnessIfGet@@YAJPEAXPEAE@Z @ 0x1C038F8E0
+ * XREFs of ?DpiBrightnessIfGet@@YAJPEAXPEAE@Z @ 0x1C02D0BE0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C01B40A0 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01B445C (DpiAcquireCoreSyncAccessSafe.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0121730 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C01219AC (DpiAcquireCoreSyncAccessSafe.c)
  */
 
 __int64 __fastcall DpiBrightnessIfGet(_QWORD *a1, unsigned __int8 *a2)
 {
-  __int64 v2; // rbp
+  __int64 v2; // rsi
   _QWORD *v3; // rbx
   __int16 v6; // ax
-  __int64 v7; // rsi
+  __int64 v7; // rbp
   int v8; // edi
   int v9; // eax
 
   v2 = a1[8];
   v3 = 0LL;
-  v6 = *(_WORD *)(v2 + 4666);
+  v6 = *(_WORD *)(v2 + 4738);
   if ( v6 == 2 )
-    v3 = (_QWORD *)(v2 + 4664);
+    v3 = (_QWORD *)(v2 + 4736);
   v7 = 0LL;
   if ( v6 == 1 )
-    v7 = v2 + 4664;
+    v7 = v2 + 4736;
   if ( (!v3 || !v3[6]) && (!v7 || !*(_QWORD *)(v7 + 48)) )
     return 3221225659LL;
-  KeWaitForSingleObject((PVOID)(v2 + 4392), Executive, 0, 0, 0LL);
+  KeWaitForSingleObject((PVOID)(v2 + 4464), Executive, 0, 0, 0LL);
   v8 = DpiAcquireCoreSyncAccessSafe((__int64)a1, 0);
   if ( v8 >= 0 )
   {
-    if ( *(_BYTE *)(v2 + 4385) )
+    if ( *(_BYTE *)(v2 + 4448) || *(_BYTE *)(v2 + 4449) )
     {
       v8 = 0;
-      *a2 = *(_BYTE *)(v2 + 4387);
+      *a2 = *(_BYTE *)(v2 + 4456);
     }
     else
     {
@@ -46,6 +46,6 @@ __int64 __fastcall DpiBrightnessIfGet(_QWORD *a1, unsigned __int8 *a2)
     }
     DpiReleaseCoreSyncAccessSafe((__int64)a1, 0);
   }
-  KeReleaseMutex((PRKMUTEX)(v2 + 4392), 0);
+  KeReleaseMutex((PRKMUTEX)(v2 + 4464), 0);
   return (unsigned int)v8;
 }

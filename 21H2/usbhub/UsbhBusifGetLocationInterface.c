@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhBusifGetLocationInterface @ 0x1C004BA3C
+ * XREFs of UsbhBusifGetLocationInterface @ 0x1C004CE3C
  * Callers:
- *     UsbhPdoPnp_QueryInterface @ 0x1C00552A0 (UsbhPdoPnp_QueryInterface.c)
+ *     UsbhPdoPnp_QueryInterface @ 0x1C0056940 (UsbhPdoPnp_QueryInterface.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhBusIfLocationReference @ 0x1C004B770 (UsbhBusIfLocationReference.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhBusIfLocationReference @ 0x1C004CB70 (UsbhBusIfLocationReference.c)
  */
 
 __int64 __fastcall UsbhBusifGetLocationInterface(__int64 a1, __int64 a2, __int64 a3)

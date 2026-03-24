@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AddVisualTreeDataToList@CVisual@@IEAAXPEAVCVisualTreeData@@@Z @ 0x1800D9200
+ * XREFs of ?AddVisualTreeDataToList@CVisual@@IEAAXPEAVCVisualTreeData@@@Z @ 0x1800C90DC
  * Callers:
- *     ?Link@CVisualTreeData@@MEAAXXZ @ 0x1800D91A0 (-Link@CVisualTreeData@@MEAAXXZ.c)
+ *     ?Link@CVisualTreeData@@MEAAXXZ @ 0x1800C9080 (-Link@CVisualTreeData@@MEAAXXZ.c)
  * Callees:
- *     ?ReserveSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@SAAEAT?$_Align_type@N$07@std@@PEAPEAV12@I@Z @ 0x18004C27C (-ReserveSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@SAAEAT-$_Align_type@N$07@std@@PEAP.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18008FC84 (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18007A590 (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?ReserveSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@SAAEAT?$_Align_type@N$07@std@@PEAPEAV12@I@Z @ 0x1800C65A4 (-ReserveSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@SAAEAT-$_Align_type@N$07@std@@PEAP.c)
  */
 
 void __fastcall CVisual::AddVisualTreeDataToList(CVisual *this, struct CVisualTreeData *a2)
@@ -17,7 +17,7 @@ void __fastcall CVisual::AddVisualTreeDataToList(CVisual *this, struct CVisualTr
   struct _LIST_ENTRY *v8; // rax
   __int64 v9; // rcx
   _BYTE *v10; // rdx
-  unsigned int v11; // eax
+  unsigned int i; // eax
 
   v4 = 0LL;
   TreeDataListHead = CVisual::GetTreeDataListHead(this);
@@ -28,45 +28,32 @@ void __fastcall CVisual::AddVisualTreeDataToList(CVisual *this, struct CVisualTr
       RaiseFailFastException(0LL, 0LL, 0);
     TreeDataListHead->Blink = TreeDataListHead;
     TreeDataListHead->Flink = TreeDataListHead;
-    v6 = *((_QWORD *)this + 29);
-    if ( *(int *)v6 >= 0 )
+    v6 = *((_QWORD *)this + 28);
+    if ( *(int *)v6 < 0 )
     {
-      *(_QWORD *)CSparseAlignedStorage<8,8>::AllocatedStorage::ReserveSlot((_QWORD *)this + 29, 1) = TreeDataListHead;
-      goto LABEL_6;
-    }
-    v9 = *(unsigned int *)(v6 + 4);
-    v10 = (_BYTE *)(v6 + 8);
-    v11 = 0;
-    if ( (_DWORD)v9 )
-    {
-      while ( *v10 != 1 )
+      v9 = *(unsigned int *)(v6 + 4);
+      v10 = (_BYTE *)(v6 + 8);
+      for ( i = 0; i < (unsigned int)v9; ++v10 )
       {
-        ++v11;
-        ++v10;
-        if ( v11 >= (unsigned int)v9 )
-          goto LABEL_11;
+        if ( *v10 == 1 )
+          break;
+        ++i;
       }
+      if ( i < (unsigned int)v9 )
+        v4 = (struct _LIST_ENTRY **)(v9 + 15 + v6 + 8LL * i - (((_BYTE)v9 + 15) & 7));
+      *v4 = TreeDataListHead;
     }
     else
     {
-LABEL_11:
-      if ( v11 >= (unsigned int)v9 )
-      {
-LABEL_13:
-        *v4 = TreeDataListHead;
-        goto LABEL_6;
-      }
+      *(_QWORD *)CSparseAlignedStorage<8,8>::AllocatedStorage::ReserveSlot((_QWORD *)this + 28, 1) = TreeDataListHead;
     }
-    v4 = (struct _LIST_ENTRY **)(v9 + 15 + v6 + 8LL * v11 - (((_BYTE)v9 + 15) & 7));
-    goto LABEL_13;
   }
-LABEL_6:
   Blink = TreeDataListHead->Blink;
-  v8 = (struct _LIST_ENTRY *)((char *)a2 + 384);
+  v8 = (struct _LIST_ENTRY *)((char *)a2 + 288);
   if ( Blink->Flink != TreeDataListHead )
     __fastfail(3u);
   v8->Flink = TreeDataListHead;
-  *((_QWORD *)a2 + 49) = Blink;
+  *((_QWORD *)a2 + 37) = Blink;
   Blink->Flink = v8;
   TreeDataListHead->Blink = v8;
 }

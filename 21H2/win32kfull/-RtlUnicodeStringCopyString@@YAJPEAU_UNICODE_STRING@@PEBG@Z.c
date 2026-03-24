@@ -1,67 +1,48 @@
 /*
- * XREFs of ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00A1108
+ * XREFs of ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E19C8
  * Callers:
- *     GetLocalMachineRegistryDWORDValues @ 0x1C00A0DF8 (GetLocalMachineRegistryDWORDValues.c)
- *     ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C0112E5C (-CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
- *     ?GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C0112FC8 (-GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
- *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C0211054 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
+ *     GetLocalMachineRegistryDWORDValues @ 0x1C00E1724 (GetLocalMachineRegistryDWORDValues.c)
+ *     ?GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C00E1DE0 (-GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
+ *     ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C01331E4 (-CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
+ *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C0209A68 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
  * Callees:
- *     <none>
+ *     RtlWideCharArrayCopyStringWorker @ 0x1C00E1A54 (RtlWideCharArrayCopyStringWorker.c)
  */
 
-__int64 __fastcall RtlUnicodeStringCopyString(struct _UNICODE_STRING *a1, const unsigned __int16 *a2)
+NTSTATUS __fastcall RtlUnicodeStringCopyString(struct _UNICODE_STRING *a1, const unsigned __int16 *a2)
 {
   USHORT Length; // r8
+  wchar_t *Buffer; // r10
+  const wchar_t *v5; // r9
+  NTSTATUS result; // eax
   unsigned __int64 MaximumLength; // rdx
-  PWSTR Buffer; // r10
-  __int64 result; // rax
-  const wchar_t *v7; // r11
-  bool v8; // zf
-  unsigned __int64 v9; // r8
-  __int64 v10; // rdx
-  __int16 v11; // cx
+  size_t v8; // [rsp+20h] [rbp-18h]
+  size_t pcchNewDestLength; // [rsp+48h] [rbp+10h] BYREF
 
+  pcchNewDestLength = (size_t)a2;
   Length = a1->Length;
+  Buffer = 0LL;
+  v5 = 0LL;
+  result = 0;
   if ( (a1->Length & 1) != 0 )
-    return 3221225485LL;
+    return -1073741811;
   MaximumLength = a1->MaximumLength;
-  if ( (MaximumLength & 1) != 0 )
-    return 3221225485LL;
-  if ( Length > (unsigned __int16)MaximumLength )
-    return 3221225485LL;
-  if ( (_WORD)MaximumLength == 0xFFFF )
-    return 3221225485LL;
-  Buffer = a1->Buffer;
-  result = 0LL;
-  if ( !Buffer && (Length || (_WORD)MaximumLength) )
-    return 3221225485LL;
-  v7 = L"\\Registry\\Machine";
-  v9 = MaximumLength >> 1;
-  v8 = MaximumLength >> 1 == 0;
-  v10 = 0x7FFFLL;
-  v11 = 0;
-  if ( v8 )
+  if ( (MaximumLength & 1) != 0 || Length > (unsigned __int16)MaximumLength || (_WORD)MaximumLength == 0xFFFF )
+    return -1073741811;
+  if ( !a1->Buffer && (Length || (_WORD)MaximumLength) )
   {
-LABEL_12:
-    result = 2147483653LL;
+    result = -1073741811;
   }
   else
   {
-    while ( v10 )
-    {
-      if ( *v7 )
-      {
-        *Buffer++ = *v7++;
-        --v10;
-        ++v11;
-        if ( --v9 )
-          continue;
-      }
-      if ( v9 || !v10 || !*v7 )
-        break;
-      goto LABEL_12;
-    }
+    Buffer = a1->Buffer;
+    v5 = (const wchar_t *)(MaximumLength >> 1);
   }
-  a1->Length = 2 * v11;
+  if ( result >= 0 )
+  {
+    pcchNewDestLength = 0LL;
+    result = RtlWideCharArrayCopyStringWorker(Buffer, (size_t)v5, &pcchNewDestLength, v5, v8);
+    a1->Length = 2 * pcchNewDestLength;
+  }
   return result;
 }

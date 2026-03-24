@@ -1,39 +1,40 @@
 /*
- * XREFs of NtGdiEngDeleteSurface @ 0x1C02C9840
+ * XREFs of NtGdiEngDeleteSurface @ 0x1C015DBE0
  * Callers:
  *     <none>
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0030084 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C0087EAC (--1SURFREF@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C0082F38 (--1SURFREF@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C00838AC (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiEngDeleteSurface(HSURF a1)
 {
-  unsigned int v2; // ebx
-  void *v3; // rcx
-  _BYTE v5[32]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v6; // [rsp+40h] [rbp-18h]
+  __int64 v2; // rdx
+  unsigned int v3; // ebx
+  void *v4; // rcx
+  _BYTE v6[32]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v7; // [rsp+40h] [rbp-18h]
 
-  SURFREF::SURFREF((SURFREF *)v5, a1);
-  v2 = 0;
-  if ( !v6 )
+  SURFREF::SURFREF((SURFREF *)v6, a1);
+  v3 = 0;
+  if ( !v7 )
     goto LABEL_8;
-  if ( (*(_DWORD *)(v6 + 112) & 0x40000) == 0 )
+  if ( (*(_DWORD *)(v7 + 112) & 0x40000) == 0 )
   {
-    DEC_SHARE_REF_CNT(v6);
+    DEC_SHARE_REF_CNT(v7, v2);
 LABEL_8:
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v5);
-    return v2;
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v6);
+    return v3;
   }
-  v3 = *(void **)(v6 + 144);
-  if ( v3 )
+  v4 = *(void **)(v7 + 144);
+  if ( v4 )
   {
-    MmUnsecureVirtualMemory(v3);
-    *(_QWORD *)(v6 + 144) = 0LL;
+    MmUnsecureVirtualMemory(v4);
+    *(_QWORD *)(v7 + 144) = 0LL;
   }
-  SURFREF::~SURFREF((SURFREF *)v5);
+  SURFREF::~SURFREF((SURFREF *)v6, v2);
   if ( EngDeleteSurface(a1) )
     return 1;
-  return v2;
+  return v3;
 }

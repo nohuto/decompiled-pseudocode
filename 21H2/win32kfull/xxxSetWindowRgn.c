@@ -1,13 +1,13 @@
 /*
- * XREFs of xxxSetWindowRgn @ 0x1C00F914C
+ * XREFs of xxxSetWindowRgn @ 0x1C010E240
  * Callers:
- *     NtUserSetWindowRgn @ 0x1C00F9060 (NtUserSetWindowRgn.c)
- *     NtUserSetWindowRgnEx @ 0x1C01FE640 (NtUserSetWindowRgnEx.c)
+ *     NtUserSetWindowRgn @ 0x1C010E150 (NtUserSetWindowRgn.c)
+ *     NtUserSetWindowRgnEx @ 0x1C02031A0 (NtUserSetWindowRgnEx.c)
  * Callees:
- *     xxxEndDeferWindowPosEx @ 0x1C004720C (xxxEndDeferWindowPosEx.c)
- *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C0048C48 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
- *     InternalBeginDeferWindowPos @ 0x1C0048E6C (InternalBeginDeferWindowPos.c)
- *     MirrorRegion @ 0x1C00F9228 (MirrorRegion.c)
+ *     InternalBeginDeferWindowPos @ 0x1C006BA00 (InternalBeginDeferWindowPos.c)
+ *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C006BA90 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006EDBC (xxxEndDeferWindowPosEx.c)
+ *     MirrorRegion @ 0x1C010E31C (MirrorRegion.c)
  */
 
 __int64 __fastcall xxxSetWindowRgn(_QWORD *a1, __int64 a2, int a3)
@@ -15,7 +15,7 @@ __int64 __fastcall xxxSetWindowRgn(_QWORD *a1, __int64 a2, int a3)
   unsigned int v3; // edi
   __int64 v6; // rax
   __int64 v7; // rbx
-  __int64 v8; // rcx
+  void *v8; // rcx
   __int64 v9; // rax
 
   v3 = 0;
@@ -35,9 +35,9 @@ LABEL_10:
   {
     v7 = 1LL;
   }
-  v8 = InternalBeginDeferWindowPos(1u);
+  v8 = InternalBeginDeferWindowPos(1);
   if ( !v8
-    || (v9 = _DeferWindowPos(v8, a1, 0LL, 0, 0, 0, 0, a3 != 0 ? 6199 : 6207, 0)) == 0
+    || (v9 = _DeferWindowPos((__int64)v8, a1, 0LL, 0, 0, 0, 0, a3 != 0 ? 6199 : 6207, 0)) == 0
     || (*(_QWORD *)(*(_QWORD *)(v9 + 40) + 112LL) = v7, (v3 = xxxEndDeferWindowPosEx((struct tagSMWP *)v9, 0)) == 0) )
   {
     if ( v7 != 1 )

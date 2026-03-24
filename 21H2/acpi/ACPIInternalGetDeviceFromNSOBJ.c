@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIInternalGetDeviceFromNSOBJ @ 0x1C0030C38
+ * XREFs of ACPIInternalGetDeviceFromNSOBJ @ 0x1C0056ECC
  * Callers:
- *     ACPIIsPowerNodeMissingDependencies @ 0x1C0023550 (ACPIIsPowerNodeMissingDependencies.c)
- *     ACPIPowerNodeDiscoverDependencies @ 0x1C0025FA8 (ACPIPowerNodeDiscoverDependencies.c)
- *     AcquireDeviceFirmwareLock @ 0x1C004E7AC (AcquireDeviceFirmwareLock.c)
- *     TranslateBindMutexResources @ 0x1C004EFEC (TranslateBindMutexResources.c)
- *     InternalRawAccessOpRegionHandler @ 0x1C005D960 (InternalRawAccessOpRegionHandler.c)
- *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00AE324 (ExternalRequestBiosNameDeviceAssociation.c)
+ *     ACPIIsPowerNodeMissingDependencies @ 0x1C00147A8 (ACPIIsPowerNodeMissingDependencies.c)
+ *     ACPIPowerNodeDiscoverDependencies @ 0x1C002971C (ACPIPowerNodeDiscoverDependencies.c)
+ *     AcquireDeviceFirmwareLock @ 0x1C004F97C (AcquireDeviceFirmwareLock.c)
+ *     TranslateBindMutexResources @ 0x1C00501BC (TranslateBindMutexResources.c)
+ *     InternalRawAccessOpRegionHandler @ 0x1C005CA50 (InternalRawAccessOpRegionHandler.c)
+ *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00AF6D4 (ExternalRequestBiosNameDeviceAssociation.c)
  * Callees:
  *     <none>
  */
@@ -22,10 +22,10 @@ void __fastcall ACPIInternalGetDeviceFromNSOBJ(__int64 a1, _QWORD *a2, __int64 a
   if ( v8 )
   {
     if ( a4 )
-      *a4 = *(_DWORD *)(v8 + 368);
+      *a4 = *(_DWORD *)(v8 + 328);
     if ( a2 )
     {
-      v9 = *(void **)(v8 + 768);
+      v9 = *(void **)(v8 + 728);
       *a2 = v9;
       if ( v9 )
         ObfReferenceObject(v9);

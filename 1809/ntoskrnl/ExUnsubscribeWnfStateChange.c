@@ -1,9 +1,9 @@
 /*
  * XREFs of ExUnsubscribeWnfStateChange @ 0x140606B80
  * Callers:
- *     RtlpCtContextFree @ 0x14089974C (RtlpCtContextFree.c)
+ *     RtlpCtContextFree @ 0x14089972C (RtlpCtContextFree.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExpWnfDeleteSubscription @ 0x140607CA4 (ExpWnfDeleteSubscription.c)
  */
 

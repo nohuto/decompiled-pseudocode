@@ -1,16 +1,16 @@
 /*
- * XREFs of TouchTargetingRankForRectDeep @ 0x1C025CF50
+ * XREFs of TouchTargetingRankForRectDeep @ 0x1C0260240
  * Callers:
- *     ?TouchTargetingLayerHitTest@@YAHPEAUtagWND@@UtagPOINT@@HPEBUtagTOUCHTARGETINGCONTACT@@PEAUtagRECT@@PEAGPEAU2@W4tagTARGETING_PROPERTY@@@Z @ 0x1C0205078 (-TouchTargetingLayerHitTest@@YAHPEAUtagWND@@UtagPOINT@@HPEBUtagTOUCHTARGETINGCONTACT@@PEAUtagREC.c)
- *     ?xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHUtagRECT@@KW4tagTARGETING_PROPERTY@@@Z @ 0x1C0205E2C (-xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHU.c)
+ *     ?TouchTargetingLayerHitTest@@YAHPEAUtagWND@@UtagPOINT@@HPEBUtagTOUCHTARGETINGCONTACT@@PEAUtagRECT@@PEAGPEAU2@W4tagTARGETING_PROPERTY@@@Z @ 0x1C021575C (-TouchTargetingLayerHitTest@@YAHPEAUtagWND@@UtagPOINT@@HPEBUtagTOUCHTARGETINGCONTACT@@PEAUtagREC.c)
+ *     ?xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHUtagRECT@@KW4tagTARGETING_PROPERTY@@@Z @ 0x1C02160E8 (-xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHU.c)
  * Callees:
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z @ 0x1C025BD94 (-_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z.c)
- *     ?_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z @ 0x1C025C03C (-_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z.c)
- *     TouchTargetingRank @ 0x1C025C9A8 (TouchTargetingRank.c)
- *     TouchTargetingSnapToSegment @ 0x1C025D24C (TouchTargetingSnapToSegment.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z @ 0x1C025F16C (-_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z.c)
+ *     ?_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z @ 0x1C025F414 (-_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z.c)
+ *     TouchTargetingRank @ 0x1C025FCE8 (TouchTargetingRank.c)
+ *     TouchTargetingSnapToSegment @ 0x1C026053C (TouchTargetingSnapToSegment.c)
  */
 
 __int64 __fastcall TouchTargetingRankForRectDeep(_OWORD *a1, __int64 a2, int *a3, _DWORD *a4, int a5)
@@ -19,9 +19,9 @@ __int64 __fastcall TouchTargetingRankForRectDeep(_OWORD *a1, __int64 a2, int *a3
   _DWORD *v8; // rdi
   unsigned __int16 v9; // r12
   struct tagPOINT v10; // rcx
-  int v11; // esi
+  unsigned int v11; // esi
   int v12; // r14d
-  int v13; // ebx
+  unsigned int v13; // ebx
   int v14; // edi
   __int64 v15; // rbx
   __int64 v16; // rcx

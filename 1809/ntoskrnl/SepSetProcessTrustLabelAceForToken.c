@@ -1,12 +1,12 @@
 /*
- * XREFs of SepSetProcessTrustLabelAceForToken @ 0x1401B6D70
+ * XREFs of SepSetProcessTrustLabelAceForToken @ 0x1401B6D90
  * Callers:
  *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
  * Callees:
  *     RtlGetAce @ 0x140016260 (RtlGetAce.c)
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
- *     RtlFindAceByType @ 0x1400A8F90 (RtlFindAceByType.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
+ *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObReleaseObjectSecurity @ 0x1405C93E0 (ObReleaseObjectSecurity.c)
@@ -14,10 +14,10 @@
  *     ObSetSecurityObjectByPointer @ 0x1405CAD40 (ObSetSecurityObjectByPointer.c)
  *     RtlAddAce @ 0x1405CAE40 (RtlAddAce.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1406542B0 (RtlSetSaclSecurityDescriptor.c)
- *     ObGetObjectSecurity @ 0x140700F50 (ObGetObjectSecurity.c)
- *     RtlAddProcessTrustLabelAce @ 0x140727950 (RtlAddProcessTrustLabelAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140654290 (RtlSetSaclSecurityDescriptor.c)
+ *     ObGetObjectSecurity @ 0x140700F30 (ObGetObjectSecurity.c)
+ *     RtlAddProcessTrustLabelAce @ 0x140727930 (RtlAddProcessTrustLabelAce.c)
  */
 
 __int64 __fastcall SepSetProcessTrustLabelAceForToken(_QWORD *a1)

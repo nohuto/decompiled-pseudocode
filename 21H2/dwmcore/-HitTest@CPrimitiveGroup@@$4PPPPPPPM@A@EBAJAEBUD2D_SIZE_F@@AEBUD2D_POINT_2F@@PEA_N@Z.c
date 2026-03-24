@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HitTest@CPrimitiveGroup@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180106110
+ * XREFs of ?HitTest@CPrimitiveGroup@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F5140
  * Callers:
  *     <none>
  * Callees:

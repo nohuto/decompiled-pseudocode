@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0qqqqzzzqx_EtwWriteTransfer @ 0x1C004876C
+ * XREFs of McTemplateK0qqqqzzzqx_EtwWriteTransfer @ 0x1C0054B80
  * Callers:
- *     EtwTraceMessageCheckDelay @ 0x1C0046060 (EtwTraceMessageCheckDelay.c)
+ *     EtwTraceMessageCheckDelay @ 0x1C0122C00 (EtwTraceMessageCheckDelay.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall McTemplateK0qqqqzzzqx_EtwWriteTransfer(
+__int64 __fastcall McTemplateK0qqqqzzzqx_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -26,11 +26,11 @@ NTSTATUS __fastcall McTemplateK0qqqqzzzqx_EtwWriteTransfer(
   __int64 v14; // rdx
   int v15; // r8d
   const wchar_t *v16; // rax
-  __int64 v17; // rdx
-  int v18; // r8d
-  const wchar_t *v19; // rax
-  int v20; // edx
-  struct _EVENT_DATA_DESCRIPTOR v22; // [rsp+30h] [rbp-99h] BYREF
+  int v17; // r8d
+  const wchar_t *v18; // rax
+  int v19; // edx
+  __int64 v21; // rdx
+  _BYTE v22[16]; // [rsp+30h] [rbp-99h] BYREF
   int *v23; // [rsp+40h] [rbp-89h]
   __int64 v24; // [rsp+48h] [rbp-81h]
   char *v25; // [rsp+50h] [rbp-79h]
@@ -85,41 +85,41 @@ NTSTATUS __fastcall McTemplateK0qqqqzzzqx_EtwWriteTransfer(
   v16 = a9;
   if ( a9 )
   {
-    v17 = -1LL;
+    v21 = -1LL;
     do
-      ++v17;
-    while ( a9[v17] );
-    v18 = 2 * v17 + 2;
+      ++v21;
+    while ( a9[v21] );
+    v17 = 2 * v21 + 2;
   }
   else
   {
-    v18 = 10;
+    v17 = 10;
   }
-  v35 = v18;
+  v35 = v17;
   v36 = 0;
   if ( !a9 )
     v16 = L"NULL";
   v34 = v16;
-  v19 = a10;
+  v18 = a10;
   if ( a10 )
   {
     do
       ++v12;
     while ( a10[v12] );
-    v20 = 2 * v12 + 2;
+    v19 = 2 * v12 + 2;
   }
   else
   {
-    v20 = 10;
+    v19 = 10;
   }
-  v38 = v20;
+  v38 = v19;
   v39 = 0;
   if ( !a10 )
-    v19 = L"NULL";
+    v18 = L"NULL";
   v41 = 4LL;
-  v37 = v19;
+  v37 = v18;
   v43 = 8LL;
   v40 = &a11;
   v42 = &a12;
-  return McGenEventWrite_EtwWriteTransfer(v12, (const EVENT_DESCRIPTOR *)"&", &W32kControlGuid, 0xAu, &v22);
+  return McGenEventWrite_EtwWriteTransfer(v12, &MessageCheckDelayEvent, &W32kControlGuid, 10LL, v22);
 }

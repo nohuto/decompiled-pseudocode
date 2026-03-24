@@ -1,7 +1,7 @@
 /*
- * XREFs of KeIntSteerIsSteeringEnabled @ 0x14025E8F0
+ * XREFs of KeIntSteerIsSteeringEnabled @ 0x1402D3FEC
  * Callers:
- *     ExpQueryInterruptSteeringInformation @ 0x14085F318 (ExpQueryInterruptSteeringInformation.c)
+ *     ExpQueryInterruptSteeringInformation @ 0x1407CF5A4 (ExpQueryInterruptSteeringInformation.c)
  * Callees:
  *     <none>
  */

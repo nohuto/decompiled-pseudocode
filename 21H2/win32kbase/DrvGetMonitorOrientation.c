@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvGetMonitorOrientation @ 0x1C0174730
+ * XREFs of DrvGetMonitorOrientation @ 0x1C0147760
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvGetMonitorOrientation(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   if ( a1 )
-    return ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD, __int64, __int64))qword_1C0296768)(*a1, a2, 0LL, a3, a4);
+    return ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD, __int64, __int64))qword_1C0251978)(*a1, a2, 0LL, a3, a4);
   else
     return 3221225485LL;
 }

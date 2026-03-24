@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgInitDeviceCallback @ 0x14095E5A0
+ * XREFs of PiDevCfgInitDeviceCallback @ 0x1408A6990
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _PnpOpenObjectRegKey @ 0x1406CFA10 (_PnpOpenObjectRegKey.c)
- *     PiDevCfgFreeDeviceContext @ 0x1407D95B0 (PiDevCfgFreeDeviceContext.c)
- *     PiDevCfgSetDeviceRegProp @ 0x14087C2AC (PiDevCfgSetDeviceRegProp.c)
- *     PiDevCfgInitDeviceContext @ 0x14087CCD8 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14095C980 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _PnpOpenObjectRegKey @ 0x1406B0644 (_PnpOpenObjectRegKey.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x1407360F8 (PiDevCfgSetDeviceRegProp.c)
+ *     PiDevCfgFreeDeviceContext @ 0x14073683C (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgInitDeviceContext @ 0x140737ED8 (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A4F6C (PiDevCfgCheckDeviceNeedsUpdate.c)
  */
 
 __int64 __fastcall PiDevCfgInitDeviceCallback(__int64 a1, __int64 a2, _BYTE *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall PiDevCfgInitDeviceCallback(__int64 a1, __int64 a2, _BYTE *a3)
   int v10; // [rsp+40h] [rbp-9h] BYREF
   unsigned int v11; // [rsp+44h] [rbp-5h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-1h] BYREF
-  __int64 v13[10]; // [rsp+50h] [rbp+7h] BYREF
+  _QWORD v13[10]; // [rsp+50h] [rbp+7h] BYREF
   int v14; // [rsp+B0h] [rbp+67h] BYREF
   int v15; // [rsp+C8h] [rbp+7Fh] BYREF
 
@@ -52,7 +52,7 @@ __int64 __fastcall PiDevCfgInitDeviceCallback(__int64 a1, __int64 a2, _BYTE *a3)
     {
       v14 = 0;
     }
-    if ( (int)PiDevCfgInitDeviceContext(*(_QWORD *)(a1 + 16), Handle, v13) >= 0 )
+    if ( (int)PiDevCfgInitDeviceContext(*(_QWORD *)(a1 + 16), (__int64)Handle, v13) >= 0 )
     {
       if ( (int)PiDevCfgCheckDeviceNeedsUpdate((__int64)v13, &v11) >= 0 && v11 )
       {

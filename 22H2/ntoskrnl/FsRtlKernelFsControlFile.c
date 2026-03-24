@@ -1,57 +1,56 @@
 /*
- * XREFs of FsRtlKernelFsControlFile @ 0x140772DD0
+ * XREFs of FsRtlKernelFsControlFile @ 0x140669ED0
  * Callers:
- *     SPCallServerHandleFileIntegrityUpdate @ 0x1407FEDE4 (SPCallServerHandleFileIntegrityUpdate.c)
- *     SPCallServerHandleFileUsnQuery @ 0x1407FF2B0 (SPCallServerHandleFileUsnQuery.c)
- *     SPCallServerHandleFileIntegrityQuery @ 0x1407FF708 (SPCallServerHandleFileIntegrityQuery.c)
+ *     SPCallServerHandleFileIntegrityUpdate @ 0x1407288C4 (SPCallServerHandleFileIntegrityUpdate.c)
+ *     SPCallServerHandleFileIntegrityQuery @ 0x140728EE4 (SPCallServerHandleFileIntegrityQuery.c)
+ *     SPCallServerHandleFileUsnQuery @ 0x14072940C (SPCallServerHandleFileUsnQuery.c)
  * Callees:
- *     IoAllocateMdl @ 0x14022E2C0 (IoAllocateMdl.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     MmProbeAndLockPages @ 0x140238770 (MmProbeAndLockPages.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     IoAllocateIrpEx @ 0x140310DD0 (IoAllocateIrpEx.c)
- *     IoCancelIrp @ 0x140351890 (IoCancelIrp.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     FsRtlCancellableWaitForMultipleObjects @ 0x140773CD0 (FsRtlCancellableWaitForMultipleObjects.c)
- *     FsRtlpFreeMdlChain @ 0x14093EFB8 (FsRtlpFreeMdlChain.c)
+ *     MmProbeAndLockPages @ 0x1402096D0 (MmProbeAndLockPages.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IoAllocateIrpEx @ 0x1402F9A50 (IoAllocateIrpEx.c)
+ *     IoCancelIrp @ 0x140314120 (IoCancelIrp.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x1405FCB60 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     FsRtlpFreeMdlChain @ 0x14088C4B0 (FsRtlpFreeMdlChain.c)
  */
 
 __int64 __fastcall FsRtlKernelFsControlFile(
         PFILE_OBJECT FileObject,
-        int a2,
-        const void *a3,
+        ULONG a2,
+        struct _IRP *a3,
         unsigned int a4,
-        _SLIST_ENTRY *VirtualAddress,
+        struct _IRP *VirtualAddress,
         ULONG Length,
         ULONG *a7)
 {
   size_t v7; // r12
-  char v9; // r13
   IRP *v11; // rbx
-  int v12; // r13d
+  unsigned int v12; // esi
   __int64 v13; // rdx
-  PSLIST_ENTRY v14; // rax
-  __int64 v15; // rcx
+  IRP *v14; // rax
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
   ULONG v16; // r14d
-  __int64 v17; // rax
+  struct _IO_STACK_LOCATION *v17; // rax
   int Status; // esi
   ULONG Information; // ecx
   struct _MDL *Mdl; // rax
   struct _MDL *MdlAddress; // rcx
   PIRP Irp; // [rsp+38h] [rbp-50h]
-  __int64 *v24; // [rsp+40h] [rbp-48h]
-  PDEVICE_OBJECT DeviceObject; // [rsp+48h] [rbp-40h] BYREF
-  struct _KEVENT Object; // [rsp+50h] [rbp-38h] BYREF
+  union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 *p_CurrentStackLocation; // [rsp+40h] [rbp-48h]
+  PDEVICE_OBJECT DeviceObject; // [rsp+48h] [rbp-40h]
+  PVOID ObjectArray; // [rsp+50h] [rbp-38h] BYREF
+  struct _KEVENT Object; // [rsp+58h] [rbp-30h] BYREF
 
   v7 = a4;
-  v9 = a2;
   v11 = 0LL;
   memset(&Object, 0, sizeof(Object));
   KeInitializeEvent(&Object, NotificationEvent, 0);
-  v12 = v9 & 3;
+  v12 = a2 & 3;
   if ( (FileObject->Flags & 0x800) != 0 )
   {
     Status = -1073741808;
@@ -59,86 +58,91 @@ __int64 __fastcall FsRtlKernelFsControlFile(
   }
   DeviceObject = IoGetRelatedDeviceObject(FileObject);
   LOBYTE(v13) = DeviceObject->StackSize;
-  v14 = IoAllocateIrpEx((__int64)DeviceObject, v13, 0LL);
-  v11 = (IRP *)v14;
-  Irp = (PIRP)v14;
+  v14 = (IRP *)IoAllocateIrpEx((__int64)DeviceObject, v13, 0LL);
+  v11 = v14;
+  Irp = v14;
   if ( !v14 )
-    goto LABEL_23;
-  v24 = (__int64 *)(&v14[11].Next + 1);
-  v15 = *((_QWORD *)&v14[11].Next + 1);
-  *(_WORD *)(v15 - 72) = 1037;
-  *(_QWORD *)(v15 - 24) = FileObject;
+    goto LABEL_21;
+  p_CurrentStackLocation = (union _IRP::$::$::$665C8370128C04AB892B069E6FB086E8::$8B5CD6CDFBAAB114E6B0B83ED2C2A4E9 *)&v14->Tail.Overlay.CurrentStackLocation;
+  CurrentStackLocation = v14->Tail.Overlay.CurrentStackLocation;
+  *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 1037;
+  CurrentStackLocation[-1].FileObject = FileObject;
   v16 = Length;
-  *(_DWORD *)(v15 - 64) = Length;
-  *(_DWORD *)(v15 - 56) = v7;
-  *(_DWORD *)(v15 - 48) = a2;
-  if ( !v12 )
+  CurrentStackLocation[-1].Parameters.Read.Length = Length;
+  CurrentStackLocation[-1].Parameters.Create.Options = v7;
+  CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart = a2;
+  if ( (a2 & 3) == 0 )
   {
     if ( (_DWORD)v7 || Length )
     {
       if ( (unsigned int)v7 >= Length )
       {
-        *((_QWORD *)&v14[1].Next + 1) = a3;
+        v14->AssociatedIrp.MasterIrp = a3;
       }
       else
       {
-        *((_QWORD *)&v14[1].Next + 1) = VirtualAddress;
+        v14->AssociatedIrp.MasterIrp = VirtualAddress;
         memmove(VirtualAddress, a3, v7);
       }
       v11->Flags = 16;
       v11->UserBuffer = VirtualAddress;
       if ( VirtualAddress )
-        v11->Flags = 80;
+        v11->Flags |= 0x40u;
     }
     else
     {
-      LODWORD(v14[1].Next) = 0;
-      v14[7].Next = 0LL;
+      v14->Flags = 0;
+      v14->UserBuffer = 0LL;
     }
     goto LABEL_10;
   }
-  if ( v12 != 1 && v12 != 2 )
+  if ( v12 > 2 )
   {
-    v14[7].Next = VirtualAddress;
-    *(_QWORD *)(v15 - 40) = a3;
+    if ( v12 == 3 )
+    {
+      v14->UserBuffer = VirtualAddress;
+      CurrentStackLocation[-1].Parameters.CreatePipe.Parameters = (PNAMED_PIPE_CREATE_PARAMETERS)a3;
+    }
     goto LABEL_10;
   }
   if ( a3 )
   {
-    *((_QWORD *)&v14[1].Next + 1) = a3;
-    LODWORD(v14[1].Next) = 16;
+    v14->AssociatedIrp.MasterIrp = a3;
+    v14->Flags = 16;
   }
   else
   {
-    LODWORD(v14[1].Next) = 0;
+    v14->Flags = 0;
   }
-  if ( !VirtualAddress )
-    goto LABEL_10;
-  Mdl = IoAllocateMdl(VirtualAddress, Length, 0, 0, 0LL);
-  v11->MdlAddress = Mdl;
-  if ( !Mdl )
+  if ( VirtualAddress )
   {
-LABEL_23:
+    Mdl = IoAllocateMdl(VirtualAddress, Length, 0, 0, 0LL);
+    v11->MdlAddress = Mdl;
+    if ( Mdl )
+    {
+      MmProbeAndLockPages(Mdl, 0, (LOCK_OPERATION)(v12 != 1));
+      goto LABEL_10;
+    }
+LABEL_21:
     Status = -1073741670;
     goto LABEL_32;
   }
-  MmProbeAndLockPages(Mdl, 0, (LOCK_OPERATION)(v12 != 1));
 LABEL_10:
   v11 = Irp;
   Irp->Tail.Overlay.Thread = KeGetCurrentThread();
   Irp->Flags |= 4u;
   Irp->RequestorMode = 0;
-  v17 = *v24;
-  *(_QWORD *)(v17 - 16) = CmpCompleteFlushAndPurgeIrp;
-  *(_QWORD *)(v17 - 8) = &Object;
-  *(_BYTE *)(v17 - 69) = 0;
-  *(_BYTE *)(v17 - 69) = 64;
-  *(_BYTE *)(v17 - 69) = -64;
-  *(_BYTE *)(v17 - 69) = -32;
+  v17 = p_CurrentStackLocation->CurrentStackLocation;
+  v17[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)SmKmGenericCompletion;
+  v17[-1].Context = &Object;
+  v17[-1].Control = 0;
+  v17[-1].Control = 64;
+  v17[-1].Control = -64;
+  v17[-1].Control = -32;
   if ( IofCallDriver(DeviceObject, Irp) == 259 )
   {
-    DeviceObject = (PDEVICE_OBJECT)&Object;
-    if ( FsRtlCancellableWaitForMultipleObjects(1u, (PVOID *)&DeviceObject, WaitAll, 0LL, 0LL, 0LL) == -1073741749 )
+    ObjectArray = &Object;
+    if ( FsRtlCancellableWaitForMultipleObjects(1u, &ObjectArray, WaitAll, 0LL, 0LL, 0LL) == -1073741749 )
     {
       IoCancelIrp(Irp);
       KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);

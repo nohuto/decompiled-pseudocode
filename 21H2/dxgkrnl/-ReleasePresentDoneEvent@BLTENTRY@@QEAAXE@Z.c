@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z @ 0x1C03BDEF4
+ * XREFs of ?ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z @ 0x1C02FF0E0
  * Callers:
- *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01CEBF4 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
- *     ?Cleanup@BLTENTRY@@QEAAXE@Z @ 0x1C03BB450 (-Cleanup@BLTENTRY@@QEAAXE@Z.c)
- *     ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1C03BC160 (-DiscardPendingPresent@BLTQUEUE@@AEAAXXZ.c)
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C015E550 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?Cleanup@BLTENTRY@@QEAAXE@Z @ 0x1C02FCA08 (-Cleanup@BLTENTRY@@QEAAXE@Z.c)
+ *     ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1C02FD560 (-DiscardPendingPresent@BLTQUEUE@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */

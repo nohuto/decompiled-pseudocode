@@ -1,18 +1,18 @@
 /*
- * XREFs of NtLockProductActivationKeys @ 0x140839ED0
+ * XREFs of NtLockProductActivationKeys @ 0x1407B4510
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcscat_s @ 0x1403DF690 (wcscat_s.c)
- *     wcscpy_s @ 0x1403DF730 (wcscpy_s.c)
- *     wcsncat_s @ 0x1403DF7C0 (wcsncat_s.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     ZwLockRegistryKey @ 0x14041C920 (ZwLockRegistryKey.c)
- *     IsRegistryKeyLocked @ 0x14083A2B4 (IsRegistryKeyLocked.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1403D7AD0 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403D7B70 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1403D7C00 (wcsncat_s.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     ZwLockRegistryKey @ 0x1403FBBC0 (ZwLockRegistryKey.c)
+ *     IsRegistryKeyLocked @ 0x1407B48F0 (IsRegistryKeyLocked.c)
  */
 
 NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
@@ -40,9 +40,9 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
   ULONG ResultLength; // [rsp+34h] [rbp-904h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-900h] BYREF
   HANDLE KeyHandle; // [rsp+40h] [rbp-8F8h] BYREF
-  OBJECT_ATTRIBUTES v26; // [rsp+48h] [rbp-8F0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+78h] [rbp-8C0h] BYREF
-  UNICODE_STRING v28; // [rsp+88h] [rbp-8B0h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-8F0h] BYREF
+  UNICODE_STRING v27; // [rsp+58h] [rbp-8E0h] BYREF
+  OBJECT_ATTRIBUTES v28; // [rsp+68h] [rbp-8D0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-8A0h] BYREF
   WCHAR SourceString[8]; // [rsp+C8h] [rbp-870h] BYREF
   __int128 v31; // [rsp+D8h] [rbp-860h]
@@ -60,9 +60,9 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   ResultLength = 0;
-  *(_OWORD *)SourceString = xmmword_140020810;
-  v31 = xmmword_140020820;
-  v32 = xmmword_140020830;
+  *(_OWORD *)SourceString = xmmword_1400203F8;
+  v31 = xmmword_140020408;
+  v32 = xmmword_140020418;
   v33 = 0x2C7EFB57828734DALL;
   v34 = 593434642;
   v4 = -21647;
@@ -97,9 +97,9 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
   {
     if ( a2 )
     {
-      v21 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-        v21 = (__int64)a2;
+      v21 = (__int64)a2;
+      if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+        v21 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v21 = *(_DWORD *)v21;
       *a2 = InitSafeBootMode;
     }
@@ -125,8 +125,8 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
       v17 = k;
       if ( k == -2147483622 )
         break;
-      v28 = 0LL;
-      memset(&v26, 0, 44);
+      v27 = 0LL;
+      memset(&v28, 0, sizeof(v28));
       Handle = 0LL;
       if ( k < 0 )
       {
@@ -142,13 +142,13 @@ NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
         wcscpy_s(Dst, 0x200uLL, SourceString);
         wcsncat_s(Dst, 0x200uLL, Src, (unsigned __int64)v36 >> 1);
         wcscat_s(Dst, 0x200uLL, L"\\");
-        RtlInitUnicodeString(&v28, Dst);
-        v26.Length = 48;
-        v26.RootDirectory = 0LL;
-        v26.Attributes = 576;
-        v26.ObjectName = &v28;
-        *(_OWORD *)&v26.SecurityDescriptor = 0LL;
-        v18 = ZwOpenKey(&Handle, 0x20019u, &v26);
+        RtlInitUnicodeString(&v27, Dst);
+        v28.Length = 48;
+        v28.RootDirectory = 0LL;
+        v28.Attributes = 576;
+        v28.ObjectName = &v27;
+        *(_OWORD *)&v28.SecurityDescriptor = 0LL;
+        v18 = ZwOpenKey(&Handle, 0x20019u, &v28);
         if ( v18 < 0 )
         {
           v14 = v18;

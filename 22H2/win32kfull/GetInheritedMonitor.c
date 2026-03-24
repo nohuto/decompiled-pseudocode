@@ -1,284 +1,285 @@
 /*
- * XREFs of GetInheritedMonitor @ 0x1C010E880
+ * XREFs of GetInheritedMonitor @ 0x1C006C0E4
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     GetNewMonitor @ 0x1C010B39C (GetNewMonitor.c)
- *     ?DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z @ 0x1C01B8A28 (-DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z.c)
+ *     GetNewMonitor @ 0x1C006BEBC (GetNewMonitor.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     DetectNewMonitor @ 0x1C01E4B14 (DetectNewMonitor.c)
  * Callees:
- *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C0062940 (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00ABF38 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00AE308 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
- *     ?IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z @ 0x1C00C1074 (-IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z.c)
- *     IsTitleWindow @ 0x1C00C1104 (IsTitleWindow.c)
- *     UnionRect @ 0x1C00CF9E4 (UnionRect.c)
- *     IntersectRect @ 0x1C00D0330 (IntersectRect.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C011E0F8 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C0122344 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?IsAdjacentRect@@YAHPEBUtagRECT@@0@Z @ 0x1C01B9254 (-IsAdjacentRect@@YAHPEBUtagRECT@@0@Z.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0067530 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
+ *     IntersectRect @ 0x1C00750C0 (IntersectRect.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C0104778 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     ?IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z @ 0x1C0104920 (-IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z.c)
+ *     IsTitleWindow @ 0x1C0104ABC (IsTitleWindow.c)
+ *     ?IsAdjacentRect@@YAHPEBUtagRECT@@0@Z @ 0x1C0104B10 (-IsAdjacentRect@@YAHPEBUtagRECT@@0@Z.c)
+ *     UnionRect @ 0x1C0104BAC (UnionRect.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetInheritedMonitor(struct tagWND *a1)
 {
-  int v1; // r12d
-  __int64 v3; // rcx
-  __int64 v4; // r13
-  __int64 v5; // rax
-  __int64 v6; // rax
-  __int64 v7; // rax
+  unsigned int v1; // r12d
+  __int64 v2; // rax
+  __int64 v3; // r13
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
   __int64 v8; // rcx
-  __int128 *v10; // rbx
-  __int64 v11; // rsi
-  __int64 v12; // xmm1_8
-  __int64 Prop; // rbx
-  unsigned int v14; // r10d
-  __int64 v15; // r11
-  struct tagWND *v16; // rbx
-  __int64 v17; // r15
+  __int64 Prop; // rax
+  __int64 v11; // r10
+  unsigned int v12; // r11d
+  __int64 v13; // rdi
+  __int64 v14; // rax
+  __int64 v15; // rdi
+  __int64 v16; // rbx
+  __int64 v17; // rdi
   __int64 v18; // rbx
-  __int64 v19; // rdx
-  int v20; // esi
-  __int64 v21; // r14
-  __int64 v22; // rdx
-  int v23; // r14d
-  __int64 v24; // rsi
-  __int64 v25; // rdx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  unsigned __int16 v28; // r11
-  __int64 v29; // rdx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  unsigned __int16 v32; // r11
+  bool v19; // zf
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  int v22; // r9d
+  unsigned int v23; // edx
+  unsigned int v24; // r8d
+  int v25; // ecx
+  int v26; // eax
+  __int64 v27; // rdx
+  __int64 v28; // r8
+  int v29; // r9d
+  unsigned int v30; // edx
+  unsigned int v31; // r8d
+  int v32; // ecx
   int v33; // eax
-  int *v34; // rcx
-  int v35; // edx
-  int *v36; // r9
-  int v37; // r14d
-  tagObjLock **v38; // rbx
-  __int64 v39; // rax
-  int v40; // eax
-  int *v41; // rdx
-  int *v42; // rcx
-  int *v43; // r9
-  int v44; // r8d
-  __int64 v45; // rcx
-  int *v46; // r8
-  __int64 v47; // rcx
-  int *v48; // [rsp+28h] [rbp-31h]
-  int *v49; // [rsp+28h] [rbp-31h]
-  __int128 v50; // [rsp+30h] [rbp-29h] BYREF
-  __int128 v51; // [rsp+40h] [rbp-19h] BYREF
-  __int64 v52; // [rsp+50h] [rbp-9h]
-  __int64 v53; // [rsp+58h] [rbp-1h]
-  char v54; // [rsp+60h] [rbp+7h]
-  __int128 v55; // [rsp+68h] [rbp+Fh] BYREF
-  char v56; // [rsp+78h] [rbp+1Fh]
-  char v57; // [rsp+80h] [rbp+27h]
+  unsigned int v34; // ecx
+  int v35; // eax
+  __int64 v36; // rbx
+  int v37; // eax
+  int v38; // r14d
+  __int64 v39; // rcx
+  __int64 v40; // rcx
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v42; // r14
+  __int64 v43; // rdx
+  __int64 v44; // rcx
+  __int64 v45; // r8
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v48; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 *ThreadWin32Thread; // rax
+  _QWORD *v51; // rax
+  __int64 v52; // rbx
+  int v53; // eax
+  int v54; // r14d
+  __int64 v55; // rcx
+  int v56; // [rsp+20h] [rbp-50h]
+  int v57; // [rsp+20h] [rbp-50h]
+  __int64 v58; // [rsp+28h] [rbp-48h] BYREF
+  __int128 v59; // [rsp+38h] [rbp-38h] BYREF
+  __int128 v60; // [rsp+48h] [rbp-28h] BYREF
+  __int128 v61; // [rsp+58h] [rbp-18h] BYREF
 
-  v1 = 0;
-  v3 = *((_QWORD *)a1 + 13);
-  v4 = 0LL;
-  if ( !v3 )
-    return v4;
+  v2 = *((_QWORD *)a1 + 13);
+  v3 = 0LL;
+  if ( !v2 )
+    return v3;
   v5 = *((_QWORD *)a1 + 3);
-  if ( !v5 || (v6 = *(_QWORD *)(v5 + 8)) == 0 || v3 != *(_QWORD *)(v6 + 24) )
+  v6 = 0LL;
+  if ( v5 )
   {
-    v7 = *(_QWORD *)(v3 + 40);
-    goto LABEL_6;
+    v7 = *(_QWORD *)(v5 + 8);
+    if ( v7 )
+      v6 = *(_QWORD *)(v7 + 24);
   }
-  v10 = (__int128 *)*((_QWORD *)a1 + 18);
-  v11 = (unsigned __int16)gatomMonitorInheritance;
-  v53 = gDomainDummyLock;
-  v54 = 0;
-  v55 = 0LL;
-  v56 = 0;
-  v12 = *((_QWORD *)v10 + 2);
-  v51 = *v10;
-  v57 = 0;
-  v52 = v12;
-  if ( !IS_USERCRIT_OWNED_EXCLUSIVE() && IS_USERCRIT_OWNED_AT_ALL() )
+  if ( v2 != v6 )
   {
-    v57 = 1;
-    if ( v10 == (__int128 *)gObjDummyLock )
-      v10 = 0LL;
-    *(_QWORD *)&v55 = v10;
-    v37 = 0;
-    v38 = (tagObjLock **)&v55;
-    do
-    {
-      if ( *v38 )
-        tagObjLock::LockExclusive(*v38);
-      ++v37;
-      ++v38;
-    }
-    while ( !v37 );
-    v56 = 1;
+LABEL_6:
+    v8 = *(_QWORD *)(*(_QWORD *)(v2 + 40) + 256LL);
+    return ValidateHmonitorNoRip(v8);
   }
-  Prop = RealGetProp(*((_QWORD *)a1 + 18), v11, 1LL);
-  if ( v57 && v56 )
-  {
-    if ( (_QWORD)v55 )
-      tagObjLock::UnLockExclusive((tagObjLock *)v55);
-    v56 = 0;
-  }
+  Prop = GetProp((__int64)a1, (unsigned __int16)gatomMonitorInheritance, 1LL);
   if ( Prop )
   {
     if ( *(_QWORD *)a1 == Prop )
-      return v4;
-    v39 = ValidateHwnd(Prop);
-    if ( !v39 )
-      return v4;
-    v7 = *(_QWORD *)(v39 + 40);
-LABEL_6:
-    v8 = *(_QWORD *)(v7 + 256);
-    return ValidateHmonitorNoRip(v8);
+      return v3;
+    v2 = ValidateHwnd(Prop);
+    if ( !v2 )
+      return v3;
+    goto LABEL_6;
   }
   if ( (*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) & 0xF) == 2
-    || (unsigned int)IsTitleWindow((__int64)a1, 0)
-    || (*(_BYTE *)(v15 + 20) & 0x40) != 0
-    || (*((_DWORD *)a1 + 80) & 0x400) != 0 )
+    || (unsigned int)IsTitleWindow(a1, 0LL)
+    || (*(_BYTE *)(v11 + 20) & 0x40) != 0
+    || (*(_DWORD *)(v11 + 232) & 0x8000) != 0 )
   {
-    return v4;
+    return v3;
   }
-  v16 = (struct tagWND *)*((_QWORD *)a1 + 15);
-  if ( v16 )
+  v13 = *((_QWORD *)a1 + 15);
+  if ( !v13 )
   {
-    if ( *(_QWORD *)(*((_QWORD *)v16 + 2) + 424LL) == *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL)
-      && (((unsigned __int16)(v14 >> 8) ^ (unsigned __int16)(*(_DWORD *)(*((_QWORD *)v16 + 5) + 288LL) >> 8)) & 0x1FF) != 0 )
+LABEL_15:
+    if ( (*(_BYTE *)(*(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL) + 6LL) & 1) != 0
+      && (*(_WORD *)(*((_QWORD *)a1 + 5) + 42LL) & 0x2FFF) == 0x29C )
     {
-      return 0LL;
-    }
-    do
-    {
-      if ( IsCandidateTransformOwner(v16, a1) )
-        break;
-      v16 = (struct tagWND *)*((_QWORD *)v16 + 15);
-    }
-    while ( v16 );
-  }
-  if ( (*(_BYTE *)(*(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL) + 6LL) & 1) != 0
-    && (*(_WORD *)(*((_QWORD *)a1 + 5) + 42LL) & 0x2FFF) == 0x29C )
-  {
-    SmartObjStackRefBase<tagPOPUPMENU>::Init(&v51, *(_QWORD *)(*((_QWORD *)a1 + 35) + 8LL));
-    if ( *(_QWORD *)v51 )
-    {
-      v50 = 0LL;
-      if ( (v16 || (v16 = *(struct tagWND **)(*(_QWORD *)v51 + 8LL)) != 0LL)
-        && !(unsigned int)IntersectRect(&v50, (int *)(*((_QWORD *)a1 + 5) + 88LL), (int *)(*((_QWORD *)v16 + 5) + 88LL)) )
+      SmartObjStackRefBase<tagPOPUPMENU>::Init(&v58, *(_QWORD *)(*((_QWORD *)a1 + 35) + 8LL));
+      if ( *(_QWORD *)v58 )
       {
-        v16 = 0LL;
-      }
-    }
-    SmartObjStackRefBase<tagPOPUPMENU>::~SmartObjStackRefBase<tagPOPUPMENU>(&v51);
-  }
-  if ( v16 )
-  {
-    v4 = ValidateHmonitorNoRip(*(_QWORD *)(*((_QWORD *)v16 + 5) + 256LL));
-    if ( v4 )
-      return v4;
-  }
-  v17 = *((_QWORD *)a1 + 12);
-  v18 = *((_QWORD *)a1 + 11);
-  while ( 1 )
-  {
-    while ( !v17 )
-    {
-      if ( !v18 )
-        return v4;
-LABEL_22:
-      v19 = *((_QWORD *)a1 + 5);
-      v51 = 0LL;
-      v20 = *(_BYTE *)(v19 + 27) & 8;
-      if ( (*(_BYTE *)(v19 + 26) & 8) != 0 && (*(_BYTE *)(v19 + 27) & 0x20) == 0 )
-        v1 = 1;
-      v21 = *(_QWORD *)(v18 + 40);
-      if ( (*(_BYTE *)(v21 + 31) & 0x10) != 0
-        && ((*(_BYTE *)(v21 + 16) & 8) != 0 || (*(_BYTE *)(v21 + 30) & 3) != 0)
-        && !IsRectEmptyInl((const struct tagRECT *)(v21 + 104))
-        && ((*(_BYTE *)(v21 + 26) & 8) == 0 || (*(_BYTE *)(v21 + 27) & 0x20) != 0)
-        && (*(_QWORD *)(v26 + 432) == *(_QWORD *)(v27 + 432) || *(_QWORD *)(v26 + 424) == *(_QWORD *)(v27 + 424))
-        && ((unsigned __int16)((*(_DWORD *)(v25 + 288) >> 8) ^ (*(_DWORD *)(v21 + 288) >> 8)) & v28) == 0 )
-      {
-        if ( !v20 && !v1 )
-          goto LABEL_39;
-        v48 = (int *)(v25 + 88);
-        v33 = IsAdjacentRect((const struct tagRECT *)(v25 + 88), (const struct tagRECT *)(v21 + 88));
-        v35 = v33;
-        v36 = (int *)(v21 + 88);
-        if ( v20 && !v33 )
+        v59 = 0LL;
+        if ( v13 || (v40 = *(_QWORD *)v58, (v13 = *(_QWORD *)(*(_QWORD *)v58 + 8LL)) != 0) )
         {
-          if ( !(unsigned int)IntersectRect(&v51, v34, (int *)(v21 + 88)) )
-            goto LABEL_24;
-          v34 = v48;
-          v36 = v46;
-          v35 = 0;
+          v40 = -(__int64)((unsigned int)IntersectRect(&v59, *((_QWORD *)a1 + 5) + 88LL, *(_QWORD *)(v13 + 40) + 88LL) != 0);
+          v13 &= v40;
         }
-        if ( !v1 || v35 )
-          goto LABEL_39;
-        if ( (unsigned int)UnionRect(&v51, v34, v36) )
+      }
+      CurrentThread = KeGetCurrentThread();
+      v42 = 0LL;
+      if ( !(unsigned __int8)KeIsAttachedProcess(v40)
+        || (CurrentProcess = PsGetCurrentProcess(v44, v43, v45),
+            ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+            CurrentThreadProcess = PsGetCurrentThreadProcess(v48),
+            ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+      {
+        ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+        if ( ThreadWin32Thread )
+          v42 = *ThreadWin32Thread;
+      }
+      if ( v58 != gSmartObjNullRef && !--*(_DWORD *)(v58 + 8) )
+      {
+        if ( *(_BYTE *)(v58 + 12) )
+          Win32FreeToPagedLookasideList(gpStackRefLookAside, v58);
+      }
+      v51 = *(_QWORD **)(v42 + 1472);
+      if ( v51 )
+        *(_QWORD *)(v42 + 1472) = *v51;
+    }
+    if ( v13 )
+    {
+      v3 = ValidateHmonitorNoRip(*(_QWORD *)(*(_QWORD *)(v13 + 40) + 256LL));
+      if ( v3 )
+        return v3;
+    }
+    v14 = *((_QWORD *)a1 + 12);
+    v15 = *((_QWORD *)a1 + 11);
+    *(_QWORD *)&v59 = v14;
+    while ( 1 )
+    {
+      v58 = v15;
+      do
+      {
+        if ( v14 )
         {
-          v47 = v51 - *(_QWORD *)v48;
-          if ( (_QWORD)v51 == *(_QWORD *)v48 )
-            v47 = *((_QWORD *)&v51 + 1) - *((_QWORD *)v48 + 1);
-          if ( !v47 )
+          v16 = *((_QWORD *)a1 + 5);
+          v60 = 0LL;
+          v17 = *(_QWORD *)(v59 + 40);
+          LOBYTE(v1) = ~*(_BYTE *)(v16 + 27);
+          v56 = *(_BYTE *)(v16 + 27) & 8;
+          v1 = (*(_BYTE *)(v16 + 26) >> 3) & (unsigned __int8)(v1 >> 5) & 1;
+          if ( (*(_BYTE *)(v17 + 31) & 0x10) != 0
+            && ((*(_BYTE *)(v17 + 16) & 8) != 0 || (*(_BYTE *)(v17 + 30) & 3) != 0)
+            && !IsRectEmptyInl((const struct tagRECT *)(v17 + 104))
+            && ((*(_BYTE *)(v17 + 26) & 8) == 0 || (*(_BYTE *)(v17 + 27) & 0x20) != 0)
+            && (*(_QWORD *)(v27 + 432) == *(_QWORD *)(v28 + 432) || *(_QWORD *)(v27 + 424) == *(_QWORD *)(v28 + 424)) )
           {
-LABEL_39:
-            v8 = *(_QWORD *)(v21 + 256);
-            return ValidateHmonitorNoRip(v8);
+            v30 = *(_DWORD *)(v17 + 288);
+            v31 = *(_DWORD *)(v16 + 288);
+            if ( (((unsigned __int16)(v31 >> 8) ^ (unsigned __int16)(v30 >> 8)) & 0x1FF) == 0 )
+            {
+              v32 = (v30 & 0xF) == 2 && (v30 & 0x20000000) != 0;
+              v33 = (v31 & 0xF) == 2 && (v31 & 0x20000000) != 0;
+              if ( v32 == v33 )
+              {
+                if ( !v29 && !v1 )
+                  goto LABEL_42;
+                v52 = v16 + 88;
+                v53 = IsAdjacentRect((const struct tagRECT *)v52, (const struct tagRECT *)(v17 + 88));
+                v54 = v53;
+                if ( !v56 || v53 || (unsigned int)IntersectRect(&v60, v52, v17 + 88) )
+                {
+                  if ( !v1 || v54 )
+                    goto LABEL_42;
+                  if ( (unsigned int)UnionRect(&v60, v52, v17 + 88) )
+                  {
+                    v55 = v60 - *(_QWORD *)v52;
+                    if ( (_QWORD)v60 == *(_QWORD *)v52 )
+                      v55 = *((_QWORD *)&v60 + 1) - *(_QWORD *)(v52 + 8);
+                    if ( !v55 )
+                      goto LABEL_42;
+                  }
+                }
+              }
+            }
+          }
+          v15 = v58;
+          v14 = *(_QWORD *)(v59 + 96);
+          *(_QWORD *)&v59 = v14;
+        }
+        else if ( !v15 )
+        {
+          return v3;
+        }
+      }
+      while ( !v15 );
+      v18 = *((_QWORD *)a1 + 5);
+      v17 = *(_QWORD *)(v15 + 40);
+      LOBYTE(v1) = ~*(_BYTE *)(v18 + 27);
+      v57 = *(_BYTE *)(v18 + 27) & 8;
+      v1 = (*(_BYTE *)(v18 + 26) >> 3) & (unsigned __int8)(v1 >> 5) & 1;
+      v19 = (*(_BYTE *)(v17 + 31) & 0x10) == 0;
+      v61 = 0LL;
+      if ( !v19
+        && ((*(_BYTE *)(v17 + 16) & 8) != 0 || (*(_BYTE *)(v17 + 30) & 3) != 0)
+        && !IsRectEmptyInl((const struct tagRECT *)(v17 + 104))
+        && ((*(_BYTE *)(v17 + 26) & 8) == 0 || (*(_BYTE *)(v17 + 27) & 0x20) != 0)
+        && (*(_QWORD *)(v20 + 432) == *(_QWORD *)(v21 + 432) || *(_QWORD *)(v20 + 424) == *(_QWORD *)(v21 + 424)) )
+      {
+        v23 = *(_DWORD *)(v17 + 288);
+        v24 = *(_DWORD *)(v18 + 288);
+        if ( (((unsigned __int16)(v24 >> 8) ^ (unsigned __int16)(v23 >> 8)) & 0x1FF) == 0 )
+        {
+          v25 = (v23 & 0xF) == 2 && (v23 & 0x20000000) != 0;
+          v26 = (v24 & 0xF) == 2 && (v24 & 0x20000000) != 0;
+          if ( v25 == v26 )
+          {
+            if ( !v22 && !v1 )
+              break;
+            v36 = v18 + 88;
+            v37 = IsAdjacentRect((const struct tagRECT *)v36, (const struct tagRECT *)(v17 + 88));
+            v38 = v37;
+            if ( !v57 || v37 || (unsigned int)IntersectRect(&v61, v36, v17 + 88) )
+            {
+              if ( !v1 || v38 )
+                break;
+              if ( (unsigned int)UnionRect(&v61, v36, v17 + 88) )
+              {
+                v39 = v61 - *(_QWORD *)v36;
+                if ( (_QWORD)v61 == *(_QWORD *)v36 )
+                  v39 = *((_QWORD *)&v61 + 1) - *(_QWORD *)(v36 + 8);
+                if ( !v39 )
+                  break;
+              }
+            }
           }
         }
       }
-LABEL_24:
-      v18 = *(_QWORD *)(v18 + 88);
-      v1 = 0;
+      v14 = v59;
+      v15 = *(_QWORD *)(v58 + 88);
     }
-    v22 = *((_QWORD *)a1 + 5);
-    v51 = 0LL;
-    v23 = *(_BYTE *)(v22 + 27) & 8;
-    if ( (*(_BYTE *)(v22 + 26) & 8) != 0 && (*(_BYTE *)(v22 + 27) & 0x20) == 0 )
-      v1 = 1;
-    v24 = *(_QWORD *)(v17 + 40);
-    if ( (*(_BYTE *)(v24 + 31) & 0x10) != 0
-      && ((*(_BYTE *)(v24 + 16) & 8) != 0 || (*(_BYTE *)(v24 + 30) & 3) != 0)
-      && !IsRectEmptyInl((const struct tagRECT *)(v24 + 104))
-      && ((*(_BYTE *)(v24 + 26) & 8) == 0 || (*(_BYTE *)(v24 + 27) & 0x20) != 0)
-      && (*(_QWORD *)(v30 + 432) == *(_QWORD *)(v31 + 432) || *(_QWORD *)(v30 + 424) == *(_QWORD *)(v31 + 424))
-      && ((unsigned __int16)((*(_DWORD *)(v29 + 288) >> 8) ^ (*(_DWORD *)(v24 + 288) >> 8)) & v32) == 0 )
-    {
-      if ( !v23 && !v1 )
-        goto LABEL_108;
-      v49 = (int *)(v29 + 88);
-      v40 = IsAdjacentRect((const struct tagRECT *)(v29 + 88), (const struct tagRECT *)(v24 + 88));
-      v43 = v41;
-      v44 = v40;
-      if ( !v23 || v40 )
-        goto LABEL_90;
-      *(_QWORD *)&v50 = v41;
-      if ( (unsigned int)IntersectRect(&v51, v42, v41) )
-        break;
-    }
-LABEL_27:
-    v17 = *(_QWORD *)(v17 + 96);
-    v1 = 0;
-    if ( v18 )
-      goto LABEL_22;
+LABEL_42:
+    v8 = *(_QWORD *)(v17 + 256);
+    return ValidateHmonitorNoRip(v8);
   }
-  v42 = v49;
-  v44 = 0;
-  v43 = (int *)v50;
-LABEL_90:
-  if ( v1 && !v44 )
+  if ( *(_QWORD *)(*(_QWORD *)(v13 + 16) + 424LL) != *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL)
+    || (v34 = *(_DWORD *)(*(_QWORD *)(v13 + 40) + 288LL),
+        (((unsigned __int16)(v12 >> 8) ^ (unsigned __int16)(v34 >> 8)) & 0x1FF) == 0)
+    && ((v34 & 0xF) != 2 || (v34 & 0x20000000) == 0 ? (v35 = 0) : (v35 = 1), !v35) )
   {
-    if ( !(unsigned int)UnionRect(&v51, v42, v43) )
-      goto LABEL_27;
-    v45 = v51 - *(_QWORD *)v49;
-    if ( (_QWORD)v51 == *(_QWORD *)v49 )
-      v45 = *((_QWORD *)&v51 + 1) - *((_QWORD *)v49 + 1);
-    if ( v45 )
-      goto LABEL_27;
+    do
+    {
+      if ( (unsigned int)IsCandidateTransformOwner((struct tagWND *)v13, a1) )
+        break;
+      v13 = *(_QWORD *)(v13 + 120);
+    }
+    while ( v13 );
+    goto LABEL_15;
   }
-LABEL_108:
-  v8 = *(_QWORD *)(v24 + 256);
-  return ValidateHmonitorNoRip(v8);
+  return 0LL;
 }

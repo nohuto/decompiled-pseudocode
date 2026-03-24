@@ -1,50 +1,47 @@
 /*
- * XREFs of ?TraceLoggingPTPKeyToAATimeDeltas@@YAX_J000W4tagPTP_ACTION@@1@Z @ 0x1C021EA1C
+ * XREFs of ?TraceLoggingPTPKeyToAATimeDeltas@@YAX_J000W4tagPTP_ACTION@@1@Z @ 0x1C02251AC
  * Callers:
- *     TraceLoggingPTPAAPKeyPress @ 0x1C021F450 (TraceLoggingPTPAAPKeyPress.c)
+ *     TraceLoggingPTPAAPKeyPress @ 0x1C0225BB0 (TraceLoggingPTPAAPKeyPress.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C00CD6B0 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@44444@Z @ 0x1C021DE98 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@@-$_tlgWriteTemplate@$.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@44444@Z @ 0x1C0224658 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@@-$_tlgWriteTemplate@$.c)
  */
 
-void __fastcall TraceLoggingPTPKeyToAATimeDeltas(int a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6)
+NTSTATUS __fastcall TraceLoggingPTPKeyToAATimeDeltas(__int64 a1, int a2, __int64 a3, __int64 a4, int a5, int a6)
 {
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  int v10; // r10d
-  int v11; // r11d
-  int v12; // [rsp+60h] [rbp-20h] BYREF
-  int v13; // [rsp+64h] [rbp-1Ch] BYREF
-  int v14; // [rsp+68h] [rbp-18h] BYREF
-  int v15; // [rsp+6Ch] [rbp-14h] BYREF
-  int v16; // [rsp+70h] [rbp-10h] BYREF
-  int v17; // [rsp+74h] [rbp-Ch] BYREF
-  __int64 v18; // [rsp+78h] [rbp-8h] BYREF
+  NTSTATUS result; // eax
+  int v7; // [rsp+60h] [rbp-20h] BYREF
+  int v8; // [rsp+64h] [rbp-1Ch] BYREF
+  int v9; // [rsp+68h] [rbp-18h] BYREF
+  int v10; // [rsp+6Ch] [rbp-14h] BYREF
+  int v11; // [rsp+70h] [rbp-10h] BYREF
+  int v12; // [rsp+74h] [rbp-Ch] BYREF
+  __int64 v13; // [rsp+78h] [rbp-8h] BYREF
 
-  if ( (unsigned int)dword_1C03263F8 > 5 )
+  if ( (unsigned int)dword_1C032B3D8 > 5 && (qword_1C032B3E8 & 0x400000000000LL) != 0 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C03263F8, 0x400000000000LL) )
+    result = 0;
+    if ( (qword_1C032B3F0 & 0x400000000000LL) == qword_1C032B3F0 )
     {
-      v12 = a6;
-      v13 = a5;
-      v14 = v9;
-      v15 = v10;
-      v16 = v11;
-      v17 = a1;
-      v18 = 0x1000000LL;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        v7,
-        byte_1C02F09AA,
-        v8,
-        v9,
-        (__int64)&v18,
-        (__int64)&v17,
-        (__int64)&v16,
-        (__int64)&v15,
-        (__int64)&v14,
-        (__int64)&v13,
-        (__int64)&v12);
+      v7 = a6;
+      v8 = a5;
+      v11 = a2;
+      v9 = a4;
+      v10 = a3;
+      v12 = a1;
+      v13 = 0x1000000LL;
+      return _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+               a1,
+               byte_1C02F3830,
+               a3,
+               a4,
+               (__int64)&v13,
+               (__int64)&v12,
+               (__int64)&v11,
+               (__int64)&v10,
+               (__int64)&v9,
+               (__int64)&v8,
+               (__int64)&v7);
     }
   }
+  return result;
 }

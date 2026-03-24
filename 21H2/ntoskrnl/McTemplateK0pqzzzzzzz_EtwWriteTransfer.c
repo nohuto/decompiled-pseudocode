@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqzzzzzzz_EtwWriteTransfer @ 0x140561484
+ * XREFs of McTemplateK0pqzzzzzzz_EtwWriteTransfer @ 0x14050DC9C
  * Callers:
- *     PiDqIrpQueryCreate @ 0x1407768EC (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1402D1760 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036EE44 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqzzzzzzz_EtwWriteTransfer(__int64 a1, __int64 a2, const GUID *a3, ...)

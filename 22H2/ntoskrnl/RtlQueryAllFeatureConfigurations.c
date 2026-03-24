@@ -1,62 +1,44 @@
 /*
- * XREFs of RtlQueryAllFeatureConfigurations @ 0x1409BD4B0
+ * XREFs of RtlQueryAllFeatureConfigurations @ 0x140919000
  * Callers:
  *     <none>
  * Callees:
- *     RtlpFcValidateFeatureConfigurationType @ 0x14035CBA4 (RtlpFcValidateFeatureConfigurationType.c)
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035CBB8 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x14035CC4C (RtlpFcBufferManagerReferenceBuffers.c)
- *     RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x1404115B0 (RtlpFcConvertFeatureConfigurationsInternalToExternal.c)
+ *     RtlpFcValidateFeatureConfigurationType @ 0x14038C200 (RtlpFcValidateFeatureConfigurationType.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1403A6268 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1403A664C (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcQueryAllFeatureConfigurationsFromBuffers @ 0x14091A2BC (RtlpFcQueryAllFeatureConfigurationsFromBuffers.c)
  */
 
-__int64 __fastcall RtlQueryAllFeatureConfigurations(int a1, _QWORD *a2, _QWORD *a3, unsigned __int64 *a4)
+__int64 __fastcall RtlQueryAllFeatureConfigurations(int a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v6; // rbp
   int v8; // eax
-  __int64 v9; // r9
-  int v10; // ebx
-  unsigned int *v11; // rcx
-  unsigned __int64 v12; // r8
-  unsigned __int64 v13; // rax
-  __int64 v15; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v16; // [rsp+28h] [rbp-10h] BYREF
+  __int64 v9; // rsi
+  int AllFeatureConfigurationsFromBuffers; // ebx
+  __int64 v12; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v13[4]; // [rsp+28h] [rbp-20h] BYREF
 
-  v16 = 0LL;
-  v15 = 0LL;
+  v13[0] = 0LL;
+  v12 = 0LL;
   v6 = a1;
-  RtlpFcBufferManagerReferenceBuffers((__int64)&unk_140C14090, (__int64)&v16, &v15);
+  RtlpFcBufferManagerReferenceBuffers((__int64)qword_140C481F0, (__int64)v13, &v12);
   v8 = RtlpFcValidateFeatureConfigurationType(v6);
-  v9 = v15;
-  v10 = v8;
+  v9 = v12;
+  AllFeatureConfigurationsFromBuffers = v8;
   if ( v8 >= 0 )
   {
-    v15 = 0x100000000LL;
-    v11 = *(unsigned int **)(v9 + 24LL * *((unsigned int *)&v15 + v6) + 8);
-    if ( v11 )
-    {
-      v12 = *v11;
-      v13 = *a4;
-      *a4 = v12;
-      if ( v12 > v13 )
-      {
-        v10 = -2147483643;
-        goto LABEL_8;
-      }
-      RtlpFcConvertFeatureConfigurationsInternalToExternal((__int64 *)(v11 + 1), a3, v12);
-    }
-    else
-    {
-      *a4 = 0LL;
-    }
-    v10 = 0;
+    v12 = 0x100000000LL;
+    AllFeatureConfigurationsFromBuffers = RtlpFcQueryAllFeatureConfigurationsFromBuffers(
+                                            v9 + 24LL * *((unsigned int *)&v13[-1] + v6),
+                                            a3,
+                                            a4);
   }
-LABEL_8:
-  if ( v10 >= 0 )
+  if ( AllFeatureConfigurationsFromBuffers >= 0 )
   {
     if ( a2 )
-      *a2 = v16;
-    v10 = 0;
+      *a2 = v13[0];
+    AllFeatureConfigurationsFromBuffers = 0;
   }
-  RtlpFcBufferManagerDereferenceBuffers((__int64)&unk_140C14090, v9);
-  return (unsigned int)v10;
+  RtlpFcBufferManagerDereferenceBuffers((__int64)qword_140C481F0, v9);
+  return (unsigned int)AllFeatureConfigurationsFromBuffers;
 }

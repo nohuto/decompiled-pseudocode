@@ -1,98 +1,102 @@
 /*
- * XREFs of PopCloneRange @ 0x140AA1EA4
+ * XREFs of PopCloneRange @ 0x140996A08
  * Callers:
- *     PopSetRange @ 0x14058EFAC (PopSetRange.c)
+ *     PopSetRange @ 0x140387B00 (PopSetRange.c)
  * Callees:
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-unsigned __int64 *__fastcall PopCloneRange(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
+_QWORD *__fastcall PopCloneRange(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
 {
   unsigned __int64 v7; // rsi
-  unsigned __int64 *v8; // rdi
-  unsigned __int64 *v9; // rbx
+  _QWORD *v8; // rdi
+  _QWORD *v9; // rbx
   unsigned __int64 v10; // r14
-  unsigned __int64 *v11; // r8
-  unsigned __int64 v12; // rcx
-  unsigned __int64 *v13; // rax
+  _QWORD *v11; // rcx
+  unsigned __int64 v12; // rax
+  _QWORD *result; // rax
   unsigned __int64 v14; // rax
-  unsigned __int64 v15; // rcx
-  unsigned __int64 **v16; // rax
-  unsigned __int64 *result; // rax
+  __int64 v15; // rdx
+  _QWORD *v16; // rax
 
   v7 = a2;
   RtlSetBits((PRTL_BITMAP)(a1 + 32), a2, a3);
   v8 = 0LL;
-  v9 = *(unsigned __int64 **)(a1 + 64);
+  v9 = *(_QWORD **)(a1 + 64);
   v10 = v7 + a3;
-  if ( v9 == (unsigned __int64 *)(a1 + 64) )
-    goto LABEL_22;
+  if ( v9 == (_QWORD *)(a1 + 64) )
+    goto LABEL_13;
   while ( 1 )
   {
     v11 = v9;
-    v9 = (unsigned __int64 *)*v9;
+    v9 = (_QWORD *)*v9;
     v12 = v11[3];
-    v13 = v11 + 4;
-    if ( (v7 < v12 || v7 > *v13) && (v10 < v12 || v10 > *v13) )
+    if ( (v7 < v12 || v7 > v11[4]) && (v10 < v12 || v10 > v11[4]) )
     {
       if ( v7 > v12 )
-        goto LABEL_18;
+        goto LABEL_7;
       if ( v12 > v10 )
         break;
     }
-    v14 = *v13;
     if ( v7 <= v12 )
       v12 = v7;
     v7 = v12;
+    v14 = v11[4];
     if ( v10 >= v14 )
       v14 = v10;
     --*(_DWORD *)(a1 + 80);
     v15 = *v11;
     v10 = v14;
-    if ( *(unsigned __int64 **)(*v11 + 8) != v11 )
-      goto LABEL_26;
-    v16 = (unsigned __int64 **)v11[1];
-    if ( *v16 != v11 )
-      goto LABEL_26;
-    *v16 = (unsigned __int64 *)v15;
+    if ( *(_QWORD **)(*v11 + 8LL) != v11 )
+      goto LABEL_25;
+    v16 = (_QWORD *)v11[1];
+    if ( (_QWORD *)*v16 != v11 )
+      goto LABEL_25;
+    *v16 = v15;
     *(_QWORD *)(v15 + 8) = v16;
     if ( v8 )
       ExFreePoolWithTag(v11, 0x70616D48u);
     else
       v8 = v11;
-LABEL_18:
-    if ( v9 == (unsigned __int64 *)(a1 + 64) )
-      goto LABEL_21;
+LABEL_7:
+    if ( v9 == (_QWORD *)(a1 + 64) )
+      goto LABEL_12;
   }
   if ( v7 >= v12 )
-    goto LABEL_18;
-  v9 = (unsigned __int64 *)v9[1];
-LABEL_21:
-  if ( !v8 )
+    goto LABEL_7;
+  v9 = (_QWORD *)v9[1];
+LABEL_12:
+  if ( v8 )
   {
-LABEL_22:
-    result = (unsigned __int64 *)ExAllocatePool2(64LL, 48LL, 1885433160LL);
-    v8 = result;
-    if ( !result )
-    {
-      if ( *(int *)(a1 + 188) >= 0 )
-        *(_DWORD *)(a1 + 188) = -1073741670;
-      return result;
-    }
+LABEL_14:
+    *v8 = 0LL;
+    v8[1] = 0LL;
+    *((_DWORD *)v8 + 5) = 0;
+    v8[5] = 0LL;
+    *((_DWORD *)v8 + 4) = a4;
+    v8[3] = v7;
+    v8[4] = v10;
+    result = (_QWORD *)v9[1];
+    if ( (_QWORD *)*result != v9 )
+LABEL_25:
+      __fastfail(3u);
+    *v8 = v9;
+    v8[1] = result;
+    *result = v8;
+    v9[1] = v8;
+    ++*(_DWORD *)(a1 + 80);
   }
-  *((_DWORD *)v8 + 4) = a4;
-  v8[3] = v7;
-  v8[4] = v10;
-  result = (unsigned __int64 *)v9[1];
-  if ( (unsigned __int64 *)*result != v9 )
-LABEL_26:
-    __fastfail(3u);
-  *v8 = (unsigned __int64)v9;
-  v8[1] = (unsigned __int64)result;
-  *result = (unsigned __int64)v8;
-  v9[1] = (unsigned __int64)v8;
-  ++*(_DWORD *)(a1 + 80);
+  else
+  {
+LABEL_13:
+    result = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x70616D48u);
+    v8 = result;
+    if ( result )
+      goto LABEL_14;
+    if ( *(int *)(a1 + 188) >= 0 )
+      *(_DWORD *)(a1 + 188) = -1073741670;
+  }
   return result;
 }

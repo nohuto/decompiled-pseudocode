@@ -1,18 +1,18 @@
 /*
- * XREFs of Bulk_PrepareStage @ 0x1C000F538
+ * XREFs of Bulk_PrepareStage @ 0x1C000D984
  * Callers:
- *     Bulk_MappingLoop @ 0x1C000E8C4 (Bulk_MappingLoop.c)
+ *     Bulk_MappingLoop @ 0x1C000CC80 (Bulk_MappingLoop.c)
  * Callees:
- *     StageQueue_Release @ 0x1C000E344 (StageQueue_Release.c)
- *     TR_ReleaseSegments @ 0x1C000E380 (TR_ReleaseSegments.c)
- *     Bulk_Transfer_CompleteCancelable @ 0x1C000E3C8 (Bulk_Transfer_CompleteCancelable.c)
- *     Bulk_Stage_EstimateRequiredSegments @ 0x1C000F614 (Bulk_Stage_EstimateRequiredSegments.c)
- *     Bulk_Stage_EstimateRequiredTrbs @ 0x1C000F6D4 (Bulk_Stage_EstimateRequiredTrbs.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     TR_AcquireSegments @ 0x1C001A616 (TR_AcquireSegments.c)
- *     Bulk_Stage_AcquireMdl @ 0x1C001A86E (Bulk_Stage_AcquireMdl.c)
- *     TR_EnsureInputBufferForTrbs @ 0x1C003FA50 (TR_EnsureInputBufferForTrbs.c)
- *     WPP_RECORDER_SF_DDDqqD @ 0x1C004580C (WPP_RECORDER_SF_DDDqqD.c)
+ *     Bulk_Transfer_CompleteCancelable @ 0x1C000C124 (Bulk_Transfer_CompleteCancelable.c)
+ *     StageQueue_Release @ 0x1C000C574 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C000C5AC (TR_ReleaseSegments.c)
+ *     Bulk_Stage_EstimateRequiredSegments @ 0x1C000DA60 (Bulk_Stage_EstimateRequiredSegments.c)
+ *     Bulk_Stage_EstimateRequiredTrbs @ 0x1C000DB28 (Bulk_Stage_EstimateRequiredTrbs.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     TR_AcquireSegments @ 0x1C003EC30 (TR_AcquireSegments.c)
+ *     TR_EnsureInputBufferForTrbs @ 0x1C003F23C (TR_EnsureInputBufferForTrbs.c)
+ *     Bulk_Stage_AcquireMdl @ 0x1C0044648 (Bulk_Stage_AcquireMdl.c)
+ *     WPP_RECORDER_SF_DDDqqD @ 0x1C0045350 (WPP_RECORDER_SF_DDDqqD.c)
  */
 
 __int64 __fastcall Bulk_PrepareStage(__int64 a1)

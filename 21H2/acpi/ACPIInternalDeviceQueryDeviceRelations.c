@@ -1,90 +1,105 @@
 /*
- * XREFs of ACPIInternalDeviceQueryDeviceRelations @ 0x1C009F950
+ * XREFs of ACPIInternalDeviceQueryDeviceRelations @ 0x1C00A0BB0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     WPP_RECORDER_SF_qsdqss @ 0x1C0029A54 (WPP_RECORDER_SF_qsdqss.c)
- *     ACPIBusIrpQueryTargetRelation @ 0x1C008E490 (ACPIBusIrpQueryTargetRelation.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qsdqss @ 0x1C002B5AC (WPP_RECORDER_SF_qsdqss.c)
+ *     ACPIBusIrpQueryTargetRelation @ 0x1C008F638 (ACPIBusIrpQueryTargetRelation.c)
  */
 
 __int64 __fastcall ACPIInternalDeviceQueryDeviceRelations(PVOID Object, PIRP Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rbx
   char v3; // bp
-  unsigned __int8 MinorFunction; // r12
+  unsigned __int64 v6; // r12
   __int64 DeviceExtension; // rax
-  __int64 v8; // rcx
-  unsigned int Length; // ebx
-  const char *v10; // r14
-  __int64 v11; // rdi
+  unsigned int Length; // r13d
+  const char *v9; // r14
+  __int64 v10; // rsi
+  int Status; // ebx
+  unsigned __int8 v12; // r15
   char *IrpText; // rax
-  __int64 v13; // rdx
-  const char *v14; // r8
-  char v15; // r10
-  const char *v16; // r11
-  unsigned int Status; // ebx
+  __int64 v14; // rdx
+  const char *v15; // r8
+  char v16; // r10
+  const char *v17; // r11
   __int64 v18; // rcx
   char *v19; // rax
   const char *v20; // r8
   int TargetRelation; // eax
-  unsigned __int64 v23; // [rsp+98h] [rbp+10h] BYREF
+  unsigned __int8 MinorFunction; // [rsp+A8h] [rbp+10h]
+  unsigned __int64 v24; // [rsp+B0h] [rbp+18h] BYREF
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   v3 = 0;
-  v23 = 0LL;
+  v24 = 0LL;
+  v6 = 0LL;
   MinorFunction = CurrentStackLocation->MinorFunction;
   DeviceExtension = ACPIInternalGetDeviceExtension((ULONG_PTR)Object);
   Length = CurrentStackLocation->Parameters.Read.Length;
-  v10 = (const char *)&unk_1C006FB8B;
-  v11 = DeviceExtension;
+  v9 = byte_1C00701BA;
+  v10 = DeviceExtension;
   if ( Length == 4 )
   {
-    TargetRelation = ACPIBusIrpQueryTargetRelation(Object, (char)Irp, (PVOID *)&v23);
+    TargetRelation = ACPIBusIrpQueryTargetRelation(Object, (char)Irp, (PVOID *)&v24);
+    v6 = v24;
     Status = TargetRelation;
-    if ( TargetRelation >= 0 )
-    {
-      Irp->IoStatus.Status = TargetRelation;
-      Irp->IoStatus.Information = v23;
-      goto LABEL_5;
-    }
-    if ( TargetRelation != -1073741637 )
-    {
-      Irp->IoStatus.Status = TargetRelation;
-      Irp->IoStatus.Information = 0LL;
-      goto LABEL_5;
-    }
   }
-  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  else
   {
-    IrpText = ACPIDebugGetIrpText(v8, MinorFunction);
-    WPP_RECORDER_SF_qsdqss(
-      (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      v13,
-      (__int64)v14,
-      0xBu,
-      (__int64)&WPP_3f059b4445c33feb0bcb2acb2d7cf140_Traceguids,
-      (char)Irp,
-      IrpText,
-      Length,
-      v15,
-      v16,
-      v14);
+    Status = -1073741637;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v12 = MinorFunction;
+      IrpText = ACPIDebugGetIrpText((__int64)&WPP_RECORDER_INITIALIZED, MinorFunction);
+      WPP_RECORDER_SF_qsdqss(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        v14,
+        (__int64)v15,
+        0xBu,
+        (__int64)&WPP_3f059b4445c33feb0bcb2acb2d7cf140_Traceguids,
+        (char)Irp,
+        IrpText,
+        Length,
+        v16,
+        v17,
+        v15);
+      goto LABEL_4;
+    }
   }
+  v12 = MinorFunction;
+  if ( Status >= 0 )
+  {
+    Irp->IoStatus.Information = v6;
+    Irp->IoStatus.Status = Status;
+    goto LABEL_5;
+  }
+  if ( Status != -1073741637 )
+  {
+    Irp->IoStatus.Status = Status;
+    Irp->IoStatus.Information = 0LL;
+    goto LABEL_5;
+  }
+LABEL_4:
   Status = Irp->IoStatus.Status;
 LABEL_5:
   IofCompleteRequest(Irp, 0);
-  if ( v11 )
+  if ( v10 )
   {
-    v3 = v11;
-    if ( (*(_QWORD *)(v11 + 8) & 0x200000000000LL) != 0 )
-      v10 = *(const char **)(v11 + 608);
+    v18 = 0x200000000000LL;
+    v3 = v10;
+    if ( (*(_QWORD *)(v10 + 8) & 0x200000000000LL) != 0 )
+    {
+      v9 = *(const char **)(v10 + 568);
+      v18 = 0x400000000000LL;
+    }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v19 = ACPIDebugGetIrpText(v18, MinorFunction);
+    v19 = ACPIDebugGetIrpText(v18, v12);
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
@@ -95,8 +110,8 @@ LABEL_5:
       v19,
       Status,
       v3,
-      v10,
+      v9,
       v20);
   }
-  return Status;
+  return (unsigned int)Status;
 }

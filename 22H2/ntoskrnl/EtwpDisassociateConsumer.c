@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpDisassociateConsumer @ 0x1406828FC
+ * XREFs of EtwpDisassociateConsumer @ 0x1406A4F60
  * Callers:
- *     EtwpRealtimeDeliverBuffer @ 0x140708E10 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x1406BEAC8 (EtwpRealtimeDeliverBuffer.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
  */
 
-LONG_PTR __fastcall EtwpDisassociateConsumer(__int64 a1, void *a2)
+void __fastcall EtwpDisassociateConsumer(__int64 a1, __int64 *a2)
 {
-  void **v3; // rdx
-  void **v4; // rax
+  __int64 v3; // rdx
+  __int64 **v4; // rax
   struct _KEVENT *v5; // rcx
 
-  v3 = *(void ***)a2;
-  if ( v3[1] != a2 || (v4 = (void **)*((_QWORD *)a2 + 1), *v4 != a2) )
+  v3 = *a2;
+  if ( *(__int64 **)(v3 + 8) != a2 || (v4 = (__int64 **)a2[1], *v4 != a2) )
     __fastfail(3u);
-  *v4 = v3;
-  v3[1] = v4;
-  --*(_DWORD *)(a1 + 344);
-  v5 = (struct _KEVENT *)*((_QWORD *)a2 + 6);
+  *v4 = (__int64 *)v3;
+  *(_QWORD *)(v3 + 8) = v4;
+  --*(_DWORD *)(a1 + 360);
+  v5 = (struct _KEVENT *)a2[6];
   *((_BYTE *)a2 + 90) |= 4u;
   KeSetEvent(v5, 0, 0);
-  return ObfDereferenceObject(a2);
+  HalPutDmaAdapter((PADAPTER_OBJECT)a2);
 }

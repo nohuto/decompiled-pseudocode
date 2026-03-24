@@ -1,39 +1,42 @@
 /*
- * XREFs of PnpLogDeviceConflictingResource @ 0x14081F87C
+ * XREFs of PnpLogDeviceConflictingResource @ 0x1407D07C4
  * Callers:
- *     IopTestConfiguration @ 0x140820094 (IopTestConfiguration.c)
+ *     IopTestConfiguration @ 0x140752854 (IopTestConfiguration.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PnpLogDeviceConflictingResource(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rbx
+  __int64 v2; // rdi
   __int64 v5; // rax
-  __int64 v6; // rdi
-  __int64 v7; // rdx
-  __int64 Pool2; // rax
+  __int64 v6; // rbx
+  __int64 v7; // rcx
+  PVOID PoolWithTag; // rax
 
   v2 = *(_QWORD *)(a1 + 40);
   if ( v2 )
   {
     v5 = *(_QWORD *)(v2 + 32);
     if ( v5 )
-    {
       v6 = *(_QWORD *)(*(_QWORD *)(v5 + 312) + 40LL);
-      if ( v6 )
+    else
+      v6 = 0LL;
+    if ( v6 )
+    {
+      v7 = *(_QWORD *)(v6 + 712);
+      if ( v7
+        || (PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x70uLL, 0x62655250u),
+            (*(_QWORD *)(v6 + 712) = PoolWithTag) != 0LL)
+        && (memset(PoolWithTag, 0, 0x70uLL), (v7 = *(_QWORD *)(v6 + 712)) != 0) )
       {
-        v7 = *(_QWORD *)(v6 + 712);
-        if ( v7
-          || (Pool2 = ExAllocatePool2(256LL, 112LL, 1650807376LL), *(_QWORD *)(v6 + 712) = Pool2, (v7 = Pool2) != 0) )
+        if ( !*(_QWORD *)(v7 + 96) )
         {
-          if ( !*(_QWORD *)(v7 + 96) )
-          {
-            *(_BYTE *)(v7 + 88) = *(_BYTE *)(a1 + 16);
-            *(_DWORD *)(v7 + 92) = *(_DWORD *)(v2 + 16);
-            *(_QWORD *)(v7 + 96) = *(_QWORD *)(v2 + 24);
-            *(_QWORD *)(v7 + 104) = a2;
-          }
+          *(_BYTE *)(v7 + 88) = *(_BYTE *)(a1 + 16);
+          *(_DWORD *)(v7 + 92) = *(_DWORD *)(v2 + 16);
+          *(_QWORD *)(v7 + 96) = *(_QWORD *)(v2 + 24);
+          *(_QWORD *)(v7 + 104) = a2;
         }
       }
     }

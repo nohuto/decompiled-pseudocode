@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiFdoDpcForIsr @ 0x1C00159B0
+ * XREFs of DpiFdoDpcForIsr @ 0x1C00149E0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DpiFdoDpcForIsr(
@@ -20,9 +20,8 @@ void __fastcall DpiFdoDpcForIsr(
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v4 = DeferredContext[8];
-  memset(&LockHandle, 0, sizeof(LockHandle));
   v5 = *(_QWORD *)(v4 + 40);
-  if ( (qword_1C012F870 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+  if ( (qword_1C00B19B0 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
     McTemplateK0q_EtwWriteTransfer(Dpc, &EventProfilerEnter, SystemArgument1, 4013LL);
   KeAcquireInStackQueuedSpinLockAtDpcLevel(*(PKSPIN_LOCK *)(v4 + 1464), &LockHandle);
   *(LARGE_INTEGER *)(v4 + 16LL * *(unsigned int *)(v4 + 1472) + 1480) = KeQueryPerformanceCounter(0LL);
@@ -30,6 +29,6 @@ void __fastcall DpiFdoDpcForIsr(
   *(LARGE_INTEGER *)(v4 + 16 * (*(unsigned int *)(v4 + 1472) + 93LL)) = KeQueryPerformanceCounter(0LL);
   *(_DWORD *)(v4 + 1472) = ((unsigned __int8)*(_DWORD *)(v4 + 1472) + 1) & 0x3F;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  if ( (qword_1C012F870 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+  if ( (qword_1C00B19B0 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
     McTemplateK0q_EtwWriteTransfer(v6, &EventProfilerExit, v7, 4013LL);
 }

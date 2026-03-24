@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateWaitCompletionPacket @ 0x1406A00F0
+ * XREFs of NtCreateWaitCompletionPacket @ 0x1406A00D0
  * Callers:
  *     <none>
  * Callees:
- *     EvaluateCurrentState @ 0x1401B3674 (EvaluateCurrentState.c)
+ *     EvaluateCurrentState @ 0x1401B3694 (EvaluateCurrentState.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
  */

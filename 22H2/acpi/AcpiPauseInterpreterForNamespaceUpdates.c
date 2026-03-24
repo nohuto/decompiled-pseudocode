@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiPauseInterpreterForNamespaceUpdates @ 0x1C0037CFC
+ * XREFs of AcpiPauseInterpreterForNamespaceUpdates @ 0x1C005B800
  * Callers:
- *     AcpiReflectNativeObject @ 0x1C0037DA0 (AcpiReflectNativeObject.c)
+ *     AcpiReflectNativeObject @ 0x1C005B8A0 (AcpiReflectNativeObject.c)
  * Callees:
- *     AMLIPauseInterpreter @ 0x1C0048988 (AMLIPauseInterpreter.c)
+ *     AMLIPauseInterpreter @ 0x1C006355C (AMLIPauseInterpreter.c)
  */
 
 __int64 AcpiPauseInterpreterForNamespaceUpdates()

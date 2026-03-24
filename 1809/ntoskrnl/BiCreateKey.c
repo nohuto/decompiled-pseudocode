@@ -1,19 +1,19 @@
 /*
- * XREFs of BiCreateKey @ 0x140713004
+ * XREFs of BiCreateKey @ 0x140712FE4
  * Callers:
- *     BiAddStoreFromFile @ 0x14071103C (BiAddStoreFromFile.c)
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
- *     BiCreateObject @ 0x1408F0BC0 (BiCreateObject.c)
- *     BiSetObjectDescription @ 0x1408F0F7C (BiSetObjectDescription.c)
+ *     BiAddStoreFromFile @ 0x14071101C (BiAddStoreFromFile.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
+ *     BiCreateObject @ 0x1408F0BA0 (BiCreateObject.c)
+ *     BiSetObjectDescription @ 0x1408F0F5C (BiSetObjectDescription.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     BiSanitizeHandle @ 0x14013B3B0 (BiSanitizeHandle.c)
- *     BiZwOpenKey @ 0x14016E588 (BiZwOpenKey.c)
- *     CmSiCloseSection @ 0x14016E5A8 (CmSiCloseSection.c)
- *     BiZwSetSecurityObject @ 0x14016E5BC (BiZwSetSecurityObject.c)
- *     BiZwCreateKey @ 0x14016E5F8 (BiZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     BiSanitizeHandle @ 0x14013B3D0 (BiSanitizeHandle.c)
+ *     BiZwOpenKey @ 0x14016E5A8 (BiZwOpenKey.c)
+ *     CmSiCloseSection @ 0x14016E5C8 (CmSiCloseSection.c)
+ *     BiZwSetSecurityObject @ 0x14016E5DC (BiZwSetSecurityObject.c)
+ *     BiZwCreateKey @ 0x14016E618 (BiZwCreateKey.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiCreateKeySecurityDescriptor @ 0x140713960 (BiCreateKeySecurityDescriptor.c)
+ *     BiCreateKeySecurityDescriptor @ 0x140713940 (BiCreateKeySecurityDescriptor.c)
  */
 
 __int64 __fastcall BiCreateKey(__int64 a1, const WCHAR *a2, ACCESS_MASK a3, unsigned int a4, _QWORD *a5, bool *a6)

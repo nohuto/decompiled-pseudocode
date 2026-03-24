@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vStripSolidVertical24@@YAXPEAU_STRIP@@PEAU_BMINFO@@PEAU_LINESTATE@@@Z @ 0x1C02D2970
+ * XREFs of ?vStripSolidVertical24@@YAXPEAU_STRIP@@PEAU_BMINFO@@PEAU_LINESTATE@@@Z @ 0x1C02D4470
  * Callers:
  *     <none>
  * Callees:

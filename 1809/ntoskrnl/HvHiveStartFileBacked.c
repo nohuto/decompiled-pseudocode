@@ -3,15 +3,15 @@
  * Callers:
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     HvpFillFileName @ 0x1405A4BD4 (HvpFillFileName.c)
  *     CmpTraceHiveMountStop @ 0x1405A4C40 (CmpTraceHiveMountStop.c)
  *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
  *     HvpHeaderCheckSum @ 0x1405A64F0 (HvpHeaderCheckSum.c)
  *     CmpTraceHiveMountStart @ 0x1405A651C (CmpTraceHiveMountStart.c)
- *     HvMarkBaseBlockDirty @ 0x1406CAF54 (HvMarkBaseBlockDirty.c)
+ *     HvMarkBaseBlockDirty @ 0x1406CAF34 (HvMarkBaseBlockDirty.c)
  */
 
 __int64 __fastcall HvHiveStartFileBacked(

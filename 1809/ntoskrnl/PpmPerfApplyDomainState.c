@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfApplyDomainState @ 0x140112900
+ * XREFs of PpmPerfApplyDomainState @ 0x140112920
  * Callers:
  *     PpmPerfApplyDomainStates @ 0x140063AC0 (PpmPerfApplyDomainStates.c)
  * Callees:
- *     KeAndAffinityEx @ 0x1400DC6E0 (KeAndAffinityEx.c)
- *     PpmPerfApplyCapsAndFloors @ 0x140113000 (PpmPerfApplyCapsAndFloors.c)
- *     PpmGetPerfPolicyClass @ 0x1401130A8 (PpmGetPerfPolicyClass.c)
- *     PpmEventDomainPerfStateChange @ 0x140178490 (PpmEventDomainPerfStateChange.c)
- *     KeIsEqualAffinityEx @ 0x14018A2D0 (KeIsEqualAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeAndAffinityEx @ 0x1400DC700 (KeAndAffinityEx.c)
+ *     PpmPerfApplyCapsAndFloors @ 0x140113020 (PpmPerfApplyCapsAndFloors.c)
+ *     PpmGetPerfPolicyClass @ 0x1401130C8 (PpmGetPerfPolicyClass.c)
+ *     PpmEventDomainPerfStateChange @ 0x1401784B0 (PpmEventDomainPerfStateChange.c)
+ *     KeIsEqualAffinityEx @ 0x14018A2F0 (KeIsEqualAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PpmPerfApplyDomainState(__int64 a1)
@@ -91,7 +91,7 @@ __int64 __fastcall PpmPerfApplyDomainState(__int64 a1)
   v49 = 0;
   v50 = 0;
   v64 = *(_QWORD *)(*(_QWORD *)(a1 + 208) + 8LL);
-  v62 = &PpmCurrentProfile[341 * dword_14041810C + 5];
+  v62 = &PpmCurrentProfile[341 * dword_1404180CC + 5];
   if ( *(_BYTE *)(a1 + 207) )
     PerfPolicyClass = 0;
   else

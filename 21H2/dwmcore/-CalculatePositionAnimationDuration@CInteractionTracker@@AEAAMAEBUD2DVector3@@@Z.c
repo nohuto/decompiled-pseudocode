@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CalculatePositionAnimationDuration@CInteractionTracker@@AEAAMAEBUD2DVector3@@@Z @ 0x180219BB4
+ * XREFs of ?CalculatePositionAnimationDuration@CInteractionTracker@@AEAAMAEBUD2DVector3@@@Z @ 0x1801C8A30
  * Callers:
- *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x18021BBDC (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
+ *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x1801CA730 (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
  * Callees:
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
- *     ?ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z @ 0x18021A0F0 (-ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
+ *     ?ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z @ 0x1801C8F38 (-ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z.c)
  */
 
 float __fastcall CInteractionTracker::CalculatePositionAnimationDuration(
@@ -25,31 +25,31 @@ float __fastcall CInteractionTracker::CalculatePositionAnimationDuration(
   double v15; // xmm0_8
   float v16; // [rsp+28h] [rbp-50h]
 
-  v3 = *((_QWORD *)this + 10) - *(_QWORD *)a2;
+  v3 = *((_QWORD *)this + 9) - *(_QWORD *)a2;
   if ( !v3 )
-    v3 = *((unsigned int *)this + 22) - (unsigned __int64)*((unsigned int *)a2 + 2);
+    v3 = *((unsigned int *)this + 20) - (unsigned __int64)*((unsigned int *)a2 + 2);
   if ( !v3 )
     return FLOAT_0_001;
   v5 = *(float *)a2;
-  v6 = *(float *)a2 >= *((float *)this + 23) && *((float *)this + 26) >= v5;
+  v6 = *(float *)a2 >= *((float *)this + 21) && *((float *)this + 24) >= v5;
   v7 = *((float *)a2 + 1);
-  v8 = v7 >= *((float *)this + 24) && *((float *)this + 27) >= v7;
+  v8 = v7 >= *((float *)this + 22) && *((float *)this + 25) >= v7;
   if ( v6 && v8 )
-    return *((float *)this + 32);
-  v9 = v5 - *((float *)this + 20);
-  v10 = v7 - *((float *)this + 21);
-  v11 = *((float *)a2 + 2) - *((float *)this + 22);
+    return *((float *)this + 30);
+  v9 = v5 - *((float *)this + 18);
+  v10 = v7 - *((float *)this + 19);
+  v11 = *((float *)a2 + 2) - *((float *)this + 20);
   v16 = *((float *)a2 + 2);
   v12 = CInteractionTracker::ClampValueToBoundary(this, 0LL);
-  v13 = *(float *)&v12 - *((float *)this + 20);
+  v13 = *(float *)&v12 - *((float *)this + 18);
   v15 = CInteractionTracker::ClampValueToBoundary(v14, 1LL);
-  *(float *)&v15 = o_sqrtf_0(
-                     (float)((float)((float)(*(float *)&v15 - *((float *)this + 21))
-                                   * (float)(*(float *)&v15 - *((float *)this + 21)))
+  *(float *)&v15 = sqrtf_0(
+                     (float)((float)((float)(*(float *)&v15 - *((float *)this + 19))
+                                   * (float)(*(float *)&v15 - *((float *)this + 19)))
                            + (float)(v13 * v13))
-                   + (float)((float)(v16 - *((float *)this + 22)) * (float)(v16 - *((float *)this + 22))));
+                   + (float)((float)(v16 - *((float *)this + 20)) * (float)(v16 - *((float *)this + 20))));
   return fmaxf(
            *(float *)&v15
-         / (float)(o_sqrtf_0((float)((float)(v10 * v10) + (float)(v9 * v9)) + (float)(v11 * v11)) / *((float *)this + 32)),
+         / (float)(sqrtf_0((float)((float)(v10 * v10) + (float)(v9 * v9)) + (float)(v11 * v11)) / *((float *)this + 30)),
            0.001);
 }

@@ -1,18 +1,15 @@
 /*
- * XREFs of ?LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@_K3@Z @ 0x1C00A1CA0
+ * XREFs of ?LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@_K3@Z @ 0x1C0075A94
  * Callers:
- *     ?Lock@VIDMM_RECYCLE_RANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@@Z @ 0x1C009E898 (-Lock@VIDMM_RECYCLE_RANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@@.c)
- *     ?Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C00A17C0 (-Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SE.c)
+ *     ?Lock@VIDMM_RECYCLE_RANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@@Z @ 0x1C0074A44 (-Lock@VIDMM_RECYCLE_RANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@@.c)
  * Callees:
- *     ?GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C0003A3C (-GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005F60 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_GVIDMM_MDL_RANGE@@QEAAPEAXI@Z @ 0x1C0017E50 (--_GVIDMM_MDL_RANGE@@QEAAPEAXI@Z.c)
- *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0019964 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z @ 0x1C0085D90 (-VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z.c)
- *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C009E474 (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
- *     ?Lock@VIDMM_MDL_RANGE@@QEAAJPEAXW4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00A1F20 (-Lock@VIDMM_MDL_RANGE@@QEAAJPEAXW4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_GLOBAL_ALLOC@@@.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z @ 0x1C00158AC (-GetSmallAllocationSize@VIDMM_RECYCLE_HEAP_MGR@@QEAA_KE@Z.c)
+ *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C0062738 (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
+ *     ?InsertBetween@VIDMM_MDL_RANGE@@QEAAXPEAV1@0@Z @ 0x1C0075C14 (-InsertBetween@VIDMM_MDL_RANGE@@QEAAXPEAV1@0@Z.c)
+ *     ?Lock@VIDMM_MDL_RANGE@@QEAAJPEAXW4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0075C58 (-Lock@VIDMM_MDL_RANGE@@QEAAJPEAXW4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_GLOBAL_ALLOC@@@.c)
+ *     ?VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z @ 0x1C00C1304 (-VidMmRecycleHeapMapSection@@YAJPEAX_K1EPEAPEAX2EPEAE@Z.c)
  */
 
 __int64 __fastcall VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW::LockRange(
@@ -23,165 +20,151 @@ __int64 __fastcall VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW::LockRange(
         _BYTE *a5,
         _BYTE *a6)
 {
-  _BYTE *v6; // rbp
-  void *v7; // rbx
-  struct _EPROCESS *CurrentProcess; // r12
-  int v10; // r8d
-  VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *v11; // rax
-  char *i; // rdi
-  __int64 *v13; // rax
-  enum _LOCK_OPERATION v14; // r8d
-  VIDMM_MDL_RANGE *v15; // rsi
-  void *v16; // rbp
-  __int64 v17; // rdx
-  __int64 *v18; // r14
-  char v19; // r15
-  int *v20; // rax
-  int v21; // ecx
-  int v22; // ebx
-  int v23; // eax
-  VIDMM_RECYCLE_HEAP_MGR *v24; // rcx
-  __int64 **v25; // rdi
-  __int64 v26; // rax
-  int v28; // eax
-  __int64 v29; // rbp
-  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *VirtualMemoryInterface; // rax
-  __int64 v31; // rcx
-  char *v32; // [rsp+50h] [rbp-58h]
-  unsigned __int64 v33; // [rsp+B0h] [rbp+8h]
-  enum _LOCK_OPERATION v35; // [rsp+C0h] [rbp+18h] BYREF
-  struct VIDMM_SEGMENT *v36; // [rsp+C8h] [rbp+20h]
+  _BYTE *v6; // rdi
+  void *v7; // rsi
+  unsigned __int64 v9; // r15
+  _QWORD **v10; // rcx
+  int v11; // r10d
+  char v12; // bp
+  struct VIDMM_MDL_RANGE *v13; // r12
+  struct VIDMM_MDL_RANGE *v14; // r13
+  _QWORD *i; // r8
+  _QWORD *v16; // rax
+  __int64 v17; // rcx
+  enum _LOCK_OPERATION v18; // r8d
+  void *v19; // rbx
+  __int64 v20; // rdx
+  void *v21; // rdi
+  int v22; // ecx
+  int v23; // esi
+  __int64 v24; // r8
+  _DWORD *v25; // rdx
+  __int64 v26; // rcx
+  __int64 v28; // rax
+  int v29; // eax
+  __int64 v30; // rdi
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  _QWORD *v33; // rax
+  VIDMM_RECYCLE_HEAP_MGR *CurrentProcess; // rcx
+  void *v35; // rcx
+  enum _LOCK_OPERATION v37; // [rsp+90h] [rbp+18h] BYREF
+  struct VIDMM_SEGMENT *v38; // [rsp+98h] [rbp+20h]
 
-  v36 = a4;
-  v35 = a3;
+  v38 = a4;
+  v37 = a3;
   v6 = a6;
   v7 = a5;
-  CurrentProcess = 0LL;
-  v32 = 0LL;
-  v33 = a6 - a5;
-  v10 = -1;
-  v11 = (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)*((_QWORD *)this + 1);
-  for ( i = 0LL;
-        v11 != (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)((char *)this + 8);
-        v11 = *(VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW **)v11 )
+  v9 = a6 - a5;
+  v10 = (_QWORD **)((char *)this + 8);
+  v11 = -1;
+  v12 = 0;
+  v13 = 0LL;
+  v14 = 0LL;
+  for ( i = *v10; i != v10 && v11 < 0; i = (_QWORD *)*i )
   {
-    if ( v10 >= 0 )
-      break;
-    if ( *((_QWORD *)v11 - 1) > (unsigned __int64)a5 )
+    if ( *(i - 1) > (unsigned __int64)a5 )
     {
-      if ( *((_QWORD *)v11 - 2) < (unsigned __int64)a6 )
+      if ( *(i - 2) < (unsigned __int64)a6 )
       {
-        v10 = 0;
+        v11 = 0;
       }
       else
       {
-        v10 = 1;
-        v32 = (char *)v11 - 24;
+        v11 = 1;
+        v14 = (struct VIDMM_MDL_RANGE *)(i - 3);
       }
     }
     else
     {
-      v10 = -1;
-      i = (char *)v11 - 24;
+      v11 = -1;
+      v13 = (struct VIDMM_MDL_RANGE *)(i - 3);
     }
   }
-  v13 = (__int64 *)operator new(48LL, 0x32316956u, 258LL);
-  v15 = (VIDMM_MDL_RANGE *)v13;
-  if ( v13 )
+  v16 = operator new[](0x30uLL, 0x32316956u, PagedPool);
+  v19 = v16;
+  if ( v16 )
   {
-    v13[2] = (__int64)v6;
-    v16 = 0LL;
-    *v13 = 0LL;
-    v13[1] = (__int64)v7;
-    v13[5] = (__int64)this;
-    v13[4] = 0LL;
-    v13[3] = 0LL;
-    v17 = *(_QWORD *)this;
-    v18 = v13 + 3;
-    v19 = 0;
-    a6 = 0LL;
-    v20 = *(int **)(v17 + 32);
-    a5 = 0LL;
-    LOBYTE(v35) = 0;
-    v21 = *v20;
-    if ( (unsigned int)(*v20 - 3) <= 3 && (unsigned int)(v21 - 5) > 1 )
-    {
-      v28 = VidMmRecycleHeapMapSection(
-              *(PVOID *)(v17 + 56),
-              (__int64)v7,
-              v33,
-              v21 == 4,
-              (void **)&a6,
-              (void **)&a5,
-              0,
-              (unsigned __int8 *)&v35);
-      v29 = v28;
-      if ( v28 < 0 )
-      {
-        VIDMM_MDL_RANGE::`scalar deleting destructor'(v15);
-        WdLogSingleEntry5(
-          3LL,
-          v33,
-          v7,
-          *(_QWORD *)this,
-          v29,
-          **(_QWORD **)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 32LL) + 8LL) + 8LL));
-        return (unsigned int)v29;
-      }
-      v7 = a6;
-      v16 = a5;
-      v19 = v35;
-    }
-    v22 = VIDMM_MDL_RANGE::Lock(v15, v7, v14, v36, a2);
-    v23 = **(_DWORD **)(*(_QWORD *)this + 32LL);
-    if ( (unsigned int)(v23 - 3) <= 3 )
-    {
-      v24 = (VIDMM_RECYCLE_HEAP_MGR *)(unsigned int)(v23 - 5);
-      if ( (unsigned int)v24 > 1 )
-      {
-        if ( !v19 )
-          CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess();
-        if ( v33 > VIDMM_RECYCLE_HEAP_MGR::GetSmallAllocationSize(v24, 0) )
-        {
-          VidMmUnmapViewAsync(CurrentProcess, *(void **)(*(_QWORD *)this + 56LL), v16);
-        }
-        else if ( CurrentProcess )
-        {
-          VirtualMemoryInterface = DxgkGetVirtualMemoryInterface();
-          (*((void (__fastcall **)(struct _EPROCESS *, void *))VirtualMemoryInterface + 4))(CurrentProcess, v16);
-        }
-        else
-        {
-          MmUnmapViewInSystemSpace(v16);
-        }
-      }
-    }
-    if ( v22 < 0 )
-    {
-      VIDMM_MDL_RANGE::`scalar deleting destructor'(v15);
-    }
-    else
-    {
-      if ( i )
-        v25 = (__int64 **)(i + 24);
-      else
-        v25 = (__int64 **)(*((_QWORD *)v15 + 5) + 8LL);
-      if ( v32 )
-        v26 = (__int64)(v32 + 24);
-      else
-        v26 = *((_QWORD *)v15 + 5) + 8LL;
-      *v25 = v18;
-      *(_QWORD *)(v26 + 8) = v18;
-      *((_QWORD *)v15 + 4) = v25;
-      *v18 = v26;
-    }
-    return (unsigned int)v22;
+    *v16 = 0LL;
+    v16[1] = v7;
+    v16[2] = v6;
+    v16[5] = this;
+    v16[3] = 0LL;
+    v16[4] = 0LL;
   }
   else
   {
-    _InterlockedIncrement(&dword_1C0076854);
-    WdLogSingleEntry1(6LL, 6144LL);
-    DxgkLogInternalTriageEvent(v31, 262145LL);
+    v19 = 0LL;
+  }
+  if ( !v19 )
+  {
+    _InterlockedIncrement(&dword_1C0050744);
+    v28 = WdLogNewEntry5_WdLowResource(v17);
+    *(_QWORD *)(v28 + 24) = 6147LL;
+    WdLogEvent5_WdLowResource(v28);
     return 3221225495LL;
   }
+  v20 = *(_QWORD *)this;
+  v21 = 0LL;
+  a6 = 0LL;
+  a5 = 0LL;
+  LOBYTE(v37) = 0;
+  v22 = **(_DWORD **)(v20 + 32);
+  if ( (unsigned int)(v22 - 3) <= 3 && (unsigned int)(v22 - 5) > 1 )
+  {
+    v29 = VidMmRecycleHeapMapSection(
+            *(PVOID *)(v20 + 56),
+            (unsigned __int64)v7,
+            v9,
+            v22 == 4,
+            (void **)&a6,
+            (void **)&a5,
+            0,
+            (unsigned __int8 *)&v37);
+    v30 = v29;
+    if ( v29 < 0 )
+    {
+      operator delete(v19);
+      v33 = (_QWORD *)WdLogNewEntry5_WdWarning(v32, v31);
+      v33[3] = v9;
+      v33[4] = v7;
+      v33[5] = *(_QWORD *)this;
+      v33[6] = v30;
+      v33[7] = **(_QWORD **)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 32LL) + 8LL) + 8LL);
+      WdLogEvent5_WdWarning(v33);
+      return (unsigned int)v30;
+    }
+    v7 = a6;
+    v21 = a5;
+    v12 = v37;
+  }
+  v23 = VIDMM_MDL_RANGE::Lock((VIDMM_MDL_RANGE *)v19, v7, v18, v38, a2);
+  v25 = *(_DWORD **)(*(_QWORD *)this + 32LL);
+  if ( (unsigned int)(*v25 - 3) <= 3 )
+  {
+    v26 = (unsigned int)(*v25 - 5);
+    if ( (unsigned int)v26 > 1 )
+    {
+      if ( v12 )
+        CurrentProcess = 0LL;
+      else
+        CurrentProcess = (VIDMM_RECYCLE_HEAP_MGR *)PsGetCurrentProcess(v26, v25, v24);
+      if ( v9 <= VIDMM_RECYCLE_HEAP_MGR::GetSmallAllocationSize(CurrentProcess, 0) )
+      {
+        if ( v35 )
+          MmUnmapViewOfSection(v35, v21);
+        else
+          MmUnmapViewInSystemSpace(v21);
+      }
+      else
+      {
+        VidMmUnmapViewAsync(v35, *(PVOID *)(*(_QWORD *)this + 56LL), v21);
+      }
+    }
+  }
+  if ( v23 < 0 )
+    operator delete(v19);
+  else
+    VIDMM_MDL_RANGE::InsertBetween((VIDMM_MDL_RANGE *)v19, v13, v14);
+  return (unsigned int)v23;
 }

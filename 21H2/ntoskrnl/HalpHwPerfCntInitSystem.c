@@ -1,37 +1,31 @@
 /*
- * XREFs of HalpHwPerfCntInitSystem @ 0x140A54EF0
+ * XREFs of HalpHwPerfCntInitSystem @ 0x14099B540
  * Callers:
  *     <none>
  * Callees:
- *     HalpInitializeUncoreProfiling @ 0x1403BB680 (HalpInitializeUncoreProfiling.c)
- *     HalpCompleteInitializeProfiling @ 0x140A54F8C (HalpCompleteInitializeProfiling.c)
- *     HalpInitializeProfiling @ 0x140A54FB4 (HalpInitializeProfiling.c)
- *     HalpInitializePmcCounterSetInfo @ 0x140AF89EC (HalpInitializePmcCounterSetInfo.c)
+ *     HalpCompleteInitializeProfiling @ 0x14099B5B4 (HalpCompleteInitializeProfiling.c)
+ *     HalpInitializeProfiling @ 0x14099B5DC (HalpInitializeProfiling.c)
+ *     HalpInitializePmcCounterSetInfo @ 0x140A39690 (HalpInitializePmcCounterSetInfo.c)
  */
 
 __int64 __fastcall HalpHwPerfCntInitSystem(int a1, unsigned int a2)
 {
   switch ( a1 )
   {
-    case 19:
-      HalpInitializeProfiling(a2);
-LABEL_8:
-      HalpCompleteInitializeProfiling();
-      return 0LL;
     case 13:
-      off_140C01E20[0] = (__int64 (__fastcall *)())HalpAllocatePmcCounterSet;
-      off_140C02090[0] = (__int64 (__fastcall *)())HalpAllocatePmcCounterSetEx;
-      off_140C01E30[0] = (__int64 (__fastcall *)())HalpFreePmcCounterSet;
-      off_140C01E28[0] = (__int64 (__fastcall *)())HalpCollectPmcCounters;
-      off_140C02098[0] = (__int64 (__fastcall *)())HalpStartProfileInterruptEx;
+      off_140C007D0[0] = (__int64 (__fastcall *)())HalpAllocatePmcCounterSet;
+      off_140C007E0[0] = (__int64 (__fastcall *)())HalpFreePmcCounterSet;
+      off_140C007D8[0] = (__int64 (__fastcall *)())HalpCollectPmcCounters;
       HalpInitializePmcCounterSetInfo();
       HalpInitializeProfiling(a2);
       HalpPerfInterruptHandlerRegistrationLock = 0LL;
       return 0LL;
     case 17:
-      goto LABEL_8;
-    case 21:
-      HalpInitializeUncoreProfiling();
+      goto LABEL_6;
+    case 19:
+      HalpInitializeProfiling(a2);
+LABEL_6:
+      HalpCompleteInitializeProfiling();
       break;
   }
   return 0LL;

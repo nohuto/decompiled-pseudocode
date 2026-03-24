@@ -1,10 +1,9 @@
 /*
- * XREFs of UninitializeTelemetryAssertsKM @ 0x1C011C9A8
+ * XREFs of UninitializeTelemetryAssertsKM @ 0x1C01323F4
  * Callers:
- *     UninitializeWin32kFullTelemetryAsserts @ 0x1C011C990 (UninitializeWin32kFullTelemetryAsserts.c)
+ *     UninitializeWin32kFullTelemetryAsserts @ 0x1C01322A0 (UninitializeWin32kFullTelemetryAsserts.c)
  * Callees:
- *     UninitializeTelemetryAssertsLocks @ 0x1C011CA98 (UninitializeTelemetryAssertsLocks.c)
- *     TakeTelemetryAssertsLock @ 0x1C011CAD0 (TakeTelemetryAssertsLock.c)
+ *     TakeTelemetryAssertsLock @ 0x1C0132504 (TakeTelemetryAssertsLock.c)
  */
 
 NTSTATUS UninitializeTelemetryAssertsKM()
@@ -39,23 +38,27 @@ NTSTATUS UninitializeTelemetryAssertsKM()
       }
       ExReleaseFastMutex(g_AssertFastMutex);
     }
-    UninitializeTelemetryAssertsLocks();
+    if ( g_AssertFastMutex )
+    {
+      ExFreePoolWithTag(g_AssertFastMutex, 0x74727341u);
+      g_AssertFastMutex = 0LL;
+    }
     if ( g_ModuleName )
     {
       ExFreePoolWithTag(g_ModuleName, 0x74727341u);
       g_ModuleName = 0LL;
     }
-    v2 = qword_1C0376098;
-    qword_1C0376098 = 0LL;
-    dword_1C0376078 = 0;
+    v2 = qword_1C037A098;
+    qword_1C037A098 = 0LL;
+    dword_1C037A078 = 0;
     EtwUnregister(v2);
-    v3 = qword_1C0376028;
-    qword_1C0376028 = 0LL;
-    dword_1C0376008 = 0;
+    v3 = qword_1C037A028;
+    qword_1C037A028 = 0LL;
+    dword_1C037A008 = 0;
     EtwUnregister(v3);
-    v4 = qword_1C0376060;
-    qword_1C0376060 = 0LL;
-    dword_1C0376040 = 0;
+    v4 = qword_1C037A060;
+    qword_1C037A060 = 0LL;
+    dword_1C037A040 = 0;
     return EtwUnregister(v4);
   }
   return result;

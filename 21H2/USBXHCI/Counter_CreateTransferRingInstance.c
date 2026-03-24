@@ -1,10 +1,10 @@
 /*
- * XREFs of Counter_CreateTransferRingInstance @ 0x1C006BBC4
+ * XREFs of Counter_CreateTransferRingInstance @ 0x1C006B1A0
  * Callers:
- *     TR_Create @ 0x1C006BCD8 (TR_Create.c)
+ *     TR_Create @ 0x1C006AD7C (TR_Create.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1C0005B6C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
+ *     RtlStringCchPrintfW @ 0x1C0009784 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Counter_CreateTransferRingInstance(__int64 *a1, int a2, PPCW_INSTANCE *a3)

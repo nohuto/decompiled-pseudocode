@@ -1,15 +1,15 @@
 /*
- * XREFs of PiOpenDriverRedirectedStateKey @ 0x14070544C
+ * XREFs of PiOpenDriverRedirectedStateKey @ 0x14070542C
  * Callers:
- *     PipHardwareConfigActivateService @ 0x140705370 (PipHardwareConfigActivateService.c)
+ *     PipHardwareConfigActivateService @ 0x140705350 (PipHardwareConfigActivateService.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintfEx @ 0x14015D7AC (RtlUnicodeStringPrintfEx.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14015D7CC (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PiGetStateRootPath @ 0x14070E160 (PiGetStateRootPath.c)
- *     IopAllocateUnicodeString @ 0x14070FF14 (IopAllocateUnicodeString.c)
+ *     PiGetStateRootPath @ 0x14070E140 (PiGetStateRootPath.c)
+ *     IopAllocateUnicodeString @ 0x14070FEF4 (IopAllocateUnicodeString.c)
  */
 
 __int64 __fastcall PiOpenDriverRedirectedStateKey(unsigned __int16 *a1, __int64 a2, _QWORD *a3)

@@ -4,9 +4,9 @@
  *     ExInitSystem @ 0x1409D4FF0 (ExInitSystem.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     RtlHpGlobalsInitialize @ 0x14018D5B0 (RtlHpGlobalsInitialize.c)
- *     ExGetSuiteMask @ 0x1407550F0 (ExGetSuiteMask.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     RtlHpGlobalsInitialize @ 0x14018D5D0 (RtlHpGlobalsInitialize.c)
+ *     ExGetSuiteMask @ 0x1407550D0 (ExGetSuiteMask.c)
  */
 
 char ExpInitSystemPhase0()
@@ -20,15 +20,15 @@ char ExpInitSystemPhase0()
   ExpEnvironmentLock.Event.Header.SignalState = 0;
   ExNPagedLookasideLock = 0LL;
   ExPagedLookasideLock = 0LL;
-  qword_140407108 = (__int64)&ExpSystemResourcesList;
+  qword_1404070B8 = (__int64)&ExpSystemResourcesList;
   ExpSystemResourcesList = (__int64)&ExpSystemResourcesList;
   ExpEnvironmentLock.Event.Header.WaitListHead.Blink = &ExpEnvironmentLock.Event.Header.WaitListHead;
   ExpEnvironmentLock.Event.Header.WaitListHead.Flink = &ExpEnvironmentLock.Event.Header.WaitListHead;
-  qword_140407088 = (__int64)&ExNPagedLookasideListHead;
+  qword_140407078 = (__int64)&ExNPagedLookasideListHead;
   ExNPagedLookasideListHead = (__int64)&ExNPagedLookasideListHead;
-  qword_1404070A8 = (__int64)&ExPagedLookasideListHead;
+  qword_140407048 = (__int64)&ExPagedLookasideListHead;
   ExPagedLookasideListHead = (__int64)&ExPagedLookasideListHead;
-  qword_140409D38 = (__int64)&ExpFirmwareTableProviderListHead;
+  qword_140409CE8 = (__int64)&ExpFirmwareTableProviderListHead;
   ExpFirmwareTableProviderListHead = (__int64)&ExpFirmwareTableProviderListHead;
   ExpTimeout = -40000000LL;
   ExpEnvironmentLock.Count = 1;

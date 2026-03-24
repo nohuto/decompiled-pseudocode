@@ -1,10 +1,10 @@
 /*
- * XREFs of MiBytesToMapSystemImage @ 0x1406521FC
+ * XREFs of MiBytesToMapSystemImage @ 0x1406521DC
  * Callers:
- *     MiSelectImageBase @ 0x14064F81C (MiSelectImageBase.c)
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
- *     MiMapSystemImage @ 0x140682104 (MiMapSystemImage.c)
- *     MiGetSystemAddressForImage @ 0x140682F60 (MiGetSystemAddressForImage.c)
+ *     MiSelectImageBase @ 0x14064F7FC (MiSelectImageBase.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiMapSystemImage @ 0x1406820E4 (MiMapSystemImage.c)
+ *     MiGetSystemAddressForImage @ 0x140682F40 (MiGetSystemAddressForImage.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of PsSetJobProperty @ 0x1405E0580
+ * XREFs of PsSetJobProperty @ 0x1405814B0
  * Callers:
  *     <none>
  * Callees:
- *     PspRemoveProperty @ 0x1403882F0 (PspRemoveProperty.c)
- *     PspInsertProperty @ 0x1403883BC (PspInsertProperty.c)
+ *     PspRemoveProperty @ 0x1402922F8 (PspRemoveProperty.c)
+ *     PspInsertProperty @ 0x140292490 (PspInsertProperty.c)
  */
 
 __int64 __fastcall PsSetJobProperty(__int64 a1, __int64 a2, void *a3)
@@ -16,9 +16,9 @@ __int64 __fastcall PsSetJobProperty(__int64 a1, __int64 a2, void *a3)
   {
     return 3221225485LL;
   }
-  v4 = (KSPIN_LOCK *)(a1 + 1472);
+  v4 = (KSPIN_LOCK *)(a1 + 1280);
   if ( a3 )
     return PspInsertProperty(v4, a2, a3);
   else
-    return PspRemoveProperty(v4, a2, 0LL);
+    return PspRemoveProperty((__int64)v4, a2, 0LL);
 }

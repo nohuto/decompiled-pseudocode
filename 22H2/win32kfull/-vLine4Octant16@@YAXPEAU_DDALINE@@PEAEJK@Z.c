@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vLine4Octant16@@YAXPEAU_DDALINE@@PEAEJK@Z @ 0x1C02FCEC0
+ * XREFs of ?vLine4Octant16@@YAXPEAU_DDALINE@@PEAEJK@Z @ 0x1C02D4AA0
  * Callers:
  *     <none>
  * Callees:
@@ -27,7 +27,7 @@ void __fastcall vLine4Octant16(struct _DDALINE *a1, unsigned __int8 *a2, int a3,
   v8 = *((_DWORD *)a1 + 4);
   v9 = *((_DWORD *)a1 + 5);
   v10 = a4 & 0xF | (16 * (a4 & 0xF));
-  a2[(unsigned __int64)v4 >> 1] = byte_1C0329EE0[v4 & 1] & a2[(unsigned __int64)v4 >> 1] | v10 & ~byte_1C0329EE0[v4 & 1];
+  a2[(unsigned __int64)v4 >> 1] = PixelLineMask4[v4 & 1] & a2[(unsigned __int64)v4 >> 1] | v10 & ~PixelLineMask4[v4 & 1];
   for ( i = v5 - 1; i; --i )
   {
     v7 += a3;
@@ -38,7 +38,7 @@ void __fastcall vLine4Octant16(struct _DDALINE *a1, unsigned __int8 *a2, int a3,
       v13 = v4;
     v6 = v14 - v8;
     v4 = v13;
-    v7[(unsigned __int64)v13 >> 1] = byte_1C0329EE0[v13 & 1] & v7[(unsigned __int64)v13 >> 1] | v10 & ~byte_1C0329EE0[v13 & 1];
+    v7[(unsigned __int64)v13 >> 1] = PixelLineMask4[v13 & 1] & v7[(unsigned __int64)v13 >> 1] | v10 & ~PixelLineMask4[v13 & 1];
     if ( v12 < 0 )
       v6 = v12;
   }

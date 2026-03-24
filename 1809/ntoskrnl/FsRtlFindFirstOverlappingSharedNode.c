@@ -3,9 +3,9 @@
  * Callers:
  *     FsRtlFastUnlockSingleShared @ 0x14008C1C8 (FsRtlFastUnlockSingleShared.c)
  *     FsRtlPrivateInsertSharedLock @ 0x14008D22C (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x140122414 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     FsRtlCheckNoSharedConflict @ 0x14026EEF8 (FsRtlCheckNoSharedConflict.c)
- *     FsRtlGetNextFileLock @ 0x14026EFF0 (FsRtlGetNextFileLock.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x140122434 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     FsRtlCheckNoSharedConflict @ 0x14026EFF8 (FsRtlCheckNoSharedConflict.c)
+ *     FsRtlGetNextFileLock @ 0x14026F0F0 (FsRtlGetNextFileLock.c)
  * Callees:
  *     <none>
  */

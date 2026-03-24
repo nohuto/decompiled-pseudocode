@@ -1,5 +1,5 @@
 /*
- * XREFs of CmPostCallbackNotificationEx @ 0x14063FAC0
+ * XREFs of CmPostCallbackNotificationEx @ 0x14063FAA0
  * Callers:
  *     NtDeleteKey @ 0x1405A9940 (NtDeleteKey.c)
  *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
@@ -8,15 +8,15 @@
  *     CmpSecurityMethod @ 0x1405CB2E0 (CmpSecurityMethod.c)
  *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
  *     CmPostCallbackNotification @ 0x1405D1A94 (CmPostCallbackNotification.c)
- *     CmpParseKey @ 0x140641370 (CmpParseKey.c)
- *     CmUnloadKey @ 0x140691E38 (CmUnloadKey.c)
- *     NtFlushKey @ 0x1406BFF90 (NtFlushKey.c)
- *     NtRenameKey @ 0x1407E9BA0 (NtRenameKey.c)
- *     NtReplaceKey @ 0x1407EA090 (NtReplaceKey.c)
- *     NtRestoreKey @ 0x1407EA410 (NtRestoreKey.c)
- *     NtSaveKeyEx @ 0x1407EA6D0 (NtSaveKeyEx.c)
+ *     CmpParseKey @ 0x140641350 (CmpParseKey.c)
+ *     CmUnloadKey @ 0x140691E18 (CmUnloadKey.c)
+ *     NtFlushKey @ 0x1406BFF70 (NtFlushKey.c)
+ *     NtRenameKey @ 0x1407E9B80 (NtRenameKey.c)
+ *     NtReplaceKey @ 0x1407EA070 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x1407EA3F0 (NtRestoreKey.c)
+ *     NtSaveKeyEx @ 0x1407EA6B0 (NtSaveKeyEx.c)
  * Callees:
- *     CmpIsRegistryLockAcquired @ 0x1401B2F98 (CmpIsRegistryLockAcquired.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
  *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
  */
 

@@ -1,271 +1,253 @@
 /*
- * XREFs of HalpAllocateDomainCommonBufferInternal @ 0x140514A70
+ * XREFs of HalpAllocateDomainCommonBufferInternal @ 0x1403A11F4
  * Callers:
- *     HalAllocateCommonBufferExV3 @ 0x140511050 (HalAllocateCommonBufferExV3.c)
- *     HalAllocateCommonBufferWithBounds @ 0x1405111C0 (HalAllocateCommonBufferWithBounds.c)
- *     HalAllocateDomainCommonBuffer @ 0x140514500 (HalAllocateDomainCommonBuffer.c)
+ *     HalAllocateCommonBufferExV3 @ 0x1403A1170 (HalAllocateCommonBufferExV3.c)
+ *     HalAllocateDomainCommonBuffer @ 0x1404C4540 (HalAllocateDomainCommonBuffer.c)
+ *     HalAllocateCommonBufferWithBounds @ 0x1404C5B10 (HalAllocateCommonBufferWithBounds.c)
  * Callees:
- *     MmFreeContiguousMemory @ 0x140213DA0 (MmFreeContiguousMemory.c)
- *     MiFreePagesFromMdl @ 0x140221A30 (MiFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x1402630A0 (MmAllocatePagesForMdlEx.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140264F60 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     MmUnmapLockedPages @ 0x1402BB4E0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     HalpAllocateCommonBufferEntry @ 0x1403B27B8 (HalpAllocateCommonBufferEntry.c)
- *     MmAllocateContiguousMemoryEx @ 0x1403B28D0 (MmAllocateContiguousMemoryEx.c)
- *     HalpDmaReferenceDomainObject @ 0x1403B2A28 (HalpDmaReferenceDomainObject.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpDmaDereferenceDomainObject @ 0x140514E28 (HalpDmaDereferenceDomainObject.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     MmAllocateContiguousNodeMemory @ 0x140294EA0 (MmAllocateContiguousNodeMemory.c)
+ *     MmFreeContiguousMemory @ 0x140295F20 (MmFreeContiguousMemory.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpDmaReferenceDomainObject @ 0x1403A1414 (HalpDmaReferenceDomainObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4AF8 (HalpDmaDereferenceDomainObject.c)
+ *     HalpDomainLaAllocate @ 0x1404C4D14 (HalpDomainLaAllocate.c)
+ *     HalpDomainLaDelete @ 0x1404C4DF4 (HalpDomainLaDelete.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1404C92D4 (HalpIommuDomainMapLogicalRange.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
         ULONG_PTR BugCheckParameter3,
-        PHYSICAL_ADDRESS *a2,
+        __int64 *a2,
         unsigned __int64 *a3,
-        int a4,
+        unsigned int a4,
         char a5,
-        MEMORY_CACHING_TYPE *a6,
-        unsigned int a7,
+        _DWORD *a6,
+        int a7,
         PHYSICAL_ADDRESS *a8,
         _QWORD *a9)
 {
-  SIZE_T v9; // r13
-  PVOID v10; // r12
-  struct _MDL *v12; // r14
-  int CommonBufferEntry; // edi
-  __int64 v14; // rax
-  int v15; // r10d
-  PHYSICAL_ADDRESS v16; // rsi
-  unsigned __int64 v17; // rdi
-  MEMORY_CACHING_TYPE CacheType; // r8d
-  __int64 v19; // r9
-  unsigned int v20; // ecx
-  unsigned int Flags; // r11d
-  int v22; // ecx
-  int v23; // ecx
-  PHYSICAL_ADDRESS v24; // rdx
-  struct _MDL *PagesForMdl; // rax
-  PHYSICAL_ADDRESS PhysicalAddress; // rax
-  char v28; // [rsp+50h] [rbp-49h]
-  char v29; // [rsp+51h] [rbp-48h]
-  char v30; // [rsp+52h] [rbp-47h]
-  MEMORY_CACHING_TYPE v31; // [rsp+54h] [rbp-45h]
-  int v32; // [rsp+58h] [rbp-41h]
-  unsigned int v33; // [rsp+5Ch] [rbp-3Dh]
-  int v34[2]; // [rsp+60h] [rbp-39h] BYREF
-  PHYSICAL_ADDRESS v35; // [rsp+68h] [rbp-31h]
-  PVOID BaseAddress; // [rsp+70h] [rbp-29h] BYREF
-  unsigned __int64 v37; // [rsp+78h] [rbp-21h]
-  PHYSICAL_ADDRESS v38; // [rsp+80h] [rbp-19h]
-  __int128 v39; // [rsp+88h] [rbp-11h] BYREF
-  SIZE_T v40; // [rsp+98h] [rbp-1h]
-  char v43; // [rsp+F8h] [rbp+5Fh]
+  void *v9; // r13
+  PHYSICAL_ADDRESS v10; // r15
+  int v15; // ebp
+  __int64 v16; // rax
+  __int64 v17; // rsi
+  unsigned __int64 v18; // rdi
+  unsigned int v19; // edx
+  __int64 v20; // r9
+  unsigned int v21; // r12d
+  void *ContiguousNodeMemory; // rax
+  PHYSICAL_ADDRESS PhysicalAddress; // rbx
+  int v24; // r8d
+  int v25; // eax
+  _QWORD *PoolWithTag; // rax
+  unsigned __int64 v27; // rbx
+  unsigned __int64 v28; // rdi
+  unsigned __int64 v29; // rdx
+  bool v30; // r8
+  unsigned __int64 v31; // rax
+  unsigned int v33; // ecx
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v37; // eax
+  bool v38; // zf
+  char v39; // [rsp+30h] [rbp-58h]
+  PHYSICAL_ADDRESS v40; // [rsp+38h] [rbp-50h] BYREF
+  PVOID P; // [rsp+40h] [rbp-48h]
+  unsigned __int64 v42; // [rsp+48h] [rbp-40h] BYREF
+  __int64 v43; // [rsp+50h] [rbp-38h] BYREF
 
-  v37 = 0LL;
-  v38.QuadPart = 0LL;
-  v35.QuadPart = 0LL;
-  v9 = (a4 + 4095) & 0xFFFFF000;
-  LODWORD(v40) = 0;
-  v10 = 0LL;
-  v33 = (a4 + 4095) & 0xFFFFF000;
-  BaseAddress = 0LL;
-  v39 = 0LL;
-  v12 = 0LL;
-  v30 = 0;
-  v29 = 0;
-  v43 = 0;
-  v28 = 0;
-  v32 = 21;
-  CommonBufferEntry = HalpDmaReferenceDomainObject(BugCheckParameter3);
-  if ( CommonBufferEntry < 0 )
-    return (unsigned int)CommonBufferEntry;
-  v14 = *(_QWORD *)(BugCheckParameter3 + 56);
-  v15 = 1;
-  if ( v14 )
-    *(_BYTE *)(v14 + 516) = 1;
-  v16.QuadPart = 0LL;
+  P = 0LL;
+  v9 = 0LL;
+  v10.QuadPart = 0LL;
+  v39 = 0;
+  v40.QuadPart = 0LL;
+  v15 = HalpDmaReferenceDomainObject();
+  if ( v15 < 0 )
+    return (unsigned int)v15;
+  v16 = *(_QWORD *)(BugCheckParameter3 + 72);
+  if ( v16 )
+    *(_BYTE *)(v16 + 516) = 1;
+  v17 = 0LL;
   if ( a2 )
-    v16 = *a2;
-  v17 = *(_QWORD *)(BugCheckParameter3 + 16);
-  if ( a3 && v17 > *a3 )
-    v17 = *a3;
-  CacheType = *(_BYTE *)(BugCheckParameter3 + 32) != 0;
-  v31 = CacheType;
+    v17 = *a2;
+  v18 = *(_QWORD *)(BugCheckParameter3 + 16);
+  if ( a3 && v18 > *a3 )
+    v18 = *a3;
   if ( a6 )
   {
-    CacheType = *a6;
-    v31 = *a6;
-    if ( *a6 > (unsigned int)MmCached )
+    if ( *a6 == 1 )
     {
-      CommonBufferEntry = -1073741811;
-      goto LABEL_52;
+      v19 = 4;
+      goto LABEL_10;
+    }
+    if ( *a6 )
+    {
+      v15 = -1073741811;
+      goto LABEL_55;
     }
   }
-  v19 = *(_QWORD *)(BugCheckParameter3 + 24);
+  else
+  {
+    v19 = 4;
+    if ( *(_BYTE *)(BugCheckParameter3 + 32) )
+      goto LABEL_10;
+  }
+  v19 = 516;
+LABEL_10:
+  v20 = *(_QWORD *)(BugCheckParameter3 + 24);
   if ( (a5 & 1) != 0 )
   {
-    v20 = 1;
-    v9 = ((_DWORD)v9 + 0x1FFFFF) & 0xFFE00000;
-    v33 = v9;
+    v33 = 1;
+    a4 = (a4 + 0x1FFFFF) & 0xFFE00000;
     do
     {
-      if ( 1LL << v20 >= (unsigned __int64)(unsigned int)v9 )
+      if ( 1LL << v33 >= (unsigned __int64)a4 )
         break;
-      ++v20;
+      ++v33;
     }
-    while ( v20 < 0x3F );
-    Flags = 101;
-    v19 = 1LL << v20;
-    v32 = 101;
+    while ( v33 < 0x3F );
+    v20 = 1LL << v33;
+  }
+  v21 = a4;
+  ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(a4, v17, v18, v20, v19, a7);
+  v9 = ContiguousNodeMemory;
+  if ( ContiguousNodeMemory )
+  {
+    PhysicalAddress = MmGetPhysicalAddress(ContiguousNodeMemory);
+    v25 = *(_DWORD *)(BugCheckParameter3 + 64);
+    if ( v25 == 2 )
+    {
+      v43 = v17;
+      v42 = v18;
+      v15 = HalpDomainLaAllocate(BugCheckParameter3, v21, v24, (unsigned int)&v43, (__int64)&v42, (__int64)&v40);
+      if ( v15 < 0 )
+        goto LABEL_55;
+      v10 = v40;
+      v39 = 1;
+      v15 = HalpIommuDomainMapLogicalRange(
+              *(_QWORD *)(BugCheckParameter3 + 40),
+              3,
+              PhysicalAddress.LowPart,
+              v21,
+              v40.QuadPart);
+      if ( v15 < 0 )
+      {
+LABEL_54:
+        ((void (__fastcall *)(_QWORD, _QWORD))HalpDomainLaDelete)(BugCheckParameter3, (PHYSICAL_ADDRESS)v10.QuadPart);
+        goto LABEL_55;
+      }
+    }
+    else
+    {
+      if ( v25 == 3 )
+      {
+        v15 = HalpIommuDomainMapLogicalRange(
+                *(_QWORD *)(BugCheckParameter3 + 40),
+                3,
+                PhysicalAddress.LowPart,
+                v21,
+                PhysicalAddress.QuadPart);
+        if ( v15 < 0 )
+          goto LABEL_55;
+      }
+      v40 = PhysicalAddress;
+      v10 = PhysicalAddress;
+    }
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x206C6148u);
+    P = PoolWithTag;
+    v27 = (unsigned __int64)PoolWithTag;
+    if ( !PoolWithTag )
+    {
+      v15 = -1073741670;
+      goto LABEL_53;
+    }
+    PoolWithTag[3] = v9;
+    PoolWithTag[4] = BugCheckParameter3;
+    v28 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(BugCheckParameter3 + 96));
+    v29 = *(_QWORD *)(BugCheckParameter3 + 80);
+    if ( (*(_BYTE *)(BugCheckParameter3 + 88) & 1) != 0 && v29 )
+      v29 ^= BugCheckParameter3 + 80;
+    v30 = 0;
+    if ( v29 )
+    {
+      while ( 1 )
+      {
+        if ( *(_QWORD *)(v29 + 24) > (unsigned __int64)v9 )
+        {
+          v31 = *(_QWORD *)v29;
+          if ( (*(_BYTE *)(BugCheckParameter3 + 88) & 1) != 0 )
+          {
+            if ( !v31 )
+              break;
+            v31 ^= v29;
+          }
+          if ( !v31 )
+            break;
+        }
+        else
+        {
+          v31 = *(_QWORD *)(v29 + 8);
+          if ( (*(_BYTE *)(BugCheckParameter3 + 88) & 1) != 0 )
+          {
+            if ( !v31 )
+              goto LABEL_25;
+            v31 ^= v29;
+          }
+          if ( !v31 )
+          {
+LABEL_25:
+            v30 = 1;
+            break;
+          }
+        }
+        v29 = v31;
+      }
+    }
+    RtlRbInsertNodeEx((unsigned __int64 *)(BugCheckParameter3 + 80), v29, v30, v27);
+    KxReleaseSpinLock((PKSPIN_LOCK)(BugCheckParameter3 + 96));
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v28 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v28 + 1));
+          v38 = (v37 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v37;
+          if ( v38 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v10 = v40;
+        }
+      }
+    }
+    __writecr8(v28);
+    *a8 = v10;
+    *a9 = v9;
   }
   else
   {
-    Flags = 21;
+    v15 = -1073741670;
   }
-  v22 = *(_DWORD *)(BugCheckParameter3 + 48);
-  if ( v22 != 2 )
-  {
-    v15 = 0;
-    if ( v22 )
-    {
-      v23 = v22 - 1;
-      if ( v23 )
-      {
-        if ( v23 != 1 )
-          goto LABEL_29;
-      }
-      else
-      {
-        v28 = 1;
-      }
-    }
-  }
-  *(_QWORD *)v34 = v9;
-  if ( (int)MmAllocateContiguousMemoryEx(
-              (__int64 *)v34,
-              v16.QuadPart,
-              v17,
-              v19,
-              a7,
-              CacheType != MmNonCached ? 4 : 516,
-              0LL,
-              0x446C6148u,
-              v15,
-              (unsigned __int64 *)&BaseAddress) >= 0 )
-  {
-    if ( *(_QWORD *)v34 == v9 )
-    {
-      v10 = BaseAddress;
-      goto LABEL_35;
-    }
-    MmFreeContiguousMemory(BaseAddress);
-  }
-  if ( *(_DWORD *)(BugCheckParameter3 + 48) != 2 )
-  {
-LABEL_51:
-    CommonBufferEntry = -1073741670;
-    goto LABEL_52;
-  }
-  CacheType = v31;
-  Flags = v32 & 0xFFFFFFEF;
-  v9 = v33;
-LABEL_29:
-  v24 = *(PHYSICAL_ADDRESS *)(BugCheckParameter3 + 16);
-  v43 = 1;
-  if ( a7 == 0x80000000 )
-    PagesForMdl = MmAllocatePagesForMdlEx(v16, v24, 0LL, v9, CacheType, Flags);
-  else
-    PagesForMdl = (struct _MDL *)MmAllocatePartitionNodePagesForMdlEx(
-                                   v16.LowPart,
-                                   v24.LowPart,
-                                   0LL,
-                                   v9,
-                                   CacheType,
-                                   a7,
-                                   Flags,
-                                   0LL);
-  v12 = PagesForMdl;
-  if ( !PagesForMdl )
-    goto LABEL_51;
-  v10 = MmMapLockedPagesSpecifyCache(PagesForMdl, 0, v31, 0LL, 0, 0x40000010u);
-LABEL_35:
-  if ( !v10 )
-    goto LABEL_51;
-  PhysicalAddress = MmGetPhysicalAddress(v10);
-  v35 = PhysicalAddress;
-  if ( v12 )
-  {
-    *((_QWORD *)&v39 + 1) = v12;
-  }
-  else
-  {
-    LODWORD(v39) = 1;
-    *((PHYSICAL_ADDRESS *)&v39 + 1) = PhysicalAddress;
-    v40 = v9;
-  }
-  if ( v43 )
-  {
-    v38 = v16;
-    v37 = v17;
-    CommonBufferEntry = ((__int64 (__fastcall *)(_QWORD, __int64, __int128 *))qword_140C4BDA8)(
-                          *(_QWORD *)(BugCheckParameter3 + 40),
-                          3LL,
-                          &v39);
-    if ( CommonBufferEntry >= 0 )
-    {
-      v30 = 1;
-LABEL_45:
-      CommonBufferEntry = HalpAllocateCommonBufferEntry((__int64)v12, (unsigned __int64)v10, BugCheckParameter3, 1);
-      if ( CommonBufferEntry >= 0 )
-      {
-        *a8 = v35;
-        *a9 = v10;
-        return (unsigned int)CommonBufferEntry;
-      }
-      if ( v29 )
-      {
-        ((void (__fastcall *)(_QWORD, __int128 *))qword_140C4BDC0)(*(_QWORD *)(BugCheckParameter3 + 40), &v39);
-      }
-      else if ( v30 )
-      {
-        ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C4BDB0)(
-          *(_QWORD *)(BugCheckParameter3 + 40),
-          (PHYSICAL_ADDRESS)v35.QuadPart,
-          v9 >> 12);
-      }
-    }
-  }
-  else
-  {
-    if ( !v28 )
-      goto LABEL_45;
-    CommonBufferEntry = ((__int64 (__fastcall *)(_QWORD, __int64, __int128 *))qword_140C4BDB8)(
-                          *(_QWORD *)(BugCheckParameter3 + 40),
-                          3LL,
-                          &v39);
-    if ( CommonBufferEntry >= 0 )
-    {
-      v29 = 1;
-      goto LABEL_45;
-    }
-  }
-LABEL_52:
+  if ( v15 >= 0 )
+    return (unsigned int)v15;
+LABEL_53:
+  if ( v39 )
+    goto LABEL_54;
+LABEL_55:
   HalpDmaDereferenceDomainObject(BugCheckParameter3);
-  if ( v10 )
-  {
-    if ( v12 )
-    {
-      MmUnmapLockedPages(v10, v12);
-LABEL_57:
-      MiFreePagesFromMdl((ULONG_PTR)v12, 0);
-      return (unsigned int)CommonBufferEntry;
-    }
-    MmFreeContiguousMemory(v10);
-  }
-  else if ( v12 )
-  {
-    goto LABEL_57;
-  }
-  return (unsigned int)CommonBufferEntry;
+  if ( v9 )
+    MmFreeContiguousMemory(v9);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return (unsigned int)v15;
 }

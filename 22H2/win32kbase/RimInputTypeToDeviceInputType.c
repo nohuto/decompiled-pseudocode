@@ -1,10 +1,10 @@
 /*
- * XREFs of RimInputTypeToDeviceInputType @ 0x1C006EEF0
+ * XREFs of RimInputTypeToDeviceInputType @ 0x1C00573DC
  * Callers:
- *     ?HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z @ 0x1C006DC70 (-HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z.c)
- *     ?OnRemoteCloseNotification@CBaseInput@@AEAAJXZ @ 0x1C006EEA0 (-OnRemoteCloseNotification@CBaseInput@@AEAAJXZ.c)
- *     ?OnRemoteOpenNotification@CBaseInput@@AEAAJXZ @ 0x1C00CBE90 (-OnRemoteOpenNotification@CBaseInput@@AEAAJXZ.c)
- *     ?ivInitialSendPnpForChildPartition@CBaseInput@@IEAAXUCONTAINER_ID@@@Z @ 0x1C01EE2D0 (-ivInitialSendPnpForChildPartition@CBaseInput@@IEAAXUCONTAINER_ID@@@Z.c)
+ *     ?OnRemoteCloseNotification@CBaseInput@@AEAAJXZ @ 0x1C00573B0 (-OnRemoteCloseNotification@CBaseInput@@AEAAJXZ.c)
+ *     ?HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z @ 0x1C008A4D4 (-HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z.c)
+ *     ?OnRemoteOpenNotification@CBaseInput@@AEAAJXZ @ 0x1C00C2AB0 (-OnRemoteOpenNotification@CBaseInput@@AEAAJXZ.c)
+ *     ?ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z @ 0x1C01B9620 (-ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z.c)
  * Callees:
  *     <none>
  */

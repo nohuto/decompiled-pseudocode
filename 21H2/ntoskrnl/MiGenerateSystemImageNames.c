@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGenerateSystemImageNames @ 0x140760554
+ * XREFs of MiGenerateSystemImageNames @ 0x14075C4D0
  * Callers:
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x140971848 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C91F8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
  */
 
 __int64 __fastcall MiGenerateSystemImageNames(
@@ -16,33 +16,31 @@ __int64 __fastcall MiGenerateSystemImageNames(
         UNICODE_STRING *Source,
         PUNICODE_STRING Destination)
 {
-  wchar_t *v6; // r11
-  unsigned int v8; // ecx
-  wchar_t *v12; // r9
-  wchar_t *v13; // rax
-  wchar_t *i; // rcx
-  unsigned __int16 v15; // r9
+  wchar_t *v6; // r10
+  unsigned __int64 v8; // rax
+  wchar_t *v11; // r9
+  wchar_t *v12; // rax
+  wchar_t *i; // rdx
   unsigned __int16 Length; // ax
+  unsigned __int16 v16; // cx
+  unsigned __int16 v17; // ax
   unsigned __int16 v18; // cx
-  unsigned __int16 v19; // ax
-  unsigned __int16 v20; // cx
   wchar_t *Pool; // rax
 
   v6 = (wchar_t *)*((_QWORD *)a1 + 1);
   v8 = *a1;
   if ( *v6 == 92 )
   {
-    v12 = &v6[(unsigned __int64)v8 >> 1];
-    v13 = v12;
-    for ( i = v12 - 1; ; --i )
+    v11 = &v6[v8 >> 1];
+    v12 = v11;
+    for ( i = v11 - 1; ; --i )
     {
       if ( *i == 92 )
       {
-        v15 = 2 * (v12 - v13);
-        a4->Length = v15;
+        a4->Length = 2 * (v11 - v12);
         goto LABEL_7;
       }
-      v13 = i;
+      v12 = i;
       if ( i == v6 )
         break;
     }
@@ -51,11 +49,10 @@ __int64 __fastcall MiGenerateSystemImageNames(
   else
   {
     a4->Length = v8;
-    v15 = v8;
-    v13 = (wchar_t *)*((_QWORD *)a1 + 1);
+    v12 = (wchar_t *)*((_QWORD *)a1 + 1);
 LABEL_7:
-    a4->Buffer = v13;
-    a4->MaximumLength = v15;
+    a4->Buffer = v12;
+    a4->MaximumLength = a4->Length;
     *Source = *(UNICODE_STRING *)a1;
     Source->Length -= a4->Length;
     Source->MaximumLength = Source->Length;
@@ -64,16 +61,16 @@ LABEL_7:
     {
       Length = Source->Length;
       Destination->MaximumLength = Source->Length;
-      v18 = Length + a2->Length;
-      if ( v18 < Length )
+      v16 = Length + a2->Length;
+      if ( v16 < Length )
         return 3221225626LL;
-      v19 = Length + a2->Length;
+      v17 = Length + a2->Length;
+      Destination->MaximumLength = v16;
+      v18 = v16 + a4->Length;
+      if ( v18 < v17 )
+        return 3221225626LL;
       Destination->MaximumLength = v18;
-      v20 = v18 + a4->Length;
-      if ( v20 < v19 )
-        return 3221225626LL;
-      Destination->MaximumLength = v20;
-      Pool = (wchar_t *)MiAllocatePool(256, v20, 0x644C6D4Du);
+      Pool = (wchar_t *)MiAllocatePool(256, v18, 0x644C6D4Du);
       Destination->Buffer = Pool;
       if ( !Pool )
         return 3221225626LL;

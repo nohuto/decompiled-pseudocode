@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlUpcaseUnicodeToOemN @ 0x14067C280
+ * XREFs of RtlUpcaseUnicodeToOemN @ 0x14067C260
  * Callers:
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x14067C140 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x1406CEEE0 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x14067C120 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x1406CEEC0 (RtlUpcaseUnicodeStringToOemString.c)
  * Callees:
- *     UpcaseUnicodeToSingleByteNHelper @ 0x1400F4AF0 (UpcaseUnicodeToSingleByteNHelper.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x1402ECC44 (UpcaseUnicodeToMultiByteNHelper.c)
- *     UpcaseUnicodeToUTF8NHelper @ 0x1402ECD80 (UpcaseUnicodeToUTF8NHelper.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x1400F4B10 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x1402ECD44 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x1402ECE80 (UpcaseUnicodeToUTF8NHelper.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToOemN(

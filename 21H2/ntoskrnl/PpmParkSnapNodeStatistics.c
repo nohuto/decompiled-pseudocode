@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmParkSnapNodeStatistics @ 0x140212614
+ * XREFs of PpmParkSnapNodeStatistics @ 0x14022B018
  * Callers:
- *     PpmCheckSnapAllUtility @ 0x140212200 (PpmCheckSnapAllUtility.c)
+ *     PpmCheckSnapAllUtility @ 0x14022B0B0 (PpmCheckSnapAllUtility.c)
  * Callees:
- *     PpmIdleSnapConcurrency @ 0x1402126A4 (PpmIdleSnapConcurrency.c)
+ *     PpmIdleSnapConcurrency @ 0x14022AF70 (PpmIdleSnapConcurrency.c)
  */
 
 __int64 PpmParkSnapNodeStatistics()
@@ -17,10 +17,10 @@ __int64 PpmParkSnapNodeStatistics()
 
   for ( i = 0; i < (unsigned int)PpmParkNumNodes; result = i )
   {
-    v1 = PpmParkNodes + 336LL * i;
+    v1 = PpmParkNodes + 272LL * i;
     if ( *(_BYTE *)(v1 + 6) )
     {
-      PpmIdleSnapConcurrency(*(PKSPIN_LOCK *)(v1 + 72));
+      PpmIdleSnapConcurrency(*(PKSPIN_LOCK *)(v1 + 72), v1 + 80);
       if ( *(_BYTE *)(v1 + 6) != *(_BYTE *)(v1 + 128) )
       {
         v3 = (PKSPIN_LOCK *)(v1 + 152);
@@ -28,7 +28,7 @@ __int64 PpmParkSnapNodeStatistics()
         v5 = v1 + 168;
         do
         {
-          PpmIdleSnapConcurrency(*v3);
+          PpmIdleSnapConcurrency(*v3, v5);
           v5 += 48LL;
           ++v3;
           --v4;

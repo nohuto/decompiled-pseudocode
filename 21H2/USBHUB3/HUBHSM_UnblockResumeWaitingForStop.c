@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_UnblockResumeWaitingForStop @ 0x1C0008D40
+ * XREFs of HUBHSM_UnblockResumeWaitingForStop @ 0x1C0008A30
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_AcquireWdfPowerReference @ 0x1C000D124 (HUBFDO_AcquireWdfPowerReference.c)
- *     HUBFDO_SignalPnpPowerEvent @ 0x1C000D1B4 (HUBFDO_SignalPnpPowerEvent.c)
+ *     HUBFDO_AcquireWdfPowerReference @ 0x1C000CD44 (HUBFDO_AcquireWdfPowerReference.c)
+ *     HUBFDO_SignalPnpPowerEvent @ 0x1C000CDD4 (HUBFDO_SignalPnpPowerEvent.c)
  */
 
 __int64 __fastcall HUBHSM_UnblockResumeWaitingForStop(__int64 a1)

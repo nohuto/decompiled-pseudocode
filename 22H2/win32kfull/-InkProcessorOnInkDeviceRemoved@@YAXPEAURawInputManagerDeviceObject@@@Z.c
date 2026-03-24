@@ -1,36 +1,32 @@
 /*
- * XREFs of ?InkProcessorOnInkDeviceRemoved@@YAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C01FE39C
+ * XREFs of ?InkProcessorOnInkDeviceRemoved@@YAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C02200F4
  * Callers:
- *     EditionDevicePnpNotification @ 0x1C009EC90 (EditionDevicePnpNotification.c)
- *     Win32kRIMDevChangeCallback @ 0x1C01A6A30 (Win32kRIMDevChangeCallback.c)
+ *     EditionDevicePnpNotification @ 0x1C0107700 (EditionDevicePnpNotification.c)
+ *     Win32kRIMDevChangeCallback @ 0x1C012D2C0 (Win32kRIMDevChangeCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?GetInkProcessor@@YAJPEAPEAVInkProcessor@@@Z @ 0x1C01FE0B4 (-GetInkProcessor@@YAJPEAPEAVInkProcessor@@@Z.c)
- *     ?OnDeviceRemoved@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C023E4EC (-OnDeviceRemoved@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D1C24 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?OnDeviceRemoved@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F18C (-OnDeviceRemoved@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z.c)
  */
 
 void __fastcall InkProcessorOnInkDeviceRemoved(struct RawInputManagerDeviceObject *a1)
 {
-  int InkProcessor; // eax
-  struct InkProcessor *v3; // [rsp+30h] [rbp-48h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+38h] [rbp-40h] BYREF
-  struct InkProcessor **v5; // [rsp+58h] [rbp-20h]
-  int v6; // [rsp+60h] [rbp-18h]
-  int v7; // [rsp+64h] [rbp-14h]
+  int v1; // [rsp+30h] [rbp-48h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v2; // [rsp+38h] [rbp-40h] BYREF
+  int *v3; // [rsp+58h] [rbp-20h]
+  int v4; // [rsp+60h] [rbp-18h]
+  int v5; // [rsp+64h] [rbp-14h]
 
-  v3 = 0LL;
-  InkProcessor = GetInkProcessor(&v3);
-  if ( InkProcessor >= 0 )
+  if ( InkProcessor::s_pInstance )
   {
-    InkProcessor::OnDeviceRemoved(v3, a1);
+    InkProcessor::OnDeviceRemoved(InkProcessor::s_pInstance, a1);
   }
-  else if ( (unsigned int)dword_1C03540E0 > 2 )
+  else if ( (unsigned int)dword_1C032A288 > 2 )
   {
-    v7 = 0;
-    LODWORD(v3) = InkProcessor;
-    v6 = 4;
-    v5 = &v3;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C03540E0, (unsigned __int8 *)dword_1C031C186, 0LL, 0LL, 3u, &v4);
+    v1 = -1073741823;
+    v3 = &v1;
+    v5 &= (unsigned int)InkProcessor::s_pInstance;
+    v4 = 4;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C032A288, (unsigned __int8 *)dword_1C02F1ECC, 0LL, 0LL, 3u, &v2);
   }
 }

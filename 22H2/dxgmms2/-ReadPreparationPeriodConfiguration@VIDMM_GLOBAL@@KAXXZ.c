@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReadPreparationPeriodConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0248
+ * XREFs of ?ReadPreparationPeriodConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0093D8C
  * Callers:
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0468 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0091434 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     memset @ 0x1C001ABC0 (memset.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
 void VIDMM_GLOBAL::ReadPreparationPeriodConfiguration(void)
@@ -19,38 +19,38 @@ void VIDMM_GLOBAL::ReadPreparationPeriodConfiguration(void)
 
   v0 = 1;
   v3 = 1;
-  qword_1C0076338 = 1LL;
-  dword_1C0076348 = 1;
+  qword_1C0050288 = 1LL;
+  dword_1C0050298 = 1;
   v1 = 4;
   v2 = 64;
   v4 = 32;
-  dword_1C0076344 = 64;
-  dword_1C007634C = 32;
+  dword_1C0050294 = 64;
+  dword_1C005029C = 32;
   v5 = 0x7FFFFFFF;
-  dword_1C0076340 = 4;
-  dword_1C0076350 = 0x7FFFFFFF;
+  dword_1C0050290 = 4;
+  dword_1C00502A0 = 0x7FFFFFFF;
   memset(v6, 0, sizeof(v6));
   LODWORD(v6[6]) = 4;
   LODWORD(v6[1]) = 288;
   LODWORD(v6[4]) = 67108868;
   v6[7] = 0LL;
   v6[2] = L"PreparationPeriod";
-  v6[3] = &qword_1C0076338;
+  v6[3] = &qword_1C0050288;
   v6[5] = &v0;
   v6[9] = L"Period.MinimumPolicyHeldPeriod";
-  v6[10] = &dword_1C0076340;
+  v6[10] = &dword_1C0050290;
   v6[12] = &v1;
   v6[16] = L"Period.MaximumPolicyHeldPeriod";
-  v6[17] = &dword_1C0076344;
+  v6[17] = &dword_1C0050294;
   v6[19] = &v2;
   v6[23] = L"Period.AlwaysForceMemReset";
-  v6[24] = &dword_1C0076348;
+  v6[24] = &dword_1C0050298;
   v6[26] = &v3;
   v6[30] = L"Period.EvictionThresholdForMemReset";
-  v6[31] = &dword_1C007634C;
+  v6[31] = &dword_1C005029C;
   v6[33] = &v4;
   v6[37] = L"Period.NbOfAllocationsThresholdToMRU";
-  v6[38] = &dword_1C0076350;
+  v6[38] = &dword_1C00502A0;
   LODWORD(v6[8]) = 288;
   LODWORD(v6[11]) = 67108868;
   LODWORD(v6[13]) = 4;
@@ -72,6 +72,6 @@ void VIDMM_GLOBAL::ReadPreparationPeriodConfiguration(void)
   v6[40] = &v5;
   LODWORD(v6[41]) = 4;
   RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers\\MemoryManager", v6, 0LL, 0LL);
-  qword_1C0076338 *= 10000000LL;
-  dword_1C007634C <<= 20;
+  qword_1C0050288 *= 10000000LL;
+  dword_1C005029C <<= 20;
 }

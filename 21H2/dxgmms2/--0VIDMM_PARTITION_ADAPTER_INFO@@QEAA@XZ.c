@@ -1,5 +1,5 @@
 /*
- * XREFs of ??0VIDMM_PARTITION_ADAPTER_INFO@@QEAA@XZ @ 0x1C001CBE0
+ * XREFs of ??0VIDMM_PARTITION_ADAPTER_INFO@@QEAA@XZ @ 0x1C0017700
  * Callers:
  *     <none>
  * Callees:

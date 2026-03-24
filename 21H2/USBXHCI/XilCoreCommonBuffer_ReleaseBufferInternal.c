@@ -1,8 +1,8 @@
 /*
- * XREFs of XilCoreCommonBuffer_ReleaseBufferInternal @ 0x1C00014F8
+ * XREFs of XilCoreCommonBuffer_ReleaseBufferInternal @ 0x1C000E868
  * Callers:
- *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C0001468 (XilCoreCommonBuffer_ReleaseBuffers.c)
- *     CommonBuffer_ReleaseBuffer @ 0x1C000182C (CommonBuffer_ReleaseBuffer.c)
+ *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000A2A0 (XilCoreCommonBuffer_ReleaseBuffers.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
  * Callees:
  *     <none>
  */

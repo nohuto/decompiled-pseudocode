@@ -1,168 +1,98 @@
 /*
- * XREFs of ApplyPathModalityToCdsRegistryStore @ 0x1C001A35C
+ * XREFs of ApplyPathModalityToCdsRegistryStore @ 0x1C001C484
  * Callers:
- *     ApplyPathsModality @ 0x1C001851C (ApplyPathsModality.c)
+ *     ApplyPathsModality @ 0x1C00113E4 (ApplyPathsModality.c)
  * Callees:
- *     DrvUpdateDisplayDriverParameters @ 0x1C001C3F8 (DrvUpdateDisplayDriverParameters.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     DrvUpdateDisplayDriverParameters @ 0x1C001DB08 (DrvUpdateDisplayDriverParameters.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
  */
 
 __int64 __fastcall ApplyPathModalityToCdsRegistryStore(__int64 a1)
 {
-  NSInstrumentation::CLeakTrackingAllocator *v1; // rdi
-  int v3; // eax
-  __int64 v4; // rcx
-  __int64 Pool2; // rbx
-  unsigned int v6; // r12d
+  __int64 v2; // rsi
+  wchar_t *v3; // rbx
+  unsigned int v4; // r14d
+  __int64 v5; // rdx
+  struct _devicemodeW *v6; // rbp
   __int64 v7; // rcx
-  __int64 i; // rdi
-  int updated; // esi
-  unsigned int v10; // edx
-  struct _devicemodeW *v11; // r14
-  __int64 j; // rcx
-  _QWORD *v14; // rax
-  __int64 v15; // r10
-  __int64 v16; // [rsp+30h] [rbp-99h] BYREF
-  _QWORD v17[2]; // [rsp+40h] [rbp-89h] BYREF
-  PVOID BackTrace[26]; // [rsp+50h] [rbp-79h] BYREF
-  unsigned int v19; // [rsp+138h] [rbp+6Fh] BYREF
-  unsigned __int64 v20; // [rsp+140h] [rbp+77h] BYREF
-  __int64 v21; // [rsp+148h] [rbp+7Fh] BYREF
+  __int64 v8; // r9
+  int v9; // r8d
+  wchar_t *v10; // rcx
+  __int64 v12; // rax
+  _QWORD *v13; // rax
+  int v14; // [rsp+20h] [rbp-18h]
 
-  v1 = gpLeakTrackingAllocator;
-  v21 = 260LL;
-  v19 = 1936876615;
-  v3 = *(_DWORD *)gpLeakTrackingAllocator;
-  v16 = 220LL;
-  if ( !v3 )
+  v2 = PALLOCMEM2(0xDCuLL);
+  if ( v2 )
   {
-    Pool2 = ExAllocatePool2(260LL, 220LL, 1936876615LL);
-    if ( Pool2 )
-      _InterlockedIncrement64((volatile signed __int64 *)v1 + 14);
-    goto LABEL_4;
-  }
-  if ( v3 == 1 )
-  {
-    if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x73726447u) )
-      goto LABEL_35;
-    v14 = (_QWORD *)ExAllocatePool2(v21 & 0xFFFFFFFFFFFFFFFDuLL, 236LL, v19);
-    Pool2 = (__int64)v14;
-    if ( !v14
-      || (_InterlockedIncrement64((volatile signed __int64 *)v1 + 14),
-          *v14 = 1936876615LL,
-          Pool2 = (__int64)(v14 + 2),
-          v14 == (_QWORD *)-16LL) )
+    v3 = gpGraphicsDeviceList;
+    v4 = 1;
+    while ( v3 )
     {
-      NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-        *((NSInstrumentation::CPointerHashTable **)v1 + 1),
-        (const void *)0x73726447);
-    }
-LABEL_4:
-    if ( Pool2 )
-      goto LABEL_5;
-LABEL_35:
-    WdLogSingleEntry2(6LL, 220LL);
-    return 3221225626LL;
-  }
-  if ( v3 != 2 )
-    goto LABEL_35;
-  v20 = 0LL;
-  if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 0x73726447u, &v20) )
-  {
-    v17[0] = &v21;
-    v17[1] = &v19;
-    Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-              v1,
-              v17,
-              &v16);
-    goto LABEL_4;
-  }
-  Pool2 = ExAllocatePool2(v15, 236LL, 1936876615LL);
-  if ( !Pool2 )
-    goto LABEL_35;
-  _InterlockedIncrement64((volatile signed __int64 *)v1 + 16);
-  NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-  if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-  {
-    if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                            v1,
-                            Pool2,
-                            v20,
-                            BackTrace) )
-    {
-      Pool2 += 16LL;
-      goto LABEL_4;
-    }
-LABEL_34:
-    _InterlockedIncrement64((volatile signed __int64 *)v1 + 17);
-    _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-    goto LABEL_35;
-  }
-  if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                           v1,
-                           Pool2,
-                           v20,
-                           BackTrace) )
-    goto LABEL_34;
-LABEL_5:
-  v6 = 0;
-  v7 = *(_QWORD *)(SGDGetSessionState(v4) + 24);
-  for ( i = *(_QWORD *)(v7 + 1264); i; i = *(_QWORD *)(i + 128) )
-  {
-    if ( (*(_DWORD *)(i + 160) & 0x800000) != 0 )
-    {
-      v10 = 0;
-      v11 = (struct _devicemodeW *)Pool2;
-      if ( *(_WORD *)(a1 + 20) )
+      if ( (*((_DWORD *)v3 + 40) & 0x800000) != 0 )
       {
+        v5 = 0LL;
+        v6 = (struct _devicemodeW *)v2;
+        if ( !*(_WORD *)(a1 + 20) )
+          goto LABEL_12;
         while ( 1 )
         {
-          v7 = 296LL * v10;
-          if ( *(_QWORD *)(v7 + a1 + 304) )
+          v7 = 272LL * (unsigned int)v5;
+          v8 = *(_QWORD *)(v7 + a1 + 272);
+          if ( v8 )
           {
-            if ( !_bittest64((const signed __int64 *)(v7 + a1 + 56), 0x24u)
-              && *(_DWORD *)(i + 240) == *(_DWORD *)(v7 + a1 + 72)
-              && *(_DWORD *)(i + 244) == *(_DWORD *)(v7 + a1 + 76)
-              && *(_DWORD *)(i + 248) == *(_DWORD *)(v7 + a1 + 80) )
+            if ( (*(_QWORD *)(v7 + a1 + 48) & 0x1000000000LL) == 0
+              && *((_DWORD *)v3 + 62) == *(_DWORD *)(v7 + a1 + 64)
+              && *((_DWORD *)v3 + 63) == *(_DWORD *)(v7 + a1 + 68)
+              && *((_DWORD *)v3 + 64) == *(_DWORD *)(v7 + a1 + 72) )
             {
               break;
             }
           }
-          if ( ++v10 >= *(unsigned __int16 *)(a1 + 20) )
-            goto LABEL_17;
+          v5 = (unsigned int)(v5 + 1);
+          if ( (unsigned int)v5 >= *(unsigned __int16 *)(a1 + 20) )
+            goto LABEL_12;
         }
-        v11 = *(struct _devicemodeW **)(v7 + a1 + 304);
-      }
-LABEL_17:
-      for ( j = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v7) + 24) + 1264LL); ; j = *(_QWORD *)(j + 128) )
-      {
-        if ( !j )
+        v6 = *(struct _devicemodeW **)(v7 + a1 + 272);
+        if ( v8 == v2 )
+LABEL_12:
+          v9 = 1;
+        else
+          v9 = 0;
+        v10 = gpGraphicsDeviceList;
+        if ( !gpGraphicsDeviceList )
+          goto LABEL_24;
+        do
         {
-          updated = -1073741811;
-          goto LABEL_39;
+          if ( v10 == v3 )
+            break;
+          v10 = (wchar_t *)*((_QWORD *)v10 + 16);
         }
-        if ( j == i )
-          break;
+        while ( v10 );
+        if ( !v10 || (int)DrvUpdateDisplayDriverParameters((struct tagGRAPHICS_DEVICE *)v10, v6, v9, v14) < 0 )
+        {
+LABEL_24:
+          v13 = (_QWORD *)WdLogNewEntry5_WdError(v10, v5);
+          v13[3] = v3;
+          v13[6] = v6 == (struct _devicemodeW *)v2;
+          v13[4] = a1;
+          v13[5] = v6;
+          WdLogEvent5_WdError(v13);
+          v4 = 0;
+        }
       }
-      updated = DrvUpdateDisplayDriverParameters(
-                  (struct tagGRAPHICS_DEVICE *)j,
-                  v11,
-                  v11 == (struct _devicemodeW *)Pool2);
-      if ( updated >= 0 )
-        continue;
-LABEL_39:
-      WdLogSingleEntry4(2LL, i, a1, v11, v11 == (struct _devicemodeW *)Pool2);
-      v6 = updated;
+      v3 = (wchar_t *)*((_QWORD *)v3 + 16);
     }
+    Win32FreePool(v2);
+    return v4;
   }
-  NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (void *)Pool2);
-  return v6;
+  else
+  {
+    v12 = WdLogNewEntry5_WdLowResource();
+    *(_QWORD *)(v12 + 24) = 220LL;
+    *(_QWORD *)(v12 + 32) = a1;
+    WdLogEvent5_WdLowResource(v12);
+    return 0LL;
+  }
 }

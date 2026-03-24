@@ -1,23 +1,23 @@
 /*
- * XREFs of IopSessionChangeWorker @ 0x14033BCE0
+ * XREFs of IopSessionChangeWorker @ 0x1403A6120
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExNotifyWithProcessing @ 0x14033BD60 (ExNotifyWithProcessing.c)
- *     MmSetSessionObjectIoEvent @ 0x1407B42F4 (MmSetSessionObjectIoEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExNotifyWithProcessing @ 0x140307DA8 (ExNotifyWithProcessing.c)
+ *     MmSetSessionObjectIoEvent @ 0x14078D804 (MmSetSessionObjectIoEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall IopSessionChangeWorker(PVOID *P)
+void __fastcall IopSessionChangeWorker(__int64 P)
 {
-  PVOID v2; // rcx
+  void *v2; // rcx
 
-  ExNotifyWithProcessing(IopSessionCallbackObject, P, 0LL, 0LL);
-  MmSetSessionObjectIoEvent(P[7]);
-  ObfDereferenceObjectWithTag(P[7], 0x746C6644u);
-  v2 = P[6];
+  ExNotifyWithProcessing((__int64)IopSessionCallbackObject, P, 0LL, 0LL);
+  MmSetSessionObjectIoEvent(*(_QWORD *)(P + 56));
+  ObfDereferenceObjectWithTag(*(PVOID *)(P + 56), 0x746C6644u);
+  v2 = *(void **)(P + 48);
   if ( v2 )
     ExFreePoolWithTag(v2, 0);
-  ExFreePoolWithTag(P, 0);
+  ExFreePoolWithTag((PVOID)P, 0);
 }

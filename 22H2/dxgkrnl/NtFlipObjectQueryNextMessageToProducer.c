@@ -1,11 +1,11 @@
 /*
- * XREFs of NtFlipObjectQueryNextMessageToProducer @ 0x1C00815A0
+ * XREFs of NtFlipObjectQueryNextMessageToProducer @ 0x1C0069C20
  * Callers:
  *     <none>
  * Callees:
- *     ?QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C008024C (-QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z.c)
- *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0080304 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
- *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0082498 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C00689D8 (-QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z.c)
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0068A90 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C006A8D8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall NtFlipObjectQueryNextMessageToProducer(void *a1, _DWORD *a2)
@@ -14,8 +14,8 @@ __int64 __fastcall NtFlipObjectQueryNextMessageToProducer(void *a1, _DWORD *a2)
   char v5; // r8
   int v6; // ebx
   int v7; // edx
-  struct CFlipConsumerMessage *v9; // [rsp+30h] [rbp+8h] BYREF
-  PVOID Object; // [rsp+40h] [rbp+18h] BYREF
+  struct CFlipConsumerMessage *v9; // [rsp+50h] [rbp+18h] BYREF
+  PVOID Object; // [rsp+58h] [rbp+20h] BYREF
 
   if ( a1 && a2 )
   {

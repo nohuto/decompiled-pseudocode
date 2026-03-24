@@ -7,9 +7,9 @@
  *     CmpGetNameControlBlock @ 0x1405D6490 (CmpGetNameControlBlock.c)
  *     CmpCheckValueList @ 0x1405D9450 (CmpCheckValueList.c)
  *     CmpCheckLexicographicalOrder @ 0x1405DBCF0 (CmpCheckLexicographicalOrder.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x1407F1070 (CmpFindKcbInHashEntryByCompressedName.c)
- *     CmpCompareKeysByName @ 0x1407F9704 (CmpCompareKeysByName.c)
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x140800B20 (CmpSortedValueEnumStackValueCompareFunction.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x1407F1050 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpCompareKeysByName @ 0x1407F96E4 (CmpCompareKeysByName.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x140800B00 (CmpSortedValueEnumStackValueCompareFunction.c)
  * Callees:
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
  */

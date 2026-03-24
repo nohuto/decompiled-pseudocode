@@ -1,18 +1,16 @@
 /*
- * XREFs of EnableMouseAcceleration @ 0x1C00C4A70
+ * XREFs of EnableMouseAcceleration @ 0x1C00B8540
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall EnableMouseAcceleration(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+CDeviceAcceleration *__fastcall EnableMouseAcceleration(char a1)
 {
-  char v4; // bl
-  __int64 result; // rax
+  CDeviceAcceleration *result; // rax
 
-  v4 = a1;
-  result = SGDGetUserSessionState(a1, a2, a3, a4);
-  *(_BYTE *)(*(_QWORD *)(result + 16008) + 112LL) = v4;
+  result = qword_1C0245098;
+  *((_BYTE *)qword_1C0245098 + 112) = a1;
   return result;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of DxgkMapFrameBufferPointerCB @ 0x1C0054A60
+ * XREFs of DxgkMapFrameBufferPointerCB @ 0x1C0043010
  * Callers:
  *     <none>
  * Callees:
- *     DpiGetDxgAdapter @ 0x1C00151D0 (DpiGetDxgAdapter.c)
- *     ?MapFrameBufferPointer@DXGADAPTER@@QEAAJI_KPEA_KPEAPEAX@Z @ 0x1C02BC458 (-MapFrameBufferPointer@DXGADAPTER@@QEAAJI_KPEA_KPEAPEAX@Z.c)
+ *     DpiGetDxgAdapter @ 0x1C0013140 (DpiGetDxgAdapter.c)
+ *     ?MapFrameBufferPointer@DXGADAPTER@@QEAAJI_KPEA_KPEAPEAX@Z @ 0x1C020DCC8 (-MapFrameBufferPointer@DXGADAPTER@@QEAAJI_KPEA_KPEAPEAX@Z.c)
  */
 
 __int64 __fastcall DxgkMapFrameBufferPointerCB(__int64 a1, __int64 a2)
 {
   DXGADAPTER *DxgAdapter; // rax
 
-  DxgAdapter = (DXGADAPTER *)DpiGetDxgAdapter(a1);
+  DxgAdapter = (DXGADAPTER *)DpiGetDxgAdapter(a1, a2);
   return DXGADAPTER::MapFrameBufferPointer(
            DxgAdapter,
            *(_DWORD *)a2,

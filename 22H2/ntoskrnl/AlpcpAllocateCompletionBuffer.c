@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpAllocateCompletionBuffer @ 0x1408A5470
+ * XREFs of AlpcpAllocateCompletionBuffer @ 0x14066F990
  * Callers:
- *     AlpcpCompleteDispatchMessage @ 0x14073A390 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     AlpcpAllocateFromBitmap @ 0x1408A5556 (AlpcpAllocateFromBitmap.c)
+ *     AlpcpAllocateFromBitmap @ 0x14066FA5C (AlpcpAllocateFromBitmap.c)
  */
 
 __int64 __fastcall AlpcpAllocateCompletionBuffer(__int64 a1, int a2)
@@ -37,20 +37,20 @@ __int64 __fastcall AlpcpAllocateCompletionBuffer(__int64 a1, int a2)
     v10 = AlpcpAllocateFromBitmap(v5 + 4 * ((unsigned __int64)v9 >> 5), v7, v3);
     v11 = v10;
     if ( v10 == -2 )
-      goto LABEL_9;
+      goto LABEL_13;
     if ( v10 != -1 )
       break;
     if ( !v9 )
       return 0xFFFFFFFFLL;
     v11 = AlpcpAllocateFromBitmap(v5, v5 + 4 * ((unsigned __int64)v9 >> 5), v3);
     if ( v11 != -2 )
-      goto LABEL_12;
-LABEL_9:
+      goto LABEL_7;
+LABEL_13:
     if ( (unsigned int)++v4 >= v6 )
-      goto LABEL_12;
+      goto LABEL_7;
   }
   v11 = v9 + v10;
-LABEL_12:
+LABEL_7:
   if ( v11 <= 0xFFFFFFFD )
   {
     *(_DWORD *)(v2 + 140) = v11 + v3;

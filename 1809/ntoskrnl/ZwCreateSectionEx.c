@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateSectionEx @ 0x1401B9890
+ * XREFs of ZwCreateSectionEx @ 0x1401B98B0
  * Callers:
  *     <none>
  * Callees:

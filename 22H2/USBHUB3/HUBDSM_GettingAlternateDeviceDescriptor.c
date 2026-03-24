@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_GettingAlternateDeviceDescriptor @ 0x1C0021240
+ * XREFs of HUBDSM_GettingAlternateDeviceDescriptor @ 0x1C001E9A0
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_GetDeviceDescriptorUsingControlTransfer @ 0x1C002AA58 (HUBDTX_GetDeviceDescriptorUsingControlTransfer.c)
+ *     HUBDTX_GetDeviceDescriptorUsingControlTransfer @ 0x1C0027DD8 (HUBDTX_GetDeviceDescriptorUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_GettingAlternateDeviceDescriptor(__int64 a1)

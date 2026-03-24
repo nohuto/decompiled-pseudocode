@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlBootStatusDisableFlushing @ 0x1401785CC
+ * XREFs of RtlBootStatusDisableFlushing @ 0x1401785EC
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  *     PopUnlockAfterSleepWorker @ 0x14056C5F0 (PopUnlockAfterSleepWorker.c)
- *     PopRecordLongPowerButtonPressDetected @ 0x140745168 (PopRecordLongPowerButtonPressDetected.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x140745148 (PopRecordLongPowerButtonPressDetected.c)
  * Callees:
- *     ZwFlushBuffersFile @ 0x1401B8AD0 (ZwFlushBuffersFile.c)
+ *     ZwFlushBuffersFile @ 0x1401B8AF0 (ZwFlushBuffersFile.c)
  */
 
 NTSTATUS __fastcall RtlBootStatusDisableFlushing(char a1)

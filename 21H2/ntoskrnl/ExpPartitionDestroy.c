@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpPartitionDestroy @ 0x140A01F78
+ * XREFs of ExpPartitionDestroy @ 0x140955E74
  * Callers:
- *     ExpPartitionInitialize @ 0x140851EBC (ExpPartitionInitialize.c)
- *     PspTeardownPartition @ 0x1409B3490 (PspTeardownPartition.c)
+ *     ExpPartitionInitialize @ 0x1407C23AC (ExpPartitionInitialize.c)
+ *     PspTeardownPartition @ 0x14090D090 (PspTeardownPartition.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeCancelTimer2 @ 0x1402D3FB0 (KeCancelTimer2.c)
- *     KeFlushQueuedDpcs @ 0x1402D96F0 (KeFlushQueuedDpcs.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     ZwWaitForSingleObject @ 0x14041B7E0 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExpWorkQueueDestroy @ 0x140A02158 (ExpWorkQueueDestroy.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     KeCancelTimer2 @ 0x14027FB40 (KeCancelTimer2.c)
+ *     KeFlushQueuedDpcs @ 0x1402EC6E0 (KeFlushQueuedDpcs.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ZwWaitForSingleObject @ 0x1403FA420 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExpWorkQueueDestroy @ 0x140956058 (ExpWorkQueueDestroy.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpPartitionDestroy(PVOID P)
@@ -21,7 +21,7 @@ void __fastcall ExpPartitionDestroy(PVOID P)
   __int64 v3; // rdi
   void *v4; // rcx
   unsigned __int16 v5; // si
-  unsigned __int16 *v6; // r15
+  __int64 v6; // r15
   __int64 v7; // rbp
   __int64 v8; // rdx
   _DWORD *v9; // rdi
@@ -60,17 +60,17 @@ void __fastcall ExpPartitionDestroy(PVOID P)
         {
           v6 = 0LL;
           v7 = 0LL;
-          if ( (_UNKNOWN *)KeNodeBlock[v5] != (_UNKNOWN *)((char *)&KiNodeInit + 280 * v5) )
-            v6 = (unsigned __int16 *)KeNodeBlock[v5];
+          if ( (_UNKNOWN *)KeNodeBlock[v5] != (_UNKNOWN *)((char *)&KiNodeInit + 384 * v5) )
+            v6 = KeNodeBlock[v5];
           do
           {
-            v8 = *(_QWORD *)(*((_QWORD *)P + 1) + 8LL * *v6);
+            v8 = *(_QWORD *)(*((_QWORD *)P + 1) + 8LL * *(unsigned __int16 *)(v6 + 146));
             v9 = *(_DWORD **)(v8 + v7);
             if ( ((unsigned __int8)v9 & 1) == 0 && v9 )
             {
               if ( v9[1] )
                 KeBugCheckEx(0x18Eu, 2uLL, *(_QWORD *)P, *(_QWORD *)(v8 + v7), 0LL);
-              ExpWorkQueueDestroy(*(PVOID *)(v8 + v7));
+              ExpWorkQueueDestroy(*(_QWORD *)(v8 + v7));
               ExFreePoolWithTag(v9, 0);
             }
             v7 += 8LL;

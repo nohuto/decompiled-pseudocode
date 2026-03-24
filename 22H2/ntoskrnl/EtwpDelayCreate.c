@@ -1,107 +1,72 @@
 /*
- * XREFs of EtwpDelayCreate @ 0x1407F70C4
+ * XREFs of EtwpDelayCreate @ 0x140713990
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x140773258 (EtwpRealtimeCreateLogfile.c)
- *     EtwpCreateLogFile @ 0x1407F6D40 (EtwpCreateLogFile.c)
- *     EtwpSavePersistedLogger @ 0x1409EDAF4 (EtwpSavePersistedLogger.c)
+ *     EtwpRealtimeCreateLogfile @ 0x14065F4C4 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpCreateLogFile @ 0x14071334C (EtwpCreateLogFile.c)
+ *     EtwpSavePersistedLogger @ 0x140948CDC (EtwpSavePersistedLogger.c)
  * Callees:
- *     PsImpersonateClient @ 0x140734F30 (PsImpersonateClient.c)
- *     SeImpersonateClientEx @ 0x1407F6460 (SeImpersonateClientEx.c)
- *     EtwpCreateNtFileName @ 0x1407F71EC (EtwpCreateNtFileName.c)
- *     EtwpCreateDirectoryFile @ 0x1407F72B4 (EtwpCreateDirectoryFile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwpCreateDirectoryFile @ 0x140713A70 (EtwpCreateDirectoryFile.c)
+ *     EtwpCreateNtFileName @ 0x140713BB0 (EtwpCreateNtFileName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpDelayCreate(
-        __int64 a1,
-        __int64 a2,
-        _BYTE *a3,
-        __int64 a4,
-        char a5,
-        char a6,
-        PSECURITY_CLIENT_CONTEXT ClientContext)
+__int64 __fastcall EtwpDelayCreate(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4, char a5, char a6)
 {
-  __int64 v9; // rcx
-  char v10; // r15
-  NTSTATUS v11; // ebx
-  _WORD *v12; // rdi
-  NTSTATUS v13; // eax
-  __int16 *v15; // rsi
-  __int16 v16; // ax
-  __int16 v17; // cx
-  __int64 ImpersonationLevel; // [rsp+20h] [rbp-40h]
-  int v19; // [rsp+30h] [rbp-30h]
-  PVOID P; // [rsp+40h] [rbp-20h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+48h] [rbp-18h] BYREF
-  char v23; // [rsp+98h] [rbp+38h] BYREF
+  __int64 v8; // rcx
+  int v9; // eax
+  WCHAR *v10; // rsi
+  int v11; // edi
+  int v12; // eax
+  __int16 *i; // rbx
+  __int16 v15; // ax
+  int v16; // [rsp+30h] [rbp-58h]
+  PVOID P; // [rsp+40h] [rbp-48h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+48h] [rbp-40h] BYREF
+  int v19; // [rsp+98h] [rbp+10h] BYREF
 
-  v23 = 0;
-  P = 0LL;
-  v9 = *(_QWORD *)(a2 + 8);
-  v10 = 0;
+  v8 = *(_QWORD *)(a2 + 8);
   IoStatusBlock = 0LL;
-  v11 = EtwpCreateNtFileName(v9, &P, &v23);
-  if ( v11 < 0 )
-    goto LABEL_15;
-  if ( ClientContext )
+  P = 0LL;
+  v19 = 0;
+  v9 = EtwpCreateNtFileName(v8, &P, &v19);
+  v10 = (WCHAR *)P;
+  v11 = v9;
+  if ( v9 >= 0 )
   {
-    v11 = SeImpersonateClientEx(ClientContext, 0LL);
-    if ( v11 < 0 )
+    v12 = EtwpCreateDirectoryFile((PCWSTR)P, a1, &IoStatusBlock, (unsigned __int8)*a3);
+    v11 = v12;
+    if ( a6 == 1 && v12 == -1073741766 && v19 == 24 )
     {
-LABEL_15:
-      v12 = P;
-      goto LABEL_5;
-    }
-    v10 = 1;
-  }
-  ImpersonationLevel = a1;
-  v12 = P;
-  v13 = EtwpCreateDirectoryFile((PCWSTR)P, ImpersonationLevel, &IoStatusBlock, (unsigned __int8)*a3);
-  v11 = v13;
-  if ( a6 && v13 == -1073741766 && !v23 )
-  {
-    v15 = v12 + 12;
-    v16 = v12[12];
-    if ( v16 != 92 )
-    {
-      v17 = v12[12];
-      do
+      for ( i = (__int16 *)(v10 + 12); ; ++i )
       {
-        v16 = v17;
-        if ( !v17 )
+        v15 = *i;
+        if ( *i == 92 )
           break;
-        v16 = *++v15;
-        v17 = *v15;
+        if ( !v15 )
+          goto LABEL_22;
       }
-      while ( *v15 != 92 );
-    }
-    while ( v16 )
-    {
-      while ( 1 )
+      while ( v15 )
       {
-        v16 = *++v15;
-        if ( *v15 != 92 )
-          break;
-        v19 = (unsigned __int8)*a3;
-        *v15 = 0;
-        v11 = EtwpCreateDirectoryFile(v12, 0LL, &IoStatusBlock, v19);
-        if ( v11 < 0 )
-          goto LABEL_4;
-        *v15 = 92;
+        v15 = *++i;
+        if ( *i == 92 )
+        {
+          v16 = (unsigned __int8)*a3;
+          *i = 0;
+          v11 = EtwpCreateDirectoryFile(v10, 0LL, &IoStatusBlock, v16);
+          if ( v11 < 0 )
+            goto LABEL_3;
+          *i = 92;
+          v15 = 92;
+        }
       }
+LABEL_22:
+      v11 = EtwpCreateDirectoryFile(v10, a1, &IoStatusBlock, (unsigned __int8)*a3);
     }
-    v11 = EtwpCreateDirectoryFile(v12, a1, &IoStatusBlock, (unsigned __int8)*a3);
   }
-LABEL_4:
+LABEL_3:
   if ( v10 )
-  {
-    PsImpersonateClient(KeGetCurrentThread(), 0LL, 0, 0, SecurityImpersonation);
-    goto LABEL_15;
-  }
-LABEL_5:
-  if ( v12 )
-    ExFreePoolWithTag(v12, 0);
-  if ( v11 >= 0 && *a3 && IoStatusBlock.Information == 2 )
+    ExFreePoolWithTag(v10, 0);
+  if ( v11 >= 0 && *a3 == 1 && IoStatusBlock.Information == 2 )
     *a3 = 0;
   return (unsigned int)v11;
 }

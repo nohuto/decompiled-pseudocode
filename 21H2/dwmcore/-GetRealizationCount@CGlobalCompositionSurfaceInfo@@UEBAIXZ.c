@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRealizationCount@CGlobalCompositionSurfaceInfo@@UEBAIXZ @ 0x1800FBB20
+ * XREFs of ?GetRealizationCount@CGlobalCompositionSurfaceInfo@@UEBAIXZ @ 0x1800E3090
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CGlobalCompositionSurfaceInfo::GetRealizationCount(CGlobalCompositionSurfaceInfo *this)
 {
-  return (__int64)(*((_QWORD *)this + 22) - *((_QWORD *)this + 21)) >> 3;
+  return (__int64)(*((_QWORD *)this + 21) - *((_QWORD *)this + 20)) >> 3;
 }

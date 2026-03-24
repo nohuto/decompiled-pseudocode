@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InternalRelease@?$ComPtr@VDataProviderRegistrarConnection@@@WRL@Microsoft@@IEAAKXZ @ 0x1801956A4
+ * XREFs of ?InternalRelease@?$ComPtr@VDataProviderRegistrarConnection@@@WRL@Microsoft@@IEAAKXZ @ 0x180164E50
  * Callers:
- *     ?OnShutdown@CComposition@@QEAAXXZ @ 0x180193334 (-OnShutdown@CComposition@@QEAAXXZ.c)
- *     ??1DataProviderManager@@EEAA@XZ @ 0x180195374 (--1DataProviderManager@@EEAA@XZ.c)
+ *     ?OnShutdown@CComposition@@QEAAXXZ @ 0x180155B34 (-OnShutdown@CComposition@@QEAAXXZ.c)
+ *     ??1DataProviderManager@@EEAA@XZ @ 0x180164A78 (--1DataProviderManager@@EEAA@XZ.c)
  * Callees:
- *     ?Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ @ 0x180193738 (-Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ.c)
+ *     ?Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ @ 0x180155EA0 (-Release@BaseBamoConnection@Bamo@Microsoft@@QEAAKXZ.c)
  */
 
 __int64 __fastcall Microsoft::WRL::ComPtr<DataProviderRegistrarConnection>::InternalRelease(

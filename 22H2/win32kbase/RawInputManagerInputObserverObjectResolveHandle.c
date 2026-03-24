@@ -1,9 +1,9 @@
 /*
- * XREFs of RawInputManagerInputObserverObjectResolveHandle @ 0x1C0191C68
+ * XREFs of RawInputManagerInputObserverObjectResolveHandle @ 0x1C016633C
  * Callers:
- *     rimObsAddInputObserver @ 0x1C01ACCEC (rimObsAddInputObserver.c)
- *     rimObsObserveNextInput @ 0x1C01AE654 (rimObsObserveNextInput.c)
- *     rimObsUpdateInputObserverRegistration @ 0x1C01AF70C (rimObsUpdateInputObserverRegistration.c)
+ *     rimObsAddInputObserver @ 0x1C017D7DC (rimObsAddInputObserver.c)
+ *     rimObsObserveNextInput @ 0x1C017E7BC (rimObsObserveNextInput.c)
+ *     rimObsUpdateInputObserverRegistration @ 0x1C017F4DC (rimObsUpdateInputObserverRegistration.c)
  * Callees:
  *     <none>
  */

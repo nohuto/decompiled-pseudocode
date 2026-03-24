@@ -1,15 +1,15 @@
 /*
- * XREFs of ?GetThreadTableEntry@FxVerifierLock@@SAPEAUFxVerifierThreadTableEntry@@PEAU_KTHREAD@@PEAV1@E@Z @ 0x1C006D7C0
+ * XREFs of ?GetThreadTableEntry@FxVerifierLock@@SAPEAUFxVerifierThreadTableEntry@@PEAU_KTHREAD@@PEAV1@E@Z @ 0x1C005A824
  * Callers:
- *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C006D914 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
- *     ?Unlock@FxVerifierLock@@QEAAXEE@Z @ 0x1C006DC28 (-Unlock@FxVerifierLock@@QEAAXEE@Z.c)
+ *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C005A978 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
+ *     ?Unlock@FxVerifierLock@@QEAAXEE@Z @ 0x1C005AC78 (-Unlock@FxVerifierLock@@QEAAXEE@Z.c)
  * Callees:
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 _LIST_ENTRY **__fastcall FxVerifierLock::GetThreadTableEntry(
-        _KTHREAD *curThread,
+        unsigned __int64 curThread,
         FxVerifierLock *pLock,
         unsigned __int8 LookupOnly)
 {
@@ -25,15 +25,15 @@ _LIST_ENTRY **__fastcall FxVerifierLock::GetThreadTableEntry(
   ThreadTable = pLock->m_Globals->ThreadTable;
   if ( !ThreadTable )
     return 0LL;
-  v7 = &ThreadTable[((unsigned __int8)((unsigned __int64)curThread >> 4) ^ (unsigned __int8)((unsigned int)((unsigned __int64)curThread >> 4) >> 16)) & 0x3F];
+  v7 = &ThreadTable[((unsigned __int8)(curThread >> 4) ^ (unsigned __int8)((unsigned int)(curThread >> 4) >> 16)) & 0x3F];
   for ( i = v7->Flink; i != v7; i = i->Flink )
   {
-    if ( (_KTHREAD *)i[-2].Blink == curThread )
+    if ( i[-2].Blink == (_LIST_ENTRY *)curThread )
       return &i[-2].Blink;
   }
   if ( LookupOnly )
   {
-    WPP_IFR_SF_q(m_Globals, 2u, 0x12u, 0x14u, WPP_FxVerifierLock_cpp_Traceguids, curThread);
+    WPP_IFR_SF_q(m_Globals, 2u, 0x12u, 0x14u, WPP_FxVerifierLock_cpp_Traceguids, (const void *)curThread);
     FxVerifierDbgBreakPoint(m_Globals);
     return 0LL;
   }
@@ -41,7 +41,7 @@ _LIST_ENTRY **__fastcall FxVerifierLock::GetThreadTableEntry(
   p_m_ThreadTableEntry = &pLock->m_ThreadTableEntry;
   pLock->m_ThreadTableEntry.PerThreadDispatchLockList = 0LL;
   p_HashChain = &pLock->m_ThreadTableEntry.HashChain;
-  pLock->m_ThreadTableEntry.Thread = curThread;
+  pLock->m_ThreadTableEntry.Thread = (struct _KTHREAD *)curThread;
   Blink = v7->Blink;
   if ( Blink->Flink != v7 )
     __fastfail(3u);

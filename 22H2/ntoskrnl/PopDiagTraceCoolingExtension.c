@@ -1,26 +1,26 @@
 /*
- * XREFs of PopDiagTraceCoolingExtension @ 0x1408616BC
+ * XREFs of PopDiagTraceCoolingExtension @ 0x1406A4BE0
  * Callers:
- *     PopAssociateThermalRequest @ 0x14084EE80 (PopAssociateThermalRequest.c)
- *     PopCoolingExtensionPnpNotification @ 0x140982EA0 (PopCoolingExtensionPnpNotification.c)
- *     PopDeactiveThermalRequest @ 0x140982F78 (PopDeactiveThermalRequest.c)
- *     PopDisableCoolingExtension @ 0x140983158 (PopDisableCoolingExtension.c)
- *     PopRundownThermalRequests @ 0x1409834A0 (PopRundownThermalRequests.c)
+ *     PopRundownThermalRequests @ 0x1406F8AD8 (PopRundownThermalRequests.c)
+ *     PopAssociateThermalRequest @ 0x14079AC80 (PopAssociateThermalRequest.c)
+ *     PopCoolingExtensionPnpNotification @ 0x1408E2B60 (PopCoolingExtensionPnpNotification.c)
+ *     PopDeactiveThermalRequest @ 0x1408E2C38 (PopDeactiveThermalRequest.c)
+ *     PopDisableCoolingExtension @ 0x1408E2E18 (PopDisableCoolingExtension.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14034C53C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceCoolingExtension(__int64 a1, const EVENT_DESCRIPTOR *a2)
 {
   void *DeviceAttachmentBaseRefWithTag; // rax
   void *v5; // rbx
-  __int64 v6; // r8
+  __int64 v6; // rdx
   bool v7; // zf
-  BOOL v8; // ecx
+  BOOL v8; // eax
   BOOL v9; // eax
   int v10; // ecx
   char v11; // [rsp+30h] [rbp-59h] BYREF
@@ -50,48 +50,46 @@ void __fastcall PopDiagTraceCoolingExtension(__int64 a1, const EVENT_DESCRIPTOR 
   v13 = 0;
   v11 = 0;
   v16 = 0LL;
-  if ( PopDiagHandleRegistered )
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, a2) )
   {
-    if ( EtwEventEnabled(PopDiagHandle, a2) )
+    DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(*(_QWORD *)(a1 + 48), 0x67446F50u);
+    v5 = DeviceAttachmentBaseRefWithTag;
+    if ( DeviceAttachmentBaseRefWithTag )
+      v6 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
+    else
+      v6 = 0LL;
+    if ( v6 )
     {
-      DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(*(_QWORD *)(a1 + 48), 0x67446F50u);
-      v5 = DeviceAttachmentBaseRefWithTag;
-      if ( DeviceAttachmentBaseRefWithTag )
-      {
-        v6 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
-        if ( v6 )
-        {
-          v7 = *(_QWORD *)(a1 + 128) == 0LL;
-          v12 = *(_WORD *)(v6 + 128) >> 1;
-          v8 = !v7;
-          v16 = a1;
-          v7 = *(_QWORD *)(a1 + 136) == 0LL;
-          v14 = v8;
-          v9 = !v7;
-          *(_QWORD *)&UserData.Size = 4LL;
-          v7 = *(_BYTE *)(a1 + 65) == 0;
-          v13 = v9;
-          v19 = 4LL;
-          v15 = !v7;
-          v11 = *(_BYTE *)(a1 + 66);
-          UserData.Ptr = (ULONGLONG)&v13;
-          v18 = &v14;
-          v20 = &v11;
-          v22 = &v15;
-          v24 = &v16;
-          v26 = &v12;
-          v21 = 1LL;
-          v23 = 4LL;
-          v25 = 8LL;
-          v27 = 2LL;
-          v10 = *(unsigned __int16 *)(v6 + 128);
-          v28 = *(_QWORD *)(v6 + 136);
-          v29 = v10;
-          v30 = 0;
-          EtwWrite(PopDiagHandle, a2, 0LL, 7u, &UserData);
-        }
-        ObfDereferenceObjectWithTag(v5, 0x67446F50u);
-      }
+      v7 = *(_QWORD *)(a1 + 128) == 0LL;
+      v12 = *(_WORD *)(v6 + 128) >> 1;
+      v8 = !v7;
+      v16 = a1;
+      v7 = *(_QWORD *)(a1 + 136) == 0LL;
+      v14 = v8;
+      v9 = !v7;
+      *(_QWORD *)&UserData.Size = 4LL;
+      v7 = *(_BYTE *)(a1 + 65) == 0;
+      v13 = v9;
+      v19 = 4LL;
+      v15 = !v7;
+      v11 = *(_BYTE *)(a1 + 66);
+      UserData.Ptr = (ULONGLONG)&v13;
+      v18 = &v14;
+      v20 = &v11;
+      v22 = &v15;
+      v24 = &v16;
+      v26 = &v12;
+      v21 = 1LL;
+      v23 = 4LL;
+      v25 = 8LL;
+      v27 = 2LL;
+      v10 = *(unsigned __int16 *)(v6 + 128);
+      v28 = *(_QWORD *)(v6 + 136);
+      v29 = v10;
+      v30 = 0;
+      EtwWrite(PopDiagHandle, a2, 0LL, 7u, &UserData);
     }
+    if ( v5 )
+      ObfDereferenceObjectWithTag(v5, 0x67446F50u);
   }
 }

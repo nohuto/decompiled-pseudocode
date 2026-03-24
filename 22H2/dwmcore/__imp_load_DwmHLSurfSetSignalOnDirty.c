@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_DwmHLSurfSetSignalOnDirty @ 0x1801110D0
+ * XREFs of __imp_load_DwmHLSurfSetSignalOnDirty @ 0x1800E8D0A
  * Callers:
  *     <none>
  * Callees:

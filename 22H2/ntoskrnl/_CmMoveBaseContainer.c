@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmMoveBaseContainer @ 0x140A645C8
+ * XREFs of _CmMoveBaseContainer @ 0x140976504
  * Callers:
- *     PiDcHandleCustomDeviceEvent @ 0x1407DB41C (PiDcHandleCustomDeviceEvent.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x14071B508 (PiDcHandleCustomDeviceEvent.c)
  * Callees:
- *     _CmAddDeviceToContainer @ 0x14079BC88 (_CmAddDeviceToContainer.c)
- *     _CmGetDevicesInBaseContainerList @ 0x140A64334 (_CmGetDevicesInBaseContainerList.c)
- *     _CmRemoveDeviceFromContainer @ 0x140A646AC (_CmRemoveDeviceFromContainer.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14072C9AC (_CmRemoveDeviceFromContainer.c)
+ *     _CmAddDeviceToContainer @ 0x140758914 (_CmAddDeviceToContainer.c)
+ *     _CmGetDevicesInBaseContainerList @ 0x140976298 (_CmGetDevicesInBaseContainerList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmMoveBaseContainer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -21,14 +21,14 @@ __int64 __fastcall CmMoveBaseContainer(__int64 a1, __int64 a2, __int64 a3, __int
 
   v4 = *(_QWORD *)&PiPnpRtlCtx;
   P = 0LL;
-  DevicesInBaseContainerList = CmGetDevicesInBaseContainerList(*(__int64 *)&PiPnpRtlCtx, a3, a2, (__int64 *)&P);
+  DevicesInBaseContainerList = CmGetDevicesInBaseContainerList(*(__int64 *)&PiPnpRtlCtx, a3, a2, &P);
   v9 = P;
   v10 = DevicesInBaseContainerList;
   if ( DevicesInBaseContainerList >= 0 )
   {
     for ( i = P; *i; i += v12 + 1 )
     {
-      v10 = CmRemoveDeviceFromContainer(v4, a3, a2, i);
+      v10 = CmRemoveDeviceFromContainer(v4, a3, a2, (__int64)i);
       if ( v10 < 0 )
         break;
       v10 = CmAddDeviceToContainer(v4, a4, a2, (__int64)i, 0LL);

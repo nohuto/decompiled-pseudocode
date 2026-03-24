@@ -1,14 +1,25 @@
 /*
- * XREFs of ?DrawSolidRectangle@COcclusionContext@@UEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DCOLORVALUE@@@Z @ 0x180039FB0
+ * XREFs of ?DrawSolidRectangle@COcclusionContext@@UEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DCOLORVALUE@@@Z @ 0x1800190E0
  * Callers:
  *     <none>
  * Callees:
- *     ?CollectRectangleForOcclusion@COcclusionContext@@AEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N1PEAV2@@Z @ 0x1800819D8 (-CollectRectangleForOcclusion@COcclusionContext@@AEAAXPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@U.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CollectRectangleForOcclusion@COcclusionContext@@AEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEAV2@@Z @ 0x180076700 (-CollectRectangleForOcclusion@COcclusionContext@@AEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@U.c)
  */
 
-__int64 __fastcall COcclusionContext::DrawSolidRectangle(__int64 a1, int a2, __int64 a3, int a4)
+__int64 __fastcall COcclusionContext::DrawSolidRectangle(__int64 a1, __int64 a2, __int64 a3)
 {
-  if ( !*(_DWORD *)(a1 + 1432) && COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)(a3 + 12) - 1.0) & _xmm) < 0.0000011920929 )
-    COcclusionContext::CollectRectangleForOcclusion(a1, a2, 0, a4, 0LL);
-  return 0LL;
+  unsigned int v3; // ebx
+  int v5; // eax
+  unsigned int v6; // ecx
+
+  v3 = 0;
+  if ( !*(_DWORD *)(a1 + 1460) && *(float *)(a3 + 12) == 1.0 )
+  {
+    v5 = COcclusionContext::CollectRectangleForOcclusion(a1, a2, a3, 0LL);
+    v3 = v5;
+    if ( v5 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x3AAu, 0LL);
+  }
+  return v3;
 }

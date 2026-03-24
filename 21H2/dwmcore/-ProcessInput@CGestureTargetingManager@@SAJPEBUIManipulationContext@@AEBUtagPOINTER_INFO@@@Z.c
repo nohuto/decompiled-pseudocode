@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessInput@CGestureTargetingManager@@SAJPEBUIManipulationContext@@AEBUtagPOINTER_INFO@@@Z @ 0x18018683C
+ * XREFs of ?ProcessInput@CGestureTargetingManager@@SAJPEBUIManipulationContext@@AEBUtagPOINTER_INFO@@@Z @ 0x180237BA0
  * Callers:
- *     ?CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18017C078 (-CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180224830 (-CalculateFrameTargets@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  * Callees:
- *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x18002B610 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
- *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800DF980 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     _anonymous_namespace_::BypassGestureTargeting @ 0x180186058 (_anonymous_namespace_--BypassGestureTargeting.c)
+ *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x18004EC24 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3644 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     _anonymous_namespace_::BypassGestureTargeting @ 0x18023751C (_anonymous_namespace_--BypassGestureTargeting.c)
  */
 
 __int64 __fastcall CGestureTargetingManager::ProcessInput(
@@ -94,7 +94,7 @@ LABEL_10:
              v21,
              v18,
              &v23);
-      Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v24);
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v24);
     }
     return (unsigned int)v9;
   }

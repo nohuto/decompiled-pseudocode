@@ -1,51 +1,51 @@
 /*
- * XREFs of PspGetPreviousProcessThread @ 0x14076D758
+ * XREFs of PspGetPreviousProcessThread @ 0x140707954
  * Callers:
- *     PspTerminateAllThreads @ 0x14076D520 (PspTerminateAllThreads.c)
+ *     PspTerminateAllThreads @ 0x140707720 (PspTerminateAllThreads.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3620 (ObReferenceObjectSafeWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C9130 (ObReferenceObjectSafeWithTag.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PspGetPreviousProcessThread(__int64 a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // r12
-  signed __int64 *v3; // r14
-  __int64 v5; // rbp
-  __int64 v6; // r15
-  int v7; // edi
+  __int64 v3; // r14
+  __int64 v5; // r15
+  int v6; // edi
+  signed __int64 *v7; // rsi
   __int64 v8; // rbx
 
   CurrentThread = KeGetCurrentThread();
-  v3 = (signed __int64 *)(a1 + 1080);
-  v5 = a1 + 1504;
-  v6 = 0LL;
+  v3 = a1 + 1504;
+  v5 = 0LL;
+  v6 = 0;
   --CurrentThread->KernelApcDisable;
-  v7 = 0;
+  v7 = (signed __int64 *)(a1 + 1080);
   ExAcquirePushLockSharedEx(a1 + 1080, 0LL);
   if ( a2 )
-    v8 = a2[168];
+    v8 = a2[158];
   else
-    v8 = *(_QWORD *)(v5 + 8);
-  while ( v8 != v5 )
+    v8 = *(_QWORD *)(v3 + 8);
+  while ( v8 != v3 )
   {
-    v6 = v8 - 1336;
-    if ( ObReferenceObjectSafeWithTag(v8 - 1336) )
+    v5 = v8 - 1256;
+    if ( ObReferenceObjectSafeWithTag(v8 - 1256) )
     {
-      v7 = 1;
+      v6 = 1;
       break;
     }
     v8 = *(_QWORD *)(v8 + 8);
   }
-  if ( _InterlockedCompareExchange64(v3, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared(v3);
-  KeAbPostRelease((ULONG_PTR)v3);
+  if ( _InterlockedCompareExchange64(v7, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared(v7);
+  KeAbPostRelease((ULONG_PTR)v7);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( a2 )
     ObfDereferenceObjectWithTag(a2, 0x6E457350u);
-  return v6 & -(__int64)(v7 != 0);
+  return v5 & -(__int64)(v6 != 0);
 }

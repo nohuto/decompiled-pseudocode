@@ -2,14 +2,14 @@
  * XREFs of RtlpSanitizeContextFlags @ 0x1400A1E00
  * Callers:
  *     KiContinuePreviousModeUser @ 0x1400A240C (KiContinuePreviousModeUser.c)
- *     KiRaiseException @ 0x14029A0B0 (KiRaiseException.c)
+ *     KiRaiseException @ 0x14029A1B0 (KiRaiseException.c)
  *     PspSetContextThreadInternal @ 0x140620A30 (PspSetContextThreadInternal.c)
  *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
- *     KeCopyContextFromUch @ 0x140846188 (KeCopyContextFromUch.c)
- *     KeCopyContextFromUmsContext @ 0x140846444 (KeCopyContextFromUmsContext.c)
- *     KeCopyContextToUch @ 0x1408465F8 (KeCopyContextToUch.c)
- *     KeCopyContextToUmsContext @ 0x140846864 (KeCopyContextToUmsContext.c)
- *     NtCreateThread @ 0x140887F40 (NtCreateThread.c)
+ *     KeCopyContextFromUch @ 0x140846168 (KeCopyContextFromUch.c)
+ *     KeCopyContextFromUmsContext @ 0x140846424 (KeCopyContextFromUmsContext.c)
+ *     KeCopyContextToUch @ 0x1408465D8 (KeCopyContextToUch.c)
+ *     KeCopyContextToUmsContext @ 0x140846844 (KeCopyContextToUmsContext.c)
+ *     NtCreateThread @ 0x140887F20 (NtCreateThread.c)
  * Callees:
  *     RtlpValidateContextFlags @ 0x1400A2070 (RtlpValidateContextFlags.c)
  */

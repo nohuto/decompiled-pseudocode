@@ -1,169 +1,172 @@
 /*
- * XREFs of ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00860F8
+ * XREFs of ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00A096C
  * Callers:
- *     vInitFontsDirectoryNameInformation @ 0x1C0088A60 (vInitFontsDirectoryNameInformation.c)
- *     bAddAllFlEntry @ 0x1C00897FC (bAddAllFlEntry.c)
- *     FontAssocDefaultRoutine @ 0x1C029E620 (FontAssocDefaultRoutine.c)
- *     GreEudcLoadLinkW @ 0x1C029E958 (GreEudcLoadLinkW.c)
- *     bDeleteFlEntry @ 0x1C029F7D0 (bDeleteFlEntry.c)
+ *     vInitFontsDirectoryNameInformation @ 0x1C000D9D0 (vInitFontsDirectoryNameInformation.c)
+ *     bAddFlEntry @ 0x1C00A0BA8 (bAddFlEntry.c)
+ *     bAddAllFlEntry @ 0x1C00E6908 (bAddAllFlEntry.c)
+ *     FontAssocDefaultRoutine @ 0x1C02975B0 (FontAssocDefaultRoutine.c)
+ *     GreEudcLoadLinkW @ 0x1C0297780 (GreEudcLoadLinkW.c)
+ *     bDeleteFlEntry @ 0x1C0298040 (bDeleteFlEntry.c)
  * Callees:
- *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C0085BD4 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
- *     ??1?$AutoResource@$1?Win32FreePool@@YAXPEAX@Z@@QEAA@XZ @ 0x1C0089BF0 (--1-$AutoResource@$1-Win32FreePool@@YAXPEAX@Z@@QEAA@XZ.c)
- *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C0114FA8 (--0MALLOCOBJ@@QEAA@K@Z.c)
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01150FC (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     cCapString @ 0x1C0116A58 (cCapString.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0064C1C (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C009FD78 (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00A0B08 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
+ *     cCapString @ 0x1C00BBAF4 (cCapString.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall bAppendSysDirectory(unsigned __int16 *a1, size_t *a2)
+__int64 __fastcall bAppendSysDirectory(unsigned __int16 *a1, const unsigned __int16 *a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  unsigned __int16 *v6; // rbx
+  unsigned __int16 *v4; // rbx
+  __int64 v5; // r9
+  unsigned int v6; // ebp
   __int64 v7; // rdi
-  unsigned __int16 *v8; // rcx
-  unsigned __int16 v9; // ax
-  unsigned __int16 *v10; // rax
-  size_t *NtSystemRoot; // rax
-  __int64 v12; // rdx
-  unsigned __int16 *v13; // rax
-  char *v14; // rcx
+  __int64 v8; // r8
+  char *v9; // rdx
+  unsigned __int16 *v10; // rcx
+  unsigned __int16 v11; // ax
+  unsigned __int16 *v12; // rax
+  const unsigned __int16 *NtSystemRoot; // rax
+  unsigned __int64 v14; // rdx
   __int64 v15; // rax
-  signed __int64 v16; // r9
-  char *v17; // rax
-  wchar_t *v19; // rax
-  _WORD *v20; // rdx
-  __int64 v21; // r8
-  unsigned __int16 *v22; // rcx
-  unsigned __int16 v23; // ax
-  unsigned __int16 *v24; // rax
-  unsigned __int16 *v25; // [rsp+58h] [rbp+20h] BYREF
+  unsigned __int16 *v16; // rcx
+  unsigned __int64 v17; // rdx
+  char *v18; // r8
+  unsigned __int64 v19; // rcx
+  __int64 v20; // rax
+  signed __int64 v21; // r9
+  char *v22; // rax
+  __int64 v23; // r9
+  wchar_t *v25; // rax
+  _WORD *v26; // rdx
+  __int64 v27; // r8
+  unsigned __int16 *v28; // rcx
+  unsigned __int64 v29; // rdx
+  unsigned __int16 v30; // ax
+  unsigned __int16 *v31; // rax
+  unsigned __int16 *v32; // [rsp+68h] [rbp+20h] BYREF
 
-  MALLOCOBJ::MALLOCOBJ((MALLOCOBJ *)&v25, 0x208u);
-  v6 = v25;
+  MALLOCOBJ::MALLOCOBJ((MALLOCOBJ *)&v32, 0x208u);
+  v4 = v32;
+  if ( !v32 )
+    goto LABEL_30;
+  v6 = 1;
+  v7 = 260LL;
+  if ( !wcschr(a2, 0x5Cu) )
+  {
+    v8 = 260LL;
+    v9 = (char *)((char *)L"\\??\\" - (char *)v4);
+    v10 = v4;
+    do
+    {
+      if ( v8 == -2147483386 )
+        break;
+      v11 = *(unsigned __int16 *)((char *)v10 + (_QWORD)v9);
+      if ( !v11 )
+        break;
+      *v10++ = v11;
+      --v8;
+    }
+    while ( v8 );
+    v12 = v10 - 1;
+    if ( v8 )
+      v12 = v10;
+    *v12 = 0;
+    if ( v8 )
+    {
+      NtSystemRoot = (const unsigned __int16 *)RtlGetNtSystemRoot(v10, v9);
+      if ( (int)StringCchCatW(v4, v14, NtSystemRoot) >= 0 )
+      {
+        v15 = 260LL;
+        v16 = v4;
+        do
+        {
+          if ( !*v16 )
+            break;
+          ++v16;
+          --v15;
+        }
+        while ( v15 );
+        v17 = v15 ? 260 - v15 : 0LL;
+        if ( v15 )
+        {
+          v18 = (char *)&v4[v17];
+          v19 = 260 - v17;
+          if ( v17 != 260 )
+          {
+            v20 = 2147483646LL;
+            v21 = (char *)L"\\fonts\\" - v18;
+            do
+            {
+              if ( !v20 )
+                break;
+              v17 = *(unsigned __int16 *)&v18[v21];
+              if ( !(_WORD)v17 )
+                break;
+              *(_WORD *)v18 = v17;
+              --v20;
+              v18 += 2;
+              --v19;
+            }
+            while ( v19 );
+          }
+          v22 = v18 - 2;
+          if ( v19 )
+            v22 = v18;
+          *(_WORD *)v22 = 0;
+          if ( v19 )
+          {
+            if ( (int)StringCchCatW(v4, v17, a2) >= 0 )
+            {
+              cCapString(a1, v4, 260LL, v23);
+              goto LABEL_27;
+            }
+          }
+        }
+      }
+    }
+    goto LABEL_30;
+  }
+  cCapString(a1, a2, 260LL, v5);
+  v25 = wcsstr(a1, L"%SYSTEMROOT%");
   if ( v25 )
   {
-    v7 = 260LL;
-    if ( wcschr((const wchar_t *)a2, 0x5Cu) )
-    {
-      cCapString(a1, a2, 260LL);
-      v19 = wcsstr(a1, L"%SYSTEMROOT%");
-      if ( v19 )
-      {
-        *v19 = 92;
-        v20 = v19 + 12;
-        v21 = -1LL;
-        do
-          ++v21;
-        while ( v20[v21] );
-        memmove(v19 + 11, v20, 2 * v21 + 2);
-        goto LABEL_25;
-      }
-      if ( *(_DWORD *)(a1 + 1) != 6029370 )
-        goto LABEL_25;
-      if ( (int)StringCchCopyW(v6, 0x104uLL, a1) >= 0 )
-      {
-        v22 = a1;
-        v4 = (char *)L"\\??\\" - (char *)a1;
-        do
-        {
-          if ( v7 == -2147483386 )
-            break;
-          v23 = *(unsigned __int16 *)((char *)v22 + v4);
-          if ( !v23 )
-            break;
-          *v22++ = v23;
-          --v7;
-        }
-        while ( v7 );
-        v24 = v22 - 1;
-        if ( v7 )
-          v24 = v22;
-        *v24 = 0;
-        if ( v7 )
-        {
-          if ( StringCchCatW(a1, v4, (size_t *)v6) >= 0 )
-            goto LABEL_25;
-        }
-      }
-    }
-    else
-    {
-      v5 = 260LL;
-      v4 = (char *)L"\\??\\" - (char *)v6;
-      v8 = v6;
-      do
-      {
-        if ( v5 == -2147483386 )
-          break;
-        v9 = *(unsigned __int16 *)((char *)v8 + v4);
-        if ( !v9 )
-          break;
-        *v8++ = v9;
-        --v5;
-      }
-      while ( v5 );
-      v10 = v8 - 1;
-      if ( v5 )
-        v10 = v8;
-      *v10 = 0;
-      if ( v5 )
-      {
-        NtSystemRoot = (size_t *)RtlGetNtSystemRoot(v8, v4);
-        if ( StringCchCatW(v6, v12, NtSystemRoot) >= 0 )
-        {
-          v4 = 260LL;
-          v13 = v6;
-          do
-          {
-            if ( !*v13 )
-              break;
-            ++v13;
-            --v4;
-          }
-          while ( v4 );
-          v5 = (260 - v4) & -(__int64)(v4 != 0);
-          if ( v4 )
-          {
-            v14 = (char *)&v6[v5];
-            v4 = 260 - v5;
-            if ( v5 != 260 )
-            {
-              v15 = 2147483646LL;
-              v16 = (char *)L"\\fonts\\" - v14;
-              do
-              {
-                if ( !v15 )
-                  break;
-                v5 = *(unsigned __int16 *)&v14[v16];
-                if ( !(_WORD)v5 )
-                  break;
-                *(_WORD *)v14 = v5;
-                --v15;
-                v14 += 2;
-                --v4;
-              }
-              while ( v4 );
-            }
-            v17 = v14 - 2;
-            if ( v4 )
-              v17 = v14;
-            *(_WORD *)v17 = 0;
-            if ( v4 )
-            {
-              if ( StringCchCatW(v6, v4, a2) >= 0 )
-              {
-                cCapString(a1, v6, 260LL);
-LABEL_25:
-                AutoResource<&void Win32FreePool(void *)>::~AutoResource<&void Win32FreePool(void *)>(&v25, v4, v5);
-                return 1LL;
-              }
-            }
-          }
-        }
-      }
-    }
+    *v25 = 92;
+    v26 = v25 + 12;
+    v27 = -1LL;
+    do
+      ++v27;
+    while ( v26[v27] );
+    memmove(v25 + 11, v26, 2 * v27 + 2);
+    goto LABEL_27;
   }
-  AutoResource<&void Win32FreePool(void *)>::~AutoResource<&void Win32FreePool(void *)>(&v25, v4, v5);
-  return 0LL;
+  if ( *(_DWORD *)(a1 + 1) == 6029370 )
+  {
+    if ( (int)StringCchCopyW((char *)v4, 260LL, (char *)a1) < 0 )
+      goto LABEL_30;
+    v28 = a1;
+    v29 = (char *)L"\\??\\" - (char *)a1;
+    do
+    {
+      if ( v7 == -2147483386 )
+        break;
+      v30 = *(unsigned __int16 *)((char *)v28 + v29);
+      if ( !v30 )
+        break;
+      *v28++ = v30;
+      --v7;
+    }
+    while ( v7 );
+    v31 = v28 - 1;
+    if ( v7 )
+      v31 = v28;
+    *v31 = 0;
+    if ( !v7 || (int)StringCchCatW(a1, v29, v4) < 0 )
+LABEL_30:
+      v6 = 0;
+  }
+LABEL_27:
+  if ( v4 )
+    Win32FreePool(v4);
+  return v6;
 }

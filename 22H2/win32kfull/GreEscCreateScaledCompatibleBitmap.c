@@ -1,9 +1,9 @@
 /*
- * XREFs of GreEscCreateScaledCompatibleBitmap @ 0x1C02A7D30
+ * XREFs of GreEscCreateScaledCompatibleBitmap @ 0x1C029E6B8
  * Callers:
- *     GreScalingDispatchEscape @ 0x1C02A8210 (GreScalingDispatchEscape.c)
+ *     GreScalingDispatchEscape @ 0x1C029EB20 (GreScalingDispatchEscape.c)
  * Callees:
- *     GreCreateCompatibleBitmapInternal @ 0x1C0057310 (GreCreateCompatibleBitmapInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AADE8 (GreCreateCompatibleBitmapInternal.c)
  */
 
 __int16 __fastcall GreEscCreateScaledCompatibleBitmap(__int64 a1)
@@ -16,7 +16,7 @@ __int16 __fastcall GreEscCreateScaledCompatibleBitmap(__int64 a1)
   if ( (unsigned __int16)CompatibleBitmapInternal <= 0x180u )
   {
     CompatibleBitmapInternal = GreCreateCompatibleBitmapInternal(
-                                 *(_QWORD *)(a1 + 8),
+                                 *(HDC *)(a1 + 8),
                                  *(_DWORD *)(a1 + 16),
                                  *(_DWORD *)(a1 + 20),
                                  0,

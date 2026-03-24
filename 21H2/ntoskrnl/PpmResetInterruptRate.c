@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmResetInterruptRate @ 0x14045EA10
+ * XREFs of PpmResetInterruptRate @ 0x14057C470
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ __int64 __fastcall PpmResetInterruptRate(_DWORD *a1)
   int v1; // eax
 
   _disable();
-  v1 = a1[8272];
+  v1 = a1[8096];
   a1[2921] = 0;
   a1[2920] = v1;
   _enable();

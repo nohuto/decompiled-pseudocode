@@ -1,14 +1,14 @@
 /*
- * XREFs of BgkpDisableConsole @ 0x14055161C
+ * XREFs of BgkpDisableConsole @ 0x1404FF9AC
  * Callers:
- *     BgkDestroy @ 0x140AAE8BC (BgkDestroy.c)
+ *     BgkDestroy @ 0x1409F4B08 (BgkDestroy.c)
  * Callees:
- *     ExRundownCompleted @ 0x1402095E0 (ExRundownCompleted.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
+ *     ExRundownCompleted @ 0x140251F40 (ExRundownCompleted.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
  */
 
 void BgkpDisableConsole()
 {
-  ExWaitForRundownProtectionRelease(&stru_140C0B8C8);
-  ExRundownCompleted(&stru_140C0B8C8);
+  ExWaitForRundownProtectionRelease(&stru_140C113C8);
+  ExRundownCompleted(&stru_140C113C8);
 }

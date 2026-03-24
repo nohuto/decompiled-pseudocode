@@ -1,5 +1,5 @@
 /*
- * XREFs of PopClearSpecialRequest @ 0x14086638C
+ * XREFs of PopClearSpecialRequest @ 0x14086636C
  * Callers:
  *     PopPowerRequestActionInfo @ 0x140588A30 (PopPowerRequestActionInfo.c)
  * Callees:

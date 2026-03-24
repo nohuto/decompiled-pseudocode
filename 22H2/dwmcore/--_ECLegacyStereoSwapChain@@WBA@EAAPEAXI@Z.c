@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECLegacyStereoSwapChain@@WBA@EAAPEAXI@Z @ 0x1801206A0
+ * XREFs of ??_ECLegacyStereoSwapChain@@WBA@EAAPEAXI@Z @ 0x1800F7100
  * Callers:
  *     <none>
  * Callees:

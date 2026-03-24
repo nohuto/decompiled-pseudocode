@@ -1,11 +1,11 @@
 /*
- * XREFs of KdpSysWriteControlSpace @ 0x140AB2E44
+ * XREFs of KdpSysWriteControlSpace @ 0x1409BA008
  * Callers:
- *     KdSystemDebugControl @ 0x1409721A0 (KdSystemDebugControl.c)
- *     KdpWriteControlSpace @ 0x140AB2DB8 (KdpWriteControlSpace.c)
+ *     KdSystemDebugControl @ 0x1408B9BB0 (KdSystemDebugControl.c)
+ *     KdpWriteControlSpace @ 0x1409B9254 (KdpWriteControlSpace.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KdpCopyMemoryChunks @ 0x140AB12A4 (KdpCopyMemoryChunks.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpSysWriteControlSpace(ULONG a1, __int64 a2, char *a3, unsigned int a4, _DWORD *a5)
@@ -24,5 +24,5 @@ __int64 __fastcall KdpSysWriteControlSpace(ULONG a1, __int64 a2, char *a3, unsig
   v10 = 240;
   if ( a4 <= 0xF0 )
     v10 = a4;
-  return KdpCopyMemoryChunks(a3, v9 + 256, v10, 0, 4, a5);
+  return KdpCopyMemoryChunks(a3, (_BYTE *)(v9 + 256), v10, 0, 4u, a5);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionCreateEdgePalmRejectionZones @ 0x1C0207B80
+ * XREFs of EditionCreateEdgePalmRejectionZones @ 0x1C0207530
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z @ 0x1C0207984 (-CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z.c)
+ *     ?CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z @ 0x1C0207348 (-CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z.c)
  */
 
 __int64 __fastcall EditionCreateEdgePalmRejectionZones(PalmRejection *a1, void *a2)

@@ -1,53 +1,71 @@
 /*
- * XREFs of ?xxxAdviseAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01F9E90
+ * XREFs of ?xxxAdviseAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021ADD0
  * Callers:
  *     <none>
  * Callees:
- *     ?FreeListAdd@@YAHPEAUtagDDECONV@@PEAXK@Z @ 0x1C01F99B8 (-FreeListAdd@@YAHPEAUtagDDECONV@@PEAXK@Z.c)
- *     ?PopState@@YAXPEAUtagDDECONV@@@Z @ 0x1C01F9B74 (-PopState@@YAXPEAUtagDDECONV@@@Z.c)
- *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C01FA300 (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
- *     ?xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FAF30 (-xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     ?FreeListAdd@@YAHPEAUtagDDECONV@@PEAXK@Z @ 0x1C021A6D4 (-FreeListAdd@@YAHPEAUtagDDECONV@@PEAXK@Z.c)
+ *     ?PopState@@YAXPEAUtagDDECONV@@@Z @ 0x1C021A8E4 (-PopState@@YAXPEAUtagDDECONV@@@Z.c)
+ *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C021B45C (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
+ *     ?xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021C400 (-xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
  */
 
 unsigned int __fastcall xxxAdviseAck(unsigned int *a1, __int64 *a2, struct tagDDECONV *a3)
 {
-  unsigned int v3; // edi
-  bool v5; // zf
+  bool v4; // zf
+  __int64 *v5; // rsi
   unsigned int result; // eax
-  unsigned int v7; // esi
-  char v8; // cl
-  __int64 v9; // rdx
-  struct tagDDECONV *v10; // rcx
-  void *v11; // rax
-  struct tagINTDDEINFO *v12; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v8; // edi
+  int v9; // edx
+  char v10; // cl
+  __int64 v11; // rdi
+  int v12; // ecx
+  PETHREAD **v13; // rcx
+  void *v14; // rdx
+  struct tagINTDDEINFO *v15; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = 0;
-  v5 = *a1 == 996;
-  v12 = 0LL;
-  if ( !v5 )
+  v4 = *a1 == 996;
+  v5 = a2;
+  v15 = 0LL;
+  if ( !v4 )
     return xxxUnexpectedServerPost(a1, a2, a3);
-  v7 = xxxCopyAckIn(a1, a2, a3, &v12);
-  v8 = *(_BYTE *)(_HMPheFromObject(a3) + 25);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)a1, (_DWORD)a2, 14, 26, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
+  }
+  v8 = xxxCopyAckIn(a1, v5, a3, &v15);
+  v10 = *(_BYTE *)(_HMPheFromObject(a3) + 25);
   result = 1;
-  if ( (v8 & 1) != 0 )
-    return v3;
-  v3 = v7;
-  if ( v7 != 2 )
-    return v3;
+  if ( (v10 & 1) != 0 )
+    v8 = 0;
+  if ( v8 != 2 )
+    return v8;
   if ( (*((_DWORD *)a3 + 20) & 6) == 0 )
   {
-    v9 = *((_QWORD *)a3 + 7);
-    if ( (*(_DWORD *)v12 & 0x8000LL) != 0 )
+    v11 = *((_QWORD *)a3 + 7);
+    v12 = *(_DWORD *)v15;
+    if ( (*(_DWORD *)v15 & 0x8000LL) != 0 )
     {
-      v10 = (struct tagDDECONV *)*((_QWORD *)a3 + 4);
-      v11 = *(void **)(v9 + 40);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v9) = 4;
+        WPP_RECORDER_SF_(v12, v9, 14, 27, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
+      }
+      v13 = (PETHREAD **)*((_QWORD *)a3 + 4);
+      v14 = *(void **)(v11 + 40);
     }
     else
     {
-      v11 = *(void **)(v9 + 48);
-      v10 = a3;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v9) = 4;
+        WPP_RECORDER_SF_(v12, v9, 14, 28, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
+      }
+      v14 = *(void **)(v11 + 48);
+      v13 = (PETHREAD **)a3;
     }
-    FreeListAdd(v10, v11, *(_DWORD *)(v9 + 64) & 0xFFFFFFFE);
+    FreeListAdd(v13, v14, *(_DWORD *)(v11 + 64) & 0xFFFFFFFE);
     PopState(a3);
     return 2;
   }

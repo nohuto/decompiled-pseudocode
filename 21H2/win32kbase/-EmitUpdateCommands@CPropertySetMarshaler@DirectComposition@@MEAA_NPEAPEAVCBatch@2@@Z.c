@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitUpdateCommands@CPropertySetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010D30
+ * XREFs of ?EmitUpdateCommands@CPropertySetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061910
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010D88 (-EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010F54 (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061968 (-EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061DEC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CPropertySetMarshaler::EmitUpdateCommands(
@@ -28,9 +28,9 @@ char __fastcall DirectComposition::CPropertySetMarshaler::EmitUpdateCommands(
       *(_DWORD *)v7 = 16;
       *(_QWORD *)(v6 + 4) = 0LL;
       *((_DWORD *)v6 + 3) = 0;
-      *((_DWORD *)v6 + 1) = 320;
-      *((_DWORD *)v6 + 2) = *((_DWORD *)this + 8);
-      *((_DWORD *)v6 + 3) = *((_DWORD *)this + 28);
+      *((_DWORD *)v6 + 1) = 327;
+      *((_DWORD *)v6 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)v6 + 3) = *((_DWORD *)this + 26);
       *((_DWORD *)this + 4) &= ~0x100u;
     }
     if ( DirectComposition::CPropertySetMarshaler::EmitSetProperties(this, a2) )

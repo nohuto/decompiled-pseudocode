@@ -1,151 +1,153 @@
 /*
- * XREFs of EtwpStartLogger @ 0x1406BBFB0
+ * XREFs of EtwpStartLogger @ 0x140711A40
  * Callers:
- *     EtwpStartTrace @ 0x1407E5360 (EtwpStartTrace.c)
- *     EtwStartAutoLogger @ 0x14083DD38 (EtwStartAutoLogger.c)
- *     EtwpStartBootLogger @ 0x140B986C4 (EtwpStartBootLogger.c)
+ *     EtwpStartTrace @ 0x140710EBC (EtwpStartTrace.c)
+ *     EtwStartAutoLogger @ 0x140796424 (EtwStartAutoLogger.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259BB0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     MmGetSessionId @ 0x1402A3B20 (MmGetSessionId.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140321C20 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     EtwpStartLoggerThread @ 0x140343454 (EtwpStartLoggerThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     EtwpSetQpcDeltaTracking @ 0x1405FC408 (EtwpSetQpcDeltaTracking.c)
- *     EtwpSetPartitionContext @ 0x140601804 (EtwpSetPartitionContext.c)
- *     ExUuidCreate @ 0x140688920 (ExUuidCreate.c)
- *     EtwpLookupLoggerIdByName @ 0x1406BD758 (EtwpLookupLoggerIdByName.c)
- *     EtwpAccessCheck @ 0x1406BDBDC (EtwpAccessCheck.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpFreeSecurityDescriptor @ 0x1406C04DC (EtwpFreeSecurityDescriptor.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x1406C0FAC (EtwpGetSecurityDescriptorByGuid.c)
- *     SeCreateClientSecurity @ 0x14071D3C0 (SeCreateClientSecurity.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     EtwpSendSessionNotification @ 0x14077ED30 (EtwpSendSessionNotification.c)
- *     EtwpCheckGuidAccess @ 0x140782074 (EtwpCheckGuidAccess.c)
- *     EtwpFreeLoggerContext @ 0x14078E1AC (EtwpFreeLoggerContext.c)
- *     EtwpFreeTraceBufferPool @ 0x14078E4AC (EtwpFreeTraceBufferPool.c)
- *     EtwpInitLoggerContext @ 0x1407B3A70 (EtwpInitLoggerContext.c)
- *     EtwpInitializeTimeStamp @ 0x1407DC230 (EtwpInitializeTimeStamp.c)
- *     EtwpInitializeLoggerSecurityDescriptor @ 0x1407E625C (EtwpInitializeLoggerSecurityDescriptor.c)
- *     EtwpGenerateFileName @ 0x1407E9820 (EtwpGenerateFileName.c)
- *     EtwpStopLoggerInstance @ 0x1407F69E4 (EtwpStopLoggerInstance.c)
- *     EtwpCreateLogFile @ 0x1407F6D40 (EtwpCreateLogFile.c)
- *     EtwpAllocateTraceBufferPool @ 0x1407F79D4 (EtwpAllocateTraceBufferPool.c)
- *     EtwpValidateFlagExtension @ 0x1407F8470 (EtwpValidateFlagExtension.c)
- *     EtwpCheckForStackTracingExtension @ 0x1407F8584 (EtwpCheckForStackTracingExtension.c)
- *     EtwpGetFlagExtension @ 0x1407F85EC (EtwpGetFlagExtension.c)
- *     EtwpGetLoggerInfoFromContext @ 0x1407F91F0 (EtwpGetLoggerInfoFromContext.c)
- *     EtwpCaptureString @ 0x1407FB2E0 (EtwpCaptureString.c)
- *     RtlCreateUnicodeString @ 0x1407FB710 (RtlCreateUnicodeString.c)
- *     EtwpUpdateLoggerGroupMasks @ 0x140827444 (EtwpUpdateLoggerGroupMasks.c)
- *     EtwpCheckForPoolTagFilterExtension @ 0x14085C6D0 (EtwpCheckForPoolTagFilterExtension.c)
- *     EtwpEventWriteTemplateAdmin @ 0x1409E3A70 (EtwpEventWriteTemplateAdmin.c)
- *     EtwpEventWriteTemplateSession @ 0x1409E3CB4 (EtwpEventWriteTemplateSession.c)
- *     EtwpUpdatePerProcessTracing @ 0x1409E7A0C (EtwpUpdatePerProcessTracing.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     MmGetSessionId @ 0x140252DB0 (MmGetSessionId.c)
+ *     PsGetCurrentServerSilo @ 0x14025C220 (PsGetCurrentServerSilo.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x14026D960 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402DEA70 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     EtwpSetQpcDeltaTracking @ 0x1405AA6E8 (EtwpSetQpcDeltaTracking.c)
+ *     EtwpSetPartitionContext @ 0x1405B09E0 (EtwpSetPartitionContext.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     EtwpGenerateFileName @ 0x14068EAAC (EtwpGenerateFileName.c)
+ *     EtwpFreeLoggerContext @ 0x14069817C (EtwpFreeLoggerContext.c)
+ *     EtwpFreeTraceBufferPool @ 0x14069862C (EtwpFreeTraceBufferPool.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpAccessCheck @ 0x1406BC938 (EtwpAccessCheck.c)
+ *     EtwpFreeSecurityDescriptor @ 0x1406BD0EC (EtwpFreeSecurityDescriptor.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1406BD12C (EtwpGetSecurityDescriptorByGuid.c)
+ *     SeCreateClientSecurity @ 0x1406D6B30 (SeCreateClientSecurity.c)
+ *     RtlCreateUnicodeString @ 0x1406ED6B0 (RtlCreateUnicodeString.c)
+ *     PsCreateSystemThread @ 0x1406FDA10 (PsCreateSystemThread.c)
+ *     EtwpStopLoggerInstance @ 0x140710AB0 (EtwpStopLoggerInstance.c)
+ *     EtwpValidateFlagExtension @ 0x140711078 (EtwpValidateFlagExtension.c)
+ *     EtwpLookupLoggerIdByName @ 0x140711184 (EtwpLookupLoggerIdByName.c)
+ *     EtwpInitLoggerContext @ 0x140711218 (EtwpInitLoggerContext.c)
+ *     EtwpInitializeTimeStamp @ 0x140711604 (EtwpInitializeTimeStamp.c)
+ *     EtwpCheckForStackTracingExtension @ 0x140711780 (EtwpCheckForStackTracingExtension.c)
+ *     EtwpGetFlagExtension @ 0x1407117C0 (EtwpGetFlagExtension.c)
+ *     EtwpInitializeLoggerSecurityDescriptor @ 0x140711804 (EtwpInitializeLoggerSecurityDescriptor.c)
+ *     EtwpCaptureString @ 0x1407128E4 (EtwpCaptureString.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1407129F4 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpAllocateTraceBufferPool @ 0x140712D40 (EtwpAllocateTraceBufferPool.c)
+ *     EtwpCreateLogFile @ 0x14071334C (EtwpCreateLogFile.c)
+ *     EtwpSendSessionNotification @ 0x140714D88 (EtwpSendSessionNotification.c)
+ *     ExUuidCreate @ 0x14071FC80 (ExUuidCreate.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x140791EEC (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwpCheckForPoolTagFilterExtension @ 0x140793778 (EtwpCheckForPoolTagFilterExtension.c)
+ *     EtwpUpdatePerProcessTracing @ 0x140934494 (EtwpUpdatePerProcessTracing.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140939BAC (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpEventWriteTemplateSession @ 0x140939ECC (EtwpEventWriteTemplateSession.c)
+ *     EtwpCheckCurrentUserGuidAccess @ 0x140941510 (EtwpCheckCurrentUserGuidAccess.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpStartLogger(ULONGLONG a1, __int64 a2)
+__int64 __fastcall EtwpStartLogger(__int64 a1, __int64 a2)
 {
   int v4; // edx
   unsigned int v5; // ecx
-  unsigned int v6; // r15d
-  unsigned int v7; // ecx
-  int v8; // eax
+  int v6; // r15d
   int FileName; // edi
-  ACCESS_MASK v10; // esi
-  __int64 v11; // rax
-  __int64 v12; // rbx
-  __int64 v13; // r13
-  __int64 v14; // rax
-  __int64 v15; // rdi
-  __int64 v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  ULONGLONG v19; // rax
-  unsigned int v20; // r13d
-  unsigned int *v21; // rsi
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  unsigned int v24; // eax
-  __int64 v25; // r13
-  signed __int64 v26; // rdx
-  ULONGLONG Ptr; // r13
-  __int64 v28; // rax
+  ACCESS_MASK v8; // r13d
+  __int64 v9; // rax
+  __int64 v10; // rdi
+  UUID v11; // kr00_16
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  unsigned int v17; // edi
+  unsigned int v18; // eax
+  unsigned int *v19; // rax
+  __int64 v20; // rbx
+  __int64 v21; // r8
+  signed __int64 v22; // rdx
+  __int64 v23; // rax
   unsigned int *inited; // rsi
-  __int64 FlagExtension; // rax
-  __int64 v31; // r8
-  unsigned int v32; // eax
-  int v33; // eax
-  int v34; // ecx
+  unsigned __int16 *FlagExtension; // rax
+  __int64 v26; // r8
+  unsigned int v27; // eax
+  int v28; // eax
+  int v29; // ecx
+  unsigned int v30; // eax
+  UNICODE_STRING *v31; // r13
+  int v32; // eax
+  __int64 v33; // rdx
+  unsigned int v34; // eax
   unsigned int v35; // eax
-  _WORD *v36; // rbx
-  __int64 v37; // rdx
-  unsigned int v38; // eax
-  unsigned int v39; // eax
-  unsigned int v40; // eax
-  __int64 v41; // rdx
-  int v42; // ecx
-  unsigned int v43; // ecx
-  unsigned __int64 v44; // rdx
-  int v45; // eax
-  __int64 v46; // rbx
-  __int64 CurrentServerSilo; // rax
-  __int64 v48; // rcx
-  __int64 v49; // r8
-  __int64 v50; // rdx
+  unsigned int v36; // eax
+  unsigned int v37; // ecx
+  int v38; // edx
+  unsigned int v39; // ecx
+  unsigned __int64 v40; // rdx
+  __int64 v41; // rcx
+  int v42; // eax
+  __int64 v43; // r15
+  __int64 v44; // rbx
+  __int64 v45; // rdx
+  __int64 v46; // rcx
+  __int64 v47; // rcx
+  __int64 v48; // r8
+  __int64 v50; // rax
+  __int64 v51; // rax
   char v52; // al
   __int64 v53; // rcx
-  unsigned int v54; // ebx
-  __int16 v55; // ax
-  bool v56; // zf
-  __int64 v57; // rax
-  __int64 v58; // rax
-  __int64 v59; // rbx
-  unsigned int v60; // ebx
-  const WCHAR *v61; // rdx
-  __int64 Pool2; // rax
-  __int64 v63; // rax
-  __int64 v64; // rax
-  void *v65; // rcx
-  __int64 v66; // rbx
-  int v67; // ecx
-  int v68; // r8d
-  unsigned int v69; // ecx
-  int v70; // edx
-  __int64 v71; // rdx
-  unsigned int v72; // [rsp+40h] [rbp-59h] BYREF
-  unsigned __int8 v73; // [rsp+44h] [rbp-55h]
-  unsigned int v74; // [rsp+48h] [rbp-51h]
-  int v75; // [rsp+4Ch] [rbp-4Dh] BYREF
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-49h] BYREF
-  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+60h] [rbp-39h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-31h] BYREF
-  ACCESS_MASK DesiredAccess; // [rsp+78h] [rbp-21h]
-  __int64 v80; // [rsp+80h] [rbp-19h]
-  struct _SECURITY_QUALITY_OF_SERVICE ClientSecurityQos; // [rsp+88h] [rbp-11h] BYREF
-  UUID Buf2; // [rsp+98h] [rbp-1h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+A8h] [rbp+Fh] BYREF
+  unsigned int v54; // ecx
+  __int64 v55; // rbx
+  unsigned int v56; // ebx
+  const WCHAR *v57; // rdx
+  bool v58; // zf
+  unsigned int v59; // eax
+  __int64 v60; // rax
+  int v61; // r9d
+  unsigned int v62; // eax
+  void *v63; // rcx
+  __int64 v64; // rbx
+  int v65; // ecx
+  int v66; // r8d
+  unsigned int v67; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int8 v68; // [rsp+44h] [rbp-BCh]
+  unsigned int v69; // [rsp+48h] [rbp-B8h]
+  __int64 v70; // [rsp+50h] [rbp-B0h]
+  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
+  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+68h] [rbp-98h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+70h] [rbp-90h] BYREF
+  int v74; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v75; // [rsp+88h] [rbp-78h]
+  struct _SECURITY_QUALITY_OF_SERVICE ClientSecurityQos; // [rsp+90h] [rbp-70h] BYREF
+  HANDLE ThreadHandle; // [rsp+A0h] [rbp-60h] BYREF
+  __int128 StartContext; // [rsp+A8h] [rbp-58h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp-48h] BYREF
+  UUID Buf2; // [rsp+E8h] [rbp-18h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v81; // [rsp+F8h] [rbp-8h] BYREF
+  int *v82; // [rsp+118h] [rbp+18h]
+  __int64 v83; // [rsp+120h] [rbp+20h]
 
-  UserData.Ptr = a1;
-  v72 = 0;
+  v70 = a1;
+  v67 = 0;
+  ThreadHandle = 0LL;
   *(_WORD *)(&ClientSecurityQos.EffectiveOnly + 1) = 0;
   SecurityDescriptor = 0LL;
-  v75 = 0;
-  v74 = 8;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   Buf2 = 0LL;
+  v69 = 8;
   UnicodeString = 0LL;
   DestinationString = 0LL;
+  StartContext = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   RtlInitUnicodeString(&UnicodeString, 0LL);
   v4 = *(_DWORD *)(a2 + 64);
@@ -157,15 +159,14 @@ __int64 __fastcall EtwpStartLogger(ULONGLONG a1, __int64 a2)
     v6 = v5;
   if ( (v6 & 0x80000) != 0 && (v6 & 0x1000000) != 0 )
     v6 &= ~0x1000000u;
-  v7 = v6;
   if ( (v6 & 0x400) != 0 )
   {
-    if ( *(_QWORD *)(a2 + 136) || (v6 & 0xF) != 0 )
-      goto LABEL_143;
-    v55 = v6;
-    v6 &= ~0x100u;
-    if ( (v55 & 0x100) == 0 )
-      v6 = v7;
+    if ( *(_QWORD *)(a2 + 136) || (v6 & 0x4000F) != 0 )
+      goto LABEL_132;
+    v54 = v6 & 0xFFFFFEFF;
+    if ( (v6 & 0x100) == 0 )
+      v54 = v6;
+    v6 = v54;
     if ( *(_DWORD *)(a2 + 68) )
       *(_DWORD *)(a2 + 68) = 0;
     if ( *(_DWORD *)(a2 + 76) )
@@ -181,7 +182,7 @@ __int64 __fastcall EtwpStartLogger(ULONGLONG a1, __int64 a2)
     && ((*(_DWORD *)(a2 + 112) & 2) == 0 || (v6 & 0x402) == 0 && ((v6 & 0x100) == 0 || *(_QWORD *)(a2 + 136)))
     || (v6 & 0xC00000) == 0xC00000 )
   {
-    goto LABEL_143;
+    goto LABEL_132;
   }
   if ( (v6 & 8) != 0 )
   {
@@ -191,64 +192,67 @@ __int64 __fastcall EtwpStartLogger(ULONGLONG a1, __int64 a2)
       || (*(_DWORD *)(a2 + 112) & 2) != 0
       || (v4 & 0x2000000) != 0 )
     {
-      goto LABEL_143;
+      goto LABEL_132;
     }
-    v57 = *(_QWORD *)(a2 + 24) - SystemTraceControlGuid;
-    if ( !v57 )
-      v57 = *(_QWORD *)(a2 + 32) - 0x3969A8086000829ALL;
-    if ( !v57 )
-      goto LABEL_143;
-    v58 = *(_QWORD *)(a2 + 24) - CKCLGuid;
-    if ( !v58 )
-      v58 = *(_QWORD *)(a2 + 32) - 0x74F156D0633E71AFLL;
-    if ( !v58 || (v6 & 4) != 0 )
-      goto LABEL_143;
+    v50 = *(_QWORD *)(a2 + 24) - SystemTraceControlGuid;
+    if ( !v50 )
+      v50 = *(_QWORD *)(a2 + 32) - 0x3969A8086000829ALL;
+    if ( !v50 )
+      goto LABEL_132;
+    v51 = *(_QWORD *)(a2 + 24) - CKCLGuid;
+    if ( !v51 )
+      v51 = *(_QWORD *)(a2 + 32) - 0x74F156D0633E71AFLL;
+    if ( !v51 || (v6 & 4) != 0 )
+      goto LABEL_132;
   }
-  if ( (v4 & 0x3000000) == 0x3000000 || (v4 & 0x4000000) != 0 && (v4 & 0x106) != 0 || (v4 & 0x10000) != 0 )
-    goto LABEL_143;
+  if ( (v4 & 0x3000000) == 0x3000000 || (v4 & 0x4000000) != 0 && (v4 & 0x400) == 0 || (v4 & 0x10000) != 0 )
+    goto LABEL_132;
   if ( (*(_BYTE *)(a2 + 80) & 4) != 0 )
   {
     if ( !EtwpKsrCallbackObject )
     {
       FileName = -1073741637;
-      goto LABEL_270;
+      goto LABEL_244;
     }
     if ( (v4 & 0x400) == 0 || (v4 & 0x1000000) != 0 )
-      goto LABEL_143;
+      goto LABEL_132;
   }
-  v8 = *(_DWORD *)(a2 + 112);
-  if ( v8 < 0 )
-  {
-    if ( EtwpBootPhase || (v8 & 2) == 0 || (v4 & 0x2000000) == 0 || ((*(_DWORD *)(a2 + 40) - 2) & 0xFFFFFFFD) == 0 )
-      goto LABEL_143;
-    v63 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&NullGuid.Data1;
-    if ( !v63 )
-      v63 = *(_QWORD *)(a2 + 32) - *(_QWORD *)NullGuid.Data4;
-    if ( !v63 )
-      goto LABEL_143;
-  }
-  FileName = EtwpValidateFlagExtension(a2);
+  FileName = EtwpValidateFlagExtension((unsigned int *)a2);
   if ( FileName < 0 )
-    goto LABEL_270;
-  v10 = ((v6 & 0x100 | 0x400) >> 3) | 0x40;
+    goto LABEL_244;
+  v8 = ((v6 & 0x100 | 0x400u) >> 3) | 0x40;
   if ( !*(_WORD *)(a2 + 128) )
-    v10 = (v6 & 0x100 | 0x400) >> 3;
-  DesiredAccess = v10;
+    v8 = (v6 & 0x100 | 0x400u) >> 3;
   if ( !*(_WORD *)(a2 + 144) || !*(_QWORD *)(a2 + 152) )
-  {
-LABEL_143:
-    FileName = -1073741811;
-    goto LABEL_270;
-  }
+    goto LABEL_132;
   FileName = EtwpCaptureString(a2 + 144, &DestinationString);
   if ( FileName )
-    goto LABEL_270;
-  if ( !(unsigned int)EtwpLookupLoggerIdByName(a1, &DestinationString, &v72) )
-    goto LABEL_240;
-  v11 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&NullGuid.Data1;
-  if ( !v11 )
-    v11 = *(_QWORD *)(a2 + 32) - *(_QWORD *)NullGuid.Data4;
-  if ( v11 )
+  {
+LABEL_244:
+    if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SESSION_START_FAILED) )
+      EtwpEventWriteTemplateAdmin(
+        v65,
+        (unsigned int)&ETW_EVENT_SESSION_START_FAILED,
+        v66,
+        (unsigned int)&DestinationString,
+        (__int64)&UnicodeString,
+        FileName,
+        v6);
+    RtlFreeAnsiString(&DestinationString);
+    RtlFreeAnsiString(&UnicodeString);
+    EtwpFreeSecurityDescriptor(&SecurityDescriptor);
+    return (unsigned int)FileName;
+  }
+  if ( !(unsigned int)EtwpLookupLoggerIdByName(a1, &DestinationString, &v67) )
+  {
+LABEL_211:
+    FileName = -1073741771;
+    goto LABEL_244;
+  }
+  v9 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&NullGuid.Data1;
+  if ( !v9 )
+    v9 = *(_QWORD *)(a2 + 32) - *(_QWORD *)NullGuid.Data4;
+  if ( v9 )
   {
     Buf2 = *(UUID *)(a2 + 24);
   }
@@ -256,7 +260,7 @@ LABEL_143:
   {
     FileName = ExUuidCreate(&Buf2);
     if ( FileName < 0 )
-      goto LABEL_270;
+      goto LABEL_244;
   }
   if ( (v6 & 0xC00000) == 0 )
   {
@@ -270,499 +274,485 @@ LABEL_143:
       v6 |= 0x800000u;
     }
   }
-  v12 = *(_QWORD *)&Buf2.Data1;
-  v13 = *(_QWORD *)(a1 + 456);
-  v14 = *(_QWORD *)&Buf2.Data1 - SystemTraceControlGuid;
-  v15 = *(_QWORD *)Buf2.Data4;
-  v80 = v13;
+  v10 = *(_QWORD *)(a1 + 456);
+  v11 = Buf2;
+  v12 = *(_QWORD *)&Buf2.Data1 - SystemTraceControlGuid;
+  v75 = v10;
   if ( *(_QWORD *)&Buf2.Data1 == SystemTraceControlGuid )
-    v14 = *(_QWORD *)Buf2.Data4 - 0x3969A8086000829ALL;
-  if ( !v14 )
-    goto LABEL_212;
-  v16 = *(_QWORD *)&Buf2.Data1 - CKCLGuid;
+    v12 = *(_QWORD *)Buf2.Data4 - 0x3969A8086000829ALL;
+  if ( !v12 )
+    goto LABEL_181;
+  v13 = *(_QWORD *)&Buf2.Data1 - CKCLGuid;
   if ( *(_QWORD *)&Buf2.Data1 == CKCLGuid )
-    v16 = *(_QWORD *)Buf2.Data4 - 0x74F156D0633E71AFLL;
-  if ( !v16 )
+    v13 = *(_QWORD *)Buf2.Data4 - 0x74F156D0633E71AFLL;
+  if ( !v13 )
   {
-LABEL_212:
-    RtlFreeUnicodeString(&DestinationString);
-    v59 = v12 - SystemTraceControlGuid;
-    if ( !v59 )
-      v59 = v15 - 0x3969A8086000829ALL;
-    if ( v59 )
+LABEL_181:
+    RtlFreeAnsiString(&DestinationString);
+    v55 = *(_QWORD *)&v11.Data1 - SystemTraceControlGuid;
+    if ( *(_QWORD *)&v11.Data1 == SystemTraceControlGuid )
+      v55 = *(_QWORD *)v11.Data4 - 0x3969A8086000829ALL;
+    if ( v55 )
     {
-      v60 = 2;
-      v74 = 1;
-      v61 = L"Circular Kernel Context Logger";
+      v56 = 2;
+      v69 = 1;
+      v57 = L"Circular Kernel Context Logger";
     }
     else
     {
-      v60 = 0;
-      v74 = 0;
-      v61 = L"NT Kernel Logger";
+      v56 = 0;
+      v69 = 0;
+      v57 = L"NT Kernel Logger";
     }
-    v72 = v60;
-    if ( !RtlCreateUnicodeString(&DestinationString, v61) )
-      goto LABEL_255;
+    v67 = v56;
+    if ( !RtlCreateUnicodeString(&DestinationString, v57) )
+      goto LABEL_228;
     v6 |= 0x80u;
-    if ( (v6 & 0x1000000) != 0 )
-      goto LABEL_143;
-    v56 = _InterlockedCompareExchange64((volatile signed __int64 *)(v13 + 8LL * v60), v13 | 1, 1LL) == 1;
-LABEL_195:
-    if ( !v56 )
-      goto LABEL_240;
-    v15 = *(_QWORD *)Buf2.Data4;
-    v12 = *(_QWORD *)&Buf2.Data1;
-LABEL_65:
-    Ptr = UserData.Ptr;
-    ExAcquireRundownProtectionCacheAwareEx(
-      *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(UserData.Ptr + 448) + 8LL * v72),
-      1u);
-    if ( *(int *)(a2 + 112) >= 0 )
-    {
-      EtwpGetSecurityDescriptorByGuid(&Buf2, &SecurityDescriptor);
-      FileName = EtwpAccessCheck(SecurityDescriptor, v10);
-      if ( FileName < 0 )
-        goto LABEL_269;
-      v15 = *(_QWORD *)Buf2.Data4;
-      v12 = *(_QWORD *)&Buf2.Data1;
-    }
-    v28 = HeapGuid - v12;
-    if ( HeapGuid == v12 )
-      v28 = 0x4AA2F2756B3425A8LL - v15;
-    if ( v28 )
-      v73 = memcmp(&CritSecGuid, &Buf2, 0x10uLL) != 0 ? 9 : 1;
-    else
-      v73 = 0;
-    if ( (*(_DWORD *)(a2 + 64) & 0x2000000) != 0 && v74 == 8 )
-    {
-      if ( *(int *)(a2 + 112) >= 0 )
-      {
-        FileName = EtwpCheckGuidAccess(&SystemTraceControlGuid, 128LL, 0LL);
-        if ( FileName < 0 )
-          goto LABEL_269;
-      }
-      v54 = 2;
-      v74 = 2;
-      while ( _bittest((const signed __int32 *)(Ptr + 4248), v54) )
-      {
-        v74 = ++v54;
-        if ( v54 >= 8 )
-        {
-          v74 = v54;
-          if ( v54 != 8 )
-            break;
-          FileName = -1073741670;
-          goto LABEL_269;
-        }
-      }
-    }
-    inited = (unsigned int *)EtwpInitLoggerContext(&DestinationString, v6, *(unsigned int *)(a2 + 112));
-    FlagExtension = EtwpGetFlagExtension(a2, 6LL);
-    if ( FlagExtension )
-    {
-      if ( 4 * *(_WORD *)FlagExtension == 12 )
-      {
-        FileName = EtwpSetPartitionContext((__int64 *)inited + 165, *(_QWORD *)(FlagExtension + 4), v31);
-        if ( FileName < 0 )
-          goto LABEL_260;
-      }
-    }
-    RtlFreeUnicodeString(&DestinationString);
-    if ( inited )
-    {
-      *(UUID *)(inited + 69) = Buf2;
-      inited[73] = *(_DWORD *)(a2 + 60);
-      if ( (*(_BYTE *)(a2 + 80) & 1) != 0 )
-        _InterlockedOr((volatile signed __int32 *)inited + 204, 0x10u);
-      inited[50] = *(_DWORD *)(a2 + 40);
-      if ( (*(_BYTE *)(a2 + 80) & 2) != 0 )
-      {
-        FileName = EtwpSetQpcDeltaTracking((__int64)inited);
-        if ( FileName < 0 )
-          goto LABEL_260;
-      }
-      if ( (*(_BYTE *)(a2 + 80) & 8) != 0 )
-        inited[204] |= 0x40000000u;
-      v32 = *(_DWORD *)(a2 + 68);
-      if ( v32 )
-      {
-        inited[52] = v32;
-      }
-      else if ( (v6 & 0x100) != 0 )
-      {
-        if ( (v6 & 0x10) != 0 )
-          inited[52] = 1000;
-        else
-          inited[52] = 1;
-      }
-      v33 = *(_DWORD *)(a2 + 76);
-      v34 = v33;
-      if ( v33 && (inited[52] || v33 < 0) )
-      {
-        *(_DWORD *)(a2 + 76) = 0;
-        v34 = 0;
-      }
-      v35 = v72;
-      FileName = 0;
-      inited[53] = v34;
-      *inited = v35;
-      *((_QWORD *)inited + 137) = Ptr;
-      if ( *(_WORD *)(a2 + 128) )
-      {
-        if ( *(_QWORD *)(a2 + 136) )
-        {
-          FileName = EtwpCaptureString(a2 + 128, &UnicodeString);
-          if ( FileName < 0 )
-            goto LABEL_260;
-        }
-      }
-      if ( (*(_DWORD *)(a2 + 112) & 2) != 0 )
-      {
-        inited[74] = *(_DWORD *)(a2 + 96);
-        *(_DWORD *)(a2 + 96) = 0;
-      }
-      if ( (inited[3] & 8) != 0 )
-      {
-        *(UNICODE_STRING *)(inited + 42) = UnicodeString;
-        RtlInitUnicodeString(&UnicodeString, 0LL);
-        FileName = EtwpGenerateFileName(inited + 42, inited + 74, inited + 38);
-        if ( FileName < 0 )
-          goto LABEL_226;
-        v36 = inited + 38;
-      }
-      else
-      {
-        v36 = inited + 38;
-        *(UNICODE_STRING *)(inited + 38) = UnicodeString;
-        RtlInitUnicodeString(&UnicodeString, 0LL);
-      }
-      if ( *(int *)(a2 + 112) >= 0 )
-      {
-        ClientSecurityQos.Length = 12;
-        ClientSecurityQos.ImpersonationLevel = SecurityImpersonation;
-        *(_WORD *)&ClientSecurityQos.ContextTrackingMode = 257;
-        FileName = SeCreateClientSecurity(
-                     KeGetCurrentThread(),
-                     &ClientSecurityQos,
-                     0,
-                     (PSECURITY_CLIENT_CONTEXT)(inited + 176));
-      }
-      if ( FileName >= 0 )
-      {
-        if ( (inited[3] & 0x100) != 0 )
-          _InterlockedOr((volatile signed __int32 *)inited + 204, 8u);
-        else
-          _InterlockedAnd((volatile signed __int32 *)inited + 204, 0xFFFFFFF7);
-        if ( (*(_DWORD *)(a2 + 112) & 2) != 0 )
-          _InterlockedOr((volatile signed __int32 *)inited + 204, 2u);
-        if ( *(int *)(a2 + 112) < 0 )
-          _InterlockedOr((volatile signed __int32 *)inited + 204, 0x80000000);
-        if ( (*(_DWORD *)(a2 + 112) & 1) != 0 )
-          _InterlockedOr((volatile signed __int32 *)inited + 204, 1u);
-        if ( (*(_DWORD *)(a2 + 112) & 0x4000) != 0 )
-          _InterlockedOr((volatile signed __int32 *)inited + 204, 0x4000u);
-        EtwpInitializeTimeStamp(inited);
-        v37 = v74;
-        if ( v74 < 8 )
-        {
-          inited[3] |= 0x2000000u;
-          *((_BYTE *)inited + 818) = v37;
-          if ( (unsigned int)v37 <= 1 )
-            _InterlockedOr((volatile signed __int32 *)inited + 204, 0x20u);
-          Ptr = UserData.Ptr;
-          *(_BYTE *)(UserData.Ptr + 2 * v37 + 4232) = v72;
-          if ( inited[50] - 1 >= 4 )
-            v52 = 1;
-          else
-            v52 = *((_BYTE *)inited + 200);
-          *(_BYTE *)(Ptr + 2 * v37 + 4233) = v52;
-          _interlockedbittestandset((volatile signed __int32 *)(Ptr + 4248), v37);
-        }
-        else
-        {
-          Ptr = UserData.Ptr;
-        }
-        FileName = EtwpCheckForStackTracingExtension(a2, inited);
-        if ( FileName < 0 )
-          goto LABEL_260;
-        v38 = *(_DWORD *)(a2 + 52);
-        if ( v38 )
-          inited[56] = v38;
-        v39 = *(_DWORD *)(a2 + 56);
-        if ( v39 )
-          inited[59] = v39;
-        v40 = *(_DWORD *)(a2 + 48);
-        if ( v40 )
-        {
-          if ( v40 > 0x4000 )
-          {
-            *(_DWORD *)(a2 + 48) = 0x4000;
-            v40 = 0x4000;
-          }
-          inited[1] = v40 << 10;
-        }
-        if ( (*(_BYTE *)(a2 + 80) & 4) != 0 )
-        {
-          inited[1] = (inited[1] + 0x1FFFFF) & 0xFFE00000;
-          _InterlockedOr((volatile signed __int32 *)inited + 204, 0x20000000u);
-        }
-        if ( *v36 )
-        {
-          *((_QWORD *)inited + 4) = KeGetCurrentThread();
-          while ( 1 )
-          {
-            _InterlockedOr((volatile signed __int32 *)inited + 206, 1u);
-            FileName = EtwpCreateLogFile(inited, 0LL, &v75);
-            if ( FileName >= 0 )
-              break;
-            if ( FileName != -1073741306 )
-              goto LABEL_260;
-            v69 = inited[1];
-            v70 = ~(v75 - 1) & (v69 + v75 - 1);
-            if ( v69 == v70 )
-              goto LABEL_260;
-            inited[1] = v70;
-          }
-        }
-        if ( inited[1] < 0x1000 && (*v36 || (inited[3] & 0x400) != 0) )
-          _InterlockedOr((volatile signed __int32 *)inited + 204, 0x1000u);
-        v41 = inited[1];
-        v42 = 0xFFFF;
-        if ( (unsigned __int64)(v41 - 72) < 0xFFFF )
-          v42 = v41 - 72;
-        inited[2] = v42 & 0xFFFFFFF8;
-        FileName = EtwpAllocateTraceBufferPool(inited);
-        if ( FileName < 0 )
-          goto LABEL_284;
-        if ( (v6 & 0x4000000) != 0 && (v6 & 0x400) == 0 )
-        {
-          Pool2 = ExAllocatePool2(64LL, inited[1], 1517777989LL);
-          *((_QWORD *)inited + 144) = Pool2;
-          if ( !Pool2 )
-          {
-            FileName = -1073741801;
-LABEL_260:
-            if ( (inited[3] & 0x2000000) != 0 )
-              _interlockedbittestandreset((volatile signed __int32 *)(Ptr + 4248), v74);
-            if ( (inited[204] & 0x80u) != 0 )
-              ExFreePoolWithTag(*((PVOID *)inited + 125), 0);
-            if ( (inited[204] & 0x2000) != 0 )
-              _InterlockedDecrement(&dword_140C6B4D0);
-            RtlFreeUnicodeString((PUNICODE_STRING)(inited + 38));
-            RtlFreeUnicodeString((PUNICODE_STRING)(inited + 42));
-            v65 = (void *)*((_QWORD *)inited + 100);
-            if ( v65 )
-              ZwClose(v65);
-            ExFreePoolWithTag(inited, 0);
-            goto LABEL_269;
-          }
-        }
-        v43 = inited[73];
-        if ( !v43 || (inited[3] & 0x2000) != 0 )
-          v44 = 10485760LL;
-        else
-          v44 = (unsigned __int64)v43 << 20;
-        v45 = inited[1] * inited[59];
-        if ( v44 <= (unsigned int)(2 * v45) )
-          v44 = (unsigned int)(2 * v45);
-        *((_QWORD *)inited + 52) = v44;
-        if ( *(int *)(a2 + 112) >= 0 )
-        {
-          FileName = EtwpInitializeLoggerSecurityDescriptor(inited, SecurityDescriptor);
-          EtwpFreeSecurityDescriptor(&SecurityDescriptor);
-          if ( FileName < 0 )
-          {
-LABEL_284:
-            EtwpFreeTraceBufferPool(inited);
-            goto LABEL_260;
-          }
-        }
-        _InterlockedAdd((volatile signed __int32 *)(Ptr + 4132), 1u);
-        v46 = v72;
-        ExAcquireRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(Ptr + 448) + 8LL * v72), 1u);
-        if ( (inited[3] & 0x400) == 0 && *(int *)(a2 + 112) >= 0 )
-        {
-          CurrentServerSilo = PsGetCurrentServerSilo();
-          FileName = EtwpStartLoggerThread(CurrentServerSilo, (__int64)inited);
-          if ( FileName < 0 )
-          {
-            ExReleaseRundownProtectionCacheAwareEx(
-              *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(Ptr + 448) + 8 * v46),
-              1u);
-LABEL_286:
-            EtwpFreeLoggerContext(inited);
-            return (unsigned int)FileName;
-          }
-        }
-        if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_START_TRACE) )
-          EtwpEventWriteTemplateSession(v48, &ETW_EVENT_START_TRACE, inited);
-        KeWaitForSingleObject(inited + 158, Executive, 0, 0, 0LL);
-        _InterlockedExchange64((volatile __int64 *)(v80 + 8 * v46), (__int64)inited);
-        EtwpSendSessionNotification(inited, 5LL);
-        if ( (inited[3] & 0x2000000) == 0 )
-          goto LABEL_137;
-        if ( Ptr == EtwpHostSiloState )
-        {
-          LOBYTE(v49) = 1;
-          FileName = EtwpCheckForPoolTagFilterExtension(inited, a2, v49);
-          if ( FileName < 0 )
-          {
-LABEL_287:
-            inited[10] = FileName;
-            EtwpStopLoggerInstance(inited);
-            if ( (inited[3] & 0x400) != 0 )
-            {
-              EtwpGetLoggerInfoFromContext(a2, inited);
-              LOBYTE(v71) = 1;
-              EtwpReleaseLoggerContext(inited, v71);
-              goto LABEL_286;
-            }
-LABEL_137:
-            if ( v73 != 9 )
-              EtwpUpdatePerProcessTracing(a2, Ptr, *inited, v73);
-            EtwpGetLoggerInfoFromContext(a2, inited);
-            LOBYTE(v50) = 1;
-            EtwpReleaseLoggerContext(inited, v50);
-            return (unsigned int)FileName;
-          }
-          v53 = 5LL * v74;
-          *((_WORD *)&EtwpObjectTypeFilter + 2 * v53) = 1;
-          *((_DWORD *)&EtwpObjectTypeFilter + v53 + 1) = 42;
-        }
-        FileName = EtwpUpdateLoggerGroupMasks(inited, a2);
-        if ( FileName >= 0 )
-          goto LABEL_137;
-        goto LABEL_287;
-      }
-LABEL_226:
-      Ptr = UserData.Ptr;
-      goto LABEL_260;
-    }
-    FileName = -1073741801;
-LABEL_269:
-    v66 = v72;
-    ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(Ptr + 448) + 8LL * v72), 1u);
-    _InterlockedExchange64((volatile __int64 *)(v80 + 8 * v66), 1LL);
-    goto LABEL_270;
-  }
-  v17 = *(_QWORD *)&Buf2.Data1 - *(_QWORD *)&GlobalLoggerGuid.Data1;
-  if ( *(_QWORD *)&Buf2.Data1 == *(_QWORD *)&GlobalLoggerGuid.Data1 )
-    v17 = *(_QWORD *)Buf2.Data4 - *(_QWORD *)GlobalLoggerGuid.Data4;
-  if ( !v17 )
-  {
-    v72 = 1;
-    if ( EtwpGetFlagExtension(a2, 1LL) )
-    {
-      if ( (v6 & 0x1000000) != 0 )
-        goto LABEL_143;
-      RtlFreeUnicodeString(&DestinationString);
-      if ( !RtlCreateUnicodeString(&DestinationString, L"NT Kernel Logger") )
-        goto LABEL_255;
-      v74 = 0;
-    }
-    v56 = _InterlockedCompareExchange64((volatile signed __int64 *)(v13 + 8), v13 | 1, 1LL) == 1;
-    goto LABEL_195;
-  }
-  v18 = *(_QWORD *)&Buf2.Data1 - AuditLoggerGuid;
-  if ( *(_QWORD *)&Buf2.Data1 == AuditLoggerGuid )
-    v18 = *(_QWORD *)Buf2.Data4 + 0x6A2DF162E6CE8D6ELL;
-  if ( !v18 )
-  {
-    v72 = 3;
     if ( (v6 & 0x1000000) == 0 )
     {
-      RtlFreeUnicodeString(&DestinationString);
+      v58 = _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 8LL * v56), v10 | 1, 1LL) == 1;
+      goto LABEL_191;
+    }
+    goto LABEL_132;
+  }
+  v14 = *(_QWORD *)&Buf2.Data1 - *(_QWORD *)&GlobalLoggerGuid.Data1;
+  if ( *(_QWORD *)&Buf2.Data1 == *(_QWORD *)&GlobalLoggerGuid.Data1 )
+    v14 = *(_QWORD *)Buf2.Data4 - *(_QWORD *)GlobalLoggerGuid.Data4;
+  if ( !v14 )
+  {
+    v67 = 1;
+    if ( !EtwpGetFlagExtension(a2, 1) )
+      goto LABEL_216;
+    if ( (v6 & 0x1000000) == 0 )
+    {
+      RtlFreeAnsiString(&DestinationString);
+      if ( !RtlCreateUnicodeString(&DestinationString, L"NT Kernel Logger") )
+        goto LABEL_228;
+      v69 = 0;
+LABEL_216:
+      v58 = _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 8), v10 | 1, 1LL) == 1;
+LABEL_191:
+      if ( v58 )
+      {
+        v20 = v70;
+        goto LABEL_58;
+      }
+      goto LABEL_211;
+    }
+LABEL_132:
+    FileName = -1073741811;
+    goto LABEL_244;
+  }
+  v15 = *(_QWORD *)&Buf2.Data1 - AuditLoggerGuid;
+  if ( *(_QWORD *)&Buf2.Data1 == AuditLoggerGuid )
+    v15 = *(_QWORD *)Buf2.Data4 + 0x6A2DF162E6CE8D6ELL;
+  if ( !v15 )
+  {
+    v67 = 3;
+    if ( (v6 & 0x1000000) == 0 )
+    {
+      RtlFreeAnsiString(&DestinationString);
       if ( RtlCreateUnicodeString(&DestinationString, L"Eventlog-Security") )
       {
         v6 |= 0x80u;
-        v56 = _InterlockedCompareExchange64((volatile signed __int64 *)(v13 + 24), v13 | 1, 1LL) == 1;
-        goto LABEL_195;
+        v58 = _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 24), v10 | 1, 1LL) == 1;
+        goto LABEL_191;
       }
-LABEL_255:
+LABEL_228:
       FileName = -1073741801;
-      goto LABEL_270;
+      goto LABEL_244;
     }
-    goto LABEL_143;
+    goto LABEL_132;
   }
   if ( !wcsicmp(DestinationString.Buffer, L"Eventlog-Security") )
   {
-    v64 = v12 - AuditLoggerGuid;
-    if ( v12 == AuditLoggerGuid )
-      v64 = v15 + 0x6A2DF162E6CE8D6ELL;
-    if ( v64 )
-      goto LABEL_240;
+    v60 = *(_QWORD *)&v11.Data1 - AuditLoggerGuid;
+    if ( *(_QWORD *)&v11.Data1 == AuditLoggerGuid )
+      v60 = *(_QWORD *)v11.Data4 + 0x6A2DF162E6CE8D6ELL;
+    if ( v60 )
+      goto LABEL_211;
   }
-  v19 = UserData.Ptr;
-  v20 = 4;
-  v21 = (unsigned int *)(UserData.Ptr + 16);
-  if ( *(_DWORD *)(UserData.Ptr + 16) <= 4u )
-    goto LABEL_57;
+  v16 = v70;
+  v17 = 4;
+  v18 = *(_DWORD *)(v70 + 16);
+  if ( v18 <= 4 )
+  {
+LABEL_51:
+    v20 = v16;
+    goto LABEL_52;
+  }
   while ( 1 )
   {
-    v22 = EtwpAcquireLoggerContextByLoggerId(v19, v20, 0LL);
-    if ( !v22 )
-      goto LABEL_51;
-    v23 = *(_QWORD *)(v22 + 276) - v12;
-    if ( !v23 )
-      v23 = *(_QWORD *)(v22 + 284) - v15;
-    if ( !v23 )
+    v19 = EtwpAcquireLoggerContextByLoggerId(v16, v17, 0);
+    if ( v19 )
       break;
-    EtwpReleaseLoggerContext(v22, 0LL);
-LABEL_51:
-    if ( ++v20 >= *v21 )
-      goto LABEL_57;
-    v19 = UserData.Ptr;
+LABEL_50:
+    v16 = v70;
+    ++v17;
+    v18 = *(_DWORD *)(v70 + 16);
+    if ( v17 >= v18 )
+      goto LABEL_51;
   }
-  EtwpReleaseLoggerContext(v22, 0LL);
-LABEL_57:
-  v24 = *v21;
-  if ( v20 < *v21 )
+  v41 = *(_QWORD *)(v19 + 73) - *(_QWORD *)&v11.Data1;
+  if ( !v41 )
+    v41 = *(_QWORD *)(v19 + 75) - *(_QWORD *)v11.Data4;
+  if ( v41 )
   {
-LABEL_240:
-    FileName = -1073741771;
-    goto LABEL_270;
+    EtwpReleaseLoggerContext(v19, 0);
+    goto LABEL_50;
   }
-  v72 = 4;
-  if ( v24 > 4 )
+  EtwpReleaseLoggerContext(v19, 0);
+  v20 = v70;
+  v18 = *(_DWORD *)(v70 + 16);
+LABEL_52:
+  if ( v17 < v18 )
+    goto LABEL_211;
+  v67 = 4;
+  if ( v18 > 4 )
   {
-    v25 = v80;
-    v26 = v80 | 1;
+    v21 = v75;
+    v22 = v75 | 1;
     do
     {
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v25 + 8LL * v72), v26, 1LL) == 1 )
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v21 + 8LL * v67), v22, 1LL) == 1 )
         break;
-      ++v72;
+      ++v67;
     }
-    while ( v72 < *v21 );
-    v15 = *(_QWORD *)Buf2.Data4;
-    v12 = *(_QWORD *)&Buf2.Data1;
+    while ( v67 < *(_DWORD *)(v20 + 16) );
   }
-  if ( v72 < *v21 )
+  if ( v67 >= *(_DWORD *)(v20 + 16) )
   {
-    v10 = DesiredAccess;
-    goto LABEL_65;
+    if ( !byte_140CF7920 )
+    {
+      byte_140CF7920 = 1;
+      if ( (unsigned int)dword_140C02BF0 > 5 )
+      {
+        if ( tlgKeywordOn((__int64)&dword_140C02BF0, 0x800000000000LL) )
+        {
+          v74 = v61;
+          v82 = &v74;
+          v83 = 4LL;
+          tlgWriteTransfer_EtwWriteTransfer(
+            (__int64)&dword_140C02BF0,
+            (unsigned __int8 *)byte_14002D290,
+            0LL,
+            0LL,
+            3u,
+            &v81);
+        }
+      }
+    }
+    FileName = -1073741670;
+    goto LABEL_244;
   }
-  if ( !byte_140D190C0 )
+LABEL_58:
+  ExAcquireRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v20 + 448) + 8LL * v67), 1u);
+  EtwpGetSecurityDescriptorByGuid(&Buf2.Data1, &SecurityDescriptor);
+  FileName = EtwpAccessCheck(SecurityDescriptor, v8, 0LL);
+  if ( FileName < 0 )
+    goto LABEL_243;
+  v23 = HeapGuid - *(_QWORD *)&Buf2.Data1;
+  if ( HeapGuid == *(_QWORD *)&Buf2.Data1 )
+    v23 = 0x4AA2F2756B3425A8LL - *(_QWORD *)Buf2.Data4;
+  if ( v23 )
+    v68 = memcmp(&CritSecGuid, &Buf2, 0x10uLL) != 0 ? 9 : 1;
+  else
+    v68 = 0;
+  if ( (*(_DWORD *)(a2 + 64) & 0x2000000) != 0 && v69 == 8 )
   {
-    byte_140D190C0 = 1;
-    UserData.Ptr = (ULONGLONG)v21;
-    *(_QWORD *)&UserData.Size = 4LL;
-    EtwWrite(EtwpEventTracingProvRegHandle, &ETW_EVENT_OUT_OF_LOGGER_SLOTS, 0LL, 1u, &UserData);
+    FileName = EtwpCheckCurrentUserGuidAccess(&SystemTraceControlGuid, 128LL);
+    if ( FileName < 0 )
+      goto LABEL_243;
+    v59 = 2;
+    v69 = 2;
+    do
+    {
+      if ( !_bittest((const signed __int32 *)(v20 + 4224), v59) )
+        break;
+      ++v59;
+    }
+    while ( v59 < 8 );
+    v69 = v59;
+    if ( v59 == 8 )
+    {
+      FileName = -1073741670;
+      goto LABEL_243;
+    }
   }
-  FileName = -1073741670;
-LABEL_270:
-  if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SESSION_START_FAILED) )
-    EtwpEventWriteTemplateAdmin(
-      v67,
-      (unsigned int)&ETW_EVENT_SESSION_START_FAILED,
-      v68,
-      (unsigned int)&DestinationString,
-      (__int64)&UnicodeString,
-      FileName,
-      v6);
-  RtlFreeUnicodeString(&DestinationString);
-  RtlFreeUnicodeString(&UnicodeString);
+  inited = (unsigned int *)EtwpInitLoggerContext((const void **)&DestinationString, v6);
+  FlagExtension = EtwpGetFlagExtension(a2, 6);
+  if ( FlagExtension )
+  {
+    if ( 4 * *FlagExtension == 12 )
+    {
+      FileName = EtwpSetPartitionContext((__int64 *)inited + 163, *(_QWORD *)(FlagExtension + 2), v26);
+      if ( FileName < 0 )
+        goto LABEL_234;
+    }
+  }
+  RtlFreeAnsiString(&DestinationString);
+  if ( !inited )
+  {
+    FileName = -1073741801;
+LABEL_243:
+    v64 = v67;
+    ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v70 + 448) + 8LL * v67), 1u);
+    _InterlockedExchange64((volatile __int64 *)(v75 + 8 * v64), 1LL);
+    goto LABEL_244;
+  }
+  *(UUID *)(inited + 73) = Buf2;
+  inited[77] = *(_DWORD *)(a2 + 60);
+  if ( (*(_BYTE *)(a2 + 80) & 1) != 0 )
+    _InterlockedOr((volatile signed __int32 *)inited + 208, 0x10u);
+  inited[54] = *(_DWORD *)(a2 + 40);
+  if ( (*(_BYTE *)(a2 + 80) & 2) != 0 )
+  {
+    FileName = EtwpSetQpcDeltaTracking((__int64)inited);
+    if ( FileName < 0 )
+      goto LABEL_234;
+  }
+  if ( (*(_BYTE *)(a2 + 80) & 8) != 0 )
+    inited[208] |= 0x40000000u;
+  v27 = *(_DWORD *)(a2 + 68);
+  if ( v27 )
+  {
+    inited[56] = v27;
+  }
+  else if ( (v6 & 0x100) != 0 )
+  {
+    inited[56] = (v6 & 0x10) != 0 ? 1000 : 1;
+  }
+  v28 = *(_DWORD *)(a2 + 76);
+  v29 = v28;
+  if ( v28 && (inited[56] || v28 < 0) )
+  {
+    *(_DWORD *)(a2 + 76) = 0;
+    v29 = 0;
+  }
+  v30 = v67;
+  inited[57] = v29;
+  *inited = v30;
+  *((_QWORD *)inited + 135) = v20;
+  if ( *(_WORD *)(a2 + 128) )
+  {
+    if ( *(_QWORD *)(a2 + 136) )
+    {
+      FileName = EtwpCaptureString(a2 + 128, &UnicodeString);
+      if ( FileName < 0 )
+        goto LABEL_234;
+    }
+  }
+  if ( (*(_DWORD *)(a2 + 112) & 2) != 0 )
+  {
+    inited[78] = *(_DWORD *)(a2 + 96);
+    *(_DWORD *)(a2 + 96) = 0;
+  }
+  v31 = (UNICODE_STRING *)(inited + 42);
+  if ( (inited[3] & 8) != 0 )
+  {
+    *(UNICODE_STRING *)(inited + 46) = UnicodeString;
+    RtlInitUnicodeString(&UnicodeString, 0LL);
+    FileName = EtwpGenerateFileName(
+                 (unsigned __int16 *)inited + 92,
+                 (volatile signed __int32 *)inited + 78,
+                 (UNICODE_STRING *)(inited + 42));
+    if ( FileName < 0 )
+      goto LABEL_234;
+    v20 = v70;
+  }
+  else
+  {
+    *v31 = UnicodeString;
+    RtlInitUnicodeString(&UnicodeString, 0LL);
+  }
+  ClientSecurityQos.ImpersonationLevel = SecurityImpersonation;
+  ClientSecurityQos.Length = 12;
+  *(_WORD *)&ClientSecurityQos.ContextTrackingMode = 257;
+  FileName = SeCreateClientSecurity(KeGetCurrentThread(), &ClientSecurityQos, 0, (PSECURITY_CLIENT_CONTEXT)inited + 10);
+  if ( FileName < 0 )
+    goto LABEL_234;
+  if ( (inited[3] & 0x100) != 0 )
+    _InterlockedOr((volatile signed __int32 *)inited + 208, 8u);
+  else
+    _InterlockedAnd((volatile signed __int32 *)inited + 208, 0xFFFFFFF7);
+  v32 = *(_DWORD *)(a2 + 112);
+  if ( (v32 & 2) != 0 )
+  {
+    _InterlockedOr((volatile signed __int32 *)inited + 208, 2u);
+    v32 = *(_DWORD *)(a2 + 112);
+  }
+  if ( (v32 & 1) != 0 )
+  {
+    _InterlockedOr((volatile signed __int32 *)inited + 208, 1u);
+    v32 = *(_DWORD *)(a2 + 112);
+  }
+  if ( (v32 & 0x4000) != 0 )
+    _InterlockedOr((volatile signed __int32 *)inited + 208, 0x4000u);
+  EtwpInitializeTimeStamp((__int64)inited);
+  v33 = v69;
+  if ( v69 < 8 )
+  {
+    inited[3] |= 0x2000000u;
+    *((_BYTE *)inited + 834) = v33;
+    if ( (unsigned int)v33 <= 1 )
+      _InterlockedOr((volatile signed __int32 *)inited + 208, 0x20u);
+    *(_BYTE *)(v20 + 2 * v33 + 4208) = v67;
+    if ( inited[54] - 1 >= 4 )
+      v52 = 1;
+    else
+      v52 = *((_BYTE *)inited + 216);
+    *(_BYTE *)(v20 + 2 * v33 + 4209) = v52;
+    _interlockedbittestandset((volatile signed __int32 *)(v20 + 4224), v33);
+  }
+  FileName = EtwpCheckForStackTracingExtension(a2, (__int64)inited);
+  if ( FileName < 0 )
+    goto LABEL_234;
+  v34 = *(_DWORD *)(a2 + 52);
+  if ( v34 )
+    inited[60] = v34;
+  v35 = *(_DWORD *)(a2 + 56);
+  if ( v35 )
+    inited[63] = v35;
+  v36 = *(_DWORD *)(a2 + 48);
+  if ( v36 )
+  {
+    if ( v36 > 0x4000 )
+    {
+      *(_DWORD *)(a2 + 48) = 0x4000;
+      v36 = 0x4000;
+    }
+    inited[1] = v36 << 10;
+  }
+  if ( (*(_BYTE *)(a2 + 80) & 4) != 0 )
+  {
+    inited[1] = (inited[1] + 0x1FFFFF) & 0xFFE00000;
+    _InterlockedOr((volatile signed __int32 *)inited + 208, 0x20000000u);
+  }
+  if ( v31->Length )
+  {
+    _InterlockedOr((volatile signed __int32 *)inited + 209, 1u);
+    *((_QWORD *)inited + 6) = KeGetCurrentThread();
+    FileName = EtwpCreateLogFile(inited, 0LL);
+    if ( FileName < 0 )
+    {
+LABEL_234:
+      if ( (inited[3] & 0x2000000) != 0 )
+        _interlockedbittestandreset((volatile signed __int32 *)(v70 + 4224), v69);
+      v62 = inited[208];
+      if ( (v62 & 0x80u) != 0 )
+      {
+        ExFreePoolWithTag(*((PVOID *)inited + 123), 0);
+        v62 = inited[208];
+      }
+      if ( (v62 & 0x2000) != 0 )
+        _InterlockedDecrement(&dword_140C53D80);
+      RtlFreeAnsiString((PUNICODE_STRING)(inited + 42));
+      RtlFreeAnsiString((PUNICODE_STRING)(inited + 46));
+      v63 = (void *)*((_QWORD *)inited + 102);
+      if ( v63 )
+        ZwClose(v63);
+      ExFreePoolWithTag(inited, 0);
+      goto LABEL_243;
+    }
+  }
+  v37 = inited[1];
+  if ( v37 < 0x1000 && (v31->Length || (inited[3] & 0x400) != 0) )
+  {
+    _InterlockedOr((volatile signed __int32 *)inited + 208, 0x1000u);
+    v37 = inited[1];
+  }
+  v38 = 0xFFFF;
+  if ( (unsigned __int64)v37 - 72 < 0xFFFF )
+    v38 = v37 - 72;
+  inited[2] = v38 & 0xFFFFFFF8;
+  FileName = EtwpAllocateTraceBufferPool(inited);
+  if ( FileName < 0 )
+    goto LABEL_255;
+  v39 = inited[77];
+  if ( !v39 || (inited[3] & 0x2000) != 0 )
+    v40 = 10485760LL;
+  else
+    v40 = (unsigned __int64)v39 << 20;
+  v42 = inited[1] * inited[63];
+  if ( v40 <= (unsigned int)(2 * v42) )
+    v40 = (unsigned int)(2 * v42);
+  *((_QWORD *)inited + 54) = v40;
+  FileName = EtwpInitializeLoggerSecurityDescriptor((__int64)inited, (char *)SecurityDescriptor);
   EtwpFreeSecurityDescriptor(&SecurityDescriptor);
+  if ( FileName < 0 )
+  {
+LABEL_255:
+    EtwpFreeTraceBufferPool(inited);
+    goto LABEL_234;
+  }
+  _InterlockedAdd((volatile signed __int32 *)(v20 + 4124), 1u);
+  v43 = v70;
+  v44 = v67;
+  ExAcquireRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v70 + 448) + 8LL * v67), 1u);
+  if ( (inited[3] & 0x400) != 0 )
+  {
+LABEL_123:
+    if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_START_TRACE) )
+      EtwpEventWriteTemplateSession(v47, &ETW_EVENT_START_TRACE, inited);
+    KeWaitForSingleObject(inited + 162, Executive, 0, 0, 0LL);
+    _InterlockedExchange64((volatile __int64 *)(v75 + 8 * v44), (__int64)inited);
+    EtwpSendSessionNotification(inited, 5LL, 0LL);
+    if ( (inited[3] & 0x2000000) == 0 )
+      goto LABEL_126;
+    if ( v43 == EtwpHostSiloState )
+    {
+      LOBYTE(v48) = 1;
+      FileName = EtwpCheckForPoolTagFilterExtension(inited, a2, v48);
+      if ( FileName < 0 )
+        goto LABEL_258;
+      v53 = 5LL * v69;
+      *((_WORD *)&EtwpObjectTypeFilter + 2 * v53) = 1;
+      *((_DWORD *)&EtwpObjectTypeFilter + v53 + 1) = 42;
+    }
+    FileName = EtwpUpdateLoggerGroupMasks(inited, a2);
+    if ( FileName >= 0 )
+    {
+LABEL_126:
+      if ( v68 != 9 )
+        EtwpUpdatePerProcessTracing(a2, v43, *inited, v68);
+      EtwpGetLoggerInfoFromContext(a2, inited);
+      EtwpReleaseLoggerContext(inited, 1);
+      return (unsigned int)FileName;
+    }
+LABEL_258:
+    inited[14] = FileName;
+    EtwpStopLoggerInstance((unsigned __int64)inited);
+    if ( (inited[3] & 0x400) != 0 )
+    {
+      EtwpGetLoggerInfoFromContext(a2, inited);
+      EtwpReleaseLoggerContext(inited, 1);
+      goto LABEL_257;
+    }
+    goto LABEL_126;
+  }
+  ObjectAttributes.Length = 48;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 512;
+  ObjectAttributes.ObjectName = 0LL;
+  *(_QWORD *)&StartContext = PsGetCurrentServerSilo(v46, v45);
+  *((_QWORD *)&StartContext + 1) = inited;
+  FileName = PsCreateSystemThread(
+               &ThreadHandle,
+               0x1FFFFFu,
+               &ObjectAttributes,
+               0LL,
+               0LL,
+               (PKSTART_ROUTINE)EtwpLogger,
+               &StartContext);
+  if ( FileName >= 0 )
+  {
+    ZwClose(ThreadHandle);
+    FileName = KeWaitForSingleObject(inited + 118, Executive, 0, 0, 0LL);
+    goto LABEL_123;
+  }
+  ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v43 + 448) + 8 * v44), 1u);
+LABEL_257:
+  EtwpFreeLoggerContext((char *)inited);
   return (unsigned int)FileName;
 }

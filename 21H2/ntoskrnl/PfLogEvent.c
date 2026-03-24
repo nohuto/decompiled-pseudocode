@@ -1,20 +1,20 @@
 /*
- * XREFs of PfLogEvent @ 0x14036044C
+ * XREFs of PfLogEvent @ 0x1402D4DFC
  * Callers:
- *     PfHardFaultLog @ 0x14027B250 (PfHardFaultLog.c)
- *     PfFileInfoNotify @ 0x1402CCCF0 (PfFileInfoNotify.c)
- *     PfpLogApplicationEvent @ 0x14035FF68 (PfpLogApplicationEvent.c)
- *     PfpRpLogDeprioEvent @ 0x140360350 (PfpRpLogDeprioEvent.c)
- *     PfLogForegroundProcess @ 0x1403603D0 (PfLogForegroundProcess.c)
- *     PfLogFileDataAccess @ 0x1405C629C (PfLogFileDataAccess.c)
- *     PfpLogEventRequest @ 0x140986E88 (PfpLogEventRequest.c)
- *     PfpLogScenarioEvent @ 0x140986F94 (PfpLogScenarioEvent.c)
- *     PfPowerActionNotify @ 0x140A49250 (PfPowerActionNotify.c)
- *     PfpPowerActionStartScenarioTracing @ 0x140A6AA08 (PfpPowerActionStartScenarioTracing.c)
+ *     PfHardFaultLog @ 0x1402BAA40 (PfHardFaultLog.c)
+ *     PfpLogApplicationEvent @ 0x1402D48C8 (PfpLogApplicationEvent.c)
+ *     PfpRpLogDeprioEvent @ 0x1402D4C00 (PfpRpLogDeprioEvent.c)
+ *     PfLogForegroundProcess @ 0x1402D4D80 (PfLogForegroundProcess.c)
+ *     PfFileInfoNotify @ 0x14031D600 (PfFileInfoNotify.c)
+ *     PfLogFileDataAccess @ 0x140564E48 (PfLogFileDataAccess.c)
+ *     PfpLogEventRequest @ 0x14077668C (PfpLogEventRequest.c)
+ *     PfpLogScenarioEvent @ 0x140776764 (PfpLogScenarioEvent.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x14099072C (PfpPowerActionStartScenarioTracing.c)
+ *     PfPowerActionNotify @ 0x1409909B4 (PfPowerActionNotify.c)
  * Callees:
- *     PfFbLogEntryReserve @ 0x14036053C (PfFbLogEntryReserve.c)
- *     PfFbLogEntryComplete @ 0x140360618 (PfFbLogEntryComplete.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     PfFbLogEntryReserve @ 0x1402D4EEC (PfFbLogEntryReserve.c)
+ *     PfFbLogEntryComplete @ 0x1402D4FC8 (PfFbLogEntryComplete.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall PfLogEvent(int a1, int a2, const void *a3, unsigned int a4)
@@ -23,10 +23,10 @@ __int64 __fastcall PfLogEvent(int a1, int a2, const void *a3, unsigned int a4)
   int v9; // edi
 
   v8 = (a4 + 31) & 0xFFF0;
-  v9 = PfFbLogEntryReserve(&stru_140C4EAC0);
+  v9 = PfFbLogEntryReserve(&stru_140C4FD20);
   if ( v9 < 0 )
   {
-    _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4EC70 + 1, 1u);
+    _InterlockedExchangeAdd((_DWORD *)&xmmword_140C4FED0 + 1, 1u);
   }
   else
   {

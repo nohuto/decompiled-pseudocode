@@ -1,65 +1,53 @@
 /*
- * XREFs of CcScheduleLazyWriteScan @ 0x140276758
+ * XREFs of CcScheduleLazyWriteScan @ 0x1402F6D5C
  * Callers:
- *     CcRescheduleLazyWriteScan @ 0x140248B24 (CcRescheduleLazyWriteScan.c)
- *     CcUninitializeCacheMap @ 0x1402761B0 (CcUninitializeCacheMap.c)
- *     CcDecrementOpenCount @ 0x140282AF4 (CcDecrementOpenCount.c)
- *     CcCanIWrite @ 0x140283F40 (CcCanIWrite.c)
- *     CcWriteBehindInternal @ 0x140288760 (CcWriteBehindInternal.c)
- *     CcSetDirtyPinnedData @ 0x14029D3D0 (CcSetDirtyPinnedData.c)
- *     CcSetDirtyInMask @ 0x14029D860 (CcSetDirtyInMask.c)
- *     CcChargeDirtyPagesInternal @ 0x14029E120 (CcChargeDirtyPagesInternal.c)
- *     CcNotifyOfMappedWrite @ 0x140310AD0 (CcNotifyOfMappedWrite.c)
- *     CcInitializeCacheMapEx @ 0x140310F10 (CcInitializeCacheMapEx.c)
- *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x140389670 (CcWaitForCurrentLazyWriterActivityOnNode.c)
- *     CcAddDirtyPagesToExternalCache @ 0x14039EB90 (CcAddDirtyPagesToExternalCache.c)
- *     CcCoalescingCallBackHelper @ 0x140538930 (CcCoalescingCallBackHelper.c)
- *     CcDeferWrite @ 0x140539E20 (CcDeferWrite.c)
- *     CcDeleteSectionsForPartition @ 0x14053DDB8 (CcDeleteSectionsForPartition.c)
+ *     CcNotifyOfMappedWrite @ 0x14022D68C (CcNotifyOfMappedWrite.c)
+ *     CcWriteBehindInternal @ 0x14022DA70 (CcWriteBehindInternal.c)
+ *     CcInitializeCacheMapEx @ 0x14022E5C0 (CcInitializeCacheMapEx.c)
+ *     CcRescheduleLazyWriteScan @ 0x140260454 (CcRescheduleLazyWriteScan.c)
+ *     CcUninitializeCacheMap @ 0x1402F68B0 (CcUninitializeCacheMap.c)
+ *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
+ *     CcDecrementOpenCount @ 0x14031313C (CcDecrementOpenCount.c)
+ *     CcCanIWrite @ 0x1403131D0 (CcCanIWrite.c)
+ *     CcChargeDirtyPages @ 0x140336210 (CcChargeDirtyPages.c)
+ *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
+ *     CcWaitForCurrentLazyWriterActivityInternal @ 0x14038148C (CcWaitForCurrentLazyWriterActivityInternal.c)
+ *     CcAddDirtyPagesToExternalCache @ 0x140392670 (CcAddDirtyPagesToExternalCache.c)
+ *     CcCoalescingCallBackHelper @ 0x1404E96C0 (CcCoalescingCallBackHelper.c)
+ *     CcDeferWrite @ 0x1404EA040 (CcDeferWrite.c)
+ *     CcDeleteSectionsForPartition @ 0x1404EBE84 (CcDeleteSectionsForPartition.c)
  * Callees:
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     CcNotifyWriteBehindInternal @ 0x140389160 (CcNotifyWriteBehindInternal.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     CcScheduleLazyWriteScanVolume @ 0x14053DA58 (CcScheduleLazyWriteScanVolume.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     CcNotifyWriteBehindInternal @ 0x1402C2120 (CcNotifyWriteBehindInternal.c)
  */
 
-char __fastcall CcScheduleLazyWriteScan(_BYTE *a1, __int64 a2, __int64 a3, char a4)
+char __fastcall CcScheduleLazyWriteScan(__int64 a1, char a2, char a3)
 {
   char result; // al
-  __int64 v5; // r10
-  char v7; // cl
-  __int64 v8; // rdx
+  char v6; // dl
 
-  result = a3;
-  v5 = a2;
-  if ( CcEnablePerVolumeLazyWriter == 1 )
+  result = *(_BYTE *)(a1 + 964);
+  if ( !result || a2 )
   {
-    LOBYTE(a3) = a4;
-    LOBYTE(a2) = result;
-    return CcScheduleLazyWriteScanVolume(v5, a2, a3);
-  }
-  else
-  {
-    v7 = a1[1228];
-    if ( !v7 || (_BYTE)a3 )
+    if ( a3 )
     {
-      if ( a4 )
-        v8 = 8LL;
-      else
-        v8 = v7 != 0 ? 16 : 4;
-      if ( (_BYTE)a3 )
-      {
-        result = CcNotifyWriteBehindInternal(a1, v8);
-      }
-      else if ( !a1[985] )
-      {
-        if ( !a1[984] )
-          KeBugCheckEx(0x34u, 0x366uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-        result = KiSetTimerEx((int)a1 + 920, CcFirstDelay, 0, 0, 0LL);
-      }
-      if ( !a1[1228] )
-        a1[985] = 1;
+      v6 = 8;
     }
+    else
+    {
+      result = -result;
+      v6 = result != 0 ? 16 : 4;
+    }
+    if ( a2 )
+    {
+      result = CcNotifyWriteBehindInternal(a1, v6);
+    }
+    else if ( !*(_BYTE *)(a1 + 632) )
+    {
+      result = KiSetTimerEx(a1 + 568, CcFirstDelay, 0, 0, a1 + 504);
+    }
+    if ( !*(_BYTE *)(a1 + 964) )
+      *(_BYTE *)(a1 + 632) = 1;
   }
   return result;
 }

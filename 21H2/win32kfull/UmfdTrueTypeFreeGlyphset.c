@@ -1,12 +1,12 @@
 /*
- * XREFs of UmfdTrueTypeFreeGlyphset @ 0x1C000B5EC
+ * XREFs of UmfdTrueTypeFreeGlyphset @ 0x1C009F528
  * Callers:
- *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C000B238 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
+ *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C009EE30 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
  * Callees:
- *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C000B670 (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
- *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C001B9B8 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
- *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C001BC7C (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C009A610 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C009F5AC (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
+ *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C00FE024 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall UmfdTrueTypeFreeGlyphset(__int64 a1, int a2, void *a3)
@@ -18,6 +18,6 @@ void __fastcall UmfdTrueTypeFreeGlyphset(__int64 a1, int a2, void *a3)
   v6[5] = a1;
   v6[0] = &TrueTypeFreeGlyphsetRequest::`vftable';
   v7 = a2;
-  UmfdClientSendAndWaitForCompletion(0LL, v6);
+  UmfdClientSendAndWaitForCompletion(0, (__int64)v6);
   UmfdAllocation::ReleaseKernelmodeAllocation(a3);
 }

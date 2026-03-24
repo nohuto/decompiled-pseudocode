@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDSM_GettingMSOSContainerIdHeaderDescriptor @ 0x1C001F4E0
+ * XREFs of HUBDSM_GettingMSOSContainerIdHeaderDescriptor @ 0x1C001EFA0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBDTX_GetMsOsFeatureDescriptor @ 0x1C0027C24 (HUBDTX_GetMsOsFeatureDescriptor.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBDTX_GetMsOsFeatureDescriptor @ 0x1C0027774 (HUBDTX_GetMsOsFeatureDescriptor.c)
  */
 
 __int64 __fastcall HUBDSM_GettingMSOSContainerIdHeaderDescriptor(__int64 a1, __int64 a2, int a3)
@@ -25,8 +25,8 @@ __int64 __fastcall HUBDSM_GettingMSOSContainerIdHeaderDescriptor(__int64 a1, __i
         *(_QWORD *)(*(_QWORD *)(v3 + 8) + 1432LL),
         2u,
         5u,
-        0x54u,
-        (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids,
+        0x53u,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v6);
     }
     HUBSM_AddEvent(v3 + 504, 4004);

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeEntropySystem @ 0x14086234C
+ * XREFs of KeInitializeEntropySystem @ 0x1407D2094
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KeInitializeEntropySystem(__int64 a1, void (__fastcall *a2)(__int64, __int64, __int64), __int64 a3)
@@ -19,7 +19,7 @@ __int64 __fastcall KeInitializeEntropySystem(__int64 a1, void (__fastcall *a2)(_
     v7 = (unsigned int)KeNumberProcessors_0;
     do
     {
-      a2(*v6++ + 35300, 256LL, a3);
+      a2(*v6++ + 34276, 256LL, a3);
       --v7;
     }
     while ( v7 );

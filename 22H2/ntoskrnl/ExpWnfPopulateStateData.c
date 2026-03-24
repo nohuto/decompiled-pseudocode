@@ -1,62 +1,54 @@
 /*
- * XREFs of ExpWnfPopulateStateData @ 0x1407148EC
+ * XREFs of ExpWnfPopulateStateData @ 0x140610FBC
  * Callers:
- *     ExpWnfCreateNameInstance @ 0x1407118A4 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfCreateNameInstance @ 0x14060DE94 (ExpWnfCreateNameInstance.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExpWnfComposeValueName @ 0x140710D70 (ExpWnfComposeValueName.c)
- *     ExpWnfAcquirePermanentDataStoreHandle @ 0x1407E2E00 (ExpWnfAcquirePermanentDataStoreHandle.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExReleaseExtensionTable @ 0x1402F75FC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x1402F7618 (ExGetExtensionTable.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExpWnfComposeValueName @ 0x1406F67D0 (ExpWnfComposeValueName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfPopulateStateData(__int64 a1)
 {
   unsigned __int64 v2; // rcx
-  ULONG v4; // r15d
-  __int64 v5; // rdx
-  _DWORD *Pool2; // rbx
+  ULONG v4; // ebp
+  SIZE_T v5; // rdx
+  _DWORD *PoolWithTag; // rbx
   __int64 v7; // rcx
-  __int64 v8; // rcx
-  int v9; // edi
-  NTSTATUS v10; // eax
-  __int64 v11; // r14
-  int v12; // eax
-  struct _EX_RUNDOWN_REF *v13; // rdi
+  NTSTATUS v8; // eax
+  unsigned int v9; // edi
+  int v10; // eax
+  unsigned int v11; // eax
+  struct _EX_RUNDOWN_REF *v12; // rdi
   unsigned __int64 ExtensionTable; // rax
-  int v15; // ebx
-  unsigned int v16; // eax
-  ULONG Length; // [rsp+30h] [rbp-29h] BYREF
-  HANDLE KeyHandle; // [rsp+38h] [rbp-21h] BYREF
-  UNICODE_STRING ValueName; // [rsp+40h] [rbp-19h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-1h] BYREF
-  char v21; // [rsp+60h] [rbp+7h] BYREF
+  int v14; // ebx
+  ULONG ResultLength; // [rsp+30h] [rbp-58h] BYREF
+  UNICODE_STRING ValueName; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-40h] BYREF
+  char v18; // [rsp+50h] [rbp-38h] BYREF
 
   v2 = *(_QWORD *)(a1 + 40);
-  Length = 0;
-  KeyHandle = 0LL;
   if ( ((v2 >> 6) & 0xF) == 5 )
   {
-    v13 = (struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostGuest;
-    v20 = v2 ^ 0x41C64E6DA3BC0074LL;
+    v12 = (struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostGuest;
+    v17 = v2 ^ 0x41C64E6DA3BC0074LL;
     ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostGuest);
     if ( ExtensionTable )
     {
-      v15 = (*(__int64 (__fastcall **)(__int64 *, __int64 (__fastcall *)(int, int, int, int, void *, size_t), __int64))(ExtensionTable + 120))(
-              &v20,
+      v14 = (*(__int64 (__fastcall **)(__int64 *, __int64 (__fastcall *)(int, int, int, int, void *, size_t), __int64))(ExtensionTable + 120))(
+              &v17,
               ExpWnfPopulateStateDataRemoteCallback,
               a1);
-      ExReleaseExtensionTable(v13);
-      if ( v15 != -1073741822 )
+      ExReleaseExtensionTable(v12);
+      if ( v14 != -1073741822 )
       {
-        if ( v15 < 0 )
-          return (unsigned int)v15;
+        if ( v14 < 0 )
+          return (unsigned int)v14;
         return 0LL;
       }
     }
@@ -67,55 +59,52 @@ __int64 __fastcall ExpWnfPopulateStateData(__int64 a1)
   v5 = v4 + 16;
   while ( 1 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, v5, 543583831LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v5, 0x20666E57u);
+    if ( !PoolWithTag )
       return 3221225626LL;
     v7 = *(_QWORD *)(a1 + 40);
     *(_QWORD *)&ValueName.Length = 2228224LL;
-    ValueName.Buffer = (wchar_t *)&v21;
+    ValueName.Buffer = (wchar_t *)&v18;
     ExpWnfComposeValueName(v7, &ValueName);
-    v8 = *(_QWORD *)(a1 + 104);
-    Length = v4 + 16;
-    v9 = ExpWnfAcquirePermanentDataStoreHandle(v8, &KeyHandle);
-    if ( v9 >= 0 )
+    ResultLength = v4 + 16;
+    v8 = ZwQueryValueKey(
+           *(HANDLE *)(a1 + 104),
+           &ValueName,
+           KeyValuePartialInformation,
+           PoolWithTag,
+           v4 + 16,
+           &ResultLength);
+    v9 = v8;
+    if ( v8 == -1073741772 )
     {
-      v10 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Pool2, Length, &Length);
-      v11 = *(_QWORD *)(a1 + 104);
-      v9 = v10;
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v11 + 8), 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)(v11 + 8));
-      KeAbPostRelease(v11 + 8);
-    }
-    if ( v9 == -1073741772 )
-    {
-      *(_OWORD *)Pool2 = 0LL;
-LABEL_13:
-      *Pool2 = 1050884;
-      v12 = Pool2[3];
-      Pool2[1] = v4;
-      *(_DWORD *)(a1 + 96) = v12;
-      *(_QWORD *)(a1 + 88) = Pool2;
+      *((_QWORD *)PoolWithTag + 1) = 0LL;
+LABEL_9:
+      *PoolWithTag = 1050884;
+      v10 = PoolWithTag[3];
+      PoolWithTag[1] = v4;
+      *(_DWORD *)(a1 + 96) = v10;
+      *(_QWORD *)(a1 + 88) = PoolWithTag;
       return 0LL;
     }
-    if ( v9 != -1073741789 )
+    if ( v8 != -1073741789 )
       break;
-    ExFreePoolWithTag(Pool2, 0x20666E57u);
-    v5 = Length;
-    v4 = Length - 16;
+    ExFreePoolWithTag(PoolWithTag, 0x20666E57u);
+    v5 = ResultLength;
+    v4 = ResultLength - 16;
   }
-  if ( v9 >= 0 )
+  if ( v8 >= 0 )
   {
-    if ( Pool2[1] == 3 )
+    if ( PoolWithTag[1] == 3 )
     {
-      v16 = Pool2[2];
-      if ( v16 >= 4 )
+      v11 = PoolWithTag[2];
+      if ( v11 >= 4 )
       {
-        Pool2[2] = v16 - 4;
-        goto LABEL_13;
+        PoolWithTag[2] = v11 - 4;
+        goto LABEL_9;
       }
     }
     v9 = -1073741823;
   }
-  ExFreePoolWithTag(Pool2, 0x20666E57u);
-  return (unsigned int)v9;
+  ExFreePoolWithTag(PoolWithTag, 0x20666E57u);
+  return v9;
 }

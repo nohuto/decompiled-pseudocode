@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_Disconnected @ 0x1C0011BF0
+ * XREFs of HUBPSM20_Disconnected @ 0x1C00107D0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_NotifyDeviceRemovalIfDeviceSupportsReattach @ 0x1C00336D8 (HUBMISC_NotifyDeviceRemovalIfDeviceSupportsReattach.c)
+ *     HUBMISC_NotifyDeviceRemovalIfDeviceSupportsReattach @ 0x1C00304E8 (HUBMISC_NotifyDeviceRemovalIfDeviceSupportsReattach.c)
  */
 
 __int64 __fastcall HUBPSM20_Disconnected(__int64 a1)

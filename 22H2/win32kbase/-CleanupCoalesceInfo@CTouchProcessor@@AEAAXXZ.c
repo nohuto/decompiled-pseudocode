@@ -1,21 +1,21 @@
 /*
- * XREFs of ?CleanupCoalesceInfo@CTouchProcessor@@AEAAXXZ @ 0x1C00C5540
+ * XREFs of ?CleanupCoalesceInfo@CTouchProcessor@@AEAAXXZ @ 0x1C00B8510
  * Callers:
- *     ??1CTouchProcessor@@QEAA@XZ @ 0x1C00B743C (--1CTouchProcessor@@QEAA@XZ.c)
- *     ?GetCoalesceInfo@CTouchProcessor@@AEAAPEAUtagCPointerCoalesceInfo@@K@Z @ 0x1C01C6D84 (-GetCoalesceInfo@CTouchProcessor@@AEAAPEAUtagCPointerCoalesceInfo@@K@Z.c)
+ *     ??1CTouchProcessor@@QEAA@XZ @ 0x1C0075F88 (--1CTouchProcessor@@QEAA@XZ.c)
+ *     ?GetCoalesceInfo@CTouchProcessor@@AEAAPEAUtagCPointerCoalesceInfo@@K@Z @ 0x1C0191780 (-GetCoalesceInfo@CTouchProcessor@@AEAAPEAUtagCPointerCoalesceInfo@@K@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 void __fastcall CTouchProcessor::CleanupCoalesceInfo(CTouchProcessor *this)
 {
-  char *v1; // rdx
+  __int64 v2; // rcx
 
-  v1 = (char *)*((_QWORD *)this + 20);
-  if ( v1 )
+  v2 = *((_QWORD *)this + 18);
+  if ( v2 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v1);
-    *((_QWORD *)this + 20) = 0LL;
-    *((_DWORD *)this + 38) = 0;
+    Win32FreePool(v2);
+    *((_QWORD *)this + 18) = 0LL;
+    *((_DWORD *)this + 34) = 0;
   }
 }

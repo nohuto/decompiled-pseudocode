@@ -1,9 +1,9 @@
 /*
- * XREFs of HaliRemoveInterruptRemapping @ 0x140933480
+ * XREFs of HaliRemoveInterruptRemapping @ 0x140760E30
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptUnmap @ 0x1409334A8 (HalpInterruptUnmap.c)
+ *     HalpInterruptUnmap @ 0x140760E58 (HalpInterruptUnmap.c)
  */
 
 __int64 __fastcall HaliRemoveInterruptRemapping(int a1, int a2, int a3, int a4, __int64 a5, int a6)

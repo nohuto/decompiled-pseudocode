@@ -1,20 +1,20 @@
 /*
- * XREFs of SeMakeAnonymousLogonToken @ 0x140B1EFA0
+ * XREFs of SeMakeAnonymousLogonToken @ 0x140A4874C
  * Callers:
- *     SepInitializationPhase1 @ 0x140847FF0 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x14079D378 (SepInitializationPhase1.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14022D554 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     SeSetMandatoryPolicyToken @ 0x14075563C (SeSetMandatoryPolicyToken.c)
- *     RtlAddAccessAllowedAce @ 0x14078ED30 (RtlAddAccessAllowedAce.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14078ED60 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14078EDC0 (RtlSetOwnerSecurityDescriptor.c)
- *     SepCreateToken @ 0x14084895C (SepCreateToken.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402B5A04 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     SeSetMandatoryPolicyToken @ 0x140676460 (SeSetMandatoryPolicyToken.c)
+ *     RtlAddAccessAllowedAce @ 0x140676BE0 (RtlAddAccessAllowedAce.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140676C10 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
+ *     SepCreateToken @ 0x14079DCB8 (SepCreateToken.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 SeMakeAnonymousLogonToken()
@@ -26,9 +26,9 @@ __int64 SeMakeAnonymousLogonToken()
   PSID v4; // rbx
   unsigned int v5; // r15d
   ULONG v6; // edi
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   ACL *v8; // rsi
-  void *v9; // rax
+  PVOID v9; // rax
   void *v10; // r14
   __int64 v11; // rdx
   __int64 v12; // r8
@@ -43,12 +43,12 @@ __int64 SeMakeAnonymousLogonToken()
   PSID v22; // [rsp+C8h] [rbp-60h] BYREF
   int v23; // [rsp+D0h] [rbp-58h]
   int v24; // [rsp+D4h] [rbp-54h]
-  _QWORD v25[3]; // [rsp+D8h] [rbp-50h] BYREF
-  int v26; // [rsp+F0h] [rbp-38h]
-  int v27; // [rsp+F4h] [rbp-34h]
-  void *v28; // [rsp+F8h] [rbp-30h]
-  __int64 v29; // [rsp+100h] [rbp-28h]
-  __m128i si128; // [rsp+108h] [rbp-20h] BYREF
+  __m128i si128; // [rsp+D8h] [rbp-50h] BYREF
+  _QWORD v26[3]; // [rsp+E8h] [rbp-40h] BYREF
+  int v27; // [rsp+100h] [rbp-28h]
+  int v28; // [rsp+104h] [rbp-24h]
+  void *v29; // [rsp+108h] [rbp-20h]
+  __int64 v30; // [rsp+110h] [rbp-18h]
   PSID v31; // [rsp+118h] [rbp-10h] BYREF
   int v32; // [rsp+120h] [rbp-8h]
   PSID v33; // [rsp+128h] [rbp+0h]
@@ -57,8 +57,8 @@ __int64 SeMakeAnonymousLogonToken()
   v0 = (char *)ExLeapSecondData;
   v21 = 0LL;
   v24 = 0;
-  HIDWORD(v25[0]) = 0;
-  v27 = 0;
+  HIDWORD(v26[0]) = 0;
+  v28 = 0;
   v20 = 0LL;
   v18 = 1;
   v19 = 0LL;
@@ -119,14 +119,14 @@ LABEL_6:
      + 16
      + ((4 * *((unsigned __int8 *)SeLowMandatorySid + 1) + 11) & 0xFFFFFFFC);
   v6 = 4 * (*((unsigned __int8 *)SeAnonymousLogonSid + 1) + *((unsigned __int8 *)SeWorldSid + 1)) + 48;
-  Pool2 = (ACL *)ExAllocatePool2(256LL, 0xC8uLL, 0x63416553u);
-  v8 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, 0xC8uLL, 0x63416553u);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    RtlCreateAcl(Pool2, v6, 2u);
+    RtlCreateAcl(PoolWithTag, v6, 2u);
     RtlAddAccessAllowedAce(v8, 2u, 0xF01FFu, SeWorldSid);
     RtlAddAccessAllowedAce(v8, 2u, 0xF01FFu, SeAnonymousLogonSid);
-    v9 = (void *)ExAllocatePool2(256LL, 0x28uLL, 0x64536553u);
+    v9 = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x64536553u);
     v10 = v9;
     if ( v9 )
     {
@@ -134,23 +134,23 @@ LABEL_6:
       RtlSetDaclSecurityDescriptor(v10, 1u, v8, 0);
       RtlSetOwnerSecurityDescriptor(v10, SeWorldSid, 0);
       RtlSetGroupSecurityDescriptor(v10, SeWorldSid, 0);
-      LODWORD(v25[0]) = 48;
-      v25[1] = 0LL;
-      v26 = 0;
-      v25[2] = 0LL;
-      v28 = v10;
-      v29 = 0LL;
+      LODWORD(v26[0]) = 48;
+      v26[1] = 0LL;
+      v27 = 0;
+      v26[2] = 0LL;
+      v29 = v10;
+      v30 = 0LL;
       SepCreateToken(
         (HANDLE *)&v21,
         v11,
         v12,
-        v25,
+        v26,
         v17[8],
         v17[10],
         (__int64)&SeAnonymousAuthenticationId,
         &v20,
         &v22,
-        2u,
+        2,
         (__int64)&v31,
         v5,
         0,

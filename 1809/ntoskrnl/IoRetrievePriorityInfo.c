@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRetrievePriorityInfo @ 0x140108D30
+ * XREFs of IoRetrievePriorityInfo @ 0x140108D50
  * Callers:
  *     <none>
  * Callees:
- *     PsGetIoPriorityThread @ 0x1400B6B20 (PsGetIoPriorityThread.c)
- *     IoGetIoPriorityHint @ 0x140108F40 (IoGetIoPriorityHint.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
+ *     IoGetIoPriorityHint @ 0x140108F60 (IoGetIoPriorityHint.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __stdcall IoRetrievePriorityInfo(

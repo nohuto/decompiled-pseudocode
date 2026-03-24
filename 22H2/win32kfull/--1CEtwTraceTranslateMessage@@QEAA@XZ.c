@@ -1,21 +1,15 @@
 /*
- * XREFs of ??1CEtwTraceTranslateMessage@@QEAA@XZ @ 0x1C0152430
+ * XREFs of ??1CEtwTraceTranslateMessage@@QEAA@XZ @ 0x1C011065C
  * Callers:
- *     xxxTranslateMessage @ 0x1C00ACC1C (xxxTranslateMessage.c)
+ *     xxxTranslateMessage @ 0x1C0110450 (xxxTranslateMessage.c)
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
-void __fastcall CEtwTraceTranslateMessage::~CEtwTraceTranslateMessage(
-        CEtwTraceTranslateMessage *this,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+void __fastcall CEtwTraceTranslateMessage::~CEtwTraceTranslateMessage(CEtwTraceTranslateMessage *this)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rcx
+  __int64 v2; // rcx
 
-  v4 = *(_DWORD *)this;
-  LOBYTE(v5) = *((_BYTE *)PtiCurrentShared((__int64)this, a2, a3, a4) + 1296);
-  EtwTraceEndTranslateMessage(v5, v4);
+  LOBYTE(v2) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
+  EtwTraceEndTranslateMessage(v2, *(unsigned int *)this);
 }

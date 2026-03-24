@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0DISPMODECHANGEREQUEST@VIDPN_MGR@@QEAA@IAEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JKW4_DMM_DISPMODECHANGE_TYPE@@QEBE@Z @ 0x1C0002290
+ * XREFs of ??0DISPMODECHANGEREQUEST@VIDPN_MGR@@QEAA@IAEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JKW4_DMM_DISPMODECHANGE_TYPE@@QEBE@Z @ 0x1C00022E0
  * Callers:
- *     ?CacheDisplayModeChangeRequest@VIDPN_MGR@@QEAAXIPEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JW4_DMM_DISPMODECHANGE_TYPE@@IQEBE@Z @ 0x1C00021E8 (-CacheDisplayModeChangeRequest@VIDPN_MGR@@QEAAXIPEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JW4.c)
+ *     ?CacheDisplayModeChangeRequest@VIDPN_MGR@@QEAAXIPEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JW4_DMM_DISPMODECHANGE_TYPE@@IQEBE@Z @ 0x1C0002138 (-CacheDisplayModeChangeRequest@VIDPN_MGR@@QEAAXIPEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JW4.c)
  * Callees:
  *     <none>
  */
@@ -16,9 +16,9 @@ __int64 __fastcall VIDPN_MGR::DISPMODECHANGEREQUEST::DISPMODECHANGEREQUEST(
         int a7,
         __int128 *a8)
 {
-  __int64 v9; // rbx
-  __int128 v10; // xmm0
+  __int128 v9; // xmm0
   __int64 result; // rax
+  __int64 v11; // [rsp+30h] [rbp+8h]
 
   *(_QWORD *)(a1 + 8) = 0LL;
   *(_QWORD *)(a1 + 16) = 0LL;
@@ -34,12 +34,12 @@ __int64 __fastcall VIDPN_MGR::DISPMODECHANGEREQUEST::DISPMODECHANGEREQUEST(
   *(_DWORD *)(a1 + 100) = a5;
   *(_DWORD *)(a1 + 104) = a6;
   *(_DWORD *)(a1 + 96) = a4;
-  v9 = MEMORY[0xFFFFF78000000320];
-  *(_QWORD *)(a1 + 112) = v9 * KeQueryTimeIncrement();
-  v10 = *a8;
+  v11 = MEMORY[0xFFFFF78000000320];
+  *(_QWORD *)(a1 + 112) = v11 * KeQueryTimeIncrement();
+  v9 = *a8;
   *(_DWORD *)(a1 + 140) = 0;
   *(_DWORD *)(a1 + 136) = a7;
   result = a1;
-  *(_OWORD *)(a1 + 120) = v10;
+  *(_OWORD *)(a1 + 120) = v9;
   return result;
 }

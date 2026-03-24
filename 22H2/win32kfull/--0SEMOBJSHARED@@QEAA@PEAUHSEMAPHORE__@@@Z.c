@@ -1,21 +1,22 @@
 /*
- * XREFs of ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C007AC00
+ * XREFs of ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C00173F0
  * Callers:
- *     ?bSpUpdateDeviceSurface@@YAHPEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@AEAVRGNOBJ@@PEAVECLIPOBJ@@@Z @ 0x1C001AE84 (-bSpUpdateDeviceSurface@@YAHPEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@AEAVRGNOBJ@@PEAVECLIPOBJ@@@Z.c)
- *     ?CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C002D2BC (-CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
- *     bSetDevDragRect @ 0x1C006EAD0 (bSetDevDragRect.c)
- *     GreMovePointer @ 0x1C0078400 (GreMovePointer.c)
- *     GreDwmGetSurfaceData @ 0x1C007AA30 (GreDwmGetSurfaceData.c)
- *     ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0088D28 (-AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     GreDwmCreatedBitmapRemotingOutput @ 0x1C01357DC (GreDwmCreatedBitmapRemotingOutput.c)
- *     GreDwmGetRedirectionStyle @ 0x1C0267774 (GreDwmGetRedirectionStyle.c)
- *     GreSpDwmSyncCaptureSurfaceBits @ 0x1C0268210 (GreSpDwmSyncCaptureSurfaceBits.c)
- *     bMoveDevDragRect @ 0x1C0283DA0 (bMoveDevDragRect.c)
- *     bMoveDevPreviewRect @ 0x1C028407C (bMoveDevPreviewRect.c)
- *     bSetDevPreviewRect @ 0x1C0284260 (bSetDevPreviewRect.c)
- *     GreSaveScreenBits @ 0x1C02A7EE4 (GreSaveScreenBits.c)
- *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02B4F3C (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02B5720 (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     GreMovePointer @ 0x1C0016B30 (GreMovePointer.c)
+ *     GrePtInSprite @ 0x1C0016F2C (GrePtInSprite.c)
+ *     GreDwmGetSurfaceData @ 0x1C00170D8 (GreDwmGetSurfaceData.c)
+ *     bSetDevDragRect @ 0x1C0029460 (bSetDevDragRect.c)
+ *     GreOnCURSINFODestroy @ 0x1C004B958 (GreOnCURSINFODestroy.c)
+ *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00E7AAC (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?bSpUpdateDeviceSurface@@YAHPEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@AEAVRGNOBJ@@PEAVECLIPOBJ@@@Z @ 0x1C012FAA0 (-bSpUpdateDeviceSurface@@YAHPEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@AEAVRGNOBJ@@PEAVECLIPOBJ@@@Z.c)
+ *     ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0134370 (-AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     GreDwmCreatedBitmapRemotingOutput @ 0x1C01639FC (GreDwmCreatedBitmapRemotingOutput.c)
+ *     GreDwmGetRedirectionStyle @ 0x1C026EF94 (GreDwmGetRedirectionStyle.c)
+ *     GreSpDwmSyncCaptureSurfaceBits @ 0x1C026FC20 (GreSpDwmSyncCaptureSurfaceBits.c)
+ *     bMoveDevDragRect @ 0x1C0285678 (bMoveDevDragRect.c)
+ *     bMoveDevPreviewRect @ 0x1C028594C (bMoveDevPreviewRect.c)
+ *     bSetDevPreviewRect @ 0x1C0285B2C (bSetDevPreviewRect.c)
+ *     GreSaveScreenBits @ 0x1C029E814 (GreSaveScreenBits.c)
+ *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C02A7388 (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
  * Callees:
  *     <none>
  */

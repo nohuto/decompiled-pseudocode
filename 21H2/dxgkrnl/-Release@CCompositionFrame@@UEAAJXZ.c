@@ -1,11 +1,10 @@
 /*
- * XREFs of ?Release@CCompositionFrame@@UEAAJXZ @ 0x1C00085E0
+ * XREFs of ?Release@CCompositionFrame@@UEAAJXZ @ 0x1C0013190
  * Callers:
  *     <none>
  * Callees:
- *     ?FlipManagerDwmProcessFlipManagerSignal@@YAXPEAU_LIST_ENTRY@@_K@Z @ 0x1C000874C (-FlipManagerDwmProcessFlipManagerSignal@@YAXPEAU_LIST_ENTRY@@_K@Z.c)
- *     ?ReturnLegacyTokenBuffer@CCompositionFrame@@IEAAXXZ @ 0x1C0008878 (-ReturnLegacyTokenBuffer@CCompositionFrame@@IEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?ReturnLegacyTokenBuffer@CCompositionFrame@@IEAAXXZ @ 0x1C00133F4 (-ReturnLegacyTokenBuffer@CCompositionFrame@@IEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionFrame::Release(CCompositionFrame *this)
@@ -69,11 +68,7 @@ LABEL_9:
                 *v8 = v10;
                 *((_QWORD *)v10 + 1) = v8;
                 if ( v9 == v8 )
-                {
-LABEL_12:
-                  FlipManagerDwmProcessFlipManagerSignal((struct _LIST_ENTRY *)this + 11, *((_QWORD *)this + 10));
-                  goto LABEL_13;
-                }
+                  goto LABEL_12;
                 while ( 1 )
                 {
                   v16 = v9 - 6;
@@ -116,8 +111,8 @@ LABEL_12:
       }
       __fastfail(3u);
     }
-LABEL_13:
-    (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 24) + 8LL))(*((_QWORD *)this + 24));
+LABEL_12:
+    (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 22) + 8LL))(*((_QWORD *)this + 22));
     ExFreePoolWithTag(this, 0);
   }
   return v2;

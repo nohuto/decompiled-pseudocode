@@ -1,20 +1,20 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceProblemDevice @ 0x14099F4EC
+ * XREFs of PopDirectedDripsDiagTraceProblemDevice @ 0x1408F83DC
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FC00 (PopDirectedDripsBuildBroadcastTreeFull.c)
- *     PopDirectedDripsBuildPs4BroadcastTree @ 0x14099FF4C (PopDirectedDripsBuildPs4BroadcastTree.c)
- *     PopDirectedDripsVisitPs4Device @ 0x1409A0314 (PopDirectedDripsVisitPs4Device.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x1408F8B10 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x1408F8E40 (PopDirectedDripsBuildPs4BroadcastTree.c)
+ *     PopDirectedDripsVisitPs4Device @ 0x1408F9214 (PopDirectedDripsVisitPs4Device.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopDirectedDripsDiagInsertErrorRecord @ 0x14099E2A0 (PopDirectedDripsDiagInsertErrorRecord.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagInsertErrorRecord @ 0x1408F70D8 (PopDirectedDripsDiagInsertErrorRecord.c)
  */
 
-signed __int32 __fastcall PopDirectedDripsDiagTraceProblemDevice(__int64 a1, __int64 a2, int a3)
+char __fastcall PopDirectedDripsDiagTraceProblemDevice(__int64 a1, __int64 a2, int a3)
 {
   __int64 v4; // rbx
   REGHANDLE v5; // rdi
@@ -39,26 +39,25 @@ signed __int32 __fastcall PopDirectedDripsDiagTraceProblemDevice(__int64 a1, __i
       goto LABEL_8;
     PopDirectedDripsDiagInsertErrorRecord(a2, v4, v7);
   }
-  else if ( !v4 )
+  if ( v4 )
   {
-    goto LABEL_8;
-  }
-  *(_DWORD *)(v4 + 152) |= 1 << v7;
-  if ( PopDiagHandleRegistered )
-  {
-    v5 = PopDiagHandle;
-    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_DRIPS_PROBLEM_DEVICE) )
+    *(_DWORD *)(v4 + 152) |= 1 << v7;
+    if ( PopDiagHandleRegistered )
     {
-      UserData.Reserved = 0;
-      v12 = 0;
-      v15 = 0;
-      UserData.Ptr = v4 + 148;
-      UserData.Size = 4;
-      v10 = &v8;
-      v13 = &v7;
-      v14 = 4;
-      v11 = 8;
-      EtwWrite(v5, &POP_ETW_EVENT_DIRECTED_DRIPS_PROBLEM_DEVICE, 0LL, 3u, &UserData);
+      v5 = PopDiagHandle;
+      if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_DRIPS_PROBLEM_DEVICE) )
+      {
+        UserData.Reserved = 0;
+        v12 = 0;
+        v15 = 0;
+        UserData.Ptr = v4 + 148;
+        UserData.Size = 4;
+        v10 = &v8;
+        v13 = &v7;
+        v14 = 4;
+        v11 = 8;
+        EtwWrite(v5, &POP_ETW_EVENT_DIRECTED_DRIPS_PROBLEM_DEVICE, 0LL, 3u, &UserData);
+      }
     }
   }
 LABEL_8:

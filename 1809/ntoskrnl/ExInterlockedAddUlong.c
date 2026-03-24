@@ -1,10 +1,10 @@
 /*
- * XREFs of ExInterlockedAddUlong @ 0x14015EDF0
+ * XREFs of ExInterlockedAddUlong @ 0x14015EE10
  * Callers:
  *     <none>
  * Callees:
- *     ExpReleaseSpinLockDisabled @ 0x14010C01C (ExpReleaseSpinLockDisabled.c)
- *     ExpAcquireSpinLockDisabled @ 0x14010C054 (ExpAcquireSpinLockDisabled.c)
+ *     ExpReleaseSpinLockDisabled @ 0x14010C03C (ExpReleaseSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x14010C074 (ExpAcquireSpinLockDisabled.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

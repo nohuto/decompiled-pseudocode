@@ -1,15 +1,15 @@
 /*
- * XREFs of KxDispatchInterrupt @ 0x1401C40C0
+ * XREFs of KxDispatchInterrupt @ 0x1401C40E0
  * Callers:
- *     KiDispatchInterrupt @ 0x1401C4030 (KiDispatchInterrupt.c)
+ *     KiDispatchInterrupt @ 0x1401C4050 (KiDispatchInterrupt.c)
  * Callees:
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
- *     KiSetVpThreadSpinLockCount @ 0x1400BC7C0 (KiSetVpThreadSpinLockCount.c)
- *     KiEndThreadAccountingPeriod @ 0x1400D2010 (KiEndThreadAccountingPeriod.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     SwapContext @ 0x1401C42A0 (SwapContext.c)
- *     HvlNotifyLongSpinWait @ 0x1402712D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298230 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiSetVpThreadSpinLockCount @ 0x1400BC7E0 (KiSetVpThreadSpinLockCount.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D2030 (KiEndThreadAccountingPeriod.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     SwapContext @ 0x1401C42C0 (SwapContext.c)
+ *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 KxDispatchInterrupt()

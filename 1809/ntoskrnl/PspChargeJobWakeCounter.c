@@ -9,7 +9,7 @@
  *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
  *     PspLockRootJobShared @ 0x1405FE1FC (PspLockRootJobShared.c)
  *     PspSendWakeNotification @ 0x1406000F4 (PspSendWakeNotification.c)
- *     EtwTraceWakeCounter @ 0x1408B7EA4 (EtwTraceWakeCounter.c)
+ *     EtwTraceWakeCounter @ 0x1408B7E84 (EtwTraceWakeCounter.c)
  */
 
 void __fastcall PspChargeJobWakeCounter(

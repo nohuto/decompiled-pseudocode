@@ -1,18 +1,18 @@
 /*
- * XREFs of KsepDbCacheReadDeviceInternal @ 0x14080AB88
+ * XREFs of KsepDbCacheReadDeviceInternal @ 0x140755564
  * Callers:
- *     KsepDbCacheReadDevice @ 0x14080AA9C (KsepDbCacheReadDevice.c)
+ *     KsepDbCacheReadDevice @ 0x14075566C (KsepDbCacheReadDevice.c)
  * Callees:
- *     SdbFindNextTag @ 0x1407560F8 (SdbFindNextTag.c)
- *     SdbGetDatabaseMatchEx @ 0x1407571D0 (SdbGetDatabaseMatchEx.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     KsepDbReadKFlag @ 0x14080B194 (KsepDbReadKFlag.c)
- *     KsepCacheDeviceInsertData @ 0x14080B2A8 (KsepCacheDeviceInsertData.c)
- *     SdbTagRefToTagID @ 0x14080B368 (SdbTagRefToTagID.c)
- *     KsepDbReadKData @ 0x140976F88 (KsepDbReadKData.c)
+ *     SdbGetDatabaseMatchEx @ 0x1407591F8 (SdbGetDatabaseMatchEx.c)
+ *     SdbFindNextTag @ 0x140759638 (SdbFindNextTag.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     KsepDbReadKFlag @ 0x1407B3DC0 (KsepDbReadKFlag.c)
+ *     SdbTagRefToTagID @ 0x1407C2850 (SdbTagRefToTagID.c)
+ *     KsepCacheDeviceInsertData @ 0x1407CC610 (KsepCacheDeviceInsertData.c)
+ *     KsepDbReadKData @ 0x1408BFCA0 (KsepDbReadKData.c)
  */
 
-__int64 __fastcall KsepDbCacheReadDeviceInternal(__int64 a1, __int64 a2, const wchar_t *a3, __int64 a4)
+__int64 __fastcall KsepDbCacheReadDeviceInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int DatabaseMatch; // eax
   __int64 result; // rax
@@ -21,42 +21,46 @@ __int64 __fastcall KsepDbCacheReadDeviceInternal(__int64 a1, __int64 a2, const w
   unsigned int v10; // edi
   unsigned int j; // eax
   unsigned int v12; // edi
-  unsigned int v13; // [rsp+40h] [rbp-40h] BYREF
-  __int64 v14; // [rsp+48h] [rbp-38h] BYREF
-  __int128 v15; // [rsp+50h] [rbp-30h] BYREF
-  __int128 v16; // [rsp+60h] [rbp-20h]
-  __int64 v17; // [rsp+70h] [rbp-10h]
+  __int64 v13; // [rsp+20h] [rbp-60h]
+  unsigned int v14; // [rsp+40h] [rbp-40h] BYREF
+  __int64 v15; // [rsp+48h] [rbp-38h] BYREF
+  __int128 v16; // [rsp+50h] [rbp-30h] BYREF
+  __int128 v17; // [rsp+60h] [rbp-20h]
+  __int64 v18; // [rsp+70h] [rbp-10h]
 
-  v13 = 0;
-  v14 = 0LL;
+  v14 = 0;
   v15 = 0LL;
-  v17 = 0LL;
+  HIDWORD(v13) = 0;
   v16 = 0LL;
-  DatabaseMatch = SdbGetDatabaseMatchEx(a1, 1, a3, a4, 0LL, 0LL, a2);
-  if ( !DatabaseMatch || !(unsigned int)SdbTagRefToTagID(a1, DatabaseMatch, &v14, &v13) )
+  v18 = 0LL;
+  v17 = 0LL;
+  DatabaseMatch = SdbGetDatabaseMatchEx(a1, 1LL);
+  if ( !DatabaseMatch || !(unsigned int)SdbTagRefToTagID(a1, DatabaseMatch, &v15, &v14) )
     return 3221226021LL;
-  v8 = v14;
-  for ( i = SdbFindFirstTag(v14, v13, 28691LL); ; i = SdbFindNextTag(v8, v13, v10) )
+  v8 = v15;
+  for ( i = SdbFindFirstTag(v15, v14, 28691LL); ; i = SdbFindNextTag(v8, v14, v10) )
   {
     v10 = i;
     if ( !i )
       break;
-    result = KsepDbReadKFlag(v8, i, &v15);
+    result = KsepDbReadKFlag(v8, i, &v16);
     if ( (int)result < 0 )
       return result;
-    result = KsepCacheDeviceInsertData(a4, v15, v16, DWORD2(v15), HIDWORD(v15));
+    LODWORD(v13) = HIDWORD(v16);
+    result = KsepCacheDeviceInsertData(a4, v16, v17, DWORD2(v16), v13);
     if ( (int)result < 0 )
       return result;
   }
-  for ( j = SdbFindFirstTag(v8, v13, 28712LL); ; j = SdbFindNextTag(v8, v13, v12) )
+  for ( j = SdbFindFirstTag(v8, v14, 28712LL); ; j = SdbFindNextTag(v8, v14, v12) )
   {
     v12 = j;
     if ( !j )
       break;
-    result = KsepDbReadKData(v8, j, &v15);
+    result = KsepDbReadKData(v8, j, &v16);
     if ( (int)result < 0 )
       return result;
-    result = KsepCacheDeviceInsertData(a4, v15, v16, DWORD2(v15), HIDWORD(v15));
+    LODWORD(v13) = HIDWORD(v16);
+    result = KsepCacheDeviceInsertData(a4, v16, v17, DWORD2(v16), v13);
     if ( (int)result < 0 )
       return result;
   }

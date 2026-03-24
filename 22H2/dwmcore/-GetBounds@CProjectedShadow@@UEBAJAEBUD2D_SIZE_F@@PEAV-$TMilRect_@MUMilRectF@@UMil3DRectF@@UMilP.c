@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetBounds@CProjectedShadow@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18024AC40
+ * XREFs of ?GetBounds@CProjectedShadow@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801E3AA8
  * Callers:
- *     ?GetBounds@CProjectedShadow@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18011E240 (-GetBounds@CProjectedShadow@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3D.c)
+ *     ?GetBounds@CProjectedShadow@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F61B0 (-GetBounds@CProjectedShadow@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3D.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CProjectedShadow::GetBounds(__int64 a1, _DWORD *a2, __int64 a3)
@@ -11,7 +11,7 @@ __int64 __fastcall CProjectedShadow::GetBounds(__int64 a1, _DWORD *a2, __int64 a
   char v5; // al
   int v6; // xmm0_4
 
-  v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(a1 - 424) + 192LL))(a1 - 424);
+  v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(a1 - 416) + 208LL))(a1 - 416);
   *(_QWORD *)a3 = 0LL;
   if ( v5 )
   {

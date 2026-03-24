@@ -1,12 +1,12 @@
 /*
- * XREFs of NtExtendSection @ 0x1406A36D0
+ * XREFs of NtExtendSection @ 0x140689410
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     MmExtendSection @ 0x1406A377C (MmExtendSection.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall NtExtendSection(HANDLE Handle, unsigned __int64 a2)
@@ -40,7 +40,7 @@ NTSTATUS __fastcall NtExtendSection(HANDLE Handle, unsigned __int64 a2)
   if ( result >= 0 )
   {
     v8 = MmExtendSection(Object, &v9, 0LL);
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     *(_QWORD *)a2 = v9;
     return v8;
   }

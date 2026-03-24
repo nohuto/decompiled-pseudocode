@@ -1,14 +1,14 @@
 /*
- * XREFs of NtQueryBootOptions @ 0x140A00770
+ * XREFs of NtQueryBootOptions @ 0x1409543C0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     IoGetEnvironmentVariableEx @ 0x14093E520 (IoGetEnvironmentVariableEx.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     IoGetEnvironmentVariableEx @ 0x140899A4C (IoGetEnvironmentVariableEx.c)
  */
 
 __int64 __fastcall NtQueryBootOptions(_DWORD *Address, _DWORD *a2)
@@ -32,8 +32,7 @@ __int64 __fastcall NtQueryBootOptions(_DWORD *Address, _DWORD *a2)
   v14 = 0;
   v15 = 0;
   v16 = 0;
-  v13 = 0;
-  if ( dword_140C15C70 != 2 )
+  if ( dword_140C19850 != 2 )
     return 3221225474LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
@@ -62,7 +61,7 @@ __int64 __fastcall NtQueryBootOptions(_DWORD *Address, _DWORD *a2)
     ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
     v13 = 4;
     EnvironmentVariable = IoGetEnvironmentVariableEx(
-                            L"Timeout",
+                            (const size_t *)L"Timeout",
                             (__int64)&EfiBootVariablesGuid,
                             (__int64)&v14,
                             (int *)&v13,
@@ -73,14 +72,24 @@ __int64 __fastcall NtQueryBootOptions(_DWORD *Address, _DWORD *a2)
       v14 = -2;
 LABEL_24:
       v13 = 4;
-      v11 = IoGetEnvironmentVariableEx(L"BootCurrent", (__int64)&EfiBootVariablesGuid, (__int64)&v15, (int *)&v13, 0LL);
+      v11 = IoGetEnvironmentVariableEx(
+              (const size_t *)L"BootCurrent",
+              (__int64)&EfiBootVariablesGuid,
+              (__int64)&v15,
+              (int *)&v13,
+              0LL);
       v7 = v11;
       if ( v11 == -1073741789 || v11 == -1073741568 )
       {
         v15 = -2;
 LABEL_30:
         v13 = 2;
-        v12 = IoGetEnvironmentVariableEx(L"BootNext", (__int64)&EfiBootVariablesGuid, (__int64)&v16, (int *)&v13, 0LL);
+        v12 = IoGetEnvironmentVariableEx(
+                (const size_t *)L"BootNext",
+                (__int64)&EfiBootVariablesGuid,
+                (__int64)&v16,
+                (int *)&v13,
+                0LL);
         v7 = v12;
         if ( v12 == -1073741789 || v12 == -1073741568 )
         {
@@ -101,7 +110,7 @@ LABEL_30:
       }
 LABEL_36:
       ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       goto LABEL_37;
     }
     if ( EnvironmentVariable != -1073741568 )

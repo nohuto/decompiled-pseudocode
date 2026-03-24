@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Dispatch@CHolographicFrameProcessor@@UEAAJXZ @ 0x18029F6F0
+ * XREFs of ?Dispatch@CHolographicFrameProcessor@@UEAAJXZ @ 0x18025CB00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CHolographicFrameProcessor::Dispatch(CHolographicFrameProcessor *this)

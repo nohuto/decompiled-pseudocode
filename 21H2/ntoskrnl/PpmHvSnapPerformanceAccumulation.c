@@ -1,126 +1,132 @@
 /*
- * XREFs of PpmHvSnapPerformanceAccumulation @ 0x1405DC4F8
+ * XREFs of PpmHvSnapPerformanceAccumulation @ 0x14057C4E0
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140304CE0 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmResetPerfTimes @ 0x1403B4C90 (PpmResetPerfTimes.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140220810 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x140220BD0 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     PpmResetPerfTimes @ 0x1403C22F0 (PpmResetPerfTimes.c)
  * Callees:
- *     HvlGetReferenceTime @ 0x14039AF3C (HvlGetReferenceTime.c)
- *     HvlpGetLpcbByLpIndex @ 0x14039E528 (HvlpGetLpcbByLpIndex.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HvlGetStatsUpdateCounter @ 0x1405499F8 (HvlGetStatsUpdateCounter.c)
+ *     HvlGetReferenceTime @ 0x14038DFAC (HvlGetReferenceTime.c)
+ *     HvlpGetLpcbByLpIndex @ 0x140390CF8 (HvlpGetLpcbByLpIndex.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HvlGetStatsUpdateCounter @ 0x1404F7D90 (HvlGetStatsUpdateCounter.c)
  */
 
-char __fastcall PpmHvSnapPerformanceAccumulation(_QWORD *a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)
+char __fastcall PpmHvSnapPerformanceAccumulation(_QWORD *a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
-  char v5; // bl
-  unsigned int v7; // esi
+  char v4; // bl
+  unsigned int v6; // esi
   int *LpcbByLpIndex; // rax
-  __int64 v9; // r15
-  __int64 v10; // rcx
-  __int64 v11; // rsi
-  __int64 v12; // r15
-  _QWORD *v13; // r11
-  __int64 v14; // r13
-  char *v15; // r9
-  __int64 v16; // r10
-  __int64 v17; // r12
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  unsigned __int64 v20; // rax
-  __int64 v21; // rax
-  unsigned int i; // [rsp+34h] [rbp-5Dh]
-  __int64 v24; // [rsp+48h] [rbp-49h]
-  char v27; // [rsp+80h] [rbp-11h] BYREF
+  __int64 v8; // r15
+  __int64 v9; // rcx
+  __int64 v10; // r14
+  __int64 v11; // r15
+  _QWORD *v12; // r11
+  __int64 v13; // r12
+  char *v14; // r9
+  __int64 v15; // r10
+  __int64 v16; // r12
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  unsigned __int64 v19; // rax
+  __int64 v20; // rax
+  unsigned int v22; // [rsp+34h] [rbp-55h]
+  __int64 v23; // [rsp+48h] [rbp-41h]
+  __int64 v24; // [rsp+50h] [rbp-39h]
+  char v27; // [rsp+80h] [rbp-9h] BYREF
 
-  v5 = 0;
-  v7 = *(_DWORD *)(a1[1] + 20LL);
-  for ( i = v7; ; v7 = i )
+  v4 = 0;
+  v6 = *(_DWORD *)(a1[1] + 20LL);
+  v22 = v6;
+  v23 = 2LL;
+  while ( 1 )
   {
-    while ( HvlGetStatsUpdateCounter(v7) )
+    while ( HvlGetStatsUpdateCounter(v6) )
       ;
     HvlGetReferenceTime();
-    LpcbByLpIndex = HvlpGetLpcbByLpIndex(v7);
+    LpcbByLpIndex = HvlpGetLpcbByLpIndex(v6);
     if ( LpcbByLpIndex )
     {
-      v10 = *((_QWORD *)LpcbByLpIndex + 4);
-      v9 = *(_QWORD *)(v10 + 8LL * (unsigned int)qword_140CF70C0);
-      v24 = *(_QWORD *)(v10 + 8LL * HIDWORD(qword_140CF70C0));
+      v9 = *((_QWORD *)LpcbByLpIndex + 4);
+      v8 = *(_QWORD *)(v9 + 8LL * (unsigned int)qword_140CED580);
+      v24 = *(_QWORD *)(v9 + 8LL * HIDWORD(qword_140CED580));
     }
     else
     {
-      v9 = 0LL;
+      v8 = 0LL;
       v24 = 0LL;
     }
-    if ( !HvlGetStatsUpdateCounter(i) )
+    if ( !HvlGetStatsUpdateCounter(v22) )
       break;
+    v6 = v22;
   }
   if ( !a3 )
   {
-    a1[10] = 0LL;
-    v11 = -v9;
-    v12 = -v9 - a1[11];
-    a1[11] = v11;
-    if ( v12 )
+    a1[9] = 0LL;
+    v10 = -v8;
+    v11 = -v8 - a1[10];
+    a1[10] = v10;
+    if ( v11 )
     {
-      v13 = a1 + 15;
-      v14 = 2LL;
-      v15 = &v27;
+      v12 = a1 + 14;
+      v13 = 2LL;
+      v14 = &v27;
       do
       {
-        v16 = *(v13 - 3);
-        if ( v16 )
+        v15 = *(v12 - 3);
+        if ( v15 )
         {
-          if ( *(_BYTE *)(v16 + 33) )
+          if ( *(_BYTE *)(v15 + 33) )
           {
-            v17 = *((_QWORD *)v15 - 2);
-            v18 = *(_QWORD *)(v16 + 16);
-            if ( v17 == v18 )
+            v16 = *((_QWORD *)v14 - 2);
+            v17 = *(_QWORD *)(v15 + 16);
+            if ( v16 == v17 )
             {
-              LODWORD(v20) = *(_DWORD *)(v16 + 24);
+              LODWORD(v19) = *(_DWORD *)(v15 + 24);
             }
             else
             {
-              v19 = *((_QWORD *)v15 - 1) - *(_QWORD *)(v16 + 8);
-              *(_QWORD *)(v16 + 16) = v17;
-              *(_QWORD *)(v16 + 8) = *((_QWORD *)v15 - 1);
-              v20 = v19 * (unsigned __int64)*(unsigned __int8 *)(v16 + 35) / (v17 - v18);
-              *(_DWORD *)(v16 + 24) = v20;
+              v18 = *((_QWORD *)v14 - 1) - *(_QWORD *)(v15 + 8);
+              *(_QWORD *)(v15 + 16) = v16;
+              *(_QWORD *)(v15 + 8) = *((_QWORD *)v14 - 1);
+              v19 = v18 * (unsigned __int64)*(unsigned __int8 *)(v15 + 35) / (v16 - v17);
+              *(_DWORD *)(v15 + 24) = v19;
             }
-            *(_DWORD *)v15 = v20;
+            *(_DWORD *)v14 = v19;
           }
           else
           {
-            LODWORD(v20) = *(_DWORD *)v15;
+            LODWORD(v19) = *(_DWORD *)v14;
           }
-          *v13 += v12 * (unsigned int)v20;
+          v13 = v23;
+          *v12 += v11 * (unsigned int)v19;
         }
-        ++v13;
-        v15 += 24;
-        --v14;
+        ++v12;
+        v14 += 24;
+        v23 = --v13;
       }
-      while ( v14 );
+      while ( v13 );
     }
-    if ( a1[12] )
+    if ( a1[11] )
     {
-      v21 = a1[15];
+      v20 = a1[14];
     }
-    else if ( a1[13] )
+    else if ( a1[12] )
     {
-      v21 = a1[16];
+      v20 = a1[15];
     }
     else
     {
-      v21 = 100LL * a1[14];
+      v20 = 100LL * a1[13];
     }
-    a4[3] = v21;
-    if ( a1[13] )
-      v21 = a1[16];
-    v5 = 1;
-    a4[4] = v21;
+    a4[3] = v20;
+    if ( a1[12] )
+      v20 = a1[15];
+    a4[4] = v20;
+    v4 = 1;
+    a4[6] = v24;
     *a4 = 0LL;
-    a4[1] = v11;
-    *a5 = v24;
+    a4[1] = v10;
   }
-  return v5;
+  return v4;
 }

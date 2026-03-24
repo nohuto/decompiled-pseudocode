@@ -1,9 +1,9 @@
 /*
- * XREFs of NtConnectPort @ 0x1406640A0
+ * XREFs of NtConnectPort @ 0x1405DDB10
  * Callers:
  *     <none>
  * Callees:
- *     NtSecureConnectPort @ 0x140664220 (NtSecureConnectPort.c)
+ *     NtSecureConnectPort @ 0x1405DDC90 (NtSecureConnectPort.c)
  */
 
 __int64 __fastcall NtConnectPort(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7, __int64 a8)

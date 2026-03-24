@@ -1,13 +1,13 @@
 /*
- * XREFs of PoFxSetTargetDripsDevicePowerState @ 0x14098CEF0
+ * XREFs of PoFxSetTargetDripsDevicePowerState @ 0x1408E4550
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     PopFxAddRefDevice @ 0x140355350 (PopFxAddRefDevice.c)
- *     PopFxReleaseDevice @ 0x1405CD96C (PopFxReleaseDevice.c)
- *     PopPepGetMinimumDevicePowerState @ 0x1405D5234 (PopPepGetMinimumDevicePowerState.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     PopFxAddRefDevice @ 0x14026077C (PopFxAddRefDevice.c)
+ *     PopFxReleaseDevice @ 0x14056C360 (PopFxReleaseDevice.c)
+ *     PopPepGetMinimumDevicePowerState @ 0x140574890 (PopPepGetMinimumDevicePowerState.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PoFxSetTargetDripsDevicePowerState(ULONG_PTR a1, int a2)
@@ -15,7 +15,7 @@ __int64 __fastcall PoFxSetTargetDripsDevicePowerState(ULONG_PTR a1, int a2)
   unsigned int v2; // ebx
   char v5; // bp
   __int64 v6; // rcx
-  __int64 Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
   int v9; // [rsp+60h] [rbp+18h] BYREF
   int v10; // [rsp+68h] [rbp+20h] BYREF
 
@@ -26,8 +26,8 @@ __int64 __fastcall PoFxSetTargetDripsDevicePowerState(ULONG_PTR a1, int a2)
   {
     if ( a2 == 1 || a2 > 4 )
       return (unsigned int)-1073741811;
-    v5 = dword_140C542C0;
-    if ( dword_140C542C0 == -1 )
+    v5 = dword_140C50080;
+    if ( dword_140C50080 == -1 )
       return (unsigned int)-1073741823;
     if ( !a1 )
       return (unsigned int)-1073741811;
@@ -43,17 +43,17 @@ __int64 __fastcall PoFxSetTargetDripsDevicePowerState(ULONG_PTR a1, int a2)
             goto LABEL_20;
           if ( v10 <= 1 || !a2 || a2 > v10 )
           {
-            Pool2 = ExAllocatePool2(64LL, 64LL, 1297630800LL);
-            if ( Pool2 )
+            PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x4D584650u);
+            if ( PoolWithTag )
             {
-              *(_QWORD *)(Pool2 + 8) = Pool2;
-              *(_QWORD *)Pool2 = Pool2;
-              *(_QWORD *)(Pool2 + 16) = a1;
-              *(_DWORD *)(Pool2 + 24) = a2;
-              *(_QWORD *)(Pool2 + 48) = PopFxUpdateVetoMaskWork;
-              *(_QWORD *)(Pool2 + 56) = Pool2;
-              *(_QWORD *)(Pool2 + 32) = 0LL;
-              ExQueueWorkItem((PWORK_QUEUE_ITEM)(Pool2 + 32), DelayedWorkQueue);
+              PoolWithTag->List.Blink = &PoolWithTag->List;
+              PoolWithTag->List.Flink = &PoolWithTag->List;
+              PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))a1;
+              LODWORD(PoolWithTag->Parameter) = a2;
+              PoolWithTag[1].WorkerRoutine = (void (__fastcall *)(void *))PopFxUpdateVetoMaskWork;
+              PoolWithTag[1].Parameter = PoolWithTag;
+              PoolWithTag[1].List.Flink = 0LL;
+              ExQueueWorkItem(PoolWithTag + 1, DelayedWorkQueue);
               return v2;
             }
             v2 = -1073741670;

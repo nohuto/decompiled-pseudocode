@@ -1,45 +1,43 @@
 /*
- * XREFs of CmpSubtreeEnumeratorBeginForKeyNodeStack @ 0x14065C6FC
+ * XREFs of CmpSubtreeEnumeratorBeginForKeyNodeStack @ 0x140729FF0
  * Callers:
- *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x14065C6C0 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140729FB4 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
  * Callees:
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14069F1CC (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140699C98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpSubtreeEnumeratorBeginForKeyNodeStack(__int64 a1, __int16 *a2)
 {
   __int16 v2; // bx
-  __int64 i; // rbp
-  __int64 EntryAtLayerHeight; // rsi
-  __int64 v7; // rax
-  ULONG_PTR v8; // rdx
-  ULONG_PTR v9; // rcx
-  __int64 CellFlat; // rax
+  __int64 i; // rsi
+  __int64 EntryAtLayerHeight; // r15
+  __int16 v7; // dx
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
   __int64 result; // rax
 
   v2 = *a2;
   for ( i = a1 + 16; v2 >= 0; --v2 )
   {
-    EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight(i);
-    v7 = CmpKeyNodeStackGetEntryAtLayerHeight(a2);
-    v8 = *(unsigned int *)(v7 + 8);
-    if ( (_DWORD)v8 != -1 )
+    EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight(i, v2);
+    v8 = CmpKeyNodeStackGetEntryAtLayerHeight((__int64)a2, v7);
+    v9 = *(unsigned int *)(v8 + 8);
+    if ( (_DWORD)v9 != -1 )
     {
-      v9 = *(_QWORD *)v7;
-      *(_QWORD *)EntryAtLayerHeight = *(_QWORD *)v7;
-      *(_DWORD *)(EntryAtLayerHeight + 8) = v8;
-      if ( (*(_BYTE *)(v9 + 140) & 1) != 0 )
-        CellFlat = HvpGetCellFlat(v9, v8);
-      else
-        CellFlat = HvpGetCellPaged(v9);
-      *(_QWORD *)(EntryAtLayerHeight + 16) = CellFlat;
+      v10 = *(_QWORD *)v8;
+      *(_QWORD *)EntryAtLayerHeight = *(_QWORD *)v8;
+      *(_DWORD *)(EntryAtLayerHeight + 8) = v9;
+      *(_QWORD *)(EntryAtLayerHeight + 16) = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(v10 + 8))(
+                                               v10,
+                                               v9,
+                                               EntryAtLayerHeight + 24);
     }
   }
   result = *(_QWORD *)(a1 + 96);
-  *(_QWORD *)(result + 16) = i;
   *(_QWORD *)(result + 8) = 0LL;
+  *(_QWORD *)(result + 16) = i;
   *(_WORD *)a1 = 0;
   return result;
 }

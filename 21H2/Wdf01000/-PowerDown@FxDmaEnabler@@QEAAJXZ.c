@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PowerDown@FxDmaEnabler@@QEAAJXZ @ 0x1C000D2D8
+ * XREFs of ?PowerDown@FxDmaEnabler@@QEAAJXZ @ 0x1C0004C54
  * Callers:
- *     ?PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ @ 0x1C000D200 (-PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ.c)
+ *     ?PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ @ 0x1C0004BD4 (-PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_qld @ 0x1C0055B64 (WPP_IFR_SF_qld.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qld @ 0x1C0032B88 (WPP_IFR_SF_qld.c)
  */
 
 __int64 __fastcall FxDmaEnabler::PowerDown(FxDmaEnabler *this)
@@ -71,9 +71,9 @@ __int64 __fastcall FxDmaEnabler::PowerDown(FxDmaEnabler *this)
       if ( v13 < 0 )
       {
         globals = 2;
-        if ( level >= 0 )
-          level = v13;
-        goto LABEL_20;
+        if ( level < 0 )
+          goto LABEL_20;
+        level = v13;
       }
     }
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpRealtimeResetReferenceTime @ 0x1409EDE34
+ * XREFs of EtwpRealtimeResetReferenceTime @ 0x140941C60
  * Callers:
- *     EtwpRealtimeFlushSavedBuffers @ 0x14079A870 (EtwpRealtimeFlushSavedBuffers.c)
- *     EtwpRealtimeCreateLogfile @ 0x14079AADC (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x140681844 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x1406B31D0 (EtwpRealtimeFlushSavedBuffers.c)
  * Callees:
- *     EtwpRealtimeUpdateReferenceTime @ 0x14085E858 (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x1407D05D8 (EtwpRealtimeUpdateReferenceTime.c)
  */
 
 __int64 __fastcall EtwpRealtimeResetReferenceTime(__int64 a1)
@@ -12,8 +12,8 @@ __int64 __fastcall EtwpRealtimeResetReferenceTime(__int64 a1)
   __int64 result; // rax
 
   result = 0LL;
-  *(_OWORD *)(a1 + 432) = *(_OWORD *)(a1 + 304);
-  if ( *(_DWORD *)(a1 + 344) )
-    return EtwpRealtimeUpdateReferenceTime(a1, (__int128 *)(a1 + 432));
+  *(_OWORD *)(a1 + 448) = *(_OWORD *)(a1 + 320);
+  if ( *(_DWORD *)(a1 + 360) )
+    return EtwpRealtimeUpdateReferenceTime(a1, (__int128 *)(a1 + 448));
   return result;
 }

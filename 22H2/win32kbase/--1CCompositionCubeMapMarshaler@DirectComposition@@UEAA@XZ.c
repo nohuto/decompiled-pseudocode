@@ -1,21 +1,21 @@
 /*
- * XREFs of ??1CCompositionCubeMapMarshaler@DirectComposition@@UEAA@XZ @ 0x1C022CE74
+ * XREFs of ??1CCompositionCubeMapMarshaler@DirectComposition@@UEAA@XZ @ 0x1C01F3F44
  * Callers:
- *     ??_GCCompositionCubeMapMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C020BBA0 (--_GCCompositionCubeMapMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_GCCompositionCubeMapMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D4010 (--_GCCompositionCubeMapMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 void __fastcall DirectComposition::CCompositionCubeMapMarshaler::~CCompositionCubeMapMarshaler(
         DirectComposition::CCompositionCubeMapMarshaler *this)
 {
-  char *v1; // rdx
+  __int64 v2; // rcx
 
-  v1 = (char *)*((_QWORD *)this + 7);
   *(_QWORD *)this = &DirectComposition::CCompositionCubeMapMarshaler::`vftable';
-  if ( v1 )
+  v2 = *((_QWORD *)this + 7);
+  if ( v2 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v1);
+    Win32FreePool(v2);
     *((_QWORD *)this + 7) = 0LL;
   }
 }

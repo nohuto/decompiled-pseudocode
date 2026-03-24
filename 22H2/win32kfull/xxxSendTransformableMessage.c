@@ -1,14 +1,17 @@
 /*
- * XREFs of xxxSendTransformableMessage @ 0x1C013C8C8
+ * XREFs of xxxSendTransformableMessage @ 0x1C010F8F4
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     xxxDestroyWindow @ 0x1C00E8400 (xxxDestroyWindow.c)
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
+ *     ?xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x1C0167424 (-xxxDCEWindowHitTestIndirect_Iterative@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW.c)
  * Callees:
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
  */
 
-__int64 __fastcall xxxSendTransformableMessage(unsigned __int64 *a1, unsigned int a2, __int64 a3, __int128 *a4, int a5)
+__int64 __fastcall xxxSendTransformableMessage(
+        unsigned __int64 a1,
+        unsigned int a2,
+        unsigned __int64 a3,
+        struct _LARGE_STRING *a4,
+        int a5)
 {
   _InterlockedIncrement(&glSendMessage);
   return xxxSendTransformableMessageTimeout(a1, a2, a3, a4, 0, 0, 0LL, 1, a5);

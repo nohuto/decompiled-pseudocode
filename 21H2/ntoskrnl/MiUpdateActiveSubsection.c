@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdateActiveSubsection @ 0x140597C48
+ * XREFs of MiUpdateActiveSubsection @ 0x14053CEE0
  * Callers:
- *     MmExtendSection @ 0x1406A377C (MmExtendSection.c)
+ *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
  * Callees:
- *     MiDecrementSubsections @ 0x140286920 (MiDecrementSubsections.c)
- *     MiReferenceSubsection @ 0x140286D4C (MiReferenceSubsection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405C4B8C (MiReturnCrossPartitionSectionCharges.c)
- *     MiAllocateFileExtents @ 0x14096F8CC (MiAllocateFileExtents.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiDecrementSubsections @ 0x1403150C0 (MiDecrementSubsections.c)
+ *     MiReferenceSubsection @ 0x14031555C (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
+ *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiUpdateActiveSubsection(_QWORD *BugCheckParameter2)
@@ -70,7 +70,7 @@ __int64 __fastcall MiUpdateActiveSubsection(_QWORD *BugCheckParameter2)
       }
     }
     __writecr8(v6);
-    FileExtents = MiAllocateFileExtents(v1, 0, 0);
+    FileExtents = MiAllocateFileExtents(v1, 0);
     v12 = 0;
     v6 = ExAcquireSpinLockExclusive(v5);
     if ( FileExtents >= 0 )
@@ -109,7 +109,7 @@ LABEL_18:
       {
         LOBYTE(v2) = *(_QWORD *)(v23 + 64) != 0LL;
         MiReturnCrossPartitionSectionCharges(
-          *(_QWORD *)(qword_140C51F48 + 8LL * (*(_WORD *)(v23 + 60) & 0x3FF)),
+          *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v23 + 60) & 0x3FF)),
           v2,
           v4);
       }

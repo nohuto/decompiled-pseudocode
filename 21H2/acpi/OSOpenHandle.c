@@ -1,20 +1,19 @@
 /*
- * XREFs of OSOpenHandle @ 0x1C008EB74
+ * XREFs of OSOpenHandle @ 0x1C008FBB8
  * Callers:
- *     ACPIRegReadAMLRegistryEntry @ 0x1C008E978 (ACPIRegReadAMLRegistryEntry.c)
- *     ACPIRootInitialize @ 0x1C008F8C0 (ACPIRootInitialize.c)
- *     ACPIThermalGetOverrideHandle @ 0x1C0096764 (ACPIThermalGetOverrideHandle.c)
- *     ACPIInitGlobalHeapSize @ 0x1C00967F4 (ACPIInitGlobalHeapSize.c)
- *     OSReadRegValue @ 0x1C00968B0 (OSReadRegValue.c)
- *     ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C00B1B70 (ACPIRegGetTableFromSimulatorRegistryEntry.c)
- *     OSOpenAMLINamespaceOverrideHandle @ 0x1C00B2238 (OSOpenAMLINamespaceOverrideHandle.c)
- *     OSOpenNextSubkey @ 0x1C00B254C (OSOpenNextSubkey.c)
- *     AcpiDiagInitialize @ 0x1C00BB8FC (AcpiDiagInitialize.c)
- *     ACPIInitGetPlatformOverrides @ 0x1C00BCB2C (ACPIInitGetPlatformOverrides.c)
- *     ACPIInitReadRegistryKeys @ 0x1C00BD39C (ACPIInitReadRegistryKeys.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008FCF0 (ACPIRegReadAMLRegistryEntry.c)
+ *     OSReadRegValue @ 0x1C0097444 (OSReadRegValue.c)
+ *     ACPIInitGlobalHeapSize @ 0x1C00977FC (ACPIInitGlobalHeapSize.c)
+ *     ACPIThermalGetOverrideHandle @ 0x1C0098A58 (ACPIThermalGetOverrideHandle.c)
+ *     ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C00B2278 (ACPIRegGetTableFromSimulatorRegistryEntry.c)
+ *     OSOpenAMLINamespaceOverrideHandle @ 0x1C00B2958 (OSOpenAMLINamespaceOverrideHandle.c)
+ *     OSOpenNextSubkey @ 0x1C00B2C68 (OSOpenNextSubkey.c)
+ *     ACPIInitGetPlatformOverrides @ 0x1C00BC920 (ACPIInitGetPlatformOverrides.c)
+ *     ACPIInitReadRegistryKeys @ 0x1C00BD2FC (ACPIInitReadRegistryKeys.c)
+ *     AcpiDiagInitialize @ 0x1C00BDE98 (AcpiDiagInitialize.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     OSOpenUnicodeHandle @ 0x1C008EC0C (OSOpenUnicodeHandle.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     OSOpenUnicodeHandle @ 0x1C008FC50 (OSOpenUnicodeHandle.c)
  */
 
 __int64 __fastcall OSOpenHandle(PCSZ SourceString, __int64 a2, __int64 a3)
@@ -33,12 +32,12 @@ __int64 __fastcall OSOpenHandle(PCSZ SourceString, __int64 a2, __int64 a3)
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       v7 = v5;
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         0x16u,
         0xCu,
-        (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+        (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
         v7,
         *(_QWORD *)&DestinationString.Length,
         DestinationString.Buffer);

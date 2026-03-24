@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceProcessorPerformance @ 0x14099B030
+ * XREFs of PpmEventTraceProcessorPerformance @ 0x1408F37C0
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140864680 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D53F0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PpmEventHiddenProcessorPerformance @ 0x14099A418 (PpmEventHiddenProcessorPerformance.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PpmEventHiddenProcessorPerformance @ 0x1408F2BB8 (PpmEventHiddenProcessorPerformance.c)
  */
 
 void __fastcall PpmEventTraceProcessorPerformance(__int64 a1)
@@ -86,16 +86,16 @@ void __fastcall PpmEventTraceProcessorPerformance(__int64 a1)
     v3 = PpmEtwHandle;
     if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_CURRENT_PERF_RUNDOWN) )
     {
-      v4 = *(_QWORD *)(a1 + 33968);
-      v5 = *(_DWORD **)(a1 + 33976);
-      v23 = *(unsigned __int8 *)(a1 + 34060);
-      v24 = *(_DWORD *)(a1 + 34116);
+      v4 = *(_QWORD *)(a1 + 33128);
+      v5 = *(_DWORD **)(a1 + 33136);
+      v23 = *(unsigned __int8 *)(a1 + 33212);
+      v24 = *(_DWORD *)(a1 + 33268);
       if ( v4 )
       {
-        v6 = *(_DWORD *)(v4 + 440);
+        v6 = *(_DWORD *)(v4 + 316);
         v13 = v6;
-        v18 = *(_BYTE *)(v4 + 504) != 0;
-        v7 = *(unsigned __int8 *)(v4 + 480);
+        v18 = *(_BYTE *)(v4 + 359) != 0;
+        v7 = *(unsigned __int8 *)(v4 + 352);
       }
       else
       {
@@ -147,16 +147,16 @@ void __fastcall PpmEventTraceProcessorPerformance(__int64 a1)
       v42 = &v15;
       v44 = &v16;
       v46 = &v17;
-      v48 = a1 + 34056;
-      v50 = a1 + 34057;
+      v48 = a1 + 33208;
+      v50 = a1 + 33209;
       v52 = &v18;
       v54 = &v19;
       v56 = &v20;
       v58 = &v24;
       v60 = &v25;
-      v62 = a1 + 34058;
+      v62 = a1 + 33210;
       v64 = &v21;
-      v26 = *(unsigned __int8 *)(a1 + 33659);
+      v26 = *(unsigned __int8 *)(a1 + 32819);
       v66 = &v26;
       v68 = &v22;
       v31 = 4LL;
@@ -182,16 +182,16 @@ void __fastcall PpmEventTraceProcessorPerformance(__int64 a1)
       EtwWrite(v3, &PPM_ETW_CURRENT_PERF_RUNDOWN, 0LL, 0x16u, &UserData);
       if ( v4 )
       {
-        if ( *(_QWORD *)(v4 + 16) == a1 + 33968 && *(_DWORD *)(v4 + 296) )
+        if ( *(_QWORD *)(v4 + 16) == a1 + 33128 && *(_DWORD *)(v4 + 200) )
         {
           do
           {
-            v8 = (_DWORD *)(*(_QWORD *)(v4 + 312) + 136LL * v1);
+            v8 = (_DWORD *)(*(_QWORD *)(v4 + 216) + 136LL * v1);
             if ( v8[4] == 2 )
               PpmEventHiddenProcessorPerformance(a1, v8[5], v8[6], v8[7]);
             ++v1;
           }
-          while ( v1 < *(_DWORD *)(v4 + 296) );
+          while ( v1 < *(_DWORD *)(v4 + 200) );
         }
       }
     }

@@ -1,33 +1,47 @@
 /*
- * XREFs of bInitBRUSHOBJ @ 0x1C02E523C
+ * XREFs of bInitBRUSHOBJ @ 0x1C02982A0
  * Callers:
- *     InitializeGre @ 0x1C02E38D0 (InitializeGre.c)
+ *     InitializeGre @ 0x1C029A0FC (InitializeGre.c)
  * Callees:
- *     GreCreateBitmap @ 0x1C001A360 (GreCreateBitmap.c)
- *     HmgShareLockCheck @ 0x1C0020DC0 (HmgShareLockCheck.c)
- *     GreDeleteObject @ 0x1C0023690 (GreDeleteObject.c)
- *     ?vGlobal@BRUSHMEMOBJ@@QEAAXXZ @ 0x1C00628A0 (-vGlobal@BRUSHMEMOBJ@@QEAAXXZ.c)
- *     GreSetBrushOwner @ 0x1C00630E0 (GreSetBrushOwner.c)
- *     GreCreatePatternBrushInternal @ 0x1C00634C0 (GreCreatePatternBrushInternal.c)
- *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C0063670 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
- *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C00636C0 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
- *     HmgMarkUndeletable @ 0x1C0063C80 (HmgMarkUndeletable.c)
- *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C00643E0 (-bSetStockObject@@YAHPEAXHH@Z.c)
- *     HmgModifyHandleType @ 0x1C0064660 (HmgModifyHandleType.c)
- *     bInitBrush @ 0x1C02E518C (bInitBrush.c)
+ *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C0015DD0 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     HmgModifyHandleType @ 0x1C0016060 (HmgModifyHandleType.c)
+ *     ?vGlobal@BRUSHMEMOBJ@@QEAAXXZ @ 0x1C001A81C (-vGlobal@BRUSHMEMOBJ@@QEAAXXZ.c)
+ *     HmgMarkUndeletable @ 0x1C001B940 (HmgMarkUndeletable.c)
+ *     GreCreatePatternBrushInternal @ 0x1C001BA50 (GreCreatePatternBrushInternal.c)
+ *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C001BC00 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
+ *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C001BC50 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
+ *     GreSetBrushOwner @ 0x1C001C970 (GreSetBrushOwner.c)
+ *     GreCreateBitmap @ 0x1C00271A0 (GreCreateBitmap.c)
+ *     HmgShareLockCheck @ 0x1C002DBE0 (HmgShareLockCheck.c)
+ *     GreDeleteObject @ 0x1C0038500 (GreDeleteObject.c)
+ *     bInitBrush @ 0x1C02981F0 (bInitBrush.c)
  */
 
 __int64 bInitBRUSHOBJ()
 {
-  struct _DEVOBJ_EXTENSION *v0; // rax
+  __int64 v0; // rdx
+  __int64 v1; // r8
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  struct _LIST_ENTRY *v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  __int64 v12; // r8
   HBITMAP Bitmap; // rax
-  HRGN v2; // rbx
-  __int64 v3; // rax
-  ULONG NumberOfMapRegisters; // ecx
-  __int64 *v6[6]; // [rsp+30h] [rbp-40h] BYREF
-  int v7; // [rsp+60h] [rbp-10h]
+  struct HOBJ__ *v14; // rbx
+  __int64 v15; // rax
+  unsigned int DeviceRoutine; // ecx
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  HBRUSH *v20[6]; // [rsp+30h] [rbp-40h] BYREF
+  int v21; // [rsp+60h] [rbp-10h]
 
-  if ( !(unsigned int)bInitBrush(0, 0xFFFFFF, 7u, &qword_1C028F308, 0)
+  if ( !(unsigned int)bInitBrush(0, 0xFFFFFF, 7u, &qword_1C024BD78, 0)
     || !(unsigned int)bInitBrush(4, 0, 7u, 0LL, 0)
     || !(unsigned int)bInitBrush(2, 8421504, 7u, 0LL, 1)
     || !(unsigned int)bInitBrush(3, 4210752, 7u, 0LL, 1)
@@ -36,104 +50,104 @@ __int64 bInitBRUSHOBJ()
   {
     return 0LL;
   }
-  BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v6, 0, 0xCu, 1, 0);
-  if ( v6[0] )
+  BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v20, 0, 0xCu, 1, 0);
+  if ( v20[0] )
   {
-    v7 = 1;
-    BRUSHMEMOBJ::vGlobal(v6);
-    *((_DWORD *)v6[0] + 10) |= 0xC00u;
-    *((_DWORD *)v6[0] + 44) = 5;
-    *((_DWORD *)v6[0] + 42) = 1;
-    HmgModifyHandleType(*v6[0] | 0x300000);
-    bSetStockObject(*v6[0], 8, 0);
-    WPP_MAIN_CB.Queue.Wcb.DeviceRoutine = (PDRIVER_CONTROL)v6[0];
-    BRUSHMEMOBJ::~BRUSHMEMOBJ((HBRUSH **)v6);
-    BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v6, 0, 7u, 1, 0);
-    if ( v6[0] )
+    v21 = 1;
+    BRUSHMEMOBJ::vGlobal((BRUSHMEMOBJ *)v20, v0, v1);
+    *((_DWORD *)v20[0] + 10) |= 0xC00u;
+    *((_DWORD *)v20[0] + 44) = 5;
+    *((_DWORD *)v20[0] + 42) = 1;
+    HmgModifyHandleType((unsigned __int64)*v20[0] | 0x300000);
+    bSetStockObject((unsigned __int64)*v20[0], 8, 0);
+    WPP_MAIN_CB.Queue.ListEntry.Blink = (struct _LIST_ENTRY *)v20[0];
+    BRUSHMEMOBJ::~BRUSHMEMOBJ(v20);
+    BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v20, 0, 7u, 1, 0);
+    if ( v20[0] )
     {
-      v7 = 1;
-      BRUSHMEMOBJ::vGlobal(v6);
-      *((_DWORD *)v6[0] + 10) |= 0xC00u;
-      *((_DWORD *)v6[0] + 44) = 0;
-      *((_DWORD *)v6[0] + 42) = 0;
-      *((_DWORD *)v6[0] + 43) = 0;
-      *((_BYTE *)v6[0] + 184) = 0;
-      *((_BYTE *)v6[0] + 185) = 0;
-      v6[0][19] = 0LL;
-      HmgModifyHandleType(*v6[0] | 0x300000);
-      bSetStockObject(*v6[0], 7, 0);
-      v0 = (struct _DEVOBJ_EXTENSION *)*v6[0];
-      qword_1C028F310 = (__int64)v6[0];
-      WPP_MAIN_CB.DeviceObjectExtension = v0;
-      BRUSHMEMOBJ::~BRUSHMEMOBJ((HBRUSH **)v6);
-      BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v6, 0xFFFFFF, 7u, 1, 0);
-      if ( v6[0] )
+      v21 = 1;
+      BRUSHMEMOBJ::vGlobal((BRUSHMEMOBJ *)v20, v2, v3);
+      *((_DWORD *)v20[0] + 10) |= 0xC00u;
+      *((_DWORD *)v20[0] + 44) = 0;
+      *((_DWORD *)v20[0] + 42) = 0;
+      *((_DWORD *)v20[0] + 43) = 0;
+      *((_BYTE *)v20[0] + 184) = 0;
+      *((_BYTE *)v20[0] + 185) = 0;
+      v20[0][19] = 0LL;
+      HmgModifyHandleType((unsigned __int64)*v20[0] | 0x300000);
+      bSetStockObject((unsigned __int64)*v20[0], 7, 0);
+      v4 = (struct _LIST_ENTRY *)*v20[0];
+      qword_1C024BD80 = (__int64)v20[0];
+      WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink = v4;
+      BRUSHMEMOBJ::~BRUSHMEMOBJ(v20);
+      BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v20, 0xFFFFFF, 7u, 1, 0);
+      if ( v20[0] )
       {
-        v7 = 1;
-        BRUSHMEMOBJ::vGlobal(v6);
-        *((_DWORD *)v6[0] + 10) |= 0xC00u;
-        *((_DWORD *)v6[0] + 44) = 0;
-        *((_DWORD *)v6[0] + 42) = 0;
-        *((_DWORD *)v6[0] + 43) = 0;
-        *((_BYTE *)v6[0] + 184) = 0;
-        *((_BYTE *)v6[0] + 185) = 0;
-        v6[0][19] = 0LL;
-        HmgModifyHandleType(*v6[0] | 0x300000);
-        bSetStockObject(*v6[0], 6, 0);
-        BRUSHMEMOBJ::~BRUSHMEMOBJ((HBRUSH **)v6);
-        BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v6, 0, 7u, 1, 0);
-        if ( v6[0] )
+        v21 = 1;
+        BRUSHMEMOBJ::vGlobal((BRUSHMEMOBJ *)v20, v5, v6);
+        *((_DWORD *)v20[0] + 10) |= 0xC00u;
+        *((_DWORD *)v20[0] + 44) = 0;
+        *((_DWORD *)v20[0] + 42) = 0;
+        *((_DWORD *)v20[0] + 43) = 0;
+        *((_BYTE *)v20[0] + 184) = 0;
+        *((_BYTE *)v20[0] + 185) = 0;
+        v20[0][19] = 0LL;
+        HmgModifyHandleType((unsigned __int64)*v20[0] | 0x300000);
+        bSetStockObject((unsigned __int64)*v20[0], 6, 0);
+        BRUSHMEMOBJ::~BRUSHMEMOBJ(v20);
+        BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v20, 0, 7u, 1, 0);
+        if ( v20[0] )
         {
-          v7 = 1;
-          BRUSHMEMOBJ::vGlobal(v6);
-          *((_DWORD *)v6[0] + 10) |= 0xC00u;
-          *((_DWORD *)v6[0] + 44) = 0;
-          *((_DWORD *)v6[0] + 42) = 0;
-          *((_DWORD *)v6[0] + 43) = 0;
-          *((_BYTE *)v6[0] + 184) = 0;
-          *((_BYTE *)v6[0] + 185) = 0;
-          v6[0][19] = 0LL;
-          HmgModifyHandleType(*v6[0] | 0x300000);
-          bSetStockObject(*v6[0], 19, 0);
-          WPP_MAIN_CB.Queue.ListEntry.Blink = (struct _LIST_ENTRY *)v6[0];
-          BRUSHMEMOBJ::~BRUSHMEMOBJ((HBRUSH **)v6);
-          BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v6, 0, 9u, 0, 0);
-          if ( v6[0] )
+          v21 = 1;
+          BRUSHMEMOBJ::vGlobal((BRUSHMEMOBJ *)v20, v7, v8);
+          *((_DWORD *)v20[0] + 10) |= 0xC00u;
+          *((_DWORD *)v20[0] + 44) = 0;
+          *((_DWORD *)v20[0] + 42) = 0;
+          *((_DWORD *)v20[0] + 43) = 0;
+          *((_BYTE *)v20[0] + 184) = 0;
+          *((_BYTE *)v20[0] + 185) = 0;
+          v20[0][19] = 0LL;
+          HmgModifyHandleType((unsigned __int64)*v20[0] | 0x300000);
+          bSetStockObject((unsigned __int64)*v20[0], 19, 0);
+          WPP_MAIN_CB.Queue.ListEntry.Flink = (struct _LIST_ENTRY *)v20[0];
+          BRUSHMEMOBJ::~BRUSHMEMOBJ(v20);
+          BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v20, 0, 9u, 0, 0);
+          if ( v20[0] )
           {
-            v7 = 1;
-            BRUSHMEMOBJ::vGlobal(v6);
-            WPP_MAIN_CB.Queue.Wcb.DeviceObject = v6[0];
-            BRUSHMEMOBJ::~BRUSHMEMOBJ((HBRUSH **)v6);
-            BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v6, 0xFFFFFF, 0xBu, 0, 0);
-            if ( v6[0] )
+            v21 = 1;
+            BRUSHMEMOBJ::vGlobal((BRUSHMEMOBJ *)v20, v9, v10);
+            WPP_MAIN_CB.Queue.Wcb.DeviceContext = v20[0];
+            BRUSHMEMOBJ::~BRUSHMEMOBJ(v20);
+            BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v20, 0xFFFFFF, 0xBu, 0, 0);
+            if ( v20[0] )
             {
-              v7 = 1;
-              BRUSHMEMOBJ::vGlobal(v6);
-              WPP_MAIN_CB.Queue.Wcb.DeviceContext = v6[0];
-              BRUSHMEMOBJ::~BRUSHMEMOBJ((HBRUSH **)v6);
-              Bitmap = (HBITMAP)GreCreateBitmap(8, 8, 1u, 1u, (__int64)&unk_1C028F928);
-              v2 = (HRGN)Bitmap;
+              v21 = 1;
+              BRUSHMEMOBJ::vGlobal((BRUSHMEMOBJ *)v20, v11, v12);
+              *(HBRUSH **)&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters = v20[0];
+              BRUSHMEMOBJ::~BRUSHMEMOBJ(v20);
+              Bitmap = (HBITMAP)GreCreateBitmap(8, 8, 1u, 1u, (__int64)&unk_1C024C368);
+              v14 = (struct HOBJ__ *)Bitmap;
               if ( !Bitmap )
                 return 0LL;
-              *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters = GreCreatePatternBrushInternal(Bitmap, 0, 0);
-              if ( !*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters )
+              WPP_MAIN_CB.Queue.Wcb.DeviceRoutine = (PDRIVER_CONTROL)GreCreatePatternBrushInternal(Bitmap, 0, 0);
+              if ( !WPP_MAIN_CB.Queue.Wcb.DeviceRoutine )
                 return 0LL;
-              GreDeleteObject(v2);
-              GreSetBrushOwner(*(HBRUSH *)&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters, 0);
-              v3 = HmgShareLockCheck(WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters, 16);
-              if ( !v3 )
+              GreDeleteObject(v14);
+              GreSetBrushOwner((HBRUSH)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 0);
+              v15 = HmgShareLockCheck((unsigned int)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 16);
+              if ( !v15 )
                 return 0LL;
-              NumberOfMapRegisters = WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters;
-              *(_DWORD *)(v3 + 40) |= 0x200u;
-              HmgMarkUndeletable(NumberOfMapRegisters, 16);
-              BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v6, 0xFFFFFF, 7u, 0, 0);
-              if ( v6[0] )
+              DeviceRoutine = (unsigned int)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine;
+              *(_DWORD *)(v15 + 40) |= 0x200u;
+              HmgMarkUndeletable(DeviceRoutine, 16);
+              BRUSHMEMOBJ::BRUSHMEMOBJ((BRUSHMEMOBJ *)v20, 0xFFFFFF, 7u, 0, 0);
+              if ( v20[0] )
               {
-                v7 = 1;
-                BRUSHMEMOBJ::vGlobal(v6);
-                bSetStockObject(*v6[0], 18, 0);
-                *(__int64 **)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels = v6[0];
-                BRUSHMEMOBJ::~BRUSHMEMOBJ((HBRUSH **)v6);
+                v21 = 1;
+                BRUSHMEMOBJ::vGlobal((BRUSHMEMOBJ *)v20, v17, v18);
+                bSetStockObject((unsigned __int64)*v20[0], 18, 0);
+                *(HBRUSH **)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels = v20[0];
+                BRUSHMEMOBJ::~BRUSHMEMOBJ(v20);
                 return 1LL;
               }
             }
@@ -142,6 +156,6 @@ __int64 bInitBRUSHOBJ()
       }
     }
   }
-  BRUSHMEMOBJ::~BRUSHMEMOBJ((HBRUSH **)v6);
+  BRUSHMEMOBJ::~BRUSHMEMOBJ(v20);
   return 0LL;
 }

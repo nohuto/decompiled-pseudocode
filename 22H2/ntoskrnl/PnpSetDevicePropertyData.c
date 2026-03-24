@@ -1,14 +1,17 @@
 /*
- * XREFs of PnpSetDevicePropertyData @ 0x140866B78
+ * XREFs of PnpSetDevicePropertyData @ 0x14074307C
  * Callers:
- *     IoSetDevicePropertyData @ 0x140866AD0 (IoSetDevicePropertyData.c)
+ *     IoSetDevicePropertyData @ 0x140743220 (IoSetDevicePropertyData.c)
  * Callees:
- *     PnpSetDeviceInstancePropertyChangeEvent @ 0x1403B6840 (PnpSetDeviceInstancePropertyChangeEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PiPnpRtlSetObjectProperty @ 0x140796C98 (PiPnpRtlSetObjectProperty.c)
- *     PnpSetInterruptInformation @ 0x140859F04 (PnpSetInterruptInformation.c)
- *     RtlLCIDToCultureName @ 0x1409BEDA0 (RtlLCIDToCultureName.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpSetDeviceInstancePropertyChangeEvent @ 0x14037DFAC (PnpSetDeviceInstancePropertyChangeEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140741C2C (PiPnpRtlSetObjectProperty.c)
+ *     PnpSetInterruptInformation @ 0x140772910 (PnpSetInterruptInformation.c)
+ *     RtlLCIDToCultureName @ 0x140916070 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpSetDevicePropertyData(
@@ -21,7 +24,7 @@ __int64 __fastcall PnpSetDevicePropertyData(
         const wchar_t *a7)
 {
   __int64 v10; // rdi
-  __int64 v11; // rcx
+  struct _KTHREAD *CurrentThread; // rax
   int v12; // ebx
   __int64 v14; // rax
   __int64 v15; // [rsp+50h] [rbp-F8h] BYREF
@@ -30,7 +33,11 @@ __int64 __fastcall PnpSetDevicePropertyData(
 
   memset(v17, 0, 0xAAuLL);
   v15 = 0LL;
-  if ( !a1 || (v10 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL)) == 0 || !*(_QWORD *)(v10 + 48) )
+  if ( a1 )
+    v10 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
+  else
+    v10 = 0LL;
+  if ( !v10 || !*(_QWORD *)(v10 + 48) )
     return (unsigned int)-1073741808;
   if ( a3 )
   {
@@ -38,28 +45,38 @@ __int64 __fastcall PnpSetDevicePropertyData(
     v16 = v17;
     if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v15) )
       return (unsigned int)-1073741823;
-    v11 = (__int64)v16;
   }
   else
   {
-    v11 = 0LL;
+    v16 = 0LL;
   }
-  v12 = PiPnpRtlSetObjectProperty(*(__int64 *)&PiPnpRtlCtx, *(const WCHAR **)(v10 + 48), 1, 0LL, v11, a2, a5, a7, a6, 0);
-  if ( v12 >= 0 )
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquireResourceExclusiveLite(&PnpDevicePropertyLock, 1u);
+  v12 = PiPnpRtlSetObjectProperty(
+          *(__int64 *)&PiPnpRtlCtx,
+          *(const WCHAR **)(v10 + 48),
+          1,
+          0LL,
+          (__int64)v16,
+          a2,
+          a5,
+          a7,
+          a6,
+          0);
+  if ( v12 >= 0 && *(_DWORD *)(a2 + 16) == 2 )
   {
-    if ( *(_DWORD *)(a2 + 16) != 2 )
-      goto LABEL_8;
     v14 = *(_QWORD *)a2 - *(_QWORD *)&INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data1;
     if ( *(_QWORD *)a2 == *(_QWORD *)&INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data1 )
       v14 = *(_QWORD *)(a2 + 8) - *(_QWORD *)INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data4;
-    if ( v14 )
-      goto LABEL_8;
-    v12 = PnpSetInterruptInformation(a1, a7, a6);
+    if ( !v14 )
+      v12 = PnpSetInterruptInformation(a1, a7, a6);
   }
+  ExReleaseResourceLite(&PnpDevicePropertyLock);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v12 == -1073741275 )
     v12 = -1073741772;
-LABEL_8:
-  if ( *(int *)(v10 + 300) >= 773 )
+  if ( *(int *)(v10 + 300) >= 771 )
     PnpSetDeviceInstancePropertyChangeEvent(v10);
   return (unsigned int)v12;
 }

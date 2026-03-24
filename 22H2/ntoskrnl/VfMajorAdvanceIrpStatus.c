@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMajorAdvanceIrpStatus @ 0x140AD3E6C
+ * XREFs of VfMajorAdvanceIrpStatus @ 0x1409D7928
  * Callers:
- *     IovpCompleteRequest2 @ 0x140ACDAFC (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest2 @ 0x1409D0600 (IovpCompleteRequest2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VfMajorAdvanceIrpStatus(_BYTE *a1, unsigned int a2, __int64 a3)
@@ -17,11 +17,11 @@ __int64 __fastcall VfMajorAdvanceIrpStatus(_BYTE *a1, unsigned int a2, __int64 a
     v6 = (*a1 != 0xFF) + 28LL;
   else
     v6 = (unsigned __int8)*a1;
-  v7 = (unsigned int (__fastcall *)(_BYTE *))*((_QWORD *)&unk_140D72638 + 12 * v6);
+  v7 = (unsigned int (__fastcall *)(_BYTE *))*((_QWORD *)&unk_140D4C0E8 + 12 * v6);
   if ( v7 && v7(a1) )
     return 1LL;
-  if ( qword_140D730B8 )
-    return qword_140D730B8(a1, a2, a3);
+  if ( qword_140D4CB68 )
+    return qword_140D4CB68(a1, a2, a3);
   else
     return 0LL;
 }

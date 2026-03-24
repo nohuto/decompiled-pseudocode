@@ -1,81 +1,90 @@
 /*
- * XREFs of KiFlushRangeWorker @ 0x14021C750
+ * XREFs of KiFlushRangeWorker @ 0x140290C30
  * Callers:
- *     KeFlushMultipleRangeTb @ 0x1402F3C40 (KeFlushMultipleRangeTb.c)
- *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
+ *     KeFlushMultipleRangeTb @ 0x14033B620 (KeFlushMultipleRangeTb.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x140420AD0 (KiSetUserTbFlushPending.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x1403FF4F0 (KiSetUserTbFlushPending.c)
  */
 
-char __fastcall KiFlushRangeWorker(__int64 a1)
+char __fastcall KiFlushRangeWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  void **v1; // r14
-  unsigned __int64 v3; // r12
-  unsigned __int64 v4; // rbx
-  int v5; // esi
-  __int64 v8; // rbp
-  unsigned __int64 v9; // rdi
-  __int128 v11; // [rsp+20h] [rbp-58h]
-  __int128 v12; // [rsp+30h] [rbp-48h]
+  void **v4; // rbx
+  unsigned __int64 v6; // r12
+  unsigned __int64 v7; // rsi
+  int v8; // edi
+  _KPROCESS *Process; // rcx
+  __int64 v11; // r15
+  unsigned __int64 v12; // rbp
+  _KPROCESS *v14; // rcx
+  __int128 v16; // [rsp+20h] [rbp-58h]
+  __int128 v17; // [rsp+30h] [rbp-48h]
 
-  v1 = *(void ***)a1;
-  v3 = *(_QWORD *)a1 + 8LL * *(unsigned int *)(a1 + 8);
+  v4 = *(void ***)a1;
+  v6 = *(_QWORD *)a1 + 8LL * *(unsigned int *)(a1 + 8);
   do
   {
-    v4 = (unsigned __int64)*v1;
-    v5 = (1 << *(_DWORD *)(a1 + 12)) & 0xA;
-    if ( v5 && KiFlushPcid && !KeGetCurrentThread()->ApcState.Process->AddressPolicy )
+    v7 = (unsigned __int64)*v4;
+    v8 = (1 << *(_DWORD *)(a1 + 12)) & 0xA;
+    if ( v8 )
     {
-      if ( (KiFlushPcid & 2) != 0 )
+      if ( KiFlushPcid )
       {
-        *(_QWORD *)&v11 = 1LL;
-        *((_QWORD *)&v11 + 1) = *v1;
-        _EAX = 0;
-        __asm { invpcid eax, [rsp+78h+var_58] }
-      }
-      else
-      {
-        KiSetUserTbFlushPending();
+        Process = KeGetCurrentThread()->ApcState.Process;
+        if ( !Process->AddressPolicy )
+        {
+          if ( (KiFlushPcid & 2) != 0 )
+          {
+            *(_QWORD *)&v16 = 1LL;
+            *((_QWORD *)&v16 + 1) = *v4;
+            _EAX = 0;
+            __asm { invpcid eax, [rsp+78h+var_58] }
+          }
+          else
+          {
+            KiSetUserTbFlushPending(Process, a2, a3, a4);
+          }
+        }
       }
     }
-    __invlpg((void *)v4);
-    LOBYTE(_RAX) = 8 * ((v4 >> 10) & 3);
-    v8 = 4096LL << (9 * ((unsigned __int8)(v4 >> 10) & 3u));
-    v9 = v4 & 0x3FF;
-    if ( (v4 & 0x3FF) != 0 )
+    __invlpg((void *)v7);
+    LOBYTE(_RAX) = 8 * ((v7 >> 10) & 3);
+    v11 = 4096LL << (9 * ((unsigned __int8)(v7 >> 10) & 3u));
+    v12 = v7 & 0x3FF;
+    if ( (v7 & 0x3FF) != 0 )
     {
       do
       {
-        v4 += v8;
-        if ( v5 )
+        v7 += v11;
+        if ( v8 )
         {
           if ( KiFlushPcid )
           {
             _RAX = KeGetCurrentThread();
-            if ( !_RAX->ApcState.Process->AddressPolicy )
+            v14 = _RAX->ApcState.Process;
+            if ( !v14->AddressPolicy )
             {
               if ( (KiFlushPcid & 2) != 0 )
               {
-                *(_QWORD *)&v12 = 1LL;
-                *((_QWORD *)&v12 + 1) = v4;
+                *(_QWORD *)&v17 = 1LL;
+                *((_QWORD *)&v17 + 1) = v7;
                 LODWORD(_RAX) = 0;
                 __asm { invpcid eax, [rsp+78h+var_48] }
               }
               else
               {
-                LOBYTE(_RAX) = KiSetUserTbFlushPending();
+                LOBYTE(_RAX) = KiSetUserTbFlushPending(v14, a2, a3, a4);
               }
             }
           }
         }
-        __invlpg((void *)v4);
-        --v9;
+        __invlpg((void *)v7);
+        --v12;
       }
-      while ( v9 );
+      while ( v12 );
     }
-    ++v1;
+    ++v4;
   }
-  while ( (unsigned __int64)v1 < v3 );
+  while ( (unsigned __int64)v4 < v6 );
   return (char)_RAX;
 }

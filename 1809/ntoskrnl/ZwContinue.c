@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwContinue @ 0x1401B89D0
+ * XREFs of ZwContinue @ 0x1401B89F0
  * Callers:
- *     RtlRestoreContext @ 0x1401C5780 (RtlRestoreContext.c)
- *     RcFrameConsolidation @ 0x1401C5A40 (RcFrameConsolidation.c)
+ *     RtlRestoreContext @ 0x1401C57A0 (RtlRestoreContext.c)
+ *     RcFrameConsolidation @ 0x1401C5A60 (RcFrameConsolidation.c)
  * Callees:
  *     <none>
  */

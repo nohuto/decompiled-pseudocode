@@ -1,27 +1,34 @@
 /*
- * XREFs of UsbhQueueWorkItemEx @ 0x1C0002868
+ * XREFs of UsbhQueueWorkItemEx @ 0x1C0017B0C
  * Callers:
- *     UsbhFdoScheduleDeferredPowerRequest @ 0x1C0001CA4 (UsbhFdoScheduleDeferredPowerRequest.c)
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     UsbhPdoDevicePowerState @ 0x1C0005200 (UsbhPdoDevicePowerState.c)
- *     UsbhFdoWakePoComplete_Action @ 0x1C00074C0 (UsbhFdoWakePoComplete_Action.c)
- *     UsbhHubProcessIsr @ 0x1C00083B0 (UsbhHubProcessIsr.c)
- *     UsbhFdoUnblockAllPendedPdoD0Irps @ 0x1C001DB84 (UsbhFdoUnblockAllPendedPdoD0Irps.c)
- *     UsbhPindicatorTimer @ 0x1C002EA30 (UsbhPindicatorTimer.c)
- *     UsbhQueueDriverOvercurrent @ 0x1C002F5A0 (UsbhQueueDriverOvercurrent.c)
- *     UsbhQueueOvercurrentReset @ 0x1C002F720 (UsbhQueueOvercurrentReset.c)
- *     Usbh_HRS_Queued @ 0x1C003D128 (Usbh_HRS_Queued.c)
- *     UsbhDriverNotFoundTimer @ 0x1C0041F40 (UsbhDriverNotFoundTimer.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhFdoWakePoComplete_Action @ 0x1C000CA20 (UsbhFdoWakePoComplete_Action.c)
+ *     UsbhHubProcessIsr @ 0x1C000F090 (UsbhHubProcessIsr.c)
+ *     UsbhPdoDevicePowerState @ 0x1C00109A0 (UsbhPdoDevicePowerState.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhFdoScheduleDeferredPowerRequest @ 0x1C0017A30 (UsbhFdoScheduleDeferredPowerRequest.c)
+ *     UsbhFdoUnblockAllPendedPdoD0Irps @ 0x1C001B724 (UsbhFdoUnblockAllPendedPdoD0Irps.c)
+ *     UsbhPindicatorTimer @ 0x1C002FE00 (UsbhPindicatorTimer.c)
+ *     UsbhQueueDriverOvercurrent @ 0x1C0030970 (UsbhQueueDriverOvercurrent.c)
+ *     UsbhQueueOvercurrentReset @ 0x1C0030AF0 (UsbhQueueOvercurrentReset.c)
+ *     Usbh_HRS_Queued @ 0x1C003E308 (Usbh_HRS_Queued.c)
+ *     UsbhDriverNotFoundTimer @ 0x1C00431F0 (UsbhDriverNotFoundTimer.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  * Callees:
- *     UsbhAllocWorkItem @ 0x1C0003C40 (UsbhAllocWorkItem.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhAllocWorkItem @ 0x1C0017C80 (UsbhAllocWorkItem.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
-__int64 __fastcall UsbhQueueWorkItemEx(__int64 a1, unsigned int a2, int a3, __int64 a4, int a5, int a6, __int64 a7)
+__int64 __fastcall UsbhQueueWorkItemEx(
+        __int64 a1,
+        unsigned int a2,
+        int a3,
+        __int64 a4,
+        int a5,
+        unsigned int a6,
+        __int64 a7)
 {
   char v10; // r13
   unsigned int v11; // ebx
@@ -30,7 +37,7 @@ __int64 __fastcall UsbhQueueWorkItemEx(__int64 a1, unsigned int a2, int a3, __in
   void (__fastcall *v14)(__int64, __int64, void *, _QWORD, __int64, int); // rax
   int v16; // [rsp+28h] [rbp-40h]
 
-  v10 = *(_BYTE *)(FdoExt(a1) + 5268);
+  v10 = *((_BYTE *)FdoExt(a1) + 5268);
   v11 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_d(
@@ -61,7 +68,7 @@ __int64 __fastcall UsbhQueueWorkItemEx(__int64 a1, unsigned int a2, int a3, __in
   if ( a6 != 2001228627 )
     Log(a1, 8, 1364479275, a6, v12);
   v13 = *(_QWORD *)(v12 + 40);
-  v14 = *(void (__fastcall **)(__int64, __int64, void *, _QWORD, __int64, int))(FdoExt(a1) + 4784);
+  v14 = (void (__fastcall *)(__int64, __int64, void *, _QWORD, __int64, int))*((_QWORD *)FdoExt(a1) + 598);
   if ( v14 )
   {
     LOBYTE(v16) = v10;

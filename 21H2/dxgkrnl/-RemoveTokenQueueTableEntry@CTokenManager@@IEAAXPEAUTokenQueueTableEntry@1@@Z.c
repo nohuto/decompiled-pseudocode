@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveTokenQueueTableEntry@CTokenManager@@IEAAXPEAUTokenQueueTableEntry@1@@Z @ 0x1C001594C
+ * XREFs of ?RemoveTokenQueueTableEntry@CTokenManager@@IEAAXPEAUTokenQueueTableEntry@1@@Z @ 0x1C001E01C
  * Callers:
- *     ?DeleteAllTokenQueues@CTokenManager@@IEAAXXZ @ 0x1C0002954 (-DeleteAllTokenQueues@CTokenManager@@IEAAXXZ.c)
- *     ?ReleaseToFrame@CTokenManager@@UEAAXPEAUICompositionFrame@@@Z @ 0x1C00154B0 (-ReleaseToFrame@CTokenManager@@UEAAXPEAUICompositionFrame@@@Z.c)
+ *     ?DeleteAllTokenQueues@CTokenManager@@IEAAXXZ @ 0x1C0012678 (-DeleteAllTokenQueues@CTokenManager@@IEAAXXZ.c)
+ *     ?ReleaseToFrame@CTokenManager@@UEAAXPEAUICompositionFrame@@@Z @ 0x1C0013500 (-ReleaseToFrame@CTokenManager@@UEAAXPEAUICompositionFrame@@@Z.c)
  * Callees:
- *     ?DeleteAllTokens@CTokenQueue@@AEAAXXZ @ 0x1C000290C (-DeleteAllTokens@CTokenQueue@@AEAAXXZ.c)
+ *     ?DeleteAllTokens@CTokenQueue@@AEAAXXZ @ 0x1C0012630 (-DeleteAllTokens@CTokenQueue@@AEAAXXZ.c)
  */
 
 void __fastcall CTokenManager::RemoveTokenQueueTableEntry(
@@ -19,5 +19,5 @@ void __fastcall CTokenManager::RemoveTokenQueueTableEntry(
     CTokenQueue::DeleteAllTokens(*((CTokenQueue **)a2 + 1));
     ExFreePoolWithTag(v2, 0);
   }
-  RtlDeleteElementGenericTable((PRTL_GENERIC_TABLE)((char *)this + 200), a2);
+  RtlDeleteElementGenericTable((PRTL_GENERIC_TABLE)((char *)this + 192), a2);
 }

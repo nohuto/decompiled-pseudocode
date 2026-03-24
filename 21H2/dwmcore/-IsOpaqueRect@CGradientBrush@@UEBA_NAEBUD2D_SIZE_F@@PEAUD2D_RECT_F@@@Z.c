@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOpaqueRect@CGradientBrush@@UEBA_NAEBUD2D_SIZE_F@@PEAUD2D_RECT_F@@@Z @ 0x180114DA0
+ * XREFs of ?IsOpaqueRect@CGradientBrush@@UEBA_NAEBUD2D_SIZE_F@@PEAUD2D_RECT_F@@@Z @ 0x1801E7380
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall CGradientBrush::IsOpaqueRect(CGradientBrush *this, const struct D2D_SIZE_F *a2, struct D2D_RECT_F *a3)
@@ -12,9 +12,9 @@ bool __fastcall CGradientBrush::IsOpaqueRect(CGradientBrush *this, const struct 
   bool result; // al
   FLOAT height; // xmm1_4
 
-  if ( !*((_BYTE *)this + 224)
-    || !*((_BYTE *)this + 225)
-    || (*(unsigned __int8 (__fastcall **)(CGradientBrush *))(*(_QWORD *)this + 192LL))(this) )
+  if ( !*((_BYTE *)this + 176)
+    || !*((_BYTE *)this + 177)
+    || (*(unsigned __int8 (__fastcall **)(CGradientBrush *))(*(_QWORD *)this + 208LL))(this) )
   {
     return 0;
   }

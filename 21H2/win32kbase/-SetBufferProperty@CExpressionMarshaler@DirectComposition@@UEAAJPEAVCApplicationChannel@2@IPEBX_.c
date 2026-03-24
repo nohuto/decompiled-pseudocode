@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022AB30
+ * XREFs of ?SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01EAC30
  * Callers:
  *     <none>
  * Callees:
- *     Win32FreePool @ 0x1C0026670 (Win32FreePool.c)
- *     Win32AllocPoolWithQuota @ 0x1C0085F60 (Win32AllocPoolWithQuota.c)
- *     ?SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00A8F60 (-SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IP.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0094870 (-SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IP.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CExpressionMarshaler::SetBufferProperty(
@@ -19,21 +19,21 @@ __int64 __fastcall DirectComposition::CExpressionMarshaler::SetBufferProperty(
 {
   unsigned int v6; // ebx
   unsigned __int64 v9; // rsi
-  char *v10; // rax
-  char *v11; // rbp
-  int v12; // edx
+  void *v10; // rax
+  __int64 v11; // rbp
+  unsigned int v12; // edx
 
   v6 = 0;
   *a6 = 0;
   if ( a3 == 21 )
   {
-    if ( !*((_QWORD *)this + 27) )
+    if ( !*((_QWORD *)this + 26) )
     {
       v9 = Size / 0x18;
       if ( Size == 24 * (Size / 0x18) )
       {
-        v10 = (char *)Win32AllocPoolWithQuota((NSInstrumentation::CLeakTrackingAllocator *)Size, 2019902276);
-        v11 = v10;
+        v10 = (void *)Win32AllocPoolWithQuota(Size, 0x78654344u);
+        v11 = (__int64)v10;
         if ( !v10 )
           return (unsigned int)-1073741801;
         memmove(v10, a4, Size);
@@ -41,13 +41,13 @@ __int64 __fastcall DirectComposition::CExpressionMarshaler::SetBufferProperty(
         if ( !(_DWORD)v9 )
         {
 LABEL_11:
-          *((_QWORD *)this + 27) = v11;
-          *((_DWORD *)this + 56) = v9;
+          *((_QWORD *)this + 26) = v11;
+          *((_DWORD *)this + 54) = v9;
           *a6 = 1;
-          *((_DWORD *)this + 4) &= ~0x800u;
+          *((_DWORD *)this + 4) &= ~0x400u;
           return v6;
         }
-        while ( *(_DWORD *)&v11[24 * v12 + 20] < *((_DWORD *)this + 52) )
+        while ( *(_DWORD *)(v11 + 24LL * v12 + 20) < *((_DWORD *)this + 50) )
         {
           if ( ++v12 >= (unsigned int)v9 )
             goto LABEL_11;

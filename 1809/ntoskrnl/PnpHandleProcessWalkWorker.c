@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpHandleProcessWalkWorker @ 0x140827360
+ * XREFs of PnpHandleProcessWalkWorker @ 0x140827340
  * Callers:
  *     <none>
  * Callees:
  *     IoGetBaseFileSystemDeviceObject @ 0x14001CA40 (IoGetBaseFileSystemDeviceObject.c)
- *     ExfUnblockPushLock @ 0x1401B7430 (ExfUnblockPushLock.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall PnpHandleProcessWalkWorker(__int64 a1, volatile signed __int64 *a2, __int64 a3, __int64 a4)

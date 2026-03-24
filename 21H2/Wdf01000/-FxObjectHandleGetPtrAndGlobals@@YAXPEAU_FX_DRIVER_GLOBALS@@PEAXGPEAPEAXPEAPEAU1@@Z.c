@@ -1,9 +1,10 @@
 /*
- * XREFs of ?FxObjectHandleGetPtrAndGlobals@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAXPEAPEAU1@@Z @ 0x1C0052DC4
+ * XREFs of ?FxObjectHandleGetPtrAndGlobals@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAXPEAPEAU1@@Z @ 0x1C002E630
  * Callers:
- *     imp_WdfCxVerifierKeBugCheck @ 0x1C0063ED0 (imp_WdfCxVerifierKeBugCheck.c)
+ *     WdfDeviceSetDeviceInterfaceStateWorker @ 0x1C001B960 (WdfDeviceSetDeviceInterfaceStateWorker.c)
+ *     imp_WdfCxVerifierKeBugCheck @ 0x1C00497C0 (imp_WdfCxVerifierKeBugCheck.c)
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
  */
 
 void __fastcall FxObjectHandleGetPtrAndGlobals(

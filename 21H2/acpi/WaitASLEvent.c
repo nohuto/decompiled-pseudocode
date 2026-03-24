@@ -1,9 +1,9 @@
 /*
- * XREFs of WaitASLEvent @ 0x1C002A6C0
+ * XREFs of WaitASLEvent @ 0x1C00688BC
  * Callers:
- *     Wait @ 0x1C002A600 (Wait.c)
+ *     Wait @ 0x1C006B120 (Wait.c)
  * Callees:
- *     QueueContext @ 0x1C002A818 (QueueContext.c)
+ *     QueueContext @ 0x1C00686E4 (QueueContext.c)
  */
 
 __int64 __fastcall WaitASLEvent(__int64 a1, __int64 a2, unsigned __int16 a3)

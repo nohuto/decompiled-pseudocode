@@ -1,9 +1,9 @@
 /*
- * XREFs of SeQueryHSTIResults @ 0x1407FCA14
+ * XREFs of SeQueryHSTIResults @ 0x1407730D0
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall SeQueryHSTIResults(void *a1, unsigned int a2, _DWORD *a3)
@@ -11,13 +11,13 @@ __int64 __fastcall SeQueryHSTIResults(void *a1, unsigned int a2, _DWORD *a3)
   size_t v3; // rax
   unsigned int v4; // ebx
 
-  v3 = (unsigned int)dword_140D4DB80;
-  *a3 = dword_140D4DB80;
+  v3 = (unsigned int)dword_140D41600;
+  *a3 = dword_140D41600;
   v4 = 0;
   if ( (_DWORD)v3 )
   {
     if ( a2 >= (unsigned int)v3 )
-      memmove(a1, qword_140D4DB88, v3);
+      memmove(a1, qword_140D41608, v3);
     else
       return (unsigned int)-1073741820;
   }

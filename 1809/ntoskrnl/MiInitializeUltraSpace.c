@@ -4,8 +4,8 @@
  *     MiCreateTopLevelUltraMappings @ 0x1409D9BC0 (MiCreateTopLevelUltraMappings.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     RtlSetAllBitsEx @ 0x140190AD0 (RtlSetAllBitsEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlSetAllBitsEx @ 0x140190AF0 (RtlSetAllBitsEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

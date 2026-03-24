@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@CRemoteRenderTargetMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C00D43E0
+ * XREFs of ?IsOfType@CRemoteRenderTargetMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C00C4C20
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C008B860 (-IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C007F370 (-IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall DirectComposition::CRemoteRenderTargetMarshaler::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall DirectComposition::CRemoteRenderTargetMarshaler::IsOfType(__int6
   char v2; // al
   char v3; // cl
 
-  if ( a2 == 143 )
+  if ( a2 == 144 )
     return 1;
   v2 = DirectComposition::CResourceMarshaler::IsOfType(a1, a2);
   v3 = 0;

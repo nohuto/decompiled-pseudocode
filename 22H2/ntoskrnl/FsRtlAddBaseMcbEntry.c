@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlAddBaseMcbEntry @ 0x14033A350
+ * XREFs of FsRtlAddBaseMcbEntry @ 0x1402F58F0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlAddBaseMcbEntryEx @ 0x14033A370 (FsRtlAddBaseMcbEntryEx.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x1402F5910 (FsRtlAddBaseMcbEntryEx.c)
  */
 
 BOOLEAN __stdcall FsRtlAddBaseMcbEntry(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Lbn, LONGLONG SectorCount)

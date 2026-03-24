@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaInsertDeviceObjectByToken @ 0x14038EE70
+ * XREFs of HalpDmaInsertDeviceObjectByToken @ 0x140379144
  * Callers:
- *     HalpDmaCheckAdapterToken @ 0x1405015C0 (HalpDmaCheckAdapterToken.c)
- *     HalpDmaLinkDeviceObjectByToken @ 0x140829400 (HalpDmaLinkDeviceObjectByToken.c)
+ *     HalpDmaCheckAdapterToken @ 0x1404B8E60 (HalpDmaCheckAdapterToken.c)
+ *     HalpDmaLinkDeviceObjectByToken @ 0x140763E00 (HalpDmaLinkDeviceObjectByToken.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpDmaInsertDeviceObjectByToken(__int64 a1, __int64 a2, char a3)
@@ -15,8 +15,8 @@ __int64 __fastcall HalpDmaInsertDeviceObjectByToken(__int64 a1, __int64 a2, char
   unsigned int v4; // ebx
   unsigned __int64 v7; // rdi
   __int64 *i; // rax
-  __int64 Pool2; // rax
-  __int64 *v11; // rcx
+  _OWORD *PoolWithTag; // rax
+  _QWORD *v11; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -34,38 +34,44 @@ __int64 __fastcall HalpDmaInsertDeviceObjectByToken(__int64 a1, __int64 a2, char
       goto LABEL_6;
     }
   }
-  Pool2 = ExAllocatePool2(66LL, 40LL, 1147953480LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x206C6148u);
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(Pool2 + 16) = a1;
-    *(_QWORD *)(Pool2 + 24) = a2;
-    *(_BYTE *)(Pool2 + 32) = a3;
-    v11 = (__int64 *)qword_140C643F8;
-    if ( *(__int64 **)qword_140C643F8 != &HalpDmaPdoList )
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    *((_QWORD *)PoolWithTag + 4) = 0LL;
+    *((_QWORD *)PoolWithTag + 2) = a1;
+    *((_QWORD *)PoolWithTag + 3) = a2;
+    *((_BYTE *)PoolWithTag + 32) = a3;
+    v11 = (_QWORD *)qword_140C4BEE8;
+    if ( *(__int64 **)qword_140C4BEE8 != &HalpDmaPdoList )
       __fastfail(3u);
-    *(_QWORD *)Pool2 = &HalpDmaPdoList;
-    *(_QWORD *)(Pool2 + 8) = v11;
-    *v11 = Pool2;
-    qword_140C643F8 = Pool2;
+    *(_QWORD *)PoolWithTag = &HalpDmaPdoList;
+    *((_QWORD *)PoolWithTag + 1) = v11;
+    *v11 = PoolWithTag;
+    qword_140C4BEE8 = (__int64)PoolWithTag;
   }
   else
   {
     v4 = -1073741670;
   }
 LABEL_6:
-  KxReleaseSpinLock((volatile signed __int64 *)&HalpDmaPdoListLock);
+  KxReleaseSpinLock(&HalpDmaPdoListLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v16 = (v15 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v16 = (v15 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v7);

@@ -1,38 +1,41 @@
 /*
- * XREFs of KeConfigureDynamicMemory @ 0x14056EC1C
+ * XREFs of KeConfigureDynamicMemory @ 0x140512C88
  * Callers:
- *     MiAddPhysicalMemory @ 0x140A2B738 (MiAddPhysicalMemory.c)
- *     MiMapNewPfns @ 0x140A2C980 (MiMapNewPfns.c)
- *     MiRemovePhysicalMemory @ 0x140A2CCBC (MiRemovePhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1408C4EE0 (MiAddPhysicalMemory.c)
+ *     MiMapNewPfns @ 0x1408C5D24 (MiMapNewPfns.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5FDC (MiRemovePhysicalMemory.c)
  * Callees:
- *     VslConfigureDynamicMemory @ 0x14054AD64 (VslConfigureDynamicMemory.c)
- *     HvlConfigureDynamicMemory @ 0x140678B40 (HvlConfigureDynamicMemory.c)
+ *     VslConfigureDynamicMemory @ 0x1404FBDB4 (VslConfigureDynamicMemory.c)
+ *     HvlpAddPhysicalMemory @ 0x1405C948C (HvlpAddPhysicalMemory.c)
  */
 
-__int64 __fastcall KeConfigureDynamicMemory(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall KeConfigureDynamicMemory(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)
 {
-  unsigned int v3; // edi
-  __int64 result; // rax
-  int v7; // ebx
+  unsigned __int64 v6; // rdx
+  NTSTATUS result; // eax
 
-  v3 = a3;
-  if ( (((_DWORD)a3 - 2) & 0xFFFFFFFD) != 0 )
+  if ( a1 > a2 )
+    goto LABEL_9;
+  v6 = a2 - a1;
+  if ( v6 == -1LL )
+    goto LABEL_9;
+  if ( HvlHypervisorConnected && (HvlpFlags & 2) != 0 )
   {
-    result = HvlConfigureDynamicMemory(a1, a2, a3);
-    if ( (int)result < 0 )
+    if ( !a3 )
+    {
+      result = HvlpAddPhysicalMemory(a1, v6 + 1);
+      goto LABEL_10;
+    }
+    if ( a3 - 1 <= 1 )
+    {
+      result = 0;
+      goto LABEL_10;
+    }
+LABEL_9:
+    result = -1073741811;
+LABEL_10:
+    if ( result < 0 )
       return result;
-    v7 = VslConfigureDynamicMemory(a1, a2, v3);
-    if ( v7 < 0 && !v3 )
-      HvlConfigureDynamicMemory(a1, a2, 8LL);
   }
-  else
-  {
-    result = VslConfigureDynamicMemory(a1, a2, a3);
-    if ( (int)result < 0 )
-      return result;
-    v7 = HvlConfigureDynamicMemory(a1, a2, v3);
-    if ( v7 < 0 && v3 == 2 )
-      VslConfigureDynamicMemory(a1, a2, 8u);
-  }
-  return (unsigned int)v7;
+  return VslConfigureDynamicMemory(a1, a2, a3);
 }

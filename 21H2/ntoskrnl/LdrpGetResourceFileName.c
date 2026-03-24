@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpGetResourceFileName @ 0x1403D7C1C
+ * XREFs of LdrpGetResourceFileName @ 0x140380C48
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x1402D708C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1402A94D4 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     __report_rangecheckfailure @ 0x140502A3C (__report_rangecheckfailure.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     __report_rangecheckfailure @ 0x1404B646C (__report_rangecheckfailure.c)
  */
 
 int __fastcall LdrpGetResourceFileName(
@@ -21,10 +21,10 @@ int __fastcall LdrpGetResourceFileName(
   unsigned __int64 v11; // rax
   __int64 v12; // rdi
   unsigned __int64 v13; // rdi
-  __int64 v14; // rax
-  WCHAR *i; // rcx
-  WCHAR *v16; // rdx
+  WCHAR *v14; // rdx
   int result; // eax
+  __int64 v16; // rax
+  WCHAR *v17; // rcx
   WCHAR v18[2]; // [rsp+1Ch] [rbp-25Ch] BYREF
   WCHAR Source[264]; // [rsp+20h] [rbp-258h] BYREF
 
@@ -43,9 +43,32 @@ int __fastcall LdrpGetResourceFileName(
   *(WCHAR *)((char *)Source + v13) = 0;
   if ( !a2 )
   {
-    v16 = Source;
-LABEL_17:
-    result = RtlAppendUnicodeToString(Destination, v16);
+    v14 = Source;
+    goto LABEL_9;
+  }
+  v16 = -1LL;
+  do
+    ++v16;
+  while ( Source[v16] );
+  v17 = &v18[(unsigned int)v16];
+  if ( v17 <= Source )
+    return -1073741686;
+  do
+  {
+    if ( *v17 == 92 )
+      break;
+    --v17;
+  }
+  while ( v17 > Source );
+  if ( v17 <= Source )
+    return -1073741686;
+  v17[1] = 0;
+  result = RtlAppendUnicodeToString(Destination, Source);
+  if ( result >= 0 )
+  {
+    v14 = L"SystemResources\\";
+LABEL_9:
+    result = RtlAppendUnicodeToString(Destination, v14);
     if ( result >= 0 )
     {
       if ( !a2 )
@@ -60,25 +83,6 @@ LABEL_17:
           return RtlAppendUnicodeToString(Destination, a3);
       }
     }
-    return result;
-  }
-  v14 = -1LL;
-  do
-    ++v14;
-  while ( Source[v14] );
-  for ( i = &v18[(unsigned int)v14]; ; --i )
-  {
-    if ( i <= Source )
-      return -1073741686;
-    if ( *i == 92 )
-      break;
-  }
-  i[1] = 0;
-  result = RtlAppendUnicodeToString(Destination, Source);
-  if ( result >= 0 )
-  {
-    v16 = (WCHAR *)L"SystemResources\\";
-    goto LABEL_17;
   }
   return result;
 }

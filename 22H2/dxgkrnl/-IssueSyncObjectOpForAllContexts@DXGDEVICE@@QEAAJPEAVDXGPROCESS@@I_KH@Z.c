@@ -1,16 +1,15 @@
 /*
- * XREFs of ?IssueSyncObjectOpForAllContexts@DXGDEVICE@@QEAAJPEAVDXGPROCESS@@I_KH@Z @ 0x1C016AEF4
+ * XREFs of ?IssueSyncObjectOpForAllContexts@DXGDEVICE@@QEAAJPEAVDXGPROCESS@@I_KH@Z @ 0x1C0255CCC
  * Callers:
- *     ?DxgkCddIssueSyncObjectOpForDevice@@YAJII_KH@Z @ 0x1C016ADC0 (-DxgkCddIssueSyncObjectOpForDevice@@YAJII_KH@Z.c)
+ *     ?DxgkCddIssueSyncObjectOpForDevice@@YAJII_KH@Z @ 0x1C022CED0 (-DxgkCddIssueSyncObjectOpForDevice@@YAJII_KH@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@I$0BA@@@QEAAPEAII@Z @ 0x1C016B2FC (-AllocateElements@-$PagedPoolZeroedArray@I$0BA@@@QEAAPEAII@Z.c)
- *     ?WaitForSynchronizationObjectFromGpu@@YAJIPEBIPEB_K_KIPEAVDXGPROCESS@@_N4444@Z @ 0x1C01B6BB0 (-WaitForSynchronizationObjectFromGpu@@YAJIPEBIPEB_K_KIPEAVDXGPROCESS@@_N4444@Z.c)
- *     ?SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPROCESS@@USIGNAL_SYNC_OBJ_FLAGS@@@Z @ 0x1C01CA320 (-SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPRO.c)
- *     ?GetRenderHwQueueCount@DXGCONTEXT@@QEAAIXZ @ 0x1C031976C (-GetRenderHwQueueCount@DXGCONTEXT@@QEAAIXZ.c)
- *     ?SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z @ 0x1C031B6B8 (-SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z.c)
- *     ?SubmitWaitForSyncObjectsFromGpu@@YAJIPEBIPEB_KIPEAVDXGPROCESS@@_N3@Z @ 0x1C031CF20 (-SubmitWaitForSyncObjectsFromGpu@@YAJIPEBIPEB_KIPEAVDXGPROCESS@@_N3@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?WaitForSynchronizationObjectFromGpu@@YAJIPEBIPEB_K_KIPEAVDXGPROCESS@@_N444@Z @ 0x1C00F64C0 (-WaitForSynchronizationObjectFromGpu@@YAJIPEBIPEB_K_KIPEAVDXGPROCESS@@_N444@Z.c)
+ *     ?SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPROCESS@@_N6@Z @ 0x1C0105B50 (-SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPRO.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@I$0BA@@@QEAAPEAII@Z @ 0x1C015D5F8 (-AllocateElements@-$PagedPoolZeroedArray@I$0BA@@@QEAAPEAII@Z.c)
+ *     ?GetRenderHwQueueCount@DXGCONTEXT@@QEAAIXZ @ 0x1C026DF14 (-GetRenderHwQueueCount@DXGCONTEXT@@QEAAIXZ.c)
+ *     ?SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z @ 0x1C026F85C (-SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z.c)
+ *     ?SubmitWaitForSyncObjectsFromGpu@@YAJIPEBIPEB_KIPEAVDXGPROCESS@@_N3@Z @ 0x1C0270D70 (-SubmitWaitForSyncObjectsFromGpu@@YAJIPEBIPEB_KIPEAVDXGPROCESS@@_N3@Z.c)
  */
 
 __int64 __fastcall DXGDEVICE::IssueSyncObjectOpForAllContexts(
@@ -20,171 +19,198 @@ __int64 __fastcall DXGDEVICE::IssueSyncObjectOpForAllContexts(
         unsigned __int64 a4,
         int a5)
 {
-  __int64 *v5; // r12
-  __int64 *v6; // rbx
-  DXGDEVICE *v8; // r15
-  __int64 v9; // rdi
-  unsigned int v10; // edi
-  int v11; // r8d
-  unsigned int v12; // r14d
-  __int64 v13; // rbx
-  __int64 *v14; // rdx
-  unsigned int v15; // r8d
-  __int64 v16; // rcx
-  int v17; // eax
-  int v18; // eax
-  int v19; // eax
-  DXGDEVICE *v21; // rdx
-  const unsigned int *v22; // r13
-  __int64 *v23; // rbx
-  unsigned int v24; // r15d
-  __int64 *i; // rdi
-  __int64 v26; // rcx
-  int v27; // eax
-  __int64 *v28; // r14
-  int v29; // eax
-  unsigned int v30; // [rsp+60h] [rbp-81h] BYREF
-  struct DXGPROCESS *v31; // [rsp+68h] [rbp-79h]
-  DXGDEVICE *v32; // [rsp+70h] [rbp-71h]
-  unsigned __int64 v33; // [rsp+78h] [rbp-69h] BYREF
-  char *v34; // [rsp+80h] [rbp-61h]
-  PVOID P; // [rsp+90h] [rbp-51h] BYREF
-  _BYTE v36[64]; // [rsp+98h] [rbp-49h] BYREF
-  int v37; // [rsp+D8h] [rbp-9h]
+  DXGCONTEXT *v5; // r15
+  DXGDEVICE *v7; // rsi
+  __int64 v8; // rbx
+  DXGCONTEXT *v9; // r8
+  unsigned int v10; // ebx
+  int v11; // r9d
+  unsigned int v12; // r12d
+  unsigned int *v13; // rdx
+  __int64 v14; // rcx
+  DXGCONTEXT *v15; // rbx
+  unsigned int v16; // esi
+  _DWORD *i; // rdi
+  __int64 v18; // rax
+  __int64 v19; // rax
+  int v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // rcx
+  unsigned int *v25; // rdi
+  DXGCONTEXT *v27; // rdx
+  unsigned int v28; // r8d
+  __int64 v29; // rax
+  int v30; // eax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  DXGCONTEXT *v33; // rdi
+  int v34; // eax
+  _DWORD *v35; // rsi
+  int v36; // eax
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // rax
+  int v40; // eax
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // rax
+  unsigned int v44; // [rsp+60h] [rbp-71h] BYREF
+  struct DXGPROCESS *v45; // [rsp+68h] [rbp-69h]
+  DXGDEVICE *v46; // [rsp+70h] [rbp-61h]
+  unsigned __int64 v47; // [rsp+78h] [rbp-59h] BYREF
+  unsigned int *v48; // [rsp+80h] [rbp-51h]
+  PVOID P; // [rsp+90h] [rbp-41h] BYREF
+  _BYTE v50[64]; // [rsp+98h] [rbp-39h] BYREF
+  int v51; // [rsp+D8h] [rbp+7h]
 
-  v5 = (__int64 *)((char *)this + 496);
-  v6 = (__int64 *)*((_QWORD *)this + 62);
-  v34 = (char *)this + 496;
-  v8 = this;
-  v31 = a2;
-  LODWORD(v9) = -1073741823;
-  v32 = this;
-  v33 = a4;
+  v5 = (DXGDEVICE *)((char *)this + 464);
+  v45 = a2;
+  v7 = this;
+  v46 = this;
+  v47 = a4;
+  LODWORD(v8) = -1073741823;
   if ( !a5 )
   {
-    while ( v6 != v5 && v6 )
+    v33 = *(DXGCONTEXT **)v5;
+    while ( v33 != v5 && v33 )
     {
-      v17 = *((_DWORD *)v6 + 101);
-      v30 = a3;
-      if ( (v17 & 0x10) != 0 )
+      v34 = *((_DWORD *)v33 + 105);
+      v44 = a3;
+      if ( (v34 & 0x10) != 0 )
       {
-        v28 = (__int64 *)v6[51];
-        while ( v28 != v6 + 51 && v28 )
+        v35 = (_DWORD *)*((_QWORD *)v33 + 53);
+        while ( v35 != (_DWORD *)((char *)v33 + 424) && v35 )
         {
-          v29 = SubmitWaitForSyncObjectsFromGpu(1u, &v30, &v33, *((_DWORD *)v28 + 6), a2, 0, 1);
-          LODWORD(v9) = v29;
-          if ( v29 < 0 )
+          v36 = SubmitWaitForSyncObjectsFromGpu(1u, &v44, &v47, v35[6], a2, 0, 1);
+          v8 = v36;
+          if ( v36 < 0 )
           {
-            v8 = v32;
-            WdLogSingleEntry2(4LL, v32, v29);
-            goto LABEL_18;
+            v39 = WdLogNewEntry5_WdEvent(v38, v37);
+            v7 = v46;
+            *(_QWORD *)(v39 + 24) = v46;
+            *(_QWORD *)(v39 + 32) = v8;
+            WdLogEvent5_WdEvent(v39);
+            goto LABEL_53;
           }
-          v28 = (__int64 *)*v28;
-          a2 = v31;
+          v35 = *(_DWORD **)v35;
+          a2 = v45;
         }
-        v8 = v32;
+        v7 = v46;
       }
       else
       {
-        v18 = WaitForSynchronizationObjectFromGpu(1u, &v30, 0LL, a4, *((_DWORD *)v6 + 6), a2, 0, 1, 0, 0, 1);
-        LODWORD(v9) = v18;
-        if ( v18 < 0 )
+        v40 = WaitForSynchronizationObjectFromGpu(1u, &v44, 0LL, a4, *((_DWORD *)v33 + 6), a2, 0, 1, 0, 0);
+        v8 = v40;
+        if ( v40 < 0 )
         {
-          WdLogSingleEntry2(4LL, v8, v18);
-          return (unsigned int)v9;
+          v43 = WdLogNewEntry5_WdEvent(v42, v41);
+          *(_QWORD *)(v43 + 24) = v7;
+          *(_QWORD *)(v43 + 32) = v8;
+          WdLogEvent5_WdEvent(v43);
+          return (unsigned int)v8;
         }
-LABEL_18:
-        a2 = v31;
+LABEL_53:
+        a2 = v45;
       }
-      v6 = (__int64 *)*v6;
-      a4 = v33;
+      v33 = *(DXGCONTEXT **)v33;
+      a4 = v47;
     }
-    return (unsigned int)v9;
+    return (unsigned int)v8;
   }
-  v30 = a3;
+  v44 = a3;
+  v9 = *(DXGCONTEXT **)v5;
   v10 = 0;
   v11 = 0;
   v12 = 0;
-  while ( v6 != v5 && v6 )
+  while ( v9 != v5 && v9 )
   {
-    if ( (*((_DWORD *)v6 + 101) & 0x10) != 0 )
-      v12 += DXGCONTEXT::GetRenderHwQueueCount((DXGCONTEXT *)v6);
+    if ( (*((_DWORD *)v9 + 105) & 0x10) != 0 )
+      v12 += DXGCONTEXT::GetRenderHwQueueCount(v9);
     else
       ++v10;
-    v6 = (__int64 *)*v6;
+    v9 = *(DXGCONTEXT **)v9;
   }
   P = 0LL;
-  v37 = 0;
+  v51 = 0;
   if ( v11 )
   {
-    v22 = (const unsigned int *)PagedPoolZeroedArray<unsigned int,16>::AllocateElements(&P, v12);
-    if ( v22 )
+    v48 = (unsigned int *)PagedPoolZeroedArray<unsigned int,16>::AllocateElements(&P, v12);
+    if ( v48 )
     {
-      v23 = (__int64 *)*v5;
-      v24 = 0;
-      while ( v23 != v5 && v23 )
+      v15 = *(DXGCONTEXT **)v5;
+      v16 = 0;
+      while ( v15 != v5 && v15 )
       {
-        if ( (*((_DWORD *)v23 + 101) & 0x10) != 0 )
+        if ( (*((_DWORD *)v15 + 105) & 0x10) != 0 )
         {
-          for ( i = (__int64 *)v23[51]; i != v23 + 51 && i; i = (__int64 *)*i )
+          v13 = v48;
+          for ( i = (_DWORD *)*((_QWORD *)v15 + 53); i != (_DWORD *)((char *)v15 + 424) && i; i = *(_DWORD **)i )
           {
-            if ( v24 >= v12 )
+            if ( v16 >= v12 )
             {
-              WdLogSingleEntry1(1LL, 5999LL);
-              DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i < NumHwQueues", 5999LL, 0LL, 0LL, 0LL, 0LL);
+              v18 = WdLogNewEntry5_WdAssertion(v14, v13);
+              *(_QWORD *)(v18 + 24) = 5903LL;
+              WdLogEvent5_WdAssertion(v18);
+              v13 = v48;
             }
-            v26 = v24++;
-            v22[v26] = *((_DWORD *)i + 6);
+            v14 = v16++;
+            v13[v14] = i[6];
           }
-          v5 = (__int64 *)v34;
         }
-        v23 = (__int64 *)*v23;
+        v15 = *(DXGCONTEXT **)v15;
       }
-      if ( v12 != v24 )
+      if ( v12 != v16 )
       {
-        WdLogSingleEntry1(1LL, 6008LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NumHwQueues == i", 6008LL, 0LL, 0LL, 0LL, 0LL);
+        v19 = WdLogNewEntry5_WdAssertion(v14, v13);
+        *(_QWORD *)(v19 + 24) = 5913LL;
+        WdLogEvent5_WdAssertion(v19);
       }
-      v27 = SubmitSignalSyncObjectsToHwQueue(1u, &v30, 0, v12, v22, &v33, v31, 0, 1);
-      v9 = v27;
-      if ( v27 >= 0 )
-        goto LABEL_23;
-      v21 = v32;
-      goto LABEL_44;
+      v20 = SubmitSignalSyncObjectsToHwQueue(1u, &v44, 0, v12, v48, &v47, v45, 0, 1);
+      v8 = v20;
+      if ( v20 >= 0 )
+        goto LABEL_40;
+      v23 = WdLogNewEntry5_WdEvent(v22, v21);
+      *(_QWORD *)(v23 + 24) = v46;
+LABEL_39:
+      *(_QWORD *)(v23 + 32) = v8;
+      WdLogEvent5_WdEvent(v23);
+LABEL_40:
+      if ( P != v50 && P )
+        ExFreePoolWithTag(P, 0);
+      return (unsigned int)v8;
     }
   }
   else
   {
-    v13 = PagedPoolZeroedArray<unsigned int,16>::AllocateElements(&P, v10);
-    if ( v13 )
+    v25 = (unsigned int *)PagedPoolZeroedArray<unsigned int,16>::AllocateElements(&P, v10);
+    if ( v25 )
     {
-      v14 = (__int64 *)*v5;
-      v15 = 0;
-      while ( v14 != v5 && v14 )
+      v27 = *(DXGCONTEXT **)v5;
+      v28 = 0;
+      while ( v27 != v5 && v27 )
       {
-        v16 = v15++;
-        *(_DWORD *)(v13 + 4 * v16) = *((_DWORD *)v14 + 6);
-        v14 = (__int64 *)*v14;
+        v24 = v28++;
+        v25[v24] = *((_DWORD *)v27 + 6);
+        v27 = *(DXGCONTEXT **)v27;
       }
-      if ( v10 != v15 )
+      if ( v10 != v28 )
       {
-        WdLogSingleEntry1(1LL, 6048LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NumContexts == i", 6048LL, 0LL, 0LL, 0LL, 0LL);
+        v29 = WdLogNewEntry5_WdAssertion(v24, v27);
+        *(_QWORD *)(v29 + 24) = 5953LL;
+        WdLogEvent5_WdAssertion(v29);
       }
-      v19 = SignalSynchronizationObjectInternal(1LL, &v30, 0LL, v10, v13, 0LL, v33, 0LL, v31, 6);
-      v9 = v19;
-      if ( v19 >= 0 )
-        goto LABEL_23;
-      v21 = v8;
-LABEL_44:
-      WdLogSingleEntry2(4LL, v21, v9);
-LABEL_23:
-      if ( P != v36 && P )
-        ExFreePoolWithTag(P, 0);
-      return (unsigned int)v9;
+      v30 = SignalSynchronizationObjectInternal(1LL, &v44, 0, v10, v25, 0LL, v47, 0LL, v45, 0, 1);
+      v8 = v30;
+      if ( v30 >= 0 )
+        goto LABEL_40;
+      v23 = WdLogNewEntry5_WdEvent(v32, v31);
+      *(_QWORD *)(v23 + 24) = v7;
+      goto LABEL_39;
     }
   }
-  if ( P != v36 && P )
+  if ( P != v50 && P )
     ExFreePoolWithTag(P, 0);
   return 3221225495LL;
 }

@@ -1,12 +1,21 @@
 /*
- * XREFs of VerifierKeInitializeMutant @ 0x140AD64C0
+ * XREFs of VerifierKeInitializeMutant @ 0x1409DABE0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ViKeInitializeMutantCommon @ 0x1409DC000 (ViKeInitializeMutantCommon.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5D8 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockInitializeResource @ 0x1409DE1C4 (VfDeadlockInitializeResource.c)
  */
 
-__int64 VerifierKeInitializeMutant()
+__int64 __fastcall VerifierKeInitializeMutant(int a1, char a2)
 {
-  return ((__int64 (*)(void))pXdvKeInitializeMutant)();
+  __int64 result; // rax
+  __int64 retaddr; // [rsp+38h] [rbp+0h]
+
+  ViKeInitializeMutantCommon();
+  result = VfDeadlockInitializeResource(a1);
+  if ( a2 )
+    return VfDeadlockAcquireResource(a1, retaddr);
+  return result;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpLogSystemEventUnsafe @ 0x14017C6D8
+ * XREFs of EtwpLogSystemEventUnsafe @ 0x14017C6F8
  * Callers:
- *     NtTraceEvent @ 0x1400CB490 (NtTraceEvent.c)
- *     EtwpTraceThreadRundown @ 0x14017C3EC (EtwpTraceThreadRundown.c)
- *     EtwpLogRegistryEvent @ 0x1408B84F4 (EtwpLogRegistryEvent.c)
- *     EtwpSetMark @ 0x1408B89AC (EtwpSetMark.c)
+ *     NtTraceEvent @ 0x1400CB4B0 (NtTraceEvent.c)
+ *     EtwpTraceThreadRundown @ 0x14017C40C (EtwpTraceThreadRundown.c)
+ *     EtwpLogRegistryEvent @ 0x1408B84D4 (EtwpLogRegistryEvent.c)
+ *     EtwpSetMark @ 0x1408B898C (EtwpSetMark.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x1400C75E0 (EtwpReserveTraceBuffer.c)
- *     EtwpOpenLogger @ 0x140113790 (EtwpOpenLogger.c)
- *     EtwpCloseLogger @ 0x14011383C (EtwpCloseLogger.c)
- *     EtwpReleaseTraceBuffer @ 0x140113878 (EtwpReleaseTraceBuffer.c)
- *     EtwpUpdateEventsLostCount @ 0x1401138B4 (EtwpUpdateEventsLostCount.c)
- *     EtwpCopyEventData @ 0x14017CFB0 (EtwpCopyEventData.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     EtwpStackTraceDispatcher @ 0x14030F41C (EtwpStackTraceDispatcher.c)
- *     EtwpSendTraceEvent @ 0x14031315C (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x140313C54 (EtwpInvokeEventCallback.c)
- *     EtwpTraceLastBranchRecord @ 0x140317D58 (EtwpTraceLastBranchRecord.c)
- *     EtwpTraceProcessorTrace @ 0x140317F3C (EtwpTraceProcessorTrace.c)
+ *     EtwpReserveTraceBuffer @ 0x1400C7600 (EtwpReserveTraceBuffer.c)
+ *     EtwpOpenLogger @ 0x1401137B0 (EtwpOpenLogger.c)
+ *     EtwpCloseLogger @ 0x14011385C (EtwpCloseLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x140113898 (EtwpReleaseTraceBuffer.c)
+ *     EtwpUpdateEventsLostCount @ 0x1401138D4 (EtwpUpdateEventsLostCount.c)
+ *     EtwpCopyEventData @ 0x14017CFD0 (EtwpCopyEventData.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     EtwpStackTraceDispatcher @ 0x14030F51C (EtwpStackTraceDispatcher.c)
+ *     EtwpSendTraceEvent @ 0x14031325C (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x140313D54 (EtwpInvokeEventCallback.c)
+ *     EtwpTraceLastBranchRecord @ 0x140317E58 (EtwpTraceLastBranchRecord.c)
+ *     EtwpTraceProcessorTrace @ 0x14031803C (EtwpTraceProcessorTrace.c)
  */
 
 _QWORD *__fastcall EtwpLogSystemEventUnsafe(

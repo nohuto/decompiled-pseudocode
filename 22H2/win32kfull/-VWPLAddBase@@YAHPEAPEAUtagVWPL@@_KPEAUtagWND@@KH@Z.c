@@ -1,77 +1,76 @@
 /*
- * XREFs of ?VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z @ 0x1C00E300C
+ * XREFs of ?VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z @ 0x1C01101CC
  * Callers:
- *     _ChangeWindowMessageFilterEx @ 0x1C004F868 (_ChangeWindowMessageFilterEx.c)
- *     SetGestureConfigSettings @ 0x1C00509F8 (SetGestureConfigSettings.c)
- *     _RegisterShellHookWindow @ 0x1C00B5594 (_RegisterShellHookWindow.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C003F388 (_ChangeWindowMessageFilterEx.c)
+ *     InternalInvalidate3 @ 0x1C00746C4 (InternalInvalidate3.c)
+ *     SetHungFlag @ 0x1C0125380 (SetHungFlag.c)
+ *     SetGestureConfigSettings @ 0x1C012B144 (SetGestureConfigSettings.c)
+ *     _RegisterShellHookWindow @ 0x1C0131510 (_RegisterShellHookWindow.c)
  * Callees:
- *     <none>
+ *     WPP_RECORDER_SF_qq @ 0x1C004F2B4 (WPP_RECORDER_SF_qq.c)
  */
 
 __int64 __fastcall VWPLAddBase(struct tagVWPL **a1, __int64 a2, struct tagWND *a3, unsigned int a4)
 {
-  unsigned int *v4; // rax
-  unsigned __int64 v9; // rax
-  __int64 v10; // rcx
-  unsigned int v11; // r8d
-  struct tagWND **v12; // rdx
-  unsigned int v13; // edx
-  unsigned __int64 v14; // rcx
-  __int64 v15; // rdx
-  unsigned __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // rcx
+  __int64 v4; // rbx
+  unsigned int *v8; // rax
+  unsigned int v9; // ecx
+  unsigned int v10; // r8d
+  struct tagWND **v11; // rdx
+  __int64 v12; // rdx
+  __int64 v13; // rdx
+  unsigned int v15; // eax
+  unsigned __int64 v16; // rdx
+  unsigned int v17; // r9d
+  unsigned __int64 v18; // rdx
 
-  v4 = (unsigned int *)*a1;
+  v4 = a4;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qq((__int64)a1, 4u, 0xBu, 0xBu, (__int64)&WPP_7b6843d7872833607704d87654b4b262_Traceguids, *a1, a3);
+  v8 = (unsigned int *)*a1;
   if ( *a1 )
   {
-    if ( !v4[3] )
+    if ( !v8[3] )
     {
-      v10 = *v4;
-      v11 = 0;
-      if ( (_DWORD)v10 )
+      v9 = *v8;
+      v10 = 0;
+      if ( *v8 )
       {
-        v12 = (struct tagWND **)(v4 + 6);
-        while ( a3 != *v12 )
+        v11 = (struct tagWND **)(v8 + 6);
+        while ( a3 != *v11 )
         {
-          ++v11;
-          v12 += 2;
-          if ( v11 >= (unsigned int)v10 )
-            goto LABEL_11;
+          ++v10;
+          v11 += 2;
+          if ( v10 >= v9 )
+            goto LABEL_9;
         }
+        return 0LL;
       }
-      else
+LABEL_9:
+      v12 = v8[1];
+      if ( v9 < (unsigned int)v12 )
       {
-LABEL_11:
-        v13 = v4[1];
-        if ( (unsigned int)v10 < v13 )
+LABEL_10:
+        v13 = *v8;
+        *(_QWORD *)&v8[4 * v13 + 6] = a3;
+        *(_QWORD *)&v8[4 * v13 + 4] = a2;
+        ++*v8;
+        return 1LL;
+      }
+      v16 = 16 * v12;
+      if ( v16 <= 0xFFFFFFFF )
+      {
+        v17 = v16 + 16;
+        if ( (unsigned int)v16 < 0xFFFFFFF0 )
         {
-LABEL_19:
-          v18 = 2 * v10;
-          *(_QWORD *)&v4[2 * v18 + 6] = a3;
-          *(_QWORD *)&v4[2 * v18 + 4] = a2;
-          ++*v4;
-          return 1LL;
-        }
-        v14 = 16LL * v13;
-        if ( v14 <= 0xFFFFFFFF )
-        {
-          v15 = (unsigned int)(v14 + 16);
-          if ( (unsigned int)v14 < 0xFFFFFFF0 )
+          v18 = 16LL * v8[2];
+          if ( v18 <= 0xFFFFFFFF && v17 + (unsigned int)v18 >= v17 )
           {
-            v16 = 16LL * v4[2];
-            if ( v16 <= 0xFFFFFFFF )
+            v8 = (unsigned int *)UserReAllocPoolZInit(*a1, v17, v17 + (unsigned int)v18, 1819702101LL);
+            if ( v8 )
             {
-              v17 = (unsigned int)(v15 + v16);
-              if ( (unsigned int)v17 >= (unsigned int)v15 )
-              {
-                v4 = (unsigned int *)UserReAllocPool(v4, v15, v17, 1819702101LL);
-                if ( v4 )
-                {
-                  v4[1] += v4[2];
-                  goto LABEL_18;
-                }
-              }
+              v8[1] += v8[2];
+              goto LABEL_15;
             }
           }
         }
@@ -80,20 +79,19 @@ LABEL_19:
   }
   else
   {
-    v9 = 16LL * a4;
-    if ( v9 <= 0xFFFFFFFF && (unsigned int)v9 < 0xFFFFFFF0 )
+    v15 = 16 * v4;
+    if ( (unsigned __int64)(16 * v4) <= 0xFFFFFFFF && v15 < 0xFFFFFFF0 )
     {
-      v4 = (unsigned int *)Win32AllocPoolZInit((unsigned int)(v9 + 16), 1819702101LL);
-      if ( v4 )
+      v8 = (unsigned int *)Win32AllocPoolZInit(v15 + 16, 1819702101LL);
+      if ( v8 )
       {
-        *v4 = 0;
-        v4[3] = 0;
-        v4[1] = a4;
-        v4[2] = a4;
-LABEL_18:
-        *a1 = (struct tagVWPL *)v4;
-        v10 = *v4;
-        goto LABEL_19;
+        *v8 = 0;
+        v8[3] = 0;
+        v8[1] = v4;
+        v8[2] = v4;
+LABEL_15:
+        *a1 = (struct tagVWPL *)v8;
+        goto LABEL_10;
       }
     }
   }

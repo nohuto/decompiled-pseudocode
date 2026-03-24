@@ -1,51 +1,48 @@
 /*
- * XREFs of ?pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z @ 0x1C00F46C8
+ * XREFs of ?pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z @ 0x1C00BA778
  * Callers:
- *     ?EnumEngineOnly@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C00124A8 (-EnumEngineOnly@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2PEAVDCOBJ@@PEAKPEAX@Z.c)
- *     ?bFindBitmapFont@MAPPER@@QEAAHPEBG@Z @ 0x1C001EF44 (-bFindBitmapFont@MAPPER@@QEAAHPEBG@Z.c)
- *     ?EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@@PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C02B71F0 (-EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@.c)
+ *     ?EnumEngineOnly@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C00BAC4C (-EnumEngineOnly@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2PEAVDCOBJ@@PEAKPEAX@Z.c)
+ *     ?bFindBitmapFont@MAPPER@@QEAAHPEBG@Z @ 0x1C010021C (-bFindBitmapFont@MAPPER@@QEAAHPEBG@Z.c)
+ *     ?EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@@PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C02B8F84 (-EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@.c)
  * Callees:
- *     cCapString @ 0x1C0014ABC (cCapString.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     cCapString @ 0x1C00BBE54 (cCapString.c)
+ *     GetAppCompatFlags2 @ 0x1C00E1310 (GetAppCompatFlags2.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
-struct _FONTSUB *__fastcall pfsubAlternateFacename(WCHAR *a1)
+struct _FONTSUB *__fastcall pfsubAlternateFacename(const unsigned __int16 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  char *v1; // rbx
-  char *v2; // rdi
-  WCHAR *v3; // rax
-  int v4; // r8d
-  int v5; // ecx
-  __int64 ThreadWin32Thread; // rax
-  WCHAR v8[32]; // [rsp+20h] [rbp-58h] BYREF
+  char *v4; // rbx
+  char *v5; // rdi
+  unsigned __int16 *v6; // rax
+  int v7; // r8d
+  int v8; // ecx
+  _BYTE v10[64]; // [rsp+20h] [rbp-58h] BYREF
 
-  v1 = (char *)gpfsTable;
-  v2 = (char *)gpfsTable + 196 * gcfsTable;
-  cCapString(v8, a1, 32);
+  v4 = (char *)gpfsTable;
+  v5 = (char *)gpfsTable + 196 * gcfsTable;
+  cCapString(v10, a1, 32LL, a4);
   while ( 1 )
   {
-    if ( v1 >= v2 )
+    if ( v4 >= v5 )
       return 0LL;
-    v3 = v8;
+    v6 = (unsigned __int16 *)v10;
     do
     {
-      v4 = *(WCHAR *)((char *)v3 + v1 + 64 - (char *)v8);
-      v5 = *v3 - v4;
-      if ( v5 )
+      v7 = *(unsigned __int16 *)((char *)v6 + v4 + 64 - v10);
+      v8 = *v6 - v7;
+      if ( v8 )
         break;
-      ++v3;
+      ++v6;
     }
-    while ( v4 );
-    if ( !v5 && ((v1[129] & 1) != 0 || v1[128] == v1[194]) )
+    while ( v7 );
+    if ( !v8
+      && ((v4[129] & 1) != 0 || v4[128] == v4[194])
+      && (v4 != gpfsTable || (GetAppCompatFlags2(1024LL) & 0x400) != 0) )
     {
-      if ( v1 != gpfsTable )
-        break;
-      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-      if ( *(_DWORD *)(ThreadWin32Thread + 632) <= 0x400u && (*(_DWORD *)(ThreadWin32Thread + 648) & 0x400) != 0 )
-        break;
+      break;
     }
-    v1 += 196;
+    v4 += 196;
   }
-  return (struct _FONTSUB *)v1;
+  return (struct _FONTSUB *)v4;
 }

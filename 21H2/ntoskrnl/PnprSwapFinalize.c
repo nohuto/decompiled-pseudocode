@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprSwapFinalize @ 0x1405635D0
+ * XREFs of PnprSwapFinalize @ 0x14050FC90
  * Callers:
- *     PnprSwap @ 0x1405633A8 (PnprSwap.c)
+ *     PnprSwap @ 0x14050FA68 (PnprSwap.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PnprRecopyMirrorPages @ 0x14056322C (PnprRecopyMirrorPages.c)
- *     PnprGetMillisecondCounter @ 0x140A67C14 (PnprGetMillisecondCounter.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PnprRecopyMirrorPages @ 0x14050F8EC (PnprRecopyMirrorPages.c)
+ *     PnprGetMillisecondCounter @ 0x1409AD79C (PnprGetMillisecondCounter.c)
  */
 
 __int64 PnprSwapFinalize()
@@ -25,25 +25,25 @@ __int64 PnprSwapFinalize()
   *(_DWORD *)(PnprContext + 64) &= ~4u;
   if ( (*(_DWORD *)(v1 + 64) & 0x20) == 0 )
     __wbinvd();
-  if ( *(_QWORD *)(PnprContext + 33232) )
+  if ( *(_QWORD *)(PnprContext + 20944) )
   {
     MillisecondCounter = PnprGetMillisecondCounter(0LL);
     v3 = PnprContext;
-    *(_DWORD *)(PnprContext + 33300) = MillisecondCounter;
-    v0 = (*(__int64 (__fastcall **)(_QWORD))(v3 + 33232))(*(_QWORD *)(v3 + 33168));
+    *(_DWORD *)(PnprContext + 21012) = MillisecondCounter;
+    v0 = (*(__int64 (__fastcall **)(_QWORD))(v3 + 20944))(*(_QWORD *)(v3 + 20880));
     if ( v0 < 0 )
     {
       v4 = PnprContext;
-      v5 = *(_DWORD *)(PnprContext + 33272);
+      v5 = *(_DWORD *)(PnprContext + 20984);
       if ( !v5 )
-        v5 = 2988;
-      *(_DWORD *)(PnprContext + 33272) = v5;
-      v6 = *(_DWORD *)(v4 + 33276);
+        v5 = 2980;
+      *(_DWORD *)(PnprContext + 20984) = v5;
+      v6 = *(_DWORD *)(v4 + 20988);
       if ( !v6 )
         v6 = 8;
-      *(_DWORD *)(v4 + 33276) = v6;
+      *(_DWORD *)(v4 + 20988) = v6;
     }
-    *(_DWORD *)(PnprContext + 33304) = PnprGetMillisecondCounter(0LL);
+    *(_DWORD *)(PnprContext + 21016) = PnprGetMillisecondCounter(0LL);
   }
   return (unsigned int)v0;
 }

@@ -1,30 +1,28 @@
 /*
- * XREFs of VfIrpLogUnlockDatabase @ 0x140ADDE30
+ * XREFs of VfIrpLogUnlockDatabase @ 0x1409E3DEC
  * Callers:
- *     ViDdiDispatchWmiQueryAllData @ 0x140AC4C04 (ViDdiDispatchWmiQueryAllData.c)
+ *     ViDdiDispatchWmiQueryAllData @ 0x1409C808C (ViDdiDispatchWmiQueryAllData.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VfIrpLogUnlockDatabase(unsigned int a1)
 {
   __int64 v1; // rbx
   unsigned __int64 v2; // rsi
-  _QWORD **v3; // r15
+  _QWORD **v3; // r14
   _QWORD *v4; // rbx
-  PVOID *v5; // r14
-  _QWORD *v6; // rdi
-  int v7; // ecx
-  __int64 v8; // rcx
-  _QWORD *v9; // rax
+  PADAPTER_OBJECT *v5; // rdi
+  PADAPTER_OBJECT v6; // rdx
+  PADAPTER_OBJECT **v7; // rcx
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v13; // zf
+  bool v11; // zf
 
   v1 = 3LL * a1;
   *(_DWORD *)(ViIrpLogDatabase + 24LL * a1) = 0;
@@ -33,38 +31,37 @@ __int64 __fastcall VfIrpLogUnlockDatabase(unsigned int a1)
   v4 = *v3;
   while ( v4 != v3 )
   {
-    v5 = (PVOID *)(v4 - 1);
-    v6 = v4;
-    v7 = *((_DWORD *)v4 + 4);
+    v5 = (PADAPTER_OBJECT *)(v4 - 1);
     v4 = (_QWORD *)*v4;
-    if ( (v7 & 4) != 0 )
+    if ( ((_DWORD)v5[3] & 4) != 0 )
     {
-      ObfDereferenceObject(*v5);
-      v8 = *v6;
-      v9 = (_QWORD *)v6[1];
-      if ( *(_QWORD **)(*v6 + 8LL) != v6 || (_QWORD *)*v9 != v6 )
+      HalPutDmaAdapter(*v5);
+      v6 = v5[1];
+      v7 = (PADAPTER_OBJECT **)v5[2];
+      if ( (PADAPTER_OBJECT *)v6->DmaOperations != v5 + 1 || *v7 != v5 + 1 )
         __fastfail(3u);
-      *v9 = v8;
-      *(_QWORD *)(v8 + 8) = v9;
+      *v7 = (PADAPTER_OBJECT *)v6;
+      v6->DmaOperations = (_DMA_OPERATIONS *)v7;
       ExFreePoolWithTag(v5, 0);
     }
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&ViIrpLogDatabaseLock);
+  KxReleaseSpinLock(&ViIrpLogDatabaseLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v2 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v13 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v13 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v2 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v11 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);

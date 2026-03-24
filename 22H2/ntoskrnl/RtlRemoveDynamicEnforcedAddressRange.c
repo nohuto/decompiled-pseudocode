@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlRemoveDynamicEnforcedAddressRange @ 0x1409C2834
+ * XREFs of RtlRemoveDynamicEnforcedAddressRange @ 0x1405CFF24
  * Callers:
- *     PspProcessDynamicEnforcedAddressRanges @ 0x1409AF098 (PspProcessDynamicEnforcedAddressRanges.c)
+ *     PspProcessDynamicEnforcedAddressRanges @ 0x1405CF6F4 (PspProcessDynamicEnforcedAddressRanges.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x1409C2AD8 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x1405CFFD4 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlRemoveDynamicEnforcedAddressRange(unsigned __int64 *a1, __int64 a2, __int64 a3)
@@ -19,10 +19,12 @@ __int64 __fastcall RtlRemoveDynamicEnforcedAddressRange(unsigned __int64 *a1, __
 
   v9 = 0LL;
   v3 = (unsigned __int64 *)*a1;
-  v10 = 0LL;
   v11 = a2;
   v12 = a3;
-  while ( v3 )
+  v10 = 0LL;
+  if ( !v3 )
+    return 3221226021LL;
+  do
   {
     v7 = RtlpDynamicEnforcedAddressRangesTreeCompare(&v9, v3);
     if ( v7 >= 0 )
@@ -36,6 +38,7 @@ __int64 __fastcall RtlRemoveDynamicEnforcedAddressRange(unsigned __int64 *a1, __
       v3 = (unsigned __int64 *)*v3;
     }
   }
+  while ( v3 );
   if ( !v3 )
     return 3221226021LL;
   if ( v3[3] != a2 || v3[4] != a3 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of StorNVMeDriverUnload @ 0x1C00044D0
+ * XREFs of StorNVMeDriverUnload @ 0x1C0007C10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00047E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0007D70 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 StorNVMeDriverUnload()
@@ -11,11 +11,10 @@ __int64 StorNVMeDriverUnload()
   __int64 result; // rax
 
   result = ((__int64 (*)(void))StorPortDriverUnload)();
-  if ( g_wil_details_featureChangeNotification )
+  if ( wil_details_featureChangeNotification )
   {
     result = RtlUnregisterFeatureConfigurationChangeNotification();
-    g_wil_details_featureChangeNotification = 0LL;
+    wil_details_featureChangeNotification = 0LL;
   }
-  g_wil_details_isFeatureStagingInitialized = 0;
   return result;
 }

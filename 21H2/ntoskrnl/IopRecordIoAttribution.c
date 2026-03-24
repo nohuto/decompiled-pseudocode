@@ -1,12 +1,12 @@
 /*
- * XREFs of IopRecordIoAttribution @ 0x140366864
+ * XREFs of IopRecordIoAttribution @ 0x14028A804
  * Callers:
- *     IoDiskIoAttributionQuery @ 0x140208F20 (IoDiskIoAttributionQuery.c)
- *     IoRecordIoAttribution @ 0x140365D40 (IoRecordIoAttribution.c)
+ *     IoDiskIoAttributionQuery @ 0x14028A33C (IoDiskIoAttributionQuery.c)
+ *     IoRecordIoAttribution @ 0x14028A640 (IoRecordIoAttribution.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopRecordIoAttribution(KSPIN_LOCK *a1, __int64 a2, char a3)
@@ -14,7 +14,7 @@ __int64 __fastcall IopRecordIoAttribution(KSPIN_LOCK *a1, __int64 a2, char a3)
   unsigned int v3; // ebx
   int v5; // ecx
   int v8; // r8d
-  _QWORD *v9; // rsi
+  _QWORD *v9; // rdi
   KSPIN_LOCK v10; // rbp
   KSPIN_LOCK v11; // rdx
   KSPIN_LOCK v12; // r12
@@ -37,7 +37,12 @@ __int64 __fastcall IopRecordIoAttribution(KSPIN_LOCK *a1, __int64 a2, char a3)
   if ( (unsigned __int8)v5 == 3 )
   {
     v9 = a1 + 10;
-LABEL_3:
+    goto LABEL_4;
+  }
+  if ( (unsigned __int8)v5 == 4 )
+  {
+    v9 = a1 + 15;
+LABEL_4:
     v10 = *(_QWORD *)(a2 + 24);
     v11 = 0LL;
     v12 = 0LL;
@@ -87,7 +92,7 @@ LABEL_3:
         v12 = v10 - v15;
       }
       v9[1] += v12;
-      if ( !_bittest((const signed __int32 *)(a2 + 4), 9u) )
+      if ( (*(_DWORD *)(a2 + 4) & 0x200) == 0 )
       {
         v9[2] += v11;
         v9[3] += *(unsigned int *)(a2 + 8);
@@ -120,18 +125,13 @@ LABEL_3:
     }
     return v3;
   }
-  if ( (unsigned __int8)v5 == 4 )
-  {
-    v9 = a1 + 15;
-    goto LABEL_3;
-  }
   if ( (a3 & 1) == 0 )
     return (unsigned int)-1073741637;
   v9 = a1 + 10;
   if ( a1[10] )
-    goto LABEL_3;
+    goto LABEL_4;
   v9 = a1 + 15;
   if ( a1[15] )
-    goto LABEL_3;
+    goto LABEL_4;
   return v3;
 }

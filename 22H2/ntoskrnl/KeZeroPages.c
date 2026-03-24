@@ -1,17 +1,19 @@
 /*
- * XREFs of KeZeroPages @ 0x140423F80
+ * XREFs of KeZeroPages @ 0x140402430
  * Callers:
- *     MiGetPageChain @ 0x14026C5E0 (MiGetPageChain.c)
- *     MiZeroEngineMemory @ 0x1402D1280 (MiZeroEngineMemory.c)
- *     MiZeroInParallelWorker @ 0x1402D1300 (MiZeroInParallelWorker.c)
- *     MiZeroLargePage @ 0x1402EC08C (MiZeroLargePage.c)
- *     MiFillPhysicalPages @ 0x1403390F0 (MiFillPhysicalPages.c)
- *     MiDoGangAssignment @ 0x140389954 (MiDoGangAssignment.c)
- *     MiZeroMemory @ 0x14038B93C (MiZeroMemory.c)
- *     MiHugePageOperation @ 0x140620610 (MiHugePageOperation.c)
- *     MiZeroHugeRangeWorker @ 0x140622E40 (MiZeroHugeRangeWorker.c)
- *     MiPageNotZero @ 0x14064DB1C (MiPageNotZero.c)
- *     MxMapVa @ 0x140B468AC (MxMapVa.c)
+ *     MiZeroPage @ 0x140232C80 (MiZeroPage.c)
+ *     MiFreePagesFromMdl @ 0x14027FB6C (MiFreePagesFromMdl.c)
+ *     MiZeroLargePage @ 0x14030E918 (MiZeroLargePage.c)
+ *     MiZeroPhysicalPage @ 0x1403578E0 (MiZeroPhysicalPage.c)
+ *     MiFillPhysicalPages @ 0x1403579D0 (MiFillPhysicalPages.c)
+ *     MiZeroMemory @ 0x140357B44 (MiZeroMemory.c)
+ *     MiTimeSingleLargePageZeroWorker @ 0x1403AB548 (MiTimeSingleLargePageZeroWorker.c)
+ *     MiZeroPageCalibrateIsr @ 0x1403BBDD0 (MiZeroPageCalibrateIsr.c)
+ *     MiHugePageOperation @ 0x140532EB8 (MiHugePageOperation.c)
+ *     MiPageNotZero @ 0x14054F0B0 (MiPageNotZero.c)
+ *     MiDoGangAssignment @ 0x1405600B0 (MiDoGangAssignment.c)
+ *     MxMapVa @ 0x140A43F9C (MxMapVa.c)
+ *     MiMapBBTMemory @ 0x140A552A8 (MiMapBBTMemory.c)
  * Callees:
  *     <none>
  */

@@ -1,29 +1,25 @@
 /*
- * XREFs of RIMIDEFreeInjectedInfo @ 0x1C00B7A2C
+ * XREFs of RIMIDEFreeInjectedInfo @ 0x1C00B16A0
  * Callers:
- *     RIMFreeSpecificDevWorker @ 0x1C00B7910 (RIMFreeSpecificDevWorker.c)
- *     RIMIDECreateHIDDesc @ 0x1C019B10C (RIMIDECreateHIDDesc.c)
+ *     RIMFreeSpecificDevWorker @ 0x1C00BBA6C (RIMFreeSpecificDevWorker.c)
+ *     RIMIDECreateHIDDesc @ 0x1C01674DC (RIMIDECreateHIDDesc.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 void __fastcall RIMIDEFreeInjectedInfo(__int64 a1)
 {
-  __int64 v1; // rdx
+  __int64 v2; // rcx
 
-  v1 = *(_QWORD *)(a1 + 384);
-  if ( v1 )
+  v2 = *(_QWORD *)(a1 + 384);
+  if ( v2 )
   {
-    if ( !*(_QWORD *)(v1 + 72)
-      || (NSInstrumentation::CLeakTrackingAllocator::Free(
-            (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-            *(char **)(v1 + 72)),
-          (v1 = *(_QWORD *)(a1 + 384)) != 0) )
+    if ( *(_QWORD *)(v2 + 72) )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        (char *)v1);
+      Win32FreePool(*(_QWORD *)(v2 + 72));
+      v2 = *(_QWORD *)(a1 + 384);
     }
+    Win32FreePool(v2);
     *(_QWORD *)(a1 + 384) = 0LL;
   }
 }

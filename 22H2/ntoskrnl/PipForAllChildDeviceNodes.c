@@ -1,11 +1,11 @@
 /*
- * XREFs of PipForAllChildDeviceNodes @ 0x1407CD710
+ * XREFs of PipForAllChildDeviceNodes @ 0x14069B5C8
  * Callers:
- *     PipForDeviceNodeSubtree @ 0x1407CD688 (PipForDeviceNodeSubtree.c)
- *     PipForAllDeviceNodesCallback @ 0x1407CD6C8 (PipForAllDeviceNodesCallback.c)
- *     PnprCollectResources @ 0x140965B1C (PnprCollectResources.c)
+ *     PipForDeviceNodeSubtree @ 0x14069B540 (PipForDeviceNodeSubtree.c)
+ *     PipForAllDeviceNodesCallback @ 0x14069B580 (PipForAllDeviceNodesCallback.c)
+ *     PnprCollectResources @ 0x1408AD384 (PnprCollectResources.c)
  * Callees:
- *     PipForAllDeviceNodesCallback @ 0x1407CD6C8 (PipForAllDeviceNodesCallback.c)
+ *     PipForAllDeviceNodesCallback @ 0x14069B580 (PipForAllDeviceNodesCallback.c)
  */
 
 __int64 __fastcall PipForAllChildDeviceNodes(__int64 a1, __int64 a2, __int64 a3)

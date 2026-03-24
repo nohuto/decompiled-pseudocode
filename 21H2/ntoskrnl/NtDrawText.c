@@ -1,13 +1,13 @@
 /*
- * XREFs of NtDrawText @ 0x140639760
+ * XREFs of NtDrawText @ 0x1405B2740
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     BgkDrawText @ 0x140AB070C (BgkDrawText.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     BgkDrawText @ 0x1409F63DC (BgkDrawText.c)
  */
 
 __int64 __fastcall NtDrawText(__int128 *a1)

@@ -2,11 +2,11 @@
  * XREFs of SepTokenIsOwner @ 0x1400131F0
  * Callers:
  *     SeComputeCreatorDeniedRights @ 0x14004D520 (SeComputeCreatorDeniedRights.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6A4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6C4 (SepCommonAccessCheckExWithAdminlessChecks.c)
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
  *     SepSidInToken @ 0x140013310 (SepSidInToken.c)
- *     SepSidInTokenSidHash @ 0x1400AAB40 (SepSidInTokenSidHash.c)
+ *     SepSidInTokenSidHash @ 0x1400AAB60 (SepSidInTokenSidHash.c)
  */
 
 __int64 __fastcall SepTokenIsOwner(__int64 a1, __int64 a2, __int64 a3, char a4)

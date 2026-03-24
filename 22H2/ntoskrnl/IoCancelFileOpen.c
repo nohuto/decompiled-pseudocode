@@ -1,18 +1,18 @@
 /*
- * XREFs of IoCancelFileOpen @ 0x140946DB0
+ * XREFs of IoCancelFileOpen @ 0x140893670
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
- *     IopAllocateIrpMustSucceed @ 0x14022E280 (IopAllocateIrpMustSucceed.c)
- *     IopQueueThreadIrp @ 0x14022ED80 (IopQueueThreadIrp.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     IopDequeueIrpFromThread @ 0x1402AF700 (IopDequeueIrpFromThread.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     IopCloseFileObjectExtension @ 0x140353F10 (IopCloseFileObjectExtension.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     IoCallDriver @ 0x140556890 (IoCallDriver.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IopQueueThreadIrp @ 0x1402CB9A0 (IopQueueThreadIrp.c)
+ *     IopAllocateIrpMustSucceed @ 0x1402D2090 (IopAllocateIrpMustSucceed.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     IopDequeueIrpFromThread @ 0x1402D3F10 (IopDequeueIrpFromThread.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IopCloseFileObjectExtension @ 0x140310D38 (IopCloseFileObjectExtension.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     PoCallDriver @ 0x14039A1F0 (PoCallDriver.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 void __stdcall IoCancelFileOpen(PDEVICE_OBJECT DeviceObject, PFILE_OBJECT FileObject)
@@ -45,7 +45,7 @@ void __stdcall IoCancelFileOpen(PDEVICE_OBJECT DeviceObject, PFILE_OBJECT FileOb
   CurrentStackLocation[-1].MajorFunction = 18;
   CurrentStackLocation[-1].FileObject = FileObject;
   IopQueueThreadIrp((__int64)MustSucceed);
-  if ( IoCallDriver(DeviceObject, MustSucceed) == 259 )
+  if ( PoCallDriver(DeviceObject, MustSucceed) == 259 )
     KeWaitForSingleObject(&Event, UserRequest, 0, 0, 0LL);
   IopDequeueIrpFromThread(MustSucceed);
   IoFreeIrp(MustSucceed);

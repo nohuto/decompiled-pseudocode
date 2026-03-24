@@ -4,13 +4,13 @@
  *     CmpCheckKey @ 0x1405DA210 (CmpCheckKey.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     CmpCompareCompressedName @ 0x1405D5D90 (CmpCompareCompressedName.c)
  *     HvIsCellAllocated @ 0x1405DBB00 (HvIsCellAllocated.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpCompareUnicodeString @ 0x1406B65B8 (CmpCompareUnicodeString.c)
+ *     CmpCompareUnicodeString @ 0x1406B6598 (CmpCompareUnicodeString.c)
  */
 
 __int64 __fastcall CmpCheckValueList(

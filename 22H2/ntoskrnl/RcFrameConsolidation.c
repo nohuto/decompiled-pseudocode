@@ -1,11 +1,10 @@
 /*
- * XREFs of RcFrameConsolidation @ 0x140428F60
+ * XREFs of RcFrameConsolidation @ 0x140407650
  * Callers:
  *     <none>
  * Callees:
- *     KeCheckStackAndTargetAddress @ 0x140346450 (KeCheckStackAndTargetAddress.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KeKernelShadowStackRestoreContext @ 0x14057BAF0 (KeKernelShadowStackRestoreContext.c)
+ *     KeCheckStackAndTargetAddress @ 0x140309780 (KeCheckStackAndTargetAddress.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall RcFrameConsolidation(
@@ -29,22 +28,17 @@ void __fastcall RcFrameConsolidation(
         int a18,
         unsigned __int64 a19)
 {
-  _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
-  void *v33; // [rsp+F8h] [rbp+F8h]
+  _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h]
+  void *v32; // [rsp+F8h] [rbp+F8h]
 
-  v33 = (void *)(*(__int64 (**)(void))(a1 + 32))();
-  if ( (a6 & 0xFFFFFF3F) == 0x10000F )
+  v32 = (void *)(*(__int64 (**)(void))(a1 + 32))();
+  if ( (a6 & 0xFFFFFFBF) == 0x10000F )
   {
     _mm_setcsr(HIDWORD(a6));
-    KeCheckStackAndTargetAddress((signed __int64)v33, a19);
-    if ( (KiKernelCetEnabled & 1) != 0 )
-    {
-      __asm { rdsspq  rdx }
-      KeKernelShadowStackRestoreContext(&retaddr, _RDX, 0LL);
-    }
-    retaddr = v33;
+    KeCheckStackAndTargetAddress((signed __int64)v32, a19);
+    retaddr = v32;
     _disable();
     __asm { iretq }
   }
-  JUMPOUT(0x140428D65LL);
+  JUMPOUT(0x1404074BFLL);
 }

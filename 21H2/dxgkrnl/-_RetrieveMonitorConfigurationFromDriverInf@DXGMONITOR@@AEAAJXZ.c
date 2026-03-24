@@ -1,45 +1,47 @@
 /*
- * XREFs of ?_RetrieveMonitorConfigurationFromDriverInf@DXGMONITOR@@AEAAJXZ @ 0x1C020C9A8
+ * XREFs of ?_RetrieveMonitorConfigurationFromDriverInf@DXGMONITOR@@AEAAJXZ @ 0x1C018C094
  * Callers:
- *     ?_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJAEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01579C0 (-_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJAEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXG.c)
- *     ?_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@AEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020B3F4 (-_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@AEAVIMonitorDeferredEvent.c)
+ *     ?_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C018C2F4 (-_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01915B8 (-_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@PEAU_DXGK_DISPLAY_SCENARI.c)
  * Callees:
- *     ??1?$unique_storage@U?$resource_policy@PEAXP6AJPEAX@Z$1?ZwClose@@YAJ0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C001C71C (--1-$unique_storage@U-$resource_policy@PEAXP6AJPEAX@Z$1-ZwClose@@YAJ0@ZU-$integral_constant@_K$0.c)
- *     ?_RetrieveMonitorOrientationFromAcpi@DXGMONITOR@@AEAAJXZ @ 0x1C020CA58 (-_RetrieveMonitorOrientationFromAcpi@DXGMONITOR@@AEAAJXZ.c)
- *     ?_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z @ 0x1C020CB18 (-_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z.c)
+ *     ?_RetrieveMonitorOrientationFromAcpi@DXGMONITOR@@AEAAJXZ @ 0x1C018C130 (-_RetrieveMonitorOrientationFromAcpi@DXGMONITOR@@AEAAJXZ.c)
+ *     ?_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z @ 0x1C018C1D4 (-_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z.c)
  */
 
 __int64 __fastcall DXGMONITOR::_RetrieveMonitorConfigurationFromDriverInf(DXGMONITOR *this)
 {
-  __int64 v1; // rax
-  struct _DEVICE_OBJECT *v3; // rcx
-  NTSTATUS MonitorConfigurationFromRegistry; // ebx
+  struct _DEVICE_OBJECT *v2; // rcx
+  NTSTATUS v3; // eax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  __int64 v8; // rax
   void *DeviceRegKey; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *((_QWORD *)this + 25);
   DeviceRegKey = 0LL;
-  if ( !*(_BYTE *)(v1 + 16) )
+  v2 = (struct _DEVICE_OBJECT *)*((_QWORD *)this + 7);
+  if ( v2 && (*((_DWORD *)this + 10) & 0x10) != 0 )
   {
-    MonitorConfigurationFromRegistry = -1073741275;
-    goto LABEL_7;
+    v3 = IoOpenDeviceRegistryKey(v2, 2u, 0x20019u, &DeviceRegKey);
+    v6 = v3;
+    if ( v3 < 0 )
+    {
+      v8 = WdLogNewEntry5_WdError(v5, v4);
+      *(_QWORD *)(v8 + 24) = v6;
+      WdLogEvent5_WdError(v8);
+    }
+    else
+    {
+      LODWORD(v6) = DXGMONITOR::_RetrieveMonitorConfigurationFromRegistry(this, DeviceRegKey, 1u);
+      if ( (int)v6 >= 0 )
+        LODWORD(v6) = DXGMONITOR::_RetrieveMonitorOrientationFromAcpi(this);
+    }
   }
-  v3 = *(struct _DEVICE_OBJECT **)(v1 + 8);
-  if ( !v3 || !*(_BYTE *)(v1 + 16) )
+  else
   {
-    MonitorConfigurationFromRegistry = -1073741661;
-    goto LABEL_9;
+    LODWORD(v6) = -1073741275;
   }
-  MonitorConfigurationFromRegistry = IoOpenDeviceRegistryKey(v3, 2u, 0x20019u, &DeviceRegKey);
-  if ( MonitorConfigurationFromRegistry < 0 )
-  {
-LABEL_9:
-    WdLogSingleEntry1(2LL, MonitorConfigurationFromRegistry);
-    goto LABEL_7;
-  }
-  MonitorConfigurationFromRegistry = DXGMONITOR::_RetrieveMonitorConfigurationFromRegistry(this, DeviceRegKey, 1u);
-  if ( MonitorConfigurationFromRegistry >= 0 )
-    MonitorConfigurationFromRegistry = DXGMONITOR::_RetrieveMonitorOrientationFromAcpi(this);
-LABEL_7:
-  wil::details::unique_storage<wil::details::resource_policy<void *,long (*)(void *),&long ZwClose(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,long (*)(void *),&long ZwClose(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(&DeviceRegKey);
-  return (unsigned int)MonitorConfigurationFromRegistry;
+  if ( DeviceRegKey )
+    ZwClose(DeviceRegKey);
+  return (unsigned int)v6;
 }

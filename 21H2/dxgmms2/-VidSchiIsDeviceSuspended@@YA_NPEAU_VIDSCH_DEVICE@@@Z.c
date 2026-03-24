@@ -1,10 +1,10 @@
 /*
- * XREFs of ?VidSchiIsDeviceSuspended@@YA_NPEAU_VIDSCH_DEVICE@@@Z @ 0x1C0040168
+ * XREFs of ?VidSchiIsDeviceSuspended@@YA_NPEAU_VIDSCH_DEVICE@@@Z @ 0x1C0037DC8
  * Callers:
- *     ?VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z @ 0x1C0013D94 (-VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z.c)
+ *     ?VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z @ 0x1C00128B8 (-VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z.c)
  * Callees:
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0014690 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C0014924 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011F60 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00129FC (-Release@AcquireSpinLock@@QEAAXXZ.c)
  */
 
 char __fastcall VidSchiIsDeviceSuspended(struct _VIDSCH_DEVICE *a1)
@@ -19,7 +19,7 @@ char __fastcall VidSchiIsDeviceSuspended(struct _VIDSCH_DEVICE *a1)
   v1 = *((_QWORD *)a1 + 4);
   v8 = 0;
   v3 = 0;
-  v7[0] = v1 + 1728;
+  v7[0] = v1 + 1712;
   AcquireSpinLock::Acquire((Acquire *)v7);
   v4 = (_QWORD **)((char *)a1 + 88);
   for ( i = *v4; i != v4; i = (_QWORD *)*i )

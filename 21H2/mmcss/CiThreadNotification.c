@@ -1,10 +1,10 @@
 /*
- * XREFs of CiThreadNotification @ 0x1C0001010
+ * XREFs of CiThreadNotification @ 0x1C0001060
  * Callers:
  *     <none>
  * Callees:
- *     CiThreadDereference @ 0x1C000A5D0 (CiThreadDereference.c)
- *     CiThreadCleanup @ 0x1C000A680 (CiThreadCleanup.c)
+ *     CiThreadDereference @ 0x1C000B830 (CiThreadDereference.c)
+ *     CiThreadCleanup @ 0x1C000B8E0 (CiThreadCleanup.c)
  */
 
 void __fastcall CiThreadNotification(HANDLE ProcessId, HANDLE ThreadId, BOOLEAN Create)
@@ -14,58 +14,50 @@ void __fastcall CiThreadNotification(HANDLE ProcessId, HANDLE ThreadId, BOOLEAN 
   unsigned __int64 v5; // rax
   unsigned __int64 v6; // rcx
 
-  if ( Create )
-    return;
-  CurrentThread = KeGetCurrentThread();
-  v4 = 0LL;
-  KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc);
-  *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement = KeGetCurrentThread();
-  v5 = *(_QWORD *)&WPP_MAIN_CB.DeviceQueue.Type;
-  if ( ((__int64)WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink & 1) != 0 )
+  if ( !Create )
   {
-    if ( !*(_QWORD *)&WPP_MAIN_CB.DeviceQueue.Type )
+    CurrentThread = KeGetCurrentThread();
+    v4 = 0LL;
+    KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc);
+    *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement = KeGetCurrentThread();
+    v5 = *(_QWORD *)&WPP_MAIN_CB.DeviceQueue.Type;
+    if ( ((__int64)WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink & 1) != 0 && *(_QWORD *)&WPP_MAIN_CB.DeviceQueue.Type )
+      v5 = (unsigned __int64)&WPP_MAIN_CB.DeviceQueue ^ *(_QWORD *)&WPP_MAIN_CB.DeviceQueue.Type;
+    while ( v5 )
     {
-      *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement = 0LL;
-      KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc, 0);
-      return;
+      if ( (unsigned __int64)CurrentThread < *(_QWORD *)(v5 + 56) )
+      {
+        v6 = *(_QWORD *)v5;
+        if ( ((__int64)WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink & 1) != 0 && v6 )
+        {
+          v5 ^= v6;
+          continue;
+        }
+      }
+      else
+      {
+        if ( (unsigned __int64)CurrentThread <= *(_QWORD *)(v5 + 56) )
+        {
+          v4 = v5 - 40;
+          if ( _InterlockedIncrement64((volatile signed __int64 *)(v5 - 40 + 32)) <= 1 )
+            __fastfail(0xEu);
+          break;
+        }
+        v6 = *(_QWORD *)(v5 + 8);
+        if ( ((__int64)WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink & 1) != 0 && v6 )
+        {
+          v5 ^= v6;
+          continue;
+        }
+      }
+      v5 = v6;
     }
-    v5 = (unsigned __int64)&WPP_MAIN_CB.DeviceQueue ^ *(_QWORD *)&WPP_MAIN_CB.DeviceQueue.Type;
-  }
-  if ( !v5 )
-    goto LABEL_7;
-  while ( 1 )
-  {
-    if ( (unsigned __int64)CurrentThread < *(_QWORD *)(v5 + 56) )
+    *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement = 0LL;
+    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc, 0);
+    if ( v4 )
     {
-      v6 = *(_QWORD *)v5;
-      if ( ((__int64)WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink & 1) != 0 && v6 )
-        goto LABEL_15;
-      goto LABEL_5;
+      CiThreadCleanup(v4);
+      CiThreadDereference(v4);
     }
-    if ( (unsigned __int64)CurrentThread <= *(_QWORD *)(v5 + 56) )
-      break;
-    v6 = *(_QWORD *)(v5 + 8);
-    if ( ((__int64)WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink & 1) != 0 && v6 )
-    {
-LABEL_15:
-      v5 ^= v6;
-      goto LABEL_6;
-    }
-LABEL_5:
-    v5 = v6;
-LABEL_6:
-    if ( !v5 )
-      goto LABEL_7;
-  }
-  v4 = v5 - 40;
-  if ( _InterlockedIncrement64((volatile signed __int64 *)(v5 - 40 + 32)) <= 1 )
-    __fastfail(0xEu);
-LABEL_7:
-  *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement = 0LL;
-  KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc, 0);
-  if ( v4 )
-  {
-    CiThreadCleanup(v4);
-    CiThreadDereference(v4);
   }
 }

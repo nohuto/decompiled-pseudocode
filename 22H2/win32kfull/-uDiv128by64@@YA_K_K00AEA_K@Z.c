@@ -1,9 +1,9 @@
 /*
- * XREFs of ?uDiv128by64@@YA_K_K00AEA_K@Z @ 0x1C01C2DDC
+ * XREFs of ?uDiv128by64@@YA_K_K00AEA_K@Z @ 0x1C01EDE08
  * Callers:
- *     ?Div128by64@@YA_J_J_K0AEA_J@Z @ 0x1C0152B1C (-Div128by64@@YA_J_J_K0AEA_J@Z.c)
+ *     ?Div128by64@@YA_J_J_K0AEA_J@Z @ 0x1C01EBC50 (-Div128by64@@YA_J_J_K0AEA_J@Z.c)
  * Callees:
- *     ?NumberOfLeadingZeros@@YAH_K@Z @ 0x1C0152BC0 (-NumberOfLeadingZeros@@YAH_K@Z.c)
+ *     ?NumberOfLeadingZeros@@YAH_K@Z @ 0x1C01EC730 (-NumberOfLeadingZeros@@YAH_K@Z.c)
  */
 
 unsigned __int64 __fastcall uDiv128by64(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)

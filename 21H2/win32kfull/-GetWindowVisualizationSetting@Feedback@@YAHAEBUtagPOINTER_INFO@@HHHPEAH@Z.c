@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetWindowVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@HHHPEAH@Z @ 0x1C01D4ED0
+ * XREFs of ?GetWindowVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@HHHPEAH@Z @ 0x1C01DA970
  * Callers:
- *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01D4A20 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01DA314 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
  * Callees:
- *     FeedbackGetWindowSetting @ 0x1C01D54D0 (FeedbackGetWindowSetting.c)
+ *     FeedbackGetWindowSetting @ 0x1C01DB0D0 (FeedbackGetWindowSetting.c)
  */
 
 __int64 __fastcall Feedback::GetWindowVisualizationSetting(
@@ -13,7 +13,7 @@ __int64 __fastcall Feedback::GetWindowVisualizationSetting(
         int a4,
         int *a5)
 {
-  int *v5; // rdi
+  int *v5; // rsi
   int v7; // eax
   unsigned int PointerVisualization; // ebx
   __int64 v9; // rcx
@@ -52,30 +52,29 @@ __int64 __fastcall Feedback::GetWindowVisualizationSetting(
           }
         }
       }
-      if ( !PointerVisualization )
-        goto LABEL_19;
     }
-    if ( (unsigned int)(*(_DWORD *)this - 2) <= 1 )
+    if ( PointerVisualization )
     {
-      v11 = *((_QWORD *)this + 3);
-      if ( v11 )
+      if ( (unsigned int)(*(_DWORD *)this - 2) <= 1 )
       {
-        v12 = ValidateHwnd(v11);
-        if ( v12 )
+        v11 = *((_QWORD *)this + 3);
+        if ( v11 )
         {
-          if ( (unsigned int)FeedbackGetWindowSetting(v12, 13LL, 1LL, &v16) && v16 )
+          v12 = ValidateHwnd(v11);
+          if ( v12 )
           {
-            PointerVisualization = 0;
-            v15 = 0;
+            if ( (unsigned int)FeedbackGetWindowSetting(v12, 13LL, 1LL, &v16) && v16 )
+            {
+              PointerVisualization = 0;
+              v15 = 0;
+            }
           }
         }
       }
     }
-LABEL_19:
     CTouchProcessor::SetPointerVisualization(gpTouchProcessor, *((_WORD *)this + 2), PointerVisualization, &v15, 0);
-    return PointerVisualization;
   }
-  if ( (v7 & 0x40000) != 0 )
+  else if ( (v7 & 0x40000) != 0 )
   {
     PointerVisualization = CTouchProcessor::GetPointerVisualization(gpTouchProcessor, *((_WORD *)this + 2), v5);
     CTouchProcessor::SetPointerVisualization(gpTouchProcessor, *((_WORD *)this + 2), 1, 0LL, 0);

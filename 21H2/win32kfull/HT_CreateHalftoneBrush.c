@@ -1,12 +1,12 @@
 /*
- * XREFs of HT_CreateHalftoneBrush @ 0x1C025DF88
+ * XREFs of HT_CreateHalftoneBrush @ 0x1C0261318
  * Callers:
- *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C0009E08 (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
- *     HT_CreateStandardMonoPattern @ 0x1C013D000 (HT_CreateStandardMonoPattern.c)
+ *     HT_CreateStandardMonoPattern @ 0x1C001965C (HT_CreateStandardMonoPattern.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C00CFD3C (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
  * Callees:
- *     pDCIAdjClr @ 0x1C0094724 (pDCIAdjClr.c)
- *     ComputeBytesPerScanLine @ 0x1C013D228 (ComputeBytesPerScanLine.c)
- *     CreateHalftoneBrushPat @ 0x1C025F874 (CreateHalftoneBrushPat.c)
+ *     ComputeBytesPerScanLine @ 0x1C0019884 (ComputeBytesPerScanLine.c)
+ *     pDCIAdjClr @ 0x1C001C210 (pDCIAdjClr.c)
+ *     CreateHalftoneBrushPat @ 0x1C02629E4 (CreateHalftoneBrushPat.c)
  */
 
 __int64 __fastcall HT_CreateHalftoneBrush(__int64 a1, __m128i *a2, __int64 a3, int a4, __int64 a5)

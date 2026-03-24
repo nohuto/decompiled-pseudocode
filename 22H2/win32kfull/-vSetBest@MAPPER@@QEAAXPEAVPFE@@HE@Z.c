@@ -1,9 +1,8 @@
 /*
- * XREFs of ?vSetBest@MAPPER@@QEAAXPEAVPFE@@HE@Z @ 0x1C015AD20
+ * XREFs of ?vSetBest@MAPPER@@QEAAXPEAVPFE@@HE@Z @ 0x1C0294028
  * Callers:
- *     ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C015ABC0 (-vEmergency@MAPPER@@QEAAXXZ.c)
- *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C029ABC8 (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
- *     ?vAttemptDeviceMatch@MAPPER@@QEAAXXZ @ 0x1C029AFF8 (-vAttemptDeviceMatch@MAPPER@@QEAAXXZ.c)
+ *     ?vAttemptDeviceMatch@MAPPER@@QEAAXXZ @ 0x1C0293D2C (-vAttemptDeviceMatch@MAPPER@@QEAAXXZ.c)
+ *     ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C0293EEC (-vEmergency@MAPPER@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

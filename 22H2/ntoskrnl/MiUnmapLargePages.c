@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUnmapLargePages @ 0x1403D62BC
+ * XREFs of MiUnmapLargePages @ 0x140394BE4
  * Callers:
- *     MiRemoveFromSystemSpace @ 0x1402137A0 (MiRemoveFromSystemSpace.c)
- *     MiInsertInSystemSpace @ 0x140213D30 (MiInsertInSystemSpace.c)
- *     MmUnmapIoSpace @ 0x140335B30 (MmUnmapIoSpace.c)
- *     MiUnmapLargeDriver @ 0x140A49F88 (MiUnmapLargeDriver.c)
+ *     MiInsertInSystemSpace @ 0x14027B460 (MiInsertInSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x1402854CC (MiRemoveFromSystemSpace.c)
+ *     MmUnmapIoSpace @ 0x1402EA680 (MmUnmapIoSpace.c)
+ *     MiUnmapLargeDriver @ 0x1408DA794 (MiUnmapLargeDriver.c)
  * Callees:
- *     MiReturnSystemVa @ 0x140213B74 (MiReturnSystemVa.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MiReturnSystemVa @ 0x14027AC68 (MiReturnSystemVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
-unsigned __int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __int64 a2, int a3)
 {
   int v3; // ebp
   unsigned __int64 v4; // rsi
@@ -42,10 +42,10 @@ unsigned __int64 __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __in
       v11 = 0;
       if ( MiPteInShadowRange((unsigned __int64)v7) )
       {
-        if ( MiPteHasShadow() )
+        if ( (unsigned int)MiPteHasShadow() )
         {
           v11 = 1;
-          if ( !HIBYTE(word_140C66DFC) )
+          if ( !HIBYTE(word_140C4E008) )
           {
             v13 = (ZeroPte & 1) == 0;
             goto LABEL_14;
@@ -66,5 +66,5 @@ LABEL_14:
     }
     v4 = (v4 + 0x1FFFFF) & 0xFFFFFFFFFFE00000uLL;
   }
-  return MiReturnSystemVa(a1, a1 + v4, v3, 0LL);
+  return MiReturnSystemVa(a1, a1 + v4, v3);
 }

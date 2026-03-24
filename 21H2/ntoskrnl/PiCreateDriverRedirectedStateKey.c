@@ -1,27 +1,27 @@
 /*
- * XREFs of PiCreateDriverRedirectedStateKey @ 0x1406DF254
+ * XREFs of PiCreateDriverRedirectedStateKey @ 0x1407C4A84
  * Callers:
- *     PiCreateServiceStateKey @ 0x1406DF14C (PiCreateServiceStateKey.c)
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
+ *     IoOpenDriverRegistryKey @ 0x1407C4790 (IoOpenDriverRegistryKey.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlUnicodeStringPrintfEx @ 0x1402D1840 (RtlUnicodeStringPrintfEx.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     PiGetStateRootPath @ 0x1406DF520 (PiGetStateRootPath.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     IopAllocateUnicodeString @ 0x140769784 (IopAllocateUnicodeString.c)
- *     PiCreateRegistryPath @ 0x140943E3C (PiCreateRegistryPath.c)
- *     PiAuGetServiceStateSecurityObject @ 0x140949AF8 (PiAuGetServiceStateSecurityObject.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14036F060 (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IopAllocateUnicodeString @ 0x1407496AC (IopAllocateUnicodeString.c)
+ *     PiGetStateRootPath @ 0x1407812FC (PiGetStateRootPath.c)
+ *     PiCreateRegistryPath @ 0x14089F0F4 (PiCreateRegistryPath.c)
+ *     PiAuGetServiceStateSecurityObject @ 0x1408A3D20 (PiAuGetServiceStateSecurityObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCreateDriverRedirectedStateKey(UNICODE_STRING *CreateOptions, __int64 a2, _QWORD *a3)
 {
   void *v4; // rsi
   void *v5; // rdi
-  NTSTATUS StateRootPath; // ebx
+  int StateRootPath; // ebx
   unsigned int v9; // ecx
   unsigned int v10; // edx
   NTSTATUS v11; // eax
@@ -35,12 +35,12 @@ __int64 __fastcall PiCreateDriverRedirectedStateKey(UNICODE_STRING *CreateOption
   HANDLE Handle; // [rsp+D0h] [rbp+67h] BYREF
   void *v20; // [rsp+E8h] [rbp+7Fh]
 
-  Handle = 0LL;
   v4 = 0LL;
   v5 = 0LL;
+  Handle = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   v15 = 0LL;
   v20 = 0LL;
-  memset(&ObjectAttributes, 0, 44);
   UnicodeString = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
@@ -50,7 +50,7 @@ __int64 __fastcall PiCreateDriverRedirectedStateKey(UNICODE_STRING *CreateOption
     StateRootPath = -1073741811;
     goto LABEL_6;
   }
-  StateRootPath = PiGetStateRootPath(L"DriverStatePath");
+  StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, 0, &DestinationString);
   if ( StateRootPath < 0 )
     goto LABEL_6;
   v9 = CreateOptions->Length + 2;
@@ -66,7 +66,7 @@ __int64 __fastcall PiCreateDriverRedirectedStateKey(UNICODE_STRING *CreateOption
       StateRootPath = -2147483643;
       goto LABEL_6;
     }
-    StateRootPath = IopAllocateUnicodeString(&UnicodeString);
+    StateRootPath = IopAllocateUnicodeString((__int64)&UnicodeString, v10);
     if ( StateRootPath >= 0 )
     {
       StateRootPath = RtlUnicodeStringPrintfEx(
@@ -87,7 +87,7 @@ __int64 __fastcall PiCreateDriverRedirectedStateKey(UNICODE_STRING *CreateOption
         StateRootPath = v11;
         if ( v11 != -1073741772 )
           goto LABEL_25;
-        ServiceStateSecurityObject = PiAuGetServiceStateSecurityObject(0LL, &v15);
+        ServiceStateSecurityObject = PiAuGetServiceStateSecurityObject(&v15);
         v4 = v15;
         StateRootPath = ServiceStateSecurityObject;
         if ( ServiceStateSecurityObject < 0 )
@@ -126,8 +126,8 @@ LABEL_25:
     }
   }
 LABEL_6:
-  RtlFreeUnicodeString(&DestinationString);
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&DestinationString);
+  RtlFreeAnsiString(&UnicodeString);
   if ( Handle )
     ZwClose(Handle);
   if ( v5 )

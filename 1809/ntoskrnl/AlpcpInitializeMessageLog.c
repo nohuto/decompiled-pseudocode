@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpInitializeMessageLog @ 0x14075D590
+ * XREFs of AlpcpInitializeMessageLog @ 0x14075D570
  * Callers:
- *     AlpcpInitSystem @ 0x14075D2AC (AlpcpInitSystem.c)
+ *     AlpcpInitSystem @ 0x14075D28C (AlpcpInitSystem.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?OnChanged@CAtlasedRectsGroup@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180107160
+ * XREFs of ?OnChanged@CAtlasedRectsGroup@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800E27D0
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 __int64 __fastcall CAtlasedRectsGroup::OnChanged(__int64 a1)
 {
-  *(_BYTE *)(a1 + 120) = 1;
+  *(_BYTE *)(a1 + 104) = 1;
   return 1LL;
 }

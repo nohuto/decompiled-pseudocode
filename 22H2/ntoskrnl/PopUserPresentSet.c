@@ -1,119 +1,54 @@
 /*
- * XREFs of PopUserPresentSet @ 0x14058DFF4
+ * XREFs of PopUserPresentSet @ 0x1403A5804
  * Callers:
- *     PopSetSystemState @ 0x14058DFAC (PopSetSystemState.c)
+ *     PopSetSystemState @ 0x1403A57C0 (PopSetSystemState.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     PopResetIdleTime @ 0x1403B43D8 (PopResetIdleTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x1408839B0 (DbgkWerCaptureLiveKernelDump.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     PopResetIdleTime @ 0x140329C20 (PopResetIdleTime.c)
+ *     PopSetNotificationWork @ 0x14034AEA0 (PopSetNotificationWork.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888B80 (DbgkWerCaptureLiveKernelDump.c)
  */
 
-__int64 __fastcall PopUserPresentSet(__int32 a1)
+void __fastcall PopUserPresentSet(int a1)
 {
-  __int64 result; // rax
-  KIRQL v3; // al
-  int v4; // ebp
-  unsigned __int64 v5; // rbx
-  unsigned __int8 CurrentIrql; // cl
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v9; // eax
-  bool v10; // zf
-  unsigned __int64 v11; // rbx
-  struct _KPRCB *v12; // r9
-  _DWORD *v13; // r8
-  __int64 v14; // rdx
-  unsigned __int8 v15; // al
-  struct _KPRCB *v16; // r9
-  int v17; // eax
-  _DWORD *v18; // r8
-  _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
+  void *v1; // rdi
+  __int32 v2; // esi
 
-  result = (__int64)&retaddr;
+  v1 = (void *)a1;
   if ( (PopSimulate & 0x40000) != 0 )
-  {
-    v3 = KeAcquireSpinLockRaiseToDpc(&PopUserPresentLock);
-    v4 = PopUserPresentSetStatus;
-    v5 = v3;
-    KxReleaseSpinLock((volatile signed __int64 *)&PopUserPresentLock);
-    if ( KiIrqlFlags )
-    {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
-      {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-        v10 = (v9 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v9;
-        if ( v10 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-      }
-    }
-    __writecr8(v5);
-    result = DbgkWerCaptureLiveKernelDump((unsigned int)L"UserPresenceSet", 160, 273, v4, PopFullWake, 0LL, 0LL, 0LL, 0);
-  }
-  if ( byte_140C3CE21 == 3 )
+    DbgkWerCaptureLiveKernelDump(L"UserPresenceSet", PopFullWake, 0LL, 0LL, 0LL, 0);
+  if ( byte_140C23A41 == 3 )
   {
     _InterlockedOr(&PopPendingUserPresenceDuringSystemSleep, 1u);
-    _InterlockedExchange(&PopPendingUserPresenceMonitorOnReason, a1);
+    _InterlockedExchange(&PopPendingUserPresenceMonitorOnReason, (__int32)v1);
   }
   else
   {
-    v11 = KeAcquireSpinLockRaiseToDpc(&PopUserPresentLock);
-    if ( dword_140C3D914 )
+    v2 = _InterlockedExchange(&PopUserPresentSetStatus, 1);
+    if ( _InterlockedCompareExchange(&dword_140C23354, 0, 0) )
     {
-      if ( !PopUserPresentSetStatus )
-        KeSetEvent(&PopUserPresentCompletedEvent, 0, 0);
-      result = KxReleaseSpinLock((volatile signed __int64 *)&PopUserPresentLock);
-      if ( KiIrqlFlags )
+      if ( !v2 )
       {
-        result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
-          && (unsigned __int8)result <= 0xFu
-          && (unsigned __int8)v11 <= 0xFu
-          && (unsigned __int8)result >= 2u )
-        {
-          v12 = KeGetCurrentPrcb();
-          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-          v13 = v12->SchedulerAssist;
-          v10 = ((unsigned int)result & v13[5]) == 0;
-          v13[5] &= result;
-          if ( v10 )
-            result = KiRemoveSystemWorkPriorityKick((__int64)v12);
-        }
+        _InterlockedExchange(&PopUserPresentSetStatus, 0);
+        KeSetEvent(&PopUserPresentCompletedEvent, 0, 0);
       }
-      __writecr8(v11);
     }
     else
     {
-      PopUserPresentMonitorOnReason = a1;
-      if ( !PopUserPresentSetStatus )
-        ExQueueWorkItem(&PopUserPresentWorkItem, DelayedWorkQueue);
-      PopUserPresentSetStatus = 1;
-      KxReleaseSpinLock((volatile signed __int64 *)&PopUserPresentLock);
-      if ( KiIrqlFlags )
+      if ( (PopFullWake & 3) == 0 )
       {
-        v15 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v15 >= 2u )
-        {
-          v16 = KeGetCurrentPrcb();
-          v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-          v18 = v16->SchedulerAssist;
-          v10 = (v17 & v18[5]) == 0;
-          v14 = (unsigned int)v17 & v18[5];
-          v18[5] = v14;
-          if ( v10 )
-            KiRemoveSystemWorkPriorityKick((__int64)v16);
-        }
+        _InterlockedOr(&PopFullWake, 2u);
+        PopSetNotificationWork(1u);
       }
-      __writecr8(v11);
-      return PopResetIdleTime(2LL, v14);
+      PopResetIdleTime();
+      if ( !v2 )
+      {
+        PopUserPresentWorkItem.Parameter = v1;
+        PopUserPresentWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopUserPresentSetWorker;
+        PopUserPresentWorkItem.List.Flink = 0LL;
+        ExQueueWorkItem(&PopUserPresentWorkItem, DelayedWorkQueue);
+      }
     }
   }
-  return result;
 }

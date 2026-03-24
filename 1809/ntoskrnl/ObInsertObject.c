@@ -5,7 +5,7 @@
  *     FsRtlCreateSectionForDataScan @ 0x140092540 (FsRtlCreateSectionForDataScan.c)
  *     SepCopyAnonymousTokenAndSetSilo @ 0x1405828D0 (SepCopyAnonymousTokenAndSetSilo.c)
  *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
- *     TtmpDispatchCreateEventQueue @ 0x140881B9C (TtmpDispatchCreateEventQueue.c)
+ *     TtmpDispatchCreateEventQueue @ 0x140881B7C (TtmpDispatchCreateEventQueue.c)
  *     PspInitPhase1 @ 0x1409AB320 (PspInitPhase1.c)
  *     MiSectionInitialization @ 0x1409BA060 (MiSectionInitialization.c)
  *     CmpCreateRegistryRoot @ 0x1409C3FAC (CmpCreateRegistryRoot.c)

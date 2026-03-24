@@ -1,14 +1,14 @@
 /*
- * XREFs of EmpMapPhysicalAddress @ 0x140B0DAC4
+ * XREFs of EmpMapPhysicalAddress @ 0x140A477DC
  * Callers:
- *     EmpCacheBiosDate @ 0x140B0D974 (EmpCacheBiosDate.c)
+ *     EmpCacheBiosDate @ 0x140A4768C (EmpCacheBiosDate.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14041BC60 (ZwMapViewOfSection.c)
- *     ZwOpenSection @ 0x14041BE40 (ZwOpenSection.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1403FA8A0 (ZwMapViewOfSection.c)
+ *     ZwOpenSection @ 0x1403FAA80 (ZwOpenSection.c)
  */
 
 char *__fastcall EmpMapPhysicalAddress(SIZE_T a1, __int64 a2, HANDLE *a3, PVOID *a4, __int64 a5)
@@ -50,7 +50,7 @@ char *__fastcall EmpMapPhysicalAddress(SIZE_T a1, __int64 a2, HANDLE *a3, PVOID 
            0,
            4u) < 0 )
     {
-      KiUnstackDetachProcess(a5, 0LL);
+      KiUnstackDetachProcess(a5, 0);
       ZwClose(*a3);
       *a3 = 0LL;
     }

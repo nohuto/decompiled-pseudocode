@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiSetupNativeMethodInterface @ 0x1C009ECE8
+ * XREFs of AcpiSetupNativeMethodInterface @ 0x1C009F5D0
  * Callers:
- *     ACPIDispatchAddDevice @ 0x1C0026D30 (ACPIDispatchAddDevice.c)
+ *     ACPIDispatchAddDevice @ 0x1C0025260 (ACPIDispatchAddDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memset @ 0x1C0030080 (memset.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 AcpiSetupNativeMethodInterface()
@@ -46,7 +46,7 @@ __int64 AcpiSetupNativeMethodInterface()
       LODWORD(OutputBuffer[0]) = 65632;
       LOWORD(OutputBuffer[2]) = 64;
       OutputBuffer[1] = 0uLL;
-      v3 = *(_QWORD *)(RootDeviceExtension + 768);
+      v3 = *(_QWORD *)(RootDeviceExtension + 728);
       *((_QWORD *)&OutputBuffer[4] + 1) = AcpiReflectNativeObject;
       *(_QWORD *)&OutputBuffer[5] = AcpiNativeNotifyEventHandler;
       *(_QWORD *)&OutputBuffer[4] = v3;
@@ -80,11 +80,11 @@ __int64 AcpiSetupNativeMethodInterface()
         && *((_QWORD *)&OutputBuffer[3] + 1) )
       {
         AcpiPlExtNativeMethodInterface = OutputBuffer[0];
-        xmmword_1C0080D90 = OutputBuffer[1];
-        unk_1C0080DA0 = OutputBuffer[2];
-        xmmword_1C0080DB0 = OutputBuffer[3];
-        xmmword_1C0080DC0 = OutputBuffer[4];
-        xmmword_1C0080DD0 = OutputBuffer[5];
+        xmmword_1C0081BD0 = OutputBuffer[1];
+        unk_1C0081BE0 = OutputBuffer[2];
+        xmmword_1C0081BF0 = OutputBuffer[3];
+        xmmword_1C0081C00 = OutputBuffer[4];
+        xmmword_1C0081C10 = OutputBuffer[5];
         ObfReferenceObjectWithTag(AttachedDeviceReference, 0x4E706341u);
         Status = 0;
       }

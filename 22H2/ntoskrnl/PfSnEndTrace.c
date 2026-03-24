@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnEndTrace @ 0x14074AD58
+ * XREFs of PfSnEndTrace @ 0x14062CC78
  * Callers:
- *     PfSnEndTraceWorkerThreadRoutine @ 0x14074AD40 (PfSnEndTraceWorkerThreadRoutine.c)
+ *     PfSnEndTraceWorkerThreadRoutine @ 0x14062CC60 (PfSnEndTraceWorkerThreadRoutine.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     PfSnDeactivateTrace @ 0x1402F521C (PfSnDeactivateTrace.c)
- *     PfFbBufferListFlushStandby @ 0x1402F573C (PfFbBufferListFlushStandby.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PfSnBuildDumpFromTrace @ 0x14074AFA0 (PfSnBuildDumpFromTrace.c)
- *     PfSnCleanupTrace @ 0x14074BFD8 (PfSnCleanupTrace.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     PfSnDeactivateTrace @ 0x14026D61C (PfSnDeactivateTrace.c)
+ *     PfFbBufferListFlushStandby @ 0x14026E8B0 (PfFbBufferListFlushStandby.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PfSnCleanupTrace @ 0x14062CEBC (PfSnCleanupTrace.c)
+ *     PfSnBuildDumpFromTrace @ 0x14062D034 (PfSnBuildDumpFromTrace.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
@@ -22,11 +22,11 @@ __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
   int Ptr_high; // edx
   int v4; // ecx
   __int64 Count_low; // rax
-  int v6; // edi
-  _QWORD *v7; // rsi
-  _QWORD *v8; // rax
-  unsigned int v9; // eax
-  int v11; // eax
+  int v6; // eax
+  int v7; // edi
+  _QWORD *v8; // rsi
+  _QWORD *v9; // rax
+  unsigned int v10; // eax
   PVOID v12; // rcx
   __int64 v13; // rax
   __int64 v14; // rax
@@ -47,7 +47,7 @@ __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   KeGetCurrentThread()->PreviousMode = 0;
   PfSnDeactivateTrace(P);
-  if ( P && qword_140C6A808 && EtwEventEnabled(qword_140C6A808, &PfSnEvt_EndTrace_Info) )
+  if ( P && RegHandle && EtwEventEnabled(RegHandle, &PfSnEvt_EndTrace_Info) )
   {
     v14 = -1LL;
     do
@@ -65,7 +65,7 @@ __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
     v22 = 4LL;
     v24 = 4LL;
     v26 = 4LL;
-    EtwWrite(qword_140C6A808, &PfSnEvt_EndTrace_Info, 0LL, 5u, &UserData);
+    EtwWrite(RegHandle, &PfSnEvt_EndTrace_Info, 0LL, 5u, &UserData);
   }
   Ptr_high = HIDWORD(P[40].Ptr);
   v4 = HIDWORD(P[41].Ptr);
@@ -75,14 +75,7 @@ __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
     Ptr_high = v4;
   }
   Count_low = SLODWORD(P[41].Count);
-  if ( (int)Count_low < dword_140C65084 )
-  {
-    *((_DWORD *)&P[35].Ptr + Count_low + 1) = v4 - Ptr_high;
-    v11 = HIDWORD(P[41].Ptr);
-    ++LODWORD(P[41].Count);
-    HIDWORD(P[40].Ptr) = v11;
-  }
-  else
+  if ( (int)Count_low >= dword_140C502B4 )
   {
     if ( (int)Count_low > 10 )
     {
@@ -92,59 +85,66 @@ __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
     if ( Ptr_high != v4 )
       *((_DWORD *)&P[35].Count + (int)Count_low) += v4 - Ptr_high;
   }
-  if ( LODWORD(P[11].Count) != 1 || LODWORD(P[50].Count) == 8 )
-    v6 = PfSnBuildDumpFromTrace(&Pa, P);
   else
-    v6 = -2147483614;
-  v7 = Pa;
+  {
+    *((_DWORD *)&P[35].Ptr + Count_low + 1) = v4 - Ptr_high;
+    v6 = HIDWORD(P[41].Ptr);
+    ++LODWORD(P[41].Count);
+    HIDWORD(P[40].Ptr) = v6;
+  }
+  if ( LODWORD(P[11].Count) != 1 || LODWORD(P[50].Count) == 8 )
+    v7 = PfSnBuildDumpFromTrace(&Pa, P);
+  else
+    v7 = -2147483614;
+  v8 = Pa;
   P[56].Count = (unsigned __int64)Pa;
-  LODWORD(P[57].Count) = v6;
+  LODWORD(P[57].Count) = v7;
   PfSnCleanupTrace(P);
   ExFreePoolWithTag(P, 0);
-  if ( v6 >= 0 )
+  if ( v7 >= 0 )
   {
-    PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_140C65320);
+    PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_140C4FCA0);
     ExAcquireFastMutex(&FastMutex);
-    if ( dword_140C6A764 == 1 )
+    if ( dword_140C504A4 == 1 )
     {
-      ExReleaseFastMutex(&FastMutex);
-      ExFreePoolWithTag(v7, 0);
+      KeReleaseGuardedMutex(&FastMutex);
+      ExFreePoolWithTag(v8, 0);
     }
     else
     {
-      v8 = qword_140C6A720;
-      if ( *(PVOID **)qword_140C6A720 != &qword_140C6A718 )
-LABEL_27:
+      v9 = qword_140C50460;
+      if ( *(PVOID **)qword_140C50460 != &qword_140C50458 )
+LABEL_29:
         __fastfail(3u);
-      v7[1] = qword_140C6A720;
-      *v7 = &qword_140C6A718;
-      *v8 = v7;
-      v9 = dword_140C6A760 + 1;
-      qword_140C6A720 = v7;
+      v8[1] = qword_140C50460;
+      *v8 = &qword_140C50458;
+      *v9 = v8;
+      v10 = dword_140C504A0 + 1;
+      qword_140C50460 = v8;
       while ( 1 )
       {
-        dword_140C6A760 = v9;
-        if ( v9 <= dword_140C64F1C )
+        dword_140C504A0 = v10;
+        if ( v10 <= dword_140C5014C )
           break;
-        v12 = qword_140C6A718;
-        if ( qword_140C6A718 == &qword_140C6A718 )
+        v12 = qword_140C50458;
+        if ( qword_140C50458 == &qword_140C50458 )
           break;
-        if ( *((PVOID **)qword_140C6A718 + 1) != &qword_140C6A718 )
-          goto LABEL_27;
-        v13 = *(_QWORD *)qword_140C6A718;
-        if ( *(PVOID *)(*(_QWORD *)qword_140C6A718 + 8LL) != qword_140C6A718 )
-          goto LABEL_27;
-        qword_140C6A718 = *(PVOID *)qword_140C6A718;
-        *(_QWORD *)(v13 + 8) = &qword_140C6A718;
+        if ( *((PVOID **)qword_140C50458 + 1) != &qword_140C50458 )
+          goto LABEL_29;
+        v13 = *(_QWORD *)qword_140C50458;
+        if ( *(PVOID *)(*(_QWORD *)qword_140C50458 + 8LL) != qword_140C50458 )
+          goto LABEL_29;
+        qword_140C50458 = *(PVOID *)qword_140C50458;
+        *(_QWORD *)(v13 + 8) = &qword_140C50458;
         ExFreePoolWithTag(v12, 0);
-        v9 = dword_140C6A760 - 1;
+        v10 = dword_140C504A0 - 1;
       }
-      ExReleaseFastMutex(&FastMutex);
-      if ( qword_140C6A768 )
-        KeSetEvent(qword_140C6A768, 0, 0);
-      v6 = 0;
+      KeReleaseGuardedMutex(&FastMutex);
+      if ( qword_140C504A8 )
+        KeSetEvent(qword_140C504A8, 0, 0);
+      v7 = 0;
     }
   }
   KeGetCurrentThread()->PreviousMode = PreviousMode;
-  return (unsigned int)v6;
+  return (unsigned int)v7;
 }

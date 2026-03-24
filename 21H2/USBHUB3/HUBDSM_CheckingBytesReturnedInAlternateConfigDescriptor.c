@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingBytesReturnedInAlternateConfigDescriptor @ 0x1C001EC60
+ * XREFs of HUBDSM_CheckingBytesReturnedInAlternateConfigDescriptor @ 0x1C001E720
  * Callers:
  *     <none>
  * Callees:

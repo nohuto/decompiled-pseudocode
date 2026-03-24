@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGetFileNameForSection @ 0x140A2E764
+ * XREFs of MmGetFileNameForSection @ 0x1408C41AC
  * Callers:
- *     DbgkpSectionToFileHandle @ 0x140939478 (DbgkpSectionToFileHandle.c)
+ *     DbgkpSectionToFileHandle @ 0x140887BE4 (DbgkpSectionToFileHandle.c)
  * Callees:
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiReferenceControlAreaFile @ 0x1402A22B4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A23C0 (MiDereferenceControlAreaFile.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ObQueryNameStringMode @ 0x14075BD04 (ObQueryNameStringMode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402D7994 (MiDereferenceControlAreaFile.c)
+ *     ObQueryNameStringMode @ 0x14070FFB0 (ObQueryNameStringMode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmGetFileNameForSection(__int64 a1, __int64 *a2)
@@ -48,7 +48,7 @@ __int64 __fastcall MmGetFileNameForSection(__int64 a1, __int64 *a2)
     if ( v14 >= 0xFFFFFC00 || v14 == 0 )
     {
       *a2 = 0LL;
-      MiDereferenceControlAreaFile(v8, (__int64)v9);
+      MiDereferenceControlAreaFile(v8, (unsigned __int64)v9);
       return 3221225495LL;
     }
     v13 = MiAllocatePool(256, v12, 0x20206D4Du);
@@ -57,14 +57,14 @@ __int64 __fastcall MmGetFileNameForSection(__int64 a1, __int64 *a2)
     {
       v3 = -1073741801;
 LABEL_11:
-      MiDereferenceControlAreaFile(v8, (__int64)v9);
+      MiDereferenceControlAreaFile(v8, (unsigned __int64)v9);
       return v3;
     }
     v11 = ObQueryNameStringMode(v9, (__int64)v13, v12, &v14, 0);
     if ( v11 >= 0 )
       goto LABEL_11;
   }
-  MiDereferenceControlAreaFile(v8, (__int64)v9);
+  MiDereferenceControlAreaFile(v8, (unsigned __int64)v9);
   ExFreePoolWithTag((PVOID)*a2, 0);
   result = (unsigned int)v11;
   *a2 = 0LL;

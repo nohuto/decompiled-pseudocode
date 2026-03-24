@@ -1,9 +1,9 @@
 /*
- * XREFs of ?scRGBTosRGB@@YAMM@Z @ 0x18027FE18
+ * XREFs of ?scRGBTosRGB@@YAMM@Z @ 0x18021F2D4
  * Callers:
- *     ?FillRectangleWithSolidColor@CD2DContext@@UEAAJPEBVID2DContextOwner@@AEBUD2D_RECT_F@@AEBU_D3DCOLORVALUE@@W4D2D1_ANTIALIAS_MODE@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x180286F60 (-FillRectangleWithSolidColor@CD2DContext@@UEAAJPEBVID2DContextOwner@@AEBUD2D_RECT_F@@AEBU_D3DCOL.c)
+ *     ?FillRectangleWithSolidColor@CD2DContext@@UEAAJPEBVID2DContextOwner@@AEBUD2D_RECT_F@@AEBU_D3DCOLORVALUE@@W4D2D1_ANTIALIAS_MODE@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x18023C0C0 (-FillRectangleWithSolidColor@CD2DContext@@UEAAJPEBVID2DContextOwner@@AEBUD2D_RECT_F@@AEBU_D3DCOL.c)
  * Callees:
- *     powf_0 @ 0x18011B92C (powf_0.c)
+ *     powf @ 0x1800E7F08 (powf.c)
  */
 
 float __fastcall scRGBTosRGB(float a1)
@@ -16,6 +16,6 @@ float __fastcall scRGBTosRGB(float a1)
     return a1 * 12.92;
   result = *(float *)&FLOAT_1_0;
   if ( a1 < 1.0 )
-    return (float)(powf_0(a1, 0.41666666) * 1.0549999) - 0.055;
+    return (float)(powf(a1, 0.41666666) * 1.0549999) - 0.055;
   return result;
 }

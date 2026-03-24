@@ -1,14 +1,14 @@
 /*
- * XREFs of ?OnNewContact@CManipulationContext@@QEAAJPEAVCInteractionChain@@IW4InputType@@_N2@Z @ 0x18018366C
+ * XREFs of ?OnNewContact@CManipulationContext@@QEAAJPEAVCInteractionChain@@IW4InputType@@_N2@Z @ 0x180234FE8
  * Callers:
- *     ?OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z @ 0x18017D2A0 (-OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z.c)
+ *     ?OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z @ 0x180225910 (-OnNewContact@CManipulationManager@@IEAAJPEAVCInteraction@@IW4InputType@@_N22@Z.c)
  * Callees:
- *     ??4?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x18006D8AC (--4-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z.c)
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D5E60 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Add@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHAEBIAEBV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@Z @ 0x180181F3C (-Add@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInteractio.c)
- *     ?CheckForSingleTarget@CManipulationContext@@CA_NPEBVCInteraction@@AEBUInputSinks@@@Z @ 0x1801824D8 (-CheckForSingleTarget@CManipulationContext@@CA_NPEBVCInteraction@@AEBUInputSinks@@@Z.c)
- *     ?SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z @ 0x180184F4C (-SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z.c)
+ *     ??4?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x180061F44 (--4-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3644 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Add@?$CMap@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@@@@QEAAHAEBIAEBV?$ComPtr@VCInteraction@@@WRL@Microsoft@@@Z @ 0x180233AB0 (-Add@-$CMap@IV-$ComPtr@VCInteraction@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@VCInteractio.c)
+ *     ?CheckForSingleTarget@CManipulationContext@@CA_NPEBVCInteraction@@AEBUInputSinks@@@Z @ 0x180233F98 (-CheckForSingleTarget@CManipulationContext@@CA_NPEBVCInteraction@@AEBUInputSinks@@@Z.c)
+ *     ?SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z @ 0x1802366CC (-SetInteractionChain@GestureTargeting@InputTraceLogging@@SAXKPEBVCInteraction@@@Z.c)
  */
 
 __int64 __fastcall CManipulationContext::OnNewContact(
@@ -16,74 +16,72 @@ __int64 __fastcall CManipulationContext::OnNewContact(
         __int64 a2,
         unsigned int a3,
         unsigned int a4,
-        char a5,
-        char a6)
+        char a5)
 {
-  __int64 v6; // rsi
-  unsigned int v11; // r14d
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  bool v14; // r15
+  __int64 (__fastcall ***v5)(_QWORD); // rdi
+  unsigned int v10; // r14d
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  bool v13; // r15
+  _BYTE *v14; // rcx
   __int64 v15; // rcx
-  __int64 v16; // rcx
-  char v17; // si
-  __int64 i; // rdi
-  __int64 v20; // [rsp+60h] [rbp+8h] BYREF
-  unsigned int v21; // [rsp+70h] [rbp+18h] BYREF
+  char v16; // di
+  _QWORD *i; // rsi
+  __int64 (__fastcall ***v19)(_QWORD); // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v20; // [rsp+70h] [rbp+18h] BYREF
 
-  v21 = a3;
-  v20 = *(_QWORD *)(a2 + 8);
-  v6 = v20;
-  v11 = 0;
-  Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef(&v20);
-  v14 = (unsigned int)CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::Add(
+  v20 = a3;
+  v19 = *(__int64 (__fastcall ****)(_QWORD))(a2 + 8);
+  v5 = v19;
+  v10 = 0;
+  Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v19);
+  v13 = (unsigned int)CMap<unsigned int,Microsoft::WRL::ComPtr<CInteraction>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CInteraction>>>::Add(
                         a1 + 56,
-                        (__int64)&v21,
-                        (__int64)&v20) == 0;
-  if ( v6 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
-  if ( v14 )
+                        &v20,
+                        &v19) == 0;
+  if ( v5 )
+    (*v5)[1](v5);
+  if ( v13 )
   {
-    v11 = -2147024882;
+    v10 = -2147024882;
   }
   else
   {
     InputTraceLogging::GestureTargeting::SetInteractionChain(a3, *(const struct CInteraction **)(a2 + 8));
-    v15 = *(_QWORD *)(a2 + 8);
-    if ( (*(_BYTE *)(v15 + 192) & 0x20) != 0
-      && (*(unsigned int (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)(v15 + 64) + 80LL))(v15 + 64, a4, 0LL) )
+    v14 = *(_BYTE **)(a2 + 8);
+    if ( (v14[184] & 0x10) != 0
+      && (*(unsigned int (__fastcall **)(_BYTE *, _QWORD, _QWORD))(*(_QWORD *)v14 + 80LL))(v14, a4, 0LL) )
     {
       *(_BYTE *)(a1 + 28) |= 2u;
     }
-    if ( a6 )
-      NtDCompositionUpdatePointerCapture(*(unsigned int *)(*(_QWORD *)(a2 + 8) + 188LL), a3);
-    v16 = *(_QWORD *)(a1 + 48);
-    if ( !v16 )
+    NtDCompositionUpdatePointerCapture(*(unsigned int *)(*(_QWORD *)(a2 + 8) + 180LL), a3);
+    v15 = *(_QWORD *)(a1 + 48);
+    if ( !v15 )
     {
       Microsoft::WRL::ComPtr<CInteraction>::operator=((__int64 *)(a1 + 48), *(_QWORD *)a2);
-      v16 = *(_QWORD *)(a1 + 48);
+      v15 = *(_QWORD *)(a1 + 48);
     }
     *(_BYTE *)(a1 + 28) = *(_BYTE *)(a1 + 28) & 0xF7 | (8
                                                       * CManipulationContext::CheckForSingleTarget(
-                                                          (const struct CInteraction *)v16,
-                                                          (const struct InputSinks *)(v16 + 72)));
+                                                          (const struct CInteraction *)v15,
+                                                          (const struct InputSinks *)(v15 + 64)));
   }
-  v17 = a5;
+  v16 = a5;
   if ( !a5 || (*(_BYTE *)(a1 + 28) & 1) != 0 )
   {
-    for ( i = *(_QWORD *)(a2 + 8); i; i = *(_QWORD *)(i + 216) )
+    for ( i = *(_QWORD **)(a2 + 8); i; i = (_QWORD *)i[26] )
     {
-      LOBYTE(v13) = *(_BYTE *)(a1 + 28) & 1;
-      LOBYTE(v12) = v17 ^ 1;
-      (*(void (__fastcall **)(__int64, __int64, __int64, _QWORD))(*(_QWORD *)(i + 64) + 40LL))(i + 64, v12, v13, a4);
+      LOBYTE(v11) = v16 ^ 1;
+      LOBYTE(v12) = *(_BYTE *)(a1 + 28) & 1;
+      (*(void (__fastcall **)(_QWORD *, __int64, __int64, _QWORD))(*i + 40LL))(i, v11, v12, a4);
     }
-    LOBYTE(v13) = *(_BYTE *)(a1 + 28) & 1;
-    LOBYTE(v12) = v17 ^ 1;
+    LOBYTE(v11) = v16 ^ 1;
+    LOBYTE(v12) = *(_BYTE *)(a1 + 28) & 1;
     (*(void (__fastcall **)(_QWORD, __int64, __int64, _QWORD))(**(_QWORD **)(a1 + 136) + 40LL))(
       *(_QWORD *)(a1 + 136),
+      v11,
       v12,
-      v13,
       a4);
   }
-  return v11;
+  return v10;
 }

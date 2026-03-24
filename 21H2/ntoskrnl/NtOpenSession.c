@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenSession @ 0x1406E4870
+ * XREFs of NtOpenSession @ 0x1406C0670
  * Callers:
- *     PfpSourceGetPrefetchSupport @ 0x140987E44 (PfpSourceGetPrefetchSupport.c)
+ *     PfpSourceGetPrefetchSupport @ 0x14070FF0C (PfpSourceGetPrefetchSupport.c)
  * Callees:
- *     ObOpenObjectByName @ 0x14067C970 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
  */
 
 __int64 __fastcall NtOpenSession(_QWORD *a1, int a2, __int64 a3)

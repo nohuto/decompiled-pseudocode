@@ -1,42 +1,42 @@
 /*
- * XREFs of EtwpTiQueryVad @ 0x1407E2CA0
+ * XREFs of EtwpTiQueryVad @ 0x14069E23C
  * Callers:
- *     EtwTiLogReadWriteVm @ 0x14076C34C (EtwTiLogReadWriteVm.c)
- *     EtwpTiVadQueryEventWriteCallback @ 0x1407E2BA0 (EtwpTiVadQueryEventWriteCallback.c)
- *     EtwTiLogProtectExecVm @ 0x1408A7ACA (EtwTiLogProtectExecVm.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x14069E140 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14041AB00 (ZwQueryVirtualMemory.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1403F9E80 (ZwQueryVirtualMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, unsigned int a4, char a5)
+__int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, _DWORD *a4, char a5)
 {
+  unsigned int v5; // r12d
   int v8; // ebp
   unsigned int v9; // esi
   unsigned int v10; // edi
   PVOID *v11; // rbx
   char *v12; // r15
   NTSTATUS VirtualMemory; // eax
-  void *Pool2; // rax
-  $115DCDF994C6370D29323EAB0E0C9502 v16; // [rsp+30h] [rbp-78h] BYREF
+  PVOID PoolWithTag; // rax
+  _OWORD v16[3]; // [rsp+30h] [rbp-78h] BYREF
 
-  memset(&v16, 0, sizeof(v16));
+  v5 = (unsigned int)a4;
+  memset(v16, 0, sizeof(v16));
   if ( a2 == KeGetCurrentThread()->ApcState.Process )
   {
     v8 = 0;
   }
   else
   {
-    KiStackAttachProcess(a2, 0, (__int64)&v16);
+    KiStackAttachProcess(a2, 0LL, (__int64)v16, a4);
     v8 = 1;
   }
   v9 = 0;
   v10 = 0;
-  if ( a4 )
+  if ( v5 )
   {
     v11 = (PVOID *)(a1 + 56);
     v12 = (char *)(a1 + 8);
@@ -55,14 +55,14 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, _KPROCESS *a2, PVOID *a3, unsigned
         v9 |= 1 << v10;
         if ( a5 )
         {
-          Pool2 = (void *)ExAllocatePool2(256LL, 512LL, 1853049172LL);
-          *v11 = Pool2;
-          if ( !Pool2
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x6E734954u);
+          *v11 = PoolWithTag;
+          if ( !PoolWithTag
             || ZwQueryVirtualMemory(
                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                  *a3,
                  (MEMORY_INFORMATION_CLASS)2,
-                 Pool2,
+                 PoolWithTag,
                  0x200uLL,
                  0LL) >= 0 )
           {
@@ -78,9 +78,9 @@ LABEL_9:
       ++a3;
       v11 += 8;
     }
-    while ( v10 < a4 );
+    while ( v10 < v5 );
   }
   if ( v8 )
-    KiUnstackDetachProcess(&v16);
+    KiUnstackDetachProcess((__int64)v16, 0);
   return v9;
 }

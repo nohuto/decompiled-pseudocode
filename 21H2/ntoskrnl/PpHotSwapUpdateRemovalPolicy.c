@@ -1,11 +1,11 @@
 /*
- * XREFs of PpHotSwapUpdateRemovalPolicy @ 0x14076B438
+ * XREFs of PpHotSwapUpdateRemovalPolicy @ 0x14076D954
  * Callers:
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
  * Callees:
- *     PiHotSwapGetDefaultBusRemovalPolicy @ 0x1406EA354 (PiHotSwapGetDefaultBusRemovalPolicy.c)
- *     PiHotSwapGetDetachableNode @ 0x14076B534 (PiHotSwapGetDetachableNode.c)
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
+ *     PiHotSwapGetDetachableNode @ 0x14076DA68 (PiHotSwapGetDetachableNode.c)
+ *     PiHotSwapGetDefaultBusRemovalPolicy @ 0x14076DA88 (PiHotSwapGetDefaultBusRemovalPolicy.c)
  */
 
 __int64 __fastcall PpHotSwapUpdateRemovalPolicy(__int64 a1)
@@ -32,25 +32,25 @@ __int64 __fastcall PpHotSwapUpdateRemovalPolicy(__int64 a1)
   v3 = *(_DWORD *)(*(_QWORD *)(a1 + 32) + 52LL);
   v4 = v3 & 0x300;
   if ( (v3 & 0x4000) != 0 )
-    goto LABEL_15;
+    goto LABEL_19;
   if ( (v3 & 0x8000) != 0 )
   {
-LABEL_14:
+LABEL_18:
     v5 = 3;
-    goto LABEL_16;
+    goto LABEL_17;
   }
   if ( v4 == 512 )
   {
-LABEL_15:
+LABEL_19:
     v5 = 2;
-    goto LABEL_16;
+    goto LABEL_17;
   }
   if ( v4 == 768 )
-    goto LABEL_14;
+    goto LABEL_18;
   if ( a1 != v7 )
   {
     v5 = 6;
-LABEL_16:
+LABEL_17:
     v8 = v5;
     goto LABEL_10;
   }
@@ -67,12 +67,17 @@ LABEL_10:
   *(_BYTE *)(a1 + 467) = v5;
   v6 = *(_QWORD *)(a1 + 48);
   v10 = 4;
-  result = CmGetDeviceRegProp(PiPnpRtlCtx, v6, 0, 34, (__int64)&v9, (__int64)&v8, (__int64)&v10, 0);
-  if ( (int)result >= 0 && v9 == 4 )
+  result = CmGetDeviceRegProp(*(__int64 *)&PiPnpRtlCtx, v6, 0LL, 34, (__int64)&v9, (__int64)&v8, (__int64)&v10, 0);
+  if ( (int)result >= 0 )
   {
-    result = (unsigned int)(v8 - 2);
-    if ( (unsigned int)result <= 1 )
-      *(_BYTE *)(a1 + 466) = v8;
+    if ( v9 != 4 )
+      result = 3221225712LL;
+    if ( (int)result >= 0 )
+    {
+      result = (unsigned int)(v8 - 2);
+      if ( (unsigned int)result <= 1 )
+        *(_BYTE *)(a1 + 466) = v8;
+    }
   }
   return result;
 }

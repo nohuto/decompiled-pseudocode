@@ -1,53 +1,41 @@
 /*
- * XREFs of CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140A23964
+ * XREFs of CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x14072AC48
  * Callers:
- *     CmpSubtreeEnumeratorAdvance @ 0x140A20448 (CmpSubtreeEnumeratorAdvance.c)
- *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x140A2444C (CmpKeyEnumStackStartFromKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x14072A84C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x14087AD78 (CmpKeyEnumStackStartFromKeyNodeStack.c)
  * Callees:
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D2290 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x140A1FDA0 (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpKeyEnumStackEntryBegin @ 0x140A23CDC (CmpKeyEnumStackEntryBegin.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140A24158 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14067E028 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14067E0B8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x14072ACFC (CmpKeyEnumStackEntryBegin.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x14072ADD0 (CmpGetEffectiveKeyNodeSemantics.c)
  */
 
-__int64 __fastcall CmpKeyEnumStackBeginEnumerationForKeyNodeStack(unsigned __int16 *a1, __int64 a2)
+_UNKNOWN **__fastcall CmpKeyEnumStackBeginEnumerationForKeyNodeStack(__int16 *a1, __int64 a2)
 {
-  __int64 result; // rax
-  unsigned __int16 v3; // bx
-  __int64 *v6; // r9
-  __int64 v7; // rdx
+  _UNKNOWN **result; // rax
+  __int16 i; // bx
+  __int16 v6; // dx
+  _QWORD *v7; // r9
   __int64 v8; // r9
   __int64 v9; // r10
-  int v10; // edi
+  int v10; // esi
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
 
-  result = (__int64)&retaddr;
-  v3 = *a1;
-  if ( (*a1 & 0x8000u) == 0 )
+  result = &retaddr;
+  for ( i = *a1; i >= 0; --i )
   {
-    do
+    CmpKeyNodeStackGetEntryAtLayerHeight(a2, i);
+    result = (_UNKNOWN **)CmpKeyEnumStackGetEntryAtLayerHeight((__int64)a1, v6);
+    if ( v7[2] )
     {
-      CmpKeyNodeStackGetEntryAtLayerHeight(a2, v3);
-      CmpKeyEnumStackGetEntryAtLayerHeight(a1);
-      v7 = v6[2];
-      if ( v7 )
-      {
-        result = CmpGetEffectiveKeyNodeSemantics(*v6, v7);
-        v10 = result;
-        if ( (_DWORD)result == 1 )
-          return result;
-        result = CmpKeyEnumStackEntryBegin(v9, v8);
-        if ( (v10 & 0xFFFFFFFD) != 0 )
-          return result;
-        result = v3;
-      }
-      else
-      {
-        result = v3;
-      }
-      v3 = result - 1;
+      result = (_UNKNOWN **)CmpGetEffectiveKeyNodeSemantics(*v7);
+      v10 = (int)result;
+      if ( (_DWORD)result == 1 )
+        break;
+      result = (_UNKNOWN **)CmpKeyEnumStackEntryBegin(v9, v8);
+      if ( (v10 & 0xFFFFFFFD) != 0 )
+        break;
     }
-    while ( (__int16)(result - 1) >= 0 );
   }
   return result;
 }

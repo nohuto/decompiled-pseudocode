@@ -1,17 +1,17 @@
 /*
- * XREFs of Usbh_FDO_WaitPnpStop_CB @ 0x1C0044150
+ * XREFs of Usbh_FDO_WaitPnpStop_CB @ 0x1C0045400
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     UsbhReleaseFdoPnpLock @ 0x1C0031348 (UsbhReleaseFdoPnpLock.c)
- *     UsbhNotifyPnpOfFailure_Action @ 0x1C00383C8 (UsbhNotifyPnpOfFailure_Action.c)
- *     UsbhAsyncStartComplete @ 0x1C0041B48 (UsbhAsyncStartComplete.c)
- *     UsbhAsyncStop @ 0x1C0041C0C (UsbhAsyncStop.c)
- *     UsbhModuleDispatch @ 0x1C0043450 (UsbhModuleDispatch.c)
- *     UsbhSetFdoPnpState @ 0x1C0043998 (UsbhSetFdoPnpState.c)
- *     Usbh_PnpRemove @ 0x1C0044294 (Usbh_PnpRemove.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0032618 (UsbhReleaseFdoPnpLock.c)
+ *     UsbhNotifyPnpOfFailure_Action @ 0x1C0039698 (UsbhNotifyPnpOfFailure_Action.c)
+ *     UsbhAsyncStartComplete @ 0x1C0042DF8 (UsbhAsyncStartComplete.c)
+ *     UsbhAsyncStop @ 0x1C0042EBC (UsbhAsyncStop.c)
+ *     UsbhModuleDispatch @ 0x1C0044710 (UsbhModuleDispatch.c)
+ *     UsbhSetFdoPnpState @ 0x1C0044C50 (UsbhSetFdoPnpState.c)
+ *     Usbh_PnpRemove @ 0x1C0045544 (Usbh_PnpRemove.c)
  */
 
 __int64 __fastcall Usbh_FDO_WaitPnpStop_CB(_QWORD *Tag, int a2)
@@ -25,7 +25,7 @@ __int64 __fastcall Usbh_FDO_WaitPnpStop_CB(_QWORD *Tag, int a2)
   if ( a2 == 2 )
   {
     UsbhAsyncStop((__int64)Tag, 2);
-    UsbhModuleDispatch(0LL, v8, (_LIST_ENTRY *)Tag[1], 6, 0LL, (__int64)Tag);
+    UsbhModuleDispatch(0LL, v8, (struct _DRIVER_OBJECT *)Tag[1], 6, 0LL, (__int64)Tag);
     return Usbh_PnpRemove(Tag, 2LL);
   }
   else
@@ -34,7 +34,7 @@ __int64 __fastcall Usbh_FDO_WaitPnpStop_CB(_QWORD *Tag, int a2)
     {
       case 3:
         UsbhAsyncStop((__int64)Tag, 3);
-        UsbhModuleDispatch(0LL, v7, (_LIST_ENTRY *)Tag[1], 6, 0LL, (__int64)Tag);
+        UsbhModuleDispatch(0LL, v7, (struct _DRIVER_OBJECT *)Tag[1], 6, 0LL, (__int64)Tag);
         v5 = 4;
         break;
       case 5:

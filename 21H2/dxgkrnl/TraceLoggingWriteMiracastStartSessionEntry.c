@@ -1,11 +1,11 @@
 /*
- * XREFs of TraceLoggingWriteMiracastStartSessionEntry @ 0x1C0067978
+ * XREFs of TraceLoggingWriteMiracastStartSessionEntry @ 0x1C005ACD8
  * Callers:
- *     DxgkMiracastStartMiracastSession @ 0x1C0063340 (DxgkMiracastStartMiracastSession.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C0055770 (DxgkMiracastStartMiracastSession.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0012AB4 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C001A400 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C000B1A8 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C002145C (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 void TraceLoggingWriteMiracastStartSessionEntry()
@@ -16,14 +16,14 @@ void TraceLoggingWriteMiracastStartSessionEntry()
   int v3; // [rsp+58h] [rbp-20h]
   int v4; // [rsp+5Ch] [rbp-1Ch]
 
-  if ( (unsigned int)dword_1C012F918 > 5 )
+  if ( (unsigned int)dword_1C00B1A90 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C012F918, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000000000LL) )
     {
       v4 = 0;
       v2 = v0;
       v3 = 16;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C012F918, (unsigned __int8 *)dword_1C009A4D4, v0, 0LL, 3u, &v1);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C00B1A90, (unsigned __int8 *)dword_1C0080FD3, v0, 0LL, 3u, &v1);
     }
   }
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmDeleteInterfaceClass @ 0x140A62E2C
+ * XREFs of _CmDeleteInterfaceClass @ 0x1409755A8
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x1407C6330 (_PnpDispatchInterfaceClass.c)
- *     PiCMDeleteClassKey @ 0x140968DDC (PiCMDeleteClassKey.c)
+ *     _PnpDispatchInterfaceClass @ 0x1406B4230 (_PnpDispatchInterfaceClass.c)
+ *     PiCMDeleteClassKey @ 0x1408AFDAC (PiCMDeleteClassKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmDeleteInterfaceClassWorker @ 0x140A62F58 (_CmDeleteInterfaceClassWorker.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x1409756D4 (_CmDeleteInterfaceClassWorker.c)
  */
 
 __int64 __fastcall CmDeleteInterfaceClass(__int64 a1, __int64 a2, int a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopStartApcHardError @ 0x140935DE0
+ * XREFs of IopStartApcHardError @ 0x140892E70
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PsCreateSystemThreadEx @ 0x1406F0360 (PsCreateSystemThreadEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopStartApcHardError(PIRP *P)
@@ -14,7 +14,7 @@ void __fastcall IopStartApcHardError(PIRP *P)
   HANDLE Handle; // [rsp+68h] [rbp+10h] BYREF
 
   Handle = 0LL;
-  if ( (int)PsCreateSystemThreadEx((int)&Handle, 0, 0LL, 0LL, 0LL, (__int64)IopApcHardError, (__int64)P, 0LL, 0LL) >= 0 )
+  if ( (int)PsCreateSystemThreadEx((__int64)&Handle, 0, 0LL, 0LL, 0LL, (__int64)IopApcHardError, (__int64)P, 0LL, 0LL) >= 0 )
   {
     ZwClose(Handle);
   }

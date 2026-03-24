@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CEffectCompilationTask@@UEAAKXZ @ 0x1800FAB00
+ * XREFs of ?AddRef@CEffectCompilationTask@@UEAAKXZ @ 0x1800DBC40
  * Callers:
  *     <none>
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140675E48
+ * XREFs of ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C71C4
  * Callers:
- *     IoWritePartitionTable @ 0x140940CF0 (IoWritePartitionTable.c)
- *     IoWritePartitionTableEx @ 0x140940E60 (IoWritePartitionTableEx.c)
+ *     IoWritePartitionTable @ 0x14088E160 (IoWritePartitionTable.c)
+ *     IoWritePartitionTableEx @ 0x14088E2D0 (IoWritePartitionTableEx.c)
  * Callees:
- *     ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x140674B5C (-WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z.c)
- *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140675638 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x140675C40 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
- *     ?Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z @ 0x140676144 (-Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z.c)
- *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1406765EC (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x1405C6B48 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1405C6FBC (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z @ 0x1405C74B4 (-Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z.c)
+ *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C7950 (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z @ 0x1405C8460 (-WritePartitionTable@SC_GPT@@QEAAJPEAVSC_DISK_LAYOUT@@E@Z.c)
  */
 
 __int64 __fastcall SC_DISK::WritePartitionTable(SC_DISK *this, struct SC_DISK_LAYOUT *a2)
@@ -19,7 +19,7 @@ __int64 __fastcall SC_DISK::WritePartitionTable(SC_DISK *this, struct SC_DISK_LA
   SC_DISK *v9; // [rsp+50h] [rbp+8h] BYREF
 
   v3 = 0;
-  v4 = *((_DWORD *)this + 64) == 2;
+  v4 = *((_DWORD *)this + 62) == 2;
   memset(&v8.Mbr, 0, 20);
   if ( !v4
     || (v8.PartitionStyle = *(_DWORD *)a2, v3 = SC_DISK::CreatePartitionTable(this, &v8), v3 >= 0)
@@ -29,14 +29,14 @@ __int64 __fastcall SC_DISK::WritePartitionTable(SC_DISK *this, struct SC_DISK_LA
     {
       if ( *(_DWORD *)a2 == 1 )
       {
-        v4 = *((_DWORD *)this + 64) == 1;
+        v4 = *((_DWORD *)this + 62) == 1;
         v9 = this;
-        return (unsigned int)SC_GPT::WritePartitionTable(&v9, a2, !v4);
+        return (unsigned int)SC_GPT::WritePartitionTable((SC_GPT *)&v9, a2, !v4);
       }
     }
     else
     {
-      if ( !*((_DWORD *)this + 64)
+      if ( !*((_DWORD *)this + 62)
         || *((_DWORD *)a2 + 1) == 4
         && *((_BYTE *)a2 + 80) == 0xEE
         && !*((_BYTE *)a2 + 224)

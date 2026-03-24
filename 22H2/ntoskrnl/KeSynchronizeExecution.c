@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSynchronizeExecution @ 0x14041FB60
+ * XREFs of KeSynchronizeExecution @ 0x1403FEBC0
  * Callers:
- *     DifKeSynchronizeExecutionWrapper @ 0x1405E5DC0 (DifKeSynchronizeExecutionWrapper.c)
+ *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KeReleaseSpinLockFromDpcLevel @ 0x14032F9A0 (KeReleaseSpinLockFromDpcLevel.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiSynchronizePassiveInterruptExecution @ 0x14057A230 (KiSynchronizePassiveInterruptExecution.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KiSynchronizePassiveInterruptExecution @ 0x140521D40 (KiSynchronizePassiveInterruptExecution.c)
  */
 
 BOOLEAN __stdcall KeSynchronizeExecution(
@@ -33,7 +33,7 @@ BOOLEAN __stdcall KeSynchronizeExecution(
   v6 = ((__int64 (__fastcall *)(PVOID))SynchronizeRoutine)(SynchronizeContext);
   v7 = ActualLock;
   v8 = v6;
-  KeReleaseSpinLockFromDpcLevel(v7);
+  KxReleaseSpinLock(v7);
   __writecr8(v10);
   return v8;
 }

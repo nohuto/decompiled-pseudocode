@@ -1,117 +1,121 @@
 /*
- * XREFs of ?DestroyStagingBuffer@BLTQUEUE@@QEAAXXZ @ 0x1C03D157C
+ * XREFs of ?DestroyStagingBuffer@BLTQUEUE@@QEAAXXZ @ 0x1C02FD78C
  * Callers:
- *     ?PrepareStagingBuffer@BLTQUEUE@@QEAAJPEAVDXGDEVICE@@IPEAVCOREDEVICEACCESS@@@Z @ 0x1C03D20D0 (-PrepareStagingBuffer@BLTQUEUE@@QEAAJPEAVDXGDEVICE@@IPEAVCOREDEVICEACCESS@@@Z.c)
- *     ?Reset@BLTQUEUE@@QEAAXE@Z @ 0x1C03D3808 (-Reset@BLTQUEUE@@QEAAXE@Z.c)
+ *     ?PrepareStagingBuffer@BLTQUEUE@@QEAAJPEAVDXGDEVICE@@IPEAVCOREDEVICEACCESS@@@Z @ 0x1C02FE29C (-PrepareStagingBuffer@BLTQUEUE@@QEAAJPEAVDXGDEVICE@@IPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?Reset@BLTQUEUE@@QEAAXE@Z @ 0x1C02FF6BC (-Reset@BLTQUEUE@@QEAAXE@Z.c)
  * Callees:
- *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0004D78 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z @ 0x1C00487F0 (--_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z.c)
- *     ?DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C01DE690 (-DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVIC.c)
- *     ?DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z @ 0x1C02D74A0 (-DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z.c)
+ *     ??_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z @ 0x1C00031B4 (--_GDXGDEVICESYNCOBJECT@@QEAAPEAXI@Z.c)
+ *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C00033B0 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0126818 (-DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVIC.c)
+ *     ?DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z @ 0x1C0228100 (-DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z.c)
  */
 
 void __fastcall BLTQUEUE::DestroyStagingBuffer(BLTQUEUE *this)
 {
-  __int64 v1; // rax
+  __int64 v1; // rsi
   __int64 v3; // rsi
-  unsigned int v4; // eax
-  __int64 v5; // r8
-  int v6; // ecx
-  struct DXGALLOCATION **v7; // rdi
-  unsigned int v8; // r8d
-  __int64 v9; // rax
-  __int64 v10; // r9
-  int v11; // edx
-  DXGDEVICE *v12; // rcx
-  DXGDEVICESYNCOBJECT *v13; // rcx
-  _BYTE v14[24]; // [rsp+58h] [rbp-60h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+70h] [rbp-48h] BYREF
+  __int64 v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rax
+  __int64 v7; // r8
+  __int64 v8; // rax
+  struct DXGALLOCATION **v9; // rdi
+  __int64 v10; // rax
+  unsigned int v11; // r8d
+  __int64 v12; // rax
+  __int64 v13; // r9
+  int v14; // edx
+  __int64 v15; // r9
+  __int64 v16; // r8
+  DXGDEVICE *v17; // rcx
+  DXGDEVICESYNCOBJECT *v18; // rcx
+  _BYTE v19[24]; // [rsp+30h] [rbp-58h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+48h] [rbp-40h] BYREF
 
-  v1 = *((_QWORD *)this + 45);
+  v1 = *((_QWORD *)this + 44);
   if ( !v1 )
     goto LABEL_26;
   v3 = *(_QWORD *)(v1 + 40);
   memset(&ApcState, 0, sizeof(ApcState));
   KeStackAttachProcess(*(PRKPROCESS *)(v3 + 56), &ApcState);
-  *(_BYTE *)(*((_QWORD *)this + 45) + 1937LL) = 1;
-  if ( *((_DWORD *)this + 698) )
+  *(_BYTE *)(*((_QWORD *)this + 44) + 1905LL) = 1;
+  if ( *((_DWORD *)this + 694) )
   {
-    DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE(
-      (DXGHANDLETABLELOCKEXCLUSIVE *)v14,
-      (struct DXGPROCESS *)v3);
-    v4 = (*((_DWORD *)this + 698) >> 6) & 0xFFFFFF;
-    if ( v4 < *(_DWORD *)(v3 + 296) )
+    DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE((DXGHANDLETABLELOCKEXCLUSIVE *)v19, (struct _KTHREAD **)v3);
+    v5 = *((unsigned int *)this + 694);
+    v6 = (*((_DWORD *)this + 694) >> 6) & 0xFFFFFF;
+    if ( (unsigned int)v6 < *(_DWORD *)(v3 + 256) )
     {
-      v5 = *(_QWORD *)(v3 + 280);
-      if ( ((*((_DWORD *)this + 698) >> 25) & 0x60) == (*(_BYTE *)(v5 + 16LL * v4 + 8) & 0x60)
-        && (*(_DWORD *)(v5 + 16LL * v4 + 8) & 0x2000) == 0 )
+      v7 = *(_QWORD *)(v3 + 240);
+      v5 = ((unsigned int)v5 >> 25) & 0x60;
+      v4 = *(unsigned int *)(v7 + 16 * v6 + 8);
+      if ( (_BYTE)v5 == (*(_BYTE *)(v7 + 16 * v6 + 8) & 0x60) && (v4 & 0x2000) == 0 && (v4 & 0x1F) != 0 )
       {
-        v6 = *(_DWORD *)(v5 + 16LL * v4 + 8) & 0x1F;
-        if ( v6 )
+        v4 &= 0x1Fu;
+        if ( (_BYTE)v4 == 4 )
         {
-          if ( v6 == 4 )
+          v9 = *(struct DXGALLOCATION ***)(v7 + 16LL * (unsigned int)v6);
+          if ( v9 )
           {
-            v7 = *(struct DXGALLOCATION ***)(v5 + 16LL * v4);
-            if ( v7 )
-            {
 LABEL_11:
-              v8 = *((_DWORD *)this + 698);
-              v9 = (v8 >> 6) & 0xFFFFFF;
-              if ( (unsigned int)v9 < *(_DWORD *)(v3 + 296) )
+            v11 = *((_DWORD *)this + 694);
+            v12 = (v11 >> 6) & 0xFFFFFF;
+            if ( (unsigned int)v12 < *(_DWORD *)(v3 + 256) )
+            {
+              v13 = *(_QWORD *)(v3 + 240);
+              v14 = *(_DWORD *)(v13 + 16 * v12 + 8);
+              if ( ((v11 >> 25) & 0x60) == (*(_BYTE *)(v13 + 16 * v12 + 8) & 0x60)
+                && (v14 & 0x2000) == 0
+                && (v14 & 0x1F) != 0 )
               {
-                v10 = *(_QWORD *)(v3 + 280);
-                v11 = *(_DWORD *)(v10 + 16 * v9 + 8);
-                if ( ((v8 >> 25) & 0x60) == (*(_BYTE *)(v10 + 16 * v9 + 8) & 0x60)
-                  && (v11 & 0x2000) == 0
-                  && (v11 & 0x1F) != 0 )
-                {
-                  *(_DWORD *)(v10 + 16LL * ((v8 >> 6) & 0xFFFFFF) + 8) |= 0x2000u;
-                }
+                *(_DWORD *)(v13 + 16LL * ((v11 >> 6) & 0xFFFFFF) + 8) |= 0x2000u;
               }
-              DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v14);
-              v12 = (DXGDEVICE *)*((_QWORD *)this + 45);
-              if ( *((_DWORD *)v12 + 152) == 4 )
-                DXGDEVICE::DestroyClientResource(v12, v7);
-              else
-                DXGDEVICE::DestroyAllocationInternal(
-                  v12,
-                  0,
-                  0LL,
-                  (struct DXGRESOURCE *)v7,
-                  0LL,
-                  (struct _D3DDDICB_DESTROYALLOCATION2FLAGS)DXGDEVICE::DestroyFlagsDefault.0);
-              goto LABEL_21;
             }
-LABEL_10:
-            WdLogSingleEntry1(1LL, 4339LL);
-            DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pResource != NULL", 4339LL, 0LL, 0LL, 0LL, 0LL);
-            goto LABEL_11;
+            DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v19);
+            v16 = *(unsigned int *)(*((_QWORD *)this + 44) + 576LL);
+            v17 = (DXGDEVICE *)*((_QWORD *)this + 44);
+            if ( (_DWORD)v16 == 4 )
+              DXGDEVICE::DestroyClientResource(v17, v9, v16, v15);
+            else
+              DXGDEVICE::DestroyAllocationInternal(
+                v17,
+                0,
+                0LL,
+                (struct DXGRESOURCE *)v9,
+                0LL,
+                DXGDEVICE::DestroyFlagsDefault);
+            goto LABEL_21;
           }
-          WdLogSingleEntry1(2LL, 316LL);
-          DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
+LABEL_10:
+          v10 = WdLogNewEntry5_WdAssertion(v4, v5);
+          *(_QWORD *)(v10 + 24) = 4215LL;
+          WdLogEvent5_WdAssertion(v10);
+          goto LABEL_11;
         }
+        v8 = WdLogNewEntry5_WdError(v4, v5);
+        *(_QWORD *)(v8 + 24) = 316LL;
+        WdLogEvent5_WdError(v8);
       }
     }
-    v7 = 0LL;
+    v9 = 0LL;
     goto LABEL_10;
   }
 LABEL_21:
-  if ( *((_DWORD *)this + 704) )
+  if ( *((_DWORD *)this + 700) )
   {
-    v13 = (DXGDEVICESYNCOBJECT *)*((_QWORD *)this + 353);
-    if ( v13 )
-      DXGDEVICESYNCOBJECT::`scalar deleting destructor'(v13);
-    *((_DWORD *)this + 704) = 0;
-    *((_QWORD *)this + 353) = 0LL;
+    v18 = (DXGDEVICESYNCOBJECT *)*((_QWORD *)this + 351);
+    if ( v18 )
+      DXGDEVICESYNCOBJECT::`scalar deleting destructor'(v18);
+    *((_DWORD *)this + 700) = 0;
+    *((_QWORD *)this + 351) = 0LL;
   }
-  *(_BYTE *)(*((_QWORD *)this + 45) + 1937LL) = 0;
+  *(_BYTE *)(*((_QWORD *)this + 44) + 1905LL) = 0;
   KeUnstackDetachProcess(&ApcState);
 LABEL_26:
-  *((_QWORD *)this + 349) = 0LL;
+  *((_QWORD *)this + 347) = 0LL;
+  *((_QWORD *)this + 346) = 0LL;
   *((_QWORD *)this + 348) = 0LL;
-  *((_QWORD *)this + 350) = 0LL;
-  *((_QWORD *)this + 351) = 0LL;
+  *((_QWORD *)this + 349) = 0LL;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDrvDbEnumDriverStoreNodes @ 0x14073B598
+ * XREFs of PiDrvDbEnumDriverStoreNodes @ 0x14073B578
  * Callers:
- *     PiPnpRtlInit @ 0x14073A540 (PiPnpRtlInit.c)
- *     PiDrvDbInit @ 0x14073A700 (PiDrvDbInit.c)
+ *     PiPnpRtlInit @ 0x14073A520 (PiPnpRtlInit.c)
+ *     PiDrvDbInit @ 0x14073A6E0 (PiDrvDbInit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x1401B8C70 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x1401BA8F0 (ZwQueryDirectoryObject.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1401B8C90 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x1401BA910 (ZwQueryDirectoryObject.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,178 +1,46 @@
 /*
- * XREFs of ExReturnPoolQuota @ 0x1402ACCB0
+ * XREFs of ExReturnPoolQuota @ 0x14030631C
  * Callers:
- *     IopCompleteRequest @ 0x1402AB360 (IopCompleteRequest.c)
- *     IopFreeIrp @ 0x1402AF210 (IopFreeIrp.c)
- *     ExFreeHeapPool @ 0x140322ED0 (ExFreeHeapPool.c)
- *     IopFreeMiniCompletionPacket @ 0x140728C70 (IopFreeMiniCompletionPacket.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     IopCompleteRequest @ 0x1402C31B0 (IopCompleteRequest.c)
+ *     IopFreeIrp @ 0x1402D3D20 (IopFreeIrp.c)
+ *     IopFreeMiniCompletionPacket @ 0x1405E4380 (IopFreeMiniCompletionPacket.c)
  * Callees:
- *     PspReturnResourceQuota @ 0x140208380 (PspReturnResourceQuota.c)
- *     ObpDeferObjectDeletion @ 0x14020B950 (ObpDeferObjectDeletion.c)
- *     ExGetHeapFromVA @ 0x1402AC3C0 (ExGetHeapFromVA.c)
- *     ExpStampBigPoolEntry @ 0x140313428 (ExpStampBigPoolEntry.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ExpHpIsSpecialPoolHeap @ 0x14046B17A (ExpHpIsSpecialPoolHeap.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
+ *     ExGetHeapFromVA @ 0x14027B2FC (ExGetHeapFromVA.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402C2A00 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsReturnPoolQuota @ 0x1403063A0 (PsReturnPoolQuota.c)
+ *     ExpGetBilledProcess @ 0x1403063D8 (ExpGetBilledProcess.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x1403CD64C (ExpHpIsSpecialPoolHeap.c)
  */
 
-void __fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
+void __fastcall ExReturnPoolQuota(ULONG_PTR a1)
 {
-  unsigned int v1; // ebp
-  bool v3; // r14
-  ULONG_PTR v4; // rdi
-  __int16 v5; // cx
-  struct _KPROCESS *BugCheckParameter4; // rbx
-  char *v7; // r9
-  __int64 v8; // r14
-  ULONG_PTR v9; // r12
-  char v10; // r15
-  __int64 v11; // r14
-  volatile signed __int64 *v12; // rsi
-  unsigned __int64 v13; // rdi
-  unsigned __int64 v14; // rdx
-  ULONG_PTR v15; // rcx
-  unsigned __int64 v16; // r8
-  signed __int64 v17; // rdx
-  bool v18; // zf
-  signed __int64 v19; // rax
-  signed __int64 v20; // rax
-  bool v21; // cc
-  signed __int64 v22; // rax
-  __int64 v23; // rax
-  ULONG_PTR v24; // r8
-  __int64 v25; // r8
-  ULONG_PTR HeapFromVA; // rax
-  __int64 v27; // [rsp+88h] [rbp+10h] BYREF
-  ULONG_PTR BugCheckParameter3; // [rsp+90h] [rbp+18h]
-  char *v29; // [rsp+98h] [rbp+20h]
+  char v2; // di
+  struct _KPROCESS *BilledProcess; // rsi
+  __int64 v4; // r8
+  __int64 HeapFromVA; // rax
+  __int64 v6; // rcx
+  __int16 v7; // ax
 
-  v1 = 0;
-  BugCheckParameter3 = 0LL;
-  LODWORD(v27) = 0;
-  if ( ExpSpecialAllocations )
+  if ( !ExpSpecialAllocations || (HeapFromVA = ExGetHeapFromVA(a1), !(unsigned int)ExpHpIsSpecialPoolHeap(HeapFromVA)) )
   {
-    HeapFromVA = ExGetHeapFromVA(BugCheckParameter2);
-    if ( (unsigned int)ExpHpIsSpecialPoolHeap(HeapFromVA) )
-      return;
-  }
-  v3 = BugCheckParameter2 >= 0xFFFF800000000000uLL && byte_140C6A4D8[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 6;
-  v4 = 0LL;
-  if ( (BugCheckParameter2 & 0xFFF) == 0 )
-  {
-    BugCheckParameter4 = (struct _KPROCESS *)ExpStampBigPoolEntry(BugCheckParameter2, (__int64)&v27);
-LABEL_10:
-    if ( (unsigned __int64)BugCheckParameter4[-1].EndPadding + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
+    v2 = *(_BYTE *)(a1 - 13);
+    if ( (v2 & 8) != 0 )
     {
-      if ( (unsigned __int64)BugCheckParameter4 < 0xFFFF800000000000uLL || (BugCheckParameter4->Header.Type & 0x7F) != 3 )
+      BilledProcess = (struct _KPROCESS *)ExpGetBilledProcess(a1 - 16);
+      if ( BilledProcess )
       {
-        if ( v4 )
-          v1 = *(_DWORD *)(v4 + 4);
-        KeBugCheckEx(0xC2u, 0xDuLL, BugCheckParameter2, v1, (ULONG_PTR)BugCheckParameter4);
-      }
-      if ( BugCheckParameter4 != PsInitialSystemProcess )
-      {
-        v7 = (char *)BugCheckParameter4[1].Affinity.StaticBitmap[27];
-        v8 = v3;
-        v9 = (unsigned int)v8;
-        v29 = v7;
-        v10 = PspResourceFlags[8 * v8];
-        v11 = v8 << 7;
-        v12 = (volatile signed __int64 *)&v7[v11];
-        _m_prefetchw(&v7[v11]);
-        v13 = *(_QWORD *)&v7[v11];
-        v14 = *(_QWORD *)&v7[v11 + 64];
-        if ( *(_QWORD *)&v7[v11 + 80] )
+        v4 = (unsigned __int8)*(_WORD *)(a1 - 14);
+        if ( (v2 & 4) != 0 )
         {
-          v23 = 7 * v9;
-          if ( v14 > v13 )
-          {
-            v24 = qword_140C38268[v23];
-            if ( v14 - v13 > v24 )
-            {
-              if ( v24 > BugCheckParameter3 )
-                v24 = BugCheckParameter3;
-              if ( v14 == _InterlockedCompareExchange64(v12 + 8, v14 - v24, v14)
-                && _InterlockedExchangeAdd64(v12 + 9, v24) + v24 > *(_QWORD *)(v23 * 8 + 12812904 + 0x140000000LL) )
-              {
-                v25 = _InterlockedExchange64(v12 + 9, 0LL);
-                if ( v25 )
-                {
-                  PspReturnResourceQuota(v9, (__int64)v12, v25, 0);
-                  v7 = v29;
-                }
-              }
-            }
-          }
+          v6 = a1 - 16 - 16LL * (unsigned __int8)*(_WORD *)(a1 - 16);
+          v7 = *(_WORD *)(v6 + 2);
+          *(_BYTE *)(v6 + 3) &= ~8u;
+          v4 = (unsigned __int8)v7;
         }
-        v15 = BugCheckParameter3;
-        while ( 1 )
-        {
-          do
-          {
-            if ( v15 >= v13 )
-            {
-              v16 = v13;
-              v17 = 0LL;
-            }
-            else
-            {
-              v16 = v15;
-              v17 = v13 - v15;
-            }
-            v19 = _InterlockedCompareExchange64(v12, v17, v13);
-            v18 = v13 == v19;
-            v13 = v19;
-          }
-          while ( !v18 );
-          v15 -= v16;
-          if ( !v15 )
-            break;
-          if ( v7 == (char *)&PspSystemQuotaBlock )
-            KeBugCheckEx(0x21u, (ULONG_PTR)BugCheckParameter4, v9, BugCheckParameter3, v15);
-          v7 = (char *)&PspSystemQuotaBlock;
-          v12 = (volatile signed __int64 *)((char *)&PspSystemQuotaBlock + v11);
-          _m_prefetchw((char *)&PspSystemQuotaBlock + v11);
-          v13 = *(_QWORD *)((char *)&PspSystemQuotaBlock + v11);
-        }
-        if ( (v10 & 4) != 0 )
-          _InterlockedExchangeAdd64(
-            (volatile signed __int64 *)&BugCheckParameter4[1].ThreadListHead.Blink + v9,
-            -(__int64)BugCheckParameter3);
-      }
-      if ( ObpTraceFlags )
-        ObpPushStackInfo((_DWORD)BugCheckParameter4 - 48);
-      v20 = _InterlockedExchangeAdd64(
-              (volatile signed __int64 *)&BugCheckParameter4[-1].ExtendedFeatureDisableMask,
-              0xFFFFFFFFFFFFFFFFuLL);
-      v21 = v20 <= 1;
-      v22 = v20 - 1;
-      if ( v21 )
-      {
-        if ( *(_QWORD *)&BugCheckParameter4[-1].PrimaryGroup )
-          KeBugCheckEx(
-            0x18u,
-            ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ LOBYTE(BugCheckParameter4[-1].CpuPartitionList.Flink) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)BugCheckParameter4 - 48) >> 8)],
-            (ULONG_PTR)BugCheckParameter4,
-            3uLL,
-            *(_QWORD *)&BugCheckParameter4[-1].PrimaryGroup);
-        if ( v22 < 0 )
-          KeBugCheckEx(0x18u, 0LL, (ULONG_PTR)BugCheckParameter4, 4uLL, v22);
-        ObpDeferObjectDeletion((signed __int64)&BugCheckParameter4[-1].ExtendedFeatureDisableMask);
+        *(_BYTE *)(a1 - 13) &= ~8u;
+        PsReturnPoolQuota(BilledProcess, (POOL_TYPE)(v2 & 1), 16 * v4);
+        ObDereferenceObjectDeferDeleteWithTag(BilledProcess, *(_DWORD *)(a1 - 12));
       }
     }
-    return;
-  }
-  v4 = BugCheckParameter2 - 16;
-  if ( (*(_BYTE *)(BugCheckParameter2 - 13) & 4) != 0 )
-    v4 += -16LL * (unsigned __int8)*(_WORD *)v4;
-  v5 = *(_WORD *)(v4 + 2);
-  BugCheckParameter3 = 16LL * (unsigned __int8)v5;
-  LODWORD(v27) = *(_DWORD *)(v4 + 4);
-  if ( (v5 & 0x800) != 0 )
-  {
-    BugCheckParameter4 = (struct _KPROCESS *)(v4 ^ ExpPoolQuotaCookie ^ *(_QWORD *)(v4 + 8));
-    *(_QWORD *)(v4 + 8) = ExpPoolQuotaCookie ^ v4;
-    goto LABEL_10;
   }
 }

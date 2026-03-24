@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MapAllPagingBuffers@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00AB264
+ * XREFs of ?MapAllPagingBuffers@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B1414
  * Callers:
- *     ?RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00AB1A8 (-RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B34D4 (-RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall VIDMM_GLOBAL::MapAllPagingBuffers(VIDMM_GLOBAL *this)
@@ -14,7 +14,7 @@ void __fastcall VIDMM_GLOBAL::MapAllPagingBuffers(VIDMM_GLOBAL *this)
   _QWORD *v5; // rsi
   __int64 v6; // rdx
 
-  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 1754); i = (unsigned int)(i + 1) )
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 1750); i = (unsigned int)(i + 1) )
   {
     v3 = *((_QWORD *)this + i + 79);
     v4 = *(_DWORD *)(v3 + 32);
@@ -28,7 +28,7 @@ void __fastcall VIDMM_GLOBAL::MapAllPagingBuffers(VIDMM_GLOBAL *this)
           v6 = v5[7];
           v5 = (_QWORD *)*v5;
           if ( v6 )
-            (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(v6 + 120) + 160LL))(*(_QWORD *)(v6 + 120));
+            (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(v6 + 128) + 168LL))(*(_QWORD *)(v6 + 128));
         }
         while ( v5 != (_QWORD *)(v3 + 96) );
         v4 = *(_DWORD *)(v3 + 32);
@@ -36,5 +36,5 @@ void __fastcall VIDMM_GLOBAL::MapAllPagingBuffers(VIDMM_GLOBAL *this)
       *(_DWORD *)(v3 + 32) = v4 | 4;
     }
   }
-  *((_DWORD *)this + 10042) = 1;
+  *((_DWORD *)this + 10040) = 1;
 }

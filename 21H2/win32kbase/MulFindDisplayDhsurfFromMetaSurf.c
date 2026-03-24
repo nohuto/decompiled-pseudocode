@@ -1,7 +1,7 @@
 /*
- * XREFs of MulFindDisplayDhsurfFromMetaSurf @ 0x1C016EE28
+ * XREFs of MulFindDisplayDhsurfFromMetaSurf @ 0x1C0141F08
  * Callers:
- *     bDfbSurfacesMigrated @ 0x1C00626A0 (bDfbSurfacesMigrated.c)
+ *     bDfbSurfacesMigrated @ 0x1C001B6D0 (bDfbSurfacesMigrated.c)
  * Callees:
  *     <none>
  */
@@ -37,7 +37,7 @@ __int64 __fastcall MulFindDisplayDhsurfFromMetaSurf(__int64 *a1)
             if ( v7 )
             {
               v8 = v7[3];
-              if ( !v8 || *(_DWORD *)(*(_QWORD *)(v8 + 1760) + 24LL) == 1 )
+              if ( !v8 || *(_DWORD *)(*(_QWORD *)(v8 + 1792) + 24LL) == 1 )
                 break;
             }
             v5 = (__int64 **)*v5;

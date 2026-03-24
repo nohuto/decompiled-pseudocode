@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwDevLockEndUpdate @ 0x1C0094DD0
+ * XREFs of EtwDevLockEndUpdate @ 0x1C0084C40
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pqqqqqq_EtwWriteTransfer @ 0x1C0178BF4 (McTemplateK0pqqqqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqqq_EtwWriteTransfer @ 0x1C014C8E4 (McTemplateK0pqqqqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwDevLockEndUpdate(int a1, char a2, int a3, char a4, char a5, char a6, char a7)

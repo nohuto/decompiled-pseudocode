@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionStopSonar @ 0x1C01E2540
+ * XREFs of EditionStopSonar @ 0x1C01E7DE0
  * Callers:
  *     <none>
  * Callees:
- *     StopFade @ 0x1C01E26E0 (StopFade.c)
+ *     StopFade @ 0x1C01E8050 (StopFade.c)
  */
 
 void *EditionStopSonar()
@@ -17,7 +17,7 @@ void *EditionStopSonar()
     result = (void *)gfade[0];
     if ( (LODWORD(gfade[6]) & 0x80u) != 0 )
     {
-      EnterCrit(1LL, 0LL);
+      EnterCrit(0LL, 1LL);
       if ( ((unsigned __int16)gpdwCPUserPreferencesMask & 0x4000) != 0 )
       {
         v1 = LODWORD(gfade[6]);
@@ -27,8 +27,8 @@ void *EditionStopSonar()
           giSonarRadius = -1;
           if ( ((unsigned __int16)gpdwCPUserPreferencesMask & 0x4000) != 0 )
           {
-            if ( BYTE6(WPP_MAIN_CB.Queue.Wcb.DeviceObject) )
-              BYTE6(WPP_MAIN_CB.Queue.Wcb.DeviceObject) = 0;
+            if ( gbLastVkForSonar )
+              gbLastVkForSonar = 0;
           }
         }
       }

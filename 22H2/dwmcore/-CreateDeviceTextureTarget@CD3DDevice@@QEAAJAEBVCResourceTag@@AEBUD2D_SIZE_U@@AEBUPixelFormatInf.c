@@ -1,92 +1,97 @@
 /*
- * XREFs of ?CreateDeviceTextureTarget@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVIDeviceTextureTarget@@@Z @ 0x18003BA70
+ * XREFs of ?CreateDeviceTextureTarget@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVIDeviceTextureTarget@@@Z @ 0x1800D7344
  * Callers:
- *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034D70 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
- *     ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x1802B4E4C (-EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInf.c)
+ *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180060D74 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
+ *     ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x18026666C (-EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInf.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Create@CDeviceTextureTarget@@SAJPEAVCD2DResourceManager@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@M_NPEAPEAVIDeviceTextureTarget@@@Z @ 0x18003CABC (-Create@CDeviceTextureTarget@@SAJPEAVCD2DResourceManager@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE.c)
- *     ?CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D11Texture2D@@@Z @ 0x18003CE2C (-CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D1.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D11Texture2D@@@Z @ 0x18003A9CC (-CreateTexture@CD3DDevice@@QEAAJAEBVDWM_TEXTURE2D_DESC@@PEAUD3D11_SUBRESOURCE_DATA@@PEAPEAUID3D1.c)
+ *     ?Create@CDeviceTextureTarget@@SAJPEAVCD2DResourceManager@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@M_NPEAPEAVIDeviceTextureTarget@@@Z @ 0x18003C95C (-Create@CDeviceTextureTarget@@SAJPEAVCD2DResourceManager@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D0818 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CD3DDevice::CreateDeviceTextureTarget(
-        CD3DDevice *this,
+        struct CD2DResourceManager **this,
         const struct CResourceTag *a2,
-        struct D3D11_SUBRESOURCE_DATA *a3,
+        const struct D2D_SIZE_U *a3,
         const struct PixelFormatInfo *a4,
         const struct RenderTargetInfo *a5,
         struct IDeviceTextureTarget **a6)
 {
   __int128 v8; // xmm0
   bool v9; // cf
-  int v10; // eax
-  unsigned int v11; // ecx
-  unsigned int v12; // ebx
-  int v13; // ecx
+  struct D3D11_SUBRESOURCE_DATA *v10; // r8
+  int v11; // eax
+  __int64 v12; // rcx
+  unsigned int v13; // ebx
   int v14; // edx
-  __int64 v15; // rcx
-  int v16; // eax
-  unsigned int v17; // ecx
-  int v19; // [rsp+28h] [rbp-81h]
-  int v20; // [rsp+30h] [rbp-79h]
-  struct ID3D11Texture2D *v21; // [rsp+50h] [rbp-59h] BYREF
-  _DWORD v22[5]; // [rsp+58h] [rbp-51h] BYREF
-  __int64 v23; // [rsp+6Ch] [rbp-3Dh]
-  int v24; // [rsp+74h] [rbp-35h]
-  struct D2D_SIZE_U pSysMem; // [rsp+80h] [rbp-29h] BYREF
-  int v26; // [rsp+88h] [rbp-21h]
-  int v27; // [rsp+8Ch] [rbp-1Dh]
-  int v28; // [rsp+90h] [rbp-19h]
-  int v29; // [rsp+94h] [rbp-15h]
-  int v30; // [rsp+98h] [rbp-11h]
-  int v31; // [rsp+9Ch] [rbp-Dh]
-  int v32; // [rsp+A0h] [rbp-9h]
-  int v33; // [rsp+A4h] [rbp-5h]
-  int v34; // [rsp+A8h] [rbp-1h]
-  __int128 v35; // [rsp+B0h] [rbp+7h]
+  int v15; // xmm0_4
+  struct CD2DResourceManager *v16; // rcx
+  int v17; // eax
+  __int64 v18; // rcx
+  void *v20; // [rsp+20h] [rbp-89h]
+  int v21; // [rsp+28h] [rbp-81h]
+  struct ID3D11Texture2D *v22; // [rsp+50h] [rbp-59h] BYREF
+  __int64 v23; // [rsp+58h] [rbp-51h]
+  __int128 v24; // [rsp+60h] [rbp-49h] BYREF
+  int v25; // [rsp+70h] [rbp-39h]
+  __int64 v26; // [rsp+74h] [rbp-35h]
+  int v27; // [rsp+7Ch] [rbp-2Dh]
+  struct D2D_SIZE_U v28; // [rsp+80h] [rbp-29h] BYREF
+  int v29; // [rsp+88h] [rbp-21h]
+  int v30; // [rsp+8Ch] [rbp-1Dh]
+  int v31; // [rsp+90h] [rbp-19h]
+  int v32; // [rsp+94h] [rbp-15h]
+  int v33; // [rsp+98h] [rbp-11h]
+  int v34; // [rsp+9Ch] [rbp-Dh]
+  int v35; // [rsp+A0h] [rbp-9h]
+  int v36; // [rsp+A4h] [rbp-5h]
+  int v37; // [rsp+A8h] [rbp-1h]
+  __int128 v38; // [rsp+B0h] [rbp+7h]
 
-  v30 = 0;
-  v31 = 0;
+  v22 = 0LL;
   v33 = 0;
-  v23 = 0LL;
-  v24 = 0;
+  v34 = 0;
+  v36 = 0;
+  v26 = 0LL;
+  v27 = 0;
   *a6 = 0LL;
   v8 = *(_OWORD *)a2;
-  pSysMem = (struct D2D_SIZE_U)a3->pSysMem;
-  v28 = *(_DWORD *)a4;
+  v28 = *a3;
+  v31 = *(_DWORD *)a4;
   v9 = *((_BYTE *)a5 + 20) != 0;
-  v26 = 1;
-  v35 = v8;
-  v27 = 1;
-  v21 = 0LL;
-  v34 = v9 ? 0x80000 : 0;
   v29 = 1;
-  v32 = 40;
-  v10 = CD3DDevice::CreateTexture(this, (const struct DWM_TEXTURE2D_DESC *)&pSysMem, a3, &v21);
-  v12 = v10;
-  if ( v10 < 0 )
+  v38 = v8;
+  v30 = 1;
+  v32 = 1;
+  v37 = v9 ? 0x80000 : 0;
+  v35 = 40;
+  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((__int64 *)&v22);
+  v11 = CD3DDevice::CreateTexture((CD3DDevice *)this, (const struct DWM_TEXTURE2D_DESC *)&v28, v10, &v22);
+  v13 = v11;
+  if ( v11 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_1802EE2F0, 2u, v10, 0x4B1u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v12, &dword_1802ACF58, 2u, v11, 0x67Cu, 0LL);
   }
   else
   {
-    v13 = *((_DWORD *)a4 + 1);
     v14 = *((_DWORD *)a4 + 2);
-    v20 = *((_DWORD *)a5 + 4);
-    v22[0] = v28;
-    v19 = *((_DWORD *)a5 + 2);
-    v22[1] = v13;
-    v15 = *((_QWORD *)this + 23);
-    v22[2] = 1119879168;
-    v22[3] = 1119879168;
-    v22[4] = 1;
-    v16 = CDeviceTextureTarget::Create(v15, v21, &pSysMem, v22, v14, v19, v20, 0, a6);
-    v12 = v16;
-    if ( v16 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v17, &dword_1802EE2F0, 2u, v16, 0x4C2u, 0LL);
+    v15 = *((_DWORD *)a5 + 4);
+    v16 = this[28];
+    LODWORD(v23) = v31;
+    HIDWORD(v23) = *((_DWORD *)a4 + 1);
+    *(_QWORD *)&v24 = v23;
+    v21 = *((_DWORD *)a5 + 2);
+    LODWORD(v20) = v14;
+    *((_QWORD *)&v24 + 1) = 0x42C0000042C00000LL;
+    v25 = 1;
+    v17 = CDeviceTextureTarget::Create(v16, (__int64)v22, (__int64)&v28, &v24, v20, v21, v15, 0, (unsigned __int64 *)a6);
+    v13 = v17;
+    if ( v17 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v18, &dword_1802ACF58, 2u, v17, 0x68Du, 0LL);
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v21);
-  return v12;
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v22);
+  return v13;
 }

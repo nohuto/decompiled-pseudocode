@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSendNoWakeChargeLimitNotification @ 0x1409B29A4
+ * XREFs of PspSendNoWakeChargeLimitNotification @ 0x140909364
  * Callers:
- *     PspEnforceLimitsJobPostCallback @ 0x1406A3680 (PspEnforceLimitsJobPostCallback.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618780 (PspEnforceLimitsJobPostCallback.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140618450 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
 __int64 __fastcall PspSendNoWakeChargeLimitNotification(_QWORD *a1)

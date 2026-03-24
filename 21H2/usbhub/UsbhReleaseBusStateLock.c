@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhReleaseBusStateLock @ 0x1C0010420
+ * XREFs of UsbhReleaseBusStateLock @ 0x1C0003300
  * Callers:
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
- *     Usbh_BS_BusSuspend @ 0x1C000FE40 (Usbh_BS_BusSuspend.c)
- *     Usbh_BS_BusPause @ 0x1C0010190 (Usbh_BS_BusPause.c)
- *     Usbh_BS_BusRun @ 0x1C00102A0 (Usbh_BS_BusRun.c)
- *     Usbh_BS_BusInit @ 0x1C0030F98 (Usbh_BS_BusInit.c)
- *     Usbh_BS_BusRemove @ 0x1C0031054 (Usbh_BS_BusRemove.c)
- *     Usbh_BS_BusStop @ 0x1C003110C (Usbh_BS_BusStop.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
+ *     Usbh_BS_BusSuspend @ 0x1C0002D20 (Usbh_BS_BusSuspend.c)
+ *     Usbh_BS_BusPause @ 0x1C0003070 (Usbh_BS_BusPause.c)
+ *     Usbh_BS_BusRun @ 0x1C0003180 (Usbh_BS_BusRun.c)
+ *     Usbh_BS_BusInit @ 0x1C00322CC (Usbh_BS_BusInit.c)
+ *     Usbh_BS_BusRemove @ 0x1C0032388 (Usbh_BS_BusRemove.c)
+ *     Usbh_BS_BusStop @ 0x1C0032440 (Usbh_BS_BusStop.c)
  * Callees:
- *     UsbhBusResume_Action @ 0x1C0013AB0 (UsbhBusResume_Action.c)
- *     UsbhBusSuspend_Action @ 0x1C001ED64 (UsbhBusSuspend_Action.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhBusSuspend_Action @ 0x1C00022A0 (UsbhBusSuspend_Action.c)
+ *     UsbhBusResume_Action @ 0x1C0005CF0 (UsbhBusResume_Action.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 __int64 __fastcall UsbhReleaseBusStateLock(struct _DEVICE_OBJECT *a1, __int64 a2, unsigned int a3)
@@ -36,7 +36,7 @@ __int64 __fastcall UsbhReleaseBusStateLock(struct _DEVICE_OBJECT *a1, __int64 a2
     }
     else if ( a3 == 5 )
     {
-      UsbhBusSuspend_Action((_DWORD)a1);
+      UsbhBusSuspend_Action((__int64)a1);
     }
   }
   *(_DWORD *)(a2 + 76) = 1734964085;

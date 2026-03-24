@@ -1,56 +1,70 @@
 /*
- * XREFs of MiAddLoaderHalIoPte @ 0x140B197C0
+ * XREFs of MiAddLoaderHalIoPte @ 0x140A62830
  * Callers:
  *     <none>
  * Callees:
- *     MiReferenceIoPages @ 0x140215E54 (MiReferenceIoPages.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReferenceIoPages @ 0x140295A24 (MiReferenceIoPages.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiAddLoaderHalIoPte(__int64 a1, unsigned __int64 a2, int a3)
 {
-  char v4; // bl
-  unsigned __int64 v5; // rdx
-  __int64 v7; // r8
-  int v8; // r9d
-  __int64 v9; // rcx
-  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v4; // rax
+  unsigned __int64 v5; // rbx
+  unsigned __int64 v6; // rdi
+  __int64 v7; // rdi
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v10; // r8
+  __int64 v11; // rcx
+  int v12; // r9d
+  __int64 v13; // [rsp+68h] [rbp+20h] BYREF
 
-  v10 = MI_READ_PTE_LOCK_FREE(a2);
-  v4 = v10;
-  if ( (v10 & 1) != 0 )
+  v4 = MI_READ_PTE_LOCK_FREE(a2);
+  v13 = v4;
+  v5 = v4;
+  if ( (v4 & 1) != 0 )
   {
-    v5 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v10) >> 12) & 0xFFFFFFFFFFLL;
-    if ( v5 > qword_140C50840 || ((*(_QWORD *)(48 * v5 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+    v6 = v4;
+    if ( MiPteInShadowRange((unsigned __int64)&v13) && (MiFlags & 0xC00000) != 0 )
     {
-      if ( v4 < 0 )
+      if ( KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1 && ((v6 & 0x20) == 0 || (v6 & 0x42) == 0) )
       {
-        v7 = 512LL;
-        if ( a3 > 1 )
+        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
         {
-          v9 = (unsigned int)(a3 - 1);
-          do
-          {
-            v7 <<= 9;
-            --v9;
-          }
-          while ( v9 );
+          if ( ((__int64)*(&Flink->Flink + (((unsigned __int64)&v13 >> 3) & 0x1FF)) & 0x20) != 0 )
+            v6 |= 0x20uLL;
         }
+      }
+      v5 = v13;
+    }
+    v7 = (v6 >> 12) & 0xFFFFFFFFFLL;
+    if ( ((*(_QWORD *)(48 * v7 - 0x57FFFFFFFD8LL) >> 50) & 1) == 0 )
+    {
+      if ( (v5 & 0x80u) == 0LL )
+      {
+        v10 = 1LL;
       }
       else
       {
-        v7 = 1LL;
+        v10 = 512LL;
+        if ( a3 > 1 )
+        {
+          v11 = (unsigned int)(a3 - 1);
+          do
+          {
+            v10 <<= 9;
+            --v11;
+          }
+          while ( v11 );
+        }
       }
-      v8 = 1;
-      if ( (v4 & 0x10) != 0 )
-      {
-        v8 = 0;
-      }
-      else if ( (v4 & 8) != 0 )
-      {
-        v8 = 2;
-      }
-      MiReferenceIoPages(1, v5, v7, v8, 0LL, 0LL);
+      if ( ((v5 >> 4) & 1) != 0 || (v5 & 8) == 0 )
+        v12 = ((v5 >> 4) & 1) == 0;
+      else
+        v12 = 2;
+      MiReferenceIoPages(1u, v7, v10, v12, 0LL, 0LL);
     }
   }
   return 0LL;

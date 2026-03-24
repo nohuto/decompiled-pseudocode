@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetTransitionPageHeatList @ 0x1402CEAC4
+ * XREFs of MiGetTransitionPageHeatList @ 0x1402CEBC4
  * Callers:
- *     MiMakeTransitionHeatBatch @ 0x1402CEB14 (MiMakeTransitionHeatBatch.c)
+ *     MiMakeTransitionHeatBatch @ 0x1402CEC14 (MiMakeTransitionHeatBatch.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY MiGetTransitionPageHeatList()

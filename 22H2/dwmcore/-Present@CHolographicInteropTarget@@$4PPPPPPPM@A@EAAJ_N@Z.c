@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Present@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x180121820
+ * XREFs of ?Present@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x1800F7D40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CHolographicInteropTarget::Present(__int64 a1, bool a2)
+__int64 __fastcall CHolographicInteropTarget::Present(__int64 a1)
 {
-  return CHolographicInteropTarget::Present((CHolographicInteropTarget *)(a1 - *(int *)(a1 - 4)), a2);
+  return CHolographicInteropTarget::Present((CHolographicInteropTarget *)(a1 - *(int *)(a1 - 4)));
 }

@@ -1,96 +1,91 @@
 /*
- * XREFs of AuthzBasepUnicodeStringFromOperandValue @ 0x14022D1B0
+ * XREFs of AuthzBasepUnicodeStringFromOperandValue @ 0x14024E730
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14022BF60 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepCompareUnicodeStringOperands @ 0x14030C028 (AuthzBasepCompareUnicodeStringOperands.c)
- *     AuthzBasepCompareFQBNOperands @ 0x14066F2D0 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14024D5F0 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x14024EE90 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x1405C17D0 (AuthzBasepCompareFQBNOperands.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1406DA330 (RtlUpcaseUnicodeChar.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x140601D90 (RtlUpcaseUnicodeChar.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepUnicodeStringFromOperandValue(__int64 a1, char a2, unsigned __int16 *a3, _BYTE *a4)
 {
-  unsigned int v4; // ebp
-  unsigned __int16 v9; // r8
-  unsigned __int16 v10; // dx
-  __int64 v11; // rax
-  int v12; // eax
-  __int64 v13; // rcx
-  void *Pool2; // rax
-  size_t v15; // r8
-  const void *v16; // rdx
-  unsigned int v18; // ebx
-  __int64 v19; // rdi
-  unsigned __int16 *v20; // rdx
+  unsigned int v4; // r14d
+  __int64 v9; // rax
+  int v10; // eax
+  POOL_TYPE v11; // ecx
+  PVOID PoolWithTag; // rax
+  size_t v13; // r8
+  const void *v14; // rdx
+  unsigned int v16; // ebx
+  WCHAR *v17; // rdi
+  unsigned __int16 *v18; // rdx
 
   v4 = 0;
   *a4 = 0;
   if ( *(_DWORD *)(a1 + 12) == 1 )
   {
-    v9 = *(_WORD *)(a1 + 24);
-    a3[1] = v9;
-    v10 = *(_WORD *)(a1 + 24);
-    *a3 = v10;
-    v11 = *(_QWORD *)(a1 + 32);
+    a3[1] = *(_WORD *)(a1 + 24);
+    *a3 = *(_WORD *)(a1 + 24);
+    v9 = *(_QWORD *)(a1 + 32);
   }
   else
   {
-    v9 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 48LL) + 2LL);
-    a3[1] = v9;
-    v10 = **(_WORD **)(*(_QWORD *)(a1 + 16) + 48LL);
-    *a3 = v10;
-    v11 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 48LL) + 8LL);
+    a3[1] = *(_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 48LL) + 2LL);
+    *a3 = **(_WORD **)(*(_QWORD *)(a1 + 16) + 48LL);
+    v9 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 48LL) + 8LL);
   }
-  *((_QWORD *)a3 + 1) = v11;
-  if ( !v10 || !v11 )
+  *((_QWORD *)a3 + 1) = v9;
+  if ( !*a3 || !v9 )
     return (unsigned int)-1073741406;
-  v12 = *(_DWORD *)(a1 + 12);
-  if ( v12 == 1 )
+  v10 = *(_DWORD *)(a1 + 12);
+  if ( v10 == 1 )
   {
     if ( (*(_BYTE *)(a1 + 32) & 1) != 0 )
       goto LABEL_7;
 LABEL_13:
     if ( a2 )
     {
-      v18 = 0;
+      v16 = 0;
       if ( (*a3 & 0xFFFE) != 0 )
       {
         do
         {
-          v19 = 2LL * v18++;
-          *(_WORD *)(v19 + *((_QWORD *)a3 + 1)) = RtlUpcaseUnicodeChar(*(_WORD *)(v19 + *((_QWORD *)a3 + 1)));
+          v17 = (WCHAR *)(*((_QWORD *)a3 + 1) + 2LL * v16);
+          *v17 = RtlUpcaseUnicodeChar(*v17);
+          ++v16;
         }
-        while ( v18 < *a3 >> 1 );
+        while ( v16 < *a3 >> 1 );
       }
     }
     return v4;
   }
-  if ( v12 != 2 )
+  if ( v10 != 2 )
     goto LABEL_13;
   if ( !a2 )
     return v4;
 LABEL_7:
-  v13 = 256LL;
+  v11 = PagedPool;
   if ( KeGetCurrentIrql() >= 2u )
-    v13 = 64LL;
-  Pool2 = (void *)ExAllocatePool2(v13, v9, 1632068947LL);
-  *((_QWORD *)a3 + 1) = Pool2;
-  if ( Pool2 )
+    v11 = NonPagedPoolNx;
+  PoolWithTag = ExAllocatePoolWithTag(v11, a3[1], 0x61476553u);
+  *((_QWORD *)a3 + 1) = PoolWithTag;
+  if ( PoolWithTag )
   {
     if ( *(_DWORD *)(a1 + 12) == 1 )
     {
-      v15 = *(unsigned int *)(a1 + 24);
-      v16 = *(const void **)(a1 + 32);
+      v13 = *(unsigned int *)(a1 + 24);
+      v14 = *(const void **)(a1 + 32);
     }
     else
     {
-      v20 = *(unsigned __int16 **)(*(_QWORD *)(a1 + 16) + 48LL);
-      v15 = *v20;
-      v16 = (const void *)*((_QWORD *)v20 + 1);
+      v18 = *(unsigned __int16 **)(*(_QWORD *)(a1 + 16) + 48LL);
+      v13 = *v18;
+      v14 = (const void *)*((_QWORD *)v18 + 1);
     }
-    memmove(Pool2, v16, v15);
+    memmove(PoolWithTag, v14, v13);
     *a4 = 1;
     goto LABEL_13;
   }

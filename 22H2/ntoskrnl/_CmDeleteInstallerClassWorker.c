@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmDeleteInstallerClassWorker @ 0x140A62B90
+ * XREFs of _CmDeleteInstallerClassWorker @ 0x140975314
  * Callers:
- *     _CmDeleteInstallerClass @ 0x140A62A64 (_CmDeleteInstallerClass.c)
+ *     _CmDeleteInstallerClass @ 0x1409751E8 (_CmDeleteInstallerClass.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x1407C8218 (_CmGetMatchingFilteredDeviceList.c)
- *     _CmDeleteCommonClassRegKey @ 0x140A6105C (_CmDeleteCommonClassRegKey.c)
- *     _CmRaiseDeleteEvent @ 0x140A65658 (_CmRaiseDeleteEvent.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x140A68D1C (_CmGetInstallerClassMappedPropertyKeys.c)
- *     _CmSetInstallerClassMappedProperty @ 0x140A69994 (_CmSetInstallerClassMappedProperty.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140689F58 (_CmGetMatchingFilteredDeviceList.c)
+ *     _CmRaiseDeleteEvent @ 0x14072EA60 (_CmRaiseDeleteEvent.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x14073144C (_CmSetInstallerClassMappedProperty.c)
+ *     _CmDeleteCommonClassRegKey @ 0x140974D4C (_CmDeleteCommonClassRegKey.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x14097AEF0 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteInstallerClassWorker(__int64 a1, __int64 a2, __int16 a3)
@@ -22,75 +22,68 @@ __int64 __fastcall CmDeleteInstallerClassWorker(__int64 a1, __int64 a2, __int16 
   unsigned int v9; // ebp
   int v10; // r8d
   int v11; // eax
-  void *Pool2; // rdi
+  PVOID PoolWithTag; // rdi
   int InstallerClassMappedPropertyKeys; // eax
-  unsigned int v14; // r12d
+  unsigned int v14; // r14d
   unsigned __int64 v15; // rbp
   int v16; // r9d
-  unsigned int v17; // r12d
-  __int64 v18; // rbp
-  int v19; // eax
-  unsigned int v21; // [rsp+50h] [rbp-48h] BYREF
-  int v22; // [rsp+54h] [rbp-44h] BYREF
-  _DWORD v23[4]; // [rsp+58h] [rbp-40h] BYREF
+  __int64 v17; // rbp
+  int v18; // eax
+  unsigned int v20; // [rsp+50h] [rbp-48h] BYREF
+  int v21; // [rsp+54h] [rbp-44h] BYREF
+  _DWORD v22[4]; // [rsp+58h] [rbp-40h] BYREF
 
   v3 = 0;
-  v22 = 0;
+  v21 = 0;
   if ( a3 )
     return (unsigned int)-1073741811;
-  MatchingFilteredDeviceList = CmGetMatchingFilteredDeviceList(a1, a2, 128, 0LL, 0LL, 0LL, 0, (__int64)&v22);
+  MatchingFilteredDeviceList = CmGetMatchingFilteredDeviceList(a1, a2, 128, 0LL, 0LL, 0LL, 0, (__int64)&v21);
   if ( MatchingFilteredDeviceList == -1073741789 )
     return (unsigned int)-1073741535;
   if ( MatchingFilteredDeviceList )
     return MatchingFilteredDeviceList;
-  v23[0] = 800;
-  v8 = v23;
-  v23[1] = 544;
+  v22[0] = 800;
+  v8 = v22;
+  v22[1] = 544;
   v9 = 0;
-  v23[2] = 288;
+  v22[2] = 288;
   while ( 1 )
   {
     v10 = *v8;
-    if ( *v8 )
-    {
-      if ( (v10 & 0xFFFFFCDF) == 0 )
-      {
-        v11 = CmDeleteCommonClassRegKey(a1, a2, v10, 0, 1);
-        if ( v11 )
-        {
-          if ( v11 != -1073741772 && v11 != -1073741811 && v11 != -1073741637 )
-            break;
-        }
-      }
-    }
+    if ( !*v8 || (v10 & 0xFFFFFCDF) != 0 )
+      v11 = -1073741811;
+    else
+      v11 = CmDeleteCommonClassRegKey(a1, a2, v10);
+    if ( v11 && v11 != -1073741772 && v11 != -1073741811 && v11 != -1073741637 )
+      break;
     ++v9;
     ++v8;
     if ( v9 >= 3 )
-      goto LABEL_17;
+      goto LABEL_19;
   }
   v3 = v11;
   if ( v11 < 0 )
     return (unsigned int)v3;
-LABEL_17:
-  Pool2 = 0LL;
-  v21 = 0;
+LABEL_19:
+  PoolWithTag = 0LL;
+  v20 = 0;
   LOBYTE(v7) = 1;
-  InstallerClassMappedPropertyKeys = CmGetInstallerClassMappedPropertyKeys(a1, a2, 0, v7, 0LL, 0, (__int64)&v21);
+  InstallerClassMappedPropertyKeys = CmGetInstallerClassMappedPropertyKeys(a1, a2, 0, v7, 0LL, 0, (__int64)&v20);
   if ( InstallerClassMappedPropertyKeys == -1073741789 )
   {
     while ( 1 )
     {
-      v14 = v21;
-      v15 = 20LL * v21;
+      v14 = v20;
+      v15 = 20LL * v20;
       if ( v15 > 0xFFFFFFFF )
         break;
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0);
-      Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)v15, 1380994640LL);
-      if ( !Pool2 )
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)v15, 0x52504E50u);
+      if ( !PoolWithTag )
       {
         InstallerClassMappedPropertyKeys = -1073741801;
-        goto LABEL_25;
+        goto LABEL_26;
       }
       LOBYTE(v16) = 1;
       InstallerClassMappedPropertyKeys = CmGetInstallerClassMappedPropertyKeys(
@@ -98,50 +91,51 @@ LABEL_17:
                                            a2,
                                            0,
                                            v16,
-                                           (__int64)Pool2,
+                                           (__int64)PoolWithTag,
                                            v14,
-                                           (__int64)&v21);
+                                           (__int64)&v20);
       if ( InstallerClassMappedPropertyKeys != -1073741789 )
-        goto LABEL_23;
+        goto LABEL_25;
     }
     InstallerClassMappedPropertyKeys = -1073741811;
-LABEL_25:
+LABEL_28:
     v3 = InstallerClassMappedPropertyKeys;
-    goto LABEL_42;
+    goto LABEL_45;
   }
-LABEL_23:
+LABEL_25:
+  v14 = v20;
+LABEL_26:
   if ( InstallerClassMappedPropertyKeys && InstallerClassMappedPropertyKeys != -1073741275 )
-    goto LABEL_25;
-  v17 = v21;
-  v18 = 0LL;
-  if ( v21 )
+    goto LABEL_28;
+  v17 = 0LL;
+  if ( v14 )
   {
     while ( 1 )
     {
-      v19 = CmSetInstallerClassMappedProperty(a1, a2, (__int64)Pool2 + 20 * v18, 0, 0LL, 0);
-      if ( v19 )
+      v18 = CmSetInstallerClassMappedProperty(a1, a2, 0LL, 0LL, (__int64)PoolWithTag + 20 * v17, 0, 0LL, 0);
+      if ( v18 )
       {
-        if ( v19 != -1073741275 && v19 != -1073741790 && v19 != -1073741802 && v19 != -1073741637 )
+        if ( v18 != -1073741275 && v18 != -1073741790 && v18 != -1073741802 && v18 != -1073741637 )
           break;
       }
-      v18 = (unsigned int)(v18 + 1);
-      if ( (unsigned int)v18 >= v17 )
-        goto LABEL_37;
+      v17 = (unsigned int)(v17 + 1);
+      if ( (unsigned int)v17 >= v14 )
+        goto LABEL_40;
     }
-    v3 = v19;
+    v3 = v18;
   }
-LABEL_37:
+LABEL_40:
   if ( v3 < 0 )
-    goto LABEL_42;
-  InstallerClassMappedPropertyKeys = CmDeleteCommonClassRegKey(a1, a2, 32, 0, 1);
+    goto LABEL_45;
+  InstallerClassMappedPropertyKeys = CmDeleteCommonClassRegKey(a1, a2, 32);
   if ( InstallerClassMappedPropertyKeys )
   {
     if ( InstallerClassMappedPropertyKeys != -1073741772 && InstallerClassMappedPropertyKeys != -1073741811 )
-      goto LABEL_25;
+      goto LABEL_28;
   }
-  CmRaiseDeleteEvent(a1, a2, 2LL);
-LABEL_42:
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  CmRaiseDeleteEvent(a1, a2, 2u);
+LABEL_45:
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   return (unsigned int)v3;
 }

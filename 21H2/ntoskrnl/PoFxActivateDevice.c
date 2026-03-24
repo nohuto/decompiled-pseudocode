@@ -1,16 +1,16 @@
 /*
- * XREFs of PoFxActivateDevice @ 0x1402D2848
+ * XREFs of PoFxActivateDevice @ 0x14036FCB4
  * Callers:
- *     PiProcessQueryDeviceState @ 0x140749F30 (PiProcessQueryDeviceState.c)
- *     PipEnumerateDevice @ 0x14074B420 (PipEnumerateDevice.c)
- *     PnpDeleteLockedDeviceNode @ 0x140766834 (PnpDeleteLockedDeviceNode.c)
- *     PipProcessDevNodeTree @ 0x140777578 (PipProcessDevNodeTree.c)
- *     PiProcessResourceRequirementsChanged @ 0x140947934 (PiProcessResourceRequirementsChanged.c)
- *     PnpQueryStopDeviceNode @ 0x140959F9C (PnpQueryStopDeviceNode.c)
- *     PopFxUpdateVetoMaskWork @ 0x14098E120 (PopFxUpdateVetoMaskWork.c)
- *     PopIssueDirectedPowerTransition @ 0x1409977F0 (PopIssueDirectedPowerTransition.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140738574 (PnpDeleteLockedDeviceNode.c)
+ *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
+ *     PipEnumerateDevice @ 0x140746E28 (PipEnumerateDevice.c)
+ *     PiProcessQueryDeviceState @ 0x140749A3C (PiProcessQueryDeviceState.c)
+ *     PiProcessResourceRequirementsChanged @ 0x1408A26E8 (PiProcessResourceRequirementsChanged.c)
+ *     PnpQueryStopDeviceNode @ 0x1408B8714 (PnpQueryStopDeviceNode.c)
+ *     PopFxUpdateVetoMaskWork @ 0x1408E5810 (PopFxUpdateVetoMaskWork.c)
+ *     PopIssueDirectedPowerTransition @ 0x1408F0754 (PopIssueDirectedPowerTransition.c)
  * Callees:
- *     PopFxActivateDevice @ 0x1402D2864 (PopFxActivateDevice.c)
+ *     PopFxActivateDevice @ 0x14036FCD0 (PopFxActivateDevice.c)
  */
 
 __int64 __fastcall PoFxActivateDevice(__int64 a1)

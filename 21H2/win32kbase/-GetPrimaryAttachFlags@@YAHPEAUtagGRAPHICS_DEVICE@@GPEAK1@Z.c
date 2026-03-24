@@ -1,114 +1,127 @@
 /*
- * XREFs of ?GetPrimaryAttachFlags@@YAHPEAUtagGRAPHICS_DEVICE@@GPEAK1@Z @ 0x1C0073504
+ * XREFs of ?GetPrimaryAttachFlags@@YAHPEAUtagGRAPHICS_DEVICE@@GPEAK1@Z @ 0x1C00123F0
  * Callers:
- *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0073714 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
- *     ?CheckAndNotifyDualView@@YA?AW4_DUALVIEW_STATE@@PEAU_UNICODE_STRING@@PEAU_MDEV@@@Z @ 0x1C0074C78 (-CheckAndNotifyDualView@@YA-AW4_DUALVIEW_STATE@@PEAU_UNICODE_STRING@@PEAU_MDEV@@@Z.c)
- *     ?DrvCheckGraphicsDeviceForSmoothRotation@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0170B80 (-DrvCheckGraphicsDeviceForSmoothRotation@@YAHPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?CheckAndNotifyDualView@@YA?AW4_DUALVIEW_STATE@@PEAU_UNICODE_STRING@@PEAU_MDEV@@@Z @ 0x1C001124C (-CheckAndNotifyDualView@@YA-AW4_DUALVIEW_STATE@@PEAU_UNICODE_STRING@@PEAU_MDEV@@@Z.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0011478 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DrvCheckGraphicsDeviceForSmoothRotation@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0143BE8 (-DrvCheckGraphicsDeviceForSmoothRotation@@YAHPEAUtagGRAPHICS_DEVICE@@@Z.c)
  * Callees:
- *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0072CC4 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C00297C0 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
-__int64 __fastcall GetPrimaryAttachFlags(struct tagGRAPHICS_DEVICE *a1, __int16 a2, unsigned int *a3, unsigned int *a4)
+__int64 __fastcall GetPrimaryAttachFlags(struct tagGRAPHICS_DEVICE *a1, __int64 a2, unsigned int *a3, unsigned int *a4)
 {
+  unsigned int v4; // edi
+  __int16 v7; // r13
+  __int64 v9; // rax
   const WCHAR *RegistryHandleFromDeviceMap; // rax
-  WCHAR *v9; // rbx
-  unsigned int v10; // eax
-  int v12; // eax
-  const WCHAR *v13; // rax
-  WCHAR *v14; // r14
-  NTSTATUS v15; // ebx
-  _DWORD v16[4]; // [rsp+30h] [rbp-A9h] BYREF
-  struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+40h] [rbp-99h] BYREF
-  __int64 v18; // [rsp+78h] [rbp-61h]
-  int v19; // [rsp+80h] [rbp-59h]
-  const wchar_t *v20; // [rsp+88h] [rbp-51h]
-  unsigned int *v21; // [rsp+90h] [rbp-49h]
-  int v22; // [rsp+98h] [rbp-41h]
-  _DWORD *v23; // [rsp+A0h] [rbp-39h]
-  int v24; // [rsp+A8h] [rbp-31h]
-  __int64 v25; // [rsp+B0h] [rbp-29h]
-  int v26; // [rsp+B8h] [rbp-21h]
-  __int128 v27; // [rsp+C0h] [rbp-19h]
-  __int128 v28; // [rsp+D0h] [rbp-9h]
-  __int64 v29; // [rsp+E0h] [rbp+7h]
+  WCHAR *v11; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  int v14; // eax
+  __int64 v15; // rax
+  int v17; // eax
+  const WCHAR *v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  WCHAR *v21; // r15
+  NTSTATUS v22; // ebx
+  __int64 v23; // rax
+  __int64 v24; // rax
+  _DWORD v25[4]; // [rsp+30h] [rbp-A9h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+40h] [rbp-99h] BYREF
+  __int64 v27; // [rsp+78h] [rbp-61h]
+  int v28; // [rsp+80h] [rbp-59h]
+  const wchar_t *v29; // [rsp+88h] [rbp-51h]
+  unsigned int *v30; // [rsp+90h] [rbp-49h]
+  int v31; // [rsp+98h] [rbp-41h]
+  _DWORD *v32; // [rsp+A0h] [rbp-39h]
+  int v33; // [rsp+A8h] [rbp-31h]
+  __int64 v34; // [rsp+B0h] [rbp-29h]
+  int v35; // [rsp+B8h] [rbp-21h]
+  __int128 v36; // [rsp+C0h] [rbp-19h]
+  __int128 v37; // [rsp+D0h] [rbp-9h]
+  __int64 v38; // [rsp+E0h] [rbp+7h]
 
-  v16[0] = 0;
-  WdLogSingleEntry1(5LL, a1);
+  v4 = 0;
+  v25[0] = 0;
+  v7 = a2;
+  v9 = WdLogNewEntry5_WdTrace(a1, a2);
+  *(_QWORD *)(v9 + 24) = a1;
+  WdLogEvent5_WdTrace(v9);
   QueryTable.Name = L"Attach.PrimaryDevice";
   QueryTable.DefaultType = 67108868;
-  v22 = 67108868;
   QueryTable.Flags = 288;
-  QueryTable.DefaultData = v16;
-  v20 = L"Attach.ToDesktop";
-  v23 = v16;
   QueryTable.DefaultLength = 4;
-  v19 = 288;
-  v24 = 4;
+  QueryTable.DefaultData = v25;
+  v29 = L"Attach.ToDesktop";
+  v32 = v25;
+  v28 = 288;
+  v31 = 67108868;
+  v33 = 4;
   *a4 = 0;
-  v29 = 0LL;
+  v38 = 0LL;
   *a3 = 0;
   QueryTable.QueryRoutine = 0LL;
   QueryTable.EntryContext = a3;
-  v18 = 0LL;
-  v21 = a4;
-  v25 = 0LL;
-  v26 = 0;
   v27 = 0LL;
-  v28 = 0LL;
-  RegistryHandleFromDeviceMap = (const WCHAR *)DrvGetRegistryHandleFromDeviceMap(
-                                                 (unsigned __int16 *)a1,
-                                                 1,
-                                                 0LL,
-                                                 0LL,
-                                                 0,
-                                                 0LL);
-  v9 = (WCHAR *)RegistryHandleFromDeviceMap;
+  v30 = a4;
+  v34 = 0LL;
+  v35 = 0;
+  v36 = 0LL;
+  v37 = 0LL;
+  RegistryHandleFromDeviceMap = (const WCHAR *)DrvGetRegistryHandleFromDeviceMap(a1, 1LL, 0LL, 0LL, 0, 0LL, v25[0]);
+  v11 = (WCHAR *)RegistryHandleFromDeviceMap;
   if ( RegistryHandleFromDeviceMap )
   {
     RtlQueryRegistryValues(0x40000000u, RegistryHandleFromDeviceMap, &QueryTable, 0LL, 0LL);
-    ZwClose(v9);
+    ZwClose(v11);
   }
   else
   {
-    v13 = (const WCHAR *)DrvGetRegistryHandleFromDeviceMap((unsigned __int16 *)a1, 0, 0LL, 0LL, 0, 0LL);
-    v14 = (WCHAR *)v13;
-    if ( v13 )
+    v18 = (const WCHAR *)DrvGetRegistryHandleFromDeviceMap(a1, 0LL, 0LL, 0LL, 0, 0LL, v25[0]);
+    v21 = (WCHAR *)v18;
+    if ( v18 )
     {
-      v15 = RtlQueryRegistryValues(0x40000000u, v13, &QueryTable, 0LL, 0LL);
-      ZwClose(v14);
-      if ( v15 < 0 )
+      v22 = RtlQueryRegistryValues(0x40000000u, v18, &QueryTable, 0LL, 0LL);
+      ZwClose(v21);
+      if ( v22 < 0 )
       {
-        WdLogSingleEntry0(5LL);
+        v23 = WdLogNewEntry5_WdTrace(v13, v12);
+        WdLogEvent5_WdTrace(v23);
         *a4 = 0;
         *a3 = 0;
       }
     }
     else
     {
-      WdLogSingleEntry0(5LL);
+      v24 = WdLogNewEntry5_WdTrace(v20, v19);
+      WdLogEvent5_WdTrace(v24);
     }
   }
-  v10 = *((_DWORD *)a1 + 40);
-  if ( a2 )
+  v14 = *((_DWORD *)a1 + 40);
+  if ( v7 )
   {
-    if ( a2 == -1 )
+    v17 = v14 & 0x2000000;
+    v13 = 0xFFFFLL;
+    if ( v7 == -1 )
     {
-      v12 = (v10 >> 25) & 1;
+      LOBYTE(v4) = v17 != 0;
     }
-    else
+    else if ( !v17 )
     {
-      if ( (v10 & 0x2000000) != 0 )
-        goto LABEL_5;
-      v12 = *((_DWORD *)a1 + 65);
+      *a4 = *((_DWORD *)a1 + 65);
+      goto LABEL_6;
     }
-    *a4 = v12;
-    goto LABEL_6;
+    goto LABEL_5;
   }
-  if ( (v10 & 0x6000000) != 0 )
+  if ( (v14 & 0x6000000) != 0 )
 LABEL_5:
-    *a4 = 0;
+    *a4 = v4;
 LABEL_6:
-  WdLogSingleEntry2(5LL, *a3, *a4);
+  v15 = WdLogNewEntry5_WdTrace(v13, v12);
+  *(_QWORD *)(v15 + 24) = *a3;
+  *(_QWORD *)(v15 + 32) = *a4;
+  WdLogEvent5_WdTrace(v15);
   return 1LL;
 }

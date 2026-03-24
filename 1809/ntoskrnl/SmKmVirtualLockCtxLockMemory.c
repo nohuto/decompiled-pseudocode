@@ -1,15 +1,15 @@
 /*
- * XREFs of SmKmVirtualLockCtxLockMemory @ 0x140307CBC
+ * XREFs of SmKmVirtualLockCtxLockMemory @ 0x140307DBC
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x14014B784 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmStoreHelperCommandProcess @ 0x14014B7A4 (SmKmStoreHelperCommandProcess.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ZwLockVirtualMemory @ 0x1401BA250 (ZwLockVirtualMemory.c)
- *     SmKmVirtualLockContextIncreaseWsMin @ 0x1403079F8 (SmKmVirtualLockContextIncreaseWsMin.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140307DDC (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     ZwLockVirtualMemory @ 0x1401BA270 (ZwLockVirtualMemory.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x140307AF8 (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140307EDC (SmKmVirtualLockCtxMemoryUnlocked.c)
  */
 
 __int64 __fastcall SmKmVirtualLockCtxLockMemory(ULONG_PTR BugCheckParameter2, void *a2, ULONG_PTR a3)

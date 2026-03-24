@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtBucketsFree @ 0x1406EB7CC
+ * XREFs of PopEtBucketsFree @ 0x140773BAC
  * Callers:
- *     PopEtProcessSnapshotCreate @ 0x140674BE4 (PopEtProcessSnapshotCreate.c)
- *     PopEtAggregateGet @ 0x1407A50BC (PopEtAggregateGet.c)
+ *     PopEtAggregateGet @ 0x140619EA8 (PopEtAggregateGet.c)
+ *     PopEtProcessSnapshotCreate @ 0x14069905C (PopEtProcessSnapshotCreate.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopEtBucketsFree(void *a1)

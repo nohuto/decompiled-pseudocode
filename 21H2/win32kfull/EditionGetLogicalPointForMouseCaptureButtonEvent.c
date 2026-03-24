@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionGetLogicalPointForMouseCaptureButtonEvent @ 0x1C010F780
+ * XREFs of EditionGetLogicalPointForMouseCaptureButtonEvent @ 0x1C00F2C40
  * Callers:
  *     <none>
  * Callees:
- *     TransformVectorWithInputTargetPrecedence @ 0x1C010F7F8 (TransformVectorWithInputTargetPrecedence.c)
+ *     TransformVectorWithInputTargetPrecedence @ 0x1C00F2CB8 (TransformVectorWithInputTargetPrecedence.c)
  */
 
 __int64 __fastcall EditionGetLogicalPointForMouseCaptureButtonEvent(
@@ -25,7 +25,7 @@ __int64 __fastcall EditionGetLogicalPointForMouseCaptureButtonEvent(
   result = IsWindowDesktopComposed(v8);
   if ( (_DWORD)result )
   {
-    result = TransformVectorWithInputTargetPrecedence(v8, v5, 0LL);
+    result = TransformVectorWithInputTargetPrecedence(v8, v5);
     if ( !(_DWORD)result )
     {
       if ( *(_QWORD *)(a2 + 80) == v8 )

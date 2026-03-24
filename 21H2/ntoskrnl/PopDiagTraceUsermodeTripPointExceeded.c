@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagTraceUsermodeTripPointExceeded @ 0x140993798
+ * XREFs of PopDiagTraceUsermodeTripPointExceeded @ 0x1408EBDCC
  * Callers:
- *     PopThermalProcessUsermodeEvent @ 0x140990548 (PopThermalProcessUsermodeEvent.c)
+ *     PopThermalProcessUsermodeEvent @ 0x1408E7B98 (PopThermalProcessUsermodeEvent.c)
  * Callees:
- *     PopDiagTraceTripPointExceeded @ 0x14099351C (PopDiagTraceTripPointExceeded.c)
+ *     PopDiagTraceTripPointExceeded @ 0x1408EBB50 (PopDiagTraceTripPointExceeded.c)
  */
 
 char __fastcall PopDiagTraceUsermodeTripPointExceeded(unsigned __int16 a1, __int64 a2, int a3, char a4)

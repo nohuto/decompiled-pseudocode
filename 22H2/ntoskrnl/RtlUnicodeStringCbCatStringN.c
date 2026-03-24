@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringCbCatStringN @ 0x14066E53C
+ * XREFs of RtlUnicodeStringCbCatStringN @ 0x1405C0B3C
  * Callers:
- *     AslpPathWildcardAllocMatchNode @ 0x140A56658 (AslpPathWildcardAllocMatchNode.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140969CB0 (AslpPathWildcardAllocMatchNode.c)
  * Callees:
- *     RtlWideCharArrayCopyStringWorker @ 0x1405A2190 (RtlWideCharArrayCopyStringWorker.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x14057EFC8 (RtlWideCharArrayCopyStringWorker.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCbCatStringN(
@@ -12,33 +12,49 @@ NTSTATUS __stdcall RtlUnicodeStringCbCatStringN(
         size_t cbToAppend)
 {
   unsigned __int64 Length; // r9
-  unsigned __int16 MaximumLength; // ax
-  wchar_t *Buffer; // rax
+  wchar_t *Buffer; // r11
   unsigned __int64 v8; // rdx
   unsigned __int64 v9; // rbx
-  size_t cchToCopy; // r8
   NTSTATUS result; // eax
+  unsigned __int64 MaximumLength; // r8
+  size_t cchToCopy; // r10
   size_t pcchNewDestLength; // [rsp+40h] [rbp+8h] BYREF
 
   Length = DestinationString->Length;
+  Buffer = 0LL;
+  v8 = 0LL;
+  v9 = 0LL;
+  result = 0;
   if ( (Length & 1) != 0 )
     return -1073741811;
   MaximumLength = DestinationString->MaximumLength;
   if ( (MaximumLength & 1) != 0
-    || (unsigned __int16)Length > MaximumLength
-    || MaximumLength == 0xFFFF
-    || !DestinationString->Buffer && ((_WORD)Length || MaximumLength) )
+    || (unsigned __int16)Length > (unsigned __int16)MaximumLength
+    || (_WORD)MaximumLength == 0xFFFF )
   {
     return -1073741811;
   }
-  Buffer = DestinationString->Buffer;
-  v8 = (unsigned __int64)DestinationString->MaximumLength >> 1;
-  v9 = Length >> 1;
-  cchToCopy = cbToAppend >> 1;
-  if ( cchToCopy > 0x7FFF )
+  if ( !DestinationString->Buffer && ((_WORD)Length || (_WORD)MaximumLength) )
+  {
+    result = -1073741811;
+  }
+  else
+  {
+    v8 = MaximumLength >> 1;
+    Buffer = DestinationString->Buffer;
+    v9 = Length >> 1;
+  }
+  if ( result >= 0 )
+  {
+    cchToCopy = cbToAppend >> 1;
+    if ( cchToCopy <= 0x7FFF )
+    {
+      pcchNewDestLength = 0LL;
+      result = RtlWideCharArrayCopyStringWorker(&Buffer[v9], v8 - v9, &pcchNewDestLength, pszSrc, cchToCopy);
+      DestinationString->Length = 2 * (pcchNewDestLength + v9);
+      return result;
+    }
     return -1073741811;
-  pcchNewDestLength = 0LL;
-  result = RtlWideCharArrayCopyStringWorker(&Buffer[v9], v8 - v9, &pcchNewDestLength, pszSrc, cchToCopy);
-  DestinationString->Length = 2 * (pcchNewDestLength + v9);
+  }
   return result;
 }

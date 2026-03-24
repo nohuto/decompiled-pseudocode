@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptBlockSmtSiblings @ 0x14051A690
+ * XREFs of HalpInterruptBlockSmtSiblings @ 0x1404D16B0
  * Callers:
- *     HalpInterruptParseMadt @ 0x140379E18 (HalpInterruptParseMadt.c)
+ *     HalpInterruptParseMadt @ 0x1403AFD94 (HalpInterruptParseMadt.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 unsigned __int64 HalpInterruptBlockSmtSiblings()
@@ -29,7 +29,7 @@ unsigned __int64 HalpInterruptBlockSmtSiblings()
   v4 = HalpInterruptProcessorState;
   v5 = 0;
   v6 = HalpInterruptProcessorCount;
-  v7 = -*(_DWORD *)(result + 164);
+  v7 = -*(_DWORD *)(result + 156);
   if ( (_DWORD)HalpInterruptProcessorCount )
   {
     do

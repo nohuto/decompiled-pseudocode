@@ -1,19 +1,19 @@
 /*
- * XREFs of ?TelemetrySetPosition@InteractionSourceManager@@QEAAX_K@Z @ 0x180264EE8
+ * XREFs of ?TelemetrySetPosition@InteractionSourceManager@@QEAAX_K@Z @ 0x180213FBC
  * Callers:
- *     ?TelemetrySetPosition@CInteractionTracker@@AEAAXXZ @ 0x18021E100 (-TelemetrySetPosition@CInteractionTracker@@AEAAXXZ.c)
+ *     ?TelemetrySetPosition@CInteractionTracker@@AEAAXXZ @ 0x1801CD0EC (-TelemetrySetPosition@CInteractionTracker@@AEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ @ 0x180113E5C (-HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ.c)
- *     ?GetActiveInteraction@InteractionSourceManager@@AEBAPEAVCInteraction@@XZ @ 0x180115BBE (-GetActiveInteraction@InteractionSourceManager@@AEBAPEAVCInteraction@@XZ.c)
- *     ?GetTelemetryDataNoRef@CInteraction@@QEAAPEAUIManipulationTelemetryData@InteractionLatencyTelemetry@@XZ @ 0x1801F2304 (-GetTelemetryDataNoRef@CInteraction@@QEAAPEAUIManipulationTelemetryData@InteractionLatencyTeleme.c)
- *     ?TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ @ 0x180265008 (-TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetTelemetryDataNoRef@CInteraction@@QEAAPEAUIManipulationTelemetryData@@XZ @ 0x1801C63C4 (-GetTelemetryDataNoRef@CInteraction@@QEAAPEAUIManipulationTelemetryData@@XZ.c)
+ *     ?HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ @ 0x1801C9EE4 (-HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ.c)
+ *     ?GetActiveInteraction@InteractionSourceManager@@AEBAPEAVCInteraction@@XZ @ 0x180213138 (-GetActiveInteraction@InteractionSourceManager@@AEBAPEAVCInteraction@@XZ.c)
+ *     ?TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ @ 0x180214104 (-TryGetActiveManipulation@InteractionSourceManager@@QEBAPEAVCManipulation@@XZ.c)
  */
 
 void __fastcall InteractionSourceManager::TelemetrySetPosition(InteractionSourceManager *this, __int64 a2)
 {
   CInteraction *v4; // r10
-  struct InteractionLatencyTelemetry::IManipulationTelemetryData *TelemetryDataNoRef; // rdi
+  struct IManipulationTelemetryData *TelemetryDataNoRef; // rdi
   struct CManipulation *ActiveManipulation; // rax
 
   InteractionSourceManager::GetActiveInteraction(this);
@@ -23,10 +23,10 @@ void __fastcall InteractionSourceManager::TelemetrySetPosition(InteractionSource
     if ( TelemetryDataNoRef )
     {
       ActiveManipulation = InteractionSourceManager::TryGetActiveManipulation(this);
-      (*(void (__fastcall **)(struct InteractionLatencyTelemetry::IManipulationTelemetryData *, _QWORD, _QWORD, __int64))(*(_QWORD *)TelemetryDataNoRef + 24LL))(
+      (*(void (__fastcall **)(struct IManipulationTelemetryData *, unsigned __int64, _QWORD, __int64))(*(_QWORD *)TelemetryDataNoRef + 24LL))(
         TelemetryDataNoRef,
-        ((unsigned __int64)ActiveManipulation + 72) & ((unsigned __int128)-(__int128)(unsigned __int64)ActiveManipulation >> 64),
-        *(unsigned int *)(*(_QWORD *)(*((_QWORD *)this + 1) + 16LL) + 176LL),
+        ((unsigned __int64)ActiveManipulation + 64) & -(__int64)(ActiveManipulation != 0LL),
+        *(unsigned int *)(*(_QWORD *)(*((_QWORD *)this + 1) + 16LL) + 168LL),
         a2);
     }
   }

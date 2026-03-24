@@ -1,722 +1,774 @@
 /*
- * XREFs of ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C0063D88
+ * XREFs of ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C001CBE4
  * Callers:
- *     DpiProcessOpmVmBusRequest @ 0x1C0065124 (DpiProcessOpmVmBusRequest.c)
- *     DpiPdoHandleOpmIoctls @ 0x1C03A25E8 (DpiPdoHandleOpmIoctls.c)
+ *     DpiPdoHandleOpmIoctls @ 0x1C01728D8 (DpiPdoHandleOpmIoctls.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0015C20 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C00410F4 (McTemplateK0pqtqq_EtwWriteTransfer.c)
- *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x1C00639F0 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
- *     ?DpiOpmLogCreateContext@@YAXJI@Z @ 0x1C0063BE8 (-DpiOpmLogCreateContext@@YAXJI@Z.c)
- *     ?DpiOpmLogSetLevel@@YAXJII@Z @ 0x1C0063CB0 (-DpiOpmLogSetLevel@@YAXJII@Z.c)
- *     McTemplateK0ptpjq_EtwWriteTransfer @ 0x1C0065208 (McTemplateK0ptpjq_EtwWriteTransfer.c)
- *     McTemplateK0ptpjqq_EtwWriteTransfer @ 0x1C00652B8 (McTemplateK0ptpjqq_EtwWriteTransfer.c)
- *     McTemplateK0ptpq_EtwWriteTransfer @ 0x1C0065378 (McTemplateK0ptpq_EtwWriteTransfer.c)
- *     McTemplateK0ptpqq_EtwWriteTransfer @ 0x1C0065410 (McTemplateK0ptpqq_EtwWriteTransfer.c)
- *     McTemplateK0ptpqqq_EtwWriteTransfer @ 0x1C00654B8 (McTemplateK0ptpqqq_EtwWriteTransfer.c)
- *     McTemplateK0ptqppq_EtwWriteTransfer @ 0x1C0065570 (McTemplateK0ptqppq_EtwWriteTransfer.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C0198444 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01988F0 (DpiAcquireCoreSyncAccessSafe.c)
- *     DxgkReleaseAdapterDdiSync @ 0x1C01F59A8 (DxgkReleaseAdapterDdiSync.c)
- *     DxgkAcquireAdapterDdiSync @ 0x1C01F59C8 (DxgkAcquireAdapterDdiSync.c)
- *     DpiMiracastFindRenderAdapterForSession @ 0x1C02067B0 (DpiMiracastFindRenderAdapterForSession.c)
- *     DxgkAcquireAdapterOpmI2CSync @ 0x1C022EB94 (DxgkAcquireAdapterOpmI2CSync.c)
- *     DxgkReleaseAdapterOpmI2CSync @ 0x1C022EC6E (DxgkReleaseAdapterOpmI2CSync.c)
- *     DxgkOpmCreateHandle @ 0x1C02C2904 (DxgkOpmCreateHandle.c)
- *     DxgkOpmTranslateAndDestroyHandle @ 0x1C02C2E58 (DxgkOpmTranslateAndDestroyHandle.c)
- *     DxgkOpmTranslateHandle @ 0x1C02C3050 (DxgkOpmTranslateHandle.c)
- *     DpiPdoVerifyOpmParameters @ 0x1C03A26C0 (DpiPdoVerifyOpmParameters.c)
+ *     _tlgKeywordOn @ 0x1C000C284 (_tlgKeywordOn.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000C8D0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C003A510 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@@Z @ 0x1C003C094 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@U-$_tlgWrapSz@D@@@-$_tlgWriteTe.c)
+ *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x1C0057FF4 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
+ *     ?DpiOpmLogSetLevel@@YAXJII@Z @ 0x1C0058210 (-DpiOpmLogSetLevel@@YAXJII@Z.c)
+ *     McTemplateK0ptpjq_EtwWriteTransfer @ 0x1C005860C (McTemplateK0ptpjq_EtwWriteTransfer.c)
+ *     McTemplateK0ptpjqq_EtwWriteTransfer @ 0x1C00586BC (McTemplateK0ptpjqq_EtwWriteTransfer.c)
+ *     McTemplateK0ptpq_EtwWriteTransfer @ 0x1C005877C (McTemplateK0ptpq_EtwWriteTransfer.c)
+ *     McTemplateK0ptpqq_EtwWriteTransfer @ 0x1C0058814 (McTemplateK0ptpqq_EtwWriteTransfer.c)
+ *     McTemplateK0ptpqqq_EtwWriteTransfer @ 0x1C00588BC (McTemplateK0ptpqqq_EtwWriteTransfer.c)
+ *     McTemplateK0ptqppq_EtwWriteTransfer @ 0x1C0058974 (McTemplateK0ptqppq_EtwWriteTransfer.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C012E130 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C012E3AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     DxgkOpmTranslateAndDestroyHandle @ 0x1C0172774 (DxgkOpmTranslateAndDestroyHandle.c)
+ *     DxgkReleaseAdapterOpmI2CSync @ 0x1C01729AC (DxgkReleaseAdapterOpmI2CSync.c)
+ *     DxgkAcquireAdapterOpmI2CSync @ 0x1C0172A3C (DxgkAcquireAdapterOpmI2CSync.c)
+ *     DpiPdoVerifyOpmParameters @ 0x1C0172A98 (DpiPdoVerifyOpmParameters.c)
+ *     DxgkOpmTranslateHandle @ 0x1C0172B90 (DxgkOpmTranslateHandle.c)
+ *     DxgkOpmCreateHandle @ 0x1C0172D60 (DxgkOpmCreateHandle.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C0174BD0 (DxgkAcquireAdapterDdiSync.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C0174C50 (DxgkReleaseAdapterDdiSync.c)
+ *     DpiMiracastFindRenderAdapterForSession @ 0x1C01750CC (DpiMiracastFindRenderAdapterForSession.c)
  */
 
 __int64 __fastcall DpiPdoHandleOpmIoctlsInternal(
         struct _FDO_CONTEXT *RenderAdapterForSession,
         struct _PDO_CONTEXT *a2,
-        int a3,
+        __int64 a3,
         char *a4,
         unsigned int a5,
-        void **a6,
+        _DWORD *a6,
         unsigned int a7,
         unsigned __int64 *a8)
 {
-  int v9; // ecx
+  _DWORD *v9; // rcx
+  int v11; // r12d
   struct _PDO_CONTEXT *v12; // r15
   __int64 v13; // rsi
-  unsigned int v14; // r12d
-  int v15; // eax
-  int v16; // r13d
-  int v17; // r13d
-  int v18; // r13d
-  int v19; // r13d
-  int v20; // r13d
-  int v21; // r13d
-  int v22; // r13d
-  int v23; // r13d
-  char v24; // r13
-  int v25; // ecx
-  int v26; // r8d
-  void *v27; // r14
-  int v28; // eax
-  void *v29; // rdx
-  unsigned int v30; // r13d
-  int v31; // edx
+  unsigned int v14; // r13d
+  int v15; // r12d
+  int v16; // r12d
+  int v17; // r12d
+  int v18; // r12d
+  int v19; // r12d
+  int v20; // r12d
+  char v21; // r12
+  int v22; // edx
+  int v23; // ecx
+  int v24; // r8d
+  __int64 (__fastcall *v25)(__int64, void *, char *, _DWORD *); // rax
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  _QWORD *v30; // rax
+  char v31; // r12
   int v32; // ecx
   int v33; // r8d
-  __int64 (__fastcall *v34)(__int64, void **, char *, _QWORD, char *); // rax
-  __int64 v35; // rcx
-  __int64 v36; // rax
-  char v37; // r13
-  int v38; // edx
+  void *v34; // r14
+  int v35; // eax
+  unsigned int v36; // r12d
+  unsigned int v38; // r14d
   int v39; // ecx
   int v40; // r8d
-  int v41; // eax
-  __int64 (__fastcall *v42)(__int64, void *, char *, void **); // rax
-  __int64 v43; // rcx
-  __int64 v44; // rdx
-  char v45; // r13
-  int v46; // edx
-  int v47; // ecx
-  int v48; // r8d
-  __int64 (__fastcall *v49)(__int64, void *, char *, void **); // rax
-  __int64 v50; // rcx
-  __int64 v51; // rax
-  void *v52; // rdx
-  __int64 v53; // rax
-  __int64 v54; // rax
-  int v55; // eax
-  unsigned int v56; // r13d
-  char v57; // r13
-  int v58; // ecx
-  int v59; // r8d
-  void *v60; // r14
-  int v61; // eax
-  char v62; // r13
+  char v41; // r12
+  int v42; // ecx
+  int v43; // r8d
+  int v44; // eax
+  _QWORD *v45; // rax
+  int v46; // r12d
+  int v47; // r12d
+  void *v48; // r14
+  int v49; // eax
+  char v50; // r12
+  int v51; // edx
+  int v52; // ecx
+  int v53; // r8d
+  enum _DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS v54; // r14d
+  unsigned int v55; // r14d
+  int v56; // ecx
+  int v57; // r8d
+  _QWORD *v58; // rax
+  int v59; // eax
+  __int64 v60; // rax
+  void *v61; // rdx
+  char v62; // r12
   int v63; // edx
   int v64; // ecx
   int v65; // r8d
-  unsigned int v66; // ecx
-  unsigned int v68; // r14d
-  __int64 v69; // rcx
-  __int64 v70; // r8
-  unsigned int v71; // r14d
-  __int64 v72; // rcx
-  __int64 v73; // r8
-  PLARGE_INTEGER Timeout; // [rsp+20h] [rbp-C1h]
-  PLARGE_INTEGER Timeouta; // [rsp+20h] [rbp-C1h]
-  void **v76; // [rsp+28h] [rbp-B9h]
-  void **v77; // [rsp+28h] [rbp-B9h]
-  __int64 v78; // [rsp+30h] [rbp-B1h]
-  __int64 v79; // [rsp+30h] [rbp-B1h]
-  int v80; // [rsp+50h] [rbp-91h]
-  int v81; // [rsp+54h] [rbp-8Dh]
-  unsigned int v82; // [rsp+54h] [rbp-8Dh]
-  unsigned int v83; // [rsp+54h] [rbp-8Dh]
-  unsigned int v84; // [rsp+54h] [rbp-8Dh]
-  void **v85; // [rsp+58h] [rbp-89h] BYREF
-  void *v86; // [rsp+60h] [rbp-81h] BYREF
-  unsigned int v87; // [rsp+68h] [rbp-79h]
-  int v88; // [rsp+6Ch] [rbp-75h]
-  void *v89; // [rsp+70h] [rbp-71h] BYREF
-  struct _FDO_CONTEXT *v90; // [rsp+78h] [rbp-69h] BYREF
-  void *v91; // [rsp+80h] [rbp-61h] BYREF
-  void *v92; // [rsp+88h] [rbp-59h] BYREF
-  void *v93; // [rsp+90h] [rbp-51h] BYREF
-  void **v94; // [rsp+98h] [rbp-49h]
-  unsigned __int64 *v95; // [rsp+A0h] [rbp-41h]
-  __int128 v96; // [rsp+A8h] [rbp-39h] BYREF
-  __int128 v97; // [rsp+B8h] [rbp-29h] BYREF
-  __int128 v98; // [rsp+C8h] [rbp-19h] BYREF
+  int v66; // eax
+  __int64 (__fastcall *v67)(__int64, void *, char *, _QWORD, char *); // rax
+  __int64 v68; // rcx
+  __int64 v69; // rax
+  _QWORD *v70; // rax
+  char v71; // r12
+  int v72; // edx
+  int v73; // ecx
+  int v74; // r8d
+  int v75; // eax
+  __int64 (__fastcall *v76)(__int64, void *, char *, _DWORD *); // rax
+  __int64 v77; // rcx
+  void *v78; // rdx
+  _QWORD *v79; // rax
+  __int64 v80; // rax
+  __int64 CurrentProcess; // rax
+  __int64 ProcessImageFileName; // rax
+  int v83; // ecx
+  int v84; // r8d
+  int v85; // [rsp+50h] [rbp-B0h]
+  int v86; // [rsp+54h] [rbp-ACh]
+  unsigned int v87; // [rsp+54h] [rbp-ACh]
+  unsigned int v89; // [rsp+58h] [rbp-A8h]
+  unsigned int v90; // [rsp+58h] [rbp-A8h]
+  unsigned int v91; // [rsp+58h] [rbp-A8h]
+  void *v92; // [rsp+68h] [rbp-98h] BYREF
+  int v93; // [rsp+70h] [rbp-90h]
+  void *v94; // [rsp+78h] [rbp-88h] BYREF
+  int v95; // [rsp+80h] [rbp-80h] BYREF
+  enum _DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS v96; // [rsp+84h] [rbp-7Ch] BYREF
+  void *v97; // [rsp+88h] [rbp-78h] BYREF
+  void *v98; // [rsp+90h] [rbp-70h] BYREF
+  void *v99; // [rsp+98h] [rbp-68h] BYREF
+  void *v100; // [rsp+A0h] [rbp-60h] BYREF
+  void *v101; // [rsp+A8h] [rbp-58h] BYREF
+  _QWORD *v102; // [rsp+B0h] [rbp-50h]
+  struct _FDO_CONTEXT *v103; // [rsp+B8h] [rbp-48h]
+  __int64 v104; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v105; // [rsp+C8h] [rbp-38h] BYREF
+  __int64 v106; // [rsp+D0h] [rbp-30h] BYREF
+  unsigned __int64 *v107; // [rsp+D8h] [rbp-28h]
+  __int128 v108; // [rsp+E0h] [rbp-20h] BYREF
+  __int128 v109; // [rsp+F0h] [rbp-10h] BYREF
+  __int128 v110; // [rsp+100h] [rbp+0h] BYREF
 
-  v95 = a8;
-  v9 = (int)a6;
-  v85 = a6;
+  v107 = a8;
+  v9 = a6;
+  v11 = a3;
   *a8 = 0LL;
   v12 = a2;
   LODWORD(v13) = -1073741637;
   v14 = 0;
-  v88 = 0;
-  v81 = 1;
-  v91 = a2;
-  v90 = RenderAdapterForSession;
-  if ( *((_BYTE *)RenderAdapterForSession + 1159) )
+  v93 = 0;
+  v86 = 1;
+  v103 = RenderAdapterForSession;
+  if ( *((_BYTE *)RenderAdapterForSession + 1158) )
   {
-    v15 = *((_DWORD *)RenderAdapterForSession + 291);
-    if ( v15 == 2 )
+    v59 = *((_DWORD *)RenderAdapterForSession + 291);
+    if ( v59 == 2 )
     {
       v12 = 0LL;
       AcquireMiniportListMutex();
       RenderAdapterForSession = (struct _FDO_CONTEXT *)DpiMiracastFindRenderAdapterForSession();
       if ( !RenderAdapterForSession )
       {
-LABEL_130:
-        _InterlockedExchange64(&qword_1C01404D8, 0LL);
+LABEL_170:
+        _InterlockedExchange64(&qword_1C00B2B50, 0LL);
         KeReleaseMutex(Mutex, 0);
         return (unsigned int)v13;
       }
       KeEnterCriticalRegion();
       if ( *((_BYTE *)RenderAdapterForSession + 484) )
-        DpiCheckForOutstandingD3Requests((__int64)RenderAdapterForSession);
+        DpiCheckForOutstandingD3Requests(RenderAdapterForSession);
       ExAcquireResourceSharedLite(*((PERESOURCE *)RenderAdapterForSession + 21), 1u);
       v14 = 1;
-      if ( a3 == 2303115 )
+      if ( v11 == 2303115 )
       {
-        v88 = 1;
+        v93 = 1;
       }
       else
       {
-        _InterlockedExchange64(&qword_1C01404D8, 0LL);
+        _InterlockedExchange64(&qword_1C00B2B50, 0LL);
         KeReleaseMutex(Mutex, 0);
       }
-      v9 = (int)v85;
+      v9 = a6;
     }
     else
     {
-      if ( v15 != 1 )
+      if ( v59 != 1 )
       {
-        WdLogSingleEntry1(2LL, -1073741637LL);
+        v60 = WdLogNewEntry5_WdError(a6, a2);
+        *(_QWORD *)(v60 + 24) = -1073741637LL;
+        WdLogEvent5_WdError(v60);
         return (unsigned int)v13;
       }
-      v81 = 0;
+      v86 = 0;
     }
   }
-  if ( *((_QWORD *)RenderAdapterForSession + 384) )
+  if ( *((_QWORD *)RenderAdapterForSession + 382) )
   {
-    v16 = a3 - 2303107;
-    if ( !v16 )
+    v15 = v11 - 2303107;
+    if ( v15 )
     {
-      v80 = 4;
-      LODWORD(v13) = DpiPdoVerifyOpmParameters(2303107, (_DWORD)a4, a5, v9, a7, 4, 4);
-      if ( (int)v13 < 0 )
-        goto LABEL_125;
-      v71 = *(_DWORD *)a4;
-      LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-      if ( (int)v13 < 0 )
-        goto LABEL_125;
-      DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-      if ( v12 )
-        KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
-      DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489), 1LL);
-      v13 = (*((int (__fastcall **)(_QWORD, _QWORD, void **))RenderAdapterForSession + 384))(
-              *((_QWORD *)RenderAdapterForSession + 6),
-              v71,
-              v85);
-      DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489));
-      if ( v12 )
-        KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
-      DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-      DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+      v16 = v15 - 4;
+      if ( !v16 )
       {
-        LODWORD(v79) = *(_DWORD *)v85;
-        LODWORD(v77) = v71;
-        LODWORD(Timeouta) = v14;
-        McTemplateK0pqtqq_EtwWriteTransfer(
-          v72,
-          &EventOpmGetCertificateSize,
-          v73,
-          *((_QWORD *)RenderAdapterForSession + 6),
-          Timeouta,
-          v77,
-          v79,
-          v13);
-      }
-      v44 = v13;
-      goto LABEL_163;
-    }
-    v17 = v16 - 4;
-    if ( !v17 )
-    {
-      LODWORD(v13) = DpiPdoVerifyOpmParameters(2303111, (_DWORD)a4, a5, v9, a7, 4, a7);
-      if ( (int)v13 < 0 )
-        goto LABEL_125;
-      v68 = *(_DWORD *)a4;
-      LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-      if ( (int)v13 < 0 )
-        goto LABEL_125;
-      DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-      if ( v12 )
-        KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
-      DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489), 1LL);
-      v56 = a7;
-      v13 = (*((int (__fastcall **)(_QWORD, _QWORD, _QWORD, void **))RenderAdapterForSession + 385))(
-              *((_QWORD *)RenderAdapterForSession + 6),
-              v68,
-              a7,
-              v85);
-      DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489));
-      if ( v12 )
-        KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
-      DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-      DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-      {
-        LODWORD(v78) = a7;
-        LODWORD(v76) = v68;
-        LODWORD(Timeout) = v14;
-        McTemplateK0pqtqq_EtwWriteTransfer(
-          v69,
-          &EventOpmGetCertificate,
-          v70,
-          *((_QWORD *)RenderAdapterForSession + 6),
-          Timeout,
-          v76,
-          v78,
-          v13);
-      }
-      WdLogSingleEntry4(4LL, v13, *((_QWORD *)RenderAdapterForSession + 6), v14, 0LL);
-LABEL_165:
-      if ( (int)v13 >= 0 )
-      {
-        *v95 = v56;
-        goto LABEL_126;
-      }
-      goto LABEL_125;
-    }
-    v18 = v17 - 4;
-    if ( v18 )
-    {
-      v19 = v18 - 4;
-      if ( v19 )
-      {
-        v20 = v19 - 4;
-        if ( !v20 )
-        {
-          v24 = 0;
-          v91 = 0LL;
-          LODWORD(v13) = DpiPdoVerifyOpmParameters(2303123, (_DWORD)a4, a5, v9, a7, 264, 0);
-          if ( (int)v13 >= 0 )
-          {
-            LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-            if ( (int)v13 < 0 )
-              goto LABEL_125;
-            DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-            if ( v12 )
-              KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
-            DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489), 1LL);
-            v55 = DxgkOpmTranslateHandle(*((DXGADAPTER **)RenderAdapterForSession + 489), *(void **)a4, &v91);
-            v24 = (char)v91;
-            LODWORD(v13) = v55;
-            if ( v55 >= 0 )
-              LODWORD(v13) = (*((__int64 (__fastcall **)(_QWORD, void *, char *))RenderAdapterForSession + 388))(
-                               *((_QWORD *)RenderAdapterForSession + 6),
-                               v91,
-                               a4 + 8);
-            DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489));
-            if ( v12 )
-              KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
-            DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-            DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-          }
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-          {
-            v29 = &EventOPMSetSigningKeyAndSequenceNumbers;
-            goto LABEL_107;
-          }
-LABEL_108:
-          WdLogSingleEntry4(4LL, (int)v13, *((_QWORD *)RenderAdapterForSession + 6), v14, 0LL);
-LABEL_109:
-          v56 = 0;
-          goto LABEL_165;
-        }
-        v21 = v20 - 4;
-        if ( v21 )
-        {
-          v22 = v21 - 4;
-          if ( v22 )
-          {
-            v23 = v22 - 4;
-            if ( v23 )
-            {
-              if ( v23 == 4 )
-              {
-                v24 = 0;
-                v90 = 0LL;
-                LODWORD(v13) = DpiPdoVerifyOpmParameters(2303139, (_DWORD)a4, a5, v9, a7, 8, 0);
-                if ( (int)v13 < 0 )
-                  goto LABEL_29;
-                v27 = *(void **)a4;
-                LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-                if ( (int)v13 >= 0 )
-                {
-                  DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-                  if ( v12 )
-                    KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
-                  DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489), 1LL);
-                  v28 = DxgkOpmTranslateAndDestroyHandle(
-                          *((DXGADAPTER **)RenderAdapterForSession + 489),
-                          v27,
-                          (void **)&v90);
-                  v24 = (char)v90;
-                  LODWORD(v13) = v28;
-                  if ( v28 >= 0 )
-                    LODWORD(v13) = (*((__int64 (__fastcall **)(_QWORD, struct _FDO_CONTEXT *))RenderAdapterForSession
-                                    + 392))(
-                                     *((_QWORD *)RenderAdapterForSession + 6),
-                                     v90);
-                  DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489));
-                  if ( v12 )
-                    KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
-                  DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-                  DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-LABEL_29:
-                  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-                  {
-                    v29 = &EventOPMDestroyProtectedOutput;
-LABEL_107:
-                    McTemplateK0ptpq_EtwWriteTransfer(
-                      v25,
-                      (_DWORD)v29,
-                      v26,
-                      *((_QWORD *)RenderAdapterForSession + 6),
-                      v14,
-                      v24,
-                      v13);
-                    goto LABEL_108;
-                  }
-                  goto LABEL_108;
-                }
-              }
-LABEL_125:
-              WdLogSingleEntry1(3LL, (int)v13);
-              goto LABEL_126;
-            }
-            v96 = 0LL;
-            v30 = -1;
-            v85 = 0LL;
-            LOBYTE(v82) = 0;
-            LODWORD(v13) = DpiPdoVerifyOpmParameters(2303135, (_DWORD)a4, a5, v9, a7, 4112, 0);
-            if ( (int)v13 >= 0 )
-            {
-              v82 = *((_DWORD *)a4 + 1026);
-              LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-              if ( (int)v13 < 0 )
-                goto LABEL_125;
-              v30 = *((_DWORD *)a4 + 6);
-              DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-              if ( v12 )
-                KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
-              DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489), 1LL);
-              LODWORD(v13) = DxgkOpmTranslateHandle(
-                               *((DXGADAPTER **)RenderAdapterForSession + 489),
-                               *(void **)a4,
-                               (void **)&v85);
-              if ( (int)v13 >= 0 )
-              {
-                v34 = (__int64 (__fastcall *)(__int64, void **, char *, _QWORD, char *))*((_QWORD *)RenderAdapterForSession
-                                                                                        + 391);
-                v35 = *((_QWORD *)RenderAdapterForSession + 6);
-                v96 = *(_OWORD *)(a4 + 24);
-                LODWORD(v13) = v34(v35, v85, a4 + 8, v82, a4 + 4108);
-              }
-              DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489));
-              if ( v12 )
-                KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
-              DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-              DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-              v36 = *((_QWORD *)a4 + 3) - *(_QWORD *)&DXGKMDT_OPM_SET_PROTECTION_LEVEL.Data1;
-              if ( !v36 )
-                v36 = *((_QWORD *)a4 + 4) - *(_QWORD *)DXGKMDT_OPM_SET_PROTECTION_LEVEL.Data4;
-              if ( !v36 && *((_DWORD *)a4 + 11) >= 0x10u )
-              {
-                if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-                  McTemplateK0ptpqqq_EtwWriteTransfer(
-                    v32,
-                    (unsigned int)&EventOPMSetProtectionLevel,
-                    v33,
-                    *((_QWORD *)RenderAdapterForSession + 6),
-                    v14,
-                    (char)v85,
-                    *((_DWORD *)a4 + 12),
-                    *((_DWORD *)a4 + 13),
-                    v13);
-                WdLogSingleEntry4(
-                  4LL,
-                  (int)v13,
-                  *((_QWORD *)RenderAdapterForSession + 6),
-                  v14,
-                  *((unsigned int *)a4 + 12));
-                DpiOpmLogSetLevel(v13, *((_DWORD *)a4 + 12), *((_DWORD *)a4 + 13));
-              }
-            }
-            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-              McTemplateK0ptpjqq_EtwWriteTransfer(
-                v32,
-                v31,
-                v33,
-                *((_QWORD *)RenderAdapterForSession + 6),
-                v14,
-                (char)v85,
-                (__int64)&v96,
-                v82,
-                v13);
-            WdLogSingleEntry4(4LL, (int)v13, *((_QWORD *)RenderAdapterForSession + 6), v14, v30);
-            goto LABEL_109;
-          }
-          v80 = 4096;
-          v37 = 0;
-          v92 = 0LL;
-          v97 = 0LL;
-          LODWORD(v13) = DpiPdoVerifyOpmParameters(2303131, (_DWORD)a4, a5, v9, a7, 4104, 4096);
-          if ( (int)v13 >= 0 )
-          {
-            LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-            if ( (int)v13 < 0 )
-              goto LABEL_125;
-            DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-            if ( v12 )
-              KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
-            DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489), 1LL);
-            v41 = DxgkOpmTranslateHandle(*((DXGADAPTER **)RenderAdapterForSession + 489), *(void **)a4, &v92);
-            v37 = (char)v92;
-            LODWORD(v13) = v41;
-            if ( v41 >= 0 )
-            {
-              v42 = (__int64 (__fastcall *)(__int64, void *, char *, void **))*((_QWORD *)RenderAdapterForSession + 390);
-              v43 = *((_QWORD *)RenderAdapterForSession + 6);
-              v97 = *(_OWORD *)(a4 + 24);
-              LODWORD(v13) = v42(v43, v92, a4 + 8, v85);
-            }
-            DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489));
-            if ( v12 )
-              KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
-            DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-            DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-          }
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-            McTemplateK0ptpjq_EtwWriteTransfer(
-              v39,
-              v38,
-              v40,
-              *((_QWORD *)RenderAdapterForSession + 6),
-              v14,
-              v37,
-              (__int64)&v97,
-              v13);
-          goto LABEL_63;
-        }
-        v83 = -1;
-        v80 = 4096;
-        v45 = 0;
-        v86 = 0LL;
-        v98 = 0LL;
-        LODWORD(v13) = DpiPdoVerifyOpmParameters(2303127, (_DWORD)a4, a5, v9, a7, 4120, 4096);
-        if ( (int)v13 >= 0 )
-        {
-          LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-          if ( (int)v13 < 0 )
-            goto LABEL_125;
-          v83 = *((_DWORD *)a4 + 10);
-          DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-          if ( v12 )
-            KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
-          DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489), 1LL);
-          LODWORD(v13) = DxgkOpmTranslateHandle(*((DXGADAPTER **)RenderAdapterForSession + 489), *(void **)a4, &v86);
-          if ( (int)v13 >= 0 )
-          {
-            v49 = (__int64 (__fastcall *)(__int64, void *, char *, void **))*((_QWORD *)RenderAdapterForSession + 389);
-            v50 = *((_QWORD *)RenderAdapterForSession + 6);
-            v98 = *(_OWORD *)(a4 + 40);
-            LODWORD(v13) = v49(v50, v86, a4 + 8, v85);
-          }
-          DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489));
-          if ( v12 )
-            KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
-          DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-          DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-          v51 = *((_QWORD *)a4 + 5) - *(_QWORD *)&DXGKMDT_OPM_GET_CONNECTOR_TYPE.Data1;
-          if ( !v51 )
-            v51 = *((_QWORD *)a4 + 6) - *(_QWORD *)DXGKMDT_OPM_GET_CONNECTOR_TYPE.Data4;
-          if ( !v51 && *((_DWORD *)v85 + 4) >= 0x20u )
-          {
-            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) == 0 )
-            {
-LABEL_95:
-              WdLogSingleEntry4(4LL, (int)v13, *((_QWORD *)RenderAdapterForSession + 6), v14, v83);
-LABEL_164:
-              v56 = v80;
-              goto LABEL_165;
-            }
-            v52 = &EventOPMGetConnectorType;
-LABEL_78:
-            McTemplateK0ptpqq_EtwWriteTransfer(
-              v47,
-              (_DWORD)v52,
-              v48,
-              *((_QWORD *)RenderAdapterForSession + 6),
-              v14,
-              (char)v86,
-              *((_DWORD *)v85 + 10),
-              v13);
-            goto LABEL_95;
-          }
-          v53 = *((_QWORD *)a4 + 5) - *(_QWORD *)&DXGKMDT_OPM_GET_SUPPORTED_PROTECTION_TYPES.Data1;
-          if ( !v53 )
-            v53 = *((_QWORD *)a4 + 6) - *(_QWORD *)DXGKMDT_OPM_GET_SUPPORTED_PROTECTION_TYPES.Data4;
-          if ( !v53 && *((_DWORD *)v85 + 4) >= 0x20u )
-          {
-            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) == 0 )
-              goto LABEL_95;
-            v52 = &EventOPMGetSupportedProtectionTypes;
-            goto LABEL_78;
-          }
-          v54 = *((_QWORD *)a4 + 5) - *(_QWORD *)&DXGKMDT_OPM_GET_ACTUAL_PROTECTION_LEVEL.Data1;
-          if ( !v54 )
-            v54 = *((_QWORD *)a4 + 6) - *(_QWORD *)DXGKMDT_OPM_GET_ACTUAL_PROTECTION_LEVEL.Data4;
-          if ( !v54 && *((_DWORD *)a4 + 15) >= 4u && *((_DWORD *)v85 + 4) >= 0x20u )
-          {
-            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-              McTemplateK0ptpqqq_EtwWriteTransfer(
-                v47,
-                (unsigned int)&EventOPMGetActualProtectionLevel,
-                v48,
-                *((_QWORD *)RenderAdapterForSession + 6),
-                v14,
-                (char)v86,
-                *((_DWORD *)a4 + 16),
-                *((_DWORD *)v85 + 10),
-                v13);
-            goto LABEL_95;
-          }
-          v45 = (char)v86;
-        }
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-          McTemplateK0ptpjq_EtwWriteTransfer(
-            v47,
-            v46,
-            v48,
-            *((_QWORD *)RenderAdapterForSession + 6),
-            v14,
-            v45,
-            (__int64)&v98,
-            v13);
-        goto LABEL_95;
-      }
-      v57 = 0;
-      v93 = 0LL;
-      v80 = 16;
-      LODWORD(v13) = DpiPdoVerifyOpmParameters(2303119, (_DWORD)a4, a5, v9, a7, 8, 16);
-      if ( (int)v13 >= 0 )
-      {
-        v60 = *(void **)a4;
+        LODWORD(v13) = DpiPdoVerifyOpmParameters(2303111, (_DWORD)a4, a5, (_DWORD)v9, a7, 4, a7);
+        if ( (int)v13 < 0 )
+          goto LABEL_162;
+        v55 = *(_DWORD *)a4;
         LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
         if ( (int)v13 < 0 )
-          goto LABEL_125;
-        DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
+          goto LABEL_162;
+        DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
         if ( v12 )
           KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
-        DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489), 1LL);
-        v61 = DxgkOpmTranslateHandle(*((DXGADAPTER **)RenderAdapterForSession + 489), v60, &v93);
-        v57 = (char)v93;
-        LODWORD(v13) = v61;
-        if ( v61 >= 0 )
-          LODWORD(v13) = (*((__int64 (__fastcall **)(_QWORD, void *, void **))RenderAdapterForSession + 387))(
-                           *((_QWORD *)RenderAdapterForSession + 6),
-                           v93,
-                           v85);
-        DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489));
+        DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487), 1LL);
+        v36 = a7;
+        v13 = (*((int (__fastcall **)(_QWORD, _QWORD, _QWORD, _DWORD *))RenderAdapterForSession + 383))(
+                *((_QWORD *)RenderAdapterForSession + 6),
+                v55,
+                a7,
+                a6);
+        DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487));
         if ( v12 )
           KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
-        DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
+        DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
         DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0pqtqq_EtwWriteTransfer(
+            v56,
+            (unsigned int)&EventOpmGetCertificate,
+            v57,
+            *((_QWORD *)RenderAdapterForSession + 6),
+            v14,
+            v55,
+            a7,
+            v13);
+        v58 = (_QWORD *)WdLogNewEntry5_WdEvent();
+        v58[3] = v13;
+        v58[4] = *((_QWORD *)RenderAdapterForSession + 6);
+        v58[5] = v14;
+        v58[6] = 0LL;
+        WdLogEvent5_WdEvent(v58);
+        goto LABEL_44;
       }
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-        McTemplateK0ptpq_EtwWriteTransfer(
-          v58,
-          (unsigned int)&EventOPMGetRandomNumber,
-          v59,
-          *((_QWORD *)RenderAdapterForSession + 6),
-          v14,
-          v57,
-          v13);
-    }
-    else
-    {
-      v62 = -1;
-      v89 = 0LL;
-      v94 = 0LL;
-      v80 = 8;
-      LODWORD(v13) = DpiPdoVerifyOpmParameters(2303115, (_DWORD)a4, a5, v9, a7, 4, 8);
-      if ( (int)v13 >= 0 )
+      v17 = v16 - 4;
+      if ( v17 )
       {
-        v66 = *(_DWORD *)a4;
-        v87 = *(_DWORD *)a4;
-        if ( v81 && v66 == 2 )
+        v18 = v17 - 4;
+        if ( v18 )
         {
-          LODWORD(v13) = -1073741198;
-          WdLogSingleEntry4(4LL, -1073741198LL, *((_QWORD *)RenderAdapterForSession + 6), v14, 0LL);
-          goto LABEL_125;
-        }
-        v94 = v85;
-        if ( v14 )
-        {
-          v84 = *((_DWORD *)v91 + 126);
-          LODWORD(v13) = CreateProtectedOutputIndirectDisplay(RenderAdapterForSession, v90, v66, v84, v85, &v89);
+          v19 = v18 - 4;
+          if ( !v19 )
+          {
+            v41 = 0;
+            v101 = 0LL;
+            LODWORD(v13) = DpiPdoVerifyOpmParameters(2303123, (_DWORD)a4, a5, (_DWORD)v9, a7, 264, 0);
+            if ( (int)v13 >= 0 )
+            {
+              LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+              if ( (int)v13 < 0 )
+                goto LABEL_162;
+              DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+              if ( v12 )
+                KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
+              DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487), 1LL);
+              v44 = DxgkOpmTranslateHandle(*((DXGADAPTER **)RenderAdapterForSession + 487), *(void **)a4, &v101);
+              v41 = (char)v101;
+              LODWORD(v13) = v44;
+              if ( v44 >= 0 )
+                LODWORD(v13) = (*((__int64 (__fastcall **)(_QWORD, void *, char *))RenderAdapterForSession + 386))(
+                                 *((_QWORD *)RenderAdapterForSession + 6),
+                                 v101,
+                                 a4 + 8);
+              DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487));
+              if ( v12 )
+                KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
+              DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+              DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+            }
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+              goto LABEL_67;
+            v61 = &EventOPMSetSigningKeyAndSequenceNumbers;
+            goto LABEL_159;
+          }
+          v20 = v19 - 4;
+          if ( !v20 )
+          {
+            v89 = -1;
+            v85 = 4096;
+            v21 = 0;
+            v92 = 0LL;
+            v110 = 0LL;
+            LODWORD(v13) = DpiPdoVerifyOpmParameters(2303127, (_DWORD)a4, a5, (_DWORD)v9, a7, 4120, 4096);
+            if ( (int)v13 >= 0 )
+            {
+              LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+              if ( (int)v13 < 0 )
+                goto LABEL_162;
+              v89 = *((_DWORD *)a4 + 10);
+              DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+              if ( v12 )
+                KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
+              DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487), 1LL);
+              LODWORD(v13) = DxgkOpmTranslateHandle(*((DXGADAPTER **)RenderAdapterForSession + 487), *(void **)a4, &v92);
+              if ( (int)v13 >= 0 )
+              {
+                v25 = (__int64 (__fastcall *)(__int64, void *, char *, _DWORD *))*((_QWORD *)RenderAdapterForSession
+                                                                                 + 387);
+                v26 = *((_QWORD *)RenderAdapterForSession + 6);
+                v110 = *(_OWORD *)(a4 + 40);
+                LODWORD(v13) = v25(v26, v92, a4 + 8, a6);
+              }
+              DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487));
+              if ( v12 )
+                KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
+              DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+              DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+              v27 = *((_QWORD *)a4 + 5) - *(_QWORD *)&DXGKMDT_OPM_GET_CONNECTOR_TYPE.Data1;
+              if ( !v27 )
+                v27 = *((_QWORD *)a4 + 6) - *(_QWORD *)DXGKMDT_OPM_GET_CONNECTOR_TYPE.Data4;
+              if ( !v27 && a6[4] >= 0x20u )
+              {
+                if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+                {
+                  v78 = &EventOPMGetConnectorType;
+LABEL_153:
+                  McTemplateK0ptpqq_EtwWriteTransfer(
+                    v23,
+                    (_DWORD)v78,
+                    v24,
+                    *((_QWORD *)RenderAdapterForSession + 6),
+                    v14,
+                    (char)v92,
+                    a6[10],
+                    v13);
+                  goto LABEL_29;
+                }
+                goto LABEL_29;
+              }
+              v28 = *((_QWORD *)a4 + 5) - *(_QWORD *)&DXGKMDT_OPM_GET_SUPPORTED_PROTECTION_TYPES.Data1;
+              if ( !v28 )
+                v28 = *((_QWORD *)a4 + 6) - *(_QWORD *)DXGKMDT_OPM_GET_SUPPORTED_PROTECTION_TYPES.Data4;
+              if ( !v28 && a6[4] >= 0x20u )
+              {
+                if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+                {
+                  v78 = &EventOPMGetSupportedProtectionTypes;
+                  goto LABEL_153;
+                }
+LABEL_29:
+                v30 = (_QWORD *)WdLogNewEntry5_WdEvent();
+                v30[3] = (int)v13;
+                v30[4] = *((_QWORD *)RenderAdapterForSession + 6);
+                v30[5] = v14;
+                v30[6] = v89;
+LABEL_43:
+                WdLogEvent5_WdEvent(v30);
+                v36 = v85;
+                goto LABEL_44;
+              }
+              v29 = *((_QWORD *)a4 + 5) - *(_QWORD *)&DXGKMDT_OPM_GET_ACTUAL_PROTECTION_LEVEL.Data1;
+              if ( !v29 )
+                v29 = *((_QWORD *)a4 + 6) - *(_QWORD *)DXGKMDT_OPM_GET_ACTUAL_PROTECTION_LEVEL.Data4;
+              if ( !v29 && *((_DWORD *)a4 + 15) >= 4u && a6[4] >= 0x20u )
+              {
+                if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+                  McTemplateK0ptpqqq_EtwWriteTransfer(
+                    v23,
+                    (unsigned int)&EventOPMGetActualProtectionLevel,
+                    v24,
+                    *((_QWORD *)RenderAdapterForSession + 6),
+                    v14,
+                    (char)v92,
+                    *((_DWORD *)a4 + 16),
+                    a6[10],
+                    v13);
+                goto LABEL_29;
+              }
+              v21 = (char)v92;
+            }
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+              McTemplateK0ptpjq_EtwWriteTransfer(
+                v23,
+                v22,
+                v24,
+                *((_QWORD *)RenderAdapterForSession + 6),
+                v14,
+                v21,
+                (__int64)&v110,
+                v13);
+            goto LABEL_29;
+          }
+          v46 = v20 - 4;
+          if ( v46 )
+          {
+            v47 = v46 - 4;
+            if ( !v47 )
+            {
+              v91 = -1;
+              v62 = 0;
+              v108 = 0LL;
+              v100 = 0LL;
+              LOBYTE(v87) = 0;
+              LODWORD(v13) = DpiPdoVerifyOpmParameters(2303135, (_DWORD)a4, a5, (_DWORD)v9, a7, 4112, 0);
+              if ( (int)v13 >= 0 )
+              {
+                v87 = *((_DWORD *)a4 + 1026);
+                LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+                if ( (int)v13 < 0 )
+                  goto LABEL_162;
+                v91 = *((_DWORD *)a4 + 6);
+                DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+                if ( v12 )
+                  KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
+                DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487), 1LL);
+                v66 = DxgkOpmTranslateHandle(*((DXGADAPTER **)RenderAdapterForSession + 487), *(void **)a4, &v100);
+                v62 = (char)v100;
+                LODWORD(v13) = v66;
+                if ( v66 >= 0 )
+                {
+                  v67 = (__int64 (__fastcall *)(__int64, void *, char *, _QWORD, char *))*((_QWORD *)RenderAdapterForSession
+                                                                                         + 389);
+                  v68 = *((_QWORD *)RenderAdapterForSession + 6);
+                  v108 = *(_OWORD *)(a4 + 24);
+                  LODWORD(v13) = v67(v68, v100, a4 + 8, v87, a4 + 4108);
+                }
+                DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487));
+                if ( v12 )
+                  KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
+                DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+                DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+                v69 = *((_QWORD *)a4 + 3) - *(_QWORD *)&DXGKMDT_OPM_SET_PROTECTION_LEVEL.Data1;
+                if ( !v69 )
+                  v69 = *((_QWORD *)a4 + 4) - *(_QWORD *)DXGKMDT_OPM_SET_PROTECTION_LEVEL.Data4;
+                if ( !v69 && *((_DWORD *)a4 + 11) >= 0x10u )
+                {
+                  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+                    McTemplateK0ptpqqq_EtwWriteTransfer(
+                      v64,
+                      (unsigned int)&EventOPMSetProtectionLevel,
+                      v65,
+                      *((_QWORD *)RenderAdapterForSession + 6),
+                      v14,
+                      v62,
+                      *((_DWORD *)a4 + 12),
+                      *((_DWORD *)a4 + 13),
+                      v13);
+                  v70 = (_QWORD *)WdLogNewEntry5_WdEvent();
+                  v70[3] = (int)v13;
+                  v70[4] = *((_QWORD *)RenderAdapterForSession + 6);
+                  v70[5] = v14;
+                  v70[6] = *((unsigned int *)a4 + 12);
+                  WdLogEvent5_WdEvent(v70);
+                  DpiOpmLogSetLevel(v13, *((_DWORD *)a4 + 12), *((_DWORD *)a4 + 13));
+                }
+              }
+              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+                McTemplateK0ptpjqq_EtwWriteTransfer(
+                  v64,
+                  v63,
+                  v65,
+                  *((_QWORD *)RenderAdapterForSession + 6),
+                  v14,
+                  v62,
+                  (__int64)&v108,
+                  v87,
+                  v13);
+              v45 = (_QWORD *)WdLogNewEntry5_WdEvent();
+              v45[3] = (int)v13;
+              v45[4] = *((_QWORD *)RenderAdapterForSession + 6);
+              v45[5] = v14;
+              v45[6] = v91;
+              goto LABEL_68;
+            }
+            if ( v47 != 4 )
+              goto LABEL_162;
+            v41 = 0;
+            v99 = 0LL;
+            LODWORD(v13) = DpiPdoVerifyOpmParameters(2303139, (_DWORD)a4, a5, (_DWORD)v9, a7, 8, 0);
+            if ( (int)v13 >= 0 )
+            {
+              v48 = *(void **)a4;
+              LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+              if ( (int)v13 < 0 )
+                goto LABEL_162;
+              DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+              if ( v12 )
+                KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
+              DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487), 1LL);
+              v49 = DxgkOpmTranslateAndDestroyHandle(*((DXGADAPTER **)RenderAdapterForSession + 487), v48, &v99);
+              v41 = (char)v99;
+              LODWORD(v13) = v49;
+              if ( v49 >= 0 )
+                LODWORD(v13) = (*((__int64 (__fastcall **)(_QWORD, void *))RenderAdapterForSession + 390))(
+                                 *((_QWORD *)RenderAdapterForSession + 6),
+                                 v99);
+              DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487));
+              if ( v12 )
+                KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
+              DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+              DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+            }
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+            {
+LABEL_67:
+              v45 = (_QWORD *)WdLogNewEntry5_WdEvent();
+              v45[3] = (int)v13;
+              v45[4] = *((_QWORD *)RenderAdapterForSession + 6);
+              v45[5] = v14;
+              v45[6] = 0LL;
+LABEL_68:
+              WdLogEvent5_WdEvent(v45);
+              v36 = 0;
+LABEL_44:
+              if ( (int)v13 >= 0 )
+              {
+                *v107 = v36;
+                goto LABEL_46;
+              }
+LABEL_162:
+              v80 = WdLogNewEntry5_WdWarning(v9, a2, a3);
+              *(_QWORD *)(v80 + 24) = (int)v13;
+              WdLogEvent5_WdWarning(v80);
+              goto LABEL_46;
+            }
+            v61 = &EventOPMDestroyProtectedOutput;
+LABEL_159:
+            McTemplateK0ptpq_EtwWriteTransfer(
+              v42,
+              (_DWORD)v61,
+              v43,
+              *((_QWORD *)RenderAdapterForSession + 6),
+              v14,
+              v41,
+              v13);
+            goto LABEL_67;
+          }
+          v85 = 4096;
+          v71 = 0;
+          v97 = 0LL;
+          v109 = 0LL;
+          LODWORD(v13) = DpiPdoVerifyOpmParameters(2303131, (_DWORD)a4, a5, (_DWORD)v9, a7, 4104, 4096);
+          if ( (int)v13 >= 0 )
+          {
+            LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+            if ( (int)v13 < 0 )
+              goto LABEL_162;
+            DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+            if ( v12 )
+              KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
+            DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487), 1LL);
+            v75 = DxgkOpmTranslateHandle(*((DXGADAPTER **)RenderAdapterForSession + 487), *(void **)a4, &v97);
+            v71 = (char)v97;
+            LODWORD(v13) = v75;
+            if ( v75 >= 0 )
+            {
+              v76 = (__int64 (__fastcall *)(__int64, void *, char *, _DWORD *))*((_QWORD *)RenderAdapterForSession + 388);
+              v77 = *((_QWORD *)RenderAdapterForSession + 6);
+              v109 = *(_OWORD *)(a4 + 24);
+              LODWORD(v13) = v76(v77, v97, a4 + 8, a6);
+            }
+            DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487));
+            if ( v12 )
+              KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
+            DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+            DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+          }
+          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+            McTemplateK0ptpjq_EtwWriteTransfer(
+              v73,
+              v72,
+              v74,
+              *((_QWORD *)RenderAdapterForSession + 6),
+              v14,
+              v71,
+              (__int64)&v109,
+              v13);
         }
         else
         {
-          LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
-          if ( (int)v13 < 0 )
-            goto LABEL_125;
-          DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-          if ( v12 )
-            KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
-          DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489), 1LL);
-          v84 = *((_DWORD *)v12 + 126);
-          LODWORD(v13) = (*((__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, void **))RenderAdapterForSession + 386))(
-                           *((_QWORD *)RenderAdapterForSession + 6),
-                           v84,
-                           v87,
-                           &v89);
+          v31 = 0;
+          v98 = 0LL;
+          v85 = 16;
+          LODWORD(v13) = DpiPdoVerifyOpmParameters(2303119, (_DWORD)a4, a5, (_DWORD)v9, a7, 8, 16);
           if ( (int)v13 >= 0 )
           {
-            LODWORD(v13) = DxgkOpmCreateHandle(*((DXGADAPTER **)RenderAdapterForSession + 489), v89, v85);
+            v34 = *(void **)a4;
+            LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
             if ( (int)v13 < 0 )
-            {
-              (*((void (__fastcall **)(_QWORD, void *))RenderAdapterForSession + 392))(
-                *((_QWORD *)RenderAdapterForSession + 6),
-                v89);
-              if ( (_DWORD)v13 == -1073741198 )
-                LODWORD(v13) = -1073741637;
-            }
+              goto LABEL_162;
+            DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+            if ( v12 )
+              KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
+            DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487), 1LL);
+            v35 = DxgkOpmTranslateHandle(*((DXGADAPTER **)RenderAdapterForSession + 487), v34, &v98);
+            v31 = (char)v98;
+            LODWORD(v13) = v35;
+            if ( v35 >= 0 )
+              LODWORD(v13) = (*((__int64 (__fastcall **)(_QWORD, void *, _DWORD *))RenderAdapterForSession + 385))(
+                               *((_QWORD *)RenderAdapterForSession + 6),
+                               v98,
+                               a6);
+            DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487));
+            if ( v12 )
+              KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
+            DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+            DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
           }
-          DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 489));
-          KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
-          DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 489));
-          DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+            McTemplateK0ptpq_EtwWriteTransfer(
+              v32,
+              (unsigned int)&EventOPMGetRandomNumber,
+              v33,
+              *((_QWORD *)RenderAdapterForSession + 6),
+              v14,
+              v31,
+              v13);
         }
-        DpiOpmLogCreateContext(v13, v87);
-        v62 = v84;
       }
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-        McTemplateK0ptqppq_EtwWriteTransfer(
-          v64,
-          v63,
-          v65,
+      else
+      {
+        v50 = -1;
+        v94 = 0LL;
+        v102 = 0LL;
+        v85 = 8;
+        LODWORD(v13) = DpiPdoVerifyOpmParameters(2303115, (_DWORD)a4, a5, (_DWORD)v9, a7, 4, 8);
+        if ( (int)v13 >= 0 )
+        {
+          v54 = *(_DWORD *)a4;
+          if ( v54 == DXGKMDT_OPM_VOS_OPM_INDIRECT_DISPLAY && v86 )
+          {
+            LODWORD(v13) = -1073741198;
+            v79 = (_QWORD *)WdLogNewEntry5_WdEvent();
+            v79[3] = -1073741198LL;
+            v79[4] = *((_QWORD *)RenderAdapterForSession + 6);
+            v79[5] = v14;
+            v79[6] = 0LL;
+            WdLogEvent5_WdEvent(v79);
+            goto LABEL_162;
+          }
+          v102 = a6;
+          if ( v14 )
+          {
+            v90 = *((_DWORD *)a2 + 126);
+            LODWORD(v13) = CreateProtectedOutputIndirectDisplay(
+                             RenderAdapterForSession,
+                             v103,
+                             v54,
+                             v90,
+                             (void **)a6,
+                             &v94);
+          }
+          else
+          {
+            LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+            if ( (int)v13 < 0 )
+              goto LABEL_162;
+            DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+            if ( v12 )
+              KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
+            DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487), 1LL);
+            v90 = *((_DWORD *)v12 + 126);
+            LODWORD(v13) = (*((__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, void **))RenderAdapterForSession + 384))(
+                             *((_QWORD *)RenderAdapterForSession + 6),
+                             v90,
+                             (unsigned int)v54,
+                             &v94);
+            if ( (int)v13 >= 0 )
+            {
+              LODWORD(v13) = DxgkOpmCreateHandle(*((DXGADAPTER **)RenderAdapterForSession + 487), v94, (void **)a6);
+              if ( (int)v13 < 0 )
+              {
+                (*((void (__fastcall **)(_QWORD, void *))RenderAdapterForSession + 390))(
+                  *((_QWORD *)RenderAdapterForSession + 6),
+                  v94);
+                if ( (_DWORD)v13 == -1073741198 )
+                  LODWORD(v13) = -1073741637;
+              }
+            }
+            DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487));
+            KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
+            DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+            DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+          }
+          if ( (unsigned int)dword_1C00B19E8 > 5 && tlgKeywordOn((__int64)&dword_1C00B19E8, 0x400000100000LL) )
+          {
+            CurrentProcess = PsGetCurrentProcess();
+            ProcessImageFileName = PsGetProcessImageFileName(CurrentProcess);
+            v95 = v13;
+            v104 = ProcessImageFileName;
+            v96 = v54;
+            v105 = 33556480LL;
+            v106 = 1LL;
+            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>>(
+              v83,
+              (unsigned int)&unk_1C0080A86,
+              v84,
+              (unsigned int)&v106,
+              (__int64)&v105,
+              (__int64)&v96,
+              (__int64)&v95,
+              (__int64)&v104);
+          }
+          v50 = v90;
+        }
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0ptqppq_EtwWriteTransfer(
+            v52,
+            v51,
+            v53,
+            *((_QWORD *)RenderAdapterForSession + 6),
+            v14,
+            v50,
+            (char)v94,
+            *v102,
+            v13);
+      }
+      v30 = (_QWORD *)WdLogNewEntry5_WdEvent();
+      v30[3] = (int)v13;
+    }
+    else
+    {
+      v85 = 4;
+      LODWORD(v13) = DpiPdoVerifyOpmParameters(2303107, (_DWORD)a4, a5, (_DWORD)v9, a7, 4, 4);
+      if ( (int)v13 < 0 )
+        goto LABEL_162;
+      v38 = *(_DWORD *)a4;
+      LODWORD(v13) = DpiAcquireCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+      if ( (int)v13 < 0 )
+        goto LABEL_162;
+      DxgkAcquireAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+      if ( v12 )
+        KeWaitForSingleObject(*(PVOID *)(*((_QWORD *)v12 + 117) + 72LL), Executive, 0, 0, 0LL);
+      DxgkAcquireAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487), 1LL);
+      v13 = (*((int (__fastcall **)(_QWORD, _QWORD, _DWORD *))RenderAdapterForSession + 382))(
+              *((_QWORD *)RenderAdapterForSession + 6),
+              v38,
+              a6);
+      DxgkReleaseAdapterDdiSync(*((_QWORD *)RenderAdapterForSession + 487));
+      if ( v12 )
+        KeReleaseMutex(*(PRKMUTEX *)(*((_QWORD *)v12 + 117) + 72LL), 0);
+      DxgkReleaseAdapterOpmI2CSync(*((_QWORD *)RenderAdapterForSession + 487));
+      DpiReleaseCoreSyncAccessSafe(*((_QWORD *)RenderAdapterForSession + 3), 0LL);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+        McTemplateK0pqtqq_EtwWriteTransfer(
+          v39,
+          (unsigned int)&EventOpmGetCertificateSize,
+          v40,
           *((_QWORD *)RenderAdapterForSession + 6),
           v14,
-          v62,
-          (char)v89,
-          (char)*v94,
+          v38,
+          *a6,
           v13);
+      v30 = (_QWORD *)WdLogNewEntry5_WdEvent();
+      v30[3] = v13;
     }
-LABEL_63:
-    v44 = (int)v13;
-LABEL_163:
-    WdLogSingleEntry4(4LL, v44, *((_QWORD *)RenderAdapterForSession + 6), v14, 0LL);
-    goto LABEL_164;
+    v30[4] = *((_QWORD *)RenderAdapterForSession + 6);
+    v30[5] = v14;
+    v30[6] = 0LL;
+    goto LABEL_43;
   }
-LABEL_126:
+LABEL_46:
   if ( v14 )
   {
     if ( *((_BYTE *)RenderAdapterForSession + 484) )
       DpiEnableD3Requests(*((_QWORD *)RenderAdapterForSession + 3));
     ExReleaseResourceLite(*((PERESOURCE *)RenderAdapterForSession + 21));
     KeLeaveCriticalRegion();
-    if ( v88 )
-      goto LABEL_130;
+    if ( v93 )
+      goto LABEL_170;
   }
   return (unsigned int)v13;
 }

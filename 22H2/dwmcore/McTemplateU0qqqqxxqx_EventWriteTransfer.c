@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0qqqqxxqx_EventWriteTransfer @ 0x1801B5B64
+ * XREFs of McTemplateU0qqqqxxqx_EventWriteTransfer @ 0x180173D94
  * Callers:
- *     ?DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z @ 0x1800AAD4C (-DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z.c)
+ *     ?DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z @ 0x18005EBB0 (-DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0qqqqxxqx_EventWriteTransfer(
@@ -58,7 +58,7 @@ ULONG __fastcall McTemplateU0qqqqxxqx_EventWriteTransfer(
   v25 = 4LL;
   v27 = 8LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_DCOMPEVENT_RESOURCE_OPEN,
            a3,
            9u,

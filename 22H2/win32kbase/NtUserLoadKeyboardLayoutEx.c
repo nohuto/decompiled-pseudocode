@@ -1,18 +1,18 @@
 /*
- * XREFs of NtUserLoadKeyboardLayoutEx @ 0x1C0067DD0
+ * XREFs of NtUserLoadKeyboardLayoutEx @ 0x1C01326C0
  * Callers:
  *     <none>
  * Callees:
- *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C0048330 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     HMUnlockObject @ 0x1C0056D70 (HMUnlockObject.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C0066FA8 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     xxxSafeLoadKeyboardLayoutEx @ 0x1C0067010 (xxxSafeLoadKeyboardLayoutEx.c)
- *     ApiSetEditionGetProcessWindowStation @ 0x1C0069BB4 (ApiSetEditionGetProcessWindowStation.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     xxxSafeLoadKeyboardLayoutEx @ 0x1C00099F0 (xxxSafeLoadKeyboardLayoutEx.c)
+ *     EnterCrit @ 0x1C002FF70 (EnterCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ApiSetEditionGetProcessWindowStation @ 0x1C003EC78 (ApiSetEditionGetProcessWindowStation.c)
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00AB1EC (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     SetLastNtError @ 0x1C00CDE58 (SetLastNtError.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 HKL __fastcall NtUserLoadKeyboardLayoutEx(
@@ -25,164 +25,125 @@ HKL __fastcall NtUserLoadKeyboardLayoutEx(
         unsigned int a7,
         unsigned int a8)
 {
-  ULONG64 v11; // r15
-  __int64 v12; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  struct tagTHREADINFO *v16; // rax
-  struct tagTHREADINFO *v17; // rcx
+  ULONG64 v10; // rsi
+  __int64 v11; // rdx
   HKL KeyboardLayout; // rbx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v20; // rax
-  char v21; // al
-  __int64 *v22; // rsi
-  int v23; // ecx
-  char *v24; // r8
-  ULONG64 v25; // rdx
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // r9
-  struct tagWINDOWSTATION *v30; // r11
-  _OWORD *v31; // rcx
-  __int64 v32; // rdx
-  __int64 v33; // rax
-  _OWORD *v34; // rcx
-  _OWORD *v35; // rax
-  _BYTE v38[792]; // [rsp+98h] [rbp-690h] BYREF
-  _BYTE v39[800]; // [rsp+3B0h] [rbp-378h] BYREF
-  unsigned __int16 v40[12]; // [rsp+6D0h] [rbp-58h] BYREF
+  struct tagWINDOWSTATION *ProcessWindowStation; // r15
+  int v14; // eax
+  char *v15; // rsi
+  unsigned __int64 v16; // r14
+  ULONG64 v17; // rdx
+  _BYTE **v18; // rcx
+  _OWORD *v19; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // rax
+  _OWORD *v22; // rcx
+  _OWORD *v23; // rax
+  int v25; // [rsp+50h] [rbp-6D8h]
+  _BYTE v28[792]; // [rsp+98h] [rbp-690h] BYREF
+  _BYTE v29[800]; // [rsp+3B0h] [rbp-378h] BYREF
+  unsigned __int16 v30[12]; // [rsp+6D0h] [rbp-58h] BYREF
 
-  v11 = a6;
-  memset(v39, 0, 0x318uLL);
-  LOBYTE(v12) = 1;
-  v16 = (struct tagTHREADINFO *)PrivateAPI::_anonymous_namespace_::EnterCritInternal(v12, v13, v14, v15);
-  gptiCurrent = v16;
-  KeyboardLayout = 0LL;
-  if ( v16 )
-  {
-    *((_DWORD *)v16 + 387) = 1;
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v17);
-    if ( CurrentProcessWin32Process )
-    {
-      v17 = (struct tagTHREADINFO *)-*(_QWORD *)CurrentProcessWin32Process;
-      v20 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-      if ( v20 )
-      {
-        if ( (*(_DWORD *)(v20 + 12) & 0x8000) != 0 )
-        {
-          v17 = gptiCurrent;
-          if ( (*((_DWORD *)gptiCurrent + 122) & 0x1000000) == 0
-            || (v21 = 1, (*((_DWORD *)gptiCurrent + 318) & 0x80u) != 0) )
-          {
-            v21 = 0;
-          }
-          if ( v21 )
-          {
-            while ( 1 )
-            {
-              v22 = (__int64 *)gpSharedUserCritDeferredUnlockListHead;
-              if ( !gpSharedUserCritDeferredUnlockListHead )
-                break;
-              gpSharedUserCritDeferredUnlockListHead = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)gpSharedUserCritDeferredUnlockListHead
-                                                                                           + 2);
-              v22[2] = 0LL;
-              if ( !*(_DWORD *)(*v22 + 8) )
-                MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 4237LL);
-              HMUnlockObject(*v22);
-            }
-          }
-        }
-      }
-    }
-  }
+  v10 = a6;
+  memset(v29, 0, 0x318uLL);
+  EnterCrit(0, 1);
   if ( (a8 & 0x1F00FC60) != 0 )
   {
-    UserSetLastError(1004);
-    goto LABEL_34;
+    UserSetLastError(1004LL, v11);
+    KeyboardLayout = 0LL;
+    goto LABEL_27;
   }
-  ApiSetEditionGetProcessWindowStation(v17);
+  ProcessWindowStation = (struct tagWINDOWSTATION *)ApiSetEditionGetProcessWindowStation();
   if ( a6 >= MmUserProbeAddress )
-    v11 = MmUserProbeAddress;
-  v23 = *(_DWORD *)v11;
-  v24 = *(char **)(v11 + 8);
-  if ( ((unsigned __int8)v24 & 1) != 0 )
+    v10 = MmUserProbeAddress;
+  v14 = *(_DWORD *)v10;
+  v25 = *(_DWORD *)v10;
+  v15 = *(char **)(v10 + 8);
+  if ( ((unsigned __int8)v15 & 1) != 0 )
     ExRaiseDatatypeMisalignment();
-  v25 = (ULONG64)&v24[(unsigned __int16)v23 + 2];
-  if ( v25 <= (unsigned __int64)v24 || v25 >= MmUserProbeAddress )
-    ExRaiseAccessViolation();
-  if ( (unsigned __int16)v23 > (unsigned __int16)HIWORD(*(_DWORD *)v11) )
+  v16 = (unsigned __int16)v14;
+  v17 = (ULONG64)&v15[(unsigned __int16)v14 + 2];
+  v18 = (_BYTE **)MmUserProbeAddress;
+  if ( v17 < MmUserProbeAddress && (unsigned __int16)v14 <= HIWORD(v25) )
   {
-    if ( (v23 & 1) == 0 )
-      goto LABEL_32;
-    goto LABEL_31;
+    if ( (v14 & 1) != 0 )
+      goto LABEL_13;
+    if ( v17 > (unsigned __int64)v15 )
+    {
+      KeyboardLayout = 0LL;
+      goto LABEL_16;
+    }
   }
-  if ( (v23 & 1) != 0 )
+  if ( (v14 & 1) == 0 )
   {
-LABEL_31:
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 6136LL);
-LABEL_32:
-    ExRaiseAccessViolation();
+    KeyboardLayout = 0LL;
+    goto LABEL_15;
   }
-  if ( (int)RtlStringCchCopyNW((char *)v40, 9LL, v24, (unsigned __int64)(unsigned __int16)v23 >> 1) >= 0 )
+LABEL_13:
+  KeyboardLayout = 0LL;
+  MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 5736);
+  v18 = (_BYTE **)MmUserProbeAddress;
+LABEL_15:
+  **v18 = 0;
+LABEL_16:
+  if ( (int)RtlStringCchCopyNW((char *)v30, 9LL, v15, v16 >> 1) >= 0 )
   {
     if ( a4 )
     {
       if ( (_OWORD *)((char *)a4 + 792) < a4 || (unsigned __int64)a4 + 792 > MmUserProbeAddress )
         a4 = (_OWORD *)MmUserProbeAddress;
-      v31 = v38;
-      v32 = 6LL;
-      v33 = 6LL;
+      v19 = v28;
+      v20 = 6LL;
+      v21 = 6LL;
       do
       {
-        *v31 = *a4;
-        v31[1] = a4[1];
-        v31[2] = a4[2];
-        v31[3] = a4[3];
-        v31[4] = a4[4];
-        v31[5] = a4[5];
-        v31[6] = a4[6];
-        v31 += 8;
-        *(v31 - 1) = a4[7];
+        *v19 = *a4;
+        v19[1] = a4[1];
+        v19[2] = a4[2];
+        v19[3] = a4[3];
+        v19[4] = a4[4];
+        v19[5] = a4[5];
+        v19[6] = a4[6];
+        v19 += 8;
+        *(v19 - 1) = a4[7];
         a4 += 8;
-        --v33;
+        --v21;
       }
-      while ( v33 );
-      *v31 = *a4;
-      *((_QWORD *)v31 + 2) = *((_QWORD *)a4 + 2);
-      v34 = v39;
-      v35 = v38;
+      while ( v21 );
+      *v19 = *a4;
+      *((_QWORD *)v19 + 2) = *((_QWORD *)a4 + 2);
+      v22 = v29;
+      v23 = v28;
       do
       {
-        *v34 = *v35;
-        v34[1] = v35[1];
-        v34[2] = v35[2];
-        v34[3] = v35[3];
-        v34[4] = v35[4];
-        v34[5] = v35[5];
-        v34[6] = v35[6];
-        v34 += 8;
-        *(v34 - 1) = v35[7];
-        v35 += 8;
-        --v32;
+        *v22 = *v23;
+        v22[1] = v23[1];
+        v22[2] = v23[2];
+        v22[3] = v23[3];
+        v22[4] = v23[4];
+        v22[5] = v23[5];
+        v22[6] = v23[6];
+        v22 += 8;
+        *(v22 - 1) = v23[7];
+        v23 += 8;
+        --v20;
       }
-      while ( v32 );
-      *v34 = *v35;
-      *((_QWORD *)v34 + 2) = *((_QWORD *)v35 + 2);
+      while ( v20 );
+      *v22 = *v23;
+      *((_QWORD *)v22 + 2) = *((_QWORD *)v23 + 2);
     }
     KeyboardLayout = xxxSafeLoadKeyboardLayoutEx(
-                       v30,
+                       ProcessWindowStation,
                        a1,
                        a5,
                        a2,
                        a3,
-                       (struct tagKBDTABLE_MULT_INTERNAL *)v39,
-                       v40,
+                       (struct tagKBDTABLE_MULT_INTERNAL *)v29,
+                       v30,
                        a7,
                        a8);
   }
-LABEL_34:
-  UserSessionSwitchLeaveCrit(v27, v26, v28, v29);
+LABEL_27:
+  UserSessionSwitchLeaveCrit();
   return KeyboardLayout;
 }

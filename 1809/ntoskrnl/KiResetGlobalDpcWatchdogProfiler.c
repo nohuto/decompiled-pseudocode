@@ -1,5 +1,5 @@
 /*
- * XREFs of KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3A8
+ * XREFs of KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3C8
  * Callers:
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
@@ -9,12 +9,12 @@
  *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
  *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
  *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     KiDpcWatchdog @ 0x1400FAF20 (KiDpcWatchdog.c)
- *     KiExpireTimer2 @ 0x1400FB8E0 (KiExpireTimer2.c)
- *     KeRelaxTimingConstraints @ 0x14028CFD4 (KeRelaxTimingConstraints.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     KiDpcWatchdog @ 0x1400FAF40 (KiDpcWatchdog.c)
+ *     KiExpireTimer2 @ 0x1400FB900 (KiExpireTimer2.c)
+ *     KeRelaxTimingConstraints @ 0x14028D0D4 (KeRelaxTimingConstraints.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall KiResetGlobalDpcWatchdogProfiler(__int64 a1)

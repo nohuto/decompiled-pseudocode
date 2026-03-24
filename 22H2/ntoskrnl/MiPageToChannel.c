@@ -1,31 +1,23 @@
 /*
- * XREFs of MiPageToChannel @ 0x140375EC0
+ * XREFs of MiPageToChannel @ 0x14027F788
  * Callers:
- *     MiAllocateMdlPagesByLists @ 0x14023B8F0 (MiAllocateMdlPagesByLists.c)
- *     MiUnlinkPageFromListEx @ 0x140266510 (MiUnlinkPageFromListEx.c)
- *     MiAcquirePageListLock @ 0x140267280 (MiAcquirePageListLock.c)
- *     MiGetPage @ 0x14026D240 (MiGetPage.c)
- *     MiSynchronizeFastPageInsert @ 0x14026DDF0 (MiSynchronizeFastPageInsert.c)
- *     MiInsertPageInList @ 0x14026EAE0 (MiInsertPageInList.c)
- *     MiGetPfnChannel @ 0x1402870B0 (MiGetPfnChannel.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402D1E90 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiLargePagePromote @ 0x1402D77D0 (MiLargePagePromote.c)
- *     MiEnqueuePageList @ 0x1402DAA10 (MiEnqueuePageList.c)
- *     MiPfnToStandbyLookaside @ 0x1402DDEF0 (MiPfnToStandbyLookaside.c)
- *     MiPurgingPageFromLookaside @ 0x140331310 (MiPurgingPageFromLookaside.c)
- *     MiDescribePageRun @ 0x140375ADC (MiDescribePageRun.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A088C (MiTryUnlinkNodeLargePages.c)
- *     MiInsertHugeRangeInList @ 0x14062103C (MiInsertHugeRangeInList.c)
- *     MiUnlinkHugeRange @ 0x140622B2C (MiUnlinkHugeRange.c)
- *     MiInitializeSystemChannelOrdering @ 0x140B9AB14 (MiInitializeSystemChannelOrdering.c)
+ *     MiGetPage @ 0x1402135D0 (MiGetPage.c)
+ *     MiUnlinkPageFromList @ 0x140217870 (MiUnlinkPageFromList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234880 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140235D30 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertLargePageInNodeList @ 0x14027F0D0 (MiInsertLargePageInNodeList.c)
+ *     MiGetPfnChannel @ 0x140284844 (MiGetPfnChannel.c)
+ *     MiInsertPageInList @ 0x1402A6E90 (MiInsertPageInList.c)
+ *     MiInsertNumaStandbyPage @ 0x1402A9F20 (MiInsertNumaStandbyPage.c)
+ *     MiDescribePageRun @ 0x1403ABD38 (MiDescribePageRun.c)
+ *     MiInitializeSystemChannelOrdering @ 0x140A92620 (MiInitializeSystemChannelOrdering.c)
  * Callees:
- *     MiSearchChannelTable @ 0x1406457C0 (MiSearchChannelTable.c)
+ *     MiSearchChannelTable @ 0x140547840 (MiSearchChannelTable.c)
  */
 
 __int64 __fastcall MiPageToChannel(ULONG_PTR a1)
 {
-  if ( qword_140C65BD0 )
+  if ( qword_140C4DED0 )
     return *(unsigned __int16 *)(MiSearchChannelTable(a1) + 12);
   else
     return 0LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDmGetObjectManagerForObjectType @ 0x1406D82BC
+ * XREFs of PiDmGetObjectManagerForObjectType @ 0x1406AFB70
  * Callers:
- *     PiDmGetObject @ 0x1406D81D0 (PiDmGetObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407885C4 (PiDmAddCacheReferenceForObject.c)
- *     PiDmListAddObject @ 0x1407BEAB0 (PiDmListAddObject.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1407C2788 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmEnumObjectsWithCallback @ 0x1407FBAF0 (PiDmEnumObjectsWithCallback.c)
- *     PiDmListAddList @ 0x140882944 (PiDmListAddList.c)
- *     PiDmGetObjectCount @ 0x14095ADC0 (PiDmGetObjectCount.c)
- *     PiDmListRemoveList @ 0x14095AE1C (PiDmListRemoveList.c)
- *     PiDmListRemoveObject @ 0x14095AF6C (PiDmListRemoveObject.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1406ADEC8 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmGetObject @ 0x1406AF84C (PiDmGetObject.c)
+ *     PiDmListRemoveList @ 0x140730C80 (PiDmListRemoveList.c)
+ *     PiDmListRemoveObject @ 0x140730DA4 (PiDmListRemoveObject.c)
+ *     PiDmListAddObject @ 0x1407353A4 (PiDmListAddObject.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x140744D98 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x140744E48 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmListAddList @ 0x14076E0B4 (PiDmListAddList.c)
+ *     PiDmGetObjectCount @ 0x1408A34DC (PiDmGetObjectCount.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
  * XREFs of VfTargetDriversIsEnabled @ 0x140934AD4
  * Callers:
- *     PipDmgGetDriverDmarCompatLevel @ 0x140709024 (PipDmgGetDriverDmarCompatLevel.c)
+ *     PipDmgGetDriverDmarCompatLevel @ 0x140709004 (PipDmgGetDriverDmarCompatLevel.c)
  *     ViIrpCheckKernelAddressForIrp @ 0x1409308A0 (ViIrpCheckKernelAddressForIrp.c)
  *     VfPendingShouldForce @ 0x140933994 (VfPendingShouldForce.c)
  *     VfCheckUserHandle @ 0x14093901C (VfCheckUserHandle.c)

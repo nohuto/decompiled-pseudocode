@@ -1,19 +1,22 @@
 /*
- * XREFs of ?Build@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAUIEffectInstance@Composition@UI@Windows@@@Z @ 0x18025A000
+ * XREFs of ?Build@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAUIEffectInstance@Composition@UI@Windows@@@Z @ 0x18001D1A8
  * Callers:
- *     ?Build@CProjectedShadowApproxBlurGraphBuilder@@SAJPEAVCBrush@@0PEAPEAVCBrushRenderingGraph@@PEAPEAUIEffectInstance@Composition@UI@Windows@@@Z @ 0x18025A198 (-Build@CProjectedShadowApproxBlurGraphBuilder@@SAJPEAVCBrush@@0PEAPEAVCBrushRenderingGraph@@PEAP.c)
+ *     ?Build@CProjectedShadowApproxBlurGraphBuilder@@SAJPEAVCBrush@@0PEAPEAVCBrushRenderingGraph@@PEAPEAUIEffectInstance@Composition@UI@Windows@@@Z @ 0x18001D0E4 (-Build@CProjectedShadowApproxBlurGraphBuilder@@SAJPEAVCBrush@@0PEAPEAVCBrushRenderingGraph@@PEAP.c)
  * Callees:
- *     ??1CRenderingTechniqueFragment@@QEAA@XZ @ 0x180035818 (--1CRenderingTechniqueFragment@@QEAA@XZ.c)
- *     ?EnsureShaderCache@CBrushRenderingGraphBuilder@@IEAAJ_N@Z @ 0x180035B1C (-EnsureShaderCache@CBrushRenderingGraphBuilder@@IEAAJ_N@Z.c)
- *     ?CreateShaderBodies@CBrushRenderingGraphBuilder@@IEAAJXZ @ 0x180036D6C (-CreateShaderBodies@CBrushRenderingGraphBuilder@@IEAAJXZ.c)
- *     ?CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ @ 0x18003719C (-CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ.c)
- *     ?CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z @ 0x180037300 (-CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z.c)
- *     ?CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAI@Z @ 0x18003740C (-CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV-$unique_ptr@VCRenderingTech.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??4?$ComPtr@UIEffectInstance@Composition@UI@Windows@@@WRL@Microsoft@@QEAAAEAV012@PEAUIEffectInstance@Composition@UI@Windows@@@Z @ 0x180259E50 (--4-$ComPtr@UIEffectInstance@Composition@UI@Windows@@@WRL@Microsoft@@QEAAAEAV012@PEAUIEffectInst.c)
- *     ?AddApproxBlurBrush@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAVCRenderingTechniqueFragment@@@Z @ 0x180259EB0 (-AddApproxBlurBrush@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAVCRenderingT.c)
+ *     ?AddApproxBlurBrush@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18001D2F0 (-AddApproxBlurBrush@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAVCRenderingT.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@UFragmentInput@CRenderingTechniqueFragment@@@std@@@std@@YAXPEAUFragmentInput@CRenderingTechniqueFragment@@0AEAV?$allocator@UFragmentInput@CRenderingTechniqueFragment@@@0@@Z @ 0x180048CCC (--$_Destroy_range@V-$allocator@UFragmentInput@CRenderingTechniqueFragment@@@std@@@std@@YAXPEAUFr.c)
+ *     ?EnsureShaderCache@CBrushRenderingGraphBuilder@@IEAAJ_N@Z @ 0x1800497D4 (-EnsureShaderCache@CBrushRenderingGraphBuilder@@IEAAJ_N@Z.c)
+ *     ??_GCRenderingTechniqueFragment@@QEAAPEAXI@Z @ 0x180049E2C (--_GCRenderingTechniqueFragment@@QEAAPEAXI@Z.c)
+ *     ?CreateShaderBodies@CBrushRenderingGraphBuilder@@IEAAJXZ @ 0x18004A70C (-CreateShaderBodies@CBrushRenderingGraphBuilder@@IEAAJXZ.c)
+ *     ?CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z @ 0x18004AEB4 (-CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z.c)
+ *     ?CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAI@Z @ 0x18004B1EC (-CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV-$unique_ptr@VCRenderingTech.c)
+ *     ?CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ @ 0x18004B318 (-CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CProjectedShadowApproxBlurGraphBuilder::Build(
@@ -22,95 +25,115 @@ __int64 __fastcall CProjectedShadowApproxBlurGraphBuilder::Build(
         struct CBrush *a3,
         struct Windows::UI::Composition::IEffectInstance **a4)
 {
-  __int64 v6; // rcx
-  int v7; // ebx
-  CRenderingTechniqueFragment *v8; // rsi
+  struct Windows::UI::Composition::IEffectInstance *v5; // r15
+  unsigned int v7; // ecx
+  int v8; // ebx
+  CRenderingTechniqueFragment *v9; // rdi
   int ShaderBodies; // eax
-  struct Windows::UI::Composition::IEffectInstance *v10; // rax
-  int v11; // r9d
-  CRenderingTechniqueFragment *v12; // rdi
-  unsigned int v14; // [rsp+20h] [rbp-40h]
-  int v15; // [rsp+30h] [rbp-30h] BYREF
-  CRenderingTechniqueFragment *v16; // [rsp+38h] [rbp-28h] BYREF
-  struct Windows::UI::Composition::IEffectInstance *v17; // [rsp+40h] [rbp-20h] BYREF
-  CRenderingTechniqueFragment **v18; // [rsp+48h] [rbp-18h]
-  struct CRenderingTechniqueFragment *v19; // [rsp+50h] [rbp-10h] BYREF
-  char v20; // [rsp+58h] [rbp-8h]
+  struct Windows::UI::Composition::IEffectInstance *v11; // rbx
+  unsigned int v12; // edx
+  void *v14; // rcx
+  __int64 v15; // r14
+  int v16; // r9d
+  unsigned int v17; // [rsp+20h] [rbp-40h]
+  __int64 v18; // [rsp+30h] [rbp-30h] BYREF
+  CRenderingTechniqueFragment *v19; // [rsp+38h] [rbp-28h] BYREF
+  struct Windows::UI::Composition::IEffectInstance *v20; // [rsp+40h] [rbp-20h] BYREF
+  CRenderingTechniqueFragment **v21; // [rsp+48h] [rbp-18h]
+  struct CRenderingTechniqueFragment *v22; // [rsp+50h] [rbp-10h] BYREF
+  char v23; // [rsp+58h] [rbp-8h]
 
-  v17 = 0LL;
-  v16 = 0LL;
+  v23 = 1;
+  v20 = 0LL;
   v19 = 0LL;
-  v18 = &v16;
-  v20 = 1;
-  v7 = CProjectedShadowApproxBlurGraphBuilder::AddApproxBlurBrush(this, a2, a3, &v19);
-  if ( v20 )
+  v21 = &v19;
+  v5 = 0LL;
+  v22 = 0LL;
+  v8 = CProjectedShadowApproxBlurGraphBuilder::AddApproxBlurBrush(this, a2, a3, &v22);
+  if ( v23 )
   {
-    v8 = *v18;
-    *v18 = v19;
-    if ( v8 )
+    v7 = (unsigned int)v22;
+    v9 = *v21;
+    *v21 = v22;
+    if ( v9 )
     {
-      CRenderingTechniqueFragment::~CRenderingTechniqueFragment(v8);
-      operator delete(v8);
+      v14 = (void *)*((_QWORD *)v9 + 14);
+      if ( v14 )
+        operator delete(v14);
+      v15 = *((_QWORD *)v9 + 4);
+      if ( v15 )
+      {
+        std::_Destroy_range<std::allocator<CRenderingTechniqueFragment::FragmentInput>>(
+          *((_QWORD *)v9 + 4),
+          *((_QWORD *)v9 + 5));
+        std::_Deallocate<16,0>(v15, (*((_QWORD *)v9 + 6) - v15) & 0xFFFFFFFFFFFFFFF0uLL);
+        *((_QWORD *)v9 + 4) = 0LL;
+        *((_QWORD *)v9 + 5) = 0LL;
+        *((_QWORD *)v9 + 6) = 0LL;
+      }
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(v9);
+      operator delete(v9, 0x80uLL);
     }
   }
-  if ( v7 < 0 )
+  if ( v8 < 0 )
   {
-    v11 = v7;
-    v14 = 54;
+    v16 = v8;
+    v17 = 54;
   }
   else
   {
-    ShaderBodies = CBrushRenderingGraphBuilder::CheckFragmentSize((struct CBrushRenderingGraph **)this, v16);
-    v7 = ShaderBodies;
+    ShaderBodies = CBrushRenderingGraphBuilder::CheckFragmentSize(this, v19);
+    v8 = ShaderBodies;
     if ( ShaderBodies < 0 )
     {
-      v14 = 57;
+      v17 = 57;
     }
     else
     {
-      Microsoft::WRL::ComPtr<Windows::UI::Composition::IEffectInstance>::operator=(
-        (__int64 *)&v17,
-        *(void (__fastcall ****)(_QWORD))v16);
-      ShaderBodies = CBrushRenderingGraphBuilder::CreateTechniqueForFragment(this, (__int64)&v16, &v15);
-      v7 = ShaderBodies;
+      v11 = *(struct Windows::UI::Composition::IEffectInstance **)v19;
+      if ( *(_QWORD *)v19 )
+      {
+        (**(void (__fastcall ***)(_QWORD))v11)(*(_QWORD *)v19);
+        v18 = 0LL;
+        v5 = v11;
+        v20 = v11;
+        Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(&v18);
+      }
+      ShaderBodies = CBrushRenderingGraphBuilder::CreateTechniqueForFragment(this, &v19, &v18);
+      v8 = ShaderBodies;
       if ( ShaderBodies < 0 )
       {
-        v14 = 62;
+        v17 = 62;
       }
       else
       {
         ShaderBodies = CBrushRenderingGraphBuilder::EnsureShaderCache(this, 0);
-        v7 = ShaderBodies;
+        v8 = ShaderBodies;
         if ( ShaderBodies < 0 )
         {
-          v14 = 64;
+          v17 = 64;
         }
         else
         {
           ShaderBodies = CBrushRenderingGraphBuilder::CreateShaderBodies(this);
-          v7 = ShaderBodies;
+          v8 = ShaderBodies;
           if ( ShaderBodies >= 0 )
           {
             CBrushRenderingGraphBuilder::CheckBackdropInputs(this);
-            v10 = v17;
-            v17 = 0LL;
-            *a4 = v10;
-            goto LABEL_17;
+            v20 = 0LL;
+            *a4 = v5;
+            goto LABEL_11;
           }
-          v14 = 65;
+          v17 = 65;
         }
       }
     }
-    v11 = ShaderBodies;
+    v16 = ShaderBodies;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v11, v14);
-LABEL_17:
-  v12 = v16;
-  if ( v16 )
-  {
-    CRenderingTechniqueFragment::~CRenderingTechniqueFragment(v16);
-    operator delete(v12);
-  }
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v17);
-  return (unsigned int)v7;
+  MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v16, v17, 0LL);
+LABEL_11:
+  if ( v19 )
+    CRenderingTechniqueFragment::`scalar deleting destructor'(v19, v12);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(&v20);
+  return (unsigned int)v8;
 }

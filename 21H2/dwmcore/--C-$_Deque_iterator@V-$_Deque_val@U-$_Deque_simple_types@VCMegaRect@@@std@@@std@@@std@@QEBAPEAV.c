@@ -1,7 +1,11 @@
 /*
- * XREFs of ??C?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@VCMegaRect@@@std@@@std@@@std@@QEBAPEAVCMegaRect@@XZ @ 0x180103CF4
+ * XREFs of ??C?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@VCMegaRect@@@std@@@std@@@std@@QEBAPEAVCMegaRect@@XZ @ 0x1800EFD04
  * Callers:
- *     ?OccludeRegions@CMegaRectCollection@@AEAAXXZ @ 0x180082128 (-OccludeRegions@CMegaRectCollection@@AEAAXXZ.c)
+ *     ?OccludeRegions@CMegaRectCollection@@AEAAXXZ @ 0x18003A424 (-OccludeRegions@CMegaRectCollection@@AEAAXXZ.c)
+ *     ??$emplace_back@AEBUScribbleFrame@CComputeScribbleScheduler@@@?$deque@UScribbleFrame@CComputeScribbleScheduler@@V?$allocator@UScribbleFrame@CComputeScribbleScheduler@@@std@@@std@@QEAAAEAUScribbleFrame@CComputeScribbleScheduler@@AEBU23@@Z @ 0x1801A3F78 (--$emplace_back@AEBUScribbleFrame@CComputeScribbleScheduler@@@-$deque@UScribbleFrame@CComputeScr.c)
+ *     ??A?$deque@UScribbleFrame@CComputeScribbleScheduler@@V?$allocator@UScribbleFrame@CComputeScribbleScheduler@@@std@@@std@@QEAAAEAUScribbleFrame@CComputeScribbleScheduler@@_K@Z @ 0x1801A426C (--A-$deque@UScribbleFrame@CComputeScribbleScheduler@@V-$allocator@UScribbleFrame@CComputeScribbl.c)
+ *     ?CheckForWorkerThreadHang@CComputeScribbleScheduler@@AEBA_NI@Z @ 0x1801A4518 (-CheckForWorkerThreadHang@CComputeScribbleScheduler@@AEBA_NI@Z.c)
+ *     ?ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ @ 0x1801A4EA0 (-ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */

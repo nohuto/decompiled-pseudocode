@@ -1,97 +1,81 @@
 /*
- * XREFs of NtUserGetRawInputDeviceList @ 0x1C0154660
+ * XREFs of NtUserGetRawInputDeviceList @ 0x1C01FB830
  * Callers:
  *     <none>
  * Callees:
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetRawInputDeviceList(volatile void *Address, unsigned int *a2, __int64 a3)
+__int64 __fastcall NtUserGetRawInputDeviceList(volatile void *Address, unsigned int *a2, int a3)
 {
-  int v3; // ebx
-  unsigned int *v4; // rsi
-  unsigned int v6; // r15d
+  unsigned int v6; // r14d
   unsigned int v7; // edi
-  __int64 v8; // rcx
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // rax
-  CInpPushLock *Lock; // rbx
-  __int64 v13; // rcx
-  __int64 v14; // rax
+  __int64 v8; // rdx
+  __int64 v9; // r8
   struct DEVICEINFO *i; // rax
-  unsigned int v16; // r14d
-  unsigned int *v17; // rax
-  __int64 v18; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  unsigned int v13; // ebx
+  unsigned int *v14; // rax
   struct DEVICEINFO *j; // rax
-  __int64 v20; // rdx
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  CBaseInput *v26; // [rsp+60h] [rbp-38h]
-  char v27; // [rsp+B0h] [rbp+18h] BYREF
-  int v28; // [rsp+B8h] [rbp+20h]
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  CInpPushLock *Lock; // [rsp+48h] [rbp-40h]
+  _BYTE v20[32]; // [rsp+50h] [rbp-38h] BYREF
 
-  v3 = a3;
-  v4 = a2;
   v6 = 0;
   v7 = -1;
-  v28 = -1;
-  EnterSharedCrit(Address, a2, a3);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v27);
-  if ( v3 == 16 )
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v20);
+  if ( a3 == 16 )
   {
-    v11 = SGDGetUserSessionState(v8);
-    Lock = CBaseInput::TmpGetLock(*(CBaseInput **)(v11 + 16840));
+    Lock = CBaseInput::TmpGetLock(gpHidInput);
     CInpPushLock::LockShared(Lock);
-    v14 = SGDGetUserSessionState(v13);
-    for ( i = CBaseInput::TmpGetDeviceList(*(CBaseInput **)(v14 + 16840)); i; i = (struct DEVICEINFO *)*((_QWORD *)i + 7) )
+    for ( i = CBaseInput::TmpGetDeviceList(gpHidInput); i; i = (struct DEVICEINFO *)*((_QWORD *)i + 7) )
       ++v6;
     if ( Address )
     {
-      v16 = 0;
-      v17 = v4;
-      if ( (unsigned __int64)v4 >= MmUserProbeAddress )
-        v17 = (unsigned int *)MmUserProbeAddress;
-      if ( *v17 >= v6 )
+      v13 = 0;
+      v14 = a2;
+      if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+        v14 = (unsigned int *)MmUserProbeAddress;
+      if ( *v14 >= v6 )
       {
         ProbeForWrite(Address, 16LL * v6, 8u);
-        v26 = *(CBaseInput **)(SGDGetUserSessionState(v18) + 16840);
-        for ( j = CBaseInput::TmpGetDeviceList(v26); j; j = (struct DEVICEINFO *)*((_QWORD *)j + 7) )
+        for ( j = CBaseInput::TmpGetDeviceList(gpHidInput); j; j = (struct DEVICEINFO *)*((_QWORD *)j + 7) )
         {
-          v20 = 2LL * v16;
-          *((_QWORD *)Address + v20) = *(_QWORD *)j;
-          *((_DWORD *)Address + 2 * v20 + 2) = *((unsigned __int8 *)j + 48);
-          if ( ++v16 >= v6 )
+          v16 = 2LL * v13;
+          *((_QWORD *)Address + v16) = *(_QWORD *)j;
+          *((_DWORD *)Address + 2 * v16 + 2) = *((unsigned __int8 *)j + 48);
+          if ( ++v13 >= v6 )
             break;
         }
-        v7 = v16;
+        v7 = v13;
       }
       else
       {
-        if ( (unsigned __int64)v4 >= MmUserProbeAddress )
-          v4 = (unsigned int *)MmUserProbeAddress;
-        *v4 = v6;
-        UserSetLastError(122);
+        if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+          a2 = (unsigned int *)MmUserProbeAddress;
+        *a2 = v6;
+        UserSetLastError(122LL, v11, v12);
       }
     }
     else
     {
-      if ( (unsigned __int64)v4 >= MmUserProbeAddress )
-        v4 = (unsigned int *)MmUserProbeAddress;
-      *v4 = v6;
+      if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+        a2 = (unsigned int *)MmUserProbeAddress;
+      *a2 = v6;
       v7 = 0;
     }
     CInpPushLock::UnLockShared(Lock);
   }
   else
   {
-    UserSetLastError(87);
+    UserSetLastError(87LL, v8, v9);
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v27, v9, v10);
-  UserSessionSwitchLeaveCrit(v22, v21, v23, v24);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v20);
+  UserSessionSwitchLeaveCrit(v17);
   return v7;
 }

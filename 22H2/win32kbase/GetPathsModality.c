@@ -1,16 +1,16 @@
 /*
- * XREFs of GetPathsModality @ 0x1C0015BF8
+ * XREFs of GetPathsModality @ 0x1C009E934
  * Callers:
- *     DrvSetDisplayConfig @ 0x1C0014230 (DrvSetDisplayConfig.c)
- *     ?SetDisplayConfigGetActualPathsModality@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00158D0 (-SetDisplayConfigGetActualPathsModality@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
- *     ?DrvCreatePathModalityFromAllPaths@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@I0@Z @ 0x1C01610C4 (-DrvCreatePathModalityFromAllPaths@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@I0@Z.c)
- *     ?SetDisplayConfigHandleBrokerProvidedPaths@@YAJPEAX_NIPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_GETPATHSMODALITY@@PEA_NPEAW4_DXGK_DIAG_SDC_STAGE@@@Z @ 0x1C0164AB4 (-SetDisplayConfigHandleBrokerProvidedPaths@@YAJPEAX_NIPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAP.c)
- *     ?SetDisplayConfigHandleOnlyProvidedPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_GETPATHSMODALITY@@PEA_NPEAW4_DXGK_DIAG_SDC_STAGE@@@Z @ 0x1C0165054 (-SetDisplayConfigHandleOnlyProvidedPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_.c)
- *     DrvDisplayConfigSetDeviceInfo @ 0x1C0166700 (DrvDisplayConfigSetDeviceInfo.c)
+ *     DrvSetDisplayConfig @ 0x1C001A4C0 (DrvSetDisplayConfig.c)
+ *     ?SetDisplayConfigGetActualPathsModality@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C009E76C (-SetDisplayConfigGetActualPathsModality@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ?DrvCreatePathModalityFromAllPaths@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@I0@Z @ 0x1C0144244 (-DrvCreatePathModalityFromAllPaths@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@I0@Z.c)
+ *     ?SetDisplayConfigHandleBrokerProvidedPaths@@YAJPEAX_NIPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_GETPATHSMODALITY@@PEA_NPEAW4_DXGK_DIAG_SDC_STAGE@@@Z @ 0x1C0145D0C (-SetDisplayConfigHandleBrokerProvidedPaths@@YAJPEAX_NIPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAP.c)
+ *     ?SetDisplayConfigHandleOnlyProvidedPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_GETPATHSMODALITY@@PEA_NPEAW4_DXGK_DIAG_SDC_STAGE@@@Z @ 0x1C01462C0 (-SetDisplayConfigHandleOnlyProvidedPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_.c)
+ *     DrvDisplayConfigSetDeviceInfo @ 0x1C0146CE0 (DrvDisplayConfigSetDeviceInfo.c)
  * Callees:
- *     ?FreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0015818 (-FreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
- *     ?AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z @ 0x1C0015CB0 (-AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?FreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C001A1A0 (-FreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ?AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z @ 0x1C009E9F4 (-AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GetPathsModality(
@@ -20,53 +20,66 @@ __int64 __fastcall GetPathsModality(
         unsigned __int16 a4)
 {
   int v4; // esi
-  unsigned __int16 i; // ax
-  bool v8; // zf
+  unsigned __int16 v7; // ax
+  struct D3DKMT_GETPATHSMODALITY *v8; // rdx
   struct D3DKMT_GETPATHSMODALITY *v9; // rax
-  __int64 DxgkWin32kInterface; // rax
-  __int64 v11; // rdx
+  __int64 v10; // rcx
+  int v11; // eax
   int v12; // edi
-  struct D3DKMT_GETPATHSMODALITY *v13; // rax
+  __int64 v14; // rax
   unsigned __int16 v15; // ax
-  unsigned __int16 v16; // [rsp+48h] [rbp+20h] BYREF
+  __int64 v16; // rax
+  unsigned __int16 v17; // [rsp+48h] [rbp+20h] BYREF
 
   v4 = a4;
   if ( a3 == 32 )
-    WdLogSingleEntry0(1LL);
-  for ( i = v4 + 8; ; i = v4 + v15 )
   {
-    v8 = *a2 == 0LL;
-    v16 = i;
-    if ( v8 )
+    v14 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v14);
+  }
+  v7 = v4 + 8;
+  v17 = v4 + 8;
+  do
+  {
+    v8 = *a2;
+    if ( !*a2 )
     {
-      v9 = AllocPathsModality(i);
+      v9 = AllocPathsModality(v7);
       *a2 = v9;
+      v8 = v9;
       if ( !v9 )
-        break;
-    }
-    DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(a1, a2);
-    v12 = (*(__int64 (__fastcall **)(_QWORD, struct D3DKMT_GETPATHSMODALITY *, unsigned __int16 *))(DxgkWin32kInterface
-                                                                                                  + 144))(
-            a3,
-            *a2,
-            &v16);
-    if ( v12 != -1073741789 )
-    {
-      v13 = *a2;
-      if ( v12 < 0 )
       {
-        FreePathsModality(*a2, v11);
-        *a2 = 0LL;
-        return (unsigned int)v12;
+        v16 = WdLogNewEntry5_WdError(v10, 0LL);
+        *(_QWORD *)(v16 + 24) = v17;
+        WdLogEvent5_WdError(v16);
+        return 3221225495LL;
       }
-      v11 = v4 + (unsigned int)*((unsigned __int16 *)v13 + 10);
-      if ( (unsigned int)v11 <= *((unsigned __int16 *)v13 + 11) )
-        return (unsigned int)v12;
     }
-    FreePathsModality(*a2, v11);
-    v15 = v16;
+    v11 = ((__int64 (__fastcall *)(_QWORD, struct D3DKMT_GETPATHSMODALITY *, unsigned __int16 *))qword_1C0250920)(
+            a3,
+            v8,
+            &v17);
+    v12 = v11;
+    if ( v11 == -1073741789
+      || v11 >= 0 && v4 + (unsigned int)*((unsigned __int16 *)*a2 + 10) > *((unsigned __int16 *)*a2 + 11) )
+    {
+      FreePathsModality(*a2);
+      v15 = v17;
+      v12 = -1073741789;
+      *a2 = 0LL;
+      v7 = v4 + v15;
+      v17 = v7;
+    }
+    else
+    {
+      v7 = v17;
+    }
+  }
+  while ( v12 == -1073741789 );
+  if ( v12 < 0 )
+  {
+    FreePathsModality(*a2);
     *a2 = 0LL;
   }
-  WdLogSingleEntry1(2LL, v16);
-  return 3221225495LL;
+  return (unsigned int)v12;
 }

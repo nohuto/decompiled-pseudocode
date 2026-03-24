@@ -1,10 +1,11 @@
 /*
- * XREFs of ?EmitUpdateCommands@CSceneNodeMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C400
+ * XREFs of ?EmitUpdateCommands@CSceneNodeMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB5D0
  * Callers:
  *     <none>
  * Callees:
- *     ?Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@Z @ 0x1C009BD78 (-Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@.c)
- *     ?EmitSetTransformCommand@CSceneNodeMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021AEF8 (-EmitSetTransformCommand@CSceneNodeMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetChildrenCommand@CSceneNodeMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D6ED0 (-EmitSetChildrenCommand@CSceneNodeMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetComponentsCommand@CSceneNodeMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D72EC (-EmitSetComponentsCommand@CSceneNodeMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetTransformCommand@CSceneNodeMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DA940 (-EmitSetTransformCommand@CSceneNodeMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CSceneNodeMarshaler::EmitUpdateCommands(
@@ -14,22 +15,8 @@ char __fastcall DirectComposition::CSceneNodeMarshaler::EmitUpdateCommands(
   char v4; // bl
 
   v4 = 0;
-  if ( DirectComposition::CResourceMarshalerArrayBase::Marshal(
-         (_QWORD *)this + 7,
-         a2,
-         *((_DWORD *)this + 8),
-         (_DWORD *)this + 4,
-         32,
-         652,
-         653)
-    && DirectComposition::CResourceMarshalerArrayBase::Marshal(
-         (_QWORD *)this + 10,
-         a2,
-         *((_DWORD *)this + 8),
-         (_DWORD *)this + 4,
-         64,
-         654,
-         655) )
+  if ( DirectComposition::CSceneNodeMarshaler::EmitSetChildrenCommand(this, a2)
+    && DirectComposition::CSceneNodeMarshaler::EmitSetComponentsCommand(this, a2) )
   {
     return DirectComposition::CSceneNodeMarshaler::EmitSetTransformCommand(this, a2) != 0;
   }

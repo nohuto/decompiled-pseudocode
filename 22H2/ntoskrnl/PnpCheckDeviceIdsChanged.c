@@ -1,140 +1,192 @@
 /*
- * XREFs of PnpCheckDeviceIdsChanged @ 0x140798D00
+ * XREFs of PnpCheckDeviceIdsChanged @ 0x140769CA8
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PipProcessStartPhase3 @ 0x14079BED4 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x140747010 (PipProcessStartPhase3.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     RtlCompareUnicodeStrings @ 0x1406DA090 (RtlCompareUnicodeStrings.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlCompareUnicodeStrings @ 0x14065F910 (RtlCompareUnicodeStrings.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PnpCheckDeviceIdsChanged(__int64 a1, void *a2, const WCHAR *a3, int a4, char a5, _BYTE *a6)
+__int64 __fastcall PnpCheckDeviceIdsChanged(__int64 a1, void *a2, const WCHAR *a3, int a4, char a5, signed __int64 a6)
 {
-  _BYTE *v6; // r14
-  __int64 *v7; // rsi
-  bool v9; // cf
-  HANDLE v10; // r15
-  int v11; // r13d
-  void *Pool2; // r12
-  int DeviceRegProp; // ebx
-  const WCHAR *i; // rsi
-  __int64 v15; // rcx
-  unsigned int v16; // ecx
-  __int64 v17; // rax
-  unsigned int v18; // eax
-  __int64 v19; // r13
-  __int64 v20; // r15
-  bool v21; // zf
-  int v23; // [rsp+40h] [rbp-10h] BYREF
-  HANDLE Handle; // [rsp+48h] [rbp-8h] BYREF
-  unsigned int v25; // [rsp+98h] [rbp+48h] BYREF
-  int v26; // [rsp+A8h] [rbp+58h]
+  _BYTE *v6; // r15
+  bool v7; // cf
+  HANDLE v9; // rsi
+  int v10; // r14d
+  PVOID PoolWithTag; // r12
+  int DeviceRegProp; // edi
+  const WCHAR *v14; // r14
+  const WCHAR *v15; // rsi
+  __int64 v16; // rcx
+  unsigned int v17; // ecx
+  __int64 v18; // rax
+  __int64 v19; // rax
+  char *v21; // rcx
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  int v25; // [rsp+40h] [rbp-20h] BYREF
+  HANDLE Handle; // [rsp+48h] [rbp-18h] BYREF
+  __int64 v27; // [rsp+50h] [rbp-10h]
+  SIZE_T NumberOfBytes; // [rsp+A8h] [rbp+48h] BYREF
+  int v29; // [rsp+B8h] [rbp+58h]
 
-  v26 = a4;
-  v6 = a6;
-  v7 = (__int64 *)(a1 + 48);
-  v9 = a5 != 0;
+  v29 = a4;
+  v6 = (_BYTE *)a6;
+  v7 = a5 != 0;
   a5 = -a5;
-  v10 = a2;
+  v9 = a2;
+  LODWORD(NumberOfBytes) = 0;
+  v10 = -v7;
   v25 = 0;
-  v11 = -v9;
-  v23 = 0;
   Handle = 0LL;
-  *a6 = 0;
+  *(_BYTE *)a6 = 0;
   if ( !a2 )
   {
-    DeviceRegProp = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, *v7, 16, 0, 983103, 0, (__int64)&Handle, 0LL);
+    DeviceRegProp = CmOpenDeviceRegKey(
+                      *(__int64 *)&PiPnpRtlCtx,
+                      *(_QWORD *)(a1 + 48),
+                      16,
+                      0,
+                      983103,
+                      0,
+                      (__int64)&Handle,
+                      0LL);
     if ( DeviceRegProp < 0 )
-      goto LABEL_23;
-    v10 = Handle;
+      goto LABEL_21;
+    v9 = Handle;
   }
-  v25 = 512;
-  Pool2 = (void *)ExAllocatePool2(256LL, 512LL, 1970499664LL);
-  if ( Pool2 )
+  LODWORD(NumberOfBytes) = 512;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x75737050u);
+  if ( PoolWithTag )
   {
     DeviceRegProp = CmGetDeviceRegProp(
                       *(__int64 *)&PiPnpRtlCtx,
-                      *v7,
-                      (__int64)v10,
-                      v11 + 3,
-                      (__int64)&v23,
-                      (__int64)Pool2,
+                      *(_QWORD *)(a1 + 48),
+                      (__int64)v9,
+                      v10 + 3,
                       (__int64)&v25,
+                      (__int64)PoolWithTag,
+                      (__int64)&NumberOfBytes,
                       0);
     if ( DeviceRegProp != -1073741789 )
       goto LABEL_4;
-    ExFreePoolWithTag(Pool2, 0);
-    Pool2 = (void *)ExAllocatePool2(256LL, v25, 1970499664LL);
-    if ( Pool2 )
+    ExFreePoolWithTag(PoolWithTag, 0);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x75737050u);
+    if ( PoolWithTag )
     {
       DeviceRegProp = CmGetDeviceRegProp(
                         *(__int64 *)&PiPnpRtlCtx,
-                        *v7,
-                        (__int64)v10,
-                        v11 + 3,
-                        (__int64)&v23,
-                        (__int64)Pool2,
+                        *(_QWORD *)(a1 + 48),
+                        (__int64)v9,
+                        v10 + 3,
                         (__int64)&v25,
+                        (__int64)PoolWithTag,
+                        (__int64)&NumberOfBytes,
                         0);
 LABEL_4:
       if ( DeviceRegProp < 0 )
       {
-        if ( DeviceRegProp != -1073741275 )
-          goto LABEL_22;
-        DeviceRegProp = 0;
-        v21 = a3 == 0LL;
-      }
-      else
-      {
-        if ( v23 != 7 )
+        if ( DeviceRegProp == -1073741275 )
         {
-          DeviceRegProp = -1073741823;
-          goto LABEL_22;
-        }
-        if ( !a3 || v26 != v25 )
-          goto LABEL_35;
-        for ( i = (const WCHAR *)Pool2; *a3 && *i; i += v20 )
-        {
-          v15 = -1LL;
-          do
-            ++v15;
-          while ( a3[v15] );
-          v16 = v15 + 1;
-          v17 = -1LL;
-          do
-            ++v17;
-          while ( i[v17] );
-          v18 = v17 + 1;
-          if ( v16 != v18 || (v19 = v16, v20 = v18, RtlCompareUnicodeStrings(a3, v16, i, v18, 1u)) )
+          DeviceRegProp = 0;
+          if ( a3 )
           {
-            *v6 = 1;
-            break;
+            for ( *v6 = 1; *a3; a3 += v24 + 1 )
+            {
+              v24 = -1LL;
+              do
+                ++v24;
+              while ( a3[v24] );
+            }
           }
-          a3 += v19;
         }
-        if ( *v6 )
-          goto LABEL_22;
-        if ( *a3 )
-          goto LABEL_35;
-        v21 = *i == 0;
+        goto LABEL_20;
       }
-      if ( v21 )
+      if ( v25 == 7 )
       {
-LABEL_22:
-        ExFreePoolWithTag(Pool2, 0);
-        goto LABEL_23;
+        if ( a3 && v29 == (_DWORD)NumberOfBytes )
+        {
+          v14 = a3;
+          v15 = (const WCHAR *)PoolWithTag;
+          if ( *a3 )
+          {
+            while ( *v15 )
+            {
+              v16 = -1LL;
+              do
+                ++v16;
+              while ( v14[v16] );
+              v17 = v16 + 1;
+              v18 = -1LL;
+              do
+                ++v18;
+              while ( v15[v18] );
+              v19 = (unsigned int)(v18 + 1);
+              if ( v17 != (_DWORD)v19
+                || (a6 = v17, v27 = v19, RtlCompareUnicodeStrings(v14, v17, v15, (unsigned int)v19, 1u)) )
+              {
+                *v6 = 1;
+                break;
+              }
+              v14 += a6;
+              v15 += v27;
+              if ( !*v14 )
+                break;
+            }
+          }
+          if ( !*v6 )
+          {
+            if ( !*v14 && !*v15 )
+              goto LABEL_20;
+            *v6 = 1;
+          }
+        }
+        else
+        {
+          *v6 = 1;
+        }
+        v21 = (char *)PoolWithTag;
+        if ( (_DWORD)NumberOfBytes )
+        {
+          do
+          {
+            if ( !*(_WORD *)v21 )
+              break;
+            v22 = -1LL;
+            do
+              ++v22;
+            while ( *(_WORD *)&v21[2 * v22] );
+            v21 += 2 * v22 + 2;
+          }
+          while ( 2 * ((v21 - (_BYTE *)PoolWithTag) >> 1) < (unsigned __int64)(unsigned int)NumberOfBytes );
+        }
+        if ( a3 )
+        {
+          while ( *a3 )
+          {
+            v23 = -1LL;
+            do
+              ++v23;
+            while ( a3[v23] );
+            a3 += v23 + 1;
+          }
+        }
+        goto LABEL_20;
       }
-LABEL_35:
-      *v6 = 1;
-      goto LABEL_22;
+      DeviceRegProp = -1073741823;
+LABEL_20:
+      ExFreePoolWithTag(PoolWithTag, 0);
+      goto LABEL_21;
     }
   }
   DeviceRegProp = -1073741670;
-LABEL_23:
+LABEL_21:
   if ( Handle )
     ZwClose(Handle);
   return (unsigned int)DeviceRegProp;

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpLoadHiveVolatile @ 0x140802918
+ * XREFs of CmpLoadHiveVolatile @ 0x1408028F8
  * Callers:
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
@@ -9,12 +9,12 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
@@ -23,12 +23,12 @@
  *     CmpLinkHiveToMaster @ 0x1405B8C48 (CmpLinkHiveToMaster.c)
  *     CmpIsKeyDeletedForKeyBody @ 0x1405D7310 (CmpIsKeyDeletedForKeyBody.c)
  *     CmpConstructNameWithStatus @ 0x1405D73A0 (CmpConstructNameWithStatus.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpUuidCreate @ 0x140680A8C (CmpUuidCreate.c)
- *     CmpAddToHiveFileList @ 0x1406CCFA0 (CmpAddToHiveFileList.c)
- *     CmpCopyKeyPartial @ 0x1406FF8E0 (CmpCopyKeyPartial.c)
- *     CmpDestroyHive @ 0x1407F6798 (CmpDestroyHive.c)
- *     CmpCopySyncTree @ 0x1407FCB80 (CmpCopySyncTree.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpUuidCreate @ 0x140680A6C (CmpUuidCreate.c)
+ *     CmpAddToHiveFileList @ 0x1406CCF80 (CmpAddToHiveFileList.c)
+ *     CmpCopyKeyPartial @ 0x1406FF8C0 (CmpCopyKeyPartial.c)
+ *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
+ *     CmpCopySyncTree @ 0x1407FCB60 (CmpCopySyncTree.c)
  */
 
 __int64 __fastcall CmpLoadHiveVolatile(__int64 a1, __int64 a2)

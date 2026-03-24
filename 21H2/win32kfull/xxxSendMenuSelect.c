@@ -1,20 +1,20 @@
 /*
- * XREFs of xxxSendMenuSelect @ 0x1C024E3F8
+ * XREFs of xxxSendMenuSelect @ 0x1C025140C
  * Callers:
- *     xxxMNCancel @ 0x1C0230708 (xxxMNCancel.c)
- *     xxxMNCloseHierarchy @ 0x1C0230E00 (xxxMNCloseHierarchy.c)
- *     xxxMNDoubleClick @ 0x1C0231350 (xxxMNDoubleClick.c)
- *     xxxMNSelectItem @ 0x1C02334EC (xxxMNSelectItem.c)
- *     xxxMNInvertItem @ 0x1C0248188 (xxxMNInvertItem.c)
+ *     xxxMNCancel @ 0x1C0237494 (xxxMNCancel.c)
+ *     xxxMNCloseHierarchy @ 0x1C0237D20 (xxxMNCloseHierarchy.c)
+ *     xxxMNDoubleClick @ 0x1C0238378 (xxxMNDoubleClick.c)
+ *     xxxMNSelectItem @ 0x1C023AB7C (xxxMNSelectItem.c)
+ *     xxxMNInvertItem @ 0x1C024CD80 (xxxMNInvertItem.c)
  * Callees:
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C0066A74 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0067394 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00685A0 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     xxxSendNotifyMessage @ 0x1C00ACBA0 (xxxSendNotifyMessage.c)
- *     ??0?$SmartObjStackRef@UtagMENU@@@@QEAA@AEBV0@@Z @ 0x1C00C2450 (--0-$SmartObjStackRef@UtagMENU@@@@QEAA@AEBV0@@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00E7BF4 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     xxxCallMsgFilter @ 0x1C013EB60 (xxxCallMsgFilter.c)
+ *     xxxSendNotifyMessage @ 0x1C0040370 (xxxSendNotifyMessage.c)
+ *     ??0?$SmartObjStackRef@UtagMENU@@@@QEAA@AEBV0@@Z @ 0x1C0047A8C (--0-$SmartObjStackRef@UtagMENU@@@@QEAA@AEBV0@@Z.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078B40 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A9DC (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE4E0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010139C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     xxxCallMsgFilter @ 0x1C01E6F9C (xxxCallMsgFilter.c)
  */
 
 _QWORD *__fastcall xxxSendMenuSelect(__int64 *a1, struct tagWND *a2, __int64 a3, int a4, __int64 a5)
@@ -52,7 +52,7 @@ _QWORD *__fastcall xxxSendMenuSelect(__int64 *a1, struct tagWND *a2, __int64 a3,
     SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v20);
     v19 = 0LL;
     LOWORD(v12) = 0;
-    SmartObjStackRefBase<tagMENU>::operator=((__int64)v18, 0LL);
+    SmartObjStackRefBase<tagMENU>::operator=(v18, 0LL);
     LODWORD(v6) = -1;
     v11 = 0xFFFF;
     if ( v14 != -1 )
@@ -96,7 +96,7 @@ _QWORD *__fastcall xxxSendMenuSelect(__int64 *a1, struct tagWND *a2, __int64 a3,
     v25 = *v15;
   }
   if ( !(unsigned int)xxxCallMsgFilter((__int64)&v21, 2) )
-    xxxSendNotifyMessage((struct tagWND *)a1, 0x11Fu, v24, v25, 1);
+    xxxSendNotifyMessage((__int64)a1, 0x11Fu, v24, v25, 1);
   if ( a2 )
   {
     if ( a2 == (struct tagWND *)a1 )

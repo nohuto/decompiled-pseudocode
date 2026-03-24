@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReferenceAdapterByHostLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C030BD88
+ * XREFs of ?ReferenceAdapterByHostLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C026AD78
  * Callers:
- *     ?VmBusDuplicateHandle@DXG_GUEST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036C5F0 (-VmBusDuplicateHandle@DXG_GUEST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusDuplicateHandle@DXG_GUEST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02405B0 (-VmBusDuplicateHandle@DXG_GUEST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
  */
 
 struct DXGADAPTER *__fastcall DXGGLOBAL::ReferenceAdapterByHostLuid(
@@ -24,15 +24,15 @@ struct DXGADAPTER *__fastcall DXGGLOBAL::ReferenceAdapterByHostLuid(
 
   HighPart = a2.HighPart;
   LowPart = a2.LowPart;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v12, (DXGGLOBAL *)((char *)this + 752), 0);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v12, (DXGGLOBAL *)((char *)this + 624), 0);
   DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v12);
-  v6 = (char *)this + 800;
-  v7 = (char *)*((_QWORD *)this + 100);
+  v6 = (char *)this + 664;
+  v7 = (char *)*((_QWORD *)this + 83);
   while ( v7 != v6 && v7 )
   {
     v8 = v7;
     v7 = *(char **)v7;
-    if ( *((_DWORD *)v8 + 1111) == LowPart && *((_DWORD *)v8 + 1112) == HighPart )
+    if ( *((_DWORD *)v8 + 1081) == LowPart && *((_DWORD *)v8 + 1082) == HighPart )
     {
       _m_prefetchw(v8 + 24);
       v9 = *((_QWORD *)v8 + 3);
@@ -51,6 +51,6 @@ struct DXGADAPTER *__fastcall DXGGLOBAL::ReferenceAdapterByHostLuid(
   v8 = 0LL;
 LABEL_12:
   if ( v12[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v12);
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v12, (__int64)v7);
   return (struct DXGADAPTER *)v8;
 }

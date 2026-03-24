@@ -1,13 +1,13 @@
 /*
- * XREFs of ?InitializeSensor@CBaseInput@@QEAAJXZ @ 0x1C0077C00
+ * XREFs of ?InitializeSensor@CBaseInput@@QEAAJXZ @ 0x1C0088DB0
  * Callers:
- *     _anonymous_namespace_::InitializeInputSensorPass1Worker @ 0x1C0084588 (_anonymous_namespace_--InitializeInputSensorPass1Worker.c)
+ *     ?InitializeInputSensors@@YAJXZ @ 0x1C01B1B88 (-InitializeInputSensors@@YAJXZ.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0046340 (W32GetThreadWin32Thread.c)
- *     ?CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z @ 0x1C0077120 (-CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     ?CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z @ 0x1C0088F08 (-CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBaseInput::InitializeSensor(CBaseInput *this)
@@ -18,10 +18,10 @@ __int64 __fastcall CBaseInput::InitializeSensor(CBaseInput *this)
   _BYTE v5[80]; // [rsp+40h] [rbp-68h] BYREF
 
   if ( !W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 922LL);
-  *((_DWORD *)this + 334) = (unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 934LL);
+  *((_DWORD *)this + 318) = (unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC;
   LODWORD(v4) = 0;
-  *((_DWORD *)this + 335) = (unsigned int)PsGetCurrentThreadId();
+  *((_DWORD *)this + 319) = (unsigned int)PsGetCurrentThreadId();
   (*(void (__fastcall **)(CBaseInput *, _BYTE *, unsigned __int64 *))(*(_QWORD *)this + 24LL))(this, v5, &v4);
   result = CRIMBase::CreateHandles(
              this,

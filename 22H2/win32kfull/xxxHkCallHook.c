@@ -1,394 +1,374 @@
 /*
- * XREFs of xxxHkCallHook @ 0x1C0120850
+ * XREFs of xxxHkCallHook @ 0x1C005CA10
  * Callers:
- *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C011F720 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C005BD10 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
  * Callees:
- *     fnHkINLPMOUSEHOOKSTRUCTEX @ 0x1C0008F78 (fnHkINLPMOUSEHOOKSTRUCTEX.c)
- *     fnHkINDWORD @ 0x1C00A10A8 (fnHkINDWORD.c)
- *     SfnDWORD @ 0x1C0123CE0 (SfnDWORD.c)
- *     fnHkINLPMSG @ 0x1C0124E30 (fnHkINLPMSG.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     ??0?$UnlockObjectLock@$$V@?$UnlockDomainExclusive@$$V@?$UnlockDomainShared@VDLT_HOOK@@@SharedUserCritOnly@@QEAA@XZ @ 0x1C013A4FC (--0-$UnlockObjectLock@$$V@-$UnlockDomainExclusive@$$V@-$UnlockDomainShared@VDLT_HOOK@@@SharedUse.c)
- *     ??1?$UnlockObjectLock@$$V@?$UnlockDomainExclusive@$$V@?$UnlockDomainShared@VDLT_HOOK@@@SharedUserCritOnly@@QEAA@XZ @ 0x1C013A58C (--1-$UnlockObjectLock@$$V@-$UnlockDomainExclusive@$$V@-$UnlockDomainShared@VDLT_HOOK@@@SharedUse.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     fnHkINLPKBDLLHOOKSTRUCT @ 0x1C0156656 (fnHkINLPKBDLLHOOKSTRUCT.c)
- *     fnHkINLPMSLLHOOKSTRUCT @ 0x1C0156782 (fnHkINLPMSLLHOOKSTRUCT.c)
- *     ??1CCheckLLHookTime@@QEAA@XZ @ 0x1C015775E (--1CCheckLLHookTime@@QEAA@XZ.c)
- *     fnHkINLPCBTACTIVATESTRUCT @ 0x1C02102D8 (fnHkINLPCBTACTIVATESTRUCT.c)
- *     fnHkINLPCBTCREATESTRUCT @ 0x1C02103E8 (fnHkINLPCBTCREATESTRUCT.c)
- *     fnHkINLPDEBUGHOOKSTRUCT @ 0x1C0210CBC (fnHkINLPDEBUGHOOKSTRUCT.c)
- *     fnHkINLPRECT @ 0x1C0210FC8 (fnHkINLPRECT.c)
- *     fnHkOPTINLPEVENTMSG @ 0x1C021116C (fnHkOPTINLPEVENTMSG.c)
- *     ?CallfnHkINLPMSG@@YA_JHH_K_JP6A_JXZPEAU_PFNCLIENT@@K@Z @ 0x1C022B7A4 (-CallfnHkINLPMSG@@YA_JHH_K_JP6A_JXZPEAU_PFNCLIENT@@K@Z.c)
+ *     fnHkINLPCBTCREATESTRUCT @ 0x1C001E5E0 (fnHkINLPCBTCREATESTRUCT.c)
+ *     fnHkINDWORD @ 0x1C00513DC (fnHkINDWORD.c)
+ *     W32SetCurrentThreadDpiAwarenessContext @ 0x1C005CF00 (W32SetCurrentThreadDpiAwarenessContext.c)
+ *     fnHkINLPMSG @ 0x1C005D060 (fnHkINLPMSG.c)
+ *     SfnDWORD @ 0x1C006B320 (SfnDWORD.c)
+ *     fnHkINLPMOUSEHOOKSTRUCTEX @ 0x1C0117D98 (fnHkINLPMOUSEHOOKSTRUCTEX.c)
+ *     fnHkINLPCBTACTIVATESTRUCT @ 0x1C015C41C (fnHkINLPCBTACTIVATESTRUCT.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     fnHkINLPDEBUGHOOKSTRUCT @ 0x1C0230878 (fnHkINLPDEBUGHOOKSTRUCT.c)
+ *     fnHkINLPKBDLLHOOKSTRUCT @ 0x1C0230A58 (fnHkINLPKBDLLHOOKSTRUCT.c)
+ *     fnHkINLPMSLLHOOKSTRUCT @ 0x1C0230BD0 (fnHkINLPMSLLHOOKSTRUCT.c)
+ *     fnHkINLPRECT @ 0x1C0230D4C (fnHkINLPRECT.c)
+ *     fnHkOPTINLPEVENTMSG @ 0x1C0230F40 (fnHkOPTINLPEVENTMSG.c)
+ *     ??1CCheckLLHookTime@@QEAA@XZ @ 0x1C0246BC4 (--1CCheckLLHookTime@@QEAA@XZ.c)
  */
 
-__int64 __fastcall xxxHkCallHook(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
+__int64 __fastcall xxxHkCallHook(__int64 a1, int a2, __int64 a3, __int64 *a4)
 {
-  __int64 v4; // r15
-  int v6; // esi
-  __int64 v7; // rdi
+  __int64 v5; // r12
+  __int64 v7; // rbx
   __int64 v8; // r14
-  PERESOURCE *v9; // rax
-  PERESOURCE *v10; // rax
-  bool v11; // al
-  __int64 (*v12)(void); // r12
-  __int64 v13; // rdx
-  PERESOURCE *v14; // rax
-  __int64 v15; // rbx
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v10; // r14
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
   __int64 *ThreadWin32Thread; // rax
-  __int64 v17; // rbx
-  __int64 *v18; // rax
+  __int64 v15; // rdx
+  struct _KTHREAD *v16; // r12
+  __int64 v17; // r15
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 *v21; // rax
   __int64 CurrentProcessWin32Process; // rax
-  int *v20; // r8
-  unsigned int v21; // edx
-  __int64 v22; // rbx
-  int v23; // edi
-  bool v24; // zf
-  __int64 v25; // rax
-  int v26; // ecx
-  __int64 v27; // rcx
-  __int64 v28; // rax
-  __int64 v29; // rsi
-  __int64 *v30; // rax
-  unsigned __int64 *v31; // rsi
+  _DWORD *v23; // r15
+  int v24; // edx
+  __int64 *v25; // rdi
+  __int64 *v26; // r9
+  int v27; // r8d
+  bool v28; // zf
+  __int64 v29; // rax
+  __int64 *v30; // rcx
+  __int64 v31; // r12
   __int64 v32; // rdx
-  unsigned __int64 v33; // rax
-  unsigned __int64 v34; // rax
-  int v35; // r13d
-  int v36; // ebx
-  int v37; // r13d
-  __int64 v38; // rcx
-  __int64 v39; // rbx
-  __int64 v40; // rdi
-  int v41; // eax
-  __int64 v42; // rax
-  __int64 (__fastcall *v43)(int, int, int, int, __int64, __int64); // rsi
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  __int64 *v35; // rax
+  unsigned __int64 *v36; // r12
+  unsigned __int64 v37; // rax
+  __int64 v38; // rdi
+  unsigned __int64 v39; // rax
+  unsigned int v40; // esi
+  int v41; // edi
+  __int64 (__fastcall **v42)(int, int, int, int, __int64, __int64); // rbx
+  __int64 v43; // rcx
   __int64 v44; // rax
-  __int64 v45; // rdx
-  unsigned int v46; // r15d
+  __int64 v46; // rax
   int v47; // eax
-  unsigned int v49[2]; // [rsp+50h] [rbp-F8h] BYREF
-  __int64 v50; // [rsp+58h] [rbp-F0h]
-  __int64 v51; // [rsp+60h] [rbp-E8h]
-  unsigned __int64 *v52; // [rsp+68h] [rbp-E0h]
-  unsigned int v53; // [rsp+70h] [rbp-D8h]
-  __int64 v54; // [rsp+78h] [rbp-D0h] BYREF
-  int v55; // [rsp+80h] [rbp-C8h]
-  __int64 (*v56)(void); // [rsp+88h] [rbp-C0h]
-  __int64 v57; // [rsp+90h] [rbp-B8h]
-  unsigned __int64 v58; // [rsp+98h] [rbp-B0h]
-  __int64 v59; // [rsp+A0h] [rbp-A8h]
-  unsigned __int64 v60; // [rsp+A8h] [rbp-A0h]
-  _BYTE v61[56]; // [rsp+D0h] [rbp-78h] BYREF
+  unsigned __int16 v48; // r10
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // edi
+  __int64 v51; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v53; // rax
+  int v54; // edi
+  __int64 v55; // rcx
+  __int64 v56; // rax
+  int v57; // ecx
+  __int64 v58; // rax
+  int v59; // edi
+  __int64 v60; // rcx
+  __int64 v61; // rax
+  unsigned int v62; // r13d
+  int v63; // eax
+  __int64 (__fastcall **v64)(int, int, int, int, __int64, __int64); // rdi
+  __int64 v65; // rcx
+  __int64 *v66; // [rsp+50h] [rbp-C8h]
+  __int64 v67; // [rsp+50h] [rbp-C8h]
+  __int64 *v68; // [rsp+58h] [rbp-C0h]
+  char v69; // [rsp+58h] [rbp-C0h]
+  __int64 v70; // [rsp+60h] [rbp-B8h]
+  struct _KTHREAD *v71; // [rsp+68h] [rbp-B0h]
+  unsigned __int64 v72; // [rsp+68h] [rbp-B0h]
+  __int64 *v73; // [rsp+70h] [rbp-A8h]
+  __int64 v74; // [rsp+88h] [rbp-90h] BYREF
+  int v75; // [rsp+90h] [rbp-88h]
+  __int64 v76; // [rsp+98h] [rbp-80h]
+  __int64 v77; // [rsp+A0h] [rbp-78h] BYREF
+  int v78; // [rsp+A8h] [rbp-70h]
+  __int64 v79; // [rsp+B0h] [rbp-68h]
+  unsigned int v80; // [rsp+120h] [rbp+8h]
 
-  v4 = a4;
-  v6 = a2;
-  v7 = a1;
-  v50 = a1;
-  v8 = 0LL;
-  v58 = 0LL;
-  v57 = 0LL;
-  if ( !gbInDestroyHandleTableObjects )
+  v5 = a3;
+  v7 = 0LL;
+  v8 = *(_QWORD *)(a1 + 56);
+  if ( v8 )
   {
-    v9 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(a1, a2, a3, a4);
-    if ( ExIsResourceAcquiredExclusiveLite(*v9) != 1 )
+    if ( *(_DWORD *)(a1 + 68) != -1 )
     {
-      v10 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(a1, a2, a3, a4);
-      if ( !ExIsResourceAcquiredSharedLite(*v10) )
-        goto LABEL_8;
-      if ( ExIsResourceAcquiredExclusiveLite((PERESOURCE)gDomainHookLock) == 1
-        || (v11 = ExIsResourceAcquiredSharedLite((PERESOURCE)gDomainHookLock) != 0) )
+      CurrentThread = KeGetCurrentThread();
+      v10 = 0LL;
+      if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+        || (CurrentProcess = PsGetCurrentProcess(v12, v11, v13),
+            ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+            CurrentThreadProcess = PsGetCurrentThreadProcess(v51),
+            ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
       {
-        v11 = 1;
+        ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+        if ( ThreadWin32Thread )
+          v10 = *ThreadWin32Thread;
       }
-      if ( !v11 )
-LABEL_8:
-        __int2c();
-    }
-  }
-  v12 = *(__int64 (**)(void))(v7 + 56);
-  if ( v12 )
-  {
-    if ( *(_DWORD *)(v7 + 68) == -1 )
-    {
-      LODWORD(v13) = -1;
-    }
-    else
-    {
-      v14 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(a1, a2, a3, a4);
-      if ( !ExIsResourceAcquiredSharedLite(*v14) )
+      v15 = *(int *)(a1 + 68);
+      v8 = *(_QWORD *)(a1 + 56) + *(_QWORD *)(*(_QWORD *)(v10 + 424) + 8 * v15 + 408);
+      if ( (_DWORD)v15 != -1 )
       {
-        v49[0] = 0x20000;
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
+        v16 = KeGetCurrentThread();
+        v17 = 0LL;
+        if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+          || (v53 = PsGetCurrentProcess(v19, v18, v20),
+              v54 = PsGetProcessSessionIdEx(v53),
+              v56 = PsGetCurrentThreadProcess(v55),
+              v54 == (unsigned int)PsGetProcessSessionIdEx(v56)) )
+        {
+          v21 = (__int64 *)PsGetThreadWin32Thread(v16);
+          if ( v21 )
+            v17 = *v21;
+        }
+        *(_QWORD *)(*(_QWORD *)(v17 + 480) + 224LL) |= 0x200uLL;
+        v5 = a3;
       }
-      v15 = 0LL;
-      ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-      if ( ThreadWin32Thread )
-        v15 = *ThreadWin32Thread;
-      v13 = *(int *)(v7 + 68);
-      v12 = (__int64 (*)(void))(*(_QWORD *)(v7 + 56) + *(_QWORD *)(*(_QWORD *)(v15 + 424) + 8 * v13 + 400));
-    }
-    if ( (_DWORD)v13 != -1 )
-    {
-      v17 = 0LL;
-      v18 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-      if ( v18 )
-        v17 = *v18;
-      a1 = *(_QWORD *)(v17 + 480);
-      *(_QWORD *)(a1 + 224) |= 0x200uLL;
     }
     CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
-    if ( CurrentProcessWin32Process && !*(_QWORD *)CurrentProcessWin32Process )
-      CurrentProcessWin32Process = 0LL;
-    v53 = W32SetCurrentThreadDpiAwarenessContext(*(unsigned int *)(CurrentProcessWin32Process + 280));
-    v20 = (int *)(v7 + 64);
-    v52 = (unsigned __int64 *)(v7 + 64);
-    v21 = *(_DWORD *)(v7 + 64);
-    v49[0] = v21;
-    if ( (v21 & 2) != 0 )
-      v22 = gpsi + 392LL;
-    else
-      v22 = gpsi + 584LL;
-    v23 = *(_DWORD *)(v7 + 48);
-    v24 = v23 == 4;
-    if ( v23 != 4 )
+    v80 = W32SetCurrentThreadDpiAwarenessContext(*(unsigned int *)(CurrentProcessWin32Process + 280));
+    v23 = (_DWORD *)(a1 + 64);
+    v24 = *(_DWORD *)(a1 + 64) & 2;
+    if ( v24 )
     {
-      switch ( v23 )
+      v68 = (__int64 *)(gpsi + 536LL);
+      v25 = (__int64 *)(gpsi + 528LL);
+      v26 = (__int64 *)(gpsi + 544LL);
+    }
+    else
+    {
+      v68 = (__int64 *)(gpsi + 728LL);
+      v25 = (__int64 *)(gpsi + 720LL);
+      v26 = (__int64 *)(gpsi + 736LL);
+    }
+    v66 = v25;
+    v27 = *(_DWORD *)(a1 + 48);
+    v28 = v27 == 4;
+    if ( v27 != 4 )
+    {
+      if ( v27 == 3 )
       {
-        case -1:
-        case 6:
-          SharedUserCritOnly::UnlockDomainShared<DLT_HOOK>::UnlockDomainExclusive<>::UnlockObjectLock<>::UnlockObjectLock<>(v61);
-          v8 = CallfnHkINLPMSG(v6, v23, a3, v4, v12, (struct _PFNCLIENT *)v22, v49[0]);
-          SharedUserCritOnly::UnlockDomainShared<DLT_HOOK>::UnlockDomainExclusive<>::UnlockObjectLock<>::~UnlockObjectLock<>(v61);
-          goto LABEL_75;
-        case 0:
-          v25 = fnHkOPTINLPEVENTMSG(
-                  (unsigned __int16)v6 | ((unsigned __int16)v23 << 16),
-                  a3,
-                  v4,
-                  (_DWORD)v12,
-                  *(_QWORD *)(v22 + 152));
-          goto LABEL_74;
-        case 1:
-          v8 = fnHkOPTINLPEVENTMSG(
-                 (unsigned __int16)v6 | ((unsigned __int16)v23 << 16),
-                 *(_QWORD *)v50,
-                 v4,
-                 (_DWORD)v12,
-                 *(_QWORD *)(v22 + 152));
-          *(_DWORD *)v52 &= ~4u;
-          goto LABEL_75;
-        case 2:
-        case 11:
-          goto LABEL_33;
-        case 3:
-          v49[0] = v21;
-          v25 = fnHkINLPMSG(
-                  (unsigned __int16)v6 | ((unsigned __int16)v23 << 16),
-                  a3,
-                  v4,
-                  (_DWORD)v12,
-                  *(_QWORD *)(v22 + 152),
-                  (v21 >> 1) & 1,
-                  (__int64)v49);
-          goto LABEL_74;
-        case 5:
-          if ( v6 )
-          {
-            switch ( v6 )
-            {
-              case 3:
-                LOBYTE(v8) = (v21 & 2) != 0;
-                v25 = fnHkINLPCBTCREATESTRUCT(((unsigned __int16)v23 << 16) | 3u, a3, v4, (_DWORD)v12, v8);
-                break;
-              case 5:
-                v25 = fnHkINLPCBTACTIVATESTRUCT(
-                        ((unsigned __int16)v23 << 16) | 5u,
-                        a3,
-                        v4,
-                        (_DWORD)v12,
-                        *(_QWORD *)(v22 + 152));
-                break;
-              case 6:
-LABEL_47:
-                v25 = fnHkINLPMOUSEHOOKSTRUCTEX(
-                        (unsigned __int16)v6 | ((unsigned __int16)v23 << 16),
-                        a3,
-                        (__int128 *)v4,
-                        (__int64)v12,
-                        *(_QWORD *)(v22 + 152),
-                        v20);
-                break;
-              default:
-LABEL_33:
-                v25 = fnHkINDWORD(
-                        (unsigned __int16)v6 | ((unsigned __int16)v23 << 16),
-                        a3,
-                        v4,
-                        (__int64)v12,
-                        *(_QWORD *)(v22 + 152),
-                        v20);
-                break;
-            }
-          }
-          else
-          {
-            v26 = (unsigned __int16)v23 << 16;
 LABEL_37:
-            v25 = fnHkINLPRECT(v26, a3, v4, (_DWORD)v12, *(_QWORD *)(v22 + 152));
-          }
-LABEL_74:
-          v8 = v25;
-          break;
-        case 7:
-          goto LABEL_47;
-        case 9:
-          SharedUserCritOnly::UnlockDomainShared<DLT_HOOK>::UnlockDomainExclusive<>::UnlockObjectLock<>::UnlockObjectLock<>(v61);
-          v8 = fnHkINLPDEBUGHOOKSTRUCT(
-                 (unsigned __int16)v6 | ((unsigned __int16)v23 << 16),
-                 a3,
-                 v4,
-                 v12,
-                 *(_QWORD *)(v22 + 152));
-          SharedUserCritOnly::UnlockDomainShared<DLT_HOOK>::UnlockDomainExclusive<>::UnlockObjectLock<>::~UnlockObjectLock<>(v61);
-          goto LABEL_75;
-        case 10:
-          if ( v6 != 5 )
-            goto LABEL_33;
-          v26 = ((unsigned __int16)v23 << 16) | 5;
-          goto LABEL_37;
-        case 12:
-          v24 = v23 == 4;
-          v27 = *(_QWORD *)(v4 + 40);
-          goto LABEL_51;
-        case 13:
-          v54 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
-               * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
-          v55 = v23;
-          v56 = v12;
-          *(_DWORD *)(gptiCurrent + 696LL) = 1;
-          v8 = fnHkINLPKBDLLHOOKSTRUCT(
-                 (unsigned __int16)v6 | (*(unsigned __int16 *)(v50 + 48) << 16),
-                 a3,
-                 v4,
-                 (_DWORD)v12,
-                 *(_QWORD *)(v22 + 152));
-          CCheckLLHookTime::~CCheckLLHookTime((CCheckLLHookTime *)&v54);
-          goto LABEL_75;
-        case 14:
-          v54 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
-               * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
-          v55 = v23;
-          v56 = v12;
-          *(_DWORD *)(gptiCurrent + 696LL) = 1;
-          v8 = fnHkINLPMSLLHOOKSTRUCT(
-                 (unsigned __int16)v6 | (*(unsigned __int16 *)(v50 + 48) << 16),
-                 a3,
-                 v4,
-                 (_DWORD)v12,
-                 *(_QWORD *)(v22 + 152));
-          CCheckLLHookTime::~CCheckLLHookTime((CCheckLLHookTime *)&v54);
-          goto LABEL_75;
-        default:
-          goto LABEL_75;
+        LOBYTE(v7) = v24 != 0;
+        v46 = fnHkINLPMSG((unsigned __int16)a2 | ((unsigned __int16)v27 << 16), v5, (_DWORD)a4, v8, *v26, v7, a1 + 64);
       }
-      goto LABEL_75;
+      else
+      {
+        switch ( v27 )
+        {
+          case -1:
+          case 6:
+            goto LABEL_37;
+          case 0:
+            v46 = fnHkOPTINLPEVENTMSG((unsigned __int16)a2 | ((unsigned __int16)v27 << 16), v5, (_DWORD)a4, v8, *v26);
+            break;
+          case 1:
+            v46 = fnHkOPTINLPEVENTMSG(
+                    (unsigned __int16)a2 | ((unsigned __int16)v27 << 16),
+                    *(_QWORD *)a1,
+                    (_DWORD)a4,
+                    v8,
+                    *v26);
+            *v23 &= ~4u;
+            break;
+          case 2:
+          case 11:
+            v48 = a2;
+            goto LABEL_49;
+          case 5:
+            v48 = a2;
+            if ( a2 == 3 )
+            {
+              LOBYTE(v7) = v24 != 0;
+              v7 = fnHkINLPCBTCREATESTRUCT(((unsigned __int16)v27 << 16) | 3u, v5, a4, v8, v7);
+              goto LABEL_35;
+            }
+            if ( a2 )
+            {
+              if ( a2 == 5 )
+              {
+                v7 = fnHkINLPCBTACTIVATESTRUCT(((unsigned __int16)v27 << 16) | 5u, v5, (_DWORD)a4, v8, *v26);
+              }
+              else if ( a2 == 6 )
+              {
+LABEL_53:
+                v7 = fnHkINLPMOUSEHOOKSTRUCTEX(v48 | ((unsigned __int16)v27 << 16), v5, (_DWORD)a4, v8, *v26, a1 + 64);
+              }
+              else
+              {
+LABEL_49:
+                v7 = fnHkINDWORD(v48 | ((unsigned __int16)v27 << 16), v5, (__int64)a4, v8, *v26, (_DWORD *)(a1 + 64));
+              }
+              goto LABEL_35;
+            }
+            v57 = (unsigned __int16)v27 << 16;
+LABEL_61:
+            v46 = fnHkINLPRECT(v57, v5, (_DWORD)a4, v8, *v26);
+            break;
+          case 7:
+            v48 = a2;
+            goto LABEL_53;
+          case 9:
+            v46 = fnHkINLPDEBUGHOOKSTRUCT((unsigned __int16)a2 | ((unsigned __int16)v27 << 16), v5, a4, v8, *v26);
+            break;
+          case 10:
+            v48 = a2;
+            if ( a2 != 5 )
+              goto LABEL_49;
+            v57 = ((unsigned __int16)v27 << 16) | 5;
+            goto LABEL_61;
+          case 12:
+            v28 = v27 == 4;
+            v29 = a4[5];
+            goto LABEL_15;
+          case 13:
+            v74 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
+                 * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
+            v75 = v27;
+            v76 = v8;
+            *(_DWORD *)(gptiCurrent + 696LL) = 1;
+            v7 = fnHkINLPKBDLLHOOKSTRUCT(
+                   (unsigned __int16)a2 | (*(unsigned __int16 *)(a1 + 48) << 16),
+                   v5,
+                   (_DWORD)a4,
+                   v8,
+                   *v26);
+            CCheckLLHookTime::~CCheckLLHookTime((CCheckLLHookTime *)&v74);
+            goto LABEL_35;
+          case 14:
+            v77 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
+                 * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
+            v78 = v27;
+            v79 = v8;
+            *(_DWORD *)(gptiCurrent + 696LL) = 1;
+            v7 = fnHkINLPMSLLHOOKSTRUCT(
+                   (unsigned __int16)a2 | (*(unsigned __int16 *)(a1 + 48) << 16),
+                   v5,
+                   (_DWORD)a4,
+                   v8,
+                   *v26);
+            CCheckLLHookTime::~CCheckLLHookTime((CCheckLLHookTime *)&v77);
+            goto LABEL_35;
+          default:
+            goto LABEL_35;
+        }
+      }
+      v7 = v46;
+      goto LABEL_35;
     }
-    v27 = *(_QWORD *)(v4 + 32);
-LABEL_51:
-    *(_QWORD *)v49 = v27;
-    v28 = 0LL;
-    if ( !v24 )
-      v28 = v4;
-    v51 = v28;
-    if ( !v24 )
-      v4 = 0LL;
-    if ( v27 && (*(_DWORD *)(v27 + 84) & 5) != 0 )
+    v29 = a4[4];
+LABEL_15:
+    v70 = v29;
+    v30 = 0LL;
+    if ( !v28 )
+      v30 = a4;
+    v73 = v30;
+    if ( !v28 )
+      a4 = 0LL;
+    if ( v29 && (*(_DWORD *)(v29 + 84) & 5) != 0 )
     {
-LABEL_75:
-      W32SetCurrentThreadDpiAwarenessContext(v53);
-      return v8;
+LABEL_35:
+      W32SetCurrentThreadDpiAwarenessContext(v80);
+      return v7;
     }
-    v29 = 0LL;
-    v30 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( v30 )
-      v29 = *v30;
-    v31 = *(unsigned __int64 **)(v29 + 480);
-    v52 = v31;
-    v32 = v50;
-    if ( *(_DWORD *)(v50 + 48) == 4 )
+    v71 = KeGetCurrentThread();
+    v31 = 0LL;
+    if ( !(unsigned __int8)KeIsAttachedProcess(v30)
+      || (v58 = PsGetCurrentProcess(v33, v32, v34),
+          v59 = PsGetProcessSessionIdEx(v58),
+          v61 = PsGetCurrentThreadProcess(v60),
+          v28 = v59 == (unsigned int)PsGetProcessSessionIdEx(v61),
+          v25 = v66,
+          v28) )
     {
-      v50 = *(_QWORD *)(v22 + 136);
+      v35 = (__int64 *)PsGetThreadWin32Thread(v71);
+      if ( v35 )
+        v31 = *v35;
+    }
+    v36 = *(unsigned __int64 **)(v31 + 480);
+    if ( *(_DWORD *)(a1 + 48) == 4 )
+    {
+      v67 = *v25;
     }
     else
     {
-      v50 = *(_QWORD *)(v22 + 144);
-      v31[13] = *(_QWORD *)v51;
+      v67 = *v68;
+      v36[13] = *v73;
     }
-    v33 = *v31;
-    v59 = *v31 & 0x10;
-    v57 = v59;
-    v60 = v31[13];
-    v58 = v60;
+    v37 = *v36;
+    v38 = *v36 & 0x10;
+    v69 = v38;
+    v72 = v36[13];
     if ( a3 )
-      v34 = v33 | 0x10;
+      v39 = v37 | 0x10;
     else
-      v34 = v33 & 0xFFFFFFFFFFFFFFEFuLL;
-    *v31 = v34;
-    v35 = *(_DWORD *)(v32 + 64);
-    v36 = *(_DWORD *)(v32 + 48);
-    SharedUserCritOnly::UnlockDomainShared<DLT_HOOK>::UnlockDomainExclusive<>::UnlockObjectLock<>::UnlockObjectLock<>(v61);
-    v37 = v35 & 2;
-    if ( v36 == 4 )
+      v39 = v37 & 0xFFFFFFFFFFFFFFEFuLL;
+    *v36 = v39;
+    if ( *(_DWORD *)(a1 + 48) == 4 )
     {
-      v38 = *(unsigned int *)(v4 + 16);
-      v51 = v38;
-      v39 = *(_QWORD *)v4;
-      v40 = *(_QWORD *)(v4 + 8);
-      if ( ((unsigned int)v38 & 0x1FFFF) >= 0x400 )
+      v40 = *((_DWORD *)a4 + 4);
+      if ( (v40 & 0x1FFFF) >= 0x400 )
       {
-        v41 = _HMObjectFromHandle(*(_QWORD *)(v4 + 24));
-        v42 = SfnDWORD(v41, v51, v40, v39, (__int64)v12, v50);
-LABEL_73:
-        v8 = v42;
-        SharedUserCritOnly::UnlockDomainShared<DLT_HOOK>::UnlockDomainExclusive<>::UnlockObjectLock<>::~UnlockObjectLock<>(v61);
-        *v31 ^= ((unsigned __int8)v59 ^ (unsigned __int8)*v31) & 0x10;
-        v31[13] = v60;
-        goto LABEL_75;
+        v47 = _HMObjectFromHandle(a4[3]);
+        v44 = SfnDWORD(v47, v40, a4[1], *a4, v8, v67);
       }
-      v43 = gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v38]];
-      v44 = _HMObjectFromHandle(*(_QWORD *)(v4 + 24));
-      v45 = (unsigned int)v51;
+      else
+      {
+        if ( (*v23 & 2) != 0 )
+          v41 = 3;
+        else
+          v41 = 2;
+        v42 = &gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v40]];
+        v43 = _HMObjectFromHandle(a4[3]);
+        v44 = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, __int64, __int64, __int64, int, __int64))*v42)(
+                v43,
+                v40,
+                a4[1],
+                *a4,
+                v8,
+                v67,
+                v41,
+                v70);
+      }
     }
     else
     {
-      v46 = *(_DWORD *)(v51 + 24);
-      v39 = *(_QWORD *)(v51 + 8);
-      v40 = *(_QWORD *)(v51 + 16);
-      if ( (v46 & 0x1FFFF) >= 0x400 )
+      v62 = *((_DWORD *)v73 + 6);
+      if ( (v62 & 0x1FFFF) >= 0x400 )
       {
-        v47 = _HMObjectFromHandle(*(_QWORD *)(v51 + 32));
-        v42 = SfnDWORD(v47, v46, v40, v39, (__int64)v12, v50);
-        goto LABEL_73;
+        v63 = _HMObjectFromHandle(v73[4]);
+        v44 = SfnDWORD(v63, v62, v73[2], v73[1], v8, v67);
+        goto LABEL_34;
       }
-      v43 = gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v46]];
-      v44 = _HMObjectFromHandle(*(_QWORD *)(v51 + 32));
-      v45 = v46;
+      v64 = &gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v62]];
+      LOBYTE(v7) = (*v23 & 2) != 0;
+      v65 = _HMObjectFromHandle(v73[4]);
+      v44 = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, __int64, __int64, __int64, int, __int64))*v64)(
+              v65,
+              v62,
+              v73[2],
+              v73[1],
+              v8,
+              v67,
+              (int)v7 + 2,
+              v70);
     }
-    LOBYTE(v8) = v37 != 0;
-    v42 = ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, __int64 (*)(void), __int64, int, _QWORD))v43)(
-            v44,
-            v45,
-            v40,
-            v39,
-            v12,
-            v50,
-            (int)v8 + 2,
-            *(_QWORD *)v49);
-    v31 = v52;
-    goto LABEL_73;
+    LOBYTE(v38) = v69;
+LABEL_34:
+    v7 = v44;
+    *v36 ^= ((unsigned __int8)v38 ^ (unsigned __int8)*v36) & 0x10;
+    v36[13] = v72;
+    goto LABEL_35;
   }
   return 0LL;
 }

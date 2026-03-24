@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiMiracastChunkInfoCallbackDpc @ 0x1C005FE70
+ * XREFs of DpiMiracastChunkInfoCallbackDpc @ 0x1C0053390
  * Callers:
  *     <none>
  * Callees:
- *     DpSynchronizeExecution @ 0x1C000BBD0 (DpSynchronizeExecution.c)
+ *     DpSynchronizeExecution @ 0x1C000E330 (DpSynchronizeExecution.c)
  */
 
 void __fastcall DpiMiracastChunkInfoCallbackDpc(
@@ -18,7 +18,6 @@ void __fastcall DpiMiracastChunkInfoCallbackDpc(
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-28h] BYREF
   BOOLEAN v9; // [rsp+78h] [rbp+10h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLockAtDpcLevel(&SpinLock, &LockHandle);
   v5 = DeferredContext[54];
   if ( v5 )
@@ -26,7 +25,7 @@ void __fastcall DpiMiracastChunkInfoCallbackDpc(
     v6 = *(_QWORD *)(v5 + 64);
     v7[0] = DeferredContext[63];
     v7[1] = DeferredContext[64];
-    DpSynchronizeExecution(v5, (KSYNCHRONIZE_ROUTINE *)DpiMiracastMoveChunkList, v7, *(_DWORD *)(v6 + 3924), &v9);
+    DpSynchronizeExecution(v5, (KSYNCHRONIZE_ROUTINE *)DpiMiracastMoveChunkList, v7, *(_DWORD *)(v6 + 3908), &v9);
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
 }

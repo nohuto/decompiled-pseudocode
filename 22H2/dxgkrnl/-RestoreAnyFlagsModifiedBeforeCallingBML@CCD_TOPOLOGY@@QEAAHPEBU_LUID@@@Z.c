@@ -1,8 +1,8 @@
 /*
- * XREFs of ?RestoreAnyFlagsModifiedBeforeCallingBML@CCD_TOPOLOGY@@QEAAHPEBU_LUID@@@Z @ 0x1C03BBCCC
+ * XREFs of ?RestoreAnyFlagsModifiedBeforeCallingBML@CCD_TOPOLOGY@@QEAAHPEBU_LUID@@@Z @ 0x1C02EBA30
  * Callers:
- *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C016CCBC (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
- *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C03BB214 (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
+ *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C0144C54 (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
+ *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C02EAEDC (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,27 +11,36 @@ __int64 __fastcall CCD_TOPOLOGY::RestoreAnyFlagsModifiedBeforeCallingBML(CCD_TOP
 {
   __int64 v2; // r8
   unsigned int v3; // r9d
-  unsigned int i; // r10d
-  __int64 v6; // rcx
-  __int64 v7; // rax
+  unsigned int v6; // r10d
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
 
   v2 = *((_QWORD *)this + 8);
   v3 = 0;
-  for ( i = 0; i < *(unsigned __int16 *)(v2 + 20); ++i )
+  v6 = 0;
+  if ( *(_WORD *)(v2 + 20) )
   {
-    v6 = 296LL * i;
-    if ( *(_DWORD *)(v6 + v2 + 72) == a2->LowPart && *(_DWORD *)(v6 + v2 + 76) == a2->HighPart )
+    do
     {
-      v7 = *(_QWORD *)(v6 + v2 + 56);
-      if ( (v7 & 0x10000000000000LL) != 0 )
+      v7 = v2;
+      v8 = 272LL * v6;
+      if ( *(_DWORD *)(v8 + v2 + 64) == a2->LowPart && *(_DWORD *)(v8 + v2 + 68) == a2->HighPart )
       {
-        v3 = 1;
-        *(_QWORD *)(v6 + v2 + 56) = v7 & 0xFFFFFFFFFFFFFEFEuLL;
-        *(_QWORD *)(*((_QWORD *)this + 8) + v6 + 64) &= 0xFFFFFFFFFFFFFEFEuLL;
-        *(_QWORD *)(*((_QWORD *)this + 8) + v6 + 56) &= ~0x10000000000000uLL;
+        v9 = *(_QWORD *)(v8 + v2 + 48);
+        if ( (v9 & 0x10000000000000LL) != 0 )
+        {
+          *(_QWORD *)(v8 + v2 + 48) = v9 & 0xFFFFFFFFFFFFFEFEuLL;
+          v3 = 1;
+          *(_QWORD *)(v8 + *((_QWORD *)this + 8) + 56) &= 0xFFFFFFFFFFFFFEFEuLL;
+          *(_QWORD *)(v8 + *((_QWORD *)this + 8) + 48) &= ~0x10000000000000uLL;
+          v7 = *((_QWORD *)this + 8);
+        }
       }
+      ++v6;
+      v2 = v7;
     }
-    v2 = *((_QWORD *)this + 8);
+    while ( v6 < *(unsigned __int16 *)(v7 + 20) );
   }
   return v3;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of EngInitializeSafeSemaphore_0 @ 0x1C0159810
+ * XREFs of EngInitializeSafeSemaphore_0 @ 0x1C01661D0
  * Callers:
  *     <none>
  * Callees:

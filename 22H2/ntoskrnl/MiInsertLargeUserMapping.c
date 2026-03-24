@@ -1,147 +1,103 @@
 /*
- * XREFs of MiInsertLargeUserMapping @ 0x140668B60
+ * XREFs of MiInsertLargeUserMapping @ 0x14055E4B8
  * Callers:
- *     MiCommitExistingVad @ 0x140276910 (MiCommitExistingVad.c)
- *     MiMapUserLargePages @ 0x140668E30 (MiMapUserLargePages.c)
+ *     MiCommitExistingVad @ 0x140218D50 (MiCommitExistingVad.c)
+ *     MiMapUserLargePages @ 0x14055E670 (MiMapUserLargePages.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUsedPtesHandle @ 0x1402E5A70 (MiGetUsedPtesHandle.c)
- *     MiIncreaseUsedPtesCount @ 0x1402F18D4 (MiIncreaseUsedPtesCount.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     MiInitializeLargeUserBasePfn @ 0x140668AD0 (MiInitializeLargeUserBasePfn.c)
+ *     MiIncreaseUsedPtesCount @ 0x140289E54 (MiIncreaseUsedPtesCount.c)
+ *     MiGetUsedPtesHandle @ 0x14028D0E0 (MiGetUsedPtesHandle.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
-char __fastcall MiInsertLargeUserMapping(__int64 a1, unsigned __int64 a2, _QWORD **a3, int a4, unsigned int a5)
+char __fastcall MiInsertLargeUserMapping(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
 {
-  __int64 v5; // r15
-  unsigned __int64 v6; // rsi
-  _KPROCESS *Process; // r13
-  __int64 v10; // rcx
-  unsigned __int64 v11; // rbp
-  BOOL v12; // edi
-  __int64 v13; // r8
-  __int64 v14; // rax
-  __int64 v15; // r14
-  unsigned __int64 ValidPte; // rax
-  unsigned __int64 v17; // rbx
-  _QWORD *v18; // rcx
-  _QWORD *v19; // rax
-  unsigned int v20; // r13d
-  unsigned __int64 v21; // rcx
-  unsigned __int64 v22; // rdi
-  int v23; // r15d
-  __int64 v24; // r8
-  bool v25; // zf
-  __int64 v26; // rax
-  unsigned __int64 UsedPtesHandle; // rax
-  unsigned __int64 v29; // [rsp+20h] [rbp-58h]
-  _KPROCESS *v30; // [rsp+28h] [rbp-50h]
-  unsigned __int64 v31; // [rsp+80h] [rbp+8h]
-  __int64 v32; // [rsp+88h] [rbp+10h]
-  __int64 v33; // [rsp+90h] [rbp+18h]
-  BOOL v34; // [rsp+98h] [rbp+20h]
+  int v5; // ebp
+  unsigned __int64 v7; // rdi
+  unsigned __int64 v8; // r14
+  __int64 v9; // r8
+  unsigned __int64 ValidPte; // rbx
+  unsigned int v11; // esi
+  __int64 v12; // rdx
+  __int64 UsedPtesHandle; // rax
+  __int64 v14; // r8
+  __int64 v15; // r9
+  struct _KTHREAD *CurrentThread; // rax
+  int v17; // ebp
+  __int64 v18; // r8
 
-  v5 = a2;
-  v6 = a2;
-  Process = KeGetCurrentThread()->ApcState.Process;
-  v30 = Process;
-  v33 = MiLargePageSizes[a4];
-  if ( a4 != 2 )
+  v5 = a4;
+  v7 = a2;
+  if ( (_DWORD)a4 != 2 )
   {
-    v10 = (unsigned int)(2 - a4);
+    a4 = (unsigned int)(2 - a4);
     do
     {
-      v6 = ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      --v10;
+      v7 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      --a4;
     }
-    while ( v10 );
+    while ( a4 );
   }
-  v11 = v6;
-  v29 = v6;
-  v12 = v6 >= 0xFFFFF6FB7DBED000uLL && v6 <= 0xFFFFF6FB7DBEDFFFuLL;
-  v13 = a5;
-  LODWORD(v13) = a5 | 0x80000000;
-  v34 = v12;
-  if ( (*(_DWORD *)(a1 + 48) & 0x600000) == 0x600000 )
-    v13 = a5;
-  if ( a4 != 2 )
-    LODWORD(v13) = v13 | 0x4000000;
-  v14 = 16LL;
-  if ( a4 != 2 )
-    v14 = 1LL;
-  v15 = 0LL;
-  v31 = v14;
-  ValidPte = MiMakeValidPte(a2, 0LL, v13);
-  v17 = ValidPte;
-LABEL_15:
-  v18 = *a3;
-  if ( *a3 != a3 )
+  v8 = 16LL;
+  v9 = a5;
+  LODWORD(v9) = a5 | 0x80000000;
+  if ( (*(_DWORD *)(a1 + 48) & 0x300000) == 0x300000 )
+    v9 = a5;
+  if ( v5 != 2 )
   {
-    if ( (_QWORD **)v18[1] != a3 || (v19 = (_QWORD *)*v18, *(_QWORD **)(*v18 + 8LL) != v18) )
-      __fastfail(3u);
-    *a3 = v19;
-    v19[1] = a3;
-    v17 ^= (v17 ^ (0xAAAAAAAAAAAAB000uLL * ((__int64)(v18 + 0x44000000000LL) >> 4))) & 0xFFFFFFFFFF000LL;
-    MiInitializeLargeUserBasePfn((__int64)v18, v5, (unsigned __int64)Process);
-    v20 = 0;
-    v21 = v31;
-    v32 = v5 + 8 * v33;
-    while ( 1 )
+    v8 = 1LL;
+    v9 = (unsigned int)v9 | 0x4000000;
+  }
+  ValidPte = MiMakeValidPte(a2, a3, v9, a4);
+  v11 = 0;
+  if ( (v7 < 0xFFFFF6FB7DBED000uLL || v7 > 0xFFFFF6FB7DBEDFFFuLL) && !MI_READ_PTE_LOCK_FREE(v7) )
+  {
+    UsedPtesHandle = MiGetUsedPtesHandle((__int64)(v7 << 25) >> 16, v12);
+    MiIncreaseUsedPtesCount(UsedPtesHandle, (unsigned int)v8, v14, v15);
+  }
+  if ( v5 == 2 )
+  {
+    do
     {
-      if ( !v12 )
+      *(_QWORD *)v7 = ValidPte;
+      v7 += 8LL;
+      ++v11;
+      ValidPte ^= (ValidPte ^ (ValidPte + 4096)) & 0xFFFFFFFFF000LL;
+      LOBYTE(CurrentThread) = v11;
+    }
+    while ( v11 < v8 );
+    return (char)CurrentThread;
+  }
+  v17 = 0;
+  LODWORD(CurrentThread) = MiPteInShadowRange(v7);
+  if ( (_DWORD)CurrentThread )
+  {
+    LODWORD(CurrentThread) = MiPteHasShadow();
+    if ( (_DWORD)CurrentThread )
+    {
+      v17 = 1;
+      if ( !HIBYTE(word_140C4E008) )
       {
-        v26 = *(_QWORD *)v6;
-        *(_QWORD *)v6 = v17;
-        if ( !v26 )
-          ++v15;
-        goto LABEL_31;
-      }
-      v22 = v17;
-      v23 = 0;
-      if ( MiPteInShadowRange(v6) )
-      {
-        if ( MiPteHasShadow() )
+LABEL_20:
+        if ( (ValidPte & 1) != 0 )
         {
-          v23 = 1;
-          if ( !HIBYTE(word_140C66DFC) )
-          {
-            v25 = (v17 & 1) == 0;
-            goto LABEL_26;
-          }
+          LOBYTE(CurrentThread) = 0;
+          ValidPte |= 0x8000000000000000uLL;
         }
-        else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
-        {
-          v25 = (v17 & 1) == 0;
-LABEL_26:
-          if ( !v25 )
-            v22 = v17 | 0x8000000000000000uLL;
-        }
-      }
-      *(_QWORD *)v6 = v22;
-      if ( v23 )
-        MiWritePteShadow(v6, v22, v24);
-      v21 = v31;
-      v12 = v34;
-LABEL_31:
-      ++v20;
-      v6 += 8LL;
-      v17 ^= (v17 ^ (v17 + 4096)) & 0xFFFFFFFFFF000LL;
-      LOBYTE(ValidPte) = v20;
-      if ( v20 >= v21 )
-      {
-        v11 = v29;
-        v5 = v32;
-        Process = v30;
-        goto LABEL_15;
       }
     }
+    else
+    {
+      CurrentThread = KeGetCurrentThread();
+      if ( (HIDWORD(CurrentThread->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+        goto LABEL_20;
+    }
   }
-  if ( v15 )
-  {
-    UsedPtesHandle = MiGetUsedPtesHandle((__int64)(v11 << 25) >> 16);
-    LOBYTE(ValidPte) = MiIncreaseUsedPtesCount(UsedPtesHandle, v15);
-  }
-  return ValidPte;
+  *(_QWORD *)v7 = ValidPte;
+  if ( v17 )
+    LOBYTE(CurrentThread) = MiWritePteShadow(v7, ValidPte, v18);
+  return (char)CurrentThread;
 }

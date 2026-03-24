@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessSetInput@CEffectBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_EFFECTBRUSH_SETINPUT@@@Z @ 0x1800E328C
+ * XREFs of ?ProcessSetInput@CEffectBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_EFFECTBRUSH_SETINPUT@@@Z @ 0x1800D2C44
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800BDA3C (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?IsValidInputResource@CEffectBrush@@CA_NPEBVCResource@@@Z @ 0x1800E3368 (-IsValidInputResource@CEffectBrush@@CA_NPEBVCResource@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A0B90 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?IsValidInputResource@CEffectBrush@@CA_NPEBVCResource@@@Z @ 0x1800D2D0C (-IsValidInputResource@CEffectBrush@@CA_NPEBVCResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CEffectBrush::ProcessSetInput(
@@ -26,7 +26,7 @@ __int64 __fastcall CEffectBrush::ProcessSetInput(
   unsigned int v12; // ebx
   unsigned int v14; // [rsp+20h] [rbp-18h]
 
-  if ( *((_QWORD *)this + 12) )
+  if ( *((_QWORD *)this + 11) )
   {
     ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, *((_DWORD *)a3 + 3));
     v7 = ResourceWithoutType;
@@ -37,9 +37,9 @@ __int64 __fastcall CEffectBrush::ProcessSetInput(
     else
     {
       v8 = *((unsigned int *)a3 + 2);
-      if ( (unsigned int)v8 < *((_DWORD *)this + 36) )
+      if ( (unsigned int)v8 < *((_DWORD *)this + 34) )
       {
-        v9 = *((_QWORD *)this + 15);
+        v9 = *((_QWORD *)this + 14);
         v10 = (unsigned int)v8;
         v11 = *(struct CResource **)(v9 + 8 * v8);
         if ( v11 )
@@ -49,7 +49,7 @@ __int64 __fastcall CEffectBrush::ProcessSetInput(
         }
         if ( v7 )
         {
-          *(_QWORD *)(*((_QWORD *)this + 15) + 8LL * *((unsigned int *)a3 + 2)) = v7;
+          *(_QWORD *)(*((_QWORD *)this + 14) + 8LL * *((unsigned int *)a3 + 2)) = v7;
           CResource::RegisterNotifier(this, v7);
         }
         (*(void (__fastcall **)(CEffectBrush *, __int64))(*(_QWORD *)this + 72LL))(this, 14LL);
@@ -58,7 +58,7 @@ __int64 __fastcall CEffectBrush::ProcessSetInput(
       v14 = 232;
     }
     v12 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, -2003303421, v14);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2003303421, v14, 0LL);
     return v12;
   }
   return 0;

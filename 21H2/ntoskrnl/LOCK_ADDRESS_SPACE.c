@@ -1,26 +1,30 @@
 /*
- * XREFs of LOCK_ADDRESS_SPACE @ 0x14030B820
+ * XREFs of LOCK_ADDRESS_SPACE @ 0x14031528C
  * Callers:
- *     MiMapLockedPagesInUserSpace @ 0x140693498 (MiMapLockedPagesInUserSpace.c)
- *     MiLockVadRange @ 0x1406F7D78 (MiLockVadRange.c)
- *     MmCleanProcessAddressSpace @ 0x1406F89A4 (MmCleanProcessAddressSpace.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MiAllocateFromSubAllocatedRegion @ 0x140709A08 (MiAllocateFromSubAllocatedRegion.c)
- *     MiInitializeVadBitMap @ 0x140709D14 (MiInitializeVadBitMap.c)
- *     MiInsertProcessVads @ 0x14070A1B8 (MiInsertProcessVads.c)
- *     MiReserveUserMemory @ 0x1407B8B60 (MiReserveUserMemory.c)
- *     MiMapViewOfPhysicalSection @ 0x140852834 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x140978F40 (MiAllocateEnclaveVad.c)
- *     MiResizeAweBitMap @ 0x14097D688 (MiResizeAweBitMap.c)
- *     NtFreeUserPhysicalPages @ 0x14097D9E0 (NtFreeUserPhysicalPages.c)
+ *     MiDeleteEmptyPageTables @ 0x1403F4F90 (MiDeleteEmptyPageTables.c)
+ *     MiFindNextEnclaveBoundary @ 0x1405F7640 (MiFindNextEnclaveBoundary.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiLockVadRange @ 0x14061DC20 (MiLockVadRange.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x14064C180 (MiAllocateFromSubAllocatedRegion.c)
+ *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MmCleanProcessAddressSpace @ 0x1406EB24C (MmCleanProcessAddressSpace.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
+ *     MiInitializeVadBitMap @ 0x140711794 (MiInitializeVadBitMap.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076B6A0 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C2C08 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1E58 (MiAllocateEnclaveVad.c)
+ *     MiResizeAweBitMap @ 0x1408D64E4 (MiResizeAweBitMap.c)
+ *     NtFreeUserPhysicalPages @ 0x1408D6800 (NtFreeUserPhysicalPages.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
-void __fastcall LOCK_ADDRESS_SPACE(__int64 a1, __int64 a2)
+__int64 __fastcall LOCK_ADDRESS_SPACE(__int64 a1, __int64 a2)
 {
+  __int64 result; // rax
+
   --*(_WORD *)(a1 + 486);
-  ExAcquirePushLockExclusiveEx(a2 + 1224, 0LL);
-  *(_BYTE *)(a1 + 1384) |= 1u;
+  result = ExAcquirePushLockExclusiveEx(a2 + 1224, 0LL);
+  *(_BYTE *)(a1 + 1304) |= 1u;
+  return result;
 }

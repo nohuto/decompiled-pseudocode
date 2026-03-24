@@ -1,38 +1,44 @@
 /*
- * XREFs of DxgkDdiQueryVirtualFunctionIndexByLuid @ 0x1C035A030
+ * XREFs of DxgkDdiQueryVirtualFunctionIndexByLuid @ 0x1C02316C0
  * Callers:
- *     ?DpiQueryVirtualFunctionIndexByLuid@@YAJPEAXU_LUID@@PEAG@Z @ 0x1C0065D50 (-DpiQueryVirtualFunctionIndexByLuid@@YAJPEAXU_LUID@@PEAG@Z.c)
- *     DpiIovGetBackingResource @ 0x1C03914F0 (DpiIovGetBackingResource.c)
- *     DpiIovGetMmioRangeCount @ 0x1C0391660 (DpiIovGetMmioRangeCount.c)
- *     DpiIovGetMmioRanges @ 0x1C0391780 (DpiIovGetMmioRanges.c)
+ *     ?DpiQueryVirtualFunctionIndexByLuid@@YAJPEAXU_LUID@@PEAG@Z @ 0x1C00590C0 (-DpiQueryVirtualFunctionIndexByLuid@@YAJPEAXU_LUID@@PEAG@Z.c)
+ *     DpiIovGetBackingResource @ 0x1C02D41D0 (DpiIovGetBackingResource.c)
+ *     DpiIovGetMmioRangeCount @ 0x1C02D4330 (DpiIovGetMmioRangeCount.c)
+ *     DpiIovGetMmioRanges @ 0x1C02D4450 (DpiIovGetMmioRanges.c)
  * Callees:
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005BFAC (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ?FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUID@@@Z @ 0x1C0357600 (-FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUI.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C00400A4 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUID@@@Z @ 0x1C022F898 (-FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUI.c)
  */
 
 __int64 __fastcall DxgkDdiQueryVirtualFunctionIndexByLuid(_QWORD *a1, int a2, struct _LUID *a3, _WORD *a4)
 {
   struct DXGK_VIRTUAL_GPU *VirtualGpuByLuid; // rax
-  unsigned int v8; // ebx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rax
+  unsigned int v12; // ebx
   LONG HighPart; // [rsp+30h] [rbp-18h]
   DWORD LowPart; // [rsp+38h] [rbp-10h]
 
-  VirtualGpuByLuid = ADAPTER_RENDER::FindVirtualGpuByLuid(a1[350], a2, a3);
+  VirtualGpuByLuid = ADAPTER_RENDER::FindVirtualGpuByLuid(a1[338], a2, a3);
   if ( VirtualGpuByLuid )
   {
-    v8 = 0;
+    v12 = 0;
     *a4 = *((_WORD *)VirtualGpuByLuid + 12);
   }
   else
   {
-    WdLogSingleEntry1(3LL, 1258LL);
-    v8 = -1073741811;
+    v11 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+    *(_QWORD *)(v11 + 24) = 1060LL;
+    WdLogEvent5_WdWarning(v11);
+    v12 = -1073741811;
   }
   if ( bTracingEnabled )
   {
     LowPart = a3->LowPart;
     HighPart = a3->HighPart;
-    VgpuTrace(1, v8, a1, L"DxgkDdiQueryVirtualFunctionIndexByLuid", (wchar_t *)L"%d %d %d\n", a4, HighPart, LowPart);
+    VgpuTrace(1, v12, a1, L"DxgkDdiQueryVirtualFunctionIndexByLuid", (wchar_t *)L"%d %d %d\n", a4, HighPart, LowPart);
   }
-  return v8;
+  return v12;
 }

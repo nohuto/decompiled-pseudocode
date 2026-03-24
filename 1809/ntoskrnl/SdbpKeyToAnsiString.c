@@ -1,8 +1,8 @@
 /*
- * XREFs of SdbpKeyToAnsiString @ 0x140721388
+ * XREFs of SdbpKeyToAnsiString @ 0x140721368
  * Callers:
- *     SdbpFindFirstIndexedWildCardTag @ 0x14067C7E8 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x140721178 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x14067C7C8 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140721158 (SdbpFindNextIndexedWildCardTag.c)
  * Callees:
  *     <none>
  */

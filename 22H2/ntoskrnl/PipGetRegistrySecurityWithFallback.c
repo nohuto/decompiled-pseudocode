@@ -1,65 +1,63 @@
 /*
- * XREFs of PipGetRegistrySecurityWithFallback @ 0x14069A82C
+ * XREFs of PipGetRegistrySecurityWithFallback @ 0x14073AB68
  * Callers:
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x14069AA88 (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14073AEAC (PipChangeDeviceObjectFromRegistryProperties.c)
  * Callees:
- *     _CmGetInstallerClassRegProp @ 0x14069B694 (_CmGetInstallerClassRegProp.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14070DBD0 (RtlValidRelativeSecurityDescriptor.c)
- *     SeCaptureSecurityDescriptor @ 0x140737050 (SeCaptureSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     SeCaptureSecurityDescriptor @ 0x1406D4920 (SeCaptureSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x1406E6A70 (RtlValidRelativeSecurityDescriptor.c)
+ *     _CmGetInstallerClassRegProp @ 0x14073BC38 (_CmGetInstallerClassRegProp.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PipGetRegistrySecurityWithFallback(__int64 a1, int a2, int a3, int a4, __int64 a5)
+__int64 __fastcall PipGetRegistrySecurityWithFallback(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   bool v8; // di
-  void *Pool2; // rbx
+  PVOID PoolWithTag; // rbx
   int DeviceRegProp; // eax
   int v11; // esi
   int InstallerClassRegProp; // eax
-  int v13; // r9d
-  int v15; // r9d
-  int v16; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v17; // [rsp+48h] [rbp-8h] BYREF
-  ULONG SecurityDescriptorLength; // [rsp+70h] [rbp+20h] BYREF
+  int v14; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v15; // [rsp+48h] [rbp-8h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+80h] [rbp+30h] BYREF
 
-  v16 = 0;
-  v17 = 0LL;
-  SecurityDescriptorLength = 128;
+  v14 = 0;
+  v15 = 0LL;
+  LODWORD(NumberOfBytes) = 128;
   v8 = 0;
-  Pool2 = (void *)ExAllocatePool2(256LL, 128LL, 1852141648LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x80uLL, 0x6E657050u);
+  if ( !PoolWithTag )
     return 0LL;
   DeviceRegProp = CmGetDeviceRegProp(
-                    PiPnpRtlCtx,
+                    *(__int64 *)&PiPnpRtlCtx,
                     a2,
                     a3,
                     24,
-                    (__int64)&v16,
-                    (__int64)Pool2,
-                    (__int64)&SecurityDescriptorLength,
+                    (__int64)&v14,
+                    (__int64)PoolWithTag,
+                    (__int64)&NumberOfBytes,
                     0);
   if ( DeviceRegProp == -1073741789 )
   {
-    ExFreePoolWithTag(Pool2, 0);
-    Pool2 = (void *)ExAllocatePool2(256LL, SecurityDescriptorLength, 1852141648LL);
-    if ( !Pool2 )
+    ExFreePoolWithTag(PoolWithTag, 0);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x6E657050u);
+    if ( !PoolWithTag )
       return 0LL;
     DeviceRegProp = CmGetDeviceRegProp(
-                      PiPnpRtlCtx,
+                      *(__int64 *)&PiPnpRtlCtx,
                       a2,
                       a3,
                       24,
-                      (__int64)&v16,
-                      (__int64)Pool2,
-                      (__int64)&SecurityDescriptorLength,
+                      (__int64)&v14,
+                      (__int64)PoolWithTag,
+                      (__int64)&NumberOfBytes,
                       0);
   }
   if ( DeviceRegProp >= 0
-    && v16 == 3
-    && RtlValidRelativeSecurityDescriptor(Pool2, SecurityDescriptorLength, 0)
-    && (LOBYTE(v15) = 1, (int)SeCaptureSecurityDescriptor((_DWORD)Pool2, 0, 1, v15, (__int64)&v17) >= 0) )
+    && v14 == 3
+    && RtlValidRelativeSecurityDescriptor(PoolWithTag, NumberOfBytes, 0)
+    && (int)SeCaptureSecurityDescriptor((__int64)PoolWithTag, 0, PagedPool, 1, &v15) >= 0 )
   {
     v8 = 1;
   }
@@ -73,36 +71,33 @@ __int64 __fastcall PipGetRegistrySecurityWithFallback(__int64 a1, int a2, int a3
                                 a4,
                                 a5,
                                 24,
-                                (__int64)&v16,
-                                (__int64)Pool2,
-                                (__int64)&SecurityDescriptorLength);
+                                (__int64)&v14,
+                                (__int64)PoolWithTag,
+                                (__int64)&NumberOfBytes);
       if ( InstallerClassRegProp == -1073741789 )
       {
-        ExFreePoolWithTag(Pool2, 0);
-        Pool2 = (void *)ExAllocatePool2(256LL, SecurityDescriptorLength, 1852141648LL);
-        if ( !Pool2 )
+        ExFreePoolWithTag(PoolWithTag, 0);
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x6E657050u);
+        if ( !PoolWithTag )
           return 0LL;
         InstallerClassRegProp = CmGetInstallerClassRegProp(
                                   PiPnpRtlCtx,
                                   a4,
                                   v11,
                                   24,
-                                  (__int64)&v16,
-                                  (__int64)Pool2,
-                                  (__int64)&SecurityDescriptorLength);
+                                  (__int64)&v14,
+                                  (__int64)PoolWithTag,
+                                  (__int64)&NumberOfBytes);
       }
-      if ( InstallerClassRegProp >= 0 && v16 == 3 )
+      if ( InstallerClassRegProp >= 0 && v14 == 3 )
       {
-        if ( RtlValidRelativeSecurityDescriptor(Pool2, SecurityDescriptorLength, 0) )
-        {
-          LOBYTE(v13) = 1;
-          v8 = (int)SeCaptureSecurityDescriptor((_DWORD)Pool2, 0, 1, v13, (__int64)&v17) >= 0;
-        }
+        if ( RtlValidRelativeSecurityDescriptor(PoolWithTag, NumberOfBytes, 0) )
+          v8 = (int)SeCaptureSecurityDescriptor((__int64)PoolWithTag, 0, PagedPool, 1, &v15) >= 0;
       }
     }
   }
-  ExFreePoolWithTag(Pool2, 0);
-  if ( v8 )
-    return v17;
-  return 0LL;
+  ExFreePoolWithTag(PoolWithTag, 0);
+  if ( !v8 )
+    return 0LL;
+  return v15;
 }

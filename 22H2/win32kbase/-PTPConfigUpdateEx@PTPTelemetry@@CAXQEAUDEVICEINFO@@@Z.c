@@ -1,175 +1,113 @@
 /*
- * XREFs of ?PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z @ 0x1C01E003C
+ * XREFs of ?PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z @ 0x1C01A6A98
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0094FF0 (xxxSystemParametersInfo.c)
- *     EnablePTPDevices @ 0x1C0134C80 (EnablePTPDevices.c)
- *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C014BA50 (NtUserSetPrecisionTouchPadConfiguration.c)
- *     ?OnPTPDeviceArrived@PTPTelemetry@@SAXQEAUDEVICEINFO@@@Z @ 0x1C01DFC94 (-OnPTPDeviceArrived@PTPTelemetry@@SAXQEAUDEVICEINFO@@@Z.c)
- *     ?OnUserLogin@PTPTelemetry@@SAXXZ @ 0x1C01DFFE0 (-OnUserLogin@PTPTelemetry@@SAXXZ.c)
+ *     xxxSystemParametersInfo @ 0x1C000CD30 (xxxSystemParametersInfo.c)
+ *     ?OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C00B81B0 (-OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z.c)
+ *     EnablePTPDevices @ 0x1C011C1A0 (EnablePTPDevices.c)
+ *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C01347E0 (NtUserSetPrecisionTouchPadConfiguration.c)
+ *     ?OnUserLogin@PTPTelemetry@@SAXXZ @ 0x1C01A6A60 (-OnUserLogin@PTPTelemetry@@SAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?GetHidVidPidStrings@RimTelemetry@@SAXQEAURIMDEV@@PEAU_UNICODE_STRING@@1@Z @ 0x1C0170860 (-GetHidVidPidStrings@RimTelemetry@@SAXQEAURIMDEV@@PEAU_UNICODE_STRING@@1@Z.c)
- *     ?GetDeviceData@PTPTelemetry@@CAXPEAU_UNICODE_STRING@@0PEA_N1PEAK1PEAUtagRECT@@3@Z @ 0x1C01DF038 (-GetDeviceData@PTPTelemetry@@CAXPEAU_UNICODE_STRING@@0PEA_N1PEAK1PEAUtagRECT@@3@Z.c)
- *     ?TraceLoggingPTPSettingsConfigEvent@@YAXPEAUtagTPSETTINGS@@KHPEAG1HHUtagRECT@@2@Z @ 0x1C01E0C7C (-TraceLoggingPTPSettingsConfigEvent@@YAXPEAUtagTPSETTINGS@@KHPEAG1HHUtagRECT@@2@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?GetHidVidPidStrings@RimTelemetry@@SAXQEAURIMDEV@@PEAU_UNICODE_STRING@@1@Z @ 0x1C014F4E0 (-GetHidVidPidStrings@RimTelemetry@@SAXQEAURIMDEV@@PEAU_UNICODE_STRING@@1@Z.c)
+ *     ?GetDeviceData@PTPTelemetry@@CAXPEAU_UNICODE_STRING@@0PEA_N1PEAK1PEAUtagRECT@@3@Z @ 0x1C01A5C74 (-GetDeviceData@PTPTelemetry@@CAXPEAU_UNICODE_STRING@@0PEA_N1PEAK1PEAUtagRECT@@3@Z.c)
+ *     ?TraceLoggingPTPSettingsConfigEvent@@YAXPEAUtagTPSETTINGS@@KHPEAG1HHUtagRECT@@2@Z @ 0x1C01A78CC (-TraceLoggingPTPSettingsConfigEvent@@YAXPEAUtagTPSETTINGS@@KHPEAG1HHUtagRECT@@2@Z.c)
  */
 
-void __fastcall PTPTelemetry::PTPConfigUpdateEx(struct DEVICEINFO *const a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall PTPTelemetry::PTPConfigUpdateEx(struct DEVICEINFO *const a1)
 {
-  unsigned int v5; // esi
-  bool v6; // di
-  bool v7; // r14
-  _DWORD *v8; // rbx
-  bool v9; // cf
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rax
-  __int64 v13; // r9
-  int v14; // r8d
-  int v15; // ecx
-  int v16; // ecx
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 i; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  bool v24; // bl
-  struct tagRECT v25; // xmm6
-  struct tagRECT v26; // xmm7
-  int v27; // ecx
-  __int64 v28; // rax
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  __int64 v31; // r8
-  __int64 v32; // r9
-  bool v33[8]; // [rsp+58h] [rbp-B0h] BYREF
-  struct _UNICODE_STRING v34; // [rsp+60h] [rbp-A8h] BYREF
-  struct _UNICODE_STRING v35; // [rsp+70h] [rbp-98h] BYREF
-  struct tagRECT v36; // [rsp+88h] [rbp-80h] BYREF
-  struct tagRECT v37; // [rsp+98h] [rbp-70h] BYREF
-  int v38; // [rsp+A8h] [rbp-60h] BYREF
-  unsigned int v39; // [rsp+ACh] [rbp-5Ch]
-  unsigned int v40; // [rsp+B0h] [rbp-58h]
-  int v41; // [rsp+B4h] [rbp-54h]
-  int v42; // [rsp+B8h] [rbp-50h]
-  int v43; // [rsp+BCh] [rbp-4Ch]
-  int v44; // [rsp+C0h] [rbp-48h]
-  int v45; // [rsp+C4h] [rbp-44h]
-  int v46; // [rsp+C8h] [rbp-40h]
-  int v47; // [rsp+CCh] [rbp-3Ch]
-  int v48; // [rsp+D0h] [rbp-38h]
-  int v49; // [rsp+D4h] [rbp-34h]
-  int v50; // [rsp+D8h] [rbp-30h]
-  int v51; // [rsp+DCh] [rbp-2Ch]
-  int v52; // [rsp+E0h] [rbp-28h]
-  __int16 v53; // [rsp+E8h] [rbp-20h] BYREF
-  __int16 v54; // [rsp+F8h] [rbp-10h] BYREF
+  bool v2; // bl
+  unsigned int v3; // edi
+  bool v4; // r14
+  bool v5; // r15
+  struct tagRECT v6; // xmm6
+  struct tagRECT v7; // xmm7
+  __int64 v8; // rax
+  int v9; // ecx
+  struct DEVICEINFO *i; // rdx
+  bool v11[8]; // [rsp+58h] [rbp-B0h] BYREF
+  struct _UNICODE_STRING v12; // [rsp+60h] [rbp-A8h] BYREF
+  struct _UNICODE_STRING v13; // [rsp+70h] [rbp-98h] BYREF
+  struct tagRECT v14; // [rsp+88h] [rbp-80h] BYREF
+  struct tagRECT v15; // [rsp+98h] [rbp-70h] BYREF
+  _DWORD v16[8]; // [rsp+A8h] [rbp-60h] BYREF
+  char v17; // [rsp+C8h] [rbp-40h] BYREF
+  char v18; // [rsp+D8h] [rbp-30h] BYREF
 
-  *(_QWORD *)&v35.Length = 0x100000LL;
-  *(_DWORD *)&v33[4] = 0;
-  v35.Buffer = (PWSTR)&v53;
-  v53 = 0;
-  *(_QWORD *)&v34.Length = 0x100000LL;
-  v34.Buffer = (PWSTR)&v54;
-  v33[0] = 1;
-  v5 = 0;
-  v54 = 0;
-  v6 = 0;
-  v33[1] = 0;
-  v7 = 0;
-  v33[2] = 0;
-  v36 = 0LL;
-  v37 = 0LL;
-  v8 = (_DWORD *)SGDGetUserSessionState(a1, a2, a3, a4);
-  v9 = __CFSHR__(v8[4203], 4);
-  v39 = -__CFSHR__(v8[4203], 3);
-  v40 = -v9;
-  v12 = SGDGetUserSessionState(v39, v40, v10, v11);
-  v14 = v8[4205];
-  v15 = *(_DWORD *)(v12 + 520);
-  v41 = v8[4202];
-  v38 = v15;
-  v16 = v8[4203];
-  v42 = -__CFSHR__(v16, 10);
-  v17 = (unsigned int)-__CFSHR__(v14, 3);
-  v43 = -__CFSHR__(v14, 3);
-  v51 = v43;
-  v44 = -__CFSHR__(v14, 5);
-  v45 = v8[4204];
-  v46 = -__CFSHR__(v16, 8);
-  v47 = -__CFSHR__(v16, 9);
-  v18 = (unsigned int)-__CFSHR__(v16, 11);
-  v48 = v18;
-  v49 = -(v14 & 1);
-  v50 = -__CFSHR__(v14, 2);
-  v19 = (unsigned int)-__CFSHR__(v14, 7);
-  v52 = v19;
+  *(_QWORD *)&v13.Length = 0x100000LL;
+  *(_DWORD *)&v11[4] = 0;
+  v13.Buffer = (PWSTR)&v17;
+  v2 = 0;
+  *(_QWORD *)&v12.Length = 0x100000LL;
+  v12.Buffer = (PWSTR)&v18;
+  v11[0] = 1;
+  v11[1] = 0;
+  v11[2] = 0;
+  v16[1] = -__CFSHR__(HIDWORD(gTouchPadParameters), 3);
+  v3 = 0;
+  v4 = 0;
+  v14 = 0LL;
+  v16[2] = -__CFSHR__(HIDWORD(gTouchPadParameters), 4);
+  v16[0] = gPTPEnabled;
+  v16[3] = DWORD2(gTouchPadParameters);
+  v16[4] = -__CFSHR__(HIDWORD(gTouchPadParameters), 10);
+  v15 = 0LL;
+  v16[5] = -__CFSHR__(*(&qword_1C024ED38 + 1), 3);
+  v16[6] = -__CFSHR__(*(&qword_1C024ED38 + 1), 5);
+  v16[7] = qword_1C024ED38;
   if ( a1 )
   {
-    v24 = 0;
-    *(_BYTE *)(SGDGetUserSessionState(v18, v17, v19, v13) + 11810) = 1;
-    v27 = *(_DWORD *)(*((_QWORD *)a1 + 59) + 952LL);
-    switch ( v27 )
+    v8 = *((_QWORD *)a1 + 60);
+    v5 = 0;
+    PTPTelemetry::s_HasTpDevice = 1;
+    v9 = *(_DWORD *)(v8 + 904);
+    switch ( v9 )
     {
       case 1:
-        v5 = 1;
+        v3 = 1;
         break;
       case 2:
-        v5 = 2;
+        v3 = 2;
         break;
       case 3:
-        v5 = 3;
+        v3 = 3;
         break;
       case 0:
-        *(_DWORD *)&v33[4] = 0x20000;
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2017);
+        *(_DWORD *)&v11[4] = 0x20000;
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1669);
+        v8 = *((_QWORD *)a1 + 60);
         break;
     }
-    v28 = *((_QWORD *)a1 + 59);
-    v25 = *(struct tagRECT *)(v28 + 124);
-    v26 = *(struct tagRECT *)(v28 + 140);
-    RimTelemetry::GetHidVidPidStrings(a1, &v35, &v34);
-    v21 = *(_QWORD *)(SGDGetUserSessionState(v30, v29, v31, v32) + 16840);
-    for ( i = **(_QWORD **)(v21 + 1264); i; i = *(_QWORD *)(i + 56) )
+    v6 = *(struct tagRECT *)(v8 + 124);
+    v7 = *(struct tagRECT *)(v8 + 140);
+    RimTelemetry::GetHidVidPidStrings(a1, &v13, &v12);
+    for ( i = CBaseInput::_spDevList; i; i = (struct DEVICEINFO *)*((_QWORD *)i + 7) )
     {
-      if ( (*(_DWORD *)(i + 200) & 0x80u) == 0 )
+      if ( (*((_DWORD *)i + 50) & 0x80u) == 0 )
       {
-        if ( !*(_BYTE *)(i + 48) && !*(_WORD *)(i + 880) )
-          v6 = 1;
+        if ( !*((_BYTE *)i + 48) && !*((_WORD *)i + 444) )
+          v2 = 1;
       }
-      else
+      else if ( (unsigned int)(*(_DWORD *)(*((_QWORD *)i + 60) + 24LL) - 1) <= 3 )
       {
-        v21 = (unsigned int)(*(_DWORD *)(*(_QWORD *)(i + 472) + 24LL) - 1);
-        if ( (unsigned int)v21 <= 3 )
-          v7 = 1;
+        v4 = 1;
       }
     }
   }
   else
   {
-    PTPTelemetry::GetDeviceData(&v35, &v34, &v33[1], &v33[2], (unsigned int *)&v33[4], v33, &v36, &v37);
-    v5 = *(_DWORD *)&v33[4];
-    v24 = v33[0];
-    v6 = v33[1];
-    v7 = v33[2];
-    v25 = v36;
-    v26 = v37;
+    PTPTelemetry::GetDeviceData(&v13, &v12, &v11[1], &v11[2], (unsigned int *)&v11[4], v11, &v14, &v15);
+    v3 = *(_DWORD *)&v11[4];
+    v5 = v11[0];
+    v2 = v11[1];
+    v4 = v11[2];
+    v6 = v14;
+    v7 = v15;
   }
-  if ( *(_BYTE *)(SGDGetUserSessionState(v21, i, v22, v23) + 11810) )
+  if ( PTPTelemetry::s_HasTpDevice )
   {
-    v37 = v26;
-    v36 = v25;
-    TraceLoggingPTPSettingsConfigEvent(
-      (struct tagTPSETTINGS *)&v38,
-      v5,
-      v24,
-      v35.Buffer,
-      v34.Buffer,
-      v6,
-      v7,
-      &v36,
-      &v37);
+    v15 = v7;
+    v14 = v6;
+    TraceLoggingPTPSettingsConfigEvent((struct tagTPSETTINGS *)v16, v3, v5, v13.Buffer, v12.Buffer, v2, v4, &v14, &v15);
   }
 }

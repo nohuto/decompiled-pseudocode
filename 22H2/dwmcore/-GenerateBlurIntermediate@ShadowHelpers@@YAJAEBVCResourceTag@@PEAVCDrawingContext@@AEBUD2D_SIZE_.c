@@ -1,19 +1,19 @@
 /*
- * XREFs of ?GenerateBlurIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVIBitmapRealization@@AEBUD2D_POINT_2F@@MPEAPEAVIRenderTargetBitmap@@@Z @ 0x1802B7D14
+ * XREFs of ?GenerateBlurIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVIBitmapRealization@@AEBUD2D_POINT_2F@@MPEAPEAVIRenderTargetBitmap@@@Z @ 0x18000D278
  * Callers:
- *     ?GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18024A0D4 (-GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEA.c)
- *     ?GenerateFastShadowIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x18024A790 (-GenerateFastShadowIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
- *     ?UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x18024B5A4 (-UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x18000C524 (-UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18000E904 (-GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEA.c)
+ *     ?GenerateFastShadowIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x18000F55C (-GenerateFastShadowIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ?FillEffect@CDrawingContext@@QEAAJPEAUID2D1Effect@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBUD2D_POINT_2F@@_N@Z @ 0x18000FD9C (-FillEffect@CDrawingContext@@QEAAJPEAUID2D1Effect@@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMil.c)
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1800345C0 (-PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@.c)
- *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CF54 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?PopLayer@CDrawingContext@@QEAAJXZ @ 0x18008D1DC (-PopLayer@CDrawingContext@@QEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetCachedEffectNoRef@CD2DContext@@UEAAJW4D2DEffect@@PEAPEAUID2D1Effect@@@Z @ 0x1802874A0 (-GetCachedEffectNoRef@CD2DContext@@UEAAJW4D2DEffect@@PEAPEAUID2D1Effect@@@Z.c)
+ *     ?FillEffect@CDrawingContext@@QEAAJPEAUID2D1Effect@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBUD2D_POINT_2F@@_N@Z @ 0x18000D460 (-FillEffect@CDrawingContext@@QEAAJPEAUID2D1Effect@@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMil.c)
+ *     ?GetCachedEffectNoRef@CD2DContext@@UEAAJW4D2DEffect@@PEAPEAUID2D1Effect@@@Z @ 0x18000D560 (-GetCachedEffectNoRef@CD2DContext@@UEAAJW4D2DEffect@@PEAPEAUID2D1Effect@@@Z.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D180 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?PopLayer@CDrawingContext@@QEAAJXZ @ 0x180040870 (-PopLayer@CDrawingContext@@QEAAJXZ.c)
+ *     ?PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@@_NPEAPEAVIRenderTargetBitmap@@@Z @ 0x180040A2C (-PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D0818 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ShadowHelpers::GenerateBlurIntermediate(
@@ -23,137 +23,115 @@ __int64 __fastcall ShadowHelpers::GenerateBlurIntermediate(
         const struct D2D_SIZE_F *a4,
         struct IBitmapRealization *a5,
         const struct D2D_POINT_2F *a6,
-        __int64 *a7)
+        _QWORD *a7)
 {
-  int v11; // eax
-  __int64 v12; // rcx
-  unsigned int v13; // ebx
-  struct D2D_SIZE_F v14; // rax
-  __int64 (__fastcall *v15)(const struct D2D_SIZE_F *, __int64, __int64 *, _QWORD); // rbx
-  __int64 v16; // rax
-  int v17; // eax
-  __int64 v18; // rcx
+  int v9; // eax
+  unsigned int v10; // ecx
+  unsigned int v11; // ebx
+  struct D2D_SIZE_F v12; // rax
+  __int64 (__fastcall *v13)(const struct D2D_SIZE_F *, char *, __int64 *, _QWORD); // rbx
+  int v14; // eax
+  unsigned int v15; // ecx
   int CachedEffectNoRef; // eax
-  __int64 v20; // rcx
-  struct ID2D1Effect *v21; // rdi
-  int v22; // eax
-  __int64 v23; // rcx
-  int v24; // eax
-  __int64 v25; // rcx
-  int v26; // eax
-  __int64 v27; // rcx
-  int v28; // eax
-  __int64 v29; // rcx
-  __int64 v30; // rdx
-  __int64 v32; // [rsp+20h] [rbp-30h]
-  struct ID2D1Effect *v33; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v34; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v35[2]; // [rsp+40h] [rbp-10h] BYREF
+  unsigned int v17; // ecx
+  __int64 v18; // rdi
+  int v19; // eax
+  unsigned int v20; // ecx
+  int v21; // eax
+  unsigned int v22; // ecx
+  __int64 v23; // rdx
+  char v25; // [rsp+20h] [rbp-30h]
+  unsigned int v26; // [rsp+20h] [rbp-30h]
+  __int64 v27; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v28; // [rsp+38h] [rbp-18h] BYREF
+  _QWORD v29[2]; // [rsp+40h] [rbp-10h] BYREF
 
-  v35[0] = 0LL;
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(v35);
-  LODWORD(v32) = 4;
-  v11 = CDrawingContext::PushOffScreenRenderingLayer(a2, (__int64)this, (float *)a3, DisplayId::None, v32, (__int64)v35);
-  v13 = v11;
-  if ( v11 < 0 )
+  v25 = 0;
+  v29[0] = 0LL;
+  v9 = CDrawingContext::PushOffScreenRenderingLayer(a2, this, a3, DisplayId::None, v25, v29);
+  v11 = v9;
+  if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x12Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x129u, 0LL);
+    goto LABEL_11;
   }
-  else
+  v12 = *a4;
+  v28 = 0LL;
+  v13 = *(__int64 (__fastcall **)(const struct D2D_SIZE_F *, char *, __int64 *, _QWORD))(*(_QWORD *)&v12 + 56LL);
+  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset(&v28);
+  v14 = v13(a4, (char *)a2 + 56, &v28, 0LL);
+  v11 = v14;
+  if ( v14 < 0 )
   {
-    v14 = *a4;
-    v34 = 0LL;
-    v15 = *(__int64 (__fastcall **)(const struct D2D_SIZE_F *, __int64, __int64 *, _QWORD))(*(_QWORD *)&v14 + 56LL);
-    v16 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)a2 + 3) + 40LL))((char *)a2 + 24);
-    v17 = v15(a4, v16, &v34, 0LL);
-    v13 = v17;
-    if ( v17 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x133u, 0LL);
-    }
-    else
-    {
-      CachedEffectNoRef = CD2DContext::GetCachedEffectNoRef(*((_QWORD *)a2 + 5) + 16LL, 6u, &v33);
-      v13 = CachedEffectNoRef;
-      if ( CachedEffectNoRef < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, CachedEffectNoRef, 0x138u, 0LL);
-      }
-      else
-      {
-        v21 = v33;
-        (*(void (__fastcall **)(struct ID2D1Effect *, _QWORD, __int64, __int64))(*(_QWORD *)v33 + 112LL))(
-          v33,
-          0LL,
-          v34,
-          1LL);
-        *(float *)&v33 = *(float *)&a6 / 3.0;
-        v22 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, _QWORD, _QWORD, struct ID2D1Effect **, int))(*(_QWORD *)v21 + 72LL))(
-                v21,
-                0LL,
-                0LL,
-                &v33,
-                4);
-        v13 = v22;
-        if ( v22 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x143u, 0LL);
-        }
-        else
-        {
-          LODWORD(v33) = 1;
-          v24 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, struct ID2D1Effect **, int))(*(_QWORD *)v21 + 72LL))(
-                  v21,
-                  1LL,
-                  0LL,
-                  &v33,
-                  4);
-          v13 = v24;
-          if ( v24 < 0 )
-          {
-            MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0x146u, 0LL);
-          }
-          else
-          {
-            LODWORD(v33) = 0;
-            v26 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, struct ID2D1Effect **, int))(*(_QWORD *)v21 + 72LL))(
-                    v21,
-                    2LL,
-                    0LL,
-                    &v33,
-                    4);
-            v13 = v26;
-            if ( v26 < 0 )
-            {
-              MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0x149u, 0LL);
-            }
-            else
-            {
-              v28 = CDrawingContext::FillEffect(a2, v21, 0LL, (const struct D2D_POINT_2F *)a5, 1);
-              v13 = v28;
-              if ( v28 < 0 )
-              {
-                MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0x14Eu, 0LL);
-              }
-              else
-              {
-                v30 = v35[0];
-                v35[0] = 0LL;
-                *a7 = v30;
-              }
-            }
-          }
-        }
-        (*(void (__fastcall **)(struct ID2D1Effect *, _QWORD, _QWORD, __int64))(*(_QWORD *)v21 + 112LL))(
-          v21,
-          0LL,
-          0LL,
-          1LL);
-      }
-    }
-    wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>(&v34);
-    CDrawingContext::PopLayer(a2);
+    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x131u, 0LL);
+    goto LABEL_10;
   }
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)v35);
-  return v13;
+  CachedEffectNoRef = CD2DContext::GetCachedEffectNoRef(*((_QWORD *)a2 + 5) + 16LL, 6LL, &v27);
+  v11 = CachedEffectNoRef;
+  if ( CachedEffectNoRef < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, CachedEffectNoRef, 0x136u, 0LL);
+    goto LABEL_10;
+  }
+  v18 = v27;
+  (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64))(*(_QWORD *)v27 + 112LL))(v27, 0LL, v28, 1LL);
+  *(float *)&v27 = *(float *)&a6 / 3.0;
+  v19 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, __int64 *, int))(*(_QWORD *)v18 + 72LL))(
+          v18,
+          0LL,
+          0LL,
+          &v27,
+          4);
+  v11 = v19;
+  if ( v19 < 0 )
+  {
+    v26 = 321;
+    goto LABEL_16;
+  }
+  LODWORD(v27) = 1;
+  v21 = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64 *, int))(*(_QWORD *)v18 + 72LL))(
+          v18,
+          1LL,
+          0LL,
+          &v27,
+          4);
+  v11 = v21;
+  if ( v21 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x144u, 0LL);
+    goto LABEL_9;
+  }
+  LODWORD(v27) = 0;
+  v19 = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64 *, int))(*(_QWORD *)v18 + 72LL))(
+          v18,
+          2LL,
+          0LL,
+          &v27,
+          4);
+  v11 = v19;
+  if ( v19 < 0 )
+  {
+    v26 = 327;
+    goto LABEL_16;
+  }
+  v19 = CDrawingContext::FillEffect(a2, 1);
+  v11 = v19;
+  if ( v19 < 0 )
+  {
+    v26 = 332;
+LABEL_16:
+    MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, v26, 0LL);
+    goto LABEL_9;
+  }
+  v23 = v29[0];
+  v29[0] = 0LL;
+  *a7 = v23;
+LABEL_9:
+  (*(void (__fastcall **)(__int64, _QWORD, _QWORD, __int64))(*(_QWORD *)v18 + 112LL))(v18, 0LL, 0LL, 1LL);
+LABEL_10:
+  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>(&v28);
+  CDrawingContext::PopLayer(a2);
+LABEL_11:
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(v29);
+  return v11;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampCaptureFreeLookasides @ 0x1408C4364
+ * XREFs of EtwpCovSampCaptureFreeLookasides @ 0x1408C4344
  * Callers:
- *     EtwpCovSampCaptureContextStop @ 0x1403166B0 (EtwpCovSampCaptureContextStop.c)
- *     EtwpCovSampCaptureContextStart @ 0x1408C3DA0 (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1403167B0 (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1408C3D80 (EtwpCovSampCaptureContextStart.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x1401C5430 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x140316F4C (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x14031704C (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

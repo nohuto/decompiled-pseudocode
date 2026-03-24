@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ClassFree@@YAXPEAUtagDESKTOP@@PEAUtagCLS@@@Z @ 0x1C00633FC
+ * XREFs of ?ClassFree@@YAXPEAUtagDESKTOP@@PEAUtagCLS@@@Z @ 0x1C010BFBC
  * Callers:
- *     InternalRegisterClassEx @ 0x1C005FF10 (InternalRegisterClassEx.c)
- *     DestroyClass @ 0x1C0060880 (DestroyClass.c)
- *     ReferenceClass @ 0x1C00F8130 (ReferenceClass.c)
+ *     ReferenceClass @ 0x1C0025580 (ReferenceClass.c)
+ *     DestroyClass @ 0x1C0079040 (DestroyClass.c)
+ *     InternalRegisterClassEx @ 0x1C0079DD0 (InternalRegisterClassEx.c)
  * Callees:
- *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C006347C (--$UserFreeIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C01681FC (--$UserFreeIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z.c)
  */
 
 void __fastcall ClassFree(PVOID *a1, PVOID *a2)

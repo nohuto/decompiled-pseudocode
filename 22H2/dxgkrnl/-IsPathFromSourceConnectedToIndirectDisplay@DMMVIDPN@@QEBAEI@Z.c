@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsPathFromSourceConnectedToIndirectDisplay@DMMVIDPN@@QEBAEI@Z @ 0x1C03B8EC0
+ * XREFs of ?IsPathFromSourceConnectedToIndirectDisplay@DMMVIDPN@@QEBAEI@Z @ 0x1C02E9120
  * Callers:
- *     ?AddMode@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNSOURCEMODESET__@@QEAU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C01B0AF0 (-AddMode@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNSOURCEMODESET__@@QEAU_D.c)
+ *     ?AddMode@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNSOURCEMODESET__@@QEAU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C011A810 (-AddMode@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNSOURCEMODESET__@@QEAU_D.c)
  * Callees:
  *     <none>
  */
@@ -10,8 +10,7 @@ unsigned __int8 __fastcall DMMVIDPN::IsPathFromSourceConnectedToIndirectDisplay(
 {
   DMMVIDPN *v2; // r8
   _QWORD *v3; // r10
-  __int64 v5; // rax
-  DMMVIDPN *v6; // rcx
+  DMMVIDPN *v5; // rcx
 
   v2 = (DMMVIDPN *)*((_QWORD *)this + 15);
   v3 = 0LL;
@@ -21,18 +20,11 @@ unsigned __int8 __fastcall DMMVIDPN::IsPathFromSourceConnectedToIndirectDisplay(
   {
     if ( !v3 )
       return 0;
-    if ( *(_DWORD *)(v3[11] + 24LL) == a2 )
-    {
-      v5 = v3[12];
-      if ( *(_DWORD *)(*(_QWORD *)(v5 + 96) + 84LL) == 15
-        || (unsigned int)(*(_DWORD *)(*(_QWORD *)(v5 + 96) + 84LL) - 16) < 2 )
-      {
-        break;
-      }
-    }
-    v6 = (DMMVIDPN *)v3[1];
-    v3 = (_QWORD *)((char *)v6 - 8);
-    if ( v6 == (DMMVIDPN *)((char *)this + 120) )
+    if ( *(_DWORD *)(v3[11] + 24LL) == a2 && (unsigned int)(*(_DWORD *)(*(_QWORD *)(v3[12] + 96LL) + 84LL) - 15) <= 2 )
+      break;
+    v5 = (DMMVIDPN *)v3[1];
+    v3 = (_QWORD *)((char *)v5 - 8);
+    if ( v5 == (DMMVIDPN *)((char *)this + 120) )
       v3 = 0LL;
   }
   return 1;

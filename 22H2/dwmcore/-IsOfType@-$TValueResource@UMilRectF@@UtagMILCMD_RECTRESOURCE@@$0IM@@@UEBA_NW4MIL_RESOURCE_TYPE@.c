@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@?$TValueResource@UMilRectF@@UtagMILCMD_RECTRESOURCE@@$0IM@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001C490
+ * XREFs of ?IsOfType@?$TValueResource@UMilRectF@@UtagMILCMD_RECTRESOURCE@@$0IM@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001F830
  * Callers:
  *     <none>
  * Callees:

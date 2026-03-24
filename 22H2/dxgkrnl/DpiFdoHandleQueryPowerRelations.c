@@ -1,69 +1,73 @@
 /*
- * XREFs of DpiFdoHandleQueryPowerRelations @ 0x1C0228E58
+ * XREFs of DpiFdoHandleQueryPowerRelations @ 0x1C019EA2C
  * Callers:
- *     DpiFdoHandleQueryDeviceRelations @ 0x1C01F4DD0 (DpiFdoHandleQueryDeviceRelations.c)
+ *     DpiFdoHandleQueryDeviceRelations @ 0x1C0177DD0 (DpiFdoHandleQueryDeviceRelations.c)
  * Callees:
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0015C20 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000C8D0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
  */
 
 __int64 __fastcall DpiFdoHandleQueryPowerRelations(__int64 a1, __int64 a2)
 {
-  unsigned int *v2; // rdi
-  __int64 v3; // rsi
-  unsigned int v4; // r12d
-  unsigned int v5; // ebp
-  __int64 v7; // r14
-  __int64 *v8; // r15
-  __int64 *v9; // rsi
-  __int64 v10; // rsi
-  __int64 *v11; // r13
-  int v12; // ecx
-  __int64 v13; // r12
-  unsigned int *Pool2; // rax
-  unsigned int *v15; // r12
-  unsigned int v16; // [rsp+30h] [rbp-58h]
-  int v17; // [rsp+90h] [rbp+8h]
-  unsigned int v19; // [rsp+A0h] [rbp+18h]
+  unsigned int *v2; // rsi
+  __int64 v3; // rdi
+  unsigned int v4; // r13d
+  unsigned int v5; // r15d
+  __int64 v7; // r12
+  __int64 *v8; // r14
+  __int64 *v9; // rdi
+  __int64 v10; // rdi
+  int v11; // ecx
+  __int64 v12; // r13
+  unsigned int *PoolWithTag; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  unsigned int *v18; // r13
+  __int64 v19; // rax
+  unsigned int v20; // [rsp+30h] [rbp-48h]
+  int v21; // [rsp+80h] [rbp+8h]
+  unsigned int v23; // [rsp+90h] [rbp+18h]
 
   v2 = *(unsigned int **)(a2 + 56);
   v3 = a2;
-  v16 = 0;
+  v20 = 0;
   v4 = 0;
   v5 = 0;
-  v17 = 4;
+  v21 = 4;
   if ( !*(_BYTE *)(*(_QWORD *)(a1 + 40) + 133LL) || *(_BYTE *)(a1 + 480) )
   {
-    v16 = -1073741637;
+    v20 = -1073741637;
     goto LABEL_4;
   }
   if ( v2 )
     v4 = *v2;
   AcquireMiniportListMutex();
-  v7 = qword_1C01404C8;
+  v7 = qword_1C00B2B40;
   if ( *(_QWORD *)v7 == v7 )
   {
-LABEL_43:
-    _InterlockedExchange64(&qword_1C01404D8, 0LL);
+LABEL_44:
+    _InterlockedExchange64(&qword_1C00B2B50, 0LL);
     KeReleaseMutex(Mutex, 0);
-    return v16;
+    return v20;
   }
   v5 = v4;
   while ( *(_BYTE *)(v7 + 133) )
   {
-LABEL_42:
+LABEL_43:
     v7 = *(_QWORD *)v7;
-    if ( *(_QWORD *)v7 == qword_1C01404C8 )
-      goto LABEL_43;
+    if ( *(_QWORD *)v7 == qword_1C00B2B40 )
+      goto LABEL_44;
   }
   KeWaitForSingleObject((PVOID)(v7 + 72), Executive, 0, 0, 0LL);
   v8 = *(__int64 **)(v7 + 56);
   if ( (__int64 *)*v8 == v8 )
   {
-LABEL_41:
+LABEL_42:
     KeReleaseMutex((PRKMUTEX)(v7 + 72), 0);
-    goto LABEL_42;
+    goto LABEL_43;
   }
   while ( 1 )
   {
@@ -81,65 +85,63 @@ LABEL_41:
           break;
       }
     }
-LABEL_40:
+LABEL_41:
     v8 = (__int64 *)*v8;
     if ( *v8 == *(_QWORD *)(v7 + 56) )
-      goto LABEL_41;
+      goto LABEL_42;
   }
   v9 = *(__int64 **)(v10 + 64);
 LABEL_20:
   KeEnterCriticalRegion();
-  v11 = v9 + 3;
   if ( *((_BYTE *)v9 + 484) )
-    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*v11 + 64) + 4104LL));
+    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v9[3] + 64) + 4080LL));
   ExAcquireResourceSharedLite((PERESOURCE)v9[21], 1u);
-  v12 = *((_DWORD *)v9 + 59);
-  if ( v12 != 2 && (*((_DWORD *)v9 + 60) != 2 || ((v12 - 3) & 0xFFFFFFFC) != 0 || v12 == 4)
-    || (v9[490] & 2) == 0
-    || (*((_BYTE *)v9 + 3921) & 0x20) != 0 )
+  v11 = *((_DWORD *)v9 + 59);
+  if ( v11 != 2 && (*((_DWORD *)v9 + 60) != 2 || ((v11 - 3) & 0xFFFFFFFC) != 0 || v11 == 4)
+    || (v9[488] & 2) == 0
+    || (*((_BYTE *)v9 + 3905) & 0x20) != 0 )
   {
-    goto LABEL_37;
+    goto LABEL_38;
   }
   if ( v4 >= v5 + 1 )
-    goto LABEL_36;
-  v13 = v17 + v4;
-  v19 = v13;
-  Pool2 = (unsigned int *)ExAllocatePool2(256LL, 8 * v13 + 15, 1953656900LL);
-  v15 = Pool2;
-  if ( Pool2 )
+    goto LABEL_37;
+  v12 = v21 + v4;
+  v23 = v12;
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, 8 * v12 + 15, 0x74727044u);
+  v18 = PoolWithTag;
+  if ( PoolWithTag )
   {
     if ( v2 && v5 )
-    {
-      memmove(Pool2, v2, 8LL * (v5 - 1) + 16);
-      goto LABEL_34;
-    }
-    *Pool2 = 0;
+      memmove(PoolWithTag, v2, 8LL * (v5 - 1) + 16);
+    else
+      *PoolWithTag = 0;
     if ( v2 )
-LABEL_34:
       ExFreePoolWithTag(v2, 0);
-    v2 = v15;
-    *(_QWORD *)(a2 + 56) = v15;
-    v4 = v19;
-    v17 *= 2;
-LABEL_36:
+    v2 = v18;
+    *(_QWORD *)(a2 + 56) = v18;
+    v4 = v23;
+    v21 *= 2;
+LABEL_37:
     ObfReferenceObject((PVOID)v8[19]);
     ++v5;
     *(_QWORD *)&v2[2 * (*v2)++ + 2] = v8[19];
-LABEL_37:
+LABEL_38:
     if ( *((_BYTE *)v9 + 484) )
-      DpiEnableD3Requests(*v11);
+      DpiEnableD3Requests(v9[3]);
     ExReleaseResourceLite((PERESOURCE)v9[21]);
     KeLeaveCriticalRegion();
-    goto LABEL_40;
+    goto LABEL_41;
   }
-  v16 = -1073741801;
-  WdLogSingleEntry1(6LL, -1073741801LL);
+  v20 = -1073741801;
+  v19 = WdLogNewEntry5_WdLowResource(v15, v14, v16, v17);
+  *(_QWORD *)(v19 + 24) = -1073741801LL;
+  WdLogEvent5_WdLowResource(v19);
   if ( *((_BYTE *)v9 + 484) )
-    DpiEnableD3Requests(*v11);
+    DpiEnableD3Requests(v9[3]);
   ExReleaseResourceLite((PERESOURCE)v9[21]);
   KeLeaveCriticalRegion();
   KeReleaseMutex((PRKMUTEX)(v7 + 72), 0);
-  _InterlockedExchange64(&qword_1C01404D8, 0LL);
+  _InterlockedExchange64(&qword_1C00B2B50, 0LL);
   KeReleaseMutex(Mutex, 0);
   v3 = a2;
 LABEL_4:
@@ -150,5 +152,5 @@ LABEL_4:
     ExFreePoolWithTag(v2, 0);
   }
   *(_QWORD *)(v3 + 56) = 0LL;
-  return v16;
+  return v20;
 }

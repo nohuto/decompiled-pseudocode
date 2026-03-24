@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwSetSystemTime @ 0x1401BB610
+ * XREFs of ZwSetSystemTime @ 0x1401BB630
  * Callers:
  *     ExpTimeZoneInitSiloState @ 0x1405839E4 (ExpTimeZoneInitSiloState.c)
- *     ExpTimeZoneWork @ 0x1408CD1D0 (ExpTimeZoneWork.c)
+ *     ExpTimeZoneWork @ 0x1408CD1B0 (ExpTimeZoneWork.c)
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>

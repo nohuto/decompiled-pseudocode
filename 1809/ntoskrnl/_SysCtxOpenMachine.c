@@ -1,17 +1,17 @@
 /*
- * XREFs of _SysCtxOpenMachine @ 0x14073BA88
+ * XREFs of _SysCtxOpenMachine @ 0x14073BA68
  * Callers:
- *     _PnpCtxCreateNode @ 0x14073B93C (_PnpCtxCreateNode.c)
+ *     _PnpCtxCreateNode @ 0x14073B91C (_PnpCtxCreateNode.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwDuplicateObject @ 0x1401B88F0 (ZwDuplicateObject.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1401B8910 (ZwDuplicateObject.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _RegRtlOpenKeyTransacted @ 0x1405C7B4C (_RegRtlOpenKeyTransacted.c)
- *     RtlGetVersion @ 0x1406B4750 (RtlGetVersion.c)
- *     _SysCtxOpenControlSet @ 0x14073BCB8 (_SysCtxOpenControlSet.c)
+ *     RtlGetVersion @ 0x1406B4730 (RtlGetVersion.c)
+ *     _SysCtxOpenControlSet @ 0x14073BC98 (_SysCtxOpenControlSet.c)
  */
 
 __int64 __fastcall SysCtxOpenMachine(

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpAddSubKey @ 0x1407FEAA0
+ * XREFs of CmpAddSubKey @ 0x1407FEA80
  * Callers:
- *     CmpCreateTombstone @ 0x14026D05C (CmpCreateTombstone.c)
+ *     CmpCreateTombstone @ 0x14026D15C (CmpCreateTombstone.c)
  * Callees:
  *     CmpAddSubKeyEx @ 0x1405AEA60 (CmpAddSubKeyEx.c)
  */

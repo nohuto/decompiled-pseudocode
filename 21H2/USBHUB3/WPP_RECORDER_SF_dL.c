@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_dL @ 0x1C0002CD4
+ * XREFs of WPP_RECORDER_SF_dL @ 0x1C0002AF8
  * Callers:
- *     HUBHTX_AckPortChangeUsingControlTransfer @ 0x1C00041BC (HUBHTX_AckPortChangeUsingControlTransfer.c)
+ *     HUBHTX_AckPortChangeUsingControlTransfer @ 0x1C0004000 (HUBHTX_AckPortChangeUsingControlTransfer.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_dL(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -20,7 +20,7 @@ __int64 WPP_RECORDER_SF_dL(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+      &WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
       44LL,
       (__int64 *)va,
       4LL,
@@ -28,5 +28,5 @@ __int64 WPP_RECORDER_SF_dL(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a
       4LL,
       0LL);
   LOWORD(v7) = 44;
-  return WppAutoLogTrace(a1, 4LL, 4LL, &WPP_65667e477e4f3bda131abce8e5de791a_Traceguids, v7, (__int64 *)va);
+  return WppAutoLogTrace(a1, 4LL, 4LL, &WPP_48f9d914ad953e47f49793ea568006bd_Traceguids, v7, (__int64 *)va);
 }

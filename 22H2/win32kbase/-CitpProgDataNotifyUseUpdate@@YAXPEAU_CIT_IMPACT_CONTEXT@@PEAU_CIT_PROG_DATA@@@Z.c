@@ -1,16 +1,16 @@
 /*
- * XREFs of ?CitpProgDataNotifyUseUpdate@@YAXPEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROG_DATA@@@Z @ 0x1C02343D0
+ * XREFs of ?CitpProgDataNotifyUseUpdate@@YAXPEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROG_DATA@@@Z @ 0x1C01FE558
  * Callers:
- *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00A3D44 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
+ *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C004B234 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CitpProgDataNotifyUseUpdate(struct _CIT_IMPACT_CONTEXT *a1, struct _CIT_PROG_DATA *a2)
 {
-  char *v4; // r8
+  struct _CIT_IMPACT_CONTEXT *v4; // r8
   __int64 v5; // rax
-  char **v6; // rcx
+  struct _CIT_IMPACT_CONTEXT **v6; // rdx
   char *v7; // r11
   __int64 v8; // rax
   __int64 *v9; // r10
@@ -18,7 +18,7 @@ void __fastcall CitpProgDataNotifyUseUpdate(struct _CIT_IMPACT_CONTEXT *a1, stru
   __int64 **v11; // rcx
   __int64 v12; // rax
   __int64 v13; // rcx
-  char **v14; // rax
+  struct _CIT_IMPACT_CONTEXT **v14; // rax
   struct _CIT_IMPACT_CONTEXT **v15; // rcx
   char *v16; // rbx
   _QWORD *v17; // rax
@@ -29,21 +29,21 @@ void __fastcall CitpProgDataNotifyUseUpdate(struct _CIT_IMPACT_CONTEXT *a1, stru
 
   if ( *((_BYTE *)a2 + 34) )
   {
-    v4 = (char *)a2 + 16;
+    v4 = (struct _CIT_PROG_DATA *)((char *)a2 + 16);
     v5 = *((_QWORD *)a2 + 2);
     if ( *(struct _CIT_PROG_DATA **)(v5 + 8) != (struct _CIT_PROG_DATA *)((char *)a2 + 16) )
       goto LABEL_22;
-    v6 = (char **)*((_QWORD *)a2 + 3);
+    v6 = (struct _CIT_IMPACT_CONTEXT **)*((_QWORD *)a2 + 3);
     if ( *v6 != v4 )
       goto LABEL_22;
-    *v6 = (char *)v5;
+    *v6 = (struct _CIT_IMPACT_CONTEXT *)v5;
     v7 = (char *)a1 + 24;
     *(_QWORD *)(v5 + 8) = v6;
     v8 = *((_QWORD *)a1 + 3);
     if ( *(struct _CIT_IMPACT_CONTEXT **)(v8 + 8) != (struct _CIT_IMPACT_CONTEXT *)((char *)a1 + 24) )
       goto LABEL_22;
     *(_QWORD *)v4 = v8;
-    *((_QWORD *)a2 + 3) = v7;
+    *((_QWORD *)v4 + 1) = v7;
     *(_QWORD *)(v8 + 8) = v4;
     *(_QWORD *)v7 = v4;
     v9 = (__int64 *)*((_QWORD *)a1 + 6);
@@ -68,9 +68,9 @@ void __fastcall CitpProgDataNotifyUseUpdate(struct _CIT_IMPACT_CONTEXT *a1, stru
     *(_QWORD *)v7 = v9;
     *((_WORD *)v9 + 9) = 1;
     v13 = *(_QWORD *)v4;
-    if ( *(char **)(*(_QWORD *)v4 + 8LL) != v4
-      || (v14 = (char **)*((_QWORD *)a2 + 3), *v14 != v4)
-      || (*v14 = (char *)v13,
+    if ( *(struct _CIT_IMPACT_CONTEXT **)(*(_QWORD *)v4 + 8LL) != v4
+      || (v14 = (struct _CIT_IMPACT_CONTEXT **)*((_QWORD *)v4 + 1), *v14 != v4)
+      || (*v14 = (struct _CIT_IMPACT_CONTEXT *)v13,
           *(_QWORD *)(v13 + 8) = v14,
           v15 = (struct _CIT_IMPACT_CONTEXT **)*((_QWORD *)a1 + 6),
           *v15 != (struct _CIT_IMPACT_CONTEXT *)((char *)a1 + 40)) )
@@ -79,8 +79,8 @@ LABEL_22:
       __fastfail(3u);
     }
     *(_QWORD *)v4 = (char *)a1 + 40;
-    *((_QWORD *)a2 + 3) = v15;
-    *v15 = (struct _CIT_IMPACT_CONTEXT *)v4;
+    *((_QWORD *)v4 + 1) = v15;
+    *v15 = v4;
     *((_QWORD *)a1 + 6) = v4;
     *((_WORD *)a2 + 17) = 256;
   }

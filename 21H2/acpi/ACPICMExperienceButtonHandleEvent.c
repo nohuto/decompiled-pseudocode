@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPICMExperienceButtonHandleEvent @ 0x1C004D9FC
+ * XREFs of ACPICMExperienceButtonHandleEvent @ 0x1C004ED7C
  * Callers:
- *     ACPICMButtonNotify @ 0x1C004D608 (ACPICMButtonNotify.c)
+ *     ACPICMButtonNotify @ 0x1C004E918 (ACPICMButtonNotify.c)
  * Callees:
- *     ACPISetDeviceWorker @ 0x1C00215BC (ACPISetDeviceWorker.c)
- *     WPP_RECORDER_SF_dqss @ 0x1C004DEE0 (WPP_RECORDER_SF_dqss.c)
+ *     ACPISetDeviceWorker @ 0x1C0013470 (ACPISetDeviceWorker.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
  */
 
 void __fastcall ACPICMExperienceButtonHandleEvent(_QWORD *a1, int a2)
@@ -13,8 +13,8 @@ void __fastcall ACPICMExperienceButtonHandleEvent(_QWORD *a1, int a2)
   int v4; // edx
   int v5; // eax
   char v6; // al
-  void *v7; // r8
-  void *v8; // r10
+  const char *v7; // r8
+  const char *v8; // r10
   __int64 v9; // r9
 
   v3 = a2;
@@ -30,28 +30,28 @@ LABEL_10:
     return;
   }
   v6 = 0;
-  v7 = &unk_1C006FB8B;
-  v8 = &unk_1C006FB8B;
+  v7 = (const char *)&unk_1C00701BA;
+  v8 = (const char *)&unk_1C00701BA;
   if ( a1 )
   {
     v9 = a1[1];
     v6 = (char)a1;
     if ( (v9 & 0x200000000000LL) != 0 )
     {
-      v7 = (void *)a1[76];
+      v7 = (const char *)a1[71];
       if ( (v9 & 0x400000000000LL) != 0 )
-        v8 = (void *)a1[77];
+        v8 = (const char *)a1[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_dqss(
-      WPP_GLOBAL_Control->DeviceExtension,
-      2,
-      17,
-      25,
-      (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+    WPP_RECORDER_SF_Dqss(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      2u,
+      0x11u,
+      0x19u,
+      (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
       v3,
       v6,
-      (__int64)v7,
-      (__int64)v8);
+      v7,
+      v8);
 }

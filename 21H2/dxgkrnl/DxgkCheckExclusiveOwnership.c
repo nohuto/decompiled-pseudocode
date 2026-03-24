@@ -1,47 +1,46 @@
 /*
- * XREFs of DxgkCheckExclusiveOwnership @ 0x1C01EB900
+ * XREFs of DxgkCheckExclusiveOwnership @ 0x1C0170750
  * Callers:
  *     <none>
  * Callees:
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?CheckExclusiveOwnership@DXGGLOBAL@@QEAAEXZ @ 0x1C01EB970 (-CheckExclusiveOwnership@DXGGLOBAL@@QEAAEXZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?CheckExclusiveOwnership@DXGGLOBAL@@QEAAEXZ @ 0x1C01707C0 (-CheckExclusiveOwnership@DXGGLOBAL@@QEAAEXZ.c)
  */
 
 unsigned __int8 __fastcall DxgkCheckExclusiveOwnership(__int64 a1, __int64 a2, __int64 a3)
 {
+  __int64 v3; // rdx
+  __int64 v4; // rcx
   DXGGLOBAL *Global; // rax
-  unsigned __int8 v4; // bl
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  int v8; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v9; // [rsp+28h] [rbp-20h]
-  char v10; // [rsp+30h] [rbp-18h]
+  unsigned __int8 v6; // bl
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  int v11; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v12; // [rsp+28h] [rbp-20h]
+  char v13; // [rsp+30h] [rbp-18h]
 
-  v8 = -1;
-  v9 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v11 = -1;
+  v12 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v10 = 1;
-    v8 = 2047;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v13 = 1;
+    v11 = 2047;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2047);
   }
   else
   {
-    v10 = 0;
+    v13 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v8, 2047);
-  Global = DXGGLOBAL_GetGlobal();
-  v4 = DXGGLOBAL::CheckExclusiveOwnership(Global);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v8);
-  if ( v10 )
-  {
-    LOBYTE(v5) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v5, &EventProfilerExit, v6, v8);
-  }
-  return v4;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v11, 2047LL);
+  Global = DXGGLOBAL::GetGlobal(v4, v3);
+  v6 = DXGGLOBAL::CheckExclusiveOwnership(Global);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v11, v7);
+  if ( v13 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v8, &EventProfilerExit, v9, v11);
+  return v6;
 }

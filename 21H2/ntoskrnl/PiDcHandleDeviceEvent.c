@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDcHandleDeviceEvent @ 0x14076D824
+ * XREFs of PiDcHandleDeviceEvent @ 0x140758724
  * Callers:
- *     PiDcHandleObjectEvent @ 0x14076D7D4 (PiDcHandleObjectEvent.c)
+ *     PiDcHandleObjectEvent @ 0x1407586D4 (PiDcHandleObjectEvent.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x1402DF3F0 (RtlLookupElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PiDcContainerRequiresConfiguration @ 0x14076DAF0 (PiDcContainerRequiresConfiguration.c)
- *     _PnpStringFromGuid @ 0x140773030 (_PnpStringFromGuid.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
+ *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x140638420 (_PnpStringFromGuid.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140759668 (PiDcContainerRequiresConfiguration.c)
  */
 
 __int64 __fastcall PiDcHandleDeviceEvent(__int64 a1)
@@ -50,10 +50,10 @@ __int64 __fastcall PiDcHandleDeviceEvent(__int64 a1)
         return (unsigned int)ObjectProperty;
     }
     ObjectProperty = PnpGetObjectProperty(
-                       PiPnpRtlCtx,
+                       *(__int64 *)&PiPnpRtlCtx,
                        *(_QWORD *)(*(_QWORD *)(a1 + 8) + 16LL),
-                       1,
-                       0,
+                       1LL,
+                       0LL,
                        0LL,
                        (__int64)&DEVPKEY_Device_ContainerId,
                        (__int64)&v10,
@@ -63,14 +63,14 @@ __int64 __fastcall PiDcHandleDeviceEvent(__int64 a1)
                        0);
     if ( ObjectProperty >= 0 && v10 == 13 && v11 == 16 )
     {
-      ObjectProperty = PnpStringFromGuid(&v12, Str2);
+      ObjectProperty = PnpStringFromGuid((int *)&v12, Str2);
       if ( ObjectProperty >= 0 )
       {
         ObjectProperty = PnpGetObjectProperty(
-                           PiPnpRtlCtx,
-                           (unsigned int)Str2,
-                           5,
-                           0,
+                           *(__int64 *)&PiPnpRtlCtx,
+                           (__int64)Str2,
+                           5LL,
+                           0LL,
                            0LL,
                            (__int64)&DEVPKEY_DeviceContainer_IsLocalMachine,
                            (__int64)&v10,

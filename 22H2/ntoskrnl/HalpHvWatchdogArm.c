@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpHvWatchdogArm @ 0x140371C00
+ * XREFs of HalpHvWatchdogArm @ 0x140364C00
  * Callers:
  *     <none>
  * Callees:

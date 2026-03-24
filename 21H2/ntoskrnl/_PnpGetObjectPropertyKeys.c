@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpGetObjectPropertyKeys @ 0x14069726C
+ * XREFs of _PnpGetObjectPropertyKeys @ 0x140976928
  * Callers:
- *     PiDqPnPGetObjectPropertyKeys @ 0x14069717C (PiDqPnPGetObjectPropertyKeys.c)
- *     PiDevCfgCopyObjectProperties @ 0x140698298 (PiDevCfgCopyObjectProperties.c)
- *     PiCMGetObjectPropertyKeys @ 0x140955CA4 (PiCMGetObjectPropertyKeys.c)
+ *     PiDevCfgCopyObjectProperties @ 0x140767E78 (PiDevCfgCopyObjectProperties.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x1408A4918 (PiDqPnPGetObjectPropertyKeys.c)
+ *     PiCMGetObjectPropertyKeys @ 0x1408B08EC (PiCMGetObjectPropertyKeys.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _PnpGetObjectPropertyKeysWorker @ 0x140697384 (_PnpGetObjectPropertyKeysWorker.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x140976AA0 (_PnpGetObjectPropertyKeysWorker.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyKeys(
@@ -15,7 +15,7 @@ __int64 __fastcall PnpGetObjectPropertyKeys(
         __int64 a2,
         unsigned int a3,
         __int64 a4,
-        int a5,
+        __int64 a5,
         char a6,
         __int64 a7,
         int a8,
@@ -25,9 +25,9 @@ __int64 __fastcall PnpGetObjectPropertyKeys(
   int v14; // eax
   unsigned int ObjectPropertyKeysWorker; // eax
   unsigned int v16; // ebx
-  int v18; // eax
-  int v19; // ecx
-  unsigned int v20; // eax
+  int v17; // eax
+  int v18; // ecx
+  unsigned int v19; // eax
   _QWORD v21[10]; // [rsp+58h] [rbp-39h] BYREF
 
   memset(v21, 0, sizeof(v21));
@@ -69,14 +69,14 @@ __int64 __fastcall PnpGetObjectPropertyKeys(
   if ( !v13 )
     return v16;
   LODWORD(v21[0]) = ObjectPropertyKeysWorker;
-  v18 = v13(a1, a2, a3, 6LL, 2, v21);
-  v19 = v18;
-  if ( v18 == -1073741822 )
+  v17 = v13(a1, a2, a3, 6LL, 2, v21);
+  v18 = v17;
+  if ( v17 == -1073741822 )
     return v16;
-  if ( v18 == -1073741536 )
+  if ( v17 == -1073741536 )
     return LODWORD(v21[0]);
-  v20 = v16;
-  if ( v19 )
+  v19 = v16;
+  if ( v18 )
     return (unsigned int)-1073741595;
-  return v20;
+  return v19;
 }

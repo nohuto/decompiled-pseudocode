@@ -1,1 +1,63 @@
-/*\n * XREFs of WPP_RECORDER_SF_qqL @ 0x1C0002360\n * Callers:\n *     MouseClassReadCopyData @ 0x1C0004774 (MouseClassReadCopyData.c)\n *     MouseClassDeviceControl @ 0x1C000C570 (MouseClassDeviceControl.c)\n * Callees:\n *     _guard_dispatch_icall_nop @ 0x1C0002BA0 (_guard_dispatch_icall_nop.c)\n */\n\n__int64 WPP_RECORDER_SF_qqL(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, int a5, ...)\n{\n  unsigned __int64 v9; // rdi\n  unsigned __int16 v10; // r8\n  int v11; // eax\n  char *v13; // rcx\n  int v14; // [rsp+20h] [rbp-48h]\n  __int64 v15; // [rsp+98h] [rbp+30h] BYREF\n  va_list va; // [rsp+98h] [rbp+30h]\n  __int64 v17; // [rsp+A0h] [rbp+38h] BYREF\n  va_list va1; // [rsp+A0h] [rbp+38h]\n  va_list va2; // [rsp+A8h] [rbp+40h] BYREF\n\n  va_start(va2, a5);\n  va_start(va1, a5);\n  va_start(va, a5);\n  v15 = va_arg(va1, _QWORD);\n  va_copy(va2, va1);\n  v17 = va_arg(va2, _QWORD);\n  v9 = (unsigned __int64)a3 >> 16;\n  v10 = a3 - 1;\n  v11 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v9 + (v10 >> 5) + 1);\n  if ( _bittest(&v11, v10 & 0x1F) )\n  {\n    v13 = (char *)WPP_GLOBAL_Control + 80 * v9;\n    if ( (unsigned __int8)v13[41] >= a2 )\n      ((void (__fastcall *)(_QWORD, __int64, void *, _QWORD, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(\n        *((_QWORD *)v13 + 3),\n        43LL,\n        &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,\n        a4,\n        (__int64 *)va,\n        8LL,\n        (__int64 *)va1,\n        8LL,\n        va2,\n        4LL,\n        0LL);\n  }\n  LOWORD(v14) = a4;\n  return WppAutoLogTrace(\n           a1,\n           a2,\n           a3,\n           &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,\n           v14,\n           (__int64 *)va,\n           8LL,\n           (__int64 *)va1,\n           8LL,\n           va2,\n           4LL,\n           0LL);\n}\n
+/*
+ * XREFs of WPP_RECORDER_SF_qqL @ 0x1C0002360
+ * Callers:
+ *     MouseClassReadCopyData @ 0x1C0004774 (MouseClassReadCopyData.c)
+ *     MouseClassDeviceControl @ 0x1C000C570 (MouseClassDeviceControl.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0002BA0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 WPP_RECORDER_SF_qqL(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, int a5, ...)
+{
+  unsigned __int64 v9; // rdi
+  unsigned __int16 v10; // r8
+  int v11; // eax
+  char *v13; // rcx
+  int v14; // [rsp+20h] [rbp-48h]
+  __int64 v15; // [rsp+98h] [rbp+30h] BYREF
+  va_list va; // [rsp+98h] [rbp+30h]
+  __int64 v17; // [rsp+A0h] [rbp+38h] BYREF
+  va_list va1; // [rsp+A0h] [rbp+38h]
+  va_list va2; // [rsp+A8h] [rbp+40h] BYREF
+
+  va_start(va2, a5);
+  va_start(va1, a5);
+  va_start(va, a5);
+  v15 = va_arg(va1, _QWORD);
+  va_copy(va2, va1);
+  v17 = va_arg(va2, _QWORD);
+  v9 = (unsigned __int64)a3 >> 16;
+  v10 = a3 - 1;
+  v11 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v9 + (v10 >> 5) + 1);
+  if ( _bittest(&v11, v10 & 0x1F) )
+  {
+    v13 = (char *)WPP_GLOBAL_Control + 80 * v9;
+    if ( (unsigned __int8)v13[41] >= a2 )
+      ((void (__fastcall *)(_QWORD, __int64, void *, _QWORD, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+        *((_QWORD *)v13 + 3),
+        43LL,
+        &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,
+        a4,
+        (__int64 *)va,
+        8LL,
+        (__int64 *)va1,
+        8LL,
+        va2,
+        4LL,
+        0LL);
+  }
+  LOWORD(v14) = a4;
+  return WppAutoLogTrace(
+           a1,
+           a2,
+           a3,
+           &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,
+           v14,
+           (__int64 *)va,
+           8LL,
+           (__int64 *)va1,
+           8LL,
+           va2,
+           4LL,
+           0LL);
+}

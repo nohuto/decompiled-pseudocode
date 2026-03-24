@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmpDispatchSetDefaultDeviceAssignment @ 0x1409A6918
+ * XREFs of TtmpDispatchSetDefaultDeviceAssignment @ 0x140900FC4
  * Callers:
- *     TtmDispatchApi @ 0x1409A603C (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409006E4 (TtmDispatchApi.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x1409A62E8 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x1409A9410 (TtmiLogSessionDeviceAssignmentPolicySet.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x140900984 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
+ *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x140903990 (TtmiLogSessionDeviceAssignmentPolicySet.c)
  */
 
 __int64 __fastcall TtmpDispatchSetDefaultDeviceAssignment(__int64 a1)
@@ -18,11 +18,11 @@ __int64 __fastcall TtmpDispatchSetDefaultDeviceAssignment(__int64 a1)
   __int64 v4; // rdi
   unsigned int v5; // ebx
   __int64 v7; // [rsp+40h] [rbp+8h] BYREF
-  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
 
   v7 = 0LL;
-  Object = 0LL;
-  v2 = TtmpAcquireSessionFromTerminalHandle(*(void **)(a1 + 8), 1, 0, &v7, &Object);
+  DmaAdapter = 0LL;
+  v2 = TtmpAcquireSessionFromTerminalHandle(*(void **)(a1 + 8), 1, 0, &v7, (__int64 *)&DmaAdapter);
   v4 = v7;
   v5 = v2;
   if ( v2 >= 0 )
@@ -41,7 +41,7 @@ __int64 __fastcall TtmpDispatchSetDefaultDeviceAssignment(__int64 a1)
     ExReleaseResourceLite(&TtmpSessionLock);
     KeLeaveCriticalRegion();
   }
-  if ( Object )
-    ObfDereferenceObject(Object);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   return v5;
 }

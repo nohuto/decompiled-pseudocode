@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MsgLookupTableAlloc@@YAPEAXI@Z @ 0x1C004FC00
+ * XREFs of ?MsgLookupTableAlloc@@YAPEAXI@Z @ 0x1C003FCAC
  * Callers:
- *     ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C004FAD4 (-AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
+ *     ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C003FB84 (-AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall MsgLookupTableAlloc(int a1)

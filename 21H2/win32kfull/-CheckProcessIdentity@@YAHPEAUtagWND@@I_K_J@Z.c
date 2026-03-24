@@ -1,86 +1,98 @@
 /*
- * XREFs of ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C0119178
+ * XREFs of ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C0129398
  * Callers:
- *     ?xxxWrapDesktopWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C0119120 (-xxxWrapDesktopWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
- *     ?xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C014FD40 (-xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
- *     ?xxxWrapMenuWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C016B580 (-xxxWrapMenuWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
- *     ?xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01DE6E0 (-xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
- *     ?xxxWrapSwitchWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01DE740 (-xxxWrapSwitchWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?xxxWrapDesktopWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C0129340 (-xxxWrapDesktopWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C015F5C0 (-xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?xxxWrapMenuWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01E3CD0 (-xxxWrapMenuWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01E3D30 (-xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?xxxWrapSwitchWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01E3D90 (-xxxWrapSwitchWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
  * Callees:
- *     ?IsMessageAlwaysAllowedAcrossIL@@YAHI@Z @ 0x1C00546A8 (-IsMessageAlwaysAllowedAcrossIL@@YAHI@Z.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z @ 0x1C00A75A0 (-IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z.c)
- *     MSGSQMAddMessage @ 0x1C00A770C (MSGSQMAddMessage.c)
+ *     ?IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z @ 0x1C003F99C (-IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z.c)
+ *     MSGSQMAddMessage @ 0x1C003FB08 (MSGSQMAddMessage.c)
+ *     ?IsMessageAlwaysAllowedAcrossIL@@YAHI@Z @ 0x1C003FB8C (-IsMessageAlwaysAllowedAcrossIL@@YAHI@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall CheckProcessIdentity(struct tagWND *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
 {
   unsigned int v6; // edi
-  __int16 v8; // r14
   struct tagPROCESSINFO *CurrentProcessWin32Process; // rax
-  struct tagPROCESSINFO *v10; // rsi
-  __int64 v11; // rbx
-  unsigned int v13; // r8d
+  struct tagPROCESSINFO *v9; // rsi
+  __int64 v10; // rbx
+  int v12; // r14d
+  unsigned __int8 v13; // al
   __int64 v14; // rcx
-  __int64 v15; // rdx
-  __int64 v16; // rdx
-  __int64 v17; // [rsp+70h] [rbp+8h] BYREF
+  bool v15; // zf
+  __int16 v16; // ax
+  __int64 v17; // rdx
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // [rsp+70h] [rbp+8h] BYREF
 
   v6 = a2;
-  v8 = 5;
   if ( a1 != (struct tagWND *)-1LL )
   {
     CurrentProcessWin32Process = (struct tagPROCESSINFO *)PsGetCurrentProcessWin32Process(a1);
-    v10 = CurrentProcessWin32Process;
-    v11 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL);
-    if ( (struct tagPROCESSINFO *)v11 == CurrentProcessWin32Process )
+    v9 = CurrentProcessWin32Process;
+    v10 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL);
+    if ( (struct tagPROCESSINFO *)v10 == CurrentProcessWin32Process )
       return 1LL;
     if ( v6 != 717 )
     {
       if ( (unsigned int)IsMessageAllowedAcrossILByReceiver(
                            CurrentProcessWin32Process,
-                           (void *const **)v11,
+                           (void *const **)v10,
                            a1,
                            v6,
                            a3,
                            a4,
                            1) )
         return 1LL;
-      if ( (unsigned int)IsMessageAlwaysAllowedAcrossIL(v6) )
+      v12 = IsMessageAlwaysAllowedAcrossIL(v6);
+      if ( v12 )
       {
-        v13 = v6;
-LABEL_11:
-        MSGSQMAddMessage(v10, (struct tagPROCESSINFO *)v11, v13, a3, a4, 1, 2);
-        return 1LL;
+        MSGSQMAddMessage(v9, (struct tagPROCESSINFO *)v10, v6, a3, a4, 1, 2);
       }
-      v13 = 274;
-      if ( v6 == 274 && ((a3 - 61472) & 0xFFFFFFFFFFFFFEBFuLL) == 0 && a3 != 61792 )
-        goto LABEL_11;
-      if ( *(_QWORD *)v11 == gpepCSRSS )
-        v17 = 0x2000LL;
       else
-        v17 = *(_QWORD *)(v11 + 880);
-      if ( (unsigned __int8)CheckAccess((char *)v10 + 880, &v17) )
       {
-        if ( !(unsigned __int8)Enforced(v14) )
-          v8 = 1;
-        MSGSQMAddMessage(v10, (struct tagPROCESSINFO *)v11, v6, a3, a4, 1, v8);
-        return 1LL;
-      }
-      if ( v6 == 793 )
-      {
-        v15 = *((_QWORD *)a1 + 2);
-        if ( *(struct tagWND **)(v15 + 1392) == a1 && *(_QWORD *)(v15 + 432) == *(_QWORD *)(gptiCurrent + 432LL) )
+        if ( v6 == 274 && ((a3 - 61472) & 0xFFFFFFFFFFFFFEBFuLL) == 0 && a3 != 61792 )
+        {
+          MSGSQMAddMessage(v9, (struct tagPROCESSINFO *)v10, 0x112u, a3, a4, 1, 2);
           return 1LL;
+        }
+        if ( *(_QWORD *)v10 == gpepCSRSS )
+          v20 = 0x2000LL;
+        else
+          v20 = *(_QWORD *)(v10 + 880);
+        v13 = CheckAccess((char *)v9 + 880, &v20);
+        v12 = v13;
+        if ( v13 )
+        {
+          v15 = (unsigned __int8)Enforced(v14) == 0;
+          v16 = 5;
+          if ( v15 )
+            v16 = 1;
+          MSGSQMAddMessage(v9, (struct tagPROCESSINFO *)v10, v6, a3, a4, 1, v16);
+        }
+        if ( v12 )
+          return 1LL;
+        if ( v6 == 793 )
+        {
+          v17 = *((_QWORD *)a1 + 2);
+          if ( *(struct tagWND **)(v17 + 1392) == a1 && *(_QWORD *)(v17 + 432) == *(_QWORD *)(gptiCurrent + 432LL) )
+            return 1LL;
+        }
+        EtwTraceUIPIMsgError(v9, v10, v6, a3, a4);
+        UserSetLastError(5LL, v18, v19);
+        MSGSQMAddMessage(v9, (struct tagPROCESSINFO *)v10, v6, a3, a4, 1, 0);
       }
-      EtwTraceUIPIMsgError(v10, v11, v6, a3, a4);
-      UserSetLastError(5LL, v16);
-      MSGSQMAddMessage(v10, (struct tagPROCESSINFO *)v11, v6, a3, a4, 1, 0);
+      if ( v12 )
+        return 1LL;
     }
     a2 = gpepCSRSS;
-    if ( *(_QWORD *)v10 == gpepCSRSS )
+    if ( *(_QWORD *)v9 == gpepCSRSS )
       return 1LL;
   }
-  UserSetLastError(5LL, a2);
+  UserSetLastError(5LL, a2, a3);
   return 0LL;
 }

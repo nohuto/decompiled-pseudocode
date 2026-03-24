@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmpPushTerminalDisplayStateOntoDevice @ 0x14087E388
+ * XREFs of TtmpPushTerminalDisplayStateOntoDevice @ 0x14087E368
  * Callers:
- *     TtmpCommitTerminalDisplayStateUpdateWorker @ 0x14087DE9C (TtmpCommitTerminalDisplayStateUpdateWorker.c)
+ *     TtmpCommitTerminalDisplayStateUpdateWorker @ 0x14087DE7C (TtmpCommitTerminalDisplayStateUpdateWorker.c)
  * Callees:
- *     TtmpCallSetBuiltinPanelState @ 0x14087D9F4 (TtmpCallSetBuiltinPanelState.c)
- *     TtmpCallSetDisplayState @ 0x14087DA7C (TtmpCallSetDisplayState.c)
- *     TtmpUpdatePrimaryDisplayWnf @ 0x14087E77C (TtmpUpdatePrimaryDisplayWnf.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x14087D9D4 (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x14087DA5C (TtmpCallSetDisplayState.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x14087E75C (TtmpUpdatePrimaryDisplayWnf.c)
  */
 
 void __fastcall TtmpPushTerminalDisplayStateOntoDevice(__int64 a1, __int64 a2, unsigned int a3)

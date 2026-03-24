@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIDispatchPowerIrpSurpriseRemoved @ 0x1C0024640
+ * XREFs of ACPIDispatchPowerIrpSurpriseRemoved @ 0x1C0031B60
  * Callers:
  *     <none>
  * Callees:

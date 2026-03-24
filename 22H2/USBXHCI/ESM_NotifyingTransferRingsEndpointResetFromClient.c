@@ -1,16 +1,16 @@
 /*
- * XREFs of ESM_NotifyingTransferRingsEndpointResetFromClient @ 0x1C00516B0
+ * XREFs of ESM_NotifyingTransferRingsEndpointResetFromClient @ 0x1C004EA70
  * Callers:
  *     <none>
  * Callees:
- *     TR_EndpointResetFromClient @ 0x1C004172C (TR_EndpointResetFromClient.c)
+ *     TR_EndpointResetFromClient @ 0x1C003F218 (TR_EndpointResetFromClient.c)
  */
 
 __int64 __fastcall ESM_NotifyingTransferRingsEndpointResetFromClient(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 v2; // rsi
-  unsigned int v3; // edi
+  __int64 v2; // rdi
+  unsigned int v3; // esi
 
   v1 = *(_QWORD *)(a1 + 960);
   if ( *(_BYTE *)(v1 + 37) )

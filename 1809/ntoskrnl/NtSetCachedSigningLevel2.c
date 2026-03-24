@@ -1,15 +1,15 @@
 /*
- * XREFs of NtSetCachedSigningLevel2 @ 0x14089B2A0
+ * XREFs of NtSetCachedSigningLevel2 @ 0x14089B280
  * Callers:
- *     NtSetCachedSigningLevel @ 0x14089B270 (NtSetCachedSigningLevel.c)
+ *     NtSetCachedSigningLevel @ 0x14089B250 (NtSetCachedSigningLevel.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     RtlUnicodeStringValidateEx @ 0x1402EC5F8 (RtlUnicodeStringValidateEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     RtlUnicodeStringValidateEx @ 0x1402EC6F8 (RtlUnicodeStringValidateEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepCaptureUnicodeStringArray @ 0x140625B10 (SepCaptureUnicodeStringArray.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtSetCachedSigningLevel2(
@@ -45,7 +45,7 @@ __int64 __fastcall NtSetCachedSigningLevel2(
   v10 = 0;
   SourceString[0] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( !qword_14040DD88 )
+  if ( !qword_14040DD68 )
   {
     v12 = -1073741823;
     goto LABEL_51;
@@ -82,10 +82,10 @@ LABEL_9:
       }
       v10 = Process[2].ActiveProcessors.Bitmap[0] & 0xF;
       v15 = BYTE1(Process[2].ActiveProcessors.Bitmap[0]) & 0xF;
-      if ( !qword_14040DDC0
+      if ( !qword_14040DDA0
         || (LOBYTE(Process) = Process[2].ActiveProcessors.Bitmap[0] & 0xF,
             LOBYTE(v14) = v15,
-            !(unsigned int)qword_14040DDC0(v14, Process)) )
+            !(unsigned int)qword_14040DDA0(v14, Process)) )
       {
         v10 = v15;
       }
@@ -159,7 +159,7 @@ LABEL_49:
       LOBYTE(v19) = v10;
       LOBYTE(v18) = a2;
       LOBYTE(v21) = PreviousMode;
-      v12 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, __int64, UNICODE_STRING *, unsigned int, __int64, PCUNICODE_STRING))qword_14040DD88)(
+      v12 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, __int64, UNICODE_STRING *, unsigned int, __int64, PCUNICODE_STRING))qword_14040DD68)(
               v8 & 7,
               v21,
               v18,

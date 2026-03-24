@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OemSpecifiedViewDist@@YAIQEAX@Z @ 0x1C0302CAC
+ * XREFs of ?OemSpecifiedViewDist@@YAIQEAX@Z @ 0x1C02A9B84
  * Callers:
- *     ?DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z @ 0x1C01DBEAC (-DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z.c)
+ *     ?DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z @ 0x1C016B41C (-DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z.c)
  * Callees:
- *     DpiReadPnpRegistryValue @ 0x1C01FFF2C (DpiReadPnpRegistryValue.c)
+ *     DpiReadPnpRegistryValue @ 0x1C0188F90 (DpiReadPnpRegistryValue.c)
  */
 
 __int64 __fastcall OemSpecifiedViewDist(_QWORD *a1)

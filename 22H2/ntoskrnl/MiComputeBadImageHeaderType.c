@@ -1,10 +1,10 @@
 /*
- * XREFs of MiComputeBadImageHeaderType @ 0x140A2F358
+ * XREFs of MiComputeBadImageHeaderType @ 0x1408C7508
  * Callers:
- *     MiVerifyImageHeader @ 0x1406A9074 (MiVerifyImageHeader.c)
+ *     MiVerifyImageHeader @ 0x1407036FC (MiVerifyImageHeader.c)
  * Callees:
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     MiCheckDosCalls @ 0x140A2F2A4 (MiCheckDosCalls.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     MiCheckDosCalls @ 0x1408C7454 (MiCheckDosCalls.c)
  */
 
 __int64 __fastcall MiComputeBadImageHeaderType(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -15,17 +15,16 @@ __int64 __fastcall MiComputeBadImageHeaderType(__int64 a1, __int64 a2, unsigned 
   unsigned __int64 v10; // rcx
   __int64 v11; // rax
   __int16 v12; // ax
-  __int64 v13; // r8
-  unsigned int v14; // eax
-  unsigned int v15; // ecx
-  unsigned __int64 v16; // rcx
+  unsigned int v13; // eax
+  unsigned int v14; // ecx
+  unsigned __int64 v15; // rcx
 
   if ( *(_WORD *)a1 != 17742 )
   {
     if ( *(_WORD *)a1 == 17740 )
-      dword_140C65910 = 68;
+      dword_140C4CC18 = 68;
     else
-      dword_140C65910 = 69;
+      dword_140C4CC18 = 69;
     return 3221225776LL;
   }
   if ( !(unsigned int)MiCheckDosCalls((unsigned __int16 *)a1, a3) )
@@ -33,14 +32,14 @@ __int64 __fastcall MiComputeBadImageHeaderType(__int64 a1, __int64 a2, unsigned 
     v6 = *(_BYTE *)(a1 + 54);
     if ( v6 == 2 || !v6 && (((*(_WORD *)(a1 + 62) & 0xFF00) - 512) & 0xFEFF) == 0 )
     {
-      dword_140C65910 = 60;
+      dword_140C4CC18 = 60;
       return 3221225777LL;
     }
   }
   v8 = *(_BYTE *)(a1 + 54);
   if ( v8 == 5 || *(_WORD *)(a1 + 4) == *(_WORD *)(a1 + 42) )
   {
-    dword_140C65910 = 61;
+    dword_140C4CC18 = 61;
     return 3221225776LL;
   }
   if ( v8 != 1 )
@@ -63,39 +62,42 @@ LABEL_14:
     }
     if ( !v11 && ((v12 = *(_WORD *)(v10 + a2 + 56), v12 == 19280) || v12 == 20304 || v12 == 22096) )
     {
-      dword_140C65910 = 63;
+      dword_140C4CC18 = 63;
     }
     else
     {
 LABEL_42:
       if ( v10 + 50 > 0x1000
-        || (v13 = *(unsigned __int16 *)(v10 + a2 + 48), v13 + v10 > 0xFDC)
-        || memcmp((const void *)(v13 + v10 + a2), "Copyright (C) Rational Systems, Inc.", 0x24uLL) )
+        || v10 + *(unsigned __int16 *)(v10 + a2 + 48) > 0xFDC
+        || memcmp(
+             (const void *)(*(unsigned __int16 *)(v10 + a2 + 48) + v10 + a2),
+             "Copyright (C) Rational Systems, Inc.",
+             0x24uLL) )
       {
-        v14 = *(_DWORD *)(a1 + 44);
-        v15 = *(_DWORD *)(a2 + 60);
-        if ( v14 > v15 )
+        v13 = *(_DWORD *)(a1 + 44);
+        v14 = *(_DWORD *)(a2 + 60);
+        if ( v13 > v14 )
         {
-          v16 = (int)(v14 - v15);
-          if ( v16 + 16 >= v16 && v16 + 16 < a3 && !memcmp((const void *)(a1 + v16 + 1), "1-2-3 Preloader", 0xFuLL) )
+          v15 = (int)(v13 - v14);
+          if ( v15 + 16 >= v15 && v15 + 16 < a3 && !memcmp((const void *)(a1 + v15 + 1), "1-2-3 Preloader", 0xFuLL) )
           {
-            dword_140C65910 = 66;
+            dword_140C4CC18 = 66;
             return 3221225776LL;
           }
-          dword_140C65910 = 67;
+          dword_140C4CC18 = 67;
         }
         else
         {
-          dword_140C65910 = 65;
+          dword_140C4CC18 = 65;
         }
         return 3221225755LL;
       }
-      dword_140C65910 = 64;
+      dword_140C4CC18 = 64;
     }
   }
   else
   {
-    dword_140C65910 = 62;
+    dword_140C4CC18 = 62;
   }
   return 3221225776LL;
 }

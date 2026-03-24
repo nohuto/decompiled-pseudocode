@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_ReleasingPowerReferenceOnHubOnEnumerationFailure @ 0x1C001FC40
+ * XREFs of HUBDSM_ReleasingPowerReferenceOnHubOnEnumerationFailure @ 0x1C001D230
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_ReleaseWdfPowerReferenceOnHub @ 0x1C001B3D0 (HUBPDO_ReleaseWdfPowerReferenceOnHub.c)
+ *     HUBPDO_ReleaseWdfPowerReferenceOnHub @ 0x1C0019758 (HUBPDO_ReleaseWdfPowerReferenceOnHub.c)
  */
 
 __int64 __fastcall HUBDSM_ReleasingPowerReferenceOnHubOnEnumerationFailure(__int64 a1)

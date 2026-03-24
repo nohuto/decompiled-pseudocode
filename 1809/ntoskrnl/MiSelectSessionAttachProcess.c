@@ -3,8 +3,8 @@
  * Callers:
  *     MiGetNextSession @ 0x140012754 (MiGetNextSession.c)
  *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     MiAttachToOwningSession @ 0x14011A4AC (MiAttachToOwningSession.c)
- *     MiLockAndSelectSessionAttachProcess @ 0x1402AEC00 (MiLockAndSelectSessionAttachProcess.c)
+ *     MiAttachToOwningSession @ 0x14011A4CC (MiAttachToOwningSession.c)
+ *     MiLockAndSelectSessionAttachProcess @ 0x1402AED00 (MiLockAndSelectSessionAttachProcess.c)
  * Callees:
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
  */

@@ -1,37 +1,37 @@
 /*
- * XREFs of IopSetDiskIoAttributionExtension @ 0x140290230
+ * XREFs of IopSetDiskIoAttributionExtension @ 0x1402E66DC
  * Callers:
- *     IoSynchronousPageWriteEx @ 0x140250E60 (IoSynchronousPageWriteEx.c)
- *     IoMakeAssociatedIrpPriv @ 0x14028FDE8 (IoMakeAssociatedIrpPriv.c)
- *     IoUpdateIrpIoAttributionHandle @ 0x1402901B0 (IoUpdateIrpIoAttributionHandle.c)
- *     IopSetDiskIoAttributionFromProcess @ 0x1402901D4 (IopSetDiskIoAttributionFromProcess.c)
- *     IoPropagateIrpExtensionEx @ 0x140290500 (IoPropagateIrpExtensionEx.c)
- *     IoPageReadEx @ 0x1402A66F0 (IoPageReadEx.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1402A7B10 (IoSetDiskIoAttributionFromThread.c)
- *     IoAsynchronousPageWrite @ 0x1403693BC (IoAsynchronousPageWrite.c)
+ *     IoUpdateIrpIoAttributionHandle @ 0x1402010C0 (IoUpdateIrpIoAttributionHandle.c)
+ *     IoSynchronousPageWriteEx @ 0x14029C49C (IoSynchronousPageWriteEx.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14029C670 (IoSetDiskIoAttributionFromThread.c)
+ *     IoPageReadEx @ 0x14029C7C0 (IoPageReadEx.c)
+ *     IoAsynchronousPageWrite @ 0x1402E5D7C (IoAsynchronousPageWrite.c)
+ *     IoMakeAssociatedIrpPriv @ 0x1402E6098 (IoMakeAssociatedIrpPriv.c)
+ *     IoPropagateIrpExtensionEx @ 0x1402E67D0 (IoPropagateIrpExtensionEx.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x14031D458 (IopSetDiskIoAttributionFromProcess.c)
  * Callees:
- *     IopAllocateIrpExtension @ 0x1402906EC (IopAllocateIrpExtension.c)
- *     IopReferenceIoAttributionFromProcess @ 0x1402C0F78 (IopReferenceIoAttributionFromProcess.c)
+ *     IopReferenceIoAttributionFromProcess @ 0x140278FDC (IopReferenceIoAttributionFromProcess.c)
+ *     IopAllocateIrpExtension @ 0x1402E6980 (IopAllocateIrpExtension.c)
  */
 
 __int64 __fastcall IopSetDiskIoAttributionExtension(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
-  __int64 v6; // rdx
   __int64 IrpExtension; // rbx
-  __int64 v8; // rcx
-  __int64 v10; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v7; // rcx
+  __int64 v9; // [rsp+38h] [rbp+10h] BYREF
 
-  v10 = a2;
+  v9 = a2;
   IrpExtension = IopAllocateIrpExtension(a1, 6LL);
   if ( !IrpExtension )
     return 3221225626LL;
-  v8 = *(_QWORD *)(a3 + 544);
-  if ( (*(_DWORD *)(v8 + 2172) & 0x1000) != 0 && *(_QWORD *)(v8 + 1296) && *(_QWORD *)(*(_QWORD *)(v8 + 1296) + 1568LL) )
+  v7 = *(_QWORD *)(a3 + 544);
+  if ( (*(_DWORD *)(v7 + 2172) & 0x1000) != 0
+    && *(_QWORD *)(v7 + 1296)
+    && *(_QWORD *)(*(_QWORD *)(v7 + 1296) + 1352LL)
+    && (a4 & 1) == 0 )
   {
-    LOBYTE(v6) = 1;
-    if ( (a4 & 1) == 0 )
-      IopReferenceIoAttributionFromProcess(v8, v6, &v10);
+    IopReferenceIoAttributionFromProcess(v7, 1, &v9);
   }
-  *(_QWORD *)(IrpExtension + 16) = v10;
+  *(_QWORD *)(IrpExtension + 16) = v9;
   return 0LL;
 }

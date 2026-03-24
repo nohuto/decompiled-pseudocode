@@ -1,7 +1,7 @@
 /*
- * XREFs of capture_previous_context @ 0x180100798
+ * XREFs of capture_previous_context @ 0x1800E6F68
  * Callers:
- *     __report_gsfailure @ 0x1801006C0 (__report_gsfailure.c)
+ *     __report_gsfailure @ 0x1800E6E90 (__report_gsfailure.c)
  * Callees:
  *     <none>
  */

@@ -1,26 +1,27 @@
 /*
- * XREFs of ??1CSceneSurfaceMaterialInput@@MEAA@XZ @ 0x1802514D0
+ * XREFs of ??1CSceneSurfaceMaterialInput@@MEAA@XZ @ 0x1801EBD74
  * Callers:
- *     ??_ECSceneSurfaceMaterialInput@@MEAAPEAXI@Z @ 0x180251540 (--_ECSceneSurfaceMaterialInput@@MEAAPEAXI@Z.c)
+ *     ??_ECSceneSurfaceMaterialInput@@MEAAPEAXI@Z @ 0x1801EBDF0 (--_ECSceneSurfaceMaterialInput@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x1801BD54C (-UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x180168928 (-UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z.c)
  */
 
 void __fastcall CSceneSurfaceMaterialInput::~CSceneSurfaceMaterialInput(CSceneSurfaceMaterialInput *this)
 {
   struct CResource *v1; // rdx
-  unsigned __int64 v2; // rbx
+  __int64 v3; // rcx
 
-  v1 = (struct CResource *)*((_QWORD *)this + 10);
+  v1 = (struct CResource *)*((_QWORD *)this + 9);
   *(_QWORD *)this = &CSceneSurfaceMaterialInput::`vftable'{for `CSceneMaterialInput'};
-  v2 = (unsigned __int64)this + 64;
-  *((_QWORD *)this + 8) = &CSceneSurfaceMaterialInput::`vftable'{for `ISceneNotificationListener'};
+  *((_QWORD *)this + 7) = &CSceneSurfaceMaterialInput::`vftable'{for `ISceneNotificationListener'};
   CResource::UnRegisterNotifierInternal(this, v1);
   CSceneResourceManager::UnregisterSceneListener(
-    *(CSceneResourceManager **)(*((_QWORD *)this + 2) + 288LL),
-    (struct ISceneNotificationListener *)(v2 & ((unsigned __int128)-(__int128)(unsigned __int64)this >> 64)));
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 9);
+    *(CSceneResourceManager **)(*((_QWORD *)this + 2) + 152LL),
+    (CSceneSurfaceMaterialInput *)((char *)this + 56));
+  v3 = *((_QWORD *)this + 8);
+  if ( v3 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 16LL))(v3);
   CResource::~CResource(this);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlGetIntegerAtom @ 0x140718180
+ * XREFs of RtlGetIntegerAtom @ 0x14061BB40
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x140297670 (RtlAddAtomToAtomTableEx.c)
- *     RtlLookupAtomInAtomTable @ 0x140717E80 (RtlLookupAtomInAtomTable.c)
+ *     RtlAddAtomToAtomTableEx @ 0x140259BB0 (RtlAddAtomToAtomTableEx.c)
+ *     RtlLookupAtomInAtomTable @ 0x14061B9E0 (RtlLookupAtomInAtomTable.c)
  * Callees:
- *     RtlUnicodeStringToInteger @ 0x14079EA50 (RtlUnicodeStringToInteger.c)
+ *     RtlUnicodeStringToInteger @ 0x1406638D0 (RtlUnicodeStringToInteger.c)
  */
 
 char __fastcall RtlGetIntegerAtom(unsigned __int64 a1, _WORD *a2)
 {
   wchar_t *v4; // rdx
-  __int16 v5; // cx
-  wchar_t *v6; // rax
+  _WORD *v5; // rax
+  wchar_t v6; // cx
   UNICODE_STRING String; // [rsp+20h] [rbp-18h] BYREF
   ULONG Value; // [rsp+40h] [rbp+8h] BYREF
 
@@ -31,17 +31,22 @@ char __fastcall RtlGetIntegerAtom(unsigned __int64 a1, _WORD *a2)
   if ( *(_WORD *)a1 != 35 )
     return 0;
   v4 = (wchar_t *)(a1 + 2);
-  v5 = *(_WORD *)(a1 + 2);
-  v6 = v4;
-  while ( v5 )
+  v5 = (_WORD *)(a1 + 2);
+  if ( *(_WORD *)(a1 + 2) )
   {
-    if ( (unsigned __int16)(v5 - 48) > 9u )
-      return 0;
-    v5 = *++v6;
+    v6 = *v4;
+    while ( (unsigned __int16)(v6 - 48) <= 9u )
+    {
+      v6 = *++v5;
+      if ( !*v5 )
+        goto LABEL_8;
+    }
+    return 0;
   }
+LABEL_8:
   String.Buffer = v4;
-  String.Length = (_WORD)v6 - (_WORD)v4;
-  String.MaximumLength = (_WORD)v6 - (_WORD)v4;
+  String.Length = (_WORD)v5 - (_WORD)v4;
+  String.MaximumLength = (_WORD)v5 - (_WORD)v4;
   Value = 0;
   if ( RtlUnicodeStringToInteger(&String, 0xAu, &Value) < 0 )
     return 0;

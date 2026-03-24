@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfEndpointsNeedToBeProgrammedAfterIncreasingLatency @ 0x1C0024E50
+ * XREFs of HUBDSM_CheckingIfEndpointsNeedToBeProgrammedAfterIncreasingLatency @ 0x1C0022670
  * Callers:
  *     <none>
  * Callees:

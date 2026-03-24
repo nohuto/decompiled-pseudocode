@@ -1,10 +1,10 @@
 /*
- * XREFs of AMLICreateOverrideObjectDefault @ 0x1C004A84C
+ * XREFs of AMLICreateOverrideObjectDefault @ 0x1C0064C10
  * Callers:
- *     AMLIAddNextNamespaceOverrideObject @ 0x1C004A554 (AMLIAddNextNamespaceOverrideObject.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C006498C (AMLIAddNextNamespaceOverrideObject.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     NewObjData @ 0x1C004C1BC (NewObjData.c)
+ *     NewObjData @ 0x1C000A9E8 (NewObjData.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall AMLICreateOverrideObjectDefault(_BYTE *Src, size_t Size, __int64 a3)
@@ -54,7 +54,7 @@ LABEL_14:
     return (unsigned int)-1073741637;
   DWORD2(v14) = v3;
   WORD1(v13) = 2;
-  v9 = (void *)NewObjData(gpheapGlobal, &v13);
+  v9 = (void *)NewObjData((struct _SLIST_ENTRY *)gpheapGlobal, (__int64)&v13);
   v15 = v9;
   if ( v9 )
   {

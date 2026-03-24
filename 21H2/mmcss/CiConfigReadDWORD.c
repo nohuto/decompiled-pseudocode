@@ -1,10 +1,10 @@
 /*
- * XREFs of CiConfigReadDWORD @ 0x1C000D830
+ * XREFs of CiConfigReadDWORD @ 0x1C000D1F0
  * Callers:
- *     CiConfigInitialize @ 0x1C000D4E0 (CiConfigInitialize.c)
+ *     CiConfigInitialize @ 0x1C000D490 (CiConfigInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
- *     WPP_SF_Zd @ 0x1C00047E8 (WPP_SF_Zd.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
+ *     WPP_SF_Zd @ 0x1C0004538 (WPP_SF_Zd.c)
  */
 
 __int64 __fastcall CiConfigReadDWORD(void *a1, struct _UNICODE_STRING *a2, unsigned int a3)

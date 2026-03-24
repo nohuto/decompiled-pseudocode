@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FormatSelectSettingUrb@FxUsbInterface@@IEAAXPEAU_URB@@GE@Z @ 0x1C007E7CC
+ * XREFs of ?FormatSelectSettingUrb@FxUsbInterface@@IEAAXPEAU_URB@@GE@Z @ 0x1C0072074
  * Callers:
- *     ?SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z @ 0x1C007D5CC (-SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z.c)
- *     ?SelectSettingByDescriptor@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_USB_INTERFACE_DESCRIPTOR@@@Z @ 0x1C007EDA0 (-SelectSettingByDescriptor@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_USB_INTERFACE_D.c)
- *     ?SelectSettingByIndex@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@E@Z @ 0x1C007EEEC (-SelectSettingByIndex@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@E@Z.c)
+ *     ?SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z @ 0x1C0070ECC (-SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z.c)
+ *     ?SelectSettingByDescriptor@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_USB_INTERFACE_DESCRIPTOR@@@Z @ 0x1C007262C (-SelectSettingByDescriptor@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_USB_INTERFACE_D.c)
+ *     ?SelectSettingByIndex@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@E@Z @ 0x1C0072748 (-SelectSettingByIndex@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@E@Z.c)
  * Callees:
- *     memset @ 0x1C0036C00 (memset.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 void __fastcall FxUsbInterface::FormatSelectSettingUrb(
@@ -14,12 +14,12 @@ void __fastcall FxUsbInterface::FormatSelectSettingUrb(
         unsigned __int16 NumEndpoints,
         unsigned __int8 SettingNumber)
 {
-  unsigned int v4; // ebp
-  __int16 v8; // si
+  unsigned int v4; // r15d
+  __int16 v8; // bp
   unsigned __int16 v9; // bx
-  unsigned __int8 v10; // r9
+  unsigned __int8 v10; // dl
   unsigned __int8 m_InterfaceNumber; // al
-  __int64 v12; // r8
+  __int64 v12; // rcx
 
   v4 = NumEndpoints;
   v8 = 24 * NumEndpoints;
@@ -27,8 +27,8 @@ void __fastcall FxUsbInterface::FormatSelectSettingUrb(
   memset(Urb, 0, v9);
   Urb->UrbHeader.Length = v9;
   Urb->UrbSelectInterface.Interface.AlternateSetting = SettingNumber;
-  v10 = 0;
   Urb->UrbHeader.Function = 1;
+  v10 = 0;
   m_InterfaceNumber = this->m_InterfaceNumber;
   Urb->UrbSelectInterface.Interface.Length = v9 - 32;
   Urb->UrbSelectInterface.Interface.InterfaceNumber = m_InterfaceNumber;
@@ -39,6 +39,6 @@ void __fastcall FxUsbInterface::FormatSelectSettingUrb(
         Urb->UrbSelectInterface.Interface.Pipes[v12].MaximumTransferSize = -1 )
   {
     v12 = v10++;
-    Urb->UrbSelectInterface.Interface.Pipes[v12].PipeFlags = this->m_UsbDevice->m_SspIsochPipeFlags != 0 ? 0x100 : 0;
+    Urb->UrbSelectInterface.Interface.Pipes[v12].PipeFlags = 0;
   }
 }

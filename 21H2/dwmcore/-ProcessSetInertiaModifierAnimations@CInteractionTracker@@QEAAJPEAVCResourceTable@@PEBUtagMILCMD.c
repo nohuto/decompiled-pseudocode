@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ProcessSetInertiaModifierAnimations@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETINERTIAMODIFIERANIMATIONS@@PEBXI@Z @ 0x18021BFA8
+ * XREFs of ?ProcessSetInertiaModifierAnimations@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETINERTIAMODIFIERANIMATIONS@@PEBXI@Z @ 0x1801CAAFC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
- *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x180113E04 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
- *     ??4?$ComPtr@VCConditionalExpression@@@WRL@Microsoft@@QEAAAEAV012@PEAVCConditionalExpression@@@Z @ 0x1801F3B6C (--4-$ComPtr@VCConditionalExpression@@@WRL@Microsoft@@QEAAAEAV012@PEAVCConditionalExpression@@@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
+ *     ??4?$ComPtr@VCConditionalExpression@@@WRL@Microsoft@@QEAAAEAV012@PEAVCConditionalExpression@@@Z @ 0x1801C7AE0 (--4-$ComPtr@VCConditionalExpression@@@WRL@Microsoft@@QEAAAEAV012@PEAVCConditionalExpression@@@Z.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801C8390 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
  */
 
 __int64 __fastcall CInteractionTracker::ProcessSetInertiaModifierAnimations(
@@ -25,31 +25,31 @@ __int64 __fastcall CInteractionTracker::ProcessSetInertiaModifierAnimations(
   SIZE_T v11; // rax
 
   Resource = CResourceTable::GetResource((__int64)a2, *((_DWORD *)a3 + 3), 0x2Bu);
-  Microsoft::WRL::ComPtr<CConditionalExpression>::operator=((__int64 *)this + *((unsigned int *)a3 + 2) + 48, Resource);
-  v9 = *((_QWORD *)this + *((unsigned int *)a3 + 2) + 48);
+  Microsoft::WRL::ComPtr<CConditionalExpression>::operator=((__int64 *)this + *((unsigned int *)a3 + 2) + 47, Resource);
+  v9 = *((_QWORD *)this + *((unsigned int *)a3 + 2) + 47);
   if ( v9 )
-    *(_DWORD *)(v9 + 208) = *((_DWORD *)a3 + 1);
+    *(_DWORD *)(v9 + 200) = *((_DWORD *)a3 + 1);
   if ( *((_DWORD *)a3 + 4) == a5 )
   {
-    operator delete(*((void **)this + *((unsigned int *)a3 + 2) + 52));
-    *((_QWORD *)this + *((unsigned int *)a3 + 2) + 52) = 0LL;
-    *((_DWORD *)this + *((unsigned int *)a3 + 2) + 112) = *((_DWORD *)a3 + 4);
+    operator delete(*((void **)this + *((unsigned int *)a3 + 2) + 51));
+    *((_QWORD *)this + *((unsigned int *)a3 + 2) + 51) = 0LL;
+    *((_DWORD *)this + *((unsigned int *)a3 + 2) + 110) = *((_DWORD *)a3 + 4);
     if ( *((_DWORD *)a3 + 4) )
     {
       v11 = 4LL * *((unsigned int *)a3 + 4);
       if ( !is_mul_ok(*((unsigned int *)a3 + 4), 4uLL) )
         v11 = -1LL;
-      *((_QWORD *)this + *((unsigned int *)a3 + 2) + 52) = operator new(v11);
-      memcpy_0(*((void **)this + *((unsigned int *)a3 + 2) + 52), a4, *((unsigned int *)a3 + 4));
+      *((_QWORD *)this + *((unsigned int *)a3 + 2) + 51) = operator new(v11);
+      memcpy_0(*((void **)this + *((unsigned int *)a3 + 2) + 51), a4, *((unsigned int *)a3 + 4));
     }
     if ( CInteractionTracker::AreInteractionAnimationsAlive(this) )
-      *(_BYTE *)(*(_QWORD *)(*((_QWORD *)this + 2) + 424LL) + 448LL) |= 4u;
+      *(_BYTE *)(*(_QWORD *)(*((_QWORD *)this + 2) + 272LL) + 416LL) |= 4u;
     return 0;
   }
   else
   {
     v10 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, -2003303421, 0x330u);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2003303421, 0x32Eu, 0LL);
   }
   return v10;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of DbgkLkmdUnregisterCallback @ 0x140811B60
+ * XREFs of DbgkLkmdUnregisterCallback @ 0x140811B40
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     ExCompareExchangeCallBack @ 0x14018665C (ExCompareExchangeCallBack.c)
+ *     ExCompareExchangeCallBack @ 0x14018667C (ExCompareExchangeCallBack.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

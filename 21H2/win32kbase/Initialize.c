@@ -1,19 +1,19 @@
 /*
- * XREFs of Initialize @ 0x1C00572BC
+ * XREFs of Initialize @ 0x1C0068114
  * Callers:
- *     Win32UserInitialize @ 0x1C02E231C (Win32UserInitialize.c)
+ *     Win32UserInitialize @ 0x1C0298BBC (Win32UserInitialize.c)
  * Callees:
- *     OpenCacheKeyEx @ 0x1C0019FB0 (OpenCacheKeyEx.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     OpenCacheKeyEx @ 0x1C0026440 (OpenCacheKeyEx.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (*Initialize())(void)
+__int64 Initialize()
 {
   unsigned int v0; // ebx
   int v1; // edi
   void *v2; // rsi
-  __int64 (*result)(void); // rax
+  __int64 result; // rax
   int v4; // [rsp+30h] [rbp-40h] BYREF
   int v5; // [rsp+34h] [rbp-3Ch] BYREF
   ULONG ResultLength; // [rsp+38h] [rbp-38h] BYREF
@@ -31,11 +31,11 @@ __int64 (*Initialize())(void)
     ResultLength = 0;
     DestinationString = 0LL;
     v4 = gdwPolicyFlags;
-    do
+    while ( 1 )
     {
-      v2 = OpenCacheKeyEx(0LL, 49LL, 131097LL, &v4);
+      v2 = OpenCacheKeyEx(0LL, 49LL, 0x20019u, &v4);
       if ( !v2 )
-        goto LABEL_9;
+        break;
       RtlInitUnicodeString(&DestinationString, L"EnableUIPI");
       if ( ZwQueryValueKey(
              v2,
@@ -43,41 +43,41 @@ __int64 (*Initialize())(void)
              KeyValuePartialInformation,
              KeyValueInformation,
              0x14u,
-             &ResultLength) >= 0 )
+             &ResultLength) < 0 )
+      {
+        if ( !v4 )
+          v1 = 1;
+      }
+      else
       {
         v1 = v9;
         v4 = 0;
       }
-      else if ( !v4 )
-      {
-        v1 = 1;
-      }
       ZwClose(v2);
+      if ( !v4 )
+      {
+        UIPrivelegeIsolation::fEnforce = 0;
+        if ( !v1 )
+          goto LABEL_9;
+        break;
+      }
     }
-    while ( v4 );
-    if ( v1 )
-    {
-LABEL_9:
-      UIPrivelegeIsolation::fEnforce = 1;
-      goto LABEL_10;
-    }
-    UIPrivelegeIsolation::fEnforce = 0;
+    UIPrivelegeIsolation::fEnforce = 1;
   }
   else
   {
     v0 = 0;
   }
-LABEL_10:
-  result = qword_1C029C678;
-  if ( qword_1C029C678 )
+LABEL_9:
+  if ( qword_1C0257918 )
+    result = qword_1C0257918();
+  else
+    result = 3221225659LL;
+  if ( (int)result >= 0 )
   {
-    result = (__int64 (*)(void))qword_1C029C678();
-    if ( (int)result >= 0 )
-    {
-      result = (__int64 (*)(void))qword_1C029C680;
-      if ( qword_1C029C680 )
-        return (__int64 (*)(void))qword_1C029C680(v0, UIPrivelegeIsolation::fEnforce);
-    }
+    result = (__int64)qword_1C0257920;
+    if ( qword_1C0257920 )
+      return qword_1C0257920(v0, UIPrivelegeIsolation::fEnforce);
   }
   return result;
 }

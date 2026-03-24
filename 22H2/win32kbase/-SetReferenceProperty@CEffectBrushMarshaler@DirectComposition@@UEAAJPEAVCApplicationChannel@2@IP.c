@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetReferenceProperty@CEffectBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0093C60
+ * XREFs of ?SetReferenceProperty@CEffectBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C005E650
  * Callers:
  *     <none>
  * Callees:
- *     ?SetBrushPropertyHelper@CBrushMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEAV12@PEAVCResourceMarshaler@2@W4MIL_RESOURCE_TYPE@@KPEA_N@Z @ 0x1C002C5A4 (-SetBrushPropertyHelper@CBrushMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEA.c)
- *     ?SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@PEAPEAV12@PEAV12@W4Optionality@12@W4MIL_RESOURCE_TYPE@@PEAKKW4MarshalingFlagSemantic@12@PEA_N@Z @ 0x1C002D3BC (-SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicati_ea_1C002D3BC.c)
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x1C0092B30 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?CheckForCycle@CBrushMarshaler@DirectComposition@@QEAA_NPEAV12@@Z @ 0x1C0060D08 (-CheckForCycle@CBrushMarshaler@DirectComposition@@QEAA_NPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CEffectBrushMarshaler::SetReferenceProperty(
@@ -17,87 +17,95 @@ __int64 __fastcall DirectComposition::CEffectBrushMarshaler::SetReferencePropert
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
-  int v5; // ebx
-  unsigned int v12; // r9d
-  __int64 v13; // r8
-  unsigned __int64 v14; // rcx
-  bool *v15; // rcx
+  int v5; // edi
+  __int64 v10; // rdx
+  int v11; // ebp
+  __int64 v12; // rax
+  struct DirectComposition::CResourceMarshaler **v13; // r14
+  unsigned __int64 v15; // r14
   __int64 v16; // rax
-  unsigned __int64 v17; // rcx
-  unsigned __int128 v18; // rax
-  __int64 QuotaZInit; // rax
-  unsigned int v20; // r9d
-  unsigned int v21; // r9d
-  unsigned int v22; // r9d
-  unsigned int v23; // r9d
-  unsigned int v24; // r9d
-  unsigned int v25; // r9d
-  __int64 v26; // [rsp+20h] [rbp-58h]
-  char v27; // [rsp+90h] [rbp+18h] BYREF
+  struct DirectComposition::CResourceMarshaler *v17; // rdx
+  DirectComposition::CResourceMarshaler *v18; // rcx
+  __int64 v19; // rax
+  unsigned __int64 v20; // kr00_8
+  void *v21; // rax
 
   v5 = 0;
+  *a5 = 0;
   if ( (a3 & 0xC0000000) != 0x80000000 )
   {
     if ( a3 )
     {
-      if ( a3 == 1 )
-        return (unsigned int)DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-                               a2,
-                               (struct DirectComposition::CResourceMarshaler **)this + 10,
-                               (unsigned int *)a4,
-                               1,
-                               135,
-                               (int *)this + 4,
-                               64,
-                               0,
-                               a5);
+      if ( a3 != 1 )
+        return (unsigned int)-1073741811;
+      v10 = 134LL;
+      v11 = 64;
+      v12 = 80LL;
     }
-    else if ( !a4
-           || (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *))(*(_QWORD *)a4 + 96LL))(a4) )
+    else
     {
-      return (unsigned int)DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-                             a2,
-                             (struct DirectComposition::CResourceMarshaler **)this + 9,
-                             (unsigned int *)a4,
-                             1,
-                             28,
-                             (int *)this + 4,
-                             32,
-                             0,
-                             a5);
+      v10 = 26LL;
+      v11 = 32;
+      v12 = 72LL;
+    }
+    v13 = (struct DirectComposition::CResourceMarshaler **)((char *)this + v12);
+    if ( (DirectComposition::CEffectBrushMarshaler *)((char *)this + v12)
+      && (!a4
+       || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+            a4,
+            v10)) )
+    {
+      if ( *v13 != a4 )
+      {
+        DirectComposition::CApplicationChannel::ReleaseResource(a2, *v13);
+        *v13 = a4;
+        if ( a4 )
+          DirectComposition::CResourceMarshaler::AddRef(a4);
+        *((_DWORD *)this + 4) |= v11;
+LABEL_11:
+        *a5 = 1;
+        return (unsigned int)v5;
+      }
+      return (unsigned int)v5;
     }
     return (unsigned int)-1073741811;
   }
   if ( a4
-    && !DirectComposition::CResourceMarshaler::IsDerivedResourceType(*((_DWORD *)a4 + 9), 181)
-    && !DirectComposition::CResourceMarshaler::IsDerivedResourceType(v12, 22)
-    && !DirectComposition::CResourceMarshaler::IsDerivedResourceType(v20, 9)
-    && !DirectComposition::CResourceMarshaler::IsDerivedResourceType(v21, 15)
-    && !DirectComposition::CResourceMarshaler::IsDerivedResourceType(v22, 113)
-    && !DirectComposition::CResourceMarshaler::IsDerivedResourceType(v23, 73)
-    && !DirectComposition::CResourceMarshaler::IsDerivedResourceType(v24, 203)
-    && !DirectComposition::CResourceMarshaler::IsDerivedResourceType(v25, 57) )
+    && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          180LL)
+    && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          20LL)
+    && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          8LL)
+    && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          111LL)
+    && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          69LL)
+    && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          202LL)
+    && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          55LL) )
   {
     return (unsigned int)-1073741811;
   }
-  v13 = *((_QWORD *)this + 11);
-  if ( !v13 )
+  if ( !*((_QWORD *)this + 11) )
   {
-    v16 = *((_QWORD *)this + 9);
-    if ( v16 )
+    v19 = *((_QWORD *)this + 9);
+    if ( v19 )
     {
-      v17 = *(unsigned int *)(v16 + 80);
-      v18 = *(unsigned int *)(v16 + 80) * (unsigned __int128)8uLL;
-      if ( is_mul_ok(v17, 8uLL) )
+      v20 = *(unsigned int *)(v19 + 80);
+      if ( is_mul_ok(v20, 8uLL) )
       {
-        QuotaZInit = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                       (NSInstrumentation::CLeakTrackingAllocator *)v17,
-                       *((unsigned __int64 *)&v18 + 1),
-                       v18,
-                       0x69664344u);
-        *((_QWORD *)this + 11) = QuotaZInit;
-        v13 = QuotaZInit;
-        if ( QuotaZInit )
+        v21 = Win32AllocPoolWithQuotaZInit(8 * v20, 0x69664344u);
+        *((_QWORD *)this + 11) = v21;
+        if ( v21 )
           *((_DWORD *)this + 24) = *(_DWORD *)(*((_QWORD *)this + 9) + 80LL);
         else
           v5 = -1073741801;
@@ -112,25 +120,31 @@ __int64 __fastcall DirectComposition::CEffectBrushMarshaler::SetReferencePropert
       v5 = -1073741811;
     }
   }
-  v27 = 0;
-  v14 = a3 & 0x3FFFFFFF;
+  v15 = a3 & 0x3FFFFFFF;
   if ( v5 >= 0 )
   {
-    if ( v14 >= *((unsigned int *)this + 24) )
-      return (unsigned int)-1073741811;
-    v5 = DirectComposition::CBrushMarshaler::SetBrushPropertyHelper(
-           this,
-           a2,
-           (struct DirectComposition::CResourceMarshaler **)(v13 + 8 * v14),
-           (unsigned int *)a4,
-           v26,
-           0,
-           &v27);
-    if ( v27 )
+    if ( v15 >= *((unsigned int *)this + 24) )
+      v5 = -1073741811;
+    if ( v5 >= 0 )
     {
-      v15 = a5;
-      *((_DWORD *)this + 25) = 0;
-      *v15 = 1;
+      if ( DirectComposition::CBrushMarshaler::CheckForCycle(this, a4) )
+        v5 = -1073741811;
+      if ( v5 >= 0 )
+      {
+        v16 = *((_QWORD *)this + 11);
+        v17 = *(struct DirectComposition::CResourceMarshaler **)(v16 + 8 * v15);
+        if ( v17 )
+        {
+          DirectComposition::CApplicationChannel::ReleaseResource(a2, v17);
+          v16 = *((_QWORD *)this + 11);
+        }
+        *(_QWORD *)(v16 + 8 * v15) = a4;
+        v18 = *(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 11) + 8 * v15);
+        if ( v18 )
+          DirectComposition::CResourceMarshaler::AddRef(v18);
+        *((_DWORD *)this + 25) = 0;
+        goto LABEL_11;
+      }
     }
   }
   return (unsigned int)v5;

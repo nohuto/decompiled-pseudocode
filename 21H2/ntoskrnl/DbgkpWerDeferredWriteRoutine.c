@@ -1,17 +1,17 @@
 /*
- * XREFs of DbgkpWerDeferredWriteRoutine @ 0x14092BDD0
+ * XREFs of DbgkpWerDeferredWriteRoutine @ 0x140889280
  * Callers:
  *     <none>
  * Callees:
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     DbgkpWerCleanupContext @ 0x14080B79C (DbgkpWerCleanupContext.c)
- *     IoWriteDeferredLiveDumpData @ 0x14093A954 (IoWriteDeferredLiveDumpData.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     DbgkpWerCleanupContext @ 0x1408890A0 (DbgkpWerCleanupContext.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140896A20 (IoWriteDeferredLiveDumpData.c)
  */
 
-char __fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
+_QWORD *__fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _KTIMER *v3; // rbp
@@ -23,7 +23,7 @@ char __fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
   --CurrentThread->KernelApcDisable;
   v3 = *(struct _KTIMER **)(*(_QWORD *)(a1 + 128) + 16LL);
   if ( v3 )
-    KiSetTimerEx((unsigned __int64)v3, -10000000LL * DbgkpWerDeferredWriteTimeoutSeconds, 0, 0, 0LL);
+    KiSetTimerEx((__int64)v3, -10000000LL * DbgkpWerDeferredWriteTimeoutSeconds, 0, 0, 0LL);
   v4 = IoWriteDeferredLiveDumpData(*(PVOID *)(a1 + 136));
   KeCancelTimer(v3);
   *(_QWORD *)(a1 + 136) = 0LL;
@@ -45,5 +45,5 @@ char __fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
   }
   DbgkpWerCleanupContext(a1);
   _InterlockedExchange(&DbgkpBusy, 0);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

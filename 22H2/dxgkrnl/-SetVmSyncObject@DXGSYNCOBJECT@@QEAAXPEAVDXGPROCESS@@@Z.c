@@ -1,53 +1,46 @@
 /*
- * XREFs of ?SetVmSyncObject@DXGSYNCOBJECT@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C01A6D84
+ * XREFs of ?SetVmSyncObject@DXGSYNCOBJECT@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C0292574
  * Callers:
- *     ?CreateSyncObject@DXGGLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@IPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@_NPEAVDXGPAGINGQUEUE@@PEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAIPEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C01A6A78 (-CreateSyncObject@DXGGLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@IPEAU_D3DDDI_SYNCHRONIZATIO.c)
- *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01A8AD0 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0123534 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 void __fastcall DXGSYNCOBJECT::SetVmSyncObject(DXGSYNCOBJECT *this, unsigned __int64 a2)
 {
-  int v2; // ebx
-  _DWORD *v3; // rdi
-  int v6; // eax
-  unsigned int v7; // ecx
-  unsigned __int64 v8; // rax
-  int v9; // eax
+  char v4; // si
+  bool v5; // al
+  char v6; // al
+  unsigned __int64 v7; // rax
+  __int64 v8; // rax
 
-  v2 = 0;
-  v3 = (_DWORD *)(a2 + 424);
-  if ( !a2 || (v6 = 16, (*v3 & 0x180) == 0) )
-    v6 = 0;
-  v7 = v6 | *((_DWORD *)this + 71) & 0xFFFFFFEF;
-  *((_DWORD *)this + 71) = v7;
-  if ( (v7 & 0x10) != 0 )
+  v4 = 1;
+  v5 = a2 && (*(_BYTE *)(a2 + 347) & 0x30) != 0;
+  *((_BYTE *)this + 279) = v5;
+  if ( v5 )
   {
-    if ( (*v3 & 0x100) != 0 )
-      v8 = *(_QWORD *)(a2 + 608);
+    v6 = *(_BYTE *)(a2 + 347);
+    if ( (v6 & 0x20) != 0 )
+      v7 = *(_QWORD *)(a2 + 496);
     else
-      v8 = a2 & -(__int64)((*v3 & 0x80u) != 0);
-    *((_QWORD *)this + 36) = v8;
-    if ( !v8 )
+      v7 = a2 & -(__int64)((v6 & 0x10) != 0);
+    *((_QWORD *)this + 36) = v7;
+    if ( !v7 )
     {
-      WdLogSingleEntry1(1LL, 5868LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_pVmwpProcess", 5868LL, 0LL, 0LL, 0LL, 0LL);
-      v7 = *((_DWORD *)this + 71);
+      v8 = WdLogNewEntry5_WdAssertion(this, a2);
+      *(_QWORD *)(v8 + 24) = 5749LL;
+      WdLogEvent5_WdAssertion(v8);
     }
   }
   else
   {
     *((_QWORD *)this + 36) = 0LL;
   }
-  if ( a2 )
+  if ( !a2
+    || (*(_BYTE *)(a2 + 347) & 0x20) == 0
+    || !*(_BYTE *)(a2 + 346) && (!g_OSTestSigningEnabled || !(_BYTE)KdDebuggerEnabled) )
   {
-    if ( (*v3 & 0x104) == 0x104 )
-    {
-      v9 = (2 * *((_DWORD *)this + 70)) >> 1;
-      if ( v9 == 5 || v9 == 18 )
-        v2 = 32;
-    }
+    v4 = 0;
   }
-  *((_DWORD *)this + 71) = v2 | v7 & 0xFFFFFFDF;
+  *((_BYTE *)this + 280) = v4;
 }

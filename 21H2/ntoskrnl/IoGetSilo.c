@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetSilo @ 0x1402A3FD0
+ * XREFs of IoGetSilo @ 0x140362220
  * Callers:
- *     IopAllocateFoExtensionsOnCreate @ 0x14071CAFC (IopAllocateFoExtensionsOnCreate.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     IopAllocRealFileObject @ 0x14072DDC0 (IopAllocRealFileObject.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopAllocRealFileObject @ 0x1407030E0 (IopAllocRealFileObject.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x14072044C (IopAllocateFoExtensionsOnCreate.c)
  * Callees:
  *     <none>
  */
@@ -11,11 +11,15 @@
 __int64 __fastcall IoGetSilo(__int64 a1)
 {
   _QWORD *v1; // rax
-  __int64 v2; // rax
 
   v1 = *(_QWORD **)(a1 + 208);
-  if ( v1 && v1 != IopRevocationExtension && (v2 = v1[8]) != 0 )
-    return *(_QWORD *)(v2 + 8);
-  else
+  if ( v1 )
+  {
+    if ( v1 == IopRevocationExtension )
+      return 0LL;
+    v1 = (_QWORD *)v1[8];
+  }
+  if ( !v1 )
     return 0LL;
+  return v1[1];
 }

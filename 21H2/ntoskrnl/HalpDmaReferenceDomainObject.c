@@ -1,20 +1,16 @@
 /*
- * XREFs of HalpDmaReferenceDomainObject @ 0x1403B2A28
+ * XREFs of HalpDmaReferenceDomainObject @ 0x1403A1414
  * Callers:
- *     HalpAllocateCommonBufferDmaThin @ 0x1403B2614 (HalpAllocateCommonBufferDmaThin.c)
- *     HalJoinDmaDomain @ 0x1403CD4E0 (HalJoinDmaDomain.c)
- *     HalpDmaAllocateDomain @ 0x1403CD570 (HalpDmaAllocateDomain.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x140511BD0 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalCreateCommonBufferFromMdl @ 0x140514560 (HalCreateCommonBufferFromMdl.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140514A70 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalpDmaIsAutomaticDomain @ 0x140515358 (HalpDmaIsAutomaticDomain.c)
- *     HalCreateCommonBufferFromMdlDmaThin @ 0x1405158A0 (HalCreateCommonBufferFromMdlDmaThin.c)
- *     HalCreateCommonBufferFromMdlDmarThin @ 0x1405160A0 (HalCreateCommonBufferFromMdlDmarThin.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x1405164D0 (HalpAllocateCommonBufferDmarThin.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x1403A11F4 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalJoinDmaDomain @ 0x1403C7110 (HalJoinDmaDomain.c)
+ *     HalpDmaAllocateDomain @ 0x1403C71E8 (HalpDmaAllocateDomain.c)
+ *     HalpDmaIsAutomaticDomain @ 0x1404C4C50 (HalpDmaIsAutomaticDomain.c)
+ *     HalAllocateCommonBufferVector @ 0x1404C5700 (HalAllocateCommonBufferVector.c)
+ *     HalpAllocateCommonBufferThin @ 0x1404CB2F0 (HalpAllocateCommonBufferThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpDmaReferenceDomainObject(__int64 a1)
@@ -37,7 +33,7 @@ __int64 __fastcall HalpDmaReferenceDomainObject(__int64 a1)
   {
     if ( (__int64 *)a1 == v4 )
     {
-      ++*(_DWORD *)(a1 + 112);
+      ++*(_DWORD *)(a1 + 128);
       v2 = 1;
       break;
     }

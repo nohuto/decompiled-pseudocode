@@ -1,121 +1,107 @@
 /*
- * XREFs of ?UnpinPrimaryAllocations@DXGDEVICE@@QEAAXI@Z @ 0x1C0195D58
+ * XREFs of ?UnpinPrimaryAllocations@DXGDEVICE@@QEAAXI@Z @ 0x1C00E0E78
  * Callers:
- *     ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C017664C (-DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
- *     ?DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z @ 0x1C0186B84 (-DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z.c)
- *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C02BC360 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
+ *     ?DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z @ 0x1C00E0664 (-DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z.c)
+ *     ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C00E09A4 (-DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C0212318 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
  * Callees:
- *     ?SetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@IE@Z @ 0x1C0004118 (-SetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@IE@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetPinnedPrimary@DXGDEVICE@@QEAAII@Z @ 0x1C000518C (-GetPinnedPrimary@DXGDEVICE@@QEAAII@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?ClearPrimaryVidPnSource@DXGDEVICE@@QEAAXI@Z @ 0x1C0016BD4 (-ClearPrimaryVidPnSource@DXGDEVICE@@QEAAXI@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?GetPinnedPrimary@DXGDEVICE@@QEAAII@Z @ 0x1C00018A0 (-GetPinnedPrimary@DXGDEVICE@@QEAAII@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?SetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@IE@Z @ 0x1C0003610 (-SetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@IE@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall DXGDEVICE::UnpinPrimaryAllocations(DXGDEVICE *this, unsigned int a2)
+void __fastcall DXGDEVICE::UnpinPrimaryAllocations(DXGDEVICE *this, __int64 a2)
 {
-  __int64 v2; // rdi
-  unsigned int v4; // esi
-  __int64 v5; // rax
-  _BYTE v6[8]; // [rsp+50h] [rbp-48h] BYREF
-  DXGPUSHLOCK *v7; // [rsp+58h] [rbp-40h]
-  int i; // [rsp+60h] [rbp-38h]
+  __int64 v3; // rsi
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rbp
+  __int64 i; // rdi
+  __int64 v12; // rdx
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  _BYTE v20[8]; // [rsp+30h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v21; // [rsp+38h] [rbp-20h]
+  int v22; // [rsp+40h] [rbp-18h]
 
-  v2 = a2;
-  if ( a2 >= *((_DWORD *)this + 472) )
+  v3 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= *((_DWORD *)this + 464) )
   {
-    WdLogSingleEntry1(1LL, 3902LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"VidPnSourceId < GetNumVidPnSources()",
-      3902LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v15 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v15 + 24) = 3830LL;
+    WdLogEvent5_WdAssertion(v15);
   }
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*((_QWORD *)this + 2) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 3903LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceExclusiveOwner()",
-      3903LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v16 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v16 + 24) = 3831LL;
+    WdLogEvent5_WdAssertion(v16);
   }
-  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*((PERESOURCE **)this + 235)) )
+  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*((PERESOURCE **)this + 231)) )
   {
-    WdLogSingleEntry1(1LL, 3904LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetDisplayAdapter(VidPnSourceId)->IsCoreResourceExclusiveOwner()",
-      3904LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v17 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v17 + 24) = 3832LL;
+    WdLogEvent5_WdAssertion(v17);
   }
-  if ( *((_DWORD *)this + 116) != 1 )
+  if ( *((_DWORD *)this + 108) != 1 )
   {
-    WdLogSingleEntry1(1LL, 3905LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"DXGDEVICECLIENT_USER == GetClientType()",
-      3905LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v18 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v18 + 24) = 3833LL;
+    WdLogEvent5_WdAssertion(v18);
   }
-  if ( (unsigned int)DXGDEVICE::GetPinnedPrimary(this, v2) )
+  if ( (unsigned int)DXGDEVICE::GetPinnedPrimary(this, v3) )
   {
-    if ( *((_QWORD *)this + 235) == *(_QWORD *)(*((_QWORD *)this + 2) + 16LL) )
+    v9 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
+    if ( *((_QWORD *)this + 231) == v9 )
     {
-      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v6, (struct _KTHREAD **)this + 42, 0);
-      DXGPUSHLOCK::AcquireExclusive(v7);
-      v4 = 0;
-      for ( i = 2; v4 < *((_DWORD *)this + v2 + 246); ++v4 )
+      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v20, (struct _KTHREAD **)this + 42, 0);
+      DXGPUSHLOCK::AcquireExclusive(v21);
+      v10 = 0LL;
+      v22 = 2;
+      for ( i = v3; (unsigned int)v10 < *((_DWORD *)this + v3 + 238); v10 = (unsigned int)(v10 + 1) )
       {
-        v5 = *(_QWORD *)(*((_QWORD *)this + v2 + 107) + 8LL * v4);
-        if ( v5 )
+        v12 = *((_QWORD *)this + v3 + 103);
+        v13 = *(_QWORD *)(v12 + 8 * v10);
+        if ( v13 )
         {
-          if ( (*(_DWORD *)(*(_QWORD *)(v5 + 48) + 4LL) & 1) == 0 )
+          v14 = *(unsigned int *)(*(_QWORD *)(v13 + 48) + 4LL);
+          if ( (v14 & 1) == 0 )
           {
-            WdLogSingleEntry1(1LL, 3921LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"m_PrimaryAllocation[VidPnSourceId][Index]->m_pAllocation->m_Primary",
-              3921LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
+            v19 = WdLogNewEntry5_WdAssertion(v14, v12);
+            *(_QWORD *)(v19 + 24) = 3849LL;
+            WdLogEvent5_WdAssertion(v19);
+            v12 = *((_QWORD *)this + v3 + 103);
           }
-          (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL) + 8LL) + 224LL))(
-            *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
-            *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + v2 + 107) + 8LL * v4) + 24LL));
+          (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL) + 240LL))(
+            *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
+            *(_QWORD *)(*(_QWORD *)(v12 + 8 * v10) + 24LL));
         }
       }
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v6);
+      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v20);
     }
-    DXGDEVICE::ClearPrimaryVidPnSource((struct _KTHREAD **)this, v2);
-    DXGDEVICE::SetDisplayedPrimary(this, v2, 0LL, 0, 1u);
+    else
+    {
+      i = v3;
+    }
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(v9, v8) + 24) = i;
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v20, (struct _KTHREAD **)this + 42, 0);
+    DXGPUSHLOCK::AcquireExclusive(v21);
+    *((_DWORD *)this + i + 302) &= 0xFFFFFCFF;
+    v22 = 2;
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v20);
+    DXGDEVICE::SetDisplayedPrimary((struct _KTHREAD **)this, (unsigned int)v3, 0LL, 0, 1u);
   }
 }

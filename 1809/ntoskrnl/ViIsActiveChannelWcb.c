@@ -1,5 +1,5 @@
 /*
- * XREFs of ViIsActiveChannelWcb @ 0x14030A1B4
+ * XREFs of ViIsActiveChannelWcb @ 0x14030A2B4
  * Callers:
  *     VfAllocateAdapterChannel @ 0x140929AE0 (VfAllocateAdapterChannel.c)
  *     VfAllocateAdapterChannelEx @ 0x140929D10 (VfAllocateAdapterChannelEx.c)
@@ -7,7 +7,7 @@
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall ViIsActiveChannelWcb(__int64 a1, __int64 a2)

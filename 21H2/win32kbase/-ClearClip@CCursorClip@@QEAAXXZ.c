@@ -1,13 +1,12 @@
 /*
- * XREFs of ?ClearClip@CCursorClip@@QEAAXXZ @ 0x1C006F3A0
+ * XREFs of ?ClearClip@CCursorClip@@QEAAXXZ @ 0x1C006FD90
  * Callers:
- *     ??1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ @ 0x1C0091630 (--1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ.c)
- *     NtUserLockCursor @ 0x1C00AD6F0 (NtUserLockCursor.c)
- *     NtUserClipCursor @ 0x1C00CF260 (NtUserClipCursor.c)
+ *     NtUserLockCursor @ 0x1C009C790 (NtUserLockCursor.c)
+ *     NtUserClipCursor @ 0x1C00BEAC0 (NtUserClipCursor.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0096098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0096160 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C00A0B94 (-UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C005A5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005CD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C006D968 (-UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z.c)
  */
 
 void __fastcall CCursorClip::ClearClip(CCursorClip *this)
@@ -22,7 +21,7 @@ void __fastcall CCursorClip::ClearClip(CCursorClip *this)
   if ( v2 )
   {
     v3 = *(struct tagRECT *)this;
-    CCursorClip::UpdateClipRect(this, &v3);
+    CCursorClip::UpdateClipRect((struct tagRECT *)this, &v3);
   }
   CPushLock::ReleaseLock((CCursorClip *)((char *)this + 32));
 }

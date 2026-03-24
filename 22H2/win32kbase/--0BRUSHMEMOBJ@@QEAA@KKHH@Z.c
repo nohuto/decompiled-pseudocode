@@ -1,49 +1,39 @@
 /*
- * XREFs of ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C00605C0
+ * XREFs of ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C001D0C0
  * Callers:
- *     hCreateSolidBrushInternal @ 0x1C0060550 (hCreateSolidBrushInternal.c)
- *     bInitBRUSHOBJ @ 0x1C02DB1F8 (bInitBRUSHOBJ.c)
- *     bInitBrush @ 0x1C02DB738 (bInitBrush.c)
+ *     hCreateSolidBrushInternal @ 0x1C001D000 (hCreateSolidBrushInternal.c)
+ *     bInitBrush @ 0x1C02971F0 (bInitBrush.c)
+ *     bInitBRUSHOBJ @ 0x1C02972A0 (bInitBRUSHOBJ.c)
  * Callees:
- *     ??1HmgInsertObjectHelper@@QEAA@XZ @ 0x1C003F2C0 (--1HmgInsertObjectHelper@@QEAA@XZ.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0043330 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C00443E0 (--1HANDLELOCK@@QEAA@XZ.c)
- *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z @ 0x1C0047860 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z.c)
- *     HmgRemoveObject @ 0x1C0047F80 (HmgRemoveObject.c)
- *     HmgAllocateObjectAttr @ 0x1C008A91C (HmgAllocateObjectAttr.c)
- *     ?bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z @ 0x1C008B090 (-bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z.c)
- *     ?pbrAllocBrush@BRUSHMEMOBJ@@AEAAPEAVBRUSH@@H@Z @ 0x1C00A7F48 (-pbrAllocBrush@BRUSHMEMOBJ@@AEAAPEAVBRUSH@@H@Z.c)
- *     ?FreeBrushMemory@@YAXPEAVBRUSH@@@Z @ 0x1C00B354C (-FreeBrushMemory@@YAXPEAVBRUSH@@@Z.c)
- *     HmgFreeObjectAttr @ 0x1C00C4E90 (HmgFreeObjectAttr.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VBRUSHMEMOBJ@@@@QEAA@XZ @ 0x1C00D14E0 (--0-$UnexpectedThreadTerminationHandler@VBRUSHMEMOBJ@@@@QEAA@XZ.c)
- *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C0150A68 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0030700 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C0031680 (--1HANDLELOCK@@QEAA@XZ.c)
+ *     ?bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z @ 0x1C0031810 (-bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z.c)
+ *     HmgRemoveObject @ 0x1C0032640 (HmgRemoveObject.c)
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z @ 0x1C0035EA0 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z.c)
+ *     ??1HmgInsertObjectHelper@@QEAA@XZ @ 0x1C00360A8 (--1HmgInsertObjectHelper@@QEAA@XZ.c)
+ *     ?pbrAllocBrush@BRUSHMEMOBJ@@AEAAPEAVBRUSH@@H@Z @ 0x1C008080C (-pbrAllocBrush@BRUSHMEMOBJ@@AEAAPEAVBRUSH@@H@Z.c)
+ *     HmgAllocateObjectAttr @ 0x1C0080F90 (HmgAllocateObjectAttr.c)
+ *     ?FreeBrushMemory@@YAXPEAVBRUSH@@@Z @ 0x1C0098E64 (-FreeBrushMemory@@YAXPEAVBRUSH@@@Z.c)
+ *     HmgFreeObjectAttr @ 0x1C009BCC4 (HmgFreeObjectAttr.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VBRUSHMEMOBJ@@@@QEAA@XZ @ 0x1C00C7F60 (--0-$UnexpectedThreadTerminationHandler@VBRUSHMEMOBJ@@@@QEAA@XZ.c)
+ *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C013BC44 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
  */
 
 BRUSHMEMOBJ *__fastcall BRUSHMEMOBJ::BRUSHMEMOBJ(BRUSHMEMOBJ *this, int a2, unsigned int a3, int a4, int a5)
 {
   struct BRUSH *v9; // rax
-  ULONG_PTR v10; // rdi
-  unsigned int v11; // ebx
-  unsigned int v12; // ebx
-  unsigned int v13; // ebx
-  unsigned int v14; // ebx
-  unsigned int v15; // ebx
-  unsigned int v16; // ebx
-  char v17; // r12
-  __int64 ObjectAttr; // r15
-  __int64 v19; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v21; // rbx
-  __int64 ProcessWow64Process; // rax
-  __int64 v23; // rdx
-  int v24; // ecx
-  __int64 v25; // r8
-  __int64 v27; // [rsp+38h] [rbp-90h] BYREF
-  int v28; // [rsp+40h] [rbp-88h]
-  struct BRUSH *v29; // [rsp+50h] [rbp-78h]
-  __int64 v30; // [rsp+58h] [rbp-70h]
-  __int64 *v31; // [rsp+60h] [rbp-68h]
-  _BYTE v33[88]; // [rsp+70h] [rbp-58h] BYREF
+  ULONG_PTR v10; // rbx
+  unsigned int v11; // edi
+  unsigned int v12; // edi
+  unsigned int v13; // edi
+  unsigned int v14; // edi
+  unsigned int v15; // edi
+  unsigned int v16; // edi
+  char v17; // r15
+  _QWORD *ObjectAttr; // rdi
+  __int64 v20; // [rsp+48h] [rbp-70h] BYREF
+  int v21; // [rsp+50h] [rbp-68h]
+  _BYTE v22[88]; // [rsp+60h] [rbp-58h] BYREF
 
   *((_DWORD *)this + 2) = 0;
   UnexpectedThreadTerminationHandler<BRUSHMEMOBJ>::UnexpectedThreadTerminationHandler<BRUSHMEMOBJ>((char *)this + 16);
@@ -51,14 +41,12 @@ BRUSHMEMOBJ *__fastcall BRUSHMEMOBJ::BRUSHMEMOBJ(BRUSHMEMOBJ *this, int a2, unsi
   {
     v9 = BRUSHMEMOBJ::pbrAllocBrush(this, a4);
     v10 = (ULONG_PTR)v9;
-    v29 = v9;
     *(_QWORD *)this = v9;
     if ( v9 )
     {
       *((_DWORD *)v9 + 19) = a2;
       *((_DWORD *)v9 + 20) = a3;
       *((_QWORD *)v9 + 3) = 0LL;
-      v31 = (__int64 *)((char *)v9 + 48);
       **((_DWORD **)v9 + 6) = 0;
       if ( a3 >= 6 )
       {
@@ -118,39 +106,25 @@ BRUSHMEMOBJ *__fastcall BRUSHMEMOBJ::BRUSHMEMOBJ(BRUSHMEMOBJ *this, int a2, unsi
         *((_DWORD *)v9 + 10) = 32802;
       }
       v17 = 0;
-      HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v33);
-      if ( HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)v33, (struct OBJECT *)v10, 1u, 0, 16) )
+      HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v22);
+      if ( HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)v22, (struct OBJECT *)v10, 1, 0, 0x10u) )
       {
         if ( a5 )
         {
-          ObjectAttr = HmgAllocateObjectAttr();
-          v30 = ObjectAttr;
+          ObjectAttr = (_QWORD *)HmgAllocateObjectAttr();
           if ( ObjectAttr )
           {
-            v27 = 0LL;
-            v28 = 0;
-            HANDLELOCK::bLockHobj((HANDLELOCK *)&v27, *(struct HOBJ__ **)v10, 0x10u);
-            if ( v28 )
+            v20 = 0LL;
+            v21 = 0;
+            HANDLELOCK::bLockHobj((HANDLELOCK *)&v20, *(struct HOBJ__ **)v10, 0x10u);
+            if ( v21 )
             {
-              *(_QWORD *)ObjectAttr = *(_QWORD *)(v10 + 72);
-              CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v19);
-              v21 = CurrentProcessWin32Process;
-              if ( CurrentProcessWin32Process )
-                v21 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-              if ( !v21 )
-                KeBugCheckEx(0x164u, 0x29uLL, 0LL, 0LL, 0LL);
-              ProcessWow64Process = PsGetProcessWow64Process(*(_QWORD *)v21);
-              v23 = *(unsigned int *)(v21 + 292);
-              v24 = *(_DWORD *)(v21 + 292);
-              if ( ProcessWow64Process )
-                v25 = (unsigned int)__ROR4__(ObjectAttr ^ v23, v24 & 0x1F);
-              else
-                v25 = __ROR8__(ObjectAttr ^ v23, v24 & 0x3F);
-              *(_QWORD *)(v27 + 16) = v25;
-              *v31 = ObjectAttr;
-              HANDLELOCK::vUnlock((HANDLELOCK *)&v27);
+              *ObjectAttr = *(_QWORD *)(v10 + 72);
+              *(_QWORD *)(v20 + 16) = ObjectAttr;
+              *(_QWORD *)(v10 + 48) = ObjectAttr;
+              HANDLELOCK::vUnlock((HANDLELOCK *)&v20);
             }
-            HANDLELOCK::~HANDLELOCK((HANDLELOCK *)&v27);
+            HANDLELOCK::~HANDLELOCK((HANDLELOCK *)&v20);
           }
         }
       }
@@ -159,7 +133,7 @@ BRUSHMEMOBJ *__fastcall BRUSHMEMOBJ::BRUSHMEMOBJ(BRUSHMEMOBJ *this, int a2, unsi
         v17 = 1;
         *(_QWORD *)this = 0LL;
       }
-      HmgInsertObjectHelper::~HmgInsertObjectHelper((HmgInsertObjectHelper *)v33);
+      HmgInsertObjectHelper::~HmgInsertObjectHelper((HmgInsertObjectHelper *)v22);
       if ( v17 )
         FreeBrushMemory(v10);
     }

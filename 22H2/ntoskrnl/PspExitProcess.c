@@ -1,57 +1,57 @@
 /*
- * XREFs of PspExitProcess @ 0x140751944
+ * XREFs of PspExitProcess @ 0x14062FC1C
  * Callers:
- *     PspProcessDelete @ 0x1407615C0 (PspProcessDelete.c)
- *     PspExitThread @ 0x14076DF3C (PspExitThread.c)
+ *     PspProcessDelete @ 0x140613B20 (PspProcessDelete.c)
+ *     PspExitThread @ 0x1406C35F8 (PspExitThread.c)
  * Callees:
- *     ExCleanTimerResolutionRequest @ 0x140201B70 (ExCleanTimerResolutionRequest.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PspProcessUnbindVirtualizedTimers @ 0x1402F6478 (PspProcessUnbindVirtualizedTimers.c)
- *     PspCallProcessNotifyRoutines @ 0x1406AF954 (PspCallProcessNotifyRoutines.c)
- *     DbgkFlushErrorPort @ 0x1407518F4 (DbgkFlushErrorPort.c)
- *     PsSetProcessTelemetryAppState @ 0x140751BFC (PsSetProcessTelemetryAppState.c)
- *     EtwTraceProcess @ 0x14075540C (EtwTraceProcess.c)
- *     PfProcessExitNotification @ 0x1407612C4 (PfProcessExitNotification.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     PspProcessUnbindVirtualizedTimers @ 0x14026DF04 (PspProcessUnbindVirtualizedTimers.c)
+ *     PfpLogApplicationEvent @ 0x14026E010 (PfpLogApplicationEvent.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExCleanTimerResolutionRequest @ 0x14036C734 (ExCleanTimerResolutionRequest.c)
+ *     EtwTraceProcess @ 0x14060330C (EtwTraceProcess.c)
+ *     PspCallProcessNotifyRoutines @ 0x14061B30C (PspCallProcessNotifyRoutines.c)
+ *     PsSetProcessTelemetryAppState @ 0x14062B6D8 (PsSetProcessTelemetryAppState.c)
+ *     PfSnEndProcessTrace @ 0x14062E760 (PfSnEndProcessTrace.c)
+ *     DbgkFlushErrorPort @ 0x140630408 (DbgkFlushErrorPort.c)
  */
 
-__int64 __fastcall PspExitProcess(char a1, ULONG_PTR a2)
+void __fastcall PspExitProcess(char a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rdi
-  __int64 result; // rax
-  void *v6; // rcx
+  struct _DMA_ADAPTER *v5; // rcx
 
   _InterlockedOr((volatile signed __int32 *)(a2 + 1124), 4u);
   CurrentThread = KeGetCurrentThread();
   if ( a1 )
   {
-    PsSetProcessTelemetryAppState(a2);
+    PsSetProcessTelemetryAppState((_QWORD *)a2, 3);
     if ( (PerfGlobalGroupMask & 1) != 0 )
-      EtwTraceProcess(a2);
-    result = *(unsigned int *)(a2 + 2172);
-    if ( (result & 1) == 0 || *(_QWORD *)(a2 + 2240) )
+      EtwTraceProcess((PEPROCESS)a2, 770);
+    if ( (*(_DWORD *)(a2 + 2172) & 1) == 0 || *(_QWORD *)(a2 + 2240) )
     {
       --CurrentThread->KernelApcDisable;
       PspCallProcessNotifyRoutines((struct _EX_RUNDOWN_REF *)a2, 0LL, 0);
-      result = (__int64)KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread);
     }
   }
-  v6 = *(void **)(a2 + 1464);
-  if ( !v6 )
+  v5 = *(struct _DMA_ADAPTER **)(a2 + 1464);
+  if ( !v5 )
     goto LABEL_7;
-  if ( v6 != (void *)1 )
+  if ( v5 != (struct _DMA_ADAPTER *)1 )
   {
-    result = ObfDereferenceObject(v6);
+    HalPutDmaAdapter(v5);
 LABEL_7:
     *(_QWORD *)(a2 + 1464) = 1LL;
   }
   if ( a1 )
   {
     if ( *(int *)(a2 + 1124) < 0 )
-      ExCleanTimerResolutionRequest((__int64)v6);
+      ExCleanTimerResolutionRequest((__int64)v5);
     DbgkFlushErrorPort(a2);
-    PfProcessExitNotification(a2);
-    return PspProcessUnbindVirtualizedTimers(a2);
+    PfpLogApplicationEvent(a2, 0LL, 1);
+    if ( PfSnNumActiveTraces )
+      PfSnEndProcessTrace(a2, 2, 0LL);
+    PspProcessUnbindVirtualizedTimers(a2);
   }
-  return result;
 }

@@ -1,33 +1,42 @@
 /*
- * XREFs of rimFindHoldingFrame @ 0x1C01A6DDC
+ * XREFs of rimFindHoldingFrame @ 0x1C00A6778
  * Callers:
- *     RIMAbandonPointerDeviceFrame @ 0x1C01A614C (RIMAbandonPointerDeviceFrame.c)
- *     RIMRemoveHoldingFrame @ 0x1C01A6A7C (RIMRemoveHoldingFrame.c)
- *     RIMStoreRawDataInPointerDeviceFrame @ 0x1C01A6D30 (RIMStoreRawDataInPointerDeviceFrame.c)
- *     rimFindAndReclaimHoldingFrame @ 0x1C01A6D9C (rimFindAndReclaimHoldingFrame.c)
- *     rimFindOrCreateHoldingFrame @ 0x1C01A6E08 (rimFindOrCreateHoldingFrame.c)
- *     rimGetCompleteFrameAndReleaseHoldingFrame @ 0x1C01A6FEC (rimGetCompleteFrameAndReleaseHoldingFrame.c)
- *     rimStorePointersInHoldingFrame @ 0x1C01A7B8C (rimStorePointersInHoldingFrame.c)
+ *     RIMRemoveHoldingFrame @ 0x1C00A6720 (RIMRemoveHoldingFrame.c)
+ *     RIMAbandonPointerDeviceFrame @ 0x1C0171414 (RIMAbandonPointerDeviceFrame.c)
+ *     RIMStartPointerDeviceFrame @ 0x1C0171CF8 (RIMStartPointerDeviceFrame.c)
+ *     RIMStoreRawDataInPointerDeviceFrame @ 0x1C0171FC0 (RIMStoreRawDataInPointerDeviceFrame.c)
+ *     rimFindAndReclaimHoldingFrame @ 0x1C01721B4 (rimFindAndReclaimHoldingFrame.c)
+ *     rimGetCompleteFrameAndReleaseHoldingFrame @ 0x1C0172298 (rimGetCompleteFrameAndReleaseHoldingFrame.c)
+ *     rimStorePointersInHoldingFrame @ 0x1C0172AA8 (rimStorePointersInHoldingFrame.c)
  * Callees:
- *     <none>
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 _QWORD *__fastcall rimFindHoldingFrame(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rcx
-  _QWORD *result; // rax
-  __int64 v4; // rdx
+  _QWORD *v3; // rax
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  _QWORD *v7; // rbx
 
-  v2 = (_QWORD *)(a1 + 760);
-  result = (_QWORD *)*v2;
+  v2 = (_QWORD *)(a1 + 536);
+  v3 = (_QWORD *)*v2;
   if ( (_QWORD *)*v2 == v2 )
     return 0LL;
-  v4 = *(_QWORD *)(a2 + 16);
-  while ( result[3] != v4 )
+  v5 = *(_QWORD *)(a2 + 16);
+  do
   {
-    result = (_QWORD *)*result;
-    if ( result == v2 )
-      return 0LL;
+    v6 = v3[3];
+    v7 = v3;
+    if ( v6 == v5 )
+      break;
+    v3 = (_QWORD *)*v3;
   }
-  return result;
+  while ( v3 != v2 );
+  if ( v3 == v2 )
+    return 0LL;
+  if ( v6 != v5 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 505LL);
+  return v7;
 }

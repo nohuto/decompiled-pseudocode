@@ -1,18 +1,19 @@
 /*
- * XREFs of SetPointer @ 0x1C005CFA0
+ * XREFs of SetPointer @ 0x1C002A420
  * Callers:
- *     ?ForceSetCurrentCursorShape@CursorApiRouter@@QEAAXXZ @ 0x1C005AEDC (-ForceSetCurrentCursorShape@CursorApiRouter@@QEAAXXZ.c)
- *     zzzEnableDwmPointerSupport @ 0x1C005B13C (zzzEnableDwmPointerSupport.c)
- *     UserResetPointer @ 0x1C005B590 (UserResetPointer.c)
- *     SetMouseTrails @ 0x1C005B9A8 (SetMouseTrails.c)
- *     xxxSwitchDesktop @ 0x1C006BB2C (xxxSwitchDesktop.c)
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
- *     xxxUserResetDisplayDevice @ 0x1C01354D0 (xxxUserResetDisplayDevice.c)
- *     ChangeComposableCursor @ 0x1C01A8FC0 (ChangeComposableCursor.c)
- *     RemoteShadowCleanup @ 0x1C0203220 (RemoteShadowCleanup.c)
- *     RemoteShadowStart @ 0x1C020342C (RemoteShadowStart.c)
+ *     UserResetPointer @ 0x1C00291E0 (UserResetPointer.c)
+ *     SetMouseTrails @ 0x1C0029694 (SetMouseTrails.c)
+ *     zzzEnableDwmPointerSupport @ 0x1C00296FC (zzzEnableDwmPointerSupport.c)
+ *     xxxSwitchDesktop @ 0x1C0029864 (xxxSwitchDesktop.c)
+ *     xxxMakeWindowForegroundWithState @ 0x1C003A9E8 (xxxMakeWindowForegroundWithState.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
+ *     xxxUserResetDisplayDevice @ 0x1C0163660 (xxxUserResetDisplayDevice.c)
+ *     ChangeComposableCursor @ 0x1C01D3CFC (ChangeComposableCursor.c)
+ *     RemoteShadowCleanup @ 0x1C0225F40 (RemoteShadowCleanup.c)
+ *     RemoteShadowStart @ 0x1C0226110 (RemoteShadowStart.c)
  * Callees:
- *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C005CFC0 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
+ *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C002A440 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
  */
 
 __int64 __fastcall SetPointer(__int64 a1)

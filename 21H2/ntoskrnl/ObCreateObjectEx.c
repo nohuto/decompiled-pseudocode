@@ -1,104 +1,96 @@
 /*
- * XREFs of ObCreateObjectEx @ 0x14072B3B0
+ * XREFs of ObCreateObjectEx @ 0x140704810
  * Callers:
- *     AlpcpCreatePort @ 0x1406679E8 (AlpcpCreatePort.c)
- *     ObCreateObject @ 0x14066BA00 (ObCreateObject.c)
- *     NtCreateJobObject @ 0x140681CB0 (NtCreateJobObject.c)
- *     PsCreateSiloContext @ 0x140692CD0 (PsCreateSiloContext.c)
- *     NtCreateWaitCompletionPacket @ 0x1406AFD10 (NtCreateWaitCompletionPacket.c)
- *     NtCreateTimer @ 0x1406B4B90 (NtCreateTimer.c)
- *     EtwpCreateUmReplyObject @ 0x1406B8E18 (EtwpCreateUmReplyObject.c)
- *     NtCreateIoCompletion @ 0x1406B8FE0 (NtCreateIoCompletion.c)
- *     NtCreatePrivateNamespace @ 0x1406C08F0 (NtCreatePrivateNamespace.c)
- *     ObpCreateDirectoryObject @ 0x1406C2A70 (ObpCreateDirectoryObject.c)
- *     ObCreateSymbolicLink @ 0x1406C505C (ObCreateSymbolicLink.c)
- *     NtAllocateReserveObject @ 0x1406D9390 (NtAllocateReserveObject.c)
- *     ExCreateCallback @ 0x1406E0E40 (ExCreateCallback.c)
- *     PspCreateActivityReference @ 0x1406E1214 (PspCreateActivityReference.c)
- *     NtCreateRegistryTransaction @ 0x1406E2A70 (NtCreateRegistryTransaction.c)
- *     EtwpRealtimeConnect @ 0x1406EC524 (EtwpRealtimeConnect.c)
- *     NtCreateMutant @ 0x1406F0080 (NtCreateMutant.c)
- *     MiFinishCreateSection @ 0x1406FD9F0 (MiFinishCreateSection.c)
- *     NtCreateEvent @ 0x140727DD0 (NtCreateEvent.c)
- *     NtCreateSemaphore @ 0x14072A4C0 (NtCreateSemaphore.c)
- *     IopLoadDriver @ 0x14074A178 (IopLoadDriver.c)
- *     IoCreateStreamFileObjectEx2 @ 0x14074CD70 (IoCreateStreamFileObjectEx2.c)
- *     IoCreateDevice @ 0x14074ED50 (IoCreateDevice.c)
- *     WmipCreateGuidObject @ 0x140782F2C (WmipCreateGuidObject.c)
- *     SepFilterToken @ 0x14078E3F0 (SepFilterToken.c)
- *     EtwpAddUmRegEntry @ 0x140796F10 (EtwpAddUmRegEntry.c)
- *     PspAllocateThread @ 0x1407A34A0 (PspAllocateThread.c)
- *     NtCreateWorkerFactory @ 0x1407D5050 (NtCreateWorkerFactory.c)
- *     NtCreateTimer2 @ 0x1407D53D0 (NtCreateTimer2.c)
- *     MiSessionObjectCreate @ 0x1407F385C (MiSessionObjectCreate.c)
- *     HalpDmaAllocateChildAdapterV3 @ 0x14084685C (HalpDmaAllocateChildAdapterV3.c)
- *     HalpDmaAllocateChildAdapterV2 @ 0x140846BEC (HalpDmaAllocateChildAdapterV2.c)
- *     IoCreateDriver @ 0x14084F500 (IoCreateDriver.c)
- *     NtCreateKeyedEvent @ 0x140854BB0 (NtCreateKeyedEvent.c)
- *     PopEtEnergyTrackerCreate @ 0x140857300 (PopEtEnergyTrackerCreate.c)
- *     IoCreateController @ 0x140861240 (IoCreateController.c)
- *     CmpDoAccessCheckOnKCB @ 0x140916788 (CmpDoAccessCheckOnKCB.c)
- *     NtCreateDebugObject @ 0x140928A50 (NtCreateDebugObject.c)
- *     NtCreateIoRing @ 0x140938B40 (NtCreateIoRing.c)
- *     TtmiCreateTerminal @ 0x1409A2F78 (TtmiCreateTerminal.c)
- *     TtmiCreateEventQueue @ 0x1409AB130 (TtmiCreateEventQueue.c)
- *     NtCreateProcessStateChange @ 0x1409AEFF0 (NtCreateProcessStateChange.c)
- *     NtCreateThreadStateChange @ 0x1409AF200 (NtCreateThreadStateChange.c)
- *     EtwpRegisterPrivateSession @ 0x1409EBDD0 (EtwpRegisterPrivateSession.c)
- *     EtwpSetCoverageSamplerInformation @ 0x1409F3EC0 (EtwpSetCoverageSamplerInformation.c)
- *     ExpProfileCreate @ 0x140A062C8 (ExpProfileCreate.c)
+ *     AlpcpCreatePort @ 0x1405E0F24 (AlpcpCreatePort.c)
+ *     EtwpAddUmRegEntry @ 0x1405EAD90 (EtwpAddUmRegEntry.c)
+ *     PopCreatePowerRequestObject @ 0x14062BBB0 (PopCreatePowerRequestObject.c)
+ *     WmipCreateGuidObject @ 0x14063F798 (WmipCreateGuidObject.c)
+ *     PspAllocateThread @ 0x14064B048 (PspAllocateThread.c)
+ *     NtCreateTimer @ 0x14064CD60 (NtCreateTimer.c)
+ *     NtCreateWaitCompletionPacket @ 0x140693F90 (NtCreateWaitCompletionPacket.c)
+ *     EtwpCreateUmReplyObject @ 0x14069C0FC (EtwpCreateUmReplyObject.c)
+ *     NtCreateIoCompletion @ 0x14069C2D0 (NtCreateIoCompletion.c)
+ *     ObpCreateDirectoryObject @ 0x1406A1B60 (ObpCreateDirectoryObject.c)
+ *     ObCreateSymbolicLink @ 0x1406AC26C (ObCreateSymbolicLink.c)
+ *     NtAllocateReserveObject @ 0x1406B3300 (NtAllocateReserveObject.c)
+ *     EtwpRealtimeConnect @ 0x1406B88C8 (EtwpRealtimeConnect.c)
+ *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
+ *     NtCreateRegistryTransaction @ 0x1406BE000 (NtCreateRegistryTransaction.c)
+ *     NtCreateTimer2 @ 0x1406D4930 (NtCreateTimer2.c)
+ *     ObCreateObject @ 0x1406D4AE0 (ObCreateObject.c)
+ *     NtCreateMutant @ 0x1406DDC40 (NtCreateMutant.c)
+ *     NtCreatePrivateNamespace @ 0x1406E4E80 (NtCreatePrivateNamespace.c)
+ *     NtCreateEvent @ 0x140703CD0 (NtCreateEvent.c)
+ *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
+ *     NtCreateSemaphore @ 0x140705010 (NtCreateSemaphore.c)
+ *     MiFinishCreateSection @ 0x140705C20 (MiFinishCreateSection.c)
+ *     PsCreateSiloContext @ 0x140715B10 (PsCreateSiloContext.c)
+ *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x14071BF10 (IoCreateStreamFileObjectEx2.c)
+ *     PspCreateActivityReference @ 0x140731498 (PspCreateActivityReference.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140764A8C (HalpDmaAllocateChildAdapterV2.c)
+ *     MiSessionObjectCreate @ 0x140786484 (MiSessionObjectCreate.c)
+ *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C36A8 (HalpDmaAllocateChildAdapterV3.c)
+ *     NtCreateKeyedEvent @ 0x1407C5210 (NtCreateKeyedEvent.c)
+ *     PopEtEnergyTrackerCreate @ 0x1407CBA48 (PopEtEnergyTrackerCreate.c)
+ *     PspAllocatePartition @ 0x1407CC2B4 (PspAllocatePartition.c)
+ *     CmpDoAccessCheckOnKCB @ 0x14086FE0C (CmpDoAccessCheckOnKCB.c)
+ *     NtCreateDebugObject @ 0x140885B80 (NtCreateDebugObject.c)
+ *     IoCreateController @ 0x140893900 (IoCreateController.c)
+ *     TtmiCreateTerminal @ 0x1408FD52C (TtmiCreateTerminal.c)
+ *     TtmiCreateEventQueue @ 0x140905438 (TtmiCreateEventQueue.c)
+ *     EtwpRegisterPrivateSession @ 0x14093F3A8 (EtwpRegisterPrivateSession.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ObpPushStackInfo @ 0x1405C5EC8 (ObpPushStackInfo.c)
- *     ObpFreeObjectNameBuffer @ 0x14071F0D0 (ObpFreeObjectNameBuffer.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ObpAllocateObject @ 0x14072E5D0 (ObpAllocateObject.c)
- *     SeReleaseSecurityDescriptor @ 0x1407B3DA0 (SeReleaseSecurityDescriptor.c)
- *     ObpCaptureObjectCreateInformation @ 0x1407CCD80 (ObpCaptureObjectCreateInformation.c)
- *     ObpRegisterObject @ 0x140986424 (ObpRegisterObject.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ObpCaptureObjectCreateInformation @ 0x140656440 (ObpCaptureObjectCreateInformation.c)
+ *     SeReleaseSecurityDescriptor @ 0x14065C750 (SeReleaseSecurityDescriptor.c)
+ *     ObpFreeObjectNameBuffer @ 0x140661348 (ObpFreeObjectNameBuffer.c)
+ *     ObpAllocateObject @ 0x1406FF230 (ObpAllocateObject.c)
+ *     ObpRegisterObject @ 0x1408DEDCC (ObpRegisterObject.c)
  */
 
 __int64 __fastcall ObCreateObjectEx(
-        unsigned __int8 a1,
+        char a1,
         _DWORD *a2,
-        int a3,
-        unsigned __int8 a4,
-        __int64 a5,
+        __int64 a3,
+        char a4,
+        char *a5,
         int a6,
         int a7,
         int a8,
         _QWORD *a9,
-        __int64 a10)
+        _BYTE *a10)
 {
   struct _KPRCB *CurrentPrcb; // rbp
   _GENERAL_LOOKASIDE *P; // rsi
   PSLIST_ENTRY v16; // rbx
-  int Information; // esi
-  __int64 v18; // r8
-  __int64 v19; // r9
-  int v20; // eax
-  int v21; // ecx
-  int Object; // edi
-  __int64 v23; // rbx
+  int v17; // esi
+  int v18; // eax
+  int v19; // ecx
+  int v20; // edi
+  char *v21; // rbx
   _GENERAL_LOOKASIDE *L; // rsi
   __int64 Size; // rdx
   void *(__fastcall *AllocateEx)(_POOL_TYPE, unsigned __int64, unsigned int, _LOOKASIDE_LIST_EX *); // rax
   __int64 Tag; // r8
   __int64 Type; // rcx
   _SLIST_ENTRY *Next; // rcx
-  struct _KPRCB *v31; // rdx
-  _GENERAL_LOOKASIDE *v32; // rcx
-  struct _KPRCB *v33; // rax
-  _GENERAL_LOOKASIDE *v34; // r8
-  __int64 v35; // [rsp+30h] [rbp-48h]
-  __int128 v36; // [rsp+40h] [rbp-38h] BYREF
+  struct _KPRCB *v29; // rdx
+  _GENERAL_LOOKASIDE *v30; // rcx
+  struct _KPRCB *v31; // rax
+  _GENERAL_LOOKASIDE *v32; // r8
+  _BYTE *v33; // [rsp+30h] [rbp-48h]
+  __int128 v34; // [rsp+40h] [rbp-38h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
   a5 = 0LL;
   P = CurrentPrcb->PPLookasideList[4].P;
-  v36 = 0LL;
+  v34 = 0LL;
   ++P->TotalAllocates;
   v16 = RtlpInterlockedPopEntrySList(&P->ListHead);
   if ( !v16 )
@@ -120,83 +112,82 @@ __int64 __fastcall ObCreateObjectEx(
     }
   }
   LODWORD(v16->Next) = CurrentPrcb->Number;
-  Information = ObpCaptureObjectCreateInformation(a1, a4, a3, (unsigned int)&v36, (__int64)v16, 0);
-  if ( Information >= 0 )
+  v17 = ObpCaptureObjectCreateInformation(a1, a4, a3, &v34, (__int64)v16, 0);
+  if ( v17 >= 0 )
   {
     if ( ((__int64)v16->Next & a2[18]) != 0 )
     {
-      Object = -1073741811;
+      v20 = -1073741811;
     }
     else if ( ((__int64)v16->Next & 0x10) == 0 || SeSinglePrivilegeCheck(SeCreatePermanentPrivilege, a1) )
     {
-      v20 = a7;
+      v18 = a7;
       if ( !a7 )
-        v20 = a2[26];
-      v21 = a8;
+        v18 = a2[26];
+      v19 = a8;
       if ( !a8 )
-        v21 = a2[27];
-      HIDWORD(v16[1].Next) = v20;
-      v35 = a10;
-      *((_DWORD *)&v16[1].Next + 2) = v21;
-      Object = ObpAllocateObject((_DWORD)v16, a4, (_DWORD)a2, (unsigned int)&v36, a6, (__int64)&a5, v35);
-      if ( Object >= 0 )
+        v19 = a2[27];
+      HIDWORD(v16[1].Next) = v18;
+      v33 = a10;
+      *((_DWORD *)&v16[1].Next + 2) = v19;
+      v20 = ObpAllocateObject((int *)v16, a4, (__int64)a2, &v34, a6, &a5, v33);
+      if ( v20 >= 0 )
       {
-        v23 = a5;
+        v21 = a5;
         if ( ObpTraceFlags )
         {
           ObpRegisterObject(a5);
-          ObpPushStackInfo(v23, 1, 1u, 0x746C6644u);
+          ObpPushStackInfo((__int64)v21, 1, 1u, 0x746C6644u);
         }
-        *a9 = v23 + 48;
-        return (unsigned int)Object;
+        *a9 = v21 + 48;
+        return (unsigned int)v20;
       }
     }
     else
     {
-      Object = -1073741727;
+      v20 = -1073741727;
     }
-    if ( *((_QWORD *)&v36 + 1) )
-      ObpFreeObjectNameBuffer((__int64)&v36);
+    if ( *((_QWORD *)&v34 + 1) )
+      ObpFreeObjectNameBuffer((__int64)&v34);
     Next = v16[2].Next;
     if ( Next )
     {
-      LOBYTE(v18) = 1;
-      SeReleaseSecurityDescriptor(Next, LOBYTE(v16[1].Next), v18, v19);
+      SeReleaseSecurityDescriptor(Next, (char)v16[1].Next, 1);
       v16[2].Next = 0LL;
     }
-    v31 = KeGetCurrentPrcb();
-    v32 = v31->PPLookasideList[4].P;
-    ++v32->TotalFrees;
-    if ( LOWORD(v32->ListHead.Alignment) < v32->Depth
-      || (++v32->FreeMisses,
-          v32 = v31->PPLookasideList[4].L,
-          ++v32->TotalFrees,
-          LOWORD(v32->ListHead.Alignment) < v32->Depth) )
+    v29 = KeGetCurrentPrcb();
+    v30 = v29->PPLookasideList[4].P;
+    ++v30->TotalFrees;
+    if ( LOWORD(v30->ListHead.Alignment) < v30->Depth
+      || (++v30->FreeMisses,
+          v30 = v29->PPLookasideList[4].L,
+          ++v30->TotalFrees,
+          LOWORD(v30->ListHead.Alignment) < v30->Depth) )
     {
-      RtlpInterlockedPushEntrySList(&v32->ListHead, v16);
+      RtlpInterlockedPushEntrySList(&v30->ListHead, v16);
     }
     else
     {
-      ++v32->FreeMisses;
-      ((void (__fastcall *)(PSLIST_ENTRY))v32->FreeEx)(v16);
+      ++v30->FreeMisses;
+      ((void (__fastcall *)(PSLIST_ENTRY))v30->FreeEx)(v16);
     }
-    return (unsigned int)Object;
+    return (unsigned int)v20;
   }
-  v33 = KeGetCurrentPrcb();
-  v34 = v33->PPLookasideList[4].P;
-  ++v34->TotalFrees;
-  if ( LOWORD(v34->ListHead.Alignment) < v34->Depth
-    || (++v34->FreeMisses,
-        v34 = v33->PPLookasideList[4].L,
-        ++v34->TotalFrees,
-        LOWORD(v34->ListHead.Alignment) < v34->Depth) )
+  v31 = KeGetCurrentPrcb();
+  v32 = v31->PPLookasideList[4].P;
+  ++v32->TotalFrees;
+  if ( LOWORD(v32->ListHead.Alignment) < v32->Depth
+    || (++v32->FreeMisses,
+        v32 = v31->PPLookasideList[4].L,
+        ++v32->TotalFrees,
+        LOWORD(v32->ListHead.Alignment) < v32->Depth) )
   {
-    RtlpInterlockedPushEntrySList(&v34->ListHead, v16);
+    RtlpInterlockedPushEntrySList(&v32->ListHead, v16);
   }
   else
   {
-    ++v34->FreeMisses;
-    ((void (__fastcall *)(PSLIST_ENTRY))v34->FreeEx)(v16);
+    ++v32->FreeMisses;
+    ((void (__fastcall *)(PSLIST_ENTRY))v32->FreeEx)(v16);
   }
-  return (unsigned int)Information;
+  return (unsigned int)v17;
 }

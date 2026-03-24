@@ -1,7 +1,7 @@
 /*
- * XREFs of MagnificationInverseTransformPoint @ 0x1C0212738
+ * XREFs of MagnificationInverseTransformPoint @ 0x1C0213F68
  * Callers:
- *     AddMagnificationOutputTransform @ 0x1C00FB810 (AddMagnificationOutputTransform.c)
+ *     AddMagnificationOutputTransform @ 0x1C010FE20 (AddMagnificationOutputTransform.c)
  * Callees:
  *     <none>
  */

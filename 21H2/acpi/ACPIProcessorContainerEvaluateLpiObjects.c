@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIProcessorContainerEvaluateLpiObjects @ 0x1C005DFB0
+ * XREFs of ACPIProcessorContainerEvaluateLpiObjects @ 0x1C005D2C4
  * Callers:
- *     ACPIProcessorContainerEvaluateLpiObjects @ 0x1C005DFB0 (ACPIProcessorContainerEvaluateLpiObjects.c)
- *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C005E240 (ACPIProcessorContainerGetLpiStatesIoctl.c)
+ *     ACPIProcessorContainerEvaluateLpiObjects @ 0x1C005D2C4 (ACPIProcessorContainerEvaluateLpiObjects.c)
+ *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C005D55C (ACPIProcessorContainerGetLpiStatesIoctl.c)
  * Callees:
- *     ACPIProcessorContainerEvaluateLpiObject @ 0x1C005DEF4 (ACPIProcessorContainerEvaluateLpiObject.c)
- *     ACPIProcessorContainerEvaluateLpiObjects @ 0x1C005DFB0 (ACPIProcessorContainerEvaluateLpiObjects.c)
+ *     ACPIProcessorContainerEvaluateLpiObject @ 0x1C005D200 (ACPIProcessorContainerEvaluateLpiObject.c)
+ *     ACPIProcessorContainerEvaluateLpiObjects @ 0x1C005D2C4 (ACPIProcessorContainerEvaluateLpiObjects.c)
  */
 
 __int64 __fastcall ACPIProcessorContainerEvaluateLpiObjects(_QWORD **a1, int *a2)

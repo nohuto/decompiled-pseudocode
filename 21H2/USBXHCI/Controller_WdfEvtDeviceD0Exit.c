@@ -1,30 +1,30 @@
 /*
- * XREFs of Controller_WdfEvtDeviceD0Exit @ 0x1C000DD50
+ * XREFs of Controller_WdfEvtDeviceD0Exit @ 0x1C000B4D0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     RootHub_D0Exit @ 0x1C000D388 (RootHub_D0Exit.c)
- *     Controller_D0Exit @ 0x1C000DC0C (Controller_D0Exit.c)
- *     CommonBuffer_FlushWorkItems @ 0x1C000DF68 (CommonBuffer_FlushWorkItems.c)
- *     Interrupter_D0ExitStopped @ 0x1C000DFE4 (Interrupter_D0ExitStopped.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     Register_ControllerReset @ 0x1C0013D48 (Register_ControllerReset.c)
- *     Register_SetClearSSICPortUnused @ 0x1C00141D8 (Register_SetClearSSICPortUnused.c)
- *     Controller_InUseByDebugger @ 0x1C001589C (Controller_InUseByDebugger.c)
- *     WPP_RECORDER_SF_qDD @ 0x1C0016390 (WPP_RECORDER_SF_qDD.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_D0ExitSaveState @ 0x1C00310D8 (Controller_D0ExitSaveState.c)
- *     Controller_ExecuteDSMToSendPORTSCValues @ 0x1C00319B4 (Controller_ExecuteDSMToSendPORTSCValues.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031C54 (Controller_HwVerifierBreakIfEnabled.c)
- *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C0035568 (McTemplateK0pqqh_EtwWriteTransfer.c)
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C00355FC (McTemplateK0pqqq_EtwWriteTransfer.c)
- *     Register_SaveRestoreCHTNonArchitecturalRegisters @ 0x1C003D278 (Register_SaveRestoreCHTNonArchitecturalRegisters.c)
- *     Controller_ExecuteHSICDisconnectInU3Workaround @ 0x1C006C0FC (Controller_ExecuteHSICDisconnectInU3Workaround.c)
- *     Controller_ExecuteKBLPowerTransitionWorkaround @ 0x1C0075F10 (Controller_ExecuteKBLPowerTransitionWorkaround.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     Controller_D0Exit @ 0x1C000B38C (Controller_D0Exit.c)
+ *     CommonBuffer_FlushWorkItems @ 0x1C000B6F0 (CommonBuffer_FlushWorkItems.c)
+ *     Interrupter_D0ExitStopped @ 0x1C000B76C (Interrupter_D0ExitStopped.c)
+ *     RootHub_D0Exit @ 0x1C000B838 (RootHub_D0Exit.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     Register_SetClearSSICPortUnused @ 0x1C000F58C (Register_SetClearSSICPortUnused.c)
+ *     Register_ControllerReset @ 0x1C0010D88 (Register_ControllerReset.c)
+ *     Controller_InUseByDebugger @ 0x1C0015798 (Controller_InUseByDebugger.c)
+ *     WPP_RECORDER_SF_qdd @ 0x1C0015C18 (WPP_RECORDER_SF_qdd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_D0ExitSaveState @ 0x1C0030E1C (Controller_D0ExitSaveState.c)
+ *     Controller_ExecuteDSMToSendPORTSCValues @ 0x1C0031884 (Controller_ExecuteDSMToSendPORTSCValues.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C00352C8 (McTemplateK0pqqh_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C003535C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     Register_SaveRestoreCHTNonArchitecturalRegisters @ 0x1C003CCFC (Register_SaveRestoreCHTNonArchitecturalRegisters.c)
+ *     Controller_ExecuteHSICDisconnectInU3Workaround @ 0x1C006B2D8 (Controller_ExecuteHSICDisconnectInU3Workaround.c)
+ *     Controller_ExecuteKBLPowerTransitionWorkaround @ 0x1C00749BC (Controller_ExecuteKBLPowerTransitionWorkaround.c)
  */
 
-__int64 __fastcall Controller_WdfEvtDeviceD0Exit(__int64 a1, unsigned int a2)
+__int64 __fastcall Controller_WdfEvtDeviceD0Exit(__int64 a1, unsigned __int32 a2)
 {
   __m128i *v4; // rdi
   int v5; // eax
@@ -46,7 +46,7 @@ __int64 __fastcall Controller_WdfEvtDeviceD0Exit(__int64 a1, unsigned int a2)
   v4 = *(__m128i **)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                        WdfDriverGlobals,
                        a1,
-                       off_1C00613D8)
+                       off_1C00603D8)
                    + 8);
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 3104))(WdfDriverGlobals, a1);
   v8 = v5;
@@ -62,12 +62,12 @@ __int64 __fastcall Controller_WdfEvtDeviceD0Exit(__int64 a1, unsigned int a2)
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v6) = 4;
-    WPP_RECORDER_SF_qDD(
+    WPP_RECORDER_SF_qdd(
       v4[4].m128i_i64[1],
       v6,
       4,
       84,
-      (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+      (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
       a1,
       a2,
       v4[26].m128i_i32[1]);
@@ -78,7 +78,7 @@ __int64 __fastcall Controller_WdfEvtDeviceD0Exit(__int64 a1, unsigned int a2)
   {
     if ( v4[7].m128i_i64[1] )
       CommonBuffer_FlushWorkItems();
-    RootHub_D0Exit(v4[9].m128i_i64[1], a2, v4[26].m128i_i32[1]);
+    RootHub_D0Exit(v4[9].m128i_i64[1], a2, v4[26].m128i_u32[1]);
     Controller_D0Exit(v4, a2, v10);
     Interrupter_D0ExitStopped(v4[8].m128i_i64[0], a2);
     if ( (v4[21].m128i_i64[0] & 2) != 0
@@ -90,7 +90,7 @@ __int64 __fastcall Controller_WdfEvtDeviceD0Exit(__int64 a1, unsigned int a2)
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         LOBYTE(v11) = 4;
-        WPP_RECORDER_SF_(v4[4].m128i_i64[1], v11, 4, 85, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids);
+        WPP_RECORDER_SF_(v4[4].m128i_i64[1], v11, 4, 85, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
       }
     }
     else
@@ -107,7 +107,7 @@ __int64 __fastcall Controller_WdfEvtDeviceD0Exit(__int64 a1, unsigned int a2)
             v16,
             4,
             86,
-            (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+            (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
             v15);
         }
         Controller_HwVerifierBreakIfEnabled(
@@ -138,23 +138,14 @@ __int64 __fastcall Controller_WdfEvtDeviceD0Exit(__int64 a1, unsigned int a2)
       v4[22].m128i_i64[1],
       v7);
   }
-  if ( _bittest64(v4[21].m128i_i64, 0x2Bu) )
+  if ( (v4[21].m128i_i64[0] & 0x80000000000LL) != 0 && v8 == 5 )
   {
-    if ( v8 == 5 )
+    LOBYTE(v11) = 1;
+    v19 = Register_ControllerReset(v4[5].m128i_i64[1], v11);
+    if ( v19 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v11) = 1;
-      v19 = Register_ControllerReset(v4[5].m128i_i64[1], v11);
-      if ( v19 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v20) = 4;
-        WPP_RECORDER_SF_d(
-          v4[4].m128i_i64[1],
-          v20,
-          4,
-          87,
-          (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
-          v19);
-      }
+      LOBYTE(v20) = 4;
+      WPP_RECORDER_SF_d(v4[4].m128i_i64[1], v20, 4, 87, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v19);
     }
   }
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 3056))(

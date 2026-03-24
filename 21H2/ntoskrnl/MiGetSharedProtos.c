@@ -1,23 +1,24 @@
 /*
- * XREFs of MiGetSharedProtos @ 0x140256DF8
+ * XREFs of MiGetSharedProtos @ 0x1403A6208
  * Callers:
- *     MiGetImageProtoProtection @ 0x14024129C (MiGetImageProtoProtection.c)
- *     MiComputeImagePteIndex @ 0x14027B194 (MiComputeImagePteIndex.c)
- *     MiIdentifyPfn @ 0x1402B1E40 (MiIdentifyPfn.c)
- *     MiQueryAddressState @ 0x140318330 (MiQueryAddressState.c)
- *     MiGetProtoPteAddress @ 0x140319600 (MiGetProtoPteAddress.c)
- *     MiCompleteProtoPteFault @ 0x1403203D0 (MiCompleteProtoPteFault.c)
- *     MiStartingOffset @ 0x1403342D0 (MiStartingOffset.c)
- *     MiWalkEntireImage @ 0x140336B30 (MiWalkEntireImage.c)
- *     MiResolveMappedFileFault @ 0x140339520 (MiResolveMappedFileFault.c)
- *     MiFaultGetFileExtents @ 0x1405A7158 (MiFaultGetFileExtents.c)
- *     MiMakePerSessionProtoPte @ 0x1405BBA5C (MiMakePerSessionProtoPte.c)
- *     MiAddMappedPtes @ 0x1406F40E0 (MiAddMappedPtes.c)
- *     MiPfAllocateMdls @ 0x1406F4A80 (MiPfAllocateMdls.c)
- *     MiPfPrepareSequentialReadList @ 0x1407BCB30 (MiPfPrepareSequentialReadList.c)
+ *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
+ *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
+ *     MiEmptyPageAccessLog @ 0x14025BC70 (MiEmptyPageAccessLog.c)
+ *     MiGetImageProtoProtection @ 0x1402BB36C (MiGetImageProtoProtection.c)
+ *     MiComputeImagePteIndex @ 0x1402FCD40 (MiComputeImagePteIndex.c)
+ *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
+ *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
+ *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
+ *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
+ *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
+ *     MiFaultGetFileExtents @ 0x1405483F0 (MiFaultGetFileExtents.c)
+ *     MiMakePerSessionProtoPte @ 0x14055B4A0 (MiMakePerSessionProtoPte.c)
+ *     MiPfAllocateMdls @ 0x1406E8CA0 (MiPfAllocateMdls.c)
+ *     MiAddMappedPtes @ 0x1406E9250 (MiAddMappedPtes.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     MiGetSharedProtosAtDpcLevel @ 0x140256EAC (MiGetSharedProtosAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSharedProtosAtDpcLevel @ 0x1403A628C (MiGetSharedProtosAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetSharedProtos(__int64 a1, unsigned int a2, __int64 a3)

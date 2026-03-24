@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpInitializeDelayedCloseTable @ 0x1408631AC
+ * XREFs of CmpInitializeDelayedCloseTable @ 0x1407D32F4
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     KeInitializeGuardedMutex @ 0x1402E0710 (KeInitializeGuardedMutex.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402F5718 (KiQueryUnbiasedInterruptTime.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KeInitializeGuardedMutex @ 0x1402EE570 (KeInitializeGuardedMutex.c)
  */
 
 __int64 *CmpInitializeDelayedCloseTable()
@@ -23,10 +23,10 @@ __int64 *CmpInitializeDelayedCloseTable()
   unsigned __int64 v11; // rax
   __int64 v12; // rdx
   unsigned __int64 v13; // rax
-  __int64 v14; // rax
-  __int128 *v15; // rdx
-  __int64 v16; // rax
-  int v17; // r9d
+  __int128 *v14; // rdx
+  __int64 v15; // rax
+  int v16; // r9d
+  __int64 v17; // rax
   __int64 v18; // rax
   __int64 v19; // rax
 
@@ -35,19 +35,19 @@ __int64 *CmpInitializeDelayedCloseTable()
   CmpDelayCloseWorkItem.WorkerRoutine = (void (__fastcall *)(void *))CmpDelayCloseWorker;
   KeInitializeGuardedMutex((PKGUARDED_MUTEX)&CmpDelayedCloseTableLock);
   result = &CmpDelayedLRUListHead;
-  qword_140C49328 = (__int64)&CmpDelayedLRUListHead;
+  qword_140C47F68 = (__int64)&CmpDelayedLRUListHead;
   CmpDelayedLRUListHead = (__int64)&CmpDelayedLRUListHead;
   _mm_lfence();
-  if ( !qword_140C4EDE0 )
+  if ( !qword_140C4C720 )
   {
     v1 = __rdtsc();
     v2 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v1) << 32) | (unsigned int)v1) >> 4)) ^ 0x5A4LL;
     if ( !v2 )
       v2 = 1LL;
-    qword_140C4EDE0 = v2;
+    qword_140C4C720 = v2;
     v3 = &KeServiceDescriptorTable;
     v4 = (41929663 * (unsigned int)(__rdtsc() >> 4)) ^ 0x5A4LL;
-    qword_140C4EDE8 = v4;
+    qword_140C4C728 = v4;
     _mm_prefetch((const char *)&KeServiceDescriptorTable, 0);
     v5 = 64;
     v6 = v2;
@@ -62,15 +62,15 @@ __int64 *CmpInitializeDelayedCloseTable()
     while ( v7 );
     for ( ; v5; --v5 )
     {
-      v18 = *(unsigned __int8 *)v3;
+      v17 = *(unsigned __int8 *)v3;
       v3 = (__int128 *)((char *)v3 + 1);
-      v6 = __ROR8__(v6 - v18, v4);
+      v6 = __ROR8__(v6 - v17, v4);
     }
     v8 = (_QWORD *)KeServiceDescriptorTable;
     v9 = (const char *)KeServiceDescriptorTable;
-    qword_140C4EDF8 = v6;
     v10 = 4 * xmmword_140E018D0;
     v11 = KeServiceDescriptorTable + (unsigned int)(4 * xmmword_140E018D0);
+    qword_140C4C738 = v6;
     if ( (unsigned __int64)KeServiceDescriptorTable < v11 )
     {
       do
@@ -94,32 +94,32 @@ __int64 *CmpInitializeDelayedCloseTable()
     }
     for ( ; v10; --v10 )
     {
-      v14 = *(unsigned __int8 *)v8;
+      v18 = *(unsigned __int8 *)v8;
       v8 = (_QWORD *)((char *)v8 + 1);
-      v12 = __ROR8__(v12 - v14, v4);
+      v12 = __ROR8__(v12 - v18, v4);
     }
-    qword_140C4EE00 = v12;
-    v15 = KeServiceDescriptorTableShadow;
-    _mm_prefetch((const char *)KeServiceDescriptorTableShadow, 0);
-    v16 = 4LL;
-    v17 = 32;
+    qword_140C4C740 = v12;
+    v14 = &KeServiceDescriptorTableShadow;
+    _mm_prefetch((const char *)&KeServiceDescriptorTableShadow, 0);
+    v15 = 4LL;
+    v16 = 32;
     do
     {
-      v2 = __ROR8__(v2 - *(_QWORD *)v15, v4);
-      v15 = (__int128 *)((char *)v15 + 8);
-      v17 -= 8;
-      --v16;
+      v2 = __ROR8__(v2 - *(_QWORD *)v14, v4);
+      v14 = (__int128 *)((char *)v14 + 8);
+      v16 -= 8;
+      --v15;
     }
-    while ( v16 );
-    for ( ; v17; --v17 )
+    while ( v15 );
+    for ( ; v16; --v16 )
     {
-      v19 = *(unsigned __int8 *)v15;
-      v15 = (__int128 *)((char *)v15 + 1);
+      v19 = *(unsigned __int8 *)v14;
+      v14 = (__int128 *)((char *)v14 + 1);
       v2 = __ROR8__(v2 - v19, v4);
     }
-    qword_140C4EE08 = v2;
+    qword_140C4C748 = v2;
     result = (__int64 *)(KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL);
-    qword_140C4EDF0 = (__int64)result;
+    qword_140C4C730 = (__int64)result;
   }
   return result;
 }

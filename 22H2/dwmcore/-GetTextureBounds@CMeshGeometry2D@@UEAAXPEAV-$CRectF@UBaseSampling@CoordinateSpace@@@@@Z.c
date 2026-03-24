@@ -1,76 +1,74 @@
 /*
- * XREFs of ?GetTextureBounds@CMeshGeometry2D@@UEAAXPEAV?$CRectF@UBaseSampling@CoordinateSpace@@@@@Z @ 0x180258B10
+ * XREFs of ?GetTextureBounds@CMeshGeometry2D@@UEAAXPEAV?$CRectF@UBaseSampling@CoordinateSpace@@@@@Z @ 0x1801D66F0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?GetVertexCount@CMeshGeometry2D@@UEAAIXZ @ 0x1801D67D0 (-GetVertexCount@CMeshGeometry2D@@UEAAIXZ.c)
  */
 
 void __fastcall CMeshGeometry2D::GetTextureBounds(__int64 a1, _OWORD *a2)
 {
-  double *v3; // r8
-  unsigned __int64 v4; // rdx
-  double v5; // xmm1_8
+  unsigned int VertexCount; // eax
+  double *v5; // rcx
   double v6; // xmm2_8
-  double v7; // xmm3_8
-  double v8; // xmm4_8
-  double *v9; // r8
-  __int64 v10; // rdx
-  double v11; // xmm0_8
-  float v12; // xmm0_4
-  float v13; // xmm5_4
+  double v7; // xmm1_8
+  double v8; // xmm3_8
+  double v9; // xmm4_8
+  double *v10; // rcx
+  __int64 v11; // rdx
+  double v12; // xmm0_8
+  float v13; // xmm0_4
   float v14; // xmm3_4
-  float v15; // xmm2_4
+  float v15; // xmm1_4
+  float v16; // xmm2_4
 
-  if ( (*(_BYTE *)(a1 + 160) & 2) != 0 )
+  if ( (*(_BYTE *)(a1 + 72) & 2) != 0 )
   {
-    v3 = *(double **)(a1 + 112);
-    v4 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(*(_QWORD *)(a1 + 96) - *(_QWORD *)(a1 + 88)) >> 2);
-    if ( v4 >= (__int64)(*(_QWORD *)(a1 + 120) - (_QWORD)v3) >> 4 )
-      LODWORD(v4) = (__int64)(*(_QWORD *)(a1 + 120) - (_QWORD)v3) >> 4;
-    if ( (_DWORD)v4 )
+    VertexCount = CMeshGeometry2D::GetVertexCount((CMeshGeometry2D *)a1);
+    if ( VertexCount )
     {
-      v5 = *v3;
-      v6 = v3[1];
-      v7 = *v3;
-      v8 = v6;
-      if ( (unsigned int)v4 > 1 )
+      v5 = *(double **)(a1 + 136);
+      v6 = *v5;
+      v7 = v5[1];
+      v8 = *v5;
+      v9 = v7;
+      if ( VertexCount > 1 )
       {
-        v9 = v3 + 2;
-        v10 = (unsigned int)(v4 - 1);
+        v10 = v5 + 2;
+        v11 = VertexCount - 1;
         do
         {
-          if ( *v9 <= v7 )
-            v7 = *v9;
-          if ( v5 <= *v9 )
-            v5 = *v9;
-          v11 = v9[1];
-          if ( v11 <= v8 )
-            v8 = v9[1];
-          if ( v6 <= v11 )
-            v6 = v9[1];
-          v9 += 2;
-          --v10;
+          if ( *v10 <= v8 )
+            v8 = *v10;
+          if ( v6 <= *v10 )
+            v6 = *v10;
+          v12 = v10[1];
+          if ( v12 <= v9 )
+            v9 = v10[1];
+          if ( v7 <= v12 )
+            v7 = v10[1];
+          v10 += 2;
+          --v11;
         }
-        while ( v10 );
+        while ( v11 );
       }
-      v12 = v7;
-      v13 = v6;
-      v14 = v5;
-      v15 = v8;
+      v13 = v8;
+      v14 = v9;
+      v15 = v7;
+      v16 = v6;
     }
     else
     {
-      v12 = 0.0;
       v13 = 0.0;
-      v14 = 0.0;
       v15 = 0.0;
+      v16 = 0.0;
+      v14 = 0.0;
     }
-    *(float *)(a1 + 184) = v15;
-    *(float *)(a1 + 188) = v14;
-    *(float *)(a1 + 192) = v13;
-    *(float *)(a1 + 180) = v12;
-    *(_DWORD *)(a1 + 160) &= ~2u;
+    *(float *)(a1 + 100) = v14;
+    *(float *)(a1 + 104) = v16;
+    *(float *)(a1 + 108) = v15;
+    *(float *)(a1 + 96) = v13;
+    *(_DWORD *)(a1 + 72) &= ~2u;
   }
-  *a2 = *(_OWORD *)(a1 + 180);
+  *a2 = *(_OWORD *)(a1 + 96);
 }

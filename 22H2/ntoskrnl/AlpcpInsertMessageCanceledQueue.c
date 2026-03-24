@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpInsertMessageCanceledQueue @ 0x140779DA0
+ * XREFs of AlpcpInsertMessageCanceledQueue @ 0x1406A0D7C
  * Callers:
- *     AlpcpDisconnectPort @ 0x140718F30 (AlpcpDisconnectPort.c)
- *     AlpcpCancelMessage @ 0x14077971C (AlpcpCancelMessage.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1407CE45C (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     AlpcpDisconnectPort @ 0x1405E26FC (AlpcpDisconnectPort.c)
+ *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x14068AFB8 (AlpcpReturnMessageOnInsufficientBuffer.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
-signed __int32 __fastcall AlpcpInsertMessageCanceledQueue(__int64 a1, __int64 a2)
+char __fastcall AlpcpInsertMessageCanceledQueue(__int64 a1, __int64 a2)
 {
   volatile signed __int64 *v2; // rsi
 
@@ -20,7 +20,7 @@ signed __int32 __fastcall AlpcpInsertMessageCanceledQueue(__int64 a1, __int64 a2
   *(_QWORD *)(a2 + 80) = a1 + 384;
   **(_QWORD **)(a1 + 392) = a2 + 80;
   *(_QWORD *)(a1 + 392) = a2 + 80;
-  *(_DWORD *)(a2 + 40) |= 0x20000u;
+  *(_DWORD *)(a2 + 40) |= 0x10000u;
   ++*(_DWORD *)(a1 + 464);
   if ( (_InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v2);

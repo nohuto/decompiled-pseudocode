@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWnfCheckCrossScopeAccess @ 0x1406C70B0
+ * XREFs of ExpWnfCheckCrossScopeAccess @ 0x1406C7090
  * Callers:
  *     NtUpdateWnfStateData @ 0x14060EBB0 (NtUpdateWnfStateData.c)
  *     NtQueryWnfStateData @ 0x14060F3C0 (NtQueryWnfStateData.c)
- *     NtQueryWnfStateNameInformation @ 0x1406B4EF0 (NtQueryWnfStateNameInformation.c)
- *     NtDeleteWnfStateData @ 0x14075E540 (NtDeleteWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406B4ED0 (NtQueryWnfStateNameInformation.c)
+ *     NtDeleteWnfStateData @ 0x14075E520 (NtDeleteWnfStateData.c)
  * Callees:
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

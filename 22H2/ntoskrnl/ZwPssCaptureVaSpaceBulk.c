@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwPssCaptureVaSpaceBulk @ 0x14041CF40
+ * XREFs of ZwPssCaptureVaSpaceBulk @ 0x1403FC1C0
  * Callers:
- *     NtPssCaptureVaSpaceBulk @ 0x140A052C0 (NtPssCaptureVaSpaceBulk.c)
+ *     NtPssCaptureVaSpaceBulk @ 0x14095BF90 (NtPssCaptureVaSpaceBulk.c)
  * Callees:
  *     <none>
  */

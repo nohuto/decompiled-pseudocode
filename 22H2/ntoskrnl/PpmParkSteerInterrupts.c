@@ -1,202 +1,260 @@
 /*
- * XREFs of PpmParkSteerInterrupts @ 0x140256900
+ * XREFs of PpmParkSteerInterrupts @ 0x140228E20
  * Callers:
  *     <none>
  * Callees:
- *     KeIntSteerPeriodic @ 0x140221460 (KeIntSteerPeriodic.c)
- *     KiIntPartGetLowestClassProcessorInMask @ 0x140221BD4 (KiIntPartGetLowestClassProcessorInMask.c)
- *     KeIntSteerSnapPerf @ 0x140221D80 (KeIntSteerSnapPerf.c)
- *     KiAndAffinityEx @ 0x140252320 (KiAndAffinityEx.c)
- *     KiCopyAffinityEx @ 0x1402544A0 (KiCopyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeCheckProcessorAffinityEx @ 0x140257240 (KeCheckProcessorAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     KiComplementAffinityEx @ 0x14028FAC4 (KiComplementAffinityEx.c)
- *     KeQuerySystemAllowedCpuSetAffinity @ 0x1402BFCC0 (KeQuerySystemAllowedCpuSetAffinity.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C0190 (KeCountSetBitsAffinityEx.c)
- *     KiOrAffinityEx @ 0x1402C2A80 (KiOrAffinityEx.c)
- *     KiSubtractAffinityEx @ 0x14033D63C (KiSubtractAffinityEx.c)
- *     HalQueryMaximumProcessorCount @ 0x14037FEF0 (HalQueryMaximumProcessorCount.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeIsEmptyAffinityEx @ 0x140228520 (KeIsEmptyAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     KeIntSteerPeriodic @ 0x140229440 (KeIntSteerPeriodic.c)
+ *     KeAndAffinityEx @ 0x1402299F0 (KeAndAffinityEx.c)
+ *     KeQuerySystemAllowedCpuSetAffinity @ 0x140229B00 (KeQuerySystemAllowedCpuSetAffinity.c)
+ *     KeComplementAffinityEx @ 0x140229BA0 (KeComplementAffinityEx.c)
+ *     KeIntSteerSnapPerf @ 0x140229C10 (KeIntSteerSnapPerf.c)
+ *     KeSubtractAffinityEx @ 0x14022AFE0 (KeSubtractAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1402BBAE0 (KeCopyAffinityEx.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AD70 (HalQueryMaximumProcessorCount.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x1405134D0 (KeFindFirstSetRightAffinityEx.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char PpmParkSteerInterrupts()
 {
-  __int64 v0; // rcx
+  unsigned int v0; // r14d
   unsigned int v1; // edi
-  int v2; // esi
-  __int64 v3; // r14
-  __int64 v4; // rbx
-  __int64 *v5; // rdx
-  __int64 v6; // rax
-  _DWORD *v7; // r14
-  _DWORD *v8; // r15
-  _DWORD *v9; // rsi
-  unsigned int v10; // ebx
-  unsigned int v11; // eax
-  int MaximumProcessorCount; // eax
-  unsigned int LowestClassProcessorInMask; // eax
-  unsigned int v15; // [rsp+50h] [rbp-B0h] BYREF
-  int v16; // [rsp+54h] [rbp-ACh] BYREF
-  __int128 v17; // [rsp+58h] [rbp-A8h] BYREF
-  int *v18; // [rsp+68h] [rbp-98h] BYREF
-  _QWORD v19[2]; // [rsp+70h] [rbp-90h] BYREF
-  __int16 v20; // [rsp+80h] [rbp-80h]
-  int v21; // [rsp+82h] [rbp-7Eh]
-  __int16 v22; // [rsp+86h] [rbp-7Ah]
-  _DWORD v23[68]; // [rsp+90h] [rbp-70h] BYREF
-  _DWORD v24[68]; // [rsp+1A0h] [rbp+A0h] BYREF
-  _DWORD v25[68]; // [rsp+2B0h] [rbp+1B0h] BYREF
-  _QWORD v26[34]; // [rsp+3C0h] [rbp+2C0h] BYREF
-  _DWORD v27[68]; // [rsp+4D0h] [rbp+3D0h] BYREF
-  _DWORD v28[68]; // [rsp+5E0h] [rbp+4E0h] BYREF
+  unsigned int v2; // ebx
+  unsigned __int64 v3; // r8
+  __int64 v4; // r11
+  unsigned __int64 v5; // rdx
+  unsigned int v6; // eax
+  unsigned int v7; // r9d
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  unsigned int v11; // edi
+  unsigned __int64 *v12; // r8
+  __int64 v13; // r9
+  unsigned __int64 v14; // rdx
+  bool v15; // cf
+  unsigned __int64 v16; // rax
+  SIZE_T v18; // rbx
+  PVOID PoolWithTag; // rax
+  unsigned int FirstSetRightAffinity; // eax
+  unsigned __int64 v21; // rax
+  unsigned int v22; // [rsp+50h] [rbp-B0h] BYREF
+  int v23; // [rsp+54h] [rbp-ACh] BYREF
+  __int128 v24; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v25; // [rsp+68h] [rbp-98h]
+  __int64 v26; // [rsp+70h] [rbp-90h] BYREF
+  _QWORD v27[22]; // [rsp+80h] [rbp-80h] BYREF
+  _QWORD v28[22]; // [rsp+130h] [rbp+30h] BYREF
+  _QWORD v29[22]; // [rsp+1E0h] [rbp+E0h] BYREF
+  _DWORD v30[44]; // [rsp+290h] [rbp+190h] BYREF
+  _QWORD v31[22]; // [rsp+340h] [rbp+240h] BYREF
 
-  memset(&v26[1], 0, 0x100uLL);
-  *(_QWORD *)&v17 = 0LL;
-  v18 = 0LL;
-  v21 = 0;
+  v26 = 0LL;
+  v25 = 0LL;
+  v24 = 0LL;
+  memset(v27, 0, 0xA8uLL);
+  memset(&v28[1], 0, 0xA0uLL);
+  memset(v29, 0, 0xA8uLL);
+  memset(v30, 0, 0xA8uLL);
+  memset(v31, 0, 0xA8uLL);
+  v23 = 0;
   v22 = 0;
-  memset(v23, 0, 0x108uLL);
-  memset(&v25[2], 0, 0x100uLL);
-  memset(v27, 0, 0x108uLL);
-  memset(&v24[2], 0, 0x100uLL);
-  memset(v28, 0, 0x108uLL);
-  v16 = 0;
-  v15 = 0;
-  if ( !PpmIntSteerDisabled )
+  if ( PpmIntSteerDisabled || !KiIntTrackRootEnabled )
+    return 1;
+  if ( !PpmIntSteerTrigger )
   {
-    if ( KiIntTrackRootEnabled )
+    v18 = 8 * (unsigned int)HalQueryMaximumProcessorCount();
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v18, 0x6B725449u);
+    PpmIntSteerTrigger = (__int64)PoolWithTag;
+    if ( !PoolWithTag )
+      return 1;
+    memset(PoolWithTag, 0, (unsigned int)v18);
+  }
+  KeIntSteerSnapPerf(&v23, &v26);
+  KeComplementAffinityEx(v29, &PpmPerfCoreParkingMask);
+  KeQuerySystemAllowedCpuSetAffinity(&PpmCachedSystemAllowedCpuSet, &PpmCachedSystemAllowedCpuSetVersion);
+  KeAndAffinityEx(v29, &PpmCachedSystemAllowedCpuSet, v29);
+  LODWORD(v28[0]) = 1310721;
+  v0 = 0;
+  v1 = 0;
+  v2 = 0;
+  memset((char *)v28 + 4, 0, 0xA4uLL);
+  v3 = qword_140CFC848;
+  v4 = v26;
+  *(_QWORD *)&v24 = KeActiveProcessors;
+  while ( v3 )
+  {
+LABEL_6:
+    ++v0;
+    _BitScanForward64(&v5, v3);
+    v3 &= ~(1LL << v5);
+    v22 = KiProcessorNumberToIndexMappingTable[64 * (unsigned __int16)v25 + (unsigned __int8)v5];
+    v6 = KiProcessorIndexToNumberMappingTable[v22];
+    v7 = v6 & 0x3F;
+    if ( ((v29[((unsigned __int64)v6 >> 6) + 1] >> (KiProcessorIndexToNumberMappingTable[v22] & 0x3F)) & 1) != 0 )
     {
-      if ( PpmIntSteerTrigger
-        || (MaximumProcessorCount = HalQueryMaximumProcessorCount(),
-            (PpmIntSteerTrigger = ExAllocatePool2(64LL, (unsigned int)(8 * MaximumProcessorCount), 1802654793LL)) != 0) )
+      ++v2;
+      v8 = *(_QWORD *)(PpmIntSteerTrigger + 8LL * v22);
+      if ( !v8 )
       {
-        LODWORD(v26[0]) = 2097153;
-        memset((char *)v26 + 4, 0, 0x104uLL);
-        KiCopyAffinityEx((__int64)v26, 0x20u, (unsigned __int16 *)&KeActiveProcessors);
-        KeIntSteerSnapPerf(v0, &v18, &v16, (__int64 *)&v17);
-        v24[0] = 2097153;
-        memset(&v24[1], 0, 0x104uLL);
-        KiComplementAffinityEx(v24, 32LL, PpmPerfCoreParkingMask);
-        KeQuerySystemAllowedCpuSetAffinity(&PpmCachedSystemAllowedCpuSet, &PpmCachedSystemAllowedCpuSetVersion);
-        KiAndAffinityEx((unsigned __int16 *)v24, (unsigned __int16 *)&PpmCachedSystemAllowedCpuSet, v24, HIWORD(v24[0]));
-        v25[0] = 2097153;
-        v1 = 0;
-        v2 = 0;
-        memset(&v25[1], 0, 0x104uLL);
-        v3 = v17;
-        v19[1] = v26[1];
-        v19[0] = v26;
-        v20 = 0;
-        while ( !(unsigned int)KeEnumerateNextProcessor(&v15, v19) )
-        {
-          v4 = v15;
-          if ( (unsigned int)KeCheckProcessorAffinityEx(v24, v15) )
-          {
-            v5 = (__int64 *)(PpmIntSteerTrigger + 8 * v4);
-            ++v2;
-            v6 = *v5;
-            if ( !*v5 )
-            {
-              *v5 = v3;
-              v6 = v3;
-            }
-            if ( v3 - v6 >= (unsigned __int64)(10000 * PpmIntSteerTriggerMax) )
-            {
-              KeAddProcessorAffinityEx(v25, (unsigned int)v4);
-              ++v1;
-            }
-          }
-          else
-          {
-            *(_QWORD *)(PpmIntSteerTrigger + 8 * v4) = 0LL;
-          }
-        }
-        if ( !v2 )
-        {
-          if ( (_WORD)PpmCachedSystemAllowedCpuSet == 1 )
-          {
-            v17 = (unsigned __int64)qword_140C38D08;
-            LowestClassProcessorInMask = KiIntPartGetLowestClassProcessorInMask((__int64 *)&v17);
-          }
-          else
-          {
-            LowestClassProcessorInMask = 0;
-          }
-          KeAddProcessorAffinityEx(v24, LowestClassProcessorInMask);
-          v2 = 1;
-        }
-        if ( !v1 )
-        {
-          KiCopyAffinityEx((__int64)v25, HIWORD(v25[0]), (unsigned __int16 *)v24);
-          v1 = v2;
-        }
-        switch ( PpmIntSteerMode )
-        {
-          case 0:
-            goto LABEL_15;
-          case 1:
-            v9 = 0LL;
-            v8 = v26;
-            v7 = 0LL;
-            break;
-          case 2:
-            v9 = 0LL;
-            v8 = v25;
-            v7 = 0LL;
-            break;
-          case 3:
-            v9 = 0LL;
-            v8 = v24;
-            v7 = 0LL;
-            break;
-          default:
-            if ( (unsigned int)(PpmIntSteerMode - 5) > 1 )
-            {
-LABEL_15:
-              v7 = v25;
-              v8 = v24;
-              v9 = 0LL;
-              v10 = (PpmIntSteerLoadMax + v16) / (unsigned int)PpmIntSteerLoadMax;
-              if ( v10 < v1 )
-              {
-                v23[0] = 2097153;
-                memset(&v23[1], 0, 0x104uLL);
-                v28[0] = 2097153;
-                memset(&v28[1], 0, 0x104uLL);
-                if ( PpmParkPreferenceHandler )
-                  PpmParkPreferenceHandler(1LL, PpmCheckTime, v10, v25, 0LL, 0LL, v28, v23);
-                v11 = KeCountSetBitsAffinityEx(v23);
-                if ( v11 <= v10 )
-                {
-                  if ( v11 < v10 )
-                  {
-                    v27[0] = 2097153;
-                    memset(&v27[1], 0, 0x104uLL);
-                    KiSubtractAffinityEx(v25, v28, v27, 32LL);
-                    KiOrAffinityEx(v23, v27, v23, HIWORD(v23[0]));
-                    v11 = KeCountSetBitsAffinityEx(v23);
-                  }
-                  if ( v11 )
-                    v9 = v23;
-                }
-              }
-              break;
-            }
-            v23[0] = 2097153;
-            memset(&v23[1], 0, 0x104uLL);
-            KeAddProcessorAffinityEx(v23, (unsigned int)(PpmIntSteerMode - 5));
-            v9 = 0LL;
-            v8 = v23;
-            v7 = 0LL;
-            break;
-        }
-        KeIntSteerPeriodic((__int64)v18, (__int64)v9, (__int64)v7, (__int64)v8);
+        v8 = v4;
+        *(_QWORD *)(PpmIntSteerTrigger + 8LL * v22) = v4;
+      }
+      if ( v4 - v8 >= (unsigned __int64)(10000 * PpmIntSteerTriggerMax) )
+      {
+        v9 = v6 >> 6;
+        if ( LOWORD(v28[0]) <= (unsigned int)v9 )
+          LOWORD(v28[0]) = v9 + 1;
+        v10 = v28[v9 + 1];
+        _bittestandset64(&v10, v7);
+        v28[v9 + 1] = v10;
+        ++v1;
       }
     }
+    else
+    {
+      *(_QWORD *)(8LL * v22 + PpmIntSteerTrigger) = 0LL;
+    }
   }
+  while ( 1 )
+  {
+    LOWORD(v25) = v25 + 1;
+    if ( (unsigned __int16)v25 >= (unsigned int)(unsigned __int16)KeActiveProcessors[0] )
+      break;
+    *((_QWORD *)&v24 + 1) = *(_QWORD *)&KeActiveProcessors[4 * (unsigned __int16)v25 + 4];
+    v3 = *((_QWORD *)&v24 + 1);
+    if ( *((_QWORD *)&v24 + 1) )
+    {
+      v4 = v26;
+      goto LABEL_6;
+    }
+  }
+  if ( !v1 )
+  {
+    if ( v2 )
+    {
+      KeCopyAffinityEx(v28, v29);
+      v1 = v2;
+    }
+    else
+    {
+      FirstSetRightAffinity = KeFindFirstSetRightAffinityEx(&PpmCachedSystemAllowedCpuSet);
+      if ( FirstSetRightAffinity == -1 )
+        FirstSetRightAffinity = 0;
+      v22 = FirstSetRightAffinity;
+      KeAddProcessorAffinityEx(v28, FirstSetRightAffinity);
+      v1 = 1;
+    }
+  }
+  if ( PpmIntSteerMode < 1 )
+    goto LABEL_16;
+  switch ( PpmIntSteerMode )
+  {
+    case 1:
+      KeCopyAffinityEx(v27, KeActiveProcessors);
+      v2 = v0;
+      break;
+    case 2:
+      KeCopyAffinityEx(v27, v28);
+      v2 = v1;
+      break;
+    case 3:
+      KeCopyAffinityEx(v27, v29);
+      break;
+    default:
+      if ( (unsigned int)(PpmIntSteerMode - 5) > 1 )
+      {
+LABEL_16:
+        v2 = (PpmIntSteerLoadMax + v23) / (unsigned int)PpmIntSteerLoadMax;
+        if ( v2 >= v1 )
+        {
+          v2 = v1;
+          KeCopyAffinityEx(v27, v28);
+        }
+        else
+        {
+          LODWORD(v27[0]) = 1310721;
+          memset((char *)v27 + 4, 0, 0xA4uLL);
+          v30[0] = 1310721;
+          memset(&v30[1], 0, 0xA4uLL);
+          if ( PpmParkPreferenceHandler )
+            PpmParkPreferenceHandler(1LL, PpmCheckTime, v2, v28, 0LL, 0LL, v30, v27);
+          v11 = 0;
+          if ( LOWORD(v27[0]) )
+          {
+            v12 = &v27[1];
+            v13 = LOWORD(v27[0]);
+            do
+            {
+              v14 = *v12++;
+              v11 += (unsigned int)((0x101010101010101LL
+                                   * ((((v14 - ((v14 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                                     + (((v14 - ((v14 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+                                     + ((((v14 - ((v14 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                                       + (((v14 - ((v14 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24;
+              --v13;
+            }
+            while ( v13 );
+          }
+          v15 = v11 < v2;
+          if ( v11 > v2 )
+          {
+            LODWORD(v27[0]) = 1310721;
+            memset((char *)v27 + 4, 0, 0xA4uLL);
+            v15 = v2 != 0;
+            v11 = 0;
+          }
+          if ( v15 )
+          {
+            KeSubtractAffinityEx(v28, v30, v31);
+            *((_QWORD *)&v24 + 1) = v31[1];
+            *(_QWORD *)&v24 = v31;
+            LOWORD(v25) = 0;
+            while ( !(unsigned int)KeEnumerateNextProcessor(&v22, &v24) )
+            {
+              v16 = (unsigned int)KiProcessorIndexToNumberMappingTable[v22];
+              if ( ((v27[(v16 >> 6) + 1] >> (v16 & 0x3F)) & 1) == 0 )
+              {
+                KeAddProcessorAffinityEx(v27, v22);
+                if ( ++v11 >= v2 )
+                  goto LABEL_29;
+              }
+            }
+            if ( v11 < v2 )
+            {
+              *((_QWORD *)&v24 + 1) = v28[1];
+              *(_QWORD *)&v24 = v28;
+              LOWORD(v25) = 0;
+              while ( !(unsigned int)KeEnumerateNextProcessor(&v22, &v24) )
+              {
+                v21 = (unsigned int)KiProcessorIndexToNumberMappingTable[v22];
+                if ( ((v27[(v21 >> 6) + 1] >> (v21 & 0x3F)) & 1) == 0 )
+                {
+                  KeAddProcessorAffinityEx(v27, v22);
+                  if ( ++v11 >= v2 )
+                    break;
+                }
+              }
+            }
+          }
+        }
+        break;
+      }
+      LODWORD(v27[0]) = 1310721;
+      memset((char *)v27 + 4, 0, 0xA4uLL);
+      KeAddProcessorAffinityEx(v27, (unsigned int)(PpmIntSteerMode - 5));
+      v2 = 1;
+      break;
+  }
+LABEL_29:
+  if ( (unsigned int)KeIsEmptyAffinityEx(v27) )
+    KeAddProcessorAffinityEx(v27, 0LL);
+  KeIntSteerPeriodic(v27, v2);
   return 1;
 }

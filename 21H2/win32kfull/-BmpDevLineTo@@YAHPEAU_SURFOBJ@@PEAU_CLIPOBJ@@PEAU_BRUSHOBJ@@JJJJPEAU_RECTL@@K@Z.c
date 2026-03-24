@@ -1,13 +1,13 @@
 /*
- * XREFs of ?BmpDevLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C0298660
+ * XREFs of ?BmpDevLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C0299DB0
  * Callers:
  *     <none>
  * Callees:
- *     EngLineTo @ 0x1C01338B0 (EngLineTo.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C0297AF8 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C0297B30 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
- *     ?bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C0299814 (-bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     EngLineTo @ 0x1C01497F0 (EngLineTo.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C0299278 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C02992B0 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
+ *     ?bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029AF38 (-bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
  */
 
 __int64 __fastcall BmpDevLineTo(
@@ -42,24 +42,24 @@ __int64 __fastcall BmpDevLineTo(
     {
       if ( (*(_DWORD *)(HDEV + 40) & 0x20000000) != 0 )
       {
-        for ( i = **(_QWORD ***)(HDEV + 1768); i; i = (_QWORD *)*i )
+        for ( i = **(_QWORD ***)(HDEV + 1800); i; i = (_QWORD *)*i )
         {
           v17 = i[6];
           v21 = v17;
           if ( v17 )
           {
-            if ( (*(_DWORD *)(v17 + 1792) & 0x8000000) != 0 )
+            if ( (*(_DWORD *)(v17 + 1824) & 0x8000000) != 0 )
             {
-              v18 = *(_DWORD *)(v17 + 2096);
+              v18 = *(_DWORD *)(v17 + 2128);
               if ( (v18 & 0x1000) != 0 && (v18 & 0x8000) != 0 )
               {
-                if ( *(_QWORD *)(*(_QWORD *)(v17 + 1760) + 312LL) )
+                if ( *(_QWORD *)(*(_QWORD *)(v17 + 1792) + 312LL) )
                 {
                   MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
                     (MARK_ACCDRV_NOTIFICATION *)&v22,
                     (struct PDEVOBJ *)&v21,
                     a1);
-                  (*(void (__fastcall **)(struct _SURFOBJ *, CLIPOBJ *, BRUSHOBJ *, _QWORD, LONG, LONG, LONG, RECTL *, MIX))(*(_QWORD *)(v19 + 1760) + 312LL))(
+                  (*(void (__fastcall **)(struct _SURFOBJ *, CLIPOBJ *, BRUSHOBJ *, _QWORD, LONG, LONG, LONG, RECTL *, MIX))(*(_QWORD *)(v19 + 1792) + 312LL))(
                     a1,
                     pco,
                     pbo,

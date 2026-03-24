@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceBatteryTriggerFlags @ 0x140870C30
+ * XREFs of PopDiagTraceBatteryTriggerFlags @ 0x14077FDCC
  * Callers:
- *     PopResetCBTriggers @ 0x140825B3C (PopResetCBTriggers.c)
- *     PopBatteryApplyCompositeState @ 0x140870950 (PopBatteryApplyCompositeState.c)
- *     PopRecalculateCBTriggerLevels @ 0x1409960BC (PopRecalculateCBTriggerLevels.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FB1C (PopBatteryApplyCompositeState.c)
+ *     PopResetCBTriggers @ 0x14079D1C8 (PopResetCBTriggers.c)
+ *     PopRecalculateCBTriggerLevels @ 0x1408EDD70 (PopRecalculateCBTriggerLevels.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x1403C3CBC (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_char @ 0x14034B7DC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 int __fastcall PopDiagTraceBatteryTriggerFlags(unsigned int *a1, __int64 a2)
@@ -39,7 +39,7 @@ int __fastcall PopDiagTraceBatteryTriggerFlags(unsigned int *a1, __int64 a2)
   __int64 v27; // [rsp+C0h] [rbp+3Fh]
 
   v2 = *a1;
-  v3 = dword_140C3D28C;
+  v3 = dword_140C23DAC;
   if ( (unsigned int)v2 < 4 )
   {
     v4 = IndexToActionName[v2];
@@ -49,7 +49,7 @@ int __fastcall PopDiagTraceBatteryTriggerFlags(unsigned int *a1, __int64 a2)
       if ( v5 != PopBatteryTriggerCachedFlags[v2] )
       {
         PopBatteryTriggerCachedFlags[v2] = v5;
-        if ( (unsigned int)dword_140C03950 > 5 )
+        if ( (unsigned int)dword_140C02228 > 5 )
         {
           tlgCreate1Sz_char((__int64)v17, v4);
           v11 = v6;
@@ -68,8 +68,8 @@ int __fastcall PopDiagTraceBatteryTriggerFlags(unsigned int *a1, __int64 a2)
           v15 = v3;
           v27 = 4LL;
           LODWORD(v2) = tlgWriteTransfer_EtwWriteTransfer(
-                          (__int64)&dword_140C03950,
-                          (unsigned __int8 *)&dword_14002E6B4,
+                          (__int64)&dword_140C02228,
+                          (unsigned __int8 *)&word_1400277C6,
                           0LL,
                           0LL,
                           8u,

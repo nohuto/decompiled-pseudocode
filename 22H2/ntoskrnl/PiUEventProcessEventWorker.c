@@ -1,76 +1,76 @@
 /*
- * XREFs of PiUEventProcessEventWorker @ 0x1407825F0
+ * XREFs of PiUEventProcessEventWorker @ 0x14071A1F0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PiUEventNotifyDeviceInstanceChange @ 0x14077E900 (PiUEventNotifyDeviceInstanceChange.c)
- *     PiUEventDereferenceEventEntry @ 0x140782728 (PiUEventDereferenceEventEntry.c)
- *     PiUEventProcessBroadcastNotifications @ 0x140782788 (PiUEventProcessBroadcastNotifications.c)
- *     PiUEventNotifyTargetDeviceChange @ 0x140783A54 (PiUEventNotifyTargetDeviceChange.c)
- *     PiUEventNotifyDeviceInterfaceChange @ 0x140791798 (PiUEventNotifyDeviceInterfaceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x140872830 (PiUEventNotifyDeviceInstancePropertyChange.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PiUEventDereferenceEventEntry @ 0x14071A38C (PiUEventDereferenceEventEntry.c)
+ *     PiUEventProcessBroadcastNotifications @ 0x14071A450 (PiUEventProcessBroadcastNotifications.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x14071AF20 (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x140745CD8 (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x14076C16C (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x14077091C (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiUEventProcessEventWorker(PVOID P)
 {
-  int v2; // edi
+  int v1; // edi
   _DWORD *v3; // rbx
   int v4; // eax
-  __int64 v5; // rcx
+  int v5; // eax
+  __int64 v6; // rcx
 
-  v2 = 0;
+  v1 = 0;
   do
   {
     ExAcquireFastMutex(&PiUEventUsermodeEventQueueLock);
     v3 = PiUEventUsermodeEventQueue;
-    ExReleaseFastMutex(&PiUEventUsermodeEventQueueLock);
-    switch ( v3[22] )
+    KeReleaseGuardedMutex(&PiUEventUsermodeEventQueueLock);
+    v4 = v3[22];
+    switch ( v4 )
     {
+      case 3:
       case 1:
-LABEL_5:
-        v4 = PiUEventNotifyTargetDeviceChange(v3);
+        v5 = PiUEventNotifyTargetDeviceChange(v3);
         break;
       case 2:
-        v4 = PiUEventNotifyDeviceInterfaceChange(v3);
+        v5 = PiUEventNotifyDeviceInterfaceChange(v3);
         break;
-      case 3:
-        goto LABEL_5;
       case 4:
-        goto LABEL_17;
+        goto LABEL_18;
       case 9:
-        v4 = PiUEventNotifyDeviceInstancePropertyChange(v3);
+        v5 = PiUEventNotifyDeviceInstancePropertyChange(v3);
         break;
       default:
-        if ( (unsigned int)(v3[22] - 10) > 1 )
+        if ( v4 <= 9 || v4 > 11 )
         {
-LABEL_7:
+LABEL_5:
           PiUEventProcessBroadcastNotifications(v3);
-          goto LABEL_8;
+          goto LABEL_6;
         }
-LABEL_17:
-        v4 = PiUEventNotifyDeviceInstanceChange((__int64)v3);
+LABEL_18:
+        v5 = PiUEventNotifyDeviceInstanceChange(v3);
         break;
     }
-    if ( v4 >= 0 )
-      goto LABEL_7;
-LABEL_8:
+    if ( v5 >= 0 )
+      goto LABEL_5;
+LABEL_6:
     ExAcquireFastMutex(&PiUEventUsermodeEventQueueLock);
     if ( *((PVOID **)PiUEventUsermodeEventQueue + 1) != &PiUEventUsermodeEventQueue
-      || (v5 = *(_QWORD *)PiUEventUsermodeEventQueue,
+      || (v6 = *(_QWORD *)PiUEventUsermodeEventQueue,
           *(PVOID *)(*(_QWORD *)PiUEventUsermodeEventQueue + 8LL) != PiUEventUsermodeEventQueue) )
     {
       __fastfail(3u);
     }
     PiUEventUsermodeEventQueue = *(PVOID *)PiUEventUsermodeEventQueue;
-    *(_QWORD *)(v5 + 8) = &PiUEventUsermodeEventQueue;
+    *(_QWORD *)(v6 + 8) = &PiUEventUsermodeEventQueue;
     if ( PiUEventUsermodeEventQueue == &PiUEventUsermodeEventQueue )
-      v2 = 1;
-    ExReleaseFastMutex(&PiUEventUsermodeEventQueueLock);
+      v1 = 1;
+    KeReleaseGuardedMutex(&PiUEventUsermodeEventQueueLock);
     PiUEventDereferenceEventEntry(v3);
   }
-  while ( !v2 );
+  while ( !v1 );
   ExFreePoolWithTag(P, 0x59706E50u);
 }

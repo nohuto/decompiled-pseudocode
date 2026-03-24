@@ -1,45 +1,44 @@
 /*
- * XREFs of GdiMultiUserFontCleanup @ 0x1C008AAF0
+ * XREFs of GdiMultiUserFontCleanup @ 0x1C00E6080
  * Callers:
  *     <none>
  * Callees:
- *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C0089E94 (-vCleanUpFntCacheInternal@@YAXXZ.c)
- *     ?CleanUpEUDC@@YAXXZ @ 0x1C008A954 (-CleanUpEUDC@@YAXXZ.c)
- *     ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C008ABA0 (-bCleanupFontTable@@YAHPEAPEAVPFT@@@Z.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?vCleanupPrintKViewList@@YAXXZ @ 0x1C02B71CC (-vCleanupPrintKViewList@@YAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00E6238 (-vCleanUpFntCacheInternal@@YAXXZ.c)
+ *     ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00E63FC (-bCleanupFontTable@@YAHPEAPEAVPFT@@@Z.c)
+ *     ?CleanUpEUDC@@YAXXZ @ 0x1C00E6560 (-CleanUpEUDC@@YAXXZ.c)
  */
 
-void __fastcall GdiMultiUserFontCleanup(Gre::Base *a1)
+void GdiMultiUserFontCleanup()
 {
-  Gre::Base *v1; // rcx
-  struct PFT **v2; // rcx
-  __int64 v3; // rbx
-  struct PFT **v4; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v5; // rax
-  __int64 v6; // rcx
-  __int64 v7; // rcx
-  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v0; // rbx
+  void *v1; // rcx
+  __int64 v2; // [rsp+30h] [rbp+8h] BYREF
 
-  CleanUpEUDC(a1);
-  v2 = (struct PFT **)((char *)Gre::Base::Globals(v1) + 6368);
-  if ( *v2 )
-    bCleanupFontTable(v2);
-  v3 = *(_QWORD *)(SGDGetSessionState(v2) + 32);
-  if ( *(_QWORD *)(v3 + 20272) )
-    bCleanupFontTable((struct PFT **)(v3 + 20272));
-  v4 = (struct PFT **)(v3 + 20280);
-  if ( *(_QWORD *)(v3 + 20280) )
-    bCleanupFontTable(v4);
-  if ( *(_QWORD *)(v3 + 23392) )
-    vCleanupPrintKViewList();
-  v5 = Gre::Base::Globals((Gre::Base *)v4);
-  v6 = *((_QWORD *)v5 + 8);
-  if ( v6 )
+  CleanUpEUDC();
+  if ( gpPFTPrivate )
+    bCleanupFontTable(gpPFTPrivate);
+  if ( gpPFTPublic )
+    bCleanupFontTable((struct PFT **)&gpPFTPublic);
+  if ( gpPFTDevice )
+    bCleanupFontTable(&gpPFTDevice);
+  v0 = gpPrintKViewList;
+  if ( gpPrintKViewList )
   {
-    v8 = *((_QWORD *)v5 + 8);
-    GreAcquireSemaphore(v6);
-    vCleanUpFntCacheInternal(v7);
-    SEMOBJ::vUnlock((SEMOBJ *)&v8);
+    do
+    {
+      v1 = (void *)v0;
+      v0 = *(_QWORD *)(v0 + 32);
+      Win32FreePool(v1);
+    }
+    while ( v0 );
+    gpPrintKViewList = 0LL;
+  }
+  if ( ghsemFntCache )
+  {
+    v2 = ghsemFntCache;
+    GreAcquireSemaphore(ghsemFntCache);
+    vCleanUpFntCacheInternal();
+    SEMOBJ::vUnlock((SEMOBJ *)&v2);
   }
 }

@@ -1,48 +1,57 @@
 /*
- * XREFs of DpIsDevicePresent @ 0x1C0398E10
+ * XREFs of DpIsDevicePresent @ 0x1C02C64B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DpIsDevicePresent(__int64 a1, __int64 a2, _BYTE *a3)
 {
   unsigned int v3; // ebx
-  __int64 v7; // rdi
-  __int64 (__fastcall *v8)(_QWORD, __int64); // rax
-  __int64 v9; // rdx
+  __int64 v4; // rdi
+  _QWORD *v5; // rax
+  __int64 (__fastcall *v6)(_QWORD); // rax
+  __int64 v7; // rax
 
   v3 = 0;
   if ( !a1
     || !a2
     || !a3
-    || (v7 = *(_QWORD *)(a1 + 64)) == 0
-    || *(_DWORD *)(v7 + 16) != 1953656900
-    || (unsigned int)(*(_DWORD *)(v7 + 20) - 2) > 1 )
+    || (a1 = *(_QWORD *)(a1 + 64)) == 0
+    || *(_DWORD *)(a1 + 16) != 1953656900
+    || (unsigned int)(*(_DWORD *)(a1 + 20) - 2) > 1 )
   {
-    v3 = -1073741811;
-LABEL_14:
-    v9 = -1073741811LL;
-    goto LABEL_15;
+    v4 = -1073741811LL;
+    goto LABEL_14;
   }
   if ( KeGetCurrentIrql() )
   {
+    v4 = -1073741811LL;
     v3 = -1073741811;
-    if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 64) + 40LL) + 28LL) >= 0x2003u )
-      WdLogSingleEntry3(0LL, 275LL, 21LL, -1073741811LL);
-    goto LABEL_14;
+    if ( *(_DWORD *)(*(_QWORD *)(a1 + 40) + 28LL) >= 0x2003u )
+    {
+      v5 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+      v5[3] = 275LL;
+      v5[4] = 21LL;
+      v5[5] = -1073741811LL;
+      WdLogEvent5_WdCriticalError(v5);
+    }
+    goto LABEL_15;
   }
   *a3 = 0;
-  v8 = *(__int64 (__fastcall **)(_QWORD, __int64))(v7 + 664);
-  if ( !v8 )
+  v6 = *(__int64 (__fastcall **)(_QWORD))(a1 + 664);
+  if ( !v6 )
   {
-    v9 = -1073741823LL;
-    v3 = -1073741823;
+    v4 = -1073741823LL;
+LABEL_14:
+    v3 = v4;
 LABEL_15:
-    WdLogSingleEntry1(2LL, v9);
+    v7 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v7 + 24) = v4;
+    WdLogEvent5_WdError(v7);
     return v3;
   }
-  *a3 = v8(*(_QWORD *)(v7 + 632), a2);
+  *a3 = v6(*(_QWORD *)(a1 + 632));
   return v3;
 }

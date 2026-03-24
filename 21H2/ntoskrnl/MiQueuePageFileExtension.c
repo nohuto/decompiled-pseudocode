@@ -1,20 +1,20 @@
 /*
- * XREFs of MiQueuePageFileExtension @ 0x14059CE7C
+ * XREFs of MiQueuePageFileExtension @ 0x140543DFC
  * Callers:
- *     MiContractPagingFiles @ 0x140216C84 (MiContractPagingFiles.c)
- *     MiIssuePageExtendRequest @ 0x14059C99C (MiIssuePageExtendRequest.c)
- *     MiContractWsSwapPageFileWorker @ 0x1405B7340 (MiContractWsSwapPageFileWorker.c)
+ *     MiContractPagingFiles @ 0x140296C40 (MiContractPagingFiles.c)
+ *     MiIssuePageExtendRequest @ 0x140543944 (MiIssuePageExtendRequest.c)
+ *     MiContractWsSwapPageFileWorker @ 0x14055C4B0 (MiContractWsSwapPageFileWorker.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KeReleaseSemaphoreEx @ 0x14035AD70 (KeReleaseSemaphoreEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiQueuePageFileExtension(__int64 a1, char a2, KIRQL a3)
 {
-  __int64 v3; // rbx
-  KIRQL v4; // di
+  __int64 v3; // rdi
+  KIRQL v4; // si
   _QWORD *v7; // rcx
   _QWORD *v8; // rdx
   _QWORD *v9; // rdx
@@ -51,7 +51,7 @@ LABEL_7:
   *v9 = v7;
   *(_QWORD *)(v3 + 1592) = v7;
   if ( *(_QWORD *)(a1 + 32) != -1LL )
-    ++*(_DWORD *)(v3 + 2028);
+    ++*(_DWORD *)(v3 + 1868);
 LABEL_10:
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 1344));
   if ( KiIrqlFlags )
@@ -72,5 +72,5 @@ LABEL_10:
     }
   }
   __writecr8(v4);
-  return KeReleaseSemaphoreEx((volatile signed __int32 *)(v3 + 1520), 0LL, 1LL, SchedulerAssist, a2);
+  return KeReleaseSemaphoreEx(v3 + 1520, 0LL, 1LL, SchedulerAssist, a2);
 }

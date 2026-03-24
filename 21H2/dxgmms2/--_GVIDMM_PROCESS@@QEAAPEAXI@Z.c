@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GVIDMM_PROCESS@@QEAAPEAXI@Z @ 0x1C002CA14
+ * XREFs of ??_GVIDMM_PROCESS@@QEAAPEAXI@Z @ 0x1C00224D4
  * Callers:
- *     VidMmCreateProcess @ 0x1C00015E0 (VidMmCreateProcess.c)
+ *     VidMmCreateProcess @ 0x1C00020A0 (VidMmCreateProcess.c)
  * Callees:
- *     ??1VIDMM_PROCESS@@QEAA@XZ @ 0x1C008245C (--1VIDMM_PROCESS@@QEAA@XZ.c)
+ *     ??1VIDMM_PROCESS@@QEAA@XZ @ 0x1C007A500 (--1VIDMM_PROCESS@@QEAA@XZ.c)
  */
 
 VIDMM_PROCESS *__fastcall VIDMM_PROCESS::`scalar deleting destructor'(VIDMM_PROCESS *P)

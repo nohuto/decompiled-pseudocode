@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetFullscreenGammaRampAdjustment@DXGDEVICE@@QEAAXIPEAUDXGK_GAMMA_ADJUSTMENT@@@Z @ 0x1C02E75E4
+ * XREFs of ?SetFullscreenGammaRampAdjustment@DXGDEVICE@@QEAAXIPEAUDXGK_GAMMA_ADJUSTMENT@@@Z @ 0x1C02568A0
  * Callers:
- *     DxgkAdjustFullscreenGamma @ 0x1C02D0490 (DxgkAdjustFullscreenGamma.c)
+ *     DxgkAdjustFullscreenGamma @ 0x1C0222680 (DxgkAdjustFullscreenGamma.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall DXGDEVICE::SetFullscreenGammaRampAdjustment(

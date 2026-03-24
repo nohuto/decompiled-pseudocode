@@ -1,12 +1,12 @@
 /*
- * XREFs of GetRegistrySettingsForSpecificKey @ 0x1C0027674
+ * XREFs of GetRegistrySettingsForSpecificKey @ 0x1C001E008
  * Callers:
- *     NVMeControllerValidateFirmwareActivateCapability @ 0x1C0014F60 (NVMeControllerValidateFirmwareActivateCapability.c)
+ *     NVMeControllerValidateFirmwareActivateCapability @ 0x1C0014220 (NVMeControllerValidateFirmwareActivateCapability.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003750 (__security_check_cookie.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     ReadMultiSzRegistryValueAndCompareId @ 0x1C00278D8 (ReadMultiSzRegistryValueAndCompareId.c)
- *     UlongToHex @ 0x1C0027AA4 (UlongToHex.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     __security_check_cookie @ 0x1C00066D0 (__security_check_cookie.c)
+ *     ReadMultiSzRegistryValueAndCompareId @ 0x1C001E16C (ReadMultiSzRegistryValueAndCompareId.c)
+ *     UlongToHex @ 0x1C001E338 (UlongToHex.c)
  */
 
 __int64 __fastcall GetRegistrySettingsForSpecificKey(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall GetRegistrySettingsForSpecificKey(__int64 a1)
   __int64 v14; // [rsp+60h] [rbp+27h] BYREF
   char v15[32]; // [rsp+68h] [rbp+2Fh] BYREF
 
-  v1 = *(_BYTE *)(a1 + 20) == 0;
+  v1 = *(_BYTE *)(a1 + 16) == 0;
   strcpy(v15, "VEN_vvvv&DEV_dddd&REV_rr");
   v11 = 512;
   if ( !v1 )
@@ -39,16 +39,17 @@ __int64 __fastcall GetRegistrySettingsForSpecificKey(__int64 a1)
   v6 = 0;
   v7 = v15;
   v8 = 29;
-  while ( *v7 )
+  do
   {
+    if ( !*v7 )
+      break;
     ++v6;
     ++v7;
-    if ( v6 >= 0x1D )
-      goto LABEL_8;
   }
-  v8 = v6;
-LABEL_8:
+  while ( v6 < 0x1D );
   v13 = v11;
+  if ( v6 < 0x1D )
+    v8 = v6;
   NVMeZeroMemory(v5, v11);
   v12 = 0;
   ReadMultiSzRegistryValueAndCompareId(

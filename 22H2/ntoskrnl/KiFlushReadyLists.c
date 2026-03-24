@@ -1,55 +1,43 @@
 /*
- * XREFs of KiFlushReadyLists @ 0x14057DE44
+ * XREFs of KiFlushReadyLists @ 0x140525A3C
  * Callers:
- *     KiParkCurrentProcessor @ 0x14057DF2C (KiParkCurrentProcessor.c)
+ *     KeTransitionProcessorParkState @ 0x1405253EC (KeTransitionProcessorParkState.c)
  * Callees:
- *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x140243C00 (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
- *     KiInsertDeferredReadyList @ 0x1402B9C24 (KiInsertDeferredReadyList.c)
- *     KiAcquireSoftParkElectionLock @ 0x14040FAD4 (KiAcquireSoftParkElectionLock.c)
+ *     KiInsertDeferredReadyList @ 0x14035BAA0 (KiInsertDeferredReadyList.c)
  */
 
-void __fastcall KiFlushReadyLists(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4)
+void __fastcall KiFlushReadyLists(__int64 a1, unsigned int *a2, __int64 a3)
 {
-  unsigned int v8; // esi
-  unsigned int v9; // eax
-  _QWORD *v10; // rcx
-  _QWORD *v11; // rdi
-  _QWORD *v12; // rax
-  _QWORD *v13; // r15
-  __int64 v14; // rdx
+  unsigned int v3; // r11d
+  __int64 v7; // r9
+  _QWORD *v8; // r9
+  __int64 v9; // r10
+  _QWORD *v10; // rax
+  __int64 v11; // rdi
 
-  if ( a4 )
-    KiAcquireSoftParkElectionLock(a4);
-  v8 = *a2;
+  v3 = *a2;
   if ( *a2 )
   {
     do
     {
-      _BitScanForward(&v9, v8);
-      v10 = (_QWORD *)(a1 + 16LL * v9);
-      v8 &= v8 - 1;
-      v11 = (_QWORD *)*v10;
-      if ( *(_QWORD **)(*v10 + 8LL) != v10 || (v12 = (_QWORD *)v10[1], (_QWORD *)*v12 != v10) )
+      _BitScanForward((unsigned int *)&v7, v3);
+      v8 = (_QWORD *)(a1 + 16 * v7);
+      v9 = *v8;
+      if ( *(_QWORD **)(*v8 + 8LL) != v8 || (v10 = (_QWORD *)v8[1], (_QWORD *)*v10 != v8) )
         __fastfail(3u);
-      *v12 = v11;
-      v13 = v11;
-      v11[1] = v12;
-      v10[1] = v10;
-      *v10 = v10;
+      *v10 = v9;
+      v11 = v9;
+      *(_QWORD *)(v9 + 8) = v10;
+      v8[1] = v8;
+      *v8 = v8;
       do
       {
-        if ( a4 )
-          KiUpdateSoftParkElectionStatisticsOnRemoval(a4, (__int64)(v11 - 27), 1);
-        *((_DWORD *)v11 - 25) |= 2u;
-        v14 = (__int64)(v11 - 27);
-        v11 = (_QWORD *)*v11;
-        KiInsertDeferredReadyList(a3, v14);
+        *(_DWORD *)(v9 - 216 + 116) |= 2u;
+        KiInsertDeferredReadyList(a3, v9 - 216);
       }
-      while ( v11 != v13 );
+      while ( v9 != v11 );
     }
-    while ( v8 );
+    while ( v3 );
     *a2 = 0;
   }
-  if ( a4 )
-    _InterlockedAnd64((volatile signed __int64 *)(a4 + 688), 0LL);
 }

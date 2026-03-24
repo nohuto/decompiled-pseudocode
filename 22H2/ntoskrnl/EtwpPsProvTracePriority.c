@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpPsProvTracePriority @ 0x1405FE1FC
+ * XREFs of EtwpPsProvTracePriority @ 0x1405A922C
  * Callers:
- *     EtwTracePriority @ 0x140466D2E (EtwTracePriority.c)
+ *     EtwTracePriority @ 0x1405A7DE4 (EtwTracePriority.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTracePriority(__int64 a1, int a2, int a3, int a4)
@@ -55,10 +55,10 @@ NTSTATUS __fastcall EtwpPsProvTracePriority(__int64 a1, int a2, int a3, int a4)
   {
     v7 = (__int64 *)&ThreadCpuPriorityChange;
   }
-  v9 = *(_DWORD *)(a1 + 1224);
+  v9 = *(_DWORD *)(a1 + 1144);
   *(_QWORD *)&UserData.Size = 4LL;
   UserData.Ptr = (ULONGLONG)&v9;
-  v10 = *(_DWORD *)(a1 + 1232);
+  v10 = *(_DWORD *)(a1 + 1152);
   v12 = &v10;
   v14 = &v18;
   v16 = &v19;

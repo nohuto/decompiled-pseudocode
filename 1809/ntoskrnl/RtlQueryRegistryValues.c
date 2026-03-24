@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlQueryRegistryValues @ 0x1406C4A50
+ * XREFs of RtlQueryRegistryValues @ 0x1406C4A30
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpNumaParseHmat @ 0x140B4C634
+ * XREFs of HalpNumaParseHmat @ 0x140A8D0E4
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140AF968C (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpNumaQueryProximityNode @ 0x1403DEA70 (HalpNumaQueryProximityNode.c)
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpVerifyHmatEntryValidity @ 0x140B4CB64 (HalpVerifyHmatEntryValidity.c)
+ *     HalpNumaQueryProximityNode @ 0x1403CF7F0 (HalpNumaQueryProximityNode.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpVerifyHmatEntryValidity @ 0x140A8D578 (HalpVerifyHmatEntryValidity.c)
  */
 
 __int64 __fastcall HalpNumaParseHmat(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int *a4)
@@ -40,9 +40,12 @@ __int64 __fastcall HalpNumaParseHmat(__int64 a1, _QWORD *a2, unsigned int a3, un
 LABEL_3:
       v10 = -1073741789;
 LABEL_25:
-      memset(a2, 0, v6);
-      if ( a4 )
-        *a4 = v6;
+      if ( (_DWORD)v6 )
+      {
+        memset(a2, 0, v6);
+        if ( a4 )
+          *a4 = v6;
+      }
       return v10;
     }
     *a2 = 0LL;
@@ -69,8 +72,6 @@ LABEL_25:
         {
 LABEL_24:
           v10 = -1073741216;
-          if ( !(_DWORD)v6 )
-            return v10;
           goto LABEL_25;
         }
         v9 = v19 + 40;

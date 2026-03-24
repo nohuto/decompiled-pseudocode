@@ -1,70 +1,53 @@
 /*
- * XREFs of ?SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z @ 0x18029C0F8
+ * XREFs of ?SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z @ 0x180259B30
  * Callers:
- *     ?ProcessCreate@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINTEROPTEXTURE_CREATE@@@Z @ 0x18029BB94 (-ProcessCreate@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINT.c)
- *     ?ProcessSetRoot@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINTEROPTEXTURE_SETROOT@@@Z @ 0x18029BE84 (-ProcessSetRoot@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICIN.c)
+ *     ?ProcessSetRoot@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINTEROPTEXTURE_SETROOT@@@Z @ 0x1802598D0 (-ProcessSetRoot@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICIN.c)
  * Callees:
- *     ?reserve_region@?$vector_facade@PEAVIVisualTreeClient@@V?$buffer_impl@PEAVIVisualTreeClient@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAPEAVIVisualTreeClient@@_K0@Z @ 0x180025344 (-reserve_region@-$vector_facade@PEAVIVisualTreeClient@@V-$buffer_impl@PEAVIVisualTreeClient@@$03.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z @ 0x1801F5F68 (-Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z.c)
- *     ??$ReleaseInterface@VCVisual@@@@YAXAEAPEAVCVisual@@@Z @ 0x18029A8AC (--$ReleaseInterface@VCVisual@@@@YAXAEAPEAVCVisual@@@Z.c)
- *     ?ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ @ 0x18029C0C4 (-ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ.c)
+ *     ?reserve_region@?$vector_facade@PEBVCRenderingTechniqueFragment@@V?$buffer_impl@PEBVCRenderingTechniqueFragment@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAPEBVCRenderingTechniqueFragment@@_K0@Z @ 0x1800267C0 (-reserve_region@-$vector_facade@PEBVCRenderingTechniqueFragment@@V-$buffer_impl@PEBVCRenderingTe.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z @ 0x1801B22FC (-Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z.c)
+ *     ?ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ @ 0x180259AFC (-ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ.c)
  */
 
-__int64 __fastcall CHolographicInteropTexture::SetRootVisual(CHolographicInteropTexture *this, CVisual **a2)
+__int64 __fastcall CHolographicInteropTexture::SetRootVisual(CHolographicInteropTexture *this, struct CVisual *a2)
 {
-  struct CDesktopTree *v4; // rbx
-  unsigned int v5; // eax
-  int v6; // eax
-  __int64 v7; // rcx
-  unsigned int v8; // esi
-  struct CDesktopTree *v10; // [rsp+58h] [rbp+10h] BYREF
+  struct CDesktopTree *v2; // rbx
+  int v4; // eax
+  __int64 v5; // rcx
+  unsigned int v6; // esi
+  struct _LUID v8; // [rsp+48h] [rbp+10h]
+  struct CDesktopTree *v9; // [rsp+50h] [rbp+18h] BYREF
 
-  v4 = 0LL;
-  ReleaseInterface<CVisual>((__int64 *)this + 13);
+  v2 = 0LL;
   if ( a2 )
   {
-    v5 = *((_DWORD *)this + 56);
-    if ( v5 )
+    v8.LowPart = *((_DWORD *)this + 52);
+    v8.HighPart = -2;
+    v4 = CDesktopTree::Create(*((struct CComposition **)this + 2), a2, v8, &v9);
+    v6 = v4;
+    if ( v4 < 0 )
     {
-      v6 = CDesktopTree::Create(
-             *((struct CComposition **)this + 2),
-             a2,
-             (struct _LUID)(v5 | 0xFFFFFFFE00000000uLL),
-             (struct _LUID **)&v10);
-      v8 = v6;
-      if ( v6 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x10Eu);
-        return v8;
-      }
-      v4 = v10;
+      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0xEEu, 0LL);
+      return v6;
     }
-    else
-    {
-      *((_QWORD *)this + 13) = a2;
-      (*((void (__fastcall **)(CVisual **))*a2 + 1))(a2);
-    }
+    v2 = v9;
   }
-  if ( v4 != *((struct CDesktopTree **)this + 12) )
+  if ( v2 != *((struct CDesktopTree **)this + 11) )
   {
     CHolographicInteropTexture::ReleaseVisualTree(this);
-    if ( v4 )
+    if ( v2 )
     {
-      *(_QWORD *)detail::vector_facade<IVisualTreeClient *,detail::buffer_impl<IVisualTreeClient *,4,1,detail::liberal_expansion_policy>>::reserve_region(
-                   (struct CDesktopTree *)((char *)v4 + 4536),
-                   (__int64)(*((_QWORD *)v4 + 568) - *((_QWORD *)v4 + 567)) >> 3) = (char *)this + 64;
-      *((_BYTE *)v4 + 4712) = 1;
-      *((_QWORD *)this + 12) = v4;
-      (*(void (__fastcall **)(struct CDesktopTree *))(*(_QWORD *)v4 + 8LL))(v4);
-LABEL_11:
-      (*(void (__fastcall **)(struct CDesktopTree *))(*(_QWORD *)v4 + 16LL))(v4);
-      return 0;
+      *(_QWORD *)detail::vector_facade<CRenderingTechniqueFragment const *,detail::buffer_impl<CRenderingTechniqueFragment const *,16,1,detail::liberal_expansion_policy>>::reserve_region(
+                   (struct CDesktopTree *)((char *)v2 + 5728),
+                   (__int64)(*((_QWORD *)v2 + 717) - *((_QWORD *)v2 + 716)) >> 3) = (char *)this + 56;
+      *((_BYTE *)v2 + 5893) = 1;
+      *((_QWORD *)this + 11) = v2;
+      (*(void (__fastcall **)(struct CDesktopTree *))(*(_QWORD *)v2 + 8LL))(v2);
     }
   }
-  v8 = 0;
-  if ( v4 )
-    goto LABEL_11;
-  return v8;
+  v6 = 0;
+  if ( v2 )
+    (*(void (__fastcall **)(struct CDesktopTree *))(*(_QWORD *)v2 + 16LL))(v2);
+  return v6;
 }

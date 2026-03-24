@@ -1,24 +1,23 @@
 /*
- * XREFs of CmpHashUnicodeComponent @ 0x140708D90
+ * XREFs of CmpHashUnicodeComponent @ 0x1406E3014
  * Callers:
- *     CmDeleteLayeredKey @ 0x14061695C (CmDeleteLayeredKey.c)
- *     CmpGetNameControlBlock @ 0x1406D8F90 (CmpGetNameControlBlock.c)
- *     CmpCheckLeaf @ 0x1406DCB70 (CmpCheckLeaf.c)
- *     CmpAddToLeaf @ 0x140708AA4 (CmpAddToLeaf.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1407697F0 (CmpFindSubkeyInHashByChildCell.c)
- *     CmpAddStringToMapping @ 0x1407E4470 (CmpAddStringToMapping.c)
- *     CmpFindSubKeyByHashWithStatus @ 0x140826618 (CmpFindSubKeyByHashWithStatus.c)
- *     CmpWaitForHiveMount @ 0x14084E90C (CmpWaitForHiveMount.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpDoBuildVirtualStack @ 0x140A1916C (CmpDoBuildVirtualStack.c)
- *     CmpGetMappingHiveForString @ 0x140A19C18 (CmpGetMappingHiveForString.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x140A20448 (CmpSubtreeEnumeratorAdvance.c)
- *     CmpPartialPromoteSubkeys @ 0x140A26450 (CmpPartialPromoteSubkeys.c)
- *     CmpCreateRegistryRoot @ 0x140B39780 (CmpCreateRegistryRoot.c)
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
+ *     CmDeleteLayeredKey @ 0x1404ECFB8 (CmDeleteLayeredKey.c)
+ *     CmpCheckLeaf @ 0x1405EBF20 (CmpCheckLeaf.c)
+ *     CmpGetNameControlBlock @ 0x1405EFC10 (CmpGetNameControlBlock.c)
+ *     CmpAddStringToMapping @ 0x1406A4D14 (CmpAddStringToMapping.c)
+ *     CmpAddToLeaf @ 0x1406E290C (CmpAddToLeaf.c)
+ *     CmpGetMappingHiveForString @ 0x1406EB5F8 (CmpGetMappingHiveForString.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x14072A84C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x140765B90 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpFindSubKeyByHashWithStatus @ 0x1407ACED0 (CmpFindSubKeyByHashWithStatus.c)
+ *     CmpWaitForHiveMount @ 0x1407C4644 (CmpWaitForHiveMount.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmpDoBuildVirtualStack @ 0x14086FFEC (CmpDoBuildVirtualStack.c)
+ *     CmpPartialPromoteSubkeys @ 0x140880110 (CmpPartialPromoteSubkeys.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
+ *     CmpCreateRegistryRoot @ 0x140A5AED4 (CmpCreateRegistryRoot.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall CmpHashUnicodeComponent(__m128i *a1)
@@ -27,9 +26,7 @@ __int64 __fastcall CmpHashUnicodeComponent(__m128i *a1)
   __int16 v2; // ax
   unsigned __int16 *v3; // r10
   __int64 v4; // r11
-  unsigned __int16 v5; // dx
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v8; // dx
+  unsigned __int16 v5; // ax
 
   v1 = 0;
   v2 = _mm_cvtsi128_si32(*a1);
@@ -43,14 +40,9 @@ __int64 __fastcall CmpHashUnicodeComponent(__m128i *a1)
       if ( *v3 >= 0x61u )
       {
         if ( v5 > 0x7Au )
-        {
-          CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-          v5 = NLS_UPCASE(CurrentServerSiloGlobals[154], v8);
-        }
+          v5 = NLS_UPCASE(v5);
         else
-        {
           v5 -= 32;
-        }
       }
       ++v3;
       v1 = v5 + 37 * v1;

@@ -1,36 +1,29 @@
 /*
- * XREFs of IoGetAttachedDeviceReferenceWithTag @ 0x140302C00
+ * XREFs of IoGetAttachedDeviceReferenceWithTag @ 0x1403616F0
  * Callers:
- *     PopAllocateIrp @ 0x14028F314 (PopAllocateIrp.c)
- *     PipCallDriverAddDevice @ 0x1406C82E4 (PipCallDriverAddDevice.c)
- *     IopSynchronousCall @ 0x1407688B4 (IopSynchronousCall.c)
- *     PnpAsynchronousCall @ 0x1407954A4 (PnpAsynchronousCall.c)
- *     PnpQueryInterface @ 0x1407FD8F0 (PnpQueryInterface.c)
- *     PopFxRegisterDevice @ 0x14083806C (PopFxRegisterDevice.c)
- *     PiControlGetDeviceStack @ 0x140856970 (PiControlGetDeviceStack.c)
- *     IopEjectDevice @ 0x14096CDC8 (IopEjectDevice.c)
- *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x140983A14 (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
+ *     PopAllocateIrp @ 0x1403707A0 (PopAllocateIrp.c)
+ *     IopSynchronousCall @ 0x14071D3C0 (IopSynchronousCall.c)
+ *     PiControlGetDeviceStack @ 0x140730018 (PiControlGetDeviceStack.c)
+ *     PipCallDriverAddDevice @ 0x14073DE28 (PipCallDriverAddDevice.c)
+ *     PnpQueryInterface @ 0x1407653A4 (PnpQueryInterface.c)
+ *     PnpAsynchronousCall @ 0x14076872C (PnpAsynchronousCall.c)
+ *     PopFxRegisterDevice @ 0x1407B517C (PopFxRegisterDevice.c)
+ *     IopEjectDevice @ 0x1408B2A10 (IopEjectDevice.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     IoGetAttachedDevice @ 0x1402D3EF0 (IoGetAttachedDevice.c)
  */
 
-_QWORD *__fastcall IoGetAttachedDeviceReferenceWithTag(_QWORD *Object, ULONG Tag)
+PDEVICE_OBJECT __fastcall IoGetAttachedDeviceReferenceWithTag(PDEVICE_OBJECT DeviceObject, ULONG Tag)
 {
-  KIRQL v4; // al
-  _QWORD *v5; // r8
-  KIRQL v6; // si
+  KIRQL v4; // di
+  PDEVICE_OBJECT AttachedDevice; // rbx
 
   v4 = KeAcquireQueuedSpinLock(0xAuLL);
-  v5 = (_QWORD *)Object[3];
-  v6 = v4;
-  while ( v5 )
-  {
-    Object = v5;
-    v5 = (_QWORD *)v5[3];
-  }
-  ObfReferenceObjectWithTag(Object, Tag);
-  KeReleaseQueuedSpinLock(0xAuLL, v6);
-  return Object;
+  AttachedDevice = IoGetAttachedDevice(DeviceObject);
+  ObfReferenceObjectWithTag(AttachedDevice, Tag);
+  KeReleaseQueuedSpinLock(0xAuLL, v4);
+  return AttachedDevice;
 }

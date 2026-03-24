@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiPccExecuteCommand @ 0x1C00AFF90
+ * XREFs of AcpiPccExecuteCommand @ 0x1C00B0AD0
  * Callers:
  *     <none>
  * Callees:
- *     AcpiPccExecuteCommandAsync @ 0x1C005ACD0 (AcpiPccExecuteCommandAsync.c)
+ *     AcpiPccExecuteCommandAsync @ 0x1C0059D10 (AcpiPccExecuteCommandAsync.c)
  */
 
 __int64 __fastcall AcpiPccExecuteCommand(char *DeferredContext, char a2)

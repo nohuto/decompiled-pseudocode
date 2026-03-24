@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBFDO_EvtIoInternalDeviceControlFromPDO @ 0x1C000D1F0
+ * XREFs of HUBFDO_EvtIoInternalDeviceControlFromPDO @ 0x1C000CE10
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBFDO_EvtIoInternalDeviceControlFromPDO(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -21,7 +21,7 @@ __int64 __fastcall HUBFDO_EvtIoInternalDeviceControlFromPDO(__int64 a1, __int64 
   v7 = (__int64 *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                     WdfDriverGlobals,
                     v6,
-                    off_1C0067198);
+                    off_1C0066170);
   if ( a5 == 2228243 )
   {
     v12 = 0LL;
@@ -39,7 +39,7 @@ __int64 __fastcall HUBFDO_EvtIoInternalDeviceControlFromPDO(__int64 a1, __int64 
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_d(v7[315], 2u, 3u, 0x25u, (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids, a5);
+      WPP_RECORDER_SF_d(v7[315], 2u, 3u, 0x21u, (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids, a5);
     return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64))(WdfFunctions_01015 + 2104))(
              WdfDriverGlobals,
              a2,

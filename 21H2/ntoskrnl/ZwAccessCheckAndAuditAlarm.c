@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwAccessCheckAndAuditAlarm @ 0x14041BC80
+ * XREFs of ZwAccessCheckAndAuditAlarm @ 0x1403FA8C0
  * Callers:
- *     DifZwAccessCheckAndAuditAlarmWrapper @ 0x14061C620 (DifZwAccessCheckAndAuditAlarmWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

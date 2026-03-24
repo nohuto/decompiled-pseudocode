@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_RECORDER_SF_qq @ 0x1C00153C0
+ * XREFs of WPP_RECORDER_SF_qq @ 0x1C0013A28
  * Callers:
- *     HUBPDO_FindAndStoreMatchingInternalPipeHandle @ 0x1C00171CC (HUBPDO_FindAndStoreMatchingInternalPipeHandle.c)
- *     HUBPDO_EvtDeviceProcessQueryInterfaceRequest @ 0x1C001A920 (HUBPDO_EvtDeviceProcessQueryInterfaceRequest.c)
- *     HUBMISC_CreateNewDSM @ 0x1C00311F8 (HUBMISC_CreateNewDSM.c)
+ *     HUBPDO_FindAndStoreMatchingInternalPipeHandle @ 0x1C0015CAC (HUBPDO_FindAndStoreMatchingInternalPipeHandle.c)
+ *     HUBPDO_EvtDeviceProcessQueryInterfaceRequest @ 0x1C0018CB0 (HUBPDO_EvtDeviceProcessQueryInterfaceRequest.c)
+ *     HUBMISC_CreateNewDSM @ 0x1C002E02C (HUBMISC_CreateNewDSM.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_qq(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)
@@ -25,7 +25,7 @@ __int64 WPP_RECORDER_SF_qq(__int64 a1, unsigned __int8 a2, unsigned int a3, unsi
   v8 = a2;
   v10 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v7 + (((a3 - 1) >> 5) & 0x7FF) + 1);
   if ( _bittest(&v10, ((_BYTE)a3 - 1) & 0x1F) && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v7 + 1) >= a2 )
-    pfnWppTraceMessage(
+    ((void (__fastcall *)(_QWORD, __int64, __int64, _QWORD, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v7),
       43LL,
       a5,

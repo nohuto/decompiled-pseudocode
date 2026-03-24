@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIEcDispatchQueries @ 0x1C00535B8
+ * XREFs of ACPIEcDispatchQueries @ 0x1C0053F08
  * Callers:
- *     ACPIEcCompleteQueryMethod @ 0x1C0053540 (ACPIEcCompleteQueryMethod.c)
- *     ACPIEcServiceIoLoop @ 0x1C0053B78 (ACPIEcServiceIoLoop.c)
+ *     ACPIEcCompleteQueryMethod @ 0x1C0053E90 (ACPIEcCompleteQueryMethod.c)
+ *     ACPIEcServiceIoLoop @ 0x1C00544A4 (ACPIEcServiceIoLoop.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     ACPIEcRunQueryMethod @ 0x1C0053734 (ACPIEcRunQueryMethod.c)
- *     ACPIEcUnloadPending @ 0x1C00537E4 (ACPIEcUnloadPending.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIEcRunQueryMethod @ 0x1C0054084 (ACPIEcRunQueryMethod.c)
+ *     ACPIEcUnloadPending @ 0x1C00AF030 (ACPIEcUnloadPending.c)
  */
 
 void __fastcall ACPIEcDispatchQueries(__int64 a1)

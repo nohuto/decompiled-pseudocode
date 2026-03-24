@@ -1,139 +1,181 @@
 /*
- * XREFs of xxxDDETrackPostHook @ 0x1C01FB334
+ * XREFs of xxxDDETrackPostHook @ 0x1C021CACC
  * Callers:
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C011E780 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C00549A0 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z @ 0x1C01F997C (-FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z.c)
- *     ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C01FA858 (-xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
- *     ?xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FAE68 (-xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
- *     ?xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FAF30 (-xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
- *     xxxClientFreeDDEHandle @ 0x1C0212740 (xxxClientFreeDDEHandle.c)
- *     xxxClientGetDDEHookData @ 0x1C02128F8 (xxxClientGetDDEHookData.c)
- *     xxxMessageEvent @ 0x1C022B658 (xxxMessageEvent.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z @ 0x1C021A698 (-FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z.c)
+ *     ?xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z @ 0x1C021BB28 (-xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z.c)
+ *     ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C021BB88 (-xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
+ *     ?xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021C31C (-xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021C400 (-xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     xxxClientGetDDEHookData @ 0x1C02327D8 (xxxClientGetDDEHookData.c)
+ *     xxxMessageEvent @ 0x1C0246A78 (xxxMessageEvent.c)
  */
 
-__int64 __fastcall xxxDDETrackPostHook(unsigned int *a1, struct tagWND *a2, __int64 a3, void **a4)
+__int64 __fastcall xxxDDETrackPostHook(unsigned int *a1, struct tagWND *a2, __int64 a3, void **a4, int a5)
 {
-  struct tagDDECONV *DdeConv; // rdi
-  unsigned int v6; // ebx
-  __int64 v10; // rcx
-  struct tagWND *v11; // rax
-  __int64 v12; // r8
-  __int64 v13; // r9
-  struct tagFREELIST *v14; // rcx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
+  __int64 v5; // r14
+  int v10; // ebx
+  __int64 v11; // rcx
+  unsigned int v12; // ebx
+  struct tagWND *v13; // rax
+  __int64 v14; // rdx
+  struct tagWND *v15; // rbx
+  struct tagDDECONV *DdeConv; // rax
   __int64 v17; // r8
-  __int64 v18; // rax
-  unsigned int v19; // eax
-  __int64 v20; // rdx
-  __int128 v22; // [rsp+30h] [rbp-68h] BYREF
-  __int64 v23; // [rsp+40h] [rbp-58h]
-  _OWORD v24[3]; // [rsp+48h] [rbp-50h] BYREF
-  __int64 v25; // [rsp+78h] [rbp-20h]
+  __int64 ThreadWin32Thread; // rax
+  struct tagFREELIST *v19; // rcx
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  unsigned int v22; // eax
+  unsigned int v23; // esi
+  struct tagDDECONV *v24; // rcx
+  __int128 v26; // [rsp+30h] [rbp-50h] BYREF
+  __int64 v27; // [rsp+40h] [rbp-40h]
+  _OWORD v28[3]; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v29; // [rsp+78h] [rbp-8h]
+  struct tagDDECONV *v30; // [rsp+B8h] [rbp+38h]
 
-  DdeConv = 0LL;
-  v22 = 0LL;
-  v23 = 0LL;
-  v6 = 2;
-  if ( (MonitorFlags & 0x4000000) != 0 )
+  v5 = 0LL;
+  v27 = 0LL;
+  v10 = a5 != 0 ? 0x2000000 : 0x4000000;
+  v26 = 0LL;
+  if ( (v10 & MonitorFlags) != 0 )
   {
-    v10 = *a1;
-    memset(v24, 0, sizeof(v24));
-    v25 = 0LL;
-    if ( (_DWORD)v10 == 994 || (_DWORD)v10 == 996 || (_DWORD)v10 == 997 || (unsigned int)(v10 - 999) < 2 )
+    v11 = *a1;
+    v29 = 0LL;
+    memset(v28, 0, sizeof(v28));
+    if ( (_DWORD)v11 == 994
+      || (unsigned int)v11 > 0x3E3
+      && ((unsigned int)v11 <= 0x3E5 || (unsigned int)v11 > 0x3E6 && (unsigned int)v11 <= 0x3E8) )
     {
-      xxxClientGetDDEHookData(v10, *a4, v24);
+      xxxClientGetDDEHookData(v11, *a4, v28);
+      LODWORD(v11) = *a1;
     }
     else
     {
-      *(_QWORD *)&v24[0] = *(unsigned __int16 *)a4;
-      *((_QWORD *)&v24[0] + 1) = *((unsigned __int16 *)a4 + 1);
+      *(_QWORD *)&v28[0] = *(unsigned __int16 *)a4;
+      *((_QWORD *)&v28[0] + 1) = *((unsigned __int16 *)a4 + 1);
     }
-    xxxMessageEvent((_DWORD)a2, *a1, a3, (unsigned int)*a4, 0x4000000, (__int64)v24);
+    xxxMessageEvent((_DWORD)a2, v11, a3, (unsigned int)*a4, v10, (__int64)v28);
   }
-  if ( *(_QWORD *)(gptiCurrent + 424LL) != *(_QWORD *)(*((_QWORD *)a2 + 2) + 424LL) )
+  if ( *(_QWORD *)(gptiCurrent + 424LL) == *(_QWORD *)(*((_QWORD *)a2 + 2) + 424LL) )
+    return 2;
+  if ( *a1 == 992 )
+    return 0;
+  v13 = (struct tagWND *)ValidateHwnd(a3);
+  v15 = v13;
+  if ( v13 )
   {
-    if ( *a1 == 992 )
-      return 0;
-    v11 = (struct tagWND *)ValidateHwnd(a3);
-    if ( v11 )
+    DdeConv = FindDdeConv(v13, a2);
+    v30 = DdeConv;
+    v5 = (__int64)DdeConv;
+    if ( DdeConv )
     {
-      DdeConv = FindDdeConv(v11, a2, v12, v13);
-      if ( DdeConv )
+      if ( a5
+        && *(_QWORD *)(*((_QWORD *)DdeConv + 4) + 56LL)
+        && (*(_DWORD *)(*((_QWORD *)v15 + 2) + 648LL) & 0x40000) == 0 )
       {
-        if ( gptiCurrent != *((_QWORD *)DdeConv + 2) && *(_WORD *)(gptiCurrent + 632LL) != 1024 )
-        {
-          UserSetLastError(1408);
-          return 0;
-        }
-        ThreadLockAlways(DdeConv, &v22);
-        v14 = (struct tagFREELIST *)*((_QWORD *)DdeConv + 9);
-        *((_QWORD *)DdeConv + 9) = 0LL;
-        xxxFreeListFree(v14);
-        if ( (*(_BYTE *)(_HMPheFromObject(DdeConv) + 25) & 1) != 0 || *a1 != 993 && (*((_DWORD *)DdeConv + 20) & 6) != 0 )
-        {
-          v6 = 1;
-        }
-        else
-        {
-          v18 = *((_QWORD *)DdeConv + 7);
-          if ( v18 )
-            v19 = (*(__int64 (__fastcall **)(unsigned int *, void **, struct tagDDECONV *))(v18 + 32))(a1, a4, DdeConv);
-          else
-            v19 = (*((_DWORD *)DdeConv + 20) & 1) != 0
-                ? xxxUnexpectedServerPost(a1, a4, DdeConv)
-                : xxxUnexpectedClientPost(a1, a4, DdeConv);
-          v6 = v19;
-        }
-        DdeConv = (struct tagDDECONV *)ThreadUnlock1(v16, v15, v17);
+        return 0;
+      }
+      if ( gptiCurrent != *((_QWORD *)DdeConv + 2) && *(_WORD *)(gptiCurrent + 632LL) != 1024 )
+      {
+        UserSetLastError(1408LL, v14, v17);
+        return 0;
+      }
+      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      *(_QWORD *)&v26 = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = &v26;
+      *((_QWORD *)&v26 + 1) = v30;
+      HMLockObject(v30);
+      v19 = (struct tagFREELIST *)*((_QWORD *)v30 + 9);
+      *((_QWORD *)v30 + 9) = 0LL;
+      xxxFreeListFree(v19);
+      if ( (*(_BYTE *)(_HMPheFromObject(v30) + 25) & 1) != 0 || *a1 != 993 && (*((_DWORD *)v30 + 20) & 6) != 0 )
+      {
+        v12 = 1;
       }
       else
       {
-        v6 = *a1 == 993;
+        v21 = *((_QWORD *)v30 + 7);
+        if ( v21 )
+        {
+          v22 = (*(__int64 (__fastcall **)(unsigned int *, void **, struct tagDDECONV *))(v21 + 32))(a1, a4, v30);
+        }
+        else if ( (*((_DWORD *)v30 + 20) & 1) != 0 )
+        {
+          v22 = xxxUnexpectedServerPost(a1, a4, v30);
+        }
+        else
+        {
+          v22 = xxxUnexpectedClientPost(a1, a4, v30);
+        }
+        v12 = v22;
       }
+      v5 = ThreadUnlock1(v20);
     }
     else
     {
-      v6 = (*a1 == 993) + 1;
-    }
-    if ( v6 == 1 && (*(_DWORD *)(gptiCurrent + 488LL) & 1) == 0 )
-    {
-      v20 = 0x8000LL;
-      switch ( (unsigned __int16)*a1 )
-      {
-        case 0x3E2u:
-          v20 = 33025LL;
-          break;
-        case 0x3E3u:
-          break;
-        case 0x3E4u:
-          v20 = 32769LL;
-          break;
-        default:
-          if ( (unsigned __int16)*a1 != 997 )
-          {
-            if ( (unsigned __int16)*a1 == 998 )
-              break;
-            if ( (unsigned __int16)*a1 != 999 )
-            {
-              if ( (unsigned __int16)*a1 != 1000 )
-                return v6;
-              v20 = 34816LL;
-              break;
-            }
-          }
-          v20 = 32899LL;
-          break;
-      }
-      if ( DdeConv )
-      {
-        xxxClientFreeDDEHandle(*a4, v20);
-        return 3;
-      }
+      v12 = *a1 == 993;
     }
   }
-  return v6;
+  else
+  {
+    v12 = (*a1 == 993) + 1;
+  }
+  if ( v12 == 1 && (*(_DWORD *)(gptiCurrent + 488LL) & 1) == 0 )
+  {
+    v23 = 0x8000;
+    v24 = (struct tagDDECONV *)((unsigned int)(unsigned __int16)*a1 - 994);
+    if ( (unsigned __int16)*a1 == 994 )
+    {
+      v23 = 33025;
+    }
+    else
+    {
+      v24 = (struct tagDDECONV *)((unsigned int)(unsigned __int16)*a1 - 995);
+      if ( (unsigned __int16)*a1 == 995 )
+        goto LABEL_48;
+      v24 = (struct tagDDECONV *)((unsigned int)(unsigned __int16)*a1 - 996);
+      if ( (unsigned __int16)*a1 == 996 )
+      {
+        v23 = 32769;
+      }
+      else
+      {
+        v24 = (struct tagDDECONV *)((unsigned int)(unsigned __int16)*a1 - 997);
+        if ( (unsigned __int16)*a1 != 997 )
+        {
+          v24 = (struct tagDDECONV *)((unsigned int)(unsigned __int16)*a1 - 998);
+          if ( (unsigned __int16)*a1 == 998 )
+            goto LABEL_48;
+          v24 = (struct tagDDECONV *)((unsigned int)(unsigned __int16)*a1 - 999);
+          if ( (unsigned __int16)*a1 != 999 )
+          {
+            if ( (unsigned __int16)*a1 != 1000 )
+              return v12;
+            v23 = 34816;
+            goto LABEL_48;
+          }
+        }
+        v23 = 32899;
+      }
+    }
+LABEL_48:
+    if ( v5 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v14) = 4;
+        WPP_RECORDER_SF_((_DWORD)v24, v14, 14, 12, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
+      }
+      xxxFreeDDEHandle(v24, *a4, v23);
+      return 3;
+    }
+  }
+  return v12;
 }

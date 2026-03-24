@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAddBugcheckTriageThread @ 0x14055CA14
+ * XREFs of IopAddBugcheckTriageThread @ 0x14050B45C
  * Callers:
- *     IopAddBugcheckTriageDataFromParameters @ 0x140553A48 (IopAddBugcheckTriageDataFromParameters.c)
- *     IopAddBugcheckPnpTriageData @ 0x14055C354 (IopAddBugcheckPnpTriageData.c)
- *     IopAddBugcheckPnpWatchdogTriageData @ 0x14055C3BC (IopAddBugcheckPnpWatchdogTriageData.c)
- *     IopAddBugcheckPowerTriageData @ 0x14055C464 (IopAddBugcheckPowerTriageData.c)
- *     IopAddBugcheckTriageWorkQueue @ 0x14055CBA8 (IopAddBugcheckTriageWorkQueue.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14050347C (IopAddBugcheckTriageDataFromParameters.c)
+ *     IopAddBugcheckPnpTriageData @ 0x14050ADA0 (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x14050AE08 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckPowerTriageData @ 0x14050AEB0 (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageWorkQueue @ 0x14050B5EC (IopAddBugcheckTriageWorkQueue.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x1403D7FD4 (KiIsAddressRangeValid.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     IopGetMaxValidMemorySize @ 0x140554800 (IopGetMaxValidMemorySize.c)
- *     IopAddBugcheckTriageIrp @ 0x14055C8B4 (IopAddBugcheckTriageIrp.c)
+ *     KiIsAddressRangeValid @ 0x1403CA26C (KiIsAddressRangeValid.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     IopGetMaxValidMemorySize @ 0x14050414C (IopGetMaxValidMemorySize.c)
+ *     IopAddBugcheckTriageIrp @ 0x14050B300 (IopAddBugcheckTriageIrp.c)
  */
 
 __int64 __fastcall IopAddBugcheckTriageThread(__int64 MaxDataSize)
@@ -28,9 +28,9 @@ __int64 __fastcall IopAddBugcheckTriageThread(__int64 MaxDataSize)
 
   v1 = 0;
   v3 = 0;
-  if ( KiIsAddressRangeValid(MaxDataSize, 2288LL) )
+  if ( KiIsAddressRangeValid(MaxDataSize, 2200LL) )
   {
-    IoAddTriageDumpDataBlock(MaxDataSize, (PVOID)0x8F0);
+    IoAddTriageDumpDataBlock(MaxDataSize, (PVOID)0x898);
     if ( (*(_DWORD *)(MaxDataSize + 120) & 0x20000) != 0 )
     {
       v4 = *(_QWORD *)(MaxDataSize + 56);
@@ -44,8 +44,8 @@ __int64 __fastcall IopAddBugcheckTriageThread(__int64 MaxDataSize)
       if ( MaxValidMemorySize )
         IoAddTriageDumpDataBlock(v7, (PVOID)MaxValidMemorySize);
     }
-    v9 = (_QWORD *)(MaxDataSize + 1280);
-    v10 = *(_QWORD **)(MaxDataSize + 1280);
+    v9 = (_QWORD *)(MaxDataSize + 1200);
+    v10 = *(_QWORD **)(MaxDataSize + 1200);
     v11 = v9;
     while ( v10 && v10 != v9 && v3 < 10 )
     {

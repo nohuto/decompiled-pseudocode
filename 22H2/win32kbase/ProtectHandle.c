@@ -1,14 +1,16 @@
 /*
- * XREFs of ProtectHandle @ 0x1C0087A68
+ * XREFs of ProtectHandle @ 0x1C0025F3C
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
- *     ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C006E65C (-CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ.c)
- *     ?CreateDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAJAEBUDispatcherCreation@2@@Z @ 0x1C00772A8 (-CreateDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAJAEBUDispatcherCreation@2@@Z.c)
- *     ?Close@IOCPDispatcher@@QEAAX_N@Z @ 0x1C0084D10 (-Close@IOCPDispatcher@@QEAAX_N@Z.c)
- *     ?CreateIocpHandleForUserMode@IOCPDispatcher@@QEAAPEAXXZ @ 0x1C00878D0 (-CreateIocpHandleForUserMode@IOCPDispatcher@@QEAAPEAXXZ.c)
- *     ?UninitializeThreadInfoIocp@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C0087988 (-UninitializeThreadInfoIocp@@YAXPEAUtagTHREADINFO@@@Z.c)
- *     NtMITInitMinuserThread @ 0x1C0141620 (NtMITInitMinuserThread.c)
- *     NtMITUninitMinuserThread @ 0x1C01426E0 (NtMITUninitMinuserThread.c)
+ *     ?UninitializeThreadInfoIocp@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C002350C (-UninitializeThreadInfoIocp@@YAXPEAUtagTHREADINFO@@@Z.c)
+ *     ?InitializeThreadInfoIocp@@YAJPEAU_EPROCESS@@PEAUtagTHREADINFO@@@Z @ 0x1C0025FE0 (-InitializeThreadInfoIocp@@YAJPEAU_EPROCESS@@PEAUtagTHREADINFO@@@Z.c)
+ *     xxxCreateThreadInfo @ 0x1C003ED88 (xxxCreateThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
+ *     ?CreateDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAJAEBUDispatcherCreation@2@@Z @ 0x1C008908C (-CreateDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAJAEBUDispatcherCreation@2@@Z.c)
+ *     ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C00A2BDC (-CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ.c)
+ *     ?Close@IOCPDispatcher@@QEAAX_N@Z @ 0x1C00A8F60 (-Close@IOCPDispatcher@@QEAAX_N@Z.c)
+ *     ?InitializeUserModeHandleDuplicate@IOCPDispatcher@@AEAA_NXZ @ 0x1C00B39C8 (-InitializeUserModeHandleDuplicate@IOCPDispatcher@@AEAA_NXZ.c)
+ *     NtMITInitMinuserThread @ 0x1C012A8C0 (NtMITInitMinuserThread.c)
+ *     NtMITUninitMinuserThread @ 0x1C012C480 (NtMITUninitMinuserThread.c)
  * Callees:
  *     <none>
  */

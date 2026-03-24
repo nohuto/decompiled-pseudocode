@@ -1,33 +1,31 @@
 /*
- * XREFs of ?GetNextChildPointerId@CTouchProcessor@@AEAAGG@Z @ 0x1C01C91D8
+ * XREFs of ?GetNextChildPointerId@CTouchProcessor@@AEAAGG@Z @ 0x1C0191C08
  * Callers:
- *     ?CreateNode@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GKIG@Z @ 0x1C01C381C (-CreateNode@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GKIG@Z.c)
+ *     ?CreateNode@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GKIG@Z @ 0x1C018C558 (-CreateNode@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GKIG@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall CTouchProcessor::GetNextChildPointerId(struct _KTHREAD **this, __int64 a2, __int64 a3)
+__int64 __fastcall CTouchProcessor::GetNextChildPointerId(struct _KTHREAD **this, unsigned __int16 a2)
 {
-  unsigned __int16 v3; // bx
+  unsigned __int16 v4; // ax
   unsigned __int16 v5; // ax
-  unsigned __int16 v6; // ax
 
-  v3 = a2;
-  if ( this[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
-  if ( !v3 )
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8171);
+  if ( !a2 )
   {
-    v3 = *((_WORD *)this + 48);
-    v5 = v3;
-    if ( !v3 )
+    a2 = *((_WORD *)this + 52);
+    v4 = a2;
+    if ( !a2 )
     {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
-      v5 = *((_WORD *)this + 48);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8181);
+      v4 = *((_WORD *)this + 52);
     }
-    v6 = v5 + 1;
-    *((_WORD *)this + 48) = v6;
-    if ( v6 < 0x4000u )
-      *((_WORD *)this + 48) = 0x4000;
+    v5 = v4 + 1;
+    *((_WORD *)this + 52) = v5;
+    if ( v5 < 0x4000u )
+      *((_WORD *)this + 52) = 0x4000;
   }
-  return v3;
+  return a2;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_PqD @ 0x1C0052F88
+ * XREFs of WPP_IFR_SF_PqD @ 0x1C002E93C
  * Callers:
- *     imp_WdfDmaEnablerSetMaximumScatterGatherElements @ 0x1C0053610 (imp_WdfDmaEnablerSetMaximumScatterGatherElements.c)
+ *     imp_WdfDmaEnablerSetMaximumScatterGatherElements @ 0x1C002F2F0 (imp_WdfDmaEnablerSetMaximumScatterGatherElements.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_PqD(

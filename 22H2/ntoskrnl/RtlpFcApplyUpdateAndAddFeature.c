@@ -1,31 +1,39 @@
 /*
- * XREFs of RtlpFcApplyUpdateAndAddFeature @ 0x1409C7BC8
+ * XREFs of RtlpFcApplyUpdateAndAddFeature @ 0x140919C48
  * Callers:
- *     RtlpFcUpdateFeatureConfiguration @ 0x1409C820C (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x14091A534 (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlpFcDoesFeatureHaveUniqueState @ 0x1409C8094 (RtlpFcDoesFeatureHaveUniqueState.c)
- *     RtlpFcUpdateFeature @ 0x1409C816C (RtlpFcUpdateFeature.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlpFcDoesFeatureHaveUniqueState @ 0x14091A118 (RtlpFcDoesFeatureHaveUniqueState.c)
+ *     RtlpFcUpdateFeature @ 0x14091A4C0 (RtlpFcUpdateFeature.c)
  */
 
-__int64 __fastcall RtlpFcApplyUpdateAndAddFeature(__int64 a1, __int128 *a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall RtlpFcApplyUpdateAndAddFeature(__int64 a1, __int64 *a2)
 {
   __int64 result; // rax
-  __int64 *v6; // r11
-  __int128 v7; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int v3; // eax
+  __int64 *v4; // r10
+  _DWORD *v5; // r11
+  __int64 v6; // rcx
+  __int64 v7; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int v8; // [rsp+28h] [rbp-20h]
 
   result = *(unsigned int *)(a1 + 28);
   if ( (result & 4) == 0 )
   {
+    v3 = *((_DWORD *)a2 + 2);
     v7 = *a2;
+    v8 = v3;
     RtlpFcUpdateFeature(&v7, a1);
     result = RtlpFcDoesFeatureHaveUniqueState(&v7);
     if ( (_BYTE)result )
     {
-      result = *v6;
-      *(_OWORD *)*v6 = v7;
-      *v6 += 16LL;
-      ++*a4;
+      v6 = *v4;
+      result = v8;
+      *(_QWORD *)v6 = v7;
+      *(_DWORD *)(v6 + 8) = result;
+      *v4 += 12LL;
+      ++*v5;
     }
   }
   return result;

@@ -1,35 +1,39 @@
 /*
- * XREFs of RtlpFcCreateAndAddFeatureFromUpdate @ 0x1409C802C
+ * XREFs of RtlpFcCreateAndAddFeatureFromUpdate @ 0x14091A0B0
  * Callers:
- *     RtlpFcUpdateFeatureConfiguration @ 0x1409C820C (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x14091A534 (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
- *     RtlpFcDoesFeatureHaveUniqueState @ 0x1409C8094 (RtlpFcDoesFeatureHaveUniqueState.c)
- *     RtlpFcIsUpdateModifyingOrAddingFeature @ 0x1409C80CC (RtlpFcIsUpdateModifyingOrAddingFeature.c)
- *     RtlpFcUpdateFeature @ 0x1409C816C (RtlpFcUpdateFeature.c)
+ *     RtlpFcDoesFeatureHaveUniqueState @ 0x14091A118 (RtlpFcDoesFeatureHaveUniqueState.c)
+ *     RtlpFcIsUpdateModifyingOrAddingFeature @ 0x14091A170 (RtlpFcIsUpdateModifyingOrAddingFeature.c)
+ *     RtlpFcUpdateFeature @ 0x14091A4C0 (RtlpFcUpdateFeature.c)
  */
 
-__int64 __fastcall RtlpFcCreateAndAddFeatureFromUpdate(__int64 a1, _QWORD *a2)
+__int64 __fastcall RtlpFcCreateAndAddFeatureFromUpdate(__int64 a1)
 {
   __int64 result; // rax
-  _DWORD *v4; // r9
-  __int64 v5; // rcx
+  _DWORD *v2; // r9
+  __int64 *v3; // r11
+  __int64 v4; // rcx
+  _QWORD *v5; // r11
   __int64 v6; // r8
-  _DWORD *v7; // r11
+  _DWORD *v7; // r10
+  _QWORD *v8; // r11
 
   result = RtlpFcIsUpdateModifyingOrAddingFeature(a1);
   if ( (_BYTE)result )
   {
-    v5 = *a2;
-    *(_OWORD *)v5 = 0LL;
-    *(_DWORD *)v5 = *v4;
-    *(_DWORD *)(v5 + 4) = *(_DWORD *)(v5 + 4) & 0xFFFFFF70 | v4[1] & 0xF;
-    RtlpFcUpdateFeature(v5, v4);
-    result = RtlpFcDoesFeatureHaveUniqueState(*a2);
+    v4 = *v3;
+    *(_QWORD *)v4 = 0LL;
+    *(_DWORD *)(v4 + 8) = 0;
+    *(_DWORD *)v4 = *v2;
+    *(_DWORD *)(v4 + 4) = *(_DWORD *)(v4 + 4) & 0xFFFFFF70 | v2[1] & 0xF;
+    RtlpFcUpdateFeature(v4, v2);
+    result = RtlpFcDoesFeatureHaveUniqueState(*v5);
     if ( (_BYTE)result )
     {
       ++*v7;
-      result = v6 + 16;
-      *a2 = v6 + 16;
+      result = v6 + 12;
+      *v8 = v6 + 12;
     }
   }
   return result;

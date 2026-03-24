@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CanReleaseAnalogToken@CToken@@UEAAJIPEA_N@Z @ 0x1C001A120
+ * XREFs of ?CanReleaseAnalogToken@CToken@@UEAAJIPEA_N@Z @ 0x1C001B910
  * Callers:
  *     <none>
  * Callees:

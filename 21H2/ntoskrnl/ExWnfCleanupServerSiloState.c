@@ -1,12 +1,12 @@
 /*
- * XREFs of ExWnfCleanupServerSiloState @ 0x140A08260
+ * XREFs of ExWnfCleanupServerSiloState @ 0x14095CA90
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x1409ABFB0 (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x1409062AC (PspDeleteServerSiloGlobals.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ExpWnfDeleteScopeInstances @ 0x140A083CC (ExpWnfDeleteScopeInstances.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ExpWnfDeleteScopeInstances @ 0x14095CBFC (ExpWnfDeleteScopeInstances.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 int __fastcall ExWnfCleanupServerSiloState(PVOID *a1)
@@ -21,7 +21,7 @@ int __fastcall ExWnfCleanupServerSiloState(PVOID *a1)
     ExpWnfDeleteScopeInstances(*a1, 2LL);
     ExpWnfDeleteScopeInstances(*a1, 0LL);
     ExFreePoolWithTag(*a1, 0x20666E57u);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   if ( a1[1] )
     ZwClose(a1[1]);

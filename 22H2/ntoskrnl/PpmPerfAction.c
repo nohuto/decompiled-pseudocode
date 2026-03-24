@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmPerfAction @ 0x1402BF990
+ * XREFs of PpmPerfAction @ 0x140220730
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfSnapDeliveredPerformance @ 0x140255E60 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmCheckContinueExecution @ 0x1402BFA34 (PpmCheckContinueExecution.c)
- *     PpmPerfApplyProcessorState @ 0x14034EA0C (PpmPerfApplyProcessorState.c)
- *     PpmParkReportUnparkedCore @ 0x14046316C (PpmParkReportUnparkedCore.c)
- *     PpmParkReportParkedCore @ 0x14059D18C (PpmParkReportParkedCore.c)
- *     PpmParkReportSoftParkChange @ 0x14059D29C (PpmParkReportSoftParkChange.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x1402207D0 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmCheckContinueExecution @ 0x14022B0F0 (PpmCheckContinueExecution.c)
+ *     PpmPerfApplyProcessorState @ 0x14039843C (PpmPerfApplyProcessorState.c)
+ *     PpmParkReportParkedCore @ 0x14057D6F4 (PpmParkReportParkedCore.c)
+ *     PpmParkReportSoftParkChange @ 0x14057D7EC (PpmParkReportSoftParkChange.c)
+ *     PpmParkReportUnparkedCore @ 0x14057D8A0 (PpmParkReportUnparkedCore.c)
  */
 
 void __fastcall PpmPerfAction(
@@ -17,19 +17,19 @@ void __fastcall PpmPerfAction(
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
-  volatile __int32 *v4; // rbx
-  char v5; // di
+  volatile __int32 *v4; // rdi
+  char v5; // bl
   __int64 v6; // rax
 
   v4 = DeferredContext;
-  v5 = _InterlockedExchange(DeferredContext + 8486, 0);
+  v5 = _InterlockedExchange(DeferredContext + 8276, 0);
   if ( (v5 & 1) != 0 )
-    PpmPerfSnapDeliveredPerformance((__int64)(DeferredContext + 8492), 0, 0);
+    PpmPerfSnapDeliveredPerformance(DeferredContext + 8282, 0LL, 0LL, SystemArgument2);
   if ( (v5 & 2) != 0 )
     PpmParkReportUnparkedCore(v4, DeferredContext, SystemArgument1, SystemArgument2);
   if ( (v5 & 4) != 0 )
   {
-    v6 = *((_QWORD *)v4 + 4247);
+    v6 = *((_QWORD *)v4 + 4142);
     if ( *(_BYTE *)(v6 + 124) )
     {
       LOBYTE(DeferredContext) = 1;

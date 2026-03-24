@@ -1,88 +1,54 @@
 /*
- * XREFs of ?UpdateHDRMetaData@COverlayContext@@AEAAPEBXXZ @ 0x180050204
+ * XREFs of ?UpdateHDRMetaData@COverlayContext@@AEAAPEBXXZ @ 0x18017D064
  * Callers:
- *     ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x18004FA7C (-PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@Ut.c)
+ *     ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800EC2B8 (-PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@Ut.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memcmp_0 @ 0x180105173 (memcmp_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memcmp_0 @ 0x1800F47CF (memcmp_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-const void *__fastcall COverlayContext::UpdateHDRMetaData(COverlayContext *this)
+char *__fastcall COverlayContext::UpdateHDRMetaData(COverlayContext *this)
 {
-  int v1; // edi
-  __int128 v2; // xmm0
-  char v3; // si
-  int v4; // r14d
-  unsigned int v5; // r15d
-  __int64 v7; // rcx
-  const void *result; // rax
-  __int64 v9; // rcx
-  __int128 v10; // [rsp+20h] [rbp-60h]
-  __int128 Buf1; // [rsp+30h] [rbp-50h] BYREF
-  __int64 v12; // [rsp+40h] [rbp-40h]
-  int v13; // [rsp+48h] [rbp-38h]
-  __int128 Buf2; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v15; // [rsp+60h] [rbp-20h]
-  int v16; // [rsp+68h] [rbp-18h]
+  char v1; // di
+  unsigned int i; // esi
+  __int64 v4; // r8
+  __int64 v5; // rcx
+  int v6; // eax
+  __int64 v7; // xmm1_8
+  __int128 Buf1; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v10; // [rsp+30h] [rbp-28h]
+  int v11; // [rsp+38h] [rbp-20h]
 
   v1 = 0;
-  v2 = 0LL;
-  v3 = 0;
-  v12 = 0LL;
-  v4 = 0;
-  v13 = 0;
   v10 = 0LL;
-  v5 = 0;
   Buf1 = 0LL;
-  while ( 1 )
+  v11 = 0;
+  for ( i = 0; ; ++i )
   {
-    v7 = *((_QWORD *)this + 913);
-    if ( v5 >= (unsigned __int64)(0x6DB6DB6DB6DB6DB7LL * ((*((_QWORD *)this + 914) - v7) >> 5)) )
+    v4 = *((_QWORD *)this + 914);
+    if ( i >= (unsigned __int64)((*((_QWORD *)this + 915) - v4) / 224) )
       break;
-    v9 = *(_QWORD *)(224LL * v5 + v7 + 16);
-    Buf2 = 0LL;
-    v15 = 0LL;
-    v16 = 0;
-    if ( (*(unsigned __int8 (__fastcall **)(__int64, __int128 *))(*(_QWORD *)v9 + 384LL))(v9, &Buf2) )
+    v5 = *(_QWORD *)(224LL * i + v4 + 16);
+    if ( (*(unsigned __int8 (__fastcall **)(__int64, __int128 *))(*(_QWORD *)v5 + 288LL))(v5, &Buf1) )
     {
-      if ( v3 && memcmp_0(&Buf1, &Buf2, 0x1CuLL) )
-        goto LABEL_4;
-      v2 = Buf2;
-      v4 = 1;
-      v1 = v16;
-      v3 = 1;
-      v10 = Buf2;
-      v13 = v16;
-      Buf1 = Buf2;
-      v12 = v15;
+      if ( v1 && memcmp_0(&Buf1, (char *)this + 20, 0x1CuLL) )
+      {
+        *((_DWORD *)this + 4) = 0;
+        v1 = 0;
+        break;
+      }
+      v1 = 1;
+      v6 = v11;
+      v7 = v10;
+      *(_OWORD *)((char *)this + 20) = Buf1;
+      *((_DWORD *)this + 4) = 1;
+      *(_QWORD *)((char *)this + 36) = v7;
+      *((_DWORD *)this + 11) = v6;
     }
-    else
-    {
-      v2 = v10;
-    }
-    ++v5;
   }
-  if ( !v3 )
-  {
-LABEL_4:
-    *((_DWORD *)this + 3) = 0;
-    result = 0LL;
-    *((_OWORD *)this + 1) = 0LL;
-    *((_QWORD *)this + 4) = 0LL;
-    *((_DWORD *)this + 10) = 0;
-    return result;
-  }
-  if ( *((_DWORD *)this + 3) == v4 )
-  {
-    if ( !memcmp_0(&Buf1, (char *)this + 16, 0x1CuLL) )
-      return 0LL;
-    v2 = v10;
-  }
-  result = (char *)this + 16;
-  *((_DWORD *)this + 3) = v4;
-  *((_OWORD *)this + 1) = v2;
-  *((_QWORD *)this + 4) = v12;
-  *((_DWORD *)this + 10) = v1;
-  return result;
+  if ( v1 )
+    return (char *)this + 20;
+  else
+    return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PiCMCaptureProblemInputData @ 0x1408363C8
+ * XREFs of PiCMCaptureProblemInputData @ 0x1408363A8
  * Callers:
- *     PiCMSetDeviceProblem @ 0x140838CF4 (PiCMSetDeviceProblem.c)
+ *     PiCMSetDeviceProblem @ 0x140838CD4 (PiCMSetDeviceProblem.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureProblemInputData(_OWORD *a1, unsigned int a2, __int64 a3, _OWORD *a4)

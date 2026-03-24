@@ -1,126 +1,135 @@
 /*
- * XREFs of NtCompareTokens @ 0x1407C7650
+ * XREFs of NtCompareTokens @ 0x14070E3A0
  * Callers:
  *     <none>
  * Callees:
- *     SeTokenIsRestricted @ 0x140228850 (SeTokenIsRestricted.c)
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepReleaseOrderedReadLocks @ 0x140356698 (SepReleaseOrderedReadLocks.c)
- *     SepAcquireOrderedReadLocks @ 0x1403566CC (SepAcquireOrderedReadLocks.c)
- *     SeTokenIsWriteRestricted @ 0x140370D60 (SeTokenIsWriteRestricted.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     SeQueryInformationToken @ 0x140719710 (SeQueryInformationToken.c)
- *     SepCompareClaimAttributes @ 0x1407C7908 (SepCompareClaimAttributes.c)
- *     SepCompareSidAndAttributeArrays @ 0x1407C7960 (SepCompareSidAndAttributeArrays.c)
- *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1407C79F4 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     SeTokenIsRestricted @ 0x14035F3A0 (SeTokenIsRestricted.c)
+ *     SeTokenIsWriteRestricted @ 0x14035F3C0 (SeTokenIsWriteRestricted.c)
+ *     SepReleaseOrderedReadLocks @ 0x14035F3D4 (SepReleaseOrderedReadLocks.c)
+ *     SepAcquireOrderedReadLocks @ 0x14035F408 (SepAcquireOrderedReadLocks.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     SeQueryInformationToken @ 0x1406CF990 (SeQueryInformationToken.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x14070E8B4 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     SepCompareClaimAttributes @ 0x14070EA60 (SepCompareClaimAttributes.c)
+ *     SepCompareSidAndAttributeArrays @ 0x14070EAB8 (SepCompareSidAndAttributeArrays.c)
  */
 
-__int64 __fastcall NtCompareTokens(HANDLE Handle, HANDLE a2, char *a3)
+__int64 __fastcall NtCompareTokens(HANDLE Handle, HANDLE a2, unsigned __int64 a3)
 {
-  unsigned int *v5; // rdi
+  _BYTE *v3; // r13
   char v6; // r12
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v8; // rcx
   NTSTATUS InformationToken; // r15d
   unsigned int *v10; // rsi
-  __int64 v11; // rbx
-  __int64 v12; // r13
-  void *v13; // rcx
-  void *v14; // rdx
+  unsigned int *v11; // rdi
+  __int64 v12; // rbx
+  __int64 v13; // r13
+  void *v14; // rcx
+  void *v15; // rdx
   BOOLEAN IsRestricted; // bl
-  BOOLEAN v17; // bl
-  PVOID TokenInformation; // [rsp+30h] [rbp-38h] BYREF
-  PVOID Token[6]; // [rsp+38h] [rbp-30h] BYREF
-  char v21; // [rsp+88h] [rbp+20h]
+  BOOLEAN v18; // bl
+  PVOID TokenInformation; // [rsp+30h] [rbp-48h] BYREF
+  PVOID Token; // [rsp+38h] [rbp-40h] BYREF
+  unsigned int *v21; // [rsp+40h] [rbp-38h]
+  PVOID Object; // [rsp+48h] [rbp-30h] BYREF
+  char v24; // [rsp+98h] [rbp+20h]
 
-  v5 = 0LL;
+  v3 = (_BYTE *)a3;
+  v21 = 0LL;
   v6 = 0;
-  v21 = 0;
+  v24 = 0;
   TokenInformation = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a3;
+    if ( a3 < 0x7FFFFFFF0000LL )
+      v8 = a3;
     *(_BYTE *)v8 = *(_BYTE *)v8;
   }
-  Token[0] = 0LL;
-  InformationToken = ObReferenceObjectByHandle(Handle, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, Token, 0LL);
-  v10 = (unsigned int *)Token[0];
+  Token = 0LL;
+  InformationToken = ObReferenceObjectByHandle(Handle, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &Token, 0LL);
+  v10 = (unsigned int *)Token;
   if ( InformationToken < 0 )
   {
     v10 = 0LL;
-    goto LABEL_26;
+LABEL_36:
+    v11 = v21;
+    goto LABEL_27;
   }
   if ( Handle == a2 )
-    goto LABEL_34;
-  Token[0] = 0LL;
-  InformationToken = ObReferenceObjectByHandle(a2, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, Token, 0LL);
-  v5 = (unsigned int *)Token[0];
+  {
+    v6 = 1;
+    goto LABEL_36;
+  }
+  Object = 0LL;
+  InformationToken = ObReferenceObjectByHandle(a2, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &Object, 0LL);
+  v11 = (unsigned int *)Object;
   if ( InformationToken < 0 )
   {
-    v5 = 0LL;
-    goto LABEL_26;
+    v11 = 0LL;
   }
-  if ( v10 == Token[0] )
+  else if ( v10 == Object )
   {
-LABEL_34:
     v6 = 1;
-    goto LABEL_26;
   }
-  SepAcquireOrderedReadLocks((unsigned __int64)v10, (unsigned __int64)Token[0]);
-  v21 = 1;
-  v11 = *((_QWORD *)v5 + 19);
-  v12 = *((_QWORD *)v10 + 19);
-  if ( RtlEqualSid(*(PSID *)v12, *(PSID *)v11) )
+  else
   {
-    if ( ((*(_BYTE *)(v11 + 8) ^ *(_BYTE *)(v12 + 8)) & 0x14) == 0 )
+    SepAcquireOrderedReadLocks((unsigned __int64)v10, (unsigned __int64)Object);
+    v24 = 1;
+    v12 = *((_QWORD *)v11 + 19);
+    v13 = *((_QWORD *)v10 + 19);
+    if ( RtlEqualSid(*(PSID *)v13, *(PSID *)v12) )
     {
-      InformationToken = SeQueryInformationToken(v10, TokenIsAppContainer, &TokenInformation);
-      if ( InformationToken >= 0 )
+      if ( ((*(_BYTE *)(v12 + 8) ^ *(_BYTE *)(v13 + 8)) & 0x14) == 0 )
       {
-        InformationToken = SeQueryInformationToken(v5, TokenIsAppContainer, (PVOID *)((char *)&TokenInformation + 4));
-        if ( InformationToken >= 0
-          && (_DWORD)TokenInformation == HIDWORD(TokenInformation)
-          && (!(_DWORD)TokenInformation
-           || RtlEqualSid(*((PSID *)v10 + 98), *((PSID *)v5 + 98))
-           && (unsigned __int8)SepCompareSidAndAttributeArrays(
-                                 *((_QWORD *)v10 + 99),
-                                 v10[200],
-                                 *((_QWORD *)v5 + 99),
-                                 v5[200])) )
+        InformationToken = SeQueryInformationToken(v10, TokenIsAppContainer, &TokenInformation);
+        if ( InformationToken >= 0 )
         {
-          v13 = (void *)*((_QWORD *)v10 + 138);
-          v14 = (void *)*((_QWORD *)v5 + 138);
-          if ( (v13 != 0LL) == (v14 != 0LL) && (!v13 || RtlEqualSid(v13, v14)) )
+          InformationToken = SeQueryInformationToken(v11, TokenIsAppContainer, (PVOID *)((char *)&TokenInformation + 4));
+          if ( InformationToken >= 0
+            && (_DWORD)TokenInformation == HIDWORD(TokenInformation)
+            && (!(_DWORD)TokenInformation
+             || RtlEqualSid(*((PSID *)v10 + 98), *((PSID *)v11 + 98))
+             && (unsigned __int8)SepCompareSidAndAttributeArrays(
+                                   *((_QWORD *)v10 + 99),
+                                   v10[200],
+                                   *((_QWORD *)v11 + 99),
+                                   v11[200])) )
           {
-            IsRestricted = SeTokenIsRestricted(v10);
-            if ( IsRestricted == SeTokenIsRestricted(v5) )
+            v14 = (void *)*((_QWORD *)v10 + 138);
+            v15 = (void *)*((_QWORD *)v11 + 138);
+            if ( (v14 != 0LL) == (v15 != 0LL) && (!v14 || RtlEqualSid(v14, v15)) )
             {
-              if ( !IsRestricted
-                || (v17 = SeTokenIsWriteRestricted(v10), v17 == SeTokenIsWriteRestricted(v5))
-                && (unsigned __int8)SepCompareSidAndAttributeArrays(
-                                      *((_QWORD *)v10 + 20),
-                                      v10[32],
-                                      *((_QWORD *)v5 + 20),
-                                      v5[32]) )
+              IsRestricted = SeTokenIsRestricted(v10);
+              if ( IsRestricted == SeTokenIsRestricted(v11) )
               {
-                if ( *((_QWORD *)v10 + 9) == *((_QWORD *)v5 + 9)
-                  && *((_QWORD *)v10 + 8) == *((_QWORD *)v5 + 8)
-                  && v10[53] == v5[53]
+                if ( !IsRestricted
+                  || (v18 = SeTokenIsWriteRestricted(v10), v18 == SeTokenIsWriteRestricted(v11))
                   && (unsigned __int8)SepCompareSidAndAttributeArrays(
-                                        *((_QWORD *)v10 + 19) + 16LL,
-                                        v10[31] - 1,
-                                        *((_QWORD *)v5 + 19) + 16LL,
-                                        v5[31] - 1)
-                  && (unsigned __int8)SepCompareClaimAttributes(*((_QWORD *)v10 + 137), *((_QWORD *)v5 + 137))
-                  && (unsigned __int8)AuthzBasepCompareLegacySecurityAttributesInformation(
-                                        *((_QWORD *)v10 + 97),
-                                        *((_QWORD *)v5 + 97)) )
+                                        *((_QWORD *)v10 + 20),
+                                        v10[32],
+                                        *((_QWORD *)v11 + 20),
+                                        v11[32]) )
                 {
-                  v6 = 1;
+                  if ( *((_QWORD *)v10 + 9) == *((_QWORD *)v11 + 9)
+                    && *((_QWORD *)v10 + 8) == *((_QWORD *)v11 + 8)
+                    && v10[53] == v11[53]
+                    && (unsigned __int8)SepCompareSidAndAttributeArrays(
+                                          *((_QWORD *)v10 + 19) + 16LL,
+                                          v10[31] - 1,
+                                          *((_QWORD *)v11 + 19) + 16LL,
+                                          v11[31] - 1)
+                    && (unsigned __int8)SepCompareClaimAttributes(*((_QWORD *)v10 + 137), *((_QWORD *)v11 + 137))
+                    && (unsigned __int8)AuthzBasepCompareLegacySecurityAttributesInformation(
+                                          *((_QWORD *)v10 + 97),
+                                          *((_QWORD *)v11 + 97)) )
+                  {
+                    v6 = 1;
+                  }
                 }
               }
             }
@@ -128,14 +137,15 @@ LABEL_34:
         }
       }
     }
+    v3 = (_BYTE *)a3;
   }
-LABEL_26:
-  if ( v21 )
-    SepReleaseOrderedReadLocks((__int64)v10, (__int64)v5);
+LABEL_27:
+  if ( v24 )
+    SepReleaseOrderedReadLocks((__int64)v10, (__int64)v11);
   if ( v10 )
-    ObfDereferenceObject(v10);
-  if ( v5 )
-    ObfDereferenceObject(v5);
-  *a3 = v6;
+    HalPutDmaAdapter((PADAPTER_OBJECT)v10);
+  if ( v11 )
+    HalPutDmaAdapter((PADAPTER_OBJECT)v11);
+  *v3 = v6;
   return (unsigned int)InformationToken;
 }

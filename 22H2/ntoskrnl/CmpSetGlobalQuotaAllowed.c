@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpSetGlobalQuotaAllowed @ 0x1407EB550
+ * XREFs of CmpSetGlobalQuotaAllowed @ 0x1406A68C8
  * Callers:
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
+ *     CmpLoadKeyCommon @ 0x14036102C (CmpLoadKeyCommon.c)
  * Callees:
  *     <none>
  */

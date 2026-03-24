@@ -1,33 +1,34 @@
 /*
- * XREFs of KiHvInterruptSubDispatch @ 0x1404261A0
+ * XREFs of KiHvInterruptSubDispatch @ 0x140404320
  * Callers:
- *     KiHvInterruptDispatch @ 0x140425920 (KiHvInterruptDispatch.c)
+ *     KiHvInterruptDispatch @ 0x140403B30 (KiHvInterruptDispatch.c)
  * Callees:
- *     KiEndThreadAccountingPeriod @ 0x140248410 (KiEndThreadAccountingPeriod.c)
- *     EtwGetKernelTraceTimestamp @ 0x1402A2E70 (EtwGetKernelTraceTimestamp.c)
- *     KiEntropyQueueDpc @ 0x14035E1A0 (KiEntropyQueueDpc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HvlSharedIsr @ 0x14045ED00 (HvlSharedIsr.c)
- *     PerfInfoLogInterruptHv @ 0x140467CE0 (PerfInfoLogInterruptHv.c)
- *     HvlDummyInterruptCallback @ 0x14053F650 (HvlDummyInterruptCallback.c)
- *     KzSetIrqlUnsafe @ 0x14056C100 (KzSetIrqlUnsafe.c)
+ *     KiEndThreadAccountingPeriod @ 0x140230CF0 (KiEndThreadAccountingPeriod.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402F1D90 (EtwGetKernelTraceTimestamp.c)
+ *     KiEntropyQueueDpc @ 0x14031D4A0 (KiEntropyQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvlDummyInterruptCallback @ 0x1404F14C0 (HvlDummyInterruptCallback.c)
+ *     HvlSharedIsr @ 0x1404F1B80 (HvlSharedIsr.c)
+ *     KzSetIrqlUnsafe @ 0x140512B80 (KzSetIrqlUnsafe.c)
+ *     KiEpfCompletionIsr @ 0x1405240A0 (KiEpfCompletionIsr.c)
+ *     PerfInfoLogInterruptHv @ 0x1405AA080 (PerfInfoLogInterruptHv.c)
  */
 
-__int64 __fastcall KiHvInterruptSubDispatch(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall KiHvInterruptSubDispatch(__int64 a1, __int64 a2, __int64 CurrentThread, __int64 a4)
 {
-  __int64 v2; // rbp
+  __int64 v4; // rbp
   unsigned __int8 CurrentIrql; // al
-  __int64 CurrentPrcb; // rcx
-  unsigned __int64 v5; // rax
-  int v6; // r11d
-  _DWORD *v7; // r10
-  __int64 v8; // r8
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  unsigned __int64 v11; // rdx
-  bool v12; // zf
+  struct _KPRCB *CurrentPrcb; // rcx
+  unsigned __int64 v7; // rax
+  unsigned int EntropyCount; // r11d
+  unsigned int *v9; // r10
+  unsigned __int64 v10; // rax
+  __int64 v11; // rdx
+  unsigned __int64 v12; // rdx
+  int v13; // ecx
+  bool v14; // zf
   __int64 result; // rax
-  _BYTE v14[40]; // [rsp+20h] [rbp-28h] BYREF
+  LARGE_INTEGER v16[5]; // [rsp+20h] [rbp-28h] BYREF
 
   if ( KiIrqlFlags )
   {
@@ -38,43 +39,43 @@ __int64 __fastcall KiHvInterruptSubDispatch(__int64 a1, unsigned __int64 a2)
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(3uLL);
   }
-  *(_BYTE *)(v2 - 87) = CurrentIrql;
-  *(_DWORD *)(v2 - 96) = 0;
-  CurrentPrcb = (__int64)KeGetCurrentPrcb();
-  if ( ++*(_BYTE *)(CurrentPrcb + 32) == 1 )
+  *(_BYTE *)(v4 - 87) = CurrentIrql;
+  *(_DWORD *)(v4 - 96) = 0;
+  CurrentPrcb = KeGetCurrentPrcb();
+  if ( ++CurrentPrcb->NestingLevel == 1 )
   {
-    v5 = __rdtsc();
-    v6 = *(_DWORD *)(CurrentPrcb + 35296);
-    v7 = (_DWORD *)(CurrentPrcb + 4LL * ((unsigned __int16)(v6 & 0x7FF) >> 5) + 35300);
-    *v7 = v5 ^ __ROR4__(*v7, 5);
-    *(_DWORD *)(CurrentPrcb + 35296) = ++v6;
-    if ( (v6 & 0x3FF) == 0 )
-      *(_DWORD *)(v2 - 96) = 1;
-    v8 = *(_QWORD *)(CurrentPrcb + 8);
-    v9 = v5 - *(_QWORD *)(CurrentPrcb + 33152);
-    *(_QWORD *)(v8 + 72) += v9;
-    v10 = *(unsigned int *)(v8 + 80);
-    *(_QWORD *)(CurrentPrcb + 33152) += v9;
-    v11 = v9 + v10;
-    CurrentPrcb = (unsigned int)v11;
-    a2 = HIDWORD(v11);
-    if ( a2 )
-      CurrentPrcb = 0xFFFFFFFFLL;
-    *(_DWORD *)(v8 + 80) = CurrentPrcb;
-    if ( (*(_BYTE *)(v8 + 2) & 0xBE) != 0 )
-      KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), v8, v9);
+    v7 = __rdtsc();
+    EntropyCount = CurrentPrcb->EntropyTimingState.EntropyCount;
+    v9 = &CurrentPrcb->EntropyTimingState.Buffer[(unsigned __int16)(EntropyCount & 0x7FF) >> 5];
+    *v9 = v7 ^ __ROR4__(*v9, 5);
+    CurrentPrcb->EntropyTimingState.EntropyCount = ++EntropyCount;
+    if ( (EntropyCount & 0x3FF) == 0 )
+      *(_DWORD *)(v4 - 96) = 1;
+    CurrentThread = (__int64)CurrentPrcb->CurrentThread;
+    v10 = v7 - CurrentPrcb->StartCycles;
+    *(_QWORD *)(CurrentThread + 72) += v10;
+    v11 = *(unsigned int *)(CurrentThread + 80);
+    CurrentPrcb->StartCycles += v10;
+    v12 = v10 + v11;
+    v13 = v12;
+    if ( HIDWORD(v12) )
+      v13 = -1;
+    *(_DWORD *)(CurrentThread + 80) = v13;
+    if ( (*(_BYTE *)(CurrentThread + 2) & 0x3E) != 0 )
+      KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), CurrentThread, v10);
   }
   _enable();
-  if ( *(_DWORD *)(v2 - 96) )
+  if ( *(_DWORD *)(v4 - 96) )
     KiEntropyQueueDpc((__int64)KeGetCurrentPrcb());
-  v12 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
-  *(_BYTE *)(v2 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
-  if ( !v12 )
-    EtwGetKernelTraceTimestamp((__int64)v14, 536887296LL);
-  HvlSharedIsr(CurrentPrcb, a2);
-  result = HvlpInterruptCallback[*(unsigned int *)(v2 + 224)]();
-  if ( *(_BYTE *)(v2 + 243) )
-    result = PerfInfoLogInterruptHv(KiHvInterrupt, (unsigned int)(((*(_DWORD *)(v2 + 224) + 48) << 8) + 1), v14);
+  v14 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
+  *(_BYTE *)(v4 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
+  if ( !v14 )
+    EtwGetKernelTraceTimestamp(v16, 536887296LL, CurrentThread, a4);
+  KiEpfCompletionIsr();
+  HvlSharedIsr();
+  result = HvlpInterruptCallback[*(unsigned int *)(v4 + 224)]();
+  if ( *(_BYTE *)(v4 + 243) )
+    result = PerfInfoLogInterruptHv(KiHvInterrupt, (unsigned int)(((*(_DWORD *)(v4 + 224) + 48) << 8) + 1), v16);
   _disable();
   return result;
 }

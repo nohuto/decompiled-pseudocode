@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_CheckingIfAllUsb4DromDataRead @ 0x1C00099A0
+ * XREFs of HUBHSM_CheckingIfAllUsb4DromDataRead @ 0x1C00096A0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     FWUPDATE_ParseUsb4DromForVidPid @ 0x1C003EAFC (FWUPDATE_ParseUsb4DromForVidPid.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     FWUPDATE_ParseUsb4DromForVidPid @ 0x1C003E47C (FWUPDATE_ParseUsb4DromForVidPid.c)
  */
 
 __int64 __fastcall HUBHSM_CheckingIfAllUsb4DromDataRead(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall HUBHSM_CheckingIfAllUsb4DromDataRead(__int64 a1)
   {
     v2 = 2053;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(v1 + 2520), 4u, 3u, 0x35u, (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(v1 + 2520), 4u, 3u, 0x35u, (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids);
     FWUPDATE_ParseUsb4DromForVidPid(v1);
   }
   return v2;

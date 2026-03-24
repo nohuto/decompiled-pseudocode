@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlTestBit @ 0x140349790
+ * XREFs of RtlTestBit @ 0x1402FB5C0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 BOOLEAN __stdcall RtlTestBit(PRTL_BITMAP BitMapHeader, ULONG BitNumber)
 {
-  return (*((char *)BitMapHeader->Buffer + ((unsigned __int64)BitNumber >> 3)) >> (BitNumber & 7)) & 1;
+  return _bittest((const signed __int32 *)BitMapHeader->Buffer, BitNumber);
 }

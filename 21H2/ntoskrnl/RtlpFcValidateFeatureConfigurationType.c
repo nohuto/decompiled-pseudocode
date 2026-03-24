@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpFcValidateFeatureConfigurationType @ 0x1403C7970
+ * XREFs of RtlpFcValidateFeatureConfigurationType @ 0x14038C900
  * Callers:
- *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x140832F68 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
- *     RtlQueryAllFeatureConfigurations @ 0x1409B5E70 (RtlQueryAllFeatureConfigurations.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x140778F34 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ *     RtlQueryAllFeatureConfigurations @ 0x140918FB0 (RtlQueryAllFeatureConfigurations.c)
  * Callees:
  *     <none>
  */

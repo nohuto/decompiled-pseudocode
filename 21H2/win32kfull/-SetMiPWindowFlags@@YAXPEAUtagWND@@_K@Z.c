@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetMiPWindowFlags@@YAXPEAUtagWND@@_K@Z @ 0x1C01DC4F4
+ * XREFs of ?SetMiPWindowFlags@@YAXPEAUtagWND@@_K@Z @ 0x1C01E12A8
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     PostMousePointerLeaveAndCleanup @ 0x1C01DCEB0 (PostMousePointerLeaveAndCleanup.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     PostMousePointerLeaveAndCleanup @ 0x1C01E20A0 (PostMousePointerLeaveAndCleanup.c)
  * Callees:
- *     InternalSetProp @ 0x1C0083110 (InternalSetProp.c)
+ *     InternalSetProp @ 0x1C00384A8 (InternalSetProp.c)
  */
 
 void __fastcall SetMiPWindowFlags(struct tagWND *a1, __int64 a2)

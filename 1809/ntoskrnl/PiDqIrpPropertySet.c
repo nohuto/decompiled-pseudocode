@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDqIrpPropertySet @ 0x1406D58FC
+ * XREFs of PiDqIrpPropertySet @ 0x1406D58DC
  * Callers:
  *     PiDqDispatch @ 0x140590640 (PiDqDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiDqGetPnpObjectType @ 0x140595A78 (PiDqGetPnpObjectType.c)
  *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
  *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
- *     PiDqOpenObjectRegKey @ 0x1406D9C24 (PiDqOpenObjectRegKey.c)
- *     PiPnpRtlSetObjectProperty @ 0x1406E5270 (PiPnpRtlSetObjectProperty.c)
- *     _PnpSetGenericStoreProperty @ 0x1406E5A4C (_PnpSetGenericStoreProperty.c)
- *     PiPnpRtlObjectEventWorker @ 0x1406F1F40 (PiPnpRtlObjectEventWorker.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF7AC (PiAuDoesClientHaveAccess.c)
+ *     PiDqOpenObjectRegKey @ 0x1406D9C04 (PiDqOpenObjectRegKey.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1406E5250 (PiPnpRtlSetObjectProperty.c)
+ *     _PnpSetGenericStoreProperty @ 0x1406E5A2C (_PnpSetGenericStoreProperty.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1406F1F20 (PiPnpRtlObjectEventWorker.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
  */
 
 __int64 __fastcall PiDqIrpPropertySet(PIRP Irp)

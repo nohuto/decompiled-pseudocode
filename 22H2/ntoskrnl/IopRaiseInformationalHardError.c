@@ -1,10 +1,10 @@
 /*
- * XREFs of IopRaiseInformationalHardError @ 0x140945670
+ * XREFs of IopRaiseInformationalHardError @ 0x140891EF0
  * Callers:
  *     <none>
  * Callees:
- *     ExRaiseHardError @ 0x140A00C30 (ExRaiseHardError.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExRaiseHardError @ 0x140956160 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopRaiseInformationalHardError(char *P)
@@ -15,17 +15,20 @@ void __fastcall IopRaiseInformationalHardError(char *P)
 
   v3 = 0;
   v4 = P + 24;
+  v2 = (void *)*((_QWORD *)P + 4);
   if ( ExReadyForErrors )
+  {
     ExRaiseHardError(
       *((unsigned int *)P + 4),
-      *((_QWORD *)P + 4) != 0LL,
-      *((_QWORD *)P + 4) != 0LL,
-      (unsigned __int64)&v4 & -(__int64)(*((_QWORD *)P + 4) != 0LL),
+      v2 != 0LL,
+      v2 != 0LL,
+      (unsigned __int64)&v4 & -(__int64)(v2 != 0LL),
       7,
       &v3);
-  v2 = (void *)*((_QWORD *)P + 4);
+    v2 = (void *)*((_QWORD *)P + 4);
+  }
   if ( v2 )
     ExFreePoolWithTag(v2, 0);
   ExFreePoolWithTag(P, 0);
-  _InterlockedDecrement(&dword_140C5DEDC);
+  _InterlockedDecrement(&dword_140C4603C);
 }

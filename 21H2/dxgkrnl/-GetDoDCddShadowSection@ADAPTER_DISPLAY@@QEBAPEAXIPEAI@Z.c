@@ -1,61 +1,50 @@
 /*
- * XREFs of ?GetDoDCddShadowSection@ADAPTER_DISPLAY@@QEBAPEAXIPEAI@Z @ 0x1C02C0DCC
+ * XREFs of ?GetDoDCddShadowSection@ADAPTER_DISPLAY@@QEBAPEAXIPEAI@Z @ 0x1C0212E48
  * Callers:
- *     ?DxgkCddEnable@@YAJIIPEBU_CDDDXGK_INTERFACE@@IPEBU_D3DKMT_DISPLAYMODE@@PEAPEAXPEA_KPEAI@Z @ 0x1C01C7390 (-DxgkCddEnable@@YAJIIPEBU_CDDDXGK_INTERFACE@@IPEBU_D3DKMT_DISPLAYMODE@@PEAPEAXPEA_KPEAI@Z.c)
+ *     ?DxgkCddEnable@@YAJIIPEBU_CDDDXGK_INTERFACE@@IPEBU_D3DKMT_DISPLAYMODE@@PEAPEAXPEA_KPEAI@Z @ 0x1C00E1030 (-DxgkCddEnable@@YAJIIPEBU_CDDDXGK_INTERFACE@@IPEBU_D3DKMT_DISPLAYMODE@@PEAPEAXPEA_KPEAI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
-void *__fastcall ADAPTER_DISPLAY::GetDoDCddShadowSection(ADAPTER_DISPLAY *this, unsigned int a2, unsigned int *a3)
+void *__fastcall ADAPTER_DISPLAY::GetDoDCddShadowSection(DXGADAPTER **this, __int64 a2, unsigned int *a3)
 {
-  __int64 v3; // rdi
-  __int64 v6; // rdx
-  __int64 v7; // rdi
-  void *v8; // rcx
+  __int64 v4; // rdi
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rax
+  DXGADAPTER *v11; // rdx
+  __int64 v12; // rdi
+  void *v13; // rcx
 
-  v3 = a2;
-  if ( a2 >= *((_DWORD *)this + 24) )
+  v4 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= *((_DWORD *)this + 20) )
   {
-    WdLogSingleEntry1(1LL, 1422LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"VidPnSourceId < m_NumVidPnSources",
-      1422LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 1380LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this + 2)) )
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 1423LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 1423LL, 0LL, 0LL, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v9 + 24) = 1381LL;
+    WdLogEvent5_WdAssertion(v9);
   }
-  if ( *(_QWORD *)(*((_QWORD *)this + 2) + 2800LL) )
+  if ( *((_QWORD *)this[2] + 338) )
   {
-    WdLogSingleEntry1(1LL, 1424LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetAdapter()->IsDisplayOnlyAdapter()",
-      1424LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v10 + 24) = 1382LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  v6 = *((_QWORD *)this + 16);
-  v7 = 4000 * v3;
-  v8 = *(void **)(v7 + v6 + 616);
-  if ( v8 )
+  v11 = this[14];
+  v12 = 3968 * v4;
+  v13 = *(void **)((char *)v11 + v12 + 616);
+  if ( v13 )
   {
-    ObfReferenceObject(v8);
-    v6 = *((_QWORD *)this + 16);
+    ObfReferenceObject(v13);
+    v11 = this[14];
   }
-  *a3 = *(_DWORD *)(v7 + v6 + 612);
-  return *(void **)(v7 + v6 + 616);
+  *a3 = *(_DWORD *)((char *)v11 + v12 + 612);
+  return *(void **)((char *)v11 + v12 + 616);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of HmgDecProcessHandleCount @ 0x1C001ECFC
+ * XREFs of HmgDecProcessHandleCount @ 0x1C0032248
  * Callers:
- *     HmgAlloc @ 0x1C001E6F0 (HmgAlloc.c)
- *     HmgSetOwner @ 0x1C0028640 (HmgSetOwner.c)
- *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0028DD0 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
- *     GreSetDCOwnerEx @ 0x1C002C0D0 (GreSetDCOwnerEx.c)
- *     GreSetBrushOwner @ 0x1C00630E0 (GreSetBrushOwner.c)
+ *     HmgAlloc @ 0x1C0001410 (HmgAlloc.c)
+ *     GreSetBrushOwner @ 0x1C001C970 (GreSetBrushOwner.c)
+ *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0034A90 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
+ *     HmgSetOwner @ 0x1C0035470 (HmgSetOwner.c)
+ *     GreSetDCOwnerEx @ 0x1C0037AB0 (GreSetDCOwnerEx.c)
  * Callees:
- *     ?GetW32ProcessFromId@@YAPEAU_W32PROCESS@@KPEAPEAU_EPROCESS@@@Z @ 0x1C001ED50 (-GetW32ProcessFromId@@YAPEAU_W32PROCESS@@KPEAPEAU_EPROCESS@@@Z.c)
- *     GreAcquireHmgrSemaphore @ 0x1C002DF20 (GreAcquireHmgrSemaphore.c)
- *     GreReleaseHmgrSemaphore @ 0x1C002E900 (GreReleaseHmgrSemaphore.c)
+ *     ?GetW32ProcessFromId@@YAPEAU_W32PROCESS@@KPEAPEAU_EPROCESS@@@Z @ 0x1C003229C (-GetW32ProcessFromId@@YAPEAU_W32PROCESS@@KPEAPEAU_EPROCESS@@@Z.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0038C20 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0038D70 (GreAcquireHmgrSemaphore.c)
  */
 
 void __fastcall HmgDecProcessHandleCount(unsigned int a1)

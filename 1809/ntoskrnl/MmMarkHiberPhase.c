@@ -3,9 +3,9 @@
  * Callers:
  *     PopMarkComponentsBootPhase @ 0x14056B53C (PopMarkComponentsBootPhase.c)
  * Callees:
- *     MiIsRetpolineEnabled @ 0x1400DA550 (MiIsRetpolineEnabled.c)
- *     PoSetHiberRange @ 0x1401447B0 (PoSetHiberRange.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiIsRetpolineEnabled @ 0x1400DA570 (MiIsRetpolineEnabled.c)
+ *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MiGatherHiberRange @ 0x14057BF90 (MiGatherHiberRange.c)
  *     MiMarkHiberNotCachedPages @ 0x14057BFDC (MiMarkHiberNotCachedPages.c)
  *     MiMarkKernelPageTablePages @ 0x14057C128 (MiMarkKernelPageTablePages.c)

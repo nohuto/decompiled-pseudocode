@@ -1,23 +1,19 @@
 /*
- * XREFs of EtwTraceGreLockAcquireSemaphoreSharedStarveExclusive @ 0x1C00CC820
+ * XREFs of EtwTraceGreLockAcquireSemaphoreSharedStarveExclusive @ 0x1C00C53D0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C016BCC0 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CD50 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall EtwTraceGreLockAcquireSemaphoreSharedStarveExclusive(__int64 a1, int a2)
+__int64 __fastcall EtwTraceGreLockAcquireSemaphoreSharedStarveExclusive(int a1, __int64 a2, int a3)
 {
   __int64 result; // rax
-  int v5; // ecx
-  __int64 v6; // r8
 
-  result = SGDGetSessionState(a1);
-  v6 = *(_QWORD *)(result + 24);
-  if ( *(_DWORD *)(v6 + 180) )
+  if ( gbLockEtw )
   {
     if ( (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-      return McTemplateK0pz_EtwWriteTransfer(v5, (unsigned int)&LockAcquireSharedStarveExclusive, v6, a2, a1);
+      return McTemplateK0pz_EtwWriteTransfer(a1, (unsigned int)&LockAcquireSharedStarveExclusive, a3, a2);
   }
   return result;
 }

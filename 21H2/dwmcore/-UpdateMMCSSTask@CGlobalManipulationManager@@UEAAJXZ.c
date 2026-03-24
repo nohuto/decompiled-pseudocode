@@ -1,16 +1,16 @@
 /*
- * XREFs of ?UpdateMMCSSTask@CGlobalManipulationManager@@UEAAJXZ @ 0x18002E470
+ * XREFs of ?UpdateMMCSSTask@CGlobalManipulationManager@@UEAAJXZ @ 0x1800B67D0
  * Callers:
- *     ?ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ @ 0x18002E280 (-ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ.c)
+ *     ?ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ @ 0x1800B4DC0 (-ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CGlobalManipulationManager::UpdateMMCSSTask(CGlobalManipulationManager *this)
 {
   signed int v1; // ebx
   signed int LastError; // eax
-  unsigned int v4; // ecx
+  __int64 v4; // rcx
 
   v1 = 0;
   if ( hEvent )

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyInvalidResource@CCaptureRenderTarget@@UEAAXPEBVIDeviceResource@@@Z @ 0x1801A1930
+ * XREFs of ?NotifyInvalidResource@CCaptureRenderTarget@@UEAAXPEBVIDeviceResource@@@Z @ 0x1800EBA90
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ void __fastcall CCaptureRenderTarget::NotifyInvalidResource(
         CCaptureRenderTarget *this,
         const struct IDeviceResource *a2)
 {
-  CCaptureRenderTarget::ReleaseRenderingResources((CCaptureRenderTarget *)((char *)this - 1864));
+  CCaptureRenderTarget::ReleaseRenderingResources((CCaptureRenderTarget *)((char *)this - 1880));
 }

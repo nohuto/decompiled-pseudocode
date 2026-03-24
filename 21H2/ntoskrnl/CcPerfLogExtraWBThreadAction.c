@@ -1,38 +1,39 @@
 /*
- * XREFs of CcPerfLogExtraWBThreadAction @ 0x14053E57C
+ * XREFs of CcPerfLogExtraWBThreadAction @ 0x1404EC520
  * Callers:
- *     CcLogExtraWBThreadAction @ 0x1405397A8 (CcLogExtraWBThreadAction.c)
+ *     CcLogExtraWBThreadAction @ 0x1404E9C84 (CcLogExtraWBThreadAction.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void __fastcall CcPerfLogExtraWBThreadAction(int a1, int a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall CcPerfLogExtraWBThreadAction(int a1, int a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  _DWORD *v5; // [rsp+30h] [rbp-48h] BYREF
-  int v6; // [rsp+38h] [rbp-40h]
-  int v7; // [rsp+3Ch] [rbp-3Ch]
-  _DWORD v8[2]; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v9; // [rsp+48h] [rbp-30h]
-  __int64 v10; // [rsp+50h] [rbp-28h]
-  __int64 v11; // [rsp+58h] [rbp-20h]
+  __int64 result; // rax
+  _DWORD *v6; // [rsp+30h] [rbp-48h] BYREF
+  int v7; // [rsp+38h] [rbp-40h]
+  int v8; // [rsp+3Ch] [rbp-3Ch]
+  _DWORD v9[2]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v10; // [rsp+48h] [rbp-30h]
+  __int64 v11; // [rsp+50h] [rbp-28h]
+  __int64 v12; // [rsp+58h] [rbp-20h]
 
   if ( a1 == 2 )
   {
-    v8[0] = 1;
+    v9[0] = 1;
   }
   else
   {
     if ( a1 != 3 )
-      return;
-    v8[0] = 2;
+      return result;
+    v9[0] = 2;
   }
-  v7 = 0;
-  v11 = a5;
-  v8[1] = a2;
-  v9 = a3;
-  v10 = a4;
-  v5 = v8;
-  v6 = 32;
-  EtwTraceKernelEvent((__int64)&v5, 1u, 0x80020000, 0x160Eu, 0x401902u);
+  v8 = 0;
+  v12 = a5;
+  v9[1] = a2;
+  v10 = a3;
+  v11 = a4;
+  v6 = v9;
+  v7 = 32;
+  return EtwTraceKernelEvent((int)&v6, 1, 0x80020000, 5646, 4200706);
 }

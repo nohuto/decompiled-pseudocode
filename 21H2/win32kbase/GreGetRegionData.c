@@ -1,14 +1,14 @@
 /*
- * XREFs of GreGetRegionData @ 0x1C008B460
+ * XREFs of GreGetRegionData @ 0x1C001F660
  * Callers:
- *     EngGetRgnData @ 0x1C0009040 (EngGetRgnData.c)
- *     NtGdiGetRegionData @ 0x1C008B350 (NtGdiGetRegionData.c)
+ *     NtGdiGetRegionData @ 0x1C001F550 (NtGdiGetRegionData.c)
+ *     EngGetRgnData @ 0x1C014B950 (EngGetRgnData.c)
  * Callees:
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0027B78 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ?sizeSave@RGNOBJ@@QEAAKXZ @ 0x1C008B540 (-sizeSave@RGNOBJ@@QEAAKXZ.c)
- *     ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C008B580 (-vDownload@RGNOBJ@@QEAAXPEAX@Z.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DA130 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     ?sizeSave@RGNOBJ@@QEAAKXZ @ 0x1C001F740 (-sizeSave@RGNOBJ@@QEAAKXZ.c)
+ *     ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C001F780 (-vDownload@RGNOBJ@@QEAAXPEAX@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00348A0 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00C8F50 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
  */
 
 __int64 __fastcall GreGetRegionData(HRGN a1, unsigned int a2, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ESM_CheckingIfEndpointShouldBeAutoReset @ 0x1C00514E0
+ * XREFs of ESM_CheckingIfEndpointShouldBeAutoReset @ 0x1C0019EE0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InAffectedThreadList@@YAPEAUPTI_LIST@@PEBUtagTHREADINFO@@@Z @ 0x1C00AC8B0
+ * XREFs of ?InAffectedThreadList@@YAPEAUPTI_LIST@@PEBUtagTHREADINFO@@@Z @ 0x1C00124DC
  * Callers:
- *     zzzReattachThreads @ 0x1C00A8E58 (zzzReattachThreads.c)
- *     ?PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z @ 0x1C00A9BFC (-PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z.c)
- *     PackAffectedThreadsFromThreadCleanup @ 0x1C00AC830 (PackAffectedThreadsFromThreadCleanup.c)
+ *     zzzReattachThreads @ 0x1C001194C (zzzReattachThreads.c)
+ *     ?PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z @ 0x1C0012370 (-PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z.c)
+ *     PackAffectedThreadsFromThreadCleanup @ 0x1C00124A0 (PackAffectedThreadsFromThreadCleanup.c)
  * Callees:
  *     <none>
  */

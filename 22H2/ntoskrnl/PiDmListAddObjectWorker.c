@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmListAddObjectWorker @ 0x1407BEB6C
+ * XREFs of PiDmListAddObjectWorker @ 0x1407352C0
  * Callers:
- *     PiDmListAddObject @ 0x1407BEAB0 (PiDmListAddObject.c)
- *     PiDmListAddList @ 0x140882944 (PiDmListAddList.c)
+ *     PiDmListAddObject @ 0x1407353A4 (PiDmListAddObject.c)
+ *     PiDmListAddList @ 0x14076E0B4 (PiDmListAddList.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x14086C158 (PiDmListUpdateAggregationCountWorker.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140735470 (PiDmListUpdateAggregationCountWorker.c)
  */
 
 char *__fastcall PiDmListAddObjectWorker(int a1, struct _ERESOURCE *a2, __int64 a3, __int64 a4, char *a5)
@@ -35,7 +35,7 @@ char *__fastcall PiDmListAddObjectWorker(int a1, struct _ERESOURCE *a2, __int64 
     ExAcquireResourceExclusiveLite(a2, 1u);
     ++*(_DWORD *)(a3 + 12);
     ExReleaseResourceLite(a2);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     v13 = *(_QWORD **)(v10 + 8);
     if ( *v13 != v10 )
       __fastfail(3u);

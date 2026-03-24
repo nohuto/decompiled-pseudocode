@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DrvSetSharedPalette@@YAPEAUHDEV__@@PEAU_MDEV@@@Z @ 0x1C0171760
+ * XREFs of ?DrvSetSharedPalette@@YAPEAUHDEV__@@PEAU_MDEV@@@Z @ 0x1C0144690
  * Callers:
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C00760D4 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0012620 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
  * Callees:
- *     HmgDecrementShareReferenceCountEx @ 0x1C0021710 (HmgDecrementShareReferenceCountEx.c)
- *     HmgIncrementShareReferenceCount @ 0x1C00CB950 (HmgIncrementShareReferenceCount.c)
+ *     HmgIncrementShareReferenceCount @ 0x1C002CD50 (HmgIncrementShareReferenceCount.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C002E210 (HmgDecrementShareReferenceCountEx.c)
  */
 
 __int64 __fastcall DrvSetSharedPalette(struct _MDEV *a1)
@@ -15,26 +15,26 @@ __int64 __fastcall DrvSetSharedPalette(struct _MDEV *a1)
   __int64 i; // rsi
   __int64 v6; // rax
   __int64 v7; // rbx
-  unsigned int *v8; // rcx
+  __int64 v8; // rcx
 
   v1 = *(_QWORD *)a1;
   v2 = 0LL;
-  if ( (*(_DWORD *)(*(_QWORD *)a1 + 2140LL) & 0x100) != 0 )
-    v2 = *(_QWORD *)(v1 + 1776);
+  if ( (*(_DWORD *)(*(_QWORD *)a1 + 2172LL) & 0x100) != 0 )
+    v2 = *(_QWORD *)(v1 + 1808);
   v4 = 0;
-  for ( i = v1 & -(__int64)((*(_DWORD *)(*(_QWORD *)a1 + 2140LL) & 0x100) != 0); v4 < *((_DWORD *)a1 + 5); ++v4 )
+  for ( i = v1 & -(__int64)((*(_DWORD *)(*(_QWORD *)a1 + 2172LL) & 0x100) != 0); v4 < *((_DWORD *)a1 + 5); ++v4 )
   {
     v6 = *((_QWORD *)a1 + 7 * v4 + 5);
-    if ( (*(_DWORD *)(v6 + 2140) & 0x100) != 0 )
+    if ( (*(_DWORD *)(v6 + 2172) & 0x100) != 0 )
     {
-      *(_QWORD *)(v6 + 1736) = MulSetPalette;
+      *(_QWORD *)(v6 + 1768) = MulSetPalette;
       if ( v2 )
       {
-        v7 = *(_QWORD *)(v6 + 1776);
+        v7 = *(_QWORD *)(v6 + 1808);
         if ( v7 != v2 )
         {
-          v8 = *(unsigned int **)(v7 + 120);
-          if ( v8 != (unsigned int *)v7 )
+          v8 = *(_QWORD *)(v7 + 120);
+          if ( v8 != v7 )
             HmgDecrementShareReferenceCountEx(v8, 0LL);
           HmgIncrementShareReferenceCount((struct OBJECT *)v2);
           *(_DWORD *)(v7 + 28) = *(_DWORD *)(v2 + 28);
@@ -44,7 +44,7 @@ __int64 __fastcall DrvSetSharedPalette(struct _MDEV *a1)
       }
       else
       {
-        v2 = *(_QWORD *)(v6 + 1776);
+        v2 = *(_QWORD *)(v6 + 1808);
         i = v6;
       }
     }

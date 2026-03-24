@@ -1,7 +1,7 @@
 /*
- * XREFs of FxProbeAndLockForWrite @ 0x1C00915EC
+ * XREFs of FxProbeAndLockForWrite @ 0x1C0091420
  * Callers:
- *     ?ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z @ 0x1C0067F58 (-ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z.c)
+ *     ?ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z @ 0x1C004E634 (-ProbeAndLockForWrite@FxRequest@@QEAAJPEAXKPEAPEAVFxRequestMemory@@@Z.c)
  * Callees:
  *     <none>
  */

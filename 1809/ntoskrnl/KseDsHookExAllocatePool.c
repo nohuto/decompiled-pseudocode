@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsHookExAllocatePool @ 0x1402A03C0
+ * XREFs of KseDsHookExAllocatePool @ 0x1402A04C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KsepDsEventPoolAllocate @ 0x1402A10AC (KsepDsEventPoolAllocate.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KsepDsEventPoolAllocate @ 0x1402A11AC (KsepDsEventPoolAllocate.c)
  */
 
 __int64 __fastcall KseDsHookExAllocatePool(int a1, int a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidateSidBuffer @ 0x140654E04
+ * XREFs of RtlpValidateSidBuffer @ 0x140654DE4
  * Callers:
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x140654CE4 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x140654CC4 (RtlEnumerateBoundaryDescriptorEntries.c)
  * Callees:
- *     RtlSubAuthorityCountSid @ 0x1400DCAC0 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthorityCountSid @ 0x1400DCAE0 (RtlSubAuthorityCountSid.c)
  *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
  */
 

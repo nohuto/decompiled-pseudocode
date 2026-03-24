@@ -1,26 +1,26 @@
 /*
- * XREFs of PiDevCfgCheckDeviceNeedsUpdate @ 0x14082B57C
+ * XREFs of PiDevCfgCheckDeviceNeedsUpdate @ 0x14082B55C
  * Callers:
- *     PiDevCfgProcessDeviceCallback @ 0x140750BE0 (PiDevCfgProcessDeviceCallback.c)
- *     PiDevCfgInitDeviceCallback @ 0x14082D1C0 (PiDevCfgInitDeviceCallback.c)
- *     PpDevCfgCheckDeviceNeedsUpdate @ 0x14083165C (PpDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x140750BC0 (PiDevCfgProcessDeviceCallback.c)
+ *     PiDevCfgInitDeviceCallback @ 0x14082D1A0 (PiDevCfgInitDeviceCallback.c)
+ *     PpDevCfgCheckDeviceNeedsUpdate @ 0x14083163C (PpDevCfgCheckDeviceNeedsUpdate.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     swscanf_s @ 0x14019BBA0 (swscanf_s.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     swscanf_s @ 0x14019BBC0 (swscanf_s.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     _PnpOpenObjectRegKey @ 0x140597118 (_PnpOpenObjectRegKey.c)
  *     _CmIsRootEnumeratedDevice @ 0x14059C4CC (_CmIsRootEnumeratedDevice.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x1406F4004 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgFindDeviceDriver @ 0x1406F4B5C (PiDevCfgFindDeviceDriver.c)
- *     PiDevCfgGetDriverPackageId @ 0x1406F5694 (PiDevCfgGetDriverPackageId.c)
- *     PiDevCfgQueryObjectProperties @ 0x1406F6260 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgFreeDriverNode @ 0x1406F67C0 (PiDevCfgFreeDriverNode.c)
- *     PiDevCfgSplitDriverConfigurationId @ 0x1408313D8 (PiDevCfgSplitDriverConfigurationId.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1406F3FE4 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgFindDeviceDriver @ 0x1406F4B3C (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgGetDriverPackageId @ 0x1406F5674 (PiDevCfgGetDriverPackageId.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1406F6240 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgFreeDriverNode @ 0x1406F67A0 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgSplitDriverConfigurationId @ 0x1408313B8 (PiDevCfgSplitDriverConfigurationId.c)
  */
 
 __int64 __fastcall PiDevCfgCheckDeviceNeedsUpdate(__int64 a1, unsigned int *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbFreeOrderingList @ 0x1408166B8
+ * XREFs of ArbFreeOrderingList @ 0x1407A3084
  * Callers:
- *     ArbBuildAssignmentOrdering @ 0x140815FF8 (ArbBuildAssignmentOrdering.c)
+ *     ArbBuildAssignmentOrdering @ 0x1407A29A8 (ArbBuildAssignmentOrdering.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ArbFreeOrderingList(__int64 a1)

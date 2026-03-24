@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInsertQueueInternal @ 0x14035B608
+ * XREFs of KiInsertQueueInternal @ 0x1402BCED8
  * Callers:
- *     KiWakeOtherQueueWaiters @ 0x14035B550 (KiWakeOtherQueueWaiters.c)
+ *     KiWakeOtherQueueWaiters @ 0x140243310 (KiWakeOtherQueueWaiters.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1402F6A70 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14035B550 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056B1E4 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x14062DA60 (EtwTraceEnqueueWork.c)
+ *     KiWakeOtherQueueWaiters @ 0x140243310 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x14024C4F0 (KiWakeQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x140513054 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405A77C0 (EtwTraceEnqueueWork.c)
  */
 
 char __fastcall KiInsertQueueInternal(__int64 a1, __int64 *a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -60,10 +60,6 @@ char __fastcall KiInsertQueueInternal(__int64 a1, __int64 *a2, __int64 a3, _DWOR
     *(_QWORD *)(a1 + 32) = v5;
     if ( !v12 && (_QWORD *)*v4 != v4 )
       LOBYTE(v11) = KiWakeOtherQueueWaiters((__int64)CurrentPrcb, a1);
-  }
-  else
-  {
-    *v5 = 0LL;
   }
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
   return v11;

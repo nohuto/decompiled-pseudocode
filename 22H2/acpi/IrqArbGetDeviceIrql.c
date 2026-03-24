@@ -1,13 +1,13 @@
 /*
- * XREFs of IrqArbGetDeviceIrql @ 0x1C009D314
+ * XREFs of IrqArbGetDeviceIrql @ 0x1C0095178
  * Callers:
- *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DBC (AcpiIrqLibSetupSciInterrupt.c)
- *     IrqTranslatepQueryDeviceIrql @ 0x1C009A6CC (IrqTranslatepQueryDeviceIrql.c)
- *     IrqArbAddAllocation @ 0x1C009C4C0 (IrqArbAddAllocation.c)
- *     IcSetPossibleInput @ 0x1C009F6C4 (IcSetPossibleInput.c)
+ *     IrqTranslatepQueryDeviceIrql @ 0x1C00924E4 (IrqTranslatepQueryDeviceIrql.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IcSetPossibleInput @ 0x1C0096628 (IcSetPossibleInput.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0097104 (AcpiIrqLibSetupSciInterrupt.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     ProcessorGetDeviceIdtAssignment @ 0x1C009AC04 (ProcessorGetDeviceIdtAssignment.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C00936A0 (ProcessorGetDeviceIdtAssignment.c)
  */
 
 __int64 __fastcall IrqArbGetDeviceIrql(_DWORD *a1, _BYTE *a2)
@@ -21,10 +21,10 @@ __int64 __fastcall IrqArbGetDeviceIrql(_DWORD *a1, _BYTE *a2)
   v4 = a1[1];
   if ( !*a1 )
   {
-    if ( (unsigned __int8)HalPrivateDispatchTable[62](0LL, (unsigned int)a1[14]) )
+    if ( ((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))HalPrivateDispatchTable[62])(0LL, (unsigned int)a1[14]) )
     {
       v7 = 0LL;
-      if ( (int)((__int64 (__fastcall **)(_DWORD *, __int64))HalPrivateDispatchTable)[59](a1, (__int64)&v8) >= 0
+      if ( ((int (__fastcall *)(_DWORD *, int *))HalPrivateDispatchTable[59])(a1, &v8) >= 0
         && (int)ProcessorGetDeviceIdtAssignment(0LL, v8, 0, &v6) >= 0 )
       {
         v4 = DWORD1(v7);

@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBHTX_ClearTtBufferControlTransferComplete @ 0x1C00065F0
+ * XREFs of HUBHTX_ClearTtBufferControlTransferComplete @ 0x1C0006370
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0001FC8 (McTemplateK0pqqq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0001DEC (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBHTX_ClearTtBufferControlTransferComplete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -26,12 +26,12 @@ void __fastcall HUBHTX_ClearTtBufferControlTransferComplete(__int64 a1, __int64 
     {
       v12 = *(_DWORD *)(a4 + 28);
       v10 = *(_DWORD *)(a3 + 8);
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dD(
         *(_QWORD *)(*(_QWORD *)(a4 + 168) + 2520LL),
         2u,
         3u,
-        0x75u,
-        (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+        0x74u,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
         v10,
         v12);
     }

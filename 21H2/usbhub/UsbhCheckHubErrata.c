@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhCheckHubErrata @ 0x1C0050F60
+ * XREFs of UsbhCheckHubErrata @ 0x1C00525B0
  * Callers:
- *     UsbhInitialize @ 0x1C002C450 (UsbhInitialize.c)
+ *     UsbhInitialize @ 0x1C002D870 (UsbhInitialize.c)
  * Callees:
- *     UsbhGetRegUsbHubFlags @ 0x1C0045268 (UsbhGetRegUsbHubFlags.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhApplyHubFix @ 0x1C0050B60 (UsbhApplyHubFix.c)
- *     UsbhGetDeviceFlags @ 0x1C0051110 (UsbhGetDeviceFlags.c)
+ *     UsbhGetRegUsbHubFlags @ 0x1C0046580 (UsbhGetRegUsbHubFlags.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhApplyHubFix @ 0x1C00521B0 (UsbhApplyHubFix.c)
+ *     UsbhGetDeviceFlags @ 0x1C0052760 (UsbhGetDeviceFlags.c)
  */
 
 void __fastcall UsbhCheckHubErrata(__int64 a1, __int64 a2, __int64 a3)

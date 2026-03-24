@@ -1,12 +1,12 @@
 /*
- * XREFs of ?xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX@Z @ 0x1C009DCA4
+ * XREFs of ?xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX@Z @ 0x1C0122A70
  * Callers:
- *     EditionParseDesktop @ 0x1C009DB40 (EditionParseDesktop.c)
+ *     EditionParseDesktop @ 0x1C004E980 (EditionParseDesktop.c)
  * Callees:
- *     DesktopAlloc @ 0x1C0065280 (DesktopAlloc.c)
- *     CreateDesktopHeap @ 0x1C009DFEC (CreateDesktopHeap.c)
- *     GetDesktopHeapSize @ 0x1C009E0B0 (GetDesktopHeapSize.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     DesktopAlloc @ 0x1C004B200 (DesktopAlloc.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     CreateDesktopHeap @ 0x1C0122DB8 (CreateDesktopHeap.c)
+ *     GetDesktopHeapSize @ 0x1C0122EE0 (GetDesktopHeapSize.c)
  */
 
 __int64 __fastcall xxxCreateDesktopEx2(
@@ -25,36 +25,37 @@ __int64 __fastcall xxxCreateDesktopEx2(
   struct _KPROCESS *CurrentProcess; // rax
   __int64 result; // rax
   unsigned int DesktopHeapSize; // edi
-  struct tagTHREADINFO *v17; // rax
+  struct _KTHREAD *CurrentThread; // rcx
+  __int64 ThreadWin32Thread; // rax
   __int64 DesktopHeap; // rax
-  PVOID v19; // rsi
-  struct tagTHREADINFO *v20; // rax
-  _QWORD *v21; // rax
+  PVOID v20; // rsi
+  __int64 v21; // rax
   _QWORD *v22; // rax
-  __int64 v23; // r8
-  _QWORD *v24; // rax
-  __int64 v25; // rcx
+  _QWORD *v23; // rax
+  __int64 v24; // r8
+  _QWORD *v25; // rax
+  __int64 v26; // rcx
   ACCESS_MASK *p_RemainingDesiredAccess; // rbx
   ACCESS_MASK RemainingDesiredAccess; // eax
-  PVOID v28; // rdx
-  PVOID v29; // rax
-  struct tagTHREADINFO *v30; // rax
-  unsigned int v31; // [rsp+40h] [rbp-20h]
+  PVOID v29; // rdx
+  PVOID v30; // rax
+  __int64 v31; // rax
+  unsigned int v32; // [rsp+40h] [rbp-20h]
   PVOID Object; // [rsp+48h] [rbp-18h] BYREF
-  __int64 v33; // [rsp+50h] [rbp-10h] BYREF
+  __int64 v34; // [rsp+50h] [rbp-10h] BYREF
 
   Object = 0LL;
-  v31 = 0;
+  v32 = 0;
   v9 = 0;
   v10 = 0;
   if ( !(unsigned __int8)ObCheckCreateObjectAccess(a1, 8LL, a2) )
-    return v31;
+    return v32;
   CurrentProcess = (struct _KPROCESS *)PsGetCurrentProcess(v12, v11, v13);
   if ( (*((_DWORD *)a1 + 16) & 2) != 0 && PsGetProcessId(CurrentProcess) != (HANDLE)gpidLogon )
   {
-    v33 = 0LL;
-    GetProcessLuid(0LL, &v33);
-    if ( v33 == *((_QWORD *)a1 + 22) )
+    v34 = 0LL;
+    GetProcessLuid(0LL, &v34);
+    if ( v34 == *((_QWORD *)a1 + 22) )
       return 3221226091LL;
   }
   result = CreateDesktopObObject(a4, a1, a2, &Object);
@@ -66,12 +67,12 @@ __int64 __fastcall xxxCreateDesktopEx2(
     }
     else
     {
-      v29 = (PVOID)*((_QWORD *)a1 + 2);
-      if ( v29 )
+      v30 = (PVOID)*((_QWORD *)a1 + 2);
+      if ( v30 )
       {
         if ( gspdeskDisconnect )
         {
-          if ( v29 == gspdeskDisconnect )
+          if ( v30 == gspdeskDisconnect )
             v10 = 1;
         }
         else
@@ -88,41 +89,42 @@ __int64 __fastcall xxxCreateDesktopEx2(
       DesktopHeapSize = a5 << 10;
     else
       DesktopHeapSize = GetDesktopHeapSize(v9);
+    CurrentThread = KeGetCurrentThread();
     if ( DesktopHeapSize < 0x2000 )
       DesktopHeapSize = 0x2000;
-    v17 = PtiCurrentShared();
-    *((_DWORD *)v17 + 318) |= 0x40u;
-    DesktopHeap = CreateDesktopHeap((char *)Object + 136, DesktopHeapSize);
-    *((_QWORD *)Object + 16) = DesktopHeap;
-    if ( *((_QWORD *)Object + 16) )
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)CurrentThread);
+    *(_DWORD *)(ThreadWin32Thread + 1232) |= 0x40u;
+    DesktopHeap = CreateDesktopHeap((char *)Object + 128, DesktopHeapSize);
+    *((_QWORD *)Object + 15) = DesktopHeap;
+    if ( *((_QWORD *)Object + 15) )
     {
-      *((_DWORD *)Object + 36) = DesktopHeapSize;
-      v19 = DesktopAlloc((__int64)Object, 0x48u);
-      if ( v19 )
+      *((_DWORD *)Object + 34) = DesktopHeapSize;
+      v20 = DesktopAlloc((__int64)Object, 0x48u);
+      if ( v20 )
       {
-        v20 = PtiCurrentShared();
-        *((_DWORD *)v20 + 318) &= ~0x40u;
-        v21 = (_QWORD *)Win32AllocPoolZInit(256LL, 1684763477LL);
-        if ( v21 )
+        v21 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+        *(_DWORD *)(v21 + 1232) &= ~0x40u;
+        v22 = (_QWORD *)Win32AllocPoolZInit(256LL, 1684763477LL);
+        if ( v22 )
         {
-          *v21 = v19;
-          *((_QWORD *)Object + 1) = v21;
-          v22 = (char *)Object + 176;
-          v23 = ++gdwDesktopId;
-          *((_QWORD *)Object + 23) = (char *)Object + 176;
-          *v22 = v22;
-          v24 = (char *)Object + 312;
+          *v22 = v20;
+          *((_QWORD *)Object + 1) = v22;
+          v23 = (char *)Object + 168;
+          v24 = ++gdwDesktopId;
+          *((_QWORD *)Object + 22) = (char *)Object + 168;
+          *v23 = v23;
+          v25 = (char *)Object + 312;
           *((_QWORD *)Object + 40) = (char *)Object + 312;
-          *v24 = v24;
-          if ( v23 == 0xFFFFFFFFLL )
+          *v25 = v25;
+          if ( v24 == 0xFFFFFFFFLL )
           {
             gdwDesktopId = 1LL;
-            LODWORD(v23) = 1;
+            LODWORD(v24) = 1;
           }
-          ***((_QWORD ***)Object + 1) = (unsigned int)v23 | ((gCookie ^ (unsigned __int64)Object) << 32);
-          v25 = *((_QWORD *)Object + 17);
-          *((_QWORD *)Object + 2) = v25;
-          *((_QWORD *)Object + 3) = v25 + DesktopHeapSize;
+          ***((_QWORD ***)Object + 1) = (unsigned int)v24 | ((gCookie ^ (unsigned __int64)Object) << 32);
+          v26 = *((_QWORD *)Object + 16);
+          *((_QWORD *)Object + 2) = v26;
+          *((_QWORD *)Object + 3) = v26 + DesktopHeapSize;
           LockObjectAssignment((char *)Object + 40, a1);
           if ( !*((_QWORD *)a1 + 2) )
           {
@@ -137,14 +139,14 @@ __int64 __fastcall xxxCreateDesktopEx2(
           if ( (RemainingDesiredAccess & 0x2000000) != 0 )
             *p_RemainingDesiredAccess = RemainingDesiredAccess & 0xEDFFFFFF | 0x10000000;
           RtlMapGenericMask(&a2->RemainingDesiredAccess, DesktopMapping);
-          v28 = Object;
+          v29 = Object;
           *p_RemainingDesiredAccess &= DesktopMapping->GenericAll | 0x1000000;
-          *a6 = v28;
+          *a6 = v29;
           if ( v10 )
-            LockObjectAssignment(grpdeskIODefault, v28);
+            LockObjectAssignment(grpdeskIODefault, v29);
           return 0LL;
         }
-        RtlFreeHeap(*((PVOID *)Object + 17), 0, v19);
+        RtlFreeHeap(*((PVOID *)Object + 16), 0, v20);
       }
     }
     else if ( (*gpsi & 0x100) != 0 )
@@ -152,11 +154,11 @@ __int64 __fastcall xxxCreateDesktopEx2(
       _InterlockedAnd(gpsi, 0xFFFFFEFF);
       UserLogError(2147483892LL);
     }
-    v30 = PtiCurrentShared();
-    *((_DWORD *)v30 + 318) &= ~0x40u;
-    v31 = -1073741801;
+    v31 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    *(_DWORD *)(v31 + 1232) &= ~0x40u;
+    v32 = -1073741801;
     ObfDereferenceObject(Object);
-    return v31;
+    return v32;
   }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateAddressDescriptionFromEntry@FxChildList@@QEAAXPEAUFxDeviceDescriptionEntry@@PEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@@Z @ 0x1C005C8EC
+ * XREFs of ?UpdateAddressDescriptionFromEntry@FxChildList@@QEAAXPEAUFxDeviceDescriptionEntry@@PEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@@Z @ 0x1C003C34C
  * Callers:
- *     imp_WdfPdoUpdateAddressDescription @ 0x1C005B2B0 (imp_WdfPdoUpdateAddressDescription.c)
+ *     imp_WdfPdoUpdateAddressDescription @ 0x1C0039190 (imp_WdfPdoUpdateAddressDescription.c)
  * Callees:
- *     ?CopyAddress@FxChildList@@IEAAXPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z @ 0x1C005BC34 (-CopyAddress@FxChildList@@IEAAXPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z.c)
+ *     ?CopyAddress@FxChildList@@IEAAXPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z @ 0x1C003AE74 (-CopyAddress@FxChildList@@IEAAXPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z.c)
  */
 
 void __fastcall FxChildList::UpdateAddressDescriptionFromEntry(

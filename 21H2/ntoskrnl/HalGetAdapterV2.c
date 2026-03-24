@@ -1,20 +1,20 @@
 /*
- * XREFs of HalGetAdapterV2 @ 0x140845A60
+ * XREFs of HalGetAdapterV2 @ 0x140764810
  * Callers:
- *     HalpGetAdapter @ 0x140845CD8 (HalpGetAdapter.c)
+ *     HalpGetAdapter @ 0x14076474C (HalpGetAdapter.c)
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x14023A8D0 (HalpDmaGetAdapterVersion.c)
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ObReferenceObjectByPointer @ 0x1402E0270 (ObReferenceObjectByPointer.c)
- *     HalpDmaFindAdapterByDeviceObject @ 0x1403CD208 (HalpDmaFindAdapterByDeviceObject.c)
- *     HalpAddAdapterToList @ 0x1403CD3EC (HalpAddAdapterToList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpDmaIsAutomaticDomain @ 0x140515358 (HalpDmaIsAutomaticDomain.c)
- *     HalpGetCacheCoherency @ 0x140846200 (HalpGetCacheCoherency.c)
- *     HalpDmaAllocateChildAdapterV2 @ 0x140846BEC (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpDmaGetAdapterVersion @ 0x1402B62B0 (HalpDmaGetAdapterVersion.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ObReferenceObjectByPointer @ 0x1403600E0 (ObReferenceObjectByPointer.c)
+ *     HalpAddAdapterToList @ 0x1403798BC (HalpAddAdapterToList.c)
+ *     HalpDmaFindAdapterByDeviceObject @ 0x14037996C (HalpDmaFindAdapterByDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpDmaIsAutomaticDomain @ 0x1404C4C50 (HalpDmaIsAutomaticDomain.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140764A8C (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpGetCacheCoherency @ 0x140764CFC (HalpGetCacheCoherency.c)
  */
 
 __int64 __fastcall HalGetAdapterV2(__int64 a1, __int64 a2, _DWORD *a3)
@@ -35,7 +35,7 @@ __int64 __fastcall HalGetAdapterV2(__int64 a1, __int64 a2, _DWORD *a3)
   int v17; // r8d
   int v18; // r9d
   __int64 *AdapterByDeviceObject; // rax
-  __int64 **v20; // rbp
+  __int64 *v20; // rbp
   __int64 ChildAdapterV2; // rax
   __int64 v22; // rbx
   char v23; // al
@@ -130,10 +130,10 @@ LABEL_15:
       v37 = v25;
       v26 = v25;
     }
-    v27 = dword_140C4E018;
+    v27 = dword_140C4BE58;
     v13 = v26;
     if ( !v8 )
-      v27 = dword_140C4DF38;
+      v27 = dword_140C4BD78;
     if ( !v9 )
     {
       v28 = v27 >> 13;
@@ -179,12 +179,12 @@ LABEL_15:
   if ( v35 )
   {
     AdapterByDeviceObject = HalpDmaFindAdapterByDeviceObject(v35);
-    v20 = (__int64 **)AdapterByDeviceObject;
+    v20 = AdapterByDeviceObject;
     if ( AdapterByDeviceObject )
     {
       AdapterVersion = HalpDmaGetAdapterVersion((__int64)AdapterByDeviceObject);
-      IsAutomaticDomain = HalpDmaIsAutomaticDomain(v20[63]);
-      ObfDereferenceObject(v20);
+      IsAutomaticDomain = HalpDmaIsAutomaticDomain((__int64 *)v20[63]);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v20);
       if ( AdapterVersion != 2 && !IsAutomaticDomain )
         goto LABEL_72;
       LODWORD(v14) = v15;

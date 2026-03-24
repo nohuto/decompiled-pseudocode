@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAA@XZ @ 0x1C016EA00
+ * XREFs of ??1CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAA@XZ @ 0x1C014D9A4
  * Callers:
- *     ?UninitializeReferenceTracker@@YAXXZ @ 0x1C00A9930 (-UninitializeReferenceTracker@@YAXXZ.c)
- *     ?Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@Z @ 0x1C016EBD0 (-Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@.c)
+ *     ?Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@Z @ 0x1C014DB74 (-Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@.c)
+ *     ?Destroy@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAXPEAV123@@Z @ 0x1C014DC38 (-Destroy@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAXPEAV123@@Z.c)
  * Callees:
- *     ?Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C016F0FC (-Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z.c)
- *     ?Uninitialize@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAAXXZ @ 0x1C0170234 (-Uninitialize@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@.c)
+ *     ?Uninitialize@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAAXXZ @ 0x1C014E594 (-Uninitialize@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@.c)
+ *     ?Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C014E710 (-Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z.c)
  */
 
 void __fastcall NSInstrumentation::CReferenceTracker::CReferenceCountedType::~CReferenceCountedType(
@@ -13,8 +13,8 @@ void __fastcall NSInstrumentation::CReferenceTracker::CReferenceCountedType::~CR
 {
   void *v1; // rbx
   void *v3; // rcx
-  NSInstrumentation::CReferenceTracker::CReferenceCountedType *v4; // rcx
-  NSInstrumentation::CReferenceTracker::CReferenceCountedType **v5; // rax
+  NSInstrumentation::CReferenceTracker::CReferenceCountedType *v4; // rax
+  NSInstrumentation::CReferenceTracker::CReferenceCountedType **v5; // rcx
   unsigned int v6; // esi
   void *v7; // rbx
   void **v8; // rcx

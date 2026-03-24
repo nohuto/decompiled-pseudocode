@@ -1,12 +1,13 @@
 /*
- * XREFs of XilEndpoint_SendRequestToSetSecureStreamContextArray @ 0x1C0039574
+ * XREFs of XilEndpoint_SendRequestToSetSecureStreamContextArray @ 0x1C0037ABC
  * Callers:
- *     XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0038D24 (XilEndpoint_CommitStreamContextArrayUpdates.c)
+ *     XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0037290 (XilEndpoint_CommitStreamContextArrayUpdates.c)
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     memmove @ 0x1C0020300 (memmove.c)
- *     WPP_RECORDER_SF_ddL @ 0x1C0030AE4 (WPP_RECORDER_SF_ddL.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall XilEndpoint_SendRequestToSetSecureStreamContextArray(
@@ -18,10 +19,10 @@ __int64 __fastcall XilEndpoint_SendRequestToSetSecureStreamContextArray(
 {
   __int64 v6; // rdi
   size_t v7; // rsi
-  __int64 v9; // r12
+  __int64 v9; // r13
   unsigned int v10; // ebx
-  __int64 Pool2; // rax
-  void *v12; // rbp
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v12; // rbp
   int v13; // edx
   int v14; // ebx
   const void *v15; // rdx
@@ -37,16 +38,17 @@ __int64 __fastcall XilEndpoint_SendRequestToSetSecureStreamContextArray(
   v9 = *(_QWORD *)(*(_QWORD *)v6 + 112LL);
   if ( v7 > 0xFFFFFFFF || (v10 = v7 + 48, (int)v7 + 48 < (unsigned int)v7) )
     v10 = 0;
-  Pool2 = ExAllocatePool2(64LL, v10, 1229146200LL);
-  v12 = (void *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState, v10, 0x49434858u);
+  v12 = PoolWithTag;
+  if ( PoolWithTag )
   {
+    memset(PoolWithTag, 0, v10);
     v15 = Src;
-    *(_DWORD *)(Pool2 + 40) = 0;
-    *(_DWORD *)(Pool2 + 32) = 37;
-    *(_QWORD *)(Pool2 + 24) = a2;
-    *(_DWORD *)(Pool2 + 44) = a4;
-    memmove((void *)(Pool2 + 48), v15, v7);
+    v12[10] = 0;
+    v12[8] = 37;
+    *((_QWORD *)v12 + 3) = a2;
+    v12[11] = a4;
+    memmove(v12 + 12, v15, v7);
     v14 = SecureChannel_SendRequestSynchronously(v9, v12, v10, &v21, 4);
     if ( v14 >= 0 )
     {
@@ -77,7 +79,7 @@ LABEL_11:
         v16,
         13,
         v17,
-        (__int64)&WPP_21ddac9bc1473b1039e66530083bb77c_Traceguids,
+        (__int64)&WPP_539d53059a2e35bc1c6dc9c85d9f465f_Traceguids,
         v19,
         v20);
     }
@@ -94,7 +96,7 @@ LABEL_16:
       v13,
       13,
       18,
-      (__int64)&WPP_21ddac9bc1473b1039e66530083bb77c_Traceguids,
+      (__int64)&WPP_539d53059a2e35bc1c6dc9c85d9f465f_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v6 + 16) + 135LL),
       *(_DWORD *)(v6 + 144),
       v10);

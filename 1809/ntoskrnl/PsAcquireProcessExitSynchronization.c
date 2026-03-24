@@ -1,7 +1,7 @@
 /*
- * XREFs of PsAcquireProcessExitSynchronization @ 0x1406A4FD0
+ * XREFs of PsAcquireProcessExitSynchronization @ 0x1406A4FB0
  * Callers:
- *     EtwQueryProcessTelemetryInfo @ 0x1406A4CA0 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x1406A4C80 (EtwQueryProcessTelemetryInfo.c)
  * Callees:
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  */

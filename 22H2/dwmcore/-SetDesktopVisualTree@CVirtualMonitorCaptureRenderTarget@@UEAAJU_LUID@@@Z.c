@@ -1,40 +1,44 @@
 /*
- * XREFs of ?SetDesktopVisualTree@CVirtualMonitorCaptureRenderTarget@@UEAAJU_LUID@@@Z @ 0x1801EEA10
+ * XREFs of ?SetDesktopVisualTree@CVirtualMonitorCaptureRenderTarget@@UEAAJU_LUID@@@Z @ 0x1801888E0
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetVisualTree@CRenderTarget@@IEAAXPEAVCVisualTree@@@Z @ 0x1800C785C (-SetVisualTree@CRenderTarget@@IEAAXPEAVCVisualTree@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SetVisualTree@CRenderTarget@@IEAAJPEAVCVisualTree@@@Z @ 0x1800265EC (-SetVisualTree@CRenderTarget@@IEAAJPEAVCVisualTree@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CVirtualMonitorCaptureRenderTarget::SetDesktopVisualTree(
         CVirtualMonitorCaptureRenderTarget *this,
         struct _LUID a2)
 {
-  __int64 *v2; // r14
-  struct CVisualTree **v3; // rdi
-  CResource *v6; // rcx
-  __int64 v7; // rax
-  __int64 (__fastcall *v8)(__int64 *, struct _LUID, struct CVisualTree **); // rbp
-  int v9; // eax
-  __int64 v10; // rcx
-  unsigned int v11; // ebx
+  __int64 *v3; // rcx
+  __int64 v4; // rax
+  int v5; // eax
+  __int64 v6; // rcx
+  unsigned int v7; // ebx
+  int v8; // eax
+  __int64 v9; // rcx
+  CRenderTargetBitmap *v11; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = (__int64 *)*((_QWORD *)this + 2);
-  v3 = (struct CVisualTree **)((char *)this + 2064);
-  v6 = (CResource *)*((_QWORD *)this + 258);
-  v7 = *v2;
-  *v3 = 0LL;
-  v8 = *(__int64 (__fastcall **)(__int64 *, struct _LUID, struct CVisualTree **))(v7 + 56);
-  if ( v6 )
-    CResource::InternalRelease(v6);
-  v9 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))v8)(v2, a2, v3);
-  v11 = v9;
-  if ( v9 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x25u, 0LL);
+  v3 = (__int64 *)*((_QWORD *)this + 2);
+  v4 = *v3;
+  v11 = 0LL;
+  v5 = (*(__int64 (__fastcall **)(__int64 *, struct _LUID, CRenderTargetBitmap **))(v4 + 32))(v3, a2, &v11);
+  v7 = v5;
+  if ( v5 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x26u, 0LL);
+  }
   else
-    CRenderTarget::SetVisualTree(this, *v3);
-  return v11;
+  {
+    v8 = CRenderTarget::SetVisualTree(this, v11);
+    v7 = v8;
+    if ( v8 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x29u, 0LL);
+  }
+  if ( v11 )
+    CRenderTargetBitmap::Release(v11);
+  return v7;
 }

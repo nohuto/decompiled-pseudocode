@@ -1,200 +1,226 @@
 /*
- * XREFs of RtlpMuiRegLoadLicInformation @ 0x14038A978
+ * XREFs of RtlpMuiRegLoadLicInformation @ 0x1403A76C0
  * Callers:
- *     RtlpMuiRegLoadRegistryInfo @ 0x1408470F0 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x140790108 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     wcspbrk @ 0x1403DB9E0 (wcspbrk.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlCultureNameToLCID @ 0x140826300 (RtlCultureNameToLCID.c)
- *     RtlpGetWindowsPolicy @ 0x1408263C0 (RtlpGetWindowsPolicy.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     wcspbrk @ 0x1403D3F50 (wcspbrk.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlCultureNameToLCID @ 0x14078EC20 (RtlCultureNameToLCID.c)
+ *     RtlpGetWindowsPolicy @ 0x14078ECE0 (RtlpGetWindowsPolicy.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadLicInformation(__int64 a1)
 {
-  wchar_t *v2; // r13
-  wchar_t *v3; // r12
-  int v4; // esi
-  wchar_t *Pool2; // rax
-  const wchar_t *v6; // rbx
-  wchar_t *i; // r14
-  wchar_t *v8; // rax
-  const wchar_t *v9; // rbx
-  int v10; // esi
-  wchar_t *j; // r14
-  wchar_t *v12; // rax
-  const wchar_t *v13; // rbx
-  int v14; // esi
-  wchar_t *v15; // r14
-  unsigned int v16; // ebx
+  __int64 v1; // rsi
+  ULONG_PTR v2; // r13
+  ULONG_PTR v3; // rdi
+  int v4; // r14d
+  ULONG_PTR v5; // r15
+  PVOID PoolWithTag; // rax
+  const WCHAR *v7; // r12
+  int v8; // ebx
+  wchar_t *v9; // r14
+  wchar_t *v10; // rax
+  PVOID v11; // rax
+  int v12; // ebx
+  const WCHAR *v13; // r12
+  wchar_t *v14; // r14
+  wchar_t *v15; // rax
+  PVOID v16; // rax
+  int v17; // ebx
+  const WCHAR *v18; // r12
+  wchar_t *v19; // r14
+  wchar_t *v20; // rax
+  unsigned int v21; // ebx
   __int64 result; // rax
-  int v18; // [rsp+20h] [rbp-38h]
-  int v19; // [rsp+24h] [rbp-34h]
-  BOOL v20; // [rsp+28h] [rbp-30h]
-  __int64 v21; // [rsp+2Ch] [rbp-2Ch]
-  wchar_t *v22; // [rsp+38h] [rbp-20h]
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
-  int v24; // [rsp+A8h] [rbp+50h] BYREF
-  int v25; // [rsp+B0h] [rbp+58h]
-  int v26; // [rsp+B8h] [rbp+60h]
+  int v23; // [rsp+20h] [rbp-48h]
+  int v24; // [rsp+24h] [rbp-44h]
+  int v25; // [rsp+28h] [rbp-40h]
+  BOOL v26; // [rsp+2Ch] [rbp-3Ch]
+  int v27; // [rsp+30h] [rbp-38h]
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-20h] BYREF
+  int v30; // [rsp+C0h] [rbp+58h] BYREF
+  int v31; // [rsp+C8h] [rbp+60h]
 
-  LODWORD(v21) = -1;
-  v24 = 0;
-  v25 = 0;
+  v27 = -1;
+  v30 = 0;
+  v31 = 0;
+  v1 = a1;
   v2 = 0LL;
   v3 = 0LL;
-  v18 = 0;
+  v24 = 0;
   v4 = 0;
+  v23 = 0;
+  v5 = 0LL;
+  v25 = 0;
   v26 = 0;
-  v22 = 0LL;
-  v19 = 0;
-  v20 = 0;
   DestinationString = 0LL;
   if ( !a1 )
   {
-    v16 = -1073741811;
-    goto LABEL_35;
+    v21 = -1073741811;
+    goto LABEL_43;
   }
-  v20 = (int)RtlpGetWindowsPolicy(L"WindowsExcludedProcs") >= 0;
+  v26 = (int)RtlpGetWindowsPolicy(L"WindowsExcludedProcs") >= 0;
   if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Number-Allowed") >= 0 )
   {
-    v21 = MEMORY[0];
-    ExFreePoolWithTag(0LL, 0);
+    v27 = MEMORY[0];
+    ExFreeHeapPool(0LL);
   }
   if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Language-Allowed") >= 0 )
   {
-    v18 = 4;
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, 4LL, 1920232557LL);
-    v6 = Pool2;
-    v2 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x72746C6Du);
+    v2 = (ULONG_PTR)PoolWithTag;
+    if ( PoolWithTag )
+      memset(PoolWithTag, 0, 4uLL);
+    if ( !v2 )
     {
-      v18 = 0;
-LABEL_43:
-      v16 = -1073741801;
-      goto LABEL_34;
+      v24 = 0;
+      goto LABEL_47;
     }
-    memmove(Pool2, 0LL, 0LL);
-    for ( i = wcspbrk(v6, L";"); i; i = wcspbrk(i + 1, L";") )
+    memmove((void *)v2, 0LL, 0LL);
+    v7 = (const WCHAR *)v2;
+    v8 = 0;
+    v9 = wcspbrk((const wchar_t *)v2, L";");
+    LOWORD(v10) = 0;
+    if ( v9 )
     {
-      *i = 0;
-      RtlInitUnicodeString(&DestinationString, v6);
-      if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
-        ++v4;
-      v6 = i + 1;
-    }
-    if ( *v6 )
-    {
-      RtlInitUnicodeString(&DestinationString, v6);
-      if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
-        ++v4;
-    }
-    if ( !v4 )
-    {
-      ExFreePoolWithTag(v2, 0);
-      v18 = 0;
-      v2 = 0LL;
-    }
-  }
-  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Language-Disallowed") < 0 )
-    goto LABEL_20;
-  v26 = 4;
-  v8 = (wchar_t *)ExAllocatePool2(256LL, 4LL, 1920232557LL);
-  v9 = v8;
-  v3 = v8;
-  if ( !v8 )
-  {
-    v4 = 0;
-    goto LABEL_43;
-  }
-  memmove(v8, 0LL, 0LL);
-  v10 = 0;
-  for ( j = wcspbrk(v9, L";"); j; j = wcspbrk(j + 1, L";") )
-  {
-    *j = 0;
-    RtlInitUnicodeString(&DestinationString, v9);
-    if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
-      ++v10;
-    v9 = j + 1;
-  }
-  if ( *v9 )
-  {
-    RtlInitUnicodeString(&DestinationString, v9);
-    if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
-      ++v10;
-  }
-  if ( !v10 )
-  {
-    ExFreePoolWithTag(v3, 0);
-    v26 = 0;
-    v3 = 0LL;
-  }
-LABEL_20:
-  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Language-SKU") >= 0 )
-  {
-    v19 = 4;
-    v12 = (wchar_t *)ExAllocatePool2(256LL, 4LL, 1920232557LL);
-    v22 = v12;
-    v13 = v12;
-    if ( !v12 )
-    {
-      v19 = 0;
-      v16 = -1073741801;
-      goto LABEL_33;
-    }
-    memmove(v12, 0LL, 0LL);
-    v14 = 0;
-    v22 = (wchar_t *)v13;
-    v15 = wcspbrk(v13, L";");
-    if ( v15 )
-    {
-      v22 = (wchar_t *)v13;
       do
       {
-        *v15 = 0;
+        *v9 = 0;
+        RtlInitUnicodeString(&DestinationString, v7);
+        if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v30) )
+          ++v8;
+        v7 = v9 + 1;
+        v10 = wcspbrk(v9 + 1, L";");
+        v9 = v10;
+      }
+      while ( v10 );
+      v1 = a1;
+    }
+    if ( *v7 != (_WORD)v10 )
+    {
+      RtlInitUnicodeString(&DestinationString, v7);
+      if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v30) )
+        ++v8;
+    }
+    if ( !v8 )
+      ExFreeHeapPool(v2);
+    v24 = v8 != 0 ? 4 : 0;
+    v2 &= -(__int64)(v8 != 0);
+    v4 = 0;
+  }
+  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Language-Disallowed") >= 0 )
+  {
+    v11 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x72746C6Du);
+    v3 = (ULONG_PTR)v11;
+    if ( v11 )
+      memset(v11, 0, 4uLL);
+    if ( !v3 )
+    {
+      v4 = 0;
+      goto LABEL_47;
+    }
+    memmove((void *)v3, 0LL, 0LL);
+    v12 = 0;
+    v13 = (const WCHAR *)v3;
+    v14 = wcspbrk((const wchar_t *)v3, L";");
+    LOWORD(v15) = 0;
+    if ( v14 )
+    {
+      do
+      {
+        *v14 = 0;
         RtlInitUnicodeString(&DestinationString, v13);
-        if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
-          ++v14;
-        v13 = v15 + 1;
-        v15 = wcspbrk(v15 + 1, L";");
+        if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v30) )
+          ++v12;
+        v13 = v14 + 1;
+        v15 = wcspbrk(v14 + 1, L";");
+        v14 = v15;
       }
       while ( v15 );
+      v1 = a1;
     }
-    if ( *v13 )
+    if ( *v13 != (_WORD)v15 )
     {
       RtlInitUnicodeString(&DestinationString, v13);
-      if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v24) )
-        ++v14;
+      if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v30) )
+        ++v12;
     }
-    if ( !v14 )
-    {
-      ExFreePoolWithTag(v22, 0);
-      v19 = 0;
-      v22 = 0LL;
-    }
+    if ( !v12 )
+      ExFreeHeapPool(v3);
+    v4 = v12 != 0 ? 4 : 0;
+    v23 = v4;
+    v3 &= -(__int64)(v12 != 0);
   }
-  v16 = 0;
-LABEL_33:
-  v4 = v26;
-LABEL_34:
+  if ( (int)RtlpGetWindowsPolicy(L"Kernel-MUI-Language-SKU") >= 0 )
+  {
+    v16 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x72746C6Du);
+    v5 = (ULONG_PTR)v16;
+    if ( v16 )
+      memset(v16, 0, 4uLL);
+    if ( v5 )
+    {
+      memmove((void *)v5, 0LL, 0LL);
+      v17 = 0;
+      v18 = (const WCHAR *)v5;
+      v19 = wcspbrk((const wchar_t *)v5, L";");
+      LOWORD(v20) = 0;
+      if ( v19 )
+      {
+        do
+        {
+          *v19 = 0;
+          RtlInitUnicodeString(&DestinationString, v18);
+          if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v30) )
+            ++v17;
+          v18 = v19 + 1;
+          v20 = wcspbrk(v19 + 1, L";");
+          v19 = v20;
+        }
+        while ( v20 );
+        v1 = a1;
+      }
+      if ( *v18 != (_WORD)v20 )
+      {
+        RtlInitUnicodeString(&DestinationString, v18);
+        if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v30) )
+          ++v17;
+      }
+      if ( !v17 )
+        ExFreeHeapPool(v5);
+      v25 = v17 != 0 ? 4 : 0;
+      v5 &= -(__int64)(v17 != 0);
+      v4 = v23;
+      goto LABEL_41;
+    }
+    v25 = 0;
+LABEL_47:
+    v21 = -1073741801;
+    goto LABEL_42;
+  }
+LABEL_41:
+  v21 = 0;
+LABEL_42:
   if ( v2 && v3 )
   {
-    ExFreePoolWithTag(v3, 0);
+    ExFreeHeapPool(v3);
     v3 = 0LL;
     v4 = 0;
   }
-LABEL_35:
-  *(_DWORD *)a1 |= 0x800u;
-  *(_DWORD *)(a1 + 116) = v20;
-  *(_DWORD *)(a1 + 120) = v21;
-  *(_DWORD *)(a1 + 148) = v18;
-  *(_QWORD *)(a1 + 136) = v22;
-  *(_DWORD *)(a1 + 144) = v19;
-  result = v16;
-  *(_QWORD *)(a1 + 128) = v2;
-  *(_QWORD *)(a1 + 152) = v3;
-  *(_DWORD *)(a1 + 160) = v4;
+LABEL_43:
+  *(_DWORD *)v1 |= 0x800u;
+  *(_DWORD *)(v1 + 116) = v26;
+  *(_DWORD *)(v1 + 120) = v27;
+  *(_DWORD *)(v1 + 148) = v24;
+  *(_DWORD *)(v1 + 144) = v25;
+  result = v21;
+  *(_QWORD *)(v1 + 128) = v2;
+  *(_QWORD *)(v1 + 152) = v3;
+  *(_DWORD *)(v1 + 160) = v4;
+  *(_QWORD *)(v1 + 136) = v5;
   return result;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of KeQueryCycleTimeStatsProcessor @ 0x14033AB20
+ * XREFs of KeQueryCycleTimeStatsProcessor @ 0x1403166E0
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
- *     PopEtIsrDpcQuery @ 0x1407B3964 (PopEtIsrDpcQuery.c)
+ *     PopEtIsrDpcQuery @ 0x140686790 (PopEtIsrDpcQuery.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall KeQueryCycleTimeStatsProcessor(__int64 a1, _QWORD *a2)
     v4 = 2LL;
     do
     {
-      result = *(_QWORD *)((char *)a2 + v2 + 33408);
+      result = *(_QWORD *)((char *)a2 + v2 + 32576);
       *a2++ = result;
       --v4;
     }

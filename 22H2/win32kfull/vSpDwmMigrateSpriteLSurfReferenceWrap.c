@@ -1,9 +1,9 @@
 /*
- * XREFs of vSpDwmMigrateSpriteLSurfReferenceWrap @ 0x1C02689D0
+ * XREFs of vSpDwmMigrateSpriteLSurfReferenceWrap @ 0x1C0012980
  * Callers:
  *     <none>
  * Callees:
- *     ?vSpDwmMigrateSpriteLSurfReference@@YAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@PEAVSURFACE@@1@Z @ 0x1C02670B0 (-vSpDwmMigrateSpriteLSurfReference@@YAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@PEAVSURFACE@@1@Z.c)
+ *     ?vSpDwmMigrateSpriteLSurfReference@@YAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@PEAVSURFACE@@1@Z @ 0x1C00147EC (-vSpDwmMigrateSpriteLSurfReference@@YAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@PEAVSURFACE@@1@Z.c)
  */
 
 void __fastcall vSpDwmMigrateSpriteLSurfReferenceWrap(

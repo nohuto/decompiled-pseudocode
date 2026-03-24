@@ -1,84 +1,34 @@
 /*
- * XREFs of rimScheduleUserModeRimPnpRegistration @ 0x1C00BCEAC
+ * XREFs of rimScheduleUserModeRimPnpRegistration @ 0x1C00B1F00
  * Callers:
- *     UserActivateMITInputProcessing @ 0x1C0087624 (UserActivateMITInputProcessing.c)
+ *     UserActivateMITInputProcessing @ 0x1C0088848 (UserActivateMITInputProcessing.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall rimScheduleUserModeRimPnpRegistration(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void rimScheduleUserModeRimPnpRegistration()
 {
-  PDEVICE_OBJECT v4; // rcx
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 **v12; // rdi
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 *i; // rbx
-  __int64 v16; // rax
-  int v17; // edx
-  int v18; // r8d
+  struct _LIST_ENTRY *i; // rbx
 
-  v4 = WPP_GLOBAL_Control;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)gRimLog, 4, 1, 62, (__int64)&WPP_a75f261dfb463415346bb11edf387329_Traceguids);
+  RIMLockExclusive((__int64)&gObListLock);
+  for ( i = gObRimList.Flink; i != &gObRimList; i = i->Flink )
   {
-    LOBYTE(a2) = 0;
-  }
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      53,
-      (__int64)&WPP_772c79a03a0531bfc5b802d15a9024f9_Traceguids);
-  v5 = SGDGetUserSessionState(v4, a2, a3, a4);
-  RIMLockExclusive(v5 + 240);
-  v12 = (__int64 **)(SGDGetUserSessionState(v7, v6, v8, v9) + 304);
-  for ( i = *v12; i != (__int64 *)v12; i = (__int64 *)*i )
-  {
-    if ( !*((_BYTE *)i + 65) && !*((_BYTE *)i + 64) && *((_BYTE *)i + 376) )
+    if ( !BYTE1(i[4].Flink) && !LOBYTE(i[4].Flink) && LOBYTE(i[23].Blink) )
     {
-      if ( *((_DWORD *)i + 260) )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1765LL);
-      if ( (*((_DWORD *)i + 17) & 0x20) == 0 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1766LL);
-      ZwSetEvent((HANDLE)i[41], 0LL);
+      if ( LODWORD(i[53].Flink) )
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1941LL);
+      if ( (HIDWORD(i[4].Flink) & 0x20) == 0 )
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1942LL);
+      ZwSetEvent(i[23].Flink, 0LL);
     }
   }
-  v16 = SGDGetUserSessionState(v11, v10, v13, v14);
-  *(_QWORD *)(v16 + 248) = 0LL;
-  ExReleasePushLockExclusiveEx(v16 + 240, 0LL);
+  qword_1C0254458 = 0LL;
+  ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
   KeLeaveCriticalRegion();
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (LOBYTE(v17) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    LOBYTE(v17) = 0;
-  }
-  if ( (_BYTE)v17 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v18) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v17,
-      v18,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      54,
-      (__int64)&WPP_772c79a03a0531bfc5b802d15a9024f9_Traceguids);
-  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)gRimLog, 4, 1, 63, (__int64)&WPP_a75f261dfb463415346bb11edf387329_Traceguids);
 }

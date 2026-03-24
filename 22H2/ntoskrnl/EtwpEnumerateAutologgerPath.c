@@ -1,37 +1,36 @@
 /*
- * XREFs of EtwpEnumerateAutologgerPath @ 0x14083DAD8
+ * XREFs of EtwpEnumerateAutologgerPath @ 0x1407961B4
  * Callers:
- *     EtwpInitializeAutoLoggers @ 0x14083D85C (EtwpInitializeAutoLoggers.c)
+ *     EtwpInitializeAutoLoggers @ 0x140795E44 (EtwpInitializeAutoLoggers.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlInsertElementGenericTableAvl @ 0x14031EA50 (RtlInsertElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlNtStatusToDosError @ 0x1407AA930 (RtlNtStatusToDosError.c)
- *     RtlWriteRegistryValue @ 0x1407D4860 (RtlWriteRegistryValue.c)
- *     EtwStartAutoLogger @ 0x14083DD38 (EtwStartAutoLogger.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInsertElementGenericTableAvl @ 0x14032DC80 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlNtStatusToDosError @ 0x14066C040 (RtlNtStatusToDosError.c)
+ *     RtlWriteRegistryValue @ 0x1406978F0 (RtlWriteRegistryValue.c)
+ *     EtwStartAutoLogger @ 0x140796424 (EtwStartAutoLogger.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AVL_TABLE *a3)
 {
-  wchar_t *v5; // rdi
+  WCHAR *v5; // rsi
   __int64 v6; // rbx
   ULONG v7; // r13d
   PCWSTR v8; // rax
-  size_t v9; // r15
-  wchar_t *Pool2; // rbx
-  NTSTATUS v11; // esi
-  RTL_AVL_TABLE *v12; // rcx
-  NTSTATUS v13; // ecx
-  const WCHAR *v14; // rdx
-  unsigned __int64 v15; // rdx
-  unsigned __int64 v16; // rcx
+  SIZE_T v9; // r15
+  WCHAR *PoolWithTag; // rbx
+  NTSTATUS v11; // edi
+  NTSTATUS v12; // ecx
+  const WCHAR *v13; // rdx
+  unsigned __int64 v14; // rdx
+  unsigned __int64 v15; // rcx
   BOOLEAN NewElement[4]; // [rsp+30h] [rbp-D0h] BYREF
   ULONG ResultLength; // [rsp+34h] [rbp-CCh] BYREF
   ULONG ValueData; // [rsp+38h] [rbp-C8h] BYREF
@@ -54,16 +53,16 @@ void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AV
   v7 = 0;
   if ( a2 )
   {
+    v14 = -1LL;
+    do
+      ++v14;
+    while ( a2[v14] );
     v15 = -1LL;
     do
       ++v15;
-    while ( a2[v15] );
-    v16 = -1LL;
-    do
-      ++v16;
-    while ( Path[v16] );
+    while ( Path[v15] );
     v8 = Path;
-    if ( v16 <= v15 )
+    if ( v15 <= v14 )
       v8 = a2;
   }
   else
@@ -82,49 +81,49 @@ void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AV
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
     v9 = (unsigned int)(2 * v6 + 260);
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, v9, 1953985605LL);
-    if ( Pool2 )
+    PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, v9, 0x74777445u);
+    if ( PoolWithTag )
     {
-      if ( !a2 || (v5 = (wchar_t *)ExAllocatePool2(256LL, v9, 1953985605LL)) != 0LL )
+      if ( !a2 || (v5 = (WCHAR *)ExAllocatePoolWithTag(PagedPool, v9, 0x74777445u)) != 0LL )
       {
-        while ( 1 )
+        do
         {
           v11 = ZwEnumerateKey(KeyHandle, v7, KeyBasicInformation, KeyInformation, 0x11Eu, &ResultLength);
           if ( v11 < 0 )
           {
-            v13 = v11;
+            v12 = v11;
             if ( v11 == -2147483622 )
-              v13 = 0;
-            ValueData = RtlNtStatusToDosError(v13);
-            v14 = a2;
+              v12 = 0;
+            ValueData = RtlNtStatusToDosError(v12);
+            v13 = a2;
             if ( !a2 )
-              v14 = Path;
-            RtlWriteRegistryValue(0, v14, L"Status", 4u, &ValueData, 4u);
-            if ( v11 != -2147483643 && v11 != -1073741789 )
-              break;
+              v13 = Path;
+            RtlWriteRegistryValue(0, v13, L"Status", 4u, &ValueData, 4u);
+            if ( v11 == -2147483643 || v11 == -1073741789 )
+              v11 = 0;
           }
           else if ( KeyInformation[3] < 0x102u )
           {
-            v12 = Table;
             *((_WORD *)&KeyInformation[4] + ((unsigned __int64)KeyInformation[3] >> 1)) = 0;
-            RtlInsertElementGenericTableAvl(v12, &KeyInformation[4], KeyInformation[3] + 2, NewElement);
+            RtlInsertElementGenericTableAvl(Table, &KeyInformation[4], KeyInformation[3] + 2, NewElement);
             if ( NewElement[0] )
             {
-              if ( !RtlStringCbPrintfW(Pool2, v9, L"%ws\\%ws", Path, &KeyInformation[4])
+              if ( !RtlStringCbPrintfW(PoolWithTag, v9, L"%ws\\%ws", Path, &KeyInformation[4])
                 && (!a2 || !RtlStringCbPrintfW(v5, v9, L"%ws\\%ws", a2, &KeyInformation[4])) )
               {
-                EtwStartAutoLogger((PCWSTR)&KeyInformation[4]);
+                EtwStartAutoLogger((PCWSTR)&KeyInformation[4], PoolWithTag, v5);
               }
             }
           }
           ++v7;
         }
+        while ( v11 >= 0 );
       }
     }
     if ( KeyHandle )
       ZwClose(KeyHandle);
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
     if ( v5 )
       ExFreePoolWithTag(v5, 0);
   }

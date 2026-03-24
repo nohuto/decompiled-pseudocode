@@ -1,18 +1,18 @@
 /*
- * XREFs of FioFwReadUlongAtOffset @ 0x140387014
+ * XREFs of FioFwReadUlongAtOffset @ 0x1403AC61C
  * Callers:
- *     RaspMapGlyphIndexToLocation @ 0x140385F4C (RaspMapGlyphIndexToLocation.c)
- *     FopInitializeFonts @ 0x140B9DF5C (FopInitializeFonts.c)
- *     BgpFoInitialize @ 0x140B9E09C (BgpFoInitialize.c)
+ *     RaspMapGlyphIndexToLocation @ 0x1403ADF80 (RaspMapGlyphIndexToLocation.c)
+ *     BgpFoInitialize @ 0x140A95E18 (BgpFoInitialize.c)
+ *     FopInitializeFonts @ 0x140A95F14 (FopInitializeFonts.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x1403863C8 (FioFwReadBytesAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x1403AE41C (FioFwReadBytesAtOffset.c)
  */
 
-__int64 __fastcall FioFwReadUlongAtOffset(__int64 a1, unsigned int a2, _DWORD *a3)
+__int64 __fastcall FioFwReadUlongAtOffset(__int64 a1, __int64 a2, unsigned int *a3)
 {
   __int64 result; // rax
 
-  result = FioFwReadBytesAtOffset(a1, a2, 4u, a3);
+  result = FioFwReadBytesAtOffset(a1, a2, 4LL, a3);
   if ( (int)result >= 0 )
   {
     *a3 = _byteswap_ulong(*a3);

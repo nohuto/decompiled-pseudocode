@@ -3,7 +3,7 @@
  * Callers:
  *     SepSetTokenCapabilities @ 0x1405BCEA4 (SepSetTokenCapabilities.c)
  *     SepCreateClaimAttributes @ 0x1405BD654 (SepCreateClaimAttributes.c)
- *     SepDuplicateClaimAttributes @ 0x1408A3F40 (SepDuplicateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x1408A3F20 (SepDuplicateClaimAttributes.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

@@ -1,178 +1,207 @@
 /*
- * XREFs of VidSchCreateSystemDevices @ 0x1C00B80AC
+ * XREFs of VidSchCreateSystemDevices @ 0x1C009922C
  * Callers:
- *     ?VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00B7814 (-VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ.c)
+ *     ?VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C0098E04 (-VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ.c)
  * Callees:
- *     VidSchiSchedulerNodeToDriverEngine @ 0x1C0003AE0 (VidSchiSchedulerNodeToDriverEngine.c)
- *     VidSchiCreateContextInternal @ 0x1C001270C (VidSchiCreateContextInternal.c)
- *     VidSchiGetSoftwareOnlyNodeForDriverEngine @ 0x1C0018E48 (VidSchiGetSoftwareOnlyNodeForDriverEngine.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEXT_DATA@@PEAVDXGCONTEXT@@@Z @ 0x1C003F7CC (-VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEX.c)
- *     VidSchiCreateDeviceInternal @ 0x1C0098844 (VidSchiCreateDeviceInternal.c)
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C0001898 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     VidSchiCreateContextInternal @ 0x1C00107A8 (VidSchiCreateContextInternal.c)
+ *     VidSchiGetSoftwareOnlyNodeForDriverEngine @ 0x1C00160A0 (VidSchiGetSoftwareOnlyNodeForDriverEngine.c)
+ *     ?VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEXT_DATA@@PEAVDXGCONTEXT@@@Z @ 0x1C0036FE8 (-VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEX.c)
+ *     VidSchiCreateDeviceInternal @ 0x1C00816A0 (VidSchiCreateDeviceInternal.c)
  */
 
 __int64 __fastcall VidSchCreateSystemDevices(__int64 a1)
 {
-  __int64 *v1; // r14
-  int v3; // ebx
-  struct _VIDSCH_DEVICE **v4; // r15
+  __int64 *v1; // r12
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  int DeviceInternal; // edi
+  __int64 v6; // r8
+  struct _VIDSCH_DEVICE **v7; // r13
   int SoftwareOnlyNodeForDriverEngine; // eax
-  __int64 v6; // rcx
-  __int64 ContextInternal; // rax
-  __int64 i; // rbx
-  __int64 v9; // rdx
-  unsigned int v10; // r8d
-  __int64 v11; // rax
-  int v12; // eax
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  unsigned int v17; // esi
+  __int64 v9; // rcx
+  char *ContextInternal; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  unsigned int i; // edi
+  __int64 v15; // rsi
+  unsigned int v16; // r15d
+  __int64 v17; // rax
   __int64 v18; // rax
-  __int64 v19; // r14
-  int v20; // ecx
-  struct _VIDSCH_DEVICE *v21; // rcx
-  __int64 v22; // rcx
-  __int64 v24; // rcx
+  int v19; // eax
+  __int64 v20; // rcx
+  char *v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r8
   __int64 v25; // rcx
-  int v26; // eax
-  __int64 v27; // rcx
-  __int64 v28; // rcx
-  __int128 v29; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v30; // [rsp+60h] [rbp-10h]
-  int v31; // [rsp+68h] [rbp-8h]
+  unsigned int v26; // esi
+  __int64 v27; // rax
+  __int64 v28; // r14
+  int v29; // ecx
+  struct _VIDSCH_DEVICE *v30; // rcx
+  __int64 v31; // rdx
+  __int64 v32; // r8
+  __int64 v33; // rcx
+  __int64 v35; // rax
+  _QWORD *v36; // rax
+  __int64 v37; // rcx
+  struct VIDSCH_HW_CONTEXT *HwContextInternal; // rax
+  __int64 v39; // rdx
+  __int64 v40; // r8
+  __int64 v41; // rcx
+  int v42; // eax
+  __int64 v43; // rcx
+  __int64 v44; // rdx
+  __int64 v45; // r8
+  __int64 v46; // rcx
+  __int128 v47; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v48; // [rsp+30h] [rbp-10h]
+  int v49; // [rsp+38h] [rbp-8h]
 
-  v1 = (__int64 *)(a1 + 240);
-  v30 = 0LL;
-  v29 = 0LL;
-  LODWORD(v29) = 1;
-  v3 = VidSchiCreateDeviceInternal(a1, &v29, 0LL, (__int64 *)(a1 + 240));
-  if ( v3 < 0 )
+  v1 = (__int64 *)(a1 + 232);
+  v47 = 0LL;
+  LODWORD(v47) = 1;
+  v48 = 0LL;
+  DeviceInternal = VidSchiCreateDeviceInternal(a1, (__int64)&v47, 0LL, (char **)(a1 + 232));
+  if ( DeviceInternal < 0
+    || (v7 = (struct _VIDSCH_DEVICE **)(a1 + 248),
+        v47 = 0LL,
+        LODWORD(v47) = 17,
+        v48 = 0LL,
+        DeviceInternal = VidSchiCreateDeviceInternal(a1, (__int64)&v47, 0LL, (char **)(a1 + 248)),
+        DeviceInternal < 0) )
   {
-    WdLogSingleEntry1(1LL, *(_QWORD *)(a1 + 16));
-    v24 = *(_QWORD *)(a1 + 16);
-LABEL_25:
-    DxgkLogInternalTriageEvent(v24, 0x40000LL);
-    return (unsigned int)v3;
+    v35 = WdLogNewEntry5_WdAssertion(v4, v3, v6);
+    *(_QWORD *)(v35 + 24) = *(_QWORD *)(a1 + 16);
+    WdLogEvent5_WdAssertion(v35);
+    return (unsigned int)DeviceInternal;
   }
-  v4 = (struct _VIDSCH_DEVICE **)(a1 + 256);
-  v29 = 0LL;
-  LODWORD(v29) = 17;
-  v30 = 0LL;
-  v3 = VidSchiCreateDeviceInternal(a1, &v29, 0LL, (__int64 *)(a1 + 256));
-  if ( v3 < 0 )
-  {
-    WdLogSingleEntry1(1LL, *(_QWORD *)(a1 + 16));
-    goto LABEL_25;
-  }
-  *((_QWORD *)&v29 + 1) = 0x700000000LL;
-  v30 = 0LL;
-  LODWORD(v29) = 268;
-  v31 = 2 * *(_DWORD *)(a1 + 40) * *(_DWORD *)(a1 + 152);
+  *((_QWORD *)&v47 + 1) = 0x700000000LL;
+  v48 = 0LL;
+  LODWORD(v47) = 268;
+  v49 = *(_DWORD *)(a1 + 40) * *(_DWORD *)(a1 + 144);
   SoftwareOnlyNodeForDriverEngine = VidSchiGetSoftwareOnlyNodeForDriverEngine(a1, 0);
-  v6 = *v1;
-  DWORD1(v29) = SoftwareOnlyNodeForDriverEngine;
-  ContextInternal = VidSchiCreateContextInternal(v6, (int *)&v29, 0LL);
-  *(_QWORD *)(a1 + 248) = ContextInternal;
+  v9 = *v1;
+  DWORD1(v47) = SoftwareOnlyNodeForDriverEngine;
+  ContextInternal = VidSchiCreateContextInternal(v9, (int *)&v47, 0LL);
+  *(_QWORD *)(a1 + 240) = ContextInternal;
   if ( !ContextInternal )
   {
-    WdLogSingleEntry2(1LL, *(_QWORD *)(a1 + 16), 1101LL);
+    v36 = (_QWORD *)WdLogNewEntry5_WdAssertion(v12, v11, v13);
+    v36[3] = *(_QWORD *)(a1 + 16);
+    v36[4] = 1063LL;
     goto LABEL_34;
   }
-  for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 84); i = (unsigned int)(i + 1) )
+  for ( i = 0; i < *(_DWORD *)(a1 + 76); ++i )
   {
-    v9 = *(_QWORD *)(a1 + 632);
-    v10 = *(_DWORD *)(a1 + 704);
-    v11 = v9 + 8 * i;
-    if ( (unsigned int)i >= v10 )
-      v11 = *(_QWORD *)(a1 + 632);
-    if ( (*(_DWORD *)(*(_QWORD *)v11 + 12LL) & 2) == 0 )
+    v15 = *(_QWORD *)(a1 + 624);
+    v16 = *(_DWORD *)(a1 + 696);
+    v17 = v15 + 8LL * i;
+    if ( i >= v16 )
+      v17 = *(_QWORD *)(a1 + 624);
+    if ( (*(_DWORD *)(*(_QWORD *)v17 + 12LL) & 2) == 0 )
     {
-      if ( (unsigned int)i < v10 )
-        v9 += 8 * i;
-      if ( (*(_DWORD *)(*(_QWORD *)v9 + 12LL) & 0x10) == 0 )
+      v18 = v15 + 8LL * i;
+      if ( i >= v16 )
+        v18 = *(_QWORD *)(a1 + 624);
+      if ( (*(_DWORD *)(*(_QWORD *)v18 + 12LL) & 0x10) == 0 )
       {
-        v30 = 0LL;
-        v31 = 0;
-        HIDWORD(v29) = 7;
-        LODWORD(v29) = 20;
-        DWORD1(v29) = i;
-        v12 = VidSchiSchedulerNodeToDriverEngine(a1, i);
-        v13 = *v1;
-        DWORD2(v29) = v12;
-        v14 = VidSchiCreateContextInternal(v13, (int *)&v29, 0LL);
-        v15 = *(_QWORD *)(a1 + 632) + 8 * i;
-        if ( (unsigned int)i >= *(_DWORD *)(a1 + 704) )
-          v15 = *(_QWORD *)(a1 + 632);
-        *(_QWORD *)(*(_QWORD *)v15 + 32LL) = v14;
-        v16 = *(_QWORD *)(a1 + 632) + 8 * i;
-        if ( (unsigned int)i >= *(_DWORD *)(a1 + 704) )
-          v16 = *(_QWORD *)(a1 + 632);
-        if ( !*(_QWORD *)(*(_QWORD *)v16 + 32LL) )
+        v48 = 0LL;
+        v49 = 0;
+        HIDWORD(v47) = 7;
+        LODWORD(v47) = 20;
+        DWORD1(v47) = i;
+        v19 = VidSchiSchedulerNodeToDriverEngine(a1, i);
+        v20 = *v1;
+        DWORD2(v47) = v19;
+        v21 = VidSchiCreateContextInternal(v20, (int *)&v47, 0LL);
+        v23 = v15 + 8LL * i;
+        if ( i >= v16 )
+          v23 = v15;
+        *(_QWORD *)(*(_QWORD *)v23 + 32LL) = v21;
+        v24 = *(_QWORD *)(a1 + 624);
+        v25 = v24 + 8LL * i;
+        if ( i >= *(_DWORD *)(a1 + 696) )
+          v25 = *(_QWORD *)(a1 + 624);
+        if ( !*(_QWORD *)(*(_QWORD *)v25 + 32LL) )
         {
-          WdLogSingleEntry3(1LL, i, *(_QWORD *)(a1 + 16), 1136LL);
-          goto LABEL_34;
+          v36 = (_QWORD *)WdLogNewEntry5_WdAssertion(v25, v22, v24);
+          v36[3] = i;
+          v37 = *(_QWORD *)(a1 + 16);
+          v36[5] = 1098LL;
+          goto LABEL_33;
         }
       }
     }
-    RtlSetBitEx(a1 + 488, (unsigned int)i);
+    RtlSetBitEx(a1 + 480);
   }
-  v17 = 0;
-  if ( !*(_DWORD *)(a1 + 76) )
+  v26 = 0;
+  if ( !*(_DWORD *)(a1 + 68) )
     return 0LL;
   while ( 1 )
   {
-    v18 = *(_QWORD *)(a1 + 16);
-    v30 = 0LL;
-    v19 = *(_QWORD *)(v18 + 2680) + 344LL * v17;
-    v20 = *(unsigned __int8 *)(v17 + a1 + 88);
-    v31 = 0;
-    LODWORD(v18) = *(unsigned __int16 *)(v19 + 2);
-    LODWORD(v29) = 29;
-    DWORD1(v29) = v18 + v20;
-    v21 = *v4;
-    *((_QWORD *)&v29 + 1) = v17 | 0x700000000LL;
+    v27 = *(_QWORD *)(a1 + 16);
+    v48 = 0LL;
+    v28 = *(_QWORD *)(v27 + 2584) + 360LL * v26;
+    LODWORD(v27) = *(unsigned __int8 *)(a1 + v26 + 80);
+    v49 = 0;
+    v29 = v27 + *(unsigned __int16 *)(v28 + 2);
+    LODWORD(v47) = 29;
+    DWORD1(v47) = v29;
+    v30 = *v7;
+    *((_QWORD *)&v47 + 1) = v26 | 0x700000000LL;
     if ( *(_BYTE *)(a1 + 55) )
     {
-      LODWORD(v29) = 2077;
-      *(_QWORD *)(*(_QWORD *)(a1 + 272) + 8LL * v17) = VidSchiCreateHwContextInternal(
-                                                         v21,
-                                                         (struct _VIDSCH_CONTEXT_DATA *)&v29,
-                                                         0LL);
-      if ( !*(_QWORD *)(*(_QWORD *)(a1 + 272) + 8LL * v17) )
+      LODWORD(v47) = 2077;
+      HwContextInternal = VidSchiCreateHwContextInternal(v30, (struct _VIDSCH_CONTEXT_DATA *)&v47, 0LL);
+      v41 = *(_QWORD *)(a1 + 264);
+      *(_QWORD *)(v41 + 8LL * v26) = HwContextInternal;
+      if ( !*(_QWORD *)(*(_QWORD *)(a1 + 264) + 8LL * v26) )
       {
-        WdLogSingleEntry3(1LL, v17, *(_QWORD *)(a1 + 16), 1185LL);
-        goto LABEL_34;
+        v36 = (_QWORD *)WdLogNewEntry5_WdAssertion(v41, v39, v40);
+        v36[3] = v26;
+        v37 = *(_QWORD *)(a1 + 16);
+        v36[5] = 1147LL;
+        goto LABEL_33;
       }
       goto LABEL_21;
     }
-    *(_QWORD *)(*(_QWORD *)(a1 + 264) + 8LL * v17) = VidSchiCreateContextInternal((__int64)v21, (int *)&v29, 0LL);
-    v22 = *(_QWORD *)(*(_QWORD *)(a1 + 264) + 8LL * v17);
-    if ( !v22 )
+    *(_QWORD *)(*(_QWORD *)(a1 + 256) + 8LL * v26) = VidSchiCreateContextInternal((__int64)v30, (int *)&v47, 0LL);
+    v33 = *(_QWORD *)(*(_QWORD *)(a1 + 256) + 8LL * v26);
+    if ( !v33 )
       break;
-    *(_BYTE *)(v22 + 641) = 1;
-    if ( (*(_BYTE *)(v19 + 16) & 0xC) == 0xC )
+    *(_BYTE *)(v33 + 641) = 1;
+    if ( (*(_BYTE *)(v28 + 16) & 0xC) == 0xC )
     {
-      v26 = *(_DWORD *)(v19 + 20) + *(unsigned __int8 *)(v17 + a1 + 88);
-      v27 = (__int64)*v4;
-      LODWORD(v29) = v29 | 0x200;
-      DWORD1(v29) = v26;
-      *(_QWORD *)(*(_QWORD *)(a1 + 288) + 8LL * v17) = VidSchiCreateContextInternal(v27, (int *)&v29, 0LL);
-      v28 = *(_QWORD *)(*(_QWORD *)(a1 + 288) + 8LL * v17);
-      if ( !v28 )
+      v42 = *(_DWORD *)(v28 + 20) + *(unsigned __int8 *)(a1 + v26 + 80);
+      v43 = (__int64)*v7;
+      LODWORD(v47) = v47 | 0x200;
+      DWORD1(v47) = v42;
+      *(_QWORD *)(*(_QWORD *)(a1 + 280) + 8LL * v26) = VidSchiCreateContextInternal(v43, (int *)&v47, 0LL);
+      v46 = *(_QWORD *)(*(_QWORD *)(a1 + 280) + 8LL * v26);
+      if ( !v46 )
       {
-        WdLogSingleEntry3(1LL, v17, *(_QWORD *)(a1 + 16), 1220LL);
-        goto LABEL_34;
+        v36 = (_QWORD *)WdLogNewEntry5_WdAssertion(0LL, v44, v45);
+        v36[3] = v26;
+        v37 = *(_QWORD *)(a1 + 16);
+        v36[5] = 1182LL;
+        goto LABEL_33;
       }
-      *(_BYTE *)(v28 + 641) = 1;
+      *(_BYTE *)(v46 + 641) = 1;
     }
 LABEL_21:
-    if ( ++v17 >= *(_DWORD *)(a1 + 76) )
+    if ( ++v26 >= *(_DWORD *)(a1 + 68) )
       return 0LL;
   }
-  WdLogSingleEntry3(1LL, v17, *(_QWORD *)(a1 + 16), 1200LL);
+  v36 = (_QWORD *)WdLogNewEntry5_WdAssertion(0LL, v31, v32);
+  v36[3] = v26;
+  v37 = *(_QWORD *)(a1 + 16);
+  v36[5] = 1162LL;
+LABEL_33:
+  v36[4] = v37;
 LABEL_34:
-  DxgkLogInternalTriageEvent(v25, 0x40000LL);
+  WdLogEvent5_WdAssertion(v36);
   return (unsigned int)-1073741823;
 }

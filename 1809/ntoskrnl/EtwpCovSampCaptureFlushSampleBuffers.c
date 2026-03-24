@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCovSampCaptureFlushSampleBuffers @ 0x140316850
+ * XREFs of EtwpCovSampCaptureFlushSampleBuffers @ 0x140316950
  * Callers:
- *     EtwpCovSampCaptureContextStop @ 0x1403166B0 (EtwpCovSampCaptureContextStop.c)
- *     EtwpCovSampCaptureFlush @ 0x1408C4240 (EtwpCovSampCaptureFlush.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1403167B0 (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureFlush @ 0x1408C4220 (EtwpCovSampCaptureFlush.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A60 (KeQueryMaximumProcessorCountEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCovSampSampleBufferDecRef @ 0x14031742C (EtwpCovSampSampleBufferDecRef.c)
- *     EtwpCovSampTryAcquireBufferLock @ 0x140317728 (EtwpCovSampTryAcquireBufferLock.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampSampleBufferDecRef @ 0x14031752C (EtwpCovSampSampleBufferDecRef.c)
+ *     EtwpCovSampTryAcquireBufferLock @ 0x140317828 (EtwpCovSampTryAcquireBufferLock.c)
  */
 
 ULONG __fastcall EtwpCovSampCaptureFlushSampleBuffers(__int64 a1)

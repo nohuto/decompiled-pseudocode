@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessSetTarget@CBaseExpression@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETTARGET@@@Z @ 0x180049E40
+ * XREFs of ?ProcessSetTarget@CBaseExpression@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETTARGET@@@Z @ 0x180064658
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMaskType@@E_K@Z @ 0x180049EFC (-SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMa.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800BDA3C (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ @ 0x1802289B0 (-GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMaskType@@E_K@Z @ 0x180064714 (-SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMa.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A0B90 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ @ 0x1801D9EAC (-GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ.c)
  */
 
 __int64 __fastcall CBaseExpression::ProcessSetTarget(
@@ -20,9 +20,9 @@ __int64 __fastcall CBaseExpression::ProcessSetTarget(
   CBaseExpression *v7; // r11
   char v8; // dl
   int v9; // eax
-  unsigned int v10; // ecx
+  __int64 v10; // rcx
   unsigned int v11; // ebx
-  unsigned int v13; // ecx
+  __int64 v13; // rcx
   char v14; // [rsp+30h] [rbp-18h]
 
   v3 = a3;
@@ -31,11 +31,11 @@ __int64 __fastcall CBaseExpression::ProcessSetTarget(
   v7 = this;
   if ( v5 )
     ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, v5);
-  *((_DWORD *)v7 + 52) = v5;
-  *((_DWORD *)v7 + 53) = *((_DWORD *)v3 + 2);
-  v8 = *((_BYTE *)v7 + 232) & 0xFB | (*((_BYTE *)v3 + 40) != 0 ? 4 : 0);
-  *((_BYTE *)v7 + 232) = v8;
-  if ( (v8 & 4) == 0 || CBaseExpression::GetAnimationLoggingManagerNoRef(v7) )
+  *((_DWORD *)v7 + 50) = v5;
+  *((_DWORD *)v7 + 51) = *((_DWORD *)v3 + 2);
+  v8 = *((_BYTE *)v7 + 208) & 0xBF | (*((_BYTE *)v3 + 40) != 0 ? 0x40 : 0);
+  *((_BYTE *)v7 + 208) = v8;
+  if ( (v8 & 0x40) == 0 || CBaseExpression::GetAnimationLoggingManagerNoRef(v7) )
   {
     v14 = *((_BYTE *)v3 + 32);
     v9 = CBaseExpression::SetTarget(
@@ -49,14 +49,14 @@ __int64 __fastcall CBaseExpression::ProcessSetTarget(
            *((_QWORD *)v3 + 3));
     v11 = v9;
     if ( v9 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x68u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x63u, 0LL);
     else
       return 0;
   }
   else
   {
     v11 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2003303421, 0x5Eu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2003303421, 0x59u, 0LL);
   }
   return v11;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCovSampContextGetModule @ 0x1408C4EA4
+ * XREFs of EtwpCovSampContextGetModule @ 0x1408C4E84
  * Callers:
- *     EtwpCovSampImageNotify @ 0x1408C6AD0 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x1408C6AB0 (EtwpCovSampImageNotify.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
@@ -9,18 +9,18 @@
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     EtwCovSampHash @ 0x140315FE4 (EtwCovSampHash.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     EtwCovSampHash @ 0x1403160E4 (EtwCovSampHash.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpFindDebugId @ 0x1406BA210 (EtwpFindDebugId.c)
- *     EtwpCovSampCheckForSegments @ 0x1408C4674 (EtwpCovSampCheckForSegments.c)
- *     EtwpCovSampContextFastFindModule @ 0x1408C4D24 (EtwpCovSampContextFastFindModule.c)
- *     EtwpCovSampContextPruneModules @ 0x1408C5CF8 (EtwpCovSampContextPruneModules.c)
- *     EtwpCovSampModuleCleanup @ 0x1408C6CE4 (EtwpCovSampModuleCleanup.c)
- *     EtwpCovSampModuleGetName @ 0x1408C6D74 (EtwpCovSampModuleGetName.c)
- *     EtwpCovSampModuleNameInfoCleanup @ 0x1408C6E80 (EtwpCovSampModuleNameInfoCleanup.c)
+ *     EtwpFindDebugId @ 0x1406BA1F0 (EtwpFindDebugId.c)
+ *     EtwpCovSampCheckForSegments @ 0x1408C4654 (EtwpCovSampCheckForSegments.c)
+ *     EtwpCovSampContextFastFindModule @ 0x1408C4D04 (EtwpCovSampContextFastFindModule.c)
+ *     EtwpCovSampContextPruneModules @ 0x1408C5CD8 (EtwpCovSampContextPruneModules.c)
+ *     EtwpCovSampModuleCleanup @ 0x1408C6CC4 (EtwpCovSampModuleCleanup.c)
+ *     EtwpCovSampModuleGetName @ 0x1408C6D54 (EtwpCovSampModuleGetName.c)
+ *     EtwpCovSampModuleNameInfoCleanup @ 0x1408C6E60 (EtwpCovSampModuleNameInfoCleanup.c)
  */
 
 __int64 __fastcall EtwpCovSampContextGetModule(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)

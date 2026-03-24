@@ -1,9 +1,9 @@
 /*
- * XREFs of vSrcOpaqCopyS1D24 @ 0x1C028E120
+ * XREFs of vSrcOpaqCopyS1D24 @ 0x1C0290430
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 char __fastcall vSrcOpaqCopyS1D24(

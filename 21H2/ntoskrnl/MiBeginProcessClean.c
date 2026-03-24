@@ -1,51 +1,46 @@
 /*
- * XREFs of MiBeginProcessClean @ 0x14025F344
+ * XREFs of MiBeginProcessClean @ 0x1402D5048
  * Callers:
- *     MiReAcquireOutSwappedProcessCommit @ 0x140580DB8 (MiReAcquireOutSwappedProcessCommit.c)
- *     MmCleanProcessAddressSpace @ 0x1406F89A4 (MmCleanProcessAddressSpace.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x14052C368 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MmCleanProcessAddressSpace @ 0x1406EB24C (MmCleanProcessAddressSpace.c)
  * Callees:
- *     MiOutlawInswaps @ 0x14025F440 (MiOutlawInswaps.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140281A58 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     MiUnlockWorkingSetExclusive @ 0x14030FA80 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     MiFreeWorkingSetSwapContext @ 0x1406EC158 (MiFreeWorkingSetSwapContext.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiOutlawInswaps @ 0x1402D5144 (MiOutlawInswaps.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     MiFreeWorkingSetSwapContext @ 0x140710620 (MiFreeWorkingSetSwapContext.c)
  */
 
 __int64 __fastcall MiBeginProcessClean(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rbp
-  unsigned int v5; // esi
-  __int64 SharedVm; // rbx
-  KIRQL v7; // al
-  __int64 v8; // rdx
-  unsigned __int64 v9; // rax
+  __int64 v2; // rsi
+  LONG *SharedVm; // rbx
+  KIRQL v6; // al
+  unsigned int v7; // ebp
+  unsigned __int64 v8; // rax
+  unsigned __int64 v9; // rbx
 
   v2 = a2 + 1664;
   if ( (*(_DWORD *)(a2 + 1124) & 0x20) != 0 )
     return 1LL;
   --*(_WORD *)(a1 + 486);
   ExAcquirePushLockExclusiveEx(a2 + 1224, 0LL);
-  v5 = 1;
-  *(_BYTE *)(a1 + 1384) |= 1u;
+  *(_BYTE *)(a1 + 1304) |= 1u;
   SharedVm = MiGetSharedVm(v2);
-  v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)SharedVm);
-  *(_DWORD *)(SharedVm + 4) = 0;
+  v6 = ExAcquireSpinLockExclusive(SharedVm);
+  v7 = 0;
+  SharedVm[1] = 0;
   _InterlockedOr((volatile signed __int32 *)(a2 + 1124), 0x20u);
   if ( (*(_BYTE *)(v2 + 187) & 0x60) != 0x60 )
     *(_BYTE *)(v2 + 187) &= 0x9Fu;
-  LOBYTE(v8) = v7;
-  MiUnlockWorkingSetExclusive(v2, v8);
-  UNLOCK_ADDRESS_SPACE_UNORDERED(a1, a2);
-  v9 = MiOutlawInswaps(a2);
-  if ( v9 > 2 )
-  {
-    MiFreeWorkingSetSwapContext(*(_QWORD *)(qword_140C51F48 + 8LL * *(unsigned __int16 *)(a2 + 1838)), v9);
-  }
-  else if ( !v9 )
-  {
-    return 0;
-  }
-  return v5;
+  MiUnlockWorkingSetExclusive(v2, v6);
+  UNLOCK_ADDRESS_SPACE(a1, a2);
+  v8 = MiOutlawInswaps(a2);
+  v9 = v8;
+  if ( v8 > 2 )
+    MiFreeWorkingSetSwapContext(*(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a2 + 1838)), v8);
+  LOBYTE(v7) = v9 != 0;
+  return v7;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionUnlinkAndFreeThreadPointerData @ 0x1C01ECB80
+ * XREFs of EditionUnlinkAndFreeThreadPointerData @ 0x1C01F2310
  * Callers:
  *     <none>
  * Callees:
- *     ?UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z @ 0x1C016C620 (-UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z.c)
+ *     ?UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z @ 0x1C01F1634 (-UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z.c)
  */
 
 void __fastcall EditionUnlinkAndFreeThreadPointerData(

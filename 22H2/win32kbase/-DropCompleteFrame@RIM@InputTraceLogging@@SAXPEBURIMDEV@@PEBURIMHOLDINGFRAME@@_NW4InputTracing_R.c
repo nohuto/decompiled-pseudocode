@@ -1,57 +1,66 @@
 /*
- * XREFs of ?DropCompleteFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMHOLDINGFRAME@@_NW4InputTracing_RimCompletionReason@@@Z @ 0x1C019E608
+ * XREFs of ?DropCompleteFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMHOLDINGFRAME@@_NW4InputTracing_RimCompletionReason@@@Z @ 0x1C01708F8
  * Callers:
- *     rimFindAndReclaimHoldingFrame @ 0x1C01A0478 (rimFindAndReclaimHoldingFrame.c)
+ *     rimFindAndReclaimHoldingFrame @ 0x1C01720E4 (rimFindAndReclaimHoldingFrame.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@33AEBU?$_tlgWrapperByVal@$03@@444AEBU?$_tlgWrapSz@D@@@Z @ 0x1C00E1388 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U-$_tlgWrapSz@D@@@-$_t.c)
- *     ?CompletionReasonToString@InputTraceLogging@@CAPEBDW4InputTracing_RimCompletionReason@@@Z @ 0x1C019D960 (-CompletionReasonToString@InputTraceLogging@@CAPEBDW4InputTracing_RimCompletionReason@@@Z.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@33AEBU?$_tlgWrapperByVal@$03@@444AEBU?$_tlgWrapSz@D@@@Z @ 0x1C016EA1C (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U-$_tlgWrapSz@D@@@-$_t.c)
+ *     ?CompletionReasonToString@InputTraceLogging@@CAPEBDW4InputTracing_RimCompletionReason@@@Z @ 0x1C016FC50 (-CompletionReasonToString@InputTraceLogging@@CAPEBDW4InputTracing_RimCompletionReason@@@Z.c)
  */
 
-void __fastcall InputTraceLogging::RIM::DropCompleteFrame(__int64 a1, __int64 a2)
+char __fastcall InputTraceLogging::RIM::DropCompleteFrame(__int64 a1, __int64 a2, unsigned __int8 a3)
 {
-  int v2; // ebx
-  int v4; // r9d
-  const char *v5; // rax
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r10
-  __int64 v9; // r11
-  __int64 v10; // r9
-  int v11; // [rsp+60h] [rbp+27h] BYREF
-  int v12; // [rsp+64h] [rbp+2Bh] BYREF
-  __int64 v13; // [rsp+68h] [rbp+2Fh] BYREF
-  __int64 v14; // [rsp+70h] [rbp+37h] BYREF
-  __int64 v15; // [rsp+78h] [rbp+3Fh] BYREF
-  __int64 v16; // [rsp+80h] [rbp+47h] BYREF
-  __int64 v17; // [rsp+88h] [rbp+4Fh] BYREF
-  __int64 v18; // [rsp+A8h] [rbp+6Fh] BYREF
+  _UNKNOWN **v3; // rax
+  int v4; // ebx
+  int v5; // esi
+  int v7; // r9d
+  __int64 v8; // rdx
+  __int64 v9; // r10
+  __int64 v10; // r8
+  __int64 v11; // r11
+  __int64 v12; // r9
+  int v14; // [rsp+68h] [rbp+27h] BYREF
+  int v15; // [rsp+6Ch] [rbp+2Bh] BYREF
+  __int64 v16; // [rsp+70h] [rbp+2Fh] BYREF
+  __int64 v17; // [rsp+78h] [rbp+37h] BYREF
+  __int64 v18; // [rsp+80h] [rbp+3Fh] BYREF
+  __int64 v19; // [rsp+88h] [rbp+47h] BYREF
+  __int64 v20; // [rsp+90h] [rbp+4Fh] BYREF
+  _UNKNOWN *retaddr; // [rsp+A0h] [rbp+5Fh] BYREF
+  __int64 v22; // [rsp+B0h] [rbp+6Fh] BYREF
 
-  v2 = *(_DWORD *)(a2 + 40);
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 256LL) )
+  v3 = &retaddr;
+  v4 = *(_DWORD *)(a2 + 40);
+  v5 = a3;
+  if ( v4 )
+    v3 = *(_UNKNOWN ***)(a2 + 72);
+  if ( (unsigned int)dword_1C024AA90 > 4 )
   {
-    v5 = InputTraceLogging::CompletionReasonToString(v4);
-    v6 = *(_QWORD *)(a1 + 464);
-    v14 = (__int64)v5;
-    LODWORD(v18) = *(unsigned __int16 *)(v6 + 18);
-    v11 = *(unsigned __int16 *)(v6 + 16);
-    v12 = (unsigned __int8)v7;
-    v15 = *(_QWORD *)(v8 + 32);
-    LODWORD(v13) = v2;
-    v16 = v9;
-    v17 = a1;
-    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>>(
-      (__int64)&dword_1C0289810,
-      byte_1C02594DE,
-      v7,
-      v10,
-      (__int64)&v17,
-      (__int64)&v16,
-      (__int64)&v15,
-      (__int64)&v13,
-      (__int64)&v12,
-      (__int64)&v11,
-      (__int64)&v18,
-      (void **)&v14);
+    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_1C024AA90, 256LL);
+    if ( (_BYTE)v3 )
+    {
+      v17 = (__int64)InputTraceLogging::CompletionReasonToString(v7);
+      LODWORD(v22) = *(unsigned __int16 *)(v8 + 18);
+      v18 = *(_QWORD *)(v9 + 32);
+      v14 = v10;
+      v15 = v5;
+      LODWORD(v16) = v4;
+      v19 = v11;
+      v20 = a1;
+      LOBYTE(v3) = _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>>(
+                     (__int64)&dword_1C024AA90,
+                     byte_1C021B939,
+                     v10,
+                     v12,
+                     (__int64)&v20,
+                     (__int64)&v19,
+                     (__int64)&v18,
+                     (__int64)&v16,
+                     (__int64)&v15,
+                     (__int64)&v14,
+                     (__int64)&v22,
+                     (void **)&v17);
+    }
   }
+  return (char)v3;
 }

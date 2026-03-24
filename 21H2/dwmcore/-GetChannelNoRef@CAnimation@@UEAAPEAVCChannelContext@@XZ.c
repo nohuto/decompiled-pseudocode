@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetChannelNoRef@CAnimation@@UEAAPEAVCChannelContext@@XZ @ 0x1800FB2B0
+ * XREFs of ?GetChannelNoRef@CAnimation@@UEAAPEAVCChannelContext@@XZ @ 0x1800E2940
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CChannelContext *__fastcall CAnimation::GetChannelNoRef(CAnimation *this)
 {
-  return (struct CChannelContext *)*((_QWORD *)this - 2);
+  return (struct CChannelContext *)*((_QWORD *)this - 1);
 }

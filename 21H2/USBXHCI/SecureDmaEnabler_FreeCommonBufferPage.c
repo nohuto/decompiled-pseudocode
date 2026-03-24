@@ -1,13 +1,13 @@
 /*
- * XREFs of SecureDmaEnabler_FreeCommonBufferPage @ 0x1C004FDB8
+ * XREFs of SecureDmaEnabler_FreeCommonBufferPage @ 0x1C004F208
  * Callers:
- *     CommonBuffer_ReleaseBuffer @ 0x1C000182C (CommonBuffer_ReleaseBuffer.c)
- *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015B94 (XilCoreCommonBuffer_AllocateBuffers.c)
- *     XilCoreCommonBuffer_FreeUnusedResources @ 0x1C0050B4C (XilCoreCommonBuffer_FreeUnusedResources.c)
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015F74 (XilCoreCommonBuffer_AllocateBuffers.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     XilCoreCommonBuffer_FreeUnusedResources @ 0x1C004FF48 (XilCoreCommonBuffer_FreeUnusedResources.c)
  * Callees:
- *     Controller_RaiseAndTrackIrql @ 0x1C0005C20 (Controller_RaiseAndTrackIrql.c)
- *     Controller_LowerAndTrackIrql @ 0x1C0005CB4 (Controller_LowerAndTrackIrql.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00052C8 (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0005358 (Controller_RaiseAndTrackIrql.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall SecureDmaEnabler_FreeCommonBufferPage(__int64 a1, __int64 a2)

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x14030AE3C (ViErrorReport1.c)
- *     ViErrorReport6 @ 0x14030AFF8 (ViErrorReport6.c)
+ *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
+ *     ViErrorReport6 @ 0x14030B0F8 (ViErrorReport6.c)
  *     VfMajorIsValidIrpStatus @ 0x140935A9C (VfMajorIsValidIrpStatus.c)
  */
 

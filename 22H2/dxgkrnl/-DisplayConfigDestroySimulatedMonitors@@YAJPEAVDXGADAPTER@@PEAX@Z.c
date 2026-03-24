@@ -1,14 +1,13 @@
 /*
- * XREFs of ?DisplayConfigDestroySimulatedMonitors@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01949B0
+ * XREFs of ?DisplayConfigDestroySimulatedMonitors@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C00EA5A0
  * Callers:
  *     <none>
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00053F8 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     MonitorDestroyAllSameTypeSimulatedMonitor @ 0x1C01E9AC0 (MonitorDestroyAllSameTypeSimulatedMonitor.c)
+ *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00027F8 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     MonitorDestroyAllSameTypeSimulatedMonitor @ 0x1C00EA760 (MonitorDestroyAllSameTypeSimulatedMonitor.c)
  */
 
 __int64 __fastcall DisplayConfigDestroySimulatedMonitors(struct DXGADAPTER *this, void *a2)
@@ -18,19 +17,19 @@ __int64 __fastcall DisplayConfigDestroySimulatedMonitors(struct DXGADAPTER *this
   int v5; // eax
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  _QWORD *v10; // rax
-  _BYTE v12[144]; // [rsp+50h] [rbp-B8h] BYREF
+  _QWORD *v8; // rax
+  __int64 v10; // rax
+  _BYTE v11[144]; // [rsp+20h] [rbp-B8h] BYREF
 
   v2 = 0;
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 2181LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pContext != NULL", 2181LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    *(_QWORD *)(v10 + 24) = 2169LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v12, this, 0LL);
-  v5 = COREADAPTERACCESS::AcquireExclusive((__int64)v12, (unsigned int)(v4 + 1));
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v11, this, 0LL);
+  v5 = COREADAPTERACCESS::AcquireExclusive((__int64)v11, (unsigned int)(v4 + 1));
   if ( v5 >= 0 )
   {
     v5 = MonitorDestroyAllSameTypeSimulatedMonitor(this);
@@ -42,11 +41,11 @@ LABEL_8:
     v2 = v5;
     goto LABEL_6;
   }
-  v10 = (_QWORD *)WdLogNewEntry5_WdTrace(v7, v6, v8, v9);
-  v10[3] = this;
-  v10[4] = *((int *)this + 102);
-  v10[5] = *((unsigned int *)this + 101);
+  v8 = (_QWORD *)WdLogNewEntry5_WdTrace(v7, v6);
+  v8[3] = this;
+  v8[4] = *((int *)this + 80);
+  v8[5] = *((unsigned int *)this + 79);
 LABEL_6:
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v12);
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v11, v6);
   return v2;
 }

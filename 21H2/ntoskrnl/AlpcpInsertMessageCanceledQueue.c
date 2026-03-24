@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpInsertMessageCanceledQueue @ 0x14074B7A0
+ * XREFs of AlpcpInsertMessageCanceledQueue @ 0x1406BDF6C
  * Callers:
- *     AlpcpCancelMessage @ 0x140662E08 (AlpcpCancelMessage.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406C9174 (AlpcpReturnMessageOnInsufficientBuffer.c)
- *     AlpcpDisconnectPort @ 0x14074E130 (AlpcpDisconnectPort.c)
+ *     AlpcpDisconnectPort @ 0x1405E26FC (AlpcpDisconnectPort.c)
+ *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1406A8008 (AlpcpReturnMessageOnInsufficientBuffer.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
-__int64 __fastcall AlpcpInsertMessageCanceledQueue(__int64 a1, __int64 a2)
+char __fastcall AlpcpInsertMessageCanceledQueue(__int64 a1, __int64 a2)
 {
   volatile signed __int64 *v2; // rsi
 

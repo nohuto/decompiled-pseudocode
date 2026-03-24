@@ -1,95 +1,87 @@
 /*
- * XREFs of NtGdiStrokeAndFillPath @ 0x1C02C1640
+ * XREFs of NtGdiStrokeAndFillPath @ 0x1C02AD510
  * Callers:
  *     <none>
  * Callees:
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0099E60 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C015A6C4 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C02651F8 (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
- *     ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C0284C7C (--0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z.c)
- *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEBU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0285B9C (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEBU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
- *     ?bInactive@DC@@QEBAHXZ @ 0x1C02C0988 (-bInactive@DC@@QEBAHXZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FD8F4 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C014475C (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C01447BC (--0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z.c)
+ *     ?bInactive@DC@@QEBAHXZ @ 0x1C01457E4 (-bInactive@DC@@QEBAHXZ.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C01468E4 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C0169C4C (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
  */
 
 __int64 __fastcall NtGdiStrokeAndFillPath(HDC a1)
 {
-  __int64 v1; // rcx
-  unsigned int v2; // eax
-  ULONG v3; // ecx
-  DC *v5; // r8
-  __int64 v6; // rdx
-  int v7; // ebx
-  DC *v8; // rcx
-  unsigned int v9; // eax
-  DC *v10; // rcx
-  unsigned int v11; // ebx
-  DC *v12[2]; // [rsp+30h] [rbp-69h] BYREF
-  _BYTE v13[32]; // [rsp+40h] [rbp-59h] BYREF
-  struct _XFORMOBJ v14; // [rsp+60h] [rbp-39h] BYREF
+  unsigned int v1; // ebx
+  __int64 v2; // rdx
+  __int64 v3; // rax
+  unsigned int v4; // ecx
+  ULONG v5; // ecx
+  DC *v6; // r8
+  __int64 v7; // rdx
+  int v8; // edi
+  DC *v9; // rcx
+  DC *v11[6]; // [rsp+30h] [rbp-69h] BYREF
+  struct _XFORMOBJ v12; // [rsp+60h] [rbp-39h] BYREF
   PATHOBJ ppo; // [rsp+70h] [rbp-29h] BYREF
-  __int64 v16; // [rsp+78h] [rbp-21h]
+  __int64 v14; // [rsp+78h] [rbp-21h]
 
-  DCOBJ::DCOBJ((DCOBJ *)v12, a1);
-  if ( !v12[0] )
-    goto LABEL_7;
-  if ( *((_WORD *)v12[0] + 6) != 1 )
+  DCOBJ::DCOBJ((DCOBJ *)v11, a1);
+  v1 = 0;
+  if ( !v11[0] )
+    goto LABEL_8;
+  v2 = *((unsigned __int16 *)v11[0] + 6);
+  if ( (_DWORD)v2 != 1 )
   {
-    v1 = *((_QWORD *)v12[0] + 6);
-    if ( v1 )
-      v2 = *(_DWORD *)(v1 + 40);
+    v3 = *((_QWORD *)v11[0] + 6);
+    if ( v3 )
+      v4 = *(_DWORD *)(v3 + 40);
     else
-      v2 = 0;
-    TraceLoggingWriteUnsupportedGdiUsage(19, v2, *((unsigned __int16 *)v12[0] + 6), 0LL, 0LL);
-    goto LABEL_7;
-  }
-  if ( (*((_DWORD *)v12[0] + 9) & 0x10000) != 0 )
-  {
-LABEL_7:
-    v3 = 87;
-LABEL_8:
-    EngSetLastError(v3);
-LABEL_9:
-    DCOBJ::~DCOBJ((DCOBJ *)v12);
-    return 0LL;
-  }
-  if ( !(unsigned int)DC::bInactive(v12[0]) )
-  {
-    v3 = 1003;
+      v4 = 0;
+    TraceLoggingWriteUnsupportedGdiUsage(19, v4, v2, 0LL, 0LL);
     goto LABEL_8;
   }
-  v6 = *((_QWORD *)v5 + 122);
-  v7 = *(_DWORD *)(v6 + 152);
-  if ( (v7 & 0x1000) != 0 )
+  if ( (*((_DWORD *)v11[0] + 9) & 0x10000) != 0 )
   {
-    GreDCSelectBrush(v5, *(_QWORD *)(v6 + 160));
-    v5 = v12[0];
+LABEL_8:
+    v5 = 87;
+LABEL_11:
+    EngSetLastError(v5);
+    goto LABEL_20;
   }
-  if ( (v7 & 0x2000) != 0 )
-    GreDCSelectPen(v5, *(_QWORD *)(*((_QWORD *)v5 + 122) + 168LL));
-  XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)&ppo, v12);
-  if ( !v16 )
+  if ( !(unsigned int)DC::bInactive(v11[0]) )
+  {
+    v5 = 1003;
+    goto LABEL_11;
+  }
+  v7 = *((_QWORD *)v6 + 122);
+  v8 = *(_DWORD *)(v7 + 152);
+  if ( (v8 & 0x1000) != 0 )
+  {
+    GreDCSelectBrush(v6, *(_QWORD *)(v7 + 160));
+    v6 = v11[0];
+  }
+  if ( (v8 & 0x2000) != 0 )
+    GreDCSelectPen(v6, *(_QWORD *)(*((_QWORD *)v6 + 122) + 168LL));
+  XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)&ppo, v11);
+  if ( v14 )
+  {
+    EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v12, (struct XDCOBJ *)v11, 516);
+    EPATHOBJ::vCloseAllFigures((EPATHOBJ *)&ppo);
+    v1 = EPATHOBJ::bStrokeAndOrFill(&ppo, (POINTL **)v11, (LINEATTRS *)((char *)v11[0] + 208), &v12, 3u);
+  }
+  else
   {
     EngSetLastError(8u);
-    v8 = v12[0];
-    *((_DWORD *)v12[0] + 62) &= ~1u;
-    DC::hpath(v8, 0LL);
-    XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)&ppo);
-    goto LABEL_9;
   }
-  EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v14, (struct XDCOBJ *)v12, 516);
-  EPATHOBJ::vCloseAllFigures((EPATHOBJ *)&ppo);
-  v9 = EPATHOBJ::bStrokeAndOrFill(&ppo, (POINTL **)v12, (LINEATTRS *)((char *)v12[0] + 208), &v14, 3u);
-  v10 = v12[0];
-  v11 = v9;
-  *((_DWORD *)v12[0] + 62) &= ~1u;
-  DC::hpath(v10, 0LL);
+  v9 = v11[0];
+  *((_DWORD *)v11[0] + 62) &= ~1u;
+  DC::hpath(v9, 0LL);
   XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)&ppo);
-  if ( v12[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v12);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v13);
-  return v11;
+LABEL_20:
+  DCOBJ::~DCOBJ((DCOBJ *)v11);
+  return v1;
 }

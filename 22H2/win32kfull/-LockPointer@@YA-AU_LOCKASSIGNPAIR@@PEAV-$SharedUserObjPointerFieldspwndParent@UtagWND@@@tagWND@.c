@@ -1,9 +1,8 @@
 /*
- * XREFs of ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@@PEAX@Z @ 0x1C006AFC4
+ * XREFs of ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@@PEAX@Z @ 0x1C0013DA4
  * Callers:
- *     xxxCreateDesktopEx @ 0x1C00683E4 (xxxCreateDesktopEx.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00CF14C (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,13 +12,12 @@ _QWORD *__fastcall LockPointer(_QWORD *a1, __int64 a2, __int64 a3)
   __int64 v3; // r9
   _QWORD *result; // rax
 
-  v3 = *(_QWORD *)(a2 - 64);
+  v3 = 0LL;
   if ( a3 )
-    *(_QWORD *)(v3 + 48) = *(_QWORD *)(a3 + 48);
-  else
-    *(_QWORD *)(v3 + 48) = 0LL;
-  *a1 = a2;
+    v3 = *(_QWORD *)(a3 + 48);
+  *(_QWORD *)(*(_QWORD *)(a2 - 64) + 48LL) = v3;
   result = a1;
+  *a1 = a2;
   a1[1] = a3;
   return result;
 }

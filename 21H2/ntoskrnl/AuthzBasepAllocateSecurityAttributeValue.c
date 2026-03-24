@@ -1,21 +1,24 @@
 /*
- * XREFs of AuthzBasepAllocateSecurityAttributeValue @ 0x140204FE0
+ * XREFs of AuthzBasepAllocateSecurityAttributeValue @ 0x1403566A4
  * Callers:
- *     AuthzBasepAddSecurityAttributeValues @ 0x140204954 (AuthzBasepAddSecurityAttributeValues.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x140204B30 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepAddSecurityAttributeValues @ 0x140250CE4 (AuthzBasepAddSecurityAttributeValues.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1403560E0 (AuthzBasepDuplicateSecurityAttributes.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void *__fastcall AuthzBasepAllocateSecurityAttributeValue(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)
+PVOID __fastcall AuthzBasepAllocateSecurityAttributeValue(unsigned int a1)
 {
-  void *Pool2; // rax
-  void *v5; // rbx
+  PVOID PoolWithTag; // rax
+  PVOID v2; // rbx
 
-  Pool2 = (void *)ExAllocatePool2(KeGetCurrentIrql() < 2u ? 256LL : 64LL, a1 + 64LL, 1950442835LL, a4);
-  v5 = Pool2;
-  if ( Pool2 )
-    memset(Pool2, 0, 0x40uLL);
-  return v5;
+  PoolWithTag = ExAllocatePoolWithTag(
+                  (POOL_TYPE)(KeGetCurrentIrql() < 2u ? PagedPool : NonPagedPoolNx),
+                  a1 + 64LL,
+                  0x74416553u);
+  v2 = PoolWithTag;
+  if ( PoolWithTag )
+    memset(PoolWithTag, 0, 0x40uLL);
+  return v2;
 }

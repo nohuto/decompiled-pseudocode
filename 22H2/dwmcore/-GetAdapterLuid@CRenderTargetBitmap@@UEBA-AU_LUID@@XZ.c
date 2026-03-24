@@ -1,12 +1,11 @@
 /*
- * XREFs of ?GetAdapterLuid@CRenderTargetBitmap@@UEBA?AU_LUID@@XZ @ 0x1800E90DC
+ * XREFs of ?GetAdapterLuid@CRenderTargetBitmap@@UEBA?AU_LUID@@XZ @ 0x1800CE6B0
  * Callers:
- *     ?GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x1801227A0 (-GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA-AU_LUID@@XZ.c)
- *     ?GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@7EBA?AU_LUID@@XZ @ 0x180123460 (-GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@7EBA-AU_LUID@@XZ.c)
- *     ?GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA?AU_LUID@@XZ @ 0x1801238E0 (-GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA-AU_LUID@@XZ.c)
- *     ?GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA?AU_LUID@@XZ @ 0x180123CA0 (-GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA-AU_LUID@@XZ.c)
+ *     ?GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x1800F5720 (-GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA-AU_LUID@@XZ.c)
+ *     ?GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@7EBA?AU_LUID@@XZ @ 0x1800F8B80 (-GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@7EBA-AU_LUID@@XZ.c)
+ *     ?GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA?AU_LUID@@XZ @ 0x1800F8CC0 (-GetAdapterLuid@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA-AU_LUID@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 struct _LUID __fastcall CRenderTargetBitmap::GetAdapterLuid(CRenderTargetBitmap *this, struct _LUID *a2)

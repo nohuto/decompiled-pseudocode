@@ -1,11 +1,10 @@
 /*
- * XREFs of wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x140810F1C
+ * XREFs of wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1405CC6E0
  * Callers:
- *     wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState @ 0x140810F54 (wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState.c)
- *     wil_details_EvaluateFeatureDependencies @ 0x140A12370 (wil_details_EvaluateFeatureDependencies.c)
- *     wil_InitializeFeatureStagingFromBuffers @ 0x140B3BFE4 (wil_InitializeFeatureStagingFromBuffers.c)
+ *     wil_details_EvaluateFeatureDependencies @ 0x1405CC62C (wil_details_EvaluateFeatureDependencies.c)
+ *     wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState @ 0x1405CC718 (wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState.c)
  * Callees:
- *     wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState @ 0x140810F54 (wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState.c)
+ *     wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState @ 0x1405CC718 (wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState.c)
  */
 
 __int64 __fastcall wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState(unsigned int *a1, __int64 a2)

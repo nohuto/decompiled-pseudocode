@@ -1,23 +1,23 @@
 /*
- * XREFs of EnableDisableIPMIRegions @ 0x1C00887AC
+ * XREFs of EnableDisableIPMIRegions @ 0x1C00B0090
  * Callers:
- *     ACPIBusIrpRemoveDevice @ 0x1C0016C30 (ACPIBusIrpRemoveDevice.c)
- *     ACPIBusIrpSurpriseRemoval @ 0x1C0017400 (ACPIBusIrpSurpriseRemoval.c)
- *     ACPIBusIrpStartDeviceWorker @ 0x1C0081780 (ACPIBusIrpStartDeviceWorker.c)
- *     ACPIBusIrpStopDevice @ 0x1C0081910 (ACPIBusIrpStopDevice.c)
- *     EnableDisableIPMIRegions @ 0x1C00887AC (EnableDisableIPMIRegions.c)
+ *     ACPIBusIrpRemoveDevice @ 0x1C004D5D0 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIBusIrpSurpriseRemoval @ 0x1C004DC10 (ACPIBusIrpSurpriseRemoval.c)
+ *     ACPIBusIrpStartDeviceWorker @ 0x1C00A2EE0 (ACPIBusIrpStartDeviceWorker.c)
+ *     ACPIBusIrpStopDevice @ 0x1C00AE050 (ACPIBusIrpStopDevice.c)
+ *     EnableDisableIPMIRegions @ 0x1C00B0090 (EnableDisableIPMIRegions.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     AMLIAsyncEvalObject @ 0x1C0047908 (AMLIAsyncEvalObject.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetFirstChild @ 0x1C004830C (AMLIGetFirstChild.c)
- *     AMLIGetNSObjectData @ 0x1C0048394 (AMLIGetNSObjectData.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
- *     AMLIIterateSiblingsNext @ 0x1C00488F8 (AMLIIterateSiblingsNext.c)
- *     EnableDisableIPMIRegions @ 0x1C00887AC (EnableDisableIPMIRegions.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     AMLIGetFirstChild @ 0x1C001665C (AMLIGetFirstChild.c)
+ *     AMLIIterateSiblingsNext @ 0x1C0017560 (AMLIIterateSiblingsNext.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     AMLIGetNSObjectData @ 0x1C0063524 (AMLIGetNSObjectData.c)
+ *     EnableDisableIPMIRegions @ 0x1C00B0090 (EnableDisableIPMIRegions.c)
  */
 
-__int64 __fastcall EnableDisableIPMIRegions(_QWORD *a1, unsigned __int8 a2)
+__int64 __fastcall EnableDisableIPMIRegions(__int64 *a1, unsigned __int8 a2)
 {
   __int64 v2; // r15
   unsigned int v4; // edi
@@ -27,9 +27,8 @@ __int64 __fastcall EnableDisableIPMIRegions(_QWORD *a1, unsigned __int8 a2)
   __int64 v8; // rcx
   __int64 *v9; // rsi
   int v10; // r14d
-  __int64 v11; // rdx
-  int v12; // eax
-  _QWORD v14[10]; // [rsp+30h] [rbp-68h] BYREF
+  int v11; // eax
+  _QWORD v13[10]; // [rsp+30h] [rbp-68h] BYREF
 
   v2 = a2;
   v4 = 0;
@@ -39,9 +38,9 @@ __int64 __fastcall EnableDisableIPMIRegions(_QWORD *a1, unsigned __int8 a2)
     if ( v7 == 6 )
     {
       LOBYTE(v6) = v2;
-      v12 = EnableDisableIPMIRegions(i, v6);
-      if ( v12 < 0 )
-        v4 = v12;
+      v11 = EnableDisableIPMIRegions(i, v6);
+      if ( v11 < 0 )
+        v4 = v11;
     }
     else if ( v7 == 10 )
     {
@@ -53,13 +52,13 @@ __int64 __fastcall EnableDisableIPMIRegions(_QWORD *a1, unsigned __int8 a2)
           v9 = AMLIGetNamedChild(a1, 1195725407);
           if ( v9 )
           {
-            memset(v14, 0, sizeof(v14));
-            WORD1(v14[0]) = 1;
-            v14[2] = 7LL;
-            WORD1(v14[5]) = 1;
-            v14[7] = v2;
-            v10 = AMLIAsyncEvalObject(v9, 0LL, 2, v14, 0LL, 0LL);
-            AMLIDereferenceHandleEx((volatile signed __int32 *)v9, v11);
+            memset(v13, 0, sizeof(v13));
+            WORD1(v13[0]) = 1;
+            v13[2] = 7LL;
+            WORD1(v13[5]) = 1;
+            v13[7] = v2;
+            v10 = AMLIAsyncEvalObject(v9, 0LL, 2u, v13, 0LL, 0LL);
+            AMLIDereferenceHandleEx((__int64)v9);
             if ( v10 < 0 )
               v4 = v10;
           }

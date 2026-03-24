@@ -1,7 +1,7 @@
 /*
- * XREFs of _CxxThrowException_0 @ 0x18011B980
+ * XREFs of _CxxThrowException_0 @ 0x1800F3FF3
  * Callers:
- *     ?AtlThrowImpl@ATL@@YAXJ@Z @ 0x18027C834 (-AtlThrowImpl@ATL@@YAXJ@Z.c)
+ *     ?AtlThrowImpl@ATL@@YAXJ@Z @ 0x180216970 (-AtlThrowImpl@ATL@@YAXJ@Z.c)
  * Callees:
  *     <none>
  */

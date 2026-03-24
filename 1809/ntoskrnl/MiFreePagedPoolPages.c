@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFreePagedPoolPages @ 0x140161A30
+ * XREFs of MiFreePagedPoolPages @ 0x140161A50
  * Callers:
- *     MiFreePoolPages @ 0x1401610E0 (MiFreePoolPages.c)
- *     MiAllocatePagedPoolPages @ 0x140162C50 (MiAllocatePagedPoolPages.c)
+ *     MiFreePoolPages @ 0x140161100 (MiFreePoolPages.c)
+ *     MiAllocatePagedPoolPages @ 0x140162C70 (MiAllocatePagedPoolPages.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -15,11 +15,11 @@
  *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
  *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiFreePagedPoolPages(ULONG_PTR a1, ULONG_PTR a2)

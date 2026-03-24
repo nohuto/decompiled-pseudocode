@@ -1,55 +1,60 @@
 /*
- * XREFs of QueryEnduranceInfoLogCompletion @ 0x1C0018B00
+ * XREFs of QueryEnduranceInfoLogCompletion @ 0x1C0016330
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
  */
 
 __int64 __fastcall QueryEnduranceInfoLogCompletion(__int64 a1, __int64 a2)
 {
+  __int64 v2; // rdx
   __int64 SrbExtension; // rbx
-  __int64 v3; // r9
+  __int64 v4; // r10
+  __int64 v5; // rdi
   __int64 result; // rax
-  unsigned __int8 v5; // r10
-  __int64 v6; // r11
-  __int64 v7; // r9
-  __int64 *v8; // rdi
-  __int64 v9; // rsi
-  __int64 v10; // r8
-  int v11; // ecx
-  int v12; // ecx
-  __int128 v13; // xmm0
-  __int128 v14; // xmm1
-  __int64 v15; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v7; // rdx
+  int v8; // eax
+  __int128 v9; // xmm0
+  __int128 v10; // xmm1
 
   SrbExtension = GetSrbExtension(a2);
-  result = GetSrbDataBuffer(v3, &v15);
-  v8 = (__int64 *)(SrbExtension + 4200);
-  v9 = result;
-  if ( *(_BYTE *)(v7 + 3) == 1 )
+  if ( *(_BYTE *)(v2 + 2) == 40 )
   {
-    v10 = *v8;
-    v11 = *(unsigned __int16 *)(*(_QWORD *)(v6 + 8LL * v5 + 1952) + 94LL);
-    *(_DWORD *)(result + 36) = 1;
-    *(_DWORD *)(result + 40) = v11;
-    v12 = *(unsigned __int8 *)(v10 + 5);
-    *(_DWORD *)(result + 36) = 5;
-    *(_DWORD *)(result + 48) = v12;
-    v13 = *(_OWORD *)(v10 + 48);
-    *(_DWORD *)(result + 36) = 13;
-    *(_OWORD *)(result + 52) = v13;
-    v14 = *(_OWORD *)(v10 + 64);
-    *(_DWORD *)(result + 36) = 29;
-    *(_OWORD *)(result + 68) = v14;
+    v5 = *(_QWORD *)(v2 + 64);
+    result = *(unsigned __int8 *)(*(unsigned int *)(v2 + 52) + v2 + 10);
+  }
+  else
+  {
+    result = *(unsigned __int8 *)(v2 + 7);
+    v5 = *(_QWORD *)(v2 + 24);
+  }
+  if ( *(_BYTE *)(v2 + 3) == 1 )
+  {
+    v7 = *(_QWORD *)(SrbExtension + 4200);
+    v8 = *(unsigned __int16 *)(*(_QWORD *)(v4 + 8 * result + 1736) + 94LL);
+    *(_DWORD *)(v5 + 36) = 1;
+    *(_DWORD *)(v5 + 40) = v8;
+    result = *(unsigned __int8 *)(v7 + 5);
+    *(_DWORD *)(v5 + 36) = 5;
+    *(_DWORD *)(v5 + 48) = result;
+    v9 = *(_OWORD *)(v7 + 48);
+    *(_DWORD *)(v5 + 36) = 13;
+    *(_OWORD *)(v5 + 52) = v9;
+    v10 = *(_OWORD *)(v7 + 64);
+    *(_DWORD *)(v5 + 36) = 29;
+    *(_OWORD *)(v5 + 68) = v10;
   }
   *(_BYTE *)(SrbExtension + 4253) |= 8u;
-  if ( *v8 )
-    result = NVMeFreeDmaBuffer(v6, *(unsigned int *)(SrbExtension + 4240), v8, *(_QWORD *)(SrbExtension + 4208));
-  *v8 = 0LL;
+  if ( *(_QWORD *)(SrbExtension + 4200) )
+    result = NVMeFreeDmaBuffer(
+               v4,
+               *(unsigned int *)(SrbExtension + 4240),
+               (__int64 *)(SrbExtension + 4200),
+               *(_QWORD *)(SrbExtension + 4208));
+  *(_QWORD *)(SrbExtension + 4200) = 0LL;
   *(_DWORD *)(SrbExtension + 4240) = 0;
-  *(_DWORD *)(v9 + 24) = 56;
+  *(_DWORD *)(v5 + 24) = 56;
   return result;
 }

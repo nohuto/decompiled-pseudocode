@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlCopyRangeList @ 0x140817400
+ * XREFs of RtlCopyRangeList @ 0x140760820
  * Callers:
- *     ArbTestAllocation @ 0x140817290 (ArbTestAllocation.c)
- *     ArbBootAllocation @ 0x140817710 (ArbBootAllocation.c)
- *     ArbQueryConflict @ 0x1409363D0 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x140936770 (ArbRetestAllocation.c)
- *     RtlMergeRangeLists @ 0x1409B8D00 (RtlMergeRangeLists.c)
+ *     ArbTestAllocation @ 0x140760540 (ArbTestAllocation.c)
+ *     ArbBootAllocation @ 0x1407B42B0 (ArbBootAllocation.c)
+ *     ArbQueryConflict @ 0x140867210 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x1408675A0 (ArbRetestAllocation.c)
+ *     RtlMergeRangeLists @ 0x14090FE40 (RtlMergeRangeLists.c)
  * Callees:
- *     RtlpCopyRangeListEntry @ 0x140817490 (RtlpCopyRangeListEntry.c)
- *     RtlFreeRangeList @ 0x140817B80 (RtlFreeRangeList.c)
+ *     RtlpCopyRangeListEntry @ 0x1407608B0 (RtlpCopyRangeListEntry.c)
+ *     RtlFreeRangeList @ 0x140760BB0 (RtlFreeRangeList.c)
  */
 
 __int64 __fastcall RtlCopyRangeList(__int64 a1, __int64 *a2)

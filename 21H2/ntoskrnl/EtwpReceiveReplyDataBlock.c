@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpReceiveReplyDataBlock @ 0x1406B9918
+ * XREFs of EtwpReceiveReplyDataBlock @ 0x1406C1360
  * Callers:
- *     NtTraceControl @ 0x1407954F0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     KeRemoveQueue @ 0x14023FFE0 (KeRemoveQueue.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     EtwpUnreferenceDataBlock @ 0x14078F0FC (EtwpUnreferenceDataBlock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeRemoveQueue @ 0x140202DD0 (KeRemoveQueue.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406E4984 (EtwpUnreferenceDataBlock.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpReceiveReplyDataBlock(unsigned int *a1, unsigned int a2, unsigned int *a3)
@@ -16,26 +16,26 @@ __int64 __fastcall EtwpReceiveReplyDataBlock(unsigned int *a1, unsigned int a2, 
   void *v5; // rcx
   LARGE_INTEGER v7; // rax
   NTSTATUS v8; // ebx
-  PVOID v9; // rbp
+  struct _DMA_ADAPTER *v9; // rbp
   PLIST_ENTRY v10; // rax
   PLIST_ENTRY v11; // rdi
   struct _LIST_ENTRY *Flink; // rsi
   unsigned int Flink_high; // eax
-  PVOID Object; // [rsp+60h] [rbp+8h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp+8h] BYREF
   LARGE_INTEGER Timeout; // [rsp+70h] [rbp+18h] BYREF
 
   *a3 = 0;
   v5 = (void *)*a1;
   v7.QuadPart = EtwpOneMs * a1[1];
-  Object = 0LL;
+  DmaAdapter = 0LL;
   Timeout = v7;
-  v8 = ObReferenceObjectByHandle(v5, 4u, EtwpRegistrationObjectType, 1, &Object, 0LL);
+  v8 = ObReferenceObjectByHandle(v5, 4u, EtwpRegistrationObjectType, 1, (PVOID *)&DmaAdapter, 0LL);
   if ( v8 >= 0 )
   {
-    v9 = Object;
-    if ( (*((_BYTE *)Object + 98) & 4) != 0 )
+    v9 = DmaAdapter;
+    if ( (DmaAdapter[6].Size & 4) != 0 )
     {
-      v10 = KeRemoveQueue(*((PRKQUEUE *)Object + 6), 1, &Timeout);
+      v10 = KeRemoveQueue(*(PRKQUEUE *)&DmaAdapter[3].Version, 1, &Timeout);
       v11 = v10;
       if ( v10 == (PLIST_ENTRY)258 || v10 == (PLIST_ENTRY)192 )
       {
@@ -64,7 +64,7 @@ __int64 __fastcall EtwpReceiveReplyDataBlock(unsigned int *a1, unsigned int a2, 
     {
       v8 = -1073741816;
     }
-    ObfDereferenceObject(v9);
+    HalPutDmaAdapter(v9);
   }
   return (unsigned int)v8;
 }

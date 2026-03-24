@@ -1,18 +1,31 @@
 /*
- * XREFs of ??1CScrollKeyframeAnimation@@UEAA@XZ @ 0x18025F4D4
+ * XREFs of ??1CScrollKeyframeAnimation@@UEAA@XZ @ 0x18020EC24
  * Callers:
- *     ??_ECScrollPositionKeyframeAnimation@@UEAAPEAXI@Z @ 0x180255210 (--_ECScrollPositionKeyframeAnimation@@UEAAPEAXI@Z.c)
- *     ??_ECScrollScaleKeyframeAnimation@@UEAAPEAXI@Z @ 0x180255760 (--_ECScrollScaleKeyframeAnimation@@UEAAPEAXI@Z.c)
- *     ??_ECScrollKeyframeAnimation@@UEAAPEAXI@Z @ 0x18025F520 (--_ECScrollKeyframeAnimation@@UEAAPEAXI@Z.c)
+ *     ??_ECScrollPositionKeyframeAnimation@@UEAAPEAXI@Z @ 0x180204990 (--_ECScrollPositionKeyframeAnimation@@UEAAPEAXI@Z.c)
+ *     ??_ECScrollScaleKeyframeAnimation@@UEAAPEAXI@Z @ 0x180204F10 (--_ECScrollScaleKeyframeAnimation@@UEAAPEAXI@Z.c)
+ *     ??_ECScrollKeyframeAnimation@@UEAAPEAXI@Z @ 0x18020ECA0 (--_ECScrollKeyframeAnimation@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CScrollKeyframeAnimation::~CScrollKeyframeAnimation(CScrollKeyframeAnimation *this)
 {
-  *((_QWORD *)this + 72) = 0LL;
+  __int64 v2; // rcx
+  __int64 v3; // rcx
+
+  *((_QWORD *)this + 69) = 0LL;
   *(_QWORD *)this = &CScrollKeyframeAnimation::`vftable';
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease((__int64 *)this + 91);
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease((__int64 *)this + 81);
+  v2 = *((_QWORD *)this + 88);
+  if ( v2 )
+  {
+    *((_QWORD *)this + 88) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 16LL))(v2);
+  }
+  v3 = *((_QWORD *)this + 78);
+  if ( v3 )
+  {
+    *((_QWORD *)this + 78) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 16LL))(v3);
+  }
   CKeyframeAnimation::~CKeyframeAnimation(this);
 }

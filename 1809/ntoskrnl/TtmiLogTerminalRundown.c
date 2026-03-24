@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalRundown @ 0x140886168
+ * XREFs of TtmiLogTerminalRundown @ 0x140886148
  * Callers:
- *     TtmiTerminalsRundown @ 0x14087EF64 (TtmiTerminalsRundown.c)
+ *     TtmiTerminalsRundown @ 0x14087EF44 (TtmiTerminalsRundown.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void TtmiLogTerminalRundown()
@@ -119,7 +119,7 @@ void TtmiLogTerminalRundown()
       v50 = 4LL;
       v51 = &v13;
       v52 = 4LL;
-      TlgWrite(&stru_14096D820, &unk_140371CE6, 0LL, 0LL, 0x13u, &pData);
+      TlgWrite(&stru_14096D820, &unk_140371E6C, 0LL, 0LL, 0x13u, &pData);
     }
   }
 }

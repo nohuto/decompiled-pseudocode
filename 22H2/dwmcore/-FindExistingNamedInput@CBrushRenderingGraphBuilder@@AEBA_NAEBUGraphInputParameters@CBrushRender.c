@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FindExistingNamedInput@CBrushRenderingGraphBuilder@@AEBA_NAEBUGraphInputParameters@CBrushRenderingGraph@@PEAI@Z @ 0x18003F8C0
+ * XREFs of ?FindExistingNamedInput@CBrushRenderingGraphBuilder@@AEBA_NAEBUGraphInputParameters@CBrushRenderingGraph@@PEAI@Z @ 0x180049650
  * Callers:
- *     ?AddNamedInputToFragment@CBrushRenderingGraphBuilder@@IEAAXPEAVCRenderingTechniqueFragment@@AEBUGraphInputParameters@CBrushRenderingGraph@@@Z @ 0x18003F91C (-AddNamedInputToFragment@CBrushRenderingGraphBuilder@@IEAAXPEAVCRenderingTechniqueFragment@@AEBU.c)
- *     ?AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18026DF90 (-AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechn.c)
+ *     ?AddNamedInputToFragment@CBrushRenderingGraphBuilder@@IEAAXPEAVCRenderingTechniqueFragment@@AEBUGraphInputParameters@CBrushRenderingGraph@@@Z @ 0x18004969C (-AddNamedInputToFragment@CBrushRenderingGraphBuilder@@IEAAXPEAVCRenderingTechniqueFragment@@AEBU.c)
+ *     ?AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18020D9F8 (-AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechn.c)
  * Callees:
  *     <none>
  */
@@ -15,19 +15,19 @@ bool __fastcall CBrushRenderingGraphBuilder::FindExistingNamedInput(
   __int64 v3; // rax
   __int64 v4; // rcx
   unsigned int v5; // r10d
-  __int64 v6; // r9
+  __int64 v7; // r9
 
   v3 = *(_QWORD *)this;
   v4 = 0LL;
   v5 = *(_DWORD *)(v3 + 40);
   if ( v5 )
   {
-    v6 = *(_QWORD *)(v3 + 16);
+    v7 = *(_QWORD *)(v3 + 16);
     do
     {
-      if ( *(_QWORD *)(v6 + 24 * v4) == *(_QWORD *)a2
-        && *(_QWORD *)(v6 + 24 * v4 + 8) == *((_QWORD *)a2 + 1)
-        && *(_DWORD *)(v6 + 24 * v4 + 16) == *((_DWORD *)a2 + 4) )
+      if ( *(_QWORD *)(v7 + 24 * v4) == *(_QWORD *)a2
+        && *(_QWORD *)(v7 + 24 * v4 + 8) == *((_QWORD *)a2 + 1)
+        && *(_DWORD *)(v7 + 24 * v4 + 16) == *((_DWORD *)a2 + 4) )
       {
         break;
       }

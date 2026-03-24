@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerD0NP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0014680
+ * XREFs of ?PowerD0NP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C001A390
  * Callers:
  *     <none>
  * Callees:

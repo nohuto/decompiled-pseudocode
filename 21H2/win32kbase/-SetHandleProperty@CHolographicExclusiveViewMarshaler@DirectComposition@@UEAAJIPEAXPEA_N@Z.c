@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetHandleProperty@CHolographicExclusiveViewMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C022D640
+ * XREFs of ?SetHandleProperty@CHolographicExclusiveViewMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C01EDD40
  * Callers:
  *     <none>
  * Callees:
@@ -18,16 +18,16 @@ __int64 __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::SetHan
 
   v6 = a2;
   v8 = 0;
-  *((_QWORD *)this + 9) = PsGetCurrentProcess(this, a2, a3, a4);
+  *((_QWORD *)this + 8) = PsGetCurrentProcess(this, a2);
   v9 = v6 - 4;
   if ( !v9 )
   {
-    *((_QWORD *)this + 11) = a3;
+    *((_QWORD *)this + 10) = a3;
     goto LABEL_6;
   }
   if ( v9 == 1 )
   {
-    *((_QWORD *)this + 12) = a3;
+    *((_QWORD *)this + 11) = a3;
 LABEL_6:
     *((_DWORD *)this + 4) |= 0x80u;
     *a4 = 1;

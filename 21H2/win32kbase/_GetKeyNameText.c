@@ -1,12 +1,12 @@
 /*
- * XREFs of _GetKeyNameText @ 0x1C0051280
+ * XREFs of _GetKeyNameText @ 0x1C006B0C0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
- *     InternalMapVirtualKeyEx @ 0x1C003F3A0 (InternalMapVirtualKeyEx.c)
- *     wcsncpycch @ 0x1C0051368 (wcsncpycch.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     UserSetLastError @ 0x1C00388BC (UserSetLastError.c)
+ *     InternalMapVirtualKeyEx @ 0x1C003CFB0 (InternalMapVirtualKeyEx.c)
+ *     wcsncpycch @ 0x1C006B1A8 (wcsncpycch.c)
  */
 
 __int64 __fastcall GetKeyNameText(unsigned int a1, _WORD *a2, int a3)

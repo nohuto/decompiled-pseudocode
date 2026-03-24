@@ -1,119 +1,101 @@
 /*
- * XREFs of rimFinalizePointerFlags @ 0x1C01AA398
+ * XREFs of rimFinalizePointerFlags @ 0x1C017B3D4
  * Callers:
- *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C01A792C (RIMUpdatePrimaryAndFinalizePointerFlags.c)
+ *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C0178C24 (RIMUpdatePrimaryAndFinalizePointerFlags.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMCmGetButtonContact @ 0x1C00E358C (RIMCmGetButtonContact.c)
- *     RIMCmIsContactSuppressed @ 0x1C00E35A6 (RIMCmIsContactSuppressed.c)
- *     rimPenButtonsPolicyApply @ 0x1C01AADF4 (rimPenButtonsPolicyApply.c)
- *     RIMCmIsButtonContactActiveAndNotSuppressed @ 0x1C01B08AC (RIMCmIsButtonContactActiveAndNotSuppressed.c)
- *     RIMCmIsContactDeliveringPointerData @ 0x1C01B0964 (RIMCmIsContactDeliveringPointerData.c)
- *     RIMCmIsSuppressedContactMarkedForDelivery @ 0x1C01B09B0 (RIMCmIsSuppressedContactMarkedForDelivery.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimPenButtonsPolicyApply @ 0x1C017BBF8 (rimPenButtonsPolicyApply.c)
+ *     RIMCmGetButtonContact @ 0x1C01802CC (RIMCmGetButtonContact.c)
+ *     RIMCmIsButtonContactActiveAndNotSuppressed @ 0x1C01802E8 (RIMCmIsButtonContactActiveAndNotSuppressed.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C0180324 (RIMCmIsContactDeliveringPointerData.c)
+ *     RIMCmIsContactSuppressed @ 0x1C0180370 (RIMCmIsContactSuppressed.c)
+ *     RIMCmIsSuppressedContactMarkedForDelivery @ 0x1C01803E4 (RIMCmIsSuppressedContactMarkedForDelivery.c)
  */
 
 __int64 __fastcall rimFinalizePointerFlags(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  int v3; // r10d
-  int *v4; // rbx
-  int v5; // r9d
-  bool v9; // bp
-  bool v10; // r15
-  unsigned int *v11; // rdx
-  _DWORD *v12; // rsi
-  int v13; // ecx
-  int v14; // ecx
-  int v15; // ecx
-  __int64 v16; // rax
+  int v3; // r9d
+  int v5; // r10d
+  bool v8; // si
+  bool v9; // di
+  int v10; // ecx
+  int v11; // eax
+  int v12; // edx
+  __int64 v13; // rax
   __int64 result; // rax
-  int v18; // ebp
+  int v15; // esi
 
-  v3 = a3[671];
-  v4 = a3 + 611;
-  v5 = a3[611];
-  v9 = (v3 & 4) == 0 && (v5 & 4) != 0;
-  v10 = (v3 & 4) != 0 && (v5 & 4) == 0;
+  v3 = a3[605];
+  v5 = a3[665];
+  v8 = (v5 & 4) == 0 && (v3 & 4) != 0;
+  v9 = (v5 & 4) != 0 && (v3 & 4) == 0;
   if ( !(unsigned int)RIMCmIsContactDeliveringPointerData(a3)
-    && (unsigned int)RIMCmIsContactSuppressed((__int64)a3)
+    && (unsigned int)RIMCmIsContactSuppressed(a3)
     && (unsigned int)RIMCmIsSuppressedContactMarkedForDelivery(a3) )
   {
-    *v4 &= 0x3000000u;
-    v11 = a3 + 8;
-LABEL_18:
-    v15 = *v4;
-    goto LABEL_19;
-  }
-  v12 = a3 + 8;
-  if ( (a3[2] & 0x10) != 0 )
-  {
-    v14 = a3[611];
+    a3[605] &= 0x3000000u;
+    v10 = a3[605];
   }
   else
   {
-    v13 = *v4;
-    *v12 |= 1u;
-    v14 = v13 | 0x4000;
-  }
-  if ( v9 )
-  {
-    v15 = v14 | 0x10000;
-  }
-  else if ( v10 )
-  {
-    v15 = v14 | 0x40000;
-  }
-  else
-  {
-    v15 = v14 | 0x20000;
-  }
-  *v4 = v15;
-  v11 = a3 + 8;
-  if ( (*v12 & 8) != 0 )
-  {
-    v15 |= 0x4000000u;
-    *v4 = v15;
-    v16 = *(_QWORD *)(a1 + 480);
-    if ( v16 == a2 )
+    if ( (a3[2] & 0x10) == 0 )
     {
-      if ( *(_DWORD **)(v16 + 1016) != a3 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1594);
-      *v4 |= 0x2000u;
-      v11 = a3 + 8;
-      goto LABEL_18;
+      a3[605] |= 0x4000u;
+      a3[8] |= 1u;
+    }
+    if ( v8 )
+      v11 = 0x10000;
+    else
+      v11 = v9 ? 0x40000 : 0x20000;
+    v12 = v11 | a3[605];
+    a3[605] = v12;
+    v10 = v12;
+    if ( (a3[8] & 8) != 0 )
+    {
+      v13 = *(_QWORD *)(a1 + 480);
+      if ( v13 == a2 )
+      {
+        if ( *(_DWORD **)(v13 + 960) != a3 )
+        {
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1579);
+          v10 = a3[605];
+        }
+        v10 |= 0x2000u;
+        a3[605] = v10;
+      }
     }
   }
-LABEL_19:
-  if ( (v15 & 0x1000000) == 0 )
-    *v4 = v15 & 0xFDFFFFFF;
-  result = *v11;
+  if ( (v10 & 0x1000000) == 0 )
+    a3[605] = v10 & 0xFDFFFFFF;
+  result = (unsigned int)a3[8];
   if ( (result & 4) == 0 )
   {
     if ( (unsigned int)RIMCmIsButtonContactActiveAndNotSuppressed(a2) )
     {
-      v18 = *(_DWORD *)(RIMCmGetButtonContact(a2) + 2444);
-      if ( (v18 & 0x10) != 0 )
+      v15 = *(_DWORD *)(RIMCmGetButtonContact(a2) + 2420);
+      if ( (v15 & 0x10) != 0 )
       {
-        if ( (v18 & 4) == 0 )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1617);
-        *v4 |= 0x10u;
+        if ( (v15 & 4) == 0 )
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1601);
+        a3[605] |= 0x10u;
       }
-      if ( (v18 & 0x20) != 0 )
+      if ( (v15 & 0x20) != 0 )
       {
-        if ( (v18 & 4) == 0 )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1622);
-        *v4 |= 0x20u;
+        if ( (v15 & 4) == 0 )
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1606);
+        a3[605] |= 0x20u;
       }
-      if ( (v18 & 0x40) != 0 )
+      if ( (v15 & 0x40) != 0 )
       {
-        if ( (v18 & 4) == 0 )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1627);
-        *v4 |= 0x40u;
+        if ( (v15 & 4) == 0 )
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1611);
+        a3[605] |= 0x40u;
       }
     }
     result = (unsigned int)(*(_DWORD *)(a2 + 24) - 5);
     if ( (unsigned int)result <= 1 )
       result = rimPenButtonsPolicyApply(a2, a3);
   }
-  *v4 &= ~0x1000000u;
+  a3[605] &= ~0x1000000u;
   return result;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of vGetLastBootTimeStatus @ 0x1C00888FC
+ * XREFs of vGetLastBootTimeStatus @ 0x1C00E5A14
  * Callers:
- *     InitFNTCache @ 0x1C00880A0 (InitFNTCache.c)
+ *     InitFNTCache @ 0x1C00E53A0 (InitFNTCache.c)
  * Callees:
- *     bQueryFntCacheReg @ 0x1C0088820 (bQueryFntCacheReg.c)
+ *     bQueryFntCacheReg @ 0x1C00E5868 (bQueryFntCacheReg.c)
  */
 
-__int64 __fastcall vGetLastBootTimeStatus(__int64 a1)
+__int64 vGetLastBootTimeStatus()
 {
-  __int64 v1; // rbx
-  __int64 v2; // rcx
+  int v0; // eax
+  __int64 v1; // rcx
   __int64 result; // rax
-  int v4; // [rsp+30h] [rbp+8h] BYREF
+  int v3; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = 0;
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  *(_DWORD *)(*(_QWORD *)(v1 + 19392) + 12LL) = 0;
-  if ( (unsigned int)bQueryFntCacheReg(*(HANDLE *)(v1 + 19408), L"LastBootTimeFontCacheState", &v4) )
-    *(_DWORD *)(*(_QWORD *)(v1 + 19392) + 12LL) = v4;
-  v2 = *(_QWORD *)(v1 + 19392);
-  result = *(unsigned int *)(v2 + 12);
-  *(_DWORD *)(v2 + 16) = result;
+  v3 = 0;
+  *(_DWORD *)(qword_1C0339BE8 + 12) = 0;
+  v0 = bQueryFntCacheReg(ghkeyGreInitialize, L"LastBootTimeFontCacheState", &v3);
+  v1 = qword_1C0339BE8;
+  if ( v0 )
+    *(_DWORD *)(qword_1C0339BE8 + 12) = v3;
+  result = *(unsigned int *)(v1 + 12);
+  *(_DWORD *)(v1 + 16) = result;
   return result;
 }

@@ -1,220 +1,223 @@
 /*
- * XREFs of ProcessorpFindIdtEntriesApic @ 0x1C009B600
+ * XREFs of ProcessorpFindIdtEntriesApic @ 0x1C0092F20
  * Callers:
  *     <none>
  * Callees:
- *     IntPartFree @ 0x1C005ED10 (IntPartFree.c)
- *     ProcessorGetDeviceIdtAssignment @ 0x1C009AC04 (ProcessorGetDeviceIdtAssignment.c)
- *     ProcessorpFindAffinitizedIdtEntries @ 0x1C009B1B8 (ProcessorpFindAffinitizedIdtEntries.c)
- *     ProcessorpGetSecondaryInterruptAffinity @ 0x1C009B9A0 (ProcessorpGetSecondaryInterruptAffinity.c)
- *     ProcessorpSelectProcessorSetFromClusters @ 0x1C009C240 (ProcessorpSelectProcessorSetFromClusters.c)
- *     ProcessorpValidateTargetSet @ 0x1C009C3E4 (ProcessorpValidateTargetSet.c)
- *     IcIsInterruptTypeSecondary @ 0x1C009F46C (IcIsInterruptTypeSecondary.c)
- *     IrqPolicyGetDevicePolicy @ 0x1C009F8B4 (IrqPolicyGetDevicePolicy.c)
- *     IrqPolicyQuerySteeringEnabledForInterrupt @ 0x1C009FE58 (IrqPolicyQuerySteeringEnabledForInterrupt.c)
- *     ProcessorpSelectProcessorSetFromPartitions @ 0x1C00A02D0 (ProcessorpSelectProcessorSetFromPartitions.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ProcessorpFindAffinitizedIdtEntries @ 0x1C0093160 (ProcessorpFindAffinitizedIdtEntries.c)
+ *     IcIsInterruptTypeSecondary @ 0x1C00934D8 (IcIsInterruptTypeSecondary.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C00936A0 (ProcessorGetDeviceIdtAssignment.c)
+ *     ProcessorpValidateTargetSet @ 0x1C0094208 (ProcessorpValidateTargetSet.c)
+ *     IrqPolicyGetDevicePolicy @ 0x1C0094A38 (IrqPolicyGetDevicePolicy.c)
+ *     ProcessorpSelectProcessorSet @ 0x1C0095B5C (ProcessorpSelectProcessorSet.c)
+ *     IrqPolicyQueryInterruptSteeringEnabled @ 0x1C0097A68 (IrqPolicyQueryInterruptSteeringEnabled.c)
+ *     ProcessorpGetSecondaryInterruptAffinity @ 0x1C00B6E54 (ProcessorpGetSecondaryInterruptAffinity.c)
  */
 
-NTSTATUS __fastcall ProcessorpFindIdtEntriesApic(
+__int64 __fastcall ProcessorpFindIdtEntriesApic(
         PDEVICE_OBJECT Pdo,
         __int64 a2,
         __int64 a3,
         unsigned int a4,
         unsigned int a5,
-        unsigned int a6,
+        int a6,
         char a7,
-        int a8)
+        unsigned int a8)
 {
-  __int64 v8; // rdi
-  int DeviceIdtAssignment; // ebx
-  __int128 v12; // xmm0
-  NTSTATUS result; // eax
-  unsigned __int16 v14; // r14
-  char v15; // r15
-  __int64 v16; // r12
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  NTSTATUS SecondaryInterruptAffinity; // esi
-  __int64 v21; // r8
+  int DeviceIdtAssignment; // r14d
+  int DevicePolicy; // eax
+  char v13; // r14
+  unsigned __int16 v14; // si
+  char IsInterruptTypeSecondary; // al
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  int v18; // r8d
+  char v19; // al
+  int v20; // r9d
+  __int64 result; // rax
   __int128 v22; // xmm0
-  __int64 v23; // r8
-  __int128 v24; // xmm0
-  _WORD v25[2]; // [rsp+58h] [rbp-49h] BYREF
-  _BYTE v26[4]; // [rsp+5Ch] [rbp-45h] BYREF
-  unsigned int v27; // [rsp+60h] [rbp-41h] BYREF
-  __int128 v28; // [rsp+68h] [rbp-39h] BYREF
-  __int64 v29; // [rsp+78h] [rbp-29h]
-  __int128 v30; // [rsp+80h] [rbp-21h] BYREF
-  __int128 v31; // [rsp+90h] [rbp-11h]
-  void *v32; // [rsp+A0h] [rbp-1h]
-  char v35[8]; // [rsp+118h] [rbp+77h]
+  char v23; // al
+  int SecondaryInterruptAffinity; // ecx
+  int v25; // r8d
+  int v26; // r9d
+  __int128 v27; // xmm0
+  __int128 v28; // xmm0
+  unsigned int v29; // r13d
+  int v30; // r8d
+  int v31; // r9d
+  char v32; // cl
+  _BYTE v33[4]; // [rsp+50h] [rbp-69h] BYREF
+  _WORD v34[2]; // [rsp+54h] [rbp-65h] BYREF
+  int v35; // [rsp+58h] [rbp-61h] BYREF
+  unsigned int v36; // [rsp+5Ch] [rbp-5Dh]
+  __int128 v37; // [rsp+60h] [rbp-59h] BYREF
+  int v38; // [rsp+70h] [rbp-49h]
+  PDEVICE_OBJECT v39; // [rsp+78h] [rbp-41h]
+  __int128 v40; // [rsp+80h] [rbp-39h] BYREF
+  __int64 v41; // [rsp+90h] [rbp-29h]
+  __int128 v42; // [rsp+98h] [rbp-21h] BYREF
+  __int128 v43; // [rsp+A8h] [rbp-11h]
 
-  LODWORD(v29) = 0;
-  v8 = a3;
-  v26[0] = 0;
-  v25[0] = 0;
-  v30 = 0LL;
-  v27 = 0;
-  v31 = 0LL;
-  v28 = 0LL;
-  DeviceIdtAssignment = ProcessorGetDeviceIdtAssignment(0LL, a5, a8, &v30);
+  v36 = a4;
+  v39 = Pdo;
+  v38 = 0;
+  v33[0] = 0;
+  v35 = 0;
+  v34[0] = 0;
+  v41 = 0LL;
+  v40 = 0LL;
+  v42 = 0LL;
+  v43 = 0LL;
+  v37 = 0LL;
+  DeviceIdtAssignment = ProcessorGetDeviceIdtAssignment(0LL, a5, a8, &v42);
   if ( DeviceIdtAssignment >= 0 )
   {
-    v12 = v30;
-    *(_DWORD *)(v8 + 32) = DWORD1(v31);
-    v25[0] = IrqMachinePolicy;
-    *(_BYTE *)(v8 + 4) = 1;
-    *(_OWORD *)(v8 + 16) = v12;
-    IrqPolicyGetDevicePolicy(Pdo, (__int64)v25, (__int64)v26);
-    *(_WORD *)(v8 + 6) = v25[0];
-    return DeviceIdtAssignment;
+    v28 = v42;
+    *(_DWORD *)(a3 + 32) = DWORD1(v43);
+    v34[0] = IrqMachinePolicy;
+    *(_BYTE *)(a3 + 4) = 1;
+    *(_OWORD *)(a3 + 16) = v28;
+    IrqPolicyGetDevicePolicy(Pdo, (__int64)v34, (__int64)v33);
+    *(_WORD *)(a3 + 6) = v34[0];
+    return (unsigned int)DeviceIdtAssignment;
   }
-  if ( *(_BYTE *)(v8 + 4) )
+  if ( *(_BYTE *)(a3 + 4) )
   {
-    v14 = *(_WORD *)(v8 + 6);
-    v15 = *(_BYTE *)(v8 + 8);
-    v28 = *(_OWORD *)(v8 + 16);
+    v14 = *(_WORD *)(a3 + 6);
+    v13 = *(_BYTE *)(a3 + 8);
+    v37 = *(_OWORD *)(a3 + 16);
   }
   else
   {
-    if ( (int)IrqPolicyGetDevicePolicy(Pdo, (__int64)v25, (__int64)v26) >= 0 )
+    DevicePolicy = IrqPolicyGetDevicePolicy(Pdo, (__int64)v34, (__int64)v33);
+    v13 = v33[0];
+    if ( DevicePolicy < 0 )
     {
-      v14 = v25[0];
+      v14 = IrqMachinePolicy;
+      v37 = 0LL;
     }
     else
     {
-      v14 = IrqMachinePolicy;
-      v28 = 0LL;
+      v14 = v34[0];
     }
-    v15 = v26[0];
   }
-  v16 = 16LL;
-  v35[0] = a7 & 1;
-  v29 = 16LL;
-  v25[0] = v14;
-  if ( (unsigned __int8)IcIsInterruptTypeSecondary(a5) )
+  IsInterruptTypeSecondary = IcIsInterruptTypeSecondary(a5);
+  v18 = 0;
+  if ( IsInterruptTypeSecondary )
   {
-    SecondaryInterruptAffinity = ProcessorpGetSecondaryInterruptAffinity(v18, a4, &v28);
-    if ( SecondaryInterruptAffinity < 0 )
-      return SecondaryInterruptAffinity;
-    v15 = 0;
-    SecondaryInterruptAffinity = ProcessorpFindAffinitizedIdtEntries(
-                                   (__int64)Pdo,
-                                   (__int64 *)&v28,
-                                   v21,
-                                   v35[0],
-                                   a4,
-                                   a5,
-                                   a6,
-                                   a8,
-                                   &v27);
-LABEL_34:
-    if ( SecondaryInterruptAffinity < 0 )
-      return SecondaryInterruptAffinity;
-  }
-  else
-  {
-    if ( (_QWORD)v28 )
+    v29 = v36;
+    SecondaryInterruptAffinity = ProcessorpGetSecondaryInterruptAffinity(v17, v36, &v37);
+    if ( SecondaryInterruptAffinity >= 0 )
     {
-      if ( (unsigned __int8)ProcessorpValidateTargetSet(&v28) )
-      {
-        result = ProcessorpFindAffinitizedIdtEntries((__int64)Pdo, (__int64 *)&v28, v19, v35[0], a4, a5, a6, a8, &v27);
-        v17 = (unsigned int)result;
-        if ( result >= 0 )
-        {
-          v22 = v28;
-          *(_DWORD *)(v8 + 32) = v27;
-          *(_OWORD *)(v8 + 16) = v22;
-          *(_WORD *)(v8 + 6) = v14;
-          *(_BYTE *)(v8 + 8) = v15;
-          *(_BYTE *)(v8 + 4) = 1;
-          return result;
-        }
-      }
-      else
-      {
-        v17 = 3221225659LL;
-      }
-      if ( v14 == 4 )
-      {
-        if ( a2 && (*(_BYTE *)(a2 + 4) & 4) != 0 )
-          return v17;
-        v14 = IrqMachinePolicy;
-        v25[0] = IrqMachinePolicy;
-      }
-    }
-    if ( ProcessorpPreferredCpuSetActive )
-      goto LABEL_31;
-    LOBYTE(v19) = a6 & 1;
-    if ( !(unsigned __int8)IrqPolicyQuerySteeringEnabledForInterrupt(a5, v17, v19) || v14 != 6 )
-      goto LABEL_31;
-    v27 = 0;
-    v30 = 0LL;
-    v32 = 0LL;
-    v31 = 0LL;
-    do
-    {
-      LOBYTE(v17) = v15;
-      SecondaryInterruptAffinity = ProcessorpSelectProcessorSetFromPartitions(6LL, v17, &v28, &v30);
-      if ( SecondaryInterruptAffinity < 0 )
-        break;
+      v13 = 0;
+      LOBYTE(v31) = a7 & 1;
       SecondaryInterruptAffinity = ProcessorpFindAffinitizedIdtEntries(
-                                     (__int64)Pdo,
-                                     (__int64 *)&v28,
-                                     v19,
-                                     v35[0],
-                                     a4,
+                                     (_DWORD)v39,
+                                     (unsigned int)&v37,
+                                     v30,
+                                     v31,
+                                     v29,
                                      a5,
                                      a6,
                                      a8,
-                                     &v27);
-    }
-    while ( SecondaryInterruptAffinity < 0 );
-    v8 = a3;
-    v14 = v25[0];
-    v16 = v29;
-    if ( v32 )
-      IntPartFree(v32);
-    if ( SecondaryInterruptAffinity < 0 )
-    {
-LABEL_31:
-      v27 = 0;
-      v30 = 0LL;
-      v32 = 0LL;
-      v31 = 0LL;
-      while ( 1 )
+                                     (__int64)&v35);
+LABEL_16:
+      if ( SecondaryInterruptAffinity >= 0 )
       {
-        LOBYTE(v19) = ProcessorpPreferredCpuSetActive;
-        LOBYTE(v17) = v15;
-        SecondaryInterruptAffinity = ProcessorpSelectProcessorSetFromClusters(
-                                       v14,
-                                       v17,
-                                       v19,
-                                       (unsigned int)&v28,
-                                       (__int64)&v30);
-        if ( SecondaryInterruptAffinity < 0 )
-          return SecondaryInterruptAffinity;
-        SecondaryInterruptAffinity = ProcessorpFindAffinitizedIdtEntries(
-                                       (__int64)Pdo,
-                                       (__int64 *)&v28,
-                                       v23,
-                                       v35[0],
-                                       a4,
-                                       a5,
-                                       a6,
-                                       a8,
-                                       &v27);
-        if ( SecondaryInterruptAffinity >= 0 )
-          goto LABEL_34;
+        v27 = v37;
+        *(_DWORD *)(a3 + 32) = v35;
+        *(_OWORD *)(a3 + 16) = v27;
+        *(_WORD *)(a3 + 6) = v14;
+        *(_BYTE *)(a3 + 8) = v13;
+        *(_BYTE *)(a3 + 4) = 1;
       }
     }
+    return (unsigned int)SecondaryInterruptAffinity;
   }
-  v24 = v28;
-  *(_DWORD *)(v8 + 32) = v27;
-  *(_OWORD *)(v16 + v8) = v24;
-  *(_WORD *)(v8 + 6) = v14;
-  *(_BYTE *)(v8 + 8) = v15;
-  *(_BYTE *)(v8 + 4) = 1;
-  return SecondaryInterruptAffinity;
+  if ( !(_QWORD)v37 )
+    goto LABEL_11;
+  v19 = ProcessorpValidateTargetSet(&v37, v16, 0LL);
+  v18 = 0;
+  if ( v19 )
+  {
+    LOBYTE(v20) = a7 & 1;
+    result = ProcessorpFindAffinitizedIdtEntries(
+               (_DWORD)v39,
+               (unsigned int)&v37,
+               0,
+               v20,
+               v36,
+               a5,
+               a6,
+               a8,
+               (__int64)&v35);
+    v18 = 0;
+    LODWORD(v16) = result;
+    if ( (int)result >= 0 )
+    {
+      v22 = v37;
+      *(_DWORD *)(a3 + 32) = v35;
+      *(_OWORD *)(a3 + 16) = v22;
+      *(_WORD *)(a3 + 6) = v14;
+      *(_BYTE *)(a3 + 8) = v13;
+      *(_BYTE *)(a3 + 4) = 1;
+      return result;
+    }
+  }
+  else
+  {
+    LODWORD(v16) = -1073741637;
+  }
+  if ( v14 != 4 )
+  {
+LABEL_11:
+    if ( IrqMachinePolicy == 6 )
+    {
+      v42 = 0LL;
+      LODWORD(v42) = a5;
+      BYTE6(v42) = 1;
+      *(_QWORD *)&v43 = 0LL;
+      v32 = _mm_cvtsi128_si32(_mm_srli_si128((__m128i)0LL, 4));
+      if ( a5 + 0x100000 > 0xFFFFE )
+        v32 = 1;
+      BYTE4(v42) = v32;
+      BYTE5(v42) = a6 & 1;
+      *((_QWORD *)&v42 + 1) = KeQueryGroupAffinity(0);
+      v23 = IrqPolicyQueryInterruptSteeringEnabled(&v42);
+      v18 = 0;
+    }
+    else
+    {
+      v23 = 0;
+    }
+    v35 = 0;
+    while ( 1 )
+    {
+      LOBYTE(v18) = v23;
+      LOBYTE(v16) = v13;
+      SecondaryInterruptAffinity = ProcessorpSelectProcessorSet(v14, v16, v18, (unsigned int)&v37, (__int64)&v40);
+      if ( SecondaryInterruptAffinity < 0 )
+        return (unsigned int)SecondaryInterruptAffinity;
+      LOBYTE(v26) = a7 & 1;
+      SecondaryInterruptAffinity = ProcessorpFindAffinitizedIdtEntries(
+                                     (_DWORD)v39,
+                                     (unsigned int)&v37,
+                                     v25,
+                                     v26,
+                                     v36,
+                                     a5,
+                                     a6,
+                                     a8,
+                                     (__int64)&v35);
+      v23 = 0;
+      if ( SecondaryInterruptAffinity >= 0 )
+        goto LABEL_16;
+    }
+  }
+  if ( !a2 || (*(_BYTE *)(a2 + 4) & 4) == 0 )
+  {
+    v14 = IrqMachinePolicy;
+    goto LABEL_11;
+  }
+  return (unsigned int)v16;
 }

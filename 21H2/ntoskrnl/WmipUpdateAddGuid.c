@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipUpdateAddGuid @ 0x1409DE730
+ * XREFs of WmipUpdateAddGuid @ 0x140933818
  * Callers:
- *     WmipUpdateModifyGuid @ 0x1409DEB60 (WmipUpdateModifyGuid.c)
+ *     WmipUpdateModifyGuid @ 0x1407C4120 (WmipUpdateModifyGuid.c)
  * Callees:
- *     WmipBuildInstanceSet @ 0x14075D4B8 (WmipBuildInstanceSet.c)
- *     WmipLinkDataSourceToList @ 0x14075DEAC (WmipLinkDataSourceToList.c)
- *     WmipAllocEntry @ 0x14075E074 (WmipAllocEntry.c)
- *     WmipUnreferenceEntry @ 0x1407838E0 (WmipUnreferenceEntry.c)
+ *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
+ *     WmipBuildInstanceSet @ 0x140756BD8 (WmipBuildInstanceSet.c)
+ *     WmipLinkDataSourceToList @ 0x140757EF0 (WmipLinkDataSourceToList.c)
+ *     WmipAllocEntry @ 0x1407580C0 (WmipAllocEntry.c)
  */
 
 __int64 __fastcall WmipUpdateAddGuid(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4, volatile signed __int64 **a5)

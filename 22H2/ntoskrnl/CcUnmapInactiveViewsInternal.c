@@ -1,30 +1,31 @@
 /*
- * XREFs of CcUnmapInactiveViewsInternal @ 0x140538490
+ * XREFs of CcUnmapInactiveViewsInternal @ 0x1404EB484
  * Callers:
- *     CcUnmapInactiveViews @ 0x140538328 (CcUnmapInactiveViews.c)
+ *     CcUnmapInactiveViews @ 0x1404EB320 (CcUnmapInactiveViews.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementOpenCount @ 0x14029CA00 (CcDecrementOpenCount.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CAB0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     CcGetVacbLargeOffset @ 0x14029EF70 (CcGetVacbLargeOffset.c)
- *     CcReferenceVacbArray @ 0x14029F4CC (CcReferenceVacbArray.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     SetVacb @ 0x1402A09E8 (SetVacb.c)
- *     CcSetVacbInFreeList @ 0x1402A0AE0 (CcSetVacbInFreeList.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x1402A0F10 (CcReleaseBcbLockAndVacbLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x1402A0F50 (CcAcquireBcbLockAndVacbLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     CcCanReuseVacb @ 0x140537F4C (CcCanReuseVacb.c)
- *     CcDereferenceVacbArray @ 0x140537FEC (CcDereferenceVacbArray.c)
- *     CcGetRandomVacbArrayWithReference @ 0x140538094 (CcGetRandomVacbArrayWithReference.c)
- *     CcRecalculateVacbArrayHighwaterMark @ 0x140538134 (CcRecalculateVacbArrayHighwaterMark.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     CcUnmapVacb @ 0x140721E80 (CcUnmapVacb.c)
- *     RtlRandom @ 0x1407E6960 (RtlRandom.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcSetVacbInFreeList @ 0x14029027C (CcSetVacbInFreeList.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x1402913A4 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x140291424 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcReferenceVacbArray @ 0x140293434 (CcReferenceVacbArray.c)
+ *     CcDecrementOpenCount @ 0x1402937BC (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x140293E80 (CcGetPartition.c)
+ *     SetVacb @ 0x140294000 (SetVacb.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     CcGetVacbLargeOffset @ 0x140305C88 (CcGetVacbLargeOffset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CcCanReuseVacb @ 0x1404EAF40 (CcCanReuseVacb.c)
+ *     CcDereferenceVacbArray @ 0x1404EAFE0 (CcDereferenceVacbArray.c)
+ *     CcGetRandomVacbArrayWithReference @ 0x1404EB088 (CcGetRandomVacbArrayWithReference.c)
+ *     CcRecalculateVacbArrayHighwaterMark @ 0x1404EB128 (CcRecalculateVacbArrayHighwaterMark.c)
+ *     CcUnmapVacb @ 0x140637A98 (CcUnmapVacb.c)
+ *     RtlRandom @ 0x14069FF60 (RtlRandom.c)
  */
 
 __int64 __fastcall CcUnmapInactiveViewsInternal(__int64 a1, unsigned int a2, char a3, _QWORD *a4)
@@ -38,283 +39,299 @@ __int64 __fastcall CcUnmapInactiveViewsInternal(__int64 a1, unsigned int a2, cha
   __int64 v10; // rbx
   unsigned int v11; // ebx
   KIRQL v12; // si
-  unsigned int v13; // ebx
-  ULONG v14; // eax
-  __int64 v15; // rsi
+  unsigned int v13; // ecx
+  unsigned int v14; // ebx
+  ULONG v15; // eax
   bool CanReuseVacb; // al
-  __int64 v17; // r9
-  KIRQL v18; // r14
-  __int64 v19; // rcx
-  __int64 v20; // rcx
-  __int64 v21; // rbx
-  __int64 v22; // rsi
-  unsigned int v23; // r12d
-  int v24; // r12d
-  __int64 v25; // r13
-  __int64 v26; // rax
-  __int64 VacbLargeOffset; // r14
-  int v28; // r15d
-  unsigned int v29; // ecx
-  KIRQL v30; // bl
+  bool v17; // dl
+  __int64 v18; // r9
+  __int64 v19; // rsi
+  bool v20; // al
+  __int64 v21; // r9
+  KIRQL v22; // r14
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  _DWORD *v25; // r9
+  _QWORD *v26; // rcx
+  __int64 Partition; // rax
+  __int64 v28; // rcx
+  __int64 v29; // rbx
+  __int64 v30; // rsi
+  unsigned int v31; // r12d
+  int v32; // r12d
+  __int64 v33; // rdx
+  __int64 v34; // r8
+  _DWORD *v35; // r9
+  __int64 v36; // r13
+  __int64 v37; // rcx
+  __int64 v38; // r14
+  int v39; // r15d
+  unsigned int v40; // ecx
+  KIRQL v41; // bl
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v35; // eax
-  bool v36; // zf
-  unsigned __int8 v37; // al
-  struct _KPRCB *v38; // r10
-  _DWORD *v39; // r9
-  int v40; // eax
-  __int64 v41; // r14
-  int v42; // esi
-  __int64 v43; // rbx
-  bool v45; // [rsp+28h] [rbp-49h]
-  unsigned int v46; // [rsp+2Ch] [rbp-45h]
-  unsigned int v47; // [rsp+30h] [rbp-41h]
-  int v48; // [rsp+34h] [rbp-3Dh]
-  unsigned int v49; // [rsp+38h] [rbp-39h]
-  int v50; // [rsp+3Ch] [rbp-35h]
-  int v51; // [rsp+40h] [rbp-31h]
-  int v52; // [rsp+44h] [rbp-2Dh]
-  __int64 v53; // [rsp+48h] [rbp-29h]
-  struct _KLOCK_QUEUE_HANDLE v54; // [rsp+50h] [rbp-21h] BYREF
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+68h] [rbp-9h] BYREF
-  unsigned int v57; // [rsp+E0h] [rbp+6Fh]
-  int v58; // [rsp+E8h] [rbp+77h]
+  int v46; // eax
+  bool v47; // zf
+  unsigned __int8 v48; // al
+  struct _KPRCB *v49; // r10
+  _DWORD *v50; // r9
+  int v51; // eax
+  __int64 v52; // r14
+  int v53; // esi
+  __int64 v54; // rbx
+  bool v56; // [rsp+28h] [rbp-49h]
+  unsigned int v57; // [rsp+2Ch] [rbp-45h]
+  int v58; // [rsp+30h] [rbp-41h]
+  unsigned int v59; // [rsp+34h] [rbp-3Dh]
+  int v60; // [rsp+38h] [rbp-39h]
+  int v61; // [rsp+3Ch] [rbp-35h]
+  int v62; // [rsp+40h] [rbp-31h]
+  __int64 v63; // [rsp+48h] [rbp-29h]
+  unsigned int v64; // [rsp+50h] [rbp-21h]
+  struct _KLOCK_QUEUE_HANDLE v65; // [rsp+58h] [rbp-19h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+70h] [rbp-1h] BYREF
+  unsigned int v68; // [rsp+E0h] [rbp+6Fh]
+  int v69; // [rsp+E8h] [rbp+77h]
 
-  v57 = a2;
-  v48 = -1;
-  v46 = 0;
-  v49 = 0;
-  v52 = 0;
-  v51 = 0;
+  v68 = a2;
+  v58 = -1;
+  v59 = 0;
+  v64 = 0;
+  v62 = 0;
+  v61 = 0;
   v4 = 0;
-  v50 = 0;
+  v60 = 0;
   RandomVacbArrayWithReference = 0LL;
-  v53 = 0LL;
+  v63 = 0LL;
   v6 = 0;
-  v47 = 0;
+  v57 = 0;
   v7 = 0LL;
   v8 = 0;
-  memset(&v54, 0, sizeof(v54));
+  memset(&v65, 0, sizeof(v65));
   if ( a4 )
   {
     *a4 = 0LL;
-    v51 = 1;
+    v61 = 1;
   }
-  v58 = a3 & 1;
+  v69 = a3 & 1;
   v9 = !(a3 & 1);
-  v45 = v9;
+  v56 = v9;
   do
   {
-LABEL_4:
-    if ( v4 < a2 )
+    while ( v4 < a2 && v8 <= CcVacbArraysHighestUsedIndex )
     {
-      while ( v8 <= CcVacbArraysHighestUsedIndex )
+      if ( RandomVacbArrayWithReference )
       {
-        if ( RandomVacbArrayWithReference )
+        LODWORD(v10) = v58;
+LABEL_19:
+        if ( v9 )
         {
-          LODWORD(v10) = v48;
-          goto LABEL_19;
+          v13 = 0;
+          while ( 1 )
+          {
+            v14 = v13;
+            v15 = RtlRandom(&CcRandomSeed);
+            CanReuseVacb = CcCanReuseVacb(
+                             (__int64)&RandomVacbArrayWithReference[8 * (v15 % (RandomVacbArrayWithReference[2] + 1))
+                                                                  + 4
+                                                                  + 2 * (v15 % (RandomVacbArrayWithReference[2] + 1))],
+                             0LL);
+            v13 = v14 + 1;
+            if ( CanReuseVacb )
+              v13 = v14;
+            v19 = v18 & -(__int64)CanReuseVacb;
+            if ( v19 )
+              break;
+            if ( v13 > 0x10 )
+            {
+              ++CcDbgRandomFailed;
+              v9 = v17;
+              v56 = v17;
+              goto LABEL_72;
+            }
+          }
         }
+        else
+        {
+          if ( (_DWORD)v10 == -1 )
+          {
+            LODWORD(v10) = RandomVacbArrayWithReference[2] + 1;
+            v58 = v10;
+          }
+          if ( !(_DWORD)v10 )
+            goto LABEL_72;
+          do
+          {
+            v10 = (unsigned int)(v10 - 1);
+            v20 = CcCanReuseVacb((__int64)&RandomVacbArrayWithReference[8 * v10 + 4 + 2 * (unsigned int)v10], v7);
+          }
+          while ( !v20 && (_DWORD)v10 );
+          v58 = v10;
+          v19 = v21 & -(__int64)v20;
+          if ( !v19 )
+          {
+            v9 = v56;
+LABEL_72:
+            CcDereferenceVacbArray((__int64)RandomVacbArrayWithReference, 0);
+            RandomVacbArrayWithReference = 0LL;
+            goto LABEL_73;
+          }
+        }
+        v22 = KeAcquireQueuedSpinLock(4uLL);
+        if ( CcCanReuseVacb(v19, v7) )
+        {
+          v26 = *(_QWORD **)(v19 + 8);
+          memset(&LockHandle, 0, sizeof(LockHandle));
+          Partition = CcGetPartition(v26, v23, v24, v25);
+          LockHandle.LockQueue.Next = 0LL;
+          LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(Partition + 128);
+          KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(Partition + 128));
+          v28 = *(_QWORD *)(v19 + 8);
+          if ( *(_QWORD *)(*(_QWORD *)((*(_QWORD *)(v28 + 96) & 0xFFFFFFFFFFFFFFF0uLL) + 0x28) + 8LL) != v28 )
+          {
+            KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+            goto LABEL_70;
+          }
+          ++*(_DWORD *)(v28 + 4);
+          ++*(_DWORD *)(v28 + 536);
+          KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+          v29 = *(_QWORD *)(v19 + 16);
+          v30 = *(_QWORD *)(v19 + 8);
+          v31 = *(_DWORD *)(v30 + 152);
+          KeReleaseQueuedSpinLock(4uLL, v22);
+          v32 = (v31 >> 9) & 1;
+          CcAcquireBcbLockAndVacbLock(v32, (struct _FAST_MUTEX *)v30);
+          v36 = CcGetPartition((_QWORD *)v30, v33, v34, v35);
+          if ( a1 == v36 && v29 >= 0 )
+          {
+            v37 = *(_QWORD *)(v30 + 32);
+            if ( v29 < v37 )
+            {
+              v38 = v37 <= 0x2000000
+                  ? *(_QWORD *)(*(_QWORD *)(v30 + 88) + 8 * ((unsigned __int64)(unsigned int)v29 >> 18))
+                  : CcGetVacbLargeOffset(v30, v29);
+              if ( v38 && !*(_WORD *)(v38 + 16) )
+              {
+                SetVacb(v30, v29, 0LL, 0LL);
+                if ( *(_DWORD *)(v36 + 920) >= (unsigned int)CcMinimumFreeHighPriorityVacbs )
+                {
+                  v39 = 0;
+                  if ( !v61 )
+                  {
+                    v40 = v60 & 0xFFFFFFFD;
+                    v60 &= ~2u;
+                    if ( !v63 && v69 )
+                      v63 = *(_QWORD *)v38;
+                    goto LABEL_45;
+                  }
+                }
+                else
+                {
+                  v39 = 1;
+                }
+                v40 = v60 | 2;
+                v63 = 0LL;
+                v60 |= 2u;
+LABEL_45:
+                CcUnmapVacb(v38, v30, v40);
+                CcReleaseBcbLockAndVacbLock(v32, (struct _FAST_MUTEX *)v30);
+                v4 = v59;
+                if ( !v39 )
+                {
+                  v4 = v59 + 1;
+                  v64 = 1;
+                  ++v59;
+                  if ( v61 )
+                  {
+                    v61 = 0;
+                    *a4 = *(_QWORD *)v38;
+                    *(_QWORD *)v38 = 0LL;
+                  }
+                }
+                v41 = KeAcquireQueuedSpinLock(4uLL);
+                *(_QWORD *)(v38 + 8) = 0LL;
+                CcSetVacbInFreeList(v36, (_QWORD *)v38, v39);
+                KeReleaseQueuedSpinLock(4uLL, v41);
+                KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v36 + 128), &v65);
+                CcDecrementOpenCount(v30);
+                KeReleaseInStackQueuedSpinLockFromDpcLevel(&v65);
+                OldIrql = v65.OldIrql;
+                if ( KiIrqlFlags )
+                {
+                  if ( (KiIrqlFlags & 1) != 0 )
+                  {
+                    CurrentIrql = KeGetCurrentIrql();
+                    if ( CurrentIrql <= 0xFu && v65.OldIrql <= 0xFu && CurrentIrql >= 2u )
+                    {
+                      CurrentPrcb = KeGetCurrentPrcb();
+                      SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                      v46 = ~(unsigned __int16)(-1LL << (v65.OldIrql + 1));
+                      v47 = (v46 & SchedulerAssist[5]) == 0;
+                      SchedulerAssist[5] &= v46;
+                      if ( v47 )
+                        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+                    }
+                  }
+                }
+                v7 = v63;
+                goto LABEL_68;
+              }
+            }
+          }
+          CcReleaseBcbLockAndVacbLock(v32, (struct _FAST_MUTEX *)v30);
+          KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v36 + 128), &v65);
+          CcDecrementOpenCount(v30);
+          KeReleaseInStackQueuedSpinLockFromDpcLevel(&v65);
+          OldIrql = v65.OldIrql;
+          if ( KiIrqlFlags )
+          {
+            if ( (KiIrqlFlags & 1) != 0 )
+            {
+              v48 = KeGetCurrentIrql();
+              if ( v48 <= 0xFu && v65.OldIrql <= 0xFu && v48 >= 2u )
+              {
+                v49 = KeGetCurrentPrcb();
+                v50 = v49->SchedulerAssist;
+                v51 = ~(unsigned __int16)(-1LL << (v65.OldIrql + 1));
+                v47 = (v51 & v50[5]) == 0;
+                v50[5] &= v51;
+                if ( v47 )
+                  KiRemoveSystemWorkPriorityKick((__int64)v49);
+              }
+            }
+          }
+          v4 = v59;
+LABEL_68:
+          v9 = v56;
+          __writecr8(OldIrql);
+          v8 = v57;
+          a2 = v68;
+          v6 = v62;
+        }
+        else
+        {
+LABEL_70:
+          v63 = 0LL;
+          v7 = 0LL;
+          KeReleaseQueuedSpinLock(4uLL, v22);
+          a2 = v68;
+          v9 = v56;
+          v8 = v57;
+        }
+      }
+      else
+      {
         LODWORD(v10) = -1;
-        v48 = -1;
+        v58 = -1;
         if ( v9 )
         {
           RandomVacbArrayWithReference = CcGetRandomVacbArrayWithReference();
 LABEL_15:
           if ( RandomVacbArrayWithReference[1] == 1 )
-          {
-LABEL_73:
-            CcDereferenceVacbArray((__int64)RandomVacbArrayWithReference, 0);
-            a2 = v57;
-            RandomVacbArrayWithReference = 0LL;
-            goto LABEL_4;
-          }
-LABEL_19:
-          if ( v9 )
-          {
-            v13 = 0;
-            do
-            {
-              v14 = RtlRandom(&CcRandomSeed);
-              v15 = (__int64)&RandomVacbArrayWithReference[8 * (v14 % (RandomVacbArrayWithReference[2] + 1))
-                                                         + 4
-                                                         + 2 * (v14 % (RandomVacbArrayWithReference[2] + 1))];
-              if ( CcCanReuseVacb(v15, 0LL) )
-              {
-                if ( v15 )
-                  goto LABEL_32;
-              }
-              else
-              {
-                ++v13;
-              }
-            }
-            while ( v13 <= 0x10 );
-            ++CcDbgRandomFailed;
-            v9 = 0;
-            v45 = 0;
-            goto LABEL_73;
-          }
-          if ( (_DWORD)v10 == -1 )
-          {
-            LODWORD(v10) = RandomVacbArrayWithReference[2] + 1;
-            v48 = v10;
-          }
-          if ( !(_DWORD)v10 )
-            goto LABEL_73;
-          do
-          {
-            v10 = (unsigned int)(v10 - 1);
-            CanReuseVacb = CcCanReuseVacb(
-                             (__int64)&RandomVacbArrayWithReference[8 * v10 + 4 + 2 * (unsigned int)v10],
-                             v7);
-          }
-          while ( !CanReuseVacb && (_DWORD)v10 );
-          v48 = v10;
-          v15 = v17 & -(__int64)CanReuseVacb;
-          if ( !v15 )
-          {
-            v9 = v45;
-            goto LABEL_73;
-          }
-LABEL_32:
-          v18 = KeAcquireQueuedSpinLock(4uLL);
-          if ( CcCanReuseVacb(v15, v7) )
-          {
-            v19 = *(_QWORD *)(v15 + 8);
-            memset(&LockHandle, 0, sizeof(LockHandle));
-            KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(*(_QWORD *)(v19 + 536) + 768LL), &LockHandle);
-            v20 = *(_QWORD *)(v15 + 8);
-            if ( *(_QWORD *)(*(_QWORD *)((*(_QWORD *)(v20 + 96) & 0xFFFFFFFFFFFFFFF0uLL) + 0x28) + 8LL) == v20 )
-            {
-              ++*(_DWORD *)(v20 + 4);
-              ++*(_DWORD *)(v20 + 544);
-              KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-              v21 = *(_QWORD *)(v15 + 16);
-              v22 = *(_QWORD *)(v15 + 8);
-              v23 = *(_DWORD *)(v22 + 152);
-              KeReleaseQueuedSpinLock(4uLL, v18);
-              v24 = (v23 >> 9) & 1;
-              CcAcquireBcbLockAndVacbLock(v24, v22);
-              v25 = *(_QWORD *)(v22 + 536);
-              if ( a1 == v25
-                && v21 >= 0
-                && (v26 = *(_QWORD *)(v22 + 32), v21 < v26)
-                && (v26 <= 0x2000000
-                  ? (VacbLargeOffset = *(_QWORD *)(*(_QWORD *)(v22 + 88)
-                                                 + 8 * ((unsigned __int64)(unsigned int)v21 >> 18)))
-                  : (VacbLargeOffset = CcGetVacbLargeOffset(v22, v21)),
-                    VacbLargeOffset && !*(_WORD *)(VacbLargeOffset + 16)) )
-              {
-                SetVacb(v22, v21, 0LL);
-                if ( *(_DWORD *)(v25 + 1248) < (unsigned int)CcMinimumFreeHighPriorityVacbs )
-                {
-                  v28 = 1;
-                  goto LABEL_44;
-                }
-                v28 = 0;
-                if ( v51 )
-                {
-LABEL_44:
-                  v29 = v50 | 2;
-                  v53 = 0LL;
-                  v50 |= 2u;
-                }
-                else
-                {
-                  v29 = v50 & 0xFFFFFFFD;
-                  v50 &= ~2u;
-                  if ( !v53 && v58 )
-                    v53 = *(_QWORD *)VacbLargeOffset;
-                }
-                CcUnmapVacb(VacbLargeOffset, v22, v29);
-                CcReleaseBcbLockAndVacbLock(v24, v22);
-                v4 = v46;
-                if ( v28 )
-                {
-LABEL_52:
-                  v46 = v4;
-                }
-                else
-                {
-                  v4 = v46 + 1;
-                  v49 = 1;
-                  ++v46;
-                  if ( v51 )
-                  {
-                    v51 = 0;
-                    v49 = 1;
-                    *a4 = *(_QWORD *)VacbLargeOffset;
-                    *(_QWORD *)VacbLargeOffset = 0LL;
-                    goto LABEL_52;
-                  }
-                }
-                v30 = KeAcquireQueuedSpinLock(4uLL);
-                *(_QWORD *)(VacbLargeOffset + 8) = 0LL;
-                CcSetVacbInFreeList(v25, (_QWORD *)VacbLargeOffset, v28);
-                KeReleaseQueuedSpinLock(4uLL, v30);
-                KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v25 + 768), &v54);
-                CcDecrementOpenCount(v22);
-                KxReleaseQueuedSpinLock((volatile signed __int64 **)&v54);
-                OldIrql = v54.OldIrql;
-                if ( KiIrqlFlags )
-                {
-                  CurrentIrql = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v54.OldIrql <= 0xFu && CurrentIrql >= 2u )
-                  {
-                    CurrentPrcb = KeGetCurrentPrcb();
-                    SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                    v35 = ~(unsigned __int16)(-1LL << (v54.OldIrql + 1));
-                    v36 = (v35 & SchedulerAssist[5]) == 0;
-                    SchedulerAssist[5] &= v35;
-                    if ( v36 )
-                      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-                  }
-                }
-                v7 = v53;
-              }
-              else
-              {
-                CcReleaseBcbLockAndVacbLock(v24, v22);
-                KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v25 + 768), &v54);
-                CcDecrementOpenCount(v22);
-                KxReleaseQueuedSpinLock((volatile signed __int64 **)&v54);
-                OldIrql = v54.OldIrql;
-                if ( KiIrqlFlags )
-                {
-                  v37 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && v54.OldIrql <= 0xFu && v37 >= 2u )
-                  {
-                    v38 = KeGetCurrentPrcb();
-                    v39 = v38->SchedulerAssist;
-                    v40 = ~(unsigned __int16)(-1LL << (v54.OldIrql + 1));
-                    v36 = (v40 & v39[5]) == 0;
-                    v39[5] &= v40;
-                    if ( v36 )
-                      KiRemoveSystemWorkPriorityKick(v38);
-                  }
-                }
-                v4 = v46;
-              }
-              __writecr8(OldIrql);
-              v9 = v45;
-              v8 = v47;
-              a2 = v57;
-              v6 = v52;
-              goto LABEL_4;
-            }
-            KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-          }
-          v53 = 0LL;
-          v7 = 0LL;
-          KeReleaseQueuedSpinLock(4uLL, v18);
-          a2 = v57;
-          v9 = v45;
-          v8 = v47;
-          goto LABEL_4;
+            goto LABEL_72;
+          goto LABEL_19;
         }
         v11 = v8;
         v12 = KeAcquireQueuedSpinLock(4uLL);
@@ -332,49 +349,50 @@ LABEL_52:
         CcRecalculateVacbArrayHighwaterMark((__int64)RandomVacbArrayWithReference);
 LABEL_13:
         KeReleaseQueuedSpinLock(4uLL, v12);
-        v9 = v45;
-        v47 = ++v8;
+        v9 = v56;
+        v57 = ++v8;
         if ( RandomVacbArrayWithReference )
         {
           LODWORD(v10) = -1;
           goto LABEL_15;
         }
+LABEL_73:
+        a2 = v68;
       }
-      a2 = v57;
     }
     if ( RandomVacbArrayWithReference )
     {
       CcDereferenceVacbArray((__int64)RandomVacbArrayWithReference, 0);
-      a2 = v57;
+      a2 = v68;
       RandomVacbArrayWithReference = 0LL;
     }
     if ( v6 || v4 >= a2 )
       break;
     v6 = 1;
-    v41 = (a2 - v4) << 18;
-    v42 = 0;
-    v52 = 1;
+    v52 = (a2 - v4) << 18;
+    v53 = 0;
+    v62 = 1;
     ExAcquireFastMutex(&CcBcbTrimNotificationListLock);
-    v43 = CcBcbTrimNotificationList;
+    v54 = CcBcbTrimNotificationList;
     if ( (__int64 *)CcBcbTrimNotificationList != &CcBcbTrimNotificationList )
     {
       do
       {
-        ExReleaseFastMutex(&CcBcbTrimNotificationListLock);
-        v42 |= (*(__int64 (__fastcall **)(__int64))(v43 + 16))(v41);
+        KeReleaseGuardedMutex(&CcBcbTrimNotificationListLock);
+        v53 |= (*(__int64 (__fastcall **)(__int64))(v54 + 16))(v52);
         ExAcquireFastMutex(&CcBcbTrimNotificationListLock);
-        v43 = *(_QWORD *)v43;
+        v54 = *(_QWORD *)v54;
       }
-      while ( (__int64 *)v43 != &CcBcbTrimNotificationList );
-      v7 = v53;
+      while ( (__int64 *)v54 != &CcBcbTrimNotificationList );
+      v7 = v63;
     }
-    ExReleaseFastMutex(&CcBcbTrimNotificationListLock);
-    v8 = v47;
-    a2 = v57;
-    v36 = v42 == 0;
-    v9 = v45;
+    KeReleaseGuardedMutex(&CcBcbTrimNotificationListLock);
+    v8 = v57;
+    a2 = v68;
+    v47 = v53 == 0;
+    v9 = v56;
   }
-  while ( !v36 );
+  while ( !v47 );
   _InterlockedIncrement(&CcDbgNumberOfCcUnmapInactiveViews);
-  return v49;
+  return v64;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhGetDeviceFlags @ 0x1C0051110
+ * XREFs of UsbhGetDeviceFlags @ 0x1C0052760
  * Callers:
- *     UsbhCheckDeviceErrata @ 0x1C0050C04 (UsbhCheckDeviceErrata.c)
- *     UsbhCheckHubErrata @ 0x1C0050F60 (UsbhCheckHubErrata.c)
+ *     UsbhCheckDeviceErrata @ 0x1C0052254 (UsbhCheckDeviceErrata.c)
+ *     UsbhCheckHubErrata @ 0x1C00525B0 (UsbhCheckHubErrata.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     RtlStringCbPrintfW @ 0x1C004436C (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     RtlStringCbPrintfW @ 0x1C004561C (RtlStringCbPrintfW.c)
  */
 
 NTSTATUS __fastcall UsbhGetDeviceFlags(unsigned __int16 *a1, _QWORD *a2, char a3)

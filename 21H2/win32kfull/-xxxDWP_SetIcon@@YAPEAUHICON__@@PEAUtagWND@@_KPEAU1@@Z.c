@@ -1,16 +1,16 @@
 /*
- * XREFs of ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C00A36F0
+ * XREFs of ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C0023584
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
  * Callees:
- *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00233C4 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
- *     IsToplevelWindowDesktopComposed @ 0x1C006FF18 (IsToplevelWindowDesktopComposed.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     SendDwmIconChange @ 0x1C0085110 (SendDwmIconChange.c)
- *     xxxCreateWindowSmIcon @ 0x1C00A1774 (xxxCreateWindowSmIcon.c)
- *     HMValidateHandleNoRip @ 0x1C00A3A40 (HMValidateHandleNoRip.c)
- *     xxxRedrawTitle @ 0x1C00A6034 (xxxRedrawTitle.c)
- *     xxxRecreateSmallIcons @ 0x1C0158A28 (xxxRecreateSmallIcons.c)
+ *     HMValidateHandleNoRip @ 0x1C0023C6C (HMValidateHandleNoRip.c)
+ *     xxxCreateWindowSmIcon @ 0x1C0025180 (xxxCreateWindowSmIcon.c)
+ *     SendDwmIconChange @ 0x1C0038A00 (SendDwmIconChange.c)
+ *     xxxRedrawTitle @ 0x1C00469E0 (xxxRedrawTitle.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C004879C (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C006BF1C (IsToplevelWindowDesktopComposed.c)
+ *     xxxRecreateSmallIcons @ 0x1C024343C (xxxRecreateSmallIcons.c)
  */
 
 HICON __fastcall xxxDWP_SetIcon(struct tagWND *a1, unsigned __int64 a2, HICON a3)
@@ -26,14 +26,14 @@ HICON __fastcall xxxDWP_SetIcon(struct tagWND *a1, unsigned __int64 a2, HICON a3
   HICON v13; // rax
 
   v4 = a2;
+  if ( a2 > 3 )
+  {
+    UserSetLastError(87LL);
+    return 0LL;
+  }
   if ( a2 == 3 )
   {
     xxxRecreateSmallIcons();
-    return 0LL;
-  }
-  if ( a2 > 3 )
-  {
-    UserSetLastError(87LL, a2);
     return 0LL;
   }
   v6 = *((_QWORD *)a1 + 5);
@@ -76,11 +76,11 @@ HICON __fastcall xxxDWP_SetIcon(struct tagWND *a1, unsigned __int64 a2, HICON a3
     *(_QWORD *)(*((_QWORD *)a1 + 5) + 272LL) = v7;
     *(_QWORD *)(*((_QWORD *)a1 + 5) + 264LL) = v8;
     if ( v7 && !v8 )
-      xxxCreateWindowSmIcon(a1, (__int64)v7, 1);
-    if ( (unsigned int)IsToplevelWindowDesktopComposed((__int64)a1) )
-      SendDwmIconChange((ULONG_PTR)a1);
+      xxxCreateWindowSmIcon(a1, v7, 1LL);
+    if ( (unsigned int)IsToplevelWindowDesktopComposed(a1) )
+      SendDwmIconChange(a1);
     if ( v10 )
-      xxxRedrawTitle((ULONG_PTR)a1);
+      xxxRedrawTitle(a1, 8204LL);
   }
   return v9;
 }

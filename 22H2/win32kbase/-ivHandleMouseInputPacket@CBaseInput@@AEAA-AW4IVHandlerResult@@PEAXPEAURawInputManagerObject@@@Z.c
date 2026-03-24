@@ -1,133 +1,119 @@
 /*
- * XREFs of ?ivHandleMouseInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EDC60
+ * XREFs of ?ivHandleMouseInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B8740
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00329E8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     EnterSharedCrit @ 0x1C004CD30 (EnterSharedCrit.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C005304C (_anonymous_namespace_--GetMouseProcessor.c)
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     ?UnLockExclusive@CInpPushLock@@QEAAXXZ @ 0x1C00742F0 (-UnLockExclusive@CInpPushLock@@QEAAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C009C3B0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C01ECED4 (-DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z.c)
- *     ?DeliverSynthesizedMouseInput@@YAXPEBU_IVMouseInputPacket@@PEAX@Z @ 0x1C01ECFD4 (-DeliverSynthesizedMouseInput@@YAXPEBU_IVMouseInputPacket@@PEAX@Z.c)
- *     FindRimDevByName @ 0x1C01EEA14 (FindRimDevByName.c)
- *     IsRimObjectUnregistered @ 0x1C01EEDB8 (IsRimObjectUnregistered.c)
- *     ?Deserialize@CIVDeserializer@@QEAAXPEAPEAX@Z @ 0x1C01FD200 (-Deserialize@CIVDeserializer@@QEAAXPEAPEAX@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     ChildSynchronizeCursorAsyncWithRootPartition @ 0x1C01AE554 (ChildSynchronizeCursorAsyncWithRootPartition.c)
+ *     ??1CIVSerializer@@QEAA@XZ @ 0x1C01B3C8C (--1CIVSerializer@@QEAA@XZ.c)
+ *     ?DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C01B3E5C (-DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z.c)
+ *     ?DeliverSynthesizedMouseInput@@YAXPEBU_IVMouseInputPacket@@PEAX@Z @ 0x1C01B3F68 (-DeliverSynthesizedMouseInput@@YAXPEBU_IVMouseInputPacket@@PEAX@Z.c)
+ *     ?IVDeSerializeMouseInputBuffer@@YAJPEAU_IVMouseInputPacket@@AEAUCIVSerializer@@@Z @ 0x1C01B4F74 (-IVDeSerializeMouseInputBuffer@@YAJPEAU_IVMouseInputPacket@@AEAUCIVSerializer@@@Z.c)
+ *     FindRimDevByName @ 0x1C01BA450 (FindRimDevByName.c)
+ *     IsRimObjectUnregistered @ 0x1C01BA6A4 (IsRimObjectUnregistered.c)
  */
 
 __int64 __fastcall CBaseInput::ivHandleMouseInputPacket(__int64 a1, __int64 a2, __int64 a3)
 {
-  int v3; // eax
-  unsigned int v6; // ebp
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  unsigned int v15; // edi
-  unsigned int v16; // r14d
-  __int64 v17; // rbx
-  __int64 v18; // r12
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 MouseProcessor; // rax
-  __int64 v25; // rbx
-  void *v26; // r14
-  int v27; // ebx
+  __int64 v4; // rbx
+  int v5; // ebp
+  int v6; // eax
+  unsigned int v7; // edi
+  int v8; // r15d
+  void *v9; // r14
   __int64 RimDevByName; // rax
-  __int64 v30; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v31; // [rsp+78h] [rbp+20h]
+  int v11; // edx
+  void **v12; // rax
+  _BYTE v14[16]; // [rsp+30h] [rbp-68h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-58h]
+  __int64 v16; // [rsp+48h] [rbp-50h]
+  __int64 v17; // [rsp+50h] [rbp-48h]
+  __int64 v18; // [rsp+58h] [rbp-40h]
+  char v19; // [rsp+60h] [rbp-38h]
+  __int64 v20; // [rsp+A8h] [rbp+10h] BYREF
 
-  v3 = *(_DWORD *)(a2 + 16);
-  v30 = a2;
-  v6 = 1;
-  if ( (v3 & 4) != 0 )
-    *(_QWORD *)(a2 + 8) = a2 + (*(_QWORD *)(a2 + 8) & 0xFFFFFFFFFFFFFFFEuLL);
-  CIVDeserializer::Deserialize((CIVDeserializer *)&v30, (void **)(a2 + 24));
-  EnterSharedCrit(v8, v7, v9, v10);
-  v15 = 0;
-  v16 = 0;
-  if ( *(_DWORD *)(a2 + 32) )
+  v4 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    while ( 1 )
-    {
-      v17 = *(_QWORD *)(a2 + 24) + 48LL * v16;
-      v31 = *(_QWORD *)(v17 + 20);
-      v30 = 0LL;
-      v18 = *(_QWORD *)(v17 + 32);
-      if ( !qword_1C0296E38 || (int)qword_1C0296E38() < 0 )
-        break;
-      if ( !(qword_1C0296E40 ? qword_1C0296E40(v18, v31, &v30) : 0) )
-        break;
-      ++v16;
-      *(_QWORD *)(v17 + 20) = v30;
-      if ( v16 >= *(_DWORD *)(a2 + 32) )
-        goto LABEL_11;
-    }
-    UserSessionSwitchLeaveCrit(v12, v11, v13, v14);
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_(
+      WPP_MAIN_CB.Queue.ListEntry.Flink,
+      a2,
+      12,
+      43,
+      (__int64)&WPP_2ccd359dbff93ea23c150f58e4d81fa3_Traceguids);
   }
-  else
+  v16 = 0LL;
+  v17 = 0LL;
+  v5 = 1;
+  v18 = 0LL;
+  v19 = 1;
+  v15 = v4;
+  if ( (int)IVDeSerializeMouseInputBuffer((struct _IVMouseInputPacket *)v4, (struct CIVSerializer *)v14) < 0 )
+    goto LABEL_20;
+  v6 = *(_DWORD *)(v4 + 16);
+  if ( (v6 & 1) != 0 )
   {
-LABEL_11:
-    UserSessionSwitchLeaveCrit(v12, v11, v13, v14);
-    if ( (*(_DWORD *)(a2 + 16) & 1) != 0 )
+    v20 = *(_QWORD *)(v4 + 36);
+    ChildSynchronizeCursorAsyncWithRootPartition(&v20);
+    v6 = *(_DWORD *)(v4 + 16);
+  }
+  v7 = 2;
+  v8 = v6 & 2;
+  v9 = 0LL;
+  if ( (v6 & 4) == 0 )
+  {
+LABEL_18:
+    if ( v8 )
+      DeliverSynthesizedMouseInput((const struct _IVMouseInputPacket *)v4, v9);
+LABEL_20:
+    v7 = v5;
+    goto LABEL_21;
+  }
+  RIMLockExclusive(a3 + 104);
+  if ( !(unsigned __int8)IsRimObjectUnregistered(a3) )
+  {
+    RimDevByName = FindRimDevByName((PCUNICODE_STRING)v4);
+    if ( RimDevByName )
     {
-      v30 = *(_QWORD *)(a2 + 36);
-      MouseProcessor = anonymous_namespace_::GetMouseProcessor(v21, v20, v22, v23);
-      if ( MouseProcessor )
+      if ( v8 )
       {
-        v25 = MouseProcessor + 3872;
-        CPushLock::AcquireLockExclusive((CPushLock *)(MouseProcessor + 3872));
-        *(_QWORD *)(v25 + 16) = v30;
-        *(_BYTE *)(v25 + 24) = 1;
-        CPushLock::ReleaseLock((CPushLock *)v25);
-      }
-    }
-    v26 = 0LL;
-    v27 = *(_DWORD *)(a2 + 16) & 2;
-    if ( (*(_DWORD *)(a2 + 16) & 4) != 0 )
-    {
-      RIMLockExclusive(a3 + 104);
-      if ( (unsigned __int8)IsRimObjectUnregistered(a3) )
-      {
-        CInpPushLock::UnLockExclusive((CInpPushLock *)(a3 + 104));
-        return 2;
-      }
-      RimDevByName = FindRimDevByName((PCUNICODE_STRING)a2);
-      if ( RimDevByName )
-      {
-        if ( v27 )
-        {
-          if ( *(_QWORD *)(RimDevByName + 32) == -72LL )
-            v26 = 0LL;
-          else
-            v26 = *(void **)(*(_QWORD *)(RimDevByName + 32) + 72LL);
-        }
-        else
-        {
-          DeliverMouseInputToRIM(
-            (const struct _IVMouseInputPacket *)a2,
-            (struct RawInputManagerObject *)a3,
-            (struct RIMDEV *)RimDevByName);
-        }
+        v12 = (void **)(*(_QWORD *)(RimDevByName + 32) + 88LL);
+        if ( v12 )
+          v9 = *v12;
       }
       else
       {
-        v6 = 0;
+        DeliverMouseInputToRIM(
+          (const struct _IVMouseInputPacket *)v4,
+          (struct RawInputManagerObject *)a3,
+          (struct RIMDEV *)RimDevByName);
       }
-      CInpPushLock::UnLockExclusive((CInpPushLock *)(a3 + 104));
     }
-    if ( v27 )
-      DeliverSynthesizedMouseInput((const struct _IVMouseInputPacket *)a2, v26);
-    return v6;
+    else
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v11) = 2;
+        WPP_RECORDER_SF_(
+          WPP_MAIN_CB.Queue.ListEntry.Flink,
+          v11,
+          12,
+          44,
+          (__int64)&WPP_2ccd359dbff93ea23c150f58e4d81fa3_Traceguids);
+      }
+      v5 = 0;
+    }
+    *(_QWORD *)(a3 + 112) = 0LL;
+    ExReleasePushLockExclusiveEx(a3 + 104, 0LL);
+    KeLeaveCriticalRegion();
+    goto LABEL_18;
   }
-  return v15;
+  *(_QWORD *)(a3 + 112) = 0LL;
+  ExReleasePushLockExclusiveEx(a3 + 104, 0LL);
+  KeLeaveCriticalRegion();
+LABEL_21:
+  CIVSerializer::~CIVSerializer((CIVSerializer *)v14);
+  return v7;
 }

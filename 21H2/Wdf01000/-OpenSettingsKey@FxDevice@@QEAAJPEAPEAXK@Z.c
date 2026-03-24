@@ -1,14 +1,12 @@
 /*
- * XREFs of ?OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z @ 0x1C0015054
+ * XREFs of ?OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z @ 0x1C000EADC
  * Callers:
- *     ?SaveState@FxPkgPnp@@IEAAXE@Z @ 0x1C0017DC4 (-SaveState@FxPkgPnp@@IEAAXE@Z.c)
- *     ?ReadRegistrySleepstudyEnabled@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z @ 0x1C002008C (-ReadRegistrySleepstudyEnabled@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z.c)
- *     ?ReadRegistryS0Idle@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z @ 0x1C003227C (-ReadRegistryS0Idle@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z.c)
- *     ?ReadRegistrySxWake@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z @ 0x1C0089C88 (-ReadRegistrySxWake@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z.c)
- *     ?PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ @ 0x1C008DE0C (-PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ.c)
+ *     ?SaveState@FxPkgPnp@@IEAAXE@Z @ 0x1C00106C0 (-SaveState@FxPkgPnp@@IEAAXE@Z.c)
+ *     ?ReadRegistryS0Idle@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z @ 0x1C0085208 (-ReadRegistryS0Idle@FxPkgPnp@@AEAAXPEBU_UNICODE_STRING@@PEAE@Z.c)
+ *     ?PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ @ 0x1C008B160 (-PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ.c)
  * Callees:
- *     ?GetSafePhysicalDevice@FxDevice@@QEAAPEAU_DEVICE_OBJECT@@XZ @ 0x1C0015030 (-GetSafePhysicalDevice@FxDevice@@QEAAPEAU_DEVICE_OBJECT@@XZ.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
+ *     ?GetSafePhysicalDevice@FxDevice@@QEAAPEAU_DEVICE_OBJECT@@XZ @ 0x1C000EBEC (-GetSafePhysicalDevice@FxDevice@@QEAAPEAU_DEVICE_OBJECT@@XZ.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FxDevice::OpenSettingsKey(FxDevice *this, void **Key, ACCESS_MASK DesiredAccess)

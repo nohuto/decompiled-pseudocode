@@ -1,11 +1,11 @@
 /*
- * XREFs of PcisuppGetBusSlotNumber @ 0x1C0099958
+ * XREFs of PcisuppGetBusSlotNumber @ 0x1C0095E18
  * Callers:
- *     LinkNodeCrackPrt @ 0x1C005CEBC (LinkNodeCrackPrt.c)
- *     IrtClearDeletedMsiMappings @ 0x1C00A03FC (IrtClearDeletedMsiMappings.c)
- *     IrtRemapNewMsiAssignments @ 0x1C00A0548 (IrtRemapNewMsiAssignments.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
+ *     IrtRemapNewMsiAssignments @ 0x1C0095CE0 (IrtRemapNewMsiAssignments.c)
+ *     IrtClearDeletedMsiMappings @ 0x1C0095F7C (IrtClearDeletedMsiMappings.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall PcisuppGetBusSlotNumber(__int64 a1, int *a2, int *a3, __int64 a4, __int64 a5)

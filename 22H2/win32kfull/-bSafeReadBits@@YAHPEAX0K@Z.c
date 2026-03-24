@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bSafeReadBits@@YAHPEAX0K@Z @ 0x1C02C7DC0
+ * XREFs of ?bSafeReadBits@@YAHPEAX0K@Z @ 0x1C0154D70
  * Callers:
- *     NtGdiEngCreatePalette @ 0x1C02C9590 (NtGdiEngCreatePalette.c)
- *     NtGdiHT_Get8BPPMaskPalette @ 0x1C02CD1D0 (NtGdiHT_Get8BPPMaskPalette.c)
- *     NtGdiXFORMOBJ_bApplyXform @ 0x1C02CDF20 (NtGdiXFORMOBJ_bApplyXform.c)
+ *     NtGdiEngCreatePalette @ 0x1C0128C70 (NtGdiEngCreatePalette.c)
+ *     NtGdiHT_Get8BPPMaskPalette @ 0x1C0154B00 (NtGdiHT_Get8BPPMaskPalette.c)
+ *     NtGdiXFORMOBJ_bApplyXform @ 0x1C02B5240 (NtGdiXFORMOBJ_bApplyXform.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall bSafeReadBits(void *a1, char *a2, unsigned int a3)

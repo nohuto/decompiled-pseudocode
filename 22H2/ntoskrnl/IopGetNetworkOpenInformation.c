@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetNetworkOpenInformation @ 0x1409480E0
+ * XREFs of IopGetNetworkOpenInformation @ 0x1408948E4
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopQueryXxxInformation @ 0x14075D79C (IopQueryXxxInformation.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopQueryXxxInformation @ 0x140633A38 (IopQueryXxxInformation.c)
  */
 
-__int64 __fastcall IopGetNetworkOpenInformation(struct _FILE_OBJECT *Object, __int64 a2)
+__int64 __fastcall IopGetNetworkOpenInformation(PADAPTER_OBJECT DmaAdapter, __int64 a2)
 {
   int v4; // edx
   __int64 v6; // [rsp+48h] [rbp+7h] BYREF
@@ -22,10 +22,10 @@ __int64 __fastcall IopGetNetworkOpenInformation(struct _FILE_OBJECT *Object, __i
   v7 = 0LL;
   v8 = 0LL;
   *(_OWORD *)v10 = 0LL;
-  v4 = IopQueryXxxInformation(Object, 4, 0x28u, 0, (struct _IRP *)&v7, &v6, 1);
+  v4 = IopQueryXxxInformation(DmaAdapter, 4, 0x28u, 0, (struct _IRP *)&v7, &v6, 1);
   if ( v4 >= 0 )
   {
-    v4 = IopQueryXxxInformation(Object, 5, 0x18u, 0, (struct _IRP *)v10, &v6, 1);
+    v4 = IopQueryXxxInformation(DmaAdapter, 5, 0x18u, 0, (struct _IRP *)v10, &v6, 1);
     if ( v4 >= 0 )
     {
       *(_OWORD *)*(_QWORD *)(a2 + 104) = v7;

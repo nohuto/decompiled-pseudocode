@@ -1,48 +1,34 @@
 /*
- * XREFs of ?ResumeSchedulerForVidPnSource@ADAPTER_RENDER@@QEAAXI@Z @ 0x1C01E70F4
+ * XREFs of ?ResumeSchedulerForVidPnSource@ADAPTER_RENDER@@QEAAXI@Z @ 0x1C0216B74
  * Callers:
- *     ?Resume@CVidSchSuspendResume@@QEAAXXZ @ 0x1C001E980 (-Resume@CVidSchSuspendResume@@QEAAXXZ.c)
+ *     ?Resume@CVidSchSuspendResume@@QEAAXXZ @ 0x1C001AF84 (-Resume@CVidSchSuspendResume@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pt_EtwWriteTransfer @ 0x1C0044CF4 (McTemplateK0pt_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C003A2E0 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
-void __fastcall ADAPTER_RENDER::ResumeSchedulerForVidPnSource(ADAPTER_RENDER *this, unsigned int a2)
+void __fastcall ADAPTER_RENDER::ResumeSchedulerForVidPnSource(ADAPTER_RENDER *this, __int64 a2)
 {
-  int v4; // ecx
-  __int64 v5; // r8
-  __int64 v6; // [rsp+20h] [rbp-38h]
+  unsigned int v3; // ebx
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  __int64 v7; // r8
 
-  v4 = *((_DWORD *)this + 161);
-  if ( (a2 & v4) != a2 )
+  v3 = a2;
+  v4 = *((unsigned int *)this + 159);
+  if ( ((unsigned int)a2 & (unsigned int)v4) != (_DWORD)a2 )
   {
     __debugbreak();
-    WdLogSingleEntry1(1LL, 2799LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"(m_SourceMaskSchedulerSuspended & SourceMaskResumeScheduler) == SourceMaskResumeScheduler",
-      2799LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v4 = *((_DWORD *)this + 161);
+    v5 = WdLogNewEntry5_WdAssertion(v4, a2);
+    *(_QWORD *)(v5 + 24) = 2755LL;
+    WdLogEvent5_WdAssertion(v5);
+    LODWORD(v4) = *((_DWORD *)this + 159);
   }
-  *((_DWORD *)this + 161) = v4 & ~a2;
-  (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)this + 78) + 8LL) + 1000LL))(
-    *((_QWORD *)this + 79),
-    a2);
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-  {
-    LODWORD(v6) = a2;
-    McTemplateK0pt_EtwWriteTransfer(
-      (REGHANDLE *)&DxgkControlGuid_Context,
-      &ResumeSchedulerForVidPnSource,
-      v5,
-      *((_QWORD *)this + 2),
-      v6);
-  }
+  *((_DWORD *)this + 159) = v4 & ~v3;
+  (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)this + 77) + 8LL) + 1000LL))(
+    *((_QWORD *)this + 78),
+    v3);
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    McTemplateK0pq_EtwWriteTransfer(v6, &ResumeSchedulerForVidPnSource, v7, *((_QWORD *)this + 2), v3);
 }

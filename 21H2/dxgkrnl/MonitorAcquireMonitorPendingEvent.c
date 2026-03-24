@@ -1,54 +1,74 @@
 /*
- * XREFs of MonitorAcquireMonitorPendingEvent @ 0x1C01D2D84
+ * XREFs of MonitorAcquireMonitorPendingEvent @ 0x1C015D6E4
  * Callers:
- *     ?DxgkWaitForMonitorEventDoneInternal@@YAJPEAVDXGADAPTER@@@Z @ 0x1C01D2BF4 (-DxgkWaitForMonitorEventDoneInternal@@YAJPEAVDXGADAPTER@@@Z.c)
- *     ?PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02CF750 (-PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_.c)
- *     ?PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C030B034 (-PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCEN.c)
+ *     ?DxgkWaitForMonitorEventDoneInternal@@YAJPEAVDXGADAPTER@@@Z @ 0x1C015D568 (-DxgkWaitForMonitorEventDoneInternal@@YAJPEAVDXGADAPTER@@@Z.c)
+ *     ?PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0221AB8 (-PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_.c)
+ *     ?PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C026A4BC (-PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCEN.c)
  * Callees:
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
-__int64 __fastcall MonitorAcquireMonitorPendingEvent(DXGADAPTER *this, _QWORD *a2)
+__int64 __fastcall MonitorAcquireMonitorPendingEvent(DXGADAPTER *this, _QWORD *a2, __int64 a3, __int64 a4)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rsi
-  __int64 v6; // rsi
-  __int64 v7; // rax
+  unsigned int v6; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rsi
+  __int64 v10; // rsi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
 
-  v4 = 0;
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2) + 24) = this;
+  v6 = 0;
+  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2, a3, a4) + 24) = this;
   if ( !this || !a2 )
     return 3221225485LL;
   *a2 = 0LL;
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this) )
-    WdLogSingleEntry0(1LL);
-  v5 = *((_QWORD *)this + 349);
-  if ( !v5 )
   {
-    WdLogSingleEntry1(2LL, this);
+    v15 = WdLogNewEntry5_WdAssertion(v8, v7);
+    WdLogEvent5_WdAssertion(v15);
+  }
+  v9 = *((_QWORD *)this + 337);
+  if ( !v9 )
+  {
+    v16 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v16 + 24) = this;
+    WdLogEvent5_WdError(v16);
     return 3221225659LL;
   }
-  v6 = *(_QWORD *)(v5 + 112);
-  if ( !v6 )
+  v10 = *(_QWORD *)(v9 + 96);
+  if ( !v10 )
   {
-    WdLogSingleEntry1(2LL, this);
+    v17 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v17 + 24) = this;
+    WdLogEvent5_WdError(v17);
     return 3221225485LL;
   }
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*(_QWORD *)(v6 + 24) + 16LL)) )
-    WdLogSingleEntry0(1LL);
-  v7 = *(_QWORD *)(v6 + 664);
-  if ( v7 )
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*(_QWORD *)(v10 + 8) + 16LL)) )
   {
-    if ( *(int *)(v7 + 16) <= 0 )
-    {
-      WdLogSingleEntry0(1LL);
-      v7 = *(_QWORD *)(v6 + 664);
-    }
-    _InterlockedIncrement((volatile signed __int32 *)(v7 + 16));
-    v7 = *(_QWORD *)(v6 + 664);
+    v18 = WdLogNewEntry5_WdAssertion(v12, v11);
+    WdLogEvent5_WdAssertion(v18);
   }
-  *a2 = v7;
-  if ( !v7 )
+  v13 = *(_QWORD *)(v10 + 768);
+  if ( v13 )
+  {
+    if ( *(int *)(v13 + 16) <= 0 )
+    {
+      v19 = WdLogNewEntry5_WdAssertion(v12, v11);
+      WdLogEvent5_WdAssertion(v19);
+      v13 = *(_QWORD *)(v10 + 768);
+    }
+    _InterlockedIncrement((volatile signed __int32 *)(v13 + 16));
+    v13 = *(_QWORD *)(v10 + 768);
+  }
+  *a2 = v13;
+  if ( !v13 )
     return (unsigned int)-1073741823;
-  return v4;
+  return v6;
 }

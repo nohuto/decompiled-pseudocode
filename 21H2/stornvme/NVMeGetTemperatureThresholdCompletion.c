@@ -1,9 +1,9 @@
 /*
- * XREFs of NVMeGetTemperatureThresholdCompletion @ 0x1C000E780
+ * XREFs of NVMeGetTemperatureThresholdCompletion @ 0x1C0019750
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 __int64 __fastcall NVMeGetTemperatureThresholdCompletion(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall NVMeGetTemperatureThresholdCompletion(__int64 a1, __int64 a2)
     if ( v6 != 14 )
     {
       if ( v6 == 1 )
-        *(_WORD *)(v5 + 220) = *v4;
+        *(_WORD *)(v5 + 204) = *v4;
       *(_BYTE *)(result + 4253) |= 8u;
     }
   }

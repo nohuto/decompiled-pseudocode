@@ -1,107 +1,95 @@
 /*
- * XREFs of NtGdiCreateSessionMappedDIBSection @ 0x1C00FC2B0
+ * XREFs of NtGdiCreateSessionMappedDIBSection @ 0x1C00A97E0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetBitmapBitsSize @ 0x1C0029854 (GreGetBitmapBitsSize.c)
- *     ?bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z @ 0x1C002BBA0 (-bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z.c)
- *     GreCreateDIBitmapReal @ 0x1C002BC78 (GreCreateDIBitmapReal.c)
+ *     GreGetBitmapBitsSize @ 0x1C00ABFB4 (GreGetBitmapBitsSize.c)
+ *     ?bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z @ 0x1C00AC054 (-bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z.c)
+ *     GreCreateDIBitmapReal @ 0x1C00AC12C (GreCreateDIBitmapReal.c)
  */
 
 __int64 __fastcall NtGdiCreateSessionMappedDIBSection(
         HDC a1,
         void *a2,
-        unsigned int a3,
+        int a3,
         struct tagBITMAPINFO *a4,
         unsigned int a5,
         unsigned int Size,
         char a7,
-        unsigned __int64 a8)
+        __int64 a8)
 {
   __int64 DIBitmapReal; // rsi
-  unsigned int *v12; // rdi
+  PVOID v12; // rdi
+  __int64 v13; // rdx
   KPROCESSOR_MODE CurrentThreadPreviousMode; // al
-  NTSTATUS v14; // eax
-  signed int v15; // r12d
-  PVOID v16; // r15
-  ULONG v18; // ecx
+  NTSTATUS v15; // eax
+  signed int v16; // r12d
+  PVOID v17; // r15
+  ULONG v19; // ecx
   PVOID Object; // [rsp+70h] [rbp-58h] BYREF
   PVOID MappedBase; // [rsp+78h] [rbp-50h] BYREF
-  _DWORD v21[2]; // [rsp+80h] [rbp-48h] BYREF
-  unsigned __int64 v22; // [rsp+88h] [rbp-40h] BYREF
-  __int64 v23; // [rsp+90h] [rbp-38h]
+  _DWORD v22[2]; // [rsp+80h] [rbp-48h] BYREF
+  _QWORD v23[8]; // [rsp+88h] [rbp-40h] BYREF
   unsigned int BitmapBitsSize; // [rsp+D8h] [rbp+10h]
 
   DIBitmapReal = 0LL;
-  v22 = 0LL;
+  v23[0] = 0LL;
   Object = 0LL;
   MappedBase = 0LL;
   if ( !a2 || !a4 )
   {
-    v18 = 87;
+    v19 = 87;
     goto LABEL_21;
   }
   if ( PsGetCurrentProcessId() != (HANDLE)gpidLogon )
   {
-    v18 = 5;
+    v19 = 5;
 LABEL_21:
-    EngSetLastError(v18);
+    EngSetLastError(v19);
     return 0LL;
   }
-  bCaptureBitmapInfo(a4, a5, Size, (const struct tagBITMAPINFO **)&Object);
-  v12 = (unsigned int *)Object;
+  bCaptureBitmapInfo(a4, a5, Size, (struct tagBITMAPINFO **)&Object);
+  v12 = Object;
   if ( Object )
   {
-    BitmapBitsSize = GreGetBitmapBitsSize((__int64)Object);
-    v22 = BitmapBitsSize;
+    BitmapBitsSize = GreGetBitmapBitsSize(Object);
+    v13 = BitmapBitsSize;
+    v23[0] = BitmapBitsSize;
     if ( BitmapBitsSize )
     {
-      v21[0] = a3 & 0xFFFF0000;
-      v21[1] = 0;
-      v23 = (unsigned __int16)a3;
-      v22 = BitmapBitsSize + (unsigned __int64)(unsigned __int16)a3;
+      v22[0] = a3 & 0xFFFF0000;
+      v22[1] = 0;
+      v23[1] = (unsigned __int16)a3;
+      v23[0] = BitmapBitsSize + (unsigned __int64)(unsigned __int16)a3;
       CurrentThreadPreviousMode = PsGetCurrentThreadPreviousMode();
       Object = 0LL;
-      v14 = ObReferenceObjectByHandle(a2, 4u, MmSectionObjectType, CurrentThreadPreviousMode, &Object, 0LL);
-      v15 = v14;
-      v16 = Object;
-      if ( v14 < 0 )
-      {
-        EngSetLastError(v14);
-      }
-      else
-      {
-        v15 = MmMapViewInSessionSpaceEx(Object, &MappedBase, &v22, v21, 0LL);
-        ObfDereferenceObject(v16);
-        v16 = 0LL;
-      }
+      v15 = ObReferenceObjectByHandle(a2, 4u, MmSectionObjectType, CurrentThreadPreviousMode, &Object, 0LL);
+      v16 = v15;
+      v17 = Object;
       if ( v15 < 0 )
+      {
         EngSetLastError(v15);
+      }
       else
-        DIBitmapReal = GreCreateDIBitmapReal(
-                         a1,
-                         2LL,
-                         (char *)MappedBase + v23,
-                         v12,
-                         a5,
-                         Size,
-                         BitmapBitsSize,
-                         a2,
-                         a3,
-                         0LL,
-                         a7 & 4 | 0xAu,
-                         a8,
-                         0LL);
+      {
+        v16 = MmMapViewInSessionSpaceEx(Object, &MappedBase, v23, v22, 0LL);
+        ObfDereferenceObject(v17);
+        v17 = 0LL;
+      }
+      if ( v16 < 0 )
+        EngSetLastError(v16);
+      else
+        DIBitmapReal = GreCreateDIBitmapReal(a1, a5, Size, BitmapBitsSize, (__int64)a2, a3, 0LL, a7 & 4 | 0xAu, a8, 0LL);
       if ( !DIBitmapReal )
       {
         EngSetLastError(0x57u);
         if ( MappedBase )
           MmUnmapViewInSessionSpace(MappedBase);
-        if ( v16 )
-          ObfDereferenceObject(v16);
+        if ( v17 )
+          ObfDereferenceObject(v17);
       }
     }
-    FreeThreadBufferWithTag(v12);
+    FreeThreadBufferWithTag(v12, v13);
   }
   return DIBitmapReal;
 }

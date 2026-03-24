@@ -1,39 +1,39 @@
 /*
- * XREFs of NtUserGetWindowBand @ 0x1C0098D80
+ * XREFs of NtUserGetWindowBand @ 0x1C0100C60
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetWindowBand(__int64 a1, _DWORD *a2, __int64 a3)
+__int64 __fastcall NtUserGetWindowBand(__int64 a1, _DWORD *a2)
 {
-  _DWORD *v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  int v9; // ebx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  int v7; // ebx
+  _DWORD *v8; // rdx
 
-  EnterSharedCrit(a1, a2, a3);
-  v7 = ValidateHwnd(a1);
-  v9 = 0;
-  if ( v7 )
+  EnterSharedCrit(0LL, 1LL);
+  v6 = ValidateHwnd(a1);
+  v7 = 0;
+  if ( v6 )
   {
     if ( a2 )
     {
-      v5 = a2;
+      v8 = a2;
       if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-        v5 = (_DWORD *)MmUserProbeAddress;
-      *v5 = *v5;
-      v6 = *(unsigned int *)(*(_QWORD *)(v7 + 40) + 236LL);
-      *a2 = v6;
-      v9 = 1;
+        v8 = (_DWORD *)MmUserProbeAddress;
+      *v8 = *v8;
+      v5 = *(unsigned int *)(*(_QWORD *)(v6 + 40) + 236LL);
+      *a2 = v5;
+      v7 = 1;
     }
     else
     {
-      UserSetLastError(87LL);
+      UserSetLastError(87LL, v4, v6);
     }
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
-  return v9;
+  UserSessionSwitchLeaveCrit(v5);
+  return v7;
 }

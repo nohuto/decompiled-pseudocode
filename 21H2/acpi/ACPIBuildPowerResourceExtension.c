@@ -1,60 +1,60 @@
 /*
- * XREFs of ACPIBuildPowerResourceExtension @ 0x1C002A3B8
+ * XREFs of ACPIBuildPowerResourceExtension @ 0x1C002E058
  * Callers:
- *     OSNotifyCreatePowerResource @ 0x1C002A294 (OSNotifyCreatePowerResource.c)
+ *     OSNotifyCreatePowerResource @ 0x1C002DF34 (OSNotifyCreatePowerResource.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall ACPIBuildPowerResourceExtension(volatile signed __int32 *a1, __int64 *a2)
+__int64 __fastcall ACPIBuildPowerResourceExtension(volatile signed __int32 *a1, _QWORD *a2)
 {
-  __int64 Pool2; // rax
-  int v5; // ecx
-  __int64 v6; // r8
-  unsigned __int8 *v7; // rdx
-  char v8; // al
+  int v4; // esi
+  char *PoolWithTag; // rbx
+  unsigned __int8 *v6; // r14
+  char v7; // al
+  __int64 v8; // rax
   __int64 v9; // rax
-  __int64 v10; // rax
 
-  Pool2 = ExAllocatePool2(64LL, 144LL, 1148216129LL);
-  v5 = 0;
-  v6 = Pool2;
-  if ( Pool2 )
+  v4 = 0;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x90uLL, 0x44706341u);
+  if ( PoolWithTag )
   {
-    v7 = *(unsigned __int8 **)(*(_QWORD *)a1 + 96LL);
-    v8 = gdwfAMLI;
-    *(_QWORD *)(v6 + 16) = 4LL;
-    *(_QWORD *)(v6 + 32) = a1;
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
-    if ( (v8 & 4) != 0 )
+    v6 = *(unsigned __int8 **)(*(_QWORD *)a1 + 96LL);
+    memset(PoolWithTag, 0, 0x90uLL);
+    v7 = gdwfAMLI;
+    *((_QWORD *)PoolWithTag + 2) = 4LL;
+    *((_QWORD *)PoolWithTag + 4) = a1;
+    dword_1C0082908 = 0;
+    pszDest = 0;
+    if ( (v7 & 4) != 0 )
       _InterlockedIncrement(a1 + 2);
-    *(_BYTE *)(v6 + 40) = v7[1];
-    *(_DWORD *)(v6 + 64) = 3;
-    v9 = *v7;
-    if ( (unsigned __int8)v9 < 6u )
-      v5 = SystemPowerStateTranslation[v9];
-    *(_DWORD *)(v6 + 44) = v5;
-    *(_QWORD *)(v6 + 56) = v6 + 48;
-    *(_QWORD *)(v6 + 48) = v6 + 48;
-    *(_QWORD *)(v6 + 128) = v6 + 120;
-    *(_QWORD *)(v6 + 120) = v6 + 120;
-    *(_QWORD *)(v6 + 112) = v6 + 104;
-    *(_QWORD *)(v6 + 104) = v6 + 104;
-    v10 = *(_QWORD *)a1;
-    *a2 = v6;
-    *(_QWORD *)(v10 + 104) = v6;
+    PoolWithTag[40] = v6[1];
+    *((_DWORD *)PoolWithTag + 16) = 3;
+    v8 = *v6;
+    if ( (unsigned __int8)v8 < 6u )
+      v4 = SystemPowerStateTranslation[v8];
+    *((_DWORD *)PoolWithTag + 11) = v4;
+    *((_QWORD *)PoolWithTag + 7) = PoolWithTag + 48;
+    *((_QWORD *)PoolWithTag + 6) = PoolWithTag + 48;
+    *((_QWORD *)PoolWithTag + 16) = PoolWithTag + 120;
+    *((_QWORD *)PoolWithTag + 15) = PoolWithTag + 120;
+    *((_QWORD *)PoolWithTag + 14) = PoolWithTag + 104;
+    *((_QWORD *)PoolWithTag + 13) = PoolWithTag + 104;
+    v9 = *(_QWORD *)a1;
+    *a2 = PoolWithTag;
+    *(_QWORD *)(v9 + 104) = PoolWithTag;
     return 259LL;
   }
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         0x16u,
         0x19u,
-        (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+        (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
         144);
     return 3221225626LL;
   }

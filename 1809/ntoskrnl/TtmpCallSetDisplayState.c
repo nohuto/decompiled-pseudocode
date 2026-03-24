@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpCallSetDisplayState @ 0x14087DA7C
+ * XREFs of TtmpCallSetDisplayState @ 0x14087DA5C
  * Callers:
- *     TtmpPushTerminalDisplayStateOntoDevice @ 0x14087E388 (TtmpPushTerminalDisplayStateOntoDevice.c)
+ *     TtmpPushTerminalDisplayStateOntoDevice @ 0x14087E368 (TtmpPushTerminalDisplayStateOntoDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
- *     TtmpStartCallout @ 0x14087E600 (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x14087E6EC (TtmpStopCallout.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     TtmpStartCallout @ 0x14087E5E0 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x14087E6CC (TtmpStopCallout.c)
  */
 
 void __fastcall TtmpCallSetDisplayState(__int64 a1, __int64 a2, unsigned int a3)

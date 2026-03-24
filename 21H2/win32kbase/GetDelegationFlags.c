@@ -1,5 +1,5 @@
 /*
- * XREFs of GetDelegationFlags @ 0x1C01E7AF0
+ * XREFs of GetDelegationFlags @ 0x1C01AE830
  * Callers:
  *     <none>
  * Callees:

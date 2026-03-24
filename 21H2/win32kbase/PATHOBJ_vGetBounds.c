@@ -1,5 +1,5 @@
 /*
- * XREFs of PATHOBJ_vGetBounds @ 0x1C00D0070
+ * XREFs of PATHOBJ_vGetBounds @ 0x1C00C0370
  * Callers:
  *     <none>
  * Callees:

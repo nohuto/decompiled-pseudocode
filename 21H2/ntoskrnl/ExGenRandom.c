@@ -1,67 +1,62 @@
 /*
- * XREFs of ExGenRandom @ 0x140363220
+ * XREFs of ExGenRandom @ 0x14022C890
  * Callers:
- *     RtlpHpSegMgrApplyLargePagePolicy @ 0x140236C14 (RtlpHpSegMgrApplyLargePagePolicy.c)
- *     MiInitializeColorTable @ 0x14025BFE0 (MiInitializeColorTable.c)
- *     KeStartThread @ 0x140292350 (KeStartThread.c)
- *     KiUpdateProcessConcurrencyCount @ 0x140302650 (KiUpdateProcessConcurrencyCount.c)
- *     RtlpHeapGenerateRandomValue64 @ 0x1403631E0 (RtlpHeapGenerateRandomValue64.c)
- *     RtlRandomEx @ 0x14036C940 (RtlRandomEx.c)
- *     MiGenerateRandomPte @ 0x1403747E4 (MiGenerateRandomPte.c)
- *     MiBuildDynamicRegion @ 0x1403C289C (MiBuildDynamicRegion.c)
- *     MiAssignSoftwareWsleRegion @ 0x1403C3A30 (MiAssignSoftwareWsleRegion.c)
- *     CcBcbProfiler @ 0x1403EAC70 (CcBcbProfiler.c)
- *     RtlpLfhIncrementDataSlot @ 0x14041A044 (RtlpLfhIncrementDataSlot.c)
- *     IopInitializeInMemoryDumpData @ 0x140554988 (IopInitializeInMemoryDumpData.c)
- *     KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x140572094 (KiAdaptThreadIdealProcessorForProcessIdealSetChange.c)
- *     RtlpAllocateHeap @ 0x1405E80B0 (RtlpAllocateHeap.c)
- *     RtlpCreateHeapEncoding @ 0x1405E8D90 (RtlpCreateHeapEncoding.c)
- *     sub_140647CF0 @ 0x140647CF0 (sub_140647CF0.c)
- *     sub_140657010 @ 0x140657010 (sub_140657010.c)
- *     PspPrepareSystemDllInitBlock @ 0x1406727EC (PspPrepareSystemDllInitBlock.c)
- *     PspWow64InitThreadGuestx86 @ 0x1406749A4 (PspWow64InitThreadGuestx86.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1406BF9AC (MiAllocateNewSubAllocatedRegion.c)
- *     RtlRandom @ 0x1406E2E20 (RtlRandom.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     PspUserThreadStartup @ 0x140702420 (PspUserThreadStartup.c)
- *     MiSelectImageBase @ 0x1407092C0 (MiSelectImageBase.c)
- *     MiInitializeProcessTopDownEntropy @ 0x14070A738 (MiInitializeProcessTopDownEntropy.c)
- *     MiInitializeProcessBottomUpEntropy @ 0x14070A810 (MiInitializeProcessBottomUpEntropy.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     MiProcessLoadConfigForDriver @ 0x14075C2E0 (MiProcessLoadConfigForDriver.c)
- *     MiReserveDriverPtes @ 0x1407621C0 (MiReserveDriverPtes.c)
- *     sub_1407E4684 @ 0x1407E4684 (sub_1407E4684.c)
- *     PspSetupUserStack @ 0x1407E4964 (PspSetupUserStack.c)
- *     CmpCmdInit @ 0x140832270 (CmpCmdInit.c)
- *     MiGenerateSecureCookie @ 0x14086305C (MiGenerateSecureCookie.c)
- *     MiSelectOverflowDllBase @ 0x14097FD74 (MiSelectOverflowDllBase.c)
- *     PspWow64InitThreadGuestArm @ 0x1409B3020 (PspWow64InitThreadGuestArm.c)
- *     EtwpCovSampCaptureContextStart @ 0x1409EEA80 (EtwpCovSampCaptureContextStart.c)
- *     EtwpCovSampStrideSamplerInitialize @ 0x1409F25A8 (EtwpCovSampStrideSamplerInitialize.c)
- *     sub_140AD7DE4 @ 0x140AD7DE4 (sub_140AD7DE4.c)
- *     CcInitializeCacheManager @ 0x140AFC9DC (CcInitializeCacheManager.c)
- *     ObInitSystem @ 0x140AFE184 (ObInitSystem.c)
- *     ExpTimerInitialization @ 0x140AFF6B0 (ExpTimerInitialization.c)
- *     MiInitializeNonPagedPool @ 0x140B0681C (MiInitializeNonPagedPool.c)
- *     MiInitializeSystemPtes @ 0x140B06A84 (MiInitializeSystemPtes.c)
- *     MiAssignTopLevelRanges @ 0x140B0728C (MiAssignTopLevelRanges.c)
- *     MiAssignSystemVa @ 0x140B0751C (MiAssignSystemVa.c)
- *     MiInitializeTopLevelBitmap @ 0x140B07614 (MiInitializeTopLevelBitmap.c)
- *     MiAddSubRegionEntropy @ 0x140B076FC (MiAddSubRegionEntropy.c)
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
- *     MiInitializeRelocations @ 0x140B09744 (MiInitializeRelocations.c)
- *     MiInitializeSharedUserData @ 0x140B0A680 (MiInitializeSharedUserData.c)
- *     ExInitializePoolTracker @ 0x140B0ABEC (ExInitializePoolTracker.c)
- *     ExpInitSystemPhase0 @ 0x140B0B180 (ExpInitSystemPhase0.c)
- *     PspTlsInitialize @ 0x140B24668 (PspTlsInitialize.c)
- *     ExRngInitializeSystem @ 0x140B29610 (ExRngInitializeSystem.c)
- *     MiAssignSessionRanges @ 0x140B29EB4 (MiAssignSessionRanges.c)
- *     MiInitializeUltraSpace @ 0x140B2A164 (MiInitializeUltraSpace.c)
- *     MiInitializeBootDefaults @ 0x140B2DC08 (MiInitializeBootDefaults.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x1402A6C9C (RtlpHeapGenerateRandomValue64.c)
+ *     RtlpHpSegMgrApplyLargePagePolicy @ 0x1402CB0F4 (RtlpHpSegMgrApplyLargePagePolicy.c)
+ *     RtlRandomEx @ 0x1402E5D70 (RtlRandomEx.c)
+ *     MiGenerateRandomPte @ 0x14035A1EC (MiGenerateRandomPte.c)
+ *     MiInitializeColorTable @ 0x1403B0D1C (MiInitializeColorTable.c)
+ *     MiBuildDynamicRegion @ 0x1403B5F84 (MiBuildDynamicRegion.c)
+ *     MiAssignSoftwareWsleRegion @ 0x1403B7160 (MiAssignSoftwareWsleRegion.c)
+ *     CcBcbProfiler @ 0x1403DB990 (CcBcbProfiler.c)
+ *     RtlpLfhIncrementDataSlot @ 0x1403F8994 (RtlpLfhIncrementDataSlot.c)
+ *     IopInitializeInMemoryDumpData @ 0x1405042D0 (IopInitializeInMemoryDumpData.c)
+ *     RtlpAllocateHeap @ 0x140588B30 (RtlpAllocateHeap.c)
+ *     RtlpCreateHeapEncoding @ 0x140589818 (RtlpCreateHeapEncoding.c)
+ *     sub_1405BF1D0 @ 0x1405BF1D0 (sub_1405BF1D0.c)
+ *     sub_1405CC010 @ 0x1405CC010 (sub_1405CC010.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1406119C8 (PspPrepareSystemDllInitBlock.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     PspUserThreadStartup @ 0x140646E40 (PspUserThreadStartup.c)
+ *     PspSetupUserStack @ 0x14064C384 (PspSetupUserStack.c)
+ *     sub_140687840 @ 0x140687840 (sub_140687840.c)
+ *     PspWow64InitThreadGuestx86 @ 0x140695B8C (PspWow64InitThreadGuestx86.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x14069F198 (MiAllocateNewSubAllocatedRegion.c)
+ *     RtlRandom @ 0x1406BD150 (RtlRandom.c)
+ *     MiInitializeProcessTopDownEntropy @ 0x140711A28 (MiInitializeProcessTopDownEntropy.c)
+ *     MiInitializeProcessBottomUpEntropy @ 0x140711B00 (MiInitializeProcessBottomUpEntropy.c)
+ *     MiSelectImageBase @ 0x140714524 (MiSelectImageBase.c)
+ *     MiProcessLoadConfigForDriver @ 0x14075CD3C (MiProcessLoadConfigForDriver.c)
+ *     MiReserveDriverPtes @ 0x14075FEA4 (MiReserveDriverPtes.c)
+ *     CmpCmdInit @ 0x14078F8B0 (CmpCmdInit.c)
+ *     MiGenerateSecureCookie @ 0x1407D3268 (MiGenerateSecureCookie.c)
+ *     MiSelectOverflowDllBase @ 0x1408D7CFC (MiSelectOverflowDllBase.c)
+ *     PspWow64InitThreadGuestArm @ 0x14090C8EC (PspWow64InitThreadGuestArm.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409422B8 (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampStrideSamplerInitialize @ 0x14094605C (EtwpCovSampStrideSamplerInitialize.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
+ *     ExpTimerInitialization @ 0x140A3CD34 (ExpTimerInitialization.c)
+ *     CcInitializeCacheManager @ 0x140A3D1B8 (CcInitializeCacheManager.c)
+ *     ObInitSystem @ 0x140A3E538 (ObInitSystem.c)
+ *     MiInitializeSystemPtes @ 0x140A4E1C4 (MiInitializeSystemPtes.c)
+ *     MiInitializeNonPagedPool @ 0x140A4E39C (MiInitializeNonPagedPool.c)
+ *     MiAssignTopLevelRanges @ 0x140A508A8 (MiAssignTopLevelRanges.c)
+ *     MiAssignSystemVa @ 0x140A50B28 (MiAssignSystemVa.c)
+ *     MiAddSubRegionEntropy @ 0x140A50C18 (MiAddSubRegionEntropy.c)
+ *     MiInitializeTopLevelBitmap @ 0x140A50CF0 (MiInitializeTopLevelBitmap.c)
+ *     MiInitializeRelocations @ 0x140A55780 (MiInitializeRelocations.c)
+ *     MiInitializeSharedUserData @ 0x140A579E0 (MiInitializeSharedUserData.c)
+ *     MiAssignSessionRanges @ 0x140A684D4 (MiAssignSessionRanges.c)
+ *     ExInitializePoolTracker @ 0x140A68AF4 (ExInitializePoolTracker.c)
+ *     ExpInitSystemPhase0 @ 0x140A69014 (ExpInitSystemPhase0.c)
+ *     ExRngInitializeSystem @ 0x140A6E660 (ExRngInitializeSystem.c)
+ *     MiInitializeUltraSpace @ 0x140A6EA40 (MiInitializeUltraSpace.c)
+ *     MiInitializeBootDefaults @ 0x140A7160C (MiInitializeBootDefaults.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExGenRandom(int a1)
@@ -76,8 +71,8 @@ __int64 __fastcall ExGenRandom(int a1)
   int v8; // ebx
   unsigned int v9; // ebx
   int v10; // ecx
+  __int64 v14; // rax
   _DWORD *SchedulerAssist; // r8
-  __int64 v15; // rax
   unsigned __int8 v16; // al
   struct _KPRCB *CurrentPrcb; // r8
   _DWORD *v18; // rdi
@@ -95,10 +90,10 @@ __int64 __fastcall ExGenRandom(int a1)
   KxAcquireSpinLock(&ExpLFGRngLock);
   if ( (_DWORD)v1 == 1 && ExpRemainingLeftoverBootRngData )
   {
-    v15 = (unsigned int)(ExpRemainingLeftoverBootRngData - 1);
-    v8 = ExpLeftoverBootRngData[v15];
+    v14 = (unsigned int)(ExpRemainingLeftoverBootRngData - 1);
+    v8 = ExpLeftoverBootRngData[v14];
     --ExpRemainingLeftoverBootRngData;
-    memset(&ExpLeftoverBootRngData[v15], 0, sizeof(_DWORD));
+    memset(&ExpLeftoverBootRngData[v14], 0, sizeof(_DWORD));
   }
   else
   {
@@ -136,7 +131,7 @@ __int64 __fastcall ExGenRandom(int a1)
   }
   __writecr8(CurrentIrql);
   v9 = ExpRNGAuxiliarySeed ^ v8;
-  if ( _bittest64(&KeFeatureBits, 0x20u) )
+  if ( (KeFeatureBits & 0x100000000LL) != 0 )
   {
     v10 = 0;
     while ( 1 )

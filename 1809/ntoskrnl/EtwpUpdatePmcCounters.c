@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpUpdatePmcCounters @ 0x1408BBE60
+ * XREFs of EtwpUpdatePmcCounters @ 0x1408BBE40
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A6C (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     EtwpAllocatePmcData @ 0x1408BAA28 (EtwpAllocatePmcData.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     EtwpAllocatePmcData @ 0x1408BAA08 (EtwpAllocatePmcData.c)
  */
 
 __int64 __fastcall EtwpUpdatePmcCounters(__int64 a1, __int64 a2, unsigned int a3)

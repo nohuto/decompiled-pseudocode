@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkEngAcquireStableSprite @ 0x1C02742F0
+ * XREFs of DxgkEngAcquireStableSprite @ 0x1C0276A40
  * Callers:
  *     <none>
  * Callees:
- *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0060BB4 (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00F0FDC (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
  */
 
 void __fastcall DxgkEngAcquireStableSprite(__int64 a1, int a2)
@@ -21,15 +21,15 @@ void __fastcall DxgkEngAcquireStableSprite(__int64 a1, int a2)
     v5 = HDEV;
     if ( HDEV )
     {
-      if ( *(_DWORD *)(HDEV + 140) )
+      if ( *(_DWORD *)(HDEV + 148) )
       {
         do
-          SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(*(_QWORD *)(*(_QWORD *)(v5 + 144) + 8LL * v3++) + 200LL));
-        while ( v3 < *(_DWORD *)(v5 + 140) );
+          SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(*(_QWORD *)(*(_QWORD *)(v5 + 152) + 8LL * v3++) + 208LL));
+        while ( v3 < *(_DWORD *)(v5 + 148) );
       }
       else
       {
-        SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(HDEV + 200));
+        SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(HDEV + 208));
       }
     }
   }

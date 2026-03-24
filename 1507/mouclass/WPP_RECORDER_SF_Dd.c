@@ -1,1 +1,32 @@
-/*\n * XREFs of WPP_RECORDER_SF_Dd @ 0x1C0002390\n * Callers:\n *     MouConfiguration @ 0x1C000E020 (MouConfiguration.c)\n * Callees:\n *     _guard_dispatch_icall_nop @ 0x1C0002AC0 (_guard_dispatch_icall_nop.c)\n */\n\n__int64 WPP_RECORDER_SF_Dd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)\n{\n  int v7; // [rsp+20h] [rbp-38h]\n  __int64 v8; // [rsp+88h] [rbp+30h] BYREF\n  va_list va; // [rsp+88h] [rbp+30h]\n  va_list va1; // [rsp+90h] [rbp+38h] BYREF\n\n  va_start(va1, a5);\n  va_start(va, a5);\n  v8 = va_arg(va1, _QWORD);\n  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )\n    ((void (__fastcall *)(struct _DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(\n      WPP_GLOBAL_Control->AttachedDevice,\n      43LL,\n      &WPP_1487f3e8cc782e6b0bdfdf5e78fb0e3e_Traceguids,\n      65LL,\n      (__int64 *)va,\n      4LL,\n      va1,\n      4LL,\n      0LL);\n  LOWORD(v7) = 65;\n  return WppAutoLogTrace(a1, 4LL, 1LL, &WPP_1487f3e8cc782e6b0bdfdf5e78fb0e3e_Traceguids, v7, (__int64 *)va, 4LL, va1);\n}\n
+/*
+ * XREFs of WPP_RECORDER_SF_Dd @ 0x1C0002390
+ * Callers:
+ *     MouConfiguration @ 0x1C000E020 (MouConfiguration.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0002AC0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 WPP_RECORDER_SF_Dd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
+{
+  int v7; // [rsp+20h] [rbp-38h]
+  __int64 v8; // [rsp+88h] [rbp+30h] BYREF
+  va_list va; // [rsp+88h] [rbp+30h]
+  va_list va1; // [rsp+90h] [rbp+38h] BYREF
+
+  va_start(va1, a5);
+  va_start(va, a5);
+  v8 = va_arg(va1, _QWORD);
+  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
+    ((void (__fastcall *)(struct _DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+      WPP_GLOBAL_Control->AttachedDevice,
+      43LL,
+      &WPP_1487f3e8cc782e6b0bdfdf5e78fb0e3e_Traceguids,
+      65LL,
+      (__int64 *)va,
+      4LL,
+      va1,
+      4LL,
+      0LL);
+  LOWORD(v7) = 65;
+  return WppAutoLogTrace(a1, 4LL, 1LL, &WPP_1487f3e8cc782e6b0bdfdf5e78fb0e3e_Traceguids, v7, (__int64 *)va, 4LL, va1);
+}

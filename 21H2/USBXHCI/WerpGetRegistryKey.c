@@ -1,7 +1,7 @@
 /*
- * XREFs of WerpGetRegistryKey @ 0x1C005286C
+ * XREFs of WerpGetRegistryKey @ 0x1C0051C70
  * Callers:
- *     WerKernelSubmitReport @ 0x1C0051E18 (WerKernelSubmitReport.c)
+ *     WerKernelSubmitReport @ 0x1C005121C (WerKernelSubmitReport.c)
  * Callees:
  *     <none>
  */
@@ -10,17 +10,17 @@ __int64 __fastcall WerpGetRegistryKey(void *a1, __int64 a2, __int64 a3, void **a
 {
   NTSTATUS v6; // eax
   unsigned int v7; // ebx
-  struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
+  struct _UNICODE_STRING v9; // [rsp+30h] [rbp-48h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-38h] BYREF
 
-  *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
-  DestinationString = 0LL;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v9 = 0LL;
   if ( a4 )
   {
-    RtlInitUnicodeString(&DestinationString, L"Busy");
+    RtlInitUnicodeString(&v9, L"Busy");
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.ObjectName = &v9;
     ObjectAttributes.RootDirectory = a1;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

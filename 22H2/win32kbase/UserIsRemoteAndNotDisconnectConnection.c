@@ -1,5 +1,5 @@
 /*
- * XREFs of UserIsRemoteAndNotDisconnectConnection @ 0x1C001E500
+ * XREFs of UserIsRemoteAndNotDisconnectConnection @ 0x1C0020000
  * Callers:
  *     <none>
  * Callees:

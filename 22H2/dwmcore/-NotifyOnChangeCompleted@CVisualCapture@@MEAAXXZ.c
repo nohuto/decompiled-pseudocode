@@ -1,27 +1,20 @@
 /*
- * XREFs of ?NotifyOnChangeCompleted@CVisualCapture@@MEAAXXZ @ 0x180256130
+ * XREFs of ?NotifyOnChangeCompleted@CVisualCapture@@MEAAXXZ @ 0x1801F1EA0
  * Callers:
  *     <none>
  * Callees:
- *     ?AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800C6D74 (-AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
- *     ?SetRootVisual@CRenderTarget@@QEAAJPEAVCVisual@@@Z @ 0x1801E6FBC (-SetRootVisual@CRenderTarget@@QEAAJPEAVCVisual@@@Z.c)
+ *     ?AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800DFCAC (-AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CVisualCapture::NotifyOnChangeCompleted(CVisualCapture *this)
 {
-  struct CVisual *v2; // rdx
-
-  if ( !*((_BYTE *)this + 1912) )
+  if ( !*((_BYTE *)this + 1928)
+    && *((_QWORD *)this + 236)
+    && (*(int (__fastcall **)(CVisualCapture *))(*(_QWORD *)this + 240LL))(this) >= 0 )
   {
-    v2 = (struct CVisual *)*((_QWORD *)this + 234);
-    if ( v2 )
-    {
-      if ( (int)CRenderTarget::SetRootVisual(this, v2) >= 0 )
-      {
-        CRenderTargetManager::AddRenderTarget(*(CRenderTargetManager **)(*((_QWORD *)this + 2) + 216LL), this);
-        *((_BYTE *)this + 1912) = 1;
-        *((_BYTE *)this + 1756) = 1;
-      }
-    }
+    CRenderTargetManager::AddRenderTarget(*(CRenderTargetManager **)(*((_QWORD *)this + 2) + 88LL), this);
+    *((_BYTE *)this + 1928) = 1;
+    *((_BYTE *)this + 1772) = 1;
   }
 }

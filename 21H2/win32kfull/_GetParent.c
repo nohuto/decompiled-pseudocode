@@ -1,10 +1,10 @@
 /*
- * XREFs of _GetParent @ 0x1C00DE714
+ * XREFs of _GetParent @ 0x1C00D3774
  * Callers:
- *     NtUserGetAncestor @ 0x1C00DE610 (NtUserGetAncestor.c)
- *     _GetAncestor @ 0x1C00FF684 (_GetAncestor.c)
- *     ?IsPwndComponentWebview@@YA_NPEBUtagWND@@@Z @ 0x1C0210658 (-IsPwndComponentWebview@@YA_NPEBUtagWND@@@Z.c)
- *     xxxHelpLoop @ 0x1C024A384 (xxxHelpLoop.c)
+ *     ?IsPwndComponentWebview@@YA_NPEBUtagWND@@@Z @ 0x1C0005084 (-IsPwndComponentWebview@@YA_NPEBUtagWND@@@Z.c)
+ *     NtUserGetAncestor @ 0x1C00D3650 (NtUserGetAncestor.c)
+ *     _GetAncestor @ 0x1C010B068 (_GetAncestor.c)
+ *     xxxHelpLoop @ 0x1C025019C (xxxHelpLoop.c)
  * Callees:
  *     <none>
  */

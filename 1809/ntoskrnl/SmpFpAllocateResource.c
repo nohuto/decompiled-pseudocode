@@ -1,11 +1,11 @@
 /*
- * XREFs of SmpFpAllocateResource @ 0x140308094
+ * XREFs of SmpFpAllocateResource @ 0x140308194
  * Callers:
- *     SmpFpWaitForResource @ 0x140308208 (SmpFpWaitForResource.c)
+ *     SmpFpWaitForResource @ 0x140308308 (SmpFpWaitForResource.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall SmpFpAllocateResource(PEX_SPIN_LOCK SpinLock, int a2)

@@ -1,84 +1,85 @@
 /*
- * XREFs of ?Push@?$CWatermarkStack@M$0EA@$01$09@@QEAAJAEBM@Z @ 0x180078BF8
+ * XREFs of ?Push@?$CWatermarkStack@M$0EA@$01$09@@QEAAJAEBM@Z @ 0x180094B14
  * Callers:
- *     ?DrawBitmapRealization@CDrawingContext@@QEAAJPEAVIBitmapRealization@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVMILMatrix3x2@@_NHM@Z @ 0x18000F0A4 (-DrawBitmapRealization@CDrawingContext@@QEAAJPEAVIBitmapRealization@@AEBV-$TMilRect_ea_18000F0A4.c)
- *     ?BeginFrame@CSubDrawingContext@@AEAAJAEBVCMILMatrix@@@Z @ 0x1800214F4 (-BeginFrame@CSubDrawingContext@@AEAAJAEBVCMILMatrix@@@Z.c)
- *     ?PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUNodeEffects@1@PEA_N@Z @ 0x18005D0D0 (-PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRect.c)
- *     ?FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x180078650 (-FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$de.c)
- *     ?PushEffectiveAlphaForNode@CDrawingContext@@AEAAJPEBVCVisual@@M_N@Z @ 0x1800DC618 (-PushEffectiveAlphaForNode@CDrawingContext@@AEAAJPEBVCVisual@@M_N@Z.c)
- *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x1801D4350 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
- *     ?PushStacksForBspChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x1801D89C8 (-PushStacksForBspChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z.c)
- *     ?PushStacksForBspRootVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x1801D8BB8 (-PushStacksForBspRootVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z.c)
+ *     ?DrawVisual@CDrawingContext@@QEAAJPEAVCVisual@@_N@Z @ 0x18003EA80 (-DrawVisual@CDrawingContext@@QEAAJPEAVCVisual@@_N@Z.c)
+ *     ?PushEffectiveAlphaForNode@CDrawingContext@@AEAAJPEBVCVisual@@M_N@Z @ 0x180041568 (-PushEffectiveAlphaForNode@CDrawingContext@@AEAAJPEBVCVisual@@M_N@Z.c)
+ *     ?PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJ$$QEAVCShapePtr@@PEBVCMILMatrix@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUNodeEffects@1@PEA_N@Z @ 0x18007FA30 (-PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJ$$QEAVCShapePtr@@PEBVCMILMatrix@@PEBV-.c)
+ *     ?FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x180094920 (-FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$de.c)
+ *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x180175944 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
+ *     ?PushStacksForBspChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x180199AE4 (-PushStacksForBspChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z.c)
+ *     ?PushStacksForBspRootVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x180199CD4 (-PushStacksForBspRootVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z.c)
  * Callees:
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180048AEC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800421E0 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
 __int64 __fastcall CWatermarkStack<float,64,2,10>::Push(unsigned int *a1, _DWORD *a2)
 {
-  void *v2; // rbx
-  unsigned int v3; // edi
-  __int64 v5; // rax
-  unsigned int v7; // eax
-  unsigned int v9; // ebp
+  unsigned int v2; // eax
+  void *v3; // rbx
+  unsigned int v6; // eax
+  unsigned int v7; // esi
+  unsigned __int64 v9; // rbp
   int v10; // eax
-  unsigned int v11; // ecx
+  __int64 v11; // rcx
   unsigned __int64 v12; // rax
   void *v13; // rbx
   HANDLE ProcessHeap; // rax
   void *v15; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = 0LL;
-  v3 = 0;
+  v2 = *a1;
+  v3 = 0LL;
   v15 = 0LL;
-  v5 = a1[1];
-  if ( *a1 != (_DWORD)v5 )
+  if ( v2 != a1[1] )
     goto LABEL_2;
-  v9 = 2 * v5;
-  if ( (unsigned __int64)(2 * v5) > 0xFFFFFFFF )
+  v9 = 2LL * a1[1];
+  if ( v9 > 0xFFFFFFFF )
   {
-    v3 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)a1, 0LL, 0, -2147024362, 0x64u, 0LL);
-    goto LABEL_5;
+    v7 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024362, 0x4Cu, 0LL);
+    return v7;
   }
-  if ( v9 <= 0x40 )
-    v9 = 64;
-  v10 = HrMalloc(4uLL, v9, &v15);
-  v3 = v10;
+  if ( (unsigned int)v9 <= 0x40 )
+    LODWORD(v9) = 64;
+  v10 = HrMalloc(4uLL, (unsigned int)v9, &v15);
+  v7 = v10;
   if ( v10 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x6Bu, 0LL);
-    goto LABEL_16;
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x53u, 0LL);
   }
-  v12 = 4LL * *a1;
-  if ( v12 > 0xFFFFFFFF )
+  else
   {
-    v3 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2147024362, 0x6Du, 0LL);
-LABEL_16:
-    v2 = v15;
-    goto LABEL_5;
-  }
-  v13 = v15;
-  v3 = 0;
-  memcpy_0(v15, *((const void **)a1 + 2), (unsigned int)v12);
-  operator delete(*((void **)a1 + 2));
-  *((_QWORD *)a1 + 2) = v13;
-  v2 = 0LL;
-  a1[1] = v9;
+    v12 = 4LL * *a1;
+    if ( v12 <= 0xFFFFFFFF )
+    {
+      v13 = v15;
+      memcpy_0(v15, *((const void **)a1 + 2), (unsigned int)v12);
+      operator delete(*((void **)a1 + 2));
+      v2 = *a1;
+      *((_QWORD *)a1 + 2) = v13;
+      v3 = 0LL;
+      a1[1] = v9;
 LABEL_2:
-  *(_DWORD *)(*((_QWORD *)a1 + 2) + 4LL * *a1) = *a2;
-  v7 = a1[6];
-  if ( v7 <= ++*a1 )
-    v7 = *a1;
-  a1[6] = v7;
+      *(_DWORD *)(*((_QWORD *)a1 + 2) + 4LL * v2) = *a2;
+      ++*a1;
+      v6 = a1[6];
+      if ( v6 <= *a1 )
+        v6 = *a1;
+      v7 = 0;
+      a1[6] = v6;
+      goto LABEL_5;
+    }
+    v7 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2147024362, 0x55u, 0LL);
+  }
+  v3 = v15;
 LABEL_5:
-  if ( v2 )
+  if ( v3 )
   {
     ProcessHeap = GetProcessHeap();
-    HeapFree(ProcessHeap, 0, v2);
+    HeapFree(ProcessHeap, 0, v3);
   }
-  return v3;
+  return v7;
 }

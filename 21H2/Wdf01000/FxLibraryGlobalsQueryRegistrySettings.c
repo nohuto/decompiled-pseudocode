@@ -1,15 +1,15 @@
 /*
- * XREFs of FxLibraryGlobalsQueryRegistrySettings @ 0x1C002ED04
+ * XREFs of FxLibraryGlobalsQueryRegistrySettings @ 0x1C0057728
  * Callers:
- *     FxLibraryGlobalsCommission @ 0x1C002E278 (FxLibraryGlobalsCommission.c)
+ *     FxLibraryGlobalsCommission @ 0x1C00571F0 (FxLibraryGlobalsCommission.c)
  * Callees:
- *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C0014DF4 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00184EC (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
  */
 
-int FxLibraryGlobalsQueryRegistrySettings()
+NTSTATUS FxLibraryGlobalsQueryRegistrySettings()
 {
-  int result; // eax
+  NTSTATUS result; // eax
   unsigned int ifrDisabled; // [rsp+20h] [rbp-E0h] BYREF
   unsigned int ssDisabled; // [rsp+24h] [rbp-DCh] BYREF
   unsigned int dfxOptIn; // [rsp+28h] [rbp-D8h] BYREF
@@ -49,10 +49,10 @@ int FxLibraryGlobalsQueryRegistrySettings()
   result = ZwOpenKey(&hWdf.m_Key, 0x20019u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    if ( FxRegKey::_QueryULong(hWdf.m_Key, &ifrDisabledName, &ifrDisabled) >= 0 && ifrDisabled == 1 )
+    if ( (int)FxRegKey::_QueryULong(hWdf.m_Key, &ifrDisabledName, &ifrDisabled) >= 0 && ifrDisabled == 1 )
       FxLibraryGlobals.IfrDisabled = 1;
     FxLibraryGlobals.SleepStudyDisabled = 0;
-    if ( FxRegKey::_QueryULong(hWdf.m_Key, &ssDisabledName, &ssDisabled) >= 0 && ssDisabled == 1 )
+    if ( (int)FxRegKey::_QueryULong(hWdf.m_Key, &ssDisabledName, &ssDisabled) >= 0 && ssDisabled == 1 )
       FxLibraryGlobals.SleepStudyDisabled = 1;
     result = FxRegKey::_QueryULong(hWdf.m_Key, &dfxOptInName, &dfxOptIn);
     if ( result >= 0 )

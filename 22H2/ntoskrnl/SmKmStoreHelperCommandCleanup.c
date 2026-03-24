@@ -1,12 +1,12 @@
 /*
- * XREFs of SmKmStoreHelperCommandCleanup @ 0x1405CB7CC
+ * XREFs of SmKmStoreHelperCommandCleanup @ 0x14059E054
  * Callers:
- *     SmKmStoreHelperWorker @ 0x14036AF80 (SmKmStoreHelperWorker.c)
+ *     SmKmStoreHelperWorker @ 0x140312670 (SmKmStoreHelperWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     SmFpFree @ 0x140465A48 (SmFpFree.c)
- *     SmKmStoreHelperCommandProcess @ 0x1405CB898 (SmKmStoreHelperCommandProcess.c)
- *     SmKmUnlockMdl @ 0x1405CBF7C (SmKmUnlockMdl.c)
+ *     SmFpFree @ 0x1402686A4 (SmFpFree.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140312750 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmUnlockMdl @ 0x14032989C (SmKmUnlockMdl.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall SmKmStoreHelperCommandCleanup(__int64 a1, int a2, __int64 a3)
@@ -14,12 +14,13 @@ void __fastcall SmKmStoreHelperCommandCleanup(__int64 a1, int a2, __int64 a3)
   int v5; // edx
   int v6; // edx
   int v7; // edx
-  _QWORD v8[2]; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v9; // [rsp+30h] [rbp-28h]
-  __int128 v10; // [rsp+40h] [rbp-18h]
+  int v8; // ecx
+  _QWORD v9[2]; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v10; // [rsp+30h] [rbp-28h]
+  __int128 v11; // [rsp+40h] [rbp-18h]
 
-  v9 = 0LL;
   v10 = 0LL;
+  v11 = 0LL;
   v5 = a2 - 2;
   if ( v5 )
   {
@@ -34,16 +35,17 @@ void __fastcall SmKmStoreHelperCommandCleanup(__int64 a1, int a2, __int64 a3)
       }
       else if ( *(int *)(a3 + 40) >= 0 )
       {
-        SmKmUnlockMdl(*(PMDL *)(a3 + 24));
+        SmKmUnlockMdl(*(PMDL *)(a3 + 24), *(_QWORD *)(a1 + 120), a1);
         SmFpFree(*(_QWORD *)(a1 + 120), 2, a1, *(struct _MDL **)(a3 + 24));
       }
     }
   }
   else if ( *(int *)(a3 + 40) >= 0 )
   {
-    v8[0] = *(_QWORD *)(a3 + 24);
-    v8[1] = *(_QWORD *)(a3 + 8);
-    LODWORD(v9) = (*(_DWORD *)(a3 + 32) ^ v9) & 1 ^ v9;
-    SmKmStoreHelperCommandProcess(a1, 3LL, v8);
+    v8 = *(_DWORD *)(a3 + 32);
+    v9[0] = *(_QWORD *)(a3 + 24);
+    v9[1] = *(_QWORD *)(a3 + 8);
+    LODWORD(v10) = ((unsigned __int8)v10 ^ (unsigned __int8)v8) & 1 ^ v10;
+    SmKmStoreHelperCommandProcess(a1, 3, (__int64)v9);
   }
 }

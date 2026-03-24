@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwReplaceKey @ 0x14041E720
+ * XREFs of ZwReplaceKey @ 0x1403FD260
  * Callers:
- *     DifZwReplaceKeyWrapper @ 0x140626420 (DifZwReplaceKeyWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

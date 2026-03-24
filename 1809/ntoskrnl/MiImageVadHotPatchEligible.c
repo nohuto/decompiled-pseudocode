@@ -2,7 +2,7 @@
  * XREFs of MiImageVadHotPatchEligible @ 0x1405EE758
  * Callers:
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiSetImageHotPatchAllowed @ 0x140857FE4 (MiSetImageHotPatchAllowed.c)
+ *     MiSetImageHotPatchAllowed @ 0x140857FC4 (MiSetImageHotPatchAllowed.c)
  * Callees:
  *     <none>
  */

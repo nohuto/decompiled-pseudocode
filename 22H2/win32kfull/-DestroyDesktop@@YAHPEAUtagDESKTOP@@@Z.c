@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C009C3C0
+ * XREFs of ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C00D7C60
  * Callers:
- *     UnmapDesktop @ 0x1C009C1E0 (UnmapDesktop.c)
+ *     UnmapDesktop @ 0x1C004EAD0 (UnmapDesktop.c)
  * Callees:
- *     UnpackAffectedThreadList @ 0x1C005CEE8 (UnpackAffectedThreadList.c)
- *     ?GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z @ 0x1C009C538 (-GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z.c)
- *     _PostThreadMessage @ 0x1C009C5A0 (_PostThreadMessage.c)
- *     WPP_RECORDER_AND_TRACE_SF_qS @ 0x1C009C60C (WPP_RECORDER_AND_TRACE_SF_qS.c)
+ *     UnpackAffectedThreadList @ 0x1C001230C (UnpackAffectedThreadList.c)
+ *     WPP_RECORDER_SF_qS @ 0x1C00D7D94 (WPP_RECORDER_SF_qS.c)
+ *     ?GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z @ 0x1C00DA0CC (-GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z.c)
+ *     _PostThreadMessage @ 0x1C00DA3F8 (_PostThreadMessage.c)
  */
 
 __int64 __fastcall DestroyDesktop(struct tagDESKTOP *a1)
@@ -17,16 +17,16 @@ __int64 __fastcall DestroyDesktop(struct tagDESKTOP *a1)
   __int64 v5; // rax
   __int64 v6; // rcx
   __int64 v7; // rdi
-  bool v8; // bl
-  bool v9; // di
+  int v8; // edx
+  int v9; // ecx
   int v10; // r8d
-  int v11; // edx
+  int v11; // r9d
   void *v13; // rcx
 
   v2 = *((_QWORD *)a1 + 5);
   if ( (*((_DWORD *)a1 + 12) & 8) != 0 )
     return 0LL;
-  v3 = (_QWORD *)*((_QWORD *)a1 + 31);
+  v3 = (_QWORD *)*((_QWORD *)a1 + 30);
   if ( v3 )
   {
     v13 = (void *)v3[1];
@@ -36,10 +36,10 @@ __int64 __fastcall DestroyDesktop(struct tagDESKTOP *a1)
       v3[1] = 0LL;
     }
     Win32FreePool(v3);
-    *((_QWORD *)a1 + 31) = 0LL;
+    *((_QWORD *)a1 + 30) = 0LL;
   }
   if ( a1 == (struct tagDESKTOP *)gpdeskRecalcQueueAttach )
-    UnpackAffectedThreadList((__int64)a1);
+    UnpackAffectedThreadList();
   v4 = v2 + 16;
   v5 = *(_QWORD *)(v2 + 16);
   if ( v5 )
@@ -66,16 +66,10 @@ __int64 __fastcall DestroyDesktop(struct tagDESKTOP *a1)
   LockObjectAssignment(v7 + 48, a1);
   PostThreadMessage(*(_QWORD *)(v7 + 16), 796LL, 2LL);
   *((_DWORD *)a1 + 12) |= 8u;
-  v8 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  v9 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     GetDesktopName(a1);
-    LOBYTE(v10) = v9;
-    LOBYTE(v11) = v8;
-    WPP_RECORDER_AND_TRACE_SF_qS(WPP_GLOBAL_Control->AttachedDevice, v11, v10, (_DWORD)gFullLog);
+    WPP_RECORDER_SF_qS(v9, v8, v10, v11);
   }
   return 1LL;
 }

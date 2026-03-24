@@ -1,50 +1,51 @@
 /*
- * XREFs of CiSchedulerRemoveThread @ 0x1C0002110
+ * XREFs of CiSchedulerRemoveThread @ 0x1C0001BF0
  * Callers:
- *     CiThreadCleanup @ 0x1C000A680 (CiThreadCleanup.c)
+ *     CiThreadCleanup @ 0x1C000B8E0 (CiThreadCleanup.c)
  * Callees:
- *     CiSystemUpdateThreadTag @ 0x1C0002A20 (CiSystemUpdateThreadTag.c)
+ *     CiSystemUpdateThreadTag @ 0x1C0001B10 (CiSystemUpdateThreadTag.c)
  */
 
 void __fastcall CiSchedulerRemoveThread(__int64 a1)
 {
-  __int64 v2; // rdx
-  _QWORD *v3; // rbx
-  _QWORD *v4; // rcx
+  __int64 v2; // rdi
+  _QWORD *v3; // rcx
+  __int64 v4; // rbx
   _QWORD *v5; // rax
-  __int64 v6; // r8
-  __int64 v7; // rax
-  _QWORD *v8; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // rdi
+  _QWORD *v8; // rax
 
   KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
   WPP_MAIN_CB.Queue.Wcb.CurrentIrp = KeGetCurrentThread();
-  CiSystemUpdateThreadTag(a1, 0LL);
   v2 = *(_QWORD *)(a1 + 72);
-  v3 = (_QWORD *)(a1 + 80);
-  v4 = (_QWORD *)*v3;
-  v5 = (_QWORD *)v3[1];
-  if ( *(_QWORD **)(*v3 + 8LL) != v3 || (_QWORD *)*v5 != v3 )
-    goto LABEL_8;
-  *v5 = v4;
-  v4[1] = v5;
-  if ( v5 == v4 )
+  if ( (*(_DWORD *)(v2 + 184) & 6) != 0 )
+    CiSystemUpdateThreadTag(a1, 0);
+  v3 = *(_QWORD **)(a1 + 80);
+  v4 = a1 + 80;
+  v5 = *(_QWORD **)(v4 + 8);
+  if ( v3[1] != v4 || *v5 != v4 )
+    goto LABEL_10;
+  *v5 = v3;
+  v3[1] = v5;
+  if ( v5 == v3 )
   {
     v6 = *(_QWORD *)(v2 + 16);
     v7 = v2 + 16;
-    if ( *(_QWORD *)(v6 + 8) == v2 + 16 )
+    if ( *(_QWORD *)(v6 + 8) == v7 )
     {
-      v8 = *(_QWORD **)(v2 + 24);
+      v8 = *(_QWORD **)(v7 + 8);
       if ( *v8 == v7 )
       {
         *v8 = v6;
         *(_QWORD *)(v6 + 8) = v8;
-        goto LABEL_7;
+        goto LABEL_9;
       }
     }
-LABEL_8:
+LABEL_10:
     __fastfail(3u);
   }
-LABEL_7:
+LABEL_9:
   WPP_MAIN_CB.Queue.Wcb.CurrentIrp = 0LL;
   KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.DeviceObject, 0);
 }

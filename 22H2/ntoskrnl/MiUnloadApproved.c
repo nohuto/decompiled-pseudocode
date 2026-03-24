@@ -1,59 +1,57 @@
 /*
- * XREFs of MiUnloadApproved @ 0x1407E9C5C
+ * XREFs of MiUnloadApproved @ 0x140771BDC
  * Callers:
- *     MiDereferenceSingleImport @ 0x1407E9C28 (MiDereferenceSingleImport.c)
+ *     MiDereferenceImports @ 0x140771B50 (MiDereferenceImports.c)
  * Callees:
- *     MiSessionLookupImage @ 0x14020AB88 (MiSessionLookupImage.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MiCallDllUnload @ 0x140865670 (MiCallDllUnload.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     MiSessionLookupImage @ 0x140328A98 (MiSessionLookupImage.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     RtlFindExportedRoutineByName @ 0x1406129C0 (RtlFindExportedRoutineByName.c)
  */
 
 __int64 __fastcall MiUnloadApproved(ULONG_PTR BugCheckParameter2)
 {
-  unsigned __int64 v1; // rsi
-  int SystemRegionType; // eax
-  unsigned int v4; // edi
-  unsigned int v5; // r9d
-  __int16 v6; // ax
-  _QWORD *v8; // rax
-  _QWORD *v9; // r10
-  int v10; // eax
-  unsigned __int64 v11; // rdx
+  unsigned __int64 v1; // rdi
+  __int16 v3; // ax
+  _QWORD *v5; // rax
+  _QWORD *v6; // rcx
+  int v7; // eax
+  int (*ExportedRoutineByName)(void); // rax
+  unsigned __int64 v9; // rdx
 
   v1 = *(_QWORD *)(BugCheckParameter2 + 48);
-  SystemRegionType = MiGetSystemRegionType(v1);
-  v4 = 0;
-  v5 = 1;
-  if ( SystemRegionType == 1 )
+  if ( (unsigned int)MiGetSystemRegionType(v1) == 1 )
   {
-    v8 = MiSessionLookupImage(v1);
-    v9 = v8;
-    if ( !v8 )
+    v5 = MiSessionLookupImage(v1);
+    v6 = v5;
+    if ( !v5 )
     {
-      v11 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25];
-      if ( (*(_DWORD *)(v11 + 4) & 2) == 0 )
-        KeBugCheckEx(0x1Au, 0x2200uLL, BugCheckParameter2, v1, *(unsigned int *)(v11 + 8));
+      v9 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
+      if ( (*(_DWORD *)(v9 + 4) & 2) == 0 )
+        KeBugCheckEx(0x1Au, 0x2200uLL, BugCheckParameter2, v1, *(unsigned int *)(v9 + 8));
       return 0LL;
     }
-    v10 = *((_DWORD *)v8 + 15);
-    if ( v10 != v5 )
+    v7 = *((_DWORD *)v5 + 15);
+    if ( v7 != 1 )
     {
-      *((_DWORD *)v9 + 15) = v10 - 1;
+      *((_DWORD *)v6 + 15) = v7 - 1;
       return 0LL;
     }
   }
   else
   {
-    v6 = *(_WORD *)(BugCheckParameter2 + 108);
-    if ( v6 != 1 )
+    v3 = *(_WORD *)(BugCheckParameter2 + 108);
+    if ( v3 != 1 )
     {
-      *(_WORD *)(BugCheckParameter2 + 108) = v6 - 1;
+      *(_WORD *)(BugCheckParameter2 + 108) = v3 - 1;
       return 0LL;
     }
   }
-  if ( (*(_DWORD *)(BugCheckParameter2 + 196) & 0x20) != 0 )
-    return v5;
-  LOBYTE(v4) = (int)MiCallDllUnload(BugCheckParameter2) >= 0;
-  return v4;
+  if ( (*(_DWORD *)(BugCheckParameter2 + 196) & 0x20) == 0 )
+  {
+    ExportedRoutineByName = (int (*)(void))RtlFindExportedRoutineByName(v1, "DllUnload");
+    if ( !ExportedRoutineByName || ExportedRoutineByName() < 0 )
+      return 0LL;
+  }
+  return 1LL;
 }

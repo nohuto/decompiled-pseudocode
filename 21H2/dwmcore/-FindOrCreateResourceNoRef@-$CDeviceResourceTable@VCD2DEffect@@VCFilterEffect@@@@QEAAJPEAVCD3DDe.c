@@ -1,135 +1,136 @@
 /*
- * XREFs of ?FindOrCreateResourceNoRef@?$CDeviceResourceTable@VCD2DEffect@@VCFilterEffect@@@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DEffect@@@Z @ 0x180204608
+ * XREFs of ?FindOrCreateResourceNoRef@?$CDeviceResourceTable@VCD2DEffect@@VCFilterEffect@@@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DEffect@@@Z @ 0x18000E090
  * Callers:
- *     ?GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect@@@Z @ 0x180204BC0 (-GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect.c)
+ *     ?GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect@@@Z @ 0x18000DF58 (-GetD2DEffectNoRef@CFilterEffect@@QEAAJPEAVCDrawingContext@@PEAUID2D1Bitmap1@@PEAPEAUID2D1Effect.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18007E4B0 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$_Emplace_reallocate@AEBV?$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@QEAV23@AEBV23@@Z @ 0x180203568 (--$_Emplace_reallocate@AEBV-$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@@-$vector@V-$.c)
- *     ?CreateResource@CFilterEffect@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DEffect@@@Z @ 0x1802044F0 (-CreateResource@CFilterEffect@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DEffect@@@Z.c)
- *     ?GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x180277214 (-GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FAE0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18005FB10 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??$_Emplace_reallocate@AEBV?$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@QEAV23@AEBV23@@Z @ 0x1801B2584 (--$_Emplace_reallocate@AEBV-$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@@-$vector@V-$.c)
+ *     ?CreateResource@CFilterEffect@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DEffect@@@Z @ 0x1801B2844 (-CreateResource@CFilterEffect@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DEffect@@@Z.c)
+ *     ?GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x180238BE8 (-GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z.c)
  */
 
 __int64 __fastcall CDeviceResourceTable<CD2DEffect,CFilterEffect>::FindOrCreateResourceNoRef(
-        unsigned __int64 a1,
+        __int64 a1,
         struct CD3DDevice *a2,
         struct CD2DEffect **a3)
 {
-  __int64 **v3; // rsi
-  __int64 *v5; // rdx
+  __int64 *v3; // rsi
+  __int64 v5; // rdx
   __int64 v7; // rax
-  CDeviceManager *v8; // r14
   unsigned int v9; // edi
-  unsigned int v10; // r12d
+  unsigned int v10; // r15d
   __int64 v11; // rcx
   struct CD2DEffect *v12; // rax
+  CDeviceManager *v14; // rcx
   int DefaultDevice; // eax
-  __int64 v14; // rcx
-  CD3DDevice *v15; // rbx
-  int v16; // eax
-  __int64 v17; // rcx
-  CD3DDevice *v18; // rcx
-  int v19; // eax
-  __int64 v20; // rcx
-  struct CD2DEffect *v21; // rbx
-  char *v22; // rcx
-  __int64 *v23; // rdx
-  struct CD2DEffect *v25; // [rsp+70h] [rbp+40h] BYREF
-  CD3DDevice *v26; // [rsp+80h] [rbp+50h] BYREF
+  unsigned int v16; // ecx
+  CD3DDevice *v17; // rbx
+  int v18; // eax
+  unsigned int v19; // ecx
+  struct CD2DEffect *v20; // rbx
+  char *v21; // rcx
+  struct CD2DEffect **v22; // rdx
+  CD3DDevice *v23; // rcx
+  int v24; // eax
+  unsigned int v25; // ecx
+  struct CD2DEffect *v26; // [rsp+70h] [rbp+40h] BYREF
+  CD3DDevice *v27; // [rsp+80h] [rbp+50h] BYREF
 
-  v3 = (__int64 **)(a1 + 16);
-  v5 = *(__int64 **)(a1 + 16);
-  v7 = *(_QWORD *)(a1 + 24) - (_QWORD)v5;
+  v3 = (__int64 *)(a1 + 16);
+  v5 = *(_QWORD *)(a1 + 16);
+  v7 = *(_QWORD *)(a1 + 24) - v5;
   *a3 = 0LL;
-  v8 = (CDeviceManager *)a1;
   v9 = 0;
   v10 = 0;
   if ( !(v7 >> 3) )
-    goto LABEL_8;
-  while ( a2 )
+    goto LABEL_9;
+  do
   {
-    v11 = v5[v10] + 16 + *(int *)(*(_QWORD *)(v5[v10] + 16) + 8LL);
-    if ( a2 == (struct CD3DDevice *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v11 + 8LL))(v11) )
-      break;
-    v5 = *v3;
-    a1 = ++v10;
-    if ( v10 >= (unsigned __int64)(v3[1] - *v3) )
+    if ( !a2
+      || (v11 = *(_QWORD *)(v5 + 8LL * v10) + 16LL + *(int *)(*(_QWORD *)(*(_QWORD *)(v5 + 8LL * v10) + 16LL) + 8LL),
+          a2 == (struct CD3DDevice *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v11 + 8LL))(v11)) )
     {
-      v12 = *a3;
-      goto LABEL_7;
+      v12 = *(struct CD2DEffect **)(*v3 + 8LL * v10);
+      *a3 = v12;
+      goto LABEL_5;
     }
+    v5 = *v3;
+    ++v10;
   }
-  v12 = (struct CD2DEffect *)(*v3)[v10];
-  *a3 = v12;
-LABEL_7:
+  while ( v10 < (unsigned __int64)((v3[1] - *v3) >> 3) );
+  v12 = *a3;
+LABEL_5:
   if ( !v12 )
   {
-LABEL_8:
-    v25 = 0LL;
+LABEL_9:
+    v26 = 0LL;
     if ( a2 )
     {
-      v19 = CFilterEffect::CreateResource(*((CFilterEffect **)v8 + 1), a2, &v25);
-      v9 = v19;
-      if ( v19 >= 0 )
+      v24 = CFilterEffect::CreateResource(*(CFilterEffect **)(a1 + 8), a2, &v26);
+      v9 = v24;
+      if ( v24 >= 0 )
       {
-LABEL_19:
-        v21 = v25;
-        v22 = (char *)v25 + *(int *)(*((_QWORD *)v25 + 2) + 8LL) + 16;
-        (*(void (__fastcall **)(char *, CDeviceManager *))(*(_QWORD *)v22 + 40LL))(v22, v8);
-        v23 = (__int64 *)*((_QWORD *)v8 + 3);
-        if ( v23 == *((__int64 **)v8 + 4) )
+LABEL_14:
+        v20 = v26;
+        v21 = (char *)v26 + *(int *)(*((_QWORD *)v26 + 2) + 8LL) + 16;
+        (*(void (__fastcall **)(char *, __int64))(*(_QWORD *)v21 + 40LL))(v21, a1);
+        v22 = (struct CD2DEffect **)v3[1];
+        if ( (struct CD2DEffect **)v3[2] == v22 )
         {
           std::vector<wil::com_ptr_t<CD2DInk,wil::err_returncode_policy>>::_Emplace_reallocate<wil::com_ptr_t<CD2DInk,wil::err_returncode_policy> const &>(
             v3,
-            v23,
-            (__int64 *)&v25);
-          v21 = v25;
+            v22,
+            &v26);
+          v20 = v26;
         }
         else
         {
-          *v23 = (__int64)v21;
-          (*(void (__fastcall **)(struct CD2DEffect *))(*(_QWORD *)v21 + 8LL))(v21);
-          ++v3[1];
+          *v22 = v20;
+          (*(void (__fastcall **)(struct CD2DEffect *))(*(_QWORD *)v20 + 8LL))(v20);
+          v3[1] += 8LL;
         }
-        *a3 = v21;
-        goto LABEL_24;
+        *a3 = v20;
+        goto LABEL_25;
       }
-      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0LL, v19, 0x52u);
+      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0x52u, 0LL);
     }
     else
     {
-      v26 = 0LL;
-      DefaultDevice = CDeviceManager::GetDefaultDevice((CDeviceManager *)a1, &v26);
+      v27 = 0LL;
+      wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v27);
+      DefaultDevice = CDeviceManager::GetDefaultDevice(v14, &v27);
       v9 = DefaultDevice;
       if ( DefaultDevice < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, DefaultDevice, 0x4Bu);
-        v18 = v26;
-        if ( !v26 )
-          goto LABEL_24;
-        goto LABEL_15;
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, DefaultDevice, 0x4Bu, 0LL);
+        v23 = v27;
+        if ( !v27 )
+          goto LABEL_25;
+        goto LABEL_18;
       }
-      v15 = v26;
-      v16 = CFilterEffect::CreateResource(*((CFilterEffect **)v8 + 1), v26, &v25);
-      v9 = v16;
-      if ( v16 >= 0 )
+      v17 = v27;
+      v18 = CFilterEffect::CreateResource(*(CFilterEffect **)(a1 + 8), v27, &v26);
+      v9 = v18;
+      if ( v18 >= 0 )
       {
-        if ( v15 )
-          CD3DDevice::Release(v15);
-        goto LABEL_19;
+        if ( v17 )
+          CD3DDevice::Release(v17);
+        goto LABEL_14;
       }
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, v16, 0x4Eu);
-      if ( v15 )
+      MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x4Eu, 0LL);
+      if ( v17 )
       {
-        v18 = v15;
-LABEL_15:
-        CD3DDevice::Release(v18);
+        v23 = v17;
+LABEL_18:
+        CD3DDevice::Release(v23);
       }
     }
-LABEL_24:
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v25);
+LABEL_25:
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v26);
   }
   return v9;
 }

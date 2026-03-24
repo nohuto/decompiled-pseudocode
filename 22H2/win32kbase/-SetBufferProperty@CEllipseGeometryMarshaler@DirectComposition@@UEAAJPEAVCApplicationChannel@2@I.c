@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CEllipseGeometryMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00C1890
+ * XREFs of ?SetBufferProperty@CEllipseGeometryMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E8A50
  * Callers:
  *     <none>
  * Callees:
@@ -29,7 +29,7 @@ __int64 __fastcall DirectComposition::CEllipseGeometryMarshaler::SetBufferProper
       v8 = *a4;
       *((_DWORD *)this + 4) |= 0x1000u;
       *((_QWORD *)this + 13) = v8;
-LABEL_6:
+LABEL_9:
       *a6 = 1;
       return result;
     }
@@ -39,7 +39,7 @@ LABEL_6:
     v9 = *a4;
     *((_DWORD *)this + 4) |= 0x800u;
     *((_QWORD *)this + 12) = v9;
-    goto LABEL_6;
+    goto LABEL_9;
   }
   return 3221225485LL;
 }

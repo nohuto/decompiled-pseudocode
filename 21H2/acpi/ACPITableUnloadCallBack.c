@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPITableUnloadCallBack @ 0x1C00609D0
+ * XREFs of ACPITableUnloadCallBack @ 0x1C005FBE0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildIssueInvalidateRelationsWorker @ 0x1C00272B4 (ACPIBuildIssueInvalidateRelationsWorker.c)
- *     AMLIRestartContext @ 0x1C00648F4 (AMLIRestartContext.c)
+ *     ACPIBuildIssueInvalidateRelationsWorker @ 0x1C002AA94 (ACPIBuildIssueInvalidateRelationsWorker.c)
+ *     AMLIRestartContext @ 0x1C0063670 (AMLIRestartContext.c)
  */
 
 __int64 __fastcall ACPITableUnloadCallBack(__int64 a1, __int64 a2)

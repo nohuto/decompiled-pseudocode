@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlDeleteTunnelCache @ 0x1407FC310
+ * XREFs of FsRtlDeleteTunnelCache @ 0x14076ECC0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToPagedLookasideList @ 0x140203D50 (ExFreeToPagedLookasideList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlDeleteTunnelCache(TUNNEL *Cache)
@@ -14,7 +14,7 @@ void __stdcall FsRtlDeleteTunnelCache(TUNNEL *Cache)
   TUNNEL *v3; // rdi
   LIST_ENTRY *v4; // rcx
 
-  if ( *(_DWORD *)((char *)&NlsMbCodePageTag + 1) )
+  if ( TunnelMaxEntries )
   {
     p_TimerQueue = &Cache->TimerQueue;
     Cache->Cache = 0LL;
@@ -29,7 +29,7 @@ void __stdcall FsRtlDeleteTunnelCache(TUNNEL *Cache)
         if ( ((__int64)Flink->Mutex.Event.Header.WaitListHead.Flink & 1) != 0 )
           ExFreePoolWithTag(v4, 0);
         else
-          ExFreeToPagedLookasideList(&TunnelLookasideList, v4);
+          ExFreeToNPagedLookasideList(&TunnelLookasideList, v4);
         Flink = v3;
       }
       while ( v3 != (TUNNEL *)p_TimerQueue );

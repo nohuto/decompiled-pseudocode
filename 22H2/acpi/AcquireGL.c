@@ -1,13 +1,12 @@
 /*
- * XREFs of AcquireGL @ 0x1C004ACD0
+ * XREFs of AcquireGL @ 0x1C0065094
  * Callers:
- *     AccFieldUnit @ 0x1C0051650 (AccFieldUnit.c)
- *     ParseAcquire @ 0x1C005A110 (ParseAcquire.c)
+ *     ParseAcquire @ 0x1C000A6C0 (ParseAcquire.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall AcquireGL(__int64 a1)
@@ -18,12 +17,7 @@ __int64 __fastcall AcquireGL(__int64 a1)
   v1 = 0;
   if ( ghGlobalLock )
   {
-    v3 = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, __int64 (__fastcall *)(), __int64))ghGlobalLock)(
-           5LL,
-           0LL,
-           qword_1C0070280,
-           RestartCtxtCallback,
-           a1 + 328);
+    v3 = ghGlobalLock(5LL, 0LL, qword_1C00831A8, RestartCtxtCallback, a1 + 328);
     v1 = v3;
     if ( v3 == 259 )
     {
@@ -32,9 +26,9 @@ __int64 __fastcall AcquireGL(__int64 a1)
     else if ( v3 )
     {
       v1 = -1072431086;
-      LogError(3222536210LL);
+      LogError(-1072431086);
       AcpiDiagTraceAmlError(a1, -1072431086);
-      PrintDebugMessage(6, 0, 0, 0, 0LL);
+      PrintDebugMessage(6, 0LL, 0LL, 0LL, 0LL);
     }
   }
   return v1;

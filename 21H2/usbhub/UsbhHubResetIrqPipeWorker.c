@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhHubResetIrqPipeWorker @ 0x1C00380C0
+ * XREFs of UsbhHubResetIrqPipeWorker @ 0x1C0039390
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhPostInterrupt @ 0x1C00104E0 (UsbhPostInterrupt.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhResetIrqPipe @ 0x1C003896C (UsbhResetIrqPipe.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhPostInterrupt @ 0x1C00033C0 (UsbhPostInterrupt.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhResetIrqPipe @ 0x1C0039C58 (UsbhResetIrqPipe.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 int __fastcall UsbhHubResetIrqPipeWorker(PDEVICE_OBJECT DeviceObject, unsigned int a2, __int64 a3)
@@ -27,6 +27,7 @@ int __fastcall UsbhHubResetIrqPipeWorker(PDEVICE_OBJECT DeviceObject, unsigned i
   PDEVICE_OBJECT v13; // rcx
   unsigned __int16 v14; // r9
   __int64 v16; // [rsp+28h] [rbp-50h]
+  int v17; // [rsp+48h] [rbp-30h]
 
   v4 = a2;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -65,7 +66,10 @@ int __fastcall UsbhHubResetIrqPipeWorker(PDEVICE_OBJECT DeviceObject, unsigned i
         _InterlockedDecrement(v6 + 684);
         KeSetEvent(v11, 0, 0);
         if ( !*((_BYTE *)v6 + 5268) )
-          UsbhException((int)DeviceObject, 0, 7, 0, 0, v9, 0, usbfile_bus_c, 2768, 1);
+        {
+          LOBYTE(v17) = 1;
+          UsbhException((int)DeviceObject, 0, 7, 0, 0, v9, 0, usbfile_bus_c, 2768, v17);
+        }
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           goto LABEL_14;
         v13 = WPP_GLOBAL_Control;

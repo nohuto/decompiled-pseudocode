@@ -1,58 +1,58 @@
 /*
- * XREFs of ExBurnMemory @ 0x140B919CC
+ * XREFs of ExBurnMemory @ 0x140A8C2C8
  * Callers:
- *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A39F24 (InitBootProcessor.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall ExBurnMemory(__int64 a1, unsigned __int64 a2)
+unsigned __int64 __fastcall ExBurnMemory(__int64 a1, unsigned __int64 a2, int a3, __int64 a4)
 {
-  __int64 v2; // r10
-  unsigned __int64 v3; // r9
-  __int64 v4; // r8
-  int v5; // eax
-  unsigned __int64 v6; // rcx
+  __int64 *v4; // rbx
+  unsigned __int64 v5; // r11
+  __int64 *v6; // r10
+  int v7; // eax
   unsigned __int64 v8; // rcx
-  __int64 v9; // rax
+  unsigned __int64 v10; // rcx
+  __int64 v11; // rax
 
-  v2 = a1 + 32;
-  v3 = a2;
-  v4 = *(_QWORD *)(a1 + 40);
+  v4 = (__int64 *)(a1 + 32);
+  v5 = a2;
+  v6 = *(__int64 **)(a1 + 40);
   while ( 1 )
   {
-    v5 = *(_DWORD *)(v4 + 24);
-    if ( v5 == 2 || v5 == 5 )
+    v7 = *((_DWORD *)v6 + 4);
+    if ( v7 == 2 || v7 == 5 )
     {
-      v6 = *(_QWORD *)(v4 + 40);
-      if ( v6 )
+      v8 = v6[4];
+      if ( v8 )
         break;
     }
 LABEL_7:
-    v4 = *(_QWORD *)(v4 + 8);
-    if ( v4 == v2 )
-      return a2 - v3;
+    v6 = (__int64 *)v6[1];
+    if ( v6 == v4 )
+      return a2 - v5;
   }
-  if ( v6 <= v3 )
+  if ( v8 <= v5 )
   {
-    *(_DWORD *)(v4 + 24) = 6;
-    v3 -= v6;
-    if ( !v3 )
-      return a2 - v3;
+    *((_DWORD *)v6 + 4) = a3;
+    v5 -= v8;
+    if ( !v5 )
+      return a2 - v5;
     goto LABEL_7;
   }
-  v8 = v6 - v3;
-  *(_QWORD *)(v4 + 40) = v8;
-  qword_140C646E0 = *(_QWORD *)(v4 + 32) + v8;
-  qword_140C646E8 = v3;
-  dword_140C646D8 = 6;
-  v9 = *(_QWORD *)v4;
-  if ( *(_QWORD *)(*(_QWORD *)v4 + 8LL) != v4 )
+  v10 = v8 - v5;
+  v6[4] = v10;
+  *(_QWORD *)(a4 + 24) = v6[3] + v10;
+  *(_QWORD *)(a4 + 32) = v5;
+  *(_DWORD *)(a4 + 16) = a3;
+  v11 = *v6;
+  if ( *(__int64 **)(*v6 + 8) != v6 )
     __fastfail(3u);
-  BurnMemoryDescriptor = *(_QWORD *)v4;
-  qword_140C646C8 = v4;
-  v3 = 0LL;
-  *(_QWORD *)(v9 + 8) = &BurnMemoryDescriptor;
-  *(_QWORD *)v4 = &BurnMemoryDescriptor;
-  return a2 - v3;
+  *(_QWORD *)a4 = v11;
+  v5 = 0LL;
+  *(_QWORD *)(a4 + 8) = v6;
+  *(_QWORD *)(v11 + 8) = a4;
+  *v6 = a4;
+  return a2 - v5;
 }

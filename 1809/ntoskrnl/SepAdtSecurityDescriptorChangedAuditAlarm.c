@@ -1,18 +1,18 @@
 /*
- * XREFs of SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14089F1F0
+ * XREFs of SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14089F1D0
  * Callers:
  *     SeSecurityDescriptorChangedAuditAlarm @ 0x1405BA094 (SeSecurityDescriptorChangedAuditAlarm.c)
  *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1405BC394 (SeTokenDefaultDaclChangedAuditAlarm.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
  *     ObpIsKernelHandle @ 0x140088ED8 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x140186DA0 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671E4 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepSecurityDescriptorStrictLength @ 0x1408A3CC4 (SepSecurityDescriptorStrictLength.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671C4 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepSecurityDescriptorStrictLength @ 0x1408A3CA4 (SepSecurityDescriptorStrictLength.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
  */
 
 void __fastcall SepAdtSecurityDescriptorChangedAuditAlarm(

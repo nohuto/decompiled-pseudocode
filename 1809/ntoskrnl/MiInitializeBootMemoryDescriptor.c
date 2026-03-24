@@ -2,7 +2,7 @@
  * XREFs of MiInitializeBootMemoryDescriptor @ 0x1409BBD80
  * Callers:
  *     MxInitializeFreeNodeDescriptors @ 0x1409BB3A8 (MxInitializeFreeNodeDescriptors.c)
- *     MxSwitchDescriptors @ 0x1409F7CEC (MxSwitchDescriptors.c)
+ *     MxSwitchDescriptors @ 0x1409F7CFC (MxSwitchDescriptors.c)
  * Callees:
  *     <none>
  */

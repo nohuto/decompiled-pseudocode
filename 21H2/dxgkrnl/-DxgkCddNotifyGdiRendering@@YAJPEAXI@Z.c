@@ -1,64 +1,74 @@
 /*
- * XREFs of ?DxgkCddNotifyGdiRendering@@YAJPEAXI@Z @ 0x1C02DB980
+ * XREFs of ?DxgkCddNotifyGdiRendering@@YAJPEAXI@Z @ 0x1C022C680
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000FB18 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ??0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z @ 0x1C017D4D0 (--0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C017EAE0 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C00073EC (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C00FDE00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ??0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z @ 0x1C00FF580 (--0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z.c)
  */
 
-__int64 __fastcall DxgkCddNotifyGdiRendering(struct DXGPROCESS *a1, unsigned int a2)
+__int64 __fastcall DxgkCddNotifyGdiRendering(struct _KTHREAD **a1, unsigned int a2)
 {
   __int64 v2; // rdi
   __int64 v4; // rax
-  __int64 v5; // r9
+  struct _KTHREAD *v5; // r9
   int v6; // edx
-  struct _EX_RUNDOWN_REF *v7; // rdx
-  unsigned int v8; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // rax
+  struct _EX_RUNDOWN_REF *v9; // rdx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // rax
+  unsigned int v14; // ebx
   ULONG_PTR Count; // rcx
-  _BYTE v11[40]; // [rsp+50h] [rbp-28h] BYREF
-  struct _EX_RUNDOWN_REF *v12; // [rsp+80h] [rbp+8h] BYREF
+  _BYTE v17[40]; // [rsp+20h] [rbp-28h] BYREF
+  struct _EX_RUNDOWN_REF *v18; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = a2;
-  DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v11, a1);
+  DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v17, a1);
   v4 = ((unsigned int)v2 >> 6) & 0xFFFFFF;
-  if ( (unsigned int)v4 >= *((_DWORD *)a1 + 74) )
+  if ( (unsigned int)v4 >= *((_DWORD *)a1 + 64) )
     goto LABEL_7;
-  v5 = *((_QWORD *)a1 + 35);
-  v6 = *(_DWORD *)(v5 + 16 * v4 + 8);
-  if ( (((unsigned int)v2 >> 25) & 0x60) != (*(_BYTE *)(v5 + 16 * v4 + 8) & 0x60)
+  v5 = a1[30];
+  v6 = *((_DWORD *)v5 + 4 * v4 + 2);
+  if ( (((unsigned int)v2 >> 25) & 0x60) != (*((_BYTE *)v5 + 16 * v4 + 8) & 0x60)
     || (v6 & 0x2000) != 0
     || (v6 & 0x1F) == 0 )
   {
     goto LABEL_7;
   }
-  if ( (v6 & 0x1F) != 5 )
+  v7 = v6 & 0x1F;
+  if ( (_BYTE)v7 != 5 )
   {
-    WdLogSingleEntry1(2LL, 267LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 267LL, 0LL, 0LL, 0LL, 0LL);
+    v8 = WdLogNewEntry5_WdError(((unsigned int)v2 >> 25) & 0x60, v7);
+    *(_QWORD *)(v8 + 24) = 316LL;
+    WdLogEvent5_WdError(v8);
 LABEL_7:
-    v7 = 0LL;
+    v9 = 0LL;
     goto LABEL_8;
   }
-  v7 = *(struct _EX_RUNDOWN_REF **)(v5 + 16LL * (unsigned int)v4);
+  v9 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)v5 + 2 * (unsigned int)v4);
 LABEL_8:
-  DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v12, v7);
-  if ( v12 )
+  DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v18, v9);
+  if ( v18 )
   {
-    Count = v12[6].Count;
+    Count = v18[6].Count;
     if ( Count )
       *(_DWORD *)(Count + 4) &= ~0x400u;
-    v8 = 0;
+    v14 = 0;
   }
   else
   {
-    v8 = -1073741811;
-    WdLogSingleEntry2(3LL, v2, -1073741811LL);
+    v13 = WdLogNewEntry5_WdWarning(v11, v10, v12);
+    v14 = -1073741811;
+    *(_QWORD *)(v13 + 24) = v2;
+    *(_QWORD *)(v13 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v13);
   }
-  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v12);
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v11);
-  return v8;
+  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v18, v10);
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v17);
+  return v14;
 }

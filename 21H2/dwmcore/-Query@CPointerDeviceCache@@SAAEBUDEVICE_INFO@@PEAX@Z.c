@@ -1,74 +1,162 @@
 /*
- * XREFs of ?Query@CPointerDeviceCache@@SAAEBUDEVICE_INFO@@PEAX@Z @ 0x1801857E8
+ * XREFs of ?Query@CPointerDeviceCache@@SAAEBUDEVICE_INFO@@PEAX@Z @ 0x180237050
  * Callers:
- *     ?Update@CPointerDeviceCache@@SAAEBUDEVICE_INFO@@PEAVCManipulationFrame@@@Z @ 0x180185904 (-Update@CPointerDeviceCache@@SAAEBUDEVICE_INFO@@PEAVCManipulationFrame@@@Z.c)
- *     _anonymous_namespace_::DecomposeMatrix @ 0x18018CBA8 (_anonymous_namespace_--DecomposeMatrix.c)
- *     ?TransformOutput@CInteractionContextWrapper@@AEAAJAEBVCMILMatrix@@AEBUInteractionOutput@@PEAU3@@Z @ 0x180274314 (-TransformOutput@CInteractionContextWrapper@@AEAAJAEBVCMILMatrix@@AEBUInteractionOutput@@PEAU3@@.c)
- *     ?UpdateMouseWheelParameters@CInteractionContextWrapper@@AEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1802743F4 (-UpdateMouseWheelParameters@CInteractionContextWrapper@@AEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DR.c)
- *     ?_UpdateInteractionOutput@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@PEAUInteractionOutput@@@Z @ 0x180274574 (-_UpdateInteractionOutput@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@PEAUI.c)
+ *     _anonymous_namespace_::DecomposeMatrix @ 0x18022D46C (_anonymous_namespace_--DecomposeMatrix.c)
+ *     ?TransformOutput@CInteractionContextWrapper@@AEAAJAEBVCMILMatrix@@AEBUInteractionOutput@@PEAU3@@Z @ 0x1802315C8 (-TransformOutput@CInteractionContextWrapper@@AEAAJAEBVCMILMatrix@@AEBUInteractionOutput@@PEAU3@@.c)
+ *     ?UpdateMouseWheelParameters@CInteractionContextWrapper@@AEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1802316A8 (-UpdateMouseWheelParameters@CInteractionContextWrapper@@AEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DR.c)
+ *     ?_UpdateInteractionOutput@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@PEAUInteractionOutput@@@Z @ 0x180231828 (-_UpdateInteractionOutput@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@PEAUI.c)
+ *     ?Update@CPointerDeviceCache@@SAAEBUDEVICE_INFO@@PEAVCManipulationFrame@@@Z @ 0x180237220 (-Update@CPointerDeviceCache@@SAAEBUDEVICE_INFO@@PEAVCManipulationFrame@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??$_Find_lower_bound@PEAX@?$_Tree@V?$_Tmap_traits@PEAXUDEVICE_INFO@@U?$less@PEAX@std@@V?$allocator@U?$pair@QEAXUDEVICE_INFO@@@std@@@3@$0A@@std@@@std@@IEBA?AU?$_Tree_find_result@PEAU?$_Tree_node@U?$pair@QEAXUDEVICE_INFO@@@std@@PEAX@std@@@1@AEBQEAX@Z @ 0x180185670 (--$_Find_lower_bound@PEAX@-$_Tree@V-$_Tmap_traits@PEAXUDEVICE_INFO@@U-$less@PEAX@std@@V-$allocat.c)
- *     ??$_Try_emplace@AEBQEAX$$V@?$map@PEAXUDEVICE_INFO@@U?$less@PEAX@std@@V?$allocator@U?$pair@QEAXUDEVICE_INFO@@@std@@@3@@std@@AEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@QEAXUDEVICE_INFO@@@std@@PEAX@std@@_N@1@AEBQEAX@Z @ 0x1801856C4 (--$_Try_emplace@AEBQEAX$$V@-$map@PEAXUDEVICE_INFO@@U-$less@PEAX@std@@V-$allocator@U-$pair@QEAXUD.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ??$emplace_hint@AEBUpiecewise_construct_t@std@@V?$tuple@AEBQEAX@2@V?$tuple@$$V@2@@?$_Tree@V?$_Tmap_traits@PEAXUDEVICE_INFO@@U?$less@PEAX@std@@V?$allocator@U?$pair@QEAXUDEVICE_INFO@@@std@@@3@$0A@@std@@@std@@QEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAXUDEVICE_INFO@@@std@@@std@@@std@@@1@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAXUDEVICE_INFO@@@std@@@std@@@std@@@1@AEBUpiecewise_construct_t@1@$$QEAV?$tuple@AEBQEAX@1@$$QEAV?$tuple@$$V@1@@Z @ 0x180236FC4 (--$emplace_hint@AEBUpiecewise_construct_t@std@@V-$tuple@AEBQEAX@2@V-$tuple@$$V@2@@-$_Tree@V-$_Tm.c)
  */
 
-const struct DEVICE_INFO *__fastcall CPointerDeviceCache::Query(__int64 a1)
+const struct DEVICE_INFO *__fastcall CPointerDeviceCache::Query(
+        unsigned __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
 {
-  __int64 v1; // rcx
-  unsigned __int64 v2; // r10
-  __int64 v3; // rax
-  __int64 *v4; // rax
-  __int128 v5; // xmm1
-  __int128 v6; // xmm0
-  __int64 v8; // [rsp+20h] [rbp-49h] BYREF
-  __int64 v9; // [rsp+28h] [rbp-41h]
-  _BYTE v10[16]; // [rsp+30h] [rbp-39h] BYREF
-  __int64 v11; // [rsp+40h] [rbp-29h]
-  __int128 v12; // [rsp+48h] [rbp-21h]
-  __int128 v13; // [rsp+58h] [rbp-11h]
-  __int128 v14; // [rsp+68h] [rbp-1h]
-  __int128 v15; // [rsp+78h] [rbp+Fh] BYREF
-  __int128 v16; // [rsp+88h] [rbp+1Fh] BYREF
-  __int128 v17; // [rsp+98h] [rbp+2Fh] BYREF
-  __int64 v18; // [rsp+A8h] [rbp+3Fh]
+  __int64 v4; // rdx
+  __int64 *v5; // r8
+  __int64 *v6; // rax
+  __int64 v7; // r8
+  __int64 v8; // rax
+  __int128 v9; // xmm0
+  __int128 v10; // xmm1
+  bool v11; // zf
+  __int128 v12; // xmm2
+  void **v13; // xmm3_8
+  __int64 *v14; // rax
+  __int64 v15; // r8
+  __int64 v16; // rax
+  unsigned __int64 v18; // [rsp+30h] [rbp-39h] BYREF
+  void **v19; // [rsp+38h] [rbp-31h] BYREF
+  void **v20; // [rsp+40h] [rbp-29h] BYREF
+  __int64 v21; // [rsp+48h] [rbp-21h] BYREF
+  __int128 v22; // [rsp+50h] [rbp-19h]
+  __int128 v23; // [rsp+60h] [rbp-9h]
+  __int128 v24; // [rsp+70h] [rbp+7h]
+  __int128 v25; // [rsp+80h] [rbp+17h] BYREF
+  __int128 v26; // [rsp+90h] [rbp+27h] BYREF
+  __int128 v27; // [rsp+A0h] [rbp+37h] BYREF
+  void **v28; // [rsp+B0h] [rbp+47h]
 
-  v8 = a1;
-  std::_Tree<std::_Tmap_traits<void *,DEVICE_INFO,std::less<void *>,std::allocator<std::pair<void * const,DEVICE_INFO>>,0>>::_Find_lower_bound<void *>(
-    a1,
-    (__int64)v10,
-    (unsigned __int64 *)&v8);
-  v3 = v11;
-  if ( *(_BYTE *)(v11 + 25) || v2 < *(_QWORD *)(v11 + 32) )
-    v3 = CPointerDeviceCache::s_deviceCache;
-  if ( v3 == (_QWORD)CPointerDeviceCache::s_deviceCache )
+  v4 = CPointerDeviceCache::s_deviceCache;
+  v18 = a1;
+  v5 = (__int64 *)CPointerDeviceCache::s_deviceCache;
+  v6 = *(__int64 **)(CPointerDeviceCache::s_deviceCache + 8);
+  if ( *((_BYTE *)v6 + 25) )
+    goto LABEL_8;
+  do
   {
-    LOBYTE(v18) = 1;
-    *((_QWORD *)&v17 + 1) = v2;
-    if ( !v2
-      || !(unsigned int)GetPointerDeviceRects(v2, &v16, &v15)
-      || !(unsigned int)GetPointerDeviceOrientation(v8, &v17) )
+    if ( v6[4] >= a1 )
     {
-      LOBYTE(v18) = 0;
+      v5 = v6;
+      v6 = (__int64 *)*v6;
     }
-    v12 = v15;
-    v13 = v16;
-    v14 = v17;
-    v9 = v18;
-    v4 = (__int64 *)std::map<void *,DEVICE_INFO>::_Try_emplace<void * const &,>(
-                      (_QWORD *)v1,
-                      (__int64)v10,
-                      (unsigned __int64 *)&v8);
-    v5 = v13;
-    v1 = *v4;
-    *(_OWORD *)(v1 + 40) = v12;
-    v6 = v14;
-    *(_OWORD *)(v1 + 56) = v5;
-    *(_OWORD *)(v1 + 72) = v6;
-    *(_QWORD *)(v1 + 88) = v9;
+    else
+    {
+      v6 = (__int64 *)v6[2];
+    }
   }
-  return (const struct DEVICE_INFO *)(*(_QWORD *)std::map<void *,DEVICE_INFO>::_Try_emplace<void * const &,>(
-                                                   (_QWORD *)v1,
-                                                   (__int64)v10,
-                                                   (unsigned __int64 *)&v8)
-                                    + 40LL);
+  while ( !*((_BYTE *)v6 + 25) );
+  if ( v5 == (__int64 *)CPointerDeviceCache::s_deviceCache || a1 < v5[4] )
+LABEL_8:
+    v5 = (__int64 *)CPointerDeviceCache::s_deviceCache;
+  if ( v5 == (__int64 *)CPointerDeviceCache::s_deviceCache )
+  {
+    LOBYTE(v28) = 1;
+    *((_QWORD *)&v27 + 1) = a1;
+    if ( a1 )
+    {
+      if ( (unsigned int)GetPointerDeviceRects(a1, &v26, &v25) && (unsigned int)GetPointerDeviceOrientation(v18, &v27) )
+      {
+        a1 = v18;
+        v4 = CPointerDeviceCache::s_deviceCache;
+        goto LABEL_16;
+      }
+      a1 = v18;
+      v4 = CPointerDeviceCache::s_deviceCache;
+    }
+    LOBYTE(v28) = 0;
+LABEL_16:
+    v7 = *(_QWORD *)(v4 + 8);
+    v8 = v4;
+    v9 = v25;
+    v10 = v26;
+    v11 = *(_BYTE *)(v7 + 25) == 0;
+    v12 = v27;
+    v13 = v28;
+    v22 = v25;
+    v23 = v26;
+    v24 = v27;
+    v19 = v28;
+    if ( !v11 )
+      goto LABEL_23;
+    do
+    {
+      if ( *(_QWORD *)(v7 + 32) >= a1 )
+      {
+        v8 = v7;
+        v7 = *(_QWORD *)v7;
+      }
+      else
+      {
+        v7 = *(_QWORD *)(v7 + 16);
+      }
+    }
+    while ( !*(_BYTE *)(v7 + 25) );
+    if ( v8 == v4 || a1 < *(_QWORD *)(v8 + 32) )
+    {
+LABEL_23:
+      v20 = (void **)&v18;
+      v14 = std::_Tree<std::_Tmap_traits<void *,DEVICE_INFO,std::less<void *>,std::allocator<std::pair<void * const,DEVICE_INFO>>,0>>::emplace_hint<std::piecewise_construct_t const &,std::tuple<void * const &>,std::tuple<>>(
+              (__int64)&v20,
+              &v21,
+              v8,
+              a4,
+              &v20);
+      v9 = v22;
+      v10 = v23;
+      v8 = *v14;
+      v12 = v24;
+      v13 = v19;
+    }
+    *(_OWORD *)(v8 + 40) = v9;
+    *(_OWORD *)(v8 + 56) = v10;
+    *(_OWORD *)(v8 + 72) = v12;
+    *(_QWORD *)(v8 + 88) = v13;
+    a1 = v18;
+    v4 = CPointerDeviceCache::s_deviceCache;
+  }
+  v15 = *(_QWORD *)(v4 + 8);
+  v16 = v4;
+  if ( *(_BYTE *)(v15 + 25) )
+    goto LABEL_32;
+  do
+  {
+    if ( *(_QWORD *)(v15 + 32) >= a1 )
+    {
+      v16 = v15;
+      v15 = *(_QWORD *)v15;
+    }
+    else
+    {
+      v15 = *(_QWORD *)(v15 + 16);
+    }
+  }
+  while ( !*(_BYTE *)(v15 + 25) );
+  if ( v16 == v4 || a1 < *(_QWORD *)(v16 + 32) )
+  {
+LABEL_32:
+    v19 = (void **)&v18;
+    v16 = *std::_Tree<std::_Tmap_traits<void *,DEVICE_INFO,std::less<void *>,std::allocator<std::pair<void * const,DEVICE_INFO>>,0>>::emplace_hint<std::piecewise_construct_t const &,std::tuple<void * const &>,std::tuple<>>(
+             (__int64)&v19,
+             &v21,
+             v16,
+             a4,
+             &v19);
+  }
+  return (const struct DEVICE_INFO *)(v16 + 40);
 }

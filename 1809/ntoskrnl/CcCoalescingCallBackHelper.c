@@ -1,13 +1,13 @@
 /*
- * XREFs of CcCoalescingCallBackHelper @ 0x140269030
+ * XREFs of CcCoalescingCallBackHelper @ 0x140269130
  * Callers:
  *     <none>
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     CcRescheduleLazyWriteScan @ 0x1400D77AC (CcRescheduleLazyWriteScan.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     CcRescheduleLazyWriteScan @ 0x1400D77CC (CcRescheduleLazyWriteScan.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall CcCoalescingCallBackHelper(__int64 a1, _DWORD *a2)

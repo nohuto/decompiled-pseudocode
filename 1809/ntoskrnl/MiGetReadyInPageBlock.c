@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetReadyInPageBlock @ 0x14084F30C
+ * XREFs of MiGetReadyInPageBlock @ 0x14084F2EC
  * Callers:
- *     MiSwitchToTransition @ 0x1402AF540 (MiSwitchToTransition.c)
+ *     MiSwitchToTransition @ 0x1402AF640 (MiSwitchToTransition.c)
  * Callees:
  *     MiLocateVadEvent @ 0x140027BCC (MiLocateVadEvent.c)
  *     MiGetInPageSupportBlock @ 0x14002C610 (MiGetInPageSupportBlock.c)

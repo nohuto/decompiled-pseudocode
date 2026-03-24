@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInitializeLateSystemActions @ 0x1403B6408
+ * XREFs of HalpInitializeLateSystemActions @ 0x1403A839C
  * Callers:
- *     HalpDispatchPnp @ 0x140829D70 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x1407645A0 (HalpDispatchPnp.c)
  * Callees:
- *     HalpInitSystemHelper @ 0x140A8C358 (HalpInitSystemHelper.c)
+ *     HalpInitSystemHelper @ 0x14099B988 (HalpInitSystemHelper.c)
  */
 
 __int64 HalpInitializeLateSystemActions()
 {
-  return HalpInitSystemHelper(31LL, 33LL, 0LL);
+  return HalpInitSystemHelper(31LL);
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of imp_WdfUsbTargetDeviceSelectConfig @ 0x1C0078A20
+ * XREFs of imp_WdfUsbTargetDeviceSelectConfig @ 0x1C006B670
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_qLd @ 0x1C002C4F0 (WPP_IFR_SF_qLd.c)
- *     WPP_IFR_SF_DDd @ 0x1C0052E4C (WPP_IFR_SF_DDd.c)
- *     WPP_IFR_SF_dd @ 0x1C0053078 (WPP_IFR_SF_dd.c)
- *     WPP_IFR_SF_qddd @ 0x1C0053A68 (WPP_IFR_SF_qddd.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
- *     WPP_IFR_SF_qqddd @ 0x1C006CB20 (WPP_IFR_SF_qqddd.c)
- *     WPP_IFR_SF_qqDLd @ 0x1C0077AEC (WPP_IFR_SF_qqDLd.c)
- *     WPP_IFR_SF_qqLd @ 0x1C0077C28 (WPP_IFR_SF_qqLd.c)
- *     ?Deconfig@FxUsbDevice@@QEAAJXZ @ 0x1C007CC50 (-Deconfig@FxUsbDevice@@QEAAJXZ.c)
- *     ?SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z @ 0x1C007D5CC (-SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z.c)
- *     ?SelectConfigDescriptor@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT_CONFIG_PARAMS@@@Z @ 0x1C007DD10 (-SelectConfigDescriptor@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT.c)
- *     ?SelectConfigMulti@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT_CONFIG_PARAMS@@@Z @ 0x1C0080138 (-SelectConfigMulti@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT_CONF.c)
- *     ?SelectConfigSingle@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT_CONFIG_PARAMS@@@Z @ 0x1C0080420 (-SelectConfigSingle@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT_CON.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     WPP_IFR_SF_DDd @ 0x1C002E6DC (WPP_IFR_SF_DDd.c)
+ *     WPP_IFR_SF_dd @ 0x1C002E818 (WPP_IFR_SF_dd.c)
+ *     WPP_IFR_SF_qDd @ 0x1C002F728 (WPP_IFR_SF_qDd.c)
+ *     WPP_IFR_SF_qddd @ 0x1C002F86C (WPP_IFR_SF_qddd.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     WPP_IFR_SF_qqddd @ 0x1C0059310 (WPP_IFR_SF_qqddd.c)
+ *     WPP_IFR_SF_qqDLd @ 0x1C006A690 (WPP_IFR_SF_qqDLd.c)
+ *     WPP_IFR_SF_qqLd @ 0x1C006A7CC (WPP_IFR_SF_qqLd.c)
+ *     ?Deconfig@FxUsbDevice@@QEAAJXZ @ 0x1C007047C (-Deconfig@FxUsbDevice@@QEAAJXZ.c)
+ *     ?SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z @ 0x1C0070ECC (-SelectConfig@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@W4_FX_URB_TYPE@@PEAE@Z.c)
+ *     ?SelectConfigDescriptor@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT_CONFIG_PARAMS@@@Z @ 0x1C00715D8 (-SelectConfigDescriptor@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT.c)
+ *     ?SelectConfigMulti@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT_CONFIG_PARAMS@@@Z @ 0x1C00738CC (-SelectConfigMulti@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT_CONF.c)
+ *     ?SelectConfigSingle@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT_CONFIG_PARAMS@@@Z @ 0x1C0073BA0 (-SelectConfigSingle@FxUsbDevice@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_USB_DEVICE_SELECT_CON.c)
  */
 
 __int64 __fastcall imp_WdfUsbTargetDeviceSelectConfig(
@@ -29,7 +29,7 @@ __int64 __fastcall imp_WdfUsbTargetDeviceSelectConfig(
         _WDF_OBJECT_ATTRIBUTES *PipesAttributes,
         _WDF_USB_DEVICE_SELECT_CONFIG_PARAMS *Params)
 {
-  _FX_DRIVER_GLOBALS *v4; // r15
+  _FX_DRIVER_GLOBALS *DriverName; // r15
   _FX_DRIVER_GLOBALS *m_Globals; // rbp
   __int64 result; // rax
   unsigned __int8 v10; // dl
@@ -55,10 +55,10 @@ __int64 __fastcall imp_WdfUsbTargetDeviceSelectConfig(
   FxUsbDevice *pUsbDevice; // [rsp+80h] [rbp+8h] BYREF
   FxUsbInterface *pUsbInterface; // [rsp+98h] [rbp+20h] BYREF
 
-  v4 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   pUsbDevice = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)UsbDevice,
     0x1202u,
     (void **)&pUsbDevice);
@@ -86,7 +86,7 @@ __int64 __fastcall imp_WdfUsbTargetDeviceSelectConfig(
     if ( pUsbDevice->m_MismatchedInterfacesInConfigDescriptor )
     {
       v14 = -1073741808;
-      WPP_IFR_SF_qLd(
+      WPP_IFR_SF_qDd(
         m_Globals,
         v10,
         0xEu,
@@ -94,13 +94,13 @@ __int64 __fastcall imp_WdfUsbTargetDeviceSelectConfig(
         WPP_FxUsbDeviceAPI_cpp_Traceguids,
         UsbDevice,
         Params->Type,
-        -1073741808);
+        0xC0000010);
       return v14;
     }
     m_NumInterfaces = pUsbDevice->m_NumInterfaces;
     if ( !m_NumInterfaces )
     {
-      WPP_IFR_SF_qLd(m_Globals, 0, 0xEu, 0x13u, WPP_FxUsbDeviceAPI_cpp_Traceguids, UsbDevice, Params->Type, 0);
+      WPP_IFR_SF_qDd(m_Globals, 0, 0xEu, 0x13u, WPP_FxUsbDeviceAPI_cpp_Traceguids, UsbDevice, Params->Type, 0);
       return 0LL;
     }
     if ( Params->Type == WdfUsbTargetDeviceSelectConfigTypeDeconfig )
@@ -183,7 +183,7 @@ __int64 __fastcall imp_WdfUsbTargetDeviceSelectConfig(
         {
           pUsbInterface = 0LL;
           v25 = &Params->Types.Descriptor.InterfaceDescriptors[2 * v24];
-          FxObjectHandleGetPtr(v4, (unsigned __int64)*v25, 0x1204u, (void **)&pUsbInterface);
+          FxObjectHandleGetPtr(DriverName, (unsigned __int64)*v25, 0x1204u, (void **)&pUsbInterface);
           if ( *((_BYTE *)v25 + 8) >= pUsbInterface->m_NumSettings )
             break;
           if ( ++v24 >= Params->Types.SingleInterface.NumberConfiguredPipes )

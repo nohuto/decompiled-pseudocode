@@ -1,12 +1,12 @@
 /*
- * XREFs of ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C00529E0
+ * XREFs of ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C002D6A4
  * Callers:
- *     ??1FxPkgIo@@UEAA@XZ @ 0x1C00339E0 (--1FxPkgIo@@UEAA@XZ.c)
- *     ??_GFxIrpPreprocessInfo@@QEAAPEAXI@Z @ 0x1C0068E84 (--_GFxIrpPreprocessInfo@@QEAAPEAXI@Z.c)
- *     ??1FxTagTracker@@QEAA@XZ @ 0x1C006E408 (--1FxTagTracker@@QEAA@XZ.c)
- *     ??1FxUsbPipeContinuousReader@@QEAA@XZ @ 0x1C007939C (--1FxUsbPipeContinuousReader@@QEAA@XZ.c)
+ *     ??_GFxIrpPreprocessInfo@@QEAAPEAXI@Z @ 0x1C004FC84 (--_GFxIrpPreprocessInfo@@QEAAPEAXI@Z.c)
+ *     ??1FxTagTracker@@QEAA@XZ @ 0x1C005B4C0 (--1FxTagTracker@@QEAA@XZ.c)
+ *     ??1FxUsbPipeContinuousReader@@QEAA@XZ @ 0x1C006C810 (--1FxUsbPipeContinuousReader@@QEAA@XZ.c)
+ *     ??1FxPkgIo@@UEAA@XZ @ 0x1C0074848 (--1FxPkgIo@@UEAA@XZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall `vector destructor iterator'(

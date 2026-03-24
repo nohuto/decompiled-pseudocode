@@ -1,13 +1,13 @@
 /*
- * XREFs of PpProfileCancelHardwareProfileTransition @ 0x140963B40
+ * XREFs of PpProfileCancelHardwareProfileTransition @ 0x1408AB3F8
  * Callers:
- *     PipProcessStartPhase2 @ 0x1407913A8 (PipProcessStartPhase2.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
+ *     PipProcessStartPhase2 @ 0x14073A19C (PipProcessStartPhase2.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeReleaseSemaphore @ 0x140321250 (KeReleaseSemaphore.c)
- *     PnpRequestHwProfileChangeNotification @ 0x140956AC8 (PnpRequestHwProfileChangeNotification.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     KeReleaseSemaphore @ 0x1402F19A0 (KeReleaseSemaphore.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x14089FDE8 (PnpRequestHwProfileChangeNotification.c)
  */
 
 LONG PpProfileCancelHardwareProfileTransition()
@@ -23,7 +23,7 @@ LONG PpProfileCancelHardwareProfileTransition()
       *((_DWORD *)i - 2) = 1;
     }
   }
-  ExReleaseFastMutex(&PiProfileDeviceListLock);
+  KeReleaseGuardedMutex(&PiProfileDeviceListLock);
   if ( PiProfileChangeCancelRequired )
     PnpRequestHwProfileChangeNotification(&GUID_HWPROFILE_CHANGE_CANCELLED, 2, 0LL, 0LL);
   return KeReleaseSemaphore(&PiProfileChangeSemaphore, 0, 1, 0);

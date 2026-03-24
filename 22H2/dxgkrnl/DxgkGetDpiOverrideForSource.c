@@ -1,82 +1,74 @@
 /*
- * XREFs of DxgkGetDpiOverrideForSource @ 0x1C01E9C60
+ * XREFs of DxgkGetDpiOverrideForSource @ 0x1C016D220
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C0007174 (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z @ 0x1C0184BC0 (-ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z.c)
- *     DxgkReleaseSessionModeChangeLock @ 0x1C019D2BC (DxgkReleaseSessionModeChangeLock.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C000A3B8 (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     DxgkReleaseSessionModeChangeLock @ 0x1C0120374 (DxgkReleaseSessionModeChangeLock.c)
+ *     ?ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z @ 0x1C014B710 (-ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z.c)
  */
 
 __int64 __fastcall DxgkGetDpiOverrideForSource(struct _LUID *this, struct _LUID *a2, __int64 a3)
 {
-  unsigned int v3; // ebx
+  unsigned int v3; // edi
   int v5; // eax
-  unsigned int v6; // ebx
+  __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v10; // rbx
-  int v11; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v12; // [rsp+58h] [rbp-18h]
-  char v13; // [rsp+60h] [rbp-10h]
-  char v14; // [rsp+90h] [rbp+20h] BYREF
-  int v15; // [rsp+98h] [rbp+28h] BYREF
+  __int64 v8; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  unsigned int v11; // ebx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v15; // rax
+  int v16; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v17; // [rsp+28h] [rbp-18h]
+  char v18; // [rsp+30h] [rbp-10h]
+  char v19; // [rsp+70h] [rbp+30h] BYREF
+  int v20; // [rsp+78h] [rbp+38h] BYREF
 
-  v11 = -1;
+  v16 = -1;
   v3 = (unsigned int)a2;
-  v12 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v17 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v13 = 1;
-    v11 = 2193;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v18 = 1;
+    v16 = 2193;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, a3, 2193);
   }
   else
   {
-    v13 = 0;
+    v18 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v11, 2193);
-  v14 = 0;
-  v5 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v14, 0);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v16, 2193LL);
+  v19 = 0;
+  v5 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v19, 0);
+  v8 = v5;
   if ( v5 < 0 )
   {
-    v10 = v5;
-    WdLogSingleEntry1(2LL, v5);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to acquire session mode change lock shared (Status = 0x%I64x)",
-      v10,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v15 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v15 + 24) = v8;
+    WdLogEvent5_WdError(v15);
   }
   else
   {
-    v15 = 0;
-    if ( (int)DpiPersistence::ReadDpiFromRegistry(this, (const struct _LUID *)v3, 0, (struct _UNICODE_STRING *)&v15) >= 0 )
+    v20 = 0;
+    if ( (int)DpiPersistence::ReadDpiFromRegistry(this, (const struct _LUID *)v3, 0, (struct _UNICODE_STRING *)&v20) >= 0 )
     {
-      v6 = v15;
+      v11 = v20;
       goto LABEL_6;
     }
   }
-  v6 = 0;
+  v11 = 0;
 LABEL_6:
-  if ( v14 )
-    DxgkReleaseSessionModeChangeLock();
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v11);
-  if ( v13 )
-  {
-    LOBYTE(v7) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v7, &EventProfilerExit, v8, v11);
-  }
-  return v6;
+  if ( v19 )
+    DxgkReleaseSessionModeChangeLock(v10, v9);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v16, v9);
+  if ( v18 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v12, &EventProfilerExit, v13, v16);
+  return v11;
 }

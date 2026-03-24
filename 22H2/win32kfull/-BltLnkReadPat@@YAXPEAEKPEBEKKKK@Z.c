@@ -1,5 +1,5 @@
 /*
- * XREFs of ?BltLnkReadPat@@YAXPEAEKPEBEKKKK@Z @ 0x1C015F380
+ * XREFs of ?BltLnkReadPat@@YAXPEAEKPEBEKKKK@Z @ 0x1C00C8AB0
  * Callers:
  *     <none>
  * Callees:
@@ -15,28 +15,29 @@ void __fastcall BltLnkReadPat(
         unsigned int a6,
         unsigned int a7)
 {
-  unsigned int v8; // edx
-  __int64 v9; // rax
+  unsigned int v9; // eax
+  __int64 v10; // rcx
 
-  v8 = a6;
+  v9 = a6;
   switch ( a7 )
   {
     case 2u:
-      v8 = 2 * a6;
+      v9 = 2 * a6;
       break;
     case 3u:
-      v8 = 3 * a6;
+      v9 = 3 * a6;
       break;
     case 4u:
-      v8 = 4 * a6;
+      v9 = 4 * a6;
       break;
   }
-  for ( ; v8; --v8 )
+  for ( ; v9; --v9 )
   {
-    v9 = 0LL;
+    v10 = 0LL;
+    ++a1;
     if ( a5 != a4 )
-      v9 = a5;
-    a5 = v9 + 1;
-    *a1++ = a3[v9];
+      v10 = a5;
+    a5 = v10 + 1;
+    *(a1 - 1) = a3[v10];
   }
 }

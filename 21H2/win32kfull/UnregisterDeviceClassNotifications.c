@@ -1,9 +1,9 @@
 /*
- * XREFs of UnregisterDeviceClassNotifications @ 0x1C0123918
+ * XREFs of UnregisterDeviceClassNotifications @ 0x1C0128C60
  * Callers:
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C00F099C (-InitiateWin32kCleanup@@YAHXZ.c)
- *     xxxRemoteDisconnect @ 0x1C0123098 (xxxRemoteDisconnect.c)
- *     xxxRemoteReconnect @ 0x1C01528E0 (xxxRemoteReconnect.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     xxxRemoteDisconnect @ 0x1C0128460 (xxxRemoteDisconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0162570 (xxxRemoteReconnect.c)
  * Callees:
  *     <none>
  */

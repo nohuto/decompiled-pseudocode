@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1406460B8
+ * XREFs of WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405BD510
  * Callers:
- *     WheaHighIrqlLogSelEventHandlerRegister @ 0x140645EA0 (WheaHighIrqlLogSelEventHandlerRegister.c)
- *     WheaHighIrqlLogSelEventHandlerUnregister @ 0x140645F10 (WheaHighIrqlLogSelEventHandlerUnregister.c)
- *     WheapLogIpmiSELEventHighIrql @ 0x140646180 (WheapLogIpmiSELEventHighIrql.c)
+ *     WheaHighIrqlLogSelEventHandlerRegister @ 0x1405BD360 (WheaHighIrqlLogSelEventHandlerRegister.c)
+ *     WheaHighIrqlLogSelEventHandlerUnregister @ 0x1405BD3D0 (WheaHighIrqlLogSelEventHandlerUnregister.c)
+ *     WheapLogIpmiSELEventHighIrql @ 0x1405BD5D8 (WheapLogIpmiSELEventHighIrql.c)
  * Callees:
  *     <none>
  */
@@ -13,10 +13,7 @@ char __fastcall WheapHighIrqlLogSelEventHandlerAcquireLock(char a1)
   char v1; // dl
 
   v1 = 0;
-  while ( _InterlockedCompareExchange(
-            (volatile signed __int32 *)(&WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters + 1),
-            1,
-            0) )
+  while ( _InterlockedCompareExchange((_DWORD *)&WheapDispatchPtr.Queue.Wcb.DeviceRoutine + 1, 1, 0) )
   {
     if ( !a1 )
       return v1;

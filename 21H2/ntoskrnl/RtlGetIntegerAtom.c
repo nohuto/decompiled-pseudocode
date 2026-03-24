@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlGetIntegerAtom @ 0x1407A0DF0
+ * XREFs of RtlGetIntegerAtom @ 0x14061B6E0
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x1402F1090 (RtlAddAtomToAtomTableEx.c)
- *     RtlLookupAtomInAtomTable @ 0x1407A0C90 (RtlLookupAtomInAtomTable.c)
+ *     RtlAddAtomToAtomTableEx @ 0x14025A350 (RtlAddAtomToAtomTableEx.c)
+ *     RtlLookupAtomInAtomTable @ 0x14061B580 (RtlLookupAtomInAtomTable.c)
  * Callees:
- *     RtlUnicodeStringToInteger @ 0x140698DE0 (RtlUnicodeStringToInteger.c)
+ *     RtlUnicodeStringToInteger @ 0x140684670 (RtlUnicodeStringToInteger.c)
  */
 
 char __fastcall RtlGetIntegerAtom(unsigned __int64 a1, _WORD *a2)

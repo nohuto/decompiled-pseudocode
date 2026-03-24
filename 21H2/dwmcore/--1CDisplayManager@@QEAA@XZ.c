@@ -1,13 +1,15 @@
 /*
- * XREFs of ??1CDisplayManager@@QEAA@XZ @ 0x180100444
+ * XREFs of ??1CDisplayManager@@QEAA@XZ @ 0x1800E6880
  * Callers:
- *     _dynamic_atexit_destructor_for__g_DisplayManager__ @ 0x18010DAF0 (_dynamic_atexit_destructor_for__g_DisplayManager__.c)
+ *     _dynamic_atexit_destructor_for__g_DisplayManager__ @ 0x1800F9960 (_dynamic_atexit_destructor_for__g_DisplayManager__.c)
  * Callees:
- *     ??1?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@IEAA@XZ @ 0x18002D294 (--1-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@wil@.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
  */
 
 void __fastcall CDisplayManager::~CDisplayManager(CDisplayManager *this)
 {
-  wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::~unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>((void **)this + 6);
-  DeleteCriticalSection((LPCRITICAL_SECTION)this);
+  if ( (char *)hObject - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL )
+    CloseHandle(hObject);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&qword_18034B5F8);
+  DeleteCriticalSection(&g_DisplayManager);
 }

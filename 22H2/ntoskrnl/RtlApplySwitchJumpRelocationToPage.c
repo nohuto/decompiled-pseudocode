@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlApplySwitchJumpRelocationToPage @ 0x14067A5B0
+ * XREFs of RtlApplySwitchJumpRelocationToPage @ 0x14058FD10
  * Callers:
- *     MiApplyRetpolineFixups @ 0x140325420 (MiApplyRetpolineFixups.c)
+ *     MiApplyRetpolineFixups @ 0x1402F45E4 (MiApplyRetpolineFixups.c)
  * Callees:
- *     RtlpApplyGenericRetpolineFixup @ 0x1403253B0 (RtlpApplyGenericRetpolineFixup.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlpConstructSwitchJumpRelocationFixup @ 0x14067AC24 (RtlpConstructSwitchJumpRelocationFixup.c)
+ *     RtlpApplyGenericRetpolineFixup @ 0x1402F4790 (RtlpApplyGenericRetpolineFixup.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlpConstructSwitchJumpRelocationFixup @ 0x1405903A4 (RtlpConstructSwitchJumpRelocationFixup.c)
  */
 
 _BYTE *__fastcall RtlApplySwitchJumpRelocationToPage(

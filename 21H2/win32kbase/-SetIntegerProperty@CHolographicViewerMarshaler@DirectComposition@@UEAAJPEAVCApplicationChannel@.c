@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022E090
+ * XREFs of ?SetIntegerProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01EE760
  * Callers:
  *     <none>
  * Callees:
@@ -24,13 +24,13 @@ __int64 __fastcall DirectComposition::CHolographicViewerMarshaler::SetIntegerPro
   v5 = 0;
   if ( !a3 )
   {
-    v11 = *((_DWORD *)this + 17);
+    v11 = *((_DWORD *)this + 15);
     if ( (v11 & 1) == 0 )
     {
       if ( a4 )
       {
-        *((_DWORD *)this + 18) = a4;
-        *((_DWORD *)this + 17) = v11 | 1;
+        *((_DWORD *)this + 16) = a4;
+        *((_DWORD *)this + 15) = v11 | 1;
         *a5 = 1;
         return v5;
       }
@@ -41,12 +41,12 @@ __int64 __fastcall DirectComposition::CHolographicViewerMarshaler::SetIntegerPro
   v6 = a3 - 1;
   if ( !v6 )
   {
-    v10 = *((_DWORD *)this + 17);
+    v10 = *((_DWORD *)this + 15);
     if ( (v10 & 2) == 0 )
     {
       if ( !a4 )
         return (unsigned int)-1073741811;
-      *((_DWORD *)this + 19) = a4;
+      *((_DWORD *)this + 17) = a4;
       v9 = v10 | 2;
       goto LABEL_13;
     }
@@ -55,25 +55,25 @@ __int64 __fastcall DirectComposition::CHolographicViewerMarshaler::SetIntegerPro
   v7 = v6 - 4;
   if ( !v7 )
   {
-    v8 = *((_DWORD *)this + 17);
+    v8 = *((_DWORD *)this + 15);
     if ( (v8 & 4) == 0 )
     {
       if ( a4 > 2 )
         return (unsigned int)-1073741811;
-      *((_DWORD *)this + 20) = a4;
+      *((_DWORD *)this + 18) = a4;
       v9 = v8 | 4;
 LABEL_13:
-      *((_DWORD *)this + 17) = v9;
+      *((_DWORD *)this + 15) = v9;
       goto LABEL_14;
     }
     return (unsigned int)-1073741790;
   }
   if ( v7 != 2 )
     return (unsigned int)-1073741811;
-  if ( *((_DWORD *)this + 30) != (_DWORD)a4 )
+  if ( *((_DWORD *)this + 28) != (_DWORD)a4 )
   {
-    *((_DWORD *)this + 16) |= 0x40u;
-    *((_DWORD *)this + 30) = a4;
+    *((_DWORD *)this + 14) |= 0x40u;
+    *((_DWORD *)this + 28) = a4;
 LABEL_14:
     *a5 = 1;
   }

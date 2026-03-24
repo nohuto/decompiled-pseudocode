@@ -1,18 +1,18 @@
 /*
- * XREFs of MiOutSwapKernelStackPage @ 0x140260054
+ * XREFs of MiOutSwapKernelStackPage @ 0x14035C6E0
  * Callers:
- *     MiOutPageSingleKernelStack @ 0x1402704A0 (MiOutPageSingleKernelStack.c)
+ *     MiOutPageSingleKernelStack @ 0x1402D5A60 (MiOutPageSingleKernelStack.c)
  * Callees:
- *     MiOutSwapWorkingSet @ 0x1402608AC (MiOutSwapWorkingSet.c)
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     MiOutSwapWorkingSet @ 0x14035CE28 (MiOutSwapWorkingSet.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall MiOutSwapKernelStackPage(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx
-  __int64 AnyMultiplexedVm; // rax
+  char *AnyMultiplexedVm; // rax
   __int128 v8; // xmm0
   __int64 result; // rax
   _QWORD v10[20]; // [rsp+30h] [rbp-C8h] BYREF
@@ -24,12 +24,12 @@ __int64 __fastcall MiOutSwapKernelStackPage(__int64 a1, __int64 a2, __int64 a3)
     return 3221225993LL;
   memset(v10, 0, 0x98uLL);
   v10[0] = v3;
-  AnyMultiplexedVm = MiGetAnyMultiplexedVm(4LL);
+  AnyMultiplexedVm = MiGetAnyMultiplexedVm(4);
   v8 = *(_OWORD *)(a1 + 64);
   v10[2] = AnyMultiplexedVm;
   v10[3] = a2;
   *(_OWORD *)&v10[5] = v8;
-  MiOutSwapWorkingSet(AnyMultiplexedVm, 0, a3 << 25 >> 16, a3 << 25 >> 16, (__int64)v10);
+  MiOutSwapWorkingSet((_DWORD)AnyMultiplexedVm, 0, a3 << 25 >> 16, a3 << 25 >> 16, (__int64)v10);
   result = 0LL;
   *(_OWORD *)(a1 + 64) = *(_OWORD *)&v10[5];
   return result;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSceneSurfaceMaterialInput@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180251590
+ * XREFs of ?IsOfType@CSceneSurfaceMaterialInput@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801EBE40
  * Callers:
  *     <none>
  * Callees:

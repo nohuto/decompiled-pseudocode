@@ -1,16 +1,17 @@
 /*
- * XREFs of ?PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18007F044
+ * XREFs of ?PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z @ 0x180090948
  * Callers:
- *     ?EndFrame@CDrawingContext@@QEAAJXZ @ 0x18007E408 (-EndFrame@CDrawingContext@@QEAAJXZ.c)
- *     ?RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV?$span@PEBVCVisual@@$0?0@gsl@@PEAVCComposeTop@@@Z @ 0x1800B8DF8 (-RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV-$span@.c)
- *     ?RestoreState@CExternalLayer@@EEAAJPEAVCDrawingContext@@@Z @ 0x1800D1AB0 (-RestoreState@CExternalLayer@@EEAAJPEAVCDrawingContext@@@Z.c)
- *     ?RestoreRenderTarget@CExternalLayer@@IEAAJPEAVCDrawingContext@@@Z @ 0x1801D8424 (-RestoreRenderTarget@CExternalLayer@@IEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?RestoreState@CExternalLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x180041420 (-RestoreState@CExternalLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?EndFrame@CDrawingContext@@QEAAJXZ @ 0x1800908C4 (-EndFrame@CDrawingContext@@QEAAJXZ.c)
+ *     ?RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCComposeTop@@@Z @ 0x180092098 (-RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCCompose.c)
+ *     ?RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCComposeTop@@@Z @ 0x18018CE0C (-RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCCompo.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z @ 0x18007F150 (-PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D92A8 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?UpdateRenderTargetInfo@CDrawingContext@@AEAAXXZ @ 0x1800DE6B4 (-UpdateRenderTargetInfo@CDrawingContext@@AEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800563A4 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z @ 0x180090A20 (-PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z.c)
+ *     ?reset@?$com_ptr_t@VIDDASwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800C5BB4 (-reset@-$com_ptr_t@VIDDASwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?UpdateRenderTargetInfo@CDrawingContext@@AEAAXXZ @ 0x1800D4F30 (-UpdateRenderTargetInfo@CDrawingContext@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDrawingContext::PopRenderTargetInternal(CDrawingContext *this, char a2)
@@ -18,51 +19,46 @@ __int64 __fastcall CDrawingContext::PopRenderTargetInternal(CDrawingContext *thi
   __int64 v2; // rbx
   int v5; // eax
   __int64 v6; // rcx
-  unsigned int v7; // esi
+  unsigned int v7; // ebx
   struct IDeviceTarget **v8; // rcx
-  struct IDeviceTarget *v9; // rbx
+  struct IDeviceTarget *v10; // rax
   struct IDeviceTarget *v11; // rdx
   __int64 v12; // rcx
-  char *v13; // rcx
-  __int64 v14; // rcx
-  struct IDeviceTarget *v15; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v13; // rcx
+  struct IDeviceTarget *v14; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = *((_QWORD *)this + 5);
-  v15 = 0LL;
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(&v15);
-  v5 = CD2DContext::PopTarget((CD2DContext *)(v2 + 16), (CDrawingContext *)((char *)this + 24), &v15);
+  v14 = 0LL;
+  wil::com_ptr_t<IDDASwapChain,wil::err_returncode_policy>::reset(&v14);
+  v5 = CD2DContext::PopTarget((CD2DContext *)(v2 + 16), (CDrawingContext *)((char *)this + 24), &v14);
   v7 = v5;
   if ( v5 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0xB4u);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0xB9u, 0LL);
   if ( g_LockAndReadD2DTarget )
   {
-    v14 = *((_QWORD *)this + 4) + 8LL + *(int *)(*(_QWORD *)(*((_QWORD *)this + 4) + 8LL) + 16LL);
-    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v14 + 24LL))(v14, (char *)this + 24);
+    v13 = *((_QWORD *)this + 4) + 8LL + *(int *)(*(_QWORD *)(*((_QWORD *)this + 4) + 8LL) + 16LL);
+    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v13 + 24LL))(v13, (char *)this + 24);
   }
   v8 = (struct IDeviceTarget **)((char *)this + 32);
   if ( a2 )
   {
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(v8);
-    v9 = v15;
+    wil::com_ptr_t<IDDASwapChain,wil::err_returncode_policy>::reset(v8);
   }
   else
   {
+    v10 = v14;
     v11 = *v8;
-    v9 = 0LL;
-    *v8 = v15;
+    v14 = 0LL;
+    *v8 = v10;
     if ( v11 )
     {
       v12 = (__int64)v11 + *(int *)(*((_QWORD *)v11 + 1) + 4LL) + 8;
       (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
     }
     CDrawingContext::UpdateRenderTargetInfo(this);
-    --*((_DWORD *)this + 222);
+    --*((_DWORD *)this + 240);
   }
-  *((_BYTE *)this + 8041) = 1;
-  if ( v9 )
-  {
-    v13 = (char *)v9 + *(int *)(*((_QWORD *)v9 + 1) + 4LL) + 8;
-    (*(void (__fastcall **)(char *))(*(_QWORD *)v13 + 16LL))(v13);
-  }
+  *((_BYTE *)this + 5954) = 1;
+  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)&v14);
   return v7;
 }

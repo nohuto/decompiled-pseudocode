@@ -1,9 +1,9 @@
 /*
- * XREFs of UserDetachQueueFromInputWindowApiExt @ 0x1C010E3B0
+ * XREFs of UserDetachQueueFromInputWindowApiExt @ 0x1C00F2F40
  * Callers:
  *     <none>
  * Callees:
- *     UserDetachQueueFromInputWindow @ 0x1C010E3C8 (UserDetachQueueFromInputWindow.c)
+ *     UserDetachQueueFromInputWindow @ 0x1C00F2F58 (UserDetachQueueFromInputWindow.c)
  */
 
 __int64 UserDetachQueueFromInputWindowApiExt()

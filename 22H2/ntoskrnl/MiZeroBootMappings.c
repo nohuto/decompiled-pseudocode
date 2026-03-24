@@ -1,13 +1,13 @@
 /*
- * XREFs of MiZeroBootMappings @ 0x140B5AD24
+ * XREFs of MiZeroBootMappings @ 0x140A5661C
  * Callers:
- *     MiInitNucleus @ 0x140B44F88 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42364 (MiInitNucleus.c)
  * Callees:
- *     KeFlushCurrentTbOnly @ 0x14038A330 (KeFlushCurrentTbOnly.c)
- *     MxZeroBootMappings @ 0x140B5BE78 (MxZeroBootMappings.c)
+ *     KeFlushCurrentTbOnly @ 0x1403B6E38 (KeFlushCurrentTbOnly.c)
+ *     MxZeroBootMappings @ 0x140A5767C (MxZeroBootMappings.c)
  */
 
-__int64 MiZeroBootMappings()
+struct _KTHREAD *MiZeroBootMappings()
 {
   unsigned __int64 v0; // rcx
   unsigned __int64 v1; // rdx

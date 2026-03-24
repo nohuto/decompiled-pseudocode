@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ECD3DResource@@MEAAPEAXI@Z @ 0x180288170
+ * XREFs of ??_ECD3DResource@@MEAAPEAXI@Z @ 0x180238D80
  * Callers:
  *     <none>
  * Callees:
- *     ??1CD3DResource@@MEAA@XZ @ 0x1800D0E94 (--1CD3DResource@@MEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??1CD3DResource@@MEAA@XZ @ 0x18002BD88 (--1CD3DResource@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
  */
 
 CD3DResource *__fastcall CD3DResource::`vector deleting destructor'(CD3DResource *this, char a2)

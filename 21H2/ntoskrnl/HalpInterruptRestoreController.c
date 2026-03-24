@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptRestoreController @ 0x140396364
+ * XREFs of HalpInterruptRestoreController @ 0x14038B5B0
  * Callers:
- *     HalpInterruptInitializeLocalUnit @ 0x1403B0A04 (HalpInterruptInitializeLocalUnit.c)
- *     HalpInterruptPowerChange @ 0x14051DF24 (HalpInterruptPowerChange.c)
- *     HalpInterruptRestoreAllControllerState @ 0x140A51670 (HalpInterruptRestoreAllControllerState.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x1403A3D0C (HalpInterruptInitializeLocalUnit.c)
+ *     HalpInterruptPowerChange @ 0x1404D1974 (HalpInterruptPowerChange.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140997CA0 (HalpInterruptRestoreAllControllerState.c)
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x140251FD8 (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptSetLineStateInternal @ 0x140378BAC (HalpInterruptSetLineStateInternal.c)
  */
 
 __int64 __fastcall HalpInterruptRestoreController(__int64 a1, char a2)
@@ -21,13 +21,13 @@ __int64 __fastcall HalpInterruptRestoreController(__int64 a1, char a2)
   __int64 v12; // [rsp+50h] [rbp+8h] BYREF
 
   v12 = 0LL;
-  v3 = *(_DWORD *)(a1 + 232);
+  v3 = *(_DWORD *)(a1 + 224);
   if ( (v3 & 2) != 0 )
     return 3221225473LL;
   if ( (v3 & 1) == 0 )
     return 3221225860LL;
-  v5 = (_QWORD *)(a1 + 248);
-  v6 = *(_QWORD **)(a1 + 248);
+  v5 = (_QWORD *)(a1 + 240);
+  v6 = *(_QWORD **)(a1 + 240);
   while ( 1 )
   {
 LABEL_7:
@@ -48,7 +48,7 @@ LABEL_7:
   {
     if ( (*(_DWORD *)(v8 + v10[5] + 12) & 0x10) != 0 || *(_BYTE *)(v9 + v10[6]) )
     {
-      LODWORD(v12) = *(_DWORD *)(a1 + 240);
+      LODWORD(v12) = *(_DWORD *)(a1 + 232);
       HIDWORD(v12) = v7 + *((_DWORD *)v10 + 5);
       result = HalpInterruptSetLineStateInternal(a1, (__int64)&v12, v10[5] + 56LL * v7);
       if ( (int)result < 0 )

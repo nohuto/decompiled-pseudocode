@@ -1,21 +1,21 @@
 /*
- * XREFs of ACPISystemPowerProcessSxD @ 0x1C00A1604
+ * XREFs of ACPISystemPowerProcessSxD @ 0x1C00A1914
  * Callers:
- *     ACPISystemPowerInitializeRootMapping @ 0x1C00058F8 (ACPISystemPowerInitializeRootMapping.c)
+ *     ACPISystemPowerInitializeRootMapping @ 0x1C002BBB0 (ACPISystemPowerInitializeRootMapping.c)
  * Callees:
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     ACPISystemPowerGetSxD @ 0x1C0094BF8 (ACPISystemPowerGetSxD.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPISystemPowerGetSxD @ 0x1C009E290 (ACPISystemPowerGetSxD.c)
  */
 
-__int64 __fastcall ACPISystemPowerProcessSxD(_QWORD *a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall ACPISystemPowerProcessSxD(__int64 *a1, __int64 a2, _BYTE *a3)
 {
   int *v3; // rbx
   int i; // edi
   int v7; // eax
   int SxD; // eax
   char v10; // r8
-  void *v11; // r10
-  void *v12; // rdx
+  char *v11; // r10
+  char *v12; // rdx
   __int64 v13; // rcx
   int v14; // eax
   int v15; // [rsp+70h] [rbp+18h] BYREF
@@ -28,7 +28,7 @@ __int64 __fastcall ACPISystemPowerProcessSxD(_QWORD *a1, __int64 a2, _BYTE *a3)
     v7 = AcpiSupportedSystemStates;
     if ( _bittest(&v7, i) )
     {
-      SxD = ACPISystemPowerGetSxD((__int64)a1, i, &v15);
+      SxD = ACPISystemPowerGetSxD(a1, i, &v15);
       if ( SxD != -1073741772 )
       {
         if ( SxD >= 0 )
@@ -41,17 +41,17 @@ __int64 __fastcall ACPISystemPowerProcessSxD(_QWORD *a1, __int64 a2, _BYTE *a3)
         else
         {
           v10 = 0;
-          v11 = &unk_1C006FB8B;
-          v12 = &unk_1C006FB8B;
+          v11 = byte_1C00701BA;
+          v12 = byte_1C00701BA;
           if ( a1 )
           {
             v13 = a1[1];
             v10 = (char)a1;
             if ( (v13 & 0x200000000000LL) != 0 )
             {
-              v11 = (void *)a1[76];
+              v11 = (char *)a1[71];
               if ( (v13 & 0x400000000000LL) != 0 )
-                v12 = (void *)a1[77];
+                v12 = (char *)a1[72];
             }
           }
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

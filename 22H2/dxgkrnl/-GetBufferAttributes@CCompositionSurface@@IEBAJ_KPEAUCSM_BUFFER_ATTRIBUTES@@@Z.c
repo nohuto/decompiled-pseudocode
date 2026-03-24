@@ -1,15 +1,15 @@
 /*
- * XREFs of ?GetBufferAttributes@CCompositionSurface@@IEBAJ_KPEAUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1C007C638
+ * XREFs of ?GetBufferAttributes@CCompositionSurface@@IEBAJ_KPEAUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1C000FB00
  * Callers:
- *     ?GetEarlyTokenSync@CompositionSurfaceObject@@QEBA_N_K@Z @ 0x1C00798E8 (-GetEarlyTokenSync@CompositionSurfaceObject@@QEBA_N_K@Z.c)
+ *     ?GetEarlyTokenSync@CFlipToken@@UEBA_NXZ @ 0x1C000FA20 (-GetEarlyTokenSync@CFlipToken@@UEBA_NXZ.c)
  * Callees:
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00103F0 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     memset @ 0x1C0028640 (memset.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0011B50 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 __int64 __fastcall CCompositionSurface::GetBufferAttributes(
         CCompositionSurface *this,
-        __int64 a2,
+        unsigned __int64 a2,
         struct CSM_BUFFER_ATTRIBUTES *a3)
 {
   int Buffer; // ebx
@@ -21,20 +21,19 @@ __int64 __fastcall CCompositionSurface::GetBufferAttributes(
   __int128 v9; // xmm0
   __int128 v10; // xmm1
   __int128 v11; // xmm0
-  __int128 v12; // xmm1
-  struct CCompositionBuffer *v14; // [rsp+48h] [rbp+20h] BYREF
+  struct CCompositionBuffer *v13; // [rsp+48h] [rbp+20h] BYREF
 
-  v14 = 0LL;
-  Buffer = CCompositionSurface::FindBuffer(this, a2, &v14);
+  v13 = 0LL;
+  Buffer = CCompositionSurface::FindBuffer(this, a2, &v13);
   if ( Buffer < 0 )
   {
-    memset(v4, 0, 0x90uLL);
+    memset(v4, 0, 0x78uLL);
   }
   else
   {
-    v5 = v14;
-    v6 = *((_OWORD *)v14 + 4);
-    *v4 = *((_OWORD *)v14 + 3);
+    v5 = v13;
+    v6 = *((_OWORD *)v13 + 4);
+    *v4 = *((_OWORD *)v13 + 3);
     v7 = *((_OWORD *)v5 + 5);
     v4[1] = v6;
     v8 = *((_OWORD *)v5 + 6);
@@ -45,10 +44,9 @@ __int64 __fastcall CCompositionSurface::GetBufferAttributes(
     v4[4] = v9;
     v11 = *((_OWORD *)v5 + 9);
     v4[5] = v10;
-    v12 = *((_OWORD *)v5 + 11);
+    *(_QWORD *)&v10 = *((_QWORD *)v5 + 20);
     v4[6] = v11;
-    v4[7] = *((_OWORD *)v5 + 10);
-    v4[8] = v12;
+    *((_QWORD *)v4 + 14) = v10;
   }
   return (unsigned int)Buffer;
 }

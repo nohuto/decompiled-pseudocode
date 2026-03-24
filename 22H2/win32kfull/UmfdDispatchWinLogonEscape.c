@@ -1,12 +1,12 @@
 /*
- * XREFs of UmfdDispatchWinLogonEscape @ 0x1C00A5088
+ * XREFs of UmfdDispatchWinLogonEscape @ 0x1C00F3E5C
  * Callers:
- *     NtGdiExtEscape @ 0x1C0076E90 (NtGdiExtEscape.c)
+ *     NtGdiExtEscape @ 0x1C00A7450 (NtGdiExtEscape.c)
  * Callees:
- *     ??0ExclusiveWinlognRequestLock@@QEAA@XZ @ 0x1C00A5120 (--0ExclusiveWinlognRequestLock@@QEAA@XZ.c)
- *     ?TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z @ 0x1C00A5278 (-TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z.c)
- *     ?InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z @ 0x1C00A5810 (-InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z.c)
- *     ??1ExclusiveWinlognRequestLock@@QEAA@XZ @ 0x1C013FD60 (--1ExclusiveWinlognRequestLock@@QEAA@XZ.c)
+ *     ?TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z @ 0x1C00F3F4C (-TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z.c)
+ *     ?InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z @ 0x1C00F40E4 (-InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z.c)
+ *     ??0ExclusiveWinlognRequestLock@@QEAA@XZ @ 0x1C016C130 (--0ExclusiveWinlognRequestLock@@QEAA@XZ.c)
+ *     ??1ExclusiveWinlognRequestLock@@QEAA@XZ @ 0x1C016C158 (--1ExclusiveWinlognRequestLock@@QEAA@XZ.c)
  */
 
 void __fastcall UmfdDispatchWinLogonEscape(unsigned __int64 a1)

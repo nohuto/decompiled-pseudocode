@@ -1,9 +1,9 @@
 /*
- * XREFs of VfWmiDumpIrpStack @ 0x140AE8930
+ * XREFs of VfWmiDumpIrpStack @ 0x1409E34F0
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilDbgPrint @ 0x1405CE364 (VfUtilDbgPrint.c)
+ *     VfUtilDbgPrint @ 0x1405A0634 (VfUtilDbgPrint.c)
  */
 
 __int64 __fastcall VfWmiDumpIrpStack(__int64 a1)

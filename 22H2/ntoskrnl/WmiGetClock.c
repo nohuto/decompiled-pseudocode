@@ -1,56 +1,44 @@
 /*
- * XREFs of WmiGetClock @ 0x1405FF7B0
+ * XREFs of WmiGetClock @ 0x1405A66A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x140226E30 (RtlGetSystemTimePrecise.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     RtlGetSystemTimePrecise @ 0x140341F30 (RtlGetSystemTimePrecise.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-LARGE_INTEGER WmiGetClock()
+__int64 __fastcall WmiGetClock(__int64 a1, __int64 a2)
 {
-  int v0; // edx
-  __int64 v1; // rcx
-  LARGE_INTEGER result; // rax
-  int v3; // edx
-  int v4; // edx
-  int v5; // edx
-  int v6; // edx
-  int v7; // ecx
-  int v8; // ecx
+  int v2; // ebx
+  __int64 v3; // rcx
+  __int64 result; // rax
+  int v5; // ecx
 
-  v1 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
-  result.QuadPart = 0LL;
-  if ( !v0 )
+  v2 = a1;
+  v3 = *((_QWORD *)PsGetCurrentServerSiloGlobals(a1, a2) + 108);
+  result = 0LL;
+  if ( v2 )
   {
-    v7 = *(unsigned __int8 *)(v1 + 4233) - 1;
-    if ( v7 )
+    if ( v2 != 2 )
     {
-      v8 = v7 - 1;
-      if ( !v8 )
-        return (LARGE_INTEGER)RtlGetSystemTimePrecise();
-      if ( v8 == 1 )
-        return (LARGE_INTEGER)__rdtsc();
+      if ( v2 > 2 )
+      {
+        if ( v2 <= 4 )
+          return result;
+        if ( v2 == 5 )
+          return __rdtsc();
+      }
+      return RtlGetSystemTimePrecise();
     }
-    return KeQueryPerformanceCounter(0LL);
+    return KeQueryPerformanceCounter(0LL).QuadPart;
   }
-  v3 = v0 - 1;
-  if ( !v3 )
-    return (LARGE_INTEGER)RtlGetSystemTimePrecise();
-  v4 = v3 - 1;
-  if ( !v4 )
-    return KeQueryPerformanceCounter(0LL);
-  v5 = v4 - 1;
+  v5 = *(unsigned __int8 *)(v3 + 4209) - 2;
   if ( v5 )
   {
-    v6 = v5 - 1;
-    if ( v6 )
-    {
-      if ( v6 != 1 )
-        return (LARGE_INTEGER)RtlGetSystemTimePrecise();
-      return (LARGE_INTEGER)__rdtsc();
-    }
+    if ( v5 == 1 )
+      return __rdtsc();
+    return KeQueryPerformanceCounter(0LL).QuadPart;
   }
-  return result;
+  return RtlGetSystemTimePrecise();
 }

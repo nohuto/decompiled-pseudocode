@@ -5,7 +5,7 @@
  * Callees:
  *     HvGetEffectiveLogSizeCapForHive @ 0x1405A60DC (HvGetEffectiveLogSizeCapForHive.c)
  *     HvGetHiveLogFileStatus @ 0x1405A62C8 (HvGetHiveLogFileStatus.c)
- *     HvIsCurrentLogSwappable @ 0x1406CD1CC (HvIsCurrentLogSwappable.c)
+ *     HvIsCurrentLogSwappable @ 0x1406CD1AC (HvIsCurrentLogSwappable.c)
  */
 
 char __fastcall CmpGenerateFlushControlData(__int64 a1, char a2, int *a3)

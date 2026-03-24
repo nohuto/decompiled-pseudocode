@@ -1,25 +1,31 @@
 /*
- * XREFs of IsSysFontAndDefaultMode @ 0x1C024D55C
+ * XREFs of IsSysFontAndDefaultMode @ 0x1C025E988
  * Callers:
- *     ?DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z @ 0x1C024CE58 (-DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z.c)
+ *     ?DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z @ 0x1C025E2C4 (-DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z.c)
  * Callees:
- *     GetDPIServerInfo @ 0x1C00AB4C8 (GetDPIServerInfo.c)
- *     GreGetHFONT @ 0x1C02AA304 (GreGetHFONT.c)
- *     GreGetMapMode @ 0x1C02D0428 (GreGetMapMode.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     GetDPIServerInfo @ 0x1C00E0AC8 (GetDPIServerInfo.c)
+ *     GreGetHFONT @ 0x1C029F494 (GreGetHFONT.c)
  */
 
 __int64 __fastcall IsSysFontAndDefaultMode(HDC a1)
 {
   __int64 v2; // rbx
-  int MapMode; // eax
-  unsigned int v4; // ecx
+  int v3; // ebx
+  __int64 result; // rax
+  _QWORD v5[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v2 = *(_QWORD *)(GetDPIServerInfo((__int64)a1) + 24);
   if ( GreGetHFONT(a1) != v2 )
-    return 0;
-  MapMode = GreGetMapMode(a1);
-  v4 = 1;
-  if ( MapMode != 1 )
-    return 0;
-  return v4;
+    return 0LL;
+  v3 = 0;
+  DCOBJ::DCOBJ((DCOBJ *)v5, a1);
+  if ( v5[0] )
+    v3 = *(_DWORD *)(*(_QWORD *)(v5[0] + 976LL) + 104LL);
+  DCOBJ::~DCOBJ((DCOBJ *)v5);
+  result = 1LL;
+  if ( v3 != 1 )
+    return 0LL;
+  return result;
 }

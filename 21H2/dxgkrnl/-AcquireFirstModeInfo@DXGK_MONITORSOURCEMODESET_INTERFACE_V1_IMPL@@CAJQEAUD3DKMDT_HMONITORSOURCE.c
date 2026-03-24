@@ -1,93 +1,167 @@
 /*
- * XREFs of ?AcquireFirstModeInfo@DXGK_MONITORSOURCEMODESET_INTERFACE_V1_IMPL@@CAJQEAUD3DKMDT_HMONITORSOURCEMODESET__@@PEAPEBU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z @ 0x1C020DCF0
+ * XREFs of ?AcquireFirstModeInfo@DXGK_MONITORSOURCEMODESET_INTERFACE_V1_IMPL@@CAJQEAUD3DKMDT_HMONITORSOURCEMODESET__@@PEAPEBU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z @ 0x1C0196950
  * Callers:
  *     <none>
  * Callees:
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0011D60 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
- *     ??0?$RESOURCE_LOCK@VMonitorDescriptorState@DxgMonitor@@@@QEAA@PEAVMonitorDescriptorState@DxgMonitor@@_N@Z @ 0x1C001CB44 (--0-$RESOURCE_LOCK@VMonitorDescriptorState@DxgMonitor@@@@QEAA@PEAVMonitorDescriptorState@DxgMoni.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?_AcquireFirstModeInfo@MonitorModes@DxgMonitor@@QEAAJPEAPEBU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z @ 0x1C020DDF4 (-_AcquireFirstModeInfo@MonitorModes@DxgMonitor@@QEAAJPEAPEBU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009A04 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?_CreateMonitorModeEnumerator@DXGMONITOR@@AEAAJPEBU_DMMMONITORSOURCEMODE@1@PEAPEAU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z @ 0x1C0196E14 (-_CreateMonitorModeEnumerator@DXGMONITOR@@AEAAJPEBU_DMMMONITORSOURCEMODE@1@PEAPEAU_D3DKMDT_MONIT.c)
  */
 
 __int64 __fastcall DXGK_MONITORSOURCEMODESET_INTERFACE_V1_IMPL::AcquireFirstModeInfo(
         struct D3DKMDT_HMONITORSOURCEMODESET__ *const a1,
-        const struct _D3DKMDT_MONITOR_SOURCE_MODE **a2,
+        struct _D3DKMDT_MONITOR_SOURCE_MODE **a2,
         __int64 a3)
 {
   __int64 v5; // rdx
   __int64 v6; // rcx
-  __int64 v7; // rax
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
   int MonitorFromHandle; // eax
-  PERESOURCE v9; // rbx
-  struct _ERESOURCE *v10; // rbx
-  unsigned int ModeInfo; // edi
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  int v15; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v16; // [rsp+28h] [rbp-18h]
-  char v17; // [rsp+30h] [rbp-10h]
-  PERESOURCE Resource; // [rsp+50h] [rbp+10h] BYREF
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  struct _D3DKMDT_MONITOR_SOURCE_MODE *v15; // rbx
+  struct _ERESOURCE *p_VideoSignalInfo; // r14
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  struct _D3DKMDT_MONITOR_SOURCE_MODE *v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  unsigned int v24; // ebx
+  struct _D3DKMDT_MONITOR_SOURCE_MODE *v25; // rdi
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // rax
+  UINT *p_cy; // rdi
+  struct _D3DKMDT_MONITOR_SOURCE_MODE *v38; // rcx
+  __int64 v39; // rax
+  _QWORD *v40; // rax
+  const struct DXGMONITOR::_DMMMONITORSOURCEMODE *v41; // rdx
+  __int64 v42; // rax
+  int v43; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v44; // [rsp+28h] [rbp-18h]
+  char v45; // [rsp+30h] [rbp-10h]
+  struct _D3DKMDT_MONITOR_SOURCE_MODE *v46; // [rsp+60h] [rbp+20h] BYREF
 
-  v15 = -1;
-  v16 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v43 = -1;
+  v44 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v17 = 1;
-    v15 = 7018;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v45 = 1;
+    v43 = 7018;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, a3, 7018);
   }
   else
   {
-    v17 = 0;
+    v45 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v15, 7018);
-  v7 = WdLogNewEntry5_WdTrace(v6, v5);
-  *(_QWORD *)(v7 + 24) = a1;
-  *(_QWORD *)(v7 + 32) = a2;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v43, 7018LL);
+  v9 = WdLogNewEntry5_WdTrace(v6, v5, v7, v8);
+  *(_QWORD *)(v9 + 24) = a1;
+  *(_QWORD *)(v9 + 32) = a2;
   if ( a2 )
   {
     *a2 = 0LL;
-    Resource = 0LL;
-    MonitorFromHandle = MONITOR_MGR::_GetMonitorFromHandle((struct HDXGMONITOR__ *)a1, (struct DXGMONITOR **)&Resource);
+    v46 = 0LL;
+    MonitorFromHandle = MONITOR_MGR::_GetMonitorFromHandle((struct HDXGMONITOR__ *)a1, (struct DXGMONITOR **)&v46);
     if ( MonitorFromHandle == -1073741816 )
     {
-      WdLogSingleEntry1(2LL, a1);
-      ModeInfo = -1071774943;
+      v31 = WdLogNewEntry5_WdError(v14, v13);
+      *(_QWORD *)(v31 + 24) = a1;
+      WdLogEvent5_WdError(v31);
+      v24 = -1071774943;
     }
     else
     {
       if ( MonitorFromHandle < 0 )
-        WdLogSingleEntry0(1LL);
-      v9 = Resource;
-      if ( !Resource )
-        WdLogSingleEntry0(1LL);
-      RESOURCE_LOCK<DxgMonitor::MonitorDescriptorState>::RESOURCE_LOCK<DxgMonitor::MonitorDescriptorState>(
-        &Resource,
-        *(struct _ERESOURCE **)&v9[2].ActiveCount,
-        1);
-      v10 = Resource;
-      ModeInfo = DxgMonitor::MonitorModes::_AcquireFirstModeInfo((DxgMonitor::MonitorModes *)Resource, a2);
-      if ( v10 )
       {
-        ExReleaseResourceLite(v10);
-        KeLeaveCriticalRegion();
+        v32 = WdLogNewEntry5_WdAssertion(v14, v13);
+        WdLogEvent5_WdAssertion(v32);
       }
+      v15 = v46;
+      if ( !v46 )
+      {
+        v33 = WdLogNewEntry5_WdAssertion(v14, v13);
+        WdLogEvent5_WdAssertion(v33);
+        v36 = WdLogNewEntry5_WdAssertion(v35, v34);
+        WdLogEvent5_WdAssertion(v36);
+      }
+      p_VideoSignalInfo = (struct _ERESOURCE *)&v15[3].VideoSignalInfo;
+      KeEnterCriticalRegion();
+      ExAcquireResourceSharedLite((PERESOURCE)&v15[3].VideoSignalInfo, 1u);
+      if ( v15[2].VideoSignalInfo.TotalSize.cy )
+      {
+        p_cy = &v15[2].VideoSignalInfo.ActiveSize.cy;
+        v46 = 0LL;
+        v38 = *(struct _D3DKMDT_MONITOR_SOURCE_MODE **)&v15[2].VideoSignalInfo.ActiveSize.cy;
+        if ( v38 == (struct _D3DKMDT_MONITOR_SOURCE_MODE *)&v15[2].VideoSignalInfo.ActiveSize.cy )
+          goto LABEL_28;
+        v21 = v38 - 1;
+        if ( !v38 )
+          v21 = 0LL;
+        if ( !v21 )
+        {
+LABEL_28:
+          v39 = WdLogNewEntry5_WdAssertion(v38, v17);
+          WdLogEvent5_WdAssertion(v39);
+        }
+        v40 = *(_QWORD **)p_cy;
+        if ( *(UINT **)p_cy == p_cy )
+        {
+          v41 = 0LL;
+        }
+        else
+        {
+          v41 = (const struct DXGMONITOR::_DMMMONITORSOURCEMODE *)(v40 - 12);
+          if ( !v40 )
+            v41 = 0LL;
+        }
+        v24 = DXGMONITOR::_CreateMonitorModeEnumerator((DXGMONITOR *)v15, v41, &v46);
+        if ( !v24 )
+        {
+          v25 = v46;
+          if ( !v46 )
+          {
+            v42 = WdLogNewEntry5_WdAssertion(v23, v22);
+            WdLogEvent5_WdAssertion(v42);
+          }
+          *a2 = v25;
+        }
+      }
+      else
+      {
+        *(_QWORD *)(WdLogNewEntry5_WdTrace(v18, v17, v19, v20) + 24) = v15;
+        v24 = 1075708747;
+      }
+      ExReleaseResourceLite(p_VideoSignalInfo);
+      KeLeaveCriticalRegion();
     }
   }
   else
   {
-    WdLogSingleEntry2(2LL, 0LL, a1);
-    ModeInfo = -1073741811;
+    v30 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v30 + 24) = 0LL;
+    *(_QWORD *)(v30 + 32) = a1;
+    WdLogEvent5_WdError(v30);
+    v24 = -1073741811;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v15);
-  if ( v17 )
-  {
-    LOBYTE(v12) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v12, &EventProfilerExit, v13, v15);
-  }
-  return ModeInfo;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v43, v26);
+  if ( v45 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v27, &EventProfilerExit, v28, v43);
+  return v24;
 }

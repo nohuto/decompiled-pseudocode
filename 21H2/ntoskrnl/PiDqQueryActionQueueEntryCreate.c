@@ -1,31 +1,31 @@
 /*
- * XREFs of PiDqQueryActionQueueEntryCreate @ 0x140777C60
+ * XREFs of PiDqQueryActionQueueEntryCreate @ 0x14062FBA8
  * Callers:
- *     PiDqQueryApplyObjectEvent @ 0x140775D50 (PiDqQueryApplyObjectEvent.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407762E4 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqQueryEnumObject @ 0x1407792B4 (PiDqQueryEnumObject.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14062E878 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqQueryEnumObject @ 0x140633B34 (PiDqQueryEnumObject.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1407634C4 (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDqQueryActionQueueEntryCreate(int a1, __int64 a2, volatile signed __int32 *a3, __int64 *a4)
+__int64 __fastcall PiDqQueryActionQueueEntryCreate(int a1, __int64 a2, volatile signed __int32 *a3, _QWORD *a4)
 {
-  unsigned int v7; // ebx
-  __int64 Pool2; // rax
+  unsigned int v4; // ebx
+  _DWORD *PoolWithTag; // rax
 
-  v7 = 0;
-  Pool2 = ExAllocatePool2(256LL, 40LL, 1483763280LL);
-  *a4 = Pool2;
-  if ( Pool2 )
+  v4 = 0;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x58706E50u);
+  *a4 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 32) = a1;
-    *(_QWORD *)(Pool2 + 16) = a2;
+    PoolWithTag[8] = a1;
+    *((_QWORD *)PoolWithTag + 2) = a2;
     if ( a2 )
     {
       _InterlockedIncrement((volatile signed __int32 *)(a2 + 8));
-      Pool2 = *a4;
+      PoolWithTag = (_DWORD *)*a4;
     }
-    *(_QWORD *)(Pool2 + 24) = a3;
+    *((_QWORD *)PoolWithTag + 3) = a3;
     if ( a3 )
       _InterlockedIncrement(a3);
   }
@@ -33,5 +33,5 @@ __int64 __fastcall PiDqQueryActionQueueEntryCreate(int a1, __int64 a2, volatile 
   {
     return (unsigned int)-1073741670;
   }
-  return v7;
+  return v4;
 }

@@ -1,105 +1,108 @@
 /*
- * XREFs of ?DestroyCoreState@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x1C0186AFC
+ * XREFs of ?DestroyCoreState@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x1C0116448
  * Callers:
- *     ?DestroyCoreState@DXGPAGINGQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C0166608 (-DestroyCoreState@DXGPAGINGQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z.c)
- *     ?DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C016CC98 (-DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
- *     ?DestroyDevice@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C016D390 (-DestroyDevice@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
- *     ??1DXGDEVICESYNCOBJECT@@QEAA@XZ @ 0x1C018692C (--1DXGDEVICESYNCOBJECT@@QEAA@XZ.c)
- *     ?DestroyCoreState@DXGHWQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C030E1A0 (-DestroyCoreState@DXGHWQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z.c)
- *     ?DetachGlobalSyncObjectOnError@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x1C03441C0 (-DetachGlobalSyncObjectOnError@DXGDEVICESYNCOBJECT@@QEAAXXZ.c)
+ *     ?DestroyCoreState@DXGPAGINGQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C00E4258 (-DestroyCoreState@DXGPAGINGQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DestroyDevice@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C00E4D6C (-DestroyDevice@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C00E5EDC (-DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ??1DXGDEVICESYNCOBJECT@@QEAA@XZ @ 0x1C011631C (--1DXGDEVICESYNCOBJECT@@QEAA@XZ.c)
+ *     ?DestroyCoreState@DXGHWQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C026CD9C (-DestroyCoreState@DXGHWQUEUE@@IEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DetachGlobalSyncObjectOnError@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x1C029496C (-DetachGlobalSyncObjectOnError@DXGDEVICESYNCOBJECT@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?GetMonitoredFenceStorage@DXGSYNCOBJECT@@QEAAPEAUVIDMM_MONITORED_FENCE_STORAGE@@XZ @ 0x1C000C188 (-GetMonitoredFenceStorage@DXGSYNCOBJECT@@QEAAPEAUVIDMM_MONITORED_FENCE_STORAGE@@XZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E350 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?FindAdapterObject@DXGSYNCOBJECTCA@@QEAAPEAVDXGADAPTERSYNCOBJECTCA@@PEAVADAPTER_RENDER@@@Z @ 0x1C0059A28 (-FindAdapterObject@DXGSYNCOBJECTCA@@QEAAPEAVDXGADAPTERSYNCOBJECTCA@@PEAVADAPTER_RENDER@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?GetMonitoredFenceStorage@DXGSYNCOBJECT@@QEAAPEAUVIDMM_MONITORED_FENCE_STORAGE@@XZ @ 0x1C0006C88 (-GetMonitoredFenceStorage@DXGSYNCOBJECT@@QEAAPEAUVIDMM_MONITORED_FENCE_STORAGE@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z @ 0x1C01165B0 (-GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z.c)
  */
 
 void __fastcall DXGDEVICESYNCOBJECT::DestroyCoreState(DXGDEVICESYNCOBJECT *this)
 {
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  int v6; // r10d
-  __int64 v7; // r11
-  struct ADAPTER_RENDER *v8; // rdx
-  __int64 v9; // rdi
-  __int64 v10; // r9
-  bool v11; // r10
-  __int64 v12; // rcx
-  __int64 v13; // rdi
+  DXGADAPTER *v2; // rcx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  struct _KTHREAD *CurrentThread; // rcx
+  struct _VIDSCH_SYNC_OBJECT *VidSchSyncObject; // rax
+  __int64 v8; // rdx
+  __int64 v9; // r11
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rbp
+  __int64 v15; // rax
+  __int64 v16; // rdi
+  __int64 v17; // rbx
   struct VIDMM_MONITORED_FENCE_STORAGE *MonitoredFenceStorage; // rax
-  __int64 v15; // r8
-  __int64 v16; // rdx
-  __int64 v17; // rdx
-  DXGFASTMUTEX *v18; // [rsp+50h] [rbp-18h] BYREF
-  char v19; // [rsp+58h] [rbp-10h]
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // [rsp+30h] [rbp-18h] BYREF
+  char v23; // [rsp+38h] [rbp-10h]
 
-  v2 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL);
-  if ( !*(_BYTE *)(v2 + 209) )
+  v2 = *(DXGADAPTER **)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL);
+  if ( !*((_BYTE *)v2 + 209) )
   {
-    if ( KeGetCurrentThread() != *(struct _KTHREAD **)(v2 + 184)
-      && !ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v2 + 168)) )
+    if ( !DXGADAPTER::IsCoreResourceSharedOwner(v2) )
     {
-      WdLogSingleEntry1(1LL, 118LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"GetDevice()->GetRenderCore()->IsCoreResourceSharedOwner()",
-        118LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v19 = WdLogNewEntry5_WdAssertion(v4, v3);
+      *(_QWORD *)(v19 + 24) = 118LL;
+      WdLogEvent5_WdAssertion(v19);
     }
     if ( (*((_BYTE *)this + 92) & 1) != 0 )
     {
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)&v18, (struct DXGFASTMUTEX *const)(*((_QWORD *)this + 4) + 32LL), 0);
-      if ( v19 )
-        WdLogSingleEntry5(0LL, 275LL, 4LL, &v18, 0LL, 0LL);
-      DXGFASTMUTEX::Acquire(v18);
-      v4 = *((_QWORD *)this + 2);
       v5 = *((_QWORD *)this + 4);
-      v6 = *((_DWORD *)this + 18);
-      v7 = *((_QWORD *)this + 3);
-      v19 = 1;
-      v8 = *(struct ADAPTER_RENDER **)(v4 + 16);
-      v9 = *(_QWORD *)(v4 + 768);
-      v10 = *((_QWORD *)v8 + 78);
-      v11 = (v6 & 0x20) == 0;
-      if ( (*(_DWORD *)(v5 + 204) & 4) != 0 )
-        v12 = *((_QWORD *)DXGSYNCOBJECTCA::FindAdapterObject((DXGSYNCOBJECTCA *)v5, v8) + 4);
-      else
-        v12 = *(_QWORD *)(v5 + 328);
-      LOBYTE(v3) = v11;
-      (*(void (__fastcall **)(__int64, __int64, __int64, __int64))(*(_QWORD *)(v10 + 8) + 672LL))(v12, v9, v3, v7);
-      operator delete(*((void **)this + 3));
-      *((_BYTE *)this + 92) &= ~1u;
-      *((_QWORD *)this + 3) = 0LL;
-      if ( v19 )
+      v23 = 0;
+      v22 = v5 + 32;
+      if ( v5 == -32 )
       {
-        v19 = 0;
-        DXGFASTMUTEX::Release((struct _KTHREAD **)v18);
+        v20 = WdLogNewEntry5_WdAssertion(v4, v3);
+        *(_QWORD *)(v20 + 24) = 762LL;
+        WdLogEvent5_WdAssertion(v20);
       }
+      CurrentThread = KeGetCurrentThread();
+      if ( *(struct _KTHREAD **)(v22 + 16) == CurrentThread )
+      {
+        v21 = WdLogNewEntry5_WdAssertion(CurrentThread, v3);
+        *(_QWORD *)(v21 + 24) = 769LL;
+        WdLogEvent5_WdAssertion(v21);
+      }
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v22);
+      VidSchSyncObject = DXGSYNCOBJECT::GetVidSchSyncObject(
+                           *((DXGSYNCOBJECT **)this + 4),
+                           *(struct ADAPTER_RENDER **)(*((_QWORD *)this + 2) + 16LL));
+      v10 = *((_DWORD *)this + 18) >> 5;
+      LOBYTE(v10) = (*((_DWORD *)this + 18) & 0x20) == 0;
+      (*(void (__fastcall **)(struct _VIDSCH_SYNC_OBJECT *, _QWORD, __int64, _QWORD))(*(_QWORD *)(*(_QWORD *)(v8 + 616)
+                                                                                                + 8LL)
+                                                                                    + 672LL))(
+        VidSchSyncObject,
+        *(_QWORD *)(v9 + 768),
+        v10,
+        *((_QWORD *)this + 3));
+      operator delete(*((void **)this + 3));
+      *((_QWORD *)this + 3) = 0LL;
+      *((_BYTE *)this + 92) &= ~1u;
+      if ( v23 )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v22, v11);
     }
     if ( *((_QWORD *)this + 6) )
     {
-      v13 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 648LL);
-      MonitoredFenceStorage = DXGSYNCOBJECT::GetMonitoredFenceStorage(*((DXGSYNCOBJECT **)this + 4));
-      v15 = *((_QWORD *)this + 2);
-      v16 = *(_QWORD *)(*(_QWORD *)(v15 + 40) + 64LL);
-      if ( v16 )
-        v17 = *(_QWORD *)(v16 + 8);
+      v12 = *((_QWORD *)this + 2);
+      v13 = *(_QWORD *)(*(_QWORD *)(v12 + 40) + 64LL);
+      if ( v13 )
+        v14 = *(_QWORD *)(v13 + 8);
       else
-        v17 = 0LL;
-      (*(void (__fastcall **)(_QWORD, __int64, struct VIDMM_MONITORED_FENCE_STORAGE *))(*(_QWORD *)(v13 + 8) + 976LL))(
-        *(_QWORD *)(*(_QWORD *)(v15 + 16) + 656LL),
-        v17,
+        v14 = 0LL;
+      v15 = *(_QWORD *)(v12 + 16);
+      v16 = *(_QWORD *)(v15 + 648);
+      v17 = *(_QWORD *)(v15 + 640);
+      MonitoredFenceStorage = DXGSYNCOBJECT::GetMonitoredFenceStorage(*((DXGSYNCOBJECT **)this + 4), v12);
+      (*(void (__fastcall **)(__int64, __int64, struct VIDMM_MONITORED_FENCE_STORAGE *))(*(_QWORD *)(v17 + 8) + 968LL))(
+        v16,
+        v14,
         MonitoredFenceStorage);
       *((_QWORD *)this + 6) = 0LL;
     }

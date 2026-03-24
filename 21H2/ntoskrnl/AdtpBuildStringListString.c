@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildStringListString @ 0x140A1BCE4
+ * XREFs of AdtpBuildStringListString @ 0x14096DE48
  * Callers:
- *     AdtpPackageParameters @ 0x1403CC5E8 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C06B4 (AdtpPackageParameters.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildStringListString(
@@ -21,7 +21,7 @@ __int64 __fastcall AdtpBuildStringListString(
   unsigned __int16 *v10; // rcx
   unsigned int v12; // edi
   __int64 v13; // rax
-  wchar_t *Pool2; // rbp
+  wchar_t *PoolWithTag; // rbp
   char v15; // cl
   unsigned int v16; // r14d
   unsigned __int16 Length; // ax
@@ -48,15 +48,15 @@ __int64 __fastcall AdtpBuildStringListString(
     v13 = (unsigned int)*a5;
     if ( (unsigned int)v13 + v12 >= 0x400 )
     {
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, 2LL * v12, 1799447891LL);
-      if ( !Pool2 )
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2LL * v12, 0x6B416553u);
+      if ( !PoolWithTag )
         return 3221225495LL;
       v15 = 1;
     }
     else
     {
       *a5 = v13 + v12;
-      Pool2 = (wchar_t *)(a4 + 2 * v13);
+      PoolWithTag = (wchar_t *)(a4 + 2 * v13);
       v15 = 0;
     }
     v16 = 0;
@@ -65,7 +65,7 @@ __int64 __fastcall AdtpBuildStringListString(
     Destination.MaximumLength = 2 * v12;
     v18 = *((_QWORD *)a1 + 1);
     Destination.Length = 0;
-    Destination.Buffer = Pool2;
+    Destination.Buffer = PoolWithTag;
     if ( *a1 )
     {
       v19 = (const UNICODE_STRING *)(v18 + 8);
@@ -81,7 +81,7 @@ __int64 __fastcall AdtpBuildStringListString(
     }
     if ( a3 )
     {
-      *a3 = Pool2;
+      *a3 = PoolWithTag;
       a3[1] = (wchar_t *)((unsigned int)Length + 2);
     }
     else

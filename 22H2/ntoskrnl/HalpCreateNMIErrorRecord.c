@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpCreateNMIErrorRecord @ 0x140506584
+ * XREFs of HalpCreateNMIErrorRecord @ 0x1404BD7F8
  * Callers:
- *     HalpCreateErrorRecord @ 0x1405027C0 (HalpCreateErrorRecord.c)
+ *     HalpCreateErrorRecord @ 0x1404B9A00 (HalpCreateErrorRecord.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     WheaInitializeRecordHeader @ 0x140612560 (WheaInitializeRecordHeader.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WheaInitializeRecordHeader @ 0x1405BC940 (WheaInitializeRecordHeader.c)
  */
 
 __int64 __fastcall HalpCreateNMIErrorRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -33,7 +33,7 @@ __int64 __fastcall HalpCreateNMIErrorRecord(__int64 a1, __int64 a2, __int64 a3, 
   *(GUID *)(a3 + 80) = NMI_NOTIFY_TYPE_GUID;
   if ( v11 > a4 )
     return (unsigned int)-1073741789;
-  ((void (__fastcall *)(__int64, __int64))off_140C01AC8[0])(a3 + 128, a3 + v10);
+  ((void (__fastcall *)(__int64, __int64))off_140C006B8[0])(a3 + 128, a3 + v10);
   *(_DWORD *)(a3 + 212) |= 1u;
   *(_DWORD *)(a3 + 128) = v10;
   *(_DWORD *)(a3 + 200) = v11;

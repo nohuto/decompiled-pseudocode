@@ -1,19 +1,19 @@
 /*
- * XREFs of ?ReleaseEntryLock@GdiHandleManager@@QEAAXPEAVOBJECT@@@Z @ 0x1C00220F0
+ * XREFs of ?ReleaseEntryLock@GdiHandleManager@@QEAAXPEAVOBJECT@@@Z @ 0x1C002F3E0
  * Callers:
- *     HmgRemoveObject @ 0x1C001F4E0 (HmgRemoveObject.c)
+ *     HmgRemoveObject @ 0x1C00311D0 (HmgRemoveObject.c)
  * Callees:
- *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0022610 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C002FDB0 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
  */
 
 void __fastcall GdiHandleManager::ReleaseEntryLock(GdiHandleManager *this, struct OBJECT *a2)
 {
   unsigned int v2; // ebx
   GdiHandleManager *v3; // rdi
-  __int64 v4; // r8
+  __int64 v4; // rcx
   unsigned int v5; // edx
-  __int64 v6; // r10
-  bool v7; // r8
+  __int64 v6; // r8
+  __int64 v7; // r10
 
   v2 = (unsigned __int16)*(_DWORD *)a2 | (*(_DWORD *)a2 >> 8) & 0xFF0000;
   v3 = gpHandleManager;
@@ -26,13 +26,7 @@ void __fastcall GdiHandleManager::ReleaseEntryLock(GdiHandleManager *this, struc
                                   (unsigned __int16)*(_DWORD *)a2,
                                   1)
            + 13) == HIWORD(v2) )
-      {
         v2 = (unsigned __int16)v2;
-      }
-      else if ( *(_DWORD *)v3 > 0x10000u )
-      {
-        GdiHandleEntryDirectory::GetEntry(*((GdiHandleEntryDirectory **)v3 + 2), (unsigned __int16)v2, v7);
-      }
     }
     else
     {
@@ -43,18 +37,15 @@ void __fastcall GdiHandleManager::ReleaseEntryLock(GdiHandleManager *this, struc
   v5 = *(_DWORD *)(v4 + 2056);
   if ( v2 < v5 + ((*(unsigned __int16 *)(v4 + 2) + 0xFFFF) << 16) )
   {
+    v6 = ((v2 - v5) >> 16) + 1;
     if ( v2 < v5 )
-    {
-      v6 = *(_QWORD *)(v4 + 8);
-    }
-    else
-    {
-      v6 = *(_QWORD *)(v4 + 8LL * (((v2 - v5) >> 16) + 1) + 8);
-      v2 += -65536 * ((v2 - v5) >> 16) - v5;
-    }
-    *(_DWORD *)(*(_QWORD *)v6 + 24LL * v2 + 8) &= ~1u;
+      v6 = 0LL;
+    v7 = *(_QWORD *)(v4 + 8 * v6 + 8);
+    if ( (_DWORD)v6 )
+      v2 += ((1 - (_DWORD)v6) << 16) - v5;
+    *(_DWORD *)(*(_QWORD *)v7 + 24LL * v2 + 8) &= ~1u;
     ExReleasePushLockExclusiveEx(
-      *(_QWORD *)(**(_QWORD **)(v6 + 24) + 8 * ((unsigned __int64)v2 >> 8)) + 16LL * (unsigned __int8)v2,
+      *(_QWORD *)(**(_QWORD **)(v7 + 24) + 8 * ((unsigned __int64)v2 >> 8)) + 16LL * (unsigned __int8)v2,
       0LL);
     KeLeaveCriticalRegion();
   }

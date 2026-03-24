@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsOfType@CLegacyRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180104540
+ * XREFs of ?IsOfType@CLegacyRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800DF950
  * Callers:
- *     ?IsOfType@CLegacyStereoRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C56E0 (-IsOfType@CLegacyStereoRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CLegacyStereoRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F540 (-IsOfType@CLegacyStereoRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,11 +12,11 @@ bool __fastcall CLegacyRenderTarget::IsOfType(__int64 a1, int a2)
   __int64 v3; // rcx
   bool result; // al
 
-  v2 = (unsigned int)(a2 - 96);
+  v2 = (unsigned int)(a2 - 94);
   result = 0;
-  if ( (unsigned int)v2 <= 0x32 )
+  if ( (unsigned int)v2 <= 0x34 )
   {
-    v3 = 0x4000000040001LL;
+    v3 = 0x10000000040001LL;
     if ( _bittest64(&v3, v2) )
       return 1;
   }

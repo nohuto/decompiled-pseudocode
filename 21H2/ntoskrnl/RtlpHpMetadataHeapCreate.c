@@ -1,23 +1,29 @@
 /*
- * XREFs of RtlpHpMetadataHeapCreate @ 0x1403DE6A0
+ * XREFs of RtlpHpMetadataHeapCreate @ 0x14037AEE0
  * Callers:
- *     RtlHpHeapManagerStart @ 0x14036EDD4 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerStart @ 0x14039D788 (RtlHpHeapManagerStart.c)
  * Callees:
- *     RtlpHpHeapCreate @ 0x14036F620 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14037AF24 (RtlpHpHeapCreate.c)
  */
 
 __int64 __fastcall RtlpHpMetadataHeapCreate(PRTL_RUN_ONCE RunOnce, __int128 *Parameter, PVOID *Context)
 {
-  unsigned __int64 v4; // rdx
+  union _RTL_RUN_ONCE v4; // rdx
   __int64 result; // rax
-  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v7; // [rsp+30h] [rbp-18h]
 
-  v6 = *Parameter;
-  v4 = RtlpHpHeapCreate(0, (__int64)Parameter, (__int64)Context, &v6);
+  v7 = *Parameter;
+  v6 = v7;
+  v4.Value = ((__int64 (__fastcall *)(_QWORD, __int128 *, PVOID *, __int128 *))RtlpHpHeapCreate)(
+               0LL,
+               Parameter,
+               Context,
+               &v6);
   result = 0LL;
-  if ( v4 )
+  if ( v4.Value )
   {
-    RunOnce[-1].Value = v4;
+    RunOnce[-1].Ptr = v4.Ptr;
     return 1LL;
   }
   return result;

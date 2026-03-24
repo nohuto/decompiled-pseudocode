@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CParticleBaseBehaviorMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C02284A0
+ * XREFs of ?SetRemarshalingFlags@CParticleBaseBehaviorMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DF090
  * Callers:
  *     <none>
  * Callees:
@@ -9,10 +9,12 @@
 bool __fastcall DirectComposition::CParticleBaseBehaviorMarshaler::SetRemarshalingFlags(
         DirectComposition::CParticleBaseBehaviorMarshaler *this)
 {
-  *((_QWORD *)this + 8) = 0LL;
-  if ( *((_QWORD *)this + 10) )
+  if ( *((_DWORD *)this + 16) )
+  {
     *((_DWORD *)this + 4) |= 0x20u;
-  if ( *((_DWORD *)this + 22) )
+    *((_DWORD *)this + 17) = 0;
+  }
+  if ( *((_DWORD *)this + 18) )
     *((_DWORD *)this + 4) |= 0x40u;
   return (*((_DWORD *)this + 4) & 0x60) != 0;
 }

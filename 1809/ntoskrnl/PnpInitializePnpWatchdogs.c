@@ -3,10 +3,10 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PnpWatchdogBugcheckConfigure @ 0x14070EF0C (PnpWatchdogBugcheckConfigure.c)
- *     PnpWatchdogSetupInProgressConfigure @ 0x14073C160 (PnpWatchdogSetupInProgressConfigure.c)
- *     IopOpenRegistryKeyEx @ 0x14073C494 (IopOpenRegistryKeyEx.c)
- *     PnpOpenCCSPnpRegKey @ 0x14073C52C (PnpOpenCCSPnpRegKey.c)
+ *     PnpWatchdogBugcheckConfigure @ 0x14070EEEC (PnpWatchdogBugcheckConfigure.c)
+ *     PnpWatchdogSetupInProgressConfigure @ 0x14073C140 (PnpWatchdogSetupInProgressConfigure.c)
+ *     IopOpenRegistryKeyEx @ 0x14073C474 (IopOpenRegistryKeyEx.c)
+ *     PnpOpenCCSPnpRegKey @ 0x14073C50C (PnpOpenCCSPnpRegKey.c)
  */
 
 void PnpInitializePnpWatchdogs()

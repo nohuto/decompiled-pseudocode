@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpRecordSecondaryGsivRange @ 0x14081E4C0
+ * XREFs of HalpRecordSecondaryGsivRange @ 0x1407AE638
  * Callers:
- *     HalpInitializeSecondaryInterruptServices @ 0x140AF6D7C (HalpInitializeSecondaryInterruptServices.c)
+ *     HalpInitializeSecondaryInterruptServices @ 0x140A628CC (HalpInitializeSecondaryInterruptServices.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
  */
 
 __int64 HalpRecordSecondaryGsivRange()
@@ -20,12 +20,12 @@ __int64 HalpRecordSecondaryGsivRange()
   HANDLE Handle; // [rsp+C0h] [rbp+67h] BYREF
   HANDLE KeyHandle; // [rsp+C8h] [rbp+6Fh] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   ObjectAttributes.RootDirectory = 0LL;
   KeyHandle = 0LL;
   Handle = 0LL;
   ValueName.Buffer = L"SecondaryGsivBase";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   v5.Buffer = L"SecondaryGsivSize";
   v2[1] = L"\\REGISTRY\\MACHINE\\SYSTEM\\CURRENTCONTROLSET\\Control\\HAL";
   v3[1] = L"SecondaryInterrupts";
@@ -34,6 +34,7 @@ __int64 HalpRecordSecondaryGsivRange()
   *(_QWORD *)&v5.Length = 2359330LL;
   v2[0] = 7209068LL;
   v3[0] = 2621478LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   v0 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v0 >= 0 )

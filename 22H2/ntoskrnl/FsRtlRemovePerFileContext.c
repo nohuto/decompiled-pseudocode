@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlRemovePerFileContext @ 0x14053D060
+ * XREFs of FsRtlRemovePerFileContext @ 0x1404F1080
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x14022F760 (ExAcquireAutoExpandPushLockExclusive.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F8B0 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
  */
 
 PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlRemovePerFileContext(
@@ -19,19 +19,19 @@ PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlRemovePerFileContext(
   struct _KTHREAD *CurrentThread; // rcx
   struct _FSRTL_PER_FILE_CONTEXT *Flink; // rax
   struct _FSRTL_PER_FILE_CONTEXT *v10; // rbx
-  struct _FSRTL_PER_FILE_CONTEXT *v11; // rcx
-  struct _FSRTL_PER_FILE_CONTEXT **Blink; // rax
+  struct _LIST_ENTRY *v11; // rax
+  struct _LIST_ENTRY *Blink; // rcx
 
   v5 = _InterlockedCompareExchange64((volatile signed __int64 *)PerFileContextPointer, 0LL, 0LL);
   v6 = v5;
   if ( !v5 )
     return 0LL;
-  v7 = (struct _FSRTL_PER_FILE_CONTEXT **)(v5 + 16);
+  v7 = (struct _FSRTL_PER_FILE_CONTEXT **)(v5 + 8);
   if ( *v7 == (struct _FSRTL_PER_FILE_CONTEXT *)v7 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireAutoExpandPushLockExclusive(v5, 0LL);
+  ExAcquirePushLockExclusiveEx(v5, 0LL);
   Flink = *v7;
   v10 = 0LL;
   if ( InstanceId )
@@ -58,17 +58,17 @@ LABEL_6:
     v10 = Flink;
     if ( Flink )
     {
-      v11 = (struct _FSRTL_PER_FILE_CONTEXT *)Flink->Links.Flink;
-      if ( (struct _FSRTL_PER_FILE_CONTEXT *)Flink->Links.Flink->Blink != Flink
-        || (Blink = (struct _FSRTL_PER_FILE_CONTEXT **)Flink->Links.Blink, *Blink != v10) )
+      v11 = Flink->Links.Flink;
+      if ( (struct _FSRTL_PER_FILE_CONTEXT *)v11->Blink != v10
+        || (Blink = v10->Links.Blink, (struct _FSRTL_PER_FILE_CONTEXT *)Blink->Flink != v10) )
       {
         __fastfail(3u);
       }
-      *Blink = v11;
-      v11->Links.Blink = (struct _LIST_ENTRY *)Blink;
+      Blink->Flink = v11;
+      v11->Blink = Blink;
     }
   }
-  ExReleaseAutoExpandPushLockExclusive(v6, 0LL);
+  ExReleasePushLockEx(v6, 0LL);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v10;
 }

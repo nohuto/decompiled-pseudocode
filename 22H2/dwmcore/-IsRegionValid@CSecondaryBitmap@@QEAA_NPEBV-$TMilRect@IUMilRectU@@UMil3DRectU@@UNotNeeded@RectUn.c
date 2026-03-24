@@ -1,89 +1,91 @@
 /*
- * XREFs of ?IsRegionValid@CSecondaryBitmap@@QEAA_NPEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x1800F8388
+ * XREFs of ?IsRegionValid@CSecondaryBitmap@@QEAA_NPEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x180064520
  * Callers:
- *     ?GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z @ 0x180033E90 (-GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z.c)
+ *     ?UpdateCachedBitmap@CD2DBitmapCache@@IEAAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCSecondaryD2DBitmap@@@Z @ 0x1800643FC (-UpdateCachedBitmap@CD2DBitmapCache@@IEAAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@Rec.c)
+ *     ?UpdateSysmemBitmap@CD2DBitmapCache@@IEAAJXZ @ 0x1800D3628 (-UpdateSysmemBitmap@CD2DBitmapCache@@IEAAJXZ.c)
  * Callees:
- *     ?GetBoundingRect@CRegion@@QEBA_NPEAUMilRectU@@@Z @ 0x180041628 (-GetBoundingRect@CRegion@@QEBA_NPEAUMilRectU@@@Z.c)
- *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180046478 (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?Intersects@CRgnData@Internal@FastRegion@@SA_NAEBV123@0@Z @ 0x1800F4910 (-Intersects@CRgnData@Internal@FastRegion@@SA_NAEBV123@0@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180098C7C (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ?GetBoundingRect@CRegion@@QEBA_NPEAUMilRectU@@@Z @ 0x18009D618 (-GetBoundingRect@CRegion@@QEBA_NPEAUMilRectU@@@Z.c)
+ *     ?Intersects@CRgnData@Internal@FastRegion@@SA_NAEBV123@0@Z @ 0x1800C5044 (-Intersects@CRgnData@Internal@FastRegion@@SA_NAEBV123@0@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-char __fastcall CSecondaryBitmap::IsRegionValid(_DWORD *a1, int *a2, __int64 a3)
+bool __fastcall CSecondaryBitmap::IsRegionValid(_DWORD *a1, int *a2, __int64 a3)
 {
-  int v4; // r9d
-  int v5; // eax
-  int v6; // r10d
-  int v7; // r11d
-  int v8; // edx
-  const struct FastRegion::Internal::CRgnData **v9; // rsi
-  char v10; // di
-  char v11; // di
-  int v12; // eax
-  _DWORD *v14; // [rsp+20h] [rbp-60h] BYREF
-  _DWORD v15[3]; // [rsp+28h] [rbp-58h] BYREF
-  _DWORD v16[2]; // [rsp+34h] [rbp-4Ch] BYREF
-  _DWORD v17[13]; // [rsp+3Ch] [rbp-44h] BYREF
-  _QWORD savedregs[3]; // [rsp+80h] [rbp+0h] BYREF
+  _DWORD *v3; // rsi
+  int v5; // r9d
+  int v6; // eax
+  int v7; // r10d
+  int v8; // r11d
+  int v9; // edx
+  const struct FastRegion::Internal::CRgnData **v10; // r14
+  bool v11; // di
+  bool v12; // di
+  int v14; // eax
+  _DWORD *v15; // [rsp+20h] [rbp-60h] BYREF
+  _DWORD Mem[3]; // [rsp+28h] [rbp-58h] BYREF
+  _DWORD v17[2]; // [rsp+34h] [rbp-4Ch] BYREF
+  _DWORD v18[13]; // [rsp+3Ch] [rbp-44h] BYREF
+  _BYTE vars0[24]; // [rsp+80h] [rbp+0h] BYREF
   void *retaddr; // [rsp+98h] [rbp+18h]
 
-  v14 = v15;
+  v3 = Mem;
+  v15 = Mem;
   if ( a2 )
   {
-    v4 = *a2;
-    v5 = a2[1];
-    v6 = a2[2];
-    v7 = a2[3];
+    v5 = *a2;
+    v6 = a2[1];
+    v7 = a2[2];
+    v8 = a2[3];
   }
   else
   {
-    v4 = *a1;
-    v5 = a1[1];
-    v6 = a1[2];
-    v7 = a1[3];
+    v5 = *a1;
+    v6 = a1[1];
+    v7 = a1[2];
+    v8 = a1[3];
   }
-  if ( v4 >= v6 || v5 >= v7 )
+  if ( v6 >= v8 || v5 >= v7 )
   {
-    v8 = 0;
+    v9 = 0;
   }
   else
   {
-    v16[0] = v5;
-    v15[1] = v4;
-    v15[2] = v6;
-    v17[2] = v4;
-    v16[1] = (unsigned int)savedregs - 60 - (unsigned int)v16;
-    v8 = 2;
-    v17[3] = v6;
-    v17[0] = v7;
-    v17[1] = (unsigned int)savedregs - 60 - (unsigned int)v17 + 8;
+    v17[0] = v6;
+    Mem[1] = v5;
+    Mem[2] = v7;
+    v18[2] = v5;
+    v17[1] = (unsigned int)vars0 - 60 - (unsigned int)v17;
+    v9 = 2;
+    v18[3] = v7;
+    v18[0] = v8;
+    v18[1] = (unsigned int)vars0 - 60 - (unsigned int)v18 + 8;
   }
-  v15[0] = v8;
-  v9 = (const struct FastRegion::Internal::CRgnData **)(a1 + 4);
-  if ( v8 && *(_DWORD *)*v9 )
-    v10 = FastRegion::Internal::CRgnData::Intersects((const struct FastRegion::Internal::CRgnData *)v15, *v9);
-  else
-    v10 = 0;
-  v11 = v10 ^ 1;
+  Mem[0] = v9;
+  v10 = (const struct FastRegion::Internal::CRgnData **)(a1 + 4);
+  v11 = v9
+     && *(_DWORD *)*v10
+     && FastRegion::Internal::CRgnData::Intersects((const struct FastRegion::Internal::CRgnData *)Mem, *v10);
+  v12 = !v11;
   if ( a3 )
   {
-    if ( v11 )
+    if ( v12 )
     {
       *(_DWORD *)(a3 + 12) = 0;
       *(_DWORD *)(a3 + 8) = 0;
       *(_DWORD *)(a3 + 4) = 0;
       *(_DWORD *)a3 = 0;
+      return v12;
     }
-    else
-    {
-      v12 = FastRegion::CRegion::Intersect((const struct FastRegion::Internal::CRgnData **)&v14, v9);
-      if ( v12 < 0 )
-        ModuleFailFastForHRESULT((unsigned int)v12, retaddr);
-      CRegion::GetBoundingRect((CRegion *)&v14, (struct MilRectU *)a3);
-    }
+    v14 = FastRegion::CRegion::Intersect((FastRegion::CRegion *)&v15, (const struct CRegion *)v10);
+    if ( v14 < 0 )
+      ModuleFailFastForHRESULT((unsigned int)v14, retaddr);
+    CRegion::GetBoundingRect((CRegion *)&v15, (struct MilRectU *)a3);
+    v3 = v15;
   }
-  FastRegion::CRegion::FreeMemory((void **)&v14);
-  return v11;
+  if ( Mem != v3 )
+    operator delete(v3);
+  return v12;
 }

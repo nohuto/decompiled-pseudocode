@@ -1,12 +1,12 @@
 /*
- * XREFs of VslFinalizeLiveDumpInSk @ 0x14054AE88
+ * XREFs of VslFinalizeLiveDumpInSk @ 0x1404FBED8
  * Callers:
- *     IopLiveDumpCaptureMemoryPages @ 0x140A9A978 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x1409ABAA4 (IopLiveDumpCaptureMemoryPages.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall VslFinalizeLiveDumpInSk(_QWORD *a1, _QWORD *a2, __int64 a3)
@@ -15,7 +15,7 @@ __int64 __fastcall VslFinalizeLiveDumpInSk(_QWORD *a1, _QWORD *a2, __int64 a3)
   unsigned int v7; // r8d
   __int64 v8; // rbx
   PHYSICAL_ADDRESS PhysicalAddress; // rax
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   _QWORD v12[14]; // [rsp+20h] [rbp-118h] BYREF
   _BYTE v13[112]; // [rsp+90h] [rbp-A8h] BYREF
 
@@ -26,28 +26,33 @@ __int64 __fastcall VslFinalizeLiveDumpInSk(_QWORD *a1, _QWORD *a2, __int64 a3)
   if ( ((unsigned __int16)v6 & 0xFFF) != 0 || v6 != *(char **)a3 || (*(_DWORD *)(a3 + 40) & 0xFFF) != 0 || v7 > 0xB )
   {
     v10 = -1073741811;
-LABEL_10:
-    memset(v13, 0, 0x68uLL);
-    VslpEnterIumSecureMode(2u, 60, 0, (__int64)v13);
-    return (unsigned int)v10;
   }
-  v8 = 0LL;
-  if ( v7 )
+  else
   {
-    do
+    v8 = 0LL;
+    if ( v7 )
     {
-      PhysicalAddress = MmGetPhysicalAddress(v6);
-      v6 += 4096;
-      v12[v8 + 2] = (unsigned __int64)PhysicalAddress.QuadPart >> 12;
-      v8 = (unsigned int)(v8 + 1);
+      do
+      {
+        PhysicalAddress = MmGetPhysicalAddress(v6);
+        v6 += 4096;
+        v12[v8 + 2] = (unsigned __int64)PhysicalAddress.QuadPart >> 12;
+        v8 = (unsigned int)(v8 + 1);
+      }
+      while ( (unsigned int)v8 < LODWORD(v12[1]) );
     }
-    while ( (unsigned int)v8 < LODWORD(v12[1]) );
+    v10 = VslpEnterIumSecureMode(2u, 57, 0, (__int64)v12);
+    if ( v10 < 0 )
+      goto LABEL_11;
+    *a1 = v12[2];
+    *a2 = v12[3];
+    *(_DWORD *)(a3 + 40) = v12[4];
   }
-  v10 = VslpEnterIumSecureMode(2u, 59, 0, (__int64)v12);
   if ( v10 < 0 )
-    goto LABEL_10;
-  *a1 = v12[2];
-  *a2 = v12[3];
-  *(_DWORD *)(a3 + 40) = v12[4];
+  {
+LABEL_11:
+    memset(v13, 0, 0x68uLL);
+    VslpEnterIumSecureMode(2u, 58, 0, (__int64)v13);
+  }
   return (unsigned int)v10;
 }

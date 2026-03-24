@@ -1,97 +1,94 @@
 /*
- * XREFs of FastGetProfileStringW @ 0x1C0037000
+ * XREFs of FastGetProfileStringW @ 0x1C0010600
  * Callers:
- *     FastGetProfileIntW @ 0x1C0033AC0 (FastGetProfileIntW.c)
- *     FastGetProfileStringFromIDW @ 0x1C0061F00 (FastGetProfileStringFromIDW.c)
+ *     FastGetProfileStringFromIDW @ 0x1C00104A0 (FastGetProfileStringFromIDW.c)
+ *     FastGetProfileIntW @ 0x1C0010540 (FastGetProfileIntW.c)
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00369B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     OpenCacheKeyEx @ 0x1C00371E0 (OpenCacheKeyEx.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0010F04 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     OpenCacheKeyEx @ 0x1C00278B0 (OpenCacheKeyEx.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 __int64 __fastcall FastGetProfileStringW(
         __int64 a1,
         __int64 a2,
         const WCHAR *a3,
-        size_t *a4,
+        const unsigned __int16 *a4,
         unsigned __int16 *a5,
         unsigned int a6,
         int a7)
 {
   unsigned int v8; // r12d
-  unsigned __int64 v10; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v11; // rcx
-  void *v12; // rdi
-  __int64 QuotaZInit; // rbx
-  NTSTATUS v14; // eax
-  unsigned int v16; // esi
-  __int64 v17; // r11
-  __int64 v18; // rax
+  void *v10; // rdi
+  __int64 v11; // rbx
+  NTSTATUS v12; // eax
+  unsigned int v14; // esi
+  __int64 v15; // rax
   ULONG Length; // [rsp+30h] [rbp-48h] BYREF
-  int v20; // [rsp+34h] [rbp-44h] BYREF
+  int v17; // [rsp+34h] [rbp-44h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-40h] BYREF
 
-  Length = 0;
   DestinationString = 0LL;
-  v20 = gdwPolicyFlags | a7;
+  Length = 0;
   v8 = a2;
-  v12 = (void *)OpenCacheKeyEx(a1, a2, 131097LL, &v20);
-  if ( v12 )
+  v17 = a7 | gdwPolicyFlags;
+  v10 = (void *)OpenCacheKeyEx(a1, a2, 131097LL, &v17);
+  if ( v10 )
   {
     while ( 1 )
     {
       Length = 2 * a6 + 12;
-      QuotaZInit = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v11, v10, Length, 0x72707355u);
-      if ( !QuotaZInit )
+      v11 = Win32AllocPoolWithQuota(Length, 1919972181LL);
+      if ( !v11 )
         break;
       RtlInitUnicodeString(&DestinationString, a3);
-      v14 = ZwQueryValueKey(v12, &DestinationString, KeyValuePartialInformation, (PVOID)QuotaZInit, Length, &Length);
-      if ( v14 == -2147483643 || v14 >= 0 )
+      v12 = ZwQueryValueKey(v10, &DestinationString, KeyValuePartialInformation, (PVOID)v11, Length, &Length);
+      if ( v12 == -2147483643 )
+        v12 = 0;
+      if ( v12 >= 0 )
       {
-        v16 = a6;
-        if ( *(_DWORD *)(QuotaZInit + 8) >> 1 < a6 )
-          v16 = *(_DWORD *)(QuotaZInit + 8) >> 1;
-        if ( *(_DWORD *)(QuotaZInit + 8) < 2u )
+        v14 = a6;
+        if ( *(_DWORD *)(v11 + 8) >> 1 < a6 )
+          v14 = *(_DWORD *)(v11 + 8) >> 1;
+        if ( *(_DWORD *)(v11 + 8) < 2u )
         {
           *a5 = 0;
         }
         else
         {
-          *(_WORD *)(QuotaZInit + 2LL * (v16 - 1) + 12) = 0;
-          RtlStringCchCopyW(a5, a6, (size_t *)(QuotaZInit + 12));
+          *(_WORD *)(v11 + 2LL * (v14 - 1) + 12) = 0;
+          RtlStringCchCopyW(a5, a6, (const unsigned __int16 *)(v11 + 12));
         }
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (void *)QuotaZInit);
-        ZwClose(v12);
-        return v16;
+        Win32FreePool(v11);
+        ZwClose(v10);
+        return v14;
       }
-      if ( !v20 )
+      if ( !v17 )
       {
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (void *)QuotaZInit);
-        goto LABEL_7;
+        Win32FreePool(v11);
+        break;
       }
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (void *)QuotaZInit);
-      ZwClose(v12);
-      v12 = (void *)OpenCacheKeyEx(a1, v8, 131097LL, &v20);
-      if ( !v12 )
-        goto LABEL_11;
+      Win32FreePool(v11);
+      ZwClose(v10);
+      v10 = (void *)OpenCacheKeyEx(a1, v8, 131097LL, &v17);
+      if ( !v10 )
+        goto LABEL_12;
     }
-LABEL_8:
-    ZwClose(v12);
-    goto LABEL_9;
   }
-LABEL_11:
-  if ( (a7 & 0x10) != 0 )
-    return 0LL;
-LABEL_7:
-  if ( v12 )
-    goto LABEL_8;
-LABEL_9:
+  else
+  {
+LABEL_12:
+    if ( (a7 & 0x10) != 0 )
+      return 0LL;
+  }
+  if ( v10 )
+    ZwClose(v10);
   if ( !a4 || RtlStringCchCopyW(a5, a6, a4) < 0 )
     return 0LL;
-  v18 = -1LL;
+  v15 = -1LL;
   do
-    ++v18;
-  while ( *(_WORD *)(v17 + 2 * v18) );
-  return (unsigned int)(v18 + 1);
+    ++v15;
+  while ( a5[v15] );
+  return (unsigned int)(v15 + 1);
 }

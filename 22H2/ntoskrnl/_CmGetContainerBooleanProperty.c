@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmGetContainerBooleanProperty @ 0x140A64114
+ * XREFs of _CmGetContainerBooleanProperty @ 0x140976104
  * Callers:
- *     _CmGetDeviceContainerMappedProperty @ 0x14079B0C4 (_CmGetDeviceContainerMappedProperty.c)
+ *     _CmGetDeviceContainerMappedProperty @ 0x14068D00C (_CmGetDeviceContainerMappedProperty.c)
  * Callees:
- *     _CmEnumDevicesInContainerWithCallback @ 0x140A63D54 (_CmEnumDevicesInContainerWithCallback.c)
+ *     _CmEnumDevicesInContainerWithCallback @ 0x140975D40 (_CmEnumDevicesInContainerWithCallback.c)
  */
 
 __int64 __fastcall CmGetContainerBooleanProperty(

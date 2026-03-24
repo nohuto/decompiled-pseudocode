@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbGetNextAllocationRange @ 0x1C00B77E0
+ * XREFs of ArbGetNextAllocationRange @ 0x1C00A2890
  * Callers:
- *     IrqArbGetNextAllocationRange @ 0x1C009A780 (IrqArbGetNextAllocationRange.c)
+ *     IrqArbGetNextAllocationRange @ 0x1C0093DA0 (IrqArbGetNextAllocationRange.c)
  * Callees:
- *     ArbpUpdatePriority @ 0x1C00B8598 (ArbpUpdatePriority.c)
+ *     ArbpUpdatePriority @ 0x1C00A29EC (ArbpUpdatePriority.c)
  */
 
 char __fastcall ArbGetNextAllocationRange(__int64 a1, __int64 a2)
@@ -87,13 +87,13 @@ char __fastcall ArbGetNextAllocationRange(__int64 a1, __int64 a2)
       if ( v18 - 1 <= v12 - v11 )
       {
         v10 = v12 - (1 - v18 + v12) % v19;
-        goto LABEL_25;
+        goto LABEL_18;
       }
       *(_QWORD *)(a2 + 40) = v2;
     }
     else
     {
-LABEL_25:
+LABEL_18:
       if ( v11 != *(_QWORD *)(a2 + 16) || v10 != *(_QWORD *)(a2 + 24) || *(_QWORD *)(a2 + 40) != v2 )
       {
         *(_QWORD *)(a2 + 16) = v11;

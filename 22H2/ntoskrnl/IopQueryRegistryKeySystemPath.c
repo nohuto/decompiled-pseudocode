@@ -1,101 +1,104 @@
 /*
- * XREFs of IopQueryRegistryKeySystemPath @ 0x14068ECA0
+ * XREFs of IopQueryRegistryKeySystemPath @ 0x14073D480
  * Callers:
- *     IopBuildFullDriverPath @ 0x14068DB7C (IopBuildFullDriverPath.c)
- *     PiDrvDbResolveKeyFilePaths @ 0x14097100C (PiDrvDbResolveKeyFilePaths.c)
+ *     IopBuildFullDriverPath @ 0x14073C7A8 (IopBuildFullDriverPath.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x1408B7874 (PiDrvDbResolveKeyFilePaths.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x14041CD60 (ZwOpenSymbolicLinkObject.c)
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     NtQueryObject @ 0x14075B8A0 (NtQueryObject.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1403FBFE0 (ZwOpenSymbolicLinkObject.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     NtQueryObject @ 0x14070FAF0 (NtQueryObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopQueryRegistryKeySystemPath(HANDLE Handle, PUNICODE_STRING DestinationString)
 {
-  UNICODE_STRING *Pool2; // rsi
+  UNICODE_STRING *Pool; // r14
   NTSTATUS appended; // ebx
-  unsigned int v6; // edi
-  unsigned __int64 v7; // rdx
-  unsigned __int16 v8; // cx
-  unsigned __int16 v9; // di
-  unsigned int v11; // edx
-  UNICODE_STRING DestinationStringa; // [rsp+30h] [rbp-49h] BYREF
-  UNICODE_STRING String1; // [rsp+40h] [rbp-39h] BYREF
-  UNICODE_STRING String2; // [rsp+50h] [rbp-29h] BYREF
-  UNICODE_STRING v15; // [rsp+60h] [rbp-19h] BYREF
-  UNICODE_STRING SourceString; // [rsp+70h] [rbp-9h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp+7h] BYREF
-  ULONG ReturnLength; // [rsp+F0h] [rbp+77h] BYREF
-  HANDLE LinkHandle; // [rsp+F8h] [rbp+7Fh] BYREF
+  unsigned __int16 Length; // si
+  unsigned int v7; // edi
+  wchar_t *Buffer; // rax
+  wchar_t *v9; // rdx
+  unsigned __int16 v10; // si
+  unsigned __int16 v11; // di
+  unsigned int v13; // edx
+  UNICODE_STRING DestinationStringa; // [rsp+30h] [rbp-59h] BYREF
+  UNICODE_STRING String1; // [rsp+40h] [rbp-49h] BYREF
+  UNICODE_STRING String2; // [rsp+50h] [rbp-39h] BYREF
+  UNICODE_STRING v17; // [rsp+60h] [rbp-29h] BYREF
+  UNICODE_STRING SourceString; // [rsp+70h] [rbp-19h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-9h] BYREF
+  ULONG ReturnLength; // [rsp+100h] [rbp+77h] BYREF
+  HANDLE LinkHandle; // [rsp+108h] [rbp+7Fh] BYREF
 
   *(_QWORD *)&String2.Length = 917516LL;
   *(_QWORD *)&SourceString.Length = 1703960LL;
+  *(_QWORD *)&v17.Length = 1966108LL;
   String2.Buffer = L"System";
-  *(_QWORD *)&v15.Length = 2621478LL;
   SourceString.Buffer = L"\\SystemRoot\\";
-  v15.Buffer = L"\\DriverStore\\Nodes\\";
   LinkHandle = 0LL;
-  String1 = 0LL;
+  v17.Buffer = L"\\DriverStores\\";
   ReturnLength = 0;
+  String1 = 0LL;
   DestinationStringa = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   RtlInitUnicodeString(DestinationString, 0LL);
   RtlInitUnicodeString(&DestinationStringa, 0LL);
   RtlInitUnicodeString(&String1, 0LL);
-  Pool2 = (UNICODE_STRING *)ExAllocatePool2(256LL, 4096LL, 538996553LL);
-  if ( !Pool2 )
+  Pool = (UNICODE_STRING *)IopVerifierExAllocatePool(PagedPool, 0x1000uLL);
+  if ( !Pool )
   {
     appended = -1073741670;
     goto LABEL_19;
   }
-  appended = NtQueryObject(Handle, ObjectNameInformation, Pool2, 0x1000u, &ReturnLength);
+  appended = NtQueryObject(Handle, ObjectNameInformation, Pool, 0x1000u, &ReturnLength);
   if ( appended >= 0 )
   {
-    v6 = CmRegistryMachineName.Length + 2;
-    if ( Pool2->Length < (unsigned __int16)(CmRegistryMachineName.Length + 2)
-      || !RtlPrefixUnicodeString(&CmRegistryMachineName, Pool2, 1u)
-      || (v7 = (unsigned __int64)&Pool2->Buffer[(unsigned __int64)v6 >> 1], *(_WORD *)(v7 - 2) != 92) )
+    Length = Pool->Length;
+    v7 = CmRegistryMachineName.Length + 2;
+    if ( Pool->Length < (unsigned __int16)(CmRegistryMachineName.Length + 2)
+      || !RtlPrefixUnicodeString(&CmRegistryMachineName, Pool, 1u)
+      || (Buffer = Pool->Buffer, v9 = &Buffer[(unsigned __int64)v7 >> 1], *(v9 - 1) != 92) )
     {
       appended = -1073741595;
       goto LABEL_18;
     }
-    v8 = Pool2->Length - v6;
-    String1.Buffer = &Pool2->Buffer[(unsigned __int64)v6 >> 1];
-    String1.MaximumLength = v8;
-    v9 = 0;
+    v10 = Length - v7;
+    String1.Buffer = &Buffer[(unsigned __int64)v7 >> 1];
+    String1.MaximumLength = v10;
+    v11 = 0;
     String1.Length = 0;
-    if ( v8 )
+    if ( v10 )
     {
       do
       {
-        if ( *(_WORD *)(v7 + 2 * ((unsigned __int64)v9 >> 1)) == 92 )
+        if ( v9[(unsigned __int64)v11 >> 1] == 92 )
           break;
-        v9 += 2;
+        v11 += 2;
       }
-      while ( v9 < v8 );
-      String1.Length = v9;
+      while ( v11 < v10 );
+      String1.Length = v11;
     }
     if ( !RtlEqualUnicodeString(&String1, &String2, 1u) )
     {
-      v11 = v9 + 42;
-      if ( v11 > 0xFFFF )
+      v13 = v11 + 32;
+      if ( v13 > 0xFFFF )
       {
         appended = -2147483643;
         goto LABEL_18;
       }
-      DestinationStringa.MaximumLength = v9 + 42;
+      DestinationStringa.MaximumLength = v11 + 32;
       DestinationStringa.Length = 0;
-      DestinationStringa.Buffer = (wchar_t *)ExAllocatePool2(256LL, (unsigned __int16)v11, 538996553LL);
+      DestinationStringa.Buffer = (wchar_t *)IopVerifierExAllocatePool(PagedPool, (unsigned __int16)v13);
       if ( !DestinationStringa.Buffer )
         goto LABEL_20;
-      RtlCopyUnicodeString(&DestinationStringa, &v15);
+      RtlCopyUnicodeString(&DestinationStringa, &v17);
       appended = RtlAppendUnicodeStringToString(&DestinationStringa, &String1);
       if ( appended < 0 )
         goto LABEL_18;
@@ -129,7 +132,7 @@ LABEL_17:
     if ( DestinationStringa.Buffer )
       ExFreePoolWithTag(DestinationStringa.Buffer, 0);
     DestinationStringa.MaximumLength = 26;
-    DestinationStringa.Buffer = (wchar_t *)ExAllocatePool2(256LL, 26LL, 538996553LL);
+    DestinationStringa.Buffer = (wchar_t *)IopVerifierExAllocatePool(PagedPool, 0x1AuLL);
     if ( DestinationStringa.Buffer )
     {
 LABEL_16:
@@ -140,8 +143,8 @@ LABEL_20:
     appended = -1073741670;
   }
 LABEL_18:
-  ExFreePoolWithTag(Pool2, 0);
+  ExFreePoolWithTag(Pool, 0);
 LABEL_19:
-  RtlFreeUnicodeString(&DestinationStringa);
+  RtlFreeAnsiString(&DestinationStringa);
   return (unsigned int)appended;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIRangeValidatePciResources @ 0x1C003B3C4
+ * XREFs of ACPIRangeValidatePciResources @ 0x1C002B280
  * Callers:
- *     ACPIBusIrpQueryResourceRequirements @ 0x1C0080990 (ACPIBusIrpQueryResourceRequirements.c)
- *     ACPIBusIrpQueryResources @ 0x1C0080E90 (ACPIBusIrpQueryResources.c)
+ *     ACPIBusIrpQueryResources @ 0x1C009C0D0 (ACPIBusIrpQueryResources.c)
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C009C4B0 (ACPIBusIrpQueryResourceRequirements.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
- *     ACPIIgnoreResourceMapValidation @ 0x1C003AF34 (ACPIIgnoreResourceMapValidation.c)
- *     ACPIRangeValidatePciMemoryResource @ 0x1C003B10C (ACPIRangeValidatePciMemoryResource.c)
- *     WPP_RECORDER_SF_dDDL @ 0x1C003B754 (WPP_RECORDER_SF_dDDL.c)
- *     WPP_RECORDER_SF_diiii @ 0x1C003BC78 (WPP_RECORDER_SF_diiii.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIRangeValidatePciMemoryResource @ 0x1C002B410 (ACPIRangeValidatePciMemoryResource.c)
+ *     ACPIIgnoreResourceMapValidation @ 0x1C005DA44 (ACPIIgnoreResourceMapValidation.c)
+ *     WPP_RECORDER_SF_dDDL @ 0x1C005DC8C (WPP_RECORDER_SF_dDDL.c)
+ *     WPP_RECORDER_SF_diiii @ 0x1C005E1B8 (WPP_RECORDER_SF_diiii.c)
  */
 
 void __fastcall ACPIRangeValidatePciResources(
@@ -18,19 +18,19 @@ void __fastcall ACPIRangeValidatePciResources(
 {
   ULONG_PTR v3; // r13
   int v5; // ebx
-  __int64 v6; // rdi
+  ULONG_PTR v6; // rdi
   unsigned int v7; // ecx
   unsigned int v8; // eax
-  unsigned int v9; // r14d
-  __int64 v10; // r12
+  unsigned int v9; // r15d
+  __int64 v10; // r14
   char v11; // cl
   ULONGLONG v12; // rax
   ULONGLONG v13; // r10
   unsigned __int64 v14; // rsi
   unsigned __int64 v15; // rcx
   char v16; // cl
-  int v17; // r9d
-  int v18; // esi
+  int v17; // esi
+  int v18; // r9d
   int BugCheckParameter4; // [rsp+20h] [rbp-58h]
   unsigned __int64 MinimumAddress; // [rsp+50h] [rbp-28h] BYREF
   unsigned __int64 MaximumAddress; // [rsp+58h] [rbp-20h] BYREF
@@ -47,15 +47,12 @@ void __fastcall ACPIRangeValidatePciResources(
   if ( !BugCheckParameter3 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(BugCheckParameter3) = 2;
       WPP_RECORDER_SF_(
-        WPP_GLOBAL_Control->DeviceExtension,
-        BugCheckParameter3,
-        13,
-        15,
-        (__int64)&WPP_1fd0c010928a3334a25fba642ba00601_Traceguids);
-    }
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0xDu,
+        0xFu,
+        (__int64)&WPP_95ceafb9c956380d4634093f153ba036_Traceguids);
     KeBugCheckEx(0xA5u, 2uLL, BugCheckParameter2, 2uLL, 0LL);
   }
   v6 = BugCheckParameter3 + 32;
@@ -139,7 +136,7 @@ void __fastcall ACPIRangeValidatePciResources(
                   WPP_GLOBAL_Control->DeviceExtension,
                   BugCheckParameter3,
                   a3,
-                  Alignment + 18,
+                  18,
                   BugCheckParameter4,
                   v9,
                   BugCheckParameter3,
@@ -174,8 +171,8 @@ void __fastcall ACPIRangeValidatePciResources(
           if ( (_BYTE)BugCheckParameter3 == 6 )
           {
             a3 = *(unsigned int *)(v10 + v6 + 24);
-            v17 = *(_DWORD *)(v10 + v6 + 20);
-            if ( *(_DWORD *)(v10 + v6 + 24) - v17 + 1 != *(_DWORD *)(v10 + v6 + 16) )
+            v18 = *(_DWORD *)(v10 + v6 + 20);
+            if ( *(_DWORD *)(v10 + v6 + 24) - v18 + 1 != *(_DWORD *)(v10 + v6 + 16) )
             {
               if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
               {
@@ -183,10 +180,10 @@ void __fastcall ACPIRangeValidatePciResources(
                   WPP_GLOBAL_Control->DeviceExtension,
                   BugCheckParameter3,
                   a3,
-                  v17,
+                  v18,
                   BugCheckParameter4,
                   v9,
-                  v17,
+                  v18,
                   a3,
                   *(_DWORD *)(v10 + v6 + 16));
                 v16 = *(_BYTE *)(v10 + v6 + 9);
@@ -197,14 +194,14 @@ void __fastcall ACPIRangeValidatePciResources(
           if ( ((v16 - 3) & 0xFB) == 0 )
           {
             ACPIRangeValidatePciMemoryResource(v6, v9, a3, &v26);
-            v18 = v26;
+            v17 = v26;
             if ( v26 )
             {
-              if ( ACPIIgnoreResourceMapValidation((struct _IO_RESOURCE_DESCRIPTOR *)(v10 + v6 + 8)) )
-                v18 = 0;
-              v26 = v18;
+              if ( (unsigned __int8)ACPIIgnoreResourceMapValidation(v10 + v6 + 8) )
+                v17 = 0;
+              v26 = v17;
             }
-            v5 += v18;
+            v5 += v17;
           }
           v8 = *(_DWORD *)(v6 + 4);
           ++v9;
@@ -220,16 +217,13 @@ void __fastcall ACPIRangeValidatePciResources(
     if ( v5 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(BugCheckParameter3) = 2;
         WPP_RECORDER_SF_(
-          WPP_GLOBAL_Control->DeviceExtension,
-          BugCheckParameter3,
-          13,
-          21,
-          (__int64)&WPP_1fd0c010928a3334a25fba642ba00601_Traceguids);
-      }
-      KeBugCheckEx(0xA5u, 2uLL, BugCheckParameter2, v3, (ULONG_PTR)E820Info);
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          2u,
+          0xDu,
+          0x15u,
+          (__int64)&WPP_95ceafb9c956380d4634093f153ba036_Traceguids);
+      KeBugCheckEx(0xA5u, 2uLL, BugCheckParameter2, v3, E820Info);
     }
   }
 }

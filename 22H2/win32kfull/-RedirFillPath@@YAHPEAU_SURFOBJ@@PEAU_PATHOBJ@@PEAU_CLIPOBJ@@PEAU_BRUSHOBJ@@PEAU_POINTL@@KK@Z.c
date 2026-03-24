@@ -1,17 +1,17 @@
 /*
- * XREFs of ?RedirFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02A4B10
+ * XREFs of ?RedirFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C029BB10
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C011BFB4 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C015AD8E (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
- *     EngFillPath @ 0x1C0289380 (EngFillPath.c)
- *     ??0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C02A40D4 (--0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ?bMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A6678 (-bMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00AC9D8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2904 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     EngFillPath @ 0x1C01472B0 (EngFillPath.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C0298C80 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
+ *     ??0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C029B118 (--0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ?bMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029D5EC (-bMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
  */
 
 __int64 __fastcall RedirFillPath(
@@ -23,71 +23,67 @@ __int64 __fastcall RedirFillPath(
         MIX a6,
         FLONG a7)
 {
-  __int64 v11; // rcx
   FLONG flOptions; // r12d
   MIX mix; // r13d
   __int64 HDEV; // rbx
-  __int64 v15; // rdx
-  Gre::Base *v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  int v19; // eax
+  int v14; // eax
   _QWORD *i; // rbx
-  __int64 v21; // r9
-  unsigned int v22; // ebx
-  __int64 v24; // [rsp+48h] [rbp-61h] BYREF
-  struct SURFACE *v25; // [rsp+50h] [rbp-59h] BYREF
-  __int128 v26; // [rsp+58h] [rbp-51h] BYREF
-  __int64 v27; // [rsp+68h] [rbp-41h]
-  int v28; // [rsp+70h] [rbp-39h]
-  _QWORD v29[2]; // [rsp+78h] [rbp-31h] BYREF
-  _BYTE v30[40]; // [rsp+88h] [rbp-21h] BYREF
-  __int64 v31; // [rsp+B0h] [rbp+7h]
-  __int64 v32; // [rsp+B8h] [rbp+Fh]
-  __int64 v33; // [rsp+F8h] [rbp+4Fh] BYREF
+  __int64 v16; // r9
+  __int64 v17; // r9
+  unsigned int v18; // r8d
+  __int64 v20; // [rsp+48h] [rbp-61h] BYREF
+  struct SURFACE *v21; // [rsp+50h] [rbp-59h] BYREF
+  __int128 v22; // [rsp+58h] [rbp-51h] BYREF
+  __int64 v23; // [rsp+68h] [rbp-41h]
+  int v24; // [rsp+70h] [rbp-39h]
+  _QWORD v25[2]; // [rsp+78h] [rbp-31h] BYREF
+  _BYTE v26[40]; // [rsp+88h] [rbp-21h] BYREF
+  __int64 v27; // [rsp+B0h] [rbp+7h]
+  __int64 v28; // [rsp+B8h] [rbp+Fh]
+  __int64 v29; // [rsp+F8h] [rbp+4Fh] BYREF
 
-  REDIROPEN::REDIROPEN((REDIROPEN *)&v25, a1);
+  REDIROPEN::REDIROPEN((REDIROPEN *)&v21, a1);
   flOptions = a7;
   mix = a6;
   if ( a1 )
   {
     if ( ((__int64)a1[1].hsurf & 0x800) != 0 )
     {
-      HDEV = UserGetHDEV(v11);
+      HDEV = UserGetHDEV();
       if ( HDEV )
       {
-        DLODCOBJ::DLODCOBJ((DLODCOBJ *)v29);
-        v32 = 0LL;
-        v31 = 0LL;
-        v29[0] = 0LL;
-        v19 = *(_DWORD *)(HDEV + 40);
-        v26 = 0LL;
-        v28 = 1;
-        if ( (v19 & 1) != 0 )
+        DLODCOBJ::DLODCOBJ((DLODCOBJ *)v25);
+        v28 = 0LL;
+        v27 = 0LL;
+        v25[0] = 0LL;
+        v14 = *(_DWORD *)(HDEV + 40);
+        v22 = 0LL;
+        v24 = 1;
+        if ( (v14 & 1) != 0 )
         {
-          Gre::Base::Globals(v16);
-          *(_QWORD *)&v26 = *(_QWORD *)(HDEV + 48);
-          v27 = HDEV;
-          GreAcquireSemaphore(v26);
-          EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v26, 11LL);
+          *(_QWORD *)&v22 = *(_QWORD *)(HDEV + 48);
+          v23 = HDEV;
+          GreAcquireSemaphore(v22);
+          EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v22, 11LL);
+          v14 = *(_DWORD *)(HDEV + 40);
         }
-        if ( (*(_DWORD *)(HDEV + 40) & 0x20000) != 0 )
+        if ( (v14 & 0x20000) != 0 )
         {
-          for ( i = **(_QWORD ***)(HDEV + 1768); i; i = (_QWORD *)*i )
+          for ( i = **(_QWORD ***)(HDEV + 1800); i; i = (_QWORD *)*i )
           {
-            v18 = i[6];
-            v33 = v18;
-            if ( v18 )
+            v16 = i[6];
+            v29 = v16;
+            if ( v16 )
             {
-              if ( (*(_DWORD *)(v18 + 1792) & 0x8000000) != 0 && (*(_DWORD *)(v18 + 2096) & 0x8000) != 0 )
+              if ( (*(_DWORD *)(v16 + 1824) & 0x8000000) != 0 && (*(_DWORD *)(v16 + 2128) & 0x8000) != 0 )
               {
-                if ( *(_QWORD *)(*(_QWORD *)(v18 + 1760) + 184LL) )
+                if ( *(_QWORD *)(*(_QWORD *)(v16 + 1792) + 184LL) )
                 {
                   MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
-                    (MARK_ACCDRV_NOTIFICATION *)&v24,
-                    (struct PDEVOBJ *)&v33,
+                    (MARK_ACCDRV_NOTIFICATION *)&v20,
+                    (struct PDEVOBJ *)&v29,
                     a1);
-                  (*(void (__fastcall **)(struct _SURFOBJ *, PATHOBJ *, CLIPOBJ *, BRUSHOBJ *, POINTL *, MIX, FLONG))(*(_QWORD *)(v21 + 1760) + 184LL))(
+                  (*(void (__fastcall **)(struct _SURFOBJ *, PATHOBJ *, CLIPOBJ *, BRUSHOBJ *, POINTL *, MIX, FLONG))(*(_QWORD *)(v17 + 1792) + 184LL))(
                     a1,
                     ppo,
                     pco,
@@ -95,22 +91,22 @@ __int64 __fastcall RedirFillPath(
                     pptlBrushOrg,
                     mix,
                     flOptions);
-                  if ( v24 )
-                    *(_WORD *)(v24 + 78) &= ~0x8000u;
+                  if ( v20 )
+                    *(_WORD *)(v20 + 78) &= ~0x8000u;
                 }
               }
             }
           }
         }
-        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v26, v15, v17, v18);
-        if ( v29[0] )
-          DLODCOBJ::vUnlock((DLODCOBJ *)v29);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v30);
+        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v22);
+        if ( v25[0] )
+          DLODCOBJ::vUnlock((DLODCOBJ *)v25);
+        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v26);
       }
     }
   }
-  v22 = EngFillPath(a1, ppo, pco, pbo, pptlBrushOrg, mix, flOptions);
-  if ( v25 )
-    bMakeOpaque(v25);
-  return v22;
+  v18 = EngFillPath(a1, ppo, pco, pbo, pptlBrushOrg, mix, flOptions);
+  if ( v21 )
+    bMakeOpaque(v21);
+  return v18;
 }

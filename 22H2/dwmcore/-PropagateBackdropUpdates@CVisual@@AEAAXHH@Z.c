@@ -1,11 +1,10 @@
 /*
- * XREFs of ?PropagateBackdropUpdates@CVisual@@AEAAXHH@Z @ 0x180098784
+ * XREFs of ?PropagateBackdropUpdates@CVisual@@AEAAXHH@Z @ 0x18009FCA4
  * Callers:
- *     ?UpdateHasBackdropInputFlag@CVisual@@IEAAXPEBVCBackdropBrush@@@Z @ 0x18004AC44 (-UpdateHasBackdropInputFlag@CVisual@@IEAAXPEBVCBackdropBrush@@@Z.c)
- *     ?UpdateHasWindowBackdropInputFlag@CVisual@@IEAAX_N@Z @ 0x18004ACD4 (-UpdateHasWindowBackdropInputFlag@CVisual@@IEAAX_N@Z.c)
- *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180051CD0 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?RemoveChild@CVisual@@IEAAXPEAV1@@Z @ 0x1800986EC (-RemoveChild@CVisual@@IEAAXPEAV1@@Z.c)
- *     ?UpdateBackdropCounts@CVisual@@IEAAXPEBV1@_N@Z @ 0x1800E8B1C (-UpdateBackdropCounts@CVisual@@IEAAXPEBV1@_N@Z.c)
+ *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18006E530 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?UpdateBackdropBlurFlag@CVisual@@AEAAXXZ @ 0x18009DC3C (-UpdateBackdropBlurFlag@CVisual@@AEAAXXZ.c)
+ *     ?RemoveChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x18009F340 (-RemoveChild@CVisual@@IEAAXPEAV1@_N@Z.c)
+ *     ?RemoveAllChildren@CVisual@@IEAAXXZ @ 0x18009F990 (-RemoveAllChildren@CVisual@@IEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -19,14 +18,14 @@ void __fastcall CVisual::PropagateBackdropUpdates(CVisual *this, int a2, int a3)
     v3 = this;
     do
     {
-      *((_DWORD *)this + 66) += a2;
-      *((_DWORD *)this + 67) += a3;
-      this = (CVisual *)*((_QWORD *)this + 11);
+      *((_DWORD *)this + 64) += a2;
+      *((_DWORD *)this + 65) += a3;
+      this = (CVisual *)*((_QWORD *)this + 10);
       if ( v3 )
       {
-        v3 = (CVisual *)*((_QWORD *)v3 + 11);
+        v3 = (CVisual *)*((_QWORD *)v3 + 10);
         if ( v3 )
-          v3 = (CVisual *)*((_QWORD *)v3 + 11);
+          v3 = (CVisual *)*((_QWORD *)v3 + 10);
       }
     }
     while ( this != v3 );

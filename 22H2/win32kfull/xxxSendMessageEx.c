@@ -1,40 +1,45 @@
 /*
- * XREFs of xxxSendMessageEx @ 0x1C009B1B0
+ * XREFs of xxxSendMessageEx @ 0x1C005D440
  * Callers:
- *     xxxSendMessageFF @ 0x1C009B170 (xxxSendMessageFF.c)
+ *     xxxSendMessageFF @ 0x1C0161950 (xxxSendMessageFF.c)
  * Callees:
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
  */
 
-__int64 __fastcall xxxSendMessageEx(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4, ULONG64 a5)
+unsigned __int64 __fastcall xxxSendMessageEx(
+        unsigned __int64 a1,
+        unsigned int a2,
+        unsigned __int64 a3,
+        struct _LARGE_STRING *a4,
+        ULONG64 a5)
 {
-  _BYTE *v5; // rdx
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  __int64 v9[3]; // [rsp+58h] [rbp-50h] BYREF
-  int v10[4]; // [rsp+70h] [rbp-38h]
-  __int64 v11; // [rsp+80h] [rbp-28h]
+  _BYTE *v6; // rcx
+  __int64 v7; // rax
+  unsigned __int64 v8; // rcx
+  unsigned __int64 LowLimit[3]; // [rsp+58h] [rbp-50h] BYREF
+  int v11[4]; // [rsp+70h] [rbp-38h]
+  unsigned __int64 v12; // [rsp+80h] [rbp-28h]
 
   if ( !a5 )
-    return xxxSendTransformableMessageTimeout(BugCheckParameter2, 0, 0, 0LL, 0, 1);
-  v9[0] = 0LL;
-  *(_QWORD *)v10 = 0LL;
+    return xxxSendTransformableMessageTimeout(a1, a2, a3, a4, 0, 0, 0LL, 0, 1);
+  LowLimit[0] = 0LL;
+  *(_QWORD *)v11 = 0LL;
   if ( !KeGetCurrentThread() )
     return 0LL;
+  v6 = (_BYTE *)a5;
   if ( (a5 & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  v5 = (_BYTE *)a5;
   if ( a5 >= MmUserProbeAddress )
-    v5 = (_BYTE *)MmUserProbeAddress;
-  *v5 = *v5;
-  v5[23] = v5[23];
-  *(_OWORD *)v10 = *(_OWORD *)a5;
-  v11 = *(_QWORD *)(a5 + 16);
-  v6 = xxxSendTransformableMessageTimeout(BugCheckParameter2, v10[0], v10[1], (__int64)v9, 0, 1);
-  v7 = v9[0];
-  v11 = v9[0];
-  *(_QWORD *)&v10[2] = v6;
-  *(_OWORD *)a5 = *(_OWORD *)v10;
-  *(_QWORD *)(a5 + 16) = v11;
-  return v7;
+    v6 = (_BYTE *)MmUserProbeAddress;
+  *v6 = *v6;
+  v6[23] = v6[23];
+  *(_OWORD *)v11 = *(_OWORD *)a5;
+  v12 = *(_QWORD *)(a5 + 16);
+  v7 = xxxSendTransformableMessageTimeout(a1, a2, a3, a4, v11[0], v11[1], (__int64 *)LowLimit, 0, 1);
+  v8 = LowLimit[0];
+  v12 = LowLimit[0];
+  *(_QWORD *)&v11[2] = v7;
+  *(_OWORD *)a5 = *(_OWORD *)v11;
+  *(_QWORD *)(a5 + 16) = v12;
+  return v8;
 }

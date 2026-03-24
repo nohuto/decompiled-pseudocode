@@ -1,31 +1,28 @@
 /*
- * XREFs of HalpIommuInitializeDmaGuardPolicy @ 0x1403B4D94
+ * XREFs of HalpIommuInitializeDmaGuardPolicy @ 0x1403B05B0
  * Callers:
- *     HalpIommuInitSystem @ 0x140A8A420 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x14099EB40 (HalpIommuInitSystem.c)
  * Callees:
- *     strstr @ 0x1403D8B70 (strstr.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     strstr @ 0x1403D1180 (strstr.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuInitializeDmaGuardPolicy(__int64 a1)
 {
   bool v2; // si
   const char *v3; // rcx
+  char v4; // al
   __int64 result; // rax
-  char v5; // [rsp+38h] [rbp+10h] BYREF
+  char v6; // [rsp+38h] [rbp+10h] BYREF
 
   if ( HalpHvIommu )
   {
-    v5 = 0;
-    result = ((__int64 (__fastcall *)(char *))qword_140C62748)(&v5);
-    if ( (int)result >= 0 )
+    v6 = 0;
+    result = ((__int64 (__fastcall *)(char *))qword_140C4A3B0)(&v6);
+    if ( (int)result >= 0 && v6 )
     {
-      HalpDmaGuardEnabled = v5;
-      if ( v5 )
-      {
-        HalpIommuPolicy = 3;
-        HalpIommuSecurityPolicy = 1;
-      }
+      HalpIommuPolicy = 3;
+      HalpIommuSecurityPolicy = 1;
     }
   }
   else
@@ -36,12 +33,15 @@ __int64 __fastcall HalpIommuInitializeDmaGuardPolicy(__int64 a1)
       v3 = *(const char **)(a1 + 216);
       if ( v3 )
         v2 = strstr(v3, "DMAGUARDPOLICY=ENABLE") != 0LL;
-      if ( (*(_BYTE *)(*(_QWORD *)(a1 + 240) + 2648LL) & 8) != 0 || v2 )
-        goto LABEL_13;
+      v4 = v2;
+      if ( (*(_BYTE *)(*(_QWORD *)(a1 + 240) + 2616LL) & 8) != 0 )
+        v4 = 1;
+      if ( v4 )
+        goto LABEL_14;
     }
     if ( HalpIommuDmaGuardTableOptIn )
     {
-LABEL_13:
+LABEL_14:
       HalpIommuPolicy = 3;
       HalpIommuSecurityPolicy = 1;
     }

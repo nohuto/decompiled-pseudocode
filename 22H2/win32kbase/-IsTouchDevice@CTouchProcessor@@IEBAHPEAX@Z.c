@@ -1,28 +1,27 @@
 /*
- * XREFs of ?IsTouchDevice@CTouchProcessor@@IEBAHPEAX@Z @ 0x1C01CD228
+ * XREFs of ?IsTouchDevice@CTouchProcessor@@IEBAHPEAX@Z @ 0x1C0197050
  * Callers:
- *     ?OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01CD924 (-OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z.c)
- *     ?OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01CDA78 (-OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z.c)
+ *     ?OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01975E4 (-OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z.c)
+ *     ?OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01976C0 (-OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00590FC (HMValidateHandleNoSecure.c)
+ *     HMValidateHandleNoSecure @ 0x1C0046930 (HMValidateHandleNoSecure.c)
  */
 
-bool __fastcall CTouchProcessor::IsTouchDevice(CTouchProcessor *this, void *a2)
+_BOOL8 __fastcall CTouchProcessor::IsTouchDevice(CTouchProcessor *this, unsigned __int64 a2)
 {
-  __int64 v2; // rcx
-  bool result; // al
-  __int64 v4; // rcx
-  int v5; // edx
+  __int64 v2; // rax
+  __int64 v3; // rax
+  _BOOL8 result; // rax
 
-  v2 = HMValidateHandleNoSecure((int)a2, 19);
+  v2 = HMValidateHandleNoSecure(a2, 19);
   result = 0;
   if ( v2 )
   {
-    v4 = *(_QWORD *)(v2 + 472);
-    if ( v4 )
+    v3 = *(_QWORD *)(v2 + 480);
+    if ( v3 )
     {
-      v5 = *(_DWORD *)(v4 + 24);
-      return (unsigned int)(v5 - 1) <= 2 || v5 == 4;
+      if ( (unsigned int)(*(_DWORD *)(v3 + 24) - 1) <= 3 )
+        return 1;
     }
   }
   return result;

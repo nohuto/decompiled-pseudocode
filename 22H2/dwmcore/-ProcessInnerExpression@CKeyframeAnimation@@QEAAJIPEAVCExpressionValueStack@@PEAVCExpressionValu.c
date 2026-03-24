@@ -1,44 +1,45 @@
 /*
- * XREFs of ?ProcessInnerExpression@CKeyframeAnimation@@QEAAJIPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x180055B24
+ * XREFs of ?ProcessInnerExpression@CKeyframeAnimation@@QEAAJIPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x1801D1478
  * Callers:
- *     ?Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z @ 0x180057730 (-Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z.c)
+ *     ?Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z @ 0x1800ABEF0 (-Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z.c)
+ *     ?GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x18020607C (-GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z.c)
  * Callees:
- *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180053F60 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x180057F78 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180073B10 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x1800AC338 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::ProcessInnerExpression(
-        CKeyframeAnimation *this,
-        unsigned int a2,
+        LARGE_INTEGER *this,
+        DWORD a2,
         struct CExpressionValueStack *a3,
         struct CExpressionValue *a4)
 {
-  __int64 v5; // rsi
-  int v6; // eax
-  unsigned int v7; // ecx
-  unsigned int v8; // ebx
+  unsigned int v5; // ebx
+  LARGE_INTEGER *v6; // rsi
+  int v7; // eax
+  __int64 v8; // rcx
   bool v10; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( a2 >= *((_DWORD *)this + 106) )
+  if ( a2 < this[49].LowPart )
   {
-    v8 = -2147467259;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147467259, 0x6C6u, 0LL);
-  }
-  else
-  {
-    v5 = *(_QWORD *)(*((_QWORD *)this + 50) + 8LL * a2);
-    v6 = CBaseExpression::CalculateValue((CBaseExpression *)v5, a3, *((_QWORD *)this + 21), &v10);
-    v8 = v6;
-    if ( v6 < 0 )
+    v6 = *(LARGE_INTEGER **)(this[46].QuadPart + 8LL * a2);
+    v7 = CBaseExpression::CalculateValue(v6, a3, this[20], &v10);
+    v5 = v7;
+    if ( v7 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x6CDu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x688u, 0LL);
     }
     else
     {
-      CExpressionValue::CopyFrom(a4, (const struct CExpressionValue *)(v5 + 72));
+      CExpressionValue::CopyFrom(a4, (const struct CExpressionValue *)&v6[8]);
       return 0;
     }
   }
-  return v8;
+  else
+  {
+    v5 = -2147467259;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147467259, 0x681u, 0LL);
+  }
+  return v5;
 }

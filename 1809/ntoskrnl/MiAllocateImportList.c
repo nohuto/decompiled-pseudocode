@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateImportList @ 0x1406C88C4
+ * XREFs of MiAllocateImportList @ 0x1406C88A4
  * Callers:
- *     MiCompressImportList @ 0x1406C87B8 (MiCompressImportList.c)
- *     MiPrepareImportList @ 0x1406C8870 (MiPrepareImportList.c)
- *     MiApplyDriverHotPatch @ 0x1408540A0 (MiApplyDriverHotPatch.c)
+ *     MiCompressImportList @ 0x1406C8798 (MiCompressImportList.c)
+ *     MiPrepareImportList @ 0x1406C8850 (MiPrepareImportList.c)
+ *     MiApplyDriverHotPatch @ 0x140854080 (MiApplyDriverHotPatch.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

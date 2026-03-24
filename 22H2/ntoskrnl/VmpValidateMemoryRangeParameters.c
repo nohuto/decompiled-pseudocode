@@ -1,8 +1,8 @@
 /*
- * XREFs of VmpValidateMemoryRangeParameters @ 0x1409DD93C
+ * XREFs of VmpValidateMemoryRangeParameters @ 0x14092FB20
  * Callers:
- *     VmCreateMemoryRange @ 0x1409DC590 (VmCreateMemoryRange.c)
- *     VmDeleteMemoryRange @ 0x1409DC730 (VmDeleteMemoryRange.c)
+ *     VmCreateMemoryRange @ 0x14092EE50 (VmCreateMemoryRange.c)
+ *     VmDeleteMemoryRange @ 0x14092EFF0 (VmDeleteMemoryRange.c)
  * Callees:
  *     <none>
  */
@@ -13,64 +13,20 @@ __int64 __fastcall VmpValidateMemoryRangeParameters(
         unsigned __int64 a3,
         __int64 a4)
 {
-  unsigned int v5; // ecx
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // rax
-  unsigned __int64 v8; // rax
+  unsigned __int64 v5; // r8
 
   if ( a4 == -1 )
-  {
-    return 10;
-  }
-  else
-  {
-    v5 = 0;
-    if ( a3 )
-    {
-      if ( a3 <= 0xFFFFFFFFFFFFFLL )
-      {
-        if ( ((a2 | a1) & 0xFFF) != 0 )
-        {
-          return 40;
-        }
-        else
-        {
-          v6 = a3 << 12;
-          if ( v6 + a2 > a2 )
-          {
-            if ( v6 + a1 > a1 )
-            {
-              v7 = v6 + a2 - 1;
-              if ( !v6 )
-                v7 = a2;
-              if ( v7 < a2 )
-                return 70;
-              v8 = v6 + a2 - 1;
-              if ( !v6 )
-                v8 = a2;
-              if ( v8 > 0x7FFFFFFEFFFFLL )
-                return 70;
-            }
-            else
-            {
-              return 60;
-            }
-          }
-          else
-          {
-            return 50;
-          }
-        }
-      }
-      else
-      {
-        return 30;
-      }
-    }
-    else
-    {
-      return 20;
-    }
-  }
-  return v5;
+    return 10LL;
+  if ( !a3 )
+    return 20LL;
+  if ( a3 > 0xFFFFFFFFFFFFFLL )
+    return 30LL;
+  if ( ((a2 | a1) & 0xFFF) != 0 )
+    return 40LL;
+  v5 = a3 << 12;
+  if ( v5 + a2 <= a2 )
+    return 50LL;
+  if ( v5 + a1 > a1 )
+    return v5 + a2 - 1 > 0x7FFFFFFEFFFFLL ? 0x46 : 0;
+  return 60LL;
 }

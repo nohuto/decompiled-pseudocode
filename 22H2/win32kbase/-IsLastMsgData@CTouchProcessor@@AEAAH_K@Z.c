@@ -1,32 +1,28 @@
 /*
- * XREFs of ?IsLastMsgData@CTouchProcessor@@AEAAH_K@Z @ 0x1C00E4810
+ * XREFs of ?IsLastMsgData@CTouchProcessor@@AEAAH_K@Z @ 0x1C0196904
  * Callers:
- *     ?UpdateThreadPointerList@CTouchProcessor@@QEAAXPEAUtagTHREADINPUTPOINTERLIST@@G@Z @ 0x1C0089C90 (-UpdateThreadPointerList@CTouchProcessor@@QEAAXPEAUtagTHREADINPUTPOINTERLIST@@G@Z.c)
+ *     ?UpdateThreadPointerList@CTouchProcessor@@QEAAXPEAUtagTHREADINPUTPOINTERLIST@@G@Z @ 0x1C007C9F0 (-UpdateThreadPointerList@CTouchProcessor@@QEAAXPEAUtagTHREADINPUTPOINTERLIST@@G@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z @ 0x1C01C7440 (-GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall CTouchProcessor::IsLastMsgData(CTouchProcessor *this, unsigned __int64 a2)
+__int64 __fastcall CTouchProcessor::IsLastMsgData(struct _KTHREAD **this, __int64 a2)
 {
-  unsigned int v3; // edi
-  struct CPointerMsgData *NonConstMsgData; // rsi
-  _QWORD *v5; // rbx
+  unsigned int v2; // esi
+  _QWORD *v4; // rbx
 
-  v3 = 0;
-  NonConstMsgData = CTouchProcessor::GetNonConstMsgData(this, a2);
-  if ( *((struct _KTHREAD **)this + 5) != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 12633);
-  v5 = *(_QWORD **)NonConstMsgData;
-  if ( *(_QWORD *)NonConstMsgData != *((_QWORD *)NonConstMsgData + 1) )
+  v2 = 0;
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 11993);
+  v4 = *(_QWORD **)a2;
+  if ( *(_QWORD *)a2 != *(_QWORD *)(a2 + 8) )
     return 0LL;
-  if ( (struct CPointerMsgData *)*v5 != NonConstMsgData )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 12653);
-  if ( (struct CPointerMsgData *)v5[1] != NonConstMsgData )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 12654);
-  if ( *((_WORD *)v5 - 112) != *((_WORD *)NonConstMsgData + 8) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 12660);
-  if ( *((_DWORD *)v5 - 50) == 3 && !*((_DWORD *)v5 - 55) )
-    return 1;
-  return v3;
+  if ( *v4 != a2 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 12013);
+  if ( v4[1] != a2 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 12014);
+  if ( *((_WORD *)v4 - 104) != *(_WORD *)(a2 + 16) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 12020);
+  LOBYTE(v2) = *((_DWORD *)v4 - 47) == 3;
+  return v2;
 }

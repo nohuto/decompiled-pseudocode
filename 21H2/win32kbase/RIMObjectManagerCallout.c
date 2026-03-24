@@ -1,11 +1,11 @@
 /*
- * XREFs of RIMObjectManagerCallout @ 0x1C004913C
+ * XREFs of RIMObjectManagerCallout @ 0x1C004EB98
  * Callers:
- *     W32CalloutDispatch @ 0x1C00E4D10 (W32CalloutDispatch.c)
+ *     W32CalloutDispatch @ 0x1C004DFB0 (W32CalloutDispatch.c)
  * Callees:
- *     RawInputManagerObjectOpen @ 0x1C00491CC (RawInputManagerObjectOpen.c)
- *     RawInputManagerObjectDelete @ 0x1C004926C (RawInputManagerObjectDelete.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     RawInputManagerObjectOpen @ 0x1C0051524 (RawInputManagerObjectOpen.c)
+ *     RawInputManagerObjectDelete @ 0x1C005187C (RawInputManagerObjectDelete.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall RIMObjectManagerCallout(int a1, __int64 a2)
@@ -13,9 +13,7 @@ __int64 __fastcall RIMObjectManagerCallout(int a1, __int64 a2)
   int v2; // ecx
   int v3; // ecx
   int v4; // ecx
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  unsigned int v8; // ebx
+  unsigned int v6; // ebx
 
   v2 = a1 - 27;
   if ( !v2 )
@@ -34,15 +32,15 @@ __int64 __fastcall RIMObjectManagerCallout(int a1, __int64 a2)
     else
     {
       if ( ObGetObjectType(*(_QWORD *)(a2 + 8)) != ExRawInputManagerObjectType )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(ExRawInputManagerObjectType, v5, v6);
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 189LL);
       return 0LL;
     }
   }
   else
   {
-    v8 = 0;
+    v6 = 0;
     if ( *(_BYTE *)(a2 + 24) && (unsigned int)PsGetProcessSessionIdEx(*(_QWORD *)a2) == -1 )
       return (unsigned int)-1073741790;
-    return v8;
+    return v6;
   }
 }

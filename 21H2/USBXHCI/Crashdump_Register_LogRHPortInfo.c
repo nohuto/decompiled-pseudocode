@@ -1,9 +1,9 @@
 /*
- * XREFs of Crashdump_Register_LogRHPortInfo @ 0x1C004B78C
+ * XREFs of Crashdump_Register_LogRHPortInfo @ 0x1C004AD14
  * Callers:
- *     Crashdump_Initialize @ 0x1C004A210 (Crashdump_Initialize.c)
- *     Crashdump_InitializeWithControllerReset @ 0x1C004A724 (Crashdump_InitializeWithControllerReset.c)
- *     Crashdump_Register_ResetPort @ 0x1C004BA30 (Crashdump_Register_ResetPort.c)
+ *     Crashdump_Initialize @ 0x1C0049740 (Crashdump_Initialize.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C0049C90 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_Register_ResetPort @ 0x1C004AFB8 (Crashdump_Register_ResetPort.c)
  * Callees:
  *     <none>
  */

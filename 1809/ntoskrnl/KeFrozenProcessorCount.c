@@ -1,10 +1,10 @@
 /*
- * XREFs of KeFrozenProcessorCount @ 0x140297224
+ * XREFs of KeFrozenProcessorCount @ 0x140297324
  * Callers:
- *     IoInitializeBugCheckProgress @ 0x14027FED4 (IoInitializeBugCheckProgress.c)
- *     IoUpdateBugCheckProgressEnvVariable @ 0x1402803BC (IoUpdateBugCheckProgressEnvVariable.c)
+ *     IoInitializeBugCheckProgress @ 0x14027FFD4 (IoInitializeBugCheckProgress.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x1402804BC (IoUpdateBugCheckProgressEnvVariable.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
  */
 
 __int64 KeFrozenProcessorCount()

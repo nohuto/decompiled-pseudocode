@@ -1,13 +1,13 @@
 /*
- * XREFs of NtNotifyChangeKey @ 0x1407E5590
+ * XREFs of NtNotifyChangeKey @ 0x1406631C0
  * Callers:
- *     ExpWatchProductTypeWork @ 0x1406A5770 (ExpWatchProductTypeWork.c)
- *     SepAdtRegNotificationCallback @ 0x14084CA10 (SepAdtRegNotificationCallback.c)
- *     SepAdtOpenRegAndSetupNotification @ 0x14084CBB8 (SepAdtOpenRegAndSetupNotification.c)
- *     ExpWatchLicenseInfoWork @ 0x1409F8680 (ExpWatchLicenseInfoWork.c)
- *     ExpWatchProductTypeInitialization @ 0x140B1CC84 (ExpWatchProductTypeInitialization.c)
+ *     ExpWatchProductTypeWork @ 0x1406B3870 (ExpWatchProductTypeWork.c)
+ *     SepAdtRegNotificationCallback @ 0x14079E1C0 (SepAdtRegNotificationCallback.c)
+ *     SepAdtOpenRegAndSetupNotification @ 0x14079E368 (SepAdtOpenRegAndSetupNotification.c)
+ *     ExpWatchLicenseInfoWork @ 0x14094BFD0 (ExpWatchLicenseInfoWork.c)
+ *     ExpWatchProductTypeInitialization @ 0x140A41C04 (ExpWatchProductTypeInitialization.c)
  * Callees:
- *     NtNotifyChangeMultipleKeys @ 0x1407E5600 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x140663230 (NtNotifyChangeMultipleKeys.c)
  */
 
 __int64 __fastcall NtNotifyChangeKey(

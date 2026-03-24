@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CBufferRealization@@MEAA@XZ @ 0x1C000E8F0
+ * XREFs of ??1CBufferRealization@@MEAA@XZ @ 0x1C000F9D4
  * Callers:
- *     ??_ECBufferRealization@@MEAAPEAXI@Z @ 0x1C000E820 (--_ECBufferRealization@@MEAAPEAXI@Z.c)
+ *     ??_ECBufferRealization@@MEAAPEAXI@Z @ 0x1C000F990 (--_ECBufferRealization@@MEAAPEAXI@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CBufferRealization::~CBufferRealization(CBufferRealization *this)
@@ -12,10 +12,10 @@ void __fastcall CBufferRealization::~CBufferRealization(CBufferRealization *this
   void *v3; // rcx
 
   *(_QWORD *)this = &CBufferRealization::`vftable';
-  v2 = (void (__fastcall ***)(_QWORD))*((_QWORD *)this + 9);
+  v2 = (void (__fastcall ***)(_QWORD))*((_QWORD *)this + 8);
   if ( v2 )
     (**v2)(v2);
-  v3 = (void *)*((_QWORD *)this + 8);
+  v3 = (void *)*((_QWORD *)this + 7);
   if ( v3 )
     ObfDereferenceObject(v3);
 }

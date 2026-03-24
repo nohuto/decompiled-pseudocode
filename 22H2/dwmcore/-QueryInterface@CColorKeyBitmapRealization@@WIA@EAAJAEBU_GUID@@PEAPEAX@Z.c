@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@CColorKeyBitmapRealization@@WIA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180121FA0
+ * XREFs of ?QueryInterface@CColorKeyBitmapRealization@@WIA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F8120
  * Callers:
  *     <none>
  * Callees:

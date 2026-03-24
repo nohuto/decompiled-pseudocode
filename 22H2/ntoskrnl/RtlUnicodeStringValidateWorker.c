@@ -1,8 +1,7 @@
 /*
- * XREFs of RtlUnicodeStringValidateWorker @ 0x140208E20
+ * XREFs of RtlUnicodeStringValidateWorker @ 0x140206C40
  * Callers:
- *     RtlUnicodeStringValidateDestWorker @ 0x140208D74 (RtlUnicodeStringValidateDestWorker.c)
- *     RtlUnicodeStringValidateSrcWorker @ 0x140208DE4 (RtlUnicodeStringValidateSrcWorker.c)
+ *     RtlUnicodeStringCat @ 0x140206B20 (RtlUnicodeStringCat.c)
  * Callees:
  *     <none>
  */
@@ -10,11 +9,9 @@
 NTSTATUS __stdcall RtlUnicodeStringValidateWorker(PCUNICODE_STRING SourceString, const size_t cchMax, ULONG dwFlags)
 {
   unsigned __int16 Length; // r8
-  NTSTATUS result; // eax
   unsigned __int16 MaximumLength; // dx
 
   Length = SourceString->Length;
-  result = 0;
   if ( (SourceString->Length & 1) != 0 )
     return -1073741811;
   MaximumLength = SourceString->MaximumLength;
@@ -25,5 +22,8 @@ NTSTATUS __stdcall RtlUnicodeStringValidateWorker(PCUNICODE_STRING SourceString,
   {
     return -1073741811;
   }
-  return result;
+  else
+  {
+    return 0;
+  }
 }

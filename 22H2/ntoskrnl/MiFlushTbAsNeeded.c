@@ -1,34 +1,33 @@
 /*
- * XREFs of MiFlushTbAsNeeded @ 0x140279E30
+ * XREFs of MiFlushTbAsNeeded @ 0x1402B66A0
  * Callers:
- *     MiReservePtes @ 0x14027D070 (MiReservePtes.c)
- *     MiLinkPoolCommitChain @ 0x140286180 (MiLinkPoolCommitChain.c)
+ *     MiReservePtes @ 0x140226570 (MiReservePtes.c)
+ *     MiLinkPoolCommitChain @ 0x14028BBC0 (MiLinkPoolCommitChain.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     MiCompareTbFlushTimeStamp @ 0x14033D958 (MiCompareTbFlushTimeStamp.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiCompareTbFlushTimeStamp @ 0x140307B3C (MiCompareTbFlushTimeStamp.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-void __fastcall MiFlushTbAsNeeded(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, int a3, int a4)
+__int64 __fastcall MiFlushTbAsNeeded(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, int a3, int a4)
 {
-  int v8; // r15d
+  __int64 Flink; // rdx
   int v9; // r12d
-  unsigned __int64 v10; // rbp
+  int v10; // r15d
+  unsigned __int64 v11; // rbp
   ULONG_PTR BugCheckParameter4; // rbx
-  unsigned __int64 v12; // rdi
-  ULONG_PTR v13; // rbx
-  __int64 v14; // rdx
+  unsigned __int64 v13; // rdi
+  ULONG_PTR v14; // rbx
   __int64 v15; // rcx
   __int64 v16; // r8
-  struct _LIST_ENTRY *Flink; // rdx
-  __int64 v18; // rax
-  __int64 v19; // rdx
+  __int64 v17; // r9
+  __int64 v19; // rax
   int v20; // [rsp+30h] [rbp-108h] BYREF
   __int16 v21; // [rsp+34h] [rbp-104h]
   __int16 v22; // [rsp+36h] [rbp-102h]
@@ -41,11 +40,11 @@ void __fastcall MiFlushTbAsNeeded(ULONG_PTR BugCheckParameter2, unsigned __int64
   memset(v26, 0, sizeof(v26));
   v23 = 20LL;
   v20 = a3;
-  v8 = 0;
-  v21 = 0;
   v9 = 0;
+  v21 = 0;
+  v10 = 0;
   v24 = 0LL;
-  v10 = 0LL;
+  v11 = 0LL;
   v25 = 0LL;
   if ( a2 )
   {
@@ -54,83 +53,82 @@ void __fastcall MiFlushTbAsNeeded(ULONG_PTR BugCheckParameter2, unsigned __int64
       BugCheckParameter4 = *(_QWORD *)BugCheckParameter2;
       if ( BugCheckParameter2 >= 0xFFFFF6FB7DBED000uLL
         && BugCheckParameter2 <= 0xFFFFF6FB7DBED7F8uLL
-        && (MiFlags & 0x600000) != 0
+        && (MiFlags & 0xC00000) != 0
         && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
         && (BugCheckParameter4 & 1) != 0
         && ((BugCheckParameter4 & 0x20) == 0 || (BugCheckParameter4 & 0x42) == 0) )
       {
-        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        Flink = (__int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
         if ( Flink )
         {
-          v18 = *((_QWORD *)&Flink->Flink + ((BugCheckParameter2 >> 3) & 0x1FF));
-          v19 = BugCheckParameter4 | 0x20;
-          if ( (v18 & 0x20) == 0 )
-            v19 = *(_QWORD *)BugCheckParameter2;
-          BugCheckParameter4 = v19;
-          if ( (v18 & 0x42) != 0 )
-            BugCheckParameter4 = v19 | 0x42;
+          v19 = *(_QWORD *)(Flink + 8 * ((BugCheckParameter2 >> 3) & 0x1FF));
+          Flink = BugCheckParameter4 | 0x20;
+          if ( (v19 & 0x20) == 0 )
+            Flink = *(_QWORD *)BugCheckParameter2;
+          BugCheckParameter4 = Flink;
+          if ( (v19 & 0x42) != 0 )
+            BugCheckParameter4 = Flink | 0x42;
         }
       }
       if ( (BugCheckParameter4 & 0xC01) == 0 && (BugCheckParameter4 & 0x3E0) == 0 )
         break;
       if ( !a4 )
-        KeBugCheckEx(0x1Au, 0x5100uLL, BugCheckParameter2, a2 - v10, BugCheckParameter4);
+        KeBugCheckEx(0x1Au, 0x5100uLL, BugCheckParameter2, a2 - v11, BugCheckParameter4);
 LABEL_13:
-      ++v10;
+      ++v11;
       BugCheckParameter2 += 8LL;
-      if ( v10 >= a2 )
-        goto LABEL_14;
+      if ( v11 >= a2 )
+        return MiFlushTbList(&v20);
     }
-    if ( qword_140C65C40 && (BugCheckParameter4 & 0x10) == 0 )
-      BugCheckParameter4 &= ~qword_140C65C40;
-    v12 = ZeroPte;
-    v13 = HIDWORD(BugCheckParameter4);
-    if ( MiPteInShadowRange(BugCheckParameter2) )
+    if ( qword_140C4DF40 && (BugCheckParameter4 & 0x10) == 0 )
+      BugCheckParameter4 &= ~qword_140C4DF40;
+    v13 = ZeroPte;
+    v14 = HIDWORD(BugCheckParameter4);
+    if ( (unsigned int)MiPteInShadowRange(BugCheckParameter2, Flink) )
     {
-      if ( (unsigned int)MiPteHasShadow(v15, v14, v16) )
+      if ( (unsigned int)MiPteHasShadow(v15, Flink, v16, v17) )
       {
-        if ( !HIBYTE(word_140C66DFC) && (ZeroPte & 1) != 0 )
-          v12 = ZeroPte | 0x8000000000000000uLL;
-        *(_QWORD *)BugCheckParameter2 = v12;
-        MiWritePteShadow(BugCheckParameter2, v12);
+        if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
+          v13 = ZeroPte | 0x8000000000000000uLL;
+        *(_QWORD *)BugCheckParameter2 = v13;
+        MiWritePteShadow(BugCheckParameter2, v13);
         goto LABEL_11;
       }
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
         && (ZeroPte & 1) != 0 )
       {
-        v12 = ZeroPte | 0x8000000000000000uLL;
+        v13 = ZeroPte | 0x8000000000000000uLL;
       }
     }
-    *(_QWORD *)BugCheckParameter2 = v12;
+    *(_QWORD *)BugCheckParameter2 = v13;
 LABEL_11:
-    if ( (_DWORD)v13 )
+    if ( (_DWORD)v14 )
     {
-      if ( (_DWORD)v13 == v8 )
+      if ( (_DWORD)v14 == v9 )
       {
-        if ( v9 )
-          MiInsertTbFlushEntry(&v20, (__int64)(BugCheckParameter2 << 25) >> 16, 1LL, 0LL);
+        if ( v10 == 1 )
+          MiInsertTbFlushEntry((__int64)&v20, (__int64)(BugCheckParameter2 << 25) >> 16, 1LL, 0);
       }
       else
       {
-        if ( (unsigned __int8)MiCompareTbFlushTimeStamp((unsigned int)v13) )
+        if ( (unsigned __int8)MiCompareTbFlushTimeStamp((unsigned int)v14, 0xFFFFFFFFLL) )
         {
-          MiInsertTbFlushEntry(&v20, (__int64)(BugCheckParameter2 << 25) >> 16, 1LL, 0LL);
-          v9 = 1;
+          MiInsertTbFlushEntry((__int64)&v20, (__int64)(BugCheckParameter2 << 25) >> 16, 1LL, 0);
+          v10 = 1;
         }
         else
         {
-          v9 = 0;
+          v10 = 0;
         }
-        v8 = v13;
+        v9 = v14;
       }
     }
     else
     {
+      v10 = 0;
       v9 = 0;
-      v8 = 0;
     }
     goto LABEL_13;
   }
-LABEL_14:
-  MiFlushTbList(&v20);
+  return MiFlushTbList(&v20);
 }

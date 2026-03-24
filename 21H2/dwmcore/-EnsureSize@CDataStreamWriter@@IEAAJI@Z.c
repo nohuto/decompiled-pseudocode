@@ -1,116 +1,119 @@
 /*
- * XREFs of ?EnsureSize@CDataStreamWriter@@IEAAJI@Z @ 0x1800BD6D0
+ * XREFs of ?EnsureSize@CDataStreamWriter@@IEAAJI@Z @ 0x18005DD58
  * Callers:
- *     ?AddBlockData@CDataStreamWriter@@QEAAJPEBXI@Z @ 0x180042B58 (-AddBlockData@CDataStreamWriter@@QEAAJPEBXI@Z.c)
- *     ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x180070DE4 (-BeginCommand@CChannel@@AEAAJPEAXII@Z.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?AddBlockData@CDataStreamWriter@@QEAAJPEBXI@Z @ 0x1800381A8 (-AddBlockData@CDataStreamWriter@@QEAAJPEBXI@Z.c)
+ *     ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x18005D71C (-BeginCommand@CChannel@@AEAAJPEAXII@Z.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
  * Callees:
- *     ?AllocateNewBlock@CDataStreamWriter@@IEAAJI@Z @ 0x180070B48 (-AllocateNewBlock@CDataStreamWriter@@IEAAJI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ *     ?AllocateNewBlock@CDataStreamWriter@@IEAAJI@Z @ 0x180059E38 (-AllocateNewBlock@CDataStreamWriter@@IEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
-__int64 __fastcall CDataStreamWriter::EnsureSize(CDataStreamWriter *this, unsigned int a2)
+__int64 __fastcall CDataStreamWriter::EnsureSize(__int64 this, unsigned int a2)
 {
-  CDataStreamWriter *v2; // rbx
-  unsigned int v3; // ebp
-  _DWORD *v4; // rcx
+  unsigned int v2; // ebp
+  unsigned int v3; // eax
+  __int64 v4; // rdi
   unsigned int v5; // esi
-  unsigned int v7; // edx
-  unsigned int v8; // eax
-  int v9; // r8d
-  CDataStreamWriter **v10; // rax
-  CDataStreamWriter *v11; // rax
-  CDataStreamWriter **v12; // rdx
+  __int64 *i; // r8
+  unsigned int v8; // edx
+  int v9; // eax
+  __int64 *v10; // rax
+  __int64 *v11; // rax
+  __int64 **v12; // rcx
   int v13; // eax
   int NewBlock; // eax
   __int64 v15; // rcx
-  CDataStreamWriter **v16; // rdx
+  __int64 **v16; // rcx
   unsigned int v17; // [rsp+20h] [rbp-18h]
 
-  v2 = this;
+  v2 = a2;
   v3 = (a2 + 3) & 0xFFFFFFFC;
+  v4 = this;
+  if ( v3 >= a2 )
+    v2 = (a2 + 3) & 0xFFFFFFFC;
+  v5 = v3 < a2 ? 0x80070216 : 0;
   if ( v3 < a2 )
   {
-    v17 = 402;
-    goto LABEL_27;
+    v17 = 381;
+    goto LABEL_31;
   }
-  v4 = (_DWORD *)*((_QWORD *)this + 4);
-  v5 = v3 < a2 ? 0x80070216 : 0;
-  if ( v4 )
+  this = *(_QWORD *)(this + 32);
+  if ( this )
   {
-    if ( v4[4] - v4[5] >= v3 )
+    if ( *(_DWORD *)(this + 16) - *(_DWORD *)(this + 20) >= v2 )
       return v5;
-    if ( !v4[5] )
+    if ( !*(_DWORD *)(this + 20) )
     {
-      DefaultHeap::Free(v4);
-      *((_QWORD *)v2 + 4) = 0LL;
+      operator delete((void *)this);
+      *(_QWORD *)(v4 + 32) = 0LL;
     }
   }
-  for ( this = (CDataStreamWriter *)*((_QWORD *)v2 + 2);
-        this != (CDataStreamWriter *)((char *)v2 + 16);
-        this = *(CDataStreamWriter **)this )
+  for ( i = *(__int64 **)(v4 + 16); i != (__int64 *)(v4 + 16); i = (__int64 *)*i )
   {
-    v7 = *((_DWORD *)this + 4);
-    if ( v7 >= v3 )
+    this = *((unsigned int *)i + 4);
+    if ( (unsigned int)this >= v2 )
     {
-      v8 = *((_DWORD *)v2 + 10);
-      v9 = v7 + v8;
-      if ( v7 + v8 < v8 )
+      v8 = *(_DWORD *)(v4 + 40);
+      v9 = -1;
+      this = v8 + (unsigned int)this;
+      if ( (unsigned int)this >= v8 )
+        v9 = this;
+      v5 = (unsigned int)this < v8 ? 0x80070216 : 0;
+      *(_DWORD *)(v4 + 40) = v9;
+      if ( (unsigned int)this >= v8 )
       {
-        *((_DWORD *)v2 + 10) = -1;
-        MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2147024362, 0x1B5u);
-        return (unsigned int)-2147024362;
-      }
-      v10 = (CDataStreamWriter **)*((_QWORD *)v2 + 4);
-      v5 = 0;
-      *((_DWORD *)v2 + 10) = v9;
-      if ( v10 )
-      {
-        v16 = (CDataStreamWriter **)*((_QWORD *)v2 + 1);
-        if ( *v16 == v2 )
+        v10 = *(__int64 **)(v4 + 32);
+        if ( v10 )
         {
-          *v10 = v2;
-          v10[1] = (CDataStreamWriter *)v16;
-          *v16 = (CDataStreamWriter *)v10;
-          *((_QWORD *)v2 + 1) = v10;
-          goto LABEL_12;
-        }
-      }
-      else
-      {
-LABEL_12:
-        v11 = *(CDataStreamWriter **)this;
-        if ( *(CDataStreamWriter **)(*(_QWORD *)this + 8LL) == this )
-        {
-          v12 = (CDataStreamWriter **)*((_QWORD *)this + 1);
-          if ( *v12 == this )
+          v16 = *(__int64 ***)(v4 + 8);
+          if ( *v16 == (__int64 *)v4 )
           {
-            *v12 = v11;
-            *((_QWORD *)v11 + 1) = v12;
-            *((_DWORD *)this + 5) = 0;
-            *((_QWORD *)v2 + 4) = this;
-            return v5;
+            *v10 = v4;
+            v10[1] = (__int64)v16;
+            *v16 = v10;
+            *(_QWORD *)(v4 + 8) = v10;
+            goto LABEL_16;
           }
         }
+        else
+        {
+LABEL_16:
+          v11 = (__int64 *)*i;
+          if ( *(__int64 **)(*i + 8) == i )
+          {
+            v12 = (__int64 **)i[1];
+            if ( *v12 == i )
+            {
+              *v12 = v11;
+              v11[1] = (__int64)v12;
+              *((_DWORD *)i + 5) = 0;
+              *(_QWORD *)(v4 + 32) = i;
+              return v5;
+            }
+          }
+        }
+        __fastfail(3u);
       }
-      __fastfail(3u);
+      v17 = 416;
+LABEL_31:
+      MilInstrumentationCheckHR_MaybeFailFast(this, 0LL, 0, v5, v17, 0LL);
+      return v5;
     }
   }
   v13 = 0x4000;
-  if ( *((_DWORD *)v2 + 10) < 0x4000u )
-    v13 = *((_DWORD *)v2 + 10);
-  if ( v13 + v3 < v3 )
+  if ( *(_DWORD *)(v4 + 40) < 0x4000u )
+    v13 = *(_DWORD *)(v4 + 40);
+  if ( v13 + v2 < v2 )
   {
-    v17 = 501;
-LABEL_27:
     v5 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2147024362, v17);
-    return v5;
+    v17 = 480;
+    goto LABEL_31;
   }
-  NewBlock = CDataStreamWriter::AllocateNewBlock(v2, v13 + v3);
+  NewBlock = CDataStreamWriter::AllocateNewBlock((CDataStreamWriter *)v4, v13 + v2);
   v5 = NewBlock;
   if ( NewBlock < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, NewBlock, 0x1F7u);
+    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, NewBlock, 0x1E2u, 0LL);
   return v5;
 }

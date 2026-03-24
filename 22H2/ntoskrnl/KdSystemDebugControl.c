@@ -1,21 +1,21 @@
 /*
- * XREFs of KdSystemDebugControl @ 0x1409721A0
+ * XREFs of KdSystemDebugControl @ 0x1408B9BB0
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     KdpSysReadIoSpace @ 0x140567EF4 (KdpSysReadIoSpace.c)
- *     KdpSysReadMsr @ 0x140567FB8 (KdpSysReadMsr.c)
- *     KdpSysWriteIoSpace @ 0x140567FEC (KdpSysWriteIoSpace.c)
- *     KdpSysWriteMsr @ 0x1405680AC (KdpSysWriteMsr.c)
- *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
- *     KdpCopyMemoryChunks @ 0x140AB12A4 (KdpCopyMemoryChunks.c)
- *     KdpSysReadControlSpace @ 0x140AB2BB8 (KdpSysReadControlSpace.c)
- *     KdpSysWriteControlSpace @ 0x140AB2E44 (KdpSysWriteControlSpace.c)
- *     KdpSysCheckLowMemory @ 0x140AB5C64 (KdpSysCheckLowMemory.c)
- *     KdpSysGetVersion @ 0x140AB5C88 (KdpSysGetVersion.c)
- *     KdpSysReadBusData @ 0x140AB5CB4 (KdpSysReadBusData.c)
- *     KdpSysWriteBusData @ 0x140AB5D1C (KdpSysWriteBusData.c)
+ *     ExUnlockUserBuffer @ 0x1402EC94C (ExUnlockUserBuffer.c)
+ *     KdpSysReadIoSpace @ 0x140511C44 (KdpSysReadIoSpace.c)
+ *     KdpSysReadMsr @ 0x140511D04 (KdpSysReadMsr.c)
+ *     KdpSysWriteIoSpace @ 0x140511D38 (KdpSysWriteIoSpace.c)
+ *     KdpSysWriteMsr @ 0x140511DF0 (KdpSysWriteMsr.c)
+ *     ExLockUserBuffer @ 0x1406605D0 (ExLockUserBuffer.c)
+ *     KdpSysCheckLowMemory @ 0x1409B8E48 (KdpSysCheckLowMemory.c)
+ *     KdpSysGetVersion @ 0x1409B8E6C (KdpSysGetVersion.c)
+ *     KdpSysReadBusData @ 0x1409B8E98 (KdpSysReadBusData.c)
+ *     KdpSysWriteBusData @ 0x1409B8F00 (KdpSysWriteBusData.c)
+ *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
+ *     KdpSysReadControlSpace @ 0x1409B9F1C (KdpSysReadControlSpace.c)
+ *     KdpSysWriteControlSpace @ 0x1409BA008 (KdpSysWriteControlSpace.c)
  */
 
 __int64 __fastcall KdSystemDebugControl(
@@ -33,152 +33,146 @@ __int64 __fastcall KdSystemDebugControl(
   int v11; // ecx
   int v12; // ecx
   int v13; // ecx
-  int v14; // esi
+  unsigned int v14; // esi
   int v15; // ebx
   int Msr; // eax
-  int v17; // esi
+  unsigned int v17; // esi
   int v18; // esi
-  int v19; // esi
-  int v20; // esi
-  int v21; // esi
-  int v22; // esi
+  int v19; // ecx
+  int v20; // ecx
+  int v21; // ecx
+  int v22; // ecx
   int v23; // ecx
-  int v24; // ecx
-  int v25; // ecx
-  int v26; // ecx
-  int v27; // ecx
-  unsigned int v28; // esi
-  unsigned int v29; // esi
-  int v30; // esi
-  int v31; // [rsp+44h] [rbp-134h] BYREF
-  unsigned __int8 *v32; // [rsp+48h] [rbp-130h] BYREF
+  unsigned int v24; // esi
+  unsigned int v25; // esi
+  int v26; // esi
+  _DWORD v27[3]; // [rsp+44h] [rbp-134h] BYREF
   PVOID P; // [rsp+50h] [rbp-128h] BYREF
-  __m128i v34; // [rsp+58h] [rbp-120h]
-  __int64 v35; // [rsp+68h] [rbp-110h]
-  __m128i v36; // [rsp+70h] [rbp-108h]
-  __int64 v37; // [rsp+80h] [rbp-F8h]
-  __m128i v38; // [rsp+88h] [rbp-F0h]
-  __m128i v39; // [rsp+98h] [rbp-E0h]
-  __m128i v40; // [rsp+A8h] [rbp-D0h]
-  __m128i v41; // [rsp+B8h] [rbp-C0h]
-  __m128i v42; // [rsp+C8h] [rbp-B0h]
-  __m128i v43; // [rsp+D8h] [rbp-A0h]
-  __m128i v44; // [rsp+E8h] [rbp-90h]
-  __m128i v45; // [rsp+F8h] [rbp-80h]
-  __m128i v46; // [rsp+108h] [rbp-70h]
-  __int64 v47; // [rsp+118h] [rbp-60h]
-  __m128i v48; // [rsp+120h] [rbp-58h]
-  __int64 v49; // [rsp+130h] [rbp-48h]
-  __m128i v50; // [rsp+138h] [rbp-40h]
-  __int64 v51; // [rsp+148h] [rbp-30h]
-  __m128i v52; // [rsp+150h] [rbp-28h]
-  __int64 v53; // [rsp+160h] [rbp-18h]
+  __m128i v29; // [rsp+58h] [rbp-120h]
+  __int64 v30; // [rsp+68h] [rbp-110h]
+  __m128i v31; // [rsp+70h] [rbp-108h]
+  __int64 v32; // [rsp+80h] [rbp-F8h]
+  __m128i v33; // [rsp+88h] [rbp-F0h]
+  __m128i v34; // [rsp+98h] [rbp-E0h]
+  __m128i v35; // [rsp+A8h] [rbp-D0h]
+  __m128i v36; // [rsp+B8h] [rbp-C0h]
+  __m128i v37; // [rsp+C8h] [rbp-B0h]
+  __m128i v38; // [rsp+D8h] [rbp-A0h]
+  __m128i v39; // [rsp+E8h] [rbp-90h]
+  __m128i v40; // [rsp+F8h] [rbp-80h]
+  PVOID BaseAddress[2]; // [rsp+108h] [rbp-70h]
+  __int64 v42; // [rsp+118h] [rbp-60h]
+  __m128i v43; // [rsp+120h] [rbp-58h]
+  __int64 v44; // [rsp+130h] [rbp-48h]
+  __m128i v45; // [rsp+138h] [rbp-40h]
+  __int64 v46; // [rsp+148h] [rbp-30h]
+  __m128i v47; // [rsp+150h] [rbp-28h]
+  __int64 v48; // [rsp+160h] [rbp-18h]
 
-  v31 = 0;
-  v32 = 0LL;
+  memset(v27, 0, sizeof(v27));
   P = 0LL;
   if ( (KdpBootedNodebug || KdPitchDebugger || !(_BYTE)KdDebuggerEnabled) && !KdLocalDebugEnabled )
     return 3221225506LL;
   if ( a1 > 14 )
   {
-    v23 = a1 - 15;
-    if ( !v23 )
+    v19 = a1 - 15;
+    if ( !v19 )
     {
       if ( a3 != 32 )
         return 3221225476LL;
-      v44 = *a2;
-      v45 = a2[1];
-      v30 = _mm_cvtsi128_si32(v45);
-      if ( v30 )
+      v39 = *a2;
+      v40 = a2[1];
+      v26 = _mm_cvtsi128_si32(v40);
+      if ( v26 )
       {
-        v15 = ExLockUserBuffer(v44.m128i_u64[1], v30, a7, IoReadAccess, &v32, (struct _MDL **)&P);
+        v15 = ExLockUserBuffer(v39.m128i_u64[1], v26, a7, IoReadAccess, &v27[1], (struct _MDL **)&P);
         if ( v15 >= 0 )
         {
           Msr = KdpSysWriteIoSpace(
-                  v45.m128i_i32[1],
-                  v45.m128i_i32[2],
-                  v45.m128i_i32[3],
-                  v44.m128i_u16[0],
-                  v32,
-                  v30,
-                  &v31);
+                  v40.m128i_i32[1],
+                  v40.m128i_i32[2],
+                  v40.m128i_i32[3],
+                  v39.m128i_u16[0],
+                  *(unsigned __int8 **)&v27[1],
+                  v26,
+                  v27);
           goto LABEL_83;
         }
         goto LABEL_84;
       }
       goto LABEL_43;
     }
-    v24 = v23 - 1;
-    if ( !v24 )
+    v20 = v19 - 1;
+    if ( !v20 )
     {
       if ( a3 != 16 )
         return 3221225476LL;
       Msr = KdpSysReadMsr(a2->m128i_i32[0], &a2->m128i_i64[1]);
       goto LABEL_83;
     }
-    v25 = v24 - 1;
-    if ( !v25 )
+    v21 = v20 - 1;
+    if ( !v21 )
     {
       if ( a3 != 16 )
         return 3221225476LL;
       Msr = KdpSysWriteMsr(a2->m128i_i32[0], &a2->m128i_u64[1]);
       goto LABEL_83;
     }
-    v26 = v25 - 1;
-    if ( !v26 )
+    v22 = v21 - 1;
+    if ( !v22 )
     {
       if ( a3 != 32 )
         return 3221225476LL;
-      v42 = *a2;
-      v43 = a2[1];
-      v29 = _mm_cvtsi128_si32(v43);
-      if ( v29 )
+      v37 = *a2;
+      v38 = a2[1];
+      v25 = _mm_cvtsi128_si32(v38);
+      if ( v25 )
       {
-        v15 = ExLockUserBuffer(v42.m128i_u64[1], v29, a7, IoWriteAccess, &v32, (struct _MDL **)&P);
+        v15 = ExLockUserBuffer(v37.m128i_u64[1], v25, a7, IoWriteAccess, &v27[1], (struct _MDL **)&P);
         if ( v15 >= 0 )
         {
           Msr = KdpSysReadBusData(
-                  v43.m128i_u32[1],
-                  v43.m128i_u32[2],
-                  v43.m128i_u32[3],
-                  v42.m128i_u32[0],
-                  v32,
-                  v29,
-                  &v31);
+                  v38.m128i_u32[1],
+                  v38.m128i_u32[2],
+                  v38.m128i_u32[3],
+                  v37.m128i_u32[0],
+                  *(_QWORD *)&v27[1],
+                  v25,
+                  v27);
           goto LABEL_83;
         }
         goto LABEL_84;
       }
       goto LABEL_43;
     }
-    v27 = v26 - 1;
-    if ( !v27 )
+    v23 = v22 - 1;
+    if ( !v23 )
     {
       if ( a3 != 32 )
         return 3221225476LL;
-      v40 = *a2;
-      v41 = a2[1];
-      v28 = _mm_cvtsi128_si32(v41);
-      if ( v28 )
+      v35 = *a2;
+      v36 = a2[1];
+      v24 = _mm_cvtsi128_si32(v36);
+      if ( v24 )
       {
-        v15 = ExLockUserBuffer(v40.m128i_u64[1], v28, a7, IoReadAccess, &v32, (struct _MDL **)&P);
+        v15 = ExLockUserBuffer(v35.m128i_u64[1], v24, a7, IoReadAccess, &v27[1], (struct _MDL **)&P);
         if ( v15 >= 0 )
         {
           Msr = KdpSysWriteBusData(
-                  v41.m128i_u32[1],
-                  v41.m128i_u32[2],
-                  v41.m128i_u32[3],
-                  v40.m128i_u32[0],
-                  v32,
-                  v28,
-                  &v31);
+                  v36.m128i_u32[1],
+                  v36.m128i_u32[2],
+                  v36.m128i_u32[3],
+                  v35.m128i_u32[0],
+                  *(_QWORD *)&v27[1],
+                  v24,
+                  v27);
           goto LABEL_83;
         }
         goto LABEL_84;
       }
       goto LABEL_43;
     }
-    if ( v27 == 1 )
+    if ( v23 == 1 )
     {
       Msr = KdpSysCheckLowMemory(0LL);
       goto LABEL_83;
@@ -189,15 +183,22 @@ __int64 __fastcall KdSystemDebugControl(
   {
     if ( a3 != 32 )
       return 3221225476LL;
-    v38 = *a2;
-    v39 = a2[1];
-    v22 = _mm_cvtsi128_si32(v39);
-    if ( v22 )
+    v33 = *a2;
+    v34 = a2[1];
+    v18 = _mm_cvtsi128_si32(v34);
+    if ( v18 )
     {
-      v15 = ExLockUserBuffer(v38.m128i_u64[1], v22, a7, IoWriteAccess, &v32, (struct _MDL **)&P);
+      v15 = ExLockUserBuffer(v33.m128i_u64[1], v18, a7, IoWriteAccess, &v27[1], (struct _MDL **)&P);
       if ( v15 >= 0 )
       {
-        Msr = KdpSysReadIoSpace(v39.m128i_i32[1], v39.m128i_i32[2], v39.m128i_i32[3], v38.m128i_u16[0], v32, v22, &v31);
+        Msr = KdpSysReadIoSpace(
+                v34.m128i_i32[1],
+                v34.m128i_i32[2],
+                v34.m128i_i32[3],
+                v33.m128i_u16[0],
+                *(_BYTE **)&v27[1],
+                v18,
+                v27);
         goto LABEL_83;
       }
       goto LABEL_84;
@@ -218,15 +219,14 @@ __int64 __fastcall KdSystemDebugControl(
   {
     if ( a3 != 24 )
       return 3221225476LL;
-    v52 = *a2;
-    v53 = a2[1].m128i_i64[0];
-    v21 = v53;
-    if ( (_DWORD)v53 )
+    v47 = *a2;
+    v48 = a2[1].m128i_i64[0];
+    if ( (_DWORD)v48 )
     {
-      v15 = ExLockUserBuffer(v52.m128i_u64[1], v53, a7, IoWriteAccess, &v32, (struct _MDL **)&P);
+      v15 = ExLockUserBuffer(v47.m128i_u64[1], v48, a7, IoWriteAccess, &v27[1], (struct _MDL **)&P);
       if ( v15 >= 0 )
       {
-        Msr = KdpCopyMemoryChunks(v52.m128i_i32[0], (_DWORD)v32, v21, 0, 0, (__int64)&v31);
+        Msr = KdpCopyMemoryChunks((PVOID)v47.m128i_i64[0], 0, (__int64)v27);
         goto LABEL_83;
       }
       goto LABEL_84;
@@ -238,15 +238,14 @@ __int64 __fastcall KdSystemDebugControl(
   {
     if ( a3 != 24 )
       return 3221225476LL;
-    v50 = *a2;
-    v51 = a2[1].m128i_i64[0];
-    v20 = v51;
-    if ( (_DWORD)v51 )
+    v45 = *a2;
+    v46 = a2[1].m128i_i64[0];
+    if ( (_DWORD)v46 )
     {
-      v15 = ExLockUserBuffer(v50.m128i_u64[1], v51, a7, IoReadAccess, &v32, (struct _MDL **)&P);
+      v15 = ExLockUserBuffer(v45.m128i_u64[1], v46, a7, IoReadAccess, &v27[1], (struct _MDL **)&P);
       if ( v15 >= 0 )
       {
-        Msr = KdpCopyMemoryChunks(v50.m128i_i32[0], (_DWORD)v32, v20, 0, 1, (__int64)&v31);
+        Msr = KdpCopyMemoryChunks((PVOID)v45.m128i_i64[0], 1, (__int64)v27);
         goto LABEL_83;
       }
       goto LABEL_84;
@@ -258,15 +257,14 @@ __int64 __fastcall KdSystemDebugControl(
   {
     if ( a3 != 24 )
       return 3221225476LL;
-    v48 = *a2;
-    v49 = a2[1].m128i_i64[0];
-    v19 = v49;
-    if ( (_DWORD)v49 )
+    v43 = *a2;
+    v44 = a2[1].m128i_i64[0];
+    if ( (_DWORD)v44 )
     {
-      v15 = ExLockUserBuffer(v48.m128i_u64[1], v49, a7, IoWriteAccess, &v32, (struct _MDL **)&P);
+      v15 = ExLockUserBuffer(v43.m128i_u64[1], v44, a7, IoWriteAccess, &v27[1], (struct _MDL **)&P);
       if ( v15 >= 0 )
       {
-        Msr = KdpCopyMemoryChunks(v48.m128i_i32[0], (_DWORD)v32, v19, 0, 2, (__int64)&v31);
+        Msr = KdpCopyMemoryChunks((PVOID)v43.m128i_i64[0], 2, (__int64)v27);
         goto LABEL_83;
       }
       goto LABEL_84;
@@ -278,15 +276,14 @@ __int64 __fastcall KdSystemDebugControl(
   {
     if ( a3 != 24 )
       return 3221225476LL;
-    v46 = *a2;
-    v47 = a2[1].m128i_i64[0];
-    v18 = v47;
-    if ( (_DWORD)v47 )
+    *(__m128i *)BaseAddress = *a2;
+    v42 = a2[1].m128i_i64[0];
+    if ( (_DWORD)v42 )
     {
-      v15 = ExLockUserBuffer(v46.m128i_u64[1], v47, a7, IoReadAccess, &v32, (struct _MDL **)&P);
+      v15 = ExLockUserBuffer((unsigned __int64)BaseAddress[1], v42, a7, IoReadAccess, &v27[1], (struct _MDL **)&P);
       if ( v15 >= 0 )
       {
-        Msr = KdpCopyMemoryChunks(v46.m128i_i32[0], (_DWORD)v32, v18, 0, 3, (__int64)&v31);
+        Msr = KdpCopyMemoryChunks(BaseAddress[0], 3, (__int64)v27);
         goto LABEL_83;
       }
       goto LABEL_84;
@@ -300,15 +297,15 @@ __int64 __fastcall KdSystemDebugControl(
     {
       if ( a3 != 24 )
         return 3221225476LL;
-      v34 = *a2;
-      v35 = a2[1].m128i_i64[0];
-      v14 = v35;
-      if ( (_DWORD)v35 )
+      v29 = *a2;
+      v30 = a2[1].m128i_i64[0];
+      v14 = v30;
+      if ( (_DWORD)v30 )
       {
-        v15 = ExLockUserBuffer(v34.m128i_u64[1], v35, a7, IoReadAccess, &v32, (struct _MDL **)&P);
+        v15 = ExLockUserBuffer(v29.m128i_u64[1], v30, a7, IoReadAccess, &v27[1], (struct _MDL **)&P);
         if ( v15 >= 0 )
         {
-          Msr = KdpSysWriteControlSpace(HIDWORD(v35), v34.m128i_i32[0], (_DWORD)v32, v14, (__int64)&v31);
+          Msr = KdpSysWriteControlSpace(HIDWORD(v30), v29.m128i_i64[0], *(_QWORD *)&v27[1], v14, v27);
 LABEL_83:
           v15 = Msr;
           goto LABEL_84;
@@ -325,21 +322,21 @@ LABEL_60:
   }
   if ( a3 != 24 )
     return 3221225476LL;
-  v36 = *a2;
-  v37 = a2[1].m128i_i64[0];
-  v17 = v37;
-  if ( !(_DWORD)v37 )
+  v31 = *a2;
+  v32 = a2[1].m128i_i64[0];
+  v17 = v32;
+  if ( !(_DWORD)v32 )
     goto LABEL_43;
-  v15 = ExLockUserBuffer(v36.m128i_u64[1], v37, a7, IoWriteAccess, &v32, (struct _MDL **)&P);
+  v15 = ExLockUserBuffer(v31.m128i_u64[1], v32, a7, IoWriteAccess, &v27[1], (struct _MDL **)&P);
   if ( v15 >= 0 )
   {
-    Msr = KdpSysReadControlSpace(HIDWORD(v37), v36.m128i_i32[0], (_DWORD)v32, v17, (__int64)&v31);
+    Msr = KdpSysReadControlSpace(HIDWORD(v32), v31.m128i_i64[0], *(_QWORD *)&v27[1], v17, v27);
     goto LABEL_83;
   }
 LABEL_84:
   if ( a6 )
-    *a6 = v31;
-  if ( v32 )
+    *a6 = v27[0];
+  if ( *(_QWORD *)&v27[1] )
     ExUnlockUserBuffer((struct _MDL *)P);
   return (unsigned int)v15;
 }

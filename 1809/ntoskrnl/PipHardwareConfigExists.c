@@ -1,13 +1,13 @@
 /*
- * XREFs of PipHardwareConfigExists @ 0x1409F529C
+ * XREFs of PipHardwareConfigExists @ 0x1409F52AC
  * Callers:
  *     PipHardwareConfigInit @ 0x1409C63FC (PipHardwareConfigInit.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     _PnpCtxRegQueryValue @ 0x14073C324 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegOpenKey @ 0x14073C374 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x14073C3B0 (_PnpCtxRegEnumKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     _PnpCtxRegQueryValue @ 0x14073C304 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegOpenKey @ 0x14073C354 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x14073C390 (_PnpCtxRegEnumKey.c)
  */
 
 char __fastcall PipHardwareConfigExists(void *a1, int a2)

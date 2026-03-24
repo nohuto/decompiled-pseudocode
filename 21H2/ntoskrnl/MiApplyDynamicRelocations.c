@@ -1,12 +1,12 @@
 /*
- * XREFs of MiApplyDynamicRelocations @ 0x140B06E60
+ * XREFs of MiApplyDynamicRelocations @ 0x140A4F5D8
  * Callers:
- *     MiRebaseDynamicRelocationRegions @ 0x140B06C7C (MiRebaseDynamicRelocationRegions.c)
+ *     MiRebaseDynamicRelocationRegions @ 0x140A4F400 (MiRebaseDynamicRelocationRegions.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
- *     LdrApplyDynamicRelocations @ 0x1403C3418 (LdrApplyDynamicRelocations.c)
- *     LdrCaptureDynamicRelocationTableHeader @ 0x140706200 (LdrCaptureDynamicRelocationTableHeader.c)
- *     VslApplyDynamicRelocations @ 0x140B4EA44 (VslApplyDynamicRelocations.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
+ *     LdrApplyDynamicRelocations @ 0x1403B6AE8 (LdrApplyDynamicRelocations.c)
+ *     MiCaptureDynamicRelocationTableRva @ 0x140713B4C (MiCaptureDynamicRelocationTableRva.c)
+ *     VslApplyDynamicRelocations @ 0x140A8F3E4 (VslApplyDynamicRelocations.c)
  */
 
 __int64 __fastcall MiApplyDynamicRelocations(unsigned __int64 a1, int a2, __int64 a3, __int64 a4)
@@ -23,13 +23,13 @@ __int64 __fastcall MiApplyDynamicRelocations(unsigned __int64 a1, int a2, __int6
   v13 = 0;
   v14[0] = 0;
   v6 = a2;
-  if ( (MiFlags & 0x4000) != 0 )
+  if ( (MiFlags & 0x8000) != 0 )
     return VslApplyDynamicRelocations(a1, a3, a4);
   LOBYTE(a2) = 1;
   v8 = (unsigned int *)RtlImageDirectoryEntryToData(a1, a2, 10, (int)&v13);
   if ( !v8 || v13 != *v8 )
     return 0LL;
-  result = LdrCaptureDynamicRelocationTableHeader(a1, v6, (__int64)v8, *v8, 0LL, 523, v14, 0LL);
+  result = MiCaptureDynamicRelocationTableRva(a1, v6, 0LL, 523, (__int64)v8, *v8, v14);
   if ( (int)result >= 0 )
     return LdrApplyDynamicRelocations(a1, (_DWORD *)(a1 + v14[0]), v10, v11, v12, a3, a4);
   if ( (_DWORD)result == -1073741637 )

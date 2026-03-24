@@ -1,137 +1,161 @@
 /*
- * XREFs of ?vClearRendering@DC@@QEAAXXZ @ 0x1C00FDE70
+ * XREFs of ?vClearRendering@DC@@QEAAXXZ @ 0x1C0090090
  * Callers:
- *     GreCreateCompatibleBitmapInternal @ 0x1C0057310 (GreCreateCompatibleBitmapInternal.c)
- *     ?GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIHPEAX@Z @ 0x1C00DD3B0 (-GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIH.c)
- *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C00F8B40 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
- *     ?vClearRenderState@DEVLOCKOBJ@@QEAAXXZ @ 0x1C00FA6B8 (-vClearRenderState@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ?vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00FA7C0 (-vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
- *     ?TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z @ 0x1C0103ED0 (-TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     GreExtSelectClipRgnInternal @ 0x1C011A2F0 (GreExtSelectClipRgnInternal.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ?UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z @ 0x1C011C768 (-UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z.c)
+ *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C008AF30 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     ?TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z @ 0x1C008D720 (-TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z.c)
+ *     ?UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z @ 0x1C008E548 (-UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEBK@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF240 (GreSetDIBitsToDeviceInternal.c)
+ *     ?vClearRenderState@DEVLOCKOBJ@@QEAAXXZ @ 0x1C00B395C (-vClearRenderState@DEVLOCKOBJ@@QEAAXXZ.c)
  * Callees:
- *     GreSelectRedirectionBitmap @ 0x1C002F2A0 (GreSelectRedirectionBitmap.c)
- *     GreHintSpriteShape @ 0x1C00D41D4 (GreHintSpriteShape.c)
- *     GreDeleteSpriteDelayDelete @ 0x1C0267588 (GreDeleteSpriteDelayDelete.c)
- *     GreHintSpriteShapeDelayDelete @ 0x1C0267DDC (GreHintSpriteShapeDelayDelete.c)
+ *     GreSelectRedirectionBitmap @ 0x1C0083440 (GreSelectRedirectionBitmap.c)
+ *     GreHintSpriteShape @ 0x1C00BD828 (GreHintSpriteShape.c)
+ *     GreDeleteSpriteDelayDelete @ 0x1C026EDB8 (GreDeleteSpriteDelayDelete.c)
+ *     ?GdiHintSpriteShapeDelayDelete@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@H@Z @ 0x1C027E108 (-GdiHintSpriteShapeDelayDelete@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHBITMAP__@@H@Z.c)
  */
 
 void __fastcall DC::vClearRendering(DC *this)
 {
-  int v1; // edi
-  int v2; // eax
-  __int64 v4; // rcx
-  __int64 v5; // rsi
-  _DWORD *v6; // r14
-  __int64 v7; // rbx
-  __int64 v9; // rbp
+  int v2; // ecx
+  int v3; // r14d
+  __int64 v4; // rsi
+  __int64 v5; // rcx
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rcx
+  struct _KTHREAD *v12; // r12
+  __int64 v13; // rbp
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
   __int64 *ThreadWin32Thread; // rax
-  int v11; // ecx
-  int v12; // r13d
-  int v13; // edi
-  SURFOBJ *v14; // rcx
-  int v15; // r11d
-  HBITMAP v16; // r8
-  HWND v17; // rdx
-  HDEV v18; // rcx
-  __int64 v19; // rcx
-  int v20; // [rsp+70h] [rbp+8h]
+  int v18; // r9d
+  int v19; // edi
+  int v20; // r12d
+  int v21; // eax
+  int v22; // edi
+  SURFOBJ *v23; // rcx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // edi
+  __int64 v26; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v28; // rax
+  int v29; // edi
+  __int64 v30; // rcx
+  __int64 v31; // rax
+  int v32; // r10d
+  HBITMAP v33; // r8
+  HWND v34; // rdx
+  HDEV v35; // rcx
+  int v36; // [rsp+70h] [rbp+8h]
 
   *((_DWORD *)this + 10) &= ~1u;
-  v1 = 0;
   v2 = *((_DWORD *)this + 9);
+  v3 = 0;
   if ( (v2 & 0x4000) != 0 )
   {
     v4 = *((_QWORD *)this + 62);
     if ( *(_QWORD *)(v4 + 248) || (*(_DWORD *)(v4 + 116) & 1) != 0 )
+    {
       EngLockSurface(*(HSURF *)(v4 + 32));
-    v5 = *((_QWORD *)this + 62);
-    if ( (*((_DWORD *)this + 9) & 0x40000) != 0 )
-    {
-      v14 = (SURFOBJ *)(v5 + 24);
-      if ( !v5 )
-        v14 = 0LL;
-      EngUnlockSurface(v14);
-      GreSelectRedirectionBitmap(*(_QWORD *)this, *((HBITMAP *)this + 265));
-      *((_DWORD *)this + 9) &= ~0x40000u;
-      *((_QWORD *)this + 265) = 0LL;
+      v2 = *((_DWORD *)this + 9);
+      v4 = *((_QWORD *)this + 62);
     }
-    if ( *(_QWORD *)(v5 + 248) || (*(_DWORD *)(v5 + 116) & 1) != 0 )
+    if ( (v2 & 0x40000) != 0 )
     {
-      v6 = (_DWORD *)(v5 + 116);
-      v7 = *((_QWORD *)Gre::Base::Globals((Gre::Base *)v4) + 14);
-      GreAcquireSemaphore(v7);
-      EngUnlockSurface((SURFOBJ *)(v5 + 24));
-      W32PIDLOCK::vLockSingleThread((W32PIDLOCK *)(v5 + 272));
-      if ( (*(_DWORD *)(v5 + 324))-- == 1 )
+      v23 = (SURFOBJ *)(v4 + 24);
+      if ( !v4 )
+        v23 = 0LL;
+      EngUnlockSurface(v23);
+      GreSelectRedirectionBitmap(*(_QWORD *)this, *((HBITMAP *)this + 266));
+      *((_DWORD *)this + 9) &= ~0x40000u;
+      *((_QWORD *)this + 266) = 0LL;
+    }
+    if ( *(_QWORD *)(v4 + 248) || (*(_DWORD *)(v4 + 116) & 1) != 0 )
+    {
+      GreAcquireSemaphore(ghsemSprite);
+      EngUnlockSurface((SURFOBJ *)(v4 + 24));
+      W32PIDLOCK::vLockSingleThread((W32PIDLOCK *)(v4 + 272));
+      if ( (*(_DWORD *)(v4 + 324))-- != 1 )
+        goto LABEL_22;
+      CurrentThread = KeGetCurrentThread();
+      if ( !(unsigned __int8)KeIsAttachedProcess(v5)
+        || (CurrentProcess = PsGetCurrentProcess(v9, v8, v10),
+            ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+            CurrentThreadProcess = PsGetCurrentThreadProcess(v26),
+            ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
       {
-        PsGetThreadWin32Thread(KeGetCurrentThread());
-        v9 = 0LL;
-        ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-        if ( ThreadWin32Thread )
-          v9 = *ThreadWin32Thread;
-        if ( v9 )
-        {
-          v11 = *(_DWORD *)(v9 + 108);
-          v12 = *(_DWORD *)(v9 + 104);
-          v20 = v11;
-          *(_QWORD *)(v9 + 104) = 0LL;
-        }
+        PsGetThreadWin32Thread(CurrentThread);
+      }
+      v12 = KeGetCurrentThread();
+      v13 = 0LL;
+      if ( (!(unsigned __int8)KeIsAttachedProcess(v11)
+         || (v28 = PsGetCurrentProcess(v15, v14, v16),
+             v29 = PsGetProcessSessionIdEx(v28),
+             v31 = PsGetCurrentThreadProcess(v30),
+             v29 == (unsigned int)PsGetProcessSessionIdEx(v31)))
+        && (ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(v12)) != 0LL
+        && (v13 = *ThreadWin32Thread) != 0 )
+      {
+        v19 = *(_DWORD *)(v13 + 104);
+        v20 = *(_DWORD *)(v13 + 108);
+        *(_QWORD *)(v13 + 104) = 0LL;
+      }
+      else
+      {
+        v19 = v36;
+        v20 = v36;
+      }
+      if ( (*(_DWORD *)(v4 + 112) & 0x2000000) != 0 )
+      {
+        v32 = *(_DWORD *)(v4 + 492);
+        v33 = *(HBITMAP *)(v4 + 344);
+        v34 = *(HWND *)(v4 + 336);
+        v35 = *(HDEV *)(v4 + 328);
+        if ( (*(_DWORD *)(v4 + 116) & 2) == 0 || v32 && g_pDwmState )
+          GreHintSpriteShape(v35, v34, v33, *(_DWORD *)(v4 + 488), v32, 0);
         else
+          GdiHintSpriteShapeDelayDelete(v35, v34, v33, v18);
+        *(_DWORD *)(v4 + 112) &= ~0x2000000u;
+        _InterlockedDecrement(&glDelayedHintShape);
+      }
+      v21 = *(_DWORD *)(v4 + 116);
+      if ( (v21 & 2) != 0 )
+      {
+        *(_DWORD *)(v4 + 116) = v21 & 0xFFFFFFFD;
+        W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v4 + 272));
+        GreDeleteSpriteDelayDelete(*(HDEV *)(v4 + 496), *(HWND *)(v4 + 504), *(HSPRITE *)(v4 + 512));
+        v3 = 1;
+      }
+      if ( v13 )
+      {
+        *(_DWORD *)(v13 + 104) = v19;
+        *(_DWORD *)(v13 + 108) = v20;
+      }
+      if ( !v3 )
+      {
+LABEL_22:
+        if ( *(_QWORD *)(v4 + 248) || (*(_DWORD *)(v4 + 116) & 1) != 0 )
         {
-          v11 = v20;
-          v12 = v20;
-        }
-        v6 = (_DWORD *)(v5 + 116);
-        if ( (*(_DWORD *)(v5 + 112) & 0x2000000) != 0 )
-        {
-          v15 = *(_DWORD *)(v5 + 488);
-          v16 = *(HBITMAP *)(v5 + 344);
-          v17 = *(HWND *)(v5 + 336);
-          v18 = *(HDEV *)(v5 + 328);
-          if ( (*v6 & 2) != 0 )
-            GreHintSpriteShapeDelayDelete(v18, v17, v16, v15, *(_DWORD *)(v5 + 492));
-          else
-            GreHintSpriteShape(v18, v17, v16, v5 + 352, v15, *(_DWORD *)(v5 + 492), 0);
-          *(_DWORD *)(v5 + 112) &= ~0x2000000u;
-          _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(SGDGetSessionState(v19) + 32) + 23656LL));
-          v11 = v20;
-        }
-        if ( (*v6 & 2) != 0 )
-        {
-          *v6 &= ~2u;
-          W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v5 + 272));
-          GreDeleteSpriteDelayDelete(*(HDEV *)(v5 + 496), *(HWND *)(v5 + 504), *(HSPRITE *)(v5 + 512));
-          v11 = v20;
-          v1 = 1;
-        }
-        if ( v9 )
-        {
-          *(_DWORD *)(v9 + 104) = v12;
-          *(_DWORD *)(v9 + 108) = v11;
+          v22 = *(_DWORD *)(v4 + 320);
+          W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v4 + 272));
+          if ( v22 == 1 )
+            bDeleteSurface(*(_QWORD *)v4);
         }
       }
-      if ( !v1 && (*(_QWORD *)(v5 + 248) || (*v6 & 1) != 0) )
+      if ( ghsemSprite )
       {
-        v13 = *(_DWORD *)(v5 + 320);
-        W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v5 + 272));
-        if ( v13 == 1 )
-          bDeleteSurface(*(_QWORD *)v5);
-      }
-      if ( v7 )
-      {
-        EtwTraceGreLockReleaseSemaphore(L"hsem");
-        GreReleaseSemaphoreInternal(v7);
+        EtwTraceGreLockReleaseSemaphore(L"hsem", ghsemSprite);
+        GreReleaseSemaphoreInternal(ghsemSprite);
       }
     }
   }
   else if ( (v2 & 0x40000) != 0 )
   {
-    GreSelectRedirectionBitmap(*(_QWORD *)this, *((HBITMAP *)this + 265));
+    GreSelectRedirectionBitmap(*(_QWORD *)this, *((HBITMAP *)this + 266));
     *((_DWORD *)this + 9) &= ~0x40000u;
-    *((_QWORD *)this + 265) = 0LL;
+    *((_QWORD *)this + 266) = 0LL;
   }
 }

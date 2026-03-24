@@ -1,12 +1,10 @@
 /*
- * XREFs of CmFcShutdownSystem @ 0x140911208
+ * XREFs of CmFcShutdownSystem @ 0x14086B184
  * Callers:
- *     CmShutdownSystem0 @ 0x14053EBB0 (CmShutdownSystem0.c)
- *     CmShutdownSystem1 @ 0x14053EBD8 (CmShutdownSystem1.c)
- *     CmShutdownSystem2 @ 0x14053EE38 (CmShutdownSystem2.c)
+ *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
  * Callees:
- *     TlgAggregateFlush @ 0x1406527A8 (TlgAggregateFlush.c)
- *     CmFcManagerDrainAllFeatureUsageNotifications @ 0x140922C5C (CmFcManagerDrainAllFeatureUsageNotifications.c)
+ *     TlgAggregateFlush @ 0x1405C9440 (TlgAggregateFlush.c)
+ *     CmFcManagerDrainAllFeatureUsageNotifications @ 0x14087DAB4 (CmFcManagerDrainAllFeatureUsageNotifications.c)
  */
 
 void __fastcall CmFcShutdownSystem(int a1)
@@ -14,6 +12,6 @@ void __fastcall CmFcShutdownSystem(int a1)
   if ( a1 == 1 )
   {
     CmFcManagerDrainAllFeatureUsageNotifications();
-    TlgAggregateFlush((__int64)&dword_140C063C0);
+    TlgAggregateFlush((__int64)&dword_140C01988);
   }
 }

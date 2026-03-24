@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetCpuRateControlJobPreCallback @ 0x1407EA180
+ * XREFs of PspSetCpuRateControlJobPreCallback @ 0x1406A5100
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 __int64 __fastcall PspSetCpuRateControlJobPreCallback(__int64 a1, __int64 a2)
 {
-  *(_QWORD *)(a1 + 1232) = (a2 + 128) & -(__int64)(a2 != 0);
+  *(_QWORD *)(a1 + 1016) = (a2 + 128) & -(__int64)(a2 != 0);
   return 0LL;
 }

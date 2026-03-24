@@ -1,9 +1,9 @@
 /*
- * XREFs of AMLIIsObjectInGivenScope @ 0x1C0048848
+ * XREFs of AMLIIsObjectInGivenScope @ 0x1C0029E24
  * Callers:
- *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C00301B4 (ACPIIoctlEvalPreProcessingV1Ex.c)
- *     ACPIIoctlEvalPreProcessingV2Ex @ 0x1C0030834 (ACPIIoctlEvalPreProcessingV2Ex.c)
- *     ACPIIoctlGetDeviceSpecificData @ 0x1C0030F78 (ACPIIoctlGetDeviceSpecificData.c)
+ *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C0029BB4 (ACPIIoctlEvalPreProcessingV1Ex.c)
+ *     ACPIIoctlGetDeviceSpecificData @ 0x1C002C6AC (ACPIIoctlGetDeviceSpecificData.c)
+ *     ACPIIoctlEvalPreProcessingV2Ex @ 0x1C0057CE8 (ACPIIoctlEvalPreProcessingV2Ex.c)
  * Callees:
  *     <none>
  */

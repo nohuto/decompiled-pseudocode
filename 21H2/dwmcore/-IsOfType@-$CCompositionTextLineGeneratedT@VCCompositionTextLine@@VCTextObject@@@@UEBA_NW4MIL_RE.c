@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@?$CCompositionTextLineGeneratedT@VCCompositionTextLine@@VCTextObject@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A0C80
+ * XREFs of ?IsOfType@?$CCompositionTextLineGeneratedT@VCCompositionTextLine@@VCTextObject@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F190
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CCompositionTextLineGeneratedT<CCompositionTextLine,CTextObject>::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 41 || a2 == 183;
+  return a2 == 41 || a2 == 183 || a2 == 45;
 }

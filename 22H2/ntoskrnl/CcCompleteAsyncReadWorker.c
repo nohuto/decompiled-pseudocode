@@ -1,69 +1,51 @@
 /*
- * XREFs of CcCompleteAsyncReadWorker @ 0x140352FA0
+ * XREFs of CcCompleteAsyncReadWorker @ 0x140325640
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     CcFindNextWorkQueueEntry @ 0x1402996CC (CcFindNextWorkQueueEntry.c)
- *     CcFreeWorkQueueEntry @ 0x14029C270 (CcFreeWorkQueueEntry.c)
- *     CcDereferencePartition @ 0x14029C310 (CcDereferencePartition.c)
- *     CcCompleteAsyncRead @ 0x1402C1400 (CcCompleteAsyncRead.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     CcFindNextWorkQueueEntry @ 0x140274178 (CcFindNextWorkQueueEntry.c)
+ *     CcFreeWorkQueueEntry @ 0x14027733C (CcFreeWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x1402773AC (CcDereferencePartition.c)
+ *     CcCompleteAsyncRead @ 0x140277CC0 (CcCompleteAsyncRead.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall CcCompleteAsyncReadWorker(__int64 a1)
+void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
 {
-  char v1; // r12
+  char v1; // bp
   __int64 v3; // rdi
-  __int64 v4; // rbp
-  __int64 v5; // r15
-  __int64 v6; // rcx
-  __int64 *v7; // rsi
-  __int64 v8; // r14
-  __int64 v9; // r13
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // rbx
-  __int64 v11; // rcx
-  _QWORD *v12; // r8
+  __int64 v4; // rsi
+  struct _SLIST_ENTRY *NextWorkQueueEntry; // r15
+  _QWORD *v6; // rdx
 
   v1 = 0;
-  if ( *(_DWORD *)(a1 + 32) == 4 )
+  if ( *((_DWORD *)P + 8) == 4 )
   {
-    v3 = *(_QWORD *)(a1 + 64);
-    v4 = *(_QWORD *)(a1 + 56);
-    v5 = *(_QWORD *)(a1 + 72);
-    v6 = *(unsigned int *)(a1 + 36);
-    v7 = (__int64 *)(v3 + 1160);
-    if ( !CcEnablePerVolumeLazyWriter )
-      v7 = (__int64 *)(v4 + 1224);
-    v8 = v6;
-    v9 = 16 * v6;
-    NextWorkQueueEntry = *(struct _SLIST_ENTRY **)(a1 + 48);
+    v3 = P[7];
+    v4 = *((unsigned int *)P + 9);
+    NextWorkQueueEntry = (struct _SLIST_ENTRY *)P[6];
     do
     {
       CcCompleteAsyncRead((__int64)NextWorkQueueEntry);
       CcFreeWorkQueueEntry(NextWorkQueueEntry);
       NextWorkQueueEntry = 0LL;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)v7, 0LL);
-      v12 = (_QWORD *)(v9 + *(_QWORD *)(v5 + 264));
-      if ( (_QWORD *)*v12 == v12 )
+      ExAcquirePushLockExclusiveEx(v3 + 896, 0LL);
+      v6 = (_QWORD *)(16 * v4 + *(_QWORD *)(v3 + 872));
+      if ( (_QWORD *)*v6 == v6 )
       {
         v1 = 1;
-        --*(_DWORD *)(*(_QWORD *)(v5 + 248) + 4 * v8);
+        --*(_DWORD *)(*(_QWORD *)(v3 + 856) + 4 * v4);
       }
       else
       {
-        NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry(v11, v5, v12);
+        NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry(v3, v6);
       }
-      ExReleasePushLockEx(v7, 0LL);
+      ExReleasePushLockEx(v3 + 896, 0LL);
     }
     while ( !v1 );
-    CcDereferencePartition(v4);
-    if ( v3 )
-    {
-      if ( _InterlockedDecrement64((volatile signed __int64 *)(v3 + 8)) <= -1 )
-        __fastfail(0xEu);
-    }
-    ExFreePoolWithTag((PVOID)a1, 0x71576343u);
+    CcDereferencePartition(v3);
+    ExFreePoolWithTag(P, 0x71576343u);
   }
 }

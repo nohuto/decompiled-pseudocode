@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpTimerDpcRoutine @ 0x140259DD0
+ * XREFs of HalpTimerDpcRoutine @ 0x1402D15B0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     KiInsertQueueDpc @ 0x140345190 (KiInsertQueueDpc.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpTimerDpcRoutine()
 {
-  ULONG_PTR v0; // rdi
-  __int64 v1; // rbx
+  __int64 v0; // rdi
+  unsigned __int64 v1; // rbx
   __int64 result; // rax
   ULONG_PTR v3; // rcx
   __int64 InternalData; // rax
@@ -22,12 +22,12 @@ __int64 HalpTimerDpcRoutine()
   signed __int64 v7; // rdx
   __int64 v8; // rbx
   __int64 v9; // rax
-  unsigned __int64 v10; // r11
+  unsigned __int64 v10; // r10
   signed __int64 v11; // rax
   int v12; // r9d
   __int64 v13; // r8
   __int64 v14; // rcx
-  unsigned __int64 v15; // r8
+  unsigned __int64 v15; // rcx
   __int64 v16; // rdx
   signed __int32 v17[8]; // [rsp+0h] [rbp-38h] BYREF
 
@@ -61,17 +61,15 @@ __int64 HalpTimerDpcRoutine()
       v12 = *(_DWORD *)(v0 + 220);
       if ( ((v8 ^ v10) & (1LL << ((unsigned __int8)v12 - 1))) != 0 )
       {
+        v13 = 1LL << v12;
         if ( v12 == 64 )
-          v13 = -1LL;
+          v14 = -1LL;
         else
-          v13 = (1LL << v12) - 1;
-        v14 = 0LL;
-        if ( v12 != 64 )
-          v14 = 1LL << v12;
-        v15 = v8 & v13;
+          v14 = v13 - 1;
+        v15 = v8 & v14;
         v7 = v10 | v8 ^ v15;
         if ( v10 < v15 )
-          v7 += v14;
+          v7 += v13;
         _InterlockedCompareExchange64((volatile signed __int64 *)(v0 + 200), v7, v11);
       }
       else
@@ -94,7 +92,7 @@ __int64 HalpTimerDpcRoutine()
     result = KiProcessorBlock[0];
     v3 = _InterlockedExchange64((volatile __int64 *)(KiProcessorBlock[0] + 224), 0LL);
     if ( v3 )
-      result = KiInsertQueueDpc(v3, 0);
+      result = KiInsertQueueDpc(v3, (unsigned int)v1, HIDWORD(v1), 0LL, 0);
     HalpTimerLastDpc = v1;
   }
   return result;

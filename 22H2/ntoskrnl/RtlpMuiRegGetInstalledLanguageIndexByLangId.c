@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140846D08
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14078FA88
  * Callers:
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A1214 (RtlpMuiRegCreateKernelRegistryInfo.c)
- *     _RtlpMuiRegValidateInstalled @ 0x1408469D0 (_RtlpMuiRegValidateInstalled.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140A74AC4 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A8028 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14078F330 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140981488 (RtlpMuiRegGetInstalledLanguageIndex.c)
  * Callees:
- *     _MuiRegAllocArray @ 0x1403A0DCC (_MuiRegAllocArray.c)
- *     RtlLCIDToCultureName @ 0x1409BEDA0 (RtlLCIDToCultureName.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x140A74C24 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _MuiRegAllocArray @ 0x1403A8298 (_MuiRegAllocArray.c)
+ *     RtlLCIDToCultureName @ 0x140916070 (RtlLCIDToCultureName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x1409815DC (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsigned __int16 a2, char a3, _WORD *a4)
@@ -22,7 +22,7 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
   __int64 v13; // r10
   __int64 v14; // rdx
   __int16 v15; // r9
-  __int64 v16; // rax
+  PVOID v16; // rax
   void *v17; // rdi
   __int64 v18; // r8
   __int128 v19; // [rsp+20h] [rbp-38h] BYREF
@@ -42,7 +42,7 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
     {
 LABEL_15:
       v16 = MuiRegAllocArray(v12, 0x55u);
-      v17 = (void *)v16;
+      v17 = v16;
       if ( v16 )
       {
         if ( a3 )

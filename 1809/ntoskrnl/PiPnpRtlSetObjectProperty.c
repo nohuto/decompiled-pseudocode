@@ -1,26 +1,26 @@
 /*
- * XREFs of PiPnpRtlSetObjectProperty @ 0x1406E5270
+ * XREFs of PiPnpRtlSetObjectProperty @ 0x1406E5250
  * Callers:
- *     PiDqIrpPropertySet @ 0x1406D58FC (PiDqIrpPropertySet.c)
- *     PiSwPropertySet @ 0x1406D7970 (PiSwPropertySet.c)
- *     PiDevCfgSetObjectProperty @ 0x1406E4D9C (PiDevCfgSetObjectProperty.c)
- *     PnpSetDevicePropertyData @ 0x1407071F8 (PnpSetDevicePropertyData.c)
- *     PnpSetDeviceInterfacePropertyData @ 0x14070A418 (PnpSetDeviceInterfacePropertyData.c)
- *     PiCMSetObjectProperty @ 0x14074E280 (PiCMSetObjectProperty.c)
+ *     PiDqIrpPropertySet @ 0x1406D58DC (PiDqIrpPropertySet.c)
+ *     PiSwPropertySet @ 0x1406D7950 (PiSwPropertySet.c)
+ *     PiDevCfgSetObjectProperty @ 0x1406E4D7C (PiDevCfgSetObjectProperty.c)
+ *     PnpSetDevicePropertyData @ 0x1407071D8 (PnpSetDevicePropertyData.c)
+ *     PnpSetDeviceInterfacePropertyData @ 0x14070A3F8 (PnpSetDeviceInterfacePropertyData.c)
+ *     PiCMSetObjectProperty @ 0x14074E260 (PiCMSetObjectProperty.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
  *     _CmIsRootEnumeratedDevice @ 0x14059C4CC (_CmIsRootEnumeratedDevice.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
  *     SeAuditingWithTokenForSubcategory @ 0x14060A3C0 (SeAuditingWithTokenForSubcategory.c)
- *     _PnpSetObjectProperty @ 0x1406E5644 (_PnpSetObjectProperty.c)
- *     _CmSplitDevicePanelId @ 0x140749B5C (_CmSplitDevicePanelId.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x14083CF78 (PiAuditDeviceEnableDisableRequest.c)
- *     PiAuditDeviceOperation @ 0x14083CFB8 (PiAuditDeviceOperation.c)
+ *     _PnpSetObjectProperty @ 0x1406E5624 (_PnpSetObjectProperty.c)
+ *     _CmSplitDevicePanelId @ 0x140749B3C (_CmSplitDevicePanelId.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x14083CF58 (PiAuditDeviceEnableDisableRequest.c)
+ *     PiAuditDeviceOperation @ 0x14083CF98 (PiAuditDeviceOperation.c)
  */
 
 __int64 __fastcall PiPnpRtlSetObjectProperty(

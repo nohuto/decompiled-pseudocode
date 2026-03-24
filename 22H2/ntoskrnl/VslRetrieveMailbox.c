@@ -1,16 +1,16 @@
 /*
- * XREFs of VslRetrieveMailbox @ 0x14054C4E0
+ * XREFs of VslRetrieveMailbox @ 0x1404FD280
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x1403CE424 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x1403CE69C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x140393974 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403939C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslRetrieveMailbox(__int64 a1, _QWORD *a2, unsigned __int8 a3, struct _MDL *a4, unsigned int *a5)
+__int64 __fastcall VslRetrieveMailbox(__int64 a1, _QWORD *a2, unsigned __int8 a3, struct _MDL *a4, ULONG *a5)
 {
   int v6; // r14d
   __int64 result; // rax

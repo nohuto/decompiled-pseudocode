@@ -1,182 +1,166 @@
 /*
- * XREFs of CmpDoReOpenTransKey @ 0x140A2AC84
+ * XREFs of CmpDoReOpenTransKey @ 0x140882300
  * Callers:
- *     CmpDoReDoSetEntireSecurityDescriptor @ 0x140680B2C (CmpDoReDoSetEntireSecurityDescriptor.c)
- *     CmpDoReDoCreateKey @ 0x140A2A840 (CmpDoReDoCreateKey.c)
- *     CmpDoReDoDeleteValue @ 0x140A2A930 (CmpDoReDoDeleteValue.c)
- *     CmpDoReDoRecord @ 0x140A2A98C (CmpDoReDoRecord.c)
- *     CmpDoReDoRenameKey @ 0x140A2AA74 (CmpDoReDoRenameKey.c)
- *     CmpDoReDoSetKeyUserFlags @ 0x140A2AAD0 (CmpDoReDoSetKeyUserFlags.c)
- *     CmpDoReDoSetLastWriteTime @ 0x140A2AB40 (CmpDoReDoSetLastWriteTime.c)
- *     CmpDoReDoSetSecurityDescriptor @ 0x140A2ABB0 (CmpDoReDoSetSecurityDescriptor.c)
- *     CmpDoReDoSetValueExisting @ 0x140A2AC10 (CmpDoReDoSetValueExisting.c)
+ *     CmpDoReDoSetEntireSecurityDescriptor @ 0x1405CD898 (CmpDoReDoSetEntireSecurityDescriptor.c)
+ *     CmpDoReDoCreateKey @ 0x140881EBC (CmpDoReDoCreateKey.c)
+ *     CmpDoReDoDeleteValue @ 0x140881FAC (CmpDoReDoDeleteValue.c)
+ *     CmpDoReDoRecord @ 0x140882008 (CmpDoReDoRecord.c)
+ *     CmpDoReDoRenameKey @ 0x1408820F0 (CmpDoReDoRenameKey.c)
+ *     CmpDoReDoSetKeyUserFlags @ 0x14088214C (CmpDoReDoSetKeyUserFlags.c)
+ *     CmpDoReDoSetLastWriteTime @ 0x1408821BC (CmpDoReDoSetLastWriteTime.c)
+ *     CmpDoReDoSetSecurityDescriptor @ 0x14088222C (CmpDoReDoSetSecurityDescriptor.c)
+ *     CmpDoReDoSetValueExisting @ 0x14088228C (CmpDoReDoSetValueExisting.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExIsResourceAcquiredSharedLite @ 0x1402A06D0 (ExIsResourceAcquiredSharedLite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
- *     CmpCleanupParseContext @ 0x140692A84 (CmpCleanupParseContext.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
- *     CmpSplitParentKeyName @ 0x140AF6CF8 (CmpSplitParentKeyName.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x1402D0610 (ExIsResourceAcquiredSharedLite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpSplitParentKeyName @ 0x1405CD168 (CmpSplitParentKeyName.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpCleanupParseContext @ 0x1406CE840 (CmpCleanupParseContext.c)
+ *     ObOpenObjectByName @ 0x1406CEA10 (ObOpenObjectByName.c)
  */
 
-__int64 __fastcall CmpDoReOpenTransKey(__int64 a1, __int128 *a2, int a3, _QWORD *a4)
+__int64 __fastcall CmpDoReOpenTransKey(__int64 a1, __m128i *a2, int a3, _QWORD *a4)
 {
-  __int128 v4; // xmm1
-  char v8; // r14
+  __m128i v4; // xmm1
   int v9; // esi
-  bool v10; // r12
-  int v11; // eax
-  __int64 v12; // rdx
-  HANDLE v13; // rbx
-  NTSTATUS v14; // eax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  _QWORD *v19; // rdi
-  __int64 v20; // rcx
-  int v22; // eax
-  __int64 v23; // rdx
-  NTSTATUS v24; // eax
+  char v10; // r14
+  HANDLE v11; // rdi
+  NTSTATUS v12; // eax
+  struct _DMA_ADAPTER *v13; // rbx
+  char v14; // dl
+  NTSTATUS v15; // eax
   PVOID Object; // [rsp+40h] [rbp-C0h] BYREF
-  int v26; // [rsp+48h] [rbp-B8h]
+  int v18; // [rsp+48h] [rbp-B8h]
   HANDLE Handle; // [rsp+50h] [rbp-B0h] BYREF
-  void *v28; // [rsp+58h] [rbp-A8h] BYREF
-  __int128 v29; // [rsp+60h] [rbp-A0h] BYREF
-  _DWORD v30[2]; // [rsp+70h] [rbp-90h] BYREF
-  HANDLE v31; // [rsp+78h] [rbp-88h]
-  __int128 *v32; // [rsp+80h] [rbp-80h]
-  int v33; // [rsp+88h] [rbp-78h]
-  int v34; // [rsp+8Ch] [rbp-74h]
-  __int128 v35; // [rsp+90h] [rbp-70h]
-  _QWORD *v36; // [rsp+A0h] [rbp-60h]
-  __int128 v37; // [rsp+A8h] [rbp-58h] BYREF
-  _OWORD v38[19]; // [rsp+C0h] [rbp-40h] BYREF
+  void *v20; // [rsp+58h] [rbp-A8h] BYREF
+  __m128i v21; // [rsp+60h] [rbp-A0h] BYREF
+  _DWORD v22[2]; // [rsp+70h] [rbp-90h] BYREF
+  HANDLE v23; // [rsp+78h] [rbp-88h]
+  __m128i *v24; // [rsp+80h] [rbp-80h]
+  int v25; // [rsp+88h] [rbp-78h]
+  int v26; // [rsp+8Ch] [rbp-74h]
+  __int128 v27; // [rsp+90h] [rbp-70h]
+  __m128i v28; // [rsp+A0h] [rbp-60h] BYREF
+  _OWORD v29[19]; // [rsp+B0h] [rbp-50h] BYREF
 
   v4 = *a2;
-  v36 = a4;
-  v26 = a3;
-  v30[1] = 0;
-  v34 = 0;
-  v29 = v4;
-  v28 = 0LL;
+  v18 = a3;
+  v22[1] = 0;
+  v26 = 0;
+  v20 = 0LL;
+  v21 = v4;
   Handle = 0LL;
-  v37 = 0LL;
-  v8 = 0;
+  v28 = 0LL;
   v9 = -1073741762;
   v10 = ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) != 0;
-  if ( !(_WORD)v4 )
+  if ( !v4.m128i_i16[0] )
     return (unsigned int)v9;
   while ( 1 )
   {
-    memset(v38, 0, 0x128uLL);
-    LODWORD(v38[6]) = -1;
-    *((_QWORD *)&v38[9] + 1) = &v38[9];
-    *(_QWORD *)&v38[9] = &v38[9];
-    memset((char *)&v38[13] + 8, 0, 0x50uLL);
-    v32 = &v29;
-    DWORD2(v38[1]) = 8;
-    v30[0] = 48;
-    v31 = 0LL;
-    v33 = 4928;
-    v35 = 0LL;
-    v11 = ObOpenObjectByName((__int64)v30, (__int64)CmKeyObjectType, 0, 0LL, a3, (__int64)v38, (__int64)&Handle);
-    LOBYTE(v12) = v10;
-    v9 = v11;
-    CmpCleanupParseContext(v38, v12);
+    memset(v29, 0, 0x128uLL);
+    LODWORD(v29[6]) = -1;
+    *((_QWORD *)&v29[9] + 1) = &v29[9];
+    *(_QWORD *)&v29[9] = &v29[9];
+    memset((char *)&v29[13] + 8, 0, 0x50uLL);
+    v24 = &v21;
+    DWORD2(v29[1]) = 8;
+    v22[0] = 48;
+    v23 = 0LL;
+    v25 = 4928;
+    v27 = 0LL;
+    v9 = ObOpenObjectByName((__int64)v22, (__int64)CmKeyObjectType, 0, 0LL, a3, (__int64)v29, (__int64)&Handle);
+    CmpCleanupParseContext((__int64)v29, v10);
     if ( v9 >= 0 )
       break;
-    CmpSplitParentKeyName(a2, &v29, &v37);
-    if ( !(_WORD)v29 )
+    CmpSplitParentKeyName(a2, &v21, &v28);
+    if ( !v21.m128i_i16[0] )
     {
-      v13 = Handle;
-      goto LABEL_14;
+      v11 = Handle;
+      goto LABEL_26;
     }
   }
-  v13 = Handle;
+  v11 = Handle;
   Object = 0LL;
-  v14 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, 0, &Object, 0LL);
-  v19 = Object;
-  v9 = v14;
-  if ( v14 < 0 )
-    goto LABEL_12;
-  if ( !v10 )
+  v12 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, 0, &Object, 0LL);
+  v13 = (struct _DMA_ADAPTER *)Object;
+  v9 = v12;
+  if ( v12 >= 0 )
   {
-    CmpLockRegistry(v16, v15, v17, v18);
-    v8 = 1;
-  }
-  v20 = *(_QWORD *)(v19[1] + 32LL);
-  if ( *(_QWORD *)(a1 + 64) != *(_QWORD *)(v20 + 4152) )
-    goto LABEL_9;
-  if ( v8 )
-  {
-    CmpUnlockRegistry(v20, v15, v17, v18);
-    v8 = 0;
-  }
-  v19[8] = a1 + 88;
-  ObfDereferenceObject(v19);
-  v19 = 0LL;
-  if ( (_WORD)v37 )
-  {
-    memset(v38, 0, 0x128uLL);
-    LODWORD(v38[6]) = -1;
-    *((_QWORD *)&v38[9] + 1) = &v38[9];
-    *(_QWORD *)&v38[9] = &v38[9];
-    memset((char *)&v38[13] + 8, 0, 0x50uLL);
-    v32 = &v37;
-    DWORD2(v38[1]) = 8;
-    v30[0] = 48;
-    v31 = v13;
-    v33 = 4928;
-    v35 = 0LL;
-    v22 = ObOpenObjectByName((__int64)v30, (__int64)CmKeyObjectType, 0, 0LL, v26, (__int64)v38, (__int64)&v28);
-    LOBYTE(v23) = v10;
-    v9 = v22;
-    CmpCleanupParseContext(v38, v23);
-    if ( v9 < 0
-      || (Object = 0LL,
-          v24 = ObReferenceObjectByHandle(v13, 0, (POBJECT_TYPE)CmKeyObjectType, 0, &Object, 0LL),
-          v19 = Object,
-          v9 = v24,
-          v24 < 0) )
-    {
-LABEL_10:
-      if ( v8 )
-        CmpUnlockRegistry(v20, v15, v17, v18);
-LABEL_12:
-      if ( v19 )
-        ObfDereferenceObject(v19);
-      goto LABEL_14;
-    }
     if ( !v10 )
+      CmpLockRegistry();
+    v14 = v10 ^ 1;
+    if ( *(_QWORD *)(a1 + 64) != *((_QWORD *)v13->DmaOperations->AllocateAdapterChannel + 524) )
+      goto LABEL_9;
+    if ( v14 )
+      CmpUnlockRegistry();
+    *(_QWORD *)&v13[4].Version = a1 + 88;
+    HalPutDmaAdapter(v13);
+    v13 = 0LL;
+    v14 = 0;
+    if ( v28.m128i_i16[0] )
     {
-      CmpLockRegistry(v20, v15, v17, v18);
-      v8 = 1;
-    }
-    v20 = *(_QWORD *)(v19[1] + 32LL);
-    if ( *(_QWORD *)(a1 + 64) != *(_QWORD *)(v20 + 4152) )
-    {
+      memset(v29, 0, 0x128uLL);
+      LODWORD(v29[6]) = -1;
+      *((_QWORD *)&v29[9] + 1) = &v29[9];
+      *(_QWORD *)&v29[9] = &v29[9];
+      memset((char *)&v29[13] + 8, 0, 0x50uLL);
+      v24 = &v28;
+      DWORD2(v29[1]) = 8;
+      v22[0] = 48;
+      v23 = v11;
+      v25 = 4928;
+      v27 = 0LL;
+      v9 = ObOpenObjectByName((__int64)v22, (__int64)CmKeyObjectType, 0, 0LL, v18, (__int64)v29, (__int64)&v20);
+      CmpCleanupParseContext((__int64)v29, v10);
+      v14 = 0;
+      if ( v9 < 0
+        || (Object = 0LL,
+            v15 = ObReferenceObjectByHandle(v11, 0, (POBJECT_TYPE)CmKeyObjectType, 0, &Object, 0LL),
+            v13 = (struct _DMA_ADAPTER *)Object,
+            v9 = v15,
+            v14 = 0,
+            v15 < 0) )
+      {
+LABEL_22:
+        if ( v14 )
+          CmpUnlockRegistry();
+        goto LABEL_24;
+      }
+      if ( !v10 )
+      {
+        CmpLockRegistry();
+        v14 = 1;
+      }
+      if ( *(_QWORD *)(a1 + 64) != *((_QWORD *)v13->DmaOperations->AllocateAdapterChannel + 524) )
+      {
 LABEL_9:
-      v9 = -1073741762;
-      goto LABEL_10;
+        v9 = -1073741762;
+        goto LABEL_22;
+      }
+      if ( v14 )
+        CmpUnlockRegistry();
+      *(_QWORD *)&v13[4].Version = a1 + 88;
+      HalPutDmaAdapter(v13);
+      ZwClose(v11);
+      v11 = v20;
+      v14 = 0;
     }
-    if ( v8 )
-      CmpUnlockRegistry(v20, v15, v17, v18);
-    v19[8] = a1 + 88;
-    ObfDereferenceObject(v19);
-    ZwClose(v13);
-    v13 = v28;
+    *a4 = v11;
+    v9 = 0;
+    v11 = 0LL;
+    v13 = 0LL;
+    goto LABEL_22;
   }
-  v9 = 0;
-  *v36 = v13;
-  v13 = 0LL;
-LABEL_14:
+LABEL_24:
   if ( v13 )
-    ZwClose(v13);
+    HalPutDmaAdapter(v13);
+LABEL_26:
+  if ( v11 )
+    ZwClose(v11);
   return (unsigned int)v9;
 }

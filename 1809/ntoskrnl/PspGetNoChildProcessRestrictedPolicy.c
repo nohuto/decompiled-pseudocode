@@ -1,11 +1,11 @@
 /*
- * XREFs of PspGetNoChildProcessRestrictedPolicy @ 0x1406CFC80
+ * XREFs of PspGetNoChildProcessRestrictedPolicy @ 0x1406CFC60
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
- *     SeTokenGetNoChildProcessRestricted @ 0x1400DA1C4 (SeTokenGetNoChildProcessRestricted.c)
+ *     SeTokenGetNoChildProcessRestricted @ 0x1400DA1E4 (SeTokenGetNoChildProcessRestricted.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of UnmapChildMmioSpace @ 0x1C002D218
+ * XREFs of UnmapChildMmioSpace @ 0x1C0022C8C
  * Callers:
- *     ?UnmapHostAddressesFromGuest@VIDMM_PROCESS@@QEAAXPEAX_K1E@Z @ 0x1C00E03D4 (-UnmapHostAddressesFromGuest@VIDMM_PROCESS@@QEAAXPEAX_K1E@Z.c)
+ *     ?UnmapHostAddressesFromGuest@VIDMM_PROCESS@@QEAAXPEAX_K1E@Z @ 0x1C00BA994 (-UnmapHostAddressesFromGuest@VIDMM_PROCESS@@QEAAXPEAX_K1E@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 UnmapChildMmioSpace()
 {
-  return ((__int64 (*)(void))DxgCoreInterface[75])();
+  return DxgCoreInterface[70]();
 }

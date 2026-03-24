@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x1406442D0
+ * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x140546504
  * Callers:
- *     MiDbgCopyMemory @ 0x1402E5E58 (MiDbgCopyMemory.c)
- *     MiDbgTranslatePhysicalAddress @ 0x140643F68 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgCopyMemory @ 0x1405457E4 (MiDbgCopyMemory.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140546130 (MiDbgTranslatePhysicalAddress.c)
  * Callees:
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     KeFlushSingleCurrentTb @ 0x14038A710 (KeFlushSingleCurrentTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUnfreezeIoPfnNode @ 0x14062EAD8 (MiUnfreezeIoPfnNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeFlushSingleTb @ 0x140334A18 (KeFlushSingleTb.c)
+ *     KeFlushSingleCurrentTb @ 0x1403897D8 (KeFlushSingleCurrentTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
@@ -24,8 +24,8 @@ void __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
 
   if ( (*a1 & 0x20) != 0 )
   {
-    v2 = qword_140C68148 << 25;
-    _InterlockedExchange64((volatile __int64 *)qword_140C68148, ZeroPte);
+    v2 = qword_140C4E888 << 25;
+    _InterlockedExchange64((volatile __int64 *)qword_140C4E888, ZeroPte);
     v3 = v2 >> 16;
     if ( (*a1 & 0x12) != 0 )
       KeFlushSingleTb(v3, 0, 1u);
@@ -39,9 +39,9 @@ void __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
     {
       _InterlockedAnd64((volatile signed __int64 *)(*((_QWORD *)a1 + 1) + 24LL), 0x7FFFFFFFFFFFFFFFuLL);
     }
-    else if ( (v4 & 0x18) != 0 )
+    else if ( (v4 & 8) != 0 || (v4 & 0x10) != 0 )
     {
-      MiUnfreezeIoPfnNode((__int64 *)a1 + 2);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EC40);
     }
   }
   v5 = *((unsigned __int8 *)a1 + 4);
@@ -49,16 +49,19 @@ void __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
   {
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-        v10 = (v9 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v9;
-        if ( v10 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+          v10 = (v9 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v9;
+          if ( v10 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v5);

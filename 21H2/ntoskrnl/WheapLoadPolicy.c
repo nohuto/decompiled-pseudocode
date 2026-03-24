@@ -1,19 +1,19 @@
 /*
- * XREFs of WheapLoadPolicy @ 0x140B2A640
+ * XREFs of WheapLoadPolicy @ 0x140A62C18
  * Callers:
- *     WheaInitialize @ 0x140AFF910 (WheaInitialize.c)
+ *     WheaInitialize @ 0x140A6305C (WheaInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     HalWheaUpdateCmciPolicy @ 0x1403DA050 (HalWheaUpdateCmciPolicy.c)
- *     ZwQueryLicenseValue @ 0x14041E2C0 (ZwQueryLicenseValue.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     HalWheaUpdateCmciPolicy @ 0x1403BAA80 (HalWheaUpdateCmciPolicy.c)
+ *     ZwQueryLicenseValue @ 0x1403FCE20 (ZwQueryLicenseValue.c)
  */
 
-__int64 WheapLoadPolicy()
+LONGLONG WheapLoadPolicy()
 {
   bool v0; // zf
   int v1; // ecx
   int v2; // ecx
-  __int64 result; // rax
+  LONGLONG result; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   int v5; // [rsp+50h] [rbp+10h] BYREF
   int v6; // [rsp+58h] [rbp+18h]
@@ -59,37 +59,28 @@ LABEL_8:
     WheapPolicyIgnoreDummyWrite = WheaRegPolicyIgnoreDummyWrite != 0;
   if ( WheapRegPolicyRestoreCmciEnabled != -1 )
     WheapPolicyRestoreCmciEnabled = WheapRegPolicyRestoreCmciEnabled != 0;
-  byte_140C54A6C = WheapPolicyRestoreCmciEnabled;
+  HalWheaUpdateCmciPolicy(7, (unsigned __int8)WheapPolicyRestoreCmciEnabled);
   if ( WheapRegPolicyRestoreCmciMaxAttempts != -1 )
     WheapPolicyRestoreCmciMaxAttempts = WheapRegPolicyRestoreCmciMaxAttempts;
   HalWheaUpdateCmciPolicy(8, WheapPolicyRestoreCmciMaxAttempts);
   if ( WheapRegPolicyRestoreCmciErrorLimit != -1 )
     WheapPolicyRestoreCmciErrorLimit = WheapRegPolicyRestoreCmciErrorLimit;
-  HalWheaUpdateCmciPolicy(9, WheapPolicyRestoreCmciErrorLimit);
+  result = HalWheaUpdateCmciPolicy(9, WheapPolicyRestoreCmciErrorLimit);
   if ( WheapRegPolicyCmciThresholdCount != -1 )
   {
     WheapPolicyCmciThresholdCount = WheapRegPolicyCmciThresholdCount;
-    HalWheaUpdateCmciPolicy(10, WheapRegPolicyCmciThresholdCount);
+    result = HalWheaUpdateCmciPolicy(10, WheapRegPolicyCmciThresholdCount);
   }
   if ( WheapRegPolicyCmciThresholdTime != -1 )
   {
     WheapPolicyCmciThresholdTime = WheapRegPolicyCmciThresholdTime;
-    HalWheaUpdateCmciPolicy(11, WheapRegPolicyCmciThresholdTime);
+    result = HalWheaUpdateCmciPolicy(11, WheapRegPolicyCmciThresholdTime);
   }
   if ( WheapRegPolicyCmciThresholdPollCount != -1 )
   {
     WheapPolicyCmciThresholdPollCount = WheapRegPolicyCmciThresholdPollCount;
-    HalWheaUpdateCmciPolicy(12, WheapRegPolicyCmciThresholdPollCount);
+    result = HalWheaUpdateCmciPolicy(12, WheapRegPolicyCmciThresholdPollCount);
   }
-  result = (unsigned int)WheapRegPolicyPendingPageListSz;
-  if ( WheapRegPolicyPendingPageListSz != -1 )
-    WheapPolicyPendingPageListSz = WheapRegPolicyPendingPageListSz;
-  if ( WheaRegPolicyBadPageListMaxSize != -1 )
-    WheapPolicyBadPageListMaxSize = WheaRegPolicyBadPageListMaxSize;
-  if ( WheaRegPolicyBadPageListLocation != -1 )
-    WheapPolicyBadPageListLocation = WheaRegPolicyBadPageListLocation;
-  if ( WheaRegPolicyNotifyAllOfflines != -1 )
-    WheapPolicyNotifyAllOfflines = WheaRegPolicyNotifyAllOfflines != 0;
   if ( WheaRegPolicyDisableOffline != -1 )
     WheaRegistryKeysPresent |= 1u;
   if ( WheaRegPolicyMemPersistOffline != -1 )
@@ -120,13 +111,5 @@ LABEL_8:
     WheaRegistryKeysPresent |= 0x2000u;
   if ( WheapRegPolicyCmciThresholdPollCount != -1 )
     WheaRegistryKeysPresent |= 0x4000u;
-  if ( WheapRegPolicyPendingPageListSz != -1 )
-    WheaRegistryKeysPresent |= 0x8000u;
-  if ( WheaRegPolicyBadPageListMaxSize != -1 )
-    WheaRegistryKeysPresent |= 0x10000u;
-  if ( WheaRegPolicyBadPageListLocation != -1 )
-    WheaRegistryKeysPresent |= 0x20000u;
-  if ( WheaRegPolicyNotifyAllOfflines != -1 )
-    WheaRegistryKeysPresent |= 0x40000u;
   return result;
 }

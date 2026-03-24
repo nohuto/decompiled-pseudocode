@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vDirectStretch16@@YAXPEAU_STR_BLT@@@Z @ 0x1C02D9110
+ * XREFs of ?vDirectStretch16@@YAXPEAU_STR_BLT@@@Z @ 0x1C02DAC40
  * Callers:
  *     <none>
  * Callees:
@@ -13,12 +13,12 @@ void __fastcall vDirectStretch16(struct _STR_BLT *a1)
   int v4; // r9d
   int v5; // esi
   unsigned __int16 *v6; // rbx
-  unsigned int v7; // ebp
+  unsigned int v7; // r14d
   int v8; // edx
   unsigned __int16 *v9; // r10
   int v10; // r8d
   int v11; // eax
-  unsigned int v12; // r15d
+  unsigned int v12; // ebp
   unsigned int v13; // r13d
   signed int v14; // edx
   int v15; // ecx
@@ -26,7 +26,7 @@ void __fastcall vDirectStretch16(struct _STR_BLT *a1)
   __int64 v17; // r12
   __int64 v18; // r8
   unsigned int v19; // edi
-  unsigned int v20; // r14d
+  unsigned int v20; // r15d
   unsigned __int16 *v21; // rsi
   bool v22; // cf
   unsigned __int16 *v23; // r12

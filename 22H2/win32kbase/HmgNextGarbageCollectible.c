@@ -1,77 +1,80 @@
 /*
- * XREFs of HmgNextGarbageCollectible @ 0x1C0159470
+ * XREFs of HmgNextGarbageCollectible @ 0x1C000ECD4
  * Callers:
- *     ?vGarbageCollectObjects@@YAXXZ @ 0x1C0035EF8 (-vGarbageCollectObjects@@YAXXZ.c)
+ *     ?vGarbageCollectObjects@@YAXXZ @ 0x1C00CC098 (-vGarbageCollectObjects@@YAXXZ.c)
  * Callees:
- *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C0035E00 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
- *     ?HmgpComputeHandleValue@@YAPEAUHOBJ__@@PEBVOBJECT@@IQEAVENTRYOBJ@@@Z @ 0x1C0035EB0 (-HmgpComputeHandleValue@@YAPEAUHOBJ__@@PEBVOBJECT@@IQEAVENTRYOBJ@@@Z.c)
- *     GreReleaseHmgrSemaphore @ 0x1C00427F0 (GreReleaseHmgrSemaphore.c)
- *     GreAcquireHmgrSemaphore @ 0x1C0042870 (GreAcquireHmgrSemaphore.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00442B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C000F1D0 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00313F0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C003A090 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C003A1E0 (GreAcquireHmgrSemaphore.c)
  */
 
-__int64 __fastcall HmgNextGarbageCollectible(__int64 a1, struct HOBJ__ **a2, _BYTE *a3)
+__int64 __fastcall HmgNextGarbageCollectible(unsigned int a1, unsigned __int64 *a2, _BYTE *a3)
 {
-  unsigned int v5; // ebx
   __int64 v6; // rcx
-  __int64 v7; // rbp
-  GdiHandleManager *v8; // rsi
+  GdiHandleManager *v7; // rbp
   unsigned int NextEntryIndex; // eax
-  __int64 v10; // rcx
-  struct _ENTRY *v11; // rdi
+  struct _ENTRY *v9; // rdi
+  unsigned __int64 v10; // rdx
   unsigned int v12; // eax
   __int64 v13; // r9
   unsigned __int64 v14; // rdx
   unsigned int v15; // r8d
-  __int64 v16; // rcx
-  __int64 v17; // r9
-  __int64 v18; // rcx
-  struct HOBJ__ *v19; // rax
-  struct _ENTRY *v21; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v16; // r9
+  __int64 v17; // rdx
+  struct _ENTRY *v18; // [rsp+58h] [rbp+20h] BYREF
 
-  v5 = a1;
-  GreAcquireHmgrSemaphore(a1);
-  v21 = 0LL;
-  v7 = *(_QWORD *)(SGDGetSessionState(v6) + 24);
+  GreAcquireHmgrSemaphore();
+  v18 = 0LL;
+  v7 = gpHandleManager;
   while ( 1 )
   {
-    v8 = *(GdiHandleManager **)(v7 + 8008);
-    NextEntryIndex = GdiHandleManager::GetNextEntryIndex(v8, v5, &v21);
-    v5 = NextEntryIndex;
+    NextEntryIndex = GdiHandleManager::GetNextEntryIndex((GdiHandleManager *)v6, a1, &v18);
+    a1 = NextEntryIndex;
     if ( !NextEntryIndex )
-      break;
-    v11 = v21;
-    if ( *((_DWORD *)v21 + 2) == -2147483630 )
     {
-      v12 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)v8, NextEntryIndex);
-      v13 = *((_QWORD *)v8 + 2);
+      a1 = 0;
+      goto LABEL_9;
+    }
+    v9 = v18;
+    if ( *((_DWORD *)v18 + 2) == -2147483630 )
+    {
+      v12 = GdiHandleManager::DecodeIndex(gpHandleManager, NextEntryIndex);
+      v13 = *((_QWORD *)v7 + 2);
       v14 = v12;
       v15 = *(_DWORD *)(v13 + 2056);
-      if ( v12 >= v15 + ((*(unsigned __int16 *)(v13 + 2) + 0xFFFF) << 16) )
-        goto LABEL_12;
-      v16 = v12 >= v15 ? ((v12 - v15) >> 16) + 1 : 0LL;
-      v17 = *(_QWORD *)(v13 + 8 * v16 + 8);
-      if ( (_DWORD)v16 )
-        v14 = ((1 - (_DWORD)v16) << 16) - v15 + v12;
-      if ( (unsigned int)v14 >= *(_DWORD *)(v17 + 20) )
-LABEL_12:
-        v18 = 0LL;
-      else
-        v18 = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v17 + 24) + 8 * (v14 >> 8)) + 16LL * (unsigned __int8)v14 + 8);
-      if ( _bittest16((const signed __int16 *)(v18 + 14), 0xEu) )
+      v6 = v15 + ((*(unsigned __int16 *)(v13 + 2) + 0xFFFF) << 16);
+      if ( v12 < (unsigned int)v6 )
       {
-        v19 = HmgpComputeHandleValue((const struct OBJECT *)v18, v5, v11);
-        *a2 = v19;
-        if ( v19 )
+        if ( v12 >= v15 )
+          v6 = ((v12 - v15) >> 16) + 1;
+        else
+          v6 = 0LL;
+        v16 = *(_QWORD *)(v13 + 8 * v6 + 8);
+        if ( (_DWORD)v6 )
+          v14 = ((1 - (_DWORD)v6) << 16) - v15 + v12;
+        if ( (unsigned int)v14 >= *(_DWORD *)(v16 + 20) )
         {
-          *a3 = *((_BYTE *)v11 + 14);
-          goto LABEL_17;
+          v17 = 0LL;
+        }
+        else
+        {
+          v6 = 2LL * (unsigned __int8)v14;
+          v17 = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v16 + 24) + 8 * (v14 >> 8)) + 16LL * (unsigned __int8)v14 + 8);
+        }
+        if ( v17 )
+        {
+          v6 = 0x4000LL;
+          if ( (*(_WORD *)(v17 + 14) & 0x4000) != 0 )
+            break;
         }
       }
     }
   }
-  v5 = 0;
-LABEL_17:
-  GreReleaseHmgrSemaphore(v10);
-  return v5;
+  v10 = (unsigned __int16)a1 | (unsigned __int64)(*((unsigned __int16 *)v9 + 6) << 16);
+  *a3 = *((_BYTE *)v9 + 14);
+  *a2 = v10;
+LABEL_9:
+  GreReleaseHmgrSemaphore();
+  return a1;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?GetPointerFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@KIPEAIPEAE@Z @ 0x1C01C8A58
+ * XREFs of ?GetPointerFrameData@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@KIPEAIPEAE@Z @ 0x1C0193050
  * Callers:
- *     ?GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z @ 0x1C01C8BF0 (-GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z.c)
+ *     ?GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z @ 0x1C01931F0 (-GetPointerFrameDataWithHistory@CTouchProcessor@@QEAAH_KKHKPEAI1PEAE@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     GetPointerInfoSize @ 0x1C00DFE3A (GetPointerInfoSize.c)
- *     ?CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ @ 0x1C00E3DA4 (-CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ.c)
- *     ?PointerInfoCopyOutHelper@CTouchProcessor@@AEAAHPEAUCPointerInfoNode@@PEAUtagHID_POINTER_DEVICE_INFO@@KIPEAUtagPOINTER_INFO@@@Z @ 0x1C00E4A70 (-PointerInfoCopyOutHelper@CTouchProcessor@@AEAAHPEAUCPointerInfoNode@@PEAUtagHID_POINTER_DEVICE_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     GetPointerInfoSize @ 0x1C0128CCC (GetPointerInfoSize.c)
+ *     ?CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ @ 0x1C0188850 (-CTouchProcessorLockShared@CTouchProcessor@@QEAAHXZ.c)
+ *     ?PointerInfoCopyOutHelper@CTouchProcessor@@AEAAHPEAUCPointerInfoNode@@PEAUtagHID_POINTER_DEVICE_INFO@@KIPEAUtagPOINTER_INFO@@@Z @ 0x1C0197914 (-PointerInfoCopyOutHelper@CTouchProcessor@@AEAAHPEAUCPointerInfoNode@@PEAUtagHID_POINTER_DEVICE_.c)
  */
 
 __int64 __fastcall CTouchProcessor::GetPointerFrameData(
-        PERESOURCE *this,
+        CTouchProcessor *this,
         const struct CPointerInputFrame *a2,
         const struct CPointerInfoNode *a3,
         unsigned int a4,
@@ -32,20 +32,20 @@ __int64 __fastcall CTouchProcessor::GetPointerFrameData(
   v11 = 1;
   v13 = 0;
   if ( !CTouchProcessor::CTouchProcessorLockShared(v12) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13885);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13283);
   v14 = *((_DWORD *)a3 + 2);
   v20 = *((_QWORD *)a3 + 24);
   if ( v14 >= *((_DWORD *)a2 + 12) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13890);
-  v15 = *((_QWORD *)a2 + 30);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13288);
+  v15 = *((_QWORD *)a2 + 17);
   v16 = 0;
-  while ( 1 )
+  do
   {
     v17 = *((unsigned int *)a2 + 12);
     if ( v13 >= (unsigned int)v17 )
       break;
-    if ( v15 >= *((_QWORD *)a2 + 30) + 480 * v17 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13902);
+    if ( v15 >= *((_QWORD *)a2 + 17) + 480 * v17 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 13300);
     if ( *(_QWORD *)(v15 + 192) == v20 && *(_DWORD *)(v15 + 8) == v14 )
     {
       ++v16;
@@ -54,7 +54,7 @@ __int64 __fastcall CTouchProcessor::GetPointerFrameData(
         v11 = CTouchProcessor::PointerInfoCopyOutHelper(
                 this,
                 (struct CPointerInfoNode *)v15,
-                *((struct tagHID_POINTER_DEVICE_INFO **)a2 + 32),
+                *((struct tagHID_POINTER_DEVICE_INFO **)a2 + 19),
                 a4,
                 PointerInfoSize,
                 a7);
@@ -67,9 +67,9 @@ __int64 __fastcall CTouchProcessor::GetPointerFrameData(
     }
     ++v13;
     v15 += 480LL;
-    if ( !v11 )
-      return v11;
   }
-  *a6 = v16;
+  while ( v11 );
+  if ( v11 )
+    *a6 = v16;
   return v11;
 }

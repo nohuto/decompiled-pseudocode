@@ -1,37 +1,35 @@
 /*
- * XREFs of MNAnimate @ 0x1C0234404
+ * XREFs of MNAnimate @ 0x1C024BE2C
  * Callers:
- *     MNGetPopupFromMenu @ 0x1C0064740 (MNGetPopupFromMenu.c)
- *     xxxMNCloseHierarchy @ 0x1C0217510 (xxxMNCloseHierarchy.c)
- *     xxxMNSelectItem @ 0x1C0219AA0 (xxxMNSelectItem.c)
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
- *     xxxTrackPopupMenuEx @ 0x1C023279C (xxxTrackPopupMenuEx.c)
+ *     MNGetPopupFromMenu @ 0x1C00478F8 (MNGetPopupFromMenu.c)
+ *     xxxMNCloseHierarchy @ 0x1C0237760 (xxxMNCloseHierarchy.c)
+ *     xxxMNSelectItem @ 0x1C023A5BC (xxxMNSelectItem.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
+ *     xxxTrackPopupMenuEx @ 0x1C024A5F0 (xxxTrackPopupMenuEx.c)
  * Callees:
- *     FindTimer @ 0x1C003BF24 (FindTimer.c)
- *     GetDPIMetrics @ 0x1C0041140 (GetDPIMetrics.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     StopFade @ 0x1C01BCD50 (StopFade.c)
- *     MNDestroyAnimationBitmap @ 0x1C01FF320 (MNDestroyAnimationBitmap.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     GetDPIMetrics @ 0x1C00E0A9C (GetDPIMetrics.c)
+ *     StopFade @ 0x1C01E7A90 (StopFade.c)
+ *     MNDestroyAnimationBitmap @ 0x1C02214D8 (MNDestroyAnimationBitmap.c)
  */
 
 int __fastcall MNAnimate(__int64 a1, int a2)
 {
   int result; // eax
   unsigned int v4; // ebx
-  PERESOURCE *v5; // rax
-  __int64 v6; // rcx
-  PERESOURCE *v7; // rax
-  __int64 v8; // rcx
-  int v9; // edi
-  int v10; // r14d
+  __int64 v5; // rcx
+  int v6; // edi
+  int v7; // r14d
   __int64 DPIMetrics; // rax
-  int v12; // r9d
-  int v13; // r10d
-  int v14; // edi
-  int v15; // ecx
-  int v16; // ebx
-  __int64 v17; // rcx
+  __int64 v9; // rax
+  int v10; // ecx
+  int v11; // r9d
+  LONG v12; // r10d
+  int v13; // edi
+  LONG v14; // ecx
+  int v15; // ebx
+  __int64 v16; // rcx
 
   result = gfade[0];
   if ( (gfade[12] & 0x10) != 0 )
@@ -43,15 +41,10 @@ int __fastcall MNAnimate(__int64 a1, int a2)
   if ( !*(_QWORD *)(a1 + 96) )
     return result;
   v4 = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - *(_DWORD *)(a1 + 104);
-  if ( !a2
-    || v4 > 0xA5
-    || (v5 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(0xFFFFF78000000004uLL),
-        ExGetExclusiveWaiterCount(*v5))
-    || (v7 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(v6),
-        (result = ExGetSharedWaiterCount(*v7)) != 0) )
+  if ( !a2 || v4 > 0xA5 || ExGetExclusiveWaiterCount(gpresUser) || (result = ExGetSharedWaiterCount(gpresUser)) != 0 )
   {
     NtGdiBitBltInternal(
-      *(_QWORD *)(a1 + 96),
+      *(HDC *)(a1 + 96),
       0,
       0,
       *(_DWORD *)(a1 + 116),
@@ -60,62 +53,64 @@ int __fastcall MNAnimate(__int64 a1, int a2)
       0,
       0,
       -2134114272,
-      0xFFFFFF,
+      0xFFFFFFu,
       0);
-LABEL_27:
+LABEL_25:
     MNDestroyAnimationBitmap(a1);
     _ReleaseDC(*(_QWORD *)(a1 + 96));
-    v17 = *(_QWORD *)a1;
+    v16 = *(_QWORD *)a1;
     *(_QWORD *)(a1 + 96) = 0LL;
-    return FindTimer(*(_QWORD *)(v17 + 56), 65531LL, 0, 1, 0LL);
+    return FindTimer(*(_QWORD *)(v16 + 56), 65531LL, 0, 1, 0LL);
   }
-  v9 = *(_DWORD *)(a1 + 108);
-  v10 = *(_DWORD *)(a1 + 112);
+  v6 = *(_DWORD *)(a1 + 108);
+  v7 = *(_DWORD *)(a1 + 112);
   if ( (*(_DWORD *)(a1 + 8) & 0x180000) != 0 )
   {
-    DPIMetrics = GetDPIMetrics(v8);
-    v8 = *(unsigned int *)(a1 + 116);
-    result = (int)(*(_DWORD *)(DPIMetrics + 8) * v4 + 4) / 8;
-    if ( result > (int)v8 )
-      result = *(_DWORD *)(a1 + 116);
+    DPIMetrics = GetDPIMetrics(v5);
+    v5 = *(unsigned int *)(a1 + 116);
+    result = (int)(v4 * *(_DWORD *)(DPIMetrics + 8) + 4) / 8;
     *(_DWORD *)(a1 + 108) = result;
+    if ( result > (int)v5 )
+      *(_DWORD *)(a1 + 108) = v5;
   }
   if ( (*(_DWORD *)(a1 + 8) & 0x600000) != 0 )
   {
-    result = (int)(*(_DWORD *)(GetDPIMetrics(v8) + 12) * v4 + 8) / 16;
-    if ( result > *(_DWORD *)(a1 + 120) )
-      result = *(_DWORD *)(a1 + 120);
+    v9 = GetDPIMetrics(v5);
+    v10 = *(_DWORD *)(a1 + 120);
+    result = (int)(v4 * *(_DWORD *)(v9 + 12) + 8) / 16;
     *(_DWORD *)(a1 + 112) = result;
+    if ( result > v10 )
+      *(_DWORD *)(a1 + 112) = v10;
   }
-  v12 = *(_DWORD *)(a1 + 108);
-  if ( v12 != v9 || *(_DWORD *)(a1 + 112) != v10 )
+  v11 = *(_DWORD *)(a1 + 108);
+  if ( v11 != v6 || *(_DWORD *)(a1 + 112) != v7 )
   {
-    v13 = 0;
-    v14 = *(_DWORD *)(a1 + 112);
+    v12 = 0;
+    v13 = *(_DWORD *)(a1 + 112);
     if ( ((*(_DWORD *)(a1 + 8) >> 19) & 8) == 0 )
-      v13 = *(_DWORD *)(a1 + 120) - v14;
-    v15 = 0;
-    v16 = (*(_DWORD *)(a1 + 8) >> 19) & 2;
-    if ( !v16 )
-      v15 = *(_DWORD *)(a1 + 116) - v12;
+      v12 = *(_DWORD *)(a1 + 120) - v13;
+    v14 = 0;
+    v15 = (*(_DWORD *)(a1 + 8) >> 19) & 2;
+    if ( !v15 )
+      v14 = *(_DWORD *)(a1 + 116) - v11;
     NtGdiBitBltInternal(
-      *(_QWORD *)(a1 + 96),
-      v16 != 0 ? *(_DWORD *)(a1 + 116) - v12 : 0,
-      ((*(_DWORD *)(a1 + 8) >> 19) & 8) != 0 ? *(_DWORD *)(a1 + 120) - v14 : 0,
-      v12,
-      v14,
-      *(HDC *)(a1 + 136),
-      v15,
+      *(HDC *)(a1 + 96),
+      v15 != 0 ? *(_DWORD *)(a1 + 116) - v11 : 0,
+      ((*(_DWORD *)(a1 + 8) >> 19) & 8) != 0 ? *(_DWORD *)(a1 + 120) - v13 : 0,
+      v11,
       v13,
+      *(HDC *)(a1 + 136),
+      v14,
+      v12,
       -2134114272,
-      0xFFFFFF,
+      0xFFFFFFu,
       0);
     result = *(_DWORD *)(a1 + 108);
     if ( *(_DWORD *)(a1 + 116) == result )
     {
       result = *(_DWORD *)(a1 + 112);
       if ( *(_DWORD *)(a1 + 120) == result )
-        goto LABEL_27;
+        goto LABEL_25;
     }
   }
   return result;

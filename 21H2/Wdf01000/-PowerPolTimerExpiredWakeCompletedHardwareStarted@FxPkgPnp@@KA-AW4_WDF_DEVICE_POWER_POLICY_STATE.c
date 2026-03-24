@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PowerPolTimerExpiredWakeCompletedHardwareStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C008C300
+ * XREFs of ?PowerPolTimerExpiredWakeCompletedHardwareStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0088200
  * Callers:
  *     <none>
  * Callees:
- *     ?DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ @ 0x1C000DB44 (-DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ.c)
- *     ?NotifyDeviceDirectedPoweredUp@FxPoxInterface@@QEAAXXZ @ 0x1C000DB78 (-NotifyDeviceDirectedPoweredUp@FxPoxInterface@@QEAAXXZ.c)
+ *     ?NotifyDeviceDirectedPoweredUp@FxPoxInterface@@QEAAXXZ @ 0x1C000E5A4 (-NotifyDeviceDirectedPoweredUp@FxPoxInterface@@QEAAXXZ.c)
+ *     ?DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ @ 0x1C0010494 (-DeviceIsPoweredOn@FxPoxInterface@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolTimerExpiredWakeCompletedHardwareStarted(FxPkgPnp *This)

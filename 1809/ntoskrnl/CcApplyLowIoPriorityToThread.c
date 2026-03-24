@@ -10,11 +10,11 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PsBoostThreadIo @ 0x1400BBF50 (PsBoostThreadIo.c)
- *     KeSetPriorityThread @ 0x1400CD850 (KeSetPriorityThread.c)
- *     PsSetIoPriorityThread @ 0x1400DEF38 (PsSetIoPriorityThread.c)
- *     CcUpdateSharedCacheMapFlag @ 0x140108BB0 (CcUpdateSharedCacheMapFlag.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     PsBoostThreadIo @ 0x1400BBF70 (PsBoostThreadIo.c)
+ *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
+ *     PsSetIoPriorityThread @ 0x1400DEF58 (PsSetIoPriorityThread.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x140108BD0 (CcUpdateSharedCacheMapFlag.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall CcApplyLowIoPriorityToThread(__int64 a1, char a2, _DWORD *a3)

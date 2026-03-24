@@ -1,102 +1,75 @@
 /*
- * XREFs of ??1CInteraction@@MEAA@XZ @ 0x1800E01C4
+ * XREFs of ??1CInteraction@@MEAA@XZ @ 0x1800E0B04
  * Callers:
- *     ??_GCInteraction@@MEAAPEAXI@Z @ 0x1800E0180 (--_GCInteraction@@MEAAPEAXI@Z.c)
+ *     ??_GCInteraction@@MEAAPEAXI@Z @ 0x1800E0AC0 (--_GCInteraction@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??$ReleaseInterface@V?$CWeakReference@VCResource@@@@@@YAXAEAPEAV?$CWeakReference@VCResource@@@@@Z @ 0x18004A0BC (--$ReleaseInterface@V-$CWeakReference@VCResource@@@@@@YAXAEAPEAV-$CWeakReference@VCResource@@@@@.c)
- *     ??1CInteractionProcessor@@QEAA@XZ @ 0x1800E0BC8 (--1CInteractionProcessor@@QEAA@XZ.c)
- *     ?IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ @ 0x1800E0C84 (-IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ.c)
- *     ??$SAFE_DELETE@VCInputSinkStruct@@@@YAXAEAPEAVCInputSinkStruct@@@Z @ 0x1800E105C (--$SAFE_DELETE@VCInputSinkStruct@@@@YAXAEAPEAVCInputSinkStruct@@@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     memmove_0 @ 0x18010518B (memmove_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0ppq_EventWriteTransfer @ 0x180180CD4 (McTemplateU0ppq_EventWriteTransfer.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgs @ 0x18026C340 (MicrosoftTelemetryAssertTriggeredNoArgs.c)
+ *     ??$ReleaseInterface@VCHwLightCollectionBuffer@@@@YAXAEAPEAVCHwLightCollectionBuffer@@@Z @ 0x1800648B4 (--$ReleaseInterface@VCHwLightCollectionBuffer@@@@YAXAEAPEAVCHwLightCollectionBuffer@@@Z.c)
+ *     ??1CInteractionProcessor@@QEAA@XZ @ 0x1800E1178 (--1CInteractionProcessor@@QEAA@XZ.c)
+ *     ?IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ @ 0x1800E1234 (-IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ.c)
+ *     ?UpdateInputSink@CInteraction@@QEAAJPEAX@Z @ 0x1800E12C0 (-UpdateInputSink@CInteraction@@QEAAJPEAX@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0xxq_EventWriteTransfer @ 0x1801790AC (McTemplateU0xxq_EventWriteTransfer.c)
+ *     ?Remove@?$CArray@PEAVCInteraction@@V?$CArrayEqualHelper@PEAVCInteraction@@@@@@QEAAHAEBQEAVCInteraction@@@Z @ 0x1801C6C20 (-Remove@-$CArray@PEAVCInteraction@@V-$CArrayEqualHelper@PEAVCInteraction@@@@@@QEAAHAEBQEAVCInter.c)
  */
 
 void __fastcall CInteraction::~CInteraction(CInteraction *this)
 {
-  __int64 v2; // rdx
-  __int64 v3; // r8
+  CResource *v2; // rdi
+  __int64 v3; // rcx
   __int64 v4; // rcx
   __int64 v5; // rcx
   __int64 v6; // rcx
   __int64 v7; // rcx
-  CInteraction **v8; // rax
+  CInteraction *v8; // [rsp+40h] [rbp+8h] BYREF
 
-  *(_QWORD *)this = &CInteraction::`vftable'{for `CResource'};
-  *((_QWORD *)this + 8) = &CInteraction::`vftable'{for `IInteractionResource'};
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x8000) != 0 )
-    McTemplateU0ppq_EventWriteTransfer(
+  *(_QWORD *)this = &CInteraction::`vftable'{for `IInteractionResource'};
+  v2 = (CInteraction *)((char *)this + 8);
+  *((_QWORD *)this + 1) = &CInteraction::`vftable'{for `CResource'};
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
+    McTemplateU0xxq_EventWriteTransfer(
       (_DWORD)this,
       (unsigned int)&INTERACTION_DESTROYED,
       (_DWORD)this,
-      (_DWORD)this,
-      *((_DWORD *)this + 426));
+      (_DWORD)this + 8,
+      *((_DWORD *)this + 424));
   AcquireSRWLockExclusive(&CInteraction::s_InteractionHandleTableLock);
-  memset_0((char *)qword_1803D1268 + (unsigned int)(Size * *((_DWORD *)this + 426)), 0, (unsigned int)Size);
-  *((_DWORD *)this + 426) = 0;
+  memset_0((char *)qword_180345248 + (unsigned int)(Size * *((_DWORD *)this + 424)), 0, (unsigned int)Size);
+  *((_DWORD *)this + 424) = 0;
   ReleaseSRWLockExclusive(&CInteraction::s_InteractionHandleTableLock);
-  ReleaseInterface<CWeakReference<CResource>>((__int64 *)this + 14);
-  SAFE_DELETE<CInputSinkStruct>((char *)this + 104);
-  if ( (*((_BYTE *)this + 193) & 2) != 0 )
+  ReleaseInterface<CHwLightCollectionBuffer>((__int64 *)this + 13);
+  CInteraction::UpdateInputSink(this, 0LL);
+  if ( (*((_BYTE *)this + 185) & 1) != 0 )
     _InterlockedDecrement((volatile signed __int32 *)&CCommonRegistryData::m_cForceDisableInteractionOutputPrediction);
   if ( CInteraction::IsDefaultInteractionStateLocked(this) )
   {
-    v2 = (unsigned int)dword_1803D3820;
-    v3 = 0LL;
-    if ( dword_1803D3820 > 0 )
-    {
-      v8 = (CInteraction **)CInteraction::s_DefaultStateLockedInteractions;
-      while ( *v8 != this )
-      {
-        v3 = (unsigned int)(v3 + 1);
-        ++v8;
-        if ( (int)v3 >= dword_1803D3820 )
-          goto LABEL_6;
-      }
-      if ( (int)v3 >= 0 && (int)v3 + 1 <= dword_1803D3820 )
-      {
-        if ( (_DWORD)v3 + 1 != dword_1803D3820 )
-        {
-          memmove_0(
-            (char *)CInteraction::s_DefaultStateLockedInteractions + 8 * (int)v3,
-            (char *)CInteraction::s_DefaultStateLockedInteractions + 8 * (int)v3 + 8,
-            8LL * (dword_1803D3820 - (int)v3 - 1));
-          LODWORD(v2) = dword_1803D3820;
-        }
-        v2 = (unsigned int)(v2 - 1);
-        dword_1803D3820 = v2;
-      }
-    }
+    v8 = this;
+    CArray<CInteraction *,CArrayEqualHelper<CInteraction *>>::Remove(v3, &v8);
   }
-LABEL_6:
-  if ( *((_QWORD *)this + 27) || *((_QWORD *)this + 30) || *((_QWORD *)this + 29) || *((_QWORD *)this + 28) )
-    MicrosoftTelemetryAssertTriggeredNoArgs();
-  v4 = *((_QWORD *)this + 216);
+  v4 = *((_QWORD *)this + 215);
   if ( v4 )
   {
-    *((_QWORD *)this + 216) = 0LL;
-    (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v4 + 8LL))(v4, v2, v3);
+    *((_QWORD *)this + 215) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
   }
-  CInteractionProcessor::~CInteractionProcessor((CInteraction *)((char *)this + 352));
-  v5 = *((_QWORD *)this + 35);
+  CInteractionProcessor::~CInteractionProcessor((CInteraction *)((char *)this + 344));
+  v5 = *((_QWORD *)this + 34);
   if ( v5 )
   {
-    *((_QWORD *)this + 35) = 0LL;
+    *((_QWORD *)this + 34) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)(v5 + 8) + 16LL))(v5 + 8);
   }
-  v6 = *((_QWORD *)this + 34);
+  v6 = *((_QWORD *)this + 33);
   if ( v6 )
   {
-    *((_QWORD *)this + 34) = 0LL;
+    *((_QWORD *)this + 33) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
   }
-  v7 = *((_QWORD *)this + 25);
+  v7 = *((_QWORD *)this + 24);
   if ( v7 )
   {
-    *((_QWORD *)this + 25) = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+    *((_QWORD *)this + 24) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 8LL))(v7);
   }
-  CResource::~CResource(this);
+  CResource::~CResource(v2);
 }

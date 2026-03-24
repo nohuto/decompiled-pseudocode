@@ -5,16 +5,16 @@
  *     MiResolveMappedFileFault @ 0x14002BE50 (MiResolveMappedFileFault.c)
  *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
  *     MiGetPageForHeader @ 0x1400934B8 (MiGetPageForHeader.c)
- *     MiPrivateFixup @ 0x140125E20 (MiPrivateFixup.c)
- *     MiResolvePageFileFault @ 0x140154B24 (MiResolvePageFileFault.c)
- *     MiSwitchToTransition @ 0x1402AF540 (MiSwitchToTransition.c)
+ *     MiPrivateFixup @ 0x140125E40 (MiPrivateFixup.c)
+ *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
+ *     MiSwitchToTransition @ 0x1402AF640 (MiSwitchToTransition.c)
  *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     MiChargePartitionResidentAvailable @ 0x140022F3C (MiChargePartitionResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnFaultCharges @ 0x140134834 (MiReturnFaultCharges.c)
+ *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
  */
 
 __int64 __fastcall MiObtainFaultCharges(ULONG_PTR *a1, unsigned int a2, char a3)

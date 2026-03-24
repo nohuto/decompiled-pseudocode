@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OffsetInContact@@YAHUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@0@Z @ 0x1C02049E0
+ * XREFs of ?OffsetInContact@@YAHUtagPOINT@@PEBUtagTOUCHTARGETINGCONTACT@@0@Z @ 0x1C021509C
  * Callers:
- *     ?xxxWindowHitTestFromTargetingProperty@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHW4tagTARGETING_PROPERTY@@UtagRECT@@@Z @ 0x1C0206590 (-xxxWindowHitTestFromTargetingProperty@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHI.c)
+ *     ?xxxWindowHitTestFromTargetingProperty@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHW4tagTARGETING_PROPERTY@@UtagRECT@@@Z @ 0x1C02168F4 (-xxxWindowHitTestFromTargetingProperty@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHI.c)
  * Callees:
- *     TouchTargetingIntersectSegment @ 0x1C025C800 (TouchTargetingIntersectSegment.c)
+ *     TouchTargetingIntersectSegment @ 0x1C025FB40 (TouchTargetingIntersectSegment.c)
  */
 
 __int64 __fastcall OffsetInContact(struct tagPOINT a1, const struct tagTOUCHTARGETINGCONTACT *a2, struct tagPOINT a3)

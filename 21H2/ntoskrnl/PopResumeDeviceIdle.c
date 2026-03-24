@@ -1,11 +1,11 @@
 /*
- * XREFs of PopResumeDeviceIdle @ 0x140395198
+ * XREFs of PopResumeDeviceIdle @ 0x140388E4C
  * Callers:
- *     PoClearBroadcast @ 0x1408025E8 (PoClearBroadcast.c)
+ *     PoClearBroadcast @ 0x1407781E0 (PoClearBroadcast.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PopResumeDeviceIdle()
@@ -17,7 +17,7 @@ __int64 PopResumeDeviceIdle()
   bool v4; // zf
 
   v0 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
-  byte_140C547FC = 0;
+  byte_140C505B4 = 0;
   KxReleaseSpinLock(&PopDopeGlobalLock);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

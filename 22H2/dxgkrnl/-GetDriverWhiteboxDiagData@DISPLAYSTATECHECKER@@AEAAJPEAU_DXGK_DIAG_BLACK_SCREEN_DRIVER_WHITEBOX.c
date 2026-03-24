@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetDriverWhiteboxDiagData@DISPLAYSTATECHECKER@@AEAAJPEAU_DXGK_DIAG_BLACK_SCREEN_DRIVER_WHITEBOX_INFO@@I@Z @ 0x1C02F86E4
+ * XREFs of ?GetDriverWhiteboxDiagData@DISPLAYSTATECHECKER@@AEAAJPEAU_DXGK_DIAG_BLACK_SCREEN_DRIVER_WHITEBOX_INFO@@I@Z @ 0x1C02BB6A8
  * Callers:
- *     ?CreateBlackScreenLiveDump@DISPLAYSTATECHECKER@@AEAAJK_K000PEAW4DxgkrnlLiveDumpFailureReason@@@Z @ 0x1C02F7D08 (-CreateBlackScreenLiveDump@DISPLAYSTATECHECKER@@AEAAJK_K000PEAW4DxgkrnlLiveDumpFailureReason@@@Z.c)
+ *     ?CreateBlackScreenLiveDump@DISPLAYSTATECHECKER@@AEAAJK_K000PEAW4DxgkrnlLiveDumpFailureReason@@@Z @ 0x1C02BADA8 (-CreateBlackScreenLiveDump@DISPLAYSTATECHECKER@@AEAAJK_K000PEAW4DxgkrnlLiveDumpFailureReason@@@Z.c)
  * Callees:
- *     ?GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z @ 0x1C004A860 (-GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z.c)
- *     ?GetDriverWhiteboxDiagDataSize@DISPLAYSTATECHECKER@@AEAAIXZ @ 0x1C004A8F4 (-GetDriverWhiteboxDiagDataSize@DISPLAYSTATECHECKER@@AEAAIXZ.c)
+ *     ?GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z @ 0x1C004DF10 (-GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z.c)
+ *     ?GetDriverWhiteboxDiagDataSize@DISPLAYSTATECHECKER@@AEAAIXZ @ 0x1C004DF5C (-GetDriverWhiteboxDiagDataSize@DISPLAYSTATECHECKER@@AEAAIXZ.c)
  */
 
 __int64 __fastcall DISPLAYSTATECHECKER::GetDriverWhiteboxDiagData(
@@ -12,9 +12,9 @@ __int64 __fastcall DISPLAYSTATECHECKER::GetDriverWhiteboxDiagData(
         struct _DXGK_DIAG_BLACK_SCREEN_DRIVER_WHITEBOX_INFO *a2,
         unsigned int a3)
 {
-  unsigned int v6; // esi
+  unsigned int v6; // ebp
   struct DISPLAYDIAGNOSTICADAPTERDATA *DisplayAdapterDiagData; // rax
-  __int64 v8; // r14
+  __int64 v8; // rsi
   char *v9; // rbx
   struct DISPLAYDIAGNOSTICADAPTERDATA *v10; // rax
   unsigned int v11; // r8d
@@ -33,8 +33,8 @@ __int64 __fastcall DISPLAYSTATECHECKER::GetDriverWhiteboxDiagData(
   if ( a3 < (unsigned int)DISPLAYSTATECHECKER::GetDriverWhiteboxDiagDataSize(this) )
     return 3221225507LL;
   v6 = 0;
-  *(_DWORD *)a2 = *((_DWORD *)this + 3522);
-  for ( *((_QWORD *)a2 + 1) = (char *)a2 + 16; v6 < *((_DWORD *)this + 3522); ++v6 )
+  *(_DWORD *)a2 = *((_DWORD *)this + 3514);
+  for ( *((_QWORD *)a2 + 1) = (char *)a2 + 16; v6 < *((_DWORD *)this + 3514); ++v6 )
   {
     DisplayAdapterDiagData = DISPLAYSTATECHECKER::GetDisplayAdapterDiagData(this, v6);
     v8 = *((_QWORD *)a2 + 1) + 32LL * v6;

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_NotifyingUserAboutPersistentOverCurrent @ 0x1C0011160
+ * XREFs of HUBPSM20_NotifyingUserAboutPersistentOverCurrent @ 0x1C0010D50
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C007E0A8 (HUBMISC_GenerateUserNotificationForPersistentOverCurrent.c)
+ *     HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C007CACC (HUBMISC_GenerateUserNotificationForPersistentOverCurrent.c)
  */
 
 __int64 __fastcall HUBPSM20_NotifyingUserAboutPersistentOverCurrent(__int64 a1)

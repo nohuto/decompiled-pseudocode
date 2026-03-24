@@ -1,10 +1,10 @@
 /*
- * XREFs of NtSetIoCompletion @ 0x14068A830
+ * XREFs of NtSetIoCompletion @ 0x14068A810
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoSetIoCompletionEx2 @ 0x1400FD5C8 (IoSetIoCompletionEx2.c)
+ *     IoSetIoCompletionEx2 @ 0x1400FD5E8 (IoSetIoCompletionEx2.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

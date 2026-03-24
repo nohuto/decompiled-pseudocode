@@ -1,79 +1,114 @@
 /*
- * XREFs of MiReferencePageRuns @ 0x14023FF18
+ * XREFs of MiReferencePageRuns @ 0x14022FB90
  * Callers:
- *     MiReferencePageRuns @ 0x14023FF18 (MiReferencePageRuns.c)
- *     MiFindContiguousPagesEx @ 0x140277D10 (MiFindContiguousPagesEx.c)
- *     MiReadyToZeroNextLargePage @ 0x1402C4BF0 (MiReadyToZeroNextLargePage.c)
- *     MiFinishResume @ 0x14038DF70 (MiFinishResume.c)
- *     MiRebuildLargePage @ 0x14045CDD6 (MiRebuildLargePage.c)
- *     MmQueryBadAddresses @ 0x14058FE88 (MmQueryBadAddresses.c)
- *     MiCombineAllPhysicalMemory @ 0x1407F8FE0 (MiCombineAllPhysicalMemory.c)
- *     MiComputeNodeMemory @ 0x14081DDB0 (MiComputeNodeMemory.c)
- *     MiGetPhysicalMemoryRanges @ 0x1408525D8 (MiGetPhysicalMemoryRanges.c)
- *     MmGetNodeChannelRanges @ 0x140855E78 (MmGetNodeChannelRanges.c)
- *     MiAddPhysicalMemory @ 0x140968388 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x140969850 (MiRemovePhysicalMemory.c)
- *     MmIdentifyPhysicalMemory @ 0x14096B768 (MmIdentifyPhysicalMemory.c)
- *     MiScanPagefileSpace @ 0x14096F470 (MiScanPagefileSpace.c)
- *     MiInitializeScrubPacket @ 0x1409839C0 (MiInitializeScrubPacket.c)
+ *     MiReferencePageRuns @ 0x14022FB90 (MiReferencePageRuns.c)
+ *     MiZeroLargePages @ 0x140232520 (MiZeroLargePages.c)
+ *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
+ *     MiFinishResume @ 0x1403848A0 (MiFinishResume.c)
+ *     MiWaitForFreePagesToZero @ 0x14054FF8C (MiWaitForFreePagesToZero.c)
+ *     MiRebuildLargePage @ 0x1405526D8 (MiRebuildLargePage.c)
+ *     MiCombineAllPhysicalMemory @ 0x1407272B0 (MiCombineAllPhysicalMemory.c)
+ *     MiGetPhysicalMemoryRanges @ 0x14076F768 (MiGetPhysicalMemoryRanges.c)
+ *     MmGetNodeChannelRanges @ 0x1407C84D0 (MmGetNodeChannelRanges.c)
+ *     MiComputeNodeMemory @ 0x1407CD0A0 (MiComputeNodeMemory.c)
+ *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
+ *     MmIdentifyPhysicalMemory @ 0x1408C70B8 (MmIdentifyPhysicalMemory.c)
+ *     MiScanPagefileSpace @ 0x1408D07D0 (MiScanPagefileSpace.c)
+ *     MiInitializeScrubPacket @ 0x1408DBE50 (MiInitializeScrubPacket.c)
  * Callees:
- *     MiReferencePageRuns @ 0x14023FF18 (MiReferencePageRuns.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusive @ 0x14021D170 (ExpAcquireSpinLockExclusive.c)
+ *     MiReferencePageRuns @ 0x14022FB90 (MiReferencePageRuns.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
-__int64 __fastcall MiReferencePageRuns(__int64 a1, unsigned int a2)
+__int64 __fastcall MiReferencePageRuns(__int64 a1, unsigned int a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  unsigned __int64 v4; // rsi
-  _QWORD *v5; // rbx
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v10; // eax
-  bool v11; // zf
+  unsigned __int8 CurrentIrql; // si
+  _QWORD *v7; // rbx
+  struct _KPRCB *CurrentPrcb; // rcx
+  _DWORD *v9; // rdx
+  int v11; // eax
+  unsigned __int8 v12; // al
+  struct _KPRCB *v13; // r9
+  _DWORD *v14; // r8
+  int v15; // eax
+  bool v16; // zf
+  void *retaddr; // [rsp+38h] [rbp+0h]
 
-  v4 = ExAcquireSpinLockExclusive(&dword_140C55048);
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(2uLL);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  {
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    a3 = (-1 << (CurrentIrql + 1)) & 4u | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
+  }
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
+    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140C50E48, CurrentIrql);
+  else
+    ExpAcquireSpinLockExclusive(&dword_140C50E48, CurrentIrql, a3, (__int64)SchedulerAssist);
   if ( (ULONG_PTR *)a1 != &MiSystemPartition )
     ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 200));
-  if ( a2 )
+  if ( a2 == 1 )
   {
-    v5 = *(_QWORD **)(a1 + 32);
+    v7 = *(_QWORD **)(a1 + 32);
+  }
+  else if ( (ULONG_PTR *)a1 == &MiSystemPartition )
+  {
+    v7 = MmPhysicalMemoryBlock;
   }
   else
   {
-    v5 = MmPhysicalMemoryBlock;
-    if ( (ULONG_PTR *)a1 != &MiSystemPartition )
-      v5 = *(_QWORD **)(a1 + 96);
+    v7 = *(_QWORD **)(a1 + 96);
   }
-  if ( v5 )
+  if ( v7 )
   {
-    ++*(v5 - 1);
-    ++qword_140C54FA8;
+    ++*(v7 - 1);
+    ++qword_140C50DA8;
   }
   if ( (ULONG_PTR *)a1 != &MiSystemPartition )
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 200));
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C55048);
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140C50E48, retaddr);
+  else
+    dword_140C50E48 = 0;
+  CurrentPrcb = KeGetCurrentPrcb();
+  v9 = CurrentPrcb->SchedulerAssist;
+  if ( v9 )
+  {
+    if ( CurrentPrcb->NestingLevel <= 1u )
+    {
+      v11 = v9[6] - 1;
+      v9[6] = v11;
+      if ( !v11 )
+        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+    }
+  }
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      v12 = KeGetCurrentIrql();
+      if ( v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-        v11 = (v10 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v10;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v13 = KeGetCurrentPrcb();
+        v14 = v13->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v16 = (v15 & v14[5]) == 0;
+        v14[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick(v13);
       }
     }
   }
-  __writecr8(v4);
-  if ( !v5 )
+  __writecr8(CurrentIrql);
+  if ( v7 )
+    return (__int64)v7;
+  else
     return MiReferencePageRuns(&MiSystemPartition, a2);
-  return (__int64)v5;
 }

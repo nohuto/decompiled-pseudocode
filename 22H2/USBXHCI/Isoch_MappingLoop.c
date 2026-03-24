@@ -1,14 +1,14 @@
 /*
- * XREFs of Isoch_MappingLoop @ 0x1C0001D18
+ * XREFs of Isoch_MappingLoop @ 0x1C0001D7C
  * Callers:
- *     Isoch_MapTransfers @ 0x1C0001C9C (Isoch_MapTransfers.c)
+ *     Isoch_MapTransfers @ 0x1C0001D00 (Isoch_MapTransfers.c)
  * Callees:
- *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
- *     Isoch_MapStage @ 0x1C0004840 (Isoch_MapStage.c)
- *     Isoch_PrepareStage @ 0x1C0004B00 (Isoch_PrepareStage.c)
- *     TR_AttemptStateChange @ 0x1C0008150 (TR_AttemptStateChange.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001E0A4 (WPP_RECORDER_SF_DDD.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     TR_AttemptStateChange @ 0x1C0001E00 (TR_AttemptStateChange.c)
+ *     Isoch_RetrieveNextStage @ 0x1C0002D30 (Isoch_RetrieveNextStage.c)
+ *     Isoch_MapStage @ 0x1C0003780 (Isoch_MapStage.c)
+ *     Isoch_PrepareStage @ 0x1C00038C0 (Isoch_PrepareStage.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Isoch_MappingLoop(_QWORD *a1)
@@ -24,12 +24,12 @@ __int64 __fastcall Isoch_MappingLoop(_QWORD *a1)
     {
       v4 = *(unsigned __int8 *)(a1[6] + 135LL);
       LOBYTE(v4) = 5;
-      WPP_RECORDER_SF_DDD(
+      WPP_RECORDER_SF_ddL(
         *(_QWORD *)(a1[7] + 80LL),
         v4,
         14,
         66,
-        (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+        (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
         *(_BYTE *)(a1[6] + 135LL),
         *(_DWORD *)(a1[7] + 144LL),
         i);

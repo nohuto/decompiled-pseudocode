@@ -1,11 +1,11 @@
 /*
- * XREFs of KseQueryDeviceFlags @ 0x14080A460
+ * XREFs of KseQueryDeviceFlags @ 0x14075F1D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KsepEvntLogFlagsApplied @ 0x140374730 (KsepEvntLogFlagsApplied.c)
- *     KseQueryDeviceData @ 0x14080A580 (KseQueryDeviceData.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     KsepEvntLogFlagsApplied @ 0x1403C9034 (KsepEvntLogFlagsApplied.c)
+ *     KseQueryDeviceData @ 0x14075EC10 (KseQueryDeviceData.c)
  */
 
 __int64 __fastcall KseQueryDeviceFlags(PCWSTR SourceString, PCWSTR a2, _QWORD *a3)
@@ -20,14 +20,14 @@ __int64 __fastcall KseQueryDeviceFlags(PCWSTR SourceString, PCWSTR a2, _QWORD *a
   int v14; // [rsp+98h] [rbp+38h] BYREF
 
   v11 = 0LL;
-  if ( dword_140C64E34 != 2 || (KseEngine & 2) != 0 )
+  if ( dword_140C505E4 != 2 || (KseEngine & 2) != 0 )
     return (unsigned int)-1073741275;
   if ( !SourceString || !a2 || !a3 )
     return (unsigned int)-1073741811;
   *a3 = 0LL;
   v14 = 11;
   v10 = 8;
-  v6 = KseQueryDeviceData(SourceString, (_DWORD)a2, (unsigned int)&v14, (unsigned int)&v10, &v11);
+  v6 = KseQueryDeviceData(SourceString, (__int64)a2, &v14, &v10, &v11);
   if ( v6 >= 0 )
   {
     v8 = v14;

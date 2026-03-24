@@ -1,16 +1,16 @@
 /*
- * XREFs of FreeContext @ 0x1C0053644
+ * XREFs of FreeContext @ 0x1C0068074
  * Callers:
- *     LoadDDB @ 0x1C004FA60 (LoadDDB.c)
- *     RunContext @ 0x1C0053F54 (RunContext.c)
- *     AsyncEvalObject @ 0x1C00544F0 (AsyncEvalObject.c)
- *     SyncLoadDDB @ 0x1C00AB83C (SyncLoadDDB.c)
+ *     AsyncEvalObject @ 0x1C0005890 (AsyncEvalObject.c)
+ *     LoadDDB @ 0x1C002372C (LoadDDB.c)
+ *     SyncLoadDDB @ 0x1C00BE478 (SyncLoadDDB.c)
  * Callees:
- *     AcpiDiagTraceAmlEvaluation @ 0x1C00078AC (AcpiDiagTraceAmlEvaluation.c)
- *     AcpiDiagTraceRecordAmlEvaluationStatistics @ 0x1C0008798 (AcpiDiagTraceRecordAmlEvaluationStatistics.c)
- *     AmliDisableWatchdog @ 0x1C0046D50 (AmliDisableWatchdog.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     AcpiDiagTraceAmlEvaluation @ 0x1C0049720 (AcpiDiagTraceAmlEvaluation.c)
+ *     AcpiDiagTraceRecordAmlEvaluationStatistics @ 0x1C004A034 (AcpiDiagTraceRecordAmlEvaluationStatistics.c)
+ *     ExFreeToNPagedLookasideList @ 0x1C004C9C8 (ExFreeToNPagedLookasideList.c)
+ *     AmliDisableWatchdog @ 0x1C0062EB8 (AmliDisableWatchdog.c)
  */
 
 void __fastcall FreeContext(char *Entry)
@@ -23,13 +23,13 @@ void __fastcall FreeContext(char *Entry)
   KIRQL v7; // al
   __int64 *v8; // rcx
   void *v9; // rcx
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  __int64 v12; // rcx
+  unsigned __int64 v10; // rcx
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rcx
   _QWORD *v13; // rdx
   _QWORD *v14; // rbx
 
-  byte_1C00701C8 = KeAcquireSpinLockRaiseToDpc(&gmutCtxtList);
+  byte_1C0082FC8 = KeAcquireSpinLockRaiseToDpc(&gmutCtxtList);
   v2 = (char **)*((_QWORD *)Entry + 2);
   if ( v2[1] != Entry + 16
     || (v3 = (PVOID *)*((_QWORD *)Entry + 3), *v3 != Entry + 16)
@@ -42,7 +42,7 @@ void __fastcall FreeContext(char *Entry)
   *(_QWORD *)(v5 + 8) = v6;
   *((_QWORD *)Entry + 5) = Entry + 32;
   *v4 = v4;
-  KeReleaseSpinLock(&gmutCtxtList, byte_1C00701C8);
+  KeReleaseSpinLock(&gmutCtxtList, byte_1C0082FC8);
   FreeDataBuffs((__int64)(Entry + 128), 1u);
   v7 = KeAcquireSpinLockRaiseToDpc(&gdwGContextSpinLock);
   --gdwcCTObjs;
@@ -82,10 +82,10 @@ void __fastcall FreeContext(char *Entry)
     do
     {
       v14 = (_QWORD *)v13[3];
-      ExFreeToNPagedLookasideList(&AMLIContextLookAsideList, v13);
+      ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&AMLIContextLookAsideList, v13);
       v13 = v14;
     }
     while ( v14 );
   }
-  ExFreeToNPagedLookasideList(&AMLIContextLookAsideList, Entry);
+  ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&AMLIContextLookAsideList, Entry);
 }

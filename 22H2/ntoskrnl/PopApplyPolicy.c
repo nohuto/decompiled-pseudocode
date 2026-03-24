@@ -1,26 +1,26 @@
 /*
- * XREFs of PopApplyPolicy @ 0x14082513C
+ * XREFs of PopApplyPolicy @ 0x14079CC2C
  * Callers:
- *     PopVideoPowerSettingCallback @ 0x140387E90 (PopVideoPowerSettingCallback.c)
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopConsoleLockPowerSettingCallback @ 0x1408244F0 (PopConsoleLockPowerSettingCallback.c)
- *     PopHardDiskPowerSettingCallback @ 0x140824620 (PopHardDiskPowerSettingCallback.c)
- *     PopSleepPowerSettingCallback @ 0x1408248F0 (PopSleepPowerSettingCallback.c)
- *     PopPowerButtonSettingCallback @ 0x140824C00 (PopPowerButtonSettingCallback.c)
- *     PopBatteryUpdateAlarms @ 0x140824E30 (PopBatteryUpdateAlarms.c)
- *     PopResetCurrentPolicies @ 0x140825058 (PopResetCurrentPolicies.c)
+ *     PopVideoPowerSettingCallback @ 0x1403AF3C0 (PopVideoPowerSettingCallback.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PopConsoleLockPowerSettingCallback @ 0x14079C1B0 (PopConsoleLockPowerSettingCallback.c)
+ *     PopHardDiskPowerSettingCallback @ 0x14079C2E0 (PopHardDiskPowerSettingCallback.c)
+ *     PopSleepPowerSettingCallback @ 0x14079C460 (PopSleepPowerSettingCallback.c)
+ *     PopPowerButtonSettingCallback @ 0x14079C710 (PopPowerButtonSettingCallback.c)
+ *     PopBatteryUpdateAlarms @ 0x14079C930 (PopBatteryUpdateAlarms.c)
+ *     PopResetCurrentPolicies @ 0x14079CB48 (PopResetCurrentPolicies.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     PopSetNotificationWork @ 0x14032C950 (PopSetNotificationWork.c)
- *     PopOpenPowerKey @ 0x140387CEC (PopOpenPowerKey.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     memset @ 0x140435400 (memset.c)
- *     PopVerifySystemPowerPolicy @ 0x140825404 (PopVerifySystemPowerPolicy.c)
- *     PopInitSIdle @ 0x140825874 (PopInitSIdle.c)
- *     PopResetCBTriggers @ 0x140825B3C (PopResetCBTriggers.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PopSetNotificationWork @ 0x14034AEA0 (PopSetNotificationWork.c)
+ *     PopOpenPowerKey @ 0x1403A758C (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopInitSIdle @ 0x14078C9A8 (PopInitSIdle.c)
+ *     PopVerifySystemPowerPolicy @ 0x14079CEF4 (PopVerifySystemPowerPolicy.c)
+ *     PopResetCBTriggers @ 0x14079D1C8 (PopResetCBTriggers.c)
  */
 
 __int64 __fastcall PopApplyPolicy(char a1, char a2, _OWORD *a3, unsigned int a4)
@@ -42,12 +42,12 @@ __int64 __fastcall PopApplyPolicy(char a1, char a2, _OWORD *a3, unsigned int a4)
   __int64 result; // rax
   int v23; // ebx
   _QWORD *v24; // rdi
-  __int64 v25; // r9
-  char v26; // r14
-  __int64 v27; // r8
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  _OWORD *v30; // rcx
+  char v25; // r14
+  __int64 v26; // r8
+  __int64 v27; // rcx
+  _OWORD *v28; // rcx
+  __int128 v29; // xmm1
+  __int128 v30; // xmm0
   __int128 v31; // xmm1
   __int128 v32; // xmm0
   __int128 v33; // xmm1
@@ -59,15 +59,13 @@ __int64 __fastcall PopApplyPolicy(char a1, char a2, _OWORD *a3, unsigned int a4)
   __int128 v39; // xmm1
   __int128 v40; // xmm0
   __int128 v41; // xmm1
-  __int128 v42; // xmm0
-  __int128 v43; // xmm1
-  __int64 v44; // rax
-  __int64 v45; // rcx
+  __int64 v42; // rax
+  __int64 v43; // rcx
   HANDLE DestinationString; // [rsp+38h] [rbp-D0h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+40h] [rbp-C8h] BYREF
   _OWORD Buf1[15]; // [rsp+58h] [rbp-B0h] BYREF
   _OWORD Data[14]; // [rsp+148h] [rbp+40h] BYREF
-  __int64 v50; // [rsp+228h] [rbp+120h]
+  __int64 v48; // [rsp+228h] [rbp+120h]
 
   memset(Buf1, 0, 0xE8uLL);
   DestinationString = 0LL;
@@ -104,7 +102,7 @@ __int64 __fastcall PopApplyPolicy(char a1, char a2, _OWORD *a3, unsigned int a4)
   v21 = v15[5];
   Data[12] = v20;
   Data[13] = v21;
-  v50 = v16;
+  v48 = v16;
   result = PopVerifySystemPowerPolicy(Data, Buf1);
   v23 = result;
   if ( (int)result >= 0 )
@@ -116,64 +114,63 @@ __int64 __fastcall PopApplyPolicy(char a1, char a2, _OWORD *a3, unsigned int a4)
     }
     else
     {
-      v26 = 0;
-      v27 = 0LL;
+      v25 = 0;
+      v26 = 0LL;
       while ( 1 )
       {
-        v28 = 3 * v27;
-        v29 = *((_QWORD *)&Buf1[6] + 3 * v27) - v24[3 * v27 + 12];
-        if ( !v29 )
+        v27 = *((_QWORD *)&Buf1[6] + 3 * v26) - v24[3 * v26 + 12];
+        if ( !v27 )
         {
-          v29 = *((_QWORD *)&Buf1[6] + 3 * v27 + 1) - v24[3 * v27 + 13];
-          if ( !v29 )
-            v29 = *((_QWORD *)&Buf1[7] + 3 * v27) - v24[3 * v27 + 14];
+          v27 = *((_QWORD *)&Buf1[6] + 3 * v26 + 1) - v24[3 * v26 + 13];
+          if ( !v27 )
+            v27 = *((_QWORD *)&Buf1[7] + 3 * v26) - v24[3 * v26 + 14];
         }
-        if ( v29 )
+        if ( v27 )
           break;
-        v27 = (unsigned int)(v27 + 1);
-        if ( (unsigned int)v27 >= 4 )
+        v26 = (unsigned int)(v26 + 1);
+        if ( (unsigned int)v26 >= 4 )
           goto LABEL_12;
       }
-      v26 = 1;
+      v25 = 1;
 LABEL_12:
-      v30 = PopPolicy;
-      v31 = Buf1[1];
+      v28 = PopPolicy;
+      v29 = Buf1[1];
       *(_OWORD *)PopPolicy = Buf1[0];
-      v32 = Buf1[2];
-      v30[1] = v31;
-      v33 = Buf1[3];
-      v30[2] = v32;
-      v34 = Buf1[4];
-      v30[3] = v33;
-      v35 = Buf1[5];
-      v30[4] = v34;
-      v36 = Buf1[6];
-      v30[5] = v35;
-      v37 = Buf1[7];
-      v30[6] = v36;
-      v30 += 8;
-      v38 = Buf1[8];
-      *(v30 - 1) = v37;
-      v39 = Buf1[9];
-      *v30 = v38;
-      v40 = Buf1[10];
-      v30[1] = v39;
-      v41 = Buf1[11];
-      v30[2] = v40;
-      v42 = Buf1[12];
-      v30[3] = v41;
-      v43 = Buf1[13];
-      v44 = *(_QWORD *)&Buf1[14];
-      v30[4] = v42;
-      v30[5] = v43;
-      *((_QWORD *)v30 + 12) = v44;
-      PopSetNotificationWork(2u, v28, v27, v25);
-      if ( v26 && !a2 )
+      v30 = Buf1[2];
+      v28[1] = v29;
+      v31 = Buf1[3];
+      v28[2] = v30;
+      v32 = Buf1[4];
+      v28[3] = v31;
+      v33 = Buf1[5];
+      v28[4] = v32;
+      v34 = Buf1[6];
+      v28[5] = v33;
+      v35 = Buf1[7];
+      v28[6] = v34;
+      v28 += 8;
+      v36 = Buf1[8];
+      *(v28 - 1) = v35;
+      v37 = Buf1[9];
+      *v28 = v36;
+      v38 = Buf1[10];
+      v28[1] = v37;
+      v39 = Buf1[11];
+      v28[2] = v38;
+      v40 = Buf1[12];
+      v28[3] = v39;
+      v41 = Buf1[13];
+      v42 = *(_QWORD *)&Buf1[14];
+      v28[4] = v40;
+      v28[5] = v41;
+      *((_QWORD *)v28 + 12) = v42;
+      PopSetNotificationWork(2u);
+      if ( v25 && !a2 )
       {
-        LOBYTE(v45) = -125;
-        PopResetCBTriggers(v45);
+        LOBYTE(v43) = -125;
+        PopResetCBTriggers(v43);
       }
-      PopInitSIdle(3LL);
+      PopInitSIdle(3u);
       if ( a1 )
       {
         v23 = PopOpenPowerKey((__int64)&DestinationString);

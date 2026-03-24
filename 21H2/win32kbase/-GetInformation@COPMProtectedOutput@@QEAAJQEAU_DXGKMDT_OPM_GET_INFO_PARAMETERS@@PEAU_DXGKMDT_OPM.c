@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetInformation@COPMProtectedOutput@@QEAAJQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@PEAU_DXGKMDT_OPM_REQUESTED_INFORMATION@@@Z @ 0x1C00CECB4
+ * XREFs of ?GetInformation@COPMProtectedOutput@@QEAAJQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@PEAU_DXGKMDT_OPM_REQUESTED_INFORMATION@@@Z @ 0x1C00BF600
  * Callers:
- *     ?GetInformation@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@QEAU_DXGKMDT_OPM_REQUESTED_INFORMATION@@@Z @ 0x1C00CEC18 (-GetInformation@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@QEAU_DXGKMDT_OPM_REQUESTED_.c)
+ *     ?GetInformation@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@QEAU_DXGKMDT_OPM_REQUESTED_INFORMATION@@@Z @ 0x1C00BF564 (-GetInformation@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@QEAU_DXGKMDT_OPM_REQUESTED_.c)
  * Callees:
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C009ABA0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
- *     ??1?$unique_storage@U?$resource_policy@PEAX$$A6AXPEAX@Z$1?OPMFreeMemory@OPM@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C00CED9C (--1-$unique_storage@U-$resource_policy@PEAX$$A6AXPEAX@Z$1-OPMFreeMemory@OPM@@YAX0@ZU-$integral_c.c)
- *     CallMonitor @ 0x1C00CFF40 (CallMonitor.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00870E0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?OPMFreeMemory@OPM@@YAXPEAX@Z @ 0x1C00B2AF0 (-OPMFreeMemory@OPM@@YAXPEAX@Z.c)
+ *     CallMonitor @ 0x1C00C0560 (CallMonitor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall COPMProtectedOutput::GetInformation(
@@ -16,9 +16,9 @@ __int64 __fastcall COPMProtectedOutput::GetInformation(
         struct _DXGKMDT_OPM_REQUESTED_INFORMATION *a3)
 {
   void **v3; // rdi
-  _QWORD *v7; // rbx
-  unsigned int v8; // ebx
-  _QWORD *Pool2; // [rsp+50h] [rbp+8h] BYREF
+  _QWORD *PoolWithTag; // rbx
+  unsigned int v8; // esi
+  void *v9; // rdx
 
   v3 = (void **)*((_QWORD *)this + 1);
   OPM::CMutex::Lock(v3);
@@ -28,19 +28,18 @@ __int64 __fastcall COPMProtectedOutput::GetInformation(
   }
   else
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(258LL, 4120LL);
-    v7 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1018uLL, 0x4D504F47u);
+    if ( PoolWithTag )
     {
-      *Pool2 = *((_QWORD *)this + 9);
-      memmove(v7 + 1, a2, 0x1010uLL);
-      v8 = CallMonitor(*((PDEVICE_OBJECT *)this + 2), 0x232497u, v7, 0x1018u, a3, 0x1000u);
+      *PoolWithTag = *((_QWORD *)this + 9);
+      memmove(PoolWithTag + 1, a2, 0x1010uLL);
+      v8 = CallMonitor(*((PDEVICE_OBJECT *)this + 2), 0x232497u, PoolWithTag, 0x1018u, a3, 0x1000u);
+      OPM::OPMFreeMemory((OPM *)PoolWithTag, v9);
     }
     else
     {
       v8 = -1073741801;
     }
-    wil::details::unique_storage<wil::details::resource_policy<void *,void (void *),&void OPM::OPMFreeMemory(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void (void *),&void OPM::OPMFreeMemory(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(&Pool2);
   }
   if ( *v3 )
     KeReleaseMutex((PRKMUTEX)*v3, 0);

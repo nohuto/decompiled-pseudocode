@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnCheckLogSequenceNumber @ 0x1400D4D04
+ * XREFs of PfSnCheckLogSequenceNumber @ 0x1400D4D24
  * Callers:
- *     PfSnLogPageFaultCommon @ 0x1400D4BE4 (PfSnLogPageFaultCommon.c)
+ *     PfSnLogPageFaultCommon @ 0x1400D4C04 (PfSnLogPageFaultCommon.c)
  * Callees:
- *     PfSnTraceGetLogEntry @ 0x1400D51A0 (PfSnTraceGetLogEntry.c)
+ *     PfSnTraceGetLogEntry @ 0x1400D51C0 (PfSnTraceGetLogEntry.c)
  */
 
 __int64 __fastcall PfSnCheckLogSequenceNumber(__int64 a1)

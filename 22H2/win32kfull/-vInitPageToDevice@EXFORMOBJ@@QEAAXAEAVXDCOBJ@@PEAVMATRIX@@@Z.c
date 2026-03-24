@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vInitPageToDevice@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@PEAVMATRIX@@@Z @ 0x1C02D02A4
+ * XREFs of ?vInitPageToDevice@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@PEAVMATRIX@@@Z @ 0x1C014F01C
  * Callers:
- *     GreGetTransform @ 0x1C01405F4 (GreGetTransform.c)
+ *     GreGetTransform @ 0x1C016D15C (GreGetTransform.c)
  * Callees:
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     ?vComputeWtoDAccelFlags@EXFORMOBJ@@QEAAXXZ @ 0x1C02D0230 (-vComputeWtoDAccelFlags@EXFORMOBJ@@QEAAXXZ.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     ?vComputeWtoDAccelFlags@EXFORMOBJ@@QEAAXXZ @ 0x1C014F0BC (-vComputeWtoDAccelFlags@EXFORMOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall EXFORMOBJ::vInitPageToDevice(EXFORMOBJ *this, struct XDCOBJ *a2, struct MATRIX *a3)

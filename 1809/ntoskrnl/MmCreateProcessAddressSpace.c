@@ -1,7 +1,7 @@
 /*
- * XREFs of MmCreateProcessAddressSpace @ 0x1406D18B8
+ * XREFs of MmCreateProcessAddressSpace @ 0x1406D1898
  * Callers:
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
@@ -13,22 +13,22 @@
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     MiDeleteProcessShadow @ 0x1400686D0 (MiDeleteProcessShadow.c)
  *     PsReturnProcessQuota @ 0x140091888 (PsReturnProcessQuota.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiCheckWsLimits @ 0x14013C2D8 (MiCheckWsLimits.c)
- *     MiSyncSystemPdes @ 0x14013CC38 (MiSyncSystemPdes.c)
- *     KeMakeKernelDirectoryTableBase @ 0x14013CC9C (KeMakeKernelDirectoryTableBase.c)
- *     MiCreateNewProcessTopLevelMappings @ 0x14013CCB4 (MiCreateNewProcessTopLevelMappings.c)
- *     MiInsertNewProcess @ 0x14013CED0 (MiInsertNewProcess.c)
- *     PsChargeProcessQuota @ 0x14013DA58 (PsChargeProcessQuota.c)
- *     PsGetDefaultWsMaximum @ 0x14013DA8C (PsGetDefaultWsMaximum.c)
- *     RtlRandomEx @ 0x14013DAA0 (RtlRandomEx.c)
- *     MiSetProcessPartitionId @ 0x14013DAC8 (MiSetProcessPartitionId.c)
- *     MiPartitionActive @ 0x14013DAD8 (MiPartitionActive.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402BFF40 (MiReturnPartitionResidentAvailable.c)
- *     MiAllocateProcessShadow @ 0x1406D1B0C (MiAllocateProcessShadow.c)
- *     MiAllocateTopLevelPage @ 0x1406D1BEC (MiAllocateTopLevelPage.c)
- *     MiJoinSession @ 0x1406D1DF8 (MiJoinSession.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiCheckWsLimits @ 0x14013C2F8 (MiCheckWsLimits.c)
+ *     MiSyncSystemPdes @ 0x14013CC58 (MiSyncSystemPdes.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x14013CCBC (KeMakeKernelDirectoryTableBase.c)
+ *     MiCreateNewProcessTopLevelMappings @ 0x14013CCD4 (MiCreateNewProcessTopLevelMappings.c)
+ *     MiInsertNewProcess @ 0x14013CEF0 (MiInsertNewProcess.c)
+ *     PsChargeProcessQuota @ 0x14013DA78 (PsChargeProcessQuota.c)
+ *     PsGetDefaultWsMaximum @ 0x14013DAAC (PsGetDefaultWsMaximum.c)
+ *     RtlRandomEx @ 0x14013DAC0 (RtlRandomEx.c)
+ *     MiSetProcessPartitionId @ 0x14013DAE8 (MiSetProcessPartitionId.c)
+ *     MiPartitionActive @ 0x14013DAF8 (MiPartitionActive.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
+ *     MiAllocateProcessShadow @ 0x1406D1AEC (MiAllocateProcessShadow.c)
+ *     MiAllocateTopLevelPage @ 0x1406D1BCC (MiAllocateTopLevelPage.c)
+ *     MiJoinSession @ 0x1406D1DD8 (MiJoinSession.c)
  */
 
 char __fastcall MmCreateProcessAddressSpace(

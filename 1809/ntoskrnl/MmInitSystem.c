@@ -6,13 +6,13 @@
  *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
  *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14018DD30 (VslGetNestedPageProtectionFlags.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14018DD50 (VslGetNestedPageProtectionFlags.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  *     MiInitializeSystemVa @ 0x1409D23A8 (MiInitializeSystemVa.c)
- *     KeQueryNumaGraph @ 0x1409F6404 (KeQueryNumaGraph.c)
+ *     KeQueryNumaGraph @ 0x1409F6414 (KeQueryNumaGraph.c)
  */
 
 char __fastcall MmInitSystem(int a1, ULONG_PTR a2)

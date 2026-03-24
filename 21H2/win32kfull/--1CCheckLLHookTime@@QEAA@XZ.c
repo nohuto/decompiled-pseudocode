@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CCheckLLHookTime@@QEAA@XZ @ 0x1C0242DB4
+ * XREFs of ??1CCheckLLHookTime@@QEAA@XZ @ 0x1C0247184
  * Callers:
- *     xxxHkCallHook @ 0x1C0053C4C (xxxHkCallHook.c)
+ *     xxxHkCallHook @ 0x1C005CAB0 (xxxHkCallHook.c)
  * Callees:
- *     ?TraceLoggingSlowLowLevelHook@@YAXI_K0@Z @ 0x1C021F0F0 (-TraceLoggingSlowLowLevelHook@@YAXI_K0@Z.c)
+ *     ?TraceLoggingSlowLowLevelHook@@YAXI_K0@Z @ 0x1C0225710 (-TraceLoggingSlowLowLevelHook@@YAXI_K0@Z.c)
  */
 
 void __fastcall CCheckLLHookTime::~CCheckLLHookTime(CCheckLLHookTime *this)
@@ -15,5 +15,5 @@ void __fastcall CCheckLLHookTime::~CCheckLLHookTime(CCheckLLHookTime *this)
      - *(_QWORD *)this;
   *(_DWORD *)(gptiCurrent + 696LL) = 0;
   if ( v1 > 0x14 )
-    TraceLoggingSlowLowLevelHook();
+    TraceLoggingSlowLowLevelHook(*((_DWORD *)this + 2), v1, *((_QWORD *)this + 2));
 }

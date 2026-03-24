@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwDirtyRectUpdate @ 0x1C00949A0
+ * XREFs of EtwDirtyRectUpdate @ 0x1C0084B70
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C01506B4 (McTemplateK0pqqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C0126078 (McTemplateK0pqqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwDirtyRectUpdate(int a1, char a2, int a3, char a4, char a5)

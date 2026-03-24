@@ -1,13 +1,12 @@
 /*
- * XREFs of RtlpHpLfhBucketUpdateStats @ 0x140371654
+ * XREFs of RtlpHpLfhBucketUpdateStats @ 0x1402A6128
  * Callers:
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
- *     ExAllocateHeapPool @ 0x1403497C0 (ExAllocateHeapPool.c)
- *     RtlpHpSegFree @ 0x140364794 (RtlpHpSegFree.c)
- *     RtlpHpLfhContextAllocate @ 0x1403715C4 (RtlpHpLfhContextAllocate.c)
+ *     RtlpHpLfhContextAllocate @ 0x1402A6084 (RtlpHpLfhContextAllocate.c)
+ *     ExAllocateHeapPool @ 0x14033C210 (ExAllocateHeapPool.c)
+ *     RtlpHpSegFree @ 0x140342200 (RtlpHpSegFree.c)
  * Callees:
- *     RtlpLfhBucketUsageUpdate @ 0x1403716E8 (RtlpLfhBucketUsageUpdate.c)
- *     RtlpHpLfhBucketActivate @ 0x1403719B4 (RtlpHpLfhBucketActivate.c)
+ *     RtlpLfhBucketUsageUpdate @ 0x1402A61BC (RtlpLfhBucketUsageUpdate.c)
+ *     RtlpHpLfhBucketActivate @ 0x1402A6494 (RtlpHpLfhBucketActivate.c)
  */
 
 _BOOL8 __fastcall RtlpHpLfhBucketUpdateStats(__int64 a1, int a2, int a3)

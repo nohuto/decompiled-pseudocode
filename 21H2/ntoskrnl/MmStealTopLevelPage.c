@@ -1,26 +1,26 @@
 /*
- * XREFs of MmStealTopLevelPage @ 0x14036CD34
+ * XREFs of MmStealTopLevelPage @ 0x1403885D8
  * Callers:
- *     KiSwapDirectoryTableBaseTarget @ 0x1402F25C0 (KiSwapDirectoryTableBaseTarget.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x1403884A0 (KiSwapDirectoryTableBaseTarget.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     KeFlushSingleTb @ 0x1402EA644 (KeFlushSingleTb.c)
- *     MiUnlockWorkingSetExclusive @ 0x14030FA80 (MiUnlockWorkingSetExclusive.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KeMakeKernelDirectoryTableBase @ 0x14036C428 (KeMakeKernelDirectoryTableBase.c)
- *     KeMakeUserDirectoryTableBase @ 0x14036C7EC (KeMakeUserDirectoryTableBase.c)
- *     MiReplacePageTablePage @ 0x14036CF60 (MiReplacePageTablePage.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x1402E4380 (KeMakeKernelDirectoryTableBase.c)
+ *     KeMakeUserDirectoryTableBase @ 0x1402E46A4 (KeMakeUserDirectoryTableBase.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiReplacePageTablePage @ 0x140363DF0 (MiReplacePageTablePage.c)
  */
 
-__int64 __fastcall MmStealTopLevelPage(__int64 a1)
+__int64 __fastcall MmStealTopLevelPage(unsigned __int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   _KPROCESS *Process; // r13
-  volatile LONG *SharedVm; // rbx
+  LONG *SharedVm; // rbx
   unsigned int v6; // esi
   __int64 v7; // r15
   _QWORD *v8; // r14
@@ -28,84 +28,88 @@ __int64 __fastcall MmStealTopLevelPage(__int64 a1)
   unsigned __int64 v10; // rbx
   __int64 v11; // rdi
   BOOL v12; // r11d
-  int v13; // edx
-  __int64 v14; // r14
-  unsigned __int64 v15; // rdi
-  __int64 v16; // rbx
-  int v17; // ebp
-  BOOL v18; // r12d
-  int v19; // edx
-  unsigned __int64 v20; // rbx
+  __int64 v13; // r8
+  int v14; // edx
+  bool v15; // zf
+  bool v16; // zf
+  __int64 v17; // r14
+  unsigned __int64 v18; // rdi
+  __int64 v19; // rbx
+  int v20; // ebp
   __int64 v21; // r8
-  bool v22; // zf
-  __int64 v23; // r8
-  bool v24; // zf
-  bool v25; // zf
-  bool v26; // zf
-  KIRQL v27; // [rsp+60h] [rbp+8h]
+  BOOL v22; // r12d
+  bool v23; // zf
+  __int64 v24; // r8
+  int v25; // edx
+  unsigned __int64 v26; // rbx
+  bool v27; // zf
+  KIRQL v28; // [rsp+60h] [rbp+8h]
 
   CurrentThread = KeGetCurrentThread();
   if ( *(struct _KTHREAD **)(a1 + 40) != CurrentThread )
     return 0LL;
   Process = CurrentThread->ApcState.Process;
-  SharedVm = (volatile LONG *)MiGetSharedVm((__int64)&Process[1].ActiveProcessors.StaticBitmap[26]);
+  SharedVm = MiGetSharedVm((__int64)&Process[1].ActiveProcessorsPadding[6]);
   v6 = 0;
-  v27 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
+  v28 = ExAcquireSpinLockExclusive(SharedVm);
+  SharedVm[1] = 0;
   MiReplacePageTablePage(a1);
   if ( *(int *)(a1 + 56) >= 0 )
   {
     v7 = *(_QWORD *)(a1 + 32);
-    ++dword_140C29CE8;
     v8 = (_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL * ((((*(_DWORD *)(a1 + 8) >> 9) & 0xFFFFFFF8) >> 3) & 0x1FF));
     v9 = 0;
-    v10 = ((v7 & 0xFFFFFFFFFFLL) << 12) | MI_READ_PTE_LOCK_FREE((unsigned __int64)v8) & 0xFFF0000000000FFFuLL;
+    v10 = ((v7 & 0xFFFFFFFFFLL) << 12) | MI_READ_PTE_LOCK_FREE((unsigned __int64)v8) & 0xFFFF000000000FFFuLL;
     v11 = ZeroPte;
     v12 = MiPteInShadowRange((unsigned __int64)v8);
+    v13 = 0x8000000000000000uLL;
     if ( !v12 )
       goto LABEL_5;
     if ( (unsigned int)MiPteHasShadow() )
     {
       v9 = 1;
-      if ( HIBYTE(word_140C51864) )
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_5;
-      v22 = (ZeroPte & 1) == 0;
+      v15 = (ZeroPte & 1) == 0;
     }
     else
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
         goto LABEL_5;
-      v22 = (ZeroPte & 1) == 0;
+      v15 = (ZeroPte & 1) == 0;
     }
-    if ( !v22 )
-      v11 = v21 | ZeroPte;
+    if ( !v15 )
+      v11 = v13 | ZeroPte;
 LABEL_5:
     *v8 = v11;
     if ( v9 )
-      MiWritePteShadow((__int64)v8, v11);
-    v13 = 0;
+    {
+      MiWritePteShadow((__int64)v8, v11, v13);
+      v13 = 0x8000000000000000uLL;
+    }
+    v14 = 0;
     if ( v12 )
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
-        v13 = 1;
-        if ( HIBYTE(word_140C51864) )
+        v14 = 1;
+        if ( HIBYTE(word_140C4E008) )
           goto LABEL_8;
-        v24 = (v10 & 1) == 0;
+        v16 = (v10 & 1) == 0;
       }
       else
       {
         if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
           goto LABEL_8;
-        v24 = (v10 & 1) == 0;
+        v16 = (v10 & 1) == 0;
       }
-      if ( !v24 )
-        v10 |= v23;
+      if ( !v16 )
+        v10 |= v13;
     }
 LABEL_8:
     *v8 = v10;
-    if ( v13 )
-      MiWritePteShadow((__int64)v8, v10);
+    if ( v14 )
+      MiWritePteShadow((__int64)v8, v10, v13);
     if ( !*(_DWORD *)(a1 + 60) )
     {
       Process->DirectoryTableBase = KeMakeKernelDirectoryTableBase(v7 << 12);
@@ -113,62 +117,62 @@ LABEL_12:
       v6 = 1;
       goto LABEL_13;
     }
-    v14 = (((unsigned __int64)Process[1].ProcessListEntry.Flink >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v15 = ZeroPte;
-    v16 = MI_READ_PTE_LOCK_FREE(v14);
-    v17 = 0;
-    v18 = MiPteInShadowRange(v14);
-    if ( v18 )
+    v17 = (((unsigned __int64)Process[1].ProcessListEntry.Flink >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v18 = ZeroPte;
+    v19 = MI_READ_PTE_LOCK_FREE(v17);
+    v20 = 0;
+    v22 = MiPteInShadowRange(v17);
+    if ( v22 )
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
-        v17 = 1;
-        if ( HIBYTE(word_140C51864) )
-          goto LABEL_15;
-        v25 = (ZeroPte & 1) == 0;
+        v20 = 1;
+        if ( HIBYTE(word_140C4E008) )
+          goto LABEL_36;
+        v23 = (ZeroPte & 1) == 0;
       }
       else
       {
         if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
-          goto LABEL_15;
-        v25 = (ZeroPte & 1) == 0;
+          goto LABEL_36;
+        v23 = (ZeroPte & 1) == 0;
       }
-      if ( !v25 )
-        v15 = ZeroPte | 0x8000000000000000uLL;
+      if ( !v23 )
+        v18 = ZeroPte | 0x8000000000000000uLL;
     }
-LABEL_15:
-    *(_QWORD *)v14 = v15;
-    if ( v17 )
-      MiWritePteShadow(v14, v15);
-    KeFlushSingleTb(v14 << 25 >> 16, 0, 2u);
-    v19 = 0;
-    v20 = ((v7 & 0xFFFFFFFFFFLL) << 12) | v16 & 0xFFF0000000000FFFuLL;
-    if ( !v18 )
-      goto LABEL_18;
+LABEL_36:
+    *(_QWORD *)v17 = v18;
+    if ( v20 )
+      MiWritePteShadow(v17, v18, v21);
+    KeFlushSingleTb(v17 << 25 >> 16, 0, 2u);
+    v25 = 0;
+    v26 = ((v7 & 0xFFFFFFFFFLL) << 12) | v19 & 0xFFFF000000000FFFuLL;
+    if ( !v22 )
+      goto LABEL_46;
     if ( (unsigned int)MiPteHasShadow() )
     {
-      v19 = 1;
-      if ( !HIBYTE(word_140C51864) )
+      v25 = 1;
+      if ( !HIBYTE(word_140C4E008) )
       {
-        v26 = (v20 & 1) == 0;
-        goto LABEL_47;
+        v27 = (v26 & 1) == 0;
+        goto LABEL_44;
       }
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
     {
-      v26 = (v20 & 1) == 0;
-LABEL_47:
-      if ( !v26 )
-        v20 |= 0x8000000000000000uLL;
+      v27 = (v26 & 1) == 0;
+LABEL_44:
+      if ( !v27 )
+        v26 |= 0x8000000000000000uLL;
     }
-LABEL_18:
-    *(_QWORD *)v14 = v20;
-    if ( v19 )
-      MiWritePteShadow(v14, v20);
+LABEL_46:
+    *(_QWORD *)v17 = v26;
+    if ( v25 )
+      MiWritePteShadow(v17, v26, v24);
     Process->UserDirectoryTableBase = KeMakeUserDirectoryTableBase(v7 << 12);
     goto LABEL_12;
   }
 LABEL_13:
-  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessors.StaticBitmap[26], v27);
+  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessorsPadding[6], v28);
   return v6;
 }

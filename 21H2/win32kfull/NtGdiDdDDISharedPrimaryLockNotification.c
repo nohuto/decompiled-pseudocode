@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiDdDDISharedPrimaryLockNotification @ 0x1C0275840
+ * XREFs of NtGdiDdDDISharedPrimaryLockNotification @ 0x1C02780C0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z @ 0x1C0273714 (-DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z @ 0x1C0275E08 (-DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z.c)
  */
 
 __int64 __fastcall NtGdiDdDDISharedPrimaryLockNotification(ULONG64 a1)

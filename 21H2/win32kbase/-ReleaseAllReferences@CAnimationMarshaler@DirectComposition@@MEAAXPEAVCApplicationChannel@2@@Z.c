@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CAnimationMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00BBA30
+ * XREFs of ?ReleaseAllReferences@CAnimationMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00A3530
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CAnimationMarshaler::ReleaseAllReferences(
@@ -13,14 +13,14 @@ void __fastcall DirectComposition::CAnimationMarshaler::ReleaseAllReferences(
   struct DirectComposition::CResourceMarshaler *v4; // rdx
   struct DirectComposition::CResourceMarshaler *v5; // rax
 
-  DirectComposition::CApplicationChannel::ReleaseResource(a2, this[17]);
-  v4 = this[10];
-  this[17] = 0LL;
+  DirectComposition::CApplicationChannel::ReleaseResource(a2, this[16]);
+  v4 = this[9];
+  this[16] = 0LL;
   DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
-  v5 = this[21];
-  this[10] = 0LL;
+  v5 = this[20];
+  this[9] = 0LL;
   DirectComposition::CApplicationChannel::ReleaseResource(
     a2,
     (struct DirectComposition::CResourceMarshaler *)(((unsigned __int64)v5 + 16) & ((unsigned __int128)-(__int128)(unsigned __int64)v5 >> 64)));
-  this[21] = 0LL;
+  this[20] = 0LL;
 }

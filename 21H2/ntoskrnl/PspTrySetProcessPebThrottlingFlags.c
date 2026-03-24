@@ -1,11 +1,11 @@
 /*
- * XREFs of PspTrySetProcessPebThrottlingFlags @ 0x1409AEAA0
+ * XREFs of PspTrySetProcessPebThrottlingFlags @ 0x140908720
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspTrySetProcessPebThrottlingFlags(_KPROCESS *a1, char a2, __int64 a3, _DWORD *a4)
@@ -17,11 +17,11 @@ __int64 __fastcall PspTrySetProcessPebThrottlingFlags(_KPROCESS *a1, char a2, __
 
   memset(v10, 0, sizeof(v10));
   KiStackAttachProcess(a1, 0LL, (__int64)v10, a4);
-  v6 = a1[1].Affinity.StaticBitmap[24];
+  v6 = a1[1].AffinityPadding[4];
   if ( v6 )
   {
     v7 = 0LL;
-    v8 = (__int64 *)a1[1].Affinity.StaticBitmap[30];
+    v8 = (__int64 *)a1[1].AffinityPadding[10];
     if ( v8 )
       v7 = *v8;
     if ( a2 )
@@ -37,5 +37,5 @@ __int64 __fastcall PspTrySetProcessPebThrottlingFlags(_KPROCESS *a1, char a2, __
         _InterlockedAnd((volatile signed __int32 *)(v7 + 40), 0xFFFFFFBF);
     }
   }
-  return KiUnstackDetachProcess((__int64)v10, 0LL);
+  return KiUnstackDetachProcess((__int64)v10, 0);
 }

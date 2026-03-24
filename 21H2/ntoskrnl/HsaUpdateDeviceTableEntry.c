@@ -1,134 +1,156 @@
 /*
- * XREFs of HsaUpdateDeviceTableEntry @ 0x1405330B8
+ * XREFs of HsaUpdateDeviceTableEntry @ 0x1404E43F8
  * Callers:
- *     HalpHsapInitializeReservedDomain @ 0x140530474 (HalpHsapInitializeReservedDomain.c)
- *     HsaAttachDeviceDomainInternal @ 0x1405311A8 (HsaAttachDeviceDomainInternal.c)
- *     HsaProcessDeviceExceptions @ 0x140532C98 (HsaProcessDeviceExceptions.c)
- *     HsaSetDevicePasidTable @ 0x140532FD0 (HsaSetDevicePasidTable.c)
+ *     HalpHsapInitializeReservedDomain @ 0x1404E16F4 (HalpHsapInitializeReservedDomain.c)
+ *     HsaAttachDeviceDomainInternal @ 0x1404E24F8 (HsaAttachDeviceDomainInternal.c)
+ *     HsaProcessDeviceExceptions @ 0x1404E3FAC (HsaProcessDeviceExceptions.c)
+ *     HsaSetDevicePasidTable @ 0x1404E4300 (HsaSetDevicePasidTable.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HsaBuildDeviceTableEntry @ 0x1405313B4 (HsaBuildDeviceTableEntry.c)
- *     HsaGetBlockedDomain @ 0x1405323B0 (HsaGetBlockedDomain.c)
- *     HsaInvalidateDTE @ 0x14053292C (HsaInvalidateDTE.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HsaBuildDeviceTableEntry @ 0x1404E2700 (HsaBuildDeviceTableEntry.c)
+ *     HsaGetBlockedDomain @ 0x1404E3730 (HsaGetBlockedDomain.c)
+ *     HsaIommuSendCommand @ 0x1404E3D08 (HsaIommuSendCommand.c)
+ *     HsaIommuWaitCommand @ 0x1404E3F78 (HsaIommuWaitCommand.c)
  */
 
-__int64 __fastcall HsaUpdateDeviceTableEntry(
-        __int64 a1,
-        unsigned int a2,
+__int64 *__fastcall HsaUpdateDeviceTableEntry(
+        unsigned __int64 *a1,
+        int *a2,
         __int64 a3,
         char a4,
         __int64 a5,
-        unsigned int a6,
+        int a6,
         int a7,
         __int64 a8,
         __int64 a9,
         __int64 *a10)
 {
-  __int64 v11; // r14
-  __int128 v12; // xmm0
-  char v13; // r15
-  unsigned __int64 v14; // rbx
-  __int64 v15; // rcx
-  int v16; // r9d
-  int v17; // edi
+  __int64 v12; // rsi
+  __int128 v13; // xmm0
+  char v14; // r12
+  unsigned __int64 v15; // rbx
+  __int64 v16; // rcx
+  int v17; // r9d
+  int v18; // edi
   __int16 BlockedDomain; // ax
-  __int128 v19; // rax
-  __int128 v20; // rt0
-  unsigned __int8 v21; // tt
-  char v23; // [rsp+50h] [rbp-59h]
-  unsigned int v24; // [rsp+58h] [rbp-51h] BYREF
-  __int64 v25; // [rsp+60h] [rbp-49h] BYREF
-  __int64 v26; // [rsp+68h] [rbp-41h]
-  __int128 v27; // [rsp+70h] [rbp-39h]
-  __int128 v28; // [rsp+80h] [rbp-29h] BYREF
-  __int128 v29; // [rsp+90h] [rbp-19h] BYREF
+  unsigned int v20; // eax
+  unsigned int i; // r8d
+  __int128 v22; // rax
+  __int128 v23; // rt0
+  unsigned __int8 v24; // tt
+  int v25; // ebx
+  unsigned int v26; // edi
+  __int64 *result; // rax
+  char v28; // [rsp+50h] [rbp-69h]
+  __int64 v29; // [rsp+58h] [rbp-61h] BYREF
+  __int64 v30; // [rsp+60h] [rbp-59h]
+  __int128 v31; // [rsp+68h] [rbp-51h]
+  __int64 *v32; // [rsp+78h] [rbp-41h]
+  unsigned __int64 v33[2]; // [rsp+80h] [rbp-39h] BYREF
+  __int128 v34; // [rsp+90h] [rbp-29h] BYREF
+  __int128 v35; // [rsp+A0h] [rbp-19h] BYREF
 
-  v11 = *(_QWORD *)(a1 + 24) + 32LL * a2;
-  v24 = a2;
-  v23 = 0;
-  v26 = 0x10000LL;
-  v12 = *(_OWORD *)(v11 + 16);
-  v28 = *(_OWORD *)v11;
-  v29 = v12;
-  if ( (v28 & 1) != 0 && !a7 )
+  v12 = a1[3] + 32LL * (unsigned int)*a2;
+  v32 = a10;
+  v28 = 0;
+  v30 = 0x10000LL;
+  v13 = *(_OWORD *)(v12 + 16);
+  v34 = *(_OWORD *)v12;
+  v35 = v13;
+  if ( (v34 & 1) != 0 && !a7 )
   {
-    v26 = WORD4(v28);
-    v23 = 1;
+    v30 = WORD4(v34);
+    v28 = 1;
   }
-  v13 = 0;
-  v14 = 0LL;
+  v14 = 0;
+  v15 = 0LL;
   if ( a4 )
   {
-    if ( (v28 & 0x80000000000000LL) != 0 )
+    if ( (v34 & 0x80000000000000LL) != 0 )
     {
-      v13 = 1;
-      v14 = (DWORD2(v28) & 0xFFFF0000 | ((*((_QWORD *)&v28 + 1) & 0xFFFFF80000FFFFFFuLL | ((unsigned __int64)v28 >> 34) & 0x7000000) >> 11)) >> 13;
+      v14 = 1;
+      v15 = (DWORD2(v34) & 0xFFFF0000 | ((*((_QWORD *)&v34 + 1) & 0xFFFFF80000FFFFFFuLL | ((unsigned __int64)v34 >> 34) & 0x7000000) >> 11)) >> 13;
     }
   }
   else if ( a3 )
   {
-    v13 = 1;
-    v14 = (unsigned __int64)MmGetPhysicalAddress(*(PVOID *)(a3 + 40)).QuadPart >> 12;
+    v14 = 1;
+    v15 = (unsigned __int64)MmGetPhysicalAddress(*(PVOID *)(a3 + 40)).QuadPart >> 12;
   }
-  v15 = 0LL;
-  v25 = 0LL;
-  if ( a5 )
+  v16 = 0LL;
+  v29 = 0LL;
+  if ( !a5 )
   {
-    v17 = *(_DWORD *)(a5 + 4);
-    if ( v17 == 1 )
+    LOWORD(v17) = WORD4(v34);
+    if ( (v34 & 0xE00) != 0x800 )
     {
-      BlockedDomain = HsaGetBlockedDomain(a1, (int *)&v24, (unsigned __int64 *)&v25);
-      v15 = v25;
-      LOWORD(v16) = BlockedDomain;
-    }
-    else
-    {
-      v16 = *(_DWORD *)(a5 + 48);
-      if ( v17 == 2 )
-      {
-        v15 = *(_QWORD *)(a5 + 40) >> 12;
-        goto LABEL_17;
-      }
-    }
-  }
-  else
-  {
-    LOWORD(v16) = WORD4(v28);
-    if ( (v28 & 0xE00) == 0x800 )
-    {
-      v17 = 2;
-      v15 = (__int64)((_QWORD)v28 << 12) >> 24;
-LABEL_17:
-      v25 = v15;
+      v18 = 0;
       goto LABEL_18;
     }
-    v17 = 0;
+    v18 = 2;
+    v16 = (__int64)((_QWORD)v34 << 12) >> 24;
+    goto LABEL_17;
+  }
+  v18 = *(_DWORD *)(a5 + 4);
+  if ( v18 == 1 )
+  {
+    BlockedDomain = HsaGetBlockedDomain((__int64)a1, a2, (unsigned __int64 *)&v29);
+    v16 = v29;
+    LOWORD(v17) = BlockedDomain;
+    goto LABEL_18;
+  }
+  v17 = *(_DWORD *)(a5 + 24);
+  if ( v18 == 2 )
+  {
+    v16 = *(_QWORD *)(a5 + 16) >> 12;
+LABEL_17:
+    v29 = v16;
   }
 LABEL_18:
-  HsaBuildDeviceTableEntry(a1, v14, v13, v16, v17, v15, &v29, 0LL, (__int64)&v28);
-  *((_QWORD *)&v19 + 1) = *(_QWORD *)(v11 + 8);
-  *(_QWORD *)&v27 = *(_QWORD *)v11;
-  *(_QWORD *)&v19 = v27;
-  *((_QWORD *)&v27 + 1) = *((_QWORD *)&v19 + 1);
-  do
+  HsaBuildDeviceTableEntry((__int64)a1, v15, v14, v17, v18, v16, &v35, 0LL, (__int64)&v34);
+  v20 = a2[1];
+  for ( i = 0; i < v20; v20 = a2[1] )
   {
-    v20 = v19;
-    v21 = _InterlockedCompareExchange128(
-            (volatile signed __int64 *)v11,
-            *((signed __int64 *)&v28 + 1),
-            v28,
-            (signed __int64 *)&v20);
-    v19 = v20;
-    v27 = v20;
+    *((_QWORD *)&v22 + 1) = *(_QWORD *)(v12 + 8);
+    *(_QWORD *)&v31 = *(_QWORD *)v12;
+    *(_QWORD *)&v22 = v31;
+    *((_QWORD *)&v31 + 1) = *((_QWORD *)&v22 + 1);
+    do
+    {
+      v23 = v22;
+      v24 = _InterlockedCompareExchange128(
+              (volatile signed __int64 *)v12,
+              *((signed __int64 *)&v34 + 1),
+              v34,
+              (signed __int64 *)&v23);
+      v22 = v23;
+      v31 = v23;
+    }
+    while ( !v24 );
+    ++i;
+    v12 += 32LL * (unsigned int)a2[2];
   }
-  while ( !v21 );
-  if ( v23 )
-    *(_QWORD *)&v19 = HsaInvalidateDTE(a1, v24, a6);
-  if ( a10 )
+  if ( v28 )
   {
-    *(_QWORD *)&v19 = v26;
-    *a10 = v26;
+    v25 = *a2;
+    v26 = 0;
+    if ( v20 )
+    {
+      do
+      {
+        v33[1] = 0LL;
+        v33[0] = (unsigned __int16)v25 | 0x2000000000000000LL;
+        HsaIommuSendCommand(a1, v33, a6);
+        HsaIommuWaitCommand(a1, a6);
+        v25 += a2[2];
+        ++v26;
+      }
+      while ( v26 < a2[1] );
+    }
   }
-  return v19;
+  result = v32;
+  if ( v32 )
+    *v32 = v30;
+  return result;
 }

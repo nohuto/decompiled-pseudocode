@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DoesProcessOwnProtectedOutput@CMonitorPDO@OPM@@QEBAEPEAX@Z @ 0x1C0169540
+ * XREFs of ?DoesProcessOwnProtectedOutput@CMonitorPDO@OPM@@QEBAEPEAX@Z @ 0x1C0087160
  * Callers:
  *     <none>
  * Callees:

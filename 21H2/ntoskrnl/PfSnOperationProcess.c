@@ -1,17 +1,17 @@
 /*
- * XREFs of PfSnOperationProcess @ 0x1407D8338
+ * XREFs of PfSnOperationProcess @ 0x1406BA234
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x1407D7634 (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x1406DC36C (PfSnSetPrefetcherInformation.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PfSnEndProcessTrace @ 0x1407D936C (PfSnEndProcessTrace.c)
- *     PfCalculateProcessHash @ 0x1407DB510 (PfCalculateProcessHash.c)
- *     PfSnFindImageFileName @ 0x1407DC598 (PfSnFindImageFileName.c)
- *     PfSnCheckScenario @ 0x1407DCF18 (PfSnCheckScenario.c)
- *     PfSnBeginScenario @ 0x1407DCF7C (PfSnBeginScenario.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PfSnEndProcessTrace @ 0x1406BA3DC (PfSnEndProcessTrace.c)
+ *     PfSnFindImageFileName @ 0x1406CB524 (PfSnFindImageFileName.c)
+ *     PfSnBeginScenario @ 0x1406CBBC4 (PfSnBeginScenario.c)
+ *     PfSnCheckScenario @ 0x1406CC2B8 (PfSnCheckScenario.c)
+ *     PfCalculateProcessHash @ 0x1406CC490 (PfCalculateProcessHash.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnOperationProcess(__int64 a1)
@@ -40,7 +40,7 @@ __int64 __fastcall PfSnOperationProcess(__int64 a1)
   if ( !v2 || (v4 = *(_BYTE *)(a1 + 1), v4 >= 2u) || *(_WORD *)(a1 + 2) )
   {
     v9 = -1073741811;
-    goto LABEL_18;
+    goto LABEL_13;
   }
   v5 = *(_DWORD *)(a1 + 4);
   if ( (v4 & 1) != 0 )
@@ -71,7 +71,7 @@ __int64 __fastcall PfSnOperationProcess(__int64 a1)
         0x3CuLL,
         L"Op-%.17s-%08X",
         ImageFileName,
-        HIDWORD(Process[1].ActiveProcessors.StaticBitmap[8]));
+        HIDWORD(Process[1].ActiveProcessors.Bitmap[8]));
       v11 = *(_DWORD *)(a1 + 4);
       v12 = v11 & 1;
       v2 = (*(_BYTE *)(a1 + 1) & 1) == 0;
@@ -99,7 +99,7 @@ __int64 __fastcall PfSnOperationProcess(__int64 a1)
       v9 = -1073741595;
     }
   }
-LABEL_18:
+LABEL_13:
   if ( v3 )
     ExFreePoolWithTag(v3, 0);
   return v9;

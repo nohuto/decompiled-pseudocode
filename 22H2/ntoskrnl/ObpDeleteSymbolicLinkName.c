@@ -1,65 +1,56 @@
 /*
- * XREFs of ObpDeleteSymbolicLinkName @ 0x140697B5C
+ * XREFs of ObpDeleteSymbolicLinkName @ 0x1406F8970
  * Callers:
- *     ObpMarkDirectoryObjectsTemporary @ 0x14069794C (ObpMarkDirectoryObjectsTemporary.c)
- *     ObpCloseHandle @ 0x1406E7730 (ObpCloseHandle.c)
- *     ObpDeleteNameCheck @ 0x140740650 (ObpDeleteNameCheck.c)
- *     ObShutdownSystem @ 0x14097AEB0 (ObShutdownSystem.c)
+ *     ObCloseHandleTableEntry @ 0x140642D80 (ObCloseHandleTableEntry.c)
+ *     ObpDeleteNameCheck @ 0x1406F6EB0 (ObpDeleteNameCheck.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x1406F83A8 (ObpMarkDirectoryObjectsTemporary.c)
+ *     ObShutdownSystem @ 0x1408DC4E0 (ObShutdownSystem.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x14020B8F0 (ObDereferenceObjectDeferDelete.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObFastReplaceObject @ 0x14029A458 (ObFastReplaceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-void __fastcall ObpDeleteSymbolicLinkName(__int64 a1)
+char __fastcall ObpDeleteSymbolicLinkName(__int64 a1)
 {
-  int v1; // eax
-  __int64 v3; // r14
-  __int64 v4; // r15
-  char *CurrentServerSiloGlobals; // rax
+  _UNKNOWN **v1; // rax
+  int v2; // esi
+  __int64 v4; // rdx
+  __int64 v5; // rbp
+  _DWORD *CurrentServerSiloGlobals; // rax
   struct _KTHREAD *CurrentThread; // rcx
-  char *v7; // rdi
-  volatile signed __int64 *v8; // rsi
-  int v9; // r13d
-  void *v10; // r12
-  struct _KTHREAD *v11; // rax
-  bool v12; // zf
+  _DWORD *v8; // rbx
+  __int64 v9; // rcx
+  int v10; // eax
+  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 24);
-  if ( v1 )
+  v1 = &retaddr;
+  v2 = *(_DWORD *)(a1 + 24);
+  if ( v2 )
   {
-    v3 = (unsigned int)(v1 - 1);
-    v4 = *(_QWORD *)(*(_QWORD *)(a1 - 48 - ObpInfoMaskToOffset[*(_BYTE *)(a1 - 48 + 26) & 3]) + 304LL);
-    if ( v4 )
+    v4 = a1 - 48 - ObpInfoMaskToOffset[*(_BYTE *)(a1 - 48 + 26) & 3];
+    v1 = *(_UNKNOWN ***)v4;
+    v5 = *(_QWORD *)(*(_QWORD *)v4 + 304LL);
+    if ( v5 )
     {
-      CurrentServerSiloGlobals = (char *)PsGetCurrentServerSiloGlobals();
+      CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals((__int64)ObpInfoMaskToOffset, v4);
       CurrentThread = KeGetCurrentThread();
-      v7 = CurrentServerSiloGlobals;
-      v8 = (volatile signed __int64 *)(CurrentServerSiloGlobals + 120);
+      v8 = CurrentServerSiloGlobals;
       --CurrentThread->SpecialApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)(CurrentServerSiloGlobals + 120), 0LL);
-      v9 = ~(1 << v3);
-      *(_DWORD *)(v4 + 256) &= v9;
-      *(_BYTE *)(v3 + v4 + 260) = 0;
-      v10 = (void *)ObFastReplaceObject((volatile __int64 *)(v4 + 8 * (v3 + 4)), 0LL);
-      if ( v4 == (*(_QWORD *)v7 & 0xFFFFFFFFFFFFFFF0uLL) )
-        *((_DWORD *)v7 + 2) &= v9;
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)(CurrentServerSiloGlobals + 30), 0LL);
+      v9 = (unsigned int)(v2 - 1);
+      v10 = ~(1 << (v2 - 1));
+      *(_DWORD *)(v5 + 28) &= v10;
+      *(_BYTE *)(v9 + v5 + 32) = 0;
+      if ( v5 == *(_QWORD *)v8 )
+        v8[2] &= v10;
       else
-        --*(_DWORD *)&v7[4 * v3 + 12];
-      if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(v8);
-      KeAbPostRelease((ULONG_PTR)v8);
-      v11 = KeGetCurrentThread();
-      v12 = v11->SpecialApcDisable++ == -1;
-      if ( v12 && ($C71981A45BEB2B45F82C232A7085991E *)v11->ApcState.ApcListHead[0].Flink != &v11->152 )
-        KiCheckForKernelApcDelivery();
-      if ( v10 )
-        ObDereferenceObjectDeferDelete(v10);
+        --v8[v9 + 3];
+      ExReleasePushLockEx((ULONG_PTR)(v8 + 30), 0LL);
+      LOBYTE(v1) = KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
     }
     *(_DWORD *)(a1 + 24) = 0;
   }
+  return (char)v1;
 }

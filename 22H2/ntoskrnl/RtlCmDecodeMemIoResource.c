@@ -1,12 +1,11 @@
 /*
- * XREFs of RtlCmDecodeMemIoResource @ 0x140375970
+ * XREFs of RtlCmDecodeMemIoResource @ 0x14032A800
  * Callers:
- *     HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x1405129B8 (HalpDmaGetReservedRegionsForHybridPassthroughDomain.c)
- *     PnpFilterResourceRequirementsList @ 0x140818B80 (PnpFilterResourceRequirementsList.c)
- *     PnpIsRangeWithin @ 0x140819544 (PnpIsRangeWithin.c)
- *     PnpCmResourcesToIoResources @ 0x140819624 (PnpCmResourcesToIoResources.c)
- *     IopGenericUnpackResource @ 0x140959F30 (IopGenericUnpackResource.c)
- *     PnprAddMemoryResources @ 0x140965684 (PnprAddMemoryResources.c)
+ *     PnpIsRangeWithin @ 0x1407AD588 (PnpIsRangeWithin.c)
+ *     PnpFilterResourceRequirementsList @ 0x1407ADC1C (PnpFilterResourceRequirementsList.c)
+ *     PnpCmResourcesToIoResources @ 0x1407B64B0 (PnpCmResourcesToIoResources.c)
+ *     IopGenericUnpackResource @ 0x1408A2F20 (IopGenericUnpackResource.c)
+ *     PnprAddMemoryResources @ 0x1408ACEB4 (PnprAddMemoryResources.c)
  * Callees:
  *     <none>
  */

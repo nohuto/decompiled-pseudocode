@@ -1,11 +1,11 @@
 /*
- * XREFs of IopInterlockedInsertTailList @ 0x14018F950
+ * XREFs of IopInterlockedInsertTailList @ 0x14018F970
  * Callers:
- *     IoRegisterBootDriverReinitialization @ 0x140758560 (IoRegisterBootDriverReinitialization.c)
- *     IoRegisterDriverReinitialization @ 0x1407585E0 (IoRegisterDriverReinitialization.c)
+ *     IoRegisterBootDriverReinitialization @ 0x140758540 (IoRegisterBootDriverReinitialization.c)
+ *     IoRegisterDriverReinitialization @ 0x1407585C0 (IoRegisterDriverReinitialization.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
  */
 
 void __fastcall IopInterlockedInsertTailList(__int64 a1, _QWORD *a2)

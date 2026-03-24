@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDeepSleepEvaluateCallback @ 0x1405984E0
+ * XREFs of PopDeepSleepEvaluateCallback @ 0x1405775C0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x14032C150 (PoFxSendSystemLatencyUpdate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagTraceIdleResiliencyEnd @ 0x140593E78 (PopDiagTraceIdleResiliencyEnd.c)
- *     PopDiagTraceIdleResiliencyStart @ 0x140593F28 (PopDiagTraceIdleResiliencyStart.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14034A828 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDiagTraceIdleResiliencyEnd @ 0x1405729A8 (PopDiagTraceIdleResiliencyEnd.c)
+ *     PopDiagTraceIdleResiliencyStart @ 0x140572A58 (PopDiagTraceIdleResiliencyStart.c)
  */
 
 __int64 PopDeepSleepEvaluateCallback()
@@ -46,40 +46,46 @@ __int64 PopDeepSleepEvaluateCallback()
     else
       PopDiagTraceIdleResiliencyStart(v1, v3 + 2, 0x1Eu / KeMaximumIncrement + 1);
     PopDeepSleepIsEngaged = v4;
-    KxReleaseSpinLock((volatile signed __int64 *)&PopDeepSleepDisengageReasonLock);
+    KxReleaseSpinLock(&PopDeepSleepDisengageReasonLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v8 = ~(unsigned __int16)(-1LL << (v2 + 1));
-        v9 = (v8 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v8;
-        if ( v9 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v8 = ~(unsigned __int16)(-1LL << (v2 + 1));
+          v9 = (v8 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v8;
+          if ( v9 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v2);
-    PpmAcquireLock(&PopFxSystemLatencyLock);
+    PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock);
     PoFxSendSystemLatencyUpdate();
-    PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
+    PpmReleaseLock(&PopFxSystemLatencyLock);
   }
   PopDeepSleepEvaluateWorkItemQueued = 0;
-  KxReleaseSpinLock((volatile signed __int64 *)&PopDeepSleepDisengageReasonLock);
+  KxReleaseSpinLock(&PopDeepSleepDisengageReasonLock);
   if ( KiIrqlFlags )
   {
-    v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && v2 <= 0xFu && v10 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v11 = KeGetCurrentPrcb();
-      v12 = v11->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << (v2 + 1));
-      v9 = (v13 & v12[5]) == 0;
-      v12[5] &= v13;
-      if ( v9 )
-        KiRemoveSystemWorkPriorityKick((__int64)v11);
+      v10 = KeGetCurrentIrql();
+      if ( v10 <= 0xFu && v2 <= 0xFu && v10 >= 2u )
+      {
+        v11 = KeGetCurrentPrcb();
+        v12 = v11->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << (v2 + 1));
+        v9 = (v13 & v12[5]) == 0;
+        v12[5] &= v13;
+        if ( v9 )
+          KiRemoveSystemWorkPriorityKick((__int64)v11);
+      }
     }
   }
   result = v2;

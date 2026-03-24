@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSimpleAgeWorkingSetTail @ 0x1402B3A20
+ * XREFs of MiSimpleAgeWorkingSetTail @ 0x1402B3B20
  * Callers:
- *     MiSimpleAgePte @ 0x1402B3830 (MiSimpleAgePte.c)
+ *     MiSimpleAgePte @ 0x1402B3930 (MiSimpleAgePte.c)
  * Callees:
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiProcessVmAccessedInfo @ 0x1402B353C (MiProcessVmAccessedInfo.c)
- *     MiQueryEPTAccessedState @ 0x1402B3600 (MiQueryEPTAccessedState.c)
+ *     MiProcessVmAccessedInfo @ 0x1402B363C (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x1402B3700 (MiQueryEPTAccessedState.c)
  */
 
 __int64 __fastcall MiSimpleAgeWorkingSetTail(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

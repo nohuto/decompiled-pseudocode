@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpSemaphoreInitialization @ 0x140B75E30
+ * XREFs of ExpSemaphoreInitialization @ 0x140A734FC
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140B4D6E4 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3C2EC (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObCreateObjectType @ 0x140821750 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObCreateObjectType @ 0x140790760 (ObCreateObjectType.c)
  */
 
 bool ExpSemaphoreInitialization()

@@ -1,11 +1,11 @@
 /*
- * XREFs of MmManagePartitionCreateLargePages @ 0x140A45644
+ * XREFs of MmManagePartitionCreateLargePages @ 0x1408DB924
  * Callers:
- *     NtManagePartition @ 0x140760280 (NtManagePartition.c)
+ *     NtManagePartition @ 0x1406762C0 (NtManagePartition.c)
  * Callees:
- *     MiGetLargestPageIndex @ 0x1402C8990 (MiGetLargestPageIndex.c)
- *     MiRebuildLargePage @ 0x14046E188 (MiRebuildLargePage.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
+ *     MiGetLargestPageIndex @ 0x140323300 (MiGetLargestPageIndex.c)
+ *     MiRebuildLargePage @ 0x140552618 (MiRebuildLargePage.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall MmManagePartitionCreateLargePages(__int64 *a1, __int64 a2, KPROCESSOR_MODE a3)
@@ -15,10 +15,9 @@ __int64 __fastcall MmManagePartitionCreateLargePages(__int64 *a1, __int64 a2, KP
   unsigned __int64 v7; // rdi
   unsigned int LargestPageIndex; // eax
   unsigned int v9; // ecx
-  unsigned int v10; // r8d
+  __int64 v10; // r8
   __int64 *v11; // rax
-  bool v12; // zf
-  unsigned __int64 v13; // r9
+  unsigned __int64 v12; // r9
 
   v5 = 0;
   if ( SeSinglePrivilegeCheck(SeLockMemoryPrivilege, a3) )
@@ -31,29 +30,24 @@ __int64 __fastcall MmManagePartitionCreateLargePages(__int64 *a1, __int64 a2, KP
         v7 = v6 >> 12;
         LargestPageIndex = MiGetLargestPageIndex();
         v10 = LargestPageIndex;
-        if ( LargestPageIndex >= 3 )
-        {
-LABEL_11:
-          v12 = v10 == 3;
-        }
-        else
+        if ( LargestPageIndex < 3 )
         {
           v11 = &MiLargePageSizes[LargestPageIndex];
-          while ( *v11 != v7 )
+          do
           {
-            ++v10;
+            if ( *v11 == v7 )
+              break;
+            v10 = (unsigned int)(v10 + 1);
             ++v11;
-            if ( v10 >= 3 )
-              goto LABEL_11;
           }
-          v12 = v10 == 0;
+          while ( (unsigned int)v10 < 3 );
         }
-        if ( v12 )
+        if ( (_DWORD)v10 == 3 || !(_DWORD)v10 )
           return (unsigned int)-1073741637;
-        v13 = *(_QWORD *)(a2 + 16);
-        if ( v13 && v13 < 0xFFFFFFFFFFFFFFFFuLL / v7 )
+        v12 = *(_QWORD *)(a2 + 16);
+        if ( v12 && v12 < 0xFFFFFFFFFFFFFFFFuLL / v7 )
         {
-          *(_QWORD *)(a2 + 24) = MiRebuildLargePage(*a1, v9, v10, v7 * v13, 1) / v7;
+          *(_QWORD *)(a2 + 24) = MiRebuildLargePage(*a1, v9, v10, (_DWORD *)(v7 * v12)) / v7;
           return v5;
         }
       }

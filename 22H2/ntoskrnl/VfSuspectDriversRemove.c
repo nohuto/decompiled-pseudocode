@@ -1,35 +1,35 @@
 /*
- * XREFs of VfSuspectDriversRemove @ 0x140ADBA14
+ * XREFs of VfSuspectDriversRemove @ 0x1409D9F40
  * Callers:
- *     VfRemoveVerifierEntry @ 0x140ADE7C0 (VfRemoveVerifierEntry.c)
+ *     VfRemoveVerifierEntry @ 0x1409ECBD4 (VfRemoveVerifierEntry.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     VfDriverLock @ 0x140ACB73C (VfDriverLock.c)
- *     ViSuspectDriversLookupEntry @ 0x140ADBCE0 (ViSuspectDriversLookupEntry.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ViSuspectDriversLookupEntry @ 0x1409C2584 (ViSuspectDriversLookupEntry.c)
+ *     VfDriverLock @ 0x1409C25C8 (VfDriverLock.c)
  */
 
 __int64 __fastcall VfSuspectDriversRemove(PCUNICODE_STRING String2)
 {
   unsigned int v2; // edi
   __int64 v3; // rax
-  void *v4; // rcx
-  _QWORD *v6; // rdx
-  void **v7; // rax
+  _QWORD *v4; // rcx
+  __int64 v6; // rax
+  _QWORD *v7; // rdx
 
   v2 = 0;
   VfDriverLock();
   v3 = ViSuspectDriversLookupEntry(String2);
-  v4 = (void *)v3;
+  v4 = (_QWORD *)v3;
   if ( v3 )
   {
-    if ( VfDifRunningWithoutReboot || (VfOptionFlags & 0x800) != 0 || *(_DWORD *)(v3 + 16) == *(_DWORD *)(v3 + 20) )
+    if ( *(_DWORD *)(v3 + 16) == *(_DWORD *)(v3 + 20) )
     {
-      v6 = *(_QWORD **)v3;
-      if ( *(_QWORD *)(*(_QWORD *)v3 + 8LL) != v3 || (v7 = *(void ***)(v3 + 8), *v7 != v4) )
+      v6 = *(_QWORD *)v3;
+      if ( *(_QWORD **)(*v4 + 8LL) != v4 || (v7 = (_QWORD *)v4[1], (_QWORD *)*v7 != v4) )
         __fastfail(3u);
       *v7 = v6;
-      v6[1] = v7;
+      *(_QWORD *)(v6 + 8) = v7;
       ExFreePoolWithTag(v4, 0x44536656u);
     }
     else
@@ -38,6 +38,6 @@ __int64 __fastcall VfSuspectDriversRemove(PCUNICODE_STRING String2)
     }
   }
   ViDriversLoadLockOwner = 0LL;
-  KeReleaseMutex(&ViDriversLoadLock, 0);
+  KeReleaseMutex((PRKMUTEX)&ViDriversLoadLock, 0);
   return v2;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of DestroyThreadsMessages @ 0x1C00AA0D8
+ * XREFs of DestroyThreadsMessages @ 0x1C009A094
  * Callers:
- *     xxxCreateThreadInfo @ 0x1C004D550 (xxxCreateThreadInfo.c)
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxCreateThreadInfo @ 0x1C003ED88 (xxxCreateThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (*DestroyThreadsMessages())(void)
 {
   __int64 (*result)(void); // rax
 
-  result = qword_1C02954F0;
-  if ( qword_1C02954F0 )
-    return (__int64 (*)(void))qword_1C02954F0();
+  result = qword_1C0256060;
+  if ( qword_1C0256060 )
+    return (__int64 (*)(void))qword_1C0256060();
   return result;
 }

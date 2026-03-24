@@ -1,16 +1,16 @@
 /*
- * XREFs of DbgkpSendApiMessageLpc @ 0x14092A168
+ * XREFs of DbgkpSendApiMessageLpc @ 0x140887240
  * Callers:
- *     DbgkForwardException @ 0x1406EA7D0 (DbgkForwardException.c)
+ *     DbgkForwardException @ 0x1407321F0 (DbgkForwardException.c)
  * Callees:
- *     PsThawMultiProcess @ 0x140257280 (PsThawMultiProcess.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     LpcSendWaitReceivePort @ 0x1406CE2B0 (LpcSendWaitReceivePort.c)
- *     DbgkpSuspendProcess @ 0x14092AC20 (DbgkpSuspendProcess.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsThawProcess @ 0x14067D0F8 (PsThawProcess.c)
+ *     LpcSendWaitReceivePort @ 0x1406AFDD0 (LpcSendWaitReceivePort.c)
+ *     DbgkpSuspendProcess @ 0x140887CE0 (DbgkpSuspendProcess.c)
  */
 
-__int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, int a2, char a3)
+__int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, __int64 a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   char v4; // si
@@ -26,7 +26,7 @@ __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, int a2, char a3)
   __int128 v16; // xmm1
   __int128 v17; // xmm0
   __int128 v18; // xmm1
-  __int64 v20; // [rsp+30h] [rbp-2E8h] BYREF
+  unsigned __int64 v20; // [rsp+30h] [rbp-2E8h] BYREF
   _BYTE v21[688]; // [rsp+40h] [rbp-2D8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -36,7 +36,7 @@ __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, int a2, char a3)
     v4 = DbgkpSuspendProcess(CurrentThread->ApcState.Process);
   *(_DWORD *)(a1 + 44) = 259;
   v20 = 688LL;
-  v8 = LpcSendWaitReceivePort(a2, 0x20000, a1, (__int64)v21, (__int64)&v20, 0LL);
+  v8 = LpcSendWaitReceivePort(a2, 0x20000, (__int128 *)a1, (unsigned __int64)v21, &v20, 0LL);
   v9 = v8;
   if ( v8 == 192 )
   {
@@ -72,7 +72,7 @@ __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, int a2, char a3)
   }
   if ( v4 )
   {
-    PsThawMultiProcess(Process, 0LL, 1u);
+    PsThawProcess(Process, 0);
     KeLeaveCriticalRegion();
   }
   return v9;

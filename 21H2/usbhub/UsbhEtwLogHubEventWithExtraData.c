@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhEtwLogHubEventWithExtraData @ 0x1C005AF58
+ * XREFs of UsbhEtwLogHubEventWithExtraData @ 0x1C005C608
  * Callers:
- *     UsbhCreateDevice @ 0x1C001BC70 (UsbhCreateDevice.c)
- *     UsbhInitializeDevice @ 0x1C001E90C (UsbhInitializeDevice.c)
- *     UsbhEtwLogPortInformation @ 0x1C005B45C (UsbhEtwLogPortInformation.c)
+ *     UsbhCreateDevice @ 0x1C0019118 (UsbhCreateDevice.c)
+ *     UsbhInitializeDevice @ 0x1C001C46C (UsbhInitializeDevice.c)
+ *     UsbhEtwLogPortInformation @ 0x1C005CB0C (UsbhEtwLogPortInformation.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhEtwWrite @ 0x1C000CB00 (UsbhEtwWrite.c)
- *     UsbhEtwGetHubInfo @ 0x1C001E0D8 (UsbhEtwGetHubInfo.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhEtwWrite @ 0x1C00125E0 (UsbhEtwWrite.c)
+ *     UsbhEtwGetHubInfo @ 0x1C001BAFC (UsbhEtwGetHubInfo.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall UsbhEtwLogHubEventWithExtraData(__int64 a1, const EVENT_DESCRIPTOR *a2, int a3, __int64 a4, int a5)
@@ -28,7 +28,7 @@ NTSTATUS __fastcall UsbhEtwLogHubEventWithExtraData(__int64 a1, const EVENT_DESC
   v9 = a3;
   v16 = 0;
   memset(v15, 0, sizeof(v15));
-  if ( dword_1C006A690 )
+  if ( dword_1C006C5F0 )
   {
     v8 = FdoExt(a1);
     v10 = v8[1298];

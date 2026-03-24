@@ -1,7 +1,7 @@
 /*
- * XREFs of TmPrepareComplete @ 0x1403D7F70
+ * XREFs of TmPrepareComplete @ 0x1403D0660
  * Callers:
- *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
+ *     <none>
  * Callees:
  *     <none>
  */

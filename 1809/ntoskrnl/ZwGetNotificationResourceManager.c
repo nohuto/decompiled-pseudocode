@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwGetNotificationResourceManager @ 0x1401B9FF0
+ * XREFs of ZwGetNotificationResourceManager @ 0x1401BA010
  * Callers:
  *     <none>
  * Callees:

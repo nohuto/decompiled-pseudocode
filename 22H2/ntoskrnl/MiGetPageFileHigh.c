@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetPageFileHigh @ 0x140201DB0
+ * XREFs of MiGetPageFileHigh @ 0x14032BCBC
  * Callers:
- *     MiFreeReservationRun @ 0x1407B76F4 (MiFreeReservationRun.c)
+ *     MiFreeReservationRun @ 0x1406BEA64 (MiFreeReservationRun.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int64 __fastcall MiGetPageFileHigh(unsigned __int64 a1)
 {
-  if ( qword_140C65C40 && (a1 & 0x10) == 0 )
-    a1 &= ~qword_140C65C40;
+  if ( qword_140C4DF40 && (a1 & 0x10) == 0 )
+    a1 &= ~qword_140C4DF40;
   return HIDWORD(a1);
 }

@@ -1,22 +1,25 @@
 /*
- * XREFs of RtlLookupElementGenericTableAvl @ 0x14022CF30
+ * XREFs of RtlLookupElementGenericTableAvl @ 0x14032D970
  * Callers:
- *     PiLookupInDDBCache @ 0x140692D24 (PiLookupInDDBCache.c)
- *     PiUpdateDriverDBCache @ 0x140693190 (PiUpdateDriverDBCache.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiDmGetObject @ 0x1406D81D0 (PiDmGetObject.c)
- *     PiDcHandleDeviceEvent @ 0x140787830 (PiDcHandleDeviceEvent.c)
- *     PiPnpRtlObjectEventWorker @ 0x1407889E0 (PiPnpRtlObjectEventWorker.c)
- *     PiSwFindBusRelations @ 0x140798874 (PiSwFindBusRelations.c)
- *     PopPowerRequestTableLookupEntry @ 0x1407A7200 (PopPowerRequestTableLookupEntry.c)
- *     PopPowerRequestStatsCreate @ 0x1407A7CEC (PopPowerRequestStatsCreate.c)
- *     PiDmLookupObject @ 0x1407C2814 (PiDmLookupObject.c)
- *     PiDqQueryIsObjectInResultSet @ 0x1407E21F4 (PiDqQueryIsObjectInResultSet.c)
- *     PiSwFindSwDevice @ 0x14086A40C (PiSwFindSwDevice.c)
- *     IopCleanupFileObjectIosbRange @ 0x140944790 (IopCleanupFileObjectIosbRange.c)
- *     PopDirectedDripsUmMarkTestDevices @ 0x14099F904 (PopDirectedDripsUmMarkTestDevices.c)
+ *     PiDmLookupObject @ 0x1406AF8DC (PiDmLookupObject.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PopHandleConvergedPowerRequestUpdate @ 0x1406F2B04 (PopHandleConvergedPowerRequestUpdate.c)
+ *     PopPowerRequestDeleteEntryById @ 0x1406F5694 (PopPowerRequestDeleteEntryById.c)
+ *     PopPowerRequestFindEntryById @ 0x1406F56F8 (PopPowerRequestFindEntryById.c)
+ *     PopAvlFindOrMakeStatsForPowerRequest @ 0x1406F5C6C (PopAvlFindOrMakeStatsForPowerRequest.c)
+ *     PopNotifySessionUserPowerRequestCreated @ 0x1406F74EC (PopNotifySessionUserPowerRequestCreated.c)
+ *     PiLookupInDDBCache @ 0x14073A060 (PiLookupInDDBCache.c)
+ *     PiSwFindBusRelations @ 0x140743524 (PiSwFindBusRelations.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1407464B0 (PiPnpRtlObjectEventWorker.c)
+ *     PiSwFindSwDevice @ 0x14074BD68 (PiSwFindSwDevice.c)
+ *     PiDcHandleDeviceEvent @ 0x140757F14 (PiDcHandleDeviceEvent.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140762AE4 (PiDqQueryApplyObjectEvent.c)
+ *     PopAvlFindOrMakeStatsForScenarioType @ 0x1407721E0 (PopAvlFindOrMakeStatsForScenarioType.c)
+ *     PiUpdateDriverDBCache @ 0x14077E38C (PiUpdateDriverDBCache.c)
+ *     IopCleanupFileObjectIosbRange @ 0x1408913E8 (IopCleanupFileObjectIosbRange.c)
+ *     PopDirectedDripsUmMarkTestDevices @ 0x1408F8808 (PopDirectedDripsUmMarkTestDevices.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer)

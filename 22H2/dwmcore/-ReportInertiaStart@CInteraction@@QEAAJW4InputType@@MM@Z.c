@@ -1,54 +1,72 @@
 /*
- * XREFs of ?ReportInertiaStart@CInteraction@@QEAAJW4InputType@@MM@Z @ 0x18020C8D4
+ * XREFs of ?ReportInertiaStart@CInteraction@@QEAAJW4InputType@@MM@Z @ 0x1801C6A14
  * Callers:
- *     ?OnInteractionTrackerTransitionToInertia@InteractionSourceManager@@QEAAXXZ @ 0x180274E50 (-OnInteractionTrackerTransitionToInertia@InteractionSourceManager@@QEAAXXZ.c)
+ *     ?OnInteractionTrackerTransitionToInertia@InteractionSourceManager@@QEAAXXZ @ 0x180213708 (-OnInteractionTrackerTransitionToInertia@InteractionSourceManager@@QEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??1?$ComPtr@UID2D1Bitmap1@@@WRL@Microsoft@@QEAA@XZ @ 0x180197320 (--1-$ComPtr@UID2D1Bitmap1@@@WRL@Microsoft@@QEAA@XZ.c)
- *     ?ReportInertiaStartHelper@@YAH_KIMMAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DMATRIX@@@Z @ 0x18019B034 (-ReportInertiaStartHelper@@YAH_KIMMAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ceilf_0 @ 0x1800F3F87 (ceilf_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     _anonymous_namespace_::InputTypeToInertiaSourceType @ 0x1801C6358 (_anonymous_namespace_--InputTypeToInertiaSourceType.c)
  */
 
 __int64 __fastcall CInteraction::ReportInertiaStart(__int64 a1, int a2, float a3, float a4)
 {
-  __int64 v5; // rcx
-  unsigned int v6; // ebx
-  __int64 v8; // rax
-  float *v9; // rdi
+  __int64 v4; // rdi
+  unsigned int v5; // ebx
+  __int64 v8; // rdi
+  __m128 v9; // xmm6
+  float v10; // xmm0_4
+  __int64 v11; // rcx
+  int v12; // eax
+  int v13; // xmm0_4
+  int v14; // xmm1_4
+  int v15; // xmm0_4
+  int v16; // xmm1_4
+  int v17; // xmm0_4
   signed int LastError; // eax
-  float *v12; // [rsp+60h] [rbp+8h] BYREF
+  _DWORD v20[4]; // [rsp+38h] [rbp-29h] BYREF
+  _DWORD v21[10]; // [rsp+48h] [rbp-19h] BYREF
 
-  v5 = *(_QWORD *)(a1 + 1728);
-  v6 = 0;
-  if ( v5 )
-    (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v5 + 224LL))(v5, *((_QWORD *)g_pComposition + 62));
-  v8 = *(_QWORD *)(a1 + 112);
-  v9 = 0LL;
-  if ( v8 )
-    v9 = *(float **)(v8 + 16);
-  v12 = v9;
-  if ( v9 )
+  v4 = *(_QWORD *)(a1 + 104);
+  v5 = 0;
+  if ( v4 )
   {
-    (*(void (__fastcall **)(float *))(*(_QWORD *)v9 + 8LL))(v9);
-    if ( !(unsigned int)ReportInertiaStartHelper(
-                          *(unsigned int *)(a1 + 1704),
-                          a2,
-                          a3,
-                          a4,
-                          v9 + 43,
-                          (_DWORD *)(a1 + 288)) )
+    v8 = *(_QWORD *)(v4 + 16);
+    if ( v8 )
     {
-      LastError = GetLastError();
-      if ( LastError > 0 )
-        v6 = (unsigned __int16)LastError | 0x80070000;
-      else
-        v6 = LastError;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 8LL))(v8);
+      *(float *)v20 = a3;
+      *(float *)&v20[1] = a4;
+      v20[2] = anonymous_namespace_::InputTypeToInertiaSourceType(a2);
+      v9 = (__m128)_mm_loadu_si128((const __m128i *)(v8 + 164));
+      v21[0] = (int)ceilf_0(v9.m128_f32[0]);
+      v21[1] = (int)ceilf_0(_mm_shuffle_ps(v9, v9, 85).m128_f32[0]);
+      v21[2] = (int)ceilf_0(_mm_shuffle_ps(v9, v9, 170).m128_f32[0]);
+      v10 = ceilf_0(_mm_shuffle_ps(v9, v9, 255).m128_f32[0]);
+      v11 = *(unsigned int *)(a1 + 1696);
+      v12 = (int)v10;
+      v13 = *(_DWORD *)(a1 + 284);
+      v21[4] = *(_DWORD *)(a1 + 280);
+      v14 = *(_DWORD *)(a1 + 296);
+      v21[5] = v13;
+      v15 = *(_DWORD *)(a1 + 300);
+      v21[3] = v12;
+      v21[6] = v14;
+      v16 = *(_DWORD *)(a1 + 328);
+      v21[7] = v15;
+      v17 = *(_DWORD *)(a1 + 332);
+      v21[8] = v16;
+      v21[9] = v17;
+      if ( !(unsigned int)ReportInertia(v11, 5LL, 0LL, v20, v21) )
+      {
+        LastError = GetLastError();
+        if ( LastError > 0 )
+          v5 = (unsigned __int16)LastError | 0x80070000;
+        else
+          v5 = LastError;
+      }
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
     }
-    (*(void (__fastcall **)(float *))(*(_QWORD *)v9 + 16LL))(v9);
-    return v6;
   }
-  else
-  {
-    Microsoft::WRL::ComPtr<ID2D1Bitmap1>::~ComPtr<ID2D1Bitmap1>((__int64 *)&v12);
-    return 0LL;
-  }
+  return v5;
 }

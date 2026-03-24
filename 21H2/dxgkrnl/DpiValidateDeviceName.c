@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiValidateDeviceName @ 0x1C01DB164
+ * XREFs of DpiValidateDeviceName @ 0x1C015F318
  * Callers:
- *     DxgkOpenAdapterFromDeviceName @ 0x1C01D7F80 (DxgkOpenAdapterFromDeviceName.c)
+ *     DxgkOpenAdapterFromDeviceName @ 0x1C013A3C0 (DxgkOpenAdapterFromDeviceName.c)
  * Callees:
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C001C320 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0018FF0 (-AcquireMiniportListMutex@@YAXXZ.c)
  */
 
 __int64 __fastcall DpiValidateDeviceName(PCUNICODE_STRING String1)
@@ -14,7 +14,7 @@ __int64 __fastcall DpiValidateDeviceName(PCUNICODE_STRING String1)
 
   v2 = -1073741811;
   AcquireMiniportListMutex();
-  v3 = qword_1C01304C8;
+  v3 = qword_1C00B2B40;
   if ( *(_QWORD *)v3 != v3 )
   {
     do
@@ -44,9 +44,9 @@ __int64 __fastcall DpiValidateDeviceName(PCUNICODE_STRING String1)
       KeReleaseMutex((PRKMUTEX)(v3 + 72), 0);
       v3 = *(_QWORD *)v3;
     }
-    while ( *(_QWORD *)v3 != qword_1C01304C8 );
+    while ( *(_QWORD *)v3 != qword_1C00B2B40 );
   }
-  _InterlockedExchange64(&qword_1C01304D8, 0LL);
+  _InterlockedExchange64(&qword_1C00B2B50, 0LL);
   KeReleaseMutex(Mutex, 0);
   return (unsigned int)v2;
 }

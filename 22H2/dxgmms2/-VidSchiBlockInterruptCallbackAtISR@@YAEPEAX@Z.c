@@ -1,5 +1,5 @@
 /*
- * XREFs of ?VidSchiBlockInterruptCallbackAtISR@@YAEPEAX@Z @ 0x1C0046B30
+ * XREFs of ?VidSchiBlockInterruptCallbackAtISR@@YAEPEAX@Z @ 0x1C003C620
  * Callers:
  *     <none>
  * Callees:

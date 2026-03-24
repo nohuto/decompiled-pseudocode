@@ -1,23 +1,24 @@
 /*
- * XREFs of AlpcpPortQueryServerInfo @ 0x140979178
+ * XREFs of AlpcpPortQueryServerInfo @ 0x1408C3150
  * Callers:
- *     NtAlpcQueryInformation @ 0x1407AB290 (NtAlpcQueryInformation.c)
+ *     NtAlpcQueryInformation @ 0x1406612C0 (NtAlpcQueryInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafe @ 0x140337570 (ObReferenceObjectSafe.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpGetPortNameInformation @ 0x1409790C0 (AlpcpGetPortNameInformation.c)
- *     AlpcpReferenceMessageByWaitingThread @ 0x140979CC0 (AlpcpReferenceMessageByWaitingThread.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectSafe @ 0x1402F1E80 (ObReferenceObjectSafe.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpDereferenceProcess @ 0x1408C2400 (AlpcpDereferenceProcess.c)
+ *     AlpcpLockPortShared @ 0x1408C241C (AlpcpLockPortShared.c)
+ *     AlpcpReferenceProcess @ 0x1408C2524 (AlpcpReferenceProcess.c)
+ *     AlpcpUnlockPortShared @ 0x1408C2540 (AlpcpUnlockPortShared.c)
+ *     AlpcpLockCommunicationInfoShared @ 0x1408C2F40 (AlpcpLockCommunicationInfoShared.c)
+ *     AlpcpUnlockCommunicationInfoShared @ 0x1408C2F7C (AlpcpUnlockCommunicationInfoShared.c)
+ *     AlpcpGetPortNameInformation @ 0x1408C3098 (AlpcpGetPortNameInformation.c)
+ *     AlpcpReferenceMessageByWaitingThread @ 0x1408C3708 (AlpcpReferenceMessageByWaitingThread.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall AlpcpPortQueryServerInfo(
@@ -27,180 +28,173 @@ NTSTATUS __fastcall AlpcpPortQueryServerInfo(
         unsigned int *a4,
         KPROCESSOR_MODE AccessMode)
 {
-  unsigned int v5; // r13d
-  void *v7; // rcx
+  void *v6; // rcx
   NTSTATUS result; // eax
-  const void **v9; // rdi
-  int PortNameInformation; // esi
-  ULONG_PTR v11; // r14
-  __int64 v12; // r13
-  __int64 *v13; // r12
-  __int64 v14; // r14
-  int v15; // eax
-  __int64 v16; // r12
-  signed __int64 *v17; // rdi
-  signed __int64 *v18; // r12
-  _QWORD *v19; // r13
-  unsigned int v20; // r14d
-  bool v21; // [rsp+30h] [rbp-78h]
-  ULONG_PTR v22; // [rsp+38h] [rbp-70h] BYREF
-  PVOID Object; // [rsp+40h] [rbp-68h] BYREF
-  const void **v24; // [rsp+48h] [rbp-60h] BYREF
-  __int64 v25; // [rsp+50h] [rbp-58h]
-  void *v26; // [rsp+58h] [rbp-50h]
-  ULONG_PTR BugCheckParameter2; // [rsp+60h] [rbp-48h]
-  unsigned int v28; // [rsp+B0h] [rbp+8h] BYREF
-  unsigned int v29; // [rsp+C0h] [rbp+18h]
-  unsigned int *v30; // [rsp+C8h] [rbp+20h]
+  const void **v8; // r15
+  struct _DMA_ADAPTER *v9; // r14
+  int PortNameInformation; // edi
+  ULONG_PTR v11; // r13
+  ULONG_PTR v12; // rax
+  _QWORD *v13; // r14
+  unsigned __int64 v14; // r12
+  __int64 *v15; // rax
+  __int64 v16; // rax
+  struct _DMA_ADAPTER *v17; // r14
+  _DMA_OPERATIONS *DmaOperations; // rcx
+  unsigned int v19; // r14d
+  bool v20; // [rsp+30h] [rbp-78h]
+  PVOID Object; // [rsp+38h] [rbp-70h] BYREF
+  const void **v22; // [rsp+40h] [rbp-68h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+48h] [rbp-60h] BYREF
+  void *(__fastcall *AllocateCommonBufferEx)(_DMA_ADAPTER *, _LARGE_INTEGER *, unsigned int, _LARGE_INTEGER *, unsigned __int8, unsigned int); // [rsp+50h] [rbp-58h]
+  _DMA_OPERATIONS *v25; // [rsp+58h] [rbp-50h]
+  void *v26; // [rsp+60h] [rbp-48h]
+  unsigned int v27; // [rsp+B0h] [rbp+8h] BYREF
+  unsigned int v28; // [rsp+C0h] [rbp+18h]
+  unsigned int *v29; // [rsp+C8h] [rbp+20h]
 
-  v30 = a4;
-  v29 = a3;
-  v5 = a3;
-  v22 = 0LL;
+  v29 = a4;
+  v28 = a3;
+  BugCheckParameter2 = 0LL;
   if ( a1 || a3 < 8 )
     return -1073741811;
   if ( AccessMode )
   {
     if ( (a2 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v7 = *(void **)a2;
+    v6 = *(void **)a2;
     v26 = *(void **)a2;
   }
   else
   {
-    v7 = *(void **)a2;
-    v26 = *(void **)a2;
+    v6 = *(void **)a2;
   }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(v7, 0x40u, (POBJECT_TYPE)PsThreadType, AccessMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(v6, 0x40u, (POBJECT_TYPE)PsThreadType, AccessMode, &Object, 0LL);
   if ( result >= 0 )
   {
-    v9 = 0LL;
-    v24 = 0LL;
-    v28 = 0;
-    v21 = 0;
-    v25 = 0LL;
-    PortNameInformation = AlpcpReferenceMessageByWaitingThread(Object, &v22);
+    v8 = 0LL;
+    v22 = 0LL;
+    v27 = 0;
+    v20 = 0;
+    AllocateCommonBufferEx = 0LL;
+    v9 = (struct _DMA_ADAPTER *)Object;
+    PortNameInformation = AlpcpReferenceMessageByWaitingThread(Object, &BugCheckParameter2);
     if ( PortNameInformation == -1073741275 )
     {
       v11 = 0LL;
       PortNameInformation = 0;
+      goto LABEL_41;
     }
-    else
+    if ( PortNameInformation < 0 )
     {
-      if ( PortNameInformation < 0 )
+      HalPutDmaAdapter(v9);
+      return PortNameInformation;
+    }
+    v11 = BugCheckParameter2;
+    AlpcpLockForCachedReferenceBlob(BugCheckParameter2);
+    --*(_WORD *)(v11 - 30);
+    if ( (_DMA_OPERATIONS *)v11 != v9[82].DmaOperations
+      || (v12 = *(_QWORD *)(v11 + 24), (BugCheckParameter2 = v12) == 0) )
+    {
+LABEL_41:
+      if ( v11 )
+        AlpcpUnlockMessage(v11);
+      HalPutDmaAdapter(v9);
+      v19 = 32;
+      if ( v8 )
       {
-        ObfDereferenceObject(Object);
-        return PortNameInformation;
+        v19 = *((unsigned __int16 *)v8 + 1) + 32;
       }
-      v11 = v22;
-      AlpcpLockForCachedReferenceBlob(v22);
-      --*(_WORD *)(v11 - 30);
-      if ( v11 == *((_QWORD *)Object + 175) )
+      else if ( PortNameInformation == -1073741820 )
       {
-        v12 = *(_QWORD *)(v11 + 24);
-        if ( v12 && (v13 = *(__int64 **)(v12 + 16)) != 0LL )
+        v19 = v27 + 16;
+      }
+      if ( v28 < v19 )
+        PortNameInformation = -1073741820;
+      if ( PortNameInformation >= 0 )
+      {
+        *(_BYTE *)a2 = v20;
+        *(_QWORD *)(a2 + 8) = AllocateCommonBufferEx;
+        if ( v8 )
         {
-          BugCheckParameter2 = (ULONG_PTR)(v13 - 2);
-          ExAcquirePushLockSharedEx((ULONG_PTR)(v13 - 2), 0LL);
-          AlpcpUnlockMessage(v11);
-          v22 = 0LL;
-          v14 = *v13;
-          if ( !*v13 )
-            goto LABEL_25;
-          v14 &= -(__int64)(ObReferenceObjectSafe(*v13) != 0);
-          if ( !v14 )
-            goto LABEL_25;
-          v15 = *(_DWORD *)(v12 + 416) & 6;
-          if ( v15 != 2 && v15 != 4 )
-            v13 += 2;
-          v16 = *v13;
-          v17 = (signed __int64 *)v16;
-          if ( v16 )
-          {
-            if ( v16 != v14 && !ObReferenceObjectSafe(v16) )
-LABEL_25:
-              v17 = 0LL;
-          }
-          v18 = (signed __int64 *)BugCheckParameter2;
-          if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared(v18);
-          KeAbPostRelease((ULONG_PTR)v18);
-          if ( !v17 || !v14 )
-            goto LABEL_40;
-          ExAcquirePushLockSharedEx((ULONG_PTR)(v17 + 44), 0LL);
-          v19 = 0LL;
-          if ( (v17[3] & 1) == 0 )
-            v19 = (_QWORD *)v17[3];
-          if ( v19 )
-            ObfReferenceObjectWithTag(v19, 0x63706C41u);
-          if ( _InterlockedCompareExchange64(v17 + 44, 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared(v17 + 44);
-          KeAbPostRelease((ULONG_PTR)(v17 + 44));
-          if ( v19 )
-          {
-            v25 = v19[136];
-            ObfDereferenceObjectWithTag(v19, 0x63706C41u);
-            v5 = v29;
-            if ( v29 > 0x10 )
-              v28 = v29 - 16;
-            PortNameInformation = AlpcpGetPortNameInformation((char *)v14, &v24, &v28);
-            v21 = PortNameInformation >= 0;
-          }
-          else
-          {
-LABEL_40:
-            v5 = v29;
-          }
-          if ( v14 )
-            ObfDereferenceObject((PVOID)v14);
-          if ( v17 && v17 != (signed __int64 *)v14 )
-            ObfDereferenceObject(v17);
-          v9 = v24;
-          v11 = v22;
+          *(_WORD *)(a2 + 16) = *(_WORD *)v8;
+          *(_WORD *)(a2 + 18) = *((_WORD *)v8 + 1);
+          *(_QWORD *)(a2 + 24) = a2 + 32;
+          memmove((void *)(a2 + 32), v8[1], *((unsigned __int16 *)v8 + 1));
         }
         else
         {
-          v5 = v29;
+          *(_DWORD *)(a2 + 16) = 0;
+          *(_QWORD *)(a2 + 24) = 0LL;
         }
       }
+      if ( v29 && ((int)(PortNameInformation + 0x80000000) < 0 || PortNameInformation == -1073741820) )
+        *v29 = v19;
+      if ( v8 )
+        ExFreePoolWithTag(v8, 0);
+      return PortNameInformation;
     }
-    if ( v11 )
-      AlpcpUnlockMessage(v11);
-    ObfDereferenceObject(Object);
-    v20 = 32;
-    if ( v9 )
+    v13 = *(_QWORD **)(v12 + 16);
+    v25 = (_DMA_OPERATIONS *)v13;
+    if ( !v13 )
     {
-      v20 = *((unsigned __int16 *)v9 + 1) + 32;
+LABEL_40:
+      v9 = (struct _DMA_ADAPTER *)Object;
+      goto LABEL_41;
     }
-    else if ( PortNameInformation == -1073741820 )
+    AlpcpLockCommunicationInfoShared((__int64)v13);
+    AlpcpUnlockMessage(v11);
+    v11 = 0LL;
+    v14 = *v13;
+    if ( !*v13 )
+      goto LABEL_24;
+    v14 &= -(__int64)(ObReferenceObjectSafe(*v13) != 0);
+    if ( !v14 )
+      goto LABEL_24;
+    v15 = v13 + 2;
+    if ( (((*(_DWORD *)(BugCheckParameter2 + 416) & 6) - 2) & 0xFFFFFFFD) == 0 )
+      v15 = v13;
+    v16 = *v15;
+    v17 = (struct _DMA_ADAPTER *)v16;
+    if ( v16 )
     {
-      v20 = v28 + 16;
+      if ( v16 != v14 && !ObReferenceObjectSafe(v16) )
+LABEL_24:
+        v17 = 0LL;
     }
-    if ( v5 < v20 )
-      PortNameInformation = -1073741820;
-    if ( PortNameInformation >= 0 )
+    AlpcpUnlockCommunicationInfoShared((__int64)v25);
+    if ( v17 )
     {
-      *(_BYTE *)a2 = v21;
-      *(_QWORD *)(a2 + 8) = v25;
-      if ( v9 )
+      if ( !v14 )
       {
-        *(_WORD *)(a2 + 16) = *(_WORD *)v9;
-        *(_WORD *)(a2 + 18) = *((_WORD *)v9 + 1);
-        *(_QWORD *)(a2 + 24) = a2 + 32;
-        memmove((void *)(a2 + 32), v9[1], *((unsigned __int16 *)v9 + 1));
+LABEL_37:
+        if ( v17 && v17 != (struct _DMA_ADAPTER *)v14 )
+          HalPutDmaAdapter(v17);
+        goto LABEL_40;
       }
-      else
+      AlpcpLockPortShared((__int64)v17);
+      DmaOperations = 0LL;
+      if ( ((__int64)v17[1].DmaOperations & 1) == 0 )
+        DmaOperations = v17[1].DmaOperations;
+      v25 = DmaOperations;
+      if ( DmaOperations )
+        AlpcpReferenceProcess(DmaOperations);
+      AlpcpUnlockPortShared((__int64)v17);
+      if ( v25 )
       {
-        *(_DWORD *)(a2 + 16) = 0;
-        *(_QWORD *)(a2 + 24) = 0LL;
+        AllocateCommonBufferEx = v25[3].AllocateCommonBufferEx;
+        AlpcpDereferenceProcess(v25);
+        if ( v28 > 0x10 )
+          v27 = v28 - 16;
+        PortNameInformation = AlpcpGetPortNameInformation((char *)v14, &v22, &v27);
+        v20 = PortNameInformation >= 0;
+        v8 = v22;
       }
     }
-    if ( v30 && ((int)(PortNameInformation + 0x80000000) < 0 || PortNameInformation == -1073741820) )
-      *v30 = v20;
-    if ( v9 )
-      ExFreePoolWithTag(v9, 0);
-    return PortNameInformation;
+    if ( v14 )
+      HalPutDmaAdapter((PADAPTER_OBJECT)v14);
+    goto LABEL_37;
   }
   return result;
 }

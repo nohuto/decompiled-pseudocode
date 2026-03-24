@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlRaiseException_0 @ 0x1C00DE5EA
+ * XREFs of RtlRaiseException_0 @ 0x1C00CF6C4
  * Callers:
- *     RaiseException @ 0x1C00DE150 (RaiseException.c)
+ *     RaiseException @ 0x1C00CF200 (RaiseException.c)
  * Callees:
  *     <none>
  */

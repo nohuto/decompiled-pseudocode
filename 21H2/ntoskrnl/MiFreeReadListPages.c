@@ -1,25 +1,25 @@
 /*
- * XREFs of MiFreeReadListPages @ 0x1406FAD90
+ * XREFs of MiFreeReadListPages @ 0x1406E8BA4
  * Callers:
- *     MiPfPutPagesInTransition @ 0x1402715A0 (MiPfPutPagesInTransition.c)
- *     MiReleaseReadListResources @ 0x1406FACF8 (MiReleaseReadListResources.c)
+ *     MiPfPutPagesInTransition @ 0x1402FB620 (MiPfPutPagesInTransition.c)
+ *     MiReleaseReadListResources @ 0x1406E8B14 (MiReleaseReadListResources.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1402182F8 (MiPartitionIdToPointer.c)
- *     MiReturnFaultCharges @ 0x14024AA58 (MiReturnFaultCharges.c)
- *     MiGetPfnLink @ 0x140258680 (MiGetPfnLink.c)
- *     MiReleaseFreshPage @ 0x140268408 (MiReleaseFreshPage.c)
- *     MiFreeReadListPageList @ 0x1406FAE2C (MiFreeReadListPageList.c)
+ *     MiReturnFaultCharges @ 0x14028E1E4 (MiReturnFaultCharges.c)
+ *     MiPartitionIdToPointer @ 0x1402CBF58 (MiPartitionIdToPointer.c)
+ *     MiGetPfnLink @ 0x1402D2F30 (MiGetPfnLink.c)
+ *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
+ *     MiFreeReadListPageList @ 0x1406E8C2C (MiFreeReadListPageList.c)
  */
 
 unsigned __int64 __fastcall MiFreeReadListPages(__int64 a1)
 {
   unsigned __int64 result; // rax
-  __int64 v3; // r14
+  __int64 v3; // rbp
   unsigned __int64 v4; // rdi
   __int64 *v5; // rbx
-  __int64 v6; // rsi
-  __int64 v7; // r8
-  __int64 i; // rbp
+  __int64 v6; // r14
+  __int64 v7; // rsi
+  __int64 v8; // rdx
   __int64 v9; // r8
   __int64 v10; // [rsp+40h] [rbp+8h] BYREF
 
@@ -31,16 +31,16 @@ unsigned __int64 __fastcall MiFreeReadListPages(__int64 a1)
   v6 = 4LL;
   do
   {
-    v7 = *v5;
-    for ( i = 0LL; *v5; ++i )
+    v7 = 0LL;
+    while ( *v5 )
     {
-      *v5 = MiGetPfnLink(v7);
+      *v5 = MiGetPfnLink(*v5);
       if ( !v3 )
-        v3 = MiPartitionIdToPointer((*(_QWORD *)(v9 + 40) >> 43) & 0x3FF);
-      result = MiReleaseFreshPage(v9);
-      v7 = *v5;
+        v3 = MiPartitionIdToPointer((*(_QWORD *)(v9 + 40) >> 39) & 0x3FF);
+      result = MiReleaseFreshPage(v9, v8, v9);
+      ++v7;
     }
-    v4 += i;
+    v4 += v7;
     ++v5;
     --v6;
   }

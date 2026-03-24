@@ -1,11 +1,10 @@
 /*
- * XREFs of RIMFindConfigDeviceForInput @ 0x1C0180D10
+ * XREFs of RIMFindConfigDeviceForInput @ 0x1C0161860
  * Callers:
- *     RIMConfigurePointerDevice @ 0x1C0180590 (RIMConfigurePointerDevice.c)
- *     RIMApiSetSetUserPTPEnabledPreference @ 0x1C0192B68 (RIMApiSetSetUserPTPEnabledPreference.c)
+ *     RIMConfigurePointerDevice @ 0x1C0161264 (RIMConfigurePointerDevice.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMIsParentCommon @ 0x1C01824C0 (RIMIsParentCommon.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMIsParentCommon @ 0x1C0161C00 (RIMIsParentCommon.c)
  */
 
 __int64 __fastcall RIMFindConfigDeviceForInput(__int64 a1, int a2, int a3, _QWORD *a4)
@@ -15,7 +14,7 @@ __int64 __fastcall RIMFindConfigDeviceForInput(__int64 a1, int a2, int a3, _QWOR
 
   v4 = 0;
   if ( *a4 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2085);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1640);
   *a4 = 0LL;
   for ( i = *(_QWORD *)(a1 + 424); i; i = *(_QWORD *)(i + 40) )
   {
@@ -25,8 +24,8 @@ __int64 __fastcall RIMFindConfigDeviceForInput(__int64 a1, int a2, int a3, _QWOR
                          a3,
                          i,
                          a2,
-                         *(unsigned __int16 *)(*(_QWORD *)(i + 456) + 110LL),
-                         *(_WORD *)(*(_QWORD *)(i + 456) + 112LL)) )
+                         *(unsigned __int16 *)(*(_QWORD *)(i + 464) + 110LL),
+                         *(_WORD *)(*(_QWORD *)(i + 464) + 112LL)) )
     {
       v4 = 1;
       *a4 = i;

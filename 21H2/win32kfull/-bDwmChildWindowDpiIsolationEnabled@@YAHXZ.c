@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bDwmChildWindowDpiIsolationEnabled@@YAHXZ @ 0x1C00D3B18
+ * XREFs of ?bDwmChildWindowDpiIsolationEnabled@@YAHXZ @ 0x1C000D020
  * Callers:
- *     GreDwmStartup @ 0x1C00D3840 (GreDwmStartup.c)
+ *     GreDwmStartup @ 0x1C000CD48 (GreDwmStartup.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 _BOOL8 bDwmChildWindowDpiIsolationEnabled(void)

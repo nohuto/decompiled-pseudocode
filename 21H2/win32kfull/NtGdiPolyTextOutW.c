@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiPolyTextOutW @ 0x1C00E31B0
+ * XREFs of NtGdiPolyTextOutW @ 0x1C00AA4E0
  * Callers:
  *     <none>
  * Callees:
- *     GrePolyTextOutW @ 0x1C00E3570 (GrePolyTextOutW.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     GrePolyTextOutW @ 0x1C00AA89C (GrePolyTextOutW.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiPolyTextOutW(HDC a1, _QWORD *a2, unsigned int a3)

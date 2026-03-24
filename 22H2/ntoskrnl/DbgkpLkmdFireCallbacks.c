@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdFireCallbacks @ 0x14093ADE4
+ * XREFs of DbgkpLkmdFireCallbacks @ 0x140888264
  * Callers:
- *     DbgkCaptureLiveDump @ 0x14093A918 (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x140887D6C (DbgkCaptureLiveDump.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140214F10 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140214FD0 (ExDereferenceCallBackBlock.c)
- *     PsGetProcessSessionIdEx @ 0x14036F3B0 (PsGetProcessSessionIdEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExReferenceCallBackBlock @ 0x14025A1B0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14025A270 (ExDereferenceCallBackBlock.c)
+ *     PsGetProcessSessionIdEx @ 0x140315400 (PsGetProcessSessionIdEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, int a2, __int64 a3)
@@ -26,7 +26,7 @@ void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, int a2, __int64 a3)
     if ( ProcessSessionId != (unsigned int)PsGetProcessSessionIdEx(a3) || ProcessSessionId == -1 )
       v3 = 0;
   }
-  v8 = &stru_140C70CA0;
+  v8 = &stru_140C53F30;
   v9 = 8LL;
   do
   {
@@ -37,9 +37,9 @@ void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, int a2, __int64 a3)
       if ( (Ptr & a2) != 0 && ((Ptr & 4) == 0 || v3) )
       {
         Count = (int (__fastcall *)(__int64 (__fastcall *)(__int64, __int64, __int64), __int64 (__fastcall *)(), __int64, unsigned __int64, __int64))v10[1].Count;
-        (*(void (__fastcall **)(__int64))(a1 + 16456))(a1 + 0x4000);
+        (*(void (__fastcall **)(__int64))(a1 + 10312))(a1 + 10240);
         if ( Count(DbgkpLkmdSnapData, DbgkpLkmdIsMemoryBlockPresentFromCallback, a1, v10[2].Count, a3) < 0 )
-          (*(void (__fastcall **)(__int64))(a1 + 16464))(a1 + 0x4000);
+          (*(void (__fastcall **)(__int64))(a1 + 10320))(a1 + 10240);
       }
       ExDereferenceCallBackBlock((signed __int64 *)v8, v10);
     }

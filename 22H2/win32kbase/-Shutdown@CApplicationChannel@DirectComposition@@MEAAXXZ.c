@@ -1,18 +1,17 @@
 /*
- * XREFs of ?Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C00652C0
+ * XREFs of ?Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C005A810
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCrossChannelVisualData@2@@Z @ 0x1C000CAF8 (-ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCros.c)
- *     ?ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ @ 0x1C0027EBC (-ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ.c)
- *     ?Clear@CBatch@DirectComposition@@QEAAXXZ @ 0x1C0028840 (-Clear@CBatch@DirectComposition@@QEAAXXZ.c)
- *     ?ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z @ 0x1C002D474 (-ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z.c)
- *     ?DetachAndDelete@CAnimationBinding@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0065128 (-DetachAndDelete@CAnimationBinding@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z.c)
- *     ?UnregisterChannel@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@_N@Z @ 0x1C0065BA0 (-UnregisterChannel@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@_N@Z.c)
- *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00660CC (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?RemoveAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z @ 0x1C02311DC (-RemoveAt@-$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?UnregisterChannel@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@_N@Z @ 0x1C005A9C8 (-UnregisterChannel@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@_N@Z.c)
+ *     ?ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z @ 0x1C005DF20 (-ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z.c)
+ *     ?ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ @ 0x1C005F1E4 (-ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ.c)
+ *     ?Clear@CBatch@DirectComposition@@QEAAXXZ @ 0x1C005FAC8 (-Clear@CBatch@DirectComposition@@QEAAXXZ.c)
+ *     ?DetachAndDelete@CAnimationBinding@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0094958 (-DetachAndDelete@CAnimationBinding@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCrossChannelVisualData@2@@Z @ 0x1C01D4EEC (-ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCros.c)
+ *     ?RemoveAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z @ 0x1C01FA730 (-RemoveAt@-$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z.c)
  */
 
 void __fastcall DirectComposition::CApplicationChannel::Shutdown(DirectComposition::CApplicationChannel *this)
@@ -21,18 +20,18 @@ void __fastcall DirectComposition::CApplicationChannel::Shutdown(DirectCompositi
   int v3; // edx
   __int64 v4; // rcx
   __int64 v5; // rdx
-  _QWORD *v6; // rdx
-  _QWORD *v7; // rbx
-  struct DirectComposition::CApplicationChannel **v8; // rcx
-  DirectComposition::CAnimationBinding *v9; // rcx
-  struct DirectComposition::CrossChannelVisualData *v10; // rdx
-  int v11; // esi
-  CInputManager *v12; // rax
+  _QWORD *v6; // rcx
+  DirectComposition::CBatch *v7; // rcx
+  DirectComposition::CAnimationBinding *v8; // rcx
+  struct DirectComposition::CrossChannelVisualData *v9; // rdx
+  int v10; // esi
+  CInputManager *v11; // rcx
   __int64 i; // rbx
-  __int64 v14; // rdx
-  char v15; // r8
-  void *v16; // rdx
-  __int64 v17; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v13; // rdx
+  char v14; // r8
+  _QWORD *v15; // rbx
+  __int64 v16; // rcx
+  _QWORD *v17; // rcx
 
   v2 = *(struct _ERESOURCE **)(*((_QWORD *)this + 5) + 8LL);
   KeEnterCriticalRegion();
@@ -49,70 +48,70 @@ void __fastcall DirectComposition::CApplicationChannel::Shutdown(DirectCompositi
     LOBYTE(v5) = 1;
     (*(void (__fastcall **)(DirectComposition::CApplicationChannel *, __int64))(*(_QWORD *)this + 48LL))(this, v5);
   }
-  DirectComposition::CApplicationChannel::ReleaseAllResources((size_t *)this, 0LL);
+  DirectComposition::CApplicationChannel::ReleaseAllResources(this, 0LL);
   if ( *((_QWORD *)this + 27) )
-    DirectComposition::CApplicationChannel::ProcessReturnedBatches((union _SLIST_HEADER *)this);
+    DirectComposition::CApplicationChannel::ProcessReturnedBatches(this);
   v6 = (_QWORD *)*((_QWORD *)this + 23);
   if ( v6 )
   {
     do
     {
-      v7 = (_QWORD *)*v6;
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v6);
-      *((_QWORD *)this + 23) = v7;
-      v6 = v7;
+      v15 = (_QWORD *)*v6;
+      Win32FreePool((__int64)v6);
+      *((_QWORD *)this + 23) = v15;
+      v6 = v15;
     }
-    while ( v7 );
+    while ( v15 );
   }
-  v8 = (struct DirectComposition::CApplicationChannel **)*((_QWORD *)this + 21);
-  if ( v8 )
+  v7 = (DirectComposition::CBatch *)*((_QWORD *)this + 21);
+  if ( v7 )
   {
-    DirectComposition::CBatch::Clear(v8);
-    v16 = (void *)*((_QWORD *)this + 21);
+    DirectComposition::CBatch::Clear(v7);
+    v16 = *((_QWORD *)this + 21);
     if ( v16 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v16);
+      Win32FreePool(v16);
     *((_QWORD *)this + 21) = 0LL;
   }
-  v9 = (DirectComposition::CAnimationBinding *)*((_QWORD *)this + 44);
-  if ( v9 )
+  v8 = (DirectComposition::CAnimationBinding *)*((_QWORD *)this + 44);
+  if ( v8 )
   {
-    DirectComposition::CAnimationBinding::DetachAndDelete(v9, this);
+    DirectComposition::CAnimationBinding::DetachAndDelete(v8, this);
     *((_QWORD *)this + 44) = 0LL;
   }
-  v10 = (struct DirectComposition::CrossChannelVisualData *)*((_QWORD *)this + 50);
-  if ( v10 )
+  v9 = (struct DirectComposition::CrossChannelVisualData *)*((_QWORD *)this + 49);
+  if ( v9 )
   {
-    *((_QWORD *)this + 50) = 0LL;
+    *((_QWORD *)this + 49) = 0LL;
     DirectComposition::CApplicationChannel::ReleaseCrossChannelVisuals(
       *((struct DirectComposition::CConnection **)this + 5),
-      v10);
+      v9);
   }
-  v11 = *((_DWORD *)this + 674);
+  v10 = *((_DWORD *)this + 174);
   if ( g_pInputManager )
   {
-    CAutoPushLockEx::CAutoPushLockEx((CAutoPushLockEx *)&v17, (CInputManager *)((char *)g_pInputManager + 120));
-    v12 = g_pInputManager;
-    for ( i = 0LL; (unsigned int)i < *((_DWORD *)g_pInputManager + 28); v12 = g_pInputManager )
+    ExAcquirePushLockSharedEx((char *)g_pInputManager + 120, 0LL);
+    v11 = g_pInputManager;
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)g_pInputManager + 28); v11 = g_pInputManager )
     {
-      if ( *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v12 + 13) + 8 * i) + 4LL) == v11 )
-        CStructDynamicArray<CInputManager::PointerCaptureInfo>::RemoveAt((char *)v12 + 104, (unsigned int)i);
+      v17 = (_QWORD *)((char *)v11 + 104);
+      if ( *(_DWORD *)(*(_QWORD *)(*v17 + 8 * i) + 4LL) == v10 )
+        CStructDynamicArray<CInputManager::PointerCaptureInfo>::RemoveAt(v17, (unsigned int)i);
       else
         i = (unsigned int)(i + 1);
     }
-    ExReleasePushLockExclusiveEx(v17, 0LL);
-    KeLeaveCriticalRegion();
+    ExReleasePushLockSharedEx((char *)v11 + 120, 0LL);
   }
-  v14 = *((_QWORD *)this + 22);
-  if ( v14 )
+  v13 = *((_QWORD *)this + 22);
+  if ( v13 )
   {
-    *(_BYTE *)(v14 + 32) ^= (*(_BYTE *)(v14 + 32) ^ ~(*((_BYTE *)this + 48) >> 1)) & 1;
-    *(_DWORD *)(v14 + 16) = ++*((_DWORD *)this + 96);
-    v15 = *((_BYTE *)this + 48);
+    *(_BYTE *)(v13 + 32) ^= (*(_BYTE *)(v13 + 32) ^ ~(*((_BYTE *)this + 48) >> 1)) & 1;
+    *(_DWORD *)(v13 + 16) = ++*((_DWORD *)this + 94);
+    v14 = *((_BYTE *)this + 48);
     *((_QWORD *)this + 22) = 0LL;
     DirectComposition::CConnection::UnregisterChannel(
       *((DirectComposition::CConnection **)this + 5),
-      (struct DirectComposition::CBatch *)v14,
-      v15 & 1);
+      (struct DirectComposition::CBatch *)v13,
+      v14 & 1);
   }
   else
   {

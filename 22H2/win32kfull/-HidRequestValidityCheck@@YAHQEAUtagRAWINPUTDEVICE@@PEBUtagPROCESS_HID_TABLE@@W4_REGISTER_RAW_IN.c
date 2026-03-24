@@ -1,158 +1,144 @@
 /*
- * XREFs of ?HidRequestValidityCheck@@YAHQEAUtagRAWINPUTDEVICE@@PEBUtagPROCESS_HID_TABLE@@W4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C009F4F8
+ * XREFs of ?HidRequestValidityCheck@@YAHQEAUtagRAWINPUTDEVICE@@PEBUtagPROCESS_HID_TABLE@@W4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C0108170
  * Callers:
- *     _RegisterRawInputDevices @ 0x1C009F368 (_RegisterRawInputDevices.c)
+ *     _RegisterRawInputDevices @ 0x1C0107FD0 (_RegisterRawInputDevices.c)
  * Callees:
- *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C009F8C4 (-IsLegacyDevice@@YAHGG@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C0108864 (-IsLegacyDevice@@YAHGG@Z.c)
  */
 
-__int64 __fastcall HidRequestValidityCheck(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall HidRequestValidityCheck(__int64 a1, __int64 a2, __int64 a3)
 {
-  _DWORD *v3; // rdi
-  __int64 v6; // rbp
-  int v7; // r8d
-  _BYTE *v8; // rsi
+  int v3; // esi
+  __int64 v5; // rdi
+  int v6; // r9d
+  __int64 v7; // rcx
+  int v8; // ecx
   __int64 v9; // rcx
-  int v10; // r8d
-  int v11; // edx
+  __int64 v11; // rcx
   __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 v14; // r8
-  __int64 v16; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v19; // r8
-  bool v20; // zf
 
-  v3 = (_DWORD *)(a1 + 4);
-  v6 = 0LL;
-  if ( a3 == 2 )
+  v3 = a3;
+  v5 = 0LL;
+  if ( (_DWORD)a3 == 2 )
   {
-    v7 = 1;
+    v6 = 1;
   }
   else
   {
-    v7 = 0;
-    if ( (*v3 & 0xFFFF40CE) != 0 )
-      goto LABEL_32;
+    v6 = 0;
+    if ( (*(_DWORD *)(a1 + 4) & 0xFFFFC0CE) != 0 )
+      goto LABEL_40;
   }
   if ( !*(_WORD *)a1 )
-    goto LABEL_30;
-  v8 = (_BYTE *)(a1 + 4);
+    goto LABEL_38;
   if ( a2 && *(_WORD *)a1 == 1 && *(_WORD *)(a1 + 2) == 6 )
   {
-    v8 = (_BYTE *)(a1 + 4);
-    if ( !((*(_DWORD *)(a1 + 4) & 1) != 0
-         ? __CFSHR__(*(_DWORD *)(a2 + 100), 13) == v7
-         : !__CFSHR__(*(_DWORD *)(a2 + 100), 13)) )
-      goto LABEL_30;
+    if ( (*(_DWORD *)(a1 + 4) & 1) != 0 )
+    {
+      if ( __CFSHR__(*(_DWORD *)(a2 + 100), 12) != v6 )
+        goto LABEL_38;
+    }
+    else if ( __CFSHR__(*(_DWORD *)(a2 + 100), 12) )
+    {
+      goto LABEL_38;
+    }
   }
-  if ( a3 != 1 )
+  if ( (_DWORD)a3 != 1 )
   {
-    v9 = *(_QWORD *)(a1 + 8);
-    v8 = v3;
-    if ( v9 )
-      v6 = ValidateHwnd(v9);
+    v7 = *(_QWORD *)(a1 + 8);
+    if ( v7 )
+      v5 = ValidateHwnd(v7);
   }
-  if ( (*(_DWORD *)v8 & 0x200) != 0 )
+  v8 = *(_DWORD *)(a1 + 4);
+  if ( (v8 & 0x200) != 0 )
   {
     if ( *(_WORD *)a1 != 1 )
-      goto LABEL_32;
+      goto LABEL_40;
     if ( *(_WORD *)(a1 + 2) == 2 )
     {
-      if ( (*v8 & 0xF0) != 0x30 || !v6 )
-        goto LABEL_32;
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(*(_DWORD *)v8 & 0xF0);
-      v19 = CurrentProcessWin32Process;
-      if ( CurrentProcessWin32Process )
-        v19 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-      v20 = *(_QWORD *)(*(_QWORD *)(v6 + 16) + 424LL) == v19;
+      v12 = (unsigned __int8)v8 & 0xF0;
+      if ( (_BYTE)v12 != 48 || !v5 || *(_QWORD *)(*(_QWORD *)(v5 + 16) + 424LL) != PsGetCurrentProcessWin32Process(v12) )
+        goto LABEL_40;
     }
-    else
+    else if ( *(_WORD *)(a1 + 2) != 6 )
     {
-      v20 = *(_WORD *)(a1 + 2) == 6;
+      goto LABEL_40;
     }
-    if ( !v20 )
-      goto LABEL_32;
   }
-  v10 = *(_DWORD *)v8;
-  if ( (*(_DWORD *)v8 & 0x400) != 0 && (*(_WORD *)a1 != 1 || *(_WORD *)(a1 + 2) != 6 || (v10 & 0xF0) != 0x30) )
-    goto LABEL_32;
-  if ( (v10 & 0x8000) != 0 )
+  a2 = *(unsigned int *)(a1 + 4);
+  if ( (a2 & 0x400) != 0 )
   {
     if ( *(_WORD *)a1 != 1 )
-      goto LABEL_32;
-    if ( *(_WORD *)(a1 + 2) != 2 )
-      goto LABEL_32;
-    v11 = *(_DWORD *)v8 & 0x1100;
-    if ( (v10 & 0x1100) == 0 )
-      goto LABEL_32;
+      goto LABEL_40;
+    if ( *(_WORD *)(a1 + 2) != 6 )
+      goto LABEL_40;
+    v9 = (unsigned __int8)a2 & 0xF0;
+    if ( (_DWORD)v9 != 48 )
+      goto LABEL_40;
   }
   else
   {
-    v11 = *(_DWORD *)v8 & 0x1100;
+    v9 = (unsigned __int8)a2 & 0xF0;
   }
-  v12 = (unsigned __int8)v10 & 0xF0;
-  if ( (v10 & 1) == 0 )
-    goto LABEL_13;
-  if ( (((_DWORD)v12 - 16) & 0xFFFFFFDF) == 0 )
+  if ( (a2 & 1) == 0 )
+    goto LABEL_12;
+  if ( (((_DWORD)v9 - 16) & 0xFFFFFFDF) == 0 )
   {
-LABEL_32:
-    v16 = 1004LL;
-    goto LABEL_31;
+LABEL_40:
+    v11 = 1004LL;
+    goto LABEL_39;
   }
   if ( *(_QWORD *)(a1 + 8) )
-    goto LABEL_30;
-LABEL_13:
-  if ( (v10 & 0xF0) != 0 )
+    goto LABEL_38;
+LABEL_12:
+  switch ( (_DWORD)v9 )
   {
-    if ( (_DWORD)v12 != 16 )
-    {
-      if ( (_DWORD)v12 == 32 )
+    case 0:
+      a2 &= 0x1100u;
+LABEL_14:
+      if ( !*(_WORD *)(a1 + 2) )
+        goto LABEL_38;
+      if ( (_DWORD)v9 == 16 )
       {
-        if ( *(_WORD *)(a1 + 2) )
-          goto LABEL_30;
+        if ( (_DWORD)a2 || *(_QWORD *)(a1 + 8) )
+          goto LABEL_38;
+        return 1LL;
       }
-      else if ( (_DWORD)v12 != 48 || !(unsigned int)IsLegacyDevice(*(_WORD *)a1, *(_WORD *)(a1 + 2)) )
-      {
-        goto LABEL_30;
-      }
-      goto LABEL_16;
-    }
-    if ( v11 )
-      goto LABEL_30;
+      break;
+    case 0x20:
+      if ( *(_WORD *)(a1 + 2) )
+        goto LABEL_38;
+      break;
+    case 0x10:
+      a2 &= 0x1100u;
+      if ( (_DWORD)a2 )
+        goto LABEL_38;
+      goto LABEL_14;
+    default:
+      if ( (_DWORD)v9 != 48 || !(unsigned int)IsLegacyDevice(*(_WORD *)a1, *(_WORD *)(a1 + 2)) )
+        goto LABEL_38;
+      break;
   }
-  if ( !*(_WORD *)(a1 + 2) )
-    goto LABEL_30;
-  if ( (_DWORD)v12 == 16 )
+  if ( v3 == 1 || !*(_QWORD *)(a1 + 8) )
   {
-    if ( !v11 && !*(_QWORD *)(a1 + 8) )
-      return 1LL;
-    goto LABEL_30;
+    if ( !v5 )
+      goto LABEL_20;
   }
-LABEL_16:
-  if ( a3 == 1 || !*(_QWORD *)(a1 + 8) )
+  else if ( !v5 )
   {
-    if ( !v6 )
-      goto LABEL_22;
+    goto LABEL_38;
   }
-  else if ( !v6 )
+  if ( *(_QWORD *)(*(_QWORD *)(v5 + 16) + 424LL) == PsGetCurrentProcessWin32Process(v9) )
   {
-    goto LABEL_30;
+LABEL_20:
+    if ( (*(_DWORD *)(a1 + 4) & 0x1100) != 0 && !v5 && (v3 != 1 || !*(_QWORD *)(a1 + 8)) )
+      goto LABEL_38;
+    return 1LL;
   }
-  v13 = PsGetCurrentProcessWin32Process(v12);
-  v14 = v13;
-  if ( v13 )
-    v14 = -(__int64)(*(_QWORD *)v13 != 0LL) & v13;
-  if ( *(_QWORD *)(*(_QWORD *)(v6 + 16) + 424LL) == v14 )
-  {
-LABEL_22:
-    if ( (*(_DWORD *)v8 & 0x1100) == 0 || v6 || a3 == 1 && *(_QWORD *)(a1 + 8) )
-      return 1LL;
-  }
-LABEL_30:
-  v16 = 87LL;
-LABEL_31:
-  UserSetLastError(v16);
+LABEL_38:
+  v11 = 87LL;
+LABEL_39:
+  UserSetLastError(v11, a2, a3);
   return 0LL;
 }

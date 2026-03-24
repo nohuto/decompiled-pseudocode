@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmIdleTransitionStall @ 0x1402D5218
+ * XREFs of PpmIdleTransitionStall @ 0x1402D5318
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
- *     PoInitiateProcessorWake @ 0x1402D38A0 (PoInitiateProcessorWake.c)
- *     PpmExitCoordinatedIdleState @ 0x1402D3D40 (PpmExitCoordinatedIdleState.c)
- *     PpmIdleCheckCoordinatedDependency @ 0x1402D42C4 (PpmIdleCheckCoordinatedDependency.c)
- *     PpmIdleWaitForDependentTransitions @ 0x1402D539C (PpmIdleWaitForDependentTransitions.c)
- *     PpmTestAndLockProcessor @ 0x1402D5BC8 (PpmTestAndLockProcessor.c)
+ *     PoInitiateProcessorWake @ 0x1402D39A0 (PoInitiateProcessorWake.c)
+ *     PpmExitCoordinatedIdleState @ 0x1402D3E40 (PpmExitCoordinatedIdleState.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x1402D43C4 (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleWaitForDependentTransitions @ 0x1402D549C (PpmIdleWaitForDependentTransitions.c)
+ *     PpmTestAndLockProcessor @ 0x1402D5CC8 (PpmTestAndLockProcessor.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall PpmIdleTransitionStall(__int64 a1)

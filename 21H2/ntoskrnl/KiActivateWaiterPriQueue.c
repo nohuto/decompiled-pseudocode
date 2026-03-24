@@ -1,12 +1,12 @@
 /*
- * XREFs of KiActivateWaiterPriQueue @ 0x1402EC8A4
+ * XREFs of KiActivateWaiterPriQueue @ 0x14029F6C4
  * Callers:
- *     KiPriQueueThreadPriorityChanged @ 0x140291EE4 (KiPriQueueThreadPriorityChanged.c)
- *     KiCommitThreadWait @ 0x1402B5240 (KiCommitThreadWait.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x1402EE104 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x14029F3A0 (KiPriQueueThreadPriorityChanged.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x14029F4FC (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiCommitThreadWait @ 0x140345FB0 (KiCommitThreadWait.c)
  * Callees:
- *     KiWakePriQueueWaiter @ 0x1402EB944 (KiWakePriQueueWaiter.c)
- *     KiAttemptFastRemovePriQueue @ 0x1402EC920 (KiAttemptFastRemovePriQueue.c)
+ *     KiAttemptFastRemovePriQueue @ 0x14029F740 (KiAttemptFastRemovePriQueue.c)
+ *     KiWakePriQueueWaiter @ 0x14029F81C (KiWakePriQueueWaiter.c)
  */
 
 _QWORD *__fastcall KiActivateWaiterPriQueue(ULONG_PTR a1)
@@ -24,7 +24,7 @@ _QWORD *__fastcall KiActivateWaiterPriQueue(ULONG_PTR a1)
       v3 = result;
       if ( result )
       {
-        result = (_QWORD *)KiWakePriQueueWaiter((__int64)KeGetCurrentPrcb(), a1, (__int64)result, 0);
+        result = (_QWORD *)KiWakePriQueueWaiter(KeGetCurrentPrcb(), a1, result, 0LL);
         if ( !(_BYTE)result )
         {
           ++*(_DWORD *)(a1 + 4);

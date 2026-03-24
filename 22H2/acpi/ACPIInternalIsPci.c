@@ -1,19 +1,19 @@
 /*
- * XREFs of ACPIInternalIsPci @ 0x1C0088084
+ * XREFs of ACPIInternalIsPci @ 0x1C00A306C
  * Callers:
- *     ACPIDetectFilterDevices @ 0x1C001AA30 (ACPIDetectFilterDevices.c)
+ *     ACPIDetectFilterDevices @ 0x1C0019004 (ACPIDetectFilterDevices.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIInternalSetFlags @ 0x1C002F088 (ACPIInternalSetFlags.c)
- *     IsPciDevice @ 0x1C00358C8 (IsPciDevice.c)
- *     IsNsobjPciBus @ 0x1C008A688 (IsNsobjPciBus.c)
+ *     ACPIInternalSetFlags @ 0x1C0002350 (ACPIInternalSetFlags.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     IsPciDevice @ 0x1C0017E30 (IsPciDevice.c)
+ *     IsNsobjPciBus @ 0x1C009DA40 (IsNsobjPciBus.c)
  */
 
 __int64 __fastcall ACPIInternalIsPci(ULONG_PTR BugCheckParameter3)
 {
   __int64 DeviceExtension; // rsi
   void *v3; // rbx
-  __int64 v4; // rax
+  __int64 v5; // rax
   int v6; // r9d
   __int128 Event; // [rsp+30h] [rbp-28h] BYREF
   __int128 Event_16; // [rsp+40h] [rbp-18h]
@@ -26,8 +26,8 @@ __int64 __fastcall ACPIInternalIsPci(ULONG_PTR BugCheckParameter3)
   v3 = (void *)(DeviceExtension + 8);
   if ( (*(_QWORD *)(DeviceExtension + 8) & 0x102000000LL) != 0 )
     return 0LL;
-  v4 = ACPIInternalGetDeviceExtension(BugCheckParameter3);
-  if ( (unsigned __int8)IsNsobjPciBus(*(_QWORD *)(v4 + 760)) == 1 )
+  v5 = ACPIInternalGetDeviceExtension(BugCheckParameter3);
+  if ( IsNsobjPciBus(*(volatile signed __int32 **)(v5 + 720)) == 1 )
   {
     ACPIInternalSetFlags(v3, 0x2000000uLL);
     return 0LL;
@@ -35,7 +35,7 @@ __int64 __fastcall ACPIInternalIsPci(ULONG_PTR BugCheckParameter3)
   DWORD2(Event_16) = -1073741275;
   KeInitializeEvent((PRKEVENT)&Event, SynchronizationEvent, 0);
   v6 = IsPciDevice(
-         *(volatile signed __int32 **)(DeviceExtension + 760),
+         *(volatile signed __int32 **)(DeviceExtension + 720),
          (__int64)AmlisuppCompletePassive,
          (__int64)&Event,
          &v9);

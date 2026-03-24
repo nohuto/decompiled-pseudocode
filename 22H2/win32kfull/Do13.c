@@ -1,7 +1,7 @@
 /*
- * XREFs of Do13 @ 0x1C025E4E0
+ * XREFs of Do13 @ 0x1C0266C7C
  * Callers:
- *     FastExpAA_CY @ 0x1C0260A70 (FastExpAA_CY.c)
+ *     FastExpAA_CY @ 0x1C0269200 (FastExpAA_CY.c)
  * Callees:
  *     <none>
  */

@@ -1,25 +1,19 @@
 /*
- * XREFs of RtlpCompressRvaList @ 0x1406B1D00
+ * XREFs of RtlpCompressRvaList @ 0x140637580
  * Callers:
- *     RtlCreateRvaList @ 0x1406A7CA0 (RtlCreateRvaList.c)
+ *     RtlCreateRvaList @ 0x14066338C (RtlCreateRvaList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     RtlpSetRvaListRvaStateBits @ 0x1407CE008 (RtlpSetRvaListRvaStateBits.c)
+ *     MiImageRvaRawEnumNext @ 0x140661190 (MiImageRvaRawEnumNext.c)
+ *     MiImageRvaRawEnumFirst @ 0x14068C2EC (MiImageRvaRawEnumFirst.c)
+ *     RtlpSetRvaListRvaStateBits @ 0x1406955FC (RtlpSetRvaListRvaStateBits.c)
  */
 
-__int64 __fastcall RtlpCompressRvaList(
-        __int64 a1,
-        __int64 a2,
-        __int64 (__fastcall *a3)(__int64, unsigned __int32 *),
-        __int64 (__fastcall *a4)(__int64, unsigned __int32 *),
-        _DWORD *a5,
-        _QWORD *a6,
-        int *a7)
+__int64 __fastcall RtlpCompressRvaList(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, _QWORD *a6, int *a7)
 {
   _DWORD *v7; // rdi
-  unsigned __int32 *v8; // r13
-  unsigned int v9; // r15d
-  int v11; // r12d
+  unsigned int *v8; // r12
+  unsigned int v9; // r14d
+  int v11; // r15d
   _BYTE *v12; // rsi
   unsigned int v13; // ebp
   int v14; // eax
@@ -34,21 +28,22 @@ __int64 __fastcall RtlpCompressRvaList(
   unsigned int v23; // eax
   unsigned int v24; // edx
   __int64 result; // rax
-  unsigned __int32 v26[18]; // [rsp+20h] [rbp-48h] BYREF
-  unsigned __int32 v28; // [rsp+80h] [rbp+18h] BYREF
-  __int64 (__fastcall *v29)(__int64, unsigned __int32 *); // [rsp+88h] [rbp+20h]
+  __int64 v27; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v28; // [rsp+78h] [rbp+20h] BYREF
+  int v29; // [rsp+7Ch] [rbp+24h]
 
-  v29 = a4;
+  v29 = HIDWORD(a4);
+  v27 = a3;
   v7 = a5;
   v8 = &v28;
   v9 = 0;
   v28 = 0;
   v11 = 0;
+  v12 = a5;
   if ( !a5 )
     v8 = 0LL;
-  v12 = a5;
   v13 = 0;
-  v14 = a3(a2, v8);
+  v14 = MiImageRvaRawEnumFirst(a2, v8);
   v15 = v14;
   if ( !v14 )
   {
@@ -99,7 +94,7 @@ LABEL_12:
     }
   }
   v18 = v17;
-  v19 = v29(a2, v8);
+  v19 = MiImageRvaRawEnumNext(a2, v8);
   v17 = v19;
   if ( !v19 )
     goto LABEL_34;
@@ -107,7 +102,7 @@ LABEL_12:
   {
     if ( v12 )
     {
-      v26[0] = v28;
+      LODWORD(v27) = v28;
       if ( v28 )
       {
         v23 = *(_DWORD *)(a1 + 8);
@@ -116,7 +111,7 @@ LABEL_12:
           v24 = 0;
           do
           {
-            if ( _bittest((const signed __int32 *)v26, v24) )
+            if ( _bittest((const signed __int32 *)&v27, v24) )
               _bittestandset64(*(signed __int64 **)(a1 + 40), v11 * v23 + (unsigned __int64)v24);
             ++v24;
           }

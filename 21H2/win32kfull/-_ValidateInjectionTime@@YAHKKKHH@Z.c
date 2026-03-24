@@ -1,7 +1,7 @@
 /*
- * XREFs of ?_ValidateInjectionTime@@YAHKKKHH@Z @ 0x1C01D69D4
+ * XREFs of ?_ValidateInjectionTime@@YAHKKKHH@Z @ 0x1C01DC2A8
  * Callers:
- *     xxxInjectTouchInput @ 0x1C01D73EC (xxxInjectTouchInput.c)
+ *     xxxInjectTouchInput @ 0x1C01DCDAC (xxxInjectTouchInput.c)
  * Callees:
  *     <none>
  */

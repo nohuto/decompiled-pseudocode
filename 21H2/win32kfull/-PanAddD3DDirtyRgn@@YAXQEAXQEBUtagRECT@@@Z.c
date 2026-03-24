@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PanAddD3DDirtyRgn@@YAXQEAXQEBUtagRECT@@@Z @ 0x1C0292570
+ * XREFs of ?PanAddD3DDirtyRgn@@YAXQEAXQEBUtagRECT@@@Z @ 0x1C0294B60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall PanAddD3DDirtyRgn(_QWORD *a1, const struct tagRECT *const a2)

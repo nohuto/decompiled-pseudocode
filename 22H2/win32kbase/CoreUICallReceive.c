@@ -1,11 +1,11 @@
 /*
- * XREFs of CoreUICallReceive @ 0x1C0069258
+ * XREFs of CoreUICallReceive @ 0x1C00AA718
  * Callers:
- *     ?SubmitBuffer@SendHost@CoreMessagingK@@SAJPEAUIMessageCallSendHost@@PEA_KIPEAXI@Z @ 0x1C0069E00 (-SubmitBuffer@SendHost@CoreMessagingK@@SAJPEAUIMessageCallSendHost@@PEA_KIPEAXI@Z.c)
+ *     ?SubmitBuffer@SendHost@CoreMessagingK@@SAJPEAUIMessageCallSendHost@@PEA_KIPEAXI@Z @ 0x1C00A40B0 (-SubmitBuffer@SendHost@CoreMessagingK@@SAJPEAUIMessageCallSendHost@@PEA_KIPEAXI@Z.c)
  * Callees:
- *     ?UnmarshalReceive@ReceiveProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallReceiveHost@@PEBUMsgCallTypeDefinition@@PEBEIIPEBXI@Z @ 0x1C0069310 (-UnmarshalReceive@ReceiveProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallReceiveHost@@PEBU.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?UnmarshalReceive@ReceiveProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallReceiveHost@@PEBUMsgCallTypeDefinition@@PEBEIIPEBXI@Z @ 0x1C00AA7E0 (-UnmarshalReceive@ReceiveProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallReceiveHost@@PEBU.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CoreUICallReceive(
@@ -17,34 +17,34 @@ __int64 __fastcall CoreUICallReceive(
         void *a6,
         unsigned int a7)
 {
-  int v7; // edx
-  int v8; // eax
-  bool v10; // [rsp+20h] [rbp-1E8h]
-  unsigned int v11; // [rsp+28h] [rbp-1E0h]
-  _BYTE v12[80]; // [rsp+40h] [rbp-1C8h] BYREF
-  int v13; // [rsp+90h] [rbp-178h]
-  int v14; // [rsp+C0h] [rbp-148h]
-  int v15; // [rsp+C4h] [rbp-144h]
-  __int64 (__fastcall **v16)(__int64, unsigned __int64); // [rsp+D8h] [rbp-130h]
-  char v17; // [rsp+E0h] [rbp-128h] BYREF
+  __int64 result; // rax
+  bool v8; // [rsp+20h] [rbp-1E8h]
+  unsigned int v9; // [rsp+28h] [rbp-1E0h]
+  _BYTE v10[80]; // [rsp+40h] [rbp-1C8h] BYREF
+  int v11; // [rsp+90h] [rbp-178h]
+  int v12; // [rsp+C0h] [rbp-148h]
+  int v13; // [rsp+C4h] [rbp-144h]
+  __int64 (__fastcall **v14)(__int64, unsigned __int64); // [rsp+D8h] [rbp-130h]
+  char v15; // [rsp+E0h] [rbp-128h] BYREF
 
-  v14 = 26;
-  v15 = 2;
-  v7 = CoreMessaging::Calling::ReceiveProcessor::UnmarshalReceive(
-         (CoreMessaging::Calling::ReceiveProcessor *)v12,
-         a1,
-         a3,
-         a4,
-         v10,
-         v11,
-         a6,
-         a7);
-  if ( v7 >= 0 )
+  v12 = 26;
+  v13 = 2;
+  result = CoreMessaging::Calling::ReceiveProcessor::UnmarshalReceive(
+             (CoreMessaging::Calling::ReceiveProcessor *)v10,
+             a1,
+             a3,
+             a4,
+             v8,
+             v9,
+             a6,
+             a7);
+  if ( (int)result >= 0 )
   {
-    v8 = (*v16)(a5, (unsigned __int64)&v17 & -(__int64)(v13 != 0));
-    v7 = 0;
-    if ( v8 < 0 )
-      return (unsigned int)v8;
+    result = (*v14)(a5, (unsigned __int64)&v15 & -(__int64)(v11 != 0));
+    if ( (int)result >= 0 )
+      result = 0LL;
+    if ( (int)result >= 0 )
+      return 0LL;
   }
-  return (unsigned int)v7;
+  return result;
 }

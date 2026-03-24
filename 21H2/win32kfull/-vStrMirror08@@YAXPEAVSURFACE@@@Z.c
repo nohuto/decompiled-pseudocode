@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vStrMirror08@@YAXPEAVSURFACE@@@Z @ 0x1C02C2A60
+ * XREFs of ?vStrMirror08@@YAXPEAVSURFACE@@@Z @ 0x1C02C40B0
  * Callers:
  *     <none>
  * Callees:

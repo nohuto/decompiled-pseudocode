@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlIsStateSeparationEnabled @ 0x1406C3210
+ * XREFs of RtlIsStateSeparationEnabled @ 0x1406C31F0
  * Callers:
- *     RtlpGetBootStatusPath @ 0x14018DDA0 (RtlpGetBootStatusPath.c)
+ *     RtlpGetBootStatusPath @ 0x14018DDC0 (RtlpGetBootStatusPath.c)
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  *     PpDevCfgInit @ 0x1409C875C (PpDevCfgInit.c)
  *     BapdpProcessVsmKeyBlobs @ 0x1409D12A0 (BapdpProcessVsmKeyBlobs.c)

@@ -1,52 +1,44 @@
 /*
- * XREFs of MiClusterVadFull @ 0x14045DB90
+ * XREFs of MiClusterVadFull @ 0x140555868
  * Callers:
- *     MiTrimSharedPage @ 0x14023F658 (MiTrimSharedPage.c)
- *     MiPfnsWorthTrying @ 0x140278460 (MiPfnsWorthTrying.c)
+ *     MiTrimSharedPage @ 0x1402EEA08 (MiTrimSharedPage.c)
+ *     MiPfnsWorthTrying @ 0x140302130 (MiPfnsWorthTrying.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MiClusterVadFull(unsigned __int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiClusterVadFull(_QWORD *a1, __int64 a2)
 {
-  _QWORD *v6; // r9
+  unsigned __int64 v2; // r8
+  unsigned __int64 v3; // r10
+  unsigned __int64 v4; // rax
+  _QWORD *v5; // rdx
+  unsigned int v6; // r9d
   unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r10
-  __int64 v9; // rdx
-  unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // r10
-  __int64 v12; // rdx
 
-  v6 = (_QWORD *)(a1 + 8);
-  v7 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
-  if ( a3 )
+  v2 = a1[1] | 0x8000000000000000uLL;
+  if ( a2 )
   {
-    v8 = *(_QWORD *)(a3 + 8);
-    if ( v7 < v8 || v7 >= v8 - 8LL * (*(_DWORD *)(a3 + 52) & 0x3FFFFFFF) + 8LL * *(unsigned int *)(a3 + 44) )
+    v3 = *(_QWORD *)(a2 + 8);
+    if ( v2 < v3 || v2 >= v3 - 8LL * (*(_DWORD *)(a2 + 52) & 0x3FFFFFFF) + 8LL * *(unsigned int *)(a2 + 44) )
       return 0LL;
-    v9 = (__int64)(v7 - v8) >> 3;
+    v4 = (__int64)(v2 - v3) >> 3;
   }
   else
   {
-    v9 = (v7 >> 3) & 0x1FF;
+    v4 = (unsigned __int64)*((unsigned int *)a1 + 2) >> 3;
   }
-  if ( (v9 & (a2 - 1)) == ((0xAAAAAAAAAAAAAAABuLL * ((__int64)(a1 + 0x220000000000LL) >> 4)) & (a2 - 1)) )
+  if ( (((unsigned __int8)v4 ^ (unsigned __int8)((__int64)(a1 + 0xB000000000LL) / 48)) & 0xF) == 0 )
   {
-    v10 = 48 * a2 + a1 - 48;
-    v11 = v7 + 8 * (a2 - 1);
-    v12 = *(_QWORD *)(a1 + 40) & 0xFFFFFFFFFFLL;
-    if ( a1 >= v10 )
-      return 1LL;
-    while ( (v6[4] & 0xFFFFFFFFFFLL) == v12
-         && (*(_QWORD *)(v10 + 40) & 0xFFFFFFFFFFLL) == v12
-         && (*v6 | 0x8000000000000000uLL) == v7
-         && (*(_QWORD *)(v10 + 8) | 0x8000000000000000uLL) == v11 )
+    v5 = a1 + 11;
+    v6 = 1;
+    v7 = v2 + 8;
+    while ( (*(v5 - 4) | 0x8000000000000000uLL) == v7 && (*v5 & 0xFFFFFFFFFLL) == (a1[5] & 0xFFFFFFFFFLL) )
     {
-      v6 += 6;
-      v10 -= 48LL;
       v7 += 8LL;
-      v11 -= 8LL;
-      if ( (unsigned __int64)(v6 - 1) >= v10 )
+      ++v6;
+      v5 += 6;
+      if ( v6 >= 0x10 )
         return 1LL;
     }
   }

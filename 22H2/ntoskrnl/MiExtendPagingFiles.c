@@ -1,55 +1,56 @@
 /*
- * XREFs of MiExtendPagingFiles @ 0x140A32AAC
+ * XREFs of MiExtendPagingFiles @ 0x1408D0680
  * Callers:
- *     MiProcessDereferenceList @ 0x140625124 (MiProcessDereferenceList.c)
+ *     MiProcessDereferenceList @ 0x14038746C (MiProcessDereferenceList.c)
  * Callees:
- *     MiIncreaseCommitLimits @ 0x1403944E4 (MiIncreaseCommitLimits.c)
- *     MiUpdatePagingFileMinimum @ 0x14063BBF8 (MiUpdatePagingFileMinimum.c)
- *     MiAttemptPageFileExtension @ 0x140A326E4 (MiAttemptPageFileExtension.c)
+ *     MiIncreaseCommitLimits @ 0x1403BF408 (MiIncreaseCommitLimits.c)
+ *     MiUpdatePagingFileMinimum @ 0x140543E7C (MiUpdatePagingFileMinimum.c)
+ *     MiAttemptPageFileExtension @ 0x1408D0354 (MiAttemptPageFileExtension.c)
  */
 
 unsigned __int64 __fastcall MiExtendPagingFiles(__int64 a1)
 {
-  __int64 v1; // rbp
-  unsigned __int64 v3; // rdi
+  __int64 v1; // r14
+  unsigned __int64 v3; // rbx
   unsigned __int64 result; // rax
   unsigned int v5; // r15d
-  __int64 v6; // r14
-  unsigned __int64 v7; // rbx
-  BOOL v8; // r14d
+  __int64 v6; // r15
+  unsigned __int64 v7; // rsi
+  BOOL v8; // ebp
   unsigned __int64 v9; // rcx
   unsigned __int64 v10; // rdx
   unsigned __int64 v11; // r8
-  __int64 v12; // rdx
+  unsigned __int64 **v12; // rdx
   __int64 v13; // r9
-  __int64 *v14; // r13
-  unsigned int i; // r12d
+  unsigned __int64 *v14; // rcx
+  unsigned int v15; // r13d
+  __int64 *v16; // r12
 
   v1 = *(_QWORD *)(a1 + 24);
   v3 = *(_QWORD *)(a1 + 32);
   result = *(unsigned __int8 *)(a1 + 76);
-  v5 = *(_DWORD *)(v1 + 17048);
+  v5 = *(_DWORD *)(v1 + 6936);
   if ( !v5 )
     return result;
   if ( (unsigned int)result < v5 )
   {
     _mm_lfence();
-    v6 = *(_QWORD *)(v1 + 8 * result + 17056);
+    v6 = *(_QWORD *)(v1 + 8 * result + 6944);
     if ( *(_QWORD *)(v6 + 8) - *(_QWORD *)v6 < v3 )
       return result;
-    result = MiAttemptPageFileExtension(a1, *(_QWORD *)(v1 + 8 * result + 17056), v3);
+    result = MiAttemptPageFileExtension(a1, *(_QWORD *)(v1 + 8 * result + 6944), v3);
     v7 = result;
     if ( result && (*(_BYTE *)(a1 + 79) & 2) != 0 )
       result = MiUpdatePagingFileMinimum(v6, result);
     v8 = (*(_BYTE *)(v6 + 204) & 0x50) == 0;
-    goto LABEL_23;
+    goto LABEL_24;
   }
   v8 = 1;
   if ( (*(_BYTE *)(a1 + 79) & 1) == 0 )
   {
-    v9 = *(_QWORD *)(v1 + 17576);
-    v10 = *(_QWORD *)(v1 + 17816);
-    result = v3 + v9 + *(_QWORD *)(v1 + 16432);
+    v9 = *(_QWORD *)(v1 + 7464);
+    v10 = *(_QWORD *)(v1 + 7592);
+    result = v3 + v9 + *(_QWORD *)(v1 + 6256);
     if ( result < v9 )
       return result;
     if ( result <= v10 )
@@ -60,33 +61,39 @@ unsigned __int64 __fastcall MiExtendPagingFiles(__int64 a1)
     v3 = result - v10;
   }
   v11 = 0LL;
-  v12 = v1 + 17056;
-  v13 = *(unsigned int *)(v1 + 17048);
+  v12 = (unsigned __int64 **)(v1 + 6944);
+  v13 = *(unsigned int *)(v1 + 6936);
   do
   {
-    if ( (*(_BYTE *)(*(_QWORD *)v12 + 204LL) & 0x50) == 0 )
-      v11 += *(_QWORD *)(*(_QWORD *)v12 + 8LL) - **(_QWORD **)v12;
-    v12 += 8LL;
+    v14 = *v12;
+    if ( (*((_BYTE *)*v12 + 204) & 0x50) == 0 )
+    {
+      result = *v14;
+      v11 += v14[1] - *v14;
+    }
+    ++v12;
     --v13;
   }
   while ( v13 );
-  result = v1;
-  v14 = (__int64 *)(v1 + 17056);
   if ( v11 >= v3 )
   {
     v7 = 0LL;
-    for ( i = 0; i < v5; ++i )
+    v15 = 0;
+    v16 = (__int64 *)(v1 + 6944);
+    do
     {
-      if ( (*(_BYTE *)(*v14 + 204) & 0x50) == 0 )
+      if ( (*(_BYTE *)(*v16 + 204) & 0x50) == 0 )
       {
-        result = MiAttemptPageFileExtension(a1, *v14, v3 - v7);
+        result = MiAttemptPageFileExtension(a1, *v16, v3 - v7);
         v7 += result;
         if ( v7 >= v3 )
           break;
       }
-      ++v14;
+      ++v15;
+      ++v16;
     }
-LABEL_23:
+    while ( v15 < v5 );
+LABEL_24:
     if ( v7 )
     {
       *(_QWORD *)(a1 + 40) = v7;

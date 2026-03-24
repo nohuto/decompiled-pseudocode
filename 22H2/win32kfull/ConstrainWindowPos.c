@@ -1,7 +1,8 @@
 /*
- * XREFs of ConstrainWindowPos @ 0x1C0138C80
+ * XREFs of ConstrainWindowPos @ 0x1C00669F0
  * Callers:
- *     ConstrainWindowSIZERECT @ 0x1C0138CBC (ConstrainWindowSIZERECT.c)
+ *     NtUserSetWindowPos @ 0x1C006A5C0 (NtUserSetWindowPos.c)
+ *     ConstrainWindowSIZERECT @ 0x1C01D04F0 (ConstrainWindowSIZERECT.c)
  * Callees:
  *     <none>
  */
@@ -14,14 +15,13 @@ __int64 __fastcall ConstrainWindowPos(int *a1, int *a2)
 
   v2 = *a1;
   result = 0x7FFFLL;
-  if ( *a1 <= 0x7FFF )
-  {
-    if ( v2 < -32768 )
-      v2 = -32768;
-  }
-  else
+  if ( *a1 > 0x7FFF )
   {
     v2 = 0x7FFF;
+  }
+  else if ( v2 < -32768 )
+  {
+    v2 = -32768;
   }
   *a1 = v2;
   v4 = *a2;

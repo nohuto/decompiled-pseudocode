@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0213F58
+ * XREFs of ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0219240
  * Callers:
- *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02137B0 (-ForceCompletePendingPromotion@@YAXXZ.c)
- *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0214458 (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
+ *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02189B8 (-ForceCompletePendingPromotion@@YAXXZ.c)
+ *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0219834 (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
  * Callees:
- *     ?DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C021360C (-DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
- *     ?FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z @ 0x1C02136F8 (-FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z.c)
- *     ?FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z @ 0x1C021372C (-FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z.c)
- *     ?FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C021374C (-FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_E.c)
+ *     ?DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218804 (-DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z @ 0x1C02188F0 (-FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z.c)
+ *     ?FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z @ 0x1C0218924 (-FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z.c)
+ *     ?FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0218944 (-FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_E.c)
  */
 
 __int64 __fastcall ValidatePointerPromotion(
@@ -36,7 +36,7 @@ __int64 __fastcall ValidatePointerPromotion(
   v20 = 0LL;
   CacheById = (__int16 *)FindCacheById(a1, &v21);
   v10 = CacheById;
-  if ( !CacheById || CacheById == word_1C0335C98 && (dword_1C0335D98 & 2) != 0 )
+  if ( !CacheById || CacheById == word_1C033AAD8 && (dword_1C033ABD8 & 2) != 0 )
     return 0LL;
   v11 = (__int64 **)(CacheById + 4);
   if ( v5 )
@@ -70,14 +70,14 @@ __int64 __fastcall ValidatePointerPromotion(
       if ( v18 && *((_DWORD *)v13 + 9) != a2 || (v5 & 0x1000000) == 0 && (*((_DWORD *)v13 + 5) & 0x8000) != 0 )
         return 0LL;
     }
-    else if ( v18 || v10 != word_1C0335C98 )
+    else if ( v18 || v10 != word_1C033AAD8 )
     {
       return 0LL;
     }
     *a3 = v5;
     goto LABEL_17;
   }
-  if ( v10 == word_1C0335C98 )
+  if ( v10 == word_1C033AAD8 )
   {
     *a3 = v15;
 LABEL_17:

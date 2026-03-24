@@ -1,49 +1,90 @@
 /*
- * XREFs of ?ComputeFrameTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004ECF0
+ * XREFs of ?ComputeFrameTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x1800733A4
  * Callers:
- *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E9C8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x180070200 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
  * Callees:
- *     ?CalculatePresentAndGlitchDeadlines@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004EF10 (-CalculatePresentAndGlitchDeadlines@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
- *     McTemplateU0x_EventWriteTransfer @ 0x18012DF9E (McTemplateU0x_EventWriteTransfer.c)
+ *     ?UpdateDwmTimingInfo@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18007352C (-UpdateDwmTimingInfo@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     McTemplateU0x_EventWriteTransfer @ 0x180153F28 (McTemplateU0x_EventWriteTransfer.c)
+ *     McTemplateU0qNR0_EventWriteTransfer @ 0x180162C8C (McTemplateU0qNR0_EventWriteTransfer.c)
  */
 
 void __fastcall CPartitionVerticalBlankScheduler::ComputeFrameTime(CPartitionVerticalBlankScheduler *this)
 {
-  _QWORD *v1; // rdx
-  unsigned __int64 v3; // rbx
-  unsigned __int64 v4; // rcx
-  unsigned __int64 v5; // r8
-  unsigned __int64 v6; // rcx
+  _QWORD *v2; // rcx
+  unsigned __int64 v3; // rdi
+  __int64 v4; // rcx
+  int v5; // eax
+  __int64 v6; // rdx
+  char v7; // al
+  __int64 v8; // rcx
+  unsigned __int64 v9; // rdx
+  unsigned __int64 v10; // r8
+  unsigned __int64 v11; // rdx
+  _DWORD v12[2]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+38h] [rbp-20h]
 
-  v1 = (_QWORD *)*((_QWORD *)this + 526);
-  v3 = v1[27];
-  v1[1] = v1[2] + 1LL;
-  **((_QWORD **)this + 526) = *(_QWORD *)(*((_QWORD *)this + 526) + 8LL);
-  *(_QWORD *)(*((_QWORD *)this + 526) + 216LL) = *(_QWORD *)(*((_QWORD *)this + 526) + 64LL)
-                                               + *(_QWORD *)(*((_QWORD *)this + 526) + 240LL);
-  CPartitionVerticalBlankScheduler::CalculatePresentAndGlitchDeadlines(this);
-  v4 = *(_QWORD *)(*((_QWORD *)this + 526) + 216LL);
-  v5 = *(_QWORD *)(*((_QWORD *)this + 527) + 216LL);
-  if ( v4 >= v3 && v4 >= v5 )
-    goto LABEL_3;
-  if ( v4 >= v3 )
+  v2 = (_QWORD *)*((_QWORD *)this + 629);
+  v3 = v2[31];
+  v2[1] = v2[2] + 1LL;
+  **((_QWORD **)this + 629) = *(_QWORD *)(*((_QWORD *)this + 629) + 8LL);
+  *(_QWORD *)(*((_QWORD *)this + 629) + 248LL) = *(_QWORD *)(*((_QWORD *)this + 629) + 56LL)
+                                               + *(_QWORD *)(*((_QWORD *)this + 629) + 288LL);
+  if ( !*((_DWORD *)this + 2794) && !*((_BYTE *)this + 15900) )
   {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 8) == 0 )
+    v4 = *((_QWORD *)this + 629);
+    if ( !*(_BYTE *)(v4 + 140) )
       goto LABEL_6;
-LABEL_12:
-    McTemplateU0x_EventWriteTransfer(v4, &EVTDESC_SCHEDULE_TIMEADJUSTED_BETWEENFRAMES, v5 - v4);
-    goto LABEL_6;
+    v5 = *(_DWORD *)(v4 + 44) + 1;
+    goto LABEL_5;
   }
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 8) != 0 )
+  *(_QWORD *)(*((_QWORD *)this + 629) + 248LL) += *(_QWORD *)(*((_QWORD *)this + 629) + 288LL);
+  *(_BYTE *)(*((_QWORD *)this + 629) + 256LL) = 1;
+  v4 = *((_QWORD *)this + 629);
+  if ( *(_BYTE *)(v4 + 140) )
   {
-    v5 = v3;
-    goto LABEL_12;
+    v5 = *(_DWORD *)(v4 + 44) + 2;
+LABEL_5:
+    *(_DWORD *)(v4 + 48) = v5;
   }
 LABEL_6:
-  v6 = *(_QWORD *)(*((_QWORD *)this + 527) + 216LL);
-  if ( v6 <= v3 )
-    v6 = v3;
-  *(_QWORD *)(*((_QWORD *)this + 526) + 216LL) = v6;
-LABEL_3:
+  v6 = *((_QWORD *)this + 629);
+  v12[0] = *(_DWORD *)(v6 + 44);
+  v12[1] = *(_DWORD *)(v6 + 48);
+  v13 = *(_QWORD *)(v6 + 272);
+  v7 = Microsoft_Windows_Dwm_CoreEnableBits;
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+  {
+    McTemplateU0qNR0_EventWriteTransfer(v4, (unsigned int)&EVTDESC_SCHEDULE_FRAME_VSYNCDEADLINES, 1, 16, (__int64)v12);
+    v6 = *((_QWORD *)this + 629);
+    v7 = Microsoft_Windows_Dwm_CoreEnableBits;
+  }
+  v8 = *((_QWORD *)this + 630);
+  v9 = *(_QWORD *)(v6 + 248);
+  v10 = *(_QWORD *)(v8 + 248);
+  if ( v9 < v3 || v9 < v10 )
+  {
+    if ( v9 >= v3 )
+    {
+      if ( (v7 & 0x10) == 0 )
+        goto LABEL_15;
+    }
+    else
+    {
+      if ( (v7 & 0x10) == 0 )
+      {
+LABEL_15:
+        v11 = *(_QWORD *)(*((_QWORD *)this + 630) + 248LL);
+        if ( v11 <= v3 )
+          v11 = v3;
+        *(_QWORD *)(*((_QWORD *)this + 629) + 248LL) = v11;
+        goto LABEL_10;
+      }
+      v10 = v3;
+    }
+    McTemplateU0x_EventWriteTransfer(v8, &EVTDESC_SCHEDULE_TIMEADJUSTED_BETWEENFRAMES, v10 - v9);
+    goto LABEL_15;
+  }
+LABEL_10:
   CPartitionVerticalBlankScheduler::UpdateDwmTimingInfo(this);
 }

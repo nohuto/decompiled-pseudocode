@@ -1,207 +1,189 @@
 /*
- * XREFs of RtlEqualUnicodeString @ 0x1406DA3A0
+ * XREFs of RtlEqualUnicodeString @ 0x140601410
  * Callers:
- *     AuthzBasepEqualUnicodeString @ 0x140225BA8 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepFindSecurityAttribute @ 0x14022D0E0 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepCompareUnicodeStringOperands @ 0x14030C028 (AuthzBasepCompareUnicodeStringOperands.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x14031CE90 (RtlDeriveCapabilitySidsFromName.c)
- *     PnpMultiSzContainsString @ 0x1403CDF30 (PnpMultiSzContainsString.c)
- *     PiDrvDbFindNode @ 0x1405650E0 (PiDrvDbFindNode.c)
- *     PopEmModuleAddressMatchCallback @ 0x140599B20 (PopEmModuleAddressMatchCallback.c)
- *     PopEmUpdateDeviceConstraintCallback @ 0x14059EA80 (PopEmUpdateDeviceConstraintCallback.c)
- *     VfDriverRemoveAllDifVerification @ 0x1405CEF30 (VfDriverRemoveAllDifVerification.c)
- *     VrpPreOpenOrCreate @ 0x14068CFD8 (VrpPreOpenOrCreate.c)
- *     IopQueryRegistryKeySystemPath @ 0x14068ECA0 (IopQueryRegistryKeySystemPath.c)
- *     MiResolveImageReferences @ 0x1406AE044 (MiResolveImageReferences.c)
- *     SepIsImageInMinTcbList @ 0x1406B9D88 (SepIsImageInMinTcbList.c)
- *     EtwpLookupLoggerIdByName @ 0x1406BD758 (EtwpLookupLoggerIdByName.c)
- *     EtwpAcquireLoggerContextByLoggerName @ 0x1406BD7EC (EtwpAcquireLoggerContextByLoggerName.c)
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     MiObtainSectionForDriver @ 0x140704868 (MiObtainSectionForDriver.c)
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     CmLoadAppKey @ 0x140769B50 (CmLoadAppKey.c)
- *     VrpPreLoadKey @ 0x14077A954 (VrpPreLoadKey.c)
- *     VrpCreateNamespaceNode @ 0x14077BD28 (VrpCreateNamespaceNode.c)
- *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x14077C904 (VrpFindDiffHiveEntryForMountPointWithLock.c)
- *     IopGetDeviceInterfaces @ 0x140787900 (IopGetDeviceInterfaces.c)
- *     _CmIsRootDevice @ 0x14079A9A8 (_CmIsRootDevice.c)
- *     ObpLookupDirectoryUsingHash @ 0x1407B7418 (ObpLookupDirectoryUsingHash.c)
- *     PipFindDeviceOverrideEntry @ 0x1407C1A14 (PipFindDeviceOverrideEntry.c)
- *     PiFindDevInstMatch @ 0x1407C2544 (PiFindDevInstMatch.c)
- *     IopDeviceInterfaceFilterCallback @ 0x1407CE8D0 (IopDeviceInterfaceFilterCallback.c)
- *     SepIsNgenImage @ 0x1407DD9F8 (SepIsNgenImage.c)
- *     PiUEventQueueBroadcastEventEntry @ 0x1407DE3E4 (PiUEventQueueBroadcastEventEntry.c)
- *     MiUseLargeDriverPage @ 0x1407E33D4 (MiUseLargeDriverPage.c)
- *     PspIdentityBasedJobBreakaway @ 0x1407EA990 (PspIdentityBasedJobBreakaway.c)
- *     SepGetCachedHandlesEntry @ 0x1407F4CCC (SepGetCachedHandlesEntry.c)
- *     SepValidateReferencedCachedHandles @ 0x1407F51D0 (SepValidateReferencedCachedHandles.c)
- *     EtwpGetLoggerInfoFromContext @ 0x1407F91F0 (EtwpGetLoggerInfoFromContext.c)
- *     KsepCacheDeviceQueryData @ 0x14080B12C (KsepCacheDeviceQueryData.c)
- *     CmpFindMachineHiveByMountPoint @ 0x140810A34 (CmpFindMachineHiveByMountPoint.c)
- *     SLQueryLicenseValueInternal @ 0x140811814 (SLQueryLicenseValueInternal.c)
- *     PiPnpRtlInit @ 0x140813794 (PiPnpRtlInit.c)
- *     PiDrvDbResolveFilePathKeyValues @ 0x140815520 (PiDrvDbResolveFilePathKeyValues.c)
- *     _CmDeviceClassesSubkeyCallback @ 0x14082CAC0 (_CmDeviceClassesSubkeyCallback.c)
- *     IopIsReportedAlready @ 0x140837110 (IopIsReportedAlready.c)
- *     PipQueryBindingResolution @ 0x14083993C (PipQueryBindingResolution.c)
- *     PipAddRequestToEdge @ 0x140839C0C (PipAddRequestToEdge.c)
- *     IopCreateSecureDeviceClassSettings @ 0x14083C924 (IopCreateSecureDeviceClassSettings.c)
- *     AdtpLookupDriveLetter @ 0x14083F000 (AdtpLookupDriveLetter.c)
- *     PiRemoveDeferredSetInterfaceState @ 0x1408742C8 (PiRemoveDeferredSetInterfaceState.c)
- *     DrvDbFindDatabaseNode @ 0x140877BE4 (DrvDbFindDatabaseNode.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140879CB4 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgLogDeviceConfigured @ 0x14087A140 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgConfigureDevice @ 0x14087AC04 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgResolveMultiSzValue @ 0x14087E5B4 (PiDevCfgResolveMultiSzValue.c)
- *     PiDevCfgResolveVariable @ 0x14087F0D0 (PiDevCfgResolveVariable.c)
- *     RtlpGetNtProductTypeFromRegistry @ 0x14087F714 (RtlpGetNtProductTypeFromRegistry.c)
- *     PipDeleteBindingId @ 0x1409545B4 (PipDeleteBindingId.c)
- *     PiPnpRtlServiceFilterCallback @ 0x14095A9C0 (PiPnpRtlServiceFilterCallback.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14095C980 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDrvDbResolveSystemFilePath @ 0x140971148 (PiDrvDbResolveSystemFilePath.c)
- *     KseHookQueryValueKey @ 0x1409781E0 (KseHookQueryValueKey.c)
- *     PopBatteryDeviceState @ 0x14099517C (PopBatteryDeviceState.c)
- *     ExpFindArcName @ 0x1409FC3E0 (ExpFindArcName.c)
- *     MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140A37D40 (MiInsertPreviouslyRegisteredHotPatchRecord.c)
- *     AdtpBuildAccessesString @ 0x140A5B944 (AdtpBuildAccessesString.c)
- *     _PnpCtxFindNode @ 0x140A609A8 (_PnpCtxFindNode.c)
- *     _CmClassFilterCallback @ 0x140A64F30 (_CmClassFilterCallback.c)
- *     _CmServiceFilterCallback @ 0x140A65210 (_CmServiceFilterCallback.c)
- *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140A72A28 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
- *     VfDriverLoadImage @ 0x140ABDE04 (VfDriverLoadImage.c)
- *     VfDriverLoadSucceeded @ 0x140ABDEB0 (VfDriverLoadSucceeded.c)
- *     ViIsDriverSuspectForVerifier @ 0x140AC3B4C (ViIsDriverSuspectForVerifier.c)
- *     VfDriverApplyDifVerification @ 0x140ACB2D8 (VfDriverApplyDifVerification.c)
- *     VfDriverEnableVerifier @ 0x140ACB498 (VfDriverEnableVerifier.c)
- *     VfDriverRemoveDifVerification @ 0x140ACB778 (VfDriverRemoveDifVerification.c)
- *     ViDriverReApplyVerifierForAll @ 0x140ACB934 (ViDriverReApplyVerifierForAll.c)
- *     VfCheckUserHandle @ 0x140AD4CE4 (VfCheckUserHandle.c)
- *     VfSuspectDriversLoadCallback @ 0x140ADB704 (VfSuspectDriversLoadCallback.c)
- *     VfSuspectDriversUnloadCallback @ 0x140ADBAB4 (VfSuspectDriversUnloadCallback.c)
- *     ViSuspectDriversLookupEntry @ 0x140ADBCE0 (ViSuspectDriversLookupEntry.c)
- *     VfAddVerifierEntry @ 0x140ADE630 (VfAddVerifierEntry.c)
- *     VfFilterAttach @ 0x140AE020C (VfFilterAttach.c)
- *     sub_140B1A730 @ 0x140B1A730 (sub_140B1A730.c)
- *     PpInitGetGroupOrderIndex @ 0x140B41824 (PpInitGetGroupOrderIndex.c)
- *     PipLookupGroupName @ 0x140B41994 (PipLookupGroupName.c)
- *     CmGetSystemDriverList @ 0x140B41BA0 (CmGetSystemDriverList.c)
- *     VfInitBootDriversLoaded @ 0x140B5A754 (VfInitBootDriversLoaded.c)
- *     CmpFindHiveSubKey @ 0x140B5C068 (CmpFindHiveSubKey.c)
- *     CmpDoSort @ 0x140B5DDE4 (CmpDoSort.c)
- *     CmpCreateHardwareProfiles @ 0x140B679AC (CmpCreateHardwareProfiles.c)
- *     ViInitSystemPhase0 @ 0x140B6A9C4 (ViInitSystemPhase0.c)
- *     PnpLoadBootFilterDriver @ 0x140B6D398 (PnpLoadBootFilterDriver.c)
- *     ExpPrmInitialization @ 0x140B7580C (ExpPrmInitialization.c)
- *     ViLogAndLoadXdv @ 0x140B97CF4 (ViLogAndLoadXdv.c)
- *     CmpGetKnownHivePathNode @ 0x140B99EFC (CmpGetKnownHivePathNode.c)
+ *     AuthzBasepEqualUnicodeString @ 0x14024D520 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x14024E560 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x14024EE90 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x140360020 (RtlDeriveCapabilitySidsFromName.c)
+ *     PnpMultiSzContainsString @ 0x140392700 (PnpMultiSzContainsString.c)
+ *     PiDrvDbFindNode @ 0x1405100BC (PiDrvDbFindNode.c)
+ *     PopEmUpdateDeviceConstraintCallback @ 0x140573E00 (PopEmUpdateDeviceConstraintCallback.c)
+ *     PopEmModuleAddressMatchCallback @ 0x1405790D0 (PopEmModuleAddressMatchCallback.c)
+ *     PopPlLookupDevicePowerProfile @ 0x14057E468 (PopPlLookupDevicePowerProfile.c)
+ *     VrpCreateNamespaceNode @ 0x1405D34B4 (VrpCreateNamespaceNode.c)
+ *     VrpPreOpenOrCreate @ 0x1405D4868 (VrpPreOpenOrCreate.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x1405D683C (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ *     PspIdentityBasedJobBreakaway @ 0x1405D9294 (PspIdentityBasedJobBreakaway.c)
+ *     ObpLookupDirectoryUsingHash @ 0x140601F48 (ObpLookupDirectoryUsingHash.c)
+ *     SepIsImageInMinTcbList @ 0x140602224 (SepIsImageInMinTcbList.c)
+ *     EtwpAcquireLoggerContextByLoggerName @ 0x1406024C8 (EtwpAcquireLoggerContextByLoggerName.c)
+ *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
+ *     SepIsNgenImage @ 0x140603AA8 (SepIsNgenImage.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
+ *     IopDeviceInterfaceFilterCallback @ 0x14068FCA0 (IopDeviceInterfaceFilterCallback.c)
+ *     _CmIsRootDevice @ 0x140693D04 (_CmIsRootDevice.c)
+ *     IopGetDeviceInterfaces @ 0x1406B32E8 (IopGetDeviceInterfaces.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     CmLoadAppKey @ 0x1406E8CDC (CmLoadAppKey.c)
+ *     SepFindMatchingCachedHandlesEntry @ 0x14070F048 (SepFindMatchingCachedHandlesEntry.c)
+ *     SepValidateReferencedCachedHandles @ 0x14070F440 (SepValidateReferencedCachedHandles.c)
+ *     EtwpLookupLoggerIdByName @ 0x140711184 (EtwpLookupLoggerIdByName.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1407129F4 (EtwpGetLoggerInfoFromContext.c)
+ *     IopCreateSecureDeviceClassSettings @ 0x140735DF8 (IopCreateSecureDeviceClassSettings.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140737538 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgFindDeviceDriver @ 0x1407381B0 (PiDevCfgFindDeviceDriver.c)
+ *     PiFindDevInstMatch @ 0x14073C2C4 (PiFindDevInstMatch.c)
+ *     IopQueryRegistryKeySystemPath @ 0x14073D480 (IopQueryRegistryKeySystemPath.c)
+ *     PiDevCfgConfigureDevice @ 0x14073F2C0 (PiDevCfgConfigureDevice.c)
+ *     MiObtainSectionForDriver @ 0x14075BB48 (MiObtainSectionForDriver.c)
+ *     MiResolveImageReferences @ 0x14075C9FC (MiResolveImageReferences.c)
+ *     PiPnpRtlServiceFilterCallback @ 0x14075FFC0 (PiPnpRtlServiceFilterCallback.c)
+ *     PipFindDeviceOverrideEntry @ 0x14076381C (PipFindDeviceOverrideEntry.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14076BA48 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiUEventQueueBroadcastEventEntry @ 0x14076BAB8 (PiUEventQueueBroadcastEventEntry.c)
+ *     MiUseLargeDriverPage @ 0x140770B48 (MiUseLargeDriverPage.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x14077A904 (RtlpGetNtProductTypeFromRegistry.c)
+ *     PiDevCfgResolveMultiSzValue @ 0x14077B23C (PiDevCfgResolveMultiSzValue.c)
+ *     PiDevCfgResolveVariable @ 0x14077B470 (PiDevCfgResolveVariable.c)
+ *     PiRemoveDeferredSetInterfaceState @ 0x14078136C (PiRemoveDeferredSetInterfaceState.c)
+ *     CmpFindMachineHiveByMountPoint @ 0x140799EF0 (CmpFindMachineHiveByMountPoint.c)
+ *     SLQueryLicenseValueInternal @ 0x1407AB444 (SLQueryLicenseValueInternal.c)
+ *     IopIsReportedAlready @ 0x1407AF208 (IopIsReportedAlready.c)
+ *     _CmDeviceClassesSubkeyCallback @ 0x1407B1440 (_CmDeviceClassesSubkeyCallback.c)
+ *     PipQueryBindingResolution @ 0x1407B67B8 (PipQueryBindingResolution.c)
+ *     AdtpLookupDriveLetter @ 0x1407B938C (AdtpLookupDriveLetter.c)
+ *     KsepCacheDeviceQueryData @ 0x1407C7B58 (KsepCacheDeviceQueryData.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x1408830A0 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ *     VrpPreLoadKey @ 0x1408833DC (VrpPreLoadKey.c)
+ *     PipAddRequestToEdge @ 0x14089D9AC (PipAddRequestToEdge.c)
+ *     PipDeleteBindingId @ 0x14089DC24 (PipDeleteBindingId.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A4F6C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x1408B7208 (PiDrvDbResolveFilePathKeyValues.c)
+ *     PiDrvDbResolveSystemFilePath @ 0x1408B7B0C (PiDrvDbResolveSystemFilePath.c)
+ *     KseHookQueryValueKey @ 0x1408C1B30 (KseHookQueryValueKey.c)
+ *     PopBatteryDeviceState @ 0x1408ECF68 (PopBatteryDeviceState.c)
+ *     ExpFindArcName @ 0x14094FF64 (ExpFindArcName.c)
+ *     AdtpBuildAccessesString @ 0x14096E308 (AdtpBuildAccessesString.c)
+ *     _PnpCtxFindNode @ 0x140974748 (_PnpCtxFindNode.c)
+ *     _CmClassFilterCallback @ 0x140976F00 (_CmClassFilterCallback.c)
+ *     _CmServiceFilterCallback @ 0x140977290 (_CmServiceFilterCallback.c)
+ *     ViSuspectDriversLookupEntry @ 0x1409C2584 (ViSuspectDriversLookupEntry.c)
+ *     VfUtilIsProtectedDriver @ 0x1409C689C (VfUtilIsProtectedDriver.c)
+ *     ViIsDriverSuspectForVerifier @ 0x1409C6CF0 (ViIsDriverSuspectForVerifier.c)
+ *     VfDriverEnableVerifier @ 0x1409C8630 (VfDriverEnableVerifier.c)
+ *     ViDriverReApplyVerifierForAll @ 0x1409C8B18 (ViDriverReApplyVerifierForAll.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409D9BA8 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversUnloadCallback @ 0x1409D9FCC (VfSuspectDriversUnloadCallback.c)
+ *     VfCheckUserHandle @ 0x1409DA194 (VfCheckUserHandle.c)
+ *     VfFilterAttach @ 0x1409E4F04 (VfFilterAttach.c)
+ *     VfAddVerifierEntry @ 0x1409EC9E8 (VfAddVerifierEntry.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
+ *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
+ *     CmpCreateHardwareProfiles @ 0x140A58540 (CmpCreateHardwareProfiles.c)
+ *     PnpLoadBootFilterDriver @ 0x140A5B5A0 (PnpLoadBootFilterDriver.c)
+ *     PpInitGetGroupOrderIndex @ 0x140A5EC00 (PpInitGetGroupOrderIndex.c)
+ *     PipLookupGroupName @ 0x140A5ED70 (PipLookupGroupName.c)
+ *     CmGetSystemDriverList @ 0x140A5F174 (CmGetSystemDriverList.c)
+ *     CmpFindHiveSubKey @ 0x140A5F704 (CmpFindHiveSubKey.c)
+ *     CmpDoSort @ 0x140A605D8 (CmpDoSort.c)
+ *     ViInitSystemPhase0 @ 0x140A6FAB8 (ViInitSystemPhase0.c)
+ *     CmpGetKnownHivePathNode @ 0x140A8EBCC (CmpGetKnownHivePathNode.c)
+ *     ViLogAndLoadXdv @ 0x140A938F4 (ViLogAndLoadXdv.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
+ *     <none>
  */
 
 BOOLEAN __stdcall RtlEqualUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 *v4; // rdx
-  char v5; // r8
-  unsigned __int16 *v6; // r10
-  unsigned __int64 v7; // r9
-  __int64 v8; // rdi
-  char *v10; // rax
-  _QWORD *v11; // r10
-  char *v12; // rbx
-  signed __int64 v13; // r10
-  unsigned __int64 v14; // r9
-  unsigned __int64 v15; // r11
+  __int64 Length; // r9
+  wchar_t *Buffer; // rax
+  wchar_t *v6; // r10
+  wchar_t *i; // rbx
+  signed __int64 v8; // r10
+  unsigned __int64 v9; // r9
+  unsigned __int64 v10; // r11
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  v7 = *v6;
-  v8 = CurrentServerSiloGlobals[154];
-  if ( (_DWORD)v7 != *v4 )
+  Length = String1->Length;
+  if ( (_DWORD)Length != String2->Length )
     return 0;
-  v10 = (char *)*((_QWORD *)v6 + 1);
-  v11 = (_QWORD *)*((_QWORD *)v4 + 1);
-  v12 = &v10[v7];
-  if ( v7 >= 8 )
+  Buffer = String1->Buffer;
+  v6 = String2->Buffer;
+  for ( i = (wchar_t *)((char *)Buffer + Length); (unsigned int)Length >= 8; v6 += 4 )
   {
-    do
-    {
-      if ( *(_QWORD *)v10 != *v11 )
-        break;
-      LODWORD(v7) = v7 - 8;
-      if ( !(_DWORD)v7 )
-        return 1;
-      v10 += 8;
-      ++v11;
-    }
-    while ( (unsigned int)v7 >= 8 );
+    if ( *(_QWORD *)Buffer != *(_QWORD *)v6 )
+      break;
+    LODWORD(Length) = Length - 8;
+    if ( !(_DWORD)Length )
+      return 1;
+    Buffer += 4;
   }
-  if ( v10 < v12 )
+  if ( Buffer < i )
   {
-    if ( v5 )
+    if ( CaseInSensitive )
     {
-      v13 = (char *)v11 - v10;
+      v8 = (char *)v6 - (char *)Buffer;
       while ( 1 )
       {
-        v14 = *(unsigned __int16 *)v10;
-        v15 = *(unsigned __int16 *)&v10[v13];
-        if ( (_WORD)v14 != (_WORD)v15 )
+        v9 = *Buffer;
+        v10 = *(wchar_t *)((char *)Buffer + v8);
+        if ( (_WORD)v9 != (_WORD)v10 )
         {
-          if ( (unsigned int)v14 >= 0x61 )
+          if ( (unsigned int)v9 >= 0x61 )
           {
-            if ( (unsigned int)v14 > 0x7A )
+            if ( (unsigned int)v9 > 0x7A )
             {
-              if ( v8 && (unsigned __int16)v14 >= 0xC0u )
-                LOWORD(v14) = *(_WORD *)(v8
-                                       + 2
-                                       * ((v14 & 0xF)
-                                        + *(unsigned __int16 *)(v8
-                                                              + 2LL
-                                                              * (((unsigned __int8)v14 >> 4)
-                                                               + (unsigned int)*(unsigned __int16 *)(v8 + 2 * (v14 >> 8))))))
-                            + v14;
+              if ( Nls844UnicodeUpcaseTable && (unsigned __int16)v9 >= 0xC0u )
+                LOWORD(v9) = *(_WORD *)(Nls844UnicodeUpcaseTable
+                                      + 2
+                                      * ((v9 & 0xF)
+                                       + *(unsigned __int16 *)(Nls844UnicodeUpcaseTable
+                                                             + 2LL
+                                                             * (((unsigned __int8)v9 >> 4)
+                                                              + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable
+                                                                                                  + 2 * (v9 >> 8))))))
+                           + v9;
             }
             else
             {
-              LOWORD(v14) = v14 - 32;
+              LOWORD(v9) = v9 - 32;
             }
           }
-          if ( (unsigned int)v15 >= 0x61 )
+          if ( (unsigned int)v10 >= 0x61 )
           {
-            if ( (unsigned int)v15 > 0x7A )
+            if ( (unsigned int)v10 > 0x7A )
             {
-              if ( v8 )
+              if ( Nls844UnicodeUpcaseTable )
               {
-                if ( (unsigned __int16)v15 >= 0xC0u )
-                  LOWORD(v15) = *(_WORD *)(v8
+                if ( (unsigned __int16)v10 >= 0xC0u )
+                  LOWORD(v10) = *(_WORD *)(Nls844UnicodeUpcaseTable
                                          + 2
-                                         * ((v15 & 0xF)
-                                          + *(unsigned __int16 *)(v8
+                                         * ((v10 & 0xF)
+                                          + *(unsigned __int16 *)(Nls844UnicodeUpcaseTable
                                                                 + 2LL
-                                                                * (((unsigned __int8)v15 >> 4)
-                                                                 + (unsigned int)*(unsigned __int16 *)(v8 + 2 * (v15 >> 8))))))
-                              + v15;
+                                                                * (((unsigned __int8)v10 >> 4)
+                                                                 + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeUpcaseTable + 2 * (v10 >> 8))))))
+                              + v10;
               }
             }
             else
             {
-              LOWORD(v15) = v15 - 32;
+              LOWORD(v10) = v10 - 32;
             }
           }
-          if ( (_WORD)v14 != (_WORD)v15 )
+          if ( (_WORD)v9 != (_WORD)v10 )
             break;
         }
-        v10 += 2;
-        if ( v10 >= v12 )
+        if ( ++Buffer >= i )
           return 1;
       }
     }
     else
     {
-      while ( *(_WORD *)v10 == *(_WORD *)v11 )
+      while ( *Buffer == *v6 )
       {
-        v10 += 2;
-        v11 = (_QWORD *)((char *)v11 + 2);
-        if ( v10 >= v12 )
+        ++Buffer;
+        ++v6;
+        if ( Buffer >= i )
           return 1;
       }
     }

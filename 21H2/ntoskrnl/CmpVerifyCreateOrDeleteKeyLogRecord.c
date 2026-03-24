@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpVerifyCreateOrDeleteKeyLogRecord @ 0x14091C794
+ * XREFs of CmpVerifyCreateOrDeleteKeyLogRecord @ 0x1405CCE14
  * Callers:
- *     CmpVerifyLogRecord @ 0x14091C7F0 (CmpVerifyLogRecord.c)
+ *     CmpVerifyLogRecord @ 0x1405CCE70 (CmpVerifyLogRecord.c)
  * Callees:
- *     RtlValidRelativeSecurityDescriptor @ 0x140715E20 (RtlValidRelativeSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14066DC80 (RtlValidRelativeSecurityDescriptor.c)
  */
 
 __int64 __fastcall CmpVerifyCreateOrDeleteKeyLogRecord(__int64 a1)

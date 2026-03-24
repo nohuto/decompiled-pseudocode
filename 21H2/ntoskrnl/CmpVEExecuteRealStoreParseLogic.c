@@ -1,48 +1,45 @@
 /*
- * XREFs of CmpVEExecuteRealStoreParseLogic @ 0x14071A4E8
+ * XREFs of CmpVEExecuteRealStoreParseLogic @ 0x14066FC00
  * Callers:
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
+ *     CmpVEExecuteParseLogic @ 0x1406FC190 (CmpVEExecuteParseLogic.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpVirtualBranchIsReplicated @ 0x140718CA8 (CmpVirtualBranchIsReplicated.c)
- *     CmpIsKeyDeleted @ 0x14071A6D4 (CmpIsKeyDeleted.c)
- *     CmpUnblockHiveWrites @ 0x14071A730 (CmpUnblockHiveWrites.c)
- *     CmpBlockHiveWrites @ 0x14071B99C (CmpBlockHiveWrites.c)
- *     CmpFindPathByName @ 0x14071F2D8 (CmpFindPathByName.c)
- *     CmRealKCBToVirtualPath @ 0x14077CB98 (CmRealKCBToVirtualPath.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpUnblockHiveWrites @ 0x14066FDA8 (CmpUnblockHiveWrites.c)
+ *     CmpFindPathByName @ 0x14066FE28 (CmpFindPathByName.c)
+ *     CmpBlockHiveWrites @ 0x14066FE50 (CmpBlockHiveWrites.c)
+ *     CmpIsKeyDeleted @ 0x140670F30 (CmpIsKeyDeleted.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1406720EC (CmpVirtualBranchIsReplicated.c)
+ *     CmRealKCBToVirtualPath @ 0x140672A9C (CmRealKCBToVirtualPath.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpVEExecuteRealStoreParseLogic(__int64 a1, __int64 a2, _DWORD *a3, UNICODE_STRING *a4, __int64 a5)
 {
-  void *v6; // r14
-  __int64 v7; // rsi
-  ULONG_PTR v8; // rdi
-  int v10; // r12d
+  int v5; // r12d
+  void *v8; // rsi
+  __int64 v9; // rdi
+  __int64 v10; // r14
   int v11; // ebx
   char PathByName; // al
   char v13; // r12
-  __int64 CellFlat; // rax
+  __int64 v15; // rax
   wchar_t *Buffer; // rcx
-  char v17[4]; // [rsp+30h] [rbp-30h] BYREF
-  _DWORD BugCheckParameter4[3]; // [rsp+34h] [rbp-2Ch] BYREF
-  ULONG_PTR BugCheckParameter3; // [rsp+40h] [rbp-20h] BYREF
+  _BYTE v17[4]; // [rsp+30h] [rbp-30h] BYREF
+  unsigned int v18; // [rsp+34h] [rbp-2Ch] BYREF
+  __int64 v19; // [rsp+38h] [rbp-28h] BYREF
+  __int64 v20; // [rsp+40h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-18h] BYREF
 
-  memset(BugCheckParameter4, 0, sizeof(BugCheckParameter4));
-  DestinationString = 0LL;
+  v5 = a2;
+  v19 = 0xFFFFFFFFLL;
+  v18 = 0;
   v17[0] = 0;
-  v6 = 0LL;
-  v7 = 0LL;
-  BugCheckParameter3 = 0LL;
+  v20 = 0LL;
+  DestinationString = 0LL;
   v8 = 0LL;
-  v10 = a2;
-  HvpGetCellContextReinitialize(&BugCheckParameter4[1]);
+  v9 = 0LL;
+  v10 = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   if ( (unsigned __int8)CmpIsKeyDeleted(a1, 0LL) )
   {
@@ -53,43 +50,40 @@ __int64 __fastcall CmpVEExecuteRealStoreParseLogic(__int64 a1, __int64 a2, _DWOR
     v11 = CmpBlockHiveWrites(*(_QWORD *)(a1 + 32), 0LL, 0LL);
     if ( v11 < 0 )
       goto LABEL_9;
-    v6 = *(void **)(a1 + 32);
-    PathByName = CmpFindPathByName(a1, v10, 0, (unsigned int)BugCheckParameter4, (__int64)&BugCheckParameter3);
-    v8 = BugCheckParameter3;
+    v8 = *(void **)(a1 + 32);
+    PathByName = CmpFindPathByName(a1, v5, 0, (unsigned int)&v18, (__int64)&v20);
+    v10 = v20;
     v13 = PathByName;
     if ( PathByName )
     {
-      if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-        CellFlat = HvpGetCellFlat(BugCheckParameter3, BugCheckParameter4[0], &BugCheckParameter4[1]);
-      else
-        CellFlat = HvpGetCellPaged(BugCheckParameter3);
-      v7 = CellFlat;
-      if ( !CellFlat )
+      v15 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(v20 + 8))(v20, v18, &v19);
+      v9 = v15;
+      if ( !v15 )
       {
         v11 = -1073741670;
         goto LABEL_9;
       }
-      if ( (*(_DWORD *)(CellFlat + 52) & 0x200000) != 0 )
+      if ( (*(_DWORD *)(v15 + 52) & 0x200000) != 0 )
       {
 LABEL_8:
         v11 = -1073741199;
         goto LABEL_9;
       }
-      if ( (*(_BYTE *)(v8 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v8, &BugCheckParameter4[1]);
-      else
-        HvpReleaseCellPaged(v8, &BugCheckParameter4[1]);
+      (*(void (__fastcall **)(__int64, __int64 *))(v10 + 16))(v10, &v19);
     }
     CmpUnblockHiveWrites(*(PVOID *)(a1 + 32));
   }
-  v6 = 0LL;
-  v7 = 0LL;
+  v8 = 0LL;
+  v9 = 0LL;
   v11 = CmRealKCBToVirtualPath(a1, a2, a5, &DestinationString);
   if ( v11 < 0 )
     goto LABEL_9;
   *a3 |= 8u;
-  if ( !CmpVirtualBranchIsReplicated(0LL, &DestinationString, v17) && ((*a3 & 1) == 0 || v13 || !v17[0]) )
+  if ( !(unsigned __int8)CmpVirtualBranchIsReplicated(0LL, &DestinationString, v17)
+    && ((*a3 & 1) == 0 || v13 || !v17[0]) )
+  {
     goto LABEL_8;
+  }
   Buffer = a4->Buffer;
   if ( Buffer )
     ExFreePoolWithTag(Buffer, 0);
@@ -99,14 +93,9 @@ LABEL_8:
 LABEL_9:
   if ( DestinationString.Buffer )
     ExFreePoolWithTag(DestinationString.Buffer, 0);
-  if ( v7 )
-  {
-    if ( (*(_BYTE *)(v8 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v8, &BugCheckParameter4[1]);
-    else
-      HvpReleaseCellPaged(v8, &BugCheckParameter4[1]);
-  }
-  if ( v6 )
-    CmpUnblockHiveWrites(v6);
+  if ( v9 )
+    (*(void (__fastcall **)(__int64, __int64 *))(v10 + 16))(v10, &v19);
+  if ( v8 )
+    CmpUnblockHiveWrites(v8);
   return (unsigned int)v11;
 }

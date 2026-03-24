@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateCrossVmEvent @ 0x14041CC20
+ * XREFs of ZwCreateCrossVmEvent @ 0x1403FB820
  * Callers:
  *     <none>
  * Callees:

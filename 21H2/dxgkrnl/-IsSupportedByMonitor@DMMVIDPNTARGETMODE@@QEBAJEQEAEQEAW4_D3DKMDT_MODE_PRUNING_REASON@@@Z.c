@@ -1,184 +1,196 @@
 /*
- * XREFs of ?IsSupportedByMonitor@DMMVIDPNTARGETMODE@@QEBAJEQEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z @ 0x1C01A8DFC
+ * XREFs of ?IsSupportedByMonitor@DMMVIDPNTARGETMODE@@QEBAJEQEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z @ 0x1C0125218
  * Callers:
- *     ?IsSupportedByMonitor@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@IQEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z @ 0x1C01A8CE0 (-IsSupportedByMonitor@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMO.c)
- *     BmlIsSupportedByMonitorTargetMode @ 0x1C01B5B18 (BmlIsSupportedByMonitorTargetMode.c)
+ *     ?IsSupportedByMonitor@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@IQEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z @ 0x1C0125100 (-IsSupportedByMonitor@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMO.c)
+ *     BmlIsSupportedByMonitorTargetMode @ 0x1C013B5D8 (BmlIsSupportedByMonitorTargetMode.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0010D08 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ??1?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ @ 0x1C002FA24 (--1-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ.c)
- *     ?_IsSupportedModeInternal@MonitorModes@DxgMonitor@@AEBAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_MODE_PRUNING_ALGORITHM@@EPEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z @ 0x1C01A9040 (-_IsSupportedModeInternal@MonitorModes@DxgMonitor@@AEBAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_M.c)
+ *     ?_IsSupportedModeInternal@DXGMONITOR@@AEAAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_MODE_PRUNING_ALGORITHM@@EPEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z @ 0x1C01253D0 (-_IsSupportedModeInternal@DXGMONITOR@@AEAAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_MODE_PRUNING_A.c)
  */
 
 __int64 __fastcall DMMVIDPNTARGETMODE::IsSupportedByMonitor(
         DMMVIDPNTARGETMODE *this,
-        char a2,
+        __int64 a2,
         unsigned __int8 *const a3,
         enum _D3DKMDT_MODE_PRUNING_REASON *const a4)
 {
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r9
-  __int64 v11; // rbx
-  __int64 v12; // rsi
-  int v13; // r12d
-  __int64 v14; // r9
+  __int64 v7; // rbx
+  __int64 v8; // r14
+  __int64 v9; // rdi
+  char v10; // r12
+  __int64 v11; // r14
+  __int64 v12; // rdx
+  __int64 v13; // r9
+  __int64 v14; // rcx
   __int64 v15; // r8
-  __int64 v16; // r9
-  int v17; // r14d
-  char v18; // r14
-  char v19; // si
-  int v20; // ebx
+  int v16; // ebx
+  __int64 v17; // r9
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rbx
+  _BYTE *v21; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  _QWORD *v30; // rax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  _QWORD *v33; // rax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  _QWORD *v36; // rax
   int IsSupportedModeInternal; // eax
-  _BYTE v23[3]; // [rsp+31h] [rbp-27h] BYREF
-  int v24; // [rsp+34h] [rbp-24h] BYREF
-  int v25; // [rsp+38h] [rbp-20h] BYREF
-  __int64 v26; // [rsp+40h] [rbp-18h]
-  __int64 v27; // [rsp+A0h] [rbp+48h] BYREF
-  char v28; // [rsp+A8h] [rbp+50h]
-  unsigned __int8 *v29; // [rsp+B0h] [rbp+58h]
-  enum _D3DKMDT_MODE_PRUNING_REASON *v30; // [rsp+B8h] [rbp+60h]
+  _QWORD *v38; // rax
+  int v39; // [rsp+30h] [rbp-18h] BYREF
+  _DWORD v40[5]; // [rsp+34h] [rbp-14h] BYREF
+  unsigned __int8 v41; // [rsp+90h] [rbp+48h] BYREF
+  char v42; // [rsp+98h] [rbp+50h]
+  unsigned __int8 *v43; // [rsp+A0h] [rbp+58h]
+  int v44; // [rsp+A8h] [rbp+60h] BYREF
 
-  v30 = a4;
-  v29 = a3;
-  v28 = a2;
+  v43 = a3;
+  v42 = a2;
   if ( !a3 )
-    WdLogSingleEntry0(1LL);
-  if ( !a4 )
-    WdLogSingleEntry0(1LL);
-  *a4 = D3DKMDT_MPR_UNINITIALIZED;
-  v8 = *((_QWORD *)this + 5);
-  *a3 = 0;
-  if ( !v8 )
   {
-    WdLogSingleEntry0(1LL);
-    v8 = *((_QWORD *)this + 5);
-    if ( !v8 )
+    v23 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v23);
+  }
+  if ( !a4 )
+  {
+    v24 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v24);
+  }
+  *a4 = D3DKMDT_MPR_UNINITIALIZED;
+  *a3 = 0;
+  v7 = *((_QWORD *)this + 5);
+  if ( !v7 )
+  {
+    v25 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v25);
+    v7 = *((_QWORD *)this + 5);
+    if ( !v7 )
     {
-      WdLogSingleEntry1(2LL, this);
+      v26 = WdLogNewEntry5_WdError(this, a2);
+      *(_QWORD *)(v26 + 24) = this;
+LABEL_28:
+      WdLogEvent5_WdError(v26);
       return 3223192337LL;
     }
   }
-  v9 = *(_QWORD *)(v8 + 112);
+  v8 = *(_QWORD *)(v7 + 112);
+  if ( !v8 )
+  {
+    v26 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v26 + 24) = v7;
+    goto LABEL_28;
+  }
+  v9 = *(_QWORD *)(*(_QWORD *)(v8 + 96) + 112LL);
   if ( !v9 )
   {
-    WdLogSingleEntry1(2LL, v8);
-    return 3223192337LL;
-  }
-  v10 = *(_QWORD *)(*(_QWORD *)(v9 + 96) + 112LL);
-  v26 = v10;
-  if ( !v10 )
-  {
-    WdLogSingleEntry2(3LL, *(unsigned int *)(v9 + 24), this);
+    v27 = WdLogNewEntry5_WdWarning(this, a2, a3);
+    *(_QWORD *)(v27 + 24) = *(unsigned int *)(v8 + 24);
+    *(_QWORD *)(v27 + 32) = this;
+    WdLogEvent5_WdWarning(v27);
     return 3223192376LL;
   }
-  if ( this == (DMMVIDPNTARGETMODE *)-72LL )
+  v10 = 0;
+  LODWORD(v11) = 0;
+  v41 = 0;
+  v44 = 0;
+  if ( this != (DMMVIDPNTARGETMODE *)-72LL )
   {
-    v20 = -1073741811;
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)(v9 + 296), 1u);
+    v14 = *(unsigned int *)(v9 + 48);
+    if ( ((unsigned int)(v14 - 1) <= 2 || (_DWORD)v14 == 14) && (*(_DWORD *)(v9 + 40) & 8) != 0 )
+    {
+      v28 = WdLogNewEntry5_WdDmmEvent(v14, v12);
+      *(_QWORD *)(v28 + 24) = v9;
+      WdLogEvent5_WdDmmEvent(v28);
+      LODWORD(v11) = 1;
+      v10 = 1;
+    }
+    else
+    {
+      v15 = *(unsigned int *)(v9 + 120);
+      if ( (unsigned int)(v15 - 1) <= 1 )
+      {
+        LOBYTE(v13) = v42;
+        IsSupportedModeInternal = DXGMONITOR::_IsSupportedModeInternal(v9, (char *)this + 72, v15, v13, &v41, &v44);
+        v10 = v41;
+        v16 = IsSupportedModeInternal;
+        LODWORD(v11) = v44;
+        goto LABEL_21;
+      }
+      v41 = 0;
+      LOBYTE(v44) = 0;
+      v39 = 0;
+      v40[0] = 0;
+      if ( (_DWORD)v15 != 3 )
+      {
+        v29 = WdLogNewEntry5_WdAssertion(v14, v12);
+        WdLogEvent5_WdAssertion(v29);
+      }
+      LOBYTE(v13) = v42;
+      v16 = DXGMONITOR::_IsSupportedModeInternal(v9, (char *)this + 72, 2LL, v13, &v41, &v39);
+      if ( v16 < 0 )
+        goto LABEL_21;
+      LOBYTE(v17) = v42;
+      v16 = DXGMONITOR::_IsSupportedModeInternal(v9, (char *)this + 72, 1LL, v17, &v44, v40);
+      if ( v16 < 0 )
+        goto LABEL_21;
+      v20 = (unsigned __int8)v44;
+      v11 = v40[0];
+      if ( v41 != (_BYTE)v44 )
+      {
+        v30 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v19, v18);
+        v30[4] = v41;
+        v30[5] = v39;
+        v30[3] = v9;
+        v30[6] = v20;
+        v30[7] = v11;
+        WdLogEvent5_WdDmmEvent(v30);
+        v33 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v32, v31);
+        v33[3] = *((unsigned int *)this + 21);
+        v33[4] = *((unsigned int *)this + 22);
+        v33[5] = *((unsigned int *)this + 23);
+        v33[6] = *((unsigned int *)this + 24);
+        v33[7] = (int)(*((_DWORD *)this + 30) << 29) >> 29;
+        WdLogEvent5_WdDmmEvent(v33);
+        v36 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v35, v34);
+        v36[3] = *((unsigned int *)this + 25);
+        v36[4] = *((unsigned int *)this + 26);
+        v36[5] = *((_QWORD *)this + 14);
+        WdLogEvent5_WdDmmEvent(v36);
+      }
+      if ( !(_BYTE)v20 && !v41 || (v10 = 1, !(_BYTE)v20) )
+        LODWORD(v11) = v39;
+    }
+    v16 = 0;
+LABEL_21:
+    ExReleaseResourceLite((PERESOURCE)(v9 + 296));
+    KeLeaveCriticalRegion();
+    goto LABEL_22;
+  }
+  v16 = -1073741811;
+LABEL_22:
+  if ( v16 < 0 )
+  {
+    v38 = (_QWORD *)WdLogNewEntry5_WdError(this, a2);
+    v38[5] = v16;
+    v38[3] = this;
+    v38[4] = v9;
+    WdLogEvent5_WdError(v38);
+    return (unsigned int)v16;
   }
   else
   {
-    MONITOR_MGR::AcquireMonitorShared(&v27, v10);
-    v11 = v27;
-    if ( v27 )
-    {
-      v12 = *(_QWORD *)(v27 + 232);
-      v13 = 0;
-      LOBYTE(v27) = 0;
-      v25 = 0;
-      if ( ((*(unsigned int (__fastcall **)(_QWORD))(**(_QWORD **)(v12 + 232) + 40LL))(*(_QWORD *)(v12 + 232)) == 1
-         || (*(unsigned int (__fastcall **)(_QWORD))(**(_QWORD **)(v12 + 232) + 40LL))(*(_QWORD *)(v12 + 232)) == 2
-         || (*(unsigned int (__fastcall **)(_QWORD))(**(_QWORD **)(v12 + 232) + 40LL))(*(_QWORD *)(v12 + 232)) == 3
-         || (*(unsigned int (__fastcall **)(_QWORD))(**(_QWORD **)(v12 + 232) + 40LL))(*(_QWORD *)(v12 + 232)) == 14)
-        && (*(unsigned __int8 (__fastcall **)(_QWORD))(**(_QWORD **)(v12 + 232) + 80LL))(*(_QWORD *)(v12 + 232)) )
-      {
-        WdLogSingleEntry1(7LL, v12);
-        v13 = 1;
-        v19 = 1;
-        goto LABEL_23;
-      }
-      v15 = *(unsigned int *)(v12 + 112);
-      if ( (unsigned int)(v15 - 1) <= 1 )
-      {
-        LOBYTE(v14) = a2;
-        IsSupportedModeInternal = DxgMonitor::MonitorModes::_IsSupportedModeInternal(
-                                    v12,
-                                    (char *)this + 72,
-                                    v15,
-                                    v14,
-                                    &v27,
-                                    &v25);
-        v19 = v27;
-        v17 = IsSupportedModeInternal;
-        v13 = v25;
-      }
-      else
-      {
-        v24 = 0;
-        v25 = 0;
-        LOBYTE(v27) = 0;
-        v23[0] = 0;
-        if ( (_DWORD)v15 != 3 )
-          WdLogSingleEntry0(1LL);
-        LOBYTE(v14) = a2;
-        v17 = DxgMonitor::MonitorModes::_IsSupportedModeInternal(v12, (char *)this + 72, 2LL, v14, &v27, &v24);
-        if ( v17 >= 0 )
-        {
-          LOBYTE(v16) = v28;
-          v17 = DxgMonitor::MonitorModes::_IsSupportedModeInternal(v12, (char *)this + 72, 1LL, v16, v23, &v25);
-          if ( v17 >= 0 )
-          {
-            v18 = v23[0];
-            v13 = v25;
-            if ( (_BYTE)v27 != v23[0] )
-            {
-              WdLogSingleEntry5(7LL, v12, (unsigned __int8)v27, v24, v23[0], v25);
-              WdLogSingleEntry5(
-                7LL,
-                *((unsigned int *)this + 21),
-                *((unsigned int *)this + 22),
-                *((unsigned int *)this + 23),
-                *((unsigned int *)this + 24),
-                (int)(*((_DWORD *)this + 30) << 29) >> 29);
-              WdLogSingleEntry3(7LL, *((unsigned int *)this + 25), *((unsigned int *)this + 26), *((_QWORD *)this + 14));
-            }
-            if ( v18 || (_BYTE)v27 )
-            {
-              v19 = 1;
-              if ( v18 )
-              {
-LABEL_23:
-                v17 = 0;
-                goto LABEL_24;
-              }
-            }
-            else
-            {
-              v19 = 0;
-            }
-            v13 = v24;
-            goto LABEL_23;
-          }
-        }
-        v19 = 0;
-      }
-LABEL_24:
-      ExReleaseResourceLite((PERESOURCE)(v11 + 24));
-      KeLeaveCriticalRegion();
-      v20 = v17;
-      if ( v17 >= 0 )
-      {
-        *v29 = v19;
-        *v30 = v13;
-        return 0LL;
-      }
-      goto LABEL_40;
-    }
-    v20 = -1073741275;
-    WdLogSingleEntry1(2LL, -1073741275LL);
-    RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>(&v27);
+    v21 = v43;
+    *a4 = v11;
+    *v21 = v10;
+    return 0LL;
   }
-LABEL_40:
-  WdLogSingleEntry3(2LL, this, v26, v20);
-  return (unsigned int)v20;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmIsLocalMachineContainer @ 0x1406E84C0
+ * XREFs of _CmIsLocalMachineContainer @ 0x14077283C
  * Callers:
- *     _CmGetDeviceContainerMappedProperty @ 0x14076D2BC (_CmGetDeviceContainerMappedProperty.c)
- *     PiDcHandleCustomDeviceEvent @ 0x14078C2F8 (PiDcHandleCustomDeviceEvent.c)
+ *     _CmGetDeviceContainerMappedProperty @ 0x1406AA05C (_CmGetDeviceContainerMappedProperty.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x1406E6038 (PiDcHandleCustomDeviceEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
  */
 
-bool __fastcall CmIsLocalMachineContainer(int a1, const wchar_t *a2)
+bool __fastcall CmIsLocalMachineContainer(__int64 a1, const wchar_t *a2)
 {
   char v2; // bl
   int v5; // [rsp+40h] [rbp-78h] BYREF
@@ -19,7 +19,7 @@ bool __fastcall CmIsLocalMachineContainer(int a1, const wchar_t *a2)
   v2 = 0;
   v5 = 78;
   v6[0] = 0;
-  if ( (int)CmGetDeviceRegProp(a1, (unsigned int)L"HTREE\\ROOT\\0", 0, 37, (__int64)v6, (__int64)Str1, (__int64)&v5, 0) >= 0 )
+  if ( (int)CmGetDeviceRegProp(a1, (__int64)L"HTREE\\ROOT\\0", 0LL, 37, (__int64)v6, (__int64)Str1, (__int64)&v5, 0) >= 0 )
   {
     Str1[38] = 0;
     return wcsicmp(Str1, a2) == 0;

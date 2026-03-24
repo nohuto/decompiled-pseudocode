@@ -1,22 +1,16 @@
 /*
- * XREFs of Amd64GetCounterResolution @ 0x14052BAE0
+ * XREFs of Amd64GetCounterResolution @ 0x1404DDA90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall Amd64GetCounterResolution(unsigned int a1, int *a2)
+__int64 __fastcall Amd64GetCounterResolution(unsigned int a1, _DWORD *a2)
 {
-  int v2; // eax
-  unsigned int v3; // r8d
+  __int64 result; // rax
 
-  v2 = 0;
-  v3 = 0;
-  if ( a1 == -1073741591 || a1 < Amd64NumberCounters )
-    v2 = 48;
-  else
-    v3 = -1073741811;
-  *a2 = v2;
-  return v3;
+  result = a1 >= 4 ? 0xC000000D : 0;
+  *a2 = a1 < 4 ? 0x30 : 0;
+  return result;
 }

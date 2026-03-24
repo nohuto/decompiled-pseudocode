@@ -1,22 +1,23 @@
 /*
- * XREFs of EtwpCCSwapFlush @ 0x1403AC3AC
+ * XREFs of EtwpCCSwapFlush @ 0x1403AF2C8
  * Callers:
- *     EtwpCCSwapTrace @ 0x1403ABFD0 (EtwpCCSwapTrace.c)
+ *     EtwpCCSwapTrace @ 0x1403AEF70 (EtwpCCSwapTrace.c)
  * Callees:
- *     EtwpOpenLogger @ 0x14022AFF8 (EtwpOpenLogger.c)
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     EtwpCloseLogger @ 0x1403860B0 (EtwpCloseLogger.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwpOpenLogger @ 0x14025DB98 (EtwpOpenLogger.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     EtwpCloseLogger @ 0x140379F38 (EtwpCloseLogger.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-char __fastcall EtwpCCSwapFlush(_DWORD *a1, int a2)
+__int64 __fastcall EtwpCCSwapFlush(_DWORD *a1, int a2)
 {
-  __int64 v3; // rax
-  unsigned int v4; // ebx
-  unsigned int v5; // edi
+  int v3; // eax
+  __int64 result; // rax
+  unsigned int v5; // ebx
   unsigned int v7; // ecx
   __int64 v8; // r8
   __int64 v9; // rcx
+  unsigned int v10; // edi
   char v11[8]; // [rsp+30h] [rbp-28h] BYREF
   _DWORD *v12; // [rsp+38h] [rbp-20h] BYREF
   int v13; // [rsp+40h] [rbp-18h]
@@ -24,32 +25,32 @@ char __fastcall EtwpCCSwapFlush(_DWORD *a1, int a2)
 
   v11[0] = 0;
   v12 = a1 + 4;
-  LODWORD(v3) = *a1 - 16;
+  v3 = *a1 - 16;
   v14 = 0;
   v13 = v3;
-  LOBYTE(v3) = EtwpHostSiloState;
-  v4 = *(_DWORD *)(EtwpHostSiloState + 4248);
-  while ( _BitScanForward(&v7, v4) )
+  result = EtwpHostSiloState;
+  v5 = *(_DWORD *)(EtwpHostSiloState + 4224);
+  while ( _BitScanForward(&v7, v5) )
   {
-    v4 &= v4 - 1;
+    v5 &= v5 - 1;
     v8 = v7;
-    v3 = 32LL * v7;
-    v9 = v3 + EtwpHostSiloState + 4284;
+    result = 32LL * v7;
+    v9 = result + EtwpHostSiloState + 4260;
     if ( v9 )
     {
-      LODWORD(v3) = *(_DWORD *)(v9 + 4);
-      if ( (v3 & 4) != 0 && (v3 & 0x100) != 0 )
+      result = *(unsigned int *)(v9 + 4);
+      if ( (result & 4) != 0 && (result & 0x100) != 0 )
       {
-        v5 = *(unsigned __int8 *)(EtwpHostSiloState + 2 * v8 + 4232);
-        v3 = EtwpOpenLogger(v5, EtwpHostSiloState, 0, v11);
-        if ( v3 )
+        v10 = *(unsigned __int8 *)(EtwpHostSiloState + 2 * v8 + 4208);
+        result = EtwpOpenLogger(v10, EtwpHostSiloState, 0, v11);
+        if ( result )
         {
-          if ( *(_DWORD *)(v3 + 200) == a2 )
-            EtwpLogKernelEvent((__int64)&v12, EtwpHostSiloState, v5, 1u, 0x525u, 0x202u);
-          LOBYTE(v3) = EtwpCloseLogger(v5, EtwpHostSiloState, v11[0]);
+          if ( *(_DWORD *)(result + 216) == a2 )
+            EtwpLogKernelEvent((__int64)&v12, EtwpHostSiloState, v10, 1u, 0x525u, 0x202u);
+          result = (__int64)EtwpCloseLogger(v10, EtwpHostSiloState, v11[0]);
         }
       }
     }
   }
-  return v3;
+  return result;
 }

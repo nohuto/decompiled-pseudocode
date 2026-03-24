@@ -1,14 +1,14 @@
 /*
- * XREFs of VfIrpLogDeleteDeviceLogs @ 0x140A9B6E0
+ * XREFs of VfIrpLogDeleteDeviceLogs @ 0x1409E36F0
  * Callers:
- *     VfIoDeleteDevice @ 0x140A91824 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x1409D6144 (VfIoDeleteDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ViIrpLogDatabaseFindPointer @ 0x140A9BEE8 (ViIrpLogDatabaseFindPointer.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ViIrpLogDatabaseFindPointer @ 0x1409E3EF8 (ViIrpLogDatabaseFindPointer.c)
  */
 
 __int64 __fastcall VfIrpLogDeleteDeviceLogs(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall VfIrpLogDeleteDeviceLogs(__int64 a1)
     }
     else
     {
-      ObfDereferenceObject(*(PVOID *)Pointer);
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)Pointer);
       v5 = v4[1];
       v6 = (_QWORD *)v4[2];
       if ( *(_QWORD **)(v5 + 8) != v4 + 1 || (_QWORD *)*v6 != v4 + 1 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetFilter@FxDevice@@QEAAJE@Z @ 0x1C00263B8
+ * XREFs of ?SetFilter@FxDevice@@QEAAJE@Z @ 0x1C00525D8
  * Callers:
- *     ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C002693C (-FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0050780 (-FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
  * Callees:
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 __int64 __fastcall FxDevice::SetFilter(FxDevice *this, unsigned __int8 Value)
@@ -20,7 +20,7 @@ __int64 __fastcall FxDevice::SetFilter(FxDevice *this, unsigned __int8 Value)
   if ( m_PkgIo->m_DefaultQueue )
   {
     v3 = -1073741808;
-    WPP_IFR_SF_d(m_Globals, 2u, 0xDu, 0x1Du, WPP_FxPkgIo_cpp_Traceguids, -1073741808);
+    WPP_IFR_SF_d(m_Globals, 2u, 0xDu, 0x1Du, (const _GUID *)&WPP_FxPkgIo_cpp_Traceguids, -1073741808);
     FxVerifierDbgBreakPoint(m_Globals);
   }
   else

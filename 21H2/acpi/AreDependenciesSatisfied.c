@@ -1,10 +1,10 @@
 /*
- * XREFs of AreDependenciesSatisfied @ 0x1C0027CAC
+ * XREFs of AreDependenciesSatisfied @ 0x1C002E8F4
  * Callers:
- *     ACPIBuildProcessDelayedDependencyShouldDelayRequest @ 0x1C0027C04 (ACPIBuildProcessDelayedDependencyShouldDelayRequest.c)
+ *     ACPIBuildProcessDelayedDependencyShouldDelayRequest @ 0x1C002E844 (ACPIBuildProcessDelayedDependencyShouldDelayRequest.c)
  * Callees:
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNameSpaceObject @ 0x1C0018260 (AMLIGetNameSpaceObject.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
  */
 
 bool __fastcall AreDependenciesSatisfied(__int64 *a1, __int64 a2)
@@ -12,9 +12,9 @@ bool __fastcall AreDependenciesSatisfied(__int64 *a1, __int64 a2)
   _DWORD *v2; // rsi
   unsigned int v3; // ebx
   unsigned int v5; // edi
-  _BYTE **v6; // rsi
-  __int64 v7; // rbp
-  volatile signed __int32 *v9; // [rsp+48h] [rbp+10h] BYREF
+  _BYTE **v7; // rsi
+  __int64 v8; // rbp
+  __int64 v9; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = *(_DWORD **)(a2 + 32);
   v3 = 0;
@@ -22,19 +22,19 @@ bool __fastcall AreDependenciesSatisfied(__int64 *a1, __int64 a2)
   v5 = *v2;
   if ( *v2 )
   {
-    v6 = (_BYTE **)(v2 + 10);
+    v7 = (_BYTE **)(v2 + 10);
     do
     {
-      if ( (int)AMLIGetNameSpaceObject(*v6, a1, &v9, 0) < 0 )
+      if ( (int)AMLIGetNameSpaceObject(*v7, a1, (unsigned __int64 *)&v9, 0) < 0 )
         break;
-      v7 = *(_QWORD *)(*(_QWORD *)v9 + 104LL);
+      v8 = *(_QWORD *)(*(_QWORD *)v9 + 104LL);
       AMLIDereferenceHandleEx(v9);
-      if ( !v7 )
+      if ( !v8 )
         break;
-      if ( *(_DWORD *)(v7 + 368) != 3 )
+      if ( *(_DWORD *)(v8 + 328) != 3 )
         break;
       ++v3;
-      v6 += 5;
+      v7 += 5;
     }
     while ( v3 < v5 );
   }

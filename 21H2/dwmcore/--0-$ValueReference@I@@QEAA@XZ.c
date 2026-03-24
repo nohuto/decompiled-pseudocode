@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0?$ValueReference@I@@QEAA@XZ @ 0x180281C54
+ * XREFs of ??0?$ValueReference@I@@QEAA@XZ @ 0x180241F68
  * Callers:
- *     ??$MakeAndInitialize@V?$ValueReference@I@@U?$IReference@I@Foundation@Windows@@J@Details@WRL@Microsoft@@YAJPEAPEAU?$IReference@I@Foundation@Windows@@$$QEAJ@Z @ 0x180281304 (--$MakeAndInitialize@V-$ValueReference@I@@U-$IReference@I@Foundation@Windows@@J@Details@WRL@Micr.c)
+ *     ?CreatePrimaryDescription@CDDisplayManager@@AEAAJAEBVRenderTargetInfo@@AEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@PEAPEAUIDisplayPrimaryDescription@Core@Display@Devices@Windows@@@Z @ 0x180243EE0 (-CreatePrimaryDescription@CDDisplayManager@@AEAAJAEBVRenderTargetInfo@@AEBUPixelFormatInfo@@AEBU.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??0FtmBase@WRL@Microsoft@@QEAA@XZ @ 0x180282144 (--0FtmBase@WRL@Microsoft@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??0FtmBase@WRL@Microsoft@@QEAA@XZ @ 0x1802423C0 (--0FtmBase@WRL@Microsoft@@QEAA@XZ.c)
  */
 
 __int64 __fastcall ValueReference<unsigned int>::ValueReference<unsigned int>(__int64 a1)

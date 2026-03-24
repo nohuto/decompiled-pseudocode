@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpAdjustRequestedFileSize @ 0x1407E62CC
+ * XREFs of CmpAdjustRequestedFileSize @ 0x140724364
  * Callers:
- *     CmpDoFileSetSizeEx @ 0x14074D908 (CmpDoFileSetSizeEx.c)
+ *     CmpDoFileSetSizeEx @ 0x140723DD0 (CmpDoFileSetSizeEx.c)
  * Callees:
- *     HvGetEffectiveLogSizeCapForHive @ 0x1407516C8 (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1407239C0 (HvGetEffectiveLogSizeCapForHive.c)
  */
 
 unsigned __int64 __fastcall CmpAdjustRequestedFileSize(
@@ -31,7 +31,7 @@ unsigned __int64 __fastcall CmpAdjustRequestedFileSize(
   else
   {
     EffectiveLogSizeCapForHive = 0x40000LL;
-    if ( (a1[1028] & 0x80u) != 0 || !v4 && a4 <= 0x40000 )
+    if ( (a1[1038] & 0x80u) != 0 || !v4 && a4 <= 0x40000 )
       v7 = 1;
     v5 = v7 != 0 ? 4096 : 0x40000;
   }

@@ -1,30 +1,32 @@
 /*
- * XREFs of MiGetClosestNodeWithProcessors @ 0x14036E1A0
+ * XREFs of MiGetClosestNodeWithProcessors @ 0x140353A20
  * Callers:
- *     MiComputeIdealDpcGang @ 0x14038940C (MiComputeIdealDpcGang.c)
- *     MiCombineAllPhysicalMemory @ 0x1406F9DC0 (MiCombineAllPhysicalMemory.c)
- *     MiCreateZeroThreadContext @ 0x140839588 (MiCreateZeroThreadContext.c)
+ *     MiCreateColorAnchors @ 0x1403538F4 (MiCreateColorAnchors.c)
+ *     MiComputeIdealDpcGang @ 0x14055FFFC (MiComputeIdealDpcGang.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140305880 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryNodeActiveAffinity @ 0x1403544E0 (KeQueryNodeActiveAffinity.c)
  */
 
-__int64 __fastcall MiGetClosestNodeWithProcessors(int a1)
+__int64 __fastcall MiGetClosestNodeWithProcessors(unsigned int a1)
 {
-  unsigned int *v1; // rbx
-  unsigned int *v2; // rsi
-  unsigned int v3; // edi
-  USHORT Count; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v1; // ebx
+  unsigned int *v3; // rdi
+  unsigned int *v4; // rsi
+  USHORT Count; // [rsp+38h] [rbp+10h] BYREF
 
   Count = 0;
-  v1 = (unsigned int *)(qword_140C65B98 + 4LL * (unsigned int)(unsigned __int16)KeNumberNodes * a1);
-  v2 = &v1[(unsigned __int16)KeNumberNodes];
-  while ( v1 < v2 )
+  v1 = a1;
+  KeQueryNodeActiveAffinity(a1, 0LL, &Count);
+  if ( Count )
+    return v1;
+  v3 = (unsigned int *)(qword_140C4DE98 + 4LL * v1 * (unsigned __int16)KeNumberNodes);
+  v4 = &v3[(unsigned __int16)KeNumberNodes];
+  while ( ++v3 < v4 )
   {
-    v3 = *v1;
-    KeQueryNodeActiveAffinity(*v1, 0LL, &Count);
+    v1 = *v3;
+    KeQueryNodeActiveAffinity(*v3, 0LL, &Count);
     if ( Count )
-      return v3;
-    ++v1;
+      return v1;
   }
   return 0xFFFFFFFFLL;
 }

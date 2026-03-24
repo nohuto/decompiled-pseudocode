@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBPDO_WakeNotificationIoctlComplete @ 0x1C001C3B0
+ * XREFs of HUBPDO_WakeNotificationIoctlComplete @ 0x1C0019B40
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBPDO_CompleteWaitWake @ 0x1C001C2E0 (HUBPDO_CompleteWaitWake.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBPDO_CompleteWaitWake @ 0x1C0019A74 (HUBPDO_CompleteWaitWake.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 _UNKNOWN **__fastcall HUBPDO_WakeNotificationIoctlComplete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -20,7 +20,7 @@ _UNKNOWN **__fastcall HUBPDO_WakeNotificationIoctlComplete(__int64 a1, __int64 a
   v7 = (struct _KEVENT *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                            WdfDriverGlobals,
                            a1,
-                           off_1C0069310);
+                           off_1C00662B8);
   KeSetEvent(v7 + 1, 0, 0);
   result = &WPP_RECORDER_INITIALIZED;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -30,8 +30,8 @@ _UNKNOWN **__fastcall HUBPDO_WakeNotificationIoctlComplete(__int64 a1, __int64 a
                           *(_QWORD *)(*(_QWORD *)(a4 + 8) + 1432LL),
                           4u,
                           5u,
-                          0x95u,
-                          (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+                          0x81u,
+                          (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
                           v9);
   }
   return result;

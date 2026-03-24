@@ -1,15 +1,11 @@
 /*
- * XREFs of ?VmBusSendMarkDeviceAsError@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEBU_D3DKMT_MARKDEVICEASERROR@@@Z @ 0x1C038B348
+ * XREFs of ?VmBusSendMarkDeviceAsError@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEBU_D3DKMT_MARKDEVICEASERROR@@@Z @ 0x1C024A5BC
  * Callers:
- *     ?Reset@DXGDEVICE@@QEAAXE@Z @ 0x1C02ED24C (-Reset@DXGDEVICE@@QEAAXE@Z.c)
- *     DxgkMarkDeviceAsError @ 0x1C02F1FE0 (DxgkMarkDeviceAsError.c)
+ *     ?Reset@DXGDEVICE@@QEAAXXZ @ 0x1C0257004 (-Reset@DXGDEVICE@@QEAAXXZ.c)
+ *     DxgkMarkDeviceAsError @ 0x1C025A120 (DxgkMarkDeviceAsError.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?GetHostProcess@DXGPROCESS@@QEAAIXZ @ 0x1C0344C50 (-GetHostProcess@DXGPROCESS@@QEAAIXZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C038FFC4 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPE.c)
+ *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C024DD40 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_M.c)
+ *     ?GetHostProcess@DXGPROCESS@@QEAAIXZ @ 0x1C02857F4 (-GetHostProcess@DXGPROCESS@@QEAAIXZ.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendMarkDeviceAsError(
@@ -18,50 +14,31 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendMarkDeviceAsError(
         struct DXGDEVICE *a3,
         const struct _D3DKMT_MARKDEVICEASERROR *a4)
 {
-  struct DXGKVMB_COMMAND_BASE *v8; // rbx
-  __int64 v9; // rdi
-  int HostProcess; // eax
-  int v11; // eax
-  struct _MDL *v13; // [rsp+20h] [rbp-178h]
-  struct DXGKVMB_COMMAND_BASE *v14[2]; // [rsp+50h] [rbp-148h] BYREF
-  unsigned int v15; // [rsp+60h] [rbp-138h]
+  struct _MDL *v7; // r9
+  int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rbx
+  __int64 v12; // rax
+  __int64 v14; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int HostProcess; // [rsp+28h] [rbp-20h]
+  int v16; // [rsp+2Ch] [rbp-1Ch]
+  int v17; // [rsp+30h] [rbp-18h]
+  __int64 v18; // [rsp+38h] [rbp-10h]
 
-  v15 = 0;
-  *(_OWORD *)v14 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v14, this, 0x20u, 0LL, 0LL, 0LL);
-  v8 = v14[0];
-  if ( v14[0] )
+  v14 = 0LL;
+  v16 = 0;
+  HostProcess = DXGPROCESS::GetHostProcess(a2);
+  v18 = (__int64)*a4;
+  LODWORD(v18) = *((_DWORD *)a3 + 110);
+  v17 = 29;
+  v8 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (struct DXGKVMB_COMMAND_BASE *)&v14, 0x20u, v7);
+  v11 = v8;
+  if ( v8 < 0 )
   {
-    HostProcess = DXGPROCESS::GetHostProcess(a2);
-    *(_QWORD *)v8 = 0LL;
-    *((_DWORD *)v8 + 5) = 0;
-    *((_BYTE *)v8 + 12) = 0;
-    *((_DWORD *)v8 + 3) &= 0x1FFu;
-    *((_DWORD *)v8 + 2) = HostProcess;
-    *((_DWORD *)v8 + 4) = 29;
-    *((struct _D3DKMT_MARKDEVICEASERROR *)v8 + 3) = *a4;
-    *((_DWORD *)v8 + 6) = *((_DWORD *)a3 + 118);
-    v11 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (unsigned __int8 *)v14[1], v14[0], v15, v13);
-    v9 = v11;
-    if ( v11 < 0 )
-    {
-      WdLogSingleEntry1(2LL, v11);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"VmBusSendSyncMessageStatusReturn failed: 0x%I64x",
-        v9,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
+    v12 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v12 + 24) = v11;
+    WdLogEvent5_WdError(v12);
   }
-  else
-  {
-    LODWORD(v9) = -1073741801;
-  }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v14);
-  return (unsigned int)v9;
+  return (unsigned int)v11;
 }

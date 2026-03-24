@@ -1,31 +1,26 @@
 /*
- * XREFs of ExpAcquireFannedOutPushLockShared @ 0x14023642C
+ * XREFs of ExpAcquireFannedOutPushLockShared @ 0x140390B40
  * Callers:
- *     FsRtlLookupPerFileObjectContext @ 0x14021C390 (FsRtlLookupPerFileObjectContext.c)
- *     FsRtlLookupPerStreamContextInternal @ 0x1402AE630 (FsRtlLookupPerStreamContextInternal.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x14028F230 (ExAcquireAutoExpandPushLockShared.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
  */
 
-volatile signed __int64 *__fastcall ExpAcquireFannedOutPushLockShared(
-        unsigned int a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+unsigned __int64 *__fastcall ExpAcquireFannedOutPushLockShared(unsigned int a1, __int64 a2, ULONG_PTR a3)
 {
-  unsigned int v4; // eax
-  unsigned __int64 v5; // r11
-  unsigned int v6; // ecx
-  volatile signed __int64 *v7; // rbx
+  unsigned int v3; // eax
+  unsigned __int64 v4; // r10
+  unsigned int v5; // ecx
+  unsigned __int64 *v6; // rbx
 
-  v4 = (a1 >> 13) & 0x3FFFF;
-  v5 = (unsigned __int64)a1 >> 4;
-  _BitScanReverse(&v6, v4);
-  v7 = (volatile signed __int64 *)(*(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v6 - 2)
-                                             + 8LL * (v4 ^ (1 << v6))
-                                             + 8)
-                                 + 8 * (v5 & 0x1FF));
-  if ( _InterlockedCompareExchange64(v7, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v7, a2, a3, a4);
-  return v7;
+  v3 = (a1 >> 13) & 0x3FFFF;
+  v4 = (unsigned __int64)a1 >> 4;
+  _BitScanReverse(&v5, v3);
+  v6 = (unsigned __int64 *)(*(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v5 - 2)
+                                      + 8LL * (v3 ^ (1 << v5))
+                                      + 8)
+                          + 8 * (v4 & 0x1FF));
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)v6, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx(v6, a2, a3);
+  return v6;
 }

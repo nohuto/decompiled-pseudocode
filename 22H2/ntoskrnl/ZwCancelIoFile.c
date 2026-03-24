@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCancelIoFile @ 0x14041B240
+ * XREFs of ZwCancelIoFile @ 0x1403FA5C0
  * Callers:
- *     DifZwCancelIoFileWrapper @ 0x1405EDB70 (DifZwCancelIoFileWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

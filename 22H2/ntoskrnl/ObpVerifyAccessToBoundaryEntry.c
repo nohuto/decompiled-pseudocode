@@ -1,40 +1,44 @@
 /*
- * XREFs of ObpVerifyAccessToBoundaryEntry @ 0x1407F3170
+ * XREFs of ObpVerifyAccessToBoundaryEntry @ 0x1405DAB30
  * Callers:
  *     <none>
  * Callees:
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     SeAccessCheckWithHint @ 0x1402316A0 (SeAccessCheckWithHint.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735770 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x140736AB0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     RtlIsPackageSid @ 0x1407F33A4 (RtlIsPackageSid.c)
- *     RtlAddMandatoryAce @ 0x1407F33F0 (RtlAddMandatoryAce.c)
+ *     SeAccessCheckWithHint @ 0x1402CE400 (SeAccessCheckWithHint.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlIsPackageSid @ 0x1405DAD60 (RtlIsPackageSid.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1405DADB0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddMandatoryAce @ 0x1406D44E0 (RtlAddMandatoryAce.c)
+ *     RtlpAddKnownAce @ 0x1406D5220 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
  */
 
-_BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(_DWORD *a1, __int64 a2)
+_BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(int *a1, __int64 a2)
 {
-  unsigned __int8 *v4; // rsi
+  void *Src; // rsi
   int v5; // eax
-  unsigned __int8 **v6; // rax
-  PSID *v8; // rdx
-  int v9; // eax
-  int Src; // [rsp+20h] [rbp-E0h]
-  unsigned int v11; // [rsp+60h] [rbp-A0h] BYREF
+  void **v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rdx
+  __int64 v9; // r9
+  PSID *v11; // rdx
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rdx
+  int v15; // [rsp+60h] [rbp-A0h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v13; // [rsp+88h] [rbp-78h]
-  ACL v14[12]; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v17; // [rsp+88h] [rbp-78h]
+  ACL v18[12]; // [rsp+90h] [rbp-70h] BYREF
   ACL Acl[20]; // [rsp+F0h] [rbp-10h] BYREF
 
   memset(Acl, 0, sizeof(Acl));
-  v11 = 0;
-  memset(v14, 0, 0x54uLL);
-  v4 = (unsigned __int8 *)(a1 + 2);
-  v13 = 0LL;
+  v15 = 0;
+  memset(v18, 0, 0x54uLL);
+  Src = a1 + 2;
+  v17 = 0LL;
   v5 = *a1;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   if ( v5 != 2 )
@@ -48,61 +52,53 @@ _BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(_DWORD *a1, __int64 a2)
       }
       return 1LL;
     }
-    RtlCreateAcl(v14, 0x54u, 2u);
-    RtlAddMandatoryAce(v14, 2LL, 0LL, v4, 17, 7);
+    RtlCreateAcl(v18, 0x54u, 2u);
+    RtlAddMandatoryAce(v18, v13, 0LL, Src);
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
-    RtlSetSaclSecurityDescriptor((__int64)SecurityDescriptor, 1, (__int64)v14, 0);
-    return SeAccessCheckWithHint(
-             (__int64)SecurityDescriptor,
-             1,
-             (struct _SECURITY_SUBJECT_CONTEXT *)a2,
-             1,
-             0xF000Fu,
-             0,
-             0LL,
-             (__int64)&ObpDirectoryObjectType->TypeInfo.GenericMapping,
-             KeGetCurrentThread()->PreviousMode,
-             &v11,
-             (int *)(a2 + 48));
+    LOBYTE(v14) = 1;
+    RtlSetSaclSecurityDescriptor(SecurityDescriptor, v14, v18, 0LL);
+    goto LABEL_6;
   }
-  if ( !(unsigned __int8)RtlIsPackageSid(v4) )
+  if ( !(unsigned __int8)RtlIsPackageSid(Src) )
   {
     RtlCreateAcl(Acl, 0xA0u, 2u);
-    RtlpAddKnownAce((__int64)Acl, 2u, 0, 983055, v4, 0);
-    v6 = *(unsigned __int8 ***)(a2 + 32);
+    RtlpAddKnownAce((int)Acl, 2, 0, 983055, Src, 0);
+    v6 = *(void ***)(a2 + 32);
     if ( v6 )
-      RtlpAddKnownAce((__int64)Acl, 2u, 0, 983055, *v6, 0);
-    RtlCreateAcl(v14, 0x54u, 2u);
-    LOBYTE(Src) = 17;
-    RtlAddMandatoryAce(v14, 2LL, 0LL, *(_QWORD *)(a2 + 40), Src, 7);
+      RtlpAddKnownAce((int)Acl, 2, 0, 983055, *v6, 0);
+    RtlCreateAcl(v18, 0x54u, 2u);
+    RtlAddMandatoryAce(v18, v7, 0LL, *(_QWORD *)(a2 + 40));
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, Acl, 0);
-    RtlSetSaclSecurityDescriptor((__int64)SecurityDescriptor, 1, (__int64)v14, 0);
-    return SeAccessCheckWithHint(
-             (__int64)SecurityDescriptor,
-             1,
-             (struct _SECURITY_SUBJECT_CONTEXT *)a2,
-             1,
-             0xF000Fu,
-             0,
-             0LL,
-             (__int64)&ObpDirectoryObjectType->TypeInfo.GenericMapping,
-             KeGetCurrentThread()->PreviousMode,
-             &v11,
-             (int *)(a2 + 48));
+    LOBYTE(v8) = 1;
+    RtlSetSaclSecurityDescriptor(SecurityDescriptor, v8, v18, 0LL);
+LABEL_6:
+    LOBYTE(v9) = 1;
+    return (unsigned __int8)SeAccessCheckWithHint(
+                              (__int64)SecurityDescriptor,
+                              1LL,
+                              a2,
+                              v9,
+                              983055,
+                              0,
+                              0LL,
+                              (__int64)&ObpDirectoryObjectType->TypeInfo.GenericMapping,
+                              KeGetCurrentThread()->PreviousMode,
+                              (__int64)&v15,
+                              a2 + 48) != 0;
   }
-  v8 = *(PSID **)(a2 + 32);
-  if ( v8 && !RtlEqualSid(v4, *v8) )
+  v11 = *(PSID **)(a2 + 32);
+  if ( v11 && !RtlEqualSid(Src, *v11) )
   {
     *(_DWORD *)(a2 + 48) = -1073741790;
     return 0LL;
   }
-  v9 = *(_DWORD *)(a2 + 52);
-  if ( (v9 & 1) != 0 )
+  v12 = *(_DWORD *)(a2 + 52);
+  if ( (v12 & 1) != 0 )
   {
     *(_DWORD *)(a2 + 48) = -1073741811;
     return 0LL;
   }
-  *(_DWORD *)(a2 + 52) = v9 | 1;
+  *(_DWORD *)(a2 + 52) = v12 | 1;
   return 1LL;
 }

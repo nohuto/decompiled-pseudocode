@@ -1,11 +1,11 @@
 /*
- * XREFs of XilCoreDeviceSlot_Initialize @ 0x1C00142F8
+ * XREFs of XilCoreDeviceSlot_Initialize @ 0x1C00141B0
  * Callers:
- *     DeviceSlot_Initialize @ 0x1C0014604 (DeviceSlot_Initialize.c)
+ *     DeviceSlot_Initialize @ 0x1C00144D8 (DeviceSlot_Initialize.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     XilRegister_WriteUlong @ 0x1C0013B7C (XilRegister_WriteUlong.c)
- *     XilRegister_WriteUlong64 @ 0x1C0014420 (XilRegister_WriteUlong64.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
  */
 
 __int64 __fastcall XilCoreDeviceSlot_Initialize(__int64 a1)
@@ -27,7 +27,7 @@ __int64 __fastcall XilCoreDeviceSlot_Initialize(__int64 a1)
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(v3 + 72), 2, 10, 18, (__int64)&WPP_cb7a5c278baa3da630509d7564b04261_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(v3 + 72), 2, 10, 18, (__int64)&WPP_57b4ec5b2a77395746dfb5e96c966fbd_Traceguids);
     return (unsigned int)-1073741436;
   }
   return v2;

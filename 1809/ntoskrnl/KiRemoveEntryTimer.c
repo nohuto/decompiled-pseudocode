@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRemoveEntryTimer @ 0x1401318AC
+ * XREFs of KiRemoveEntryTimer @ 0x1401318CC
  * Callers:
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  *     KiInsertTimerTable @ 0x1400581E0 (KiInsertTimerTable.c)
- *     KiExpireTimerTable @ 0x140156D10 (KiExpireTimerTable.c)
- *     KiAdjustTimerDueTimes @ 0x14016FBCC (KiAdjustTimerDueTimes.c)
+ *     KiExpireTimerTable @ 0x140156D30 (KiExpireTimerTable.c)
+ *     KiAdjustTimerDueTimes @ 0x14016FBEC (KiAdjustTimerDueTimes.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of XilCommand_GetCommandRingBufferLogicalAddress @ 0x1C0004390
+ * XREFs of XilCommand_GetCommandRingBufferLogicalAddress @ 0x1C0007488
  * Callers:
- *     Command_HandleCommandCompletionEvent @ 0x1C0003A40 (Command_HandleCommandCompletionEvent.c)
- *     Command_HandleCommandRingStoppedEvent @ 0x1C002E454 (Command_HandleCommandRingStoppedEvent.c)
+ *     Command_HandleCommandCompletionEvent @ 0x1C0006928 (Command_HandleCommandCompletionEvent.c)
+ *     Command_HandleCommandRingStoppedEvent @ 0x1C002E2A4 (Command_HandleCommandRingStoppedEvent.c)
  * Callees:
  *     <none>
  */

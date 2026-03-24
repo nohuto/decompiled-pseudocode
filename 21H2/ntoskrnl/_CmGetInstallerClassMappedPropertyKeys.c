@@ -1,214 +1,302 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyKeys @ 0x140A2B950
+ * XREFs of _CmGetInstallerClassMappedPropertyKeys @ 0x14097AEA0
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x1406BD260 (_PnpDispatchInstallerClass.c)
- *     _CmDeleteInstallerClassWorker @ 0x140A24D6C (_CmDeleteInstallerClassWorker.c)
+ *     _PnpDispatchInstallerClass @ 0x14073EDE0 (_PnpDispatchInstallerClass.c)
+ *     _CmDeleteInstallerClassWorker @ 0x1409752C4 (_CmDeleteInstallerClassWorker.c)
  * Callees:
- *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x1406BD5D8 (_CmGetInstallerClassMappedPropertyFromComposite.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406BD994 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x1406BDEE4 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x1406BE094 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x14073C2C0 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x14073D774 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14073F1A0 (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F5AC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyKeys(
         __int64 a1,
         const WCHAR *a2,
-        __int64 a3,
+        void *a3,
         char a4,
         __int64 a5,
         unsigned int a6,
         unsigned int *a7)
 {
-  unsigned int *v7; // rbx
-  __int64 *v8; // r14
-  unsigned int v11; // ebp
-  __int64 v12; // rsi
-  __int64 result; // rax
-  __int64 v14; // rax
-  __int64 v15; // rcx
-  unsigned int v16; // ecx
-  unsigned int v17; // ebp
-  __int64 *v18; // r14
-  __int64 v19; // rsi
-  __int64 v20; // rax
-  __int64 v21; // rcx
-  unsigned int v22; // ecx
-  unsigned int v23; // ebp
-  __int64 *v24; // rsi
-  __int64 v25; // r14
-  __int64 v26; // rax
-  __int64 v27; // rcx
-  unsigned int v28; // ecx
-  int InstallerClassMappedPropertyFromCoInstallers; // eax
-  __int64 v30; // rax
+  __int64 *v7; // r14
+  signed int v8; // r10d
+  unsigned int v9; // r15d
+  int v10; // r11d
+  __int64 v12; // r8
+  int v13; // eax
+  __int64 v14; // rsi
+  char v15; // bp
+  signed int InstallerClassMappedPropertyFromRegProp; // eax
+  __int64 v17; // rax
+  __int64 v18; // rcx
+  unsigned int v19; // edx
+  int v20; // eax
+  unsigned int v21; // ecx
+  unsigned int v22; // r15d
+  __int64 *v23; // r14
+  __int64 v24; // rsi
+  char v25; // bp
+  signed int InstallerClassMappedPropertyFromRegValue; // eax
+  __int64 v27; // rax
+  __int64 v28; // rcx
+  unsigned int v29; // edx
+  int v30; // eax
   unsigned int v31; // ecx
-  _DWORD v32[18]; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v33; // [rsp+90h] [rbp+8h]
-  void *v34; // [rsp+A0h] [rbp+18h]
+  unsigned int v32; // ebp
+  __int64 *v33; // r14
+  __int64 v34; // r15
+  char v35; // si
+  signed int InstallerClassMappedPropertyFromComposite; // eax
+  __int64 v37; // rax
+  __int64 v38; // rcx
+  unsigned int v39; // edx
+  int v40; // esi
+  int v41; // eax
+  unsigned int v42; // ecx
+  int InstallerClassMappedPropertyFromCoInstallers; // eax
+  __int64 v44; // rax
+  unsigned int v45; // ecx
+  unsigned int v46; // eax
+  unsigned int v48; // [rsp+40h] [rbp-48h] BYREF
+  _DWORD v49[17]; // [rsp+44h] [rbp-44h] BYREF
+  __int64 v50; // [rsp+90h] [rbp+8h]
 
-  v34 = (void *)a3;
-  v33 = a1;
-  v7 = a7;
-  v8 = (__int64 *)&CmClassRegPropMap;
-  v32[0] = 0;
-  LODWORD(a7) = 0;
-  *v7 = 0;
-  v11 = 0;
+  v50 = a1;
+  v7 = (__int64 *)&CmClassRegPropMap;
+  v8 = 0;
+  v49[0] = 0;
+  v9 = 0;
+  v48 = 0;
+  v10 = (int)a3;
+  *a7 = 0;
+  v12 = 0xFFFFFFFFLL;
+  v13 = (int)a2;
   while ( 1 )
   {
-    v12 = *v8;
-    if ( *v8 )
+    v14 = *v7;
+    v15 = 0;
+    if ( !*v7 )
+      goto LABEL_17;
+    if ( a4 )
+      goto LABEL_73;
+    InstallerClassMappedPropertyFromRegProp = CmGetInstallerClassMappedPropertyFromRegProp(
+                                                a1,
+                                                v13,
+                                                v10,
+                                                *v7,
+                                                v49,
+                                                0LL,
+                                                0,
+                                                &v48);
+    v8 = InstallerClassMappedPropertyFromRegProp;
+    if ( InstallerClassMappedPropertyFromRegProp == -1073741789 || !InstallerClassMappedPropertyFromRegProp )
     {
-      if ( a4
-        || (result = CmGetInstallerClassMappedPropertyFromRegProp(
-                       a1,
-                       (int)a2,
-                       a3,
-                       *v8,
-                       v32,
-                       0LL,
-                       0,
-                       (unsigned int *)&a7),
-            (_DWORD)result == -1073741789)
-        || !(_DWORD)result )
-      {
-        if ( a5 )
-        {
-          v14 = *v7;
-          if ( (unsigned int)v14 < a6 )
-          {
-            v15 = 5 * v14;
-            *(_OWORD *)(a5 + 4 * v15) = *(_OWORD *)v12;
-            *(_DWORD *)(a5 + 4 * v15 + 16) = *(_DWORD *)(v12 + 16);
-          }
-        }
-        v16 = *v7 + 1;
-        if ( v16 < *v7 )
-          goto LABEL_51;
-        *v7 = v16;
-      }
-      else if ( (_DWORD)result == -1073741772 )
-      {
-        goto LABEL_52;
-      }
-      a1 = v33;
+      v15 = 1;
     }
-    ++v11;
-    v8 += 3;
-    if ( v11 >= 9 )
-      break;
-    a3 = (__int64)v34;
-  }
-  v17 = 0;
-  v18 = (__int64 *)&off_140A39F60;
-  while ( 1 )
-  {
-    v19 = *v18;
-    if ( *v18 )
+    else if ( InstallerClassMappedPropertyFromRegProp == -1073741772 )
     {
-      if ( a4
-        || (result = CmGetInstallerClassMappedPropertyFromRegValue(a1, (int)a2, v34, v19, v32, 0LL, 0, &a7),
-            (_DWORD)result == -1073741789)
-        || !(_DWORD)result )
-      {
-        if ( a5 )
-        {
-          v20 = *v7;
-          if ( (unsigned int)v20 < a6 )
-          {
-            v21 = 5 * v20;
-            *(_OWORD *)(a5 + 4 * v21) = *(_OWORD *)v19;
-            *(_DWORD *)(a5 + 4 * v21 + 16) = *(_DWORD *)(v19 + 16);
-          }
-        }
-        v22 = *v7 + 1;
-        if ( v22 < *v7 )
-          goto LABEL_51;
-        *v7 = v22;
-      }
-      else if ( (_DWORD)result == -1073741772 )
-      {
-        goto LABEL_52;
-      }
+      goto LABEL_65;
     }
-    ++v17;
-    v18 += 4;
-    if ( v17 >= 0xD )
-      break;
-    a1 = v33;
-  }
-  v23 = 0;
-  v24 = (__int64 *)&off_140A38810;
-  do
-  {
-    v25 = *v24;
-    if ( a4
-      || (result = CmGetInstallerClassMappedPropertyFromComposite(
-                     v33,
-                     (int)a2,
-                     (int)v34,
-                     *v24,
-                     v32,
-                     0LL,
-                     0,
-                     (unsigned int *)&a7),
-          (_DWORD)result == -1073741789)
-      || !(_DWORD)result )
+    v8 = 0;
+    v12 = 0xFFFFFFFFLL;
+    if ( v15 )
     {
+LABEL_73:
       if ( a5 )
       {
-        v26 = *v7;
-        if ( (unsigned int)v26 < a6 )
+        v17 = *a7;
+        if ( (unsigned int)v17 < a6 )
         {
-          v27 = 5 * v26;
-          *(_OWORD *)(a5 + 4 * v27) = *(_OWORD *)v25;
-          *(_DWORD *)(a5 + 4 * v27 + 16) = *(_DWORD *)(v25 + 16);
+          v18 = 5 * v17;
+          *(_OWORD *)(a5 + 4 * v18) = *(_OWORD *)v14;
+          *(_DWORD *)(a5 + 4 * v18 + 16) = *(_DWORD *)(v14 + 16);
         }
       }
-      v28 = *v7 + 1;
-      if ( v28 < *v7 )
-        goto LABEL_51;
-      *v7 = v28;
+      v19 = *a7;
+      v20 = -1;
+      v21 = *a7 + 1;
+      if ( v21 >= *a7 )
+        v20 = *a7 + 1;
+      v8 = v21 < v19 ? 0xC0000095 : 0;
+      *a7 = v20;
+      if ( v21 < v19 )
+        break;
     }
-    else if ( (_DWORD)result == -1073741772 )
+    LODWORD(a1) = v50;
+    v13 = (int)a2;
+LABEL_17:
+    ++v9;
+    v7 += 3;
+    if ( v9 >= 9 )
+      goto LABEL_20;
+    v10 = (int)a3;
+  }
+  *a7 = 0;
+LABEL_20:
+  if ( v8 < 0 )
+    return (unsigned int)v8;
+  v22 = 0;
+  v23 = (__int64 *)&off_1409856E0;
+  while ( 1 )
+  {
+    v24 = *v23;
+    v25 = 0;
+    if ( *v23 )
     {
-      goto LABEL_52;
+      if ( a4 )
+        goto LABEL_74;
+      InstallerClassMappedPropertyFromRegValue = CmGetInstallerClassMappedPropertyFromRegValue(
+                                                   v50,
+                                                   (__int64)a2,
+                                                   a3,
+                                                   *v23,
+                                                   v49,
+                                                   0LL,
+                                                   0,
+                                                   &v48);
+      v8 = InstallerClassMappedPropertyFromRegValue;
+      if ( InstallerClassMappedPropertyFromRegValue == -1073741789 || !InstallerClassMappedPropertyFromRegValue )
+      {
+        v25 = 1;
+      }
+      else if ( InstallerClassMappedPropertyFromRegValue == -1073741772 )
+      {
+        goto LABEL_65;
+      }
+      v8 = 0;
+      if ( v25 )
+      {
+LABEL_74:
+        if ( a5 )
+        {
+          v27 = *a7;
+          if ( (unsigned int)v27 < a6 )
+          {
+            v28 = 5 * v27;
+            *(_OWORD *)(a5 + 4 * v28) = *(_OWORD *)v24;
+            *(_DWORD *)(a5 + 4 * v28 + 16) = *(_DWORD *)(v24 + 16);
+          }
+        }
+        v29 = *a7;
+        v30 = -1;
+        v31 = *a7 + 1;
+        if ( v31 >= *a7 )
+          v30 = *a7 + 1;
+        v8 = v31 < v29 ? 0xC0000095 : 0;
+        *a7 = v30;
+        if ( v31 < v29 )
+          break;
+      }
     }
-    ++v23;
-    v24 += 2;
+    ++v22;
+    v23 += 4;
+    if ( v22 >= 0xD )
+      goto LABEL_39;
   }
-  while ( v23 < 4 );
-  if ( !a4 )
+  *a7 = 0;
+LABEL_39:
+  if ( v8 < 0 )
+    return (unsigned int)v8;
+  v32 = 0;
+  v33 = (__int64 *)&off_140983EB0;
+  while ( 2 )
   {
-    InstallerClassMappedPropertyFromCoInstallers = CmGetInstallerClassMappedPropertyFromCoInstallers(
-                                                     v33,
-                                                     a2,
-                                                     a3,
-                                                     v32,
-                                                     0LL,
-                                                     0,
-                                                     (__int64)&a7);
-    if ( InstallerClassMappedPropertyFromCoInstallers != -1073741789 )
+    v34 = *v33;
+    v35 = 0;
+    if ( !a4 )
     {
-      if ( InstallerClassMappedPropertyFromCoInstallers )
-        return a6 < *v7 ? 0xC0000023 : 0;
+      InstallerClassMappedPropertyFromComposite = CmGetInstallerClassMappedPropertyFromComposite(
+                                                    v50,
+                                                    (__int64)a2,
+                                                    (__int64)a3,
+                                                    *v33,
+                                                    v49,
+                                                    0LL,
+                                                    0,
+                                                    &v48);
+      v8 = InstallerClassMappedPropertyFromComposite;
+      if ( InstallerClassMappedPropertyFromComposite == -1073741789 || !InstallerClassMappedPropertyFromComposite )
+      {
+        v35 = 1;
+      }
+      else if ( InstallerClassMappedPropertyFromComposite == -1073741772 )
+      {
+        goto LABEL_65;
+      }
+      v8 = 0;
+      if ( !v35 )
+      {
+        v40 = -1;
+        goto LABEL_67;
+      }
     }
+    if ( a5 )
+    {
+      v37 = *a7;
+      if ( (unsigned int)v37 < a6 )
+      {
+        v38 = 5 * v37;
+        *(_OWORD *)(a5 + 4 * v38) = *(_OWORD *)v34;
+        *(_DWORD *)(a5 + 4 * v38 + 16) = *(_DWORD *)(v34 + 16);
+      }
+    }
+    v39 = *a7;
+    v40 = -1;
+    v41 = -1;
+    v42 = *a7 + 1;
+    if ( v42 >= *a7 )
+      v41 = *a7 + 1;
+    v8 = v42 < v39 ? 0xC0000095 : 0;
+    *a7 = v41;
+    if ( v42 >= v39 )
+    {
+LABEL_67:
+      ++v32;
+      v33 += 2;
+      if ( v32 >= 4 )
+        goto LABEL_55;
+      continue;
+    }
+    break;
   }
-  if ( a5 )
+  *a7 = 0;
+LABEL_55:
+  if ( v8 >= 0 )
   {
-    v30 = *v7;
-    if ( (unsigned int)v30 < a6 )
-      *(DEVPROPKEY *)(a5 + 20 * v30) = DEVPKEY_DeviceClass_ClassCoInstallers;
+    if ( !a4 )
+    {
+      InstallerClassMappedPropertyFromCoInstallers = CmGetInstallerClassMappedPropertyFromCoInstallers(
+                                                       v50,
+                                                       a2,
+                                                       v12,
+                                                       v49,
+                                                       0LL,
+                                                       0,
+                                                       (__int64)&v48);
+      if ( InstallerClassMappedPropertyFromCoInstallers != -1073741789 )
+      {
+        if ( InstallerClassMappedPropertyFromCoInstallers )
+          return a6 < *a7 ? 0xC0000023 : 0;
+      }
+    }
+    if ( a5 )
+    {
+      v44 = *a7;
+      if ( (unsigned int)v44 < a6 )
+        *(DEVPROPKEY *)(a5 + 20 * v44) = DEVPKEY_DeviceClass_ClassCoInstallers;
+    }
+    v45 = *a7;
+    v46 = *a7 + 1;
+    if ( v46 >= *a7 )
+      v40 = *a7 + 1;
+    v8 = v46 < v45 ? 0xC0000095 : 0;
+    *a7 = v40;
+    if ( v46 < v45 )
+LABEL_65:
+      *a7 = 0;
+    else
+      return a6 < *a7 ? 0xC0000023 : 0;
   }
-  v31 = *v7 + 1;
-  if ( v31 >= *v7 )
-  {
-    *v7 = v31;
-    return a6 < *v7 ? 0xC0000023 : 0;
-  }
-LABEL_51:
-  result = 3221225621LL;
-LABEL_52:
-  *v7 = 0;
-  return result;
+  return (unsigned int)v8;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of SetClearAssociatedNativeObject @ 0x1C00281A8
+ * XREFs of SetClearAssociatedNativeObject @ 0x1C002394C
  * Callers:
- *     CreateNativeNameSpaceObject @ 0x1C0027F50 (CreateNativeNameSpaceObject.c)
+ *     CreateNativeNameSpaceObject @ 0x1C0022FC4 (CreateNativeNameSpaceObject.c)
  * Callees:
  *     <none>
  */

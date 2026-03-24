@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlIsHpfsDbcsLegal @ 0x1408160D0
+ * XREFs of FsRtlIsHpfsDbcsLegal @ 0x1408160B0
  * Callers:
- *     FsRtlIsHpfsDbcsLegal @ 0x1408160D0 (FsRtlIsHpfsDbcsLegal.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x1408160B0 (FsRtlIsHpfsDbcsLegal.c)
  * Callees:
- *     FsRtlDissectDbcs @ 0x140815930 (FsRtlDissectDbcs.c)
- *     FsRtlIsHpfsDbcsLegal @ 0x1408160D0 (FsRtlIsHpfsDbcsLegal.c)
+ *     FsRtlDissectDbcs @ 0x140815910 (FsRtlDissectDbcs.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x1408160B0 (FsRtlIsHpfsDbcsLegal.c)
  */
 
 BOOLEAN __stdcall FsRtlIsHpfsDbcsLegal(
@@ -97,7 +97,7 @@ LABEL_15:
               ++v13;
             }
             else if ( (v14 & 0x80u) == 0
-                   && ((unsigned __int8)(WildCardsPermissible != 0 ? 10 : 2) & byte_14035C600[(unsigned __int8)v9[v13]]) == 0 )
+                   && ((unsigned __int8)(WildCardsPermissible != 0 ? 10 : 2) & byte_14035C710[(unsigned __int8)v9[v13]]) == 0 )
             {
               return 0;
             }

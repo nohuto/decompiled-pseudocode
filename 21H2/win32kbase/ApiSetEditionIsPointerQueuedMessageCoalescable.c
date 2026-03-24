@@ -1,97 +1,72 @@
 /*
- * XREFs of ApiSetEditionIsPointerQueuedMessageCoalescable @ 0x1C0208DB8
+ * XREFs of ApiSetEditionIsPointerQueuedMessageCoalescable @ 0x1C01CC474
  * Callers:
- *     ?CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAUtagQMSG@@PEAUCPointerQFrame@@PEAW4CPointerCoalesce@@@Z @ 0x1C01BEA8C (-CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@.c)
+ *     ?CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAUtagQMSG@@PEAUCPointerQFrame@@PEAW4CPointerCoalesce@@@Z @ 0x1C0188B24 (-CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     EditionIsPointerQueuedMessageCoalescable @ 0x1C023DCE0 (EditionIsPointerQueuedMessageCoalescable.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     EditionIsPointerQueuedMessageCoalescable @ 0x1C01FBED4 (EditionIsPointerQueuedMessageCoalescable.c)
  */
 
 __int64 __fastcall ApiSetEditionIsPointerQueuedMessageCoalescable(
         _OWORD *a1,
-        __int64 a2,
-        __int64 a3,
+        int a2,
+        int a3,
         int a4,
         __int64 a5,
         int a6)
 {
-  int v7; // r14d
-  int v8; // r15d
-  PDEVICE_OBJECT v10; // rcx
-  char v11; // bl
-  void *v12; // r9
-  unsigned int IsPointerQueuedMessageCoalescable; // edi
+  int v8; // r14d
+  unsigned int IsPointerQueuedMessageCoalescable; // ebx
+  int v11; // eax
+  __int128 v12; // xmm1
+  __int128 v13; // xmm0
   __int128 v14; // xmm1
   __int128 v15; // xmm0
   __int128 v16; // xmm1
-  __int128 v17; // xmm0
-  __int128 v18; // xmm1
-  _OWORD v20[7]; // [rsp+40h] [rbp-98h] BYREF
+  _OWORD v18[7]; // [rsp+30h] [rbp-88h] BYREF
 
-  v7 = a3;
   v8 = a2;
-  v10 = WPP_GLOBAL_Control;
-  v11 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  v12 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      a2,
       10,
-      286,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+      272,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
   IsPointerQueuedMessageCoalescable = 0;
-  if ( qword_1C029D460 && (int)qword_1C029D460(v10, a2, a3, v12) >= 0 )
+  if ( qword_1C02587E8 )
+    v11 = qword_1C02587E8();
+  else
+    v11 = -1073741637;
+  if ( v11 >= 0 )
   {
-    v14 = a1[1];
-    v20[0] = *a1;
-    v20[2] = a1[2];
-    v15 = a1[4];
-    v20[1] = v14;
-    v16 = a1[3];
-    v20[4] = v15;
-    v17 = a1[6];
-    v20[3] = v16;
-    v18 = a1[5];
-    v20[6] = v17;
-    v20[5] = v18;
-    IsPointerQueuedMessageCoalescable = EditionIsPointerQueuedMessageCoalescable((unsigned int)v20, v8, v7, a4, a5, a6);
+    v12 = a1[1];
+    v18[0] = *a1;
+    v18[2] = a1[2];
+    v13 = a1[4];
+    v18[1] = v12;
+    v14 = a1[3];
+    v18[4] = v13;
+    v15 = a1[6];
+    v18[3] = v14;
+    v16 = a1[5];
+    v18[6] = v15;
+    v18[5] = v16;
+    IsPointerQueuedMessageCoalescable = EditionIsPointerQueuedMessageCoalescable((unsigned int)v18, v8, a3, a4, a5, a6);
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v11 = 0;
-  if ( (_BYTE)a2 || v11 )
-  {
-    LOBYTE(a3) = v11;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      a2,
       10,
-      287,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+      273,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
   return IsPointerQueuedMessageCoalescable;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bInside@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C0098150
+ * XREFs of ?bInside@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C0085C70
  * Callers:
- *     GrePtInRegion @ 0x1C00980D0 (GrePtInRegion.c)
+ *     GrePtInRegion @ 0x1C0085BF0 (GrePtInRegion.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall RGNOBJ::bInside(RGNOBJ *this, struct _POINTL *a2)
   _DWORD *v5; // r8
   unsigned int v6; // edx
   int v7; // r10d
-  int v9; // ecx
+  int v9; // ebx
   __int64 v10; // rax
 
   v2 = *(_QWORD *)this;

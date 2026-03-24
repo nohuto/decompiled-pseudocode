@@ -1,51 +1,54 @@
 /*
- * XREFs of HvpViewMapAdjustFlag @ 0x14082B02C
+ * XREFs of HvpViewMapAdjustFlag @ 0x1407AE2AC
  * Callers:
- *     HvUnlockHiveFilePages @ 0x1407EA52C (HvUnlockHiveFilePages.c)
+ *     HvUnlockHiveFilePages @ 0x1406A5904 (HvUnlockHiveFilePages.c)
  * Callees:
- *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x14082B0D8 (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x1407AE35C (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
  */
 
 __int64 __fastcall HvpViewMapAdjustFlag(__int64 a1)
 {
-  __int64 v2; // rcx
-  unsigned __int64 *v3; // rsi
-  unsigned __int64 v4; // rbx
-  unsigned __int64 v5; // rax
+  int v1; // eax
+  __int64 v3; // rcx
+  unsigned __int64 *v4; // rsi
+  unsigned __int64 v5; // rbx
+  unsigned __int64 v6; // rax
 
-  if ( (*(_DWORD *)(a1 + 32) & 2) == 0 )
+  v1 = *(_DWORD *)(a1 + 32);
+  if ( (v1 & 2) == 0 )
     __fastfail(5u);
-  v2 = 4096LL;
+  v3 = 4096LL;
   if ( *(__int64 *)(a1 + 8) > 4096 )
   {
-    v3 = (unsigned __int64 *)(a1 + 40);
+    v4 = (unsigned __int64 *)(a1 + 40);
     do
     {
-      v4 = *v3;
-      if ( (*(_BYTE *)(a1 + 48) & 1) != 0 && v4 )
-        v4 ^= (unsigned __int64)v3;
-      while ( v4 )
+      v5 = *v4;
+      if ( (*(_BYTE *)(a1 + 48) & 1) != 0 && v5 )
+        v5 ^= (unsigned __int64)v4;
+      while ( v5 )
       {
-        if ( v2 >= *(_QWORD *)(v4 + 40) )
+        if ( v3 >= *(_QWORD *)(v5 + 40) )
         {
-          if ( v2 < *(_QWORD *)(v4 + 48) )
+          if ( v3 < *(_QWORD *)(v5 + 48) )
             break;
-          v5 = *(_QWORD *)(v4 + 8);
+          v6 = *(_QWORD *)(v5 + 8);
         }
         else
         {
-          v5 = *(_QWORD *)v4;
+          v6 = *(_QWORD *)v5;
         }
-        if ( (*(_BYTE *)(a1 + 48) & 1) != 0 && v5 )
-          v4 ^= v5;
+        if ( (*(_BYTE *)(a1 + 48) & 1) != 0 && v6 )
+          v5 ^= v6;
         else
-          v4 = v5;
+          v5 = v6;
       }
-      HvpViewMapMakeViewRangeUnCOWByPolicy(a1, v4, *(_QWORD *)(v4 + 40), *(_QWORD *)(v4 + 48));
-      v2 = *(_QWORD *)(v4 + 48);
+      HvpViewMapMakeViewRangeUnCOWByPolicy(a1, v5, *(_QWORD *)(v5 + 40), *(_QWORD *)(v5 + 48));
+      v3 = *(_QWORD *)(v5 + 48);
     }
-    while ( v2 < *(_QWORD *)(a1 + 8) );
+    while ( v3 < *(_QWORD *)(a1 + 8) );
+    v1 = *(_DWORD *)(a1 + 32);
   }
-  *(_DWORD *)(a1 + 32) &= ~2u;
+  *(_DWORD *)(a1 + 32) = v1 & 0xFFFFFFFD;
   return 0LL;
 }

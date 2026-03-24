@@ -1,104 +1,101 @@
 /*
- * XREFs of ?Length@CExpressionValueStack@@QEAAJXZ @ 0x18024B66C
+ * XREFs of ?Length@CExpressionValueStack@@QEAAJXZ @ 0x1801FCCF4
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800710E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A2E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??0CExpressionValue@@QEAA@XZ @ 0x180049DC8 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18004E110 (--1CExpressionValue@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??A?$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z @ 0x1800C9370 (--A-$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z.c)
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800F19F4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
- *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NXZ @ 0x180104284 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NX.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A0C74 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC224 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBC54 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
  */
 
 __int64 __fastcall CExpressionValueStack::Length(__int64 this)
 {
-  __int64 v1; // rbx
+  int v1; // eax
   unsigned int v2; // ebx
-  unsigned __int8 IsEnabled; // al
-  unsigned int v4; // edx
-  CExpressionValue *v5; // rax
-  __m128i *v6; // rbx
-  __int32 v7; // eax
+  __int64 v3; // rax
+  CExpressionValue *v4; // rax
+  __m128i *v5; // rbx
+  __int32 v6; // eax
+  float v7; // xmm0_4
   float v8; // xmm0_4
-  float v9; // xmm0_4
-  __m128 v10; // xmm3
-  float v11; // xmm2_4
-  float v12; // xmm1_4
-  float v13; // xmm2_4
-  unsigned int v15; // [rsp+20h] [rbp-78h]
-  _BYTE v16[88]; // [rsp+40h] [rbp-58h] BYREF
+  __m128 v9; // xmm3
+  float v10; // xmm2_4
+  float v11; // xmm1_4
+  float v12; // xmm2_4
+  unsigned int v14; // [rsp+20h] [rbp-78h]
+  _BYTE v15[88]; // [rsp+40h] [rbp-58h] BYREF
 
-  v1 = this;
-  if ( *(_DWORD *)(this + 16) )
+  v1 = *(_DWORD *)(this + 16);
+  if ( v1 )
   {
-    IsEnabled = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-    v4 = *(_DWORD *)(v1 + 16) - 1;
-    if ( IsEnabled && v4 >= *(_DWORD *)(v1 + 48) )
+    v3 = (unsigned int)(v1 - 1);
+    if ( (unsigned int)v3 < *(_DWORD *)(this + 48) )
     {
-      v5 = CExpressionValue::CExpressionValue((CExpressionValue *)v16);
-      v6 = (__m128i *)&CExpressionValueStack::s_emptyValue;
-      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v5);
-      CExpressionValue::~CExpressionValue((CExpressionValue *)v16);
+      v5 = (__m128i *)(*(_QWORD *)(this + 24) + 80 * v3);
     }
     else
     {
-      v6 = (__m128i *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)(v1 + 24), v4);
+      v4 = CExpressionValue::CExpressionValue((CExpressionValue *)v15);
+      v5 = (__m128i *)&CExpressionValueStack::s_emptyValue;
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v4);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v15);
     }
-    v7 = v6[4].m128i_i32[2];
+    v6 = v5[4].m128i_i32[2];
     this = 18LL;
-    if ( v7 == 18 )
+    if ( v6 == 18 )
     {
-      LODWORD(v9) = v6->m128i_i32[0] & _xmm;
-      v6[4].m128i_i32[2] = 18;
+      LODWORD(v8) = v5->m128i_i32[0] & _xmm;
+      v5[4].m128i_i32[2] = 18;
     }
     else
     {
-      switch ( v7 )
+      switch ( v6 )
       {
         case '#':
-          v8 = (float)(*(float *)v6->m128i_i32 * *(float *)v6->m128i_i32)
-             + (float)(*(float *)&v6->m128i_i32[1] * *(float *)&v6->m128i_i32[1]);
+          v7 = (float)(*(float *)v5->m128i_i32 * *(float *)v5->m128i_i32)
+             + (float)(*(float *)&v5->m128i_i32[1] * *(float *)&v5->m128i_i32[1]);
           break;
         case '4':
-          v8 = (float)((float)(COERCE_FLOAT(HIDWORD(v6->m128i_i64[0])) * COERCE_FLOAT(HIDWORD(v6->m128i_i64[0])))
-                     + (float)(COERCE_FLOAT(v6->m128i_i64[0]) * COERCE_FLOAT(v6->m128i_i64[0])))
-             + (float)(*(float *)&v6->m128i_i32[2] * *(float *)&v6->m128i_i32[2]);
+          v7 = (float)((float)(COERCE_FLOAT(HIDWORD(v5->m128i_i64[0])) * COERCE_FLOAT(HIDWORD(v5->m128i_i64[0])))
+                     + (float)(COERCE_FLOAT(v5->m128i_i64[0]) * COERCE_FLOAT(v5->m128i_i64[0])))
+             + (float)(*(float *)&v5->m128i_i32[2] * *(float *)&v5->m128i_i32[2]);
           break;
         case 'E':
-          v10 = (__m128)_mm_loadu_si128(v6);
-          v11 = _mm_shuffle_ps(v10, v10, 85).m128_f32[0];
-          v12 = _mm_shuffle_ps(v10, v10, 170).m128_f32[0];
-          v13 = (float)(v11 * v11) + (float)(v10.m128_f32[0] * v10.m128_f32[0]);
-          v10.m128_f32[0] = _mm_shuffle_ps(v10, v10, 255).m128_f32[0];
-          v8 = (float)(v13 + (float)(v12 * v12)) + (float)(v10.m128_f32[0] * v10.m128_f32[0]);
+          v9 = (__m128)_mm_loadu_si128(v5);
+          v10 = _mm_shuffle_ps(v9, v9, 85).m128_f32[0];
+          v11 = _mm_shuffle_ps(v9, v9, 170).m128_f32[0];
+          v12 = (float)(v10 * v10) + (float)(v9.m128_f32[0] * v9.m128_f32[0]);
+          v9.m128_f32[0] = _mm_shuffle_ps(v9, v9, 255).m128_f32[0];
+          v7 = (float)(v12 + (float)(v11 * v11)) + (float)(v9.m128_f32[0] * v9.m128_f32[0]);
           break;
         case 'G':
-          v8 = (float)((float)((float)(*(float *)v6->m128i_i32 * *(float *)v6->m128i_i32)
-                             + (float)(*(float *)&v6->m128i_i32[1] * *(float *)&v6->m128i_i32[1]))
-                     + (float)(*(float *)&v6->m128i_i32[2] * *(float *)&v6->m128i_i32[2]))
-             + (float)(*(float *)&v6->m128i_i32[3] * *(float *)&v6->m128i_i32[3]);
+          v7 = (float)((float)((float)(*(float *)v5->m128i_i32 * *(float *)v5->m128i_i32)
+                             + (float)(*(float *)&v5->m128i_i32[1] * *(float *)&v5->m128i_i32[1]))
+                     + (float)(*(float *)&v5->m128i_i32[2] * *(float *)&v5->m128i_i32[2]))
+             + (float)(*(float *)&v5->m128i_i32[3] * *(float *)&v5->m128i_i32[3]);
           break;
         default:
-          v15 = 3445;
+          v14 = 3439;
           goto LABEL_3;
       }
-      v6[4].m128i_i32[2] = 18;
-      v9 = o_sqrtf_0(v8);
+      v5[4].m128i_i32[2] = 18;
+      v8 = sqrtf_0(v7);
     }
-    *(float *)v6->m128i_i32 = v9;
-    v6[4].m128i_i8[12] = 1;
+    *(float *)v5->m128i_i32 = v8;
+    v5[4].m128i_i8[12] = 1;
     return 0;
   }
-  v15 = 3387;
+  v14 = 3381;
 LABEL_3:
   v2 = -2147467259;
   MilInstrumentationCheckHR_MaybeFailFast(
     this,
     &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
-    1LL,
+    1u,
     -2147467259,
-    v15);
+    v14,
+    0LL);
   return v2;
 }

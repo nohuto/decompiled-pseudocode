@@ -1,54 +1,54 @@
 /*
- * XREFs of InitVideo @ 0x1C0016804
+ * XREFs of InitVideo @ 0x1C009A7D8
  * Callers:
- *     xxxRemoteConnect @ 0x1C00115D0 (xxxRemoteConnect.c)
- *     ?UserInitialize@@YAJXZ @ 0x1C00AE3AC (-UserInitialize@@YAJXZ.c)
+ *     ?UserInitialize@@YAJXZ @ 0x1C0068D34 (-UserInitialize@@YAJXZ.c)
+ *     xxxRemoteConnect @ 0x1C0117AB0 (xxxRemoteConnect.c)
  * Callees:
- *     ?DispBrokerUpdateKernelDisplayPolicies@@YAXXZ @ 0x1C000F8FC (-DispBrokerUpdateKernelDisplayPolicies@@YAXXZ.c)
- *     DrvSetDisplayConfig @ 0x1C0014230 (DrvSetDisplayConfig.c)
- *     DrvInitConsole @ 0x1C0016330 (DrvInitConsole.c)
- *     GreUpdateSharedDevCaps @ 0x1C00197AC (GreUpdateSharedDevCaps.c)
- *     DrvCloseGraphicsDevices @ 0x1C001A4F0 (DrvCloseGraphicsDevices.c)
- *     InitUserScreen @ 0x1C005CD6C (InitUserScreen.c)
- *     UpdateExternalMonitorConnectedStatus @ 0x1C00BE7F0 (UpdateExternalMonitorConnectedStatus.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     DrvSetDisplayConfig @ 0x1C001A4C0 (DrvSetDisplayConfig.c)
+ *     InitUserScreen @ 0x1C006B23C (InitUserScreen.c)
+ *     ?vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C009A970 (-vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z.c)
+ *     ?DispBrokerUpdateKernelDisplayPolicies@@YAXXZ @ 0x1C009ACB4 (-DispBrokerUpdateKernelDisplayPolicies@@YAXXZ.c)
+ *     DrvInitConsole @ 0x1C009ADD0 (DrvInitConsole.c)
+ *     UpdateExternalMonitorConnectedStatus @ 0x1C009B014 (UpdateExternalMonitorConnectedStatus.c)
+ *     DrvCloseGraphicsDevices @ 0x1C00AE200 (DrvCloseGraphicsDevices.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 struct _MDEV *__fastcall InitVideo(__int64 a1)
 {
   __int16 v1; // di
   int v2; // ebx
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  __int64 v8; // rcx
-  struct _MDEV *v10; // [rsp+98h] [rbp+10h] BYREF
+  __int64 v4; // rcx
+  struct _DEVCAPS *v5; // rdx
+  int v6; // eax
+  struct _MDEV *v8; // [rsp+A8h] [rbp+10h] BYREF
+  __int64 v9; // [rsp+B0h] [rbp+18h] BYREF
 
   v1 = gProtocolType;
-  v10 = 0LL;
+  v8 = 0LL;
   v2 = 0;
   if ( (int)DrvInitConsole() < 0 )
     return 0LL;
   if ( !gbNonServiceSession && !gbFirstConnectionDone )
   {
+    gbBaseVideo = 0;
     gProtocolType = -1;
-    *(_DWORD *)(SGDGetUserSessionState(v5, v4, v6, v7) + 508) = 0xFFFF;
     v2 = 1;
-    *(_DWORD *)(*(_QWORD *)(SGDGetSessionState() + 24) + 1232LL) = 0;
   }
   DispBrokerUpdateKernelDisplayPolicies();
-  if ( (int)DrvSetDisplayConfig(0, 0LL, 0x98Fu, 0x802u, 0LL, 0, 0LL, 0LL, 0LL, &v10, 0LL, 0LL, 0LL, 0LL, a1, 0LL) < 0 )
+  if ( (int)DrvSetDisplayConfig(0, 0LL, 0x98Fu, 0x802u, 0LL, 0, 0LL, 0LL, 0LL, &v8, 0LL, 0LL, 0LL, 0LL, a1) < 0 )
     return 0LL;
   if ( !gProtocolType )
   {
-    LOBYTE(v8) = 1;
-    UpdateExternalMonitorConnectedStatus(v8);
+    LOBYTE(v4) = 1;
+    UpdateExternalMonitorConnectedStatus(v4);
   }
-  *(_DWORD *)(*(_QWORD *)(SGDGetSessionState() + 24) + 1232LL) = 0;
-  *((_QWORD *)gpDispInfo + 5) = *(_QWORD *)v10;
-  *((_QWORD *)gpDispInfo + 2) = v10;
-  GreUpdateSharedDevCaps(*((_QWORD *)gpDispInfo + 5));
+  v5 = gpGdiDevCaps;
+  gbBaseVideo = 0;
+  *(_QWORD *)(gpDispInfo + 40) = *(_QWORD *)v8;
+  *(_QWORD *)(gpDispInfo + 16) = v8;
+  v9 = *(_QWORD *)(gpDispInfo + 40);
+  vGetDeviceCaps((struct PDEVOBJ *)&v9, v5);
   if ( !(unsigned int)InitUserScreen() )
     return 0LL;
   if ( v2 )
@@ -57,11 +57,18 @@ struct _MDEV *__fastcall InitVideo(__int64 a1)
       RtlSetActiveConsoleId(0xFFFFFFFFLL);
     DrvCloseGraphicsDevices(1LL);
   }
-  else if ( qword_1C0295C98 && (int)qword_1C0295C98() >= 0 )
+  else
   {
-    if ( qword_1C0295CA0 )
-      qword_1C0295CA0();
+    if ( qword_1C0256878 )
+      v6 = qword_1C0256878();
+    else
+      v6 = -1073741637;
+    if ( v6 >= 0 )
+    {
+      if ( qword_1C0256880 )
+        qword_1C0256880();
+    }
   }
   gdwHydraHint |= 4u;
-  return v10;
+  return v8;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ResetEdgyDataOwnershipForCurrentThread @ 0x1C00FE340
+ * XREFs of ResetEdgyDataOwnershipForCurrentThread @ 0x1C0111870
  * Callers:
  *     <none>
  * Callees:

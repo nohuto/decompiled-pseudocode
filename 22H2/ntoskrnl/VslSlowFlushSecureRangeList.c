@@ -1,15 +1,15 @@
 /*
- * XREFs of VslSlowFlushSecureRangeList @ 0x14054CA5C
+ * XREFs of VslSlowFlushSecureRangeList @ 0x1404FD560
  * Callers:
- *     HvlpSlowFlushListTb @ 0x140549E14 (HvlpSlowFlushListTb.c)
- *     HvlpSlowFlushListTbEx @ 0x140549F98 (HvlpSlowFlushListTbEx.c)
+ *     HvlpSlowFlushListTb @ 0x1404FAE9C (HvlpSlowFlushListTb.c)
+ *     HvlpSlowFlushListTbEx @ 0x1404FB01C (HvlpSlowFlushListTbEx.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslSlowFlushSecureRangeList(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
+NTSTATUS __fastcall VslSlowFlushSecureRangeList(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   __int64 v5; // rdi
   __int64 v6; // rsi
@@ -22,18 +22,18 @@ __int64 __fastcall VslSlowFlushSecureRangeList(__int64 a1, __int64 a2, unsigned 
   v6 = a4;
   memset(v12, 0, 0x68uLL);
   if ( KeGetCurrentIrql() > 2u )
-    return 255LL;
+    return 255;
   v9 = (_QWORD *)(v6 + a2);
   Process = KeGetCurrentThread()->ApcState.Process;
   v11 = 0;
   if ( !(_DWORD)v5 )
-    return 0LL;
+    return 0;
   while ( *v9 > 0x7FFFFFFEFFFFuLL )
   {
     ++v11;
     ++v9;
     if ( v11 >= (unsigned int)v5 )
-      return 0LL;
+      return 0;
   }
   v12[1] = Process->SecureState.SecureHandle;
   v12[2] = a1;

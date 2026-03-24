@@ -1,21 +1,23 @@
 /*
- * XREFs of ??0DMMVIDPNTARGETSET@@QEAA@QEAVDMMVIDPN@@@Z @ 0x1C0015C64
+ * XREFs of ??0DMMVIDPNTARGETSET@@QEAA@QEAVDMMVIDPN@@@Z @ 0x1C000ABE8
  * Callers:
- *     ??0DMMVIDPN@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C01ACDD8 (--0DMMVIDPN@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ??0DMMVIDPN@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C011B10C (--0DMMVIDPN@@QEAA@QEAVVIDPN_MGR@@@Z.c)
  * Callees:
- *     ?SetContainer@?$ContainedBy@VDMMVIDPN@@@@QEAAJPEAVDMMVIDPN@@@Z @ 0x1C0006A58 (-SetContainer@-$ContainedBy@VDMMVIDPN@@@@QEAAJPEAVDMMVIDPN@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?SetContainer@?$ContainedBy@VDMMVIDPN@@@@QEAAJPEAVDMMVIDPN@@@Z @ 0x1C0009328 (-SetContainer@-$ContainedBy@VDMMVIDPN@@@@QEAAJPEAVDMMVIDPN@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 DMMVIDPNTARGETSET *__fastcall DMMVIDPNTARGETSET::DMMVIDPNTARGETSET(DMMVIDPNTARGETSET *this, struct DMMVIDPN *const a2)
 {
   _QWORD *v3; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
 
   *((_DWORD *)this + 4) = 0;
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 12) = 2;
   v3 = (_QWORD *)((char *)this + 8);
-  *v3 = &DoublyLinkedList<DMMVIDPNTARGET,DoubleLinkedListElementDeleter<DMMVIDPNTARGET>>::`vftable';
+  *v3 = &DoublyLinkedList<DMMVIDPNSOURCE,DoubleLinkedListElementDeleter<DMMVIDPNSOURCE>>::`vftable';
   v3[3] = v3 + 2;
   v3[2] = v3 + 2;
   *((_QWORD *)this + 9) = 0LL;
@@ -27,6 +29,6 @@ DMMVIDPNTARGETSET *__fastcall DMMVIDPNTARGETSET::DMMVIDPNTARGETSET(DMMVIDPNTARGE
   if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))*v3)(v3) )
     ContainedBy<DMMVIDPN>::SetContainer((__int64)this + 64, (__int64)a2);
   else
-    *(_QWORD *)(WdLogNewEntry5_WdTrace() + 24) = *((int *)this + 4);
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(v6, v5) + 24) = *((int *)this + 4);
   return this;
 }

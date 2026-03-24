@@ -1,193 +1,224 @@
 /*
- * XREFs of ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C01AB2B4
+ * XREFs of ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C0123260
  * Callers:
- *     ?DxgkProcessNotify@@YAXPEAU_EPROCESS@@PEAXPEAU_PS_CREATE_NOTIFY_INFO@@@Z @ 0x1C0012540 (-DxgkProcessNotify@@YAXPEAU_EPROCESS@@PEAXPEAU_PS_CREATE_NOTIFY_INFO@@@Z.c)
- *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01A8AD0 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
- *     ?DxgkProcessCallout@@YAJPEAPEAXQEBU_DXGKWIN32KENG_INTERFACE_HEADER@@E@Z @ 0x1C01A9DF0 (-DxgkProcessCallout@@YAJPEAPEAXQEBU_DXGKWIN32KENG_INTERFACE_HEADER@@E@Z.c)
- *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C0311CA0 (--1DXGGLOBAL@@EEAA@XZ.c)
- *     ?ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z @ 0x1C0345B20 (-ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z.c)
- *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C036F9F0 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
- *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C0371D30 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
- *     ?VmBusCreateProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037B700 (-VmBusCreateProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
- *     ?VmBusDestroyProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037D670 (-VmBusDestroyProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?DxgkProcessNotify@@YAXPEAU_EPROCESS@@PEAXPEAU_PS_CREATE_NOTIFY_INFO@@@Z @ 0x1C0008330 (-DxgkProcessNotify@@YAXPEAU_EPROCESS@@PEAXPEAU_PS_CREATE_NOTIFY_INFO@@@Z.c)
+ *     ?VmBusCreateProcessCblt@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00D8980 (-VmBusCreateProcessCblt@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0123534 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C02367B0 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
+ *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C0237FF0 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
+ *     ?VmBusCreateProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023F480 (-VmBusCreateProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusDestroyProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0240DA0 (-VmBusDestroyProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268910 (--1DXGGLOBAL@@AEAA@XZ.c)
+ *     ?ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z @ 0x1C028626C (-ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z.c)
  * Callees:
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C00085C0 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C00150D4 (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
- *     ?FlipManagerDwmReleaseFlipManagerObject@@YAXPEAUFlipManagerObject@@@Z @ 0x1C00169D0 (-FlipManagerDwmReleaseFlipManagerObject@@YAXPEAUFlipManagerObject@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ @ 0x1C0056728 (-DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ.c)
- *     ?OnVmwpDestruction@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0056898 (-OnVmwpDestruction@DXGVIRTUALMACHINE@@QEAAXXZ.c)
- *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01A8AD0 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
- *     ?ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C03458A0 (-ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
- *     ?ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0345934 (-ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
- *     ?SetVailObject@DXGPROCESS@@QEAAXPEAVDXGVAILOBJECT@@@Z @ 0x1C0346230 (-SetVailObject@DXGPROCESS@@QEAAXPEAVDXGVAILOBJECT@@@Z.c)
- *     ?DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C0361A38 (-DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
+ *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C0002D44 (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C0008594 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001A7F0 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ @ 0x1C0048AD4 (-DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ.c)
+ *     ?OnVmwpDestruction@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0048B74 (-OnVmwpDestruction@DXGVIRTUALMACHINE@@QEAAXXZ.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0123534 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0286100 (-ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
+ *     ?ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0286168 (-ReferenceVailObject@DXGVIRTUALMACHINE@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
+ *     ?SetVailObject@DXGPROCESS@@QEAAXPEAVDXGVAILOBJECT@@@Z @ 0x1C0286878 (-SetVailObject@DXGPROCESS@@QEAAXPEAVDXGVAILOBJECT@@@Z.c)
+ *     ?DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C02B585C (-DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
  */
 
 void __fastcall DXGPROCESS::DestroyDxgProcess(struct DXGPROCESS *this)
 {
   struct _KPROCESS *v2; // rcx
-  struct DXGGLOBAL *Global; // rax
+  __int64 v3; // rdx
   __int64 v4; // rcx
-  char *v5; // rdi
-  struct DXGPROCESS **v6; // rcx
-  struct DXGPROCESS **v7; // rax
-  struct _KTHREAD **v8; // rdi
-  struct DXGVAILOBJECT *v9; // rsi
-  __int64 v10; // rdi
+  struct _KTHREAD *CurrentThread; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct DXGGLOBAL *Global; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  struct _KTHREAD *v12; // rcx
+  char *v13; // rdi
+  struct DXGPROCESS **v14; // rcx
+  struct DXGPROCESS **v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rdx
+  struct _KTHREAD **v18; // rdi
+  struct DXGVAILOBJECT *v19; // rsi
+  __int64 v20; // rdi
   __int64 ProcessDxgProcess; // rax
-  DXGPROCESS *v12; // rdi
-  struct _KTHREAD **v13; // rdi
-  DXGVIRTUALMACHINE *v14; // rcx
-  DXGFASTMUTEX *v15; // [rsp+30h] [rbp-D0h] BYREF
-  char v16; // [rsp+38h] [rbp-C8h]
-  _BYTE v17[8]; // [rsp+40h] [rbp-C0h] BYREF
-  char v18; // [rsp+48h] [rbp-B8h]
-  DXGFASTMUTEX *v19; // [rsp+50h] [rbp-B0h] BYREF
-  char v20; // [rsp+58h] [rbp-A8h]
-  _BYTE v21[8]; // [rsp+60h] [rbp-A0h] BYREF
-  char v22; // [rsp+68h] [rbp-98h]
-  _BYTE v23[8]; // [rsp+70h] [rbp-90h] BYREF
-  DXGPUSHLOCK *v24; // [rsp+78h] [rbp-88h]
-  int v25; // [rsp+80h] [rbp-80h]
-  struct _KAPC_STATE ApcState; // [rsp+88h] [rbp-78h] BYREF
-  _QWORD v27[10]; // [rsp+C0h] [rbp-40h] BYREF
+  DXGPROCESS *v22; // rdi
+  __int64 v23; // rdx
+  struct _KTHREAD **v24; // rdi
+  __int64 v25; // rdx
+  __int64 v26; // rdx
+  __int64 v27; // rdx
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rax
+  DXGVIRTUALMACHINE *v32; // rcx
+  __int64 v33; // [rsp+20h] [rbp-E0h] BYREF
+  char v34; // [rsp+28h] [rbp-D8h]
+  struct _KTHREAD **v35; // [rsp+30h] [rbp-D0h] BYREF
+  char v36; // [rsp+38h] [rbp-C8h]
+  _BYTE v37[16]; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE v38[16]; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v39[16]; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v40[16]; // [rsp+70h] [rbp-90h] BYREF
+  char v41[8]; // [rsp+80h] [rbp-80h] BYREF
+  DXGPUSHLOCK *v42; // [rsp+88h] [rbp-78h]
+  int v43; // [rsp+90h] [rbp-70h]
+  struct _KAPC_STATE ApcState; // [rsp+98h] [rbp-68h] BYREF
+  _QWORD v45[10]; // [rsp+D0h] [rbp-30h] BYREF
 
   if ( this )
   {
-    memset(v27, 0, 0x48uLL);
-    EtwActivityIdControl(3u, (LPGUID)&v27[1]);
+    memset(v45, 0, 0x48uLL);
+    EtwActivityIdControl(3u, (LPGUID)&v45[1]);
     v2 = (struct _KPROCESS *)*((_QWORD *)this + 7);
-    v27[8] = MEMORY[0xFFFFF78000000014];
-    LODWORD(v27[3]) = 36;
-    LOBYTE(v27[6]) = -1;
+    v45[8] = MEMORY[0xFFFFF78000000014];
+    LODWORD(v45[3]) = 36;
+    LOBYTE(v45[6]) = -1;
     memset(&ApcState, 0, sizeof(ApcState));
     KeStackAttachProcess(v2, &ApcState);
-    if ( (*((_DWORD *)this + 106) & 0x80) != 0 )
+    if ( (*((_BYTE *)this + 347) & 0x10) != 0 )
     {
-      v8 = (struct _KTHREAD **)*((_QWORD *)this + 76);
-      if ( v8 )
+      v18 = (struct _KTHREAD **)*((_QWORD *)this + 62);
+      if ( v18 )
       {
-        DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v23, v8 + 8, 0);
-        DXGPUSHLOCK::AcquireExclusive(v24);
-        v25 = 2;
-        v9 = DXGVIRTUALMACHINE::ReferenceVailObject((DXGVIRTUALMACHINE *)v8);
-        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v23);
-        if ( v9 )
+        DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v41, v18 + 8, 0);
+        DXGPUSHLOCK::AcquireExclusive(v42);
+        v43 = 2;
+        v19 = DXGVIRTUALMACHINE::ReferenceVailObject((DXGVIRTUALMACHINE *)v18);
+        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v41);
+        if ( v19 )
         {
-          DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)v21);
-          DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v21);
-          v10 = *((_QWORD *)v9 + 12);
-          if ( v10 )
+          DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)v39);
+          DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v39);
+          v20 = *((_QWORD *)v19 + 11);
+          if ( v20 )
           {
-            if ( !(unsigned __int8)PsGetProcessExitProcessCalled(*((_QWORD *)v9 + 12)) )
+            if ( !(unsigned __int8)PsGetProcessExitProcessCalled(*((_QWORD *)v19 + 11)) )
             {
-              ProcessDxgProcess = PsGetProcessDxgProcess(v10);
-              v12 = (DXGPROCESS *)ProcessDxgProcess;
+              ProcessDxgProcess = PsGetProcessDxgProcess(v20);
+              v22 = (DXGPROCESS *)ProcessDxgProcess;
               if ( ProcessDxgProcess )
               {
-                if ( (*(_DWORD *)(ProcessDxgProcess + 424) & 0x800) == 0 )
+                if ( *(char *)(ProcessDxgProcess + 347) >= 0 )
                 {
                   DXGAUTOMUTEX::DXGAUTOMUTEX(
-                    (DXGAUTOMUTEX *)v17,
-                    (struct DXGFASTMUTEX *const)(ProcessDxgProcess + 104),
+                    (DXGAUTOMUTEX *)v38,
+                    *(struct DXGFASTMUTEX *const *)(ProcessDxgProcess + 104),
                     0);
-                  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
-                  DXGPROCESS::SetVailObject(v12, 0LL);
-                  if ( v18 )
-                    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17);
+                  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v38);
+                  DXGPROCESS::SetVailObject(v22, 0LL);
+                  if ( v38[8] )
+                    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v38, v23);
                 }
               }
             }
           }
-          FlipManagerDwmReleaseFlipManagerObject(v9);
-          if ( v22 )
-            DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v21);
+          DxgkCompositionObject::Release(v19);
+          if ( v39[8] )
+            DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v39, v3);
         }
       }
     }
-    else if ( *((_QWORD *)this + 74) )
+    else if ( *((_QWORD *)this + 60) )
     {
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v17, (struct DXGPROCESS *)((char *)this + 104), 0);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
-      v13 = (struct _KTHREAD **)DXGPROCESS::ReferenceVailObject(this);
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17);
-      if ( v18 )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17);
-      if ( v13 )
+      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v37, *((struct DXGFASTMUTEX *const *)this + 13), 0);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v37);
+      v24 = (struct _KTHREAD **)DXGPROCESS::ReferenceVailObject(this);
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v37, v25);
+      if ( v37[8] )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v37, v3);
+      if ( v24 )
       {
-        DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v21, (struct DXGFASTMUTEX *const)(v13 + 5), 0);
-        DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v21);
-        DXGVAILOBJECT::DisableVmBusChannel(v13);
-        DXGVAILOBJECT::DestroyVmBusHostSubscribers((DXGVAILOBJECT *)v13);
-        if ( v22 )
-          DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v21);
-        FlipManagerDwmReleaseFlipManagerObject((struct FlipManagerObject *)v13);
+        DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v40, (struct DXGFASTMUTEX *const)(v24 + 5), 0);
+        DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v40);
+        DXGVAILOBJECT::DisableVmBusChannel(v24, v26);
+        DXGVAILOBJECT::DestroyVmBusHostSubscribers((DXGVAILOBJECT *)v24);
+        if ( v40[8] )
+          DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v40, v27);
+        DxgkCompositionObject::Release((DxgkCompositionObject *)v24);
       }
     }
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)&v15, (struct DXGPROCESS *)((char *)this + 104), 0);
-    if ( v16 )
-      WdLogSingleEntry5(0LL, 275LL, 4LL, &v15, 0LL, 0LL);
-    DXGFASTMUTEX::Acquire(v15);
-    v16 = 1;
-    DXGPROCESS::Destroy(this, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v27, 0);
-    if ( !v16 )
-      WdLogSingleEntry5(0LL, 275LL, 4LL, &v15, 0LL, 0LL);
-    v16 = 0;
-    DXGFASTMUTEX::Release((struct _KTHREAD **)v15);
-    KeUnstackDetachProcess(&ApcState);
-    Global = DXGGLOBAL::GetGlobal();
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)&v19, (struct DXGGLOBAL *)((char *)Global + 368), 0);
-    if ( (*((_DWORD *)this + 106) & 0x100) == 0 )
+    v33 = *((_QWORD *)this + 13);
+    v34 = 0;
+    if ( !v33 )
     {
-      if ( v20 )
-        WdLogSingleEntry5(0LL, 275LL, 4LL, &v19, 0LL, 0LL);
-      DXGFASTMUTEX::Acquire(v19);
-      v4 = *((_QWORD *)this + 7);
-      v20 = 1;
-      PsSetProcessDxgProcess(v4, 0LL);
+      v28 = WdLogNewEntry5_WdAssertion(v4, v3);
+      *(_QWORD *)(v28 + 24) = 762LL;
+      WdLogEvent5_WdAssertion(v28);
     }
-    v5 = (char *)DXGGLOBAL::GetGlobal() + 432;
+    CurrentThread = KeGetCurrentThread();
+    if ( *(struct _KTHREAD **)(v33 + 16) == CurrentThread )
+    {
+      v29 = WdLogNewEntry5_WdAssertion(CurrentThread, v3);
+      *(_QWORD *)(v29 + 24) = 769LL;
+      WdLogEvent5_WdAssertion(v29);
+    }
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v33);
+    DXGPROCESS::Destroy(this, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v45, 0);
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v33, v6);
+    KeUnstackDetachProcess(&ApcState);
+    Global = DXGGLOBAL::GetGlobal(v8, v7);
+    v36 = 0;
+    v35 = (struct _KTHREAD **)((char *)Global + 320);
+    if ( Global == (struct DXGGLOBAL *)-320LL )
+    {
+      v30 = WdLogNewEntry5_WdAssertion(v11, v10);
+      *(_QWORD *)(v30 + 24) = 762LL;
+      WdLogEvent5_WdAssertion(v30);
+    }
+    v12 = KeGetCurrentThread();
+    if ( v35[2] == v12 )
+    {
+      v31 = WdLogNewEntry5_WdAssertion(v12, v10);
+      *(_QWORD *)(v31 + 24) = 769LL;
+      WdLogEvent5_WdAssertion(v31);
+    }
+    if ( (*((_BYTE *)this + 347) & 0x20) == 0 )
+    {
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v35);
+      PsSetProcessDxgProcess(*((_QWORD *)this + 7), 0LL);
+    }
+    v13 = (char *)DXGGLOBAL::GetGlobal((__int64)v12, v10) + 376;
     KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(v5, 0LL);
-    *((_QWORD *)v5 + 1) = KeGetCurrentThread();
-    v6 = (struct DXGPROCESS **)*((_QWORD *)this + 1);
-    if ( v6[1] != (struct DXGPROCESS *)((char *)this + 8)
-      || (v7 = (struct DXGPROCESS **)*((_QWORD *)this + 2), *v7 != (struct DXGPROCESS *)((char *)this + 8)) )
+    ExAcquirePushLockExclusiveEx(v13, 0LL);
+    *((_QWORD *)v13 + 1) = KeGetCurrentThread();
+    v14 = (struct DXGPROCESS **)*((_QWORD *)this + 1);
+    if ( v14[1] != (struct DXGPROCESS *)((char *)this + 8)
+      || (v15 = (struct DXGPROCESS **)*((_QWORD *)this + 2), *v15 != (struct DXGPROCESS *)((char *)this + 8)) )
     {
       __fastfail(3u);
     }
-    *v7 = (struct DXGPROCESS *)v6;
-    v6[1] = (struct DXGPROCESS *)v7;
-    *((_QWORD *)v5 + 1) = 0LL;
-    ExReleasePushLockExclusiveEx(v5, 0LL);
+    *v15 = (struct DXGPROCESS *)v14;
+    v14[1] = (struct DXGPROCESS *)v15;
+    *((_QWORD *)v13 + 1) = 0LL;
+    ExReleasePushLockExclusiveEx(v13, 0LL);
     KeLeaveCriticalRegion();
-    if ( (*((_DWORD *)this + 106) & 0x80) != 0 )
+    if ( (*((_BYTE *)this + 347) & 0x10) != 0 )
     {
-      v14 = (DXGVIRTUALMACHINE *)*((_QWORD *)this + 76);
-      if ( v14 )
+      v32 = (DXGVIRTUALMACHINE *)*((_QWORD *)this + 62);
+      if ( v32 )
       {
-        DXGVIRTUALMACHINE::OnVmwpDestruction(v14);
-        *((_QWORD *)this + 76) = 0LL;
+        DXGVIRTUALMACHINE::OnVmwpDestruction(v32);
+        *((_QWORD *)this + 62) = 0LL;
       }
     }
-    DXGPROCESS::ReleaseReference(this);
-    if ( v20 )
-    {
-      v20 = 0;
-      DXGFASTMUTEX::Release((struct _KTHREAD **)v19);
-    }
-    if ( v16 )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v15);
+    DXGPROCESS::ReleaseReference(this, v16);
+    if ( v36 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v35, v17);
+    if ( v34 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v33, v17);
   }
 }

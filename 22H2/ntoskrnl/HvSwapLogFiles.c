@@ -1,12 +1,12 @@
 /*
- * XREFs of HvSwapLogFiles @ 0x1407DED54
+ * XREFs of HvSwapLogFiles @ 0x140724908
  * Callers:
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvpLogTypeToLogArrayIndex @ 0x1407516B0 (HvpLogTypeToLogArrayIndex.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x1407516C8 (HvGetEffectiveLogSizeCapForHive.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1407239C0 (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140723A2C (HvpLogTypeToLogArrayIndex.c)
  */
 
 __int64 __fastcall HvSwapLogFiles(__int64 a1)
@@ -14,97 +14,94 @@ __int64 __fastcall HvSwapLogFiles(__int64 a1)
   unsigned int v2; // eax
   char v3; // r10
   int v4; // r11d
-  int *v5; // rsi
-  int v6; // edx
-  __int64 v7; // rbx
-  int v8; // eax
+  int v5; // edx
+  __int64 v6; // rbx
+  int v7; // eax
   __int64 result; // rax
-  bool v10; // [rsp+30h] [rbp-D0h] BYREF
-  int v11; // [rsp+34h] [rbp-CCh] BYREF
-  int v12; // [rsp+38h] [rbp-C8h] BYREF
-  int v13; // [rsp+3Ch] [rbp-C4h] BYREF
-  int v14; // [rsp+40h] [rbp-C0h] BYREF
-  int v15; // [rsp+44h] [rbp-BCh] BYREF
-  int v16; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v17; // [rsp+50h] [rbp-B0h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v18; // [rsp+60h] [rbp-A0h] BYREF
-  bool *v19; // [rsp+80h] [rbp-80h]
-  int v20; // [rsp+88h] [rbp-78h]
-  int v21; // [rsp+8Ch] [rbp-74h]
-  int *v22; // [rsp+90h] [rbp-70h]
-  int v23; // [rsp+98h] [rbp-68h]
-  int v24; // [rsp+9Ch] [rbp-64h]
-  int *v25; // [rsp+A0h] [rbp-60h]
-  int v26; // [rsp+A8h] [rbp-58h]
-  int v27; // [rsp+ACh] [rbp-54h]
-  int *v28; // [rsp+B0h] [rbp-50h]
-  int v29; // [rsp+B8h] [rbp-48h]
-  int v30; // [rsp+BCh] [rbp-44h]
-  int *v31; // [rsp+C0h] [rbp-40h]
-  int v32; // [rsp+C8h] [rbp-38h]
-  int v33; // [rsp+CCh] [rbp-34h]
-  int *v34; // [rsp+D0h] [rbp-30h]
-  int v35; // [rsp+D8h] [rbp-28h]
-  int v36; // [rsp+DCh] [rbp-24h]
-  int *v37; // [rsp+E0h] [rbp-20h]
-  int v38; // [rsp+E8h] [rbp-18h]
-  int v39; // [rsp+ECh] [rbp-14h]
-  __int64 *v40; // [rsp+F0h] [rbp-10h]
-  int v41; // [rsp+F8h] [rbp-8h]
-  int v42; // [rsp+FCh] [rbp-4h]
+  int v9; // [rsp+38h] [rbp-D0h] BYREF
+  int v10; // [rsp+3Ch] [rbp-CCh] BYREF
+  int v11; // [rsp+40h] [rbp-C8h] BYREF
+  int v12; // [rsp+44h] [rbp-C4h] BYREF
+  int v13; // [rsp+48h] [rbp-C0h] BYREF
+  int v14; // [rsp+4Ch] [rbp-BCh] BYREF
+  __int64 v15; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v16; // [rsp+58h] [rbp-B0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v17; // [rsp+68h] [rbp-A0h] BYREF
+  int *v18; // [rsp+88h] [rbp-80h]
+  int v19; // [rsp+90h] [rbp-78h]
+  int v20; // [rsp+94h] [rbp-74h]
+  int *v21; // [rsp+98h] [rbp-70h]
+  int v22; // [rsp+A0h] [rbp-68h]
+  int v23; // [rsp+A4h] [rbp-64h]
+  int *v24; // [rsp+A8h] [rbp-60h]
+  int v25; // [rsp+B0h] [rbp-58h]
+  int v26; // [rsp+B4h] [rbp-54h]
+  int *v27; // [rsp+B8h] [rbp-50h]
+  int v28; // [rsp+C0h] [rbp-48h]
+  int v29; // [rsp+C4h] [rbp-44h]
+  int *v30; // [rsp+C8h] [rbp-40h]
+  int v31; // [rsp+D0h] [rbp-38h]
+  int v32; // [rsp+D4h] [rbp-34h]
+  int *v33; // [rsp+D8h] [rbp-30h]
+  int v34; // [rsp+E0h] [rbp-28h]
+  int v35; // [rsp+E4h] [rbp-24h]
+  __int64 *v36; // [rsp+E8h] [rbp-20h]
+  int v37; // [rsp+F0h] [rbp-18h]
+  int v38; // [rsp+F4h] [rbp-14h]
+  __int64 *v39; // [rsp+F8h] [rbp-10h]
+  int v40; // [rsp+100h] [rbp-8h]
+  int v41; // [rsp+104h] [rbp-4h]
 
   HvGetEffectiveLogSizeCapForHive((unsigned int *)a1);
-  LOBYTE(v2) = HvpLogTypeToLogArrayIndex(*(_DWORD *)(a1 + 168));
-  v5 = (int *)(a1 + 180);
-  v6 = *(_DWORD *)(a1 + 172) - *(_DWORD *)(a1 + 176);
-  v7 = MEMORY[0xFFFFF78000000014];
-  if ( (unsigned int)dword_140C04390 > 5 )
+  v2 = HvpLogTypeToLogArrayIndex(*(_DWORD *)(a1 + 164));
+  v5 = *(_DWORD *)(a1 + 168) - *(_DWORD *)(a1 + 172);
+  v6 = MEMORY[0xFFFFF78000000014];
+  if ( (unsigned int)dword_140C02130 > 5 )
   {
-    v15 = *(_DWORD *)(a1 + 8LL * v2 + 1808);
-    v19 = &v10;
-    v11 = *(_DWORD *)(a1 + 280);
-    v22 = &v11;
-    v10 = v3 == 0;
-    v8 = *(_DWORD *)(a1 + 188);
-    v21 = 0;
-    v24 = 0;
-    v27 = 0;
-    v30 = 0;
-    v33 = 0;
-    v36 = 0;
-    v39 = 0;
-    v42 = 0;
-    v12 = v8;
-    v25 = &v12;
-    v28 = &v13;
-    v14 = *v5;
-    v31 = &v14;
-    v34 = &v15;
-    v37 = &v16;
-    v17 = MEMORY[0xFFFFF78000000014] - *(_QWORD *)(a1 + 200);
-    v40 = &v17;
-    v16 = v6;
-    v20 = 1;
-    v23 = 4;
-    v26 = 4;
-    v13 = v4;
-    v29 = 4;
-    v32 = 4;
-    v35 = 4;
-    v38 = 4;
-    v41 = 8;
+    v14 = *(_DWORD *)(a1 + 8LL * v2 + 1800);
+    v18 = &v9;
+    v10 = *(_DWORD *)(a1 + 272);
+    v21 = &v10;
+    LOBYTE(v9) = v3 == 0;
+    v7 = *(_DWORD *)(a1 + 184);
+    v20 = 0;
+    v23 = 0;
+    v26 = 0;
+    v29 = 0;
+    v32 = 0;
+    v35 = 0;
+    v38 = 0;
+    v41 = 0;
+    v11 = v7;
+    v24 = &v11;
+    v27 = &v12;
+    v13 = *(_DWORD *)(a1 + 176);
+    v30 = &v13;
+    v33 = &v14;
+    v36 = &v15;
+    v16 = MEMORY[0xFFFFF78000000014] - *(_QWORD *)(a1 + 192);
+    v39 = &v16;
+    LODWORD(v15) = v5;
+    v19 = 1;
+    v22 = 4;
+    v25 = 4;
+    v12 = v4;
+    v28 = 4;
+    v31 = 4;
+    v34 = 4;
+    v37 = 4;
+    v40 = 8;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C04390,
-      (unsigned __int8 *)&byte_140037C8F,
+      (__int64)&dword_140C02130,
+      (unsigned __int8 *)&dword_140023AC7 + 3,
       0LL,
       0LL,
       0xAu,
-      &v18);
+      &v17);
   }
-  *(_DWORD *)(a1 + 168) = 5 - (*(_DWORD *)(a1 + 168) != 4);
-  result = *(unsigned int *)(a1 + 172);
-  *v5 = 0;
-  *(_DWORD *)(a1 + 176) = result;
-  *(_QWORD *)(a1 + 200) = v7;
+  *(_DWORD *)(a1 + 164) = 5 - (*(_DWORD *)(a1 + 164) != 4);
+  result = *(unsigned int *)(a1 + 168);
+  *(_QWORD *)(a1 + 172) = (unsigned int)result;
+  *(_QWORD *)(a1 + 192) = v6;
   return result;
 }

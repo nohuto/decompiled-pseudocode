@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CDriverStoreCopy@@QEAA@XZ @ 0x1C030AAAC
+ * XREFs of ??1CDriverStoreCopy@@QEAA@XZ @ 0x1C0262040
  * Callers:
- *     ??_GCDriverStoreCopy@@QEAAPEAXI@Z @ 0x1C005B54C (--_GCDriverStoreCopy@@QEAAPEAXI@Z.c)
+ *     ??_GCDriverStoreCopy@@QEAAPEAXI@Z @ 0x1C00403D4 (--_GCDriverStoreCopy@@QEAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
  */
 
 void __fastcall CDriverStoreCopy::~CDriverStoreCopy(CDriverStoreCopy *this)
@@ -53,6 +53,6 @@ LABEL_15:
     *(_QWORD *)(v8 + 8) = v6;
     if ( v7 == v6 )
       break;
-    operator delete(v7);
+    operator delete[](v7);
   }
 }

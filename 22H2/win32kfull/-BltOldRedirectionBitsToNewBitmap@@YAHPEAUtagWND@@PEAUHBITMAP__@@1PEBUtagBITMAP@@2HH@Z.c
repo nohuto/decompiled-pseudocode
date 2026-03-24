@@ -1,14 +1,14 @@
 /*
- * XREFs of ?BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z @ 0x1C00103C8
+ * XREFs of ?BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z @ 0x1C00F2220
  * Callers:
- *     RecreateRedirectionBitmap @ 0x1C008E968 (RecreateRedirectionBitmap.c)
+ *     RecreateRedirectionBitmap @ 0x1C00F1598 (RecreateRedirectionBitmap.c)
  * Callees:
- *     FillRect @ 0x1C0028BEC (FillRect.c)
- *     GreConvertMemToRedirectionDC @ 0x1C00A672C (GreConvertMemToRedirectionDC.c)
- *     GreExcludeClipRect @ 0x1C00DBC80 (GreExcludeClipRect.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     GreExtSelectClipRgnInternal @ 0x1C011A2F0 (GreExtSelectClipRgnInternal.c)
- *     GreConvertRedirectionToMemDC @ 0x1C02ADA74 (GreConvertRedirectionToMemDC.c)
+ *     FillRect @ 0x1C0045694 (FillRect.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     GreExcludeClipRect @ 0x1C00B9BE0 (GreExcludeClipRect.c)
+ *     GreConvertMemToRedirectionDC @ 0x1C00F2518 (GreConvertMemToRedirectionDC.c)
+ *     GreExtSelectClipRgnInternal @ 0x1C016C338 (GreExtSelectClipRgnInternal.c)
+ *     GreConvertRedirectionToMemDC @ 0x1C02A066C (GreConvertRedirectionToMemDC.c)
  */
 
 __int64 __fastcall BltOldRedirectionBitsToNewBitmap(
@@ -27,14 +27,15 @@ __int64 __fastcall BltOldRedirectionBitsToNewBitmap(
   __int64 SolidBrush; // rdi
   unsigned int v16; // r14d
   unsigned __int64 v17; // rbx
-  RECT v19; // [rsp+78h] [rbp-50h] BYREF
+  __int64 v18; // rcx
+  RECT v20; // [rsp+78h] [rbp-50h] BYREF
 
   v11 = 0;
   if ( (unsigned int)IsWindowDesktopComposed(a1) )
     v11 = (*(_BYTE *)(*((_QWORD *)a1 + 5) + 26LL) & 8) != 0;
-  v12 = GreSelectBitmap(ghdcMem, a2);
-  v13 = GreSelectBitmap(ghdcMem2, a3);
-  v14 = GreConvertMemToRedirectionDC(ghdcMem2);
+  v12 = GreSelectBitmap(*(_QWORD *)ghdcMem, a2);
+  v13 = GreSelectBitmap(*(_QWORD *)ghdcMem2, a3);
+  v14 = GreConvertMemToRedirectionDC(*(HDC *)ghdcMem2);
   EtwTraceWindowRenderingOldToNewRedirectionBitmap(
     *(_QWORD *)a1,
     *(_QWORD *)a1,
@@ -52,30 +53,41 @@ __int64 __fastcall BltOldRedirectionBitsToNewBitmap(
     a4->bmHeight,
     0);
   SolidBrush = 0LL;
-  v16 = NtGdiBitBltInternal(ghdcMem2, -a6, -a7, a4->bmWidth, a4->bmHeight, ghdcMem, 0, 0, -2134114272, 0, 2);
+  v16 = NtGdiBitBltInternal(
+          *(HDC *)ghdcMem2,
+          -a6,
+          -a7,
+          a4->bmWidth,
+          a4->bmHeight,
+          *(HDC *)ghdcMem,
+          0,
+          0,
+          -2134114272,
+          0,
+          2);
   if ( v11 )
   {
     v17 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL) + 72LL);
     if ( v17
-      || *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 1100LL)
-      && (SolidBrush = GreCreateSolidBrush(), (v17 = SolidBrush) != 0) )
+      || (v18 = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 1092LL), (_DWORD)v18)
+      && (SolidBrush = GreCreateSolidBrush(v18), (v17 = SolidBrush) != 0) )
     {
       if ( v17 <= 0x1F )
         v17 = *(_QWORD *)(gpsi + 8 * v17 + 4688);
-      GreExcludeClipRect(ghdcMem2, a4->bmHeight - a7);
-      v19.left = 0;
-      v19.top = 0;
-      v19.right = a5->bmWidth;
-      v19.bottom = a5->bmHeight;
-      FillRect(ghdcMem2, &v19, (HBRUSH)v17);
-      GreExtSelectClipRgnInternal(ghdcMem2, 0LL, 5LL);
+      GreExcludeClipRect(*(HDC *)ghdcMem2, -a6, -a7, a4->bmWidth - a6, a4->bmHeight - a7);
+      v20.left = 0;
+      v20.top = 0;
+      v20.right = a5->bmWidth;
+      v20.bottom = a5->bmHeight;
+      FillRect(*(HDC *)ghdcMem2, &v20, (HBRUSH)v17);
+      GreExtSelectClipRgnInternal(*(HDC *)ghdcMem2);
       if ( SolidBrush )
         GreDeleteObject(SolidBrush);
     }
   }
   if ( v14 )
-    GreConvertRedirectionToMemDC(ghdcMem2);
-  GreSelectBitmap(ghdcMem, v12);
-  GreSelectBitmap(ghdcMem2, v13);
+    GreConvertRedirectionToMemDC(*(HDC *)ghdcMem2);
+  GreSelectBitmap(*(_QWORD *)ghdcMem, v12);
+  GreSelectBitmap(*(_QWORD *)ghdcMem2, v13);
   return v16;
 }

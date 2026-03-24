@@ -1,88 +1,94 @@
 /*
- * XREFs of NVMeModeSenseGetLogPageHealthInfoCompletion @ 0x1C0016A00
+ * XREFs of NVMeModeSenseGetLogPageHealthInfoCompletion @ 0x1C0004670
  * Callers:
  *     <none>
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     ProcessCommand @ 0x1C0002360 (ProcessCommand.c)
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     GetSrbScsiData @ 0x1C0012BEC (GetSrbScsiData.c)
- *     ProcessNvmeHealthInfoLog @ 0x1C0024B24 (ProcessNvmeHealthInfoLog.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     GetSrbScsiData @ 0x1C0004498 (GetSrbScsiData.c)
+ *     ProcessNvmeHealthInfoLog @ 0x1C0004590 (ProcessNvmeHealthInfoLog.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
  */
 
 __int64 __fastcall NVMeModeSenseGetLogPageHealthInfoCompletion(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rbx
-  _BYTE *v5; // r13
+  char *v5; // r13
   __int64 SrbScsiData; // rax
   __int64 v7; // rdi
-  unsigned int *v8; // rsi
+  _DWORD *v8; // r14
   __int64 v9; // rbp
-  bool v10; // zf
-  _BYTE *v11; // r12
-  _BYTE *SrbDataBuffer; // rax
-  _BYTE *v13; // rdi
-  bool v14; // cf
+  _BYTE *v10; // r12
+  _BYTE *v11; // rdi
+  __int64 v12; // rax
+  char v13; // cl
+  char v14; // al
   char v15; // cl
-  char v16; // cl
-  char v17; // al
+  char v16; // al
   __int64 result; // rax
-  unsigned int *v19; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v20; // [rsp+78h] [rbp+10h]
+  bool v18; // cf
+  char v19; // cl
+  __int64 v20; // [rsp+60h] [rbp+8h]
 
   SrbExtension = GetSrbExtension(a2);
-  v5 = *(_BYTE **)(SrbExtension + 4200);
+  v5 = *(char **)(SrbExtension + 4200);
   SrbScsiData = GetSrbScsiData(a2, 0LL, 0LL, 0LL, 0LL);
-  v7 = *(_QWORD *)(a1 + 1840);
+  v7 = *(_QWORD *)(a1 + 1624);
   v8 = 0LL;
   LODWORD(v9) = 0;
-  v19 = 0LL;
-  v10 = *(_BYTE *)(a2 + 3) == 1;
-  v11 = (_BYTE *)SrbScsiData;
   v20 = v7;
-  if ( v10 )
+  v10 = (_BYTE *)SrbScsiData;
+  if ( *(_BYTE *)(a2 + 3) == 1 )
   {
-    SrbDataBuffer = (_BYTE *)GetSrbDataBuffer(a2, &v19);
-    v8 = v19;
-    v13 = SrbDataBuffer;
-    NVMeZeroMemory(SrbDataBuffer, *v19);
-    if ( *v11 == 26 )
+    if ( *(_BYTE *)(a2 + 2) == 40 )
     {
-      v14 = *v8 < 0x18;
-      v9 = 4LL;
-      v13[1] = 0;
-      *v13 = v14 ? 15 : 23;
-      v15 = v13[2] | 0x10;
-      v13[2] = v15;
-      if ( (*v5 & 8) != 0 )
-        v13[2] = v15 | 0x80;
+      v11 = *(_BYTE **)(a2 + 64);
+      v12 = 60LL;
     }
     else
     {
-      v14 = *v8 < 0x1C;
-      v9 = 8LL;
-      *v13 = 0;
-      v13[2] = 0;
-      v13[1] = v14 ? 18 : 26;
-      v16 = v13[3] | 0x10;
-      v13[3] = v16;
-      if ( (*v5 & 8) != 0 )
-        v13[3] = v16 | 0x80;
+      v11 = *(_BYTE **)(a2 + 24);
+      v12 = 16LL;
     }
-    v17 = v13[v9];
-    v13[v9 + 2] &= 0xFAu;
-    v13[v9 + 1] = 10;
-    v13[v9] = v17 & 0x40 | 8;
-    ProcessNvmeHealthInfoLog(a1, a2, v5, 14LL);
+    v8 = (_DWORD *)(a2 + v12);
+    NVMeZeroMemory(v11, *(unsigned int *)(a2 + v12));
+    if ( *v10 == 26 )
+    {
+      v9 = 4LL;
+      v13 = v11[2];
+      v14 = -(*v8 < 0x18u);
+      v11[1] = 0;
+      v15 = v13 | 0x10;
+      v11[2] = v15;
+      *v11 = (v14 & 0xF8) + 23;
+      if ( (*v5 & 8) != 0 )
+        v11[2] = v15 | 0x80;
+    }
+    else
+    {
+      v18 = *v8 < 0x1Cu;
+      v9 = 8LL;
+      *v11 = 0;
+      v11[2] = 0;
+      v11[1] = v18 ? 18 : 26;
+      v19 = v11[3] | 0x10;
+      v11[3] = v19;
+      if ( (*v5 & 8) != 0 )
+        v11[3] = v19 | 0x80;
+    }
+    v16 = v11[v9];
+    v11[v9 + 2] &= 0xFAu;
+    v11[v9 + 1] = 10;
+    v11[v9] = v16 & 0x40 | 8;
+    ProcessNvmeHealthInfoLog(a1, a2, v5, 14);
     v7 = v20;
   }
   result = NVMeFreeDmaBuffer(
              a1,
              *(unsigned int *)(SrbExtension + 4240),
-             (__int64 *)(SrbExtension + 4200),
+             SrbExtension + 4200,
              *(_QWORD *)(SrbExtension + 4208));
   *(_DWORD *)(SrbExtension + 4240) = 0;
   *(_QWORD *)(SrbExtension + 4232) = 0LL;
@@ -103,7 +109,7 @@ __int64 __fastcall NVMeModeSenseGetLogPageHealthInfoCompletion(__int64 a1, __int
       return ProcessCommand(a1, a2);
     }
     result = (unsigned int)(v9 + 20);
-    if ( *v8 < (unsigned __int64)(unsigned int)v9 + 20 )
+    if ( (unsigned int)*v8 < (unsigned __int64)(unsigned int)v9 + 20 )
       result = (unsigned int)(v9 + 12);
     *v8 = result;
   }

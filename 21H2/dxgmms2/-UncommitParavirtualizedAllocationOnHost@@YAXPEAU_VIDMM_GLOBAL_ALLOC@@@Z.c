@@ -1,7 +1,7 @@
 /*
- * XREFs of ?UncommitParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00DA5B0
+ * XREFs of ?UncommitParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B44DC
  * Callers:
- *     ??1_VIDMM_GLOBAL_ALLOC@@QEAA@XZ @ 0x1C008DB14 (--1_VIDMM_GLOBAL_ALLOC@@QEAA@XZ.c)
+ *     ??1_VIDMM_GLOBAL_ALLOC@@QEAA@XZ @ 0x1C0069EA0 (--1_VIDMM_GLOBAL_ALLOC@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -10,11 +10,11 @@ void __fastcall UncommitParavirtualizedAllocationOnHost(struct _VIDMM_GLOBAL_ALL
 {
   struct _MDL *v2; // rcx
 
-  v2 = (struct _MDL *)*((_QWORD *)a1 + 68);
+  v2 = (struct _MDL *)*((_QWORD *)a1 + 66);
   if ( v2 )
   {
     MmFreePagesFromMdl(v2);
-    ExFreePoolWithTag(*((PVOID *)a1 + 68), 0);
-    *((_QWORD *)a1 + 68) = 0LL;
+    ExFreePoolWithTag(*((PVOID *)a1 + 66), 0);
+    *((_QWORD *)a1 + 66) = 0LL;
   }
 }

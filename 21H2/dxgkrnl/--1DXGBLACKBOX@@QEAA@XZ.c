@@ -1,14 +1,16 @@
 /*
- * XREFs of ??1DXGBLACKBOX@@QEAA@XZ @ 0x1C02FEE60
+ * XREFs of ??1DXGBLACKBOX@@QEAA@XZ @ 0x1C02BC0B4
  * Callers:
- *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C0308FE4 (--1DXGGLOBAL@@EEAA@XZ.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268200 (--1DXGGLOBAL@@AEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C000E608 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00066E0 (--1DXGFASTMUTEX@@QEAA@XZ.c)
  */
 
 void __fastcall DXGBLACKBOX::~DXGBLACKBOX(void **this)
 {
-  operator delete(this[7]);
-  DXGFASTMUTEX::~DXGFASTMUTEX((DXGFASTMUTEX *)(this + 1));
+  __int64 v2; // rdx
+
+  operator delete(this[6]);
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGFASTMUTEX *)(this + 1), v2);
 }

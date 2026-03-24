@@ -1,65 +1,80 @@
 /*
- * XREFs of RtlUnicodeStringCatString @ 0x140209B44
+ * XREFs of RtlUnicodeStringCatString @ 0x1403C3D6C
  * Callers:
- *     PopPowerRequestStatsIdConcat @ 0x1407A9080 (PopPowerRequestStatsIdConcat.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140845C24 (SshpGenerateDeviceFriendlyName.c)
- *     PopGenerateDeviceFriendlyName @ 0x14084A464 (PopGenerateDeviceFriendlyName.c)
- *     AslpPathWildcardAllocMatchNode @ 0x140A56658 (AslpPathWildcardAllocMatchNode.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406A4E54 (CmpLogTransactionAbortedWithChildName.c)
+ *     PopGenerateDeviceFriendlyName @ 0x1407BE618 (PopGenerateDeviceFriendlyName.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x1408FB170 (SshpGenerateDeviceFriendlyName.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140969CB0 (AslpPathWildcardAllocMatchNode.c)
  * Callees:
- *     RtlUnicodeStringValidateDestWorker @ 0x140208D74 (RtlUnicodeStringValidateDestWorker.c)
+ *     <none>
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCatString(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszSrc)
 {
-  int v4; // r8d
-  __int64 v5; // r10
-  __int16 v6; // r11
-  __int16 v7; // dx
-  size_t v8; // r9
-  char *v9; // rcx
-  size_t v11; // [rsp+20h] [rbp-28h]
-  ULONG v12; // [rsp+28h] [rbp-20h]
-  wchar_t *v13; // [rsp+30h] [rbp-18h] BYREF
-  size_t v14; // [rsp+60h] [rbp+18h] BYREF
-  size_t v15; // [rsp+68h] [rbp+20h] BYREF
+  unsigned __int64 Length; // r11
+  wchar_t *Buffer; // rdi
+  unsigned __int64 v5; // r10
+  unsigned __int64 v6; // r9
+  NTSTATUS v7; // r8d
+  unsigned __int64 MaximumLength; // rax
+  __int64 v9; // rcx
+  __int16 v10; // r11
+  unsigned __int64 v11; // r10
+  char *v12; // rdi
 
-  v13 = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  v4 = RtlUnicodeStringValidateDestWorker(DestinationString, &v13, &v14, &v15, v11, v12);
-  if ( v4 >= 0 )
+  Length = DestinationString->Length;
+  Buffer = 0LL;
+  v5 = 0LL;
+  v6 = 0LL;
+  v7 = 0;
+  if ( (Length & 1) != 0 )
+    return -1073741811;
+  MaximumLength = DestinationString->MaximumLength;
+  if ( (MaximumLength & 1) != 0
+    || (unsigned __int16)Length > (unsigned __int16)MaximumLength
+    || (_WORD)MaximumLength == 0xFFFF )
   {
-    v5 = 0x7FFFLL;
-    v6 = v15;
-    v4 = 0;
-    v7 = 0;
-    v8 = v14 - v15;
-    if ( v14 == v15 )
-    {
-LABEL_11:
-      if ( *pszSrc )
-        v4 = -2147483643;
-    }
-    else
-    {
-      v9 = (char *)v13 + 2 * v15 - (_QWORD)pszSrc;
-      while ( v5 )
-      {
-        if ( *pszSrc )
-        {
-          *(NTSTRSAFE_PCWSTR)((char *)pszSrc + (_QWORD)v9) = *pszSrc;
-          --v5;
-          ++pszSrc;
-          ++v7;
-          if ( --v8 )
-            continue;
-        }
-        if ( v8 || !v5 )
-          break;
-        goto LABEL_11;
-      }
-    }
-    DestinationString->Length = 2 * (v6 + v7);
+    return -1073741811;
   }
-  return v4;
+  if ( !DestinationString->Buffer && ((_WORD)Length || (_WORD)MaximumLength) )
+  {
+    v7 = -1073741811;
+  }
+  else
+  {
+    v5 = MaximumLength >> 1;
+    Buffer = DestinationString->Buffer;
+    v6 = Length >> 1;
+  }
+  if ( v7 >= 0 )
+  {
+    v9 = 0x7FFFLL;
+    v7 = 0;
+    v10 = 0;
+    v11 = v5 - v6;
+    if ( !v11 )
+      goto LABEL_26;
+    v12 = (char *)Buffer + 2 * v6 - (_QWORD)pszSrc;
+    do
+    {
+      if ( !v9 )
+        break;
+      if ( !*pszSrc )
+        break;
+      *(NTSTRSAFE_PCWSTR)((char *)pszSrc + (_QWORD)v12) = *pszSrc;
+      --v9;
+      ++pszSrc;
+      ++v10;
+      --v11;
+    }
+    while ( v11 );
+    if ( !v11 && v9 )
+    {
+LABEL_26:
+      if ( *pszSrc )
+        v7 = -2147483643;
+    }
+    DestinationString->Length = 2 * (v10 + v6);
+  }
+  return v7;
 }

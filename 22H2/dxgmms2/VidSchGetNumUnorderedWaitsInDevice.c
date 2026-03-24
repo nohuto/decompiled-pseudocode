@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchGetNumUnorderedWaitsInDevice @ 0x1C00C4600
+ * XREFs of VidSchGetNumUnorderedWaitsInDevice @ 0x1C0089340
  * Callers:
  *     <none>
  * Callees:

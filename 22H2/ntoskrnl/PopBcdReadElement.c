@@ -1,37 +1,37 @@
 /*
- * XREFs of PopBcdReadElement @ 0x140805418
+ * XREFs of PopBcdReadElement @ 0x14078336C
  * Callers:
- *     PopBcdSetDefaultResumeObjectElements @ 0x140804DD8 (PopBcdSetDefaultResumeObjectElements.c)
- *     PopBcdRegenerateResumeObject @ 0x14099CCB4 (PopBcdRegenerateResumeObject.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x140782DF4 (PopBcdSetDefaultResumeObjectElements.c)
+ *     PopBcdRegenerateResumeObject @ 0x1408F58D4 (PopBcdRegenerateResumeObject.c)
  * Callees:
- *     BcdGetElementDataWithFlags @ 0x14080723C (BcdGetElementDataWithFlags.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     BcdGetElementDataWithFlags @ 0x1407840C0 (BcdGetElementDataWithFlags.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopBcdReadElement(int a1, int a2, _QWORD *a3, _DWORD *a4)
 {
-  void *Pool2; // rdi
+  PVOID PoolWithTag; // rdi
   int v9; // r8d
   int ElementDataWithFlags; // ebx
-  _DWORD v12[6]; // [rsp+30h] [rbp-18h] BYREF
+  unsigned int NumberOfBytes[6]; // [rsp+30h] [rbp-18h] BYREF
 
-  v12[0] = 0;
-  if ( (unsigned int)BcdGetElementDataWithFlags(a1, a2, (_DWORD)a3, 0, (__int64)v12) == -1073741789 )
+  NumberOfBytes[0] = 0;
+  if ( (unsigned int)BcdGetElementDataWithFlags(a1, a2, (_DWORD)a3, 0, (__int64)NumberOfBytes) == -1073741789 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, v12[0], 1684226640LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, NumberOfBytes[0], 0x64634250u);
+    if ( PoolWithTag )
     {
-      ElementDataWithFlags = BcdGetElementDataWithFlags(a1, a2, v9, (_DWORD)Pool2, (__int64)v12);
+      ElementDataWithFlags = BcdGetElementDataWithFlags(a1, a2, v9, (_DWORD)PoolWithTag, (__int64)NumberOfBytes);
       if ( ElementDataWithFlags < 0 )
       {
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(PoolWithTag, 0);
       }
       else
       {
         ElementDataWithFlags = 0;
-        *a4 = v12[0];
-        *a3 = Pool2;
+        *a4 = NumberOfBytes[0];
+        *a3 = PoolWithTag;
       }
     }
     else

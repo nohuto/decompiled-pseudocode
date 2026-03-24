@@ -1,52 +1,52 @@
 /*
- * XREFs of MiAddMdlTracker @ 0x14061C55C
+ * XREFs of MiAddMdlTracker @ 0x140530794
  * Callers:
- *     MiProbeAndLockComplete @ 0x140238850 (MiProbeAndLockComplete.c)
- *     MiSwitchToTransition @ 0x1406331FC (MiSwitchToTransition.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MiProbeAndLockComplete @ 0x14030EDF0 (MiProbeAndLockComplete.c)
+ *     MiSwitchToTransition @ 0x140539E54 (MiSwitchToTransition.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140227700 (RtlCaptureStackBackTrace.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetInstructionPointer @ 0x140617C30 (MiGetInstructionPointer.c)
- *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x14067BE00 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CDE0 (RtlCaptureStackBackTrace.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x140300354 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiGetInstructionPointer @ 0x14052DF04 (MiGetInstructionPointer.c)
  */
 
-unsigned __int64 __fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int64 a2, int a3)
+__int64 __fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int64 a2, int a3)
 {
   PEPROCESS v3; // rsi
-  unsigned __int64 result; // rax
+  __int64 result; // rax
   unsigned __int64 v8; // rbx
-  unsigned __int64 v9; // r9
-  unsigned __int64 v10; // rdi
-  _QWORD *v11; // rdx
-  bool v12; // r8
-  _QWORD *v13; // rax
+  __int64 v9; // rdi
+  _QWORD *v10; // rdx
+  bool v11; // r8
+  _QWORD *v12; // rax
   unsigned __int64 OldIrql; // rbx
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v17; // zf
+  bool v16; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-58h] BYREF
   _UNKNOWN *retaddr; // [rsp+88h] [rbp+0h]
   ULONG BackTraceHash; // [rsp+90h] [rbp+8h] BYREF
-  __int64 v21; // [rsp+A8h] [rbp+20h] BYREF
+  __int64 v20; // [rsp+A8h] [rbp+20h] BYREF
 
   v3 = *(PEPROCESS *)(BugCheckParameter3 + 16);
   result = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( v3 || (v3 = PsInitialSystemProcess) != 0LL )
   {
-    v8 = v3[1].ActiveProcessors.StaticBitmap[11];
+    v8 = v3[1].ActiveProcessors.Bitmap[11];
     if ( v8 )
     {
       if ( *(_DWORD *)(v8 + 32) )
       {
-        result = (unsigned __int64)ExAllocateFromNPagedLookasideList(&stru_140C68400);
-        v10 = result;
+        result = (__int64)ExAllocateFromNPagedLookasideList(&stru_140C4EA40);
+        v9 = result;
         if ( result )
         {
           *(_QWORD *)(result + 24) = BugCheckParameter3;
@@ -55,68 +55,65 @@ unsigned __int64 __fastcall MiAddMdlTracker(ULONG_PTR BugCheckParameter3, __int6
           *(_DWORD *)(result + 48) = *(_DWORD *)(BugCheckParameter3 + 44);
           *(_DWORD *)(result + 52) = *(_DWORD *)(BugCheckParameter3 + 40);
           *(_QWORD *)(result + 64) = *(_QWORD *)(BugCheckParameter3 + 48);
-          v21 = 0LL;
-          MetroHash64::Hash(
-            (const unsigned __int8 *)(BugCheckParameter3 + 48),
-            8 * a2,
-            (unsigned __int8 *const)&v21,
-            v9);
-          *(_DWORD *)(v10 + 60) = v21;
+          v20 = 0LL;
+          MetroHash64::Hash((const unsigned __int8 *)(BugCheckParameter3 + 48), 8 * a2, (unsigned __int8 *const)&v20);
+          *(_DWORD *)(v9 + 60) = v20;
           BackTraceHash = 0;
-          memset((void *)(v10 + 72), 0, 0x40uLL);
-          if ( !RtlCaptureStackBackTrace(0, 8u, (PVOID *)(v10 + 72), &BackTraceHash) )
+          memset((void *)(v9 + 72), 0, 0x40uLL);
+          if ( !RtlCaptureStackBackTrace(0, 8u, (PVOID *)(v9 + 72), &BackTraceHash) )
           {
-            *(_QWORD *)(v10 + 80) = retaddr;
-            *(_QWORD *)(v10 + 72) = MiGetInstructionPointer();
+            *(_QWORD *)(v9 + 80) = retaddr;
+            *(_QWORD *)(v9 + 72) = MiGetInstructionPointer();
           }
-          *(_DWORD *)(v10 + 56) = a3;
-          *(_QWORD *)(v10 + 136) = v3;
+          *(_DWORD *)(v9 + 56) = a3;
+          *(_QWORD *)(v9 + 136) = v3;
           KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v8 + 24), &LockHandle);
-          v11 = *(_QWORD **)v8;
-          v12 = 0;
+          v10 = *(_QWORD **)v8;
+          v11 = 0;
           if ( *(_QWORD *)v8 )
           {
             while ( 1 )
             {
-              if ( BugCheckParameter3 >= v11[3] )
+              if ( BugCheckParameter3 < v10[3] )
               {
-                if ( BugCheckParameter3 <= v11[3] )
-                  KeBugCheckEx(0xD9u, 1uLL, (ULONG_PTR)v11, BugCheckParameter3, *(_QWORD *)(v8 + 16));
-                v13 = (_QWORD *)v11[1];
-                if ( !v13 )
-                {
-                  v12 = 1;
+                v12 = (_QWORD *)*v10;
+                if ( !*v10 )
                   break;
-                }
               }
               else
               {
-                v13 = (_QWORD *)*v11;
-                if ( !*v11 )
+                if ( BugCheckParameter3 <= v10[3] )
+                  KeBugCheckEx(0xD9u, 1uLL, (ULONG_PTR)v10, BugCheckParameter3, *(_QWORD *)(v8 + 16));
+                v12 = (_QWORD *)v10[1];
+                if ( !v12 )
+                {
+                  v11 = 1;
                   break;
+                }
               }
-              v11 = v13;
+              v10 = v12;
             }
           }
-          RtlAvlInsertNodeEx((unsigned __int64 *)v8, (unsigned __int64)v11, v12, v10);
+          RtlAvlInsertNodeEx((unsigned __int64 *)v8, (unsigned __int64)v10, v11, (_QWORD *)v9);
           *(_QWORD *)(v8 + 16) += a2;
-          result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+          KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+          result = (unsigned int)KiIrqlFlags;
           OldIrql = LockHandle.OldIrql;
           if ( KiIrqlFlags )
           {
-            result = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0
-              && (unsigned __int8)result <= 0xFu
-              && LockHandle.OldIrql <= 0xFu
-              && (unsigned __int8)result >= 2u )
+            if ( (KiIrqlFlags & 1) != 0 )
             {
-              CurrentPrcb = KeGetCurrentPrcb();
-              SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-              v17 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= result;
-              if ( v17 )
-                result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+              result = KeGetCurrentIrql();
+              if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+              {
+                CurrentPrcb = KeGetCurrentPrcb();
+                SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+                v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+                SchedulerAssist[5] &= result;
+                if ( v16 )
+                  result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+              }
             }
           }
           __writecr8(OldIrql);

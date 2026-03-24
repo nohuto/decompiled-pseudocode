@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_CheckingBytesReturnedInHubConfigDescriptor @ 0x1C0009530
+ * XREFs of HUBHSM_CheckingBytesReturnedInHubConfigDescriptor @ 0x1C0008D60
  * Callers:
  *     <none>
  * Callees:

@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTransitionToRealtime @ 0x1405FF618
+ * XREFs of EtwpTransitionToRealtime @ 0x1403F8718
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     EtwpCheckLoggerControlAccess @ 0x1406BDB0C (EtwpCheckLoggerControlAccess.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     EtwpSynchronizeWithLogger @ 0x1407F5FE0 (EtwpSynchronizeWithLogger.c)
- *     EtwpValidateLoggerInfo @ 0x1407F90BC (EtwpValidateLoggerInfo.c)
- *     EtwpAcquireLoggerContext @ 0x1407F90F4 (EtwpAcquireLoggerContext.c)
- *     EtwpGetLoggerInfoFromContext @ 0x1407F91F0 (EtwpGetLoggerInfoFromContext.c)
- *     EtwpEventWriteTemplateSession @ 0x1409E3CB4 (EtwpEventWriteTemplateSession.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     EtwpSynchronizeWithLogger @ 0x14069BD8C (EtwpSynchronizeWithLogger.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1406BBBBC (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContext @ 0x140712790 (EtwpAcquireLoggerContext.c)
+ *     EtwpValidateLoggerInfo @ 0x1407128B4 (EtwpValidateLoggerInfo.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1407129F4 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpEventWriteTemplateSession @ 0x140939ECC (EtwpEventWriteTemplateSession.c)
  */
 
 __int64 __fastcall EtwpTransitionToRealtime(__int64 a1, __int64 a2, __int64 a3)
@@ -43,7 +43,7 @@ __int64 __fastcall EtwpTransitionToRealtime(__int64 a1, __int64 a2, __int64 a3)
     if ( LoggerInfoFromContext < 0 )
     {
 LABEL_20:
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegion();
       return (unsigned int)LoggerInfoFromContext;
     }
     v10 = v18;
@@ -58,22 +58,22 @@ LABEL_20:
       if ( LoggerInfoFromContext >= 0 )
       {
         EtwpSynchronizeWithLogger(v10, 4100LL);
-        if ( *(_QWORD *)(v10 + 800) )
+        if ( *(_QWORD *)(v10 + 816) )
         {
           LoggerInfoFromContext = -1073741823;
-          if ( *(_DWORD *)(v10 + 40) )
-            LoggerInfoFromContext = *(_DWORD *)(v10 + 40);
+          if ( *(_DWORD *)(v10 + 56) )
+            LoggerInfoFromContext = *(_DWORD *)(v10 + 56);
           goto LABEL_19;
         }
-        RtlFreeUnicodeString((PUNICODE_STRING)(v10 + 152));
-        RtlFreeUnicodeString((PUNICODE_STRING)(v10 + 168));
-        RtlFreeUnicodeString((PUNICODE_STRING)(v10 + 184));
+        RtlFreeAnsiString((PUNICODE_STRING)(v10 + 168));
+        RtlFreeAnsiString((PUNICODE_STRING)(v10 + 184));
+        RtlFreeAnsiString((PUNICODE_STRING)(v10 + 200));
         v12 = v11 & 0xFBFFFCD0 | 0x100;
         v13 = v11 & 0xFBFFFCC0 | 0x110;
         v14 = v12 & 0xFFFFFFEF;
         if ( (*(_DWORD *)(a2 + 64) & 0x10) == 0 )
           v13 = v14;
-        v15 = (int *)(v10 + 208);
+        v15 = (int *)(v10 + 224);
         *(_DWORD *)(v10 + 12) = v13;
         v16 = *(_DWORD *)(a2 + 68);
         if ( !v16 )

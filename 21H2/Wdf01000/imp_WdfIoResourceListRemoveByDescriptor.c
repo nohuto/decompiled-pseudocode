@@ -1,16 +1,16 @@
 /*
- * XREFs of imp_WdfIoResourceListRemoveByDescriptor @ 0x1C006F9C0
+ * XREFs of imp_WdfIoResourceListRemoveByDescriptor @ 0x1C005CB30
  * Callers:
  *     <none>
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?RemoveEntry@FxCollectionInternal@@QEAAJPEAVFxCollectionEntry@@@Z @ 0x1C0021CB4 (-RemoveEntry@FxCollectionInternal@@QEAAJPEAVFxCollectionEntry@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?RemoveEntry@FxCollectionInternal@@QEAAJPEAVFxCollectionEntry@@@Z @ 0x1C00619C4 (-RemoveEntry@FxCollectionInternal@@QEAAJPEAVFxCollectionEntry@@@Z.c)
  */
 
 void __fastcall imp_WdfIoResourceListRemoveByDescriptor(
@@ -22,9 +22,9 @@ void __fastcall imp_WdfIoResourceListRemoveByDescriptor(
   _FX_DRIVER_GLOBALS *m_Globals; // rbx
   unsigned __int8 v7; // r8
   FxIoResList *v8; // rcx
-  _LIST_ENTRY *Flink; // rdi
+  FxObject *m_Object; // rdi
   FxCollectionInternal *v10; // rsi
-  FX_POOL_TRACKER *p_Blink; // rbx
+  FxCollectionEntry *p_Blink; // rbx
   ULONG_PTR retaddr; // [rsp+48h] [rbp+18h]
   unsigned __int8 irql; // [rsp+50h] [rbp+20h] BYREF
   FxIoResList *pList; // [rsp+60h] [rbp+30h] BYREF
@@ -32,7 +32,7 @@ void __fastcall imp_WdfIoResourceListRemoveByDescriptor(
   pList = 0LL;
   irql = 0;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)ResourceList,
     0x1035u,
     (void **)&pList);
@@ -43,30 +43,30 @@ void __fastcall imp_WdfIoResourceListRemoveByDescriptor(
   {
     FxNonPagedObject::Lock(pList, &irql, v5);
     v8 = pList;
-    Flink = 0LL;
+    m_Object = 0LL;
     v10 = &pList->FxCollectionInternal;
-    p_Blink = (FX_POOL_TRACKER *)&pList->m_ListHead.Flink[-1].Blink;
-    if ( p_Blink != (FX_POOL_TRACKER *)&pList->FxCollectionInternal )
+    p_Blink = (FxCollectionEntry *)&pList->m_ListHead.Flink[-1].Blink;
+    if ( p_Blink != (FxCollectionEntry *)&pList->FxCollectionInternal )
     {
       while ( 1 )
       {
-        Flink = p_Blink->Link.Flink;
-        if ( RtlCompareMemory(&p_Blink->Link.Flink[6].Blink, Descriptor, 0x20uLL) == 32 )
+        m_Object = p_Blink->m_Object;
+        if ( RtlCompareMemory(&p_Blink->m_Object[1], Descriptor, 0x20uLL) == 32 )
           break;
-        Flink = 0LL;
-        p_Blink = (FX_POOL_TRACKER *)&p_Blink->Link.Blink[-1].Blink;
-        if ( p_Blink == (FX_POOL_TRACKER *)v10 )
-          goto LABEL_9;
+        m_Object = 0LL;
+        p_Blink = (FxCollectionEntry *)&p_Blink->m_ListEntry.Flink[-1].Blink;
+        if ( p_Blink == (FxCollectionEntry *)v10 )
+          goto LABEL_10;
       }
       pList->m_Changed = 1;
       pList->m_OwningList->m_Changed = 1;
       FxCollectionInternal::RemoveEntry(&pList->FxCollectionInternal, p_Blink);
-LABEL_9:
+LABEL_10:
       v8 = pList;
     }
     FxNonPagedObject::Unlock(v8, irql, v7);
-    if ( Flink )
-      ((void (__fastcall *)(_LIST_ENTRY *))Flink->Flink[3].Flink)(Flink);
+    if ( m_Object )
+      m_Object->DeleteObject(m_Object);
   }
   else
   {

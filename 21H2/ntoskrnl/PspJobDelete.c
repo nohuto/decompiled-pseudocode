@@ -1,203 +1,201 @@
 /*
- * XREFs of PspJobDelete @ 0x140207100
+ * XREFs of PspJobDelete @ 0x140287530
  * Callers:
  *     <none>
  * Callees:
- *     ExDeleteResourceLite @ 0x14028A7C0 (ExDeleteResourceLite.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1403494F0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwDeleteWnfStateName @ 0x14041D320 (ZwDeleteWnfStateName.c)
- *     PspGetJobLockHierarchyForDeletion @ 0x1406789B0 (PspGetJobLockHierarchyForDeletion.c)
- *     PspJobIoRateControlDisable @ 0x140678A28 (PspJobIoRateControlDisable.c)
- *     PspJobDeleteStorageArrays @ 0x140678A8C (PspJobDeleteStorageArrays.c)
- *     PspRemoveCpuRateControl @ 0x140678AEC (PspRemoveCpuRateControl.c)
- *     PspLockRootJobExclusive @ 0x140678FCC (PspLockRootJobExclusive.c)
- *     PspUnlockJobListExclusive @ 0x140681AD4 (PspUnlockJobListExclusive.c)
- *     PspUnlockJobsAndProcessExclusive @ 0x140682038 (PspUnlockJobsAndProcessExclusive.c)
- *     PspLockJobsAndProcessExclusive @ 0x1406820CC (PspLockJobsAndProcessExclusive.c)
- *     PspLockJobConditionally @ 0x14068565C (PspLockJobConditionally.c)
- *     PspRemoveIoAttribution @ 0x1406D4CBC (PspRemoveIoAttribution.c)
- *     PsInvokeWin32Callout @ 0x1406F83A0 (PsInvokeWin32Callout.c)
- *     PspUnlockJob @ 0x1406FFE90 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x1406FFED4 (PspLockJobExclusive.c)
- *     PsReturnSharedPoolQuota @ 0x140724DC8 (PsReturnSharedPoolQuota.c)
- *     IoFreeMiniCompletionPacket @ 0x14074F6E0 (IoFreeMiniCompletionPacket.c)
- *     PspEmptyPropertySet @ 0x1407A08FC (PspEmptyPropertySet.c)
- *     ExMapHandleToPointer @ 0x1407A1AC0 (ExMapHandleToPointer.c)
- *     ExDestroyHandle @ 0x1407A2B78 (ExDestroyHandle.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     PspDeleteSilo @ 0x1407F8C6C (PspDeleteSilo.c)
- *     PspNetRateControlDispatch @ 0x1409B03B4 (PspNetRateControlDispatch.c)
- *     PspRemoveRateControl @ 0x1409B062C (PspRemoveRateControl.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwDeleteWnfStateName @ 0x1403FBEC0 (ZwDeleteWnfStateName.c)
+ *     PspLockJobConditionally @ 0x140616368 (PspLockJobConditionally.c)
+ *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x140618774 (PspLockJobExclusive.c)
+ *     PspUnlockJobConditionally @ 0x140618F8C (PspUnlockJobConditionally.c)
+ *     ExDestroyHandle @ 0x140619D78 (ExDestroyHandle.c)
+ *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
+ *     ExMapHandleToPointer @ 0x14061BB00 (ExMapHandleToPointer.c)
+ *     PspEmptyPropertySet @ 0x14064CB48 (PspEmptyPropertySet.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     PsReturnSharedPoolQuota @ 0x1406603C4 (PsReturnSharedPoolQuota.c)
+ *     PspGetJobLockHierarchyForDeletion @ 0x14067F388 (PspGetJobLockHierarchyForDeletion.c)
+ *     PspJobIoRateControlDisable @ 0x14067F400 (PspJobIoRateControlDisable.c)
+ *     PspJobDeleteStorageArrays @ 0x14067F464 (PspJobDeleteStorageArrays.c)
+ *     IoFreeMiniCompletionPacket @ 0x14067F4A0 (IoFreeMiniCompletionPacket.c)
+ *     PspRemoveCpuRateControl @ 0x14067F4BC (PspRemoveCpuRateControl.c)
+ *     PspLockRootJobExclusive @ 0x14067F980 (PspLockRootJobExclusive.c)
+ *     PspRemoveIoAttribution @ 0x1406804F4 (PspRemoveIoAttribution.c)
+ *     PspUnlockJobsAndProcessExclusive @ 0x14071F8CC (PspUnlockJobsAndProcessExclusive.c)
+ *     PspLockJobsAndProcessExclusive @ 0x14072076C (PspLockJobsAndProcessExclusive.c)
+ *     PspUnlockJobListExclusive @ 0x140720A04 (PspUnlockJobListExclusive.c)
+ *     PspLockJobListExclusive @ 0x140720A44 (PspLockJobListExclusive.c)
+ *     PspDeleteSilo @ 0x140906418 (PspDeleteSilo.c)
+ *     PspNetRateControlDispatch @ 0x140909004 (PspNetRateControlDispatch.c)
+ *     PspRemoveRateControl @ 0x14090927C (PspRemoveRateControl.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-LONG_PTR __fastcall PspJobDelete(__int64 a1)
+void __fastcall PspJobDelete(char *Object)
 {
   struct _KTHREAD *CurrentThread; // rdi
   void *v3; // rcx
   __int64 v4; // rcx
-  __int64 v5; // rdx
-  _QWORD *v6; // rcx
+  char **v5; // rdx
+  PVOID *v6; // rcx
   void *v7; // rcx
-  _QWORD *v8; // rax
-  __int64 v9; // rdx
-  struct _KTHREAD *v10; // rax
-  unsigned int v11; // eax
-  __int64 v12; // rax
-  LONG_PTR result; // rax
+  __int64 v8; // rcx
+  char *v9; // rax
+  char *v10; // rdx
+  struct _KTHREAD *v11; // rax
+  unsigned int v12; // eax
+  __int64 v13; // rax
   void *v14; // rcx
-  __int64 v15; // rax
-  _QWORD *v16; // rcx
-  void *v17; // rcx
+  char **v15; // rcx
+  void *v16; // rcx
+  __int64 v17; // rax
   void *v18; // rcx
   __int64 v19; // [rsp+38h] [rbp-29h] BYREF
-  __int128 v20; // [rsp+40h] [rbp-21h] BYREF
-  __int64 v21; // [rsp+50h] [rbp-11h]
-  _OWORD v22[2]; // [rsp+58h] [rbp-9h] BYREF
-  __int64 v23; // [rsp+78h] [rbp+17h]
-  _OWORD v24[2]; // [rsp+80h] [rbp+1Fh] BYREF
-  int v25; // [rsp+A0h] [rbp+3Fh]
+  unsigned int v20; // [rsp+40h] [rbp-21h] BYREF
+  __int128 v21; // [rsp+48h] [rbp-19h] BYREF
+  __int64 v22; // [rsp+58h] [rbp-9h]
+  _OWORD v23[2]; // [rsp+60h] [rbp-1h] BYREF
+  __int64 v24; // [rsp+80h] [rbp+1Fh]
+  _OWORD v25[2]; // [rsp+88h] [rbp+27h] BYREF
+  __int64 v26; // [rsp+A8h] [rbp+47h]
 
-  v23 = 0LL;
+  v24 = 0LL;
+  v22 = 0LL;
+  memset(v23, 0, sizeof(v23));
+  v26 = 0LL;
   v21 = 0LL;
-  memset(v22, 0, sizeof(v22));
-  v25 = 0;
-  v20 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  memset(v24, 0, sizeof(v24));
+  memset(v25, 0, sizeof(v25));
   v19 = 0LL;
-  PspEmptyPropertySet(a1 + 1472);
-  PspJobDeleteStorageArrays(a1);
-  if ( *(_QWORD *)(a1 + 1200) || *(_QWORD *)(a1 + 1504) )
+  PspEmptyPropertySet(Object + 1280);
+  PspJobDeleteStorageArrays(Object);
+  if ( *((_QWORD *)Object + 126) || *((_QWORD *)Object + 164) )
   {
-    PspLockRootJobExclusive(a1, CurrentThread, &v19);
-    PspLockJobConditionally(a1, &v19);
-    if ( *(_QWORD *)(a1 + 1200) )
-      PspRemoveCpuRateControl(a1);
-    v15 = *(_QWORD *)(a1 + 1504);
-    if ( v15 )
+    PspLockRootJobExclusive(Object, CurrentThread, &v19);
+    PspLockJobConditionally(Object, &v19);
+    if ( *((_QWORD *)Object + 126) )
+      PspRemoveCpuRateControl(Object);
+    v17 = *((_QWORD *)Object + 164);
+    if ( v17 )
     {
-      memset((char *)v22 + 8, 0, 24);
-      v23 = 4LL;
-      *(_QWORD *)&v22[0] = *(_QWORD *)(v15 + 56);
-      PspNetRateControlDispatch(v22);
-      PspRemoveRateControl(a1);
+      memset((char *)v23 + 8, 0, 24);
+      v24 = 4LL;
+      *(_QWORD *)&v23[0] = *(_QWORD *)(v17 + 56);
+      PspNetRateControlDispatch(v23);
+      PspRemoveRateControl(Object);
     }
-    if ( a1 != v19 )
-      ExReleaseResourceLite((PERESOURCE)(a1 + 56));
+    PspUnlockJobConditionally(Object, &v19);
     PspUnlockJob(v19, CurrentThread);
   }
-  PspJobIoRateControlDisable(a1);
-  if ( *(_QWORD *)(a1 + 1544) )
+  PspJobIoRateControlDisable(Object);
+  if ( *((_QWORD *)Object + 169) )
   {
-    PspLockRootJobExclusive(a1, CurrentThread, &v19);
-    PspLockJobConditionally(a1, &v19);
-    if ( *(_QWORD *)(a1 + 1544) )
-      PspRemoveIoAttribution((PVOID)a1);
-    if ( a1 != v19 )
-      ExReleaseResourceLite((PERESOURCE)(a1 + 56));
+    PspLockRootJobExclusive(Object, CurrentThread, &v19);
+    PspLockJobConditionally(Object, &v19);
+    if ( *((_QWORD *)Object + 169) )
+      PspRemoveIoAttribution(Object);
+    PspUnlockJobConditionally(Object, &v19);
     PspUnlockJob(v19, CurrentThread);
   }
-  LODWORD(v19) = *(_DWORD *)(a1 + 576);
-  if ( (unsigned int)v19 <= 0xFFFFFFFD )
+  v20 = *((_DWORD *)Object + 120);
+  if ( v20 <= 0xFFFFFFFD )
   {
-    *(_QWORD *)&v20 = a1;
-    DWORD2(v20) = 2;
-    v21 = 0LL;
-    PspLockJobExclusive(a1, CurrentThread);
-    PsInvokeWin32Callout(6LL, &v20, 1LL, &v19);
-    PspUnlockJob(a1, CurrentThread);
+    *(_QWORD *)&v21 = Object;
+    DWORD2(v21) = 2;
+    v22 = 0LL;
+    PspLockJobExclusive(Object, CurrentThread);
+    PsInvokeWin32Callout(6LL, &v21, 1LL, &v20);
+    PspUnlockJob(Object, CurrentThread);
   }
-  v3 = *(void **)(a1 + 552);
-  *(_DWORD *)(a1 + 256) = 0;
+  v3 = (void *)*((_QWORD *)Object + 57);
+  *((_DWORD *)Object + 64) = 0;
   if ( v3 )
   {
     ObfDereferenceObjectWithTag(v3, 0x624A7350u);
-    *(_QWORD *)(a1 + 552) = 0LL;
+    *((_QWORD *)Object + 57) = 0LL;
   }
-  v4 = *(_QWORD *)(a1 + 528);
+  v4 = *((_QWORD *)Object + 54);
   if ( v4 )
   {
     SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)(v4 + 8));
-    ExFreePoolWithTag(*(PVOID *)(a1 + 528), 0x614A7350u);
-    PsReturnSharedPoolQuota(*(PVOID *)(a1 + 536));
+    ExFreePoolWithTag(*((PVOID *)Object + 54), 0x614A7350u);
+    PsReturnSharedPoolQuota(*((PVOID *)Object + 55));
   }
-  --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&PspJobListLock, 0LL);
-  v5 = *(_QWORD *)(a1 + 24);
-  if ( *(_QWORD *)(v5 + 8) != a1 + 24 )
-    goto LABEL_44;
-  v6 = *(_QWORD **)(a1 + 32);
-  if ( *v6 != a1 + 24 )
-    goto LABEL_44;
+  PspLockJobListExclusive(CurrentThread);
+  v5 = (char **)*((_QWORD *)Object + 3);
+  if ( v5[1] != Object + 24 )
+    goto LABEL_40;
+  v6 = (PVOID *)*((_QWORD *)Object + 4);
+  if ( *v6 != Object + 24 )
+    goto LABEL_40;
   *v6 = v5;
-  *(_QWORD *)(v5 + 8) = v6;
+  v5[1] = (char *)v6;
   PspUnlockJobListExclusive(CurrentThread);
-  v7 = *(void **)(a1 + 1176);
+  v7 = (void *)*((_QWORD *)Object + 123);
   if ( v7 )
   {
     ExFreePoolWithTag(v7, 0x624A7350u);
-    v18 = *(void **)(a1 + 1184);
-    *(_QWORD *)(a1 + 1176) = 0LL;
+    v18 = (void *)*((_QWORD *)Object + 124);
+    *((_QWORD *)Object + 123) = 0LL;
     PsReturnSharedPoolQuota(v18);
   }
-  if ( *(_QWORD *)(a1 + 1192) )
-    IoFreeMiniCompletionPacket();
-  if ( (*(_DWORD *)(a1 + 1512) & 0x800) != 0 )
-    ZwDeleteWnfStateName(a1 + 1072);
-  PspGetJobLockHierarchyForDeletion(a1, v24);
-  PspLockJobsAndProcessExclusive(v24, 0LL, CurrentThread, 0LL);
-  v8 = (_QWORD *)(a1 + 1232);
-  v9 = *(_QWORD *)(a1 + 1232);
-  if ( v9 != a1 + 1232 )
+  v8 = *((_QWORD *)Object + 125);
+  if ( v8 )
+    IoFreeMiniCompletionPacket(v8);
+  if ( (*((_DWORD *)Object + 330) & 0x800) != 0 )
+    ZwDeleteWnfStateName(Object + 880);
+  PspGetJobLockHierarchyForDeletion(Object, v25);
+  PspLockJobsAndProcessExclusive(v25, 0LL, CurrentThread, 0LL);
+  v9 = Object + 1040;
+  v10 = (char *)*((_QWORD *)Object + 130);
+  if ( v10 != Object + 1040 )
   {
-    if ( *(_QWORD **)(v9 + 8) == v8 )
+    if ( *((char **)v10 + 1) == v9 )
     {
-      v16 = *(_QWORD **)(a1 + 1240);
-      if ( (_QWORD *)*v16 == v8 )
+      v15 = (char **)*((_QWORD *)Object + 131);
+      if ( *v15 == v9 )
       {
-        *v16 = v9;
-        *(_QWORD *)(v9 + 8) = v16;
-        *(_QWORD *)(a1 + 1240) = a1 + 1232;
-        *v8 = v8;
-        ObDereferenceObjectDeferDeleteWithTag(*(PVOID *)(a1 + 1264), 0x73507350u);
-        *(_QWORD *)(a1 + 1264) = 0LL;
+        *v15 = v10;
+        *((_QWORD *)v10 + 1) = v15;
+        *((_QWORD *)Object + 131) = Object + 1040;
+        *(_QWORD *)v9 = v9;
+        ObDereferenceObjectDeferDelete(*((PVOID *)Object + 134));
+        *((_QWORD *)Object + 134) = 0LL;
         goto LABEL_19;
       }
     }
-LABEL_44:
+LABEL_40:
     __fastfail(3u);
   }
 LABEL_19:
-  PspUnlockJobsAndProcessExclusive(v24, 0LL, CurrentThread);
-  ExDeleteResourceLite((PERESOURCE)(a1 + 56));
-  if ( *(_QWORD *)(a1 + 1296) )
+  PspUnlockJobsAndProcessExclusive(v25, 0LL, CurrentThread);
+  ExDeleteResourceLite((PERESOURCE)(Object + 56));
+  if ( *((_QWORD *)Object + 138) )
   {
-    v17 = *(void **)(a1 + 1304);
-    if ( v17 )
+    v16 = (void *)*((_QWORD *)Object + 139);
+    if ( v16 )
     {
-      ExFreePoolWithTag(v17, 0x624A7350u);
-      *(_QWORD *)(a1 + 1304) = 0LL;
+      ExFreePoolWithTag(v16, 0x624A7350u);
+      *((_QWORD *)Object + 139) = 0LL;
     }
   }
-  if ( (*(_DWORD *)(a1 + 1512) & 0x40000000) != 0 )
-    PspDeleteSilo(a1);
-  v10 = KeGetCurrentThread();
-  --v10->KernelApcDisable;
-  v11 = *(_DWORD *)(a1 + 1428);
-  if ( v11 )
+  if ( (*((_DWORD *)Object + 330) & 0x40000000) != 0 )
+    PspDeleteSilo(Object);
+  v11 = KeGetCurrentThread();
+  --v11->KernelApcDisable;
+  v12 = *((_DWORD *)Object + 309);
+  if ( v12 )
   {
-    v12 = ExMapHandleToPointer(PspUniqueJobIdTable, v11);
-    ExDestroyHandle(PspUniqueJobIdTable, *(unsigned int *)(a1 + 1428), v12);
+    v13 = ExMapHandleToPointer(PspUniqueJobIdTable, v12);
+    ExDestroyHandle(PspUniqueJobIdTable, *((unsigned int *)Object + 309), v13);
   }
-  result = KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
-  v14 = *(void **)(a1 + 1752);
+  KeLeaveCriticalRegion();
+  v14 = (void *)*((_QWORD *)Object + 195);
   if ( v14 )
-    return ObfDereferenceObjectWithTag(v14, 0x624A7350u);
-  return result;
+    ObfDereferenceObjectWithTag(v14, 0x624A7350u);
 }

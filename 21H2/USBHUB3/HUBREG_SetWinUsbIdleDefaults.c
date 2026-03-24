@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBREG_SetWinUsbIdleDefaults @ 0x1C0083AC8
+ * XREFs of HUBREG_SetWinUsbIdleDefaults @ 0x1C00824E8
  * Callers:
- *     FWUPDATE_EvtDeviceResourceRequirementsQuery @ 0x1C0086DD0 (FWUPDATE_EvtDeviceResourceRequirementsQuery.c)
+ *     FWUPDATE_EvtDeviceResourceRequirementsQuery @ 0x1C0085190 (FWUPDATE_EvtDeviceResourceRequirementsQuery.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_SetWinUsbIdleDefaults(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall HUBREG_SetWinUsbIdleDefaults(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0067170);
+         off_1C0066148);
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64, __int64, _QWORD, __int64 *))(WdfFunctions_01015 + 384))(
              WdfDriverGlobals,
              a1,
@@ -62,7 +62,7 @@ __int64 __fastcall HUBREG_SetWinUsbIdleDefaults(__int64 a1)
         {
           if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             goto LABEL_33;
-          v4 = 149;
+          v4 = 148;
           goto LABEL_4;
         }
         v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64))(WdfFunctions_01015
@@ -78,7 +78,7 @@ __int64 __fastcall HUBREG_SetWinUsbIdleDefaults(__int64 a1)
         {
           if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             goto LABEL_33;
-          v4 = 150;
+          v4 = 149;
           LODWORD(v8) = v7;
           v5 = 3;
           goto LABEL_32;
@@ -88,7 +88,7 @@ __int64 __fastcall HUBREG_SetWinUsbIdleDefaults(__int64 a1)
       {
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           goto LABEL_33;
-        v4 = 151;
+        v4 = 150;
         LODWORD(v8) = v6;
         v5 = 5;
         goto LABEL_32;
@@ -153,33 +153,33 @@ __int64 __fastcall HUBREG_SetWinUsbIdleDefaults(__int64 a1)
                      &v9);
           if ( (int)result >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             goto LABEL_33;
-          v4 = 154;
+          v4 = 153;
         }
         else
         {
           if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             goto LABEL_33;
-          v4 = 153;
+          v4 = 152;
         }
       }
       else
       {
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           goto LABEL_33;
-        v4 = 152;
+        v4 = 151;
       }
       v5 = 5;
       goto LABEL_31;
     }
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_33;
-    v4 = 148;
+    v4 = 147;
   }
   else
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_33;
-    v4 = 147;
+    v4 = 146;
   }
 LABEL_4:
   v5 = 3;
@@ -191,7 +191,7 @@ LABEL_32:
              2u,
              v5,
              v4,
-             (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids,
+             (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
              v8);
 LABEL_33:
   if ( v10 )

@@ -1,21 +1,24 @@
 /*
- * XREFs of DereferenceDeviceResetInterface @ 0x1C0043D14
+ * XREFs of DereferenceDeviceResetInterface @ 0x1C00416F8
  * Callers:
- *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007BF50 (HUBPDO_EvtDevicePrepareHardware.c)
- *     HUBPDO_EvtDeviceReleaseHardware @ 0x1C007CFF0 (HUBPDO_EvtDeviceReleaseHardware.c)
- *     HUBPDO_RegisterPortPLDRCapability @ 0x1C007FB98 (HUBPDO_RegisterPortPLDRCapability.c)
- *     HUBPDO_InvokePortPLDRRecovery @ 0x1C00807C8 (HUBPDO_InvokePortPLDRRecovery.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0077CC0 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBPDO_EvtDeviceReleaseHardware @ 0x1C00788B0 (HUBPDO_EvtDeviceReleaseHardware.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
-void *__fastcall DereferenceDeviceResetInterface(_QWORD *a1)
+__int64 __fastcall DereferenceDeviceResetInterface(__int64 a1)
 {
   void (__fastcall *v1)(_QWORD); // rax
+  __int64 result; // rax
 
-  v1 = (void (__fastcall *)(_QWORD))a1[3];
+  v1 = *(void (__fastcall **)(_QWORD))(a1 + 24);
   if ( v1 )
-    v1(a1[1]);
-  return memset(a1, 0, 0x50uLL);
+    v1(*(_QWORD *)(a1 + 8));
+  result = 0LL;
+  *(_OWORD *)a1 = 0LL;
+  *(_OWORD *)(a1 + 16) = 0LL;
+  *(_OWORD *)(a1 + 32) = 0LL;
+  *(_QWORD *)(a1 + 48) = 0LL;
+  return result;
 }

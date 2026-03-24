@@ -1,9 +1,7 @@
 /*
- * XREFs of KePersistMemory @ 0x140424FC0
+ * XREFs of KePersistMemory @ 0x140402E20
  * Callers:
- *     MiPersistMdl @ 0x14059FECC (MiPersistMdl.c)
- *     MiPersistPage @ 0x1405A02B8 (MiPersistPage.c)
- *     MiTransferFileExtent @ 0x1405A1128 (MiTransferFileExtent.c)
+ *     MiPersistMemory @ 0x14054186C (MiPersistMemory.c)
  * Callees:
  *     <none>
  */

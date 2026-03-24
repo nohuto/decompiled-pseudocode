@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_WaitingForPortsToAcquireReferenceOnResume @ 0x1C0009380
+ * XREFs of HUBHSM_WaitingForPortsToAcquireReferenceOnResume @ 0x1C0008BB0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_QueuePowerUpEventToPSMs @ 0x1C00108AC (HUBMUX_QueuePowerUpEventToPSMs.c)
+ *     HUBMUX_QueuePowerUpEventToPSMs @ 0x1C000F478 (HUBMUX_QueuePowerUpEventToPSMs.c)
  */
 
 __int64 __fastcall HUBHSM_WaitingForPortsToAcquireReferenceOnResume(__int64 a1)

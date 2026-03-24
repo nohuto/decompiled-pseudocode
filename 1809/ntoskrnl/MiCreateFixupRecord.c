@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCreateFixupRecord @ 0x1406DA9C0
+ * XREFs of MiCreateFixupRecord @ 0x1406DA9A0
  * Callers:
- *     MiScanRelocationPage @ 0x1406506A0 (MiScanRelocationPage.c)
+ *     MiScanRelocationPage @ 0x140650680 (MiScanRelocationPage.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */

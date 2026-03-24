@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbDevice_HandleUnhandledEventReceivedState @ 0x1C00493D0
+ * XREFs of UsbDevice_HandleUnhandledEventReceivedState @ 0x1C0046A54
  * Callers:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008988 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
  * Callees:
- *     UsbDevice_CompleteConfigureEndpointRequest @ 0x1C00085DC (UsbDevice_CompleteConfigureEndpointRequest.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
+ *     UsbDevice_CompleteConfigureEndpointRequest @ 0x1C000793C (UsbDevice_CompleteConfigureEndpointRequest.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
 __int64 __fastcall UsbDevice_HandleUnhandledEventReceivedState(__int64 a1, int a2, int a3, int a4)

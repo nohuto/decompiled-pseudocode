@@ -1,10 +1,10 @@
 /*
- * XREFs of FilterEvalImpliedAnd @ 0x1406B0324
+ * XREFs of FilterEvalImpliedAnd @ 0x14062F408
  * Callers:
- *     FilterEval @ 0x1407795E4 (FilterEval.c)
+ *     FilterEval @ 0x140633644 (FilterEval.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PropertyEval @ 0x1406B074C (PropertyEval.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PropertyEval @ 0x1406301A4 (PropertyEval.c)
  */
 
 __int64 __fastcall FilterEvalImpliedAnd(
@@ -50,7 +50,7 @@ __int64 __fastcall FilterEvalImpliedAnd(
       else
       {
         if ( v14 )
-          goto LABEL_8;
+          goto LABEL_10;
         LODWORD(v16) = *((_DWORD *)v13 - 2);
         PropertyEval(v17, v18[0], v20, *((unsigned int *)v13 - 12), v16, *v13, *((_DWORD *)v13 - 1), v5);
         if ( *v5 == v6 )
@@ -60,10 +60,10 @@ __int64 __fastcall FilterEvalImpliedAnd(
       ++v7;
       v13 += 7;
       if ( v7 >= a3 )
-        goto LABEL_8;
+        goto LABEL_10;
     }
     v6 = -1073741811;
-LABEL_8:
+LABEL_10:
     if ( !v10 && !v6 )
       return (unsigned int)-1073741823;
   }

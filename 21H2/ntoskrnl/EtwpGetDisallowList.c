@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpGetDisallowList @ 0x1409E4B48
+ * XREFs of EtwpGetDisallowList @ 0x140934678
  * Callers:
- *     NtTraceControl @ 0x1407954F0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140797594 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x1407981E8 (EtwpReleaseLoggerContext.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
  */
 
 __int64 __fastcall EtwpGetDisallowList(__int64 a1, unsigned __int16 *a2, void *a3, unsigned int *a4)
 {
   unsigned int v5; // r12d
   unsigned int v6; // edi
-  __int64 v8; // rbp
+  unsigned int *v8; // rbp
   unsigned int v9; // esi
 
   v5 = *a4;
@@ -25,17 +25,17 @@ __int64 __fastcall EtwpGetDisallowList(__int64 a1, unsigned __int16 *a2, void *a
   if ( v8 )
   {
     memset(a3, 0, *a4);
-    ExAcquirePushLockSharedEx(v8 + 688, 0LL);
-    v9 = 16 * *(unsigned __int16 *)(v8 + 1064);
+    ExAcquirePushLockSharedEx((ULONG_PTR)(v8 + 176), 0LL);
+    v9 = 16 * *((unsigned __int16 *)v8 + 524);
     if ( v9 > v5 )
       v6 = -1073741789;
     else
-      memmove(a3, *(const void **)(v8 + 1072), v9);
+      memmove(a3, *((const void **)v8 + 132), v9);
     *a4 = v9;
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 688), 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)(v8 + 688));
-    KeAbPostRelease(v8 + 688);
-    EtwpReleaseLoggerContext((unsigned int *)v8, 0);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)v8 + 88, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)v8 + 88);
+    KeAbPostRelease((ULONG_PTR)(v8 + 176));
+    EtwpReleaseLoggerContext(v8, 0);
   }
   else
   {

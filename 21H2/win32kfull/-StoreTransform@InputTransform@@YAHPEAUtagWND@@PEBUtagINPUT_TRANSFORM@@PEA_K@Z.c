@@ -1,16 +1,16 @@
 /*
- * XREFs of ?StoreTransform@InputTransform@@YAHPEAUtagWND@@PEBUtagINPUT_TRANSFORM@@PEA_K@Z @ 0x1C00029E0
+ * XREFs of ?StoreTransform@InputTransform@@YAHPEAUtagWND@@PEBUtagINPUT_TRANSFORM@@PEA_K@Z @ 0x1C0003034
  * Callers:
- *     EditionUpdateInputTransformFromHitTest @ 0x1C00028B0 (EditionUpdateInputTransformFromHitTest.c)
- *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C00AD78C (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
+ *     EditionUpdateInputTransformFromHitTest @ 0x1C0002F00 (EditionUpdateInputTransformFromHitTest.c)
+ *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C01102C0 (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
  * Callees:
- *     ?InitInputTransformList@@YAPEAUtagINPUTTRANSFORMLIST@@PEAUtagWND@@@Z @ 0x1C0002B08 (-InitInputTransformList@@YAPEAUtagINPUTTRANSFORMLIST@@PEAUtagWND@@@Z.c)
- *     _GetTopLevelWindow @ 0x1C0075BF0 (_GetTopLevelWindow.c)
- *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0076DBC (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ?IsIndependentInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C00F1E88 (-IsIndependentInputWindow@@YAHPEBUtagWND@@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z @ 0x1C023A8B0 (-GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z.c)
+ *     ?InitInputTransformList@@YAPEAUtagINPUTTRANSFORMLIST@@PEAUtagWND@@@Z @ 0x1C000316C (-InitInputTransformList@@YAPEAUtagINPUTTRANSFORMLIST@@PEAUtagWND@@@Z.c)
+ *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0037754 (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     _GetTopLevelWindow @ 0x1C006FCC0 (_GetTopLevelWindow.c)
+ *     ?IsIndependentInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C00C0AD8 (-IsIndependentInputWindow@@YAHPEBUtagWND@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z @ 0x1C01D24C8 (-GetCompositionInputWindowUIOwner@@YAPEAUtagWND@@PEBU1@@Z.c)
  */
 
 struct _EX_PUSH_LOCK *__fastcall InputTransform::StoreTransform(
@@ -58,7 +58,10 @@ struct _EX_PUSH_LOCK *__fastcall InputTransform::StoreTransform(
       if ( v17 )
       {
         if ( *v17 != v17[5] )
-          MicrosoftTelemetryAssertTriggeredNoArgsKM();
+        {
+          LODWORD(v20) = 0x20000;
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 334LL);
+        }
         if ( *((float *)&Source1 + 2) != 0.0
           || *((float *)&Source1 + 3) != 0.0
           || *((float *)&v22 + 2) != 0.0
@@ -70,7 +73,8 @@ struct _EX_PUSH_LOCK *__fastcall InputTransform::StoreTransform(
           || *((float *)&v24 + 2) != 0.0
           || *((float *)&v24 + 3) != 1.0 )
         {
-          MicrosoftTelemetryAssertTriggeredNoArgsKM();
+          LODWORD(v20) = 0x20000;
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 346LL);
         }
         *(float *)&Source1 = *(float *)&Source1 / **(float **)(v16 + 216);
         *((float *)&Source1 + 1) = *((float *)&Source1 + 1) / **(float **)(v16 + 216);

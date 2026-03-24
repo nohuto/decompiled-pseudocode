@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpAllocateAdapterChannel @ 0x140517630
+ * XREFs of HalpAllocateAdapterChannel @ 0x1404CA3D0
  * Callers:
- *     HalAllocateAdapterChannel @ 0x140456840 (HalAllocateAdapterChannel.c)
- *     HalpBuildScatterGatherList @ 0x140512054 (HalpBuildScatterGatherList.c)
- *     HalAllocateAdapterChannelEx @ 0x140516C60 (HalAllocateAdapterChannelEx.c)
- *     HalRealAllocateAdapterChannelV3 @ 0x1405175E0 (HalRealAllocateAdapterChannelV3.c)
+ *     HalpBuildScatterGatherList @ 0x14039F434 (HalpBuildScatterGatherList.c)
+ *     HalAllocateAdapterChannel @ 0x1404B8AA0 (HalAllocateAdapterChannel.c)
+ *     HalAllocateAdapterChannelEx @ 0x1404CA240 (HalAllocateAdapterChannelEx.c)
+ *     HalRealAllocateAdapterChannelV3 @ 0x1404CA380 (HalRealAllocateAdapterChannelV3.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDmaStartWcb @ 0x140504EF0 (HalpDmaStartWcb.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140517830 (HalpAllocateDmaResourcesInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaStartWcb @ 0x1404B84B0 (HalpDmaStartWcb.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA5DC (HalpAllocateDmaResourcesInternal.c)
  */
 
 __int64 __fastcall HalpAllocateAdapterChannel(
@@ -19,10 +19,10 @@ __int64 __fastcall HalpAllocateAdapterChannel(
         char a5,
         __int64 a6)
 {
-  int v10; // edx
+  int v10; // eax
   unsigned int v11; // eax
-  int v12; // edx
-  int v13; // ecx
+  int v12; // eax
+  unsigned int v13; // eax
   unsigned int v14; // esi
   char v15; // r14
   unsigned __int8 CurrentIrql; // bl
@@ -42,19 +42,21 @@ __int64 __fastcall HalpAllocateAdapterChannel(
   if ( LOBYTE(DmaAdapter[27].Version) && a3 > *(_DWORD *)&DmaAdapter[14].Version )
     return 3221225626LL;
   v10 = *(_DWORD *)(a2 + 20);
-  v11 = v10 & 0xFFFFFFFB;
-  v12 = v10 | 4;
-  if ( (a5 & 2) == 0 )
-    v12 = v11;
-  *(_DWORD *)(a2 + 20) = v12;
+  if ( (a5 & 2) != 0 )
+    v11 = v10 | 4;
+  else
+    v11 = v10 & 0xFFFFFFFB;
+  *(_DWORD *)(a2 + 20) = v11;
   *(_QWORD *)(a2 + 24) = a6;
+  v12 = (a4 << 12) | *(_DWORD *)(a2 + 20) & 0xFFF;
   *(_DWORD *)(a2 + 40) = a3;
   *(_DWORD *)(a2 + 16) = 1;
-  v13 = (a4 << 12) | v12 & 0xFFF | 1;
-  v14 = (a5 & 1) != 0 ? 0xC000009A : 0;
-  if ( (a5 & 1) == 0 )
-    v13 = (a4 << 12) | v12 & 0xFFE;
+  if ( (a5 & 1) != 0 )
+    v13 = v12 | 1;
+  else
+    v13 = v12 & 0xFFFFFFFE;
   *(_DWORD *)(a2 + 20) = v13;
+  v14 = (a5 & 1) != 0 ? 0xC000009A : 0;
   if ( HalpDmaStartWcb((__int64)DmaAdapter, (_QWORD *)a2, v13 & 1) )
   {
     DmaAdapter[21].DmaOperations = (_DMA_OPERATIONS *)a2;

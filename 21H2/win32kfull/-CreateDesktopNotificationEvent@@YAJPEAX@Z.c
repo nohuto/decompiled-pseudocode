@@ -1,15 +1,15 @@
 /*
- * XREFs of ?CreateDesktopNotificationEvent@@YAJPEAX@Z @ 0x1C00D2FB4
+ * XREFs of ?CreateDesktopNotificationEvent@@YAJPEAX@Z @ 0x1C000DEB8
  * Callers:
- *     xxxCreateWindowStation @ 0x1C00D22F8 (xxxCreateWindowStation.c)
+ *     xxxCreateWindowStation @ 0x1C000C6EC (xxxCreateWindowStation.c)
  * Callees:
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00D0F08 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0011430 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall CreateDesktopNotificationEvent(void *a1)
+int __fastcall CreateDesktopNotificationEvent(void *a1)
 {
-  NTSTATUS result; // eax
+  int result; // eax
   WCHAR *v3; // rdx
   NTSTATUS v4; // ebx
   void *DirectoryHandle; // [rsp+48h] [rbp-C0h] BYREF
@@ -25,7 +25,7 @@ NTSTATUS __fastcall CreateDesktopNotificationEvent(void *a1)
   *(&ObjectAttributes.Attributes + 1) = 0;
   if ( gbNonServiceSession )
   {
-    result = RtlStringCchPrintfW(SourceString, 0x100uLL, (size_t *)L"\\Sessions\\%ld\\BaseNamedObjects", gSessionId);
+    result = RtlStringCchPrintfW(SourceString, 0x100uLL, L"\\Sessions\\%ld\\BaseNamedObjects", (unsigned int)gSessionId);
     if ( result < 0 )
       return result;
     v3 = SourceString;
@@ -56,18 +56,11 @@ NTSTATUS __fastcall CreateDesktopNotificationEvent(void *a1)
     {
       DestinationString[0] = 0LL;
       v4 = ObReferenceObjectByHandle(EventHandle, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0, DestinationString, 0LL);
-      WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc = (PKDPC)DestinationString[0];
+      gpEventSwitchDesktop = DestinationString[0];
       if ( v4 >= 0 )
       {
         KeAttachProcess(gpepCSRSS);
-        v4 = ObOpenObjectByPointer(
-               WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc,
-               0,
-               0LL,
-               0x1F0003u,
-               0LL,
-               0,
-               &ghEventSwitchDesktop);
+        v4 = ObOpenObjectByPointer(gpEventSwitchDesktop, 0, 0LL, 0x1F0003u, 0LL, 0, &ghEventSwitchDesktop);
         KeDetachProcess();
       }
       ZwClose(EventHandle);

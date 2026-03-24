@@ -1,32 +1,36 @@
 /*
- * XREFs of MmFreeSystemCacheReserveView @ 0x14096CA00
+ * XREFs of MmFreeSystemCacheReserveView @ 0x1408C8420
  * Callers:
- *     CcUninitializePartitionVacbs @ 0x14053E3AC (CcUninitializePartitionVacbs.c)
+ *     CcUninitializePartitionVacbs @ 0x1404EC424 (CcUninitializePartitionVacbs.c)
  * Callees:
- *     MiReleaseSystemCacheView @ 0x1402864A0 (MiReleaseSystemCacheView.c)
- *     MiGetPteAddress @ 0x140313C70 (MiGetPteAddress.c)
- *     MiGetSystemCacheReverseMap @ 0x1403295C0 (MiGetSystemCacheReverseMap.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     MiReleaseSystemCacheView @ 0x14030FCFC (MiReleaseSystemCacheView.c)
+ *     MiGetSystemCacheReverseMap @ 0x140311FB0 (MiGetSystemCacheReverseMap.c)
+ *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-void __fastcall MmFreeSystemCacheReserveView(unsigned __int64 a1)
+void __fastcall MmFreeSystemCacheReserveView(ULONG_PTR BugCheckParameter3)
 {
-  unsigned __int64 v1; // r9
+  unsigned __int64 PteAddress; // rbx
+  unsigned __int64 v3; // rbp
   ULONG_PTR SystemCacheReverseMap; // rax
-  _QWORD *v3; // r8
-  ULONG_PTR v4; // r9
-  unsigned __int64 v5; // r11
+  ULONG_PTR v5; // rsi
+  __int16 v6; // ax
 
-  MiGetPteAddress(a1);
-  SystemCacheReverseMap = MiGetSystemCacheReverseMap(v1);
-  if ( *(_QWORD *)(SystemCacheReverseMap + 32) >> 62 < 2uLL )
-    KeBugCheckEx(0x1Au, 0x784uLL, SystemCacheReverseMap, v4, *(_QWORD *)(SystemCacheReverseMap + 32) >> 62);
+  PteAddress = MiGetPteAddress(BugCheckParameter3);
+  v3 = PteAddress + 512;
+  SystemCacheReverseMap = MiGetSystemCacheReverseMap(BugCheckParameter3);
+  v5 = SystemCacheReverseMap;
+  if ( *(_QWORD *)(SystemCacheReverseMap + 16) )
+    KeBugCheckEx(0x1Au, 0x784uLL, SystemCacheReverseMap, BugCheckParameter3, 0LL);
   do
   {
-    if ( (*v3 & 1) != 0 || (*v3 & 0x400LL) != 0 )
-      KeBugCheckEx(0x1Au, 0x785uLL, SystemCacheReverseMap, v4, 0LL);
-    ++v3;
+    v6 = MI_READ_PTE_LOCK_FREE(PteAddress);
+    if ( (v6 & 1) != 0 || (v6 & 0x400) != 0 )
+      KeBugCheckEx(0x1Au, 0x785uLL, v5, BugCheckParameter3, 0LL);
+    PteAddress += 8LL;
   }
-  while ( (unsigned __int64)v3 < v5 );
-  MiReleaseSystemCacheView(0LL, v4);
+  while ( PteAddress < v3 );
+  MiReleaseSystemCacheView(PteAddress - 512);
 }

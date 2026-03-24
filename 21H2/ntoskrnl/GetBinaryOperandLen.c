@@ -1,7 +1,7 @@
 /*
- * XREFs of GetBinaryOperandLen @ 0x1409D07E0
+ * XREFs of GetBinaryOperandLen @ 0x140927288
  * Callers:
- *     GetOperandValue @ 0x1409D0A60 (GetOperandValue.c)
+ *     GetOperandValue @ 0x140927504 (GetOperandValue.c)
  * Callees:
  *     <none>
  */
@@ -26,9 +26,9 @@ __int64 __fastcall GetBinaryOperandLen(_WORD *a1, _DWORD *a2)
         break;
       if ( v6 == 125 )
         break;
-      if ( v6 == asc_14004190C[0] )
+      if ( v6 == asc_140012E28[0] )
         break;
-      if ( v6 == asc_140041914[0] )
+      if ( v6 == asc_140012E30[0] )
         break;
       if ( v6 == 44 )
         break;

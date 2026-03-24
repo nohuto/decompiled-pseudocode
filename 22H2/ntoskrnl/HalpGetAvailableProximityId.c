@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpGetAvailableProximityId @ 0x140B92114
+ * XREFs of HalpGetAvailableProximityId @ 0x140A8CE20
  * Callers:
- *     HalpNumaInitializeStaticConfiguration @ 0x140B66ED8 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140A63EE0 (HalpNumaInitializeStaticConfiguration.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 HalpGetAvailableProximityId()
   unsigned int v1; // edx
   unsigned int v2; // r9d
   __int64 v3; // rbx
-  unsigned int *v4; // r10
+  unsigned int *v4; // r11
   unsigned int v5; // ecx
   unsigned int v6; // eax
   unsigned int v8; // edx

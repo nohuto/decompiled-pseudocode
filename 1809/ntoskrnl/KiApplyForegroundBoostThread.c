@@ -1,20 +1,20 @@
 /*
- * XREFs of KiApplyForegroundBoostThread @ 0x1400D7E4C
+ * XREFs of KiApplyForegroundBoostThread @ 0x1400D7E6C
  * Callers:
- *     KeSetPriorityAndQuantumProcess @ 0x1400D6964 (KeSetPriorityAndQuantumProcess.c)
- *     KiProcessPendingForegroundBoosts @ 0x1400D7C90 (KiProcessPendingForegroundBoosts.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1400D6984 (KeSetPriorityAndQuantumProcess.c)
+ *     KiProcessPendingForegroundBoosts @ 0x1400D7CB0 (KiProcessPendingForegroundBoosts.c)
  * Callees:
  *     KiSendSoftwareInterrupt @ 0x140003AE4 (KiSendSoftwareInterrupt.c)
  *     KiSelectReadyThreadEx @ 0x14005ADA0 (KiSelectReadyThreadEx.c)
- *     KiInsertDeferredReadyList @ 0x1400ACBA8 (KiInsertDeferredReadyList.c)
- *     KiAcquireThreadStateLock @ 0x1400CFA30 (KiAcquireThreadStateLock.c)
- *     KiHvEnlightenedGuestPriorityKick @ 0x1400CFD78 (KiHvEnlightenedGuestPriorityKick.c)
- *     KiUpdateThreadPriority @ 0x1400D0D20 (KiUpdateThreadPriority.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15A4 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiReleaseThreadStateLock @ 0x1400D8044 (KiReleaseThreadStateLock.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x1401172F4 (KiPrepareReadyThreadForRescheduling.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x140117760 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiInsertDeferredReadyList @ 0x1400ACBC8 (KiInsertDeferredReadyList.c)
+ *     KiAcquireThreadStateLock @ 0x1400CFA50 (KiAcquireThreadStateLock.c)
+ *     KiHvEnlightenedGuestPriorityKick @ 0x1400CFD98 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15C4 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiReleaseThreadStateLock @ 0x1400D8064 (KiReleaseThreadStateLock.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x140117314 (KiPrepareReadyThreadForRescheduling.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x140117780 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
  */
 
 char __fastcall KiApplyForegroundBoostThread(__int64 a1, __int64 a2)

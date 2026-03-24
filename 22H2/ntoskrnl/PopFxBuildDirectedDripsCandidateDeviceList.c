@@ -1,20 +1,38 @@
 /*
- * XREFs of PopFxBuildDirectedDripsCandidateDeviceList @ 0x140588C94
+ * XREFs of PopFxBuildDirectedDripsCandidateDeviceList @ 0x140569350
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x140983798 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1408E339C (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     PopFxAddRefDevice @ 0x1403122C4 (PopFxAddRefDevice.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     PopFxAddRefDevice @ 0x14025FFDC (PopFxAddRefDevice.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-signed __int32 __fastcall PopFxBuildDirectedDripsCandidateDeviceList(_QWORD *a1)
+char __fastcall PopFxBuildDirectedDripsCandidateDeviceList(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR i; // rdi
+  ULONG_PTR i; // rbx
   _QWORD *v4; // rcx
   _QWORD *v5; // rax
+  struct _KTHREAD *v6; // rbx
+  unsigned int SessionId; // edx
+  unsigned __int8 v8; // si
+  unsigned int v9; // r8d
+  unsigned __int64 v10; // rdi
+  bool v11; // zf
+  __int64 v12; // rcx
+  int v13; // eax
+  unsigned int v14; // ecx
+  __int64 v15; // rdx
+  $C459BD0D405E8E46662177FB3D0A143F *v16; // rax
+  __int64 v17; // rcx
+  int v19; // [rsp+68h] [rbp+10h] BYREF
 
   a1[1] = a1;
   *a1 = a1;
@@ -39,5 +57,62 @@ signed __int32 __fastcall PopFxBuildDirectedDripsCandidateDeviceList(_QWORD *a1)
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopFxDeviceListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PopFxDeviceListLock);
-  return KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
+  v6 = KeGetCurrentThread();
+  v19 = 0;
+  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&PopFxDeviceListLock) == 1 )
+    SessionId = MmGetSessionIdEx((__int64)v6->ApcState.Process);
+  else
+    SessionId = -1;
+  --v6->SpecialApcDisable;
+  v8 = ++v6->AbAllocationRegionCount;
+  v9 = ((char)v6->AbEntrySummary | (char)v6->AbOrphanedEntrySummary) ^ 0x3F;
+  while ( 1 )
+  {
+    v11 = !_BitScanReverse((unsigned int *)&v12, v9);
+    if ( v11 )
+      goto LABEL_20;
+    v10 = (unsigned __int64)&v6->LockEntries[v12];
+    v9 &= ~(1 << v12);
+    if ( (*(_BYTE *)(v10 + 26) & 1) != 0
+      && (*(_DWORD *)(v10 + 32) & 1) == 0
+      && (*(_QWORD *)(v10 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&PopFxDeviceListLock & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v10 + 40) == SessionId )
+    {
+      *(_BYTE *)(v10 + 26) &= ~1u;
+      if ( *(_QWORD *)(v10 + 32) )
+        break;
+    }
+  }
+  if ( !v10 )
+  {
+LABEL_20:
+    if ( (*((_DWORD *)&v6->0 + 1) & 0x10000) == 0 )
+      KeBugCheckEx(0x162u, (ULONG_PTR)v6, (ULONG_PTR)&PopFxDeviceListLock, SessionId, 0LL);
+    goto LABEL_27;
+  }
+  *(_BYTE *)(v10 + 32) |= 2u;
+  if ( *(__int64 *)(v10 + 32) < 0 )
+    KiAbEntryRemoveFromTree(v10);
+  v13 = *(_DWORD *)(v10 + 88) & 0x1FFFF;
+  v14 = *(_DWORD *)(v10 + 88) & 0xFFFE0000;
+  *(_BYTE *)(v10 + 25) &= ~1u;
+  v19 = v13;
+  *(_DWORD *)(v10 + 88) = v14;
+  *(_QWORD *)(v10 + 32) = 0LL;
+  v15 = (__int64)(v10 - (unsigned __int64)v6->LockEntries) / 96;
+  if ( v8 == 1 )
+    v6->AbEntrySummary |= 1 << v15;
+  else
+    _InterlockedOr8((volatile signed __int8 *)&v6->AbOrphanedEntrySummary, 1 << v15);
+LABEL_27:
+  --v6->AbAllocationRegionCount;
+  LOBYTE(v16) = KiAbThreadRemoveBoosts((ULONG_PTR)v6, (__int64)&PopFxDeviceListLock, &v19);
+  v11 = v6->SpecialApcDisable++ == -1;
+  if ( v11 )
+  {
+    v16 = &v6->152;
+    if ( ($C459BD0D405E8E46662177FB3D0A143F *)v16->ApcState.ApcListHead[0].Flink != v16 )
+      LOBYTE(v16) = KiCheckForKernelApcDelivery(v17);
+  }
+  return (char)v16;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpEnableDisableUMGL @ 0x1408B5674
+ * XREFs of EtwpEnableDisableUMGL @ 0x1408B5654
  * Callers:
- *     EtwpEnableDisableSpecialGuids @ 0x140656BB0 (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x140656B90 (EtwpEnableDisableSpecialGuids.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)

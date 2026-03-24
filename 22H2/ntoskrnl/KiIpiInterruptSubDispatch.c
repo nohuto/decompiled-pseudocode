@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIpiInterruptSubDispatch @ 0x140427AF0
+ * XREFs of KiIpiInterruptSubDispatch @ 0x140405A40
  * Callers:
- *     KiIpiInterrupt @ 0x140427360 (KiIpiInterrupt.c)
+ *     KiIpiInterrupt @ 0x140405370 (KiIpiInterrupt.c)
  * Callees:
- *     KiEndThreadAccountingPeriod @ 0x140248410 (KiEndThreadAccountingPeriod.c)
- *     KiIpiProcessRequests @ 0x140334850 (KiIpiProcessRequests.c)
- *     KzSetIrqlUnsafe @ 0x14056C100 (KzSetIrqlUnsafe.c)
+ *     KiEndThreadAccountingPeriod @ 0x140230CF0 (KiEndThreadAccountingPeriod.c)
+ *     KiIpiProcessRequests @ 0x1402EF610 (KiIpiProcessRequests.c)
+ *     KzSetIrqlUnsafe @ 0x140512B80 (KzSetIrqlUnsafe.c)
  */
 
 char __fastcall KiIpiInterruptSubDispatch()
@@ -14,7 +14,7 @@ char __fastcall KiIpiInterruptSubDispatch()
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rcx
   __int64 CurrentThread; // r8
-  __int64 v4; // rax
+  unsigned __int64 v4; // rax
   __int64 v5; // rdx
   unsigned __int64 v6; // rdx
   int v7; // ecx
@@ -43,7 +43,7 @@ char __fastcall KiIpiInterruptSubDispatch()
     if ( HIDWORD(v6) )
       v7 = -1;
     *(_DWORD *)(CurrentThread + 80) = v7;
-    if ( (*(_BYTE *)(CurrentThread + 2) & 0xBE) != 0 )
+    if ( (*(_BYTE *)(CurrentThread + 2) & 0x3E) != 0 )
       KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), CurrentThread, v4);
   }
   _enable();

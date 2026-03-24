@@ -3,10 +3,10 @@
  * Callers:
  *     EtwGetKernelTraceTimestampSilo @ 0x140019DBC (EtwGetKernelTraceTimestampSilo.c)
  *     KeQuerySystemTimePrecise @ 0x14008A4F0 (KeQuerySystemTimePrecise.c)
- *     KiExecuteAllDpcs @ 0x1400C6D20 (KiExecuteAllDpcs.c)
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E900 (EtwGetKernelTraceTimestamp.c)
- *     WmiGetClock @ 0x14030ED10 (WmiGetClock.c)
+ *     KiExecuteAllDpcs @ 0x1400C6D40 (KiExecuteAllDpcs.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
+ *     WmiGetClock @ 0x14030EE10 (WmiGetClock.c)
  *     EtwpTraceSystemInitialization @ 0x1409D1A58 (EtwpTraceSystemInitialization.c)
  *     PspInitPhase2 @ 0x1409D5F0C (PspInitPhase2.c)
  * Callees:

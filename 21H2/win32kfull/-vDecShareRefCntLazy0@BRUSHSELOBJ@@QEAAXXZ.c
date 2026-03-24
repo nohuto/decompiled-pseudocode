@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vDecShareRefCntLazy0@BRUSHSELOBJ@@QEAAXXZ @ 0x1C0132990
+ * XREFs of ?vDecShareRefCntLazy0@BRUSHSELOBJ@@QEAAXXZ @ 0x1C0146E60
  * Callers:
- *     NtGdiFillRgn @ 0x1C012E830 (NtGdiFillRgn.c)
- *     NtGdiFrameRgn @ 0x1C0132220 (NtGdiFrameRgn.c)
+ *     NtGdiFrameRgn @ 0x1C013EC70 (NtGdiFrameRgn.c)
+ *     NtGdiFillRgn @ 0x1C0146850 (NtGdiFillRgn.c)
  * Callees:
- *     ?RestoreAttributes@XEBRUSHOBJ@@IEAAXXZ @ 0x1C00F2F28 (-RestoreAttributes@XEBRUSHOBJ@@IEAAXXZ.c)
+ *     ?RestoreAttributes@XEBRUSHOBJ@@IEAAXXZ @ 0x1C00266FC (-RestoreAttributes@XEBRUSHOBJ@@IEAAXXZ.c)
  */
 
 void __fastcall BRUSHSELOBJ::vDecShareRefCntLazy0(BRUSHSELOBJ *this)

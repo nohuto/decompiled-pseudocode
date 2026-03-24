@@ -1,20 +1,20 @@
 /*
- * XREFs of BiUpdateBcdObject @ 0x1408F4908
+ * XREFs of BiUpdateBcdObject @ 0x1408F48E8
  * Callers:
- *     BiBindEfiEntries @ 0x1408F21B4 (BiBindEfiEntries.c)
+ *     BiBindEfiEntries @ 0x1408F2194 (BiBindEfiEntries.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiDeleteElement @ 0x1407125BC (BiDeleteElement.c)
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     BiGetRegistryValue @ 0x1407131C4 (BiGetRegistryValue.c)
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
- *     BcdGetElementDataWithFlags @ 0x140713570 (BcdGetElementDataWithFlags.c)
- *     BiSetRegistryValue @ 0x140713DA4 (BiSetRegistryValue.c)
- *     BiGetDeviceFromEfiPath @ 0x1408F3B1C (BiGetDeviceFromEfiPath.c)
- *     BiGetFilePathFromEfiPath @ 0x1408F3CA8 (BiGetFilePathFromEfiPath.c)
+ *     BiDeleteElement @ 0x14071259C (BiDeleteElement.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     BiGetRegistryValue @ 0x1407131A4 (BiGetRegistryValue.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x140713550 (BcdGetElementDataWithFlags.c)
+ *     BiSetRegistryValue @ 0x140713D84 (BiSetRegistryValue.c)
+ *     BiGetDeviceFromEfiPath @ 0x1408F3AFC (BiGetDeviceFromEfiPath.c)
+ *     BiGetFilePathFromEfiPath @ 0x1408F3C88 (BiGetFilePathFromEfiPath.c)
  */
 
 __int64 __fastcall BiUpdateBcdObject(__int64 a1, __int64 a2)

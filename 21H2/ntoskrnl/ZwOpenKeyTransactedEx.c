@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwOpenKeyTransactedEx @ 0x14041DC80
+ * XREFs of ZwOpenKeyTransactedEx @ 0x1403FC800
  * Callers:
- *     DifZwOpenKeyTransactedExWrapper @ 0x140621E20 (DifZwOpenKeyTransactedExWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

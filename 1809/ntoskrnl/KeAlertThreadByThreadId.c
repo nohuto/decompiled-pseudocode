@@ -1,15 +1,15 @@
 /*
- * XREFs of KeAlertThreadByThreadId @ 0x1400CCD8C
+ * XREFs of KeAlertThreadByThreadId @ 0x1400CCDAC
  * Callers:
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
- *     NtAlertThreadByThreadId @ 0x140649FC0 (NtAlertThreadByThreadId.c)
- *     VslCallEnclave @ 0x140817D1C (VslCallEnclave.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
+ *     NtAlertThreadByThreadId @ 0x140649FA0 (NtAlertThreadByThreadId.c)
+ *     VslCallEnclave @ 0x140817CFC (VslCallEnclave.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiExitDispatcher @ 0x1400C2F50 (KiExitDispatcher.c)
- *     KiSignalThread @ 0x1400CE7E0 (KiSignalThread.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
+ *     KiSignalThread @ 0x1400CE800 (KiSignalThread.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KeAlertThreadByThreadId(__int64 a1, __int64 a2, __int64 a3)

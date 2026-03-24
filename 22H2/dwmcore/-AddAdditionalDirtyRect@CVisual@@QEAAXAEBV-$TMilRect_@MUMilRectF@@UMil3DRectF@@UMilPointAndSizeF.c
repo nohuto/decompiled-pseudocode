@@ -1,142 +1,182 @@
 /*
- * XREFs of ?AddAdditionalDirtyRect@CVisual@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180099398
+ * XREFs of ?AddAdditionalDirtyRect@CVisual@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18009C0F0
  * Callers:
- *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180051CD0 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?NotifyDirtySurface@CWindowNode@@QEAAXAEBVCRegion@@_N@Z @ 0x18009719C (-NotifyDirtySurface@CWindowNode@@QEAAXAEBVCRegion@@_N@Z.c)
- *     ?DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@@Z @ 0x180099078 (-DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@@Z.c)
- *     ?OnChanged@CWindowNode@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180133C10 (-OnChanged@CWindowNode@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18006E530 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?PreCompute@CVisualTree@@IEAAJXZ @ 0x18008E8A8 (-PreCompute@CVisualTree@@IEAAJXZ.c)
+ *     ?NotifyDirtySurface@CWindowNode@@QEAAXAEBVCRegion@@_N1@Z @ 0x18009BECC (-NotifyDirtySurface@CWindowNode@@QEAAXAEBVCRegion@@_N1@Z.c)
+ *     ?DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x18009F3E8 (-DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z.c)
+ *     ?OnChanged@CWindowNode@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800DDAB0 (-OnChanged@CWindowNode@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z @ 0x1800991C8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z.c)
- *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800AA890 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
- *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800DBDDC (--ACPtrArrayBase@@IEBA_K_K@Z.c)
- *     ??0CMergedDirtyRect@@QEAA@XZ @ 0x1800E2B94 (--0CMergedDirtyRect@@QEAA@XZ.c)
- *     ?SetAdditionalDirtyRects@CVisual@@QEAAXPEAVCMergedDirtyRect@@@Z @ 0x1800EB27C (-SetAdditionalDirtyRects@CVisual@@QEAAXPEAVCMergedDirtyRect@@@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009FAF8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800C1370 (--ACPtrArrayBase@@IEBA_K_K@Z.c)
+ *     ??0CMergedDirtyRect@@QEAA@XZ @ 0x1800D2CF4 (--0CMergedDirtyRect@@QEAA@XZ.c)
+ *     ?SetAdditionalDirtyRects@CVisual@@QEAAXPEAVCMergedDirtyRect@@@Z @ 0x1800D5BF4 (-SetAdditionalDirtyRects@CVisual@@QEAAXPEAVCMergedDirtyRect@@@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall CVisual::AddAdditionalDirtyRect(CVisual *this, float *a2)
+double __fastcall CVisual::AddAdditionalDirtyRect(CVisual *this, __int64 a2)
 {
-  _DWORD *v4; // r8
-  __int64 v5; // rcx
-  _BYTE *v6; // rdx
-  unsigned int i; // eax
-  struct CMergedDirtyRect **v8; // rsi
-  struct CMergedDirtyRect *v9; // rsi
-  unsigned int Count; // eax
+  double result; // xmm0_8
+  _DWORD *v5; // r8
+  __int64 v6; // rax
+  _BYTE *v7; // rdx
+  unsigned int i; // ecx
+  struct CMergedDirtyRect **v9; // rsi
+  struct CMergedDirtyRect *v10; // rsi
   __int64 v11; // rax
-  __int64 v12; // rsi
-  __int64 v13; // rbx
-  char v14; // al
-  __int64 v15; // rax
-  __int64 *v16; // r14
-  __int64 v17; // rax
+  __int64 v12; // rax
+  __int64 v13; // rsi
+  __int64 v14; // rbx
+  char v15; // al
+  __int64 v16; // rax
+  __int64 v17; // rdi
   __int64 v18; // rax
-  CMergedDirtyRect *v19; // rax
-  CMergedDirtyRect *v20; // rsi
-  struct CMergedDirtyRect *v21; // rax
-  __int64 v22; // rbx
-  __int64 v23; // rsi
-  __int64 v24; // rax
-  __int64 v25; // rdi
-  __int64 v26; // rbp
-  __int64 v27; // rax
+  __int64 v19; // rax
+  unsigned __int64 v20; // rbp
+  __int64 v21; // r14
+  __int64 v22; // rsi
+  __int64 v23; // rcx
+  unsigned __int64 v24; // rdx
+  unsigned __int64 v25; // rcx
+  CMergedDirtyRect *v26; // rax
+  CMergedDirtyRect *v27; // rsi
+  struct CMergedDirtyRect *v28; // rax
+  __int64 v29; // rsi
+  __int64 v30; // rbp
+  __int64 v31; // rax
 
-  if ( (*((_BYTE *)this + 96) & 4) == 0 && a2[2] > *a2 && a2[3] > a2[1] )
+  if ( (*((_BYTE *)this + 88) & 4) == 0 )
   {
-    v4 = (_DWORD *)*((_QWORD *)this + 29);
-    if ( (*v4 & 0x40000000) == 0 )
-      goto LABEL_26;
-    v5 = (unsigned int)v4[1];
-    v6 = v4 + 2;
-    for ( i = 0; i < (unsigned int)v5; ++v6 )
+    *(_QWORD *)&result = *(unsigned int *)(a2 + 8);
+    if ( *(float *)&result > *(float *)a2 )
     {
-      if ( *v6 == 2 )
-        break;
-      ++i;
-    }
-    v8 = i >= (unsigned int)v5
-       ? 0LL
-       : (struct CMergedDirtyRect **)((char *)v4 + 8LL * i - (((_BYTE)v5 + 15) & 7) + v5 + 15);
-    v9 = *v8;
-    if ( !v9 )
-    {
-LABEL_26:
-      v19 = (CMergedDirtyRect *)DefaultHeap::Alloc(0x60uLL);
-      v20 = v19;
-      if ( !v19 || (memset_0(v19, 0, 0x60uLL), v21 = CMergedDirtyRect::CMergedDirtyRect(v20), (v9 = v21) == 0LL) )
+      *(_QWORD *)&result = *(unsigned int *)(a2 + 12);
+      if ( *(float *)&result > *(float *)(a2 + 4) )
       {
-        CVisual::PropagateFlags((__int64)this, 4u);
-        return;
-      }
-      CVisual::SetAdditionalDirtyRects(this, v21);
-    }
-    (*(void (__fastcall **)(struct CMergedDirtyRect *, float *))(*(_QWORD *)v9 + 16LL))(v9, a2);
-    Count = CPtrArrayBase::GetCount((CVisual *)((char *)this + 24));
-    if ( Count )
-    {
-      v22 = 0LL;
-      v23 = Count;
-      do
-      {
-        v24 = CPtrArrayBase::operator[]((char *)this + 24, v22);
-        if ( v24 != *((_QWORD *)this + 11) )
-          (*(void (__fastcall **)(__int64, __int64, CVisual *))(*(_QWORD *)v24 + 72LL))(v24, 1LL, this);
-        ++v22;
-        --v23;
-      }
-      while ( v23 );
-    }
-    v11 = (*(__int64 (__fastcall **)(CVisual *))(*(_QWORD *)this + 160LL))(this);
-    *((_BYTE *)this + 96) |= 8u;
-    v12 = v11;
-    if ( v11 )
-      ++*(_DWORD *)(v11 + 28);
-    v13 = *((_QWORD *)this + 11);
-    if ( (*((_BYTE *)this + 103) & 1) != 0 )
-    {
-      do
-      {
-        if ( !v13 )
-          break;
-        v14 = *(_BYTE *)(v13 + 96);
-        if ( v14 < 0 )
-          break;
-        *(_BYTE *)(v13 + 96) = v14 | 0x80;
-        v15 = *(_QWORD *)(v13 + 24);
-        if ( (v15 & 2) != 0 )
-          v15 = *(_QWORD *)(v15 & 0xFFFFFFFFFFFFFFFCuLL);
-        else
-          LODWORD(v15) = v15 & 1;
-        v16 = (__int64 *)(v13 + 88);
-        if ( (_DWORD)v15 )
+        v5 = (_DWORD *)*((_QWORD *)this + 28);
+        if ( (*v5 & 0x40000000) == 0 )
+          goto LABEL_40;
+        v6 = (unsigned int)v5[1];
+        v7 = v5 + 2;
+        for ( i = 0; i < (unsigned int)v6; ++v7 )
         {
-          v25 = 0LL;
-          v26 = (unsigned int)v15;
+          if ( *v7 == 2 )
+            break;
+          ++i;
+        }
+        v9 = i >= (unsigned int)v6
+           ? 0LL
+           : (struct CMergedDirtyRect **)((char *)v5 + 8LL * i - (((_BYTE)v6 + 15) & 7) + v6 + 15);
+        v10 = *v9;
+        if ( !v10 )
+        {
+LABEL_40:
+          v26 = (CMergedDirtyRect *)DefaultHeap::Alloc(0x60uLL);
+          v27 = v26;
+          if ( !v26 )
+            return CVisual::PropagateFlags(this, 4LL);
+          memset_0(v26, 0, 0x60uLL);
+          v28 = CMergedDirtyRect::CMergedDirtyRect(v27);
+          v10 = v28;
+          if ( !v28 )
+            return CVisual::PropagateFlags(this, 4LL);
+          CVisual::SetAdditionalDirtyRects(this, v28);
+        }
+        (*(void (__fastcall **)(struct CMergedDirtyRect *, __int64))(*(_QWORD *)v10 + 16LL))(v10, a2);
+        v11 = *((_QWORD *)this + 3);
+        if ( (v11 & 2) != 0 )
+          v11 = *(_QWORD *)(v11 & 0xFFFFFFFFFFFFFFFCuLL);
+        else
+          LODWORD(v11) = v11 & 1;
+        if ( (_DWORD)v11 )
+        {
+          v29 = 0LL;
+          v30 = (unsigned int)v11;
           do
           {
-            v27 = CPtrArrayBase::operator[](v13 + 24, v25);
-            if ( v27 != *v16 )
-              (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v27 + 72LL))(v27, 1LL, v13);
-            ++v25;
-            --v26;
+            v31 = CPtrArrayBase::operator[]((char *)this + 24, v29);
+            if ( v31 != *((_QWORD *)this + 10) )
+              (*(void (__fastcall **)(__int64, __int64, CVisual *))(*(_QWORD *)v31 + 72LL))(v31, 1LL, this);
+            ++v29;
+            --v30;
           }
-          while ( v26 );
+          while ( v30 );
         }
-        v17 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v13 + 160LL))(v13);
-        if ( v17 )
+        v12 = (*(__int64 (__fastcall **)(CVisual *))(*(_QWORD *)this + 168LL))(this);
+        *((_BYTE *)this + 88) |= 8u;
+        v13 = v12;
+        if ( v12 )
+          ++*(_DWORD *)(v12 + 28);
+        v14 = *((_QWORD *)this + 10);
+        if ( (*((_BYTE *)this + 95) & 2) != 0 )
         {
-          if ( v12 != v17 )
+          do
           {
-            ++*(_DWORD *)(v17 + 24);
-            v12 = v17;
+            if ( !v14 )
+              break;
+            v15 = *(_BYTE *)(v14 + 88);
+            if ( v15 < 0 )
+              break;
+            *(_BYTE *)(v14 + 88) = v15 | 0x80;
+            v16 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v14 + 168LL))(v14);
+            v17 = v16;
+            if ( v16 )
+            {
+              if ( v16 != v13 )
+                ++*(_DWORD *)(v16 + 24);
+            }
+            else
+            {
+              v17 = v13;
+            }
+            v18 = *(_QWORD *)(v14 + 24);
+            if ( (v18 & 2) != 0 )
+              v18 = *(_QWORD *)(v18 & 0xFFFFFFFFFFFFFFFCuLL);
+            else
+              LODWORD(v18) = v18 & 1;
+            if ( (_DWORD)v18 )
+            {
+              v20 = 0LL;
+              v21 = (unsigned int)v18;
+              v22 = 16LL;
+              do
+              {
+                v23 = *(_QWORD *)(v14 + 24);
+                if ( (v23 & 2) != 0 )
+                  v24 = *(_QWORD *)(v23 & 0xFFFFFFFFFFFFFFFCuLL);
+                else
+                  v24 = *(_QWORD *)(v14 + 24) & 1LL;
+                if ( v20 >= v24 )
+                {
+                  v25 = 0LL;
+                }
+                else if ( v24 == 1 )
+                {
+                  v25 = v23 & 0xFFFFFFFFFFFFFFFCuLL;
+                }
+                else
+                {
+                  _mm_lfence();
+                  v25 = *(_QWORD *)((*(_QWORD *)(v14 + 24) & 0xFFFFFFFFFFFFFFFCuLL) + v22);
+                }
+                if ( v25 != *(_QWORD *)(v14 + 80) )
+                  (*(void (__fastcall **)(unsigned __int64, __int64, __int64))(*(_QWORD *)v25 + 72LL))(v25, 1LL, v14);
+                ++v20;
+                v22 += 8LL;
+                --v21;
+              }
+              while ( v21 );
+            }
+            v19 = v14;
+            v13 = v17;
+            v14 = *(_QWORD *)(v14 + 80);
           }
+          while ( (*(_BYTE *)(v19 + 95) & 2) != 0 );
         }
-        v18 = v13;
-        v13 = *v16;
       }
-      while ( (*(_BYTE *)(v18 + 103) & 1) != 0 );
     }
   }
+  return result;
 }

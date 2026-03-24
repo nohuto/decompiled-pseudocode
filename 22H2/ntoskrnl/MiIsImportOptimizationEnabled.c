@@ -1,12 +1,10 @@
 /*
- * XREFs of MiIsImportOptimizationEnabled @ 0x14020EBD8
+ * XREFs of MiIsImportOptimizationEnabled @ 0x1402F3618
  * Callers:
- *     MmHasImageBeenImportOptimized @ 0x14069707C (MmHasImageBeenImportOptimized.c)
- *     MiParseImageLoadConfig @ 0x1406A828C (MiParseImageLoadConfig.c)
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x14079DAF8 (MiApplyImportOptimizationToRuntimeDriver.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49BD4 (MiMapSystemImageWithLargePage.c)
- *     VfUtilIsProtectedDriver @ 0x140AC37CC (VfUtilIsProtectedDriver.c)
- *     MmApplyVerifierToRunningImage @ 0x140AE8F80 (MmApplyVerifierToRunningImage.c)
+ *     MiParseImageLoadConfig @ 0x140662858 (MiParseImageLoadConfig.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x14075C368 (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MmHasImageBeenImportOptimized @ 0x140773388 (MmHasImageBeenImportOptimized.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA420 (MiMapSystemImageWithLargePage.c)
  * Callees:
  *     <none>
  */

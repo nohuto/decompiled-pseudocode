@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnEndTrace @ 0x140669374
+ * XREFs of PfSnEndTrace @ 0x140669354
  * Callers:
- *     PfSnEndTraceWorkerThreadRoutine @ 0x140669360 (PfSnEndTraceWorkerThreadRoutine.c)
+ *     PfSnEndTraceWorkerThreadRoutine @ 0x140669340 (PfSnEndTraceWorkerThreadRoutine.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     PfSnDeactivateTrace @ 0x1400E23E4 (PfSnDeactivateTrace.c)
- *     PfFbBufferListFlushStandby @ 0x1400E2708 (PfFbBufferListFlushStandby.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     PfSnDeactivateTrace @ 0x1400E2404 (PfSnDeactivateTrace.c)
+ *     PfFbBufferListFlushStandby @ 0x1400E2728 (PfFbBufferListFlushStandby.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfSnCleanupTrace @ 0x1406695C4 (PfSnCleanupTrace.c)
- *     PfSnBuildDumpFromTrace @ 0x140669718 (PfSnBuildDumpFromTrace.c)
+ *     PfSnCleanupTrace @ 0x1406695A4 (PfSnCleanupTrace.c)
+ *     PfSnBuildDumpFromTrace @ 0x1406696F8 (PfSnBuildDumpFromTrace.c)
  */
 
 __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)

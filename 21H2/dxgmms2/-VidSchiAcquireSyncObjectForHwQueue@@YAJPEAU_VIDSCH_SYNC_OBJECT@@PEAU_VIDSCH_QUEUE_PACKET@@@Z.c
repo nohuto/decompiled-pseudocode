@@ -1,202 +1,173 @@
 /*
- * XREFs of ?VidSchiAcquireSyncObjectForHwQueue@@YAJPEAU_VIDSCH_SYNC_OBJECT@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C003E994
+ * XREFs of ?VidSchiAcquireSyncObjectForHwQueue@@YAJPEAU_VIDSCH_SYNC_OBJECT@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C00361C0
  * Callers:
- *     VidSchSubmitWaitToHwQueue @ 0x1C00426F0 (VidSchSubmitWaitToHwQueue.c)
+ *     VidSchSubmitWaitToHwQueue @ 0x1C003A970 (VidSchSubmitWaitToHwQueue.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
-__int64 __fastcall VidSchiAcquireSyncObjectForHwQueue(struct _VIDSCH_SYNC_OBJECT *a1, struct _VIDSCH_QUEUE_PACKET *a2)
+__int64 __fastcall VidSchiAcquireSyncObjectForHwQueue(
+        struct _VIDSCH_SYNC_OBJECT *a1,
+        struct _VIDSCH_QUEUE_PACKET *a2,
+        __int64 a3)
 {
-  __int64 v2; // r11
-  char v3; // r10
-  char v4; // si
-  __int64 v5; // rbx
-  __int64 v6; // rdi
-  int v8; // eax
-  unsigned __int64 v9; // r9
-  unsigned __int64 *v10; // rax
-  char *v11; // rax
-  char *v12; // rdx
-  char **v13; // r9
-  unsigned __int64 v14; // r9
-  unsigned __int64 v15; // r9
-  unsigned __int64 v16; // rax
+  __int64 v3; // r11
+  char v4; // r10
+  char v5; // si
+  __int64 v6; // rbx
+  __int64 v7; // rdi
+  __int64 v8; // rax
+  int v10; // eax
+  unsigned __int64 v11; // r9
+  unsigned __int64 *v12; // rax
+  char *v13; // rdx
+  char *v14; // rax
+  char **v15; // r9
+  unsigned __int64 v16; // r9
   unsigned __int64 v17; // r9
-  int v18; // r9d
-  int v19; // eax
-  __int64 v20; // rax
-  __int64 v21; // rax
-  _QWORD *v22; // rdx
-  _QWORD *v23; // r9
+  unsigned __int64 v18; // rax
+  unsigned __int64 v19; // r9
+  int v20; // r9d
+  int v21; // eax
+  __int64 v22; // rax
+  __int64 v23; // rax
 
-  v2 = *((_QWORD *)a2 + 12);
-  v3 = 0;
+  v3 = *((_QWORD *)a2 + 12);
   v4 = 0;
-  v5 = *(_QWORD *)(*(_QWORD *)(v2 + 40) + 8LL);
-  v6 = *(_QWORD *)(v5 + 32);
-  if ( *((_DWORD *)a1 + 9) == 0x7FFFFFFF )
+  v5 = 0;
+  v6 = *(_QWORD *)(*(_QWORD *)(v3 + 40) + 8LL);
+  v7 = *(_QWORD *)(v6 + 32);
+  if ( *((_DWORD *)a1 + 8) == 0x7FFFFFFF )
+    goto LABEL_2;
+  v10 = *((_DWORD *)a1 + 11);
+  if ( !v10 )
   {
-    WdLogSingleEntry0(1LL);
-    DxgCoreInterface[85](
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"Synchronization object already has MAX_LONG reference pending, can't reference more.\n",
-      2696LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    if ( *((_QWORD *)a1 + 8) )
+      goto LABEL_2;
+    if ( !*((_QWORD *)a1 + 7) )
+    {
+      v22 = *((_QWORD *)a2 + 11);
+      if ( !v22 )
+        v22 = *((_QWORD *)a2 + 12);
+      *((_QWORD *)a1 + 7) = v22;
+      v4 = 1;
+    }
+    v23 = *((_QWORD *)a2 + 11);
+    if ( !v23 )
+      v23 = *((_QWORD *)a2 + 12);
+    *((_QWORD *)a1 + 8) = v23;
+    goto LABEL_51;
+  }
+  a3 = 1LL;
+  if ( v10 == 1 )
+  {
+    v20 = *((_DWORD *)a1 + 16);
+    if ( !v20 )
+      goto LABEL_2;
+    v21 = *((_DWORD *)a1 + 14);
+    if ( v21 )
+    {
+      v4 = 1;
+      *((_DWORD *)a1 + 14) = v21 - 1;
+    }
+    *((_DWORD *)a1 + 16) = v20 - 1;
+LABEL_51:
+    if ( !v4 )
+      goto LABEL_14;
+    goto LABEL_52;
+  }
+  if ( v10 == 2 )
+  {
+    if ( *((_BYTE *)a1 + 27) )
+      v17 = *(_QWORD *)(*((_QWORD *)a1 + 26) + 40LL);
+    else
+      v17 = *((_QWORD *)a1 + 8);
+    v18 = *((_QWORD *)a2 + 38);
+    if ( v17 >= v18 )
+    {
+      if ( *((_BYTE *)a1 + 27) )
+      {
+        v19 = *(_QWORD *)(*((_QWORD *)a1 + 26) + 32LL);
+        v18 = *((_QWORD *)a2 + 38);
+      }
+      else
+      {
+        v19 = *((_QWORD *)a1 + 9);
+      }
+      if ( v19 >= v18 )
+        goto LABEL_52;
+LABEL_14:
+      v13 = (char *)a2 + 288;
+      if ( (unsigned int)(*((_DWORD *)a1 + 11) - 4) <= 1 )
+      {
+        v14 = (char *)(v7 + 816);
+      }
+      else if ( v5 )
+      {
+        v14 = (char *)a1 + 112;
+      }
+      else
+      {
+        v14 = (char *)a1 + 96;
+      }
+      v15 = (char **)*((_QWORD *)v14 + 1);
+      if ( *v15 != v14 )
+        __fastfail(3u);
+      *(_QWORD *)v13 = v14;
+      *((_QWORD *)v13 + 1) = v15;
+      *v15 = v13;
+      *((_QWORD *)v14 + 1) = v13;
+      _InterlockedAdd((volatile signed __int32 *)a1 + 8, 1u);
+      return 0LL;
+    }
+    if ( *((_BYTE *)a1 + 25) )
+      goto LABEL_27;
+LABEL_2:
+    v8 = WdLogNewEntry5_WdAssertion(a1, a2, a3);
+    WdLogEvent5_WdAssertion(v8);
     return 3221225473LL;
   }
-  v8 = *((_DWORD *)a1 + 12);
-  switch ( v8 )
-  {
-    case 0:
-      if ( *((_QWORD *)a1 + 8) )
-        goto LABEL_41;
-      if ( !*((_QWORD *)a1 + 7) )
-      {
-        v20 = *((_QWORD *)a2 + 11);
-        if ( !v20 )
-          v20 = *((_QWORD *)a2 + 12);
-        *((_QWORD *)a1 + 7) = v20;
-        v3 = 1;
-      }
-      v21 = *((_QWORD *)a2 + 11);
-      if ( !v21 )
-        v21 = *((_QWORD *)a2 + 12);
-      *((_QWORD *)a1 + 8) = v21;
-      goto LABEL_53;
-    case 1:
-      v18 = *((_DWORD *)a1 + 16);
-      if ( !v18 )
-      {
-LABEL_41:
-        WdLogSingleEntry0(3LL);
-        return 3221225473LL;
-      }
-      v19 = *((_DWORD *)a1 + 14);
-      if ( v19 )
-      {
-        v3 = 1;
-        *((_DWORD *)a1 + 14) = v19 - 1;
-      }
-      *((_DWORD *)a1 + 16) = v18 - 1;
-LABEL_53:
-      if ( !v3 )
-        goto LABEL_15;
-      goto LABEL_54;
-    case 2:
-      if ( *((_BYTE *)a1 + 27) )
-        v15 = *(_QWORD *)(*((_QWORD *)a1 + 26) + 40LL);
-      else
-        v15 = *((_QWORD *)a1 + 8);
-      v16 = *((_QWORD *)a2 + 38);
-      if ( v15 < v16 )
-      {
-        if ( !*((_BYTE *)a1 + 25) )
-        {
-          WdLogSingleEntry0(1LL);
-          DxgCoreInterface[85](
-            0LL,
-            0x40000LL,
-            0xFFFFFFFFLL,
-            L"Trying to wait the fence without signal having been submitted.\n",
-            2781LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          return 3221225473LL;
-        }
-LABEL_28:
-        ++*((_DWORD *)a1 + 10);
-        v4 = 1;
-        ++*(_DWORD *)(v2 + 156);
-        ++*(_DWORD *)(v5 + 1588);
-        ++*(_DWORD *)(v6 + 816);
-        *((_DWORD *)a2 + 68) |= 4u;
-        goto LABEL_15;
-      }
-      if ( *((_BYTE *)a1 + 27) )
-      {
-        v17 = *(_QWORD *)(*((_QWORD *)a1 + 26) + 32LL);
-        v16 = *((_QWORD *)a2 + 38);
-      }
-      else
-      {
-        v17 = *((_QWORD *)a1 + 9);
-      }
-      if ( v17 >= v16 )
-        goto LABEL_54;
-LABEL_15:
-      if ( (unsigned int)(*((_DWORD *)a1 + 12) - 4) <= 1 )
-      {
-        v22 = (_QWORD *)((char *)a2 + 288);
-        v23 = *(_QWORD **)(v6 + 832);
-        if ( *v23 == v6 + 824 )
-        {
-          *v22 = v6 + 824;
-          v22[1] = v23;
-          *v23 = v22;
-          *(_QWORD *)(v6 + 832) = v22;
-          goto LABEL_59;
-        }
-      }
-      else
-      {
-        v11 = (char *)a2 + 288;
-        if ( v4 )
-          v12 = (char *)a1 + 112;
-        else
-          v12 = (char *)a1 + 96;
-        v13 = (char **)*((_QWORD *)v12 + 1);
-        if ( *v13 == v12 )
-        {
-          *(_QWORD *)v11 = v12;
-          *((_QWORD *)v11 + 1) = v13;
-          *v13 = v11;
-          *((_QWORD *)v12 + 1) = v11;
-LABEL_59:
-          _InterlockedAdd((volatile signed __int32 *)a1 + 9, 1u);
-          return 0LL;
-        }
-      }
-      __fastfail(3u);
-  }
-  if ( (unsigned int)(v8 - 4) > 1 )
-    goto LABEL_15;
-  v9 = *((_QWORD *)a2 + 38);
+  if ( (unsigned int)(v10 - 4) > 1 )
+    goto LABEL_14;
+  v11 = *((_QWORD *)a2 + 38);
   if ( !*((_BYTE *)a1 + 28) )
   {
-    v10 = (unsigned __int64 *)*((_QWORD *)a1 + 8);
+    v12 = (unsigned __int64 *)*((_QWORD *)a1 + 8);
     if ( *((_BYTE *)a1 + 29) )
     {
-      if ( *v10 >= v9 )
-        goto LABEL_54;
-LABEL_13:
+      if ( *v12 >= v11 )
+        goto LABEL_52;
+      goto LABEL_12;
+    }
+    if ( *(_DWORD *)v12 - (int)v11 < 0 )
+    {
+LABEL_12:
       if ( *((_QWORD *)a1 + 10) )
       {
-        ++*(_DWORD *)(v6 + 820);
+        ++*(_DWORD *)(v7 + 812);
         *((_DWORD *)a2 + 68) |= 8u;
-        goto LABEL_15;
+        goto LABEL_14;
       }
-      if ( !*((_BYTE *)a1 + 30) && (unsigned int)(((2 * *((_DWORD *)a1 + 13)) >> 1) - 3) > 1 )
-        goto LABEL_28;
-      if ( *((_BYTE *)a1 + 27) )
-        v14 = *(_QWORD *)(*((_QWORD *)a1 + 26) + 40LL);
-      else
-        v14 = *((_DWORD *)a1 + 12) == 2 ? *((_QWORD *)a1 + 8) : *((_QWORD *)a1 + 11);
-      if ( *((_QWORD *)a2 + 38) > v14 )
-        goto LABEL_28;
-      goto LABEL_15;
+      if ( *((_BYTE *)a1 + 30) )
+      {
+        if ( *((_BYTE *)a1 + 27) )
+          v16 = *(_QWORD *)(*((_QWORD *)a1 + 26) + 40LL);
+        else
+          v16 = *((_DWORD *)a1 + 11) == 2 ? *((_QWORD *)a1 + 8) : *((_QWORD *)a1 + 11);
+        if ( *((_QWORD *)a2 + 38) <= v16 )
+          goto LABEL_14;
+      }
+LABEL_27:
+      ++*((_DWORD *)a1 + 9);
+      v5 = 1;
+      ++*(_DWORD *)(v3 + 156);
+      ++*(_DWORD *)(v6 + 1588);
+      ++*(_DWORD *)(v7 + 808);
+      *((_DWORD *)a2 + 68) |= 4u;
+      goto LABEL_14;
     }
-    if ( *(_DWORD *)v10 - (int)v9 < 0 )
-      goto LABEL_13;
   }
-LABEL_54:
+LABEL_52:
   *((_DWORD *)a2 + 68) |= 1u;
   return 0LL;
 }

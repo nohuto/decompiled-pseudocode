@@ -1,12 +1,12 @@
 /*
- * XREFs of WPP_IFR_SF_qqqqd @ 0x1C00668D4
+ * XREFs of WPP_IFR_SF_qqqqd @ 0x1C004C740
  * Callers:
- *     FxIoTargetValidateOpenParams @ 0x1C002CEA8 (FxIoTargetValidateOpenParams.c)
- *     imp_WdfLookasideListCreate @ 0x1C0066A70 (imp_WdfLookasideListCreate.c)
- *     imp_WdfIoTargetSelfAssignDefaultIoQueue @ 0x1C0073130 (imp_WdfIoTargetSelfAssignDefaultIoQueue.c)
+ *     imp_WdfLookasideListCreate @ 0x1C004C8E0 (imp_WdfLookasideListCreate.c)
+ *     FxIoTargetValidateOpenParams @ 0x1C0062B0C (FxIoTargetValidateOpenParams.c)
+ *     imp_WdfIoTargetSelfAssignDefaultIoQueue @ 0x1C0063910 (imp_WdfIoTargetSelfAssignDefaultIoQueue.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqqqd(

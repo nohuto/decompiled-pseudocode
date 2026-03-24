@@ -1,9 +1,9 @@
 /*
- * XREFs of GreIsInLowBox @ 0x1C016CBA0
+ * XREFs of GreIsInLowBox @ 0x1C013F6E0
  * Callers:
- *     ?DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z @ 0x1C00ACC98 (-DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z.c)
+ *     ?DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z @ 0x1C00A5A68 (-DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z.c)
  * Callees:
- *     GreOpenThreadToken @ 0x1C016CC2C (GreOpenThreadToken.c)
+ *     GreOpenThreadToken @ 0x1C013F76C (GreOpenThreadToken.c)
  */
 
 __int64 GreIsInLowBox()

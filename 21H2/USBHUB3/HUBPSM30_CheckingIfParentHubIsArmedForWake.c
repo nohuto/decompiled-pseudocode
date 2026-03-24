@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_CheckingIfParentHubIsArmedForWake @ 0x1C0012BD0
+ * XREFs of HUBPSM30_CheckingIfParentHubIsArmedForWake @ 0x1C00126D0
  * Callers:
  *     <none>
  * Callees:

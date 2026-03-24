@@ -1,7 +1,7 @@
 /*
- * XREFs of StIoCountsMovePeriod @ 0x1405CAAE8
+ * XREFs of StIoCountsMovePeriod @ 0x14059D420
  * Callers:
- *     ?StDmPageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C66C0 (-StDmPageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StDmPageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x140268750 (-StDmPageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
  * Callees:
  *     <none>
  */
@@ -26,8 +26,8 @@ __int64 __fastcall StIoCountsMovePeriod(__int64 a1, __int64 a2)
   {
     LODWORD(v5) = 1;
   }
-  *(_QWORD *)(a1 + 16) = v2 + v3;
   *(_DWORD *)(a1 + 8) += v5;
+  *(_QWORD *)(a1 + 16) = v2 + v3;
   result = a1 + 4 * (5LL * (*(_DWORD *)(a1 + 8) & 0x3F) + 6);
   *(_OWORD *)result = 0LL;
   *(_DWORD *)(result + 16) = 0;

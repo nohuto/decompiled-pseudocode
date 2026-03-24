@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpTxtAdjustStaticRegion @ 0x1406720A0
+ * XREFs of BgpTxtAdjustStaticRegion @ 0x1405C45B0
  * Callers:
- *     BgpDisplayCharacterEx @ 0x140671CA4 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x1405C4314 (BgpDisplayCharacterEx.c)
  * Callees:
- *     BgpGxFillRectangle @ 0x140386F34 (BgpGxFillRectangle.c)
+ *     BgpGxFillRectangle @ 0x14039C2C0 (BgpGxFillRectangle.c)
  */
 
 __int64 __fastcall BgpTxtAdjustStaticRegion(__int64 a1, _QWORD *a2, unsigned int *a3)
@@ -11,7 +11,7 @@ __int64 __fastcall BgpTxtAdjustStaticRegion(__int64 a1, _QWORD *a2, unsigned int
   __int64 v5; // rcx
   unsigned int v6; // eax
 
-  if ( !a1 || !a2 && !a3 || (*(_DWORD *)(a1 + 72) & 1) == 0 )
+  if ( !a1 || !a2 && !a3 || (*(_DWORD *)(a1 + 64) & 1) == 0 )
     return 3221225485LL;
   if ( a2 )
     *(_QWORD *)a1 = *a2;

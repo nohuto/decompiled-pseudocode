@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_QueueingPortStatusChangeEvents @ 0x1C0008D30
+ * XREFs of HUBHSM_QueueingPortStatusChangeEvents @ 0x1C0008570
  * Callers:
  *     <none>
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBHSM_QueueingPortStatusChangeEvents(__int64 a1)

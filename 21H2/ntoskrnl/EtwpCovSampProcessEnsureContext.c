@@ -1,18 +1,20 @@
 /*
- * XREFs of EtwpCovSampProcessEnsureContext @ 0x1409F1D50
+ * XREFs of EtwpCovSampProcessEnsureContext @ 0x1409457A0
  * Callers:
- *     EtwpCovSampImageNotify @ 0x1409F1600 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x140945050 (EtwpCovSampImageNotify.c)
  * Callees:
- *     EtwpCovSampProcessCleanup @ 0x1409F1CB0 (EtwpCovSampProcessCleanup.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwpCovSampProcessCleanup @ 0x140945700 (EtwpCovSampProcessCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampProcessEnsureContext(__int64 a1)
 {
   unsigned int v1; // ebx
-  __int64 Pool2; // rax
-  void *v4; // rdi
+  _OWORD *PoolWithTag; // rax
+  unsigned __int64 v4; // rcx
+  signed __int64 v5; // rax
+  void *v6; // rdi
 
   v1 = 0;
   if ( !*(_QWORD *)(a1 + 2544) )
@@ -23,18 +25,20 @@ __int64 __fastcall EtwpCovSampProcessEnsureContext(__int64 a1)
     }
     else
     {
-      Pool2 = ExAllocatePool2(256LL, 56LL, 1450669125LL);
-      v4 = (void *)Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x38uLL, 0x56777445u);
+      v4 = (unsigned __int64)PoolWithTag;
+      if ( PoolWithTag )
       {
-        *(_OWORD *)Pool2 = 0LL;
-        *(_OWORD *)(Pool2 + 16) = 0LL;
-        *(_OWORD *)(Pool2 + 32) = 0LL;
-        *(_QWORD *)(Pool2 + 48) = 0LL;
-        if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 2544), Pool2, 0LL) )
+        *PoolWithTag = 0LL;
+        PoolWithTag[1] = 0LL;
+        PoolWithTag[2] = 0LL;
+        *((_QWORD *)PoolWithTag + 6) = 0LL;
+        v5 = -_InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 2544), (signed __int64)PoolWithTag, 0LL);
+        v6 = (void *)(v4 & -(__int64)(v5 != 0));
+        if ( v6 )
         {
-          EtwpCovSampProcessCleanup(Pool2, 1);
-          ExFreePoolWithTag(v4, 0x56777445u);
+          EtwpCovSampProcessCleanup(v4 & -(__int64)(v5 != 0), 1);
+          ExFreePoolWithTag(v6, 0x56777445u);
         }
       }
       else

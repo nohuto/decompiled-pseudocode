@@ -1,9 +1,9 @@
 /*
- * XREFs of wcstolX @ 0x1403E3850
+ * XREFs of wcstolX @ 0x1403D44C4
  * Callers:
- *     _wtol @ 0x1403E1810 (_wtol.c)
+ *     _wtol @ 0x1403D2450 (_wtol.c)
  * Callees:
- *     wcstoxlX @ 0x1403E3610 (wcstoxlX.c)
+ *     wcstoxlX @ 0x1403D427C (wcstoxlX.c)
  */
 
 __int64 __fastcall wcstolX(wint_t *a1, wint_t **a2, unsigned int a3, int a4)

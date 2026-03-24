@@ -4,8 +4,8 @@
  *     VfInitVerifierComponents @ 0x1409266D0 (VfInitVerifierComponents.c)
  *     VfSettingsCheckForChanges @ 0x14093DEE8 (VfSettingsCheckForChanges.c)
  * Callees:
- *     ExClearPoolFlags @ 0x14031A37C (ExClearPoolFlags.c)
- *     ExSetPoolFlags @ 0x14031A85C (ExSetPoolFlags.c)
+ *     ExClearPoolFlags @ 0x14031A47C (ExClearPoolFlags.c)
+ *     ExSetPoolFlags @ 0x14031A95C (ExSetPoolFlags.c)
  */
 
 void __fastcall VfSettingsApplyMiscellaneousChecks(__int16 a1)

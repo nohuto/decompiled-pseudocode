@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FindFirstOutstandingFrameIndex@CPartitionVerticalBlankScheduler@@AEAAIXZ @ 0x18004E338
+ * XREFs of ?FindFirstOutstandingFrameIndex@CPartitionVerticalBlankScheduler@@AEAAIXZ @ 0x18006DB98
  * Callers:
- *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18004E180 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
- *     ?RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x1800AF5CC (-RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x1800270A8 (-RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18006E0E0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -11,30 +11,30 @@ __int64 __fastcall CPartitionVerticalBlankScheduler::FindFirstOutstandingFrameIn
         CPartitionVerticalBlankScheduler *this)
 {
   int v2; // ecx
-  unsigned int v3; // edx
-  char i; // al
-  unsigned int v5; // eax
-  unsigned __int64 v6; // r9
+  unsigned int v3; // r8d
+  char i; // dl
+  unsigned int v5; // edx
+  __int64 v6; // r10
   unsigned int v7; // ecx
-  int v9; // r10d
-  unsigned __int64 v10; // r9
+  int v9; // edx
+  __int64 v10; // r10
   unsigned int v11; // eax
 
-  v2 = *((_DWORD *)this + 1051);
+  v2 = *((_DWORD *)this + 1257);
   v3 = -1;
   if ( v2 == -1 )
   {
-    v7 = *((_DWORD *)this + 1050);
+    v7 = *((_DWORD *)this + 1256);
     if ( v7 != -1 )
     {
       v9 = ((_BYTE)v7 + 1) & 0xF;
       while ( v7 != v9 )
       {
-        v10 = (unsigned __int64)v7 << 8;
-        if ( *((_BYTE *)this + v10 + 266) )
+        v10 = 304LL * v7;
+        if ( *((_BYTE *)this + v10 + 290) )
           break;
         v11 = v7;
-        if ( !*((_BYTE *)this + v10 + 265) )
+        if ( !*((_BYTE *)this + v10 + 289) )
           v11 = v3;
         v7 = ((_BYTE)v7 - 1) & 0xF;
         v3 = v11;
@@ -48,10 +48,10 @@ __int64 __fastcall CPartitionVerticalBlankScheduler::FindFirstOutstandingFrameIn
       v5 = i & 0xF;
       if ( v5 == v2 || v3 != -1 )
         break;
-      v6 = (unsigned __int64)v5 << 8;
-      if ( *((_BYTE *)this + v6 + 265) )
+      v6 = 304LL * v5;
+      if ( *((_BYTE *)this + v6 + 289) )
       {
-        if ( !*((_BYTE *)this + v6 + 266) )
+        if ( !*((_BYTE *)this + v6 + 290) )
           v3 = v5;
       }
     }

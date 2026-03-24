@@ -1,73 +1,67 @@
 /*
- * XREFs of FsRtlpModifyThreadPriorities @ 0x14024A390
+ * XREFs of FsRtlpModifyThreadPriorities @ 0x140379E74
  * Callers:
- *     FsRtlUninitializeOplock @ 0x14023A260 (FsRtlUninitializeOplock.c)
- *     FsRtlpOplockBreakToII @ 0x14024A5B4 (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakToNone @ 0x140256F58 (FsRtlpOplockBreakToNone.c)
- *     FsRtlpOplockCleanup @ 0x1402A30D0 (FsRtlpOplockCleanup.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402A4E10 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpCancelExclusiveIrp @ 0x140376950 (FsRtlpCancelExclusiveIrp.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x14039F3B0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1404173E4 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x140542458 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpOpBatchBreakClosePending @ 0x14092E8CC (FsRtlpOpBatchBreakClosePending.c)
- *     FsRtlpOplockBreakNotify @ 0x14092EA08 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlpOplockCleanup @ 0x1402AD5D0 (FsRtlpOplockCleanup.c)
+ *     FsRtlUninitializeOplock @ 0x1402AEF00 (FsRtlUninitializeOplock.c)
+ *     FsRtlpOplockBreakToII @ 0x1402C4AAC (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x140354E00 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14036CC40 (FsRtlpCancelExclusiveIrp.c)
+ *     FsRtlpOplockBreakToNone @ 0x14036D3C8 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403930CC (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x1404F04C4 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpOpBatchBreakClosePending @ 0x14088BE5C (FsRtlpOpBatchBreakClosePending.c)
+ *     FsRtlpOplockBreakNotify @ 0x14088BF98 (FsRtlpOplockBreakNotify.c)
  * Callees:
- *     FsRtlpDoBoost @ 0x14024A468 (FsRtlpDoBoost.c)
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
+ *     FsRtlpDoBoost @ 0x1402CA830 (FsRtlpDoBoost.c)
+ *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
  */
 
-__int64 __fastcall FsRtlpModifyThreadPriorities(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall FsRtlpModifyThreadPriorities(__int64 a1, __int64 a2, char a3)
 {
-  __int64 result; // rax
-  __int64 v4; // rdi
-  unsigned int CurrentThread; // ebp
-  __int64 v7; // rcx
-  int v8; // r9d
-  _QWORD *i; // rdi
-  __int64 v10; // rcx
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 v6; // rcx
+  _BYTE *v7; // r9
+  __int64 *i; // rdi
 
-  result = (__int64)&retaddr;
-  v4 = a2;
-  if ( (_BYTE)a3 )
+  if ( a3 )
   {
-    CurrentThread = (unsigned int)KeGetCurrentThread();
-    v7 = *(_QWORD *)(a1 + 24);
-    if ( v7 )
+    CurrentThread = KeGetCurrentThread();
+    v6 = *(_QWORD *)(a1 + 24);
+    if ( v6 )
     {
-      v8 = a1 + 144;
+      v7 = (_BYTE *)(a1 + 144);
     }
-    else if ( !a2 || (v7 = *(_QWORD *)(a2 + 40), v8 = a2 + 48, !v7) )
+    else
     {
-      for ( i = *(_QWORD **)(a1 + 72); i != (_QWORD *)(a1 + 72); i = (_QWORD *)*i )
-        result = FsRtlpDoBoost(i[5], CurrentThread, (int)a1 + 32, (int)i + 48, a1);
-      return result;
+      if ( !a2 )
+      {
+LABEL_13:
+        for ( i = *(__int64 **)(a1 + 72); i != (__int64 *)(a1 + 72); i = (__int64 *)*i )
+          FsRtlpDoBoost(i[5], (__int64)CurrentThread, (_BYTE *)(a1 + 32), (_BYTE *)i + 48, a1);
+        return;
+      }
+      v6 = *(_QWORD *)(a2 + 40);
+      v7 = (_BYTE *)(a2 + 48);
     }
-    return FsRtlpDoBoost(v7, CurrentThread, (int)a1 + 32, v8, a1);
+    if ( v6 )
+    {
+      FsRtlpDoBoost(v6, (__int64)CurrentThread, (_BYTE *)(a1 + 32), v7, a1);
+      return;
+    }
+    goto LABEL_13;
   }
   if ( a2 )
   {
-    result = *(unsigned int *)(a2 + 48);
-    if ( (result & 0x20) != 0 )
+    if ( (*(_DWORD *)(a2 + 48) & 0x20) != 0 )
     {
-      v10 = *(_QWORD *)(a2 + 40);
-      LOBYTE(a3) = 1;
-      LOBYTE(a2) = 1;
-      result = PsBoostThreadIoEx(v10, a2, a3, a1);
-      *(_DWORD *)(v4 + 48) &= ~0x20u;
+      PsBoostThreadIoEx(*(_QWORD *)(a2 + 40), 1, 1, (_DWORD *)a1);
+      *(_DWORD *)(a2 + 48) &= ~0x20u;
     }
   }
-  else
+  else if ( (*(_DWORD *)(a1 + 144) & 0x20) != 0 )
   {
-    result = *(unsigned int *)(a1 + 144);
-    if ( (result & 0x20) != 0 )
-    {
-      LOBYTE(a3) = 1;
-      LOBYTE(a2) = 1;
-      result = PsBoostThreadIoEx(*(_QWORD *)(a1 + 24), a2, a3, a1);
-      *(_DWORD *)(a1 + 144) &= ~0x20u;
-    }
+    PsBoostThreadIoEx(*(_QWORD *)(a1 + 24), 1, 1, (_DWORD *)a1);
+    *(_DWORD *)(a1 + 144) &= ~0x20u;
   }
-  return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RIMComputeSpecificHighMetricValue @ 0x1C01B6C84
+ * XREFs of RIMComputeSpecificHighMetricValue @ 0x1C01814D0
  * Callers:
- *     RIMPopulatePointerDevice @ 0x1C018C3A8 (RIMPopulatePointerDevice.c)
- *     RIMCreatePointerDeviceInfo @ 0x1C0190190 (RIMCreatePointerDeviceInfo.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015C02C (RIMCreatePointerDeviceInfo.c)
+ *     RIMPopulatePointerDevice @ 0x1C0161DCC (RIMPopulatePointerDevice.c)
  * Callees:
- *     RIMComputePower @ 0x1C01B6C4C (RIMComputePower.c)
+ *     RIMComputePower @ 0x1C0181498 (RIMComputePower.c)
  */
 
 __int64 __fastcall RIMComputeSpecificHighMetricValue(unsigned int a1, __int64 a2)
@@ -26,7 +26,7 @@ __int64 __fastcall RIMComputeSpecificHighMetricValue(unsigned int a1, __int64 a2
   v3 = abs32(a1);
   v4 = 0;
   v5 = a1 >> 31;
-  v6 = word_1C026A590;
+  v6 = word_1C0227118;
   do
   {
     if ( *v6 == (*(_BYTE *)(a2 + 32) & 0xF) )
@@ -38,10 +38,10 @@ __int64 __fastcall RIMComputeSpecificHighMetricValue(unsigned int a1, __int64 a2
   v7 = *(_DWORD *)(a2 + 36) & 0xF;
   if ( (unsigned int)v7 < 5 )
   {
-    v8 = dword_1C026A5C0[v7];
+    v8 = dword_1C02270F0[v7];
     if ( (unsigned int)(v8 - 1) <= 1 && v2 < 0xB )
     {
-      v9 = RIMComputePower(word_1C026A590[2 * v2 + 1]);
+      v9 = RIMComputePower(word_1C0227118[2 * v2 + 1]);
       if ( v10 >= 0 )
       {
         v12 = 2540;

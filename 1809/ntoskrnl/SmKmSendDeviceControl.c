@@ -1,12 +1,12 @@
 /*
- * XREFs of SmKmSendDeviceControl @ 0x1408AD4F8
+ * XREFs of SmKmSendDeviceControl @ 0x1408AD4D8
  * Callers:
- *     SmKmVolumeQueryUniqueId @ 0x1408AE684 (SmKmVolumeQueryUniqueId.c)
+ *     SmKmVolumeQueryUniqueId @ 0x1408AE664 (SmKmVolumeQueryUniqueId.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400DDC70 (IoBuildDeviceIoControlRequest.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400DDC90 (IoBuildDeviceIoControlRequest.c)
  */
 
 NTSTATUS __fastcall SmKmSendDeviceControl(

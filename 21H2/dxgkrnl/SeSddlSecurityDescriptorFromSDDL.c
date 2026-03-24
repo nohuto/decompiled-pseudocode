@@ -1,10 +1,10 @@
 /*
- * XREFs of SeSddlSecurityDescriptorFromSDDL @ 0x1C0384E94
+ * XREFs of SeSddlSecurityDescriptorFromSDDL @ 0x1C02C4194
  * Callers:
- *     IoDevObjCreateDeviceSecure @ 0x1C0384C10 (IoDevObjCreateDeviceSecure.c)
+ *     IoDevObjCreateDeviceSecure @ 0x1C02C3F10 (IoDevObjCreateDeviceSecure.c)
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     SepSddlSecurityDescriptorFromSDDLString @ 0x1C038572C (SepSddlSecurityDescriptorFromSDDLString.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     SepSddlSecurityDescriptorFromSDDLString @ 0x1C02C4A40 (SepSddlSecurityDescriptorFromSDDLString.c)
  */
 
 __int64 __fastcall SeSddlSecurityDescriptorFromSDDL(unsigned __int16 *a1, __int64 a2, _QWORD *a3)

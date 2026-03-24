@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhGetUxdDeviceKey @ 0x1C00599F0
+ * XREFs of UsbhGetUxdDeviceKey @ 0x1C005B10C
  * Callers:
- *     UsbhUpdateUxdSettings @ 0x1C005A420 (UsbhUpdateUxdSettings.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005BAE4 (UsbhUpdateUxdSettings.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhBuildUxdDeviceKey @ 0x1C0058FA0 (UsbhBuildUxdDeviceKey.c)
- *     WPP_RECORDER_SF_SS @ 0x1C005A9C4 (WPP_RECORDER_SF_SS.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhBuildUxdDeviceKey @ 0x1C005A670 (UsbhBuildUxdDeviceKey.c)
+ *     WPP_RECORDER_SF_SS @ 0x1C005C0E4 (WPP_RECORDER_SF_SS.c)
  */
 
 __int64 __fastcall UsbhGetUxdDeviceKey(PDEVICE_OBJECT a1, __int64 a2, __int64 a3)

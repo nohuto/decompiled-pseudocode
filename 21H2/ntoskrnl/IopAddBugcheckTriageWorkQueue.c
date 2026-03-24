@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAddBugcheckTriageWorkQueue @ 0x14055CBA8
+ * XREFs of IopAddBugcheckTriageWorkQueue @ 0x14050B5EC
  * Callers:
- *     IopAddBugcheckPnpTriageData @ 0x14055C354 (IopAddBugcheckPnpTriageData.c)
- *     IopAddBugcheckPnpWatchdogTriageData @ 0x14055C3BC (IopAddBugcheckPnpWatchdogTriageData.c)
- *     IopAddBugcheckPowerTriageData @ 0x14055C464 (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckPnpTriageData @ 0x14050ADA0 (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x14050AE08 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckPowerTriageData @ 0x14050AEB0 (IopAddBugcheckPowerTriageData.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x1403D7FD4 (KiIsAddressRangeValid.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     IopAddBugcheckTriageThread @ 0x14055CA14 (IopAddBugcheckTriageThread.c)
+ *     KiIsAddressRangeValid @ 0x1403CA26C (KiIsAddressRangeValid.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     IopAddBugcheckTriageThread @ 0x14050B45C (IopAddBugcheckTriageThread.c)
  */
 
 __int64 __fastcall IopAddBugcheckTriageWorkQueue(__int64 MaxDataSize)

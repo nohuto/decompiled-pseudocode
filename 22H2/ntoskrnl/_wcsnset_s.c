@@ -1,9 +1,9 @@
 /*
- * XREFs of _wcsnset_s @ 0x1403D95D0
+ * XREFs of _wcsnset_s @ 0x1403D1BB0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcsnset_s(wchar_t *Dst, size_t SizeInWords, wchar_t Val, size_t MaxCount)
@@ -13,28 +13,36 @@ errno_t __cdecl wcsnset_s(wchar_t *Dst, size_t SizeInWords, wchar_t Val, size_t 
   if ( MaxCount )
   {
     if ( !Dst )
-      goto LABEL_4;
+      goto LABEL_18;
 LABEL_6:
     if ( !SizeInWords )
-      goto LABEL_4;
+      goto LABEL_18;
     v5 = Dst;
     if ( *Dst )
     {
       while ( MaxCount )
       {
-        if ( !--SizeInWords )
-          goto LABEL_16;
-        *v5 = Val;
-        --MaxCount;
-        if ( !*++v5 )
-          goto LABEL_11;
+        if ( --SizeInWords )
+        {
+          *v5 = Val;
+          --MaxCount;
+          if ( *++v5 )
+            continue;
+        }
+        goto LABEL_11;
       }
     }
     else
     {
 LABEL_11:
       if ( MaxCount )
-        goto LABEL_16;
+      {
+LABEL_16:
+        if ( SizeInWords )
+          return 0;
+        *Dst = 0;
+        goto LABEL_18;
+      }
     }
     while ( *v5 )
     {
@@ -42,21 +50,13 @@ LABEL_11:
         break;
       ++v5;
     }
-LABEL_16:
-    if ( !SizeInWords )
-    {
-      *Dst = 0;
-      goto LABEL_4;
-    }
-    return 0;
+    goto LABEL_16;
   }
   if ( Dst )
     goto LABEL_6;
-  if ( SizeInWords )
-  {
-LABEL_4:
-    xHalTimerWatchdogStop();
-    return 22;
-  }
-  return 0;
+  if ( !SizeInWords )
+    return 0;
+LABEL_18:
+  xHalTimerWatchdogStop();
+  return 22;
 }

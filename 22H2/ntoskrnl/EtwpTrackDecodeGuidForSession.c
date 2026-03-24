@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpTrackDecodeGuidForSession @ 0x1409F5568
+ * XREFs of EtwpTrackDecodeGuidForSession @ 0x1409411E4
  * Callers:
- *     EtwpUpdateRegEntryEnableMask @ 0x1407818F4 (EtwpUpdateRegEntryEnableMask.c)
- *     AddDecodeGuidToSessions @ 0x1407E9FA0 (AddDecodeGuidToSessions.c)
+ *     EtwpUpdateRegEntryEnableMask @ 0x140717F6C (EtwpUpdateRegEntryEnableMask.c)
+ *     AddDecodeGuidToSessions @ 0x140941B9C (AddDecodeGuidToSessions.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 bool __fastcall EtwpTrackDecodeGuidForSession(__int64 a1, __int64 a2)
@@ -19,34 +19,34 @@ bool __fastcall EtwpTrackDecodeGuidForSession(__int64 a1, __int64 a2)
   _QWORD *i; // rdx
   __int64 v8; // rcx
   unsigned int v9; // eax
-  __int64 Pool2; // rcx
+  char *PoolWithTag; // rcx
   __int128 v11; // xmm1
   __int64 v13; // rcx
 
   v2 = *(_QWORD *)(a2 + 104);
-  v3 = (volatile signed __int64 *)(a1 + 688);
+  v3 = (volatile signed __int64 *)(a1 + 704);
   v4 = *(_QWORD *)(a2 + 32);
   v6 = 0;
-  ExAcquirePushLockExclusiveEx(a1 + 688, 0LL);
-  for ( i = *(_QWORD **)(a1 + 112); ; i = (_QWORD *)*i )
+  ExAcquirePushLockExclusiveEx(a1 + 704, 0LL);
+  for ( i = *(_QWORD **)(a1 + 128); ; i = (_QWORD *)*i )
   {
     if ( !i )
     {
-      v9 = *(_DWORD *)(a1 + 324) + 2048;
+      v9 = *(_DWORD *)(a1 + 340) + 2048;
       if ( v9 <= *(_DWORD *)(a1 + 4) && v9 <= 0x10000 )
       {
-        Pool2 = ExAllocatePool2(256LL, 48LL, 1651995717LL);
-        if ( Pool2 )
+        PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x62777445u);
+        if ( PoolWithTag )
         {
-          *(_QWORD *)Pool2 = *(_QWORD *)(a1 + 112);
-          *(_OWORD *)(Pool2 + 8) = *(_OWORD *)(v2 + 34);
+          *(_QWORD *)PoolWithTag = *(_QWORD *)(a1 + 128);
+          *(_OWORD *)(PoolWithTag + 8) = *(_OWORD *)(v2 + 34);
           v11 = *(_OWORD *)(v4 + 40);
-          *(_BYTE *)(Pool2 + 40) = 0;
-          *(_OWORD *)(Pool2 + 24) = v11;
-          ++*(_DWORD *)(a1 + 120);
-          *(_DWORD *)(a1 + 324) += 32;
-          *(_QWORD *)(a1 + 112) = Pool2;
-          _InterlockedOr((volatile signed __int32 *)(a1 + 824), 0x8C0u);
+          PoolWithTag[40] = 0;
+          *(_OWORD *)(PoolWithTag + 24) = v11;
+          ++*(_DWORD *)(a1 + 136);
+          *(_DWORD *)(a1 + 340) += 32;
+          *(_QWORD *)(a1 + 128) = PoolWithTag;
+          _InterlockedOr((volatile signed __int32 *)(a1 + 836), 0x8C0u);
           v6 = 1;
         }
       }

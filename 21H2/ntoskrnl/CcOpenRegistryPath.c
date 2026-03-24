@@ -1,10 +1,10 @@
 /*
- * XREFs of CcOpenRegistryPath @ 0x1403DC988
+ * XREFs of CcOpenRegistryPath @ 0x1403CCFDC
  * Callers:
- *     CcRegistryChangeCallback @ 0x1403A73E0 (CcRegistryChangeCallback.c)
- *     CcSetupWatchForRegistryChanges @ 0x1403DC824 (CcSetupWatchForRegistryChanges.c)
+ *     CcRegistryChangeCallback @ 0x14039ACD0 (CcRegistryChangeCallback.c)
+ *     CcSetupWatchForRegistryChanges @ 0x1403CCE68 (CcSetupWatchForRegistryChanges.c)
  * Callees:
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall CcOpenRegistryPath(UNICODE_STRING *a1, HANDLE *a2)

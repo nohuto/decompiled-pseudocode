@@ -1,179 +1,162 @@
 /*
- * XREFs of GreMovePointer @ 0x1C0078400
+ * XREFs of GreMovePointer @ 0x1C0016B30
  * Callers:
- *     ?MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z @ 0x1C005B8C4 (-MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z.c)
- *     ?SetPointerShape@CursorApiRouter@@QEAAXPEAU_CURSINFO@@KKK@Z @ 0x1C005D248 (-SetPointerShape@CursorApiRouter@@QEAAXPEAU_CURSINFO@@KKK@Z.c)
- *     GreHidePointer @ 0x1C00E1284 (GreHidePointer.c)
- *     zzzUpdateCursorImage @ 0x1C00E6B60 (zzzUpdateCursorImage.c)
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
+ *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C00146EC (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
+ *     GreHidePointer @ 0x1C0028DC0 (GreHidePointer.c)
+ *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C00313BC (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
+ *     GreStretchBltInternal @ 0x1C00B49B0 (GreStretchBltInternal.c)
+ *     ApplyGatheredDeviceInfoSummaryInformation @ 0x1C012F710 (ApplyGatheredDeviceInfoSummaryInformation.c)
+ *     HideMouseTrails @ 0x1C01D4140 (HideMouseTrails.c)
+ *     ?RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z @ 0x1C01DA6B8 (-RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z.c)
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?vMovePointer@@YAXPEAUHDEV__@@HHJ@Z @ 0x1C0074F3C (-vMovePointer@@YAXPEAUHDEV__@@HHJ@Z.c)
- *     ?bDontShowPointer@@YAHXZ @ 0x1C00769A4 (-bDontShowPointer@@YAHXZ.c)
- *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C007AC00 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     ?vMovePointer@@YAXPEAUHDEV__@@HHJ@Z @ 0x1C0014C88 (-vMovePointer@@YAXPEAUHDEV__@@HHJ@Z.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C00173F0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
 void __fastcall GreMovePointer(_DWORD *a1, int a2, int a3, int a4)
 {
-  int v5; // r12d
+  int v6; // ebx
   __int64 ThreadWin32Thread; // rax
-  Gre::Base *v7; // rcx
-  __int64 v8; // rsi
-  unsigned __int8 v9; // al
-  struct Gre::Base::SESSION_GLOBALS *v10; // r14
-  int v11; // edi
-  int v12; // ebx
-  __int64 v13; // rcx
-  __int64 v14; // rcx
-  char v15; // di
-  BOOL v16; // eax
-  __int64 v17; // rcx
-  _BOOL8 v18; // rbx
-  HDEV v19; // rax
+  int v8; // r14d
+  __int64 v9; // rdi
+  int v10; // edx
+  int v11; // r8d
+  __int64 v12; // r10
+  int v13; // r9d
+  __int64 v14; // r12
+  HDEV v15; // rax
+  char v16; // r9
+  __int64 **v17; // rcx
+  __int64 *v18; // rsi
+  __int64 v19; // rbx
   char v20; // r9
-  int v21; // r8d
-  __int64 v22; // rcx
+  __int64 v21; // r8
+  __int64 v22; // rdx
   bool v23; // zf
-  __int64 **v24; // rcx
-  __int64 v25; // rsi
-  char v26; // r12
-  __int64 *v27; // rdi
-  int v28; // r13d
-  _BOOL8 v29; // rcx
-  __int64 v30; // rbx
-  char v31; // r9
-  __int64 v32; // r8
-  __int64 v33; // rdx
-  HDEV v34; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v35; // [rsp+28h] [rbp-28h]
-  _BOOL8 v36; // [rsp+30h] [rbp-20h]
-  __int64 v37; // [rsp+38h] [rbp-18h]
-  _BYTE v38[16]; // [rsp+40h] [rbp-10h] BYREF
-  unsigned __int8 v39; // [rsp+90h] [rbp+40h]
-  int v40; // [rsp+98h] [rbp+48h] BYREF
-  int v41; // [rsp+A0h] [rbp+50h] BYREF
-  int v42; // [rsp+A8h] [rbp+58h]
+  __int64 v24; // [rsp+20h] [rbp-10h]
+  _BYTE v25[8]; // [rsp+28h] [rbp-8h] BYREF
+  HDEV v26; // [rsp+70h] [rbp+40h] BYREF
+  int v27; // [rsp+78h] [rbp+48h] BYREF
+  int v28; // [rsp+80h] [rbp+50h] BYREF
+  int v29; // [rsp+88h] [rbp+58h]
 
-  v42 = a4;
-  v41 = a3;
-  v40 = a2;
-  v34 = (HDEV)a1;
-  v5 = 0;
+  v28 = a3;
+  v27 = a2;
+  v26 = (HDEV)a1;
+  v6 = 0;
   ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-  v37 = ThreadWin32Thread;
-  v8 = ThreadWin32Thread;
-  v39 = 0;
+  LOBYTE(v8) = 0;
+  v9 = ThreadWin32Thread;
   if ( ThreadWin32Thread )
   {
-    v9 = *(_BYTE *)(ThreadWin32Thread + 328);
-    *(_DWORD *)(v8 + 328) &= ~1u;
-    v39 = v9;
+    v8 = -(*(_DWORD *)(ThreadWin32Thread + 328) & 1);
+    *(_DWORD *)(ThreadWin32Thread + 328) &= ~1u;
   }
-  v10 = Gre::Base::Globals(v7);
-  SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)v38, *((HSEMAPHORE *)v10 + 10));
-  if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v34) )
+  SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)v25, ghsemDynamicModeChange);
+  if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v26) )
   {
-    GreAcquireSemaphore(*((_QWORD *)v10 + 15));
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemGreLock", *((_QWORD *)v10 + 15), 2LL);
+    GreAcquireSemaphore(ghsemGreLock);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemGreLock", ghsemGreLock, 2LL);
   }
-  GreAcquireSemaphore(*((_QWORD *)v34 + 7));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemPointer()", *((_QWORD *)v34 + 7), 4LL);
-  DrvUniformSpaceToPixelSpacePoint(&v40, &v41);
-  v11 = v41;
-  v12 = v40;
-  v14 = *(_QWORD *)(SGDGetSessionState(v13) + 32);
-  *(_DWORD *)(v14 + 8660) = v11;
-  v15 = v42;
-  *(_DWORD *)(v14 + 8664) = v42;
-  *(_QWORD *)(v14 + 8648) = a1;
-  *(_DWORD *)(v14 + 8656) = v12;
-  v16 = bDontShowPointer(v14);
-  v18 = v16;
-  v35 = 0LL;
-  if ( v16 )
+  GreAcquireSemaphore(*((_QWORD *)v26 + 8));
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemPointer()", *((_QWORD *)v26 + 8), 4LL);
+  DrvUniformSpaceToPixelSpacePoint(&v27, &v28);
+  v10 = v27;
+  v11 = v28;
+  dword_1C033C550 = v27;
+  dword_1C033C554 = v28;
+  gCachedMovePointerState = a1;
+  dword_1C033C558 = a4;
+  if ( gulCachedPointerRefs )
   {
-    v22 = *(_QWORD *)(SGDGetSessionState(v17) + 32);
-    v23 = LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) == 0;
-    v35 = 0LL;
-    *(_DWORD *)(v22 + 8680) = 1;
-    if ( !v23 )
+    v14 = 0LL;
+    v24 = 1LL;
+    v13 = 1;
+    v12 = 1LL;
+    bCachedMovePointerRefs = 1;
+    if ( HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock) )
     {
-      v5 = 1;
-      v35 = 1LL;
+      v6 = 1;
+      v14 = 1LL;
     }
   }
-  v19 = v34;
-  if ( ((_DWORD)v34[10] & 0x20000) != 0 )
+  else
   {
-    v24 = (__int64 **)*((_QWORD *)v34 + 221);
-    v25 = v35;
-    v26 = v42;
-    v36 = v18;
-    v27 = *v24;
-    v28 = *((_DWORD *)v24 + 4);
-    v29 = v18;
+    v12 = 0LL;
+    v13 = 0;
+    v24 = 0LL;
+    v14 = 0LL;
+  }
+  v15 = v26;
+  if ( ((_DWORD)v26[10] & 0x20000) != 0 )
+  {
+    v17 = (__int64 **)*((_QWORD *)v26 + 225);
+    v18 = *v17;
+    v29 = *((_DWORD *)v17 + 4);
     while ( 1 )
     {
-      v30 = v27[6];
-      if ( v40 < *((_DWORD *)v27 + 7)
-        || v40 >= *((_DWORD *)v27 + 9)
-        || v41 < *((_DWORD *)v27 + 8)
-        || v41 >= *((_DWORD *)v27 + 10) )
+      v19 = v18[6];
+      if ( v10 < *((_DWORD *)v18 + 7)
+        || v10 >= *((_DWORD *)v18 + 9)
+        || v11 < *((_DWORD *)v18 + 8)
+        || v11 >= *((_DWORD *)v18 + 10) )
       {
-        if ( v29 && (*(_DWORD *)(v30 + 2096) & 0x2000) == 0 )
-          goto LABEL_37;
-        GreAcquireSemaphore(*(_QWORD *)(v30 + 56));
-        EtwTraceGreLockAcquireSemaphoreExclusive(L"poThis.hsemPointer()", *(_QWORD *)(v30 + 56), 4LL);
-        v31 = v26;
-        v32 = 0xFFFFFFFFLL;
-        v33 = 0xFFFFFFFFLL;
+        if ( v12 && (*(_DWORD *)(v19 + 2128) & 0x2000) == 0 )
+          goto LABEL_38;
+        GreAcquireSemaphore(*(_QWORD *)(v19 + 64));
+        EtwTraceGreLockAcquireSemaphoreExclusive(L"poThis.hsemPointer()", *(_QWORD *)(v19 + 64), 4LL);
+        v20 = a4;
+        v21 = 0xFFFFFFFFLL;
+        v22 = 0xFFFFFFFFLL;
       }
       else
       {
-        if ( v29 && (*(_DWORD *)(v30 + 2096) & 0x2000) == 0 && !v25 )
-          goto LABEL_37;
-        GreAcquireSemaphore(*(_QWORD *)(v30 + 56));
-        EtwTraceGreLockAcquireSemaphoreExclusive(L"poThis.hsemPointer()", *(_QWORD *)(v30 + 56), 4LL);
-        v31 = v26 | 4;
-        if ( !v25 )
-          v31 = v26;
-        v32 = (unsigned int)(v41 - *((_DWORD *)v27 + 8));
-        v33 = (unsigned int)(v40 - *((_DWORD *)v27 + 7));
+        if ( v12 && (*(_DWORD *)(v19 + 2128) & 0x2000) == 0 && !v14 )
+          goto LABEL_38;
+        GreAcquireSemaphore(*(_QWORD *)(v19 + 64));
+        EtwTraceGreLockAcquireSemaphoreExclusive(L"poThis.hsemPointer()", *(_QWORD *)(v19 + 64), 4LL);
+        v20 = a4 | 4;
+        if ( !v14 )
+          v20 = a4;
+        v21 = (unsigned int)(v28 - *((_DWORD *)v18 + 8));
+        v22 = (unsigned int)(v27 - *((_DWORD *)v18 + 7));
       }
-      vMovePointer((_DWORD *)v27[6], v33, v32, v31);
-      EtwTraceGreLockReleaseSemaphore(L"poThis.hsemPointer()");
-      GreReleaseSemaphoreInternal(*(_QWORD *)(v30 + 56));
-      v29 = v36;
-LABEL_37:
-      v27 = (__int64 *)*v27;
-      if ( !--v28 )
-      {
-        v8 = v37;
-        goto LABEL_11;
-      }
+      vMovePointer((_DWORD *)v18[6], v22, v21, v20);
+      EtwTraceGreLockReleaseSemaphore(L"poThis.hsemPointer()", *(_QWORD *)(v19 + 64));
+      GreReleaseSemaphoreInternal(*(_QWORD *)(v19 + 64));
+      v12 = v24;
+      v10 = v27;
+      v11 = v28;
+LABEL_38:
+      v23 = v29-- == 1;
+      v18 = (__int64 *)*v18;
+      if ( v23 )
+        goto LABEL_12;
     }
   }
-  if ( !v18 || ((_DWORD)v34[524] & 0x2000) != 0 || v5 )
+  if ( !v13 || ((_DWORD)v26[532] & 0x2000) != 0 || v6 )
   {
-    v20 = v15 | 4;
-    if ( !v5 )
-      v20 = v15;
-    vMovePointer(a1, (unsigned int)v40, (unsigned int)v41, v20);
-LABEL_11:
-    v19 = v34;
+    v16 = a4 | 4;
+    if ( !v6 )
+      v16 = a4;
+    vMovePointer(a1, (unsigned int)v27, (unsigned int)v28, v16);
+    v11 = v28;
+    v10 = v27;
+LABEL_12:
+    v15 = v26;
   }
-  v21 = v41;
-  *((_DWORD *)v19 + 16) = v40;
-  *((_DWORD *)v34 + 17) = v21;
-  EtwTraceGreLockReleaseSemaphore(L"po.hsemPointer()");
-  GreReleaseSemaphoreInternal(*((_QWORD *)v34 + 7));
-  if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v34) )
+  *((_DWORD *)v15 + 18) = v10;
+  *((_DWORD *)v26 + 19) = v11;
+  EtwTraceGreLockReleaseSemaphore(L"po.hsemPointer()", *((_QWORD *)v26 + 8));
+  GreReleaseSemaphoreInternal(*((_QWORD *)v26 + 8));
+  if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v26) )
   {
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemGreLock");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v10 + 15));
+    EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
+    GreReleaseSemaphoreInternal(ghsemGreLock);
   }
-  if ( v8 )
-    *(_DWORD *)(v8 + 328) ^= (*(_DWORD *)(v8 + 328) ^ v39) & 1;
-  SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)v38);
+  if ( v9 )
+    *(_DWORD *)(v9 + 328) ^= (*(_DWORD *)(v9 + 328) ^ (unsigned __int8)v8) & 1;
+  SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)v25);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceProcessorPerformanceRundownHv @ 0x140999C7C
+ * XREFs of PpmEventTraceProcessorPerformanceRundownHv @ 0x1408F3E34
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1408650B0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D5310 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceProcessorPerformanceRundownHv(__int64 *a1)
@@ -61,7 +61,7 @@ char __fastcall PpmEventTraceProcessorPerformanceRundownHv(__int64 *a1)
       v12 = 4LL;
       v14 = 4LL;
       UserData.Ptr = v4 + 20;
-      v17 = v5 + 440;
+      v17 = v5 + 316;
       v11 = v4 + 24;
       v13 = v4 + 28;
       v15 = v4 + 72;
@@ -75,19 +75,19 @@ char __fastcall PpmEventTraceProcessorPerformanceRundownHv(__int64 *a1)
       v22 = 4LL;
       v24 = 4LL;
       v26 = 4LL;
-      v6 = *(_BYTE *)(v5 + 508) == 0;
+      v6 = *(_BYTE *)(v5 + 359) == 0;
       v28 = 4LL;
       v30 = 4LL;
       v8 = !v6;
       v27 = &v8;
       v29 = v4 + 92;
       v31 = v4 + 96;
-      v33 = v5 + 480;
+      v33 = v5 + 352;
       v35 = v4 + 76;
       v32 = 4LL;
       v34 = 4LL;
       v36 = 4LL;
-      LODWORD(v4) = *(_DWORD *)(v5 + 440) * *(_DWORD *)(v4 + 116);
+      LODWORD(v4) = *(_DWORD *)(v5 + 316) * *(_DWORD *)(v4 + 116);
       v38 = 4LL;
       v37 = &v9;
       v9 = (unsigned int)v4 / 0x64;

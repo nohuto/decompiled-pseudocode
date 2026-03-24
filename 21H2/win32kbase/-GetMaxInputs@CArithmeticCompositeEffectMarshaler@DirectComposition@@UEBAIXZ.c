@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetMaxInputs@CArithmeticCompositeEffectMarshaler@DirectComposition@@UEBAIXZ @ 0x1C00B3CA0
+ * XREFs of ?GetMaxInputs@CArithmeticCompositeEffectMarshaler@DirectComposition@@UEBAIXZ @ 0x1C0095A00
  * Callers:
  *     <none>
  * Callees:

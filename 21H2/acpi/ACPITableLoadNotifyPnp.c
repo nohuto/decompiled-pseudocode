@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPITableLoadNotifyPnp @ 0x1C002E160
+ * XREFs of ACPITableLoadNotifyPnp @ 0x1C0031900
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildSpecialSynchronizationRequest @ 0x1C001CB58 (ACPIBuildSpecialSynchronizationRequest.c)
+ *     ACPIBuildSpecialSynchronizationRequest @ 0x1C001C75C (ACPIBuildSpecialSynchronizationRequest.c)
  */
 
 __int64 __fastcall ACPITableLoadNotifyPnp(__int64 a1)

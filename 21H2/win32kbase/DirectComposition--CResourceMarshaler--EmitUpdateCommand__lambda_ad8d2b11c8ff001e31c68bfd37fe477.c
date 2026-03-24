@@ -1,10 +1,10 @@
 /*
- * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ad8d2b11c8ff001e31c68bfd37fe4772___lambda_cef133924e7ba8c5c0c6519b3ed084f6___ @ 0x1C022AE38
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ad8d2b11c8ff001e31c68bfd37fe4772___lambda_cef133924e7ba8c5c0c6519b3ed084f6___ @ 0x1C01EAED4
  * Callers:
- *     ?EmitUpdateCommands@CKeyframeAnimationMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000F130 (-EmitUpdateCommands@CKeyframeAnimationMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CKeyframeAnimationMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0064090 (-EmitUpdateCommands@CKeyframeAnimationMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C000B6D8 (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005B9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ad8d2b11c8ff001e31c68bfd37fe4772___lambda_cef133924e7ba8c5c0c6519b3ed084f6___(
@@ -46,9 +46,9 @@ LABEL_5:
     *(_DWORD *)v22 = 12 * v13 + 20;
     v15 = v14 + 20;
     *(_OWORD *)(v14 + 4) = 0LL;
-    *((_DWORD *)v14 + 1) = 221;
-    *((_DWORD *)v14 + 2) = *(_DWORD *)(a1 + 32);
-    *((_DWORD *)v14 + 4) = *(_DWORD *)(*(_QWORD *)v8 + 260LL);
+    *((_DWORD *)v14 + 1) = 231;
+    *((_DWORD *)v14 + 2) = *(_DWORD *)(a1 + 24);
+    *((_DWORD *)v14 + 4) = *(_DWORD *)(*(_QWORD *)v8 + 216LL);
     v14[12] = *a3 != 0;
     if ( (_DWORD)v13 )
     {
@@ -56,10 +56,10 @@ LABEL_5:
       do
       {
         v17 = 2LL * (*a3)++;
-        v18 = *(_QWORD *)(*(_QWORD *)v6 + 160LL);
+        v18 = *(_QWORD *)(*(_QWORD *)v6 + 208LL);
         HIDWORD(v21) = *(_DWORD *)(v18 + 8 * v17 + 8);
         v19 = *(_DWORD *)(v18 + 8 * v17 + 12);
-        LODWORD(v21) = *(_DWORD *)(*(_QWORD *)(v18 + 8 * v17) + 32LL);
+        LODWORD(v21) = *(_DWORD *)(*(_QWORD *)(v18 + 8 * v17) + 24LL);
         *(_QWORD *)v15 = v21;
         *((_DWORD *)v15 + 2) = v19;
         v15 += 12;

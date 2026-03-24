@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessAppend@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_APPEND@@PEBXI@Z @ 0x18021FA18
+ * XREFs of ?ProcessAppend@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_APPEND@@PEBXI@Z @ 0x1800168A8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?RegisterAnimateResource@CBaseAnimation@@QEAAJXZ @ 0x1800F3434 (-RegisterAnimateResource@CBaseAnimation@@QEAAJXZ.c)
- *     ??$ReleaseInterface@VCAnimationPrimitiveBuffer@@@@YAXAEAPEAVCAnimationPrimitiveBuffer@@@Z @ 0x1800F357C (--$ReleaseInterface@VCAnimationPrimitiveBuffer@@@@YAXAEAPEAVCAnimationPrimitiveBuffer@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Create@CPayloadedAnimationPrimitiveBuffer@@SAJPEAPEAV1@@Z @ 0x1802643F8 (-Create@CPayloadedAnimationPrimitiveBuffer@@SAJPEAPEAV1@@Z.c)
+ *     ?Create@CPayloadedAnimationPrimitiveBuffer@@SAJPEAPEAV1@@Z @ 0x1800169A0 (-Create@CPayloadedAnimationPrimitiveBuffer@@SAJPEAPEAV1@@Z.c)
+ *     ?RegisterAnimateResource@CBaseAnimation@@QEAAJXZ @ 0x180029D80 (-RegisterAnimateResource@CBaseAnimation@@QEAAJXZ.c)
+ *     ??$ReleaseInterface@VCAnimationPrimitiveBuffer@@@@YAXAEAPEAVCAnimationPrimitiveBuffer@@@Z @ 0x180029EB0 (--$ReleaseInterface@VCAnimationPrimitiveBuffer@@@@YAXAEAPEAVCAnimationPrimitiveBuffer@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CAnimation::ProcessAppend(
@@ -17,67 +17,81 @@ __int64 __fastcall CAnimation::ProcessAppend(
         const void *a4,
         unsigned int a5)
 {
-  int v5; // eax
-  unsigned int v9; // edi
+  unsigned int v5; // r10d
+  CAnimation *v8; // rdi
+  unsigned int v9; // ebx
   struct CPayloadedAnimationPrimitiveBuffer *v10; // rcx
   int v11; // eax
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 v14; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  int v15; // r9d
   unsigned int v16; // [rsp+20h] [rbp-18h]
   struct CPayloadedAnimationPrimitiveBuffer *v17; // [rsp+48h] [rbp+10h] BYREF
 
   v17 = a2;
   v5 = *((_DWORD *)a3 + 2);
-  if ( v5 != a5 )
+  v8 = this;
+  if ( !is_mul_ok(v5, 0x20uLL) )
+  {
+    v9 = -2147024362;
+    v16 = 289;
+    goto LABEL_22;
+  }
+  LODWORD(this) = a5;
+  v9 = 0;
+  if ( 32LL * *((unsigned int *)a3 + 2) != a5 )
   {
     v9 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0xFCu, 0LL);
-    goto LABEL_16;
+    v16 = 293;
+LABEL_22:
+    v15 = v9;
+    goto LABEL_23;
   }
-  v9 = 0;
   if ( a4 && v5 )
   {
-    v10 = (struct CPayloadedAnimationPrimitiveBuffer *)*((_QWORD *)this + 16);
+    v10 = (struct CPayloadedAnimationPrimitiveBuffer *)*((_QWORD *)v8 + 15);
     if ( !v10 )
     {
       v11 = CPayloadedAnimationPrimitiveBuffer::Create(&v17);
       v9 = v11;
       if ( v11 < 0 )
       {
-        v16 = 261;
-LABEL_15:
-        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, v16, 0LL);
-        goto LABEL_16;
+        v16 = 302;
+LABEL_19:
+        v15 = v11;
+LABEL_23:
+        MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, v15, v16, 0LL);
+        goto LABEL_12;
       }
       v10 = v17;
-      *((_QWORD *)this + 16) = v17;
+      *((_QWORD *)v8 + 15) = v17;
+      v5 = *((_DWORD *)a3 + 2);
     }
-    v11 = (*(__int64 (__fastcall **)(struct CPayloadedAnimationPrimitiveBuffer *, unsigned __int64, const void *))(*(_QWORD *)v10 + 48LL))(
+    v11 = (*(__int64 (__fastcall **)(struct CPayloadedAnimationPrimitiveBuffer *, _QWORD, const void *))(*(_QWORD *)v10 + 40LL))(
             v10,
-            (unsigned __int64)*((unsigned int *)a3 + 2) >> 5,
+            v5,
             a4);
     v9 = v11;
     if ( v11 < 0 )
     {
-      v16 = 265;
+      v16 = 306;
     }
     else
     {
-      v13 = *((_QWORD *)this + 18);
-      if ( v13 && !*(_QWORD *)(v13 + 96) )
-        goto LABEL_16;
-      v11 = CBaseAnimation::RegisterAnimateResource(this);
+      v12 = *((_QWORD *)v8 + 18);
+      if ( v12 && !*(_QWORD *)(v12 + 88) )
+        goto LABEL_12;
+      v11 = CBaseAnimation::RegisterAnimateResource(v8);
       v9 = v11;
       if ( v11 >= 0 )
-        goto LABEL_16;
-      v16 = 271;
+        goto LABEL_12;
+      v16 = 312;
     }
-    goto LABEL_15;
+    goto LABEL_19;
   }
-LABEL_16:
-  v14 = *((_QWORD *)this + 16);
-  if ( v14 && !(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v14 + 40LL))(v14) )
-    ReleaseInterface<CAnimationPrimitiveBuffer>((__int64 *)this + 16);
+LABEL_12:
+  v13 = *((_QWORD *)v8 + 15);
+  if ( v13 && !(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v13 + 32LL))(v13) )
+    ReleaseInterface<CAnimationPrimitiveBuffer>((char *)v8 + 120);
   return v9;
 }

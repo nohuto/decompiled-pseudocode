@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ProcessSetPropertyIdSet@CPropertyChangeResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROPERTYCHANGERESOURCE_SETPROPERTYIDSET@@@Z @ 0x1800F9DC8
+ * XREFs of ?ProcessSetPropertyIdSet@CPropertyChangeResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROPERTYCHANGERESOURCE_SETPROPERTYIDSET@@@Z @ 0x1800DB3E4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,6 +14,6 @@ __int64 __fastcall CPropertyChangeResource::ProcessSetPropertyIdSet(
   __int64 v3; // rax
 
   v3 = *(_QWORD *)this;
-  *((_DWORD *)this + 18) = *((_DWORD *)a3 + 2);
-  return (*(__int64 (**)(void))(v3 + 192))();
+  *((_DWORD *)this + 16) = *((_DWORD *)a3 + 2);
+  return (*(__int64 (**)(void))(v3 + 208))();
 }

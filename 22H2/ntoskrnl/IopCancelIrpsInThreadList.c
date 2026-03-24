@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCancelIrpsInThreadList @ 0x1407C2078
+ * XREFs of IopCancelIrpsInThreadList @ 0x140682588
  * Callers:
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x1407C1FA8 (IopCancelIrpsInThreadListForCurrentProcess.c)
- *     IopCancelSynchronousIrpsForThread @ 0x140944584 (IopCancelSynchronousIrpsForThread.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x140657884 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     IopCancelSynchronousIrpsForThread @ 0x140891230 (IopCancelSynchronousIrpsForThread.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KeInitializeApc @ 0x1402BE6A0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     IopCancelIrpsInCurrentThreadList @ 0x140351704 (IopCancelIrpsInCurrentThreadList.c)
+ *     KeInsertQueueApc @ 0x14025F120 (KeInsertQueueApc.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IopCancelIrpsInCurrentThreadList @ 0x140313FD4 (IopCancelIrpsInCurrentThreadList.c)
+ *     KeInitializeApc @ 0x140341E70 (KeInitializeApc.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
  */
 
 __int64 __fastcall IopCancelIrpsInThreadList(__int64 a1, __int64 a2)
@@ -26,7 +26,7 @@ __int64 __fastcall IopCancelIrpsInThreadList(__int64 a1, __int64 a2)
              *(_QWORD *)(a2 + 96),
              *(_BYTE *)(a2 + 128));
   KeInitializeApc(a2, a1, 0, (__int64)IopCancelIrpsInCurrentThreadListSpecialApc, 0LL, 0LL, 0, 0LL);
-  if ( (unsigned __int8)KeInsertQueueApc(a2, (__int64)&v6, 0LL, 0) )
+  if ( KeInsertQueueApc(a2, (__int64)&v6, 0LL, 0) )
   {
     KeWaitForSingleObject((PVOID)(a2 + 104), Executive, 0, 0, 0LL);
     KeResetEvent((PRKEVENT)(a2 + 104));
@@ -42,7 +42,7 @@ __int64 __fastcall IopCancelIrpsInThreadList(__int64 a1, __int64 a2)
         (__int64)IopCancelIrpsInCurrentThreadListApcRoutine,
         0,
         a2);
-      if ( (unsigned __int8)KeInsertQueueApc(a2, 0LL, 0LL, 0) )
+      if ( KeInsertQueueApc(a2, 0LL, 0LL, 0) )
       {
         KeWaitForSingleObject((PVOID)(a2 + 104), Executive, 0, 0, 0LL);
         KeResetEvent((PRKEVENT)(a2 + 104));

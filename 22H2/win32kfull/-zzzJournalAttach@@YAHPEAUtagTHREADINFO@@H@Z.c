@@ -1,31 +1,32 @@
 /*
- * XREFs of ?zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z @ 0x1C01BB5CC
+ * XREFs of ?zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z @ 0x1C01E638C
  * Callers:
- *     zzzUnhookWindowsHookEx @ 0x1C006F404 (zzzUnhookWindowsHookEx.c)
- *     zzzSetWindowsHookEx @ 0x1C006F810 (zzzSetWindowsHookEx.c)
- *     NtUserRegisterSystemThread @ 0x1C01D9960 (NtUserRegisterSystemThread.c)
+ *     zzzUnhookWindowsHookEx @ 0x1C001FA54 (zzzUnhookWindowsHookEx.c)
+ *     zzzSetWindowsHookEx @ 0x1C001FC48 (zzzSetWindowsHookEx.c)
+ *     zzzRegisterSystemThread @ 0x1C01619B0 (zzzRegisterSystemThread.c)
  * Callees:
- *     zzzReattachThreads @ 0x1C005C0B8 (zzzReattachThreads.c)
+ *     zzzReattachThreads @ 0x1C001194C (zzzReattachThreads.c)
  */
 
 __int64 __fastcall zzzJournalAttach(struct tagTHREADINFO *a1, int a2)
 {
   __int64 result; // rax
-  struct tagQ *v5; // r14
-  _QWORD **v6; // rsi
-  _QWORD *i; // rbx
+  _QWORD **v5; // rcx
+  _QWORD *i; // rdx
 
   if ( a2 )
   {
     result = AllocQueue(a1, 0LL);
-    v5 = (struct tagQ *)result;
     if ( !result )
       return result;
-    v6 = (_QWORD **)(*((_QWORD *)a1 + 57) + 176LL);
-    for ( i = *v6; i != v6; i = (_QWORD *)*i )
+    v5 = (_QWORD **)(*((_QWORD *)a1 + 57) + 168LL);
+    for ( i = *v5; i != v5; i = (_QWORD *)*i )
     {
       if ( (*(_DWORD *)(i - 32) & 0x81) == 0 )
-        tagTHREADINFO::AssignAttachQueue((tagTHREADINFO *)(i - 93), v5);
+      {
+        *(i - 11) = result;
+        ++*(_DWORD *)(result + 392);
+      }
     }
   }
   zzzReattachThreads(a2 != 0, 0LL, 0LL);

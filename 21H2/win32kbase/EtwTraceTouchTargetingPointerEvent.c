@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTouchTargetingPointerEvent @ 0x1C014EBF0
+ * XREFs of EtwTraceTouchTargetingPointerEvent @ 0x1C0123FB0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0dddddddddddd_EtwWriteTransfer @ 0x1C014FACC (McTemplateK0dddddddddddd_EtwWriteTransfer.c)
+ *     McTemplateK0dddddddddddd_EtwWriteTransfer @ 0x1C01251F0 (McTemplateK0dddddddddddd_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTouchTargetingPointerEvent(

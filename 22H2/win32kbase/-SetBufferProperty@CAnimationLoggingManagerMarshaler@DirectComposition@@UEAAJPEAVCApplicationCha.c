@@ -1,17 +1,15 @@
 /*
- * XREFs of ?SetBufferProperty@CAnimationLoggingManagerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0023860
+ * XREFs of ?SetBufferProperty@CAnimationLoggingManagerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01EA6C0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseCompositorComment@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAAXXZ @ 0x1C0021814 (-ReleaseCompositorComment@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAAXXZ.c)
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0023A80 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     ?StringCchLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C0024F6C (-StringCchLengthW@@YAJPEBG_KPEA_K@Z.c)
- *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C0026E54 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002C184 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPEAVCWeakReferenceBase@2@@Z @ 0x1C002D288 (-GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPE.c)
- *     ?LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z @ 0x1C002EB40 (-LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z.c)
- *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C003175C (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
+ *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C002AAB4 (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     ?StringCchLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C00670F8 (-StringCchLengthW@@YAJPEBG_KPEA_K@Z.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0086C74 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?ReleaseCompositorComment@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAAXXZ @ 0x1C00A5510 (-ReleaseCompositorComment@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::SetBufferProperty(
@@ -22,243 +20,224 @@ __int64 __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::SetBuff
         unsigned __int64 a5,
         bool *a6)
 {
-  int WeakReferenceBase; // ebx
+  int v6; // ebx
   int v10; // r8d
   int v11; // r8d
-  const unsigned __int16 *v12; // r13
-  int v13; // eax
-  __int64 v14; // r11
-  unsigned __int64 v15; // r15
-  struct DirectComposition::CResourceMarshaler *v16; // r12
-  NSInstrumentation::CLeakTrackingAllocator *v17; // rcx
-  void *v18; // rax
-  int v20; // r8d
-  int v21; // eax
-  unsigned __int64 v22; // r15
-  NSInstrumentation::CLeakTrackingAllocator *v23; // rcx
-  unsigned __int16 *Quota; // rax
-  unsigned int v26; // edx
-  struct DirectComposition::CResourceMarshaler *v27; // rax
-  struct DirectComposition::CWeakReferenceBase **v28; // rdx
-  struct DirectComposition::CWeakReferenceBase *v29; // r14
-  size_t v30; // r8
-  __int64 v31; // rcx
-  void *v32; // rcx
-  struct DirectComposition::CWeakReferenceBase *v33; // rdx
-  struct DirectComposition::CResourceMarshaler *v34; // rax
-  __int64 v35; // xmm0_8
-  __int32 v36; // r12d
-  struct DirectComposition::CResourceMarshaler *v37; // rax
-  struct DirectComposition::CResourceMarshaler *v38; // r13
-  struct DirectComposition::CWeakReferenceBase *v39; // r15
-  size_t v40; // r8
-  __int64 v41; // rcx
-  void *v42; // rcx
-  struct DirectComposition::CWeakReferenceBase *v43; // [rsp+20h] [rbp-40h] BYREF
-  __int32 v44; // [rsp+28h] [rbp-38h]
-  __int32 v45; // [rsp+2Ch] [rbp-34h]
-  __m128i Src; // [rsp+30h] [rbp-30h] BYREF
-  _QWORD v47[2]; // [rsp+40h] [rbp-20h] BYREF
-  __int32 v48; // [rsp+50h] [rbp-10h]
-  int v49; // [rsp+54h] [rbp-Ch]
+  int v12; // r8d
+  int v13; // ecx
+  unsigned __int64 v14; // rdx
+  __int64 v15; // rdx
+  __m128i *v16; // rdx
+  size_t v17; // r8
+  void *v18; // rcx
+  int v19; // eax
+  __int64 v20; // r15
+  char *v21; // rax
+  char *v22; // r12
+  int v23; // eax
+  _QWORD *v24; // r11
+  unsigned __int64 v25; // r14
+  unsigned __int64 v26; // rdx
+  __int64 v27; // rsi
+  __int64 v28; // rax
+  unsigned __int64 v29; // rdx
+  __int64 v30; // rdx
+  __int64 v31; // xmm0_8
+  int v32; // eax
+  unsigned __int64 v33; // rdx
+  _DWORD *v34; // rcx
+  unsigned __int64 v36; // [rsp+20h] [rbp-50h] BYREF
+  unsigned __int64 v37; // [rsp+28h] [rbp-48h] BYREF
+  __int64 v38; // [rsp+30h] [rbp-40h] BYREF
+  _DWORD v39[4]; // [rsp+38h] [rbp-38h] BYREF
+  _DWORD Src[4]; // [rsp+48h] [rbp-28h] BYREF
+  __m128i v41; // [rsp+58h] [rbp-18h] BYREF
 
-  WeakReferenceBase = 0;
+  v6 = 0;
   if ( !a3 )
   {
-    if ( a5 != 8 )
-      return (unsigned int)-1073741811;
-    v37 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(a2, a4->m128i_i32[0]);
-    v38 = v37;
-    if ( v37 )
+    if ( a5 == 8 )
     {
-      v43 = 0LL;
-      WeakReferenceBase = DirectComposition::CApplicationChannel::GetWeakReferenceBase(a2, v37, &v43);
-      if ( WeakReferenceBase < 0
-        || (WeakReferenceBase = DirectComposition::CDCompDynamicArrayBase::Grow(
-                                  (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 56),
-                                  1uLL,
-                                  0x6D6C4344u),
-            WeakReferenceBase < 0) )
+      v33 = (unsigned int)(a4->m128i_i32[0] - 1);
+      if ( a4->m128i_i32[0] && v33 < *((_QWORD *)a2 + 10) )
       {
-        v39 = v43;
+        _mm_lfence();
+        v34 = *(_DWORD **)(v33 * *((_QWORD *)a2 + 11) + *((_QWORD *)a2 + 7));
       }
       else
       {
-        v39 = 0LL;
-        v40 = *((_QWORD *)this + 11);
-        v41 = *((_QWORD *)this + 10) - 1LL;
-        Src.m128i_i64[0] = (__int64)v43;
-        Src.m128i_i32[3] = *((_DWORD *)v38 + 9);
-        v42 = (void *)(*((_QWORD *)this + 7) + v40 * v41);
-        Src.m128i_i32[2] = a4->m128i_i32[1];
-        memmove(v42, &Src, v40);
-        *a6 = 1;
+        v34 = 0LL;
       }
-      if ( v39 )
+      if ( v34 )
       {
-        v33 = v39;
-        goto LABEL_52;
+        Src[0] = v34[6];
+        Src[1] = a4->m128i_i32[1];
+        Src[2] = (*(__int64 (__fastcall **)(_DWORD *))(*(_QWORD *)v34 + 8LL))(v34);
+        v6 = DirectComposition::CDCompDynamicArrayBase::Grow(
+               (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 56),
+               1LL,
+               0x6D6C4344u);
+        if ( v6 >= 0 )
+        {
+          v16 = (__m128i *)Src;
+          v17 = *((_QWORD *)this + 11);
+          v18 = (void *)(*((_QWORD *)this + 7) + v17 * (*((_QWORD *)this + 10) - 1LL));
+          goto LABEL_54;
+        }
       }
+      return (unsigned int)v6;
     }
-    return (unsigned int)WeakReferenceBase;
+    return (unsigned int)-1073741811;
   }
   v10 = a3 - 1;
   if ( !v10 )
   {
-    if ( a5 != 12 )
-      return (unsigned int)-1073741811;
-    v34 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(a2, a4->m128i_i32[0]);
-    if ( !v34 )
-      return (unsigned int)WeakReferenceBase;
-    v35 = a4->m128i_i64[0];
-    v36 = a4->m128i_i32[2];
-    v43 = 0LL;
-    Src.m128i_i64[0] = v35;
-    WeakReferenceBase = DirectComposition::CApplicationChannel::GetWeakReferenceBase(a2, v34, &v43);
-    if ( WeakReferenceBase >= 0 )
+    if ( a5 == 12 )
     {
-      WeakReferenceBase = DirectComposition::CDCompDynamicArrayBase::Grow(
-                            (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 104),
-                            1uLL,
-                            0x6D6C4344u);
-      if ( WeakReferenceBase >= 0 )
+      v29 = (unsigned int)(a4->m128i_i32[0] - 1);
+      if ( a4->m128i_i32[0] && v29 < *((_QWORD *)a2 + 10) )
       {
-        v28 = &v43;
-        v29 = 0LL;
-        v30 = *((_QWORD *)this + 17);
-        v32 = (void *)(*((_QWORD *)this + 13) + v30 * (*((_QWORD *)this + 16) - 1LL));
-        v45 = v36;
-        v44 = Src.m128i_i32[1];
-        goto LABEL_29;
-      }
-    }
-LABEL_30:
-    v29 = v43;
-    goto LABEL_31;
-  }
-  v11 = v10 - 1;
-  if ( v11 )
-  {
-    v20 = v11 - 1;
-    if ( !v20 )
-    {
-      if ( a5 )
-      {
-        if ( !a4 )
-          return (unsigned int)-1073741811;
-        v43 = 0LL;
-        v21 = StringCchLengthW((const unsigned __int16 *)a4, a5 >> 1, (unsigned __int64 *)&v43);
-        v22 = (unsigned __int64)v43 + 1;
-        if ( v21 < 0 || a5 != 2 * v22 )
-          return (unsigned int)-1073741811;
-        DirectComposition::CAnimationLoggingManagerMarshaler::ReleaseCompositorComment(this);
-        Quota = (unsigned __int16 *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(
-                                      v23,
-                                      0x104uLL,
-                                      a5,
-                                      0x6D6C4344u);
-        *((_QWORD *)this + 31) = Quota;
-        if ( !Quota )
-          return (unsigned int)-1073741801;
-        if ( StringCchCopyW(Quota, v22, (const unsigned __int16 *)a4) < 0 )
-          return (unsigned int)-1073741811;
+        _mm_lfence();
+        v30 = *(_QWORD *)(v29 * *((_QWORD *)a2 + 11) + *((_QWORD *)a2 + 7));
       }
       else
       {
-        if ( a4 )
-          return (unsigned int)-1073741811;
-        DirectComposition::CAnimationLoggingManagerMarshaler::ReleaseCompositorComment(this);
+        v30 = 0LL;
       }
-      *a6 = 1;
-      *((_BYTE *)this + 256) |= 1u;
-      return (unsigned int)WeakReferenceBase;
-    }
-    if ( v20 != 2 )
-      return (unsigned int)-1073741811;
-    if ( a5 != 16 )
-      return (unsigned int)-1073741811;
-    v26 = _mm_cvtsi128_si32(*a4);
-    Src = *a4;
-    v27 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(a2, v26);
-    if ( !v27 )
-      return (unsigned int)-1073741811;
-    v43 = 0LL;
-    WeakReferenceBase = DirectComposition::CApplicationChannel::GetWeakReferenceBase(a2, v27, &v43);
-    if ( WeakReferenceBase >= 0 )
-    {
-      WeakReferenceBase = DirectComposition::CDCompDynamicArrayBase::Grow(
-                            (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 152),
-                            1uLL,
-                            0x6D6C4344u);
-      if ( WeakReferenceBase >= 0 )
+      if ( v30 )
       {
-        v28 = (struct DirectComposition::CWeakReferenceBase **)v47;
-        v29 = 0LL;
-        v30 = *((_QWORD *)this + 23);
-        v31 = *((_QWORD *)this + 22) - 1LL;
-        v47[0] = v43;
-        v47[1] = *(__int64 *)((char *)Src.m128i_i64 + 4);
-        v32 = (void *)(*((_QWORD *)this + 19) + v30 * v31);
-        v49 = 0;
-        v48 = Src.m128i_i32[3];
-LABEL_29:
-        memmove(v32, v28, v30);
-        *a6 = 1;
-LABEL_31:
-        if ( !v29 )
-          return (unsigned int)WeakReferenceBase;
-        v33 = v29;
-        goto LABEL_52;
-      }
-    }
-    goto LABEL_30;
-  }
-  if ( a5 <= 4 )
-    return (unsigned int)-1073741811;
-  v12 = &a4->m128i_u16[2];
-  v43 = 0LL;
-  v13 = StringCchLengthW(&a4->m128i_u16[2], (a5 - 4) >> 1, (unsigned __int64 *)&v43);
-  v15 = (unsigned __int64)v43 + 1;
-  if ( v13 < 0 || v14 != 2 * v15 + 4 )
-    return (unsigned int)-1073741811;
-  v16 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(a2, a4->m128i_i32[0]);
-  if ( v16 )
-  {
-    WeakReferenceBase = DirectComposition::CDCompDynamicArrayBase::Grow(
-                          (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 200),
-                          1uLL,
-                          0x6D6C4344u);
-    if ( WeakReferenceBase >= 0 )
-    {
-      v43 = 0LL;
-      WeakReferenceBase = DirectComposition::CApplicationChannel::GetWeakReferenceBase(a2, v16, &v43);
-      if ( WeakReferenceBase >= 0 )
-      {
-        v18 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(v17, 0x104uLL, 2 * v15 + 16, 0x6D6C4344u);
-        Src.m128i_i64[0] = (__int64)v18;
-        if ( v18 )
+        v31 = a4->m128i_i64[0];
+        v39[2] = a4->m128i_i32[2];
+        v32 = *(_DWORD *)(v30 + 24);
+        v39[1] = HIDWORD(v31);
+        v39[0] = v32;
+        v6 = DirectComposition::CDCompDynamicArrayBase::Grow(
+               (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 104),
+               1LL,
+               0x6D6C4344u);
+        if ( v6 >= 0 )
         {
-          *(_QWORD *)v18 = v43;
-          *((_QWORD *)v18 + 1) = v15;
-          if ( StringCchCopyW((unsigned __int16 *)v18 + 8, v15, v12) >= 0 )
-          {
-            memmove(
-              (void *)(*((_QWORD *)this + 25) + *((_QWORD *)this + 29) * (*((_QWORD *)this + 28) - 1LL)),
-              &Src,
-              *((_QWORD *)this + 29));
-            *a6 = 1;
-            return (unsigned int)WeakReferenceBase;
-          }
-          return (unsigned int)-1073741811;
+          v16 = (__m128i *)v39;
+          v17 = *((_QWORD *)this + 17);
+          v18 = (void *)(*((_QWORD *)this + 13) + v17 * (*((_QWORD *)this + 16) - 1LL));
+          goto LABEL_54;
         }
-        WeakReferenceBase = -1073741801;
       }
-      v33 = v43;
-      if ( !v43 )
-        return (unsigned int)WeakReferenceBase;
-LABEL_52:
-      DirectComposition::CApplicationChannel::ReleaseWeakReference(a2, v33);
+      return (unsigned int)v6;
     }
+    return (unsigned int)-1073741811;
   }
-  return (unsigned int)WeakReferenceBase;
+  v11 = v10 - 1;
+  if ( !v11 )
+  {
+    if ( a5 <= 4 )
+      return (unsigned int)-1073741811;
+    v36 = 0LL;
+    v22 = &a4->m128i_i8[4];
+    v23 = StringCchLengthW(&a4->m128i_u16[2], (a5 - 4) >> 1, &v36);
+    v25 = ++v36;
+    if ( v23 < 0 || a5 != 2 * v25 + 4 )
+      return (unsigned int)-1073741811;
+    v26 = (unsigned int)(a4->m128i_i32[0] - 1);
+    if ( a4->m128i_i32[0] && v26 < v24[10] )
+    {
+      _mm_lfence();
+      v25 = v36;
+      v27 = *(_QWORD *)(v26 * v24[11] + v24[7]);
+    }
+    else
+    {
+      v27 = 0LL;
+    }
+    if ( !v27 )
+      return (unsigned int)v6;
+    v6 = DirectComposition::CDCompDynamicArrayBase::Grow(
+           (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 200),
+           1LL,
+           0x6D6C4344u);
+    if ( v6 < 0 )
+      return (unsigned int)v6;
+    v28 = Win32AllocPoolWithQuota(2 * v25 + 16, 0x6D6C4344u);
+    v38 = v28;
+    if ( v28 )
+    {
+      *(_DWORD *)v28 = *(_DWORD *)(v27 + 24);
+      *(_QWORD *)(v28 + 8) = v25;
+      if ( (int)StringCchCopyW((char *)(v28 + 16), v25, v22) >= 0 )
+      {
+        v16 = (__m128i *)&v38;
+        v17 = *((_QWORD *)this + 29);
+        v18 = (void *)(*((_QWORD *)this + 25) + v17 * (*((_QWORD *)this + 28) - 1LL));
+        goto LABEL_54;
+      }
+      return (unsigned int)-1073741811;
+    }
+    return (unsigned int)-1073741801;
+  }
+  v12 = v11 - 1;
+  if ( !v12 )
+  {
+    if ( !a5 )
+    {
+      if ( !a4 )
+      {
+        DirectComposition::CAnimationLoggingManagerMarshaler::ReleaseCompositorComment(this);
+        goto LABEL_20;
+      }
+      return (unsigned int)-1073741811;
+    }
+    if ( !a4 )
+      return (unsigned int)-1073741811;
+    v37 = 0LL;
+    v19 = StringCchLengthW((const unsigned __int16 *)a4, a5 >> 1, &v37);
+    v20 = v37 + 1;
+    if ( v19 < 0 || a5 != 2 * v20 )
+      return (unsigned int)-1073741811;
+    DirectComposition::CAnimationLoggingManagerMarshaler::ReleaseCompositorComment(this);
+    v21 = (char *)Win32AllocPoolWithQuota(a5, 0x6D6C4344u);
+    *((_QWORD *)this + 31) = v21;
+    if ( v21 )
+    {
+      if ( (int)StringCchCopyW(v21, v20, a4->m128i_i8) >= 0 )
+      {
+LABEL_20:
+        *a6 = 1;
+        *((_BYTE *)this + 256) |= 1u;
+        return (unsigned int)v6;
+      }
+      return (unsigned int)-1073741811;
+    }
+    return (unsigned int)-1073741801;
+  }
+  if ( v12 != 2 || a5 != 16 )
+    return (unsigned int)-1073741811;
+  v13 = _mm_cvtsi128_si32(*a4);
+  v41 = *a4;
+  v14 = (unsigned int)(v13 - 1);
+  if ( v13 && v14 < *((_QWORD *)a2 + 10) )
+  {
+    _mm_lfence();
+    v15 = *(_QWORD *)(v14 * *((_QWORD *)a2 + 11) + *((_QWORD *)a2 + 7));
+  }
+  else
+  {
+    v15 = 0LL;
+  }
+  if ( !v15 )
+    return (unsigned int)-1073741811;
+  v41.m128i_i32[0] = *(_DWORD *)(v15 + 24);
+  v6 = DirectComposition::CDCompDynamicArrayBase::Grow(
+         (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 152),
+         1LL,
+         0x6D6C4344u);
+  if ( v6 >= 0 )
+  {
+    v16 = &v41;
+    v17 = *((_QWORD *)this + 23);
+    v18 = (void *)(*((_QWORD *)this + 19) + v17 * (*((_QWORD *)this + 22) - 1LL));
+LABEL_54:
+    memmove(v18, v16, v17);
+    *a6 = 1;
+  }
+  return (unsigned int)v6;
 }

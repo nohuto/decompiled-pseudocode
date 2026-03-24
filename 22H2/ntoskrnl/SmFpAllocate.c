@@ -1,74 +1,71 @@
 /*
- * XREFs of SmFpAllocate @ 0x14046592E
+ * XREFs of SmFpAllocate @ 0x1403130C8
  * Callers:
- *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140344E20 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x140464946 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
- *     ?SmIoCtxPrepareToQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_SM_QUEUE_CONTEXT@1@@Z @ 0x1405BFEFC (-SmIoCtxPrepareToQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WOR.c)
- *     ?SmStMapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1405C0FCC (-SmStMapPhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     ?SmpPageEvict@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z @ 0x1405C2DC4 (-SmpPageEvict@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z.c)
- *     SmKmStoreHelperCommandProcess @ 0x1405CB898 (SmKmStoreHelperCommandProcess.c)
+ *     ?SmIoCtxPrepareToQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_SM_QUEUE_CONTEXT@1@@Z @ 0x140267454 (-SmIoCtxPrepareToQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WOR.c)
+ *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140312490 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140312750 (SmKmStoreHelperCommandProcess.c)
+ *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1403128F0 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
+ *     ?SmpPageEvict@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z @ 0x140312F80 (-SmpPageEvict@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z.c)
+ *     ?SmStMapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1405994A8 (-SmStMapPhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     SmAcquireReleaseCharges @ 0x14034350C (SmAcquireReleaseCharges.c)
- *     SmKmAllocateMdlForLock @ 0x1403A6694 (SmKmAllocateMdlForLock.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1403A6C20 (MmMapLockedPagesWithReservedMapping.c)
- *     SmpFpWaitForResource @ 0x1405CC51C (SmpFpWaitForResource.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     SmAcquireReleaseCharges @ 0x14026C810 (SmAcquireReleaseCharges.c)
+ *     SmKmAllocateMdlForLock @ 0x140313600 (SmKmAllocateMdlForLock.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403C8440 (MmMapLockedPagesWithReservedMapping.c)
+ *     SmpFpWaitForResource @ 0x14059ED2C (SmpFpWaitForResource.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SmFpAllocate(volatile LONG *SpinLock, int a2, __int64 a3, __int64 a4, int a5)
+unsigned __int64 __fastcall SmFpAllocate(PEX_SPIN_LOCK SpinLock, int a2, __int64 a3, __int64 a4, int a5)
 {
-  __int64 v8; // rbx
-  __int64 MdlForLock; // rax
-  void *v10; // rax
-  unsigned int v12; // [rsp+58h] [rbp+10h]
+  PVOID MdlForLock; // rax
+  unsigned __int64 v9; // rbx
+  void *v11; // rax
+  ULONG Tag; // [rsp+58h] [rbp+10h]
 
   if ( a2 >= 5 )
   {
-    if ( (*(_BYTE *)(a4 + 10) & 5) != 0 )
+    if ( (*(_BYTE *)(a4 + 10) & 5) == 0 )
     {
-      v8 = *(_QWORD *)(a4 + 24);
-      goto LABEL_14;
+      MdlForLock = MmMapLockedPagesSpecifyCache((PMDL)a4, 0, MmCached, 0LL, 0, 0x40000010u);
+      goto LABEL_6;
     }
-    MdlForLock = (__int64)MmMapLockedPagesSpecifyCache((PMDL)a4, 0, MmCached, 0LL, 0, 0x40000010u);
-LABEL_13:
-    v8 = MdlForLock;
-LABEL_14:
-    if ( v8 )
-      return v8;
+    v9 = *(_QWORD *)(a4 + 24);
+LABEL_7:
+    if ( v9 )
+      return v9;
     goto LABEL_15;
   }
-  switch ( a2 )
+  if ( a2 == 2 )
   {
-    case 2:
-      MdlForLock = SmKmAllocateMdlForLock(
-                     *((_QWORD *)SpinLock + 4),
-                     (unsigned __int64)*((unsigned __int16 *)SpinLock + 50) << 12);
-      goto LABEL_13;
-    case 3:
-      if ( (unsigned int)SmAcquireReleaseCharges(
-                           *((_QWORD *)SpinLock + 4),
-                           (unsigned __int64)*((unsigned __int16 *)SpinLock + 51) << 12,
-                           1,
-                           0) )
-        return -8LL;
-      break;
-    case 4:
-      break;
-    default:
-      v12 = 810708339;
-      HIBYTE(v12) = a2 + 48;
-      MdlForLock = ExAllocatePool2(64LL, *((unsigned __int16 *)SpinLock + a2 + 48), v12);
-      goto LABEL_13;
+    MdlForLock = (PVOID)SmKmAllocateMdlForLock((unsigned __int64)*((unsigned __int16 *)SpinLock + 46) << 12);
+    goto LABEL_6;
   }
-  v8 = 0LL;
+  if ( a2 == 3 )
+  {
+    v9 = -(__int64)((unsigned int)SmAcquireReleaseCharges(
+                                    (unsigned __int64)*((unsigned __int16 *)SpinLock + 47) << 12,
+                                    1,
+                                    0) != 0) & 0xFFFFFFFFFFFFFFF8uLL;
+    goto LABEL_7;
+  }
+  if ( a2 != 4 )
+  {
+    Tag = 810708339;
+    HIBYTE(Tag) = a2 + 48;
+    MdlForLock = ExAllocatePoolWithTag(NonPagedPoolNx, *((unsigned __int16 *)SpinLock + a2 + 44), Tag);
+LABEL_6:
+    v9 = (unsigned __int64)MdlForLock;
+    goto LABEL_7;
+  }
+  v9 = 0LL;
 LABEL_15:
   if ( a5 )
   {
-    v10 = (void *)SmpFpWaitForResource(SpinLock);
-    v8 = (__int64)v10;
+    v11 = (void *)SmpFpWaitForResource(SpinLock);
+    v9 = (unsigned __int64)v11;
     if ( a2 >= 5 )
-      MmMapLockedPagesWithReservedMapping(v10, 0x6D526D73u, (PMDL)a4, MmCached);
+      MmMapLockedPagesWithReservedMapping(v11, 0x6D526D73u, (PMDL)a4, MmCached);
   }
-  return v8;
+  return v9;
 }

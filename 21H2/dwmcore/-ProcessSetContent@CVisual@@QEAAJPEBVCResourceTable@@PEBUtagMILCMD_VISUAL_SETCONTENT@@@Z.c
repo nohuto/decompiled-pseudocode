@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessSetContent@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCONTENT@@@Z @ 0x1800E1760
+ * XREFs of ?ProcessSetContent@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCONTENT@@@Z @ 0x1800CDD30
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CVisual::ProcessSetContent(
@@ -27,18 +27,18 @@ __int64 __fastcall CVisual::ProcessSetContent(
   if ( v3 && (Resource = CResourceTable::GetResource((__int64)v4, v3, 0x2Du)) == 0 )
   {
     v10 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, -2003303421, 0xB44u);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2003303421, 0xBE1u, 0LL);
   }
   else
   {
-    v8 = (*(__int64 (__fastcall **)(CVisual *, __int64, const struct tagMILCMD_VISUAL_SETCONTENT *, const struct CResourceTable *))(*(_QWORD *)this + 312LL))(
+    v8 = (*(__int64 (__fastcall **)(CVisual *, __int64, const struct tagMILCMD_VISUAL_SETCONTENT *, const struct CResourceTable *))(*(_QWORD *)this + 328LL))(
            this,
            Resource,
            a3,
            v4);
     v10 = v8;
     if ( v8 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0xB48u);
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xBE5u, 0LL);
   }
   return v10;
 }

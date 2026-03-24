@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetCfgBitMapInformation @ 0x1406783B4
+ * XREFs of MmGetCfgBitMapInformation @ 0x140678394
  * Callers:
- *     PspPrepareSystemDllInitBlock @ 0x1406781C4 (PspPrepareSystemDllInitBlock.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1406781A4 (PspPrepareSystemDllInitBlock.c)
  * Callees:
  *     <none>
  */

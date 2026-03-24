@@ -1,46 +1,46 @@
 /*
- * XREFs of ?CheckUniqueGpuVaMapping@@YAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAUVIDMM_MAPPED_VA_RANGE@@@Z @ 0x1C008DC24
+ * XREFs of ?CheckUniqueGpuVaMapping@@YAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAUVIDMM_MAPPED_VA_RANGE@@@Z @ 0x1C0087744
  * Callers:
- *     ?AddVaRangeToVadRangeList@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_VAD@@IPEAPEAU_LIST_ENTRY@@PEAUVIDMM_MAPPED_VA_RANGE@@@Z @ 0x1C008EDD4 (-AddVaRangeToVadRangeList@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_VAD@@IPEAPEAU_LIST_ENTRY@@PEA.c)
- *     ?AddVaRangeToVad@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_VAD@@PEAUVIDMM_MAPPED_VA_RANGE@@PEAU_LIST_ENTRY@@2@Z @ 0x1C00A6C0C (-AddVaRangeToVad@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_VAD@@PEAUVIDMM_MAPPED_VA_RANGE@@PEAU_L.c)
+ *     ?AddVaRangeToVad@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_VAD@@PEAUVIDMM_MAPPED_VA_RANGE@@PEAU_LIST_ENTRY@@2@Z @ 0x1C0087674 (-AddVaRangeToVad@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_VAD@@PEAUVIDMM_MAPPED_VA_RANGE@@PEAU_L.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall CheckUniqueGpuVaMapping(struct _VIDMM_GLOBAL_ALLOC *a1, struct VIDMM_MAPPED_VA_RANGE *a2)
 {
-  char *v4; // r12
-  char *v5; // rcx
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // r14
-  __int64 v8; // rbp
+  char *v3; // rbp
+  char *v5; // rdx
+  unsigned __int64 v6; // r9
+  __int64 v7; // rsi
+  unsigned __int64 v8; // r10
   char *v9; // rbx
-  unsigned __int64 v10; // r8
-  unsigned int v11; // edi
+  unsigned __int64 v10; // r9
+  unsigned int v11; // r14d
   char v12; // al
-  unsigned __int64 v14; // rdx
-  __int64 v15; // r11
-  __int64 v16; // rcx
+  unsigned __int64 v14; // r8
+  unsigned __int64 v15; // rcx
+  _QWORD *v16; // rax
   char **v17; // rcx
   char **v18; // rax
-  char **v19; // rdx
+  char **v19; // rcx
   char *v20; // rax
 
+  v3 = (char *)a1 + 344;
   KeEnterCriticalRegion();
-  v4 = (char *)a1 + 368;
-  ExAcquirePushLockExclusiveEx((char *)a1 + 368, 0LL);
-  v5 = (char *)a1 + 168;
+  ExAcquirePushLockExclusiveEx(v3, 0LL);
+  v5 = (char *)a1 + 184;
+  *((_QWORD *)v3 + 1) = KeGetCurrentThread();
   v6 = *((_QWORD *)a2 + 10);
-  v7 = *((_QWORD *)a2 + 9);
-  v8 = v6 & 0x7FFFFFFFFFFFFFFFLL;
-  v9 = (char *)*((_QWORD *)a1 + 21);
+  v7 = v6 & 0x7FFFFFFFFFFFFFFFLL;
+  v8 = *((_QWORD *)a2 + 9);
+  v9 = (char *)*((_QWORD *)a1 + 23);
   v10 = v6 >> 63;
   v11 = 0;
   v12 = v10;
   while ( v9 != v5 )
   {
     v14 = *((_QWORD *)v9 + 4);
-    if ( v7 + *((_QWORD *)a2 + 13) - *((_QWORD *)a2 + 12) <= v14 )
+    if ( v8 + *((_QWORD *)a2 + 13) - *((_QWORD *)a2 + 12) <= v14 )
     {
       if ( !v12 )
         goto LABEL_4;
@@ -58,16 +58,20 @@ LABEL_13:
 LABEL_17:
       __fastfail(3u);
     }
-    v15 = *((_QWORD *)v9 + 7);
-    if ( v7 < v14 + *((_QWORD *)v9 + 8) - v15 && v8 != (*((_QWORD *)v9 + 5) & 0x7FFFFFFFFFFFFFFFLL) )
+    v15 = v14 + *((_QWORD *)v9 + 8) - *((_QWORD *)v9 + 7);
+    if ( v8 < v15 && v7 != (*((_QWORD *)v9 + 5) & 0x7FFFFFFFFFFFFFFFLL) )
     {
-      WdLogSingleEntry4(1LL, v15, *((_QWORD *)v9 + 8), *((_QWORD *)v9 + 5), v8);
-      DxgkLogInternalTriageEvent(v16, 0x40000LL);
+      v16 = (_QWORD *)WdLogNewEntry5_WdAssertion(v15, v5, v14);
+      v16[3] = *((_QWORD *)v9 + 7);
+      v16[4] = *((_QWORD *)v9 + 8);
+      v16[5] = *((_QWORD *)v9 + 5);
+      v16[6] = v7;
+      WdLogEvent5_WdAssertion(v16);
       v11 = -1073741811;
       goto LABEL_4;
     }
     v12 = v10;
-    if ( (_BYTE)v10 && v7 < v14 )
+    if ( (_BYTE)v10 && v8 < v14 )
       goto LABEL_13;
     v9 = *(char **)v9;
   }
@@ -86,7 +90,8 @@ LABEL_17:
     goto LABEL_17;
   }
 LABEL_4:
-  ExReleasePushLockExclusiveEx(v4, 0LL);
+  *((_QWORD *)v3 + 1) = 0LL;
+  ExReleasePushLockExclusiveEx(v3, 0LL);
   KeLeaveCriticalRegion();
   return v11;
 }

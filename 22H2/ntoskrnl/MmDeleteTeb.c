@@ -1,27 +1,27 @@
 /*
- * XREFs of MmDeleteTeb @ 0x14076F0DC
+ * XREFs of MmDeleteTeb @ 0x140636AF0
  * Callers:
- *     PspInsertThread @ 0x14073F3AC (PspInsertThread.c)
- *     PspAllocateThread @ 0x140740EE0 (PspAllocateThread.c)
- *     PspExitThread @ 0x14076DF3C (PspExitThread.c)
+ *     PspInsertThread @ 0x1406C1DE8 (PspInsertThread.c)
+ *     PspExitThread @ 0x1406C35F8 (PspExitThread.c)
+ *     PspAllocateThread @ 0x1406C3E08 (PspAllocateThread.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     MiObtainReferencedVadEx @ 0x140274B90 (MiObtainReferencedVadEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiFreeToSubAllocatedRegion @ 0x14076F194 (MiFreeToSubAllocatedRegion.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiObtainReferencedVadEx @ 0x14021B260 (MiObtainReferencedVadEx.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiFreeToSubAllocatedRegion @ 0x140636BA4 (MiFreeToSubAllocatedRegion.c)
  */
 
-__int64 __fastcall MmDeleteTeb(_KPROCESS *a1, unsigned __int64 a2)
+__int64 __fastcall MmDeleteTeb(_KPROCESS *a1, unsigned __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 *v3; // rax
-  int v5; // [rsp+20h] [rbp-48h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v6; // [rsp+28h] [rbp-40h] BYREF
+  volatile signed __int32 *v5; // rax
+  int v7; // [rsp+20h] [rbp-48h] BYREF
+  _OWORD v8[3]; // [rsp+28h] [rbp-40h] BYREF
 
-  memset(&v6, 0, sizeof(v6));
-  KiStackAttachProcess(a1, 0, (__int64)&v6);
-  v3 = MiObtainReferencedVadEx(a2, 0, &v5);
-  if ( v3 )
-    MiFreeToSubAllocatedRegion(v3);
-  return KiUnstackDetachProcess(&v6);
+  memset(v8, 0, sizeof(v8));
+  KiStackAttachProcess(a1, 0LL, (__int64)v8, a4);
+  v5 = MiObtainReferencedVadEx(a2, 0, &v7);
+  if ( v5 )
+    MiFreeToSubAllocatedRegion((PVOID)v5);
+  return KiUnstackDetachProcess((__int64)v8, 0);
 }

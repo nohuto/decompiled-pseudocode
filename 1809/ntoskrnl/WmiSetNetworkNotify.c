@@ -1,12 +1,12 @@
 /*
- * XREFs of WmiSetNetworkNotify @ 0x1408B43AC
+ * XREFs of WmiSetNetworkNotify @ 0x1408B438C
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1406C57B0 (EtwpEnableKernelTrace.c)
- *     EtwpDisableKernelTrace @ 0x1406C5A4C (EtwpDisableKernelTrace.c)
+ *     EtwpEnableKernelTrace @ 0x1406C5790 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x1406C5A2C (EtwpDisableKernelTrace.c)
  * Callees:
- *     WmipBuildTraceDeviceList @ 0x14018C4EC (WmipBuildTraceDeviceList.c)
- *     WmipFreeTraceDeviceList @ 0x140753CBC (WmipFreeTraceDeviceList.c)
- *     WmipSendWmiIrpToTraceDeviceList @ 0x140753D0C (WmipSendWmiIrpToTraceDeviceList.c)
+ *     WmipBuildTraceDeviceList @ 0x14018C50C (WmipBuildTraceDeviceList.c)
+ *     WmipFreeTraceDeviceList @ 0x140753C9C (WmipFreeTraceDeviceList.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x140753CEC (WmipSendWmiIrpToTraceDeviceList.c)
  */
 
 __int64 __fastcall WmiSetNetworkNotify(__int64 a1)

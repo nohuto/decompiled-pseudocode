@@ -1,23 +1,22 @@
 /*
- * XREFs of ?GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z @ 0x1C005C5D4
+ * XREFs of ?GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z @ 0x1C0011E6C
  * Callers:
- *     ?zzzRecalcThreadAttachment@@YAXXZ @ 0x1C005C014 (-zzzRecalcThreadAttachment@@YAXXZ.c)
- *     zzzReattachThreads @ 0x1C005C0B8 (zzzReattachThreads.c)
- *     ?zzzRecalc2@@YAXPEAUtagQ@@@Z @ 0x1C005C4E0 (-zzzRecalc2@@YAXPEAUtagQ@@@Z.c)
+ *     zzzReattachThreads @ 0x1C001194C (zzzReattachThreads.c)
+ *     ?zzzRecalcThreadAttachment@@YAXXZ @ 0x1C0011CEC (-zzzRecalcThreadAttachment@@YAXXZ.c)
+ *     ?zzzRecalc2@@YAXPEAUtagQ@@@Z @ 0x1C0011DA8 (-zzzRecalc2@@YAXPEAUtagQ@@@Z.c)
  * Callees:
- *     ?IsPackedQueueRecalc@@YAHXZ @ 0x1C005C618 (-IsPackedQueueRecalc@@YAHXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 struct _LIST_ENTRY *__fastcall GetRecalcPtiFromListEntry(struct _LIST_ENTRY *a1)
 {
   struct _LIST_ENTRY *Flink; // rbx
 
-  if ( (unsigned int)IsPackedQueueRecalc() )
-    Flink = a1[1].Flink;
-  else
+  if ( gListAffectedThreadsForQueueRecalc.Flink == &gListAffectedThreadsForQueueRecalc )
     Flink = (struct _LIST_ENTRY *)((char *)a1 - 744);
+  else
+    Flink = a1[1].Flink;
   if ( Flink && !Flink[28].Blink )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 10711LL);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 11330LL);
   return Flink;
 }

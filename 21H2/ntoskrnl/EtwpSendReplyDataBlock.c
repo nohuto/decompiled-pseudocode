@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpSendReplyDataBlock @ 0x1406F2000
+ * XREFs of EtwpSendReplyDataBlock @ 0x1406BB2E8
  * Callers:
- *     NtTraceControl @ 0x1407954F0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwpQueueReply @ 0x1406F20E8 (EtwpQueueReply.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     EtwpReleaseQueueEntry @ 0x14078F094 (EtwpReleaseQueueEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     EtwpQueueReply @ 0x1406BB3D0 (EtwpQueueReply.c)
+ *     EtwpReleaseQueueEntry @ 0x1406E491C (EtwpReleaseQueueEntry.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall EtwpSendReplyDataBlock(__int64 a1)
@@ -16,21 +16,21 @@ __int64 __fastcall EtwpSendReplyDataBlock(__int64 a1)
   void *v3; // rcx
   unsigned int v4; // edi
   NTSTATUS v5; // ebx
-  PVOID v6; // rcx
+  struct _DMA_ADAPTER *v6; // rcx
   _QWORD *v7; // rdi
   __int64 v8; // rcx
-  PVOID Object; // [rsp+40h] [rbp+8h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v3 = *(void **)(a1 + 24);
   v4 = *(_DWORD *)(a1 + 16);
   --CurrentThread->KernelApcDisable;
-  Object = 0LL;
-  v5 = ObReferenceObjectByHandle(v3, 4u, EtwpRegistrationObjectType, 1, &Object, 0LL);
+  DmaAdapter = 0LL;
+  v5 = ObReferenceObjectByHandle(v3, 4u, EtwpRegistrationObjectType, 1, (PVOID *)&DmaAdapter, 0LL);
   if ( v5 >= 0 )
   {
-    v6 = Object;
-    if ( (*((_BYTE *)Object + 98) & 2) != 0 )
+    v6 = DmaAdapter;
+    if ( (DmaAdapter[6].Size & 2) != 0 )
     {
       if ( v4 >= 4 )
       {
@@ -38,7 +38,7 @@ __int64 __fastcall EtwpSendReplyDataBlock(__int64 a1)
       }
       else
       {
-        v7 = (_QWORD *)_InterlockedExchange64((volatile __int64 *)Object + v4 + 6, 0LL);
+        v7 = (_QWORD *)_InterlockedExchange64((volatile __int64 *)&DmaAdapter[3] + v4, 0LL);
         if ( v7 )
         {
           v8 = v7[4];
@@ -52,15 +52,15 @@ __int64 __fastcall EtwpSendReplyDataBlock(__int64 a1)
         {
           v5 = -1073741811;
         }
-        v6 = Object;
+        v6 = DmaAdapter;
       }
     }
     else
     {
       v5 = -1073741816;
     }
-    ObfDereferenceObject(v6);
+    HalPutDmaAdapter(v6);
   }
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v5;
 }

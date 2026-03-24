@@ -1,5 +1,5 @@
 /*
- * XREFs of PspQueryProcessIdListCallback @ 0x1406BC4F0
+ * XREFs of PspQueryProcessIdListCallback @ 0x1406BC4D0
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcpRemoveMessagePort @ 0x1406CBB6C
+ * XREFs of AlpcpRemoveMessagePort @ 0x1406CBB4C
  * Callers:
  *     AlpcpCancelMessage @ 0x14061590C (AlpcpCancelMessage.c)
  * Callees:

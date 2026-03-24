@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsSignaled@CFlipToken@@UEBA_NXZ @ 0x1C001DEE0
+ * XREFs of ?IsSignaled@CFlipToken@@UEBA_NXZ @ 0x1C001A210
  * Callers:
  *     <none>
  * Callees:

@@ -1,45 +1,38 @@
 /*
- * XREFs of PopIdleWakeNotifyWakeSource @ 0x1405DBF90
+ * XREFs of PopIdleWakeNotifyWakeSource @ 0x14057BD20
  * Callers:
- *     PpmIdleExecuteTransition @ 0x140306100 (PpmIdleExecuteTransition.c)
+ *     PpmExitCoordinatedIdle @ 0x140224000 (PpmExitCoordinatedIdle.c)
  * Callees:
- *     KeGetCurrentProcessorNumberEx @ 0x140355110 (KeGetCurrentProcessorNumberEx.c)
- *     PopIdleWakeStopActiveIntervalAccounting @ 0x140398BE0 (PopIdleWakeStopActiveIntervalAccounting.c)
- *     PopIdleWakeFinalizeWakeSource @ 0x1405DBB20 (PopIdleWakeFinalizeWakeSource.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x140260D70 (KeGetCurrentProcessorNumberEx.c)
+ *     PopIdleWakeFinalizeWakeSource @ 0x14057B478 (PopIdleWakeFinalizeWakeSource.c)
+ *     PopIdleWakeStopActiveIntervalAccounting @ 0x14057BE14 (PopIdleWakeStopActiveIntervalAccounting.c)
  */
 
-ULONG __fastcall PopIdleWakeNotifyWakeSource(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, _DWORD *a6)
+void __fastcall PopIdleWakeNotifyWakeSource(int a1, int a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  unsigned int *v6; // rbx
-  __int64 v10; // r9
-  ULONG result; // eax
+  _DWORD *v5; // rbx
+  ULONG CurrentProcessorNumber; // eax
 
-  v6 = (unsigned int *)PopIdleWakeContext;
+  v5 = PopIdleWakeContext;
   if ( PopIdleWakeContext && a1 == PpmDripsStateIndex && a2 >= 0 )
   {
     PopIdleWakeFinalizeWakeSource(a2, a3);
-    PopIdleWakeStopActiveIntervalAccounting(v6, a4, a6, v10);
-    v6[10] = a2;
-    *((_OWORD *)v6 + 3) = *(_OWORD *)a3;
-    *((_OWORD *)v6 + 4) = *(_OWORD *)(a3 + 16);
-    *((_OWORD *)v6 + 5) = *(_OWORD *)(a3 + 32);
-    *((_OWORD *)v6 + 6) = *(_OWORD *)(a3 + 48);
-    *((_OWORD *)v6 + 7) = *(_OWORD *)(a3 + 64);
-    *((_OWORD *)v6 + 8) = *(_OWORD *)(a3 + 80);
-    *((_OWORD *)v6 + 9) = *(_OWORD *)(a3 + 96);
-    *((_OWORD *)v6 + 10) = *(_OWORD *)(a3 + 112);
-    *((_QWORD *)v6 + 22) = *(_QWORD *)(a3 + 128);
-    *((_QWORD *)v6 + 23) = a5;
-    *((_QWORD *)v6 + 1) = a5;
-    *((_QWORD *)v6 + 24) = a5 - a4;
-    result = KeGetCurrentProcessorNumberEx(0LL);
-    *v6 |= 0x10u;
-    v6[50] = result;
+    PopIdleWakeStopActiveIntervalAccounting(v5);
+    v5[10] = a2;
+    *((_OWORD *)v5 + 3) = *(_OWORD *)a3;
+    *((_OWORD *)v5 + 4) = *(_OWORD *)(a3 + 16);
+    *((_OWORD *)v5 + 5) = *(_OWORD *)(a3 + 32);
+    *((_OWORD *)v5 + 6) = *(_OWORD *)(a3 + 48);
+    *((_OWORD *)v5 + 7) = *(_OWORD *)(a3 + 64);
+    *((_OWORD *)v5 + 8) = *(_OWORD *)(a3 + 80);
+    *((_OWORD *)v5 + 9) = *(_OWORD *)(a3 + 96);
+    *((_OWORD *)v5 + 10) = *(_OWORD *)(a3 + 112);
+    *((_QWORD *)v5 + 22) = *(_QWORD *)(a3 + 128);
+    *((_QWORD *)v5 + 23) = a5;
+    *((_QWORD *)v5 + 1) = a5;
+    *((_QWORD *)v5 + 24) = a5 - a4;
+    CurrentProcessorNumber = KeGetCurrentProcessorNumberEx(0LL);
+    *v5 |= 0x10u;
+    v5[50] = CurrentProcessorNumber;
   }
-  else
-  {
-    result = (unsigned int)a6;
-    *a6 = -1;
-  }
-  return result;
 }

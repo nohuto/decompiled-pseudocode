@@ -1,13 +1,13 @@
 /*
- * XREFs of SepAdtMarshallAuditRecord @ 0x1403CD9A0
+ * XREFs of SepAdtMarshallAuditRecord @ 0x1403C26C4
  * Callers:
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepAdtMarshallAuditRecord(_DWORD *Src, void **a2, _DWORD *a3, int a4)
+__int64 __fastcall SepAdtMarshallAuditRecord(_DWORD *Src, void **a2, _DWORD *a3, POOL_TYPE a4)
 {
   unsigned int v4; // r11d
   char *v5; // r15
@@ -81,14 +81,14 @@ __int64 __fastcall SepAdtMarshallAuditRecord(_DWORD *Src, void **a2, _DWORD *a3,
     i += 32;
   }
   v15 = 32 * v4 + 24 + v11;
-  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)(a4 | 0x400), v15, 0x70416553u);
+  PoolWithTag = ExAllocatePoolWithTag(a4, v15, 0x70416553u);
   *a2 = PoolWithTag;
   if ( !PoolWithTag )
   {
     *a3 = 0;
     return (unsigned int)-1073741670;
   }
-  *a3 = (a4 != 1) + 4;
+  *a3 = (a4 != PagedPool) + 4;
   memmove(*a2, v10, 1048 - 32LL * (unsigned int)(32 - v10[2]));
   v17 = 0;
   v40 = 0;

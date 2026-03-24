@@ -1,18 +1,18 @@
 /*
- * XREFs of NtDCompositionSetDebugCounter @ 0x1C00B8AD0
+ * XREFs of NtDCompositionSetDebugCounter @ 0x1C00AC8D0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C00269C4 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005EB28 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtDCompositionSetDebugCounter(unsigned int a1, int a2)
 {
   int v3; // ebx
-  struct DirectComposition::CApplicationChannel *v4; // r8
-  int v5; // ecx
-  int v6; // ecx
+  struct DirectComposition::CApplicationChannel *v4; // rcx
+  int v5; // edx
+  int v6; // edx
   struct DirectComposition::CApplicationChannel *v8; // [rsp+40h] [rbp+18h] BYREF
 
   v8 = 0LL;
@@ -20,17 +20,17 @@ __int64 __fastcall NtDCompositionSetDebugCounter(unsigned int a1, int a2)
   if ( v3 >= 0 )
   {
     v4 = v8;
-    v5 = *((_DWORD *)v8 + 646);
+    v5 = *((_DWORD *)v8 + 148);
     if ( a2 )
     {
       if ( v5 )
       {
         if ( v5 == 3 )
-          *((_DWORD *)v8 + 646) = 2;
+          *((_DWORD *)v8 + 148) = 2;
       }
       else
       {
-        *((_DWORD *)v8 + 646) = 1;
+        *((_DWORD *)v8 + 148) = 1;
       }
     }
     else
@@ -39,11 +39,11 @@ __int64 __fastcall NtDCompositionSetDebugCounter(unsigned int a1, int a2)
       if ( v6 )
       {
         if ( v6 == 1 )
-          *((_DWORD *)v8 + 646) = 3;
+          *((_DWORD *)v8 + 148) = 3;
       }
       else
       {
-        *((_DWORD *)v8 + 646) = 0;
+        *((_DWORD *)v8 + 148) = 0;
       }
     }
     (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v4)(v4);

@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpSetPlugPlayEvent @ 0x140794604
+ * XREFs of PnpSetPlugPlayEvent @ 0x140747488
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PipProcessStartPhase3 @ 0x14079BED4 (PipProcessStartPhase3.c)
- *     PiInitializeDevice @ 0x14096DB94 (PiInitializeDevice.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x140747010 (PipProcessStartPhase3.c)
+ *     PiInitializeDevice @ 0x1408B3CBC (PiInitializeDevice.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PnpInsertEventInQueue @ 0x140786840 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x14079487C (PnpCreateDeviceEventEntry.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PnpInsertEventInQueue @ 0x140634C88 (PnpInsertEventInQueue.c)
+ *     PnpCreateDeviceEventEntry @ 0x14071B5A8 (PnpCreateDeviceEventEntry.c)
  */
 
 void __fastcall PnpSetPlugPlayEvent(__int128 *a1, _QWORD *a2)
@@ -16,7 +16,7 @@ void __fastcall PnpSetPlugPlayEvent(__int128 *a1, _QWORD *a2)
   void *v2; // rbp
   __int64 v4; // rsi
   int v5; // r14d
-  __int64 DeviceEventEntry; // rax
+  _DWORD *DeviceEventEntry; // rax
   __int64 v7; // rbx
   __int128 v8; // xmm0
   void *v9; // rcx
@@ -32,13 +32,13 @@ void __fastcall PnpSetPlugPlayEvent(__int128 *a1, _QWORD *a2)
     {
       v5 = *(unsigned __int16 *)(v4 + 40) + 80;
       DeviceEventEntry = PnpCreateDeviceEventEntry((unsigned int)*(unsigned __int16 *)(v4 + 40) + 192);
-      v7 = DeviceEventEntry;
+      v7 = (__int64)DeviceEventEntry;
       if ( DeviceEventEntry )
       {
         v8 = *a1;
-        *(_DWORD *)(DeviceEventEntry + 148) = v5;
-        v9 = (void *)(DeviceEventEntry + 160);
-        *(_OWORD *)(DeviceEventEntry + 112) = v8;
+        DeviceEventEntry[37] = v5;
+        v9 = DeviceEventEntry + 40;
+        *((_OWORD *)DeviceEventEntry + 7) = v8;
         v10 = *(_QWORD *)a1 - *(_QWORD *)&GUID_DEVICE_ENUMERATED.Data1;
         if ( *(_QWORD *)a1 == *(_QWORD *)&GUID_DEVICE_ENUMERATED.Data1 )
           v10 = *((_QWORD *)a1 + 1) - *(_QWORD *)GUID_DEVICE_ENUMERATED.Data4;

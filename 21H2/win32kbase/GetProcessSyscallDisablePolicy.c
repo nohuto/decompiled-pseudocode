@@ -1,7 +1,7 @@
 /*
- * XREFs of GetProcessSyscallDisablePolicy @ 0x1C0146260
+ * XREFs of GetProcessSyscallDisablePolicy @ 0x1C00C4D50
  * Callers:
- *     IsProcessWin32kLockedOut @ 0x1C01462F0 (IsProcessWin32kLockedOut.c)
+ *     IsProcessWin32kLockedOut @ 0x1C00C4D20 (IsProcessWin32kLockedOut.c)
  * Callees:
  *     <none>
  */

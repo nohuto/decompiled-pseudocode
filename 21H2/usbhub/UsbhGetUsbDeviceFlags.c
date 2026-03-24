@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhGetUsbDeviceFlags @ 0x1C0037EA8
+ * XREFs of UsbhGetUsbDeviceFlags @ 0x1C0039180
  * Callers:
- *     UsbhGetDeviceInformation @ 0x1C0037880 (UsbhGetDeviceInformation.c)
+ *     UsbhGetDeviceInformation @ 0x1C0038B48 (UsbhGetDeviceInformation.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhGetRegPersistedUsbDeviceFlags @ 0x1C0044AEC (UsbhGetRegPersistedUsbDeviceFlags.c)
- *     UsbhGetRegUsbClassFlags @ 0x1C0044C38 (UsbhGetRegUsbClassFlags.c)
- *     UsbhGetRegUsbDeviceFlags @ 0x1C0044F78 (UsbhGetRegUsbDeviceFlags.c)
- *     UsbhCheck4GlobalErrata @ 0x1C0050BA0 (UsbhCheck4GlobalErrata.c)
- *     UsbhCheckDeviceErrata @ 0x1C0050C04 (UsbhCheckDeviceErrata.c)
- *     UsbhValidateDeviceDescriptor @ 0x1C0051D98 (UsbhValidateDeviceDescriptor.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhGetRegPersistedUsbDeviceFlags @ 0x1C0045DD8 (UsbhGetRegPersistedUsbDeviceFlags.c)
+ *     UsbhGetRegUsbClassFlags @ 0x1C0045F24 (UsbhGetRegUsbClassFlags.c)
+ *     UsbhGetRegUsbDeviceFlags @ 0x1C0046278 (UsbhGetRegUsbDeviceFlags.c)
+ *     UsbhCheck4GlobalErrata @ 0x1C00521F0 (UsbhCheck4GlobalErrata.c)
+ *     UsbhCheckDeviceErrata @ 0x1C0052254 (UsbhCheckDeviceErrata.c)
+ *     UsbhValidateDeviceDescriptor @ 0x1C00533E8 (UsbhValidateDeviceDescriptor.c)
  */
 
 __int64 __fastcall UsbhGetUsbDeviceFlags(__int64 a1, __int64 a2)

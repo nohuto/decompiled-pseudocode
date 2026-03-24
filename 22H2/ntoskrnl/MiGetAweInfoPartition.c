@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetAweInfoPartition @ 0x14064A8C8
+ * XREFs of MiGetAweInfoPartition @ 0x14054C2D4
  * Callers:
- *     MiFreePhysicalPageChain @ 0x14064A1E0 (MiFreePhysicalPageChain.c)
- *     MiGetAweVadPartition @ 0x14064A9D0 (MiGetAweVadPartition.c)
- *     MiAllocateAweInfo @ 0x140A4009C (MiAllocateAweInfo.c)
- *     MiAllocateFastAwePages @ 0x140A40214 (MiAllocateFastAwePages.c)
- *     MiAllocateUserPhysicalPages @ 0x140A403C8 (MiAllocateUserPhysicalPages.c)
- *     MiCreateAweInfoBitMap @ 0x140A415B0 (MiCreateAweInfoBitMap.c)
- *     MiCreateUserPhysicalView @ 0x140A417E8 (MiCreateUserPhysicalView.c)
- *     MiDeleteAweInfoPages @ 0x140A41B00 (MiDeleteAweInfoPages.c)
- *     NtFreeUserPhysicalPages @ 0x140A42390 (NtFreeUserPhysicalPages.c)
+ *     MiFreePhysicalPageChain @ 0x14054BB28 (MiFreePhysicalPageChain.c)
+ *     MiGetAweVadPartition @ 0x14054C3C0 (MiGetAweVadPartition.c)
+ *     MiReleaseVadEventBlocks @ 0x14063AAB0 (MiReleaseVadEventBlocks.c)
+ *     MiAllocateAweInfo @ 0x1408D4BD0 (MiAllocateAweInfo.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4D38 (MiAllocateUserPhysicalPages.c)
+ *     MiCreateAweInfoBitMap @ 0x1408D59DC (MiCreateAweInfoBitMap.c)
+ *     MiCreateUserPhysicalView @ 0x1408D5BF8 (MiCreateUserPhysicalView.c)
+ *     MiDeleteAweInfoPages @ 0x1408D5EDC (MiDeleteAweInfoPages.c)
+ *     NtFreeUserPhysicalPages @ 0x1408D6850 (NtFreeUserPhysicalPages.c)
  * Callees:
  *     <none>
  */
@@ -18,9 +18,9 @@ __int64 __fastcall MiGetAweInfoPartition(__int64 a1)
 {
   __int64 v1; // rax
 
-  v1 = *(_QWORD *)(a1 + 40);
+  v1 = *(_QWORD *)(a1 + 32);
   if ( v1 )
-    return *(_QWORD *)(qword_140C674C8 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF));
+    return *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF));
   else
-    return *(_QWORD *)(qword_140C674C8 + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessor[25]);
+    return *(_QWORD *)(qword_140C4E648 + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessorPadding[5]);
 }

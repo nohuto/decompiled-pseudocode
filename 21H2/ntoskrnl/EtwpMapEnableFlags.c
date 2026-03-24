@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpMapEnableFlags @ 0x1406E1024
+ * XREFs of EtwpMapEnableFlags @ 0x1406C0960
  * Callers:
- *     EtwpGetLoggerInfoFromContext @ 0x1406EF280 (EtwpGetLoggerInfoFromContext.c)
- *     EtwpUpdateGroupMasks @ 0x140814244 (EtwpUpdateGroupMasks.c)
- *     EtwQueryPerformanceTraceInformation @ 0x14081C05C (EtwQueryPerformanceTraceInformation.c)
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1406DF154 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpUpdateGroupMasks @ 0x1407970F0 (EtwpUpdateGroupMasks.c)
+ *     EtwpInitializeSiloAllowedGroupMask @ 0x1407D5200 (EtwpInitializeSiloAllowedGroupMask.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140937E6C (EtwQueryPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ unsigned __int64 __fastcall EtwpMapEnableFlags(__int64 a1, char a2)
   v4 = 8LL;
   do
   {
-    if ( a2 )
+    if ( a2 == 1 )
     {
       if ( a1 )
       {

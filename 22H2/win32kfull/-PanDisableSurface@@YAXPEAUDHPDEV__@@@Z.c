@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PanDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C029BB10
+ * XREFs of ?PanDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C02949F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall PanDisableSurface(struct DHPDEV__ *a1)

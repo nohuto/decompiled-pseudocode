@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwAlpcQueryInformation @ 0x14041C880
+ * XREFs of ZwAlpcQueryInformation @ 0x1403FB4C0
  * Callers:
- *     DifZwAlpcQueryInformationWrapper @ 0x14061D6E0 (DifZwAlpcQueryInformationWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

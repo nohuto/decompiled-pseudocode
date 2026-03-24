@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPrivatePageCount @ 0x1403689AC
+ * XREFs of MiGetPrivatePageCount @ 0x14036B4B4
  * Callers:
- *     MiAllocateCrcList @ 0x1407E5574 (MiAllocateCrcList.c)
+ *     MiAllocateCrcList @ 0x140727A78 (MiAllocateCrcList.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiGetPrivatePageCount(__int64 a1)
@@ -27,12 +27,12 @@ unsigned __int64 __fastcall MiGetPrivatePageCount(__int64 a1)
 
   v2 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C698C0, &LockHandle);
-  v3 = (_QWORD *)(a1 + 16928);
+  KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
+  v3 = (_QWORD *)(a1 + 6856);
   v4 = (_QWORD *)*v3;
   while ( v4 != v3 )
   {
-    v5 = v4[14];
+    v5 = v4[13];
     v6 = v2;
     v4 = (_QWORD *)*v4;
     v7 = v2 + v5;
@@ -41,20 +41,23 @@ unsigned __int64 __fastcall MiGetPrivatePageCount(__int64 a1)
     if ( v8 )
       v2 = v6;
   }
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v14 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v15 = (v14 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v14;
-      if ( v15 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v15 = (v14 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v14;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

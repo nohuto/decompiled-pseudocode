@@ -1,116 +1,99 @@
 /*
- * XREFs of ?reserve_region@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVMatrix3x2F@D2D1@@_K0@Z @ 0x1800818F8
+ * XREFs of ?reserve_region@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVMatrix3x2F@D2D1@@_K0@Z @ 0x18026C1A8
  * Callers:
- *     ?Clear@CMatrixStack2D@@QEAAXXZ @ 0x180081880 (-Clear@CMatrixStack2D@@QEAAXXZ.c)
+ *     ??$emplace_back@VMatrix3x2F@D2D1@@@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXVMatrix3x2F@D2D1@@@Z @ 0x18026BDD8 (--$emplace_back@VMatrix3x2F@D2D1@@@-$vector_facade@VMatrix3x2F@D2D1@@V-$buffer_impl@VMatrix3x2F@.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z @ 0x180044D50 (-expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ??$move_backward@V?$move_iterator@PEAVMatrix3x2F@D2D1@@@std@@V?$checked_array_iterator@PEAVMatrix3x2F@D2D1@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVMatrix3x2F@D2D1@@@stdext@@V?$move_iterator@PEAVMatrix3x2F@D2D1@@@0@0V12@@Z @ 0x1801FA6D8 (--$move_backward@V-$move_iterator@PEAVMatrix3x2F@D2D1@@@std@@V-$checked_array_iterator@PEAVMatri.c)
- *     ??$uninitialized_move@V?$move_iterator@PEAVMatrix3x2F@D2D1@@@std@@V?$checked_array_iterator@PEAVMatrix3x2F@D2D1@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVMatrix3x2F@D2D1@@@stdext@@V?$move_iterator@PEAVMatrix3x2F@D2D1@@@0@0V12@@Z @ 0x1802BA31C (--$uninitialized_move@V-$move_iterator@PEAVMatrix3x2F@D2D1@@@std@@V-$checked_array_iterator@PEAV.c)
+ *     ??$move_backward@V?$move_iterator@PEAVMatrix3x2F@D2D1@@@std@@V?$checked_array_iterator@PEAVMatrix3x2F@D2D1@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVMatrix3x2F@D2D1@@@stdext@@V?$move_iterator@PEAVMatrix3x2F@D2D1@@@0@0V12@@Z @ 0x18026BE28 (--$move_backward@V-$move_iterator@PEAVMatrix3x2F@D2D1@@@std@@V-$checked_array_iterator@PEAVMatri.c)
+ *     ?ensure_extra_capacity@?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x18026C050 (-ensure_extra_capacity@-$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@.c)
  */
 
-char *__fastcall detail::vector_facade<D2D1::Matrix3x2F,detail::buffer_impl<D2D1::Matrix3x2F,10,1,detail::liberal_expansion_policy>>::reserve_region(
-        detail::liberal_expansion_policy *a1,
+__int64 __fastcall detail::vector_facade<D2D1::Matrix3x2F,detail::buffer_impl<D2D1::Matrix3x2F,10,1,detail::liberal_expansion_policy>>::reserve_region(
+        __int64 *a1,
         __int64 a2)
 {
-  __int64 v2; // rsi
-  __int64 v4; // rdx
-  char *v6; // rbx
-  signed __int64 v7; // rcx
-  unsigned __int64 v8; // rdx
-  __int64 v9; // r8
+  __int64 v4; // rbx
+  __int64 v5; // r9
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  unsigned __int64 v8; // r10
+  __int64 v9; // rcx
   __int64 v10; // rax
-  __int64 v11; // r9
-  __int64 v12; // rdi
-  unsigned __int64 v14; // rsi
-  unsigned __int64 v15; // r8
-  unsigned __int64 v16; // rdi
-  LPVOID v17; // rax
-  __int64 v18; // r8
-  char *v19; // rdx
-  LPVOID v20; // rbx
-  char *v21; // rcx
-  bool v22; // zf
-  char *v23; // rcx
-  __int64 v24; // rsi
-  LPVOID v25; // [rsp+20h] [rbp-68h] BYREF
-  unsigned __int64 v26; // [rsp+28h] [rbp-60h]
-  signed __int64 v27; // [rsp+30h] [rbp-58h]
-  _BYTE v28[32]; // [rsp+40h] [rbp-48h] BYREF
+  __int64 v11; // rax
+  unsigned __int64 v12; // rax
+  bool v13; // sf
+  __int128 v15; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v16; // [rsp+30h] [rbp-30h]
+  __int128 v17; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v18; // [rsp+50h] [rbp-10h]
 
-  v2 = *((_QWORD *)a1 + 1);
-  v4 = *((_QWORD *)a1 + 2);
-  if ( !(0xAAAAAAAAAAAAAAABuLL * ((v4 - v2) >> 3)) )
-  {
-    v14 = 0xAAAAAAAAAAAAAAABuLL * ((v2 - *(_QWORD *)a1) >> 3);
-    v15 = v14 + 1;
-    if ( v14 + 1 < v14 )
-    {
-      std::_Xoverflow_error("overflow");
-      __debugbreak();
-    }
-    v16 = detail::liberal_expansion_policy::expand(a1, 0xAAAAAAAAAAAAAAABuLL * ((v4 - *(_QWORD *)a1) >> 3), v15);
-    v17 = operator new(saturated_mul(v16, 0x18uLL));
-    v18 = *((_QWORD *)a1 + 1);
-    v19 = *(char **)a1;
-    v20 = v17;
-    v25 = v17;
-    v26 = v14;
-    v27 = 0LL;
-    ((void (__fastcall *)(_BYTE *, char *, __int64, LPVOID *))std::uninitialized_move<std::move_iterator<D2D1::Matrix3x2F *>,stdext::checked_array_iterator<D2D1::Matrix3x2F *>>)(
-      v28,
-      v19,
-      v18,
-      &v25);
-    v21 = *(char **)a1;
-    v22 = *(_QWORD *)a1 == (_QWORD)a1 + 24;
-    *(_QWORD *)a1 = v20;
-    if ( v22 )
-      v21 = 0LL;
-    operator delete(v21);
-    v23 = *(char **)a1;
-    v2 = *(_QWORD *)a1 + 24 * v14;
-    *((_QWORD *)a1 + 1) = v2;
-    *((_QWORD *)a1 + 2) = &v23[24 * v16];
-  }
-  v6 = *(char **)a1;
-  v7 = 0xAAAAAAAAAAAAAAABuLL * ((v2 - *(_QWORD *)a1) >> 3);
+  detail::buffer_impl<D2D1::Matrix3x2F,10,1,detail::liberal_expansion_policy>::ensure_extra_capacity(a1, 1uLL);
+  v4 = *a1;
+  v5 = a1[1];
+  v16 = 0LL;
+  v6 = (unsigned __int128)((v5 - v4) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
+  v18 = 0LL;
+  *((_QWORD *)&v15 + 1) = 1LL;
+  v7 = (v5 - v4) / 24;
   v8 = v7 - a2;
-  v9 = *(_QWORD *)a1 + 8 * ((v2 - *(_QWORD *)a1) >> 3);
+  v9 = v4 + 24 * v7;
+  *(_QWORD *)&v15 = v9;
+  v17 = v15;
   if ( !v9 )
-    goto LABEL_15;
-  v10 = 0xAAAAAAAAAAAAAAABuLL * ((v2 - *(_QWORD *)a1) >> 3) - a2;
+    goto LABEL_18;
+  v18 = 1LL;
+  v10 = (v5 - v4) / 24 - a2;
   if ( v8 > 1 )
     v10 = 1LL;
-  v11 = v2 - 24 * v10;
-  if ( v2 != v11 )
+  v16 = 1LL;
+  v11 = 24 * v10;
+  v6 = v5 - v11;
+  if ( v5 != v5 - v11 )
   {
-    v24 = v2 - 24;
-    *(_OWORD *)v9 = *(_OWORD *)v24;
-    *(_QWORD *)(v9 + 16) = *(_QWORD *)(v24 + 16);
-    if ( v24 != v11 )
-LABEL_15:
-      _invalid_parameter_noinfo_noreturn();
+    v12 = v16;
+    v9 = v17 + 24;
+    do
+    {
+      v5 -= 24LL;
+      if ( !(_QWORD)v15 )
+        goto LABEL_18;
+      if ( !v12 )
+        goto LABEL_18;
+      --v12;
+      v9 -= 24LL;
+      if ( v12 >= *((_QWORD *)&v15 + 1) )
+        goto LABEL_18;
+      *(_OWORD *)v9 = *(_OWORD *)v5;
+      *(_QWORD *)(v9 + 16) = *(_QWORD *)(v5 + 16);
+    }
+    while ( v5 != v6 );
   }
   if ( v8 > 1 )
   {
-    if ( v7 && (!v6 || v7 < 0) )
-      goto LABEL_15;
-    v26 = v7;
-    v27 = v7;
-    v12 = 24 * a2;
-    v25 = v6;
-    ((void (__fastcall *)(_BYTE *, char *, char *, LPVOID *))std::move_backward<std::move_iterator<D2D1::Matrix3x2F *>,stdext::checked_array_iterator<D2D1::Matrix3x2F *>>)(
-      v28,
-      &v6[24 * a2],
-      &v6[24 * v7 - 24],
-      &v25);
+    *(_QWORD *)&v17 = v4;
+    *((_QWORD *)&v17 + 1) = v7;
+    v13 = v7 < 0;
+    if ( v7 )
+    {
+      if ( !v4 )
+        goto LABEL_18;
+      v13 = v7 < 0;
+    }
+    if ( v13 && v7 )
+    {
+LABEL_18:
+      _o__invalid_parameter_noinfo_noreturn(v9, v6);
+      __debugbreak();
+      JUMPOUT(0x18026C342LL);
+    }
+    v18 = v7;
+    v15 = v17;
+    v16 = v7;
+    std::move_backward<std::move_iterator<D2D1::Matrix3x2F *>,stdext::checked_array_iterator<D2D1::Matrix3x2F *>>(
+      (__int64)&v17,
+      (const void *)(v4 + 24 * a2),
+      v4 + 24 * (v7 - 1),
+      (__int64 *)&v15);
   }
-  else
-  {
-    v12 = 24 * a2;
-  }
-  *((_QWORD *)a1 + 1) += 24LL;
-  return &v6[v12];
+  a1[1] += 24LL;
+  return v4 + 24 * a2;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?TestRectBogus@@YAHUtagRECT@@HHHH@Z @ 0x1C01CC89C
+ * XREFs of ?TestRectBogus@@YAHUtagRECT@@HHHH@Z @ 0x1C01D0430
  * Callers:
- *     ?IsRectBogus@@YAHHHHH@Z @ 0x1C01CC5A8 (-IsRectBogus@@YAHHHHH@Z.c)
+ *     ?IsRectBogus@@YAHHHHH@Z @ 0x1C01D013C (-IsRectBogus@@YAHHHHH@Z.c)
  * Callees:
  *     <none>
  */

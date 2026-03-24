@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpPowerRequestHashAllocator @ 0x1409A583C
+ * XREFs of TtmpPowerRequestHashAllocator @ 0x1408FFEC8
  * Callers:
- *     TtmpInsertPowerRequestToSession @ 0x1409A5518 (TtmpInsertPowerRequestToSession.c)
+ *     TtmpInsertPowerRequestToSession @ 0x1408FFB98 (TtmpInsertPowerRequestToSession.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall TtmpPowerRequestHashAllocator(__int64 a1)
+PVOID __fastcall TtmpPowerRequestHashAllocator(SIZE_T NumberOfBytes)
 {
-  return ExAllocatePool2(64LL, a1, 1381004372LL);
+  return ExAllocatePoolWithTag(NonPagedPoolNx, NumberOfBytes, 0x52507454u);
 }

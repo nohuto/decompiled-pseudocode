@@ -1,17 +1,17 @@
 /*
- * XREFs of MmUpdateMdlTrackerForMdlSwitch @ 0x14061D458
+ * XREFs of MmUpdateMdlTrackerForMdlSwitch @ 0x1405312D8
  * Callers:
- *     VmProbeAndLockPages @ 0x1405F8C50 (VmProbeAndLockPages.c)
- *     VmUnlockPages @ 0x1405F8D10 (VmUnlockPages.c)
+ *     VmProbeAndLockPages @ 0x1405A29B0 (VmProbeAndLockPages.c)
+ *     VmUnlockPages @ 0x1405A2A50 (VmUnlockPages.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiValidateMdlTracker @ 0x14061D088 (MiValidateMdlTracker.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     MiValidateMdlTracker @ 0x140530F18 (MiValidateMdlTracker.c)
  */
 
 __int64 __fastcall MmUpdateMdlTrackerForMdlSwitch(ULONG_PTR BugCheckParameter3, int a2)
@@ -19,7 +19,7 @@ __int64 __fastcall MmUpdateMdlTrackerForMdlSwitch(ULONG_PTR BugCheckParameter3, 
   __int64 result; // rax
   PEPROCESS v5; // rbp
   unsigned __int64 v6; // rdi
-  unsigned __int64 *v7; // rbx
+  unsigned __int64 *i; // rbx
   _BOOL8 v8; // r8
   ULONG_PTR v9; // r12
   unsigned __int64 *v10; // r15
@@ -32,96 +32,82 @@ __int64 __fastcall MmUpdateMdlTrackerForMdlSwitch(ULONG_PTR BugCheckParameter3, 
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v19; // zf
-  struct _KLOCK_QUEUE_HANDLE v20; // [rsp+30h] [rbp-38h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
 
-  memset(&v20, 0, sizeof(v20));
+  memset(&LockHandle, 0, sizeof(LockHandle));
   result = (unsigned int)MmTrackLockedPages;
   if ( (MmTrackLockedPages & 1) == 0 )
     return result;
   v5 = *(PEPROCESS *)(BugCheckParameter3 + 16);
   if ( !v5 )
     v5 = PsInitialSystemProcess;
-  v6 = v5[1].ActiveProcessors.StaticBitmap[11];
+  v6 = v5[1].ActiveProcessors.Bitmap[11];
   if ( !v6 )
     return result;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v6 + 24), &v20);
-  if ( a2 )
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v6 + 24), &LockHandle);
+  if ( !a2 )
   {
-    v7 = *(unsigned __int64 **)v6;
-    while ( v7 )
+    i = *(unsigned __int64 **)(v6 + 8);
+    if ( !i )
     {
-      if ( BugCheckParameter3 >= v7[3] )
-      {
-        if ( BugCheckParameter3 <= v7[3] )
-          break;
-        v7 = (unsigned __int64 *)v7[1];
-      }
-      else
-      {
-        v7 = (unsigned __int64 *)*v7;
-      }
-    }
-    if ( !v7 )
-    {
+LABEL_22:
       if ( *(_DWORD *)(v6 + 32) )
-        KeBugCheckEx(
-          0x76u,
-          8uLL,
-          BugCheckParameter3,
-          v5[1].Affinity.StaticBitmap[14],
-          v5[1].ActiveProcessors.StaticBitmap[11]);
-      goto LABEL_32;
+        KeBugCheckEx(0x76u, 9uLL, BugCheckParameter3, v5[1].Affinity.Bitmap[14], v5[1].ActiveProcessors.Bitmap[11]);
+      goto LABEL_30;
     }
-    MiValidateMdlTracker((ULONG_PTR)v7, 1);
-    v7[3] &= ~0x8000000000000000uLL;
-    RtlAvlRemoveNode((unsigned __int64 *)v6, v7);
-    v9 = *(_QWORD *)(BugCheckParameter3 + 48);
-    v10 = (unsigned __int64 *)(v6 + 8);
-    v11 = MiLockSwitchedMdlTrackerCompare;
-  }
-  else
-  {
-    v7 = *(unsigned __int64 **)(v6 + 8);
-    if ( !v7 )
-      goto LABEL_48;
     v12 = *(_QWORD *)(BugCheckParameter3 + 48);
-    do
+    while ( 1 )
     {
-      if ( v12 >= v7[8] )
+      if ( v12 < i[8] )
       {
-        if ( v12 <= v7[8] )
-          break;
-        v7 = (unsigned __int64 *)v7[1];
+        i = (unsigned __int64 *)*i;
       }
       else
       {
-        v7 = (unsigned __int64 *)*v7;
+        if ( v12 <= i[8] )
+        {
+          i[3] = BugCheckParameter3;
+          MiValidateMdlTracker((ULONG_PTR)i, 1);
+          RtlAvlRemoveNode((unsigned __int64 *)(v6 + 8), i);
+          v10 = (unsigned __int64 *)v6;
+          v11 = MiLockTrackerCompare;
+          v9 = BugCheckParameter3;
+          goto LABEL_25;
+        }
+        i = (unsigned __int64 *)i[1];
       }
+      if ( !i )
+        goto LABEL_22;
     }
-    while ( v7 );
-    if ( !v7 )
-    {
-LABEL_48:
-      if ( *(_DWORD *)(v6 + 32) )
-        KeBugCheckEx(
-          0x76u,
-          9uLL,
-          BugCheckParameter3,
-          v5[1].Affinity.StaticBitmap[14],
-          v5[1].ActiveProcessors.StaticBitmap[11]);
-      goto LABEL_32;
-    }
-    v7[3] = BugCheckParameter3;
-    MiValidateMdlTracker((ULONG_PTR)v7, 1);
-    RtlAvlRemoveNode((unsigned __int64 *)(v6 + 8), v7);
-    v10 = (unsigned __int64 *)v6;
-    v11 = MiLockTrackerCompare;
-    v9 = BugCheckParameter3;
   }
+  for ( i = *(unsigned __int64 **)v6; ; i = (unsigned __int64 *)i[1] )
+  {
+    while ( 1 )
+    {
+      if ( !i )
+      {
+        if ( *(_DWORD *)(v6 + 32) )
+          KeBugCheckEx(0x76u, 8uLL, BugCheckParameter3, v5[1].Affinity.Bitmap[14], v5[1].ActiveProcessors.Bitmap[11]);
+        goto LABEL_30;
+      }
+      if ( BugCheckParameter3 >= i[3] )
+        break;
+      i = (unsigned __int64 *)*i;
+    }
+    if ( BugCheckParameter3 <= i[3] )
+      break;
+  }
+  MiValidateMdlTracker((ULONG_PTR)i, 1);
+  i[3] &= ~0x8000000000000000uLL;
+  RtlAvlRemoveNode((unsigned __int64 *)v6, i);
+  v9 = *(_QWORD *)(BugCheckParameter3 + 48);
+  v10 = (unsigned __int64 *)(v6 + 8);
+  v11 = MiLockSwitchedMdlTrackerCompare;
+LABEL_25:
   v13 = (_QWORD *)*v10;
   LOBYTE(v8) = 0;
   if ( !*v10 )
-    goto LABEL_31;
+    goto LABEL_29;
   while ( 1 )
   {
     v14 = ((__int64 (__fastcall *)(ULONG_PTR, _QWORD *, _BOOL8))v11)(v9, v13, v8);
@@ -131,37 +117,38 @@ LABEL_48:
     if ( !v15 )
     {
       LOBYTE(v8) = 1;
-      goto LABEL_31;
+      goto LABEL_29;
     }
-LABEL_43:
+LABEL_41:
     v13 = v15;
   }
   if ( v14 >= 0 )
     KeBugCheckEx(0xD9u, 2uLL, (ULONG_PTR)v13, BugCheckParameter3, *(_QWORD *)(v6 + 16));
   v15 = (_QWORD *)*v13;
   if ( *v13 )
-    goto LABEL_43;
+    goto LABEL_41;
   LOBYTE(v8) = 0;
-LABEL_31:
-  RtlAvlInsertNodeEx(v10, (unsigned __int64)v13, v8, (unsigned __int64)v7);
-LABEL_32:
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v20);
-  OldIrql = v20.OldIrql;
+LABEL_29:
+  RtlAvlInsertNodeEx(v10, (unsigned __int64)v13, v8, i);
+LABEL_30:
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  result = (unsigned int)KiIrqlFlags;
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && v20.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (v20.OldIrql + 1));
-      v19 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v19 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v19 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v19 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

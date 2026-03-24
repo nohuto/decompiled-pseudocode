@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HasTransform@CProxyGeometry@@MEBA_NXZ @ 0x180103BE0
+ * XREFs of ?HasTransform@CProxyGeometry@@MEBA_NXZ @ 0x18016EC80
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ char __fastcall CProxyGeometry::HasTransform(CProxyGeometry *this)
   char result; // al
 
   result = 0;
-  if ( *((_QWORD *)this + 10) || *((_QWORD *)this + 19) )
+  if ( *((_QWORD *)this + 9) || *((_QWORD *)this + 18) )
     return 1;
   return result;
 }

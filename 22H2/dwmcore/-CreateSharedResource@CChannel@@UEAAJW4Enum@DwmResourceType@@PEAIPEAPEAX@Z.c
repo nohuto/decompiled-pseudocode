@@ -1,132 +1,79 @@
 /*
- * XREFs of ?CreateSharedResource@CChannel@@UEAAJW4Enum@DwmResourceType@@PEAIPEAPEAX@Z @ 0x1801CEFC0
+ * XREFs of ?CreateSharedResource@CChannel@@UEAAJW4Enum@DwmResourceType@@PEAIPEAPEAX@Z @ 0x1800D0430
  * Callers:
  *     <none>
  * Callees:
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?CreateNewHandleTableEntry@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@PEAUIUnknown@@@Z @ 0x1800443F0 (-CreateNewHandleTableEntry@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@PEAUIUnknown@@@Z.c)
- *     ?MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z @ 0x1800444F0 (-MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?GetFreeHandle@CChannel@@AEAAIXZ @ 0x18004451C (-GetFreeHandle@CChannel@@AEAAIXZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CEACC (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??1CPresentStats@CDummyRemotingSwapChain@@QEAA@XZ @ 0x1801B3CC0 (--1CPresentStats@CDummyRemotingSwapChain@@QEAA@XZ.c)
- *     ?Return_NtStatus@in1diag3@details@wil@@YAJPEAXIPEBDJ@Z @ 0x1801D0758 (-Return_NtStatus@in1diag3@details@wil@@YAJPEAXIPEBDJ@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E44C (-MilTypeFromDwmType@CChannel@@CAJW4Enum@DwmResourceType@@PEAW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z @ 0x18005F348 (-DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z.c)
  */
 
-__int64 __fastcall CChannel::CreateSharedResource(__int64 a1, unsigned int a2, _DWORD *a3, HANDLE *a4)
+__int64 __fastcall CChannel::CreateSharedResource(__int64 a1, unsigned int a2, _DWORD *a3, _QWORD *a4)
 {
   int v8; // eax
-  unsigned int v9; // ebx
-  __int64 v10; // rcx
-  unsigned int v11; // ebx
-  int v12; // eax
-  unsigned int v13; // esi
-  int v14; // eax
-  unsigned int v15; // r8d
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  unsigned int FreeHandle; // eax
-  int v19; // eax
-  char *v21; // [rsp+20h] [rbp-50h]
-  unsigned int v22; // [rsp+30h] [rbp-40h] BYREF
-  unsigned int v23; // [rsp+34h] [rbp-3Ch] BYREF
-  __int64 v24; // [rsp+38h] [rbp-38h] BYREF
-  HANDLE hObject; // [rsp+40h] [rbp-30h] BYREF
-  int v26[2]; // [rsp+48h] [rbp-28h] BYREF
-  unsigned __int32 v27; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v28; // [rsp+54h] [rbp-1Ch]
-  unsigned int v29; // [rsp+5Ch] [rbp-14h]
-  _BYTE v30[16]; // [rsp+60h] [rbp-10h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+88h] [rbp+18h]
+  __int64 v9; // rcx
+  unsigned int v10; // ebx
+  int v11; // ebx
+  int v12; // ebx
+  HANDLE v13; // rax
+  int v15; // r9d
+  unsigned int v16; // [rsp+20h] [rbp-30h]
+  int v17; // [rsp+30h] [rbp-20h] BYREF
+  int v18; // [rsp+34h] [rbp-1Ch] BYREF
+  int v19; // [rsp+38h] [rbp-18h] BYREF
+  HANDLE hObject; // [rsp+40h] [rbp-10h] BYREF
+  struct _RTL_CRITICAL_SECTION *v21; // [rsp+48h] [rbp-8h] BYREF
+  unsigned int v22; // [rsp+70h] [rbp+20h] BYREF
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v30, (struct CChannel *)a1);
-  v8 = CChannel::MilTypeFromDwmType(a2, &v23);
-  v9 = v8;
+  hObject = 0LL;
+  v18 = 0;
+  v17 = 0;
+  v19 = 0;
+  v21 = (struct _RTL_CRITICAL_SECTION *)(a1 + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 168));
+  v8 = CChannel::MilTypeFromDwmType(a2, &v22);
+  v10 = v8;
   if ( v8 >= 0 )
   {
-    *(_QWORD *)v26 = 0LL;
-    v10 = *(_QWORD *)(a1 + 64);
-    if ( v10 )
+    v11 = NtDCompositionCreateSharedResourceHandle(v22, &hObject);
+    if ( v11 < 0 )
     {
-      v11 = v23;
-      v12 = (*(__int64 (__fastcall **)(__int64, _QWORD, unsigned int *, HANDLE *, int *))(*(_QWORD *)v10 + 32LL))(
-              v10,
-              v23,
-              &v22,
-              a4,
-              v26);
-      v13 = v12;
-      if ( v12 < 0 )
-      {
-        wil::details::in1diag3::Return_Hr(
-          retaddr,
-          (void *)0x2FB,
-          (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-          (const char *)(unsigned int)v12);
-LABEL_6:
-        v9 = v13;
-        goto LABEL_17;
-      }
-      goto LABEL_16;
-    }
-    hObject = 0LL;
-    wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-      &hObject,
-      0LL);
-    v11 = v23;
-    v14 = NtDCompositionCreateSharedResourceHandle(v23, &hObject);
-    if ( v14 >= 0 )
-    {
-      v17 = *(unsigned int *)(a1 + 72);
-      v24 = 0LL;
-      v21 = (char *)&v24 + 4;
-      v14 = NtDCompositionReferenceSharedResourceOnDwmChannel(v17, hObject, v11, &v24);
-      if ( v14 >= 0 )
-      {
-        FreeHandle = CChannel::GetFreeHandle((CChannel *)a1);
-        v27 = _mm_load_si128((const __m128i *)&_xmm).m128i_u32[0];
-        v28 = v24;
-        v22 = FreeHandle;
-        v29 = FreeHandle;
-        v19 = CChannel::SendCommand((CChannel *)a1, &v27, 0x10u);
-        v13 = v19;
-        if ( v19 < 0 )
-        {
-          wil::details::in1diag3::Return_Hr(
-            retaddr,
-            (void *)0x310,
-            (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-            (const char *)(unsigned int)v19);
-          if ( (char *)hObject - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL )
-            CloseHandle(hObject);
-          goto LABEL_6;
-        }
-        *a4 = hObject;
-LABEL_16:
-        CChannel::CreateNewHandleTableEntry((CChannel *)a1, v22, v11, *(__int64 *)v26);
-        v9 = 0;
-        *a3 = v22;
-        goto LABEL_17;
-      }
-      v16 = 777LL;
+      v10 = v11 | 0x10000000;
+      v16 = 713;
     }
     else
     {
-      v16 = 768LL;
+      v12 = NtDCompositionReferenceSharedResourceOnDwmChannel(*(unsigned int *)(a1 + 56), hObject, v22, &v18, &v17);
+      if ( v12 >= 0 )
+      {
+        v8 = CHandleTable::DuplicateHandleOnTarget(v9, v18, v17, v22, (CChannel *)a1, &v19);
+        v10 = v8;
+        if ( v8 >= 0 )
+        {
+          v13 = hObject;
+          hObject = 0LL;
+          *a4 = v13;
+          *a3 = v19;
+          goto LABEL_6;
+        }
+        v16 = 727;
+        goto LABEL_12;
+      }
+      v10 = v12 | 0x10000000;
+      v16 = 720;
     }
-    v9 = wil::details::in1diag3::Return_NtStatus(retaddr, (void *)v16, v15, (const char *)(unsigned int)v14, (int)v21);
-    CDummyRemotingSwapChain::CPresentStats::~CPresentStats(&hObject);
-    goto LABEL_17;
+    v15 = v10;
+    goto LABEL_13;
   }
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)0x2F1,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-    (const char *)(unsigned int)v8);
-LABEL_17:
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v30);
-  return v9;
+  v16 = 712;
+LABEL_12:
+  v15 = v8;
+LABEL_13:
+  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v15, v16, 0LL);
+  if ( hObject )
+    CloseHandle(hObject);
+LABEL_6:
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v21);
+  return v10;
 }

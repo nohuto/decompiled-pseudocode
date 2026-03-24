@@ -1,11 +1,10 @@
 /*
- * XREFs of ?CheckBinding@CCompositionSurface@@QEBA_N_KPEAW4CompositionBufferType@@PEAPEAUHWND__@@PEA_N@Z @ 0x1C007C530
+ * XREFs of ?CheckBinding@CCompositionSurface@@QEBA_N_KPEAW4CompositionBufferType@@PEAPEAUHWND__@@PEA_N@Z @ 0x1C00661B0
  * Callers:
- *     ?NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C007A94C (-NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
- *     NtNotifyPresentToCompositionSurface @ 0x1C007ADA0 (NtNotifyPresentToCompositionSurface.c)
+ *     NtNotifyPresentToCompositionSurface @ 0x1C00655E0 (NtNotifyPresentToCompositionSurface.c)
  * Callees:
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00103F0 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0011B50 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CCompositionSurface::CheckBinding(
@@ -27,7 +26,7 @@ char __fastcall CCompositionSurface::CheckBinding(
     return 0;
   v8 = a5;
   *(_DWORD *)a3 = (*(__int64 (__fastcall **)(bool *))(*(_QWORD *)a5 + 8LL))(a5);
-  *a4 = (HWND)(*(__int64 (__fastcall **)(bool *))(*(_QWORD *)v8 + 32LL))(v8);
+  *a4 = (HWND)(*(__int64 (__fastcall **)(bool *))(*(_QWORD *)v8 + 24LL))(v8);
   *v5 = v8[40];
   return 1;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpTxtRegionSize @ 0x1403A7A98
+ * XREFs of BgpTxtRegionSize @ 0x14039BCE8
  * Callers:
- *     ResFwConfigureDisplayStringResources @ 0x140AAB88C (ResFwConfigureDisplayStringResources.c)
- *     AnFwConfigureProgressResources @ 0x140AAB930 (AnFwConfigureProgressResources.c)
+ *     ResFwConfigureDisplayStringResources @ 0x1409F16A8 (ResFwConfigureDisplayStringResources.c)
+ *     AnFwConfigureProgressResources @ 0x1409F1744 (AnFwConfigureProgressResources.c)
  * Callees:
- *     BgpGxReservePoolRectangleSize @ 0x140AABA50 (BgpGxReservePoolRectangleSize.c)
+ *     BgpGxReservePoolRectangleSize @ 0x1409F1834 (BgpGxReservePoolRectangleSize.c)
  */
 
 __int64 __fastcall BgpTxtRegionSize(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall BgpTxtRegionSize(__int64 a1)
   int v8; // r10d
 
   v1 = a1;
-  if ( !a1 || (*(_DWORD *)(a1 + 72) & 1) == 0 )
+  if ( !a1 || (*(_DWORD *)(a1 + 64) & 1) == 0 )
     return 0LL;
   v2 = *(unsigned int **)(a1 + 24);
   v3 = 112;

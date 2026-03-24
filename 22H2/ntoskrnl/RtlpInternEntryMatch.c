@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInternEntryMatch @ 0x1407B38B4
+ * XREFs of RtlpInternEntryMatch @ 0x14067CE08
  * Callers:
- *     RtlpInternEntryFind @ 0x1407B33F0 (RtlpInternEntryFind.c)
+ *     RtlpInternEntryFind @ 0x14067CA30 (RtlpInternEntryFind.c)
  * Callees:
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
  */
 
 char __fastcall RtlpInternEntryMatch(__int64 a1, _QWORD *a2, __int64 a3)

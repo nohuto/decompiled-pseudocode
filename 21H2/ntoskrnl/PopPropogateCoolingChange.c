@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPropogateCoolingChange @ 0x1405C9A5C
+ * XREFs of PopPropogateCoolingChange @ 0x1403C9C84
  * Callers:
- *     PoSetThermalActiveCooling @ 0x14098B330 (PoSetThermalActiveCooling.c)
- *     PoSetThermalPassiveCooling @ 0x14098B3E0 (PoSetThermalPassiveCooling.c)
- *     PopCoolingExtensionPnpNotification @ 0x14098B4E0 (PopCoolingExtensionPnpNotification.c)
- *     PopDeactiveThermalRequest @ 0x14098B5B8 (PopDeactiveThermalRequest.c)
- *     PopDisableCoolingExtension @ 0x14098B798 (PopDisableCoolingExtension.c)
+ *     PoSetThermalActiveCooling @ 0x1407C80C0 (PoSetThermalActiveCooling.c)
+ *     PoSetThermalPassiveCooling @ 0x1408E2A10 (PoSetThermalPassiveCooling.c)
+ *     PopCoolingExtensionPnpNotification @ 0x1408E2B10 (PopCoolingExtensionPnpNotification.c)
+ *     PopDeactiveThermalRequest @ 0x1408E2BE8 (PopDeactiveThermalRequest.c)
+ *     PopDisableCoolingExtension @ 0x1408E2DC8 (PopDisableCoolingExtension.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopDiagTraceCoolingExtensionActiveUpdate @ 0x14099193C (PopDiagTraceCoolingExtensionActiveUpdate.c)
- *     PopDiagTraceCoolingExtensionPassiveUpdate @ 0x140991A00 (PopDiagTraceCoolingExtensionPassiveUpdate.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopDiagTraceCoolingExtensionActiveUpdate @ 0x1407C8170 (PopDiagTraceCoolingExtensionActiveUpdate.c)
+ *     PopDiagTraceCoolingExtensionPassiveUpdate @ 0x1408E8AB8 (PopDiagTraceCoolingExtensionPassiveUpdate.c)
  */
 
 void __fastcall PopPropogateCoolingChange(__int64 a1)
@@ -66,7 +66,7 @@ void __fastcall PopPropogateCoolingChange(__int64 a1)
       }
     }
     if ( v2 == *(_BYTE *)(a1 + 65) )
-      goto LABEL_18;
+      goto LABEL_15;
     *(_BYTE *)(a1 + 65) = v2;
     *(_BYTE *)(a1 + 67) = 1;
     PopReleaseRwLock(a1 + 32);
@@ -77,7 +77,7 @@ void __fastcall PopPropogateCoolingChange(__int64 a1)
   }
   while ( !*(_BYTE *)(a1 + 67) );
   *(_BYTE *)(a1 + 67) = 0;
-LABEL_18:
+LABEL_15:
   v7 = *(struct _KEVENT **)(a1 + 80);
   if ( v7 )
     KeSetEvent(v7, 0, 0);

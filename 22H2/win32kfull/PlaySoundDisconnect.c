@@ -1,9 +1,9 @@
 /*
- * XREFs of PlaySoundDisconnect @ 0x1C039953C
+ * XREFs of PlaySoundDisconnect @ 0x1C037A7C8
  * Callers:
- *     ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C003C494 (-Connect@CUserPlaySound@@AEAAJPEAX@Z.c)
- *     ?Disconnect@CUserPlaySound@@AEAAJXZ @ 0x1C003C554 (-Disconnect@CUserPlaySound@@AEAAJXZ.c)
- *     CleanupPlaySound @ 0x1C00BE060 (CleanupPlaySound.c)
+ *     ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C012DB0C (-Connect@CUserPlaySound@@AEAAJPEAX@Z.c)
+ *     ?Disconnect@CUserPlaySound@@AEAAJXZ @ 0x1C012DBC0 (-Disconnect@CUserPlaySound@@AEAAJXZ.c)
+ *     CleanupPlaySound @ 0x1C0136860 (CleanupPlaySound.c)
  * Callees:
  *     <none>
  */

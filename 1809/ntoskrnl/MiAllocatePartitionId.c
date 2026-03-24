@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAllocatePartitionId @ 0x140851CB8
+ * XREFs of MiAllocatePartitionId @ 0x140851C98
  * Callers:
- *     MmCreatePartition @ 0x140190950 (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x140190970 (MmCreatePartition.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
- *     MiExpandPartitionIds @ 0x140860188 (MiExpandPartitionIds.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
+ *     MiExpandPartitionIds @ 0x140860168 (MiExpandPartitionIds.c)
  */
 
 __int64 __fastcall MiAllocatePartitionId(__int64 a1)

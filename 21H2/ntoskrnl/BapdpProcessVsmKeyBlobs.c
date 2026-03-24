@@ -1,23 +1,23 @@
 /*
- * XREFs of BapdpProcessVsmKeyBlobs @ 0x140B1C49C
+ * XREFs of BapdpProcessVsmKeyBlobs @ 0x140A4140C
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140B1C0FC (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A4117C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     RtlStringCchCatW @ 0x1402D87F0 (RtlStringCchCatW.c)
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ZwCreateFile @ 0x14041C200 (ZwCreateFile.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     RtlIsStateSeparationEnabled @ 0x140699680 (RtlIsStateSeparationEnabled.c)
- *     BapdGetISRegistryKey @ 0x140A5A4CC (BapdGetISRegistryKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     BapdpQueryData @ 0x140B1C6B0 (BapdpQueryData.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCchCatW @ 0x140371960 (RtlStringCchCatW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     RtlIsStateSeparationEnabled @ 0x1406B7BC0 (RtlIsStateSeparationEnabled.c)
+ *     BapdGetISRegistryKey @ 0x14099B000 (BapdGetISRegistryKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     BapdpQueryData @ 0x140A41734 (BapdpQueryData.c)
  */
 
 void __fastcall BapdpProcessVsmKeyBlobs(int a1)
@@ -99,23 +99,19 @@ void __fastcall BapdpProcessVsmKeyBlobs(int a1)
     if ( !a1 )
     {
       Data = BapdpQueryData(v5, &v23[8 * v6], 0LL, 0LL, DataSize);
-      if ( Data == -1073741789 )
+      if ( Data != -1073741789 )
+        goto LABEL_17;
+      PoolWithTag = (ULONG *)ExAllocatePoolWithTag(NonPagedPoolNx, DataSize[0], 0x64506142u);
+      if ( PoolWithTag )
       {
-        PoolWithTag = (ULONG *)ExAllocatePoolWithTag(NonPagedPoolNx, DataSize[0], 0x64506142u);
-        if ( PoolWithTag )
+        Data = 0;
+LABEL_17:
+        if ( Data >= 0 && (int)BapdpQueryData(v5, &v23[8 * v6], 0LL, PoolWithTag, DataSize) >= 0 )
         {
-LABEL_20:
-          if ( (int)BapdpQueryData(v5, &v23[8 * v6], 0LL, PoolWithTag, DataSize) >= 0 )
-          {
-            RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], *v7);
-            ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&DestinationString[1], 0, 3u, PoolWithTag, DataSize[0]);
-          }
-          goto LABEL_8;
+          RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], *v7);
+          ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&DestinationString[1], 0, 3u, PoolWithTag, DataSize[0]);
         }
-      }
-      else if ( Data >= 0 )
-      {
-        goto LABEL_20;
+        goto LABEL_8;
       }
       goto LABEL_8;
     }
@@ -127,33 +123,35 @@ LABEL_20:
                  0LL,
                  0,
                  DataSize);
-    if ( ValueKey == -1073741789 )
+    if ( ValueKey != -1073741789 )
+      goto LABEL_7;
+    PoolWithTag = (ULONG *)ExAllocatePoolWithTag(NonPagedPoolNx, DataSize[0], 0x64506142u);
+    if ( PoolWithTag )
       break;
-    if ( ValueKey >= 0 )
-      goto LABEL_23;
 LABEL_8:
     ++v6;
     v7 += 4;
     if ( v6 >= 3 )
       goto LABEL_9;
   }
-  PoolWithTag = (ULONG *)ExAllocatePoolWithTag(NonPagedPoolNx, DataSize[0], 0x64506142u);
-  if ( !PoolWithTag )
-    goto LABEL_8;
-LABEL_23:
-  if ( ZwQueryValueKey(
+  ValueKey = 0;
+LABEL_7:
+  if ( ValueKey < 0
+    || ZwQueryValueKey(
          KeyHandle,
          (PUNICODE_STRING)&DestinationString[1],
          KeyValuePartialInformation,
          PoolWithTag,
          DataSize[0],
          DataSize) < 0 )
+  {
     goto LABEL_8;
+  }
   ZwDeleteValueKey(KeyHandle, (PUNICODE_STRING)&DestinationString[1]);
   if ( v3 )
   {
     v3[v4] = 0;
-LABEL_40:
+LABEL_42:
     if ( RtlStringCchCatW(v3, 0x104uLL, v7[1]) >= 0 )
     {
       RtlInitUnicodeStringEx((PUNICODE_STRING)&DestinationString[1], v3);
@@ -225,7 +223,7 @@ LABEL_40:
       v17 = v14;
     *v17 = 0;
     if ( v13 )
-      goto LABEL_40;
+      goto LABEL_42;
   }
 LABEL_9:
   if ( PoolWithTag )

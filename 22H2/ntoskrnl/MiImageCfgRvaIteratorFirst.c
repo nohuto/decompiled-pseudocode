@@ -1,9 +1,9 @@
 /*
- * XREFs of MiImageCfgRvaIteratorFirst @ 0x14079E210
+ * XREFs of MiImageCfgRvaIteratorFirst @ 0x140661080
  * Callers:
  *     <none>
  * Callees:
- *     MiImageCfgRvaIteratorNext @ 0x14079E240 (MiImageCfgRvaIteratorNext.c)
+ *     MiImageCfgRvaIteratorNext @ 0x1406610B0 (MiImageCfgRvaIteratorNext.c)
  */
 
 __int64 __fastcall MiImageCfgRvaIteratorFirst(__int64 a1, __int64 a2)

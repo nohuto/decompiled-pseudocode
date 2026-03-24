@@ -1,5 +1,5 @@
 /*
- * XREFs of RIMMilliSecsToQpcCount @ 0x1C0074CB0
+ * XREFs of RIMMilliSecsToQpcCount @ 0x1C00B07B0
  * Callers:
  *     <none>
  * Callees:

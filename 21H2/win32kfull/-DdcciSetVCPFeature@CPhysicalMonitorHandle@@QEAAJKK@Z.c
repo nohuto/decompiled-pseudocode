@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DdcciSetVCPFeature@CPhysicalMonitorHandle@@QEAAJKK@Z @ 0x1C026F778
+ * XREFs of ?DdcciSetVCPFeature@CPhysicalMonitorHandle@@QEAAJKK@Z @ 0x1C0271B5C
  * Callers:
- *     ?DdcciSetVCPFeature@CMonitorAPI@@QEAAJPEAXKK@Z @ 0x1C026F6E0 (-DdcciSetVCPFeature@CMonitorAPI@@QEAAJPEAXKK@Z.c)
+ *     ?DdcciSetVCPFeature@CMonitorAPI@@QEAAJPEAXKK@Z @ 0x1C0271AC4 (-DdcciSetVCPFeature@CMonitorAPI@@QEAAJPEAXKK@Z.c)
  * Callees:
- *     ?DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C026F560 (-DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
+ *     ?DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C0271944 (-DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
  */
 
 __int64 __fastcall CPhysicalMonitorHandle::DdcciSetVCPFeature(CPhysicalMonitorHandle *this, char a2, __int16 a3)

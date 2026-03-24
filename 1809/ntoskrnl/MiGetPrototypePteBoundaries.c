@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPrototypePteBoundaries @ 0x1402C7564
+ * XREFs of MiGetPrototypePteBoundaries @ 0x1402C7664
  * Callers:
- *     MiMakeTransitionHeatBatch @ 0x1402CEB14 (MiMakeTransitionHeatBatch.c)
+ *     MiMakeTransitionHeatBatch @ 0x1402CEC14 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     MiObtainProtoBaseFromNode @ 0x1400961A4 (MiObtainProtoBaseFromNode.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPrototypePteBoundaries(unsigned __int64 a1, _QWORD *a2)

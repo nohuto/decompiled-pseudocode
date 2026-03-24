@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAllocateReserveObject @ 0x14041C5A0
+ * XREFs of ZwAllocateReserveObject @ 0x1403FB1E0
  * Callers:
  *     <none>
  * Callees:

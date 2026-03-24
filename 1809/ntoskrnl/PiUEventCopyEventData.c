@@ -4,7 +4,7 @@
  *     PiUEventHandleGetEvent @ 0x14059FA1C (PiUEventHandleGetEvent.c)
  * Callees:
  *     RtlStringCchLengthW @ 0x14000733C (RtlStringCchLengthW.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     _CmSetDeviceInterfacePathFormat @ 0x14059EAFC (_CmSetDeviceInterfacePathFormat.c)
  */
 

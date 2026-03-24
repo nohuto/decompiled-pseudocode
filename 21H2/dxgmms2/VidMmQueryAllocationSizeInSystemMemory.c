@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmQueryAllocationSizeInSystemMemory @ 0x1C0017B30
+ * XREFs of VidMmQueryAllocationSizeInSystemMemory @ 0x1C00149D0
  * Callers:
  *     <none>
  * Callees:
- *     ?QueryAllocationSizeInSystemMemory@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@E@Z @ 0x1C00A5424 (-QueryAllocationSizeInSystemMemory@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@E@Z.c)
+ *     ?QueryAllocationSizeInSystemMemory@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@E@Z @ 0x1C00896D8 (-QueryAllocationSizeInSystemMemory@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@E@Z.c)
  */
 
 unsigned __int64 __fastcall VidMmQueryAllocationSizeInSystemMemory(

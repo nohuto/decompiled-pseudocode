@@ -1,21 +1,21 @@
 /*
- * XREFs of KseShimDriverIoCallbacks @ 0x14075ECF4
+ * XREFs of KseShimDriverIoCallbacks @ 0x140758524
  * Callers:
- *     IopLoadDriver @ 0x14074A178 (IopLoadDriver.c)
- *     IopInitializeBuiltinDriver @ 0x140B11EBC (IopInitializeBuiltinDriver.c)
+ *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140A5E618 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     KsepPoolFreeNonPaged @ 0x1402D8AA0 (KsepPoolFreeNonPaged.c)
- *     KsepLogInfo @ 0x1403C09C8 (KsepLogInfo.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KsepDebugPrint @ 0x14057D738 (KsepDebugPrint.c)
- *     KsepPoolAllocateNonPaged @ 0x14057D9D4 (KsepPoolAllocateNonPaged.c)
- *     KsepStringFree @ 0x14075CDC4 (KsepStringFree.c)
- *     KsepStringDuplicateUnicode @ 0x14075CDF8 (KsepStringDuplicateUnicode.c)
- *     KsepGetShimCallbacksForDriver @ 0x14075EC70 (KsepGetShimCallbacksForDriver.c)
- *     KsepDriverPathTail @ 0x14075EE20 (KsepDriverPathTail.c)
+ *     KsepLogInfo @ 0x1403717A8 (KsepLogInfo.c)
+ *     KsepPoolFreeNonPaged @ 0x140371944 (KsepPoolFreeNonPaged.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
+ *     KsepPoolAllocateNonPaged @ 0x140527184 (KsepPoolAllocateNonPaged.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140758650 (KsepGetShimCallbacksForDriver.c)
+ *     KsepStringFree @ 0x14075B800 (KsepStringFree.c)
+ *     KsepStringDuplicateUnicode @ 0x14075B834 (KsepStringDuplicateUnicode.c)
+ *     KsepDriverPathTail @ 0x14075B9B4 (KsepDriverPathTail.c)
  */
 
-__int64 __fastcall KseShimDriverIoCallbacks(__int64 *a1, __int64 a2, const void **a3)
+__int64 __fastcall KseShimDriverIoCallbacks(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r14
   int ShimCallbacksForDriver; // edi
@@ -43,9 +43,9 @@ __int64 __fastcall KseShimDriverIoCallbacks(__int64 *a1, __int64 a2, const void 
   ShimCallbacksForDriver = 0;
   if ( a3 )
   {
-    if ( dword_140C54EF4 == 2 && (KseEngine & 1) == 0 )
+    if ( dword_140C505E4 == 2 && (KseEngine & 1) == 0 )
     {
-      ShimCallbacksForDriver = KsepStringDuplicateUnicode((__int64)v23, a3);
+      ShimCallbacksForDriver = KsepStringDuplicateUnicode(v23, a3);
       if ( ShimCallbacksForDriver >= 0 )
       {
         ShimCallbacksForDriver = KsepDriverPathTail(v23, &v23[2]);
@@ -125,7 +125,7 @@ __int64 __fastcall KseShimDriverIoCallbacks(__int64 *a1, __int64 a2, const void 
               KsepHistoryMessages[((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F] = 524550LL;
               if ( (KsepDebugFlag & 1) != 0 )
                 KsepDebugPrint(9LL, "KSE: Hooked callbacks for driver [%ws].\n", v23[1], v19, v23[0]);
-              KsepLogInfo(9, "KSE: Hooked callbacks for driver [%ws].\n", v23[1], v19, v23[0]);
+              KsepLogInfo(9LL, (__int64)"KSE: Hooked callbacks for driver [%ws].\n", v23[1], v19, v23[0]);
               goto LABEL_8;
             }
             ShimCallbacksForDriver = -1073741801;
@@ -135,12 +135,12 @@ __int64 __fastcall KseShimDriverIoCallbacks(__int64 *a1, __int64 a2, const void 
       KsepPoolFreeNonPaged(0LL);
     }
 LABEL_8:
-    KsepStringFree((__int64)v23);
+    KsepStringFree(v23);
     return (unsigned int)ShimCallbacksForDriver;
   }
   KsepHistoryMessages[((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F] = 524436LL;
   if ( (KsepDebugFlag & 1) != 0 )
     KsepDebugPrint(0LL, "KSE: Callback shimming - missing driver object or driver name.\n");
-  KsepLogInfo(0, "KSE: Callback shimming - missing driver object or driver name.\n");
+  KsepLogInfo(0LL, (__int64)"KSE: Callback shimming - missing driver object or driver name.\n");
   return 3221225485LL;
 }

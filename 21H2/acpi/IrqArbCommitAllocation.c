@@ -1,21 +1,21 @@
 /*
- * XREFs of IrqArbCommitAllocation @ 0x1C009A2E0
+ * XREFs of IrqArbCommitAllocation @ 0x1C0093900
  * Callers:
  *     <none>
  * Callees:
- *     IcCopyInputStateToDeviceState @ 0x1C0098F48 (IcCopyInputStateToDeviceState.c)
- *     IrqArbpSetDeviceProperties @ 0x1C0099084 (IrqArbpSetDeviceProperties.c)
- *     PcisuppIsPciDevice @ 0x1C009A5B0 (PcisuppIsPciDevice.c)
- *     PcisuppWriteIntLine @ 0x1C009A6E0 (PcisuppWriteIntLine.c)
- *     LinkNodeClearPossibleData @ 0x1C009B288 (LinkNodeClearPossibleData.c)
- *     ProcessorCopyData @ 0x1C009B4BC (ProcessorCopyData.c)
- *     ProcessorpClearData @ 0x1C009B828 (ProcessorpClearData.c)
- *     IcClearPossibleData @ 0x1C009B940 (IcClearPossibleData.c)
- *     IcRemapInputs @ 0x1C009BB28 (IcRemapInputs.c)
- *     LinkNodeCopyData @ 0x1C009C894 (LinkNodeCopyData.c)
- *     IrtRemapNewMsiAssignments @ 0x1C009C92C (IrtRemapNewMsiAssignments.c)
- *     LinkNodeWriteStateToHardware @ 0x1C009CB64 (LinkNodeWriteStateToHardware.c)
- *     IrtClearDeletedMsiMappings @ 0x1C009CBC8 (IrtClearDeletedMsiMappings.c)
+ *     LinkNodeCopyData @ 0x1C00922F4 (LinkNodeCopyData.c)
+ *     IrqArbpSetDeviceProperties @ 0x1C0092578 (IrqArbpSetDeviceProperties.c)
+ *     IcCopyInputStateToDeviceState @ 0x1C00937A0 (IcCopyInputStateToDeviceState.c)
+ *     PcisuppIsPciDevice @ 0x1C0093BD0 (PcisuppIsPciDevice.c)
+ *     PcisuppWriteIntLine @ 0x1C0093D00 (PcisuppWriteIntLine.c)
+ *     LinkNodeClearPossibleData @ 0x1C009429C (LinkNodeClearPossibleData.c)
+ *     ProcessorCopyData @ 0x1C00944E0 (ProcessorCopyData.c)
+ *     ProcessorpClearData @ 0x1C0094850 (ProcessorpClearData.c)
+ *     IcClearPossibleData @ 0x1C0094980 (IcClearPossibleData.c)
+ *     IcRemapInputs @ 0x1C00952A8 (IcRemapInputs.c)
+ *     IrtRemapNewMsiAssignments @ 0x1C0095CE0 (IrtRemapNewMsiAssignments.c)
+ *     LinkNodeWriteStateToHardware @ 0x1C0095F18 (LinkNodeWriteStateToHardware.c)
+ *     IrtClearDeletedMsiMappings @ 0x1C0095F7C (IrtClearDeletedMsiMappings.c)
  */
 
 __int64 __fastcall IrqArbCommitAllocation(__int64 a1)
@@ -96,7 +96,7 @@ __int64 __fastcall IrqArbCommitAllocation(__int64 a1)
   IsPciDevice = LinkNodeWriteStateToHardware();
   if ( IsPciDevice < 0 )
     goto LABEL_34;
-  IsPciDevice = LinkNodeCopyData(0LL);
+  IsPciDevice = LinkNodeCopyData(0);
   if ( IsPciDevice < 0 )
     goto LABEL_34;
   LinkNodeClearPossibleData();
@@ -120,19 +120,19 @@ __int64 __fastcall IrqArbCommitAllocation(__int64 a1)
             LOBYTE(Start_low) = 0;
           PcisuppWriteIntLine(v21->Owner, Start_low);
         }
-        if ( !v14 )
-          goto LABEL_29;
         k = v21;
       }
-      if ( (v14[1] & 1) != 0 )
+      if ( v14 )
       {
-        Iterator = v18;
-        IsPciDevice = IrqArbpSetDeviceProperties(k, (__int128 *)&Iterator);
-        if ( IsPciDevice < 0 )
-          goto LABEL_34;
+        if ( (v14[1] & 1) != 0 )
+        {
+          Iterator = v18;
+          IsPciDevice = IrqArbpSetDeviceProperties(k, (__int128 *)&Iterator);
+          if ( IsPciDevice < 0 )
+            goto LABEL_34;
+        }
       }
     }
-LABEL_29:
     RtlGetNextRange(&v18, &v21, 1u);
   }
   v16 = *(struct _RTL_RANGE_LIST **)(a1 + 40);
@@ -144,6 +144,6 @@ LABEL_29:
   LinkNodeClearPossibleData();
   if ( IsPciDevice < 0 )
 LABEL_34:
-    byte_1C0080908 = 0;
+    byte_1C0081748 = 0;
   return (unsigned int)IsPciDevice;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBMISC_LogResetTimeout @ 0x1C0033D34
+ * XREFs of HUBMISC_LogResetTimeout @ 0x1C0030C98
  * Callers:
- *     HUBDSM_LoggingResetTimeoutInResettingFor30 @ 0x1C0020B40 (HUBDSM_LoggingResetTimeoutInResettingFor30.c)
+ *     HUBDSM_LoggingResetTimeoutInResettingFor30 @ 0x1C001E2A0 (HUBDSM_LoggingResetTimeoutInResettingFor30.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBMISC_VerifierDbgBreak @ 0x1C0032EBC (HUBMISC_VerifierDbgBreak.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
  */
 
 char __fastcall HUBMISC_LogResetTimeout(__int64 a1)
@@ -13,7 +13,7 @@ char __fastcall HUBMISC_LogResetTimeout(__int64 a1)
   _UNKNOWN **v2; // rax
   _BYTE *v3; // rdx
 
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x100) != 0 )
+  if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
     McTemplateK0p_EtwWriteTransfer(
       a1,
       &USBHUB3_ETW_EVENT_DEVICE_ENUMERATION_RESET_TIMEOUT,
@@ -25,8 +25,8 @@ char __fastcall HUBMISC_LogResetTimeout(__int64 a1)
                    *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
                    2u,
                    5u,
-                   0x77u,
-                   (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids);
+                   0x76u,
+                   (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
   v3 = *(_BYTE **)(a1 + 8);
   *(_DWORD *)(a1 + 2432) = 1073807362;
   if ( (v3[184] & 1) != 0 )

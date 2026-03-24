@@ -1,18 +1,18 @@
 /*
- * XREFs of MmIsFileMapped @ 0x1409780D4
+ * XREFs of MmIsFileMapped @ 0x1408D1020
  * Callers:
- *     IopQueryProcessIdsUsingFile @ 0x140939830 (IopQueryProcessIdsUsingFile.c)
+ *     IopQueryProcessIdsUsingFile @ 0x140895A08 (IopQueryProcessIdsUsingFile.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x140280D08 (MiDereferenceControlAreaFile.c)
- *     MiUnlockVadShared @ 0x140280EF8 (MiUnlockVadShared.c)
- *     MiReferenceControlAreaFile @ 0x140281750 (MiReferenceControlAreaFile.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14030EA00 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14030EB30 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadDeleted @ 0x14030EB80 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x14030EBA0 (MiLockVadShared.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     MiUnlockVadShared @ 0x14025B10C (MiUnlockVadShared.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025B210 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x14025B344 (MiLockVadShared.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmIsFileMapped(_KPROCESS *a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -30,7 +30,7 @@ __int64 __fastcall MmIsFileMapped(_KPROCESS *a1, __int64 a2, __int64 a3, _DWORD 
   _QWORD *v14; // rcx
   __int64 *v15; // rax
   __int64 v16; // r14
-  unsigned __int64 v17; // rdx
+  ULONG_PTR v17; // rdx
   _OWORD v20[3]; // [rsp+28h] [rbp-70h] BYREF
 
   v4 = *(_QWORD *)(a2 + 40);
@@ -78,7 +78,7 @@ __int64 __fastcall MmIsFileMapped(_KPROCESS *a1, __int64 a2, __int64 a3, _DWORD 
           v13 = i;
         }
       }
-      if ( (*(_DWORD *)(v12 + 48) & 0x200000) == 0 )
+      if ( (*(_DWORD *)(v12 + 48) & 0x100000) == 0 )
       {
         MiLockVadShared((__int64)CurrentThread, v12);
         if ( !(unsigned int)MiVadDeleted(v12) )
@@ -94,7 +94,7 @@ __int64 __fastcall MmIsFileMapped(_KPROCESS *a1, __int64 a2, __int64 a3, _DWORD 
           }
         }
         MiUnlockVadShared((__int64)CurrentThread, v12);
-        if ( v5 )
+        if ( v5 == 1 )
           break;
       }
     }
@@ -102,7 +102,7 @@ __int64 __fastcall MmIsFileMapped(_KPROCESS *a1, __int64 a2, __int64 a3, _DWORD 
     v6 = (__int64)a1;
   }
   UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, v6);
-  if ( v8 )
-    KiUnstackDetachProcess((__int64)v20, 0LL);
+  if ( v8 == 1 )
+    KiUnstackDetachProcess((__int64)v20, 0);
   return v5;
 }

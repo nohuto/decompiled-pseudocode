@@ -1,46 +1,52 @@
 /*
- * XREFs of PopFreeSessionState @ 0x140682954
+ * XREFs of PopFreeSessionState @ 0x140778C60
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PopFreeRegistration @ 0x140682A04 (PopFreeRegistration.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PopFreeRegistration @ 0x140778D14 (PopFreeRegistration.c)
  */
 
 void __fastcall PopFreeSessionState(int a1)
 {
   unsigned int i; // edi
   _DWORD **v3; // rbx
-  _DWORD *j; // rax
+  _DWORD *v4; // rax
   int v5; // ecx
-  _QWORD *v6; // rcx
-  __int64 v7; // rsi
+  __int64 v6; // rsi
+  _QWORD *v7; // rcx
 
   ExAcquireFastMutex(&PopSettingLock);
   for ( i = 0; i < 2; ++i )
   {
     v3 = (_DWORD **)((char *)&PopSessionSpecificLists + 16 * i);
-    for ( j = *v3; j != (_DWORD *)v3; j = (_DWORD *)v7 )
+    v4 = *v3;
+    while ( v4 != (_DWORD *)v3 )
     {
-      v7 = *(_QWORD *)j;
-      if ( j[12] == a1 )
+      if ( v4[12] == a1 )
       {
-        v5 = j[13];
+        v5 = v4[13];
+        v6 = *(_QWORD *)v4;
         if ( (v5 & 2) != 0 )
         {
-          j[13] = v5 | 4;
+          v4[13] = v5 | 4;
         }
         else
         {
-          if ( *(_DWORD **)(v7 + 8) != j || (v6 = (_QWORD *)*((_QWORD *)j + 1), (_DWORD *)*v6 != j) )
+          if ( *(_DWORD **)(v6 + 8) != v4 || (v7 = (_QWORD *)*((_QWORD *)v4 + 1), (_DWORD *)*v7 != v4) )
             __fastfail(3u);
-          *v6 = v7;
-          *(_QWORD *)(v7 + 8) = v6;
-          PopFreeRegistration(j);
+          *v7 = v6;
+          *(_QWORD *)(v6 + 8) = v7;
+          PopFreeRegistration(v4);
         }
+        v4 = (_DWORD *)v6;
+      }
+      else
+      {
+        v4 = *(_DWORD **)v4;
       }
     }
   }
-  ExReleaseFastMutex(&PopSettingLock);
+  KeReleaseGuardedMutex(&PopSettingLock);
 }

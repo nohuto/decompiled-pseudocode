@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetIRTimer @ 0x1401BB310
+ * XREFs of ZwSetIRTimer @ 0x1401BB330
  * Callers:
  *     <none>
  * Callees:

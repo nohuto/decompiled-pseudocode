@@ -1,18 +1,17 @@
 /*
- * XREFs of ObpPushRefDerefInfo @ 0x140986190
+ * XREFs of ObpPushRefDerefInfo @ 0x1408DEB70
  * Callers:
- *     ObpPushStackInfo @ 0x1405C5EC8 (ObpPushStackInfo.c)
- *     ObpPushStackInfoQueue @ 0x1409863A0 (ObpPushStackInfoQueue.c)
+ *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
+ *     ObpPushStackInfoQueue @ 0x1408DED00 (ObpPushStackInfoQueue.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     ObpGetObjectRefInfo @ 0x140985CD8 (ObpGetObjectRefInfo.c)
- *     ObpGetTraceIndex @ 0x140985DE4 (ObpGetTraceIndex.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     ObpGetObjectRefInfo @ 0x1408DE674 (ObpGetObjectRefInfo.c)
+ *     ObpGetTraceIndex @ 0x1408DE788 (ObpGetTraceIndex.c)
+ *     ObpRefillWorkItemFreeList @ 0x1408DED84 (ObpRefillWorkItemFreeList.c)
  */
 
 char __fastcall ObpPushRefDerefInfo(
@@ -30,22 +29,18 @@ char __fastcall ObpPushRefDerefInfo(
   __int64 v14; // rcx
   __int64 v15; // rcx
   __int64 v16; // rdx
-  __int64 v17; // rdi
-  struct _SLIST_ENTRY *Pool2; // rax
-  struct _KTHREAD *v19; // rax
-  bool v20; // zf
-  unsigned __int16 *v22; // [rsp+20h] [rbp-38h] BYREF
+  unsigned __int16 *v18; // [rsp+20h] [rbp-28h] BYREF
 
-  v22 = 0LL;
+  v18 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&ObpStackTraceLock, 0LL);
   if ( (ObpTraceFlags & 0x73) != 0 )
   {
-    if ( (int)ObpGetObjectRefInfo(a1, &v22) >= 0 )
+    if ( (int)ObpGetObjectRefInfo(a1, &v18) >= 0 )
     {
-      v11 = v22;
-      if ( v22 )
+      v11 = v18;
+      if ( v18 )
       {
         TraceIndex = ObpGetTraceIndex(Source2);
         if ( TraceIndex >= 0x3FFDu )
@@ -71,40 +66,11 @@ char __fastcall ObpPushRefDerefInfo(
         }
       }
     }
-    v17 = 100LL;
     if ( LOWORD(ObpWorkItemFreeList.Alignment) < 0x64u )
-    {
-      do
-      {
-        Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(64LL, 176LL, 1951556175LL);
-        if ( Pool2 )
-          RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, Pool2);
-        --v17;
-      }
-      while ( v17 );
-    }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&ObpStackTraceLock);
-    KeAbPostRelease((ULONG_PTR)&ObpStackTraceLock);
-    v19 = KeGetCurrentThread();
-    v20 = v19->SpecialApcDisable++ == -1;
-    if ( v20 )
-    {
-LABEL_21:
-      v19 = (struct _KTHREAD *)((char *)v19 + 152);
-      if ( *(struct _KTHREAD **)&v19->Header.Lock != v19 )
-        LOBYTE(v19) = KiCheckForKernelApcDelivery();
-    }
+      ObpRefillWorkItemFreeList();
   }
-  else
-  {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&ObpStackTraceLock);
-    KeAbPostRelease((ULONG_PTR)&ObpStackTraceLock);
-    v19 = KeGetCurrentThread();
-    v20 = v19->SpecialApcDisable++ == -1;
-    if ( v20 )
-      goto LABEL_21;
-  }
-  return (char)v19;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&ObpStackTraceLock);
+  KeAbPostRelease((ULONG_PTR)&ObpStackTraceLock);
+  return KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
 }

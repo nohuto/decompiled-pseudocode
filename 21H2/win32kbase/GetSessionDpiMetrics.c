@@ -1,5 +1,5 @@
 /*
- * XREFs of GetSessionDpiMetrics @ 0x1C00AEC10
+ * XREFs of GetSessionDpiMetrics @ 0x1C009C480
  * Callers:
  *     <none>
  * Callees:

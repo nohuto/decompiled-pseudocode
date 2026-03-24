@@ -1,203 +1,179 @@
 /*
- * XREFs of CmpPromoteKey @ 0x140A2665C
+ * XREFs of CmpPromoteKey @ 0x140880318
  * Callers:
- *     CmDeleteLayeredKey @ 0x14061695C (CmDeleteLayeredKey.c)
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     CmpSetKeySecurity @ 0x14070C46C (CmpSetKeySecurity.c)
- *     CmDeleteValueKey @ 0x14070EFD4 (CmDeleteValueKey.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x140A15A64 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140A15F98 (CmSetLastWriteTimeKey.c)
+ *     CmDeleteLayeredKey @ 0x1404ECFB8 (CmDeleteLayeredKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1406DF334 (CmDeleteValueKey.c)
+ *     CmpSetKeySecurity @ 0x1406E6CFC (CmpSetKeySecurity.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x14086DCC8 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E18C (CmSetLastWriteTimeKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     CmpIsKeyStackDeleted @ 0x1406D3F5C (CmpIsKeyStackDeleted.c)
- *     CmpUnlockKcbStack @ 0x1406D5418 (CmpUnlockKcbStack.c)
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
- *     CmpStartKcbStack @ 0x1406D7DD0 (CmpStartKcbStack.c)
- *     CmpPopulateKcbStack @ 0x1406D7E10 (CmpPopulateKcbStack.c)
- *     CmpLockKcbStackTopExclusiveRestShared @ 0x14070FBF8 (CmpLockKcbStackTopExclusiveRestShared.c)
- *     CmpFullPromoteHiveRootFromKcbStack @ 0x140A25DB0 (CmpFullPromoteHiveRootFromKcbStack.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x140A269A0 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpStartKcbStack @ 0x140648AA0 (CmpStartKcbStack.c)
+ *     CmpUnlockKcbStack @ 0x140648B60 (CmpUnlockKcbStack.c)
+ *     CmpPopulateKcbStack @ 0x140648C10 (CmpPopulateKcbStack.c)
+ *     CmpIsKeyStackDeleted @ 0x140648C60 (CmpIsKeyStackDeleted.c)
+ *     CmpLockKcbStackTopExclusiveRestShared @ 0x1406E1E60 (CmpLockKcbStackTopExclusiveRestShared.c)
+ *     CmpFullPromoteHiveRootFromKcbStack @ 0x14087FE94 (CmpFullPromoteHiveRootFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x1408805CC (CmpPromoteSingleKeyFromKcbStacks.c)
  */
 
 __int64 __fastcall CmpPromoteKey(__int64 a1, char a2, char a3)
 {
   __int16 v3; // di
-  __int64 v4; // r13
-  __int16 v5; // dx
+  __int16 v4; // dx
+  __int64 v5; // r8
+  struct _LOOKASIDE_LIST_EX *v6; // r9
   int started; // ebx
-  bool v7; // di
-  unsigned int v8; // r15d
-  __int64 Pool; // rax
-  __int64 v10; // r14
+  __int64 v8; // r8
+  struct _LOOKASIDE_LIST_EX *v9; // r9
+  struct _LOOKASIDE_LIST_EX *v10; // r9
+  bool v11; // r15
+  unsigned int v12; // r14d
+  struct _PRIVILEGE_SET *TransientPoolWithTag; // rax
+  struct _PRIVILEGE_SET *v14; // r12
+  __int64 v15; // rdi
   __int64 i; // rsi
-  __int128 *v12; // rbx
-  __int128 *v13; // r12
-  signed __int64 *v14; // rbx
-  unsigned __int64 v15; // r14
-  int v16; // eax
-  __int64 v17; // rdi
+  __int128 *v17; // r12
   __int128 *v18; // r13
-  __int64 v19; // rsi
-  __int64 v20; // rcx
-  int v21; // eax
-  signed __int64 *v22; // r13
-  unsigned __int64 v23; // rbx
-  __int64 v24; // r8
-  signed __int64 *v25; // r13
-  unsigned __int64 v26; // rbx
-  int v27; // eax
-  __int64 v28; // rsi
-  __int128 *v29; // rax
-  struct _PRIVILEGE_SET *Privileges; // [rsp+20h] [rbp-58h]
-  __int128 v32; // [rsp+30h] [rbp-48h] BYREF
-  PPRIVILEGE_SET v33[2]; // [rsp+40h] [rbp-38h]
-  __int128 v34; // [rsp+50h] [rbp-28h] BYREF
-  PPRIVILEGE_SET v35[2]; // [rsp+60h] [rbp-18h]
-  __int128 *v36; // [rsp+C0h] [rbp+48h]
-  __int64 KcbAtLayerHeight; // [rsp+D8h] [rbp+60h]
+  __int64 v19; // rbx
+  int v20; // eax
+  __int64 v21; // rdi
+  __int64 v22; // rsi
+  __int64 v23; // rcx
+  int v24; // eax
+  __int64 v25; // r8
+  int v26; // eax
+  __int64 v27; // rsi
+  __int128 *v28; // rax
+  __int128 v30; // [rsp+30h] [rbp-48h] BYREF
+  PPRIVILEGE_SET v31[2]; // [rsp+40h] [rbp-38h]
+  __int128 v32; // [rsp+50h] [rbp-28h] BYREF
+  PPRIVILEGE_SET v33[2]; // [rsp+60h] [rbp-18h]
+  __int64 KcbAtLayerHeight; // [rsp+C0h] [rbp+48h]
+  struct _PRIVILEGE_SET *Privileges; // [rsp+D8h] [rbp+60h]
 
   v3 = *(_WORD *)(a1 + 2);
+  v30 = 0LL;
+  WORD1(v30) = -1;
   v32 = 0LL;
   WORD1(v32) = -1;
-  v34 = 0LL;
-  WORD1(v34) = -1;
+  *(_OWORD *)v31 = 0LL;
   *(_OWORD *)v33 = 0LL;
-  *(_OWORD *)v35 = 0LL;
   KcbAtLayerHeight = CmpGetKcbAtLayerHeight(a1, v3);
-  v4 = KcbAtLayerHeight;
-  started = CmpStartKcbStack((__int64)&v32, v5);
+  started = CmpStartKcbStack((__int64)&v30, v4, v5, v6);
   if ( started < 0 )
-    goto LABEL_47;
-  started = CmpStartKcbStack((__int64)&v34, v3);
+    goto LABEL_33;
+  started = CmpStartKcbStack((__int64)&v32, v3, v8, v9);
   if ( started < 0 )
-    goto LABEL_47;
-  v7 = 1;
-  v8 = ((*(_DWORD *)(KcbAtLayerHeight + 8) >> 21) & 0x3FF) + 1;
-  Pool = CmpAllocatePool(256LL, 8LL * v8, 926305603LL);
-  Privileges = (struct _PRIVILEGE_SET *)Pool;
-  if ( !Pool )
+    goto LABEL_33;
+  v11 = 1;
+  v12 = ((*(_DWORD *)(KcbAtLayerHeight + 8) >> 21) & 0x3FF) + 1;
+  TransientPoolWithTag = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithTag(
+                                                    PagedPool,
+                                                    8LL * v12,
+                                                    0x37364D43u,
+                                                    v10);
+  Privileges = TransientPoolWithTag;
+  v14 = TransientPoolWithTag;
+  if ( !TransientPoolWithTag )
   {
     started = -1073741670;
-    goto LABEL_47;
+    goto LABEL_33;
   }
-  LODWORD(v10) = v8;
-  for ( i = KcbAtLayerHeight; !_bittest((const signed __int32 *)(i + 184), 0x12u); i = *(_QWORD *)(i + 72) )
+  memset(TransientPoolWithTag, 0, 8LL * v12);
+  LODWORD(v15) = v12;
+  for ( i = KcbAtLayerHeight; (*(_DWORD *)(i + 184) & 0x40000) == 0; i = *(_QWORD *)(i + 72) )
   {
-    v10 = (*(_DWORD *)(i + 8) >> 21) & 0x3FF;
-    *(_QWORD *)(Pool + 8 * v10) = i;
+    v15 = (*(_DWORD *)(i + 8) >> 21) & 0x3FF;
+    *((_QWORD *)&v14->PrivilegeCount + v15) = i;
   }
-  v12 = &v34;
-  v36 = &v34;
-  v13 = &v32;
-  CmpPopulateKcbStack((__int64)&v34, i);
-  CmpLockKcbStackTopExclusiveRestShared((__int64)&v34);
-  if ( i != KcbAtLayerHeight )
+  v17 = &v30;
+  v18 = &v32;
+  CmpPopulateKcbStack((__int64)&v32, i);
+  CmpLockKcbStackTopExclusiveRestShared((__int64)&v32);
+  v19 = KcbAtLayerHeight;
+  if ( i == KcbAtLayerHeight )
   {
-    while ( 1 )
+    if ( a2 )
     {
-      if ( (unsigned int)v10 >= v8 )
-      {
-        v18 = v36;
-        goto LABEL_39;
-      }
-      v19 = *((_QWORD *)&Privileges->PrivilegeCount + (unsigned int)v10);
-      CmpPopulateKcbStack((__int64)v13, v19);
-      CmpLockKcbStackTopExclusiveRestShared(v20);
-      if ( CmpIsKeyStackDeleted((__int64)v13) )
-      {
-        v18 = v36;
-        started = -1073741444;
-LABEL_43:
-        CmpUnlockKcbStack((__int64)v13);
-LABEL_40:
-        if ( v7 )
-          goto LABEL_45;
-        goto LABEL_46;
-      }
-      v21 = *(_DWORD *)(v19 + 40);
-      if ( v19 == v4 )
-      {
-        if ( v21 != -1 && !a2 )
-          goto LABEL_36;
-        v25 = (signed __int64 *)(*(_QWORD *)(v19 + 32) + 72LL);
-        v26 = KeAbPreAcquire((__int64)v25, 0LL);
-        if ( _InterlockedCompareExchange64(v25, 17LL, 0LL) )
-          ExfAcquirePushLockSharedEx(v25, 0LL, v26, (__int64)v25);
-        if ( v26 )
-          *(_BYTE *)(v26 + 18) = 1;
-        LOBYTE(v24) = a2;
-      }
-      else
-      {
-        if ( v21 != -1 )
-          goto LABEL_36;
-        v22 = (signed __int64 *)(*(_QWORD *)(v19 + 32) + 72LL);
-        v23 = KeAbPreAcquire((__int64)v22, 0LL);
-        if ( _InterlockedCompareExchange64(v22, 17LL, 0LL) )
-          ExfAcquirePushLockSharedEx(v22, 0LL, v23, (__int64)v22);
-        if ( v23 )
-          *(_BYTE *)(v23 + 18) = 1;
-        v24 = 0LL;
-      }
-      v18 = v36;
-      v27 = CmpPromoteSingleKeyFromKcbStacks(v36, v13, v24);
-      v28 = *(_QWORD *)(v19 + 32);
-      started = v27;
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v28 + 72), 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)(v28 + 72));
-      KeAbPostRelease(v28 + 72);
+      ExAcquirePushLockSharedEx(*(_QWORD *)(i + 32) + 72LL, 0LL);
+      v20 = CmpFullPromoteHiveRootFromKcbStack((__int64)&v32);
+      v21 = *(_QWORD *)(i + 32);
+      started = v20;
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v21 + 72), 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared((signed __int64 *)(v21 + 72));
+      KeAbPostRelease(v21 + 72);
       if ( started < 0 )
-        goto LABEL_43;
-      v12 = v36;
-      v4 = KcbAtLayerHeight;
-LABEL_36:
-      CmpUnlockKcbStack((__int64)v12);
-      v29 = v13;
-      LODWORD(v10) = v10 + 1;
-      v13 = v12;
-      v36 = v29;
-      v12 = v29;
+        goto LABEL_31;
     }
-  }
-  if ( !a2 )
-    goto LABEL_16;
-  v14 = (signed __int64 *)(*(_QWORD *)(i + 32) + 72LL);
-  v15 = KeAbPreAcquire((__int64)v14, 0LL);
-  if ( _InterlockedCompareExchange64(v14, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v14, 0LL, v15, (__int64)v14);
-  if ( v15 )
-    *(_BYTE *)(v15 + 18) = 1;
-  v16 = CmpFullPromoteHiveRootFromKcbStack((__int64)&v34);
-  v17 = *(_QWORD *)(i + 32);
-  started = v16;
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v17 + 72), 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(v17 + 72));
-  KeAbPostRelease(v17 + 72);
-  if ( started >= 0 )
-  {
-LABEL_16:
-    v18 = &v34;
-LABEL_39:
+LABEL_29:
     started = 0;
-    v7 = a3 == 0;
-    goto LABEL_40;
+    v11 = a3 == 0;
+    goto LABEL_30;
   }
-  v18 = &v34;
-LABEL_45:
-  CmpUnlockKcbStack((__int64)v18);
-LABEL_46:
+  if ( (unsigned int)v15 >= v12 )
+    goto LABEL_29;
+  while ( 1 )
+  {
+    v22 = *((_QWORD *)&Privileges->PrivilegeCount + (unsigned int)v15);
+    CmpPopulateKcbStack((__int64)v17, v22);
+    CmpLockKcbStackTopExclusiveRestShared(v23);
+    if ( CmpIsKeyStackDeleted((__int64)v17, 0LL) )
+      break;
+    v24 = *(_DWORD *)(v22 + 40);
+    if ( v22 == v19 )
+    {
+      if ( v24 != -1 && !a2 )
+        goto LABEL_25;
+      ExAcquirePushLockSharedEx(*(_QWORD *)(v22 + 32) + 72LL, 0LL);
+      LOBYTE(v25) = a2;
+    }
+    else
+    {
+      if ( v24 != -1 )
+        goto LABEL_25;
+      ExAcquirePushLockSharedEx(*(_QWORD *)(v22 + 32) + 72LL, 0LL);
+      v25 = 0LL;
+    }
+    v26 = CmpPromoteSingleKeyFromKcbStacks(v18, v17, v25);
+    v27 = *(_QWORD *)(v22 + 32);
+    started = v26;
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v27 + 72), 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)(v27 + 72));
+    KeAbPostRelease(v27 + 72);
+    if ( started < 0 )
+      goto LABEL_28;
+    v19 = KcbAtLayerHeight;
+LABEL_25:
+    CmpUnlockKcbStack((__int64)v18);
+    v28 = v17;
+    LODWORD(v15) = v15 + 1;
+    v17 = v18;
+    v18 = v28;
+    if ( (unsigned int)v15 >= v12 )
+      goto LABEL_29;
+  }
+  started = -1073741444;
+LABEL_28:
+  CmpUnlockKcbStack((__int64)v17);
+LABEL_30:
+  if ( v11 )
+LABEL_31:
+    CmpUnlockKcbStack((__int64)v18);
   CmSiFreeMemory(Privileges);
-LABEL_47:
+LABEL_33:
+  if ( v31[1] )
+    CmSiFreeMemory(v31[1]);
   if ( v33[1] )
     CmSiFreeMemory(v33[1]);
-  if ( v35[1] )
-    CmSiFreeMemory(v35[1]);
   return (unsigned int)started;
 }

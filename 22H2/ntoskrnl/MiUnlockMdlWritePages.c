@@ -1,295 +1,191 @@
 /*
- * XREFs of MiUnlockMdlWritePages @ 0x1402D9B30
+ * XREFs of MiUnlockMdlWritePages @ 0x1402A6070
  * Callers:
- *     MiUnlockFlushMdl @ 0x14033EB10 (MiUnlockFlushMdl.c)
- *     MiFlushComplete @ 0x140635ED0 (MiFlushComplete.c)
+ *     MiUnlockFlushMdl @ 0x1402D7A68 (MiUnlockFlushMdl.c)
+ *     MiFlushComplete @ 0x14053D0A0 (MiFlushComplete.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiDecrementShareCount @ 0x140280690 (MiDecrementShareCount.c)
- *     MiCanBatchHardFaultPages @ 0x1402CDC60 (MiCanBatchHardFaultPages.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiEnqueuePageList @ 0x1402DAA10 (MiEnqueuePageList.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
- *     MiReleaseWriteInProgressCharges @ 0x1402F48D8 (MiReleaseWriteInProgressCharges.c)
- *     KeShouldYieldProcessor @ 0x140333AD0 (KeShouldYieldProcessor.c)
- *     MiHardFaultPageRelease @ 0x140334C08 (MiHardFaultPageRelease.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCanBatchSystemCacheUnmapPages @ 0x14062EB64 (MiCanBatchSystemCacheUnmapPages.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiWriteCompletePfn @ 0x1402A6310 (MiWriteCompletePfn.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSyncCommitSignals @ 0x1403BF584 (MiSyncCommitSignals.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRestockOverCommit @ 0x140550654 (MiRestockOverCommit.c)
  */
 
-__int64 __fastcall MiUnlockMdlWritePages(_DWORD *a1, int *a2)
+void __fastcall MiUnlockMdlWritePages(_QWORD *a1, unsigned __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  ULONG_PTR *v4; // r15
-  __int64 v5; // rcx
-  __int64 v6; // r13
-  __int64 v7; // rax
-  __int64 v8; // r14
-  unsigned __int64 v9; // r13
-  __int64 CurrentIrql; // rbx
-  __int64 v11; // rdi
-  ULONG_PTR v12; // r12
-  int v13; // esi
-  __int64 v14; // rbx
-  char v15; // al
-  bool v16; // zf
-  char v17; // al
-  int v18; // ecx
-  __int64 result; // rax
-  __int64 v20; // rdi
-  unsigned __int64 v21; // r9
-  struct _KPRCB *CurrentPrcb; // r8
+  _QWORD *v5; // rsi
+  __int64 v6; // rdx
+  unsigned int v7; // r13d
+  __int64 v8; // rbx
+  unsigned __int8 CurrentIrql; // r15
+  __int64 v10; // rbp
+  __int64 v11; // rcx
+  __int64 v12; // rdi
+  struct _KPRCB *v13; // rdx
+  __int64 CachedCommit; // r8
+  __int64 v15; // rcx
+  unsigned __int64 v16; // r9
+  struct _KPRCB *v17; // r8
   __int64 CachedResidentAvailable; // rdx
-  signed __int32 v24; // eax
-  _DWORD *SchedulerAssist; // r9
-  __int64 v26; // rdx
-  unsigned __int8 v27; // cl
-  _DWORD *v28; // r9
-  __int64 v29; // rdx
-  int CanBatchSystemCacheUnmapPages; // eax
-  unsigned __int8 v31; // cl
-  struct _KPRCB *v32; // rcx
-  _DWORD *v33; // r9
-  int v34; // edx
-  unsigned __int8 v35; // cl
-  struct _KPRCB *v36; // r9
-  _DWORD *v37; // r8
-  int v38; // eax
-  __int16 v39; // [rsp+28h] [rbp-69h]
-  _QWORD v40[14]; // [rsp+38h] [rbp-59h] BYREF
-  int v41; // [rsp+F8h] [rbp+67h] BYREF
-  __int64 v42; // [rsp+108h] [rbp+77h] BYREF
-  __int64 v43; // [rsp+110h] [rbp+7Fh]
+  bool v19; // zf
+  signed __int32 v20; // eax
+  unsigned __int64 v21; // rcx
+  unsigned __int64 v22; // rdx
+  unsigned __int64 v23; // rdx
+  unsigned __int64 OldIrql; // r14
+  unsigned __int8 v25; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *v27; // r9
+  int v28; // eax
+  unsigned __int8 v29; // al
+  struct _KPRCB *v30; // r10
+  int v31; // eax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-58h] BYREF
+  int v33; // [rsp+80h] [rbp+8h] BYREF
 
-  memset(v40, 0, 0x68uLL);
-  v4 = (ULONG_PTR *)(a1 + 12);
-  v5 = (a1[8] + a1[11]) & 0xFFF;
-  v6 = (unsigned int)a1[10] + 4095LL;
-  v7 = (*a2 >> 31) & 0x43;
-  LODWORD(v40[12]) = 1;
-  v42 = v7;
-  v40[2] = 0x3FFFFFFFFFLL;
-  v40[3] = 0x3FFFFFFFFFLL;
-  LODWORD(v40[1]) = 0;
-  v8 = 0LL;
-  v40[11] = 0LL;
-  v9 = (unsigned __int64)(v5 + v6) >> 12;
-  CurrentIrql = KeGetCurrentIrql();
-  v43 = CurrentIrql;
-  __writecr8(2uLL);
-  v11 = LOBYTE(v40[11]) - 1LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (unsigned __int64)a1 < a2 )
   {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( (_BYTE)CurrentIrql == 2 )
-      LODWORD(v26) = 4;
-    else
-      v26 = (v11 << ((unsigned __int8)CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v26;
-  }
-  if ( v9 )
-  {
-    v39 = __ROL8__(1LL, (unsigned __int8)CurrentIrql + 1);
-    while ( 1 )
+    v5 = a1;
+    v6 = 2LL;
+    v7 = *(_DWORD *)a3 >> 31;
+    do
     {
-      v12 = *v4;
-      v13 = v40[12];
-      v14 = 48 * *v4 - 0x220000000000LL;
-      if ( LODWORD(v40[12]) == 3 )
+      v8 = 48LL * *v5 - 0x58000000000LL;
+      CurrentIrql = KeGetCurrentIrql();
+      __writecr8(2uLL);
+      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
-LABEL_70:
-        v18 = 1;
-LABEL_15:
-        if ( !v40[0] )
+        SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+        v6 = (-1LL << (CurrentIrql + 1)) & 4;
+        a3 = (unsigned int)v6 | SchedulerAssist[5];
+        SchedulerAssist[5] = a3;
+      }
+      v33 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v8 + 24), 0x3FuLL) )
+      {
+        do
+          KeYieldProcessorEx(&v33, v6, a3, (__int64)SchedulerAssist);
+        while ( *(__int64 *)(v8 + 24) < 0 );
+      }
+      v10 = 1LL;
+      v11 = (*(_QWORD *)(v8 + 40) >> 39) & 0x3FFLL;
+      memset(&LockHandle, 0, sizeof(LockHandle));
+      v12 = *(_QWORD *)(qword_140C4E648 + 8 * v11);
+      if ( !*(_QWORD *)(v12 + 6264) )
+        goto LABEL_56;
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v12 + 6248), &LockHandle);
+      v10 = MiRestockOverCommit(v12, 1LL);
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      OldIrql = LockHandle.OldIrql;
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          if ( (*(_BYTE *)(v14 + 34) & 0x10) != 0 )
-            LODWORD(v40[1]) = 3;
-          else
-            LODWORD(v40[1]) = 2;
-        }
-        if ( v18 == 1 )
-        {
-          MiEnqueuePageList(v40, v12);
-          goto LABEL_18;
-        }
-        MiInsertPagesInList(v40, 1LL);
-        if ( v13 )
-        {
-          if ( v13 == 2 )
+          v25 = KeGetCurrentIrql();
+          if ( v25 <= 0xFu && LockHandle.OldIrql <= 0xFu && v25 >= 2u )
           {
-            MiHardFaultPageRelease(&v42, v14);
+            CurrentPrcb = KeGetCurrentPrcb();
+            v27 = CurrentPrcb->SchedulerAssist;
+            v28 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v19 = (v28 & v27[5]) == 0;
+            v27[5] &= v28;
+            if ( v19 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
-          else
+        }
+      }
+      __writecr8(OldIrql);
+      if ( v10 )
+      {
+LABEL_56:
+        if ( (ULONG_PTR *)v12 == &MiSystemPartition
+          && (v13 = KeGetCurrentPrcb(),
+              _m_prefetchw((const void *)&v13->CachedCommit),
+              CachedCommit = v13->CachedCommit,
+              (unsigned __int64)(v10 + CachedCommit) <= 0x100) )
+        {
+          while ( 1 )
           {
-            MiReleaseWriteInProgressCharges(
-              *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(v14 + 40) >> 43) & 0x3FFLL)),
-              1LL,
-              1LL);
-            MiPfnReferenceCountIsZero(v14, v12);
+            v15 = _InterlockedCompareExchange(
+                    (volatile signed __int32 *)&v13->CachedCommit,
+                    CachedCommit + v10,
+                    CachedCommit);
+            if ( v15 == CachedCommit )
+              break;
+            CachedCommit = v15;
+            if ( (unsigned __int64)(v15 + v10) > 0x100 )
+              goto LABEL_16;
           }
         }
         else
         {
-          MiDecrementShareCount(v14);
+LABEL_16:
+          v21 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v12 + 7464), -v10);
+          v22 = *(_QWORD *)(v12 + 6240);
+          if ( v21 >= v22 && v21 - v10 < v22 || (v23 = *(_QWORD *)(v12 + 6232), v21 >= v23) && v21 - v10 < v23 )
+            MiSyncCommitSignals(v12, 0LL);
         }
-        goto LABEL_76;
       }
-      if ( v40[0] )
+      v16 = 1LL;
+      if ( (ULONG_PTR *)v12 != &MiSystemPartition )
+        goto LABEL_23;
+      v17 = KeGetCurrentPrcb();
+      CachedResidentAvailable = (int)v17->CachedResidentAvailable;
+      if ( (_DWORD)CachedResidentAvailable == -1 )
+        goto LABEL_23;
+      if ( (unsigned __int64)(CachedResidentAvailable + 1) <= 0x100 )
       {
-        while ( _interlockedbittestandset64((volatile signed __int32 *)(v14 + 24), 0x3FuLL) )
+        do
         {
-          MiInsertPagesInList(v40, 0LL);
-          if ( !v40[0] )
-            goto LABEL_30;
+          v20 = _InterlockedCompareExchange(
+                  (volatile signed __int32 *)&v17->CachedResidentAvailable,
+                  CachedResidentAvailable + 1,
+                  CachedResidentAvailable);
+          v19 = (_DWORD)CachedResidentAvailable == v20;
+          LODWORD(CachedResidentAvailable) = v20;
+          if ( v19 )
+            goto LABEL_13;
         }
+        while ( v20 != -1 && (unsigned __int64)(v20 + 1LL) <= 0x100 );
       }
-      else
+      if ( (int)CachedResidentAvailable > 192
+        && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
+                                                (volatile signed __int32 *)&v17->CachedResidentAvailable,
+                                                192,
+                                                CachedResidentAvailable) )
       {
-LABEL_30:
-        v41 = 0;
-        while ( _interlockedbittestandset64((volatile signed __int32 *)(v14 + 24), 0x3FuLL) )
-        {
-          do
-            KeYieldProcessorEx(&v41);
-          while ( *(__int64 *)(v14 + 24) < 0 );
-        }
+        v16 = (int)CachedResidentAvailable - 192 + 1LL;
       }
-      if ( v13 != 1 )
-      {
-        switch ( v13 )
-        {
-          case 0:
-            CanBatchSystemCacheUnmapPages = MiCanBatchSystemCacheUnmapPages(&v42, v14);
-LABEL_64:
-            v18 = CanBatchSystemCacheUnmapPages;
-            if ( CanBatchSystemCacheUnmapPages )
-              goto LABEL_15;
-            goto LABEL_23;
-          case 2:
-            CanBatchSystemCacheUnmapPages = MiCanBatchHardFaultPages(&v42, v14);
-            goto LABEL_64;
-          case 3:
-            goto LABEL_70;
-        }
-      }
-      v15 = *(_BYTE *)(v14 + 34) & 0xF7;
-      v16 = (v42 & 0x42) == 0;
-      *(_BYTE *)(v14 + 34) = v15;
-      if ( !v16 )
-        *(_BYTE *)(v14 + 34) = v15 | 0x10;
-      v16 = (*(_WORD *)(v14 + 32))-- == 1;
       if ( v16 )
-      {
-        if ( (*(_QWORD *)(v14 + 24) & 0x4000000000000000LL) != 0
-          || (v17 = *(_BYTE *)(v14 + 35), (v17 & 0x40) != 0)
-          || (v17 & 0x10) != 0 )
-        {
-          v18 = 2;
-        }
-        else
-        {
-          v18 = 1;
-        }
-        goto LABEL_15;
-      }
 LABEL_23:
-      if ( v13 == 1 )
+        _InterlockedExchangeAdd64((volatile signed __int64 *)(v12 + 7168), v16);
+LABEL_13:
+      MiWriteCompletePfn(v8, v7);
+      _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( KiIrqlFlags )
       {
-        v20 = *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(v14 + 40) >> 43) & 0x3FFLL));
-        MiReturnCommit(v20, 1LL);
-        v21 = 1LL;
-        if ( (_UNKNOWN *)v20 != &MiSystemPartition )
-          goto LABEL_38;
-        CurrentPrcb = KeGetCurrentPrcb();
-        CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
-        if ( (_DWORD)CachedResidentAvailable == -1 )
-          goto LABEL_38;
-        if ( (unsigned __int64)(CachedResidentAvailable + 1) <= 0x100 )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          do
+          v29 = KeGetCurrentIrql();
+          if ( v29 <= 0xFu && CurrentIrql <= 0xFu && v29 >= 2u )
           {
-            v24 = _InterlockedCompareExchange(
-                    (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                    CachedResidentAvailable + 1,
-                    CachedResidentAvailable);
-            v16 = (_DWORD)CachedResidentAvailable == v24;
-            LODWORD(CachedResidentAvailable) = v24;
-            if ( v16 )
-              goto LABEL_76;
-          }
-          while ( v24 != -1 && (unsigned __int64)(v24 + 1LL) <= 0x100 );
-        }
-        if ( (int)CachedResidentAvailable > 192
-          && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                                  (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                                  192,
-                                                  CachedResidentAvailable) )
-        {
-          v21 = (int)CachedResidentAvailable - 192 + 1LL;
-        }
-        if ( v21 )
-LABEL_38:
-          _InterlockedExchangeAdd64((volatile signed __int64 *)(v20 + 17280), v21);
-      }
-LABEL_76:
-      _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-LABEL_18:
-      if ( (++v8 & 0x3F) == 0 && KeShouldYieldProcessor() )
-      {
-        MiInsertPagesInList(v40, 0LL);
-        if ( KiIrqlFlags )
-        {
-          v31 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v43 <= 0xFu && v31 >= 2u )
-          {
-            v32 = KeGetCurrentPrcb();
-            v33 = v32->SchedulerAssist;
-            v34 = ~(unsigned __int16)-v39;
-            v16 = (v34 & v33[5]) == 0;
-            v33[5] &= v34;
-            if ( v16 )
-              KiRemoveSystemWorkPriorityKick(v32);
+            v30 = KeGetCurrentPrcb();
+            SchedulerAssist = v30->SchedulerAssist;
+            v31 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v19 = (v31 & SchedulerAssist[5]) == 0;
+            a3 = (unsigned int)v31 & SchedulerAssist[5];
+            SchedulerAssist[5] = a3;
+            if ( v19 )
+              KiRemoveSystemWorkPriorityKick(v30);
           }
         }
-        __writecr8((unsigned __int8)v43);
-        v27 = KeGetCurrentIrql();
-        __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
-        {
-          v28 = KeGetCurrentPrcb()->SchedulerAssist;
-          if ( v27 == 2 )
-            LODWORD(v29) = 4;
-          else
-            v29 = (-1LL << (v27 + 1)) & 4;
-          v28[5] |= v29;
-        }
       }
-      ++v4;
-      if ( !--v9 )
-      {
-        LOBYTE(CurrentIrql) = v43;
-        v11 = -1LL;
-        break;
-      }
+      __writecr8(CurrentIrql);
+      ++v5;
+      v6 = 2LL;
     }
+    while ( (unsigned __int64)v5 < a2 );
   }
-  MiInsertPagesInList(v40, 0LL);
-  if ( KiIrqlFlags )
-  {
-    v35 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v35 >= 2u )
-    {
-      v36 = KeGetCurrentPrcb();
-      v37 = v36->SchedulerAssist;
-      v38 = ~(unsigned __int16)(v11 << ((unsigned __int8)CurrentIrql + 1));
-      v16 = (v38 & v37[5]) == 0;
-      v37[5] &= v38;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick(v36);
-    }
-  }
-  result = (unsigned __int8)CurrentIrql;
-  __writecr8((unsigned __int8)CurrentIrql);
-  return result;
 }

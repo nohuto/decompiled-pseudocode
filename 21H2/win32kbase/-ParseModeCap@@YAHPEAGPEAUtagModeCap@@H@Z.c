@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z @ 0x1C0069A20
+ * XREFs of ?ParseModeCap@@YAHPEAGPEAUtagModeCap@@H@Z @ 0x1C0091080
  * Callers:
- *     ?GetMonitorCapabilityFromInf@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@E@Z @ 0x1C00696F8 (-GetMonitorCapabilityFromInf@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@E@Z.c)
+ *     ?GetMonitorCapabilityFromInf@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@E@Z @ 0x1C0090D58 (-GetMonitorCapabilityFromInf@@YAKPEAU_DEVICE_OBJECT@@PEAUtagModeCap@@E@Z.c)
  * Callees:
- *     ?xwtol@@YAKPEBG@Z @ 0x1C0069AF8 (-xwtol@@YAKPEBG@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     wcschr @ 0x1C00D5E68 (wcschr.c)
+ *     ?xwtol@@YAKPEBG@Z @ 0x1C0091158 (-xwtol@@YAKPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     wcschr @ 0x1C00C50C0 (wcschr.c)
  */
 
 __int64 __fastcall ParseModeCap(unsigned __int16 *a1, struct tagModeCap *a2, int a3)

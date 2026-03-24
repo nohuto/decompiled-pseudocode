@@ -1,18 +1,17 @@
 /*
- * XREFs of ?AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@Z @ 0x1C0301DD4
+ * XREFs of ?AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@Z @ 0x1C02619C8
  * Callers:
- *     ?DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C02B9F98 (-DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
- *     ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036E6A0 (-VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C020B958 (-DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0241F70 (-VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0019BFC (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00444BC (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     ?RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0051240 (-RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     ?InsertTail@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0303AF4 (-InsertTail@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C00046F8 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C000C680 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0038E5C (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0040F28 (-RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?InsertTail@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C02634CC (-InsertTail@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
  */
 
 __int64 __fastcall DXG_REGISTRY_KEY_LIST::AppendSubKeys(
@@ -22,63 +21,60 @@ __int64 __fastcall DXG_REGISTRY_KEY_LIST::AppendSubKeys(
         struct _UNICODE_STRING *a4)
 {
   ULONG MaxNameLen; // eax
-  ULONG v7; // ebx
+  ULONG v5; // edi
+  __int64 v8; // rbx
   ULONG Length; // r15d
-  __int64 v9; // rdi
-  wchar_t *v10; // rsi
+  unsigned __int16 *v10; // rsi
   NTSTATUS v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
   int inserted; // eax
-  const wchar_t *v13; // r9
-  int v15; // [rsp+50h] [rbp-B0h] BYREF
-  ULONG ResultLength; // [rsp+54h] [rbp-ACh] BYREF
-  struct _UNICODE_STRING v17; // [rsp+58h] [rbp-A8h] BYREF
-  struct _UNICODE_STRING v18; // [rsp+68h] [rbp-98h] BYREF
-  HANDLE KeyHandle; // [rsp+78h] [rbp-88h]
-  struct _UNICODE_STRING *v20; // [rsp+80h] [rbp-80h]
-  char v21; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v15; // rax
+  int v17; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG ResultLength; // [rsp+34h] [rbp-CCh] BYREF
+  struct _UNICODE_STRING v19; // [rsp+38h] [rbp-C8h] BYREF
+  struct _UNICODE_STRING v20; // [rsp+48h] [rbp-B8h] BYREF
+  HANDLE KeyHandle; // [rsp+58h] [rbp-A8h]
+  struct _UNICODE_STRING *v22; // [rsp+60h] [rbp-A0h]
+  char v23; // [rsp+70h] [rbp-90h] BYREF
 
   MaxNameLen = a3->MaxNameLen;
+  v5 = 0;
+  v22 = a4;
   KeyHandle = a2;
-  v7 = 0;
-  v20 = a4;
+  LODWORD(v8) = 0;
   Length = 2 * MaxNameLen + 24;
-  LODWORD(v9) = 0;
-  v10 = (wchar_t *)operator new[](Length, 0x4B677844u, 256LL, (__int64)a4);
-  v17.Buffer = (wchar_t *)&v21;
-  v15 = *(_DWORD *)L"\\";
-  v18.Buffer = (wchar_t *)&v15;
-  *(_QWORD *)&v17.Length = 34078720LL;
-  *(_QWORD *)&v18.Length = 262146LL;
+  v10 = (unsigned __int16 *)operator new(Length, 0x4B677844u, 1, PagedPool);
+  v19.Buffer = (wchar_t *)&v23;
+  v17 = *(_DWORD *)L"\\";
+  v20.Buffer = (wchar_t *)&v17;
+  *(_QWORD *)&v19.Length = 34078720LL;
+  *(_QWORD *)&v20.Length = 262146LL;
   if ( a3->SubKeys )
   {
     while ( 1 )
     {
       memset(v10, 0, Length);
       ResultLength = 0;
-      v11 = ZwEnumerateKey(KeyHandle, v7, KeyBasicInformation, v10, Length, &ResultLength);
-      v9 = v11;
+      v11 = ZwEnumerateKey(KeyHandle, v5, KeyBasicInformation, v10, Length, &ResultLength);
+      v8 = v11;
       if ( v11 < 0 )
         break;
-      RtlUnicodeStringCopy(&v17, v20);
-      RtlUnicodeStringCat(&v17, &v18);
-      RtlUnicodeStringCatString(&v17, v10 + 8);
-      inserted = DXG_REGISTRY_KEY_LIST::InsertTail(this, &v17);
-      v9 = inserted;
+      RtlUnicodeStringCopy(&v19, v22);
+      RtlUnicodeStringCat(&v19, &v20);
+      RtlUnicodeStringCatString(&v19, v10 + 8);
+      inserted = DXG_REGISTRY_KEY_LIST::InsertTail(this, &v19);
+      v8 = inserted;
       if ( inserted < 0 )
-      {
-        WdLogSingleEntry1(2LL, inserted);
-        v13 = L"Failed to insert SubKeyRegistryPath into list for AppendSubKeys (status = 0x%I64x).";
-        goto LABEL_8;
-      }
-      if ( ++v7 >= a3->SubKeys )
-        goto LABEL_9;
+        break;
+      if ( ++v5 >= a3->SubKeys )
+        goto LABEL_7;
     }
-    WdLogSingleEntry1(2LL, v11);
-    v13 = L"Failed to Enumerate Subkeys for AppendSubKeys (status = 0x%I64x).";
-LABEL_8:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v13, v9, 0LL, 0LL, 0LL, 0LL);
+    v15 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v15 + 24) = v8;
+    WdLogEvent5_WdError(v15);
   }
-LABEL_9:
+LABEL_7:
   operator delete[](v10);
-  return (unsigned int)v9;
+  return (unsigned int)v8;
 }

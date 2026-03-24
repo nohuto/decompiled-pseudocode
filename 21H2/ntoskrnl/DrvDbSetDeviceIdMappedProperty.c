@@ -1,99 +1,103 @@
 /*
- * XREFs of DrvDbSetDeviceIdMappedProperty @ 0x140A2F964
+ * XREFs of DrvDbSetDeviceIdMappedProperty @ 0x140734DA0
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x1407880F0 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDeviceId @ 0x1406C4020 (DrvDbDispatchDeviceId.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     DrvDbSetRegValueMappedProperty @ 0x14081D304 (DrvDbSetRegValueMappedProperty.c)
- *     DrvDbOpenDeviceIdRegKey @ 0x140A2F540 (DrvDbOpenDeviceIdRegKey.c)
- *     DrvDbSetDeviceIdDriverInfMatches @ 0x140A2F5D0 (DrvDbSetDeviceIdDriverInfMatches.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x14072E35C (DrvDbSetRegValueMappedProperty.c)
+ *     DrvDbSetDeviceIdDriverInfMatches @ 0x140734EF0 (DrvDbSetDeviceIdDriverInfMatches.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140735174 (DrvDbOpenDeviceIdRegKey.c)
  */
 
-__int64 __fastcall DrvDbSetDeviceIdMappedProperty(
-        __int64 *a1,
-        __int64 a2,
-        void *a3,
-        __int64 a4,
-        int a5,
-        int *a6,
-        ULONG a7)
+__int64 __fastcall DrvDbSetDeviceIdMappedProperty(int a1, int a2, void *a3, __int64 a4, int a5, __int64 a6, ULONG a7)
 {
-  int v9; // r9d
-  HANDLE v10; // rcx
-  __int64 v13; // rax
-  unsigned int v14; // ebx
-  __int64 v15; // rdx
-  int v16; // esi
-  int v17; // eax
-  __int64 v18; // rax
-  const wchar_t *v19; // r8
-  unsigned int v20; // eax
+  int v7; // r11d
+  HANDLE v8; // r10
+  __int64 v13; // rdx
+  __int64 **i; // r8
+  __int64 *v15; // r9
+  __int64 v16; // rcx
+  __int64 v17; // rcx
+  __int64 **v18; // rbp
+  int v19; // edi
+  int v20; // eax
+  unsigned int v21; // ebx
+  __int64 v22; // rax
+  NTSTATUS v23; // eax
+  __int64 v25; // rax
   HANDLE Handle; // [rsp+68h] [rbp+20h] BYREF
 
-  v9 = *(_DWORD *)(a4 + 16);
-  v10 = 0LL;
+  v7 = *(_DWORD *)(a4 + 16);
+  v8 = 0LL;
   Handle = 0LL;
-  if ( v9 == 2 )
+  if ( v7 == 2 )
   {
-    v13 = *(_QWORD *)a4 - DEVPKEY_DeviceId_DriverInfNames;
+    v25 = *(_QWORD *)a4 - DEVPKEY_DeviceId_DriverInfNames;
     if ( *(_QWORD *)a4 == DEVPKEY_DeviceId_DriverInfNames )
-      v13 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
-    if ( !v13 )
+      v25 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
+    if ( !v25 )
       return (unsigned int)-1073741790;
   }
-  if ( *((_DWORD *)&DEVPKEY_DeviceId_DriverInfMatches + 4) != v9 )
+  v13 = 0LL;
+  for ( i = &off_140005168; ; i += 5 )
+  {
+    v15 = *i;
+    if ( *((_DWORD *)*i + 4) == v7 )
+    {
+      v16 = *v15 - *(_QWORD *)a4;
+      if ( *v15 == *(_QWORD *)a4 )
+        v16 = v15[1] - *(_QWORD *)(a4 + 8);
+      if ( !v16 )
+        break;
+    }
+    v13 = (unsigned int)(v13 + 1);
+    if ( (_DWORD)v13 )
+      return (unsigned int)-1073741802;
+  }
+  v17 = 5 * v13;
+  v18 = &(&off_140005168)[5 * v13];
+  if ( !v18 )
     return (unsigned int)-1073741802;
-  v15 = DEVPKEY_DeviceId_DriverInfMatches - *(_QWORD *)a4;
-  if ( DEVPKEY_DeviceId_DriverInfMatches == *(_QWORD *)a4 )
-    v15 = *(&DEVPKEY_DeviceId_DriverInfMatches + 1) - *(_QWORD *)(a4 + 8);
-  if ( v15 || !&off_14000AE78 )
-    return (unsigned int)-1073741802;
-  v16 = a5;
-  if ( a5 != *((_DWORD *)&off_14000AE78 + 2) && a5 )
+  v19 = a5;
+  if ( a5 != *((_DWORD *)v18 + 2) && a5 )
     return (unsigned int)-1073741811;
-  if ( a3 || (v17 = DrvDbOpenDeviceIdRegKey(a1, a2, 3, 0, (__int64)&Handle, 0LL), v10 = Handle, v14 = v17, v17 >= 0) )
+  if ( a3 || (v20 = DrvDbOpenDeviceIdRegKey(a1, a2, 3, 0, (__int64)&Handle, 0LL), v8 = Handle, v21 = v20, v20 >= 0) )
   {
     if ( *(_DWORD *)(a4 + 16) != 3 )
-      goto LABEL_30;
-    v18 = *(_QWORD *)a4 - DEVPKEY_DeviceId_DriverInfMatches;
+      goto LABEL_38;
+    v22 = *(_QWORD *)a4 - DEVPKEY_DeviceId_DriverInfMatches;
     if ( *(_QWORD *)a4 == DEVPKEY_DeviceId_DriverInfMatches )
-      v18 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
-    if ( v18 )
+      v22 = *(_QWORD *)(a4 + 8) + 0x4524B8338B5D1E6CLL;
+    if ( v22 )
     {
-LABEL_30:
+LABEL_38:
       if ( a3 )
-        v10 = a3;
-      v20 = DrvDbSetRegValueMappedProperty((__int64)v10, v10, (__int64)&off_14000AE78, v16, a6, a7);
+        v8 = a3;
+      v23 = DrvDbSetRegValueMappedProperty(v17, v8, (__int64)v18, v19, a6, a7);
+      goto LABEL_21;
     }
-    else
+    if ( v19 == 8210 )
     {
-      if ( v16 == 8210 )
+      if ( a6 && a7 )
       {
-        v19 = (const wchar_t *)a6;
-        if ( !a6 || !a7 )
-        {
-LABEL_23:
-          v14 = -1073741811;
-          goto LABEL_34;
-        }
+LABEL_18:
+        if ( a3 )
+          v8 = a3;
+        v23 = DrvDbSetDeviceIdDriverInfMatches(v17, v8);
+LABEL_21:
+        v8 = Handle;
+        v21 = v23;
+        goto LABEL_22;
       }
-      else
-      {
-        if ( v16 )
-          goto LABEL_23;
-        v19 = (const wchar_t *)a6;
-        if ( a6 || a7 )
-          goto LABEL_23;
-      }
-      if ( a3 )
-        v10 = a3;
-      v20 = DrvDbSetDeviceIdDriverInfMatches((__int64)v10, v10, v19);
     }
-    v10 = Handle;
-    v14 = v20;
+    else if ( !v19 && !a6 && !a7 )
+    {
+      goto LABEL_18;
+    }
+    v21 = -1073741811;
   }
-LABEL_34:
-  if ( v10 )
-    ZwClose(v10);
-  return v14;
+LABEL_22:
+  if ( v8 )
+    ZwClose(v8);
+  return v21;
 }

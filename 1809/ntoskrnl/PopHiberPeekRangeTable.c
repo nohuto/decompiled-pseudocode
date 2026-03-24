@@ -15,7 +15,7 @@ __int64 __fastcall PopHiberPeekRangeTable(int a1, int a2, __int64 a3)
                                        a1,
                                        a2,
                                        (unsigned int)&v5,
-                                       (_DWORD)qword_140417AB8,
+                                       (_DWORD)qword_1404178B8,
                                        a3,
                                        0);
   return ((*ProducerConsumerBuffer >> 8) & 0x3FFFFF) + 8 * (unsigned int)(unsigned __int8)*ProducerConsumerBuffer + 4;

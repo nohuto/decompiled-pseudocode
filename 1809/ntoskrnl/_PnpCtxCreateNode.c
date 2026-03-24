@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpCtxCreateNode @ 0x14073B93C
+ * XREFs of _PnpCtxCreateNode @ 0x14073B91C
  * Callers:
- *     _PnpCtxOpenMachine @ 0x14073B6EC (_PnpCtxOpenMachine.c)
- *     _PnpCtxRegisterMachineNode @ 0x1408F5F3C (_PnpCtxRegisterMachineNode.c)
+ *     _PnpCtxOpenMachine @ 0x14073B6CC (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegisterMachineNode @ 0x1408F5F1C (_PnpCtxRegisterMachineNode.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCreateUnicodeString @ 0x14065AA30 (RtlCreateUnicodeString.c)
- *     _SysCtxOpenMachine @ 0x14073BA88 (_SysCtxOpenMachine.c)
- *     _SysCtxCloseMachine @ 0x1408FFEE0 (_SysCtxCloseMachine.c)
+ *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
+ *     _SysCtxOpenMachine @ 0x14073BA68 (_SysCtxOpenMachine.c)
+ *     _SysCtxCloseMachine @ 0x1408FFEC0 (_SysCtxCloseMachine.c)
  */
 
 __int64 __fastcall PnpCtxCreateNode(

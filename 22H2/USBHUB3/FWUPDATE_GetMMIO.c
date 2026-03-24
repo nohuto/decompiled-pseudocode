@@ -1,11 +1,11 @@
 /*
- * XREFs of FWUPDATE_GetMMIO @ 0x1C0040B14
+ * XREFs of FWUPDATE_GetMMIO @ 0x1C003E844
  * Callers:
- *     HUBHSM_ReadingUsb4DromStatus @ 0x1C0009FD0 (HUBHSM_ReadingUsb4DromStatus.c)
- *     HUBHSM_ReadingUsb4DromDwordOffset @ 0x1C000A320 (HUBHSM_ReadingUsb4DromDwordOffset.c)
+ *     HUBHSM_ReadingUsb4DromStatus @ 0x1C0009810 (HUBHSM_ReadingUsb4DromStatus.c)
+ *     HUBHSM_ReadingUsb4DromDwordOffset @ 0x1C0009B60 (HUBHSM_ReadingUsb4DromDwordOffset.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBMISC_ControlTransfer @ 0x1C0032554 (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall FWUPDATE_GetMMIO(__int64 a1, __int16 a2, __int64 a3)
@@ -38,7 +38,7 @@ __int64 __fastcall FWUPDATE_GetMMIO(__int64 a1, __int16 a2, __int64 a3)
       2u,
       3u,
       0x32u,
-      (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+      (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
       v7);
   }
   return (unsigned int)v5;

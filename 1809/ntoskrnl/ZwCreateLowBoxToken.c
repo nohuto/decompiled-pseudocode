@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateLowBoxToken @ 0x1401B96F0
+ * XREFs of ZwCreateLowBoxToken @ 0x1401B9710
  * Callers:
  *     <none>
  * Callees:

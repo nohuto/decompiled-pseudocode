@@ -1,10 +1,10 @@
 /*
- * XREFs of StringVPrintfWorkerW @ 0x1800AE9F4
+ * XREFs of StringVPrintfWorkerW @ 0x1800B259C
  * Callers:
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800AE9B8 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ?StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z @ 0x18019A6F0 (-StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800B2544 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z @ 0x18014E764 (-StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z.c)
  * Callees:
- *     _vsnwprintf @ 0x180110100 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1800E7F68 (_vsnwprintf.c)
  */
 
 HRESULT __stdcall StringVPrintfWorkerW(

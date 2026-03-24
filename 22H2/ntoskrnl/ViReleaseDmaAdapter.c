@@ -1,84 +1,89 @@
 /*
- * XREFs of ViReleaseDmaAdapter @ 0x140ACAC1C
+ * XREFs of ViReleaseDmaAdapter @ 0x1409CF530
  * Callers:
- *     VfGetDmaAdapter @ 0x140AC7560 (VfGetDmaAdapter.c)
- *     VfPutDmaAdapter @ 0x140AC8280 (VfPutDmaAdapter.c)
- *     VfIoDeleteDevice @ 0x140AD3214 (VfIoDeleteDevice.c)
+ *     VfGetDmaAdapter @ 0x1409CBE70 (VfGetDmaAdapter.c)
+ *     VfPutDmaAdapter @ 0x1409CCC40 (VfPutDmaAdapter.c)
+ *     VfIoDeleteDevice @ 0x1409D6154 (VfIoDeleteDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmFreeContiguousMemory @ 0x1403C2FA0 (MmFreeContiguousMemory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     VfReportIssueWithOptions @ 0x1405CFD90 (VfReportIssueWithOptions.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ViGetRealDmaAdapter @ 0x140ACA158 (ViGetRealDmaAdapter.c)
- *     ViHalPreprocessOptions @ 0x140ACA2F4 (ViHalPreprocessOptions.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmFreeContiguousMemory @ 0x1402E9070 (MmFreeContiguousMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x1405A1D34 (VfReportIssueWithOptions.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ViHalPreprocessOptions @ 0x1409CEC70 (ViHalPreprocessOptions.c)
  */
 
 void __fastcall ViReleaseDmaAdapter(ULONG_PTR a1)
 {
-  void *RealDmaAdapter; // r14
-  KIRQL v3; // al
-  PVOID *v4; // rbp
-  unsigned __int64 v5; // rsi
-  unsigned __int8 CurrentIrql; // cl
+  struct _DMA_ADAPTER *v1; // r14
+  KSPIN_LOCK *v2; // rbx
+  KIRQL v4; // al
+  PVOID *v5; // rbp
+  unsigned __int64 v6; // rsi
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v9; // eax
-  bool v10; // zf
-  PVOID *v11; // rbx
-  __int64 v12; // rsi
-  LONG_PTR v13; // rax
-  ULONG_PTR v14; // rbx
+  int v10; // eax
+  bool v11; // zf
+  PVOID *v12; // rbx
+  __int64 v13; // rsi
+  __int64 v14; // rax
+  ULONG_PTR v15; // rbx
 
-  RealDmaAdapter = (void *)ViGetRealDmaAdapter(a1 + 16);
-  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 312));
-  v4 = *(PVOID **)(a1 + 296);
-  *(_QWORD *)(a1 + 296) = 0LL;
-  v5 = v3;
-  KxReleaseSpinLock((volatile signed __int64 *)(a1 + 312));
+  v1 = *(struct _DMA_ADAPTER **)(a1 + 16);
+  v2 = (KSPIN_LOCK *)(a1 + 280);
+  v1->DmaOperations = *(_DMA_OPERATIONS **)(a1 + 48);
+  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 280));
+  v5 = *(PVOID **)(a1 + 264);
+  *(_QWORD *)(a1 + 264) = 0LL;
+  v6 = v4;
+  KxReleaseSpinLock(v2);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v10 = (v9 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v9;
-      if ( v10 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v11 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v5);
-  if ( v4 )
+  __writecr8(v6);
+  if ( v5 )
   {
-    v11 = v4;
-    v12 = 32LL;
+    v12 = v5;
+    v13 = 32LL;
     do
     {
-      if ( *v11 )
-        MmFreeContiguousMemory(*v11);
-      ++v11;
-      --v12;
+      if ( *v12 )
+        MmFreeContiguousMemory(*v12);
+      ++v12;
+      --v13;
     }
-    while ( v12 );
-    ExFreePoolWithTag(v4, 0);
+    while ( v13 );
+    ExFreePoolWithTag(v5, 0);
   }
-  v13 = ObfDereferenceObject(RealDmaAdapter);
-  v14 = v13;
-  if ( *(int *)(a1 + 76) > 0 && v13 && (v13 != 1 || !*(_BYTE *)(a1 + 74)) )
+  HalPutDmaAdapter(v1);
+  v15 = v14;
+  if ( *(int *)(a1 + 36) > 0 && v14 && (v14 != 1 || !*(_BYTE *)(a1 + 34)) )
   {
     ViHalPreprocessOptions(
-      byte_140C0DE44,
+      byte_140C12EE4,
       "Too many outstanding reference counts (%x) for adapter %p",
       17LL,
-      v13,
-      (__int64)RealDmaAdapter,
+      v14,
+      (__int64)v1,
       a1);
-    VfReportIssueWithOptions(0xE6u, 0x11uLL, v14, (ULONG_PTR)RealDmaAdapter, a1, byte_140C0DE44);
+    VfReportIssueWithOptions(0xE6u, 0x11uLL, v15, (ULONG_PTR)v1, a1, byte_140C12EE4);
   }
   ExFreePoolWithTag((PVOID)a1, 0);
 }

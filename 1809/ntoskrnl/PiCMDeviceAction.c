@@ -1,5 +1,5 @@
 /*
- * XREFs of PiCMDeviceAction @ 0x140837998
+ * XREFs of PiCMDeviceAction @ 0x140837978
  * Callers:
  *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
  * Callees:
@@ -9,11 +9,11 @@
  *     _CmGetDeviceStatus @ 0x14059E508 (_CmGetDeviceStatus.c)
  *     PiCMReturnBasicResultData @ 0x14059F60C (PiCMReturnBasicResultData.c)
  *     _CmValidateDeviceName @ 0x1405C76D0 (_CmValidateDeviceName.c)
- *     _CmIsRootDevice @ 0x1406E97AC (_CmIsRootDevice.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF7AC (PiAuDoesClientHaveAccess.c)
- *     PiAuDoesClientHavePrivilege @ 0x14082A0D8 (PiAuDoesClientHavePrivilege.c)
- *     PiCMSetProblem @ 0x140838DD8 (PiCMSetProblem.c)
- *     PiQueueDeviceRequest @ 0x14083C808 (PiQueueDeviceRequest.c)
+ *     _CmIsRootDevice @ 0x1406E978C (_CmIsRootDevice.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14082A0B8 (PiAuDoesClientHavePrivilege.c)
+ *     PiCMSetProblem @ 0x140838DB8 (PiCMSetProblem.c)
+ *     PiQueueDeviceRequest @ 0x14083C7E8 (PiQueueDeviceRequest.c)
  */
 
 __int64 __fastcall PiCMDeviceAction(

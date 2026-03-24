@@ -1,83 +1,91 @@
 /*
- * XREFs of MiFindRebuildCandidate @ 0x14045CC5A
+ * XREFs of MiFindRebuildCandidate @ 0x140551E0C
  * Callers:
- *     MiRebuildLargePage @ 0x14045CDD6 (MiRebuildLargePage.c)
+ *     MiRebuildLargePage @ 0x1405526D8 (MiRebuildLargePage.c)
  * Callees:
- *     MiCollapseRunTopDown @ 0x1402783C0 (MiCollapseRunTopDown.c)
- *     MiPfnsWorthTrying @ 0x140278460 (MiPfnsWorthTrying.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiCollapseRunTopDown @ 0x14030209C (MiCollapseRunTopDown.c)
+ *     MiPfnsWorthTrying @ 0x140302130 (MiPfnsWorthTrying.c)
  */
 
-__int64 __fastcall MiFindRebuildCandidate(__int64 a1, int a2, int a3, __int64 a4, __int64 a5, unsigned int *a6, int a7)
+__int64 __fastcall MiFindRebuildCandidate(
+        __int16 *a1,
+        int a2,
+        int a3,
+        unsigned __int64 a4,
+        __int64 a5,
+        unsigned int *a6)
 {
-  int v8; // esi
-  unsigned int *v10; // rdx
-  int v11; // eax
-  __int64 v12; // r14
-  unsigned int *v13; // r15
-  int v14; // r12d
-  __int64 v15; // rax
-  __int64 v16; // rdi
-  unsigned __int64 v17; // r13
-  __int64 v18; // rsi
-  unsigned __int64 v19; // rax
-  _QWORD v21[8]; // [rsp+30h] [rbp-40h] BYREF
-  int v24; // [rsp+C8h] [rbp+58h] BYREF
+  unsigned int *v7; // rdx
+  int v8; // r13d
+  __int64 v9; // rsi
+  unsigned int *v10; // r15
+  __int64 v11; // rax
+  __int64 v12; // rdi
+  unsigned __int64 v13; // r12
+  __int64 v14; // r14
+  unsigned __int64 v15; // rax
+  __int128 v17; // [rsp+30h] [rbp-40h] BYREF
+  __int64 v18; // [rsp+40h] [rbp-30h]
+  __int64 v19; // [rsp+48h] [rbp-28h]
+  __int128 v20; // [rsp+50h] [rbp-20h]
+  __int64 v21; // [rsp+60h] [rbp-10h]
+  int v23; // [rsp+C0h] [rbp+50h]
 
-  v24 = 0;
-  v8 = a3;
-  memset(v21, 0, sizeof(v21));
-  v10 = a6;
-  v21[6] = 0LL;
-  v21[3] = a5;
-  v11 = 0x800000;
-  v12 = *a6;
-  v21[4] = a4;
-  v21[5] = a4;
-  LOBYTE(v21[7]) = 0;
-  v13 = &a6[4 * v12 + 4];
+  v23 = a3;
+  v21 = 0LL;
+  v7 = a6;
+  v8 = 0x800000;
+  v20 = a4;
+  v9 = *a6;
+  v18 = 0LL;
+  v19 = a5;
+  v17 = 0LL;
+  *((_QWORD *)&v20 + 1) = a4;
+  v10 = &a6[4 * v9 + 4];
   if ( a4 == 512 )
   {
-    v11 = 41943040;
+    v8 = 41943040;
   }
   else if ( a4 == 16 )
   {
-    v11 = 25165824;
+    v8 = 25165824;
   }
-  v14 = v11 | 0x8000000;
-  if ( !a7 )
-    v14 = v11;
   do
   {
-LABEL_19:
-    if ( !(_DWORD)v12 )
+LABEL_17:
+    if ( !(_DWORD)v9 )
       return -1LL;
-    v12 = (unsigned int)(v12 - 1);
+    v9 = (unsigned int)(v9 - 1);
   }
-  while ( v13[2 * v12] != a2 || v13[2 * v12 + 1] != v8 );
-  v15 = *(_QWORD *)&v10[4 * (unsigned int)v12 + 6];
-  v21[0] = *(_QWORD *)&v10[4 * (unsigned int)v12 + 4];
-  for ( v21[1] = v15 + v21[0]; ; v21[1] = v16 - v17 )
+  while ( v10[2 * v9] != a2 || v10[2 * v9 + 1] != a3 );
+  v11 = *(_QWORD *)&v7[4 * (unsigned int)v9 + 6];
+  *(_QWORD *)&v17 = *(_QWORD *)&v7[4 * (unsigned int)v9 + 4];
+  for ( *((_QWORD *)&v17 + 1) = v11 + v17; ; *((_QWORD *)&v17 + 1) = v12 - v13 )
   {
-    if ( !(unsigned int)MiCollapseRunTopDown((__int64)v21) )
-      goto LABEL_18;
-    v16 = v21[1];
-    v17 = v21[5];
-    v24 = 0;
-    v18 = v21[1] - v21[5];
-    v19 = MiPfnsWorthTrying(a1, 48LL * (v21[1] - v21[5]) - 0x220000000000LL, v21[5], v14, &v24);
-    if ( !v19 )
+    if ( !(unsigned int)MiCollapseRunTopDown((__int64)&v17) )
+      goto LABEL_16;
+    v12 = *((_QWORD *)&v17 + 1);
+    v13 = *((_QWORD *)&v20 + 1);
+    LODWORD(a5) = 0;
+    v14 = *((_QWORD *)&v17 + 1) - *((_QWORD *)&v20 + 1);
+    v15 = MiPfnsWorthTrying(
+            a1,
+            48LL * (*((_QWORD *)&v17 + 1) - *((_QWORD *)&v20 + 1)) - 0x58000000000LL,
+            *((__int64 *)&v20 + 1),
+            v8,
+            &a5);
+    if ( !v15 )
       break;
-    if ( v19 > v18 - v21[0] )
+    if ( v15 > v14 - (__int64)v17 )
     {
-      v21[3] = v16 - v19 - 1;
-LABEL_18:
-      v8 = a3;
-      v10 = a6;
-      goto LABEL_19;
+      v19 = v12 - v15 - 1;
+LABEL_16:
+      a3 = v23;
+      v7 = a6;
+      goto LABEL_17;
     }
-    if ( v19 > v17 )
-      v17 = v19;
+    if ( v15 > v13 )
+      v13 = v15;
   }
-  return v18;
+  return v14;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetD2DEffectProperties@CBlendEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x180245B20
+ * XREFs of ?SetD2DEffectProperties@CBlendEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1801F5FB0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBlendEffect::SetD2DEffectProperties(CBlendEffect *this, struct ID2D1Effect *a2)
@@ -17,10 +17,10 @@ __int64 __fastcall CBlendEffect::SetD2DEffectProperties(CBlendEffect *this, stru
          a2,
          0LL,
          0LL,
-         (char *)this + 160,
+         (char *)this + 152,
          4);
   v4 = v2;
   if ( v2 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0LL, v2, 0x11u);
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, v2, 0x11u, 0LL);
   return v4;
 }

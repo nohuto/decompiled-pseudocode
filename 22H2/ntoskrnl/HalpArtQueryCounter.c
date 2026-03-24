@@ -1,18 +1,20 @@
 /*
- * XREFs of HalpArtQueryCounter @ 0x14033D770
+ * XREFs of HalpArtQueryCounter @ 0x1404D5C60
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
  */
 
-unsigned __int64 __fastcall HalpArtQueryCounter(unsigned int *a1, __int64 a2)
+ULONGLONG __fastcall HalpArtQueryCounter(unsigned int *a1, __int64 a2)
 {
   unsigned __int64 v2; // rax
-  unsigned __int64 v4; // rcx
-  unsigned __int64 v5; // r9
-  unsigned __int64 v6; // r8
+  unsigned __int64 v3; // rbx
+  unsigned __int64 v4; // r10
+  unsigned __int64 v5; // r11
+  ULONGLONG pullResult; // [rsp+38h] [rbp+10h] BYREF
 
+  pullResult = 0LL;
   v2 = (unsigned int)HalpTscFenceRequired;
   if ( HalpTscFenceRequired )
   {
@@ -33,12 +35,10 @@ unsigned __int64 __fastcall HalpArtQueryCounter(unsigned int *a1, __int64 a2)
   {
     __asm { rdtscp }
   }
-  v4 = *a1;
-  v5 = a1[1];
-  v6 = ((a2 << 32) | v2) - __readmsr(0x3Bu);
-  if ( is_mul_ok(v6, (unsigned int)v4) )
-    return v6 * (unsigned __int128)(unsigned int)v4 / v5;
-  if ( v6 <= v4 )
-    return v6 * (v4 / v5);
-  return v4 * (v6 / v5);
+  v3 = a1[1];
+  if ( RtlULongLongMult(((a2 << 32) | v2) - __readmsr(0x3Bu), *a1, &pullResult) >= 0 )
+    return pullResult / v3;
+  if ( v4 <= v5 )
+    return v4 * (v5 / v3);
+  return v5 * (v4 / v3);
 }

@@ -1,38 +1,44 @@
 /*
- * XREFs of VfRemLockDeleteMemoryRange @ 0x140AC11C2
+ * XREFs of VfRemLockDeleteMemoryRange @ 0x1409D671C
  * Callers:
- *     VfDriverUnloadImage @ 0x140ABDED4 (VfDriverUnloadImage.c)
- *     VfFreeMemoryNotification @ 0x140AC30E8 (VfFreeMemoryNotification.c)
- *     VfPtFreePoolNotification @ 0x140ADF73C (VfPtFreePoolNotification.c)
+ *     VfDriverUnloadImage @ 0x1409C2484 (VfDriverUnloadImage.c)
+ *     VfFreeMemoryNotification @ 0x1409C5FF0 (VfFreeMemoryNotification.c)
+ *     VfFreePoolNotification @ 0x1409E0084 (VfFreePoolNotification.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x14020A004 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
- *     VfPoolIsInternalFree @ 0x1405D1C2C (VfPoolIsInternalFree.c)
- *     ViRemLockDeleteFirstTreeNode @ 0x140AD38CC (ViRemLockDeleteFirstTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14037E564 (VfAvlLookupTreeNode.c)
+ *     VfPoolIsInternalFree @ 0x1405A24DC (VfPoolIsInternalFree.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x1409D6814 (ViRemLockDeleteFirstTreeNode.c)
  */
 
-void __fastcall VfRemLockDeleteMemoryRange(unsigned __int64 a1, __int64 a2)
+char __fastcall VfRemLockDeleteMemoryRange(unsigned __int64 a1, __int64 a2)
 {
-  PVOID v4; // rbx
-  __int128 v5; // [rsp+20h] [rbp-18h] BYREF
+  int IsInternalFree; // eax
+  PVOID v5; // rbx
+  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
 
-  v5 = 0LL;
+  LOBYTE(IsInternalFree) = ViRemLockInitialized;
+  v7 = 0LL;
   if ( ViRemLockInitialized )
   {
-    if ( qword_140D719E8 )
+    LOBYTE(IsInternalFree) = qword_140D4B530;
+    if ( qword_140D4B530 )
     {
-      if ( !(unsigned int)VfPoolIsInternalFree() )
+      IsInternalFree = VfPoolIsInternalFree();
+      if ( !IsInternalFree )
       {
-        VfAvlInitializeLockContext((__int64)&v5, 1);
-        v4 = VfAvlLookupTreeNode(&ViRemLockAvl, (__int64)&v5, a1, a2);
-        VfAvlCleanupLockContext((__int64)&v5);
-        if ( v4 )
+        VfAvlInitializeLockContext((__int64)&v7, 1);
+        v5 = VfAvlLookupTreeNode(&ViRemLockAvl, (__int64)&v7, a1, a2);
+        LOBYTE(IsInternalFree) = VfAvlCleanupLockContext((__int64)&v7);
+        if ( v5 )
         {
-          while ( (unsigned int)ViRemLockDeleteFirstTreeNode(a1, a2) )
-            ;
+          do
+            IsInternalFree = ViRemLockDeleteFirstTreeNode(a1, a2);
+          while ( IsInternalFree );
         }
       }
     }
   }
+  return IsInternalFree;
 }

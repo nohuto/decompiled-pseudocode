@@ -1,5 +1,5 @@
 /*
- * XREFs of KiVirtualizationExceptionShadow @ 0x140AF7B40
+ * XREFs of KiVirtualizationExceptionShadow @ 0x140A14B40
  * Callers:
  *     <none>
  * Callees:
@@ -19,7 +19,7 @@ __int64 __fastcall KiVirtualizationExceptionShadow()
   {
     __asm { swapgs }
     _mm_lfence();
-    if ( !_bittest(MK_FP(__GS__, 40984LL), 1u) )
+    if ( !_bittest(MK_FP(__GS__, 36888LL), 1u) )
       __writecr3((unsigned __int64)&v5);
     __writegsqword(0x10u, v0);
     v3 = KeGetPcr()->IdtBase + 1056;

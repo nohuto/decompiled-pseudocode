@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDirtyRects@CLegacySwapChain@@$4PPPPPPPM@BI@EBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x180109E70
+ * XREFs of ?GetDirtyRects@CLegacySwapChain@@$4PPPPPPPM@BI@EBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800F79E0
  * Callers:
  *     <none>
  * Callees:

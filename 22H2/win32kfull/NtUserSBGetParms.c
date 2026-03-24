@@ -1,54 +1,64 @@
 /*
- * XREFs of NtUserSBGetParms @ 0x1C00A47B0
+ * XREFs of NtUserSBGetParms @ 0x1C00FA790
  * Callers:
  *     <none>
  * Callees:
- *     _SBGetParms @ 0x1C00A48F0 (_SBGetParms.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserSBGetParms(__int64 a1, __int64 a2, __int128 *a3, ULONG64 a4)
+__int64 __fastcall NtUserSBGetParms(__int64 a1, int a2, _QWORD *a3, ULONG64 a4)
 {
-  unsigned int v6; // r14d
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // r10
-  int v13; // ebx
-  _BYTE *v14; // rdx
-  __int128 v16; // [rsp+30h] [rbp-58h] BYREF
-  __int64 v17; // [rsp+40h] [rbp-48h]
-  unsigned int v18; // [rsp+48h] [rbp-40h]
-  __int128 v19; // [rsp+58h] [rbp-30h] BYREF
+  __int64 v8; // rcx
+  __int64 v9; // r10
+  int v10; // ebx
+  __int128 v11; // xmm1
+  __int64 v12; // r8
+  __int64 v13; // rdx
+  int v14; // eax
+  __int128 v16; // [rsp+20h] [rbp-68h]
+  __int64 v17; // [rsp+30h] [rbp-58h]
 
-  v6 = a2;
-  v19 = 0LL;
-  v16 = 0LL;
-  v17 = 0LL;
-  v18 = 0;
-  EnterSharedCrit(a1, a2, a3);
-  v12 = ValidateHwnd(a1);
-  v13 = 0;
-  if ( v12 )
+  EnterSharedCrit(0LL, 1LL);
+  v9 = ValidateHwnd(a1);
+  v10 = 0;
+  if ( v9 )
   {
-    v14 = (_BYTE *)a4;
     if ( a4 >= MmUserProbeAddress )
-      v14 = (_BYTE *)MmUserProbeAddress;
-    *v14 = *v14;
-    v14[27] = v14[27];
+      *(_DWORD *)MmUserProbeAddress = 0;
+    *(_OWORD *)a4 = *(_OWORD *)a4;
+    *(_QWORD *)(a4 + 16) = *(_QWORD *)(a4 + 16);
+    *(_DWORD *)(a4 + 24) = *(_DWORD *)(a4 + 24);
     if ( ((unsigned __int8)a3 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v19 = *a3;
+    v11 = *(_OWORD *)a4;
     v16 = *(_OWORD *)a4;
     v17 = *(_QWORD *)(a4 + 16);
-    v18 = *(_DWORD *)(a4 + 24);
-    v13 = SBGetParms(v12, v6, &v19, &v16);
-    *(_OWORD *)a4 = v16;
+    v8 = *(unsigned int *)(a4 + 24);
+    v12 = *(_QWORD *)(*(_QWORD *)(v9 + 16) + 720LL);
+    v13 = HIDWORD(*(_QWORD *)a4);
+    if ( (*(_QWORD *)a4 & 0x100000000LL) != 0 )
+    {
+      *((_QWORD *)&v16 + 1) = *a3;
+      v11 = v16;
+    }
+    v14 = *(_QWORD *)(a4 + 16);
+    if ( (v13 & 2) != 0 )
+      v14 = a3[1];
+    LODWORD(v17) = v14;
+    if ( (v13 & 4) != 0 )
+      HIDWORD(v17) = HIDWORD(*(_OWORD *)a3);
+    if ( (v13 & 0x10) != 0 )
+    {
+      if ( v12 && *(_DWORD *)(v12 + 88) == a2 && *(_QWORD *)(v12 + 8) == v9 )
+        v8 = *(unsigned int *)(v12 + 84);
+      else
+        v8 = HIDWORD(a3[1]);
+    }
+    LOBYTE(v10) = (v13 & 0x17) != 0;
+    *(_OWORD *)a4 = v11;
     *(_QWORD *)(a4 + 16) = v17;
-    v9 = v18;
-    *(_DWORD *)(a4 + 24) = v18;
+    *(_DWORD *)(a4 + 24) = v8;
   }
-  UserSessionSwitchLeaveCrit(v9, v8, v10, v11);
-  return v13;
+  UserSessionSwitchLeaveCrit(v8);
+  return v10;
 }

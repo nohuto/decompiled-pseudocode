@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryEvent @ 0x1406BBEF0
+ * XREFs of NtQueryEvent @ 0x1406BBED0
  * Callers:
  *     <none>
  * Callees:

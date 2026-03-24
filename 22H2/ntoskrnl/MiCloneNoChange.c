@@ -1,59 +1,54 @@
 /*
- * XREFs of MiCloneNoChange @ 0x140A31EA8
+ * XREFs of MiCloneNoChange @ 0x1408C86D8
  * Callers:
- *     MiAllocateChildVads @ 0x140A483EC (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x1408D8AE0 (MiAllocateChildVads.c)
  * Callees:
- *     MiAddSecureEntry @ 0x140746294 (MiAddSecureEntry.c)
+ *     MiAddSecureEntry @ 0x14061FBE0 (MiAddSecureEntry.c)
  */
 
 __int64 __fastcall MiCloneNoChange(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v3; // r8
+  __int64 *i; // r8
   unsigned int v4; // edx
   unsigned int v5; // ecx
   int v6; // r9d
-  int v8; // eax
-  char v9; // cl
+  int v7; // eax
+  char v8; // cl
 
-  v3 = *(_QWORD *)(a1 + 56) & 0xFFFFFFFFFFFFFFF0uLL;
-  if ( !v3 )
-    return 0LL;
-  while ( 1 )
+  for ( i = *(__int64 **)(a1 + 56); i; i = (__int64 *)*i )
   {
-    if ( *(_DWORD *)(v3 + 64) == 2 )
+    if ( *((_DWORD *)i + 16) == 2 )
     {
-      v4 = *(_DWORD *)(v3 + 8);
+      v4 = *((_DWORD *)i + 2);
       if ( (v4 & 0x80u) == 0 )
       {
-        v5 = (*(_DWORD *)(v3 + 8) & 4) != 0 ? 0x80000000 : 0;
-        if ( (v4 & 8) == 0 )
-          goto LABEL_8;
-        if ( (v4 & 4) != 0 || (v4 & 3) == 0 )
-          break;
+        v5 = (i[1] & 4) != 0 ? 0x80000000 : 0;
+        if ( (v4 & 8) != 0 )
+        {
+          if ( (v4 & 4) == 0 && (v4 & 3) != 0 )
+            continue;
+          v5 |= 1u;
+        }
+        v6 = v5 | 0x20000000;
+        if ( (v4 & 0x100) == 0 )
+          v6 = v5;
+        if ( v6 )
+        {
+          v7 = (v4 >> 5) & 1;
+          v8 = v7 | 4;
+          if ( (v4 & 0x40) == 0 )
+            v8 = v7;
+          if ( !MiAddSecureEntry(
+                  a2,
+                  (*(unsigned int *)(a2 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 32) << 32)) << 12,
+                  ((*(unsigned int *)(a2 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 33) << 32)) << 12) | 0xFFF,
+                  v6,
+                  v8) )
+            return 3221225626LL;
+          return 0LL;
+        }
       }
     }
-LABEL_11:
-    v3 = *(_QWORD *)v3;
-    if ( !v3 )
-      return 0LL;
   }
-  v5 |= 1u;
-LABEL_8:
-  v6 = v5 | 0x20000000;
-  if ( (v4 & 0x100) == 0 )
-    v6 = v5;
-  if ( !v6 )
-    goto LABEL_11;
-  v8 = (v4 >> 5) & 1;
-  v9 = v8 | 4;
-  if ( (v4 & 0x40) == 0 )
-    v9 = v8;
-  return MiAddSecureEntry(
-           a2,
-           (*(unsigned int *)(a2 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 32) << 32)) << 12,
-           ((*(unsigned int *)(a2 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 33) << 32)) << 12) | 0xFFF,
-           v6,
-           v9) == 0LL
-       ? 0xC000009A
-       : 0;
+  return 0LL;
 }

@@ -1,269 +1,215 @@
 /*
- * XREFs of ?RenderContent@CWindowNode@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18007A210
+ * XREFs of ?RenderContent@CWindowNode@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x1800B79B0
  * Callers:
  *     <none>
  * Callees:
- *     ?clear_region@?$vector_facade@V?$unique_ptr@VCOcclusionInfo@@U?$default_delete@VCOcclusionInfo@@@std@@@std@@V?$buffer_impl@V?$unique_ptr@VCOcclusionInfo@@U?$default_delete@VCOcclusionInfo@@@std@@@std@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180043908 (-clear_region@-$vector_facade@V-$unique_ptr@VCOcclusionInfo@@U-$default_delete@VCOcclusionInfo@@.c)
- *     ?RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18007A550 (-RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
- *     ?EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ @ 0x18007A874 (-EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ.c)
- *     ?RenderImage@CWindowNode@@AEAAJPEAVCDrawingContext@@PEAVCWindowOcclusionInfo@@PEAVIBitmapResource@@PEBVCShape@@_NH@Z @ 0x18007AA90 (-RenderImage@CWindowNode@@AEAAJPEAVCDrawingContext@@PEAVCWindowOcclusionInfo@@PEAVIBitmapResourc.c)
- *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18008A5BC (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
- *     ?IsEmpty@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800A88E0 (-IsEmpty@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?EnsureBitmapRealization@CGdiSpriteBitmap@@AEAA_NXZ @ 0x1800A8EA4 (-EnsureBitmapRealization@CGdiSpriteBitmap@@AEAA_NXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800DBDDC (--ACPtrArrayBase@@IEBA_K_K@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DC518 (-Release@CShapePtr@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetDxClipShape@CWindowNode@@AEBA?AVCShapePtr@@XZ @ 0x180133ACA (-GetDxClipShape@CWindowNode@@AEBA-AVCShapePtr@@XZ.c)
- *     ?HasProtectedContent@CVisual@@QEBA_NXZ @ 0x1801D5F6C (-HasProtectedContent@CVisual@@QEBA_NXZ.c)
- *     ?CreateSectionBitmapSubRects@CGdiSpriteBitmap@@AEAAJII@Z @ 0x18021D9A4 (-CreateSectionBitmapSubRects@CGdiSpriteBitmap@@AEAAJII@Z.c)
- *     ?DxFlipConsumedTelemetry@CWindowNode@@AEBAXPEAVCDrawingContext@@PEAVCCompositionSurfaceBitmap@@@Z @ 0x180256568 (-DxFlipConsumedTelemetry@CWindowNode@@AEBAXPEAVCDrawingContext@@PEAVCCompositionSurfaceBitmap@@@.c)
- *     ?GetMonitorTargetId@CDrawingContext@@QEBA_NPEAUtagCOMPOSITION_TARGET_ID@@@Z @ 0x18025676C (-GetMonitorTargetId@CDrawingContext@@QEBA_NPEAUtagCOMPOSITION_TARGET_ID@@@Z.c)
- *     ?RenderBlackContent@CWindowNode@@AEAAJPEAVCDrawingContext@@@Z @ 0x180256A5C (-RenderBlackContent@CWindowNode@@AEAAJPEAVCDrawingContext@@@Z.c)
- *     McTemplateU0xxxqqqn_EventWriteTransfer @ 0x180256D8C (McTemplateU0xxxqqqn_EventWriteTransfer.c)
+ *     ?GetSizePreference@CCompositionSurfaceBitmap@@QEBA?AW4SizePreference@@XZ @ 0x180013C80 (-GetSizePreference@CCompositionSurfaceBitmap@@QEBA-AW4SizePreference@@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ @ 0x180076460 (-EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ.c)
+ *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18007AA60 (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x1800B7E60 (-RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ?RenderImage@CWindowNode@@AEAAJPEAVCDrawingContext@@PEAVCWindowOcclusionInfo@@PEAVIBitmapResource@@PEBVCShape@@PEAU_MARGINS@@H@Z @ 0x1800F0030 (-RenderImage@CWindowNode@@AEAAJPEAVCDrawingContext@@PEAVCWindowOcclusionInfo@@PEAVIBitmapResourc.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?AddTokenForRenderContent@FRAME_TIME_INFO@@QEAAJPEBUConfirmPresentHistoryToken@@@Z @ 0x180162B70 (-AddTokenForRenderContent@FRAME_TIME_INFO@@QEAAJPEBUConfirmPresentHistoryToken@@@Z.c)
+ *     ?HasProtectedContent@CVisual@@QEBA_NXZ @ 0x1801774D0 (-HasProtectedContent@CVisual@@QEBA_NXZ.c)
+ *     ?GetBorderColor@CCompositionSurfaceBitmap@@QEBA?AU_D3DCOLORVALUE@@XZ @ 0x1801BC76C (-GetBorderColor@CCompositionSurfaceBitmap@@QEBA-AU_D3DCOLORVALUE@@XZ.c)
+ *     ?GetDxClipShape@CWindowNode@@AEBA?AVCShapePtr@@XZ @ 0x1801F369C (-GetDxClipShape@CWindowNode@@AEBA-AVCShapePtr@@XZ.c)
+ *     ?RenderBlackContent@CWindowNode@@AEAAJPEAVCDrawingContext@@@Z @ 0x1801F3AB4 (-RenderBlackContent@CWindowNode@@AEAAJPEAVCDrawingContext@@@Z.c)
  */
 
-__int64 __fastcall CWindowNode::RenderContent(const struct CShape **this, struct _LIST_ENTRY **a2, bool *a3)
+__int64 __fastcall CWindowNode::RenderContent(CWindowNode *this, struct _LIST_ENTRY **a2, bool *a3)
 {
-  struct _LIST_ENTRY *v6; // rax
-  struct _LIST_ENTRY *v7; // rdi
-  struct _LIST_ENTRY *v8; // r12
-  struct CWindowOcclusionInfo *v9; // r14
-  __int64 *p_Blink; // rbx
-  __int64 *v11; // r12
-  __int64 i; // rax
-  struct CWindowOcclusionInfo *v13; // r8
-  __int64 v14; // rax
-  unsigned __int64 v15; // rbx
-  __int64 v16; // rax
-  unsigned __int64 v17; // rbx
-  int v18; // eax
-  unsigned int v19; // ecx
-  unsigned int v20; // edi
-  unsigned int Flink; // ecx
-  int v22; // ecx
+  struct _LIST_ENTRY *v6; // r14
+  struct CWindowOcclusionInfo *Flink; // rsi
+  struct _LIST_ENTRY *v8; // rbx
+  int v9; // eax
+  __int64 v10; // rcx
+  unsigned int v11; // ebx
+  int v12; // r8d
+  int v13; // eax
+  __int64 v14; // rcx
   struct _LIST_ENTRY *TreeDataListHead; // rax
-  struct _LIST_ENTRY *j; // rcx
-  __int64 v26; // rdi
-  __int64 v27; // rcx
-  bool v28; // zf
-  __int64 v29; // rdi
-  int v30; // edx
-  __int128 *v31; // rcx
-  __int128 v32; // xmm0
-  unsigned int v33; // edx
-  unsigned int v34; // r8d
-  __int64 v35; // rcx
-  __int64 v36; // r12
-  int v37; // r8d
-  __int64 v38; // rdx
-  struct IBitmapResource *v39; // r9
-  struct CCompositionSurfaceBitmap *v40; // rbx
-  int v41; // edi
-  const struct CShape *v42; // rcx
-  struct IBitmapResource *v43; // r9
-  unsigned int v44; // ecx
-  unsigned int v45; // [rsp+20h] [rbp-49h]
-  int v46; // [rsp+50h] [rbp-19h] BYREF
-  int v47; // [rsp+58h] [rbp-11h]
-  int v48; // [rsp+60h] [rbp-9h]
-  int v49; // [rsp+64h] [rbp-5h]
-  int v50; // [rsp+68h] [rbp-1h]
-  __int128 v51; // [rsp+70h] [rbp+7h] BYREF
+  struct _LIST_ENTRY *i; // rcx
+  __int64 v17; // rdx
+  struct IBitmapResource *v18; // r9
+  int v19; // eax
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  __int64 v22; // r15
+  __int64 v23; // r14
+  __int64 v24; // rcx
+  __int64 v25; // rdx
+  int v26; // r8d
+  struct IBitmapResource *v27; // r9
+  int v28; // eax
+  __int64 v29; // rcx
+  __int64 v30; // rbx
+  const struct ConfirmPresentHistoryToken *v31; // rax
+  int v32; // eax
+  __int64 v33; // rcx
+  CCompositionSurfaceBitmap *v34; // rcx
+  int v35; // ebx
+  const struct CShape **DxClipShape; // rax
+  __int64 v37; // rcx
+  int v38; // eax
+  __int64 v39; // rcx
+  struct _D3DCOLORVALUE v41; // [rsp+40h] [rbp-38h] BYREF
 
-  if ( CVisual::HasProtectedContent((CVisual *)this) )
+  if ( CVisual::HasProtectedContent(this) )
   {
-    if ( *((_BYTE *)this[2] + 1274) )
+    if ( *(_BYTE *)(*((_QWORD *)this + 2) + 1129LL) )
     {
-      v18 = CWindowNode::RenderBlackContent((CWindowNode *)this, (struct CDrawingContext *)a2);
-      v20 = v18;
-      if ( v18 >= 0 )
-      {
+      v13 = CWindowNode::RenderBlackContent(this, (struct CDrawingContext *)a2);
+      v11 = v13;
+      if ( v13 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x53Du, 0LL);
+      else
         *a3 = 1;
-        return v20;
-      }
-      v45 = 1260;
-      goto LABEL_83;
+      return v11;
     }
-    *((_BYTE *)a2 + 8092) = 1;
+    *((_BYTE *)a2 + 5948) = 1;
   }
-  v6 = a2[25];
-  v7 = v6 + 118;
-  if ( !v6 )
-    v7 = (struct _LIST_ENTRY *)&CBackdropVisualImageKey::sc_NoBVIKey;
-  v8 = a2[1007];
-  v9 = 0LL;
-  if ( ((unsigned __int8 (__fastcall *)(struct _LIST_ENTRY *))v8->Flink[11].Blink)(v8) )
+  v6 = a2[741];
+  Flink = 0LL;
+  if ( ((unsigned __int8 (__fastcall *)(struct _LIST_ENTRY *))v6->Flink[12].Blink)(v6) )
   {
-    p_Blink = (__int64 *)(this + 42);
+    v8 = (struct _LIST_ENTRY *)((char *)this + 320);
 LABEL_6:
-    if ( p_Blink )
+    if ( v8 )
     {
-      v11 = p_Blink + 25;
-      for ( i = p_Blink[25]; i != p_Blink[26]; i += 8LL )
+      Flink = (struct CWindowOcclusionInfo *)v8[2].Flink;
+      if ( !Flink )
       {
-        v13 = *(struct CWindowOcclusionInfo **)i;
-        if ( *(struct _LIST_ENTRY **)(*(_QWORD *)i + 8LL) == v7->Flink
-          && (struct _LIST_ENTRY *)*((_QWORD *)v13 + 2) == v7->Blink )
-        {
-          v9 = *(struct CWindowOcclusionInfo **)i;
-          if ( v13 )
-            *((_BYTE *)v13 + 25) = 10;
-          break;
-        }
-      }
-      v14 = *(_QWORD *)(*(_QWORD *)(p_Blink[33] + 16) + 496LL);
-      if ( p_Blink[30] != v14 )
-      {
-        p_Blink[30] = v14;
-        v26 = *v11;
-        while ( v26 != p_Blink[26] )
-        {
-          v27 = *(_QWORD *)v26;
-          if ( *(_QWORD *)(*(_QWORD *)v26 + 8LL) == CBackdropVisualImageKey::sc_NoBVIKey
-            && *(_QWORD *)(v27 + 16) == qword_1803E9F70
-            || (v28 = *(_BYTE *)(v27 + 25) == 1, --*(_BYTE *)(v27 + 25), !v28) )
-          {
-            v26 += 8LL;
-          }
-          else
-          {
-            v29 = (v26 - *v11) >> 3;
-            detail::vector_facade<std::unique_ptr<COcclusionInfo>,detail::buffer_impl<std::unique_ptr<COcclusionInfo>,1,1,detail::liberal_expansion_policy>>::clear_region(
-              p_Blink + 25,
-              v29,
-              1LL);
-            v26 = *v11 + 8 * v29;
-          }
-        }
+        Flink = (struct CWindowOcclusionInfo *)((__int64 (__fastcall *)(struct _LIST_ENTRY *))v8[1].Blink->Flink[22].Blink)(v8[1].Blink);
+        v8[2].Flink = (struct _LIST_ENTRY *)Flink;
       }
     }
   }
   else
   {
-    TreeDataListHead = CVisual::GetTreeDataListHead((CVisual *)this);
+    TreeDataListHead = CVisual::GetTreeDataListHead(this);
     if ( TreeDataListHead )
     {
-      for ( j = TreeDataListHead->Flink; j != TreeDataListHead; j = j->Flink )
+      for ( i = TreeDataListHead->Flink; i != TreeDataListHead; i = i->Flink )
       {
-        p_Blink = (__int64 *)&j[-23].Blink;
-        if ( j[2].Flink == v8 )
+        v8 = i - 18;
+        if ( i[2].Flink == v6 )
           goto LABEL_6;
       }
     }
   }
-  if ( !*((_BYTE *)this + 895) || *((_BYTE *)this + 890) )
-    goto LABEL_28;
-  v15 = (unsigned __int64)this[97];
-  if ( (v15 & 2) != 0 )
+  if ( !*((_QWORD *)this + 90) || *((_BYTE *)this + 914) )
+    goto LABEL_46;
+  v9 = CWindowNode::EnsureEffectiveSpriteClip(this);
+  v11 = v9;
+  if ( v9 < 0 )
   {
-    v17 = v15 & 0xFFFFFFFFFFFFFFFCuLL;
-    v16 = *(_QWORD *)v17;
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x54Cu, 0LL);
+    return v11;
   }
-  else
+  if ( !(*(unsigned __int8 (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 90) + 80LL))(
+          *((_QWORD *)this + 90),
+          LODWORD(a2[5][60].Blink)) )
   {
-    v16 = (unsigned __int64)this[97] & 1;
-    v17 = v15 & 0xFFFFFFFFFFFFFFFCuLL;
-  }
-  if ( v16 )
-  {
-    if ( v16 != 1 )
-      v17 = *(_QWORD *)(v17 + 16);
-  }
-  else
-  {
-    v17 = 0LL;
-  }
-  v18 = CWindowNode::EnsureEffectiveSpriteClip((CWindowNode *)this);
-  v20 = v18;
-  if ( v18 < 0 )
-  {
-    v45 = 1278;
-    goto LABEL_83;
-  }
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0
-    && CDrawingContext::GetMonitorTargetId((CDrawingContext *)a2, (struct tagCOMPOSITION_TARGET_ID *)&v46)
-    && !(unsigned __int8)TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::IsEmpty(v17 + 336) )
-  {
-    v32 = *v31;
-    *((_DWORD *)v31 + 3) = 0;
-    *((_DWORD *)v31 + 2) = 0;
-    *((_DWORD *)v31 + 1) = 0;
-    *(_DWORD *)v31 = 0;
-    v51 = v32;
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
-      McTemplateU0xxxqqqn_EventWriteTransfer(v47, v30, (unsigned int)this[88], v46, v47, v48, v49, v50);
-  }
-  Flink = (unsigned int)a2[5][58].Flink;
-  if ( *(_DWORD *)(v17 + 424) <= Flink && *(_DWORD *)(v17 + 428) <= Flink
-    || *(_QWORD *)(v17 + 448) == *(_QWORD *)(v17 + 456)
-    && (!*(_QWORD *)(v17 + 352)
-     || !CGdiSpriteBitmap::EnsureBitmapRealization((CGdiSpriteBitmap *)v17)
-     || (int)CGdiSpriteBitmap::CreateSectionBitmapSubRects((CGdiSpriteBitmap *)v17, v33, v34) < 0) )
-  {
-    if ( v9 )
-      v22 = *((_DWORD *)v9 + 10);
+    if ( Flink )
+      v12 = *((_DWORD *)Flink + 6);
     else
-      v22 = 0;
-    v18 = CWindowNode::RenderImage(
-            (CWindowNode *)this,
+      v12 = 0;
+    v17 = *((_QWORD *)this + 90);
+    if ( v17 )
+      v18 = (struct IBitmapResource *)(*(int *)(*(_QWORD *)(v17 + 8) + 8LL) + v17 + 8);
+    else
+      v18 = 0LL;
+    v19 = CWindowNode::RenderImage(
+            this,
             (struct CDrawingContext *)a2,
-            v9,
-            (struct IBitmapResource *)(v17 + 96),
-            this[110],
-            1,
-            v22);
-    v20 = v18;
-    if ( v18 >= 0 )
-      goto LABEL_28;
-    v45 = 1290;
-LABEL_83:
-    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, v45, 0LL);
-    return v20;
-  }
-  v35 = *(_QWORD *)(v17 + 448);
-  v36 = 0LL;
-  if ( (*(_QWORD *)(v17 + 456) - v35) >> 3 )
-  {
-    while ( 1 )
+            Flink,
+            v18,
+            *((const struct CShape **)this + 113),
+            (struct _MARGINS *)((char *)this + 820),
+            v12);
+    v11 = v19;
+    if ( v19 < 0 )
     {
-      v37 = v9 ? *((_DWORD *)v9 + 10) : 0;
-      v38 = *(_QWORD *)(v35 + 8 * v36);
-      v39 = v38 ? (struct IBitmapResource *)(*(int *)(*(_QWORD *)(v38 + 64) + 8LL) + v38 + 64) : 0LL;
-      v18 = CWindowNode::RenderImage((CWindowNode *)this, (struct CDrawingContext *)a2, v9, v39, this[110], 1, v37);
-      v20 = v18;
-      if ( v18 < 0 )
-        break;
-      v35 = *(_QWORD *)(v17 + 448);
-      if ( ++v36 >= (unsigned __int64)((*(_QWORD *)(v17 + 456) - v35) >> 3) )
-        goto LABEL_28;
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x555u, 0LL);
+      return v11;
     }
-    v45 = 1301;
-    goto LABEL_83;
+    goto LABEL_41;
   }
-LABEL_28:
-  if ( *((_BYTE *)this + 896) )
+  v21 = *((_QWORD *)this + 90);
+  v22 = 0LL;
+  v23 = v21 + 432;
+  if ( !v21 )
+    v23 = 488LL;
+  v24 = *(_QWORD *)v23;
+  if ( !((__int64)(*(_QWORD *)(v23 + 8) - *(_QWORD *)v23) >> 3) )
   {
-    v40 = (struct CCompositionSurfaceBitmap *)CPtrArrayBase::operator[](this + 98, 0LL);
-    CWindowNode::DxFlipConsumedTelemetry((CWindowNode *)this, (struct CDrawingContext *)a2, v40);
-    v41 = v9 ? *((_DWORD *)v9 + 12) : 0;
-    v42 = *(const struct CShape **)CWindowNode::GetDxClipShape(this, &v51);
-    v43 = v40 ? (struct CCompositionSurfaceBitmap *)((char *)v40 + 72) : 0LL;
-    v20 = CWindowNode::RenderImage((CWindowNode *)this, (struct CDrawingContext *)a2, v9, v43, v42, 0, v41);
-    CShapePtr::Release((CShapePtr *)&v51);
-    if ( (v20 & 0x80000000) != 0 )
+LABEL_41:
+    if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 90) + 40LL))(*((_QWORD *)this + 90)) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v20, 0x526u, 0LL);
-      return v20;
+      v30 = *((_QWORD *)this + 2);
+      v31 = (const struct ConfirmPresentHistoryToken *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 90)
+                                                                                         + 48LL))(*((_QWORD *)this + 90));
+      v32 = FRAME_TIME_INFO::AddTokenForRenderContent(*(FRAME_TIME_INFO **)(v30 + 344), v31);
+      v11 = v32;
+      if ( v32 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, v32, 0x56Cu, 0LL);
+        return v11;
+      }
     }
+LABEL_46:
+    v34 = (CCompositionSurfaceBitmap *)*((_QWORD *)this + 108);
+    if ( !v34 )
+      goto LABEL_54;
+    if ( (unsigned int)CCompositionSurfaceBitmap::GetSizePreference(v34) == 1 )
+      CCompositionSurfaceBitmap::GetBorderColor(*((CCompositionSurfaceBitmap **)this + 108), &v41);
+    v35 = Flink ? *((_DWORD *)Flink + 8) : 0;
+    DxClipShape = (const struct CShape **)CWindowNode::GetDxClipShape(this, &v41);
+    v11 = CWindowNode::RenderImage(
+            this,
+            (struct CDrawingContext *)a2,
+            Flink,
+            (struct IBitmapResource *)((*((_QWORD *)this + 108) + 64LL) & -(__int64)(*((_QWORD *)this + 108) != 0LL)),
+            *DxClipShape,
+            0LL,
+            v35);
+    CShapePtr::Release((CShapePtr *)&v41);
+    if ( (v11 & 0x80000000) != 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v11, 0x57Fu, 0LL);
+    }
+    else
+    {
+LABEL_54:
+      v38 = CVisual::RenderContent(this, (struct CDrawingContext *)a2, a3);
+      v11 = v38;
+      if ( v38 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v39, 0LL, 0, v38, 0x582u, 0LL);
+    }
+    return v11;
   }
-  v18 = CVisual::RenderContent((CVisual *)this, (struct CDrawingContext *)a2, a3);
-  v20 = v18;
-  if ( v18 < 0 )
+  while ( 1 )
   {
-    v45 = 1321;
-    goto LABEL_83;
+    v25 = *(_QWORD *)(v24 + 8 * v22);
+    v26 = Flink ? *((_DWORD *)Flink + 6) : 0;
+    v27 = v25 ? (struct IBitmapResource *)(*(int *)(*(_QWORD *)(v25 + 56) + 8LL) + v25 + 56) : 0LL;
+    v28 = CWindowNode::RenderImage(
+            this,
+            (struct CDrawingContext *)a2,
+            Flink,
+            v27,
+            *((const struct CShape **)this + 113),
+            (struct _MARGINS *)((char *)this + 820),
+            v26);
+    v11 = v28;
+    if ( v28 < 0 )
+      break;
+    v24 = *(_QWORD *)v23;
+    if ( ++v22 >= (unsigned __int64)((__int64)(*(_QWORD *)(v23 + 8) - *(_QWORD *)v23) >> 3) )
+      goto LABEL_41;
   }
-  return v20;
+  MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0x566u, 0LL);
+  return v11;
 }

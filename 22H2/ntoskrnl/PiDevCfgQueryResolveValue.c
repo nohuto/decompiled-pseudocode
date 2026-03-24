@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgQueryResolveValue @ 0x140562368
+ * XREFs of PiDevCfgQueryResolveValue @ 0x14050E3E4
  * Callers:
- *     PiDevCfgVerifyDeviceAllowed @ 0x1408792EC (PiDevCfgVerifyDeviceAllowed.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CF74 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140766C04 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14077C228 (PiDevCfgVerifyDeviceAllowed.c)
  * Callees:
- *     PnpValidateStringData @ 0x1403CDC10 (PnpValidateStringData.c)
- *     PiDevCfgParseVariableName @ 0x1403CE0CC (PiDevCfgParseVariableName.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PiDevCfgResolveVariable @ 0x14087F0D0 (PiDevCfgResolveVariable.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PnpValidateStringData @ 0x14036E438 (PnpValidateStringData.c)
+ *     PiDevCfgParseVariableName @ 0x14039376C (PiDevCfgParseVariableName.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     PiDevCfgResolveVariable @ 0x14077B470 (PiDevCfgResolveVariable.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgQueryResolveValue(__int64 a1, void *a2, __int64 a3, _QWORD *a4)
@@ -18,7 +18,7 @@ __int64 __fastcall PiDevCfgQueryResolveValue(__int64 a1, void *a2, __int64 a3, _
   int RegistryValue; // edi
   _WORD *v7; // rcx
   __int64 v8; // r14
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v10; // rsi
   int v12; // [rsp+20h] [rbp-30h] BYREF
   PVOID P; // [rsp+28h] [rbp-28h]
@@ -42,19 +42,19 @@ __int64 __fastcall PiDevCfgQueryResolveValue(__int64 a1, void *a2, __int64 a3, _
       if ( RegistryValue >= 0 )
       {
         v8 = v14;
-        Pool2 = (_DWORD *)ExAllocatePool2(
-                            256LL,
-                            (unsigned int)(*(_DWORD *)(v14 + 36) + 26 + MEMORY[0x10]),
-                            1667526736LL);
-        v10 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(
+                        PagedPool,
+                        (unsigned int)(MEMORY[0x10] + 26 + *(_DWORD *)(v14 + 36)),
+                        0x63647050u);
+        v10 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          *Pool2 = MEMORY[0];
-          Pool2[4] = MEMORY[0x10];
-          Pool2[1] = *(_DWORD *)(v8 + 32);
-          Pool2[3] = *(_DWORD *)(v8 + 36);
-          Pool2[2] = MEMORY[0x10] + 22;
-          memmove(Pool2 + 5, (const void *)0x14, MEMORY[0x10]);
+          *PoolWithTag = MEMORY[0];
+          PoolWithTag[4] = MEMORY[0x10];
+          PoolWithTag[1] = *(_DWORD *)(v8 + 32);
+          PoolWithTag[3] = *(_DWORD *)(v8 + 36);
+          PoolWithTag[2] = MEMORY[0x10] + 22;
+          memmove(PoolWithTag + 5, (const void *)0x14, MEMORY[0x10]);
           *(_WORD *)(2 * ((unsigned __int64)MEMORY[0x10] >> 1) + 0x14) = 0;
           memmove((char *)v10 + (unsigned int)v10[2], *(const void **)(v8 + 40), *(unsigned int *)(v8 + 36));
           *a4 = v10;

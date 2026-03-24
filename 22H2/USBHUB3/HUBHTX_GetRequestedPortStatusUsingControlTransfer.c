@@ -1,22 +1,21 @@
 /*
- * XREFs of HUBHTX_GetRequestedPortStatusUsingControlTransfer @ 0x1C00062BC
+ * XREFs of HUBHTX_GetRequestedPortStatusUsingControlTransfer @ 0x1C0005BB0
  * Callers:
- *     HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer @ 0x1C00088C0 (HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer.c)
+ *     HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer @ 0x1C0008100 (HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C0032554 (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBHTX_GetRequestedPortStatusUsingControlTransfer(__int64 a1)
 {
-  __int64 v1; // rbp
+  __int64 v1; // rsi
   char v3; // al
-  unsigned __int16 v4; // si
-  __int64 *v5; // rdi
+  unsigned __int16 v4; // di
   __int64 result; // rax
-  int v7; // [rsp+28h] [rbp-40h]
-  __int64 v8; // [rsp+28h] [rbp-40h]
+  int v6; // [rsp+28h] [rbp-30h]
+  __int64 v7; // [rsp+28h] [rbp-30h]
 
   v1 = *(_QWORD *)(a1 + 2584);
   v3 = *(_BYTE *)(a1 + 952) & 0x1C;
@@ -26,11 +25,16 @@ __int64 __fastcall HUBHTX_GetRequestedPortStatusUsingControlTransfer(__int64 a1)
   v4 = (*(_DWORD *)(v1 + 204) & 0x100) != 0 ? 8 : 4;
   *(_WORD *)(a1 + 954) = (*(_DWORD *)(v1 + 204) & 0x100) != 0 ? 2 : 0;
   *(_WORD *)(a1 + 958) = v4;
-  v5 = (__int64 *)(a1 + 2520);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v7 = *(unsigned __int16 *)(v1 + 200);
-    WPP_RECORDER_SF_d(*v5, 4u, 3u, 0x70u, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids, v7);
+    v6 = *(unsigned __int16 *)(v1 + 200);
+    WPP_RECORDER_SF_d(
+      *(_QWORD *)(a1 + 2520),
+      4u,
+      3u,
+      0x6Fu,
+      (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
+      v6);
   }
   result = HUBMISC_ControlTransfer(
              a1,
@@ -46,8 +50,14 @@ __int64 __fastcall HUBHTX_GetRequestedPortStatusUsingControlTransfer(__int64 a1)
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LODWORD(v8) = result;
-      WPP_RECORDER_SF_d(*v5, 2u, 3u, 0x71u, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids, v8);
+      LODWORD(v7) = result;
+      WPP_RECORDER_SF_d(
+        *(_QWORD *)(a1 + 2520),
+        2u,
+        3u,
+        0x70u,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
+        v7);
     }
     return HUBSM_AddEvent(a1 + 1264, 2004LL);
   }

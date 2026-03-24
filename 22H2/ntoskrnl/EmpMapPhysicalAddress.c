@@ -1,25 +1,21 @@
 /*
- * XREFs of EmpMapPhysicalAddress @ 0x140B93E6C
+ * XREFs of EmpMapPhysicalAddress @ 0x140A477DC
  * Callers:
- *     EmpCacheBiosDate @ 0x140B57088 (EmpCacheBiosDate.c)
+ *     EmpCacheBiosDate @ 0x140A4768C (EmpCacheBiosDate.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14041ABA0 (ZwMapViewOfSection.c)
- *     ZwOpenSection @ 0x14041AD80 (ZwOpenSection.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1403F9F20 (ZwMapViewOfSection.c)
+ *     ZwOpenSection @ 0x1403FA100 (ZwOpenSection.c)
  */
 
-char *__fastcall EmpMapPhysicalAddress(
-        SIZE_T a1,
-        __int64 a2,
-        HANDLE *a3,
-        PVOID *a4,
-        $115DCDF994C6370D29323EAB0E0C9502 *a5)
+char *__fastcall EmpMapPhysicalAddress(SIZE_T a1, __int64 a2, HANDLE *a3, PVOID *a4, __int64 a5)
 {
   __int64 v5; // rbx
-  char *v8; // rax
+  _DWORD *v8; // r9
+  char *v9; // rax
   LARGE_INTEGER SectionOffset; // [rsp+50h] [rbp-11h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+7h] BYREF
@@ -41,7 +37,7 @@ char *__fastcall EmpMapPhysicalAddress(
     BaseAddress = 0LL;
     CommitSize = 8LL;
     SectionOffset.QuadPart = 1044480LL;
-    KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)a5);
+    KiStackAttachProcess(PsInitialSystemProcess, 0LL, a5, v8);
     if ( ZwMapViewOfSection(
            *a3,
            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
@@ -54,15 +50,15 @@ char *__fastcall EmpMapPhysicalAddress(
            0,
            4u) < 0 )
     {
-      KiUnstackDetachProcess(a5);
+      KiUnstackDetachProcess(a5, 0);
       ZwClose(*a3);
       *a3 = 0LL;
     }
     else
     {
-      v8 = (char *)BaseAddress;
+      v9 = (char *)BaseAddress;
       *a4 = BaseAddress;
-      return v8 + 4085;
+      return v9 + 4085;
     }
   }
   return (char *)v5;

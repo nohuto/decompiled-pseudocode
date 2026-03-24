@@ -1,8 +1,8 @@
 /*
- * XREFs of VidSchiSetNextRunPacket @ 0x1C000E8A8
+ * XREFs of VidSchiSetNextRunPacket @ 0x1C0013F94
  * Callers:
- *     VidSchiCompleteRewindPacket @ 0x1C000E658 (VidSchiCompleteRewindPacket.c)
- *     VidSchiReadCommandFromContextQueue @ 0x1C00393C0 (VidSchiReadCommandFromContextQueue.c)
+ *     VidSchiCompleteRewindPacket @ 0x1C0013D54 (VidSchiCompleteRewindPacket.c)
+ *     VidSchiReadCommandFromContextQueue @ 0x1C00307D4 (VidSchiReadCommandFromContextQueue.c)
  * Callees:
  *     <none>
  */

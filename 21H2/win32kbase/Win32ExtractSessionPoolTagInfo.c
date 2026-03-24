@@ -1,9 +1,9 @@
 /*
- * XREFs of Win32ExtractSessionPoolTagInfo @ 0x1C00B64C0
+ * XREFs of Win32ExtractSessionPoolTagInfo @ 0x1C00A5690
  * Callers:
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C01481B0 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
- * Callees:
  *     <none>
+ * Callees:
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 NTSTATUS __fastcall Win32ExtractSessionPoolTagInfo(
@@ -18,117 +18,112 @@ NTSTATUS __fastcall Win32ExtractSessionPoolTagInfo(
         unsigned int a9)
 {
   _QWORD *v9; // rax
-  unsigned int v11; // esi
-  unsigned int v12; // r12d
-  unsigned int v13; // r13d
+  unsigned int *v10; // r13
+  unsigned int v12; // esi
+  unsigned int v13; // r15d
+  unsigned int v14; // r12d
   NTSTATUS result; // eax
-  void *v15; // rbx
-  NTSTATUS v16; // r15d
-  __int64 v17; // r14
-  unsigned int v18; // r9d
-  bool v19; // di
-  unsigned int v20; // eax
-  _QWORD *v21; // r15
-  __int64 v22; // rdx
-  _QWORD *v23; // rbx
-  __int64 v24; // r11
-  __int64 v25; // r10
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v17; // rbx
+  NTSTATUS v18; // r14d
+  __int64 v19; // rdi
+  unsigned int v20; // r10d
+  bool v21; // r11
+  __int64 v22; // r8
+  _QWORD *v23; // r13
+  _QWORD *v24; // r14
+  __int64 v25; // rcx
   __int64 v26; // rcx
-  __int64 v27; // rcx
-  int v28; // ecx
-  NTSTATUS v29; // [rsp+20h] [rbp-28h]
-  __int64 Pool2; // [rsp+28h] [rbp-20h]
-  int SystemInformation; // [rsp+30h] [rbp-18h] BYREF
-  ULONG v32; // [rsp+34h] [rbp-14h]
-  __int64 v33; // [rsp+38h] [rbp-10h]
+  NTSTATUS v27; // [rsp+20h] [rbp-28h]
+  int SystemInformation; // [rsp+28h] [rbp-20h] BYREF
+  ULONG v29; // [rsp+2Ch] [rbp-1Ch]
+  _DWORD *v30; // [rsp+30h] [rbp-18h]
   ULONG ReturnLength; // [rsp+90h] [rbp+48h] BYREF
-  __int64 v35; // [rsp+98h] [rbp+50h]
-  unsigned int v36; // [rsp+A0h] [rbp+58h]
-  unsigned int *v37; // [rsp+A8h] [rbp+60h]
+  __int64 v32; // [rsp+98h] [rbp+50h]
+  unsigned int v33; // [rsp+A0h] [rbp+58h]
+  unsigned int *v34; // [rsp+A8h] [rbp+60h]
 
-  v37 = a4;
-  v36 = a3;
-  v35 = a2;
+  v34 = a4;
+  v33 = a3;
+  v32 = a2;
   v9 = a5;
   SystemInformation = a1;
   *a4 = 0;
+  v10 = a4;
   ReturnLength = 0;
   *v9 = 0LL;
-  v11 = 0;
-  v32 = 0;
-  v33 = 0LL;
+  v29 = 0;
   v12 = 0;
+  v30 = 0LL;
   v13 = 0;
+  v14 = 0;
   *a6 = 0LL;
   *a7 = 0LL;
   result = ZwQuerySystemInformation(SystemSessionPoolTagInformation, &SystemInformation, 0x10u, &ReturnLength);
   if ( result == -1073741820 && ReturnLength )
   {
-    Pool2 = ExAllocatePool2(64LL, ReturnLength);
-    v15 = (void *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, ReturnLength, 0x746C7355u);
+    v17 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v32 = ReturnLength;
-      v33 = Pool2;
-      v29 = ZwQuerySystemInformation(SystemSessionPoolTagInformation, &SystemInformation, 0x10u, &ReturnLength);
-      v16 = v29;
-      if ( v29 >= 0 && *(_DWORD *)(Pool2 + 8) == a1 )
+      memset(PoolWithTag, 0, ReturnLength);
+      v29 = ReturnLength;
+      v30 = v17;
+      v27 = ZwQuerySystemInformation(SystemSessionPoolTagInformation, &SystemInformation, 0x10u, &ReturnLength);
+      v18 = v27;
+      if ( v27 >= 0 && v17[2] == a1 )
       {
-        v17 = a8;
-        v18 = a9;
-        v19 = a8 && a9;
-        v20 = *(_DWORD *)(Pool2 + 12);
-        if ( v20 )
+        v19 = a8;
+        v20 = a9;
+        v21 = a8 && a9;
+        v22 = 0LL;
+        if ( v17[3] )
         {
-          v21 = a5;
-          v22 = Pool2 + 20;
-          v23 = a6;
-          v24 = v20;
+          v23 = a5;
+          v24 = a6;
           while ( 1 )
           {
-            v25 = *(_QWORD *)(v22 + 12);
-            if ( v25 || *(_QWORD *)(v22 + 28) )
+            if ( *(_QWORD *)&v17[10 * v22 + 8] || *(_QWORD *)&v17[10 * v22 + 12] )
             {
-              if ( !v19 )
+              if ( !v21 )
                 goto LABEL_25;
-              v26 = 0LL;
-              if ( v18 )
+              v25 = 0LL;
+              if ( v20 )
                 break;
             }
 LABEL_12:
-            v22 += 40LL;
-            if ( !--v24 )
+            v22 = (unsigned int)(v22 + 1);
+            if ( (unsigned int)v22 >= v17[3] )
             {
-              v15 = (void *)Pool2;
-              v16 = v29;
+              v18 = v27;
+              v10 = v34;
               goto LABEL_14;
             }
           }
-          while ( *(_DWORD *)(v17 + 4 * v26) != *(_DWORD *)(v22 - 4) )
+          while ( *(_DWORD *)(v19 + 4 * v25) != v17[10 * v22 + 4] )
           {
-            v26 = (unsigned int)(v26 + 1);
-            if ( (unsigned int)v26 >= v18 )
+            v25 = (unsigned int)(v25 + 1);
+            if ( (unsigned int)v25 >= v20 )
               goto LABEL_12;
           }
 LABEL_25:
-          if ( v11 < v36 )
+          if ( v12 < v33 )
           {
-            v27 = v11++;
-            *(_DWORD *)(v35 + 4 * v27) = *(_DWORD *)(v22 - 4);
+            v26 = v12++;
+            *(_DWORD *)(v32 + 4 * v26) = v17[10 * v22 + 4];
           }
-          *v21 += v25;
-          v12 += *(_DWORD *)v22 - *(_DWORD *)(v22 + 4);
-          v28 = *(_DWORD *)(v22 + 20) - *(_DWORD *)(v22 + 24);
-          *v23 += *(_QWORD *)(v22 + 28);
-          v13 += v28;
+          *v23 += *(_QWORD *)&v17[10 * v22 + 8];
+          *v24 += *(_QWORD *)&v17[10 * v22 + 12];
+          v13 += v17[10 * v22 + 5] - v17[10 * v22 + 6];
+          v14 += v17[10 * v22 + 10] - v17[10 * v22 + 11];
           goto LABEL_12;
         }
 LABEL_14:
-        *v37 = v11;
-        *a7 = v12 | ((unsigned __int64)v13 << 32);
+        *v10 = v12;
+        *a7 = v13 | ((unsigned __int64)v14 << 32);
       }
-      ExFreePoolWithTag(v15, 0x746C7355u);
-      return v16;
+      ExFreePoolWithTag(v17, 0x746C7355u);
+      return v18;
     }
     else
     {

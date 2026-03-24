@@ -1,28 +1,26 @@
 /*
- * XREFs of ?RemoveAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z @ 0x1C02311DC
+ * XREFs of ?RemoveAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z @ 0x1C01FA730
  * Callers:
- *     ?Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C00652C0 (-Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ.c)
- *     ?UpdatePointerCapture@CInputManager@@SAJII@Z @ 0x1C023123C (-UpdatePointerCapture@CInputManager@@SAJII@Z.c)
+ *     ?Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C005A810 (-Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ.c)
+ *     ?UpdatePointerCapture@CInputManager@@SAJII@Z @ 0x1C01FA780 (-UpdatePointerCapture@CInputManager@@SAJII@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
-__int64 __fastcall CStructDynamicArray<CInputManager::PointerCaptureInfo>::RemoveAt(__int64 a1, unsigned int a2)
+void __fastcall CStructDynamicArray<CInputManager::PointerCaptureInfo>::RemoveAt(__int64 a1, unsigned int a2)
 {
   unsigned int v3; // ebx
-  char *v4; // rdx
-  __int64 result; // rax
-  __int64 v6; // rcx
+  __int64 v4; // rcx
 
   v3 = a2;
-  v4 = *(char **)(*(_QWORD *)a1 + 8LL * a2);
-  if ( v4 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
-  result = (unsigned int)(*(_DWORD *)(a1 + 8) - 1);
-  for ( *(_DWORD *)(a1 + 8) = result; v3 < *(_DWORD *)(a1 + 8); *(_QWORD *)(*(_QWORD *)a1 + 8 * v6) = result )
+  Win32FreePool(*(_QWORD *)(*(_QWORD *)a1 + 8LL * a2));
+  if ( v3 < --*(_DWORD *)(a1 + 8) )
   {
-    v6 = v3++;
-    result = *(_QWORD *)(*(_QWORD *)a1 + 8LL * v3);
+    do
+    {
+      v4 = v3++;
+      *(_QWORD *)(*(_QWORD *)a1 + 8 * v4) = *(_QWORD *)(*(_QWORD *)a1 + 8LL * v3);
+    }
+    while ( v3 < *(_DWORD *)(a1 + 8) );
   }
-  return result;
 }

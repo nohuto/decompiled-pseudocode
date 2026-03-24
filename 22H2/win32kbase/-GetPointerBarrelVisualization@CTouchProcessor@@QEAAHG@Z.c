@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetPointerBarrelVisualization@CTouchProcessor@@QEAAHG@Z @ 0x1C01C7490
+ * XREFs of ?GetPointerBarrelVisualization@CTouchProcessor@@QEAAHG@Z @ 0x1C0191DB0
  * Callers:
  *     <none>
  * Callees:
- *     ?UnLock@CInpLockGuard@@QEAAXXZ @ 0x1C00B9740 (-UnLock@CInpLockGuard@@QEAAXXZ.c)
- *     ?FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z @ 0x1C00E3E58 (-FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z.c)
- *     ??0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z @ 0x1C01B9698 (--0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z.c)
+ *     ??0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z @ 0x1C00CCCC0 (--0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z.c)
+ *     ??1CInpLockGuardShared@@QEAA@XZ @ 0x1C0187434 (--1CInpLockGuardShared@@QEAA@XZ.c)
+ *     ?FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z @ 0x1C018E2A4 (-FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z.c)
  */
 
 __int64 __fastcall CTouchProcessor::GetPointerBarrelVisualization(struct _KTHREAD **this, unsigned __int16 a2)
@@ -13,21 +13,19 @@ __int64 __fastcall CTouchProcessor::GetPointerBarrelVisualization(struct _KTHREA
   unsigned int v4; // esi
   struct CInputPointerNode *NodeById; // rax
   int v6; // eax
-  CInpLockGuard *v8; // [rsp+20h] [rbp-18h] BYREF
-  int v9; // [rsp+28h] [rbp-10h]
+  CInpLockGuard *v8[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v4 = 1;
-  CInpLockGuardShared::CInpLockGuardShared((CInpLockGuardShared *)&v8, (struct CInpLockGuard *)(this + 4), 1);
+  CInpLockGuardShared::CInpLockGuardShared((CInpLockGuardShared *)v8, (struct CInpLockGuard *)(this + 5), 1);
   NodeById = CTouchProcessor::FindNodeById(this, a2, 0, 0);
   if ( NodeById )
   {
-    v6 = *((_DWORD *)NodeById + 75);
+    v6 = *((_DWORD *)NodeById + 70);
     if ( (v6 & 0x800) != 0 )
       v4 = (v6 & 0x400) != 0 ? 1 : -1;
     else
       v4 = 0;
   }
-  if ( !v9 )
-    CInpLockGuard::UnLock(v8);
+  CInpLockGuardShared::~CInpLockGuardShared(v8);
   return v4;
 }

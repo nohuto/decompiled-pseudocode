@@ -1,20 +1,19 @@
 /*
- * XREFs of ?Assign@DispBrokerClientReference@@QEAAXPEAVDispBrokerClientHandle@@@Z @ 0x1C001EE84
+ * XREFs of ?Assign@DispBrokerClientReference@@QEAAXPEAVDispBrokerClientHandle@@@Z @ 0x1C001AD7C
  * Callers:
- *     ??1DispBrokerClient@@QEAA@XZ @ 0x1C0002668 (--1DispBrokerClient@@QEAA@XZ.c)
- *     ?DisconnectDisplayBroker@DispBrokerClient@@QEAAXXZ @ 0x1C001F90C (-DisconnectDisplayBroker@DispBrokerClient@@QEAAXXZ.c)
- *     ??0DXGSESSIONDATA@@QEAA@K@Z @ 0x1C0160F74 (--0DXGSESSIONDATA@@QEAA@K@Z.c)
- *     _lambda_8317567312832b51b45aaef017a7684b_::operator() @ 0x1C01C8284 (_lambda_8317567312832b51b45aaef017a7684b_--operator().c)
- *     ?SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTES@@0PEA_K1PEAT_LARGE_INTEGER@@@Z @ 0x1C01C8394 (-SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTE.c)
- *     ?ReferencePort@DispBrokerClient@@AEAA?AVDispBrokerClientReference@@XZ @ 0x1C01C855C (-ReferencePort@DispBrokerClient@@AEAA-AVDispBrokerClientReference@@XZ.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C011665C (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ??0DXGSESSIONDATA@@QEAA@K@Z @ 0x1C0155834 (--0DXGSESSIONDATA@@QEAA@K@Z.c)
+ *     ??1DXGSESSIONDATA@@QEAA@XZ @ 0x1C01641B4 (--1DXGSESSIONDATA@@QEAA@XZ.c)
+ *     _lambda_d7c4861ef0734605370a98f05df27570_::operator() @ 0x1C0166500 (_lambda_d7c4861ef0734605370a98f05df27570_--operator().c)
+ *     ?SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTES@@0PEA_K1PEAT_LARGE_INTEGER@@@Z @ 0x1C01666F8 (-SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTE.c)
+ *     ?ReferencePort@DispBrokerClient@@AEAA?AVDispBrokerClientReference@@XZ @ 0x1C01668BC (-ReferencePort@DispBrokerClient@@AEAA-AVDispBrokerClientReference@@XZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ??1DispBrokerClientHandle@@QEAA@XZ @ 0x1C001EEEC (--1DispBrokerClientHandle@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
  */
 
-void __fastcall DispBrokerClientReference::Assign(DispBrokerClientHandle **this, struct DispBrokerClientHandle *a2)
+void __fastcall DispBrokerClientReference::Assign(HANDLE **this, HANDLE *a2)
 {
-  DispBrokerClientHandle *v2; // rdi
+  HANDLE *v2; // rdi
 
   v2 = *this;
   if ( *this != a2 )
@@ -23,7 +22,8 @@ void __fastcall DispBrokerClientReference::Assign(DispBrokerClientHandle **this,
     {
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)v2, 0xFFFFFFFF) == 1 )
       {
-        DispBrokerClientHandle::~DispBrokerClientHandle(v2);
+        ZwAlpcDisconnectPort(v2[1], 0LL);
+        ZwClose(v2[1]);
         operator delete(v2);
       }
       *this = 0LL;

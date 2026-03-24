@@ -1,58 +1,43 @@
 /*
- * XREFs of MiUpdateSlabPagePlaceholderState @ 0x1402E8FBC
+ * XREFs of MiUpdateSlabPagePlaceholderState @ 0x140376108
  * Callers:
- *     MiGetSlabPage @ 0x14023BD50 (MiGetSlabPage.c)
- *     MiAllocateSlabEntry @ 0x1402E6C40 (MiAllocateSlabEntry.c)
- *     MiFreePageToSlabAllocator @ 0x140338DB0 (MiFreePageToSlabAllocator.c)
- *     MiFreeSlabEntry @ 0x1403B8070 (MiFreeSlabEntry.c)
- *     MiDemoteSlabEntry @ 0x1403CCD8C (MiDemoteSlabEntry.c)
+ *     MiGetPageFromSlabAllocator @ 0x140359630 (MiGetPageFromSlabAllocator.c)
+ *     MiFreePageToSlabAllocator @ 0x140375F10 (MiFreePageToSlabAllocator.c)
+ *     MiAllocateSlabEntry @ 0x140392168 (MiAllocateSlabEntry.c)
+ *     MiFreeSlabEntry @ 0x140552B10 (MiFreeSlabEntry.c)
  * Callees:
- *     MiSetPfnIdentity @ 0x1402194A8 (MiSetPfnIdentity.c)
- *     MiAbortCombineScan @ 0x14021AACC (MiAbortCombineScan.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     VslSetPlaceholderPages @ 0x14045F068 (VslSetPlaceholderPages.c)
+ *     MiAbortCombineScan @ 0x140283DF0 (MiAbortCombineScan.c)
+ *     VslSetPlaceholderPages @ 0x140394678 (VslSetPlaceholderPages.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiUpdateSlabPagePlaceholderState(__int64 a1, ULONG_PTR a2, __int64 a3, int a4)
+void __fastcall MiUpdateSlabPagePlaceholderState(__int64 a1, ULONG_PTR a2, __int64 a3, int a4)
 {
-  __int64 result; // rax
-  __int64 v8; // rbx
-  unsigned int v9; // edi
-  unsigned int v10; // ebx
+  unsigned int v7; // ebp
+  unsigned int v8; // esi
+  __int64 v9; // rcx
 
-  result = *(unsigned int *)(a1 + 80);
-  if ( (unsigned int)result <= 3 && (_DWORD)result != 2 )
+  if ( !*(_DWORD *)(a1 + 48) )
   {
     if ( a4 )
     {
       if ( a3 == 1 )
       {
-        v8 = 48 * a2 - 0x220000000000LL;
-        MiSetPfnIdentity(v8, 3);
-        MiAbortCombineScan(v8);
+        v9 = 48 * a2 - 0x58000000000LL;
+        *(_QWORD *)(v9 + 40) = *(_QWORD *)(v9 + 40) & 0x8FFFFFFFFFFFFFFFuLL | 0x3000000000000000LL;
+        MiAbortCombineScan(v9);
       }
-      result = *(unsigned int *)(a1 + 80);
-      v9 = 0;
-      if ( (unsigned int)result > 3 )
-        result = (unsigned int)(result - 4);
-      v10 = *((_DWORD *)MiSlabTypeToMmSlabType + result);
+      v8 = 0;
+      v7 = *((_DWORD *)MiSlabProtectionToPageProtection + *(int *)(a1 + 52));
     }
     else
     {
       if ( a3 == 1 )
-        MiSetPfnIdentity(48 * a2 - 0x220000000000LL, 0);
-      result = *(unsigned int *)(a1 + 80);
-      if ( (unsigned int)result > 3 )
-        result = (unsigned int)(result - 4);
-      v10 = 0;
-      v9 = *((_DWORD *)MiSlabTypeToMmSlabType + result);
+        *(_QWORD *)(48 * a2 - 0x58000000000LL + 40) &= 0x8FFFFFFFFFFFFFFFuLL;
+      v7 = 0;
+      v8 = *((_DWORD *)MiSlabProtectionToPageProtection + *(int *)(a1 + 52));
     }
-    if ( (MiFlags & 0x4000) != 0 )
-    {
-      result = VslSetPlaceholderPages(a2, a3, v9, v10);
-      if ( (int)result < 0 )
-        KeBugCheckEx(0x1Au, 0x5150FuLL, a2, (int)v9, (int)v10);
-    }
+    if ( (MiFlags & 0x8000) != 0 && (int)VslSetPlaceholderPages(a2, a3, v8, v7) < 0 )
+      KeBugCheckEx(0x1Au, 0x5150FuLL, a2, v8, v7);
   }
-  return result;
 }

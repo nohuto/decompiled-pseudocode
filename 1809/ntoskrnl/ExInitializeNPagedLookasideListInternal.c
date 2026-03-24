@@ -1,8 +1,8 @@
 /*
- * XREFs of ExInitializeNPagedLookasideListInternal @ 0x14015F980
+ * XREFs of ExInitializeNPagedLookasideListInternal @ 0x14015F9A0
  * Callers:
- *     ExInitializeNPagedLookasideList @ 0x14015F940 (ExInitializeNPagedLookasideList.c)
- *     RtlInitializeCompression @ 0x1402EC734 (RtlInitializeCompression.c)
+ *     ExInitializeNPagedLookasideList @ 0x14015F960 (ExInitializeNPagedLookasideList.c)
+ *     RtlInitializeCompression @ 0x1402EC834 (RtlInitializeCompression.c)
  *     CcInitializeCacheManager @ 0x1409B06D8 (CcInitializeCacheManager.c)
  *     ObInitSystem @ 0x1409B1964 (ObInitSystem.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
@@ -14,8 +14,8 @@
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExInitializeNPagedLookasideListInternal(
@@ -59,14 +59,14 @@ __int64 __fastcall ExInitializeNPagedLookasideListInternal(
   {
     *(_DWORD *)(a1 + 16) = -65536;
   }
-  v13 = (_QWORD *)qword_140407088;
+  v13 = (_QWORD *)qword_140407078;
   v14 = (_QWORD *)(a1 + 64);
-  if ( *(__int64 **)qword_140407088 != &ExNPagedLookasideListHead )
+  if ( *(__int64 **)qword_140407078 != &ExNPagedLookasideListHead )
     __fastfail(3u);
   *v14 = &ExNPagedLookasideListHead;
   v14[1] = v13;
   *v13 = v14;
-  qword_140407088 = (__int64)v14;
+  qword_140407078 = (__int64)v14;
   KxReleaseSpinLock(&ExNPagedLookasideLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v12 < 2u )
   {

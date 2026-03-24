@@ -1,42 +1,45 @@
 /*
- * XREFs of ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1403795D4
+ * XREFs of ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1402DFE94
  * Callers:
- *     ?SmStAllocateVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x140379208 (-SmStAllocateVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
- *     ?SmStLockVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KPEAT_SM_VIRTUAL_REGION@@PEAXK@Z @ 0x1403794AC (-SmStLockVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KPEAT_SM_VIRTUAL_REGION@@PEAXK@Z.c)
- *     ?SmStReleaseVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z @ 0x1403905FC (-SmStReleaseVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z.c)
- *     ?StDmCombineBufferProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAPEAU_SM_PAGE_COMBINE_BUFFER@@@Z @ 0x14039423C (-StDmCombineBufferProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAPEAU_SM_PAGE_COMBINE.c)
+ *     ?SmStReleaseVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z @ 0x1402AD0E8 (-SmStReleaseVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z.c)
+ *     ?StDmCombineBufferProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAPEAU_SM_PAGE_COMBINE_BUFFER@@@Z @ 0x1402DF084 (-StDmCombineBufferProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAPEAU_SM_PAGE_COMBINE.c)
+ *     ?SmStLockVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KPEAT_SM_VIRTUAL_REGION@@PEAXK@Z @ 0x1402DFD6C (-SmStLockVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KPEAT_SM_VIRTUAL_REGION@@PEAXK@Z.c)
+ *     ?SmStAllocateVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x1402E1324 (-SmStAllocateVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
  * Callees:
- *     KiAbThreadRemoveBoostsSlow @ 0x14022B568 (KiAbThreadRemoveBoostsSlow.c)
- *     SmKmStoreHelperSendCommand @ 0x140237628 (SmKmStoreHelperSendCommand.c)
- *     ?SmStAcquireStoreLockExclusive@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140238A40 (-SmStAcquireStoreLockExclusive@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14034EE30 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     SmKmStoreHelperWaitForCommand @ 0x140379848 (SmKmStoreHelperWaitForCommand.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
+ *     ?SmStAcquireStoreLockExclusive@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1402DA478 (-SmStAcquireStoreLockExclusive@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmKmStoreHelperWaitForCommand @ 0x1402E017C (SmKmStoreHelperWaitForCommand.c)
+ *     SmKmStoreHelperSendCommand @ 0x1402E0224 (SmKmStoreHelperSendCommand.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand(__int64 a1, int a2, _OWORD *a3, unsigned int a4)
+__int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 v6; // r13
   __int64 v8; // r13
   unsigned int v9; // ebx
   __int64 v10; // rax
   __int64 *v11; // r15
-  __int64 v12; // rdi
-  struct _KTHREAD *CurrentThread; // rsi
-  unsigned int SessionId; // ecx
-  __int64 p_Process; // rbx
-  unsigned int v16; // edx
-  int v17; // r9d
-  struct _KTHREAD *v18; // rax
-  bool v19; // zf
-  __int64 v21; // [rsp+30h] [rbp-38h] BYREF
+  struct _KTHREAD *CurrentThread; // rbx
+  unsigned int SessionId; // edx
+  unsigned int v14; // r8d
+  bool v15; // zf
+  __int64 v16; // rcx
+  __int64 v17; // rdi
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v21; // [rsp+38h] [rbp-40h] BYREF
+  unsigned __int8 v22; // [rsp+88h] [rbp+10h]
 
   v21 = 0LL;
   v6 = 6360LL;
-  if ( a2 != 4 )
+  if ( (_DWORD)a2 != 4 )
     v6 = 6232LL;
   v8 = a1 + v6;
   v9 = SmKmStoreHelperSendCommand(v8, a2, a3, a4 & 1);
@@ -58,56 +61,62 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStHelperSendCommand(__int64 a1, int 
     }
     if ( (*(_BYTE *)(a1 + 6021) & 4) != 0 )
     {
-      v12 = a1 + 6024;
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 6024), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(a1 + 6024);
       CurrentThread = KeGetCurrentThread();
-      if ( (unsigned __int64)(v12 - qword_140C50630) < 0x8000000000LL )
-        SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+      if ( (unsigned int)MiGetSystemRegionType(a1 + 6024) == 1 )
+        SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
       else
         SessionId = -1;
-      _disable();
-      p_Process = (__int64)&CurrentThread[1].Process;
-      v16 = 0;
-      while ( (*(_QWORD *)p_Process & 0x7FFFFFFFFFFFFFFCLL) != (v12 & 0x7FFFFFFFFFFFFFFCLL)
-           || !*(_BYTE *)(p_Process + 18)
-           || (*(_DWORD *)p_Process & 1) != 0
-           || *(_DWORD *)(p_Process + 8) != SessionId )
+      --CurrentThread->SpecialApcDisable;
+      v22 = ++CurrentThread->AbAllocationRegionCount;
+      v14 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+      while ( 1 )
       {
-        ++v16;
-        p_Process += 96LL;
-        if ( v16 >= 6 )
-          goto LABEL_31;
-      }
-      *(_BYTE *)(p_Process + 18) = 0;
-      if ( p_Process )
-      {
-        if ( *(__int64 *)p_Process < 0 )
+        v15 = !_BitScanReverse((unsigned int *)&v16, v14);
+        if ( v15 )
+          break;
+        v17 = (__int64)&CurrentThread->LockEntries[v16];
+        v14 &= ~(1 << v16);
+        if ( (*(_BYTE *)(v17 + 26) & 1) != 0
+          && (*(_DWORD *)(v17 + 32) & 1) == 0
+          && (*(_QWORD *)(v17 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((a1 + 6024) & 0x7FFFFFFFFFFFFFFCLL)
+          && *(_DWORD *)(v17 + 40) == SessionId )
         {
-          *(_BYTE *)p_Process |= 2u;
-          _enable();
-          KiAbEntryRemoveFromTree(p_Process);
-          _disable();
+          *(_BYTE *)(v17 + 26) &= ~1u;
+          if ( *(_QWORD *)(v17 + 32) )
+          {
+            if ( v17 )
+            {
+              *(_BYTE *)(v17 + 32) |= 2u;
+              if ( *(__int64 *)(v17 + 32) < 0 )
+                KiAbEntryRemoveFromTree(v17);
+              *(_DWORD *)(v17 + 88) &= 0xFFFE0000;
+              *(_BYTE *)(v17 + 25) &= ~1u;
+              *(_QWORD *)(v17 + 32) = 0LL;
+              v18 = (signed __int64)(v17 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+              if ( v22 == 1 )
+                CurrentThread->AbEntrySummary |= 1 << v18;
+              else
+                _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v18);
+              goto LABEL_27;
+            }
+            break;
+          }
         }
-        v17 = *(_DWORD *)(p_Process + 88);
-        *(_DWORD *)(p_Process + 88) = 0;
-        *(_BYTE *)(p_Process + 17) = 0;
-        *(_QWORD *)p_Process = 0LL;
-        CurrentThread->AbEntrySummary |= 1 << *(_BYTE *)(p_Process + 16);
-        _enable();
-        if ( v17 )
-          KiAbThreadRemoveBoostsSlow((ULONG_PTR)CurrentThread, a1 + 6024, v17);
-        goto LABEL_25;
       }
-LABEL_31:
       if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
         KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, a1 + 6024, SessionId, 0LL);
-      _enable();
-LABEL_25:
-      v18 = KeGetCurrentThread();
-      v19 = v18->SpecialApcDisable++ == -1;
-      if ( v19 && ($CEA84C04E3712D858E5667A507841A2A *)v18->ApcState.ApcListHead[0].Flink != &v18->152 )
-        KiCheckForKernelApcDelivery();
+LABEL_27:
+      --CurrentThread->AbAllocationRegionCount;
+      KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
+      v15 = CurrentThread->SpecialApcDisable++ == -1;
+      if ( v15
+        && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      {
+        KiCheckForKernelApcDelivery(v19);
+      }
+      KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
     }
     v9 = SmKmStoreHelperWaitForCommand(v8, a3, v11, (a4 >> 2) & 1);
     SMKM_STORE<SM_TRAITS>::SmStAcquireStoreLockExclusive(a1);

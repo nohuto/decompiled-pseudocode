@@ -13,9 +13,9 @@
  *     MiDeleteTopLevelPage @ 0x140091A20 (MiDeleteTopLevelPage.c)
  *     KeFlushProcessTb @ 0x140091B94 (KeFlushProcessTb.c)
  *     MiUnlinkProcessFromSession @ 0x140091BB4 (MiUnlinkProcessFromSession.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MiDeleteVadBitmap @ 0x140608CFC (MiDeleteVadBitmap.c)
  */
 

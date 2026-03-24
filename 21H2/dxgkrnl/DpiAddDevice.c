@@ -1,40 +1,41 @@
 /*
- * XREFs of DpiAddDevice @ 0x1C01F84B0
+ * XREFs of DpiAddDevice @ 0x1C017CFC0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C000BD74 (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C001C320 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     DxgkDiagCalcDuration1us @ 0x1C0024A38 (DxgkDiagCalcDuration1us.c)
- *     DpiGetDeviceRegistryPaths @ 0x1C0026E20 (DpiGetDeviceRegistryPaths.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C005C07C (McTemplateK0ppq_EtwWriteTransfer.c)
- *     DpiDxgkDdiLinkDevice @ 0x1C00664BC (DpiDxgkDdiLinkDevice.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DpiReadPnpRegistryValue @ 0x1C01DCD70 (DpiReadPnpRegistryValue.c)
- *     DpEvalAcpiMethod @ 0x1C01E2B10 (DpEvalAcpiMethod.c)
- *     DpiFdoDetectPostDevice @ 0x1C01F4164 (DpiFdoDetectPostDevice.c)
- *     DpiFdoInitializeFdo @ 0x1C01F992C (DpiFdoInitializeFdo.c)
- *     DpiQueryBusInterface @ 0x1C01FA57C (DpiQueryBusInterface.c)
- *     DpiGetDevicePropertyString @ 0x1C01FAF64 (DpiGetDevicePropertyString.c)
- *     DpiDxgkDdiAddDevice @ 0x1C0219FAC (DpiDxgkDdiAddDevice.c)
- *     DpiGetAgpStatus @ 0x1C021A5FC (DpiGetAgpStatus.c)
- *     DpiAcpiRegisterAcpiCallbacks @ 0x1C021A654 (DpiAcpiRegisterAcpiCallbacks.c)
- *     DpiFdoDetectVgaDeviceInCapabilities @ 0x1C021AD90 (DpiFdoDetectVgaDeviceInCapabilities.c)
- *     DpiDxgkDdiExchangePreStartInfo @ 0x1C021B680 (DpiDxgkDdiExchangePreStartInfo.c)
- *     ?DxgAllocateDiagnosticInfoArgs@@YAPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@W4_DXGK_DIAGNOSTICINFO_TYPE@@@Z @ 0x1C02CE778 (-DxgAllocateDiagnosticInfoArgs@@YAPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@W4_DXGK_DIAGNOSTICINFO_TYP.c)
- *     ?DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C02CE860 (-DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINF.c)
- *     ?DxgCreateLiveDumpWithWdLogs@@YAJK_K000T_WD_LIVEREPORT_FLAGS@@@Z @ 0x1C02CEAA0 (-DxgCreateLiveDumpWithWdLogs@@YAJK_K000T_WD_LIVEREPORT_FLAGS@@@Z.c)
- *     ?DxgFreeDiagnosticInfoArgs@@YAXPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C02CECB4 (-DxgFreeDiagnosticInfoArgs@@YAXPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z.c)
- *     DpiSetDeviceUsageType @ 0x1C0388B54 (DpiSetDeviceUsageType.c)
- *     DpiFdoResetFdo @ 0x1C038B234 (DpiFdoResetFdo.c)
- *     DpiAcpiUnregisterAcpiCallbacks @ 0x1C0394DF4 (DpiAcpiUnregisterAcpiCallbacks.c)
- *     DpiLdaLinkDeviceToChain @ 0x1C0396364 (DpiLdaLinkDeviceToChain.c)
- *     DpiLdaUnLinkDeviceFromChain @ 0x1C0396B64 (DpiLdaUnLinkDeviceFromChain.c)
- *     DpiDxgkDdiRemoveDevice @ 0x1C03970B8 (DpiDxgkDdiRemoveDevice.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0018FF0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DxgkDiagCalcDuration1us @ 0x1C0020414 (DxgkDiagCalcDuration1us.c)
+ *     DpiGetDeviceRegistryPaths @ 0x1C0021EB0 (DpiGetDeviceRegistryPaths.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     Feature_ReportWddm2_6ToDriver_Amd__private_ReportDeviceUsage @ 0x1C00283E4 (Feature_ReportWddm2_6ToDriver_Amd__private_ReportDeviceUsage.c)
+ *     Feature_ReportWddm2_6ToDriver_Intel__private_ReportDeviceUsage @ 0x1C0028448 (Feature_ReportWddm2_6ToDriver_Intel__private_ReportDeviceUsage.c)
+ *     Feature_ReportWddm2_6ToDriver_Nvidia__private_ReportDeviceUsage @ 0x1C00284AC (Feature_ReportWddm2_6ToDriver_Nvidia__private_ReportDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C00524E0 (McTemplateK0ppq_EtwWriteTransfer.c)
+ *     DpiDxgkDdiLinkDevice @ 0x1C0059684 (DpiDxgkDdiLinkDevice.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C013AB0C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpEvalAcpiMethod @ 0x1C0167EE0 (DpEvalAcpiMethod.c)
+ *     DpiFdoDetectPostDevice @ 0x1C017B1B0 (DpiFdoDetectPostDevice.c)
+ *     DpiFdoInitializeFdo @ 0x1C017EFCC (DpiFdoInitializeFdo.c)
+ *     DpiQueryBusInterface @ 0x1C017FB90 (DpiQueryBusInterface.c)
+ *     DpiGetDevicePropertyString @ 0x1C0180610 (DpiGetDevicePropertyString.c)
+ *     DpiReadPnpRegistryValue @ 0x1C01842D4 (DpiReadPnpRegistryValue.c)
+ *     DpiDxgkDdiAddDevice @ 0x1C019E04C (DpiDxgkDdiAddDevice.c)
+ *     DpiAcpiRegisterAcpiCallbacks @ 0x1C019E7D4 (DpiAcpiRegisterAcpiCallbacks.c)
+ *     DpiGetAgpStatus @ 0x1C019EE74 (DpiGetAgpStatus.c)
+ *     DpiGetVgaStatus @ 0x1C019F0D8 (DpiGetVgaStatus.c)
+ *     DpiDxgkDdiExchangePreStartInfo @ 0x1C019FEB4 (DpiDxgkDdiExchangePreStartInfo.c)
+ *     ?DxgAllocateDiagnosticInfoArgs@@YAPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@W4_DXGK_DIAGNOSTICINFO_TYPE@@@Z @ 0x1C0220AF8 (-DxgAllocateDiagnosticInfoArgs@@YAPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@W4_DXGK_DIAGNOSTICINFO_TYP.c)
+ *     ?DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C0220BE8 (-DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINF.c)
+ *     ?DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z @ 0x1C0220DE0 (-DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z.c)
+ *     ?DxgFreeDiagnosticInfoArgs@@YAXPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C0220F50 (-DxgFreeDiagnosticInfoArgs@@YAXPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z.c)
+ *     DpiSetDeviceUsageType @ 0x1C02C8374 (DpiSetDeviceUsageType.c)
+ *     DpiFdoResetFdo @ 0x1C02CBC74 (DpiFdoResetFdo.c)
+ *     DpiAcpiUnregisterAcpiCallbacks @ 0x1C02D6578 (DpiAcpiUnregisterAcpiCallbacks.c)
+ *     DpiLdaLinkDeviceToChain @ 0x1C02D7CD0 (DpiLdaLinkDeviceToChain.c)
+ *     DpiLdaUnLinkDeviceFromChain @ 0x1C02D84C0 (DpiLdaUnLinkDeviceFromChain.c)
+ *     DpiDxgkDdiRemoveDevice @ 0x1C02D8A60 (DpiDxgkDdiRemoveDevice.c)
  */
 
 __int64 __fastcall DpiAddDevice(
@@ -44,586 +45,651 @@ __int64 __fastcall DpiAddDevice(
 {
   char *DeviceExtension; // rbx
   char *v6; // r14
-  char v7; // r12
-  char *DriverObjectExtension; // rax
-  __int64 v9; // r13
-  int v10; // eax
-  __int64 v11; // r8
-  struct _DEVICE_OBJECT *started; // rsi
+  _DWORD *DriverObjectExtension; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r13
+  int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 started; // rsi
+  __int64 v15; // rax
+  __int64 v16; // rcx
   const UNICODE_STRING *p_DriverName; // rdi
-  wchar_t *UnicodeSubstring; // rax
-  PDRIVER_OBJECT v15; // rsi
-  int DevicePropertyString; // eax
-  __int64 v17; // rdx
-  void *v18; // rdi
-  char v19; // al
-  __int64 v20; // rdx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  char v20; // al
   ULONG v21; // edi
-  NTSTATUS v22; // eax
-  char v23; // al
-  struct _DEVICE_OBJECT *v24; // rdi
-  PDEVICE_OBJECT v25; // rax
-  bool v26; // zf
-  int DeviceRegistryPaths; // eax
-  NTSTATUS DeviceProperty; // eax
-  _DWORD *v29; // rdi
-  NTSTATUS v30; // eax
-  GUID *v31; // rdi
-  bool v32; // al
-  _DWORD *v33; // rdx
-  unsigned __int64 v34; // r8
-  __int64 v35; // r8
-  __int64 v36; // r9
-  int v37; // eax
-  int v38; // eax
-  char v39; // r12
-  char **v40; // rcx
-  _DWORD *v41; // rax
-  NTSTATUS v42; // eax
-  _DWORD *v43; // rax
-  _DWORD *v44; // rax
-  int v45; // r13d
-  int v46; // edi
-  int v47; // r15d
-  char v48; // r12
-  int v49; // eax
-  __int64 v50; // rcx
-  __int64 v51; // r8
-  __int64 v53; // rdx
+  int v22; // r12d
+  __int64 v23; // rax
+  char v24; // r15
+  struct _KMUTANT *v25; // rdi
+  _DWORD *v26; // rcx
+  _DWORD *v27; // rcx
+  void (__fastcall *v28)(_QWORD); // rax
+  void (__fastcall *v29)(_QWORD); // rax
+  void (__fastcall *v30)(_QWORD); // rax
+  void (__fastcall *v31)(_QWORD); // rax
+  void *v32; // rcx
+  __int64 v33; // rcx
+  struct _DEVICE_OBJECT *v34; // rcx
+  char v35; // r15
+  int DevicePropertyString; // eax
+  void *v37; // rdi
+  __int64 v38; // rax
+  __int64 v39; // rdx
   int RegistryValues; // eax
-  int v55; // eax
-  int v56; // ecx
+  __int64 v41; // rax
+  int v42; // eax
+  __int64 v43; // rdx
+  NTSTATUS v44; // eax
+  char v45; // al
+  struct _DEVICE_OBJECT *v46; // r12
+  PDEVICE_OBJECT v47; // rax
+  __int64 v48; // rdx
+  __int64 v49; // rcx
+  __int64 v50; // rax
+  bool v51; // zf
+  int DeviceRegistryPaths; // eax
+  __int64 v53; // rdx
+  __int64 v54; // rcx
+  __int64 v55; // rax
+  char v56; // r12
   int v57; // eax
-  struct _DEVICE_OBJECT *v58; // rsi
-  PVOID PoolWithTag; // rax
-  unsigned __int16 *v60; // rcx
-  int v61; // edx
-  int v62; // edi
-  bool v63; // al
-  int AgpStatus; // eax
-  __int64 v65; // rdi
-  int v66; // ecx
-  char v67; // al
-  char v68; // al
-  __int64 v69; // rdx
-  bool v70; // cl
-  __int64 v71; // rdx
-  struct _KMUTANT *v72; // rdi
-  _DWORD *v73; // rcx
-  _DWORD *v74; // rcx
-  void (__fastcall *v75)(_QWORD); // rax
-  void (__fastcall *v76)(_QWORD); // rax
-  void (__fastcall *v77)(_QWORD); // rax
-  void (__fastcall *v78)(_QWORD); // rax
-  void *v79; // rcx
-  __int64 v80; // rcx
-  struct _DEVICE_OBJECT *v81; // rcx
-  char v82; // r15
-  __int64 v83; // r8
-  int v84; // eax
-  __int64 v85; // rdx
-  __int64 v86; // rdx
-  __int64 v87; // rdx
-  __int64 v88; // rcx
+  int v58; // ecx
+  NTSTATUS DeviceProperty; // eax
+  __int64 v60; // rdx
+  __int64 v61; // rcx
+  __int64 v62; // r8
+  __int64 v63; // rsi
+  __int64 v64; // rax
+  _DWORD *v65; // rdi
+  NTSTATUS v66; // eax
+  __int64 v67; // rdx
+  __int64 v68; // rcx
+  __int64 v69; // r8
+  __int64 v70; // rsi
+  __int64 v71; // rax
+  struct _DEVICE_OBJECT *v72; // rdi
+  __int64 v73; // rdx
+  __int64 v74; // rcx
+  __int64 v75; // rax
+  int v76; // eax
+  __int64 v77; // rax
   struct _DEVICE_OBJECT *AttachedDeviceReference; // rdi
-  int v90; // eax
-  struct _DEVICE_OBJECT *v91; // rdi
-  char v92; // al
-  int v93; // eax
-  char *v94; // rdi
-  __int16 v95; // r10
-  char **v96; // r9
-  unsigned int v97; // edx
-  char *v98; // rax
-  signed __int64 v99; // rcx
-  __int16 v100; // r10
-  const wchar_t **v101; // r8
-  int v102; // edx
-  const wchar_t *v103; // rax
-  char *v104; // rcx
-  int v105; // eax
-  __int64 v106; // rdx
-  __int64 v107; // rcx
-  char *v108; // rsi
-  _QWORD *v109; // rcx
-  PVOID *v110; // rax
+  bool v79; // al
+  __int64 v80; // rdx
+  __int64 v81; // rcx
+  __int64 v82; // rax
+  struct _DEVICE_OBJECT *v83; // r12
+  __int64 v84; // rdx
+  __int64 v85; // rcx
+  __int64 v86; // rax
+  PVOID PoolWithTag; // rax
+  __int64 v88; // rdx
+  __int64 v89; // rcx
+  __int64 v90; // r9
+  __int64 v91; // rax
+  unsigned __int16 *v92; // rcx
+  int v93; // edx
+  int v94; // edi
+  char v95; // al
+  int AgpStatus; // eax
+  __int64 v97; // rdx
+  __int64 v98; // rcx
+  __int64 v99; // r8
+  __int64 v100; // rdi
+  __int64 v101; // rax
+  __int64 v102; // rdx
+  __int64 v103; // rcx
+  __int64 v104; // r8
+  char v105; // al
+  __int64 v106; // rax
+  __int64 v107; // rax
+  __int64 v108; // rdx
+  __int64 v109; // rcx
+  __int64 v110; // rax
+  __int64 v111; // rax
+  int v112; // eax
+  __int64 v113; // rdx
+  __int64 v114; // rcx
+  __int64 v115; // rdi
+  __int64 v116; // rax
+  __int64 v117; // rdx
+  __int64 v118; // rcx
+  __int64 v119; // rax
+  __int64 v120; // rax
+  struct _DEVICE_OBJECT *v121; // rdi
+  __int64 v122; // rax
+  __int64 v123; // rax
+  char v124; // al
+  int v125; // eax
+  __int64 v126; // rdx
+  __int64 v127; // rcx
+  char *v128; // rdi
+  unsigned int v129; // edx
+  __int16 v130; // r10
+  const wchar_t **v131; // r9
+  char *v132; // rax
+  signed __int64 v133; // rcx
+  __int16 v134; // r10
+  const wchar_t **v135; // r9
+  const wchar_t *v136; // rax
+  char *v137; // rcx
+  __int64 v138; // rax
+  __int64 v139; // rax
+  __int64 v140; // rax
+  _DWORD *v141; // rdx
+  unsigned __int64 v142; // r8
+  __int64 v143; // rcx
+  int v144; // eax
+  int v145; // eax
+  int v146; // eax
+  __int64 v147; // rdx
+  __int64 v148; // rcx
+  __int64 v149; // rax
+  char **v150; // rcx
+  _DWORD *v151; // rax
+  __int64 v152; // rdx
+  __int64 v153; // r8
+  __int64 v154; // r9
+  __int64 v155; // rcx
+  __int64 v156; // rax
+  NTSTATUS v157; // eax
+  __int64 v158; // rdx
+  __int64 v159; // rcx
+  __int64 v160; // rax
+  _DWORD *v161; // rax
+  _DWORD *v162; // rax
+  __int64 v163; // rdx
+  __int64 v164; // rcx
+  __int64 v165; // rdx
+  __int64 v166; // rcx
+  __int64 v167; // rax
+  __int64 v168; // rdx
+  __int64 v169; // rax
+  _QWORD *v170; // rax
+  _QWORD *v171; // rcx
+  PVOID *v172; // rax
   __int64 DiagnosticInfoArgs; // rax
-  __int64 v112; // rdi
-  unsigned int v113; // ebx
-  struct _DEVICE_OBJECT *v114; // r14
-  BOOLEAN Exclusive[8]; // [rsp+28h] [rbp-520h]
-  char v116; // [rsp+50h] [rbp-4F8h]
-  char v117; // [rsp+51h] [rbp-4F7h]
-  char v118; // [rsp+52h] [rbp-4F6h]
-  char v119; // [rsp+53h] [rbp-4F5h]
-  char v120; // [rsp+54h] [rbp-4F4h]
-  char v121; // [rsp+55h] [rbp-4F3h]
-  PDEVICE_OBJECT SourceDevice; // [rsp+58h] [rbp-4F0h] BYREF
-  char v123; // [rsp+60h] [rbp-4E8h]
-  char v124; // [rsp+61h] [rbp-4E7h]
-  char v125; // [rsp+62h] [rbp-4E6h]
-  char v126; // [rsp+63h] [rbp-4E5h]
-  int v127; // [rsp+64h] [rbp-4E4h]
-  char v128; // [rsp+68h] [rbp-4E0h]
-  char v129; // [rsp+69h] [rbp-4DFh]
-  bool v130; // [rsp+6Ah] [rbp-4DEh]
-  char v131; // [rsp+6Bh] [rbp-4DDh] BYREF
-  char v132; // [rsp+6Ch] [rbp-4DCh]
-  ULONG ResultLength; // [rsp+70h] [rbp-4D8h] BYREF
-  int v134; // [rsp+74h] [rbp-4D4h]
-  PDEVICE_OBJECT TargetDevice; // [rsp+78h] [rbp-4D0h]
-  unsigned int v136; // [rsp+80h] [rbp-4C8h] BYREF
-  int v137; // [rsp+84h] [rbp-4C4h]
-  int v138; // [rsp+88h] [rbp-4C0h] BYREF
-  ULONG ReturnedProductType; // [rsp+8Ch] [rbp-4BCh] BYREF
-  __int64 v140; // [rsp+90h] [rbp-4B8h] BYREF
-  char *v141; // [rsp+98h] [rbp-4B0h]
-  PDRIVER_OBJECT DriverObject; // [rsp+A0h] [rbp-4A8h]
-  void *Source1; // [rsp+A8h] [rbp-4A0h]
-  PVOID P; // [rsp+B0h] [rbp-498h]
-  __int64 v145; // [rsp+B8h] [rbp-490h] BYREF
-  int v146; // [rsp+C0h] [rbp-488h]
-  int v147; // [rsp+C4h] [rbp-484h]
-  const wchar_t *v148; // [rsp+C8h] [rbp-480h] BYREF
-  int v149; // [rsp+D0h] [rbp-478h]
-  _QWORD v150[2]; // [rsp+D8h] [rbp-470h] BYREF
-  UNICODE_STRING String1; // [rsp+E8h] [rbp-460h] BYREF
-  UNICODE_STRING v152; // [rsp+F8h] [rbp-450h] BYREF
-  UNICODE_STRING v153; // [rsp+108h] [rbp-440h] BYREF
-  UNICODE_STRING v154; // [rsp+118h] [rbp-430h] BYREF
-  _QWORD v155[2]; // [rsp+128h] [rbp-420h] BYREF
-  __int64 v156; // [rsp+138h] [rbp-410h] BYREF
-  _QWORD v157[14]; // [rsp+140h] [rbp-408h] BYREF
-  int v158[4]; // [rsp+1B0h] [rbp-398h] BYREF
-  __int64 v159; // [rsp+1C0h] [rbp-388h]
-  __int64 v160; // [rsp+1C8h] [rbp-380h] BYREF
-  int v161; // [rsp+1D0h] [rbp-378h]
-  _DWORD v162[2]; // [rsp+1E0h] [rbp-368h] BYREF
-  _BYTE v163[24]; // [rsp+1E8h] [rbp-360h] BYREF
-  __int64 v164; // [rsp+200h] [rbp-348h]
-  int v165; // [rsp+208h] [rbp-340h]
-  int v166; // [rsp+20Ch] [rbp-33Ch]
-  int v167; // [rsp+210h] [rbp-338h]
-  int v168; // [rsp+214h] [rbp-334h]
-  int v169; // [rsp+218h] [rbp-330h]
-  int v170; // [rsp+21Ch] [rbp-32Ch]
-  _DWORD VersionInformation[72]; // [rsp+220h] [rbp-328h] BYREF
-  __int64 v172; // [rsp+340h] [rbp-208h]
-  __int64 v173; // [rsp+348h] [rbp-200h]
-  _QWORD v174[10]; // [rsp+350h] [rbp-1F8h] BYREF
-  int v175; // [rsp+3A0h] [rbp-1A8h]
-  int v176; // [rsp+3A4h] [rbp-1A4h]
-  int v177; // [rsp+3A8h] [rbp-1A0h]
-  int v178; // [rsp+3ACh] [rbp-19Ch]
-  const wchar_t *v179; // [rsp+3B0h] [rbp-198h]
-  __int128 v180; // [rsp+3C0h] [rbp-188h] BYREF
-  __int128 v181; // [rsp+3D0h] [rbp-178h]
-  int v182; // [rsp+3E0h] [rbp-168h]
-  __int128 v183; // [rsp+3E8h] [rbp-160h] BYREF
-  __int64 v184; // [rsp+3F8h] [rbp-150h]
-  wchar_t v185; // [rsp+400h] [rbp-148h]
-  _OWORD v186[2]; // [rsp+408h] [rbp-140h] BYREF
-  __int64 v187; // [rsp+428h] [rbp-120h]
-  wchar_t v188; // [rsp+430h] [rbp-118h]
-  _OWORD v189[2]; // [rsp+438h] [rbp-110h] BYREF
-  wchar_t v190; // [rsp+458h] [rbp-F0h]
-  _OWORD v191[2]; // [rsp+460h] [rbp-E8h] BYREF
-  __int64 v192; // [rsp+480h] [rbp-C8h]
-  int v193; // [rsp+488h] [rbp-C0h]
-  _OWORD v194[2]; // [rsp+490h] [rbp-B8h] BYREF
-  __int64 v195; // [rsp+4B0h] [rbp-98h]
-  _OWORD v196[4]; // [rsp+4C0h] [rbp-88h] BYREF
-  int v197; // [rsp+500h] [rbp-48h]
+  __int64 v174; // rdi
+  unsigned int v175; // ebx
+  struct _DEVICE_OBJECT *v176; // r14
+  int v177; // eax
+  __int64 v178; // rcx
+  __int64 v179; // r8
+  BOOLEAN Exclusive[8]; // [rsp+28h] [rbp-D8h]
+  char v182; // [rsp+41h] [rbp-BFh]
+  char v183; // [rsp+43h] [rbp-BDh]
+  PDEVICE_OBJECT DeviceObjecta; // [rsp+48h] [rbp-B8h] BYREF
+  char v185; // [rsp+50h] [rbp-B0h]
+  char v186; // [rsp+51h] [rbp-AFh]
+  char v187; // [rsp+52h] [rbp-AEh]
+  char v188; // [rsp+53h] [rbp-ADh]
+  char v189; // [rsp+54h] [rbp-ACh]
+  char v190; // [rsp+55h] [rbp-ABh]
+  char v191; // [rsp+56h] [rbp-AAh] BYREF
+  char v192; // [rsp+57h] [rbp-A9h]
+  char v193; // [rsp+58h] [rbp-A8h]
+  char v194; // [rsp+59h] [rbp-A7h]
+  ULONG ResultLength; // [rsp+5Ch] [rbp-A4h] BYREF
+  int v196; // [rsp+60h] [rbp-A0h]
+  PDEVICE_OBJECT TargetDevice; // [rsp+68h] [rbp-98h]
+  unsigned int v198; // [rsp+70h] [rbp-90h] BYREF
+  int v199; // [rsp+74h] [rbp-8Ch]
+  int v200; // [rsp+78h] [rbp-88h] BYREF
+  ULONG ReturnedProductType; // [rsp+7Ch] [rbp-84h] BYREF
+  __int64 v202; // [rsp+80h] [rbp-80h] BYREF
+  void *Source1; // [rsp+88h] [rbp-78h]
+  PVOID P; // [rsp+90h] [rbp-70h]
+  __int64 v205; // [rsp+98h] [rbp-68h] BYREF
+  PDRIVER_OBJECT DriverObject; // [rsp+A0h] [rbp-60h]
+  int v207; // [rsp+A8h] [rbp-58h]
+  int v208; // [rsp+ACh] [rbp-54h]
+  const wchar_t *v209; // [rsp+B0h] [rbp-50h] BYREF
+  _DWORD v210[2]; // [rsp+B8h] [rbp-48h]
+  UNICODE_STRING String1; // [rsp+C0h] [rbp-40h] BYREF
+  UNICODE_STRING v212; // [rsp+D0h] [rbp-30h] BYREF
+  UNICODE_STRING v213; // [rsp+E0h] [rbp-20h] BYREF
+  UNICODE_STRING v214; // [rsp+F0h] [rbp-10h] BYREF
+  UNICODE_STRING v215; // [rsp+100h] [rbp+0h] BYREF
+  UNICODE_STRING v216; // [rsp+110h] [rbp+10h] BYREF
+  __int64 v217; // [rsp+120h] [rbp+20h] BYREF
+  _QWORD v218[14]; // [rsp+130h] [rbp+30h] BYREF
+  int v219[4]; // [rsp+1A0h] [rbp+A0h] BYREF
+  __int64 v220; // [rsp+1B0h] [rbp+B0h]
+  __int64 v221; // [rsp+1B8h] [rbp+B8h] BYREF
+  int v222; // [rsp+1C0h] [rbp+C0h]
+  _DWORD v223[2]; // [rsp+1D0h] [rbp+D0h] BYREF
+  _BYTE v224[24]; // [rsp+1D8h] [rbp+D8h] BYREF
+  __int64 v225; // [rsp+1F0h] [rbp+F0h]
+  int v226; // [rsp+1F8h] [rbp+F8h]
+  int v227; // [rsp+1FCh] [rbp+FCh]
+  int v228; // [rsp+200h] [rbp+100h]
+  int v229; // [rsp+204h] [rbp+104h]
+  int v230; // [rsp+208h] [rbp+108h]
+  int v231; // [rsp+20Ch] [rbp+10Ch]
+  _DWORD VersionInformation[72]; // [rsp+210h] [rbp+110h] BYREF
+  _DWORD v233[2]; // [rsp+330h] [rbp+230h]
+  const wchar_t *v234; // [rsp+338h] [rbp+238h] BYREF
+  int v235; // [rsp+340h] [rbp+240h]
+  const wchar_t *v236; // [rsp+348h] [rbp+248h]
+  int v237; // [rsp+350h] [rbp+250h]
+  const wchar_t *v238; // [rsp+358h] [rbp+258h]
+  int v239; // [rsp+360h] [rbp+260h]
+  const wchar_t *v240; // [rsp+368h] [rbp+268h]
+  int v241; // [rsp+370h] [rbp+270h]
+  const wchar_t *v242; // [rsp+378h] [rbp+278h]
+  __int128 v243; // [rsp+380h] [rbp+280h] BYREF
+  __int128 v244; // [rsp+390h] [rbp+290h]
+  int v245; // [rsp+3A0h] [rbp+2A0h]
+  __int128 v246; // [rsp+3A8h] [rbp+2A8h] BYREF
+  __int64 v247; // [rsp+3B8h] [rbp+2B8h]
+  wchar_t v248; // [rsp+3C0h] [rbp+2C0h]
+  _OWORD v249[2]; // [rsp+3C8h] [rbp+2C8h] BYREF
+  __int64 v250; // [rsp+3E8h] [rbp+2E8h]
+  wchar_t v251; // [rsp+3F0h] [rbp+2F0h]
+  _OWORD v252[2]; // [rsp+3F8h] [rbp+2F8h] BYREF
+  wchar_t v253; // [rsp+418h] [rbp+318h]
+  _OWORD v254[2]; // [rsp+420h] [rbp+320h] BYREF
+  __int64 v255; // [rsp+440h] [rbp+340h]
+  int v256; // [rsp+448h] [rbp+348h]
+  _OWORD v257[2]; // [rsp+450h] [rbp+350h] BYREF
+  __int64 v258; // [rsp+470h] [rbp+370h]
+  _OWORD v259[4]; // [rsp+480h] [rbp+380h] BYREF
+  int v260; // [rsp+4C0h] [rbp+3C0h]
 
-  v160 = 0LL;
-  v161 = 0;
+  v221 = 0LL;
+  v222 = 0;
   DeviceExtension = 0LL;
+  v246 = *(_OWORD *)L"\\Driver\\VGPU";
+  v248 = aDriverVgpu[12];
   v6 = 0LL;
-  v185 = aDriverVgpu[12];
-  v7 = 0;
-  v183 = *(_OWORD *)L"\\Driver\\VGPU";
+  v247 = *(_QWORD *)L"VGPU";
+  v215.Buffer = (wchar_t *)&v246;
+  v252[0] = *(_OWORD *)L"\\Driver\\WddmWarp";
+  v253 = aDriverWddmwarp[16];
+  v212.Buffer = (wchar_t *)v252;
+  String1.Buffer = (wchar_t *)v257;
+  v257[0] = *(_OWORD *)L"\\Driver\\BasicRender";
+  v251 = aDriverBasicdis[20];
+  v258 = *(_QWORD *)L"der";
+  v216.Buffer = (wchar_t *)v249;
+  v249[0] = *(_OWORD *)L"\\Driver\\BasicDisplay";
+  v256 = *(_DWORD *)L"r";
+  v252[1] = *(_OWORD *)L"WddmWarp";
   TargetDevice = DeviceObject;
-  v154.Buffer = (wchar_t *)&v183;
-  v189[0] = *(_OWORD *)L"\\Driver\\WddmWarp";
-  v190 = aDriverWddmwarp[16];
-  String1.Buffer = (wchar_t *)v189;
-  v184 = *(_QWORD *)L"VGPU";
-  v150[1] = v194;
-  v194[0] = *(_OWORD *)L"\\Driver\\BasicRender";
-  v188 = aDriverBasicdis[20];
-  v195 = *(_QWORD *)L"der";
-  v155[1] = v186;
-  v189[1] = *(_OWORD *)L"WddmWarp";
-  v193 = *(_DWORD *)L"r";
   DriverObject = ClientIdentificationAddress;
-  v186[0] = *(_OWORD *)L"\\Driver\\BasicDisplay";
-  v140 = 0LL;
-  v194[1] = *(_OWORD *)L"BasicRender";
-  v121 = 0;
-  SourceDevice = 0LL;
-  v187 = *(_QWORD *)L"play";
+  v250 = *(_QWORD *)L"play";
+  v202 = 0LL;
+  v257[1] = *(_OWORD *)L"BasicRender";
+  v194 = 0;
+  DeviceObjecta = 0LL;
+  v254[0] = *(_OWORD *)L"\\Driver\\VirtualRender";
   ResultLength = 0;
-  v186[1] = *(_OWORD *)L"BasicDisplay";
-  v119 = 1;
-  LOBYTE(v134) = 0;
-  v191[0] = *(_OWORD *)L"\\Driver\\VirtualRender";
-  v117 = 0;
-  v192 = *(_QWORD *)L"ender";
-  v132 = 0;
-  v120 = 0;
-  v118 = 0;
-  v126 = 0;
-  v128 = 0;
-  v124 = 0;
-  v129 = 0;
-  v131 = 0;
-  v125 = 0;
-  v130 = 0;
-  v123 = 0;
-  v127 = 3;
-  *(_QWORD *)&v154.Length = 1703960LL;
-  *(_QWORD *)&String1.Length = 2228256LL;
-  v150[0] = 2621478LL;
-  v155[0] = 2752552LL;
-  v191[1] = *(_OWORD *)L"VirtualRender";
-  *(_QWORD *)&v152.Length = 2883626LL;
-  v152.Buffer = (wchar_t *)v191;
-  v196[0] = *(_OWORD *)L"\\Driver\\VirtualComputeAccelerator";
-  v196[1] = *(_OWORD *)L"VirtualComputeAccelerator";
-  v197 = *(_DWORD *)L"r";
-  v196[3] = *(_OWORD *)L"celerator";
-  v153.Buffer = (wchar_t *)v196;
-  v196[2] = *(_OWORD *)L"omputeAccelerator";
-  *(_QWORD *)&v153.Length = 4456514LL;
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-    McTemplateK0ppq_EtwWriteTransfer(
-      (__int64)ClientIdentificationAddress,
-      &EventEnterDpiAddDevice,
-      a3,
-      ClientIdentificationAddress,
-      DeviceObject,
-      0);
-  v156 = MEMORY[0xFFFFF78000000320];
-  DriverObjectExtension = (char *)IoGetDriverObjectExtension(ClientIdentificationAddress, ClientIdentificationAddress);
-  v141 = DriverObjectExtension;
-  v9 = (__int64)DriverObjectExtension;
-  if ( !DriverObjectExtension
-    || *((_DWORD *)DriverObjectExtension + 4) != 1953656900
-    || *((_DWORD *)DriverObjectExtension + 5) != 1 )
+  v249[1] = *(_OWORD *)L"BasicDisplay";
+  v183 = 1;
+  LOBYTE(v199) = 0;
+  v255 = *(_QWORD *)L"ender";
+  v259[0] = *(_OWORD *)L"\\Driver\\VirtualComputeAccelerator";
+  v192 = 0;
+  v193 = 0;
+  v182 = 0;
+  v188 = 0;
+  v186 = 0;
+  v189 = 0;
+  v191 = 0;
+  v187 = 0;
+  v190 = 0;
+  v185 = 0;
+  v196 = 3;
+  *(_QWORD *)&v215.Length = 1703960LL;
+  *(_QWORD *)&v212.Length = 2228256LL;
+  *(_QWORD *)&String1.Length = 2621478LL;
+  *(_QWORD *)&v216.Length = 2752552LL;
+  v254[1] = *(_OWORD *)L"VirtualRender";
+  *(_QWORD *)&v213.Length = 2883626LL;
+  v213.Buffer = (wchar_t *)v254;
+  v259[1] = *(_OWORD *)L"VirtualComputeAccelerator";
+  v260 = *(_DWORD *)L"r";
+  v259[3] = *(_OWORD *)L"celerator";
+  v259[2] = *(_OWORD *)L"omputeAccelerator";
+  *(_QWORD *)&v214.Length = 4456514LL;
+  v214.Buffer = (wchar_t *)v259;
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    McTemplateK0ppq_EtwWriteTransfer(64LL, &EventEnterDpiAddDevice, a3, ClientIdentificationAddress, DeviceObject, 0);
+  v217 = MEMORY[0xFFFFF78000000320];
+  DriverObjectExtension = IoGetDriverObjectExtension(ClientIdentificationAddress, ClientIdentificationAddress);
+  v10 = (__int64)DriverObjectExtension;
+  if ( !DriverObjectExtension || DriverObjectExtension[4] != 1953656900 || DriverObjectExtension[5] != 1 )
   {
     LODWORD(started) = -1073741811;
-    WdLogSingleEntry3(0LL, 275LL, 21LL, -1073741811LL);
-    goto LABEL_156;
+    v170 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v9, v8);
+    v170[3] = 275LL;
+    v170[4] = 21LL;
+    v170[5] = -1073741811LL;
+    WdLogEvent5_WdCriticalError(v170);
+    goto LABEL_270;
   }
-  v10 = DpiDxgkDdiAddDevice(DriverObjectExtension, DeviceObject, &v140);
-  LODWORD(started) = v10;
-  if ( v10 < 0 )
+  v11 = DpiDxgkDdiAddDevice(DriverObjectExtension, DeviceObject, &v202);
+  started = v11;
+  if ( v11 < 0 )
   {
-    WdLogSingleEntry2(2LL, *(_QWORD *)(v9 + 144), v10);
-LABEL_156:
-    LOBYTE(v17) = 0;
-    goto LABEL_157;
+    v15 = WdLogNewEntry5_WdError(v13, v12);
+    v16 = *(_QWORD *)(v10 + 144);
+LABEL_9:
+    *(_QWORD *)(v15 + 24) = v16;
+    *(_QWORD *)(v15 + 32) = started;
+LABEL_10:
+    WdLogEvent5_WdError(v15);
+LABEL_270:
+    v56 = 0;
+    v24 = 0;
+    goto LABEL_271;
   }
   p_DriverName = &ClientIdentificationAddress->DriverName;
-  v121 = 1;
-  LOBYTE(v11) = 1;
-  UnicodeSubstring = (wchar_t *)RtlFindUnicodeSubstring(p_DriverName, v150, v11);
-  v15 = DriverObject;
-  if ( UnicodeSubstring == DriverObject->DriverName.Buffer )
-  {
-    v19 = 1;
-    v118 = 1;
-    v128 = 1;
-    v124 = 1;
-    goto LABEL_23;
-  }
+  v194 = 1;
   if ( !RtlCompareUnicodeString(&String1, p_DriverName, 1u) )
   {
-    v124 = 1;
-    goto LABEL_111;
+    v19 = 1LL;
+    v20 = 1;
+    v182 = 1;
+    v186 = 1;
+    goto LABEL_16;
   }
-  if ( !RtlCompareUnicodeString(&v152, p_DriverName, 1u) || !RtlCompareUnicodeString(&v153, p_DriverName, 1u) )
+  if ( !RtlCompareUnicodeString(&v212, p_DriverName, 1u) )
   {
-    v123 = 1;
-    goto LABEL_111;
+    v186 = 1;
+LABEL_15:
+    v20 = 0;
+    goto LABEL_16;
   }
-  if ( !RtlCompareUnicodeString(&v154, p_DriverName, 1u) )
+  if ( !RtlCompareUnicodeString(&v213, p_DriverName, 1u) || !RtlCompareUnicodeString(&v214, p_DriverName, 1u) )
   {
-    v129 = 1;
-    goto LABEL_111;
+    v185 = 1;
+    goto LABEL_15;
   }
-  if ( (wchar_t *)RtlFindUnicodeSubstring(p_DriverName, v155, 1LL) != v15->DriverName.Buffer )
+  if ( !RtlCompareUnicodeString(&v215, p_DriverName, 1u) )
   {
-    v125 = *(_BYTE *)(v9 + 134);
-    v130 = dword_1C0130A00 == 5;
-    v136 = 0;
-    memset(v157, 0, sizeof(v157));
-    v53 = *(_QWORD *)(v9 + 48);
-    v157[2] = L"Start";
-    LODWORD(v157[1]) = 292;
-    v157[3] = &v136;
-    LODWORD(v157[4]) = 67108868;
-    LODWORD(v157[6]) = 4;
-    RegistryValues = RtlQueryRegistryValuesEx(0LL, v53, v157, 0LL, 0LL);
-    started = (struct _DEVICE_OBJECT *)RegistryValues;
+    v189 = 1;
+    goto LABEL_15;
+  }
+  if ( RtlCompareUnicodeString(&v216, p_DriverName, 1u) )
+  {
+    v190 = byte_1C00B2B1F;
+    v187 = *(_BYTE *)(v10 + 134);
+    v198 = 0;
+    memset(v218, 0, sizeof(v218));
+    v39 = *(_QWORD *)(v10 + 48);
+    v218[2] = L"Start";
+    LODWORD(v218[1]) = 292;
+    v218[3] = &v198;
+    LODWORD(v218[4]) = 67108868;
+    LODWORD(v218[6]) = 4;
+    RegistryValues = RtlQueryRegistryValuesEx(0LL, v39, v218, 0LL, 0LL);
+    started = RegistryValues;
     if ( RegistryValues < 0 )
-      goto LABEL_153;
-    if ( v136 != 3 )
-    {
-      WdLogSingleEntry1(2LL, v136);
-      LODWORD(started) = -1073741637;
-      goto LABEL_155;
-    }
-LABEL_111:
-    v19 = 0;
-    goto LABEL_23;
+      goto LABEL_63;
+    if ( v198 == 3 )
+      goto LABEL_15;
+    v41 = WdLogNewEntry5_WdError(v19, v18);
+    *(_QWORD *)(v41 + 24) = v198;
+    WdLogEvent5_WdError(v41);
+    LODWORD(started) = -1073741637;
+LABEL_75:
+    v24 = 0;
+    goto LABEL_20;
   }
   Source1 = 0LL;
-  v126 = 1;
+  v188 = 1;
   DevicePropertyString = DpiGetDevicePropertyString(
                            DeviceObject,
                            DevicePropertyHardwareID,
                            PagedPool,
                            (__int64)&ResultLength);
-  started = (struct _DEVICE_OBJECT *)DevicePropertyString;
+  started = DevicePropertyString;
   if ( DevicePropertyString < 0 )
-  {
-LABEL_153:
-    v71 = (__int64)started;
-    goto LABEL_154;
-  }
-  v18 = Source1;
+    goto LABEL_63;
+  v37 = Source1;
   if ( ResultLength >= 0x24 && RtlCompareMemory(Source1, L"ROOT\\BasicDisplay", 0x24uLL) == 36 )
   {
-    v118 = 1;
-    if ( byte_1C0130492 )
+    v182 = 1;
+    if ( byte_1C00B2B12 )
     {
-      v119 = 0;
+      v183 = 0;
       LODWORD(started) = -1073741637;
-      WdLogSingleEntry1(4LL, 0LL);
+      v38 = WdLogNewEntry5_WdEvent(v19, v18);
+      *(_QWORD *)(v38 + 24) = 0LL;
+      WdLogEvent5_WdEvent(v38);
     }
   }
-  if ( v18 )
-    ExFreePoolWithTag(v18, 0);
+  if ( v37 )
+    ExFreePoolWithTag(v37, 0);
   if ( (int)started < 0 )
-    goto LABEL_155;
-  v19 = v118;
-LABEL_23:
-  if ( !v140 )
+    goto LABEL_75;
+  v20 = v182;
+LABEL_16:
+  if ( v202 )
   {
-    v137 = 4;
+    v21 = 5944;
+    v196 = 0;
+    v22 = 2;
+    if ( *(_QWORD *)(v10 + 616) )
+    {
+      if ( v20 )
+      {
+        LODWORD(started) = -1073741637;
+        v23 = WdLogNewEntry5_WdError(0LL, v18);
+        *(_QWORD *)(v23 + 24) = *(_QWORD *)(v10 + 616);
+        *(_QWORD *)(v23 + 32) = -1073741637LL;
+        goto LABEL_19;
+      }
+      v42 = DpiDxgkDdiLinkDevice(v10, (__int64)TargetDevice, v202, (int *)&v221);
+      started = v42;
+      if ( v42 < 0 )
+      {
+        v15 = WdLogNewEntry5_WdError(0LL, v43);
+        v16 = *(_QWORD *)(v10 + 616);
+        goto LABEL_9;
+      }
+      if ( HIDWORD(v221) > 0x100 )
+      {
+        LODWORD(started) = -1073741756;
+        v23 = WdLogNewEntry5_WdError(0LL, v43);
+        *(_QWORD *)(v23 + 24) = -1073741756LL;
+        goto LABEL_19;
+      }
+      if ( HIDWORD(v221) && !(_BYTE)v222 )
+      {
+        v21 = 2744;
+        v196 = 1;
+        v22 = 3;
+      }
+    }
+  }
+  else
+  {
+    v196 = 2;
     v21 = 496;
-    v127 = 2;
-    if ( !v19 )
-      goto LABEL_25;
-    LODWORD(started) = -1073741637;
-    v71 = -1073741637LL;
-LABEL_154:
-    WdLogSingleEntry1(2LL, v71);
-LABEL_155:
-    v7 = 0;
-    goto LABEL_156;
+    v22 = 4;
+    if ( v20 )
+    {
+      LODWORD(started) = -1073741637;
+      v23 = WdLogNewEntry5_WdError(v19, v18);
+      *(_QWORD *)(v23 + 24) = -1073741637LL;
+LABEL_19:
+      WdLogEvent5_WdError(v23);
+      v24 = 0;
+      goto LABEL_20;
+    }
   }
-  v20 = *(_QWORD *)(v9 + 616);
-  v21 = 5736;
-  v137 = 2;
-  v127 = 0;
-  if ( !v20 )
-    goto LABEL_25;
-  if ( v19 )
+  v44 = IoCreateDevice(DriverObject, v21, 0LL, 0x23u, v187 == 0 ? 0x100 : 0, 0, &DeviceObjecta);
+  started = v44;
+  if ( v44 < 0 )
   {
-    LODWORD(started) = -1073741637;
-    v83 = -1073741637LL;
-LABEL_199:
-    WdLogSingleEntry2(2LL, v20, v83);
-    goto LABEL_155;
+LABEL_63:
+    v15 = WdLogNewEntry5_WdError(v19, v18);
+    *(_QWORD *)(v15 + 24) = started;
+    goto LABEL_10;
   }
-  v84 = DpiDxgkDdiLinkDevice(v9, (__int64)TargetDevice, v140, (int *)&v160);
-  LODWORD(started) = v84;
-  if ( v84 < 0 )
-  {
-    v20 = *(_QWORD *)(v9 + 616);
-    v83 = v84;
-    goto LABEL_199;
-  }
-  if ( HIDWORD(v160) > 0x100 )
-  {
-    started = (struct _DEVICE_OBJECT *)-1073741756LL;
-    goto LABEL_203;
-  }
-  if ( HIDWORD(v160) && !(_BYTE)v161 )
-  {
-    v21 = 2744;
-    v137 = 3;
-    v127 = 1;
-  }
-LABEL_25:
-  v22 = IoCreateDevice(DriverObject, v21, 0LL, 0x23u, v125 == 0 ? 0x100 : 0, 0, &SourceDevice);
-  started = (struct _DEVICE_OBJECT *)v22;
-  if ( v22 < 0 )
-  {
-LABEL_203:
-    v71 = (__int64)started;
-    goto LABEL_154;
-  }
-  v127 |= (unsigned int)SourceDevice & 0xFFFF00;
-  DeviceExtension = (char *)SourceDevice->DeviceExtension;
-  *((_DWORD *)DeviceExtension + 5) = v137;
+  v196 |= (unsigned int)DeviceObjecta & 0xFFFF00;
+  DeviceExtension = (char *)DeviceObjecta->DeviceExtension;
   *((_DWORD *)DeviceExtension + 4) = 1953656900;
-  *((_QWORD *)DeviceExtension + 3) = SourceDevice;
-  *((_QWORD *)DeviceExtension + 4) = SourceDevice;
-  *((_QWORD *)DeviceExtension + 5) = v9;
-  *((_QWORD *)DeviceExtension + 6) = v140;
-  DeviceExtension[480] = v118;
-  v23 = v123;
+  *((_DWORD *)DeviceExtension + 5) = v22;
+  *((_QWORD *)DeviceExtension + 3) = DeviceObjecta;
+  *((_QWORD *)DeviceExtension + 4) = DeviceObjecta;
+  *((_QWORD *)DeviceExtension + 5) = v10;
+  *((_QWORD *)DeviceExtension + 6) = v202;
+  DeviceExtension[480] = v182;
+  v45 = v185;
   DeviceExtension[56] = 1;
-  DeviceExtension[481] = v23;
+  DeviceExtension[481] = v45;
   IoInitializeRemoveLockEx((PIO_REMOVE_LOCK)DeviceExtension + 2, 0x74727044u, 1u, 0, 0x20u);
-  v24 = TargetDevice;
+  v46 = TargetDevice;
   *((_QWORD *)DeviceExtension + 19) = TargetDevice;
-  v25 = IoAttachDeviceToDeviceStack(SourceDevice, v24);
-  *((_QWORD *)DeviceExtension + 20) = v25;
-  if ( !v25 )
+  v47 = IoAttachDeviceToDeviceStack(DeviceObjecta, v46);
+  *((_QWORD *)DeviceExtension + 20) = v47;
+  if ( !v47 )
   {
     LODWORD(started) = -1073741810;
-    WdLogSingleEntry1(2LL, -1073741810LL);
-    LOBYTE(v17) = 0;
-    v7 = 0;
-    goto LABEL_157;
+    v50 = WdLogNewEntry5_WdError(v49, v48);
+    *(_QWORD *)(v50 + 24) = -1073741810LL;
+    WdLogEvent5_WdError(v50);
+    v24 = 0;
+    goto LABEL_20;
   }
-  *((_DWORD *)DeviceExtension + 71) = 1;
   *((_QWORD *)DeviceExtension + 38) = DpiFdoHandleRemoveDevice;
-  v26 = *((_DWORD *)DeviceExtension + 4) == 1953656900;
+  v51 = *((_DWORD *)DeviceExtension + 4) == 1953656900;
+  *((_DWORD *)DeviceExtension + 71) = 1;
   *((_DWORD *)DeviceExtension + 70) = 1;
-  if ( !v26 || (unsigned int)(*((_DWORD *)DeviceExtension + 5) - 2) > 1 )
-    goto LABEL_72;
+  if ( !v51 || (unsigned int)(*((_DWORD *)DeviceExtension + 5) - 2) > 1 )
+  {
+    v24 = 1;
+    goto LABEL_228;
+  }
   v6 = DeviceExtension;
-  DeviceExtension[2693] = v124;
-  DeviceExtension[1154] = v126;
-  DeviceExtension[1155] = v128;
-  DeviceExtension[1159] = v125;
-  DeviceExtension[2694] = v129;
-  DeviceExtension[2695] = v130;
+  DeviceExtension[2693] = v186;
+  DeviceExtension[1154] = v188;
+  DeviceExtension[1158] = v187;
+  DeviceExtension[2694] = v189;
+  DeviceExtension[2695] = v190;
   *((_DWORD *)DeviceExtension + 680) = 0;
   *((_QWORD *)DeviceExtension + 36) = DpiFdoHandleStartDevice;
   *((_QWORD *)DeviceExtension + 59) = &DpiFdoHandleSurpriseRemoval;
   *((_QWORD *)DeviceExtension + 49) = &DpiFdoHandleFilterResources;
-  if ( !byte_1C0130491 && !DeviceExtension[480] )
+  if ( !byte_1C00B2B11 && !DeviceExtension[480] )
     *((_QWORD *)DeviceExtension + 40) = DpiFdoHandleStopDevice;
-  *(_QWORD *)(DeviceExtension + 500) = v160;
-  *((_DWORD *)DeviceExtension + 127) = v161;
-  DeviceRegistryPaths = DpiGetDeviceRegistryPaths((__int64)SourceDevice, (__int64)v24, v9);
-  LODWORD(started) = DeviceRegistryPaths;
+  *(_QWORD *)(DeviceExtension + 500) = v221;
+  *((_DWORD *)DeviceExtension + 127) = v222;
+  DeviceRegistryPaths = DpiGetDeviceRegistryPaths((__int64)DeviceObjecta, (__int64)v46, v10);
+  started = DeviceRegistryPaths;
   if ( DeviceRegistryPaths < 0 )
-  {
-    v85 = DeviceRegistryPaths;
-LABEL_210:
-    WdLogSingleEntry1(2LL, v85);
-    v39 = 0;
-    goto LABEL_99;
-  }
+    goto LABEL_95;
   if ( (int)DpiQueryBusInterface(*((PDEVICE_OBJECT *)DeviceExtension + 20), (__int64)(DeviceExtension + 856)) >= 0 )
   {
-    if ( *(_QWORD *)(v9 + 232) )
+    if ( *(_QWORD *)(v10 + 232) )
     {
-      v55 = DpiAcpiRegisterAcpiCallbacks(SourceDevice);
-      v56 = (unsigned __int8)v134;
-      if ( v55 >= 0 )
-        v56 = 1;
-      v134 = v56;
+      v57 = DpiAcpiRegisterAcpiCallbacks(DeviceObjecta);
+      v58 = (unsigned __int8)v199;
+      if ( v57 >= 0 )
+        v58 = 1;
+      v199 = v58;
     }
-    DeviceExtension[1157] = 1;
+    DeviceExtension[1156] = 1;
   }
-  started = TargetDevice;
-  DeviceProperty = IoGetDeviceProperty(TargetDevice, DevicePropertyBusNumber, 4u, DeviceExtension + 1144, &ResultLength);
+  DeviceProperty = IoGetDeviceProperty(v46, DevicePropertyBusNumber, 4u, DeviceExtension + 1144, &ResultLength);
+  v63 = DeviceProperty;
   if ( DeviceProperty < 0 )
   {
-    WdLogSingleEntry1(3LL, DeviceProperty);
+    v64 = WdLogNewEntry5_WdWarning(v61, v60, v62);
+    *(_QWORD *)(v64 + 24) = v63;
+    WdLogEvent5_WdWarning(v64);
     *((_DWORD *)DeviceExtension + 286) = -1;
   }
-  v29 = DeviceExtension + 1148;
-  v30 = IoGetDeviceProperty(started, DevicePropertyAddress, 4u, DeviceExtension + 1148, &ResultLength);
-  if ( v30 < 0 || *v29 == -1 )
+  v65 = DeviceExtension + 1148;
+  v66 = IoGetDeviceProperty(v46, DevicePropertyAddress, 4u, DeviceExtension + 1148, &ResultLength);
+  v70 = v66;
+  if ( v66 < 0 || *v65 == -1 )
   {
-    WdLogSingleEntry1(3LL, v30);
-    *v29 = -1;
+    v71 = WdLogNewEntry5_WdWarning(v68, v67, v69);
+    *(_QWORD *)(v71 + 24) = v70;
+    WdLogEvent5_WdWarning(v71);
+    *v65 = -1;
   }
-  v31 = (GUID *)(DeviceExtension + 544);
+  v72 = TargetDevice;
   LODWORD(started) = IoGetDeviceProperty(
-                       started,
+                       TargetDevice,
                        DevicePropertyBusTypeGuid,
                        0x10u,
                        DeviceExtension + 544,
                        &ResultLength);
   if ( (int)started < 0 || ResultLength < 0x10 )
   {
-    WdLogSingleEntry1(4LL, SourceDevice);
-    *v31 = GUID_BUS_TYPE_INVALID;
+    v75 = WdLogNewEntry5_WdEvent(v74, v73);
+    *(_QWORD *)(v75 + 24) = DeviceObjecta;
+    WdLogEvent5_WdEvent(v75);
+    *((GUID *)DeviceExtension + 34) = GUID_BUS_TYPE_INVALID;
   }
-  if ( !v118 )
+  if ( !v182 )
   {
-    v57 = DpiFdoDetectPostDevice((__int64)SourceDevice, &v131);
-    started = (struct _DEVICE_OBJECT *)v57;
-    if ( v57 < 0 )
+    v76 = DpiFdoDetectPostDevice((__int64)DeviceObjecta, &v191);
+    started = v76;
+    if ( v76 < 0 )
     {
-LABEL_211:
-      v86 = (__int64)started;
-LABEL_212:
-      WdLogSingleEntry1(2LL, v86);
-LABEL_213:
-      v39 = 0;
-      goto LABEL_99;
+LABEL_95:
+      v55 = WdLogNewEntry5_WdError(v54, v53);
+      *(_QWORD *)(v55 + 24) = started;
+      WdLogEvent5_WdError(v55);
+      v24 = 0;
+      v56 = 0;
+      goto LABEL_271;
     }
-    if ( v131 )
+    if ( v191 )
     {
-      WdLogSingleEntry1(4LL, SourceDevice);
+      v77 = WdLogNewEntry5_WdEvent(v54, v53);
+      *(_QWORD *)(v77 + 24) = DeviceObjecta;
+      WdLogEvent5_WdEvent(v77);
       *((_WORD *)DeviceExtension + 576) = 257;
-      byte_1C0130808 = 1;
-      if ( byte_1C0130491 == 1 )
+      byte_1C00B2E80 = 1;
+      if ( byte_1C00B2B11 == 1 )
       {
-        AttachedDeviceReference = IoGetAttachedDeviceReference(TargetDevice);
+        AttachedDeviceReference = IoGetAttachedDeviceReference(v72);
         DpiSetDeviceUsageType(AttachedDeviceReference);
         ObfDereferenceObject(AttachedDeviceReference);
-        v31 = (GUID *)(DeviceExtension + 544);
+        v72 = TargetDevice;
       }
     }
   }
-  v138 = 0;
-  v32 = (int)DpiReadPnpRegistryValue((__int64)SourceDevice, L"SoftGPUAdapter", (char *)&v138, 4u, 2u) >= 0 && v138;
-  DeviceExtension[2692] = v32;
-  if ( DeviceExtension[1159] )
+  v200 = 0;
+  v79 = (int)DpiReadPnpRegistryValue(DeviceObjecta, L"SoftGPUAdapter", &v200, 4LL) >= 0 && v200;
+  DeviceExtension[2692] = v79;
+  if ( RtlCompareMemory(DeviceExtension + 544, &GUID_BUS_TYPE_PCI, 0x10uLL) == 16 )
   {
-    *((_DWORD *)DeviceExtension + 281) = 5140;
-    *((_QWORD *)DeviceExtension + 142) = 0LL;
-    *((_DWORD *)DeviceExtension + 280) = 0;
-    *((_QWORD *)DeviceExtension + 141) = 139LL;
-    goto LABEL_51;
-  }
-  if ( RtlCompareMemory(v31, &GUID_BUS_TYPE_PCI, 0x10uLL) == 16 )
-  {
-    WdLogSingleEntry1(4LL, SourceDevice);
-    v58 = TargetDevice;
+    v82 = WdLogNewEntry5_WdEvent(v81, v80);
+    *(_QWORD *)(v82 + 24) = DeviceObjecta;
+    WdLogEvent5_WdEvent(v82);
+    v83 = TargetDevice;
+    v24 = 1;
     DpiQueryBusInterface(TargetDevice, (__int64)(DeviceExtension + 560));
-    v39 = 0;
     if ( !*((_QWORD *)DeviceExtension + 77) )
     {
-      v87 = -1073741127LL;
       LODWORD(started) = -1073741127;
-LABEL_215:
-      v88 = 2LL;
-LABEL_216:
-      WdLogSingleEntry1(v88, v87);
-      goto LABEL_99;
+      v86 = WdLogNewEntry5_WdError(v85, v84);
+      *(_QWORD *)(v86 + 24) = -1073741127LL;
+      WdLogEvent5_WdError(v86);
+LABEL_123:
+      v24 = 0;
+      goto LABEL_20;
     }
     PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x100uLL, 0x74727044u);
     *((_QWORD *)DeviceExtension + 139) = PoolWithTag;
     if ( !PoolWithTag )
     {
-LABEL_220:
-      v87 = -1073741801LL;
       LODWORD(started) = -1073741801;
-      v88 = 6LL;
-      goto LABEL_216;
+      v91 = WdLogNewEntry5_WdLowResource(v89, v88, 0LL, v90);
+      *(_QWORD *)(v91 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v91);
+      goto LABEL_123;
     }
     (*((void (__fastcall **)(_QWORD, _QWORD, PVOID, _QWORD, int))DeviceExtension + 77))(
       *((_QWORD *)DeviceExtension + 71),
@@ -631,308 +697,325 @@ LABEL_220:
       PoolWithTag,
       0LL,
       256);
-    v60 = (unsigned __int16 *)*((_QWORD *)DeviceExtension + 139);
+    v92 = (unsigned __int16 *)*((_QWORD *)DeviceExtension + 139);
     *((_DWORD *)DeviceExtension + 280) = 1;
-    v61 = *v60;
-    *((_DWORD *)DeviceExtension + 281) = v61;
-    v62 = v60[1];
-    *((_DWORD *)DeviceExtension + 282) = v62;
-    *((_DWORD *)DeviceExtension + 285) = *((unsigned __int8 *)v60 + 8);
-    if ( (v60[7] & 0x7F) == 0 )
+    v93 = *v92;
+    *((_DWORD *)DeviceExtension + 281) = v93;
+    v94 = v92[1];
+    *((_DWORD *)DeviceExtension + 282) = v94;
+    *((_DWORD *)DeviceExtension + 285) = *((unsigned __int8 *)v92 + 8);
+    if ( (v92[7] & 0x7F) == 0 )
     {
-      *((_DWORD *)DeviceExtension + 283) = v60[22];
-      *((_DWORD *)DeviceExtension + 284) = v60[23];
+      *((_DWORD *)DeviceExtension + 283) = v92[22];
+      *((_DWORD *)DeviceExtension + 284) = v92[23];
     }
-    v63 = v61 == 22611 && v62 == 4097;
-    DeviceExtension[2696] = v63;
-    DpiQueryBusInterface(v58, (__int64)(DeviceExtension + 624));
+    if ( v93 != 22611 || (v95 = 1, v94 != 4097) )
+      v95 = 0;
+    DeviceExtension[2696] = v95;
+    DpiQueryBusInterface(v83, (__int64)(DeviceExtension + 624));
     DpiQueryBusInterface(*((PDEVICE_OBJECT *)DeviceExtension + 20), (__int64)(DeviceExtension + 672));
-    AgpStatus = DpiGetAgpStatus(SourceDevice);
+    AgpStatus = DpiGetAgpStatus(DeviceObjecta);
+    v100 = AgpStatus;
     if ( AgpStatus >= 0 && !*((_QWORD *)DeviceExtension + 85) )
-      WdLogSingleEntry1(3LL, AgpStatus);
-    v65 = *((_QWORD *)SourceDevice->DeviceExtension + 139);
-    v66 = DpiFdoDetectVgaDeviceInCapabilities();
-    if ( v66 >= 0 )
     {
-      v67 = *(_BYTE *)(v65 + 11);
-      if ( v67 )
-      {
-        if ( v67 == 3 && !*(_BYTE *)(v65 + 10) )
-          goto LABEL_136;
-      }
-      else if ( *(_BYTE *)(v65 + 10) == 1 )
-      {
-        goto LABEL_136;
-      }
-      v66 = -1073741823;
+      v101 = WdLogNewEntry5_WdWarning(v98, v97, v99);
+      *(_QWORD *)(v101 + 24) = v100;
+      WdLogEvent5_WdWarning(v101);
     }
-LABEL_136:
-    v68 = DeviceExtension[1152];
-    LODWORD(started) = v66;
-    if ( v66 < 0 )
+    LODWORD(started) = DpiGetVgaStatus(DeviceObjecta);
+    v105 = DeviceExtension[1152];
+    if ( (int)started < 0 )
     {
-      if ( v68 )
-        WdLogSingleEntry1(3LL, SourceDevice);
+      if ( v105 )
+      {
+        v107 = WdLogNewEntry5_WdWarning(v103, v102, v104);
+        *(_QWORD *)(v107 + 24) = DeviceObjecta;
+        WdLogEvent5_WdWarning(v107);
+      }
+    }
+    else if ( v105
+           || !byte_1C00B2E80
+           && (v106 = WdLogNewEntry5_WdWarning(v103, v102, v104),
+               *(_QWORD *)(v106 + 24) = DeviceObjecta,
+               WdLogEvent5_WdWarning(v106),
+               DeviceExtension[1152] = 1,
+               byte_1C00B2E81 = 1,
+               DeviceExtension[1152]) )
+    {
+      if ( byte_1C00B2B16 )
+        DeviceExtension[1155] = 1;
+    }
+    goto LABEL_199;
+  }
+  if ( RtlCompareMemory(DeviceExtension + 544, &GUID_BUS_TYPE_ACPI, 0x10uLL) == 16 )
+  {
+    v220 = 0LL;
+    v110 = WdLogNewEntry5_WdEvent(v109, v108);
+    *(_QWORD *)(v110 + 24) = DeviceObjecta;
+    WdLogEvent5_WdEvent(v110);
+    if ( !DeviceExtension[1156] )
+    {
+LABEL_144:
+      LODWORD(started) = -1073741637;
+      v111 = WdLogNewEntry5_WdError(v103, v102);
+      *(_QWORD *)(v111 + 24) = -1073741637LL;
+      WdLogEvent5_WdError(v111);
+      v24 = 0;
+      goto LABEL_20;
+    }
+    *((_DWORD *)DeviceExtension + 280) = 2;
+    v245 = 0;
+    BYTE1(v219[2]) = 0;
+    HIWORD(v219[2]) = 0;
+    strcpy((char *)v219, "AeiC_HID");
+    v219[3] = 0;
+    v243 = 0LL;
+    v244 = 0LL;
+    v112 = DpEvalAcpiMethod((__int64)DeviceObjecta, 0xFFFFFFFFLL, v219, 0x18u, &v243, 0x24u);
+    v115 = v112;
+    if ( v112 >= 0 )
+    {
+      *(_QWORD *)(DeviceExtension + 1124) = v244;
     }
     else
     {
-      if ( !v68 )
-      {
-        if ( byte_1C0130808 )
-          goto LABEL_51;
-        WdLogSingleEntry1(3LL, SourceDevice);
-        DeviceExtension[1152] = 1;
-        byte_1C0130809 = 1;
-        v68 = DeviceExtension[1152];
-      }
-      if ( v68 && byte_1C0130495 )
-        DeviceExtension[1156] = 1;
+      v116 = WdLogNewEntry5_WdError(v114, v113);
+      *(_QWORD *)(v116 + 24) = v115;
+      WdLogEvent5_WdError(v116);
     }
-LABEL_51:
-    if ( DeviceExtension[1152] )
-      goto LABEL_53;
-    goto LABEL_52;
-  }
-  if ( RtlCompareMemory(v31, &GUID_BUS_TYPE_ACPI, 0x10uLL) != 16 )
-  {
-    if ( RtlCompareMemory(v31, &GUID_BUS_VMBUS, 0x10uLL) == 16 )
+    v245 = 0;
+    strcpy((char *)v219, "AeiC_SUB");
+    BYTE1(v219[2]) = 0;
+    HIWORD(v219[2]) = 0;
+    v219[3] = 0;
+    v243 = 0LL;
+    v244 = 0LL;
+    if ( (int)DpEvalAcpiMethod((__int64)DeviceObjecta, 0xFFFFFFFFLL, v219, 0x18u, &v243, 0x24u) >= 0 )
     {
-      WdLogSingleEntry1(4LL, SourceDevice);
+      *(_QWORD *)(DeviceExtension + 1132) = v244;
+    }
+    else
+    {
+      v119 = WdLogNewEntry5_WdEvent(v118, v117);
+      *(_QWORD *)(v119 + 24) = DpEvalAcpiMethod;
+      WdLogEvent5_WdEvent(v119);
+    }
+    v245 = 0;
+    strcpy((char *)v219, "AeiC_HRV");
+    BYTE1(v219[2]) = 0;
+    HIWORD(v219[2]) = 0;
+    v219[3] = 0;
+    v243 = 0LL;
+    v244 = 0LL;
+    LODWORD(started) = DpEvalAcpiMethod((__int64)DeviceObjecta, 0xFFFFFFFFLL, v219, 0x18u, &v243, 0x24u);
+    if ( (int)started >= 0 )
+    {
+      *((_DWORD *)DeviceExtension + 285) = (unsigned __int16)v244;
+    }
+    else
+    {
+      v120 = WdLogNewEntry5_WdEvent(v103, v102);
+      *(_QWORD *)(v120 + 24) = DpEvalAcpiMethod;
+      WdLogEvent5_WdEvent(v120);
+      LODWORD(started) = 0;
+    }
+    if ( DeviceExtension[1152] )
+    {
+      v121 = IoGetAttachedDeviceReference(TargetDevice);
+      started = (int)DpiSetDeviceUsageType(v121);
+      ObfDereferenceObject(v121);
+      if ( (int)started < 0 )
+      {
+        v122 = WdLogNewEntry5_WdError(v103, v102);
+        *(_QWORD *)(v122 + 24) = started;
+        WdLogEvent5_WdError(v122);
+        LODWORD(started) = 0;
+      }
+    }
+  }
+  else
+  {
+    if ( RtlCompareMemory(DeviceExtension + 544, &GUID_BUS_VMBUS, 0x10uLL) == 16 )
+    {
+      v123 = WdLogNewEntry5_WdEvent(v103, v102);
+      *(_QWORD *)(v123 + 24) = DeviceObjecta;
+      WdLogEvent5_WdEvent(v123);
+      v24 = 1;
       if ( DeviceExtension[2694] )
       {
         *((_DWORD *)DeviceExtension + 281) = 5140;
-        *((_DWORD *)DeviceExtension + 285) = 1;
         *((_QWORD *)DeviceExtension + 141) = 705LL;
         *((_DWORD *)DeviceExtension + 284) = 0;
+        *((_DWORD *)DeviceExtension + 285) = 1;
       }
       *((_DWORD *)DeviceExtension + 280) = 4;
-      goto LABEL_51;
+      goto LABEL_199;
     }
-    if ( DeviceExtension[480] )
+    if ( DeviceExtension[1158] )
+    {
+      *((_DWORD *)DeviceExtension + 281) = 5140;
+      *((_QWORD *)DeviceExtension + 141) = 139LL;
+      *((_QWORD *)DeviceExtension + 142) = 0LL;
+      *((_DWORD *)DeviceExtension + 280) = 0;
+    }
+    else if ( DeviceExtension[480] )
     {
       *((_DWORD *)DeviceExtension + 280) = 3;
       *((_DWORD *)DeviceExtension + 281) = 5140;
-      if ( DeviceExtension[1154] )
+      if ( !DeviceExtension[1154] )
       {
-        *((_DWORD *)DeviceExtension + 282) = 141;
+        v24 = 1;
+        if ( DeviceExtension[2693] )
+          *((_DWORD *)DeviceExtension + 282) = 140;
+        goto LABEL_199;
       }
-      else if ( DeviceExtension[2693] )
-      {
-        *((_DWORD *)DeviceExtension + 282) = 140;
-      }
-      goto LABEL_51;
+      *((_DWORD *)DeviceExtension + 282) = 141;
     }
-    v92 = DeviceExtension[2695];
-    if ( v92 || g_OSTestSigningEnabled )
+    else
     {
-      v26 = g_OSTestSigningEnabled == 0;
+      v124 = DeviceExtension[2695];
+      if ( !v124 && !g_OSTestSigningEnabled )
+        goto LABEL_144;
+      v51 = g_OSTestSigningEnabled == 0;
       *((_DWORD *)DeviceExtension + 280) = 3;
-      if ( !v26 && !v92 )
+      if ( !v51 && !v124 )
       {
         P = 0LL;
-        v93 = DpiGetDevicePropertyString(TargetDevice, DevicePropertyCompatibleIDs, PagedPool, (__int64)&ResultLength);
-        LODWORD(started) = v93;
-        if ( v93 >= 0 && (v94 = (char *)P) != 0LL )
+        v125 = DpiGetDevicePropertyString(v72, DevicePropertyCompatibleIDs, PagedPool, (__int64)&ResultLength);
+        started = v125;
+        if ( v125 >= 0 && (v128 = (char *)P) != 0LL )
         {
+          v129 = 0;
           if ( DeviceExtension[2692] )
           {
             *((_DWORD *)DeviceExtension + 281) = 5140;
-            v95 = *(_WORD *)v94;
-            v174[0] = L"SoftGPU_Full_D3D12";
-            v96 = (char **)v174;
-            v172 = 135LL;
-            v174[3] = L"SoftGPU_Full_D3D9L";
-            v97 = 0;
-            v173 = 0LL;
-            v174[6] = L"SoftGPU_Rod";
-            v174[9] = L"SoftGPU_Dod";
-            v179 = L"SoftGPU_MCDM";
-            v174[1] = 128LL;
-            v174[2] = 0LL;
-            v174[4] = 136LL;
-            v174[5] = 0LL;
-            v174[7] = 137LL;
-            v174[8] = 0LL;
-            v175 = 134;
-            v176 = 4660;
-            v177 = 22136;
-            v178 = 39612;
+            v130 = *(_WORD *)v128;
+            v131 = &v234;
+            v234 = L"SoftGPU_Full_D3D12";
+            v236 = L"SoftGPU_Full_D3D9L";
+            v238 = L"SoftGPU_Rod";
+            v240 = L"SoftGPU_Dod";
+            v242 = L"SoftGPU_MCDM";
+            v233[0] = 135;
+            v235 = 128;
+            v237 = 136;
+            v239 = 137;
+            v241 = 134;
             while ( 1 )
             {
-              v98 = *v96;
-              if ( v95 )
+              v132 = (char *)*v131;
+              if ( v130 )
                 break;
-LABEL_260:
-              if ( !*(_WORD *)v98 )
-                goto LABEL_263;
-              ++v97;
-              v96 += 3;
-              if ( v97 >= 5 )
-                goto LABEL_276;
+LABEL_181:
+              if ( !*(_WORD *)v132 )
+                goto LABEL_184;
+              ++v129;
+              v131 += 2;
+              if ( v129 >= 5 )
+                goto LABEL_183;
             }
-            v99 = v94 - v98;
-            while ( *(_WORD *)v98 )
+            v133 = v128 - v132;
+            while ( *(_WORD *)v132 )
             {
-              if ( *(_WORD *)&v98[v99] == *(_WORD *)v98 )
+              if ( *(_WORD *)&v132[v133] == *(_WORD *)v132 )
               {
-                v98 += 2;
-                if ( *(_WORD *)&v98[v99] )
+                v132 += 2;
+                if ( *(_WORD *)&v132[v133] )
                   continue;
               }
-              goto LABEL_260;
+              goto LABEL_181;
             }
-LABEL_263:
-            *((_DWORD *)DeviceExtension + 282) = *((_DWORD *)&v172 + 6 * (int)v97);
-            *((_DWORD *)DeviceExtension + 284) = *((_DWORD *)&v172 + 6 * (int)v97 + 1);
-            *((_DWORD *)DeviceExtension + 283) = v174[3 * (int)v97 - 1];
-            *((_DWORD *)DeviceExtension + 285) = *((_DWORD *)&v173 + 6 * (int)v97 + 1);
+LABEL_184:
+            *((_DWORD *)DeviceExtension + 282) = v233[4 * v129];
           }
           else
           {
-            v100 = *(_WORD *)P;
-            v148 = L"MCDMTestDevice";
-            v101 = &v148;
-            v146 = 5140;
-            v102 = 0;
-            v147 = 256;
-            v149 = 2697;
+            v134 = *(_WORD *)P;
+            v209 = L"MCDMTestDevice";
+            v135 = &v209;
+            v207 = 5140;
+            v208 = 256;
+            v210[0] = 2697;
             while ( 1 )
             {
-              v103 = *v101;
-              if ( v100 )
+              v136 = *v135;
+              if ( v134 )
                 break;
-LABEL_270:
-              if ( !*v103 )
-                goto LABEL_273;
-              v101 += 3;
-              if ( ++v102 )
-                goto LABEL_274;
+LABEL_191:
+              if ( !*v136 )
+                goto LABEL_194;
+              ++v129;
+              v135 += 3;
+              if ( v129 )
+                goto LABEL_195;
             }
-            v104 = (char *)((_BYTE *)P - (_BYTE *)v103);
-            while ( *v103 )
+            v137 = (char *)((_BYTE *)P - (_BYTE *)v136);
+            while ( *v136 )
             {
-              if ( *(_WORD *)&v104[(_QWORD)v103] == *v103 )
+              if ( *(_WORD *)&v137[(_QWORD)v136] == *v136 )
               {
-                if ( *(_WORD *)&v104[(_QWORD)++v103] )
+                if ( *(_WORD *)&v137[(_QWORD)++v136] )
                   continue;
               }
-              goto LABEL_270;
+              goto LABEL_191;
             }
-LABEL_273:
-            *((_DWORD *)DeviceExtension + 281) = *(&v146 + 6 * v102);
-            *((_DWORD *)DeviceExtension + 282) = *(&v147 + 6 * v102);
-            DeviceExtension[LODWORD(v150[3 * v102])] = 1;
-LABEL_274:
+LABEL_194:
+            *((_DWORD *)DeviceExtension + 281) = *(&v207 + 6 * (int)v129);
+            *((_DWORD *)DeviceExtension + 282) = *(&v208 + 6 * (int)v129);
+            DeviceExtension[v210[6 * v129]] = 1;
+LABEL_195:
             if ( !*((_DWORD *)DeviceExtension + 282) )
             {
-              ExFreePoolWithTag(v94, 0);
-              LODWORD(started) = -1073741637;
-              v86 = -1073741637LL;
-              goto LABEL_212;
+              ExFreePoolWithTag(v128, 0);
+              goto LABEL_144;
             }
           }
-LABEL_276:
-          ExFreePoolWithTag(v94, 0);
+LABEL_183:
+          ExFreePoolWithTag(v128, 0);
         }
         else
         {
-          WdLogSingleEntry1(2LL, v93);
+          v138 = WdLogNewEntry5_WdError(v127, v126);
+          *(_QWORD *)(v138 + 24) = started;
+          WdLogEvent5_WdError(v138);
         }
       }
-      goto LABEL_51;
     }
-    goto LABEL_209;
   }
-  v159 = 0LL;
-  WdLogSingleEntry1(4LL, SourceDevice);
-  if ( !DeviceExtension[1157] )
+  v24 = 1;
+LABEL_199:
+  if ( !DeviceExtension[1152] && !DeviceExtension[480] && DeviceExtension[1154] )
   {
-LABEL_209:
-    LODWORD(started) = -1073741637;
-    v85 = -1073741637LL;
-    goto LABEL_210;
-  }
-  *((_DWORD *)DeviceExtension + 280) = 2;
-  v182 = 0;
-  BYTE1(v158[2]) = 0;
-  HIWORD(v158[2]) = 0;
-  v158[3] = 0;
-  strcpy((char *)v158, "AeiC_HID");
-  v180 = 0LL;
-  v181 = 0LL;
-  v90 = DpEvalAcpiMethod((__int64)SourceDevice, 0xFFFFFFFF, v158, 0x18u, &v180, 0x24u);
-  if ( v90 >= 0 )
-    *(_QWORD *)(DeviceExtension + 1124) = v181;
-  else
-    WdLogSingleEntry1(2LL, v90);
-  v182 = 0;
-  strcpy((char *)v158, "AeiC_SUB");
-  BYTE1(v158[2]) = 0;
-  HIWORD(v158[2]) = 0;
-  v158[3] = 0;
-  v180 = 0LL;
-  v181 = 0LL;
-  if ( (int)DpEvalAcpiMethod((__int64)SourceDevice, 0xFFFFFFFF, v158, 0x18u, &v180, 0x24u) >= 0 )
-    *(_QWORD *)(DeviceExtension + 1132) = v181;
-  else
-    WdLogSingleEntry1(4LL, DpEvalAcpiMethod);
-  v182 = 0;
-  strcpy((char *)v158, "AeiC_HRV");
-  BYTE1(v158[2]) = 0;
-  HIWORD(v158[2]) = 0;
-  v158[3] = 0;
-  v180 = 0LL;
-  v181 = 0LL;
-  LODWORD(started) = DpEvalAcpiMethod((__int64)SourceDevice, 0xFFFFFFFF, v158, 0x18u, &v180, 0x24u);
-  if ( (int)started >= 0 )
-  {
-    *((_DWORD *)DeviceExtension + 285) = (unsigned __int16)v181;
-  }
-  else
-  {
-    WdLogSingleEntry1(4LL, DpEvalAcpiMethod);
-    LODWORD(started) = 0;
-  }
-  if ( DeviceExtension[1152] )
-  {
-    v91 = IoGetAttachedDeviceReference(TargetDevice);
-    started = (struct _DEVICE_OBJECT *)(int)DpiSetDeviceUsageType(v91);
-    ObfDereferenceObject(v91);
-    if ( (int)started < 0 )
-    {
-      WdLogSingleEntry1(2LL, started);
-      LODWORD(started) = 0;
-    }
-    goto LABEL_51;
-  }
-LABEL_52:
-  if ( !DeviceExtension[480] && DeviceExtension[1154] )
-  {
-    WdLogSingleEntry1(4LL, SourceDevice);
+    v139 = WdLogNewEntry5_WdEvent(v103, v102);
+    *(_QWORD *)(v139 + 24) = DeviceObjecta;
+    WdLogEvent5_WdEvent(v139);
     LODWORD(started) = -1071774664;
-    goto LABEL_213;
+LABEL_203:
+    v24 = 0;
+    goto LABEL_20;
   }
-LABEL_53:
   if ( DeviceExtension[2692] && DeviceExtension[2693] )
   {
     LODWORD(started) = -1073741811;
-    v86 = -1073741811LL;
-    goto LABEL_212;
+    v140 = WdLogNewEntry5_WdError(v103, v102);
+    *(_QWORD *)(v140 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v140);
+    goto LABEL_203;
   }
   KeInitializeSpinLock((PKSPIN_LOCK)DeviceExtension + 181);
-  v33 = DeviceExtension + 1312;
+  v141 = DeviceExtension + 1312;
   *((_WORD *)DeviceExtension + 648) = 64;
-  v34 = 7LL;
+  v142 = 7LL;
   if ( (((_BYTE)DeviceExtension + 32) & 4) != 0 )
   {
-    *v33 = 1;
-    v33 = DeviceExtension + 1316;
-    v34 = 6LL;
+    *v141 = 1;
+    v142 = 6LL;
+    v141 = DeviceExtension + 1316;
   }
-  memset64(v33, 0x100000001uLL, v34 >> 1);
-  if ( (v34 & 1) != 0 )
-    v33[v34 - 1] = 1;
-  KeInitializeDpc((PRKDPC)(DeviceExtension + 1384), (PKDEFERRED_ROUTINE)DpiFdoDpcForIsr, SourceDevice);
+  memset64(v141, 0x100000001uLL, v142 >> 1);
+  if ( (v142 & 1) != 0 )
+    v141[v142 - 1] = 1;
+  KeInitializeDpc((PRKDPC)(DeviceExtension + 1384), (PKDEFERRED_ROUTINE)DpiFdoDpcForIsr, DeviceObjecta);
   KeInitializeMutex((PRKMUTEX)DeviceExtension + 45, 0);
   KeInitializeMutex((PRKMUTEX)(DeviceExtension + 2600), 0);
   *((_QWORD *)DeviceExtension + 314) = DeviceExtension + 2504;
@@ -948,400 +1031,362 @@ LABEL_53:
   *((_QWORD *)DeviceExtension + 147) = 0LL;
   *((_DWORD *)DeviceExtension + 296) = 0;
   KeInitializeEvent((PRKEVENT)(DeviceExtension + 1192), SynchronizationEvent, 0);
-  *((_DWORD *)DeviceExtension + 681) = 61443;
-  if ( *(_DWORD *)(v9 + 28) >= 0xB003u
-    && !(unsigned __int8)ExQueryFastCacheDevLicense()
+  *((_DWORD *)DeviceExtension + 681) = 49156;
+  if ( *(_DWORD *)(v10 + 28) >= 0xB003u
+    && !(unsigned __int8)ExQueryFastCacheDevLicense(v143)
     && !DeviceExtension[1154]
     && !DeviceExtension[480] )
   {
-    v37 = *((_DWORD *)DeviceExtension + 281);
-    if ( v37 == 4098 )
+    v144 = *((_DWORD *)DeviceExtension + 281);
+    if ( v144 == 4098 )
     {
-      wil_details_FeatureReporting_ReportUsageToService(
-        (__int64)&Feature_ReportWddm2_6ToDriver_Amd__private_reporting,
-        0x12C31E0u,
-        v35,
-        v36,
-        (const struct FEATURE_LOGGED_TRAITS *)&Feature_SupportComputeOnlyAdapters_logged_traits,
-        1);
-      v37 = *((_DWORD *)DeviceExtension + 281);
+      Feature_ReportWddm2_6ToDriver_Amd__private_ReportDeviceUsage();
+      v144 = *((_DWORD *)DeviceExtension + 281);
     }
-    if ( v37 == 4318 )
+    if ( v144 == 4318 )
     {
-      wil_details_FeatureReporting_ReportUsageToService(
-        (__int64)&Feature_ReportWddm2_6ToDriver_Nvidia__private_reporting,
-        0x12C31ECu,
-        v35,
-        v36,
-        (const struct FEATURE_LOGGED_TRAITS *)&Feature_SupportComputeOnlyAdapters_logged_traits,
-        1);
-      v37 = *((_DWORD *)DeviceExtension + 281);
+      Feature_ReportWddm2_6ToDriver_Nvidia__private_ReportDeviceUsage();
+      v144 = *((_DWORD *)DeviceExtension + 281);
     }
-    if ( v37 == 32902 )
-      wil_details_FeatureReporting_ReportUsageToService(
-        (__int64)&Feature_ReportWddm2_6ToDriver_Intel__private_reporting,
-        0x12C31D3u,
-        v35,
-        v36,
-        (const struct FEATURE_LOGGED_TRAITS *)Feature_DmaRemapping_logged_traits,
-        1);
+    if ( v144 == 32902 )
+      Feature_ReportWddm2_6ToDriver_Intel__private_ReportDeviceUsage();
   }
   if ( *((_DWORD *)DeviceExtension + 4) == 1953656900 )
   {
     if ( *((_DWORD *)DeviceExtension + 5) == 2 )
     {
-      v38 = DpiFdoInitializeFdo(SourceDevice);
-      started = (struct _DEVICE_OBJECT *)v38;
-      if ( v38 >= 0 )
-      {
-        v117 = 1;
-        goto LABEL_72;
-      }
-      goto LABEL_211;
+      v145 = DpiFdoInitializeFdo(DeviceObjecta);
+      started = v145;
+      if ( v145 < 0 )
+        goto LABEL_95;
+      v192 = 1;
     }
-    if ( *((_DWORD *)DeviceExtension + 5) == 3 )
+    else if ( *((_DWORD *)DeviceExtension + 5) == 3 )
     {
       LODWORD(started) = 0;
-      *((_QWORD *)SourceDevice->DeviceExtension + 43) = &DpiLdaHandleQueryDeviceRelations;
+      *((_QWORD *)DeviceObjecta->DeviceExtension + 43) = &DpiLdaHandleQueryDeviceRelations;
     }
   }
-LABEL_72:
-  KeWaitForSingleObject((PVOID)(v9 + 72), Executive, 0, 0, 0LL);
-  v39 = 1;
-  if ( !v6
-    || !*((_DWORD *)v6 + 126)
-    || (v105 = DpiLdaLinkDeviceToChain(SourceDevice, 0LL), LODWORD(started) = v105, v105 >= 0) )
+LABEL_228:
+  KeWaitForSingleObject((PVOID)(v10 + 72), Executive, 0, 0, 0LL);
+  if ( v6 )
   {
-    v40 = *(char ***)(v9 + 64);
-    if ( *v40 != (char *)(v9 + 56) )
-      goto LABEL_302;
-    *(_QWORD *)DeviceExtension = v9 + 56;
-    *((_QWORD *)DeviceExtension + 1) = v40;
-    *v40 = DeviceExtension;
-    *(_QWORD *)(v9 + 64) = DeviceExtension;
-    ++*(_DWORD *)(v9 + 128);
-    v132 = 1;
-    if ( *((_QWORD *)DeviceExtension + 21) )
+    if ( *((_DWORD *)v6 + 126) )
     {
-LABEL_79:
-      KeInitializeMutex((PRKMUTEX)(DeviceExtension + 176), 0);
-      if ( !v6 )
-        goto LABEL_87;
-      if ( !*((_QWORD *)v6 + 182) )
+      v146 = DpiLdaLinkDeviceToChain(DeviceObjecta);
+      started = v146;
+      if ( v146 < 0 )
       {
-        v43 = ExAllocatePoolWithTag((POOL_TYPE)512, 0x10uLL, 0x74727044u);
-        *((_QWORD *)v6 + 182) = v43;
-        if ( !v43 )
-          goto LABEL_288;
-        v43[2] = 1;
-        KeInitializeSpinLock(*((PKSPIN_LOCK *)v6 + 182));
+        v149 = WdLogNewEntry5_WdError(v148, v147);
+        *(_QWORD *)(v149 + 24) = started;
+        WdLogEvent5_WdError(v149);
+        v56 = 0;
+        goto LABEL_271;
       }
-      if ( *((_QWORD *)v6 + 183) )
-      {
-LABEL_86:
-        *((_DWORD *)v6 + 368) = 0;
-        memset(v6 + 1480, 0, 0x400uLL);
-LABEL_87:
-        KeReleaseMutex((PRKMUTEX)(v9 + 72), 0);
-        *((_QWORD *)DeviceExtension + 16) = DpiFdoDispatchPnp;
-        v39 = 0;
-        if ( v6 )
-        {
-          *((_QWORD *)v6 + 17) = DpiFdoDispatchPower;
-          if ( v6[1152] )
-          {
-            *(_BYTE *)(*((_QWORD *)v6 + 21) + 108LL) = 1;
-            AcquireMiniportListMutex();
-            if ( qword_1C0130740 && qword_1C0130740 != qword_1C0130748 )
-              WdLogSingleEntry2(2LL, SourceDevice, (int)started);
-            qword_1C0130740 = (__int64)SourceDevice;
-            v69 = *((_QWORD *)v6 + 6);
-            v145 = 0LL;
-            started = (struct _DEVICE_OBJECT *)(int)DpiDxgkDdiExchangePreStartInfo(v9, v69, &v145);
-            _InterlockedExchange64(&qword_1C01304D8, 0LL);
-            KeReleaseMutex(Mutex, 0);
-            if ( (int)started < 0 )
-            {
-              WdLogSingleEntry2(2LL, *(_QWORD *)(v9 + 1144), started);
-              goto LABEL_100;
-            }
-            if ( *((_DWORD *)v6 + 4) == 1953656900 && *((_DWORD *)v6 + 5) == 2 )
-            {
-              v70 = (v145 & 0x200000000LL) != 0;
-              v6[2741] = BYTE4(v145) & 1;
-              v6[2742] = v70;
-            }
-          }
-        }
-        if ( v118 && v126 )
-        {
-          qword_1C0130748 = (__int64)SourceDevice;
-          if ( !qword_1C0130740 )
-            qword_1C0130740 = (__int64)SourceDevice;
-          memset(&VersionInformation[1], 0, 0x118uLL);
-          VersionInformation[0] = 284;
-          if ( RtlGetVersion((PRTL_OSVERSIONINFOW)VersionInformation) >= 0
-            && (ReturnedProductType = 0,
-                RtlGetProductInfo(
-                  VersionInformation[1],
-                  VersionInformation[2],
-                  LOWORD(VersionInformation[69]),
-                  HIWORD(VersionInformation[69]),
-                  &ReturnedProductType))
-            && ReturnedProductType == 187
-            || (unsigned int)ExGetFirmwareType() == 2
-            || byte_1C0130493 )
-          {
-            *(_WORD *)(v6 + 2741) = 257;
-          }
-        }
-        SourceDevice->Flags |= 4u;
-        SourceDevice->Flags |= 0x2000u;
-        SourceDevice->Flags &= ~0x4000u;
-        SourceDevice->Flags &= ~0x80u;
-        WdLogSingleEntry1(4LL, SourceDevice);
-LABEL_99:
-        if ( !v6 )
-          goto LABEL_103;
-        goto LABEL_100;
-      }
-      v44 = ExAllocatePoolWithTag((POOL_TYPE)512, 0x10uLL, 0x74727044u);
-      *((_QWORD *)v6 + 183) = v44;
-      if ( v44 )
-      {
-        v44[2] = 1;
-        KeInitializeSpinLock(*((PKSPIN_LOCK *)v6 + 183));
-        goto LABEL_86;
-      }
-LABEL_288:
-      v106 = -1073741801LL;
+    }
+  }
+  v150 = *(char ***)(v10 + 64);
+  if ( *v150 != (char *)(v10 + 56) )
+    goto LABEL_279;
+  *(_QWORD *)DeviceExtension = v10 + 56;
+  *((_QWORD *)DeviceExtension + 1) = v150;
+  *v150 = DeviceExtension;
+  *(_QWORD *)(v10 + 64) = DeviceExtension;
+  ++*(_DWORD *)(v10 + 128);
+  v56 = 1;
+  if ( !*((_QWORD *)DeviceExtension + 21) )
+  {
+    v151 = ExAllocatePoolWithTag((POOL_TYPE)512, 0x70uLL, 0x74727044u);
+    v155 = 0LL;
+    *((_QWORD *)DeviceExtension + 21) = v151;
+    if ( !v151 )
+    {
+LABEL_235:
       LODWORD(started) = -1073741801;
-      v107 = 6LL;
-      goto LABEL_289;
+      v156 = WdLogNewEntry5_WdLowResource(v155, v152, v153, v154);
+      *(_QWORD *)(v156 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v156);
+      goto LABEL_273;
     }
-    v41 = ExAllocatePoolWithTag((POOL_TYPE)512, 0x70uLL, 0x74727044u);
-    *((_QWORD *)DeviceExtension + 21) = v41;
-    if ( v41 )
+    v151[26] = 1;
+    *(_BYTE *)(*((_QWORD *)DeviceExtension + 21) + 108LL) = 0;
+    v157 = ExInitializeResourceLite(*((PERESOURCE *)DeviceExtension + 21));
+    started = v157;
+    if ( v157 < 0 )
     {
-      v41[26] = 1;
-      *(_BYTE *)(*((_QWORD *)DeviceExtension + 21) + 108LL) = 0;
-      v42 = ExInitializeResourceLite(*((PERESOURCE *)DeviceExtension + 21));
-      LODWORD(started) = v42;
-      if ( v42 >= 0 )
-      {
-        v120 = 1;
-        goto LABEL_79;
-      }
-      v87 = v42;
-      goto LABEL_215;
+      v160 = WdLogNewEntry5_WdError(v159, v158);
+      *(_QWORD *)(v160 + 24) = started;
+LABEL_238:
+      WdLogEvent5_WdError(v160);
+      goto LABEL_271;
     }
-    goto LABEL_220;
+    v193 = 1;
   }
-  v106 = v105;
-  v107 = 2LL;
-LABEL_289:
-  WdLogSingleEntry1(v107, v106);
-LABEL_100:
-  if ( *((_DWORD *)v6 + 4) == 1953656900 && *((_DWORD *)v6 + 5) == 2 )
-    DxgkLogInternalTriageEvent(
-      *((_QWORD *)v6 + 487),
-      131077,
-      -1,
-      (__int64)L"Adapter AddDevice has completed with status %1",
-      (int)started,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-LABEL_103:
-  v45 = (int)started;
-  LOBYTE(v17) = v117;
-  v46 = v127;
-  v47 = v127;
-  v116 = v39;
-  v48 = v134;
-  if ( (int)started < 0 )
+  KeInitializeMutex((PRKMUTEX)(DeviceExtension + 176), 0);
+  if ( v6 )
   {
-    v121 = 1;
-    if ( v132 == 1 )
+    if ( !*((_QWORD *)v6 + 182) )
     {
-      v108 = v141;
-      v72 = (struct _KMUTANT *)(v141 + 72);
-      KeWaitForSingleObject(v141 + 72, Executive, 0, 0, 0LL);
-      v109 = *(_QWORD **)DeviceExtension;
-      if ( *(char **)(*(_QWORD *)DeviceExtension + 8LL) == DeviceExtension )
+      v161 = ExAllocatePoolWithTag((POOL_TYPE)512, 0x10uLL, 0x74727044u);
+      *((_QWORD *)v6 + 182) = v161;
+      if ( !v161 )
+        goto LABEL_235;
+      v161[2] = 1;
+      KeInitializeSpinLock(*((PKSPIN_LOCK *)v6 + 182));
+    }
+    if ( !*((_QWORD *)v6 + 183) )
+    {
+      v162 = ExAllocatePoolWithTag((POOL_TYPE)512, 0x10uLL, 0x74727044u);
+      *((_QWORD *)v6 + 183) = v162;
+      if ( !v162 )
+        goto LABEL_235;
+      v162[2] = 1;
+      KeInitializeSpinLock(*((PKSPIN_LOCK *)v6 + 183));
+    }
+    *((_DWORD *)v6 + 368) = 0;
+    memset(v6 + 1480, 0, 0x400uLL);
+  }
+  KeReleaseMutex((PRKMUTEX)(v10 + 72), 0);
+  *((_QWORD *)DeviceExtension + 16) = DpiFdoDispatchPnp;
+  v24 = 0;
+  if ( v6 )
+  {
+    *((_QWORD *)v6 + 17) = DpiFdoDispatchPower;
+    if ( v6[1152] )
+    {
+      *(_BYTE *)(*((_QWORD *)v6 + 21) + 108LL) = 1;
+      AcquireMiniportListMutex();
+      if ( qword_1C00B2DB8 && qword_1C00B2DB8 != qword_1C00B2DC0 )
       {
-        v110 = (PVOID *)*((_QWORD *)DeviceExtension + 1);
-        if ( *v110 == DeviceExtension )
+        v167 = WdLogNewEntry5_WdError(v166, v165);
+        *(_QWORD *)(v167 + 24) = DeviceObjecta;
+        *(_QWORD *)(v167 + 32) = (int)started;
+        WdLogEvent5_WdError(v167);
+      }
+      qword_1C00B2DB8 = (__int64)DeviceObjecta;
+      v168 = *((_QWORD *)v6 + 6);
+      v205 = 0LL;
+      started = (int)DpiDxgkDdiExchangePreStartInfo(v10, v168, &v205);
+      _InterlockedExchange64(&qword_1C00B2B50, 0LL);
+      KeReleaseMutex(Mutex, 0);
+      if ( (int)started < 0 )
+      {
+        v160 = WdLogNewEntry5_WdError(v164, v163);
+        *(_QWORD *)(v160 + 24) = *(_QWORD *)(v10 + 1144);
+        *(_QWORD *)(v160 + 32) = started;
+        goto LABEL_238;
+      }
+      if ( *((_DWORD *)v6 + 4) == 1953656900 && *((_DWORD *)v6 + 5) == 2 )
+      {
+        v163 = 1LL;
+        v164 = HIDWORD(v205) >> 1;
+        LOBYTE(v164) = (v205 & 0x200000000LL) != 0;
+        v6[2741] = BYTE4(v205) & 1;
+        v6[2742] = v164;
+      }
+    }
+  }
+  if ( v182 && v188 )
+  {
+    qword_1C00B2DC0 = (__int64)DeviceObjecta;
+    if ( !qword_1C00B2DB8 )
+      qword_1C00B2DB8 = (__int64)DeviceObjecta;
+    memset(&VersionInformation[1], 0, 0x118uLL);
+    VersionInformation[0] = 284;
+    if ( RtlGetVersion((PRTL_OSVERSIONINFOW)VersionInformation) >= 0
+      && (ReturnedProductType = 0,
+          RtlGetProductInfo(
+            VersionInformation[1],
+            VersionInformation[2],
+            LOWORD(VersionInformation[69]),
+            HIWORD(VersionInformation[69]),
+            &ReturnedProductType))
+      && ReturnedProductType == 187
+      || (unsigned int)ExGetFirmwareType() == 2
+      || byte_1C00B2B13 )
+    {
+      *(_WORD *)(v6 + 2741) = 257;
+    }
+  }
+  DeviceObjecta->Flags |= 4u;
+  DeviceObjecta->Flags |= 0x2000u;
+  DeviceObjecta->Flags &= ~0x4000u;
+  DeviceObjecta->Flags &= ~0x80u;
+  v169 = WdLogNewEntry5_WdEvent(v164, v163);
+  *(_QWORD *)(v169 + 24) = DeviceObjecta;
+  WdLogEvent5_WdEvent(v169);
+LABEL_271:
+  if ( (int)started >= 0 )
+    goto LABEL_291;
+  if ( v56 == 1 )
+  {
+LABEL_273:
+    v25 = (struct _KMUTANT *)(v10 + 72);
+    KeWaitForSingleObject((PVOID)(v10 + 72), Executive, 0, 0, 0LL);
+    v171 = *(_QWORD **)DeviceExtension;
+    if ( *(char **)(*(_QWORD *)DeviceExtension + 8LL) == DeviceExtension )
+    {
+      v172 = (PVOID *)*((_QWORD *)DeviceExtension + 1);
+      if ( *v172 == DeviceExtension )
+      {
+        *v172 = v171;
+        v171[1] = v172;
+        --*(_DWORD *)(v10 + 128);
+        if ( v6 && *((_DWORD *)v6 + 126) )
+          DpiLdaUnLinkDeviceFromChain(DeviceObjecta);
+        KeReleaseMutex((PRKMUTEX)(v10 + 72), 0);
+        goto LABEL_21;
+      }
+    }
+LABEL_279:
+    __fastfail(3u);
+  }
+LABEL_20:
+  v25 = (struct _KMUTANT *)(v10 + 72);
+LABEL_21:
+  if ( v24 == 1 )
+    KeReleaseMutex(v25, 0);
+  if ( DeviceObjecta )
+  {
+    if ( v192 == 1 )
+      DpiFdoResetFdo(DeviceObjecta);
+    if ( v6 )
+    {
+      v26 = (_DWORD *)*((_QWORD *)v6 + 182);
+      if ( v26 && v26[2] == 1 )
+      {
+        ExFreePoolWithTag(v26, 0);
+        *((_QWORD *)v6 + 182) = 0LL;
+      }
+      v27 = (_DWORD *)*((_QWORD *)v6 + 183);
+      if ( v27 && v27[2] == 1 )
+      {
+        ExFreePoolWithTag(v27, 0);
+        *((_QWORD *)v6 + 183) = 0LL;
+      }
+      if ( (_BYTE)v199 == 1 )
+        DpiAcpiUnregisterAcpiCallbacks(DeviceObjecta);
+      v28 = (void (__fastcall *)(_QWORD))*((_QWORD *)v6 + 73);
+      if ( v28 )
+      {
+        v28(*((_QWORD *)v6 + 71));
+        memset(v6 + 560, 0, 0x40uLL);
+      }
+      v29 = (void (__fastcall *)(_QWORD))*((_QWORD *)v6 + 81);
+      if ( v29 )
+      {
+        v29(*((_QWORD *)v6 + 79));
+        *((_OWORD *)v6 + 39) = 0LL;
+        *((_OWORD *)v6 + 40) = 0LL;
+        *((_OWORD *)v6 + 41) = 0LL;
+      }
+      v30 = (void (__fastcall *)(_QWORD))*((_QWORD *)v6 + 87);
+      if ( v30 )
+      {
+        v30(*((_QWORD *)v6 + 85));
+        memset(v6 + 672, 0, 0xB8uLL);
+      }
+      v31 = (void (__fastcall *)(_QWORD))*((_QWORD *)v6 + 110);
+      if ( v31 )
+      {
+        v31(*((_QWORD *)v6 + 108));
+        memset(v6 + 856, 0, 0x58uLL);
+      }
+      RtlFreeUnicodeString((PUNICODE_STRING)v6 + 32);
+      RtlFreeUnicodeString((PUNICODE_STRING)v6 + 33);
+      v32 = (void *)*((_QWORD *)v6 + 139);
+      if ( v32 )
+      {
+        ExFreePoolWithTag(v32, 0);
+        *((_QWORD *)v6 + 139) = 0LL;
+      }
+    }
+    if ( DeviceExtension )
+    {
+      v33 = *((_QWORD *)DeviceExtension + 21);
+      if ( v33 )
+      {
+        if ( v193 == 1 )
         {
-          *v110 = v109;
-          v109[1] = v110;
-          --*((_DWORD *)v108 + 32);
-          if ( v6 && *((_DWORD *)v6 + 126) )
-            DpiLdaUnLinkDeviceFromChain(SourceDevice);
-          KeReleaseMutex(v72, 0);
-          LODWORD(started) = v45;
-          LOBYTE(v17) = v117;
-          v9 = (__int64)v141;
-          LOBYTE(v134) = v48;
-          v7 = v116;
-          v121 = 1;
-          v127 = v47;
-LABEL_158:
-          if ( v7 == 1 )
-          {
-            KeReleaseMutex(v72, 0);
-            LOBYTE(v17) = v117;
-          }
-          if ( SourceDevice )
-          {
-            if ( (_BYTE)v17 == 1 )
-              DpiFdoResetFdo();
-            if ( v6 )
-            {
-              v73 = (_DWORD *)*((_QWORD *)v6 + 182);
-              if ( v73 && v73[2] == 1 )
-              {
-                ExFreePoolWithTag(v73, 0);
-                *((_QWORD *)v6 + 182) = 0LL;
-              }
-              v74 = (_DWORD *)*((_QWORD *)v6 + 183);
-              if ( v74 && v74[2] == 1 )
-              {
-                ExFreePoolWithTag(v74, 0);
-                *((_QWORD *)v6 + 183) = 0LL;
-              }
-              if ( (_BYTE)v134 == 1 )
-                DpiAcpiUnregisterAcpiCallbacks(SourceDevice);
-              v75 = (void (__fastcall *)(_QWORD))*((_QWORD *)v6 + 73);
-              if ( v75 )
-              {
-                v75(*((_QWORD *)v6 + 71));
-                memset(v6 + 560, 0, 0x40uLL);
-              }
-              v76 = (void (__fastcall *)(_QWORD))*((_QWORD *)v6 + 81);
-              if ( v76 )
-              {
-                v76(*((_QWORD *)v6 + 79));
-                *((_OWORD *)v6 + 39) = 0LL;
-                *((_OWORD *)v6 + 40) = 0LL;
-                *((_OWORD *)v6 + 41) = 0LL;
-              }
-              v77 = (void (__fastcall *)(_QWORD))*((_QWORD *)v6 + 87);
-              if ( v77 )
-              {
-                v77(*((_QWORD *)v6 + 85));
-                memset(v6 + 672, 0, 0xB8uLL);
-              }
-              v78 = (void (__fastcall *)(_QWORD))*((_QWORD *)v6 + 110);
-              if ( v78 )
-              {
-                v78(*((_QWORD *)v6 + 108));
-                memset(v6 + 856, 0, 0x58uLL);
-              }
-              RtlFreeUnicodeString((PUNICODE_STRING)v6 + 32);
-              RtlFreeUnicodeString((PUNICODE_STRING)v6 + 33);
-              v79 = (void *)*((_QWORD *)v6 + 139);
-              if ( v79 )
-              {
-                ExFreePoolWithTag(v79, 0);
-                *((_QWORD *)v6 + 139) = 0LL;
-              }
-            }
-            if ( DeviceExtension )
-            {
-              v80 = *((_QWORD *)DeviceExtension + 21);
-              if ( v80 )
-              {
-                if ( v120 == 1 )
-                {
-                  ExDeleteResourceLite((PERESOURCE)v80);
-                  v80 = *((_QWORD *)DeviceExtension + 21);
-                }
-                if ( *(_DWORD *)(v80 + 104) == 1 )
-                {
-                  ExFreePoolWithTag((PVOID)v80, 0);
-                  *((_QWORD *)DeviceExtension + 21) = 0LL;
-                }
-              }
-              v81 = (struct _DEVICE_OBJECT *)*((_QWORD *)DeviceExtension + 20);
-              if ( v81 )
-                IoDetachDevice(v81);
-            }
-            IoDeleteDevice(SourceDevice);
-            SourceDevice = 0LL;
-          }
-          if ( v121 == 1 )
-          {
-            DpiDxgkDdiRemoveDevice(v9, v140);
-            v82 = v119;
-          }
-          else
-          {
-            v82 = v119;
-            if ( !v119 )
-              goto LABEL_316;
-            if ( !*(_QWORD *)(v9 + 1344)
-              || (DiagnosticInfoArgs = DxgAllocateDiagnosticInfoArgs(1LL, v17), (v112 = DiagnosticInfoArgs) == 0) )
-            {
-LABEL_314:
-              if ( (_DWORD)started != -1071774664 )
-                DxgCreateLiveDumpWithWdLogs(403LL, 2049LL);
-              goto LABEL_316;
-            }
-            v113 = *(_DWORD *)(DiagnosticInfoArgs + 216);
-            v114 = TargetDevice;
-            *(_QWORD *)DiagnosticInfoArgs = v140;
-            if ( (*(int (__fastcall **)(struct _DEVICE_OBJECT *, __int64))(v9 + 1344))(v114, DiagnosticInfoArgs) >= 0 )
-            {
-              if ( *(_DWORD *)(v112 + 220) > v113 )
-                *(_DWORD *)(v112 + 220) = 0;
-              DxgCreateLiveDumpWithDriverBlob(
-                v114,
-                0x1B0u,
-                *(int *)(v112 + 8),
-                (int)started,
-                0LL,
-                0LL,
-                (struct _DXGKARG_COLLECTDIAGNOSTICINFO *)v112);
-              v82 = 0;
-            }
-            DxgFreeDiagnosticInfoArgs((struct _DXGKARG_COLLECTDIAGNOSTICINFO *)v112);
-          }
-          if ( v82 )
-            goto LABEL_314;
-LABEL_316:
-          v46 = v127;
-          goto LABEL_104;
+          ExDeleteResourceLite((PERESOURCE)v33);
+          v33 = *((_QWORD *)DeviceExtension + 21);
+        }
+        if ( *(_DWORD *)(v33 + 104) == 1 )
+        {
+          ExFreePoolWithTag((PVOID)v33, 0);
+          *((_QWORD *)DeviceExtension + 21) = 0LL;
         }
       }
-LABEL_302:
-      __fastfail(3u);
+      v34 = (struct _DEVICE_OBJECT *)*((_QWORD *)DeviceExtension + 20);
+      if ( v34 )
+        IoDetachDevice(v34);
     }
-    v9 = (__int64)v141;
-    v7 = v116;
-LABEL_157:
-    v72 = (struct _KMUTANT *)(v9 + 72);
-    goto LABEL_158;
+    IoDeleteDevice(DeviceObjecta);
+    DeviceObjecta = 0LL;
   }
-LABEL_104:
-  memset(v163, 0, sizeof(v163));
-  v166 = 0;
-  v49 = DxgkDiagCalcDuration1us(&v156);
-  v162[0] = 6;
-  v162[1] = 64;
-  v165 = 0;
-  v164 = 0LL;
-  memset(v163, 0, sizeof(v163));
-  v167 = 34;
-  v168 = v46;
-  v169 = v49;
-  v170 = (int)started;
-  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v162, 0x100000000LL);
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( v194 == 1 )
   {
-    *(_DWORD *)Exclusive = (_DWORD)started;
-    McTemplateK0ppq_EtwWriteTransfer(v50, &EventExitDpiAddDevice, v51, DriverObject, TargetDevice, *(_QWORD *)Exclusive);
+    DpiDxgkDdiRemoveDevice(v10, v202);
+    v35 = v183;
+  }
+  else
+  {
+    v35 = v183;
+    if ( !v183 )
+      goto LABEL_291;
+    if ( *(_QWORD *)(v10 + 1344) )
+    {
+      DiagnosticInfoArgs = DxgAllocateDiagnosticInfoArgs(1LL);
+      v174 = DiagnosticInfoArgs;
+      if ( DiagnosticInfoArgs )
+      {
+        v175 = *(_DWORD *)(DiagnosticInfoArgs + 216);
+        v176 = TargetDevice;
+        *(_QWORD *)DiagnosticInfoArgs = v202;
+        if ( (*(int (__fastcall **)(struct _DEVICE_OBJECT *, __int64))(v10 + 1344))(v176, DiagnosticInfoArgs) >= 0 )
+        {
+          if ( *(_DWORD *)(v174 + 220) > v175 )
+            *(_DWORD *)(v174 + 220) = 0;
+          DxgCreateLiveDumpWithDriverBlob(
+            v176,
+            0x1B0u,
+            *(int *)(v174 + 8),
+            (int)started,
+            0LL,
+            0LL,
+            (struct _DXGKARG_COLLECTDIAGNOSTICINFO *)v174);
+          v35 = 0;
+        }
+        DxgFreeDiagnosticInfoArgs((struct _DXGKARG_COLLECTDIAGNOSTICINFO *)v174);
+      }
+    }
+  }
+  if ( v35 && (_DWORD)started != -1071774664 )
+    DxgCreateLiveDumpWithWdLogs(0x193u, 0x801uLL, (int)started, 0LL, 0LL, 0);
+LABEL_291:
+  memset(v224, 0, sizeof(v224));
+  v227 = 0;
+  v177 = DxgkDiagCalcDuration1us(&v217);
+  v223[0] = 6;
+  v229 = v196;
+  v223[1] = 64;
+  v226 = 0;
+  v225 = 0LL;
+  memset(v224, 0, sizeof(v224));
+  v228 = 34;
+  v230 = v177;
+  v231 = started;
+  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v223, 0x100000000LL);
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+  {
+    *(_DWORD *)Exclusive = started;
+    McTemplateK0ppq_EtwWriteTransfer(
+      v178,
+      &EventExitDpiAddDevice,
+      v179,
+      DriverObject,
+      TargetDevice,
+      *(_QWORD *)Exclusive);
   }
   return (unsigned int)started;
 }

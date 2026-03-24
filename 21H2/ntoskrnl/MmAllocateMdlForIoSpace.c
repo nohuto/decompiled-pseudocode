@@ -1,9 +1,9 @@
 /*
- * XREFs of MmAllocateMdlForIoSpace @ 0x140585AD0
+ * XREFs of MmAllocateMdlForIoSpace @ 0x140531ED0
  * Callers:
  *     <none>
  * Callees:
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
  */
 
 __int64 __fastcall MmAllocateMdlForIoSpace(_QWORD *a1, unsigned __int64 a2, PMDL *a3)
@@ -34,7 +34,7 @@ __int64 __fastcall MmAllocateMdlForIoSpace(_QWORD *a1, unsigned __int64 a2, PMDL
       if ( (*(_DWORD *)v8 & 0xFFF) != 0 )
         break;
       v9 = *v8 >> 12;
-      if ( v9 <= qword_140C50840 && ((*(_QWORD *)(48 * v9 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+      if ( v9 <= 0xFFFFFFFFFLL && ((*(_QWORD *)(48 * v9 - 0x57FFFFFFFD8LL) >> 50) & 1) != 0 )
         break;
       v10 = v5 + v8[1];
       if ( v10 < v5 )

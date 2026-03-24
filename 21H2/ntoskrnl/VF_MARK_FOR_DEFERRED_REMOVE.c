@@ -1,11 +1,11 @@
 /*
- * XREFs of VF_MARK_FOR_DEFERRED_REMOVE @ 0x140A840C4
+ * XREFs of VF_MARK_FOR_DEFERRED_REMOVE @ 0x1409CA50C
  * Callers:
- *     VfIoDeleteDevice @ 0x140A91824 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x1409D6144 (VfIoDeleteDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall VF_MARK_FOR_DEFERRED_REMOVE(struct _LIST_ENTRY *a1)
@@ -18,7 +18,7 @@ __int64 __fastcall VF_MARK_FOR_DEFERRED_REMOVE(struct _LIST_ENTRY *a1)
   _DWORD *SchedulerAssist; // r9
   bool v8; // zf
 
-  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140D575A0);
+  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140D4A088);
   Flink = ViAdapterList.Flink;
   v4 = v2;
   while ( &ViAdapterList != Flink )
@@ -27,7 +27,7 @@ __int64 __fastcall VF_MARK_FOR_DEFERRED_REMOVE(struct _LIST_ENTRY *a1)
       LOBYTE(Flink[2].Flink) = 1;
     Flink = Flink->Flink;
   }
-  KxReleaseSpinLock(&qword_140D575A0);
+  KxReleaseSpinLock(&qword_140D4A088);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionParseDesktop @ 0x1C0099218
+ * XREFs of EditionParseDesktop @ 0x1C004EAF8
  * Callers:
- *     ApiSetEditionParseDesktop @ 0x1C00990AC (ApiSetEditionParseDesktop.c)
+ *     ApiSetEditionParseDesktop @ 0x1C004E9E4 (ApiSetEditionParseDesktop.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall EditionParseDesktop(
@@ -20,11 +20,11 @@ __int64 __fastcall EditionParseDesktop(
 {
   __int64 v11; // r9
 
-  if ( !qword_1C029C1F8 )
+  if ( !qword_1C02574B8 )
     return 3221225659LL;
   v11 = a8;
   LOBYTE(v11) = a4;
-  return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, int, __int64, __int64, __int64, __int64, __int64))qword_1C029C1F8)(
+  return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, int, __int64, __int64, __int64, __int64, __int64))qword_1C02574B8)(
            a1,
            a2,
            a3,

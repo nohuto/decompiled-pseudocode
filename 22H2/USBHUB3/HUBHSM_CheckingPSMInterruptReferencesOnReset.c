@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_CheckingPSMInterruptReferencesOnReset @ 0x1C00086E0
+ * XREFs of HUBHSM_CheckingPSMInterruptReferencesOnReset @ 0x1C0007F20
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_QueueSurpriseRemovalToAllPSMs @ 0x1C0010B3C (HUBMUX_QueueSurpriseRemovalToAllPSMs.c)
- *     HUBMUX_CheckIfAllPSMInterruptReferencesAreReleased @ 0x1C0010C68 (HUBMUX_CheckIfAllPSMInterruptReferencesAreReleased.c)
+ *     HUBMUX_QueueSurpriseRemovalToAllPSMs @ 0x1C000F710 (HUBMUX_QueueSurpriseRemovalToAllPSMs.c)
+ *     HUBMUX_CheckIfAllPSMInterruptReferencesAreReleased @ 0x1C000F83C (HUBMUX_CheckIfAllPSMInterruptReferencesAreReleased.c)
  */
 
 __int64 __fastcall HUBHSM_CheckingPSMInterruptReferencesOnReset(__int64 a1)

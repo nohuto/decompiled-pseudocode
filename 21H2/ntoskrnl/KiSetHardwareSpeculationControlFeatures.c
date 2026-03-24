@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSetHardwareSpeculationControlFeatures @ 0x1403BFD14
+ * XREFs of KiSetHardwareSpeculationControlFeatures @ 0x1403ADBD0
  * Callers:
- *     KiInitializeKernel @ 0x140A580F0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
  * Callees:
- *     KiDetectHardwareSpecControlFeatures @ 0x1403BFE70 (KiDetectHardwareSpecControlFeatures.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403ADD1C (KiDetectHardwareSpecControlFeatures.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 char __fastcall KiSetHardwareSpeculationControlFeatures(__int64 a1, __int64 a2)
@@ -22,8 +22,6 @@ char __fastcall KiSetHardwareSpeculationControlFeatures(__int64 a1, __int64 a2)
   v3 = BugCheckParameter3[0];
   if ( (BugCheckParameter3[0] & 0x20) != 0 )
     *(_BYTE *)(a1 + 1762) |= 4u;
-  if ( (_BYTE)KiKernelCetEnabled )
-    *(_BYTE *)(a1 + 1762) |= 8u;
   if ( *(_DWORD *)(a1 + 36) )
   {
     result = KiCpu0HardwareFlags;
@@ -35,7 +33,7 @@ char __fastcall KiSetHardwareSpeculationControlFeatures(__int64 a1, __int64 a2)
     LODWORD(KiCpu0HardwareFlags) = v3;
     result = BYTE4(BugCheckParameter3[1]);
     *(_QWORD *)&KiSpeculationFeatures = v3 | KiSpeculationFeatures & 0xFFFFFFFF00000000uLL;
-    qword_140D06930 = v6;
+    qword_140CFC4B0 = v6;
     KiSsbdBit = v6;
     DWORD2(KiSpeculationFeatures) = BugCheckParameter3[1];
     BYTE12(KiSpeculationFeatures) = BYTE4(BugCheckParameter3[1]);

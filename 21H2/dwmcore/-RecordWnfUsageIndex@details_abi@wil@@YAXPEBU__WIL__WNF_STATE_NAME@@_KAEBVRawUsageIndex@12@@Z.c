@@ -1,103 +1,102 @@
 /*
- * XREFs of ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x1800F3AD4
+ * XREFs of ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x1800AE67C
  * Callers:
- *     ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x180029744 (-Record@UsageIndexes@details_abi@wil@@QEAAXXZ.c)
+ *     ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x1800AECD8 (-Record@UsageIndexes@details_abi@wil@@QEAAXXZ.c)
  * Callees:
- *     ?wil_details_NtUpdateWnfStateData@@YAJPEBU__WIL__WNF_STATE_NAME@@PEBXKPEBU__WIL__WNF_TYPE_ID@@1KK@Z @ 0x18001A258 (-wil_details_NtUpdateWnfStateData@@YAJPEBU__WIL__WNF_STATE_NAME@@PEBXKPEBU__WIL__WNF_TYPE_ID@@1K.c)
- *     ?Iterate@RawUsageIndex@details_abi@wil@@QEBA_NV?$function@$$A6A_NPEAX_K01I@Z@wistd@@@Z @ 0x180028D20 (-Iterate@RawUsageIndex@details_abi@wil@@QEBA_NV-$function@$$A6A_NPEAX_K01I@Z@wistd@@@Z.c)
- *     ??0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z @ 0x180029630 (--0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z.c)
- *     ?wil_details_NtQueryWnfStateData@@YAJPEBU__WIL__WNF_STATE_NAME@@PEBU__WIL__WNF_TYPE_ID@@PEBXPEAKPEAX3@Z @ 0x18002A324 (-wil_details_NtQueryWnfStateData@@YAJPEBU__WIL__WNF_STATE_NAME@@PEBU__WIL__WNF_TYPE_ID@@PEBXPEAK.c)
- *     ?SetBuffer@RawUsageIndex@details_abi@wil@@QEAAXPEAX_K1@Z @ 0x1800F3C8C (-SetBuffer@RawUsageIndex@details_abi@wil@@QEAAXPEAX_K1@Z.c)
- *     ?NtStatusToHr@details@wil@@YAJJ@Z @ 0x1800F3D94 (-NtStatusToHr@details@wil@@YAJJ@Z.c)
- *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x1800F76D8 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _alloca_probe @ 0x180105110 (_alloca_probe.c)
+ *     ?Iterate@RawUsageIndex@details_abi@wil@@QEBA_NV?$function@$$A6A_NPEAX_K01I@Z@wistd@@@Z @ 0x1800AF0A4 (-Iterate@RawUsageIndex@details_abi@wil@@QEBA_NV-$function@$$A6A_NPEAX_K01I@Z@wistd@@@Z.c)
+ *     ??0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z @ 0x1800AF740 (--0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z.c)
+ *     ?SetBuffer@RawUsageIndex@details_abi@wil@@QEAAXPEAX_K1@Z @ 0x1800AFD40 (-SetBuffer@RawUsageIndex@details_abi@wil@@QEAAXPEAX_K1@Z.c)
+ *     ?NtStatusToHr@details@wil@@YAJJ@Z @ 0x1800AFE48 (-NtStatusToHr@details@wil@@YAJJ@Z.c)
+ *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x1800DE3A0 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     wil_details_NtQueryWnfStateData @ 0x1800E981C (wil_details_NtQueryWnfStateData.c)
+ *     wil_details_NtUpdateWnfStateData @ 0x1800E98A4 (wil_details_NtUpdateWnfStateData.c)
+ *     _alloca_probe @ 0x1800F46D0 (_alloca_probe.c)
  */
 
 void __fastcall wil::details_abi::RecordWnfUsageIndex(
         wil::details_abi *this,
         const struct __WIL__WNF_STATE_NAME *a2,
-        __int64 a3,
+        unsigned __int16 *a3,
         const struct wil::details_abi::RawUsageIndex *a4)
 {
   unsigned __int64 v4; // rsi
-  const struct __WIL__WNF_STATE_NAME *v5; // r15
-  const struct __WIL__WNF_STATE_NAME *v7; // rdi
-  const struct __WIL__WNF_TYPE_ID *v8; // rdx
-  const void *v9; // r8
-  unsigned int v10; // ebx
+  wil::details_abi *v5; // r15
+  wil::details_abi *v7; // rdi
+  int v8; // edx
+  int v9; // r8d
+  wil::details *WnfStateData; // rbx
   int v11; // edx
   unsigned int v12; // eax
   void *v13; // rdx
   void *v14; // rdx
   char v15; // bl
-  const struct __WIL__WNF_TYPE_ID *v16; // r9
-  wil::details *v17; // rcx
+  wil::details *v16; // rcx
   int updated; // eax
-  const struct __WIL__WNF_TYPE_ID *v19; // r9
-  wil::details *v20; // rcx
-  void *v21; // [rsp+20h] [rbp-E0h]
-  void *v22; // [rsp+20h] [rbp-E0h]
-  unsigned int v23; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v24; // [rsp+44h] [rbp-BCh] BYREF
-  __int64 v25; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v26; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v27; // [rsp+60h] [rbp-A0h]
-  _BYTE *v28; // [rsp+70h] [rbp-90h]
-  _BYTE v29[24]; // [rsp+80h] [rbp-80h] BYREF
-  void *v30; // [rsp+98h] [rbp-68h]
-  int v31; // [rsp+A0h] [rbp-60h]
-  wil::details *v32; // [rsp+B0h] [rbp-50h]
-  char v33; // [rsp+B8h] [rbp-48h]
-  char v34; // [rsp+B9h] [rbp-47h]
-  _BYTE v35[8]; // [rsp+C0h] [rbp-40h] BYREF
-  void **v36; // [rsp+C8h] [rbp-38h] BYREF
-  __int128 v37; // [rsp+D0h] [rbp-30h]
-  _BYTE *v38; // [rsp+E0h] [rbp-20h]
-  void ***v39; // [rsp+130h] [rbp+30h]
-  _BYTE v40[4096]; // [rsp+140h] [rbp+40h] BYREF
+  wil::details *v18; // rcx
+  int v19; // [rsp+20h] [rbp-E0h]
+  int v20; // [rsp+28h] [rbp-D8h]
+  unsigned __int64 v21; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v22; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v23; // [rsp+50h] [rbp-B0h] BYREF
+  __int128 v24; // [rsp+60h] [rbp-A0h]
+  _BYTE *v25; // [rsp+70h] [rbp-90h]
+  _BYTE v26[24]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v27; // [rsp+98h] [rbp-68h]
+  int v28; // [rsp+A0h] [rbp-60h]
+  wil::details *v29; // [rsp+B0h] [rbp-50h]
+  char v30; // [rsp+B8h] [rbp-48h]
+  char v31; // [rsp+B9h] [rbp-47h]
+  _BYTE v32[8]; // [rsp+C0h] [rbp-40h] BYREF
+  void **v33; // [rsp+C8h] [rbp-38h] BYREF
+  __int128 v34; // [rsp+D0h] [rbp-30h]
+  _BYTE *v35; // [rsp+E0h] [rbp-20h]
+  void ***v36; // [rsp+130h] [rbp+30h]
+  _BYTE v37[4096]; // [rsp+140h] [rbp+40h] BYREF
 
   v4 = 0LL;
   v5 = (wil::details_abi *)((char *)this + 8 * (_QWORD)a2);
-  v26 = 0LL;
+  v23 = 0LL;
   v7 = this;
   while ( 1 )
   {
-    wil::details_abi::RawUsageIndex::RawUsageIndex(
-      (__int64)v29,
-      *(_WORD *)a3,
-      *(_WORD *)(a3 + 2),
-      *(_BYTE *)(a3 + 4),
-      *(_WORD *)(a3 + 6),
-      *(_BYTE *)(a3 + 8));
-    v23 = 4096;
-    v10 = wil_details_NtQueryWnfStateData(v7, v8, v9, &v24, v40, &v23);
-    wil::details::NtStatusToHr((wil::details *)v10, v11);
-    if ( v10 )
+    LOBYTE(a4) = *((_BYTE *)a3 + 4);
+    LOBYTE(v20) = *((_BYTE *)a3 + 8);
+    LOWORD(v19) = a3[3];
+    wil::details_abi::RawUsageIndex::RawUsageIndex(v26, *a3, a3[1], a4, v19, v20);
+    LODWORD(v21) = 4096;
+    WnfStateData = (wil::details *)(unsigned int)wil_details_NtQueryWnfStateData(
+                                                   (_DWORD)v7,
+                                                   v8,
+                                                   v9,
+                                                   (unsigned int)&v21 + 4,
+                                                   (__int64)v37,
+                                                   (__int64)&v21);
+    wil::details::NtStatusToHr(WnfStateData, v11);
+    if ( (_DWORD)WnfStateData )
     {
       v12 = 0;
-      v24 = 0;
-      v23 = 0;
+      v21 = 0LL;
     }
     else
     {
-      v12 = v23;
+      v12 = v21;
     }
-    wil::details_abi::RawUsageIndex::SetBuffer((wil::details_abi::RawUsageIndex *)v29, v40, v12, 0x1000uLL);
-    if ( v34 )
+    wil::details_abi::RawUsageIndex::SetBuffer((wil::details_abi::RawUsageIndex *)v26, v37, v12, 0x1000uLL);
+    if ( v31 )
       break;
-    v25 = 0LL;
-    *(_QWORD *)&v27 = &v25;
-    *((_QWORD *)&v27 + 1) = &v26;
-    v28 = v29;
-    v36 = &wistd::__function::__func<_lambda_8db0ce862824541f40dfb767113f1e28_,bool (void *,unsigned __int64,void *,unsigned __int64,unsigned int)>::`vftable';
-    v39 = &v36;
-    v37 = v27;
-    v38 = v29;
-    v15 = wil::details_abi::RawUsageIndex::Iterate(a3, (__int64)v35);
-    if ( v33 )
+    v22 = 0LL;
+    *(_QWORD *)&v24 = &v22;
+    *((_QWORD *)&v24 + 1) = &v23;
+    v25 = v26;
+    v33 = &wistd::__function::__func<_lambda_8db0ce862824541f40dfb767113f1e28_,bool (void *,unsigned __int64,void *,unsigned __int64,unsigned int)>::`vftable';
+    v36 = &v33;
+    v34 = v24;
+    v35 = v26;
+    v15 = wil::details_abi::RawUsageIndex::Iterate(a3, v32);
+    if ( v30 )
     {
-      updated = wil_details_NtUpdateWnfStateData(v7, v30, v31 - (int)v30, v16, v21, v24, 1u);
+      updated = wil_details_NtUpdateWnfStateData((_DWORD)v7, v27, v28 - (int)v27, (_DWORD)a4, v19, HIDWORD(v21), 1);
       if ( updated == -1073741823 )
       {
         ++v4;
@@ -105,20 +104,20 @@ void __fastcall wil::details_abi::RecordWnfUsageIndex(
         goto LABEL_7;
       }
       if ( updated )
-        wil_details_NtUpdateWnfStateData(v7, v30, v31 - (_DWORD)v30, v19, v22, 0, 0);
+        wil_details_NtUpdateWnfStateData((_DWORD)v7, v27, v28 - v27, (_DWORD)a4, v19, 0, 0);
     }
-    v7 = (const struct __WIL__WNF_STATE_NAME *)((char *)v7 + 8);
-    v26 = v25;
+    v7 = (wil::details_abi *)((char *)v7 + 8);
+    v23 = v22;
 LABEL_7:
-    v17 = v32;
-    v32 = 0LL;
-    if ( v17 )
-      wil::details::FreeProcessHeap(v17, v14);
+    v16 = v29;
+    v29 = 0LL;
+    if ( v16 )
+      wil::details::FreeProcessHeap(v16, v14);
     if ( v15 || v7 >= v5 || v4 >= 0x32 )
       return;
   }
-  v20 = v32;
-  v32 = 0LL;
-  if ( v20 )
-    wil::details::FreeProcessHeap(v20, v13);
+  v18 = v29;
+  v29 = 0LL;
+  if ( v18 )
+    wil::details::FreeProcessHeap(v18, v13);
 }

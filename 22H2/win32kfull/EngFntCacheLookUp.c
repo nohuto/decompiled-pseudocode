@@ -1,43 +1,41 @@
 /*
- * XREFs of EngFntCacheLookUp @ 0x1C00753A0
+ * XREFs of EngFntCacheLookUp @ 0x1C00A6920
  * Callers:
- *     ?CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C0075190 (-CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z.c)
+ *     ?CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C00A5BE0 (-CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z.c)
  * Callees:
- *     SearchFNTCacheHlink @ 0x1C007611C (SearchFNTCacheHlink.c)
+ *     SearchFNTCacheHlink @ 0x1C00A7224 (SearchFNTCacheHlink.c)
  */
 
 PVOID __stdcall EngFntCacheLookUp(ULONG FastCheckSum, ULONG *pulSize)
 {
   void *v2; // rbx
-  __int64 v5; // rdi
-  _QWORD *v6; // rax
-  __int64 v7; // r8
-  ULONG v8; // eax
-  __int64 v10; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v4; // rdi
+  __int64 v5; // r8
+  ULONG v6; // eax
+  __int64 v8; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 0LL;
   *pulSize = 0;
-  v10 = 0LL;
+  v8 = 0LL;
   if ( !FastCheckSum )
     return 0LL;
-  v5 = *(_QWORD *)(SGDGetSessionState(FastCheckSum) + 32);
-  if ( (*(_DWORD *)(v5 + 19384) & 1) != 0 )
+  if ( (dword_1C0339BE0 & 1) != 0 )
   {
-    v6 = *(_QWORD **)(v5 + 19392);
-    if ( v6 )
+    v4 = qword_1C0339BE8;
+    if ( qword_1C0339BE8 )
     {
-      if ( *v6 )
+      if ( *(_QWORD *)qword_1C0339BE8 )
       {
-        SearchFNTCacheHlink(FastCheckSum, &v10);
-        v7 = v10;
-        if ( v10 )
+        SearchFNTCacheHlink(FastCheckSum, &v8);
+        v5 = v8;
+        if ( v8 )
         {
-          if ( (*(_DWORD *)(v10 + 24) & 1) == 0 )
+          if ( (*(_DWORD *)(v8 + 24) & 1) == 0 )
           {
-            v8 = *(_DWORD *)(v10 + 16);
-            *pulSize = v8;
-            if ( v8 )
-              return (PVOID)(*(_QWORD *)(*(_QWORD *)(v5 + 19392) + 24LL) + *(unsigned int *)(v7 + 20));
+            v6 = *(_DWORD *)(v8 + 16);
+            *pulSize = v6;
+            if ( v6 )
+              return (PVOID)(*(_QWORD *)(v4 + 24) + *(unsigned int *)(v5 + 20));
           }
         }
       }

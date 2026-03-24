@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Convert_scRGB_float_To_sRGB_UINT16@@YAGM@Z @ 0x18026F55C
+ * XREFs of ?Convert_scRGB_float_To_sRGB_UINT16@@YAGM@Z @ 0x18021EFEC
  * Callers:
- *     ?GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B0E10 (-GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z.c)
+ *     ?GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021ADD0 (-GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z.c)
  * Callees:
- *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800E1DE8 (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
- *     floor @ 0x1801018EC (floor.c)
+ *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800D1948 (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
+ *     floor @ 0x1800E8198 (floor.c)
  */
 
 __int64 __fastcall Convert_scRGB_float_To_sRGB_UINT16(float a1)
@@ -21,13 +21,8 @@ __int64 __fastcall Convert_scRGB_float_To_sRGB_UINT16(float a1)
   v3 = Convert_scRGB_Channel_To_sRGB_Byte(a1);
   if ( (unsigned int)v3 >= 0xFE )
     v3 = 254LL;
-  do
-  {
-    if ( GammaLUT_sRGB_to_scRGB[v3] <= v1 )
-      break;
+  while ( (unsigned int)v3 <= 0xFE && GammaLUT_sRGB_to_scRGB[v3] > v1 )
     v3 = (unsigned int)(v3 - 1);
-  }
-  while ( (unsigned int)v3 <= 0xFE );
   if ( (unsigned int)v3 >= 0xFE )
     v3 = 254LL;
   do

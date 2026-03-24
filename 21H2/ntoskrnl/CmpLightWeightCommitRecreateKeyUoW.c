@@ -1,46 +1,35 @@
 /*
- * XREFs of CmpLightWeightCommitRecreateKeyUoW @ 0x140658008
+ * XREFs of CmpLightWeightCommitRecreateKeyUoW @ 0x1405CD7BC
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x14065D5C8 (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x1406A3E64 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14067EE40 (CmpFlushNotifiesOnKeyBodyList.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x1406E9370 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x14066CC00 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140734A54 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
  */
 
 __int64 __fastcall CmpLightWeightCommitRecreateKeyUoW(__int64 a1, _QWORD *a2, __int64 a3)
 {
   __int64 v4; // rax
-  ULONG_PTR v7; // rbx
-  __int64 v8; // rdi
-  __int64 CellFlat; // rax
-  __int64 v10; // rax
+  __int64 v7; // rsi
+  __int64 v8; // rbx
+  __int64 v9; // rax
+  __int64 v10; // r9
   __int64 v11; // rdx
-  __int64 v12; // r9
-  int v14; // [rsp+40h] [rbp+8h] BYREF
-  int v15; // [rsp+44h] [rbp+Ch]
+  int v13; // [rsp+40h] [rbp+8h] BYREF
+  int v14; // [rsp+44h] [rbp+Ch]
 
-  v14 = -1;
-  v15 = 0;
+  v13 = -1;
+  v14 = 0;
   v4 = *(_QWORD *)(a1 + 48);
   v7 = *(_QWORD *)(v4 + 32);
   v8 = *(_QWORD *)(v4 + 72);
-  if ( (*(_BYTE *)(v7 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(v7, *(unsigned int *)(v8 + 40));
-  else
-    CellFlat = HvpGetCellPaged(v7);
-  *(_QWORD *)(CellFlat + 4) = *a2;
-  v10 = *a2;
+  *(_QWORD *)((*(__int64 (__fastcall **)(__int64, _QWORD, int *))(v7 + 8))(v7, *(unsigned int *)(v8 + 40), &v13) + 4) = *a2;
+  v9 = *a2;
   ++*(_QWORD *)(v8 + 304);
-  *(_QWORD *)(v8 + 168) = v10;
-  if ( (*(_BYTE *)(v7 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(v7, &v14);
-  else
-    HvpReleaseCellPaged(v7, &v14);
-  LOBYTE(v12) = 1;
-  CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs(*(_QWORD *)(a1 + 48), v11, a3, v12);
+  *(_QWORD *)(v8 + 168) = v9;
+  (*(void (__fastcall **)(__int64, int *))(v7 + 16))(v7, &v13);
+  LOBYTE(v10) = 1;
+  CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs(*(_QWORD *)(a1 + 48), v11, a3, v10);
   return CmpFlushNotifiesOnKeyBodyList(*(_QWORD *)(a1 + 48), 8LL, a3);
 }

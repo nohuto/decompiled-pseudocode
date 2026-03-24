@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpRemoveCellFromIndex @ 0x140A246FC
+ * XREFs of CmpRemoveCellFromIndex @ 0x14087AFD0
  * Callers:
- *     CmpRemoveSubKeyCellNoCellRef @ 0x140A2479C (CmpRemoveSubKeyCellNoCellRef.c)
+ *     CmpRemoveSubKeyCellNoCellRef @ 0x14087B070 (CmpRemoveSubKeyCellNoCellRef.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 unsigned __int16 __fastcall CmpRemoveCellFromIndex(_WORD *a1, unsigned __int16 a2)

@@ -1,23 +1,18 @@
 /*
- * XREFs of ?UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00A5CD0
+ * XREFs of ?UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00F449C
  * Callers:
- *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00A5158 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
- *     ?TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z @ 0x1C00A5278 (-TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z.c)
- *     ?InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z @ 0x1C00A5810 (-InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z.c)
+ *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F3398 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z @ 0x1C00F3F4C (-TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z.c)
+ *     ?InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z @ 0x1C00F40E4 (-InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall UmfdHostLifeTimeManager::UnreferenceUmfdHostWithNoLock(__int64 a1)
+void UmfdHostLifeTimeManager::UnreferenceUmfdHostWithNoLock(void)
 {
-  __int64 v1; // rbx
-  void *v2; // rcx
-
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  v2 = *(void **)(v1 + 23496);
-  if ( v2 )
+  if ( UmfdHostLifeTimeManager::s_UmfdHostProcess )
   {
-    ObfDereferenceObject(v2);
-    *(_QWORD *)(v1 + 23496) = 0LL;
+    ObfDereferenceObject(UmfdHostLifeTimeManager::s_UmfdHostProcess);
+    UmfdHostLifeTimeManager::s_UmfdHostProcess = 0LL;
   }
 }

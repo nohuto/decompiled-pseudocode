@@ -1,12 +1,12 @@
 /*
- * XREFs of ExGetSystemFirmwareTable @ 0x140860C10
+ * XREFs of ExGetSystemFirmwareTable @ 0x1407D1080
  * Callers:
- *     IpmiLibReadSmbiosRecord38 @ 0x140652A5C (IpmiLibReadSmbiosRecord38.c)
+ *     <none>
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x1406C9754 (ExpGetSystemFirmwareTableInformation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1406AD66C (ExpGetSystemFirmwareTableInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExGetSystemFirmwareTable(int a1, int a2, void *a3, int a4, _DWORD *a5)
@@ -30,15 +30,12 @@ __int64 __fastcall ExGetSystemFirmwareTable(int a1, int a2, void *a3, int a4, _D
     PoolWithTag[1] = 1;
     PoolWithTag[2] = a2;
     SystemFirmwareTableInformation = ExpGetSystemFirmwareTableInformation((char *)PoolWithTag, 0, v9, &v14);
-    if ( (int)(SystemFirmwareTableInformation + 0x80000000) < 0 || SystemFirmwareTableInformation == -1073741789 )
+    if ( ((int)(SystemFirmwareTableInformation + 0x80000000) < 0 || SystemFirmwareTableInformation == -1073741789) && a5 )
+      *a5 = v11[3];
+    if ( SystemFirmwareTableInformation >= 0 )
     {
-      if ( a5 )
-        *a5 = v11[3];
-      if ( SystemFirmwareTableInformation >= 0 )
-      {
-        if ( a3 )
-          memmove(a3, v11 + 4, (unsigned int)(v14 - 16));
-      }
+      if ( a3 )
+        memmove(a3, v11 + 4, (unsigned int)(v14 - 16));
     }
     ExFreePoolWithTag(v11, 0x54465241u);
   }

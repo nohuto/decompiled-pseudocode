@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitTable@CTableTransferEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@I@Z @ 0x1C0210900
+ * XREFs of ?EmitTable@CTableTransferEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@I@Z @ 0x1C01E1AE8
  * Callers:
- *     ?EmitUpdateCommands@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0210A50 (-EmitUpdateCommands@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E1C30 (-EmitUpdateCommands@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C00264AC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005C9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 bool __fastcall DirectComposition::CTableTransferEffectMarshaler::EmitTable(
@@ -42,8 +42,8 @@ bool __fastcall DirectComposition::CTableTransferEffectMarshaler::EmitTable(
       v9 = (char *)v11;
       *(_DWORD *)v11 = 4 * v8 + 20;
       *(_OWORD *)(v9 + 4) = 0LL;
-      *((_DWORD *)v9 + 1) = 376;
-      *((_DWORD *)v9 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v9 + 1) = 390;
+      *((_DWORD *)v9 + 2) = *((_DWORD *)this + 6);
       *((_DWORD *)v9 + 4) = v5;
       *((_DWORD *)v9 + 3) = *((_DWORD *)this + 2 * v4 + 31) != 0;
       memmove(

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProbeAndReadFD_GLYPHSET@@YAPEAU_FD_GLYPHSET@@PEBU1@HK_K@Z @ 0x1C015F418
+ * XREFs of ?ProbeAndReadFD_GLYPHSET@@YAPEAU_FD_GLYPHSET@@PEBU1@HK_K@Z @ 0x1C016D4D8
  * Callers:
- *     ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C02AA350 (-UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z.c)
+ *     ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C02ABC00 (-UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z.c)
  * Callees:
- *     PALLOCMEM @ 0x1C0012128 (PALLOCMEM.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 struct _FD_GLYPHSET *__fastcall ProbeAndReadFD_GLYPHSET(WCRUN *Src, int a2, unsigned int a3, __int64 a4)
@@ -58,7 +58,7 @@ struct _FD_GLYPHSET *__fastcall ProbeAndReadFD_GLYPHSET(WCRUN *Src, int a2, unsi
   v11 = v9 + 4 * phg;
   if ( v11 > 0x2710000 )
     return 0LL;
-  v12 = (unsigned int *)PALLOCMEM(v11, 1886221639LL);
+  v12 = (unsigned int *)PALLOCMEM2(v11, 1886221639LL, 1);
   v13 = v12;
   if ( !v12 )
     return 0LL;

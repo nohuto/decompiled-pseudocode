@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiRectInRegion @ 0x1C00CEFD0
+ * XREFs of NtGdiRectInRegion @ 0x1C00BE950
  * Callers:
  *     <none>
  * Callees:
- *     GreRectInRegion @ 0x1C008F340 (GreRectInRegion.c)
+ *     GreRectInRegion @ 0x1C0080BB0 (GreRectInRegion.c)
  */
 
 __int64 __fastcall NtGdiRectInRegion(HRGN a1, ULONG64 a2)

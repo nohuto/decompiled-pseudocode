@@ -1,37 +1,32 @@
 /*
- * XREFs of ?SetFloatProperty@CVisualCaptureMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C022C290
+ * XREFs of ?SetFloatProperty@CVisualCaptureMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01F3280
  * Callers:
  *     <none>
  * Callees:
- *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0007DD0 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CVisualCaptureMarshaler::SetFloatProperty(
         DirectComposition::CVisualCaptureMarshaler *this,
-        unsigned int a2,
+        int a2,
         float a3,
         bool *a4)
 {
-  unsigned int v4; // r8d
-  bool v5; // al
+  __int64 result; // rax
+  bool v5; // cl
 
-  v4 = 0;
-  if ( a2 == 5 )
+  result = 0LL;
+  if ( a2 != 5 )
+    return 3221225485LL;
+  if ( *((float *)this + 26) == a3 )
   {
-    if ( *((float *)this + 26) == a3 )
-    {
-      v5 = 0;
-    }
-    else
-    {
-      *((float *)this + 26) = a3;
-      v5 = 1;
-    }
-    *a4 = v5;
+    v5 = 0;
   }
   else
   {
-    return (unsigned int)DirectComposition::CResourceMarshaler::SetFloatProperty(this, a2, a3, a4);
+    *((float *)this + 26) = a3;
+    v5 = 1;
   }
-  return v4;
+  *a4 = v5;
+  return result;
 }

@@ -1,42 +1,44 @@
 /*
- * XREFs of ?Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180079010
+ * XREFs of ?Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180093D90
  * Callers:
- *     ?Draw@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18000CB9C (-Draw@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18000CD60 (-Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@.c)
- *     ?Draw@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180078F58 (-Draw@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?Draw@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180091318 (-Draw@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?Draw@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800E2158 (-Draw@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?Draw@CContent@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18011BAE0 (-Draw@CContent@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?Draw@CContent@@$4PPPPPPPM@DI@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18011C2E0 (-Draw@CContent@@$4PPPPPPPM@DI@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?Draw@CContent@@$4PPPPPPPM@JA@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18011C300 (-Draw@CContent@@$4PPPPPPPM@JA@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?Draw@CContent@@$4PPPPPPPM@7EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18011E1E0 (-Draw@CContent@@$4PPPPPPPM@7EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?Draw@CVisualBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18021EFF0 (-Draw@CVisualBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?Draw@CDropShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180229848 (-Draw@CDropShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?Draw@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180249540 (-Draw@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180009560 (-Draw@CProjectedShadow@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180013674 (-Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@.c)
+ *     ?Draw@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180093C2C (-Draw@CBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800BA484 (-Draw@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800C4BF0 (-Draw@CAtlasedRectsGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CContent@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F4080 (-Draw@CContent@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CContent@@$4PPPPPPPM@BI@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F4620 (-Draw@CContent@@$4PPPPPPPM@BI@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CContent@@$4PPPPPPPM@DI@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F4630 (-Draw@CContent@@$4PPPPPPPM@DI@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CContent@@$4PPPPPPPM@JA@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F4640 (-Draw@CContent@@$4PPPPPPPM@JA@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CContent@@$4PPPPPPPM@7EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F6160 (-Draw@CContent@@$4PPPPPPPM@7EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CHwndBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801C406C (-Draw@CHwndBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18020BA54 (-Draw@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?IsOverdrawHeatMapEnabled@CComposition@@QEAA_NXZ @ 0x180010344 (-IsOverdrawHeatMapEnabled@CComposition@@QEAA_NXZ.c)
- *     ?IsTextureMemoryHeatMapEnabled@CComposition@@QEAA_NXZ @ 0x180010368 (-IsTextureMemoryHeatMapEnabled@CComposition@@QEAA_NXZ.c)
- *     ?Invalidate@CDrawListCache@@QEAAXXZ @ 0x180030838 (-Invalidate@CDrawListCache@@QEAAXXZ.c)
- *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800484D0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
- *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x18005C8F8 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
- *     ?Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x180079350 (-Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?InternalCreate@CDrawListCache@@CAJ_NPEAPEAV1@@Z @ 0x18007B7E4 (-InternalCreate@CDrawListCache@@CAJ_NPEAPEAV1@@Z.c)
- *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800B26B8 (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
- *     ?Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800B5000 (-Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x1800E3560 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
- *     ?InternalRelease@?$ComPtr@VCGenericInkTipPointSource@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E8F9C (-InternalRelease@-$ComPtr@VCGenericInkTipPointSource@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x18012EE9C (-FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV-$span@$$CBUMilRectF@@$0-0@gsl@@AEBU_D3D.c)
- *     ?GetActiveLightCount@CDrawingContext@@QEBAIXZ @ 0x1801D5CC8 (-GetActiveLightCount@CDrawingContext@@QEBAIXZ.c)
- *     ?GetTopByReference@?$CWatermarkStack@UHeatMapOptions@CComposition@@$01$01$01@@QEBAPEBUHeatMapOptions@CComposition@@XZ @ 0x1801D5ED4 (-GetTopByReference@-$CWatermarkStack@UHeatMapOptions@CComposition@@$01$01$01@@QEBAPEBUHeatMapOpt.c)
- *     ?UpdateBspCurrentPolygonClippingPlanes@CDrawingContext@@AEAAJXZ @ 0x1801D7054 (-UpdateBspCurrentPolygonClippingPlanes@CDrawingContext@@AEAAJXZ.c)
- *     ?HasMoreClipPlanes@ClipPlaneIterator@@QEBA_NXZ @ 0x1801D9F28 (-HasMoreClipPlanes@ClipPlaneIterator@@QEBA_NXZ.c)
- *     ?UpdateClippingPlanes@ClipPlaneIterator@@QEAAJXZ @ 0x1801DA564 (-UpdateClippingPlanes@ClipPlaneIterator@@QEAAJXZ.c)
- *     ?IsIncludedInOverdrawContentKinds@CContent@@AEAA_NW4FlagsEnum@MilHeatMapOverdrawContentKinds@@PEAVCDrawingContext@@@Z @ 0x18021769C (-IsIncludedInOverdrawContentKinds@CContent@@AEAA_NW4FlagsEnum@MilHeatMapOverdrawContentKinds@@PE.c)
+ *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x180040940 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
+ *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800415F0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCDrawListCache@@@WRL@Microsoft@@IEAAKXZ @ 0x18004F6BC (-InternalRelease@-$ComPtr@VCDrawListCache@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?Create@CDrawListCache@@SAJPEAPEAV1@@Z @ 0x18005255C (-Create@CDrawListCache@@SAJPEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x18008D110 (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     ?Invalidate@CDrawListCache@@QEAAXXZ @ 0x1800931E8 (-Invalidate@CDrawListCache@@QEAAXXZ.c)
+ *     ?Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z @ 0x1800945D0 (-Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z.c)
+ *     ?Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800BA1F8 (-Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
+ *     ?IsOverdrawHeatMapEnabled@CComposition@@QEAA_NXZ @ 0x1800BA6C8 (-IsOverdrawHeatMapEnabled@CComposition@@QEAA_NXZ.c)
+ *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800C4488 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?IsTextureMemoryHeatMapEnabled@CComposition@@QEAA_NXZ @ 0x1800D3280 (-IsTextureMemoryHeatMapEnabled@CComposition@@QEAA_NXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _Init_thread_footer @ 0x1800E7650 (_Init_thread_footer.c)
+ *     _Init_thread_header @ 0x1800E76B8 (_Init_thread_header.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x180176DD8 (-FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV-$span@$$CBUMilRectF@@$0-0@gsl@@AEBU_D3D.c)
+ *     ?GetActiveLightCount@CDrawingContext@@QEBAIXZ @ 0x1801771C4 (-GetActiveLightCount@CDrawingContext@@QEBAIXZ.c)
+ *     ?GetTopByReference@?$CWatermarkStack@UHeatMapOptions@CComposition@@$01$01$01@@QEBAPEBUHeatMapOptions@CComposition@@XZ @ 0x180177438 (-GetTopByReference@-$CWatermarkStack@UHeatMapOptions@CComposition@@$01$01$01@@QEBAPEBUHeatMapOpt.c)
+ *     ?UpdateBspCurrentPolygonClippingPlanes@CDrawingContext@@AEAAJXZ @ 0x18017864C (-UpdateBspCurrentPolygonClippingPlanes@CDrawingContext@@AEAAJXZ.c)
+ *     ?HasMoreClipPlanes@ClipPlaneIterator@@QEBA_NXZ @ 0x18018F0C4 (-HasMoreClipPlanes@ClipPlaneIterator@@QEBA_NXZ.c)
+ *     ?UpdateClippingPlanes@ClipPlaneIterator@@QEAAJXZ @ 0x18018F738 (-UpdateClippingPlanes@ClipPlaneIterator@@QEAAJXZ.c)
+ *     ?IsIncludedInOverdrawContentKinds@CContent@@AEAA_NW4FlagsEnum@MilHeatMapOverdrawContentKinds@@PEAVCDrawingContext@@@Z @ 0x1801AB538 (-IsIncludedInOverdrawContentKinds@CContent@@AEAA_NW4FlagsEnum@MilHeatMapOverdrawContentKinds@@PE.c)
  */
 
 __int64 __fastcall CContent::Draw(
@@ -45,320 +47,339 @@ __int64 __fastcall CContent::Draw(
         const struct D2D_SIZE_F *a3,
         struct CDrawListCache *a4)
 {
-  __int64 v4; // rax
-  struct CDrawListCache *v5; // rbx
-  const struct D2D_SIZE_F *v8; // r12
-  int v9; // r13d
-  char *v11; // r15
-  int v12; // eax
-  int v13; // xmm6_4
+  _QWORD *ThreadLocalStoragePointer; // rax
+  int v9; // r15d
+  __int64 v10; // rax
+  CDrawListEntry *v11; // rbx
+  CComposition *v12; // r10
+  __int64 v13; // rax
   int v14; // eax
-  bool v15; // r12
-  void *v16; // r15
-  ClipPlaneIterator *v17; // rax
-  int v18; // eax
-  unsigned int v19; // ecx
-  int v20; // esi
-  int v22; // eax
-  unsigned int v23; // ecx
-  int v24; // eax
-  unsigned int v25; // ecx
-  CComposition *v26; // r10
-  __int64 v27; // rax
-  int v28; // eax
-  unsigned int v29; // ecx
-  unsigned int i; // eax
-  int v31; // eax
-  unsigned int v32; // ecx
-  __int64 v33; // rsi
-  float v34; // xmm1_4
-  float v35; // xmm0_4
-  __int64 v36; // rax
-  int v37; // eax
-  unsigned int v38; // ecx
-  __int64 v39; // rcx
-  __int64 v40; // r10
+  __int64 v15; // rcx
+  int v16; // edi
+  struct CDrawListCache *v17; // r8
+  unsigned int v18; // r14d
+  __int64 v19; // r9
+  __int64 v20; // r12
+  int v21; // eax
+  __int64 v22; // rcx
+  float v23; // xmm1_4
+  float v24; // xmm0_4
+  int v25; // eax
+  __int64 v26; // rcx
+  __int64 v27; // r10
   __int64 TopByReference; // rax
-  FLOAT v42; // xmm1_4
-  __int64 v43; // rax
-  int v44; // r9d
-  int updated; // eax
-  unsigned int v46; // ecx
-  int v47; // eax
-  unsigned int v48; // ecx
-  unsigned int ActiveLightCount; // eax
-  unsigned int v50; // ecx
-  __m128 v51; // xmm2
-  float width; // xmm0_4
   FLOAT height; // xmm1_4
-  int v54; // eax
-  unsigned int v55; // ecx
-  unsigned int v56; // [rsp+28h] [rbp-E0h]
-  struct CDrawListCache *v57; // [rsp+38h] [rbp-D0h] BYREF
-  const struct D2D_SIZE_F *v58; // [rsp+40h] [rbp-C8h] BYREF
-  unsigned int v59; // [rsp+48h] [rbp-C0h]
-  __int128 v60; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v61; // [rsp+60h] [rbp-A8h]
-  __int64 v62; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 *v63; // [rsp+70h] [rbp-98h]
-  __int64 v64; // [rsp+78h] [rbp-90h]
-  _OWORD v65[4]; // [rsp+80h] [rbp-88h] BYREF
-  int v66; // [rsp+C0h] [rbp-48h]
-  _OWORD v67[4]; // [rsp+C8h] [rbp-40h] BYREF
-  int v68; // [rsp+108h] [rbp+0h]
-  _BYTE v69[64]; // [rsp+118h] [rbp+10h] BYREF
-  int v70; // [rsp+158h] [rbp+50h]
-  __int64 v71; // [rsp+168h] [rbp+60h] BYREF
-  float v72; // [rsp+170h] [rbp+68h]
-  float v73; // [rsp+174h] [rbp+6Ch]
-  __int128 v74; // [rsp+178h] [rbp+70h] BYREF
+  int v30; // eax
+  __int64 v31; // rcx
+  char *v32; // r14
+  __int64 v33; // rcx
+  int v34; // eax
+  int v35; // eax
+  int v36; // eax
+  int v37; // r14d
+  int v38; // xmm6_4
+  int v39; // eax
+  bool v40; // r12
+  int updated; // eax
+  __int64 v42; // rcx
+  ClipPlaneIterator *v43; // rdi
+  int v44; // eax
+  __int64 v45; // rcx
+  int v46; // eax
+  unsigned int ActiveLightCount; // eax
+  unsigned int v48; // ecx
+  __m128 v49; // xmm2
+  FLOAT v50; // xmm0_4
+  FLOAT v51; // xmm1_4
+  int v52; // eax
+  __int64 v53; // rcx
+  CDrawListEntry *v55; // [rsp+38h] [rbp-D0h] BYREF
+  struct CDrawListCache *v56[2]; // [rsp+40h] [rbp-C8h] BYREF
+  __int64 v57; // [rsp+50h] [rbp-B8h]
+  __int64 v58; // [rsp+58h] [rbp-B0h]
+  __int64 *v59; // [rsp+60h] [rbp-A8h]
+  __int64 v60; // [rsp+68h] [rbp-A0h] BYREF
+  const struct D2D_SIZE_F *v61; // [rsp+70h] [rbp-98h]
+  _OWORD v62[4]; // [rsp+78h] [rbp-90h] BYREF
+  int v63; // [rsp+B8h] [rbp-50h]
+  _OWORD v64[4]; // [rsp+C8h] [rbp-40h] BYREF
+  int v65; // [rsp+108h] [rbp+0h]
+  _BYTE v66[64]; // [rsp+118h] [rbp+10h] BYREF
+  int v67; // [rsp+158h] [rbp+50h]
+  __int64 v68; // [rsp+168h] [rbp+60h] BYREF
+  float width; // [rsp+170h] [rbp+68h]
+  float v70; // [rsp+174h] [rbp+6Ch]
+  __int128 v71; // [rsp+178h] [rbp+70h] BYREF
 
-  v4 = *((_QWORD *)this - 10);
-  v5 = 0LL;
-  v8 = a3;
+  ThreadLocalStoragePointer = NtCurrentTeb()->ThreadLocalStoragePointer;
   v9 = 0;
-  v11 = (char *)this - 96;
-  v58 = a3;
-  v57 = 0LL;
-  if ( !*(_DWORD *)(v4 + 1112)
-    || (*(unsigned __int8 (__fastcall **)(char *, __int64))(*(_QWORD *)v11 + 56LL))((char *)this - 96, 129LL) )
+  v61 = a3;
+  if ( dword_18034B1C0 > *(_DWORD *)(ThreadLocalStoragePointer[tls_index] + 4LL) )
   {
-    if ( (*(unsigned __int8 (__fastcall **)(char *, __int64))(*(_QWORD *)v11 + 56LL))(v11, 129LL)
-      && CComposition::IsTextureMemoryHeatMapEnabled(*((CComposition **)this - 10)) )
+    Init_thread_header(&dword_18034B1C0);
+    if ( dword_18034B1C0 == -1 )
     {
-      goto LABEL_18;
+      dword_180345AC8 = -2147022876;
+      Init_thread_footer(&dword_18034B1C0);
     }
-    if ( a4 )
+  }
+  v10 = *((_QWORD *)this - 9);
+  v11 = 0LL;
+  v55 = 0LL;
+  if ( *(_DWORD *)(v10 + 960)
+    && !(*(unsigned __int8 (__fastcall **)(char *, __int64))(*((_QWORD *)this - 11) + 56LL))((char *)this - 88, 127LL) )
+  {
+    if ( CComposition::IsTextureMemoryHeatMapEnabled(*((CComposition **)this - 9)) )
     {
-      if ( (*(unsigned __int8 (__fastcall **)(char *, struct CDrawListCache *, struct CDrawingContext *, const struct D2D_SIZE_F *, _QWORD))(*(_QWORD *)v11 + 224LL))(
-             v11,
-             a4,
-             a2,
-             v8,
-             0LL) )
+      v13 = *((_QWORD *)this - 11);
+      v57 = 0LL;
+      *(_OWORD *)v56 = 0LL;
+      v14 = (*(__int64 (__fastcall **)(char *, const struct D2D_SIZE_F *, struct CDrawListCache **))(v13 + 280))(
+              (char *)this - 88,
+              a3,
+              v56);
+      v16 = v14;
+      if ( v14 < 0 )
       {
-        CDrawListCache::Invalidate(a4);
-      }
-    }
-    else
-    {
-      Microsoft::WRL::ComPtr<CGenericInkTipPointSource>::InternalRelease(&v57);
-      v24 = CDrawListCache::InternalCreate(1, &v57);
-      v20 = v24;
-      if ( v24 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v25, &dword_18033BD18, 3u, v24, 0x7Eu, 0LL);
-        v5 = v57;
-        goto LABEL_25;
-      }
-      v5 = v57;
-      a4 = v57;
-    }
-    if ( !*((_QWORD *)a4 + 4) )
-    {
-      v22 = (*(__int64 (__fastcall **)(char *, struct CDrawingContext *, const struct D2D_SIZE_F *, struct CDrawListCache *))(*(_QWORD *)v11 + 232LL))(
-              v11,
-              a2,
-              v8,
-              a4);
-      v20 = v22;
-      if ( v22 < 0 )
-      {
-        v56 = 133;
-LABEL_58:
-        v44 = v22;
-        goto LABEL_59;
-      }
-    }
-    v12 = *((_DWORD *)a2 + 812);
-    v13 = v12 ? *(_DWORD *)(*((_QWORD *)a2 + 408) + 4LL * (unsigned int)(v12 - 1)) : (int)FLOAT_1_0;
-    if ( COERCE_FLOAT(v13 & _xmm) < 0.0000011920929 )
-    {
+        MilInstrumentationCheckHR_MaybeFailFast(v15, &dword_180345AC0, 3u, v14, 0x42u, 0LL);
 LABEL_18:
-      if ( !g_ShowLightingHeatmap )
-        goto LABEL_19;
-      ActiveLightCount = CDrawingContext::GetActiveLightCount(a2);
-      if ( !ActiveLightCount )
-        goto LABEL_19;
-      v50 = 3;
-      v71 = 0LL;
-      v62 = 1LL;
-      if ( ActiveLightCount < 3 )
-        v50 = ActiveLightCount;
-      v51 = xmmword_1803B7C40[v50];
-      v63 = &v71;
-      LODWORD(v74) = v51.m128_i32[0];
-      DWORD1(v74) = _mm_shuffle_ps(v51, v51, 85).m128_u32[0];
-      width = v8->width;
-      DWORD2(v74) = _mm_shuffle_ps(v51, v51, 170).m128_u32[0];
-      height = v8->height;
-      v72 = width;
-      v73 = height;
-      HIDWORD(v74) = _mm_shuffle_ps(v51, v51, 255).m128_u32[0];
-      v54 = CDrawingContext::FillRectanglesWithSolidColor(a2, &v62, &v74);
-      v20 = v54;
-      if ( v54 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v55, &dword_18033BD18, 3u, v54, 0xA0u, 0LL);
-      else
-LABEL_19:
-        v20 = 0;
-LABEL_20:
+        if ( v56[0] )
+          std::_Deallocate<16,0>(v56[0], 40 * ((signed __int64)(v57 - (unsigned __int64)v56[0]) / 40));
+        goto LABEL_65;
+      }
+      v17 = v56[0];
+      v18 = 0;
+      if ( (v56[1] - v56[0]) / 40 )
+      {
+        v19 = 0LL;
+        while ( 1 )
+        {
+          v20 = 5 * v19;
+          v67 = 0;
+          CMILMatrix::CMILMatrix((CMILMatrix *)v62, (const struct D2D_MATRIX_3X2_F *)((char *)v17 + 40 * v19));
+          v64[0] = v62[0];
+          v65 = v63;
+          v64[1] = v62[1];
+          v64[2] = v62[2];
+          v64[3] = v62[3];
+          v21 = CDrawingContext::PushTransformInternal(a2, 0LL, (const struct CMILMatrix *)v64, 1, 1);
+          v16 = v21;
+          if ( v21 < 0 )
+            break;
+          v9 = 1;
+          v71 = *(_OWORD *)((char *)v56[0] + 8 * v20 + 24);
+          CMatrixStack::Top((struct CDrawingContext *)((char *)a2 + 408), (struct CMILMatrix *)v66);
+          CMILMatrix::Get2DScaleDimensionsWithPerspective(v66, &v55, &v60, &v71);
+          v23 = *((float *)v56[0] + 2 * v20 + 9) - *((float *)v56[0] + 2 * v20 + 7);
+          v24 = *((float *)v56[0] + 2 * v20 + 8) - *((float *)v56[0] + 2 * v20 + 6);
+          v68 = 0LL;
+          v70 = v23 / *(float *)&v60;
+          width = v24 / *(float *)&v55;
+          CWatermarkStack<CComposition::HeatMapOptions,2,2,2>::GetTopByReference((char *)g_pComposition + 960);
+          v58 = 1LL;
+          v59 = &v68;
+          v25 = CDrawingContext::FillRectanglesWithSolidColor(a2);
+          v16 = v25;
+          if ( v25 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v26, &dword_180345AC0, 3u, v25, 0x5Au, 0LL);
+            goto LABEL_18;
+          }
+          CDrawingContext::PopTransformInternal(a2, 1);
+          ++v18;
+          v17 = v56[0];
+          v19 = v18;
+          if ( v18 >= (unsigned __int64)((v56[1] - v56[0]) / 40) )
+            goto LABEL_11;
+        }
+        MilInstrumentationCheckHR_MaybeFailFast(v22, &dword_180345AC0, 3u, v21, 0x4Cu, 0LL);
+        if ( v56[0] )
+          std::_Deallocate<16,0>(v56[0], 40 * ((signed __int64)(v57 - (unsigned __int64)v56[0]) / 40));
+        v9 = 0;
+        goto LABEL_65;
+      }
+LABEL_11:
+      if ( v17 )
+        std::_Deallocate<16,0>(v17, 40 * ((v57 - (__int64)v17) / 40));
+      goto LABEL_57;
+    }
+    if ( CComposition::IsOverdrawHeatMapEnabled(v12) )
+    {
+      TopByReference = CWatermarkStack<CComposition::HeatMapOptions,2,2,2>::GetTopByReference(v27 + 960);
+      if ( (unsigned __int8)CContent::IsIncludedInOverdrawContentKinds(
+                              (char *)this - 88,
+                              *(unsigned int *)(TopByReference + 20),
+                              a2) )
+      {
+        height = a3->height;
+        width = a3->width;
+        v70 = height;
+        v68 = 0LL;
+        CWatermarkStack<CComposition::HeatMapOptions,2,2,2>::GetTopByReference((char *)g_pComposition + 960);
+        v58 = 1LL;
+        v59 = &v68;
+        v30 = CDrawingContext::FillRectanglesWithSolidColor(a2);
+        v16 = v30;
+        if ( v30 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v31, &dword_180345AC0, 3u, v30, 0x69u, 0LL);
+          goto LABEL_65;
+        }
+      }
+    }
+LABEL_57:
+    if ( !g_ShowLightingHeatmap )
+      goto LABEL_63;
+    ActiveLightCount = CDrawingContext::GetActiveLightCount(a2);
+    if ( !ActiveLightCount )
+      goto LABEL_63;
+    v48 = 3;
+    v68 = 0LL;
+    v58 = 1LL;
+    if ( ActiveLightCount < 3 )
+      v48 = ActiveLightCount;
+    v49 = xmmword_180304550[v48];
+    LODWORD(v71) = v49.m128_i32[0];
+    DWORD1(v71) = _mm_shuffle_ps(v49, v49, 85).m128_u32[0];
+    v50 = v61->width;
+    DWORD2(v71) = _mm_shuffle_ps(v49, v49, 170).m128_u32[0];
+    v51 = v61->height;
+    v59 = &v68;
+    HIDWORD(v71) = _mm_shuffle_ps(v49, v49, 255).m128_u32[0];
+    width = v50;
+    v70 = v51;
+    v52 = CDrawingContext::FillRectanglesWithSolidColor(a2);
+    v16 = v52;
+    if ( v52 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v53, &dword_180345AC0, 3u, v52, 0xA0u, 0LL);
       v9 = 0;
-      goto LABEL_21;
-    }
-    v14 = *((_DWORD *)a2 + 100);
-    v15 = 0;
-    if ( v14 )
-      v16 = (void *)(*((_QWORD *)a2 + 52) + 68LL * (unsigned int)(v14 - 1));
-    else
-      v16 = &CMILMatrix::Identity;
-    if ( *((_QWORD *)a2 + 428) )
-    {
-      updated = CDrawingContext::UpdateBspCurrentPolygonClippingPlanes(a2);
-      v20 = updated;
-      if ( updated < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v46, 0LL, 0, updated, 0x3ACu, 0LL);
-LABEL_35:
-        if ( v20 != -2003304441 && v20 < 0 )
-        {
-          v44 = v20;
-          v56 = 136;
-LABEL_59:
-          MilInstrumentationCheckHR_MaybeFailFast(v23, &dword_18033BD18, 3u, v44, v56, 0LL);
-          goto LABEL_21;
-        }
-LABEL_17:
-        v8 = v58;
-        goto LABEL_18;
-      }
-      v17 = (struct CDrawingContext *)((char *)a2 + 3432);
-      v15 = *((_BYTE *)a2 + 3432) == 0;
     }
     else
     {
-      v17 = (struct CDrawingContext *)((char *)a2 + 3432);
+LABEL_63:
+      v16 = 0;
+      v9 = 0;
     }
-    if ( v15 )
-      goto LABEL_64;
-    while ( 1 )
-    {
-      v18 = CDrawListCache::Render(a4, a2, v16);
-      v20 = v18;
-      if ( v18 < 0 )
-        break;
-      if ( !v15 || !ClipPlaneIterator::HasMoreClipPlanes((struct CDrawingContext *)((char *)a2 + 3432)) )
-        goto LABEL_17;
-      v17 = (struct CDrawingContext *)((char *)a2 + 3432);
-LABEL_64:
-      v47 = ClipPlaneIterator::UpdateClippingPlanes(v17);
-      v20 = v47;
-      if ( v47 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v48, 0LL, 0, v47, 0x3B8u, 0LL);
-        goto LABEL_35;
-      }
-    }
-    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x3BEu, 0LL);
-    goto LABEL_35;
+    goto LABEL_65;
   }
-  if ( !CComposition::IsTextureMemoryHeatMapEnabled(*((CComposition **)this - 10)) )
+  v32 = (char *)this - 88;
+  if ( (*(unsigned __int8 (__fastcall **)(char *, __int64))(*((_QWORD *)this - 11) + 56LL))((char *)this - 88, 127LL)
+    && CComposition::IsTextureMemoryHeatMapEnabled(*((CComposition **)this - 9)) )
   {
-    if ( CComposition::IsOverdrawHeatMapEnabled(v26) )
-    {
-      TopByReference = CWatermarkStack<CComposition::HeatMapOptions,2,2,2>::GetTopByReference(v40 + 1112);
-      if ( (unsigned __int8)CContent::IsIncludedInOverdrawContentKinds(v11, *(unsigned int *)(TopByReference + 20), a2) )
-      {
-        v42 = v8->height;
-        v72 = v8->width;
-        v73 = v42;
-        v71 = 0LL;
-        v43 = CWatermarkStack<CComposition::HeatMapOptions,2,2,2>::GetTopByReference((char *)g_pComposition + 1112);
-        v62 = 1LL;
-        v63 = &v71;
-        v22 = CDrawingContext::FillRectanglesWithSolidColor(a2, &v62, v43 + 4);
-        v20 = v22;
-        if ( v22 < 0 )
-        {
-          v56 = 105;
-          goto LABEL_58;
-        }
-      }
-    }
-    goto LABEL_18;
+    goto LABEL_57;
   }
-  v27 = *(_QWORD *)v11;
-  v60 = 0LL;
-  v61 = 0LL;
-  v28 = (*(__int64 (__fastcall **)(char *, const struct D2D_SIZE_F *, __int128 *))(v27 + 272))(v11, v8, &v60);
-  v20 = v28;
-  if ( v28 < 0 )
+  if ( a4 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v29, &dword_18033BD18, 3u, v28, 0x42u, 0LL);
-    v39 = v60;
-    if ( !(_QWORD)v60 )
-      goto LABEL_21;
+    if ( (*(unsigned __int8 (__fastcall **)(char *, struct CDrawListCache *, struct CDrawingContext *, const struct D2D_SIZE_F *, _QWORD))(*(_QWORD *)v32 + 240LL))(
+           (char *)this - 88,
+           a4,
+           a2,
+           a3,
+           0LL) )
+    {
+      CDrawListCache::Invalidate(a4);
+    }
   }
   else
   {
-    for ( i = 0; ; i = v59 + 1 )
+    Microsoft::WRL::ComPtr<CDrawListCache>::InternalRelease(&v55);
+    v34 = CDrawListCache::Create(&v55);
+    v16 = v34;
+    if ( v34 < 0 )
     {
-      v59 = i;
-      if ( i >= 0xCCCCCCCCCCCCCCCDuLL * ((__int64)(*((_QWORD *)&v60 + 1) - v60) >> 3) )
-      {
-        if ( (_QWORD)v60 )
-          std::_Deallocate<16,0>(v60, 8 * ((v61 - (__int64)v60) >> 3));
-        goto LABEL_18;
-      }
-      v70 = 0;
-      v64 = 5LL * i;
-      CMILMatrix::CMILMatrix((CMILMatrix *)v65, (const struct D2D_MATRIX_3X2_F *)(v60 + 40LL * i));
-      v67[0] = v65[0];
-      v68 = v66;
-      v67[1] = v65[1];
-      v67[2] = v65[2];
-      v67[3] = v65[3];
-      v31 = CDrawingContext::PushTransformInternal(a2, 0LL, (const struct CMILMatrix *)v67, 1, 1);
-      v20 = v31;
-      if ( v31 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v32, &dword_18033BD18, 3u, v31, 0x4Cu, 0LL);
-        if ( (_QWORD)v60 )
-          std::_Deallocate<16,0>(v60, 8 * ((v61 - (__int64)v60) >> 3));
-        goto LABEL_20;
-      }
-      v33 = v64;
-      v9 = 1;
-      v74 = *(_OWORD *)(v60 + 8 * v64 + 24);
-      CMatrixStack::Top((struct CDrawingContext *)((char *)a2 + 400), (struct CMILMatrix *)v69);
-      CMILMatrix::Get2DScaleDimensionsWithPerspective((CMILMatrix *)v69, (float *)&v58, (float *)&v57);
-      v34 = *(float *)(v60 + 8 * v33 + 36) - *(float *)(v60 + 8 * v33 + 28);
-      v35 = *(float *)(v60 + 8 * v33 + 32) - *(float *)(v60 + 8 * v33 + 24);
-      v71 = 0LL;
-      v73 = v34 / *(float *)&v57;
-      v72 = v35 / *(float *)&v58;
-      v36 = CWatermarkStack<CComposition::HeatMapOptions,2,2,2>::GetTopByReference((char *)g_pComposition + 1112);
-      v62 = 1LL;
-      v63 = &v71;
-      v37 = CDrawingContext::FillRectanglesWithSolidColor(a2, &v62, v36 + 4);
-      v20 = v37;
-      if ( v37 < 0 )
-        break;
-      CDrawingContext::PopTransformInternal(a2, 1);
+      MilInstrumentationCheckHR_MaybeFailFast(v33, &dword_180345AC0, 3u, v34, 0x7Eu, 0LL);
+      v11 = v55;
+      goto LABEL_72;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v38, &dword_18033BD18, 3u, v37, 0x5Au, 0LL);
-    v39 = v60;
-    if ( !(_QWORD)v60 )
-      goto LABEL_21;
+    v11 = v55;
+    a4 = v55;
   }
-  std::_Deallocate<16,0>(v39, 8 * ((v61 - v39) >> 3));
-LABEL_21:
+  if ( *((_QWORD *)a4 + 3)
+    || (v35 = (*(__int64 (__fastcall **)(char *, struct CDrawingContext *, const struct D2D_SIZE_F *, struct CDrawListCache *))(*(_QWORD *)v32 + 248LL))(
+                v32,
+                a2,
+                a3,
+                a4),
+        v16 = v35,
+        v35 >= 0) )
+  {
+    v36 = *((_DWORD *)a2 + 808);
+    v37 = 0;
+    if ( v36 )
+    {
+      v33 = (unsigned int)(v36 - 1);
+      v38 = *(_DWORD *)(*((_QWORD *)a2 + 406) + 4 * v33);
+    }
+    else
+    {
+      v38 = (int)FLOAT_1_0;
+    }
+    if ( COERCE_FLOAT(v38 & _xmm) >= 0.0000011920929 )
+    {
+      v39 = *((_DWORD *)a2 + 102);
+      v40 = 0;
+      if ( v39 )
+        v55 = (CDrawListEntry *)(*((_QWORD *)a2 + 53) + 68LL * (unsigned int)(v39 - 1));
+      else
+        v55 = (CDrawListEntry *)&CMILMatrix::Identity;
+      if ( !*((_QWORD *)a2 + 435) )
+      {
+        v43 = (struct CDrawingContext *)((char *)a2 + 3488);
+        goto LABEL_46;
+      }
+      updated = CDrawingContext::UpdateBspCurrentPolygonClippingPlanes(a2);
+      v37 = updated;
+      if ( updated < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v42, 0LL, 0, updated, 0x38Cu, 0LL);
+      }
+      else
+      {
+        v43 = (struct CDrawingContext *)((char *)a2 + 3488);
+        v40 = *((_BYTE *)a2 + 3488) == 0;
+        while ( 1 )
+        {
+LABEL_46:
+          if ( v40 )
+          {
+            v44 = ClipPlaneIterator::UpdateClippingPlanes(v43);
+            v37 = v44;
+            if ( v44 < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(v45, 0LL, 0, v44, 0x398u, 0LL);
+              goto LABEL_54;
+            }
+          }
+          v46 = CDrawListCache::Render(a4, a2, v55);
+          v37 = v46;
+          if ( v46 < 0 )
+            break;
+          if ( !v40 || !ClipPlaneIterator::HasMoreClipPlanes(v43) )
+            goto LABEL_54;
+        }
+        MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, v46, 0x39Eu, 0LL);
+      }
+    }
+LABEL_54:
+    v16 = 0;
+    if ( v37 != -2003304441 )
+      v16 = v37;
+    if ( v16 >= 0 )
+      goto LABEL_57;
+    MilInstrumentationCheckHR_MaybeFailFast(v33, &dword_180345AC0, 3u, v16, 0x88u, 0LL);
+  }
+  else
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v33, &dword_180345AC0, 3u, v35, 0x85u, 0LL);
+  }
+LABEL_65:
   if ( a4 && (*((_DWORD *)a4 + 22) & 0x100) != 0 )
     CDrawListCache::Invalidate(a4);
   for ( ; v9; --v9 )
     CDrawingContext::PopTransformInternal(a2, 1);
-LABEL_25:
-  if ( v5 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v5);
-  return (unsigned int)v20;
+LABEL_72:
+  if ( v11 )
+    CDrawListEntry::Release(v11);
+  return (unsigned int)v16;
 }

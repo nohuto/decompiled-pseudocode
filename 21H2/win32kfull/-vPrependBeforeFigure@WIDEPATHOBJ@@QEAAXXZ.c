@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C012EE20
+ * XREFs of ?vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C0141F20
  * Callers:
- *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C01309F0 (-bWiden@WIDENER@@IEAAHXZ.c)
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C01408C8 (-bWiden@WIDENER@@IEAAHXZ.c)
  * Callees:
  *     <none>
  */

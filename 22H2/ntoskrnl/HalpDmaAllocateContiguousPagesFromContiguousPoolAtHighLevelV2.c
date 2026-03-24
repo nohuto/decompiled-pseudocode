@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2 @ 0x140515C38
+ * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2 @ 0x1404CD018
  * Callers:
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x1405010F0 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x1404B8A98 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x140295D80 (RtlFindClearBitsAndSet.c)
- *     HalpDmaLinkContiguousTranslations @ 0x14045C0B8 (HalpDmaLinkContiguousTranslations.c)
+ *     RtlFindClearBitsAndSet @ 0x1402509C0 (RtlFindClearBitsAndSet.c)
+ *     HalpDmaLinkContiguousTranslations @ 0x1404C7C14 (HalpDmaLinkContiguousTranslations.c)
  */
 
 __int64 __fastcall HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2(__int64 a1, __int64 a2, ULONG a3)
@@ -20,7 +20,7 @@ __int64 __fastcall HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2
   v3 = -1;
   v5 = 0;
 LABEL_2:
-  ClearBitsAndSet = RtlFindClearBitsAndSet(*(PRTL_BITMAP *)(a2 + 24), a3, v5);
+  ClearBitsAndSet = RtlFindClearBitsAndSet(*(PRTL_BITMAP *)(a2 + 16), a3, v5);
   v8 = ClearBitsAndSet;
   if ( ClearBitsAndSet == -1 || ClearBitsAndSet == v3 )
     return 0LL;

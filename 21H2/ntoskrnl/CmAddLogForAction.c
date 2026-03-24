@@ -1,276 +1,276 @@
 /*
- * XREFs of CmAddLogForAction @ 0x14071784C
+ * XREFs of CmAddLogForAction @ 0x1406AFE4C
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x140677DC0 (CmpSetSecurityDescriptorInfo.c)
- *     CmDeleteKey @ 0x14067E1BC (CmDeleteKey.c)
- *     CmDeleteValueKey @ 0x140714E58 (CmDeleteValueKey.c)
- *     CmpCreateChild @ 0x140719278 (CmpCreateChild.c)
- *     CmSetValueKey @ 0x140720260 (CmSetValueKey.c)
- *     CmSetKeyFlags @ 0x140913964 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140913E28 (CmSetLastWriteTimeKey.c)
+ *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
+ *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x14066CCFC (CmpSetSecurityDescriptorInfo.c)
+ *     CmSetKeyFlags @ 0x14086DC78 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E13C (CmSetLastWriteTimeKey.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140346D64 (CmpFreeTransientPoolWithTag.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpTransWriteLog @ 0x140717EE4 (CmpTransWriteLog.c)
- *     HvBufferCheckSum @ 0x1407181CC (HvBufferCheckSum.c)
- *     CmpCopyCompressedName @ 0x140718AE8 (CmpCopyCompressedName.c)
- *     CmpConstructNameWithStatus @ 0x1407C0690 (CmpConstructNameWithStatus.c)
- *     CmpGetValueData @ 0x1407C46A0 (CmpGetValueData.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
+ *     CmpGetValueData @ 0x1405F8410 (CmpGetValueData.c)
+ *     CmpCopyCompressedName @ 0x140669F74 (CmpCopyCompressedName.c)
+ *     CmpTransWriteLog @ 0x140763B98 (CmpTransWriteLog.c)
+ *     HvBufferCheckSum @ 0x140763E88 (HvBufferCheckSum.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmAddLogForAction(__int64 a1, ULONG a2)
+__int64 __fastcall CmAddLogForAction(__int64 a1, int a2)
 {
   unsigned int v2; // ebx
   _DWORD *v4; // rdi
   __int64 v5; // r13
   __int64 v6; // rdx
-  unsigned int v7; // r12d
-  ULONG v8; // r15d
+  int v7; // r12d
+  unsigned int v8; // r15d
   int v9; // eax
   __int64 v10; // rcx
   const void **v11; // r14
   int v13; // eax
-  unsigned int v14; // r15d
+  unsigned int v14; // r12d
   __int64 v15; // rax
-  ULONG_PTR v16; // rcx
-  __int64 v17; // rax
+  int v16; // ebx
+  unsigned __int16 v17; // cx
   int v18; // ebx
-  unsigned __int16 v19; // cx
+  bool v19; // cc
   int v20; // ebx
-  int v21; // ebx
-  ULONG_PTR v22; // rcx
-  __int64 CellPaged; // rax
-  unsigned __int16 v24; // cx
-  __int64 CellFlat; // rax
+  __int64 v21; // rcx
+  __int64 (__fastcall *v22)(__int64, _QWORD, _DWORD *); // rax
+  unsigned __int16 v23; // cx
+  __int64 v24; // rax
+  unsigned int v25; // r12d
   unsigned int v26; // eax
-  unsigned int v27; // ecx
-  unsigned int v28; // eax
-  unsigned int v29; // ebx
+  unsigned int v27; // ebx
   _DWORD *PoolWithTag; // rax
-  int v31; // ecx
-  __int64 v32; // r8
-  char *v33; // rcx
-  unsigned int v34; // edx
-  size_t v35; // r8
-  char *v36; // rcx
-  __int64 v37; // rdx
+  int v29; // ecx
+  __int64 v30; // r8
+  _WORD *v31; // rcx
+  __int16 v32; // ax
+  unsigned int v33; // edx
+  size_t v34; // r8
+  char *v35; // rcx
+  __int64 v36; // rdx
+  int v37; // eax
   int v38; // eax
-  int v39; // eax
-  char *v40; // rbx
+  _WORD *v39; // rbx
+  __int64 v40; // rdx
   size_t v41; // r8
   void *v42; // rdx
   char *v43; // rcx
-  __int64 v44; // rcx
-  __int64 v45; // rdx
-  BOOLEAN v46; // al
-  __int64 v47; // r12
-  CLFS_INFORMATION *v48; // rax
-  CLFS_INFORMATION *v49; // r15
-  __int64 v50; // rcx
-  __int64 v51; // rcx
-  __int64 v52; // [rsp+40h] [rbp-29h] BYREF
-  __int64 v53; // [rsp+48h] [rbp-21h] BYREF
-  __int64 v54; // [rsp+50h] [rbp-19h] BYREF
-  __int64 v55; // [rsp+58h] [rbp-11h]
-  void *Src; // [rsp+60h] [rbp-9h] BYREF
-  CLFS_LSN plsnFinish; // [rsp+68h] [rbp-1h] BYREF
-  int v58[20]; // [rsp+70h] [rbp+7h]
-  ULONG pcbInfoBuffer; // [rsp+D8h] [rbp+6Fh] BYREF
-  size_t Size; // [rsp+E0h] [rbp+77h]
-  unsigned int v61; // [rsp+E8h] [rbp+7Fh]
+  __int64 v44; // rdx
+  BOOLEAN v45; // al
+  __int64 v46; // r12
+  CLFS_INFORMATION *v47; // rax
+  CLFS_INFORMATION *v48; // r15
+  _DWORD v49[2]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v50; // [rsp+48h] [rbp-30h] BYREF
+  __int64 v51; // [rsp+50h] [rbp-28h]
+  _DWORD v52[2]; // [rsp+58h] [rbp-20h] BYREF
+  CLFS_LSN plsnFinish; // [rsp+60h] [rbp-18h] BYREF
+  int v54[4]; // [rsp+68h] [rbp-10h]
+  void *Src; // [rsp+C0h] [rbp+48h] BYREF
+  size_t Size; // [rsp+C8h] [rbp+50h] BYREF
+  unsigned int v57; // [rsp+D0h] [rbp+58h]
+  size_t v58; // [rsp+D8h] [rbp+60h] BYREF
 
-  pcbInfoBuffer = a2;
+  LODWORD(Size) = a2;
   v2 = 0;
-  v52 = 0xFFFFFFFFLL;
+  v49[1] = 0;
+  v52[1] = 0;
+  v49[0] = -1;
   v4 = 0LL;
-  v53 = 0xFFFFFFFFLL;
+  v52[0] = -1;
   v5 = 0LL;
   v6 = *(_QWORD *)(a1 + 56);
   v7 = 0;
   plsnFinish.ullOffset = 0LL;
   v8 = 0;
-  v61 = 0;
+  v57 = -1;
+  LODWORD(Src) = 0;
   v9 = *(_DWORD *)(v6 + 48);
+  LODWORD(v58) = 0;
+  v51 = 0LL;
   LODWORD(Size) = 0;
-  v55 = 0LL;
-  pcbInfoBuffer = 0;
   if ( (v9 & 0x80u) == 0 )
   {
     v10 = *(_QWORD *)(a1 + 48);
-    *(_QWORD *)v58 = *(_QWORD *)(*(_QWORD *)(v10 + 32) + 4152LL);
-    if ( *(_QWORD *)(*(_QWORD *)v58 + 96LL) )
+    *(_QWORD *)v54 = *(_QWORD *)(*(_QWORD *)(v10 + 32) + 4192LL);
+    if ( *(_QWORD *)(*(_QWORD *)v54 + 96LL) )
     {
       if ( *(_QWORD *)(v6 + 56) && *(_DWORD *)(a1 + 68) != 13 )
       {
-        Src = 0LL;
-        CmpConstructNameWithStatus(v10, &Src);
-        v11 = (const void **)Src;
-        if ( !Src )
+        v50 = 0LL;
+        CmpConstructNameWithStatus(v10, &v50);
+        v11 = (const void **)v50;
+        if ( !v50 )
           return 3221225626LL;
         v13 = *(_DWORD *)(a1 + 68);
         if ( (v13 & 0xFFFFFFFD) != 0 )
         {
           if ( v13 <= 3 )
-            goto LABEL_46;
+            goto LABEL_36;
           if ( v13 <= 6 )
           {
-            v21 = 80;
-            v22 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL);
-            if ( (unsigned int)(v13 - 4) <= 1 )
+            v19 = (unsigned int)(v13 - 4) <= 1;
+            v20 = 80;
+            v21 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL);
+            v22 = *(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(v21 + 8);
+            if ( v19 )
             {
-              if ( (*(_BYTE *)(v22 + 140) & 1) != 0 )
-                CellFlat = HvpGetCellFlat(v22, *(unsigned int *)(a1 + 92), &v52);
-              else
-                CellFlat = HvpGetCellPaged(v22);
-              v5 = CellFlat;
-              if ( !CellFlat )
-                goto LABEL_18;
-              v26 = *(_DWORD *)(CellFlat + 4);
-              v27 = v26 + 0x80000000;
-              if ( v26 < 0x80000000 )
-                v27 = v26;
-              v61 = v27;
-              LODWORD(Size) = v27;
-              v21 = v27 + 80;
-              if ( v27 >= 0xFFFFFFB0 )
+              v57 = *(_DWORD *)(a1 + 92);
+              v24 = v22(v21, v57, v49);
+              v5 = v24;
+              if ( !v24 )
+                goto LABEL_15;
+              v25 = *(_DWORD *)(v24 + 4);
+              LODWORD(Src) = v25;
+              if ( v25 >= 0x80000000 )
               {
-                v18 = -1073741675;
-LABEL_91:
-                v51 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL);
-                if ( (*(_BYTE *)(v51 + 140) & 1) != 0 )
-                  HvpReleaseCellFlat(v51, &v52);
-                else
-                  HvpReleaseCellPaged(v51, &v52);
-LABEL_94:
+                v25 += 0x80000000;
+                LODWORD(Src) = v25;
+              }
+              v20 = v25 + 80;
+              LODWORD(v58) = v25;
+              if ( v25 >= 0xFFFFFFB0 )
+              {
+                v16 = -1073741675;
+LABEL_76:
+                if ( v5 )
+                  (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL) + 16LL))(
+                    *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL),
+                    v49);
                 if ( v4 )
                   ExFreePoolWithTag(v4, 0);
-                goto LABEL_96;
+                goto LABEL_80;
               }
             }
             else
             {
-              if ( (*(_BYTE *)(v22 + 140) & 1) != 0 )
-                CellPaged = HvpGetCellFlat(v22, *(unsigned int *)(a1 + 88), &v52);
-              else
-                CellPaged = HvpGetCellPaged(v22);
-              v5 = CellPaged;
-              if ( !CellPaged )
-                goto LABEL_18;
+              v57 = *(_DWORD *)(a1 + 88);
+              v5 = v22(v21, v57, v49);
+              if ( !v5 )
+                goto LABEL_15;
             }
-            v14 = v21;
-            v24 = 2 * *(_WORD *)(v5 + 2);
-            if ( (*(_BYTE *)(v5 + 16) & 1) == 0 )
-              v24 = *(_WORD *)(v5 + 2);
-            v7 = v24;
-            v2 = v24 + v21;
-            goto LABEL_43;
+            v23 = *(_WORD *)(v5 + 2);
+            if ( (*(_BYTE *)(v5 + 16) & 1) != 0 )
+              v23 *= 2;
+            v8 = v23;
+            v14 = v20;
+            v2 = v23 + v20;
+            goto LABEL_33;
           }
           if ( v13 == 7 || v13 == 8 )
           {
             v2 = 56;
-            goto LABEL_46;
+            goto LABEL_36;
           }
           if ( v13 != 9 )
           {
             if ( v13 != 11 )
-              goto LABEL_46;
+              goto LABEL_36;
             v14 = 64;
-            v15 = *(_QWORD *)(a1 + 88);
-            v16 = *(_QWORD *)(v15 + 32);
-            if ( (*(_BYTE *)(v16 + 140) & 1) != 0 )
-              v17 = HvpGetCellFlat(v16, *(unsigned int *)(v15 + 40), &v53);
-            else
-              v17 = HvpGetCellPaged(v16);
-            v55 = v17;
-            if ( !v17 )
+            v15 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _DWORD *))(*(_QWORD *)(*(_QWORD *)(a1 + 88) + 32LL) + 8LL))(
+                    *(_QWORD *)(*(_QWORD *)(a1 + 88) + 32LL),
+                    *(unsigned int *)(*(_QWORD *)(a1 + 88) + 40LL),
+                    v52);
+            v51 = v15;
+            if ( !v15 )
             {
-LABEL_18:
-              v18 = -1073741670;
-LABEL_96:
+LABEL_15:
+              v16 = -1073741670;
+LABEL_80:
               CmpFreeTransientPoolWithTag(v11, 0x624E4D43u);
-              return (unsigned int)v18;
+              return (unsigned int)v16;
             }
-            v19 = 2 * *(_WORD *)(v17 + 72);
-            if ( (*(_BYTE *)(v17 + 2) & 0x20) == 0 )
-              v19 = *(_WORD *)(v17 + 72);
-            v20 = v19;
-            pcbInfoBuffer = v19;
-            goto LABEL_42;
+            v17 = *(_WORD *)(v15 + 72);
+            if ( (*(_BYTE *)(v15 + 2) & 0x20) != 0 )
+              v17 *= 2;
+            LODWORD(Size) = v17;
+            v2 = v17 + 64;
+            goto LABEL_33;
           }
-          v20 = *(_DWORD *)(*(_QWORD *)(a1 + 88) + 24LL);
+          v18 = *(_DWORD *)(*(_QWORD *)(a1 + 88) + 24LL);
         }
         else
         {
-          v20 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 88LL) + 24LL);
+          v18 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 88LL) + 24LL);
         }
         v14 = 64;
-LABEL_42:
-        v2 = v20 + 64;
-LABEL_43:
+        v2 = v18 + 64;
+LABEL_33:
         if ( v2 < v14 )
         {
-          v18 = -1073741675;
-          goto LABEL_86;
+          v16 = -1073741675;
+          goto LABEL_74;
         }
-        v8 = pcbInfoBuffer;
-LABEL_46:
-        v28 = *(unsigned __int16 *)v11;
-        v29 = v28 + v2;
-        if ( v29 < v28 )
+        v7 = (int)Src;
+LABEL_36:
+        v26 = *(unsigned __int16 *)v11;
+        v27 = v26 + v2;
+        if ( v27 < v26 )
         {
-          v18 = -1073741562;
-          goto LABEL_86;
+          v16 = -1073741562;
+          goto LABEL_74;
         }
-        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v29, 0x20204D43u);
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v27, 0x20204D43u);
         v4 = PoolWithTag;
         if ( !PoolWithTag )
-          goto LABEL_49;
-        memset(PoolWithTag, 0, v29);
-        v4[1] = v29;
+        {
+LABEL_39:
+          v16 = -1073741670;
+LABEL_74:
+          if ( v51 )
+            (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(*(_QWORD *)(a1 + 88) + 32LL) + 16LL))(
+              *(_QWORD *)(*(_QWORD *)(a1 + 88) + 32LL),
+              v52);
+          goto LABEL_76;
+        }
+        memset(PoolWithTag, 0, v27);
+        v4[1] = v27;
         v4[2] = 1;
         *((_OWORD *)v4 + 1) = *(_OWORD *)(*(_QWORD *)(a1 + 56) + 88LL);
         *((_WORD *)v4 + 16) = *(_WORD *)v11;
         *((_WORD *)v4 + 17) = *((_WORD *)v11 + 1);
-        v31 = *(_DWORD *)(a1 + 68);
-        if ( (v31 & 0xFFFFFFFD) != 0 )
+        v29 = *(_DWORD *)(a1 + 68);
+        if ( (v29 & 0xFFFFFFFD) != 0 )
         {
-          if ( v31 <= 3 )
-            goto LABEL_81;
-          if ( v31 <= 6 )
+          if ( v29 <= 3 )
+            goto LABEL_69;
+          if ( v29 <= 6 )
           {
             Src = 0LL;
-            v38 = 0;
-            v54 = 0xFFFFFFFFLL;
-            LOBYTE(pcbInfoBuffer) = 0;
-            if ( v31 == 4 )
+            v37 = 0;
+            v50 = 0xFFFFFFFFLL;
+            LOBYTE(Size) = 0;
+            if ( v29 == 4 )
             {
               v4[3] = 3;
             }
             else
             {
-              LOBYTE(v38) = v31 != 5;
-              v4[3] = v38 + 4;
+              LOBYTE(v37) = v29 != 5;
+              v4[3] = v37 + 4;
             }
-            v39 = *(_DWORD *)(v5 + 12);
+            v38 = *(_DWORD *)(v5 + 12);
             *((_QWORD *)v4 + 5) = v4 + 20;
-            v4[16] = v39;
+            v4[16] = v38;
             memmove(v4 + 20, v11[1], *(unsigned __int16 *)v11);
-            v40 = (char *)v4 + *(unsigned __int16 *)v11 + 80;
-            *((_QWORD *)v4 + 7) = v40;
+            v39 = (_WORD *)((char *)v4 + *(unsigned __int16 *)v11 + 80);
+            *((_QWORD *)v4 + 7) = v39;
             if ( (*(_BYTE *)(v5 + 16) & 1) != 0 )
-              CmpCopyCompressedName(v40, v7, v5 + 20, *(unsigned __int16 *)(v5 + 2));
+              CmpCopyCompressedName(v39, v8, (unsigned __int8 *)(v5 + 20), *(unsigned __int16 *)(v5 + 2));
             else
-              memmove(v40, (const void *)(v5 + 20), v7);
+              memmove(v39, (const void *)(v5 + 20), v8);
             *((_QWORD *)v4 + 7) = 0LL;
-            *((_WORD *)v4 + 25) = v7;
-            *((_WORD *)v4 + 24) = v7;
+            *((_WORD *)v4 + 25) = v8;
+            *((_WORD *)v4 + 24) = v8;
             if ( *(_DWORD *)(a1 + 68) == 6 )
             {
               v4[17] = 0;
@@ -278,125 +278,109 @@ LABEL_46:
             }
             else
             {
-              v4[17] = v61;
-              if ( !(unsigned __int8)CmpGetValueData(
-                                       *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL),
-                                       (__int64)&Src,
-                                       (__int64)&pcbInfoBuffer,
-                                       (__int64)&v54) )
-              {
-LABEL_49:
-                v18 = -1073741670;
-                goto LABEL_86;
-              }
-              v41 = (unsigned int)Size;
+              v40 = v57;
+              v4[17] = v7;
+              if ( !CmpGetValueData(
+                      *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL),
+                      v40,
+                      v5,
+                      (unsigned int *)&v58,
+                      (__int64)&Src,
+                      (__int64)&Size,
+                      (__int64)&v50) )
+                goto LABEL_39;
+              v41 = (unsigned int)v58;
               v42 = Src;
-              v43 = &v40[v7];
+              v43 = (char *)v39 + v8;
               *((_QWORD *)v4 + 9) = v43;
               memmove(v43, v42, v41);
               *((_QWORD *)v4 + 9) = 0LL;
-              if ( (_BYTE)pcbInfoBuffer == 1 )
-              {
+              if ( (_BYTE)Size == 1 )
                 ExFreePoolWithTag(Src, 0);
-              }
               else
-              {
-                v44 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL);
-                if ( (*(_BYTE *)(v44 + 140) & 1) != 0 )
-                  HvpReleaseCellFlat(v44, &v54);
-                else
-                  HvpReleaseCellPaged(v44, &v54);
-              }
+                (*(void (__fastcall **)(_QWORD, __int64 *))(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL) + 16LL))(
+                  *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL),
+                  &v50);
             }
-LABEL_81:
-            v45 = (unsigned int)v4[1];
+LABEL_69:
+            v44 = (unsigned int)v4[1];
             *((_QWORD *)v4 + 5) = 0LL;
-            *v4 = HvBufferCheckSum(v4, v45);
-            v46 = ClfsLsnInvalid((const CLFS_LSN *)(*(_QWORD *)(a1 + 56) + 104LL));
-            v47 = *(_QWORD *)v58;
-            v18 = CmpTransWriteLog(v58[0], (int)v4, v4[1], v46 != 0 ? 2 : 0, &plsnFinish);
-            if ( v18 >= 0 && ClfsLsnInvalid((const CLFS_LSN *)(*(_QWORD *)(a1 + 56) + 104LL)) )
+            *v4 = HvBufferCheckSum(v4, v44);
+            v45 = ClfsLsnInvalid((const CLFS_LSN *)(*(_QWORD *)(a1 + 56) + 104LL));
+            v46 = *(_QWORD *)v54;
+            v16 = CmpTransWriteLog(v54[0], (int)v4, v4[1], v45 != 0 ? 2 : 0, &plsnFinish);
+            if ( v16 >= 0 && ClfsLsnInvalid((const CLFS_LSN *)(*(_QWORD *)(a1 + 56) + 104LL)) )
               *(CLFS_LSN *)(*(_QWORD *)(a1 + 56) + 104LL) = plsnFinish;
-            pcbInfoBuffer = 120;
-            v48 = (CLFS_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x20204D43u);
-            v49 = v48;
-            if ( v48 )
+            LODWORD(Size) = 120;
+            v47 = (CLFS_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x20204D43u);
+            v48 = v47;
+            if ( v47 )
             {
-              ClfsGetLogFileInformation(*(PLOG_FILE_OBJECT *)(v47 + 88), v48, &pcbInfoBuffer);
-              ExFreePoolWithTag(v49, 0);
+              ClfsGetLogFileInformation(*(PLOG_FILE_OBJECT *)(v46 + 88), v47, (PULONG)&Size);
+              ExFreePoolWithTag(v48, 0);
             }
-LABEL_86:
-            if ( v55 )
-            {
-              v50 = *(_QWORD *)(*(_QWORD *)(a1 + 88) + 32LL);
-              if ( (*(_BYTE *)(v50 + 140) & 1) != 0 )
-                HvpReleaseCellFlat(v50, &v53);
-              else
-                HvpReleaseCellPaged(v50, &v53);
-            }
-            if ( !v5 )
-              goto LABEL_94;
-            goto LABEL_91;
+            goto LABEL_74;
           }
-          if ( v31 == 7 )
+          if ( v29 == 7 )
           {
             v4[3] = 6;
             *((_QWORD *)v4 + 5) = v4 + 14;
             memmove(v4 + 14, v11[1], *(unsigned __int16 *)v11);
             v4[12] = *(_DWORD *)(a1 + 88);
-            goto LABEL_81;
+            goto LABEL_69;
           }
-          if ( v31 == 8 )
+          if ( v29 == 8 )
           {
             v4[3] = 7;
             *((_QWORD *)v4 + 5) = v4 + 14;
             memmove(v4 + 14, v11[1], *(unsigned __int16 *)v11);
             *((_QWORD *)v4 + 6) = *(_QWORD *)(a1 + 88);
-            goto LABEL_81;
+            goto LABEL_69;
           }
-          if ( v31 != 9 )
+          if ( v29 != 9 )
           {
-            if ( v31 != 11 )
-              goto LABEL_81;
+            if ( v29 != 11 )
+              goto LABEL_69;
             v4[3] = 9;
             *((_QWORD *)v4 + 5) = v4 + 16;
             memmove(v4 + 16, v11[1], *(unsigned __int16 *)v11);
-            v32 = v55;
-            v33 = (char *)v4 + *(unsigned __int16 *)v11 + 64;
-            *((_QWORD *)v4 + 7) = v33;
-            if ( (*(_BYTE *)(v32 + 2) & 0x20) != 0 )
-              CmpCopyCompressedName(v33, v8, v32 + 76, *(unsigned __int16 *)(v32 + 72));
+            v30 = v51;
+            v31 = (_WORD *)((char *)v4 + *(unsigned __int16 *)v11 + 64);
+            *((_QWORD *)v4 + 7) = v31;
+            if ( (*(_BYTE *)(v30 + 2) & 0x20) != 0 )
+              CmpCopyCompressedName(v31, Size, (unsigned __int8 *)(v30 + 76), *(unsigned __int16 *)(v30 + 72));
             else
-              memmove(v33, (const void *)(v32 + 76), v8);
-            *((_WORD *)v4 + 25) = v8;
-            *((_WORD *)v4 + 24) = v8;
-            goto LABEL_80;
+              memmove(v31, (const void *)(v30 + 76), (unsigned int)Size);
+            v32 = Size;
+            *((_WORD *)v4 + 25) = Size;
+            *((_WORD *)v4 + 24) = v32;
+            goto LABEL_68;
           }
           v4[3] = *(_BYTE *)(a1 + 100) != 0 ? 10 : 8;
           *((_QWORD *)v4 + 5) = v4 + 16;
           memmove(v4 + 16, v11[1], *(unsigned __int16 *)v11);
-          v34 = *(_DWORD *)(*(_QWORD *)(a1 + 88) + 24LL);
-          v4[12] = v34;
-          v35 = v34;
-          v36 = (char *)v4 + *(unsigned __int16 *)v11 + 64;
-          *((_QWORD *)v4 + 7) = v36;
-          v37 = *(_QWORD *)(a1 + 88);
+          v33 = *(_DWORD *)(*(_QWORD *)(a1 + 88) + 24LL);
+          v4[12] = v33;
+          v34 = v33;
+          v35 = (char *)v4 + *(unsigned __int16 *)v11 + 64;
+          *((_QWORD *)v4 + 7) = v35;
+          v36 = *(_QWORD *)(a1 + 88);
         }
         else
         {
-          v4[3] = (v31 != 0) + 1;
+          v4[3] = (v29 != 0) + 1;
           v4[12] = *(_DWORD *)(a1 + 72);
           *((_QWORD *)v4 + 5) = v4 + 16;
           memmove(v4 + 16, v11[1], *(unsigned __int16 *)v11);
-          v36 = (char *)v4 + *(unsigned __int16 *)v11 + 64;
-          *((_QWORD *)v4 + 7) = v36;
-          v37 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 88LL);
-          v35 = *(unsigned int *)(v37 + 24);
+          v35 = (char *)v4 + *(unsigned __int16 *)v11 + 64;
+          *((_QWORD *)v4 + 7) = v35;
+          v36 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 88LL);
+          v34 = *(unsigned int *)(v36 + 24);
         }
-        memmove(v36, (const void *)(v37 + 32), v35);
-LABEL_80:
+        memmove(v35, (const void *)(v36 + 32), v34);
+LABEL_68:
         *((_QWORD *)v4 + 7) = 0LL;
-        goto LABEL_81;
+        goto LABEL_69;
       }
     }
   }

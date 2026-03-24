@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1SPRITELOCK@@QEAA@XZ @ 0x1C0097170
+ * XREFs of ??1SPRITELOCK@@QEAA@XZ @ 0x1C0082D50
  * Callers:
- *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C0170C3C (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
+ *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C0143CA4 (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
  * Callees:
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0178D70 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CA60 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
 void __fastcall SPRITELOCK::~SPRITELOCK(SPRITELOCK *this, __int64 a2, int a3)
@@ -16,7 +16,7 @@ void __fastcall SPRITELOCK::~SPRITELOCK(SPRITELOCK *this, __int64 a2, int a3)
       McTemplateK0pz_EtwWriteTransfer((_DWORD)this, (unsigned int)&LockRelease, a3, (__int64)ghsemSprite);
     if ( ghsemSprite )
     {
-      ExReleaseResourceAndLeaveCriticalRegion(ghsemSprite);
+      ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemSprite);
       PsLeavePriorityRegion(v3);
     }
   }

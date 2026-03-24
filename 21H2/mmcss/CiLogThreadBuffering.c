@@ -1,10 +1,10 @@
 /*
- * XREFs of CiLogThreadBuffering @ 0x1C000435C
+ * XREFs of CiLogThreadBuffering @ 0x1C00040AC
  * Callers:
- *     CiSchedulerSetBufferingMode @ 0x1C0002640 (CiSchedulerSetBufferingMode.c)
- *     CiSystemUpdateThreadTag @ 0x1C0002A20 (CiSystemUpdateThreadTag.c)
+ *     CiSchedulerSetBufferingMode @ 0x1C00015B0 (CiSchedulerSetBufferingMode.c)
+ *     CiSystemUpdateThreadTag @ 0x1C0001B10 (CiSystemUpdateThreadTag.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CiLogThreadBuffering(__int64 a1, int a2)

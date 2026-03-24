@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepPatchDriverImportsTable @ 0x1409644D8
+ * XREFs of KsepPatchDriverImportsTable @ 0x1408C0458
  * Callers:
- *     KsepApplyShimsToDriver @ 0x140964230 (KsepApplyShimsToDriver.c)
+ *     KsepApplyShimsToDriver @ 0x1408C01B0 (KsepApplyShimsToDriver.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
- *     VfIsVerifierEnabled @ 0x1402DA4B0 (VfIsVerifierEnabled.c)
- *     VfIsVerificationEnabledForImage @ 0x1405FDEC0 (VfIsVerificationEnabledForImage.c)
- *     KsepPatchImportTableEntry @ 0x140964650 (KsepPatchImportTableEntry.c)
- *     VfGetHookAddressForOriginal @ 0x140A89EA8 (VfGetHookAddressForOriginal.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
+ *     VfIsVerifierEnabled @ 0x1402D3DF0 (VfIsVerifierEnabled.c)
+ *     VfIsVerificationEnabledForImage @ 0x1405A06B8 (VfIsVerificationEnabledForImage.c)
+ *     KsepPatchImportTableEntry @ 0x1408C05D0 (KsepPatchImportTableEntry.c)
+ *     VfGetHookAddressForOriginal @ 0x1409C8918 (VfGetHookAddressForOriginal.c)
  */
 
 __int64 __fastcall KsepPatchDriverImportsTable(__int64 a1, __int64 a2)

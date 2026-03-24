@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceProfileEnable @ 0x14082D8F4
+ * XREFs of PpmEventTraceProfileEnable @ 0x1407C647C
  * Callers:
- *     PpmEnableProfile @ 0x14082D878 (PpmEnableProfile.c)
- *     PpmDisableProfile @ 0x14099D234 (PpmDisableProfile.c)
+ *     PpmEnableProfile @ 0x1407C63D4 (PpmEnableProfile.c)
+ *     PpmDisableProfile @ 0x1408F5CB8 (PpmDisableProfile.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceProfileEnable(char a1, char a2)
@@ -19,7 +19,7 @@ char __fastcall PpmEventTraceProfileEnable(char a1, char a2)
 
   v7 = a1;
   v2 = &PPM_ETW_PROCESSOR_PROFILE_DISABLED;
-  v3 = (const EVENT_DESCRIPTOR *)L"l";
+  v3 = (const EVENT_DESCRIPTOR *)PPM_ETW_PROCESSOR_PROFILE_ENABLED;
   if ( !a2 )
     v3 = &PPM_ETW_PROCESSOR_PROFILE_DISABLED;
   if ( PpmEtwRegistered )

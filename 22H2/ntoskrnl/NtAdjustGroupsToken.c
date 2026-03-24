@@ -1,18 +1,18 @@
 /*
- * XREFs of NtAdjustGroupsToken @ 0x1407CAEE0
+ * XREFs of NtAdjustGroupsToken @ 0x1405DA5F0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     SeReleaseLuidAndAttributesArray @ 0x1406BB138 (SeReleaseLuidAndAttributesArray.c)
- *     SeCaptureSidAndAttributesArray @ 0x1406BCC50 (SeCaptureSidAndAttributesArray.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     SepAdjustGroups @ 0x1407CB22C (SepAdjustGroups.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     SepAdjustGroups @ 0x1405DA938 (SepAdjustGroups.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x1405DD318 (SeReleaseLuidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1405DD560 (SeCaptureSidAndAttributesArray.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtAdjustGroupsToken(
@@ -24,42 +24,45 @@ NTSTATUS __stdcall NtAdjustGroupsToken(
         PULONG ReturnLength)
 {
   void *v9; // r12
-  char PreviousMode; // di
+  KPROCESSOR_MODE PreviousMode; // di
   __int64 v11; // rsi
   PTOKEN_GROUPS v12; // rbx
   NTSTATUS result; // eax
-  int v14; // esi
+  __int64 v14; // rdx
+  int v15; // esi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v16; // rsi
-  __int64 v17; // r13
-  int v18; // r8d
-  __int64 v19; // r14
-  int v20; // eax
-  int v21; // edx
-  int v22; // r8d
-  signed __int32 v23[8]; // [rsp+0h] [rbp-A8h] BYREF
+  __int64 v17; // rsi
+  __int64 v18; // r13
+  int v19; // r8d
+  __int64 v20; // r14
+  int v21; // eax
+  int v22; // edx
+  int v23; // r8d
+  __int64 v24; // rdx
+  __int64 v25; // rdx
+  signed __int32 v26[8]; // [rsp+0h] [rbp-A8h] BYREF
   POBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+28h] [rbp-80h]
   PSID DestinationSid; // [rsp+30h] [rbp-78h]
-  char v26; // [rsp+50h] [rbp-58h]
-  __int64 v27; // [rsp+54h] [rbp-54h] BYREF
-  NTSTATUS v28; // [rsp+5Ch] [rbp-4Ch]
+  KPROCESSOR_MODE v29; // [rsp+50h] [rbp-58h]
+  __int64 v30; // [rsp+54h] [rbp-54h] BYREF
+  NTSTATUS v31; // [rsp+5Ch] [rbp-4Ch]
   int GroupCount; // [rsp+60h] [rbp-48h]
-  unsigned int Object[3]; // [rsp+64h] [rbp-44h] BYREF
-  __int64 v31; // [rsp+70h] [rbp-38h] BYREF
-  __int64 v32; // [rsp+B8h] [rbp+10h] BYREF
-  ULONG v33; // [rsp+C8h] [rbp+20h]
+  _DWORD Object[3]; // [rsp+64h] [rbp-44h] BYREF
+  __int64 v34; // [rsp+70h] [rbp-38h] BYREF
+  __int64 v35; // [rsp+B8h] [rbp+10h] BYREF
+  ULONG v36; // [rsp+C8h] [rbp+20h]
 
-  v33 = BufferLength;
+  v36 = BufferLength;
   GroupCount = 0;
-  v31 = 0LL;
+  v34 = 0LL;
   Object[0] = 0;
-  v27 = 0LL;
-  LOBYTE(v32) = 0;
+  v30 = 0LL;
+  LOBYTE(v35) = 0;
   v9 = 0LL;
   if ( !ResetToDefault && !NewState )
     return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v26 = PreviousMode;
+  v29 = PreviousMode;
   if ( PreviousMode )
   {
     if ( ResetToDefault )
@@ -88,101 +91,107 @@ NTSTATUS __stdcall NtAdjustGroupsToken(
   if ( ResetToDefault
     || (GroupCount = NewState->GroupCount,
         result = SeCaptureSidAndAttributesArray(
-                   (char *)NewState->Groups,
-                   GroupCount,
-                   PreviousMode,
-                   0LL,
+                   NewState->Groups,
                    0,
                    (int)HandleInformation,
                    (int)DestinationSid,
-                   (PVOID *)&v31,
-                   Object),
-        v28 = result,
+                   (__int64)&v34,
+                   (__int64)Object),
+        v31 = result,
         result >= 0) )
   {
     *(_QWORD *)&Object[1] = 0LL;
-    v14 = ObReferenceObjectByHandle(
+    v15 = ObReferenceObjectByHandle(
             TokenHandle,
             v12 != 0LL ? 72 : 64,
             (POBJECT_TYPE)SeTokenObjectType,
             PreviousMode,
             (PVOID *)&Object[1],
             0LL);
-    if ( v14 < 0 )
+    if ( v15 < 0 )
     {
-      if ( v31 )
-        SeReleaseLuidAndAttributesArray((void *)v31, PreviousMode);
-      return v14;
+      if ( v34 )
+      {
+        LOBYTE(v14) = PreviousMode;
+        SeReleaseLuidAndAttributesArray(v34, v14);
+      }
+      return v15;
     }
     else
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v16 = *(_QWORD *)&Object[1];
+      v17 = *(_QWORD *)&Object[1];
       ExAcquireResourceExclusiveLite(*(PERESOURCE *)(*(_QWORD *)&Object[1] + 48LL), 1u);
-      _InterlockedOr(v23, 0);
-      v17 = v31;
-      LOBYTE(v18) = ResetToDefault;
-      v19 = *(_QWORD *)&Object[1];
-      v20 = SepAdjustGroups(
+      _InterlockedOr(v26, 0);
+      v18 = v34;
+      LOBYTE(v19) = ResetToDefault;
+      v20 = *(_QWORD *)&Object[1];
+      v21 = SepAdjustGroups(
               Object[1],
               0,
-              v18,
+              v19,
               GroupCount,
-              v31,
+              v34,
               (__int64)v12,
               0LL,
-              (__int64)&v27,
-              (__int64)&v27 + 4,
-              (__int64)&v32);
-      v28 = v20;
+              (__int64)&v30,
+              (__int64)&v30 + 4,
+              (__int64)&v35);
+      v31 = v21;
       if ( v12 )
       {
-        v21 = (int)ReturnLength;
-        *ReturnLength = v27;
+        v22 = (int)ReturnLength;
+        *ReturnLength = v30;
       }
-      if ( v20 < 0 )
+      if ( v21 < 0 )
         goto LABEL_24;
       if ( !v12 )
       {
 LABEL_20:
-        LOBYTE(v22) = ResetToDefault;
-        LOBYTE(v21) = 1;
-        v28 = SepAdjustGroups(
-                v19,
-                v21,
+        LOBYTE(v23) = ResetToDefault;
+        LOBYTE(v22) = 1;
+        v31 = SepAdjustGroups(
+                v20,
                 v22,
+                v23,
                 GroupCount,
-                v17,
+                v18,
                 (__int64)v12,
                 v9,
-                (__int64)&v27,
-                (__int64)&v27 + 4,
-                (__int64)&v32);
+                (__int64)&v30,
+                (__int64)&v30 + 4,
+                (__int64)&v35);
         if ( v12 )
-          v12->GroupCount = HIDWORD(v27);
-        if ( (_BYTE)v32 )
-          *(_QWORD *)(v19 + 56) = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
+          v12->GroupCount = HIDWORD(v30);
+        if ( (_BYTE)v35 )
+          *(_QWORD *)(v20 + 56) = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
 LABEL_24:
-        _InterlockedOr(v23, 0);
-        ExReleaseResourceLite(*(PERESOURCE *)(v16 + 48));
+        _InterlockedOr(v26, 0);
+        ExReleaseResourceLite(*(PERESOURCE *)(v17 + 48));
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-        ObfDereferenceObject(*(PVOID *)&Object[1]);
-        if ( v31 )
-          SeReleaseLuidAndAttributesArray((void *)v31, PreviousMode);
-        return v28;
+        HalPutDmaAdapter(*(PADAPTER_OBJECT *)&Object[1]);
+        if ( v34 )
+        {
+          LOBYTE(v24) = PreviousMode;
+          SeReleaseLuidAndAttributesArray(v34, v24);
+        }
+        return v31;
       }
-      if ( (unsigned int)v27 <= v33 )
+      if ( (unsigned int)v30 <= v36 )
       {
-        v9 = (void *)(((unsigned __int64)&v12->Groups[0].Sid + (unsigned int)(16 * HIDWORD(v27)) + 3) & 0xFFFFFFFFFFFFFFFCuLL);
+        v9 = (void *)(((unsigned __int64)&v12->Groups[0].Sid + (unsigned int)(16 * HIDWORD(v30)) + 3) & 0xFFFFFFFFFFFFFFFCuLL);
         goto LABEL_20;
       }
-      _InterlockedOr(v23, 0);
-      ExReleaseResourceLite(*(PERESOURCE *)(v16 + 48));
+      _InterlockedOr(v26, 0);
+      ExReleaseResourceLite(*(PERESOURCE *)(v17 + 48));
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      ObfDereferenceObject(*(PVOID *)&Object[1]);
-      if ( v31 )
-        SeReleaseLuidAndAttributesArray((void *)v31, PreviousMode);
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)&Object[1]);
+      if ( v34 )
+      {
+        LOBYTE(v25) = PreviousMode;
+        SeReleaseLuidAndAttributesArray(v34, v25);
+      }
       return -1073741789;
     }
   }

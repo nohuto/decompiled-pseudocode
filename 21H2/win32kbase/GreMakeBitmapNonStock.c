@@ -1,12 +1,12 @@
 /*
- * XREFs of GreMakeBitmapNonStock @ 0x1C0064440
+ * XREFs of GreMakeBitmapNonStock @ 0x1C0015E30
  * Callers:
- *     ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C001E824 (-vDec_cRef@SURFACE@@QEAAXXZ.c)
+ *     ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C002A988 (-vDec_cRef@SURFACE@@QEAAXXZ.c)
  * Callees:
- *     HmgLockEx @ 0x1C00226A0 (HmgLockEx.c)
- *     HmgSetOwner @ 0x1C0028640 (HmgSetOwner.c)
- *     HmgLockAndModifyHandleType @ 0x1C00645F0 (HmgLockAndModifyHandleType.c)
- *     ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C006478C (-bDIBSection@SURFACE@@QEAAHXZ.c)
+ *     HmgLockAndModifyHandleType @ 0x1C0015FF0 (HmgLockAndModifyHandleType.c)
+ *     ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C001618C (-bDIBSection@SURFACE@@QEAAHXZ.c)
+ *     HmgLockEx @ 0x1C002F920 (HmgLockEx.c)
+ *     HmgSetOwner @ 0x1C0035470 (HmgSetOwner.c)
  */
 
 unsigned __int64 __fastcall GreMakeBitmapNonStock(unsigned __int64 a1, __int64 a2)
@@ -14,7 +14,7 @@ unsigned __int64 __fastcall GreMakeBitmapNonStock(unsigned __int64 a1, __int64 a
   unsigned __int64 v2; // rdi
   SURFACE *v4; // rax
   SURFACE *v5; // rbx
-  struct OBJECT *v6; // rcx
+  __int64 v6; // r8
 
   LOBYTE(a2) = 5;
   v2 = 0LL;
@@ -29,15 +29,16 @@ unsigned __int64 __fastcall GreMakeBitmapNonStock(unsigned __int64 a1, __int64 a
       v2 = a1 & 0xFFFFFFFFFF7FFFFFuLL;
       if ( *((_DWORD *)v5 + 42) )
       {
-        if ( _bittest((const signed __int32 *)v5, 0x17u) )
+        if ( (*(_DWORD *)v5 & 0x800000) != 0 )
           *((_WORD *)v5 + 51) |= 0x400u;
       }
-      else if ( (unsigned int)HmgLockAndModifyHandleType(v6) )
+      else if ( (unsigned int)HmgLockAndModifyHandleType(v5) )
       {
         _InterlockedIncrement(&gStockBitmapFree);
         *((_QWORD *)v5 + 4) = v2;
         *((_WORD *)v5 + 51) &= ~0x200u;
-        HmgSetOwner(a1 & 0xFFFFFFFFFF7FFFFFuLL, 0x80000002, 5);
+        LOBYTE(v6) = 5;
+        HmgSetOwner(a1 & 0xFFFFFFFFFF7FFFFFuLL, 2147483650LL, v6);
       }
       else
       {

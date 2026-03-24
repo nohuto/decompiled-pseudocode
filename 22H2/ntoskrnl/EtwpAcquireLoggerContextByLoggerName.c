@@ -1,14 +1,13 @@
 /*
- * XREFs of EtwpAcquireLoggerContextByLoggerName @ 0x1406BD7EC
+ * XREFs of EtwpAcquireLoggerContextByLoggerName @ 0x1406024C8
  * Callers:
- *     EtwQueryTraceHandleByLoggerName @ 0x1407E5CC4 (EtwQueryTraceHandleByLoggerName.c)
- *     EtwpAcquireLoggerContext @ 0x1407F90F4 (EtwpAcquireLoggerContext.c)
- *     EtwpEnableBootLoggerRegistryProviders @ 0x140B985B4 (EtwpEnableBootLoggerRegistryProviders.c)
+ *     EtwpAcquireLoggerContext @ 0x140712790 (EtwpAcquireLoggerContext.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x14078971C (EtwQueryTraceHandleByLoggerName.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
  */
 
 __int64 __fastcall EtwpAcquireLoggerContextByLoggerName(__int64 a1, const UNICODE_STRING *a2, char a3)
@@ -33,16 +32,16 @@ LABEL_7:
     if ( ++v6 >= *(_DWORD *)(a1 + 16) )
       return 0LL;
   }
-  if ( !RtlEqualUnicodeString((PCUNICODE_STRING)(v7 + 136), a2, 1u) )
+  if ( !RtlEqualUnicodeString((PCUNICODE_STRING)(v7 + 152), a2, 1u) )
   {
     v9 = 0LL;
 LABEL_6:
     EtwpReleaseLoggerContext(v8, v9);
     goto LABEL_7;
   }
-  if ( a3 )
-    KeWaitForSingleObject((PVOID)(v8 + 632), Executive, 0, 0, 0LL);
-  if ( !*(_DWORD *)(v8 + 320) )
+  if ( a3 == 1 )
+    KeWaitForSingleObject((PVOID)(v8 + 648), Executive, 0, 0, 0LL);
+  if ( !*(_DWORD *)(v8 + 336) )
   {
     LOBYTE(v9) = a3;
     goto LABEL_6;

@@ -1,51 +1,55 @@
 /*
- * XREFs of xxxRegisterForDeviceClassNotifications @ 0x1C0004670
+ * XREFs of xxxRegisterForDeviceClassNotifications @ 0x1C0008590
  * Callers:
- *     RawInputThread @ 0x1C005CC60 (RawInputThread.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
  * Callees:
- *     RegisterCDROMNotify @ 0x1C0122384 (RegisterCDROMNotify.c)
+ *     RegisterCDROMNotify @ 0x1C0136CA8 (RegisterCDROMNotify.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall xxxRegisterForDeviceClassNotifications(__int64 a1)
+__int64 xxxRegisterForDeviceClassNotifications()
 {
-  int v1; // edi
+  int v0; // edi
   unsigned int i; // ebx
-  CBaseInput **v3; // rcx
+  CBaseInput **v2; // rcx
 
-  v1 = -1073741811;
+  v0 = -1073741811;
   for ( i = 1; i <= 2; ++i )
   {
     if ( !gpWin32kDriverObject )
       continue;
-    UserSessionSwitchLeaveCrit(a1);
+    if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+      KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    UserSessionSwitchLeaveCrit();
     if ( i != 2 )
     {
       if ( i != 1 )
-        goto LABEL_7;
-      v1 = CBaseInput::InitializeSensor(gpKeyboardSensor);
-      if ( v1 < 0 )
-        goto LABEL_7;
-      v3 = (CBaseInput **)gpKeyboardSensor;
-      goto LABEL_6;
+        goto LABEL_8;
+      v0 = CBaseInput::InitializeSensor(gpKeyboardSensor);
+      if ( v0 < 0 )
+        goto LABEL_8;
+      v2 = (CBaseInput **)gpKeyboardSensor;
+      goto LABEL_7;
     }
-    v1 = CBaseInput::InitializeSensor(gpHidInput);
-    if ( v1 >= 0 )
+    v0 = CBaseInput::InitializeSensor(gpHidInput);
+    if ( v0 >= 0 )
     {
-      v3 = (CBaseInput **)gpHidInput;
-LABEL_6:
-      v1 = CBaseInput::Read(*v3);
-    }
+      v2 = (CBaseInput **)gpHidInput;
 LABEL_7:
-    EnterCrit(1LL, 0LL);
+      v0 = CBaseInput::Read(*v2);
+    }
+LABEL_8:
+    EnterCrit(0LL, 1LL);
   }
-  UserSessionSwitchLeaveCrit(a1);
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  UserSessionSwitchLeaveCrit();
   if ( !gbFirstConnectionDone && gpWin32kDriverObject )
   {
     if ( !gProtocolType )
       RegisterCDROMNotify();
     gbFirstConnectionDone = 1;
   }
-  EnterCrit(1LL, 0LL);
-  return (unsigned int)v1;
+  EnterCrit(0LL, 1LL);
+  return (unsigned int)v0;
 }

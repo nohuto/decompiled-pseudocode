@@ -1,11 +1,11 @@
 /*
- * XREFs of PfxFindPrefix @ 0x1408921D0
+ * XREFs of PfxFindPrefix @ 0x1408921B0
  * Callers:
  *     <none>
  * Callees:
  *     RtlSplay @ 0x14008D660 (RtlSplay.c)
- *     CompareNamesCaseSensitive @ 0x140891FC0 (CompareNamesCaseSensitive.c)
- *     ComputeNameLength @ 0x140892140 (ComputeNameLength.c)
+ *     CompareNamesCaseSensitive @ 0x140891FA0 (CompareNamesCaseSensitive.c)
+ *     ComputeNameLength @ 0x140892120 (ComputeNameLength.c)
  */
 
 PPREFIX_TABLE_ENTRY __stdcall PfxFindPrefix(PPREFIX_TABLE PrefixTable, PSTRING FullName)

@@ -1,9 +1,11 @@
 /*
- * XREFs of IsHiddenByInputService @ 0x1C000BD34
+ * XREFs of IsHiddenByInputService @ 0x1C0066884
  * Callers:
- *     DeferMessagesOnQueue @ 0x1C000BBE8 (DeferMessagesOnQueue.c)
- *     MergeDeferredMessagesOfThreadOnQueue @ 0x1C004F148 (MergeDeferredMessagesOfThreadOnQueue.c)
- *     ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C005CB08 (-RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z.c)
+ *     DeferMessagesOnQueue @ 0x1C00056B8 (DeferMessagesOnQueue.c)
+ *     ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C0012504 (-RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z.c)
+ *     DelQEntry @ 0x1C00667AC (DelQEntry.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     MergeDeferredMessagesOfThreadOnQueue @ 0x1C011BF9C (MergeDeferredMessagesOfThreadOnQueue.c)
  * Callees:
  *     <none>
  */
@@ -13,5 +15,5 @@ _BOOL8 __fastcall IsHiddenByInputService(__int64 a1)
   int v1; // eax
 
   v1 = *(_DWORD *)(a1 + 100);
-  return (v1 & 0x2000) != 0 || (v1 & 0x4000) != 0 || (v1 & 0x10000) != 0;
+  return (v1 & 0x10000) != 0 || (v1 & 0x20000) != 0 || (v1 & 0x80000) != 0;
 }

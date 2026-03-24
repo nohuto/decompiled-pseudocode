@@ -1,24 +1,22 @@
 /*
- * XREFs of AddEdgePalmRejectionZone @ 0x1C01E74E0
+ * XREFs of AddEdgePalmRejectionZone @ 0x1C01ADC80
  * Callers:
  *     <none>
  * Callees:
- *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C0081348 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
- *     ?AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z @ 0x1C01E59D4 (-AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z.c)
+ *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C006CB48 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
+ *     ?AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z @ 0x1C01AC890 (-AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z.c)
  */
 
-DelayZonePalmRejection *__fastcall AddEdgePalmRejectionZone(void *a1, __int64 a2, struct tagRECT *a3, __int64 a4)
+DelayZonePalmRejection *__fastcall AddEdgePalmRejectionZone(void *a1, int a2, struct tagRECT *a3)
 {
-  int v5; // edi
   DelayZonePalmRejection *result; // rax
-  struct tagRECT v8; // [rsp+20h] [rbp-18h] BYREF
+  struct tagRECT v7; // [rsp+20h] [rbp-18h] BYREF
 
-  v5 = a2;
-  result = DelayZonePalmRejection::GetInstance((__int64)a1, a2, (__int64)a3, a4);
+  result = DelayZonePalmRejection::GetInstance();
   if ( result )
   {
-    v8 = *a3;
-    return (DelayZonePalmRejection *)DelayZonePalmRejection::AddEdgeZoneToList(result, a1, v5, &v8);
+    v7 = *a3;
+    return (DelayZonePalmRejection *)DelayZonePalmRejection::AddEdgeZoneToList(result, a1, a2, &v7);
   }
   return result;
 }

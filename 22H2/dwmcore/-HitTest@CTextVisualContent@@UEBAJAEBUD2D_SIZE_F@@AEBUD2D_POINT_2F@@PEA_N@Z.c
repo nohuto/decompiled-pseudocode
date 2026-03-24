@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HitTest@CTextVisualContent@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x18026C7C0
+ * XREFs of ?HitTest@CTextVisualContent@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x18020CC60
  * Callers:
- *     ?HitTest@CTextVisualContent@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x18011E4E0 (-HitTest@CTextVisualContent@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     ?HitTest@CTextVisualContent@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F6350 (-HitTest@CTextVisualContent@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?HitTest@CCompositionGlyphRun@@QEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180223A68 (-HitTest@CCompositionGlyphRun@@QEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CTextVisualContent::HitTest(
@@ -14,32 +14,38 @@ __int64 __fastcall CTextVisualContent::HitTest(
         bool *a4)
 {
   __int64 v5; // rax
-  CCompositionGlyphRun **v8; // rbx
-  CCompositionGlyphRun **v9; // rbp
-  int v10; // eax
-  unsigned int v11; // edi
-  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v8; // rbx
+  __int64 v9; // rbp
+  __int64 v10; // rcx
+  int v11; // eax
+  unsigned int v12; // edi
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
 
   *a4 = 0;
   v5 = *((_QWORD *)this - 4);
-  v8 = *(CCompositionGlyphRun ***)(v5 + 704);
-  v9 = *(CCompositionGlyphRun ***)(v5 + 712);
+  v8 = *(_QWORD *)(v5 + 616);
+  v9 = *(_QWORD *)(v5 + 624);
   while ( 1 )
   {
     if ( v8 == v9 )
       return 0LL;
-    v10 = CCompositionGlyphRun::HitTest(*v8, a2, a3, a4);
-    v11 = v10;
-    if ( v10 < 0 )
+    v10 = *(_QWORD *)v8 + 56LL + *(int *)(*(_QWORD *)(*(_QWORD *)v8 + 56LL) + 8LL);
+    v11 = (*(__int64 (__fastcall **)(__int64, const struct D2D_SIZE_F *, const struct D2D_POINT_2F *, bool *))(*(_QWORD *)v10 + 24LL))(
+            v10,
+            a2,
+            a3,
+            a4);
+    v12 = v11;
+    if ( v11 < 0 )
       break;
     if ( *a4 )
       return 0LL;
-    ++v8;
+    v8 += 8LL;
   }
   wil::details::in1diag3::Return_Hr(
     retaddr,
     (void *)0x8A,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
-    (const char *)(unsigned int)v10);
-  return v11;
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
+    (const char *)(unsigned int)v11);
+  return v12;
 }

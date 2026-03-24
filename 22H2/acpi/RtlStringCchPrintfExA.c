@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStringCchPrintfExA @ 0x1C002BB6C
+ * XREFs of RtlStringCchPrintfExA @ 0x1C0027B70
  * Callers:
- *     ACPIGetProcessorIDWide @ 0x1C002ABF0 (ACPIGetProcessorIDWide.c)
+ *     ACPIGetProcessorIDWide @ 0x1C00276E0 (ACPIGetProcessorIDWide.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     RtlStringExHandleOtherFlagsA @ 0x1C002BD24 (RtlStringExHandleOtherFlagsA.c)
- *     RtlStringVPrintfWorkerA @ 0x1C002BDE0 (RtlStringVPrintfWorkerA.c)
+ *     RtlStringVPrintfWorkerA @ 0x1C0027C6C (RtlStringVPrintfWorkerA.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     RtlStringExHandleOtherFlagsA @ 0x1C0055EC0 (RtlStringExHandleOtherFlagsA.c)
  */
 
 NTSTATUS RtlStringCchPrintfExA(
@@ -25,9 +25,9 @@ NTSTATUS RtlStringCchPrintfExA(
   size_t v14; // rcx
   NTSTRSAFE_PSTR ppszDestEnda; // [rsp+30h] [rbp-18h] BYREF
   size_t pcchNewDestLength[2]; // [rsp+38h] [rbp-10h] BYREF
-  va_list argList; // [rsp+C0h] [rbp+78h] BYREF
+  va_list va; // [rsp+C0h] [rbp+78h] BYREF
 
-  va_start(argList, pszFormat);
+  va_start(va, pszFormat);
   v7 = 0;
   if ( (dwFlags & 0x100) != 0 )
   {
@@ -51,7 +51,7 @@ NTSTATUS RtlStringCchPrintfExA(
     v11 = cchDest;
     if ( (dwFlags & 0x100) != 0 )
     {
-      v12 = (const char *)&unk_1C00622D0;
+      v12 = (const char *)&unk_1C00701BA;
       if ( pszFormat )
         v12 = pszFormat;
     }
@@ -69,7 +69,7 @@ NTSTATUS RtlStringCchPrintfExA(
     else if ( cchDest )
     {
       pcchNewDestLength[0] = 0LL;
-      v13 = RtlStringVPrintfWorkerA(pszDest, cchDest, pcchNewDestLength, v12, argList);
+      v13 = RtlStringVPrintfWorkerA(pszDest, cchDest, pcchNewDestLength, v12, va);
       v14 = pcchNewDestLength[0];
       v7 = v13;
       v11 = cchDest - pcchNewDestLength[0];
@@ -80,14 +80,14 @@ NTSTATUS RtlStringCchPrintfExA(
       {
         if ( (dwFlags & 0x200) != 0 && v11 > 1 )
           memset(v10 + 1, (unsigned __int8)dwFlags, v11 - 1);
-        goto LABEL_22;
+        goto LABEL_11;
       }
     }
     else
     {
       if ( !*v12 )
       {
-LABEL_22:
+LABEL_11:
         if ( ppszDestEnd )
           *ppszDestEnd = v10;
         if ( pcchRemaining )
@@ -103,7 +103,7 @@ LABEL_22:
       v11 = pcchNewDestLength[0];
     }
     if ( (int)(v7 + 0x80000000) < 0 || v7 == -2147483643 )
-      goto LABEL_22;
+      goto LABEL_11;
   }
   return v7;
 }

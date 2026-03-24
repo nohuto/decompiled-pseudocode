@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpWriteAppStateChangeWithStats @ 0x140751A30
+ * XREFs of EtwpWriteAppStateChangeWithStats @ 0x14077B050
  * Callers:
- *     EtwTraceAppStateChange @ 0x140751F08 (EtwTraceAppStateChange.c)
+ *     EtwTraceAppStateChange @ 0x14062B3BC (EtwTraceAppStateChange.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessStartKey @ 0x1402F6CA0 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     PsGetProcessStartKey @ 0x14025ED50 (PsGetProcessStartKey.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void EtwpWriteAppStateChangeWithStats()
@@ -64,9 +64,9 @@ void EtwpWriteAppStateChangeWithStats()
   int v50; // [rsp+118h] [rbp+18h]
   int v51; // [rsp+11Ch] [rbp+1Ch]
 
-  if ( (unsigned int)dword_140C042E8 > 5 )
+  if ( (unsigned int)dword_140C02BB8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C042E8, 0x200000000003LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02BB8, 0x200000000003LL) )
     {
       v2 = *(_DWORD *)(v0 + 1088);
       v21 = 0;
@@ -116,8 +116,8 @@ void EtwpWriteAppStateChangeWithStats()
       v44 = 44;
       v47 = v6;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C042E8,
-        (unsigned __int8 *)&dword_140034E04,
+        (__int64)&dword_140C02BB8,
+        (unsigned __int8 *)byte_14002C88F,
         0LL,
         0LL,
         0xDu,

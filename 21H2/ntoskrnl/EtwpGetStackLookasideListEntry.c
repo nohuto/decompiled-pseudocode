@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetStackLookasideListEntry @ 0x140460740
+ * XREFs of EtwpGetStackLookasideListEntry @ 0x1405A6C10
  * Callers:
- *     EtwpEventWriteFull @ 0x140300E50 (EtwpEventWriteFull.c)
- *     EtwpTraceStackWalk @ 0x140631A8C (EtwpTraceStackWalk.c)
- *     EtwpWriteUserEvent @ 0x1407B4D70 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
+ *     EtwpTraceStackWalk @ 0x1405A7134 (EtwpTraceStackWalk.c)
+ *     EtwpWriteUserEvent @ 0x140627BC0 (EtwpWriteUserEvent.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY EtwpGetStackLookasideListEntry()

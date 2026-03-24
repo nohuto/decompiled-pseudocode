@@ -5,7 +5,7 @@
  *     RtlpHpVaMgrAlloc @ 0x14000D358 (RtlpHpVaMgrAlloc.c)
  * Callees:
  *     RtlpHpVaMgrRangeCoalesce @ 0x140009D00 (RtlpHpVaMgrRangeCoalesce.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrFree(__int64 a1)

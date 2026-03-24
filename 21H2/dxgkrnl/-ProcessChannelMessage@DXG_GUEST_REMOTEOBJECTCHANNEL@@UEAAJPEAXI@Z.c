@@ -1,14 +1,17 @@
 /*
- * XREFs of ?ProcessChannelMessage@DXG_GUEST_REMOTEOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C0351840
+ * XREFs of ?ProcessChannelMessage@DXG_GUEST_REMOTEOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C02B5A80
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall DXG_GUEST_REMOTEOBJECTCHANNEL::ProcessChannelMessage(DXG_GUEST_REMOTEOBJECTCHANNEL *this, void *a2)
 {
-  WdLogSingleEntry1(1LL, 222LL);
-  DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"FALSE", 222LL, 0LL, 0LL, 0LL, 0LL);
+  __int64 v2; // rax
+
+  v2 = WdLogNewEntry5_WdAssertion(this, a2);
+  *(_QWORD *)(v2 + 24) = 222LL;
+  WdLogEvent5_WdAssertion(v2);
   return 0LL;
 }

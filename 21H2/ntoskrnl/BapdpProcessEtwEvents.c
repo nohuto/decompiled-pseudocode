@@ -1,13 +1,13 @@
 /*
- * XREFs of BapdpProcessEtwEvents @ 0x1403CCD08
+ * XREFs of BapdpProcessEtwEvents @ 0x1403AF538
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140B1C0FC (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A4117C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     BapdWriteEtwEvents @ 0x1403B6E4C (BapdWriteEtwEvents.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     BapdpQueryData @ 0x140B1C6B0 (BapdpQueryData.c)
+ *     BapdWriteEtwEvents @ 0x14039B028 (BapdWriteEtwEvents.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     BapdpQueryData @ 0x140A41734 (BapdpQueryData.c)
  */
 
 void __fastcall BapdpProcessEtwEvents(__int64 a1)

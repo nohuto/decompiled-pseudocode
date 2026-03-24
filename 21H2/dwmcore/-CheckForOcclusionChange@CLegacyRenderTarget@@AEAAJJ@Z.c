@@ -1,31 +1,32 @@
 /*
- * XREFs of ?CheckForOcclusionChange@CLegacyRenderTarget@@AEAAJJ@Z @ 0x1800BD1A8
+ * XREFs of ?CheckForOcclusionChange@CLegacyRenderTarget@@AEAAJJ@Z @ 0x1800BF428
  * Callers:
- *     ?Present@CLegacyRenderTarget@@UEAAJ_N@Z @ 0x1800BCFA4 (-Present@CLegacyRenderTarget@@UEAAJ_N@Z.c)
- *     ?CheckOcclusionState@CLegacyRenderTarget@@UEAAJXZ @ 0x1800D8694 (-CheckOcclusionState@CLegacyRenderTarget@@UEAAJXZ.c)
+ *     ?CheckOcclusionState@CLegacyRenderTarget@@UEAAJXZ @ 0x1800BF0D8 (-CheckOcclusionState@CLegacyRenderTarget@@UEAAJXZ.c)
+ *     ?Present@CLegacyRenderTarget@@UEAAJ_N@Z @ 0x1800BF188 (-Present@CLegacyRenderTarget@@UEAAJ_N@Z.c)
  * Callees:
- *     ?UpdateMPOCaps@CLegacyRenderTarget@@UEAAJXZ @ 0x18001DFB0 (-UpdateMPOCaps@CLegacyRenderTarget@@UEAAJXZ.c)
- *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800DCDE8 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
+ *     ?UpdateMPOCaps@CLegacyRenderTarget@@UEAAJ_N@Z @ 0x18002F100 (-UpdateMPOCaps@CLegacyRenderTarget@@UEAAJ_N@Z.c)
+ *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800D8C44 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
  */
 
 __int64 __fastcall CLegacyRenderTarget::CheckForOcclusionChange(CLegacyRenderTarget *this, int a2)
 {
   if ( a2 == 142213121 )
   {
-    *((_BYTE *)this + 18613) = 1;
+    *((_BYTE *)this + 18590) = 1;
     return (unsigned int)a2;
   }
   if ( a2 == 142213167 )
   {
-    *((_BYTE *)this + 18611) = 1;
+    *((_BYTE *)this + 18586) = 1;
     ScheduleCompositionPass(0LL, 0x2000LL);
     return 0;
   }
-  if ( a2 >= 0 && (*((_BYTE *)this + 18613) || a2 == 142213129) )
+  if ( a2 >= 0 && *((_BYTE *)this + 18590) )
   {
-    *((_WORD *)this + 9306) = 1;
-    *((_BYTE *)this + 141) = 1;
-    CLegacyRenderTarget::UpdateMPOCaps((CLegacyRenderTarget *)((char *)this + 144));
+    *((_BYTE *)this + 18590) = 0;
+    *((_BYTE *)this + 129) = 1;
+    *((_BYTE *)this + 18588) = 1;
+    CLegacyRenderTarget::UpdateMPOCaps((CLegacyRenderTarget *)((char *)this + 136), 1);
     return 0;
   }
   return (unsigned int)a2;

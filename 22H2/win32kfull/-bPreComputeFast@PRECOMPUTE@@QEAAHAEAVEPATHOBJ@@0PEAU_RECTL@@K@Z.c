@@ -1,14 +1,15 @@
 /*
- * XREFs of ?bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z @ 0x1C02F6590
+ * XREFs of ?bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z @ 0x1C02CF7D4
  * Callers:
- *     ?vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEBU_LINEATTRS@@KKW4PRECOMPUTETYPE@@@Z @ 0x1C0286728 (-vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEB.c)
+ *     ?vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@KKW4PRECOMPUTETYPE@@@Z @ 0x1C015A4D4 (-vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEA.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bAddPreComputedFastFillRects@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@PEAU_RECTL@@K@Z @ 0x1C02F4AF4 (-bAddPreComputedFastFillRects@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@PEAU_RECTL@@K@Z.c)
- *     ?bAddPreComputedFastStrokeRects@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@PEAU_RECTL@@K@Z @ 0x1C02F4BF0 (-bAddPreComputedFastStrokeRects@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@PEAU_RECTL@@K@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bAddPreComputedFastFillRects@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@PEAU_RECTL@@K@Z @ 0x1C02CF39C (-bAddPreComputedFastFillRects@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@PEAU_RECTL@@K@Z.c)
+ *     ?bAddPreComputedFastStrokeRects@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@PEAU_RECTL@@K@Z @ 0x1C02CF490 (-bAddPreComputedFastStrokeRects@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@PEAU_RECTL@@K@Z.c)
  */
 
-__int64 __fastcall PRECOMPUTE::bPreComputeFast(
+_BOOL8 __fastcall PRECOMPUTE::bPreComputeFast(
         PRECOMPUTE *this,
         struct EPATHOBJ *a2,
         struct EPATHOBJ *a3,
@@ -16,210 +17,209 @@ __int64 __fastcall PRECOMPUTE::bPreComputeFast(
         char a5)
 {
   __int64 v5; // rax
-  _BYTE *v8; // rsi
-  unsigned int v9; // ebx
-  unsigned int v10; // ecx
-  struct _RECTL *v11; // r12
-  unsigned int v12; // r14d
-  __int128 *v13; // r9
-  __int128 v14; // xmm0
-  BOOL v15; // edi
-  _OWORD *v16; // rsi
-  unsigned int v17; // r15d
+  _BYTE *v8; // r14
+  unsigned int v9; // esi
+  struct _RECTL *v10; // r15
+  __int128 *v11; // r9
+  __int128 v12; // xmm0
+  __int128 *v13; // rbx
+  char v14; // r12
+  int v15; // edi
+  unsigned int v16; // r14d
+  unsigned __int64 v17; // rcx
   __int64 v18; // rax
-  unsigned int v19; // r9d
-  LONG v20; // r8d
-  struct _RECTL *v21; // rdx
+  int v19; // r12d
+  LONG v20; // edx
+  struct _RECTL *v21; // r8
   int v22; // eax
   int v23; // eax
-  LONG v24; // ecx
-  int v25; // r8d
-  struct _RECTL *v26; // rax
-  unsigned int v27; // eax
-  int v28; // eax
-  _BYTE *v30; // [rsp+20h] [rbp-E0h]
-  unsigned int v31; // [rsp+28h] [rbp-D8h]
-  int v32; // [rsp+2Ch] [rbp-D4h]
-  LONG v34; // [rsp+38h] [rbp-C8h]
-  __int128 v35; // [rsp+48h] [rbp-B8h]
-  struct _RECTL *v36; // [rsp+48h] [rbp-B8h]
-  _OWORD v37[3]; // [rsp+58h] [rbp-A8h] BYREF
+  int v24; // edx
+  struct _RECTL *v25; // rax
+  unsigned int v26; // eax
+  int v27; // eax
+  _BYTE *v29; // [rsp+20h] [rbp-E0h]
+  int v30; // [rsp+28h] [rbp-D8h]
+  LONG v32; // [rsp+38h] [rbp-C8h]
+  int v33; // [rsp+3Ch] [rbp-C4h]
+  __int128 v34; // [rsp+48h] [rbp-B8h] BYREF
+  __int128 v35; // [rsp+58h] [rbp-A8h]
+  __int128 v36; // [rsp+68h] [rbp-98h]
+  __int128 v37; // [rsp+78h] [rbp-88h]
   _OWORD v38[3]; // [rsp+88h] [rbp-78h] BYREF
   __int128 v39; // [rsp+B8h] [rbp-48h] BYREF
   struct _RECTL v40; // [rsp+D0h] [rbp-30h] BYREF
   _BYTE v41[960]; // [rsp+210h] [rbp+110h] BYREF
 
   v5 = *((unsigned int *)a2 + 1);
-  memset(v37, 0, sizeof(v37));
+  v34 = 0LL;
+  v35 = 0LL;
+  v36 = 0LL;
   memset(v38, 0, sizeof(v38));
   if ( (unsigned int)v5 > 0x14 )
   {
-    v10 = 48 * v5;
     if ( (unsigned __int64)(48 * v5) > 0xFFFFFFFF )
       return 0LL;
-    v9 = 0;
-    if ( !v10 )
+    v29 = PALLOCMEM2(48 * v5, 1734632775LL, 0);
+    v8 = v29;
+    if ( !v29 )
       return 0LL;
-    v30 = (_BYTE *)Win32AllocPool(v10, 1734632775LL, a3, a4);
-    v8 = v30;
-    if ( !v30 )
-      return 0LL;
-    v32 = 1;
+    v30 = 1;
   }
   else
   {
+    v30 = 0;
     v8 = v41;
-    v9 = 0;
-    v30 = v41;
-    v32 = 0;
+    v29 = v41;
   }
-  v11 = &v40;
-  v12 = 0;
-  v35 = 0LL;
+  v9 = 0;
+  v10 = &v40;
+  v37 = 0LL;
   v39 = 0LL;
   if ( a4 )
   {
-    v13 = &v39;
-    v14 = (__int128)*a4;
+    v11 = &v39;
+    v12 = (__int128)*a4;
     DWORD1(v39) = 16 * a4->top;
     HIDWORD(v39) = 16 * a4->bottom;
-    v35 = v14;
+    v37 = v12;
   }
   else
   {
-    v13 = 0LL;
+    v11 = 0LL;
   }
-  if ( (unsigned int)bConstructGET(a2, v38, v8, v13) )
+  if ( !(unsigned int)bConstructGET(a2, v38, v8, v11) )
   {
-    v16 = v37;
-    *(_QWORD *)&v37[0] = v37;
-    v15 = 0;
-    v17 = 0x80000000;
-    v34 = v35;
-    *(_QWORD *)((char *)v37 + 12) = 0x7FFFFFFFLL;
-LABEL_13:
-    if ( v16 == v37 || (vAdvanceAETEdges(v37), v16 = *(_OWORD **)&v37[0], *(_OWORD **)&v37[0] == v37) )
+LABEL_50:
+    v15 = 1;
+    goto LABEL_54;
+  }
+  v13 = &v34;
+  v14 = a5;
+  v15 = 0;
+  LODWORD(v35) = 0;
+  v16 = 0x80000000;
+  v33 = DWORD2(v37);
+  v32 = v37;
+  *(_QWORD *)&v34 = &v34;
+  HIDWORD(v34) = 0x7FFFFFFF;
+LABEL_11:
+  if ( v13 != &v34 )
+  {
+    vAdvanceAETEdges(&v34);
+    v13 = (__int128 *)v34;
+    if ( (__int128 *)v34 != &v34 )
     {
-      v18 = *(_QWORD *)&v38[0];
-      if ( *(_OWORD **)&v38[0] == v38 )
+      if ( *(__int128 **)v34 != &v34 )
       {
-        if ( v12 )
-        {
-          if ( (a5 & 2) != 0 )
-          {
-            v8 = v30;
-            v15 = PRECOMPUTE::bAddPreComputedFastStrokeRects((PRECOMPUTE *)v38, a3, &v40, v12) == 0;
-            goto LABEL_54;
-          }
-          v15 = PRECOMPUTE::bAddPreComputedFastFillRects((PRECOMPUTE *)v38, a3, &v40, v12) == 0;
-        }
-LABEL_53:
-        v8 = v30;
-        goto LABEL_54;
-      }
-      v17 = *(_DWORD *)(*(_QWORD *)&v38[0] + 16LL);
-    }
-    else
-    {
-      if ( **(_OWORD ***)&v37[0] != v37 )
-      {
-        vXSortAETEdges(v37);
-        v16 = *(_OWORD **)&v37[0];
+        vXSortAETEdges(&v34);
+        v13 = (__int128 *)v34;
       }
       v18 = *(_QWORD *)&v38[0];
+      goto LABEL_18;
     }
-    v19 = v17;
-    v31 = v17;
-    if ( *(_DWORD *)(v18 + 16) == v17 )
+  }
+  v18 = *(_QWORD *)&v38[0];
+  v17 = (unsigned __int64)v38;
+  if ( *(_OWORD **)&v38[0] != v38 )
+  {
+    v16 = *(_DWORD *)(*(_QWORD *)&v38[0] + 16LL);
+LABEL_18:
+    if ( *(_DWORD *)(v18 + 16) == v16 )
     {
-      vMoveNewEdges(v38, v37, v17);
-      v16 = *(_OWORD **)&v37[0];
-      v19 = v17;
+      vMoveNewEdges(v38, &v34, v16);
+      v13 = (__int128 *)v34;
     }
+    v19 = v14 & 2;
     while ( 1 )
     {
-      v20 = *((_DWORD *)v16 + 3);
-      v21 = v11;
-      if ( (a5 & 2) != 0 )
+      v20 = *((_DWORD *)v13 + 3);
+      v21 = v10;
+      if ( v19 )
       {
-        v22 = *((_DWORD *)v16 + 10);
+        v22 = *((_DWORD *)v13 + 10);
         do
         {
-          v16 = *(_OWORD **)v16;
-          v22 += *((_DWORD *)v16 + 10);
+          v13 = *(__int128 **)v13;
+          v22 += *((_DWORD *)v13 + 10);
         }
         while ( v22 );
       }
       else
       {
-        v16 = *(_OWORD **)v16;
+        v13 = *(__int128 **)v13;
       }
-      v23 = *((_DWORD *)v16 + 3);
-      if ( v20 >= v23 )
+      v23 = *((_DWORD *)v13 + 3);
+      if ( v20 < v23 )
       {
-        v17 = v19 + 1;
-      }
-      else
-      {
-        v36 = v11;
         if ( a4 )
         {
-          v24 = v34;
-          if ( v20 >= v34 )
-            v24 = v20;
-          v25 = DWORD2(v35);
-          v11->left = v24;
-          if ( v23 <= SDWORD2(v35) )
-            v25 = v23;
-          v26 = v11 + 1;
-          if ( v24 >= v25 )
-            v26 = v11;
-          v11 = v26;
-          v27 = v12 + 1;
-          if ( v24 >= v25 )
-            v27 = v12;
-          v12 = v27;
+          v17 = (unsigned int)v32;
+          if ( v20 >= v32 )
+            v17 = (unsigned int)v20;
+          v24 = v33;
+          v10->left = v17;
+          if ( v23 <= v33 )
+            v24 = v23;
+          v25 = v10 + 1;
+          if ( (int)v17 >= v24 )
+            v25 = v10;
+          v10 = v25;
+          v26 = v9 + 1;
+          if ( (int)v17 >= v24 )
+            v26 = v9;
+          v9 = v26;
         }
         else
         {
-          v11->left = v20;
-          ++v12;
-          v25 = v23;
-          ++v11;
+          v10->left = v20;
+          ++v9;
+          ++v10;
+          v24 = v23;
         }
-        v17 = v19 + 1;
-        v21->right = v25;
-        v36->top = v19;
-        v21->bottom = v19 + 1;
-        if ( v12 == 20 )
+        v21->right = v24;
+        v21->top = v16;
+        v21->bottom = v16 + 1;
+        if ( v9 == 20 )
         {
-          if ( (a5 & 2) != 0 )
-            v28 = PRECOMPUTE::bAddPreComputedFastStrokeRects((PRECOMPUTE *)4, a3, &v40, 20LL);
+          if ( v19 )
+            v27 = PRECOMPUTE::bAddPreComputedFastStrokeRects((PRECOMPUTE *)v17, a3, &v40, 0x14u);
           else
-            v28 = PRECOMPUTE::bAddPreComputedFastFillRects((PRECOMPUTE *)4, a3, &v40, 20LL);
-          if ( !v28 )
+            v27 = PRECOMPUTE::bAddPreComputedFastFillRects((PRECOMPUTE *)v17, a3, &v40, 0x14u);
+          if ( !v27 )
           {
             v15 = 1;
             goto LABEL_53;
           }
-          v19 = v31;
-          v11 = &v40;
-          v12 = 0;
+          v10 = &v40;
+          v9 = 0;
         }
       }
-      v16 = *(_OWORD **)v16;
-      if ( v16 == v37 )
+      v13 = *(__int128 **)v13;
+      if ( v13 == &v34 )
       {
-        v15 = 0;
-        v16 = *(_OWORD **)&v37[0];
-        goto LABEL_13;
+        v13 = (__int128 *)v34;
+        ++v16;
+        v14 = a5;
+        goto LABEL_11;
       }
     }
   }
-  v15 = 1;
+  if ( v9 )
+  {
+    if ( (v14 & 2) != 0 )
+    {
+      v8 = v29;
+      if ( (unsigned int)PRECOMPUTE::bAddPreComputedFastStrokeRects((PRECOMPUTE *)v38, a3, &v40, v9) )
+        goto LABEL_54;
+      goto LABEL_50;
+    }
+    if ( !(unsigned int)PRECOMPUTE::bAddPreComputedFastFillRects((PRECOMPUTE *)v38, a3, &v40, v9) )
+      v15 = 1;
+  }
+LABEL_53:
+  v8 = v29;
 LABEL_54:
-  if ( v32 )
+  if ( v30 )
     Win32FreePool(v8);
-  LOBYTE(v9) = !v15;
-  return v9;
+  return !v15;
 }

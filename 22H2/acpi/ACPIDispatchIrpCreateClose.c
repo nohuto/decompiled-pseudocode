@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIDispatchIrpCreateClose @ 0x1C0024590
+ * XREFs of ACPIDispatchIrpCreateClose @ 0x1C0052E20
  * Callers:
  *     <none>
  * Callees:

@@ -1,51 +1,38 @@
 /*
- * XREFs of VerifierExAllocatePoolWithTag @ 0x140AC0FD0
+ * XREFs of VerifierExAllocatePoolWithTag @ 0x1409D4FF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
- *     VfCheckPoolType @ 0x140AC48F0 (VfCheckPoolType.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     VfCheckPoolType @ 0x1409C7D74 (VfCheckPoolType.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45E0 (VeAllocatePoolWithTagPriority.c)
  */
 
-PVOID __fastcall VerifierExAllocatePoolWithTag(unsigned int PoolType, SIZE_T NumberOfBytes, ULONG Tag)
+PVOID __fastcall VerifierExAllocatePoolWithTag(__int32 PoolType, ULONG_PTR BugCheckParameter3, ULONG Tag)
 {
-  __int32 v4; // ebx
-  PVOID result; // rax
-  POOL_TYPE v8; // edi
-  __int64 retaddr; // [rsp+58h] [rbp+0h]
+  POOL_TYPE v7; // ebx
+  __int64 retaddr; // [rsp+48h] [rbp+0h]
 
-  v4 = PoolType & 0x10;
-  if ( (PoolType & 2) == 0
-    && (VfRuleClasses & 0x40000) != 0
-    && ViFnAutoFailInject
-    && (unsigned __int8)ViFnAutoFailInject("ExAllocatePoolWithTag") )
+  if ( (MmVerifierData & 0x400000) == 0 || (VfRuleClasses & 0x800000000LL) != 0 || (MmVerifierData & 1) != 0 )
   {
-    if ( !v4 )
-      return 0LL;
-LABEL_18:
-    RtlRaiseStatus(-1073741670);
-  }
-  v8 = PoolType & 0xFFFFFFEF;
-  if ( !v4 )
-    v8 = PoolType;
-  if ( (MmVerifierData & 0x2000000) != 0 )
-    VfCheckPoolType(PoolType, retaddr, 0LL);
-  if ( VfExAllocPoolInternal == pXdvExAllocatePoolWithTag || !pXdvExAllocatePoolWithTag )
-    result = ExAllocatePoolWithTag(v8, NumberOfBytes, Tag);
-  else
-    result = (PVOID)pXdvExAllocatePoolWithTag(
-                      v8 | 0x80u,
-                      0,
-                      NumberOfBytes,
+    VfCheckPoolType(PoolType, retaddr, Tag);
+    v7 = PoolType | 0x80;
+    if ( XdvEnabled )
+      return (PVOID)pXdvExAllocatePoolWithTag[0](
+                      v7,
+                      BugCheckParameter3,
                       Tag,
                       32,
-                      0LL,
-                      0,
                       retaddr,
-                      (__int64)VfHandlePoolAlloc);
-  if ( !result && v4 )
-    goto LABEL_18;
-  return result;
+                      (__int64)VeAllocatePoolWithTagPriority);
+    else
+      return VeAllocatePoolWithTagPriority(v7, BugCheckParameter3, Tag, HighPoolPriority, retaddr);
+  }
+  else
+  {
+    if ( (MmVerifierData & 0x2000000) != 0 )
+      VfCheckPoolType(PoolType, retaddr, 0);
+    return ExAllocatePoolWithTag((POOL_TYPE)PoolType, BugCheckParameter3, Tag);
+  }
 }

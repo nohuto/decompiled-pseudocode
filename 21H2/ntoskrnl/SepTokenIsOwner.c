@@ -1,42 +1,40 @@
 /*
- * XREFs of SepTokenIsOwner @ 0x1402A45CC
+ * XREFs of SepTokenIsOwner @ 0x14027E590
  * Callers:
- *     SeComputeCreatorDeniedRights @ 0x1402AC350 (SeComputeCreatorDeniedRights.c)
- *     SepCommonAccessCheckEx @ 0x140383ABC (SepCommonAccessCheckEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeComputeCreatorDeniedRights @ 0x14034FC90 (SeComputeCreatorDeniedRights.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     SepSidInTokenSidHash @ 0x1402FD65C (SepSidInTokenSidHash.c)
+ *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
+ *     RtlSidHashLookup @ 0x14027E660 (RtlSidHashLookup.c)
+ *     SepSidInToken @ 0x14027EA84 (SepSidInToken.c)
  */
 
-__int64 __fastcall SepTokenIsOwner(__int64 a1, __int64 a2)
+char __fastcall SepTokenIsOwner(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
-  __int64 v3; // rax
-  __int64 v4; // rbx
-  __int64 result; // rax
-  int v6; // [rsp+20h] [rbp-18h]
-  int v7; // [rsp+28h] [rbp-10h]
+  __int64 v6; // rax
+  void *v7; // rbx
+  __int64 v8; // rax
 
   if ( *(__int16 *)(a2 + 2) >= 0 )
   {
-    v4 = *(_QWORD *)(a2 + 8);
+    v7 = *(void **)(a2 + 8);
   }
   else
   {
-    v3 = *(unsigned int *)(a2 + 4);
-    if ( (_DWORD)v3 )
-      v4 = a2 + v3;
+    v6 = *(unsigned int *)(a2 + 4);
+    if ( (_DWORD)v6 )
+      v7 = (void *)(a2 + v6);
     else
-      v4 = 0LL;
+      v7 = 0LL;
   }
-  result = SepSidInTokenSidHash(a1 + 232, 0LL, v4, 0LL, 0, 0);
-  if ( (_BYTE)result )
-  {
-    if ( *(_DWORD *)(a1 + 128) )
-    {
-      LOBYTE(v7) = 0;
-      LOBYTE(v6) = 1;
-      return SepSidInTokenSidHash(a1 + 504, 0LL, v4, 0LL, v6, v7);
-    }
-  }
-  return result;
+  if ( a4 && v7 && RtlEqualSid(SeAliasAdminsSid, v7) )
+    return 0;
+  v8 = RtlSidHashLookup(a1 + 232, v7);
+  if ( !v8 || (v8 != *(_QWORD *)(a1 + 240) || (*(_DWORD *)(v8 + 8) & 0x10) != 0) && (*(_DWORD *)(v8 + 8) & 4) == 0 )
+    return 0;
+  if ( *(_DWORD *)(a1 + 128) )
+    return SepSidInToken(a1, 0, (_DWORD)v7, 0, 1, 0, a4);
+  return 1;
 }

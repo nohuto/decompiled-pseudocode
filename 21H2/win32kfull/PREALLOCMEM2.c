@@ -1,13 +1,14 @@
 /*
- * XREFs of PREALLOCMEM2 @ 0x1C011D46C
+ * XREFs of PREALLOCMEM2 @ 0x1C0132890
  * Callers:
- *     ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C0105F6C (--$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z.c)
- *     ??$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPERFAMILYFALLBACK@@0PEBU0@@Z @ 0x1C029C874 (--$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPE.c)
- *     vInitFontSubTable @ 0x1C0391C50 (vInitFontSubTable.c)
- *     vInitFontMapperFamilyFallbackTable @ 0x1C0391F80 (vInitFontMapperFamilyFallbackTable.c)
+ *     ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C011954C (--$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z.c)
+ *     ??$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPERFAMILYFALLBACK@@0PEBU0@@Z @ 0x1C029DF88 (--$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPE.c)
+ *     vInitFontSubTable @ 0x1C0394D50 (vInitFontSubTable.c)
+ *     vInitFontMapperFamilyFallbackTable @ 0x1C0394F00 (vInitFontMapperFamilyFallbackTable.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 char *__fastcall PREALLOCMEM2(void *Src, unsigned int a2, unsigned int a3, unsigned int a4)
@@ -17,9 +18,7 @@ char *__fastcall PREALLOCMEM2(void *Src, unsigned int a2, unsigned int a3, unsig
   char *v8; // rdi
 
   v5 = a2;
-  if ( !a3 )
-    return 0LL;
-  v7 = (char *)Win32AllocPool(a3, a4);
+  v7 = (char *)PALLOCMEM2(a3, a4, 0);
   v8 = v7;
   if ( v7 )
   {

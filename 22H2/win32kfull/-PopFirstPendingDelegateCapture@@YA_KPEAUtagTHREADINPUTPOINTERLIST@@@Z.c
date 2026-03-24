@@ -1,27 +1,33 @@
 /*
- * XREFs of ?PopFirstPendingDelegateCapture@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@@Z @ 0x1C01C60DC
+ * XREFs of ?PopFirstPendingDelegateCapture@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@@Z @ 0x1C01F1030
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int64 __fastcall PopFirstPendingDelegateCapture(struct tagTHREADINPUTPOINTERLIST *a1)
 {
-  __int64 i; // rax
-  int v2; // edx
+  __int64 v1; // rdx
+  int v2; // r8d
+  __int64 v3; // rax
 
-  if ( *(struct tagTHREADINPUTPOINTERLIST **)a1 != a1 )
+  if ( *(struct tagTHREADINPUTPOINTERLIST **)a1 == a1 )
+    return 0LL;
+  v1 = *((_QWORD *)a1 + 1);
+  if ( (struct tagTHREADINPUTPOINTERLIST *)v1 == a1 )
+    return 0LL;
+  do
   {
-    for ( i = *((_QWORD *)a1 + 1); (struct tagTHREADINPUTPOINTERLIST *)i != a1; i = *(_QWORD *)(i + 8) )
-    {
-      v2 = *(_DWORD *)(i + 48);
-      if ( (v2 & 4) != 0 )
-      {
-        *(_DWORD *)(i + 48) = v2 & 0xFFFFFFFB;
-        return *(_QWORD *)(i + 24);
-      }
-    }
+    v2 = *(_DWORD *)(v1 + 48);
+    v3 = v1;
+    if ( (v2 & 4) != 0 )
+      break;
+    v1 = *(_QWORD *)(v1 + 8);
   }
-  return 0LL;
+  while ( (struct tagTHREADINPUTPOINTERLIST *)v1 != a1 );
+  if ( (struct tagTHREADINPUTPOINTERLIST *)v1 == a1 )
+    return 0LL;
+  *(_DWORD *)(v3 + 48) = v2 & 0xFFFFFFFB;
+  return *(_QWORD *)(v3 + 24);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIThermalWmi @ 0x1C0096260
+ * XREFs of ACPIThermalWmi @ 0x1C00A35B0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIDispatchForwardIrp @ 0x1C0001770 (ACPIDispatchForwardIrp.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001E60 (ACPIDispatchForwardIrp.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
  */
 
 __int64 __fastcall ACPIThermalWmi(struct _DEVICE_OBJECT *BugCheckParameter3, PIRP Irp)

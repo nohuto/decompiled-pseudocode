@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlGetRvaListIteratorState @ 0x1406AB1B0
+ * XREFs of RtlGetRvaListIteratorState @ 0x1406AB190
  * Callers:
- *     RtlEnumRvaListFirst @ 0x1406AB164 (RtlEnumRvaListFirst.c)
+ *     RtlEnumRvaListFirst @ 0x1406AB144 (RtlEnumRvaListFirst.c)
  * Callees:
  *     <none>
  */

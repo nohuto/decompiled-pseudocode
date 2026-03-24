@@ -1,16 +1,14 @@
 /*
- * XREFs of DxgkGetWin32kImportTable @ 0x1C001166C
+ * XREFs of DxgkGetWin32kImportTable @ 0x1C0016CC8
  * Callers:
- *     NtTokenManagerCreateCompositionTokenHandle @ 0x1C0011260 (NtTokenManagerCreateCompositionTokenHandle.c)
- *     ?Discard@CCompositionToken@@UEAAXXZ @ 0x1C0012230 (-Discard@CCompositionToken@@UEAAXXZ.c)
- *     ?FlipManagerCreateProducerTokenInitInfo@@YAJPEAX_N_KIPEAUFlipPropertyItem@@PEAUFlipManagerTokenInitInfo@@@Z @ 0x1C0081E88 (-FlipManagerCreateProducerTokenInitInfo@@YAJPEAX_N_KIPEAUFlipPropertyItem@@PEAUFlipManagerTokenI.c)
- *     ?ConsumerIFlipTokenCompleted@CFlipManager@@QEAAXPEAVCFlipManagerToken@@PEAPEAVCToken@@@Z @ 0x1C0083570 (-ConsumerIFlipTokenCompleted@CFlipManager@@QEAAXPEAVCFlipManagerToken@@PEAPEAVCToken@@@Z.c)
- *     ?DxgkProcessCallout@@YAJPEAPEAXQEBU_DXGKWIN32KENG_INTERFACE_HEADER@@E@Z @ 0x1C01A9DF0 (-DxgkProcessCallout@@YAJPEAPEAXQEBU_DXGKWIN32KENG_INTERFACE_HEADER@@E@Z.c)
+ *     NtTokenManagerCreateCompositionTokenHandle @ 0x1C0016880 (NtTokenManagerCreateCompositionTokenHandle.c)
+ *     ?Discard@CCompositionToken@@UEAAXXZ @ 0x1C0017FE0 (-Discard@CCompositionToken@@UEAAXXZ.c)
+ *     DxgkCreateAllocation @ 0x1C015C590 (DxgkCreateAllocation.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
  */
 
-__int64 DxgkGetWin32kImportTable()
+__int64 __fastcall DxgkGetWin32kImportTable(__int64 a1, __int64 a2)
 {
-  return *((_QWORD *)DXGGLOBAL::GetGlobal() + 38069);
+  return *((_QWORD *)DXGGLOBAL::GetGlobal(a1, a2) + 38048);
 }

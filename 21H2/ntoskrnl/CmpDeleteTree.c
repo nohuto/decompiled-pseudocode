@@ -1,79 +1,64 @@
 /*
- * XREFs of CmpDeleteTree @ 0x1409222C0
+ * XREFs of CmpDeleteTree @ 0x14087E99C
  * Callers:
- *     CmRestoreKey @ 0x14090C34C (CmRestoreKey.c)
- *     CmpSyncSubKeysAfterDelete @ 0x140920AB4 (CmpSyncSubKeysAfterDelete.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x14087A268 (CmpSyncSubKeysAfterDelete.c)
+ *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
  * Callees:
- *     CmpFindSubKeyByNumber @ 0x1406BF278 (CmpFindSubKeyByNumber.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpFreeKeyByCell @ 0x1407164DC (CmpFreeKeyByCell.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
+ *     CmpFreeKeyByCell @ 0x14066B280 (CmpFreeKeyByCell.c)
  */
 
-char __fastcall CmpDeleteTree(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
+char __fastcall CmpDeleteTree(ULONG_PTR a1, unsigned int a2)
 {
-  int v2; // r15d
-  unsigned int v4; // esi
-  _DWORD *CellFlat; // rax
-  unsigned int v6; // edi
-  int SubKeyByNumber; // edi
+  unsigned int v4; // ebp
+  _DWORD *v5; // rax
+  unsigned int v6; // ebx
+  int SubKeyByNumber; // ebx
   __int64 v8; // rax
-  int v9; // r14d
-  __int64 v11; // [rsp+50h] [rbp+30h] BYREF
-  ULONG_PTR BugCheckParameter4a; // [rsp+58h] [rbp+38h] BYREF
+  int v9; // ebx
+  int v11; // [rsp+40h] [rbp+8h] BYREF
+  int v12; // [rsp+44h] [rbp+Ch]
+  unsigned int v13; // [rsp+48h] [rbp+10h] BYREF
 
-  LODWORD(BugCheckParameter4a) = 0;
-  v2 = BugCheckParameter4;
-  v11 = 0xFFFFFFFFLL;
-  v4 = BugCheckParameter4;
+  v13 = 0;
+  v11 = -1;
+  v4 = a2;
+  v12 = 0;
   while ( 1 )
   {
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      CellFlat = (_DWORD *)HvpGetCellFlat(BugCheckParameter3, v4, &v11);
-    else
-      CellFlat = (_DWORD *)HvpGetCellPaged(BugCheckParameter3, v4, (unsigned int *)&v11);
-    if ( !CellFlat )
-      return 0;
-    v6 = CellFlat[4];
-    if ( !(CellFlat[5] + CellFlat[6]) )
+    while ( 1 )
+    {
+      v5 = (_DWORD *)(*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, int *))(a1 + 8))(a1, v4, &v11);
+      if ( !v5 )
+        return 0;
+      v6 = v5[4];
+      if ( !(v5[5] + v5[6]) )
+        break;
+      SubKeyByNumber = CmpFindSubKeyByNumber(a1, v5, 0, &v13);
+      (*(void (__fastcall **)(ULONG_PTR, int *))(a1 + 16))(a1, &v11);
+      if ( SubKeyByNumber < 0 )
+        return 0;
+      if ( v13 == -1 )
+        return 0;
+      v8 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, int *))(a1 + 8))(a1, v13, &v11);
+      if ( !v8 )
+        return 0;
+      v9 = *(_DWORD *)(v8 + 20) + *(_DWORD *)(v8 + 24);
+      (*(void (__fastcall **)(ULONG_PTR, int *))(a1 + 16))(a1, &v11);
+      if ( v9 )
+      {
+        v4 = v13;
+      }
+      else if ( (int)CmpFreeKeyByCell(a1, v13, 1) < 0 )
+      {
+        return 0;
+      }
+    }
+    (*(void (__fastcall **)(ULONG_PTR, int *))(a1 + 16))(a1, &v11);
+    if ( v4 == a2 )
       break;
-    SubKeyByNumber = CmpFindSubKeyByNumber(BugCheckParameter3, CellFlat, 0, &BugCheckParameter4a);
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, &v11);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v11);
-    if ( SubKeyByNumber < 0 )
-      return 0;
-    v6 = BugCheckParameter4a;
-    if ( (_DWORD)BugCheckParameter4a == -1 )
-      return 0;
-    v8 = (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0
-       ? HvpGetCellFlat(BugCheckParameter3, (unsigned int)BugCheckParameter4a, &v11)
-       : HvpGetCellPaged(BugCheckParameter3, BugCheckParameter4a, (unsigned int *)&v11);
-    if ( !v8 )
-      return 0;
-    v9 = *(_DWORD *)(v8 + 20) + *(_DWORD *)(v8 + 24);
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, &v11);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v11);
-    if ( v9 )
-    {
-LABEL_20:
-      v4 = v6;
-    }
-    else if ( (int)CmpFreeKeyByCell(BugCheckParameter3, v6, 1) < 0 )
-    {
-      return 0;
-    }
+    v4 = v6;
   }
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, &v11);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v11);
-  if ( v4 != v2 )
-    goto LABEL_20;
   return 1;
 }

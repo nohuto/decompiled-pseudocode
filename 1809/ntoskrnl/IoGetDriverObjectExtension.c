@@ -1,10 +1,10 @@
 /*
- * XREFs of IoGetDriverObjectExtension @ 0x140136D40
+ * XREFs of IoGetDriverObjectExtension @ 0x140136D60
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
  */
 
 PVOID __stdcall IoGetDriverObjectExtension(PDRIVER_OBJECT DriverObject, PVOID ClientIdentificationAddress)

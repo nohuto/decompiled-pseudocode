@@ -1,27 +1,41 @@
 /*
- * XREFs of ?SetPowerComponentIdleCB@DXGADAPTER@@QEAAXI@Z @ 0x1C001CE08
+ * XREFs of ?SetPowerComponentIdleCB@DXGADAPTER@@QEAAXI@Z @ 0x1C003982C
  * Callers:
- *     DxgSetPowerComponentIdleCB @ 0x1C001CDA0 (DxgSetPowerComponentIdleCB.c)
- *     ?SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z @ 0x1C031562C (-SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z.c)
- *     ?UnregisterSharedPowerDriver@DXGGLOBAL@@QEAAJQEAX0@Z @ 0x1C0315CAC (-UnregisterSharedPowerDriver@DXGGLOBAL@@QEAAJQEAX0@Z.c)
+ *     DxgSetPowerComponentIdleCB @ 0x1C0042910 (DxgSetPowerComponentIdleCB.c)
+ *     ?SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z @ 0x1C026C004 (-SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z.c)
+ *     ?UnregisterSharedPowerDriver@DXGGLOBAL@@QEAAJQEAX0@Z @ 0x1C026C5F0 (-UnregisterSharedPowerDriver@DXGGLOBAL@@QEAAJQEAX0@Z.c)
  * Callees:
- *     ?SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z @ 0x1C000CAE0 (-SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z.c)
+ *     ?SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z @ 0x1C0039980 (-SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z.c)
  */
 
-void __fastcall DXGADAPTER::SetPowerComponentIdleCB(DXGADAPTER *this, unsigned int a2)
+void __fastcall DXGADAPTER::SetPowerComponentIdleCB(DXGADAPTER *this, __int64 a2)
 {
   unsigned int v3; // edi
+  __int64 v4; // rax
+  __int64 v5; // rax
 
-  v3 = (unsigned __int16)a2 + *((unsigned __int16 *)this + ((unsigned __int64)a2 >> 16) + 1520);
-  if ( v3 >= *((_DWORD *)this + 792) )
-    WdLogSingleEntry5(0LL, 275LL, 23LL, this, 0LL, 0LL);
-  if ( *((_BYTE *)this + 3465) )
+  v3 = (unsigned __int16)a2 + *((unsigned __int16 *)this + ((unsigned __int64)(unsigned int)a2 >> 16) + 1408);
+  if ( v3 >= *((_DWORD *)this + 736) )
   {
-    _InterlockedDecrement((volatile signed __int32 *)(520LL * v3 + *((_QWORD *)this + 378) + 348));
-    DXGADAPTER::SetPowerComponentIdleCBWorker(this, v3, 0LL);
+    v4 = WdLogNewEntry5_WdCriticalError(this, a2);
+    *(_QWORD *)(v4 + 24) = 275LL;
+    *(_QWORD *)(v4 + 32) = 23LL;
+    *(_QWORD *)(v4 + 40) = this;
+    *(_OWORD *)(v4 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v4);
+  }
+  if ( *((_BYTE *)this + 3241) )
+  {
+    _InterlockedDecrement((volatile signed __int32 *)(520LL * v3 + *((_QWORD *)this + 350) + 348));
+    DXGADAPTER::SetPowerComponentIdleCBWorker(this, v3, 0);
   }
   else
   {
-    WdLogSingleEntry5(0LL, 275LL, 23LL, this, 0LL, 0LL);
+    v5 = WdLogNewEntry5_WdCriticalError(this, a2);
+    *(_QWORD *)(v5 + 24) = 275LL;
+    *(_QWORD *)(v5 + 32) = 23LL;
+    *(_QWORD *)(v5 + 40) = this;
+    *(_OWORD *)(v5 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v5);
   }
 }

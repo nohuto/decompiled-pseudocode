@@ -1,5 +1,5 @@
 /*
- * XREFs of MiUpdatePfnProtection @ 0x1402BF45C
+ * XREFs of MiUpdatePfnProtection @ 0x1402BF55C
  * Callers:
  *     MiSetReadOnlyOnSectionView @ 0x140085B00 (MiSetReadOnlyOnSectionView.c)
  * Callees:

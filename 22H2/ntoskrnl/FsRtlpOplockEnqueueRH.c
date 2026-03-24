@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlpOplockEnqueueRH @ 0x140302464
+ * XREFs of FsRtlpOplockEnqueueRH @ 0x1402061E4
  * Callers:
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1402FD670 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402057B0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0208 (FsRtlpRemoveAndCompleteRHIrp.c)
  * Callees:
- *     FsRtlpOplockDequeueRH @ 0x140301520 (FsRtlpOplockDequeueRH.c)
- *     IoSetOplockPrivateFoExt @ 0x1403024C8 (IoSetOplockPrivateFoExt.c)
+ *     IoSetOplockPrivateFoExt @ 0x140206248 (IoSetOplockPrivateFoExt.c)
+ *     FsRtlpOplockDequeueRH @ 0x1402D7250 (FsRtlpOplockDequeueRH.c)
  */
 
 __int64 __fastcall FsRtlpOplockEnqueueRH(__int64 *a1, _QWORD *a2)
 {
   __int64 v2; // rax
   __int64 v4; // rcx
-  int v5; // r11d
+  int v5; // r10d
   _OWORD v7[2]; // [rsp+20h] [rbp-38h] BYREF
   __int64 v8; // [rsp+40h] [rbp-18h]
   _QWORD *v9; // [rsp+48h] [rbp-10h]
@@ -30,6 +30,6 @@ __int64 __fastcall FsRtlpOplockEnqueueRH(__int64 *a1, _QWORD *a2)
   memset(v7, 0, sizeof(v7));
   v5 = IoSetOplockPrivateFoExt(v4, v7);
   if ( v5 < 0 )
-    FsRtlpOplockDequeueRH((__int64)a2);
+    FsRtlpOplockDequeueRH(a2);
   return (unsigned int)v5;
 }

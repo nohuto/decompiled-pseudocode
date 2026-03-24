@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DXGIFormatToPixelFormat@@YA?AW4Enum@MilPixelFormat@@W4DXGI_FORMAT@@_N@Z @ 0x18026F64C
+ * XREFs of ?DXGIFormatToPixelFormat@@YA?AW4Enum@MilPixelFormat@@W4DXGI_FORMAT@@_N@Z @ 0x18021F0E0
  * Callers:
- *     ?GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z @ 0x1802710B0 (-GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z.c)
- *     ?GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z @ 0x180271AA0 (-GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z.c)
+ *     ?GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z @ 0x180217CE0 (-GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z.c)
+ *     ?GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z @ 0x1802186C0 (-GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z.c)
  * Callees:
  *     <none>
  */

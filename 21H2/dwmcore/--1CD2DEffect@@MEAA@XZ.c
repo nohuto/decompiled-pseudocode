@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CD2DEffect@@MEAA@XZ @ 0x18028DAE0
+ * XREFs of ??1CD2DEffect@@MEAA@XZ @ 0x18024D500
  * Callers:
- *     ??_GCD2DEffect@@MEAAPEAXI@Z @ 0x18028DB70 (--_GCD2DEffect@@MEAAPEAXI@Z.c)
+ *     ??_GCD2DEffect@@MEAAPEAXI@Z @ 0x18024D590 (--_GCD2DEffect@@MEAAPEAXI@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CD2DEffect::~CD2DEffect(CD2DEffect *this)
@@ -13,7 +13,7 @@ void __fastcall CD2DEffect::~CD2DEffect(CD2DEffect *this)
   __int64 v4; // rcx
 
   *(_QWORD *)this = &CD2DEffect::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CD2DEffect::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CD2DPrimitiveProperties::`vftable'{for `IUnknown'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 8LL) + 16) = &CD2DEffect::`vftable'{for `IDeviceResource'};
   v2 = *(int *)(*((_QWORD *)this + 2) + 4LL);
   *(_DWORD *)((char *)this + v2 + 12) = v2 - 80;

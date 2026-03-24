@@ -1,19 +1,19 @@
 /*
- * XREFs of PspHardenMitigationOptions @ 0x1407E0368
+ * XREFs of PspHardenMitigationOptions @ 0x14069AECC
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-void __fastcall PspHardenMitigationOptions(__m128i *a1)
+unsigned __int8 __fastcall PspHardenMitigationOptions(__m128i *a1)
 {
   __int64 v2; // xmm2_8
   unsigned __int64 v3; // rdx
   __int64 v4; // r8
   unsigned __int64 v5; // xmm1_8
   unsigned __int8 v6; // cl
-  char v7; // al
+  unsigned __int8 result; // al
   __m128i v8; // [rsp+20h] [rbp-20h]
 
   v2 = a1[1].m128i_i64[0];
@@ -25,7 +25,7 @@ void __fastcall PspHardenMitigationOptions(__m128i *a1)
     v5 = _mm_srli_si128(*a1, 8).m128i_u64[0];
     v4 = v5 - *((_QWORD *)&PspHardenedMitigationOptionsMap + 1);
     if ( v5 == *((_QWORD *)&PspHardenedMitigationOptionsMap + 1) )
-      v4 = a1[1].m128i_i64[0] - qword_140D1F428;
+      v4 = a1[1].m128i_i64[0] - qword_140CFCC78;
   }
   if ( v4 )
   {
@@ -58,10 +58,15 @@ void __fastcall PspHardenMitigationOptions(__m128i *a1)
       v3 = v3 & 0xFFFFFFFFFFFCFFFFuLL | 0x10000;
       v8.m128i_i64[0] = v3;
     }
-    v7 = (v3 >> 20) & 3;
-    if ( v7 != 1 && v7 != 2 && (((unsigned __int64)PspSystemMitigationOptions >> 20) & 3) != 2 )
-      v8.m128i_i64[0] = v3 & 0xFFFFFFFFFFCFFFFFuLL | 0x100000;
+    result = ((v3 >> 20) & 3) - 1;
+    if ( result > 1u )
+    {
+      result = ((unsigned __int64)PspSystemMitigationOptions >> 20) & 3;
+      if ( result != 2 )
+        v8.m128i_i64[0] = v3 & 0xFFFFFFFFFFCFFFFFuLL | 0x100000;
+    }
     *a1 = v8;
     a1[1].m128i_i64[0] = v2;
   }
+  return result;
 }

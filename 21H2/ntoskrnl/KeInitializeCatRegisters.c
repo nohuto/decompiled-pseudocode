@@ -1,8 +1,8 @@
 /*
- * XREFs of KeInitializeCatRegisters @ 0x1403B6CE8
+ * XREFs of KeInitializeCatRegisters @ 0x1403A7B18
  * Callers:
- *     KiRestoreFeatureBits @ 0x14038D164 (KiRestoreFeatureBits.c)
- *     KeInitSystem @ 0x140B03800 (KeInitSystem.c)
+ *     KiRestoreFeatureBits @ 0x140383D30 (KiRestoreFeatureBits.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 KeInitializeCatRegisters()
 
   if ( KiCacheIsoBitmap )
   {
-    if ( _bittest64(&KeFeatureBits, 0x2Cu) )
+    if ( (KeFeatureBits & 0x100000000000LL) != 0 )
     {
       result = (unsigned int)KiCacheIsoBitmap;
       __writemsr(0xC91u, (unsigned int)KiCacheIsoBitmap);

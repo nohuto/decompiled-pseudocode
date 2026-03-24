@@ -1,90 +1,66 @@
 /*
- * XREFs of ApiSetGetPTPShellTarget @ 0x1C020D384
+ * XREFs of ApiSetGetPTPShellTarget @ 0x1C01CF054
  * Callers:
- *     ?GetHitTestState@CPTPProcessor@@QEAAPEBUCHitTestState@@PEBUCPointerInputFrame@@@Z @ 0x1C01DE300 (-GetHitTestState@CPTPProcessor@@QEAAPEBUCHitTestState@@PEBUCPointerInputFrame@@@Z.c)
+ *     ?PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@PEAUtagCHitTestState@@K@Z @ 0x1C0197CF8 (-PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@PEA.c)
+ *     ?UpdateInputCaptureAndGetTarget@CTouchProcessor@@QEAA?AVCInputDest@@PEBUtagPOINTEREVENTINT@@PEAUCInputPointerNode@@IPEAUtagCHitTestState@@PEAGPEAIK@Z @ 0x1C01A0528 (-UpdateInputCaptureAndGetTarget@CTouchProcessor@@QEAA-AVCInputDest@@PEBUtagPOINTEREVENTINT@@PEAU.c)
+ *     ?ShellEndpointExists@CPTPProcessor@@AEAA_NXZ @ 0x1C01A767C (-ShellEndpointExists@CPTPProcessor@@AEAA_NXZ.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     GetPTPShellTarget @ 0x1C023E174 (GetPTPShellTarget.c)
- *     IsGetPTPShellTargetSupported @ 0x1C023E28C (IsGetPTPShellTargetSupported.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     GetPTPShellTarget @ 0x1C01FC384 (GetPTPShellTarget.c)
+ *     IsGetPTPShellTargetSupported @ 0x1C01FC500 (IsGetPTPShellTargetSupported.c)
  */
 
 _OWORD *__fastcall ApiSetGetPTPShellTarget(_OWORD *a1)
 {
   int v2; // edx
-  int v3; // r8d
-  char v4; // bl
-  int v5; // edx
-  int v6; // r8d
+  int v3; // edx
   _OWORD *PTPShellTarget; // rax
-  __int128 v8; // xmm1
-  __int128 v9; // xmm0
-  __int128 v10; // xmm1
-  __int128 v11; // xmm0
-  __int128 v12; // xmm1
-  __int128 v13; // xmm0
-  _BYTE v15[112]; // [rsp+40h] [rbp-88h] BYREF
+  __int128 v5; // xmm1
+  __int128 v6; // xmm0
+  __int128 v7; // xmm1
+  __int128 v8; // xmm0
+  __int128 v9; // xmm1
+  __int128 v10; // xmm0
+  _BYTE v12[112]; // [rsp+30h] [rbp-78h] BYREF
 
   memset(a1, 0, 0x70uLL);
-  v4 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(v2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(v2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(v3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(v3) = 0;
-  }
-  if ( (_BYTE)v2 || (_BYTE)v3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v2,
-      v3,
+    LOBYTE(v2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      v2,
       10,
-      368,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+      358,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
   if ( (int)IsGetPTPShellTargetSupported() >= 0 )
   {
-    PTPShellTarget = (_OWORD *)GetPTPShellTarget(v15);
-    v8 = PTPShellTarget[1];
+    PTPShellTarget = (_OWORD *)GetPTPShellTarget(v12);
+    v5 = PTPShellTarget[1];
     *a1 = *PTPShellTarget;
-    v9 = PTPShellTarget[2];
-    a1[1] = v8;
-    v10 = PTPShellTarget[3];
-    a1[2] = v9;
-    v11 = PTPShellTarget[4];
-    a1[3] = v10;
-    v12 = PTPShellTarget[5];
-    a1[4] = v11;
-    v13 = PTPShellTarget[6];
-    a1[5] = v12;
-    a1[6] = v13;
+    v6 = PTPShellTarget[2];
+    a1[1] = v5;
+    v7 = PTPShellTarget[3];
+    a1[2] = v6;
+    v8 = PTPShellTarget[4];
+    a1[3] = v7;
+    v9 = PTPShellTarget[5];
+    a1[4] = v8;
+    v10 = PTPShellTarget[6];
+    a1[5] = v9;
+    a1[6] = v10;
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(v5) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(v5) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v4 = 0;
-  if ( (_BYTE)v5 || v4 )
-  {
-    LOBYTE(v6) = v4;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v5,
-      v6,
+    LOBYTE(v3) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      v3,
       10,
-      369,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+      359,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
   return a1;
 }

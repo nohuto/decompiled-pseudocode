@@ -1,35 +1,33 @@
 /*
- * XREFs of DwmAsyncShowSprite @ 0x1C00C9540
+ * XREFs of DwmAsyncShowSprite @ 0x1C011AC18
  * Callers:
- *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00317F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
- *     ?vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z @ 0x1C005AD50 (-vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z.c)
+ *     GreUpdateSpriteVisRgn @ 0x1C0073150 (GreUpdateSpriteVisRgn.c)
+ *     ?vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z @ 0x1C00EC030 (-vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z.c)
  * Callees:
- *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C00CD030 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ *     <none>
  */
 
-__int64 __fastcall DwmAsyncShowSprite(PVOID Object, __int64 a2, int a3)
+__int64 __fastcall DwmAsyncShowSprite(PVOID Object, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v6; // ebx
-  _OWORD v8[2]; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v9; // [rsp+40h] [rbp-28h]
-  int v10; // [rsp+48h] [rbp-20h]
-  __int64 v11; // [rsp+4Ch] [rbp-1Ch]
-  int v12; // [rsp+54h] [rbp-14h]
+  unsigned int v5; // ebx
+  _OWORD v7[2]; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE v8[20]; // [rsp+40h] [rbp-28h]
+  int v9; // [rsp+54h] [rbp-14h]
 
-  v6 = -1073741823;
-  IncrementDWMWindowUniqueness();
+  v5 = -1073741823;
+  _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    memset(v8, 0, sizeof(v8));
-    v9 = 0LL;
-    WORD2(v8[0]) = 0x8000;
-    LODWORD(v8[0]) = 3670032;
-    v10 = 1073741831;
-    v11 = a2;
-    v12 = a3;
-    EtwUpdateEvent(a2, 1073741831LL);
-    v6 = LpcRequestPort(Object, v8);
+    memset(v7, 0, sizeof(v7));
+    *(_QWORD *)v8 = 0LL;
+    WORD2(v7[0]) = 0x8000;
+    LODWORD(v7[0]) = 3670032;
+    *(_DWORD *)&v8[8] = 1073741831;
+    *(_QWORD *)&v8[12] = a2;
+    v9 = a3;
+    EtwUpdateEvent(a2, 1073741831LL, a3, a4);
+    v5 = LpcRequestPort(Object, v7);
     ObfDereferenceObject(Object);
   }
-  return v6;
+  return v5;
 }

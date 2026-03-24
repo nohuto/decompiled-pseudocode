@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogSectionCreate @ 0x140A2F6B0
+ * XREFs of MiLogSectionCreate @ 0x1408C78A0
  * Callers:
- *     MiSegmentDelete @ 0x1406B0954 (MiSegmentDelete.c)
- *     MiCreatePagingFileMap @ 0x140747EA4 (MiCreatePagingFileMap.c)
+ *     MiCreatePagingFileMap @ 0x14061C968 (MiCreatePagingFileMap.c)
+ *     MiSegmentDelete @ 0x140635830 (MiSegmentDelete.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiLogPerfMemoryRangeEvent @ 0x14061D8E8 (MiLogPerfMemoryRangeEvent.c)
- *     MiInitPerfMemoryFlags @ 0x14064165C (MiInitPerfMemoryFlags.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14053155C (MiLogPerfMemoryRangeEvent.c)
+ *     MiInitPerfMemoryFlags @ 0x140544998 (MiInitPerfMemoryFlags.c)
  */
 
 _QWORD *__fastcall MiLogSectionCreate(__int64 *a1, int a2)
@@ -41,20 +41,17 @@ _QWORD *__fastcall MiLogSectionCreate(__int64 *a1, int a2)
       v7 = *((unsigned int *)v3 + 11);
       *(_QWORD *)&v10 = v3[1];
       *((_QWORD *)&v10 + 1) = v6 + 8 * v7;
-      if ( a2 )
+      if ( a2 == 1 )
       {
         v14 = 0;
         LODWORD(v11) = v5;
         v12 = &v10;
         v13 = 24;
-        EtwTraceKernelEvent((int)&v12, 1, 0x20400001u, 585, 4200706);
-        if ( _bittest16((const signed __int16 *)(v2 + 12), 0xCu) )
+        EtwTraceKernelEvent((__int64)&v12, 1u, 0x20400001u, 0x249u, 0x401902u);
+        if ( (*(_WORD *)(v2 + 12) & 0x1000) != 0 && (BYTE4(PerfGlobalGroupMask[0]) & 1) != 0 )
         {
-          if ( (BYTE4(PerfGlobalGroupMask[0]) & 1) != 0 )
-          {
-            inited = MiInitPerfMemoryFlags(1, 2);
-            MiLogPerfMemoryRangeEvent(v6, 0LL, inited, *((unsigned int *)v3 + 11));
-          }
+          inited = MiInitPerfMemoryFlags(1, 2);
+          MiLogPerfMemoryRangeEvent(v6, 0LL, inited, *((unsigned int *)v3 + 11));
         }
       }
       else
@@ -63,7 +60,7 @@ _QWORD *__fastcall MiLogSectionCreate(__int64 *a1, int a2)
         v17 = 0;
         v15 = &v10;
         v16 = 24;
-        EtwTraceKernelEvent((int)&v15, 1, 0x20400001u, 591, 20977922);
+        EtwTraceKernelEvent((__int64)&v15, 1u, 0x20400001u, 0x24Fu, 0x1401902u);
       }
     }
     result = (_QWORD *)v3[2];

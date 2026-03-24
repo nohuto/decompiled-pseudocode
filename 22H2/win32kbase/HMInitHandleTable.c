@@ -1,38 +1,41 @@
 /*
- * XREFs of HMInitHandleTable @ 0x1C02DD0A0
+ * XREFs of HMInitHandleTable @ 0x1C0298B50
  * Callers:
- *     Win32UserInitialize @ 0x1C02DBF90 (Win32UserInitialize.c)
+ *     Win32UserInitialize @ 0x1C0297BBC (Win32UserInitialize.c)
  * Callees:
- *     ?HMGrowHandleTable@@YAHXZ @ 0x1C007E950 (-HMGrowHandleTable@@YAHXZ.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0033100 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
+ *     ?HMGrowHandleTable@@YAHXZ @ 0x1C006A2F4 (-HMGrowHandleTable@@YAHXZ.c)
  */
 
 __int64 HMInitHandleTable()
 {
-  _WORD *v0; // rbx
-  _QWORD *v1; // rdi
-  __int64 result; // rax
+  struct _HANDLEENTRY *v0; // rdi
+  unsigned int v1; // ebx
+  _QWORD *v2; // rsi
+  _BYTE v4[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v0 = gpvSharedBase;
+  v0 = (struct _HANDLEENTRY *)gpvSharedBase;
+  CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>((__int64)v4);
+  v1 = 0;
+  v2 = gpKernelHandleTable;
   gHandlePages = 0LL;
-  qword_1C028FDB0 = 0LL;
-  qword_1C028FDA8 = 0LL;
-  v1 = gpKernelHandleTable;
-  qword_1C028FE68 = (struct _HANDLEENTRY *)gpvSharedBase;
-  dword_1C028FE70 = 32;
+  qword_1C024ECF0 = 0LL;
+  qword_1C024ECE8 = 0LL;
+  qword_1C024FA38 = v0;
+  dword_1C024FA40 = 32;
   *((_QWORD *)gpsi + 1) = 0LL;
   *((_DWORD *)gpsi + 216) = 0;
   if ( (unsigned int)HMGrowHandleTable() )
   {
-    *v1 = 0LL;
-    result = 1LL;
-    v0[13] = 1;
+    *v2 = 0LL;
     *((_BYTE *)v0 + 24) = 0;
-    qword_1C028FDA8 = 2LL;
+    v1 = 1;
+    *((_WORD *)v0 + 13) = 1;
+    qword_1C024ECE8 = 2LL;
   }
   else
   {
-    qword_1C028FE68 = 0LL;
-    return 0LL;
+    qword_1C024FA38 = 0LL;
   }
-  return result;
+  return v1;
 }

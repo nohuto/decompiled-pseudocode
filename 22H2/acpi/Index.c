@@ -1,86 +1,87 @@
 /*
- * XREFs of Index @ 0x1C0056C20
+ * XREFs of Index @ 0x1C000B100
  * Callers:
  *     <none>
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     ValidateTarget @ 0x1C004D510 (ValidateTarget.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     WriteObject @ 0x1C00532C0 (WriteObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
-__int64 __fastcall Index(__int64 a1, __int64 a2)
+__int64 __fastcall Index(struct _SLIST_ENTRY *a1, __int64 a2)
 {
   unsigned int v4; // ebx
   __int64 v5; // rcx
-  _DWORD *v6; // r14
-  unsigned __int64 v7; // r8
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // rdx
+  int *v6; // r14
+  __int64 v7; // rcx
+  __int64 v9; // rdx
+  int v10; // r8d
+  __int64 v11; // rdx
   __int64 v12; // [rsp+48h] [rbp+10h] BYREF
 
   v12 = 0LL;
-  v4 = ValidateArgTypes(a1, *(_QWORD *)(a2 + 80), 1, "CI");
+  v4 = ValidateArgTypes((__int64)a1, *(_QWORD *)(a2 + 80), 1, "CI");
   if ( !v4 )
   {
-    v4 = ValidateTarget(a1, *(_QWORD *)(a2 + 80) + 80LL, 133, (__int64)&v12);
+    v4 = ValidateTarget(a1, *(_QWORD *)(a2 + 80) + 80LL, 133LL, &v12);
     if ( !v4 )
     {
       v5 = *(_QWORD *)(a2 + 80);
       if ( *(_WORD *)(v5 + 2) == 3 )
       {
-        if ( *(_DWORD *)(v5 + 56) >= *(_DWORD *)(v5 + 24) )
+        if ( *(_DWORD *)(v5 + 56) < *(_DWORD *)(v5 + 24) )
         {
-          v4 = -1072431100;
-          LogError(-1072431100);
-          AcpiDiagTraceAmlError(a1, -1072431100);
-          v8 = *(_QWORD *)(a2 + 80);
-          v7 = *(unsigned int *)(v8 + 24);
-          goto LABEL_7;
-        }
-        *(_WORD *)(*(_QWORD *)(a2 + 88) + 2LL) = 14;
-        *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL) = 48;
-        *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) = HeapAlloc(
-                                                     *(_QWORD *)(a1 + 320),
-                                                     1145455176,
-                                                     *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL));
-        v10 = *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL);
-        if ( v10 )
-        {
-          *(_DWORD *)(v10 + 16) = 0;
-          *(_DWORD *)(v10 + 20) = 8;
-          *(_QWORD *)v10 = *(_QWORD *)(*(_QWORD *)(a2 + 80) + 32LL);
-          *(_DWORD *)(v10 + 8) = *(_DWORD *)(*(_QWORD *)(a2 + 80) + 24LL);
-          *(_DWORD *)(v10 + 12) = *(_DWORD *)(*(_QWORD *)(a2 + 80) + 56LL);
+          *(_WORD *)(*(_QWORD *)(a2 + 88) + 2LL) = 14;
+          *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL) = 48;
+          *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) = HeapAlloc(
+                                                       a1[20].Next,
+                                                       1145455176,
+                                                       *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL));
+          v9 = *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL);
+          if ( !v9 )
+          {
+            v4 = -1073741670;
+            LogError(3221225626LL);
+            AcpiDiagTraceAmlError(a1, 3221225626LL);
+            PrintDebugMessage(60, 0, 0, 0, 0LL);
+            return v4;
+          }
+          *(_DWORD *)(v9 + 16) = 0;
+          *(_DWORD *)(v9 + 20) = 8;
+          *(_QWORD *)v9 = *(_QWORD *)(*(_QWORD *)(a2 + 80) + 32LL);
+          *(_DWORD *)(v9 + 8) = *(_DWORD *)(*(_QWORD *)(a2 + 80) + 24LL);
+          *(_DWORD *)(v9 + 12) = *(_DWORD *)(*(_QWORD *)(a2 + 80) + 56LL);
           return (unsigned int)WriteObject(a1, v12, *(_QWORD *)(a2 + 88));
         }
-        v4 = -1073741670;
-        LogError(-1073741670);
-        AcpiDiagTraceAmlError(a1, -1073741670);
-        PrintDebugMessage(60, 0LL, 0LL, 0LL, 0LL);
+        v4 = -1072431100;
+        LogError(3222536196LL);
+        AcpiDiagTraceAmlError(a1, 3222536196LL);
+        v11 = *(_QWORD *)(a2 + 80);
+        v10 = *(_DWORD *)(v11 + 24);
+LABEL_14:
+        PrintDebugMessage(61, *(_QWORD *)(v11 + 56), v10, 0, 0LL);
+        return v4;
       }
-      else if ( *(_WORD *)(v5 + 2) == 4 )
+      if ( *(_WORD *)(v5 + 2) == 4 )
       {
-        v6 = *(_DWORD **)(v5 + 32);
-        if ( *(_DWORD *)(v5 + 56) >= *v6 )
+        v6 = *(int **)(v5 + 32);
+        if ( *(_DWORD *)(v5 + 56) < (unsigned int)*v6 )
         {
-          v4 = -1072431100;
-          LogError(-1072431100);
-          AcpiDiagTraceAmlError(a1, -1072431100);
-          v7 = (unsigned int)*v6;
-          v8 = *(_QWORD *)(a2 + 80);
-LABEL_7:
-          PrintDebugMessage(61, *(const void **)(v8 + 56), (const void *)v7, 0LL, 0LL);
-          return v4;
+          *(_WORD *)(*(_QWORD *)(a2 + 88) + 2LL) = 129;
+          v7 = *(unsigned int *)(*(_QWORD *)(a2 + 80) + 56LL);
+          *(_QWORD *)(*(_QWORD *)(a2 + 88) + 16LL) = &v6[8 * v7 + 2 + 2 * v7];
+          return (unsigned int)WriteObject(a1, v12, *(_QWORD *)(a2 + 88));
         }
-        *(_WORD *)(*(_QWORD *)(a2 + 88) + 2LL) = 129;
-        v9 = *(unsigned int *)(*(_QWORD *)(a2 + 80) + 56LL);
-        *(_QWORD *)(*(_QWORD *)(a2 + 88) + 16LL) = &v6[8 * v9 + 2 + 2 * v9];
-        return (unsigned int)WriteObject(a1, v12, *(_QWORD *)(a2 + 88));
+        v4 = -1072431100;
+        LogError(3222536196LL);
+        AcpiDiagTraceAmlError(a1, 3222536196LL);
+        v10 = *v6;
+        v11 = *(_QWORD *)(a2 + 80);
+        goto LABEL_14;
       }
     }
   }

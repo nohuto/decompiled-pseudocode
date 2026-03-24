@@ -1,18 +1,17 @@
 /*
- * XREFs of HalpDmaRemoveWcb @ 0x140500888
+ * XREFs of HalpDmaRemoveWcb @ 0x1404B81B4
  * Callers:
- *     HalCancelAdapterChannel @ 0x14050EF60 (HalCancelAdapterChannel.c)
- *     HalCancelAdapterChannelDmaThin @ 0x140512FF0 (HalCancelAdapterChannelDmaThin.c)
- *     HalCancelAdapterChannelDmarThin @ 0x1405137E0 (HalCancelAdapterChannelDmarThin.c)
+ *     HalCancelAdapterChannel @ 0x1404C5E00 (HalCancelAdapterChannel.c)
+ *     HalCancelAdapterChannelThin @ 0x1404CAC20 (HalCancelAdapterChannelThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall HalpDmaRemoveWcb(__int64 a1, _QWORD *a2)
 {
-  volatile signed __int64 *v2; // rbp
+  KSPIN_LOCK *v2; // rbp
   char v4; // si
   _QWORD **v5; // rbx
   unsigned __int64 v6; // rdi
@@ -25,10 +24,10 @@ char __fastcall HalpDmaRemoveWcb(__int64 a1, _QWORD *a2)
   bool v13; // zf
   _QWORD *v15; // rdx
 
-  v2 = (volatile signed __int64 *)(a1 + 184);
+  v2 = (KSPIN_LOCK *)(a1 + 176);
   v4 = 0;
-  v5 = (_QWORD **)(a1 + 192);
-  v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 184));
+  v5 = (_QWORD **)(a1 + 184);
+  v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 176));
   v7 = *v5;
   if ( *v5 != v5 )
   {
@@ -52,16 +51,19 @@ LABEL_4:
   KxReleaseSpinLock(v2);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v13 = (v12 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v12;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v13 = (v12 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v12;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v6);

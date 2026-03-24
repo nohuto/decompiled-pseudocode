@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpDereferenceKeyControlBlock @ 0x1406441C0
+ * XREFs of CmpDereferenceKeyControlBlock @ 0x1406441A0
  * Callers:
  *     CmpLateUnloadHiveWorker @ 0x1405AFC50 (CmpLateUnloadHiveWorker.c)
  *     CmpDelayDerefKCBWorker @ 0x1405B10B0 (CmpDelayDerefKCBWorker.c)
@@ -11,14 +11,14 @@
  *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
  *     CmOpenKey @ 0x1405E0EA0 (CmOpenKey.c)
  *     CmpPerformCompleteKcbCacheLookup @ 0x1405E5320 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDD0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmpDeleteKeyObject @ 0x14063F520 (CmpDeleteKeyObject.c)
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
- *     CmpDestroyVirtualStack @ 0x1407F2870 (CmpDestroyVirtualStack.c)
- *     CmpDoBuildVirtualStack @ 0x1407F2A38 (CmpDoBuildVirtualStack.c)
- *     CmpFreeSiloKeyLockEntry @ 0x1407F5EF0 (CmpFreeSiloKeyLockEntry.c)
- *     CmpGlobalUnlockKeyForWrite @ 0x1407F5F30 (CmpGlobalUnlockKeyForWrite.c)
- *     CmpKeyEnumStackFreeResumeContext @ 0x1407FF7F8 (CmpKeyEnumStackFreeResumeContext.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDB0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmpDeleteKeyObject @ 0x14063F500 (CmpDeleteKeyObject.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpDestroyVirtualStack @ 0x1407F2850 (CmpDestroyVirtualStack.c)
+ *     CmpDoBuildVirtualStack @ 0x1407F2A18 (CmpDoBuildVirtualStack.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x1407F5ED0 (CmpFreeSiloKeyLockEntry.c)
+ *     CmpGlobalUnlockKeyForWrite @ 0x1407F5F10 (CmpGlobalUnlockKeyForWrite.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x1407FF7D8 (CmpKeyEnumStackFreeResumeContext.c)
  * Callees:
  *     ExpAcquireFastMutexContended @ 0x140005480 (ExpAcquireFastMutexContended.c)
  *     ExpReleaseFastMutexContended @ 0x140023F40 (ExpReleaseFastMutexContended.c)
@@ -26,14 +26,14 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)
  *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
  *     CmpCleanUpKcbCacheWithLock @ 0x1405D43B8 (CmpCleanUpKcbCacheWithLock.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpFreeKeyControlBlock @ 0x140692C14 (CmpFreeKeyControlBlock.c)
+ *     CmpFreeKeyControlBlock @ 0x140692BF4 (CmpFreeKeyControlBlock.c)
  */
 
 void __fastcall CmpDereferenceKeyControlBlock(ULONG_PTR BugCheckParameter2)

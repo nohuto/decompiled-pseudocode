@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDoesDriverProvideImportsForDriver @ 0x140B0593C
+ * XREFs of MiDoesDriverProvideImportsForDriver @ 0x140A50464
  * Callers:
- *     MiImportOptimizationCompatibleWithDriverRelocation @ 0x140B058D4 (MiImportOptimizationCompatibleWithDriverRelocation.c)
+ *     MiImportOptimizationCompatibleWithDriverRelocation @ 0x140A503EC (MiImportOptimizationCompatibleWithDriverRelocation.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
  */
 
 __int64 __fastcall MiDoesDriverProvideImportsForDriver(__int64 a1, __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhGetExceptionDispatch @ 0x1C004A814
+ * XREFs of UsbhGetExceptionDispatch @ 0x1C004BBF4
  * Callers:
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhExceptionWorker @ 0x1C004A720 (UsbhExceptionWorker.c)
- *     UsbhEtwLogHubPastExceptions @ 0x1C005B284 (UsbhEtwLogHubPastExceptions.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhExceptionWorker @ 0x1C004BB00 (UsbhExceptionWorker.c)
+ *     UsbhEtwLogHubPastExceptions @ 0x1C005C934 (UsbhEtwLogHubPastExceptions.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 char *__fastcall UsbhGetExceptionDispatch(__int64 a1, int a2)

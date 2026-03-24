@@ -1,12 +1,11 @@
 /*
- * XREFs of ?EmitUpdateCommands@CPropertySetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00298F0
+ * XREFs of ?EmitUpdateCommands@CPropertySetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062910
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitSetPropertyIdSet@CPropertyChangeResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0029958 (-EmitSetPropertyIdSet@CPropertyChangeResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@.c)
- *     ?EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00299D8 (-EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?EmitSetCallbackId@CNotificationResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0096D50 (-EmitSetCallbackId@CNotificationResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062968 (-EmitSetProperties@CPropertySetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062DEC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CPropertySetMarshaler::EmitUpdateCommands(
@@ -18,8 +17,7 @@ char __fastcall DirectComposition::CPropertySetMarshaler::EmitUpdateCommands(
   void *v7; // [rsp+40h] [rbp+18h] BYREF
 
   v4 = 0;
-  if ( DirectComposition::CNotificationResourceMarshaler::EmitSetCallbackId(this, a2)
-    && DirectComposition::CPropertyChangeResourceMarshaler::EmitSetPropertyIdSet(this, a2) )
+  if ( DirectComposition::CPropertyChangeResourceMarshaler::EmitUpdateCommands(this, a2) )
   {
     if ( (*((_DWORD *)this + 4) & 0x100) != 0 )
     {
@@ -30,8 +28,8 @@ char __fastcall DirectComposition::CPropertySetMarshaler::EmitUpdateCommands(
       *(_DWORD *)v7 = 16;
       *(_QWORD *)(v6 + 4) = 0LL;
       *((_DWORD *)v6 + 3) = 0;
-      *((_DWORD *)v6 + 1) = 310;
-      *((_DWORD *)v6 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v6 + 1) = 327;
+      *((_DWORD *)v6 + 2) = *((_DWORD *)this + 6);
       *((_DWORD *)v6 + 3) = *((_DWORD *)this + 26);
       *((_DWORD *)this + 4) &= ~0x100u;
     }

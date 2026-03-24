@@ -1,18 +1,18 @@
 /*
- * XREFs of ?vGetSubRect@RGNOBJ@@QEBAXPEAU_RECTL@@@Z @ 0x1C0096B70
+ * XREFs of ?vGetSubRect@RGNOBJ@@QEBAXPEAU_RECTL@@@Z @ 0x1C0081510
  * Callers:
- *     ?bCompute@DC@@QEAAHXZ @ 0x1C003A080 (-bCompute@DC@@QEAAHXZ.c)
+ *     ?bCompute@DC@@QEAAHXZ @ 0x1C003BFE0 (-bCompute@DC@@QEAAHXZ.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall RGNOBJ::vGetSubRect(RGNOBJ *this, struct _RECTL *a2)
+void __fastcall RGNOBJ::vGetSubRect(struct _RECTL **this, struct _RECTL *a2)
 {
   struct _RECTL v2; // xmm0
 
-  if ( *(_DWORD *)(*(_QWORD *)this + 48LL) > 0x38u )
-    v2 = (struct _RECTL)xmmword_1C024CDB8;
+  if ( (*this)[5].left > 0x38u )
+    v2 = (struct _RECTL)xmmword_1C0211450;
   else
-    v2 = *(struct _RECTL *)(*(_QWORD *)this + 56LL);
+    v2 = (*this)[6];
   *a2 = v2;
 }

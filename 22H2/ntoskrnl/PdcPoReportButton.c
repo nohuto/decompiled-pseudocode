@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcPoReportButton @ 0x140824B80
+ * XREFs of PdcPoReportButton @ 0x14079C140
  * Callers:
  *     <none>
  * Callees:
- *     PopResetCurrentPolicies @ 0x140825058 (PopResetCurrentPolicies.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopResetCurrentPolicies @ 0x14079CB48 (PopResetCurrentPolicies.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoReportButton(int a1, char a2)
@@ -13,7 +13,6 @@ __int64 __fastcall PdcPoReportButton(int a1, char a2)
   char v3; // di
   __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // r8
 
   v3 = a1;
   PopAcquirePolicyLock(a1);
@@ -41,30 +40,30 @@ LABEL_6:
     if ( BYTE1(PopCapabilities) == 1 )
       goto LABEL_7;
     BYTE1(PopCapabilities) = 1;
-    goto LABEL_12;
   }
-  if ( BYTE1(PopCapabilities) )
+  else
   {
+    if ( !BYTE1(PopCapabilities) )
+      goto LABEL_7;
     BYTE1(PopCapabilities) = 0;
-LABEL_12:
-    PopResetCurrentPolicies();
   }
+  PopResetCurrentPolicies();
 LABEL_7:
   if ( (v3 & 4) != 0 )
   {
     if ( a2 )
     {
       if ( BYTE2(PopCapabilities) == 1 )
-        return PopReleasePolicyLock(v5, v4, v6);
+        return PopReleasePolicyLock(v5, v4);
       BYTE2(PopCapabilities) = 1;
     }
     else
     {
       if ( !BYTE2(PopCapabilities) )
-        return PopReleasePolicyLock(v5, v4, v6);
+        return PopReleasePolicyLock(v5, v4);
       BYTE2(PopCapabilities) = 0;
     }
     PopResetCurrentPolicies();
   }
-  return PopReleasePolicyLock(v5, v4, v6);
+  return PopReleasePolicyLock(v5, v4);
 }

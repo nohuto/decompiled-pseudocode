@@ -1,18 +1,17 @@
 /*
- * XREFs of HalpInterruptSelectController @ 0x1403B3CF8
+ * XREFs of HalpInterruptSelectController @ 0x1403B04F0
  * Callers:
- *     HalpInitializeInterrupts @ 0x140B4BA90 (HalpInitializeInterrupts.c)
+ *     HalpInitializeInterrupts @ 0x140A44BFC (HalpInitializeInterrupts.c)
  * Callees:
- *     HalpInterruptInitializeController @ 0x14037EC3C (HalpInterruptInitializeController.c)
- *     HalpFindInterruptController @ 0x1403B3D7C (HalpFindInterruptController.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptInitializeController @ 0x1403A2F58 (HalpInterruptInitializeController.c)
+ *     HalpFindInterruptController @ 0x1403B0574 (HalpFindInterruptController.c)
  */
 
-__int64 __fastcall HalpInterruptSelectController(ULONG_PTR *a1)
+__int64 __fastcall HalpInterruptSelectController(__int64 a1)
 {
   ULONG_PTR InterruptController; // rax
   ULONG_PTR v3; // rbx
-  int v4; // r10d
+  int v4; // edx
   int v5; // eax
   ULONG_PTR v7; // rax
 
@@ -21,20 +20,24 @@ __int64 __fastcall HalpInterruptSelectController(ULONG_PTR *a1)
   if ( InterruptController && (v4 = HalpInterruptInitializeController(InterruptController), v4 >= 0)
     || (v7 = HalpFindInterruptController(0LL), (v3 = v7) != 0) && (v4 = HalpInterruptInitializeController(v7), v4 >= 0) )
   {
-    *a1 = v3;
-    if ( *(_QWORD *)(v3 + 104) )
-      HalPerformEndOfInterruptAtController = *(__int64 (__fastcall **)())(v3 + 104);
-    v5 = *(_DWORD *)(v3 + 244);
+    *(_QWORD *)a1 = v3;
+  }
+  else
+  {
+    v4 = -1073741810;
+    HalpInterruptLastProblem = 2;
+  }
+  if ( v4 >= 0 )
+  {
+    if ( *(_QWORD *)(*(_QWORD *)a1 + 104LL) )
+      HalPerformEndOfInterruptAtController[0] = *(__int64 (__fastcall **)())(*(_QWORD *)a1 + 104LL);
+    v5 = *(_DWORD *)(v3 + 220);
     if ( (v5 & 1) != 0 )
     {
       HalpInterruptDirectedEoiModeDetermined = 1;
       if ( (v5 & 0x400) != 0 )
         HalpInterruptDirectedEoiModeEnabled = 1;
     }
-  }
-  else
-  {
-    HalpInterruptSetProblemEx(0, 2, 0, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\intsup.c", 371);
   }
   return (unsigned int)v4;
 }

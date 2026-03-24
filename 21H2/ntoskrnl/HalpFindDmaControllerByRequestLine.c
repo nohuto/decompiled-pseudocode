@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpFindDmaControllerByRequestLine @ 0x140519E64
+ * XREFs of HalpFindDmaControllerByRequestLine @ 0x1404CF1D4
  * Callers:
- *     HalGetAdapterV3 @ 0x140845F30 (HalGetAdapterV3.c)
+ *     HalGetAdapterV3 @ 0x1407C33B0 (HalGetAdapterV3.c)
  * Callees:
  *     <none>
  */

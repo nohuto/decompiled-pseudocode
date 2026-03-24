@@ -1,11 +1,11 @@
 /*
- * XREFs of AsyncCallBack @ 0x1C00696FC
+ * XREFs of AsyncCallBack @ 0x1C00682D8
  * Callers:
- *     ParseNestedContext @ 0x1C006BFA0 (ParseNestedContext.c)
+ *     ParseNestedContext @ 0x1C006BCF0 (ParseNestedContext.c)
  * Callees:
- *     RestartContext @ 0x1C000DCC0 (RestartContext.c)
- *     LogSchedEvent @ 0x1C00297A4 (LogSchedEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     RestartContext @ 0x1C0023DF0 (RestartContext.c)
+ *     LogSchedEvent @ 0x1C002A1C0 (LogSchedEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall AsyncCallBack(_QWORD *a1, unsigned int a2)
@@ -42,7 +42,7 @@ int __fastcall AsyncCallBack(_QWORD *a1, unsigned int a2)
   }
   else if ( a2 == 32771 )
   {
-    LODWORD(v9) = RestartContext((__int64)a1);
+    LODWORD(v9) = RestartContext((__int64)a1, 0);
   }
   else if ( v5 )
   {

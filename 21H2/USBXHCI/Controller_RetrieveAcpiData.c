@@ -1,42 +1,40 @@
 /*
- * XREFs of Controller_RetrieveAcpiData @ 0x1C0076294
+ * XREFs of Controller_RetrieveAcpiData @ 0x1C0074D40
  * Callers:
- *     Controller_Create @ 0x1C00702D4 (Controller_Create.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_PopulateAcpiDeviceInformation @ 0x1C0075FB4 (Controller_PopulateAcpiDeviceInformation.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Controller_PopulateAcpiDeviceInformation @ 0x1C0074A60 (Controller_PopulateAcpiDeviceInformation.c)
  */
 
 __int64 __fastcall Controller_RetrieveAcpiData(__int64 a1, int a2, char *a3)
 {
-  __int64 v5; // r15
+  __int64 v5; // r12
   unsigned int v6; // eax
-  unsigned int v7; // ebx
-  _UNKNOWN **v8; // rdx
-  int v9; // ebx
-  __int64 Pool2; // rax
-  unsigned __int16 *v11; // rdi
-  _UNKNOWN **v12; // rdx
+  unsigned int v7; // edi
+  void *v8; // rdx
+  size_t v9; // rdi
+  unsigned __int16 *PoolWithTag; // rax
+  unsigned __int16 *v11; // rbx
+  void *v12; // rdx
   int v13; // eax
-  _UNKNOWN **v14; // rdx
-  int v16; // [rsp+50h] [rbp-9h] BYREF
-  int v17; // [rsp+54h] [rbp-5h]
-  _OWORD *v18; // [rsp+58h] [rbp-1h]
-  int v19; // [rsp+60h] [rbp+7h]
-  int v20; // [rsp+64h] [rbp+Bh]
-  _OWORD v21[2]; // [rsp+68h] [rbp+Fh] BYREF
+  void *v14; // rdx
+  __int64 v16; // [rsp+50h] [rbp-19h] BYREF
+  unsigned __int16 *v17; // [rsp+58h] [rbp-11h]
+  __int64 v18; // [rsp+60h] [rbp-9h]
+  _OWORD v19[2]; // [rsp+68h] [rbp-1h] BYREF
 
-  v17 = 0;
-  memset(v21, 0, sizeof(v21));
+  HIDWORD(v16) = 0;
+  HIDWORD(v18) = 0;
+  memset(v19, 0, sizeof(v19));
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 336))(WdfDriverGlobals, a1);
-  v17 = 0;
-  v20 = 0;
-  v18 = v21;
-  v16 = 1;
-  v19 = 32;
-  v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD, __int64, _QWORD, int *, _QWORD, _QWORD))(WdfFunctions_01023 + 1488))(
+  v16 = 1LL;
+  v17 = (unsigned __int16 *)v19;
+  v18 = 32LL;
+  v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD, __int64, _QWORD, __int64 *, _QWORD, _QWORD))(WdfFunctions_01023 + 1488))(
          WdfDriverGlobals,
          v5,
          0LL,
@@ -48,17 +46,19 @@ __int64 __fastcall Controller_RetrieveAcpiData(__int64 a1, int a2, char *a3)
   v7 = v6;
   if ( v6 == -2147483643 )
   {
-    v9 = WORD2(v21[0]);
-    Pool2 = ExAllocatePool2(64LL, WORD2(v21[0]), 1229146200LL);
-    v11 = (unsigned __int16 *)Pool2;
-    if ( Pool2 )
+    v9 = WORD2(v19[0]);
+    PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(
+                                        (POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState,
+                                        WORD2(v19[0]),
+                                        0x49434858u);
+    v11 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v17 = 0;
-      v20 = 0;
-      v16 = 1;
-      v18 = (_OWORD *)Pool2;
-      v19 = v9;
-      v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD, __int64, _QWORD, int *, _QWORD, _QWORD))(WdfFunctions_01023 + 1488))(
+      memset(PoolWithTag, 0, v9);
+      v16 = 1LL;
+      v17 = v11;
+      v18 = (unsigned int)v9;
+      v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD, __int64, _QWORD, __int64 *, _QWORD, _QWORD))(WdfFunctions_01023 + 1488))(
               WdfDriverGlobals,
               v5,
               0LL,
@@ -72,37 +72,31 @@ __int64 __fastcall Controller_RetrieveAcpiData(__int64 a1, int a2, char *a3)
       {
         Controller_PopulateAcpiDeviceInformation(v11, a3);
       }
-      else
+      else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v14 = &WPP_RECORDER_INITIALIZED;
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v14) = 2;
-          WPP_RECORDER_SF_d(a2, (_DWORD)v14, 4, 143, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v13);
-        }
+        v14 = &WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids;
+        LOBYTE(v14) = 2;
+        WPP_RECORDER_SF_d(a2, (_DWORD)v14, 4, 143, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v13);
       }
-      if ( v11 != (unsigned __int16 *)v21 )
+      if ( v11 != (unsigned __int16 *)v19 )
         ExFreePoolWithTag(v11, 0x49434858u);
     }
     else
     {
-      v12 = &WPP_RECORDER_INITIALIZED;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
+        v12 = &WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids;
         LOBYTE(v12) = 2;
-        WPP_RECORDER_SF_d(a2, (_DWORD)v12, 4, 142, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v9);
+        WPP_RECORDER_SF_d(a2, (_DWORD)v12, 4, 142, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v9);
       }
       return (unsigned int)-1073741670;
     }
   }
-  else
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v8 = &WPP_RECORDER_INITIALIZED;
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v8) = 2;
-      WPP_RECORDER_SF_d(a2, (_DWORD)v8, 4, 141, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v6);
-    }
+    v8 = &WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids;
+    LOBYTE(v8) = 2;
+    WPP_RECORDER_SF_d(a2, (_DWORD)v8, 4, 141, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v6);
   }
   return v7;
 }

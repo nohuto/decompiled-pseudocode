@@ -1,12 +1,12 @@
 /*
- * XREFs of WdHwCreateHardwareRegister @ 0x14052A348
+ * XREFs of WdHwCreateHardwareRegister @ 0x1404DE308
  * Callers:
- *     HalpWdatProcessWdrtInternalData @ 0x14051F244 (HalpWdatProcessWdrtInternalData.c)
- *     WdInstrInitializeInstruction @ 0x14052A70C (WdInstrInitializeInstruction.c)
+ *     HalpWdatProcessWdrtInternalData @ 0x1404D4F44 (HalpWdatProcessWdrtInternalData.c)
+ *     WdInstrInitializeInstruction @ 0x1404DE6C4 (WdInstrInitializeInstruction.c)
  * Callees:
- *     HalMapIoSpace @ 0x14037E780 (HalMapIoSpace.c)
- *     WdHwpGetReadMethod @ 0x14052A47C (WdHwpGetReadMethod.c)
- *     WdHwpGetWriteMethod @ 0x14052A4EC (WdHwpGetWriteMethod.c)
+ *     HalMapIoSpace @ 0x1403B3460 (HalMapIoSpace.c)
+ *     WdHwpGetReadMethod @ 0x1404DE43C (WdHwpGetReadMethod.c)
+ *     WdHwpGetWriteMethod @ 0x1404DE4AC (WdHwpGetWriteMethod.c)
  */
 
 __int64 __fastcall WdHwCreateHardwareRegister(

@@ -1,10 +1,9 @@
 /*
- * XREFs of SepCheckAcl @ 0x1406BA460
+ * XREFs of SepCheckAcl @ 0x1405DBD24
  * Callers:
- *     SeCaptureAcl @ 0x1406BA348 (SeCaptureAcl.c)
- *     SeCaptureSecurityDescriptor @ 0x140737050 (SeCaptureSecurityDescriptor.c)
+ *     SeCaptureAcl @ 0x1405DBC10 (SeCaptureAcl.c)
  * Callees:
- *     RtlValidAcl @ 0x140736D80 (RtlValidAcl.c)
+ *     RtlValidAcl @ 0x1406D5380 (RtlValidAcl.c)
  */
 
 char __fastcall SepCheckAcl(__int64 a1, unsigned int a2)

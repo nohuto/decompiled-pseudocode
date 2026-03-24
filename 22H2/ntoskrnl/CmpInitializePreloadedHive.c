@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpInitializePreloadedHive @ 0x140B3B3B4
+ * XREFs of CmpInitializePreloadedHive @ 0x140A5ABA8
  * Callers:
- *     CmpInitializePreloadedHives @ 0x140B3A054 (CmpInitializePreloadedHives.c)
+ *     CmpInitializePreloadedHives @ 0x140A5A924 (CmpInitializePreloadedHives.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpLinkHiveToMaster @ 0x14068F84C (CmpLinkHiveToMaster.c)
- *     CmpCreateHive @ 0x14070247C (CmpCreateHive.c)
- *     CmpSetupLoggingState @ 0x140810C4C (CmpSetupLoggingState.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140B99234 (CmpGetSystemRelativeRegistryHiveFilePath.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpLinkHiveToMaster @ 0x14071D600 (CmpLinkHiveToMaster.c)
+ *     CmpCreateHive @ 0x14071D9E8 (CmpCreateHive.c)
+ *     CmpSetupLoggingState @ 0x1407A74B8 (CmpSetupLoggingState.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140A8E850 (CmpGetSystemRelativeRegistryHiveFilePath.c)
  */
 
 __int64 __fastcall CmpInitializePreloadedHive(__int64 a1, __int64 a2)
 {
   int v4; // ebx
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v6; // r15
   int v7; // ecx
   int v8; // esi
@@ -29,53 +29,51 @@ __int64 __fastcall CmpInitializePreloadedHive(__int64 a1, __int64 a2)
   int v11; // r8d
   int v12; // eax
   int v13; // eax
-  int v14; // eax
-  int v15; // ecx
-  int v16; // eax
-  _QWORD *v17; // rcx
-  _QWORD *v18; // rax
+  int v14; // ecx
+  int v15; // eax
+  _QWORD *v16; // rcx
+  _QWORD *v17; // rax
+  int v19; // eax
   const WCHAR *SystemRelativeRegistryHiveFilePath; // rbx
-  int v21; // eax
-  bool v22; // zf
-  _BYTE v23[8]; // [rsp+60h] [rbp-A0h] BYREF
-  ULONG_PTR v24; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE v21[8]; // [rsp+60h] [rbp-A0h] BYREF
+  ULONG_PTR v22; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING Destination; // [rsp+70h] [rbp-90h] BYREF
-  UNICODE_STRING v26; // [rsp+80h] [rbp-80h] BYREF
+  UNICODE_STRING v24; // [rsp+80h] [rbp-80h] BYREF
   _OWORD BugCheckParameter3[27]; // [rsp+90h] [rbp-70h] BYREF
-  char v28; // [rsp+240h] [rbp+140h] BYREF
+  char v26; // [rsp+240h] [rbp+140h] BYREF
 
   memset(BugCheckParameter3, 0, sizeof(BugCheckParameter3));
   v4 = 4096;
-  v24 = 0LL;
-  v23[0] = 0;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, 0x1000uLL, 0x20204D43u);
-  v6 = Pool2;
-  if ( !Pool2 )
-    goto LABEL_39;
+  v22 = 0LL;
+  v21[0] = 0;
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x20204D43u);
+  v6 = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_33;
   v7 = *(_DWORD *)(a1 + 24);
   *(_QWORD *)&Destination.Length = 0x10000000LL;
-  Destination.Buffer = Pool2;
-  if ( (v7 & 0x80) != 0 )
+  Destination.Buffer = PoolWithTag;
+  if ( (v7 & 0x36) != 0 )
+  {
+    RtlAppendUnicodeToString(&Destination, *(PCWSTR *)(a1 + 16));
+    v19 = *(_DWORD *)(a1 + 24);
+    if ( (v19 & 2) == 0 )
+    {
+      if ( (v19 & 4) != 0 )
+        v4 = 0x2000;
+      else
+        v4 = (v19 & 0x20) != 0 ? 0x200000 : 1;
+    }
+  }
+  else if ( (v7 & 0x80) != 0 )
   {
     SystemRelativeRegistryHiveFilePath = (const WCHAR *)CmpGetSystemRelativeRegistryHiveFilePath(*(_QWORD *)(a1 + 16));
-    RtlAppendUnicodeToString(&Destination, L"\\DriverStore\\Nodes\\");
+    RtlAppendUnicodeToString(&Destination, L"\\DriverStores\\");
     RtlAppendUnicodeToString(&Destination, *(PCWSTR *)(a1 + 48));
     RtlAppendUnicodeToString(&Destination, SystemRelativeRegistryHiveFilePath);
     v4 = 0x400000;
-    if ( (*(_DWORD *)(a1 + 24) & 0x10) != 0 && (!CmStateSeparationEnabled || !CmStateSeparationDevMode) )
+    if ( CmStateSeparationEnabled && !CmStateSeparationDevMode )
       v4 = 4194305;
-  }
-  else if ( (v7 & 0x36) != 0 )
-  {
-    RtlAppendUnicodeToString(&Destination, *(PCWSTR *)(a1 + 16));
-    v21 = *(_DWORD *)(a1 + 24);
-    if ( (v21 & 2) == 0 )
-    {
-      if ( (v21 & 4) != 0 )
-        v4 = 0x2000;
-      else
-        v4 = (v21 & 0x20) != 0 ? 0x200000 : 1;
-    }
   }
   else
   {
@@ -84,10 +82,10 @@ __int64 __fastcall CmpInitializePreloadedHive(__int64 a1, __int64 a2)
     v4 = 0x4000;
   }
   v8 = *(_DWORD *)(a1 + 24) & 0x100;
-  v9 = (wchar_t *)ExAllocatePool2(256LL, Destination.Length + 2LL, 0x20204D43u);
+  v9 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, Destination.Length + 2LL, 0x20204D43u);
   v10 = v9;
   if ( !v9 )
-LABEL_39:
+LABEL_33:
     KeBugCheckEx(0x74u, 3uLL, 4uLL, 0LL, 0xFFFFFFFFC000009AuLL);
   memmove(v9, Destination.Buffer, Destination.Length);
   ExFreePoolWithTag(v6, 0);
@@ -96,76 +94,56 @@ LABEL_39:
   Destination.MaximumLength = Destination.Length + 2;
   Destination.Buffer = v10;
   v12 = CmpCreateHive(
-          &v24,
+          &v22,
           1u,
           (32 * (v11 & 8)) | 0x12u,
           2u,
           *(_QWORD *)(a1 + 32),
           0LL,
-          &Destination.Length,
+          (__int64)&Destination,
           5832712,
           0LL,
           0LL,
-          v23,
+          (__int64)v21,
           (__int64)BugCheckParameter3);
   if ( v12 < 0 )
     KeBugCheckEx(0x74u, 3uLL, 5uLL, (ULONG_PTR)BugCheckParameter3, v12);
-  CmpSetupLoggingState(v24, (unsigned int *)(a1 + 64));
-  RtlInitUnicodeString((PUNICODE_STRING)(v24 + 1824), v10);
+  CmpSetupLoggingState(v22, (unsigned int *)(a1 + 64));
+  RtlInitUnicodeString((PUNICODE_STRING)(v22 + 1816), v10);
   v13 = v4 | 0x1000000;
   if ( !v8 )
     v13 = v4;
-  *(_DWORD *)(v24 + 160) |= v13 | 0x400;
-  if ( v23[0] == 1 )
-    *(_DWORD *)(v24 + 160) |= 0x800u;
-  if ( CmpShareSystemHives )
-    *(_DWORD *)(v24 + 160) |= 0x8000u;
-  v14 = *(_DWORD *)(a1 + 24);
-  if ( (v14 & 0x80u) != 0 )
-  {
-    if ( (v14 & 0x10) == 0 )
-      goto LABEL_15;
-    if ( !CmStateSeparationEnabled )
-    {
-LABEL_34:
-      *(_DWORD *)(v24 + 160) |= 0x8000u;
-      goto LABEL_15;
-    }
-    v22 = CmStateSeparationDevMode == 0;
-  }
-  else
-  {
-    if ( !CmStateSeparationEnabled || CmStateSeparationDevMode )
-      goto LABEL_15;
-    v22 = (v14 & 0x20) == 0;
-  }
-  if ( v22 )
-    goto LABEL_34;
-LABEL_15:
-  v15 = *(_DWORD *)(*(_QWORD *)(v24 + 64) + 4088LL);
-  CmpBootType = v15;
+  *(_DWORD *)(v22 + 160) |= v13 | 0x400;
+  if ( v21[0] == 1 )
+    *(_DWORD *)(v22 + 160) |= 0x800u;
+  if ( BYTE4(NlsMbCodePageTag) )
+    *(_DWORD *)(v22 + 160) |= 0x8000u;
+  if ( CmStateSeparationEnabled && !CmStateSeparationDevMode && (*(_DWORD *)(a1 + 24) & 0x20) == 0 )
+    *(_DWORD *)(v22 + 160) |= 0x8000u;
+  v14 = *(_DWORD *)(*(_QWORD *)(v22 + 64) + 4088LL);
+  CmpBootType = v14;
   if ( !CmSelfHeal )
   {
-    BYTE2(NlsMbOemCodePageTag) = 0;
-    if ( (v15 & 4) != 0 )
-      KeBugCheckEx(0x74u, 3uLL, 6uLL, v24, 0LL);
+    BYTE3(NlsMbCodePageTag) = 0;
+    if ( (v14 & 4) != 0 )
+      KeBugCheckEx(0x74u, 3uLL, 6uLL, v22, 0LL);
   }
-  *(_QWORD *)&v26.Length = 0x800000LL;
-  v26.Buffer = (wchar_t *)&v28;
-  RtlAppendUnicodeToString(&v26, L"\\REGISTRY\\");
-  RtlAppendUnicodeToString(&v26, *(PCWSTR *)(a1 + 56));
-  RtlAppendUnicodeToString(&v26, L"\\");
-  RtlAppendUnicodeToString(&v26, *(PCWSTR *)(a1 + 48));
-  v16 = CmpLinkHiveToMaster((__int64)&v26, 0LL, v24, 0, 0x200u, 0, 0LL, a2, 0LL, 0LL, 1, BugCheckParameter3);
-  if ( v16 < 0 )
-    KeBugCheckEx(0x74u, 3uLL, 7uLL, v24, v16);
-  v17 = (_QWORD *)qword_140C14898;
-  v18 = (_QWORD *)(v24 + 1624);
-  if ( *(__int64 **)qword_140C14898 != &CmpPreloadedHivesList )
+  *(_QWORD *)&v24.Length = 0x800000LL;
+  v24.Buffer = (wchar_t *)&v26;
+  RtlAppendUnicodeToString(&v24, L"\\REGISTRY\\");
+  RtlAppendUnicodeToString(&v24, *(PCWSTR *)(a1 + 56));
+  RtlAppendUnicodeToString(&v24, L"\\");
+  RtlAppendUnicodeToString(&v24, *(PCWSTR *)(a1 + 48));
+  v15 = CmpLinkHiveToMaster((__int64)&v24, 0LL, v22, 0, 0x200u, 0, 0LL, a2, 0LL, 0LL, 1, BugCheckParameter3);
+  if ( v15 < 0 )
+    KeBugCheckEx(0x74u, 3uLL, 7uLL, v22, v15);
+  v16 = (_QWORD *)qword_140C487A8;
+  v17 = (_QWORD *)(v22 + 1616);
+  if ( *(__int64 **)qword_140C487A8 != &CmpPreloadedHivesList )
     __fastfail(3u);
-  *v18 = &CmpPreloadedHivesList;
-  v18[1] = v17;
-  *v17 = v18;
-  qword_140C14898 = (__int64)v18;
+  *v17 = &CmpPreloadedHivesList;
+  v17[1] = v16;
+  *v16 = v17;
+  qword_140C487A8 = (__int64)v17;
   return 0LL;
 }

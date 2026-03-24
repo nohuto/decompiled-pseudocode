@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUnmapSinglePage @ 0x14012181C
+ * XREFs of MiUnmapSinglePage @ 0x14012183C
  * Callers:
- *     MiFillCombinePage @ 0x140121764 (MiFillCombinePage.c)
- *     MiFreeForkMaps @ 0x1402C9F5C (MiFreeForkMaps.c)
+ *     MiFillCombinePage @ 0x140121784 (MiFillCombinePage.c)
+ *     MiFreeForkMaps @ 0x1402CA05C (MiFreeForkMaps.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  */

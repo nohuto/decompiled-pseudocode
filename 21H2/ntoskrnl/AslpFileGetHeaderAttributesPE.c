@@ -1,46 +1,43 @@
 /*
- * XREFs of AslpFileGetHeaderAttributesPE @ 0x140A19154
+ * XREFs of AslpFileGetHeaderAttributesPE @ 0x14096B434
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x14084192C (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B24C4 (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x140841A58 (AslFileMappingEnsure.c)
- *     AslpFileGetNtHeaderAttributes @ 0x140A194A0 (AslpFileGetNtHeaderAttributes.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x1407B28C8 (AslFileMappingEnsure.c)
+ *     AslpFileGetNtHeaderAttributes @ 0x14096B77C (AslpFileGetNtHeaderAttributes.c)
  */
 
 __int64 __fastcall AslpFileGetHeaderAttributesPE(__int64 a1, __int64 a2)
 {
   int v4; // edi
   int NtHeaderAttributes; // eax
-  int v6; // r9d
-  int v7; // r10d
-  int v8; // r11d
-  int v9; // esi
-  int v10; // r14d
-  int v11; // r15d
-  int v12; // ecx
-  int v13; // r10d
-  int v14; // r11d
-  int v15; // esi
-  int v16; // r14d
-  int v17; // r15d
-  _WORD v19[2]; // [rsp+50h] [rbp-20h] BYREF
-  unsigned __int16 v20; // [rsp+54h] [rbp-1Ch] BYREF
-  unsigned int v21; // [rsp+58h] [rbp-18h] BYREF
-  unsigned int v22; // [rsp+5Ch] [rbp-14h] BYREF
-  unsigned int v23; // [rsp+60h] [rbp-10h] BYREF
-  unsigned int v24; // [rsp+64h] [rbp-Ch] BYREF
-  unsigned __int16 v25; // [rsp+C0h] [rbp+50h] BYREF
-  unsigned __int16 v26; // [rsp+C8h] [rbp+58h] BYREF
+  int v6; // r10d
+  int v7; // r11d
+  int v8; // esi
+  int v9; // r14d
+  int v10; // r15d
+  int v11; // ecx
+  int v12; // r10d
+  int v13; // r11d
+  int v14; // esi
+  int v15; // r14d
+  int v16; // r15d
+  _WORD v18[2]; // [rsp+50h] [rbp-20h] BYREF
+  unsigned int v19; // [rsp+54h] [rbp-1Ch] BYREF
+  unsigned int v20; // [rsp+58h] [rbp-18h] BYREF
+  unsigned int v21; // [rsp+5Ch] [rbp-14h] BYREF
+  unsigned int v22; // [rsp+60h] [rbp-10h] BYREF
+  unsigned __int16 v23; // [rsp+C0h] [rbp+50h] BYREF
+  unsigned __int16 v24; // [rsp+C8h] [rbp+58h] BYREF
 
-  v21 = 0;
-  v22 = 0;
   v23 = 0;
   v24 = 0;
-  v25 = 0;
-  v26 = 0;
-  v19[0] = 0;
+  v18[0] = 0;
+  v19 = 0;
   v20 = 0;
+  v21 = 0;
+  v22 = 0;
   v4 = AslFileMappingEnsure(a2);
   if ( v4 >= 0 )
   {
@@ -49,50 +46,44 @@ __int64 __fastcall AslpFileGetHeaderAttributesPE(__int64 a1, __int64 a2)
       *(_DWORD *)(a1 + 664) |= 2u;
       *(_DWORD *)(a1 + 696) |= 2u;
       NtHeaderAttributes = AslpFileGetNtHeaderAttributes(
+                             (unsigned int)&v19,
+                             (unsigned int)&v20,
                              (unsigned int)&v21,
                              (unsigned int)&v22,
-                             (unsigned int)&v23,
-                             (unsigned int)&v24,
-                             (__int64)&v25,
-                             (__int64)&v26,
-                             (__int64)v19,
-                             (__int64)&v20,
-                             a2);
+                             (__int64)&v23,
+                             (__int64)&v24,
+                             (__int64)v18);
       v6 = *(_DWORD *)(a1 + 600);
       v7 = *(_DWORD *)(a1 + 632);
       v8 = *(_DWORD *)(a1 + 728);
       v9 = *(_DWORD *)(a1 + 56);
       v10 = *(_DWORD *)(a1 + 952);
-      v11 = *(_DWORD *)(a1 + 984);
       if ( NtHeaderAttributes < 0 )
       {
+        v12 = v6 | 2;
         v13 = v7 | 2;
         v14 = v8 | 2;
-        *(_DWORD *)(a1 + 600) = v6 | 2;
         v15 = v9 | 2;
         v16 = v10 | 2;
-        v17 = v11 | 2;
-        v12 = 2;
+        v11 = 2;
       }
       else
       {
-        *(_QWORD *)(a1 + 592) = v21;
-        *(_QWORD *)(a1 + 624) = v22;
-        v12 = 1;
-        *(_QWORD *)(a1 + 720) = v23;
+        *(_QWORD *)(a1 + 592) = v19;
+        *(_QWORD *)(a1 + 624) = v20;
+        v11 = 1;
+        *(_QWORD *)(a1 + 720) = v21;
+        v12 = v6 | 1;
         v13 = v7 | 1;
-        *(_QWORD *)(a1 + 48) = v24;
+        *(_QWORD *)(a1 + 48) = v22;
         v14 = v8 | 1;
         v15 = v9 | 1;
-        *(_QWORD *)(a1 + 944) = v25;
+        *(_QWORD *)(a1 + 944) = v23;
         v16 = v10 | 1;
-        v17 = v11 | 1;
-        *(_QWORD *)(a1 + 976) = v26;
-        *(_QWORD *)(a1 + 1008) = v19[0];
-        *(_QWORD *)(a1 + 1072) = v20;
+        *(_QWORD *)(a1 + 976) = v24;
+        *(_QWORD *)(a1 + 1008) = v18[0];
         *(_DWORD *)(a1 + 576) = 2;
         *(_QWORD *)(a1 + 584) = 4LL;
-        *(_DWORD *)(a1 + 600) = v6 | 1;
         *(_DWORD *)(a1 + 608) = 2;
         *(_QWORD *)(a1 + 616) = 4LL;
         *(_DWORD *)(a1 + 704) = 2;
@@ -105,16 +96,14 @@ __int64 __fastcall AslpFileGetHeaderAttributesPE(__int64 a1, __int64 a2)
         *(_QWORD *)(a1 + 968) = 2LL;
         *(_DWORD *)(a1 + 992) = 1;
         *(_QWORD *)(a1 + 1000) = 2LL;
-        *(_DWORD *)(a1 + 1056) = 1;
-        *(_QWORD *)(a1 + 1064) = 2LL;
       }
-      *(_DWORD *)(a1 + 1016) |= v12;
-      *(_DWORD *)(a1 + 1080) |= v12;
-      *(_DWORD *)(a1 + 632) = v13;
-      *(_DWORD *)(a1 + 984) = v17;
+      *(_DWORD *)(a1 + 984) |= v11;
+      *(_DWORD *)(a1 + 1016) |= v11;
+      *(_DWORD *)(a1 + 600) = v12;
       *(_DWORD *)(a1 + 952) = v16;
       *(_DWORD *)(a1 + 56) = v15;
       *(_DWORD *)(a1 + 728) = v14;
+      *(_DWORD *)(a1 + 632) = v13;
     }
     else
     {
@@ -125,8 +114,8 @@ __int64 __fastcall AslpFileGetHeaderAttributesPE(__int64 a1, __int64 a2)
       *(_DWORD *)(a1 + 1016) |= 2u;
       *(_DWORD *)(a1 + 952) |= 2u;
       *(_DWORD *)(a1 + 984) |= 2u;
-      *(_DWORD *)(a1 + 1080) |= 2u;
     }
+    *(_DWORD *)(a1 + 1080) |= 2u;
     return 0;
   }
   else

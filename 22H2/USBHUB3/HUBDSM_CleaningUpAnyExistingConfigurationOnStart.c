@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CleaningUpAnyExistingConfigurationOnStart @ 0x1C001F1A0
+ * XREFs of HUBDSM_CleaningUpAnyExistingConfigurationOnStart @ 0x1C001C790
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C00286A8 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
+ *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C0025AB4 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
  */
 
 __int64 __fastcall HUBDSM_CleaningUpAnyExistingConfigurationOnStart(__int64 a1)

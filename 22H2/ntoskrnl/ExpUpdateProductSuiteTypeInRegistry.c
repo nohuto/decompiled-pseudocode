@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpUpdateProductSuiteTypeInRegistry @ 0x140B37414
+ * XREFs of ExpUpdateProductSuiteTypeInRegistry @ 0x140A414BC
  * Callers:
- *     ExpWatchProductTypeInitialization @ 0x140B36EB4 (ExpWatchProductTypeInitialization.c)
+ *     ExpWatchProductTypeInitialization @ 0x140A41034 (ExpWatchProductTypeInitialization.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExVerifySuite @ 0x1403735F0 (ExVerifySuite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     NtSetValueKey @ 0x1406D2AB0 (NtSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ExVerifySuite @ 0x1403AA560 (ExVerifySuite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     NtSetValueKey @ 0x1406DCBB0 (NtSetValueKey.c)
  */
 
 __int64 ExpUpdateProductSuiteTypeInRegistry()
@@ -21,7 +21,7 @@ __int64 ExpUpdateProductSuiteTypeInRegistry()
   __int64 v4; // rax
   int v5; // eax
   int v6; // eax
-  struct _PRIVILEGE_SET *v7; // rsi
+  __int64 *v7; // rsi
   __int64 v8; // rax
   unsigned int v9; // r15d
   const WCHAR *v10; // rdx
@@ -55,7 +55,7 @@ __int64 ExpUpdateProductSuiteTypeInRegistry()
   size_t v38; // [rsp+30h] [rbp-D8h]
   UNICODE_STRING v39; // [rsp+38h] [rbp-D0h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+48h] [rbp-C0h] BYREF
-  struct _PRIVILEGE_SET v41[38]; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v41[96]; // [rsp+58h] [rbp-B0h] BYREF
 
   v0 = ExpProductTypeKey;
   v1 = 758;
@@ -88,7 +88,7 @@ __int64 ExpUpdateProductSuiteTypeInRegistry()
   v5 = 18;
 LABEL_7:
   LODWORD(v38) = v5;
-  v6 = NtSetValueKey((__int64)v0, &DestinationString_8, 0, 1u, (struct _PRIVILEGE_SET *)v39.Buffer, v38);
+  v6 = NtSetValueKey((__int64)v0, (unsigned __int64)&DestinationString_8, 0LL, 1LL, v39.Buffer, v38);
   if ( v6 < 0 )
     KeBugCheckEx(0x9Au, 0x11uLL, (unsigned int)v6, 1uLL, 0LL);
   RtlInitUnicodeString(&DestinationString_8, L"ProductSuite");
@@ -103,7 +103,7 @@ LABEL_7:
     if ( v12 < 0x2F6 )
     {
       memmove(v41, L"Small Business", v12);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v41 + v12);
+      v7 = (__int64 *)((char *)v41 + v12);
       v1 = 758 - v12;
     }
   }
@@ -117,7 +117,7 @@ LABEL_7:
     if ( v1 > v14 )
     {
       memmove(v7, L"Enterprise", v14);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v14);
+      v7 = (__int64 *)((char *)v7 + v14);
       v1 -= v14;
     }
   }
@@ -131,7 +131,7 @@ LABEL_7:
     if ( v1 > v16 )
     {
       memmove(v7, L"BackOffice", v16);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v16);
+      v7 = (__int64 *)((char *)v7 + v16);
       v1 -= v16;
     }
   }
@@ -145,7 +145,7 @@ LABEL_7:
     if ( v1 > v18 )
     {
       memmove(v7, L"CommunicationServer", v18);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v18);
+      v7 = (__int64 *)((char *)v7 + v18);
       v1 -= v18;
     }
   }
@@ -159,7 +159,7 @@ LABEL_7:
     if ( v1 > v9 )
     {
       memmove(v7, L"Terminal Server", v9);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v9);
+      v7 = (__int64 *)((char *)v7 + v9);
       v1 -= v9;
     }
   }
@@ -173,7 +173,7 @@ LABEL_7:
     if ( v1 > v20 )
     {
       memmove(v7, L"Small Business(Restricted)", v20);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v20);
+      v7 = (__int64 *)((char *)v7 + v20);
       v1 -= v20;
     }
   }
@@ -187,7 +187,7 @@ LABEL_7:
     if ( v1 > v22 )
     {
       memmove(v7, L"EmbeddedNT", v22);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v22);
+      v7 = (__int64 *)((char *)v7 + v22);
       v1 -= v22;
     }
   }
@@ -201,7 +201,7 @@ LABEL_7:
     if ( v1 > v24 )
     {
       memmove(v7, L"DataCenter", v24);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v24);
+      v7 = (__int64 *)((char *)v7 + v24);
       v1 -= v24;
     }
   }
@@ -215,7 +215,7 @@ LABEL_7:
     if ( v1 > v26 )
     {
       memmove(v7, L"Personal", v26);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v26);
+      v7 = (__int64 *)((char *)v7 + v26);
       v1 -= v26;
     }
   }
@@ -229,7 +229,7 @@ LABEL_7:
     if ( v1 > v28 )
     {
       memmove(v7, L"Blade", v28);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v28);
+      v7 = (__int64 *)((char *)v7 + v28);
       v1 -= v28;
     }
   }
@@ -243,7 +243,7 @@ LABEL_7:
     if ( v1 > v30 )
     {
       memmove(v7, L"Embedded(Restricted)", v30);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v30);
+      v7 = (__int64 *)((char *)v7 + v30);
       v1 -= v30;
     }
   }
@@ -257,7 +257,7 @@ LABEL_7:
     if ( v1 > v32 )
     {
       memmove(v7, L"Security Appliance", v32);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v32);
+      v7 = (__int64 *)((char *)v7 + v32);
       v1 -= v32;
     }
   }
@@ -271,7 +271,7 @@ LABEL_7:
     if ( v1 > v34 )
     {
       memmove(v7, L"Storage Server", v34);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v34);
+      v7 = (__int64 *)((char *)v7 + v34);
       v1 -= v34;
     }
   }
@@ -285,7 +285,7 @@ LABEL_7:
     if ( v1 > v36 )
     {
       memmove(v7, L"Compute Server", v36);
-      v7 = (struct _PRIVILEGE_SET *)((char *)v7 + v36);
+      v7 = (__int64 *)((char *)v7 + v36);
       v1 -= v36;
     }
   }
@@ -302,7 +302,7 @@ LABEL_7:
     }
   }
   LODWORD(v38) = 760 - v1;
-  result = NtSetValueKey((__int64)v0, &DestinationString_8, 0, 7u, v41, v38);
+  result = NtSetValueKey((__int64)v0, (unsigned __int64)&DestinationString_8, 0LL, 7LL, v41, v38);
   if ( (int)result < 0 )
     KeBugCheckEx(0x9Au, 0x11uLL, (unsigned int)result, 2uLL, 0LL);
   return result;

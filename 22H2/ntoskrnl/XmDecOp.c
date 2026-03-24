@@ -1,9 +1,9 @@
 /*
- * XREFs of XmDecOp @ 0x1403B82A0
+ * XREFs of XmDecOp @ 0x140395E50
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmSubOperands @ 0x1403B8818 (XmSubOperands.c)
+ *     XmSubOperands @ 0x1403964A8 (XmSubOperands.c)
  */
 
 __int64 __fastcall XmDecOp(__int64 a1)

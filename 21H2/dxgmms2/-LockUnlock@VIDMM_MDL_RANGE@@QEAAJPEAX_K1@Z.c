@@ -1,26 +1,26 @@
 /*
- * XREFs of ?LockUnlock@VIDMM_MDL_RANGE@@QEAAJPEAX_K1@Z @ 0x1C007CFD4
+ * XREFs of ?LockUnlock@VIDMM_MDL_RANGE@@QEAAJPEAX_K1@Z @ 0x1C008A58C
  * Callers:
- *     ?UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z @ 0x1C007D8AC (-UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z.c)
+ *     ?UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z @ 0x1C0079F20 (-UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C001E570 (McTemplateK0q_EtwWriteTransfer.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024E10 (McTemplateK0q_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall VIDMM_MDL_RANGE::LockUnlock(PMDL *this, void *a2, struct _MDL *a3, struct _MDL *a4)
 {
   struct _MDL *Mdl; // rax
-  struct _MDL *v8; // rbx
-  __int64 v10; // rcx
+  __int64 v8; // rcx
+  struct _MDL *v9; // rbx
+  __int64 v11; // rax
 
   Mdl = IoAllocateMdl(a2, (int)a4 - (int)a3, 0, 0, 0LL);
-  v8 = Mdl;
+  v9 = Mdl;
   if ( Mdl )
   {
     MmProbeAndLockPages(Mdl, 0, IoModifyAccess);
     MmUnlockPages(*this);
     IoFreeMdl(*this);
-    *this = v8;
+    *this = v9;
     this[1] = a3;
     this[2] = a4;
     return 0LL;
@@ -28,8 +28,9 @@ __int64 __fastcall VIDMM_MDL_RANGE::LockUnlock(PMDL *this, void *a2, struct _MDL
   else
   {
     _InterlockedIncrement((volatile signed __int32 *)&gVidMmLowResourceAccumulated);
-    WdLogSingleEntry1(6LL, 5971LL);
-    DxgkLogInternalTriageEvent(v10, 262145LL);
+    v11 = WdLogNewEntry5_WdLowResource(v8);
+    *(_QWORD *)(v11 + 24) = 5972LL;
+    WdLogEvent5_WdLowResource(v11);
     return 3223191809LL;
   }
 }

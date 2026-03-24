@@ -1,9 +1,9 @@
 /*
- * XREFs of MmSessionGetWin32Callouts @ 0x140214EC0
+ * XREFs of MmSessionGetWin32Callouts @ 0x14025A170
  * Callers:
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     NtFindAtom @ 0x140717D10 (NtFindAtom.c)
- *     ExCallSessionCallBack @ 0x1407C6220 (ExCallSessionCallBack.c)
+ *     NtFindAtom @ 0x14061B130 (NtFindAtom.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
+ *     ExCallSessionCallBack @ 0x140660AC8 (ExCallSessionCallBack.c)
  * Callees:
  *     <none>
  */
@@ -12,8 +12,8 @@ union _RTL_RUN_ONCE *MmSessionGetWin32Callouts()
 {
   union _RTL_RUN_ONCE *result; // rax
 
-  result = &PsWin32NullCallBack;
-  if ( *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25] + 608) >= 2uLL )
-    return &PsWin32CallBack;
+  result = &PsWin32CallBack;
+  if ( *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5] + 680) < 2uLL )
+    return &PsWin32NullCallBack;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCompleteRequest @ 0x140557470
+ * XREFs of IoCompleteRequest @ 0x1405059B0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
  */
 
 void __fastcall IoCompleteRequest(IRP *a1, CCHAR a2)

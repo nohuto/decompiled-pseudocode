@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpUuidSaveSequenceNumber @ 0x14075F9CC
+ * XREFs of ExpUuidSaveSequenceNumber @ 0x14075F9AC
  * Callers:
- *     ExpUuidSaveSequenceNumberIf @ 0x1406C608C (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x1406C606C (ExpUuidSaveSequenceNumberIf.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlGetPersistedStateLocation @ 0x140612450 (RtlGetPersistedStateLocation.c)
  */
 

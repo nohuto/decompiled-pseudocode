@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlRemoveLargeMcbEntry @ 0x1403AB680
+ * XREFs of FsRtlRemoveLargeMcbEntry @ 0x1404EF260
  * Callers:
- *     FsRtlRemoveMcbEntry @ 0x14053CD60 (FsRtlRemoveMcbEntry.c)
+ *     FsRtlRemoveMcbEntry @ 0x1404EF2E0 (FsRtlRemoveMcbEntry.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     FsRtlRemoveBaseMcbEntry @ 0x140339F10 (FsRtlRemoveBaseMcbEntry.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     FsRtlRemoveBaseMcbEntry @ 0x1402F5540 (FsRtlRemoveBaseMcbEntry.c)
  */
 
 void __stdcall FsRtlRemoveLargeMcbEntry(PLARGE_MCB Mcb, LONGLONG Vbn, LONGLONG SectorCount)
@@ -17,5 +17,5 @@ void __stdcall FsRtlRemoveLargeMcbEntry(PLARGE_MCB Mcb, LONGLONG Vbn, LONGLONG S
   v4 = Vbn;
   ExAcquireFastMutex(Mcb->GuardedMutex);
   FsRtlRemoveBaseMcbEntry(&Mcb->BaseMcb, v4, v3);
-  ExReleaseFastMutex(Mcb->GuardedMutex);
+  KeReleaseGuardedMutex(Mcb->GuardedMutex);
 }

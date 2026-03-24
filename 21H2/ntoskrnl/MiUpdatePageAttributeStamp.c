@@ -1,57 +1,46 @@
 /*
- * XREFs of MiUpdatePageAttributeStamp @ 0x14024DD20
+ * XREFs of MiUpdatePageAttributeStamp @ 0x1402C81D0
  * Callers:
- *     MiCopyHeaderIfResident @ 0x14029E440 (MiCopyHeaderIfResident.c)
+ *     MiCopyHeaderIfResident @ 0x1402E8D30 (MiCopyHeaderIfResident.c)
  * Callees:
- *     MiDetermineModifiedPageListHead @ 0x14024E640 (MiDetermineModifiedPageListHead.c)
- *     MiGetPfnPriority @ 0x140273234 (MiGetPfnPriority.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiAcquirePageListLock @ 0x1403277D0 (MiAcquirePageListLock.c)
- *     MiReleasePageListLock @ 0x140338D00 (MiReleasePageListLock.c)
- *     MiSetPfnTbFlushStamp @ 0x14033C33C (MiSetPfnTbFlushStamp.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
  */
 
-void *__fastcall MiUpdatePageAttributeStamp(__int64 a1)
+void __fastcall MiUpdatePageAttributeStamp(__int64 a1, __int64 a2, __int64 a3)
 {
-  void *result; // rax
-  unsigned __int64 v3; // r8
-  __int64 v4; // rcx
-  __int64 v5; // rsi
-  __int64 v6; // rdi
-  signed __int32 v7[8]; // [rsp+0h] [rbp-A8h] BYREF
-  _BYTE v8[112]; // [rsp+20h] [rbp-88h] BYREF
+  __int64 v4; // rdi
+  char v5; // al
+  __int64 v6; // rcx
+  __int64 v7; // rcx
+  signed __int32 v8[8]; // [rsp+0h] [rbp-48h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  result = memset(v8, 0, 0x68uLL);
+  *(_QWORD *)&LockHandle.OldIrql = 0LL;
   if ( !*(_WORD *)(a1 + 32) )
   {
-    v3 = *(_QWORD *)(a1 + 40);
-    v4 = (v3 >> 43) & 0x3FF;
-    v5 = *(_QWORD *)(qword_140C51F48 + 8 * v4);
-    v6 = *(_QWORD *)(v5 + 8LL * (*(_BYTE *)(a1 + 34) & 7) + 6632);
-    if ( (*(_BYTE *)(a1 + 34) & 7) == 2 )
+    v4 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL));
+    v5 = *(_BYTE *)(a1 + 34);
+    v6 = *(_QWORD *)(v4 + 8LL * (v5 & 7) + 4216);
+    if ( (v5 & 7) == 2 )
     {
-      if ( (v3 & 0x20000000000000LL) != 0 )
-      {
-        _InterlockedOr(v7, 0);
-        return (void *)MiSetPfnTbFlushStamp(a1, (unsigned int)KiTbFlushTimeStamp, 1LL);
-      }
-      v6 = v5 + 88LL * (unsigned int)MiGetPfnPriority(a1) + 2880;
+      v7 = 5LL * (unsigned int)MiGetPfnPriority(a1) + 304;
     }
-    else if ( *(_DWORD *)(v6 + 8) == 3 )
+    else
     {
-      if ( (*(_DWORD *)(a1 + 16) & 0x400LL) != 0 )
-        v6 = 88LL * *(unsigned int *)(MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4)) + 8)
-           + v5
-           + 5120;
-      else
-        v6 = MiDetermineModifiedPageListHead(a1, *(_QWORD *)(qword_140C51F48 + 8 * v4));
+      if ( *(_DWORD *)(v6 + 8) != 3 || (*(_DWORD *)(a1 + 16) & 0x400LL) == 0 )
+        goto LABEL_5;
+      v7 = 5LL * *(unsigned int *)(MiSearchNumaNodeTable((a1 + 0x58000000000LL) / 48) + 8) + 432;
     }
-    ((void (__fastcall *)(__int64, __int64, __int64, _BYTE *))MiAcquirePageListLock)(v6, a1, 1LL, v8);
-    _InterlockedOr(v7, 0);
-    *(_QWORD *)(a1 + 24) ^= (*(_QWORD *)(a1 + 24) ^ ((unsigned __int64)(unsigned int)KiTbFlushTimeStamp << 59)) & 0x3800000000000000LL;
-    return (void *)MiReleasePageListLock(v6, v8);
+    v6 = v4 + 8 * v7;
+LABEL_5:
+    LockHandle.LockQueue.Next = 0LL;
+    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v6 + 32);
+    KxAcquireQueuedSpinLock(&LockHandle, v6 + 32, a3);
+    _InterlockedOr(v8, 0);
+    *(_QWORD *)(a1 + 24) ^= (*(_QWORD *)(a1 + 24) ^ ((unsigned __int64)(unsigned int)KiTbFlushTimeStamp << 56)) & 0xF00000000000000LL;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   }
-  return result;
 }

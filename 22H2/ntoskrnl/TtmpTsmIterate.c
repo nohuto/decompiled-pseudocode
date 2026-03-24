@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpTsmIterate @ 0x1409ABC5C
+ * XREFs of TtmpTsmIterate @ 0x1408FE240
  * Callers:
- *     TtmpUpdateTerminalState @ 0x1409ABD48 (TtmpUpdateTerminalState.c)
+ *     TtmpUpdateTerminalState @ 0x1408FE32C (TtmpUpdateTerminalState.c)
  * Callees:
- *     TtmpTsmEvaluateTimeouts @ 0x1409ABBF4 (TtmpTsmEvaluateTimeouts.c)
+ *     TtmpTsmEvaluateTimeouts @ 0x1408FE1D8 (TtmpTsmEvaluateTimeouts.c)
  */
 
 bool __fastcall TtmpTsmIterate(__int64 a1, __int64 a2)

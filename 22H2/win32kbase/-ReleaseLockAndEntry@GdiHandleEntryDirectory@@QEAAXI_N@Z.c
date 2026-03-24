@@ -1,26 +1,37 @@
 /*
- * XREFs of ?ReleaseLockAndEntry@GdiHandleEntryDirectory@@QEAAXI_N@Z @ 0x1C0047C58
+ * XREFs of ?ReleaseLockAndEntry@GdiHandleEntryDirectory@@QEAAXI_N@Z @ 0x1C0033140
  * Callers:
- *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C0044F10 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
- *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0045760 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
- *     ??1SURFMEM@@QEAA@XZ @ 0x1C0046370 (--1SURFMEM@@QEAA@XZ.c)
- *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00483E0 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
- *     ?vDeleteCore@XDCOBJ@@QEAAXXZ @ 0x1C0088250 (-vDeleteCore@XDCOBJ@@QEAAXXZ.c)
+ *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C002D7C0 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C0031B30 (--1SURFMEM@@QEAA@XZ.c)
+ *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0033220 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
  * Callees:
- *     ?_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PEAI@Z @ 0x1C0044240 (-_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PE.c)
- *     ?ReleaseLockAndEntry@GdiHandleEntryTable@@QEAAXI_N@Z @ 0x1C0047B94 (-ReleaseLockAndEntry@GdiHandleEntryTable@@QEAAXI_N@Z.c)
+ *     ?GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z @ 0x1C0031360 (-GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z.c)
+ *     ?_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PEAI@Z @ 0x1C0031390 (-_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PE.c)
  */
 
 void __fastcall GdiHandleEntryDirectory::ReleaseLockAndEntry(GdiHandleEntryDirectory *this, unsigned int a2, char a3)
 {
-  GdiHandleEntryTable *v5; // [rsp+20h] [rbp-18h] BYREF
-  unsigned int v6; // [rsp+58h] [rbp+20h] BYREF
+  GdiHandleEntryTable *v5; // r9
+  unsigned __int64 v6; // r10
+  GdiHandleEntryTable *v7; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v8; // [rsp+58h] [rbp+20h] BYREF
 
-  v5 = 0LL;
-  v6 = 0;
-  if ( GdiHandleEntryDirectory::_RetrieveTableAndTableEntryIndex(this, a2, &v5, &v6) )
+  v7 = 0LL;
+  v8 = 0;
+  if ( GdiHandleEntryDirectory::_RetrieveTableAndTableEntryIndex(this, a2, &v7, &v8) )
   {
-    GdiHandleEntryTable::ReleaseLockAndEntry(v5, v6, a3);
+    v5 = v7;
+    v6 = v8;
+    if ( a3 || GdiHandleEntryTable::GetEntryObject(v7, v8) )
+    {
+      if ( (unsigned int)v6 < *((_DWORD *)v5 + 5) )
+        *(_QWORD *)(*(_QWORD *)(**((_QWORD **)v5 + 3) + 8 * (v6 >> 8)) + 16LL * (unsigned __int8)v6 + 8) = 0LL;
+      *(_QWORD *)(*(_QWORD *)v5 + 24 * v6) = *((unsigned int *)v5 + 3);
+      --*((_DWORD *)v5 + 4);
+      *((_DWORD *)v5 + 3) = v6;
+    }
+    ExReleasePushLockExclusiveEx(*(_QWORD *)(**((_QWORD **)v5 + 3) + 8 * (v6 >> 8)) + 16LL * (unsigned __int8)v6, 0LL);
+    KeLeaveCriticalRegion();
     *(_BYTE *)this = 0;
   }
 }

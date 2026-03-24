@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpChainDereferenceComplete @ 0x14080EA40
+ * XREFs of PnpChainDereferenceComplete @ 0x140736488
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x1402D5CA8 (IopCompleteUnloadOrDelete.c)
- *     PnpIsChainDereferenced @ 0x1403A55B8 (PnpIsChainDereferenced.c)
+ *     IopCompleteUnloadOrDelete @ 0x140360FD0 (IopCompleteUnloadOrDelete.c)
+ *     PnpIsChainDereferenced @ 0x14036DB30 (PnpIsChainDereferenced.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     IopSetRelationsTag @ 0x14080EB6C (IopSetRelationsTag.c)
- *     PnpDelayedRemoveWorker @ 0x14080EBD0 (PnpDelayedRemoveWorker.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpDelayedRemoveWorker @ 0x140735EC0 (PnpDelayedRemoveWorker.c)
+ *     IopSetRelationsTag @ 0x140737810 (IopSetRelationsTag.c)
  */
 
 void __fastcall PnpChainDereferenceComplete(__int64 a1, int a2)
@@ -37,7 +37,7 @@ void __fastcall PnpChainDereferenceComplete(__int64 a1, int a2)
       v8 = v6[2];
       v9 = *v6;
       v10 = v7 ? *(_QWORD *)(v7[39] + 40LL) : 0LL;
-      if ( v8 == v9 && *(_DWORD *)(v10 + 300) != 784 )
+      if ( v8 == v9 && *(_DWORD *)(v10 + 300) != 782 )
         break;
     }
   }
@@ -47,12 +47,12 @@ void __fastcall PnpChainDereferenceComplete(__int64 a1, int a2)
   {
 LABEL_14:
     ExReleaseResourceLite(&IopSurpriseRemoveListLock);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return;
   }
   PnpDelayedRemovePending = 1;
   ExReleaseResourceLite(&IopSurpriseRemoveListLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( a2 && KeGetCurrentThread()->ApcState.Process == PsInitialSystemProcess )
   {
     PnpDelayedRemoveWorker(0LL);

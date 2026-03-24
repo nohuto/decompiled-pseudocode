@@ -1,28 +1,28 @@
 /*
- * XREFs of AllocAndInitializeTelemetryContext @ 0x1C0028774
+ * XREFs of AllocAndInitializeTelemetryContext @ 0x1C005F90C
  * Callers:
- *     FxAllocateDriverGlobals @ 0x1C002861C (FxAllocateDriverGlobals.c)
+ *     FxAllocateDriverGlobals @ 0x1C0056C34 (FxAllocateDriverGlobals.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall AllocAndInitializeTelemetryContext(_FX_TELEMETRY_CONTEXT **TelemetryContext)
 {
-  UUID *Pool2; // rax
+  UUID *PoolWithTag; // rax
   _FX_TELEMETRY_CONTEXT *v3; // rbx
 
-  Pool2 = (UUID *)ExAllocatePool2(64LL, 20LL, 1917089862LL);
-  v3 = (_FX_TELEMETRY_CONTEXT *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (UUID *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, 0x14uLL, 0x72447846u);
+  v3 = (_FX_TELEMETRY_CONTEXT *)PoolWithTag;
+  if ( PoolWithTag )
   {
-    if ( ExUuidCreate(Pool2) < 0 )
+    if ( ExUuidCreate(PoolWithTag) >= 0 )
     {
-      ExFreePoolWithTag(v3, 0);
-      v3 = 0LL;
+      v3->DoOnceFlagsBitmap = 0;
     }
     else
     {
-      v3->DoOnceFlagsBitmap = 0;
+      ExFreePoolWithTag(v3, 0);
+      v3 = 0LL;
     }
   }
   *TelemetryContext = v3;

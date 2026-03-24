@@ -1,7 +1,7 @@
 /*
  * XREFs of SepShouldSetDelinkFlags @ 0x1405BEEF0
  * Callers:
- *     SepInternalSetSecurityAttributesToken @ 0x1402FE4F4 (SepInternalSetSecurityAttributesToken.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x1402FE5F4 (SepInternalSetSecurityAttributesToken.c)
  *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
  * Callees:
  *     SepPotentialGlobalTableAttribute @ 0x140014114 (SepPotentialGlobalTableAttribute.c)

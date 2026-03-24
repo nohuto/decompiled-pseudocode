@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vFreePql@PFEOBJ@@QEAAXXZ @ 0x1C0114F78
+ * XREFs of ?vFreePql@PFEOBJ@@QEAAXXZ @ 0x1C00A1E34
  * Callers:
- *     bUnloadEudcFont @ 0x1C0114E84 (bUnloadEudcFont.c)
+ *     bUnloadEudcFont @ 0x1C00A1D5C (bUnloadEudcFont.c)
  * Callees:
  *     <none>
  */

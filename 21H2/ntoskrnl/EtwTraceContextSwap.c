@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceContextSwap @ 0x1403ABA40
+ * XREFs of EtwTraceContextSwap @ 0x1403AED40
  * Callers:
- *     KiSwapThread @ 0x1402B3140 (KiSwapThread.c)
- *     SwapContext @ 0x140428D90 (SwapContext.c)
+ *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
+ *     SwapContext @ 0x1404067C0 (SwapContext.c)
  * Callees:
- *     PsGetThreadServerSilo @ 0x140347690 (PsGetThreadServerSilo.c)
- *     EtwpLogContextSwapEvent @ 0x1403ABB10 (EtwpLogContextSwapEvent.c)
- *     EtwpCoverageSamplerContextSwap @ 0x140636DE4 (EtwpCoverageSamplerContextSwap.c)
+ *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
+ *     EtwpLogContextSwapEvent @ 0x1403AEE10 (EtwpLogContextSwapEvent.c)
+ *     EtwpCoverageSamplerContextSwap @ 0x1405AFCBC (EtwpCoverageSamplerContextSwap.c)
  */
 
 __int64 __fastcall EtwTraceContextSwap(__int64 a1, __int64 a2)
@@ -25,29 +25,30 @@ __int64 __fastcall EtwTraceContextSwap(__int64 a1, __int64 a2)
   v5 = PsGetThreadServerSilo(a2);
   v6 = &PspHostSiloGlobals;
   if ( ThreadServerSilo )
-    v7 = *(_QWORD **)(ThreadServerSilo + 1464);
+    v7 = *(_QWORD **)(ThreadServerSilo + 1272);
   else
     v7 = &PspHostSiloGlobals;
   v8 = v7[108];
   if ( v5 )
-    v6 = *(_QWORD **)(v5 + 1464);
+    v6 = *(_QWORD **)(v5 + 1272);
   v9 = v6[108];
-  if ( EtwpHostSiloState != -4572 && (*(_DWORD *)(EtwpHostSiloState + 4576) & 4) != 0 )
+  if ( EtwpHostSiloState != -4548 && (*(_DWORD *)(EtwpHostSiloState + 4552) & 4) != 0 )
     EtwpCoverageSamplerContextSwap(a2);
   result = EtwpLogContextSwapEvent(EtwpHostSiloState, a1, a2);
   if ( ThreadServerSilo == v5 )
   {
-    if ( ThreadServerSilo && v8 )
+    if ( !ThreadServerSilo )
+      goto LABEL_10;
+    if ( v8 )
     {
       v11 = a1;
       v12 = v8;
       return EtwpLogContextSwapEvent(v12, v11, a2);
     }
   }
-  else if ( ThreadServerSilo && v8 )
-  {
+  if ( ThreadServerSilo && v8 )
     result = EtwpLogContextSwapEvent(v8, a1, 0LL);
-  }
+LABEL_10:
   if ( v5 && v9 )
   {
     v11 = 0LL;

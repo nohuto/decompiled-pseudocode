@@ -1,7 +1,7 @@
 /*
- * XREFs of PopFindNextSystemPowerState @ 0x1409809E0
+ * XREFs of PopFindNextSystemPowerState @ 0x1408E1288
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     <none>
  */
@@ -11,18 +11,18 @@ char __fastcall PopFindNextSystemPowerState(int a1, char a2, _BYTE *a3)
   char v3; // r9
 
   v3 = 1;
-  dword_140C3CE40 = dword_140C3CE44;
-  if ( dword_140C3CE44 == 1 )
+  dword_140C23A60 = dword_140C23A64;
+  if ( dword_140C23A64 == 1 )
   {
-    if ( dword_140C3CE2C < 0 && *a3 )
+    if ( dword_140C23A4C < 0 && *a3 )
     {
       *a3 = 0;
-      dword_140C3CE2C &= ~0x10000000u;
-      dword_140C3CE40 = a1;
+      dword_140C23A4C &= ~0x10000000u;
+      dword_140C23A60 = a1;
     }
     else if ( a2 && a1 == 5 )
     {
-      dword_140C3CE40 = 5;
+      dword_140C23A60 = 5;
     }
     else
     {

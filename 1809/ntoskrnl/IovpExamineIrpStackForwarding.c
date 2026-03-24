@@ -3,8 +3,8 @@
  * Callers:
  *     IovpCallDriver1 @ 0x14092EC8C (IovpCallDriver1.c)
  * Callees:
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     ViErrorReport1 @ 0x14030AE3C (ViErrorReport1.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
  *     IovUtilMultipleDevicesSameDriver @ 0x14093576C (IovUtilMultipleDevicesSameDriver.c)
  */
 

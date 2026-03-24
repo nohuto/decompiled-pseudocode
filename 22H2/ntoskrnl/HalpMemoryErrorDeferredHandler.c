@@ -1,61 +1,45 @@
 /*
- * XREFs of HalpMemoryErrorDeferredHandler @ 0x140519900
+ * XREFs of HalpMemoryErrorDeferredHandler @ 0x1404CFDEC
  * Callers:
- *     HalpErrorDeferredHandler @ 0x1405196E0 (HalpErrorDeferredHandler.c)
+ *     HalpErrorDeferredHandler @ 0x1404CFC00 (HalpErrorDeferredHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpHvSetMachineCheckRecoveryState @ 0x14050BD50 (HalpHvSetMachineCheckRecoveryState.c)
- *     WheaAttemptClearPoison @ 0x140A07D60 (WheaAttemptClearPoison.c)
- *     WheaAttemptPhysicalPageOffline @ 0x140A07E30 (WheaAttemptPhysicalPageOffline.c)
- *     WheaExecuteRowFailureCheck @ 0x140A089CC (WheaExecuteRowFailureCheck.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpHvSetMachineCheckRecoveryState @ 0x1404C2B60 (HalpHvSetMachineCheckRecoveryState.c)
+ *     WheaAttemptClearPoison @ 0x14095D2E0 (WheaAttemptClearPoison.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x14095D3A0 (WheaAttemptPhysicalPageOffline.c)
  */
 
-__int64 (*__fastcall HalpMemoryErrorDeferredHandler(_QWORD *a1, __int64 a2, __int64 a3))(void)
+__int64 (*__fastcall HalpMemoryErrorDeferredHandler(__int64 *a1, __int64 a2, __int64 a3))(void)
 {
+  bool v3; // zf
+  unsigned __int64 v5; // rcx
   __int64 (*result)(void); // rax
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  int v7; // esi
-  __int64 v8; // rbx
-  __int64 v9; // r8
-  char v10; // al
+  __int64 v7; // r8
 
   *((_BYTE *)a1 + 13) &= 0xFu;
-  if ( *((_BYTE *)a1 + 14) )
+  v3 = *((_BYTE *)a1 + 14) == 0;
+  v5 = *a1;
+  if ( v3 )
   {
-    result = (__int64 (*)(void))WheaAttemptClearPoison(*a1);
-    v7 = (int)result;
+    LOBYTE(a3) = 1;
+    result = (__int64 (*)(void))WheaAttemptPhysicalPageOffline(v5 >> 12, 0LL, a3);
   }
   else
   {
-    v8 = *a1 >> 12;
-    LOBYTE(a3) = 1;
-    v7 = WheaAttemptPhysicalPageOffline(v8, 0LL, a3, 0LL);
-    result = (__int64 (*)(void))WheaExecuteRowFailureCheck(v8, *a1, v9, 0LL);
+    result = (__int64 (*)(void))WheaAttemptClearPoison(v5);
   }
   if ( HalpHvWheaEnlightenedCpuManager )
   {
-    v10 = 0;
-    if ( v7 || WheapPolicyNotifyAllOfflines )
+    if ( (_DWORD)result && qword_140C4A298 )
     {
-      if ( WheapPolicyNotifyAllOfflines )
-      {
-        v10 = 64;
-        if ( !v7 )
-          v10 = -64;
-      }
-      if ( qword_140C62618 )
-      {
-        LOBYTE(v5) = v10;
-        LOBYTE(v6) = 1;
-        ((void (__fastcall *)(_QWORD *, __int64, __int64))qword_140C62618)(a1, v5, v6);
-      }
+      LOBYTE(v7) = 1;
+      qword_140C4A298(a1, 0LL, v7);
     }
     if ( a1[2] )
     {
-      result = qword_140C62608;
-      if ( qword_140C62608 )
-        return (__int64 (*)(void))qword_140C62608();
+      result = qword_140C4A288;
+      if ( qword_140C4A288 )
+        return (__int64 (*)(void))qword_140C4A288();
     }
     else
     {

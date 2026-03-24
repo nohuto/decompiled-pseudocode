@@ -1,12 +1,12 @@
 /*
- * XREFs of PopHiberChecksumHiberFileData @ 0x140AA320C
+ * XREFs of PopHiberChecksumHiberFileData @ 0x1409949E0
  * Callers:
- *     PopRequestRead @ 0x140AA3C40 (PopRequestRead.c)
- *     PopRequestWrite @ 0x140AA4070 (PopRequestWrite.c)
+ *     PopRequestWrite @ 0x140994594 (PopRequestWrite.c)
+ *     PopRequestRead @ 0x1409B1994 (PopRequestRead.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     tcpxsum @ 0x140428440 (tcpxsum.c)
- *     PopCheckpointSystemSleep @ 0x140AAA5A8 (PopCheckpointSystemSleep.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x140406C70 (tcpxsum.c)
+ *     PopCheckpointSystemSleep @ 0x140993C64 (PopCheckpointSystemSleep.c)
  */
 
 unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
@@ -17,91 +17,67 @@ unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
         unsigned __int64 a5)
 {
   unsigned __int64 result; // rax
-  unsigned __int64 v9; // r8
-  unsigned __int64 *v10; // rsi
-  unsigned __int64 v11; // rcx
-  unsigned __int64 v12; // rbx
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // rax
-  __int64 v15; // r13
-  unsigned __int16 *v16; // rax
-  unsigned __int16 *v17; // r14
-  __int64 v18; // r15
-  unsigned int v19; // r8d
-  int v20; // eax
-  int v21; // ecx
-  unsigned __int64 v22; // rax
-  unsigned __int64 v23; // [rsp+30h] [rbp-48h]
-  unsigned __int64 v24; // [rsp+80h] [rbp+8h]
-  __int64 v25; // [rsp+98h] [rbp+20h]
+  unsigned __int64 v8; // r13
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // rbx
+  unsigned __int64 v11; // rax
+  unsigned __int64 v12; // r15
+  __int64 v13; // r12
+  __int64 v14; // r14
+  unsigned int v15; // r8d
+  int v16; // eax
+  unsigned __int64 v17; // rax
+  __int64 v18; // [rsp+78h] [rbp+20h]
 
-  v25 = a4;
+  v18 = a4;
   result = __rdtsc();
-  v9 = result;
-  v23 = result;
+  v8 = result;
   if ( *(_QWORD *)(a1 + 432) )
   {
-    v10 = (unsigned __int64 *)(a1 + 416);
-    v11 = a2 ? *(_QWORD *)(a1 + 440) >> 1 : *v10;
-    v12 = a3 >> 9;
-    if ( v12 < v11 )
+    v9 = a2 ? *(_QWORD *)(a1 + 440) >> 1 : *(_QWORD *)(a1 + 416);
+    v10 = a3 >> 9;
+    if ( a3 >> 9 < v9 )
     {
-      v13 = a5;
+      v11 = a5;
       if ( (a5 & 0x1FF) != 0 )
-        v13 = a5 - (a5 & 0x1FF) + 512;
-      v14 = v12 + (v13 >> 9);
-      if ( v14 >= v11 )
-        v14 = v11;
-      v15 = 0LL;
-      v24 = v14;
-      if ( v12 < v14 )
+        v11 = a5 - (a5 & 0x1FF) + 512;
+      v12 = (v11 >> 9) + v10;
+      if ( v12 >= v9 )
+        v12 = v9;
+      v13 = 0LL;
+      while ( v10 < v12 )
       {
-        v16 = (unsigned __int16 *)(a1 + 424);
-        v17 = (unsigned __int16 *)(a1 + 424);
-        do
+        v14 = *(_QWORD *)(a1 + 432);
+        v15 = a5 - v13;
+        if ( a5 - v13 > 0x200 )
+          v15 = 512;
+        v16 = tcpxsum(0, (const char *)(v13 + a4), v15);
+        if ( a2 )
         {
-          v18 = *(_QWORD *)(a1 + 432);
-          v19 = a5 - v15;
-          if ( a5 - v15 <= 0x200 )
-            v17 = v16;
-          else
-            v19 = 512;
-          v20 = tcpxsum(0, (const char *)(a4 + v15), v19);
-          v21 = v20;
-          if ( a2 )
-          {
-            *(_WORD *)(v18 + 2 * v12) = v20;
-          }
-          else
-          {
-            v20 = *(unsigned __int16 *)(v18 + 2 * v12);
-            if ( v20 != v21 )
-            {
-              PopCheckpointSystemSleep(30LL);
-              KeBugCheckEx(0xA0u, 0x10EuLL, 0xAuLL, *(unsigned __int16 *)(v18 + 2 * v12), *v17);
-            }
-          }
-          a4 = v25;
-          v17 = (unsigned __int16 *)(a1 + 424);
-          *(_WORD *)(a1 + 424) = v20;
-          v15 += 512LL;
-          v16 = (unsigned __int16 *)(a1 + 424);
-          ++v12;
+          *(_WORD *)(v14 + 2 * v10) = v16;
         }
-        while ( v12 < v24 );
-        v9 = v23;
+        else
+        {
+          if ( *(unsigned __int16 *)(v14 + 2 * v10) != v16 )
+          {
+            PopCheckpointSystemSleep(30);
+            KeBugCheckEx(0xA0u, 0x10EuLL, 0xAuLL, *(unsigned __int16 *)(v14 + 2 * v10), *(unsigned __int16 *)(a1 + 424));
+          }
+          LOWORD(v16) = *(_WORD *)(v14 + 2 * v10);
+        }
+        a4 = v18;
+        v13 += 512LL;
+        *(_WORD *)(a1 + 424) = v16;
+        ++v10;
       }
-      v22 = __rdtsc();
-      result = (((unsigned __int64)HIDWORD(v22) << 32) | (unsigned int)v22) - v9;
       if ( a2 )
-      {
-        *v10 = v12;
-        qword_140C3D3C8 += result;
-      }
+        *(_QWORD *)(a1 + 416) = v10;
+      v17 = __rdtsc();
+      result = (((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) - v8;
+      if ( a2 )
+        qword_140C23FC8 += result;
       else
-      {
-        qword_140C3D508 += result;
-      }
+        qword_140C24108 += result;
     }
   }
   return result;

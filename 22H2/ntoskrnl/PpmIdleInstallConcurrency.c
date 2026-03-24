@@ -1,23 +1,21 @@
 /*
- * XREFs of PpmIdleInstallConcurrency @ 0x1403B2E50
+ * XREFs of PpmIdleInstallConcurrency @ 0x140566960
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     PpmIdleUpdateConcurrency @ 0x14033E760 (PpmIdleUpdateConcurrency.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     PpmIdleUpdateConcurrency @ 0x140566F70 (PpmIdleUpdateConcurrency.c)
  */
 
 __int64 __fastcall PpmIdleInstallConcurrency(__int64 a1, KSPIN_LOCK *a2, KSPIN_LOCK *a3)
 {
-  LARGE_INTEGER PerformanceCounter; // rbp
-
-  PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  PpmIdleUpdateConcurrency(a2, PerformanceCounter.QuadPart, 0, 0);
-  *(_QWORD *)(a1 + 34040) = a2;
+  KeQueryPerformanceCounter(0LL);
+  PpmIdleUpdateConcurrency(a2);
+  *(_QWORD *)(a1 + 33192) = a2;
   if ( a3 )
   {
-    PpmIdleUpdateConcurrency(a3, PerformanceCounter.QuadPart, 0, 0);
-    *(_QWORD *)(a1 + 34048) = a3;
+    PpmIdleUpdateConcurrency(a3);
+    *(_QWORD *)(a1 + 33200) = a3;
   }
   return 0LL;
 }

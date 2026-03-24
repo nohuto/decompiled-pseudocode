@@ -1,31 +1,12 @@
 /*
- * XREFs of ?Commit@CChannel@@UEAAJXZ @ 0x180044290
+ * XREFs of ?Commit@CChannel@@UEAAJXZ @ 0x180027F70
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalCommit@CChannel@@AEAAJPEAX@Z @ 0x1800442E8 (-InternalCommit@CChannel@@AEAAJPEAX@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     <none>
  */
 
 __int64 __fastcall CChannel::Commit(CChannel *this)
 {
-  __int64 v2; // rcx
-  unsigned int v3; // ebx
-  _QWORD v5[3]; // [rsp+20h] [rbp-18h] BYREF
-
-  v2 = *((_QWORD *)this + 8);
-  v5[1] = v2;
-  if ( v2 )
-  {
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 56LL))(v2);
-  }
-  else
-  {
-    v5[0] = (char *)this + 184;
-    EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 184));
-  }
-  v3 = CChannel::InternalCommit(this, 0LL);
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v5);
-  return v3;
+  return CChannel::SynchronizedCommit(this, 0LL);
 }

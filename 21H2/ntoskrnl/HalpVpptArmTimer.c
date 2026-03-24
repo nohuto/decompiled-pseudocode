@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpVpptArmTimer @ 0x14050D380
+ * XREFs of HalpVpptArmTimer @ 0x1404C08C0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     HalpTimerScaleCounter @ 0x1403A572C (HalpTimerScaleCounter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x14050D91C (HalpVpptUpdatePhysicalTimer.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1404C0E54 (HalpVpptUpdatePhysicalTimer.c)
  */
 
 __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
@@ -36,7 +36,7 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
     return 3221225659LL;
   if ( *(_DWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 228LL) == 2 )
     v3 = HalpTimerScaleCounter(a3, *(_QWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 192LL), 10000000LL);
-  byte_140C4C7D8 = HalpAcquireHighLevelLock(&qword_140C4C7D0);
+  byte_140C4A6F8 = HalpAcquireHighLevelLock(&qword_140C4A6F0);
   if ( *(int **)&HalpVpptQueue == &HalpVpptQueue )
   {
     v7 = 0LL;
@@ -78,8 +78,8 @@ LABEL_19:
     HalpVpptUpdatePhysicalTimer();
   *((_DWORD *)a1 + 5) = 2;
   *((_BYTE *)a1 + 24) = 1;
-  v16 = (unsigned __int8)byte_140C4C7D8;
-  KxReleaseSpinLock(&qword_140C4C7D0);
+  v16 = (unsigned __int8)byte_140C4A6F8;
+  KxReleaseSpinLock(&qword_140C4A6F0);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

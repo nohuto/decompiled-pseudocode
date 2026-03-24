@@ -1,21 +1,21 @@
 /*
- * XREFs of ?AcquireLocksForStop@DXGADAPTER@@QEAAXPEA_K@Z @ 0x1C02B5ACC
+ * XREFs of ?AcquireLocksForStop@DXGADAPTER@@QEAAXPEA_K@Z @ 0x1C020BF2C
  * Callers:
- *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C02BA418 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
+ *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C0210244 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
  * Callees:
- *     ?AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C019755C (-AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
- *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C0197D5C (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
+ *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C00EAD78 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
+ *     ?AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C013042C (-AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
  */
 
 void __fastcall DXGADAPTER::AcquireLocksForStop(DXGADAPTER *this, unsigned __int64 *a2)
 {
-  char *v3; // rbx
+  char *v3; // rdi
   union _LARGE_INTEGER Interval; // [rsp+30h] [rbp+8h] BYREF
 
   _InterlockedIncrement64((volatile signed __int64 *)this + 3);
   *a2 = -1LL;
   v3 = (char *)this + 136;
-  if ( *((_QWORD *)this + 366) )
+  if ( *((_QWORD *)this + 338) )
   {
     while ( 1 )
     {
@@ -23,7 +23,7 @@ void __fastcall DXGADAPTER::AcquireLocksForStop(DXGADAPTER *this, unsigned __int
       if ( (unsigned __int8)ExTryAcquirePushLockExclusiveEx(v3, 0LL) )
         break;
       KeLeaveCriticalRegion();
-      ADAPTER_RENDER::FlushScheduler(*((_QWORD *)this + 366), 3u, 0xFFFFFFFF, 0);
+      ADAPTER_RENDER::FlushScheduler(*((_QWORD *)this + 338), 3, 0xFFFFFFFF, 0);
       Interval.QuadPart = -100000LL;
       KeDelayExecutionThread(0, 0, &Interval);
     }

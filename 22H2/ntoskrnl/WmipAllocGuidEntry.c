@@ -1,43 +1,42 @@
 /*
- * XREFs of WmipAllocGuidEntry @ 0x140843874
+ * XREFs of WmipAllocGuidEntry @ 0x140757818
  * Callers:
- *     WmipOpenBlock @ 0x1406C55DC (WmipOpenBlock.c)
- *     WmipLinkDataSourceToList @ 0x14086ADE4 (WmipLinkDataSourceToList.c)
+ *     WmipOpenBlock @ 0x1406B8098 (WmipOpenBlock.c)
+ *     WmipLinkDataSourceToList @ 0x1407576E0 (WmipLinkDataSourceToList.c)
  * Callees:
- *     WmipAllocEntry @ 0x14086B3D0 (WmipAllocEntry.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     WmipAllocEntry @ 0x1407578B0 (WmipAllocEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *WmipAllocGuidEntry()
 {
   _QWORD *v0; // rbx
-  _QWORD *Pool2; // rdi
+  _QWORD *PoolWithTag; // rdi
   _QWORD *v2; // rax
 
   v0 = 0LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 56LL, 1885957463LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x70696D57u);
+  if ( PoolWithTag )
   {
     v2 = (_QWORD *)WmipAllocEntry(&WmipGEChunkInfo);
     v0 = v2;
     if ( v2 )
     {
-      v2[12] = Pool2;
+      v2[12] = PoolWithTag;
       v2[8] = v2 + 7;
       v2[7] = v2 + 7;
       v2[6] = v2 + 5;
       v2[5] = v2 + 5;
       v2[18] = v2 + 17;
       v2[17] = v2 + 17;
-      Pool2[3] = 0LL;
-      Pool2[5] = WmipLegacyEtwWorker;
-      Pool2[6] = v2;
+      PoolWithTag[3] = 0LL;
+      PoolWithTag[5] = WmipLegacyEtwWorker;
+      PoolWithTag[6] = v2;
+      PoolWithTag = 0LL;
     }
-    else
-    {
-      ExFreePoolWithTag(Pool2, 0x70696D57u);
-    }
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x70696D57u);
   }
   return v0;
 }

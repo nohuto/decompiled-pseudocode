@@ -5,10 +5,10 @@
  *     IopLiveDumpEndMirroringCallback @ 0x140578890 (IopLiveDumpEndMirroringCallback.c)
  *     IopLiveDumpEstimateMemoryPages @ 0x140578B0C (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     IopLiveDumpTraceSystemQuiesceEnd @ 0x1402860A4 (IopLiveDumpTraceSystemQuiesceEnd.c)
- *     IopLiveDumpUnLockPages @ 0x140286174 (IopLiveDumpUnLockPages.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopLiveDumpTraceSystemQuiesceEnd @ 0x1402861A4 (IopLiveDumpTraceSystemQuiesceEnd.c)
+ *     IopLiveDumpUnLockPages @ 0x140286274 (IopLiveDumpUnLockPages.c)
  *     IopLiveDumpInitiateCorralStateChange @ 0x140578D24 (IopLiveDumpInitiateCorralStateChange.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhGetTopOfBusStack @ 0x1C002C348
+ * XREFs of UsbhGetTopOfBusStack @ 0x1C002D770
  * Callers:
- *     UsbhInitialize @ 0x1C002C450 (UsbhInitialize.c)
+ *     UsbhInitialize @ 0x1C002D870 (UsbhInitialize.c)
  * Callees:
- *     UsbhSyncSendInternalIoctl @ 0x1C0002F60 (UsbhSyncSendInternalIoctl.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReferenceListAdd @ 0x1C001AD54 (UsbhReferenceListAdd.c)
+ *     UsbhReferenceListAdd @ 0x1C0001AE8 (UsbhReferenceListAdd.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSyncSendInternalIoctl @ 0x1C0015F10 (UsbhSyncSendInternalIoctl.c)
  */
 
 __int64 __fastcall UsbhGetTopOfBusStack(__int64 a1)

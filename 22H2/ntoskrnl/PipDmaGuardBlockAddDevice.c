@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDmaGuardBlockAddDevice @ 0x14096B1FC
+ * XREFs of PipDmaGuardBlockAddDevice @ 0x1408B130C
  * Callers:
- *     PipDmgEnforceEnumerationPolicy @ 0x14096B324 (PipDmgEnforceEnumerationPolicy.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x1408B1434 (PipDmgEnforceEnumerationPolicy.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PnpRequestDeviceRemoval @ 0x14086788C (PnpRequestDeviceRemoval.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PnpRequestDeviceRemoval @ 0x14074C54C (PnpRequestDeviceRemoval.c)
  */
 
 __int64 __fastcall PipDmaGuardBlockAddDevice(ULONG_PTR BugCheckParameter2)
@@ -18,7 +18,7 @@ __int64 __fastcall PipDmaGuardBlockAddDevice(ULONG_PTR BugCheckParameter2)
     if ( BugCheckParameter2 )
     {
       v2 = (unsigned __int16 *)(BugCheckParameter2 + 40);
-      IoAddTriageDumpDataBlock(BugCheckParameter2, (PVOID)0x388);
+      IoAddTriageDumpDataBlock(BugCheckParameter2, (PVOID)0x310);
       if ( *v2 )
       {
         IoAddTriageDumpDataBlock((ULONG)v2, (PVOID)2);
@@ -50,6 +50,6 @@ __int64 __fastcall PipDmaGuardBlockAddDevice(ULONG_PTR BugCheckParameter2)
       *(_QWORD *)(BugCheckParameter2 + 720),
       *(unsigned int *)(BugCheckParameter2 + 704));
   }
-  PnpRequestDeviceRemoval(BugCheckParameter2, 0, 55, -1073741790);
+  PnpRequestDeviceRemoval(BugCheckParameter2, 0, 0x37u, -1073741790);
   return 3221226190LL;
 }

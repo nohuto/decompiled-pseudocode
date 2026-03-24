@@ -1,20 +1,21 @@
 /*
- * XREFs of ThreadLockExchange @ 0x1C008C7A8
+ * XREFs of ThreadLockExchange @ 0x1C00C1250
  * Callers:
- *     ?xxxCompositedTraverse@@YAHPEAUtagWND@@@Z @ 0x1C0016608 (-xxxCompositedTraverse@@YAHPEAUtagWND@@@Z.c)
- *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C00229B4 (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
- *     ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C0089090 (-xxxLoadUserAndNetworkFonts@@YAXXZ.c)
- *     ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C00891E8 (-xxxLoadPermanentFonts@@YAHXZ.c)
- *     ?xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z @ 0x1C0089388 (-xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z.c)
- *     ?xxxInternalDoPaint@@YAPEAUtagWND@@PEAU1@PEAUtagTHREADINFO@@@Z @ 0x1C008C110 (-xxxInternalDoPaint@@YAPEAUtagWND@@PEAU1@PEAUtagTHREADINFO@@@Z.c)
- *     ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x1C008C694 (-xxxEnsureAllDpiCursors@@YAXXZ.c)
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     EditionPointerParentNotify @ 0x1C01C69A0 (EditionPointerParentNotify.c)
- *     xxxOldNextWindow @ 0x1C01CACD8 (xxxOldNextWindow.c)
- *     xxxMNChar @ 0x1C02170F8 (xxxMNChar.c)
- *     xxxMNSetTop @ 0x1C021A1D4 (xxxMNSetTop.c)
- *     ?xxxUpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z @ 0x1C021FD38 (-xxxUpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z.c)
- *     xxxMenuDraw @ 0x1C02361F4 (xxxMenuDraw.c)
+ *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C0021DB0 (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
+ *     ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x1C0025A8C (-xxxEnsureAllDpiCursors@@YAXXZ.c)
+ *     ?xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z @ 0x1C0025BA0 (-xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z.c)
+ *     ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C0025D38 (-xxxLoadUserAndNetworkFonts@@YAXXZ.c)
+ *     ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C0025E90 (-xxxLoadPermanentFonts@@YAHXZ.c)
+ *     xxxMakeWindowForegroundWithState @ 0x1C003A9E8 (xxxMakeWindowForegroundWithState.c)
+ *     xxxMenuDraw @ 0x1C0043668 (xxxMenuDraw.c)
+ *     ?xxxInternalDoPaint@@YAPEAUtagWND@@PEAU1@PEAUtagTHREADINFO@@@Z @ 0x1C0053750 (-xxxInternalDoPaint@@YAPEAUtagWND@@PEAU1@PEAUtagTHREADINFO@@@Z.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     xxxUpdateWindowPositionsForDpiBoundaryChange @ 0x1C01E6264 (xxxUpdateWindowPositionsForDpiBoundaryChange.c)
+ *     EditionPointerParentNotify @ 0x1C01F1C60 (EditionPointerParentNotify.c)
+ *     xxxOldNextWindow @ 0x1C01F43B0 (xxxOldNextWindow.c)
+ *     xxxMNChar @ 0x1C02372E4 (xxxMNChar.c)
+ *     xxxMNSetTop @ 0x1C023AFB8 (xxxMNSetTop.c)
+ *     ?xxxCompositedTraverse@@YAHPEAUtagWND@@@Z @ 0x1C023DDC8 (-xxxCompositedTraverse@@YAHPEAUtagWND@@@Z.c)
  * Callees:
  *     <none>
  */

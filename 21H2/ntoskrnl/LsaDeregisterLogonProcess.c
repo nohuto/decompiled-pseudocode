@@ -1,11 +1,11 @@
 /*
- * XREFs of LsaDeregisterLogonProcess @ 0x1409C5E90
+ * XREFs of LsaDeregisterLogonProcess @ 0x14091C4D0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x1403614E0 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x14029F2DC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall LsaDeregisterLogonProcess(__int64 a1)

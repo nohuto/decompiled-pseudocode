@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ParseInputReport@InteractiveControlParser@@SAJPEAVInteractiveControlDevice@@PEAEKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C024AE20
+ * XREFs of ?ParseInputReport@InteractiveControlParser@@SAJPEAVInteractiveControlDevice@@PEAEKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C025BFB0
  * Callers:
- *     ?ParseInputReport@InteractiveControlInput@@QEAAJPEAEK@Z @ 0x1C0246F6C (-ParseInputReport@InteractiveControlInput@@QEAAJPEAEK@Z.c)
+ *     ?ParseInputReport@InteractiveControlInput@@QEAAJPEAEK@Z @ 0x1C0258464 (-ParseInputReport@InteractiveControlInput@@QEAAJPEAEK@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01A9358 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@444@Z @ 0x1C0249FB8 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgP.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@4444@Z @ 0x1C024A088 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_t.c)
- *     ?FindDigitizerForDevice@InteractiveControlParser@@CAJPEAVInteractiveControlDevice@@@Z @ 0x1C024AA5C (-FindDigitizerForDevice@InteractiveControlParser@@CAJPEAVInteractiveControlDevice@@@Z.c)
- *     ?GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@Z @ 0x1C024AD90 (-GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01D4618 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@444@Z @ 0x1C025B16C (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgP.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@4444@Z @ 0x1C025B23C (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_t.c)
+ *     ?FindDigitizerForDevice@InteractiveControlParser@@CAJPEAVInteractiveControlDevice@@@Z @ 0x1C025BC90 (-FindDigitizerForDevice@InteractiveControlParser@@CAJPEAVInteractiveControlDevice@@@Z.c)
+ *     ?GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@Z @ 0x1C025BF20 (-GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@.c)
  */
 
 __int64 __fastcall InteractiveControlParser::ParseInputReport(
@@ -17,306 +17,301 @@ __int64 __fastcall InteractiveControlParser::ParseInputReport(
         ULONG ReportLength,
         struct tagINTERACTIVECTRL_INFO *a4)
 {
-  struct _HIDP_PREPARSED_DATA *PreparsedData; // r10
-  CHAR *v6; // r9
-  int v7; // r15d
-  int v8; // r13d
+  struct _HIDP_PREPARSED_DATA *PreparsedData; // r9
+  int v6; // r14d
+  int v7; // r13d
   struct InteractiveControlDevice *v9; // r12
-  struct InteractiveControlDevice *v11; // rax
-  struct InteractiveControlDevice *v12; // rdx
-  struct InteractiveControlDevice *v13; // rbx
-  int v14; // ecx
-  USAGE *v15; // r14
-  NTSTATUS v16; // eax
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // rcx
+  struct InteractiveControlDevice *v10; // rax
+  struct InteractiveControlDevice *v11; // rbx
+  struct InteractiveControlDevice *v12; // r15
+  int v13; // ecx
+  NTSTATUS v14; // eax
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v17; // rcx
   NTSTATUS Usages; // eax
-  __int64 v21; // rcx
+  __int64 v19; // rcx
   NTSTATUS ScaledUsageValue; // eax
-  ULONG v23; // eax
-  __int16 v24; // cx
-  int v25; // eax
+  ULONG v21; // eax
+  __int16 v22; // cx
+  int v23; // eax
   int ScaledComponentValue; // eax
-  int v27; // r8d
+  int v25; // r8d
+  int v26; // eax
+  int v27; // r9d
   int v28; // eax
   int v29; // r9d
-  int v30; // eax
-  int v31; // r9d
-  int v32; // r10d
-  int v33; // eax
-  __int16 v34; // ax
-  int DigitizerForDevice; // eax
-  __int64 v36; // rcx
-  ULONG v38; // [rsp+50h] [rbp-49h]
+  int v30; // ecx
+  __int16 v31; // ax
+  int v32; // eax
+  bool v33; // bl
+  __int64 v34; // rcx
+  ULONG v36; // [rsp+50h] [rbp-49h]
   ULONG UsageValue; // [rsp+54h] [rbp-45h] BYREF
-  PCHAR v40; // [rsp+58h] [rbp-41h]
-  struct _HIDP_PREPARSED_DATA *v41; // [rsp+60h] [rbp-39h]
+  CHAR *v38; // [rsp+58h] [rbp-41h]
+  struct _HIDP_PREPARSED_DATA *v39; // [rsp+60h] [rbp-39h]
   ULONG UsageLength; // [rsp+68h] [rbp-31h] BYREF
-  int v43; // [rsp+6Ch] [rbp-2Dh] BYREF
-  ULONG v44; // [rsp+70h] [rbp-29h] BYREF
-  int v45; // [rsp+74h] [rbp-25h] BYREF
-  int v46; // [rsp+78h] [rbp-21h] BYREF
-  const char *v47; // [rsp+80h] [rbp-19h] BYREF
-  __int64 v48; // [rsp+88h] [rbp-11h] BYREF
-  __int64 v49; // [rsp+90h] [rbp-9h] BYREF
+  int v41; // [rsp+6Ch] [rbp-2Dh] BYREF
+  ULONG v42; // [rsp+70h] [rbp-29h] BYREF
+  int v43; // [rsp+74h] [rbp-25h] BYREF
+  int v44; // [rsp+78h] [rbp-21h] BYREF
+  const char *v45; // [rsp+80h] [rbp-19h] BYREF
+  __int64 v46; // [rsp+88h] [rbp-11h] BYREF
+  __int64 v47; // [rsp+90h] [rbp-9h] BYREF
   USHORT UsageList[4]; // [rsp+98h] [rbp-1h] BYREF
-  __int16 v51; // [rsp+A0h] [rbp+7h]
+  __int16 v49; // [rsp+A0h] [rbp+7h]
 
+  v36 = ReportLength;
+  v46 = 0LL;
+  v38 = Report;
   PreparsedData = (struct _HIDP_PREPARSED_DATA *)*((_QWORD *)a1 + 32);
-  v48 = 0LL;
-  v40 = Report;
-  v6 = Report;
-  v38 = ReportLength;
-  v41 = PreparsedData;
+  v6 = 0;
+  v39 = PreparsedData;
+  v7 = 0;
+  UsageLength = 5;
   *(_OWORD *)a4 = 0LL;
   *((_QWORD *)a4 + 2) = 0LL;
-  v7 = 0;
   *((_DWORD *)a4 + 6) = 0;
-  v8 = 0;
   v9 = (struct InteractiveControlDevice *)*((_QWORD *)a1 + 23);
-  UsageLength = 5;
   *(_QWORD *)UsageList = 0LL;
-  v51 = 0;
+  v49 = 0;
   if ( v9 == (struct InteractiveControlDevice *)((char *)a1 + 184) )
-    return (unsigned int)v7;
-  v11 = (struct InteractiveControlDevice *)((char *)a1 + 184);
+    return (unsigned int)v6;
+  v10 = (struct InteractiveControlDevice *)((char *)a1 + 184);
   do
   {
     UsageValue = 0;
+    v11 = v9;
     v12 = v9;
-    v13 = v9;
     v9 = *(struct InteractiveControlDevice **)v9;
-    if ( *((_DWORD *)v12 + 25) )
+    if ( *((_DWORD *)v11 + 25) )
       continue;
-    v14 = *((_DWORD *)v12 + 4);
-    if ( ((v14 - 1) & 0xFFFFFFF9) != 0 || v14 == 3 )
+    v13 = *((_DWORD *)v11 + 4);
+    if ( ((v13 - 1) & 0xFFFFFFF9) != 0 || v13 == 3 )
     {
-      v15 = (USAGE *)((char *)v13 + 24);
       ScaledUsageValue = HidP_GetScaledUsageValue(
                            HidP_Input,
-                           *((_WORD *)v13 + 12),
-                           *((_WORD *)v13 + 15),
-                           *((_WORD *)v13 + 40),
+                           *((_WORD *)v11 + 12),
+                           *((_WORD *)v11 + 15),
+                           *((_WORD *)v11 + 40),
                            (PLONG)&UsageValue,
                            PreparsedData,
-                           v6,
+                           Report,
                            ReportLength);
-      v19 = UsageValue;
-      v7 = ScaledUsageValue;
+      v17 = UsageValue;
+      v6 = ScaledUsageValue;
+    }
+    else if ( v13 == 1 )
+    {
+      v14 = HidP_GetUsageValue(
+              HidP_Input,
+              *((_WORD *)v12 + 12),
+              *((_WORD *)v12 + 15),
+              *((_WORD *)v11 + 40),
+              &UsageValue,
+              PreparsedData,
+              Report,
+              ReportLength);
+      v17 = UsageValue;
+      v6 = v14;
+      if ( (signed int)UsageValue < *((_DWORD *)v11 + 16) || (signed int)UsageValue > *((_DWORD *)v11 + 17) )
+        v6 = -2146369535;
     }
     else
     {
-      v15 = (USAGE *)((char *)v12 + 24);
-      if ( v14 == 1 )
+      UsageLength = 5;
+      Usages = HidP_GetUsages(
+                 HidP_Input,
+                 *((_WORD *)v12 + 12),
+                 *((_WORD *)v12 + 15),
+                 UsageList,
+                 &UsageLength,
+                 PreparsedData,
+                 Report,
+                 ReportLength);
+      v19 = 0LL;
+      v6 = Usages;
+      if ( UsageLength )
       {
-        v16 = HidP_GetUsageValue(
-                HidP_Input,
-                *v15,
-                *((_WORD *)v12 + 15),
-                *((_WORD *)v12 + 40),
-                &UsageValue,
-                PreparsedData,
-                v6,
-                ReportLength);
-        v19 = UsageValue;
-        v7 = v16;
-        if ( (signed int)UsageValue < *((_DWORD *)v13 + 16) || (signed int)UsageValue > *((_DWORD *)v13 + 17) )
-          v7 = -2146369535;
+        v15 = *((unsigned __int16 *)v12 + 40);
+        while ( UsageList[v19] != (_WORD)v15 )
+        {
+          v19 = (unsigned int)(v19 + 1);
+          if ( (unsigned int)v19 >= UsageLength )
+            goto LABEL_14;
+        }
+        v17 = 1LL;
+        UsageValue = 1;
       }
       else
       {
-        UsageLength = 5;
-        Usages = HidP_GetUsages(
-                   HidP_Input,
-                   *v15,
-                   *((_WORD *)v12 + 15),
-                   UsageList,
-                   &UsageLength,
-                   PreparsedData,
-                   v6,
-                   ReportLength);
-        v21 = 0LL;
-        v7 = Usages;
-        if ( UsageLength )
-        {
-          v17 = *((unsigned __int16 *)v13 + 40);
-          while ( UsageList[v21] != (_WORD)v17 )
-          {
-            v21 = (unsigned int)(v21 + 1);
-            if ( (unsigned int)v21 >= UsageLength )
-              goto LABEL_14;
-          }
-          v19 = 1LL;
-          UsageValue = 1;
-        }
-        else
-        {
 LABEL_14:
-          v19 = UsageValue;
-        }
+        v17 = UsageValue;
       }
     }
-    if ( v7 < 0 )
+    if ( v6 < 0 )
     {
-      if ( v7 != -2146369535 && (unsigned int)dword_1C0354150 > 2 )
+      if ( v6 != -2146369535 && (unsigned int)dword_1C032A2F8 > 2 )
       {
-        v43 = *((unsigned __int16 *)a1 + 40);
-        v44 = v38;
-        v45 = *((_DWORD *)v13 + 4);
-        v47 = "InteractiveControlParser::ParseInputReport -> HidP_GetUsageValue failed.";
-        v46 = v7;
+        v41 = *((unsigned __int16 *)a1 + 40);
+        v42 = v36;
+        v43 = *((_DWORD *)v11 + 4);
+        v45 = "InteractiveControlParser::ParseInputReport -> HidP_GetUsageValue failed.";
+        v44 = v6;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-          v19,
-          byte_1C031E522,
           v17,
-          v18,
-          (void **)&v47,
-          (__int64)&v46,
-          (__int64)&v45,
+          byte_1C02F3C8E,
+          v15,
+          v16,
+          (void **)&v45,
           (__int64)&v44,
-          (__int64)&v43);
+          (__int64)&v43,
+          (__int64)&v42,
+          (__int64)&v41);
       }
-      v7 = 0;
+      v6 = 0;
       goto LABEL_53;
     }
-    switch ( *((_DWORD *)v13 + 4) )
+    switch ( *((_DWORD *)v11 + 4) )
     {
       case 1:
-        if ( *v15 == 1 )
+        if ( *((_WORD *)v11 + 12) == 1 )
         {
-          v34 = *((_WORD *)v13 + 40);
-          if ( v34 == 48 )
+          v31 = *((_WORD *)v11 + 40);
+          if ( v31 == 48 )
           {
-            LODWORD(v48) = v19;
+            LODWORD(v46) = v17;
 LABEL_51:
-            *((_DWORD *)a4 + 5) |= *((_DWORD *)v13 + 24);
+            *((_DWORD *)a4 + 5) |= *((_DWORD *)v11 + 24);
             goto LABEL_52;
           }
-          if ( v34 == 49 )
+          if ( v31 == 49 )
           {
-            HIDWORD(v48) = v19;
+            HIDWORD(v46) = v17;
             goto LABEL_51;
           }
         }
 LABEL_52:
-        v8 = 1;
+        v7 = 1;
         goto LABEL_53;
       case 3:
-        if ( (_DWORD)v19 )
+        if ( (_DWORD)v17 )
         {
-          if ( *((_DWORD *)v13 + 28) )
+          if ( *((_DWORD *)v11 + 28) )
           {
-            ScaledComponentValue = InteractiveControlParser::GetScaledComponentValue(v13, v19);
-            v27 = *((_DWORD *)v13 + 26);
-            v28 = v27 + ScaledComponentValue;
-            v29 = *((_DWORD *)v13 + 27);
-            *((_DWORD *)v13 + 26) = v28;
-            v30 = v28 / v29;
-            v31 = v30 * v29;
-            v32 = v30;
-            *((_DWORD *)a4 + 6) = v31;
-            if ( (v27 ^ *((_DWORD *)v13 + 26)) < 0 )
+            ScaledComponentValue = InteractiveControlParser::GetScaledComponentValue(v11, v17);
+            v25 = *((_DWORD *)v11 + 26);
+            v26 = v25 + ScaledComponentValue;
+            v27 = *((_DWORD *)v11 + 27);
+            *((_DWORD *)v11 + 26) = v26;
+            v28 = v26 / v27;
+            v29 = v28 * v27;
+            *((_DWORD *)a4 + 6) = v29;
+            if ( (v25 ^ *((_DWORD *)v11 + 26)) < 0 )
             {
-              v33 = *((_DWORD *)v13 + 27);
-              if ( *((int *)v13 + 26) <= 0 )
-                *((_DWORD *)a4 + 6) = v31 - v33;
+              v30 = *((_DWORD *)v12 + 27);
+              if ( *((int *)v11 + 26) <= 0 )
+                *((_DWORD *)a4 + 6) = v29 - v30;
               else
-                *((_DWORD *)a4 + 6) = v31 + v33;
+                *((_DWORD *)a4 + 6) = v29 + v30;
             }
-            *((_DWORD *)a4 + 6) = *((_DWORD *)v13 + 27) * v32;
-            *((_DWORD *)v13 + 26) -= *((_DWORD *)v13 + 27) * v32;
+            *((_DWORD *)a4 + 6) = v28 * *((_DWORD *)v11 + 27);
+            *((_DWORD *)v11 + 26) -= v28 * *((_DWORD *)v11 + 27);
           }
-          else if ( (unsigned int)dword_1C0354150 > 2 )
+          else if ( (unsigned int)dword_1C032A2F8 > 2 )
           {
-            v25 = *((_DWORD *)v13 + 27);
-            v45 = 0;
-            v46 = v25;
-            v44 = *((_DWORD *)v13 + 26);
-            v49 = (__int64)"InteractiveControlParser::ParseInputReport -> Invalid component configuration";
-            v43 = 3;
-            LODWORD(v47) = v7;
+            v23 = *((_DWORD *)v11 + 27);
+            v43 = 0;
+            v44 = v23;
+            v42 = *((_DWORD *)v11 + 26);
+            v47 = (__int64)"InteractiveControlParser::ParseInputReport -> Invalid component configuration";
+            v41 = 3;
+            LODWORD(v45) = v6;
             _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-              v19,
-              byte_1C031E4A6,
               v17,
-              v18,
-              (void **)&v49,
-              (__int64)&v47,
-              (__int64)&v43,
-              (__int64)&v44,
+              byte_1C02F3CF9,
+              v15,
+              v16,
+              (void **)&v47,
               (__int64)&v45,
-              (__int64)&v46);
+              (__int64)&v41,
+              (__int64)&v42,
+              (__int64)&v43,
+              (__int64)&v44);
           }
         }
         goto LABEL_53;
       case 5:
       case 7:
-        if ( (_DWORD)v19 )
-          *((_DWORD *)a4 + 5) |= *((_DWORD *)v13 + 24);
+        if ( (_DWORD)v17 )
+          *((_DWORD *)a4 + 5) |= *((_DWORD *)v11 + 24);
         goto LABEL_53;
     }
-    if ( *((_DWORD *)v13 + 4) == 8 && (_DWORD)v19 )
+    if ( *((_DWORD *)v11 + 4) == 8 && (_DWORD)v17 )
     {
-      *((_DWORD *)a4 + 5) |= *((_DWORD *)v13 + 24);
-      v23 = InteractiveControlParser::GetScaledComponentValue(v13, v19);
-      UsageValue = v23;
+      *((_DWORD *)a4 + 5) |= *((_DWORD *)v11 + 24);
+      v21 = InteractiveControlParser::GetScaledComponentValue(v11, v17);
+      UsageValue = v21;
       if ( *((_DWORD *)a1 + 43) == 1 )
       {
-        *((_DWORD *)a1 + 55) = v23;
+        *((_DWORD *)a1 + 55) = v21;
       }
       else
       {
-        v24 = *((_WORD *)v13 + 40);
-        if ( v24 == 72 )
+        v22 = *((_WORD *)v11 + 40);
+        if ( v22 == 72 )
         {
-          *((_DWORD *)a1 + 55) = v23;
+          *((_DWORD *)a1 + 55) = v21;
           goto LABEL_53;
         }
-        if ( v24 != 73 )
+        if ( v22 != 73 )
           goto LABEL_53;
       }
-      *((_DWORD *)a1 + 56) = v23;
+      *((_DWORD *)a1 + 56) = v21;
     }
 LABEL_53:
-    PreparsedData = v41;
-    v11 = (struct InteractiveControlDevice *)((char *)a1 + 184);
-    v6 = v40;
-    ReportLength = v38;
+    PreparsedData = v39;
+    v10 = (struct InteractiveControlDevice *)((char *)a1 + 184);
+    Report = v38;
+    ReportLength = v36;
   }
-  while ( v9 != v11 );
-  if ( v8 )
+  while ( v9 != v10 );
+  if ( v7 )
   {
-    if ( *((_QWORD *)a1 + 30) )
-      goto LABEL_63;
-    if ( *((_DWORD *)a1 + 62) != 100 )
-      goto LABEL_61;
-    if ( (unsigned int)dword_1C0354150 > 3 )
+    if ( !*((_QWORD *)a1 + 30) )
     {
-      v49 = (__int64)"No mapped digitizer found for positional data. Attempting to rematch...";
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>>(
-        (__int64)&dword_1C0354150,
-        byte_1C031E437,
-        0LL,
-        0LL,
-        (void **)&v49);
+      v32 = *((_DWORD *)a1 + 62);
+      v33 = 0;
+      if ( v32 == 100 )
+      {
+        if ( (unsigned int)dword_1C032A2F8 > 3 )
+        {
+          v47 = (__int64)"No mapped digitizer found for positional data. Attempting to rematch...";
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>>(
+            (__int64)&dword_1C032A2F8,
+            byte_1C02F3C5E,
+            0LL,
+            0LL,
+            (void **)&v47);
+        }
+        v33 = (int)InteractiveControlParser::FindDigitizerForDevice(a1) >= 0;
+        *((_DWORD *)a1 + 62) = 0;
+        v32 = 0;
+      }
+      if ( !v33 )
+      {
+        *((_DWORD *)a4 + 5) &= ~2u;
+        v32 = *((_DWORD *)a1 + 62);
+        v7 = 0;
+      }
+      *((_DWORD *)a1 + 62) = v32 + 1;
     }
-    DigitizerForDevice = InteractiveControlParser::FindDigitizerForDevice(a1);
-    *((_DWORD *)a1 + 62) = 0;
-    if ( DigitizerForDevice < 0 )
+    if ( v7 )
     {
-LABEL_61:
-      *((_DWORD *)a4 + 5) &= ~2u;
-      v8 = 0;
-    }
-    ++*((_DWORD *)a1 + 62);
-    if ( v8 )
-    {
-LABEL_63:
-      v36 = *((_QWORD *)a1 + 30);
-      if ( v36 )
-        RIMTransformCoordinatesFromDigitizer(v36, &v48, (char *)a4 + 12, (char *)a4 + 4);
+      v34 = *((_QWORD *)a1 + 30);
+      if ( v34 )
+        RIMTransformCoordinatesFromDigitizer(v34, &v46, (char *)a4 + 12, (char *)a4 + 4);
     }
   }
-  return (unsigned int)v7;
+  return (unsigned int)v6;
 }

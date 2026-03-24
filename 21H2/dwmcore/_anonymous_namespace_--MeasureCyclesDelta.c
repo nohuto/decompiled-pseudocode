@@ -1,10 +1,7 @@
 /*
- * XREFs of _anonymous_namespace_::MeasureCyclesDelta @ 0x18007A7D0
+ * XREFs of _anonymous_namespace_::MeasureCyclesDelta @ 0x1800C74A8
  * Callers:
- *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x18007A584 (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
- *     ?PreRender@CComposition@@IEAAJXZ @ 0x18007D2F8 (-PreRender@CComposition@@IEAAJXZ.c)
- *     ?CleanTrees@CComposition@@IEAAJXZ @ 0x1800A24D0 (-CleanTrees@CComposition@@IEAAJXZ.c)
- *     ?CalcOcclusionAndCollectOverlayCandidates@CDesktopTree@@QEAAJXZ @ 0x1800B93B4 (-CalcOcclusionAndCollectOverlayCandidates@CDesktopTree@@QEAAJXZ.c)
+ *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x180071888 (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
  * Callees:
  *     <none>
  */

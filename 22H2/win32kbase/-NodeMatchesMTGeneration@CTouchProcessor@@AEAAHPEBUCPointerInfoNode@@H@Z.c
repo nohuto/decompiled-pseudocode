@@ -1,10 +1,10 @@
 /*
- * XREFs of ?NodeMatchesMTGeneration@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@H@Z @ 0x1C01CD60C
+ * XREFs of ?NodeMatchesMTGeneration@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@H@Z @ 0x1C01972F8
  * Callers:
- *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01C4F38 (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
- *     ?ShouldGenerateMessagesForNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@H@Z @ 0x1C01D7218 (-ShouldGenerateMessagesForNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNod.c)
+ *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C0190000 (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
+ *     ?ShouldGenerateMessagesForNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@H@Z @ 0x1C019EC34 (-ShouldGenerateMessagesForNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNod.c)
  * Callees:
- *     ?IsForManipulationThread@CPointerInfoNode@@QEBAHXZ @ 0x1C00E47EE (-IsForManipulationThread@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?IsForManipulationThread@CPointerInfoNode@@QEBAHXZ @ 0x1C01967C0 (-IsForManipulationThread@CPointerInfoNode@@QEBAHXZ.c)
  */
 
 __int64 __fastcall CTouchProcessor::NodeMatchesMTGeneration(CTouchProcessor *this, const struct CPointerInfoNode *a2)

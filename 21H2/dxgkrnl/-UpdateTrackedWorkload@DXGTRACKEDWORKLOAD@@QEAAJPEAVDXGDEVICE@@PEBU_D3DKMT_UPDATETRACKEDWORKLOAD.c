@@ -1,18 +1,17 @@
 /*
- * XREFs of ?UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD@@_K@Z @ 0x1C0345DD8
+ * XREFs of ?UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD@@_K@Z @ 0x1C02BD2AC
  * Callers:
- *     NtDxgkUpdateTrackedWorkload @ 0x1C0346F60 (NtDxgkUpdateTrackedWorkload.c)
+ *     NtDxgkUpdateTrackedWorkload @ 0x1C02BE360 (NtDxgkUpdateTrackedWorkload.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C000BD74 (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?Boost@TrackedWorkloadMonitor@@QEAAXPEAVRollingStats@@@Z @ 0x1C0081B14 (-Boost@TrackedWorkloadMonitor@@QEAAXPEAVRollingStats@@@Z.c)
- *     ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C0344CCC (-EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ.c)
- *     ?FindInstancePair@DXGTRACKEDWORKLOAD@@IEAA_NPEAPEAUWorkloadInstancePair@1@@Z @ 0x1C0344EA0 (-FindInstancePair@DXGTRACKEDWORKLOAD@@IEAA_NPEAPEAUWorkloadInstancePair@1@@Z.c)
- *     ?GetInstanceForPair@DXGTRACKEDWORKLOAD@@IEAA_N_N_KPEAUWorkloadInstancePair@1@@Z @ 0x1C0345010 (-GetInstanceForPair@DXGTRACKEDWORKLOAD@@IEAA_N_N_KPEAUWorkloadInstancePair@1@@Z.c)
- *     ?Update@MonitoredFenceHelper@@QEAAJPEAVDXGDEVICE@@_K1@Z @ 0x1C0345CC0 (-Update@MonitoredFenceHelper@@QEAAJPEAVDXGDEVICE@@_K1@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     Feature_TrackedWorkloadDirectDeadline__private_ReportDeviceUsage @ 0x1C00281F0 (Feature_TrackedWorkloadDirectDeadline__private_ReportDeviceUsage.c)
+ *     ?Boost@TrackedWorkloadMonitor@@QEAAXPEAVRollingStats@@@Z @ 0x1C006EDAC (-Boost@TrackedWorkloadMonitor@@QEAAXPEAVRollingStats@@@Z.c)
+ *     ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C02BC780 (-EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ.c)
+ *     ?FindInstancePair@DXGTRACKEDWORKLOAD@@IEAA_NPEAPEAUWorkloadInstancePair@1@@Z @ 0x1C02BC908 (-FindInstancePair@DXGTRACKEDWORKLOAD@@IEAA_NPEAPEAUWorkloadInstancePair@1@@Z.c)
+ *     ?GetInstanceForPair@DXGTRACKEDWORKLOAD@@IEAA_N_N_KPEAUWorkloadInstancePair@1@@Z @ 0x1C02BCA50 (-GetInstanceForPair@DXGTRACKEDWORKLOAD@@IEAA_N_N_KPEAUWorkloadInstancePair@1@@Z.c)
+ *     ?Update@MonitoredFenceHelper@@QEAAJPEAVDXGDEVICE@@_K1@Z @ 0x1C02BD188 (-Update@MonitoredFenceHelper@@QEAAJPEAVDXGDEVICE@@_K1@Z.c)
  */
 
 __int64 __fastcall DXGTRACKEDWORKLOAD::UpdateTrackedWorkload(
@@ -21,144 +20,118 @@ __int64 __fastcall DXGTRACKEDWORKLOAD::UpdateTrackedWorkload(
         const struct _D3DKMT_UPDATETRACKEDWORKLOAD *a3,
         __int64 a4)
 {
-  unsigned int v6; // r14d
-  unsigned int VBlankOffsetHundredsNS; // edx
-  unsigned int v9; // ecx
+  int v6; // ebx
+  __int64 VBlankOffsetHundredsNS_low; // rdx
+  __int64 v9; // rcx
   unsigned int AbsoluteQPC_high; // eax
-  struct DXGTRACKEDWORKLOAD::WorkloadInstancePair *v11; // rbx
-  int v12; // edi
-  LARGE_INTEGER v13; // r8
-  LARGE_INTEGER v14; // r9
-  int v15; // eax
-  __int64 v16; // rax
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int64 v20; // rdi
-  const wchar_t *v21; // r9
-  _BYTE v23[8]; // [rsp+50h] [rbp-48h] BYREF
-  DXGPUSHLOCK *v24; // [rsp+58h] [rbp-40h]
-  int v25; // [rsp+60h] [rbp-38h]
-  struct DXGTRACKEDWORKLOAD::WorkloadInstancePair *v26; // [rsp+A8h] [rbp+10h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  _QWORD *v13; // rax
+  struct DXGTRACKEDWORKLOAD::WorkloadInstancePair *v14; // r14
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  LARGE_INTEGER v17; // rdx
+  LARGE_INTEGER v18; // rcx
+  int v19; // eax
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  _BYTE v24[8]; // [rsp+20h] [rbp-38h] BYREF
+  DXGPUSHLOCK *v25; // [rsp+28h] [rbp-30h]
+  int v26; // [rsp+30h] [rbp-28h]
+  struct DXGTRACKEDWORKLOAD::WorkloadInstancePair *v27; // [rsp+68h] [rbp+10h] BYREF
 
-  v26 = 0LL;
   v6 = 0;
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v23, (struct _KTHREAD **)this + 5, 0);
-  DXGPUSHLOCK::AcquireExclusive(v24);
-  VBlankOffsetHundredsNS = a3->FinishDeadline.VBlankOffsetHundredsNS;
-  v9 = *((_DWORD *)this + 28);
-  v25 = 2;
-  if ( VBlankOffsetHundredsNS >= v9
-    || (AbsoluteQPC_high = HIDWORD(a3->FinishDeadline.AbsoluteQPC), AbsoluteQPC_high >= v9)
-    || VBlankOffsetHundredsNS == AbsoluteQPC_high )
+  v27 = 0LL;
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v24, (struct _KTHREAD **)this + 5, 0);
+  DXGPUSHLOCK::AcquireExclusive(v25);
+  VBlankOffsetHundredsNS_low = LODWORD(a3->FinishDeadline.VBlankOffsetHundredsNS);
+  v9 = *((unsigned int *)this + 28);
+  v26 = 2;
+  if ( (unsigned int)VBlankOffsetHundredsNS_low >= (unsigned int)v9
+    || (AbsoluteQPC_high = HIDWORD(a3->FinishDeadline.AbsoluteQPC), AbsoluteQPC_high >= (unsigned int)v9)
+    || (_DWORD)VBlankOffsetHundredsNS_low == AbsoluteQPC_high )
   {
     v6 = -1073741811;
-    v20 = 1826LL;
-    WdLogSingleEntry2(2LL, -1073741811LL, 1826LL);
-    v21 = L"Invalid index, returning 0x%I64x";
+    v13 = (_QWORD *)WdLogNewEntry5_WdError(v9, VBlankOffsetHundredsNS_low);
+    v13[4] = 1562LL;
     goto LABEL_18;
   }
   *((_QWORD *)this + 39) = a3->GPUCalibrationTimestamp;
-  if ( DXGTRACKEDWORKLOAD::FindInstancePair(this, &v26) )
+  if ( !DXGTRACKEDWORKLOAD::FindInstancePair(this, &v27) )
   {
-    v11 = v26;
-    if ( !DXGTRACKEDWORKLOAD::GetInstanceForPair(
-            this,
-            a3->BeginTrackedWorkloadIndex != 0,
-            a3->FenceSubmissionValue,
-            v26) )
+    v6 = -2147483622;
+    v13 = (_QWORD *)WdLogNewEntry5_WdError(v12, v11);
+    v13[3] = this;
+    v13[4] = -2147483622LL;
+    v13[5] = 1571LL;
+LABEL_19:
+    WdLogEvent5_WdError(v13);
+    goto LABEL_20;
+  }
+  v14 = v27;
+  if ( !DXGTRACKEDWORKLOAD::GetInstanceForPair(this, a3->BeginTrackedWorkloadIndex != 0, a3->FenceSubmissionValue, v27) )
+  {
+    v6 = a3->BeginTrackedWorkloadIndex != 0 ? -1073741811 : -2147483622;
+    v13 = (_QWORD *)WdLogNewEntry5_WdError(v16, v15);
+    v13[3] = this;
+    v13[4] = a3->FenceSubmissionValue;
+    v13[5] = v6;
+    v13[6] = 1578LL;
+    goto LABEL_19;
+  }
+  *((_BYTE *)v14 + 120) = 1;
+  *(_DWORD *)v14 = a3->FinishDeadline.VBlankOffsetHundredsNS;
+  *((_DWORD *)v14 + 2) = HIDWORD(a3->FinishDeadline.AbsoluteQPC);
+  *((_BYTE *)v14 + 4) = a3->BeginTrackedWorkloadIndex != 0;
+  *((_BYTE *)v14 + 12) = a3->EndTrackedWorkloadIndex != 0;
+  *((_QWORD *)v14 + 2) = a3->FenceCompletedValue;
+  *((_QWORD *)v14 + 5) = *(_QWORD *)&a3[1].hDevice;
+  *((_QWORD *)v14 + 6) = a3->CPUCalibrationTimestamp;
+  *((LARGE_INTEGER *)v14 + 14) = KeQueryPerformanceCounter(0LL);
+  if ( !*((_BYTE *)v14 + 12) )
+  {
+    v19 = *((_DWORD *)this + 284);
+    if ( !v19 )
     {
-      v12 = a3->BeginTrackedWorkloadIndex != 0 ? -1073741811 : -2147483622;
-      WdLogSingleEntry4(2LL, this, a3->FenceSubmissionValue, v12, 1842LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"TrackedWorkload 0x%I64x: Unable to find entry for pairID %d, returning 0x%I64x",
-        (__int64)this,
-        a3->FenceSubmissionValue,
-        v12,
-        1842LL,
-        0LL);
-      v6 = v12;
-      goto LABEL_19;
-    }
-    *((_BYTE *)v11 + 120) = 1;
-    *(_DWORD *)v11 = a3->FinishDeadline.VBlankOffsetHundredsNS;
-    *((_DWORD *)v11 + 2) = HIDWORD(a3->FinishDeadline.AbsoluteQPC);
-    *((_BYTE *)v11 + 4) = a3->BeginTrackedWorkloadIndex != 0;
-    *((_BYTE *)v11 + 12) = a3->EndTrackedWorkloadIndex != 0;
-    *((_QWORD *)v11 + 2) = a3->FenceCompletedValue;
-    *((_QWORD *)v11 + 5) = *(_QWORD *)&a3[1].hDevice;
-    *((_QWORD *)v11 + 6) = a3->CPUCalibrationTimestamp;
-    *((LARGE_INTEGER *)v11 + 14) = KeQueryPerformanceCounter(0LL);
-    if ( *((_BYTE *)v11 + 12) )
-      goto LABEL_19;
-    v15 = *((_DWORD *)this + 286);
-    if ( !v15 )
-    {
-      v16 = *(_QWORD *)&a3->FinishDeadline.Type;
-      *((_QWORD *)v11 + 3) = v16;
-      if ( v16 - *((_QWORD *)v11 + 14) < 0 )
+      v20 = *(_QWORD *)&a3->FinishDeadline.Type;
+      *((_QWORD *)v14 + 3) = v20;
+      if ( v20 - *((_QWORD *)v14 + 14) < 0 )
         TrackedWorkloadMonitor::Boost(
           (DXGTRACKEDWORKLOAD *)((char *)this + 328),
           (DXGTRACKEDWORKLOAD *)((char *)this + 232));
 LABEL_12:
-      wil_details_FeatureReporting_ReportUsageToService(
-        (__int64)&Feature_TrackedWorkloadDirectDeadline__private_reporting,
-        0xF20B64u,
-        v13.QuadPart,
-        v14.QuadPart,
-        (const struct FEATURE_LOGGED_TRAITS *)&Feature_ForceEnhancedMultiSessionRemoteVsyncEmulation_logged_traits,
-        0);
-      v6 = DXGTRACKEDWORKLOAD::EndTrackedWorkload(this, v17, v18, v19);
-      goto LABEL_19;
+      Feature_TrackedWorkloadDirectDeadline__private_ReportDeviceUsage();
+      v6 = DXGTRACKEDWORKLOAD::EndTrackedWorkload(this);
+      goto LABEL_20;
     }
-    if ( v15 != 1 )
+    if ( v19 != 1 )
     {
       v6 = -1073741811;
-      WdLogSingleEntry3(2LL, *((int *)this + 286), -1073741811LL, 1881LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Unknown deadline type %d, returning 0x%I64x",
-        *((int *)this + 286),
-        -1073741811LL,
-        1881LL,
-        0LL,
-        0LL);
+      v13 = (_QWORD *)((__int64 (__fastcall *)(_QWORD, _QWORD))WdLogNewEntry5_WdError)(
+                        (LARGE_INTEGER)v18.QuadPart,
+                        (LARGE_INTEGER)v17.QuadPart);
+      v13[3] = *((int *)this + 284);
+      v13[4] = -1073741811LL;
+      v13[5] = 1617LL;
       goto LABEL_19;
     }
-    *((_BYTE *)v11 + 104) = 1;
-    *((_QWORD *)v11 + 3) = 0LL;
+    *((_BYTE *)v14 + 104) = 1;
+    *((_QWORD *)v14 + 3) = 0LL;
     if ( (int)MonitoredFenceHelper::Update(
-                (struct DXGTRACKEDWORKLOAD::WorkloadInstancePair *)((char *)v11 + 56),
+                (struct DXGTRACKEDWORKLOAD::WorkloadInstancePair *)((char *)v14 + 56),
                 *((struct ADAPTER_RENDER ***)this + 2),
                 *(_QWORD *)&a3->FinishDeadline.Type,
                 a4) >= 0 )
       goto LABEL_12;
     v6 = -1073741811;
-    v20 = 1874LL;
-    WdLogSingleEntry2(2LL, -1073741811LL, 1874LL);
-    v21 = L"Couldn't update fence, returning 0x%I64x";
+    v13 = (_QWORD *)WdLogNewEntry5_WdError(v22, v21);
+    v13[4] = 1610LL;
 LABEL_18:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v21, -1073741811LL, v20, 0LL, 0LL, 0LL);
+    v13[3] = -1073741811LL;
     goto LABEL_19;
   }
-  v6 = -2147483622;
-  WdLogSingleEntry3(2LL, this, -2147483622LL, 1835LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"TrackedWorkload 0x%I64x: Unable to find available entry, returning 0x%I64x",
-    (__int64)this,
-    -2147483622LL,
-    1835LL,
-    0LL,
-    0LL);
-LABEL_19:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v23);
-  return v6;
+LABEL_20:
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v24);
+  return (unsigned int)v6;
 }

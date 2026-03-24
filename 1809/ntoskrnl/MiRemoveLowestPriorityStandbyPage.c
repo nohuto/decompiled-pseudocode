@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRemoveLowestPriorityStandbyPage @ 0x140151F00
+ * XREFs of MiRemoveLowestPriorityStandbyPage @ 0x140151F20
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiPurgePartitionStandby @ 0x140151DFC (MiPurgePartitionStandby.c)
- *     MiPruneStandbyPages @ 0x1402C0994 (MiPruneStandbyPages.c)
+ *     MiPurgePartitionStandby @ 0x140151E1C (MiPurgePartitionStandby.c)
+ *     MiPruneStandbyPages @ 0x1402C0A94 (MiPruneStandbyPages.c)
  * Callees:
  *     MiDeleteParentDecayNode @ 0x140029354 (MiDeleteParentDecayNode.c)
  *     MiRemoveDecayClusterTimer @ 0x1400293F0 (MiRemoveDecayClusterTimer.c)
@@ -15,15 +15,15 @@
  *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)
  *     MiReturnFreeZeroPage @ 0x14008229C (MiReturnFreeZeroPage.c)
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiDecreaseAvailablePages @ 0x1400EE82C (MiDecreaseAvailablePages.c)
- *     MiUpdateTransitionPteFrame @ 0x140118984 (MiUpdateTransitionPteFrame.c)
- *     MiIsDecayPfn @ 0x140118BEC (MiIsDecayPfn.c)
- *     MiUnlinkNumaStandbyPage @ 0x140152260 (MiUnlinkNumaStandbyPage.c)
- *     MiDiscardTransitionPte @ 0x14015827C (MiDiscardTransitionPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiDecreaseAvailablePages @ 0x1400EE84C (MiDecreaseAvailablePages.c)
+ *     MiUpdateTransitionPteFrame @ 0x1401189A4 (MiUpdateTransitionPteFrame.c)
+ *     MiIsDecayPfn @ 0x140118C0C (MiIsDecayPfn.c)
+ *     MiUnlinkNumaStandbyPage @ 0x140152280 (MiUnlinkNumaStandbyPage.c)
+ *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiRemoveLowestPriorityStandbyPage(__int64 a1, unsigned int a2, __int64 a3)

@@ -1,31 +1,37 @@
 /*
- * XREFs of PiCMQueryRemove @ 0x14065F7D4
+ * XREFs of PiCMQueryRemove @ 0x14072ED1C
  * Callers:
- *     PiCMHandleIoctl @ 0x14077BCA0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlGetActiveConsoleId @ 0x1402DEB60 (RtlGetActiveConsoleId.c)
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     McTemplateK0z_EtwWriteTransfer @ 0x140561048 (McTemplateK0z_EtwWriteTransfer.c)
- *     McTemplateK0dz_EtwWriteTransfer @ 0x1405643B8 (McTemplateK0dz_EtwWriteTransfer.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14065FA0C (PnpQueueQueryAndRemoveEvent.c)
- *     PiAuDoesClientHavePrivilege @ 0x14065FC74 (PiAuDoesClientHavePrivilege.c)
- *     PiCMReleaseObjectInputData @ 0x1406BACAC (PiCMReleaseObjectInputData.c)
- *     PiCMReturnBufferResultData @ 0x14077C780 (PiCMReturnBufferResultData.c)
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
- *     _CmValidateDeviceName @ 0x14077FAC0 (_CmValidateDeviceName.c)
- *     _CmIsRootDevice @ 0x140789040 (_CmIsRootDevice.c)
- *     PiCMCaptureObjectInputData @ 0x14078A1A8 (PiCMCaptureObjectInputData.c)
- *     _CmGetDeviceStatus @ 0x14078A470 (_CmGetDeviceStatus.c)
- *     PiAuDoesClientHaveAccess @ 0x14078A600 (PiAuDoesClientHaveAccess.c)
- *     PnpGetCallerSessionId @ 0x140946F98 (PnpGetCallerSessionId.c)
- *     PiAuCheckClientInteractive @ 0x140949890 (PiAuCheckClientInteractive.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     RtlGetActiveConsoleId @ 0x140281DB0 (RtlGetActiveConsoleId.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x14050DAB4 (McTemplateK0z_EtwWriteTransfer.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x14050FE88 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PiCMReturnBufferResultData @ 0x140637784 (PiCMReturnBufferResultData.c)
+ *     PiCMReleaseObjectInputData @ 0x140638B40 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x140638B74 (PiCMCaptureObjectInputData.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
+ *     _CmValidateDeviceName @ 0x140642270 (_CmValidateDeviceName.c)
+ *     _CmGetDeviceStatus @ 0x1406A0340 (_CmGetDeviceStatus.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406A04D4 (PiAuDoesClientHaveAccess.c)
+ *     _CmIsRootDevice @ 0x1406B0B44 (_CmIsRootDevice.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14072F34C (PiAuDoesClientHavePrivilege.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14072F3E8 (PnpQueueQueryAndRemoveEvent.c)
+ *     PnpGetCallerSessionId @ 0x1408A1E2C (PnpGetCallerSessionId.c)
+ *     PiAuCheckClientInteractive @ 0x1408A3AA8 (PiAuCheckClientInteractive.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiCMQueryRemove(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5, _DWORD *a6)
+__int64 __fastcall PiCMQueryRemove(
+        unsigned __int64 a1,
+        unsigned int a2,
+        _DWORD *a3,
+        unsigned int a4,
+        int a5,
+        _DWORD *a6)
 {
-  const WCHAR *v7; // r13
+  const wchar_t *v7; // r13
   int v8; // r12d
   unsigned int v9; // r14d
   _WORD *v10; // r15
@@ -33,75 +39,81 @@ __int64 __fastcall PiCMQueryRemove(__int64 a1, __int64 a2, __int64 a3, unsigned 
   int v12; // ebx
   __int64 v13; // r8
   int v14; // edi
-  NTSTATUS DeviceRegProp; // ebx
+  signed int DeviceRegProp; // ebx
   unsigned int v16; // eax
   unsigned int v17; // esi
-  _WORD *Pool2; // rax
+  _WORD *PoolWithTag; // rax
   int v19; // edi
   int v20; // eax
-  int v22; // edi
-  unsigned int v23; // r8d
-  char v24[4]; // [rsp+58h] [rbp-49h] BYREF
-  unsigned int v25; // [rsp+5Ch] [rbp-45h] BYREF
-  unsigned int v26; // [rsp+60h] [rbp-41h] BYREF
-  int v27; // [rsp+64h] [rbp-3Dh] BYREF
-  int v28; // [rsp+68h] [rbp-39h] BYREF
-  int v29; // [rsp+6Ch] [rbp-35h] BYREF
+  unsigned int v22; // r8d
+  int v23; // edi
+  unsigned int v24; // [rsp+38h] [rbp-69h]
+  _BYTE v25[4]; // [rsp+58h] [rbp-49h] BYREF
+  unsigned int v26; // [rsp+5Ch] [rbp-45h] BYREF
+  int v27; // [rsp+60h] [rbp-41h] BYREF
+  int v28; // [rsp+64h] [rbp-3Dh] BYREF
+  int v29; // [rsp+68h] [rbp-39h] BYREF
+  int v30; // [rsp+6Ch] [rbp-35h] BYREF
   ULONG SessionId; // [rsp+70h] [rbp-31h] BYREF
-  int v31; // [rsp+74h] [rbp-2Dh] BYREF
-  int v32; // [rsp+78h] [rbp-29h] BYREF
-  int v33; // [rsp+7Ch] [rbp-25h] BYREF
-  __int128 v34; // [rsp+80h] [rbp-21h] BYREF
+  int v32; // [rsp+74h] [rbp-2Dh] BYREF
+  int v33; // [rsp+78h] [rbp-29h] BYREF
+  int v34; // [rsp+7Ch] [rbp-25h] BYREF
+  __int128 v35; // [rsp+80h] [rbp-21h] BYREF
   PCWSTR SourceString[2]; // [rsp+90h] [rbp-11h]
-  __int64 v36; // [rsp+A0h] [rbp-1h]
+  __int64 v37; // [rsp+A0h] [rbp-1h]
   UNICODE_STRING DestinationString; // [rsp+A8h] [rbp+7h] BYREF
 
-  v27 = 0;
-  v32 = 0;
-  v36 = 0LL;
+  v28 = 0;
+  v33 = 0;
+  v37 = 0LL;
   DestinationString = 0LL;
-  v31 = 0;
+  v32 = 0;
   v7 = 0LL;
-  v34 = 0LL;
+  v35 = 0LL;
   *a6 = 0;
   v8 = 0;
   *(_OWORD *)SourceString = 0LL;
-  v29 = 0;
+  v30 = 0;
   v9 = 0;
-  v28 = 0;
+  v29 = 0;
   v10 = 0LL;
-  v33 = 0;
-  v24[0] = 0;
+  v34 = 0;
+  v25[0] = 0;
   SessionId = 0;
-  v25 = 0;
   v26 = 0;
-  v12 = PiCMCaptureObjectInputData(a1, a2, a5, &v34);
+  v27 = 0;
+  v12 = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v35);
   if ( v12 < 0 )
-    goto LABEL_25;
+    goto LABEL_26;
   v7 = SourceString[0];
   v14 = HIDWORD(SourceString[1]);
-  if ( (byte_140C0DD4B & 4) != 0 )
+  if ( (byte_140C1327B & 4) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       v11,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_CfgMgr_QueryRemove_Start,
       v13,
       SHIDWORD(SourceString[1]),
       SourceString[0]);
-  if ( !v7 || DWORD2(v34) != 1 || !a3 || a4 < 0x14 )
-    goto LABEL_62;
+  if ( !v7 || DWORD2(v35) != 1 )
+  {
+    DeviceRegProp = -1073741811;
+    goto LABEL_30;
+  }
+  if ( !a3 || a4 < 0x14 )
+    goto LABEL_58;
   DeviceRegProp = CmValidateDeviceName(v11, v7);
   if ( DeviceRegProp < 0 )
   {
-LABEL_58:
+LABEL_30:
     if ( DeviceRegProp != -2147483608 )
-      goto LABEL_22;
-    v23 = v25;
-    goto LABEL_60;
+      goto LABEL_23;
+    v22 = v26;
+    goto LABEL_61;
   }
-  if ( (unsigned __int8)CmIsRootDevice(v7) )
+  if ( CmIsRootDevice(v7) )
   {
     DeviceRegProp = -1073741773;
-    goto LABEL_22;
+    goto LABEL_23;
   }
   v16 = a4 - 20;
   v17 = 0;
@@ -109,122 +121,131 @@ LABEL_58:
     v17 = v16;
   if ( v17 )
   {
-    Pool2 = (_WORD *)ExAllocatePool2(256LL, v17, 879783504LL);
-    v10 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v17, 0x34706E50u);
+    v10 = PoolWithTag;
+    if ( !PoolWithTag )
     {
       DeviceRegProp = -1073741670;
-      goto LABEL_22;
+      goto LABEL_23;
     }
-    *Pool2 = 0;
+    *PoolWithTag = 0;
   }
   v19 = v14 - 1;
   if ( !v19 )
   {
-    if ( (unsigned __int8)PiAuDoesClientHaveAccess(32LL) && (unsigned __int8)PiAuDoesClientHavePrivilege(10LL) )
+    if ( !PiAuDoesClientHaveAccess(0x20u) || !(unsigned __int8)PiAuDoesClientHavePrivilege(10LL) )
     {
-      if ( (DWORD1(v34) & 0xFFFFFFFE) == 0 )
-      {
-        v8 = BYTE4(v34) & 1;
-        goto LABEL_20;
-      }
-LABEL_40:
-      DeviceRegProp = -1073741811;
-      goto LABEL_22;
+      DeviceRegProp = -1073741790;
+      goto LABEL_20;
     }
-LABEL_46:
-    DeviceRegProp = -1073741790;
-    goto LABEL_22;
-  }
-  v22 = v19 - 1;
-  if ( !v22 )
-  {
-    v28 = 4;
-    DeviceRegProp = CmGetDeviceRegProp(PiPnpRtlCtx, (_DWORD)v7, 0, 16, (__int64)&v33, (__int64)&v29, (__int64)&v28, 0);
-    if ( DeviceRegProp >= 0 )
+    if ( (DWORD1(v35) & 0xFFFFFFFE) == 0 )
     {
-      v8 = 8;
-      if ( (v29 & 8) != 0 )
+      v8 = BYTE4(v35) & 1;
+      goto LABEL_20;
+    }
+LABEL_58:
+    DeviceRegProp = -1073741811;
+    goto LABEL_23;
+  }
+  v23 = v19 - 1;
+  if ( !v23 )
+  {
+    v29 = 4;
+    DeviceRegProp = CmGetDeviceRegProp(
+                      *(__int64 *)&PiPnpRtlCtx,
+                      (__int64)v7,
+                      0LL,
+                      16,
+                      (__int64)&v34,
+                      (__int64)&v30,
+                      (__int64)&v29,
+                      0);
+    if ( DeviceRegProp < 0 )
+      goto LABEL_20;
+    v8 = 8;
+    if ( (v30 & 8) != 0 )
+    {
+      if ( !PiAuDoesClientHaveAccess(4u) || !(unsigned __int8)PiAuDoesClientHavePrivilege(25LL) )
+        goto LABEL_49;
+    }
+    else
+    {
+      DeviceRegProp = PnpGetCallerSessionId(&SessionId);
+      if ( DeviceRegProp < 0 || SessionId != (unsigned int)RtlGetActiveConsoleId() )
       {
-        if ( !(unsigned __int8)PiAuDoesClientHaveAccess(4LL) || !(unsigned __int8)PiAuDoesClientHavePrivilege(25LL) )
-          goto LABEL_46;
-      }
-      else
-      {
-        DeviceRegProp = PnpGetCallerSessionId(&SessionId);
-        if ( DeviceRegProp < 0 || SessionId != (unsigned int)RtlGetActiveConsoleId() )
+        DeviceRegProp = PiAuCheckClientInteractive(v25);
+        if ( DeviceRegProp < 0 || !v25[0] )
         {
-          DeviceRegProp = PiAuCheckClientInteractive(v24);
-          if ( DeviceRegProp < 0 || !v24[0] )
-          {
-            if ( !(unsigned __int8)PiAuDoesClientHaveAccess(4LL) || !(unsigned __int8)PiAuDoesClientHavePrivilege(10LL) )
-              goto LABEL_46;
-            DeviceRegProp = 0;
-          }
+          if ( !PiAuDoesClientHaveAccess(4u) || !(unsigned __int8)PiAuDoesClientHavePrivilege(10LL) )
+            goto LABEL_49;
+          DeviceRegProp = 0;
         }
       }
-      if ( DWORD1(v34) )
-        goto LABEL_40;
     }
-    v9 = v17;
-    if ( DeviceRegProp < 0 )
-      goto LABEL_58;
+    if ( !DWORD1(v35) )
+      goto LABEL_20;
+    goto LABEL_58;
+  }
+  if ( v23 != 1 )
+  {
+    DeviceRegProp = -1073741811;
     goto LABEL_20;
   }
-  if ( v22 != 1 )
+  if ( !PiAuDoesClientHaveAccess(4u) || !(unsigned __int8)PiAuDoesClientHavePrivilege(10LL) )
   {
-LABEL_62:
-    DeviceRegProp = -1073741811;
-    goto LABEL_22;
+LABEL_49:
+    DeviceRegProp = -1073741790;
+    goto LABEL_23;
   }
-  if ( !(unsigned __int8)PiAuDoesClientHaveAccess(4LL) || !(unsigned __int8)PiAuDoesClientHavePrivilege(10LL) )
-    goto LABEL_46;
-  if ( DWORD1(v34) )
-    goto LABEL_40;
+  if ( DWORD1(v35) )
+    goto LABEL_58;
   v8 = 2;
-  if ( (int)CmGetDeviceStatus(PiPnpRtlCtx, (_DWORD)v7, 0, (unsigned int)&v27, (__int64)&v32, (__int64)&v31) < 0 )
+  if ( (int)CmGetDeviceStatus(*(__int64 *)&PiPnpRtlCtx, v7, 0LL, &v28, &v33, &v32, v24) < 0 )
   {
     DeviceRegProp = -1073741810;
-    goto LABEL_22;
+    goto LABEL_23;
   }
-  if ( (v27 & 0x2000) == 0 )
+  if ( (v28 & 0x2000) == 0 )
   {
     DeviceRegProp = -1073741808;
-    goto LABEL_22;
+    goto LABEL_23;
   }
 LABEL_20:
-  DeviceRegProp = RtlInitUnicodeStringEx(&DestinationString, v7);
   v9 = v17;
   if ( DeviceRegProp < 0 )
-    goto LABEL_58;
-  v25 = v17;
+    goto LABEL_30;
+  DeviceRegProp = RtlInitUnicodeStringEx(&DestinationString, v7);
+  if ( DeviceRegProp < 0 )
+    goto LABEL_30;
+  v26 = v17;
   DeviceRegProp = PnpQueueQueryAndRemoveEvent(
                     (unsigned int)&DestinationString,
-                    (unsigned int)&v26,
+                    (unsigned int)&v27,
                     (_DWORD)v10,
-                    (unsigned int)&v25,
+                    (unsigned int)&v26,
                     v8,
                     0);
   if ( DeviceRegProp != -2147483608 )
   {
-LABEL_22:
-    v20 = PiCMReturnBufferResultData((unsigned int)DeviceRegProp, v25, v26, 0LL, 0, v36, a3, a4, a6);
-    goto LABEL_23;
+LABEL_23:
+    v20 = PiCMReturnBufferResultData(DeviceRegProp, v26, v27, 0LL, 0, v37, a3, a4, a6);
+    goto LABEL_24;
   }
-  v23 = v25;
+  v22 = v26;
+  v9 = v17;
   if ( v10 )
     v10[((unsigned __int64)v17 >> 1) - 1] = 0;
-LABEL_60:
-  if ( v23 > v9 )
-    goto LABEL_22;
-  v20 = PiCMReturnBufferResultData(2147483688LL, v25, v26, v10, v23, v36, a3, a4, a6);
-LABEL_23:
+LABEL_61:
+  if ( v22 > v9 )
+    goto LABEL_23;
+  v20 = PiCMReturnBufferResultData(0x80000028, v26, v27, v10, v22, v37, a3, a4, a6);
+LABEL_24:
   v12 = v20;
   if ( v10 )
     ExFreePoolWithTag(v10, 0x34706E50u);
-LABEL_25:
-  if ( (byte_140C0DD4B & 4) != 0 )
+LABEL_26:
+  if ( (byte_140C1327B & 4) != 0 )
     McTemplateK0z_EtwWriteTransfer(v11, (const EVENT_DESCRIPTOR *)KMPnPEvt_CfgMgr_QueryRemove_Stop, v13, v7);
-  PiCMReleaseObjectInputData(&v34);
+  PiCMReleaseObjectInputData((__int64)&v35);
   return (unsigned int)v12;
 }

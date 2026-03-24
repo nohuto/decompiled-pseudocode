@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z @ 0x1C024D7DC
+ * XREFs of ?_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z @ 0x1C025EBAC
  * Callers:
- *     TouchTargetingIntersectSegment @ 0x1C024E24C (TouchTargetingIntersectSegment.c)
- *     TouchTargetingRankForRectDeep @ 0x1C024E9B8 (TouchTargetingRankForRectDeep.c)
+ *     TouchTargetingIntersectSegment @ 0x1C025F580 (TouchTargetingIntersectSegment.c)
+ *     TouchTargetingRankForRectDeep @ 0x1C025FC80 (TouchTargetingRankForRectDeep.c)
  * Callees:
- *     ?_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z @ 0x1C024D5A8 (-_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z.c)
+ *     ?_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z @ 0x1C025E9F8 (-_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z.c)
  */
 
 __int64 __fastcall _TTIntersectLine(
@@ -19,17 +19,16 @@ __int64 __fastcall _TTIntersectLine(
   LONG v11; // eax
   LONG y; // ecx
   LONG v13; // eax
-  int v14; // ecx
-  int v15; // ebp
-  unsigned int *v16; // r14
-  bool v17; // zf
-  struct tagPOINT *v18; // rcx
-  struct tagPOINT v20; // [rsp+40h] [rbp-28h] BYREF
-  struct tagPOINT v21; // [rsp+48h] [rbp-20h]
-  int v22; // [rsp+70h] [rbp+8h] BYREF
+  int v14; // ebp
+  unsigned int *v15; // r14
+  bool v16; // zf
+  struct tagPOINT *v17; // rcx
+  struct tagPOINT v19; // [rsp+40h] [rbp-28h] BYREF
+  struct tagPOINT v20; // [rsp+48h] [rbp-20h]
+  int v21; // [rsp+70h] [rbp+8h] BYREF
 
   v7 = 0;
-  v22 = 0;
+  v21 = 0;
   if ( a1 == a2 )
     return 0LL;
   x = a2.x;
@@ -52,39 +51,37 @@ __int64 __fastcall _TTIntersectLine(
     y = a2.y;
   if ( y > *((_DWORD *)a3 + 3) )
     return 0LL;
-  v14 = *((_DWORD *)a3 + 11);
-  v15 = 0;
-  if ( v14 <= 0 )
+  v14 = 0;
+  if ( *((int *)a3 + 11) <= 0 )
     return 0LL;
-  v16 = (unsigned int *)((char *)a3 + 48);
+  v15 = (unsigned int *)((char *)a3 + 48);
   while ( 1 )
   {
-    v17 = v7 == 2;
+    v16 = v7 == 2;
     if ( v7 >= 2 )
       break;
-    ++v15;
+    ++v14;
     _TTAddLineAndSegmentIntersection(
       a1,
       a2,
-      *v16,
-      v16[1],
-      *((_DWORD *)a3 + 2 * (v15 % v14) + 12),
-      *((_DWORD *)a3 + 2 * (v15 % v14) + 13),
-      &v20,
-      &v22);
-    v14 = *((_DWORD *)a3 + 11);
-    v16 += 2;
-    v7 = v22;
-    if ( v15 >= v14 )
+      *v15,
+      v15[1],
+      *((_DWORD *)a3 + 2 * (v14 % *((_DWORD *)a3 + 11)) + 12),
+      *((_DWORD *)a3 + 2 * (v14 % *((_DWORD *)a3 + 11)) + 13),
+      &v19,
+      &v21);
+    v7 = v21;
+    v15 += 2;
+    if ( v14 >= *((_DWORD *)a3 + 11) )
     {
-      v17 = v22 == 2;
+      v16 = v21 == 2;
       break;
     }
   }
-  if ( !v17 )
+  if ( !v16 )
     return 0LL;
-  v18 = a5;
-  *a4 = v20;
-  *v18 = v21;
+  v17 = a5;
+  *a4 = v19;
+  *v17 = v20;
   return 1LL;
 }

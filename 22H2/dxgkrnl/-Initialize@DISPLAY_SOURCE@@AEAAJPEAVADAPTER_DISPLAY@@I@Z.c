@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Initialize@DISPLAY_SOURCE@@AEAAJPEAVADAPTER_DISPLAY@@I@Z @ 0x1C01FF69C
+ * XREFs of ?Initialize@DISPLAY_SOURCE@@AEAAJPEAVADAPTER_DISPLAY@@I@Z @ 0x1C0189180
  * Callers:
- *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C01FEF00 (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
+ *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C018850C (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -19,9 +19,9 @@ NTSTATUS __fastcall DISPLAY_SOURCE::Initialize(DISPLAY_SOURCE *this, struct ADAP
   *(&ObjectAttributes.Attributes + 1) = 0;
   *((_QWORD *)this + 1) = a2;
   *((_DWORD *)this + 4) = a3;
-  *((_DWORD *)this + 198) = a3;
+  *((_DWORD *)this + 188) = a3;
+  *((_DWORD *)this + 200) = a3;
   *((_DWORD *)this + 210) = a3;
-  *((_DWORD *)this + 220) = a3;
   ObjectAttributes.Length = 48;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   ObjectAttributes.Attributes = 512;
@@ -31,7 +31,7 @@ NTSTATUS __fastcall DISPLAY_SOURCE::Initialize(DISPLAY_SOURCE *this, struct ADAP
     Object = 0LL;
     ObReferenceObjectByHandle(EventHandle, 2u, (POBJECT_TYPE)ExEventObjectType, 0, &Object, 0LL);
     v5 = EventHandle;
-    *((_QWORD *)this + 116) = Object;
+    *((_QWORD *)this + 117) = Object;
     ZwClose(v5);
     return 0;
   }

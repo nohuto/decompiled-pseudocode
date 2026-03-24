@@ -1,18 +1,18 @@
 /*
- * XREFs of VslDeleteSecureSection @ 0x140931DC0
+ * XREFs of VslDeleteSecureSection @ 0x14088F570
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslDeleteSecureSection(__int64 a1)
+NTSTATUS __fastcall VslDeleteSecureSection(__int64 a1)
 {
   _QWORD v3[14]; // [rsp+20h] [rbp-88h] BYREF
 
   memset(v3, 0, 0x68uLL);
   v3[1] = a1;
-  return VslpEnterIumSecureMode(2u, 66, 0, (__int64)v3);
+  return VslpEnterIumSecureMode(2u, 64, 0, (__int64)v3);
 }

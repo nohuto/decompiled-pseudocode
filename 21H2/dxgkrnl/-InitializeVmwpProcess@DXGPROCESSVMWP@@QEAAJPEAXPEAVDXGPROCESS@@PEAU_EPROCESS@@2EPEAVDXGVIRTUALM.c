@@ -1,13 +1,13 @@
 /*
- * XREFs of ?InitializeVmwpProcess@DXGPROCESSVMWP@@QEAAJPEAXPEAVDXGPROCESS@@PEAU_EPROCESS@@2EPEAVDXGVIRTUALMACHINE@@@Z @ 0x1C033693C
+ * XREFs of ?InitializeVmwpProcess@DXGPROCESSVMWP@@QEAAJPEAXPEAVDXGPROCESS@@PEAU_EPROCESS@@2EPEAVDXGVIRTUALMACHINE@@@Z @ 0x1C0285778
  * Callers:
- *     DxgkDeviceIoctl @ 0x1C0050460 (DxgkDeviceIoctl.c)
- *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C035EDB0 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
- *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C0360E10 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
+ *     DxgkDeviceIoctl @ 0x1C0044460 (DxgkDeviceIoctl.c)
+ *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C0235DA0 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
+ *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C02375E0 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??0DXGVIRTUALMACHINE@@QEAA@PEAVDXGPROCESSVMWP@@@Z @ 0x1C03349D8 (--0DXGVIRTUALMACHINE@@QEAA@PEAVDXGPROCESSVMWP@@@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C00046F8 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage @ 0x1C0026138 (Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage.c)
+ *     ??0DXGVIRTUALMACHINE@@QEAA@PEAVDXGPROCESSVMWP@@@Z @ 0x1C0283D14 (--0DXGVIRTUALMACHINE@@QEAA@PEAVDXGPROCESSVMWP@@@Z.c)
  */
 
 __int64 __fastcall DXGPROCESSVMWP::InitializeVmwpProcess(
@@ -20,59 +20,59 @@ __int64 __fastcall DXGPROCESSVMWP::InitializeVmwpProcess(
         struct DXGVIRTUALMACHINE *a7)
 {
   DXGVIRTUALMACHINE *v11; // rax
+  POOL_TYPE v12; // r9d
   __int64 v13; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
 
-  if ( !*((_BYTE *)this + 632) )
+  if ( !*((_BYTE *)this + 520) )
   {
     if ( a7 )
     {
-      *((_QWORD *)this + 76) = a7;
+      *((_QWORD *)this + 62) = a7;
       *((_QWORD *)a7 + 7) = this;
-      v11 = (DXGVIRTUALMACHINE *)*((_QWORD *)this + 76);
+      v11 = (DXGVIRTUALMACHINE *)*((_QWORD *)this + 62);
     }
     else
     {
-      v11 = (DXGVIRTUALMACHINE *)operator new[](0x208uLL, 0x4B677844u, 64LL, (__int64)a4);
+      if ( (unsigned int)Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage() )
+        v12 = 512;
+      else
+        v12 = PagedPool;
+      v11 = (DXGVIRTUALMACHINE *)operator new(0x1E8uLL, 0x4B677844u, 1, v12);
       if ( v11 )
         v11 = DXGVIRTUALMACHINE::DXGVIRTUALMACHINE(v11, this);
-      *((_QWORD *)this + 76) = v11;
+      *((_QWORD *)this + 62) = v11;
     }
     if ( !v11 )
     {
-      WdLogSingleEntry1(6LL, 5493LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to allocate DXGVIRTUALMACHINE",
-        5493LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v13 = WdLogNewEntry5_WdLowResource(this, a2, a3, a4);
+      *(_QWORD *)(v13 + 24) = 5441LL;
+      WdLogEvent5_WdLowResource(v13);
       return 3221225495LL;
     }
     if ( a2 )
     {
-      if ( *((_BYTE *)this + 632) )
+      if ( *((_BYTE *)this + 520) )
       {
-        WdLogSingleEntry1(1LL, 5499LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_bInitialized == FALSE", 5499LL, 0LL, 0LL, 0LL, 0LL);
-        v11 = (DXGVIRTUALMACHINE *)*((_QWORD *)this + 76);
+        v15 = WdLogNewEntry5_WdAssertion(this, a2);
+        *(_QWORD *)(v15 + 24) = 5447LL;
+        WdLogEvent5_WdAssertion(v15);
+        v11 = (DXGVIRTUALMACHINE *)*((_QWORD *)this + 62);
       }
-      *((_QWORD *)this + 77) = a3;
-      *((_QWORD *)v11 + 35) = a4;
+      *((_QWORD *)this + 63) = a3;
+      *((_QWORD *)v11 + 30) = a4;
       ObfReferenceObject(a4);
       if ( a6 )
-        *(_BYTE *)(*((_QWORD *)this + 76) + 336LL) = 1;
+        *(_BYTE *)(*((_QWORD *)this + 62) + 296LL) = 1;
       if ( Object )
       {
-        v13 = *((_QWORD *)this + 76);
-        *((_DWORD *)this + 106) |= 0x400u;
-        *(_QWORD *)(v13 + 272) = Object;
+        v16 = *((_QWORD *)this + 62);
+        *((_BYTE *)this + 347) |= 0x40u;
+        *(_QWORD *)(v16 + 232) = Object;
         ObfReferenceObject(Object);
       }
-      *((_BYTE *)this + 632) = 1;
+      *((_BYTE *)this + 520) = 1;
     }
   }
   return 0LL;

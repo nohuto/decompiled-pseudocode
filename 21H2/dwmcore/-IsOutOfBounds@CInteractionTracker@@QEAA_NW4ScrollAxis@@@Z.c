@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsOutOfBounds@CInteractionTracker@@QEAA_NW4ScrollAxis@@@Z @ 0x18021B5F4
+ * XREFs of ?IsOutOfBounds@CInteractionTracker@@QEAA_NW4ScrollAxis@@@Z @ 0x1801CA1C8
  * Callers:
- *     ?IsOutOfBounds@CInteractionTracker@@QEAA_NXZ @ 0x18021B654 (-IsOutOfBounds@CInteractionTracker@@QEAA_NXZ.c)
+ *     ?IsOutOfBounds@CInteractionTracker@@QEAA_NXZ @ 0x1801CA228 (-IsOutOfBounds@CInteractionTracker@@QEAA_NXZ.c)
  * Callees:
  *     <none>
  */
@@ -18,19 +18,19 @@ char __fastcall CInteractionTracker::IsOutOfBounds(float *a1, int a2)
   result = 0;
   if ( !a2 )
   {
-    v6 = a1[20];
-    if ( v6 > a1[26] )
+    v6 = a1[18];
+    if ( v6 > a1[24] )
       return 1;
-    v7 = a1[23];
+    v7 = a1[21];
     goto LABEL_10;
   }
   v3 = a2 - 1;
   if ( !v3 )
   {
-    v6 = a1[21];
-    if ( v6 > a1[27] )
+    v6 = a1[19];
+    if ( v6 > a1[25] )
       return 1;
-    v7 = a1[24];
+    v7 = a1[22];
 LABEL_10:
     v5 = v7 <= v6;
 LABEL_11:
@@ -40,10 +40,10 @@ LABEL_11:
   }
   if ( v3 != 1 )
     return result;
-  v4 = a1[34];
-  if ( a1[35] <= v4 )
+  v4 = a1[32];
+  if ( a1[33] <= v4 )
   {
-    v5 = v4 <= a1[36];
+    v5 = v4 <= a1[34];
     goto LABEL_11;
   }
   return 1;

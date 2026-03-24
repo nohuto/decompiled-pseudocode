@@ -1,12 +1,12 @@
 /*
- * XREFs of RegOpcodeHandler @ 0x1C004CC88
+ * XREFs of RegOpcodeHandler @ 0x1C0065B80
  * Callers:
- *     AMLIRegEventHandler @ 0x1C0048A9C (AMLIRegEventHandler.c)
+ *     AMLIRegEventHandler @ 0x1C002C19C (AMLIRegEventHandler.c)
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     FindOpcodeTerm @ 0x1C004B424 (FindOpcodeTerm.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
+ *     FindOpcodeTerm @ 0x1C00228B8 (FindOpcodeTerm.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
 __int64 __fastcall RegOpcodeHandler(unsigned int a1, __int64 a2, int a3, int a4)
@@ -25,9 +25,9 @@ __int64 __fastcall RegOpcodeHandler(unsigned int a1, __int64 a2, int a3, int a4)
   {
     if ( *(_QWORD *)(OpcodeTerm + 32) && v5 )
     {
-      LogError(3222536206LL);
+      LogError(-1072431090);
       AcpiDiagTraceAmlError(0LL, -1072431090);
-      PrintDebugMessage(166, 0, 0, 0, 0LL);
+      PrintDebugMessage(166, 0LL, 0LL, 0LL, 0LL);
       return (unsigned int)-1072431090;
     }
     else
@@ -39,9 +39,9 @@ __int64 __fastcall RegOpcodeHandler(unsigned int a1, __int64 a2, int a3, int a4)
   }
   else
   {
-    LogError(3222536224LL);
+    LogError(-1072431072);
     AcpiDiagTraceAmlError(0LL, -1072431072);
-    PrintDebugMessage(167, 0, 0, 0, 0LL);
+    PrintDebugMessage(167, 0LL, 0LL, 0LL, 0LL);
     return (unsigned int)-1072431072;
   }
   return v4;

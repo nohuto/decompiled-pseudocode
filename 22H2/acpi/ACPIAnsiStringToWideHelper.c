@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIAnsiStringToWideHelper @ 0x1C004390C
+ * XREFs of ACPIAnsiStringToWideHelper @ 0x1C000C9C4
  * Callers:
- *     ACPIGetConvertToCompatibleIDWide @ 0x1C00298C4 (ACPIGetConvertToCompatibleIDWide.c)
- *     ACPIGetConvertToDeviceIDWide @ 0x1C0029D40 (ACPIGetConvertToDeviceIDWide.c)
- *     ACPIGetConvertToHardwareIDWide @ 0x1C002A14C (ACPIGetConvertToHardwareIDWide.c)
- *     ACPIGetConvertToInstanceIDWide @ 0x1C002A424 (ACPIGetConvertToInstanceIDWide.c)
- *     ACPIGetConvertToPnpIDWide @ 0x1C002A670 (ACPIGetConvertToPnpIDWide.c)
- *     ACPIGetConvertToStringWide @ 0x1C002A994 (ACPIGetConvertToStringWide.c)
- *     ACPIGetConvertToStringWideWithPrepend @ 0x1C002AA84 (ACPIGetConvertToStringWideWithPrepend.c)
- *     ACPIGetProcessorIDWide @ 0x1C002ABF0 (ACPIGetProcessorIDWide.c)
- *     ACPIDeviceIdMutiStringMatchCallback @ 0x1C002C850 (ACPIDeviceIdMutiStringMatchCallback.c)
+ *     ACPIGetConvertToHardwareIDWide @ 0x1C000C70C (ACPIGetConvertToHardwareIDWide.c)
+ *     ACPIGetProcessorIDWide @ 0x1C00276E0 (ACPIGetProcessorIDWide.c)
+ *     ACPIGetConvertToCompatibleIDWide @ 0x1C0027D58 (ACPIGetConvertToCompatibleIDWide.c)
+ *     ACPIGetConvertToPnpIDWide @ 0x1C00281E0 (ACPIGetConvertToPnpIDWide.c)
+ *     ACPIGetConvertToDeviceIDWide @ 0x1C0028368 (ACPIGetConvertToDeviceIDWide.c)
+ *     ACPIGetConvertToInstanceIDWide @ 0x1C002866C (ACPIGetConvertToInstanceIDWide.c)
+ *     ACPIGetConvertToStringWide @ 0x1C0055C48 (ACPIGetConvertToStringWide.c)
+ *     ACPIGetConvertToStringWideWithPrepend @ 0x1C0055D3C (ACPIGetConvertToStringWideWithPrepend.c)
+ *     ACPIDeviceIdMutiStringMatchCallback @ 0x1C0056110 (ACPIDeviceIdMutiStringMatchCallback.c)
  * Callees:
  *     <none>
  */

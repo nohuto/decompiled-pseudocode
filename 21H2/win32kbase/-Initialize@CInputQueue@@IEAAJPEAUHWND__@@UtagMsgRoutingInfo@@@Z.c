@@ -1,38 +1,63 @@
 /*
- * XREFs of ?Initialize@CInputQueue@@IEAAJPEAUHWND__@@UtagMsgRoutingInfo@@@Z @ 0x1C00967A8
+ * XREFs of ?Initialize@CInputQueue@@IEAAJPEAUHWND__@@UtagMsgRoutingInfo@@@Z @ 0x1C0058A40
  * Callers:
- *     ?Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4CompositionInputFlags@@PEAPEAV1@@Z @ 0x1C00966C4 (-Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4Compositi.c)
+ *     ?Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4CompositionInputFlags@@PEAPEAV1@@Z @ 0x1C0058944 (-Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4Compositi.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     UserGetWindowThreadProcessId @ 0x1C0166F24 (UserGetWindowThreadProcessId.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     UserFindBaseWindowHandle @ 0x1C0139294 (UserFindBaseWindowHandle.c)
  */
 
 __int64 __fastcall CInputQueue::Initialize(__int64 a1, __int64 a2, __int64 a3)
 {
-  int v6; // ecx
-  __int128 v7; // xmm1
-  __int64 v8; // xmm0_8
-  int v10; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v3; // ebx
+  int v5; // ecx
+  char v8; // si
+  int v9; // eax
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int128 v12; // xmm1
+  __int64 result; // rax
+  __int64 v14; // xmm0_8
+  __int64 BaseWindowHandle; // rax
+  __int64 v16; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( *(_DWORD *)(a1 + 12) != 3 || (v10 = 0, UserGetWindowThreadProcessId(a2, &v10), v10) && *(_DWORD *)a3 == v10 )
+  v3 = 0;
+  v5 = *(_DWORD *)(a1 + 12);
+  v16 = 0LL;
+  v8 = 1;
+  if ( (unsigned int)(v5 - 2) <= 1 )
   {
-    v6 = 0;
-    if ( (unsigned int)(*(_DWORD *)(a1 + 12) - 2) > 1 )
-      goto LABEL_5;
-    if ( !qword_1C029CA70 )
-      return (unsigned int)-1073741637;
-    v6 = qword_1C029CA70(a2, a1);
-    if ( v6 >= 0 )
+    if ( v5 == 3 )
     {
-LABEL_5:
-      v7 = *(_OWORD *)(a3 + 16);
-      *(_OWORD *)(a1 + 24) = *(_OWORD *)a3;
-      *(_QWORD *)(a1 + 16) = a2;
-      v8 = *(_QWORD *)(a3 + 32);
-      *(_OWORD *)(a1 + 40) = v7;
-      *(_QWORD *)(a1 + 56) = v8;
+      BaseWindowHandle = UserFindBaseWindowHandle(a2, a3);
+      if ( BaseWindowHandle )
+        *(_QWORD *)(a1 + 32) = BaseWindowHandle;
+      else
+        v8 = 0;
     }
-    return (unsigned int)v6;
+    if ( qword_1C0257E40 )
+      v9 = qword_1C0257E40();
+    else
+      v9 = -1073741637;
+    if ( v9 >= 0 && v8 )
+    {
+      v10 = a2;
+      if ( *(_QWORD *)(a1 + 32) )
+        v10 = *(_QWORD *)(a1 + 32);
+      if ( qword_1C0257E50 )
+        v3 = qword_1C0257E50(v10, a1, &v16);
+      else
+        v3 = -1073741637;
+    }
   }
-  return 3221225485LL;
+  v11 = v16;
+  v12 = *(_OWORD *)(a3 + 16);
+  *(_OWORD *)(a1 + 40) = *(_OWORD *)a3;
+  *(_QWORD *)(a1 + 24) = v11;
+  result = v3;
+  v14 = *(_QWORD *)(a3 + 32);
+  *(_OWORD *)(a1 + 56) = v12;
+  *(_QWORD *)(a1 + 16) = a2;
+  *(_QWORD *)(a1 + 72) = v14;
+  return result;
 }

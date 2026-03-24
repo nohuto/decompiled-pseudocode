@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FreeCascadedSignalingResources@CAdapter@@UEAAXPEAXI0II@Z @ 0x1C0076A80
+ * XREFs of ?FreeCascadedSignalingResources@CAdapter@@UEAAXPEAXI0II@Z @ 0x1C0064B40
  * Callers:
  *     <none>
  * Callees:
- *     DxgkDestroyContextInternal @ 0x1C01DA7C0 (DxgkDestroyContextInternal.c)
- *     ?DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z @ 0x1C01DA7E0 (-DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z.c)
+ *     ?DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z @ 0x1C0168990 (-DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z.c)
+ *     DxgkDestroyContextInternal @ 0x1C016F01C (DxgkDestroyContextInternal.c)
  */
 
 void __fastcall CAdapter::FreeCascadedSignalingResources(

@@ -1,30 +1,30 @@
 /*
- * XREFs of PnpBuildRemovalRelationList @ 0x140767F88
+ * XREFs of PnpBuildRemovalRelationList @ 0x140737170
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1407655BC (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     IopAllocateRelationList @ 0x140767538 (IopAllocateRelationList.c)
- *     IopFreeRelationList @ 0x140767600 (IopFreeRelationList.c)
- *     PnpProcessRelation @ 0x140767AEC (PnpProcessRelation.c)
- *     IopSortRelationListForRemove @ 0x140768080 (IopSortRelationListForRemove.c)
+ *     IopSortRelationListForRemove @ 0x14073720C (IopSortRelationListForRemove.c)
+ *     PnpProcessRelation @ 0x1407374AC (PnpProcessRelation.c)
+ *     IopAllocateRelationList @ 0x14073928C (IopAllocateRelationList.c)
+ *     IopFreeRelationList @ 0x140739350 (IopFreeRelationList.c)
  */
 
-__int64 __fastcall PnpBuildRemovalRelationList(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)
+__int64 __fastcall PnpBuildRemovalRelationList(__int64 a1, unsigned int a2, int a3, _QWORD *a4)
 {
   __int64 v4; // rax
   __int64 v8; // r14
-  _BYTE *BugCheckParameter3; // rax
-  _QWORD *v10; // rbx
+  ULONG_PTR BugCheckParameter3; // rax
+  void *v10; // rbx
   int v11; // edi
 
   v4 = *(_QWORD *)(a1 + 312);
   *a4 = 0LL;
   v8 = *(_QWORD *)(v4 + 40);
   BugCheckParameter3 = IopAllocateRelationList(a2);
-  v10 = BugCheckParameter3;
+  v10 = (void *)BugCheckParameter3;
   if ( !BugCheckParameter3 )
     return 3221225626LL;
-  v11 = PnpProcessRelation(v8, a2, 2LL, a3, (ULONG_PTR)BugCheckParameter3);
+  v11 = PnpProcessRelation(v8, a2, 2, a3, BugCheckParameter3);
   if ( v11 < 0 )
   {
     IopFreeRelationList(v10);

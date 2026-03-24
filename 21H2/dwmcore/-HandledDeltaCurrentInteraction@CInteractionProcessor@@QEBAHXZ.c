@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HandledDeltaCurrentInteraction@CInteractionProcessor@@QEBAHXZ @ 0x18018D5FC
+ * XREFs of ?HandledDeltaCurrentInteraction@CInteractionProcessor@@QEBAHXZ @ 0x18022DD50
  * Callers:
- *     ?HandledDeltaCurrentInteraction@CInteractionRoot@@UEBAHXZ @ 0x180182CB0 (-HandledDeltaCurrentInteraction@CInteractionRoot@@UEBAHXZ.c)
- *     ?HandledDeltaCurrentInteraction@CInteraction@@UEBAHXZ @ 0x1801F2390 (-HandledDeltaCurrentInteraction@CInteraction@@UEBAHXZ.c)
+ *     ?HandledDeltaCurrentInteraction@CInteraction@@UEBAHXZ @ 0x1801C6480 (-HandledDeltaCurrentInteraction@CInteraction@@UEBAHXZ.c)
+ *     ?HandledDeltaCurrentInteraction@CInteractionRoot@@UEBAHXZ @ 0x180234720 (-HandledDeltaCurrentInteraction@CInteractionRoot@@UEBAHXZ.c)
  * Callees:
- *     ?AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ @ 0x18018A118 (-AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ.c)
+ *     ?AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ @ 0x18022B5D8 (-AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ.c)
  */
 
 __int64 __fastcall CInteractionProcessor::HandledDeltaCurrentInteraction(CInteractionProcessor *this)

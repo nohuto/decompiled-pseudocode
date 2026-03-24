@@ -1,20 +1,20 @@
 /*
- * XREFs of ?HandleDirectStartStopDeviceReadRequest@CHidInput@@QEAAXXZ @ 0x1C0078780
+ * XREFs of ?HandleDirectStartStopDeviceReadRequest@CHidInput@@QEAAXXZ @ 0x1C00574A0
  * Callers:
- *     rimObsStartStopDeviceRead @ 0x1C01AF320 (rimObsStartStopDeviceRead.c)
+ *     rimObsStartStopDeviceRead @ 0x1C017F2C4 (rimObsStartStopDeviceRead.c)
  * Callees:
- *     ?ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ @ 0x1C0076E90 (-ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ.c)
- *     ?GetDispatcherObjectByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@@Z @ 0x1C00787CC (-GetDispatcherObjectByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@@Z.c)
- *     ?OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ @ 0x1C01E26E0 (-OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ.c)
+ *     ?OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ @ 0x1C0054D10 (-OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ.c)
+ *     ?GetDispatcherObjectByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@@Z @ 0x1C00574EC (-GetDispatcherObjectByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@@Z.c)
+ *     ?ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ @ 0x1C0057538 (-ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ.c)
  */
 
-void __fastcall CHidInput::HandleDirectStartStopDeviceReadRequest(CHidInput *this, __int64 a2, __int64 a3)
+void __fastcall CHidInput::HandleDirectStartStopDeviceReadRequest(CHidInput *this)
 {
   struct _KEVENT *DispatcherObjectByName; // rax
 
   if ( *((_QWORD *)this + 1) != -1LL )
   {
-    if ( CBaseInput::ExecutingInSensorHostingProcess(this, a2, a3) )
+    if ( CBaseInput::ExecutingInSensorHostingProcess(this) )
     {
       CHidInput::OnDirectStartStopReadNotification(this);
     }

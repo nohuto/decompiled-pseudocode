@@ -1,7 +1,7 @@
 /*
- * XREFs of TR_GetWdfQueue @ 0x1C0001E60
+ * XREFs of TR_GetWdfQueue @ 0x1C0009650
  * Callers:
- *     Endpoint_Create @ 0x1C006B6C8 (Endpoint_Create.c)
+ *     Endpoint_Create @ 0x1C006A5F0 (Endpoint_Create.c)
  * Callees:
  *     <none>
  */

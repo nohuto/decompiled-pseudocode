@@ -1,125 +1,102 @@
 /*
- * XREFs of ?VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYNCOBJECT@@PEAVDXGDEVICESYNCOBJECT@@IU_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@@Z @ 0x1C038C0EC
+ * XREFs of ?VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYNCOBJECT@@PEAVDXGDEVICESYNCOBJECT@@IU_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@@Z @ 0x1C024AE28
  * Callers:
- *     ?Open@DXGSYNCOBJECT@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAIPEAPEAXPEA_KIPEAPEAVDXGADAPTERSYNCOBJECT@@_NU_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@@Z @ 0x1C01B2C5C (-Open@DXGSYNCOBJECT@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAIPEA.c)
+ *     ?Open@DXGSYNCOBJECT@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAIPEAPEAXPEA_KIPEAPEAVDXGADAPTERSYNCOBJECT@@_NU_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@@Z @ 0x1C011AC00 (-Open@DXGSYNCOBJECT@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAIPEA.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?SetHostHandle@DXGSYNCOBJECT@@QEAAJII@Z @ 0x1C0351384 (-SetHostHandle@DXGSYNCOBJECT@@QEAAJII@Z.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?MapGuestFenceCpuVaToHost@@YAJ_KPEAPEAXPEA_KPEAI@Z @ 0x1C0375EE0 (-MapGuestFenceCpuVaToHost@@YAJ_KPEAPEAXPEA_KPEAI@Z.c)
- *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C038FC58 (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_M.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?MapGuestFenceCpuVaToHost@@YAJ_KPEAPEAXPEA_KPEAI@Z @ 0x1C023B0F4 (-MapGuestFenceCpuVaToHost@@YAJ_KPEAPEAXPEA_KPEAI@Z.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
+ *     ?SetHostHandle@DXGSYNCOBJECT@@QEAAJII@Z @ 0x1C0292490 (-SetHostHandle@DXGSYNCOBJECT@@QEAAJII@Z.c)
  */
 
 __int64 __fastcall DXG_GUEST_GLOBAL_VMBUS::VmBusSendOpenSyncObject(
         DXG_GUEST_GLOBAL_VMBUS *this,
         struct DXGPROCESS *a2,
         struct DXGDEVICE *a3,
-        int a4,
+        unsigned int a4,
         struct DXGSYNCOBJECT *a5,
         struct DXGDEVICESYNCOBJECT *a6,
         unsigned int a7,
         struct _D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS a8)
 {
-  struct DXGKVMB_COMMAND_BASE *v12; // rcx
-  __int64 v13; // rdi
-  int v14; // r8d
-  int v15; // edx
+  int v10; // r9d
+  int v11; // ecx
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rbx
   unsigned __int64 v16; // rcx
   int v17; // eax
-  struct _MDL *v19; // [rsp+38h] [rbp-D0h]
-  unsigned int v20; // [rsp+58h] [rbp-B0h] BYREF
-  struct DXGKVMB_COMMAND_BASE *v21[2]; // [rsp+68h] [rbp-A0h] BYREF
-  unsigned int v22; // [rsp+78h] [rbp-90h]
-  unsigned int v23; // [rsp+188h] [rbp+80h] BYREF
-  int v24; // [rsp+18Ch] [rbp+84h]
-  __int64 v25; // [rsp+190h] [rbp+88h]
-  unsigned __int64 v26; // [rsp+198h] [rbp+90h]
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  struct _MDL *v22; // [rsp+28h] [rbp-58h]
+  unsigned int v23; // [rsp+30h] [rbp-50h] BYREF
+  __int64 v24; // [rsp+38h] [rbp-48h] BYREF
+  int v25; // [rsp+40h] [rbp-40h]
+  int v26; // [rsp+44h] [rbp-3Ch]
+  int v27; // [rsp+48h] [rbp-38h]
+  int v28; // [rsp+50h] [rbp-30h]
+  int v29; // [rsp+54h] [rbp-2Ch]
+  unsigned int v30; // [rsp+58h] [rbp-28h]
+  struct _D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS::$3C5DE337AE066ABB2671F6BD60EC95FB::$363714554E8B1FDEDD2ECFF06774C94E v31; // [rsp+5Ch] [rbp-24h]
+  unsigned int v32[2]; // [rsp+60h] [rbp-20h] BYREF
+  __int64 v33; // [rsp+68h] [rbp-18h]
+  unsigned __int64 v34; // [rsp+70h] [rbp-10h]
 
-  v22 = 0;
-  *(_OWORD *)v21 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v21, this, 0x28u, 0LL, 0LL, 0LL);
-  v12 = v21[0];
-  if ( !v21[0] )
-  {
-    LODWORD(v13) = -1073741801;
-    goto LABEL_15;
-  }
-  v14 = *((_DWORD *)a5 + 21);
+  v10 = *((_DWORD *)a5 + 19);
   if ( a3 )
-    v15 = *((_DWORD *)a3 + 118);
+    v11 = *((_DWORD *)a3 + 110);
   else
-    v15 = 0;
-  *((_DWORD *)v21[0] + 2) = *((_DWORD *)a2 + 126);
-  *((_DWORD *)v12 + 8) = a7;
-  *((struct _D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS *)v12 + 9) = a8;
-  *((_BYTE *)v12 + 12) = 1;
-  *((_DWORD *)v12 + 3) &= 0x1FFu;
-  *(_QWORD *)v12 = 0LL;
-  *((_QWORD *)v12 + 2) = 1002LL;
-  *((_DWORD *)v12 + 6) = v15;
-  *((_DWORD *)v12 + 7) = v14;
-  v20 = 24;
-  LODWORD(v13) = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(
+    v11 = 0;
+  v12 = *((_DWORD *)a2 + 106);
+  v24 = 0LL;
+  v25 = v12;
+  v30 = a7;
+  v31 = a8.0;
+  v28 = v11;
+  v29 = v10;
+  v26 = 1;
+  v27 = 1002;
+  v23 = 24;
+  LODWORD(v15) = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(
                    this,
-                   (unsigned __int8 *)v21[1],
-                   v21[0],
-                   v22,
+                   (struct DXGKVMB_COMMAND_BASE *)&v24,
+                   0x28u,
+                   v32,
                    &v23,
-                   &v20,
-                   v19);
-  if ( (int)v13 < 0 )
-    goto LABEL_14;
-  if ( v20 < 0x18 )
+                   v22);
+  if ( (int)v15 < 0 )
+    goto LABEL_12;
+  LODWORD(v15) = -1073741823;
+  if ( v23 >= 0x18 )
+    LODWORD(v15) = v32[1];
+  if ( (int)v15 < 0 )
   {
-    LODWORD(v13) = -1073741823;
-    goto LABEL_14;
-  }
-  LODWORD(v13) = v24;
-  if ( v24 < 0 )
-  {
-LABEL_14:
-    WdLogSingleEntry1(2LL, (int)v13);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"VmbusSendOpenSyncObject failed: 0x%I64x",
-      (int)v13,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_15;
+LABEL_12:
+    v20 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v20 + 24) = (int)v15;
+    goto LABEL_13;
   }
   if ( a6 )
   {
-    v16 = v26;
-    *((_DWORD *)a6 + 11) = v23;
-    *((_QWORD *)a6 + 6) = v25;
+    v16 = v34;
+    *((_DWORD *)a6 + 11) = v32[0];
+    *((_QWORD *)a6 + 6) = v33;
     v17 = MapGuestFenceCpuVaToHost(v16, (void **)a6 + 7, (unsigned __int64 *)a6 + 10, (unsigned int *)a6 + 22);
-    v13 = v17;
+    v15 = v17;
     if ( v17 < 0 )
     {
-      WdLogSingleEntry2(2LL, v17, 13690LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"MapCpuVaForParavirtualization failed: 0x%I64x",
-        v13,
-        13690LL,
-        0LL,
-        0LL,
-        0LL);
+      v20 = WdLogNewEntry5_WdError(v19, v18);
+      *(_QWORD *)(v20 + 24) = v15;
+      *(_QWORD *)(v20 + 32) = 11667LL;
+LABEL_13:
+      WdLogEvent5_WdError(v20);
     }
   }
   else
   {
-    DXGSYNCOBJECT::SetHostHandle(a5, a4, v23);
+    DXGSYNCOBJECT::SetHostHandle(a5, a4, v32[0]);
   }
-LABEL_15:
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v21);
-  return (unsigned int)v13;
+  return (unsigned int)v15;
 }

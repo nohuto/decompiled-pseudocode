@@ -1,64 +1,84 @@
 /*
- * XREFs of ?OnPeerDisconnected@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJIPEAX_N@Z @ 0x1801BA4BC
+ * XREFs of ?OnPeerDisconnected@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJIPEAX_N@Z @ 0x18016636C
  * Callers:
- *     ?OnPeerDisconnected@ConnectionIndirector@BamoImpl@Microsoft@@UEAAJIPEBX_N@Z @ 0x1801BA5A0 (-OnPeerDisconnected@ConnectionIndirector@BamoImpl@Microsoft@@UEAAJIPEBX_N@Z.c)
+ *     ?OnPeerDisconnected@ConnectionIndirector@BamoImpl@Microsoft@@UEAAJIPEBX_N@Z @ 0x180166480 (-OnPeerDisconnected@ConnectionIndirector@BamoImpl@Microsoft@@UEAAJIPEBX_N@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B76D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?OnDisconnected@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEAAXXZ @ 0x1801BA1E4 (-OnDisconnected@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEAAXXZ.c)
+ *     ??0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z @ 0x1800D717C (--0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18014CF54 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801643CC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?OnDisconnected@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEAAX_N@Z @ 0x180166158 (-OnDisconnected@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEAAX_N@Z.c)
  */
 
 __int64 __fastcall Microsoft::BamoImpl::BaseBamoConnectionImpl::OnPeerDisconnected(
         Microsoft::BamoImpl::BaseBamoPeerImpl **this,
         __int64 a2,
         Microsoft::BamoImpl::BaseBamoPeerImpl *a3,
-        char a4)
+        const char *a4)
 {
+  char v5; // bl
   __int64 v7; // r8
   int v8; // eax
   const char *v9; // r9
-  Microsoft::BamoImpl::BaseBamoPeerImpl *v10; // rax
-  Microsoft::BamoImpl::BaseBamoPeerImpl *v11; // rcx
-  Microsoft::BamoImpl::BaseBamoPeerImpl *v12; // rdx
-  int v14; // [rsp+20h] [rbp-8h]
+  __int64 v10; // rbx
+  int v11; // ebp
+  Microsoft::BamoImpl::BaseBamoPeerImpl *v12; // rax
+  Microsoft::BamoImpl::BaseBamoPeerImpl *v13; // rcx
+  Microsoft::BamoImpl::BaseBamoPeerImpl *v14; // rdx
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v17; // [rsp+30h] [rbp+8h] BYREF
 
-  Microsoft::BamoImpl::BaseBamoPeerImpl::OnDisconnected(a3);
-  LOBYTE(v7) = a4;
+  v5 = (char)a4;
+  Microsoft::BamoImpl::BaseBamoPeerImpl::OnDisconnected(a3, 0, (__int64)a3, a4);
+  Microsoft::BamoImpl::DropAndReacquireLock::DropAndReacquireLock(
+    (Microsoft::BamoImpl::DropAndReacquireLock *)&v17,
+    (struct Microsoft::BamoImpl::BaseBamoConnectionImpl *)this);
+  LOBYTE(v7) = v5;
   v8 = (*((__int64 (__fastcall **)(Microsoft::BamoImpl::BaseBamoPeerImpl **, Microsoft::BamoImpl::BaseBamoPeerImpl *, __int64))*this
-        + 7))(
+        + 6))(
          this,
          a3,
          v7);
-  if ( v8 < 0 )
+  v10 = v17;
+  v11 = v8;
+  if ( v17 )
+  {
+    EnterCriticalSection((LPCRITICAL_SECTION)(v17 + 128));
+    *(_DWORD *)(v10 + 168) = GetCurrentThreadId();
+  }
+  if ( v11 < 0 )
+  {
     wil::details::in1diag3::FailFast_Hr(
       retaddr,
-      2027LL,
-      (__int64)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoConnection.inl",
-      (const char *)(unsigned int)v8,
-      v14);
-  v10 = this[14];
-  v11 = 0LL;
+      (void *)0x55D,
+      (__int64)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoConnection.inl",
+      (const char *)(unsigned int)v11);
+    __debugbreak();
+  }
+  v12 = this[12];
+  v13 = 0LL;
   while ( 1 )
   {
-    if ( !v10 )
+    if ( !v12 )
+    {
       wil::details::in1diag3::_FailFast_Unexpected(
         retaddr,
-        2199LL,
-        (__int64)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoConnection.inl",
+        (void *)0x5F1,
+        (__int64)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoConnection.inl",
         v9);
-    if ( v10 == a3 )
+      __debugbreak();
+    }
+    if ( v12 == a3 )
       break;
-    v11 = v10;
-    v10 = (Microsoft::BamoImpl::BaseBamoPeerImpl *)*((_QWORD *)v10 + 8);
+    v13 = v12;
+    v12 = (Microsoft::BamoImpl::BaseBamoPeerImpl *)*((_QWORD *)v12 + 7);
   }
-  v12 = (Microsoft::BamoImpl::BaseBamoPeerImpl *)*((_QWORD *)a3 + 8);
-  if ( v11 )
-    *((_QWORD *)v11 + 8) = v12;
+  v14 = (Microsoft::BamoImpl::BaseBamoPeerImpl *)*((_QWORD *)a3 + 7);
+  if ( v13 )
+    *((_QWORD *)v13 + 7) = v14;
   else
-    this[14] = v12;
-  *((_QWORD *)a3 + 8) = 0LL;
-  (*(void (__fastcall **)(Microsoft::BamoImpl::BaseBamoPeerImpl *))(*(_QWORD *)a3 + 8LL))(a3);
+    this[12] = v14;
+  *((_QWORD *)a3 + 7) = 0LL;
+  (**(void (__fastcall ***)(Microsoft::BamoImpl::BaseBamoPeerImpl *))a3)(a3);
   return 0LL;
 }

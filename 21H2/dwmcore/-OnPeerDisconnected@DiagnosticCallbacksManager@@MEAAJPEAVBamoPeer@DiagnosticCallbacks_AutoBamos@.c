@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OnPeerDisconnected@DiagnosticCallbacksManager@@MEAAJPEAVBamoPeer@DiagnosticCallbacks_AutoBamos@@_N@Z @ 0x1801977B0
+ * XREFs of ?OnPeerDisconnected@DiagnosticCallbacksManager@@MEAAJPEAVBamoPeer@DiagnosticCallbacks_AutoBamos@@_N@Z @ 0x1801668B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?erase@?$_Tree@V?$_Tmap_traits@IV?$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL@Microsoft@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIV?$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL@Microsoft@@@std@@@5@$0A@@std@@@std@@QEAA_KAEBI@Z @ 0x180198B94 (-erase@-$_Tree@V-$_Tmap_traits@IV-$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL@Microsoft@@U-$l.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?erase@?$_Tree@V?$_Tmap_traits@IV?$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL@Microsoft@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIV?$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL@Microsoft@@@std@@@5@$0A@@std@@@std@@QEAA_KAEBI@Z @ 0x180167C3C (-erase@-$_Tree@V-$_Tmap_traits@IV-$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL@Mi_ea_180167C3C.c)
  */
 
 __int64 __fastcall DiagnosticCallbacksManager::OnPeerDisconnected(
@@ -16,7 +16,7 @@ __int64 __fastcall DiagnosticCallbacksManager::OnPeerDisconnected(
   v4 = *(_DWORD *)((*(__int64 (__fastcall **)(struct DiagnosticCallbacks_AutoBamos::BamoPeer *))(*(_QWORD *)a2 + 8LL))(a2)
                  + 36);
   std::_Tree<std::_Tmap_traits<unsigned int,Microsoft::WRL::ComPtr<ICompObjectDiagnosticsRootProxy>,std::less<unsigned int>,std::allocator<std::pair<unsigned int const,Microsoft::WRL::ComPtr<ICompObjectDiagnosticsRootProxy>>>,0>>::erase(
-    (char *)this + 240,
+    (char *)this + 192,
     &v4);
   return 0LL;
 }

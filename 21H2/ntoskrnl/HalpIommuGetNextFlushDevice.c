@@ -1,7 +1,8 @@
 /*
- * XREFs of HalpIommuGetNextFlushDevice @ 0x1405180C8
+ * XREFs of HalpIommuGetNextFlushDevice @ 0x1404CBF7C
  * Callers:
- *     HsaFlushTbInternal @ 0x140531A6C (HsaFlushTbInternal.c)
+ *     IvtFlushTbInternal @ 0x1404DFAA4 (IvtFlushTbInternal.c)
+ *     HsaFlushTbInternal @ 0x1404E2DFC (HsaFlushTbInternal.c)
  * Callees:
  *     <none>
  */
@@ -32,8 +33,8 @@ char __fastcall HalpIommuGetNextFlushDevice(_QWORD *a1, _QWORD **a2, _QWORD *a3,
     v10 = v8[5];
     *a2 = v8;
     *a3 = *(_QWORD *)(v10 + 40);
-    *a4 = *(_DWORD *)(v10 + 80);
-    *a5 = v10 + 72;
+    *a4 = *(_DWORD *)(v10 + 56);
+    *a5 = v10 + 48;
     *a6 = v8 + 4;
     return 1;
   }

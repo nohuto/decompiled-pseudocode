@@ -1,20 +1,17 @@
 /*
- * XREFs of ??1EPALOBJ@@QEAA@XZ @ 0x1C013FEE0
+ * XREFs of ??1EPALOBJ@@QEAA@XZ @ 0x1C016C2D0
  * Callers:
- *     GreGetPaletteEntries @ 0x1C0057290 (GreGetPaletteEntries.c)
- *     NtGdiEngDeletePalette @ 0x1C02C9750 (NtGdiEngDeletePalette.c)
- *     GreCreateHalftonePalette @ 0x1C02D14F0 (GreCreateHalftonePalette.c)
- *     NtGdiResizePalette @ 0x1C02D2760 (NtGdiResizePalette.c)
- *     EngHTBlt @ 0x1C02DECB0 (EngHTBlt.c)
+ *     GreCreateHalftonePalette @ 0x1C02B716C (GreCreateHalftonePalette.c)
+ *     NtGdiResizePalette @ 0x1C02B7AC0 (NtGdiResizePalette.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall EPALOBJ::~EPALOBJ(EPALOBJ *this)
+void __fastcall EPALOBJ::~EPALOBJ(EPALOBJ *this, __int64 a2)
 {
-  __int64 v1; // rcx
+  __int64 v2; // rcx
 
-  v1 = *(_QWORD *)this;
-  if ( v1 )
-    DEC_SHARE_REF_CNT(v1);
+  v2 = *(_QWORD *)this;
+  if ( v2 )
+    DEC_SHARE_REF_CNT(v2, a2);
 }

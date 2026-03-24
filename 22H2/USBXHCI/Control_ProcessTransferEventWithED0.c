@@ -1,137 +1,137 @@
 /*
- * XREFs of Control_ProcessTransferEventWithED0 @ 0x1C0042874
+ * XREFs of Control_ProcessTransferEventWithED0 @ 0x1C0019120
  * Callers:
- *     Control_EP_TransferEventHandler @ 0x1C0006840 (Control_EP_TransferEventHandler.c)
- *     Endpoint_TransferEventHandler @ 0x1C0009BD0 (Endpoint_TransferEventHandler.c)
- *     TR_TransferEventHandler @ 0x1C0041BD4 (TR_TransferEventHandler.c)
+ *     Control_EP_TransferEventHandler @ 0x1C0004B80 (Control_EP_TransferEventHandler.c)
+ *     Endpoint_TransferEventHandler @ 0x1C0006860 (Endpoint_TransferEventHandler.c)
+ *     TR_TransferEventHandler @ 0x1C003F6C0 (TR_TransferEventHandler.c)
  * Callees:
- *     Endpoint_HaltedCompletionCode @ 0x1C0006DC8 (Endpoint_HaltedCompletionCode.c)
- *     WPP_RECORDER_SF_DDqLDDi @ 0x1C0006EEC (WPP_RECORDER_SF_DDqLDDi.c)
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C000E150 (WPP_RECORDER_SF_DDDD.c)
- *     memmove @ 0x1C0020300 (memmove.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033674 (Controller_HwVerifierBreakIfEnabled.c)
- *     Control_ProcessTransferEventPointer @ 0x1C00426B4 (Control_ProcessTransferEventPointer.c)
- *     Control_ValidateED0TrbPointerOnMismatch @ 0x1C0042BA4 (Control_ValidateED0TrbPointerOnMismatch.c)
+ *     WPP_RECORDER_SF_DDqLDDi @ 0x1C0004E60 (WPP_RECORDER_SF_DDqLDDi.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     Endpoint_HaltedCompletionCode @ 0x1C000DE20 (Endpoint_HaltedCompletionCode.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     Control_ProcessTransferEventPointer @ 0x1C00192AC (Control_ProcessTransferEventPointer.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Control_ValidateED0TrbPointerOnMismatch @ 0x1C003FEC4 (Control_ValidateED0TrbPointerOnMismatch.c)
  */
 
 char __fastcall Control_ProcessTransferEventWithED0(__int64 a1, __int64 a2)
 {
   char v2; // di
-  _BYTE *v5; // r12
-  __m128i ***v6; // r15
-  KIRQL v7; // al
-  __int64 v8; // rbx
-  KIRQL v9; // dl
-  size_t v10; // r8
-  int v11; // edx
-  __int64 v12; // rax
+  KIRQL v5; // al
+  __int64 v6; // rbx
+  size_t v7; // r8
+  int v8; // edx
+  _QWORD *v9; // r10
+  int v10; // edx
+  KIRQL v12; // dl
   int v13; // edx
-  __m128i **v14; // r10
+  __int64 v14; // rax
   const char *v15; // rax
-  int v16; // edx
-  KIRQL v17; // dl
-  unsigned int v19; // [rsp+90h] [rbp+8h] BYREF
-  int v20; // [rsp+98h] [rbp+10h] BYREF
+  KIRQL v16; // dl
+  size_t Size; // [rsp+90h] [rbp+8h] BYREF
+  int v18; // [rsp+98h] [rbp+10h] BYREF
 
   v2 = 0;
-  v20 = 0;
-  v19 = 0;
-  v5 = (_BYTE *)(a1 + 11);
-  v6 = (__m128i ***)(a2 + 56);
+  v18 = 0;
+  LODWORD(Size) = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_DDqLDDi((unsigned int)(*v6)[10], *(unsigned __int8 *)(a1 + 15), (unsigned __int8)*v5, 17);
-  if ( (unsigned __int8)(*v5 - 26) <= 2u && (*(_DWORD *)(*(_QWORD *)(a2 + 56) + 32LL) & 0x40) != 0 )
+    WPP_RECORDER_SF_DDqLDDi(
+      *(_QWORD *)(*(_QWORD *)(a2 + 56) + 80LL),
+      *(unsigned __int8 *)(a1 + 15),
+      *(unsigned __int8 *)(a1 + 11),
+      17);
+  if ( (unsigned __int8)(*(_BYTE *)(a1 + 11) - 26) <= 2u && (*(_DWORD *)(*(_QWORD *)(a2 + 56) + 32LL) & 0x40) != 0 )
     return 1;
-  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 96));
-  v8 = *(_QWORD *)(a2 + 344);
-  *(_BYTE *)(a2 + 104) = v7;
-  if ( !v8 )
+  v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 96));
+  v6 = *(_QWORD *)(a2 + 344);
+  *(_BYTE *)(a2 + 104) = v5;
+  if ( !v6 )
   {
-    v9 = v7;
-LABEL_34:
-    KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 96), v9);
-    return v2;
+    v12 = v5;
+    goto LABEL_36;
   }
-  if ( !Control_ProcessTransferEventPointer(a2, v8, (__int64 *)a1, &v20, (int *)&v19) )
+  if ( !(unsigned __int8)Control_ProcessTransferEventPointer(a2, v6, a1, (unsigned int)&v18, (__int64)&Size) )
   {
     KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 96), *(_BYTE *)(a2 + 104));
     Control_ValidateED0TrbPointerOnMismatch(a2, a1);
     return v2;
   }
-  v10 = v19;
-  if ( v19 > *(_DWORD *)(v8 + 104) )
+  v7 = (unsigned int)Size;
+  if ( (unsigned int)Size > *(_DWORD *)(v6 + 104) )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v11 = *(unsigned __int8 *)(*(_QWORD *)(a2 + 48) + 135LL);
-      LOBYTE(v11) = 3;
-      WPP_RECORDER_SF_DDDD(
-        (unsigned int)(*v6)[10],
-        v11,
+      v13 = *(unsigned __int8 *)(*(_QWORD *)(a2 + 48) + 135LL);
+      LOBYTE(v13) = 3;
+      WPP_RECORDER_SF_dddd(
+        *(_QWORD *)(*(_QWORD *)(a2 + 56) + 80LL),
+        v13,
         14,
         18,
-        (__int64)&WPP_1132998d7a983e6252cacd8244985166_Traceguids,
+        (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
         *(_BYTE *)(*(_QWORD *)(a2 + 48) + 135LL),
-        *((_DWORD *)*v6 + 36),
-        v19,
-        *(_DWORD *)(v8 + 104));
+        *(_DWORD *)(*(_QWORD *)(a2 + 56) + 144LL),
+        Size,
+        *(_DWORD *)(v6 + 104));
     }
-    v10 = 0LL;
-    v19 = 0;
+    v7 = 0LL;
+    LODWORD(Size) = 0;
   }
-  if ( (_DWORD)v10 )
+  if ( (_DWORD)v7 )
   {
-    v12 = *(_QWORD *)(v8 + 48);
-    *(_DWORD *)(v8 + 108) = v10;
-    if ( (*(_DWORD *)(v12 + 32) & 1) != 0 && *(_DWORD *)(v8 + 64) == 2 )
-      memmove(*(void **)(v8 + 80), *(const void **)(*(_QWORD *)(v8 + 88) + 16LL), v10);
+    v14 = *(_QWORD *)(v6 + 48);
+    *(_DWORD *)(v6 + 108) = v7;
+    if ( (*(_DWORD *)(v14 + 32) & 1) != 0 && *(_DWORD *)(v6 + 64) == 2 )
+      memmove(*(void **)(v6 + 80), *(const void **)(*(_QWORD *)(v6 + 88) + 16LL), v7);
   }
-  if ( !Endpoint_HaltedCompletionCode(*v6, (unsigned __int8)*v5) )
+  if ( !Endpoint_HaltedCompletionCode(*(__m128i ***)(a2 + 56), *(unsigned __int8 *)(a1 + 11)) )
   {
-    if ( (unsigned __int8)(v13 - 26) > 2u )
+    if ( (unsigned __int8)(v8 - 26) <= 2u )
     {
-      v9 = *(_BYTE *)(a2 + 104);
-      goto LABEL_34;
-    }
-    if ( *(_DWORD *)(v8 + 108) == *(_DWORD *)(v8 + 104) )
-    {
-      *(_DWORD *)(v8 + 124) = 1;
-    }
-    else if ( (_BYTE)v13 == 28 )
-    {
-      *(_DWORD *)(v8 + 124) = 28;
-    }
-    ++*(_DWORD *)(v8 + 132);
-    v17 = *(_BYTE *)(a2 + 104);
-    *(_DWORD *)(a2 + 356) = v20 - *(_DWORD *)(v8 + 132) + 1;
-    KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 96), v17);
-    v14 = *v6;
-    _m_prefetchw(*v6 + 4);
-    if ( (_InterlockedOr((volatile signed __int32 *)v14 + 8, 0x10u) & 0x10) != 0 )
-    {
+      if ( *(_DWORD *)(v6 + 108) == *(_DWORD *)(v6 + 104) )
+      {
+        *(_DWORD *)(v6 + 124) = 1;
+      }
+      else if ( (_BYTE)v8 == 28 )
+      {
+        *(_DWORD *)(v6 + 124) = 28;
+      }
+      ++*(_DWORD *)(v6 + 132);
+      v16 = *(_BYTE *)(a2 + 104);
+      *(_DWORD *)(a2 + 356) = v18 - *(_DWORD *)(v6 + 132) + 1;
+      KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 96), v16);
+      v9 = *(_QWORD **)(a2 + 56);
+      _m_prefetchw(v9 + 4);
+      if ( (_InterlockedOr((volatile signed __int32 *)v9 + 8, 0x10u) & 0x10) == 0 )
+      {
+        _m_prefetchw(v9 + 4);
+        if ( (_InterlockedXor((volatile signed __int32 *)v9 + 8, 8u) & 8) == 0 )
+          return 1;
+        v10 = 118;
+        goto LABEL_11;
+      }
       v15 = "Received duplicate Stopped Transfer Events";
-      goto LABEL_29;
-    }
-    _m_prefetchw(v14 + 4);
-    if ( (_InterlockedXor((volatile signed __int32 *)v14 + 8, 8u) & 8) == 0 )
-      return 1;
-    v16 = 118;
 LABEL_32:
-    ESM_AddEvent((KSPIN_LOCK *)v14 + 37, v16);
-    return 1;
+      Controller_HwVerifierBreakIfEnabled(*v9, v9[1], v9[3], 0x2000000, (__int64)v15, 0LL, 0LL);
+      return 1;
+    }
+    v12 = *(_BYTE *)(a2 + 104);
+LABEL_36:
+    KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 96), v12);
+    return v2;
   }
-  *(_DWORD *)(v8 + 124) = v13;
+  *(_DWORD *)(v6 + 124) = v8;
   KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 96), *(_BYTE *)(a2 + 104));
-  v14 = *v6;
-  _m_prefetchw(*v6 + 4);
-  if ( (_InterlockedOr((volatile signed __int32 *)v14 + 8, 0x20u) & 0x20) == 0 )
+  v9 = *(_QWORD **)(a2 + 56);
+  _m_prefetchw(v9 + 4);
+  if ( (_InterlockedOr((volatile signed __int32 *)v9 + 8, 0x20u) & 0x20) != 0 )
   {
-    v16 = 154;
+    v15 = "Received duplicate Transfer Event TRB with Halted Completion Code";
     goto LABEL_32;
   }
-  v15 = "Received duplicate Transfer Event TRB with Halted Completion Code";
-LABEL_29:
-  Controller_HwVerifierBreakIfEnabled(*v14, (char)v14[1], (char)v14[3], 0x2000000LL, v15, 0LL, 0LL);
+  v10 = 154;
+LABEL_11:
+  ESM_AddEvent(v9 + 36, v10);
   return 1;
 }

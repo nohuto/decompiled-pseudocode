@@ -1,17 +1,16 @@
 /*
- * XREFs of IoGetDmaAdapter @ 0x1408462A0
+ * XREFs of IoGetDmaAdapter @ 0x140764DA0
  * Callers:
- *     DifIoGetDmaAdapterWrapper @ 0x14060F450 (DifIoGetDmaAdapterWrapper.c)
- *     VfGetDmaAdapter @ 0x140A85B10 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x1409CBE60 (VfGetDmaAdapter.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IoGetDeviceProperty @ 0x140773C30 (IoGetDeviceProperty.c)
- *     PiGetDmaAdapterFromBusInterface @ 0x140846398 (PiGetDmaAdapterFromBusInterface.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IoGetDeviceProperty @ 0x14063FC90 (IoGetDeviceProperty.c)
+ *     PiGetDmaAdapterFromBusInterface @ 0x140764E98 (PiGetDmaAdapterFromBusInterface.c)
  */
 
 struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
@@ -92,7 +91,7 @@ struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
       }
       KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)PhysicalDeviceObject, 0LL, 0LL);
     }
-    ((void (__fastcall *)(struct _KTHREAD *, PDEVICE_OBJECT))off_140C01F58[0])(
+    ((void (__fastcall *)(struct _KTHREAD *, PDEVICE_OBJECT))off_140C00908[0])(
       KeGetCurrentThread(),
       PhysicalDeviceObject);
     if ( ((DeviceDescription->InterfaceType + 1) & 0xFFFFFFEF) == 0 )
@@ -114,8 +113,8 @@ struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
         v10 = 1;
       v21[5] = v10;
     }
-    DmaAdapterFromBusInterface = (struct _DMA_ADAPTER *)PiGetDmaAdapterFromBusInterface(PhysicalDeviceObject);
-    ((void (__fastcall *)(struct _KTHREAD *, _QWORD))off_140C01F58[0])(KeGetCurrentThread(), 0LL);
+    DmaAdapterFromBusInterface = (struct _DMA_ADAPTER *)PiGetDmaAdapterFromBusInterface((ULONG)PhysicalDeviceObject);
+    ((void (__fastcall *)(struct _KTHREAD *, _QWORD))off_140C00908[0])(KeGetCurrentThread(), 0LL);
   }
   return DmaAdapterFromBusInterface;
 }

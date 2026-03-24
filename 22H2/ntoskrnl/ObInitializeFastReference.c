@@ -1,21 +1,24 @@
 /*
- * XREFs of ObInitializeFastReference @ 0x1406B69CC
+ * XREFs of ObInitializeFastReference @ 0x140703ECC
  * Callers:
- *     PspInitializeProcessSecurity @ 0x1406B64F0 (PspInitializeProcessSecurity.c)
- *     PspLocateSystemDll @ 0x140801BE0 (PspLocateSystemDll.c)
- *     SeAssignPrimaryToken @ 0x14084222C (SeAssignPrimaryToken.c)
- *     SepInitializationPhase0 @ 0x140B57104 (SepInitializationPhase0.c)
+ *     PspInitializeProcessSecurity @ 0x140703CD0 (PspInitializeProcessSecurity.c)
+ *     PspLocateSystemDll @ 0x140793A08 (PspLocateSystemDll.c)
+ *     SeAssignPrimaryToken @ 0x1407BC390 (SeAssignPrimaryToken.c)
+ *     SepInitializationPhase0 @ 0x140A47920 (SepInitializationPhase0.c)
  * Callees:
- *     ObpIncrPointerCountEx @ 0x140224680 (ObpIncrPointerCountEx.c)
+ *     ObReferenceObjectExWithTag @ 0x1402F6460 (ObReferenceObjectExWithTag.c)
  */
 
-__int64 __fastcall ObInitializeFastReference(__int64 *a1, __int64 a2)
+ULONG_PTR __fastcall ObInitializeFastReference(ULONG_PTR *a1, ULONG_PTR a2)
 {
-  __int64 result; // rax
+  ULONG_PTR result; // rax
 
+  result = 0LL;
   if ( a2 )
-    ObpIncrPointerCountEx((volatile signed __int64 *)(a2 - 48), 15);
-  result = (a2 + 15) & -(__int64)(a2 != 0);
+  {
+    ObReferenceObjectExWithTag(a2, 15);
+    result = a2 + 15;
+  }
   *a1 = result;
   return result;
 }

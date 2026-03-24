@@ -1,10 +1,10 @@
 /*
- * XREFs of IopParseFile @ 0x1406A3580
+ * XREFs of IopParseFile @ 0x1406A3560
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
  */
 
 __int64 __fastcall IopParseFile(

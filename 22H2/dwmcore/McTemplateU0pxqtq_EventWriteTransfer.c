@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0pxqtq_EventWriteTransfer @ 0x18022E62C
+ * XREFs of McTemplateU0pxqtq_EventWriteTransfer @ 0x1801C3590
  * Callers:
- *     ?EnqueueComputeScribbleOnHost@CGenericInk@@UEAAJ_KPEAVCComputeScribble@@@Z @ 0x18022D630 (-EnqueueComputeScribbleOnHost@CGenericInk@@UEAAJ_KPEAVCComputeScribble@@@Z.c)
+ *     ?EnqueueComputeScribbleOnHost@CGenericInk@@UEAAJ_KPEAVCComputeScribble@@@Z @ 0x1801C28C0 (-EnqueueComputeScribbleOnHost@CGenericInk@@UEAAJ_KPEAVCComputeScribble@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0pxqtq_EventWriteTransfer(__int64 a1, __int64 a2, ...)
@@ -53,7 +53,7 @@ ULONG McTemplateU0pxqtq_EventWriteTransfer(__int64 a1, __int64 a2, ...)
   va_copy(v12, va4);
   v13 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_ENQUEUE_SCRIBBLE_ON_HOST,
            v15,
            6u,

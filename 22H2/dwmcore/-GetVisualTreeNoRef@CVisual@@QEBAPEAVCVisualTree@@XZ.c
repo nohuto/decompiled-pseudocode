@@ -1,10 +1,8 @@
 /*
- * XREFs of ?GetVisualTreeNoRef@CVisual@@QEBAPEAVCVisualTree@@XZ @ 0x18003A684
+ * XREFs of ?GetVisualTreeNoRef@CVisual@@QEBAPEAVCVisualTree@@XZ @ 0x18003E01C
  * Callers:
- *     ?GetDesktopTree@CVisual@@QEBAPEAVCDesktopTree@@XZ @ 0x18003A580 (-GetDesktopTree@CVisual@@QEBAPEAVCDesktopTree@@XZ.c)
- *     ?GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z @ 0x18003A5F4 (-GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z.c)
- *     ?CreateOrUpdateBVI@CVisual@@QEAAJAEBVCVisualTreePath@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEA_N@Z @ 0x18004C96C (-CreateOrUpdateBVI@CVisual@@QEAAJAEBVCVisualTreePath@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@U.c)
- *     ?GetRootVisualTree@CVisualTree@@QEBAPEAV1@XZ @ 0x180214398 (-GetRootVisualTree@CVisualTree@@QEBAPEAV1@XZ.c)
+ *     ?GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z @ 0x18003DF38 (-GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z.c)
+ *     ?GetDesktopTree@CVisual@@QEBAPEAVCDesktopTree@@XZ @ 0x18003DFB4 (-GetDesktopTree@CVisual@@QEBAPEAVCDesktopTree@@XZ.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +15,7 @@ struct CVisualTree *__fastcall CVisual::GetVisualTreeNoRef(CVisual *this)
   __int64 v5; // rcx
   unsigned int i; // eax
 
-  v1 = (_DWORD *)*((_QWORD *)this + 29);
+  v1 = (_DWORD *)*((_QWORD *)this + 28);
   if ( (*v1 & 0x4000000) == 0 )
     return 0LL;
   v3 = (unsigned int)v1[1];

@@ -1,63 +1,62 @@
 /*
- * XREFs of MiNodeLargeFreeZeroPages @ 0x140264C90
+ * XREFs of MiNodeLargeFreeZeroPages @ 0x140318E40
  * Callers:
- *     MiNodeFreeZeroPages @ 0x140264BD8 (MiNodeFreeZeroPages.c)
- *     MiWakePageZeroing @ 0x1402678C8 (MiWakePageZeroing.c)
- *     MiSignalLargePageRebuild @ 0x140267CA8 (MiSignalLargePageRebuild.c)
- *     MiDemoteLocalLargePage @ 0x1402CA210 (MiDemoteLocalLargePage.c)
- *     MiRebuildLargePages @ 0x140396D30 (MiRebuildLargePages.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiSignalLargePageRebuild @ 0x140272FE0 (MiSignalLargePageRebuild.c)
+ *     MiWakePageZeroing @ 0x1402FF128 (MiWakePageZeroing.c)
+ *     MiNodeFreeZeroPages @ 0x140318CA4 (MiNodeFreeZeroPages.c)
+ *     MiCheckZeroFreeRebalance @ 0x140318D50 (MiCheckZeroFreeRebalance.c)
+ *     MiRebuildLargePages @ 0x14038D6C0 (MiRebuildLargePages.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MiNodeLargeFreeZeroPages(__int64 a1, unsigned int a2, int a3)
+__int64 __fastcall MiNodeLargeFreeZeroPages(_QWORD *a1, unsigned int a2, int a3)
 {
-  __int64 v3; // r10
-  __int64 v4; // r15
-  __int64 v5; // rbp
-  __int64 *v6; // r9
+  __int64 v3; // rbp
+  __int64 v4; // rbx
+  __int64 *v5; // rsi
   __int64 v7; // r11
-  __int64 v8; // rdi
-  __int64 v9; // rbx
-  __int64 v10; // rsi
-  _QWORD *v11; // rdx
-  __int64 v12; // rax
+  _QWORD *v8; // r9
+  __int64 v9; // r10
+  __int64 v10; // r14
+  __int64 v11; // rax
+  __int64 v12; // rcx
   __int64 v13; // r8
 
   v3 = 0LL;
   v4 = a3;
-  v5 = a2;
-  v6 = MiLargePageSizes;
+  v5 = MiLargePageSizes;
   v7 = 0LL;
-  v8 = 0LL;
+  v8 = a1;
   v9 = a3;
   v10 = 3LL;
   do
   {
-    if ( (_DWORD)v5 == 4 )
+    if ( a2 == 4 )
     {
-      if ( (_DWORD)v4 == 2 )
-        v12 = *(_QWORD *)(v7 + a1) + *(_QWORD *)(v7 + a1 + 8);
-      else
-        v12 = *(_QWORD *)(a1 + 8 * (v8 + v4));
       v9 = v4;
+      if ( (_DWORD)v4 == 2 )
+        v11 = *v8 + v8[1];
+      else
+        v11 = a1[v7 + v4];
     }
     else
     {
-      v11 = (_QWORD *)(a1 + v7 + 32 * (v5 + 4 * v9));
-      v12 = v11[6]
-          + v11[7]
-          + v11[9]
-          + v11[38]
-          + v11[39]
-          + v11[41]
-          + *(_QWORD *)(v7 + 32 * (v5 + 4 * v9 + 2) + a1)
-          + *(_QWORD *)(v7 + 32 * (v5 + 4 * v9 + 10) + a1);
+      v12 = v7 + 4 * (a2 + 4 * v9);
+      v11 = a1[v12 + 6]
+          + a1[v12 + 7]
+          + a1[v12 + 9]
+          + a1[v12 + 38]
+          + a1[v12 + 39]
+          + a1[v12 + 41]
+          + a1[v12 + 8]
+          + a1[v12 + 40];
     }
-    v13 = v12 * *v6++;
-    v8 += 134LL;
+    v13 = v11 * *v5++;
+    v8 += 134;
     v3 += v13;
-    v7 += 1072LL;
+    v7 += 134LL;
     --v10;
   }
   while ( v10 );

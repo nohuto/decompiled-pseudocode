@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CColorGradientStop@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800EA5C0
+ * XREFs of ?IsOfType@CColorGradientStop@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801B8690
  * Callers:
  *     <none>
  * Callees:

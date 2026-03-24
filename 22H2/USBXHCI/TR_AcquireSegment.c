@@ -1,8 +1,8 @@
 /*
- * XREFs of TR_AcquireSegment @ 0x1C000B1D8
+ * XREFs of TR_AcquireSegment @ 0x1C0009844
  * Callers:
- *     TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C0041A80 (TR_ReAllocateTransferRingSegmentsForOffload.c)
- *     TR_Create @ 0x1C006DE38 (TR_Create.c)
+ *     TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C003F56C (TR_ReAllocateTransferRingSegmentsForOffload.c)
+ *     TR_Create @ 0x1C006AD7C (TR_Create.c)
  * Callees:
  *     <none>
  */

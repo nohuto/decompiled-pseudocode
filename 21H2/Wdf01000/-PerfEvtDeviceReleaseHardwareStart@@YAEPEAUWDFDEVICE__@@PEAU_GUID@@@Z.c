@@ -1,29 +1,30 @@
 /*
- * XREFs of ?PerfEvtDeviceReleaseHardwareStart@@YAEPEAUWDFDEVICE__@@PEAU_GUID@@@Z @ 0x1C0061808
+ * XREFs of ?PerfEvtDeviceReleaseHardwareStart@@YAEPEAUWDFDEVICE__@@PEAU_GUID@@@Z @ 0x1C0043E2C
  * Callers:
- *     VfEvtDeviceReleaseHardware @ 0x1C00C5CA0 (VfEvtDeviceReleaseHardware.c)
+ *     VfEvtDeviceReleaseHardware @ 0x1C00C4C30 (VfEvtDeviceReleaseHardware.c)
  * Callees:
- *     McTemplateK0pp_EtwWriteTransfer @ 0x1C0061A00 (McTemplateK0pp_EtwWriteTransfer.c)
+ *     ?_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z @ 0x1C002E6B8 (-_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z.c)
+ *     McTemplateK0pp_EtwWriteTransfer @ 0x1C0044000 (McTemplateK0pp_EtwWriteTransfer.c)
  */
 
-char __fastcall PerfEvtDeviceReleaseHardwareStart(unsigned __int64 Handle, _GUID *pActivityId)
+char __fastcall PerfEvtDeviceReleaseHardwareStart(WDFDEVICE__ *Handle, _GUID *pActivityId)
 {
-  char v2; // bl
-  unsigned __int16 *v4; // r8
-  __int64 v6; // rcx
-  const void *v7; // rbp
-  _MCGEN_TRACE_CONTEXT *v8; // rcx
+  char v3; // bl
+  _FX_DRIVER_GLOBALS *m_Globals; // rcx
+  int (__fastcall *Method)(WDFDRIVER__ *, WDFDEVICE_INIT *); // rbp
+  _MCGEN_TRACE_CONTEXT *v7; // rcx
+  unsigned __int16 offset; // [rsp+50h] [rbp+18h] BYREF
 
-  v2 = 1;
-  v4 = (unsigned __int16 *)(~Handle & 0xFFFFFFFFFFFFFFF8uLL);
-  if ( (Handle & 1) != 0 )
-    v4 = (unsigned __int16 *)((char *)v4 - *v4);
-  v6 = *((_QWORD *)v4 + 2);
-  if ( (*(_DWORD *)(v6 + 412) & 0xF00000) == 0 )
-    return 0;
-  v7 = *(const void **)(*(_QWORD *)(v6 + 80) + 176LL);
-  EtwActivityIdControl(3u, pActivityId);
-  if ( ((__int64)WPP_GLOBAL_WDF_Control.Queue.Wcb.BufferChainingDpc & 1) != 0 )
-    McTemplateK0pp_EtwWriteTransfer(v8, &FX_POWER_HW_RELEASE_START, pActivityId, v7, (const void *)Handle);
-  return v2;
+  v3 = 0;
+  offset = 0;
+  m_Globals = FxObject::_GetObjectFromHandle((unsigned __int64)Handle, &offset)->m_Globals;
+  if ( (m_Globals->FxEnhancedVerifierOptions & 0xF00000) != 0 )
+  {
+    v3 = 1;
+    Method = m_Globals->Driver->m_DriverDeviceAdd.Method;
+    EtwActivityIdControl(3u, pActivityId);
+    if ( ((__int64)WPP_GLOBAL_WDF_Control.Queue.ListEntry.Flink & 1) != 0 )
+      McTemplateK0pp_EtwWriteTransfer(v7, &FX_POWER_HW_RELEASE_START, pActivityId, Method, Handle);
+  }
+  return v3;
 }

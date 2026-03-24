@@ -1,30 +1,24 @@
 /*
- * XREFs of VfTargetDriversGetNode @ 0x140209FAC
+ * XREFs of VfTargetDriversGetNode @ 0x1405A1CDC
  * Callers:
- *     VfDifCaptureDriverEntry @ 0x140209F6C (VfDifCaptureDriverEntry.c)
- *     VfTargetDriversGetVerifierData @ 0x140ACC528 (VfTargetDriversGetVerifierData.c)
- *     VfThunkApplyThunksCurrentSession @ 0x140ADC3AC (VfThunkApplyThunksCurrentSession.c)
- *     ViThunkApplyWdmThunksCurrentSession @ 0x140ADC6BC (ViThunkApplyWdmThunksCurrentSession.c)
+ *     VfTargetDriversGetVerifierData @ 0x1409D6E50 (VfTargetDriversGetVerifierData.c)
+ *     ViThunkApplyThunksCurrentSession @ 0x1409D8ECC (ViThunkApplyThunksCurrentSession.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x14020A004 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14037E564 (VfAvlLookupTreeNode.c)
  */
 
-__int64 __fastcall VfTargetDriversGetNode(__int64 a1)
+PVOID __fastcall VfTargetDriversGetNode(unsigned __int64 a1)
 {
-  __int64 v1; // rbx
+  PVOID v1; // rbx
   __int128 v3; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = 0LL;
   if ( !VfSafeMode && ViTargetInitialized )
   {
     v3 = 0LL;
-    v1 = ((__int64 (__fastcall *)(void *, __int128 *, __int64, __int64))VfAvlLookupTreeNode)(
-           &ViTargetDriversAvl,
-           &v3,
-           a1,
-           1LL);
-    VfAvlCleanupLockContext(&v3);
+    v1 = VfAvlLookupTreeNode((__int64 *)&ViTargetDriversAvl, (__int64)&v3, a1, 1LL);
+    VfAvlCleanupLockContext((__int64)&v3);
   }
   return v1;
 }

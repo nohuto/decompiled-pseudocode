@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CFloodEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0217660
+ * XREFs of ?SetBufferProperty@CFloodEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E1490
  * Callers:
  *     <none>
  * Callees:
- *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0215D20 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
+ *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DFED0 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
  */
 
 __int64 __fastcall DirectComposition::CFloodEffectMarshaler::SetBufferProperty(
@@ -25,12 +25,12 @@ __int64 __fastcall DirectComposition::CFloodEffectMarshaler::SetBufferProperty(
   }
   else if ( a5 == 16 )
   {
-    v8 = *((_QWORD *)this + 15) - *a4;
+    v8 = *((_QWORD *)this + 14) - *a4;
     if ( !v8 )
-      v8 = *((_QWORD *)this + 16) - a4[1];
+      v8 = *((_QWORD *)this + 15) - a4[1];
     if ( v8 )
     {
-      *(_OWORD *)((char *)this + 120) = *(_OWORD *)a4;
+      *((_OWORD *)this + 7) = *(_OWORD *)a4;
       *a6 = 1;
     }
   }

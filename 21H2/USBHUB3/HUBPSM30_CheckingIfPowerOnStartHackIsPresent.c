@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_CheckingIfPowerOnStartHackIsPresent @ 0x1C0012A10
+ * XREFs of HUBPSM30_CheckingIfPowerOnStartHackIsPresent @ 0x1C0012510
  * Callers:
  *     <none>
  * Callees:

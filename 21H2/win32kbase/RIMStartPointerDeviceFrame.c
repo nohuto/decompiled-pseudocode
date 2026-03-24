@@ -1,123 +1,140 @@
 /*
- * XREFs of RIMStartPointerDeviceFrame @ 0x1C01A6AF4
+ * XREFs of RIMStartPointerDeviceFrame @ 0x1C0171CF8
  * Callers:
- *     rimAbSuppressLowerRankActivityForFrame @ 0x1C0187718 (rimAbSuppressLowerRankActivityForFrame.c)
- *     RIMEndAllActiveContacts @ 0x1C0191610 (RIMEndAllActiveContacts.c)
- *     RIMSuppressAllActiveContacts @ 0x1C01958A0 (RIMSuppressAllActiveContacts.c)
- *     rimCreateAndProcessPointerDeviceButtonOnlyFrame @ 0x1C01AE834 (rimCreateAndProcessPointerDeviceButtonOnlyFrame.c)
- *     rimDoProcessAnyPointerDeviceInput @ 0x1C01AEB68 (rimDoProcessAnyPointerDeviceInput.c)
- *     rimEndPointerDeviceStaleContacts @ 0x1C01AF120 (rimEndPointerDeviceStaleContacts.c)
+ *     rimAbSuppressLowerRankActivityForFrame @ 0x1C01595D0 (rimAbSuppressLowerRankActivityForFrame.c)
+ *     RIMEndAllActiveContacts @ 0x1C015D0D0 (RIMEndAllActiveContacts.c)
+ *     RIMSuppressAllActiveContacts @ 0x1C015FBFC (RIMSuppressAllActiveContacts.c)
+ *     rimCreateAndProcessPointerDeviceButtonOnlyFrame @ 0x1C0179434 (rimCreateAndProcessPointerDeviceButtonOnlyFrame.c)
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01796B8 (rimDoProcessAnyPointerDeviceInput.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C0179BD0 (rimEndPointerDeviceStaleContacts.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C01A3FC4 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
- *     ?StartFrame@RIM@TelemetryDebug@InputTraceLogging@@SAX_K@Z @ 0x1C01A57F8 (-StartFrame@RIM@TelemetryDebug@InputTraceLogging@@SAX_K@Z.c)
- *     rimFindOrCreateHoldingFrame @ 0x1C01A6E08 (rimFindOrCreateHoldingFrame.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32AllocPoolZInit @ 0x1C0028440 (Win32AllocPoolZInit.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     rimFindHoldingFrame @ 0x1C00A6778 (rimFindHoldingFrame.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C016F8D4 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
  */
 
 __int64 __fastcall RIMStartPointerDeviceFrame(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rsi
-  __int64 v4; // rbp
-  unsigned int v6; // edi
-  void *v7; // r9
-  __int64 HoldingFrame; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // rbx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rdx
-  int v16; // edx
-  int v17; // r8d
-  int v19; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-30h] BYREF
-  __int64 v21; // [rsp+60h] [rbp-28h] BYREF
-  int v22; // [rsp+A8h] [rbp+20h] BYREF
+  unsigned int v4; // edi
+  __int64 v5; // r14
+  int v7; // edx
+  _QWORD *HoldingFrame; // rbx
+  _QWORD *v9; // rax
+  _QWORD *v10; // rax
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // rax
+  int v15; // edx
+  int v17; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v18; // [rsp+48h] [rbp-18h] BYREF
+  __int64 v19; // [rsp+50h] [rbp-10h] BYREF
+  int v20; // [rsp+A8h] [rbp+48h] BYREF
 
-  v3 = a3;
-  v4 = a2;
-  v6 = 0;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  v7 = &WPP_8675e8122247356a5f11107ee91523c0_Traceguids;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      48,
-      (__int64)&WPP_8675e8122247356a5f11107ee91523c0_Traceguids);
-  HoldingFrame = rimFindOrCreateHoldingFrame(a1, v4, a3, v7);
-  v12 = HoldingFrame;
-  if ( HoldingFrame )
+  v4 = 0;
+  v5 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    if ( *(_DWORD *)(HoldingFrame + 16) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
-    if ( *(_DWORD *)(v12 + 44) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
-    if ( *(_DWORD *)(v12 + 48) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
-    if ( *(_DWORD *)(v12 + 40) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
-    if ( *(_QWORD *)(v12 + 72) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
-    if ( *(_QWORD *)(v12 + 80) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
-    if ( *(_QWORD *)(v12 + 32) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
-    if ( *(_QWORD *)(v12 + 56) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
-    if ( *(_QWORD *)(v12 + 64) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
-    if ( v3 < 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
-    *(_DWORD *)(v12 + 16) = 1;
-    v6 = 1;
-    *(_QWORD *)(v12 + 32) = v3;
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)gRimLog, a2, 1, 49, (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids);
   }
-  if ( (unsigned int)dword_1C028EE70 > 4 && tlgKeywordOn((__int64)&dword_1C028EE70, 256LL) )
+  HoldingFrame = rimFindHoldingFrame(a1, v5);
+  if ( !HoldingFrame )
   {
-    v15 = *(_QWORD *)(v4 + 464);
-    v22 = *(unsigned __int16 *)(v15 + 18);
-    v19 = *(unsigned __int16 *)(v15 + 16);
-    v20 = *(_QWORD *)(v12 + 32);
-    v21 = v4;
+    v9 = Win32AllocPoolZInit(0x58uLL, 1718121298LL);
+    HoldingFrame = v9;
+    if ( !v9 )
+      goto LABEL_29;
+    v9[3] = *(_QWORD *)(v5 + 16);
+    v10 = (_QWORD *)(a1 + 536);
+    v11 = *(_QWORD *)(a1 + 536);
+    if ( *(_QWORD *)(v11 + 8) != a1 + 536 )
+      __fastfail(3u);
+    *HoldingFrame = v11;
+    HoldingFrame[1] = v10;
+    *(_QWORD *)(v11 + 8) = HoldingFrame;
+    *v10 = HoldingFrame;
+  }
+  if ( *((_DWORD *)HoldingFrame + 4) )
+  {
+    v20 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 800);
+  }
+  if ( *((_DWORD *)HoldingFrame + 11) )
+  {
+    v20 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 801);
+  }
+  if ( *((_DWORD *)HoldingFrame + 12) )
+  {
+    v20 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 802);
+  }
+  if ( *((_DWORD *)HoldingFrame + 10) )
+  {
+    v20 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 803);
+  }
+  if ( HoldingFrame[9] )
+  {
+    v20 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 804);
+  }
+  if ( HoldingFrame[10] )
+  {
+    v20 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 805);
+  }
+  if ( HoldingFrame[4] )
+  {
+    v20 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 806);
+  }
+  if ( HoldingFrame[7] )
+  {
+    v20 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 807);
+  }
+  if ( HoldingFrame[8] )
+  {
+    v20 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 808);
+  }
+  if ( a3 < 0 )
+  {
+    v20 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 810);
+  }
+  *((_DWORD *)HoldingFrame + 4) = 1;
+  v4 = 1;
+  HoldingFrame[4] = a3;
+LABEL_29:
+  if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 256LL) )
+  {
+    v14 = *(_QWORD *)(v5 + 472);
+    v15 = *(unsigned __int16 *)(v14 + 16);
+    v20 = *(unsigned __int16 *)(v14 + 18);
+    v18 = HoldingFrame[4];
+    v17 = v15;
+    v19 = v5;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C028EE70,
-      byte_1C025E6B6,
+      (__int64)&dword_1C024BA90,
+      byte_1C021C914,
+      v12,
       v13,
-      v14,
-      (__int64)&v21,
-      (__int64)&v20,
       (__int64)&v19,
-      (__int64)&v22);
+      (__int64)&v18,
+      (__int64)&v17,
+      (__int64)&v20);
   }
-  InputTraceLogging::TelemetryDebug::RIM::StartFrame();
-  LOBYTE(v16) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-             && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-             && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v16 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v17) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_D(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v16,
-      v17,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      49,
-      (__int64)&WPP_8675e8122247356a5f11107ee91523c0_Traceguids,
-      v6);
+    LOBYTE(v7) = 4;
+    WPP_RECORDER_SF_d((_DWORD)gRimLog, v7, 1, 50, (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids, v4);
   }
-  return v6;
+  return v4;
 }

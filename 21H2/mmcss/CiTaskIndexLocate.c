@@ -1,8 +1,8 @@
 /*
- * XREFs of CiTaskIndexLocate @ 0x1C000B660
+ * XREFs of CiTaskIndexLocate @ 0x1C000B300
  * Callers:
- *     CiDispatchCreateMmThreadClient @ 0x1C000AD60 (CiDispatchCreateMmThreadClient.c)
- *     CiTaskIndexCreate @ 0x1C000B4E0 (CiTaskIndexCreate.c)
+ *     CiDispatchCreateMmThreadClient @ 0x1C000AA00 (CiDispatchCreateMmThreadClient.c)
+ *     CiTaskIndexCreate @ 0x1C000B170 (CiTaskIndexCreate.c)
  * Callees:
  *     <none>
  */
@@ -29,25 +29,23 @@ __int64 __fastcall CiTaskIndexLocate(int a1, struct _LIST_ENTRY *a2, LIST_ENTRY 
         break;
       DeferredRoutine = *(struct _DEVICE_OBJECT **)&DeferredRoutine->Type;
       if ( DeferredRoutine == (struct _DEVICE_OBJECT *)&WPP_MAIN_CB.Dpc.DeferredRoutine )
-        goto LABEL_11;
+        goto LABEL_6;
     }
     if ( a2 )
     {
       if ( p_DeviceListHead[8].Blink != a2 )
-      {
-LABEL_12:
-        WPP_MAIN_CB.Dpc.ProcessorHistory = 0LL;
-        ExReleasePushLockExclusiveEx(&WPP_MAIN_CB.Dpc.DpcListEntry, 0LL);
-        return v6;
-      }
+        goto LABEL_6;
       if ( _InterlockedIncrement64((volatile signed __int64 *)&p_DeviceListHead[3]) <= 1 )
         __fastfail(0xEu);
     }
     *a3 = p_DeviceListHead;
     v6 = 0;
   }
-LABEL_11:
+LABEL_6:
   if ( a2 )
-    goto LABEL_12;
+  {
+    WPP_MAIN_CB.Dpc.ProcessorHistory = 0LL;
+    ExReleasePushLockExclusiveEx(&WPP_MAIN_CB.Dpc.DpcListEntry, 0LL);
+  }
   return v6;
 }

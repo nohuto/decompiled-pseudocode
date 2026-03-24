@@ -1,34 +1,41 @@
 /*
- * XREFs of RawInputManagerObjectCreate @ 0x1C005ECC4
+ * XREFs of RawInputManagerObjectCreate @ 0x1C0056E28
  * Callers:
- *     RIMRegisterForInputWithCallbacks @ 0x1C005E080 (RIMRegisterForInputWithCallbacks.c)
+ *     RIMRegisterForInputWithCallbacks @ 0x1C0088530 (RIMRegisterForInputWithCallbacks.c)
  * Callees:
- *     isChildPartition @ 0x1C00383F0 (isChildPartition.c)
- *     rimAddToObTrackList @ 0x1C0044220 (rimAddToObTrackList.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     isChildPartition @ 0x1C0040F30 (isChildPartition.c)
+ *     rimAddToObTrackList @ 0x1C005815C (rimAddToObTrackList.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall RawInputManagerObjectCreate(__int64 a1, __int64 a2, __int64 a3, __int64 a4, PHANDLE Handle)
 {
-  NTSTATUS Object; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
+  NTSTATUS inserted; // ebx
+  PVOID v6; // rcx
+  _QWORD *v7; // rax
+  __int64 v8; // rdx
+  __int64 CurrentProcess; // rax
+  PVOID Object; // [rsp+68h] [rbp+10h] BYREF
 
-  Object = ObCreateObject(a1, ExRawInputManagerObjectType, 0LL);
-  if ( Object >= 0 )
+  Object = 0LL;
+  LOBYTE(a4) = 1;
+  inserted = ObCreateObject(a1, ExRawInputManagerObjectType, 0LL, a4, 0LL, 904, 0, 0, &Object);
+  if ( inserted >= 0 )
   {
-    memset(0LL, 0, 0x478uLL);
-    MEMORY[0] = gSessionId;
-    MEMORY[4] = 1;
-    MEMORY[0x18] = 16LL;
-    MEMORY[0x10] = 16LL;
-    MEMORY[0x20] = PsGetCurrentProcess(0LL, v6, v7, v8);
-    MEMORY[0x28] = KeGetCurrentThread();
-    MEMORY[0x40] = isChildPartition();
-    Object = ObInsertObject(0LL, 0LL, 3u, 0, 0LL, Handle);
-    if ( Object >= 0 )
-      rimAddToObTrackList(0LL);
+    memset(Object, 0, 0x388uLL);
+    v6 = Object;
+    *(_DWORD *)Object = gSessionId;
+    *((_DWORD *)Object + 1) = 1;
+    v7 = (char *)Object + 16;
+    *((_QWORD *)Object + 3) = (char *)Object + 16;
+    *v7 = v7;
+    CurrentProcess = PsGetCurrentProcess(v6, v8);
+    *((_QWORD *)Object + 4) = CurrentProcess;
+    *((_QWORD *)Object + 5) = KeGetCurrentThread();
+    *((_DWORD *)Object + 16) = isChildPartition();
+    inserted = ObInsertObject(Object, 0LL, 3u, 0, 0LL, Handle);
+    if ( inserted >= 0 )
+      rimAddToObTrackList(Object);
   }
-  return (unsigned int)Object;
+  return (unsigned int)inserted;
 }

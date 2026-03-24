@@ -1,14 +1,14 @@
 /*
- * XREFs of SeComputeCreatorDeniedRights @ 0x1402AC350
+ * XREFs of SeComputeCreatorDeniedRights @ 0x14034FC90
  * Callers:
- *     ObpAdjustCreatorAccessState @ 0x1407227B0 (ObpAdjustCreatorAccessState.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
+ *     ObpAdjustCreatorAccessState @ 0x140662D98 (ObpAdjustCreatorAccessState.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
  * Callees:
- *     RtlpOwnerAcesPresent @ 0x14022A380 (RtlpOwnerAcesPresent.c)
- *     SepTokenIsOwner @ 0x1402A45CC (SepTokenIsOwner.c)
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     SepGetScopedPolicySid @ 0x1405F4288 (SepGetScopedPolicySid.c)
- *     SepRmReferenceFindCap @ 0x1405F5D18 (SepRmReferenceFindCap.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     SepTokenIsOwner @ 0x14027E590 (SepTokenIsOwner.c)
+ *     RtlpOwnerAcesPresent @ 0x14029C4D0 (RtlpOwnerAcesPresent.c)
+ *     SepGetScopedPolicySid @ 0x1405960C8 (SepGetScopedPolicySid.c)
+ *     SepRmReferenceFindCap @ 0x140597E54 (SepRmReferenceFindCap.c)
  */
 
 __int64 __fastcall SeComputeCreatorDeniedRights(
@@ -17,95 +17,94 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
         int a3,
         __int64 a4)
 {
-  unsigned int v6; // esi
-  __int64 v8; // rbp
-  __int16 v9; // r14
-  __int64 v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // rax
-  __int64 v13; // rcx
+  unsigned int v7; // ebp
+  __int64 v9; // rax
+  __int16 v10; // r14
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // rax
+  __int64 v15; // rcx
   PACCESS_TOKEN ClientToken; // rcx
   void *ScopedPolicySid; // rax
   int Cap; // eax
-  __int64 v17; // rdx
+  __int64 v19; // rdx
   ACCESS_MASK GrantedAccess; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v19; // [rsp+58h] [rbp-20h]
+  __int64 v21; // [rsp+58h] [rbp-20h]
   NTSTATUS AccessStatus; // [rsp+90h] [rbp+18h] BYREF
 
   AccessStatus = 0;
   GrantedAccess = 0;
-  v6 = 0;
+  v7 = 0;
   if ( (a3 & 0xC0000) == 0 )
     return 0LL;
-  v8 = *(_QWORD *)(*(_QWORD *)(a2 + 72) + 48LL);
-  if ( !v8 )
+  v9 = *(_QWORD *)(a2 + 72);
+  if ( *(_QWORD *)(v9 + 48) )
+    a4 = *(_QWORD *)(v9 + 48);
+  if ( !a4 )
   {
-    v8 = a4;
+    a4 = *(_QWORD *)(a2 + 64);
     if ( !a4 )
-    {
-      v8 = *(_QWORD *)(a2 + 64);
-      if ( !v8 )
-        return 0LL;
-    }
+      return 0LL;
   }
-  v9 = *(_WORD *)(v8 + 2);
-  if ( (v9 & 4) != 0 )
+  v10 = *(_WORD *)(a4 + 2);
+  if ( (v10 & 4) != 0 )
   {
-    if ( v9 >= 0 )
+    if ( v10 >= 0 )
     {
-      v11 = *(_QWORD *)(v8 + 32);
+      v12 = *(_QWORD *)(a4 + 32);
     }
     else
     {
-      v10 = *(unsigned int *)(v8 + 16);
-      v11 = (_DWORD)v10 ? v10 + v8 : 0LL;
+      v11 = *(unsigned int *)(a4 + 16);
+      v12 = (_DWORD)v11 ? a4 + v11 : 0LL;
     }
   }
   else
   {
-    v11 = 0LL;
+    v12 = 0LL;
   }
-  if ( !RtlpOwnerAcesPresent(0, v11) )
+  if ( !RtlpOwnerAcesPresent(0, v12) )
   {
-    if ( (v9 & 0x10) != 0 )
+    if ( (v10 & 0x10) != 0 )
     {
-      if ( v9 >= 0 )
+      if ( v10 >= 0 )
       {
-        v13 = *(_QWORD *)(v8 + 24);
+        v15 = *(_QWORD *)(a4 + 24);
       }
       else
       {
-        v12 = *(unsigned int *)(v8 + 12);
-        v13 = (_DWORD)v12 ? v12 + v8 : 0LL;
+        v14 = *(unsigned int *)(a4 + 12);
+        v15 = (_DWORD)v14 ? a4 + v14 : 0LL;
       }
     }
     else
     {
-      v13 = 0LL;
+      v15 = 0LL;
     }
-    v19 = 0LL;
+    v21 = 0LL;
     if ( !SepRmEnforceCap )
       return 0LL;
-    if ( !v13 )
+    if ( !v15 )
       return 0LL;
-    ScopedPolicySid = (void *)SepGetScopedPolicySid();
+    ScopedPolicySid = (void *)SepGetScopedPolicySid(v15);
     if ( !ScopedPolicySid )
       return 0LL;
     Cap = SepRmReferenceFindCap(ScopedPolicySid);
-    v17 = v19;
+    v19 = v21;
     if ( Cap < 0 )
-      v17 = SepRmDefaultCap;
-    if ( (*(_DWORD *)(v17 + 56) & 1) == 0 )
+      v19 = SepRmDefaultCap;
+    if ( (*(_DWORD *)(v19 + 56) & 1) == 0 )
       return 0LL;
   }
   ClientToken = SubjectSecurityContext->ClientToken;
   if ( !SubjectSecurityContext->ClientToken )
     ClientToken = SubjectSecurityContext->PrimaryToken;
-  if ( !(unsigned __int8)SepTokenIsOwner((__int64)ClientToken, v8) )
+  if ( !SepTokenIsOwner((__int64)ClientToken, a4, v13, 0) )
     return 0LL;
   if ( (a3 & 0x40000) != 0
     && !SeAccessCheck(
-          (PSECURITY_DESCRIPTOR)v8,
+          (PSECURITY_DESCRIPTOR)a4,
           SubjectSecurityContext,
           1u,
           0x40000u,
@@ -116,11 +115,11 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
           &GrantedAccess,
           &AccessStatus) )
   {
-    v6 = 0x40000;
+    v7 = 0x40000;
   }
   if ( (a3 & 0x80000) != 0
     && !SeAccessCheck(
-          (PSECURITY_DESCRIPTOR)v8,
+          (PSECURITY_DESCRIPTOR)a4,
           SubjectSecurityContext,
           1u,
           0x80000u,
@@ -131,7 +130,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
           &GrantedAccess,
           &AccessStatus) )
   {
-    v6 |= 0x80000u;
+    v7 |= 0x80000u;
   }
-  return v6;
+  return v7;
 }

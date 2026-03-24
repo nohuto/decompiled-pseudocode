@@ -1,18 +1,18 @@
 /*
- * XREFs of PiPnpRtlFreePanelRemoveInfo @ 0x14095A3D4
+ * XREFs of PiPnpRtlFreePanelRemoveInfo @ 0x140734EC4
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140789030 (PiPnpRtlCmActionCallback.c)
- *     PiPnpRtlGatherContainerRemoveInfo @ 0x14095A478 (PiPnpRtlGatherContainerRemoveInfo.c)
- *     PiPnpRtlGatherPanelRemoveInfo @ 0x14095A90C (PiPnpRtlGatherPanelRemoveInfo.c)
+ *     PiPnpRtlCmActionCallback @ 0x1406AE700 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlGatherContainerRemoveInfo @ 0x140734A94 (PiPnpRtlGatherContainerRemoveInfo.c)
+ *     PiPnpRtlGatherPanelRemoveInfo @ 0x1408A3384 (PiPnpRtlGatherPanelRemoveInfo.c)
  * Callees:
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PiPnpRtlFreePanelRemoveInfo(char **P)
+void __fastcall PiPnpRtlFreePanelRemoveInfo(unsigned int **P)
 {
-  char *v2; // rcx
-  char *v3; // rcx
+  unsigned int *v2; // rcx
+  unsigned int *v3; // rcx
 
   if ( P )
   {

@@ -1,109 +1,94 @@
 /*
- * XREFs of PnpLogVetoInformation @ 0x140950744
+ * XREFs of PnpLogVetoInformation @ 0x140732794
  * Callers:
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x14095E874 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140732660 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
  * Callees:
- *     PsGetProcessImageFileName @ 0x140238FD0 (PsGetProcessImageFileName.c)
- *     RtlInitAnsiString @ 0x1402A07B0 (RtlInitAnsiString.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PnpDiagnosticTraceAppVeto @ 0x14056294C (PnpDiagnosticTraceAppVeto.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     PsLookupProcessByProcessId @ 0x1407A8720 (PsLookupProcessByProcessId.c)
- *     PsGetAllocatedFullProcessImageName @ 0x1407DB6A4 (PsGetAllocatedFullProcessImageName.c)
- *     PnpGetProcessCommandLine @ 0x1409506AC (PnpGetProcessCommandLine.c)
- *     PnpTraceDeviceRemoveProcessVeto @ 0x1409572F0 (PnpTraceDeviceRemoveProcessVeto.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     PsGetProcessImageFileName @ 0x1402BDD90 (PsGetProcessImageFileName.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PnpDiagnosticTraceAppVeto @ 0x14050F054 (PnpDiagnosticTraceAppVeto.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x1406CC96C (PsGetAllocatedFullProcessImageName.c)
+ *     PnpTraceDeviceRemoveProcessVeto @ 0x1408B1A14 (PnpTraceDeviceRemoveProcessVeto.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall PnpLogVetoInformation(__int64 a1, _QWORD *a2)
 {
   _QWORD *result; // rax
-  bool v3; // zf
-  __int64 v5; // r12
-  char v6; // r13
-  PEPROCESS v7; // rsi
-  UNICODE_STRING *v8; // rbx
+  bool i; // zf
+  _QWORD *v6; // rdi
+  char v7; // r12
+  int *p_LockNV; // rsi
+  __int64 v9; // rcx
+  UNICODE_STRING *v10; // rbx
   const char *ProcessImageFileName; // rax
-  void *ProcessCommandLine; // r15
-  __int64 v11; // rcx
-  _QWORD *v12; // r12
+  _QWORD *j; // rax
   __int64 v13; // rdx
-  _QWORD *v14; // rax
-  _QWORD *v15; // rdi
-  STRING DestinationString; // [rsp+30h] [rbp-20h] BYREF
-  UNICODE_STRING v17; // [rsp+40h] [rbp-10h] BYREF
-  PVOID P; // [rsp+98h] [rbp+48h] BYREF
-  PEPROCESS Process; // [rsp+A0h] [rbp+50h] BYREF
+  _QWORD *v14; // r15
+  STRING DestinationString; // [rsp+20h] [rbp-20h] BYREF
+  UNICODE_STRING v16; // [rsp+30h] [rbp-10h] BYREF
+  PVOID P; // [rsp+88h] [rbp+48h] BYREF
+  PEPROCESS Process; // [rsp+90h] [rbp+50h] BYREF
 
   result = (_QWORD *)*a2;
   P = 0LL;
-  v17 = 0LL;
+  v16 = 0LL;
   Process = 0LL;
-  v3 = a2 == result;
-  v5 = a1;
-  while ( 1 )
+  for ( i = a2 == result; ; i = a2 == result )
   {
-    v15 = result - 3;
-    if ( v3 )
+    v6 = result - 3;
+    if ( i )
       break;
-    v6 = 0;
-    if ( PsLookupProcessByProcessId((HANDLE)*((unsigned int *)v15 + 4), &Process) >= 0 )
+    v7 = 0;
+    if ( PsLookupProcessByProcessId((HANDLE)*((unsigned int *)v6 + 4), &Process) >= 0 )
     {
-      v7 = Process;
+      p_LockNV = &Process->Header.LockNV;
       if ( (int)PsGetAllocatedFullProcessImageName((__int64)Process, &P) >= 0 )
       {
-        v8 = (UNICODE_STRING *)P;
+        v10 = (UNICODE_STRING *)P;
         if ( !*(_WORD *)P )
         {
-          v6 = 1;
+          v7 = 1;
           DestinationString = 0LL;
           ExFreePoolWithTag(P, 0);
-          v8 = &v17;
-          P = &v17;
-          ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)v7);
+          v10 = &v16;
+          P = &v16;
+          ProcessImageFileName = (const char *)PsGetProcessImageFileName((__int64)p_LockNV);
           RtlInitAnsiString(&DestinationString, ProcessImageFileName);
-          RtlAnsiStringToUnicodeString(&v17, &DestinationString, 1u);
+          RtlAnsiStringToUnicodeString(&v16, &DestinationString, 1u);
         }
       }
       else
       {
-        v8 = 0LL;
+        v10 = 0LL;
         P = 0LL;
       }
-      ProcessCommandLine = PnpGetProcessCommandLine((struct _EX_RUNDOWN_REF *)v7);
-      PnpDiagnosticTraceAppVeto(v11, (int)v7[1].Header.WaitListHead.Flink, (__int64)v8, v5, (__int64)ProcessCommandLine);
-      v12 = (_QWORD *)(*v15 - 8LL);
-      if ( v15 != (_QWORD *)*v15 )
+      PnpDiagnosticTraceAppVeto(v9, p_LockNV[272], (__int64)v10, a1);
+      for ( j = (_QWORD *)*v6; ; j = (_QWORD *)v14[1] )
       {
-        do
-        {
-          if ( *v12 )
-            v13 = *(_QWORD *)(*(_QWORD *)(*v12 + 312LL) + 40LL);
-          else
-            v13 = 0LL;
-          PnpTraceDeviceRemoveProcessVeto(a1, v13 + 40, v8);
-          v14 = (_QWORD *)v12[1];
-          v12 = v14 - 1;
-        }
-        while ( v15 != v14 );
-        v7 = Process;
+        v14 = j - 1;
+        if ( v6 == j )
+          break;
+        if ( *v14 )
+          v13 = *(_QWORD *)(*(_QWORD *)(*v14 + 312LL) + 40LL);
+        else
+          v13 = 0LL;
+        PnpTraceDeviceRemoveProcessVeto(a1, v13 + 40, v10);
       }
-      if ( v6 )
+      if ( v7 )
       {
-        RtlFreeUnicodeString(v8);
+        RtlFreeAnsiString(v10);
       }
-      else if ( v8 )
+      else if ( v10 )
       {
-        ExFreePoolWithTag(v8, 0);
+        ExFreePoolWithTag(v10, 0);
       }
-      if ( ProcessCommandLine )
-        ExFreePoolWithTag(ProcessCommandLine, 0x4F706E50u);
-      ObfDereferenceObjectWithTag(v7, 0x746C6644u);
-      v5 = a1;
+      ObfDereferenceObjectWithTag(p_LockNV, 0x746C6644u);
     }
-    result = (_QWORD *)v15[3];
-    v3 = a2 == result;
+    result = (_QWORD *)v6[3];
   }
   return result;
 }

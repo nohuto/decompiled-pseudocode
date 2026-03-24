@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlWriteReleaseTickLock @ 0x140381B70
+ * XREFs of RtlWriteReleaseTickLock @ 0x1403A6CF4
  * Callers:
- *     KiCreateCpuSetForProcessor @ 0x140A8D5D8 (KiCreateCpuSetForProcessor.c)
- *     KiCalibrateTimeAdjustment @ 0x140A9F000 (KiCalibrateTimeAdjustment.c)
+ *     KiCalibrateTimeAdjustment @ 0x140995370 (KiCalibrateTimeAdjustment.c)
+ *     KiCreateCpuSetForProcessor @ 0x14099D7FC (KiCreateCpuSetForProcessor.c)
  * Callees:
  *     <none>
  */

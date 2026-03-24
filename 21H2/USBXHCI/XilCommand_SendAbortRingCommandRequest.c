@@ -1,12 +1,12 @@
 /*
- * XREFs of XilCommand_SendAbortRingCommandRequest @ 0x1C0030014
+ * XREFs of XilCommand_SendAbortRingCommandRequest @ 0x1C002FD28
  * Callers:
- *     Command_WdfEvtWatchdogTimerFunction @ 0x1C002E930 (Command_WdfEvtWatchdogTimerFunction.c)
+ *     Command_WdfEvtWatchdogTimerFunction @ 0x1C002E790 (Command_WdfEvtWatchdogTimerFunction.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0050250 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 char __fastcall XilCommand_SendAbortRingCommandRequest(__int64 a1)
@@ -49,7 +49,7 @@ char __fastcall XilCommand_SendAbortRingCommandRequest(__int64 a1)
           v5,
           7,
           26,
-          (__int64)&WPP_db21d8d52d393cb96c062fdb7e607301_Traceguids,
+          (__int64)&WPP_4b601d8e2e913b6c42a65f3f32a61124_Traceguids,
           v10);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v6, v7, v8);
@@ -67,7 +67,7 @@ char __fastcall XilCommand_SendAbortRingCommandRequest(__int64 a1)
                    v5,
                    7,
                    25,
-                   (__int64)&WPP_db21d8d52d393cb96c062fdb7e607301_Traceguids,
+                   (__int64)&WPP_4b601d8e2e913b6c42a65f3f32a61124_Traceguids,
                    v4);
   }
   return v4;

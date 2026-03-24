@@ -1,125 +1,120 @@
 /*
- * XREFs of DrvCleanupGraphicsDevices @ 0x1C0165C94
+ * XREFs of DrvCleanupGraphicsDevices @ 0x1C0146904
  * Callers:
- *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C013356C (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01198F8 (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     DrvCleanupOneGraphicsDevice @ 0x1C0018720 (DrvCleanupOneGraphicsDevice.c)
- *     ?DrvRemoveAdapterLuid@@YAJU_LUID@@@Z @ 0x1C00187F4 (-DrvRemoveAdapterLuid@@YAJU_LUID@@@Z.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     ?DestroyAllHandlesFromAdapter@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LUID@@PEAVCMutex@2@@Z @ 0x1C00A24C4 (-DestroyAllHandlesFromAdapter@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LU.c)
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00A25A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     DrvCleanupOneGraphicsDevice @ 0x1C007EA40 (DrvCleanupOneGraphicsDevice.c)
+ *     ?DrvRemoveAdapterLuid@@YAJU_LUID@@@Z @ 0x1C007EAF4 (-DrvRemoveAdapterLuid@@YAJU_LUID@@@Z.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     ?DestroyAllHandlesFromAdapter@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LUID@@PEAVCMutex@2@@Z @ 0x1C0088474 (-DestroyAllHandlesFromAdapter@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LU.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00885A0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
  */
 
-__int64 __fastcall DrvCleanupGraphicsDevices(__int64 a1)
+struct tagGRAPHICS_DEVICE *__fastcall DrvCleanupGraphicsDevices(__int64 a1)
 {
-  __int64 v1; // rbx
-  __int64 v2; // rsi
-  unsigned int v3; // r14d
-  unsigned int v4; // edx
-  __int64 v5; // r15
-  __int64 v6; // rax
-  __int64 v7; // rbp
-  __int64 v8; // r12
+  unsigned int v1; // ebp
+  unsigned int v2; // edx
+  struct tagGRAPHICS_DEVICE *v3; // r14
+  struct tagGRAPHICS_DEVICE *v4; // rsi
+  struct tagGRAPHICS_DEVICE *v5; // rax
+  wchar_t *v6; // r15
+  int v7; // r8d
+  struct PDEV *i; // rax
   __int64 v9; // rcx
-  _QWORD *i; // rax
-  struct _ERESOURCE *v11; // rcx
-  __int64 v12; // rcx
-  __int64 v13; // rdi
-  struct _KMUTANT *v14; // rcx
-  __int64 result; // rax
-  __int64 v16; // rcx
-  unsigned int v18; // [rsp+68h] [rbp+10h]
+  OPM *v10; // rdi
+  struct _KMUTANT *v11; // rcx
+  struct tagGRAPHICS_DEVICE *result; // rax
+  __int64 v13; // [rsp+60h] [rbp+8h]
+  unsigned int v14; // [rsp+68h] [rbp+10h]
 
-  v1 = a1;
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  v3 = (*(_QWORD *)(v2 + 1264) != *(_QWORD *)(v2 + 1352)) + 1;
-  v4 = (*(_QWORD *)(v2 + 1264) != *(_QWORD *)(v2 + 1352)) + 3;
-  v18 = v4;
+  v13 = a1;
+  v1 = (gpGraphicsDeviceList != (wchar_t *)gpLocalGraphicsDeviceList) + 1;
+  v2 = (gpGraphicsDeviceList != (wchar_t *)gpLocalGraphicsDeviceList) + 3;
+  v14 = v2;
   do
   {
-    v5 = 0LL;
-    if ( (v3 & 1) != 0 )
+    v3 = 0LL;
+    if ( (v1 & 1) != 0 )
     {
-      v6 = *(_QWORD *)(v2 + 1360);
-      v7 = *(_QWORD *)(v2 + 1344);
+      v4 = gpRemoteGraphicsDeviceList;
+      v5 = gpRemoteGraphicsDeviceListLast;
     }
     else
     {
-      v6 = *(_QWORD *)(v2 + 1368);
-      v7 = *(_QWORD *)(v2 + 1352);
+      v4 = gpLocalGraphicsDeviceList;
+      v5 = gpLocalGraphicsDeviceListLast;
     }
-    *(_QWORD *)(v2 + 1264) = v7;
-    *(_QWORD *)(v2 + 1272) = v6;
-    if ( v7 )
+    gpGraphicsDeviceListLast = v5;
+    gpGraphicsDeviceList = (wchar_t *)v4;
+    if ( v4 )
     {
       do
       {
-        v8 = *(_QWORD *)(v7 + 128);
-        if ( v1 && v1 == *(_QWORD *)(v7 + 144) )
+        v6 = (wchar_t *)*((_QWORD *)v4 + 16);
+        if ( a1 && a1 == *((_QWORD *)v4 + 18) )
         {
-          EngAcquireSemaphore(*(HSEMAPHORE *)(v2 + 8));
-          EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v2 + 8), 16);
-          for ( i = *(_QWORD **)(*(_QWORD *)(SGDGetSessionState(v9) + 24) + 6080LL); i; i = (_QWORD *)*i )
+          EngAcquireSemaphore(ghsemDriverMgmt);
+          EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, 13);
+          for ( i = gppdevList; i; i = *(struct PDEV **)i )
           {
-            if ( i[319] == v7 )
-              i[319] = 0LL;
+            if ( *((struct tagGRAPHICS_DEVICE **)i + 322) == v4 )
+              *((_QWORD *)i + 322) = 0LL;
           }
-          EtwTraceGreLockReleaseSemaphore((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v2 + 8));
-          v11 = *(struct _ERESOURCE **)(v2 + 8);
-          if ( v11 )
+          EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v7);
+          if ( ghsemDriverMgmt )
           {
-            ExReleaseResourceAndLeaveCriticalRegion(v11);
-            PsLeavePriorityRegion(v12);
+            ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
+            PsLeavePriorityRegion(v9);
           }
-          if ( v7 == *(_QWORD *)(v2 + 1264) )
+          if ( v4 == (struct tagGRAPHICS_DEVICE *)gpGraphicsDeviceList )
           {
-            *(_QWORD *)(v2 + 1264) = v8;
+            gpGraphicsDeviceList = v6;
           }
-          else if ( v5 )
+          else if ( v3 )
           {
-            *(_QWORD *)(v5 + 128) = v8;
+            *((_QWORD *)v3 + 16) = v6;
           }
-          if ( v7 == *(_QWORD *)(v2 + 1272) )
-            *(_QWORD *)(v2 + 1272) = v5;
-          if ( (*(_DWORD *)(v7 + 160) & 0x800000) != 0 )
+          if ( v4 == gpGraphicsDeviceListLast )
+            gpGraphicsDeviceListLast = v3;
+          if ( (*((_DWORD *)v4 + 40) & 0x800000) != 0 )
           {
-            v13 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v11) + 24) + 3824LL);
-            OPM::CMutex::Lock((void **)(v13 + 56));
+            v10 = qword_1C0250C58;
+            OPM::CMutex::Lock((void **)qword_1C0250C58 + 7);
             OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::DestroyAllHandlesFromAdapter(
-              v13 + 24,
-              (_DWORD *)(v7 + 240),
-              v13 + 48);
-            v14 = *(struct _KMUTANT **)(v13 + 56);
-            if ( v14 )
-              KeReleaseMutex(v14, 0);
-            DrvRemoveAdapterLuid(*(struct _LUID *)(v7 + 240));
-            v1 = a1;
+              (__int64)v10 + 24,
+              (_DWORD *)v4 + 62,
+              (__int64)v10 + 48);
+            v11 = (struct _KMUTANT *)*((_QWORD *)v10 + 7);
+            if ( v11 )
+              KeReleaseMutex(v11, 0);
+            DrvRemoveAdapterLuid(*(struct _LUID *)((char *)v4 + 248));
           }
-          DrvCleanupOneGraphicsDevice((void *)v7);
-          v7 = v5;
+          DrvCleanupOneGraphicsDevice((__int64)v4);
+          a1 = v13;
+          v4 = v3;
         }
-        v5 = v7;
-        v7 = v8;
+        v3 = v4;
+        v4 = (struct tagGRAPHICS_DEVICE *)v6;
       }
-      while ( v8 );
-      v4 = v18;
+      while ( v6 );
+      v2 = v14;
     }
-    result = *(_QWORD *)(v2 + 1264);
-    v16 = *(_QWORD *)(v2 + 1272);
-    if ( (v3 & 1) != 0 )
+    if ( (v1 & 1) != 0 )
     {
-      *(_QWORD *)(v2 + 1344) = result;
-      *(_QWORD *)(v2 + 1360) = v16;
+      gpRemoteGraphicsDeviceList = (struct tagGRAPHICS_DEVICE *)gpGraphicsDeviceList;
+      result = gpGraphicsDeviceListLast;
+      gpRemoteGraphicsDeviceListLast = gpGraphicsDeviceListLast;
     }
     else
     {
-      *(_QWORD *)(v2 + 1352) = result;
-      *(_QWORD *)(v2 + 1368) = v16;
+      gpLocalGraphicsDeviceList = (struct tagGRAPHICS_DEVICE *)gpGraphicsDeviceList;
+      result = gpGraphicsDeviceListLast;
+      gpLocalGraphicsDeviceListLast = gpGraphicsDeviceListLast;
     }
-    ++v3;
+    ++v1;
   }
-  while ( v3 < v4 );
+  while ( v1 < v2 );
   return result;
 }

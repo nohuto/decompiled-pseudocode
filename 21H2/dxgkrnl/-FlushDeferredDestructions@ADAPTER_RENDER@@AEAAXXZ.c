@@ -1,61 +1,57 @@
 /*
- * XREFs of ?FlushDeferredDestructions@ADAPTER_RENDER@@AEAAXXZ @ 0x1C02C3C98
+ * XREFs of ?FlushDeferredDestructions@ADAPTER_RENDER@@AEAAXXZ @ 0x1C0215EB8
  * Callers:
- *     ?Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02BDA44 (-Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?Stop@ADAPTER_RENDER@@QEAAXEE@Z @ 0x1C02C49B8 (-Stop@ADAPTER_RENDER@@QEAAXEE@Z.c)
+ *     ?Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C020F040 (-Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?Stop@ADAPTER_RENDER@@QEAAXEE@Z @ 0x1C0216CEC (-Stop@ADAPTER_RENDER@@QEAAXEE@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?FlushDeferredDestruction@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@EE@Z @ 0x1C016E1E8 (-FlushDeferredDestruction@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@EE@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?FlushDeferredDestruction@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@EE@Z @ 0x1C00E549C (-FlushDeferredDestruction@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@EE@Z.c)
  */
 
 void __fastcall ADAPTER_RENDER::FlushDeferredDestructions(PERESOURCE **this)
 {
-  PERESOURCE *v2; // rdx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  PERESOURCE *v5; // rcx
+  __int64 v6; // rax
   DXGDEVICE *i; // rbx
-  __int64 v4; // rcx
-  DXGDEVICE **v5; // rdi
+  __int64 v8; // rcx
+  DXGDEVICE **v9; // rdi
   DXGDEVICE *j; // rbx
-  __int64 v7; // rcx
-  struct _KAPC_STATE ApcState; // [rsp+50h] [rbp-78h] BYREF
-  struct _KAPC_STATE v9; // [rsp+80h] [rbp-48h] BYREF
+  __int64 v11; // rcx
+  struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-78h] BYREF
+  struct _KAPC_STATE v13; // [rsp+50h] [rbp-48h] BYREF
 
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 2050LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceExclusiveOwner()", 2050LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v4 + 24) = 2024LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  v2 = this[2];
-  if ( v2[18] != (PERESOURCE)KeGetCurrentThread() && !*((_BYTE *)v2 + 2742) )
+  v5 = this[2];
+  if ( v5[18] != (PERESOURCE)KeGetCurrentThread() && !*((_BYTE *)v5 + 2646) )
   {
-    WdLogSingleEntry1(1LL, 2055LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetAdapter()->IsStopResetLockExclusiveOwner() || GetAdapter()->IsTdrPending()",
-      2055LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(v5, v2);
+    *(_QWORD *)(v6 + 24) = 2029LL;
+    WdLogEvent5_WdAssertion(v6);
   }
   for ( i = (DXGDEVICE *)this[18]; i != (DXGDEVICE *)(this + 18) && i; i = *(DXGDEVICE **)i )
   {
-    v4 = *((_QWORD *)i + 5);
+    v8 = *((_QWORD *)i + 5);
     memset(&ApcState, 0, sizeof(ApcState));
-    KeStackAttachProcess(*(PRKPROCESS *)(v4 + 56), &ApcState);
+    KeStackAttachProcess(*(PRKPROCESS *)(v8 + 56), &ApcState);
     DXGDEVICE::FlushDeferredDestruction(i, 0LL, 0, 0);
     KeUnstackDetachProcess(&ApcState);
   }
-  v5 = (DXGDEVICE **)(this + 20);
-  for ( j = *v5; j != (DXGDEVICE *)v5 && j; j = *(DXGDEVICE **)j )
+  v9 = (DXGDEVICE **)(this + 20);
+  for ( j = *v9; j != (DXGDEVICE *)v9 && j; j = *(DXGDEVICE **)j )
   {
-    v7 = *((_QWORD *)j + 5);
-    memset(&v9, 0, sizeof(v9));
-    KeStackAttachProcess(*(PRKPROCESS *)(v7 + 56), &v9);
+    v11 = *((_QWORD *)j + 5);
+    memset(&v13, 0, sizeof(v13));
+    KeStackAttachProcess(*(PRKPROCESS *)(v11 + 56), &v13);
     DXGDEVICE::FlushDeferredDestruction(j, 0LL, 0, 0);
-    KeUnstackDetachProcess(&v9);
+    KeUnstackDetachProcess(&v13);
   }
 }

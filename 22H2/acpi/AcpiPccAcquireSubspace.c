@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiPccAcquireSubspace @ 0x1C0089980
+ * XREFs of AcpiPccAcquireSubspace @ 0x1C00B0A40
  * Callers:
  *     <none>
  * Callees:
- *     AcpiPccAcquireSubspaceCore @ 0x1C0033C2C (AcpiPccAcquireSubspaceCore.c)
+ *     AcpiPccAcquireSubspaceCore @ 0x1C0059938 (AcpiPccAcquireSubspaceCore.c)
  */
 
 __int64 __fastcall AcpiPccAcquireSubspace(__int64 a1)

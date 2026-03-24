@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1?$NT_OBJECT_REFERENCE@PEAUDXGDISPLAYMANAGEROBJECT_CONTAINER@@@@QEAA@XZ @ 0x1C0187A48
+ * XREFs of ??1?$NT_OBJECT_REFERENCE@PEAUDXGDISPLAYMANAGEROBJECT_CONTAINER@@@@QEAA@XZ @ 0x1C00E58E4
  * Callers:
- *     ?CheckOwnership@DXGDISPLAYMANAGEROBJECT@@SAJU_LUID@@IPEAX@Z @ 0x1C0187B90 (-CheckOwnership@DXGDISPLAYMANAGEROBJECT@@SAJU_LUID@@IPEAX@Z.c)
- *     DxgkDispMgrOperation @ 0x1C01E21B0 (DxgkDispMgrOperation.c)
- *     DxgkDispMgrReferenceObjectByHandle @ 0x1C02FE7A0 (DxgkDispMgrReferenceObjectByHandle.c)
- *     DxgkDispMgrSourceOperation @ 0x1C02FE890 (DxgkDispMgrSourceOperation.c)
- *     DxgkDispMgrTargetOperation @ 0x1C02FEBC0 (DxgkDispMgrTargetOperation.c)
+ *     ?CheckOwnership@DXGDISPLAYMANAGEROBJECT@@SAJU_LUID@@IPEAX@Z @ 0x1C00E56C0 (-CheckOwnership@DXGDISPLAYMANAGEROBJECT@@SAJU_LUID@@IPEAX@Z.c)
+ *     DxgkDispMgrOperation @ 0x1C0166F30 (DxgkDispMgrOperation.c)
+ *     DxgkDispMgrReferenceObjectByHandle @ 0x1C02B2380 (DxgkDispMgrReferenceObjectByHandle.c)
+ *     DxgkDispMgrSourceOperation @ 0x1C02B2450 (DxgkDispMgrSourceOperation.c)
+ *     DxgkDispMgrTargetOperation @ 0x1C02B27C0 (DxgkDispMgrTargetOperation.c)
  * Callees:
  *     <none>
  */

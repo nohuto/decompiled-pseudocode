@@ -1,167 +1,137 @@
 /*
- * XREFs of ?InitiateWin32kCleanup@@YAHXZ @ 0x1C00F099C
+ * XREFs of ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4
  * Callers:
- *     RawInputThread @ 0x1C005CC60 (RawInputThread.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
  * Callees:
- *     FreeTimer @ 0x1C0070D80 (FreeTimer.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z @ 0x1C00CE51C (-CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z.c)
- *     ??1InkProcessor@@AEAA@XZ @ 0x1C00EFCC4 (--1InkProcessor@@AEAA@XZ.c)
- *     ?TerminateDesktopThreads@@YAXXZ @ 0x1C00F0720 (-TerminateDesktopThreads@@YAXXZ.c)
- *     ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C00F0F50 (-EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
- *     FreeAllSpbs @ 0x1C00F0F80 (FreeAllSpbs.c)
- *     WPP_RECORDER_AND_TRACE_SF_qD @ 0x1C00F0FB0 (WPP_RECORDER_AND_TRACE_SF_qD.c)
- *     ?NumHandles@@YAKPEAX@Z @ 0x1C00F1050 (-NumHandles@@YAKPEAX@Z.c)
- *     InitializePointerDevicesPresenceState @ 0x1C00F10E0 (InitializePointerDevicesPresenceState.c)
- *     CleanupIAMAccess @ 0x1C00F1920 (CleanupIAMAccess.c)
- *     ?SetWaitForWinstaRundown@@YAXXZ @ 0x1C00F1EF0 (-SetWaitForWinstaRundown@@YAXXZ.c)
- *     ??1InteractiveControlManager@@AEAA@XZ @ 0x1C011EF48 (--1InteractiveControlManager@@AEAA@XZ.c)
- *     UnregisterDeviceClassNotifications @ 0x1C0123918 (UnregisterDeviceClassNotifications.c)
- *     GreDrvDisconnect @ 0x1C0154A58 (GreDrvDisconnect.c)
- *     bDrvDisconnect @ 0x1C02BF004 (bDrvDisconnect.c)
+ *     ?SetWaitForWinstaRundown@@YAXXZ @ 0x1C000A728 (-SetWaitForWinstaRundown@@YAXXZ.c)
+ *     InitializePointerDevicesPresenceState @ 0x1C000A870 (InitializePointerDevicesPresenceState.c)
+ *     ?NumHandles@@YAKPEAX@Z @ 0x1C000A918 (-NumHandles@@YAKPEAX@Z.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C000A99C (WPP_RECORDER_SF_qD.c)
+ *     ?TerminateDesktopThreads@@YAXXZ @ 0x1C000AA2C (-TerminateDesktopThreads@@YAXXZ.c)
+ *     FreeTimer @ 0x1C000B6C0 (FreeTimer.c)
+ *     ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C000BC24 (-EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
+ *     ?CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z @ 0x1C000E704 (-CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z.c)
+ *     FreeAllSpbs @ 0x1C002AB30 (FreeAllSpbs.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
+ *     ??0?$CLockDomainExclusiveLeaf@VDLT_DESKTOP@@@@QEAA@XZ @ 0x1C004E9E4 (--0-$CLockDomainExclusiveLeaf@VDLT_DESKTOP@@@@QEAA@XZ.c)
+ *     CleanupIAMAccess @ 0x1C00D78F0 (CleanupIAMAccess.c)
+ *     UnregisterDeviceClassNotifications @ 0x1C0128C60 (UnregisterDeviceClassNotifications.c)
+ *     ??1InkProcessor@@AEAA@XZ @ 0x1C012DE0C (--1InkProcessor@@AEAA@XZ.c)
+ *     ?Deinitialize@InteractiveControlManager@@AEAAXXZ @ 0x1C0133D90 (-Deinitialize@InteractiveControlManager@@AEAAXXZ.c)
+ *     GreDrvDisconnect @ 0x1C0163A20 (GreDrvDisconnect.c)
+ *     bDrvDisconnect @ 0x1C02C066C (bDrvDisconnect.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 __int64 InitiateWin32kCleanup(void)
 {
   int v0; // edx
+  int v1; // ecx
   __int64 RemoteContext; // rsi
-  int v2; // r8d
-  __int64 v3; // rcx
-  struct tagMOUSE_PROMOTION_QUEUE *v4; // rbx
-  __int64 v5; // rdi
-  int v6; // edx
-  int v7; // r8d
+  struct tagMOUSE_PROMOTION_QUEUE *v3; // rbx
+  __int64 v4; // rdi
+  int v5; // edx
+  int v6; // r8d
+  int v7; // r9d
   InteractiveControlManager *v8; // rcx
-  InkProcessor *v9; // rbx
-  __int64 v10; // rbx
-  _QWORD *v11; // rax
-  struct _DEVICE_OBJECT *AttachedDevice; // rcx
-  int v13; // edx
-  int v14; // r8d
-  PDEVICE_OBJECT v15; // rcx
+  REGHANDLE v9; // rcx
+  REGHANDLE v10; // rcx
+  InkProcessor *v11; // rbx
+  __int64 v12; // rbx
+  _QWORD *v13; // rax
+  int v14; // edx
+  int v15; // ecx
   signed __int32 v17[8]; // [rsp+0h] [rbp-78h] BYREF
-  int v18; // [rsp+28h] [rbp-50h]
-  __int16 v19; // [rsp+30h] [rbp-48h]
-  const struct _KWAIT_BLOCK *v20; // [rsp+38h] [rbp-40h]
-  __int64 v21; // [rsp+40h] [rbp-38h]
-  int v22; // [rsp+48h] [rbp-30h]
+  ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-58h]
   HANDLE EventHandle; // [rsp+80h] [rbp+8h] BYREF
   union _LARGE_INTEGER Timeout; // [rsp+88h] [rbp+10h] BYREF
+  char v21; // [rsp+90h] [rbp+18h] BYREF
 
   RemoteContext = GreGetRemoteContext();
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x100) == 0
-    || (LOBYTE(v0) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v0) = 0;
-  }
-  if ( (_BYTE)v0 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v2) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v0,
-      v2,
-      (_DWORD)WPP_GLOBAL_Control,
-      4,
-      9,
-      17,
-      (__int64)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids);
+    LOBYTE(v0) = 4;
+    WPP_RECORDER_SF_(v1, v0, 9, 17, (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
   }
   SetWaitForWinstaRundown();
   CleanupIAMAccess(0LL);
   DrvNotifySessionStateChange(2LL);
   gbPowerCalloutsReady = 0;
   _InterlockedOr(v17, 0);
-  EnterCrit(1LL, 0LL);
+  EnterCrit(0LL, 1LL);
   CleanupPowerRequestList();
-  UserSessionSwitchLeaveCrit(v3);
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  UserSessionSwitchLeaveCrit();
   if ( !gProtocolType )
     UnregisterDeviceClassNotifications();
-  EnterCrit(1LL, 0LL);
-  InitializePointerDevicesPresenceState(0LL);
+  EnterCrit(0LL, 1LL);
+  InitializePointerDevicesPresenceState(0);
   gbCleanupInitiated = 1;
   gdwHydraHint |= 0x400u;
   gbInSMSCleanup = 0;
   CTouchProcessor::CancelActivePointers(gpTouchProcessor);
-  EmptyMousePromotionQueue((struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0335D10);
-  v4 = (struct tagMOUSE_PROMOTION_QUEUE *)&unk_1C0335CA0;
-  v5 = 5LL;
+  EmptyMousePromotionQueue((struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C033AB50);
+  v3 = (struct tagMOUSE_PROMOTION_QUEUE *)&unk_1C033AAE0;
+  v4 = 5LL;
   do
   {
-    EmptyMousePromotionQueue(v4);
-    v4 = (struct tagMOUSE_PROMOTION_QUEUE *)((char *)v4 + 24);
-    --v5;
+    EmptyMousePromotionQueue(v3);
+    v3 = (struct tagMOUSE_PROMOTION_QUEUE *)((char *)v3 + 24);
+    --v4;
   }
-  while ( v5 );
+  while ( v4 );
   v8 = InteractiveControlManager::s_pInstance;
   if ( InteractiveControlManager::s_pInstance )
   {
-    InteractiveControlManager::~InteractiveControlManager(InteractiveControlManager::s_pInstance);
+    InteractiveControlManager::Deinitialize(InteractiveControlManager::s_pInstance);
+    v9 = RegHandle;
+    RegHandle = 0LL;
+    dword_1C032B2F8 = 0;
+    EtwUnregister(v9);
+    v10 = qword_1C032B2E0;
+    qword_1C032B2E0 = 0LL;
+    dword_1C032B2C0 = 0;
+    EtwUnregister(v10);
     Win32FreePool(InteractiveControlManager::s_pInstance);
     InteractiveControlManager::s_pInstance = 0LL;
   }
-  v9 = InkProcessor::s_pInstance;
+  v11 = InkProcessor::s_pInstance;
   if ( InkProcessor::s_pInstance )
   {
-    InkProcessor::~InkProcessor((InkProcessor **)InkProcessor::s_pInstance);
-    Win32FreePool(v9);
+    InkProcessor::~InkProcessor(InkProcessor::s_pInstance);
+    Win32FreePool(v11);
     InkProcessor::s_pInstance = 0LL;
   }
-  v10 = *(_QWORD *)(gptiCurrent + 616LL);
+  v12 = *(_QWORD *)(gptiCurrent + 616LL);
   Timeout.QuadPart = -6000000000LL;
-  while ( v10 )
+  while ( v12 )
   {
-    v11 = *(_QWORD **)(v10 + 16);
-    if ( !v11
-      || v11 == gspdeskDisconnect && !v11[4] && !*(_QWORD *)(*(_QWORD *)(v10 + 56) + 48LL) && NumHandles(v8) <= 1 )
+    v13 = *(_QWORD **)(v12 + 16);
+    if ( !v13
+      || v13 == gspdeskDisconnect
+      && !v13[4]
+      && !*(_QWORD *)(*(_QWORD *)(v12 + 56) + 48LL)
+      && (unsigned int)NumHandles(v8) <= 1 )
     {
       break;
     }
-    UserSessionSwitchLeaveCrit(v8);
+    if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+      KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    UserSessionSwitchLeaveCrit();
     KeWaitForSingleObject(gpevtDesktopDestroyed, WrUserRequest, 0, 0, &Timeout);
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-    || (LOBYTE(v6) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v6) = 0;
-  }
-  if ( (_BYTE)v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v6,
-      v7,
-      (unsigned int)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids,
-      4,
-      7,
-      18,
-      (__int64)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids);
+    LOBYTE(v5) = 4;
+    WPP_RECORDER_SF_((_DWORD)v8, v5, 7, 18, (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
   }
   gbExitInProgress = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-    || (LOBYTE(v6) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    LOBYTE(v6) = 0;
-  }
-  if ( (_BYTE)v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    AttachedDevice = WPP_GLOBAL_Control->AttachedDevice;
-    v22 = *(_DWORD *)(gptiCurrent + 896LL);
-    v21 = gptiCurrent;
-    v20 = &WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids;
-    v19 = 19;
-    v18 = 7;
-    LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_qD((_DWORD)AttachedDevice, v6, v7, 19);
-  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qD((_DWORD)v8, v5, v6, v7, BugCheckParameter4, gptiCurrent, *(_DWORD *)(gptiCurrent + 896LL));
   gpqCursor = 0LL;
-  ForceCapture(3LL);
+  ForceCapture(3LL, 0LL);
   FreeScancodeMap();
   if ( gpDispInfo )
     FreeAllSpbs();
@@ -187,6 +157,7 @@ __int64 InitiateWin32kCleanup(void)
     else
       GreDrvDisconnect(RemoteContext);
   }
+  CLockDomainExclusiveLeaf<DLT_DESKTOP>::CLockDomainExclusiveLeaf<DLT_DESKTOP>(&v21);
   UnlockObjectAssignment(grpdeskRitInput);
   UnlockObjectAssignment(grpdeskIODefault);
   UnlockObjectAssignment(gspdeskShouldBeForeground);
@@ -198,34 +169,16 @@ __int64 InitiateWin32kCleanup(void)
   HMAssignmentUnlock(&gspwndCursor);
   HMAssignmentUnlock(&gspwndCursorNC);
   gptiRit = 0LL;
-  v15 = WPP_GLOBAL_Control;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-    || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v13) = 0;
+    LOBYTE(v14) = 4;
+    WPP_RECORDER_SF_(v15, v14, 7, 20, (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
   }
-  if ( (_BYTE)v13 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v14) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v13,
-      v14,
-      (unsigned int)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids,
-      4,
-      7,
-      20,
-      (__int64)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids);
-  }
-  UserSessionSwitchLeaveCrit(v15);
+  UserSessionSwitchLeaveCrit();
   if ( gSessionId )
   {
     EventHandle = 0LL;
-    if ( CreateShutdownEvent(
-           (const unsigned __int16 *)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids.WaitType,
-           128,
-           &EventHandle) >= 0 )
+    if ( CreateShutdownEvent(L"EventRitExited", 0x80u, &EventHandle) >= 0 )
     {
       ZwSetEvent(EventHandle, 0LL);
       ZwClose(EventHandle);

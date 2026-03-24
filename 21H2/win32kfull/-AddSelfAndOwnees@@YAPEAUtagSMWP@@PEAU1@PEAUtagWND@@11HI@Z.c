@@ -1,13 +1,13 @@
 /*
- * XREFs of ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0081C18
+ * XREFs of ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0036BFC
  * Callers:
- *     ?ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z @ 0x1C0081868 (-ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z.c)
- *     ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0081C18 (-AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z.c)
+ *     ?ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z @ 0x1C0036800 (-ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z.c)
+ *     ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0036BFC (-AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z.c)
  * Callees:
- *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C0048C48 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
- *     ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0081C18 (-AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z.c)
- *     NextOwnedWindow @ 0x1C0082124 (NextOwnedWindow.c)
- *     ?GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0082690 (-GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0036BFC (-AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z.c)
+ *     NextOwnedWindow @ 0x1C003714C (NextOwnedWindow.c)
+ *     ?GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00385DC (-GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C006BA90 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
  */
 
 struct tagSMWP *__fastcall AddSelfAndOwnees(
@@ -21,7 +21,7 @@ struct tagSMWP *__fastcall AddSelfAndOwnees(
   struct tagWND *v9; // rbx
   int v10; // r15d
   struct tagWND *v11; // rsi
-  struct tagWND *OwnedWindow; // rax
+  __int64 OwnedWindow; // rax
   struct tagSMWP *v13; // r10
   struct tagSMWP *result; // rax
   __int64 v15; // rcx
@@ -43,8 +43,8 @@ struct tagSMWP *__fastcall AddSelfAndOwnees(
   v11 = 0LL;
   while ( 1 )
   {
-    OwnedWindow = (struct tagWND *)NextOwnedWindow(v11, a2, *((_QWORD *)a2 + 13));
-    v11 = OwnedWindow;
+    OwnedWindow = NextOwnedWindow(v11, a2, *((_QWORD *)a2 + 13));
+    v11 = (struct tagWND *)OwnedWindow;
     if ( !OwnedWindow )
       break;
     if ( !v9 )
@@ -55,9 +55,9 @@ struct tagSMWP *__fastcall AddSelfAndOwnees(
       {
         if ( a4 != (struct tagWND *)1 )
         {
-          while ( OwnedWindow != a4 )
+          while ( (struct tagWND *)OwnedWindow != a4 )
           {
-            OwnedWindow = (struct tagWND *)*((_QWORD *)OwnedWindow + 11);
+            OwnedWindow = *(_QWORD *)(OwnedWindow + 88);
             if ( !OwnedWindow )
               goto LABEL_23;
           }
@@ -87,7 +87,7 @@ LABEL_10:
         return 0LL;
     }
   }
-  result = (struct tagSMWP *)_DeferWindowPos((__int64)v13, a2, 0LL, 0, 0, 0, 0, a6 | 0x13, 0);
+  result = (struct tagSMWP *)_DeferWindowPos(v13, a2, 0LL);
   if ( !result )
     return 0LL;
   v15 = *((int *)result + 7);

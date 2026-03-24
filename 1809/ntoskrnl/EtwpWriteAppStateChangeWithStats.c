@@ -5,8 +5,8 @@
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     PsGetProcessStartKey @ 0x1400CCB90 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PsGetProcessStartKey @ 0x1400CCBB0 (PsGetProcessStartKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void EtwpWriteAppStateChangeWithStats()
@@ -111,7 +111,7 @@ void EtwpWriteAppStateChangeWithStats()
       v42 = 44;
       v45 = 4;
       v48 = 8;
-      TlgWrite(&stru_140400308, &unk_14037332E, 0LL, 0LL, 0xDu, &pData);
+      TlgWrite(&stru_140400308, &unk_1403735DA, 0LL, 0LL, 0xDu, &pData);
     }
   }
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0048318
+ * XREFs of ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E1514
  * Callers:
- *     ?GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C0041214 (-GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
- *     GetLocalMachineRegistryDWORDValues @ 0x1C0042A00 (GetLocalMachineRegistryDWORDValues.c)
- *     ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C0049A84 (-CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
- *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C0049BF0 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
- *     ReadTiltCalibrationData @ 0x1C01A559C (ReadTiltCalibrationData.c)
- *     WriteTiltCalibrationData @ 0x1C01A5B04 (WriteTiltCalibrationData.c)
- *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C01F38A0 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
+ *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00E1190 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
+ *     GetLocalMachineRegistryDWORDValues @ 0x1C00E13D4 (GetLocalMachineRegistryDWORDValues.c)
+ *     ?GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C00E1A90 (-GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
+ *     ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C0132E34 (-CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
+ *     ReadTiltCalibrationData @ 0x1C01CEE1C (ReadTiltCalibrationData.c)
+ *     WriteTiltCalibrationData @ 0x1C01CF40C (WriteTiltCalibrationData.c)
+ *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C02094A8 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
  * Callees:
- *     RtlUnicodeStringValidateDestWorker @ 0x1C00482A8 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C00E15C8 (RtlUnicodeStringValidateDestWorker.c)
  */
 
-__int64 __fastcall RtlUnicodeStringCatString(struct _UNICODE_STRING *a1, wchar_t *a2)
+__int64 __fastcall RtlUnicodeStringCatString(struct _UNICODE_STRING *a1, const unsigned __int16 *a2)
 {
   NTSTATUS v4; // r8d
-  __int16 v5; // r9
-  __int64 v6; // rdx
-  wchar_t *v7; // r10
-  __int16 v8; // ax
-  size_t v9; // rcx
+  __int64 v5; // r10
+  __int16 v6; // r11
+  __int16 v7; // dx
+  size_t v8; // r9
+  char *v9; // rcx
   size_t v11; // [rsp+20h] [rbp-28h]
   ULONG v12; // [rsp+28h] [rbp-20h]
   wchar_t *v13; // [rsp+30h] [rbp-18h] BYREF
@@ -32,36 +32,34 @@ __int64 __fastcall RtlUnicodeStringCatString(struct _UNICODE_STRING *a1, wchar_t
   v4 = RtlUnicodeStringValidateDestWorker(a1, &v13, &v14, &v15, v11, v12);
   if ( v4 >= 0 )
   {
-    v5 = v15;
-    v6 = 0x7FFFLL;
+    v5 = 0x7FFFLL;
+    v6 = v15;
     v4 = 0;
-    v7 = &v13[v15];
-    v8 = 0;
-    v9 = v14 - v15;
+    v7 = 0;
+    v8 = v14 - v15;
     if ( v14 == v15 )
+      goto LABEL_16;
+    v9 = (char *)v13 + 2 * v15 - (_QWORD)a2;
+    do
     {
-LABEL_10:
+      if ( !v5 )
+        break;
+      if ( !*a2 )
+        break;
+      *(const unsigned __int16 *)((char *)a2 + (_QWORD)v9) = *a2;
+      --v5;
+      ++a2;
+      ++v7;
+      --v8;
+    }
+    while ( v8 );
+    if ( !v8 && v5 )
+    {
+LABEL_16:
       if ( *a2 )
         v4 = -2147483643;
     }
-    else
-    {
-      while ( v6 )
-      {
-        if ( *a2 )
-        {
-          *v7++ = *a2++;
-          --v6;
-          ++v8;
-          if ( --v9 )
-            continue;
-        }
-        if ( v9 || !v6 )
-          break;
-        goto LABEL_10;
-      }
-    }
-    a1->Length = 2 * (v5 + v8);
+    a1->Length = 2 * (v6 + v7);
   }
   return (unsigned int)v4;
 }

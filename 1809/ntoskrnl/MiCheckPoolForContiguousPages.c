@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckPoolForContiguousPages @ 0x1401643F4
+ * XREFs of MiCheckPoolForContiguousPages @ 0x140164414
  * Callers:
- *     MiScanLeafNonPagedPool @ 0x1401637D0 (MiScanLeafNonPagedPool.c)
+ *     MiScanLeafNonPagedPool @ 0x1401637F0 (MiScanLeafNonPagedPool.c)
  * Callees:
  *     RtlSetBitsEx @ 0x14008AF20 (RtlSetBitsEx.c)
- *     RtlFindNextForwardRunClearCappedEx @ 0x14015B100 (RtlFindNextForwardRunClearCappedEx.c)
- *     MiPhysicalPoolCheck @ 0x140164528 (MiPhysicalPoolCheck.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14015B120 (RtlFindNextForwardRunClearCappedEx.c)
+ *     MiPhysicalPoolCheck @ 0x140164548 (MiPhysicalPoolCheck.c)
  */
 
 __int64 MiCheckPoolForContiguousPages(__int128 *a1, unsigned __int64 a2, unsigned __int64 a3, __int64 *a4, ...)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PspSiloLoadApiSets @ 0x1409ADAA0
+ * XREFs of PspSiloLoadApiSets @ 0x140906D64
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AD150 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409064C0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CAB0 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CAD0 (PsAttachSiloToCurrentThread.c)
- *     ApiSetReleaseSchema @ 0x140614720 (ApiSetReleaseSchema.c)
- *     PspQueryForwardersEnabled @ 0x140855618 (PspQueryForwardersEnabled.c)
- *     PspApiSetCopyToSystemSpace @ 0x1409AC978 (PspApiSetCopyToSystemSpace.c)
- *     ApiSetLoadSchemaWithExtensions @ 0x140A09E6C (ApiSetLoadSchemaWithExtensions.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14034C200 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14034C220 (PsAttachSiloToCurrentThread.c)
+ *     ApiSetReleaseSchema @ 0x1405BE4C8 (ApiSetReleaseSchema.c)
+ *     PspQueryForwardersEnabled @ 0x1407A9048 (PspQueryForwardersEnabled.c)
+ *     PspApiSetCopyToSystemSpace @ 0x140905D78 (PspApiSetCopyToSystemSpace.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x14095E9D4 (ApiSetLoadSchemaWithExtensions.c)
  */
 
 __int64 __fastcall PspSiloLoadApiSets(struct _LIST_ENTRY *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall PspSiloLoadApiSets(struct _LIST_ENTRY *a1)
   _QWORD v7[3]; // [rsp+28h] [rbp-18h] BYREF
   void *Src; // [rsp+68h] [rbp+28h] BYREF
   size_t Size; // [rsp+70h] [rbp+30h] BYREF
-  __int64 v10; // [rsp+78h] [rbp+38h] BYREF
+  struct _DMA_ADAPTER *v10; // [rsp+78h] [rbp+38h] BYREF
 
   v6 = 0LL;
   v10 = 0LL;
@@ -42,7 +42,7 @@ __int64 __fastcall PspSiloLoadApiSets(struct _LIST_ENTRY *a1)
       *((_BYTE *)ServerSiloGlobals + 1048) = PspQueryForwardersEnabled();
     }
     if ( Src )
-      ApiSetReleaseSchema(Src);
+      ApiSetReleaseSchema((ULONG_PTR)Src);
   }
   PsDetachSiloFromCurrentThread(v2);
   return (unsigned int)v3;

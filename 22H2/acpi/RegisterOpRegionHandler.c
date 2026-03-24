@@ -1,10 +1,10 @@
 /*
- * XREFs of RegisterOpRegionHandler @ 0x1C008BAD0
+ * XREFs of RegisterOpRegionHandler @ 0x1C00B1C10
  * Callers:
  *     <none>
  * Callees:
- *     OSConvertDeviceHandleToNSHANDLE @ 0x1C000ABBC (OSConvertDeviceHandleToNSHANDLE.c)
- *     RegisterOperationRegionHandler @ 0x1C008BB34 (RegisterOperationRegionHandler.c)
+ *     OSConvertDeviceHandleToNSHANDLE @ 0x1C00118BC (OSConvertDeviceHandleToNSHANDLE.c)
+ *     RegisterOperationRegionHandler @ 0x1C00A1CB0 (RegisterOperationRegionHandler.c)
  */
 
 NTSTATUS __stdcall RegisterOpRegionHandler(
@@ -16,18 +16,16 @@ NTSTATUS __stdcall RegisterOpRegionHandler(
         ULONG Flags,
         PVOID *OperationRegionObject)
 {
-  int v7; // ebx
-  int v11; // eax
+  __int64 *v11; // rax
 
-  v7 = (int)Handler;
   if ( !DeviceObject )
     return -1073741811;
-  v11 = OSConvertDeviceHandleToNSHANDLE((ULONG_PTR)DeviceObject);
+  v11 = (__int64 *)OSConvertDeviceHandleToNSHANDLE((ULONG_PTR)DeviceObject);
   return RegisterOperationRegionHandler(
            v11,
            AccessType,
            RegionSpace,
-           v7,
+           (__int64)Handler,
            (__int64)Context,
-           (__int64)OperationRegionObject);
+           (unsigned int **)OperationRegionObject);
 }

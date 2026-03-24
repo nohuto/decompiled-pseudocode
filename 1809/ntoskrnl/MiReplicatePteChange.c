@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReplicatePteChange @ 0x140174EF4
+ * XREFs of MiReplicatePteChange @ 0x140174F14
  * Callers:
  *     MiCreateSystemPageTable @ 0x140026730 (MiCreateSystemPageTable.c)
  *     MiDeleteVaTail @ 0x140075880 (MiDeleteVaTail.c)
- *     MiDeleteSystemPageTable @ 0x14011F030 (MiDeleteSystemPageTable.c)
- *     MiZeroAndFlushPtes @ 0x14012335C (MiZeroAndFlushPtes.c)
- *     MiDecommitLargePoolVa @ 0x14015B2C0 (MiDecommitLargePoolVa.c)
- *     MiPfnRangeIsZero @ 0x140184634 (MiPfnRangeIsZero.c)
- *     MiInitializeShadowPageTable @ 0x14072A414 (MiInitializeShadowPageTable.c)
+ *     MiDeleteSystemPageTable @ 0x14011F050 (MiDeleteSystemPageTable.c)
+ *     MiZeroAndFlushPtes @ 0x14012337C (MiZeroAndFlushPtes.c)
+ *     MiDecommitLargePoolVa @ 0x14015B2E0 (MiDecommitLargePoolVa.c)
+ *     MiPfnRangeIsZero @ 0x140184654 (MiPfnRangeIsZero.c)
+ *     MiInitializeShadowPageTable @ 0x14072A3F4 (MiInitializeShadowPageTable.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiReplicatePteChangeToProcess @ 0x140175058 (MiReplicatePteChangeToProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiReplicatePteChangeToProcess @ 0x140175078 (MiReplicatePteChangeToProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReplicatePteChange(unsigned __int64 a1, unsigned __int64 a2)

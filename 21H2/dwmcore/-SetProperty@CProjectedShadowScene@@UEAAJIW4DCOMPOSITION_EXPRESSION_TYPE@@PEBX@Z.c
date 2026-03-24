@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SetProperty@CProjectedShadowScene@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802375E0
+ * XREFs of ?SetProperty@CProjectedShadowScene@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801E4DD0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetBlurRadiusMultiplier@CProjectedShadowScene@@AEAAXM@Z @ 0x1802373F0 (-SetBlurRadiusMultiplier@CProjectedShadowScene@@AEAAXM@Z.c)
- *     ?SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x180237438 (-SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
- *     ?SetMaxOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x180237484 (-SetMaxOpacity@CProjectedShadowScene@@AEAAXM@Z.c)
- *     ?SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x1802374E8 (-SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
- *     ?SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x180237534 (-SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z.c)
- *     ?SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z @ 0x18023759C (-SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetBlurRadiusMultiplier@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CB84 (-SetBlurRadiusMultiplier@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CBCC (-SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CC18 (-SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetMaxOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CC54 (-SetMaxOpacity@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CCB8 (-SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x18001FC6C (-SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CProjectedShadowScene::SetProperty(CProjectedShadowScene *a1, int a2, int a3, float *a4)
@@ -55,7 +55,7 @@ __int64 __fastcall CProjectedShadowScene::SetProperty(CProjectedShadowScene *a1,
   {
 LABEL_15:
     v8 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0LL, -2147024809, 0xDAu);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0xDAu, 0LL);
     return v8;
   }
   CProjectedShadowScene::SetOpacityFalloff(a1, *a4);

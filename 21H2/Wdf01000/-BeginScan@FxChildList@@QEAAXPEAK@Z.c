@@ -1,10 +1,10 @@
 /*
- * XREFs of ?BeginScan@FxChildList@@QEAAXPEAK@Z @ 0x1C0013D00
+ * XREFs of ?BeginScan@FxChildList@@QEAAXPEAK@Z @ 0x1C0019C10
  * Callers:
- *     imp_WdfChildListBeginScan @ 0x1C0013CB0 (imp_WdfChildListBeginScan.c)
+ *     imp_WdfChildListBeginScan @ 0x1C0019BC0 (imp_WdfChildListBeginScan.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
  */
 
 void __fastcall FxChildList::BeginScan(FxChildList *this, unsigned int *ScanTag)

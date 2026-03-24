@@ -1,7 +1,7 @@
 /*
- * XREFs of IsPointerInputClientMessage @ 0x1C00AC3CC
+ * XREFs of IsPointerInputClientMessage @ 0x1C006B3A0
  * Callers:
- *     ?FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z @ 0x1C016AB2E (-FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z.c)
+ *     ?FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z @ 0x1C01E0444 (-FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z.c)
  * Callees:
  *     <none>
  */

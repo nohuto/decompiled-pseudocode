@@ -1,16 +1,17 @@
 /*
- * XREFs of MiCheckPurgeAndUpMapCount @ 0x140287450
+ * XREFs of MiCheckPurgeAndUpMapCount @ 0x140315FB0
  * Callers:
- *     MiMapViewInSystemSpace @ 0x1406F3FDC (MiMapViewInSystemSpace.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
- *     MiCreateUserPhysicalView @ 0x14097CD04 (MiCreateUserPhysicalView.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiMapViewInSystemSpace @ 0x1406E887C (MiMapViewInSystemSpace.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
+ *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C91F8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiCreateUserPhysicalView @ 0x1408D5BA8 (MiCreateUserPhysicalView.c)
  * Callees:
- *     KeWaitForGate @ 0x140217454 (KeWaitForGate.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCheckPurgeAndUpMapCount(__int64 a1)
@@ -66,7 +67,7 @@ __int64 __fastcall MiCheckPurgeAndUpMapCount(__int64 a1)
       }
     }
     __writecr8(i);
-    KeWaitForGate((__int64)&v15, 0x12u);
+    KeWaitForGate((__int64)&v15, 18);
   }
   ++*(_QWORD *)(a1 + 40);
   ++*(_QWORD *)(a1 + 48);

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpLogAlwaysPresentRundown @ 0x140814C04
+ * XREFs of EtwpLogAlwaysPresentRundown @ 0x140797F80
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x1403AAEF4 (EtwpUpdateSelectedGroupMasks.c)
- *     EtwpLogKernelTraceRundown @ 0x1409EA2D4 (EtwpLogKernelTraceRundown.c)
+ *     EtwpUpdateGroupMasks @ 0x1407970F0 (EtwpUpdateGroupMasks.c)
+ *     EtwpLogKernelTraceRundown @ 0x14093DBE0 (EtwpLogKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
  */
 
 void __fastcall EtwpLogAlwaysPresentRundown(__int64 a1, unsigned int a2)

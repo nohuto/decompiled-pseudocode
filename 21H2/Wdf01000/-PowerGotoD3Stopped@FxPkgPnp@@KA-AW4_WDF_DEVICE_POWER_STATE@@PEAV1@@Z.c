@@ -1,19 +1,20 @@
 /*
- * XREFs of ?PowerGotoD3Stopped@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C0086BA0
+ * XREFs of ?PowerGotoD3Stopped@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C007DBE0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?PowerSendPowerDownEvents@FxPkgPnp@@IEAAXW4FxPowerDownType@@@Z @ 0x1C000D138 (-PowerSendPowerDownEvents@FxPkgPnp@@IEAAXW4FxPowerDownType@@@Z.c)
- *     ?NotifyResourceObjectsDx@FxPkgPnp@@AEAAJK@Z @ 0x1C000D17C (-NotifyResourceObjectsDx@FxPkgPnp@@AEAAJK@Z.c)
- *     ?PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ @ 0x1C000D200 (-PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ.c)
- *     ?InvokeStateless@FxPrePostCallback@@QEAAJXZ @ 0x1C000D528 (-InvokeStateless@FxPrePostCallback@@QEAAJXZ.c)
- *     ?StopProcessingForPower@FxPkgIo@@QEAAJW4FxIoStopProcessingForPowerAction@@@Z @ 0x1C000F808 (-StopProcessingForPower@FxPkgIo@@QEAAJW4FxIoStopProcessingForPowerAction@@@Z.c)
- *     ?PowerSetDevicePowerState@FxPkgPnp@@IEAAXW4_WDF_POWER_DEVICE_STATE@@@Z @ 0x1C0012A38 (-PowerSetDevicePowerState@FxPkgPnp@@IEAAXW4_WDF_POWER_DEVICE_STATE@@@Z.c)
- *     ?ProcessEvent@FxSelfManagedIoMachine@@IEAAJW4FxSelfManagedIoEvents@@PEAW4FxCxCallbackProgress@@@Z @ 0x1C0018474 (-ProcessEvent@FxSelfManagedIoMachine@@IEAAJW4FxSelfManagedIoEvents@@PEAW4FxCxCallbackProgress@@@.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_qqLd @ 0x1C0077C28 (WPP_IFR_SF_qqLd.c)
+ *     ?PowerSendPowerDownEvents@FxPkgPnp@@IEAAXW4FxPowerDownType@@@Z @ 0x1C00047E4 (-PowerSendPowerDownEvents@FxPkgPnp@@IEAAXW4FxPowerDownType@@@Z.c)
+ *     ?NotifyResourceObjectsDx@FxPkgPnp@@AEAAJK@Z @ 0x1C000483C (-NotifyResourceObjectsDx@FxPkgPnp@@AEAAJK@Z.c)
+ *     ?PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ @ 0x1C0004BD4 (-PowerDmaPowerDown@FxPkgPnp@@IEAAEXZ.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?InvokeStateless@FxPrePostCallback@@QEAAJXZ @ 0x1C00109A4 (-InvokeStateless@FxPrePostCallback@@QEAAJXZ.c)
+ *     ?PowerSetDevicePowerState@FxPkgPnp@@IEAAXW4_WDF_POWER_DEVICE_STATE@@@Z @ 0x1C0011174 (-PowerSetDevicePowerState@FxPkgPnp@@IEAAXW4_WDF_POWER_DEVICE_STATE@@@Z.c)
+ *     ?StopProcessingForPower@FxPkgIo@@QEAAJW4FxIoStopProcessingForPowerAction@@@Z @ 0x1C00129B4 (-StopProcessingForPower@FxPkgIo@@QEAAJW4FxIoStopProcessingForPowerAction@@@Z.c)
+ *     ?GetHandle@FxDeviceBase@@QEAAPEAUWDFDEVICE__@@XZ @ 0x1C001B26C (-GetHandle@FxDeviceBase@@QEAAPEAUWDFDEVICE__@@XZ.c)
+ *     ?Invoke@FxPnpDeviceD0ExitPreHwDisabled@@QEAAJPEAUWDFDEVICE__@@W4_WDF_POWER_DEVICE_STATE@@@Z @ 0x1C001C0B8 (-Invoke@FxPnpDeviceD0ExitPreHwDisabled@@QEAAJPEAUWDFDEVICE__@@W4_WDF_POWER_DEVICE_STATE@@@Z.c)
+ *     ?Suspend@FxSelfManagedIoMachine@@QEAAJW4_WDF_POWER_DEVICE_STATE@@@Z @ 0x1C001C748 (-Suspend@FxSelfManagedIoMachine@@QEAAJW4_WDF_POWER_DEVICE_STATE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qqLd @ 0x1C006A7CC (WPP_IFR_SF_qqLd.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerGotoD3Stopped(FxPkgPnp *This)
@@ -21,17 +22,17 @@ __int64 __fastcall FxPkgPnp::PowerGotoD3Stopped(FxPkgPnp *This)
   char v2; // bl
   FxSelfManagedIoMachine *m_SelfManagedIoMachine; // rcx
   int _a1; // eax
-  unsigned __int64 ObjectHandleUnchecked; // rax
-  __int64 v6; // rdx
-  const void *v7; // rax
-  __int64 v8; // rdx
-  int v9; // r8d
-  unsigned __int64 v10; // rcx
+  WDFDEVICE__ *Handle; // rax
+  WDFDEVICE__ *v6; // rax
+  __int64 v7; // rdx
+  int v8; // r8d
+  WDFDEVICE__ *v9; // rcx
   int (__fastcall *m_Method)(WDFDEVICE__ *, _WDF_POWER_DEVICE_STATE); // rax
-  const void *v12; // rax
+  int v11; // r8d
+  WDFDEVICE__ *v12; // rax
   __int64 v13; // rdx
-  int v14; // r10d
-  unsigned __int64 v15; // rax
+  int v14; // r8d
+  WDFDEVICE__ *v15; // rax
   __int64 v16; // r8
   unsigned __int8 v17; // r8
 
@@ -39,8 +40,7 @@ __int64 __fastcall FxPkgPnp::PowerGotoD3Stopped(FxPkgPnp *This)
   m_SelfManagedIoMachine = This->m_SelfManagedIoMachine;
   if ( m_SelfManagedIoMachine )
   {
-    m_SelfManagedIoMachine->m_DeviceSelfManagedIoSuspend.m_TargetState = WdfPowerDeviceD3Final;
-    _a1 = FxSelfManagedIoMachine::ProcessEvent(m_SelfManagedIoMachine, (_FX_DRIVER_GLOBALS *)4, 0LL);
+    _a1 = FxSelfManagedIoMachine::Suspend(m_SelfManagedIoMachine, WdfPowerDeviceD3Final);
     if ( _a1 < 0 )
     {
       WPP_IFR_SF_d(This->m_Globals, 2u, 0xCu, 0x11u, WPP_PowerStateMachine_cpp_Traceguids, _a1);
@@ -50,32 +50,37 @@ __int64 __fastcall FxPkgPnp::PowerGotoD3Stopped(FxPkgPnp *This)
   FxPkgIo::StopProcessingForPower(
     (FxPkgIo *)This->m_DeviceBase[3].m_ChildListHead.Blink,
     FxIoStopProcessingForPowerHold);
-  ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(This->m_DeviceBase);
-  *(_QWORD *)(v6 + 24) = ObjectHandleUnchecked;
-  *(_DWORD *)(v6 + 32) = 5;
-  if ( (int)FxPrePostCallback::InvokeStateless((FxPrePostCallback *)v6) < 0 )
+  Handle = FxDeviceBase::GetHandle(This->m_DeviceBase);
+  if ( (int)FxPnpDeviceD0ExitPreHwDisabled::Invoke(
+              &This->m_DeviceD0ExitPreHardwareDisabled,
+              Handle,
+              WdfPowerDeviceD3Final) < 0 )
   {
     v2 = 1;
-    v7 = (const void *)FxObject::GetObjectHandleUnchecked(This->m_DeviceBase);
+    v6 = FxDeviceBase::GetHandle(This->m_DeviceBase);
     WPP_IFR_SF_qqLd(
       This->m_Globals,
-      v8,
+      v7,
       0xCu,
       0x12u,
       WPP_PowerStateMachine_cpp_Traceguids,
-      v7,
-      *(const void **)(v8 + 144),
+      v6,
+      *(const void **)(v7 + 144),
       5u,
-      v9);
+      v8);
   }
   if ( !FxPkgPnp::PowerDmaPowerDown(This) )
     v2 = 1;
-  v10 = FxObject::GetObjectHandleUnchecked(This->m_DeviceBase);
+  v9 = FxDeviceBase::GetHandle(This->m_DeviceBase);
   m_Method = This->m_DeviceD0ExitPreInterruptsDisabled.m_Method;
-  if ( m_Method && m_Method((WDFDEVICE__ *)v10, WdfPowerDeviceD3Final) < 0 )
+  if ( m_Method )
+    v11 = m_Method(v9, WdfPowerDeviceD3Final);
+  else
+    v11 = 0;
+  if ( v11 < 0 )
   {
     v2 = 1;
-    v12 = (const void *)FxObject::GetObjectHandleUnchecked(This->m_DeviceBase);
+    v12 = FxDeviceBase::GetHandle(This->m_DeviceBase);
     WPP_IFR_SF_qqLd(
       This->m_Globals,
       v13,
@@ -89,7 +94,7 @@ __int64 __fastcall FxPkgPnp::PowerGotoD3Stopped(FxPkgPnp *This)
   }
   if ( (int)FxPkgPnp::NotifyResourceObjectsDx(This, 4u) < 0 )
     v2 = 1;
-  v15 = FxObject::GetObjectHandleUnchecked(This->m_DeviceBase);
+  v15 = FxDeviceBase::GetHandle(This->m_DeviceBase);
   *(_QWORD *)(v16 + 32) = v15;
   *(_DWORD *)(v16 + 40) = 5;
   if ( (int)FxPrePostCallback::InvokeStateless((FxPrePostCallback *)v16) < 0 )

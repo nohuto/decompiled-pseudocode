@@ -1,7 +1,7 @@
 /*
- * XREFs of AddAllFlEntryWorker @ 0x1C012069C
+ * XREFs of AddAllFlEntryWorker @ 0x1C00E730C
  * Callers:
- *     bAddAllFlEntry @ 0x1C015E414 (bAddAllFlEntry.c)
+ *     bAddAllFlEntry @ 0x1C00E6C58 (bAddAllFlEntry.c)
  * Callees:
  *     <none>
  */
@@ -14,9 +14,9 @@ NTSTATUS __fastcall AddAllFlEntryWorker(PCWSTR Path, int a2)
   SharedQueryTable.DefaultType = 0;
   SharedQueryTable.DefaultData = 0LL;
   SharedQueryTable.DefaultLength = 0;
-  qword_1C0335A18 = 0LL;
-  dword_1C0335A20 = 0;
-  qword_1C0335A28 = 0LL;
+  qword_1C033A868 = 0LL;
+  dword_1C033A870 = 0;
+  qword_1C033A878 = 0LL;
   SharedQueryTable.EntryContext = (PVOID)a2;
   return RtlQueryRegistryValues(0, Path, &SharedQueryTable, 0LL, 0LL);
 }

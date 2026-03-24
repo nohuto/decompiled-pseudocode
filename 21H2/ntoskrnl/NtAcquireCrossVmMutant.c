@@ -1,11 +1,11 @@
 /*
- * XREFs of NtAcquireCrossVmMutant @ 0x140A02B00
+ * XREFs of NtAcquireCrossVmMutant @ 0x140956DD0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExpAcquireCrossVmMutant @ 0x140A07BFC (ExpAcquireCrossVmMutant.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExpAcquireCrossVmMutant @ 0x14095C39C (ExpAcquireCrossVmMutant.c)
  */
 
 __int64 __fastcall NtAcquireCrossVmMutant(void *a1, unsigned __int64 a2)
@@ -37,7 +37,7 @@ __int64 __fastcall NtAcquireCrossVmMutant(void *a1, unsigned __int64 a2)
   {
     LOBYTE(v7) = PreviousMode;
     v6 = ExpAcquireCrossVmMutant(Object, v4, v7);
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   }
   return (unsigned int)v6;
 }

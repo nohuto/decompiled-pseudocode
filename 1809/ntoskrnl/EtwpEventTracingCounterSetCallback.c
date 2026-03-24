@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpEventTracingCounterSetCallback @ 0x1409085F0
+ * XREFs of EtwpEventTracingCounterSetCallback @ 0x1409085D0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     EtwpGetNextGuidEntry @ 0x1405C2614 (EtwpGetNextGuidEntry.c)
  *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
  *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     PcwAddInstance @ 0x1406914E0 (PcwAddInstance.c)
- *     WmiQueryTraceInformation @ 0x140716C30 (WmiQueryTraceInformation.c)
+ *     PcwAddInstance @ 0x1406914C0 (PcwAddInstance.c)
+ *     WmiQueryTraceInformation @ 0x140716C10 (WmiQueryTraceInformation.c)
  */
 
 __int64 __fastcall EtwpEventTracingCounterSetCallback(int a1, __int64 a2, __int64 a3)

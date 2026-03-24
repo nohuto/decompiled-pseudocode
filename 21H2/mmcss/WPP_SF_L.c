@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_SF_L @ 0x1C0004D98
+ * XREFs of WPP_SF_L @ 0x1C0004AE8
  * Callers:
- *     CiConfigQueryValue @ 0x1C000DE00 (CiConfigQueryValue.c)
+ *     CiConfigQueryValue @ 0x1C000DE80 (CiConfigQueryValue.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00033D0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00031A0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_SF_L(__int64 a1, __int64 a2, __int64 a3, int a4)

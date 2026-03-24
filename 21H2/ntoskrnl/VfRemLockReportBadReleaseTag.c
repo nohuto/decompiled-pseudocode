@@ -1,9 +1,9 @@
 /*
- * XREFs of VfRemLockReportBadReleaseTag @ 0x140A91EAC
+ * XREFs of VfRemLockReportBadReleaseTag @ 0x1409D67D4
  * Callers:
- *     IoReleaseRemoveLockEx @ 0x1402332A0 (IoReleaseRemoveLockEx.c)
+ *     IoReleaseRemoveLockEx @ 0x1402AB990 (IoReleaseRemoveLockEx.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfRemLockReportBadReleaseTag(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

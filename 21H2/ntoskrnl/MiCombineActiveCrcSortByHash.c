@@ -1,5 +1,5 @@
 /*
- * XREFs of MiCombineActiveCrcSortByHash @ 0x140229860
+ * XREFs of MiCombineActiveCrcSortByHash @ 0x14036BC00
  * Callers:
  *     <none>
  * Callees:
@@ -17,10 +17,10 @@ __int64 __fastcall MiCombineActiveCrcSortByHash(_QWORD **a1, _QWORD **a2)
 
   v2 = *a1;
   v3 = *a2;
-  if ( *v2 > **a2 )
-    return 1LL;
-  if ( *v2 < *v3 )
+  if ( *v2 < **a2 )
     return 0xFFFFFFFFLL;
+  if ( *v2 > *v3 )
+    return 1LL;
   v4 = v2[3];
   if ( v4 < v3[3] )
     return 0xFFFFFFFFLL;

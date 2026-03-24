@@ -1,19 +1,19 @@
 /*
- * XREFs of KdpReadControlSpace @ 0x140A70A20
+ * XREFs of KdpReadControlSpace @ 0x1409B77B4
  * Callers:
- *     KdpSendWaitContinue @ 0x140A6FB80 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpSysReadControlSpace @ 0x140A70AE0 (KdpSysReadControlSpace.c)
+ *     KdpSysReadControlSpace @ 0x1409B9F1C (KdpSysReadControlSpace.c)
  */
 
 __int64 __fastcall KdpReadControlSpace(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // r8
   unsigned int v6; // ebx
-  int v7; // ecx
+  __int64 v7; // rcx
   __int64 v8; // rdx
   __int64 v9; // r8
-  int ControlSpace; // eax
+  int v10; // eax
   bool v11; // cf
   _QWORD v13[3]; // [rsp+30h] [rbp-18h] BYREF
   __int64 v14; // [rsp+60h] [rbp+18h] BYREF
@@ -31,9 +31,9 @@ __int64 __fastcall KdpReadControlSpace(__int64 a1, __int64 a2, __int64 a3)
   v8 = *(_QWORD *)(a1 + 16);
   v9 = *(_QWORD *)(a2 + 8);
   LODWORD(v14) = v6;
-  ControlSpace = KdpSysReadControlSpace(v7, v8, v9, v6, (__int64)&v14);
+  v10 = KdpSysReadControlSpace(v7, v8, v9, v6, &v14);
   v11 = (unsigned int)v14 < v6;
-  *(_DWORD *)(a1 + 8) = ControlSpace;
+  *(_DWORD *)(a1 + 8) = v10;
   if ( v11 )
     v6 = v14;
   *(_WORD *)a2 = v6;

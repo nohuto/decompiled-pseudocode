@@ -1,7 +1,7 @@
 /*
- * XREFs of StringToULONG @ 0x1C00256F4
+ * XREFs of StringToULONG @ 0x1C001E2D4
  * Callers:
- *     CompareId @ 0x1C00012D8 (CompareId.c)
+ *     CompareId @ 0x1C0005BD0 (CompareId.c)
  * Callees:
  *     <none>
  */

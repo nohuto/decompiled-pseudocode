@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetEffectivePowerLevel@TrackedWorkloadMonitor@@QEAAXI_N@Z @ 0x1C0081F8C
+ * XREFs of ?SetEffectivePowerLevel@TrackedWorkloadMonitor@@QEAAXI_N@Z @ 0x1C006F1E4
  * Callers:
- *     ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C0344CCC (-EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ.c)
+ *     ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C02BC780 (-EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ void __fastcall TrackedWorkloadMonitor::SetEffectivePowerLevel(TrackedWorkloadMo
 {
   __int64 v3; // r9
 
-  v3 = 5LL * *((unsigned int *)this + 56);
-  *((_DWORD *)this + 2 * v3 + 13) = a2;
-  *((_BYTE *)this + 8 * v3 + 61) = a3;
+  v3 = 5LL * *((unsigned int *)this + 54);
+  *((_DWORD *)this + 2 * v3 + 10) = a2;
+  *((_BYTE *)this + 8 * v3 + 49) = a3;
 }

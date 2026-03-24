@@ -1,22 +1,22 @@
 /*
- * XREFs of CMFCreateSecurityDescriptor @ 0x1408D8630
+ * XREFs of CMFCreateSecurityDescriptor @ 0x1408D8610
  * Callers:
- *     CMFCheckAccess @ 0x1408D8404 (CMFCheckAccess.c)
- *     CMFSystemThreadRoutine @ 0x1408D94C0 (CMFSystemThreadRoutine.c)
+ *     CMFCheckAccess @ 0x1408D83E4 (CMFCheckAccess.c)
+ *     CMFSystemThreadRoutine @ 0x1408D94A0 (CMFSystemThreadRoutine.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
  *     RtlValidAcl @ 0x140631700 (RtlValidAcl.c)
- *     RtlMapGenericMask @ 0x14063ED50 (RtlMapGenericMask.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140655630 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
- *     RtlValidSecurityDescriptor @ 0x14069B9B0 (RtlValidSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x1406AFA30 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140655610 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
+ *     RtlValidSecurityDescriptor @ 0x14069B990 (RtlValidSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1406AFA10 (RtlAbsoluteToSelfRelativeSD.c)
  */
 
 __int64 __fastcall CMFCreateSecurityDescriptor(PVOID *a1, GENERIC_MAPPING *a2)

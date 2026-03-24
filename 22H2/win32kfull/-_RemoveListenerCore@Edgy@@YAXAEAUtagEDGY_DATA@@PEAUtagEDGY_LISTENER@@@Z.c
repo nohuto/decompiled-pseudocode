@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C01E88F8
+ * XREFs of ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C0208398
  * Callers:
- *     ?OnDeviceRemoval@Edgy@@YAXPEAX@Z @ 0x1C01E7858 (-OnDeviceRemoval@Edgy@@YAXPEAX@Z.c)
- *     EdgyUnregisterListener @ 0x1C01E8A84 (EdgyUnregisterListener.c)
+ *     ?OnDeviceRemoval@Edgy@@YAXPEAX@Z @ 0x1C0207228 (-OnDeviceRemoval@Edgy@@YAXPEAX@Z.c)
+ *     EdgyUnregisterListener @ 0x1C02085E0 (EdgyUnregisterListener.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 void __fastcall Edgy::_RemoveListenerCore(Edgy *this, struct tagEDGY_DATA *a2, struct tagEDGY_LISTENER *a3)
@@ -19,9 +19,12 @@ void __fastcall Edgy::_RemoveListenerCore(Edgy *this, struct tagEDGY_DATA *a2, s
   v5 = *(_DWORD *)this;
   v6 = ((__int64)a2 - v4) >> 5;
   if ( (_DWORD)v6 != v5 - 1 )
+  {
     memmove(
       (void *)(v4 + 32LL * (unsigned int)v6),
       (const void *)(v4 + 32LL * (unsigned int)(v6 + 1)),
       32LL * (unsigned int)(v5 - v6 - 1));
-  --*(_DWORD *)this;
+    v5 = *(_DWORD *)this;
+  }
+  *(_DWORD *)this = v5 - 1;
 }

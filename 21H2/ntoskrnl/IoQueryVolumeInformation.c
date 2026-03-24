@@ -1,9 +1,9 @@
 /*
- * XREFs of IoQueryVolumeInformation @ 0x1406E8DF0
+ * XREFs of IoQueryVolumeInformation @ 0x1406C5D20
  * Callers:
- *     MiCreatePagingFile @ 0x14084AA8C (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
  * Callees:
- *     IopQueryXxxInformation @ 0x14071E6BC (IopQueryXxxInformation.c)
+ *     IopQueryXxxInformation @ 0x1406C9708 (IopQueryXxxInformation.c)
  */
 
 NTSTATUS __stdcall IoQueryVolumeInformation(
@@ -13,5 +13,5 @@ NTSTATUS __stdcall IoQueryVolumeInformation(
         PVOID FsInformation,
         PULONG ReturnedLength)
 {
-  return IopQueryXxxInformation(FileObject, (__int64)FsInformation, (__int64)ReturnedLength, 0);
+  return IopQueryXxxInformation((PADAPTER_OBJECT)FileObject, (__int64)FsInformation, (__int64)ReturnedLength, 0);
 }

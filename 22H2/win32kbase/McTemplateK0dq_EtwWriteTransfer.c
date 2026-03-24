@@ -1,17 +1,17 @@
 /*
- * XREFs of McTemplateK0dq_EtwWriteTransfer @ 0x1C00DF7E4
+ * XREFs of McTemplateK0dq_EtwWriteTransfer @ 0x1C01256BC
  * Callers:
- *     xxxCreateThreadInfo @ 0x1C004D550 (xxxCreateThreadInfo.c)
- *     EtwTraceStartInputDeviceRead @ 0x1C007A2A0 (EtwTraceStartInputDeviceRead.c)
- *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C009E7F8 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
- *     EtwTraceFocusChange @ 0x1C00B48A0 (EtwTraceFocusChange.c)
- *     EtwTraceCompleteInputDeviceRead @ 0x1C00C4C70 (EtwTraceCompleteInputDeviceRead.c)
- *     VideoPortCalloutThread @ 0x1C00CCFE8 (VideoPortCalloutThread.c)
- *     EtwTraceDwmManipulationFrameRouted @ 0x1C0139100 (EtwTraceDwmManipulationFrameRouted.c)
- *     EtwTraceDwmManipulationFrameStart @ 0x1C0139130 (EtwTraceDwmManipulationFrameStart.c)
+ *     xxxCreateThreadInfo @ 0x1C003ED88 (xxxCreateThreadInfo.c)
+ *     EtwTraceStartInputDeviceRead @ 0x1C006AF10 (EtwTraceStartInputDeviceRead.c)
+ *     EtwTraceFocusChange @ 0x1C00A85F0 (EtwTraceFocusChange.c)
+ *     EtwTraceCompleteInputDeviceRead @ 0x1C00B7900 (EtwTraceCompleteInputDeviceRead.c)
+ *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00C1188 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
+ *     VideoPortCalloutThread @ 0x1C011B084 (VideoPortCalloutThread.c)
+ *     EtwTraceDwmManipulationFrameRouted @ 0x1C0122060 (EtwTraceDwmManipulationFrameRouted.c)
+ *     EtwTraceDwmManipulationFrameStart @ 0x1C0122090 (EtwTraceDwmManipulationFrameStart.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0dq_EtwWriteTransfer(

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DirectedPowerUpComplete@FxDevicePwrRequirementMachine@@CA?AW4FxDevicePwrRequirementStates@@PEAV1@@Z @ 0x1C000C0B0
+ * XREFs of ?DirectedPowerUpComplete@FxDevicePwrRequirementMachine@@CA?AW4FxDevicePwrRequirementStates@@PEAV1@@Z @ 0x1C000E010
  * Callers:
  *     <none>
  * Callees:

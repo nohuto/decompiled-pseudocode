@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIsHeap64KRegionExecutable @ 0x1405056D0
+ * XREFs of HalpIsHeap64KRegionExecutable @ 0x1404BC8B0
  * Callers:
- *     HalpMap @ 0x14037E878 (HalpMap.c)
+ *     HalpMap @ 0x1403BB2D8 (HalpMap.c)
  * Callees:
  *     <none>
  */

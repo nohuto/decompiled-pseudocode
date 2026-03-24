@@ -1,12 +1,12 @@
 /*
- * XREFs of PopWnfUserAwayPredictionCallback @ 0x140984760
+ * XREFs of PopWnfUserAwayPredictionCallback @ 0x1408E4240
  * Callers:
  *     <none>
  * Callees:
- *     ExQueryWnfStateData @ 0x1407E2740 (ExQueryWnfStateData.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x14099C01C (PopUpdateSmartUserPresencePredictions.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     ExQueryWnfStateData @ 0x14069E4C0 (ExQueryWnfStateData.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x1408F575C (PopUpdateSmartUserPresencePredictions.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopWnfUserAwayPredictionCallback(__int64 a1)
@@ -15,21 +15,20 @@ __int64 __fastcall PopWnfUserAwayPredictionCallback(__int64 a1)
   int v2; // ebx
   __int64 v3; // rdx
   __int64 v4; // rcx
-  __int64 v5; // r8
-  unsigned int v7; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-10h] BYREF
-  int v9; // [rsp+58h] [rbp+20h] BYREF
+  unsigned int v6; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v7; // [rsp+28h] [rbp-10h] BYREF
+  int v8; // [rsp+58h] [rbp+20h] BYREF
 
-  v8 = 0LL;
-  v7 = 8;
-  v2 = ExQueryWnfStateData(a1, &v9, &v8, &v7);
+  v7 = 0LL;
+  v6 = 8;
+  v2 = ExQueryWnfStateData(a1, &v8, &v7, &v6);
   if ( v2 >= 0 )
   {
-    if ( v7 >= 8 )
+    if ( v6 >= 8 )
     {
       PopAcquirePolicyLock(v1);
-      PopUpdateSmartUserPresencePredictions(v8, 3LL);
-      PopReleasePolicyLock(v4, v3, v5);
+      PopUpdateSmartUserPresencePredictions(v7, 3LL);
+      PopReleasePolicyLock(v4, v3);
     }
     else
     {

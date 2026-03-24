@@ -1,11 +1,11 @@
 /*
- * XREFs of xxxFlushPalette @ 0x1C0214E20
+ * XREFs of xxxFlushPalette @ 0x1C0234C90
  * Callers:
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     xxxDestroyWindow @ 0x1C00E8400 (xxxDestroyWindow.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
+ *     xxxDestroyWindow @ 0x1C007DC00 (xxxDestroyWindow.c)
  * Callees:
- *     GreRealizeDefaultPalette @ 0x1C001F258 (GreRealizeDefaultPalette.c)
- *     xxxBroadcastPaletteChanged @ 0x1C0214D8C (xxxBroadcastPaletteChanged.c)
+ *     GreRealizeDefaultPalette @ 0x1C012B594 (GreRealizeDefaultPalette.c)
+ *     xxxBroadcastPaletteChanged @ 0x1C0234BE0 (xxxBroadcastPaletteChanged.c)
  */
 
 __int64 __fastcall xxxFlushPalette(unsigned __int64 *a1, int a2)

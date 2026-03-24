@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpPrefetchSharedStart @ 0x14065CDD8
+ * XREFs of PfpPrefetchSharedStart @ 0x14065CDB8
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x14065B9BC (PfpPrefetchRequestPerform.c)
- *     PfSnAsyncPrefetchWorker @ 0x140666580 (PfSnAsyncPrefetchWorker.c)
- *     PfpQueryFileExtentsRequest @ 0x140864748 (PfpQueryFileExtentsRequest.c)
+ *     PfpPrefetchRequestPerform @ 0x14065B99C (PfpPrefetchRequestPerform.c)
+ *     PfSnAsyncPrefetchWorker @ 0x140666560 (PfSnAsyncPrefetchWorker.c)
+ *     PfpQueryFileExtentsRequest @ 0x140864728 (PfpQueryFileExtentsRequest.c)
  * Callees:
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
@@ -11,7 +11,7 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PsSetCurrentThreadPrefetching @ 0x14065FC70 (PsSetCurrentThreadPrefetching.c)
+ *     PsSetCurrentThreadPrefetching @ 0x14065FC50 (PsSetCurrentThreadPrefetching.c)
  */
 
 __int64 __fastcall PfpPrefetchSharedStart(ULONG_PTR BugCheckParameter2)

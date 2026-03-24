@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDispatchersName@CMouseSensor@@EEAAXPEAW4DispatcherHandleName@CRIMBase@@PEAI@Z @ 0x1C00C4AD0
+ * XREFs of ?GetDispatchersName@CMouseSensor@@EEAAXPEAW4DispatcherHandleName@CRIMBase@@PEAI@Z @ 0x1C00B8400
  * Callers:
  *     <none>
  * Callees:
@@ -11,8 +11,7 @@ void __fastcall CMouseSensor::GetDispatchersName(
         enum CRIMBase::DispatcherHandleName *a2,
         unsigned int *a3)
 {
-  *a3 = 9;
+  *a3 = 8;
   *(_OWORD *)a2 = *(_OWORD *)&CMouseSensor::dispatcherObjects;
-  *((_OWORD *)a2 + 1) = xmmword_1C024A130;
-  *((_DWORD *)a2 + 8) = 16;
+  *((_OWORD *)a2 + 1) = xmmword_1C020F638;
 }

@@ -1,17 +1,17 @@
 /*
  * XREFs of KiGetCpuVendor @ 0x14056F6EC
  * Callers:
- *     HvlpProcessIommu @ 0x140278094 (HvlpProcessIommu.c)
- *     KiGetIptInfo @ 0x140294438 (KiGetIptInfo.c)
+ *     HvlpProcessIommu @ 0x140278194 (HvlpProcessIommu.c)
+ *     KiGetIptInfo @ 0x140294538 (KiGetIptInfo.c)
  *     KiIsNXSupported @ 0x14056F5E0 (KiIsNXSupported.c)
  *     KiGetProcessorSignature @ 0x14056F62C (KiGetProcessorSignature.c)
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1408BA7C0 (EtwpAddMicroarchitecturalPmcToRegistry.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1408BB680 (EtwpLoadMicroarchitecturalProfileGroup.c)
- *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1408BBD94 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1408BA7A0 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1408BB660 (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1408BBD74 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
  *     KiInitializeNxSupportDiscard @ 0x1409AF820 (KiInitializeNxSupportDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     strncmp @ 0x140194DE0 (strncmp.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     strncmp @ 0x140194E00 (strncmp.c)
  */
 
 __int64 KiGetCpuVendor()

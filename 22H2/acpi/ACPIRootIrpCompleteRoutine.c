@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIRootIrpCompleteRoutine @ 0x1C0001410
+ * XREFs of ACPIRootIrpCompleteRoutine @ 0x1C00031F0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
  */
 
 __int64 __fastcall ACPIRootIrpCompleteRoutine(ULONG_PTR BugCheckParameter3, __int64 a2, struct _KEVENT *a3)
@@ -11,10 +11,9 @@ __int64 __fastcall ACPIRootIrpCompleteRoutine(ULONG_PTR BugCheckParameter3, __in
   KIRQL v6; // al
   __int64 v7; // rbx
   __int64 v8; // rax
-  void *v9; // r8
-  void *v10; // r10
+  const char *v9; // r8
+  const char *v10; // r10
   unsigned int v11; // ecx
-  unsigned int v12; // edx
 
   v6 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
   v7 = *(_QWORD *)(BugCheckParameter3 + 64);
@@ -24,33 +23,31 @@ __int64 __fastcall ACPIRootIrpCompleteRoutine(ULONG_PTR BugCheckParameter3, __in
   if ( v7 )
   {
     v8 = *(_QWORD *)(v7 + 8);
-    v9 = &unk_1C00622D0;
-    v10 = &unk_1C00622D0;
+    v9 = (const char *)&unk_1C00701BA;
+    v10 = (const char *)&unk_1C00701BA;
     if ( (v8 & 0x200000000000LL) != 0 )
     {
-      v9 = *(void **)(v7 + 608);
+      v9 = *(const char **)(v7 + 568);
       if ( (v8 & 0x400000000000LL) != 0 )
-        v10 = *(void **)(v7 + 616);
+        v10 = *(const char **)(v7 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       v11 = *(unsigned __int8 *)(*(_QWORD *)(a2 + 184) + 1LL);
       if ( v11 >= 0x1A )
         v11 = 26;
-      v12 = v11;
-      LOBYTE(v12) = 4;
       WPP_RECORDER_SF_qsLqss(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v12,
-        5,
-        11,
-        (__int64)&WPP_751107becb7a3b7b48760ac4afe26340_Traceguids,
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        4u,
+        5u,
+        0xBu,
+        (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
         a2,
-        (__int64)(&ACPIDispatchPnpTableNames)[v11],
+        ACPIDispatchPnpTableNames[v11],
         *(_DWORD *)(a2 + 48),
         v7,
-        (__int64)v9,
-        (__int64)v10);
+        v9,
+        v10);
     }
   }
   KeSetEvent(a3, 0, 0);

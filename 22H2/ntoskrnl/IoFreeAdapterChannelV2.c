@@ -1,35 +1,37 @@
 /*
- * XREFs of IoFreeAdapterChannelV2 @ 0x14045D270
+ * XREFs of IoFreeAdapterChannelV2 @ 0x1404CCD0C
  * Callers:
- *     HalAllocateAdapterChannelV2 @ 0x14045CA88 (HalAllocateAdapterChannelV2.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045D18E (HalpDmaProcessMapRegisterQueueV2.c)
+ *     IoFreeAdapterChannel @ 0x1404B8C60 (IoFreeAdapterChannel.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpDmaAllocateMapRegisters @ 0x14045B93E (HalpDmaAllocateMapRegisters.c)
- *     IoFreeMapRegistersV2 @ 0x14045D460 (IoFreeMapRegistersV2.c)
- *     HalpQueueMapBufferWorker @ 0x140505114 (HalpQueueMapBufferWorker.c)
- *     HalpDmaQueueAdapter @ 0x140511498 (HalpDmaQueueAdapter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KeRemoveDeviceQueue @ 0x140573550 (KeRemoveDeviceQueue.c)
+ *     IoFreeMapRegisters @ 0x1403A25A0 (IoFreeMapRegisters.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpQueueMapBufferWorker @ 0x1404BC538 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C683C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaQueueAdapter @ 0x1404C7CD4 (HalpDmaQueueAdapter.c)
+ *     KeRemoveDeviceQueue @ 0x14051AB10 (KeRemoveDeviceQueue.c)
  */
 
-__int64 __fastcall IoFreeAdapterChannelV2(__int64 a1)
+void __fastcall IoFreeAdapterChannelV2(PDMA_ADAPTER DmaAdapter)
 {
-  char v1; // r14
+  char v1; // r15
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  int v5; // eax
-  __int64 v6; // r8
-  __int64 result; // rax
-  __int64 v8; // rsi
-  unsigned int v9; // edx
+  ULONG v5; // r8d
+  PVOID *p_DmaOperations; // r14
+  PKDEVICE_QUEUE_ENTRY v7; // rax
+  __int64 v8; // r8
+  __int64 v9; // r9
+  PKDEVICE_QUEUE_ENTRY v10; // rsi
+  unsigned int SortKey; // edx
   __int64 MapRegisters; // rax
-  unsigned __int8 v11; // al
+  unsigned __int8 v13; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v13; // r8
-  int v14; // eax
-  bool v15; // zf
-  __int64 v16; // r8
+  _DWORD *v15; // r8
+  int v16; // eax
+  bool v17; // zf
+  PVOID v18; // r8
+  int v19; // eax
 
   v1 = 0;
   CurrentIrql = 0;
@@ -40,71 +42,70 @@ __int64 __fastcall IoFreeAdapterChannelV2(__int64 a1)
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      v5 = 4;
-      if ( CurrentIrql != 2 )
-        v5 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v5;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     v1 = 1;
   }
   while ( 1 )
   {
-    v6 = *(unsigned int *)(a1 + 248);
-    if ( (_DWORD)v6 )
-      IoFreeMapRegistersV2(a1, *(_QWORD *)(a1 + 240), v6);
-    result = (__int64)KeRemoveDeviceQueue((PKDEVICE_QUEUE)(a1 + 184));
-    v8 = result;
-    if ( !result )
+    v5 = *(_DWORD *)&DmaAdapter[15].Version;
+    p_DmaOperations = (PVOID *)&DmaAdapter[14].DmaOperations;
+    if ( v5 )
+      IoFreeMapRegisters(DmaAdapter, *p_DmaOperations, v5);
+    v7 = KeRemoveDeviceQueue((PKDEVICE_QUEUE)&DmaAdapter[11]);
+    v10 = v7;
+    if ( !v7 )
       break;
-    *(_QWORD *)(a1 + 352) = result;
-    *(_DWORD *)(a1 + 248) = *(_DWORD *)(result + 40);
-    v9 = *(_DWORD *)(result + 40);
-    if ( v9 && *(_QWORD *)(a1 + 160) )
+    DmaAdapter[21].DmaOperations = (_DMA_OPERATIONS *)v7;
+    *(_DWORD *)&DmaAdapter[15].Version = v7[1].SortKey;
+    SortKey = v7[1].SortKey;
+    if ( SortKey && DmaAdapter[9].DmaOperations )
     {
-      MapRegisters = HalpDmaAllocateMapRegisters(a1, v9);
-      *(_QWORD *)(a1 + 240) = MapRegisters;
+      MapRegisters = HalpDmaAllocateMapRegisters((__int64)DmaAdapter, SortKey, v8, v9);
+      *p_DmaOperations = (PVOID)MapRegisters;
       if ( !MapRegisters )
       {
-        HalpDmaQueueAdapter(a1);
-        result = HalpQueueMapBufferWorker(a1, *(unsigned int *)(v8 + 40));
+        HalpDmaQueueAdapter((__int64)DmaAdapter);
+        HalpQueueMapBufferWorker((__int64)DmaAdapter, v10[1].SortKey);
         break;
       }
     }
     else
     {
-      *(_QWORD *)(a1 + 240) = 0LL;
-      *(_DWORD *)(a1 + 248) = 0;
+      DmaAdapter[14].DmaOperations = 0LL;
+      *(_DWORD *)&DmaAdapter[15].Version = 0;
     }
-    v16 = *(_QWORD *)(a1 + 240);
-    *(_QWORD *)(a1 + 352) = v8;
-    result = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, _QWORD))(v8 + 24))(
-               *(_QWORD *)(v8 + 48),
-               *(_QWORD *)(v8 + 56),
-               v16,
-               *(_QWORD *)(v8 + 32));
-    if ( (_DWORD)result == 1 )
+    v18 = *p_DmaOperations;
+    DmaAdapter[21].DmaOperations = (_DMA_OPERATIONS *)v10;
+    v19 = ((__int64 (__fastcall *)(struct _LIST_ENTRY *, struct _LIST_ENTRY *, PVOID, struct _LIST_ENTRY *))v10[1].DeviceListEntry.Flink)(
+            v10[2].DeviceListEntry.Flink,
+            v10[2].DeviceListEntry.Blink,
+            v18,
+            v10[1].DeviceListEntry.Blink);
+    if ( v19 == 1 )
       break;
-    if ( (_DWORD)result == 3 )
-      *(_DWORD *)(a1 + 248) = 0;
+    if ( v19 == 3 )
+      *(_DWORD *)&DmaAdapter[15].Version = 0;
   }
   if ( v1 )
   {
     if ( KiIrqlFlags )
     {
-      v11 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v13 = CurrentPrcb->SchedulerAssist;
-        v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v15 = (v14 & v13[5]) == 0;
-        v13[5] &= v14;
-        if ( v15 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v13 = KeGetCurrentIrql();
+        if ( v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v15 = CurrentPrcb->SchedulerAssist;
+          v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v17 = (v16 & v15[5]) == 0;
+          v15[5] &= v16;
+          if ( v17 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
-    result = CurrentIrql;
     __writecr8(CurrentIrql);
   }
-  return result;
 }

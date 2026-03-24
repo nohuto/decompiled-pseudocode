@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMapViewOfSectionCommon @ 0x140721180
+ * XREFs of MiMapViewOfSectionCommon @ 0x140638690
  * Callers:
- *     NtMapViewOfSection @ 0x140720EC0 (NtMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x1407A3A00 (MiMapViewOfSectionExCommon.c)
+ *     NtMapViewOfSection @ 0x140638420 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x1406FCBD8 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MiMakeProtectionMask @ 0x140276860 (MiMakeProtectionMask.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     MiMakeProtectionMask @ 0x14021A9E0 (MiMakeProtectionMask.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall MiMapViewOfSectionCommon(
+NTSTATUS __fastcall MiMapViewOfSectionCommon(
         __int64 a1,
         void *a2,
         int a3,
@@ -21,23 +21,23 @@ __int64 __fastcall MiMapViewOfSectionCommon(
         unsigned __int64 a6,
         int a7,
         char a8,
-        char a9,
+        KPROCESSOR_MODE a9,
         __int64 *a10)
 {
   int ProtectionMask; // eax
   int v14; // r8d
-  ULONG_PTR v15; // r10
+  void *v15; // r10
   PVOID *v16; // r15
-  __int64 result; // rax
+  NTSTATUS result; // eax
   ACCESS_MASK v18; // edx
-  NTSTATUS v19; // r12d
+  NTSTATUS v19; // r13d
   __int64 v20; // rdx
   __int64 *v21; // rdx
   __int64 v22; // r8
   __int64 v23; // r8
   __int64 v24; // rax
   unsigned __int64 v25; // rdx
-  PVOID Object[3]; // [rsp+48h] [rbp-40h] BYREF
+  PVOID v26; // [rsp+48h] [rbp-40h] BYREF
 
   *(_OWORD *)a10 = 0LL;
   *((_OWORD *)a10 + 1) = 0LL;
@@ -45,28 +45,34 @@ __int64 __fastcall MiMapViewOfSectionCommon(
   ProtectionMask = MiMakeProtectionMask(a7 & 0xBFFFFFFF);
   *((_DWORD *)a10 + 6) = ProtectionMask;
   if ( ProtectionMask == -1 )
-    return 3221225541LL;
+    return -1073741755;
   *((_DWORD *)a10 + 6) = ProtectionMask & 7;
   v16 = (PVOID *)(a10 + 5);
-  Object[2] = a10 + 5;
   if ( v14 )
   {
-    *v16 = (PVOID)v15;
+    *v16 = v15;
     a10[4] = (__int64)a2;
   }
   else
   {
-    result = ObpReferenceObjectByHandleWithTag(v15, a3 + 8, (__int64)PsProcessType, a9, 0x77566D4Du, a10 + 5, 0LL, 0LL);
-    if ( (int)result < 0 )
+    result = ObReferenceObjectByHandleWithTag(
+               v15,
+               a3 + 8,
+               (POBJECT_TYPE)PsProcessType,
+               a9,
+               0x77566D4Du,
+               (PVOID *)a10 + 5,
+               0LL);
+    if ( result < 0 )
       return result;
     v18 = *((_DWORD *)MmMakeSectionAccess + *((unsigned int *)a10 + 6));
-    Object[0] = 0LL;
-    v19 = ObReferenceObjectByHandle(a2, v18, MmSectionObjectType, a9, Object, 0LL);
-    a10[4] = (__int64)Object[0];
+    v26 = 0LL;
+    v19 = ObReferenceObjectByHandle(a2, v18, MmSectionObjectType, a9, &v26, 0LL);
+    a10[4] = (__int64)v26;
     if ( v19 < 0 )
     {
       ObfDereferenceObjectWithTag(*v16, 0x77566D4Du);
-      return (unsigned int)v19;
+      return v19;
     }
   }
   if ( a9 )
@@ -110,12 +116,12 @@ __int64 __fastcall MiMapViewOfSectionCommon(
   {
     v25 = a10[1];
     if ( v25 <= 0x7FFFFFFF0000LL - v24 && v24 + v25 <= 0xFFFFFFFFFFFFFFFFuLL >> a8 )
-      return 0LL;
+      return 0;
   }
   if ( !a3 )
   {
-    ObfDereferenceObject((PVOID)a10[4]);
-    ObfDereferenceObjectWithTag(*v16, 0x77566D4Du);
+    HalPutDmaAdapter((PADAPTER_OBJECT)a10[4]);
+    ObfDereferenceObjectWithTag((PVOID)a10[5], 0x77566D4Du);
   }
-  return 3221225485LL;
+  return -1073741811;
 }

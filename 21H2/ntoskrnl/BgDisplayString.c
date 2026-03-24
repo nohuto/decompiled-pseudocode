@@ -1,11 +1,12 @@
 /*
- * XREFs of BgDisplayString @ 0x140AB08A0
+ * XREFs of BgDisplayString @ 0x1409F6570
  * Callers:
- *     BgkDrawText @ 0x140AB070C (BgkDrawText.c)
+ *     BgkDrawText @ 0x1409F63DC (BgkDrawText.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1403A7BF0 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403A7C40 (BgpFwAcquireLock.c)
- *     BgpTxtDisplayString @ 0x140AB1844 (BgpTxtDisplayString.c)
+ *     KeGetCurrentIrql @ 0x14021FAD0 (KeGetCurrentIrql.c)
+ *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
+ *     BgpTxtDisplayString @ 0x1409F7784 (BgpTxtDisplayString.c)
  */
 
 __int64 __fastcall BgDisplayString(int a1)
@@ -17,13 +18,13 @@ __int64 __fastcall BgDisplayString(int a1)
   if ( KeGetCurrentIrql() > 2u )
     return 3221225473LL;
   BgpFwAcquireLock();
-  if ( (dword_140C0DF90 & 1) == 0 || (dword_140C0DF90 & 0x100) != 0 )
+  if ( (dword_140C134F0 & 1) == 0 || (dword_140C134F0 & 0x100) != 0 )
   {
     v5 = -1073741823;
   }
-  else if ( qword_140C0E040 && qword_140C0E058 )
+  else if ( qword_140C135A0 && qword_140C135B8 )
   {
-    v5 = BgpTxtDisplayString(qword_140C0E058, a1, v3, v4);
+    v5 = BgpTxtDisplayString(qword_140C135B8, a1, v3, v4);
   }
   else
   {

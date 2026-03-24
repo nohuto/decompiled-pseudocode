@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlAddSecurePagesCallbackRoutine @ 0x14027751C
+ * XREFs of HvlAddSecurePagesCallbackRoutine @ 0x14027761C
  * Callers:
- *     HvlAddSecureHvPagesCallbackRoutine @ 0x140277500 (HvlAddSecureHvPagesCallbackRoutine.c)
- *     HvlAddSecureSkPagesCallbackRoutine @ 0x140277670 (HvlAddSecureSkPagesCallbackRoutine.c)
+ *     HvlAddSecureHvPagesCallbackRoutine @ 0x140277600 (HvlAddSecureHvPagesCallbackRoutine.c)
+ *     HvlAddSecureSkPagesCallbackRoutine @ 0x140277770 (HvlAddSecureSkPagesCallbackRoutine.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     HvlpEndSecurePageListIteration @ 0x14027A134 (HvlpEndSecurePageListIteration.c)
- *     HvlpGetSecurePageList @ 0x14027A2A0 (HvlpGetSecurePageList.c)
- *     HvlpStartSecurePageListIteration @ 0x14027A500 (HvlpStartSecurePageListIteration.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     HvlpEndSecurePageListIteration @ 0x14027A234 (HvlpEndSecurePageListIteration.c)
+ *     HvlpGetSecurePageList @ 0x14027A3A0 (HvlpGetSecurePageList.c)
+ *     HvlpStartSecurePageListIteration @ 0x14027A600 (HvlpStartSecurePageListIteration.c)
  */
 
 __int64 __fastcall HvlAddSecurePagesCallbackRoutine(int a1, int a2, __int64 a3, __int64 a4)

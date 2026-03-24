@@ -1,13 +1,13 @@
 /*
- * XREFs of PopReadShutdownPolicy @ 0x1405C6990
+ * XREFs of PopReadShutdownPolicy @ 0x140565280
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
  */
 
 int PopReadShutdownPolicy()
@@ -20,16 +20,17 @@ int PopReadShutdownPolicy()
   __int128 KeyValueInformation; // [rsp+80h] [rbp+37h] BYREF
   int v6; // [rsp+90h] [rbp+47h]
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   ResultLength = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   v6 = 0;
   KeyValueInformation = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\Windows NT");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
@@ -45,7 +46,7 @@ int PopReadShutdownPolicy()
            &ResultLength) >= 0
       && DWORD1(KeyValueInformation) == 4 )
     {
-      LOBYTE(PopShutdownPowerOffPolicy) = BYTE12(KeyValueInformation) == 1;
+      PopShutdownPowerOffPolicy = BYTE12(KeyValueInformation) == 1;
     }
     return ZwClose(KeyHandle);
   }

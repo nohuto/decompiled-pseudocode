@@ -1,9 +1,9 @@
 /*
- * XREFs of MmGetSessionSchedulingGroupByProcess @ 0x14070F320
+ * XREFs of MmGetSessionSchedulingGroupByProcess @ 0x1406D6290
  * Callers:
- *     PsQueryCpuQuotaInformation @ 0x1403DF48C (PsQueryCpuQuotaInformation.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
- *     PspEstablishDfssHierarchy @ 0x1409B01E0 (PspEstablishDfssHierarchy.c)
+ *     PsQueryCpuQuotaInformation @ 0x1403CFFB4 (PsQueryCpuQuotaInformation.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspEstablishDfssHierarchy @ 0x140908D28 (PspEstablishDfssHierarchy.c)
  * Callees:
  *     <none>
  */
@@ -16,5 +16,5 @@ __int64 __fastcall MmGetSessionSchedulingGroupByProcess(__int64 a1)
   if ( !v1 || (*(_DWORD *)(a1 + 2172) & 0x1000) != 0 )
     return 0LL;
   else
-    return *(_QWORD *)(*(_QWORD *)(v1 + 64) + 32LL);
+    return *(_QWORD *)(*(_QWORD *)(v1 + 72) + 32LL);
 }

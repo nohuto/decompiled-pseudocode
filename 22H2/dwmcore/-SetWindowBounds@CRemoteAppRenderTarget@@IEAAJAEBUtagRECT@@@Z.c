@@ -1,82 +1,73 @@
 /*
- * XREFs of ?SetWindowBounds@CRemoteAppRenderTarget@@IEAAJAEBUtagRECT@@@Z @ 0x1801EBEFC
+ * XREFs of ?SetWindowBounds@CRemoteAppRenderTarget@@IEAAJAEBUtagRECT@@@Z @ 0x180186CF0
  * Callers:
- *     ?ProcessSetBounds@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTARGET_SETBOUNDS@@@Z @ 0x1801C5D10 (-ProcessSetBounds@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDER.c)
- *     ?ForceFullRender@CRemoteAppRenderTarget@@MEAAXXZ @ 0x1801EAC30 (-ForceFullRender@CRemoteAppRenderTarget@@MEAAXXZ.c)
- *     ?ProcessCreate@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTARGET_CREATE@@@Z @ 0x1801EB190 (-ProcessCreate@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTAR.c)
+ *     ?ProcessSetBounds@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTARGET_SETBOUNDS@@@Z @ 0x18016FB60 (-ProcessSetBounds@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDER.c)
+ *     ?PreRender@CRemoteAppRenderTarget@@UEAAJXZ @ 0x1801862C4 (-PreRender@CRemoteAppRenderTarget@@UEAAJXZ.c)
+ *     ?ProcessCreate@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTARGET_CREATE@@@Z @ 0x180186448 (-ProcessCreate@CRemoteAppRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_REMOTEAPPRENDERTAR.c)
  * Callees:
- *     ?IsEquivalentTo@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800A78B0 (-IsEquivalentTo@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAE.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ @ 0x1801EB5D8 (-ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ.c)
+ *     ?IsEquivalentTo@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18003C5B4 (-IsEquivalentTo@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAE.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ @ 0x180186930 (-ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ.c)
  */
 
 __int64 __fastcall CRemoteAppRenderTarget::SetWindowBounds(CRemoteAppRenderTarget *this, const struct tagRECT *a2)
 {
-  LONG left; // esi
-  LONG top; // r14d
-  LONG right; // r10d
+  LONG top; // esi
+  LONG right; // r14d
   LONG bottom; // r15d
-  unsigned int v7; // edi
-  LONG v8; // r10d
-  LONG *v9; // r11
-  _DWORD *v10; // rcx
-  int *v11; // rsi
-  char v12; // bp
-  int v13; // r10d
-  __int64 v14; // rdx
-  int (__fastcall ***v15)(_QWORD); // rcx
-  __int64 v16; // r8
-  int v17; // eax
-  __int64 v18; // rcx
-  __int64 v19; // rax
-  _DWORD v21[4]; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int v6; // edi
+  _DWORD *v7; // r10
+  int v8; // r11d
+  char v9; // bp
+  int *v10; // rsi
+  int v11; // ecx
+  __int64 v12; // rdx
+  int (__fastcall ***v13)(_QWORD); // rcx
+  int v14; // eax
+  __int64 v15; // rcx
+  _DWORD v17[14]; // [rsp+30h] [rbp-38h] BYREF
 
-  left = a2->left;
   top = a2->top;
   right = a2->right;
   bottom = a2->bottom;
-  v21[0] = a2->left;
-  v7 = 0;
-  v21[1] = top;
-  v21[2] = right;
-  v21[3] = bottom;
-  if ( !TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::IsEquivalentTo((_DWORD *)this + 66, v21) )
+  v6 = 0;
+  v17[0] = a2->left;
+  v17[1] = top;
+  v17[2] = right;
+  v17[3] = bottom;
+  if ( !TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::IsEquivalentTo((_DWORD *)this + 66, v17) )
   {
-    *v9 = left;
-    v10 = (_DWORD *)((char *)this + 276);
-    v9[1] = top;
-    v11 = (int *)((char *)this + 104);
-    v9[2] = v8;
-    v12 = 0;
-    v9[3] = bottom;
-    v13 = v8 - *v9;
-    if ( *((_DWORD *)this + 26) != v13 || *((_DWORD *)this + 27) != *v10 - *((_DWORD *)this + 67) )
+    *v7 = v8;
+    v9 = 0;
+    v7[1] = top;
+    v10 = (int *)((char *)this + 80);
+    v7[2] = right;
+    v7[3] = bottom;
+    v11 = v7[2] - *v7;
+    if ( *((_DWORD *)this + 20) != v11 || *((_DWORD *)this + 21) != *((_DWORD *)this + 69) - *((_DWORD *)this + 67) )
     {
-      *v11 = v13;
-      v12 = 1;
-      *((_DWORD *)this + 27) = *v10 - *((_DWORD *)this + 67);
+      *v10 = v11;
+      v9 = 1;
+      *((_DWORD *)this + 21) = *((_DWORD *)this + 69) - *((_DWORD *)this + 67);
+      *((_BYTE *)this + 129) = 1;
     }
-    if ( *(_DWORD *)(*((_QWORD *)this + 2) + 1104LL) == 6
-      && (v14 = *((_QWORD *)this + 21)) != 0
-      && (v15 = (int (__fastcall ***)(_QWORD))(v14 + 8 + *(int *)(*(_QWORD *)(v14 + 8) + 12LL)), (**v15)(v15) >= 0)
-      && *v11
-      && *((_DWORD *)this + 27) )
+    if ( *(_DWORD *)(*((_QWORD *)this + 2) + 952LL) == 6
+      && (v12 = *((_QWORD *)this + 20)) != 0
+      && (v13 = (int (__fastcall ***)(_QWORD))(v12 + 8 + *(int *)(*(_QWORD *)(v12 + 8) + 12LL)), (**v13)(v13) >= 0)
+      && *v10
+      && *((_DWORD *)this + 21) )
     {
-      if ( v12 )
+      if ( v9 )
       {
-        v16 = 32LL;
-        if ( *((_DWORD *)this + 72) != 2 )
-          v16 = 0LL;
-        v17 = (*(__int64 (__fastcall **)(_QWORD, char *, __int64))(**((_QWORD **)this + 21) + 48LL))(
-                *((_QWORD *)this + 21),
-                (char *)this + 104,
-                v16);
-        v7 = v17;
-        if ( v17 < 0 )
+        v14 = (*(__int64 (__fastcall **)(_QWORD, char *))(**((_QWORD **)this + 20) + 48LL))(
+                *((_QWORD *)this + 20),
+                (char *)this + 80);
+        v6 = v14;
+        if ( v14 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x1A2u, 0LL);
-          return v7;
+          MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x17Au, 0LL);
+          return v6;
         }
       }
     }
@@ -84,10 +75,7 @@ __int64 __fastcall CRemoteAppRenderTarget::SetWindowBounds(CRemoteAppRenderTarge
     {
       CRemoteAppRenderTarget::ReleaseSwapChain(this);
     }
-    v19 = *((_QWORD *)this + 12);
-    if ( v19 )
-      *(_BYTE *)(v19 + 4712) = 1;
-    *((_BYTE *)this + 141) = 1;
+    *((_BYTE *)this + 129) = 1;
   }
-  return v7;
+  return v6;
 }

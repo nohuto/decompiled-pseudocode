@@ -1,23 +1,23 @@
 /*
- * XREFs of ?MarkDirty@CVisRgnTrackerProp@@QEAAXXZ @ 0x1C00A609C
+ * XREFs of ?MarkDirty@CVisRgnTrackerProp@@QEAAXXZ @ 0x1C004E8CC
  * Callers:
- *     zzzComposeDesktop @ 0x1C0058DA4 (zzzComposeDesktop.c)
- *     LinkWindow @ 0x1C00F2760 (LinkWindow.c)
- *     DirtyVisRgnTrackers @ 0x1C00F319C (DirtyVisRgnTrackers.c)
- *     UnlinkWindow @ 0x1C010B5E0 (UnlinkWindow.c)
+ *     DirtyVisRgnTrackers @ 0x1C004E4D0 (DirtyVisRgnTrackers.c)
+ *     ?MarkDirtyWorker@@YAXPEAUtagWND@@@Z @ 0x1C004E67C (-MarkDirtyWorker@@YAXPEAUtagWND@@@Z.c)
+ *     xxxSetWindowStyle @ 0x1C005E140 (xxxSetWindowStyle.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CVisRgnTrackerProp::MarkDirty(CVisRgnTrackerProp *this)
 {
-  struct _LIST_ENTRY *v1; // rcx
-  struct _LIST_ENTRY *Flink; // rax
+  struct _LIST_ENTRY *v1; // rax
+  struct _LIST_ENTRY *Flink; // rcx
 
-  if ( !*((_BYTE *)this + 73) )
+  if ( !*((_BYTE *)this + 65) )
   {
-    *((_BYTE *)this + 73) = 1;
-    v1 = (struct _LIST_ENTRY *)(((unsigned __int64)this + 24) & -(__int64)(this != 0LL));
+    *((_BYTE *)this + 65) = 1;
+    v1 = (struct _LIST_ENTRY *)((char *)this + 16);
     Flink = CVisRgnTrackerProp::s_DirtyList.Flink;
     if ( CVisRgnTrackerProp::s_DirtyList.Flink->Blink != &CVisRgnTrackerProp::s_DirtyList )
       __fastfail(3u);

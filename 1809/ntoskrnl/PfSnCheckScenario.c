@@ -1,8 +1,8 @@
 /*
- * XREFs of PfSnCheckScenario @ 0x140666E10
+ * XREFs of PfSnCheckScenario @ 0x140666DF0
  * Callers:
- *     PfSnBeginAppLaunch @ 0x140666C14 (PfSnBeginAppLaunch.c)
- *     PfSnOperationProcess @ 0x1406CF884 (PfSnOperationProcess.c)
+ *     PfSnBeginAppLaunch @ 0x140666BF4 (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x1406CF864 (PfSnOperationProcess.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfObjectGetTypedContextWorker @ 0x1C00012B0
+ * XREFs of imp_WdfObjectGetTypedContextWorker @ 0x1C0002160
  * Callers:
  *     <none>
  * Callees:
- *     WPP_IFR_SF_sq @ 0x1C0013EA8 (WPP_IFR_SF_sq.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     WPP_IFR_SF_sq @ 0x1C0038C64 (WPP_IFR_SF_sq.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 char *__fastcall imp_WdfObjectGetTypedContextWorker(
@@ -20,7 +20,7 @@ char *__fastcall imp_WdfObjectGetTypedContextWorker(
   void *retaddr; // [rsp+48h] [rbp+0h]
 
   if ( !Handle )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, retaddr);
   _a2 = (_FX_DRIVER_GLOBALS **)(~Handle & 0xFFFFFFFFFFFFFFF8uLL);
   if ( (Handle & 1) != 0 )
     _a2 = (_FX_DRIVER_GLOBALS **)((char *)_a2 - *(unsigned __int16 *)_a2);
@@ -33,13 +33,13 @@ char *__fastcall imp_WdfObjectGetTypedContextWorker(
     {
       v5 = (char *)*((_QWORD *)v5 + 1);
       if ( !v5 )
-        goto LABEL_10;
+        goto LABEL_13;
     }
     return v5 + 48;
   }
   else
   {
-LABEL_10:
+LABEL_13:
     ContextName = TypeInfo->ContextName;
     _a1 = "<no typename given>";
     if ( ContextName )

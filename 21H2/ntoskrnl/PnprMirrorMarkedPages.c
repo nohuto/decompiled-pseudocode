@@ -1,23 +1,23 @@
 /*
- * XREFs of PnprMirrorMarkedPages @ 0x140A6849C
+ * XREFs of PnprMirrorMarkedPages @ 0x1409AE02C
  * Callers:
- *     PnprSwap @ 0x1405633A8 (PnprSwap.c)
- *     PnprQuiesceProcessorDpc @ 0x140A687F0 (PnprQuiesceProcessorDpc.c)
+ *     PnprSwap @ 0x14050FA68 (PnprSwap.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AE390 (PnprQuiesceProcessorDpc.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402127F0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     RtlFindFirstRunClear @ 0x14024B2A0 (RtlFindFirstRunClear.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlFindNextForwardRunClear @ 0x1402E1F90 (RtlFindNextForwardRunClear.c)
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14022CB20 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     RtlFindNextForwardRunClear @ 0x140267B70 (RtlFindNextForwardRunClear.c)
+ *     RtlFindFirstRunClear @ 0x14026A3A0 (RtlFindFirstRunClear.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnprMirrorMarkedPages()
 {
   __int64 v0; // r15
   unsigned int v1; // r14d
-  __int64 v2; // rdx
-  bool v3; // r13
+  bool v2; // r13
+  __int64 v3; // rcx
   __int64 v4; // rax
   RTL_BITMAP *v5; // rdi
   ULONG i; // eax
@@ -36,66 +36,72 @@ __int64 __fastcall PnprMirrorMarkedPages()
   v1 = 0;
   memset(&LockHandle, 0, sizeof(LockHandle));
   LODWORD(v0) = KeGetPcr()->Prcb.Number;
-  v2 = PnprContext;
   if ( *(_QWORD *)(*(_QWORD *)(PnprContext + 136) + 24 * v0) )
   {
-    v3 = (_DWORD)v0 == *(_DWORD *)(PnprContext + 180);
-    v17 = *(__int64 (__fastcall **)(_QWORD, _QWORD, unsigned __int64))(PnprContext + 33216);
+    v2 = (_DWORD)v0 == *(_DWORD *)(PnprContext + 180);
+    v17 = *(__int64 (__fastcall **)(_QWORD, _QWORD, unsigned __int64))(PnprContext + 20928);
     do
     {
-      v4 = v2 + 152;
-      v5 = *(RTL_BITMAP **)(v2 + 152);
-      while ( v5 != (RTL_BITMAP *)v4 )
+      v3 = PnprContext;
+      v4 = PnprContext + 152;
+      v5 = *(RTL_BITMAP **)(PnprContext + 152);
+      while ( 2 )
       {
-        KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v2 + 168), &LockHandle);
-        for ( i = RtlFindFirstRunClear(v5 + 2, &StartingIndex); ; i = RtlFindNextForwardRunClear(
-                                                                        v5 + 2,
-                                                                        v9,
-                                                                        &StartingIndex) )
+        if ( v5 != (RTL_BITMAP *)v4 )
         {
-          v10 = StartingIndex;
-          v11 = i;
-          if ( i )
+          KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v3 + 168), &LockHandle);
+          for ( i = RtlFindFirstRunClear(v5 + 2, &StartingIndex);
+                ;
+                i = RtlFindNextForwardRunClear(v5 + 2, v9, &StartingIndex) )
           {
-            if ( i >= 0x140 )
-              v11 = 320;
-            RtlSetBits(v5 + 2, StartingIndex, v11);
+            v10 = StartingIndex;
+            v11 = i;
+            if ( i )
+            {
+              if ( i >= 0x140 )
+                v11 = 320;
+              RtlSetBits(v5 + 2, StartingIndex, v11);
+            }
+            KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+            if ( !v11 )
+              break;
+            v7 = v17(
+                   *(_QWORD *)(PnprContext + 20880),
+                   (*(_QWORD *)&v5[1].SizeOfBitMap + v10) << 12,
+                   (unsigned __int64)v11 << 12);
+            v8 = PnprContext;
+            v1 = v7;
+            if ( v7 < 0 )
+            {
+              v12 = *(_DWORD *)(PnprContext + 20984);
+              if ( !v12 )
+                v12 = 3568;
+              *(_DWORD *)(PnprContext + 20984) = v12;
+              v13 = *(_DWORD *)(v8 + 20988);
+              if ( !v13 )
+                v13 = 8;
+              *(_DWORD *)(v8 + 20988) = v13;
+              goto LABEL_24;
+            }
+            v9 = v11 + v10;
+            StartingIndex = v9;
+            KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(PnprContext + 168), &LockHandle);
           }
-          KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-          if ( !v11 )
-            break;
-          v7 = v17(
-                 *(_QWORD *)(PnprContext + 33168),
-                 (*(_QWORD *)&v5[1].SizeOfBitMap + v10) << 12,
-                 (unsigned __int64)v11 << 12);
-          v8 = PnprContext;
-          v1 = v7;
-          if ( v7 < 0 )
+          if ( *(_DWORD *)(PnprContext + 200) != 3 )
           {
-            v12 = *(_DWORD *)(PnprContext + 33272);
-            if ( !v12 )
-              v12 = 3576;
-            *(_DWORD *)(PnprContext + 33272) = v12;
-            v13 = *(_DWORD *)(v8 + 33276);
-            if ( !v13 )
-              v13 = 8;
-            *(_DWORD *)(v8 + 33276) = v13;
-            goto LABEL_22;
+            v3 = PnprContext;
+            v5 = *(RTL_BITMAP **)&v5->SizeOfBitMap;
+            v4 = PnprContext + 152;
+            continue;
           }
-          v9 = v11 + v10;
-          StartingIndex = v9;
-          KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(PnprContext + 168), &LockHandle);
+          v2 = 1;
         }
-        if ( *(_DWORD *)(PnprContext + 200) == 3 )
-          goto LABEL_22;
-        v2 = PnprContext;
-        v5 = *(RTL_BITMAP **)&v5->SizeOfBitMap;
-        v4 = PnprContext + 152;
+        break;
       }
     }
-    while ( !v3 );
+    while ( !v2 );
   }
-LABEL_22:
+LABEL_24:
   if ( (_DWORD)v0 != *(_DWORD *)(PnprContext + 180) && *(int *)(PnprContext + 200) < 3 )
   {
     do

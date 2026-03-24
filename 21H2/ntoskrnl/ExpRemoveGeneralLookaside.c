@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpRemoveGeneralLookaside @ 0x1402460B4
+ * XREFs of ExpRemoveGeneralLookaside @ 0x1402BE8E4
  * Callers:
- *     ExDeleteNPagedLookasideList @ 0x140245F80 (ExDeleteNPagedLookasideList.c)
- *     ExDeletePagedLookasideList @ 0x140245FB0 (ExDeletePagedLookasideList.c)
- *     ExDeleteLookasideListEx @ 0x140246030 (ExDeleteLookasideListEx.c)
+ *     ExDeletePagedLookasideList @ 0x1402BE7E0 (ExDeletePagedLookasideList.c)
+ *     ExDeleteLookasideListEx @ 0x1402BE860 (ExDeleteLookasideListEx.c)
+ *     ExDeleteNPagedLookasideList @ 0x14039AB20 (ExDeleteNPagedLookasideList.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PVOID __fastcall ExpRemoveGeneralLookaside(PKSPIN_LOCK SpinLock, __int64 a2)

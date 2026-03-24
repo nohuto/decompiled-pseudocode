@@ -1,29 +1,27 @@
 /*
- * XREFs of ExRegisterCallback @ 0x140367250
+ * XREFs of ExRegisterCallback @ 0x14037E950
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4610 (HvlPhase2Initialize.c)
- *     DifExRegisterCallbackWrapper @ 0x1405D9730 (DifExRegisterCallbackWrapper.c)
- *     KeRegisterProcessorChangeCallback @ 0x140822950 (KeRegisterProcessorChangeCallback.c)
- *     HaliInitPowerManagement @ 0x1408365C0 (HaliInitPowerManagement.c)
- *     HalpMiscInitializeKsr @ 0x1408559F0 (HalpMiscInitializeKsr.c)
- *     IoRegisterBootDriverCallback @ 0x140863D30 (IoRegisterBootDriverCallback.c)
- *     SeRegisterImageVerificationCallback @ 0x140865330 (SeRegisterImageVerificationCallback.c)
- *     IoRegisterContainerNotification @ 0x140948280 (IoRegisterContainerNotification.c)
- *     PiCslInitialize @ 0x140B3F384 (PiCslInitialize.c)
- *     EtwpInitialize @ 0x140B4B150 (EtwpInitialize.c)
- *     SshpAlpcInitialize @ 0x140B680A4 (SshpAlpcInitialize.c)
- *     PopUmpoInitializeChannel @ 0x140B70C0C (PopUmpoInitializeChannel.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140B72254 (PopUmpoInitializeMonitorChannel.c)
- *     PopSetupKsrCallbacks @ 0x140B76B3C (PopSetupKsrCallbacks.c)
- *     PiKsrNotifyInitialize @ 0x140B96390 (PiKsrNotifyInitialize.c)
+ *     HvlPhase2Initialize @ 0x1403CE9B8 (HvlPhase2Initialize.c)
+ *     HaliInitPowerManagement @ 0x1407AE5E0 (HaliInitPowerManagement.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1407C8720 (KeRegisterProcessorChangeCallback.c)
+ *     HalpMiscInitializeKsr @ 0x1407C8B48 (HalpMiscInitializeKsr.c)
+ *     IoRegisterBootDriverCallback @ 0x1407D3860 (IoRegisterBootDriverCallback.c)
+ *     SeRegisterImageVerificationCallback @ 0x1407D4690 (SeRegisterImageVerificationCallback.c)
+ *     IoRegisterContainerNotification @ 0x140894A90 (IoRegisterContainerNotification.c)
+ *     EtwpInitialize @ 0x140A41844 (EtwpInitialize.c)
+ *     PiCslInitialize @ 0x140A53224 (PiCslInitialize.c)
+ *     PopUmpoInitializeChannel @ 0x140A6FE7C (PopUmpoInitializeChannel.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140A70AB0 (PopUmpoInitializeMonitorChannel.c)
+ *     PopSetupKsrCallbacks @ 0x140A73FF0 (PopSetupKsrCallbacks.c)
+ *     PiKsrNotifyInitialize @ 0x140A91350 (PiKsrNotifyInitialize.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __stdcall ExRegisterCallback(
@@ -31,60 +29,60 @@ PVOID __stdcall ExRegisterCallback(
         PCALLBACK_FUNCTION CallbackFunction,
         PVOID CallbackContext)
 {
-  __int64 Pool2; // rax
-  _QWORD *v7; // rbx
-  char v8; // bp
-  KIRQL v9; // al
-  _QWORD *v10; // rcx
-  unsigned __int64 v11; // rsi
-  _QWORD *v12; // rax
+  struct _CALLBACK_OBJECT *PoolWithTag; // rax
+  struct _CALLBACK_OBJECT *v7; // rbx
+  char v8; // r14
+  unsigned __int64 v9; // rsi
+  PCALLBACK_OBJECT *v10; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v17; // eax
-  bool v18; // zf
+  int v15; // eax
+  bool v16; // zf
 
   ObfReferenceObjectWithTag(CallbackObject, 0x746C6644u);
-  Pool2 = ExAllocatePool2(64LL, 48LL, 1699889731LL);
-  v7 = (_QWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (struct _CALLBACK_OBJECT *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x65524243u);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 40) = 0;
-    *(_QWORD *)(Pool2 + 24) = CallbackFunction;
+    *((_DWORD *)PoolWithTag + 10) = 0;
+    *((_QWORD *)PoolWithTag + 2) = CallbackObject;
     v8 = 0;
-    *(_QWORD *)(Pool2 + 16) = CallbackObject;
-    *(_QWORD *)(Pool2 + 32) = CallbackContext;
-    *(_BYTE *)(Pool2 + 44) = 0;
+    *((_QWORD *)PoolWithTag + 3) = CallbackFunction;
+    *((_QWORD *)PoolWithTag + 4) = CallbackContext;
+    *((_BYTE *)PoolWithTag + 44) = 0;
     v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)CallbackObject + 1);
-    v10 = (_QWORD *)((char *)CallbackObject + 16);
-    v11 = v9;
-    if ( *((_BYTE *)CallbackObject + 32) || (_QWORD *)*v10 == v10 )
+    if ( *((_BYTE *)CallbackObject + 32)
+      || *((PCALLBACK_OBJECT *)CallbackObject + 2) == (PCALLBACK_OBJECT)((char *)CallbackObject + 16) )
     {
-      v12 = (_QWORD *)*((_QWORD *)CallbackObject + 3);
       v8 = 1;
-      if ( (_QWORD *)*v12 != v10 )
+      v10 = (PCALLBACK_OBJECT *)*((_QWORD *)CallbackObject + 3);
+      if ( *v10 != (PCALLBACK_OBJECT)((char *)CallbackObject + 16) )
         __fastfail(3u);
-      *v7 = v10;
-      v7[1] = v12;
-      *v12 = v7;
+      *(_QWORD *)v7 = (char *)CallbackObject + 16;
+      *((_QWORD *)v7 + 1) = v10;
+      *v10 = v7;
       *((_QWORD *)CallbackObject + 3) = v7;
     }
-    KxReleaseSpinLock((volatile signed __int64 *)CallbackObject + 1);
+    KxReleaseSpinLock((PKSPIN_LOCK)CallbackObject + 1);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-        v18 = (v17 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v17;
-        if ( v18 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v16 = (v15 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v15;
+          if ( v16 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    __writecr8(v11);
+    __writecr8(v9);
     if ( !v8 )
     {
       ExFreePoolWithTag(v7, 0);

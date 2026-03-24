@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCovFreeUnloadedModuleEntry @ 0x140A06484
+ * XREFs of ExpCovFreeUnloadedModuleEntry @ 0x14095744C
  * Callers:
- *     ExpCovCreateUnloadedModuleEntry @ 0x140A061A4 (ExpCovCreateUnloadedModuleEntry.c)
- *     ExpCovDeleteUnloadedModuleEntry @ 0x140A06408 (ExpCovDeleteUnloadedModuleEntry.c)
+ *     ExpCovCreateUnloadedModuleEntry @ 0x14095714C (ExpCovCreateUnloadedModuleEntry.c)
+ *     ExpCovDeleteUnloadedModuleEntry @ 0x1409573D0 (ExpCovDeleteUnloadedModuleEntry.c)
  * Callees:
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpCovFreeUnloadedModuleEntry(UNICODE_STRING *P)
@@ -15,9 +15,9 @@ __int64 __fastcall ExpCovFreeUnloadedModuleEntry(UNICODE_STRING *P)
   if ( !P )
     return 3221225485LL;
   if ( P[1].Buffer )
-    RtlFreeUnicodeString(P + 1);
+    RtlFreeAnsiString(P + 1);
   if ( P[2].Buffer )
-    RtlFreeUnicodeString(P + 2);
+    RtlFreeAnsiString(P + 2);
   Buffer = P[3].Buffer;
   if ( Buffer )
     ExFreePoolWithTag(Buffer, 0);

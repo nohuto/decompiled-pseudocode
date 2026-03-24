@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpAllocateMessage @ 0x1407A49B4
+ * XREFs of AlpcpAllocateMessage @ 0x1405E09E4
  * Callers:
- *     AlpcpSendLegacySynchronousRequest @ 0x1406666B4 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpCreateClientPort @ 0x140667114 (AlpcpCreateClientPort.c)
- *     AlpcpFormatConnectionRequest @ 0x140668084 (AlpcpFormatConnectionRequest.c)
- *     AlpcpCreateReserve @ 0x1406CBB84 (AlpcpCreateReserve.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpFormatConnectionRequest @ 0x1405E033C (AlpcpFormatConnectionRequest.c)
+ *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
+ *     AlpcpCreateReserve @ 0x1406B0D14 (AlpcpCreateReserve.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1407A6A34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpAllocateBlob @ 0x1407A73B0 (AlpcpAllocateBlob.c)
- *     AlpcpEnterAllocationEventMessageLog @ 0x140966950 (AlpcpEnterAllocationEventMessageLog.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpAllocateBlob @ 0x140660A8C (AlpcpAllocateBlob.c)
+ *     AlpcpEnterAllocationEventMessageLog @ 0x1408C2AA0 (AlpcpEnterAllocationEventMessageLog.c)
  */
 
 __int64 __fastcall AlpcpAllocateMessage(ULONG_PTR *a1, unsigned __int64 a2, __int64 a3)
@@ -17,9 +17,9 @@ __int64 __fastcall AlpcpAllocateMessage(ULONG_PTR *a1, unsigned __int64 a2, __in
   __int64 v4; // rdx
   ULONG_PTR Blob; // rax
   ULONG_PTR v6; // rdi
-  int v7; // ebx
-  signed __int32 v8; // eax
   __int64 result; // rax
+  int v8; // ebx
+  signed __int32 v9; // eax
 
   if ( a2 )
   {
@@ -36,15 +36,15 @@ __int64 __fastcall AlpcpAllocateMessage(ULONG_PTR *a1, unsigned __int64 a2, __in
   if ( !Blob )
     return 3221225626LL;
   AlpcpLockForCachedReferenceBlob(Blob);
-  v7 = *(_DWORD *)(v6 + 264);
+  v8 = *(_DWORD *)(v6 + 264);
   memset((void *)v6, 0, 0x118uLL);
   *(_WORD *)(v6 + 242) = 40;
   --*(_WORD *)(v6 - 30);
-  *(_DWORD *)(v6 + 264) = v7 & 0x7FFFFFFF;
+  *(_DWORD *)(v6 + 264) = v8 & 0x7FFFFFFF;
   do
-    v8 = _InterlockedIncrement(&AlpcpNextCallbackId);
-  while ( !v8 );
-  *(_DWORD *)(v6 + 272) = v8;
+    v9 = _InterlockedIncrement(&AlpcpNextCallbackId);
+  while ( !v9 );
+  *(_DWORD *)(v6 + 272) = v9;
   if ( AlpcpMessageLogEnabled )
     AlpcpEnterAllocationEventMessageLog(v6);
   *(_WORD *)(v6 + 242) = 40;

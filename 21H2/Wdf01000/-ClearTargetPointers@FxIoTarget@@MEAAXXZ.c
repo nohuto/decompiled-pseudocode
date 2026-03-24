@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ClearTargetPointers@FxIoTarget@@MEAAXXZ @ 0x1C000BCA0
+ * XREFs of ?ClearTargetPointers@FxIoTarget@@MEAAXXZ @ 0x1C000DBE0
  * Callers:
  *     <none>
  * Callees:

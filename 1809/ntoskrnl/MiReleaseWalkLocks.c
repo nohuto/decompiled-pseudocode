@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReleaseWalkLocks @ 0x140122778
+ * XREFs of MiReleaseWalkLocks @ 0x140122798
  * Callers:
  *     MiGetNextPageTablePte @ 0x140070A30 (MiGetNextPageTablePte.c)
- *     MiCombineWorkingSetTail @ 0x1401226A0 (MiCombineWorkingSetTail.c)
- *     MiYieldPageTableWalk @ 0x140122708 (MiYieldPageTableWalk.c)
- *     MiQueryEPTAccessedState @ 0x1402B3600 (MiQueryEPTAccessedState.c)
+ *     MiCombineWorkingSetTail @ 0x1401226C0 (MiCombineWorkingSetTail.c)
+ *     MiYieldPageTableWalk @ 0x140122728 (MiYieldPageTableWalk.c)
+ *     MiQueryEPTAccessedState @ 0x1402B3700 (MiQueryEPTAccessedState.c)
  * Callees:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
  */
 
 void __fastcall MiReleaseWalkLocks(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

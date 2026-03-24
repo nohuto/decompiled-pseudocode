@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMmReservePageTablePages @ 0x14037EBBC
+ * XREFs of HalpMmReservePageTablePages @ 0x1403BABAC
  * Callers:
- *     HalpMmInitSystem @ 0x140A90A90 (HalpMmInitSystem.c)
+ *     HalpMmInitSystem @ 0x1409A0240 (HalpMmInitSystem.c)
  * Callees:
- *     HalpInterruptModel @ 0x14031F8FC (HalpInterruptModel.c)
- *     HalpMmGetPteAddressSafe @ 0x14037EA3C (HalpMmGetPteAddressSafe.c)
- *     HalQueryMaximumProcessorCount @ 0x14037FEF0 (HalQueryMaximumProcessorCount.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AD70 (HalQueryMaximumProcessorCount.c)
+ *     HalpInterruptModel @ 0x14037ADC4 (HalpInterruptModel.c)
+ *     HalpMmGetPteAddressSafe @ 0x1403BB4A0 (HalpMmGetPteAddressSafe.c)
  */
 
 __int64 HalpMmReservePageTablePages()
@@ -20,7 +20,7 @@ __int64 HalpMmReservePageTablePages()
   result = HalpInterruptModel();
   if ( (_DWORD)result == 3 )
   {
-    result = HalQueryMaximumProcessorCount(v2, v1);
+    result = HalQueryMaximumProcessorCount(v2);
     v1 = ((unsigned int)result + 16LL) << 18;
   }
   v3 = 0LL;

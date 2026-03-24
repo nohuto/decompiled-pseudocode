@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceDockState @ 0x1C01390D0
+ * XREFs of EtwTraceDockState @ 0x1C0122030
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0d_EtwWriteTransfer @ 0x1C013C2EC (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x1C0125340 (McTemplateK0d_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceDockState(__int64 a1, __int64 a2, __int64 a3)

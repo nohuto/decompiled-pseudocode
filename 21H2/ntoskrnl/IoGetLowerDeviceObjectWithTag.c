@@ -1,15 +1,15 @@
 /*
- * XREFs of IoGetLowerDeviceObjectWithTag @ 0x14036CCBC
+ * XREFs of IoGetLowerDeviceObjectWithTag @ 0x1402CCF4C
  * Callers:
- *     IoGetLowerDeviceObject @ 0x14036CCA0 (IoGetLowerDeviceObject.c)
- *     IopSynchronousCall @ 0x14074CA9C (IopSynchronousCall.c)
- *     PiControlGetDeviceStack @ 0x1407F1CDC (PiControlGetDeviceStack.c)
- *     IoBuildPoDeviceNotifyList @ 0x140A50D3C (IoBuildPoDeviceNotifyList.c)
- *     IopCheckDeviceFlags @ 0x140A51350 (IopCheckDeviceFlags.c)
+ *     IoGetLowerDeviceObject @ 0x1402CCF30 (IoGetLowerDeviceObject.c)
+ *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
+ *     PiControlGetDeviceStack @ 0x14072FB64 (PiControlGetDeviceStack.c)
+ *     IoBuildPoDeviceNotifyList @ 0x1409972B0 (IoBuildPoDeviceNotifyList.c)
+ *     IopCheckDeviceFlags @ 0x1409978C4 (IopCheckDeviceFlags.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
  */
 
 void *__fastcall IoGetLowerDeviceObjectWithTag(__int64 a1, ULONG a2)

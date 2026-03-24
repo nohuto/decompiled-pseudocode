@@ -1,23 +1,22 @@
 /*
- * XREFs of ?ReleaseEffectTable@CD2DContext@@AEAAXXZ @ 0x180022828
+ * XREFs of ?ReleaseEffectTable@CD2DContext@@AEAAXXZ @ 0x18002CFDC
  * Callers:
- *     ?PopulateEffectTable@CD2DContext@@AEAAJXZ @ 0x1800224F4 (-PopulateEffectTable@CD2DContext@@AEAAJXZ.c)
- *     ?DestroyDeviceResources@CD2DContext@@IEAAJXZ @ 0x1800225BC (-DestroyDeviceResources@CD2DContext@@IEAAJXZ.c)
+ *     ?PopulateEffectTable@CD2DContext@@AEAAJXZ @ 0x18002CB70 (-PopulateEffectTable@CD2DContext@@AEAAJXZ.c)
+ *     ?DestroyDeviceResources@CD2DContext@@IEAAJXZ @ 0x18002CD60 (-DestroyDeviceResources@CD2DContext@@IEAAJXZ.c)
  * Callees:
- *     ??$ReleaseInterface@UID2D1Effect@@@@YAXAEAPEAUID2D1Effect@@@Z @ 0x180022864 (--$ReleaseInterface@UID2D1Effect@@@@YAXAEAPEAUID2D1Effect@@@Z.c)
+ *     ??$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z @ 0x180017840 (--$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z.c)
  */
 
 void __fastcall CD2DContext::ReleaseEffectTable(CD2DContext *this)
 {
-  char *v1; // rbx
+  __int64 *v1; // rbx
   __int64 v2; // rdi
 
-  v1 = (char *)this + 216;
+  v1 = (__int64 *)((char *)this + 256);
   v2 = 8LL;
   do
   {
-    ReleaseInterface<ID2D1Effect>(v1);
-    v1 += 8;
+    ReleaseInterface<ID2D1Geometry>(v1++);
     --v2;
   }
   while ( v2 );

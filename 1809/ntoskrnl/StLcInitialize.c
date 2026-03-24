@@ -1,7 +1,7 @@
 /*
- * XREFs of StLcInitialize @ 0x1400E4A9C
+ * XREFs of StLcInitialize @ 0x1400E4ABC
  * Callers:
- *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1400E44C8 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1400E44E8 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  * Callees:
  *     <none>
  */

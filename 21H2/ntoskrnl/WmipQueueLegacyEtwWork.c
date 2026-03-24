@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipQueueLegacyEtwWork @ 0x140857840
+ * XREFs of WmipQueueLegacyEtwWork @ 0x1407C7848
  * Callers:
- *     WmipUnlinkInstanceSetFromGuidEntry @ 0x14080E3CC (WmipUnlinkInstanceSetFromGuidEntry.c)
- *     WmipRegisterEtwProvider @ 0x1408577B0 (WmipRegisterEtwProvider.c)
- *     WmipLegacyEtwCallback @ 0x1409DE220 (WmipLegacyEtwCallback.c)
+ *     WmipUnregisterEtwProvider @ 0x1407C7760 (WmipUnregisterEtwProvider.c)
+ *     WmipRegisterEtwProvider @ 0x1407C77B8 (WmipRegisterEtwProvider.c)
+ *     WmipLegacyEtwCallback @ 0x1409335D0 (WmipLegacyEtwCallback.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     WmipReferenceEntry @ 0x140784160 (WmipReferenceEntry.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     WmipReferenceEntry @ 0x14063EBE4 (WmipReferenceEntry.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall WmipQueueLegacyEtwWork(_QWORD *a1, ULONG_PTR a2, __int64 a3)

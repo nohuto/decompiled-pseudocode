@@ -1,28 +1,36 @@
 /*
- * XREFs of ?IsValidVisual@CProjectedShadowScene@@CA_NPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x180005AE0
+ * XREFs of ?IsValidVisual@CProjectedShadowScene@@CA_NPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x18000BFF8
  * Callers:
- *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180004FF4 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
- *     ?UpdateReceiverEntry@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAUReceiverEntry@1@@Z @ 0x1800053B8 (-UpdateReceiverEntry@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAUReceiverEntry@1@@Z.c)
- *     ?UpdateCasterEntry@CProjectedShadowScene@@AEAAJPEBVCVisualTree@@PEAUCasterEntry@1@@Z @ 0x1800055F0 (-UpdateCasterEntry@CProjectedShadowScene@@AEAAJPEBVCVisualTree@@PEAUCasterEntry@1@@Z.c)
+ *     ?UpdateCasterEntry@CProjectedShadowScene@@AEAAJPEBVCVisualTree@@PEAUCasterEntry@1@@Z @ 0x18000A150 (-UpdateCasterEntry@CProjectedShadowScene@@AEAAJPEBVCVisualTree@@PEAUCasterEntry@1@@Z.c)
+ *     ?UpdateReceiverEntry@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAUReceiverEntry@1@@Z @ 0x18000A4A4 (-UpdateReceiverEntry@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAUReceiverEntry@1@@Z.c)
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x18000A740 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
  * Callees:
- *     ?_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@W4IsInTreeFlags@1@@Z @ 0x1800095E0 (-_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@W4IsInTreeFlags@1@@Z.c)
- *     ?GetWorldTransform@CVisual@@QEBAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z @ 0x18004B370 (-GetWorldTransform@CVisual@@QEBAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z.c)
- *     ?IsInvertibleDeterminant@CMILMatrix@@SA_NM@Z @ 0x1800E0A14 (-IsInvertibleDeterminant@CMILMatrix@@SA_NM@Z.c)
- *     ?determinant@Numerics@Foundation@Windows@@YAMAEBUfloat4x4@123@@Z @ 0x1801348A8 (-determinant@Numerics@Foundation@Windows@@YAMAEBUfloat4x4@123@@Z.c)
+ *     ?GetWorldTransform@CVisual@@QEAAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z @ 0x1800B71D0 (-GetWorldTransform@CVisual@@QEAAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z.c)
+ *     ?IsInvertibleDeterminant@CMILMatrix@@SA_NM@Z @ 0x1800C5A3C (-IsInvertibleDeterminant@CMILMatrix@@SA_NM@Z.c)
+ *     ?_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@_N@Z @ 0x1800C75C8 (-_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@_N@Z.c)
+ *     ?determinant@Numerics@Foundation@Windows@@YAMAEBUfloat4x4@123@@Z @ 0x1802119B4 (-determinant@Numerics@Foundation@Windows@@YAMAEBUfloat4x4@123@@Z.c)
  */
 
 bool __fastcall CProjectedShadowScene::IsValidVisual(const struct CVisualTree *a1, struct CVisual *a2)
 {
+  __int64 v2; // rcx
+  __int64 v3; // r10
   const struct Windows::Foundation::Numerics::float4x4 *v4; // rdx
   float v5; // xmm0_4
+  bool result; // al
   _BYTE v7[64]; // [rsp+30h] [rbp-58h] BYREF
   int v8; // [rsp+70h] [rbp-18h]
 
-  if ( !(unsigned __int8)CVisualTree::_IsInTree(a1, a2, 1LL) )
-    return 0;
-  v8 = 0;
-  if ( (int)CVisual::GetWorldTransform(a2, a1, 3LL, v7, 0LL, 0LL) < 0 )
-    return 0;
-  v5 = Windows::Foundation::Numerics::determinant((Windows::Foundation::Numerics *)v7, v4);
-  return CMILMatrix::IsInvertibleDeterminant(v5);
+  result = 0;
+  if ( CVisualTree::_IsInTree(a1, a2, 1) )
+  {
+    v8 = 0;
+    if ( (int)CVisual::GetWorldTransform(v3, v2, 3LL, v7, 0LL, 0LL) >= 0 )
+    {
+      v5 = Windows::Foundation::Numerics::determinant((Windows::Foundation::Numerics *)v7, v4);
+      if ( CMILMatrix::IsInvertibleDeterminant(v5) )
+        return 1;
+    }
+  }
+  return result;
 }

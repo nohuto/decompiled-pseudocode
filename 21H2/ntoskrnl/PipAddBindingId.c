@@ -1,25 +1,25 @@
 /*
- * XREFs of PipAddBindingId @ 0x1408442E8
+ * XREFs of PipAddBindingId @ 0x1407B4B78
  * Callers:
- *     IoResolveDependency @ 0x1403CBF80 (IoResolveDependency.c)
- *     PipCreateDependencyNode @ 0x14084442C (PipCreateDependencyNode.c)
+ *     IoResolveDependency @ 0x1403BE1B0 (IoResolveDependency.c)
+ *     PipCreateDependencyNode @ 0x1407B4C9C (PipCreateDependencyNode.c)
  * Callees:
- *     RtlDuplicateUnicodeString @ 0x1406A9D20 (RtlDuplicateUnicodeString.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlDuplicateUnicodeString @ 0x14068B130 (RtlDuplicateUnicodeString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall PipAddBindingId(__int64 a1, const UNICODE_STRING *a2)
 {
-  UNICODE_STRING *Pool2; // rax
+  UNICODE_STRING *PoolWithTag; // rax
   UNICODE_STRING *v5; // rbx
   NTSTATUS result; // eax
   UNICODE_STRING **v7; // rdx
 
-  Pool2 = (UNICODE_STRING *)ExAllocatePool2(256LL, 32LL, 1399877200LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x53706E50u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return -1073741670;
-  result = RtlDuplicateUnicodeString(0, a2, Pool2 + 1);
+  result = RtlDuplicateUnicodeString(0, a2, PoolWithTag + 1);
   if ( result >= 0 )
   {
     v7 = *(UNICODE_STRING ***)(a1 + 64);

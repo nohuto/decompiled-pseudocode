@@ -1,13 +1,13 @@
 /*
- * XREFs of ?bShadowAlphaCursor@@YAHPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@1PEAU_RECTL@@H@Z @ 0x1C01524D0
+ * XREFs of ?bShadowAlphaCursor@@YAHPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@1PEAU_RECTL@@H@Z @ 0x1C00CAB18
  * Callers:
- *     ?vProcessCursorShape@@YAXPEAUHDEV__@@HHPEAU_SURFOBJ@@1PEAVPALETTE@@PEAU_RECTL@@PEAPEAUHBITMAP__@@@Z @ 0x1C008E868 (-vProcessCursorShape@@YAXPEAUHDEV__@@HHPEAU_SURFOBJ@@1PEAVPALETTE@@PEAU_RECTL@@PEAPEAUHBITMAP__@.c)
+ *     ?vProcessCursorShape@@YAXPEAUHDEV__@@HHPEAU_SURFOBJ@@1PEAVPALETTE@@PEAU_RECTL@@PEAPEAUHBITMAP__@@@Z @ 0x1C00CAF40 (-vProcessCursorShape@@YAXPEAUHDEV__@@HHPEAU_SURFOBJ@@1PEAVPALETTE@@PEAU_RECTL@@PEAPEAUHBITMAP__@.c)
  * Callees:
- *     EngBitBlt @ 0x1C0005C00 (EngBitBlt.c)
- *     EngCopyBits @ 0x1C0028BB0 (EngCopyBits.c)
- *     EngAlphaBlend @ 0x1C002D3E0 (EngAlphaBlend.c)
- *     ?bBlurCursorShadow@@YAHPEAU_SURFOBJ@@@Z @ 0x1C01526A4 (-bBlurCursorShadow@@YAHPEAU_SURFOBJ@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     EngCopyBits @ 0x1C007EB40 (EngCopyBits.c)
+ *     EngAlphaBlend @ 0x1C00ACD70 (EngAlphaBlend.c)
+ *     ?bBlurCursorShadow@@YAHPEAU_SURFOBJ@@@Z @ 0x1C00CACEC (-bBlurCursorShadow@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     EngBitBlt @ 0x1C00CB5E0 (EngBitBlt.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall bShadowAlphaCursor(
@@ -40,11 +40,11 @@ __int64 __fastcall bShadowAlphaCursor(
   unsigned __int64 v28; // [rsp+60h] [rbp-81h] BYREF
   __int64 v29; // [rsp+68h] [rbp-79h] BYREF
   XLATEOBJ v30; // [rsp+70h] [rbp-71h] BYREF
-  BLENDOBJ pBlendObj[2]; // [rsp+88h] [rbp-59h] BYREF
+  struct _XLATEOBJ *v31; // [rsp+88h] [rbp-59h]
   XLATEOBJ *v32; // [rsp+90h] [rbp-51h]
-  XLATEOBJ *v33; // [rsp+98h] [rbp-49h]
+  BLENDOBJ pBlendObj; // [rsp+98h] [rbp-49h] BYREF
   XLATEOBJ *v34; // [rsp+A0h] [rbp-41h]
-  struct _XLATEOBJ *v35; // [rsp+A8h] [rbp-39h]
+  XLATEOBJ *v35; // [rsp+A8h] [rbp-39h]
   XLATEOBJ *v36; // [rsp+B0h] [rbp-31h]
   RECTL prclDest; // [rsp+B8h] [rbp-29h] BYREF
   RECTL prclSrc; // [rsp+C8h] [rbp-19h] BYREF
@@ -54,8 +54,8 @@ __int64 __fastcall bShadowAlphaCursor(
   v10 = psoSrc->sizlBitmap.cy >> 1;
   v12 = a5;
   v13 = a3;
-  v36 = pxlo;
-  v35 = a5;
+  v32 = pxlo;
+  v31 = a5;
   prclSrc = 0LL;
   *(_QWORD *)&v30.iUniq = 0LL;
   *(_QWORD *)&v30.iSrcType = 0LL;
@@ -135,11 +135,11 @@ LABEL_7:
     {
       prclSrc.right = right;
       prclSrc.bottom = v18;
-      *(_QWORD *)&pBlendObj[0].BlendFunction.BlendOp = 33488896LL;
-      v32 = xloIdent;
-      v33 = xloIdent;
+      pBlendObj = (BLENDOBJ)33488896;
       v34 = xloIdent;
-      EngAlphaBlend(a1, v13, 0LL, xloIdent, &prclDest, &prclSrc, pBlendObj);
+      v35 = xloIdent;
+      v36 = xloIdent;
+      EngAlphaBlend(a1, v13, 0LL, xloIdent, &prclDest, &prclSrc, &pBlendObj);
     }
     else
     {
@@ -152,12 +152,12 @@ LABEL_7:
         LODWORD(v29) = 0;
         HIDWORD(v29) = v10;
       }
-      v26 = v35;
+      v26 = v31;
       v27 = (POINTL *)&v29;
       if ( v13 )
         v27 = &gptlZero;
       else
-        v26 = v36;
+        v26 = v32;
       if ( !v13 )
         v13 = psoSrc;
       EngBitBlt(a1, v13, 0LL, 0LL, v26, &prclDest, v27, 0LL, 0LL, 0LL, 0xEEEEu);

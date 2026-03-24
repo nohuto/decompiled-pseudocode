@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_QueryingDescriptorForFdoRequestFromStoppedEnumerated @ 0x1C001D530
+ * XREFs of HUBDSM_QueryingDescriptorForFdoRequestFromStoppedEnumerated @ 0x1C001CFF0
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb @ 0x1C002AF14 (HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb.c)
+ *     HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb @ 0x1C002A834 (HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb.c)
  */
 
 __int64 __fastcall HUBDSM_QueryingDescriptorForFdoRequestFromStoppedEnumerated(__int64 a1)

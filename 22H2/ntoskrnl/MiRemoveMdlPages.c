@@ -1,113 +1,100 @@
 /*
- * XREFs of MiRemoveMdlPages @ 0x140A2E5AC
+ * XREFs of MiRemoveMdlPages @ 0x1408C6AB0
  * Callers:
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140354954 (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiSetPfnOwnedAndActive @ 0x1402E2D3C (MiSetPfnOwnedAndActive.c)
- *     MiFreeContiguousPages @ 0x1403C337C (MiFreeContiguousPages.c)
- *     MiRemovePhysicalMemoryBatchComplete @ 0x14061BFF4 (MiRemovePhysicalMemoryBatchComplete.c)
- *     MiSortMdlFrames @ 0x1406238E8 (MiSortMdlFrames.c)
- *     MiRemovePhysicalMemory @ 0x140A2CCBC (MiRemovePhysicalMemory.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiSetPfnOwnedAndActive @ 0x14023B5B0 (MiSetPfnOwnedAndActive.c)
+ *     MiFreeContiguousPages @ 0x1402E91B8 (MiFreeContiguousPages.c)
+ *     MiSortMdlFrames @ 0x14053421C (MiSortMdlFrames.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5FDC (MiRemovePhysicalMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-_DWORD *__fastcall MiRemoveMdlPages(char *P, __int64 a2)
+_DWORD *__fastcall MiRemoveMdlPages(char *P, unsigned int a2)
 {
-  __int64 *v2; // r15
-  unsigned __int64 v4; // r14
-  _DWORD *v5; // rdi
-  char *v6; // r12
-  _DWORD *v7; // rbx
-  __int64 v8; // rax
-  unsigned int v9; // r13d
-  int v10; // edx
-  unsigned __int64 v11; // rsi
-  __int64 v12; // rbp
-  __int64 v13; // rcx
-  bool v14; // zf
-  ULONG_PTR v15; // rdi
-  __int64 v16; // r12
-  unsigned __int64 v17; // r14
-  char *v19; // [rsp+30h] [rbp-58h]
-  unsigned __int64 v20; // [rsp+38h] [rbp-50h]
-  int v22; // [rsp+98h] [rbp+10h]
-  __int64 v23; // [rsp+A0h] [rbp+18h]
+  __int64 *v2; // r14
+  unsigned __int64 v3; // r12
+  _DWORD *v4; // rbx
+  char *v5; // rbp
+  __int64 v6; // r15
+  int v7; // ecx
+  ULONG_PTR v8; // rdi
+  __int64 v9; // rsi
+  __int64 v10; // r13
+  __int64 v11; // rax
+  bool v12; // zf
+  __int64 v13; // rbp
+  ULONG_PTR v14; // rbx
+  __int64 v15; // r8
+  _DWORD *v16; // r9
+  int v20; // [rsp+A0h] [rbp+18h]
+  char *v21; // [rsp+A8h] [rbp+20h]
 
   v2 = (__int64 *)(P + 48);
-  v4 = (unsigned __int64)*((unsigned int *)P + 10) >> 12;
-  v5 = P;
-  v20 = v4;
-  v6 = &P[8 * v4 + 48];
-  v19 = v6;
-  if ( (*(_DWORD *)(a2 + 56) & 0x60) == 0 || *(_QWORD *)(a2 + 24) < 0x200uLL )
-    MiSortMdlFrames((__int64)P);
-  v7 = 0LL;
-  v8 = -1LL;
-  v22 = 0;
-  v9 = (*(_DWORD *)(a2 + 56) >> 15) & 0x10 | 0x200000;
-  v23 = -1LL;
-  v10 = 0;
-  v11 = 0LL;
-  v12 = 0LL;
-  v13 = -1LL;
-  v14 = v2 == (__int64 *)v6;
-  if ( v2 <= (__int64 *)v6 )
+  v3 = (unsigned __int64)*((unsigned int *)P + 10) >> 12;
+  v4 = P;
+  v5 = &P[8 * v3 + 48];
+  v21 = v5;
+  MiSortMdlFrames((__int64)P);
+  v6 = -1LL;
+  v7 = 0;
+  v20 = 0;
+  v8 = 0LL;
+  v9 = 0LL;
+  v10 = -1LL;
+  v11 = -1LL;
+  v12 = v2 == (__int64 *)v5;
+  if ( v2 <= (__int64 *)v5 )
   {
-    v15 = -1LL;
     do
     {
-      if ( v14 || (v8 = *v2, v23 = *v2, *v2 != v13) )
+      if ( v12 || (v6 = *v2, *v2 != v11) )
       {
-        if ( v11 )
+        if ( v8 )
         {
-          if ( v10 < 0 || (v22 = MiRemovePhysicalMemory(v15, v11, v9), v10 = v22, v22 < 0) )
+          if ( v7 < 0 || (v20 = MiRemovePhysicalMemory(v10, v8, HIWORD(a2) & 8), v7 = v20, v20 < 0) )
           {
-            v16 = 48 * v15 - 0x220000000000LL;
-            v17 = v11;
+            v13 = 48 * v10 - 0x58000000000LL;
+            v14 = v8;
             do
             {
-              MiSetPfnOwnedAndActive(v16, 1, -8LL, *(unsigned __int8 *)(v16 + 34) >> 6, 2u);
-              v16 += 48LL;
-              --v17;
+              MiSetPfnOwnedAndActive(v13, 0LL, -8LL, *(unsigned __int8 *)(v13 + 34) >> 6, 2);
+              v13 += 48LL;
+              --v14;
             }
-            while ( v17 );
-            v6 = v19;
-            MiFreeContiguousPages(v15, v11);
-            v10 = v22;
-            v12 += v11;
+            while ( v14 );
+            v5 = v21;
+            MiFreeContiguousPages(v10, v8, v15, v16);
+            v7 = v20;
+            v9 += v8;
           }
-          v8 = v23;
         }
-        v15 = v8;
-        v11 = 1LL;
+        v10 = v6;
+        v8 = 1LL;
       }
       else
       {
-        ++v11;
+        ++v8;
       }
       ++v2;
-      v13 = v8 + 1;
-      v14 = v2 == (__int64 *)v6;
+      v11 = v6 + 1;
+      v12 = v2 == (__int64 *)v5;
     }
-    while ( v2 <= (__int64 *)v6 );
-    v5 = P;
-    v4 = v20;
+    while ( v2 <= (__int64 *)v5 );
+    v4 = P;
   }
-  _InterlockedExchangeAdd64(&qword_140C69AB0, -(__int64)v4);
-  if ( !v12 )
+  _InterlockedExchangeAdd64(&qword_140C4EFB8, -(__int64)v3);
+  if ( v9 )
   {
-    v7 = v5;
-    if ( !v4 )
-      return v7;
-LABEL_24:
-    MiRemovePhysicalMemoryBatchComplete();
-    return v5;
+    if ( v9 == v3 )
+    {
+      ExFreePoolWithTag(v4, 0);
+      return 0LL;
+    }
+    else
+    {
+      v4[10] += -4096 * v9;
+    }
   }
-  if ( v12 != v4 )
-  {
-    v5[10] += -4096 * v12;
-    goto LABEL_24;
-  }
-  ExFreePoolWithTag(v5, 0);
-  return v7;
+  return v4;
 }

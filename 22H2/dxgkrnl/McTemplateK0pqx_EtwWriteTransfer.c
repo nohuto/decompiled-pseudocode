@@ -1,13 +1,11 @@
 /*
- * XREFs of McTemplateK0pqx_EtwWriteTransfer @ 0x1C00416C4
+ * XREFs of McTemplateK0pqx_EtwWriteTransfer @ 0x1C003A93C
  * Callers:
- *     ?PowerRuntimeComponentActiveCallback@DXGADAPTER@@QEAAXKE@Z @ 0x1C000C4A0 (-PowerRuntimeComponentActiveCallback@DXGADAPTER@@QEAAXKE@Z.c)
- *     ?LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z @ 0x1C0012304 (-LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z @ 0x1C001D064 (-SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z.c)
- *     ?SetPowerComponentResidencyCB@DXGADAPTER@@QEAAXI_K@Z @ 0x1C001D204 (-SetPowerComponentResidencyCB@DXGADAPTER@@QEAAXI_K@Z.c)
+ *     ?SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z @ 0x1C0039C84 (-SetPowerComponentLatencyCB@DXGADAPTER@@QEAAXI_K@Z.c)
+ *     ?SetPowerComponentResidencyCB@DXGADAPTER@@QEAAXI_K@Z @ 0x1C0039D30 (-SetPowerComponentResidencyCB@DXGADAPTER@@QEAAXI_K@Z.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqx_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

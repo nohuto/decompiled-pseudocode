@@ -1,21 +1,21 @@
 /*
- * XREFs of KiUpdateGlobalCpuSetConfiguration @ 0x140114D84
+ * XREFs of KiUpdateGlobalCpuSetConfiguration @ 0x140114DA4
  * Callers:
- *     KeCpuSetReportParkedProcessors @ 0x140114A84 (KeCpuSetReportParkedProcessors.c)
+ *     KeCpuSetReportParkedProcessors @ 0x140114AA4 (KeCpuSetReportParkedProcessors.c)
  * Callees:
  *     KiSendSoftwareInterrupt @ 0x140003AE4 (KiSendSoftwareInterrupt.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     KiComputeThreadAffinity @ 0x14008A430 (KiComputeThreadAffinity.c)
- *     KiInsertDeferredReadyList @ 0x1400ACBA8 (KiInsertDeferredReadyList.c)
- *     KiIsThreadRankNonZero @ 0x1400D1460 (KiIsThreadRankNonZero.c)
- *     KiSelectNextThread @ 0x1400D7148 (KiSelectNextThread.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiCheckThreadAffinity @ 0x140115138 (KiCheckThreadAffinity.c)
- *     KiTryToAcquireThreadLock @ 0x140115160 (KiTryToAcquireThreadLock.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x140115688 (KiRescheduleThreadAfterAffinityChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetSchedulerAssistPriority @ 0x14029952C (KiSetSchedulerAssistPriority.c)
- *     EtwTraceIdealProcessor @ 0x14030FD0C (EtwTraceIdealProcessor.c)
+ *     KiInsertDeferredReadyList @ 0x1400ACBC8 (KiInsertDeferredReadyList.c)
+ *     KiIsThreadRankNonZero @ 0x1400D1480 (KiIsThreadRankNonZero.c)
+ *     KiSelectNextThread @ 0x1400D7168 (KiSelectNextThread.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiCheckThreadAffinity @ 0x140115158 (KiCheckThreadAffinity.c)
+ *     KiTryToAcquireThreadLock @ 0x140115180 (KiTryToAcquireThreadLock.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1401156A8 (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetSchedulerAssistPriority @ 0x14029962C (KiSetSchedulerAssistPriority.c)
+ *     EtwTraceIdealProcessor @ 0x14030FE0C (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KiUpdateGlobalCpuSetConfiguration(__int64 a1, __int64 a2, __int64 a3)

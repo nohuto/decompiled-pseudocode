@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEsUpdateState @ 0x1403C5BF4
+ * XREFs of PopEsUpdateState @ 0x14039A208
  * Callers:
- *     PopEsWorker @ 0x140873B60 (PopEsWorker.c)
+ *     PopEsWorker @ 0x1407810F0 (PopEsWorker.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagTraceEsState @ 0x140592F34 (PopDiagTraceEsState.c)
- *     PopCurrentPowerState @ 0x1407A7258 (PopCurrentPowerState.c)
- *     PopEsPublishState @ 0x140864600 (PopEsPublishState.c)
- *     PopEsSnapTelemetry @ 0x140998548 (PopEsSnapTelemetry.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDiagTraceEsState @ 0x1405719C8 (PopDiagTraceEsState.c)
+ *     PopCurrentPowerState @ 0x1406F1B8C (PopCurrentPowerState.c)
+ *     PopEsSnapTelemetry @ 0x140779130 (PopEsSnapTelemetry.c)
+ *     PopEsPublishState @ 0x1407D3CB0 (PopEsPublishState.c)
  */
 
 __int64 __fastcall PopEsUpdateState(char a1)
@@ -44,7 +44,7 @@ LABEL_19:
   }
   if ( PopEsMode == 2 )
   {
-    if ( dword_140C3D950 )
+    if ( dword_140C23390 )
     {
       if ( BYTE1(v14[0]) )
       {
@@ -52,7 +52,7 @@ LABEL_19:
         {
           v2 = (unsigned int)(v14[2] + 100 * v14[3] - 1) % v14[2];
           result = (unsigned int)(v14[2] + 100 * v14[3] - 1) / v14[2];
-          if ( (unsigned int)result <= dword_140C3D950 )
+          if ( (unsigned int)result <= dword_140C23390 )
           {
             v6 = 2;
             goto LABEL_19;
@@ -61,7 +61,7 @@ LABEL_19:
       }
     }
   }
-  if ( byte_140C3D954 && dword_140C3D950 && PopEsBgActivityPolicy == 1 )
+  if ( byte_140C23394 && dword_140C23390 && PopEsBgActivityPolicy == 1 )
   {
     v6 = 8;
     goto LABEL_19;
@@ -79,20 +79,23 @@ LABEL_6:
     PopEsState = v4;
     PopEsReason = v6;
     if ( PopCsResiliencyStats[0] && (v4 != v5 || v6 != v7) )
-      ++dword_140C3CB08;
-    KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
+      ++dword_140C23728;
+    KxReleaseSpinLock(&PopCsResiliencyStatsLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-        v13 = (v12 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v12;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+          v13 = (v12 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v12;
+          if ( v13 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v8);

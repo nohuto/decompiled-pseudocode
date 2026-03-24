@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409E7718
+ * XREFs of EtwTimLogProhibitNonMicrosoftBinaries @ 0x14093C0C8
  * Callers:
- *     MiValidateSectionSigningPolicy @ 0x1406FF378 (MiValidateSectionSigningPolicy.c)
+ *     MiValidateSectionSigningPolicy @ 0x140714144 (MiValidateSectionSigningPolicy.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwpTiFillProcessIdentity @ 0x1402EDEB4 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x1402EDFB0 (EtwpTiFillThreadIdentity.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x14070BB0C (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025F604 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillThreadIdentity @ 0x14025F884 (EtwpTiFillThreadIdentity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTimLogProhibitNonMicrosoftBinaries(int a1, __int64 a2, char a3, char a4, unsigned __int16 *a5)
@@ -168,7 +168,7 @@ void __fastcall EtwTimLogProhibitNonMicrosoftBinaries(int a1, __int64 a2, char a
   *(&UserData.Reserved + 2 * v28) = 0;
   EtwWrite(EtwSecurityMitigationsRegHandle, v30, 0LL, v29, &UserData);
   v31 = P[1];
-  if ( (unsigned int)dword_140C043E0 > 5 && tlgKeywordOn((__int64)&dword_140C043E0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C02BF0 > 5 && tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL) )
   {
     v37 = a1;
     v42 = &v37;
@@ -198,8 +198,8 @@ void __fastcall EtwTimLogProhibitNonMicrosoftBinaries(int a1, __int64 a2, char a
     v59 = 1LL;
     v61 = 1LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C043E0,
-      (unsigned __int8 *)word_140035B22,
+      (__int64)&dword_140C02BF0,
+      (unsigned __int8 *)byte_14002D471,
       0LL,
       0LL,
       0xCu,

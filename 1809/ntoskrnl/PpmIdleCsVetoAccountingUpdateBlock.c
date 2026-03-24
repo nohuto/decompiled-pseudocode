@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmIdleCsVetoAccountingUpdateBlock @ 0x1402D4AE4
+ * XREFs of PpmIdleCsVetoAccountingUpdateBlock @ 0x1402D4BE4
  * Callers:
- *     PpmIdleCaptureCsVetoAccounting @ 0x1402D3F78 (PpmIdleCaptureCsVetoAccounting.c)
- *     PpmIdleCsVetoAccountingDeviceUpdate @ 0x1402D4964 (PpmIdleCsVetoAccountingDeviceUpdate.c)
- *     PpmIdleCsVetoAccountingResiliencyUpdate @ 0x1402D4A14 (PpmIdleCsVetoAccountingResiliencyUpdate.c)
- *     PpmIdleStartCsVetoAccounting @ 0x1402D5134 (PpmIdleStartCsVetoAccounting.c)
+ *     PpmIdleCaptureCsVetoAccounting @ 0x1402D4078 (PpmIdleCaptureCsVetoAccounting.c)
+ *     PpmIdleCsVetoAccountingDeviceUpdate @ 0x1402D4A64 (PpmIdleCsVetoAccountingDeviceUpdate.c)
+ *     PpmIdleCsVetoAccountingResiliencyUpdate @ 0x1402D4B14 (PpmIdleCsVetoAccountingResiliencyUpdate.c)
+ *     PpmIdleStartCsVetoAccounting @ 0x1402D5234 (PpmIdleStartCsVetoAccounting.c)
  * Callees:
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
  */

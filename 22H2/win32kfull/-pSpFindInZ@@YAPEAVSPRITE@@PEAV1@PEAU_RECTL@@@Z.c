@@ -1,26 +1,25 @@
 /*
- * XREFs of ?pSpFindInZ@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C001AD98
+ * XREFs of ?pSpFindInZ@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C010DA90
  * Callers:
- *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C001A284 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
- *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C001A564 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C001EC30 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
- *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0282134 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
- *     ?vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z @ 0x1C028250C (-vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z.c)
+ *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C00965B8 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
+ *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C00968A0 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00F0208 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0283BD4 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z @ 0x1C0283FA0 (-vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z.c)
  * Callees:
- *     ?bIsCursorSprite@@YAHPEAVSPRITE@@@Z @ 0x1C027D5EC (-bIsCursorSprite@@YAHPEAVSPRITE@@@Z.c)
- *     ?vLock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C027FEC4 (-vLock@SINGLEREADERLOCK@@QEAAXXZ.c)
- *     ?vUnlock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C0283694 (-vUnlock@SINGLEREADERLOCK@@QEAAXXZ.c)
+ *     ?bIsCursorSprite@@YAHPEAVSPRITE@@@Z @ 0x1C010DB28 (-bIsCursorSprite@@YAHPEAVSPRITE@@@Z.c)
+ *     ?vLock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C0281E90 (-vLock@SINGLEREADERLOCK@@QEAAXXZ.c)
+ *     ?vUnlock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C0284F7C (-vUnlock@SINGLEREADERLOCK@@QEAAXXZ.c)
  */
 
 struct SPRITE *__fastcall pSpFindInZ(struct SPRITE *a1, struct _RECTL *a2)
 {
-  LONG left; // ebp
+  LONG left; // esi
   struct SPRITE *v3; // rbx
-  LONG top; // r14d
-  LONG right; // r15d
-  LONG i; // r12d
-  SINGLEREADERLOCK *v8; // rdi
-  int IsCursorSprite; // esi
+  LONG top; // ebp
+  LONG right; // r14d
+  LONG i; // r15d
+  int IsCursorSprite; // edi
 
   left = a2->left;
   v3 = a1;
@@ -28,10 +27,9 @@ struct SPRITE *__fastcall pSpFindInZ(struct SPRITE *a1, struct _RECTL *a2)
   right = a2->right;
   for ( i = a2->bottom; v3; v3 = (struct SPRITE *)*((_QWORD *)v3 + 3) )
   {
-    v8 = (struct SPRITE *)((char *)v3 + 248);
     IsCursorSprite = bIsCursorSprite(v3);
     if ( IsCursorSprite == 1 )
-      SINGLEREADERLOCK::vLock(v8);
+      SINGLEREADERLOCK::vLock((struct SPRITE *)((char *)v3 + 248));
     if ( (*(_DWORD *)v3 & 0x400) == 0
       && *((_DWORD *)v3 + 20) <= right
       && *((_DWORD *)v3 + 21) <= i
@@ -41,7 +39,7 @@ struct SPRITE *__fastcall pSpFindInZ(struct SPRITE *a1, struct _RECTL *a2)
       break;
     }
     if ( IsCursorSprite == 1 )
-      SINGLEREADERLOCK::vUnlock(v8);
+      SINGLEREADERLOCK::vUnlock((struct SPRITE *)((char *)v3 + 248));
   }
   return v3;
 }

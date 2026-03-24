@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPepWaitForDeviceRelease @ 0x1403B954C
+ * XREFs of PopPepWaitForDeviceRelease @ 0x1403BE59C
  * Callers:
- *     PopPepUnregisterDevice @ 0x140823318 (PopPepUnregisterDevice.c)
+ *     PopPepUnregisterDevice @ 0x1407B52D0 (PopPepUnregisterDevice.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopPepWaitForDeviceRelease(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of HvpViewMapCOWAndUnsealRange @ 0x14070B20C
+ * XREFs of HvpViewMapCOWAndUnsealRange @ 0x140723150
  * Callers:
- *     HvpSetRangeProtection @ 0x140709A04 (HvpSetRangeProtection.c)
- *     HvpAddBin @ 0x14074F684 (HvpAddBin.c)
+ *     HvpSetRangeProtection @ 0x140657508 (HvpSetRangeProtection.c)
+ *     HvpAddBin @ 0x140721E28 (HvpAddBin.c)
  * Callees:
- *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14070B0F4 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x140723208 (HvpViewMapMakeViewRangeCOWByCaller.c)
  */
 
 __int64 __fastcall HvpViewMapCOWAndUnsealRange(__int64 a1, int a2, unsigned int a3)
 {
-  __int64 v3; // r10
-  __int64 v4; // rsi
+  signed __int64 v3; // r10
+  signed __int64 v4; // rsi
   __int64 v6; // rbx
   unsigned __int64 v7; // rdx
   unsigned __int64 v8; // rax
@@ -47,7 +47,7 @@ __int64 __fastcall HvpViewMapCOWAndUnsealRange(__int64 a1, int a2, unsigned int 
     v9 = v4;
     if ( v4 >= *(_QWORD *)(v7 + 48) )
       v9 = *(_QWORD *)(v7 + 48);
-    result = HvpViewMapMakeViewRangeCOWByCaller(a1, (_QWORD *)v7, v3, v9);
+    result = HvpViewMapMakeViewRangeCOWByCaller(a1, v7, v3, v9);
     if ( (int)result < 0 )
       return result;
     v3 = v9;

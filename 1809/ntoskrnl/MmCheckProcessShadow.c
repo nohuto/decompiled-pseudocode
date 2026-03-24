@@ -1,5 +1,5 @@
 /*
- * XREFs of MmCheckProcessShadow @ 0x140135BE0
+ * XREFs of MmCheckProcessShadow @ 0x140135C00
  * Callers:
  *     <none>
  * Callees:

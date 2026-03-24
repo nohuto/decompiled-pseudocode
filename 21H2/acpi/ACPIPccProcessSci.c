@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIPccProcessSci @ 0x1C005A6BC
+ * XREFs of ACPIPccProcessSci @ 0x1C005984C
  * Callers:
- *     ACPIInterruptServiceRoutineDPC @ 0x1C0030DD0 (ACPIInterruptServiceRoutineDPC.c)
+ *     ACPIInterruptServiceRoutineDPC @ 0x1C0025DB0 (ACPIInterruptServiceRoutineDPC.c)
  * Callees:
- *     AcpiPccCommandComplete @ 0x1C005A8D0 (AcpiPccCommandComplete.c)
- *     AcpiPccPlatformNotification @ 0x1C005AE9C (AcpiPccPlatformNotification.c)
+ *     AcpiPccCommandComplete @ 0x1C0059B80 (AcpiPccCommandComplete.c)
+ *     AcpiPccPlatformNotification @ 0x1C005A034 (AcpiPccPlatformNotification.c)
  */
 
 char ACPIPccProcessSci()
@@ -31,12 +31,12 @@ char ACPIPccProcessSci()
     {
       for ( i = 0; i < AcpiPccSubspaceCount; ++i )
       {
-        v2 = (_QWORD *)(AcpiPccSubspaces + 656LL * i);
+        v2 = (_QWORD *)(AcpiPccSubspaces + 648LL * i);
         LOBYTE(v0) = *(_BYTE *)v2 + 1;
         if ( ((unsigned __int8)v0 & 0xFE) == 0 && v2[7] )
         {
           if ( *((_DWORD *)v2 + 108) && (*(_WORD *)v2[7] & 2) != 0 )
-            AcpiPccCommandComplete(AcpiPccSubspaces + 656LL * i);
+            AcpiPccCommandComplete(AcpiPccSubspaces + 648LL * i);
           v0 = (_WORD *)v2[7];
           if ( (*v0 & 8) != 0 )
             LOBYTE(v0) = AcpiPccPlatformNotification(v2);

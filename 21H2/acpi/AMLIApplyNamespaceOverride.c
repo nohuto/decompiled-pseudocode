@@ -1,12 +1,12 @@
 /*
- * XREFs of AMLIApplyNamespaceOverride @ 0x1C0028690
+ * XREFs of AMLIApplyNamespaceOverride @ 0x1C0023700
  * Callers:
- *     ParseLoad @ 0x1C0028400 (ParseLoad.c)
- *     ParseUnload @ 0x1C006C0C0 (ParseUnload.c)
+ *     ParseLoad @ 0x1C0023470 (ParseLoad.c)
+ *     ParseUnload @ 0x1C006BE10 (ParseUnload.c)
  * Callees:
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     GetNameSpaceObject @ 0x1C0019AC8 (GetNameSpaceObject.c)
- *     AMLIApplyNextNamespaceOverride @ 0x1C0065D84 (AMLIApplyNextNamespaceOverride.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
+ *     AMLIApplyNextNamespaceOverride @ 0x1C0064B00 (AMLIApplyNextNamespaceOverride.c)
  */
 
 __int64 AMLIApplyNamespaceOverride()

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlAddAtomToAtomTableEx @ 0x1402F1090
+ * XREFs of RtlAddAtomToAtomTableEx @ 0x14025A350
  * Callers:
- *     NtAddAtomEx @ 0x1406BFED0 (NtAddAtomEx.c)
- *     RtlAddAtomToAtomTable @ 0x1406E0820 (RtlAddAtomToAtomTable.c)
+ *     NtAddAtomEx @ 0x14069F870 (NtAddAtomEx.c)
+ *     RtlAddAtomToAtomTable @ 0x1406BECC0 (RtlAddAtomToAtomTable.c)
  * Callees:
- *     RtlpReferenceAtom @ 0x1402F0AA0 (RtlpReferenceAtom.c)
- *     RtlpAllocateAtomTableEntry @ 0x1403547BC (RtlpAllocateAtomTableEntry.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlpFreeAtom @ 0x1406AB544 (RtlpFreeAtom.c)
- *     RtlpInsertStringAtom @ 0x1406C5878 (RtlpInsertStringAtom.c)
- *     RtlpUnlockAtomTable @ 0x1407A09E4 (RtlpUnlockAtomTable.c)
- *     RtlGetIntegerAtom @ 0x1407A0DF0 (RtlGetIntegerAtom.c)
- *     RtlpLockAtomTable @ 0x1407A0EA0 (RtlpLockAtomTable.c)
- *     RtlpHashStringToAtom @ 0x1407A0EE0 (RtlpHashStringToAtom.c)
+ *     RtlpAllocateAtomTableEntry @ 0x140264168 (RtlpAllocateAtomTableEntry.c)
+ *     RtlpReferenceAtom @ 0x1402BD564 (RtlpReferenceAtom.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlpUnlockAtomTable @ 0x14061A41C (RtlpUnlockAtomTable.c)
+ *     RtlGetIntegerAtom @ 0x14061B6E0 (RtlGetIntegerAtom.c)
+ *     RtlpLockAtomTable @ 0x14061BA14 (RtlpLockAtomTable.c)
+ *     RtlpHashStringToAtom @ 0x14061BB60 (RtlpHashStringToAtom.c)
+ *     RtlpFreeAtom @ 0x1406A156C (RtlpFreeAtom.c)
+ *     RtlpInsertStringAtom @ 0x1406ACC5C (RtlpInsertStringAtom.c)
  */
 
 __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int16 *a3, unsigned int a4)
@@ -104,7 +104,7 @@ LABEL_27:
           else
           {
             if ( v20 && v20 != v12 + 16 )
-              RtlpFreeAtom(v20);
+              ((void (*)(void))RtlpFreeAtom)();
             RtlpFreeAtom(v12);
           }
         }

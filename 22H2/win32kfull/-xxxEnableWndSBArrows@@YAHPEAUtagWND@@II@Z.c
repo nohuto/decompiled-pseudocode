@@ -1,19 +1,19 @@
 /*
- * XREFs of ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C009E2A0
+ * XREFs of ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C00F63F0
  * Callers:
- *     xxxEnableScrollBar @ 0x1C009E260 (xxxEnableScrollBar.c)
- *     xxxSetScrollBar @ 0x1C00C6C68 (xxxSetScrollBar.c)
+ *     xxxSetScrollBar @ 0x1C00F5D08 (xxxSetScrollBar.c)
+ *     xxxEnableScrollBar @ 0x1C00F63B0 (xxxEnableScrollBar.c)
  * Callees:
- *     xxxDrawScrollBar @ 0x1C00149D0 (xxxDrawScrollBar.c)
- *     IsVisible @ 0x1C00C719C (IsVisible.c)
- *     _InitPwSB @ 0x1C00C7998 (_InitPwSB.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
+ *     _InitPwSB @ 0x1C0063E20 (_InitPwSB.c)
+ *     IsVisible @ 0x1C00680C4 (IsVisible.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
+ *     xxxDrawScrollBar @ 0x1C0157970 (xxxDrawScrollBar.c)
  */
 
 __int64 __fastcall xxxEnableWndSBArrows(struct tagWND *a1, int a2, int a3)
 {
-  unsigned int *inited; // rbx
-  unsigned int v4; // edi
+  unsigned int *inited; // rdi
+  unsigned int v4; // esi
   int v8; // r12d
   unsigned int v9; // ebp
   HDC DCEx; // r15
@@ -21,8 +21,8 @@ __int64 __fastcall xxxEnableWndSBArrows(struct tagWND *a1, int a2, int a3)
   unsigned int v12; // ecx
   unsigned int v13; // ecx
   __int64 v15; // rcx
-  struct tagWND *v16; // rcx
-  __int64 v17; // rcx
+  __int64 v16; // rcx
+  struct tagWND *v17; // rcx
   struct tagWND *v18; // rcx
 
   inited = (unsigned int *)*((_QWORD *)a1 + 19);
@@ -37,7 +37,7 @@ __int64 __fastcall xxxEnableWndSBArrows(struct tagWND *a1, int a2, int a3)
     if ( !a3 )
       return 0LL;
     v9 = 0;
-    inited = (unsigned int *)InitPwSB();
+    inited = (unsigned int *)InitPwSB((__int64)a1);
     if ( !inited )
       return 0LL;
   }
@@ -48,32 +48,32 @@ __int64 __fastcall xxxEnableWndSBArrows(struct tagWND *a1, int a2, int a3)
     {
       v11 = *inited & 0xFFFFFFFC;
       if ( a3 )
-        v11 = a3 | *inited;
+        v11 = *inited | a3;
       *inited = v11;
       if ( v11 != v9 )
       {
         v9 = v11;
         v8 = 1;
-        v15 = *((_QWORD *)a1 + 5);
-        if ( (*(_BYTE *)(v15 + 16) & 4) != 0 && (*(_BYTE *)(v15 + 31) & 0x20) == 0 )
+        v16 = *((_QWORD *)a1 + 5);
+        if ( (*(_BYTE *)(v16 + 16) & 4) != 0 && (*(_BYTE *)(v16 + 31) & 0x20) == 0 )
         {
-          if ( (unsigned int)IsVisible(a1) )
+          if ( (unsigned int)IsVisible((__int64)a1) )
           {
-            xxxDrawScrollBar(v16, DCEx, 0);
+            xxxDrawScrollBar(v17, DCEx, 0);
             if ( inited != *((unsigned int **)a1 + 19) )
               goto LABEL_16;
           }
         }
       }
-      if ( ((*(_BYTE *)inited ^ (unsigned __int8)v9) & 1) != 0 )
+      if ( (((unsigned __int8)v9 ^ *(_BYTE *)inited) & 1) != 0 )
       {
-        xxxWindowEvent(0x800Au, 1);
+        xxxWindowEvent(0x800Au, a1, -6, 1u, 1u);
         if ( inited != *((unsigned int **)a1 + 19) )
           goto LABEL_16;
       }
-      if ( ((*(_BYTE *)inited ^ (unsigned __int8)v9) & 2) != 0 )
+      if ( (((unsigned __int8)v9 ^ *(_BYTE *)inited) & 2) != 0 )
       {
-        xxxWindowEvent(0x800Au, 1);
+        xxxWindowEvent(0x800Au, a1, -6, 5u, 1u);
         if ( inited != *((unsigned int **)a1 + 19) )
           goto LABEL_16;
       }
@@ -85,25 +85,25 @@ __int64 __fastcall xxxEnableWndSBArrows(struct tagWND *a1, int a2, int a3)
       *inited = v13;
       if ( v13 != v9 )
       {
-        v17 = *((_QWORD *)a1 + 5);
+        v15 = *((_QWORD *)a1 + 5);
         v8 = 1;
-        if ( (*(_BYTE *)(v17 + 16) & 2) != 0 && (*(_BYTE *)(v17 + 31) & 0x20) == 0 )
+        if ( (*(_BYTE *)(v15 + 16) & 2) != 0 && (*(_BYTE *)(v15 + 31) & 0x20) == 0 )
         {
-          if ( (unsigned int)IsVisible(a1) )
+          if ( (unsigned int)IsVisible((__int64)a1) )
           {
-            xxxDrawScrollBar(v18, DCEx, 1u);
+            xxxDrawScrollBar(v18, DCEx, 1);
             if ( inited != *((unsigned int **)a1 + 19) )
               goto LABEL_16;
           }
         }
-        if ( ((*(_BYTE *)inited ^ (unsigned __int8)v9) & 4) != 0 )
+        if ( (((unsigned __int8)v9 ^ *(_BYTE *)inited) & 4) != 0 )
         {
-          xxxWindowEvent(0x800Au, 1);
+          xxxWindowEvent(0x800Au, a1, -5, 1u, 1u);
           if ( inited != *((unsigned int **)a1 + 19) )
             goto LABEL_16;
         }
-        if ( ((*(_BYTE *)inited ^ (unsigned __int8)v9) & 8) != 0 )
-          xxxWindowEvent(0x800Au, 1);
+        if ( (((unsigned __int8)v9 ^ *(_BYTE *)inited) & 8) != 0 )
+          xxxWindowEvent(0x800Au, a1, -5, 5u, 1u);
       }
     }
     v4 = v8;

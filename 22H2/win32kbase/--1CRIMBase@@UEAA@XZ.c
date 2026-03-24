@@ -1,18 +1,17 @@
 /*
- * XREFs of ??1CRIMBase@@UEAA@XZ @ 0x1C00833C8
+ * XREFs of ??1CRIMBase@@UEAA@XZ @ 0x1C008BD94
  * Callers:
- *     ??_GCHidInput@@UEAAPEAXI@Z @ 0x1C0080970 (--_GCHidInput@@UEAAPEAXI@Z.c)
- *     ??_GCBaseInput@@UEAAPEAXI@Z @ 0x1C01DCBF0 (--_GCBaseInput@@UEAAPEAXI@Z.c)
- *     ??_GCRIMBase@@UEAAPEAXI@Z @ 0x1C01DCC40 (--_GCRIMBase@@UEAAPEAXI@Z.c)
+ *     ??_GCHidInput@@UEAAPEAXI@Z @ 0x1C008BCB0 (--_GCHidInput@@UEAAPEAXI@Z.c)
+ *     ??_GCRIMBase@@UEAAPEAXI@Z @ 0x1C01A38A0 (--_GCRIMBase@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C00835D0 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C008BEAC (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
  */
 
 void __fastcall CRIMBase::~CRIMBase(CRIMBase *this)
 {
   *(_QWORD *)this = &CRIMBase::`vftable';
   `vector destructor iterator'(
-    (char *)this + 168,
+    (char *)this + 152,
     0x40uLL,
     0x11uLL,
     (void (*)(void *))CRIMBase::SensorDispatcherObject::~SensorDispatcherObject);

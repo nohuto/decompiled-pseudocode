@@ -1,56 +1,54 @@
 /*
- * XREFs of ?Initialize@CNineGridDrawListBrush@@AEAAJXZ @ 0x18002F200
+ * XREFs of ?Initialize@CNineGridDrawListBrush@@AEAAJXZ @ 0x18000771C
  * Callers:
- *     ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x18002F030 (-Create@CNineGridDrawListBrush@@SAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawL.c)
+ *     ?Create@CNineGridDrawListBrush@@SAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBVInsets@@1_NPEAPEAV1@@Z @ 0x1800072F8 (-Create@CNineGridDrawListBrush@@SAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delete@VCDrawL.c)
  * Callees:
- *     ?AddNineGrid@CoordMap@@QEAAJHAEBUD2D_RECT_F@@AEBVInsets@@01_N@Z @ 0x18002F42C (-AddNineGrid@CoordMap@@QEAAJHAEBUD2D_RECT_F@@AEBVInsets@@01_N@Z.c)
- *     ?IsEmpty@CoordMap@@QEBA_NXZ @ 0x18002FB08 (-IsEmpty@CoordMap@@QEBA_NXZ.c)
- *     ?CopyPrimitiveClamp@CDrawListBrush@@QEAAXPEBV1@@Z @ 0x18002FB28 (-CopyPrimitiveClamp@CDrawListBrush@@QEAAXPEBV1@@Z.c)
- *     ??$GetAllHollowRects@V?$vector_facade@UD2D_RECT_F@@V?$buffer_impl@UD2D_RECT_F@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@CoordMap@@QEBAXPEAV?$vector_facade@UD2D_RECT_F@@V?$buffer_impl@UD2D_RECT_F@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x180030880 (--$GetAllHollowRects@V-$vector_facade@UD2D_RECT_F@@V-$buffer_impl@UD2D_RECT_F@@$00$00Vliberal_ex.c)
- *     ?clear@?$vector_facade@UD2D_RECT_F@@V?$buffer_impl@UD2D_RECT_F@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x180030908 (-clear@-$vector_facade@UD2D_RECT_F@@V-$buffer_impl@UD2D_RECT_F@@$00$00Vliberal_expansion_policy@.c)
- *     ?DecomposeMatrixIntoScaleAndRemaining@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1PEAU2@@Z @ 0x180030998 (-DecomposeMatrixIntoScaleAndRemaining@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1PEAU2@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$GetAllHollowRects@V?$vector_facade@UD2D_RECT_F@@V?$buffer_impl@UD2D_RECT_F@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@CoordMap@@QEBAXPEAV?$vector_facade@UD2D_RECT_F@@V?$buffer_impl@UD2D_RECT_F@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x180007984 (--$GetAllHollowRects@V-$vector_facade@UD2D_RECT_F@@V-$buffer_impl@UD2D_RECT_F@@$00$00Vliberal_ex.c)
+ *     ?clear@?$vector_facade@UD2D_RECT_F@@V?$buffer_impl@UD2D_RECT_F@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x180007B04 (-clear@-$vector_facade@UD2D_RECT_F@@V-$buffer_impl@UD2D_RECT_F@@$00$00Vliberal_expansion_policy@.c)
+ *     ?IsEmpty@CoordMap@@QEBA_NXZ @ 0x180007B2C (-IsEmpty@CoordMap@@QEBA_NXZ.c)
+ *     ?DecomposeMatrixIntoScaleAndRemaining@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1PEAU2@@Z @ 0x180007B4C (-DecomposeMatrixIntoScaleAndRemaining@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1PEAU2@@Z.c)
+ *     ?CopyPrimitiveClamp@CDrawListBrush@@QEAAXPEBV1@@Z @ 0x1800080C8 (-CopyPrimitiveClamp@CDrawListBrush@@QEAAXPEBV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?AddNineGrid@CoordMap@@QEAAJHAEBUD2D_RECT_F@@AEBVInsets@@01_N@Z @ 0x1800F37B4 (-AddNineGrid@CoordMap@@QEAAJHAEBUD2D_RECT_F@@AEBVInsets@@01_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CNineGridDrawListBrush::Initialize(CNineGridDrawListBrush *this)
 {
   __int64 v1; // rdx
-  D2DMatrixHelper *v2; // r15
+  D2DMatrixHelper *v2; // r14
   __int64 v4; // rcx
   char v5; // al
   __int64 v6; // rcx
   char v7; // al
+  __int64 v8; // rcx
   float m11; // xmm6_4
   float m12; // xmm7_4
-  FLOAT v10; // xmm1_4
-  FLOAT v11; // xmm0_4
-  FLOAT v12; // xmm1_4
-  int v13; // edx
-  int v14; // eax
-  unsigned int v15; // ecx
-  unsigned int v16; // edi
-  __int64 v17; // rcx
+  unsigned int v11; // xmm1_4
+  int v12; // edx
+  int v13; // eax
+  unsigned int v14; // ecx
+  unsigned int v15; // edi
+  __int64 v16; // rcx
+  __int128 v17; // xmm0
   __int128 v18; // xmm0
-  __int128 v19; // xmm0
-  __int64 v20; // xmm1_8
-  struct D2D_RECT_F v21; // xmm0
+  __int64 v19; // xmm1_8
+  __int128 v20; // xmm0
+  float v21; // xmm7_4
   void *v22; // rcx
   bool v23; // zf
-  __int64 v25; // rax
-  float v26; // xmm7_4
-  struct D2D_MATRIX_3X2_F *v27; // [rsp+28h] [rbp-69h]
-  char v28; // [rsp+38h] [rbp-59h]
-  struct D2D_MATRIX_3X2_F v29; // [rsp+48h] [rbp-49h] BYREF
-  __int64 v30; // [rsp+60h] [rbp-31h]
-  struct D2D_RECT_F v31; // [rsp+68h] [rbp-29h] BYREF
-  _OWORD *v32; // [rsp+78h] [rbp-19h] BYREF
-  _BYTE *v33; // [rsp+80h] [rbp-11h]
-  __int64 *v34; // [rsp+88h] [rbp-9h]
-  _BYTE v35[16]; // [rsp+90h] [rbp-1h] BYREF
-  __int64 v36; // [rsp+A0h] [rbp+Fh] BYREF
+  struct D2D_MATRIX_3X2_F *v25; // [rsp+28h] [rbp-69h]
+  char v26; // [rsp+38h] [rbp-59h]
+  struct D2D_MATRIX_3X2_F v27; // [rsp+48h] [rbp-49h] BYREF
+  __int128 v28; // [rsp+60h] [rbp-31h] BYREF
+  __int64 v29; // [rsp+70h] [rbp-21h]
+  _OWORD *v30; // [rsp+78h] [rbp-19h] BYREF
+  _BYTE *v31; // [rsp+80h] [rbp-11h]
+  __int64 *v32; // [rsp+88h] [rbp-9h]
+  _BYTE v33[16]; // [rsp+90h] [rbp-1h] BYREF
+  __int64 v34; // [rsp+A0h] [rbp+Fh] BYREF
 
   v1 = *((_QWORD *)this + 9);
   v2 = (CNineGridDrawListBrush *)((char *)this + 8);
@@ -61,80 +59,82 @@ __int64 __fastcall CNineGridDrawListBrush::Initialize(CNineGridDrawListBrush *th
   v6 = *((_QWORD *)this + 9);
   if ( v5 )
   {
-    if ( *(_BYTE *)(v6 + 148) )
-      *((_QWORD *)this + 7) = *(_QWORD *)(v6 + 136);
-    v7 = *(_BYTE *)(v6 + 148);
-LABEL_5:
-    *((_BYTE *)this + 64) = v7;
-    goto LABEL_6;
+    v7 = *(_BYTE *)(v6 + 170);
+    if ( v7 )
+    {
+      *((_QWORD *)this + 7) = *(_QWORD *)(v6 + 160);
+      v7 = *(_BYTE *)(v6 + 170);
+    }
   }
-  if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 8LL))(v6, 3LL) )
+  else
   {
-    v25 = *((_QWORD *)this + 9);
-    if ( *(_BYTE *)(v25 + 64) )
-      *((_QWORD *)this + 7) = *(_QWORD *)(v25 + 56);
-    v7 = *(_BYTE *)(v25 + 64);
-    goto LABEL_5;
+    if ( !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v6 + 8LL))(v6, 3LL) )
+      goto LABEL_8;
+    v8 = *((_QWORD *)this + 9);
+    v7 = *(_BYTE *)(v8 + 64);
+    if ( v7 )
+    {
+      *((_QWORD *)this + 7) = *(_QWORD *)(v8 + 56);
+      v7 = *(_BYTE *)(v8 + 64);
+    }
   }
-LABEL_6:
-  D2DMatrixHelper::DecomposeMatrixIntoScaleAndRemaining(v2, &v29, &v29.m12, &v29.m21, v27);
-  m11 = v29.m11;
-  m12 = v29.m12;
-  v28 = *((_BYTE *)this + 568);
-  v10 = v29.m12 * *((float *)this + 9);
-  v31.left = v29.m11 * *((float *)this + 8);
-  v11 = v29.m11 * *((float *)this + 10);
-  v31.top = v10;
-  v12 = v29.m12 * *((float *)this + 11);
-  v31.right = v11;
-  v31.bottom = v12;
-  v14 = CoordMap::AddNineGrid(
+  *((_BYTE *)this + 64) = v7;
+LABEL_8:
+  D2DMatrixHelper::DecomposeMatrixIntoScaleAndRemaining(v2, &v27, &v27.m12, (float *)&v28, v25);
+  m11 = v27.m11;
+  m12 = v27.m12;
+  v26 = *((_BYTE *)this + 568);
+  *(float *)&v11 = v27.m12 * *((float *)this + 9);
+  v27.m21 = v27.m11 * *((float *)this + 8);
+  *(_QWORD *)&v27.m[1][1] = __PAIR64__(v27.m11 * *((float *)this + 10), v11);
+  v27.dy = v27.m12 * *((float *)this + 11);
+  v13 = CoordMap::AddNineGrid(
           (CNineGridDrawListBrush *)((char *)this + 112),
-          v13,
-          &v31,
+          v12,
+          (const struct D2D_RECT_F *)v27.m[1],
           (CNineGridDrawListBrush *)((char *)this + 96),
           (const struct D2D_RECT_F *)this + 2,
           (CNineGridDrawListBrush *)((char *)this + 80),
-          v28);
-  v16 = v14;
-  if ( v14 < 0 )
+          v26);
+  v15 = v13;
+  if ( v13 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x62u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x66u, 0LL);
   }
   else if ( !CoordMap::IsEmpty((CNineGridDrawListBrush *)((char *)this + 112)) )
   {
-    v32 = v35;
-    v33 = v35;
-    v34 = &v36;
+    v30 = v33;
+    v31 = v33;
+    v32 = &v34;
     CoordMap::GetAllHollowRects<detail::vector_facade<D2D_RECT_F,detail::buffer_impl<D2D_RECT_F,1,1,detail::liberal_expansion_policy>>>(
-      v17,
-      &v32);
-    if ( (v33 - (_BYTE *)v32) >> 4 )
+      v16,
+      &v30);
+    if ( (v31 - (_BYTE *)v30) >> 4 )
     {
-      v18 = *v32;
+      v17 = *v30;
       *((_BYTE *)this + 569) = 1;
-      *(_OWORD *)((char *)this + 552) = v18;
+      *(_OWORD *)((char *)this + 552) = v17;
     }
-    v19 = *(_OWORD *)&v29.m[1][0];
+    v18 = v28;
     *((_BYTE *)this + 52) = 1;
-    v20 = v30;
-    *(_OWORD *)v2 = v19;
-    v21 = v31;
-    *((_QWORD *)v2 + 2) = v20;
-    *((struct D2D_RECT_F *)this + 2) = v21;
+    v19 = v29;
+    *(_OWORD *)v2 = v18;
+    v20 = *(_OWORD *)&v27.m[1][0];
+    *((_QWORD *)v2 + 2) = v19;
+    *((_OWORD *)this + 2) = v20;
     if ( *((_BYTE *)this + 64) )
     {
-      v26 = m12 * *((float *)this + 15);
+      v21 = m12 * *((float *)this + 15);
       *((float *)this + 14) = m11 * *((float *)this + 14);
-      *((float *)this + 15) = v26;
+      *((float *)this + 15) = v21;
     }
-    detail::vector_facade<D2D_RECT_F,detail::buffer_impl<D2D_RECT_F,1,1,detail::liberal_expansion_policy>>::clear(&v32);
-    v22 = v32;
-    v23 = v32 == (_OWORD *)v35;
-    v32 = 0LL;
+    detail::vector_facade<D2D_RECT_F,detail::buffer_impl<D2D_RECT_F,1,1,detail::liberal_expansion_policy>>::clear(&v30);
+    v22 = v30;
+    v23 = v30 == (_OWORD *)v33;
+    v30 = 0LL;
     if ( v23 )
       v22 = 0LL;
     operator delete(v22);
   }
-  return v16;
+  return v15;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROOTPAGETABLE@@PEAX@Z @ 0x1C00A71B8
+ * XREFs of ?RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROOTPAGETABLE@@PEAX@Z @ 0x1C008B210
  * Callers:
- *     VidSchiSubmitRenderVirtualCommand @ 0x1C0096600 (VidSchiSubmitRenderVirtualCommand.c)
- *     VidSchSetPagingNodePageDirectory @ 0x1C00B843C (VidSchSetPagingNodePageDirectory.c)
- *     VidSchiEnsureRootPageTableUpdated @ 0x1C00B8EE8 (VidSchiEnsureRootPageTableUpdated.c)
- *     VidSchiSetPagingHwContextPageDirectory @ 0x1C00F5C88 (VidSchiSetPagingHwContextPageDirectory.c)
+ *     VidSchiSubmitRenderVirtualCommand @ 0x1C007F970 (VidSchiSubmitRenderVirtualCommand.c)
+ *     VidSchSetPagingNodePageDirectory @ 0x1C00D28C8 (VidSchSetPagingNodePageDirectory.c)
+ *     VidSchiSetPagingHwContextPageDirectory @ 0x1C00D326C (VidSchiSetPagingHwContextPageDirectory.c)
+ *     VidSchiEnsureRootPageTableUpdated @ 0x1C00D382C (VidSchiEnsureRootPageTableUpdated.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::RecordVaPagingHistorySetPageDirectory(
@@ -16,7 +16,7 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistorySetPageDirectory(
         struct _DXGKARG_SETROOTPAGETABLE *a3,
         void *a4)
 {
-  __int64 v8; // rdi
+  _QWORD *v8; // rdi
   __int64 v9; // rax
   void *v10; // rcx
   __int128 v11; // xmm1
@@ -25,14 +25,14 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistorySetPageDirectory(
 
   if ( *((_QWORD *)this + 5123) )
   {
-    v8 = operator new(56LL, 0x32356956u, 256LL);
+    v8 = operator new[](0x38uLL, 0x32356956u, PagedPool);
     if ( v8 )
     {
       KeEnterCriticalRegion();
       ExAcquirePushLockExclusiveEx((char *)this + 41000, 0LL);
       *((_QWORD *)this + 5126) = KeGetCurrentThread();
       v9 = *((unsigned int *)this + 10248);
-      if ( (_DWORD)v9 == dword_1C006E41C )
+      if ( (_DWORD)v9 == dword_1C00503AC )
       {
         *((_DWORD *)this + 10248) = 0;
         v9 = 0LL;
@@ -42,18 +42,18 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistorySetPageDirectory(
         operator delete(v10);
       *(_OWORD *)v8 = *(_OWORD *)&a3->hContext;
       v11 = *(_OWORD *)&a3->Address.SegmentOffset;
-      *(_QWORD *)(v8 + 48) = a4;
-      *(_OWORD *)(v8 + 16) = v11;
+      v8[6] = a4;
+      *((_OWORD *)v8 + 1) = v11;
       if ( a2 )
         v12 = *(_QWORD *)a2;
       else
         v12 = 0LL;
-      *(_QWORD *)(v8 + 32) = v12;
+      v8[4] = v12;
       if ( a2 )
         v13 = *((_QWORD *)a2 + 4);
       else
         v13 = 0LL;
-      *(_QWORD *)(v8 + 40) = v13;
+      v8[5] = v13;
       *(_QWORD *)(*((_QWORD *)this + 5123) + 24LL * *((unsigned int *)this + 10248)) = MEMORY[0xFFFFF78000000014];
       *(_QWORD *)(*((_QWORD *)this + 5123) + 24LL * *((unsigned int *)this + 10248) + 16) = v8;
       *(_DWORD *)(*((_QWORD *)this + 5123) + 24LL * (unsigned int)(*((_DWORD *)this + 10248))++ + 8) = 9;

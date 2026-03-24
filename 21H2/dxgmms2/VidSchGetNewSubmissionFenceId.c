@@ -1,8 +1,8 @@
 /*
- * XREFs of VidSchGetNewSubmissionFenceId @ 0x1C009A7A0
+ * XREFs of VidSchGetNewSubmissionFenceId @ 0x1C008D9B8
  * Callers:
- *     VidSchiSwitchNodeFromContext @ 0x1C009A7E0 (VidSchiSwitchNodeFromContext.c)
- *     VidSchiSubmitRenderCommand @ 0x1C00F38D0 (VidSchiSubmitRenderCommand.c)
+ *     VidSchiSwitchNodeFromContext @ 0x1C008D8B0 (VidSchiSwitchNodeFromContext.c)
+ *     VidSchiSubmitRenderCommand @ 0x1C00D062C (VidSchiSubmitRenderCommand.c)
  * Callees:
  *     <none>
  */
@@ -12,8 +12,8 @@ __int64 __fastcall VidSchGetNewSubmissionFenceId(__int64 a1, __int64 a2, unsigne
   __int64 v4; // r10
   __int64 result; // rax
 
-  v4 = *(_QWORD *)(a1 + 632);
-  if ( a3 < *(_DWORD *)(a1 + 704) )
+  v4 = *(_QWORD *)(a1 + 624);
+  if ( a3 < *(_DWORD *)(a1 + 696) )
     v4 += 8LL * a3;
   result = *(_QWORD *)(*(_QWORD *)v4 + 48LL) + 1LL;
   *(_QWORD *)(*(_QWORD *)v4 + 48LL) = result;

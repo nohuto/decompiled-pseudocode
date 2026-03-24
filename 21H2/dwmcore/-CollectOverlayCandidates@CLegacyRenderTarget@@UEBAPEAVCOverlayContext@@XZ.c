@@ -1,20 +1,20 @@
 /*
- * XREFs of ?CollectOverlayCandidates@CLegacyRenderTarget@@UEBAPEAVCOverlayContext@@XZ @ 0x1800B9380
+ * XREFs of ?CollectOverlayCandidates@CLegacyRenderTarget@@UEBAPEAVCOverlayContext@@XZ @ 0x180091950
  * Callers:
  *     <none>
  * Callees:
- *     ?CalcOcclusionAndCollectOverlayCandidates@CDesktopTree@@QEAAJXZ @ 0x1800B93B4 (-CalcOcclusionAndCollectOverlayCandidates@CDesktopTree@@QEAAJXZ.c)
+ *     ?CalcOcclusionAndCollectOverlayCandidates@CDesktopTree@@QEAAJXZ @ 0x180091988 (-CalcOcclusionAndCollectOverlayCandidates@CDesktopTree@@QEAAJXZ.c)
  */
 
 struct COverlayContext *__fastcall CLegacyRenderTarget::CollectOverlayCandidates(CLegacyRenderTarget *this)
 {
   CDesktopTree *v2; // rcx
 
-  if ( !*((_QWORD *)this + 4) )
+  if ( !*((_QWORD *)this + 3) )
     return 0LL;
-  v2 = (CDesktopTree *)*((_QWORD *)this + 2);
+  v2 = (CDesktopTree *)*((_QWORD *)this + 5);
   if ( !v2 )
     return 0LL;
   CDesktopTree::CalcOcclusionAndCollectOverlayCandidates(v2);
-  return (CLegacyRenderTarget *)((char *)this + 48);
+  return (CLegacyRenderTarget *)((char *)this + 336);
 }

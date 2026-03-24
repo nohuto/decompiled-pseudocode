@@ -1,52 +1,61 @@
 /*
- * XREFs of CmpKeyEnumStackCreateResumeContext @ 0x140A23A98
+ * XREFs of CmpKeyEnumStackCreateResumeContext @ 0x14087A834
  * Callers:
- *     CmpEnumerateLayeredKey @ 0x140A164C4 (CmpEnumerateLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1406D9378 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140A24158 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1405EF620 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14067E028 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
  */
 
-__int64 __fastcall CmpKeyEnumStackCreateResumeContext(__int64 a1, __int64 a2, int a3, char a4, __int64 *a5)
+__int64 __fastcall CmpKeyEnumStackCreateResumeContext(
+        __int64 a1,
+        __int64 a2,
+        int a3,
+        struct _LOOKASIDE_LIST_EX *a4,
+        _QWORD *a5)
 {
   int v5; // r15d
-  unsigned int v6; // esi
-  __int64 v10; // rdx
-  __int64 Pool; // rax
-  __int64 v12; // rdi
+  unsigned int v7; // esi
+  char v8; // bp
+  SIZE_T v10; // rdx
+  char *TransientPoolWithTag; // rax
+  char *v12; // rdi
   __int16 v13; // bp
   __int64 v14; // rsi
   _QWORD *v15; // r14
-  __int64 EntryAtLayerHeight; // r12
+  unsigned __int64 EntryAtLayerHeight; // r12
   __int16 v17; // dx
   __int64 KcbAtLayerHeight; // rbx
   _DWORD *v19; // rcx
   __int64 v20; // rdx
-  __int64 v21; // r12
+  unsigned __int64 v21; // r12
 
   v5 = *(__int16 *)(a1 + 2);
-  v6 = 0;
+  v7 = 0;
+  v8 = (char)a4;
   v10 = 24LL * (v5 + 1) + 8;
-  if ( a4 )
-    Pool = CmpAllocatePool(256LL, v10, 909593923LL);
+  if ( (_BYTE)a4 )
+    TransientPoolWithTag = (char *)CmpAllocateTransientPoolWithTag(PagedPool, v10, 0x36374D43u, a4);
   else
-    Pool = CmpAllocatePool(256LL, v10, 926371139LL);
-  v12 = Pool;
-  if ( Pool )
+    TransientPoolWithTag = (char *)CmpAllocateTransientPoolWithTag(PagedPool, v10, 0x37374D43u, a4);
+  v12 = TransientPoolWithTag;
+  if ( TransientPoolWithTag )
   {
-    *(_DWORD *)(Pool + 4) = a3;
+    memset(TransientPoolWithTag, 0, 24LL * (v5 + 1) + 8);
+    v12[2] = v8;
     v13 = 0;
-    *(_WORD *)Pool = v5;
-    *(_BYTE *)(Pool + 2) = a4;
+    *((_DWORD *)v12 + 1) = a3;
+    *(_WORD *)v12 = v5;
     if ( (v5 & 0x8000u) == 0 )
     {
       v14 = a2;
-      v15 = (_QWORD *)(Pool + 8);
+      v15 = v12 + 8;
       do
       {
-        EntryAtLayerHeight = CmpKeyEnumStackGetEntryAtLayerHeight(v14);
+        EntryAtLayerHeight = CmpKeyEnumStackGetEntryAtLayerHeight(v14, v13);
         KcbAtLayerHeight = CmpGetKcbAtLayerHeight(a1, v17);
         CmpReferenceKeyControlBlockUnsafe((volatile signed __int64 *)KcbAtLayerHeight);
         v19 = v15 + 2;
@@ -66,7 +75,7 @@ __int64 __fastcall CmpKeyEnumStackCreateResumeContext(__int64 a1, __int64 a2, in
         v14 = a2;
       }
       while ( v13 <= (__int16)v5 );
-      v6 = 0;
+      v7 = 0;
     }
     *a5 = v12;
   }
@@ -74,5 +83,5 @@ __int64 __fastcall CmpKeyEnumStackCreateResumeContext(__int64 a1, __int64 a2, in
   {
     return (unsigned int)-1073741670;
   }
-  return v6;
+  return v7;
 }

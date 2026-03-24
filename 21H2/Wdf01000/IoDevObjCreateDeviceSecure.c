@@ -1,12 +1,12 @@
 /*
- * XREFs of IoDevObjCreateDeviceSecure @ 0x1C00BDF30
+ * XREFs of IoDevObjCreateDeviceSecure @ 0x1C00BC7B0
  * Callers:
  *     <none>
  * Callees:
- *     IopDevObjApplyPostCreationSettings @ 0x1C00BE0C0 (IopDevObjApplyPostCreationSettings.c)
- *     SeSddlSecurityDescriptorFromSDDL @ 0x1C00BE1B4 (SeSddlSecurityDescriptorFromSDDL.c)
- *     PpRegStateReadCreateClassCreationSettings @ 0x1C00BEF84 (PpRegStateReadCreateClassCreationSettings.c)
- *     PpRegStateUpdateStackCreationSettings @ 0x1C00BF0E8 (PpRegStateUpdateStackCreationSettings.c)
+ *     IopDevObjApplyPostCreationSettings @ 0x1C00BC940 (IopDevObjApplyPostCreationSettings.c)
+ *     SeSddlSecurityDescriptorFromSDDL @ 0x1C00BCA34 (SeSddlSecurityDescriptorFromSDDL.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C00BD814 (PpRegStateReadCreateClassCreationSettings.c)
+ *     PpRegStateUpdateStackCreationSettings @ 0x1C00BD978 (PpRegStateUpdateStackCreationSettings.c)
  */
 
 NTSTATUS __fastcall IoDevObjCreateDeviceSecure(

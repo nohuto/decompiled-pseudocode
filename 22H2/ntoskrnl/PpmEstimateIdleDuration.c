@@ -1,124 +1,122 @@
 /*
- * XREFs of PpmEstimateIdleDuration @ 0x1402C203C
+ * XREFs of PpmEstimateIdleDuration @ 0x140565914
  * Callers:
- *     PpmComputeIdleDurationHint @ 0x1402C1F48 (PpmComputeIdleDurationHint.c)
- *     PpmIdleSelectStates @ 0x1403B6E10 (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x140394E80 (PpmIdleSelectStates.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     KeEstimateClockTickDuration @ 0x1402C21DC (KeEstimateClockTickDuration.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PpmGetIdleConstrainedMask @ 0x140584290 (PpmGetIdleConstrainedMask.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     PpmGetIdleConstrainedMask @ 0x1403900C0 (PpmGetIdleConstrainedMask.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KeEstimateClockTickDuration @ 0x140513AE0 (KeEstimateClockTickDuration.c)
  */
 
 unsigned __int64 *__fastcall PpmEstimateIdleDuration(
         __int64 a1,
         char a2,
-        char a3,
+        unsigned __int8 a3,
         unsigned __int64 a4,
         unsigned __int64 a5,
-        unsigned __int64 a6,
+        unsigned __int64 *a6,
         unsigned __int64 *a7,
-        unsigned __int64 *a8,
-        __int64 a9,
-        int *a10)
+        int *a8,
+        int *a9)
 {
-  int v14; // r8d
-  int v15; // r9d
-  __int64 v16; // rax
-  unsigned __int64 v17; // rbx
-  int v18; // edx
-  int v19; // eax
-  unsigned __int64 v20; // rdi
-  int v21; // ecx
-  unsigned int v22; // eax
-  unsigned __int64 *result; // rax
-  unsigned __int64 v24; // rsi
+  __int64 v13; // rax
+  unsigned __int64 v14; // rdi
+  char v15; // dl
+  int v16; // eax
+  unsigned int v17; // edx
+  unsigned int v18; // ecx
+  unsigned int i; // eax
+  unsigned __int64 v20; // rbx
+  unsigned int v21; // eax
+  unsigned __int64 v22; // rsi
   __int64 Prcb; // rax
-  unsigned __int64 v26; // rcx
-  unsigned int v27; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int64 v28; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned __int64 *v29; // [rsp+50h] [rbp-B0h]
-  unsigned __int64 *v30; // [rsp+58h] [rbp-A8h]
-  unsigned __int16 *v31[2]; // [rsp+60h] [rbp-A0h] BYREF
-  __int16 v32; // [rsp+70h] [rbp-90h]
-  int v33; // [rsp+72h] [rbp-8Eh]
-  __int16 v34; // [rsp+76h] [rbp-8Ah]
-  _QWORD v35[34]; // [rsp+80h] [rbp-80h] BYREF
+  unsigned __int64 v24; // rcx
+  unsigned __int64 *result; // rax
+  __int64 v26; // [rsp+48h] [rbp-C0h] BYREF
+  unsigned __int64 v27; // [rsp+50h] [rbp-B8h] BYREF
+  unsigned __int64 *v28; // [rsp+58h] [rbp-B0h]
+  unsigned __int64 *v29; // [rsp+60h] [rbp-A8h]
+  unsigned __int16 *v30[2]; // [rsp+68h] [rbp-A0h] BYREF
+  __int16 v31; // [rsp+78h] [rbp-90h]
+  int v32; // [rsp+7Ah] [rbp-8Eh]
+  __int16 v33; // [rsp+7Eh] [rbp-8Ah]
+  _QWORD v34[22]; // [rsp+88h] [rbp-80h] BYREF
 
-  v30 = a7;
-  v29 = a8;
+  v29 = a6;
+  v28 = a7;
+  v32 = 0;
   v33 = 0;
-  v34 = 0;
-  memset(&v35[1], 0, 0x100uLL);
-  v16 = *(_QWORD *)(a1 + 33600);
-  v17 = -1LL;
-  v28 = 0LL;
-  v27 = 0;
-  LOBYTE(v18) = *(_BYTE *)(v16 + 740);
-  v19 = 0;
-  *a10 = 0;
+  memset(v34, 0, 0xA8uLL);
+  v13 = *(_QWORD *)(a1 + 0x8000);
+  v14 = -1LL;
+  v27 = 0LL;
+  LODWORD(v26) = 0;
+  v15 = *(_BYTE *)(v13 + 540);
+  v16 = 0;
+  *a9 = 0;
   if ( *(_BYTE *)(a1 + 33) )
   {
-    v19 = 8;
-    *a10 = 8;
+    v16 = 8;
+    *a9 = 8;
   }
   if ( a2 )
-    *a10 = v19 | 4;
-  LOBYTE(v15) = a3;
-  LOBYTE(v14) = a2;
-  KeEstimateClockTickDuration(a1, v18, v14, v15, a4, (__int64)&v28, a9);
-  v20 = v28;
-  if ( v28 >= a6 )
-    v20 = a6;
-  v28 = v20;
-  if ( !a2 )
+    *a9 = v16 | 4;
+  KeEstimateClockTickDuration(a1, v15, a2, a3, a4, (__int64 *)&v27, a8);
+  v17 = *(_DWORD *)(a1 + 11684);
+  v18 = 0;
+  for ( i = v17; i; i >>= 4 )
+    v18 += KeMaximumIncrement;
+  v20 = v18;
+  if ( !a2 && v17 )
   {
-    v21 = *(_DWORD *)(a1 + 11684);
-    if ( v21 )
-    {
-      v22 = KeMaximumIncrement / (unsigned int)(v21 + 1);
-      if ( !v22 )
-        v22 = 1;
-      v17 = v22;
-    }
+    v21 = KeMaximumIncrement / (v17 + 1);
+    if ( !v21 )
+      v21 = 1;
+    v14 = v21;
   }
-  if ( v20 <= v17 )
-    v17 = v20;
+  if ( v27 <= v14 )
+  {
+    v14 = v27;
+    v20 = v27;
+  }
   else
-    *a10 |= 1u;
-  LODWORD(v35[0]) = 2097153;
-  memset((char *)v35 + 4, 0, 0x104uLL);
-  if ( PpmIdleDurationExpirationTimeout && *(_BYTE *)(a1 + 33) && (unsigned __int8)PpmGetIdleConstrainedMask(v35) )
   {
-    v24 = 0LL;
-    v31[1] = (unsigned __int16 *)v35[1];
-    v31[0] = (unsigned __int16 *)v35;
-    v32 = 0;
-    while ( !(unsigned int)KeEnumerateNextProcessor(&v27, v31) )
+    if ( v27 < v18 )
+      v20 = v27;
+    *a9 |= 1u;
+  }
+  if ( PpmIdleDurationExpirationTimeout && *(_BYTE *)(a1 + 33) && (unsigned __int8)PpmGetIdleConstrainedMask(v34) )
+  {
+    v22 = 0LL;
+    v30[1] = (unsigned __int16 *)v34[1];
+    v30[0] = (unsigned __int16 *)v34;
+    v31 = 0;
+    while ( !(unsigned int)KeEnumerateNextProcessor(&v26, v30) )
     {
-      Prcb = KeGetPrcb(v27);
-      v26 = *(_QWORD *)(Prcb + 33648);
-      if ( v26 != -1LL && v26 > v24 )
-        v24 = *(_QWORD *)(Prcb + 33648);
+      Prcb = KeGetPrcb(v26);
+      v24 = *(_QWORD *)(Prcb + 32808);
+      if ( v24 != -1LL && v24 > v22 )
+        v22 = *(_QWORD *)(Prcb + 32808);
     }
-    if ( v24 && a4 + v28 > v24 )
+    if ( v22 && v20 + a4 > v22 )
     {
-      *a10 |= 0x2000u;
-      v20 = v24 > a4 ? (unsigned int)(v24 - a4) : 1LL;
-      if ( v20 < v17 )
-        v17 = v20;
+      *a9 |= 0x2000u;
+      v20 = v22 > a4 ? (unsigned int)(v22 - a4) : 1LL;
+      if ( v20 < v14 )
+        v14 = v20;
     }
   }
-  if ( v17 < a5 )
+  if ( v14 < a5 )
   {
-    *a10 |= 0x1000u;
-    v17 = a5;
+    *a9 |= 0x1000u;
+    v14 = a5;
     v20 = a5;
   }
-  *v29 = v20;
-  result = v30;
-  *v30 = v17;
+  *v28 = v20;
+  result = v29;
+  *v29 = v14;
   return result;
 }

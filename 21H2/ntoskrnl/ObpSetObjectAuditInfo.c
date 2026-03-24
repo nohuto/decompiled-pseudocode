@@ -1,66 +1,64 @@
 /*
- * XREFs of ObpSetObjectAuditInfo @ 0x140881DF2
+ * XREFs of ObpSetObjectAuditInfo @ 0x1408DD258
  * Callers:
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlLengthSecurityDescriptor @ 0x1407254F0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x140726610 (RtlValidSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpSetObjectAuditInfo(__int64 a1, PSECURITY_DESCRIPTOR *a2, char a3)
 {
-  __int64 v7; // rax
-  _QWORD *v8; // rdi
-  PSECURITY_DESCRIPTOR v9; // rbx
-  size_t v10; // r14
-  void *Pool2; // rax
+  _QWORD *v7; // rbx
+  PSECURITY_DESCRIPTOR v8; // rdi
+  SIZE_T v9; // r14
+  PVOID PoolWithTag; // rax
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v13; // rcx
+  ULONG_PTR v12; // rcx
 
   if ( !RtlValidSecurityDescriptor(*a2) )
     return 3221225593LL;
   if ( (*(_BYTE *)(a1 + 26) & 0x20) != 0 )
+    v7 = (_QWORD *)(a1 - ObpInfoMaskToOffset[*(_BYTE *)(a1 + 26) & 0x3F]);
+  else
+    v7 = 0LL;
+  if ( v7 && !*v7 )
   {
-    v7 = ObpInfoMaskToOffset[*(_BYTE *)(a1 + 26) & 0x3F];
-    v8 = (_QWORD *)(a1 - v7);
-    if ( a1 != v7 && !*v8 )
+    v8 = *a2;
+    if ( a3 )
     {
-      v9 = *a2;
-      if ( a3 )
-      {
-        *a2 = 0LL;
-      }
-      else
-      {
-        v10 = RtlLengthSecurityDescriptor(*a2);
-        Pool2 = (void *)ExAllocatePool2(256LL, v10, 1229021775LL);
-        v9 = Pool2;
-        if ( !Pool2 )
-          return 3221225626LL;
-        memmove(Pool2, *a2, v10);
-      }
-      CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
-      ExAcquirePushLockExclusiveEx(a1 + 16, 0LL);
-      v13 = a1 + 16;
-      if ( *v8 )
-      {
-        ExReleasePushLockEx(v13, 0LL);
-        KeLeaveCriticalRegion();
-        ExFreePoolWithTag(v9, 0);
-      }
-      else
-      {
-        *v8 = v9;
-        ExReleasePushLockEx(v13, 0LL);
-        KeLeaveCriticalRegion();
-      }
+      *a2 = 0LL;
+    }
+    else
+    {
+      v9 = RtlLengthSecurityDescriptor(*a2);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x4941624Fu);
+      v8 = PoolWithTag;
+      if ( !PoolWithTag )
+        return 3221225626LL;
+      memmove(PoolWithTag, *a2, v9);
+    }
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    ExAcquirePushLockExclusiveEx(a1 + 16, 0LL);
+    v12 = a1 + 16;
+    if ( *v7 )
+    {
+      ExReleasePushLockEx(v12, 0LL);
+      KeLeaveCriticalRegion();
+      ExFreePoolWithTag(v8, 0);
+    }
+    else
+    {
+      *v7 = v8;
+      ExReleasePushLockEx(v12, 0LL);
+      KeLeaveCriticalRegion();
     }
   }
   return 0LL;

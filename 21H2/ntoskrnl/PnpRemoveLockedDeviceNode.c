@@ -1,60 +1,59 @@
 /*
- * XREFs of PnpRemoveLockedDeviceNode @ 0x1402DDAE4
+ * XREFs of PnpRemoveLockedDeviceNode @ 0x14036E5C8
  * Callers:
- *     PnpDeleteLockedDeviceNode @ 0x140766834 (PnpDeleteLockedDeviceNode.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140738574 (PnpDeleteLockedDeviceNode.c)
  * Callees:
- *     PipRestoreDevNodeState @ 0x14025B96C (PipRestoreDevNodeState.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PipSetDevNodeState @ 0x1402DE844 (PipSetDevNodeState.c)
- *     PipIsProblemReadonly @ 0x140660534 (PipIsProblemReadonly.c)
- *     PipClearDevNodeUserFlags @ 0x14074A08C (PipClearDevNodeUserFlags.c)
- *     PipClearDevNodeProblem @ 0x140764FE4 (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x140765114 (PipSetDevNodeProblem.c)
- *     PnpUnloadAttachedDriver @ 0x140766914 (PnpUnloadAttachedDriver.c)
- *     PiDmaGuardProcessPostRemove @ 0x1407669D4 (PiDmaGuardProcessPostRemove.c)
- *     IopReleaseDeviceResources @ 0x140766A5C (IopReleaseDeviceResources.c)
- *     IopRemoveDevice @ 0x140766C3C (IopRemoveDevice.c)
- *     PipSetDevNodeUserFlags @ 0x140767220 (PipSetDevNodeUserFlags.c)
- *     PpHotSwapInitRemovalPolicy @ 0x14076728C (PpHotSwapInitRemovalPolicy.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140772044 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     PnpDeleteAllDependencyRelations @ 0x14077503C (PnpDeleteAllDependencyRelations.c)
- *     PnpDisableDeviceInterfaces @ 0x140810788 (PnpDisableDeviceInterfaces.c)
- *     PpProfileCommitTransitioningDock @ 0x14094FCD4 (PpProfileCommitTransitioningDock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     PipRestoreDevNodeState @ 0x14036D7A0 (PipRestoreDevNodeState.c)
+ *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PnpDeleteAllDependencyRelations @ 0x1406B314C (PnpDeleteAllDependencyRelations.c)
+ *     PpHotSwapInitRemovalPolicy @ 0x1406C3EB0 (PpHotSwapInitRemovalPolicy.c)
+ *     PipIsProblemReadonly @ 0x140731934 (PipIsProblemReadonly.c)
+ *     PnpDisableDeviceInterfaces @ 0x14073601C (PnpDisableDeviceInterfaces.c)
+ *     PiDmaGuardProcessPostRemove @ 0x1407386D0 (PiDmaGuardProcessPostRemove.c)
+ *     IopReleaseDeviceResources @ 0x140738748 (IopReleaseDeviceResources.c)
+ *     IopRemoveDevice @ 0x1407388F4 (IopRemoveDevice.c)
+ *     PipSetDevNodeProblem @ 0x1407394EC (PipSetDevNodeProblem.c)
+ *     PipClearDevNodeProblem @ 0x140739754 (PipClearDevNodeProblem.c)
+ *     PnpUnloadAttachedDriver @ 0x14073E608 (PnpUnloadAttachedDriver.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140746040 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PpProfileCommitTransitioningDock @ 0x1408AB4DC (PpProfileCommitTransitioningDock.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRemoveLockedDeviceNode(__int64 MaxDataSize, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // r13
   unsigned int v4; // r15d
-  int v6; // r14d
+  int v6; // esi
   __int64 v7; // rcx
   __int64 *v8; // rdi
   __int64 result; // rax
   __int64 v10; // rax
-  _QWORD *Pool2; // rdi
-  _BYTE *v12; // r12
+  __int64 *PoolWithTag; // rdi
+  PVOID v12; // r12
   unsigned int v13; // esi
-  __int64 v14; // rax
-  _QWORD *v15; // rsi
-  _QWORD *v16; // r14
-  _QWORD *v17; // r15
-  KIRQL v18; // r8
-  __int64 *v19; // rdx
+  _QWORD *v14; // rsi
+  __int64 *v15; // r14
+  _QWORD *v16; // r15
+  KIRQL v17; // r8
+  __int64 *v18; // rdx
   __int64 i; // rcx
-  __int64 v21; // rax
-  PVOID *v22; // r14
+  __int64 v20; // rax
+  PADAPTER_OBJECT *v21; // r14
+  KIRQL v22; // al
   KIRQL v23; // al
-  KIRQL v24; // al
-  __int64 v25; // rdx
+  __int64 v24; // rdx
+  unsigned int v25; // eax
   __int64 v26; // rcx
   __int64 v27; // rdx
   int v28; // eax
-  __int64 *v29; // rsi
+  __int64 *v29; // rbp
   __int64 v30; // rcx
 
   v3 = *(_QWORD *)(MaxDataSize + 32);
@@ -75,106 +74,105 @@ __int64 __fastcall PnpRemoveLockedDeviceNode(__int64 MaxDataSize, unsigned int a
       }
       if ( v8[52] || v8[68] || (v28 & 0x40) != 0 )
       {
-        PipSetDevNodeUserFlags(v8, 512LL);
         IopRemoveDevice((PDEVICE_OBJECT)v8[4]);
-        PipClearDevNodeUserFlags(v8, 512LL);
         IopReleaseDeviceResources(v8, 0LL);
       }
-      PipSetDevNodeState(v8, 790LL);
+      PipSetDevNodeState(v8, 788LL);
       v8 = v29;
     }
     while ( v29 );
   }
   result = *(unsigned int *)(MaxDataSize + 300);
-  if ( (_DWORD)result == 785 || (_DWORD)result == 784 )
+  if ( (_DWORD)result == 783 || (_DWORD)result == 782 )
   {
-    if ( *(_DWORD *)(MaxDataSize + 304) == 787 )
+    if ( *(_DWORD *)(MaxDataSize + 304) == 785 )
       return result;
     PipRestoreDevNodeState(MaxDataSize);
     LODWORD(result) = *(_DWORD *)(MaxDataSize + 300);
   }
-  if ( (_DWORD)result != 790 )
-    JUMPOUT(0x1402DDB68LL);
+  if ( (_DWORD)result != 788 )
+    JUMPOUT(0x14036E646LL);
   v10 = *(_QWORD *)(v3 + 24);
   while ( v10 )
   {
     v10 = *(_QWORD *)(v10 + 24);
     ++v6;
   }
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   v12 = 0LL;
   if ( v6 )
   {
     v13 = 8 * v6 + 16;
-    Pool2 = (_QWORD *)ExAllocatePool2(64LL, v13, 1701081168LL);
-    if ( Pool2 )
+    PoolWithTag = (__int64 *)ExAllocatePoolWithTag(NonPagedPoolNx, v13, 0x65647050u);
+    if ( PoolWithTag )
     {
-      v14 = ExAllocatePool2(256LL, v13, 1701081168LL);
-      v12 = (_BYTE *)v14;
-      if ( v14 )
+      v12 = ExAllocatePoolWithTag(PagedPool, v13, 0x65647050u);
+      if ( v12 )
       {
-        v15 = *(_QWORD **)(v3 + 24);
-        v16 = Pool2;
-        v17 = (_QWORD *)v14;
-        while ( v15 )
+        memset(PoolWithTag, 0, v13);
+        memset(v12, 0, v13);
+        v14 = *(_QWORD **)(v3 + 24);
+        v15 = PoolWithTag;
+        v16 = v12;
+        while ( v14 )
         {
-          ObfReferenceObjectWithTag(v15, 0x746C6644u);
-          *v16++ = v15;
-          *v17++ = v15[1];
-          v15 = (_QWORD *)v15[3];
+          ObfReferenceObject(v14);
+          *v15++ = (__int64)v14;
+          *v16++ = v14[1];
+          v14 = (_QWORD *)v14[3];
         }
         v4 = a2;
       }
       else
       {
-        ExFreePoolWithTag(Pool2, 0);
-        Pool2 = 0LL;
+        ExFreePoolWithTag(PoolWithTag, 0);
+        PoolWithTag = 0LL;
       }
     }
   }
-  v18 = KeAcquireQueuedSpinLock(0xAuLL);
-  v19 = Pool2;
-  if ( Pool2 )
+  v17 = KeAcquireQueuedSpinLock(0xAuLL);
+  v18 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    for ( i = *Pool2; i; i = *v19 )
+    for ( i = *PoolWithTag; i; i = *v18 )
     {
       *(_DWORD *)(*(_QWORD *)(i + 312) + 32LL) &= ~4u;
-      v21 = *v19++;
-      *(_DWORD *)(*(_QWORD *)(v21 + 312) + 32LL) |= 8u;
+      v20 = *v18++;
+      *(_DWORD *)(*(_QWORD *)(v20 + 312) + 32LL) |= 8u;
     }
   }
   *(_DWORD *)(*(_QWORD *)(v3 + 312) + 32LL) &= ~4u;
   *(_DWORD *)(*(_QWORD *)(v3 + 312) + 32LL) |= 8u;
-  KeReleaseQueuedSpinLock(0xAuLL, v18);
+  KeReleaseQueuedSpinLock(0xAuLL, v17);
   if ( (*(_DWORD *)(MaxDataSize + 396) & 0x10) == 0 && (unsigned int)(*(_DWORD *)(MaxDataSize + 568) - 3) <= 1 )
     PpProfileCommitTransitioningDock(MaxDataSize);
-  v22 = (PVOID *)Pool2;
-  if ( Pool2 )
+  v21 = (PADAPTER_OBJECT *)PoolWithTag;
+  if ( PoolWithTag )
   {
-    if ( *Pool2 )
+    if ( *PoolWithTag )
     {
       do
       {
-        v23 = KeAcquireQueuedSpinLock(0xAuLL);
-        *(_DWORD *)(*((_QWORD *)*v22 + 39) + 32LL) &= ~8u;
-        *(_DWORD *)(*((_QWORD *)*v22 + 39) + 32LL) |= 0x10u;
-        KeReleaseQueuedSpinLock(0xAuLL, v23);
-        PnpUnloadAttachedDriver(*(PVOID *)((char *)v22 + v12 - (_BYTE *)Pool2));
-        ObfDereferenceObject(*v22++);
+        v22 = KeAcquireQueuedSpinLock(0xAuLL);
+        LODWORD((*v21)[19].DmaOperations->AllocateAdapterChannel) &= ~8u;
+        LODWORD((*v21)[19].DmaOperations->AllocateAdapterChannel) |= 0x10u;
+        KeReleaseQueuedSpinLock(0xAuLL, v22);
+        PnpUnloadAttachedDriver(*(PADAPTER_OBJECT *)((char *)v21 + (_BYTE *)v12 - (_BYTE *)PoolWithTag));
+        HalPutDmaAdapter(*v21++);
       }
-      while ( *v22 );
+      while ( *v21 );
     }
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     ExFreePoolWithTag(v12, 0);
   }
-  v24 = KeAcquireQueuedSpinLock(0xAuLL);
+  v23 = KeAcquireQueuedSpinLock(0xAuLL);
   *(_DWORD *)(*(_QWORD *)(v3 + 312) + 32LL) &= ~8u;
   *(_DWORD *)(*(_QWORD *)(v3 + 312) + 32LL) |= 0x10u;
-  KeReleaseQueuedSpinLock(0xAuLL, v24);
-  v25 = 788LL;
+  KeReleaseQueuedSpinLock(0xAuLL, v23);
+  v24 = 786LL;
   if ( (*(_DWORD *)(MaxDataSize + 396) & 0x10) == 0 )
-    v25 = 790LL;
-  PipSetDevNodeState(MaxDataSize, v25);
+    v24 = 788LL;
+  PipSetDevNodeState(MaxDataSize, v24);
   if ( v4
     && ((*(_DWORD *)(MaxDataSize + 396) & 0x6000) == 0
      || ((v4 - 22) & 0xFFFFFFFD) == 0
@@ -182,7 +180,10 @@ __int64 __fastcall PnpRemoveLockedDeviceNode(__int64 MaxDataSize, unsigned int a
      && !(unsigned int)PipIsProblemReadonly(v30, *(unsigned int *)(MaxDataSize + 404))) )
   {
     PipClearDevNodeProblem(MaxDataSize);
-    PipSetDevNodeProblem(MaxDataSize, v4, a3);
+    v25 = a3;
+    if ( !a3 )
+      v25 = *(_DWORD *)(MaxDataSize + 392);
+    PipSetDevNodeProblem(MaxDataSize, v4, v25);
   }
   if ( (*(_DWORD *)(MaxDataSize + 396) & 0x10) == 0 )
     PnpDeleteAllDependencyRelations(v3);

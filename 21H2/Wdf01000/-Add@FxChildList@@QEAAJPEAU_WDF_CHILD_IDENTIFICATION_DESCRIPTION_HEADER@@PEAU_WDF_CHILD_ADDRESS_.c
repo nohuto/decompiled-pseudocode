@@ -1,19 +1,19 @@
 /*
- * XREFs of ?Add@FxChildList@@QEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@PEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@PEAK@Z @ 0x1C001207C
+ * XREFs of ?Add@FxChildList@@QEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@PEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@PEAK@Z @ 0x1C003A8B4
  * Callers:
- *     imp_WdfChildListAddOrUpdateChildDescriptionAsPresent @ 0x1C0011FB0 (imp_WdfChildListAddOrUpdateChildDescriptionAsPresent.c)
- *     imp_WdfFdoAddStaticChild @ 0x1C00333D0 (imp_WdfFdoAddStaticChild.c)
+ *     imp_WdfChildListAddOrUpdateChildDescriptionAsPresent @ 0x1C0037DF0 (imp_WdfChildListAddOrUpdateChildDescriptionAsPresent.c)
+ *     imp_WdfFdoAddStaticChild @ 0x1C0039300 (imp_WdfFdoAddStaticChild.c)
  * Callees:
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     ?SearchBackwardsForMatchingDescriptionLocked@FxChildList@@IEAAPEAUFxDeviceDescriptionEntry@@PEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@@Z @ 0x1C00122DC (-SearchBackwardsForMatchingDescriptionLocked@FxChildList@@IEAAPEAUFxDeviceDescriptionEntry@@PEAU.c)
- *     ?SearchBackwardsForMatchingModificationLocked@FxChildList@@IEAAPEAUFxDeviceDescriptionEntry@@PEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@@Z @ 0x1C0012348 (-SearchBackwardsForMatchingModificationLocked@FxChildList@@IEAAPEAUFxDeviceDescriptionEntry@@PEA.c)
- *     ?DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C001812C (-DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0018288 (-ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C0026218 (-MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
- *     ??0FxDeviceDescriptionEntry@@QEAA@PEAVFxChildList@@KK@Z @ 0x1C0032E78 (--0FxDeviceDescriptionEntry@@QEAA@PEAVFxChildList@@KK@Z.c)
- *     ?DuplicateId@FxChildList@@IEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@0@Z @ 0x1C0033A4C (-DuplicateId@FxChildList@@IEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@0@Z.c)
- *     ?CopyAddress@FxChildList@@IEAAXPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z @ 0x1C005BC34 (-CopyAddress@FxChildList@@IEAAXPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z.c)
- *     ?DuplicateAddress@FxChildList@@IEAAJPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z @ 0x1C005BD10 (-DuplicateAddress@FxChildList@@IEAAJPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z.c)
+ *     ?ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C000FC54 (-ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0010A58 (-DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ??0FxDeviceDescriptionEntry@@QEAA@PEAVFxChildList@@KK@Z @ 0x1C003A7D0 (--0FxDeviceDescriptionEntry@@QEAA@PEAVFxChildList@@KK@Z.c)
+ *     ??2FxDeviceDescriptionEntry@@SAPEAX_KPEAU_FX_DRIVER_GLOBALS@@0@Z @ 0x1C003A850 (--2FxDeviceDescriptionEntry@@SAPEAX_KPEAU_FX_DRIVER_GLOBALS@@0@Z.c)
+ *     ?CopyAddress@FxChildList@@IEAAXPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z @ 0x1C003AE74 (-CopyAddress@FxChildList@@IEAAXPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z.c)
+ *     ?DuplicateAddress@FxChildList@@IEAAJPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z @ 0x1C003B1D0 (-DuplicateAddress@FxChildList@@IEAAJPEAU_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER@@0@Z.c)
+ *     ?DuplicateId@FxChildList@@IEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@0@Z @ 0x1C003B220 (-DuplicateId@FxChildList@@IEAAJPEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@0@Z.c)
+ *     ?MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C003BC4C (-MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
+ *     ?SearchBackwardsForMatchingDescriptionLocked@FxChildList@@IEAAPEAUFxDeviceDescriptionEntry@@PEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@@Z @ 0x1C003C268 (-SearchBackwardsForMatchingDescriptionLocked@FxChildList@@IEAAPEAUFxDeviceDescriptionEntry@@PEAU.c)
+ *     ?SearchBackwardsForMatchingModificationLocked@FxChildList@@IEAAPEAUFxDeviceDescriptionEntry@@PEAU_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER@@@Z @ 0x1C003C2D4 (-SearchBackwardsForMatchingModificationLocked@FxChildList@@IEAAPEAUFxDeviceDescriptionEntry@@PEA.c)
  */
 
 __int64 __fastcall FxChildList::Add(
@@ -22,104 +22,101 @@ __int64 __fastcall FxChildList::Add(
         _WDF_CHILD_ADDRESS_DESCRIPTION_HEADER *AddressDescription,
         unsigned int *a4)
 {
-  unsigned __int64 *p_m_ListLock; // r13
-  int v8; // r14d
-  FxDeviceDescriptionEntry *v9; // rax
-  FxDeviceDescriptionEntry *v10; // rbx
+  unsigned __int64 *p_m_ListLock; // r12
+  int v8; // ebp
+  KIRQL v9; // r13
+  FxDeviceDescriptionEntry *v10; // rax
+  unsigned __int64 v11; // rcx
+  FxDeviceDescriptionEntry *v12; // rbx
   FxChildListModificationState m_ModificationState; // eax
-  FxDeviceDescriptionEntry *v12; // rax
-  _FX_DRIVER_GLOBALS *m_Globals; // rcx
-  unsigned __int64 m_TotalDescriptionSize; // r9
-  void *v15; // rax
-  ULONG Tag; // r8d
-  FX_POOL **v17; // rax
-  __int64 v18; // rax
-  __int64 v19; // rsi
-  _LIST_ENTRY *v20; // rdx
-  _LIST_ENTRY *v21; // rax
-  __int64 v22; // rbx
+  FxDeviceDescriptionEntry *v14; // rax
+  FX_POOL **v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rsi
+  _LIST_ENTRY *v18; // rdx
+  _LIST_ENTRY *v19; // rax
+  __int64 v20; // rbx
   _LIST_ENTRY *Blink; // rax
-  _LIST_ENTRY freeHead; // [rsp+30h] [rbp-20h] BYREF
-  __m128i v26; // [rsp+40h] [rbp-10h] BYREF
-  void *retaddr; // [rsp+78h] [rbp+28h]
-  KIRQL NewIrql; // [rsp+98h] [rbp+48h]
+  unsigned __int8 v22; // r8
+  _LIST_ENTRY freeHead; // [rsp+20h] [rbp-38h] BYREF
 
   freeHead.Blink = &freeHead;
   p_m_ListLock = &this->m_ListLock;
   freeHead.Flink = &freeHead;
   v8 = -1073741823;
-  NewIrql = KeAcquireSpinLockRaiseToDpc(&this->m_ListLock);
-  v9 = FxChildList::SearchBackwardsForMatchingModificationLocked(this, IdentificationDescription);
-  v10 = v9;
-  if ( v9 )
+  v9 = KeAcquireSpinLockRaiseToDpc(&this->m_ListLock);
+  v10 = FxChildList::SearchBackwardsForMatchingModificationLocked(this, IdentificationDescription);
+  v12 = v10;
+  if ( v10 )
   {
-    m_ModificationState = v9->m_ModificationState;
+    m_ModificationState = v10->m_ModificationState;
     if ( m_ModificationState != ModificationInsert )
     {
       if ( (unsigned int)(m_ModificationState - 2) > 1 )
-        goto LABEL_24;
+        goto LABEL_25;
 LABEL_10:
-      m_Globals = this->m_Globals;
-      m_TotalDescriptionSize = this->m_TotalDescriptionSize;
-      v15 = retaddr;
-      v26 = 0LL;
-      Tag = m_Globals->Tag;
-      v26.m128i_i64[1] = 64LL;
-      if ( !m_Globals->FxPoolTrackingOn )
-        v15 = 0LL;
-      v17 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v26, m_TotalDescriptionSize, Tag, v15);
-      if ( !v17
-        || (FxDeviceDescriptionEntry::FxDeviceDescriptionEntry(
-              (FxDeviceDescriptionEntry *)v17,
-              this,
-              this->m_IdentificationDescriptionSize,
-              this->m_AddressDescriptionSize),
-            (v19 = v18) == 0) )
+      v15 = FxDeviceDescriptionEntry::operator new(v11, this->m_Globals, this->m_TotalDescriptionSize);
+      if ( v15 )
+      {
+        FxDeviceDescriptionEntry::FxDeviceDescriptionEntry(
+          (FxDeviceDescriptionEntry *)v15,
+          this,
+          this->m_IdentificationDescriptionSize,
+          this->m_AddressDescriptionSize);
+        v17 = v16;
+      }
+      else
+      {
+        v17 = 0LL;
+      }
+      if ( !v17 )
       {
         v8 = -1073741670;
-        goto LABEL_24;
+        goto LABEL_25;
       }
       v8 = FxChildList::DuplicateId(
              this,
-             *(_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER **)(v18 + 24),
+             *(_WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER **)(v17 + 24),
              IdentificationDescription);
-      if ( v8 < 0
-        || this->m_AddressDescriptionSize
-        && (v8 = FxChildList::DuplicateAddress(
-                   this,
-                   *(_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER **)(v19 + 32),
-                   AddressDescription),
-            v8 < 0) )
+      if ( v8 < 0 )
+        goto LABEL_21;
+      if ( this->m_AddressDescriptionSize )
+        v8 = FxChildList::DuplicateAddress(
+               this,
+               *(_WDF_CHILD_ADDRESS_DESCRIPTION_HEADER **)(v17 + 32),
+               AddressDescription);
+      if ( v8 < 0 )
       {
+LABEL_21:
         Blink = freeHead.Blink;
         if ( freeHead.Blink->Flink == &freeHead )
         {
-          *(_QWORD *)(v19 + 8) = freeHead.Blink;
-          *(_QWORD *)v19 = &freeHead;
-          Blink->Flink = (_LIST_ENTRY *)v19;
-          freeHead.Blink = (_LIST_ENTRY *)v19;
-          goto LABEL_24;
+          *(_QWORD *)(v17 + 8) = freeHead.Blink;
+          *(_QWORD *)v17 = &freeHead;
+          Blink->Flink = (_LIST_ENTRY *)v17;
+          freeHead.Blink = (_LIST_ENTRY *)v17;
+          goto LABEL_25;
         }
       }
       else
       {
-        *(_BYTE *)(v19 + 80) = 1;
-        v20 = this->m_ModificationListHead.Blink;
-        v21 = (_LIST_ENTRY *)(v19 + 40);
-        if ( v20->Flink == &this->m_ModificationListHead )
+        *(_BYTE *)(v17 + 80) = 1;
+        v18 = this->m_ModificationListHead.Blink;
+        v19 = (_LIST_ENTRY *)(v17 + 40);
+        if ( v18->Flink == &this->m_ModificationListHead )
         {
-          v21->Flink = &this->m_ModificationListHead;
-          *(_QWORD *)(v19 + 48) = v20;
-          v20->Flink = v21;
-          this->m_ModificationListHead.Blink = v21;
+          v19->Flink = &this->m_ModificationListHead;
+          *(_QWORD *)(v17 + 48) = v18;
+          v18->Flink = v19;
+          this->m_ModificationListHead.Blink = v19;
           if ( this->m_StaticList )
           {
-            v22 = *(_QWORD *)(*(_QWORD *)(v19 + 24) + 8LL);
-            FxObject::MarkNoDeleteDDI((FxObject *)v22, ObjectLock);
-            *(_QWORD *)(*(_QWORD *)(v22 + 648) + 1704LL) = v19;
-            *(_BYTE *)(*(_QWORD *)(v22 + 648) + 1778LL) = 1;
+            v20 = *(_QWORD *)(*(_QWORD *)(v17 + 24) + 8LL);
+            FxObject::MarkNoDeleteDDI((FxObject *)v20, ObjectLock);
+            *(_QWORD *)(*(_QWORD *)(v20 + 648) + 1704LL) = v17;
+            *(_BYTE *)(*(_QWORD *)(v20 + 648) + 1778LL) = 1;
           }
-          goto LABEL_24;
+          goto LABEL_25;
         }
       }
       __fastfail(3u);
@@ -127,18 +124,18 @@ LABEL_10:
   }
   else
   {
-    v12 = FxChildList::SearchBackwardsForMatchingDescriptionLocked(this, IdentificationDescription);
-    v10 = v12;
-    if ( !v12 || (unsigned int)(v12->m_DescriptionState - 1) > 1 )
+    v14 = FxChildList::SearchBackwardsForMatchingDescriptionLocked(this, IdentificationDescription);
+    v12 = v14;
+    if ( !v14 || (unsigned int)(v14->m_DescriptionState - 1) > 1 )
       goto LABEL_10;
   }
   if ( this->m_AddressDescriptionSize )
-    FxChildList::CopyAddress(this, v10->m_AddressDescription, AddressDescription);
-  v10->m_FoundInLastScan = 1;
+    FxChildList::CopyAddress(this, v12->m_AddressDescription, AddressDescription);
+  v12->m_FoundInLastScan = 1;
   v8 = 0x40000000;
-LABEL_24:
+LABEL_25:
   FxChildList::ProcessModificationsLocked(this, &freeHead);
-  KeReleaseSpinLock(p_m_ListLock, NewIrql);
-  FxChildList::DrainFreeListHead(this, &freeHead);
+  KeReleaseSpinLock(p_m_ListLock, v9);
+  FxChildList::DrainFreeListHead(this, &freeHead, v22);
   return (unsigned int)v8;
 }

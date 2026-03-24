@@ -1,11 +1,11 @@
 /*
- * XREFs of PopLoggingInformation @ 0x1409898D8
+ * XREFs of PopLoggingInformation @ 0x14067E6B8
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     PopDiagTraceControlCallback @ 0x14081CBF0 (PopDiagTraceControlCallback.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     PopDiagTraceControlCallback @ 0x14067D270 (PopDiagTraceControlCallback.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopLoggingInformation(_QWORD *a1, unsigned int *a2)
@@ -14,10 +14,10 @@ __int64 __fastcall PopLoggingInformation(_QWORD *a1, unsigned int *a2)
   unsigned int v3; // edi
   int v6; // esi
   unsigned int v7; // r9d
-  unsigned int v8; // edx
+  unsigned int v8; // ecx
   unsigned int v9; // eax
   unsigned int v10; // ebx
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _OWORD *v12; // rbp
   __int64 v13; // r14
   size_t v14; // rbx
@@ -41,13 +41,13 @@ __int64 __fastcall PopLoggingInformation(_QWORD *a1, unsigned int *a2)
   if ( v6 )
     v9 = v7;
   v10 = v9;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, v9, 1718968931LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x66756263u);
+  if ( PoolWithTag )
   {
     *a2 = v10;
-    v12 = Pool2 + 1;
-    *a1 = Pool2;
-    *Pool2 = v10;
+    v12 = PoolWithTag + 1;
+    *a1 = PoolWithTag;
+    *PoolWithTag = v10;
     if ( v6 )
     {
       v13 = PowerStateDisableReasonListHead;
@@ -63,7 +63,7 @@ __int64 __fastcall PopLoggingInformation(_QWORD *a1, unsigned int *a2)
     else
     {
       *v12 = 0LL;
-      Pool2[3] = 0;
+      PoolWithTag[3] = 0;
     }
   }
   else

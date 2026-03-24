@@ -1,13 +1,13 @@
 /*
- * XREFs of AdtpObjsInitialize @ 0x140737248
+ * XREFs of AdtpObjsInitialize @ 0x140737228
  * Callers:
- *     AdtpInitializeAuditingCommon @ 0x140737208 (AdtpInitializeAuditingCommon.c)
+ *     AdtpInitializeAuditingCommon @ 0x1407371E8 (AdtpInitializeAuditingCommon.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlIntegerToUnicodeString @ 0x1405A8E00 (RtlIntegerToUnicodeString.c)
@@ -75,7 +75,7 @@ NTSTATUS AdtpObjsInitialize()
   ExInitializeResourceLite(&AdtpSourceModuleLock);
   LODWORD(v4) = 0;
   v5 = 0;
-  v6 = (char *)&unk_140405E02;
+  v6 = (char *)&unk_140405C82;
   while ( 1 )
   {
     *(_DWORD *)(v6 - 2) = 1572864;
@@ -89,7 +89,7 @@ NTSTATUS AdtpObjsInitialize()
     if ( v5 > 6 )
     {
       v8 = 0;
-      v9 = (char *)&unk_140405C82;
+      v9 = (char *)&unk_140405D82;
       while ( 1 )
       {
         *(_QWORD *)(v9 + 6) = (char *)&AdtpAccessIdsStringBuffer + 2 * v4;

@@ -1,9 +1,9 @@
 /*
- * XREFs of wil_details_ModifyFeatureData @ 0x1400F2BAC
+ * XREFs of wil_details_ModifyFeatureData @ 0x1400F2BCC
  * Callers:
- *     wil_details_RecordUsageInPropertyCache @ 0x1400F2AE4 (wil_details_RecordUsageInPropertyCache.c)
+ *     wil_details_RecordUsageInPropertyCache @ 0x1400F2B04 (wil_details_RecordUsageInPropertyCache.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall wil_details_ModifyFeatureData(

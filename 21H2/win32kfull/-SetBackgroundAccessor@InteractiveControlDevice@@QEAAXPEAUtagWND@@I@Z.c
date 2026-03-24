@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0254A34
+ * XREFs of ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0257D08
  * Callers:
- *     ?AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z @ 0x1C010BF84 (-AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z.c)
- *     ?ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z @ 0x1C024EB3C (-ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z.c)
- *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F594 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
- *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0253B4C (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
+ *     ?AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z @ 0x1C00E5EAC (-AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z.c)
+ *     ?ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z @ 0x1C0251B50 (-ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z.c)
+ *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C02525A8 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0256DD4 (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -22,9 +22,9 @@ void __fastcall InteractiveControlDevice::SetBackgroundAccessor(
   }
   else
   {
-    v5[1] = a2;
     v5[0] = (char *)this + 48;
-    HMAssignmentLock(v5, 0LL);
+    v5[1] = a2;
+    HMAssignmentLock(v5);
     *((_DWORD *)this + 14) = a3;
   }
 }

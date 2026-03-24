@@ -1,12 +1,12 @@
 /*
- * XREFs of SepAdtRegNotificationCallback @ 0x1408019E0
+ * XREFs of SepAdtRegNotificationCallback @ 0x14079E5F0
  * Callers:
  *     <none>
  * Callees:
- *     NtNotifyChangeKey @ 0x140767D00 (NtNotifyChangeKey.c)
- *     SepAdtInitializeCrashOnFail @ 0x140843A24 (SepAdtInitializeCrashOnFail.c)
- *     SepAdtInitializePrivilegeAuditing @ 0x140844348 (SepAdtInitializePrivilegeAuditing.c)
- *     SepAdtInitializeBounds @ 0x1408443A8 (SepAdtInitializeBounds.c)
+ *     NtNotifyChangeKey @ 0x1406DBFB0 (NtNotifyChangeKey.c)
+ *     SepAdtInitializeBounds @ 0x14079E654 (SepAdtInitializeBounds.c)
+ *     SepAdtInitializePrivilegeAuditing @ 0x14079E6D8 (SepAdtInitializePrivilegeAuditing.c)
+ *     SepAdtInitializeCrashOnFail @ 0x14079E738 (SepAdtInitializeCrashOnFail.c)
  */
 
 __int64 SepAdtRegNotificationCallback()
@@ -15,12 +15,12 @@ __int64 SepAdtRegNotificationCallback()
   SepAdtInitializePrivilegeAuditing();
   SepAdtInitializeBounds();
   return NtNotifyChangeKey(
-           SepAdtRegNotifyHandle,
-           0LL,
-           (void (__stdcall *)(POPLOCK))&SepAdtLsaRegWatchWorkItem,
+           (int)SepAdtRegNotifyHandle,
+           0,
+           (__int64)&SepAdtLsaRegWatchWorkItem,
            1LL,
-           SepAdtIoStatusBlock,
-           5u,
+           &SepAdtIoStatusBlock,
+           5,
            0,
            0LL,
            0,

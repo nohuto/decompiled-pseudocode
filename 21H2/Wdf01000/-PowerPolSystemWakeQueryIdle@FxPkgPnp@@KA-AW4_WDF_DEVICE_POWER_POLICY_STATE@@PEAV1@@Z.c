@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerPolSystemWakeQueryIdle@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000EF00
+ * XREFs of ?PowerPolSystemWakeQueryIdle@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0019B20
  * Callers:
  *     <none>
  * Callees:
- *     ?QueryReturnToIdle@FxPowerIdleMachine@@QEAAEXZ @ 0x1C000EF28 (-QueryReturnToIdle@FxPowerIdleMachine@@QEAAEXZ.c)
+ *     ?QueryReturnToIdle@FxPowerIdleMachine@@QEAAEXZ @ 0x1C0019B48 (-QueryReturnToIdle@FxPowerIdleMachine@@QEAAEXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolSystemWakeQueryIdle(FxPkgPnp *This)

@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpSectionTableFromVirtualAddress @ 0x1407D7080
+ * XREFs of LdrpSectionTableFromVirtualAddress @ 0x14067240C
  * Callers:
- *     LdrpResSearchResourceInsideDirectory @ 0x1406F31DC (LdrpResSearchResourceInsideDirectory.c)
- *     LdrpResGetResourceDirectory @ 0x14075A6B8 (LdrpResGetResourceDirectory.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x140671244 (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResGetResourceDirectory @ 0x140671EB4 (LdrpResGetResourceDirectory.c)
  * Callees:
  *     <none>
  */
@@ -32,9 +32,8 @@ __int64 __fastcall LdrpSectionTableFromVirtualAddress(
           v9 = *(_DWORD *)(v7 + 12);
           if ( a5 == v9 || a5 > v9 && a5 < *(_DWORD *)(v7 + 16) + v9 )
             return v7;
-          ++v8;
           v7 += 40LL;
-          if ( v8 >= *(unsigned __int16 *)(a3 + 6) )
+          if ( ++v8 >= *(unsigned __int16 *)(a3 + 6) )
             return 0LL;
         }
       }

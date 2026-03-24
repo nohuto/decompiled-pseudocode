@@ -1,321 +1,406 @@
 /*
- * XREFs of KeStartAllProcessors @ 0x140B4AC90
+ * XREFs of KeStartAllProcessors @ 0x140A4D568
  * Callers:
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     HalEnumerateProcessors @ 0x1403766E0 (HalEnumerateProcessors.c)
- *     HvlStartBootLogicalProcessors @ 0x140376790 (HvlStartBootLogicalProcessors.c)
- *     KiAllocatePrcbThreads @ 0x140377068 (KiAllocatePrcbThreads.c)
- *     KiAllocateProcessorStateInitializationParameters @ 0x14037709C (KiAllocateProcessorStateInitializationParameters.c)
- *     HalStartNextProcessor @ 0x140377100 (HalStartNextProcessor.c)
- *     KiAllocateLocalSharedReadyQueue @ 0x140377440 (KiAllocateLocalSharedReadyQueue.c)
- *     KiCompleteBootProcessorContextInitialization @ 0x1403774BC (KiCompleteBootProcessorContextInitialization.c)
- *     KiQueryProcessorNode @ 0x140377750 (KiQueryProcessorNode.c)
- *     HalQueryMaximumProcessorCount @ 0x14037FEF0 (HalQueryMaximumProcessorCount.c)
- *     KiFreeLocalSharedReadyQueue @ 0x140383354 (KiFreeLocalSharedReadyQueue.c)
- *     PpmHeteroInitializeHgsSupport @ 0x1403ABC14 (PpmHeteroInitializeHgsSupport.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheck @ 0x14041E370 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiFreePrcbThreads @ 0x14056BDA8 (KiFreePrcbThreads.c)
- *     KiFreeProcessorStateInitializationParameters @ 0x14056BED4 (KiFreeProcessorStateInitializationParameters.c)
- *     ExDeletePoolTagTable @ 0x140606DB0 (ExDeletePoolTagTable.c)
- *     MmDeleteProcessor @ 0x140617C3C (MmDeleteProcessor.c)
- *     ExCreatePoolTagTable @ 0x14081F708 (ExCreatePoolTagTable.c)
- *     KiInitializeProcessorState @ 0x14081F788 (KiInitializeProcessorState.c)
- *     HvlInitializeProcessor @ 0x14081FAAC (HvlInitializeProcessor.c)
- *     EtwInitializeProcessor @ 0x14081FD58 (EtwInitializeProcessor.c)
- *     KeInitializeTimerTable @ 0x14081FF44 (KeInitializeTimerTable.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C70C (MmAllocateIndependentPagesEx.c)
- *     HvlDeleteProcessor @ 0x1409412AC (HvlDeleteProcessor.c)
- *     EtwDeleteProcessor @ 0x1409E1E58 (EtwDeleteProcessor.c)
- *     KiComputeProcessorDataSize @ 0x140A893D4 (KiComputeProcessorDataSize.c)
- *     KiConfigureProcessorBlock @ 0x140A89404 (KiConfigureProcessorBlock.c)
- *     KiUpdateProcessorCount @ 0x140A894FC (KiUpdateProcessorCount.c)
- *     KiInitializePrcbContext @ 0x140A89784 (KiInitializePrcbContext.c)
- *     MmInitializeProcessor @ 0x140A898EC (MmInitializeProcessor.c)
- *     KiUnshadowProcessorAllocation @ 0x140A9FDDC (KiUnshadowProcessorAllocation.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     KiCountNodeZeroSetBitsGroupAffinity @ 0x140B4928C (KiCountNodeZeroSetBitsGroupAffinity.c)
- *     KiAllocateCpuSetData @ 0x140B49340 (KiAllocateCpuSetData.c)
- *     KiConfigureAllSchedulingInformation @ 0x140B4FEDC (KiConfigureAllSchedulingInformation.c)
- *     PpmInitHeteroEngine @ 0x140B6C438 (PpmInitHeteroEngine.c)
- *     PpmUpdateArchitecturalEfficiencyClass @ 0x140B6C5A0 (PpmUpdateArchitecturalEfficiencyClass.c)
+ *     MmCreateKernelStack @ 0x1402AABF0 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1402AB200 (MmDeleteKernelStack.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AD70 (HalQueryMaximumProcessorCount.c)
+ *     HalStartNextProcessor @ 0x1403A0DA0 (HalStartNextProcessor.c)
+ *     HalEnumerateProcessors @ 0x1403B4820 (HalEnumerateProcessors.c)
+ *     KiQueryProcessorNode @ 0x1403B563C (KiQueryProcessorNode.c)
+ *     HvlStartBootLogicalProcessors @ 0x1403B62E8 (HvlStartBootLogicalProcessors.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KiRemoveProcessorFromGroupDatabase @ 0x14051595C (KiRemoveProcessorFromGroupDatabase.c)
+ *     MmDeleteProcessor @ 0x14052DF10 (MmDeleteProcessor.c)
+ *     ExDeletePoolTagTable @ 0x1405B358C (ExDeletePoolTagTable.c)
+ *     MmAllocateIndependentPagesEx @ 0x14076202C (MmAllocateIndependentPagesEx.c)
+ *     MmFreeIndependentPages @ 0x140763BF0 (MmFreeIndependentPages.c)
+ *     MmAllocateIsrStack @ 0x14079FD68 (MmAllocateIsrStack.c)
+ *     KeInitializeTimerTable @ 0x14079FF64 (KeInitializeTimerTable.c)
+ *     HvlInitializeProcessor @ 0x1407A0160 (HvlInitializeProcessor.c)
+ *     KxInitializeProcessorState @ 0x1407A01B0 (KxInitializeProcessorState.c)
+ *     ExCreatePoolTagTable @ 0x1407A09E0 (ExCreatePoolTagTable.c)
+ *     HvlDeleteProcessor @ 0x14088E710 (HvlDeleteProcessor.c)
+ *     KiResetBootProcessorApicMask @ 0x1408BA6A4 (KiResetBootProcessorApicMask.c)
+ *     MmFreeIsrStack @ 0x1408D12A8 (MmFreeIsrStack.c)
+ *     KiComputeProcessorDataSize @ 0x14099ED60 (KiComputeProcessorDataSize.c)
+ *     KiInitializePrcbContext @ 0x14099F0D8 (KiInitializePrcbContext.c)
+ *     KiUpdateProcessorCount @ 0x14099F1EC (KiUpdateProcessorCount.c)
+ *     KiConfigureProcessorBlock @ 0x14099F28C (KiConfigureProcessorBlock.c)
+ *     MmInitializeProcessor @ 0x14099F378 (MmInitializeProcessor.c)
+ *     KiUnshadowProcessorAllocation @ 0x1409AFD8C (KiUnshadowProcessorAllocation.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KiAllocateCpuSetData @ 0x140A3FD90 (KiAllocateCpuSetData.c)
+ *     KiConfigureAllSchedulingInformation @ 0x140A4EA60 (KiConfigureAllSchedulingInformation.c)
  */
 
 ULONG KeStartAllProcessors()
 {
   KPCR *Pcr; // rax
   void *Base; // rbx
-  void *Pool2; // rax
-  unsigned int v3; // ebx
-  unsigned int v4; // edi
-  unsigned int v5; // r13d
-  unsigned int MaximumProcessorCount; // eax
-  struct _KPRCB *CurrentPrcb; // rcx
-  unsigned int v8; // edx
-  unsigned int v9; // r12d
-  unsigned int v10; // ebx
-  unsigned int v11; // esi
-  unsigned int v12; // r15d
-  __int64 IndependentPages; // rax
-  __int64 v14; // rsi
-  _OWORD *v15; // r14
+  PVOID PoolWithTag; // rax
+  unsigned int v3; // edi
+  KPCR *v4; // rbx
+  struct _KPRCB *CurrentPrcb; // rsi
+  unsigned int v6; // r13d
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  unsigned int MaximumProcessorCount; // ecx
+  unsigned int v13; // r12d
+  unsigned int v14; // ebx
+  unsigned int v15; // esi
+  unsigned int v16; // r14d
+  unsigned __int64 v17; // rcx
+  __int64 v18; // r15
+  __int64 v19; // rsi
+  __int64 v20; // rsi
+  _OWORD *v21; // r15
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  unsigned __int64 v24; // r9
   int started; // eax
-  int v17; // eax
-  __int64 v18; // rcx
+  unsigned __int64 v26; // rax
+  unsigned __int64 v27; // r9
+  __int64 v28; // r8
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  int v31; // eax
   ULONG result; // eax
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  _OWORD *v22; // rax
-  __int128 v23; // xmm1
-  unsigned __int64 v24; // rcx
-  unsigned int i; // esi
-  _OWORD *v26; // rbx
-  __int64 v27; // rax
-  __int64 v28; // rdx
-  _OWORD *v29; // rcx
-  __int128 v30; // xmm1
-  __int128 v31; // xmm0
-  unsigned int v32; // ecx
-  unsigned int v33; // edx
-  int v34; // [rsp+38h] [rbp-D0h] BYREF
-  ULONG_PTR v35; // [rsp+3Ch] [rbp-CCh] BYREF
-  unsigned int v36; // [rsp+44h] [rbp-C4h] BYREF
-  int v37; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned int v38; // [rsp+4Ch] [rbp-BCh]
-  __int64 v39; // [rsp+50h] [rbp-B8h]
-  _QWORD v40[2]; // [rsp+58h] [rbp-B0h] BYREF
-  _QWORD v41[30]; // [rsp+68h] [rbp-A0h] BYREF
-  ULONG_PTR BugCheckParameter1[184]; // [rsp+158h] [rbp+50h] BYREF
+  SIZE_T v33; // rdx
+  __int64 v34; // rcx
+  _OWORD *v35; // rax
+  __int128 v36; // xmm1
+  unsigned int i; // edi
+  _OWORD *v38; // rbx
+  PVOID v39; // rax
+  __int64 v40; // rsi
+  __int64 v41; // rax
+  __int128 v42; // xmm1
+  unsigned int v43; // ecx
+  size_t BugCheckParameter4; // [rsp+28h] [rbp-F0h]
+  unsigned __int16 v45[2]; // [rsp+98h] [rbp-80h] BYREF
+  unsigned int v46[3]; // [rsp+9Ch] [rbp-7Ch] BYREF
+  int v47; // [rsp+A8h] [rbp-70h] BYREF
+  int v48; // [rsp+ACh] [rbp-6Ch] BYREF
+  size_t Size; // [rsp+B0h] [rbp-68h]
+  __int64 v50; // [rsp+B8h] [rbp-60h] BYREF
+  __int64 v51; // [rsp+C0h] [rbp-58h] BYREF
+  __int64 v52; // [rsp+C8h] [rbp-50h] BYREF
+  __int64 v53; // [rsp+D0h] [rbp-48h] BYREF
+  __int64 v54; // [rsp+D8h] [rbp-40h] BYREF
+  __int64 v55; // [rsp+E0h] [rbp-38h] BYREF
+  __int64 IndependentPages; // [rsp+E8h] [rbp-30h]
+  __int64 v57; // [rsp+F0h] [rbp-28h]
+  __int64 KernelStack; // [rsp+F8h] [rbp-20h]
+  __int64 v59; // [rsp+100h] [rbp-18h]
+  _QWORD v60[2]; // [rsp+108h] [rbp-10h] BYREF
+  ULONG_PTR BugCheckParameter1[184]; // [rsp+118h] [rbp+0h] BYREF
 
-  memset(v41, 0, 0xE4uLL);
-  LOWORD(v34) = 0;
-  v35 = 0LL;
-  v37 = 0;
-  v36 = 0;
-  if ( (int)KiCompleteBootProcessorContextInitialization() < 0 )
-    goto LABEL_79;
+  v51 = 0LL;
+  v55 = 0LL;
+  v54 = 0LL;
+  v53 = 0LL;
+  v52 = 0LL;
+  v45[0] = 0;
+  v46[0] = 0;
+  memset(BugCheckParameter1, 0, sizeof(BugCheckParameter1));
   Pcr = KeGetPcr();
+  v48 = 0;
+  v47 = 0;
   Base = Pcr->Prcb.ProcessorState.SpecialRegisters.Idtr.Base;
   LODWORD(KiBootProcessorIdtSize) = Pcr->Prcb.ProcessorState.SpecialRegisters.Idtr.Limit + 1;
-  Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)KiBootProcessorIdtSize, 0x2020654Bu);
-  KiBootProcessorIdt = Pool2;
-  if ( !Pool2 )
-    goto LABEL_79;
-  memmove(Pool2, Base, (unsigned int)KiBootProcessorIdtSize);
-  v3 = KeRegisteredProcessors;
-  if ( (unsigned int)KeRegisteredProcessors > 0x800 )
-  {
-    v3 = 2048;
-    KeRegisteredProcessors = 2048;
-  }
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)KiBootProcessorIdtSize, 0x2020654Bu);
+  KiBootProcessorIdt = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_108;
+  memmove(PoolWithTag, Base, (unsigned int)KiBootProcessorIdtSize);
+  if ( (unsigned int)KeRegisteredProcessors > 0x500 )
+    KeRegisteredProcessors = 1280;
   KiBarrierWait = 1;
-  memset(BugCheckParameter1, 0, sizeof(BugCheckParameter1));
-  v4 = HalEnumerateProcessors(v3);
-  if ( KeNumprocSpecified && KeNumprocSpecified < v4 )
-    v4 = KeNumprocSpecified;
-  if ( KeBootprocSpecified && KeBootprocSpecified < v4 )
-    v4 = KeBootprocSpecified;
-  v5 = 0;
-  MaximumProcessorCount = HalQueryMaximumProcessorCount();
+  if ( !HalpInterruptHyperThreading )
+    KiResetBootProcessorApicMask();
+  v3 = HalEnumerateProcessors(KeRegisteredProcessors);
+  if ( KeNumprocSpecified && KeNumprocSpecified < v3 )
+    v3 = KeNumprocSpecified;
+  if ( KeBootprocSpecified && KeBootprocSpecified < v3 )
+    v3 = KeBootprocSpecified;
+  v4 = KeGetPcr();
   CurrentPrcb = KeGetCurrentPrcb();
-  v8 = MaximumProcessorCount;
-  v9 = MaximumProcessorCount;
-  if ( MaximumProcessorCount > 0x800 )
-    v8 = 2048;
-  v10 = KeRegisteredProcessors * CurrentPrcb->CoresPerPhysicalProcessor * CurrentPrcb->LogicalProcessorsPerCore;
-  if ( v8 <= v10 )
-    v10 = v8;
-  if ( KeNumprocSpecified && KeNumprocSpecified < v10 )
-    v10 = KeNumprocSpecified;
-  if ( !KeDynamicPartitioningSupported && v10 > v4 )
-    v10 = v4;
-  if ( !(unsigned int)KiAllocateCpuSetData(v10) )
-    goto LABEL_79;
-  v11 = KiComputeProcessorDataSize(v10, (_DWORD *)&v35 + 1, &v36);
-  v40[0] = HIDWORD(v35);
-  v40[1] = v36;
-  v38 = v11;
-  if ( (int)HvlStartBootLogicalProcessors(v36) < 0 )
-    goto LABEL_79;
-  v12 = 0;
-  while ( (unsigned int)KeNumberProcessors_0 < v4 )
+  v6 = 0;
+  if ( (int)KiInitializePrcbContext((__int64)CurrentPrcb, 0LL) < 0 )
+    goto LABEL_108;
+  if ( !MmAllocateIsrStack(&CurrentPrcb->IsrStack, 0) )
+    goto LABEL_108;
+  v50 = (__int64)KeGetPcr()->Prcb.ExceptionStack + 80;
+  if ( !MmAllocateIsrStack(&v50, 0) )
+    goto LABEL_108;
+  v7 = *(_QWORD *)((char *)v4->NtTib.StackBase + 36);
+  *(_QWORD *)&v46[1] = v7;
+  if ( KiKvaShadow )
+    *(_QWORD *)&v46[1] = *(_QWORD *)(v7 + 8) + 32LL;
+  if ( !MmAllocateIsrStack(&v46[1], 0) )
+    goto LABEL_108;
+  v8 = *(_QWORD *)((char *)v4->NtTib.StackBase + 44);
+  *(_QWORD *)&v46[1] = v8;
+  if ( KiKvaShadow )
+    *(_QWORD *)&v46[1] = *(_QWORD *)(v8 + 8) + 32LL;
+  if ( !MmAllocateIsrStack(&v46[1], 0) )
+    goto LABEL_108;
+  v9 = *(_QWORD *)((char *)v4->NtTib.StackBase + 52);
+  *(_QWORD *)&v46[1] = v9;
+  if ( KiKvaShadow )
+    *(_QWORD *)&v46[1] = *(_QWORD *)(v9 + 8) + 32LL;
+  if ( !MmAllocateIsrStack(&v46[1], 0) )
+    goto LABEL_108;
+  v10 = *(_QWORD *)((char *)v4->NtTib.StackBase + 60);
+  *(_QWORD *)&v46[1] = v10;
+  if ( KiKvaShadow )
+    *(_QWORD *)&v46[1] = *(_QWORD *)(v10 + 8) + 32LL;
+  if ( !MmAllocateIsrStack(&v46[1], 0) )
+    goto LABEL_108;
+  MaximumProcessorCount = HalQueryMaximumProcessorCount(v11);
+  v13 = MaximumProcessorCount;
+  if ( MaximumProcessorCount > 0x500 )
+    MaximumProcessorCount = 1280;
+  v14 = KeRegisteredProcessors * CurrentPrcb->CoresPerPhysicalProcessor * CurrentPrcb->LogicalProcessorsPerCore;
+  if ( MaximumProcessorCount <= v14 )
+    v14 = MaximumProcessorCount;
+  if ( KeNumprocSpecified && KeNumprocSpecified < v14 )
+    v14 = KeNumprocSpecified;
+  if ( !KeDynamicPartitioningSupported && v14 > v3 )
+    v14 = v3;
+  if ( !(unsigned int)KiAllocateCpuSetData(v14) )
+    goto LABEL_108;
+  v15 = KiComputeProcessorDataSize(v14, &v48, &v47);
+  v60[0] = (unsigned int)v48;
+  v60[1] = (unsigned int)v47;
+  LODWORD(Size) = v15;
+  if ( (int)HvlStartBootLogicalProcessors(v47) < 0 )
+    goto LABEL_108;
+  v16 = 0;
+  do
   {
-    LODWORD(v35) = -1;
-    LOWORD(v34) = -1;
-    if ( !(unsigned int)KiQueryProcessorNode(++v5, &v35, &v34) )
+    v17 = 0xFFFFLL;
+    if ( (unsigned int)KeNumberProcessors_0 >= v3 )
+      break;
+    v46[0] = -1;
+    v45[0] = -1;
+    if ( !(unsigned int)KiQueryProcessorNode(++v6, v46, v45) )
     {
-      ++v12;
-      memset(v41, 0, 0xE8uLL);
-      if ( !ExCreatePoolTagTable(v12, v34) )
-        goto LABEL_79;
-      IndependentPages = MmAllocateIndependentPagesEx(v11, (unsigned __int16)v34, v40, 2u);
+      ++v16;
+      IndependentPages = MmAllocateIndependentPagesEx(v15, v45[0], (__int64)v60, 2uLL);
       if ( !IndependentPages )
-        goto LABEL_79;
-      v41[1] = IndependentPages;
-      HIDWORD(v41[4]) = HIDWORD(v35);
-      LODWORD(v41[5]) = v36;
-      LODWORD(v41[2]) = v11;
-      HIDWORD(v41[2]) = (unsigned __int16)v34;
-      v41[3] = __PAIR64__(v10, v12);
-      if ( (int)KiAllocateProcessorStateInitializationParameters((__int64)v41, (unsigned __int16)v34) < 0 )
-        goto LABEL_79;
-      v39 = KeNodeBlock[(unsigned __int16)v34];
-      v14 = KiInitializeProcessorState(BugCheckParameter1, (_QWORD *)KeLoaderBlock_0, (__int64)v41);
-      if ( !v14 )
-        goto LABEL_79;
-      v15 = (_OWORD *)KeNodeBlock[(unsigned __int16)v34];
-      if ( (unsigned int)HvlInitializeProcessor((union _SLIST_HEADER *)v14)
-        || !(unsigned int)MmInitializeProcessor(v14)
-        || (int)KiInitializePrcbContext(v14, (unsigned __int16)v34) < 0
-        || (int)KeInitializeTimerTable(v14) < 0
-        || (int)EtwInitializeProcessor(v14) < 0
-        || (int)KiAllocatePrcbThreads(v14) < 0
-        || (int)KiAllocateLocalSharedReadyQueue(v14) < 0 )
+        goto LABEL_108;
+      if ( !ExCreatePoolTagTable(v16, v45[0]) )
+        goto LABEL_108;
+      KernelStack = MmCreateKernelStack(0, v45[0], 0LL);
+      v18 = KernelStack;
+      if ( !KernelStack )
+        goto LABEL_108;
+      v59 = MmCreateKernelStack(0, v45[0], 0LL);
+      v19 = v59;
+      if ( !v59 )
+        goto LABEL_108;
+      v51 = 0LL;
+      if ( !MmAllocateIsrStack(&v51, v45[0]) )
+        goto LABEL_108;
+      v50 = 0LL;
+      if ( !MmAllocateIsrStack(&v50, v45[0]) )
+        goto LABEL_108;
+      v55 = 0LL;
+      if ( !MmAllocateIsrStack(&v55, v45[0]) )
+        goto LABEL_108;
+      v54 = 0LL;
+      if ( !MmAllocateIsrStack(&v54, v45[0]) )
+        goto LABEL_108;
+      v53 = 0LL;
+      if ( !MmAllocateIsrStack(&v53, v45[0]) )
+        goto LABEL_108;
+      v52 = 0LL;
+      if ( !MmAllocateIsrStack(&v52, v45[0]) )
+        goto LABEL_108;
+      v57 = KeNodeBlock[v45[0]];
+      LODWORD(BugCheckParameter4) = Size;
+      v20 = KxInitializeProcessorState(
+              BugCheckParameter1,
+              (_QWORD *)KeLoaderBlock_0,
+              IndependentPages,
+              0,
+              BugCheckParameter4,
+              v45[0],
+              v16,
+              v14,
+              v48,
+              v47,
+              v18,
+              v19,
+              v51,
+              v50,
+              v52,
+              v54,
+              v53,
+              v55);
+      if ( !v20 )
+        goto LABEL_108;
+      v21 = (_OWORD *)KeNodeBlock[v45[0]];
+      if ( (unsigned int)HvlInitializeProcessor((union _SLIST_HEADER *)v20)
+        || !(unsigned int)MmInitializeProcessor(v20, v22, v23, v24)
+        || (int)KiInitializePrcbContext(v20, v45[0]) < 0
+        || (int)KeInitializeTimerTable(v20) < 0 )
       {
-        goto LABEL_79;
+        goto LABEL_108;
       }
-      started = HalStartNextProcessor((__int64)BugCheckParameter1, v12, v35);
+      started = HalStartNextProcessor((__int64)BugCheckParameter1, v16, v46[0]);
       if ( started == 3 )
-        KeBugCheckEx(0x1DFu, (ULONG_PTR)BugCheckParameter1, 3uLL, v12, (unsigned int)v35);
+        KeBugCheckEx(0x1DFu, (ULONG_PTR)BugCheckParameter1, 3uLL, v16, v46[0]);
       if ( started != 4 )
       {
-        v20 = v39;
-        v21 = 2LL;
-        v22 = (_OWORD *)v39;
+        KiRemoveProcessorFromGroupDatabase(v20);
+        v33 = v57;
+        v34 = 3LL;
+        v35 = (_OWORD *)v57;
         do
         {
-          *v22 = *v15;
-          v22[1] = v15[1];
-          v22[2] = v15[2];
-          v22[3] = v15[3];
-          v22[4] = v15[4];
-          v22[5] = v15[5];
-          v22[6] = v15[6];
-          v22 += 8;
-          v23 = v15[7];
-          v15 += 8;
-          *(v22 - 1) = v23;
-          --v21;
+          *v35 = *v21;
+          v35[1] = v21[1];
+          v35[2] = v21[2];
+          v35[3] = v21[3];
+          v35[4] = v21[4];
+          v35[5] = v21[5];
+          v35[6] = v21[6];
+          v35 += 8;
+          v36 = v21[7];
+          v21 += 8;
+          *(v35 - 1) = v36;
+          --v34;
         }
-        while ( v21 );
-        *v22 = *v15;
-        v22[1] = v15[1];
-        v22[2] = v15[2];
-        KeNodeBlock[(unsigned __int16)v34] = v20;
-        KiFreeLocalSharedReadyQueue(v14);
-        KiFreePrcbThreads(v14);
-        HvlDeleteProcessor((struct _KPRCB *)v14);
-        MmDeleteProcessor(v14);
-        EtwDeleteProcessor(v14);
-        ExDeletePoolTagTable(v12);
-        KiUnshadowProcessorAllocation(v14, (__int64)BugCheckParameter1, v41);
-        v24 = (unsigned __int64)*(unsigned __int8 *)(v14 + 208) << 6;
-        KiProcessorIndexToNumberMappingTable[*(unsigned int *)(v14 + 36)] = 0;
-        KiProcessorNumberToIndexMappingTable[*(unsigned __int8 *)(v14 + 209) + v24] = 0;
-        *(_QWORD *)(v14 + 192) = 0LL;
-        KiFreeProcessorStateInitializationParameters((__int64)v41);
+        while ( v34 );
+        KeNodeBlock[v45[0]] = v33;
+        HvlDeleteProcessor((struct _KPRCB *)v20, v33, (MEMORY_CACHING_TYPE)128);
+        MmDeleteProcessor(v20);
+        ExDeletePoolTagTable(v16);
+        KiUnshadowProcessorAllocation(v20, (__int64)BugCheckParameter1);
+        MmFreeIndependentPages(IndependentPages, (unsigned int)Size);
+        MmDeleteKernelStack(KernelStack, 0LL);
+        MmDeleteKernelStack(v59, 0LL);
+        if ( v51 )
+          MmFreeIsrStack(v51);
+        if ( v50 )
+          MmFreeIsrStack(v50);
+        if ( v52 )
+          MmFreeIsrStack(v52);
+        if ( v53 )
+          MmFreeIsrStack(v53);
+        if ( v54 )
+          MmFreeIsrStack(v54);
+        if ( v55 )
+          MmFreeIsrStack(v55);
         break;
       }
-      v37 = 0;
       while ( *(_QWORD *)(KeLoaderBlock_0 + 136) )
-        KeYieldProcessorEx(&v37);
-      KiConfigureProcessorBlock(v14);
-      KiUpdateProcessorCount(v12, *(unsigned __int8 *)(v14 + 208));
-      v11 = v38;
+        _mm_pause();
+      KiConfigureProcessorBlock(v20);
+      KiUpdateProcessorCount(v16, *(unsigned __int8 *)(v20 + 208));
+      v15 = Size;
     }
-    if ( v5 >= 0x7FF )
-      break;
   }
+  while ( v6 < 0x4FF );
   if ( (unsigned __int16)KeNumberNodes <= 1u )
   {
-    if ( (unsigned int)KiCountNodeZeroSetBitsGroupAffinity() == (_DWORD)KeNumberProcessors_0 )
-      goto LABEL_40;
-LABEL_79:
+    v26 = *(_QWORD *)(KeNodeBlock[0] + 136) - ((*(_QWORD *)(KeNodeBlock[0] + 136) >> 1) & 0x5555555555555555LL);
+    v17 = (0x101010101010101LL
+         * (((v26 & 0x3333333333333333LL)
+           + ((v26 >> 2) & 0x3333333333333333LL)
+           + (((v26 & 0x3333333333333333LL) + ((v26 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
+    if ( (_DWORD)v17 == (_DWORD)KeNumberProcessors_0 )
+    {
+      v27 = 0x140000000uLL;
+      goto LABEL_60;
+    }
+LABEL_108:
     KeBugCheckEx(0x32u, 0LL, 0LL, 0x14uLL, 0LL);
   }
+  v27 = 0x140000000uLL;
   for ( i = 0; i < (unsigned __int16)KeNumberNodes; ++i )
   {
-    v26 = (_OWORD *)((char *)&KiNodeInit + 304 * i);
-    if ( (_OWORD *)KeNodeBlock[i] == v26 )
+    v38 = (_OWORD *)((char *)&KiNodeInit + 384 * i);
+    if ( (_OWORD *)KeNodeBlock[i] == v38 )
     {
-      v27 = ExAllocatePool2(64LL, 0x180uLL, 0x2020654Bu);
-      if ( !v27 )
-        goto LABEL_79;
-      v28 = 2LL;
-      v29 = (_OWORD *)v27;
+      v39 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x1C0uLL, 0x2020654Bu);
+      v40 = (__int64)v39;
+      if ( !v39 )
+        goto LABEL_108;
+      memset(v39, 0, 0x1C0uLL);
+      v41 = 3LL;
+      v17 = v40;
       do
       {
-        *v29 = *v26;
-        v29[1] = v26[1];
-        v29[2] = v26[2];
-        v29[3] = v26[3];
-        v29[4] = v26[4];
-        v29[5] = v26[5];
-        v29[6] = v26[6];
-        v29 += 8;
-        v30 = v26[7];
-        v26 += 8;
-        *(v29 - 1) = v30;
-        --v28;
+        *(_OWORD *)v17 = *v38;
+        *(_OWORD *)(v17 + 16) = v38[1];
+        *(_OWORD *)(v17 + 32) = v38[2];
+        *(_OWORD *)(v17 + 48) = v38[3];
+        *(_OWORD *)(v17 + 64) = v38[4];
+        *(_OWORD *)(v17 + 80) = v38[5];
+        *(_OWORD *)(v17 + 96) = v38[6];
+        v17 += 128LL;
+        v42 = v38[7];
+        v38 += 8;
+        *(_OWORD *)(v17 - 16) = v42;
+        --v41;
       }
-      while ( v28 );
-      v31 = *v26;
-      KeNodeBlock[i] = v27;
-      *v29 = v31;
-      v29[1] = v26[1];
-      v29[2] = v26[2];
+      while ( v41 );
+      v27 = 0x140000000uLL;
+      KeNodeBlock[i] = v40;
     }
   }
-LABEL_40:
+LABEL_60:
+  v28 = (unsigned __int16)KeNumberNodes;
+  v29 = 64LL;
   if ( (unsigned __int16)KeNumberNodes < 0x40u )
     memset(
-      (void *)(0x140000000LL + 8LL * (unsigned __int16)KeNumberNodes + 13932224),
+      (void *)(0x140000000LL + 8LL * (unsigned __int16)KeNumberNodes + 13775744),
       0,
       8LL * (64 - (unsigned int)(unsigned __int16)KeNumberNodes));
+  KiConfigureAllSchedulingInformation(v17, v29, v28, v27);
+  LOBYTE(v30) = 1;
+  ((void (__fastcall *)(__int64, _QWORD))off_140C006B0[0])(v30, 0LL);
   if ( !KeMaximumProcessors )
   {
-    if ( !KeDynamicPartitioningSupported || v9 <= (unsigned int)KeNumberProcessors_0 )
+    if ( !KeDynamicPartitioningSupported || v13 <= (unsigned int)KeNumberProcessors_0 )
     {
-      v17 = KeNumberProcessors_0;
-LABEL_45:
-      KeMaximumProcessors = v17;
-      goto LABEL_46;
+      v31 = KeNumberProcessors_0;
+LABEL_65:
+      KeMaximumProcessors = v31;
+      goto LABEL_66;
     }
-    v32 = KeRegisteredProcessors * *(_DWORD *)(KiProcessorBlock[0] + 160) * *(_DWORD *)(KiProcessorBlock[0] + 164);
-    KeMaximumProcessors = v32;
-    v33 = v32;
-    if ( v32 > KiMaximumGroupSize * (unsigned int)(unsigned __int16)KiMaximumGroups )
+    v43 = KeRegisteredProcessors * *(_DWORD *)(KiProcessorBlock[0] + 152) * *(_DWORD *)(KiProcessorBlock[0] + 156);
+    KeMaximumProcessors = v43;
+    if ( v43 > KiMaximumGroupSize * (unsigned int)(unsigned __int16)KiMaximumGroups )
     {
       KeMaximumProcessors = KiMaximumGroupSize * (unsigned __int16)KiMaximumGroups;
-      v32 = KiMaximumGroupSize * (unsigned __int16)KiMaximumGroups;
-      v33 = v32;
+      v43 = KiMaximumGroupSize * (unsigned __int16)KiMaximumGroups;
     }
-    if ( v32 > v9 )
+    if ( v43 > v13 )
     {
-      KeMaximumProcessors = v9;
-      v33 = v9;
+      KeMaximumProcessors = v13;
+      v43 = v13;
     }
-    v17 = 2048;
-    if ( v33 > 0x800 )
-      goto LABEL_45;
+    v31 = 1280;
+    if ( v43 > 0x500 )
+      goto LABEL_65;
   }
-LABEL_46:
+LABEL_66:
   if ( !KeDynamicPartitioningSupported )
     KiMaximumGroups = KiActiveGroups;
-  PpmHeteroInitializeHgsSupport();
-  if ( (int)PpmInitHeteroEngine() < 0 )
-    KeBugCheck(0xA0u);
-  PpmUpdateArchitecturalEfficiencyClass();
-  KiConfigureAllSchedulingInformation();
-  LOBYTE(v18) = 1;
-  ((void (__fastcall *)(__int64, _QWORD))off_140C01AC0[0])(v18, 0LL);
   KiBootProcessorsStarted = 1;
   result = KeQueryActiveProcessorCountEx(0xFFFFu);
   KiBootProcessorCount = result;

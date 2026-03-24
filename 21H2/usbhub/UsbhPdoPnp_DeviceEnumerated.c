@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhPdoPnp_DeviceEnumerated @ 0x1C00544B0
+ * XREFs of UsbhPdoPnp_DeviceEnumerated @ 0x1C0055B40
  * Callers:
  *     <none>
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhEnableTimerObject @ 0x1C000C0D0 (UsbhEnableTimerObject.c)
- *     UsbhSetSqmEnumerationData @ 0x1C0046618 (UsbhSetSqmEnumerationData.c)
- *     UsbhPublishBillboardDetails @ 0x1C00568B4 (UsbhPublishBillboardDetails.c)
- *     UsbhPublishDualRoleFeaturesProperty @ 0x1C0056AC4 (UsbhPublishDualRoleFeaturesProperty.c)
- *     UsbhQueryD3ColdSupport @ 0x1C0056B50 (UsbhQueryD3ColdSupport.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhEnableTimerObject @ 0x1C0011C40 (UsbhEnableTimerObject.c)
+ *     UsbhSetSqmEnumerationData @ 0x1C0047998 (UsbhSetSqmEnumerationData.c)
+ *     UsbhPublishBillboardDetails @ 0x1C0057F80 (UsbhPublishBillboardDetails.c)
+ *     UsbhPublishDualRoleFeaturesProperty @ 0x1C005819C (UsbhPublishDualRoleFeaturesProperty.c)
+ *     UsbhQueryD3ColdSupport @ 0x1C0058228 (UsbhQueryD3ColdSupport.c)
  */
 
 __int64 __fastcall UsbhPdoPnp_DeviceEnumerated(PDEVICE_OBJECT DeviceObject, PIRP Irp)

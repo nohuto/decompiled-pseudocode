@@ -1,53 +1,60 @@
 /*
- * XREFs of ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C004A2B4
+ * XREFs of ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C003F12C
  * Callers:
- *     ?DxgkpQueryRegistry@@YAJPEAVDXGADAPTER@@PEAXI@Z @ 0x1C01DCF70 (-DxgkpQueryRegistry@@YAJPEAVDXGADAPTER@@PEAXI@Z.c)
- *     ?InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0303A38 (-InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
- *     ?InsertTail@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0303AF4 (-InsertTail@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
- *     ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036E6A0 (-VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?DxgkpQueryRegistry@@YAJPEAVDXGADAPTER@@PEAXI@Z @ 0x1C0174594 (-DxgkpQueryRegistry@@YAJPEAVDXGADAPTER@@PEAXI@Z.c)
+ *     ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0241F70 (-VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0263434 (-InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?InsertTail@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C02634CC (-InsertTail@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
  * Callees:
- *     RtlUnicodeStringValidateSrcWorker @ 0x1C004A364 (RtlUnicodeStringValidateSrcWorker.c)
+ *     RtlUnicodeStringValidateSrcWorker @ 0x1C003F1E8 (RtlUnicodeStringValidateSrcWorker.c)
  */
 
-NTSTATUS __fastcall RtlStringCbCopyUnicodeString(char *a1, unsigned __int64 a2, const struct _UNICODE_STRING *a3)
+__int64 __fastcall RtlStringCbCopyUnicodeString(char *a1, unsigned __int64 a2, const struct _UNICODE_STRING *a3)
 {
   unsigned __int64 v3; // rbx
-  NTSTATUS result; // eax
+  NTSTATUS v5; // edx
   size_t v6; // rcx
   signed __int64 v7; // rdx
   unsigned __int16 *v8; // rax
-  ULONG v9; // [rsp+20h] [rbp-18h]
-  size_t v10; // [rsp+48h] [rbp+10h] BYREF
-  wchar_t *v11; // [rsp+58h] [rbp+20h] BYREF
+  ULONG v10; // [rsp+20h] [rbp-18h]
+  size_t v11; // [rsp+48h] [rbp+10h] BYREF
+  wchar_t *v12; // [rsp+58h] [rbp+20h] BYREF
 
   v3 = a2 >> 1;
-  if ( (a2 >> 1) - 1 > 0x7FFE )
-    return -1073741811;
-  v11 = 0LL;
-  v10 = 0LL;
-  result = RtlUnicodeStringValidateSrcWorker(a3, &v11, &v10, (const size_t)a3, v9);
-  if ( result < 0 )
+  v5 = 0;
+  if ( v3 - 1 > 0x7FFE )
+    v5 = -1073741811;
+  if ( v5 >= 0 )
   {
-    *(_WORD *)a1 = 0;
-  }
-  else
-  {
-    v6 = v10 - v3;
-    v7 = (char *)v11 - a1;
-    do
+    v12 = 0LL;
+    v11 = 0LL;
+    v5 = RtlUnicodeStringValidateSrcWorker(a3, &v12, &v11, (const size_t)a3, v10);
+    if ( v5 < 0 )
     {
-      if ( !(v6 + v3) )
-        break;
-      *(_WORD *)a1 = *(_WORD *)&a1[v7];
-      a1 += 2;
-      --v3;
+      *(_WORD *)a1 = 0;
     }
-    while ( v3 );
-    v8 = (unsigned __int16 *)(a1 - 2);
-    if ( v3 )
-      v8 = (unsigned __int16 *)a1;
-    *v8 = 0;
-    return v3 == 0 ? 0x80000005 : 0;
+    else
+    {
+      if ( v3 )
+      {
+        v6 = v11 - v3;
+        v7 = (char *)v12 - a1;
+        do
+        {
+          if ( !(v6 + v3) )
+            break;
+          *(_WORD *)a1 = *(_WORD *)&a1[v7];
+          a1 += 2;
+          --v3;
+        }
+        while ( v3 );
+      }
+      v8 = (unsigned __int16 *)(a1 - 2);
+      if ( v3 )
+        v8 = (unsigned __int16 *)a1;
+      v5 = v3 == 0 ? 0x80000005 : 0;
+      *v8 = 0;
+    }
   }
-  return result;
+  return (unsigned int)v5;
 }

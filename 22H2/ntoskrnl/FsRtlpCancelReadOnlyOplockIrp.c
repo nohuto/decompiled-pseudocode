@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpCancelReadOnlyOplockIrp @ 0x14053E250
+ * XREFs of FsRtlpCancelReadOnlyOplockIrp @ 0x1404F0378
  * Callers:
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x14053E018 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpReadOnlyOplockIrpCancelRoutine @ 0x14053ECF0 (FsRtlpReadOnlyOplockIrpCancelRoutine.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402057B0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x1404F0144 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpReadOnlyOplockIrpCancelRoutine @ 0x1404F07B0 (FsRtlpReadOnlyOplockIrpCancelRoutine.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     FsRtlpComputeShareableOplockState @ 0x140302370 (FsRtlpComputeShareableOplockState.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14053ED0C (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpComputeShareableOplockState @ 0x140206110 (FsRtlpComputeShareableOplockState.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1404F07CC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
  */
 
 void __fastcall FsRtlpCancelReadOnlyOplockIrp(__int64 a1, char a2)
@@ -29,12 +29,12 @@ void __fastcall FsRtlpCancelReadOnlyOplockIrp(__int64 a1, char a2)
     if ( *((_BYTE *)i - 100) )
     {
       i = (_QWORD *)i[1];
-      FsRtlpRemoveAndCompleteReadOnlyIrp(*i, 3221225760LL, 0LL, v3);
+      FsRtlpRemoveAndCompleteReadOnlyIrp(*i, 3221225760LL, 0LL);
       v4 = 1;
     }
   }
   if ( v4 )
-    FsRtlpComputeShareableOplockState((_QWORD *)v3);
+    FsRtlpComputeShareableOplockState(v3);
   if ( !a2 )
-    ExReleaseFastMutex(*(PFAST_MUTEX *)(v3 + 152));
+    KeReleaseGuardedMutex(*(PKGUARDED_MUTEX *)(v3 + 152));
 }

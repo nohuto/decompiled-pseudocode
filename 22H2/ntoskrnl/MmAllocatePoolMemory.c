@@ -1,42 +1,55 @@
 /*
- * XREFs of MmAllocatePoolMemory @ 0x1402866A8
+ * XREFs of MmAllocatePoolMemory @ 0x14028B758
  * Callers:
- *     RtlpHpEnvAllocVA @ 0x140286500 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpEnvAllocVA @ 0x14028B5AC (RtlpHpEnvAllocVA.c)
  * Callees:
- *     MmFreePoolMemory @ 0x140212244 (MmFreePoolMemory.c)
- *     MiCommitPoolMemory @ 0x140285D10 (MiCommitPoolMemory.c)
- *     MiInitializePoolCommitPacket @ 0x1402867E0 (MiInitializePoolCommitPacket.c)
- *     MiReservePoolMemory @ 0x14035A790 (MiReservePoolMemory.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MmFreePoolMemory @ 0x14027AEC8 (MmFreePoolMemory.c)
+ *     MiCommitPoolMemory @ 0x14028B8AC (MiCommitPoolMemory.c)
+ *     MiInitializePoolCommitPacket @ 0x14028C258 (MiInitializePoolCommitPacket.c)
+ *     MiReservePoolMemory @ 0x14030A5C4 (MiReservePoolMemory.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall MmAllocatePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, int a3, int a4, char a5, unsigned int a6)
+__int64 __fastcall MmAllocatePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, int a3, int a4, char a5)
 {
-  unsigned int v10; // ebx
+  unsigned int v8; // eax
+  unsigned int v9; // ebx
+  unsigned int v10; // ebp
   int v11; // edi
-  __int64 v13; // rax
-  _QWORD v14[10]; // [rsp+40h] [rbp-78h] BYREF
+  char v12; // al
+  __int64 v14; // rdx
+  __int64 v15; // rax
+  _BYTE v16[80]; // [rsp+40h] [rbp-78h] BYREF
 
-  memset(v14, 0, sizeof(v14));
-  if ( !a6 || a6 > (unsigned __int16)KeNumberNodes )
+  memset(v16, 0, sizeof(v16));
+  v8 = a3 & 0x7F;
+  if ( (a3 & 0x7F) == 0 || v8 > (unsigned __int16)KeNumberNodes )
     return 3221225713LL;
-  v10 = a6 - 1;
-  if ( (a3 & 0x2000) != 0 )
+  v9 = v8 - 1;
+  v10 = a3 & 0xFFFFFF80;
+  if ( (v10 & 0x2000) != 0 )
   {
     *a1 = 0LL;
-    v13 = MiReservePoolMemory(0LL, (a5 & 1u) + 5, *a2, v10);
-    if ( !v13 )
+    if ( (a5 & 1) != 0 )
+      v14 = (a5 & 0x20) != 0 ? 1 : 6;
+    else
+      v14 = 5LL;
+    v15 = MiReservePoolMemory(0LL, v14, *a2, v9);
+    if ( !v15 )
       return 3221225495LL;
-    *a1 = v13;
+    *a1 = v15;
   }
   v11 = 0;
-  if ( (a3 & 0x1000) != 0 )
+  if ( (v10 & 0x1000) != 0 )
   {
-    v11 = MiInitializePoolCommitPacket((_DWORD)a1, (_DWORD)a2, a3, a4, a5, v10, 0LL, (__int64)v14);
-    if ( v11 < 0 || (v11 = MiCommitPoolMemory(v14), v11 < 0) )
+    v12 = a5 & 0xDF;
+    if ( (a5 & 1) != 0 )
+      v12 = a5;
+    v11 = MiInitializePoolCommitPacket((_DWORD)a1, (_DWORD)a2, v10, a4, v12, v9, 0LL, (__int64)v16);
+    if ( v11 < 0 || (v11 = MiCommitPoolMemory(v16), v11 < 0) )
     {
-      if ( (a3 & 0x2000) != 0 )
-        MmFreePoolMemory(a1, a2);
+      if ( (v10 & 0x2000) != 0 )
+        MmFreePoolMemory(a1, a2, 0x8000u);
       *a1 = 0LL;
     }
     *a2 = (*a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;

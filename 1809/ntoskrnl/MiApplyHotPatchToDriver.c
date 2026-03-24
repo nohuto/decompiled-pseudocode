@@ -1,13 +1,13 @@
 /*
- * XREFs of MiApplyHotPatchToDriver @ 0x140854344
+ * XREFs of MiApplyHotPatchToDriver @ 0x140854324
  * Callers:
- *     MiLoadHotPatch @ 0x1408559F8 (MiLoadHotPatch.c)
- *     MiUnloadHotPatch @ 0x140858218 (MiUnloadHotPatch.c)
- *     MmRegisterHotPatch @ 0x1409F71C0 (MmRegisterHotPatch.c)
+ *     MiLoadHotPatch @ 0x1408559D8 (MiLoadHotPatch.c)
+ *     MiUnloadHotPatch @ 0x1408581F8 (MiUnloadHotPatch.c)
+ *     MmRegisterHotPatch @ 0x1409F71D0 (MmRegisterHotPatch.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408543E8 (MiApplyHotPatchToLoadedDriver.c)
- *     MiUnapplyDriverHotPatch @ 0x140858134 (MiUnapplyDriverHotPatch.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408543C8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiUnapplyDriverHotPatch @ 0x140858114 (MiUnapplyDriverHotPatch.c)
  */
 
 __int64 __fastcall MiApplyHotPatchToDriver(int a1, __int64 a2, __int64 a3)

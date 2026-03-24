@@ -1,98 +1,100 @@
 /*
- * XREFs of EtwpInitLoggerContext @ 0x1407B3A70
+ * XREFs of EtwpInitLoggerContext @ 0x140711218
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
- *     EtwpQueryUsedProcessorCount @ 0x140228144 (EtwpQueryUsedProcessorCount.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeQuerySystemTimePrecise @ 0x1402BE500 (KeQuerySystemTimePrecise.c)
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     KeInitializeMutex @ 0x14033ABB0 (KeInitializeMutex.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033ADA0 (KeQueryMaximumProcessorCountEx.c)
- *     HalQueryMaximumProcessorCount @ 0x14037FEF0 (HalQueryMaximumProcessorCount.c)
- *     EtwpInitializeCompression @ 0x1403B3EC8 (EtwpInitializeCompression.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14032EE60 (EtwpQueryUsedProcessorCount.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     KeQuerySystemTimePrecise @ 0x140341F10 (KeQuerySystemTimePrecise.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140344740 (KeQueryMaximumProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     KeInitializeMutex @ 0x14035FBE0 (KeInitializeMutex.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpInitializeCompression @ 0x1405AD4A8 (EtwpInitializeCompression.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2, int a3)
+__int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2)
 {
-  int v3; // ebx
+  int v2; // ebx
+  unsigned int v5; // r14d
   unsigned int v6; // ebp
-  unsigned int v7; // r14d
-  _QWORD *Pool2; // rax
+  SIZE_T v7; // rdi
+  PVOID PoolWithTag; // rax
   __int64 v9; // rbx
   char *v10; // rdi
   __int64 v11; // rdx
   int v12; // eax
-  int UsedProcessorCount; // edi
-  unsigned int v14; // ecx
-  unsigned int v15; // edi
-  int v16; // eax
-  int v17; // eax
-  unsigned int MaximumProcessorCount; // eax
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  ULONG MaximumProcessorCount; // eax
+  char *v19; // rdi
   void *v20; // rax
-  char *v21; // rdi
 
-  v3 = *(unsigned __int16 *)a1;
+  v2 = *(unsigned __int16 *)a1;
+  v5 = 0;
   v6 = 0;
-  v7 = 0;
   if ( (a2 & 0x10000000) == 0 )
   {
-    if ( a3 < 0 )
-      MaximumProcessorCount = HalQueryMaximumProcessorCount();
-    else
-      MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
-    v6 = 8 * MaximumProcessorCount;
-    if ( MaximumProcessorCount <= 0x20 )
-      v6 = 0;
+    MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
+    if ( MaximumProcessorCount > 0x20 )
+      v5 = 8 * MaximumProcessorCount;
     if ( (a2 & 0x400) != 0 )
-      v7 = 8 * MaximumProcessorCount;
+      v6 = 8 * MaximumProcessorCount;
   }
-  Pool2 = (_QWORD *)ExAllocatePool2(72LL, v6 + v3 + 1346 + 2 * v7, 1282896965LL);
-  v9 = (__int64)Pool2;
-  if ( !Pool2 )
+  v7 = v5 + v2 + 1330 + 2 * v6;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNxCacheAligned, v7, 0x4C777445u);
+  v9 = (__int64)PoolWithTag;
+  if ( !PoolWithTag )
     return 0LL;
-  v10 = (char *)(Pool2 + 168);
+  memset(PoolWithTag, 0, (unsigned int)v7);
+  v10 = (char *)(v9 + 1328);
+  if ( v5 )
+  {
+    *(_QWORD *)(v9 + 1040) = v10;
+    v10 += v5;
+  }
   if ( v6 )
   {
-    Pool2[132] = v10;
-    v10 += v6;
-  }
-  if ( v7 )
-  {
-    Pool2[162] = v10;
-    v21 = &v10[v7];
-    Pool2[163] = v21;
-    v10 = &v21[v7];
+    *(_QWORD *)(v9 + 1280) = v10;
+    v19 = &v10[v6];
+    *(_QWORD *)(v9 + 1288) = v19;
+    v10 = &v19[v6];
   }
   memmove(v10, a1[1], *(unsigned __int16 *)a1);
-  RtlInitUnicodeString((PUNICODE_STRING)(v9 + 136), (PCWSTR)v10);
+  RtlInitUnicodeString((PUNICODE_STRING)(v9 + 152), (PCWSTR)v10);
   *(_DWORD *)(v9 + 12) = a2;
-  *(_DWORD *)(v9 + 300) = (a2 & 0x1000000) != 0 ? 1 : 512;
+  *(_DWORD *)(v9 + 32) = 0xFFFF;
+  *(_DWORD *)(v9 + 28) = -1072889856;
+  *(_DWORD *)(v9 + 20) = -1072496640;
+  *(_DWORD *)(v9 + 24) = -1072562176;
+  *(_DWORD *)(v9 + 316) = (a2 & 0x1000000) != 0 ? 1 : 512;
   if ( a2 < 0 && (a2 & 0x1000000) != 0 )
     *(_DWORD *)(v9 + 12) = a2 & 0x7FFFFFFF;
-  if ( (unsigned __int8)EtwpBootPhase > 3u )
-    _InterlockedOr((volatile signed __int32 *)(v9 + 816), 4u);
+  if ( EtwpFileSystemReady )
+    _InterlockedOr((volatile signed __int32 *)(v9 + 832), 4u);
   if ( (a2 & 0x8000) != 0 )
   {
-    v20 = (void *)(v9 + 272);
+    v20 = (void *)(v9 + 288);
+LABEL_29:
+    *(_QWORD *)(v9 + 280) = v20;
+    goto LABEL_12;
   }
-  else
+  if ( (a2 & 0x4000) != 0 )
   {
-    if ( (a2 & 0x4000) == 0 )
-      goto LABEL_12;
     v20 = &EtwpGlobalSequence;
+    goto LABEL_29;
   }
-  *(_QWORD *)(v9 + 264) = v20;
 LABEL_12:
-  *(_QWORD *)(v9 + 1312) = -1LL;
-  *(_DWORD *)(v9 + 320) = 1;
-  v11 = *(_QWORD *)(*(_QWORD *)qword_140C674C8 + 17040LL) << 12 >> 20;
+  *(_QWORD *)(v9 + 1296) = -1LL;
+  *(_DWORD *)(v9 + 336) = 1;
+  v11 = *(_QWORD *)(*(_QWORD *)qword_140C4E648 + 6928LL) << 12 >> 20;
   if ( (unsigned int)v11 <= 0x200 )
   {
     *(_DWORD *)(v9 + 4) = 0x2000;
@@ -104,55 +106,40 @@ LABEL_12:
       v12 = 0x4000;
     *(_DWORD *)(v9 + 4) = v12;
   }
-  UsedProcessorCount = EtwpQueryUsedProcessorCount(v9);
-  *(_DWORD *)(v9 + 224) = 2 * UsedProcessorCount;
+  v13 = 2 * EtwpQueryUsedProcessorCount(v9);
+  *(_DWORD *)(v9 + 240) = v13;
   if ( (a2 & 0x4000000) == 0 )
     goto LABEL_17;
-  if ( EtwpInitializeCompression(v9) < 0 )
+  if ( EtwpInitializeCompression(v9) >= 0 )
   {
-    ExFreePoolWithTag((PVOID)v9, 0);
-    return 0LL;
-  }
-  if ( (a2 & 0x400) != 0 )
-    *(_DWORD *)(v9 + 224) += 4;
+    *(_DWORD *)(v9 + 240) += 4;
+    v13 = *(_DWORD *)(v9 + 240);
 LABEL_17:
-  *(_DWORD *)(v9 + 236) = *(_DWORD *)(v9 + 224) + 22;
-  KeQuerySystemTimePrecise((_QWORD *)(v9 + 792));
-  KeInitializeMutex((PRKMUTEX)(v9 + 632), 0);
-  *(_QWORD *)(v9 + 688) = 0LL;
-  *(_QWORD *)(v9 + 336) = v9 + 328;
-  *(_QWORD *)(v9 + 328) = v9 + 328;
-  *(_QWORD *)(v9 + 48) = v9 + 56;
-  *(_QWORD *)(v9 + 56) = 0LL;
-  *(_QWORD *)(v9 + 64) = v9 + 72;
-  *(_QWORD *)(v9 + 72) = 0LL;
-  *(_QWORD *)(v9 + 88) = v9 + 80;
-  *(_QWORD *)(v9 + 80) = v9 + 80;
-  *(_QWORD *)(v9 + 104) = v9 + 96;
-  *(_QWORD *)(v9 + 96) = v9 + 96;
-  *(_QWORD *)(v9 + 1048) = v9 + 1040;
-  *(_QWORD *)(v9 + 1040) = v9 + 1040;
-  *(_WORD *)(v9 + 1064) = 0;
-  *(_QWORD *)(v9 + 1072) = 0LL;
-  *(_QWORD *)(v9 + 696) = 0LL;
-  *(_QWORD *)(v9 + 912) = 0LL;
-  InitializeSListHead((PSLIST_HEADER)(v9 + 944));
-  InitializeSListHead((PSLIST_HEADER)(v9 + 928));
-  v14 = 4 * UsedProcessorCount;
-  v15 = 16 * UsedProcessorCount;
-  v16 = v14;
-  if ( v14 < 0x10 )
-    v16 = 16;
-  *(_DWORD *)(v9 + 964) = v16;
-  v17 = v15;
-  if ( v15 < 0x10 )
-    v17 = 16;
-  *(_DWORD *)(v9 + 968) = v17;
-  KeInitializeDpc((PRKDPC)(v9 + 848), (PKDEFERRED_ROUTINE)EtwpStackWalkDpc, 0LL);
-  *(_BYTE *)(v9 + 849) = 2;
-  KeInitializeEvent((PRKEVENT)(v9 + 456), NotificationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(v9 + 480), SynchronizationEvent, 0);
-  KeInitializeTimerEx((PKTIMER)(v9 + 504), SynchronizationTimer);
-  KeInitializeDpc((PRKDPC)(v9 + 568), (PKDEFERRED_ROUTINE)EtwpLoggerDpc, (PVOID)v9);
-  return v9;
+    *(_DWORD *)(v9 + 252) = v13 + 22;
+    KeQuerySystemTimePrecise((__int64 *)(v9 + 808), v14, v15, v16);
+    KeInitializeMutex((PRKMUTEX)(v9 + 648), 0);
+    *(_QWORD *)(v9 + 704) = 0LL;
+    *(_QWORD *)(v9 + 352) = v9 + 344;
+    *(_QWORD *)(v9 + 344) = v9 + 344;
+    *(_WORD *)(v9 + 1048) = 0;
+    *(_QWORD *)(v9 + 64) = v9 + 72;
+    *(_QWORD *)(v9 + 72) = 0LL;
+    *(_QWORD *)(v9 + 80) = v9 + 88;
+    *(_QWORD *)(v9 + 88) = 0LL;
+    *(_QWORD *)(v9 + 104) = v9 + 96;
+    *(_QWORD *)(v9 + 96) = v9 + 96;
+    *(_QWORD *)(v9 + 120) = v9 + 112;
+    *(_QWORD *)(v9 + 112) = v9 + 112;
+    *(_QWORD *)(v9 + 1032) = v9 + 1024;
+    *(_QWORD *)(v9 + 1024) = v9 + 1024;
+    *(_QWORD *)(v9 + 1056) = 0LL;
+    *(_QWORD *)(v9 + 712) = 0LL;
+    KeInitializeEvent((PRKEVENT)(v9 + 472), NotificationEvent, 0);
+    KeInitializeEvent((PRKEVENT)(v9 + 496), SynchronizationEvent, 0);
+    KeInitializeTimerEx((PKTIMER)(v9 + 520), SynchronizationTimer);
+    KeInitializeDpc((PRKDPC)(v9 + 584), (PKDEFERRED_ROUTINE)EtwpLoggerDpc, (PVOID)v9);
+    return v9;
+  }
+  ExFreePoolWithTag((PVOID)v9, 0);
+  return 0LL;
 }

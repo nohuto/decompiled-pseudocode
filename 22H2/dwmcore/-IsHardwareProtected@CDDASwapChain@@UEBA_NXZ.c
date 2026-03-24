@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsHardwareProtected@CDDASwapChain@@UEBA_NXZ @ 0x180108840
+ * XREFs of ?IsHardwareProtected@CDDASwapChain@@UEBA_NXZ @ 0x1800E3428
  * Callers:
- *     ?IsHardwareProtected@CDDASwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x1801214E0 (-IsHardwareProtected@CDDASwapChain@@$4PPPPPPPM@A@EBA_NXZ.c)
+ *     ?IsHardwareProtected@CDDASwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F7890 (-IsHardwareProtected@CDDASwapChain@@$4PPPPPPPM@A@EBA_NXZ.c)
  * Callees:
  *     <none>
  */

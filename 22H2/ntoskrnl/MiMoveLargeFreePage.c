@@ -1,90 +1,85 @@
 /*
- * XREFs of MiMoveLargeFreePage @ 0x14064F864
+ * XREFs of MiMoveLargeFreePage @ 0x140556B00
  * Callers:
- *     MiTransferPartitionPageRun @ 0x14065B674 (MiTransferPartitionPageRun.c)
+ *     MiTransferPartitionPageRun @ 0x140562D50 (MiTransferPartitionPageRun.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A088C (MiTryUnlinkNodeLargePages.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiMoveBadPageCrossPartition @ 0x14064D974 (MiMoveBadPageCrossPartition.c)
- *     MiUpdatePartitionChildPageCounts @ 0x14065BD74 (MiUpdatePartitionChildPageCounts.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiInsertLargePageInNodeList @ 0x14027F0D0 (MiInsertLargePageInNodeList.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiTryUnlinkNodeLargePage @ 0x1402EF1FC (MiTryUnlinkNodeLargePage.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiMoveBadPageCrossPartition @ 0x14054EF2C (MiMoveBadPageCrossPartition.c)
  */
 
-__int64 __fastcall MiMoveLargeFreePage(__int64 a1, unsigned int a2, __int64 a3, _WORD *a4)
+__int64 __fastcall MiMoveLargeFreePage(__int64 a1, unsigned int a2, __int64 a3, ULONG_PTR *a4)
 {
   unsigned int v5; // ebp
-  __int64 v7; // r12
-  ULONG_PTR v8; // r13
+  __int64 v7; // r14
+  ULONG_PTR v8; // rsi
   __int64 result; // rax
-  unsigned __int64 v10; // rdi
-  __int64 v11; // rbx
-  char v12; // al
-  __int16 v13; // cx
-  unsigned __int64 v14; // rsi
-  unsigned __int64 v15; // r13
-  unsigned __int64 v16; // rbx
-  unsigned __int64 v17; // r14
-  int v18; // [rsp+40h] [rbp-98h] BYREF
-  _WORD *v19; // [rsp+48h] [rbp-90h]
-  int v20; // [rsp+50h] [rbp-88h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-80h]
-  ULONG_PTR v22; // [rsp+60h] [rbp-78h]
-  _QWORD v23[2]; // [rsp+68h] [rbp-70h] BYREF
-  __int128 v24; // [rsp+78h] [rbp-60h]
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  _DWORD *v12; // r9
+  unsigned __int64 v13; // rdi
+  __int64 v14; // rbx
+  unsigned __int8 v15; // al
+  __int64 v16; // r8
+  __int64 v17; // r9
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  unsigned __int64 v20; // rsi
+  unsigned __int64 v21; // rbx
+  unsigned __int64 v22; // r14
+  BOOL v23; // [rsp+30h] [rbp-78h] BYREF
+  int v24; // [rsp+34h] [rbp-74h] BYREF
+  _QWORD v25[3]; // [rsp+38h] [rbp-70h] BYREF
 
-  v19 = a4;
   v5 = 0;
+  v23 = 0;
   v7 = MiLargePageSizes[a2];
-  v21 = v7;
   v8 = a1 & ~(v7 - 1);
-  v22 = v8;
-  result = MiTryUnlinkNodeLargePages(a3, v8, a2, 1LL, 64, &v20, 0LL);
-  v10 = result;
-  if ( result )
+  result = MiTryUnlinkNodeLargePage(a3, v8, a2, 8, &v23);
+  if ( (_DWORD)result )
   {
-    v11 = *(_QWORD *)(result + 16);
-    v12 = MiLockPageInline(result);
-    v23[1] = (v11 & 0x3E0) != 0;
-    v24 = 0LL;
-    LOBYTE(v24) = v12;
-    v23[0] = v8;
-    if ( *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL)) == a3 )
+    v13 = 48 * v8 - 0x58000000000LL;
+    v14 = *(_QWORD *)(v13 + 16);
+    v15 = MiLockPageInline(v13, v10, v11, v12);
+    v25[0] = 0LL;
+    v25[2] = v15;
+    v18 = 1023LL;
+    v25[1] = (v14 & 0x3E0) != 0;
+    v19 = (*(_QWORD *)(v13 + 40) >> 39) & 0x3FFLL;
+    v25[0] = v8;
+    if ( *(_QWORD *)(qword_140C4E648 + 8 * v19) == a3 )
     {
-      _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      v13 = *a4;
-      v14 = v10 + 48 * v7 - 48;
-      if ( v14 >= v10 )
+      _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      v20 = v13 + 48 * v7 - 48;
+      if ( v20 >= v13 )
       {
-        v15 = (unsigned __int64)v19;
-        v16 = v14 + 24;
-        v17 = (unsigned __int64)(v13 & 0x3FF) << 43;
+        v21 = v20 + 24;
+        v22 = (unsigned __int64)(*(_WORD *)a4 & 0x3FF) << 39;
         do
         {
-          v18 = 0;
-          while ( _interlockedbittestandset64((volatile signed __int32 *)v16, 0x3FuLL) )
+          v24 = 0;
+          while ( _interlockedbittestandset64((volatile signed __int32 *)v21, 0x3FuLL) )
           {
             do
-              KeYieldProcessorEx(&v18);
-            while ( *(__int64 *)v16 < 0 );
+              KeYieldProcessorEx(&v24, v18, v16, v17);
+            while ( *(__int64 *)v21 < 0 );
           }
-          if ( (*(_BYTE *)(v16 + 11) & 0x40) != 0 )
-            MiMoveBadPageCrossPartition(v14, a3, v15);
-          *(_QWORD *)(v16 + 16) = v17 | *(_QWORD *)(v16 + 16) & 0xFFE007FFFFFFFFFFuLL;
-          if ( v14 != v10 )
-            _InterlockedAnd64((volatile signed __int64 *)v16, 0x7FFFFFFFFFFFFFFFuLL);
-          v14 -= 48LL;
-          v16 -= 48LL;
+          if ( (*(_BYTE *)(v21 + 11) & 0x40) != 0 )
+            MiMoveBadPageCrossPartition(v20, a3, a4);
+          *(_QWORD *)(v21 + 16) = v22 | *(_QWORD *)(v21 + 16) & 0xFFFE007FFFFFFFFFuLL;
+          if ( v20 != v13 )
+            _InterlockedAnd64((volatile signed __int64 *)v21, 0x7FFFFFFFFFFFFFFFuLL);
+          v20 -= 48LL;
+          v21 -= 48LL;
         }
-        while ( v14 >= v10 );
-        v7 = v21;
-        v8 = v22;
+        while ( v20 >= v13 );
       }
-      MiUpdatePartitionChildPageCounts(v19, a3, v8, v7);
       v5 = 1;
     }
-    MiInsertLargePageInNodeList((__int64)v23);
+    MiInsertLargePageInNodeList((__int64)v25);
     return v5;
   }
   return result;

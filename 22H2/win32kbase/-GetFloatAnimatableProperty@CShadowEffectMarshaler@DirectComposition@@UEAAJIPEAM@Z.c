@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetFloatAnimatableProperty@CShadowEffectMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C020F940
+ * XREFs of ?GetFloatAnimatableProperty@CShadowEffectMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C01E0B60
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C020D650 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CShadowEffectMarshaler::GetFloatAnimatableProperty(
@@ -12,28 +12,41 @@ __int64 __fastcall DirectComposition::CShadowEffectMarshaler::GetFloatAnimatable
         float *a3)
 {
   unsigned int v3; // r9d
-  int v4; // eax
+  int v4; // edx
+  int v5; // edx
+  int v6; // edx
+  int v7; // eax
 
   v3 = 0;
-  switch ( a2 )
+  if ( !a2 )
   {
-    case 0:
-      v4 = *((_DWORD *)this + 28);
-      goto LABEL_12;
-    case 2:
-      v4 = *((_DWORD *)this + 29);
-      goto LABEL_12;
-    case 3:
-      v4 = *((_DWORD *)this + 30);
-      goto LABEL_12;
-    case 4:
-      v4 = *((_DWORD *)this + 31);
-      goto LABEL_12;
-    case 5:
-      v4 = *((_DWORD *)this + 32);
-LABEL_12:
-      *(_DWORD *)a3 = v4;
-      return v3;
+    *a3 = *((float *)this + 28);
+    return v3;
   }
-  return (unsigned int)DirectComposition::CResourceMarshaler::GetFloatAnimatableProperty(this, a2, a3);
+  v4 = a2 - 2;
+  if ( !v4 )
+  {
+    v7 = *((_DWORD *)this + 29);
+    goto LABEL_11;
+  }
+  v5 = v4 - 1;
+  if ( !v5 )
+  {
+    v7 = *((_DWORD *)this + 30);
+    goto LABEL_11;
+  }
+  v6 = v5 - 1;
+  if ( !v6 )
+  {
+    v7 = *((_DWORD *)this + 31);
+    goto LABEL_11;
+  }
+  if ( v6 == 1 )
+  {
+    v7 = *((_DWORD *)this + 32);
+LABEL_11:
+    *(_DWORD *)a3 = v7;
+    return v3;
+  }
+  return (unsigned int)-1073741811;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of EmProviderRegister @ 0x140823910
+ * XREFs of EmProviderRegister @ 0x14079D3A0
  * Callers:
  *     <none>
  * Callees:
- *     EmpProviderRegister @ 0x140823980 (EmpProviderRegister.c)
+ *     EmpProviderRegister @ 0x14079D410 (EmpProviderRegister.c)
  */
 
 __int64 __fastcall EmProviderRegister(void *a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6)

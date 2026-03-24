@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpHvInitMcaStatusMsrCache @ 0x14050E490
+ * XREFs of HalpHvInitMcaStatusMsrCache @ 0x1404C2090
  * Callers:
- *     HalpMceInit @ 0x140A5A7C8 (HalpMceInit.c)
+ *     HalpMceInit @ 0x1409A0F1C (HalpMceInit.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403AAE50 (HalpGetCpuVendor.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403B3BA0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     HalpGetCpuVendor @ 0x1403A0F3C (HalpGetCpuVendor.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void HalpHvInitMcaStatusMsrCache()
@@ -37,7 +37,7 @@ void HalpHvInitMcaStatusMsrCache()
                                     4LL * (unsigned __int8)HalpMcaNumberOfBanks);
       v2 = (int *)HalpHvMcaStatusMsrIndices;
       if ( !HalpHvMcaStatusMsrIndices )
-        KeBugCheckEx(0xACu, v1, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\hv\\hvintel.c", 0x63EuLL);
+        KeBugCheckEx(0xACu, v1, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\hv\\hvintel.c", 0x613uLL);
       if ( HalpHvMcaBankCount )
       {
         v3 = 1025;
@@ -66,7 +66,7 @@ void HalpHvInitMcaStatusMsrCache()
     {
       HalpHvMcaStatusCache = HalpMmAllocCtxAlloc(v7, v8);
       if ( !HalpHvMcaStatusCache )
-        KeBugCheckEx(0xACu, v8, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\hv\\hvintel.c", 0x658uLL);
+        KeBugCheckEx(0xACu, v8, 0LL, (ULONG_PTR)"minkernel\\hals\\lib\\hv\\hvintel.c", 0x62DuLL);
     }
     else
     {

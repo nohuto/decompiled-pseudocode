@@ -1,16 +1,16 @@
 /*
- * XREFs of NtGdiEnumFonts @ 0x1C0003B20
+ * XREFs of NtGdiEnumFonts @ 0x1C00BA4E0
  * Callers:
  *     <none>
  * Callees:
- *     GreEnumFonts @ 0x1C0003CEC (GreEnumFonts.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     GreEnumFonts @ 0x1C00BA6AC (GreEnumFonts.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall NtGdiEnumFonts(
         HDC a1,
-        ULONG64 a2,
-        _DWORD *a3,
+        unsigned int a2,
+        __int64 a3,
         unsigned int a4,
         char *Src,
         int a6,
@@ -22,21 +22,20 @@ __int64 __fastcall NtGdiEnumFonts(
   size_t v12; // r8
   unsigned int *v13; // r8
   unsigned int v14; // eax
-  unsigned int v16; // [rsp+40h] [rbp-38h] BYREF
-  void *v17; // [rsp+48h] [rbp-30h]
-  unsigned int v18; // [rsp+88h] [rbp+10h]
+  _DWORD *v15; // r8
+  unsigned int v17; // [rsp+40h] [rbp-38h] BYREF
+  void *v18; // [rsp+48h] [rbp-30h]
 
-  v18 = a2;
   v10 = 0LL;
-  v17 = 0LL;
+  v18 = 0LL;
   v11 = 1;
-  v16 = 0;
+  v17 = 0;
   if ( Src )
   {
     if ( a4 - 1 > 0x1F )
       return 0LL;
     v10 = (void *)AllocFreeTmpBuffer(2 * a4);
-    v17 = v10;
+    v18 = v10;
     if ( v10 )
     {
       v12 = 2LL * a4;
@@ -56,19 +55,18 @@ __int64 __fastcall NtGdiEnumFonts(
     if ( a7 >= MmUserProbeAddress )
       v13 = (unsigned int *)MmUserProbeAddress;
     v14 = *v13;
-    v16 = *v13;
+    v17 = *v13;
     if ( Address )
       ProbeForWrite(Address, v14, 4u);
     if ( (unsigned int)PsGetWin32KFilterSet() == 5 && a1 == (HDC)-589410304LL )
       a1 = *(HDC *)(gpDispInfo + 56LL);
-    v11 = GreEnumFonts(a1, v18, a6, &v16, (void *)Address);
-    a3 = (_DWORD *)a7;
-    a2 = MmUserProbeAddress;
+    v11 = GreEnumFonts(a1, a2, a6, &v17, (void *)Address);
+    v15 = (_DWORD *)a7;
     if ( a7 >= MmUserProbeAddress )
-      a3 = (_DWORD *)MmUserProbeAddress;
-    *a3 = v16;
+      v15 = (_DWORD *)MmUserProbeAddress;
+    *v15 = v17;
   }
   if ( v10 )
-    FreeTmpBuffer(v10, a2, a3);
+    FreeTmpBuffer(v10);
   return v11;
 }

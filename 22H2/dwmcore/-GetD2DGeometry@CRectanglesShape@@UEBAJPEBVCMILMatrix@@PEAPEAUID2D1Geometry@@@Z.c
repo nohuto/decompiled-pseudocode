@@ -1,16 +1,15 @@
 /*
- * XREFs of ?GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x1800E7DE0
+ * XREFs of ?GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x180017450
  * Callers:
- *     ?D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180032E84 (-D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
- *     ?Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180225AF0 (-Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801BBBC0 (-Draw@CCompositionSkyBoxBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x18025D4B0 (-D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?EnsureD2DGeometry@CRectanglesShape@@IEBAJXZ @ 0x1800E7E84 (-EnsureD2DGeometry@CRectanglesShape@@IEBAJXZ.c)
- *     ??$ReleaseInterface@UID2D1GeometrySink@@@@YAXAEAPEAUID2D1GeometrySink@@@Z @ 0x1800E7F9C (--$ReleaseInterface@UID2D1GeometrySink@@@@YAXAEAPEAUID2D1GeometrySink@@@Z.c)
- *     ??$ReleaseInterface@UID2D1PathGeometry@@@@YAXAEAPEAUID2D1PathGeometry@@@Z @ 0x1800E7FC0 (--$ReleaseInterface@UID2D1PathGeometry@@@@YAXAEAPEAUID2D1PathGeometry@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z @ 0x1802713F0 (-Transform@CMILMatrix@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z.c)
+ *     ??$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z @ 0x180017820 (--$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z.c)
+ *     ?EnsureD2DGeometry@CRectanglesShape@@IEBAJXZ @ 0x180017854 (-EnsureD2DGeometry@CRectanglesShape@@IEBAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z @ 0x180211900 (-Transform@CMILMatrix@@QEBAXPEBUMilPoint2F@@PEAU2@I@Z.c)
  */
 
 __int64 __fastcall CRectanglesShape::GetD2DGeometry(
@@ -19,18 +18,18 @@ __int64 __fastcall CRectanglesShape::GetD2DGeometry(
         struct ID2D1Geometry **a3)
 {
   int v6; // eax
-  __int64 v7; // rcx
+  unsigned int v7; // ecx
   unsigned int v8; // ebx
   int v10; // eax
-  __int64 v11; // rcx
+  unsigned int v11; // ecx
   int v12; // eax
-  __int64 v13; // rcx
+  unsigned int v13; // ecx
   unsigned int i; // ebx
   __int64 v15; // rax
   int v16; // xmm2_4
   int v17; // xmm0_4
   int v18; // eax
-  __int64 v19; // rcx
+  unsigned int v19; // ecx
   struct ID2D1Geometry *v20; // rax
   __int64 v21; // [rsp+30h] [rbp-29h] BYREF
   struct ID2D1Geometry *v22; // [rsp+38h] [rbp-21h] BYREF
@@ -48,7 +47,9 @@ __int64 __fastcall CRectanglesShape::GetD2DGeometry(
   v21 = 0LL;
   if ( a2 )
   {
-    v10 = (*(__int64 (__fastcall **)(_QWORD, struct ID2D1Geometry **))(*g_DeviceManager + 80LL))(g_DeviceManager, &v22);
+    v10 = (*(__int64 (__fastcall **)(void *, struct ID2D1Geometry **))(*(_QWORD *)g_DeviceManager + 80LL))(
+            g_DeviceManager,
+            &v22);
     v8 = v10;
     if ( v10 < 0 )
     {
@@ -122,7 +123,7 @@ __int64 __fastcall CRectanglesShape::GetD2DGeometry(
       (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 8) + 8LL))(*((_QWORD *)this + 8));
     }
   }
-  ReleaseInterface<ID2D1PathGeometry>(&v22);
-  ReleaseInterface<ID2D1GeometrySink>(&v21);
+  ReleaseInterface<ID2D1Geometry>(&v22);
+  ReleaseInterface<ID2D1Geometry>(&v21);
   return v8;
 }

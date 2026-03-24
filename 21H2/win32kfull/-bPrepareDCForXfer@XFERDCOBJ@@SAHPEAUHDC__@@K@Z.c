@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bPrepareDCForXfer@XFERDCOBJ@@SAHPEAUHDC__@@K@Z @ 0x1C014117C
+ * XREFs of ?bPrepareDCForXfer@XFERDCOBJ@@SAHPEAUHDC__@@K@Z @ 0x1C011505C
  * Callers:
- *     NtGdiMakeObjectXferable @ 0x1C01410F0 (NtGdiMakeObjectXferable.c)
+ *     NtGdiMakeObjectXferable @ 0x1C0114FD0 (NtGdiMakeObjectXferable.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall XFERDCOBJ::bPrepareDCForXfer(HDC a1, int a2)
@@ -19,7 +19,7 @@ __int64 __fastcall XFERDCOBJ::bPrepareDCForXfer(HDC a1, int a2)
   if ( v5[0] && a2 != ((unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC) )
   {
     v3 = 1;
-    *(_DWORD *)(v5[0] + 2112LL) = a2;
+    *(_DWORD *)(v5[0] + 2120LL) = a2;
   }
   MDCOBJ::~MDCOBJ((MDCOBJ *)v5);
   UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v6);

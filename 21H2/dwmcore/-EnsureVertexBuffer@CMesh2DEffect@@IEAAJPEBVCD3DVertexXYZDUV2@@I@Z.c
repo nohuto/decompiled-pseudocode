@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EnsureVertexBuffer@CMesh2DEffect@@IEAAJPEBVCD3DVertexXYZDUV2@@I@Z @ 0x1802B21B0
+ * XREFs of ?EnsureVertexBuffer@CMesh2DEffect@@IEAAJPEBVCD3DVertexXYZDUV2@@I@Z @ 0x18026CA14
  * Callers:
- *     ?SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z @ 0x1802B29C0 (-SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z.c)
+ *     ?SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z @ 0x18026D128 (-SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMesh2DEffect::EnsureVertexBuffer(
@@ -44,10 +44,10 @@ __int64 __fastcall CMesh2DEffect::EnsureVertexBuffer(
   {
 LABEL_9:
     *((_DWORD *)this + 46) = 0;
-    v19 = &unk_1803B1AC0;
+    v19 = &unk_180320D60;
     v10 = 0xFFFFFFFFLL;
     v20 = 2304;
-    v21 = &off_1802CB800;
+    v21 = &off_180285430;
     v22 = 4;
     v23 = 32;
     if ( (unsigned __int64)(32 * v5) > 0xFFFFFFFF )
@@ -57,11 +57,11 @@ LABEL_9:
       v15 = 562;
       goto LABEL_15;
     }
-    v17 = a2;
+    v18 = 32 * v5;
     v16[0] = 1;
     v16[1] = 1;
     v13 = *((_QWORD *)this + 17);
-    v18 = 32 * v5;
+    v17 = a2;
     v9 = (*(__int64 (__fastcall **)(__int64, _DWORD *, _QWORD, void **, _QWORD *))(*(_QWORD *)v13 + 136LL))(
            v13,
            v16,
@@ -100,7 +100,7 @@ LABEL_9:
 LABEL_6:
     v12 = v9;
 LABEL_15:
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v12, v15);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v12, v15, 0LL);
     return v11;
   }
 LABEL_11:

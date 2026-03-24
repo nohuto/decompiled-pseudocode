@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFillPteWithProto @ 0x1402BBDBC
+ * XREFs of MiFillPteWithProto @ 0x1402BBEBC
  * Callers:
  *     MiResolveSharedZeroFault @ 0x1400429B0 (MiResolveSharedZeroFault.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiUpdatePageTableUseCount @ 0x14010FBD8 (MiUpdatePageTableUseCount.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiUpdatePageTableUseCount @ 0x14010FBF8 (MiUpdatePageTableUseCount.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 char __fastcall MiFillPteWithProto(unsigned __int64 a1, __int64 a2, int a3)

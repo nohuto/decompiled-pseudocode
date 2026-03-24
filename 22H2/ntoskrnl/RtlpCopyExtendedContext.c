@@ -1,68 +1,80 @@
 /*
- * XREFs of RtlpCopyExtendedContext @ 0x14030D2C0
+ * XREFs of RtlpCopyExtendedContext @ 0x14033F8C0
  * Callers:
- *     KiDispatchException @ 0x14030CAC0 (KiDispatchException.c)
- *     RtlCopyExtendedContext @ 0x1405AAE50 (RtlCopyExtendedContext.c)
- *     RtlpReadExtendedContext @ 0x1407703F0 (RtlpReadExtendedContext.c)
- *     RtlpWriteExtendedContext @ 0x1407A11A4 (RtlpWriteExtendedContext.c)
+ *     KiDispatchException @ 0x14033C330 (KiDispatchException.c)
+ *     RtlpWriteExtendedContext @ 0x14067A7B8 (RtlpWriteExtendedContext.c)
+ *     RtlpReadExtendedContext @ 0x1406C0FC0 (RtlpReadExtendedContext.c)
  * Callees:
- *     RtlpValidateContextFlags @ 0x14030D860 (RtlpValidateContextFlags.c)
- *     RtlpCopyLegacyContext @ 0x14030D95C (RtlpCopyLegacyContext.c)
- *     RtlpCopyXStateChunk @ 0x1403D6FA8 (RtlpCopyXStateChunk.c)
- *     RtlpCopyKernelCetChunk @ 0x1405AAE7C (RtlpCopyKernelCetChunk.c)
+ *     RtlpCopyLegacyContextX86 @ 0x140316C38 (RtlpCopyLegacyContextX86.c)
+ *     RtlpCopyXStateChunk @ 0x14031A3C8 (RtlpCopyXStateChunk.c)
+ *     RtlpCopyLegacyContextAmd64 @ 0x14033FDC0 (RtlpCopyLegacyContextAmd64.c)
+ *     RtlpCopyLegacyContextArm @ 0x14058F484 (RtlpCopyLegacyContextArm.c)
+ *     RtlpCopyLegacyContextArm64 @ 0x14058F5E4 (RtlpCopyLegacyContextArm64.c)
  */
 
-__int64 __fastcall RtlpCopyExtendedContext(char a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5, __int64 a6)
+__int64 __fastcall RtlpCopyExtendedContext(
+        unsigned __int8 a1,
+        __int64 a2,
+        __int64 a3,
+        unsigned int a4,
+        __int64 a5,
+        __int64 a6)
 {
-  unsigned int v8; // ebx
+  char v9; // bl
+  __int64 v10; // rsi
+  __int64 v11; // rdi
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // rdx
+  __int64 v15; // r9
   __int64 result; // rax
-  int v12; // ecx
-  __int64 v13; // rdi
-  __int64 v14; // rsi
-  __int64 v15; // rcx
-  __int64 v16; // rdx
-  __int64 v17; // r9
-  __int64 v18; // rdx
-  int v19; // eax
-  _DWORD v20[10]; // [rsp+30h] [rbp-28h] BYREF
 
-  v8 = 0;
-  v20[0] = 0;
-  result = RtlpValidateContextFlags(a4, v20);
-  if ( (int)result >= 0 )
+  if ( (a4 & 0x27FFFF80) != 0x10000
+    && (a4 & 0x27FFFFA0) != 0x100000
+    && (a4 & 0x7FFFFF0) != 0x200000
+    && (a4 & 0x7FFFFE0) != 0x400000 )
   {
-    v13 = a2;
-    if ( a3 )
-      v13 = a3;
-    v14 = a5;
-    if ( a6 )
-      v14 = a6;
-    if ( (v20[0] & 1) != 0 )
-    {
-      v15 = *(int *)(v13 + 8);
-      v16 = *(int *)(v14 + 8);
-      if ( (_DWORD)v15 != (_DWORD)v16 || *(_DWORD *)(v13 + 12) < *(_DWORD *)(v14 + 12) )
-        return 3221225485LL;
-      v17 = a5 + v16;
-      v18 = a2 + v15;
-      LOBYTE(v15) = a1;
-      RtlpCopyLegacyContext(v15, v18, a4, v17);
-    }
-    if ( (v20[0] & 2) == 0 || (LOBYTE(v12) = a1, result = RtlpCopyXStateChunk(v12, a2, v13, a5, v14), (int)result >= 0) )
-    {
-      if ( (v20[0] & 4) != 0 )
-      {
-        LOBYTE(v12) = a1;
-        v19 = RtlpCopyKernelCetChunk(v12, a2, v13, a5, v14);
-        if ( v19 < 0 )
-          return (unsigned int)v19;
-        return v8;
-      }
-      else
-      {
-        return 0LL;
-      }
-    }
+    return 3221225485LL;
   }
+  v9 = 1;
+  if ( (a4 & 0x100040) == 1048640 || (a4 & 0x10040) == 65600 )
+  {
+    if ( !MEMORY[0xFFFFF780000003D8] )
+      return 3221225659LL;
+    v9 = 3;
+  }
+  v10 = a5;
+  v11 = a2;
+  if ( a3 )
+    v11 = a3;
+  if ( a6 )
+    v10 = a6;
+  v12 = *(int *)(v11 + 8);
+  v13 = *(int *)(v10 + 8);
+  if ( (_DWORD)v12 != (_DWORD)v13 || *(_DWORD *)(v11 + 12) < *(_DWORD *)(v10 + 12) )
+    return 3221225485LL;
+  v14 = a2 + v12;
+  v15 = v13 + a5;
+  if ( (a4 & 0x10000) != 0 )
+  {
+    RtlpCopyLegacyContextX86(a1, v14, a4, v15);
+  }
+  else if ( (a4 & 0x100000) != 0 )
+  {
+    RtlpCopyLegacyContextAmd64(a1, v14, a4, v15);
+  }
+  else if ( (a4 & 0x200000) != 0 )
+  {
+    RtlpCopyLegacyContextArm(a1, v14, a4, v15);
+  }
+  else if ( (a4 & 0x400000) != 0 )
+  {
+    RtlpCopyLegacyContextArm64(a1, v14, a4, v15);
+  }
+  if ( (v9 & 2) == 0 )
+    return 0LL;
+  result = RtlpCopyXStateChunk(a1, a2, v11, a5, v10);
+  if ( (int)result >= 0 )
+    return 0LL;
   return result;
 }

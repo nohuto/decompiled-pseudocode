@@ -1,17 +1,24 @@
 /*
- * XREFs of Win32UAFMFreeToPagedLookasideList @ 0x1C014FC50
+ * XREFs of Win32UAFMFreeToPagedLookasideList @ 0x1C013A290
  * Callers:
  *     <none>
  * Callees:
- *     ?FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z @ 0x1C00946EC (-FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z.c)
- *     ?FreeAssertPointerIsValid@?$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@SAXPEAXI@Z @ 0x1C014FD18 (-FreeAssertPointerIsValid@-$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumenta.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall Win32UAFMFreeToPagedLookasideList(char **a1, __int64 a2, unsigned int a3)
+__int64 __fastcall Win32UAFMFreeToPagedLookasideList(__int64 a1, __int64 a2, unsigned int a3)
 {
-  NSInstrumentation::CLeakTrackingAllocator *v5; // rcx
+  __int64 result; // rax
 
-  NSInstrumentation::UAFMitigationAllocator<Win32UAFMAllocatorCollection>::FreeAssertPointerIsValid(a2, a3);
-  *(_DWORD *)(a2 - 4) = 0;
-  NSInstrumentation::CLeakTrackingAllocator::FreeToPagedLookasideList(v5, *a1, (char *)(a2 - 16));
+  if ( qword_1C0256DE0 )
+    result = qword_1C0256DE0();
+  else
+    result = 3221225659LL;
+  if ( (int)result >= 0 )
+  {
+    result = (__int64)qword_1C0256DE8;
+    if ( qword_1C0256DE8 )
+      return qword_1C0256DE8(a1, a2, a3);
+  }
+  return result;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpInitSystem @ 0x14075D2AC
+ * XREFs of AlpcpInitSystem @ 0x14075D28C
  * Callers:
  *     LpcInitSystem @ 0x1409D9D94 (LpcInitSystem.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ExInitializePagedLookasideListInternal @ 0x1400F38F0 (ExInitializePagedLookasideListInternal.c)
- *     ExInitializeNPagedLookasideList @ 0x14015F940 (ExInitializeNPagedLookasideList.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ExInitializePagedLookasideListInternal @ 0x1400F3910 (ExInitializePagedLookasideListInternal.c)
+ *     ExInitializeNPagedLookasideList @ 0x14015F960 (ExInitializeNPagedLookasideList.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     NtQuerySystemInformation @ 0x140626240 (NtQuerySystemInformation.c)
- *     ExCreateHandleTable @ 0x140696420 (ExCreateHandleTable.c)
- *     ObCreateObjectTypeEx @ 0x1407289FC (ObCreateObjectTypeEx.c)
- *     AlpcpInitializeMessageLog @ 0x14075D590 (AlpcpInitializeMessageLog.c)
+ *     ExCreateHandleTable @ 0x140696400 (ExCreateHandleTable.c)
+ *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
+ *     AlpcpInitializeMessageLog @ 0x14075D570 (AlpcpInitializeMessageLog.c)
  */
 
 __int64 AlpcpInitSystem()

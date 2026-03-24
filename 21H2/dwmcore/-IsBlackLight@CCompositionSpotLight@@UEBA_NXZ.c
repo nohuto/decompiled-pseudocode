@@ -1,26 +1,23 @@
 /*
- * XREFs of ?IsBlackLight@CCompositionSpotLight@@UEBA_NXZ @ 0x1800EA370
+ * XREFs of ?IsBlackLight@CCompositionSpotLight@@UEBA_NXZ @ 0x1800C2490
  * Callers:
  *     <none>
  * Callees:
- *     ?IsBlackColor@CCompositionLight@@IEBA_NAEBU_D3DCOLORVALUE@@M@Z @ 0x1800EA3BC (-IsBlackColor@CCompositionLight@@IEBA_NAEBU_D3DCOLORVALUE@@M@Z.c)
+ *     ?IsBlackColor@CCompositionLight@@IEBA_NAEBU_D3DCOLORVALUE@@M@Z @ 0x1800C253C (-IsBlackColor@CCompositionLight@@IEBA_NAEBU_D3DCOLORVALUE@@M@Z.c)
  */
 
-char __fastcall CCompositionSpotLight::IsBlackLight(CCompositionSpotLight *this)
+char __fastcall CCompositionSpotLight::IsBlackLight(struct _D3DCOLORVALUE *this)
 {
-  bool IsBlackColor; // al
-  __int64 v2; // rcx
-  char v3; // r8
+  float g; // xmm1_4
+  char v2; // r8
 
-  IsBlackColor = CCompositionLight::IsBlackColor(
-                   this,
-                   (const struct _D3DCOLORVALUE *)((char *)this + 312),
-                   *((float *)this + 99));
-  v3 = 0;
-  if ( IsBlackColor )
-    return CCompositionLight::IsBlackColor(
-             (CCompositionLight *)v2,
-             (const struct _D3DCOLORVALUE *)(v2 + 328),
-             *(float *)(v2 + 400));
-  return v3;
+  g = this[24].g;
+  v2 = 0;
+  if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(g * this[19].r) & _xmm) < 0.0000011920929
+    && COERCE_FLOAT(COERCE_UNSIGNED_INT(g * this[19].g) & _xmm) < 0.0000011920929
+    && COERCE_FLOAT(COERCE_UNSIGNED_INT(g * this[19].b) & _xmm) < 0.0000011920929 )
+  {
+    return CCompositionLight::IsBlackColor((CCompositionLight *)this, this + 20, this[24].b);
+  }
+  return v2;
 }

@@ -1,41 +1,47 @@
 /*
- * XREFs of VidSchSetPriorityContext @ 0x1C0090960
+ * XREFs of VidSchSetPriorityContext @ 0x1C007F880
  * Callers:
- *     VidSchiCreateContextInternal @ 0x1C0003E8C (VidSchiCreateContextInternal.c)
+ *     VidSchiCreateContextInternal @ 0x1C00106CC (VidSchiCreateContextInternal.c)
  * Callees:
- *     VidSchiSetPriorityContext @ 0x1C00048C4 (VidSchiSetPriorityContext.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     VidSchiComputePriority @ 0x1C00909F0 (VidSchiComputePriority.c)
+ *     VidSchiSetPriorityContext @ 0x1C0011234 (VidSchiSetPriorityContext.c)
+ *     VidSchiComputePriority @ 0x1C007F90C (VidSchiComputePriority.c)
  */
 
-__int64 __fastcall VidSchSetPriorityContext(struct _VIDSCH_CONTEXT *a1, int a2, int a3, int a4)
+__int64 __fastcall VidSchSetPriorityContext(struct _VIDSCH_CONTEXT *a1, __int64 a2, __int64 a3, int a4)
 {
-  __int64 v6; // rdx
+  int v4; // esi
+  __int64 v6; // rdi
   int v7; // edi
-  unsigned int v9; // ebx
-  __int64 v10; // rcx
-  unsigned int v11; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v9; // rax
+  unsigned int v10; // ebx
+  __int64 v11; // rax
+  unsigned int v12; // [rsp+40h] [rbp+8h] BYREF
 
-  v11 = 0;
+  v4 = a2;
+  v12 = 0;
   if ( !a1 )
   {
-    v9 = -1073741811;
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(v10, 0x40000LL);
-    return v9;
+    v9 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+    v10 = -1073741811;
+    *(_QWORD *)(v9 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v9);
+    return v10;
   }
   v6 = *((_QWORD *)a1 + 13);
   if ( *(_BYTE *)(v6 + 204) || _InterlockedCompareExchange((volatile signed __int32 *)(v6 + 200), 0, 0) )
   {
-    v9 = -1071775232;
-    WdLogSingleEntry2(3LL, v6, -1071775232LL);
-    return v9;
+    v11 = WdLogNewEntry5_WdWarning(a1, a2);
+    v10 = -1071775232;
+    *(_QWORD *)(v11 + 24) = v6;
+    *(_QWORD *)(v11 + 32) = -1071775232LL;
+    WdLogEvent5_WdWarning(v11);
+    return v10;
   }
-  v7 = VidSchiComputePriority((_DWORD)a1, a2, a3, a4, (__int64)&v11);
+  v7 = VidSchiComputePriority((_DWORD)a1, a2, a3, a4, (__int64)&v12);
   if ( v7 >= 0 )
   {
-    VidSchiSetPriorityContext(a1, v11);
-    *((_DWORD *)a1 + 99) = a2;
+    VidSchiSetPriorityContext(a1, v12);
+    *((_DWORD *)a1 + 99) = v4;
   }
   return (unsigned int)v7;
 }

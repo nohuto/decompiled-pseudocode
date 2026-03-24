@@ -1,11 +1,11 @@
 /*
- * XREFs of GetCertificateLengthAndMonitorPDO @ 0x1C016CE34
+ * XREFs of GetCertificateLengthAndMonitorPDO @ 0x1C013FF2C
  * Callers:
- *     NtGdiGetCertificate @ 0x1C016D300 (NtGdiGetCertificate.c)
- *     NtGdiGetCertificateSize @ 0x1C016D460 (NtGdiGetCertificateSize.c)
+ *     NtGdiGetCertificate @ 0x1C01403D0 (NtGdiGetCertificate.c)
+ *     NtGdiGetCertificateSize @ 0x1C0140530 (NtGdiGetCertificateSize.c)
  * Callees:
- *     CallMonitor @ 0x1C00CFF40 (CallMonitor.c)
- *     DrvPVPGetFirstActiveMonitor @ 0x1C017492C (DrvPVPGetFirstActiveMonitor.c)
+ *     CallMonitor @ 0x1C00C0560 (CallMonitor.c)
+ *     DrvPVPGetFirstActiveMonitor @ 0x1C0147858 (DrvPVPGetFirstActiveMonitor.c)
  */
 
 __int64 __fastcall GetCertificateLengthAndMonitorPDO(struct _UNICODE_STRING *a1, int a2, void *a3, _QWORD *a4)

@@ -1,118 +1,119 @@
 /*
- * XREFs of MiLeapPrefetch @ 0x1405943E4
+ * XREFs of MiLeapPrefetch @ 0x14037BFAC
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x140284EB0 (MiPrefetchVirtualMemory.c)
- *     MiInPagePageTable @ 0x140353230 (MiInPagePageTable.c)
- *     MiPrefetchJumpVad @ 0x140594ABC (MiPrefetchJumpVad.c)
+ *     MiPrefetchVirtualMemory @ 0x140274EA0 (MiPrefetchVirtualMemory.c)
+ *     MiInPagePageTable @ 0x14030BDC0 (MiInPagePageTable.c)
+ *     MiPrefetchJumpVad @ 0x1405394CC (MiPrefetchJumpVad.c)
  * Callees:
- *     MiUnlockVadTree @ 0x1402806E0 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1402ED128 (MiLockVadTree.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
  */
 
-__int64 __fastcall MiLeapPrefetch(_QWORD *a1, unsigned __int64 a2)
+__int64 __fastcall MiLeapPrefetch(_QWORD *a1, unsigned __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int64 v2; // rbx
-  unsigned int v4; // esi
-  unsigned __int64 v5; // rbx
-  struct _KTHREAD *CurrentThread; // rdx
+  unsigned __int64 v4; // rbx
+  unsigned int v6; // esi
+  unsigned __int64 v7; // rbx
+  struct _KTHREAD *CurrentThread; // rbp
   char Queue; // al
   _KPROCESS *Process; // rbp
-  KIRQL v9; // r9
+  unsigned __int8 v11; // r9
   unsigned __int64 i; // rdx
-  unsigned __int64 v11; // rbx
-  unsigned __int64 v12; // r8
-  unsigned __int64 v13; // rax
-  _QWORD **v14; // rax
-  unsigned __int64 v15; // rcx
-  _QWORD *v16; // rcx
+  unsigned __int64 v13; // rbx
+  unsigned __int64 v14; // r8
+  unsigned __int64 v15; // rax
   __int64 v17; // r8
-  _QWORD *v19; // rax
-  unsigned __int64 v20; // r9
+  _QWORD *v18; // rax
+  unsigned __int64 v19; // r9
+  _QWORD **v20; // rax
+  unsigned __int64 v21; // rcx
+  _QWORD *v22; // rcx
 
-  v2 = a2;
-  v4 = 1;
+  v4 = a2;
+  v6 = 1;
   if ( a2 )
-    goto LABEL_27;
-  v5 = *(_QWORD *)(a1[1] + 16LL * a1[3]) + (a1[4] << 12);
-  if ( v5 <= 0x7FFFFFFEFFFFLL )
+  {
+LABEL_20:
+    v17 = a1[3];
+    v18 = (_QWORD *)(a1[1] + 16 * v17);
+    v19 = *v18 & 0xFFFFFFFFFFFFF000uLL;
+    if ( v4 >= v19 && v4 < v19 + (((*(_DWORD *)v18 & 0xFFF) + v18[1] + 4095LL) & 0xFFFFFFFFFFFFF000uLL) )
+    {
+      a1[4] = (v4 - v19) >> 12;
+      return v6;
+    }
+    goto LABEL_22;
+  }
+  v7 = *(_QWORD *)(a1[1] + 16LL * a1[3]) + (a1[4] << 12);
+  if ( v7 <= 0x7FFFFFFEFFFFLL )
   {
     CurrentThread = KeGetCurrentThread();
     Queue = (char)CurrentThread[1].Queue;
     if ( Queue >= 0 && ((unsigned __int8)~(BYTE1(CurrentThread[1].Queue) >> 6) & ((Queue & 3) == 0)) != 0 )
     {
       Process = CurrentThread->ApcState.Process;
-      v9 = MiLockVadTree(0);
-      if ( (Process[1].DirectoryTableBase & 0x2000000000LL) == 0 )
+      v11 = MiLockWorkingSetShared((__int64)&Process[1].ActiveProcessorsPadding[6], 2LL * a1[3], a3, a4);
+      if ( (Process[1].DirectoryTableBase & 0x2000000000LL) == 0 && *(_QWORD *)&Process[1].Spare2[31] )
       {
         i = *(_QWORD *)&Process[1].Spare2[15];
-        if ( i )
+        v13 = v7 >> 12;
+        while ( i )
         {
-          v11 = v5 >> 12;
-          while ( 1 )
+          v14 = *(unsigned int *)(i + 24) | ((unsigned __int64)*(unsigned __int8 *)(i + 32) << 32);
+          if ( v13 >= v14 )
           {
-            v12 = *(unsigned int *)(i + 24) | ((unsigned __int64)*(unsigned __int8 *)(i + 32) << 32);
-            if ( v11 < v12 )
-            {
-              v13 = *(_QWORD *)i;
-            }
-            else
-            {
-              if ( v11 <= (*(unsigned int *)(i + 28) | ((unsigned __int64)*(unsigned __int8 *)(i + 33) << 32)) )
-                goto LABEL_31;
-              v13 = *(_QWORD *)(i + 8);
-            }
-            if ( !v13 )
-              break;
-            i = v13;
+            if ( v13 <= (*(unsigned int *)(i + 28) | ((unsigned __int64)*(unsigned __int8 *)(i + 33) << 32)) )
+              goto LABEL_16;
+            v15 = *(_QWORD *)(i + 8);
           }
-          if ( v12 < v11 )
+          else
           {
-            v14 = *(_QWORD ***)(i + 8);
-            v15 = i;
-            if ( v14 )
+            v15 = *(_QWORD *)i;
+          }
+          if ( !v15 )
+          {
+            if ( v14 >= v13 )
+              goto LABEL_19;
+            v20 = *(_QWORD ***)(i + 8);
+            v21 = i;
+            if ( v20 )
             {
-              v16 = *v14;
-              for ( i = *(_QWORD *)(i + 8); v16; v16 = (_QWORD *)*v16 )
-                i = (unsigned __int64)v16;
+              v22 = *v20;
+              for ( i = *(_QWORD *)(i + 8); v22; v22 = (_QWORD *)*v22 )
+                i = (unsigned __int64)v22;
             }
             else
             {
               while ( 1 )
               {
                 i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-                if ( !i || *(_QWORD *)i == v15 )
+                if ( !i || *(_QWORD *)i == v21 )
                   break;
-                v15 = i;
+                v21 = i;
               }
             }
-            if ( !i )
+            if ( i )
             {
-              MiUnlockVadTree(0, v9);
-              v17 = a1[3];
-LABEL_24:
-              a1[4] = 0LL;
-              a1[3] = v17 + 1;
-              return v4;
+LABEL_19:
+              v4 = (*(unsigned int *)(i + 24) | ((unsigned __int64)*(unsigned __int8 *)(i + 32) << 32)) << 12;
+              MiUnlockWorkingSetShared((__int64)&Process[1].ActiveProcessorsPadding[6], v11);
+              goto LABEL_20;
             }
+            break;
           }
-          v2 = (*(unsigned int *)(i + 24) | ((unsigned __int64)*(unsigned __int8 *)(i + 32) << 32)) << 12;
-          MiUnlockVadTree(0, v9);
-LABEL_27:
-          v17 = a1[3];
-          v19 = (_QWORD *)(a1[1] + 16 * v17);
-          v20 = *v19 & 0xFFFFFFFFFFFFF000uLL;
-          if ( v2 >= v20 && v2 < v20 + (((*(_DWORD *)v19 & 0xFFF) + v19[1] + 4095LL) & 0xFFFFFFFFFFFFF000uLL) )
-          {
-            a1[4] = (v2 - v20) >> 12;
-            return v4;
-          }
-          goto LABEL_24;
+          i = v15;
         }
+        MiUnlockWorkingSetShared((__int64)&Process[1].ActiveProcessorsPadding[6], v11);
+        v17 = a1[3];
+LABEL_22:
+        a1[4] = 0LL;
+        a1[3] = v17 + 1;
+        return v6;
       }
-      v4 = 0;
-LABEL_31:
-      MiUnlockVadTree(0, v9);
+      v6 = 0;
+LABEL_16:
+      MiUnlockWorkingSetShared((__int64)&Process[1].ActiveProcessorsPadding[6], v11);
     }
   }
-  return v4;
+  return v6;
 }

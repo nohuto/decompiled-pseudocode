@@ -1,10 +1,11 @@
 /*
- * XREFs of ?ProcessSetAdapterLUID@CCaptureRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CAPTURERENDERTARGET_SETADAPTERLUID@@@Z @ 0x1801ED780
+ * XREFs of ?ProcessSetAdapterLUID@CCaptureRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CAPTURERENDERTARGET_SETADAPTERLUID@@@Z @ 0x180187A08
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034B30 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ @ 0x1801EDA78 (-ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ.c)
+ *     ?NotifyDeviceInvalid@CDeviceManager@CCaptureRenderTarget@@QEAAXXZ @ 0x1800EDB04 (-NotifyDeviceInvalid@CDeviceManager@CCaptureRenderTarget@@QEAAXXZ.c)
+ *     ??9@YA_NAEBU_LUID@@0@Z @ 0x18015C758 (--9@YA_NAEBU_LUID@@0@Z.c)
+ *     ?ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ @ 0x180187CB8 (-ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ.c)
  */
 
 __int64 __fastcall CCaptureRenderTarget::ProcessSetAdapterLUID(
@@ -12,16 +13,16 @@ __int64 __fastcall CCaptureRenderTarget::ProcessSetAdapterLUID(
         struct CResourceTable *a2,
         const struct tagMILCMD_CAPTURERENDERTARGET_SETADAPTERLUID *a3)
 {
-  CD3DDevice *v5; // rcx
+  _QWORD *v3; // rdi
+  _QWORD *v5; // rsi
 
-  if ( *((_DWORD *)this + 470) != *((_DWORD *)a3 + 2) || *((_DWORD *)this + 471) != *((_DWORD *)a3 + 3) )
+  v3 = (_QWORD *)((char *)a3 + 8);
+  v5 = this + 237;
+  if ( operator!=((_DWORD *)this + 474, (_DWORD *)a3 + 2) )
   {
     CCaptureRenderTarget::ReleaseRenderingResources((CCaptureRenderTarget *)this);
-    this[235] = (CD3DDevice *)*((_QWORD *)a3 + 1);
-    v5 = this[234];
-    this[234] = 0LL;
-    if ( v5 )
-      CD3DDevice::Release(v5);
+    *v5 = *v3;
+    CCaptureRenderTarget::CDeviceManager::NotifyDeviceInvalid(this + 236);
   }
   return 0LL;
 }

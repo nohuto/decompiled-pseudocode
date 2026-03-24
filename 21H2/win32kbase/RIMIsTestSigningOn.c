@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMIsTestSigningOn @ 0x1C01A82A8
+ * XREFs of RIMIsTestSigningOn @ 0x1C018144C
  * Callers:
- *     rimOnPnpArrived @ 0x1C004A09C (rimOnPnpArrived.c)
- *     rimObsIsRegisteredObserverAllowed @ 0x1C01B2E5C (rimObsIsRegisteredObserverAllowed.c)
- *     rimObsCheckForObservationPermissions @ 0x1C01B3B48 (rimObsCheckForObservationPermissions.c)
+ *     rimOnPnpArrived @ 0x1C0055904 (rimOnPnpArrived.c)
+ *     rimObsIsRegisteredObserverAllowed @ 0x1C017D3CC (rimObsIsRegisteredObserverAllowed.c)
+ *     rimObsCheckForObservationPermissions @ 0x1C017DE84 (rimObsCheckForObservationPermissions.c)
  * Callees:
  *     <none>
  */

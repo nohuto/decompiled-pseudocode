@@ -1,9 +1,9 @@
 /*
- * XREFs of SepFilterPrivilegeAudits @ 0x1406BC1E4
+ * XREFs of SepFilterPrivilegeAudits @ 0x14069C548
  * Callers:
- *     SepAdtAuditPrivilegeUseWithContext @ 0x14072427C (SepAdtAuditPrivilegeUseWithContext.c)
- *     SePrivilegedServiceAuditAlarm @ 0x140726520 (SePrivilegedServiceAuditAlarm.c)
- *     PfQuerySuperfetchInformation @ 0x14072ACC0 (PfQuerySuperfetchInformation.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14062771C (SePrivilegedServiceAuditAlarm.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x1406279F0 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     PfQuerySuperfetchInformation @ 0x140654810 (PfQuerySuperfetchInformation.c)
  * Callees:
  *     <none>
  */

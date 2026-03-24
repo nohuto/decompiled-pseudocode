@@ -1,173 +1,188 @@
 /*
- * XREFs of DrvDbCreateDatabaseNode @ 0x1408274C4
+ * XREFs of DrvDbCreateDatabaseNode @ 0x1407A4268
  * Callers:
- *     DrvDbOpenContext @ 0x140827238 (DrvDbOpenContext.c)
- *     DrvDbRegisterDatabase @ 0x1408273E0 (DrvDbRegisterDatabase.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140859460 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140735A04 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbOpenContext @ 0x1407A400C (DrvDbOpenContext.c)
+ *     DrvDbRegisterDatabase @ 0x1407A41D0 (DrvDbRegisterDatabase.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x1402DFBC4 (RtlStringCchPrintfExW.c)
- *     ExInitializeResourceLite @ 0x14030F740 (ExInitializeResourceLite.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     RtlCreateUnicodeString @ 0x14066A0F0 (RtlCreateUnicodeString.c)
- *     DrvDbOpenObjectRegKey @ 0x1407827F0 (DrvDbOpenObjectRegKey.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x14081D0F0 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbDestroyDatabaseNode @ 0x140A30510 (DrvDbDestroyDatabaseNode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
+ *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
+ *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
+ *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x14072DDF8 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbCreateDatabaseNode(
         __int64 a1,
         const wchar_t *a2,
-        __int64 a3,
-        int a4,
-        PCWSTR SourceString,
-        int a6,
+        int a3,
+        wchar_t *a4,
+        int a5,
+        __int64 a6,
         __int64 a7,
-        __int64 a8,
-        __int64 *a9)
+        _QWORD *a8)
 {
-  int v10; // ebx
-  __int64 v12; // rdi
-  wchar_t *Pool2; // rbp
-  __int64 v14; // rax
-  __int64 v15; // r8
-  struct _ERESOURCE *v16; // rax
-  int v17; // ebx
-  __int64 *v18; // rcx
+  _QWORD *v8; // r13
+  _QWORD *v13; // rbx
+  wchar_t *PoolWithTag; // rsi
+  _QWORD *v15; // rax
+  _QWORD *v16; // rcx
+  struct _ERESOURCE *v17; // rax
+  int v18; // edi
   bool v19; // zf
   __int64 v21; // rax
-  __int64 v22; // rax
-  unsigned __int64 v23; // rbx
-  __int64 *v24; // rdx
-  __int64 dwFlags; // [rsp+20h] [rbp-78h]
-  NTSTRSAFE_PCWSTR pszFormat; // [rsp+28h] [rbp-70h]
-  int v27; // [rsp+50h] [rbp-48h] BYREF
-  HANDLE Handle[8]; // [rsp+58h] [rbp-40h] BYREF
+  SIZE_T v22; // rdi
+  const UNICODE_STRING *v23; // rdx
+  __int64 v24; // rax
+  _QWORD *v25; // rcx
+  void *v26; // rbp
+  __int64 dwFlags; // [rsp+20h] [rbp-68h]
+  NTSTRSAFE_PCWSTR pszFormat; // [rsp+28h] [rbp-60h]
+  void *v29; // [rsp+50h] [rbp-38h] BYREF
+  int v30; // [rsp+A8h] [rbp+20h] BYREF
 
-  v10 = a4;
-  Handle[0] = 0LL;
-  v27 = 0;
-  v12 = 0LL;
-  *a9 = 0LL;
-  if ( (a6 & 0x30) == 0x30
-    || (a6 & 1) != 0 && *(_QWORD *)(a1 + 32)
-    || (a6 & 0x20) != 0 && (v21 = *(_QWORD *)(a1 + 40)) != 0 && v21 != *(_QWORD *)(a1 + 32) )
+  v8 = a8;
+  v29 = 0LL;
+  v30 = 0;
+  *a8 = 0LL;
+  v13 = 0LL;
+  if ( a4 )
   {
-    return (unsigned int)-1073741811;
+    PoolWithTag = a4;
   }
-  if ( SourceString )
+  else
   {
-    Pool2 = (wchar_t *)SourceString;
-    goto LABEL_7;
+    v21 = -1LL;
+    do
+      ++v21;
+    while ( a2[v21] );
+    v22 = (unsigned int)(2 * v21 + 68);
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v22, 0x42444450u);
+    if ( !PoolWithTag )
+      goto LABEL_25;
+    v18 = RtlStringCchPrintfExW(
+            PoolWithTag,
+            v22 >> 1,
+            0LL,
+            0LL,
+            0x800u,
+            L"%ws\\%ws\\%ws",
+            L"\\REGISTRY\\MACHINE",
+            a2,
+            L"DriverDatabase");
+    if ( v18 < 0 )
+      goto LABEL_13;
   }
-  v22 = -1LL;
-  do
-    ++v22;
-  while ( a2[v22] );
-  v23 = (unsigned int)(2 * v22 + 68);
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, v23, 1111770192LL);
-  if ( !Pool2 )
+  v15 = ExAllocatePoolWithTag(PagedPool, 0xA0uLL, 0x42444450u);
+  v13 = v15;
+  if ( !v15 )
   {
-LABEL_40:
-    v17 = -1073741801;
-    goto LABEL_23;
+LABEL_25:
+    v18 = -1073741801;
+    goto LABEL_13;
   }
-  v17 = RtlStringCchPrintfExW(
-          Pool2,
-          v23 >> 1,
-          0LL,
-          0LL,
-          0x800u,
-          L"%ws\\%ws\\%ws",
-          L"\\REGISTRY\\MACHINE",
-          a2,
-          L"DriverDatabase");
-  if ( v17 >= 0 )
+  memset(v15, 0, 0xA0uLL);
+  *((_DWORD *)v13 + 15) = *(_DWORD *)(a1 + 8);
+  *((_DWORD *)v13 + 14) = a5;
+  v13[9] = a6;
+  v13[10] = a7;
+  *((_DWORD *)v13 + 16) = 0x10000;
+  *((_DWORD *)v13 + 8) = a3;
+  if ( RtlCreateUnicodeString((PUNICODE_STRING)v13 + 1, a2)
+    && RtlCreateUnicodeString((PUNICODE_STRING)(v13 + 5), PoolWithTag) )
   {
-    v10 = a4;
-LABEL_7:
-    v14 = ExAllocatePool2(256LL, 168LL, 1111770192LL);
-    v12 = v14;
-    if ( v14 )
+    v17 = (struct _ERESOURCE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x68uLL, 0x42444450u);
+    v13[18] = v17;
+    if ( v17 )
     {
-      *(_DWORD *)(v14 + 68) = *(_DWORD *)(a1 + 8);
-      *(_QWORD *)(v14 + 32) = a3;
-      *(_QWORD *)(v14 + 80) = a7;
-      *(_QWORD *)(v14 + 88) = a8;
-      *(_DWORD *)(v14 + 72) = 0x10000;
-      *(_DWORD *)(v14 + 64) = a6;
-      *(_DWORD *)(v14 + 40) = v10;
-      if ( RtlCreateUnicodeString((PUNICODE_STRING)(v14 + 16), a2)
-        && RtlCreateUnicodeString((PUNICODE_STRING)(v12 + 48), Pool2)
-        && (v16 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL, 1111770192LL), (*(_QWORD *)(v12 + 152) = v16) != 0LL) )
+      v18 = ExInitializeResourceLite(v17);
+      if ( v18 < 0 )
       {
-        v17 = ExInitializeResourceLite(v16);
-        if ( v17 >= 0 )
-        {
-          if ( (a6 & 0x20) == 0 )
-          {
-            v18 = *(__int64 **)(a1 + 24);
-            if ( *v18 != a1 + 16 )
-              __fastfail(3u);
-            *(_QWORD *)v12 = a1 + 16;
-            *(_QWORD *)(v12 + 8) = v18;
-            *v18 = v12;
-            *(_QWORD *)(a1 + 24) = v12;
-          }
-          if ( (a6 & 0x10) == 0
-            || (v24 = *(__int64 **)(a1 + 40)) == 0LL
-            || (LOBYTE(pszFormat) = 1,
-                LODWORD(dwFlags) = 0x2000000,
-                v17 = DrvDbOpenObjectRegKey((__int64 *)a1, v24, 1u, a2, dwFlags, pszFormat, Handle, &v27, 0LL),
-                v17 >= 0)
-            && (v27 != 1
-             || (v17 = DrvDbSetDriverDatabaseMappedProperty(
-                         a1,
-                         a2,
-                         Handle[0],
-                         (__int64)&DEVPKEY_DriverDatabase_RegistryPath,
-                         0x12u,
-                         *(const WCHAR **)(v12 + 56),
-                         (unsigned int)*(unsigned __int16 *)(v12 + 48) + 2),
-                 v17 >= 0)) )
-          {
-            if ( (a6 & 0x20) != 0 )
-              *(_QWORD *)(a1 + 40) = v12;
-            if ( (a6 & 1) != 0 )
-            {
-              v19 = *(_QWORD *)(a1 + 40) == 0LL;
-              *(_QWORD *)(a1 + 32) = v12;
-              if ( v19 )
-                *(_QWORD *)(a1 + 40) = v12;
-            }
-            *a9 = v12;
-            v12 = 0LL;
-          }
-        }
-        else
-        {
-          ExFreePoolWithTag(*(PVOID *)(v12 + 152), 0);
-          *(_QWORD *)(v12 + 152) = 0LL;
-        }
+        ExFreePoolWithTag((PVOID)v13[18], 0);
+        v13[18] = 0LL;
       }
-      else
-      {
-        v17 = -1073741670;
-      }
-      goto LABEL_23;
     }
-    goto LABEL_40;
+    else
+    {
+      v18 = -1073741670;
+    }
+    if ( v18 >= 0 )
+    {
+      v16 = *(_QWORD **)(a1 + 24);
+      if ( *v16 != a1 + 16 )
+        goto LABEL_40;
+      v19 = (a5 & 0x10) == 0;
+      *v13 = a1 + 16;
+      v13[1] = v16;
+      *v16 = v13;
+      *(_QWORD *)(a1 + 24) = v13;
+      if ( v19
+        || (v23 = *(const UNICODE_STRING **)(a1 + 32)) == 0LL
+        || (LOBYTE(pszFormat) = 1,
+            LODWORD(dwFlags) = 0x2000000,
+            v18 = DrvDbOpenObjectRegKey((__int64 *)a1, v23, 1u, a2, dwFlags, pszFormat, &v29, &v30, 0LL),
+            v18 >= 0)
+        && (v30 != 1
+         || (v18 = DrvDbSetDriverDatabaseMappedProperty(
+                     a1,
+                     a2,
+                     v29,
+                     (__int64)&DEVPKEY_DriverDatabase_RegistryPath,
+                     0x12u,
+                     (const WCHAR *)v13[6],
+                     (unsigned int)*((unsigned __int16 *)v13 + 20) + 2),
+             v18 >= 0)) )
+      {
+        *v8 = v13;
+        v13 = 0LL;
+      }
+    }
   }
-LABEL_23:
-  if ( Handle[0] )
-    ZwClose(Handle[0]);
-  if ( v12 )
+  else
   {
-    *(_QWORD *)(v12 + 80) = 0LL;
-    DrvDbDestroyDatabaseNode(a1, v12, v15);
+    v18 = -1073741670;
   }
-  if ( Pool2 && Pool2 != SourceString )
-    ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)v17;
+LABEL_13:
+  if ( v29 )
+    PnpCtxRegCloseKey((__int64)v16, v29);
+  if ( v13 )
+  {
+    v24 = *v13;
+    if ( !*v13 )
+    {
+LABEL_37:
+      v26 = (void *)v13[18];
+      if ( v26 )
+      {
+        ExDeleteResourceLite((PERESOURCE)v13[18]);
+        ExFreePoolWithTag(v26, 0);
+      }
+      RtlFreeAnsiString((PUNICODE_STRING)v13 + 1);
+      RtlFreeAnsiString((PUNICODE_STRING)(v13 + 5));
+      ExFreePoolWithTag(v13, 0);
+      goto LABEL_16;
+    }
+    if ( *(_QWORD **)(v24 + 8) == v13 )
+    {
+      v25 = (_QWORD *)v13[1];
+      if ( (_QWORD *)*v25 == v13 )
+      {
+        *v25 = v24;
+        *(_QWORD *)(v24 + 8) = v25;
+        goto LABEL_37;
+      }
+    }
+LABEL_40:
+    __fastfail(3u);
+  }
+LABEL_16:
+  if ( PoolWithTag && PoolWithTag != a4 )
+    ExFreePoolWithTag(PoolWithTag, 0);
+  return (unsigned int)v18;
 }

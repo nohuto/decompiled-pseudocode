@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Disconnect@CUserPlaySound@@AEAAJXZ @ 0x1C003C554
+ * XREFs of ?Disconnect@CUserPlaySound@@AEAAJXZ @ 0x1C012DBC0
  * Callers:
- *     NtUserDoSoundConnect @ 0x1C00BC6D0 (NtUserDoSoundConnect.c)
- *     NtUserDoSoundDisconnect @ 0x1C00BEB50 (NtUserDoSoundDisconnect.c)
+ *     NtUserDoSoundConnect @ 0x1C0135070 (NtUserDoSoundConnect.c)
+ *     NtUserDoSoundDisconnect @ 0x1C0137310 (NtUserDoSoundDisconnect.c)
  * Callees:
- *     PlaySoundDisconnect @ 0x1C039953C (PlaySoundDisconnect.c)
+ *     PlaySoundDisconnect @ 0x1C037A7C8 (PlaySoundDisconnect.c)
  */
 
 __int64 __fastcall CUserPlaySound::Disconnect(CUserPlaySound *this)

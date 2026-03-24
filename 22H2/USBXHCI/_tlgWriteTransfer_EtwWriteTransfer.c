@@ -1,9 +1,7 @@
 /*
- * XREFs of _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004BC00
+ * XREFs of _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0050CB8
  * Callers:
- *     Etw_DeviceUpdate @ 0x1C001D774 (Etw_DeviceUpdate.c)
- *     Etw_ReportControllerHealthWithPortInfo @ 0x1C001F858 (Etw_ReportControllerHealthWithPortInfo.c)
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00532E4 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00505B8 (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
  *     <none>
  */
@@ -21,11 +19,11 @@ NTSTATUS __fastcall tlgWriteTransfer_EtwWriteTransfer(
   *(_DWORD *)&EventDescriptor.Id = *a2 << 24;
   *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)(a2 + 1);
   EventDescriptor.Keyword = *(_QWORD *)(a2 + 3);
-  UserData->Ptr = *(_QWORD *)(a1 + 8);
-  UserData->Size = **(unsigned __int16 **)(a1 + 8);
+  UserData->Ptr = (unsigned __int64)off_1C0069048;
+  UserData->Size = *(unsigned __int16 *)off_1C0069048;
   UserData[1].Ptr = (unsigned __int64)(a2 + 11);
   UserData->Reserved = 2;
   UserData[1].Size = *(unsigned __int16 *)(a2 + 11);
   UserData[1].Reserved = 1;
-  return EtwWriteTransfer(*(_QWORD *)(a1 + 32), &EventDescriptor, 0LL, 0LL, UserDataCount, UserData);
+  return EtwWriteTransfer(qword_1C0069060, &EventDescriptor, 0LL, 0LL, UserDataCount, UserData);
 }

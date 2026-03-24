@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiGdoCreateGdiObjects @ 0x1C0203500
+ * XREFs of DpiGdoCreateGdiObjects @ 0x1C01897B4
  * Callers:
- *     DpiFdoCreateRelatedObjects @ 0x1C01FBF08 (DpiFdoCreateRelatedObjects.c)
+ *     DpiFdoCreateRelatedObjects @ 0x1C018AE58 (DpiFdoCreateRelatedObjects.c)
  * Callees:
- *     DpiAppendNumberToString @ 0x1C02037FC (DpiAppendNumberToString.c)
- *     DpiGdoSetupGdiParameters @ 0x1C0204478 (DpiGdoSetupGdiParameters.c)
- *     WdmlibIoCreateDeviceSecure @ 0x1C0204C58 (WdmlibIoCreateDeviceSecure.c)
+ *     DpiAppendNumberToString @ 0x1C0189AC4 (DpiAppendNumberToString.c)
+ *     DpiGdoSetupGdiParameters @ 0x1C018A5BC (DpiGdoSetupGdiParameters.c)
+ *     WdmlibIoCreateDeviceSecure @ 0x1C018AD9C (WdmlibIoCreateDeviceSecure.c)
  */
 
 __int64 __fastcall DpiGdoCreateGdiObjects(__int64 a1, unsigned int a2, __int64 a3)
@@ -15,25 +15,35 @@ __int64 __fastcall DpiGdoCreateGdiObjects(__int64 a1, unsigned int a2, __int64 a
   __int64 v6; // r14
   const WCHAR *v7; // rcx
   PVOID DeviceExtension; // rdi
-  char v9; // r12
-  ULONG v10; // edx
-  NTSTATUS v11; // eax
-  NTSTATUS v12; // eax
+  char v9; // r13
+  char v10; // r12
+  bool v11; // zf
+  ULONG v12; // edx
   NTSTATUS v13; // eax
-  __int64 v14; // rax
-  _QWORD *v15; // rdx
-  PDEVICE_OBJECT v16; // rax
-  NTSTATUS v17; // eax
-  _QWORD *v19; // rax
-  PVOID *v20; // rcx
-  BOOLEAN v21; // [rsp+30h] [rbp-41h]
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  NTSTATUS v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  NTSTATUS v19; // eax
+  __int64 v20; // rax
+  _QWORD *v21; // rdx
+  PDEVICE_OBJECT v22; // rax
+  NTSTATUS v23; // eax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  _QWORD *v27; // rax
+  PVOID *v28; // rcx
+  BOOLEAN v29; // [rsp+30h] [rbp-41h]
   PDEVICE_OBJECT DeviceObject; // [rsp+58h] [rbp-19h] BYREF
-  struct _UNICODE_STRING DeviceName; // [rsp+60h] [rbp-11h] BYREF
-  struct _UNICODE_STRING SymbolicLinkName; // [rsp+70h] [rbp-1h] BYREF
-  char v28; // [rsp+F0h] [rbp+7Fh]
+  PRKMUTEX Mutex; // [rsp+60h] [rbp-11h]
+  struct _UNICODE_STRING DeviceName; // [rsp+68h] [rbp-9h] BYREF
+  struct _UNICODE_STRING SymbolicLinkName; // [rsp+78h] [rbp+7h] BYREF
+  char v37; // [rsp+F0h] [rbp+7Fh]
 
   v3 = *(_QWORD *)(a1 + 64);
   LODWORD(v5) = 0;
+  Mutex = (PRKMUTEX)(v3 + 3584);
   KeWaitForSingleObject((PVOID)(v3 + 3584), Executive, 0, 0, 0LL);
   v6 = 0LL;
   if ( a2 )
@@ -42,44 +52,42 @@ __int64 __fastcall DpiGdoCreateGdiObjects(__int64 a1, unsigned int a2, __int64 a
     {
       DeviceObject = 0LL;
       v7 = L"\\Device\\RemoteVideo";
+      v37 = 0;
       DeviceExtension = 0LL;
-      v28 = 0;
       v9 = 0;
-      v10 = *(_DWORD *)(a3 + 4 * v6);
-      if ( !*(_BYTE *)(v3 + 2743) )
-        v7 = L"\\Device\\Video";
+      v10 = 0;
+      v11 = *(_BYTE *)(v3 + 2743) == 0;
       DeviceName = 0LL;
+      if ( v11 )
+        v7 = L"\\Device\\Video";
+      v12 = *(_DWORD *)(a3 + 4 * v6);
       SymbolicLinkName = 0LL;
-      LODWORD(v5) = DpiAppendNumberToString(v7, v10, &DeviceName);
+      LODWORD(v5) = DpiAppendNumberToString(v7, v12, &DeviceName);
       if ( (int)v5 < 0 )
-        goto LABEL_25;
-      v11 = WdmlibIoCreateDeviceSecure(
+        goto LABEL_29;
+      v13 = WdmlibIoCreateDeviceSecure(
               *(PDRIVER_OBJECT *)(*(_QWORD *)(v3 + 40) + 32LL),
               0xC8u,
               &DeviceName,
               0x23u,
               0x100u,
-              v21,
+              v29,
               &SDDL_DEVOBJ_KERNEL_ONLY,
               &GUID_SD_GDO,
               &DeviceObject);
-      v5 = v11;
-      if ( v11 < 0 )
-        goto LABEL_19;
+      v5 = v13;
+      if ( v13 < 0 )
+        goto LABEL_21;
       if ( !*(_BYTE *)(v3 + 2743) )
       {
         LODWORD(v5) = DpiAppendNumberToString(L"\\DosDevices\\DISPLAY", *(_DWORD *)(a3 + 4 * v6) + 1, &SymbolicLinkName);
         if ( (int)v5 < 0 )
-          goto LABEL_25;
-        v12 = IoCreateSymbolicLink(&SymbolicLinkName, &DeviceName);
-        v5 = v12;
-        if ( v12 < 0 )
-        {
-LABEL_19:
-          WdLogSingleEntry1(2LL, v5);
-          goto LABEL_25;
-        }
-        v9 = 1;
+          goto LABEL_29;
+        v16 = IoCreateSymbolicLink(&SymbolicLinkName, &DeviceName);
+        v5 = v16;
+        if ( v16 < 0 )
+          goto LABEL_21;
+        v37 = 1;
       }
       DeviceExtension = DeviceObject->DeviceExtension;
       *((_DWORD *)DeviceExtension + 4) = 1953656900;
@@ -95,63 +103,76 @@ LABEL_19:
       *((_DWORD *)DeviceExtension + 38) = *(_DWORD *)(a3 + 4 * v6);
       *((_DWORD *)DeviceExtension + 39) = v6;
       if ( (unsigned int)v6 >= 0x10 )
-        WdLogSingleEntry1(2LL, (unsigned int)v6);
-      v13 = IoRegisterDeviceInterface(
+      {
+        v26 = WdLogNewEntry5_WdError(v18, v17);
+        *(_QWORD *)(v26 + 24) = (unsigned int)v6;
+        WdLogEvent5_WdError(v26);
+      }
+      v19 = IoRegisterDeviceInterface(
               *(PDEVICE_OBJECT *)(v3 + 152),
               &GUID_DEVINTERFACE_DISPLAY_ADAPTER,
               0LL,
               (PUNICODE_STRING)DeviceExtension + 10);
-      LODWORD(v5) = v13;
-      if ( v13 < 0 )
+      v5 = v19;
+      if ( v19 >= 0 )
       {
-        WdLogSingleEntry1(2LL, v13);
-        goto LABEL_23;
+        LODWORD(v5) = DpiGdoSetupGdiParameters(DeviceObject, &DeviceName, (unsigned int)v6);
+        if ( (int)v5 < 0 )
+          goto LABEL_26;
+        v20 = *(_QWORD *)(v3 + 3896);
+        *((_DWORD *)DeviceExtension + 48) = -1;
+        *((_QWORD *)DeviceExtension + 22) = v20;
+        v21 = *(_QWORD **)(v3 + 3576);
+        if ( *v21 != v3 + 3568 )
+          goto LABEL_35;
+        *((_QWORD *)DeviceExtension + 1) = v21;
+        v9 = 1;
+        *(_QWORD *)DeviceExtension = v3 + 3568;
+        *v21 = DeviceExtension;
+        *(_QWORD *)(v3 + 3576) = DeviceExtension;
+        v22 = DeviceObject;
+        ++*(_DWORD *)(v3 + 3640);
+        v22->Flags |= 4u;
+        DeviceObject->Flags &= ~0x80u;
+        v23 = IoSetDeviceInterfaceState((PUNICODE_STRING)DeviceExtension + 10, 1u);
+        v5 = v23;
+        if ( v23 >= 0 )
+        {
+          v10 = 1;
+          goto LABEL_17;
+        }
       }
-      LODWORD(v5) = DpiGdoSetupGdiParameters(DeviceObject, &DeviceName, (unsigned int)v6);
+LABEL_21:
+      v25 = WdLogNewEntry5_WdError(v15, v14);
+      *(_QWORD *)(v25 + 24) = v5;
+      WdLogEvent5_WdError(v25);
+LABEL_17:
       if ( (int)v5 < 0 )
-        goto LABEL_22;
-      v14 = *(_QWORD *)(v3 + 3896);
-      *((_DWORD *)DeviceExtension + 48) = -1;
-      *((_QWORD *)DeviceExtension + 22) = v14;
-      v15 = *(_QWORD **)(v3 + 3576);
-      if ( *v15 != v3 + 3568 )
-        goto LABEL_31;
-      *((_QWORD *)DeviceExtension + 1) = v15;
-      *(_QWORD *)DeviceExtension = v3 + 3568;
-      *v15 = DeviceExtension;
-      *(_QWORD *)(v3 + 3576) = DeviceExtension;
-      v16 = DeviceObject;
-      ++*(_DWORD *)(v3 + 3640);
-      v28 = 1;
-      v16->Flags |= 4u;
-      DeviceObject->Flags &= ~0x80u;
-      v17 = IoSetDeviceInterfaceState((PUNICODE_STRING)DeviceExtension + 10, 1u);
-      LODWORD(v5) = v17;
-      if ( v17 < 0 )
       {
-        WdLogSingleEntry1(2LL, v17);
-LABEL_22:
-        RtlFreeUnicodeString((PUNICODE_STRING)DeviceExtension + 10);
-LABEL_23:
+        if ( v10 == 1 && DeviceExtension )
+          IoSetDeviceInterfaceState((PUNICODE_STRING)DeviceExtension + 10, 0);
         if ( v9 == 1 )
+LABEL_26:
+          RtlFreeUnicodeString((PUNICODE_STRING)DeviceExtension + 10);
+        if ( v37 == 1 )
           IoDeleteSymbolicLink(&SymbolicLinkName);
-LABEL_25:
+LABEL_29:
         if ( DeviceObject )
         {
           IoDeleteDevice(DeviceObject);
           DeviceObject = 0LL;
         }
-        if ( v28 == 1 )
+        if ( v9 == 1 )
         {
-          v19 = *(_QWORD **)DeviceExtension;
+          v27 = *(_QWORD **)DeviceExtension;
           if ( *(PVOID *)(*(_QWORD *)DeviceExtension + 8LL) != DeviceExtension
-            || (v20 = (PVOID *)*((_QWORD *)DeviceExtension + 1), *v20 != DeviceExtension) )
+            || (v28 = (PVOID *)*((_QWORD *)DeviceExtension + 1), *v28 != DeviceExtension) )
           {
-LABEL_31:
+LABEL_35:
             __fastfail(3u);
           }
-          *v20 = v19;
-          v19[1] = v20;
+          *v28 = v27;
+          v27[1] = v28;
           --*(_DWORD *)(v3 + 3640);
         }
       }
@@ -166,6 +187,6 @@ LABEL_31:
       break;
     }
   }
-  KeReleaseMutex((PRKMUTEX)(v3 + 3584), 0);
+  KeReleaseMutex(Mutex, 0);
   return (unsigned int)v5;
 }

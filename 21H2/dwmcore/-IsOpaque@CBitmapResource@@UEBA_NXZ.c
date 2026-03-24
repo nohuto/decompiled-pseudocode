@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsOpaque@CBitmapResource@@UEBA_NXZ @ 0x1800DE780
+ * XREFs of ?IsOpaque@CBitmapResource@@UEBA_NXZ @ 0x1800CDC4C
  * Callers:
- *     ?IsOpaque@CBitmapResource@@$4PPPPPPPM@A@EBA_NXZ @ 0x1801061B0 (-IsOpaque@CBitmapResource@@$4PPPPPPPM@A@EBA_NXZ.c)
+ *     ?IsOpaque@CBitmapResource@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F5180 (-IsOpaque@CBitmapResource@@$4PPPPPPPM@A@EBA_NXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall CBitmapResource::IsOpaque(CBitmapResource *this)

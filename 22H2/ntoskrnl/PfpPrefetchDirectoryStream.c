@@ -1,153 +1,158 @@
 /*
- * XREFs of PfpPrefetchDirectoryStream @ 0x1407D808C
+ * XREFs of PfpPrefetchDirectoryStream @ 0x14070BA34
  * Callers:
- *     PfpVolumePrefetchMetadata @ 0x140684C04 (PfpVolumePrefetchMetadata.c)
+ *     PfpVolumePrefetchMetadata @ 0x14070B688 (PfpVolumePrefetchMetadata.c)
  * Callees:
- *     PfpCheckPrefetchAbort @ 0x1402F88F8 (PfpCheckPrefetchAbort.c)
- *     MmQueryMemoryListInformation @ 0x1402F8958 (MmQueryMemoryListInformation.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     IopXxxControlFile @ 0x1406E5590 (IopXxxControlFile.c)
- *     PfpOpenHandleCreate @ 0x14075D594 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x14075D734 (PfpOpenHandleClose.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x14075DCF0 (PfpUpdateRepurposedByPrefetch.c)
- *     PfpGetPageListCount @ 0x14075DE0C (PfpGetPageListCount.c)
+ *     PfpCheckPrefetchAbort @ 0x14026E9CC (PfpCheckPrefetchAbort.c)
+ *     MmQueryMemoryListInformation @ 0x14026EA10 (MmQueryMemoryListInformation.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PfpOpenHandleCreate @ 0x140633828 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406339C0 (PfpOpenHandleClose.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x140633FAC (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpGetPageListCount @ 0x1406340C8 (PfpGetPageListCount.c)
+ *     IopXxxControlFile @ 0x14064B730 (IopXxxControlFile.c)
  */
 
 __int64 PfpPrefetchDirectoryStream(__int64 *a1, __int64 a2, __int64 a3, ...)
 {
-  __int64 v3; // r13
-  __int64 v5; // r14
+  __int64 v3; // rsi
+  __int64 Src; // r15
   __int64 v7; // rax
   unsigned __int64 v8; // r12
   unsigned int v9; // r8d
-  __int64 v10; // r8
-  unsigned __int64 v11; // rcx
-  int v12; // ebx
-  __int64 v13; // r9
-  unsigned int v14; // esi
-  unsigned int *v15; // r10
-  unsigned int v16; // r8d
-  unsigned int v17; // r9d
-  __int64 v18; // rax
-  unsigned __int64 v19; // rdx
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // r11
-  int v22; // r11d
-  __int64 v24[2]; // [rsp+68h] [rbp-70h] BYREF
-  HANDLE Handle; // [rsp+78h] [rbp-60h] BYREF
-  __int128 v26; // [rsp+80h] [rbp-58h]
-  __int64 v27; // [rsp+90h] [rbp-48h]
-  unsigned int v28; // [rsp+E0h] [rbp+8h]
-  __int64 v29; // [rsp+F8h] [rbp+20h] BYREF
-  va_list va; // [rsp+F8h] [rbp+20h]
-  __int64 v31; // [rsp+100h] [rbp+28h]
-  __int64 v32; // [rsp+108h] [rbp+30h]
-  va_list va1; // [rsp+110h] [rbp+38h] BYREF
+  __int64 v10; // rax
+  int v11; // ecx
+  __int64 v12; // r8
+  unsigned __int64 v13; // rcx
+  int v14; // ebx
+  __int64 v15; // r9
+  unsigned int v16; // esi
+  unsigned int v17; // r8d
+  unsigned int v18; // r10d
+  __int64 v19; // rax
+  unsigned __int64 v20; // rdx
+  unsigned __int64 v21; // rcx
+  unsigned __int64 v22; // r9
+  int v23; // r10d
+  size_t Size; // [rsp+38h] [rbp-51h]
+  SIZE_T Length; // [rsp+48h] [rbp-41h]
+  __int64 v27; // [rsp+50h] [rbp-39h]
+  __int64 v28; // [rsp+60h] [rbp-29h]
+  __int64 v29[2]; // [rsp+70h] [rbp-19h] BYREF
+  int v30[2]; // [rsp+80h] [rbp-9h] BYREF
+  __int128 v31; // [rsp+88h] [rbp-1h]
+  __int64 v32; // [rsp+98h] [rbp+Fh]
+  unsigned int v33; // [rsp+E0h] [rbp+57h]
+  __int64 v34; // [rsp+F8h] [rbp+6Fh] BYREF
+  va_list va; // [rsp+F8h] [rbp+6Fh]
+  __int64 v36; // [rsp+100h] [rbp+77h]
+  __int64 v37; // [rsp+108h] [rbp+7Fh]
+  va_list va1; // [rsp+110h] [rbp+87h] BYREF
 
   va_start(va1, a3);
   va_start(va, a3);
-  v29 = va_arg(va1, _QWORD);
-  v31 = va_arg(va1, _QWORD);
-  v32 = va_arg(va1, _QWORD);
+  v34 = va_arg(va1, _QWORD);
+  v36 = va_arg(va1, _QWORD);
+  v37 = va_arg(va1, _QWORD);
   v3 = a1[5];
-  v5 = a1[3];
-  *(_OWORD *)v24 = 0LL;
-  LODWORD(v29) = 0;
-  v27 = 0x200000000LL;
+  Src = a1[3];
+  *(_OWORD *)v29 = 0LL;
+  v32 = 0x200000000LL;
   v7 = *a1;
   v8 = 0LL;
-  Handle = 0LL;
-  v26 = 0LL;
+  LODWORD(v34) = 0;
+  v28 = v3;
+  *(_QWORD *)v30 = 0LL;
   v9 = *(unsigned __int16 *)(v7 + 30);
-  *(_DWORD *)v5 = 4;
-  v28 = v9;
-  LOBYTE(v7) = v9;
-  v10 = v31;
-  v11 = (8 * (unsigned int)(v7 & 7)) | (unsigned __int64)(*(_DWORD *)(*a1 + 28) & 7);
-  LODWORD(v7) = v32;
-  *(_QWORD *)(v5 + 8) = v11;
-  v12 = PfpOpenHandleCreate((__int64)&Handle, v3, *(_QWORD *)(v10 + 16), *(_QWORD *)(v10 + 8), 1048577, v7, 0, a2);
-  if ( v12 >= 0 )
+  *(_DWORD *)Src = 4;
+  v10 = *a1;
+  v33 = v9;
+  v31 = 0LL;
+  v11 = *(_DWORD *)(v10 + 28);
+  LOBYTE(v10) = v9;
+  v12 = v36;
+  v13 = (8 * (unsigned int)(v10 & 7)) | (unsigned __int64)(v11 & 7);
+  LODWORD(v10) = v37;
+  *(_QWORD *)(Src + 8) = v13;
+  v14 = PfpOpenHandleCreate((__int64)v30, v3, *(_QWORD *)(v12 + 16), *(_QWORD *)(v12 + 8), 1048577, v10, 0, a2);
+  if ( v14 >= 0 )
   {
     if ( (*(_DWORD *)(*a1 + 80) & 4) != 0 )
-      MmQueryMemoryListInformation(0xFFFFFFFFFFFFFFFFuLL, (_OWORD *)a1 + 3, 0xB0u, v13, (__int64 *)va);
-    v14 = 0;
-    while ( v14 < *(_DWORD *)(a3 + 16) )
+      MmQueryMemoryListInformation((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, (_OWORD *)a1 + 3, 0xB0u, v15, (__int64 *)va);
+    v16 = 0;
+    while ( v16 < *(_DWORD *)(a3 + 16) )
     {
-      *(_DWORD *)(v5 + 4) = 0;
-      if ( v14 >= *(_DWORD *)(a3 + 16) )
+      *(_DWORD *)(Src + 4) = 0;
+      if ( v16 >= *(_DWORD *)(a3 + 16) )
         break;
-      v15 = (unsigned int *)(a1 + 4);
-      v16 = 0;
-      v17 = 0;
+      v17 = *((_DWORD *)a1 + 8);
+      v18 = 0;
       do
       {
-        v18 = *(_QWORD *)(a3 + 24);
-        v19 = *(_QWORD *)(v18 + 16LL * v14);
-        v20 = v8;
-        v21 = v19 + *(unsigned int *)(v18 + 16LL * v14 + 8);
-        if ( v19 >= v8 )
-          v20 = *(_QWORD *)(v18 + 16LL * v14);
-        if ( v20 < v21 )
+        v19 = *(_QWORD *)(a3 + 24);
+        v20 = *(_QWORD *)(v19 + 16LL * v16);
+        v21 = v8;
+        v22 = v20 + *(unsigned int *)(v19 + 16LL * v16 + 8);
+        if ( v20 >= v8 )
+          v21 = *(_QWORD *)(v19 + 16LL * v16);
+        while ( v21 < v22 )
         {
-          while ( 1 )
+          *(_QWORD *)(Src + 8LL * *(unsigned int *)(Src + 4) + 16) = v21;
+          v21 += 4096LL;
+          v18 = *(_DWORD *)(Src + 4) + 1;
+          *(_DWORD *)(Src + 4) = v18;
+          v17 = *((_DWORD *)a1 + 8);
+          if ( v18 >= v17 )
           {
-            *(_QWORD *)(v5 + 8LL * v16 + 16) = v20;
-            v20 += 4096LL;
-            v17 = *(_DWORD *)(v5 + 4) + 1;
-            *(_DWORD *)(v5 + 4) = v17;
-            v16 = v17;
-            if ( v17 >= *((_DWORD *)a1 + 8) )
-              break;
-            if ( v20 >= v21 )
-              goto LABEL_14;
+            v8 = v21;
+            break;
           }
-          v8 = v20;
-LABEL_14:
-          v15 = (unsigned int *)(a1 + 4);
         }
-        v16 = v17;
-        if ( v17 >= *v15 )
+        if ( v18 >= v17 )
           break;
-        ++v14;
+        ++v16;
       }
-      while ( v14 < *(_DWORD *)(a3 + 16) );
-      if ( !v17 )
+      while ( v16 < *(_DWORD *)(a3 + 16) );
+      if ( !v18 )
         break;
-      if ( (unsigned int)PfpCheckPrefetchAbort(a1)
+      if ( PfpCheckPrefetchAbort(a1)
         || (*(_DWORD *)(*a1 + 80) & 4) != 0
-        && (unsigned __int64)(a1[6] + a1[7] + PfpGetPageListCount((__int64)(a1 + 11), 0, v28)) < 0x80 )
+        && (unsigned __int64)(a1[6] + a1[7] + PfpGetPageListCount((__int64)(a1 + 11), 0, v33)) < 0x80 )
       {
-        v12 = -1073741248;
-        goto LABEL_28;
+        v14 = -1073741248;
+        goto LABEL_24;
       }
-      v12 = IopXxxControlFile(
-              Handle,
+      LOBYTE(v27) = 0;
+      LODWORD(Length) = 0;
+      LODWORD(Size) = 8 * v23 + 16;
+      v14 = IopXxxControlFile(
+              *(void **)v30,
               0LL,
               0LL,
               0LL,
-              (struct _IO_STATUS_BLOCK *)v24,
+              (unsigned __int64)v29,
               0x90120u,
-              (char *)v5,
-              8 * v22 + 16,
+              (char *)Src,
+              Size,
               0LL,
-              0,
-              0);
+              Length,
+              v27);
       if ( (*(_DWORD *)(*a1 + 80) & 4) != 0 )
-        PfpUpdateRepurposedByPrefetch((_OWORD *)a1 + 3, *(unsigned int *)(v5 + 4));
-      if ( v12 < 0 )
+        PfpUpdateRepurposedByPrefetch((_OWORD *)a1 + 3, *(unsigned int *)(Src + 4));
+      if ( v14 < 0 )
       {
-        if ( v12 != -1073741807 )
-          goto LABEL_28;
-        break;
+        if ( v14 == -1073741807 )
+          break;
+        goto LABEL_24;
       }
-      if ( v12 == 259 )
-        KeBugCheckEx(0x191u, 0x14DDuLL, 0LL, 0LL, 0LL);
+      if ( v14 == 259 )
+        KeBugCheckEx(0x191u, 0x14BCuLL, 0LL, 0LL, 0LL);
     }
-    v12 = 0;
+    v14 = 0;
+LABEL_24:
+    v3 = v28;
   }
-LABEL_28:
-  if ( (v27 & 0x400000000LL) != 0 )
-    PfpOpenHandleClose((__int64)&Handle, v3);
-  return (unsigned int)v12;
+  if ( (v32 & 0x400000000LL) != 0 )
+    PfpOpenHandleClose(v30, v3);
+  return (unsigned int)v14;
 }

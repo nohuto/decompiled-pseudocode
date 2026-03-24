@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CParticleBaseBehaviorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C02267B0
+ * XREFs of ?SetIntegerProperty@CParticleBaseBehaviorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01DD5C0
  * Callers:
  *     <none>
  * Callees:
@@ -10,19 +10,24 @@ __int64 __fastcall DirectComposition::CParticleBaseBehaviorMarshaler::SetInteger
         DirectComposition::CParticleBaseBehaviorMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        int a4,
+        __int64 a4,
         bool *a5)
 {
-  __int64 result; // rax
+  unsigned int v5; // edx
 
-  result = 0LL;
-  if ( a3 != 1 )
-    return 3221225485LL;
-  if ( *((_DWORD *)this + 22) != a4 )
+  v5 = 0;
+  if ( a3 == 1 )
   {
-    *((_DWORD *)this + 4) |= 0x40u;
-    *((_DWORD *)this + 22) = a4;
-    *a5 = 1;
+    if ( *((_DWORD *)this + 18) != a4 )
+    {
+      *((_DWORD *)this + 4) |= 0x40u;
+      *((_DWORD *)this + 18) = a4;
+      *a5 = 1;
+    }
   }
-  return result;
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return v5;
 }

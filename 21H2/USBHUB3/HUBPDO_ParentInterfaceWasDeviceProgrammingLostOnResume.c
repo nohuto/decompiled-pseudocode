@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPDO_ParentInterfaceWasDeviceProgrammingLostOnResume @ 0x1C0019140
+ * XREFs of HUBPDO_ParentInterfaceWasDeviceProgrammingLostOnResume @ 0x1C0018BF0
  * Callers:
  *     <none>
  * Callees:

@@ -1,227 +1,223 @@
 /*
- * XREFs of ?DisableDWMVirtualModeOnVidPnSource@@YAJII@Z @ 0x1C02E9510
+ * XREFs of ?DisableDWMVirtualModeOnVidPnSource@@YAJII@Z @ 0x1C0172ECC
  * Callers:
- *     DxgkSetVidPnSourceOwner @ 0x1C0188AE0 (DxgkSetVidPnSourceOwner.c)
+ *     DxgkSetVidPnSourceOwner @ 0x1C00E3820 (DxgkSetVidPnSourceOwner.c)
  * Callees:
- *     ??0MANAGEDPRIMARIESTRACKER@@QEAA@PEAVADAPTER_DISPLAY@@PEAVDXGPROCESS@@@Z @ 0x1C00041DC (--0MANAGEDPRIMARIESTRACKER@@QEAA@PEAVADAPTER_DISPLAY@@PEAVDXGPROCESS@@@Z.c)
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C00042E8 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C000438C (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
- *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x1C00046C0 (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z @ 0x1C000538C (-AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z.c)
- *     ??1COREACCESS@@QEAA@XZ @ 0x1C00075BC (--1COREACCESS@@QEAA@XZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C0007CA4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0008088 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z @ 0x1C016C7F0 (-Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z.c)
- *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C017D4B8 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
- *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C0180B78 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
- *     ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C0180C44 (-Reserve@CCD_TOPOLOGY@@QEAAGG@Z.c)
- *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C0180EE4 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
- *     ??1MANAGEDPRIMARIESTRACKER@@QEAA@XZ @ 0x1C0188AA4 (--1MANAGEDPRIMARIESTRACKER@@QEAA@XZ.c)
- *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C018A268 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
- *     ?AcquireWin32kAndPDEVLocks@MANAGEDPRIMARIESTRACKER@@QEAAXXZ @ 0x1C0195B14 (-AcquireWin32kAndPDEVLocks@MANAGEDPRIMARIESTRACKER@@QEAAXXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01E8D34 (-ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     DxgkGetGlobalRawmodeFlag @ 0x1C01EABA0 (DxgkGetGlobalRawmodeFlag.c)
- *     DxgkNotifyDisplayChange @ 0x1C0356BDC (DxgkNotifyDisplayChange.c)
- *     ?DisableDWMCloneAndDWMVirtualMode@CCD_TOPOLOGY@@QEAAJPEAU_LUID@@I@Z @ 0x1C03BB0A0 (-DisableDWMCloneAndDWMVirtualMode@CCD_TOPOLOGY@@QEAAJPEAU_LUID@@I@Z.c)
+ *     ??0MANAGEDPRIMARIESTRACKER@@QEAA@PEAVADAPTER_DISPLAY@@PEAVDXGPROCESS@@@Z @ 0x1C0001EDC (--0MANAGEDPRIMARIESTRACKER@@QEAA@PEAVADAPTER_DISPLAY@@PEAVDXGPROCESS@@@Z.c)
+ *     ?AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z @ 0x1C000278C (-AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C0002FB8 (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??1COREACCESS@@QEAA@XZ @ 0x1C0004E50 (--1COREACCESS@@QEAA@XZ.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0005100 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C00088C4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0008F8C (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x1C000A008 (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ??1MANAGEDPRIMARIESTRACKER@@QEAA@XZ @ 0x1C00E432C (--1MANAGEDPRIMARIESTRACKER@@QEAA@XZ.c)
+ *     ?AcquireWin32kAndPDEVLocks@MANAGEDPRIMARIESTRACKER@@QEAAXXZ @ 0x1C00EB6DC (-AcquireWin32kAndPDEVLocks@MANAGEDPRIMARIESTRACKER@@QEAAXXZ.c)
+ *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C00EEC04 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C013A304 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
+ *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C013DE80 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
+ *     ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C013DEF0 (-Reserve@CCD_TOPOLOGY@@QEAAGG@Z.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C013E924 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     ?Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z @ 0x1C01486EC (-Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z.c)
+ *     ?ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0149090 (-ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     DxgkGetGlobalRawmodeFlag @ 0x1C016D0D0 (DxgkGetGlobalRawmodeFlag.c)
+ *     ?DisableDWMCloneAndDWMVirtualMode@CCD_TOPOLOGY@@QEAAJPEAU_LUID@@I@Z @ 0x1C01731E0 (-DisableDWMCloneAndDWMVirtualMode@CCD_TOPOLOGY@@QEAAJPEAU_LUID@@I@Z.c)
+ *     DxgkNotifyDisplayChange @ 0x1C02A06B4 (DxgkNotifyDisplayChange.c)
  */
 
-__int64 __fastcall DisableDWMVirtualModeOnVidPnSource(__int64 a1, unsigned int a2)
+__int64 __fastcall DisableDWMVirtualModeOnVidPnSource(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // rdi
+  unsigned int v4; // r15d
+  __int64 v5; // rdi
   struct _KTHREAD **Current; // rax
-  struct DXGPROCESS *v5; // r14
-  struct DXGDEVICE *v7; // rbx
-  int v8; // ebx
-  __int64 v9; // r15
-  __int64 v10; // r9
-  unsigned __int16 v11; // bx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  int v14; // eax
-  __int64 v15; // rdi
-  int v16; // edx
-  const wchar_t *v17; // r9
-  int v18; // eax
-  unsigned int v19; // edi
-  int v20; // eax
-  int v21; // eax
-  __int64 v22; // rcx
-  unsigned int v23; // r9d
-  unsigned int v24; // edx
-  __int64 v25; // r8
-  unsigned __int16 i; // [rsp+50h] [rbp-B0h] BYREF
-  struct DXGDEVICE *v27; // [rsp+58h] [rbp-A8h] BYREF
-  struct DXGDEVICE *v28; // [rsp+60h] [rbp-A0h] BYREF
-  struct _LUID v29; // [rsp+68h] [rbp-98h] BYREF
-  _QWORD v30[2]; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v31[8]; // [rsp+80h] [rbp-80h] BYREF
-  DXGPUSHLOCK *v32; // [rsp+88h] [rbp-78h]
-  int v33; // [rsp+90h] [rbp-70h]
-  _BYTE v34[64]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v35; // [rsp+E0h] [rbp-20h]
-  _BYTE v36[432]; // [rsp+110h] [rbp+10h] BYREF
-  _QWORD v37[10]; // [rsp+2C0h] [rbp+1C0h] BYREF
-  _BYTE v38[8]; // [rsp+310h] [rbp+210h] BYREF
-  _BYTE v39[64]; // [rsp+318h] [rbp+218h] BYREF
-  _BYTE v40[88]; // [rsp+358h] [rbp+258h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct DXGPROCESS *v9; // rsi
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rbx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r14
+  __int64 v16; // rdx
+  __int64 v17; // r9
+  __int64 v18; // rdx
+  unsigned __int16 v19; // bx
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  __int64 v23; // r9
+  int Active; // eax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  int v27; // eax
+  unsigned int v28; // edi
+  int v29; // eax
+  int v30; // eax
+  __int64 v31; // rcx
+  unsigned int v32; // r9d
+  unsigned int v33; // edx
+  __int64 v34; // r8
+  __int64 v35; // rdx
+  __int64 v37; // rax
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // rax
+  unsigned __int16 v42[4]; // [rsp+38h] [rbp-D0h] BYREF
+  struct DXGDEVICE *v43; // [rsp+40h] [rbp-C8h] BYREF
+  struct DXGDEVICE *v44; // [rsp+48h] [rbp-C0h] BYREF
+  struct _LUID v45; // [rsp+50h] [rbp-B8h] BYREF
+  _QWORD v46[2]; // [rsp+58h] [rbp-B0h] BYREF
+  DXGPUSHLOCK *v47[2]; // [rsp+68h] [rbp-A0h] BYREF
+  int v48; // [rsp+78h] [rbp-90h]
+  _BYTE v49[64]; // [rsp+88h] [rbp-80h] BYREF
+  __int64 v50; // [rsp+C8h] [rbp-40h]
+  _BYTE v51[432]; // [rsp+E8h] [rbp-20h] BYREF
+  _QWORD v52[10]; // [rsp+298h] [rbp+190h] BYREF
+  _BYTE v53[8]; // [rsp+2E8h] [rbp+1E0h] BYREF
+  _BYTE v54[64]; // [rsp+2F0h] [rbp+1E8h] BYREF
+  _BYTE v55[88]; // [rsp+330h] [rbp+228h] BYREF
 
-  v3 = (unsigned int)a1;
-  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(a1);
-  v5 = (struct DXGPROCESS *)Current;
-  if ( !Current )
+  v4 = a2;
+  v5 = (unsigned int)a1;
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(a1, a2, a3, a4);
+  v9 = (struct DXGPROCESS *)Current;
+  if ( Current )
   {
-    WdLogSingleEntry1(2LL, 3383LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid process context", 3383LL, 0LL, 0LL, 0LL, 0LL);
+    v43 = 0LL;
+    DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE((DXGDEVICEBYHANDLE *)&v44, (unsigned int)v5, Current, &v43);
+    v12 = (__int64)v43;
+    if ( v43 )
+    {
+      DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v46, v43);
+      DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v47, (struct _KTHREAD **)(v12 + 144), 0);
+      DXGPUSHLOCK::AcquireExclusive(v47[1]);
+      v48 = 2;
+      v15 = *(_QWORD *)(v12 + 1848);
+      if ( v15 )
+      {
+        MANAGEDPRIMARIESTRACKER::MANAGEDPRIMARIESTRACKER(
+          (MANAGEDPRIMARIESTRACKER *)v51,
+          *(struct ADAPTER_DISPLAY **)(v15 + 2696),
+          v9);
+        MANAGEDPRIMARIESTRACKER::AcquireWin32kAndPDEVLocks((MANAGEDPRIMARIESTRACKER *)v51, v16);
+        COREDEVICEACCESS::COREDEVICEACCESS((__int64)v53, v12, 1, v17, 0);
+        LODWORD(v12) = COREDEVICEACCESS::AcquireExclusive((__int64)v53, 2LL);
+        if ( (int)v12 >= 0 )
+        {
+          v45 = *(struct _LUID *)(v15 + 316);
+          COREDEVICEACCESS::Release((COREDEVICEACCESS *)v53, v18);
+          v19 = 8;
+          CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v49, 8u, 0);
+          for ( v42[0] = 8; ; v19 = v42[0] )
+          {
+            if ( (unsigned __int16)CCD_TOPOLOGY::Reserve((CCD_TOPOLOGY *)v49, v19) < v19 )
+            {
+              v41 = WdLogNewEntry5_WdLowResource(v21, v20, v22, v23);
+              *(_QWORD *)(v41 + 24) = v19;
+              WdLogEvent5_WdLowResource(v41);
+              LODWORD(v12) = -1073741801;
+              goto LABEL_20;
+            }
+            Active = CCD_TOPOLOGY::RetrieveActive((CCD_TOPOLOGY *)v49, 0, 0, 0, v42);
+            v12 = Active;
+            if ( Active != -1073741789 )
+              break;
+          }
+          if ( Active < 0 )
+            goto LABEL_32;
+          v27 = CCD_TOPOLOGY::DisableDWMCloneAndDWMVirtualMode((CCD_TOPOLOGY *)v49, &v45, v4);
+          v12 = v27;
+          if ( v27 < 0 )
+            goto LABEL_32;
+          v28 = 0;
+          if ( DxgkGetGlobalRawmodeFlag(v26, v25) )
+            v28 = 0x20000;
+          v29 = CCD_TOPOLOGY::Functionalize((CCD_TOPOLOGY *)v49, v28, 0);
+          v12 = v29;
+          if ( v29 < 0
+            || (memset(v52, 0, 0x48uLL),
+                EtwActivityIdControl(3u, (LPGUID)&v52[1]),
+                v52[8] = MEMORY[0xFFFFF78000000014],
+                LODWORD(v52[3]) = 57,
+                LOBYTE(v52[6]) = -1,
+                v30 = CCD_TOPOLOGY::ApplyTopology(
+                        (CCD_TOPOLOGY *)v49,
+                        v28,
+                        (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v52),
+                v12 = v30,
+                v30 < 0) )
+          {
+LABEL_32:
+            v40 = WdLogNewEntry5_WdError(v26, v25);
+            *(_QWORD *)(v40 + 24) = v12;
+            WdLogEvent5_WdError(v40);
+          }
+          else
+          {
+            v31 = *(_QWORD *)(v50 + 40);
+            if ( v31 )
+            {
+              v32 = *(_DWORD *)(v50 + 36);
+              v33 = 0;
+              if ( v32 )
+              {
+                while ( 1 )
+                {
+                  v34 = 336LL * v33;
+                  if ( *(_DWORD *)(v34 + v31 + 88) || *(_DWORD *)(v34 + v31 + 92) || *(_DWORD *)(v34 + v31 + 124) )
+                    break;
+                  if ( ++v33 >= v32 )
+                    goto LABEL_20;
+                }
+                DxgkNotifyDisplayChange(0LL);
+              }
+            }
+          }
+LABEL_20:
+          CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v49);
+        }
+        COREACCESS::~COREACCESS((COREACCESS *)v55);
+        COREACCESS::~COREACCESS((COREACCESS *)v54);
+        MANAGEDPRIMARIESTRACKER::~MANAGEDPRIMARIESTRACKER((MANAGEDPRIMARIESTRACKER *)v51, v35);
+      }
+      else
+      {
+        v39 = WdLogNewEntry5_WdError(v14, v13);
+        *(_QWORD *)(v39 + 24) = v5;
+        WdLogEvent5_WdError(v39);
+        LODWORD(v12) = -1073741637;
+      }
+      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v47);
+      if ( v46[0] )
+        DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v46);
+    }
+    else
+    {
+      v38 = WdLogNewEntry5_WdError(v11, v10);
+      *(_QWORD *)(v38 + 24) = v5;
+      WdLogEvent5_WdError(v38);
+      LODWORD(v12) = -1073741811;
+    }
+    if ( v44 )
+    {
+      if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v44 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+        ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v44 + 2), v44);
+    }
+    return (unsigned int)v12;
+  }
+  else
+  {
+    v37 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v37 + 24) = 3311LL;
+    WdLogEvent5_WdError(v37);
     return 3221225485LL;
   }
-  v27 = 0LL;
-  DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE((DXGDEVICEBYHANDLE *)&v28, v3, Current, &v27);
-  v7 = v27;
-  if ( v27 )
-  {
-    DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v30, v27);
-    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v31, (struct _KTHREAD **)v7 + 18, 0);
-    DXGPUSHLOCK::AcquireExclusive(v32);
-    v33 = 2;
-    v9 = *((_QWORD *)v7 + 235);
-    if ( !v9 )
-    {
-      WdLogSingleEntry1(2LL, v3);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"DisableDWMVirtualModeOnVidPnSource function cannot be called on a render only device (0x%I64x)",
-        v3,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v8 = -1073741637;
-      goto LABEL_34;
-    }
-    MANAGEDPRIMARIESTRACKER::MANAGEDPRIMARIESTRACKER(
-      (MANAGEDPRIMARIESTRACKER *)v36,
-      *(struct ADAPTER_DISPLAY **)(v9 + 2920),
-      v5);
-    MANAGEDPRIMARIESTRACKER::AcquireWin32kAndPDEVLocks((MANAGEDPRIMARIESTRACKER *)v36);
-    COREDEVICEACCESS::COREDEVICEACCESS((__int64)v38, (__int64)v7, 1, v10, 0);
-    v8 = COREDEVICEACCESS::AcquireExclusive((__int64)v38, 2LL);
-    if ( v8 >= 0 )
-    {
-      v29 = *(struct _LUID *)(v9 + 404);
-      COREDEVICEACCESS::Release((COREDEVICEACCESS *)v38);
-      v11 = 8;
-      CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v34, 8u, 0);
-      for ( i = 8; ; v11 = i )
-      {
-        if ( (unsigned __int16)CCD_TOPOLOGY::Reserve((CCD_TOPOLOGY *)v34, v11, v12, v13) < v11 )
-        {
-          v15 = v11;
-          WdLogSingleEntry1(6LL, v11);
-          v16 = 262145;
-          v17 = L"Failed to reserve the memory for active topology. (RequiredPathsCount = %I64u)";
-          v8 = -1073741801;
-          goto LABEL_31;
-        }
-        v14 = CCD_TOPOLOGY::RetrieveActive((CCD_TOPOLOGY *)v34, 0, 0, 0, &i);
-        v8 = v14;
-        if ( v14 != -1073741789 )
-          break;
-      }
-      if ( v14 < 0 )
-      {
-        v15 = v14;
-        WdLogSingleEntry1(2LL, v14);
-        v16 = 0x40000;
-        v17 = L"Failed to set active topology, Status = 0x%I64x)";
-LABEL_31:
-        DxgkLogInternalTriageEvent(0LL, v16, -1, (__int64)v17, v15, 0LL, 0LL, 0LL, 0LL);
-        goto LABEL_32;
-      }
-      v18 = CCD_TOPOLOGY::DisableDWMCloneAndDWMVirtualMode((CCD_TOPOLOGY *)v34, &v29, a2);
-      v8 = v18;
-      if ( v18 < 0 )
-      {
-        v15 = v18;
-        WdLogSingleEntry1(2LL, v18);
-        v16 = 0x40000;
-        v17 = L"Failed to set physical mode/IHV clone, (Status = 0x%I64x)";
-        goto LABEL_31;
-      }
-      v19 = 0;
-      if ( DxgkGetGlobalRawmodeFlag() )
-        v19 = 0x20000;
-      v20 = CCD_TOPOLOGY::Functionalize((CCD_TOPOLOGY *)v34, v19, 0);
-      v8 = v20;
-      if ( v20 < 0 )
-      {
-        v15 = v20;
-        WdLogSingleEntry1(2LL, v20);
-        v16 = 0x40000;
-        v17 = L"Failed to functionalize the new topology, (Status = 0x%I64x)";
-        goto LABEL_31;
-      }
-      memset(v37, 0, 0x48uLL);
-      EtwActivityIdControl(3u, (LPGUID)&v37[1]);
-      v37[8] = MEMORY[0xFFFFF78000000014];
-      LODWORD(v37[3]) = 57;
-      LOBYTE(v37[6]) = -1;
-      v21 = CCD_TOPOLOGY::ApplyTopology((CCD_TOPOLOGY *)v34, v19, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v37);
-      v8 = v21;
-      if ( v21 < 0 )
-      {
-        v15 = v21;
-        WdLogSingleEntry1(2LL, v21);
-        v16 = 0x40000;
-        v17 = L"Failed to apply the new topology, (Status = 0x%I64x)";
-        goto LABEL_31;
-      }
-      v22 = *(_QWORD *)(v35 + 48);
-      if ( v22 )
-      {
-        v23 = *(_DWORD *)(v35 + 40);
-        v24 = 0;
-        if ( v23 )
-        {
-          while ( 1 )
-          {
-            v25 = 340LL * v24;
-            if ( *(_DWORD *)(v25 + v22 + 88) || *(_DWORD *)(v25 + v22 + 92) || *(_DWORD *)(v25 + v22 + 124) )
-              break;
-            if ( ++v24 >= v23 )
-              goto LABEL_32;
-          }
-          DxgkNotifyDisplayChange(0LL);
-        }
-      }
-LABEL_32:
-      CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v34);
-    }
-    COREACCESS::~COREACCESS((COREACCESS *)v40);
-    COREACCESS::~COREACCESS((COREACCESS *)v39);
-    MANAGEDPRIMARIESTRACKER::~MANAGEDPRIMARIESTRACKER((MANAGEDPRIMARIESTRACKER *)v36);
-LABEL_34:
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v31);
-    if ( v30[0] )
-      DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v30);
-    goto LABEL_36;
-  }
-  WdLogSingleEntry1(2LL, v3);
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid hDevice (0x%I64x) specified", v3, 0LL, 0LL, 0LL, 0LL);
-  v8 = -1073741811;
-LABEL_36:
-  if ( v28 )
-  {
-    if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v28 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-      ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v28 + 2), v28);
-  }
-  return (unsigned int)v8;
 }

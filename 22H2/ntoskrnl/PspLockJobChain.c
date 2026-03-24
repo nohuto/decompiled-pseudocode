@@ -1,14 +1,14 @@
 /*
- * XREFs of PspLockJobChain @ 0x1406A0CC8
+ * XREFs of PspLockJobChain @ 0x1406166A0
  * Callers:
- *     PspLockJobsAndProcessExclusive @ 0x14069F70C (PspLockJobsAndProcessExclusive.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspImplicitAssignProcessToJob @ 0x1407E653C (PspImplicitAssignProcessToJob.c)
- *     PspGetMemoryPartitionImplicit @ 0x1407E7464 (PspGetMemoryPartitionImplicit.c)
+ *     PspImplicitAssignProcessToJob @ 0x140605FB0 (PspImplicitAssignProcessToJob.c)
+ *     PspGetMemoryPartitionImplicit @ 0x140614404 (PspGetMemoryPartitionImplicit.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     PspLockJobsAndProcessExclusive @ 0x14071FB3C (PspLockJobsAndProcessExclusive.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     PspUnlockJobAssignment @ 0x14069F860 (PspUnlockJobAssignment.c)
- *     PspLockJobAssignment @ 0x14069F8C8 (PspLockJobAssignment.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PspLockJobAssignment @ 0x140616484 (PspLockJobAssignment.c)
+ *     PspUnlockJobAssignment @ 0x1406164B0 (PspUnlockJobAssignment.c)
  */
 
 BOOLEAN __fastcall PspLockJobChain(__int64 a1, __int64 a2, char a3)
@@ -21,29 +21,23 @@ BOOLEAN __fastcall PspLockJobChain(__int64 a1, __int64 a2, char a3)
 
   if ( a2 )
     --*(_WORD *)(a2 + 486);
-  if ( (a3 & 1) != 0 )
-  {
-    v5 = 1;
-  }
-  else
-  {
-    v5 = 0;
+  v5 = a3 & 1;
+  if ( (a3 & 1) == 0 )
     PspLockJobAssignment(a2);
-  }
-  v6 = *(_QWORD *)(a1 + 1320);
+  v6 = *(_QWORD *)(a1 + 1104);
   if ( v6 )
   {
     if ( v6 > 1 )
     {
-      ExAcquireResourceExclusiveLite((PERESOURCE)(*(_QWORD *)(a1 + 1296) + 56LL), 1u);
-      v8 = *(_QWORD *)(a1 + 1320);
+      ExAcquireResourceExclusiveLite((PERESOURCE)(*(_QWORD *)(a1 + 1080) + 56LL), 1u);
+      v8 = *(_QWORD *)(a1 + 1104);
       if ( v8 > 2 )
       {
         for ( i = v8 - 2; i; --i )
-          ExAcquireResourceExclusiveLite((PERESOURCE)(*(_QWORD *)(*(_QWORD *)(a1 + 1328) + 8 * i - 8) + 56LL), 1u);
+          ExAcquireResourceExclusiveLite((PERESOURCE)(*(_QWORD *)(*(_QWORD *)(a1 + 1112) + 8 * i - 8) + 56LL), 1u);
       }
     }
-    ExAcquireResourceExclusiveLite((PERESOURCE)(*(_QWORD *)(a1 + 1288) + 56LL), 1u);
+    ExAcquireResourceExclusiveLite((PERESOURCE)(*(_QWORD *)(a1 + 1072) + 56LL), 1u);
   }
   result = ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 56), 1u);
   if ( !v5 )

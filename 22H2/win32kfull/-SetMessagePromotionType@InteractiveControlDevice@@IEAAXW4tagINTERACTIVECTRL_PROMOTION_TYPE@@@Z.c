@@ -1,32 +1,36 @@
 /*
- * XREFs of ?SetMessagePromotionType@InteractiveControlDevice@@IEAAXW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C024685C
+ * XREFs of ?SetMessagePromotionType@InteractiveControlDevice@@IEAAXW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0257E88
  * Callers:
- *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C024660C (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
+ *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C0257C38 (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
  * Callees:
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C003D78C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
- *     ?SetComponentResolution@InteractiveControlDevice@@QEAAJW4_INTERACTIVECTRL_COMPONENT_TYPE@@JPEAW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z @ 0x1C0246158 (-SetComponentResolution@InteractiveControlDevice@@QEAAJW4_INTERACTIVECTRL_COMPONENT_TYPE@@JPEAW4.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5B10 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?SetComponentResolution@InteractiveControlDevice@@QEAAJW4_INTERACTIVECTRL_COMPONENT_TYPE@@JPEAW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z @ 0x1C0257798 (-SetComponentResolution@InteractiveControlDevice@@QEAAJW4_INTERACTIVECTRL_COMPONENT_TYPE@@JPEAW4.c)
  */
 
 void __fastcall InteractiveControlDevice::SetMessagePromotionType(__int64 a1, int a2)
 {
-  int v4; // ebx
-  int v5; // r8d
-  int v6; // [rsp+38h] [rbp+10h] BYREF
+  unsigned int v4; // eax
+  int v5; // edx
+  int v6; // r8d
+  struct InteractiveControlManager *v7; // rax
+  int v8; // [rsp+38h] [rbp+10h] BYREF
 
   if ( *(_DWORD *)(a1 + 64) != a2 )
   {
-    v4 = 0;
-    if ( a2 && (unsigned int)(a2 - 1) <= 1 )
+    v4 = a2 - 1;
+    v5 = 1;
+    if ( v4 > 1 )
     {
+      v7 = InteractiveControlManager::Instance();
       v5 = 0;
-      v4 = 1;
+      v6 = *((_DWORD *)v7 + 27);
     }
     else
     {
-      v5 = *((_DWORD *)InteractiveControlManager::Instance(a1) + 27);
+      v6 = 0;
     }
-    v6 = v4;
+    v8 = v5;
     *(_DWORD *)(a1 + 64) = a2;
-    InteractiveControlDevice::SetComponentResolution(a1, 3, v5, &v6);
+    InteractiveControlDevice::SetComponentResolution(a1, 3, v6, &v8);
   }
 }

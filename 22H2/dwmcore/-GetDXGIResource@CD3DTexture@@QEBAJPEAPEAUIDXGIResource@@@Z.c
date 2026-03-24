@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetDXGIResource@CD3DTexture@@QEBAJPEAPEAUIDXGIResource@@@Z @ 0x1802BF82C
+ * XREFs of ?GetDXGIResource@CD3DTexture@@QEBAJPEAPEAUIDXGIResource@@@Z @ 0x18026D41C
  * Callers:
- *     ?GetDXGIResource@CDxHandleYUVBitmapRealization@@UEAAJPEAPEAUIDXGIResource@@PEAI@Z @ 0x1802B42FC (-GetDXGIResource@CDxHandleYUVBitmapRealization@@UEAAJPEAPEAUIDXGIResource@@PEAI@Z.c)
+ *     ?GetDXGIResource@CDxHandleYUVBitmapRealization@@UEAAJPEAPEAUIDXGIResource@@PEAI@Z @ 0x180265C1C (-GetDXGIResource@CDxHandleYUVBitmapRealization@@UEAAJPEAPEAUIDXGIResource@@PEAI@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD3DTexture::GetDXGIResource(CD3DTexture *this, struct IDXGIResource **a2)
@@ -16,7 +16,7 @@ __int64 __fastcall CD3DTexture::GetDXGIResource(CD3DTexture *this, struct IDXGIR
   __int64 v8; // rcx
 
   *a2 = 0LL;
-  v4 = (**(__int64 (__fastcall ***)(CD3DTexture *))this)(this);
+  v4 = (**((__int64 (__fastcall ***)(char *))this + 3))((char *)this + 24);
   v6 = v4;
   if ( v4 < 0 )
   {
@@ -24,8 +24,8 @@ __int64 __fastcall CD3DTexture::GetDXGIResource(CD3DTexture *this, struct IDXGIR
   }
   else
   {
-    v7 = (***((__int64 (__fastcall ****)(_QWORD, GUID *, struct IDXGIResource **))this + 12))(
-           *((_QWORD *)this + 12),
+    v7 = (***((__int64 (__fastcall ****)(_QWORD, GUID *, struct IDXGIResource **))this + 14))(
+           *((_QWORD *)this + 14),
            &GUID_035f3ab4_482e_4e50_b41f_8a7f8bd8960b,
            a2);
     v6 = v7;

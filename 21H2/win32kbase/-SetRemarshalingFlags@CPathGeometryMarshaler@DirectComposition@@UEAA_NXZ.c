@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CPathGeometryMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C021F820
+ * XREFs of ?SetRemarshalingFlags@CPathGeometryMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01E8FA0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021F1F0 (-SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E8970 (-SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CPathGeometryMarshaler::SetRemarshalingFlags(
@@ -12,7 +12,7 @@ char __fastcall DirectComposition::CPathGeometryMarshaler::SetRemarshalingFlags(
   char result; // al
 
   result = DirectComposition::CGeometryMarshaler::SetRemarshalingFlags(this);
-  if ( *((_QWORD *)this + 13) )
+  if ( *((_QWORD *)this + 12) )
   {
     *((_DWORD *)this + 4) |= 0x800u;
     return 1;

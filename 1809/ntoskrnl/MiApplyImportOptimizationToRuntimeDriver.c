@@ -1,15 +1,15 @@
 /*
  * XREFs of MiApplyImportOptimizationToRuntimeDriver @ 0x140582188
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
  * Callees:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA4F0 (MiIsImportOptimizationEnabled.c)
- *     MiCaptureRetpolineImportInfo @ 0x1401B4F78 (MiCaptureRetpolineImportInfo.c)
- *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5434 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
- *     MiDoesControlAreaRequireRetpolineFixups @ 0x1402B8F08 (MiDoesControlAreaRequireRetpolineFixups.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
+ *     MiCaptureRetpolineImportInfo @ 0x1401B4F98 (MiCaptureRetpolineImportInfo.c)
+ *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5454 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
+ *     MiDoesControlAreaRequireRetpolineFixups @ 0x1402B9008 (MiDoesControlAreaRequireRetpolineFixups.c)
  *     VfIsDriverSuspect @ 0x140920ED4 (VfIsDriverSuspect.c)
  */
 

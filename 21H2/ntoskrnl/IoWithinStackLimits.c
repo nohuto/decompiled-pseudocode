@@ -1,5 +1,5 @@
 /*
- * XREFs of IoWithinStackLimits @ 0x140218AE0
+ * XREFs of IoWithinStackLimits @ 0x14028F410
  * Callers:
  *     <none>
  * Callees:
@@ -10,17 +10,17 @@ LOGICAL __stdcall IoWithinStackLimits(ULONG_PTR RegionStart, SIZE_T RegionSize)
 {
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR v3; // r9
-  ULONG_PTR StackLimit; // rdx
-  _QWORD *InitialStack; // rcx
+  ULONG_PTR StackLimit; // rcx
+  _QWORD *InitialStack; // rdx
   char *v8; // rcx
-  __int128 v9; // [rsp+0h] [rbp-48h]
+  __int128 v9; // [rsp+0h] [rbp-28h]
 
   CurrentThread = KeGetCurrentThread();
   v3 = RegionStart + RegionSize;
   if ( (KeGetPcr()->Prcb.DpcRequestSummary & 1) == 0 || CurrentThread == KeGetCurrentPrcb()->IdleThread )
   {
-    StackLimit = (ULONG_PTR)CurrentThread->StackLimit;
     *(_QWORD *)&v9 = CurrentThread->StackBase;
+    StackLimit = (ULONG_PTR)CurrentThread->StackLimit;
     InitialStack = CurrentThread->InitialStack;
     while ( RegionStart < StackLimit || v3 > (unsigned __int64)v9 )
     {

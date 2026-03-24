@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CImageLegacyMilBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E63C0
+ * XREFs of ?IsOfType@CImageLegacyMilBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D5710
  * Callers:
  *     <none>
  * Callees:

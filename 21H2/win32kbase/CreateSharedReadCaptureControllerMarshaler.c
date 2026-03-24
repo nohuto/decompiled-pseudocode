@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedReadCaptureControllerMarshaler @ 0x1C023ADE0
+ * XREFs of CreateSharedReadCaptureControllerMarshaler @ 0x1C01F9750
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedReadCaptureControllerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C023AB38 (-Create@CSharedReadCaptureControllerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@.c)
+ *     ?Create@CSharedReadCaptureControllerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01F9590 (-Create@CSharedReadCaptureControllerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@.c)
  */
 
 __int64 __fastcall CreateSharedReadCaptureControllerMarshaler(
@@ -15,7 +15,7 @@ __int64 __fastcall CreateSharedReadCaptureControllerMarshaler(
   struct DirectComposition::CSharedReadCaptureControllerMarshaler *v5; // [rsp+30h] [rbp+8h] BYREF
 
   *a3 = 0LL;
-  if ( *(_DWORD *)(a1 + 12) != 17 )
+  if ( *(_DWORD *)(a1 + 12) != 16 )
     return 3221225485LL;
   if ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 32), 1, 0) )
     return 3221225506LL;

@@ -1,20 +1,20 @@
 /*
- * XREFs of ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x1800A7DA4
+ * XREFs of ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x1800320F8
  * Callers:
- *     ?MapSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1800208C8 (-MapSectionBitmap@CaptureBitsResponse@@IEAAJXZ.c)
- *     ?CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVIBitmapDest@@HH@Z @ 0x1800A5970 (-CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV-$TMilRect@IUMilR.c)
- *     ?EnsureBitmapCacheSource@CSectionBitmapRealization@@MEAAJXZ @ 0x1800A5EA0 (-EnsureBitmapCacheSource@CSectionBitmapRealization@@MEAAJXZ.c)
- *     ?EnsureBitmapDest@CLegacyRemotingSwapChain@@IEAAJXZ @ 0x180109FB4 (-EnsureBitmapDest@CLegacyRemotingSwapChain@@IEAAJXZ.c)
- *     ?CopyPixels@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x18029F2A0 (-CopyPixels@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@.c)
- *     ?EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ @ 0x1802B0E80 (-EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ.c)
- *     ?CreateScaledLock@CSecondaryD2DBitmap@@IEAAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVID2DBitmapCacheSource@@PEAPEAVIBitmapLock@@@Z @ 0x1802B50BC (-CreateScaledLock@CSecondaryD2DBitmap@@IEAAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@R.c)
- *     ?FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z @ 0x1802B5548 (-FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z.c)
+ *     ?MapSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1800439E4 (-MapSectionBitmap@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVIBitmapDest@@HH@Z @ 0x180044A20 (-CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV-$TMilRect@IUMilR.c)
+ *     ?EnsureBitmapCacheSource@CSectionBitmapRealization@@MEAAJXZ @ 0x180044DF0 (-EnsureBitmapCacheSource@CSectionBitmapRealization@@MEAAJXZ.c)
+ *     ?EnsureBitmapDest@CLegacyRemotingSwapChain@@IEAAJXZ @ 0x1800E4320 (-EnsureBitmapDest@CLegacyRemotingSwapChain@@IEAAJXZ.c)
+ *     ?CreateScaledLock@CSecondaryD2DBitmap@@IEAAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVID2DBitmapCacheSource@@PEAPEAVIBitmapLock@@@Z @ 0x18019B7A4 (-CreateScaledLock@CSecondaryD2DBitmap@@IEAAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@R.c)
+ *     ?FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z @ 0x18019BBC0 (-FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z.c)
+ *     ?CopyPixels@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x1802489C0 (-CopyPixels@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@.c)
+ *     ?EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ @ 0x180262D90 (-EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ??0CClientMemoryBitmap@@QEAA@XZ @ 0x1800A7E84 (--0CClientMemoryBitmap@@QEAA@XZ.c)
- *     ?HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z @ 0x1800A8214 (-HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0CClientMemoryBitmap@@QEAA@XZ @ 0x180031EC8 (--0CClientMemoryBitmap@@QEAA@XZ.c)
+ *     ?HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z @ 0x1800321CC (-HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HrCreateBitmapFromMemoryEx(
@@ -29,36 +29,35 @@ __int64 __fastcall HrCreateBitmapFromMemoryEx(
 {
   CClientMemoryBitmap *v12; // rax
   unsigned int v13; // ecx
-  CClientMemoryBitmap *v14; // rax
-  CClientMemoryBitmap *v15; // rbx
-  __int64 v16; // rcx
-  int v17; // eax
-  unsigned int v18; // ecx
-  unsigned int v19; // edi
-  char *v21; // rcx
+  CClientMemoryBitmap *v14; // rbx
+  int v15; // eax
+  unsigned int v16; // ecx
+  unsigned int v17; // edi
 
-  v12 = (CClientMemoryBitmap *)operator new(0xE0uLL);
-  if ( v12 && (v14 = CClientMemoryBitmap::CClientMemoryBitmap(v12), (v15 = v14) != 0LL) )
+  v12 = (CClientMemoryBitmap *)operator new(0x148uLL);
+  if ( v12 )
+    v14 = CClientMemoryBitmap::CClientMemoryBitmap(v12);
+  else
+    v14 = 0LL;
+  if ( v14 )
   {
-    v16 = (__int64)v14 + *(int *)(*((_QWORD *)v14 + 1) + 4LL) + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 8LL))(v16);
-    v17 = CClientMemoryBitmap::HrInit(v15, a1, a2, a3, a5, a6, a4, a7);
-    v19 = v17;
-    if ( v17 < 0 )
+    (*(void (__fastcall **)(CClientMemoryBitmap *))(*(_QWORD *)v14 + 8LL))(v14);
+    v15 = CClientMemoryBitmap::HrInit(v14, a1, a2, a3, a5, a6, a4, a7);
+    v17 = v15;
+    if ( v15 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x27u, 0LL);
-      v21 = (char *)v15 + *(int *)(*((_QWORD *)v15 + 1) + 4LL) + 8;
-      (*(void (__fastcall **)(char *))(*(_QWORD *)v21 + 16LL))(v21);
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x27u, 0LL);
+      (*(void (__fastcall **)(CClientMemoryBitmap *))(*(_QWORD *)v14 + 16LL))(v14);
     }
     else
     {
-      *a8 = v15;
+      *a8 = (CClientMemoryBitmap *)((char *)v14 + 16);
     }
   }
   else
   {
-    v19 = -2147024882;
+    v17 = -2147024882;
     MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024882, 0x1Du, 0LL);
   }
-  return v19;
+  return v17;
 }

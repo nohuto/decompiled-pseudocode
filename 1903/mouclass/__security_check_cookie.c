@@ -1,1 +1,31 @@
-/*\n * XREFs of __security_check_cookie @ 0x1C0002900\n * Callers:\n *     sub_1C00026D0 @ 0x1C00026D0 (sub_1C00026D0.c)\n *     sub_1C000297C @ 0x1C000297C (sub_1C000297C.c)\n *     sub_1C00041D0 @ 0x1C00041D0 (sub_1C00041D0.c)\n *     sub_1C0004248 @ 0x1C0004248 (sub_1C0004248.c)\n *     DriverReinitializationRoutine @ 0x1C000C420 (DriverReinitializationRoutine.c)\n *     sub_1C000CBD0 @ 0x1C000CBD0 (sub_1C000CBD0.c)\n *     sub_1C000D140 @ 0x1C000D140 (sub_1C000D140.c)\n *     sub_1C000E10C @ 0x1C000E10C (sub_1C000E10C.c)\n *     sub_1C000F080 @ 0x1C000F080 (sub_1C000F080.c)\n *     sub_1C000F470 @ 0x1C000F470 (sub_1C000F470.c)\n * Callees:\n *     <none>\n */\n\nvoid __cdecl _security_check_cookie(uintptr_t StackCookie)\n{\n  if ( StackCookie != _security_cookie || (unsigned __int16)__ROL8__(StackCookie, 16) )\n    __fastfail(2u);\n}\n
+/*
+ * XREFs of __security_check_cookie @ 0x1C0002900
+ * Callers:
+ *     MouseStart @ 0x1C00026D0 (MouseStart.c)
+ *     __GSHandlerCheckCommon @ 0x1C000297C (__GSHandlerCheckCommon.c)
+ *     MouClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C00041D0 (MouClassTraceLoggingDeniedCreateForReadWithSFAC.c)
+ *     MouClassTraceLoggingPrivilegeNotFoundForCreate @ 0x1C0004248 (MouClassTraceLoggingPrivilegeNotFoundForCreate.c)
+ *     MouseClassFindMorePorts @ 0x1C000C420 (MouseClassFindMorePorts.c)
+ *     MouCreateClassObject @ 0x1C000CBD0 (MouCreateClassObject.c)
+ *     TraceLoggingRegisterEx @ 0x1C000D140 (TraceLoggingRegisterEx.c)
+ *     MouseClassGetWaitWakeEnableState @ 0x1C000E10C (MouseClassGetWaitWakeEnableState.c)
+ *     MouConfiguration @ 0x1C000F080 (MouConfiguration.c)
+ *     DriverEntry @ 0x1C000F470 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
+void __cdecl _security_check_cookie(uintptr_t StackCookie)
+{
+  __int64 v1; // rcx
+
+  if ( StackCookie != _security_cookie )
+ReportFailure:
+    _report_gsfailure(StackCookie);
+  v1 = __ROL8__(StackCookie, 16);
+  if ( (_WORD)v1 )
+  {
+    StackCookie = __ROR8__(v1, 16);
+    goto ReportFailure;
+  }
+}

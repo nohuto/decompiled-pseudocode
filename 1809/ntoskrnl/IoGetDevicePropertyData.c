@@ -1,21 +1,21 @@
 /*
  * XREFs of IoGetDevicePropertyData @ 0x140586930
  * Callers:
- *     PopFxQueryBiosDeviceName @ 0x14015A65C (PopFxQueryBiosDeviceName.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x1402D74D0 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxIsDevicePotentialDripsConstraint @ 0x1402D81CC (PopFxIsDevicePotentialDripsConstraint.c)
+ *     PopFxQueryBiosDeviceName @ 0x14015A67C (PopFxQueryBiosDeviceName.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1402D75D0 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxIsDevicePotentialDripsConstraint @ 0x1402D82CC (PopFxIsDevicePotentialDripsConstraint.c)
  *     ExpHwidGetDevicePropertyDataFixed @ 0x140586700 (ExpHwidGetDevicePropertyDataFixed.c)
  *     ExpHwidGetDevicePropertyData @ 0x140586784 (ExpHwidGetDevicePropertyData.c)
- *     ExpCheckPortableOperatingSystem @ 0x1406C75CC (ExpCheckPortableOperatingSystem.c)
- *     IopGetSessionIdFromPDO @ 0x1406EBC54 (IopGetSessionIdFromPDO.c)
- *     PopDirectedDripsNotifyDeviceStarted @ 0x1406ED0F0 (PopDirectedDripsNotifyDeviceStarted.c)
- *     IopGetInterruptConnectionData @ 0x140710D64 (IopGetInterruptConnectionData.c)
- *     PnprIsMemoryDevice @ 0x1408350B8 (PnprIsMemoryDevice.c)
- *     PnprIsProcessorDevice @ 0x14083516C (PnprIsProcessorDevice.c)
- *     PopDirectedDripsIsExcludedDevice @ 0x14087CBC4 (PopDirectedDripsIsExcludedDevice.c)
+ *     ExpCheckPortableOperatingSystem @ 0x1406C75AC (ExpCheckPortableOperatingSystem.c)
+ *     IopGetSessionIdFromPDO @ 0x1406EBC34 (IopGetSessionIdFromPDO.c)
+ *     PopDirectedDripsNotifyDeviceStarted @ 0x1406ED0D0 (PopDirectedDripsNotifyDeviceStarted.c)
+ *     IopGetInterruptConnectionData @ 0x140710D44 (IopGetInterruptConnectionData.c)
+ *     PnprIsMemoryDevice @ 0x140835098 (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x14083514C (PnprIsProcessorDevice.c)
+ *     PopDirectedDripsIsExcludedDevice @ 0x14087CBA4 (PopDirectedDripsIsExcludedDevice.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     PnpGetDevicePropertyData @ 0x1405869C8 (PnpGetDevicePropertyData.c)
  */
 

@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpPortQueryConnectedSidInfo @ 0x14069B030
+ * XREFs of AlpcpPortQueryConnectedSidInfo @ 0x1406823B8
  * Callers:
- *     NtAlpcQueryInformation @ 0x14069B200 (NtAlpcQueryInformation.c)
+ *     NtAlpcQueryInformation @ 0x140681F90 (NtAlpcQueryInformation.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     RtlEqualSid @ 0x1402A6DB0 (RtlEqualSid.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeReleaseSid @ 0x140668444 (SeReleaseSid.c)
- *     SeCaptureSid @ 0x14066846C (SeCaptureSid.c)
- *     SeQueryUserSidToken @ 0x14066A374 (SeQueryUserSidToken.c)
- *     AlpcpReferenceConnectedPort @ 0x14069B58C (AlpcpReferenceConnectedPort.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeCaptureSid @ 0x1405DE46C (SeCaptureSid.c)
+ *     SeReleaseSid @ 0x1405DE570 (SeReleaseSid.c)
+ *     AlpcpReferenceConnectedPort @ 0x1405E9F00 (AlpcpReferenceConnectedPort.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     SeQueryUserSidToken @ 0x140706E24 (SeQueryUserSidToken.c)
  */
 
 __int64 __fastcall AlpcpPortQueryConnectedSidInfo(__int64 a1, PSID a2, __int64 a3, _DWORD *a4, char a5)
@@ -25,11 +25,11 @@ __int64 __fastcall AlpcpPortQueryConnectedSidInfo(__int64 a1, PSID a2, __int64 a
   __int64 v8; // r8
   __int64 v9; // r9
   __int64 result; // rax
-  signed __int64 *v11; // rdi
+  struct _KPROCESS *DmaOperations; // rdi
   __int64 v12; // rax
-  _QWORD *v13; // r13
+  struct _DMA_ADAPTER *v13; // r13
   signed __int64 *v14; // rsi
-  unsigned __int64 v15; // rbx
+  struct _DMA_ADAPTER *v15; // rbx
   unsigned int v16; // ebx
   int v17; // [rsp+20h] [rbp-C8h]
   PSID Sid1; // [rsp+40h] [rbp-A8h] BYREF
@@ -58,29 +58,29 @@ __int64 __fastcall AlpcpPortQueryConnectedSidInfo(__int64 a1, PSID a2, __int64 a
   if ( (int)result >= 0 )
   {
 LABEL_6:
-    v11 = 0LL;
+    DmaOperations = 0LL;
     v12 = AlpcpReferenceConnectedPort(a1);
-    v13 = (_QWORD *)v12;
+    v13 = (struct _DMA_ADAPTER *)v12;
     if ( v12 )
     {
       v14 = (signed __int64 *)(v12 + 352);
       ExAcquirePushLockSharedEx(v12 + 352, 0LL);
-      if ( (v13[3] & 1) == 0 )
-        v11 = (signed __int64 *)v13[3];
-      if ( v11 )
-        ObfReferenceObjectWithTag(v11, 0x63706C41u);
+      if ( ((__int64)v13[1].DmaOperations & 1) == 0 )
+        DmaOperations = (struct _KPROCESS *)v13[1].DmaOperations;
+      if ( DmaOperations )
+        ObfReferenceObjectWithTag(DmaOperations, 0x63706C41u);
       if ( _InterlockedCompareExchange64(v14, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared(v14);
       KeAbPostRelease((ULONG_PTR)v14);
-      ObfDereferenceObject(v13);
+      HalPutDmaAdapter(v13);
     }
-    if ( v11 )
+    if ( DmaOperations )
     {
-      v15 = PsReferencePrimaryTokenWithTag((__int64)v11, 0x746C6644u);
-      SeQueryUserSidToken(v15, Sid2, 0x44u, 0LL);
-      ObFastDereferenceObject(v11 + 151, v15, 0x746C6644u);
+      v15 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(DmaOperations);
+      SeQueryUserSidToken(v15, Sid2, 68LL);
+      ObFastDereferenceObject((signed __int64 *)&DmaOperations[1].Affinity.Bitmap[5], v15);
       LOBYTE(v15) = RtlEqualSid(Sid1, Sid2);
-      ObfDereferenceObjectWithTag(v11, 0x63706C41u);
+      ObfDereferenceObjectWithTag(DmaOperations, 0x63706C41u);
       v16 = (_BYTE)v15 == 0 ? 0xC00002A0 : 0;
     }
     else

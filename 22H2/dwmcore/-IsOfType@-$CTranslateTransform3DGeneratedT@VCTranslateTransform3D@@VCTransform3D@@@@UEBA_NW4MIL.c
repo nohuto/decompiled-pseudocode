@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@?$CTranslateTransform3DGeneratedT@VCTranslateTransform3D@@VCTransform3D@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C52F0
+ * XREFs of ?IsOfType@?$CTranslateTransform3DGeneratedT@VCTranslateTransform3D@@VCTransform3D@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F140
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@?$CTransform3DGeneratedT@VCTransform3D@@VCEffect@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E0CE0 (-IsOfType@-$CTransform3DGeneratedT@VCTransform3D@@VCEffect@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@?$CTransform3DGeneratedT@VCTransform3D@@VCEffect@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C4F20 (-IsOfType@-$CTransform3DGeneratedT@VCTransform3D@@VCEffect@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CTranslateTransform3DGeneratedT<CTranslateTransform3D,CTransform3D>::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall CTranslateTransform3DGeneratedT<CTranslateTransform3D,CTransform
   char v2; // al
   char v3; // cl
 
-  if ( a2 == 191 )
+  if ( a2 == 190 )
     return 1;
   v2 = CTransform3DGeneratedT<CTransform3D,CEffect>::IsOfType(a1, a2);
   v3 = 0;

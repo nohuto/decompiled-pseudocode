@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenProcessToken @ 0x1401BA5B0
+ * XREFs of ZwOpenProcessToken @ 0x1401BA5D0
  * Callers:
  *     <none>
  * Callees:

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiRelocateImageAgain @ 0x14064F5C0
+ * XREFs of MiRelocateImageAgain @ 0x14064F5A0
  * Callers:
- *     MiValidateExistingImage @ 0x14064F1A4 (MiValidateExistingImage.c)
+ *     MiValidateExistingImage @ 0x14064F184 (MiValidateExistingImage.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1400D92BC (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1400D94BC (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MiGetControlAreaLoadConfig @ 0x1400D94F4 (MiGetControlAreaLoadConfig.c)
- *     MiImageUnused @ 0x140127800 (MiImageUnused.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1400D92DC (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1400D94DC (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MiGetControlAreaLoadConfig @ 0x1400D9514 (MiGetControlAreaLoadConfig.c)
+ *     MiImageUnused @ 0x140127820 (MiImageUnused.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     MiReturnImageBase @ 0x1405F0514 (MiReturnImageBase.c)
- *     MiUpdateCfgSystemWideBitmap @ 0x14064F764 (MiUpdateCfgSystemWideBitmap.c)
- *     MiSelectImageBase @ 0x14064F81C (MiSelectImageBase.c)
- *     MiSwitchBaseAddress @ 0x14064FCD4 (MiSwitchBaseAddress.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x14064F744 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiSelectImageBase @ 0x14064F7FC (MiSelectImageBase.c)
+ *     MiSwitchBaseAddress @ 0x14064FCB4 (MiSwitchBaseAddress.c)
  */
 
 __int64 __fastcall MiRelocateImageAgain(__int64 a1, int a2)
@@ -82,9 +82,9 @@ LABEL_13:
           MiSwitchBaseAddress(a1, v12, v8, v7);
           goto LABEL_10;
         }
-        if ( qword_14040DE00 )
+        if ( qword_14040DDE0 )
         {
-          updated = qword_14040DE00(*(_QWORD *)(v2 + 40) & 0xFFFFFFFFFFFFFFF8uLL, v12);
+          updated = qword_14040DDE0(*(_QWORD *)(v2 + 40) & 0xFFFFFFFFFFFFFFF8uLL, v12);
           if ( updated >= 0 )
             goto LABEL_13;
         }

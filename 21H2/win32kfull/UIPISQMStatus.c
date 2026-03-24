@@ -1,18 +1,17 @@
 /*
- * XREFs of UIPISQMStatus @ 0x1C0121B10
+ * XREFs of UIPISQMStatus @ 0x1C0136350
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall UIPISQMStatus(int a1, int a2)
+__int64 UIPISQMStatus()
 {
-  unsigned int v2; // ebx
+  __int64 v0; // rcx
 
-  v2 = (a2 != 0 ? 2 : 0) | (a1 != 0);
-  FastGetProfileDword(0LL, 50LL, L"EnableMessageSQM", 0LL, &gfWinMsgSQMIsOptedIn);
+  FastGetProfileDword(0LL, 50LL, L"EnableMessageSQM");
   if ( gfWinMsgSQMIsOptedIn )
-    gfWinMsgSQMIsOptedIn = WinSqmIsOptedIn();
-  return WinSqmSetDWORD(gSqmSession, 5715LL, v2);
+    gfWinMsgSQMIsOptedIn = WinSqmIsOptedIn(v0);
+  return WinSqmSetDWORD(gSqmSession, 5715LL);
 }

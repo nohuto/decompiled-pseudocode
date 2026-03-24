@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpLogTransactionAbortedWithChildName @ 0x1406CF688
+ * XREFs of CmpLogTransactionAbortedWithChildName @ 0x1406CF668
  * Callers:
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
  *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmpPerformUnloadKey @ 0x1406923B0 (CmpPerformUnloadKey.c)
- *     CmpLogTransactionAbortedForRollbackPacket @ 0x1406D01F0 (CmpLogTransactionAbortedForRollbackPacket.c)
- *     CmpSaveBootControlSet @ 0x1407E88F0 (CmpSaveBootControlSet.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1407EF43C (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x1407EF8CC (CmSetLastWriteTimeKey.c)
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
+ *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
+ *     CmpLogTransactionAbortedForRollbackPacket @ 0x1406D01D0 (CmpLogTransactionAbortedForRollbackPacket.c)
+ *     CmpSaveBootControlSet @ 0x1407E88D0 (CmpSaveBootControlSet.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1407EF41C (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x1407EF8AC (CmSetLastWriteTimeKey.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
  * Callees:
  *     TraceLoggingProviderEnabled @ 0x1400129D8 (TraceLoggingProviderEnabled.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
  *     RtlUnicodeStringCopy @ 0x140017780 (RtlUnicodeStringCopy.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringCat @ 0x14012B4AC (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x140179D84 (RtlUnicodeStringCatString.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x1407F0C54 (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpLogTransactionAbortedByName @ 0x1407F8720 (CmpLogTransactionAbortedByName.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringCat @ 0x14012B4CC (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCatString @ 0x140179DA4 (RtlUnicodeStringCatString.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x1407F0C34 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpLogTransactionAbortedByName @ 0x1407F8700 (CmpLogTransactionAbortedByName.c)
  */
 
 void __fastcall CmpLogTransactionAbortedWithChildName(

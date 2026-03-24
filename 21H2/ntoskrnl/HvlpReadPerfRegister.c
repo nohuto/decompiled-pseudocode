@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpReadPerfRegister @ 0x140544A28
+ * XREFs of HvlpReadPerfRegister @ 0x1404F33C0
  * Callers:
- *     HvlReadPerfIoPort @ 0x140543E00 (HvlReadPerfIoPort.c)
- *     HvlReadPerfMsr @ 0x140543E80 (HvlReadPerfMsr.c)
+ *     HvlReadPerfIoPort @ 0x1404F25B0 (HvlReadPerfIoPort.c)
+ *     HvlReadPerfMsr @ 0x1404F2630 (HvlReadPerfMsr.c)
  * Callees:
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
- *     HvlpHvToNtStatus @ 0x14054CA70 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
+ *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlpReadPerfRegister(int a1, __int64 a2, _QWORD *a3)
@@ -14,16 +14,16 @@ __int64 __fastcall HvlpReadPerfRegister(int a1, __int64 a2, _QWORD *a3)
   unsigned __int16 v5; // ax
   _DWORD v7[2]; // [rsp+30h] [rbp-28h] BYREF
   __int64 v8; // [rsp+38h] [rbp-20h]
-  _QWORD v9[3]; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v9; // [rsp+40h] [rbp-18h] BYREF
 
   v3 = 0;
   v7[0] = a1;
   v8 = a2;
   v7[1] = 0;
-  v5 = HvcallFastExtended(65564LL, (__int64)v7, 0x10u, (__int64)v9, 0x10u);
+  v5 = HvcallFastExtended(65564LL, (__int64)v7, 0x10u, (int)&v9, 0x10u);
   if ( v5 )
     return (unsigned int)HvlpHvToNtStatus(v5);
   else
-    *a3 = v9[0];
+    *a3 = v9;
   return v3;
 }

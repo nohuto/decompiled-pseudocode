@@ -1,47 +1,66 @@
 /*
- * XREFs of FreeFileView @ 0x1C007C5A8
+ * XREFs of FreeFileView @ 0x1C00A5B30
  * Callers:
- *     ?vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z @ 0x1C007C20C (-vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z.c)
+ *     ?vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z @ 0x1C00A58B4 (-vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z.c)
  * Callees:
- *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C007C504 (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
- *     ??0AutoExclusiveUmfdLookupLock@@QEAA@XZ @ 0x1C007EE40 (--0AutoExclusiveUmfdLookupLock@@QEAA@XZ.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ?Remove@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBI@Z @ 0x1C00A225C (-Remove@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBI@Z.c)
- *     vUnmapRemoteFonts @ 0x1C028C080 (vUnmapRemoteFonts.c)
+ *     ?Remove@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBI@Z @ 0x1C00A4CA4 (-Remove@-$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@QEAA_NAEBI@Z.c)
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C00A8BAC (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     vUnmapRemoteFonts @ 0x1C028A6F0 (vUnmapRemoteFonts.c)
  */
 
 void __fastcall FreeFileView(struct _FILEVIEW **a1, unsigned int a2)
 {
-  __int64 v3; // rbp
-  __int64 v4; // rcx
-  __int64 v5; // r14
-  struct _FILEVIEW **v6; // rsi
-  struct _FILEVIEW **j; // rdi
+  unsigned __int64 v2; // r14
+  unsigned __int64 v4; // rbp
+  struct _FILEVIEW **v5; // rdi
+  unsigned __int64 v6; // rsi
+  unsigned __int64 v7; // rdi
   struct _FILEVIEW **v8; // rsi
-  struct _FILEVIEW **i; // rdi
-  char v10; // [rsp+40h] [rbp+8h] BYREF
-  int v11; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 v9; // rbp
+  char v10; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v11; // [rsp+58h] [rbp+10h] BYREF
 
-  v3 = a2;
-  AutoExclusiveUmfdLookupLock::AutoExclusiveUmfdLookupLock((AutoExclusiveUmfdLookupLock *)&v10);
-  v5 = *(_QWORD *)(SGDGetSessionState(v4) + 32);
-  if ( *(_QWORD *)(v5 + 23472) )
+  v2 = a2;
+  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v10, (struct _EX_PUSH_LOCK *)&UmfdLookupPushLock);
+  if ( UmfdFileviewLookup )
   {
-    v8 = &a1[v3];
-    for ( i = a1; i < v8; ++i )
+    v7 = v2;
+    v8 = a1;
+    v9 = 0LL;
+    if ( a1 > &a1[v2] )
+      v7 = 0LL;
+    if ( v7 )
     {
-      v11 = *((_DWORD *)*i + 16);
-      NSInstrumentation::CSortedVector<unsigned int,_FONTFILEVIEW *>::Remove(*(_QWORD *)(v5 + 23472), &v11);
+      do
+      {
+        v11 = *((_DWORD *)*v8 + 16);
+        NSInstrumentation::CSortedVector<unsigned int,_FONTFILEVIEW *>::Remove(v11, &v11);
+        ++v9;
+        ++v8;
+      }
+      while ( v9 < v7 );
     }
   }
   PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v10);
-  v6 = &a1[v3];
-  for ( j = a1; j < v6; ++j )
+  v4 = v2;
+  v5 = a1;
+  v6 = 0LL;
+  if ( a1 > &a1[v2] )
+    v4 = 0LL;
+  if ( v4 )
   {
-    if ( *((_QWORD *)*j + 11) )
-      vUnmapRemoteFonts();
-    else
-      vUnreferenceFileviewSection(*j);
+    do
+    {
+      if ( *((_QWORD *)*v5 + 11) )
+        vUnmapRemoteFonts();
+      else
+        vUnreferenceFileviewSection(*v5);
+      ++v5;
+      ++v6;
+    }
+    while ( v6 < v4 );
   }
   Win32FreePool(a1);
 }

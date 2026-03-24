@@ -1,14 +1,14 @@
 /*
- * XREFs of KseResetDeviceCache @ 0x140976B5C
+ * XREFs of KseResetDeviceCache @ 0x1408BF59C
  * Callers:
- *     KseQueryDeviceData @ 0x14080A580 (KseQueryDeviceData.c)
- *     KseQueryDeviceDataList @ 0x1409769B0 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceData @ 0x14075EC10 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x1408BF430 (KseQueryDeviceDataList.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KsepCacheReset @ 0x1409777CC (KsepCacheReset.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KsepCacheReset @ 0x1408C110C (KsepCacheReset.c)
  */
 
 __int64 KseResetDeviceCache()
@@ -17,18 +17,18 @@ __int64 KseResetDeviceCache()
   ULONG_PTR v1; // rcx
   volatile signed __int64 *v2; // rdi
 
-  if ( dword_140C64E34 == 2 )
+  if ( dword_140C505E4 == 2 )
   {
     CurrentThread = KeGetCurrentThread();
-    v1 = qword_140C64E78;
+    v1 = qword_140C50628;
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockExclusiveEx(v1, 0LL);
-    KsepCacheReset(qword_140C64E78);
-    v2 = (volatile signed __int64 *)qword_140C64E78;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140C64E78, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    KsepCacheReset(qword_140C50628);
+    v2 = (volatile signed __int64 *)qword_140C50628;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140C50628, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v2);
     KeAbPostRelease((ULONG_PTR)v2);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return 0LL;
 }

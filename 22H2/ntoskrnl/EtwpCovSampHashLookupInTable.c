@@ -1,46 +1,48 @@
 /*
- * XREFs of EtwpCovSampHashLookupInTable @ 0x1408A9932
+ * XREFs of EtwpCovSampHashLookupInTable @ 0x140944CB0
  * Callers:
- *     EtwpCovSampContextAddSamples @ 0x1408A9050 (EtwpCovSampContextAddSamples.c)
- *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1408A99FA (EtwpCovSampHashMakeRoomAndAcquireLock.c)
+ *     EtwpCovSampContextAddSamples @ 0x140942E3C (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x140944D90 (EtwpCovSampHashMakeRoomAndAcquireLock.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall EtwpCovSampHashLookupInTable(__int64 a1, unsigned __int8 *a2, __int64 **a3)
+__int64 __fastcall EtwpCovSampHashLookupInTable(__int64 a1, unsigned __int8 *a2, _QWORD *a3)
 {
-  int v3; // edi
-  __int64 v4; // r11
-  int v5; // r10d
-  __int64 v6; // rbx
-  int v7; // r9d
+  unsigned int v4; // edi
+  int v5; // esi
+  __int64 v6; // r10
+  __int64 v7; // r11
+  int v8; // r9d
+  int v9; // r8d
   __int64 i; // rcx
-  __int64 *v9; // rdx
+  _QWORD *v11; // rdx
   __int64 result; // rax
 
-  v3 = 0;
-  v4 = *(_QWORD *)(a1 + 24);
-  v5 = *(_DWORD *)(a1 + 20) - 1;
-  v6 = *(_QWORD *)a2;
-  v7 = a2[7]
+  v4 = 0;
+  v5 = 0;
+  v6 = *(_QWORD *)(a1 + 24);
+  v7 = *(_QWORD *)a2;
+  v8 = *(_DWORD *)(a1 + 20) - 1;
+  v9 = a2[7]
      + 37 * (a2[6] + 37 * (a2[5] + 37 * (a2[4] + 37 * (a2[3] + 37 * (a2[2] + 37 * (a2[1] + 37 * (*a2 + 11623883)))))));
-  for ( i = v7 & (unsigned int)v5; ; i = v5 & (unsigned int)(v3 + i) )
+  for ( i = v9 & (unsigned int)v8; ; i = v8 & (unsigned int)(v5 + i) )
   {
-    v9 = (__int64 *)(v4 + 8 * i);
-    result = *v9;
-    if ( *v9 == v6 )
+    v11 = (_QWORD *)(v6 + 8 * i);
+    if ( *v11 == v7 )
       break;
-    if ( !result )
+    if ( !*v11 )
       goto LABEL_9;
-    if ( !v3 )
+    if ( !v5 )
     {
-      v3 = -1640531535 * v7 + 1;
-      if ( ((-79 * (_BYTE)v7) & 1) != 0 )
-        v3 = -1640531535 * v7;
+      v5 = -1640531535 * v9 + 1;
+      if ( ((-79 * (_BYTE)v9) & 1) != 0 )
+        v5 = -1640531535 * v9;
     }
   }
-  result = 1LL;
+  v4 = 1;
 LABEL_9:
-  *a3 = v9;
+  result = v4;
+  *a3 = v11;
   return result;
 }

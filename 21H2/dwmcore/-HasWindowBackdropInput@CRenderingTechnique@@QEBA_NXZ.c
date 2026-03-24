@@ -1,59 +1,63 @@
 /*
- * XREFs of ?HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x1800378D8
+ * XREFs of ?HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x18004E038
  * Callers:
- *     ?CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ @ 0x18003719C (-CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ.c)
+ *     ?CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ @ 0x18004B318 (-CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ.c)
  * Callees:
- *     ?MoveNext@CFragmentIterator@@QEAAXXZ @ 0x180037A3C (-MoveNext@CFragmentIterator@@QEAAXXZ.c)
- *     ?FindFirst@CFragmentIterator@@AEAAXXZ @ 0x18003A220 (-FindFirst@CFragmentIterator@@AEAAXXZ.c)
- *     ??$emplace_back@UFragmentStackEntry@CFragmentIterator@@@?$vector@UFragmentStackEntry@CFragmentIterator@@V?$allocator@UFragmentStackEntry@CFragmentIterator@@@std@@@std@@QEAAAEAUFragmentStackEntry@CFragmentIterator@@$$QEAU23@@Z @ 0x18003A288 (--$emplace_back@UFragmentStackEntry@CFragmentIterator@@@-$vector@UFragmentStackEntry@CFragmentIt.c)
- *     ?HasWindowBackdropInput@CRenderingTechniqueFragment@@QEBA_NPEBVCBrushRenderingGraph@@@Z @ 0x18003A57C (-HasWindowBackdropInput@CRenderingTechniqueFragment@@QEBA_NPEBVCBrushRenderingGraph@@@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?HasWindowBackdropInput@CRenderingTechniqueFragment@@QEBA_NPEBVCBrushRenderingGraph@@@Z @ 0x18004D4F0 (-HasWindowBackdropInput@CRenderingTechniqueFragment@@QEBA_NPEBVCBrushRenderingGraph@@@Z.c)
+ *     ?MoveNext@CFragmentIterator@@QEAAXXZ @ 0x18004EEB4 (-MoveNext@CFragmentIterator@@QEAAXXZ.c)
+ *     ?FindFirst@CFragmentIterator@@AEAAXXZ @ 0x180050934 (-FindFirst@CFragmentIterator@@AEAAXXZ.c)
+ *     ??$emplace_back@UFragmentStackEntry@CFragmentIterator@@@?$vector@UFragmentStackEntry@CFragmentIterator@@V?$allocator@UFragmentStackEntry@CFragmentIterator@@@std@@@std@@QEAAAEAUFragmentStackEntry@CFragmentIterator@@$$QEAU23@@Z @ 0x180050A58 (--$emplace_back@UFragmentStackEntry@CFragmentIterator@@@-$vector@UFragmentStackEntry@CFragmentIt.c)
+ *     ?_Adjust_manually_vector_aligned@std@@YAXAEAPEAXAEA_K@Z @ 0x1800C8E90 (-_Adjust_manually_vector_aligned@std@@YAXAEAPEAXAEA_K@Z.c)
  */
 
-bool __fastcall CRenderingTechnique::HasWindowBackdropInput(
-        CRenderingTechnique *this,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+bool __fastcall CRenderingTechnique::HasWindowBackdropInput(CRenderingTechnique *this)
 {
-  __int64 v4; // rax
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  bool v8; // bl
-  __int64 v10; // [rsp+20h] [rbp-30h] BYREF
-  int v11; // [rsp+28h] [rbp-28h]
-  __int128 v12; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v13; // [rsp+40h] [rbp-10h]
+  __int64 v1; // rax
+  _BYTE *v3; // rcx
+  _BYTE *v4; // r8
+  bool v5; // bl
+  __int64 v7; // [rsp+20h] [rbp-30h] BYREF
+  int v8; // [rsp+28h] [rbp-28h]
+  void *v9[2]; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v10; // [rsp+40h] [rbp-10h]
+  unsigned __int64 v11; // [rsp+60h] [rbp+10h] BYREF
+  void *v12; // [rsp+68h] [rbp+18h] BYREF
 
-  v4 = *((_QWORD *)this + 1);
-  v13 = 0LL;
-  v11 = 0;
-  v10 = v4;
-  v12 = 0LL;
-  std::vector<CFragmentIterator::FragmentStackEntry>::emplace_back<CFragmentIterator::FragmentStackEntry>(
-    &v12,
-    &v10,
-    a3,
-    a4);
-  CFragmentIterator::FindFirst((CFragmentIterator *)&v12);
+  v1 = *((_QWORD *)this + 1);
+  v10 = 0LL;
+  v8 = 0;
+  v7 = v1;
+  *(_OWORD *)v9 = 0LL;
+  std::vector<CFragmentIterator::FragmentStackEntry>::emplace_back<CFragmentIterator::FragmentStackEntry>(v9, &v7);
+  CFragmentIterator::FindFirst((CFragmentIterator *)v9);
   while ( 1 )
   {
-    v6 = *((_QWORD *)&v12 + 1);
-    v7 = v12;
-    if ( !((__int64)(*((_QWORD *)&v12 + 1) - v12) >> 4) )
+    v3 = v9[1];
+    v4 = v9[0];
+    if ( !(((char *)v9[1] - (char *)v9[0]) >> 4) )
       break;
     if ( CRenderingTechniqueFragment::HasWindowBackdropInput(
-           *(CRenderingTechniqueFragment **)(*((_QWORD *)&v12 + 1) - 16LL),
+           *((CRenderingTechniqueFragment **)v9[1] - 2),
            *(const struct CBrushRenderingGraph **)this) )
     {
-      v6 = *((_QWORD *)&v12 + 1);
-      v7 = v12;
+      v3 = v9[1];
+      v4 = v9[0];
       break;
     }
-    CFragmentIterator::MoveNext((CFragmentIterator *)&v12);
+    CFragmentIterator::MoveNext((CFragmentIterator *)v9);
   }
-  v8 = (v6 - v7) >> 4 != 0;
-  if ( v7 )
-    std::_Deallocate<16,0>(v7, (v13 - v7) & 0xFFFFFFFFFFFFFFF0uLL);
-  return v8;
+  v5 = (v3 - v4) >> 4 != 0;
+  if ( v4 )
+  {
+    v12 = v4;
+    v11 = (v10 - (_QWORD)v4) & 0xFFFFFFFFFFFFFFF0uLL;
+    if ( v11 >= 0x1000 )
+    {
+      std::_Adjust_manually_vector_aligned(&v12, &v11);
+      v4 = v12;
+    }
+    operator delete(v4);
+  }
+  return v5;
 }

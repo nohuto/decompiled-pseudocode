@@ -1,112 +1,112 @@
 /*
- * XREFs of ?RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x1801C0B5C
+ * XREFs of ?RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x180184F98
  * Callers:
- *     ?Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800BB56C (-Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800ECE84 (-Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800B3CA0 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?NotifyRenderedRect@CLegacyRenderTarget@@AEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x1801C091C (-NotifyRenderedRect@CLegacyRenderTarget@@AEAAXPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoint.c)
- *     McTemplateU0qx_EventWriteTransfer @ 0x1801C0E80 (McTemplateU0qx_EventWriteTransfer.c)
- *     ?Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV4@@Z @ 0x1801D6A58 (-Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@.c)
- *     ?GetCPUTimePerFrame@CDebugFrameCounter@@QEAAIXZ @ 0x1801D79F0 (-GetCPUTimePerFrame@CDebugFrameCounter@@QEAAIXZ.c)
- *     ?GetFrameRate@CDebugFrameCounter@@QEAAIXZ @ 0x1801D7A74 (-GetFrameRate@CDebugFrameCounter@@QEAAIXZ.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058390 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4DebugFrameCounterPosition@1@PEAV4@@Z @ 0x18016200C (-Display@CDisplayDebugFrameCounter@@QEAAJIIPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@.c)
+ *     ?GetCPUTimePerFrame@CDebugFrameCounter@@QEAAIXZ @ 0x180162D28 (-GetCPUTimePerFrame@CDebugFrameCounter@@QEAAIXZ.c)
+ *     ?GetFrameRate@CDebugFrameCounter@@QEAAIXZ @ 0x180162DAC (-GetFrameRate@CDebugFrameCounter@@QEAAIXZ.c)
+ *     ?NotifyRenderedRect@CLegacyRenderTarget@@AEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x180184B78 (-NotifyRenderedRect@CLegacyRenderTarget@@AEAAXPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoint.c)
+ *     McTemplateU0qx_EventWriteTransfer @ 0x1801853DC (McTemplateU0qx_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CLegacyRenderTarget::RenderDebugFrameCounter(CLegacyRenderTarget *this, struct CDrawingContext *a2)
 {
   unsigned int v2; // ebx
-  CDebugFrameCounter *v4; // rdi
-  int v5; // eax
-  float v6; // xmm6_4
-  float v7; // xmm7_4
-  float v8; // xmm8_4
+  CDebugFrameCounter *v5; // rdi
+  int v6; // eax
+  float v7; // xmm6_4
+  float v8; // xmm7_4
+  float v9; // xmm8_4
   unsigned int FrameRate; // r14d
   unsigned int CPUTimePerFrame; // eax
-  __int64 v11; // rcx
-  CDisplayDebugFrameCounter *v12; // rdi
-  int v13; // eax
-  __int64 v14; // rcx
-  float v15; // xmm0_4
-  float v16; // xmm2_4
-  float v17; // xmm3_4
-  float v18; // xmm1_4
-  __int64 v19; // r9
-  __int128 v21; // [rsp+48h] [rbp-29h] BYREF
-  float v22; // [rsp+58h] [rbp-19h] BYREF
-  float v23; // [rsp+5Ch] [rbp-15h]
-  float v24; // [rsp+60h] [rbp-11h]
-  float v25; // [rsp+64h] [rbp-Dh]
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  unsigned int v14; // r15d
+  CDisplayDebugFrameCounter *v15; // rdi
+  int v16; // eax
+  __int64 v17; // rcx
+  float v18; // xmm0_4
+  float v19; // xmm2_4
+  float v20; // xmm3_4
+  float v21; // xmm1_4
+  __int128 v23; // [rsp+48h] [rbp-29h] BYREF
+  __int128 v24; // [rsp+58h] [rbp-19h] BYREF
 
   v2 = 0;
-  v4 = (CDebugFrameCounter *)*((_QWORD *)g_pComposition + 78);
-  if ( v4 )
+  v5 = (CDebugFrameCounter *)*((_QWORD *)g_pComposition + 59);
+  if ( v5 )
   {
-    v5 = *((_DWORD *)this + 26);
-    v22 = 0.0;
-    v6 = 0.0;
-    v23 = 0.0;
-    v7 = (float)v5;
-    v8 = (float)*((int *)this + 27);
-    v24 = (float)v5;
-    v21 = 0LL;
-    v25 = v8;
-    FrameRate = CDebugFrameCounter::GetFrameRate(v4);
-    CPUTimePerFrame = CDebugFrameCounter::GetCPUTimePerFrame(v4);
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
-      McTemplateU0qx_EventWriteTransfer(v11, &EVTDESC_DEBUG_FRAME_COUNTER_EVENT, FrameRate, CPUTimePerFrame);
-    v12 = (CDebugFrameCounter *)((char *)v4 + 4640);
-    if ( v12 )
+    v6 = *((_DWORD *)this + 20);
+    *(_QWORD *)&v24 = 0LL;
+    v7 = 0.0;
+    v8 = (float)v6;
+    v9 = (float)*((int *)this + 21);
+    *((float *)&v24 + 2) = (float)v6;
+    v23 = 0LL;
+    *((float *)&v24 + 3) = v9;
+    FrameRate = CDebugFrameCounter::GetFrameRate(v5);
+    CPUTimePerFrame = CDebugFrameCounter::GetCPUTimePerFrame(v5);
+    v14 = CPUTimePerFrame;
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+      McTemplateU0qx_EventWriteTransfer(v13, v12, FrameRate, CPUTimePerFrame);
+    v15 = (CDebugFrameCounter *)((char *)v5 + 4656);
+    if ( v15 )
     {
-      v13 = CDisplayDebugFrameCounter::Display(
-              v12,
+      v16 = CDisplayDebugFrameCounter::Display(
+              v15,
               FrameRate,
-              (__int64)this + 18208,
-              (__int64)&v22,
-              (void *)(CCommonRegistryData::m_fDebugFrameCounterIsVertical != 0),
-              (__int64)&v21);
-      v2 = v13;
-      if ( v13 < 0 )
+              v14,
+              a2,
+              (__int64)this + 264,
+              &v24,
+              CCommonRegistryData::m_fDebugFrameCounterIsVertical != 0,
+              &v23);
+      v2 = v16;
+      if ( v16 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x5E6u);
+        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x575u, 0LL);
         return v2;
       }
-      v15 = *(float *)&v21;
-      v8 = v25;
-      v7 = v24;
-      v6 = v23;
-      if ( v22 > *(float *)&v21 )
+      v18 = *(float *)&v23;
+      v9 = *((float *)&v24 + 3);
+      v8 = *((float *)&v24 + 2);
+      v7 = *((float *)&v24 + 1);
+      if ( *(float *)&v24 > *(float *)&v23 )
       {
-        *(float *)&v21 = v22;
-        v15 = v22;
+        LODWORD(v23) = v24;
+        v18 = *(float *)&v24;
       }
     }
     else
     {
-      v15 = *(float *)&v21;
+      v18 = *(float *)&v23;
     }
-    v16 = *((float *)&v21 + 1);
-    if ( v6 > *((float *)&v21 + 1) )
+    v19 = *((float *)&v23 + 1);
+    if ( v7 > *((float *)&v23 + 1) )
     {
-      *((float *)&v21 + 1) = v6;
-      v16 = v6;
+      *((float *)&v23 + 1) = v7;
+      v19 = v7;
     }
-    v17 = *((float *)&v21 + 2);
-    if ( *((float *)&v21 + 2) > v7 )
+    v20 = *((float *)&v23 + 2);
+    if ( *((float *)&v23 + 2) > v8 )
     {
-      *((float *)&v21 + 2) = v7;
-      v17 = v7;
+      *((float *)&v23 + 2) = v8;
+      v20 = v8;
     }
-    v18 = *((float *)&v21 + 3);
-    if ( *((float *)&v21 + 3) > v8 )
+    v21 = *((float *)&v23 + 3);
+    if ( *((float *)&v23 + 3) > v9 )
     {
-      *((float *)&v21 + 3) = v8;
-      v18 = v8;
+      *((float *)&v23 + 3) = v9;
+      v21 = v9;
     }
-    if ( v17 <= v15 || v18 <= v16 )
-      v21 = 0uLL;
-    if ( !TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)&v21) )
-      CLegacyRenderTarget::NotifyRenderedRect((__int64)this, &v21, 1, v19);
+    if ( v20 <= v18 || v21 <= v19 )
+      v23 = 0uLL;
+    if ( !TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)&v23) )
+      CLegacyRenderTarget::NotifyRenderedRect((__int64)this, (float *)&v23, 1);
   }
   return v2;
 }

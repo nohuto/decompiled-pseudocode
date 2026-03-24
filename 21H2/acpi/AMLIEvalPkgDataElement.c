@@ -1,20 +1,19 @@
 /*
- * XREFs of AMLIEvalPkgDataElement @ 0x1C0019244
+ * XREFs of AMLIEvalPkgDataElement @ 0x1C000F09C
  * Callers:
- *     LinkNodeCrackPrt @ 0x1C00192F8 (LinkNodeCrackPrt.c)
- *     ACPIFanFSTCallback @ 0x1C0054AC0 (ACPIFanFSTCallback.c)
- *     ACPIFanPrepareImpactZoneSupport @ 0x1C0090490 (ACPIFanPrepareImpactZoneSupport.c)
- *     ACPIProcessPhysicalDeviceLocation @ 0x1C0094310 (ACPIProcessPhysicalDeviceLocation.c)
- *     ACPIThermalBuildConstraints @ 0x1C00956BC (ACPIThermalBuildConstraints.c)
- *     ACPIProcessPhysicalDeviceLocationPackage @ 0x1C00A035C (ACPIProcessPhysicalDeviceLocationPackage.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
+ *     ACPIFanFSTCallback @ 0x1C0055370 (ACPIFanFSTCallback.c)
+ *     ACPIProcessPhysicalDeviceLocationPackage @ 0x1C0091638 (ACPIProcessPhysicalDeviceLocationPackage.c)
+ *     ACPIThermalBuildConstraints @ 0x1C0091BD0 (ACPIThermalBuildConstraints.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C009E538 (ACPIProcessPhysicalDeviceLocation.c)
  * Callees:
- *     DupObjData @ 0x1C00169A0 (DupObjData.c)
- *     ConPrintf @ 0x1C00290CC (ConPrintf.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     GetObjectTypeName @ 0x1C0066810 (GetObjectTypeName.c)
- *     AMLIDebugger @ 0x1C0067034 (AMLIDebugger.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     DupObjData @ 0x1C000A400 (DupObjData.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
+ *     AMLIDebugger @ 0x1C0065C80 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
  */
 
 __int64 __fastcall AMLIEvalPkgDataElement(__int64 a1, unsigned int a2, __int64 a3)
@@ -25,16 +24,17 @@ __int64 __fastcall AMLIEvalPkgDataElement(__int64 a1, unsigned int a2, __int64 a
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
+  __int64 v12; // r9
   int ObjectTypeName; // eax
 
-  dword_1C0081AC8 = 0;
+  dword_1C0082908 = 0;
   v5 = a2;
-  byte_1C0081ACC = 0;
+  pszDest = 0;
   if ( (gDebugger & 0x1000) != 0 )
   {
     ConPrintf("\nProcess AML Debugger Request.\n");
     _InterlockedAnd(&gDebugger, 0xFFFFEFFF);
-    AMLIDebugger(v10, v9, v11);
+    AMLIDebugger(v10, v9, v11, v12);
   }
   *(_OWORD *)a3 = 0LL;
   *(_OWORD *)(a3 + 16) = 0LL;

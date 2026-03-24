@@ -1,7 +1,7 @@
 /*
- * XREFs of Endpoint_SetType @ 0x1C006B678
+ * XREFs of Endpoint_SetType @ 0x1C006A5A0
  * Callers:
- *     Endpoint_Create @ 0x1C006B6C8 (Endpoint_Create.c)
+ *     Endpoint_Create @ 0x1C006A5F0 (Endpoint_Create.c)
  * Callees:
  *     <none>
  */
@@ -25,10 +25,10 @@ __int64 __fastcall Endpoint_SetType(__int64 a1)
     default:
       *(_DWORD *)(a1 + 120) = 0;
       v1 = 0;
-      goto LABEL_4;
+      goto LABEL_5;
   }
   *(_DWORD *)(a1 + 120) = v1;
-LABEL_4:
+LABEL_5:
   if ( *(char *)(a1 + 98) < 0 || !v1 )
   {
     result = (unsigned int)(v1 + 4);

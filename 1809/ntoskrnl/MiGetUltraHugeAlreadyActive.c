@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetUltraHugeAlreadyActive @ 0x1401855D4
+ * XREFs of MiGetUltraHugeAlreadyActive @ 0x1401855F4
  * Callers:
- *     MiGetHugePageToZero @ 0x140185444 (MiGetHugePageToZero.c)
+ *     MiGetHugePageToZero @ 0x140185464 (MiGetHugePageToZero.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
- *     MiDecrementHugeContext @ 0x140185A28 (MiDecrementHugeContext.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
+ *     MiDecrementHugeContext @ 0x140185A48 (MiDecrementHugeContext.c)
  */
 
 unsigned int **__fastcall MiGetUltraHugeAlreadyActive(__int64 a1, __int64 a2, int a3)

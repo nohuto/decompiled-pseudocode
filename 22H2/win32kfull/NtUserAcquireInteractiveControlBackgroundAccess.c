@@ -1,67 +1,64 @@
 /*
- * XREFs of NtUserAcquireInteractiveControlBackgroundAccess @ 0x1C003D5D0
+ * XREFs of NtUserAcquireInteractiveControlBackgroundAccess @ 0x1C00E5C20
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z @ 0x1C003D0EC (-AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z.c)
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C003D78C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5B10 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z @ 0x1C00E5B5C (-AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z.c)
  */
 
 __int64 __fastcall NtUserAcquireInteractiveControlBackgroundAccess(int a1, unsigned int a2, __int64 a3)
 {
-  __int64 v6; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  struct tagWND *v9; // rdi
-  __int64 v10; // r8
-  __int64 v11; // r9
-  InteractiveControlManager *v12; // rax
-  unsigned int v13; // r9d
-  unsigned int v14; // r8d
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int128 v19; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v20; // [rsp+40h] [rbp-18h]
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // rsi
+  __int64 v9; // rcx
+  struct tagWND *v10; // rbp
+  unsigned int v11; // edi
+  unsigned int v12; // ebx
+  InteractiveControlManager *v13; // rax
+  __int64 v14; // rcx
+  __int128 v16; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v17; // [rsp+40h] [rbp-28h]
 
-  v19 = 0LL;
-  v20 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v6 = 0LL;
+  v16 = 0LL;
+  v17 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v8 = 0LL;
   if ( a3 )
   {
-    v9 = (struct tagWND *)ValidateHwnd(a3);
-    if ( !v9 )
+    v10 = (struct tagWND *)ValidateHwnd(a3);
+    if ( !v10 )
       goto LABEL_11;
   }
   else
   {
-    v9 = 0LL;
+    v10 = 0LL;
   }
-  *(_QWORD *)&v19 = *(_QWORD *)(gptiCurrent + 416LL);
-  *(_QWORD *)(gptiCurrent + 416LL) = &v19;
-  *((_QWORD *)&v19 + 1) = v9;
-  if ( v9 )
-    HMLockObject(v9);
+  *(_QWORD *)&v16 = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = &v16;
+  *((_QWORD *)&v16 + 1) = v10;
+  if ( v10 )
+    HMLockObject(v10);
   if ( a2 && a2 - 744 > 0x11 )
   {
-    UserSetLastError(87LL);
+    UserSetLastError(87LL, v6, v7);
   }
   else
   {
-    v12 = InteractiveControlManager::Instance();
-    v13 = 761;
-    v14 = 744;
+    v11 = 761;
+    v12 = 744;
     if ( a2 )
     {
-      v13 = a2;
-      v14 = a2;
+      v11 = a2;
+      v12 = a2;
     }
-    LOBYTE(v6) = (int)InteractiveControlManager::AcquireDeviceBackgroundAccess(v12, a1, v14, v13, v9) >= 0;
+    v13 = InteractiveControlManager::Instance();
+    LOBYTE(v8) = (int)InteractiveControlManager::AcquireDeviceBackgroundAccess(v13, a1, v12, v11, v10) >= 0;
   }
-  ThreadUnlock1(v16, v15, v17);
+  ThreadUnlock1(v14);
 LABEL_11:
-  UserSessionSwitchLeaveCrit(v8, v7, v10, v11);
-  return v6;
+  UserSessionSwitchLeaveCrit(v9);
+  return v8;
 }

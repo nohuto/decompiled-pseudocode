@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSqmThermalZoneEnumeration @ 0x1409A0558
+ * XREFs of PopSqmThermalZoneEnumeration @ 0x1408F9E9C
  * Callers:
- *     PopDiagTraceThermalZoneEnumeration @ 0x1403D3464 (PopDiagTraceThermalZoneEnumeration.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x1403C519C (PopDiagTraceThermalZoneEnumeration.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402A2094 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall PopSqmThermalZoneEnumeration(
@@ -26,7 +26,7 @@ char __fastcall PopSqmThermalZoneEnumeration(
   __int64 v12; // rax
   __int64 v14; // r9
   int v15; // r11d
-  const WCHAR *v16; // r10
+  const size_t *v16; // r10
   int v18; // [rsp+30h] [rbp-D0h] BYREF
   int v19; // [rsp+34h] [rbp-CCh] BYREF
   int v20; // [rsp+38h] [rbp-C8h] BYREF
@@ -72,12 +72,12 @@ char __fastcall PopSqmThermalZoneEnumeration(
   int v60; // [rsp+13Ch] [rbp+3Ch]
 
   v12 = *(_QWORD *)(a2 + 8);
-  if ( (unsigned int)dword_140C03A00 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    LOBYTE(v12) = tlgKeywordOn((__int64)&dword_140C03A00, 0x400000000000LL);
+    LOBYTE(v12) = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
     if ( (_BYTE)v12 )
     {
-      tlgCreate1Sz_wchar_t((__int64)v29, *(const WCHAR **)(v14 + 8));
+      tlgCreate1Sz_wchar_t((__int64)v29, *(const size_t **)(v14 + 8));
       v32 = 0;
       v35 = 0;
       v38 = 0;
@@ -120,8 +120,8 @@ char __fastcall PopSqmThermalZoneEnumeration(
       v27 = a12;
       v59 = 4;
       LOBYTE(v12) = tlgWriteTransfer_EtwWriteTransfer(
-                      (__int64)&dword_140C03A00,
-                      (unsigned __int8 *)word_14003285A,
+                      (__int64)&dword_140C02228,
+                      (unsigned __int8 *)&dword_14002A74C,
                       0LL,
                       0LL,
                       0xEu,

@@ -1,11 +1,13 @@
 /*
- * XREFs of GreSelectVisRgnShared @ 0x1C016B150
+ * XREFs of GreSelectVisRgnShared @ 0x1C003A270
  * Callers:
- *     <none>
+ *     NtUserGetDC @ 0x1C0036B40 (NtUserGetDC.c)
+ *     _GetDCEx @ 0x1C0038070 (_GetDCEx.c)
+ *     GetMonitorDC @ 0x1C003B0E0 (GetMonitorDC.c)
  * Callees:
- *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C004B718 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJA@@QEAA@XZ @ 0x1C004B77C (--1DCOBJA@@QEAA@XZ.c)
- *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C004B888 (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C0038DB0 (--1DCOBJA@@QEAA@XZ.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C0038DDC (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C003950C (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
  */
 
 __int64 __fastcall GreSelectVisRgnShared(HDC a1, HRGN a2, int a3)

@@ -1,20 +1,19 @@
 /*
- * XREFs of MiTransferSoftwarePte @ 0x140340078
+ * XREFs of MiTransferSoftwarePte @ 0x14026A0D8
  * Callers:
- *     MiFindFreePageFileSpace @ 0x14025F6B0 (MiFindFreePageFileSpace.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1402710C4 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiWriteComplete @ 0x14028C230 (MiWriteComplete.c)
- *     MiDeletePteList @ 0x1402C3BA0 (MiDeletePteList.c)
- *     MiDecommitPages @ 0x1402CE240 (MiDecommitPages.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x14033F8E0 (MiRewriteTrimPteAsDemandZero.c)
- *     MiStoreWriteModifiedPages @ 0x14037B44C (MiStoreWriteModifiedPages.c)
- *     MiUpdatePfnBackingStore @ 0x14037BAD4 (MiUpdatePfnBackingStore.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x14059D170 (MiTrimUnusedPageFileRegionsWorker.c)
- *     MiBuildForkPte @ 0x1405B88D8 (MiBuildForkPte.c)
+ *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
+ *     MiStoreWriteModifiedPages @ 0x140266950 (MiStoreWriteModifiedPages.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x140267690 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1402696C0 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiUpdatePfnBackingStore @ 0x140269DE4 (MiUpdatePfnBackingStore.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x140269EA8 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiFindFreePageFileSpace @ 0x14026A714 (MiFindFreePageFileSpace.c)
+ *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402CCC50 (MiSwizzleInvalidPte.c)
- *     MiUpdatePageFileHighInPte @ 0x14033B6A0 (MiUpdatePageFileHighInPte.c)
- *     MiSetNonResidentPteHeat @ 0x14033C3A0 (MiSetNonResidentPteHeat.c)
+ *     MiUpdatePageFileHighInPte @ 0x14023DD80 (MiUpdatePageFileHighInPte.c)
+ *     MiSetNonResidentPteHeat @ 0x14023E7B0 (MiSetNonResidentPteHeat.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
  */
 
 unsigned __int64 __fastcall MiTransferSoftwarePte(unsigned __int64 a1, __int64 a2, unsigned int a3)

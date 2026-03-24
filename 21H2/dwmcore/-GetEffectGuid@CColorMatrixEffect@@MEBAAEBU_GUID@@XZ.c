@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CColorMatrixEffect@@MEBAAEBU_GUID@@XZ @ 0x1800F9D20
+ * XREFs of ?GetEffectGuid@CColorMatrixEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E1FA0
  * Callers:
  *     <none>
  * Callees:

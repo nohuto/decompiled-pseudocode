@@ -1,23 +1,23 @@
 /*
- * XREFs of PfTStart @ 0x140752A9C
+ * XREFs of PfTStart @ 0x140752A7C
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140665898 (PfSetSuperfetchInformation.c)
- *     PfpParametersPropagate @ 0x140865904 (PfpParametersPropagate.c)
+ *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
+ *     PfpParametersPropagate @ 0x1408658E4 (PfpParametersPropagate.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PfFbBufferListUpdateMax @ 0x14013BB5C (PfFbBufferListUpdateMax.c)
- *     PfFbBufferListAllocate @ 0x14018C030 (PfFbBufferListAllocate.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PfFbBufferListUpdateMax @ 0x14013BB7C (PfFbBufferListUpdateMax.c)
+ *     PfFbBufferListAllocate @ 0x14018C050 (PfFbBufferListAllocate.c)
  *     PfTAccessTracingStart @ 0x140565FF4 (PfTAccessTracingStart.c)
  *     PsEnumProcesses @ 0x1405B1AFC (PsEnumProcesses.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
- *     PfTInitialize @ 0x140751D78 (PfTInitialize.c)
- *     PfTAllocateBuffers @ 0x140752D1C (PfTAllocateBuffers.c)
- *     PfpCreateEvent @ 0x140752E90 (PfpCreateEvent.c)
- *     PfTCleanup @ 0x1408651FC (PfTCleanup.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     PfTInitialize @ 0x140751D58 (PfTInitialize.c)
+ *     PfTAllocateBuffers @ 0x140752CFC (PfTAllocateBuffers.c)
+ *     PfpCreateEvent @ 0x140752E70 (PfpCreateEvent.c)
+ *     PfTCleanup @ 0x1408651DC (PfTCleanup.c)
  */
 
 __int64 __fastcall PfTStart(__int64 a1, void *a2, unsigned int a3)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PipProcessStartPhase1 @ 0x1406EBCD0
+ * XREFs of PipProcessStartPhase1 @ 0x1406EBCB0
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406E657C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     McTemplateK0dz @ 0x14028ABE4 (McTemplateK0dz.c)
- *     PnpStartDeviceNode @ 0x1406EBA7C (PnpStartDeviceNode.c)
- *     IopUncacheInterfaceInformation @ 0x1406EBD84 (IopUncacheInterfaceInformation.c)
- *     PpProfileBeginHardwareProfileTransition @ 0x1408327B4 (PpProfileBeginHardwareProfileTransition.c)
- *     PpProfileIncludeInHardwareProfileTransition @ 0x140832A5C (PpProfileIncludeInHardwareProfileTransition.c)
- *     PpProfileQueryHardwareProfileChange @ 0x140832B64 (PpProfileQueryHardwareProfileChange.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     McTemplateK0dz @ 0x14028ACE4 (McTemplateK0dz.c)
+ *     PnpStartDeviceNode @ 0x1406EBA5C (PnpStartDeviceNode.c)
+ *     IopUncacheInterfaceInformation @ 0x1406EBD64 (IopUncacheInterfaceInformation.c)
+ *     PpProfileBeginHardwareProfileTransition @ 0x140832794 (PpProfileBeginHardwareProfileTransition.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x140832A3C (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PpProfileQueryHardwareProfileChange @ 0x140832B44 (PpProfileQueryHardwareProfileChange.c)
  */
 
 __int64 __fastcall PipProcessStartPhase1(ULONG_PTR BugCheckParameter4, int a2, __int64 a3)

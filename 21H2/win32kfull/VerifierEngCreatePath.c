@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierEngCreatePath @ 0x1C029CE30
+ * XREFs of VerifierEngCreatePath @ 0x1C029E550
  * Callers:
  *     <none>
  * Callees:
- *     EngCreatePath @ 0x1C0283600 (EngCreatePath.c)
- *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C029C964 (-VerifierRandomFailure@@YAHK@Z.c)
+ *     EngCreatePath @ 0x1C0286A10 (EngCreatePath.c)
+ *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C029E070 (-VerifierRandomFailure@@YAHK@Z.c)
  */
 
 PATHOBJ *VerifierEngCreatePath()

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwManageHotPatch @ 0x1401BA2B0
+ * XREFs of ZwManageHotPatch @ 0x1401BA2D0
  * Callers:
  *     <none>
  * Callees:

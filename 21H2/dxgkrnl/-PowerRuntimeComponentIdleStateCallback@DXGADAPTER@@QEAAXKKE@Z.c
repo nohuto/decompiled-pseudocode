@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PowerRuntimeComponentIdleStateCallback@DXGADAPTER@@QEAAXKKE@Z @ 0x1C001A928
+ * XREFs of ?PowerRuntimeComponentIdleStateCallback@DXGADAPTER@@QEAAXKKE@Z @ 0x1C0038530
  * Callers:
- *     ?SetPowerComponentActiveCBWorker@DXGADAPTER@@QEAAXIEK@Z @ 0x1C0014D90 (-SetPowerComponentActiveCBWorker@DXGADAPTER@@QEAAXIEK@Z.c)
- *     ?SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z @ 0x1C00170F0 (-SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z.c)
- *     ?DxgkPowerRuntimeComponentIdleStateCallback@@YAXPEAXKK@Z @ 0x1C001A910 (-DxgkPowerRuntimeComponentIdleStateCallback@@YAXPEAXKK@Z.c)
+ *     ?SetPowerComponentActiveCBWorker@DXGADAPTER@@QEAAXIEK@Z @ 0x1C0039274 (-SetPowerComponentActiveCBWorker@DXGADAPTER@@QEAAXIEK@Z.c)
+ *     ?SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z @ 0x1C00398E0 (-SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z.c)
+ *     ?DxgkPowerRuntimeComponentIdleStateCallback@@YAXPEAXKK@Z @ 0x1C003EA60 (-DxgkPowerRuntimeComponentIdleStateCallback@@YAXPEAXKK@Z.c)
  * Callees:
- *     ?PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z @ 0x1C001A984 (-PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z.c)
+ *     ?PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z @ 0x1C003864C (-PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z.c)
  */
 
 void __fastcall DXGADAPTER::PowerRuntimeComponentIdleStateCallback(
@@ -16,25 +16,25 @@ void __fastcall DXGADAPTER::PowerRuntimeComponentIdleStateCallback(
 {
   PSLIST_ENTRY v8; // rax
 
-  if ( *((_QWORD *)this + 464)
+  if ( *((_QWORD *)this + 452)
     && (a2 == 1 || a2 == 4)
-    && _InterlockedIncrement((volatile signed __int32 *)this + 916) > 1 )
+    && _InterlockedIncrement((volatile signed __int32 *)this + 892) > 1 )
   {
     while ( 1 )
     {
-      v8 = ExpInterlockedPopEntrySList((PSLIST_HEADER)this + 231);
+      v8 = ExpInterlockedPopEntrySList((PSLIST_HEADER)this + 225);
       if ( v8 )
         break;
       if ( KeGetCurrentIrql() < 2u )
-        KeWaitForSingleObject((char *)this + 3632, Executive, 0, 0, 0LL);
+        KeWaitForSingleObject((char *)this + 3536, Executive, 0, 0, 0LL);
       else
         KeStallExecutionProcessor(0x64u);
     }
     LODWORD(v8[1].Next) = a2;
     HIDWORD(v8[1].Next) = a3;
     *((_BYTE *)&v8[1].Next + 8) = a4;
-    ExInterlockedInsertTailList((PLIST_ENTRY)((char *)this + 3672), (PLIST_ENTRY)v8, (PKSPIN_LOCK)this + 457);
-    KeSetEvent((PRKEVENT)((char *)this + 3584), 0, 0);
+    ExInterlockedInsertTailList((PLIST_ENTRY)((char *)this + 3576), (PLIST_ENTRY)v8, (PKSPIN_LOCK)this + 445);
+    KeSetEvent((PRKEVENT)((char *)this + 3488), 0, 0);
   }
   else
   {

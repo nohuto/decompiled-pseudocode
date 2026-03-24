@@ -1,24 +1,24 @@
 /*
- * XREFs of ACPIEcDispatchQueries @ 0x1C0025978
+ * XREFs of ACPIEcDispatchQueries @ 0x1C0053F08
  * Callers:
- *     ACPIEcServiceIoLoop @ 0x1C0002EF0 (ACPIEcServiceIoLoop.c)
- *     ACPIEcCompleteQueryMethod @ 0x1C0025900 (ACPIEcCompleteQueryMethod.c)
+ *     ACPIEcCompleteQueryMethod @ 0x1C0053E90 (ACPIEcCompleteQueryMethod.c)
+ *     ACPIEcServiceIoLoop @ 0x1C00544A4 (ACPIEcServiceIoLoop.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     ACPIEcRunQueryMethod @ 0x1C0025AE4 (ACPIEcRunQueryMethod.c)
- *     ACPIEcUnloadPending @ 0x1C0025B94 (ACPIEcUnloadPending.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIEcRunQueryMethod @ 0x1C0054084 (ACPIEcRunQueryMethod.c)
+ *     ACPIEcUnloadPending @ 0x1C00AF030 (ACPIEcUnloadPending.c)
  */
 
 void __fastcall ACPIEcDispatchQueries(__int64 a1)
 {
   KSPIN_LOCK *v2; // r14
-  unsigned int v3; // esi
+  __int64 v3; // r9
   unsigned __int64 v4; // rdx
-  __int64 v5; // rdx
-  void (__fastcall *v6)(_QWORD, __int64); // rdi
-  __int64 v7; // rbx
-  KIRQL v8; // r10
-  unsigned __int8 v9; // al
+  unsigned int v5; // esi
+  __int64 v6; // r8
+  void (__fastcall *v7)(_QWORD, __int64); // rdi
+  __int64 v8; // rbx
+  KIRQL v9; // r10
   unsigned int v10; // ebx
   KIRQL v11; // al
   unsigned __int8 v12; // al
@@ -28,19 +28,19 @@ void __fastcall ACPIEcDispatchQueries(__int64 a1)
   v2 = (KSPIN_LOCK *)(a1 + 88);
   while ( 1 )
   {
-    v8 = KeAcquireSpinLockRaiseToDpc(v2);
-    v9 = *(_BYTE *)(a1 + 445);
-    if ( !v9 )
+    v9 = KeAcquireSpinLockRaiseToDpc(v2);
+    if ( !*(_BYTE *)(a1 + 445) )
       break;
-    v3 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 448) + 24LL * v9 + 1);
-    v4 = (unsigned __int64)*(unsigned __int8 *)(*(_QWORD *)(a1 + 448) + 24LL * v9 + 1) >> 5;
-    *(_DWORD *)(a1 + 4 * v4 + 124) &= ~(1 << (v3 & 0x1F));
-    v5 = *(_QWORD *)(a1 + 448);
-    *(_BYTE *)(a1 + 445) = *(_BYTE *)(v5 + 24LL * v9);
-    v6 = *(void (__fastcall **)(_QWORD, __int64))(v5 + 24LL * v9 + 8);
-    v7 = *(_QWORD *)(v5 + 24LL * v9 + 16);
-    KeReleaseSpinLock(v2, v8);
-    v6(v3, v7);
+    v3 = *(unsigned __int8 *)(a1 + 445);
+    v4 = (unsigned __int64)*(unsigned __int8 *)(*(_QWORD *)(a1 + 448) + 24 * v3 + 1) >> 5;
+    v5 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 448) + 24 * v3 + 1);
+    *(_DWORD *)(a1 + 4 * v4 + 124) &= ~(1 << (*(_BYTE *)(*(_QWORD *)(a1 + 448) + 24 * v3 + 1) & 0x1F));
+    v6 = *(_QWORD *)(a1 + 448);
+    *(_BYTE *)(a1 + 445) = *(_BYTE *)(v6 + 24 * v3);
+    v7 = *(void (__fastcall **)(_QWORD, __int64))(v6 + 24 * v3 + 8);
+    v8 = *(_QWORD *)(v6 + 24 * v3 + 16);
+    KeReleaseSpinLock(v2, v9);
+    v7(v5, v8);
   }
   if ( !*(_BYTE *)(a1 + 122) )
   {
@@ -53,10 +53,10 @@ void __fastcall ACPIEcDispatchQueries(__int64 a1)
       *(_DWORD *)(a1 + 4 * ((unsigned __int64)v12 >> 5) + 124) &= ~(1 << (v12 & 0x1F));
       *(_BYTE *)(a1 + 444) = *(_BYTE *)(v12 + a1 + 188);
       *(_BYTE *)(a1 + 122) = 1;
-      KeReleaseSpinLock(v2, v8);
+      KeReleaseSpinLock(v2, v9);
       ACPIEcRunQueryMethod(a1, v10);
       v11 = KeAcquireSpinLockRaiseToDpc(v2);
-      v8 = v11;
+      v9 = v11;
       if ( *(_BYTE *)(a1 + 122) == 1 )
       {
         *(_BYTE *)(a1 + 122) = 2;
@@ -69,7 +69,7 @@ void __fastcall ACPIEcDispatchQueries(__int64 a1)
     if ( v13 )
       ACPIEcUnloadPending(a1);
   }
-  v14 = v8;
+  v14 = v9;
 LABEL_11:
   KeReleaseSpinLock(v2, v14);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwWriteKMSecurityEvent @ 0x140188CE0
+ * XREFs of EtwWriteKMSecurityEvent @ 0x140188D00
  * Callers:
- *     AdtpWriteToEtwEx @ 0x1403258D0 (AdtpWriteToEtwEx.c)
- *     AdtpWriteToEtw @ 0x14074D584 (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtwEx @ 0x1403259D0 (AdtpWriteToEtwEx.c)
+ *     AdtpWriteToEtw @ 0x14074D564 (AdtpWriteToEtw.c)
  * Callees:
- *     EtwpEventWriteFull @ 0x1400C84C0 (EtwpEventWriteFull.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 __fastcall EtwWriteKMSecurityEvent(unsigned __int16 *a1, __int64 a2, unsigned int a3, __int64 a4)

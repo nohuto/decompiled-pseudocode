@@ -1,100 +1,91 @@
 /*
- * XREFs of NtUserGetImeInfoEx @ 0x1C009D830
+ * XREFs of NtUserGetImeInfoEx @ 0x1C000EB90
  * Callers:
  *     <none>
  * Callees:
- *     ?GetImeInfoEx@@YAHPEAUtagWINDOWSTATION@@PEAUtagIMEINFOEX@@W4_IMEINFOEXCLASS@@@Z @ 0x1C009DA48 (-GetImeInfoEx@@YAHPEAUtagWINDOWSTATION@@PEAUtagIMEINFOEX@@W4_IMEINFOEXCLASS@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     GetImeInfoEx @ 0x1C000ED94 (GetImeInfoEx.c)
+ *     _GetProcessWindowStation @ 0x1C000EED0 (_GetProcessWindowStation.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall NtUserGetImeInfoEx(_OWORD *a1, unsigned int a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  _BYTE *v7; // rdx
-  _OWORD *v8; // rax
-  _OWORD *v9; // rcx
-  __int64 v10; // rsi
-  __int64 v11; // rdx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rdx
+  _BYTE *v4; // rdx
+  _OWORD *v5; // rax
+  _OWORD *v6; // rcx
+  __int64 v7; // rsi
+  __int64 v8; // rdx
+  __int64 ProcessWindowStation; // rax
   int ImeInfo; // edi
-  __int64 v16; // r8
-  __int64 v17; // r9
-  _OWORD *v18; // rcx
-  _BYTE v20[352]; // [rsp+40h] [rbp-188h] BYREF
+  _OWORD *v11; // rcx
+  _BYTE v13[352]; // [rsp+40h] [rbp-178h] BYREF
 
-  memset_0(v20, 0, sizeof(v20));
-  EnterSharedCrit(v5, v4, v6);
+  memset(v13, 0, sizeof(v13));
+  EnterSharedCrit(0LL, 1LL);
   if ( (*gpsi & 4) != 0 )
   {
-    v7 = a1;
+    v4 = a1;
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-      v7 = (_BYTE *)MmUserProbeAddress;
-    *v7 = *v7;
-    v7[351] = v7[351];
-    v8 = a1;
-    v9 = v20;
-    v10 = 2LL;
-    v11 = 2LL;
+      v4 = (_BYTE *)MmUserProbeAddress;
+    *v4 = *v4;
+    v4[351] = v4[351];
+    v5 = a1;
+    v6 = v13;
+    v7 = 2LL;
+    v8 = 2LL;
     do
     {
-      *v9 = *v8;
-      v9[1] = v8[1];
-      v9[2] = v8[2];
-      v9[3] = v8[3];
-      v9[4] = v8[4];
-      v9[5] = v8[5];
-      v9[6] = v8[6];
-      v9 += 8;
-      *(v9 - 1) = v8[7];
-      v8 += 8;
-      --v11;
+      *v6 = *v5;
+      v6[1] = v5[1];
+      v6[2] = v5[2];
+      v6[3] = v5[3];
+      v6[4] = v5[4];
+      v6[5] = v5[5];
+      v6[6] = v5[6];
+      v6 += 8;
+      *(v6 - 1) = v5[7];
+      v5 += 8;
+      --v8;
     }
-    while ( v11 );
-    *v9 = *v8;
-    v9[1] = v8[1];
-    v9[2] = v8[2];
-    v9[3] = v8[3];
-    v9[4] = v8[4];
-    v9[5] = v8[5];
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v9);
-    v13 = CurrentProcessWin32Process;
-    if ( CurrentProcessWin32Process )
-      v13 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-    ImeInfo = GetImeInfoEx(*(_QWORD *)(v13 + 656), v20, a2);
-    v18 = v20;
+    while ( v8 );
+    *v6 = *v5;
+    v6[1] = v5[1];
+    v6[2] = v5[2];
+    v6[3] = v5[3];
+    v6[4] = v5[4];
+    v6[5] = v5[5];
+    ProcessWindowStation = GetProcessWindowStation(0LL, 0LL);
+    ImeInfo = GetImeInfoEx(ProcessWindowStation, v13, a2);
+    v11 = v13;
     do
     {
-      *a1 = *v18;
-      a1[1] = v18[1];
-      a1[2] = v18[2];
-      a1[3] = v18[3];
-      a1[4] = v18[4];
-      a1[5] = v18[5];
-      a1[6] = v18[6];
+      *a1 = *v11;
+      a1[1] = v11[1];
+      a1[2] = v11[2];
+      a1[3] = v11[3];
+      a1[4] = v11[4];
+      a1[5] = v11[5];
+      a1[6] = v11[6];
       a1 += 8;
-      *(a1 - 1) = v18[7];
-      v18 += 8;
-      --v10;
+      *(a1 - 1) = v11[7];
+      v11 += 8;
+      --v7;
     }
-    while ( v10 );
-    *a1 = *v18;
-    a1[1] = v18[1];
-    a1[2] = v18[2];
-    a1[3] = v18[3];
-    a1[4] = v18[4];
-    a1[5] = v18[5];
+    while ( v7 );
+    *a1 = *v11;
+    a1[1] = v11[1];
+    a1[2] = v11[2];
+    a1[3] = v11[3];
+    a1[4] = v11[4];
+    a1[5] = v11[5];
   }
   else
   {
     UserSetLastError(120LL);
     ImeInfo = 0;
   }
-  UserSessionSwitchLeaveCrit(v18, v14, v16, v17);
+  UserSessionSwitchLeaveCrit(v11);
   return ImeInfo;
 }

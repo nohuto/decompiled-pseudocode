@@ -1,16 +1,16 @@
 /*
- * XREFs of NtInitializeRegistry @ 0x14071DCF0
+ * XREFs of NtInitializeRegistry @ 0x14071DCD0
  * Callers:
  *     <none>
  * Callees:
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     ZwInitializeRegistry @ 0x1401BA0B0 (ZwInitializeRegistry.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     ZwInitializeRegistry @ 0x1401BA0D0 (ZwInitializeRegistry.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     CmpAcceptBoot @ 0x14071DDA8 (CmpAcceptBoot.c)
- *     CmCompleteRegistryInitialization @ 0x1407455D4 (CmCompleteRegistryInitialization.c)
- *     CmpHandlePageFileOpenNotification @ 0x140759604 (CmpHandlePageFileOpenNotification.c)
- *     CmpSyncNextBackupHive @ 0x1407F4558 (CmpSyncNextBackupHive.c)
+ *     CmpAcceptBoot @ 0x14071DD88 (CmpAcceptBoot.c)
+ *     CmCompleteRegistryInitialization @ 0x1407455B4 (CmCompleteRegistryInitialization.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407595E4 (CmpHandlePageFileOpenNotification.c)
+ *     CmpSyncNextBackupHive @ 0x1407F4538 (CmpSyncNextBackupHive.c)
  */
 
 NTSTATUS __stdcall NtInitializeRegistry(USHORT Flag)

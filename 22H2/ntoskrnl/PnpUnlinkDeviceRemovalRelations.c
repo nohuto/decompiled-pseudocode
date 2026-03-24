@@ -1,26 +1,26 @@
 /*
- * XREFs of PnpUnlinkDeviceRemovalRelations @ 0x140868334
+ * XREFs of PnpUnlinkDeviceRemovalRelations @ 0x14074AADC
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
- *     PipRemoveDevicesInRelationList @ 0x140881CBC (PipRemoveDevicesInRelationList.c)
- *     PiEventRemovalPostSurpriseRemove @ 0x1408834B4 (PiEventRemovalPostSurpriseRemove.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
+ *     PiEventRemovalPostSurpriseRemove @ 0x14074CD2C (PiEventRemovalPostSurpriseRemove.c)
+ *     PipRemoveDevicesInRelationList @ 0x14074CDB8 (PipRemoveDevicesInRelationList.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PpDevNodeRemoveFromTree @ 0x1403D4BAC (PpDevNodeRemoveFromTree.c)
- *     PnpSetDeviceInstanceRemovalEvent @ 0x1403D5A18 (PnpSetDeviceInstanceRemovalEvent.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140788EE0 (PiPnpRtlBeginOperation.c)
- *     _PnpSetObjectProperty @ 0x14079708C (_PnpSetObjectProperty.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797720 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     IopEnumerateRelations @ 0x140868860 (IopEnumerateRelations.c)
- *     IopIsDescendantNode @ 0x1408693C4 (IopIsDescendantNode.c)
- *     PnpCleanupDeviceRegistryValues @ 0x14088507C (PnpCleanupDeviceRegistryValues.c)
- *     IopRemoveCurrentRelationFromList @ 0x14096CBCC (IopRemoveCurrentRelationFromList.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpSetDeviceInstanceRemovalEvent @ 0x140370FDC (PnpSetDeviceInstanceRemovalEvent.c)
+ *     PpDevNodeRemoveFromTree @ 0x1403710A8 (PpDevNodeRemoveFromTree.c)
+ *     PiPnpRtlEndOperation @ 0x1406ACCB8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406AD460 (PiPnpRtlBeginOperation.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     _PnpSetObjectProperty @ 0x1407420C4 (_PnpSetObjectProperty.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1407424E0 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x14074A844 (PnpCleanupDeviceRegistryValues.c)
+ *     IopEnumerateRelations @ 0x14074B374 (IopEnumerateRelations.c)
+ *     IopIsDescendantNode @ 0x14074B508 (IopIsDescendantNode.c)
+ *     IopRemoveCurrentRelationFromList @ 0x1408B2864 (IopRemoveCurrentRelationFromList.c)
  */
 
 void __fastcall PnpUnlinkDeviceRemovalRelations(__int64 a1, __int64 a2)
@@ -30,50 +30,52 @@ void __fastcall PnpUnlinkDeviceRemovalRelations(__int64 a1, __int64 a2)
   char v5; // bl
   bool v6; // zf
   __int64 v7; // rcx
-  __int64 v8; // rdi
+  unsigned __int8 (__fastcall *FlushAdapterBuffers)(_DMA_ADAPTER *, _MDL *, void *, void *, unsigned int, unsigned __int8); // rdi
   __int64 v9; // [rsp+50h] [rbp-10h] BYREF
-  PVOID Object; // [rsp+90h] [rbp+30h] BYREF
-  PVOID P; // [rsp+98h] [rbp+38h] BYREF
-  char v12; // [rsp+A0h] [rbp+40h] BYREF
-  __int64 v13; // [rsp+A8h] [rbp+48h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+90h] [rbp+30h] BYREF
+  int v11; // [rsp+98h] [rbp+38h] BYREF
+  int v12; // [rsp+9Ch] [rbp+3Ch]
+  char v13; // [rsp+A0h] [rbp+40h] BYREF
+  PVOID P; // [rsp+A8h] [rbp+48h] BYREF
 
-  Object = 0LL;
+  DmaAdapter = 0LL;
   v9 = 0LL;
   P = 0LL;
   PpDevNodeLockTree(4);
   if ( a2 && *(_BYTE *)(a2 + 8) )
   {
-    v13 = 1LL;
+    v12 = 0;
+    v11 = 1;
     while ( (unsigned __int8)IopEnumerateRelations(
                                a2,
+                               (unsigned int)&v11,
+                               (unsigned int)&DmaAdapter,
                                (unsigned int)&v13,
-                               (unsigned int)&Object,
-                               (unsigned int)&v12,
                                0LL) )
     {
-      v8 = *(_QWORD *)(*((_QWORD *)Object + 39) + 40LL);
+      FlushAdapterBuffers = DmaAdapter[19].DmaOperations->FlushAdapterBuffers;
       IopIsDescendantNode(a2);
-      if ( (unsigned int)(*(_DWORD *)(v8 + 300) - 789) <= 1 )
+      if ( (unsigned int)(*((_DWORD *)FlushAdapterBuffers + 75) - 787) <= 1 )
       {
         CurrentThread = KeGetCurrentThread();
-        v4 = *(_QWORD *)(v8 + 16);
+        v4 = *((_QWORD *)FlushAdapterBuffers + 2);
         --CurrentThread->KernelApcDisable;
         ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
-        PnpCleanupDeviceRegistryValues(v8 + 40);
-        v5 = PpDevNodeRemoveFromTree((_QWORD *)v8);
+        PnpCleanupDeviceRegistryValues((__int64)FlushAdapterBuffers + 40);
+        v5 = PpDevNodeRemoveFromTree(FlushAdapterBuffers);
         ExReleaseResourceLite(&PnpRegistryDeviceResource);
         KeLeaveCriticalRegion();
         if ( v5 )
         {
-          v6 = *(_QWORD *)(v8 + 48) == 0LL;
-          *(_QWORD *)(v8 + 648) = v4;
+          v6 = *((_QWORD *)FlushAdapterBuffers + 6) == 0LL;
+          *((_QWORD *)FlushAdapterBuffers + 81) = v4;
           if ( !v6 )
           {
-            PiPnpRtlBeginOperation((__int64 **)&P);
+            PiPnpRtlBeginOperation(&P);
             v9 = MEMORY[0xFFFFF78000000014];
             PnpSetObjectProperty(
               *(__int64 *)&PiPnpRtlCtx,
-              *(_QWORD *)(v8 + 48),
+              *((_QWORD *)FlushAdapterBuffers + 6),
               1u,
               0LL,
               0LL,
@@ -82,17 +84,17 @@ void __fastcall PnpUnlinkDeviceRemovalRelations(__int64 a1, __int64 a2)
               (__int64)&v9,
               8u,
               0);
-            PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v7, *(_QWORD *)(v8 + 48), 1);
-            PnpSetDeviceInstanceRemovalEvent(v8);
+            PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v7, *((_QWORD *)FlushAdapterBuffers + 6), 1);
+            PnpSetDeviceInstanceRemovalEvent((__int64)FlushAdapterBuffers);
             if ( P )
             {
               PiPnpRtlEndOperation((PVOID **)P);
               P = 0LL;
             }
           }
-          if ( *(_DWORD *)(v8 + 300) == 790 )
-            IopRemoveCurrentRelationFromList(a2, Object, &v13);
-          ObfDereferenceObject(Object);
+          if ( *((_DWORD *)FlushAdapterBuffers + 75) == 788 )
+            IopRemoveCurrentRelationFromList(a2, DmaAdapter, &v11);
+          HalPutDmaAdapter(DmaAdapter);
         }
       }
     }

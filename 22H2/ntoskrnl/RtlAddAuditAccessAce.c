@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlAddAuditAccessAce @ 0x1409BB150
+ * XREFs of RtlAddAuditAccessAce @ 0x1409124A0
  * Callers:
- *     SepInitProcessAuditSd @ 0x140387AB0 (SepInitProcessAuditSd.c)
- *     ObInitSystem @ 0x140B4E9F8 (ObInitSystem.c)
+ *     SepInitProcessAuditSd @ 0x1403B3FE8 (SepInitProcessAuditSd.c)
+ *     ObInitSystem @ 0x140A3D968 (ObInitSystem.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x140735770 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x1406D5220 (RtlpAddKnownAce.c)
  */
 
 __int64 __fastcall RtlAddAuditAccessAce(__int64 a1, __int64 a2, int a3)

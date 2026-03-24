@@ -1,47 +1,43 @@
 /*
- * XREFs of EngFreeModule @ 0x1C028B460
+ * XREFs of EngFreeModule @ 0x1C0289AE0
  * Callers:
  *     <none>
  * Callees:
- *     vUnmapFile @ 0x1C0089FC8 (vUnmapFile.c)
+ *     vUnmapFile @ 0x1C00E632C (vUnmapFile.c)
  */
 
 void __stdcall EngFreeModule(HANDLE h)
 {
-  struct Gre::Base::SESSION_GLOBALS *v2; // rsi
-  char *v3; // rdi
-  __int64 v4; // rcx
-  bool v5; // zf
-  int v6; // ebp
-  __int64 v7; // rcx
-  char **v8; // rax
+  char *v1; // rbx
+  bool v3; // zf
+  int v4; // esi
+  __int64 v5; // rax
+  char **v6; // rcx
 
   if ( h )
   {
-    v2 = Gre::Base::Globals((Gre::Base *)h);
-    v3 = (char *)h - 24;
-    v4 = *((_QWORD *)v2 + 405);
-    if ( v4 )
-      GreAcquireSemaphore(v4);
-    v5 = (*((_DWORD *)v3 + 4))-- == 1;
-    v6 = *((_DWORD *)v3 + 4);
-    if ( v5 )
+    v1 = (char *)h - 24;
+    if ( GreEngLoadModuleAllocListLock )
+      GreAcquireSemaphore(GreEngLoadModuleAllocListLock);
+    v3 = (*((_DWORD *)v1 + 4))-- == 1;
+    v4 = *((_DWORD *)v1 + 4);
+    if ( v3 )
     {
-      v7 = *(_QWORD *)v3;
-      if ( *(char **)(*(_QWORD *)v3 + 8LL) != v3 || (v8 = (char **)*((_QWORD *)v3 + 1), *v8 != v3) )
+      v5 = *(_QWORD *)v1;
+      if ( *(char **)(*(_QWORD *)v1 + 8LL) != v1 || (v6 = (char **)*((_QWORD *)v1 + 1), *v6 != v1) )
         __fastfail(3u);
-      *v8 = (char *)v7;
-      *(_QWORD *)(v7 + 8) = v8;
+      *v6 = (char *)v5;
+      *(_QWORD *)(v5 + 8) = v6;
     }
-    if ( *((_QWORD *)v2 + 405) )
+    if ( GreEngLoadModuleAllocListLock )
     {
-      EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.GreEngLoadModuleAllocListLock");
-      GreReleaseSemaphoreInternal(*((_QWORD *)v2 + 405));
+      EtwTraceGreLockReleaseSemaphore(L"GreEngLoadModuleAllocListLock", GreEngLoadModuleAllocListLock);
+      GreReleaseSemaphoreInternal(GreEngLoadModuleAllocListLock);
     }
-    if ( !v6 )
+    if ( !v4 )
     {
       vUnmapFile((PVOID *)h);
-      Win32FreePool((char *)h - *((unsigned int *)v3 + 5));
+      Win32FreePool((char *)h - *((unsigned int *)v1 + 5));
     }
   }
 }

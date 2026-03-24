@@ -1,7 +1,7 @@
 /*
- * XREFs of VerticesHaveIntegralXY @ 0x180076424
+ * XREFs of VerticesHaveIntegralXY @ 0x1800675D8
  * Callers:
- *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x18004A1EC (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
+ *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x1800676A4 (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of IoWMIDeviceObjectToInstanceName @ 0x1407C4070
+ * XREFs of IoWMIDeviceObjectToInstanceName @ 0x14078D0B0
  * Callers:
- *     IoWMIHandleToInstanceName @ 0x1407C3EA0 (IoWMIHandleToInstanceName.c)
+ *     IoWMIHandleToInstanceName @ 0x14078D030 (IoWMIHandleToInstanceName.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x140302AF0 (IoGetDeviceAttachmentBaseRef.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     WmipGetGuidObjectInstanceInfo @ 0x1407C4164 (WmipGetGuidObjectInstanceInfo.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x14034C520 (IoGetDeviceAttachmentBaseRef.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     WmipGetGuidObjectInstanceInfo @ 0x14078D1A4 (WmipGetGuidObjectInstanceInfo.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMIDeviceObjectToInstanceName(
@@ -16,27 +16,27 @@ NTSTATUS __stdcall IoWMIDeviceObjectToInstanceName(
         PDEVICE_OBJECT DeviceObject,
         PUNICODE_STRING InstanceName)
 {
-  PDEVICE_OBJECT DeviceAttachmentBaseRef; // rbp
+  struct _DMA_ADAPTER *DeviceAttachmentBaseRef; // rbp
   NTSTATUS GuidObjectInstanceInfo; // ebx
-  __int64 v7; // rdx
-  wchar_t *Pool2; // rax
+  SIZE_T v7; // rdx
+  wchar_t *PoolWithTag; // rax
   __int64 v9; // rax
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
   int v12; // [rsp+68h] [rbp+20h] BYREF
 
   v12 = 0;
   UnicodeString = 0LL;
-  DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(DeviceObject);
+  DeviceAttachmentBaseRef = (struct _DMA_ADAPTER *)IoGetDeviceAttachmentBaseRef(DeviceObject);
   GuidObjectInstanceInfo = WmipGetGuidObjectInstanceInfo(DataBlockObject, DeviceAttachmentBaseRef, &UnicodeString, &v12);
   if ( GuidObjectInstanceInfo >= 0 )
   {
     v7 = (unsigned __int16)(UnicodeString.Length + 32);
     InstanceName->MaximumLength = v7;
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, v7, 1231646039LL);
-    InstanceName->Buffer = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v7, 0x49696D57u);
+    InstanceName->Buffer = PoolWithTag;
+    if ( PoolWithTag )
     {
-      RtlStringCbPrintfW(Pool2, InstanceName->MaximumLength, L"%ws_%d", UnicodeString.Buffer, v12);
+      RtlStringCbPrintfW(PoolWithTag, InstanceName->MaximumLength, L"%ws_%d", UnicodeString.Buffer, v12);
       v9 = -1LL;
       do
         ++v9;
@@ -49,8 +49,8 @@ NTSTATUS __stdcall IoWMIDeviceObjectToInstanceName(
       GuidObjectInstanceInfo = -1073741670;
     }
     if ( UnicodeString.Buffer )
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
   }
-  ObfDereferenceObject(DeviceAttachmentBaseRef);
+  HalPutDmaAdapter(DeviceAttachmentBaseRef);
   return GuidObjectInstanceInfo;
 }

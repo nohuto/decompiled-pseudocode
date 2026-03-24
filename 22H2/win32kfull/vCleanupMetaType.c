@@ -1,9 +1,9 @@
 /*
- * XREFs of vCleanupMetaType @ 0x1C00BCAA0
+ * XREFs of vCleanupMetaType @ 0x1C0134AA0
  * Callers:
  *     <none>
  * Callees:
- *     GreDeleteServerMetaFile @ 0x1C02D2D08 (GreDeleteServerMetaFile.c)
+ *     GreDeleteServerMetaFile @ 0x1C02B8054 (GreDeleteServerMetaFile.c)
  */
 
 __int64 __fastcall vCleanupMetaType(unsigned int a1)

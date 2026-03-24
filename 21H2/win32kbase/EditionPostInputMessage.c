@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionPostInputMessage @ 0x1C0041908
+ * XREFs of EditionPostInputMessage @ 0x1C0047FF0
  * Callers:
- *     ApiSetEditionPostInputMessage @ 0x1C0041768 (ApiSetEditionPostInputMessage.c)
+ *     ApiSetEditionPostInputMessage @ 0x1C0047EAC (ApiSetEditionPostInputMessage.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall EditionPostInputMessage(
@@ -19,8 +19,8 @@ __int64 __fastcall EditionPostInputMessage(
         __int64 a10,
         __int64 a11)
 {
-  if ( qword_1C029CD90 )
-    return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, __int64, int, __int64, __int64, int, __int64, __int64))qword_1C029CD90)(
+  if ( qword_1C02581A0 )
+    return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, __int64, int, __int64, __int64, int, __int64, __int64))qword_1C02581A0)(
              a1,
              a2,
              a3,

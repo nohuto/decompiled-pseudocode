@@ -1,30 +1,30 @@
 /*
- * XREFs of WmipSecurityMethod @ 0x1406BB860
+ * XREFs of WmipSecurityMethod @ 0x14069D030
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ObAssignObjectSecurityDescriptor @ 0x1406BBA30 (ObAssignObjectSecurityDescriptor.c)
- *     ObDeassignSecurity @ 0x1406BBAAC (ObDeassignSecurity.c)
- *     ObQuerySecurityDescriptorInfo @ 0x140722584 (ObQuerySecurityDescriptorInfo.c)
- *     ObSetSecurityDescriptorInfo @ 0x1407255D0 (ObSetSecurityDescriptorInfo.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x140862E50 (WmipSaveGuidSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ObSetSecurityDescriptorInfo @ 0x14065F2B0 (ObSetSecurityDescriptorInfo.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x140663148 (ObQuerySecurityDescriptorInfo.c)
+ *     ObAssignObjectSecurityDescriptor @ 0x14069D200 (ObAssignObjectSecurityDescriptor.c)
+ *     ObDeassignSecurity @ 0x14069D27C (ObDeassignSecurity.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x1407D3054 (WmipSaveGuidSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipSecurityMethod(
-        __int64 a1,
+        unsigned __int16 *Object,
         int a2,
         ULONG *a3,
         void *a4,
-        __int64 a5,
+        ULONG *a5,
         __int64 a6,
         POOL_TYPE PoolType,
-        GENERIC_MAPPING *a8)
+        PGENERIC_MAPPING a8)
 {
   int v9; // edx
   __int64 v10; // rdx
@@ -32,11 +32,10 @@ __int64 __fastcall WmipSecurityMethod(
   SIZE_T v13; // rdx
   PVOID PoolWithTag; // rax
   void *v15; // r14
-  int v16; // eax
-  POOL_TYPE v17[2]; // [rsp+20h] [rbp-F8h]
-  PGENERIC_MAPPING v18; // [rsp+28h] [rbp-F0h]
-  unsigned int i; // [rsp+70h] [rbp-A8h] BYREF
-  int v20; // [rsp+74h] [rbp-A4h] BYREF
+  POOL_TYPE v16[2]; // [rsp+20h] [rbp-F8h]
+  PGENERIC_MAPPING v17; // [rsp+28h] [rbp-F0h]
+  ULONG i; // [rsp+70h] [rbp-A8h] BYREF
+  ULONG v19; // [rsp+74h] [rbp-A4h] BYREF
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-A0h] BYREF
   wchar_t pszDest[40]; // [rsp+90h] [rbp-88h] BYREF
 
@@ -50,7 +49,7 @@ __int64 __fastcall WmipSecurityMethod(
       {
         if ( (_DWORD)v10 != 1 )
           KeBugCheckEx(0x29u, 1uLL, 0xFFFFFFFFC000000DuLL, 0LL, 0LL);
-        return ObAssignObjectSecurityDescriptor(a1, a4, a8, a6);
+        return ObAssignObjectSecurityDescriptor(Object, a4, a8, a6);
       }
       else
       {
@@ -59,13 +58,13 @@ __int64 __fastcall WmipSecurityMethod(
     }
     else
     {
-      return ObQuerySecurityDescriptorInfo(a1, a3, a4, a5);
+      return ObQuerySecurityDescriptorInfo((__int64)Object, a3, a4, a5);
     }
   }
   else
   {
     DestinationString = 0LL;
-    v12 = ObSetSecurityDescriptorInfo((PVOID)a1, a3, a4, PoolType, a8);
+    v12 = ObSetSecurityDescriptorInfo(Object, a3, a4, a6, PoolType, a8);
     if ( v12 >= 0 )
     {
       v13 = 1024LL;
@@ -74,33 +73,34 @@ __int64 __fastcall WmipSecurityMethod(
         PoolWithTag = ExAllocatePoolWithTag(PoolType, v13, 0x70696D57u);
         v15 = PoolWithTag;
         if ( !PoolWithTag )
-          return (unsigned int)-1073741670;
-        v20 = -1;
-        v16 = ObQuerySecurityDescriptorInfo(a1, &v20, PoolWithTag, &i);
-        v12 = v16;
-        if ( v16 != -1073741789 )
           break;
+        v19 = -1;
+        v12 = ObQuerySecurityDescriptorInfo((__int64)Object, &v19, PoolWithTag, &i);
+        if ( v12 != -1073741789 )
+          goto LABEL_12;
         ExFreePoolWithTag(v15, 0);
       }
-      if ( v16 >= 0 )
+      v12 = -1073741670;
+LABEL_12:
+      if ( v12 >= 0 )
       {
-        LODWORD(v18) = *(unsigned __int16 *)(a1 + 30);
-        v17[0] = *(unsigned __int16 *)(a1 + 28);
+        LODWORD(v17) = Object[15];
+        v16[0] = Object[14];
         RtlStringCbPrintfW(
           pszDest,
           0x4CuLL,
           L"%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x",
-          *(unsigned int *)(a1 + 24),
-          *(_QWORD *)v17,
-          v18,
-          *(unsigned __int8 *)(a1 + 32),
-          *(unsigned __int8 *)(a1 + 33),
-          *(unsigned __int8 *)(a1 + 34),
-          *(unsigned __int8 *)(a1 + 35),
-          *(unsigned __int8 *)(a1 + 36),
-          *(unsigned __int8 *)(a1 + 37),
-          *(unsigned __int8 *)(a1 + 38),
-          *(unsigned __int8 *)(a1 + 39));
+          *((unsigned int *)Object + 6),
+          *(_QWORD *)v16,
+          v17,
+          *((unsigned __int8 *)Object + 32),
+          *((unsigned __int8 *)Object + 33),
+          *((unsigned __int8 *)Object + 34),
+          *((unsigned __int8 *)Object + 35),
+          *((unsigned __int8 *)Object + 36),
+          *((unsigned __int8 *)Object + 37),
+          *((unsigned __int8 *)Object + 38),
+          *((unsigned __int8 *)Object + 39));
         RtlInitUnicodeString(&DestinationString, pszDest);
         v12 = WmipSaveGuidSecurityDescriptor(&DestinationString, v15);
         ExFreePoolWithTag(v15, 0);

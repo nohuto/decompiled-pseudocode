@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetMonitorDpiInfo@@YAXPEAUHDEV__@@HPEAUtagRECT@@PEAU_DPI_INFORMATION@@@Z @ 0x1C00C1708
+ * XREFs of ?GetMonitorDpiInfo@@YAXPEAUHDEV__@@HPEAUtagRECT@@PEAU_DPI_INFORMATION@@@Z @ 0x1C00B1E08
  * Callers:
- *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C00C7F94 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E658 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
  * Callees:
- *     DrvGetCurrentDpiInfoFromHDev @ 0x1C00A705C (DrvGetCurrentDpiInfoFromHDev.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     DrvGetCurrentDpiInfoFromHDev @ 0x1C000F5D0 (DrvGetCurrentDpiInfoFromHDev.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 void __fastcall GetMonitorDpiInfo(__int64 a1, char a2, struct tagRECT *a3, struct _DPI_INFORMATION *a4)

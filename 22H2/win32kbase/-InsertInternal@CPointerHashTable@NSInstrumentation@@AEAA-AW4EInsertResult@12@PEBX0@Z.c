@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InsertInternal@CPointerHashTable@NSInstrumentation@@AEAA?AW4EInsertResult@12@PEBX0@Z @ 0x1C016F3D4
+ * XREFs of ?InsertInternal@CPointerHashTable@NSInstrumentation@@AEAA?AW4EInsertResult@12@PEBX0@Z @ 0x1C014E958
  * Callers:
- *     ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C016F1BC (-Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z.c)
+ *     ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C014E750 (-Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z.c)
  * Callees:
- *     ?InsertWithHash@CPointerHashTable@NSInstrumentation@@AEAAX_KPEBX1@Z @ 0x1C016F440 (-InsertWithHash@CPointerHashTable@NSInstrumentation@@AEAAX_KPEBX1@Z.c)
+ *     ?InsertWithHash@CPointerHashTable@NSInstrumentation@@AEAAX_KPEBX1@Z @ 0x1C014E9C4 (-InsertWithHash@CPointerHashTable@NSInstrumentation@@AEAAX_KPEBX1@Z.c)
  */
 
 __int64 __fastcall NSInstrumentation::CPointerHashTable::InsertInternal(

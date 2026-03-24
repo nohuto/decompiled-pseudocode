@@ -1,1 +1,174 @@
-/*\n * XREFs of MouConfiguration @ 0x1C000E95C\n * Callers:\n *     DriverEntry @ 0x1C000E080 (DriverEntry.c)\n * Callees:\n *     __security_check_cookie @ 0x1C00016D0 (__security_check_cookie.c)\n *     _guard_dispatch_icall_nop @ 0x1C00017D0 (_guard_dispatch_icall_nop.c)\n *     memset @ 0x1C0001B40 (memset.c)\n *     WPP_RECORDER_SF_D @ 0x1C00045D4 (WPP_RECORDER_SF_D.c)\n *     WPP_RECORDER_SF_Dd @ 0x1C0004678 (WPP_RECORDER_SF_Dd.c)\n *     WPP_RECORDER_SF_S @ 0x1C0004740 (WPP_RECORDER_SF_S.c)\n *     WPP_RECORDER_SF_d @ 0x1C000489C (WPP_RECORDER_SF_d.c)\n *     _TlgWrite @ 0x1C0005D34 (_TlgWrite.c)\n */\n\nvoid MouConfiguration()\n{\n  const wchar_t *v0; // rbx\n  _DWORD *PoolWithTag; // rax\n  _DWORD *v2; // rdi\n  unsigned __int16 v3; // r9\n  WCHAR *v4; // rax\n  PWSTR Buffer; // rbx\n  PVOID SystemRoutineAddress; // rax\n  int v7; // eax\n  __int64 v8; // r8\n  int v9; // edx\n  int v10; // r8d\n  int v11; // r9d\n  unsigned int v12; // eax\n  int v13; // ecx\n  __int64 v14; // r8\n  const struct _TlgProvider_t *v15; // rcx\n  int cData; // [rsp+28h] [rbp-89h]\n  int cDataa; // [rsp+28h] [rbp-89h]\n  int cDatac; // [rsp+28h] [rbp-89h]\n  UINT32 cDatab; // [rsp+28h] [rbp-89h]\n  EVENT_DATA_DESCRIPTOR *pData; // [rsp+30h] [rbp-81h]\n  struct _UNICODE_STRING Destination; // [rsp+48h] [rbp-69h] BYREF\n  int v22; // [rsp+58h] [rbp-59h] BYREF\n  int Lock_high; // [rsp+5Ch] [rbp-55h] BYREF\n  int Lock; // [rsp+60h] [rbp-51h] BYREF\n  struct _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-49h] BYREF\n  struct _UNICODE_STRING SystemRoutineName; // [rsp+78h] [rbp-39h] BYREF\n  EVENT_DATA_DESCRIPTOR v27; // [rsp+88h] [rbp-29h] BYREF\n  int *v28; // [rsp+A8h] [rbp-9h]\n  __int64 v29; // [rsp+B0h] [rbp-1h]\n  int *v30; // [rsp+B8h] [rbp+7h]\n  __int64 v31; // [rsp+C0h] [rbp+Fh]\n  _DWORD *v32; // [rsp+C8h] [rbp+17h]\n  __int64 v33; // [rsp+D0h] [rbp+1Fh]\n  PWSTR v34; // [rsp+D8h] [rbp+27h]\n  _DWORD v35[2]; // [rsp+E0h] [rbp+2Fh] BYREF\n  int *v36; // [rsp+E8h] [rbp+37h]\n  __int64 v37; // [rsp+F0h] [rbp+3Fh]\n\n  *(_QWORD *)&Destination.Length = 0LL;\n  Destination.Buffer = 0LL;\n  *(_QWORD *)&DestinationString.Length = 0LL;\n  DestinationString.Buffer = 0LL;\n  RtlInitUnicodeString(&DestinationString, L"PointerClass");\n  *((_DWORD *)&WPP_MAIN_CB.Reserved + 2) = 100;\n  WPP_MAIN_CB.DeviceQueue.Lock = 0x100000000LL;\n  RtlCopyUnicodeString(&::DestinationString, &DestinationString);\n  v0 = (const wchar_t *)P;\n  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x118uLL, 0x43756F4Du);\n  v2 = PoolWithTag;\n  if ( !PoolWithTag )\n  {\n    v3 = 59;\nLABEL_5:\n    WPP_RECORDER_SF_S((__int64)WPP_GLOBAL_Control->DeviceExtension, 2u, 1u, v3, cData, v0);\n    goto LABEL_11;\n  }\n  memset(PoolWithTag, 0, 0x118uLL);\n  RtlInitUnicodeString(&Destination, 0LL);\n  Destination.MaximumLength = word_1C00082A0 + 26;\n  v4 = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)(word_1C00082A0 + 26), 0x43756F4Du);\n  Destination.Buffer = v4;\n  if ( !v4 )\n  {\n    v3 = 60;\n    goto LABEL_5;\n  }\n  memset(v4, 0, Destination.MaximumLength);\n  RtlAppendUnicodeToString(&Destination, v0);\n  RtlAppendUnicodeToString(&Destination, L"\\Parameters");\n  if ( Destination.MaximumLength >= (unsigned __int64)Destination.Length + 2 )\n  {\n    Destination.Buffer[((unsigned __int64)Destination.Length >> 1) + 1] = 0;\n    WPP_RECORDER_SF_S((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, 1u, 0x3Du, cData, Destination.Buffer);\n    v2[36] = 16777217;\n    v2[2] = 288;\n    v2[8] = 67108868;\n    *((_QWORD *)v2 + 2) = L"MouseDataQueueSize";\n    *((_QWORD *)v2 + 3) = &WPP_MAIN_CB.Reserved + 1;\n    *((_QWORD *)v2 + 9) = L"MaximumPortsServiced";\n    *((_QWORD *)v2 + 10) = (char *)&WPP_MAIN_CB.DeviceQueue.Lock + 4;\n    *((_QWORD *)v2 + 16) = L"PointerDeviceBaseName";\n    *((_QWORD *)v2 + 17) = &::DestinationString;\n    *((_QWORD *)v2 + 23) = L"ConnectMultiplePorts";\n    v2[16] = 288;\n    v2[22] = 67108868;\n    v2[30] = 288;\n    v2[44] = 288;\n    v2[50] = 67108868;\n    *((_QWORD *)v2 + 24) = &WPP_MAIN_CB.DeviceQueue.Lock;\n    Buffer = Destination.Buffer;\n    RtlInitUnicodeString(&SystemRoutineName, L"RtlQueryRegistryValuesEx");\n    SystemRoutineAddress = MmGetSystemRoutineAddress(&SystemRoutineName);\n    cData = 0;\n    if ( !SystemRoutineAddress )\n      SystemRoutineAddress = RtlQueryRegistryValues;\n    v7 = ((__int64 (__fastcall *)(__int64, PWSTR, _DWORD *, _QWORD))SystemRoutineAddress)(0x80000000LL, Buffer, v2, 0LL);\n    if ( v7 < 0 )\n    {\n      LODWORD(pData) = v7;\n      WPP_RECORDER_SF_d((__int64)WPP_GLOBAL_Control->DeviceExtension, 3u, v8, 0x3Eu, 0, pData);\n    }\n  }\nLABEL_11:\n  WPP_RECORDER_SF_S((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, 1u, 0x3Fu, cData, ::DestinationString.Buffer);\n  v12 = *((_DWORD *)&WPP_MAIN_CB.Reserved + 2);\n  if ( !*((_DWORD *)&WPP_MAIN_CB.Reserved + 2) )\n  {\n    WPP_RECORDER_SF_D(WPP_GLOBAL_Control->DeviceExtension, v9, v10, v11, cDataa, 0);\n    v12 = 100;\n  }\n  if ( v12 <= 0xAAAAAAA )\n    v13 = 24 * v12;\n  else\n    v13 = 2400;\n  *((_DWORD *)&WPP_MAIN_CB.Reserved + 2) = v13;\n  WPP_RECORDER_SF_Dd(\n    WPP_GLOBAL_Control->DeviceExtension,\n    v9,\n    v10,\n    v11,\n    cDataa,\n    v13,\n    SBYTE4(WPP_MAIN_CB.DeviceQueue.Lock));\n  LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) = LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) == 0;\n  WPP_RECORDER_SF_d((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, v14, 0x42u, cDatac);\n  if ( (unsigned int)dword_1C0008000 > 5\n    && (qword_1C0008010 & 0x400000000000LL) != 0\n    && (qword_1C0008018 & 0x400000000000LL) == qword_1C0008018 )\n  {\n    v22 = *((_DWORD *)&WPP_MAIN_CB.Reserved + 2);\n    v28 = &v22;\n    v30 = &Lock_high;\n    v32 = v35;\n    v34 = ::DestinationString.Buffer;\n    v35[0] = ::DestinationString.Length;\n    v36 = &Lock;\n    Lock_high = HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock);\n    Lock = WPP_MAIN_CB.DeviceQueue.Lock;\n    v29 = 4LL;\n    v31 = 4LL;\n    v33 = 2LL;\n    v35[1] = 0;\n    v37 = 4LL;\n    TlgWrite(\n      v15,\n      &unk_1C00061E9,\n      (LPCGUID)HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock),\n      (LPCGUID)*((unsigned int *)&WPP_MAIN_CB.Reserved + 2),\n      cDatab,\n      &v27);\n  }\n  if ( Destination.Buffer )\n    ExFreePoolWithTag(Destination.Buffer, 0);\n  if ( v2 )\n    ExFreePoolWithTag(v2, 0);\n}\n
+/*
+ * XREFs of MouConfiguration @ 0x1C000E95C
+ * Callers:
+ *     DriverEntry @ 0x1C000E080 (DriverEntry.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00016D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00017D0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0001B40 (memset.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00045D4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_Dd @ 0x1C0004678 (WPP_RECORDER_SF_Dd.c)
+ *     WPP_RECORDER_SF_S @ 0x1C0004740 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000489C (WPP_RECORDER_SF_d.c)
+ *     _TlgWrite @ 0x1C0005D34 (_TlgWrite.c)
+ */
+
+void MouConfiguration()
+{
+  const wchar_t *v0; // rbx
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v2; // rdi
+  unsigned __int16 v3; // r9
+  WCHAR *v4; // rax
+  PWSTR Buffer; // rbx
+  PVOID SystemRoutineAddress; // rax
+  int v7; // eax
+  __int64 v8; // r8
+  int v9; // edx
+  int v10; // r8d
+  int v11; // r9d
+  unsigned int v12; // eax
+  int v13; // ecx
+  __int64 v14; // r8
+  const struct _TlgProvider_t *v15; // rcx
+  int cData; // [rsp+28h] [rbp-89h]
+  int cDataa; // [rsp+28h] [rbp-89h]
+  int cDatac; // [rsp+28h] [rbp-89h]
+  UINT32 cDatab; // [rsp+28h] [rbp-89h]
+  EVENT_DATA_DESCRIPTOR *pData; // [rsp+30h] [rbp-81h]
+  struct _UNICODE_STRING Destination; // [rsp+48h] [rbp-69h] BYREF
+  int v22; // [rsp+58h] [rbp-59h] BYREF
+  int Lock_high; // [rsp+5Ch] [rbp-55h] BYREF
+  int Lock; // [rsp+60h] [rbp-51h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-49h] BYREF
+  struct _UNICODE_STRING SystemRoutineName; // [rsp+78h] [rbp-39h] BYREF
+  EVENT_DATA_DESCRIPTOR v27; // [rsp+88h] [rbp-29h] BYREF
+  int *v28; // [rsp+A8h] [rbp-9h]
+  __int64 v29; // [rsp+B0h] [rbp-1h]
+  int *v30; // [rsp+B8h] [rbp+7h]
+  __int64 v31; // [rsp+C0h] [rbp+Fh]
+  _DWORD *v32; // [rsp+C8h] [rbp+17h]
+  __int64 v33; // [rsp+D0h] [rbp+1Fh]
+  PWSTR v34; // [rsp+D8h] [rbp+27h]
+  _DWORD v35[2]; // [rsp+E0h] [rbp+2Fh] BYREF
+  int *v36; // [rsp+E8h] [rbp+37h]
+  __int64 v37; // [rsp+F0h] [rbp+3Fh]
+
+  *(_QWORD *)&Destination.Length = 0LL;
+  Destination.Buffer = 0LL;
+  *(_QWORD *)&DestinationString.Length = 0LL;
+  DestinationString.Buffer = 0LL;
+  RtlInitUnicodeString(&DestinationString, L"PointerClass");
+  *((_DWORD *)&WPP_MAIN_CB.Reserved + 2) = 100;
+  WPP_MAIN_CB.DeviceQueue.Lock = 0x100000000LL;
+  RtlCopyUnicodeString(&::DestinationString, &DestinationString);
+  v0 = (const wchar_t *)P;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x118uLL, 0x43756F4Du);
+  v2 = PoolWithTag;
+  if ( !PoolWithTag )
+  {
+    v3 = 59;
+LABEL_5:
+    WPP_RECORDER_SF_S((__int64)WPP_GLOBAL_Control->DeviceExtension, 2u, 1u, v3, cData, v0);
+    goto LABEL_11;
+  }
+  memset(PoolWithTag, 0, 0x118uLL);
+  RtlInitUnicodeString(&Destination, 0LL);
+  Destination.MaximumLength = word_1C00082A0 + 26;
+  v4 = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)(word_1C00082A0 + 26), 0x43756F4Du);
+  Destination.Buffer = v4;
+  if ( !v4 )
+  {
+    v3 = 60;
+    goto LABEL_5;
+  }
+  memset(v4, 0, Destination.MaximumLength);
+  RtlAppendUnicodeToString(&Destination, v0);
+  RtlAppendUnicodeToString(&Destination, L"\\Parameters");
+  if ( Destination.MaximumLength >= (unsigned __int64)Destination.Length + 2 )
+  {
+    Destination.Buffer[((unsigned __int64)Destination.Length >> 1) + 1] = 0;
+    WPP_RECORDER_SF_S((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, 1u, 0x3Du, cData, Destination.Buffer);
+    v2[36] = 16777217;
+    v2[2] = 288;
+    v2[8] = 67108868;
+    *((_QWORD *)v2 + 2) = L"MouseDataQueueSize";
+    *((_QWORD *)v2 + 3) = &WPP_MAIN_CB.Reserved + 1;
+    *((_QWORD *)v2 + 9) = L"MaximumPortsServiced";
+    *((_QWORD *)v2 + 10) = (char *)&WPP_MAIN_CB.DeviceQueue.Lock + 4;
+    *((_QWORD *)v2 + 16) = L"PointerDeviceBaseName";
+    *((_QWORD *)v2 + 17) = &::DestinationString;
+    *((_QWORD *)v2 + 23) = L"ConnectMultiplePorts";
+    v2[16] = 288;
+    v2[22] = 67108868;
+    v2[30] = 288;
+    v2[44] = 288;
+    v2[50] = 67108868;
+    *((_QWORD *)v2 + 24) = &WPP_MAIN_CB.DeviceQueue.Lock;
+    Buffer = Destination.Buffer;
+    RtlInitUnicodeString(&SystemRoutineName, L"RtlQueryRegistryValuesEx");
+    SystemRoutineAddress = MmGetSystemRoutineAddress(&SystemRoutineName);
+    cData = 0;
+    if ( !SystemRoutineAddress )
+      SystemRoutineAddress = RtlQueryRegistryValues;
+    v7 = ((__int64 (__fastcall *)(__int64, PWSTR, _DWORD *, _QWORD))SystemRoutineAddress)(0x80000000LL, Buffer, v2, 0LL);
+    if ( v7 < 0 )
+    {
+      LODWORD(pData) = v7;
+      WPP_RECORDER_SF_d((__int64)WPP_GLOBAL_Control->DeviceExtension, 3u, v8, 0x3Eu, 0, pData);
+    }
+  }
+LABEL_11:
+  WPP_RECORDER_SF_S((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, 1u, 0x3Fu, cData, ::DestinationString.Buffer);
+  v12 = *((_DWORD *)&WPP_MAIN_CB.Reserved + 2);
+  if ( !*((_DWORD *)&WPP_MAIN_CB.Reserved + 2) )
+  {
+    WPP_RECORDER_SF_D(WPP_GLOBAL_Control->DeviceExtension, v9, v10, v11, cDataa, 0);
+    v12 = 100;
+  }
+  if ( v12 <= 0xAAAAAAA )
+    v13 = 24 * v12;
+  else
+    v13 = 2400;
+  *((_DWORD *)&WPP_MAIN_CB.Reserved + 2) = v13;
+  WPP_RECORDER_SF_Dd(
+    WPP_GLOBAL_Control->DeviceExtension,
+    v9,
+    v10,
+    v11,
+    cDataa,
+    v13,
+    SBYTE4(WPP_MAIN_CB.DeviceQueue.Lock));
+  LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) = LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) == 0;
+  WPP_RECORDER_SF_d((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, v14, 0x42u, cDatac);
+  if ( (unsigned int)dword_1C0008000 > 5
+    && (qword_1C0008010 & 0x400000000000LL) != 0
+    && (qword_1C0008018 & 0x400000000000LL) == qword_1C0008018 )
+  {
+    v22 = *((_DWORD *)&WPP_MAIN_CB.Reserved + 2);
+    v28 = &v22;
+    v30 = &Lock_high;
+    v32 = v35;
+    v34 = ::DestinationString.Buffer;
+    v35[0] = ::DestinationString.Length;
+    v36 = &Lock;
+    Lock_high = HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock);
+    Lock = WPP_MAIN_CB.DeviceQueue.Lock;
+    v29 = 4LL;
+    v31 = 4LL;
+    v33 = 2LL;
+    v35[1] = 0;
+    v37 = 4LL;
+    TlgWrite(
+      v15,
+      &unk_1C00061E9,
+      (LPCGUID)HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock),
+      (LPCGUID)*((unsigned int *)&WPP_MAIN_CB.Reserved + 2),
+      cDatab,
+      &v27);
+  }
+  if ( Destination.Buffer )
+    ExFreePoolWithTag(Destination.Buffer, 0);
+  if ( v2 )
+    ExFreePoolWithTag(v2, 0);
+}

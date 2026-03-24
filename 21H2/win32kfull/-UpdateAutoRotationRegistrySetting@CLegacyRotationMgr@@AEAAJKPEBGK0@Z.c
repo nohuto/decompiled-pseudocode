@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z @ 0x1C00D12FC
+ * XREFs of ?UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z @ 0x1C0126D08
  * Callers:
- *     ?AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ @ 0x1C00D0FB0 (-AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ.c)
- *     ?CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ @ 0x1C00D1010 (-CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ.c)
- *     ?xxxSetAutoRotationStateInternal@CLegacyRotationMgr@@AEAAJH@Z @ 0x1C01CE034 (-xxxSetAutoRotationStateInternal@CLegacyRotationMgr@@AEAAJH@Z.c)
- *     ?xxxSetSensorPresence@CLegacyRotationMgr@@UEAAXH@Z @ 0x1C01CE0F0 (-xxxSetSensorPresence@CLegacyRotationMgr@@UEAAXH@Z.c)
- *     ?xxxSetSlateAutoRotationState@CLegacyRotationMgr@@AEAAJH@Z @ 0x1C01CE1CC (-xxxSetSlateAutoRotationState@CLegacyRotationMgr@@AEAAJH@Z.c)
+ *     ?AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ @ 0x1C01269D0 (-AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ.c)
+ *     ?CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ @ 0x1C0126A30 (-CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ.c)
+ *     ?xxxSetAutoRotationStateInternal@CLegacyRotationMgr@@AEAAJH@Z @ 0x1C01D1C84 (-xxxSetAutoRotationStateInternal@CLegacyRotationMgr@@AEAAJH@Z.c)
+ *     ?xxxSetSensorPresence@CLegacyRotationMgr@@UEAAXH@Z @ 0x1C01D1D50 (-xxxSetSensorPresence@CLegacyRotationMgr@@UEAAXH@Z.c)
+ *     ?xxxSetSlateAutoRotationState@CLegacyRotationMgr@@AEAAJH@Z @ 0x1C01D1E38 (-xxxSetSlateAutoRotationState@CLegacyRotationMgr@@AEAAJH@Z.c)
  * Callees:
  *     <none>
  */

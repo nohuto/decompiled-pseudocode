@@ -1,14 +1,14 @@
 /*
  * XREFs of CmpTransMgrFreeVolatileData @ 0x1405A9000
  * Callers:
- *     CmpCleanupLightWeightTransaction @ 0x140693A5C (CmpCleanupLightWeightTransaction.c)
- *     CmRmFinalizeRecovery @ 0x1406CDC48 (CmRmFinalizeRecovery.c)
- *     CmpCleanupTransactionState @ 0x140701C4C (CmpCleanupTransactionState.c)
- *     CmpRmUnDoPhase @ 0x1407F93C0 (CmpRmUnDoPhase.c)
+ *     CmpCleanupLightWeightTransaction @ 0x140693A3C (CmpCleanupLightWeightTransaction.c)
+ *     CmRmFinalizeRecovery @ 0x1406CDC28 (CmRmFinalizeRecovery.c)
+ *     CmpCleanupTransactionState @ 0x140701C2C (CmpCleanupTransactionState.c)
+ *     CmpRmUnDoPhase @ 0x1407F93A0 (CmpRmUnDoPhase.c)
  * Callees:
- *     CmpRemoveSecurityCellList @ 0x140137F38 (CmpRemoveSecurityCellList.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     CmpRemoveSecurityCellList @ 0x140137F58 (CmpRemoveSecurityCellList.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpRebuildKcbCache @ 0x1405A8F78 (CmpRebuildKcbCache.c)
  *     CmpRundownUnitOfWork @ 0x1405A92B8 (CmpRundownUnitOfWork.c)
@@ -21,11 +21,11 @@
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpPrepareForSubtreeInvalidation @ 0x14071EA1C (CmpPrepareForSubtreeInvalidation.c)
- *     CmpInvalidateSubtree @ 0x14071EE7C (CmpInvalidateSubtree.c)
- *     CmpInvalidateAllHigherLayerKcbs @ 0x1407F9FA4 (CmpInvalidateAllHigherLayerKcbs.c)
- *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x1407FA2C8 (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x14071E9FC (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpInvalidateSubtree @ 0x14071EE5C (CmpInvalidateSubtree.c)
+ *     CmpInvalidateAllHigherLayerKcbs @ 0x1407F9F84 (CmpInvalidateAllHigherLayerKcbs.c)
+ *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x1407FA2A8 (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
  */
 
 void __fastcall CmpTransMgrFreeVolatileData(ULONG_PTR BugCheckParameter2, int a2)

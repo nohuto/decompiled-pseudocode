@@ -6,8 +6,8 @@
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     RtlLookupElementGenericTableAvl @ 0x140006BF0 (RtlLookupElementGenericTableAvl.c)
  *     PopAcquirePowerRequestPushLock @ 0x140589D50 (PopAcquirePowerRequestPushLock.c)
- *     TtmpInsertPowerRequestToSession @ 0x140880BB8 (TtmpInsertPowerRequestToSession.c)
- *     TtmiLogSessionPowerRequestCreated @ 0x140885310 (TtmiLogSessionPowerRequestCreated.c)
+ *     TtmpInsertPowerRequestToSession @ 0x140880B98 (TtmpInsertPowerRequestToSession.c)
+ *     TtmiLogSessionPowerRequestCreated @ 0x1408852F0 (TtmiLogSessionPowerRequestCreated.c)
  */
 
 void __fastcall PopNotifySessionUserPowerRequestCreated(__int64 a1, unsigned int a2, __int64 a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of SmRereferenceProcessObject @ 0x140139640
+ * XREFs of SmRereferenceProcessObject @ 0x140139660
  * Callers:
- *     SmProcessStoreMemoryPriorityRequest @ 0x1406CBD00 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x1406CBCE0 (SmProcessStoreMemoryPriorityRequest.c)
  * Callees:
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */

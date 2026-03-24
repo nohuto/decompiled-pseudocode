@@ -1,11 +1,11 @@
 /*
- * XREFs of AslRegistryGetUInt32 @ 0x140A14E4C
+ * XREFs of AslRegistryGetUInt32 @ 0x140967D60
  * Callers:
- *     SdbpQueryAppCompatFlagsByExeID @ 0x140843940 (SdbpQueryAppCompatFlagsByExeID.c)
+ *     SdbpQueryAppCompatFlagsByExeID @ 0x1407C1CFC (SdbpQueryAppCompatFlagsByExeID.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslRegistryGetUInt32_UStr @ 0x140A14ECC (AslRegistryGetUInt32_UStr.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslRegistryGetUInt32_UStr @ 0x140967DE0 (AslRegistryGetUInt32_UStr.c)
  */
 
 __int64 __fastcall AslRegistryGetUInt32(__int64 a1, __int64 a2, const WCHAR *a3)

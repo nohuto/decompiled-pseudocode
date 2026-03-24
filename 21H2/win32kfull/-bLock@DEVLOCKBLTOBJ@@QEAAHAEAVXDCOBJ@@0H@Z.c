@@ -1,82 +1,100 @@
 /*
- * XREFs of ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C00408D0
+ * XREFs of ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C008C890
  * Callers:
- *     GreStretchBltInternal @ 0x1C002AF84 (GreStretchBltInternal.c)
- *     NtGdiAlphaBlend @ 0x1C0039BB0 (NtGdiAlphaBlend.c)
- *     NtGdiBitBltInternal @ 0x1C003DD70 (NtGdiBitBltInternal.c)
- *     GreMaskBlt @ 0x1C0087168 (GreMaskBlt.c)
- *     NtGdiTransparentBlt @ 0x1C0148400 (NtGdiTransparentBlt.c)
- *     ??0DEVLOCKBLTOBJ@@QEAA@AEAVXDCOBJ@@0@Z @ 0x1C0289338 (--0DEVLOCKBLTOBJ@@QEAA@AEAVXDCOBJ@@0@Z.c)
+ *     NtGdiAlphaBlend @ 0x1C00851E0 (NtGdiAlphaBlend.c)
+ *     NtGdiBitBltInternal @ 0x1C0088690 (NtGdiBitBltInternal.c)
+ *     GreStretchBltInternal @ 0x1C00B4D10 (GreStretchBltInternal.c)
+ *     GreMaskBlt @ 0x1C010979C (GreMaskBlt.c)
+ *     NtGdiTransparentBlt @ 0x1C0156210 (NtGdiTransparentBlt.c)
+ *     ??0DEVLOCKBLTOBJ@@QEAA@AEAVXDCOBJ@@0@Z @ 0x1C028B6E8 (--0DEVLOCKBLTOBJ@@QEAA@AEAVXDCOBJ@@0@Z.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C0027A2C (--1SURFREF@@QEAA@XZ.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0028338 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ?TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z @ 0x1C00414F0 (-TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z.c)
- *     PtiCurrentShared @ 0x1C00418E4 (PtiCurrentShared.c)
- *     ?bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z @ 0x1C00421B8 (-bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z.c)
- *     ?bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z @ 0x1C0042384 (-bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z.c)
- *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C015D85C (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
- *     ?pSurfobj@SURFMEM@@QEAAPEAU_SURFOBJ@@XZ @ 0x1C026AF64 (-pSurfobj@SURFMEM@@QEAAPEAU_SURFOBJ@@XZ.c)
- *     ?bCopySurface@@YAHPEAVSURFMEM@@PEAU_SURFOBJ@@@Z @ 0x1C0271228 (-bCopySurface@@YAHPEAVSURFMEM@@PEAU_SURFOBJ@@@Z.c)
- *     ?vGuard@CAutoTGO@@QEAAXPEAXP6AX0@Z@Z @ 0x1C02713D4 (-vGuard@CAutoTGO@@QEAAXPEAXP6AX0@Z@Z.c)
- *     ?vKeepIt@SURFREF@@QEAAXXZ @ 0x1C0271408 (-vKeepIt@SURFREF@@QEAAXXZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C0082FC8 (--1SURFREF@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C008393C (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z @ 0x1C008D7B0 (-TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z @ 0x1C00B8374 (-bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z.c)
+ *     ?bMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00B8430 (-bMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
+ *     ?bHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C00D5F58 (-bHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z @ 0x1C00FF638 (-bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z.c)
+ *     ?bMapSrcSurfaceView@DEVLOCKBLTOBJ@@QEAAHH@Z @ 0x1C00FF6E0 (-bMapSrcSurfaceView@DEVLOCKBLTOBJ@@QEAAHH@Z.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C01256A0 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A898 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ?pSurfobj@SURFMEM@@QEAAPEAU_SURFOBJ@@XZ @ 0x1C026D1D8 (-pSurfobj@SURFMEM@@QEAAPEAU_SURFOBJ@@XZ.c)
+ *     ?bCopySurface@@YAHPEAVSURFMEM@@PEAU_SURFOBJ@@@Z @ 0x1C02733B8 (-bCopySurface@@YAHPEAVSURFMEM@@PEAU_SURFOBJ@@@Z.c)
+ *     ?vGuard@CAutoTGO@@QEAAXPEAXP6AX0@Z@Z @ 0x1C027367C (-vGuard@CAutoTGO@@QEAAXPEAXP6AX0@Z@Z.c)
+ *     ?vKeepIt@SURFREF@@QEAAXXZ @ 0x1C02736B0 (-vKeepIt@SURFREF@@QEAAXXZ.c)
+ *     ?bHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C029AFEC (-bHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
  */
 
 __int64 __fastcall DEVLOCKBLTOBJ::bLock(DEVLOCKBLTOBJ *this, struct XDCOBJ *a2, struct XDCOBJ *a3)
 {
-  int v3; // ebp
-  __int64 *v7; // r12
-  __int64 *v8; // r13
-  int v9; // edi
+  DC **v6; // r14
+  int v7; // esi
+  DC **v8; // r13
+  int v9; // ebx
   __int64 v10; // r10
   __int64 v11; // r9
   int v12; // r8d
   int v13; // edx
   bool v14; // zf
-  unsigned int v15; // r15d
+  unsigned int v15; // ebp
   int v16; // eax
   __int64 v17; // r8
   __int64 v18; // rcx
   __int64 v19; // rdx
   __int64 v20; // r8
-  __int64 v21; // rax
-  int v22; // eax
-  __int64 v23; // r8
-  int v24; // eax
-  __int64 v25; // r9
-  __int64 v26; // rcx
-  int v27; // edx
-  __int64 v28; // rax
+  __int64 ThreadWin32Thread; // rax
+  __int64 v22; // r8
+  int v23; // eax
+  __int64 v24; // r9
+  __int64 v25; // rcx
+  int v26; // edx
+  __int64 v27; // rax
+  int v28; // eax
   int v29; // edx
   int v30; // ecx
   __int64 v32; // rax
-  __int64 v33; // rdi
+  __int64 v33; // rbx
   DC *v34; // rcx
   __int64 v35; // rax
   int v36; // r8d
-  unsigned __int64 v37; // rcx
-  __int64 v38; // rdx
+  unsigned __int64 v37; // rdx
+  __int64 v38; // rcx
   unsigned __int64 v39; // rax
-  BOOL v40; // edi
-  int v41; // r8d
-  int v42; // eax
-  int v43; // r9d
-  __int64 v44; // rdx
-  __int64 v45; // rax
-  struct _SURFOBJ *v46; // rax
-  __int64 v47; // rdx
-  __int64 v48; // rax
-  __int64 v49; // rdx
-  int v50; // eax
-  __int64 v51; // rax
-  HDC v52; // rdx
-  __int64 v53; // rax
-  signed __int32 v54[8]; // [rsp+0h] [rbp-88h] BYREF
-  _BYTE v55[32]; // [rsp+20h] [rbp-68h] BYREF
-  __int64 v56; // [rsp+40h] [rbp-48h]
-  __int64 v57; // [rsp+90h] [rbp+8h] BYREF
-  __int64 v58; // [rsp+98h] [rbp+10h] BYREF
+  int v40; // esi
+  DC *v41; // rdx
+  int v42; // ecx
+  __int64 v43; // rdx
+  int v44; // ecx
+  __int64 v45; // rbx
+  __int64 v46; // r8
+  int v47; // ecx
+  bool v48; // zf
+  __int64 v49; // rbx
+  __int64 v50; // r8
+  int v51; // ecx
+  DC *v52; // r8
+  __int64 v53; // rbx
+  unsigned int v54; // eax
+  unsigned int v55; // esi
+  int v56; // ecx
+  int v57; // edx
+  __int64 v58; // rdx
+  __int64 v59; // rax
+  struct _SURFOBJ *v60; // rax
+  __int64 v61; // rdx
+  __int64 v62; // rax
+  __int64 v63; // rdx
+  int v64; // eax
+  DC *v65; // rax
+  HDC v66; // rdx
+  DC *v67; // rax
+  signed __int32 v68[8]; // [rsp+0h] [rbp-88h] BYREF
+  _BYTE v69[32]; // [rsp+20h] [rbp-68h] BYREF
+  __int64 v70; // [rsp+40h] [rbp-48h]
+  __int64 v71; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v72; // [rsp+98h] [rbp+10h] BYREF
 
-  v3 = 0;
   *(_QWORD *)this = 0LL;
   *((_QWORD *)this + 1) = 0LL;
   *((_QWORD *)this + 2) = 0LL;
@@ -97,15 +115,16 @@ __int64 __fastcall DEVLOCKBLTOBJ::bLock(DEVLOCKBLTOBJ *this, struct XDCOBJ *a2, 
   {
     return 0LL;
   }
-  v7 = (__int64 *)((char *)this + 120);
-  v8 = (__int64 *)((char *)this + 176);
+  v6 = (DC **)((char *)this + 120);
+  v7 = 0;
+  v8 = (DC **)((char *)this + 176);
   *((_QWORD *)this + 15) = 0LL;
   *((_QWORD *)this + 22) = 0LL;
   v9 = 1;
   if ( (!*(_QWORD *)a3 || (*(_DWORD *)(*(_QWORD *)a3 + 36LL) & 0x200) == 0)
     && (!*(_QWORD *)a2 || (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 0x200) == 0) )
   {
-    goto LABEL_26;
+    goto LABEL_27;
   }
   *((_QWORD *)this + 2) = ghsemDynamicModeChange;
   GreAcquireSemaphoreSharedInternal(ghsemDynamicModeChange);
@@ -115,44 +134,54 @@ __int64 __fastcall DEVLOCKBLTOBJ::bLock(DEVLOCKBLTOBJ *this, struct XDCOBJ *a2, 
   {
     GreAcquireSemaphoreSharedInternal(ghsemGreLock);
     EtwTraceGreLockAcquireSemaphoreShared(L"ghsemGreLock", ghsemGreLock);
-    v3 = 1;
+    v7 = 1;
   }
   v10 = *(_QWORD *)a3;
   if ( *(_QWORD *)a3 )
   {
     v11 = *(_QWORD *)a2;
-    if ( *(_QWORD *)a2 )
+    if ( !*(_QWORD *)a2 )
     {
-      v12 = *(_DWORD *)(v10 + 36);
-      v13 = *(_DWORD *)(v11 + 36);
-      if ( ((v13 ^ v12) & 0x200) != 0 )
-      {
-        if ( (**(_DWORD **)(v10 + 976) & 1) != 0 && (v13 & 0x8000) != 0 )
-          goto LABEL_23;
-        if ( (**(_DWORD **)(v11 + 976) & 1) == 0 )
-          goto LABEL_22;
-        v14 = (v12 & 0x8000) == 0;
-      }
-      else
-      {
-        if ( (v12 & 0x200) == 0 || (v13 & 0x200) == 0 || (v12 & 0x8000) == 0 )
-          goto LABEL_22;
-        v14 = (*(_DWORD *)(v11 + 36) & 0x8000) == 0;
-      }
-      if ( v14 )
-LABEL_22:
-        v9 = 0;
+LABEL_24:
+      v71 = *(_QWORD *)(v10 + 48);
+      v9 &= PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v71);
+      goto LABEL_25;
     }
+    v12 = *(_DWORD *)(v10 + 36);
+    v13 = *(_DWORD *)(v11 + 36);
+    if ( ((v13 ^ v12) & 0x200) != 0 )
+    {
+      if ( (**(_DWORD **)(v10 + 976) & 1) != 0 && (v13 & 0x8000) != 0 )
+        goto LABEL_22;
+      if ( (**(_DWORD **)(v11 + 976) & 1) == 0 )
+      {
 LABEL_23:
-    v57 = *(_QWORD *)(v10 + 48);
-    v9 &= PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v57);
+        v9 = 0;
+        goto LABEL_24;
+      }
+      v14 = (v12 & 0x8000) == 0;
+    }
+    else
+    {
+      if ( (v12 & 0x200) == 0 || (v13 & 0x200) == 0 || (v12 & 0x8000) == 0 )
+        goto LABEL_23;
+      v14 = (*(_DWORD *)(v11 + 36) & 0x8000) == 0;
+    }
+    if ( !v14 )
+    {
+LABEL_22:
+      v9 = 1;
+      goto LABEL_24;
+    }
+    goto LABEL_23;
   }
+LABEL_25:
   if ( *(_QWORD *)a2 )
   {
-    v58 = *(_QWORD *)(*(_QWORD *)a2 + 48LL);
-    v9 &= PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v58);
+    v72 = *(_QWORD *)(*(_QWORD *)a2 + 48LL);
+    v9 &= PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v72);
   }
-LABEL_26:
+LABEL_27:
   v15 = 2;
   v16 = *(_DWORD *)(*(_QWORD *)a3 + 36LL);
   if ( (v16 & 0x200) != 0 )
@@ -163,12 +192,12 @@ LABEL_26:
       *((_QWORD *)this + 1) = v17;
       *((_QWORD *)this + 4) = *(_QWORD *)(*(_QWORD *)a3 + 48LL);
       v18 = v17;
-      if ( v3 && v17 == ghsemGreLock )
+      if ( v7 && v17 == ghsemGreLock )
       {
         EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
         GreReleaseSemaphoreInternal(ghsemGreLock);
         v18 = *((_QWORD *)this + 1);
-        v3 = 0;
+        v7 = 0;
       }
       GreAcquireSemaphore(v18);
       v19 = *((_QWORD *)this + 1);
@@ -180,85 +209,85 @@ LABEL_26:
     if ( (!*(_QWORD *)a2 || (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 0x200) == 0) && !(unsigned int)GreGetLockCount() )
     {
       *((_DWORD *)this + 28) |= 0x1000u;
-      v21 = PtiCurrentShared();
-      if ( v21 )
+      ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+      if ( ThreadWin32Thread )
       {
-        *(_QWORD *)(v21 + 320) = 0LL;
-        *(_QWORD *)(v21 + 312) = 0LL;
+        *(_QWORD *)(ThreadWin32Thread + 320) = 0LL;
+        *(_QWORD *)(ThreadWin32Thread + 312) = 0LL;
       }
       GreIncLockCount();
       GreAcquireSemaphoreSharedInternal(ghsemDCVisRgn);
       EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDCVisRgn", ghsemDCVisRgn);
     }
     if ( (*(_DWORD *)(*(_QWORD *)a3 + 36LL) & 0x5000) == 0x1000 )
-      goto LABEL_42;
+      goto LABEL_60;
   }
-  v23 = *(_QWORD *)a2;
+  v22 = *(_QWORD *)a2;
   if ( !*(_QWORD *)a2 )
-    goto LABEL_63;
-  v24 = *(_DWORD *)(v23 + 36);
-  if ( (v24 & 0x200) == 0 )
-    goto LABEL_69;
-  if ( (v24 & 0x8000) == 0 || !v9 )
+    goto LABEL_64;
+  v23 = *(_DWORD *)(v22 + 36);
+  if ( (v23 & 0x200) != 0 )
   {
-    v25 = *(_QWORD *)(v23 + 64);
-    *(_QWORD *)this = v25;
-    *((_QWORD *)this + 3) = *(_QWORD *)(*(_QWORD *)a2 + 48LL);
-    v26 = v25;
-    if ( v3 && v25 == ghsemGreLock )
+    if ( (v23 & 0x8000) == 0 || !v9 )
     {
-      EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
-      GreReleaseSemaphoreInternal(ghsemGreLock);
-      v26 = *(_QWORD *)this;
-      v3 = 0;
+      v24 = *(_QWORD *)(v22 + 64);
+      *(_QWORD *)this = v24;
+      *((_QWORD *)this + 3) = *(_QWORD *)(*(_QWORD *)a2 + 48LL);
+      v25 = v24;
+      if ( v7 && v24 == ghsemGreLock )
+      {
+        EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
+        GreReleaseSemaphoreInternal(ghsemGreLock);
+        v25 = *(_QWORD *)this;
+        v7 = 0;
+      }
+      GreAcquireSemaphore(v25);
+      if ( *(_QWORD *)this != ghsemGreLock )
+        v15 = 11;
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", *(_QWORD *)this, v15);
+      v26 = *((_DWORD *)this + 28);
+      if ( (v26 & 0x200) == 0 && (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 0x4000) != 0 )
+        *((_DWORD *)this + 28) = v26 | 0x200;
     }
-    GreAcquireSemaphore(v26);
-    if ( *(_QWORD *)this != ghsemGreLock )
-      v15 = 11;
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", *(_QWORD *)this, v15);
-    v27 = *((_DWORD *)this + 28);
-    if ( (v27 & 0x200) == 0 && (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 0x4000) != 0 )
-      *((_DWORD *)this + 28) = v27 | 0x200;
+    if ( !(unsigned int)GreGetLockCount() )
+    {
+      *((_DWORD *)this + 28) |= 0x1000u;
+      v27 = W32GetThreadWin32Thread(KeGetCurrentThread());
+      if ( v27 )
+      {
+        *(_QWORD *)(v27 + 320) = 0LL;
+        *(_QWORD *)(v27 + 312) = 0LL;
+      }
+      GreIncLockCount();
+      GreAcquireSemaphoreSharedInternal(ghsemDCVisRgn);
+      EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDCVisRgn", ghsemDCVisRgn);
+    }
+    v22 = *(_QWORD *)a2;
+    if ( (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 0x5000) == 0x1000 )
+    {
+LABEL_60:
+      v28 = *((_DWORD *)this + 28);
+      if ( (v28 & 0x1000) != 0 )
+      {
+        EtwTraceGreLockReleaseSemaphore(L"ghsemDCVisRgn", ghsemDCVisRgn);
+        GreReleaseSemaphoreInternal(ghsemDCVisRgn);
+        v28 = *((_DWORD *)this + 28);
+      }
+      *((_DWORD *)this + 28) = v28 & 0xFFFFFFFE;
+LABEL_87:
+      if ( v7 )
+      {
+        EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
+        GreReleaseSemaphoreInternal(ghsemGreLock);
+      }
+      return 0LL;
+    }
   }
-  if ( !(unsigned int)GreGetLockCount() )
+  if ( v22 )
   {
-    *((_DWORD *)this + 28) |= 0x1000u;
-    v28 = PtiCurrentShared();
-    if ( v28 )
-    {
-      *(_QWORD *)(v28 + 320) = 0LL;
-      *(_QWORD *)(v28 + 312) = 0LL;
-    }
-    GreIncLockCount();
-    GreAcquireSemaphoreSharedInternal(ghsemDCVisRgn);
-    EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDCVisRgn", ghsemDCVisRgn);
-  }
-  v23 = *(_QWORD *)a2;
-  if ( (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 0x5000) == 0x1000 )
-  {
-LABEL_42:
-    v22 = *((_DWORD *)this + 28);
-    if ( (v22 & 0x1000) != 0 )
-    {
-      EtwTraceGreLockReleaseSemaphore(L"ghsemDCVisRgn", ghsemDCVisRgn);
-      GreReleaseSemaphoreInternal(ghsemDCVisRgn);
-      v22 = *((_DWORD *)this + 28);
-    }
-    *((_DWORD *)this + 28) = v22 & 0xFFFFFFFE;
-LABEL_86:
-    if ( v3 )
-    {
-      EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
-      GreReleaseSemaphoreInternal(ghsemGreLock);
-    }
-    return 0LL;
-  }
-  if ( v23 )
-  {
-LABEL_69:
     v30 = *((_DWORD *)this + 28);
     v29 = v30;
-    if ( (v30 & 0x1000) != 0 && (*(_DWORD *)(v23 + 36) & 0x80000) != 0 )
+    if ( (v30 & 0x1000) != 0 && (*(_DWORD *)(v22 + 36) & 0x80000) != 0 )
     {
       if ( *((_QWORD *)this + 2) )
       {
@@ -267,12 +296,12 @@ LABEL_69:
         v30 = *((_DWORD *)this + 28);
       }
       *((_DWORD *)this + 28) = v30 & 0xFFFFFFFE;
-      goto LABEL_86;
+      goto LABEL_87;
     }
   }
   else
   {
-LABEL_63:
+LABEL_64:
     v29 = *((_DWORD *)this + 28);
   }
   if ( (v29 & 0x1000) != 0 && (*(_DWORD *)(*(_QWORD *)a3 + 36LL) & 0x80000) != 0 )
@@ -284,12 +313,12 @@ LABEL_63:
       v29 = *((_DWORD *)this + 28);
     }
     *((_DWORD *)this + 28) = v29 & 0xFFFFFFFE;
-    goto LABEL_86;
+    goto LABEL_87;
   }
-  if ( v23
-    && ((v29 & 0x1000) != 0 || (*(_DWORD *)(v23 + 36) & 0x200) == 0)
-    && (*(_DWORD *)(v23 + 36) & 0x10) != 0
-    && !DC::bCompute((DC *)v23)
+  if ( v22
+    && ((v29 & 0x1000) != 0 || (*(_DWORD *)(v22 + 36) & 0x200) == 0)
+    && (*(_DWORD *)(v22 + 36) & 0x10) != 0
+    && !DC::bCompute((DC *)v22)
     || ((*((_DWORD *)this + 28) & 0x1000) != 0 || (*(_DWORD *)(*(_QWORD *)a3 + 36LL) & 0x200) == 0)
     && (*(_DWORD *)(*(_QWORD *)a3 + 36LL) & 0x10) != 0
     && !DC::bCompute(*(DC **)a3) )
@@ -300,27 +329,27 @@ LABEL_63:
       GreReleaseSemaphoreInternal(ghsemDCVisRgn);
     }
     *((_DWORD *)this + 28) &= ~1u;
-    goto LABEL_86;
+    goto LABEL_87;
   }
   if ( (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 0x200) != 0 || (*(_DWORD *)(*(_QWORD *)a3 + 36LL) & 0x200) != 0 )
   {
     if ( (*((_DWORD *)this + 28) & 0x1000) == 0 )
-      goto LABEL_111;
+      goto LABEL_112;
     if ( (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 0x200) != 0 )
     {
       if ( *((_QWORD *)this + 30) )
         UserIsCurrentProcessImmersiveAppContainer();
       else
         DC::vSetRendering(*(DC **)a2);
-      v32 = PtiCurrentShared();
+      v32 = W32GetThreadWin32Thread(KeGetCurrentThread());
       v33 = v32;
       if ( v32 )
       {
-        *(_QWORD *)(v32 + 312) = v7;
+        *(_QWORD *)(v32 + 312) = v6;
         if ( (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 0x4000) == 0 )
         {
           *(_DWORD *)(v32 + 328) |= 1u;
-          *(_QWORD *)(*(_QWORD *)a2 + 1976LL) = 0LL;
+          *(_QWORD *)(*(_QWORD *)a2 + 1984LL) = 0LL;
           GreAcquireSemaphoreSharedInternal(ghsemVisRgnUniqueness);
           EtwTraceGreLockAcquireSemaphoreShared(L"ghsemVisRgnUniqueness", ghsemVisRgnUniqueness);
           *(_DWORD *)(v33 + 336) = giVisRgnUniqueness;
@@ -336,7 +365,7 @@ LABEL_63:
         UserIsCurrentProcessImmersiveAppContainer();
       else
         DC::vSetRendering(v34);
-      v35 = PtiCurrentShared();
+      v35 = W32GetThreadWin32Thread(KeGetCurrentThread());
       if ( v35 )
         *(_QWORD *)(v35 + 320) = a3;
     }
@@ -351,15 +380,15 @@ LABEL_63:
     EtwTraceGreLockReleaseSemaphore(L"ghsemDCVisRgn", ghsemDCVisRgn);
     GreReleaseSemaphoreInternal(ghsemDCVisRgn);
   }
-LABEL_111:
-  if ( v3 )
+LABEL_112:
+  if ( v7 )
   {
     EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
     GreReleaseSemaphoreInternal(ghsemGreLock);
   }
   v36 = *((_DWORD *)this + 28);
   if ( (v36 & 0x1000) == 0 )
-    goto LABEL_152;
+    goto LABEL_214;
   if ( *(_QWORD *)a3 )
     v37 = *(_QWORD *)(*(_QWORD *)a3 + 496LL);
   else
@@ -374,123 +403,252 @@ LABEL_111:
   {
     if ( v37 < v39 )
     {
-      v41 = v36 | 0x8000;
-      *((_DWORD *)this + 28) = v41;
-      v40 = DEVLOCKBLTOBJ::bPrepareSrcDco(this, a3, v41, 1) == 0;
-      _InterlockedOr(v54, 0);
-      v42 = DEVLOCKBLTOBJ::bPrepareTrgDco(this, a2, 1);
-      goto LABEL_133;
+      *((_DWORD *)this + 28) = v36 | 0x8000;
+      if ( (*(_DWORD *)(*(_QWORD *)a3 + 36LL) & 0x200) != 0 )
+      {
+        XDCOBJ::vLock((DEVLOCKBLTOBJ *)((char *)this + 176), **(HDC **)a3);
+        v41 = *v8;
+        if ( *v8 && *((_BYTE *)this + 225) )
+        {
+          v42 = *(_DWORD *)(*(_QWORD *)a3 + 36LL);
+          if ( (v42 & 1) != 0 && (v42 & 0x4000) == 0 && *((_QWORD *)this + 29) && !*((_QWORD *)this + 33) )
+          {
+            *((_DWORD *)v41 + 9) |= 0x4000u;
+            DC::pSurface(*v8, *((struct SURFACE **)this + 29));
+            *((_DWORD *)this + 28) |= 0x20u;
+          }
+          if ( !(unsigned int)DEVLOCKBLTOBJ::bMapSrcSurfaceView(this, (int)v41) )
+          {
+            v40 = 1;
+            *((_DWORD *)*v8 + 11) |= 1u;
+          }
+          goto LABEL_137;
+        }
+        v40 = 1;
+      }
+      *v8 = 0LL;
+LABEL_137:
+      _InterlockedOr(v68, 0);
+      v43 = *(_QWORD *)a2;
+      v44 = 1;
+      if ( (*(_DWORD *)(*(_QWORD *)a2 + 36LL) & 0x200) != 0 )
+      {
+        v45 = *(_QWORD *)(v43 + 48);
+        XDCOBJ::vLock((DEVLOCKBLTOBJ *)((char *)this + 120), *(HDC *)v43);
+        v46 = *(_QWORD *)(v45 + 1408);
+        if ( *v6 && *((_BYTE *)this + 169) )
+        {
+          v47 = *(_DWORD *)(*(_QWORD *)a2 + 36LL);
+          if ( (v47 & 1) != 0 && (v47 & 0x4000) == 0 && v46 && !*((_QWORD *)this + 30) )
+          {
+            *((_DWORD *)*v6 + 9) |= 0x4000u;
+            DC::pSurface(*v6, (struct SURFACE *)(v46 - 24));
+            *((_DWORD *)this + 28) |= 0x10u;
+          }
+          if ( !(unsigned int)DEVLOCKBLTOBJ::bMapTrgSurfaceView(this) )
+          {
+            *((_DWORD *)*v6 + 11) |= 1u;
+LABEL_147:
+            *((_DWORD *)this + 28) &= ~1u;
+            return 0LL;
+          }
+          goto LABEL_197;
+        }
+        v44 = 0;
+      }
+      *v6 = 0LL;
+      v48 = v44 == 0;
+      goto LABEL_196;
     }
-    v40 = DEVLOCKBLTOBJ::bPrepareTrgDco(this, a2, 1) == 0;
-    _InterlockedOr(v54, 0);
-    v43 = 1;
-  }
-  else
-  {
-    if ( v38 && !(unsigned int)DEVLOCKBLTOBJ::bPrepareTrgDco(this, a2, 1) )
+    if ( (*(_DWORD *)(v38 + 36) & 0x200) != 0 )
+    {
+      v49 = *(_QWORD *)(v38 + 48);
+      XDCOBJ::vLock((DEVLOCKBLTOBJ *)((char *)this + 120), *(HDC *)v38);
+      v50 = *(_QWORD *)(v49 + 1408);
+      if ( *v6 && *((_BYTE *)this + 169) )
+      {
+        v51 = *(_DWORD *)(*(_QWORD *)a2 + 36LL);
+        if ( (v51 & 1) != 0 && (v51 & 0x4000) == 0 && v50 && !*((_QWORD *)this + 30) )
+        {
+          *((_DWORD *)*v6 + 9) |= 0x4000u;
+          DC::pSurface(*v6, (struct SURFACE *)(v50 - 24));
+          *((_DWORD *)this + 28) |= 0x10u;
+        }
+        v52 = *v6;
+        if ( *v6 )
+        {
+          if ( *((_BYTE *)this + 169) )
+          {
+            if ( (*((_DWORD *)this + 28) & 0x1000) != 0 )
+            {
+              v53 = *((_QWORD *)v52 + 62);
+              if ( v53 )
+              {
+                v54 = SURFACE::Map(*((_QWORD *)v52 + 62), this);
+                v55 = v54;
+                if ( v54 <= 1 )
+                {
+                  if ( (*(_DWORD *)(v53 + 112) & 0x800) != 0
+                    && *(_QWORD *)(v53 + 248)
+                    && (unsigned int)bHookRedir((DEVLOCKBLTOBJ *)((char *)this + 120)) )
+                  {
+                    *((_DWORD *)this + 28) |= 0x400u;
+                  }
+                  if ( (*(_DWORD *)(v53 + 112) & 0x10) != 0
+                    && (unsigned int)bHookBmpDrv((DEVLOCKBLTOBJ *)((char *)this + 120)) )
+                  {
+                    *((_DWORD *)this + 28) |= 0x2000u;
+                  }
+                  if ( v55 == 1 )
+                    *((_DWORD *)this + 28) |= 0x40u;
+                }
+                else if ( v54 == 2 )
+                {
+                  v40 = 1;
+                  *((_DWORD *)*v6 + 11) |= 1u;
+                  goto LABEL_177;
+                }
+              }
+            }
+          }
+        }
+        v40 = 0;
+LABEL_177:
+        _InterlockedOr(v68, 0);
+        v56 = 1;
+        if ( (*(_DWORD *)(*(_QWORD *)a3 + 36LL) & 0x200) != 0 )
+        {
+          XDCOBJ::vLock((DEVLOCKBLTOBJ *)((char *)this + 176), **(HDC **)a3);
+          if ( *v8 && *((_BYTE *)this + 225) )
+          {
+            v57 = *(_DWORD *)(*(_QWORD *)a3 + 36LL);
+            if ( (v57 & 1) != 0 && (v57 & 0x4000) == 0 && *((_QWORD *)this + 29) && !*((_QWORD *)this + 33) )
+            {
+              *((_DWORD *)*v8 + 9) |= 0x4000u;
+              DC::pSurface(*v8, *((struct SURFACE **)this + 29));
+              *((_DWORD *)this + 28) |= 0x20u;
+            }
+            if ( !(unsigned int)DEVLOCKBLTOBJ::bMapSrcSurfaceView(this, v57) )
+            {
+              *((_DWORD *)*v8 + 11) |= 1u;
+              *((_DWORD *)this + 28) &= ~1u;
+              return 0LL;
+            }
+            goto LABEL_197;
+          }
+          v56 = 0;
+        }
+        *v8 = 0LL;
+        if ( !v56 )
+        {
+          *((_DWORD *)this + 28) &= ~1u;
+          return 0LL;
+        }
+        goto LABEL_197;
+      }
       v40 = 1;
-    if ( *(_QWORD *)a2 && **(_QWORD **)a2 == **(_QWORD **)a3 )
-      goto LABEL_134;
-    v43 = 0;
+    }
+    *v6 = 0LL;
+    goto LABEL_177;
   }
-  v42 = DEVLOCKBLTOBJ::bPrepareSrcDco(this, a3, v36, v43);
-LABEL_133:
-  if ( !v42 )
-    goto LABEL_138;
-LABEL_134:
+  if ( v38 && !(unsigned int)DEVLOCKBLTOBJ::bPrepareTrgDco(this, a2, 1) )
+    v40 = 1;
+  if ( !*(_QWORD *)a2 || **(_QWORD **)a2 != **(_QWORD **)a3 )
+  {
+    v48 = (unsigned int)DEVLOCKBLTOBJ::bPrepareSrcDco(this, a3, v36, 0) == 0;
+LABEL_196:
+    if ( v48 )
+      goto LABEL_147;
+  }
+LABEL_197:
   if ( v40
     || (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a3 + 48LL) + 40LL) & 0x8000) != 0
     && *(_QWORD *)(*(_QWORD *)a2 + 496LL)
     && *(_QWORD *)this )
   {
-    goto LABEL_138;
+    goto LABEL_147;
   }
   if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 48LL) + 40LL) & 0x8000) != 0 )
   {
-    v44 = *(_QWORD *)(*(_QWORD *)a3 + 496LL);
-    if ( v44 )
+    v58 = *(_QWORD *)(*(_QWORD *)a3 + 496LL);
+    if ( v58 )
     {
       if ( *((_QWORD *)this + 1) )
       {
-        if ( bCopySurface((DEVLOCKBLTOBJ *)((char *)this + 40), (struct _SURFOBJ *)(v44 + 24)) )
+        if ( !bCopySurface((DEVLOCKBLTOBJ *)((char *)this + 40), (struct _SURFOBJ *)(v58 + 24)) )
+          goto LABEL_147;
+        SURFREF::SURFREF((SURFREF *)v69, *(HSURF *)(*(_QWORD *)(*(_QWORD *)a3 + 496LL) + 32LL));
+        if ( hbmSelectBitmap(**(_QWORD **)a3, *(_QWORD *)(*((_QWORD *)this + 5) + 32LL), 1LL, 0LL) )
         {
-          SURFREF::SURFREF((SURFREF *)v55, *(HSURF *)(*(_QWORD *)(*(_QWORD *)a3 + 496LL) + 32LL));
-          if ( hbmSelectBitmap(**(_QWORD **)a3, *(_QWORD *)(*((_QWORD *)this + 5) + 32LL), 1LL, 0LL) )
-          {
-            v48 = v56;
-            *((_QWORD *)this + 13) = a3;
-            *((_QWORD *)this + 12) = *(_QWORD *)(v48 + 32);
-            SURFREF::vKeepIt((SURFREF *)v55);
-          }
-          else
-          {
-            v45 = PtiCurrentShared();
-            if ( !v45 || *(_QWORD *)(v45 + 384) )
-            {
-              *((_DWORD *)this + 28) &= ~1u;
-              SURFREF::~SURFREF((SURFREF *)v55);
-              return 0LL;
-            }
-            v46 = SURFMEM::pSurfobj((DEVLOCKBLTOBJ *)((char *)this + 40));
-            *(_QWORD *)(v47 + 384) = v46;
-          }
-          CAutoTGO::vGuard(
-            (DEVLOCKBLTOBJ *)((char *)this + 56),
-            this,
-            (void (*)(void *))DEVLOCKBLTOBJ::TmpSrcThreadCleanup);
-          EtwTraceGreLockReleaseSemaphore(L"hsemSrc", *((_QWORD *)this + 1));
-          GreReleaseSemaphoreInternal(*((_QWORD *)this + 1));
-          v49 = *((_QWORD *)this + 2);
-          *((_QWORD *)this + 1) = 0LL;
-          *((_QWORD *)this + 4) = 0LL;
-          if ( v49 )
-          {
-            EtwTraceGreLockReleaseSemaphore(L"hsemDMC", v49);
-            GreReleaseSemaphoreInternal(*((_QWORD *)this + 2));
-            *((_QWORD *)this + 2) = 0LL;
-          }
-          SURFREF::~SURFREF((SURFREF *)v55);
-          goto LABEL_152;
+          v62 = v70;
+          *((_QWORD *)this + 13) = a3;
+          *((_QWORD *)this + 12) = *(_QWORD *)(v62 + 32);
+          SURFREF::vKeepIt((SURFREF *)v69);
         }
-LABEL_138:
-        *((_DWORD *)this + 28) &= ~1u;
-        return 0LL;
+        else
+        {
+          v59 = W32GetThreadWin32Thread(KeGetCurrentThread());
+          if ( !v59 || *(_QWORD *)(v59 + 384) )
+          {
+            *((_DWORD *)this + 28) &= ~1u;
+            SURFREF::~SURFREF((SURFREF *)v69, v59);
+            return 0LL;
+          }
+          v60 = SURFMEM::pSurfobj((DEVLOCKBLTOBJ *)((char *)this + 40));
+          *(_QWORD *)(v61 + 384) = v60;
+        }
+        CAutoTGO::vGuard(
+          (DEVLOCKBLTOBJ *)((char *)this + 56),
+          this,
+          (void (*)(void *))DEVLOCKBLTOBJ::TmpSrcThreadCleanup);
+        EtwTraceGreLockReleaseSemaphore(L"hsemSrc", *((_QWORD *)this + 1));
+        GreReleaseSemaphoreInternal(*((_QWORD *)this + 1));
+        v63 = *((_QWORD *)this + 2);
+        *((_QWORD *)this + 1) = 0LL;
+        *((_QWORD *)this + 4) = 0LL;
+        if ( v63 )
+        {
+          EtwTraceGreLockReleaseSemaphore(L"hsemDMC", v63);
+          GreReleaseSemaphoreInternal(*((_QWORD *)this + 2));
+          *((_QWORD *)this + 2) = 0LL;
+        }
+        SURFREF::~SURFREF((SURFREF *)v69, v63);
       }
     }
   }
-LABEL_152:
-  v50 = *((_DWORD *)this + 28);
-  if ( (v50 & 0x1000) == 0 && (v50 & 0x800000) == 0 )
+LABEL_214:
+  v64 = *((_DWORD *)this + 28);
+  if ( (v64 & 0x1000) == 0 && (v64 & 0x800000) == 0 )
     return 1LL;
-  v51 = *v7;
-  if ( !*v7 )
+  v65 = *v6;
+  if ( !*v6 )
   {
     XDCOBJ::vLock((DEVLOCKBLTOBJ *)((char *)this + 120), **(HDC **)a2);
-    v51 = *v7;
-    if ( !*v7 )
-      goto LABEL_158;
+    v65 = *v6;
+    if ( !*v6 )
+      goto LABEL_220;
     *((_BYTE *)this + 169) = 0;
   }
-  *(_DWORD *)(v51 + 40) |= 2u;
+  *((_DWORD *)v65 + 10) |= 2u;
   *((_BYTE *)this + 168) = 1;
-LABEL_158:
-  v52 = **(HDC **)a3;
-  if ( v52 != **(HDC **)a2 )
+LABEL_220:
+  v66 = **(HDC **)a3;
+  if ( v66 != **(HDC **)a2 )
   {
-    v53 = *v8;
+    v67 = *v8;
     if ( *v8 )
     {
-LABEL_162:
-      *(_DWORD *)(v53 + 40) |= 2u;
+LABEL_224:
+      *((_DWORD *)v67 + 10) |= 2u;
       *((_BYTE *)this + 224) = 1;
       return 1LL;
     }
-    XDCOBJ::vLock((DEVLOCKBLTOBJ *)((char *)this + 176), v52);
-    v53 = *v8;
+    XDCOBJ::vLock((DEVLOCKBLTOBJ *)((char *)this + 176), v66);
+    v67 = *v8;
     if ( *v8 )
     {
       *((_BYTE *)this + 225) = 0;
-      goto LABEL_162;
+      goto LABEL_224;
     }
   }
   return 1LL;

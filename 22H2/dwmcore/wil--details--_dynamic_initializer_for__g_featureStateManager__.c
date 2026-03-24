@@ -1,13 +1,13 @@
 /*
- * XREFs of wil::details::_dynamic_initializer_for__g_featureStateManager__ @ 0x180001130
+ * XREFs of wil::details::_dynamic_initializer_for__g_featureStateManager__ @ 0x180001230
  * Callers:
  *     <none>
  * Callees:
- *     ?construct@?$manually_managed_shutdown_aware_object@VFeatureStateManager@details@wil@@@wil@@QEAAXXZ @ 0x1800FFE64 (-construct@-$manually_managed_shutdown_aware_object@VFeatureStateManager@details@wil@@@wil@@QEAA.c)
+ *     ??0FeatureStateManager@details@wil@@QEAA@XZ @ 0x1800AECB4 (--0FeatureStateManager@details@wil@@QEAA@XZ.c)
  */
 
 int wil::details::_dynamic_initializer_for__g_featureStateManager__()
 {
-  wil::manually_managed_shutdown_aware_object<wil::details::FeatureStateManager>::construct();
+  wil::details::FeatureStateManager::FeatureStateManager((wil::details::FeatureStateManager *)&wil::details::g_featureStateManager);
   return atexit((void (__cdecl *)())wil::details::_dynamic_atexit_destructor_for__g_featureStateManager__);
 }

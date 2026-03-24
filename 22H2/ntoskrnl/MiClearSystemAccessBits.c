@@ -1,37 +1,53 @@
 /*
- * XREFs of MiClearSystemAccessBits @ 0x14038E084
+ * XREFs of MiClearSystemAccessBits @ 0x1403B9ADC
  * Callers:
- *     MiPfnRangeIsZero @ 0x14038D604 (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x1403B9588 (MiPfnRangeIsZero.c)
  * Callees:
- *     MiInsertLargeTbFlushEntry @ 0x140211C4C (MiInsertLargeTbFlushEntry.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1402EDDE0 (MiInsertLargeTbFlushEntry.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-void __fastcall MiClearSystemAccessBits(unsigned __int64 a1, __int64 a2, int a3)
+void __fastcall MiClearSystemAccessBits(unsigned __int64 a1, __int64 a2, unsigned int a3)
 {
-  signed __int64 v6; // rax
-  _QWORD v7[24]; // [rsp+20h] [rbp-D8h] BYREF
+  _KPROCESS *v6; // rdx
+  unsigned __int64 v7; // rbp
+  __int64 v8; // rsi
+  signed __int64 v9; // rax
+  unsigned __int64 i; // rdi
+  _QWORD v11[24]; // [rsp+20h] [rbp-E8h] BYREF
 
-  memset(v7, 0, 0xB8uLL);
-  v7[3] = 0LL;
-  for ( LODWORD(v7[1]) = 20; a2; --a2 )
+  memset(v11, 0, 0xB8uLL);
+  v11[3] = 0LL;
+  LODWORD(v11[1]) = 20;
+  v7 = (__int64)(a1 << 25) >> 16;
+  if ( a2 )
   {
-    v6 = MI_READ_PTE_LOCK_FREE(a1);
-    if ( (v6 & 0x20) != 0 )
+    v8 = a2;
+    do
     {
-      if ( (MiFlags & 0x2000000) != 0 )
-        _mm_lfence();
-      _InterlockedCompareExchange64((volatile signed __int64 *)a1, v6 & 0xFFFFFFFFFFFFFFDFuLL, v6);
-      if ( a3 )
-        MiInsertLargeTbFlushEntry((__int64)v7, a3, a1);
-      else
-        MiInsertTbFlushEntry((__int64)v7, (__int64)(a1 << 25) >> 16, 1LL, 0);
+      v9 = MI_READ_PTE_LOCK_FREE(a1);
+      if ( (v9 & 0x20) != 0 )
+        _InterlockedCompareExchange64((volatile signed __int64 *)a1, v9 & 0xFFFFFFFFFFFFFFDFuLL, v9);
+      a1 += 8LL;
+      --v8;
     }
-    a1 += 8LL;
+    while ( v8 );
   }
-  MiFlushTbList((int *)v7);
+  if ( a3 )
+  {
+    for ( i = a1 - 8 * a2; a2; --a2 )
+    {
+      MiInsertLargeTbFlushEntry((__int64)v11, a3, i);
+      i += 8LL;
+    }
+  }
+  else
+  {
+    MiInsertTbFlushEntry((__int64)v11, v7, a2, 0);
+  }
+  MiFlushTbList((__int64)v11, v6);
 }

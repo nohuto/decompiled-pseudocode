@@ -1,81 +1,77 @@
 /*
- * XREFs of GreSfmCloseCompositorRef @ 0x1C0079C9C
+ * XREFs of GreSfmCloseCompositorRef @ 0x1C0015168
  * Callers:
- *     NtGdiHLSurfSetInformation @ 0x1C007ADC0 (NtGdiHLSurfSetInformation.c)
+ *     NtGdiHLSurfSetInformation @ 0x1C0014D90 (NtGdiHLSurfSetInformation.c)
  * Callees:
- *     ?StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z @ 0x1C0079E0C (-StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z.c)
- *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C007A73C (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
- *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C007A88C (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
- *     ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C007C7E0 (--1SFMLOGICALSURFACEREF@@QEAA@XZ.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C007E800 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ?bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@H@Z @ 0x1C00D5374 (-bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@H@Z.c)
- *     ?LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z @ 0x1C00D5418 (-LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C013E508 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
+ *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C0015600 (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
+ *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C0015774 (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
+ *     ?StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z @ 0x1C0016DB8 (-StopSfmStateTracking@SFMLOGICALSURFACE@@QEAAJPEAUHDEV__@@PEAUSfmState@@@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C00BDE38 (--1SFMLOGICALSURFACEREF@@QEAA@XZ.c)
+ *     ?bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@HW4_CLEANUPTYPE@@@Z @ 0x1C00BE60C (-bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@HW4_CLEANUPTYPE@@@Z.c)
+ *     ?LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z @ 0x1C00BEA74 (-LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C0169E84 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreSfmCloseCompositorRef(HDEV a1, HLSURF a2)
 {
   unsigned int v3; // ebx
   SFMLOGICALSURFACE *v5; // rdi
-  Gre::Base *v6; // rcx
-  int v7; // eax
-  struct Gre::Base::SESSION_GLOBALS *v9; // rax
-  struct SFMLOGICALSURFACE *v10; // rcx
-  _BYTE v12[32]; // [rsp+20h] [rbp-30h] BYREF
-  SFMLOGICALSURFACE *v13; // [rsp+40h] [rbp-10h]
-  int v14; // [rsp+48h] [rbp-8h]
-  unsigned int v15; // [rsp+70h] [rbp+20h] BYREF
-  __int64 v16; // [rsp+80h] [rbp+30h] BYREF
+  int v6; // eax
+  SFMLOGICALSURFACE *v8; // rcx
+  _BYTE v10[32]; // [rsp+20h] [rbp-30h] BYREF
+  SFMLOGICALSURFACE *v11; // [rsp+40h] [rbp-10h]
+  int v12; // [rsp+48h] [rbp-8h]
+  unsigned int v13; // [rsp+70h] [rbp+20h] BYREF
+  __int64 v14; // [rsp+80h] [rbp+30h] BYREF
 
   v3 = 0;
-  v15 = 0;
-  ENTER_GRE_DWM_CRIT(a1, &v15);
+  v13 = 0;
+  ENTER_GRE_DWM_CRIT(a1, &v13);
   if ( (unsigned int)UserIsCurrentProcessDwm() )
   {
-    if ( (unsigned int)IsDwmActive() )
+    if ( g_pDwmState )
     {
-      UnexpectedThreadTerminationHandler<DWMSPRITEREF>::UnexpectedThreadTerminationHandler<DWMSPRITEREF>(v12);
-      v13 = 0LL;
-      v14 = 0;
-      SFMLOGICALSURFACEREF::LockLogicalSurfaceObj((SFMLOGICALSURFACEREF *)v12, a2);
-      v5 = v13;
-      if ( v13 )
+      UnexpectedThreadTerminationHandler<DWMSPRITEREF>::UnexpectedThreadTerminationHandler<DWMSPRITEREF>(v10);
+      v11 = 0LL;
+      v12 = 0;
+      SFMLOGICALSURFACEREF::LockLogicalSurfaceObj((SFMLOGICALSURFACEREF *)v10, a2);
+      v5 = v11;
+      if ( v11 )
       {
-        PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v16, (SFMLOGICALSURFACE *)((char *)v13 + 256));
-        v7 = *((_DWORD *)v5 + 61);
-        if ( (v7 & 8) == 0 || (v7 & 0x10) != 0 )
+        PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v14, (SFMLOGICALSURFACE *)((char *)v11 + 256));
+        v6 = *((_DWORD *)v5 + 61);
+        if ( (v6 & 8) == 0 || (v6 & 0x10) != 0 )
         {
           v3 = -2147020579;
         }
         else if ( (*((_DWORD *)v5 + 62))-- == 1 )
         {
-          v9 = Gre::Base::Globals(v6);
-          SFMLOGICALSURFACE::StopSfmStateTracking(v5, a1, *((struct SfmState **)v9 + 809));
+          SFMLOGICALSURFACE::StopSfmStateTracking(v5, a1, gpSfmState);
           if ( *((_WORD *)v5 + 6) == 1 && !*((_DWORD *)v5 + 2) )
           {
-            if ( v16 )
+            if ( v14 )
             {
               GreReleasePushLockExclusive();
               KeLeaveCriticalRegion();
-              v16 = 0LL;
+              v14 = 0LL;
             }
-            v10 = v13;
-            if ( v13 )
-              _InterlockedDecrement((volatile signed __int32 *)v13 + 3);
-            v13 = 0LL;
-            if ( !(unsigned int)bhLSurfDestroyLogicalSurfaceObject(v10, 1) )
+            v8 = v11;
+            if ( v11 )
+              _InterlockedDecrement((volatile signed __int32 *)v11 + 3);
+            v11 = 0LL;
+            if ( !(unsigned int)bhLSurfDestroyLogicalSurfaceObject(v8, 1LL, 0LL) )
               v3 = -1073741823;
           }
         }
-        PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v16);
+        PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v14);
       }
       else
       {
         v3 = -1073741816;
       }
-      SFMLOGICALSURFACEREF::~SFMLOGICALSURFACEREF((SFMLOGICALSURFACEREF *)v12);
+      SFMLOGICALSURFACEREF::~SFMLOGICALSURFACEREF((SFMLOGICALSURFACEREF *)v10);
     }
     else
     {
@@ -86,6 +82,6 @@ __int64 __fastcall GreSfmCloseCompositorRef(HDEV a1, HLSURF a2)
   {
     v3 = -1073741790;
   }
-  LEAVE_GRE_DWM_CRIT(a1, v15);
+  LEAVE_GRE_DWM_CRIT(a1, v13);
   return v3;
 }

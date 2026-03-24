@@ -1,19 +1,19 @@
 /*
- * XREFs of ?ReportDeviceResources@DXGDEVICE@@QEAAXXZ @ 0x1C02ECEF4
+ * XREFs of ?ReportDeviceResources@DXGDEVICE@@QEAAXXZ @ 0x1C0256D34
  * Callers:
- *     ?ReportState@DXGDEVICE@@QEAAXXZ @ 0x1C02ED05C (-ReportState@DXGDEVICE@@QEAAXXZ.c)
+ *     ?ReportState@DXGDEVICE@@QEAAXXZ @ 0x1C0256DF0 (-ReportState@DXGDEVICE@@QEAAXXZ.c)
  * Callees:
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?ReportAllocationState@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z @ 0x1C02ECCE8 (-ReportAllocationState@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?ReportAllocationState@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z @ 0x1C0256CAC (-ReportAllocationState@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z.c)
  */
 
 void __fastcall DXGDEVICE::ReportDeviceResources(struct _KTHREAD **this)
 {
   struct _KTHREAD *v2; // rbx
-  BOOL v3; // r14d
-  struct DXGALLOCATION *v4; // rsi
+  BOOL v3; // esi
+  struct DXGALLOCATION *v4; // rdi
   _BYTE v5[8]; // [rsp+20h] [rbp-28h] BYREF
   DXGPUSHLOCK *v6; // [rsp+28h] [rbp-20h]
   int v7; // [rsp+30h] [rbp-18h]

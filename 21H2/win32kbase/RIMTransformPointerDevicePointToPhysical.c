@@ -1,24 +1,30 @@
 /*
- * XREFs of RIMTransformPointerDevicePointToPhysical @ 0x1C00E64A4
+ * XREFs of RIMTransformPointerDevicePointToPhysical @ 0x1C016551C
  * Callers:
- *     RIMApplyTransforms @ 0x1C0197E64 (RIMApplyTransforms.c)
- *     RIMSetContactBoundary @ 0x1C0198678 (RIMSetContactBoundary.c)
- *     RIMTransformCoordinatesFromDigitizer @ 0x1C0198DA0 (RIMTransformCoordinatesFromDigitizer.c)
- *     RIMTransformDimensionFromDigitizer @ 0x1C0198E70 (RIMTransformDimensionFromDigitizer.c)
- *     rimComputeHimetricGeometry @ 0x1C01AE5F0 (rimComputeHimetricGeometry.c)
+ *     RIMApplyTransforms @ 0x1C0164388 (RIMApplyTransforms.c)
+ *     RIMSetContactBoundary @ 0x1C0164AC4 (RIMSetContactBoundary.c)
+ *     RIMTransformCoordinatesFromDigitizer @ 0x1C0165250 (RIMTransformCoordinatesFromDigitizer.c)
+ *     RIMTransformDimensionFromDigitizer @ 0x1C0165340 (RIMTransformDimensionFromDigitizer.c)
+ *     rimComputeHimetricGeometry @ 0x1C0179264 (rimComputeHimetricGeometry.c)
  * Callees:
- *     RIMConvertPointCoordinates @ 0x1C019800C (RIMConvertPointCoordinates.c)
+ *     RIMConvertPointCoordinates @ 0x1C0164530 (RIMConvertPointCoordinates.c)
  */
 
-__int64 __fastcall RIMTransformPointerDevicePointToPhysical(__int64 a1, int a2, _DWORD *a3)
+__int64 __fastcall RIMTransformPointerDevicePointToPhysical(__int64 a1, __int64 a2, __int64 a3)
 {
+  __int128 v4; // xmm1
   __int64 result; // rax
+  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
+  int v7[6]; // [rsp+30h] [rbp-18h] BYREF
 
-  result = RIMConvertPointCoordinates(a2);
+  v4 = *(_OWORD *)(a1 + 192);
+  v6 = *(_OWORD *)(a1 + 176);
+  *(_OWORD *)v7 = v4;
+  result = RIMConvertPointCoordinates(a2, v7, (int *)&v6, (_QWORD *)a3);
   if ( !(_DWORD)result )
   {
-    *a3 = 0;
-    a3[1] = 0;
+    *(_DWORD *)a3 = 0;
+    *(_DWORD *)(a3 + 4) = 0;
   }
   return result;
 }

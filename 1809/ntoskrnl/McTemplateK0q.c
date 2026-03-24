@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0q @ 0x14028AFFC
+ * XREFs of McTemplateK0q @ 0x14028B0FC
  * Callers:
- *     PnpCallAddDevice @ 0x14070CC30 (PnpCallAddDevice.c)
+ *     PnpCallAddDevice @ 0x14070CC10 (PnpCallAddDevice.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6A0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateK0q(__int64 a1, __int64 a2, __int64 a3, int a4)

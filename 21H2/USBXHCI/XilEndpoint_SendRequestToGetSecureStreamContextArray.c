@@ -1,13 +1,13 @@
 /*
- * XREFs of XilEndpoint_SendRequestToGetSecureStreamContextArray @ 0x1C0037A58
+ * XREFs of XilEndpoint_SendRequestToGetSecureStreamContextArray @ 0x1C00378B4
  * Callers:
- *     XilEndpoint_FetchStreamContextArray @ 0x1C0037708 (XilEndpoint_FetchStreamContextArray.c)
+ *     XilEndpoint_FetchStreamContextArray @ 0x1C003754C (XilEndpoint_FetchStreamContextArray.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     memmove @ 0x1C0019A00 (memmove.c)
- *     WPP_RECORDER_SF_ddL @ 0x1C002F238 (WPP_RECORDER_SF_ddL.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0050250 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall XilEndpoint_SendRequestToGetSecureStreamContextArray(
@@ -20,79 +20,84 @@ __int64 __fastcall XilEndpoint_SendRequestToGetSecureStreamContextArray(
   __int64 v5; // rdi
   size_t v7; // r14
   unsigned int v9; // ebx
-  int *Pool2; // rsi
-  int v11; // ebx
-  int v12; // edx
-  int v13; // r9d
-  char v15; // [rsp+28h] [rbp-58h]
-  int v16; // [rsp+30h] [rbp-50h]
-  __int64 v17; // [rsp+40h] [rbp-40h]
-  _BYTE v18[44]; // [rsp+48h] [rbp-38h] BYREF
-  unsigned int v19; // [rsp+74h] [rbp-Ch]
+  int *PoolWithTag; // rsi
+  int v11; // edx
+  int v12; // ebx
+  int v13; // edx
+  int v14; // r9d
+  char v16; // [rsp+28h] [rbp-58h]
+  int v17; // [rsp+30h] [rbp-50h]
+  __int64 v18; // [rsp+40h] [rbp-40h]
+  _BYTE v19[44]; // [rsp+48h] [rbp-38h] BYREF
+  unsigned int v20; // [rsp+74h] [rbp-Ch]
 
   v5 = *(_QWORD *)(a1 + 32);
-  v19 = 0;
-  memset(&v18[4], 0, 40);
+  v20 = 0;
+  memset(&v19[4], 0, 40);
   v7 = 16LL * a4;
-  v17 = *(_QWORD *)(*(_QWORD *)v5 + 112LL);
+  v18 = *(_QWORD *)(*(_QWORD *)v5 + 112LL);
   if ( v7 > 0xFFFFFFFF || (v9 = v7 + 4, (int)v7 + 4 < (unsigned int)v7) )
     v9 = 0;
-  Pool2 = (int *)ExAllocatePool2(64LL, v9, 1229146200LL);
-  if ( Pool2 )
+  PoolWithTag = (int *)ExAllocatePoolWithTag((POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState, v9, 0x49434858u);
+  if ( PoolWithTag )
   {
-    memset(v18, 0, 24);
-    *(_QWORD *)&v18[32] = 36LL;
-    *(_QWORD *)&v18[24] = a2;
-    *(_DWORD *)&v18[40] = 0;
-    v19 = a4;
-    v11 = SecureChannel_SendRequestSynchronously(v17, v18, 48LL, Pool2, v9);
-    if ( v11 >= 0 )
+    memset(v19, 0, 24);
+    *(_QWORD *)&v19[32] = 36LL;
+    *(_QWORD *)&v19[24] = a2;
+    *(_DWORD *)&v19[40] = 0;
+    v20 = a4;
+    v12 = SecureChannel_SendRequestSynchronously(v18, v19, 48LL, PoolWithTag, v9);
+    if ( v12 >= 0 )
     {
-      v11 = *Pool2;
-      if ( *Pool2 >= 0 )
+      v12 = *PoolWithTag;
+      if ( *PoolWithTag >= 0 )
       {
-        memmove(a5, Pool2 + 1, v7);
-        v11 = 0;
+        memmove(a5, PoolWithTag + 1, v7);
+        v12 = 0;
         goto LABEL_16;
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v13 = 23;
-        v16 = *(_DWORD *)(v5 + 144);
-        v15 = *(_BYTE *)(*(_QWORD *)(v5 + 16) + 135LL);
+        v14 = 23;
+        v17 = *(_DWORD *)(v5 + 144);
+        v16 = *(_BYTE *)(*(_QWORD *)(v5 + 16) + 135LL);
         goto LABEL_11;
       }
     }
     else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v13 = 22;
-      v12 = *(unsigned __int8 *)(*(_QWORD *)(v5 + 16) + 135LL);
-      v16 = *(_DWORD *)(v5 + 144);
-      v15 = *(_BYTE *)(*(_QWORD *)(v5 + 16) + 135LL);
+      v14 = 22;
+      v13 = *(unsigned __int8 *)(*(_QWORD *)(v5 + 16) + 135LL);
+      v17 = *(_DWORD *)(v5 + 144);
+      v16 = *(_BYTE *)(*(_QWORD *)(v5 + 16) + 135LL);
 LABEL_11:
-      LOBYTE(v12) = 2;
-      WPP_RECORDER_SF_DD(
+      LOBYTE(v13) = 2;
+      WPP_RECORDER_SF_dd(
         *(_QWORD *)(v5 + 80),
-        v12,
-        13,
         v13,
-        (__int64)&WPP_c9b84b1160863fb1dfbb88ae491c1c73_Traceguids,
-        v15,
-        v16);
+        13,
+        v14,
+        (__int64)&WPP_539d53059a2e35bc1c6dc9c85d9f465f_Traceguids,
+        v16,
+        v17);
     }
 LABEL_16:
-    ExFreePoolWithTag(Pool2, 0x49434858u);
-    return (unsigned int)v11;
+    ExFreePoolWithTag(PoolWithTag, 0x49434858u);
+    return (unsigned int)v12;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v11 = *(unsigned __int8 *)(*(_QWORD *)(v5 + 16) + 135LL);
+    LOBYTE(v11) = 2;
     WPP_RECORDER_SF_ddL(
       *(_QWORD *)(v5 + 80),
-      2u,
-      0xDu,
-      0x15u,
-      (__int64)&WPP_c9b84b1160863fb1dfbb88ae491c1c73_Traceguids,
-      *(unsigned __int8 *)(*(_QWORD *)(v5 + 16) + 135LL),
+      v11,
+      13,
+      21,
+      (__int64)&WPP_539d53059a2e35bc1c6dc9c85d9f465f_Traceguids,
+      *(_BYTE *)(*(_QWORD *)(v5 + 16) + 135LL),
       *(_DWORD *)(v5 + 144),
       v9);
+  }
   return (unsigned int)-1073741670;
 }

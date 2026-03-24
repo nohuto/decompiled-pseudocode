@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C021D5F0
+ * XREFs of ?SetBufferProperty@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DC7B0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C021DDB0 (-SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
+ *     ?SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DCCB0 (-SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
  */
 
 __int64 __fastcall DirectComposition::CCompositionGlyphRunMarshaler::SetBufferProperty(
@@ -41,8 +41,7 @@ __int64 __fastcall DirectComposition::CCompositionGlyphRunMarshaler::SetBufferPr
       *((_QWORD *)this + 11) = v7;
 LABEL_10:
       *a6 = 1;
-      return result;
     }
   }
-  return 3221225485LL;
+  return result;
 }

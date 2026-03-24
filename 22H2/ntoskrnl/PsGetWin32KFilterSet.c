@@ -1,12 +1,12 @@
 /*
- * XREFs of PsGetWin32KFilterSet @ 0x14034D8A0
+ * XREFs of PsGetWin32KFilterSet @ 0x1402FF710
  * Callers:
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */
 
 __int64 PsGetWin32KFilterSet()
 {
-  return LODWORD(KeGetCurrentThread()->ApcState.Process[2].Affinity.StaticBitmap[20]);
+  return LODWORD(KeGetCurrentThread()->ApcState.Process[2].AffinityPadding[0]);
 }

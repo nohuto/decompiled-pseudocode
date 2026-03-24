@@ -1,14 +1,11 @@
 /*
- * XREFs of PpmEventGetEventDescriptorAndProcessorId @ 0x1402575B0
+ * XREFs of PpmEventGetEventDescriptorAndProcessorId @ 0x1403988CC
  * Callers:
- *     PpmEventPerfSelectProcessorState @ 0x140255868 (PpmEventPerfSelectProcessorState.c)
- *     PpmEventTraceDeliveredPerfChange @ 0x140255950 (PpmEventTraceDeliveredPerfChange.c)
- *     PpmEventTraceRecordedUtility @ 0x140257510 (PpmEventTraceRecordedUtility.c)
- *     PpmEventProcessorPerfStateChange @ 0x14034EDD0 (PpmEventProcessorPerfStateChange.c)
- *     PpmEventTraceExpectedUtility @ 0x14034EE70 (PpmEventTraceExpectedUtility.c)
- *     PpmEventAutonomousModeChange @ 0x140599C30 (PpmEventAutonomousModeChange.c)
- *     PpmEventBiosCapChange @ 0x140599CEC (PpmEventBiosCapChange.c)
- *     PpmEventThermalCapChange @ 0x14059B720 (PpmEventThermalCapChange.c)
+ *     PpmEventBiosCapChange @ 0x1403925D0 (PpmEventBiosCapChange.c)
+ *     PpmEventProcessorPerfStateChange @ 0x140398788 (PpmEventProcessorPerfStateChange.c)
+ *     PpmEventTraceExpectedUtility @ 0x140398828 (PpmEventTraceExpectedUtility.c)
+ *     PpmEventAutonomousModeChange @ 0x1405791E0 (PpmEventAutonomousModeChange.c)
+ *     PpmEventThermalCapChange @ 0x14057A578 (PpmEventThermalCapChange.c)
  * Callees:
  *     <none>
  */
@@ -18,11 +15,11 @@ __int64 __fastcall PpmEventGetEventDescriptorAndProcessorId(__int64 a1, __int64 
   int v6; // eax
   __int64 result; // rax
 
-  if ( *(_BYTE *)(a1 + 68) )
+  if ( *(_BYTE *)(a1 + 60) )
   {
     a3 = a2;
-    *(_WORD *)a4 = *(unsigned __int8 *)(a1 - 33760);
-    *(_BYTE *)(a4 + 2) = *(_BYTE *)(a1 - 33759);
+    *(_WORD *)a4 = *(unsigned __int8 *)(a1 - 32920);
+    *(_BYTE *)(a4 + 2) = *(_BYTE *)(a1 - 32919);
     v6 = 3;
   }
   else

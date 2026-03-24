@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetScatterGatherList@FxDmaScatterGatherTransaction@@AEAAJPEAU_MDL@@_KKP6AXPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAU_SCATTER_GATHER_LIST@@PEAX@Z5@Z @ 0x1C0057F18
+ * XREFs of ?GetScatterGatherList@FxDmaScatterGatherTransaction@@AEAAJPEAU_MDL@@_KKP6AXPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAU_SCATTER_GATHER_LIST@@PEAX@Z5@Z @ 0x1C0035058
  * Callers:
- *     ?StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0058240 (-StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
+ *     ?StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0035430 (-StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
  * Callees:
- *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DC98 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002F470 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
  */
 
 __int64 __fastcall FxDmaScatterGatherTransaction::GetScatterGatherList(
@@ -16,25 +16,19 @@ __int64 __fastcall FxDmaScatterGatherTransaction::GetScatterGatherList(
         void *Mdl_0)
 {
   KIRQL v10; // di
-  $D7F949E6343C64CECF3CA7D9836D4276 *DmaDescription; // rax
-  __int64 v12; // r11
-  _DEVICE_OBJECT *v13; // rdx
-  _DMA_ADAPTER *AdapterObject; // rbp
-  int v15; // eax
-  unsigned int v16; // ebx
-  unsigned __int8 v18; // [rsp+38h] [rbp-50h]
-  unsigned __int8 m_DmaDirection; // [rsp+48h] [rbp-40h]
+  __int64 v11; // r11
+  int v12; // eax
+  unsigned int v13; // ebx
+  unsigned __int8 v15; // [rsp+38h] [rbp-40h]
+  unsigned __int8 m_DmaDirection; // [rsp+48h] [rbp-30h]
 
   v10 = KfRaiseIrql(2u);
-  DmaDescription = FxDmaEnabler::GetDmaDescription(this->m_DmaEnabler, WdfDmaDirectionReadFromDevice);
-  v13 = *(_DEVICE_OBJECT **)(v12 + 168);
-  AdapterObject = this->m_AdapterInfo->AdapterObject;
-  if ( DmaDescription->m_SimplexAdapterInfo.DeviceDescription.Version == 3 )
+  if ( FxDmaEnabler::GetDmaDescription(this->m_DmaEnabler, WdfDmaDirectionReadFromDevice)->m_SimplexAdapterInfo.DeviceDescription.Version == 3 )
   {
     m_DmaDirection = this->m_DmaDirection;
-    v15 = AdapterObject->DmaOperations->GetScatterGatherListEx(
-            AdapterObject,
-            v13,
+    v12 = this->m_AdapterInfo->AdapterObject->DmaOperations->GetScatterGatherListEx(
+            this->m_AdapterInfo->AdapterObject,
+            *(_DEVICE_OBJECT **)(v11 + 168),
             this->m_TransferContext,
             Mdl,
             CurrentOffset,
@@ -49,18 +43,18 @@ __int64 __fastcall FxDmaScatterGatherTransaction::GetScatterGatherList(
   }
   else
   {
-    v18 = this->m_DmaDirection;
-    v15 = AdapterObject->DmaOperations->GetScatterGatherList(
-            AdapterObject,
-            v13,
+    v15 = this->m_DmaDirection;
+    v12 = this->m_AdapterInfo->AdapterObject->DmaOperations->GetScatterGatherList(
+            this->m_AdapterInfo->AdapterObject,
+            *(_DEVICE_OBJECT **)(v11 + 168),
             Mdl,
             (char *)Mdl->StartVa + Mdl->ByteOffset + CurrentOffset,
             Length,
             FxDmaScatterGatherTransaction::_AdapterListControl,
             Mdl_0,
-            v18);
+            v15);
   }
-  v16 = v15;
+  v13 = v12;
   KeLowerIrql(v10);
-  return v16;
+  return v13;
 }

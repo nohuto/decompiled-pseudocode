@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0qhq_EtwWriteTransfer @ 0x1C01509B8
+ * XREFs of McTemplateK0qhq_EtwWriteTransfer @ 0x1C0126328
  * Callers:
- *     EtwTraceDisplayReqChange @ 0x1C007DA08 (EtwTraceDisplayReqChange.c)
- *     ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C007DFEC (-_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z.c)
+ *     ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C004849C (-_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z.c)
+ *     EtwTraceDisplayReqChange @ 0x1C00B711C (EtwTraceDisplayReqChange.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qhq_EtwWriteTransfer(

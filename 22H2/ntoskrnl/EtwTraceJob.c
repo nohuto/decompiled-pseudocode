@@ -1,45 +1,45 @@
 /*
- * XREFs of EtwTraceJob @ 0x1409E53B8
+ * XREFs of EtwTraceJob @ 0x140935D98
  * Callers:
- *     NtCreateJobObject @ 0x1406885D0 (NtCreateJobObject.c)
- *     NtTerminateJobObject @ 0x1407DD750 (NtTerminateJobObject.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1407DD8B4 (PspTerminateAllProcessesInJobHierarchy.c)
- *     NtOpenJobObject @ 0x1407EA570 (NtOpenJobObject.c)
+ *     NtOpenJobObject @ 0x1405D8F10 (NtOpenJobObject.c)
+ *     NtTerminateJobObject @ 0x140698AB0 (NtTerminateJobObject.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x140698B28 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     NtCreateJobObject @ 0x14071E360 (NtCreateJobObject.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwpCopyJobGuidSafe @ 0x1408A7024 (EtwpCopyJobGuidSafe.c)
- *     EtwpPsProvTraceJob @ 0x1409E6508 (EtwpPsProvTraceJob.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpCopyJobGuidSafe @ 0x140936A24 (EtwpCopyJobGuidSafe.c)
+ *     EtwpPsProvTraceJob @ 0x140937368 (EtwpPsProvTraceJob.c)
  */
 
-__int64 __fastcall EtwTraceJob(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4)
+void __fastcall EtwTraceJob(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4)
 {
   int v5; // eax
   __int64 v6; // rdx
   int v7; // r8d
   __int64 v8; // r9
   unsigned int v9; // r10d
-  __int128 v11; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v12; // [rsp+40h] [rbp-30h]
-  unsigned int v13; // [rsp+48h] [rbp-28h]
-  __int128 *v14; // [rsp+50h] [rbp-20h] BYREF
-  int v15; // [rsp+58h] [rbp-18h]
-  int v16; // [rsp+5Ch] [rbp-14h]
+  __int128 v10; // [rsp+30h] [rbp-40h] BYREF
+  __int64 v11; // [rsp+40h] [rbp-30h]
+  unsigned int v12; // [rsp+48h] [rbp-28h]
+  __int128 *v13; // [rsp+50h] [rbp-20h] BYREF
+  int v14; // [rsp+58h] [rbp-18h]
+  int v15; // [rsp+5Ch] [rbp-14h]
 
-  v12 = 0LL;
-  v13 = 0;
   v11 = 0LL;
-  EtwpCopyJobGuidSafe(&v11, a1);
+  v12 = 0;
+  v10 = 0LL;
+  v5 = EtwpCopyJobGuidSafe(&v10, a1);
   if ( v6 )
-    LODWORD(v12) = *(_DWORD *)(v6 + 1452);
+    LODWORD(v11) = *(_DWORD *)(v6 + 1236);
   else
-    LODWORD(v12) = v5 & v12;
-  v16 = 0;
-  HIDWORD(v12) = v7;
-  v13 = v9;
-  v14 = &v11;
-  v15 = 28;
-  if ( v8 && EtwpHostSiloState != -4540 && (*(_DWORD *)(EtwpHostSiloState + 4540) & 0x80000) != 0 )
+    LODWORD(v11) = v5 & v11;
+  v15 = 0;
+  HIDWORD(v11) = v7;
+  v12 = v9;
+  v13 = &v10;
+  v14 = 28;
+  if ( v8 && EtwpHostSiloState != -4516 && (*(_DWORD *)(EtwpHostSiloState + 4516) & 0x80000) != 0 )
     EtwpPsProvTraceJob(v8, v9, a4);
-  return EtwTraceKernelEvent((int)&v14, 1, 0x80000u, a4, 5249284);
+  EtwTraceKernelEvent((__int64)&v13, 1u, 0x80000u, a4, 0x501904u);
 }

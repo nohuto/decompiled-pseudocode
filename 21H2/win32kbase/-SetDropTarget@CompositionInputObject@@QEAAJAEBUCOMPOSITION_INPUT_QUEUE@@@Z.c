@@ -1,190 +1,215 @@
 /*
- * XREFs of ?SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C0095774
+ * XREFs of ?SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C0058400
  * Callers:
- *     NtCompositionSetDropTarget @ 0x1C0095610 (NtCompositionSetDropTarget.c)
+ *     NtCompositionSetDropTarget @ 0x1C0058290 (NtCompositionSetDropTarget.c)
  * Callees:
- *     IsThreadCrossSessionAttached @ 0x1C0022CC0 (IsThreadCrossSessionAttached.c)
- *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C0028F90 (EtwTraceAcquiredExclusiveUserCrit.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C0029D70 (UserSessionSwitchLeaveCrit.c)
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     ??1CritAcquire@Perf@InputTraceLogging@@QEAA@XZ @ 0x1C002A3A8 (--1CritAcquire@Perf@InputTraceLogging@@QEAA@XZ.c)
- *     HMUnlockObject @ 0x1C0038FB0 (HMUnlockObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004DAC0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ?UnlockAndRelease@CInputSink@@QEBA_NXZ @ 0x1C0096060 (-UnlockAndRelease@CInputSink@@QEBA_NXZ.c)
- *     ?LockForWrite@CompositionInputObject@@QEAAJPEAPEAVCInputSink@@@Z @ 0x1C00960F0 (-LockForWrite@CompositionInputObject@@QEAAJPEAPEAVCInputSink@@@Z.c)
- *     ?SetDropTarget@CInputSink@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C009642C (-SetDropTarget@CInputSink@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     HMUnlockObject @ 0x1C002D5A0 (HMUnlockObject.c)
+ *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C002ED90 (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     IsThreadCrossSessionAttached @ 0x1C0030000 (IsThreadCrossSessionAttached.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C00300B0 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0036190 (UserSessionSwitchLeaveCrit.c)
+ *     ?LockExclusive@tagDomLock@@QEBAXXZ @ 0x1C0039C00 (-LockExclusive@tagDomLock@@QEBAXXZ.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     ?SetDropTarget@CInputSink@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C00586A4 (-SetDropTarget@CInputSink@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z.c)
+ *     ?LockForWrite@CompositionInputObject@@QEAAJPEAPEAVCInputSink@@@Z @ 0x1C005A580 (-LockForWrite@CompositionInputObject@@QEAAJPEAPEAVCInputSink@@@Z.c)
+ *     ?UnlockAndRelease@CInputSink@@QEBA_NXZ @ 0x1C005CD60 (-UnlockAndRelease@CInputSink@@QEBA_NXZ.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C008F428 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall CompositionInputObject::SetDropTarget(
-        PVOID Object,
-        const struct COMPOSITION_INPUT_QUEUE *a2,
-        __int64 a3)
+__int64 __fastcall CompositionInputObject::SetDropTarget(PVOID Object, const struct COMPOSITION_INPUT_QUEUE *a2)
 {
-  __int64 CurrentThreadWin32Thread; // rax
-  __int64 v6; // rdx
-  unsigned __int64 v7; // r8
-  struct tagTHREADINFO **v8; // rbx
-  struct tagTHREADINFO *v9; // rbx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
+  PVOID v3; // r14
+  __int64 v4; // rcx
+  LARGE_INTEGER *CurrentThreadWin32Thread; // rbx
+  struct tagTHREADINFO *v6; // rbx
+  struct tagTHREADINFO **v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  PVOID CurrentProcess; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  struct _KTHREAD *CurrentThread; // rdi
+  __int64 v16; // rbx
+  __int64 v17; // rcx
+  __int64 *ThreadWin32Thread; // rax
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 *v17; // rbx
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  int v20; // ebx
-  __int64 v21; // r8
-  __int64 v22; // r9
-  LARGE_INTEGER *v24; // rbx
-  struct tagKERNELHANDLETABLEENTRY *v25; // rax
-  __int64 v26; // rcx
-  BOOL v27; // [rsp+30h] [rbp-99h] BYREF
-  CInputSink *v28; // [rsp+38h] [rbp-91h] BYREF
-  __int64 v29; // [rsp+40h] [rbp-89h] BYREF
-  int v30; // [rsp+48h] [rbp-81h]
-  GUID ActivityId; // [rsp+4Ch] [rbp-7Dh] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v32; // [rsp+60h] [rbp-69h] BYREF
-  BOOL *v33; // [rsp+80h] [rbp-49h]
-  __int64 v34; // [rsp+88h] [rbp-41h]
-  struct _EVENT_DATA_DESCRIPTOR v35; // [rsp+90h] [rbp-39h] BYREF
-  BOOL *v36; // [rsp+B0h] [rbp-19h]
-  __int64 v37; // [rsp+B8h] [rbp-11h]
-  struct _EVENT_DATA_DESCRIPTOR v38; // [rsp+C0h] [rbp-9h] BYREF
-  BOOL *v39; // [rsp+E0h] [rbp+17h]
-  __int64 v40; // [rsp+E8h] [rbp+1Fh]
+  PERESOURCE *DomainLockRef; // rbx
+  __int64 *v21; // rsi
+  int v22; // ebx
+  __int64 v24; // rax
+  int ProcessSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v27; // rax
+  unsigned int v28; // r8d
+  __int64 v29; // rax
+  PERESOURCE *v30; // rdi
+  int v31; // [rsp+30h] [rbp-D0h] BYREF
+  int v32; // [rsp+34h] [rbp-CCh] BYREF
+  int v33; // [rsp+38h] [rbp-C8h] BYREF
+  CInputSink *v34; // [rsp+40h] [rbp-C0h] BYREF
+  PVOID v35; // [rsp+48h] [rbp-B8h]
+  __int64 v36; // [rsp+58h] [rbp-A8h]
+  unsigned __int8 v37; // [rsp+60h] [rbp-A0h]
+  GUID ActivityId; // [rsp+64h] [rbp-9Ch] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v39; // [rsp+78h] [rbp-88h] BYREF
+  int *v40; // [rsp+98h] [rbp-68h]
+  __int64 v41; // [rsp+A0h] [rbp-60h]
+  struct _EVENT_DATA_DESCRIPTOR v42; // [rsp+A8h] [rbp-58h] BYREF
+  int *v43; // [rsp+C8h] [rbp-38h]
+  __int64 v44; // [rsp+D0h] [rbp-30h]
+  struct _EVENT_DATA_DESCRIPTOR v45; // [rsp+D8h] [rbp-28h] BYREF
+  int *v46; // [rsp+F8h] [rbp-8h]
+  __int64 v47; // [rsp+100h] [rbp+0h]
 
-  v28 = 0LL;
+  v35 = Object;
+  v34 = 0LL;
+  v3 = Object;
+  CurrentThreadWin32Thread = (LARGE_INTEGER *)PsGetCurrentThreadWin32Thread(Object);
+  if ( CurrentThreadWin32Thread )
+    CurrentThreadWin32Thread[1] = KeQueryPerformanceCounter(0LL);
+  ActivityId = 0LL;
   if ( InputTraceLogging::Perf::s_userCritLoggingEnabled )
-    CurrentThreadWin32Thread = PsGetCurrentThreadWin32Thread(Object, a2, a3);
-  else
-    CurrentThreadWin32Thread = 0LL;
-  v29 = CurrentThreadWin32Thread;
-  v30 = 1;
-  if ( CurrentThreadWin32Thread && (*(int *)(CurrentThreadWin32Thread + 24) > 0 || *(_DWORD *)(v29 + 48)) )
   {
-    EtwActivityIdControl(3u, &ActivityId);
-    if ( (unsigned int)dword_1C028EE70 > 6 && tlgKeywordOn((__int64)&dword_1C028EE70, 0x2000LL) )
+    v37 = 1;
+    v27 = PsGetCurrentThreadWin32Thread(v4);
+    v36 = v27;
+    if ( v27 && (*(int *)(v27 + 24) > 0 || *(_DWORD *)(v36 + 48)) )
     {
-      v34 = 4LL;
-      v27 = v30 == 1;
-      v33 = &v27;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C028EE70,
-        (unsigned __int8 *)dword_1C025AD79,
-        &ActivityId,
-        0LL,
-        3u,
-        &v32);
+      EtwActivityIdControl(3u, &ActivityId);
+      if ( (unsigned int)dword_1C024BA90 > 6 && tlgKeywordOn((__int64)&dword_1C024BA90, 0x2000LL) )
+      {
+        v32 = v37;
+        v41 = 4LL;
+        v40 = &v32;
+        tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024BA90, (int)&dword_1C0218FF7, (int)&ActivityId, 0, 3u, &v39);
+      }
     }
   }
-  if ( dword_1C028D6F0 && tlgKeywordOn((__int64)&dword_1C028D6F0, 0x400000000000LL)
-    || (v6 = W32kEtwEnabledKeyword, v7 = 0x8000002010000000uLL, (W32kEtwEnabledKeyword & 0x8000002010000000uLL) != 0)
-    && (unsigned __int8)(byte_1C028DB38 - 1) > 2u
-    && (qword_1C028DB20 & 0x8000002010000000uLL) != 0
-    && (qword_1C028DB28 & 0x8000002010000000uLL) == qword_1C028DB28
-    || (v7 = 0x200000010000000LL, (W32kEtwEnabledKeyword & 0x200000010000000LL) != 0)
-    && (unsigned __int8)(byte_1C028DB38 - 1) > 2u
-    && (qword_1C028DB20 & 0x200000010000000LL) != 0
-    && (qword_1C028DB28 & 0x200000010000000LL) == qword_1C028DB28 )
+  else
   {
-    v24 = (LARGE_INTEGER *)PsGetCurrentThreadWin32Thread(Object, v6, v7);
-    if ( v24 )
-      v24[1] = KeQueryPerformanceCounter(0LL);
+    v36 = 0LL;
   }
-  v8 = (struct tagTHREADINFO **)ExEnterCriticalRegionAndAcquireResourceExclusive(gpresUser);
+  v6 = 0LL;
+  while ( 1 )
+  {
+    v7 = (struct tagTHREADINFO **)ExEnterCriticalRegionAndAcquireResourceExclusive(gpresUser);
+    if ( v7 )
+      v6 = *v7;
+    CurrentProcess = (PVOID)PsGetCurrentProcess(v9, v8);
+    if ( CurrentProcess )
+    {
+      if ( CurrentProcess == g_pepDwm )
+        break;
+    }
+    if ( (PVOID)PsGetCurrentProcess(v12, v11) == gpepCSRSS && v6 != (struct tagTHREADINFO *)gptiTSRequest
+      || gbDITInHitTest != 1
+      || v6 == gptiRit )
+    {
+      break;
+    }
+    ++gcDITHitTestWaiters;
+    ExReleaseResourceAndLeaveCriticalRegion(gpresUser);
+    KeWaitForSingleObject(gpsemDITHitTestWaiters, UserRequest, 0, 0, 0LL);
+  }
+  if ( InputTraceLogging::Perf::s_userCritLoggingEnabled && v36 && (*(_DWORD *)(v36 + 48) || *(int *)(v36 + 24) > 0) )
+  {
+    *(_DWORD *)(v36 + 44) = 1;
+    *(GUID *)(v36 + 28) = ActivityId;
+    if ( (unsigned int)dword_1C024BA90 > 6 )
+    {
+      if ( tlgKeywordOn((__int64)&dword_1C024BA90, 0x2000LL) )
+      {
+        v31 = v37;
+        v44 = 4LL;
+        v43 = &v31;
+        tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024BA90, (int)&dword_1C0218FA0, (int)&ActivityId, 0, 3u, &v42);
+        v28 = dword_1C024BA90;
+      }
+      if ( v28 > 6 && tlgKeywordOn((__int64)&dword_1C024BA90, 0x2000LL) )
+      {
+        v33 = v37;
+        v47 = 4LL;
+        v46 = &v33;
+        tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024BA90, (int)&dword_1C0218FCD, (int)&ActivityId, 0, 3u, &v45);
+      }
+    }
+  }
   EtwTraceAcquiredExclusiveUserCrit();
-  if ( v8 )
+  gptiCurrent = v6;
+  gbValidateHandleForIL = 1;
+  if ( !(unsigned __int8)KeIsAttachedProcess()
+    || (v24 = PsGetCurrentProcess(v14, v13),
+        ProcessSessionId = PsGetProcessSessionIdEx(v24),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
   {
-    v9 = *v8;
-    if ( IsThreadCrossSessionAttached() )
-      v9 = 0LL;
-    if ( v29 )
+    CurrentThread = KeGetCurrentThread();
+    v16 = 0LL;
+    if ( !IsThreadCrossSessionAttached() )
     {
-      v11 = *(unsigned int *)(v29 + 24);
-      if ( *(_DWORD *)(v29 + 48) || (int)v11 > 0 )
-      {
-        *(_DWORD *)(v29 + 44) = 1;
-        *(GUID *)(v29 + 28) = ActivityId;
-        v12 = (unsigned int)dword_1C028EE70;
-        if ( (unsigned int)dword_1C028EE70 > 6 )
-        {
-          if ( tlgKeywordOn((__int64)&dword_1C028EE70, 0x2000LL) )
-          {
-            v37 = 4LL;
-            v27 = v30 == 1;
-            v36 = &v27;
-            tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_1C028EE70,
-              (unsigned __int8 *)dword_1C025AD22,
-              &ActivityId,
-              0LL,
-              3u,
-              &v35);
-            v12 = (unsigned int)dword_1C028EE70;
-          }
-          if ( (unsigned int)v12 > 6 && tlgKeywordOn((__int64)&dword_1C028EE70, 0x2000LL) )
-          {
-            v40 = 4LL;
-            v27 = v30 == 1;
-            v39 = &v27;
-            tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_1C028EE70,
-              (unsigned __int8 *)dword_1C025AD4F,
-              &ActivityId,
-              0LL,
-              3u,
-              &v38);
-          }
-        }
-      }
+      ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+      if ( ThreadWin32Thread )
+        v16 = *ThreadWin32Thread;
     }
-    gptiCurrent = v9;
-    if ( v9 )
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v17);
+    if ( v16
+      && CurrentProcessWin32Process
+      && (*(_DWORD *)(v16 + 488) & 0x1000000) != 0
+      && (*(_DWORD *)(v16 + 1232) & 0x80u) == 0
+      && (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x8000) != 0 )
     {
-      *((_DWORD *)v9 + 377) = 1;
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v11, v10, v12, v13);
-      if ( CurrentProcessWin32Process )
+      DomainLockRef = (PERESOURCE *)GetDomainLockRef(12);
+      if ( DomainLockRef == (PERESOURCE *)&gDomainDummyLock )
       {
-        if ( (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x8000) != 0
-          && (*((_DWORD *)gptiCurrent + 122) & 0x1000000) != 0
-          && (*((_DWORD *)gptiCurrent + 314) & 0x80u) == 0 )
-        {
-          while ( 1 )
-          {
-            v17 = (__int64 *)gpSharedUserCritDeferredUnlockListHead;
-            if ( !gpSharedUserCritDeferredUnlockListHead )
-              break;
-            v25 = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)gpSharedUserCritDeferredUnlockListHead + 2);
-            v26 = *(_QWORD *)gpSharedUserCritDeferredUnlockListHead;
-            *((_QWORD *)gpSharedUserCritDeferredUnlockListHead + 2) = 0LL;
-            gpSharedUserCritDeferredUnlockListHead = v25;
-            if ( !*(_DWORD *)(v26 + 8) )
-            {
-              MicrosoftTelemetryAssertTriggeredNoArgsKM(v26, v15, v16);
-              v26 = *v17;
-            }
-            HMUnlockObject(v26);
-          }
-        }
+        v31 = 0x20000;
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 408LL);
       }
+      if ( ExIsResourceAcquiredExclusiveLite(*DomainLockRef) == 1 )
+      {
+        v31 = 0x20000;
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1293LL);
+      }
+      ExEnterCriticalRegionAndAcquireResourceExclusive(*DomainLockRef);
+      v21 = (__int64 *)gpducstulHead;
+      if ( gpducstulHead )
+      {
+        do
+        {
+          gpducstulHead = (struct tagKERNELHANDLETABLEENTRY *)v21[2];
+          v29 = *v21;
+          v21[2] = 0LL;
+          if ( !*(_DWORD *)(v29 + 8) )
+          {
+            v31 = 0x20000;
+            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 4307LL);
+          }
+          v30 = (PERESOURCE *)GetDomainLockRef(12);
+          if ( v30 == (PERESOURCE *)&gDomainDummyLock )
+          {
+            v32 = 0x20000;
+            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 490LL);
+          }
+          ExReleaseResourceAndLeaveCriticalRegion(*v30);
+          HMUnlockObject(*v21);
+          tagDomLock::LockExclusive(v30);
+          v21 = (__int64 *)gpducstulHead;
+        }
+        while ( gpducstulHead );
+        v3 = v35;
+      }
+      ExReleaseResourceAndLeaveCriticalRegion(*DomainLockRef);
     }
   }
-  else
+  v22 = CompositionInputObject::LockForWrite(v3, &v34);
+  if ( v22 >= 0 )
   {
-    InputTraceLogging::Perf::CritAcquire::~CritAcquire((InputTraceLogging::Perf::CritAcquire *)&v29);
-    gptiCurrent = 0LL;
+    v22 = CInputSink::SetDropTarget(v34, a2);
+    CInputSink::UnlockAndRelease(v34);
   }
-  v20 = CompositionInputObject::LockForWrite(Object, &v28);
-  if ( v20 >= 0 )
-  {
-    v20 = CInputSink::SetDropTarget(v28, a2);
-    CInputSink::UnlockAndRelease(v28);
-  }
-  UserSessionSwitchLeaveCrit(v19, v18, v21, v22);
-  return (unsigned int)v20;
+  UserSessionSwitchLeaveCrit();
+  return (unsigned int)v22;
 }

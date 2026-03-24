@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetBitmapDpiScaleValue @ 0x1C02C2400
+ * XREFs of NtGdiGetBitmapDpiScaleValue @ 0x1C02AE000
  * Callers:
  *     <none>
  * Callees:
- *     GreGetBitmapDpiScaleValue @ 0x1C02A7D84 (GreGetBitmapDpiScaleValue.c)
+ *     GreGetBitmapDpiScaleValue @ 0x1C029E70C (GreGetBitmapDpiScaleValue.c)
  */
 
 __int64 __fastcall NtGdiGetBitmapDpiScaleValue(HSURF a1)

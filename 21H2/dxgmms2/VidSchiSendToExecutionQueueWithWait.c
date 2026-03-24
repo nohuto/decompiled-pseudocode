@@ -1,11 +1,11 @@
 /*
- * XREFs of VidSchiSendToExecutionQueueWithWait @ 0x1C009A9EC
+ * XREFs of VidSchiSendToExecutionQueueWithWait @ 0x1C0089B80
  * Callers:
- *     VidSchiSwitchNodeFromContext @ 0x1C009A7E0 (VidSchiSwitchNodeFromContext.c)
- *     VidSchiSubmitPreemptionCommand @ 0x1C009A910 (VidSchiSubmitPreemptionCommand.c)
- *     VidSchiSubmitRenderCommand @ 0x1C00F38D0 (VidSchiSubmitRenderCommand.c)
+ *     VidSchiSubmitPreemptionCommand @ 0x1C0089ABC (VidSchiSubmitPreemptionCommand.c)
+ *     VidSchiSwitchNodeFromContext @ 0x1C008D8B0 (VidSchiSwitchNodeFromContext.c)
+ *     VidSchiSubmitRenderCommand @ 0x1C00D062C (VidSchiSubmitRenderCommand.c)
  * Callees:
- *     VidSchiSendToExecutionQueue @ 0x1C0007350 (VidSchiSendToExecutionQueue.c)
+ *     VidSchiSendToExecutionQueue @ 0x1C0008AF0 (VidSchiSendToExecutionQueue.c)
  */
 
 void __fastcall VidSchiSendToExecutionQueueWithWait(__int64 a1, char a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpApicConvertFromRte @ 0x14052A80C
+ * XREFs of HalpApicConvertFromRte @ 0x1404DCB1C
  * Callers:
- *     HalpApicInitializeIoUnit @ 0x1403B4F40 (HalpApicInitializeIoUnit.c)
+ *     HalpApicInitializeIoUnit @ 0x1403A5790 (HalpApicInitializeIoUnit.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpApicConvertFromRte(int a1, unsigned int a2, __int64 a3)

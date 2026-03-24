@@ -1,15 +1,20 @@
 /*
- * XREFs of McTemplateU0qqp_EventWriteTransfer @ 0x18012DC14
+ * XREFs of McTemplateU0qqp_EventWriteTransfer @ 0x180228C3C
  * Callers:
- *     ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x180031DE4 (-HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z.c)
+ *     ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x18004E624 (-HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0qqp_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
+ULONG __fastcall McTemplateU0qqp_EventWriteTransfer(
+        __int64 a1,
+        const EVENT_DESCRIPTOR *a2,
+        __int64 a3,
+        int a4,
+        char a5)
 {
-  _BYTE v6[16]; // [rsp+30h] [rbp-50h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-50h] BYREF
   int *v7; // [rsp+40h] [rbp-40h]
   __int64 v8; // [rsp+48h] [rbp-38h]
   int *v9; // [rsp+50h] [rbp-30h]
@@ -27,5 +32,5 @@ __int64 __fastcall McTemplateU0qqp_EventWriteTransfer(__int64 a1, __int64 a2, __
   v10 = 4LL;
   v9 = &v14;
   v11 = &a5;
-  return McGenEventWrite_EventWriteTransfer(&Microsoft_Windows_Dwm_Core_Provider_Context, a2, a3, 4LL, v6);
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, a3, 4u, &v6);
 }

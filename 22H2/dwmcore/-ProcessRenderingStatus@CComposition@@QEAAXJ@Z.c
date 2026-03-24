@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessRenderingStatus@CComposition@@QEAAXJ@Z @ 0x180050A78
+ * XREFs of ?ProcessRenderingStatus@CComposition@@QEAAXJ@Z @ 0x1800736CC
  * Callers:
- *     ?Present@CComposition@@QEAAJPEAUFRAME_TIME_INFO@@@Z @ 0x18004D4D4 (-Present@CComposition@@QEAAJPEAUFRAME_TIME_INFO@@@Z.c)
- *     ?ProcessComposition@CComposition@@IEAAXPEA_N@Z @ 0x18004F0DC (-ProcessComposition@CComposition@@IEAAXPEA_N@Z.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x180070200 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ *     ?Present@CComposition@@QEAAJPEAUFRAME_TIME_INFO@@@Z @ 0x180075400 (-Present@CComposition@@QEAAJPEAUFRAME_TIME_INFO@@@Z.c)
  * Callees:
- *     ?UpdateMmcssPartners@CComposition@@QEAAJXZ @ 0x1800CE32C (-UpdateMmcssPartners@CComposition@@QEAAJXZ.c)
- *     ?NotifyHelper@CComposition@@QEAAJPEAUMIL_MESSAGE@@@Z @ 0x1800EC178 (-NotifyHelper@CComposition@@QEAAJPEAUMIL_MESSAGE@@@Z.c)
- *     ?Revert@CMmcssTask@@QEAAXXZ @ 0x1800F9CF8 (-Revert@CMmcssTask@@QEAAXXZ.c)
- *     ?Apply@CMmcssTask@@QEAAJ_N@Z @ 0x180103AFC (-Apply@CMmcssTask@@QEAAJ_N@Z.c)
+ *     ?UpdateMmcssPartners@CComposition@@QEAAJXZ @ 0x180030650 (-UpdateMmcssPartners@CComposition@@QEAAJXZ.c)
+ *     ?Apply@CMmcssTask@@QEAAJ_N@Z @ 0x1800AD7F8 (-Apply@CMmcssTask@@QEAAJ_N@Z.c)
+ *     ?Revert@CMmcssTask@@QEAAXXZ @ 0x1800ADB14 (-Revert@CMmcssTask@@QEAAXXZ.c)
+ *     ?NotifyHelper@CComposition@@QEAAJPEAUMIL_MESSAGE@@@Z @ 0x1800CF4A0 (-NotifyHelper@CComposition@@QEAAJPEAUMIL_MESSAGE@@@Z.c)
  */
 
 void __fastcall CComposition::ProcessRenderingStatus(CComposition *this, int a2)
@@ -21,48 +21,47 @@ void __fastcall CComposition::ProcessRenderingStatus(CComposition *this, int a2)
   __int128 v9; // [rsp+24h] [rbp-24h]
   __int64 v10; // [rsp+34h] [rbp-14h]
 
-  v2 = *((_DWORD *)this + 118);
+  v2 = *((_DWORD *)this + 82);
   if ( a2 == -2003304307 )
   {
     v5 = 1;
   }
   else
   {
-    v4 = *((_QWORD *)this + 27);
-    if ( *(_BYTE *)(v4 + 581) && !*(_BYTE *)(v4 + 582) )
+    v4 = *((_QWORD *)this + 11);
+    if ( *(_BYTE *)(v4 + 132) && !*(_BYTE *)(v4 + 133) )
     {
       v5 = 2;
       if ( v2 == 2 )
         goto LABEL_6;
-      CMmcssTask::Revert((CComposition *)((char *)this + 336));
+      CMmcssTask::Revert((CComposition *)((char *)this + 184));
       goto LABEL_12;
     }
     v5 = 0;
   }
   if ( v2 != 2 )
-  {
-    if ( v5 == v2 )
-      goto LABEL_6;
-    goto LABEL_13;
-  }
-  CMmcssTask::Apply((CComposition *)((char *)this + 336), 0);
+    goto LABEL_5;
+  CMmcssTask::Apply((CComposition *)((char *)this + 184), 0);
 LABEL_12:
   CComposition::UpdateMmcssPartners(this);
-LABEL_13:
-  v7 = *((_QWORD *)this + 61);
-  *((_DWORD *)this + 118) = v5;
-  if ( v7 && v5 == 1 )
-    *(_BYTE *)(v7 + 16) = 1;
-  v8 = 5;
-  v9 = 0LL;
-  *(_QWORD *)((char *)&v9 + 4) = __PAIR64__(v5, v2);
-  v10 = 0LL;
-  CComposition::NotifyHelper(this, (struct MIL_MESSAGE *)&v8);
+LABEL_5:
+  if ( v5 != v2 )
+  {
+    v7 = *((_QWORD *)this + 43);
+    *((_DWORD *)this + 82) = v5;
+    if ( v7 && v5 == 1 )
+      *(_BYTE *)(v7 + 20) = 1;
+    v8 = 5;
+    v9 = 0LL;
+    *(_QWORD *)((char *)&v9 + 4) = __PAIR64__(v5, v2);
+    v10 = 0LL;
+    CComposition::NotifyHelper(this, (struct MIL_MESSAGE *)&v8);
+  }
 LABEL_6:
-  v6 = *((_QWORD *)this + 61);
+  v6 = *((_QWORD *)this + 43);
   if ( v6 && v5 == 2 )
   {
-    if ( *((_DWORD *)this + 150) )
-      *(_BYTE *)(v6 + 16) = 1;
+    if ( *((_DWORD *)this + 112) )
+      *(_BYTE *)(v6 + 20) = 1;
   }
 }

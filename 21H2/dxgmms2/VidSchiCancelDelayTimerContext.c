@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchiCancelDelayTimerContext @ 0x1C001440C
+ * XREFs of VidSchiCancelDelayTimerContext @ 0x1C0011928
  * Callers:
- *     VidSchFlushContext @ 0x1C009A2F0 (VidSchFlushContext.c)
- *     VidSchiCancelDelayTimerDevice @ 0x1C00F2EA8 (VidSchiCancelDelayTimerDevice.c)
+ *     VidSchFlushContext @ 0x1C0081D80 (VidSchFlushContext.c)
+ *     VidSchiCancelDelayTimerDevice @ 0x1C00CF9E8 (VidSchiCancelDelayTimerDevice.c)
  * Callees:
- *     VidSchiDelayReadyRoutine @ 0x1C0014480 (VidSchiDelayReadyRoutine.c)
+ *     VidSchiDelayReadyRoutine @ 0x1C00119A0 (VidSchiDelayReadyRoutine.c)
  */
 
 void __fastcall VidSchiCancelDelayTimerContext(__int64 a1, struct _KTIMER *a2)

@@ -1,57 +1,58 @@
 /*
- * XREFs of ??$UpdateProperty@UD2DVector3@@@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector3@@@Z @ 0x1800DE6A8
+ * XREFs of ??$UpdateProperty@UD2DVector3@@@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBUD2DVector3@@@Z @ 0x18001980C
  * Callers:
- *     ?SetProperty@CPropertySet@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180096270 (-SetProperty@CPropertySet@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
- *     ??$AddOrUpdateProperty@UD2DVector3@@@CPropertySet@@AEAAJPEBUtagMILCMD_PROPERTYSET_SETPROPERTYVALUE@@PEBUD2DVector3@@@Z @ 0x1800DE3F8 (--$AddOrUpdateProperty@UD2DVector3@@@CPropertySet@@AEAAJPEBUtagMILCMD_PROPERTYSET_SETPROPERTYVAL.c)
+ *     ??$AddOrUpdateProperty@UD2DVector3@@@CPropertySet@@AEAAJPEBUtagMILCMD_PROPERTYSET_SETPROPERTYVALUE@@PEBUD2DVector3@@@Z @ 0x180019918 (--$AddOrUpdateProperty@UD2DVector3@@@CPropertySet@@AEAAJPEBUtagMILCMD_PROPERTYSET_SETPROPERTYVAL.c)
+ *     ?SetProperty@CPropertySet@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800BC830 (-SetProperty@CPropertySet@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$PropertyUpdated@UD2DVector3@@@CPropertySet@@AEAAJIIPEBUD2DVector3@@@Z @ 0x1800DE7B4 (--$PropertyUpdated@UD2DVector3@@@CPropertySet@@AEAAJIIPEBUD2DVector3@@@Z.c)
- *     ?IsValidPropertyId@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_NI@Z @ 0x1801E30D8 (-IsValidPropertyId@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_N.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ??$PropertyUpdated@UD2DMatrix@@@CPropertySet@@AEAAJIIPEBUD2DMatrix@@@Z @ 0x180019AE4 (--$PropertyUpdated@UD2DMatrix@@@CPropertySet@@AEAAJIIPEBUD2DMatrix@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsValidPropertyId@?$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_NI@Z @ 0x18018066C (-IsValidPropertyId@-$PropertySetStorage@VDynArrayNoZero@@VPropertySetUserModeAllocator@@@@QEAA_N.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-__int64 __fastcall CPropertySet::UpdateProperty<D2DVector3>(CResource *this, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CPropertySet::UpdateProperty<D2DVector3>(CResource *this)
 {
-  _QWORD *v6; // rcx
-  int v7; // r8d
-  __int64 v8; // r10
-  __int64 v9; // rcx
+  _QWORD *v2; // rcx
+  __int64 v3; // r10
+  int v4; // r11d
+  __int64 v5; // rcx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // r10
   __int64 v10; // rcx
-  __int64 v11; // r9
-  __int64 v12; // r10
-  __int64 v13; // rcx
-  __int64 v14; // rdx
-  int v15; // eax
-  __int64 v16; // rcx
-  unsigned int v17; // ebx
+  unsigned int v11; // edx
+  int v12; // eax
+  unsigned int v13; // ecx
+  unsigned int v14; // ebx
   void *retaddr; // [rsp+38h] [rbp+0h]
 
-  if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId((char *)this + 88) )
+  if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId((char *)this + 80) )
     goto LABEL_9;
-  if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v6) )
+  if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v2) )
     ModuleFailFastForHRESULT(2147942487LL, retaddr);
-  if ( *(_DWORD *)(*v6 + 8 * v8) == v7 )
+  if ( *(_DWORD *)(*v2 + 8 * v3) == v4 )
   {
-    if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v6) )
+    if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v2) )
       ModuleFailFastForHRESULT(2147942487LL, retaddr);
-    if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v9) )
+    if ( !(unsigned __int8)PropertySetStorage<DynArrayNoZero,PropertySetUserModeAllocator>::IsValidPropertyId(v5) )
       ModuleFailFastForHRESULT(2147942487LL, retaddr);
-    v13 = *(_QWORD *)(v10 + 32);
-    v14 = *(_DWORD *)(v11 + 8 * v12 + 4) & 0x1FFFFFFF;
-    *(_QWORD *)(v14 + v13) = *(_QWORD *)a4;
-    *(_DWORD *)(v14 + v13 + 8) = *(_DWORD *)(a4 + 8);
-    v15 = CPropertySet::PropertyUpdated<D2DVector3>(this, v12);
-    v17 = v15;
-    if ( v15 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x19Eu, 0LL);
+    v10 = *(_QWORD *)(v6 + 32);
+    v11 = *(_DWORD *)(v7 + 8 * v9 + 4) & 0x1FFFFFFF;
+    *(_QWORD *)(v11 + v10) = *(_QWORD *)v8;
+    *(_DWORD *)(v11 + v10 + 8) = *(_DWORD *)(v8 + 8);
+    v12 = CPropertySet::PropertyUpdated<D2DMatrix>(this, v9);
+    v14 = v12;
+    if ( v12 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x1A1u, 0LL);
     else
       return 0;
   }
   else
   {
 LABEL_9:
-    v17 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v6, 0LL, 0, -2147024809, 0x197u, 0LL);
+    v14 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v2, 0LL, 0, -2147024809, 0x19Au, 0LL);
   }
-  return v17;
+  return v14;
 }

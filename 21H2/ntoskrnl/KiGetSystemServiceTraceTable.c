@@ -1,13 +1,13 @@
 /*
- * XREFs of KiGetSystemServiceTraceTable @ 0x140962F40
+ * XREFs of KiGetSystemServiceTraceTable @ 0x1408BCF80
  * Callers:
- *     KeSetSystemServiceCallback @ 0x140962D90 (KeSetSystemServiceCallback.c)
+ *     KeSetSystemServiceCallback @ 0x1408BCDD0 (KeSetSystemServiceCallback.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14034E6B0 (RtlRbInsertNodeEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KiSystemServiceTraceTableCompareFunction @ 0x140963090 (KiSystemServiceTraceTableCompareFunction.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KiSystemServiceTraceTableCompareFunction @ 0x1408BD0D0 (KiSystemServiceTraceTableCompareFunction.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 KiGetSystemServiceTraceTable()
@@ -25,13 +25,13 @@ __int64 KiGetSystemServiceTraceTable()
 
   if ( !KiSystemServiceTraceCallbackTable )
   {
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x7890uLL, 0x7454694Bu);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x7650uLL, 0x7454694Bu);
     v1 = (signed __int64)PoolWithTag;
     if ( PoolWithTag )
     {
-      memset(PoolWithTag, 0, 0x7890uLL);
-      v3 = &off_140A3DFF8;
-      v4 = 482LL;
+      memset(PoolWithTag, 0, 0x7650uLL);
+      v3 = &off_140988D28;
+      v4 = 473LL;
       v5 = v1 + 40;
       do
       {

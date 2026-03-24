@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprLogSuccessEvent @ 0x1409669C4
+ * XREFs of PnprLogSuccessEvent @ 0x1408AE248
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140964BA0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC2C0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS PnprLogSuccessEvent()
@@ -16,7 +16,7 @@ NTSTATUS PnprLogSuccessEvent()
   __int64 v4; // rax
   __int64 v5; // rax
   ULONG v6; // ecx
-  int *v7; // rdi
+  int *v7; // rbx
   __int64 v8; // r10
   int *v9; // r11
   __int64 v10; // rax
@@ -25,7 +25,7 @@ NTSTATUS PnprLogSuccessEvent()
   ULONG v13; // r9d
   __int64 v14; // r14
   __int64 v15; // r8
-  int *v16; // rbx
+  int *v16; // rdi
   int *v17; // rsi
   int v18; // ecx
   int v19; // edx
@@ -75,14 +75,14 @@ NTSTATUS PnprLogSuccessEvent()
   int v64; // [rsp+154h] [rbp+4Ch]
 
   LOWORD(v26) = 0;
-  v0 = *(_DWORD *)(PnprContext + 33316);
-  v1 = *(_DWORD *)(PnprContext + 33320);
-  v27 = *(_DWORD *)(PnprContext + 33328);
-  v28 = v0 - *(_DWORD *)(PnprContext + 33312);
+  v0 = *(_DWORD *)(PnprContext + 21028);
+  v1 = *(_DWORD *)(PnprContext + 21032);
+  v27 = *(_DWORD *)(PnprContext + 21040);
+  v28 = v0 - *(_DWORD *)(PnprContext + 21024);
   v2 = v1 - v0;
   v3 = *(_QWORD ***)(PnprContext + 16);
   v29 = v2;
-  LODWORD(v30) = *(_DWORD *)(PnprContext + 33324) - v1;
+  LODWORD(v30) = *(_DWORD *)(PnprContext + 21036) - v1;
   v4 = *(_QWORD *)PnprContext;
   v31 = **v3;
   if ( v4 )
@@ -155,9 +155,10 @@ NTSTATUS PnprLogSuccessEvent()
   v21 = *v16;
   if ( *v16 )
   {
-    v22 = 2LL * v13++;
+    v22 = 2LL * v13;
     *(&UserData.Ptr + v22) = v14 + 20;
     *(&UserData.Size + 2 * v22) = 4 * v21;
+    ++v13;
     *(&UserData.Reserved + 2 * v22) = 0;
   }
   v23 = *v17;

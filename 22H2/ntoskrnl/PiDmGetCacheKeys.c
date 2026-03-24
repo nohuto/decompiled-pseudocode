@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmGetCacheKeys @ 0x1406D63F4
+ * XREFs of PiDmGetCacheKeys @ 0x1406AFD7C
  * Callers:
- *     PiDmObjectGetCachedObjectPropertyData @ 0x1406D6444 (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     PiDmObjectProcessPropertyChange @ 0x140789C4C (PiDmObjectProcessPropertyChange.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x14078D7DC (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1407CC6C4 (PiDmObjectGetCachedObjectReference.c)
- *     PiDmObjectCreate @ 0x14086BC2C (PiDmObjectCreate.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x14086C158 (PiDmListUpdateAggregationCountWorker.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x140695E80 (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     PiDmObjectGetCachedObjectPropertyData @ 0x1406AFC64 (PiDmObjectGetCachedObjectPropertyData.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1406AFE2C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140735470 (PiDmListUpdateAggregationCountWorker.c)
+ *     PiDmObjectCreate @ 0x1407461B0 (PiDmObjectCreate.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1407468F4 (PiDmObjectProcessPropertyChange.c)
  * Callees:
  *     <none>
  */

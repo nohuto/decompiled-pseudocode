@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWnfWorkItemRoutine @ 0x1407DCAE0
+ * XREFs of ExpWnfWorkItemRoutine @ 0x14068E620
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExpWnfDispatchKernelSubscription @ 0x1407DCB34 (ExpWnfDispatchKernelSubscription.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExpWnfDispatchKernelSubscription @ 0x14068E674 (ExpWnfDispatchKernelSubscription.c)
  */
 
 _QWORD *ExpWnfWorkItemRoutine()

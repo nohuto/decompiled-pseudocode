@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsWorkerRoutine @ 0x140817C90
+ * XREFs of PopDirectedDripsWorkerRoutine @ 0x1407BA150
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     PopDeepSleepClearDisengageReason @ 0x14028E63C (PopDeepSleepClearDisengageReason.c)
- *     PopDirectedDripsHandleResiliencyNotification @ 0x1409835E0 (PopDirectedDripsHandleResiliencyNotification.c)
- *     PopDirectedDripsResumeDevices @ 0x140983C74 (PopDirectedDripsResumeDevices.c)
- *     PopDirectedDripsSuspendDevices @ 0x140983EC4 (PopDirectedDripsSuspendDevices.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14034A5E0 (PopDeepSleepClearDisengageReason.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x1408E31E4 (PopDirectedDripsHandleResiliencyNotification.c)
+ *     PopDirectedDripsResumeDevices @ 0x1408E38D0 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x1408E3AC8 (PopDirectedDripsSuspendDevices.c)
  */
 
 void __fastcall __noreturn PopDirectedDripsWorkerRoutine(volatile __int64 *StartContext)

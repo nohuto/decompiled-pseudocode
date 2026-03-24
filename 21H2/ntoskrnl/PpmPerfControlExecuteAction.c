@@ -1,20 +1,16 @@
 /*
- * XREFs of PpmPerfControlExecuteAction @ 0x14023A0BC
+ * XREFs of PpmPerfControlExecuteAction @ 0x1402AF68C
  * Callers:
- *     PpmCheckAcquireProcessorPerformance @ 0x140236030 (PpmCheckAcquireProcessorPerformance.c)
- *     PpmPerfCommitPerformance @ 0x14023A080 (PpmPerfCommitPerformance.c)
- *     PpmPerfReadFeedback @ 0x14023A0A0 (PpmPerfReadFeedback.c)
+ *     PpmCheckAcquireProcessorPerformance @ 0x1402AAC20 (PpmCheckAcquireProcessorPerformance.c)
+ *     PpmPerfReadFeedback @ 0x1402AF670 (PpmPerfReadFeedback.c)
+ *     PpmPerfCommitPerformance @ 0x14039AE90 (PpmPerfCommitPerformance.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-char __fastcall PpmPerfControlExecuteAction(void (__fastcall *a1)(__int64 (__fastcall *)()))
+bool __fastcall PpmPerfControlExecuteAction(void (__fastcall *a1)(__int64 (__fastcall *)()))
 {
-  char v1; // bl
-
-  v1 = 0;
-  if ( !a1 )
-    return 1;
-  a1(PpmPerfControlActionCallback);
-  return v1;
+  if ( a1 )
+    a1(PpmPerfControlActionCallback);
+  return a1 == 0LL;
 }

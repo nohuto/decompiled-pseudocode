@@ -1,5 +1,5 @@
 /*
- * XREFs of WbFreeWarbirdProcess @ 0x14068FFB8
+ * XREFs of WbFreeWarbirdProcess @ 0x14068FF98
  * Callers:
  *     sub_14062554C @ 0x14062554C (sub_14062554C.c)
  * Callees:
@@ -7,8 +7,8 @@
  *     WbFreeWarbirdEncryptionSegment @ 0x140584AE0 (WbFreeWarbirdEncryptionSegment.c)
  *     sub_140624A54 @ 0x140624A54 (sub_140624A54.c)
  *     sub_140625200 @ 0x140625200 (sub_140625200.c)
- *     sub_1406900F0 @ 0x1406900F0 (sub_1406900F0.c)
- *     WbFreeMemoryBlock @ 0x140691044 (WbFreeMemoryBlock.c)
+ *     sub_1406900D0 @ 0x1406900D0 (sub_1406900D0.c)
+ *     WbFreeMemoryBlock @ 0x140691024 (WbFreeMemoryBlock.c)
  */
 
 __int64 __fastcall WbFreeWarbirdProcess(_DWORD *P)
@@ -26,10 +26,10 @@ __int64 __fastcall WbFreeWarbirdProcess(_DWORD *P)
   {
     for ( i = 0; i < P[23]; ++i )
       sub_140625200((__int64)P, *(_QWORD *)(P[22] * i + *((_QWORD *)P + 13)));
-    sub_1406900F0(P + 22);
+    sub_1406900D0(P + 22);
     for ( j = 0; j < P[3]; ++j )
       sub_140624A54((__int64)P, *(_QWORD *)(j * P[2] + *((_QWORD *)P + 3)));
-    sub_1406900F0(P + 2);
+    sub_1406900D0(P + 2);
     v5 = (char *)(P + 16);
     while ( 1 )
     {
@@ -44,14 +44,14 @@ __int64 __fastcall WbFreeWarbirdProcess(_DWORD *P)
     }
     for ( k = 0; k < P[35]; ++k )
       WbFreeWarbirdEncryptionSegment(*(_QWORD **)(k * P[34] + *((_QWORD *)P + 19)));
-    sub_1406900F0(P + 34);
+    sub_1406900D0(P + 34);
     if ( P[47] )
     {
       do
         WbFreeMemoryBlock(*(PVOID **)(P[46] * v1++ + *((_QWORD *)P + 25)));
       while ( v1 < P[47] );
     }
-    sub_1406900F0(P + 46);
+    sub_1406900D0(P + 46);
     ExFreePoolWithTag(P, 0x42524157u);
   }
   return 0LL;

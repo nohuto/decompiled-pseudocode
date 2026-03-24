@@ -1,54 +1,53 @@
 /*
- * XREFs of ?VidMmQueueAsyncOperation@@YAHPEAU_VIDMM_ASYNC_OPERATION@@@Z @ 0x1C007C5C4
+ * XREFs of ?VidMmQueueAsyncOperation@@YAHPEAU_VIDMM_ASYNC_OPERATION@@@Z @ 0x1C0076928
  * Callers:
- *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C007C35C (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
- *     ?VidMmDereferenceObjectAsync@@YAXPEAX@Z @ 0x1C007C570 (-VidMmDereferenceObjectAsync@@YAXPEAX@Z.c)
- *     ?VidMmUnpinAllocAsync@@YAJPEAVVIDMM_GLOBAL@@PEAVDXGALLOCATION@@@Z @ 0x1C00A9374 (-VidMmUnpinAllocAsync@@YAJPEAVVIDMM_GLOBAL@@PEAVDXGALLOCATION@@@Z.c)
+ *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C0076188 (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
+ *     ?VidMmDereferenceObjectAsync@@YAXPEAX@Z @ 0x1C0076770 (-VidMmDereferenceObjectAsync@@YAXPEAX@Z.c)
+ *     ?VidMmUnpinAllocAsync@@YAJPEAVVIDMM_GLOBAL@@PEAVDXGALLOCATION@@@Z @ 0x1C00BC27C (-VidMmUnpinAllocAsync@@YAJPEAVVIDMM_GLOBAL@@PEAVDXGALLOCATION@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
-__int64 __fastcall VidMmQueueAsyncOperation(struct _VIDMM_ASYNC_OPERATION *a1)
+__int64 __fastcall VidMmQueueAsyncOperation(LIST_ENTRY *a1)
 {
-  __int64 v2; // rdi
-  int v3; // eax
-  __int128 v4; // xmm1
-  __int128 v5; // xmm0
-  __int128 v6; // xmm1
-  __int64 v8; // rax
-  struct _EX_RUNDOWN_REF *v9; // rsi
+  struct _WORK_QUEUE_ITEM *v2; // rbx
+  LIST_ENTRY v3; // xmm1
+  LIST_ENTRY v4; // xmm0
+  LIST_ENTRY v5; // xmm1
+  struct _EX_RUNDOWN_REF *Blink; // rsi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
 
   if ( g_VidMmAsyncOpPendingCount > 64 )
     return 0LL;
-  v2 = operator new(72LL, 0x33346956u, 64LL);
+  v2 = (struct _WORK_QUEUE_ITEM *)operator new[](0x40uLL, 0x33346956u, (POOL_TYPE)512);
   if ( !v2 )
     return 0LL;
   _InterlockedIncrement(&g_VidMmAsyncOpPendingCount);
-  v3 = *((_DWORD *)a1 + 8);
-  if ( v3 == 2 )
+  if ( LODWORD(a1[2].Flink) == 3 )
   {
-    v8 = *((_QWORD *)a1 + 8);
-    if ( v8 )
-      _InterlockedIncrement((volatile signed __int32 *)(v8 + 444));
+    Blink = (struct _EX_RUNDOWN_REF *)a1[3].Flink[1].Blink;
+    if ( !ExAcquireRundownProtection(Blink + 31) )
+    {
+      v10 = WdLogNewEntry5_WdCriticalError(v9, v8);
+      *(_QWORD *)(v10 + 24) = 270LL;
+      *(_QWORD *)(v10 + 32) = 62LL;
+      *(_QWORD *)(v10 + 40) = Blink;
+      *(_OWORD *)(v10 + 48) = 0LL;
+      WdLogEvent5_WdCriticalError(v10);
+    }
   }
-  else if ( v3 == 3 )
-  {
-    v9 = *(struct _EX_RUNDOWN_REF **)(*((_QWORD *)a1 + 6) + 24LL);
-    if ( !ExAcquireRundownProtection(v9 + 29) )
-      WdLogSingleEntry5(0LL, 270LL, 62LL, v9, 0LL, 0LL);
-  }
-  v4 = *((_OWORD *)a1 + 1);
-  *(_OWORD *)v2 = *(_OWORD *)a1;
-  v5 = *((_OWORD *)a1 + 2);
-  *(_OWORD *)(v2 + 16) = v4;
-  v6 = *((_OWORD *)a1 + 3);
-  *(_OWORD *)(v2 + 32) = v5;
-  *(_QWORD *)&v5 = *((_QWORD *)a1 + 8);
-  *(_OWORD *)(v2 + 48) = v6;
-  *(_QWORD *)(v2 + 64) = v5;
-  *(_QWORD *)v2 = 0LL;
-  *(_QWORD *)(v2 + 16) = VidMmProcessAsyncOperation;
-  *(_QWORD *)(v2 + 24) = v2;
-  ExQueueWorkItem((PWORK_QUEUE_ITEM)v2, DelayedWorkQueue);
+  v3 = a1[1];
+  v2->List = *a1;
+  v4 = a1[2];
+  *(LIST_ENTRY *)&v2->WorkerRoutine = v3;
+  v5 = a1[3];
+  v2[1].List = v4;
+  *(LIST_ENTRY *)&v2[1].WorkerRoutine = v5;
+  v2->List.Flink = 0LL;
+  v2->WorkerRoutine = (PWORKER_THREAD_ROUTINE)VidMmProcessAsyncOperation;
+  v2->Parameter = v2;
+  ExQueueWorkItem(v2, DelayedWorkQueue);
   return 1LL;
 }

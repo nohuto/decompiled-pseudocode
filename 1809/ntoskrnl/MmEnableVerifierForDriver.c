@@ -3,8 +3,8 @@
  * Callers:
  *     VfAddVerifierEntry @ 0x14094A814 (VfAddVerifierEntry.c)
  * Callees:
- *     MmReleaseLoadLock @ 0x140651A40 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A80 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
  *     VfDriverEnableVerifier @ 0x140927E78 (VfDriverEnableVerifier.c)
  */
 

@@ -3,11 +3,11 @@
  * Callers:
  *     MiRebaseDynamicRelocationRegions @ 0x1409D241C (MiRebaseDynamicRelocationRegions.c)
  * Callees:
- *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C50 (RtlpImageDirectoryEntryToDataEx.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     LdrApplyDynamicRelocations @ 0x1401876C4 (LdrApplyDynamicRelocations.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiCaptureDynamicRelocationTableRva @ 0x14074BA6C (MiCaptureDynamicRelocationTableRva.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C70 (RtlpImageDirectoryEntryToDataEx.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     LdrApplyDynamicRelocations @ 0x1401876E4 (LdrApplyDynamicRelocations.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiCaptureDynamicRelocationTableRva @ 0x14074BA4C (MiCaptureDynamicRelocationTableRva.c)
  */
 
 NTSTATUS __fastcall MiApplyDynamicRelocations(char *BaseAddress, ULONGLONG Size, __int64 a3, __int64 a4)

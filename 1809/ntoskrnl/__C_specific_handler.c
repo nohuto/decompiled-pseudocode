@@ -1,12 +1,12 @@
 /*
- * XREFs of __C_specific_handler @ 0x140194020
+ * XREFs of __C_specific_handler @ 0x140194040
  * Callers:
- *     __GSHandlerCheck_SEH @ 0x1401B7DA8 (__GSHandlerCheck_SEH.c)
+ *     __GSHandlerCheck_SEH @ 0x1401B7DC8 (__GSHandlerCheck_SEH.c)
  * Callees:
  *     RtlUnwindEx @ 0x14009DF30 (RtlUnwindEx.c)
- *     KeCheckStackAndTargetAddress @ 0x1400CC2A0 (KeCheckStackAndTargetAddress.c)
- *     _NLG_Notify @ 0x140194F90 (_NLG_Notify.c)
- *     __NLG_Return2 @ 0x140194FC0 (__NLG_Return2.c)
+ *     KeCheckStackAndTargetAddress @ 0x1400CC2C0 (KeCheckStackAndTargetAddress.c)
+ *     _NLG_Notify @ 0x140194FB0 (_NLG_Notify.c)
+ *     __NLG_Return2 @ 0x140194FE0 (__NLG_Return2.c)
  */
 
 EXCEPTION_DISPOSITION __cdecl _C_specific_handler(

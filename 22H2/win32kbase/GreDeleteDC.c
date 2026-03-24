@@ -1,12 +1,12 @@
 /*
- * XREFs of GreDeleteDC @ 0x1C00B5B40
+ * XREFs of GreDeleteDC @ 0x1C0008EE0
  * Callers:
- *     <none>
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E928 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
  * Callees:
- *     GrepDeleteDC @ 0x1C003B5E0 (GrepDeleteDC.c)
+ *     bDeleteDCInternal @ 0x1C0008F00 (bDeleteDCInternal.c)
  */
 
-__int64 __fastcall GreDeleteDC(HDC a1)
+__int64 __fastcall GreDeleteDC(__int64 a1)
 {
-  return GrepDeleteDC(a1, 0x400000u);
+  return bDeleteDCInternal(a1, 1LL, 0LL);
 }

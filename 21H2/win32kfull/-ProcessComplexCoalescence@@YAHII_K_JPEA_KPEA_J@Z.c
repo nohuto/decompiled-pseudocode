@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z @ 0x1C00039A8
+ * XREFs of ?ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z @ 0x1C00088A4
  * Callers:
- *     ProcessSuspendedEventMessage @ 0x1C00ADE98 (ProcessSuspendedEventMessage.c)
- *     ProcessSuspendedPostMessage @ 0x1C011907C (ProcessSuspendedPostMessage.c)
- *     ProcessSuspendedSendMessage @ 0x1C011B430 (ProcessSuspendedSendMessage.c)
+ *     ProcessSuspendedEventMessage @ 0x1C0126808 (ProcessSuspendedEventMessage.c)
+ *     ProcessSuspendedPostMessage @ 0x1C01268C8 (ProcessSuspendedPostMessage.c)
+ *     ProcessSuspendedSendMessage @ 0x1C012A6CC (ProcessSuspendedSendMessage.c)
  * Callees:
  *     <none>
  */
@@ -17,35 +17,36 @@ _BOOL8 __fastcall ProcessComplexCoalescence(
         __int64 *a6)
 {
   int v6; // ecx
-  bool v7; // zf
-  __int64 v9; // rcx
+  __int64 v8; // rcx
+  bool v9; // zf
 
   v6 = a1 - 2;
-  if ( v6 )
+  if ( !v6 )
   {
-    if ( v6 == 1 )
-    {
-      v9 = *a5;
-      if ( a2 == 536 )
-      {
-        if ( v9 != a3 || (a3 & 0x8000) != 0 )
-          return 1LL;
-        v7 = *a6 == a4;
-        return !v7;
-      }
-      if ( v9 || a3 )
-        return 1LL;
-      *a5 = 0LL;
-    }
-    else
-    {
-      *a5 = a3;
-    }
+    if ( a3 != *a5 )
+      return 1LL;
+    v9 = a4 == *a6;
+    return !v9;
+  }
+  if ( v6 != 1 )
+  {
+    *a5 = a3;
+LABEL_4:
     *a6 = a4;
     return 0LL;
   }
-  if ( a3 != *a5 )
-    return 1LL;
-  v7 = a4 == *a6;
-  return !v7;
+  v8 = *a5;
+  if ( a2 == 536 )
+  {
+    if ( v8 != a3 || (a3 & 0x8000) != 0 )
+      return 1LL;
+    v9 = *a6 == a4;
+    return !v9;
+  }
+  if ( !v8 && !a3 )
+  {
+    *a5 = 0LL;
+    goto LABEL_4;
+  }
+  return 1LL;
 }

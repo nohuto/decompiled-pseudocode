@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBPDO_FindAndStoreMatchingInternalPipeHandle @ 0x1C00171CC
+ * XREFs of HUBPDO_FindAndStoreMatchingInternalPipeHandle @ 0x1C0015CAC
  * Callers:
- *     HUBDSM_GettingMatchingPipeHandleOnClientResetPipe @ 0x1C001F810 (HUBDSM_GettingMatchingPipeHandleOnClientResetPipe.c)
+ *     HUBDSM_GettingMatchingPipeHandleOnClientResetPipe @ 0x1C001CE00 (HUBDSM_GettingMatchingPipeHandleOnClientResetPipe.c)
  * Callees:
- *     WPP_RECORDER_SF_qq @ 0x1C00153C0 (WPP_RECORDER_SF_qq.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0013A28 (WPP_RECORDER_SF_qq.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_FindAndStoreMatchingInternalPipeHandle(__int64 a1)
@@ -67,7 +67,7 @@ LABEL_6:
       3u,
       5u,
       0x2Cu,
-      (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       *(_QWORD *)(v3 + 24),
       v3);
   return v10;

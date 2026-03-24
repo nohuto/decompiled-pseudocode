@@ -1,9 +1,9 @@
 /*
- * XREFs of CcInitializeCacheMap @ 0x14013A6E0
+ * XREFs of CcInitializeCacheMap @ 0x14013A700
  * Callers:
  *     <none>
  * Callees:
- *     CcInitializeCacheMapEx @ 0x1400AC030 (CcInitializeCacheMapEx.c)
+ *     CcInitializeCacheMapEx @ 0x1400AC050 (CcInitializeCacheMapEx.c)
  */
 
 void __stdcall CcInitializeCacheMap(

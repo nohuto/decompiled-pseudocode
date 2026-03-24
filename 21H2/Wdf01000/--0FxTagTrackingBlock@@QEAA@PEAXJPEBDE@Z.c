@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0FxTagTrackingBlock@@QEAA@PEAXJPEBDE@Z @ 0x1C006CE38
+ * XREFs of ??0FxTagTrackingBlock@@QEAA@PEAXJPEBDE@Z @ 0x1C0059B18
  * Callers:
- *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C006E6F0 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
+ *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C005B788 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
  * Callees:
  *     <none>
  */

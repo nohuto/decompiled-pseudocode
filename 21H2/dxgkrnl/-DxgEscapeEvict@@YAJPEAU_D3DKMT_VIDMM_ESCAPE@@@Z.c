@@ -1,65 +1,79 @@
 /*
- * XREFs of ?DxgEscapeEvict@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@@Z @ 0x1C0307188
+ * XREFs of ?DxgEscapeEvict@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@@Z @ 0x1C02668B8
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
  * Callees:
- *     ?GetProcess@DXGPROCESSMUTEXBYHANDLE@@QEAAPEAVDXGPROCESS@@XZ @ 0x1C001D8C0 (-GetProcess@DXGPROCESSMUTEXBYHANDLE@@QEAAPEAVDXGPROCESS@@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?Release@DXGPROCESSMUTEXBYHANDLE@@QEAAXXZ @ 0x1C01641F0 (-Release@DXGPROCESSMUTEXBYHANDLE@@QEAAXXZ.c)
- *     ?AcquireInternal@DXGPROCESSMUTEXBYHANDLE@@AEAAJ_N@Z @ 0x1C0164280 (-AcquireInternal@DXGPROCESSMUTEXBYHANDLE@@AEAAJ_N@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     DxgkpIsDrtEnabled @ 0x1C0301864 (DxgkpIsDrtEnabled.c)
- *     ?DxgEscapeEvictWorker@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@PEAVDXGPROCESS@@@Z @ 0x1C0307564 (-DxgEscapeEvictWorker@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@PEAVDXGPROCESS@@@Z.c)
+ *     ?GetProcess@DXGPROCESSMUTEXBYHANDLE@@QEAAPEAVDXGPROCESS@@XZ @ 0x1C0001FDC (-GetProcess@DXGPROCESSMUTEXBYHANDLE@@QEAAPEAVDXGPROCESS@@XZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?Release@DXGPROCESSMUTEXBYHANDLE@@QEAAXXZ @ 0x1C00E3090 (-Release@DXGPROCESSMUTEXBYHANDLE@@QEAAXXZ.c)
+ *     ?AcquireInternal@DXGPROCESSMUTEXBYHANDLE@@AEAAJ_N@Z @ 0x1C00E3130 (-AcquireInternal@DXGPROCESSMUTEXBYHANDLE@@AEAAJ_N@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     DxgkpIsDrtEnabled @ 0x1C0261638 (DxgkpIsDrtEnabled.c)
+ *     ?DxgEscapeEvictWorker@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@PEAVDXGPROCESS@@@Z @ 0x1C0266C44 (-DxgEscapeEvictWorker@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@PEAVDXGPROCESS@@@Z.c)
  */
 
-int __fastcall DxgEscapeEvict(struct _D3DKMT_VIDMM_ESCAPE *a1, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall DxgEscapeEvict(struct _D3DKMT_VIDMM_ESCAPE *a1, __int64 a2)
 {
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
   HANDLE hProcess; // rax
-  int v6; // eax
-  int v7; // edi
+  int v7; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rdi
+  __int64 v12; // rax
+  __int64 v13; // rdx
   struct DXGPROCESS *Process; // rax
+  __int64 v16; // rax
   struct DXGPROCESS *Current; // rax
-  _BYTE v11[8]; // [rsp+20h] [rbp-68h] BYREF
-  HANDLE v12; // [rsp+28h] [rbp-60h]
-  __int64 v13; // [rsp+30h] [rbp-58h]
-  int v14; // [rsp+38h] [rbp-50h]
-  __int16 v15; // [rsp+3Ch] [rbp-4Ch]
-  char v16; // [rsp+3Eh] [rbp-4Ah]
+  _BYTE v18[8]; // [rsp+20h] [rbp-68h] BYREF
+  HANDLE v19; // [rsp+28h] [rbp-60h]
+  __int64 v20; // [rsp+30h] [rbp-58h]
+  int v21; // [rsp+38h] [rbp-50h]
+  __int16 v22; // [rsp+3Ch] [rbp-4Ch]
+  char v23; // [rsp+3Eh] [rbp-4Ah]
 
   if ( a1->GetVads.GetVad.VadAddress )
   {
-    if ( DxgkpIsDrtEnabled((__int64)a1, a2, a3, a4) )
+    if ( DxgkpIsDrtEnabled((__int64)a1, a2) )
     {
       hProcess = a1->Evict.hProcess;
-      v13 = 0LL;
-      v15 = 0;
-      v12 = hProcess;
-      v14 = 2048;
-      v16 = 0;
-      v6 = DXGPROCESSMUTEXBYHANDLE::AcquireInternal((DXGPROCESSMUTEXBYHANDLE *)v11, 1);
-      v7 = v6;
-      if ( v6 >= 0 )
+      v20 = 0LL;
+      v22 = 0;
+      v19 = hProcess;
+      v21 = 2048;
+      v23 = 0;
+      v7 = DXGPROCESSMUTEXBYHANDLE::AcquireInternal((DXGPROCESSMUTEXBYHANDLE *)v18, 1);
+      v11 = v7;
+      if ( v7 >= 0 )
       {
-        Process = DXGPROCESSMUTEXBYHANDLE::GetProcess((DXGPROCESSMUTEXBYHANDLE *)v11);
-        v7 = DxgEscapeEvictWorker(a1, Process);
+        Process = DXGPROCESSMUTEXBYHANDLE::GetProcess((DXGPROCESSMUTEXBYHANDLE *)v18);
+        LODWORD(v11) = DxgEscapeEvictWorker(a1, Process);
       }
       else
       {
-        WdLogSingleEntry2(3LL, a1->GetVads.GetVad.VadAddress, v6);
+        v12 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+        *(_QWORD *)(v12 + 24) = a1->Evict.hProcess;
+        *(_QWORD *)(v12 + 32) = v11;
+        WdLogEvent5_WdWarning(v12);
       }
-      if ( (_BYTE)v15 )
-        DXGPROCESSMUTEXBYHANDLE::Release((DXGPROCESSMUTEXBYHANDLE *)v11);
-      return v7;
+      if ( (_BYTE)v22 )
+        DXGPROCESSMUTEXBYHANDLE::Release((DXGPROCESSMUTEXBYHANDLE *)v18, v13);
+      return v11;
     }
     else
     {
-      WdLogSingleEntry1(3LL, -1073741823LL);
+      v16 = WdLogNewEntry5_WdWarning(v4, v3, v5);
+      *(_QWORD *)(v16 + 24) = -1073741823LL;
+      WdLogEvent5_WdWarning(v16);
       return -1073741823;
     }
   }
   else
   {
-    Current = DXGPROCESS::GetCurrent((__int64)a1, a2, a3, a4);
+    Current = DXGPROCESS::GetCurrent((__int64)a1, a2);
     return DxgEscapeEvictWorker(a1, Current);
   }
 }

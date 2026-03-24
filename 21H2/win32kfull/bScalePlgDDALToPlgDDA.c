@@ -1,9 +1,9 @@
 /*
- * XREFs of bScalePlgDDALToPlgDDA @ 0x1C02D5F1C
+ * XREFs of bScalePlgDDALToPlgDDA @ 0x1C02D74CC
  * Callers:
- *     ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02D4C00 (-bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z.c)
+ *     ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02D613C (-bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall bScalePlgDDALToPlgDDA(__int64 a1, _DWORD *a2)

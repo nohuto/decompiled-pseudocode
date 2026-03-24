@@ -1,9 +1,9 @@
 /*
- * XREFs of IoReleaseVpbSpinLock @ 0x1403642D0
+ * XREFs of IoReleaseVpbSpinLock @ 0x14026DC60
  * Callers:
- *     <none>
+ *     RawInitiateDeleteVolume @ 0x14026D9DC (RawInitiateDeleteVolume.c)
  * Callees:
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
  */
 
 void __stdcall IoReleaseVpbSpinLock(KIRQL Irql)

@@ -1,18 +1,18 @@
 /*
- * XREFs of PspCallThreadNotifyRoutines @ 0x1406AFDA0
+ * XREFs of PspCallThreadNotifyRoutines @ 0x14061B820
  * Callers:
- *     PspInsertThread @ 0x14073F3AC (PspInsertThread.c)
- *     PspExitThread @ 0x14076DF3C (PspExitThread.c)
- *     PspInitializeThunkContext @ 0x14077070C (PspInitializeThunkContext.c)
+ *     PspInitializeThunkContext @ 0x1406C07E0 (PspInitializeThunkContext.c)
+ *     PspInsertThread @ 0x1406C1DE8 (PspInsertThread.c)
+ *     PspExitThread @ 0x1406C35F8 (PspExitThread.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140214F10 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140214FD0 (ExDereferenceCallBackBlock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExReferenceCallBackBlock @ 0x14025A1B0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14025A270 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char a3)
 {
-  bool v5; // r14
+  bool v5; // bp
   union _RTL_RUN_ONCE *v6; // rbx
   __int64 v7; // rdi
   struct _EX_RUNDOWN_REF *v8; // rax
@@ -27,29 +27,29 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char
   struct _EX_RUNDOWN_REF *v17; // rax
   struct _EX_RUNDOWN_REF *v18; // rsi
 
-  v5 = a1[198] != 0LL;
+  v5 = a1[188] != 0LL;
   if ( a2 )
   {
     if ( a3 )
     {
       if ( (PspNotifyEnableMask & 0x10) != 0 )
       {
-        v15 = &PspCreateThreadNotifyRoutine;
-        v16 = 64LL;
+        v11 = &PspCreateThreadNotifyRoutine;
+        v12 = 64LL;
         do
         {
-          v17 = ExReferenceCallBackBlock((signed __int64 *)v15);
-          v18 = v17;
-          if ( v17 )
+          v13 = ExReferenceCallBackBlock((signed __int64 *)v11);
+          v14 = v13;
+          if ( v13 )
           {
-            if ( (v17[2].Count & 1) != 0 )
-              ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v17[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[154], a2);
-            ExDereferenceCallBackBlock((signed __int64 *)v15, v18);
+            if ( (v13[2].Count & 1) != 0 )
+              ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v13[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[144], a2);
+            ExDereferenceCallBackBlock((signed __int64 *)v11, v14);
           }
-          ++v15;
-          --v16;
+          ++v11;
+          --v12;
         }
-        while ( v16 );
+        while ( v12 );
       }
     }
     else if ( (PspNotifyEnableMask & 8) != 0 )
@@ -64,7 +64,7 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char
         {
           Count = v8[2].Count;
           if ( (Count & 1) == 0 && (!v5 || (Count & 2) != 0) )
-            ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v9[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[154], a2);
+            ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v9[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[144], a2);
           ExDereferenceCallBackBlock((signed __int64 *)v6, v9);
         }
         ++v6;
@@ -75,21 +75,21 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char
   }
   else if ( (PspNotifyEnableMask & 0x10) != 0 || (PspNotifyEnableMask & 8) != 0 )
   {
-    v11 = &PspCreateThreadNotifyRoutine;
-    v12 = 64LL;
+    v15 = &PspCreateThreadNotifyRoutine;
+    v16 = 64LL;
     do
     {
-      v13 = ExReferenceCallBackBlock((signed __int64 *)v11);
-      v14 = v13;
-      if ( v13 )
+      v17 = ExReferenceCallBackBlock((signed __int64 *)v15);
+      v18 = v17;
+      if ( v17 )
       {
-        if ( !v5 || (v13[2].Count & 2) != 0 )
-          ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v13[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[154], 0LL);
-        ExDereferenceCallBackBlock((signed __int64 *)v11, v14);
+        if ( !v5 || (v17[2].Count & 2) != 0 )
+          ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v17[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[144], 0LL);
+        ExDereferenceCallBackBlock((signed __int64 *)v15, v18);
       }
-      ++v11;
-      --v12;
+      ++v15;
+      --v16;
     }
-    while ( v12 );
+    while ( v16 );
   }
 }

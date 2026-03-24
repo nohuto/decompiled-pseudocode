@@ -1,12 +1,12 @@
 /*
- * XREFs of IopGetEnvironmentVariableSysEnv @ 0x140821EA0
+ * XREFs of IopGetEnvironmentVariableSysEnv @ 0x140821E80
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     IopVerifierExAllocatePool_4 @ 0x140286B54 (IopVerifierExAllocatePool_4.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     IopVerifierExAllocatePool_4 @ 0x140286C54 (IopVerifierExAllocatePool_4.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopIssueSystemEnvironmentRequest @ 0x140822194 (IopIssueSystemEnvironmentRequest.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x140822174 (IopIssueSystemEnvironmentRequest.c)
  */
 
 __int64 __fastcall IopGetEnvironmentVariableSysEnv(

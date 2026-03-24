@@ -1,14 +1,14 @@
 /*
- * XREFs of ViSpecialAllocateCommonBuffer @ 0x140A8942C
+ * XREFs of ViSpecialAllocateCommonBuffer @ 0x1409CF72C
  * Callers:
- *     VfAllocateCommonBuffer @ 0x140A84630 (VfAllocateCommonBuffer.c)
+ *     VfAllocateCommonBuffer @ 0x1409CAA70 (VfAllocateCommonBuffer.c)
  * Callees:
- *     ExInterlockedInsertHeadList @ 0x1402430F0 (ExInterlockedInsertHeadList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfUtilDbgPrint @ 0x1405FDF9C (VfUtilDbgPrint.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     ViInitializePadding @ 0x140A88CF0 (ViInitializePadding.c)
+ *     ExInterlockedInsertHeadList @ 0x1402A0300 (ExInterlockedInsertHeadList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ViInitializePadding @ 0x1409CEFEC (ViInitializePadding.c)
  */
 
 char *__fastcall ViSpecialAllocateCommonBuffer(
@@ -21,7 +21,7 @@ char *__fastcall ViSpecialAllocateCommonBuffer(
 {
   unsigned int v7; // r10d
   __int64 v10; // rdi
-  struct _LIST_ENTRY *Pool2; // rsi
+  struct _LIST_ENTRY *PoolWithTag; // rsi
   __int64 v12; // r9
   int v14; // ebx
   int v15; // ebx
@@ -35,8 +35,8 @@ char *__fastcall ViSpecialAllocateCommonBuffer(
   v10 = a4;
   if ( v7 >= 0x20 || a4 > 0xFFFFDFFF )
     return 0LL;
-  Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(64LL, 0x40uLL, 0x566C6148u);
-  if ( !Pool2 )
+  PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x566C6148u);
+  if ( !PoolWithTag )
   {
     VfUtilDbgPrint("Couldn't track common buffer allocation\n");
     return 0LL;
@@ -60,21 +60,21 @@ LABEL_12:
   v17 = (char *)a1(*(_QWORD *)(a2 + 16), v16, &v19, v12);
   if ( !v17 )
   {
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     return 0LL;
   }
-  WORD1(Pool2->Flink) = v15;
+  WORD1(PoolWithTag->Flink) = v15;
   v18 = v17 + 4096;
-  LOWORD(Pool2->Flink) = 4096;
-  Pool2[1].Blink = (struct _LIST_ENTRY *)(v17 + 4096);
-  LODWORD(Pool2->Blink) = v10;
-  HIDWORD(Pool2->Flink) = v16;
-  Pool2[1].Flink = (struct _LIST_ENTRY *)v17;
-  Pool2[2].Flink = v19;
-  Pool2[2].Blink = a3;
+  LOWORD(PoolWithTag->Flink) = 4096;
+  PoolWithTag[1].Blink = (struct _LIST_ENTRY *)(v17 + 4096);
+  LODWORD(PoolWithTag->Blink) = v10;
+  HIDWORD(PoolWithTag->Flink) = v16;
+  PoolWithTag[1].Flink = (struct _LIST_ENTRY *)v17;
+  PoolWithTag[2].Flink = v19;
+  PoolWithTag[2].Blink = a3;
   ViInitializePadding(v17, v16, (unsigned __int64)(v17 + 4096), v10);
   *a5 = v19 + 256;
-  ExInterlockedInsertHeadList((PLIST_ENTRY)(a2 + 80), Pool2 + 3, (PKSPIN_LOCK)(a2 + 96));
+  ExInterlockedInsertHeadList((PLIST_ENTRY)(a2 + 80), PoolWithTag + 3, (PKSPIN_LOCK)(a2 + 96));
   _InterlockedIncrement((volatile signed __int32 *)(a2 + 172));
   return v18;
 }

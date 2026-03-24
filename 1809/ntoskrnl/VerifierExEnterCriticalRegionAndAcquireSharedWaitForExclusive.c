@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14031B8C0 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14031B9C0 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
  */
 
 PVOID __fastcall VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive(struct _ERESOURCE *a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of SmIsCompressionProcess @ 0x14011AFC8
+ * XREFs of SmIsCompressionProcess @ 0x14011AFE8
  * Callers:
  *     ExpGetProcessInformation @ 0x1405E6B60 (ExpGetProcessInformation.c)
- *     PsShutdownSystem @ 0x14088AFC4 (PsShutdownSystem.c)
- *     PsWaitForAllProcesses @ 0x14088B3A0 (PsWaitForAllProcesses.c)
- *     PspFreezeProcessWorker @ 0x14088B660 (PspFreezeProcessWorker.c)
+ *     PsShutdownSystem @ 0x14088AFA4 (PsShutdownSystem.c)
+ *     PsWaitForAllProcesses @ 0x14088B380 (PsWaitForAllProcesses.c)
+ *     PspFreezeProcessWorker @ 0x14088B640 (PspFreezeProcessWorker.c)
  * Callees:
  *     <none>
  */

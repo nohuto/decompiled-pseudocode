@@ -1,9 +1,9 @@
 /*
- * XREFs of ?BltLnkReadPat4@@YAXPEAEKPEBEKKKK@Z @ 0x1C0304C60
+ * XREFs of ?BltLnkReadPat4@@YAXPEAEKPEBEKKKK@Z @ 0x1C02DBC20
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 void __fastcall BltLnkReadPat4(
@@ -44,9 +44,9 @@ void __fastcall BltLnkReadPat4(
     v12 = v11 >> 4;
     if ( (a5 & 1) != 0 )
       v12 = v11;
-    v10 = a1 + 1;
     v13 = a5 + 1;
     *a1 = v12 & 0xF;
+    v10 = a1 + 1;
     v6 = a6 - 1;
   }
   else
@@ -56,19 +56,17 @@ void __fastcall BltLnkReadPat4(
   v14 = 2 * a4;
   if ( (a4 & 1) == 0 )
     v14 = a4;
-  v15 = v14;
+  v15 = v14 >> 1;
   if ( v6 <= v14 )
-  {
     v16 = (unsigned int)v6 >> 1;
-  }
   else
-  {
-    v15 = v14 >> 1;
     v16 = v14 >> 1;
-  }
   v17 = v6 - v14;
   if ( v6 <= v14 )
+  {
     v17 = v6 & 1;
+    v15 = v14;
+  }
   while ( v16 )
   {
     --v16;

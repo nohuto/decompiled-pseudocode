@@ -1,173 +1,123 @@
 /*
- * XREFs of DefSetText @ 0x1C00955A0
+ * XREFs of DefSetText @ 0x1C004AF8C
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
- *     NtUserDefSetText @ 0x1C01CE410 (NtUserDefSetText.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     NtUserDefSetText @ 0x1C0155230 (NtUserDefSetText.c)
  * Callees:
- *     DwmAsyncTextChange @ 0x1C0095860 (DwmAsyncTextChange.c)
- *     ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C0095A30 (-getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@.c)
- *     DesktopVerifyHeapLargeUnicodeString @ 0x1C0095A94 (DesktopVerifyHeapLargeUnicodeString.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     DwmAsyncTextChange @ 0x1C00471A0 (DwmAsyncTextChange.c)
+ *     DesktopAlloc @ 0x1C004B200 (DesktopAlloc.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
+ *     ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C00FCF38 (-getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@.c)
+ *     DesktopVerifyHeapLargeUnicodeString @ 0x1C00FCF9C (DesktopVerifyHeapLargeUnicodeString.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall DefSetText(unsigned __int64 a1, unsigned int *a2)
+__int64 __fastcall DefSetText(__int64 *a1, unsigned int *a2)
 {
-  _QWORD *v3; // rdi
-  unsigned __int64 *v4; // r12
-  __int64 v5; // rsi
-  ULONG v6; // edx
-  unsigned int v7; // ecx
-  int v8; // edx
-  ULONG v9; // edx
-  PVOID *v10; // r15
-  char *Heap; // rsi
-  int v12; // esi
-  BOOL v13; // r13d
-  WCHAR *v14; // rcx
-  unsigned int v15; // r14d
-  int v16; // eax
-  __int64 v17; // rdx
+  __int64 v4; // rsi
+  ULONG v5; // eax
+  unsigned int v6; // eax
+  __int64 v7; // rdx
+  PVOID *v8; // r15
+  __int64 v9; // rax
+  unsigned int v10; // esi
+  BOOL v11; // r12d
+  WCHAR *v12; // rcx
+  __int64 v13; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  void *v17; // rax
   __int64 v18; // r8
-  void *v20; // rax
+  __int64 v19; // r9
   struct _LARGE_UNICODE_STRING *StrName; // rax
-  _OWORD v22[4]; // [rsp+40h] [rbp-48h] BYREF
-  ULONG BytesInUnicodeString; // [rsp+A0h] [rbp+18h] BYREF
-  unsigned __int64 v24; // [rsp+A8h] [rbp+20h]
+  _OWORD v21[3]; // [rsp+40h] [rbp-38h] BYREF
+  ULONG BytesInUnicodeString; // [rsp+90h] [rbp+18h] BYREF
 
-  v3 = (_QWORD *)a1;
   BytesInUnicodeString = 0;
-  v4 = (unsigned __int64 *)(a1 + 24);
-  v24 = a1 + 24;
-  v5 = *(_QWORD *)(a1 + 24);
-  if ( !v5 || !a2 || !*((_QWORD *)a2 + 1) )
+  v4 = a1[3];
+  if ( !v4 || !a2 || !*((_QWORD *)a2 + 1) )
   {
-    v12 = 1;
-    v15 = 1;
-    goto LABEL_45;
+    v10 = 1;
+LABEL_28:
+    *(_DWORD *)(a1[5] + 184) = 0;
+    goto LABEL_22;
   }
-  v6 = *a2;
-  if ( v6 >= 0x3FFFFFFE )
+  v5 = *a2;
+  if ( *a2 >= 0x3FFFFFFE )
   {
-    v15 = 0;
-    v12 = 1;
-LABEL_45:
-    *(_DWORD *)(*(_QWORD *)(a1 + 40) + 184LL) = 0;
-    goto LABEL_24;
+    v10 = 0;
+    goto LABEL_28;
   }
-  v7 = v6 & 0xFFFFFFFE;
-  v8 = 2 * v6;
-  if ( (a2[1] & 0x80000000) == 0 )
-    v8 = v7;
-  v9 = v8 + 2;
-  BytesInUnicodeString = v9;
-  v10 = (PVOID *)(v3 + 23);
-  if ( v3[23] )
+  if ( (a2[1] & 0x80000000) != 0 )
+    v6 = 2 * v5;
+  else
+    v6 = v5 & 0xFFFFFFFE;
+  v7 = v6 + 2;
+  BytesInUnicodeString = v6 + 2;
+  v8 = (PVOID *)(a1 + 23);
+  if ( a1[23] )
   {
-    v22[0] = 0LL;
+    v21[0] = 0LL;
     StrName = tagWND::ProtectedLargeUnicodeStringWNDstrName::getStrName(
-                (tagWND::ProtectedLargeUnicodeStringWNDstrName *)(v3 + 23),
-                (struct _LARGE_UNICODE_STRING *)v22);
-    DesktopVerifyHeapLargeUnicodeString(v5, StrName);
-    v9 = BytesInUnicodeString;
+                (tagWND::ProtectedLargeUnicodeStringWNDstrName *)(a1 + 23),
+                (struct _LARGE_UNICODE_STRING *)v21);
+    DesktopVerifyHeapLargeUnicodeString(v4, StrName);
+    v7 = BytesInUnicodeString;
   }
-  a1 = *(_DWORD *)(v3[5] + 188LL) & 0x7FFFFFFF;
-  if ( (unsigned int)a1 < v9 )
+  if ( (*(_DWORD *)(a1[5] + 188) & 0x7FFFFFFFu) < (unsigned int)v7 )
   {
-    if ( *v10 )
+    if ( *v8 )
     {
-      RtlFreeHeap(*(PVOID *)(v5 + 136), 0, *v10);
-      v9 = BytesInUnicodeString;
+      RtlFreeHeap(*(PVOID *)(v4 + 128), 0, *v8);
+      v7 = BytesInUnicodeString;
     }
-    if ( (*(_DWORD *)(v5 + 48) & 8) != 0 )
-    {
-      Heap = 0LL;
-    }
+    v9 = DesktopAlloc(v4, v7, 4LL);
+    if ( v9 )
+      *((_QWORD *)*(v8 - 18) + 24) = v9 - ((_BYTE *)*(v8 - 18) - (_BYTE *)*(v8 - 17));
     else
+      *((_QWORD *)*(v8 - 18) + 24) = 0LL;
+    *v8 = (PVOID)v9;
+    *(_DWORD *)(a1[5] + 184) = 0;
+    if ( !*v8 )
     {
-      Heap = (char *)RtlAllocateHeap(*(PVOID *)(v5 + 136), 0, v9);
-      if ( !Heap )
-      {
-        a1 = gpsi;
-        if ( (*gpsi & 0x100) != 0 )
-        {
-          _InterlockedAnd(gpsi, 0xFFFFFEFF);
-          UserLogError(2147483891LL);
-        }
-      }
+      *(_DWORD *)(a1[5] + 188) &= 0x80000000;
+LABEL_33:
+      v10 = 0;
+      goto LABEL_22;
     }
-    if ( Heap )
-    {
-      a1 = v3[5] - v3[6];
-      *(_QWORD *)(v3[5] + 192LL) = &Heap[-a1];
-    }
-    else
-    {
-      *(_QWORD *)(v3[5] + 192LL) = 0LL;
-    }
-    *v10 = Heap;
-    *(_DWORD *)(v3[5] + 184LL) = 0;
-    if ( !*v10 )
-    {
-      *(_DWORD *)(v3[5] + 188LL) &= 0x80000000;
-      v15 = 0;
-      v12 = 1;
-      goto LABEL_24;
-    }
-    *(_DWORD *)(v3[5] + 188LL) ^= (*(_DWORD *)(v3[5] + 188LL) ^ BytesInUnicodeString) & 0x7FFFFFFF;
-    v9 = BytesInUnicodeString;
+    *(_DWORD *)(a1[5] + 188) ^= (BytesInUnicodeString ^ *(_DWORD *)(a1[5] + 188)) & 0x7FFFFFFF;
+    LODWORD(v7) = BytesInUnicodeString;
   }
-  v12 = 1;
-  v13 = 1;
+  v10 = 1;
+  v11 = 1;
   if ( *a2 )
   {
-    v14 = (WCHAR *)*v10;
+    v12 = (WCHAR *)*v8;
     if ( (a2[1] & 0x80000000) != 0 )
     {
-      v13 = RtlMultiByteToUnicodeN(v14, v9, &BytesInUnicodeString, *((const CHAR **)a2 + 1), *a2) >= 0;
-      v9 = BytesInUnicodeString + 2;
+      v11 = RtlMultiByteToUnicodeN(v12, v7, &BytesInUnicodeString, *((const CHAR **)a2 + 1), *a2) >= 0;
+      LODWORD(v7) = BytesInUnicodeString + 2;
       BytesInUnicodeString += 2;
     }
     else
     {
-      memmove(v14, *((const void **)a2 + 1), *a2);
-      v9 = BytesInUnicodeString;
+      memmove(v12, *((const void **)a2 + 1), *a2);
+      LODWORD(v7) = BytesInUnicodeString;
     }
   }
-  a1 = v3[5];
-  if ( v13 )
+  v13 = a1[5];
+  if ( !v11 )
   {
-    *(_DWORD *)(a1 + 184) = v9 - 2;
-    a1 = (unsigned __int64)*(unsigned int *)(v3[5] + 184LL) >> 1;
-    *((_WORD *)*v10 + a1) = 0;
-    v15 = 1;
+    *(_DWORD *)(v13 + 184) = 0;
+    goto LABEL_33;
   }
-  else
+  *(_DWORD *)(v13 + 184) = v7 - 2;
+  *((_WORD *)*v8 + ((unsigned __int64)*(unsigned int *)(a1[5] + 184) >> 1)) = 0;
+LABEL_22:
+  if ( (unsigned int)IsTopLevelWindow(a1) && (unsigned int)IsWindowDesktopComposed(a1) )
   {
-    *(_DWORD *)(a1 + 184) = 0;
-    v15 = 0;
+    v17 = (void *)ReferenceDwmApiPort(v16, v15);
+    DwmAsyncTextChange(v17, *a1, v18, v19);
   }
-LABEL_24:
-  v16 = 0;
-  v17 = v3[13];
-  if ( v17 )
-  {
-    v18 = 0LL;
-    a1 = *v4;
-    if ( *v4 )
-    {
-      a1 = *(_QWORD *)(a1 + 8);
-      if ( a1 )
-        v18 = *(_QWORD *)(a1 + 24);
-    }
-    if ( v17 == v18 )
-      v16 = 1;
-  }
-  if ( !v16 || !(unsigned int)IsWindowDesktopComposed(v3) )
-    v12 = 0;
-  if ( v12 )
-  {
-    v20 = (void *)ReferenceDwmApiPort(a1);
-    DwmAsyncTextChange(v20);
-  }
-  return v15;
+  return v10;
 }

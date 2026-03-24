@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DpiInsertEntryToPowerActionQueue@@YAXPEAU_FDO_CONTEXT@@PEAU_DPI_POWER_ACTION@@@Z @ 0x1C001A5E0
+ * XREFs of ?DpiInsertEntryToPowerActionQueue@@YAXPEAU_FDO_CONTEXT@@PEAU_DPI_POWER_ACTION@@@Z @ 0x1C001FF48
  * Callers:
- *     DpiRequestIoPowerState @ 0x1C01F0CB0 (DpiRequestIoPowerState.c)
+ *     DpiRequestIoPowerState @ 0x1C01763B0 (DpiRequestIoPowerState.c)
  * Callees:
  *     <none>
  */
@@ -12,9 +12,8 @@ void __fastcall DpiInsertEntryToPowerActionQueue(KSPIN_LOCK *a1, struct _DPI_POW
   char **v5; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(a1 + 512, &LockHandle);
-  v4 = (char *)(a1 + 498);
+  KeAcquireInStackQueuedSpinLock(a1 + 509, &LockHandle);
+  v4 = (char *)(a1 + 495);
   v5 = (char **)*((_QWORD *)v4 + 1);
   if ( *v5 != v4 )
     __fastfail(3u);

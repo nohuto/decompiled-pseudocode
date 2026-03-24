@@ -1,14 +1,14 @@
 /*
- * XREFs of xxxResolveDesktopForWOW @ 0x1C01BEC58
+ * XREFs of xxxResolveDesktopForWOW @ 0x1C01E96A4
  * Callers:
- *     NtUserResolveDesktopForWOW @ 0x1C01D9F00 (NtUserResolveDesktopForWOW.c)
+ *     NtUserResolveDesktopForWOW @ 0x1C0200C30 (NtUserResolveDesktopForWOW.c)
  * Callees:
- *     _OpenDesktop @ 0x1C006737C (_OpenDesktop.c)
- *     _OpenWindowStation @ 0x1C0068374 (_OpenWindowStation.c)
- *     CloseProtectedHandle @ 0x1C006A694 (CloseProtectedHandle.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z @ 0x1C01BE7A8 (-SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z.c)
+ *     _OpenDesktop @ 0x1C000F208 (_OpenDesktop.c)
+ *     ?SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z @ 0x1C000FE48 (-SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z.c)
+ *     _OpenWindowStation @ 0x1C0010164 (_OpenWindowStation.c)
+ *     CloseProtectedHandle @ 0x1C00D9098 (CloseProtectedHandle.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall xxxResolveDesktopForWOW(PUNICODE_STRING Destination)
@@ -17,36 +17,35 @@ __int64 __fastcall xxxResolveDesktopForWOW(PUNICODE_STRING Destination)
   __int16 v3; // cx
   unsigned __int64 v4; // xmm0_8
   _WORD *i; // rdx
-  int v6; // edi
-  NTSTATUS v7; // edi
-  struct _UNICODE_STRING *v8; // r15
-  __int64 v9; // r8
-  char *v10; // rsi
-  __int64 v12; // rdx
-  int v13; // edi
+  NTSTATUS v6; // edi
+  struct _UNICODE_STRING *v7; // r15
+  __int64 v8; // r8
+  char *v9; // rsi
+  __int64 v11; // rdx
+  int v12; // edi
   PVOID BaseAddress; // [rsp+30h] [rbp-2A8h] BYREF
   struct _UNICODE_STRING Destinationa; // [rsp+38h] [rbp-2A0h] BYREF
-  char *v16; // [rsp+48h] [rbp-290h]
+  char *v15; // [rsp+48h] [rbp-290h]
   ULONG_PTR RegionSize[2]; // [rsp+50h] [rbp-288h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-278h] BYREF
   UNICODE_STRING Source; // [rsp+70h] [rbp-268h] BYREF
-  PUNICODE_STRING v20; // [rsp+80h] [rbp-258h]
+  PUNICODE_STRING v19; // [rsp+80h] [rbp-258h]
   HANDLE Handle; // [rsp+88h] [rbp-250h] BYREF
-  _BYTE v22[528]; // [rsp+A0h] [rbp-238h] BYREF
+  _BYTE v21[528]; // [rsp+A0h] [rbp-238h] BYREF
 
-  v20 = Destination;
+  v19 = Destination;
   DestinationString = 0LL;
   Source = 0LL;
   *(_QWORD *)&Destinationa.Length = 34209792LL;
-  memset_0(v22, 0, 0x20AuLL);
+  memset(v21, 0, 0x20AuLL);
   Handle = 0LL;
   BaseAddress = 0LL;
-  Destinationa.Buffer = (PWSTR)v22;
+  Destinationa.Buffer = (PWSTR)v21;
   if ( !Destination->Length )
   {
     RtlInitUnicodeString(&DestinationString, L"Default");
 LABEL_8:
-    v6 = 1;
+    RtlInitUnicodeString(&Source, L"WinSta0");
     goto LABEL_10;
   }
   v2 = *Destination;
@@ -69,46 +68,38 @@ LABEL_8:
   DestinationString.Length = DestinationString.MaximumLength;
   Source.Length = 2 * ((__int64)((__int64)i - v4) >> 1);
   *i = 0;
-  v6 = 0;
+LABEL_10:
   RtlAppendUnicodeToString(&Destinationa, szWindowStationDirectory);
   RtlAppendUnicodeToString(&Destinationa, L"\\");
   RtlAppendUnicodeStringToString(&Destinationa, &Source);
-LABEL_10:
-  if ( v6 )
-  {
-    RtlInitUnicodeString(&Source, L"WinSta0");
-    RtlAppendUnicodeToString(&Destinationa, szWindowStationDirectory);
-    RtlAppendUnicodeToString(&Destinationa, L"\\");
-    RtlAppendUnicodeStringToString(&Destinationa, &Source);
-  }
   RegionSize[0] = 586LL;
-  v7 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, RegionSize, 0x1000u, 4u);
-  v8 = (struct _UNICODE_STRING *)((char *)BaseAddress + 48);
-  v16 = (char *)BaseAddress + 48;
-  if ( v7 < 0 )
+  v6 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, RegionSize, 0x1000u, 4u);
+  v7 = (struct _UNICODE_STRING *)((char *)BaseAddress + 48);
+  v15 = (char *)BaseAddress + 48;
+  if ( v6 < 0 )
     return 3221225495LL;
   SafeCopyUnicodeString((PUNICODE_STRING)BaseAddress + 3, &Destinationa);
   *(_DWORD *)BaseAddress = 48;
   *((_QWORD *)BaseAddress + 1) = 0LL;
   *((_DWORD *)BaseAddress + 6) = 64;
-  *((_QWORD *)BaseAddress + 2) = v8;
+  *((_QWORD *)BaseAddress + 2) = v7;
   *((_QWORD *)BaseAddress + 4) = 0LL;
   *((_QWORD *)BaseAddress + 5) = 0LL;
-  v10 = (char *)OpenWindowStation((__int64)BaseAddress, 0x2000000, v9);
-  v16 = v10;
-  if ( v10 )
+  v9 = (char *)OpenWindowStation((__int64)BaseAddress, 0x2000000, v8);
+  v15 = v9;
+  if ( v9 )
   {
-    SafeCopyUnicodeString(v8, &DestinationString);
+    SafeCopyUnicodeString(v7, &DestinationString);
     *(_DWORD *)BaseAddress = 48;
-    *((_QWORD *)BaseAddress + 1) = v10;
+    *((_QWORD *)BaseAddress + 1) = v9;
     *((_DWORD *)BaseAddress + 6) = 64;
-    *((_QWORD *)BaseAddress + 2) = v8;
+    *((_QWORD *)BaseAddress + 2) = v7;
     *((_QWORD *)BaseAddress + 4) = 0LL;
     *((_QWORD *)BaseAddress + 5) = 0LL;
-    v13 = OpenDesktop((struct _OBJECT_ATTRIBUTES *)BaseAddress, v12, 0LL, 0x2000000, &Handle);
+    v12 = OpenDesktop((struct _OBJECT_ATTRIBUTES *)BaseAddress, v11, 0LL, 0x2000000, &Handle);
     ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, RegionSize, 0x8000u);
-    ObCloseHandle(v10, 1);
-    if ( v13 >= 0 )
+    ObCloseHandle(v9, 1);
+    if ( v12 >= 0 )
     {
       CloseProtectedHandle(Handle, 1);
       RtlCopyUnicodeString(Destination, &Source);
@@ -118,7 +109,7 @@ LABEL_10:
     }
     else
     {
-      return (unsigned int)v13;
+      return (unsigned int)v12;
     }
   }
   else

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DrawScrollArrow@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z @ 0x1C0027374
+ * XREFs of ?DrawScrollArrow@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z @ 0x1C0042A74
  * Callers:
- *     DrawFrameControl @ 0x1C01197C0 (DrawFrameControl.c)
+ *     DrawFrameControl @ 0x1C0045B98 (DrawFrameControl.c)
  * Callees:
- *     ?DrawIt@@YAHPEAUHDC__@@PEAUtagRECT@@IG@Z @ 0x1C0027B88 (-DrawIt@@YAHPEAUHDC__@@PEAUtagRECT@@IG@Z.c)
+ *     ?DrawIt@@YAHPEAUHDC__@@PEAUtagRECT@@IG@Z @ 0x1C0043C60 (-DrawIt@@YAHPEAUHDC__@@PEAUtagRECT@@IG@Z.c)
  */
 
 __int64 __fastcall DrawScrollArrow(HDC a1, struct tagRECT *a2, char a3)

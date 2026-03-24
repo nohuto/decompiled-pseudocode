@@ -1,11 +1,11 @@
 /*
- * XREFs of PopResumeDeviceIdle @ 0x140155E84
+ * XREFs of PopResumeDeviceIdle @ 0x140155EA4
  * Callers:
- *     PoClearBroadcast @ 0x1406E0A68 (PoClearBroadcast.c)
+ *     PoClearBroadcast @ 0x1406E0A48 (PoClearBroadcast.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PopResumeDeviceIdle()

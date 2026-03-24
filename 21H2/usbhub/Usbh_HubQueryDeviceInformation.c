@@ -1,11 +1,11 @@
 /*
- * XREFs of Usbh_HubQueryDeviceInformation @ 0x1C002D9EC
+ * XREFs of Usbh_HubQueryDeviceInformation @ 0x1C002EDC8
  * Callers:
- *     UsbhGetHubDeviceInformation @ 0x1C002BAD8 (UsbhGetHubDeviceInformation.c)
- *     UsbhGetDeviceInformationEx @ 0x1C003D708 (UsbhGetDeviceInformationEx.c)
+ *     UsbhGetHubDeviceInformation @ 0x1C002CEE0 (UsbhGetHubDeviceInformation.c)
+ *     UsbhGetDeviceInformationEx @ 0x1C003E8E8 (UsbhGetDeviceInformationEx.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Usbh_HubQueryDeviceInformation(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)

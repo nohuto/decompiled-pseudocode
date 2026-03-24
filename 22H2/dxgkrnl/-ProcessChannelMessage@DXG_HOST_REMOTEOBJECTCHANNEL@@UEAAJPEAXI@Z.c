@@ -1,289 +1,351 @@
 /*
- * XREFs of ?ProcessChannelMessage@DXG_HOST_REMOTEOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C034BA20
+ * XREFs of ?ProcessChannelMessage@DXG_HOST_REMOTEOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C028B750
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0007894 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C000859C (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C00085C0 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??1CEnsureCurrentDxgProcess@@QEAA@XZ @ 0x1C000AA18 (--1CEnsureCurrentDxgProcess@@QEAA@XZ.c)
- *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C00150D4 (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
- *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00151DC (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     Feature_856993082__private_IsEnabledDeviceUsage @ 0x1C0026424 (Feature_856993082__private_IsEnabledDeviceUsage.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ??0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@E@Z @ 0x1C00429D4 (--0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@E@Z.c)
- *     ?CreateBundleObjectCallback@DXG_HOST_REMOTEOBJECTCHANNEL@@IEAAJKPEAIPEAPEAX0@Z @ 0x1C034B230 (-CreateBundleObjectCallback@DXG_HOST_REMOTEOBJECTCHANNEL@@IEAAJKPEAIPEAPEAX0@Z.c)
- *     ?DestroyBundleObjectCallback@DXG_HOST_REMOTEOBJECTCHANNEL@@IEAAJI@Z @ 0x1C034B4B4 (-DestroyBundleObjectCallback@DXG_HOST_REMOTEOBJECTCHANNEL@@IEAAJI@Z.c)
- *     ?AddReference@DXGSHAREDVMOBJECT@@QEAAJXZ @ 0x1C03720B8 (-AddReference@DXGSHAREDVMOBJECT@@QEAAJXZ.c)
- *     ?ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ @ 0x1C0376288 (-ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ.c)
+ *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C000202C (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C0002D44 (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C0008594 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C0008660 (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0008F14 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     Feature_1259646266__private_IsEnabledDeviceUsage @ 0x1C0027DDC (Feature_1259646266__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ??0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C003BBC8 (--0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?AddReference@DXGSHAREDVMOBJECT@@QEAAJXZ @ 0x1C0238348 (-AddReference@DXGSHAREDVMOBJECT@@QEAAJXZ.c)
+ *     ?ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ @ 0x1C023B42C (-ReleaseReference@DXGSHAREDVMOBJECT@@QEAAJXZ.c)
+ *     ?CreateBundleObjectCallback@DXG_HOST_REMOTEOBJECTCHANNEL@@IEAAJKPEAIPEAPEAX0@Z @ 0x1C028AAA0 (-CreateBundleObjectCallback@DXG_HOST_REMOTEOBJECTCHANNEL@@IEAAJKPEAIPEAPEAX0@Z.c)
+ *     ?DestroyBundleObjectCallback@DXG_HOST_REMOTEOBJECTCHANNEL@@IEAAJI@Z @ 0x1C028AD18 (-DestroyBundleObjectCallback@DXG_HOST_REMOTEOBJECTCHANNEL@@IEAAJI@Z.c)
  */
 
 __int64 __fastcall DXG_HOST_REMOTEOBJECTCHANNEL::ProcessChannelMessage(
-        DXG_HOST_REMOTEOBJECTCHANNEL *this,
+        struct _KPROCESS **this,
         unsigned int *a2,
-        unsigned int a3)
+        __int64 a3,
+        __int64 a4)
 {
-  __int64 v5; // rdx
-  __int64 v7; // rcx
-  int v8; // edx
-  __int64 v9; // rdi
-  struct _KPROCESS *v10; // rdx
-  __int64 v11; // rdi
-  int v12; // eax
-  __int64 v13; // rax
-  unsigned int v14; // eax
-  __int64 v15; // r8
-  int v16; // ecx
-  _DWORD *v17; // r14
-  struct _KPROCESS *v18; // rdx
-  __int64 v19; // rax
-  unsigned int v20; // edx
-  unsigned int v21; // eax
-  __int64 v22; // r8
-  int v23; // ecx
-  DXGSHAREDVMOBJECT *v24; // r13
-  __int64 v25; // rcx
+  __int64 v4; // rbx
+  _QWORD *v7; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rcx
+  struct _KPROCESS *v11; // rdi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  struct _KPROCESS *v15; // rdx
+  struct _KPROCESS *v16; // rdi
+  _QWORD *v17; // rax
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  struct _KTHREAD **v22; // r12
+  __int64 v23; // rcx
+  struct _KTHREAD *v24; // r8
+  __int64 v25; // rdx
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // r14
+  __int64 v29; // rax
+  __int64 v30; // rcx
+  struct _KTHREAD *v31; // r8
+  unsigned int v32; // eax
+  __int64 v33; // r13
+  __int64 v34; // rdx
+  __int64 v35; // rax
+  DXGSHAREDVMOBJECT *v36; // r12
+  __int64 v37; // rdx
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rdx
+  __int64 v41; // rdx
+  __int64 v42; // rdx
+  __int64 v43; // rcx
+  __int64 v44; // r8
+  struct _KPROCESS *v45; // rdx
+  __int64 v46; // rdx
+  __int64 v47; // rcx
+  __int64 v48; // r8
+  __int64 v49; // r13
+  __int64 v50; // rdx
+  __int64 v51; // rax
+  __int64 v52; // rax
+  __int64 v53; // rdx
   unsigned int i; // edi
-  DXGSHAREDVMOBJECT *v27; // rcx
-  int v28; // [rsp+50h] [rbp-B0h]
-  _BYTE v29[8]; // [rsp+60h] [rbp-A0h] BYREF
-  char v30; // [rsp+68h] [rbp-98h]
-  __int64 v31; // [rsp+70h] [rbp-90h]
-  struct DXGPROCESS *ProcessDxgProcess; // [rsp+78h] [rbp-88h]
-  _BYTE v33[16]; // [rsp+80h] [rbp-80h] BYREF
-  _BYTE v34[24]; // [rsp+90h] [rbp-70h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+A8h] [rbp-58h] BYREF
-  char v36; // [rsp+D8h] [rbp-28h]
-  struct _KAPC_STATE v37; // [rsp+E0h] [rbp-20h] BYREF
-  char v38; // [rsp+110h] [rbp+10h]
-  DXGSHAREDVMOBJECT *v39[16]; // [rsp+120h] [rbp+20h] BYREF
-  void *v40[16]; // [rsp+1A0h] [rbp+A0h] BYREF
-  int v41; // [rsp+220h] [rbp+120h] BYREF
-  int BundleObjectCallback; // [rsp+224h] [rbp+124h]
-  unsigned int v43[2]; // [rsp+228h] [rbp+128h] BYREF
+  DXGSHAREDVMOBJECT *v55; // rcx
+  __int64 v56; // rdx
+  __int64 v57; // rdx
+  unsigned int v58; // [rsp+30h] [rbp-D0h]
+  struct _KTHREAD **ProcessDxgProcess; // [rsp+38h] [rbp-C8h] BYREF
+  char v60; // [rsp+40h] [rbp-C0h]
+  _BYTE v61[16]; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v62; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v63; // [rsp+60h] [rbp-A0h]
+  _BYTE v64[24]; // [rsp+68h] [rbp-98h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+80h] [rbp-80h] BYREF
+  char v66; // [rsp+B0h] [rbp-50h]
+  DXGSHAREDVMOBJECT *v67[16]; // [rsp+C0h] [rbp-40h] BYREF
+  void *v68[16]; // [rsp+140h] [rbp+40h] BYREF
+  int v69; // [rsp+1C0h] [rbp+C0h] BYREF
+  int BundleObjectCallback; // [rsp+1C4h] [rbp+C4h]
+  unsigned int v71[2]; // [rsp+1C8h] [rbp+C8h] BYREF
 
-  if ( a3 < 0xC )
+  v4 = (unsigned int)a3;
+  if ( (unsigned int)a3 < 0xC )
   {
-    v5 = a3;
+    v7 = (_QWORD *)WdLogNewEntry5_WdWarning(this, a2, a3);
+    v7[3] = v4;
 LABEL_3:
-    WdLogSingleEntry2(3LL, v5, -1073741811LL);
+    v7[4] = -1073741811LL;
+LABEL_4:
+    WdLogEvent5_WdWarning(v7);
     return 3221225485LL;
   }
-  v7 = (int)a2[2];
-  v8 = a2[2] - 1;
-  if ( !v8 )
+  v9 = a2[2] - 1;
+  if ( a2[2] == 1 )
   {
-    if ( a3 != 88 )
+    if ( (_DWORD)a3 != 88 )
       goto LABEL_14;
-    v11 = *((_QWORD *)this + 3);
-    if ( PsGetCurrentProcess(v7) != v11 && (unsigned __int8)PsGetProcessExitProcessCalled(v11) )
+    v16 = this[3];
+    if ( (struct _KPROCESS *)PsGetCurrentProcess(v9, a2, a3, a4) != v16
+      && (unsigned __int8)PsGetProcessExitProcessCalled(v16) )
+    {
       goto LABEL_17;
-    v12 = a2[1];
-    v41 = 1869901170;
-    *(_QWORD *)v43 = 2LL;
-    BundleObjectCallback = v12;
-    memset(v40, 0, sizeof(v40));
-    v13 = a2[4];
-    if ( (unsigned int)v13 > 0x10 || (v13 = a2[5], (unsigned int)v13 >= 2) )
-    {
-      v5 = v13;
-      goto LABEL_3;
     }
-    ProcessDxgProcess = (struct DXGPROCESS *)PsGetProcessDxgProcess(*((_QWORD *)this + 3));
-    memset(v39, 0, sizeof(v39));
-    DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)v33);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v33);
-    DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v34, ProcessDxgProcess);
-    v14 = (a2[3] >> 6) & 0xFFFFFF;
-    if ( v14 < *((_DWORD *)ProcessDxgProcess + 74) )
+    v18 = a2[1];
+    v69 = 1869901170;
+    *(_QWORD *)v71 = 2LL;
+    BundleObjectCallback = v18;
+    memset(v68, 0, sizeof(v68));
+    if ( a2[4] > 0x10 )
     {
-      v15 = *((_QWORD *)ProcessDxgProcess + 35);
-      if ( ((a2[3] >> 25) & 0x60) == (*(_BYTE *)(v15 + 16LL * v14 + 8) & 0x60)
-        && (*(_DWORD *)(v15 + 16LL * v14 + 8) & 0x2000) == 0 )
+      v7 = (_QWORD *)WdLogNewEntry5_WdWarning(v20, v19, v21);
+      v10 = a2[4];
+      goto LABEL_20;
+    }
+    if ( a2[5] >= 2 )
+    {
+      v7 = (_QWORD *)WdLogNewEntry5_WdWarning(v20, v19, v21);
+      v10 = a2[5];
+      goto LABEL_20;
+    }
+    ProcessDxgProcess = (struct _KTHREAD **)PsGetProcessDxgProcess(this[3]);
+    v22 = ProcessDxgProcess;
+    memset(v67, 0, sizeof(v67));
+    DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)v61);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v61);
+    DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v64, ProcessDxgProcess);
+    v25 = a2[3];
+    v26 = (a2[3] >> 6) & 0xFFFFFF;
+    if ( (unsigned int)v26 < *((_DWORD *)ProcessDxgProcess + 64) )
+    {
+      v24 = ProcessDxgProcess[30];
+      v25 = ((unsigned int)v25 >> 25) & 0x60;
+      v23 = *((unsigned int *)v24 + 4 * v26 + 2);
+      if ( (_BYTE)v25 == (*((_BYTE *)v24 + 16 * v26 + 8) & 0x60) && (v23 & 0x2000) == 0 && (v23 & 0x1F) != 0 )
       {
-        v16 = *(_DWORD *)(v15 + 16LL * v14 + 8) & 0x1F;
-        if ( v16 )
+        v23 &= 0x1Fu;
+        if ( (_BYTE)v23 == 12 )
         {
-          if ( v16 == 12 )
+          v28 = *((_QWORD *)v24 + 2 * (unsigned int)v26);
+          if ( v28 )
           {
-            v17 = *(_DWORD **)(v15 + 16LL * v14);
-            if ( v17 )
+            DXGPROCESS::AcquireReference((DXGPROCESS *)v28, v25);
+LABEL_31:
+            if ( v28 )
             {
-              DXGPROCESS::AcquireReference((DXGPROCESS *)v17);
               if ( (a2[5] & 1) != 0 )
               {
-                v19 = 0LL;
-                v28 = 0;
+                v32 = 0;
+                v58 = 0;
                 if ( a2[4] )
                 {
                   while ( 1 )
                   {
-                    v20 = a2[v19 + 6];
-                    v31 = v19;
-                    v21 = (v20 >> 6) & 0xFFFFFF;
-                    if ( v21 >= *((_DWORD *)ProcessDxgProcess + 74) )
+                    v33 = v32;
+                    v34 = a2[v32 + 6];
+                    v35 = (a2[v32 + 6] >> 6) & 0xFFFFFF;
+                    if ( (unsigned int)v35 >= *((_DWORD *)v22 + 64) )
                       break;
-                    v22 = *((_QWORD *)ProcessDxgProcess + 35);
-                    if ( ((v20 >> 25) & 0x60) != (*(_BYTE *)(v22 + 16LL * v21 + 8) & 0x60) )
-                      break;
-                    if ( (*(_DWORD *)(v22 + 16LL * v21 + 8) & 0x2000) != 0 )
-                      break;
-                    v23 = *(_DWORD *)(v22 + 16LL * v21 + 8) & 0x1F;
-                    if ( !v23 )
-                      break;
-                    if ( v23 != 13 )
+                    v34 = ((unsigned int)v34 >> 25) & 0x60;
+                    v31 = ProcessDxgProcess[30];
+                    v30 = *((unsigned int *)v31 + 4 * v35 + 2);
+                    if ( (_BYTE)v34 != (*((_BYTE *)v31 + 16 * v35 + 8) & 0x60)
+                      || (v30 & 0x2000) != 0
+                      || (v30 & 0x1F) == 0 )
                     {
-                      WdLogSingleEntry1(2LL, 316LL);
-                      DxgkLogInternalTriageEvent(
-                        0LL,
-                        0x40000,
-                        -1,
-                        (__int64)L"Handle type mismatch",
-                        316LL,
-                        0LL,
-                        0LL,
-                        0LL,
-                        0LL);
                       break;
                     }
-                    v24 = *(DXGSHAREDVMOBJECT **)(v22 + 16LL * v21);
-                    if ( !v24 )
+                    v30 &= 0x1Fu;
+                    if ( (_BYTE)v30 != 13 )
+                    {
+                      v38 = WdLogNewEntry5_WdError(v30, v34);
+                      *(_QWORD *)(v38 + 24) = 316LL;
+                      WdLogEvent5_WdError(v38);
                       break;
-                    if ( (unsigned int)Feature_856993082__private_IsEnabledDeviceUsage() )
-                    {
-                      DXGSHAREDVMOBJECT::AddReference(v24);
-                      v25 = v31;
-                      v39[v31] = v24;
                     }
-                    else
+                    v36 = (DXGSHAREDVMOBJECT *)*((_QWORD *)v31 + 2 * (unsigned int)v35);
+                    if ( !v36 )
+                      break;
+                    if ( (unsigned int)Feature_1259646266__private_IsEnabledDeviceUsage() )
                     {
-                      v25 = v31;
+                      DXGSHAREDVMOBJECT::AddReference(v36, v37);
+                      v67[v33] = v36;
                     }
-                    v40[v25] = (void *)*((_QWORD *)v24 + 1);
-                    a2[v25 + 6] = *(_DWORD *)v24;
-                    v19 = (unsigned int)(v28 + 1);
-                    v28 = v19;
-                    if ( (unsigned int)v19 >= a2[4] )
-                      goto LABEL_29;
+                    v68[v33] = (void *)*((_QWORD *)v36 + 1);
+                    a2[v33 + 6] = *(_DWORD *)v36;
+                    v32 = v58 + 1;
+                    v58 = v32;
+                    if ( v32 >= a2[4] )
+                      goto LABEL_48;
+                    v22 = ProcessDxgProcess;
                   }
-                  WdLogSingleEntry2(3LL, a2[v31 + 6], -1073741811LL);
+                  v39 = WdLogNewEntry5_WdWarning(v30, v34, v31);
+                  *(_QWORD *)(v39 + 24) = a2[v33 + 6];
+                  *(_QWORD *)(v39 + 32) = -1073741811LL;
+                  WdLogEvent5_WdWarning(v39);
                   BundleObjectCallback = -1073741811;
-                  DXGPROCESS::ReleaseReference((DXGPROCESS *)v17);
-                  v17 = 0LL;
+                  DXGPROCESS::ReleaseReference((DXGPROCESS *)v28, v40);
+                  v28 = 0LL;
                 }
               }
-              goto LABEL_29;
             }
-LABEL_28:
-            WdLogSingleEntry2(3LL, a2[3], -1073741811LL);
-            BundleObjectCallback = -1073741811;
-LABEL_29:
-            DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v34);
-            if ( v33[8] )
-              DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v33);
-            if ( v17 )
+LABEL_48:
+            DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v64);
+            if ( v61[8] )
+              DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v61, v41);
+            if ( v28 )
             {
-              DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v29, (struct DXGFASTMUTEX *const)(v17 + 26), 0);
-              DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v29);
-              if ( (v17[106] & 0x100) != 0 && v17[10] == 1 )
+              DXGAUTOMUTEX::DXGAUTOMUTEX(
+                (DXGAUTOMUTEX *)&ProcessDxgProcess,
+                *(struct DXGFASTMUTEX *const *)(v28 + 104),
+                0);
+              DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&ProcessDxgProcess);
+              if ( (*(_BYTE *)(v28 + 347) & 0x20) != 0 && *(_DWORD *)(v28 + 40) == 1 )
               {
-                v18 = (struct _KPROCESS *)*((_QWORD *)this + 3);
-                v38 = 0;
-                CPROCESSATTACHHELPER::Attach(&v37, v18);
+                v45 = this[3];
+                v66 = 0;
+                CPROCESSATTACHHELPER::Attach(&ApcState, v45);
                 CEnsureCurrentDxgProcess::CEnsureCurrentDxgProcess(
-                  (CEnsureCurrentDxgProcess *)&ApcState,
-                  (struct DXGPROCESS *)v17,
-                  0);
-                if ( ApcState.ApcListHead[0].Blink )
+                  (CEnsureCurrentDxgProcess *)&v62,
+                  (struct DXGPROCESS *)v28);
+                v49 = v63;
+                if ( v63 )
                 {
                   BundleObjectCallback = DXG_HOST_REMOTEOBJECTCHANNEL::CreateBundleObjectCallback(
-                                           this,
+                                           (DXG_HOST_REMOTEOBJECTCHANNEL *)this,
                                            a2[4],
                                            a2 + 6,
-                                           v40,
-                                           &v43[1]);
+                                           v68,
+                                           &v71[1]);
                 }
                 else
                 {
-                  WdLogSingleEntry2(3LL, a2[3], -1073741811LL);
+                  v51 = WdLogNewEntry5_WdWarning(v47, v46, v48);
+                  *(_QWORD *)(v51 + 24) = a2[3];
+                  *(_QWORD *)(v51 + 32) = -1073741811LL;
+                  WdLogEvent5_WdWarning(v51);
                   BundleObjectCallback = -1073741811;
                 }
-                CEnsureCurrentDxgProcess::~CEnsureCurrentDxgProcess((CEnsureCurrentDxgProcess *)&ApcState);
-                if ( v38 )
-                  KeUnstackDetachProcess(&v37);
+                if ( v49 )
+                  *(_QWORD *)(v49 + 8) = v62;
+                if ( v66 )
+                  KeUnstackDetachProcess(&ApcState);
               }
               else
               {
-                WdLogSingleEntry2(3LL, a2[3], -1073741811LL);
+                v52 = WdLogNewEntry5_WdWarning(v43, v42, v44);
+                *(_QWORD *)(v52 + 24) = a2[3];
+                *(_QWORD *)(v52 + 32) = -1073741811LL;
+                WdLogEvent5_WdWarning(v52);
                 BundleObjectCallback = -1073741811;
               }
-              if ( v30 )
-                DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v29);
+              if ( v60 )
+                DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&ProcessDxgProcess, v50);
             }
-            if ( (unsigned int)Feature_856993082__private_IsEnabledDeviceUsage() )
+            if ( (unsigned int)Feature_1259646266__private_IsEnabledDeviceUsage() )
             {
               for ( i = 0; i < a2[4]; ++i )
               {
-                v27 = v39[i];
-                if ( v27 )
+                v55 = v67[i];
+                if ( v55 )
                 {
-                  DXGSHAREDVMOBJECT::ReleaseReference(v27);
-                  v39[i] = 0LL;
+                  DXGSHAREDVMOBJECT::ReleaseReference(v55, v53);
+                  v67[i] = 0LL;
                 }
               }
             }
-            if ( v17 )
+            if ( v28 )
             {
-              DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)v29);
-              DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v29);
-              DXGPROCESS::ReleaseReference((DXGPROCESS *)v17);
-              if ( v30 )
-                DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v29);
+              DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)&ProcessDxgProcess);
+              DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&ProcessDxgProcess);
+              DXGPROCESS::ReleaseReference((DXGPROCESS *)v28, v56);
+              if ( v60 )
+                DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&ProcessDxgProcess, v57);
             }
-            goto LABEL_66;
+            goto LABEL_71;
           }
-          WdLogSingleEntry1(2LL, 316LL);
-          DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
+LABEL_30:
+          v29 = WdLogNewEntry5_WdWarning(v23, v25, v24);
+          *(_QWORD *)(v29 + 24) = a2[3];
+          *(_QWORD *)(v29 + 32) = -1073741811LL;
+          WdLogEvent5_WdWarning(v29);
+          BundleObjectCallback = -1073741811;
+          goto LABEL_31;
         }
+        v27 = WdLogNewEntry5_WdError(v23, v25);
+        *(_QWORD *)(v27 + 24) = 316LL;
+        WdLogEvent5_WdError(v27);
       }
     }
-    v17 = 0LL;
-    goto LABEL_28;
+    v28 = 0LL;
+    goto LABEL_30;
   }
-  if ( v8 != 2 )
+  if ( a2[2] != 3 )
   {
-    v5 = v7;
+    v7 = (_QWORD *)WdLogNewEntry5_WdWarning(v9, a2, a3);
+    v10 = (int)a2[2];
+LABEL_20:
+    v7[3] = v10;
     goto LABEL_3;
   }
-  if ( a3 != 16 )
+  if ( (_DWORD)a3 != 16 )
   {
 LABEL_14:
-    WdLogSingleEntry3(3LL, v7, a3, -1073741811LL);
-    return 3221225485LL;
+    v7 = (_QWORD *)WdLogNewEntry5_WdWarning(v9, a2, a3);
+    v7[3] = (int)a2[2];
+    v7[4] = v4;
+    v7[5] = -1073741811LL;
+    goto LABEL_4;
   }
-  v9 = *((_QWORD *)this + 3);
-  if ( PsGetCurrentProcess(v7) != v9 && (unsigned __int8)PsGetProcessExitProcessCalled(v9) )
+  v11 = this[3];
+  if ( (struct _KPROCESS *)PsGetCurrentProcess(v9, a2, a3, a4) != v11
+    && (unsigned __int8)PsGetProcessExitProcessCalled(v11) )
   {
 LABEL_17:
-    WdLogSingleEntry3(3LL, (int)a2[2], *((_QWORD *)this + 3), -1073741558LL);
+    v17 = (_QWORD *)WdLogNewEntry5_WdWarning(v13, v12, v14);
+    v17[3] = (int)a2[2];
+    v17[4] = this[3];
+    v17[5] = -1073741558LL;
+    WdLogEvent5_WdWarning(v17);
     return 3221225738LL;
   }
-  v10 = (struct _KPROCESS *)*((_QWORD *)this + 3);
-  *(_QWORD *)v43 = 4LL;
-  v41 = 1869901170;
-  v36 = 0;
-  CPROCESSATTACHHELPER::Attach(&ApcState, v10);
-  BundleObjectCallback = DXG_HOST_REMOTEOBJECTCHANNEL::DestroyBundleObjectCallback(this, a2[3]);
-  if ( v36 )
+  v15 = this[3];
+  *(_QWORD *)v71 = 4LL;
+  v69 = 1869901170;
+  v66 = 0;
+  CPROCESSATTACHHELPER::Attach(&ApcState, v15);
+  BundleObjectCallback = DXG_HOST_REMOTEOBJECTCHANNEL::DestroyBundleObjectCallback(
+                           (DXG_HOST_REMOTEOBJECTCHANNEL *)this,
+                           a2[3]);
+  if ( v66 )
     KeUnstackDetachProcess(&ApcState);
-LABEL_66:
-  (*(void (__fastcall **)(_QWORD, int *, __int64))(**((_QWORD **)this + 1) + 24LL))(*((_QWORD *)this + 1), &v41, 16LL);
+LABEL_71:
+  (*(void (__fastcall **)(struct _KPROCESS *, int *, __int64))(*(_QWORD *)this[1] + 24LL))(this[1], &v69, 16LL);
   return 0LL;
 }

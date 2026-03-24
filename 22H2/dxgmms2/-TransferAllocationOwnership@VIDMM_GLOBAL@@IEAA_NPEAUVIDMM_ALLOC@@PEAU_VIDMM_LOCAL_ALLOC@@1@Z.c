@@ -1,13 +1,12 @@
 /*
- * XREFs of ?TransferAllocationOwnership@VIDMM_GLOBAL@@IEAA_NPEAUVIDMM_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@1@Z @ 0x1C0089BF4
+ * XREFs of ?TransferAllocationOwnership@VIDMM_GLOBAL@@IEAA_NPEAUVIDMM_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@1@Z @ 0x1C0086968
  * Callers:
- *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00ABE50 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006C260 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
  * Callees:
- *     ?TransferOwnershipToSystemProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU2@@Z @ 0x1C0089A2C (-TransferOwnershipToSystemProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_AL.c)
- *     ?TransferOwnershipToProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU2@1@Z @ 0x1C0089CC0 (-TransferOwnershipToProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@P.c)
+ *     ?TransferOwnershipToProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU2@1@Z @ 0x1C0086A34 (-TransferOwnershipToProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@P.c)
+ *     ?TransferOwnershipToSystemProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU2@@Z @ 0x1C0086BCC (-TransferOwnershipToSystemProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_AL.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 bool __fastcall VIDMM_GLOBAL::TransferAllocationOwnership(
         VIDMM_GLOBAL *this,
         struct _VIDMM_GLOBAL_ALLOC ***a2,
@@ -18,6 +17,7 @@ bool __fastcall VIDMM_GLOBAL::TransferAllocationOwnership(
   struct _VIDMM_GLOBAL_ALLOC *v8; // rbx
   struct _VIDMM_GLOBAL_ALLOC *v9; // rax
   __int64 v10; // rax
+  _QWORD *v12; // rax
 
   v4 = a4;
   v8 = **a2;
@@ -27,10 +27,15 @@ bool __fastcall VIDMM_GLOBAL::TransferAllocationOwnership(
   }
   else
   {
-    if ( *((_DWORD *)v8 + 36) && g_IsInternalRelease )
+    if ( *((_DWORD *)v8 + 38) && g_IsInternalRelease )
     {
-      g_DxgMmsBugcheckExportIndex = 1;
-      WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
+      v12 = (_QWORD *)WdLogNewEntry5_WdCriticalError(this, a2);
+      v12[5] = 0LL;
+      v12[6] = 0LL;
+      v12[7] = 0LL;
+      v12[3] = 270LL;
+      v12[4] = 9LL;
+      WdLogEvent5_WdCriticalError(v12);
     }
     v9 = a2[2][5];
     if ( v9 )
@@ -40,19 +45,19 @@ bool __fastcall VIDMM_GLOBAL::TransferAllocationOwnership(
       {
         if ( *(_DWORD *)(v10 + 64) )
         {
-          if ( (**((_DWORD **)v8 + 67) & 0x10) == 0 )
+          if ( (**((_DWORD **)v8 + 62) & 0x10) == 0 )
           {
             v4 = VIDMM_GLOBAL::TransferOwnershipToSystemProcess(this, v8, a3);
-            *((_DWORD *)v8 + 19) = (v4 != 0LL ? 4 : 0) | *((_DWORD *)v8 + 19) & 0xFFFFFFFB;
+            *((_DWORD *)v8 + 21) = (v4 != 0LL ? 4 : 0) | *((_DWORD *)v8 + 21) & 0xFFFFFFFB;
           }
         }
         else
         {
-          *((_DWORD *)v8 + 19) |= 1u;
+          *((_DWORD *)v8 + 21) |= 1u;
         }
       }
     }
   }
-  *((_QWORD *)v8 + 11) = v4;
+  *((_QWORD *)v8 + 12) = v4;
   return v4 != 0LL;
 }

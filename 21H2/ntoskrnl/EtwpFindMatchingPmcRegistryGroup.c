@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpFindMatchingPmcRegistryGroup @ 0x1409E0DC0
+ * XREFs of EtwpFindMatchingPmcRegistryGroup @ 0x14093A150
  * Callers:
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1409DFF60 (EtwpAddMicroarchitecturalPmcToRegistry.c)
- *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1409E1B94 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x140939480 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x14093AE40 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpGetPmcCpuHierarchyRegistry @ 0x1409E10D8 (EtwpGetPmcCpuHierarchyRegistry.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpGetPmcCpuHierarchyRegistry @ 0x14093A464 (EtwpGetPmcCpuHierarchyRegistry.c)
  */
 
 __int64 __fastcall EtwpFindMatchingPmcRegistryGroup(__int64 a1, int a2, __int64 a3, unsigned int a4, wchar_t *pszDest)
@@ -20,16 +20,16 @@ __int64 __fastcall EtwpFindMatchingPmcRegistryGroup(__int64 a1, int a2, __int64 
   size_t v6; // r12
   char v8; // di
   int v9; // esi
-  NTSTATUS v10; // eax
-  size_t v11; // rbx
-  unsigned __int64 v12; // rcx
+  NTSTATUS v10; // ebx
+  unsigned __int64 v11; // rcx
+  __int64 result; // rax
   ULONG ResultLength[2]; // [rsp+48h] [rbp-C0h] BYREF
   HANDLE KeyHandle; // [rsp+50h] [rbp-B8h] BYREF
   HANDLE DestinationString[3]; // [rsp+58h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-98h] BYREF
   _DWORD KeyInformation[136]; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v19; // [rsp+2C8h] [rbp+1C0h] BYREF
-  unsigned int v20; // [rsp+2D0h] [rbp+1C8h]
+  __int64 v18; // [rsp+2C8h] [rbp+1C0h] BYREF
+  unsigned int v19; // [rsp+2D0h] [rbp+1C8h]
 
   v6 = a4;
   KeyHandle = 0LL;
@@ -48,54 +48,53 @@ __int64 __fastcall EtwpFindMatchingPmcRegistryGroup(__int64 a1, int a2, __int64 
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   ZwCreateKey(DestinationString, 0x20019u, &ObjectAttributes, 0, 0LL, 0, 0LL);
   v9 = -1;
-  do
+  while ( 1 )
   {
-    while ( 1 )
+    v10 = ZwEnumerateKey(DestinationString[0], ++v9, KeyBasicInformation, KeyInformation, 0x216u, &ResultLength[1]);
+    if ( v10 < 0 || KeyInformation[3] >= 0xFFu )
     {
-      v10 = ZwEnumerateKey(DestinationString[0], ++v9, KeyBasicInformation, KeyInformation, 0x216u, &ResultLength[1]);
-      if ( v10 < 0 )
-        break;
-      if ( KeyInformation[3] < 0xFFu )
+      if ( v10 == -1073741789 || v10 == -2147483643 )
+        v10 = 0;
+      goto LABEL_16;
+    }
+    *((_WORD *)&KeyInformation[4] + ((unsigned __int64)KeyInformation[3] >> 1)) = 0;
+    RtlStringCbPrintfW(
+      pszDest,
+      v6,
+      L"%ws\\%ws",
+      L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\WMI\\ProfileSource",
+      &KeyInformation[4]);
+    RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], pszDest);
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&DestinationString[1];
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 576;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
+    {
+      EtwpGetPmcCpuHierarchyRegistry(KeyHandle, ResultLength, &v18);
+      ZwClose(KeyHandle);
+      if ( ResultLength[0] == a2 )
       {
-        *((_WORD *)&KeyInformation[4] + ((unsigned __int64)KeyInformation[3] >> 1)) = 0;
-        v11 = v6;
-        RtlStringCbPrintfW(
-          pszDest,
-          v6,
-          L"%ws\\%ws",
-          L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\WMI\\ProfileSource",
-          &KeyInformation[4]);
-        RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], pszDest);
-        ObjectAttributes.RootDirectory = 0LL;
-        ObjectAttributes.ObjectName = (PUNICODE_STRING)&DestinationString[1];
-        ObjectAttributes.Length = 48;
-        ObjectAttributes.Attributes = 576;
-        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
-        {
-          EtwpGetPmcCpuHierarchyRegistry(KeyHandle, ResultLength, &v19);
-          ZwClose(KeyHandle);
-          if ( ResultLength[0] == a2 )
-          {
-            v12 = v19 - *(_QWORD *)a3;
-            if ( v19 == *(_QWORD *)a3 )
-              v12 = v20 - (unsigned __int64)*(unsigned int *)(a3 + 8);
-            if ( !v12 )
-            {
-              v8 = 1;
-              goto LABEL_13;
-            }
-          }
-        }
+        v11 = v18 - *(_QWORD *)a3;
+        if ( v18 == *(_QWORD *)a3 )
+          v11 = v19 - (unsigned __int64)*(unsigned int *)(a3 + 8);
+        if ( !v11 )
+          break;
       }
     }
+LABEL_16:
+    if ( v10 < 0 )
+      goto LABEL_10;
   }
-  while ( v10 == -1073741789 || v10 == -2147483643 );
-  v11 = v6;
-LABEL_13:
+  v8 = 1;
+LABEL_10:
   ZwClose(DestinationString[0]);
-  if ( v8 )
-    return 0LL;
-  memset(pszDest, 0, v11);
-  return 3221225473LL;
+  result = 0LL;
+  if ( !v8 )
+  {
+    memset(pszDest, 0, v6);
+    return 3221225473LL;
+  }
+  return result;
 }

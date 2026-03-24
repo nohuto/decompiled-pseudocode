@@ -1,10 +1,11 @@
 /*
- * XREFs of ?CreateNotify@@YAPEAUtagNOTIFY@@PEAUtagEVENTHOOK@@KPEAUtagWND@@JJPEAUtagTHREADINFO@@KE@Z @ 0x1C01BFAF8
+ * XREFs of ?CreateNotify@@YAPEAUtagNOTIFY@@PEAUtagEVENTHOOK@@KPEAUtagWND@@JJPEAUtagTHREADINFO@@KE@Z @ 0x1C01010DC
  * Callers:
- *     ?CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z @ 0x1C01BF9E0 (-CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z.c)
- *     ?xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z @ 0x1C01BFE28 (-xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z.c)
+ *     ?xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z @ 0x1C00065F8 (-xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z.c)
+ *     ?CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z @ 0x1C0006AAC (-CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
  * Callees:
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C0070838 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     <none>
  */
 
 struct tagNOTIFY *__fastcall CreateNotify(
@@ -17,41 +18,38 @@ struct tagNOTIFY *__fastcall CreateNotify(
         unsigned int a7,
         unsigned __int8 a8)
 {
-  __int64 *v12; // rbx
+  struct tagNOTIFY *v12; // rbx
   __int64 v13; // rax
-  struct tagNOTIFY *result; // rax
   unsigned int ThreadId; // eax
-  int v16; // eax
-  int v17; // r8d
-  __int64 **v18; // rdx
-  _QWORD v19[3]; // [rsp+20h] [rbp-18h] BYREF
+  int v15; // eax
+  struct tagNOTIFY **v16; // rdx
+  struct tagNOTIFY *result; // rax
+  _QWORD v18[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( !tagDomLock::IsLockedExclusive((PERESOURCE *)gDomainWinEventLock) )
-    __int2c();
-  if ( dword_1C035E148 )
+  if ( dword_1C0339AB8 )
   {
-    result = (struct tagNOTIFY *)Win32AllocPoolZInit(72LL, 2037281621LL);
-    v12 = (__int64 *)result;
+    result = (struct tagNOTIFY *)Win32AllocPool(72LL, 2037281621LL);
+    v12 = result;
     if ( !result )
       return result;
   }
   else
   {
-    dword_1C035E148 = 1;
-    v12 = &qword_1C035F160;
+    dword_1C0339AB8 = 1;
+    v12 = (struct tagNOTIFY *)&unk_1C033C050;
   }
-  v12[2] = 0LL;
+  *((_QWORD *)v12 + 2) = 0LL;
   if ( !a8 )
   {
-    v19[0] = v12 + 2;
-    v19[1] = a1;
-    HMAssignmentLock(v19, 0LL);
+    v18[0] = (char *)v12 + 16;
+    v18[1] = a1;
+    HMAssignmentLock(v18);
   }
   if ( a3 )
     v13 = *(_QWORD *)a3;
   else
     v13 = 0LL;
-  v12[4] = v13;
+  *((_QWORD *)v12 + 4) = v13;
   *((_DWORD *)v12 + 7) = a2;
   *((_DWORD *)v12 + 10) = a4;
   *((_DWORD *)v12 + 11) = a5;
@@ -61,26 +59,26 @@ struct tagNOTIFY *__fastcall CreateNotify(
   *((_DWORD *)v12 + 13) = a7;
   *((_DWORD *)v12 + 6) = a8;
   if ( a8 )
-    v16 = 0;
+    v15 = 0;
   else
-    v16 = ~(*((_DWORD *)a1 + 10) >> 1) & 4;
-  v12[8] = 0LL;
-  *((_DWORD *)v12 + 14) = v16;
-  v12[1] = (__int64)v12;
-  *v12 = (__int64)v12;
-  if ( !a8 && (*((_DWORD *)a1 + 10) & 8) != 0 && (unsigned int)(a2 + 2147483646) <= 3 )
+    v15 = ~(unsigned __int8)(*((_DWORD *)a1 + 10) >> 1) & 4;
+  *((_QWORD *)v12 + 8) = 0LL;
+  *((_DWORD *)v12 + 14) = v15;
+  *((_QWORD *)v12 + 1) = v12;
+  *(_QWORD *)v12 = v12;
+  if ( !a8
+    && (*((_DWORD *)a1 + 10) & 8) != 0
+    && (unsigned int)(a2 + 2147483646) <= 3
+    && *((_QWORD *)a1 + 2) != gptiCurrent )
   {
-    v17 = *((_DWORD *)v12 + 14);
-    if ( *((_QWORD *)a1 + 2) != gptiCurrent )
-      v17 = 4;
-    *((_DWORD *)v12 + 14) = v17;
+    *((_DWORD *)v12 + 14) |= 4u;
   }
-  v18 = (__int64 **)gPendingNotifiesList[1];
-  if ( *v18 != (__int64 *)gPendingNotifiesList[0] )
+  v16 = (struct tagNOTIFY **)gPendingNotifiesList[1];
+  if ( *v16 != (struct tagNOTIFY *)gPendingNotifiesList[0] )
     __fastfail(3u);
-  *v12 = gPendingNotifiesList[0];
-  v12[1] = (__int64)v18;
-  *v18 = v12;
+  *(_QWORD *)v12 = gPendingNotifiesList[0];
+  *((_QWORD *)v12 + 1) = v16;
+  *v16 = v12;
   gPendingNotifiesList[1] = v12;
-  return (struct tagNOTIFY *)v12;
+  return v12;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of CiTaskLocate @ 0x1C000B450
+ * XREFs of CiTaskLocate @ 0x1C000B0E0
  * Callers:
- *     CiLookupTask @ 0x1C000B3D0 (CiLookupTask.c)
- *     CiTaskAllocate @ 0x1C000DC50 (CiTaskAllocate.c)
+ *     CiLookupTask @ 0x1C000B060 (CiLookupTask.c)
+ *     CiTaskAllocate @ 0x1C000DCD0 (CiTaskAllocate.c)
  * Callees:
  *     <none>
  */

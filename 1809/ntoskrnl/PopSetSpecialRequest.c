@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSetSpecialRequest @ 0x140866620
+ * XREFs of PopSetSpecialRequest @ 0x140866600
  * Callers:
  *     PopPowerRequestActionInfo @ 0x140588A30 (PopPowerRequestActionInfo.c)
  * Callees:
  *     PopDiagTracePowerRequestChange @ 0x140003064 (PopDiagTracePowerRequestChange.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
  *     PsChargeProcessWakeCounter @ 0x140588720 (PsChargeProcessWakeCounter.c)
  *     PopAcquirePowerRequestPushLock @ 0x140589D50 (PopAcquirePowerRequestPushLock.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)

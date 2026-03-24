@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_ReconfiguringEndpointOnReset @ 0x1C0051A10
+ * XREFs of ESM_ReconfiguringEndpointOnReset @ 0x1C004EDD0
  * Callers:
  *     <none>
  * Callees:
- *     Endpoint_OnResetEndpointConfigure @ 0x1C003AC30 (Endpoint_OnResetEndpointConfigure.c)
+ *     Endpoint_OnResetEndpointConfigure @ 0x1C0038D28 (Endpoint_OnResetEndpointConfigure.c)
  */
 
 __int64 __fastcall ESM_ReconfiguringEndpointOnReset(__int64 a1)

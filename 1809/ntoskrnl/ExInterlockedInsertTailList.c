@@ -1,16 +1,16 @@
 /*
- * XREFs of ExInterlockedInsertTailList @ 0x14010BF30
+ * XREFs of ExInterlockedInsertTailList @ 0x14010BF50
  * Callers:
- *     CcCanIWrite @ 0x140104D00 (CcCanIWrite.c)
- *     IoWMIWriteEvent @ 0x14010BDA0 (IoWMIWriteEvent.c)
- *     CcDeferWrite @ 0x140269680 (CcDeferWrite.c)
- *     WheapWorkQueueAddItem @ 0x140321084 (WheapWorkQueueAddItem.c)
- *     IoInitializeTimer @ 0x14081C4B0 (IoInitializeTimer.c)
+ *     CcCanIWrite @ 0x140104D20 (CcCanIWrite.c)
+ *     IoWMIWriteEvent @ 0x14010BDC0 (IoWMIWriteEvent.c)
+ *     CcDeferWrite @ 0x140269780 (CcDeferWrite.c)
+ *     WheapWorkQueueAddItem @ 0x140321184 (WheapWorkQueueAddItem.c)
+ *     IoInitializeTimer @ 0x14081C490 (IoInitializeTimer.c)
  *     VfAllocateAdapterChannel @ 0x140929AE0 (VfAllocateAdapterChannel.c)
  *     VfAllocateAdapterChannelEx @ 0x140929D10 (VfAllocateAdapterChannelEx.c)
  * Callees:
- *     ExpReleaseSpinLockDisabled @ 0x14010C01C (ExpReleaseSpinLockDisabled.c)
- *     ExpAcquireSpinLockDisabled @ 0x14010C054 (ExpAcquireSpinLockDisabled.c)
+ *     ExpReleaseSpinLockDisabled @ 0x14010C03C (ExpReleaseSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x14010C074 (ExpAcquireSpinLockDisabled.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedInsertTailList(PLIST_ENTRY ListHead, PLIST_ENTRY ListEntry, PKSPIN_LOCK Lock)

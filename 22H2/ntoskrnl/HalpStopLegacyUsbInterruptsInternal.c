@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpStopLegacyUsbInterruptsInternal @ 0x140A983BC
+ * XREFs of HalpStopLegacyUsbInterruptsInternal @ 0x1409A9314
  * Callers:
- *     HalpStopLegacyUsbInterrupts @ 0x140A983A0 (HalpStopLegacyUsbInterrupts.c)
+ *     HalpStopLegacyUsbInterrupts @ 0x140999230 (HalpStopLegacyUsbInterrupts.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpUsbLegacyStopOhciInterrupt @ 0x140521130 (HalpUsbLegacyStopOhciInterrupt.c)
- *     HalpUsbLegacyStopUhciInterrupt @ 0x14052125C (HalpUsbLegacyStopUhciInterrupt.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpUsbLegacyStopOhciInterrupt @ 0x1404D72BC (HalpUsbLegacyStopOhciInterrupt.c)
+ *     HalpUsbLegacyStopUhciInterrupt @ 0x1404D73E8 (HalpUsbLegacyStopUhciInterrupt.c)
  */
 
 char __fastcall HalpStopLegacyUsbInterruptsInternal(int a1)
@@ -27,7 +27,7 @@ char __fastcall HalpStopLegacyUsbInterruptsInternal(int a1)
       v3 = (__int64 *)*v3;
       if ( !*((_BYTE *)v4 + 24) && *((_BYTE *)v4 + 26) < 0x20u )
       {
-        v2 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _WORD *, _QWORD, int))qword_140C01A40)(
+        v2 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _WORD *, _QWORD, int))qword_140C00630)(
                *((unsigned int *)v4 + 4),
                *((unsigned int *)v4 + 5),
                v6,

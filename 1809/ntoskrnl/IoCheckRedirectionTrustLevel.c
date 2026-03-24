@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCheckRedirectionTrustLevel @ 0x1401B40B0
+ * XREFs of IoCheckRedirectionTrustLevel @ 0x1401B40D0
  * Callers:
  *     <none>
  * Callees:
- *     SeTokenGetRedirectionTrustPolicy @ 0x1401B702C (SeTokenGetRedirectionTrustPolicy.c)
+ *     SeTokenGetRedirectionTrustPolicy @ 0x1401B704C (SeTokenGetRedirectionTrustPolicy.c)
  *     EtwTimLogRedirectionTrustPolicy @ 0x140582AF0 (EtwTimLogRedirectionTrustPolicy.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)

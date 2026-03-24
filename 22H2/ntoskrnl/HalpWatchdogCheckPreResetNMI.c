@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpWatchdogCheckPreResetNMI @ 0x14050B9A0
+ * XREFs of HalpWatchdogCheckPreResetNMI @ 0x1404C27B0
  * Callers:
- *     HalpPreprocessNmi @ 0x140366F20 (HalpPreprocessNmi.c)
+ *     HalpPreprocessNmi @ 0x1404D2CC0 (HalpPreprocessNmi.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 int HalpWatchdogCheckPreResetNMI()
@@ -20,7 +20,7 @@ int HalpWatchdogCheckPreResetNMI()
   if ( HalpWatchdogTimer )
   {
     v1 = *(_DWORD *)(HalpWatchdogTimer + 228);
-    if ( v1 == 7 )
+    if ( v1 == 8 )
     {
       LODWORD(v0) = KeGetPcr()->Prcb.Number;
       if ( (_DWORD)v0 )
@@ -32,7 +32,7 @@ int HalpWatchdogCheckPreResetNMI()
     }
     else
     {
-      if ( v1 != 12 )
+      if ( v1 != 13 )
         return v0;
       v0 = MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset + 100000000;
       if ( v0 <= HalpTimerWatchdogTimeout )
@@ -41,9 +41,9 @@ int HalpWatchdogCheckPreResetNMI()
     v2 = MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset;
     InterruptTimePrecise = RtlGetInterruptTimePrecise((LARGE_INTEGER *)&BugCheckParameter3);
     LODWORD(v0) = *(_DWORD *)(HalpWatchdogTimer + 228);
-    if ( (_DWORD)v0 == 7 )
+    if ( (_DWORD)v0 == 8 )
       KeBugCheckEx(0x1CAu, v2, InterruptTimePrecise, BugCheckParameter3, (unsigned int)KiClockTimerOwner);
-    if ( (_DWORD)v0 == 12 )
+    if ( (_DWORD)v0 == 13 )
       KeBugCheckEx(0x1CFu, v2, InterruptTimePrecise, BugCheckParameter3, (unsigned int)KiClockTimerOwner);
   }
   return v0;

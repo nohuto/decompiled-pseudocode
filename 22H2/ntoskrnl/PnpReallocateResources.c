@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpReallocateResources @ 0x14096D5F8
+ * XREFs of PnpReallocateResources @ 0x1408B31B0
  * Callers:
- *     PiProcessResourceRequirementsChanged @ 0x140959584 (PiProcessResourceRequirementsChanged.c)
+ *     PiProcessResourceRequirementsChanged @ 0x1408A2738 (PiProcessResourceRequirementsChanged.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x140321250 (KeReleaseSemaphore.c)
- *     memset @ 0x140435400 (memset.c)
- *     PnpGetResourceRequirementsForAssignTable @ 0x14078FD74 (PnpGetResourceRequirementsForAssignTable.c)
- *     PnpStartDeviceNode @ 0x1407939E0 (PnpStartDeviceNode.c)
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
- *     PipClearDevNodeFlags @ 0x14079856C (PipClearDevNodeFlags.c)
- *     PnpFindBestConfiguration @ 0x1408182A0 (PnpFindBestConfiguration.c)
- *     PnpBuildCmResourceLists @ 0x1408185D4 (PnpBuildCmResourceLists.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x1408187CC (PnpFreeResourceRequirementsForAssignTable.c)
- *     PnpReleaseResourcesInternal @ 0x140818910 (PnpReleaseResourcesInternal.c)
- *     IopCommitConfiguration @ 0x140850CEC (IopCommitConfiguration.c)
- *     PnpRequestDeviceRemoval @ 0x14086788C (PnpRequestDeviceRemoval.c)
- *     PnpUpdateRebootRequiredReason @ 0x140958E70 (PnpUpdateRebootRequiredReason.c)
- *     PnpRestoreResourcesInternal @ 0x14096D7E4 (PnpRestoreResourcesInternal.c)
- *     PnpRebalance @ 0x14096E968 (PnpRebalance.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     KeReleaseSemaphore @ 0x1402F19A0 (KeReleaseSemaphore.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PnpStartDeviceNode @ 0x14073A3A4 (PnpStartDeviceNode.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x140742F14 (PipClearDevNodeFlags.c)
+ *     PnpRequestDeviceRemoval @ 0x14074C54C (PnpRequestDeviceRemoval.c)
+ *     PnpBuildCmResourceLists @ 0x14074ED3C (PnpBuildCmResourceLists.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x14074F8BC (PnpGetResourceRequirementsForAssignTable.c)
+ *     PnpReleaseResourcesInternal @ 0x140750784 (PnpReleaseResourcesInternal.c)
+ *     IopCommitConfiguration @ 0x140751E30 (IopCommitConfiguration.c)
+ *     PnpFindBestConfiguration @ 0x140751ED4 (PnpFindBestConfiguration.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140752800 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpUpdateRebootRequiredReason @ 0x1408A2154 (PnpUpdateRebootRequiredReason.c)
+ *     PnpRestoreResourcesInternal @ 0x1408B3398 (PnpRestoreResourcesInternal.c)
+ *     PnpRebalance @ 0x1408B87F4 (PnpRebalance.c)
  */
 
 void __fastcall PnpReallocateResources(__int64 a1)
@@ -32,7 +32,7 @@ void __fastcall PnpReallocateResources(__int64 a1)
   int BestConfiguration; // edi
   int started; // eax
   int v9; // r9d
-  int v10; // r8d
+  unsigned int v10; // r8d
   __int64 v11; // rdx
   int v12; // esi
   __int128 v13; // [rsp+30h] [rbp-50h] BYREF
@@ -60,7 +60,7 @@ void __fastcall PnpReallocateResources(__int64 a1)
     ResourceRequirementsForAssignTable = PnpGetResourceRequirementsForAssignTable(
                                            (unsigned __int64)v14,
                                            (unsigned __int64)vars0,
-                                           &v16);
+                                           (int *)&v16);
     v6 = v16;
     BestConfiguration = ResourceRequirementsForAssignTable;
     if ( !v16 )

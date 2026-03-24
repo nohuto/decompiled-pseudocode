@@ -1,11 +1,11 @@
 /*
- * XREFs of CiLogSchedulerSleep @ 0x1C0003FFC
+ * XREFs of CiLogSchedulerSleep @ 0x1C0003D4C
  * Callers:
- *     CiSchedulerDeepSleep @ 0x1C0001190 (CiSchedulerDeepSleep.c)
- *     CiSchedulerSleep @ 0x1C0001220 (CiSchedulerSleep.c)
- *     CiSchedulerWait @ 0x1C0001630 (CiSchedulerWait.c)
+ *     CiSchedulerSleep @ 0x1C0001DB0 (CiSchedulerSleep.c)
+ *     CiSchedulerWait @ 0x1C00021A0 (CiSchedulerWait.c)
+ *     CiSchedulerDeepSleep @ 0x1C0002CC0 (CiSchedulerDeepSleep.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CiLogSchedulerSleep(int a1, int a2)

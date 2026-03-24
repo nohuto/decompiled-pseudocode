@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIEcOtherIrpDispatch @ 0x1C00AD3A0
+ * XREFs of ACPIEcOtherIrpDispatch @ 0x1C00AE720
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDispatchForwardIrp @ 0x1C0001660 (ACPIDispatchForwardIrp.c)
- *     ACPIEcInternalControl @ 0x1C00AD318 (ACPIEcInternalControl.c)
- *     ACPIEcReadWrite @ 0x1C00AD3E0 (ACPIEcReadWrite.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001E60 (ACPIDispatchForwardIrp.c)
+ *     ACPIEcInternalControl @ 0x1C00AE690 (ACPIEcInternalControl.c)
+ *     ACPIEcReadWrite @ 0x1C00AE760 (ACPIEcReadWrite.c)
  */
 
 __int64 __fastcall ACPIEcOtherIrpDispatch(ULONG_PTR a1, __int64 a2)

@@ -1,36 +1,35 @@
 /*
- * XREFs of NtUnmapViewOfSectionEx @ 0x14071EF60
+ * XREFs of NtUnmapViewOfSectionEx @ 0x14061E440
  * Callers:
- *     NtUnmapViewOfSection @ 0x14071EF40 (NtUnmapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x14061ADC0 (NtUnmapViewOfSection.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     MiUnmapViewOfSection @ 0x14071F030 (MiUnmapViewOfSection.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     MiUnmapViewOfSection @ 0x14061E510 (MiUnmapViewOfSection.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtUnmapViewOfSectionEx(ULONG_PTR a1, unsigned __int64 a2, int a3)
+NTSTATUS __fastcall NtUnmapViewOfSectionEx(void *a1, unsigned __int64 a2, int a3)
 {
-  char PreviousMode; // r9
-  __int64 result; // rax
-  unsigned int v5; // ebx
+  KPROCESSOR_MODE PreviousMode; // r9
+  NTSTATUS result; // eax
+  int v5; // ebx
   PVOID Object; // [rsp+68h] [rbp+20h] BYREF
 
   Object = 0LL;
   if ( (a3 & 0xFFFFFFFC) != 0 )
-    return 3221225713LL;
+    return -1073741583;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode == 1 && a2 > 0x7FFFFFFEFFFFLL )
-    return 3221225497LL;
-  result = ObpReferenceObjectByHandleWithTag(
+    return -1073741799;
+  result = ObReferenceObjectByHandleWithTag(
              a1,
-             8,
-             (__int64)PsProcessType,
+             8u,
+             (POBJECT_TYPE)PsProcessType,
              PreviousMode,
              0x77566D4Du,
              &Object,
-             0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v5 = MiUnmapViewOfSection((ULONG_PTR)Object);
     ObfDereferenceObjectWithTag(Object, 0x77566D4Du);

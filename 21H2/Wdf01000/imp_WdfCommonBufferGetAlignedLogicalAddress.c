@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfCommonBufferGetAlignedLogicalAddress @ 0x1C00319D0
+ * XREFs of imp_WdfCommonBufferGetAlignedLogicalAddress @ 0x1C00314A0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
  */
 
 _LARGE_INTEGER __fastcall imp_WdfCommonBufferGetAlignedLogicalAddress(
@@ -14,7 +14,7 @@ _LARGE_INTEGER __fastcall imp_WdfCommonBufferGetAlignedLogicalAddress(
 
   pComBuf = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)CommonBuffer,
     0x1402u,
     (void **)&pComBuf);

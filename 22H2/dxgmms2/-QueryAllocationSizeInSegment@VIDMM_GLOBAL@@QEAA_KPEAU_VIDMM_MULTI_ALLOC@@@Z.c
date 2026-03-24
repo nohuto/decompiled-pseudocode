@@ -1,7 +1,7 @@
 /*
- * XREFs of ?QueryAllocationSizeInSegment@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C00E6844
+ * XREFs of ?QueryAllocationSizeInSegment@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C00B13D4
  * Callers:
- *     VidMmQueryAllocationSizeInSegment @ 0x1C0018AF0 (VidMmQueryAllocationSizeInSegment.c)
+ *     VidMmQueryAllocationSizeInSegment @ 0x1C0016320 (VidMmQueryAllocationSizeInSegment.c)
  * Callees:
  *     <none>
  */

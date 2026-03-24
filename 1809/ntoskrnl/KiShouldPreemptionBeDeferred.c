@@ -1,10 +1,10 @@
 /*
- * XREFs of KiShouldPreemptionBeDeferred @ 0x1400D37B0
+ * XREFs of KiShouldPreemptionBeDeferred @ 0x1400D37D0
  * Callers:
- *     KiEvaluateGroupSchedulingPreemption @ 0x1400C6160 (KiEvaluateGroupSchedulingPreemption.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D0F24 (KiGroupSchedulingQuantumEnd.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     KiDeferGroupSchedulingPreemption @ 0x1400D2C80 (KiDeferGroupSchedulingPreemption.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1400C6180 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400D0F44 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1400D2CA0 (KiDeferGroupSchedulingPreemption.c)
  * Callees:
  *     <none>
  */

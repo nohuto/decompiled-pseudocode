@@ -1,10 +1,12 @@
 /*
- * XREFs of MiAllocateHyperSpace @ 0x1402E80DC
+ * XREFs of MiAllocateHyperSpace @ 0x14023D10C
  * Callers:
- *     MiGetPteMappingSet @ 0x1402E8000 (MiGetPteMappingSet.c)
+ *     MiCopyPage @ 0x140240220 (MiCopyPage.c)
+ *     MiFillPageWithImageExtentContents @ 0x140540B54 (MiFillPageWithImageExtentContents.c)
+ *     MiGetPteMappingPair @ 0x1405635FC (MiGetPteMappingPair.c)
  * Callees:
- *     MiGetUltraMapping @ 0x1402C6260 (MiGetUltraMapping.c)
- *     MiFlushHyperSpace @ 0x1403D3284 (MiFlushHyperSpace.c)
+ *     MiGetUltraMapping @ 0x140234700 (MiGetUltraMapping.c)
+ *     MiFlushHyperSpace @ 0x1402D2C80 (MiFlushHyperSpace.c)
  */
 
 unsigned __int64 __fastcall MiAllocateHyperSpace(unsigned __int64 a1)

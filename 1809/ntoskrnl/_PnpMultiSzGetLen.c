@@ -3,8 +3,8 @@
  * Callers:
  *     _CmGetDeviceMappedPropertyFromRegProp @ 0x14059BFC8 (_CmGetDeviceMappedPropertyFromRegProp.c)
  *     _CmGetDeviceMappedPropertyFromComposite @ 0x14059C504 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceSiblings @ 0x1408FDEF0 (_CmGetDeviceSiblings.c)
- *     _PnpMultiSzDeleteString @ 0x140900430 (_PnpMultiSzDeleteString.c)
+ *     _CmGetDeviceSiblings @ 0x1408FDED0 (_CmGetDeviceSiblings.c)
+ *     _PnpMultiSzDeleteString @ 0x140900410 (_PnpMultiSzDeleteString.c)
  * Callees:
  *     <none>
  */

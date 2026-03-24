@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlWriteRegistryValue @ 0x1406C2280
+ * XREFs of RtlWriteRegistryValue @ 0x1406C2260
  * Callers:
- *     RtlSetPortableOperatingSystem @ 0x1402EFAC0 (RtlSetPortableOperatingSystem.c)
+ *     RtlSetPortableOperatingSystem @ 0x1402EFBC0 (RtlSetPortableOperatingSystem.c)
  *     ExpWriteSiloTimeZoneMarker @ 0x140583AE4 (ExpWriteSiloTimeZoneMarker.c)
- *     EtwpEnumerateKeyProviders @ 0x14072389C (EtwpEnumerateKeyProviders.c)
- *     EtwpEnableAutoLoggerProvider @ 0x140723A18 (EtwpEnableAutoLoggerProvider.c)
- *     RtlpUpdateDynamicTimeZones @ 0x140734DE4 (RtlpUpdateDynamicTimeZones.c)
- *     RtlSetActiveTimeBias @ 0x140735014 (RtlSetActiveTimeBias.c)
- *     EtwpEnumerateAutologgerPath @ 0x140741C48 (EtwpEnumerateAutologgerPath.c)
- *     EtwStartAutoLogger @ 0x140741E88 (EtwStartAutoLogger.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x1407627B0 (WmipSaveGuidSecurityDescriptor.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x14089592C (RtlpSetTimeZoneInformationWorker.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x1408B0C50 (PerfDiagpSaveActiveDCLLogFileName.c)
- *     WheapCommitPolicy @ 0x1408DC1FC (WheapCommitPolicy.c)
+ *     EtwpEnumerateKeyProviders @ 0x14072387C (EtwpEnumerateKeyProviders.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x1407239F8 (EtwpEnableAutoLoggerProvider.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x140734DC4 (RtlpUpdateDynamicTimeZones.c)
+ *     RtlSetActiveTimeBias @ 0x140734FF4 (RtlSetActiveTimeBias.c)
+ *     EtwpEnumerateAutologgerPath @ 0x140741C28 (EtwpEnumerateAutologgerPath.c)
+ *     EtwStartAutoLogger @ 0x140741E68 (EtwStartAutoLogger.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x140762790 (WmipSaveGuidSecurityDescriptor.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x14089590C (RtlpSetTimeZoneInformationWorker.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x1408B0C30 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     WheapCommitPolicy @ 0x1408DC1DC (WheapCommitPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
  *     RtlpGetRegistryHandle @ 0x1405C7774 (RtlpGetRegistryHandle.c)
  */
 

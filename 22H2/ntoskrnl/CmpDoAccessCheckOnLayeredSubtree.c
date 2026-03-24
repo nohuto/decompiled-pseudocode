@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpDoAccessCheckOnLayeredSubtree @ 0x140A1B788
+ * XREFs of CmpDoAccessCheckOnLayeredSubtree @ 0x14072A620
  * Callers:
- *     CmSaveKey @ 0x140A0BA40 (CmSaveKey.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
+ *     CmSaveKey @ 0x140729A8C (CmSaveKey.c)
+ *     CmpDoAccessCheckOnKcbSubtree @ 0x140871AEC (CmpDoAccessCheckOnKcbSubtree.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpCheckKeySecurityDescriptorAccess @ 0x14069A1C8 (CmpCheckKeySecurityDescriptorAccess.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406D5730 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     CmpInitializeKeyNodeStack @ 0x1407D21DC (CmpInitializeKeyNodeStack.c)
- *     CmpCheckKeyNodeStackAccess @ 0x140A1B370 (CmpCheckKeyNodeStackAccess.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x140A20448 (CmpSubtreeEnumeratorAdvance.c)
- *     CmpSubtreeEnumeratorCleanup @ 0x140A206D0 (CmpSubtreeEnumeratorCleanup.c)
- *     CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x140A20750 (CmpSubtreeEnumeratorGetCurrentKeyStacks.c)
- *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140A208E8 (CmpSubtreeEnumeratorStartForKcbStack.c)
- *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140A20924 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405EF460 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpInitializeKeyNodeStack @ 0x14067E190 (CmpInitializeKeyNodeStack.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x140688794 (CmpCheckKeySecurityDescriptorAccess.c)
+ *     CmpSubtreeEnumeratorCleanup @ 0x14072A710 (CmpSubtreeEnumeratorCleanup.c)
+ *     CmpCheckKeyNodeStackAccess @ 0x14072A794 (CmpCheckKeyNodeStackAccess.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x14072A84C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x14072AE74 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x140876798 (CmpSubtreeEnumeratorGetCurrentKeyStacks.c)
+ *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140876828 (CmpSubtreeEnumeratorStartForKcbStack.c)
  */
 
 __int64 __fastcall CmpDoAccessCheckOnLayeredSubtree(
@@ -25,67 +25,66 @@ __int64 __fastcall CmpDoAccessCheckOnLayeredSubtree(
         ACCESS_MASK a5,
         char a6)
 {
-  char v10; // si
-  __int64 SecurityCacheEntryForKcbStack; // rax
-  int v12; // ebx
+  __int64 v10; // rdx
+  __int64 v11; // r9
+  char v12; // si
   int v13; // eax
+  unsigned int v14; // ebx
+  int v15; // eax
   int i; // eax
-  __int64 v15; // rax
-  int v16; // eax
-  __int64 v18; // [rsp+20h] [rbp-79h] BYREF
-  __int64 v19; // [rsp+28h] [rbp-71h] BYREF
-  _WORD v20[56]; // [rsp+30h] [rbp-69h] BYREF
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // r9
+  __int64 SecurityCacheEntryForKcbStack; // rax
+  int v22; // eax
+  __int64 v23; // [rsp+20h] [rbp-79h] BYREF
+  __int64 v24; // [rsp+28h] [rbp-71h] BYREF
+  _WORD v25[56]; // [rsp+30h] [rbp-69h] BYREF
 
-  v18 = 0LL;
-  v19 = 0LL;
-  memset(&v20[1], 0, 0x66uLL);
-  v20[0] = -2;
-  CmpInitializeKeyNodeStack(&v20[8]);
-  v10 = (a6 & 2) != 0;
-  if ( (a6 & 1) != 0 )
+  v23 = 0LL;
+  v24 = 0LL;
+  memset(&v25[1], 0, 0x66uLL);
+  v25[0] = -2;
+  CmpInitializeKeyNodeStack((char *)&v25[8]);
+  v12 = (a6 & 2) != 0;
+  if ( (a6 & 1) == 0
+    || (a1
+      ? (v18 = CmpGetSecurityCacheEntryForKcbStack(a1, a2, 0LL),
+         v13 = CmpCheckKeySecurityDescriptorAccess((PSECURITY_DESCRIPTOR)(v18 + 32), a4, a5, v12))
+      : (LOBYTE(v11) = (a6 & 2) != 0, LOBYTE(v10) = a4, v13 = CmpCheckKeyNodeStackAccess(a3, v10, a5, v11)),
+        v14 = v13,
+        v13 >= 0) )
   {
-    if ( a1 )
+    v15 = a1 ? CmpSubtreeEnumeratorStartForKcbStack(v25, a1) : CmpSubtreeEnumeratorStartForKeyNodeStack(v25, a3);
+    v14 = v15;
+    if ( v15 >= 0 )
     {
-      SecurityCacheEntryForKcbStack = CmpGetSecurityCacheEntryForKcbStack(a1, a2, 0LL);
-      v12 = CmpCheckKeySecurityDescriptorAccess((PSECURITY_DESCRIPTOR)(SecurityCacheEntryForKcbStack + 32), a4, a5, v10);
-      if ( v12 < 0 )
-        goto LABEL_18;
-      goto LABEL_7;
-    }
-    v12 = CmpCheckKeyNodeStackAccess(a3, a4, a5, (a6 & 2) != 0);
-    if ( v12 < 0 )
-      goto LABEL_18;
-  }
-  if ( a1 )
-  {
-LABEL_7:
-    v13 = CmpSubtreeEnumeratorStartForKcbStack(v20, a1);
-    goto LABEL_9;
-  }
-  v13 = CmpSubtreeEnumeratorStartForKeyNodeStack(v20, a3);
-LABEL_9:
-  v12 = v13;
-  if ( v13 >= 0 )
-  {
-    for ( i = CmpSubtreeEnumeratorAdvance(v20); i != -2147483622; i = CmpSubtreeEnumeratorAdvance(v20) )
-    {
-      CmpSubtreeEnumeratorGetCurrentKeyStacks(v20, &v18, &v19);
-      if ( v18 )
+      for ( i = CmpSubtreeEnumeratorAdvance(v25); i != -2147483622; i = CmpSubtreeEnumeratorAdvance(v25) )
       {
-        v15 = CmpGetSecurityCacheEntryForKcbStack(v18, a2, 0LL);
-        v16 = CmpCheckKeySecurityDescriptorAccess((PSECURITY_DESCRIPTOR)(v15 + 32), a4, a5, v10);
+        CmpSubtreeEnumeratorGetCurrentKeyStacks(v25, &v23, &v24);
+        if ( v23 )
+        {
+          SecurityCacheEntryForKcbStack = CmpGetSecurityCacheEntryForKcbStack(v23, a2, 0LL);
+          v22 = CmpCheckKeySecurityDescriptorAccess(
+                  (PSECURITY_DESCRIPTOR)(SecurityCacheEntryForKcbStack + 32),
+                  a4,
+                  a5,
+                  v12);
+        }
+        else
+        {
+          LOBYTE(v20) = (a6 & 2) != 0;
+          LOBYTE(v19) = a4;
+          v22 = CmpCheckKeyNodeStackAccess(v24, v19, a5, v20);
+        }
+        v14 = v22;
+        if ( v22 < 0 )
+          goto LABEL_11;
       }
-      else
-      {
-        v16 = CmpCheckKeyNodeStackAccess(v19, a4, a5, v10);
-      }
-      v12 = v16;
-      if ( v16 < 0 )
-        goto LABEL_18;
+      v14 = 0;
     }
-    v12 = 0;
   }
-LABEL_18:
-  CmpSubtreeEnumeratorCleanup(v20);
-  return (unsigned int)v12;
+LABEL_11:
+  CmpSubtreeEnumeratorCleanup(v25);
+  return v14;
 }

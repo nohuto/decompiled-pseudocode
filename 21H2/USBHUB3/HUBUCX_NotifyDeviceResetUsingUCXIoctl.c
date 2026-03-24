@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBUCX_NotifyDeviceResetUsingUCXIoctl @ 0x1C00240B0
+ * XREFs of HUBUCX_NotifyDeviceResetUsingUCXIoctl @ 0x1C0023C70
  * Callers:
- *     HUBDSM_NotifyingDeviceResetToUCXAfterReset2 @ 0x1C001E810 (HUBDSM_NotifyingDeviceResetToUCXAfterReset2.c)
+ *     HUBDSM_NotifyingDeviceResetToUCXAfterReset2 @ 0x1C001E2D0 (HUBDSM_NotifyingDeviceResetToUCXAfterReset2.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBUCX_SubmitUcxIoctl @ 0x1C0023D84 (HUBUCX_SubmitUcxIoctl.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C0023950 (HUBUCX_SubmitUcxIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_NotifyDeviceResetUsingUCXIoctl(__int64 a1)
@@ -78,7 +78,7 @@ LABEL_9:
       2u,
       5u,
       0x16u,
-      (__int64)&WPP_a5663512bb0f384af60f2cebe8e2cf44_Traceguids);
+      (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids);
   result = 3221225485LL;
 LABEL_15:
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -87,7 +87,7 @@ LABEL_15:
                2u,
                5u,
                0x17u,
-               (__int64)&WPP_a5663512bb0f384af60f2cebe8e2cf44_Traceguids,
+               (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
                result);
   if ( v1 )
   {

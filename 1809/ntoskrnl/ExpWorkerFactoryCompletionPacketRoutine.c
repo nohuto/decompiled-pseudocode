@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWorkerFactoryCompletionPacketRoutine @ 0x14010A680
+ * XREFs of ExpWorkerFactoryCompletionPacketRoutine @ 0x14010A6A0
  * Callers:
  *     <none>
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
  *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     IoSetIoCompletionEx2 @ 0x1400FD5C8 (IoSetIoCompletionEx2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290900 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1402909B8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     IoSetIoCompletionEx2 @ 0x1400FD5E8 (IoSetIoCompletionEx2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoFreeMiniCompletionPacket @ 0x14068E870 (IoFreeMiniCompletionPacket.c)
+ *     IoFreeMiniCompletionPacket @ 0x14068E850 (IoFreeMiniCompletionPacket.c)
  */
 
 void __fastcall ExpWorkerFactoryCompletionPacketRoutine(__int64 a1, __int64 a2, __int64 a3)

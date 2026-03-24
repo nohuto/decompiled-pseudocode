@@ -1,39 +1,38 @@
 /*
- * XREFs of _PnpGetObjectPropertyKeysWorker @ 0x140697384
+ * XREFs of _PnpGetObjectPropertyKeysWorker @ 0x140976AA0
  * Callers:
- *     _PnpGetObjectPropertyKeys @ 0x14069726C (_PnpGetObjectPropertyKeys.c)
+ *     _PnpGetObjectPropertyKeys @ 0x140976928 (_PnpGetObjectPropertyKeys.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140698AAC (_PnpGetGenericStorePropertyKeys.c)
- *     _PnpGetMappedPropertyKeysDispatch @ 0x140699D9C (_PnpGetMappedPropertyKeysDispatch.c)
- *     _PnpOpenObjectRegKey @ 0x14077C924 (_PnpOpenObjectRegKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x140767F80 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpGetMappedPropertyKeysDispatch @ 0x140976790 (_PnpGetMappedPropertyKeysDispatch.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyKeysWorker(
         __int64 a1,
-        int a2,
-        int a3,
-        void *a4,
-        __int64 a5,
+        __int64 a2,
+        unsigned int a3,
+        __int64 a4,
+        const wchar_t *a5,
         char a6,
         __int64 a7,
         unsigned int a8,
         _DWORD *a9,
         __int16 a10)
 {
-  signed int MappedPropertyKeysDispatch; // eax
-  __int64 v15; // r9
-  signed int v16; // ebx
-  HANDLE v17; // rdx
-  signed int GenericStorePropertyKeys; // eax
-  unsigned int v19; // edx
-  int v21; // [rsp+50h] [rbp-10h] BYREF
-  int v22; // [rsp+54h] [rbp-Ch]
+  signed int MappedPropertyKeysDispatch; // ebx
+  __int64 v15; // r8
+  unsigned int v16; // eax
+  __int64 v17; // rdx
+  unsigned int v18; // edx
+  unsigned int v20; // [rsp+50h] [rbp-10h] BYREF
+  unsigned int v21; // [rsp+54h] [rbp-Ch] BYREF
   HANDLE Handle; // [rsp+58h] [rbp-8h] BYREF
 
   Handle = 0LL;
+  v20 = 0;
   v21 = 0;
-  v22 = 0;
   if ( a10 )
   {
     return (unsigned int)-1073741811;
@@ -41,37 +40,46 @@ __int64 __fastcall PnpGetObjectPropertyKeysWorker(
   else
   {
     *a9 = 0;
-    if ( a4 || (v16 = PnpOpenObjectRegKey(a1, a2, a3, 33554433, 0, (__int64)&Handle), v16 >= 0) )
+    if ( a4
+      || (MappedPropertyKeysDispatch = PnpOpenObjectRegKey(a1, a2, a3, 33554433, 0, (__int64)&Handle),
+          MappedPropertyKeysDispatch >= 0) )
     {
       MappedPropertyKeysDispatch = PnpGetMappedPropertyKeysDispatch(
                                      a1,
                                      a2,
                                      a3,
-                                     (_DWORD)a4,
-                                     a5,
+                                     a4,
+                                     (__int64)a5,
                                      a6,
                                      a7,
                                      a8,
-                                     (__int64)&v21);
-      v16 = MappedPropertyKeysDispatch;
-      if ( !MappedPropertyKeysDispatch || (unsigned int)(MappedPropertyKeysDispatch + 1073741790) <= 1 )
+                                     (__int64)&v20);
+      if ( (unsigned int)(MappedPropertyKeysDispatch + 1073741790) <= 1 || !MappedPropertyKeysDispatch )
       {
-        v17 = Handle;
-        LOBYTE(v15) = a6;
+        if ( v20 >= a8 )
+        {
+          v15 = 0LL;
+          v16 = 0;
+        }
+        else
+        {
+          v15 = a7 + 20LL * v20;
+          v16 = a8 - v20;
+        }
+        v17 = (__int64)Handle;
         if ( a4 )
           v17 = a4;
-        GenericStorePropertyKeys = PnpGetGenericStorePropertyKeys(a1, v17, a5, v15);
-        v16 = GenericStorePropertyKeys;
-        if ( !GenericStorePropertyKeys || (unsigned int)(GenericStorePropertyKeys + 1073741790) <= 1 )
+        MappedPropertyKeysDispatch = PnpGetGenericStorePropertyKeys(a1, v17, a5, a6, v15, v16, &v21);
+        if ( (unsigned int)(MappedPropertyKeysDispatch + 1073741790) <= 1 || !MappedPropertyKeysDispatch )
         {
-          v19 = v21 + v22;
-          *a9 = v21 + v22;
-          v16 = a8 < v19 ? 0xC0000023 : 0;
+          v18 = v20 + v21;
+          *a9 = v20 + v21;
+          MappedPropertyKeysDispatch = a8 < v18 ? 0xC0000023 : 0;
         }
       }
     }
     if ( Handle )
       ZwClose(Handle);
   }
-  return (unsigned int)v16;
+  return (unsigned int)MappedPropertyKeysDispatch;
 }

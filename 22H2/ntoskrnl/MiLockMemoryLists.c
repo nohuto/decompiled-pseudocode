@@ -1,163 +1,134 @@
 /*
- * XREFs of MiLockMemoryLists @ 0x1406509F0
+ * XREFs of MiLockMemoryLists @ 0x1403888D0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
  */
 
-void __fastcall MiLockMemoryLists(__int64 a1, __int64 a2)
+__int64 __fastcall MiLockMemoryLists(__int64 a1, __int64 a2)
 {
-  volatile LONG *v3; // rcx
-  __int64 v5; // rsi
-  __int64 *v6; // rbx
-  __int64 v7; // r14
-  unsigned int v8; // r15d
-  __int64 i; // r12
-  volatile LONG *v10; // rcx
-  volatile LONG *v11; // rbx
-  volatile LONG *v12; // rcx
-  __int64 v13; // rsi
-  volatile LONG *v14; // rbx
-  __int64 v15; // r14
-  volatile LONG *v16; // rbx
-  __int16 v17; // cx
-  unsigned int j; // ebx
-  __int64 v19; // r14
-  __int64 v20; // rsi
-  volatile LONG *v21; // rcx
-  unsigned int v22; // ebx
-  volatile LONG *v23; // rsi
-  volatile LONG *v24; // rcx
-  unsigned int v25; // ebx
-  __int64 v26; // rdi
-  volatile LONG *v27; // rdi
+  _QWORD *v2; // r14
+  unsigned int v3; // edi
+  int v5; // edx
+  int v6; // ecx
+  __int64 result; // rax
+  __int64 v8; // rsi
+  __int64 *v9; // rbx
+  __int64 v10; // r12
+  __int64 v11; // r15
+  unsigned int v12; // r13d
+  __int64 i; // rbp
+  _QWORD *v14; // rcx
+  volatile __int64 *v15; // rdx
+  volatile __int64 *v16; // rbx
+  _QWORD *v17; // rcx
+  _QWORD *v18; // rcx
+  __int64 v19; // rsi
+  volatile __int64 *v20; // rbx
+  __int64 v21; // r15
+  _QWORD *v22; // rcx
+  unsigned int v23; // ebx
+  volatile __int64 *v24; // r15
+  _QWORD *v25; // rcx
+  _QWORD *v26; // rcx
 
-  v3 = (volatile LONG *)(a1 + 6752);
-  if ( a2 )
-    ExAcquireSpinLockExclusiveAtDpcLevel(v3);
-  else
-    ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-  v5 = 8LL;
-  v6 = (__int64 *)(a1 + 2496);
-  v7 = 2LL;
-  do
-  {
-    v8 = 0;
-    for ( i = *v6; v8 < 3 * dword_140C65BFC; ++v8 )
-    {
-      v10 = (volatile LONG *)(i + 88LL * v8 + 32);
-      if ( a2 )
-        ExAcquireSpinLockExclusiveAtDpcLevel(v10);
-      else
-        ExReleaseSpinLockExclusiveFromDpcLevel(v10);
-    }
-    ++v6;
-    --v7;
-  }
-  while ( v7 );
-  v11 = (volatile LONG *)(a1 + 2976);
-  do
-  {
-    if ( a2 )
-      ExAcquireSpinLockExclusiveAtDpcLevel(v11);
-    else
-      ExReleaseSpinLockExclusiveFromDpcLevel(v11);
-    v11 += 22;
-    --v5;
-  }
-  while ( v5 );
-  v12 = (volatile LONG *)(a1 + 3680);
+  v2 = *(_QWORD **)(a1 + 5032);
+  v3 = 0;
   if ( a2 )
   {
-    ExAcquireSpinLockExclusiveAtDpcLevel(v12);
-    ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 3808));
-  }
-  else
-  {
-    ExReleaseSpinLockExclusiveFromDpcLevel(v12);
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 3808));
-  }
-  v13 = 16LL;
-  v14 = (volatile LONG *)(a1 + 3936);
-  v15 = 16LL;
-  do
-  {
-    if ( a2 )
-      ExAcquireSpinLockExclusiveAtDpcLevel(v14);
-    else
-      ExReleaseSpinLockExclusiveFromDpcLevel(v14);
-    v14 += 22;
-    --v15;
-  }
-  while ( v15 );
-  v16 = (volatile LONG *)(a1 + 5344);
-  do
-  {
-    if ( a2 )
-      ExAcquireSpinLockExclusiveAtDpcLevel(v16);
-    else
-      ExReleaseSpinLockExclusiveFromDpcLevel(v16);
-    v16 += 22;
-    --v13;
-  }
-  while ( v13 );
-  v17 = KeNumberNodes;
-  for ( j = 0; j < (unsigned __int16)KeNumberNodes; ++j )
-  {
-    v19 = 7LL;
-    v20 = 25408LL * j;
+    *v2 = 0LL;
+    v2[1] = a1 + 4128;
+    KxAcquireQueuedSpinLock((__int64)v2, (volatile __int64 *)(a1 + 4128));
+    LODWORD(v8) = 1;
+    v9 = (__int64 *)(a1 + 2176);
+    v10 = 2LL;
+    v11 = 8LL;
     do
     {
-      v21 = (volatile LONG *)(v20 + *(_QWORD *)(a1 + 16) + 23408LL);
-      if ( a2 )
-        ExAcquireSpinLockExclusiveAtDpcLevel(v21);
-      else
-        ExReleaseSpinLockExclusiveFromDpcLevel(v21);
-      v20 += 264LL;
-      --v19;
-    }
-    while ( v19 );
-    v17 = KeNumberNodes;
-  }
-  v22 = 0;
-  if ( v17 )
-  {
-    v23 = (volatile LONG *)(*(_QWORD *)(a1 + 16) + 23104LL);
-    do
-    {
-      if ( a2 )
-        ExAcquireSpinLockExclusiveAtDpcLevel(v23);
-      else
-        ExReleaseSpinLockExclusiveFromDpcLevel(v23);
-      v23 += 6352;
-      ++v22;
-    }
-    while ( v22 < (unsigned __int16)KeNumberNodes );
-  }
-  v24 = (volatile LONG *)(a1 + 17760);
-  if ( a2 )
-    ExAcquireSpinLockExclusiveAtDpcLevel(v24);
-  else
-    ExReleaseSpinLockExclusiveFromDpcLevel(v24);
-  v25 = 0;
-  v26 = *(_QWORD *)(a1 + 16);
-  if ( KeNumberNodes )
-  {
-    v27 = (volatile LONG *)(v26 + 23160);
-    do
-    {
-      if ( *((_QWORD *)v27 - 1) )
+      v12 = 0;
+      for ( i = *v9; v12 < dword_140C4DEFC; ++v12 )
       {
-        if ( a2 )
-          ExAcquireSpinLockExclusiveAtDpcLevel(v27);
-        else
-          ExReleaseSpinLockExclusiveFromDpcLevel(v27);
+        v14 = &v2[3 * (unsigned int)v8];
+        *v14 = 0LL;
+        v15 = (volatile __int64 *)(i + 8 * (v12 + 4 * (v12 + 1LL)));
+        v14[1] = v15;
+        KxAcquireQueuedSpinLock((__int64)v14, v15);
+        LODWORD(v8) = v8 + 1;
       }
-      v27 += 6352;
-      ++v25;
+      ++v9;
+      --v10;
     }
-    while ( v25 < (unsigned __int16)KeNumberNodes );
+    while ( v10 );
+    v16 = (volatile __int64 *)(a1 + 2464);
+    do
+    {
+      v17 = &v2[3 * (unsigned int)v8];
+      v17[1] = v16;
+      *v17 = 0LL;
+      KxAcquireQueuedSpinLock((__int64)v17, v16);
+      v16 += 5;
+      v8 = (unsigned int)(v8 + 1);
+      --v11;
+    }
+    while ( v11 );
+    v18 = &v2[3 * v8];
+    v18[1] = a1 + 7520;
+    *v18 = 0LL;
+    KxAcquireQueuedSpinLock((__int64)v18, (volatile __int64 *)(a1 + 7520));
+    v19 = (unsigned int)(v8 + 1);
+    v20 = (volatile __int64 *)(a1 + 3488);
+    v21 = 16LL;
+    do
+    {
+      v22 = &v2[3 * v19];
+      v22[1] = v20;
+      *v22 = 0LL;
+      KxAcquireQueuedSpinLock((__int64)v22, v20);
+      v20 += 5;
+      v19 = (unsigned int)(v19 + 1);
+      --v21;
+    }
+    while ( v21 );
+    v23 = 0;
+    if ( KeNumberNodes )
+    {
+      v24 = (volatile __int64 *)(*(_QWORD *)(a1 + 16) + 4328LL);
+      do
+      {
+        v25 = &v2[3 * v19];
+        v25[1] = v24;
+        *v25 = 0LL;
+        KxAcquireQueuedSpinLock((__int64)v25, v24);
+        v19 = (unsigned int)(v19 + 1);
+        v24 += 568;
+        ++v23;
+      }
+      while ( v23 < (unsigned __int16)KeNumberNodes );
+    }
+    v26 = &v2[3 * v19];
+    v26[1] = a1 + 7584;
+    *v26 = 0LL;
+    return KxAcquireQueuedSpinLock((__int64)v26, (volatile __int64 *)(a1 + 7584));
   }
+  else
+  {
+    v5 = dword_140C4DEFC;
+    v6 = (unsigned __int16)KeNumberNodes;
+    result = (unsigned int)(unsigned __int16)KeNumberNodes + 2 * dword_140C4DEFC + 27;
+    if ( (_DWORD)result )
+    {
+      do
+      {
+        KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)&v2[3 * v6 + 3 * (2 * v5 + 26 - v3)]);
+        v5 = dword_140C4DEFC;
+        ++v3;
+        v6 = (unsigned __int16)KeNumberNodes;
+        result = (unsigned int)(unsigned __int16)KeNumberNodes + 2 * dword_140C4DEFC + 27;
+      }
+      while ( v3 < (unsigned int)result );
+    }
+  }
+  return result;
 }

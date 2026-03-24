@@ -1,7 +1,7 @@
 /*
- * XREFs of GetDriverInfo @ 0x1C00714DC
+ * XREFs of GetDriverInfo @ 0x1C005FB30
  * Callers:
- *     LogDriverInfoStream @ 0x1C0071780 (LogDriverInfoStream.c)
+ *     LogDriverInfoStream @ 0x1C00600B0 (LogDriverInfoStream.c)
  * Callees:
  *     <none>
  */
@@ -10,22 +10,22 @@ void __fastcall GetDriverInfo(_FX_DRIVER_GLOBALS *Globals, FxDevice *Fdo, FxTele
 {
   unsigned __int8 v5; // dl
   unsigned int v6; // r10d
-  unsigned int v7; // r8d
+  unsigned int v7; // r9d
   FxPkgPnp *m_PkgPnp; // rdi
-  _DEVICE_OBJECT *m_DeviceObject; // rcx
+  _DEVICE_OBJECT *m_DeviceObject; // rax
   unsigned __int16 m_DeviceTelemetryInfoFlags; // si
-  int v11; // r8d
+  int v11; // eax
   FxPowerPolicyOwnerSettings *m_Owner; // r9
   unsigned int v13; // r8d
   unsigned __int8 Enabled; // al
   int v15; // eax
   unsigned __int8 WakeFromS0Capable; // cl
-  int v17; // ecx
+  int v17; // r8d
   int v18; // eax
-  unsigned int v19; // ecx
-  FxPowerPolicyOwnerSettings *v20; // rax
-  int v21; // r9d
-  unsigned int v22; // r9d
+  unsigned int v19; // r8d
+  FxPowerPolicyOwnerSettings *v20; // rcx
+  int v21; // eax
+  unsigned int v22; // r8d
 
   v5 = 0;
   v6 = DriverInfo->Dword & 0xFFFFFFF3 | (4 * (Globals->FxVerifierOn & 1)) | ((unsigned __int16)Globals->FxEnhancedVerifierOptions != 0
@@ -42,8 +42,7 @@ void __fastcall GetDriverInfo(_FX_DRIVER_GLOBALS *Globals, FxDevice *Fdo, FxTele
     else
       v11 = 0;
     m_Owner = m_PkgPnp->m_PowerPolicyMachine.m_Owner;
-    v13 = (m_Owner != 0LL ? 0x80 : 0) | (v6 ^ ((unsigned __int8)v6 ^ (unsigned __int8)(16
-                                                                                     * LOBYTE(m_PkgPnp[1].m_DeviceBase))) & 0x10) & 0xFFFFFF1F | (32 * v11) & 0xFFFFFF3F;
+    v13 = (m_Owner != 0LL ? 0x80 : 0) | (32 * v11) & 0xFFFFFF3F | (v6 ^ ((unsigned __int8)v6 ^ (unsigned __int8)(16 * LOBYTE(m_PkgPnp[1].m_DeviceBase))) & 0x10) & 0xFFFFFF1F;
     if ( m_Owner )
       Enabled = m_Owner->m_IdleSettings.Enabled;
     else
@@ -60,14 +59,14 @@ void __fastcall GetDriverInfo(_FX_DRIVER_GLOBALS *Globals, FxDevice *Fdo, FxTele
     if ( m_Owner )
     {
       v20 = m_PkgPnp->m_PowerPolicyMachine.m_Owner;
-      v21 = (m_Owner->m_IdleSettings.m_TimeoutMgmt.m_IdleTimeoutStatus & 2) != 0;
+      v21 = (v20->m_IdleSettings.m_TimeoutMgmt.m_IdleTimeoutStatus & 2) != 0;
     }
     else
     {
       v20 = 0LL;
       v21 = 0;
     }
-    v22 = v19 & 0xFFFFF7FF | (v21 << 11);
+    v22 = (v21 << 11) | v19 & 0xFFFFF7FF;
     DriverInfo->Dword = v22;
     if ( v20 )
       v5 = v20->m_WakeSettings.Enabled;

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpValueEnumStackMatchingValueInUpperLayer @ 0x140A25834
+ * XREFs of CmpValueEnumStackMatchingValueInUpperLayer @ 0x14087BB24
  * Callers:
- *     CmpValueEnumStackAdvance @ 0x140A25604 (CmpValueEnumStackAdvance.c)
+ *     CmpValueEnumStackAdvance @ 0x14072AB14 (CmpValueEnumStackAdvance.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     CmpFindNameInListCellWithStatus @ 0x1406DF8E0 (CmpFindNameInListCellWithStatus.c)
- *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x140A253D0 (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     CmpFindNameInListCellWithStatus @ 0x1406DEE20 (CmpFindNameInListCellWithStatus.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x14072AE50 (CmpValueEnumStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpValueEnumStackMatchingValueInUpperLayer(__int64 a1, __int16 a2, unsigned __int16 *a3, char *a4)
@@ -16,7 +16,7 @@ __int64 __fastcall CmpValueEnumStackMatchingValueInUpperLayer(__int64 a1, __int1
   __int64 EntryAtLayerHeight; // rax
   __int64 result; // rax
   UNICODE_STRING v13; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v14; // [rsp+78h] [rbp+10h] BYREF
+  int v14; // [rsp+78h] [rbp+10h] BYREF
 
   v13 = 0LL;
   RtlInitUnicodeString(&v13, 0LL);

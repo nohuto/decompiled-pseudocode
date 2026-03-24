@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CSystemMemoryBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800DCEC0
+ * XREFs of ?HrFindInterface@CSystemMemoryBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800CC4B0
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800DD140 (-HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180068B70 (-HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CSystemMemoryBitmap::HrFindInterface(CSystemMemoryBitmap *this, const struct _GUID *a2, void **a3)
@@ -31,10 +31,10 @@ __int64 __fastcall CSystemMemoryBitmap::HrFindInterface(CSystemMemoryBitmap *thi
       }
       else
       {
-        if ( (unsigned int)(*((_DWORD *)this + 30) - 87) <= 1 )
+        if ( (unsigned int)(*((_DWORD *)this + 50) - 87) <= 1 )
         {
           result = 0LL;
-          v3 = (char *)this + 152;
+          v3 = (char *)this + 256;
         }
         else
         {
@@ -45,7 +45,7 @@ __int64 __fastcall CSystemMemoryBitmap::HrFindInterface(CSystemMemoryBitmap *thi
     }
     else
     {
-      *a3 = (void *)(((unsigned __int64)this + 136) & -(__int64)(this != 0LL));
+      *a3 = (void *)(((unsigned __int64)this + 240) & -(__int64)(this != 0LL));
       return 0LL;
     }
   }

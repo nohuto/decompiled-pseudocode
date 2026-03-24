@@ -1,12 +1,12 @@
 /*
- * XREFs of PspEnforceLimitsProcessCallback @ 0x1406A3100
+ * XREFs of PspEnforceLimitsProcessCallback @ 0x140617ED0
  * Callers:
  *     <none>
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x1402C3620 (ObReferenceObjectSafeWithTag.c)
- *     memset @ 0x140435400 (memset.c)
- *     PspAddAccountingValues @ 0x1406A3EE4 (PspAddAccountingValues.c)
- *     PsQueryStatisticsProcess @ 0x1407430C0 (PsQueryStatisticsProcess.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C9130 (ObReferenceObjectSafeWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PspAddAccountingValues @ 0x140618D3C (PspAddAccountingValues.c)
+ *     PsQueryStatisticsProcess @ 0x140619120 (PsQueryStatisticsProcess.c)
  */
 
 __int64 __fastcall PspEnforceLimitsProcessCallback(__int64 a1, _QWORD *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall PspEnforceLimitsProcessCallback(__int64 a1, _QWORD *a2)
   if ( (*(_DWORD *)(a1 + 1120) & 2) == 0 )
   {
     PsQueryStatisticsProcess(a1, v5);
-    PspAddAccountingValues(*(_QWORD *)(a1 + 1296) + 1336LL, v5);
+    PspAddAccountingValues(*(_QWORD *)(a1 + 1296) + 1120LL, v5);
     if ( !a2[2] && *a2 && v5[1] > *a2 && ObReferenceObjectSafeWithTag(a1) )
       a2[2] = a1;
   }

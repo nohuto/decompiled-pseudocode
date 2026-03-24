@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CInlineStorageBase@PrimitiveStorage@@QEAA@AEBUGeometryCounts@CDrawListPrimitive@@I@Z @ 0x1800DF370
+ * XREFs of ??0CInlineStorageBase@PrimitiveStorage@@QEAA@AEBUGeometryCounts@CDrawListPrimitive@@I@Z @ 0x1800589B0
  * Callers:
- *     PrimitiveStorage::Alloc_16_ @ 0x18005BD50 (PrimitiveStorage--Alloc_16_.c)
+ *     PrimitiveStorage::Alloc_16_ @ 0x180055F10 (PrimitiveStorage--Alloc_16_.c)
  * Callees:
  *     <none>
  */
@@ -24,11 +24,11 @@ PrimitiveStorage::CInlineStorageBase *__fastcall PrimitiveStorage::CInlineStorag
   v5 = *(unsigned int *)a2;
   v6 = *(_OWORD *)a2;
   *(_QWORD *)&v10 = (char *)this
-                  + (((((_BYTE)this + 112) & 0xF) + 15) & 0x10)
-                  - (unsigned __int64)(((_BYTE)this + 112) & 0xF)
-                  + 112;
+                  + (((((_BYTE)this + 104) & 0xF) + 15) & 0x10)
+                  - (unsigned __int64)(((_BYTE)this + 104) & 0xF)
+                  + 104;
   *((_QWORD *)&v10 + 1) = v10 + (unsigned int)(8 * v4 * *(_DWORD *)a2);
-  v7 = (unsigned int)(8 * *((_DWORD *)a2 + 1) * v4) + *((_QWORD *)&v10 + 1);
+  v7 = (unsigned int)(8 * v4 * *((_DWORD *)a2 + 1)) + *((_QWORD *)&v10 + 1);
   v8 = *((unsigned int *)a2 + 3);
   ++CHWDrawListEngineMetrics::s_cDrawListPrimitives;
   *(_OWORD *)((char *)this + 8) = v6;
@@ -38,7 +38,7 @@ PrimitiveStorage::CInlineStorageBase *__fastcall PrimitiveStorage::CInlineStorag
   *((_OWORD *)this + 2) = v10;
   v12 = *((_QWORD *)&v11 + 1) + 2 * v8;
   *((_OWORD *)this + 3) = v11;
-  *(_QWORD *)this = &CDrawListPrimitive0::`vftable';
+  *(_QWORD *)this = &PrimitiveStorage::CEmptyStorage::`vftable';
   result = this;
   *((_QWORD *)this + 8) = v12;
   return result;

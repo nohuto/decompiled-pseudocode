@@ -1,12 +1,12 @@
 /*
- * XREFs of SendBDDDiagTelemetry @ 0x1C002A430
+ * XREFs of SendBDDDiagTelemetry @ 0x1C0024234
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0012AB4 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$00@@U_tlgWrapperBinary@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U1@U1@U1@U1@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$00@@AEBU_tlgWrapperBinary@@AEBU?$_tlgWrapperByVal@$03@@55533335@Z @ 0x1C002A624 (--$Write@U-$_tlgWrapperByVal@$00@@U_tlgWrapperBinary@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@U1@U1@U1.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _tlgKeywordOn @ 0x1C000B1A8 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$00@@U_tlgWrapperBinary@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U1@U1@U1@U1@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$00@@AEBU_tlgWrapperBinary@@AEBU?$_tlgWrapperByVal@$03@@55533335@Z @ 0x1C0024428 (--$Write@U-$_tlgWrapperByVal@$00@@U_tlgWrapperBinary@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@U1@U1@U1.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall SendBDDDiagTelemetry(__int64 a1)
@@ -55,9 +55,9 @@ void __fastcall SendBDDDiagTelemetry(__int64 a1)
     {
       ActivityId = 0LL;
       EtwActivityIdControl(3u, &ActivityId);
-      if ( (unsigned int)dword_1C012F918 > 5 )
+      if ( (unsigned int)dword_1C00B1A90 > 5 )
       {
-        if ( tlgKeywordOn((__int64)&dword_1C012F918, 0x400000000000LL) )
+        if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000000000LL) )
         {
           v12 = v3[8632];
           v7 = *((_BYTE *)v3 + 34524);
@@ -73,7 +73,7 @@ void __fastcall SendBDDDiagTelemetry(__int64 a1)
           v11[0] = 1;
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<1>,_tlgWrapperBinary,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<4>>(
             v5,
-            (unsigned int)&unk_1C0099CFB,
+            (unsigned int)&unk_1C0080A4F,
             (unsigned int)&ActivityId,
             v6,
             (__int64)v11,

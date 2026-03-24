@@ -1,15 +1,16 @@
 /*
- * XREFs of IopAllocatePassiveInterruptBlock @ 0x140849B60
+ * XREFs of IopAllocatePassiveInterruptBlock @ 0x1408A1590
  * Callers:
- *     IopConnectInterrupt @ 0x14078EC70 (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1407617EC (IopConnectInterrupt.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     IopInsertPassiveInterruptBlock @ 0x1403A2678 (IopInsertPassiveInterruptBlock.c)
- *     IopFindPassiveInterruptBlock @ 0x1403A2DE8 (IopFindPassiveInterruptBlock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopFindPassiveInterruptBlock @ 0x14050D2E8 (IopFindPassiveInterruptBlock.c)
+ *     IopInsertPassiveInterruptBlock @ 0x14050D3D4 (IopInsertPassiveInterruptBlock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocatePassiveInterruptBlock(_DWORD *a1, _OWORD *a2)
@@ -17,10 +18,10 @@ __int64 __fastcall IopAllocatePassiveInterruptBlock(_DWORD *a1, _OWORD *a2)
   bool v2; // zf
   int v5; // eax
   unsigned int v6; // esi
-  __int64 Pool2; // rax
-  __int64 v8; // rbx
-  int v9; // eax
   int inserted; // edi
+  char *PoolWithTag; // rax
+  __int64 v9; // rbx
+  int v10; // eax
   char v12; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *a1 == 1;
@@ -34,37 +35,38 @@ __int64 __fastcall IopAllocatePassiveInterruptBlock(_DWORD *a1, _OWORD *a2)
     }
     else
     {
-      Pool2 = ExAllocatePool2(64LL, 200LL, 1651077195LL);
-      v8 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xC8uLL, 0x6269704Bu);
+      v9 = (__int64)PoolWithTag;
+      if ( PoolWithTag )
       {
-        *(_QWORD *)(Pool2 + 8) = Pool2;
-        *(_QWORD *)Pool2 = Pool2;
-        *(_DWORD *)(Pool2 + 16) = a1[2];
-        *(_DWORD *)(Pool2 + 20) = v6;
-        *(_DWORD *)(Pool2 + 32) = a1[6];
-        *(_OWORD *)(Pool2 + 40) = *a2;
-        v9 = a1[2];
-        if ( v9 )
+        memset(PoolWithTag + 16, 0, 0xB8uLL);
+        *(_QWORD *)(v9 + 8) = v9;
+        *(_QWORD *)v9 = v9;
+        *(_DWORD *)(v9 + 16) = a1[2];
+        *(_DWORD *)(v9 + 20) = v6;
+        *(_DWORD *)(v9 + 32) = a1[6];
+        *(_OWORD *)(v9 + 40) = *a2;
+        v10 = a1[2];
+        if ( v10 )
         {
-          if ( v9 == 3 )
-            *(_BYTE *)(v8 + 28) = 0;
+          if ( v10 == 3 )
+            *(_BYTE *)(v9 + 28) = 0;
         }
         else
         {
-          *(_DWORD *)(v8 + 24) = a1[16];
-          *(_BYTE *)(v8 + 28) = ((__int64 (__fastcall *)(_QWORD))off_140C01B90[0])(0LL);
+          *(_DWORD *)(v9 + 24) = a1[16];
+          *(_BYTE *)(v9 + 28) = ((__int64 (__fastcall *)(_QWORD))off_140C00780[0])(0LL);
         }
-        KeInitializeEvent((PRKEVENT)(v8 + 168), SynchronizationEvent, 1u);
-        KeInitializeDpc((PRKDPC)(v8 + 104), (PKDEFERRED_ROUTINE)IopPassiveInterruptDpc, (PVOID)v8);
-        *(_QWORD *)(v8 + 56) = 0LL;
-        *(_QWORD *)(v8 + 72) = 0LL;
-        *(_QWORD *)(v8 + 88) = IopPassiveInterruptWorker;
-        *(_QWORD *)(v8 + 96) = v8;
-        *(_BYTE *)(v8 + 105) = 2;
-        inserted = IopInsertPassiveInterruptBlock(v8, &v12);
+        KeInitializeEvent((PRKEVENT)(v9 + 168), SynchronizationEvent, 1u);
+        KeInitializeDpc((PRKDPC)(v9 + 104), (PKDEFERRED_ROUTINE)IopPassiveInterruptDpc, (PVOID)v9);
+        *(_QWORD *)(v9 + 56) = 0LL;
+        *(_QWORD *)(v9 + 72) = 0LL;
+        *(_QWORD *)(v9 + 88) = IopPassiveInterruptWorker;
+        *(_QWORD *)(v9 + 96) = v9;
+        *(_BYTE *)(v9 + 105) = 2;
+        inserted = IopInsertPassiveInterruptBlock(v9, &v12);
         if ( inserted < 0 || !v12 )
-          ExFreePoolWithTag((PVOID)v8, 0x6269704Bu);
+          ExFreePoolWithTag((PVOID)v9, 0x6269704Bu);
       }
       else
       {

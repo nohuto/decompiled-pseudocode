@@ -1,57 +1,36 @@
 /*
- * XREFs of KiConfigureInitialNodes @ 0x1403C2FF8
+ * XREFs of KiConfigureInitialNodes @ 0x1403B5A3C
  * Callers:
- *     KiInitializeKernel @ 0x140A580F0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
  * Callees:
- *     KiAssignProcessorNumberToPrcb @ 0x1403C2378 (KiAssignProcessorNumberToPrcb.c)
- *     KiAllocateProcessorNumber @ 0x1403C2638 (KiAllocateProcessorNumber.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KiAddProcessorToGroupDatabase @ 0x1403B5AD8 (KiAddProcessorToGroupDatabase.c)
+ *     KiCommitNodeAssignment @ 0x1403B5EDC (KiCommitNodeAssignment.c)
  */
 
 __int64 __fastcall KiConfigureInitialNodes(__int64 a1)
 {
-  _QWORD *v2; // rdx
-  _WORD *v3; // rcx
   __int64 result; // rax
-  int v5; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v3; // rdx
+  _WORD *v4; // rcx
 
-  dword_140D33684 = -1;
-  byte_140D3368A |= 2u;
-  byte_140CF8C45 |= 5u;
+  byte_140D254F5 |= 2u;
+  qword_140D254E0 |= 1uLL;
+  byte_140D254F4 = KiMaximumGroupSize;
   KeNodeBlock[0] = (__int64)&ExNode0;
-  KiSubNodeConfigBlock = (__int64)&KiInitialNodeStructures;
-  v5 = 0;
-  KiSubNodes = (__int64)&qword_140CF9180;
-  ExNode0 = 0;
-  word_140D33688 = KiMaximumGroupSize;
-  KiSubNodeCount = 1;
-  KiInitialNodeStructures = 0;
-  byte_140CF8C44 = KiMaximumGroupSize;
-  qword_140CF8C50 = 0LL;
-  word_140CF8C46 = 0;
-  memset(&unk_140CF8C80, 0, 0x140uLL);
-  word_140CF8D0A = 0;
-  word_140CF8D0C = 0;
-  word_140CF8D08 = 0;
-  qword_140CF8D40 = (__int64)&unk_140CF8DC0;
-  byte_140CF8D39 = 8;
-  qword_140CF9180 = (__int64)&unk_140CF8C80;
-  qword_140D33698 = (__int64)&unk_140CF8C80;
-  KiAllocateProcessorNumber(0, (__int64)&v5);
-  KiAssignProcessorNumberToPrcb(a1, (unsigned __int8 *)&v5, 0);
-  qword_140CF8D20 |= 1uLL;
-  v2 = &unk_140D31708;
-  qword_140CF8CD0 |= 1uLL;
-  v3 = &unk_140D3DED8;
+  KiCommitNodeAssignment(&ExNode0);
+  *(_QWORD *)(a1 + 192) = &ExNode0;
+  qword_140D25490 |= 1uLL;
   *(_BYTE *)(a1 + 35) = 1;
+  KiAddProcessorToGroupDatabase(a1, 0LL);
   LODWORD(result) = 1;
-  qword_140D083A0 |= 1uLL;
+  v3 = &unk_140D23388;
+  v4 = &unk_140D2FFC0;
   do
   {
-    *v2++ = v3;
-    *v3 = result;
+    *v3++ = v4;
+    v4[73] = result;
     result = (unsigned int)(result + 1);
-    v3 += 140;
+    v4 += 192;
   }
   while ( (unsigned int)result < 0x40 );
   return result;

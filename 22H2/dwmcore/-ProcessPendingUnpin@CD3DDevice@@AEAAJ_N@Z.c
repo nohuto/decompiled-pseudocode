@@ -1,38 +1,38 @@
 /*
- * XREFs of ?ProcessPendingUnpin@CD3DDevice@@AEAAJ_N@Z @ 0x1800EEDA0
+ * XREFs of ?ProcessPendingUnpin@CD3DDevice@@AEAAJ_N@Z @ 0x18002A2D4
  * Callers:
- *     ??1CD3DDevice@@MEAA@XZ @ 0x1800EE8E4 (--1CD3DDevice@@MEAA@XZ.c)
+ *     ??1CD3DDevice@@MEAA@XZ @ 0x18002A350 (--1CD3DDevice@@MEAA@XZ.c)
  * Callees:
- *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180074FA0 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?_Tidy@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@AEAAXXZ @ 0x1800FE1D8 (-_Tidy@-$vector@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V-$allocator@V-$c.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x18012DEC4 (McTemplateU0q_EventWriteTransfer.c)
- *     ?erase@?$vector_facade@VCUnpinResource@CD3DDevice@@V?$buffer_impl@VCUnpinResource@CD3DDevice@@$06$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VCUnpinResource@CD3DDevice@@@2@V?$basic_iterator@$$CBVCUnpinResource@CD3DDevice@@@2@@Z @ 0x1801353BA (-erase@-$vector_facade@VCUnpinResource@CD3DDevice@@V-$buffer_impl@VCUnpinResource@CD3DDevice@@$0.c)
- *     ??$emplace_back@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAA?A_T$$QEAV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x18025AAE8 (--$emplace_back@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@-$vector@V-$com_.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180078718 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x18008F604 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ?_Tidy@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@AEAAXXZ @ 0x1800D91D0 (-_Tidy@-$vector@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V-$allocator@V-$c.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$emplace_back@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAAEAV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@$$QEAV23@@Z @ 0x1801F8688 (--$emplace_back@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@-$vector@V-$com_.c)
+ *     ?erase@?$vector_facade@VCUnpinResource@CD3DDevice@@V?$buffer_impl@VCUnpinResource@CD3DDevice@@$06$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VCUnpinResource@CD3DDevice@@@2@V?$basic_iterator@$$CBVCUnpinResource@CD3DDevice@@@2@@Z @ 0x180240D8C (-erase@-$vector_facade@VCUnpinResource@CD3DDevice@@V-$buffer_impl@VCUnpinResource@CD3DDevice@@$0.c)
  */
 
 __int64 __fastcall CD3DDevice::ProcessPendingUnpin(CD3DDevice *this, char a2)
 {
   unsigned int v2; // edi
-  char *v3; // rsi
+  char *v3; // r14
   __int64 v4; // rbx
-  __int128 v7; // kr00_16
-  int v9; // eax
-  __int64 v10; // rcx
-  __int128 v11; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v12; // [rsp+40h] [rbp-28h]
+  int v8; // eax
+  unsigned int v9; // ecx
+  unsigned int v10; // ebx
+  __int64 v11; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v12; // [rsp+38h] [rbp-30h]
   __int64 v13; // [rsp+70h] [rbp+8h] BYREF
   char v14; // [rsp+80h] [rbp+18h] BYREF
 
   v2 = 0;
-  v3 = (char *)this + 1200;
-  v12 = 0LL;
-  v4 = *((_QWORD *)this + 150);
+  v3 = (char *)this + 1232;
+  v4 = *((_QWORD *)this + 154);
   v11 = 0LL;
-  while ( v4 != *((_QWORD *)this + 151) )
+  v12 = 0LL;
+  while ( v4 != *((_QWORD *)this + 155) )
   {
-    if ( !*(_DWORD *)(v4 + 28) || a2 )
+    if ( *(_QWORD *)(v4 + 8) <= GetCurrentFrameId() || a2 )
     {
       std::vector<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>::emplace_back<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>(
         &v11,
@@ -45,28 +45,19 @@ __int64 __fastcall CD3DDevice::ProcessPendingUnpin(CD3DDevice *this, char a2)
     }
     else
     {
-      v4 += 32LL;
+      v4 += 16LL;
     }
   }
-  v7 = v11;
-  if ( (_QWORD)v11 != *((_QWORD *)&v11 + 1) )
+  if ( v11 != (_QWORD)v12 )
   {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10000000) != 0 )
-      McTemplateU0q_EventWriteTransfer(
-        &Microsoft_Windows_Dwm_Core_Provider_Context,
-        &Pinning_D3DUnpinStart,
-        (__int64)(*((_QWORD *)&v11 + 1) - v11) >> 3);
-    v9 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(**((_QWORD **)this + 68) + 32LL))(
-           *((_QWORD *)this + 68),
-           v7,
-           (unsigned int)((__int64)(*((_QWORD *)&v7 + 1) - v7) >> 3));
-    v2 = v9;
-    if ( v9 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x3E2u, 0LL);
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10000000) != 0 )
-      McTemplateU0q_EventWriteTransfer(&Microsoft_Windows_Dwm_Core_Provider_Context, &Pinning_D3DUnpinStop, v2);
-    if ( v2 )
-      v2 = CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this, v2, 0);
+    v8 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(**((_QWORD **)this + 73) + 32LL))(
+           *((_QWORD *)this + 73),
+           v11,
+           ((__int64)v12 - v11) >> 3);
+    v10 = v8;
+    if ( v8 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xF98u, 0LL);
+    v2 = CD3DDevice::TranslateDXGIorD3DErrorInContext(this, v10, 0LL);
   }
   std::vector<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>::_Tidy(&v11);
   return v2;

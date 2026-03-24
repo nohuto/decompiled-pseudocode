@@ -1,7 +1,7 @@
 /*
- * XREFs of vSort @ 0x1C00E8188
+ * XREFs of vSort @ 0x1C00A4D58
  * Callers:
- *     cUnicodeRangesSupported @ 0x1C00E7E10 (cUnicodeRangesSupported.c)
+ *     cUnicodeRangesSupported @ 0x1C00A49B4 (cUnicodeRangesSupported.c)
  * Callees:
  *     <none>
  */
@@ -42,7 +42,7 @@ char __fastcall vSort(__int64 a1, __int64 a2, int a3)
       ++v7;
       *(_WORD *)(a1 + 2 * i + 2) = v9;
       ++v6;
-      *(_BYTE *)(i + a2 + 1) = v11;
+      *(_BYTE *)(a2 + i + 1) = v11;
       ++v5;
       --v8;
     }

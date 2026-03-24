@@ -1,12 +1,12 @@
 /*
- * XREFs of ScsiLogSenseRequest @ 0x1C0019DDC
+ * XREFs of ScsiLogSenseRequest @ 0x1C0016B1C
  * Callers:
- *     ScsiToNVMe @ 0x1C00015C0 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     LogSenseInformationalExceptions @ 0x1C0014B84 (LogSenseInformationalExceptions.c)
- *     LogSenseSupportedLogPages @ 0x1C0014CF0 (LogSenseSupportedLogPages.c)
- *     LogSenseTemperature @ 0x1C0014D70 (LogSenseTemperature.c)
- *     NVMeSetSenseData @ 0x1C00241F8 (NVMeSetSenseData.c)
+ *     LogSenseInformationalExceptions @ 0x1C0013E64 (LogSenseInformationalExceptions.c)
+ *     LogSenseSupportedLogPages @ 0x1C0013FD0 (LogSenseSupportedLogPages.c)
+ *     LogSenseTemperature @ 0x1C001404C (LogSenseTemperature.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall ScsiLogSenseRequest(__int64 a1, __int64 a2, _BYTE *a3, unsigned __int64 a4)
@@ -27,11 +27,11 @@ __int64 __fastcall ScsiLogSenseRequest(__int64 a1, __int64 a2, _BYTE *a3, unsign
           switch ( (_BYTE)a4 )
           {
             case 0:
-              return LogSenseSupportedLogPages(a1, v4);
+              return LogSenseSupportedLogPages(a1, v4, (__int64)a3, a4);
             case 0xD:
-              return LogSenseTemperature(a1, v4);
+              return LogSenseTemperature(a1, v4, (__int64)a3, a4);
             case 0x2F:
-              return LogSenseInformationalExceptions(a1, v4);
+              return LogSenseInformationalExceptions(a1, v4, (__int64)a3, a4);
           }
         }
       }

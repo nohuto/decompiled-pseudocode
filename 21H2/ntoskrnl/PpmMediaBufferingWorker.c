@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmMediaBufferingWorker @ 0x140224810
+ * XREFs of PpmMediaBufferingWorker @ 0x14036C640
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PpmPdcNotifyMediaBufferingUpdate @ 0x140882446 (PpmPdcNotifyMediaBufferingUpdate.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmPdcNotifyMediaBufferingUpdate @ 0x1408F5E04 (PpmPdcNotifyMediaBufferingUpdate.c)
  */
 
 __int64 PpmMediaBufferingWorker()
@@ -37,11 +37,11 @@ __int64 PpmMediaBufferingWorker()
   {
     v0 = 1;
     v1 = KeAcquireSpinLockRaiseToDpc(&PpmMediaBufferingWork);
-    v2 = byte_140C23AE9;
+    v2 = byte_140C245C9;
     v3 = v1;
-    if ( byte_140C23AE9 == byte_140C2330C )
+    if ( byte_140C245C9 == byte_140C23ECC )
       break;
-    byte_140C2330C = byte_140C23AE9;
+    byte_140C23ECC = byte_140C245C9;
     KxReleaseSpinLock(&PpmMediaBufferingWork);
     if ( KiIrqlFlags )
     {
@@ -74,7 +74,7 @@ __int64 PpmMediaBufferingWorker()
         EtwWriteEx(v4, &PPM_ETW_MEDIA_BUFFERING_NOTIFY, 0LL, 0, 0LL, 0LL, 1u, &UserData);
       }
     }
-    PpmAcquireLock(&PpmPerfPolicyLock);
+    PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
     if ( !PpmLowPowerProfile )
     {
       if ( v2 )
@@ -90,7 +90,7 @@ __int64 PpmMediaBufferingWorker()
       PpmPdcNotifyMediaBufferingUpdate(v5);
     }
   }
-  byte_140C23AE8 = 0;
+  byte_140C245C8 = 0;
   KxReleaseSpinLock(&PpmMediaBufferingWork);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

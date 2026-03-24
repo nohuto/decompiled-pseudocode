@@ -1,9 +1,9 @@
 /*
- * XREFs of _snwprintf_s @ 0x1403DE6C0
+ * XREFs of _snwprintf_s @ 0x1403D6B00
  * Callers:
- *     RtlQueryAtomInAtomTable @ 0x140715170 (RtlQueryAtomInAtomTable.c)
+ *     RtlQueryAtomInAtomTable @ 0x14061BBF0 (RtlQueryAtomInAtomTable.c)
  * Callees:
- *     _vsnwprintf_s @ 0x1403DE6F0 (_vsnwprintf_s.c)
+ *     _vsnwprintf_s @ 0x1403D6B30 (_vsnwprintf_s.c)
  */
 
 int snwprintf_s(wchar_t *DstBuf, size_t SizeInWords, size_t MaxCount, const wchar_t *Format, ...)

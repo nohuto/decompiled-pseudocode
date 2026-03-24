@@ -1,41 +1,60 @@
 /*
- * XREFs of NVMePowerSetFState @ 0x1C0010394
+ * XREFs of NVMePowerSetFState @ 0x1C00105A8
  * Callers:
- *     NVMeHwAdapterControl @ 0x1C0003550 (NVMeHwAdapterControl.c)
+ *     NVMeHwAdapterControl @ 0x1C0006080 (NVMeHwAdapterControl.c)
  * Callees:
- *     NVMeSetFStateIdleTimer @ 0x1C001071C (NVMeSetFStateIdleTimer.c)
- *     NVMeUpdateResumeLatencyTolerance @ 0x1C0010B10 (NVMeUpdateResumeLatencyTolerance.c)
- *     NVMeSetPowerState @ 0x1C00240FC (NVMeSetPowerState.c)
+ *     NVMeGetPowerState @ 0x1C000EBE0 (NVMeGetPowerState.c)
+ *     NVMePowerStateGetMaxPower @ 0x1C0010964 (NVMePowerStateGetMaxPower.c)
+ *     NVMeSetFStateIdleTimer @ 0x1C0010B58 (NVMeSetFStateIdleTimer.c)
+ *     NVMeUpdateResumeLatencyTolerance @ 0x1C0010E74 (NVMeUpdateResumeLatencyTolerance.c)
+ *     NVMeSetPowerState @ 0x1C001BEC4 (NVMeSetPowerState.c)
  */
 
-void __fastcall NVMePowerSetFState(_BYTE *a1, __int64 a2)
+void __fastcall NVMePowerSetFState(_BYTE *a1, _DWORD *a2)
 {
-  char v3; // di
-  unsigned __int8 v4; // di
-  int v5; // eax
+  char v4; // al
+  unsigned __int8 v5; // di
+  unsigned __int8 v6; // dl
+  __int64 v7; // rcx
+  __int64 PowerState; // rax
+  int MaxPower; // eax
+  int v10; // r10d
+  __int64 v11; // rdx
+  int v12; // eax
 
-  if ( *(_DWORD *)(a2 + 4) >= 0x18u && *(_DWORD *)a2 )
+  if ( a2[1] >= 0x18u && *a2 )
   {
-    v3 = *(_BYTE *)(a2 + 20);
-    a1[1890] = v3;
-    if ( *(_DWORD *)(a2 + 20) )
-      v4 = a1[1885] + v3;
+    StorPortDebugPrint(3LL, "StorNVMe - POWER: F-State Callback for F%u\n", a2[5]);
+    v4 = *((_BYTE *)a2 + 20);
+    a1[1674] = v4;
+    if ( a2[5] )
+      v5 = v4 + a1[1669];
     else
-      v4 = a1[1887];
-    if ( v4 <= 0x1Fu )
+      v5 = a1[1671];
+    if ( v5 <= 0x1Fu )
     {
-      LOBYTE(a2) = v4;
-      NVMeSetPowerState(a1, a2);
-      v5 = (unsigned __int8)a1[1890];
-      a1[1884] = v4;
-      if ( (_BYTE)v5 )
+      NVMeGetPowerState((__int64)a1, v5);
+      PowerState = NVMeGetPowerState(v7, v6);
+      MaxPower = NVMePowerStateGetMaxPower(PowerState);
+      StorPortDebugPrint(
+        3LL,
+        "StorNVMe - POWER: Transitioning to NVME PS%u - MaxP: %uuW, Latency: %uus\n",
+        v5,
+        MaxPower,
+        v10);
+      LOBYTE(v11) = v5;
+      NVMeSetPowerState(a1, v11);
+      v12 = (unsigned __int8)a1[1674];
+      a1[1668] = v5;
+      if ( (_BYTE)v12 && v12 < (unsigned __int8)a1[1673] - 1 )
       {
-        if ( v5 < (unsigned __int8)a1[1889] - 1 )
-        {
-          if ( (unsigned __int8)NVMeUpdateResumeLatencyTolerance(a1) )
-            NVMeSetFStateIdleTimer(a1);
-        }
+        if ( (unsigned __int8)NVMeUpdateResumeLatencyTolerance(a1) )
+          NVMeSetFStateIdleTimer(a1);
       }
+    }
+    else
+    {
+      StorPortDebugPrint(3LL, "StorNVMe - POWER: Invalid power state index %u\n", v5);
     }
   }
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of DxgkMiracastEnforceInactiveMonitorPolicy @ 0x1C0015B90
+ * XREFs of DxgkMiracastEnforceInactiveMonitorPolicy @ 0x1C000C840
  * Callers:
- *     DxgkCompleteTopologyTransition @ 0x1C01E4810 (DxgkCompleteTopologyTransition.c)
+ *     DxgkCompleteTopologyTransition @ 0x1C0149760 (DxgkCompleteTopologyTransition.c)
  * Callees:
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0015C20 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0060B60 (DpiMiracastReleaseMiracastDeviceContext.c)
- *     DpiMiracastStopMiracastSessionSync @ 0x1C0060D90 (DpiMiracastStopMiracastSessionSync.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000C8D0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C00540A0 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C00542F0 (DpiMiracastStopMiracastSessionSync.c)
  */
 
 LONG __fastcall DxgkMiracastEnforceInactiveMonitorPolicy(_DWORD *a1)
 {
-  void *v1; // rbp
+  void *v1; // rsi
   __int64 i; // rbx
   void *v4; // rdi
   LONG result; // eax
@@ -18,7 +18,7 @@ LONG __fastcall DxgkMiracastEnforceInactiveMonitorPolicy(_DWORD *a1)
 
   v1 = 0LL;
   AcquireMiniportListMutex();
-  for ( i = qword_1C01408A0; (__int64 *)i != &qword_1C01408A0; i = *(_QWORD *)i )
+  for ( i = qword_1C00B2F18; (__int64 *)i != &qword_1C00B2F18; i = *(_QWORD *)i )
   {
     v1 = (void *)i;
     ExEnterCriticalRegionAndAcquireFastMutexUnsafe(i + 32);
@@ -43,9 +43,9 @@ LONG __fastcall DxgkMiracastEnforceInactiveMonitorPolicy(_DWORD *a1)
     ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(i + 32);
   }
   v4 = 0LL;
-  if ( (__int64 *)i != &qword_1C01408A0 )
+  if ( (__int64 *)i != &qword_1C00B2F18 )
     v4 = v1;
-  _InterlockedExchange64(&qword_1C01404D8, 0LL);
+  _InterlockedExchange64(&qword_1C00B2B50, 0LL);
   result = KeReleaseMutex(Mutex, 0);
   if ( v4 )
   {

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?DebugInspectSurface@@YAJPEAUID3D12CommandQueue@@PEAUID3D12Resource@@W4D3D12_RESOURCE_STATES@@@Z @ 0x1802624BC
+ * XREFs of ?DebugInspectSurface@@YAJPEAUID3D12CommandQueue@@PEAUID3D12Resource@@W4D3D12_RESOURCE_STATES@@@Z @ 0x18020FDB0
  * Callers:
- *     ?DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbleStopwatch@@_KPEAUIDCompositionDirectInkSuperWetRenderer@@PEAUIUnknown@@PEAUComputeScribbleLatencyData@@@Z @ 0x1801EB67C (-DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbl.c)
+ *     ?DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbleStopwatch@@_KPEAUIUnknown@@AEAV?$vector@UComputeScribbleLatencyData@@V?$allocator@UComputeScribbleLatencyData@@@std@@@std@@@Z @ 0x1800EFA30 (-DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbl.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800FFDD8 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z @ 0x1802629B4 (-DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z.c)
- *     FlushAndWait @ 0x180262C4C (FlushAndWait.c)
- *     TransitionResourceBarrier_0 @ 0x18026313C (TransitionResourceBarrier_0.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5FE0 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z @ 0x18021021C (-DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z.c)
+ *     FlushAndWait @ 0x180210668 (FlushAndWait.c)
+ *     TransitionResourceBarrier @ 0x180210AE4 (TransitionResourceBarrier.c)
  */
 
 __int64 __fastcall DebugInspectSurface(
@@ -30,7 +30,7 @@ __int64 __fastcall DebugInspectSurface(
   unsigned int *v14; // rax
   __int64 v15; // rbx
   unsigned int v16; // esi
-  __int64 (__fastcall *v17)(__int64, _QWORD, GUID *, __int64 *); // r14
+  __int64 (__fastcall *v17)(__int64, _QWORD, GUID *, __int64 *); // r15
   int v18; // eax
   __int64 v19; // rdx
   __int64 v21; // [rsp+50h] [rbp-B0h] BYREF
@@ -81,12 +81,12 @@ __int64 __fastcall DebugInspectSurface(
   if ( v7 < 0 )
   {
     v9 = (unsigned int)v7;
-    v10 = 266LL;
+    v10 = 265LL;
 LABEL_23:
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)v10,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\common\\surfacedebug.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\common\\surfacedebug.cpp",
       (const char *)v9);
     goto LABEL_24;
   }
@@ -106,7 +106,7 @@ LABEL_23:
   if ( (unsigned __int64)(v25 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
   {
     v8 = -2147024809;
-    v10 = 279LL;
+    v10 = 278LL;
     v9 = 2147942487LL;
     goto LABEL_23;
   }
@@ -167,7 +167,7 @@ LABEL_23:
         v32 = v47;
         v31[0] = v23;
         v33 = *(_OWORD *)v48;
-        TransitionResourceBarrier_0(v21, a2, 0LL, 2048LL);
+        TransitionResourceBarrier(v21, a2, 0LL, 2048LL);
         (*(void (__fastcall **)(__int64, _QWORD *, _QWORD, _QWORD, _DWORD, __int128 *, _QWORD))(*(_QWORD *)v21 + 128LL))(
           v21,
           v31,
@@ -176,7 +176,7 @@ LABEL_23:
           0,
           &v28,
           0LL);
-        TransitionResourceBarrier_0(v21, a2, 2048LL, 0LL);
+        TransitionResourceBarrier(v21, a2, 2048LL, 0LL);
         v18 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v21 + 72LL))(v21);
         v8 = v18;
         if ( v18 >= 0 )
@@ -190,8 +190,8 @@ LABEL_23:
           v8 = v18;
           if ( v18 >= 0 )
           {
-            v43[0] = 0LL;
             v43[1] = v25;
+            v43[0] = 0LL;
             v18 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD *, void **))(*(_QWORD *)v23 + 64LL))(
                     v23,
                     0LL,
@@ -206,31 +206,31 @@ LABEL_23:
               v8 = 0;
               goto LABEL_20;
             }
-            v19 = 341LL;
+            v19 = 340LL;
           }
           else
           {
-            v19 = 334LL;
+            v19 = 333LL;
           }
         }
         else
         {
-          v19 = 329LL;
+          v19 = 328LL;
         }
       }
       else
       {
-        v19 = 312LL;
+        v19 = 311LL;
       }
     }
     else
     {
-      v19 = 310LL;
+      v19 = 309LL;
     }
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)v19,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\common\\surfacedebug.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\common\\surfacedebug.cpp",
       (const char *)(unsigned int)v18);
 LABEL_20:
     wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v21);
@@ -239,8 +239,8 @@ LABEL_20:
   }
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)0x12D,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\common\\surfacedebug.cpp",
+    (void *)0x12C,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\common\\surfacedebug.cpp",
     (const char *)(unsigned int)v12);
 LABEL_21:
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v23);

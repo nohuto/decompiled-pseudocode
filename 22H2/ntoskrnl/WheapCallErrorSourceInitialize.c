@@ -1,33 +1,33 @@
 /*
- * XREFs of WheapCallErrorSourceInitialize @ 0x1403812F4
+ * XREFs of WheapCallErrorSourceInitialize @ 0x1403BA7F0
  * Callers:
- *     WheapInitializeDeferredErrorSources @ 0x1406103AC (WheapInitializeDeferredErrorSources.c)
- *     WheaAddErrorSource @ 0x1408210A0 (WheaAddErrorSource.c)
- *     WheaInitializeProcessor @ 0x140AAB8C4 (WheaInitializeProcessor.c)
- *     WheaInitialize @ 0x140B4C7E8 (WheaInitialize.c)
+ *     WheapInitializeDeferredErrorSources @ 0x1405BAD78 (WheapInitializeDeferredErrorSources.c)
+ *     WheaAddErrorSource @ 0x1407AF700 (WheaAddErrorSource.c)
+ *     WheaInitializeProcessor @ 0x1409B37E4 (WheaInitializeProcessor.c)
+ *     WheaInitialize @ 0x140A6305C (WheaInitialize.c)
  * Callees:
- *     WheapGetErrorSourceFunction @ 0x14038136C (WheapGetErrorSourceFunction.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     WheapGetErrorSourceFunction @ 0x1403BA930 (WheapGetErrorSourceFunction.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WheapCallErrorSourceInitialize(__int64 a1, unsigned int a2)
 {
-  __int64 (__fastcall *v4)(_QWORD, __int64, _QWORD, _QWORD); // rax
+  __int64 (__fastcall *v4)(_QWORD, __int64, _QWORD); // rax
   __int64 result; // rax
   __int64 (__fastcall *ErrorSourceFunction)(_QWORD, _QWORD); // r8
 
   if ( *(_DWORD *)(a1 + 40) == 16 )
   {
-    ErrorSourceFunction = (__int64 (__fastcall *)(_QWORD, _QWORD))WheapGetErrorSourceFunction(a1, 1LL, 0LL);
+    ErrorSourceFunction = (__int64 (__fastcall *)(_QWORD, _QWORD))WheapGetErrorSourceFunction(a1, 1LL);
     result = 0LL;
     if ( ErrorSourceFunction )
       result = ErrorSourceFunction(*(_QWORD *)(a1 + 56), *(unsigned int *)(a1 + 124));
   }
   else
   {
-    v4 = (__int64 (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD))WheapGetErrorSourceFunction(a1, 1LL, 0LL);
+    v4 = (__int64 (__fastcall *)(_QWORD, __int64, _QWORD))WheapGetErrorSourceFunction(a1, 1LL);
     if ( v4 )
-      result = v4(a2, a1 + 96, *(_QWORD *)(a1 + 56), v4);
+      result = v4(a2, a1 + 96, *(_QWORD *)(a1 + 56));
     else
       result = 3221225474LL;
   }

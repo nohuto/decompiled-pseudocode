@@ -1,16 +1,16 @@
 /*
- * XREFs of ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x180226294
+ * XREFs of ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x1801D7C08
  * Callers:
- *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180225B8C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?InitializeForces@CNaturalAnimation@@AEAAXXZ @ 0x180226998 (-InitializeForces@CNaturalAnimation@@AEAAXXZ.c)
+ *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801D754C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?InitializeForces@CNaturalAnimation@@AEAAXXZ @ 0x1801D82CC (-InitializeForces@CNaturalAnimation@@AEAAXXZ.c)
  * Callees:
- *     ?D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z @ 0x1800207F8 (-D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _o_atan2f_0 @ 0x180101898 (_o_atan2f_0.c)
- *     ?D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z @ 0x18026CB5C (-D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z.c)
- *     ?D2DMatrixRotationQuaternion@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DQuaternion@@@Z @ 0x18026D678 (-D2DMatrixRotationQuaternion@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DQuaternion@@@Z.c)
- *     ?D3DXQuaternionRotationAxis@@YAPEAUD2DQuaternion@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18026E070 (-D3DXQuaternionRotationAxis@@YAPEAUD2DQuaternion@@PEAU1@PEBUD2DVector3@@M@Z.c)
- *     ?D3DXVec3Cross@@YAPEAUD2DVector3@@PEAU1@PEBU1@1@Z @ 0x18026E508 (-D3DXVec3Cross@@YAPEAUD2DVector3@@PEAU1@PEBU1@1@Z.c)
+ *     ?D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z @ 0x1800C79F8 (-D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     atan2f_0 @ 0x1800F473F (atan2f_0.c)
+ *     ?D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z @ 0x18021C760 (-D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z.c)
+ *     ?D2DMatrixRotationQuaternion@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DQuaternion@@@Z @ 0x18021D27C (-D2DMatrixRotationQuaternion@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DQuaternion@@@Z.c)
+ *     ?D3DXQuaternionRotationAxis@@YAPEAUD2DQuaternion@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18021DC7C (-D3DXQuaternionRotationAxis@@YAPEAUD2DQuaternion@@PEAU1@PEBUD2DVector3@@M@Z.c)
+ *     ?D3DXVec3Cross@@YAPEAUD2DVector3@@PEAU1@PEBU1@1@Z @ 0x18021E114 (-D3DXVec3Cross@@YAPEAUD2DVector3@@PEAU1@PEBU1@1@Z.c)
  */
 
 char __fastcall CNaturalAnimation::GenerateVector3Basis(CNaturalAnimation *this)
@@ -24,7 +24,7 @@ char __fastcall CNaturalAnimation::GenerateVector3Basis(CNaturalAnimation *this)
   float v8; // edi
   float *v9; // rax
   float *v10; // r8
-  float v11; // xmm0_4
+  unsigned int v11; // xmm0_4
   unsigned int v12; // xmm2_4
   float v13; // xmm0_4
   const struct D2DMatrix *v14; // r8
@@ -32,13 +32,13 @@ char __fastcall CNaturalAnimation::GenerateVector3Basis(CNaturalAnimation *this)
   unsigned __int64 v17; // [rsp+38h] [rbp-29h] BYREF
   float v18; // [rsp+40h] [rbp-21h]
 
-  v1 = *((_BYTE *)this + 588);
+  v1 = *((_BYTE *)this + 564);
   v2 = 0;
   if ( (v1 & 4) != 0 )
   {
-    v4 = *((float *)this + 87) - *((float *)this + 90);
-    v5 = *((float *)this + 88) - *((float *)this + 91);
-    v6 = *((float *)this + 89) - *((float *)this + 92);
+    v4 = *((float *)this + 81) - *((float *)this + 84);
+    v5 = *((float *)this + 82) - *((float *)this + 85);
+    v6 = *((float *)this + 83) - *((float *)this + 86);
     v17 = __PAIR64__(LODWORD(v5), LODWORD(v4));
     v18 = v6;
     if ( COERCE_FLOAT(COERCE_UNSIGNED_INT((float)((float)(v5 * v5) + (float)(v4 * v4)) + (float)(v6 * v6)) & _xmm) >= 0.0000011920929 )
@@ -48,8 +48,8 @@ char __fastcall CNaturalAnimation::GenerateVector3Basis(CNaturalAnimation *this)
     }
     else
     {
-      v7 = *(_QWORD *)((char *)this + 372);
-      v8 = *((float *)this + 95);
+      v7 = *(_QWORD *)((char *)this + 348);
+      v8 = *((float *)this + 89);
       v17 = v7;
       v5 = *((float *)&v7 + 1);
       LODWORD(v4) = v7;
@@ -58,38 +58,36 @@ char __fastcall CNaturalAnimation::GenerateVector3Basis(CNaturalAnimation *this)
     }
     if ( (v1 & 1) == 0
       || (v9 = (float *)D3DXVec3Cross(
-                          (CNaturalAnimation *)((char *)this + 384),
+                          (CNaturalAnimation *)((char *)this + 360),
                           (const struct D2DVector3 *)&v17,
-                          (CNaturalAnimation *)((char *)this + 384)),
+                          (CNaturalAnimation *)((char *)this + 360)),
           COERCE_FLOAT(COERCE_UNSIGNED_INT((float)((float)(*v9 * *v9) + (float)(v9[1] * v9[1])) + (float)(v9[2] * v9[2])) & _xmm) >= 0.0000011920929)
       || COERCE_FLOAT(COERCE_UNSIGNED_INT((float)((float)(*v10 * *v10) + (float)(v10[1] * v10[1])) + (float)(v10[2] * v10[2])) & _xmm) < 0.0000011920929 )
     {
       if ( COERCE_FLOAT(COERCE_UNSIGNED_INT((float)((float)(v5 * v5) + (float)(v4 * v4)) + (float)(v6 * v6)) & _xmm) >= 0.0000011920929 )
       {
-        LODWORD(v11) = (_DWORD)FLOAT_1_0;
+        v11 = (unsigned int)FLOAT_1_0;
         if ( v4 == 0.0 )
           v12 = 0;
         else
           v12 = (unsigned int)FLOAT_1_0;
         if ( v4 != 0.0 )
-          v11 = COERCE_FLOAT(LODWORD(v5) ^ _xmm) / v4;
+          v11 = COERCE_UNSIGNED_INT(v5 / v4) ^ _xmm;
         v18 = 0.0;
-        v17 = __PAIR64__(v12, LODWORD(v11));
+        v17 = __PAIR64__(v12, v11);
         D3DXVec3Normalize((struct D2DVector3 *)&v17, (const struct D2DVector3 *)&v17);
-        v13 = (float)(*((float *)&v17 + 1) * v4) - (float)(*(float *)&v17 * v5);
-        o_atan2f_0();
-        D3DXQuaternionRotationAxis(
-          (struct D2DQuaternion *)v16,
-          (const struct D2DVector3 *)&v17,
-          COERCE_FLOAT(LODWORD(v13) ^ _xmm));
-        D2DMatrixRotationQuaternion((CNaturalAnimation *)((char *)this + 460), (const struct D2DQuaternion *)v16);
-        D2DMatrixInverse((CNaturalAnimation *)((char *)this + 524), 0LL, v14);
+        v13 = atan2f_0(
+                COERCE_FLOAT(COERCE_UNSIGNED_INT((float)(*((float *)&v17 + 1) * v4) - (float)(*(float *)&v17 * v5)) ^ _xmm),
+                v6);
+        D3DXQuaternionRotationAxis((struct D2DQuaternion *)v16, (const struct D2DVector3 *)&v17, v13);
+        D2DMatrixRotationQuaternion((CNaturalAnimation *)((char *)this + 436), (const struct D2DQuaternion *)v16);
+        D2DMatrixInverse((CNaturalAnimation *)((char *)this + 500), 0LL, v14);
         v2 = 1;
       }
     }
-    *((_BYTE *)this + 588) &= ~4u;
-    *((_QWORD *)this + 48) = v7;
-    *((float *)this + 98) = v8;
+    *((_BYTE *)this + 564) &= ~4u;
+    *((_QWORD *)this + 45) = v7;
+    *((float *)this + 92) = v8;
   }
   return v2;
 }

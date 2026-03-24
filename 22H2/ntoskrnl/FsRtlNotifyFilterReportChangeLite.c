@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlNotifyFilterReportChangeLite @ 0x140940120
+ * XREFs of FsRtlNotifyFilterReportChangeLite @ 0x14088D660
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlNotifyFilterReportChangeLiteEx @ 0x14068A3A0 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x140675380 (FsRtlNotifyFilterReportChangeLiteEx.c)
  */
 
 void __fastcall FsRtlNotifyFilterReportChangeLite(
         volatile signed __int64 *a1,
-        _QWORD *a2,
+        struct _REAL_NOTIFY_SYNC **a2,
         const void **a3,
         const void **a4,
         int a5,

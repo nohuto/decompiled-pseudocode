@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPrepareImportList @ 0x1406DF748
+ * XREFs of MiPrepareImportList @ 0x14075DA10
  * Callers:
- *     MiResolveImageReferences @ 0x140757FFC (MiResolveImageReferences.c)
+ *     MiResolveImageReferences @ 0x14075D20C (MiResolveImageReferences.c)
  * Callees:
- *     MiAllocateImportList @ 0x1406DF7A0 (MiAllocateImportList.c)
+ *     MiAllocateImportList @ 0x14075DA64 (MiAllocateImportList.c)
  */
 
 __int64 __fastcall MiPrepareImportList(_DWORD *a1, __int64 *a2)
@@ -13,8 +13,8 @@ __int64 __fastcall MiPrepareImportList(_DWORD *a1, __int64 *a2)
 
   *a2 = 0LL;
   v2 = 0;
-  if ( !a1 || !a1[3] )
-    goto LABEL_9;
+  if ( !a1[3] )
+    goto LABEL_8;
   do
   {
     if ( !*a1 )
@@ -25,14 +25,14 @@ __int64 __fastcall MiPrepareImportList(_DWORD *a1, __int64 *a2)
   while ( a1[3] );
   if ( !v2 )
   {
-LABEL_9:
+LABEL_8:
     ImportList = 0LL;
-    goto LABEL_7;
+    goto LABEL_6;
   }
   ImportList = MiAllocateImportList(v2);
   if ( ImportList )
   {
-LABEL_7:
+LABEL_6:
     *a2 = ImportList;
     return 0LL;
   }

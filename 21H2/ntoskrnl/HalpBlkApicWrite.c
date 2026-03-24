@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpBlkApicWrite @ 0x140AD5148
+ * XREFs of HalpBlkApicWrite @ 0x140A1A148
  * Callers:
- *     HalpBlkApicEndOfInterrupt @ 0x140AD4F90 (HalpBlkApicEndOfInterrupt.c)
- *     HalpBlkApicInitializeLocalUnit @ 0x140AD4FB0 (HalpBlkApicInitializeLocalUnit.c)
+ *     HalpBlkApicEndOfInterrupt @ 0x140A19F90 (HalpBlkApicEndOfInterrupt.c)
+ *     HalpBlkApicInitializeLocalUnit @ 0x140A19FB0 (HalpBlkApicInitializeLocalUnit.c)
  * Callees:
  *     <none>
  */

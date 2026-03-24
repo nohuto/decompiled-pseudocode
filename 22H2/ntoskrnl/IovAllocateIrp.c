@@ -1,60 +1,84 @@
 /*
- * XREFs of IovAllocateIrp @ 0x140AC1CE0
+ * XREFs of IovAllocateIrp @ 0x1409C47B0
  * Callers:
- *     IoAllocateIrp @ 0x14022E630 (IoAllocateIrp.c)
- *     IopAllocateIrpExReturn @ 0x14022EF90 (IopAllocateIrpExReturn.c)
- *     IoAllocateIrpEx @ 0x140310DD0 (IoAllocateIrpEx.c)
+ *     IopAllocateIrpExReturn @ 0x1402D21F0 (IopAllocateIrpExReturn.c)
+ *     IoAllocateIrpEx @ 0x1402F9A50 (IoAllocateIrpEx.c)
+ *     IoAllocateIrp @ 0x1403616C0 (IoAllocateIrp.c)
  * Callees:
- *     IopAllocateIrpPrivate @ 0x14022EFC0 (IopAllocateIrpPrivate.c)
- *     IopIsActivityTracingEnabled @ 0x140290190 (IopIsActivityTracingEnabled.c)
- *     IopInitActivityIdIrp @ 0x1405557C4 (IopInitActivityIdIrp.c)
- *     IovpLogStackTrace @ 0x140AC2E08 (IovpLogStackTrace.c)
- *     VfIoAllocateIrp1 @ 0x140ACE6E8 (VfIoAllocateIrp1.c)
- *     VfIoAllocateIrp2 @ 0x140ACE760 (VfIoAllocateIrp2.c)
+ *     IopIsActivityTracingEnabled @ 0x1402E66C0 (IopIsActivityTracingEnabled.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IopInitActivityIdIrp @ 0x14050091C (IopInitActivityIdIrp.c)
+ *     IovpLogStackTrace @ 0x1409C5988 (IovpLogStackTrace.c)
+ *     VfIoAllocateIrp2 @ 0x1409D11D8 (VfIoAllocateIrp2.c)
+ *     ViIrpAllocateLockedPacket @ 0x1409D1760 (ViIrpAllocateLockedPacket.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E093C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
-PSLIST_ENTRY __fastcall IovAllocateIrp(__int64 a1, char a2, unsigned __int8 a3, __int64 a4)
+__int64 __fastcall IovAllocateIrp(__int64 a1, char a2, unsigned __int8 a3, __int64 a4)
 {
-  unsigned int v5; // r14d
+  unsigned int v5; // r15d
   __int64 v8; // rax
-  __int64 v9; // rcx
-  _QWORD *v10; // rdi
-  __int64 v11; // rsi
-  char v12; // bp
-  __int64 Irp1; // rbx
-  PSLIST_ENTRY IrpPrivate; // rax
-  __int64 v15; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  _QWORD *v12; // rsi
+  _OWORD *v13; // rdi
+  char v14; // bp
+  __int64 v15; // rbx
+  __int64 LockedPacket; // rax
+  __int64 Irp; // rax
+  __int64 v18; // rax
 
   v5 = a3;
-  if ( (VfRuleClasses & 0x10) == 0 )
-    return IopAllocateIrpPrivate(a1, a2, a3);
   v8 = IovpLogStackTrace(0LL);
-  v10 = (_QWORD *)v8;
+  v12 = (_QWORD *)v8;
   if ( v8 )
-    v11 = v8 + 24;
+    v13 = (_OWORD *)(v8 + 24);
   else
-    v11 = 0LL;
-  v12 = a2 + 2;
-  LOBYTE(v9) = v12;
-  Irp1 = VfIoAllocateIrp1(v9, v5, a4, v11);
-  if ( !Irp1 )
+    v13 = 0LL;
+  v14 = a2 + 2;
+  v15 = 0LL;
+  if ( !VfIoDisabled )
   {
-    IrpPrivate = IopAllocateIrpPrivate(a1, v12, v5);
-    Irp1 = (__int64)IrpPrivate;
-    if ( IrpPrivate )
-      VfIoAllocateIrp2(IrpPrivate, v11);
+    LOBYTE(v10) = v14;
+    LockedPacket = ViIrpAllocateLockedPacket(v10, v5, a4);
+    if ( LockedPacket )
+    {
+      v15 = *(_QWORD *)LockedPacket;
+      if ( v13 )
+      {
+        *(_OWORD *)(LockedPacket + 120) = *v13;
+        *(_OWORD *)(LockedPacket + 136) = v13[1];
+        *(_OWORD *)(LockedPacket + 152) = v13[2];
+        *(_OWORD *)(LockedPacket + 168) = v13[3];
+      }
+      else
+      {
+        *(_QWORD *)(LockedPacket + 120) = 0LL;
+      }
+      VfIrpDatabaseEntryReleaseLock(LockedPacket);
+    }
   }
-  if ( v10 )
-    *v10 = Irp1;
-  if ( Irp1 )
+  if ( !v15 )
   {
-    *(_QWORD *)(Irp1 + 184) -= 144LL;
-    v15 = *(_QWORD *)(Irp1 + 184);
-    *(_BYTE *)(Irp1 + 67) -= 2;
-    *(_BYTE *)(Irp1 + 66) -= 2;
-    *(_QWORD *)(Irp1 + 200) = v15;
+    LOBYTE(v11) = v5;
+    LOBYTE(v9) = v14;
+    Irp = pXdvIoAllocateIrp(a1, v9, v11, a4, (__int64)IopAllocateIrpPrivate);
+    v15 = Irp;
+    if ( Irp )
+      VfIoAllocateIrp2(Irp, v13);
+  }
+  if ( v12 )
+    *v12 = v15;
+  if ( v15 )
+  {
+    *(_QWORD *)(v15 + 184) -= 144LL;
+    v18 = *(_QWORD *)(v15 + 184);
+    *(_BYTE *)(v15 + 67) -= 2;
+    *(_BYTE *)(v15 + 66) -= 2;
+    *(_QWORD *)(v15 + 200) = v18;
     if ( IopIsActivityTracingEnabled() )
-      IopInitActivityIdIrp(Irp1);
+      IopInitActivityIdIrp(v15);
   }
-  return (PSLIST_ENTRY)Irp1;
+  return v15;
 }

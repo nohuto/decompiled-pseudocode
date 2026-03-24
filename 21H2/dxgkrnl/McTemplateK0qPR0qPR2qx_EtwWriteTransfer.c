@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qPR0qPR2qx_EtwWriteTransfer @ 0x1C005A058
+ * XREFs of McTemplateK0qPR0qPR2qx_EtwWriteTransfer @ 0x1C0049810
  * Callers:
- *     ?SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPROCESS@@_N66@Z @ 0x1C017EED0 (-SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPRO.c)
+ *     ?SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPROCESS@@_N6@Z @ 0x1C00FBD50 (-SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPRO.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qPR0qPR2qx_EtwWriteTransfer(
@@ -41,12 +41,12 @@ NTSTATUS __fastcall McTemplateK0qPR0qPR2qx_EtwWriteTransfer(
   v11 = &v25;
   v13 = a5;
   v14 = 8 * a4;
-  v20 = 0;
   v16 = &a6;
   v18 = a7;
   v19 = 8 * a6;
   v21 = &a8;
   v23 = &a9;
+  v20 = 0;
   v17 = 4LL;
   v22 = 4LL;
   v24 = 8LL;

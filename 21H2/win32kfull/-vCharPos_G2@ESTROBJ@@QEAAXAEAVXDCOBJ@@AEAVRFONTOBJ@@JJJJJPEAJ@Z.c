@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vCharPos_G2@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJPEAJ@Z @ 0x1C02BCE14
+ * XREFs of ?vCharPos_G2@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJPEAJ@Z @ 0x1C0005264
  * Callers:
- *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C00359A0 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
+ *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C0095270 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
  * Callees:
- *     ?bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z @ 0x1C00C49AC (-bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z.c)
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C013C010 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
- *     ?vSqrt@EFLOAT@@QEAAXXZ @ 0x1C014D908 (-vSqrt@EFLOAT@@QEAAXXZ.c)
- *     ??4EPOINTQF@@QEAAXAEAVEPOINTFL@@@Z @ 0x1C02BC12C (--4EPOINTQF@@QEAAXAEAVEPOINTFL@@@Z.c)
+ *     ?bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z @ 0x1C00E3C78 (-bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C01197E0 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
+ *     ?vSqrt@EFLOAT@@QEAAXXZ @ 0x1C01227F8 (-vSqrt@EFLOAT@@QEAAXXZ.c)
+ *     ??4EPOINTQF@@QEAAXAEAVEPOINTFL@@@Z @ 0x1C02BDB8C (--4EPOINTQF@@QEAAXAEAVEPOINTFL@@@Z.c)
  */
 
 void __fastcall ESTROBJ::vCharPos_G2(
@@ -17,197 +17,195 @@ void __fastcall ESTROBJ::vCharPos_G2(
         LONG a4,
         LONG a5,
         int a6,
-        int a7,
+        unsigned int a7,
         unsigned int a8,
         int *a9)
 {
-  __int64 v9; // rax
-  LONG v10; // ebx
-  __int64 v13; // r11
-  int *v14; // r15
-  bool v15; // al
-  __int64 v16; // rcx
-  int v17; // edx
-  int v18; // r8d
-  __int64 v19; // r11
-  int v20; // eax
-  struct _GLYPHPOS *v21; // r8
-  int v22; // r14d
-  float v23; // xmm6_4
-  unsigned __int16 *v24; // r9
-  POINTL *p_ptl; // r13
-  __int64 v26; // rbx
-  struct RFONTOBJ *v27; // rdx
-  __int64 v28; // rax
-  float v29; // r10d
-  __int64 v30; // r12
-  __int64 v31; // rsi
-  int v32; // r11d
-  int *v33; // r9
-  POINTL v34; // r8
-  int v35; // edx
-  int v36; // ecx
-  int v37; // eax
-  int v38; // edx
-  __int64 v39; // rax
-  int v40; // ebx
-  bool v41; // zf
-  int v42; // eax
-  bool v43; // cc
-  int v44; // ecx
-  int v45; // [rsp+48h] [rbp-49h] BYREF
-  int v46; // [rsp+4Ch] [rbp-45h] BYREF
-  int v47; // [rsp+50h] [rbp-41h] BYREF
-  float v48; // [rsp+54h] [rbp-3Dh] BYREF
-  int v49; // [rsp+58h] [rbp-39h]
-  __int64 v50; // [rsp+60h] [rbp-31h] BYREF
-  __int64 v51; // [rsp+68h] [rbp-29h]
-  __int64 v52; // [rsp+70h] [rbp-21h]
-  __int64 v53; // [rsp+78h] [rbp-19h]
-  __int64 v54; // [rsp+80h] [rbp-11h]
+  __int64 v9; // rbx
+  _DWORD *v13; // rsi
+  char v14; // al
+  __int64 v15; // rbx
+  __int64 v16; // r13
+  struct _GLYPHPOS *v17; // r8
+  int v18; // esi
+  unsigned __int16 *v19; // r9
+  __int64 v20; // rbx
+  POINTL *p_ptl; // r15
+  __int64 v22; // r12
+  unsigned int v23; // edx
+  __int64 v24; // rax
+  float v25; // r10d
+  int v26; // r11d
+  __int64 v27; // r14
+  int *v28; // r9
+  POINTL v29; // r8
+  int v30; // edx
+  __int64 v31; // rcx
+  int v32; // eax
+  int v33; // edx
+  int v34; // eax
+  __int64 v35; // rax
+  int v36; // ebx
+  __int64 v37; // rcx
+  bool v38; // zf
+  unsigned int v39; // eax
+  bool v40; // cc
+  int v41; // ecx
+  __int64 v42; // r11
+  int v43; // ecx
+  int v44; // edx
+  int v45; // r11d
+  int v46; // [rsp+48h] [rbp-49h] BYREF
+  int v47; // [rsp+4Ch] [rbp-45h] BYREF
+  unsigned int v48; // [rsp+50h] [rbp-41h] BYREF
+  float v49; // [rsp+54h] [rbp-3Dh] BYREF
+  unsigned int v50; // [rsp+58h] [rbp-39h]
+  __int64 v51; // [rsp+60h] [rbp-31h] BYREF
+  __int64 v52; // [rsp+68h] [rbp-29h]
+  __int64 v53; // [rsp+70h] [rbp-21h] BYREF
+  __int64 v54; // [rsp+78h] [rbp-19h]
+  __int64 v55; // [rsp+80h] [rbp-11h]
 
   v9 = *(_QWORD *)a3;
-  v10 = a4;
   if ( !*(_DWORD *)(*(_QWORD *)a3 + 640LL) )
   {
-    v47 = 0;
+    v48 = 0;
     if ( a6 )
     {
-      v45 = 0;
-      bFToL((float)a6 * *(float *)(v9 + 404), &v45, 0);
-      *((_DWORD *)this + 29) = v45;
-      EPOINTQF::operator=((__int64)&v50, *(_QWORD *)a3 + 396LL);
-      v13 = *((int *)this + 29);
+      v46 = 0;
+      bFToL(this, &v46, 0LL);
+      *((_DWORD *)this + 29) = v46;
       v9 = *(_QWORD *)a3;
-      v53 = v13 * v50;
-      v54 = v13 * v51;
-      v10 = a4;
+      EPOINTQF::operator=(&v53, *(_QWORD *)a3 + 396LL);
+      v55 = v42 * v53;
+      v53 = v42 * v54;
     }
     else
     {
-      v54 = v51;
-      v53 = v50;
+      v53 = v54;
+      v55 = v54;
     }
-    v14 = (int *)((char *)this + 120);
-    v15 = bCalcBreakExtra(*(unsigned int *)(v9 + 404), a7, a8, (__int64)this + 120);
-    v16 = *(_QWORD *)a3;
-    if ( v15 )
+    v13 = (_DWORD *)((char *)this + 120);
+    v14 = bCalcBreakExtra(*(unsigned int *)(v9 + 404), a7, a8, (char *)this + 120);
+    v15 = *(_QWORD *)a3;
+    if ( v14 )
     {
-      v17 = *(_DWORD *)(v16 + 468);
-      v18 = *((_DWORD *)this + 29);
-      if ( *v14 + v17 + v18 < 0 )
+      v43 = *(_DWORD *)(v15 + 468);
+      v44 = *((_DWORD *)this + 29);
+      if ( v44 + v43 + *v13 < 0 )
       {
-        *v14 = -(v17 + v18);
-        v16 = *(_QWORD *)a3;
+        *v13 = -(v43 + v44);
+        v15 = *(_QWORD *)a3;
       }
-      EPOINTQF::operator=((__int64)&v50, v16 + 396);
-      v19 = *v14;
-      v16 = *(_QWORD *)a3;
-      v20 = *(_DWORD *)(*(_QWORD *)a3 + 464LL);
-      v52 = v19 * v50;
-      v47 = v20;
-      v50 = v19 * v51;
+      EPOINTQF::operator=(&v51, v15 + 396);
+      v16 = v45 * v51;
+      v51 = v45 * v52;
+      v48 = *(_DWORD *)(v15 + 464);
     }
     else
     {
-      v50 = v51;
-      v52 = v51;
+      v51 = v52;
+      v16 = v52;
     }
-    v21 = (struct _GLYPHPOS *)*((_QWORD *)this + 8);
-    v22 = 0;
-    v23 = *(float *)(v16 + 408);
-    v24 = (unsigned __int16 *)*((_QWORD *)this + 5);
-    v21->ptl.y = a5;
-    p_ptl = &v21->ptl;
-    v21->ptl.x = v10;
-    v26 = 0x80000000LL;
-    v27 = (struct RFONTOBJ *)*(unsigned int *)this;
-    v45 = 0;
+    v17 = (struct _GLYPHPOS *)*((_QWORD *)this + 8);
+    v18 = 0;
+    v19 = (unsigned __int16 *)*((_QWORD *)this + 5);
+    v20 = 0x80000000LL;
+    v17->ptl.y = a5;
+    p_ptl = &v17->ptl;
+    v17->ptl.x = a4;
+    v22 = 0x80000000LL;
+    v23 = *(_DWORD *)this;
     v46 = 0;
-    if ( (unsigned int)RFONTOBJ::bGetGlyphMetricsPlus(a3, v27, v21, v24, &v46, a2, this) )
+    v47 = 0;
+    if ( (unsigned int)RFONTOBJ::bGetGlyphMetricsPlus(a3, v23, v17, v19, &v47, a2, this) )
     {
-      if ( v46 )
+      if ( v47 )
       {
-        v28 = *((_QWORD *)this + 8);
+        v24 = *((_QWORD *)this + 8);
         *((_DWORD *)this + 58) |= 2u;
-        *((_QWORD *)this + 4) = v28;
+        *((_QWORD *)this + 4) = v24;
       }
-      v29 = *(float *)this;
-      v30 = 0x80000000LL;
-      v31 = v52;
-      v32 = 0;
-      v33 = a9;
-      v48 = *(float *)this;
+      v25 = *(float *)this;
+      v26 = 0;
+      v27 = v51;
+      v28 = a9;
+      v49 = *(float *)this;
       while ( 1 )
       {
-        v34 = p_ptl[-1];
-        v35 = v32;
-        v36 = *((_DWORD *)this + 29);
-        v37 = v22 + *(_DWORD *)(*(_QWORD *)&v34 + 16LL);
-        if ( v45 < v37 )
-          v37 = v45;
-        v32 = v22 + *(_DWORD *)(*(_QWORD *)&v34 + 20LL);
-        v45 = v37;
-        if ( v35 > v32 )
-          v32 = v35;
-        v38 = *(_DWORD *)(*(_QWORD *)&v34 + 12LL);
-        v26 += *(_QWORD *)(*(_QWORD *)&v34 + 48LL);
-        v22 += v38;
-        v30 += *(_QWORD *)(*(_QWORD *)&v34 + 56LL);
-        v49 = v32;
-        if ( v36 && v38 + v36 > 0 )
+        v29 = p_ptl[-1];
+        v30 = v26;
+        v31 = *((unsigned int *)this + 29);
+        v32 = v18 + *(_DWORD *)(*(_QWORD *)&v29 + 16LL);
+        if ( v46 < v32 )
+          v32 = v46;
+        v26 = v18 + *(_DWORD *)(*(_QWORD *)&v29 + 20LL);
+        v46 = v32;
+        if ( v30 > v26 )
+          v26 = v30;
+        v33 = *(_DWORD *)(*(_QWORD *)&v29 + 12LL);
+        v20 += *(_QWORD *)(*(_QWORD *)&v29 + 48LL);
+        v18 += v33;
+        v22 += *(_QWORD *)(*(_QWORD *)&v29 + 56LL);
+        v50 = v26;
+        if ( (_DWORD)v31 && v33 + (int)v31 > 0 )
         {
-          v26 += v53;
-          v22 += v36;
-          v30 += v54;
+          v20 += v55;
+          v18 += v31;
+          v22 += v53;
         }
-        if ( *v14 && p_ptl[-2].x == v47 )
+        v34 = *((_DWORD *)this + 30);
+        if ( v34 )
         {
-          v22 += *v14;
-          v26 += v31;
-          v30 += v50;
+          v31 = v48;
+          if ( p_ptl[-2].x == v48 )
+          {
+            v18 += v34;
+            v20 += v16;
+            v22 += v27;
+          }
         }
-        if ( v33 )
+        if ( v28 )
         {
-          v46 = 0;
-          bFToL((float)v22 * v23, &v46, 0);
-          v29 = v48;
-          v32 = v49;
-          *a9++ = v46;
-          v33 = a9;
+          v47 = 0;
+          bFToL(v31, &v47, 0LL);
+          v25 = v49;
+          v26 = v50;
+          *a9++ = v47;
+          v28 = a9;
         }
-        --LODWORD(v29);
-        v39 = v26 >> 32;
-        v48 = v29;
-        if ( v29 == 0.0 )
+        --LODWORD(v25);
+        v35 = v20 >> 32;
+        v49 = v25;
+        if ( v25 == 0.0 )
           break;
         p_ptl += 3;
-        p_ptl->x = a4 + HIDWORD(v26);
-        p_ptl->y = HIDWORD(v30) + a5;
+        p_ptl->x = a4 + HIDWORD(v20);
+        p_ptl->y = HIDWORD(v22) + a5;
       }
-      v40 = v32 - v22;
-      *((_DWORD *)this + 21) = HIDWORD(v30);
-      *((_DWORD *)this + 20) = v39;
-      if ( v32 - v22 <= 0 )
-        v40 = 0;
-      v48 = (float)((float)((float)SHIDWORD(v30) * 0.0625) * (float)((float)SHIDWORD(v30) * 0.0625))
-          + (float)((float)((float)(int)v39 * 0.0625) * (float)((float)(int)v39 * 0.0625));
-      EFLOAT::vSqrt((EFLOAT *)&v48);
-      v47 = 0;
-      v41 = (unsigned int)bFToL(v48, &v47, 0xAu) == 0;
-      v42 = v49;
-      if ( !v41 )
-        v42 = v47;
-      v43 = v22 < v45;
-      *((_DWORD *)this + 28) = v42;
-      if ( !v43 )
-        v22 = v45;
-      *((_DWORD *)this + 26) = v40 + v42;
-      *((_DWORD *)this + 24) = v22;
+      v36 = v26 - v18;
+      *((_DWORD *)this + 21) = HIDWORD(v22);
+      *((_DWORD *)this + 20) = v35;
+      if ( v26 - v18 <= 0 )
+        v36 = 0;
+      v49 = (float)((float)((float)SHIDWORD(v22) * 0.0625) * (float)((float)SHIDWORD(v22) * 0.0625))
+          + (float)((float)((float)(int)v35 * 0.0625) * (float)((float)(int)v35 * 0.0625));
+      EFLOAT::vSqrt((EFLOAT *)&v49);
+      v48 = 0;
+      v38 = (unsigned int)bFToL(v37, &v48, 10LL) == 0;
+      v39 = v50;
+      if ( !v38 )
+        v39 = v48;
+      v40 = v18 < v46;
+      *((_DWORD *)this + 28) = v39;
+      if ( !v40 )
+        v18 = v46;
+      *((_DWORD *)this + 26) = v36 + v39;
+      *((_DWORD *)this + 24) = v18;
       *((_DWORD *)this + 25) = *(_DWORD *)(*(_QWORD *)a3 + 316LL);
-      v44 = *(_DWORD *)(*(_QWORD *)a3 + 320LL);
+      v41 = *(_DWORD *)(*(_QWORD *)a3 + 320LL);
       *((_DWORD *)this + 58) |= 4u;
-      *((_DWORD *)this + 27) = v44;
+      *((_DWORD *)this + 27) = v41;
     }
   }
 }

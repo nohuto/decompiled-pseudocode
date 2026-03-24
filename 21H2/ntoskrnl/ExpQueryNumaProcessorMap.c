@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpQueryNumaProcessorMap @ 0x1406F2350
+ * XREFs of ExpQueryNumaProcessorMap @ 0x1406D0420
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeQueryHighestNodeNumber @ 0x140263710 (KeQueryHighestNodeNumber.c)
- *     KeQueryNodeActiveAffinity @ 0x140263730 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryHighestNodeNumber @ 0x1402E2F60 (KeQueryHighestNodeNumber.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
  */
 
 __int64 __fastcall ExpQueryNumaProcessorMap(_DWORD *a1, unsigned int a2, _DWORD *a3)

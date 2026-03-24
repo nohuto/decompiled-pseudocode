@@ -1,27 +1,32 @@
 /*
- * XREFs of SepCompareSidAndAttributeArrays @ 0x140696154
+ * XREFs of SepCompareSidAndAttributeArrays @ 0x140717918
  * Callers:
- *     NtCompareTokens @ 0x140695A40 (NtCompareTokens.c)
- *     SepCompareClaimAttributes @ 0x1406960FC (SepCompareClaimAttributes.c)
+ *     NtCompareTokens @ 0x140717200 (NtCompareTokens.c)
+ *     SepCompareClaimAttributes @ 0x1407178C0 (SepCompareClaimAttributes.c)
  * Callees:
- *     RtlEqualSid @ 0x1402A6DB0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
  */
 
 char __fastcall SepCompareSidAndAttributeArrays(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
 {
+  unsigned int v4; // r14d
+  unsigned int v6; // edi
+  __int64 v7; // rax
   unsigned int v8; // ebx
   _BYTE *v9; // rsi
   __int64 v10; // r15
   unsigned int v12; // r15d
   __int64 v13; // rsi
   unsigned int v14; // ebp
-  void *v15; // rax
+  void *v15; // rdi
   unsigned int v16; // r15d
-  __int64 v17; // rsi
+  __int64 i; // rsi
   unsigned int v18; // ebp
   void *v19; // r13
-  void *v20; // [rsp+20h] [rbp-38h]
 
+  v4 = a4;
+  v6 = a2;
+  v7 = a1;
   if ( a2 == a4 )
   {
     v8 = 0;
@@ -29,77 +34,80 @@ char __fastcall SepCompareSidAndAttributeArrays(__int64 a1, unsigned int a2, __i
     {
       v9 = (_BYTE *)(a3 + 8);
       v10 = a1 - a3;
-      while ( RtlEqualSid(*(PSID *)&v9[v10 - 8], *((PSID *)v9 - 1)) && ((*v9 ^ v9[v10]) & 0x14) == 0 )
+      do
       {
+        if ( !RtlEqualSid(*(PSID *)&v9[v10 - 8], *((PSID *)v9 - 1)) )
+          break;
+        if ( ((*v9 ^ v9[v10]) & 0x14) != 0 )
+          break;
         ++v8;
         v9 += 16;
-        if ( v8 >= a2 )
-          goto LABEL_7;
+      }
+      while ( v8 < v6 );
+      v7 = a1;
+    }
+    if ( v8 == v6 )
+      return 1;
+    v12 = v8;
+    if ( v8 >= v6 )
+    {
+LABEL_21:
+      v16 = v8;
+      if ( v8 >= v4 )
+        return 1;
+      for ( i = a3 + 16LL * v8; ; i += 16LL )
+      {
+        v18 = v8;
+        if ( v8 < v6 )
+        {
+          v19 = *(void **)i;
+          do
+          {
+            if ( RtlEqualSid(v19, *(PSID *)(a1 + 16LL * v18))
+              && ((*(_BYTE *)(i + 8) ^ *(_BYTE *)(a1 + 16LL * v18 + 8)) & 0x14) == 0 )
+            {
+              break;
+            }
+            ++v18;
+          }
+          while ( v18 < v6 );
+          v4 = a4;
+        }
+        if ( v18 == v6 )
+          break;
+        if ( ++v16 >= v4 )
+          return 1;
       }
     }
     else
     {
-LABEL_7:
-      if ( v8 == a2 )
-        return 1;
-    }
-    v12 = v8;
-    if ( v8 < a2 )
-    {
-      v13 = a1 + 16LL * v8;
-      do
+      v13 = v7 + 16LL * v8;
+      while ( 1 )
       {
         v14 = v8;
-        if ( v8 >= a4 )
-        {
-LABEL_17:
-          if ( v14 == a4 )
-            return 0;
-        }
-        else
+        if ( v8 < v4 )
         {
           v15 = *(void **)v13;
-          v20 = *(void **)v13;
-          while ( !RtlEqualSid(v15, *(PSID *)(a3 + 16LL * v14))
-               || ((*(_BYTE *)(v13 + 8) ^ *(_BYTE *)(a3 + 16LL * v14 + 8)) & 0x14) != 0 )
+          do
           {
-            v15 = v20;
-            if ( ++v14 >= a4 )
-              goto LABEL_17;
-          }
-        }
-        ++v12;
-        v13 += 16LL;
-      }
-      while ( v12 < a2 );
-    }
-    v16 = v8;
-    if ( v8 < a4 )
-    {
-      v17 = a3 + 16LL * v8;
-      do
-      {
-        v18 = v8;
-        if ( v8 < a2 )
-        {
-          v19 = *(void **)v17;
-          while ( !RtlEqualSid(v19, *(PSID *)(a1 + 16LL * v18))
-               || ((*(_BYTE *)(v17 + 8) ^ *(_BYTE *)(a1 + 16LL * v18 + 8)) & 0x14) != 0 )
-          {
-            if ( ++v18 >= a2 )
+            if ( RtlEqualSid(v15, *(PSID *)(a3 + 16LL * v14))
+              && ((*(_BYTE *)(v13 + 8) ^ *(_BYTE *)(a3 + 16LL * v14 + 8)) & 0x14) == 0 )
             {
-              if ( v18 == a2 )
-                return 0;
               break;
             }
+            ++v14;
           }
+          while ( v14 < v4 );
+          v6 = a2;
         }
-        ++v16;
-        v17 += 16LL;
+        if ( v14 == v4 )
+          break;
+        ++v12;
+        v13 += 16LL;
+        if ( v12 >= v6 )
+          goto LABEL_21;
       }
-      while ( v16 < a4 );
     }
-    return 1;
   }
   return 0;
 }

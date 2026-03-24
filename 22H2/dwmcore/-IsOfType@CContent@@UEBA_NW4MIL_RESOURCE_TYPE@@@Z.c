@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CContent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001CA00
+ * XREFs of ?IsOfType@CContent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800DC5B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CContent::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 47;
+  return a2 == 45;
 }

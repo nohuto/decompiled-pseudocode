@@ -1,35 +1,31 @@
 /*
- * XREFs of IopQueueWorkItemProlog @ 0x1403467F0
+ * XREFs of IopQueueWorkItemProlog @ 0x140206670
  * Callers:
- *     IoQueueWorkItem @ 0x14023E0D0 (IoQueueWorkItem.c)
- *     IoTryQueueWorkItem @ 0x140255440 (IoTryQueueWorkItem.c)
- *     PnpDeviceCompletionRequestDestroy @ 0x1402DE684 (PnpDeviceCompletionRequestDestroy.c)
- *     IoQueueWorkItemEx @ 0x140345D70 (IoQueueWorkItemEx.c)
- *     IoQueueWorkItemToNode @ 0x140558910 (IoQueueWorkItemToNode.c)
+ *     IoQueueWorkItem @ 0x1402B63C0 (IoQueueWorkItem.c)
+ *     IoQueueWorkItemEx @ 0x1402B63F0 (IoQueueWorkItemEx.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x14036F8E4 (PnpDeviceCompletionRequestDestroy.c)
+ *     IoTryQueueWorkItem @ 0x14037C9B0 (IoTryQueueWorkItem.c)
+ *     IoQueueWorkItemToNode @ 0x140507180 (IoQueueWorkItemToNode.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     PsGetWorkOnBehalfThread @ 0x1402F6220 (PsGetWorkOnBehalfThread.c)
- *     ObpIncrPointerCount @ 0x14030F6D0 (ObpIncrPointerCount.c)
- *     ObpPushStackInfo @ 0x1405C5EC8 (ObpPushStackInfo.c)
+ *     PsGetWorkOnBehalfThread @ 0x1402055CC (PsGetWorkOnBehalfThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     IopIsActivityTracingEnabled @ 0x1402EDEF0 (IopIsActivityTracingEnabled.c)
  */
 
 __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v6; // rdi
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rdi
   PVOID WorkOnBehalfThread; // rax
   struct _LIST_ENTRY *Flink; // rcx
-  int v11; // [rsp+30h] [rbp+8h] BYREF
+  int v10; // [rsp+30h] [rbp+8h] BYREF
 
-  v11 = 0;
-  if ( (IopFunctionPointerMask & 4) != 0 && (IopIrpExtensionStatus & 1) != 0 && KeGetCurrentIrql() < 2u )
+  v10 = 0;
+  if ( (unsigned __int8)IopIsActivityTracingEnabled()
+    && KeGetCurrentIrql() < 2u
+    && (Flink = KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink) != 0LL )
   {
-    Flink = KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink;
-    if ( Flink )
-      *(struct _LIST_ENTRY *)(a1 + 68) = *Flink;
-    else
-      *(_OWORD *)(a1 + 68) = 0LL;
+    *(struct _LIST_ENTRY *)(a1 + 68) = *Flink;
   }
   else
   {
@@ -38,23 +34,20 @@ __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, __int64 a2, __int64 a3)
   if ( (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    WorkOnBehalfThread = PsGetWorkOnBehalfThread(CurrentThread, &v11);
+    WorkOnBehalfThread = PsGetWorkOnBehalfThread(CurrentThread, &v10);
     *(_QWORD *)(a1 + 56) = WorkOnBehalfThread;
     if ( WorkOnBehalfThread )
     {
-      if ( !v11 )
+      if ( !v10 )
         ObfReferenceObjectWithTag(WorkOnBehalfThread, 0x746C6644u);
     }
-    else if ( KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[16] || PopEnergyEstimationEnabled )
+    else if ( KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[16] || PopEnergyEstimationEnabled )
     {
       ObfReferenceObjectWithTag(CurrentThread, 0x746C6644u);
       *(_QWORD *)(a1 + 56) = CurrentThread;
     }
   }
-  v6 = *(_QWORD *)(a1 + 40);
-  if ( ObpTraceFlags )
-    ObpPushStackInfo(v6 - 48);
-  ObpIncrPointerCount((volatile signed __int64 *)(v6 - 48));
+  ObfReferenceObjectWithTag(*(PVOID *)(a1 + 40), 0x746C6644u);
   *(_QWORD *)(a1 + 32) = a2;
   result = a1;
   *(_QWORD *)(a1 + 48) = a3;

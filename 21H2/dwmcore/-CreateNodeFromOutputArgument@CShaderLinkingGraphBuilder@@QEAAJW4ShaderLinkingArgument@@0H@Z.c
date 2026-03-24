@@ -1,52 +1,62 @@
 /*
- * XREFs of ?CreateNodeFromOutputArgument@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@0H@Z @ 0x1800181D4
+ * XREFs of ?CreateNodeFromOutputArgument@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@0H@Z @ 0x18001A194
  * Callers:
- *     AppendLights @ 0x18001845C (AppendLights.c)
+ *     AppendLights @ 0x180019D30 (AppendLights.c)
  * Callees:
- *     ??4?$ComPtr@UID3D11LinkingNode@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x180034FE4 (--4-$ComPtr@UID3D11LinkingNode@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
- *     ??$_Try_emplace@AEBW4ShaderLinkingArgument@@$$V@?$_Hash@V?$_Umap_traits@W4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@V?$_Uhash_compare@W4ShaderLinkingArgument@@U?$hash@W4ShaderLinkingArgument@@@std@@U?$equal_to@W4ShaderLinkingArgument@@@3@@std@@V?$allocator@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@@5@$0A@@std@@@std@@IEAA?AU?$pair@PEAU?$_List_node@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@PEAX@std@@_N@1@AEBW4ShaderLinkingArgument@@@Z @ 0x180036C4C (--$_Try_emplace@AEBW4ShaderLinkingArgument@@$$V@-$_Hash@V-$_Umap_traits@W4ShaderLinkingArgument@.c)
- *     ??$_Find@W4ShaderLinkingArgument@@@?$_Hash@V?$_Umap_traits@W4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@V?$_Uhash_compare@W4ShaderLinkingArgument@@U?$hash@W4ShaderLinkingArgument@@@std@@U?$equal_to@W4ShaderLinkingArgument@@@3@@std@@V?$allocator@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@@5@$0A@@std@@@std@@AEBAPEAU?$_List_node@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@PEAX@1@AEBW4ShaderLinkingArgument@@_K@Z @ 0x180037108 (--$_Find@W4ShaderLinkingArgument@@@-$_Hash@V-$_Umap_traits@W4ShaderLinkingArgument@@UNode@CShade.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800D38B0 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     ??4?$ComPtr@UID3D11LinkingNode@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x1800483BC (--4-$ComPtr@UID3D11LinkingNode@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     ??$_Try_emplace@AEBW4ShaderLinkingArgument@@$$V@?$unordered_map@W4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@U?$hash@W4ShaderLinkingArgument@@@std@@U?$equal_to@W4ShaderLinkingArgument@@@5@V?$allocator@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@@5@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@@std@@@std@@@std@@_N@1@AEBW4ShaderLinkingArgument@@@Z @ 0x180048724 (--$_Try_emplace@AEBW4ShaderLinkingArgument@@$$V@-$unordered_map@W4ShaderLinkingArgument@@UNode@C.c)
+ *     ?_End@?$_Hash@V?$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V?$_Uhash_compare@PEBVCResource@@U?$hash@PEBVCResource@@@std@@U?$equal_to@PEBVCResource@@@3@@std@@V?$allocator@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@4@$0A@@std@@@std@@IEAA?AV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@std@@@std@@@2@_K@Z @ 0x180048AFC (-_End@-$_Hash@V-$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V-$_Uhash_compare@PEBVC.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800C3A14 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
  */
 
 __int64 __fastcall CShaderLinkingGraphBuilder::CreateNodeFromOutputArgument(
-        unsigned __int64 a1,
+        _QWORD *a1,
         __int16 a2,
         __int16 a3,
         char a4)
 {
-  unsigned __int64 appended; // rax
-  unsigned int v7; // ecx
-  __int64 v8; // rbx
-  __int64 v9; // rdi
-  unsigned int v10; // ebx
-  _BYTE v12[40]; // [rsp+30h] [rbp-28h] BYREF
-  __int16 v13; // [rsp+68h] [rbp+10h] BYREF
-  __int16 v14; // [rsp+70h] [rbp+18h] BYREF
+  unsigned __int64 v7; // r10
+  __int64 *i; // rbx
+  unsigned int v9; // ecx
+  __int64 v10; // rdi
+  unsigned int v11; // ebx
+  _QWORD v13[5]; // [rsp+30h] [rbp-28h] BYREF
+  char v14; // [rsp+60h] [rbp+8h] BYREF
+  __int16 v15; // [rsp+68h] [rbp+10h] BYREF
+  __int16 v16; // [rsp+70h] [rbp+18h] BYREF
 
-  v14 = a3;
-  v13 = a2;
-  appended = std::_Fnv1a_append_bytes(a1, (const unsigned __int8 *const)&v14, 2uLL);
-  v8 = std::_Hash<std::_Umap_traits<enum ShaderLinkingArgument,CShaderLinkingGraphBuilder::Node,std::_Uhash_compare<enum ShaderLinkingArgument,std::hash<enum ShaderLinkingArgument>,std::equal_to<enum ShaderLinkingArgument>>,std::allocator<std::pair<enum ShaderLinkingArgument const,CShaderLinkingGraphBuilder::Node>>,0>>::_Find<enum ShaderLinkingArgument>(
-         a1 + 16,
-         &v14,
-         appended);
-  if ( v8 == *(_QWORD *)(a1 + 24) )
+  v16 = a3;
+  v15 = a2;
+  v7 = a1[8] & std::_Fnv1a_append_bytes((unsigned __int64)a1, (const unsigned __int8 *const)&v16, 2uLL);
+  for ( i = *(__int64 **)(a1[5] + 16 * v7);
+        i != *(__int64 **)std::_Hash<std::_Umap_traits<CResource const *,CWeakResourceReference *,std::_Uhash_compare<CResource const *,std::hash<CResource const *>,std::equal_to<CResource const *>>,std::allocator<std::pair<CResource const * const,CWeakResourceReference *>>,0>>::_End(
+                            a1 + 2,
+                            &v14,
+                            v7);
+        i = (__int64 *)*i )
   {
-    v10 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024809, 0x87u, 0LL);
+    if ( *((_WORD *)i + 8) == a3 )
+      goto LABEL_4;
+  }
+  i = (__int64 *)a1[3];
+LABEL_4:
+  if ( i == (__int64 *)a1[3] )
+  {
+    v11 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024809, 0x86u, 0LL);
   }
   else
   {
-    v9 = *(_QWORD *)std::_Hash<std::_Umap_traits<enum ShaderLinkingArgument,CShaderLinkingGraphBuilder::Node,std::_Uhash_compare<enum ShaderLinkingArgument,std::hash<enum ShaderLinkingArgument>,std::equal_to<enum ShaderLinkingArgument>>,std::allocator<std::pair<enum ShaderLinkingArgument const,CShaderLinkingGraphBuilder::Node>>,0>>::_Try_emplace<enum ShaderLinkingArgument const &,>(
-                      a1 + 16,
-                      v12,
-                      &v13);
-    Microsoft::WRL::ComPtr<ID3D11LinkingNode>::operator=(v9 + 24, v8 + 24);
-    v10 = 0;
-    *(_BYTE *)(v9 + 32) = a4;
-    *(_BYTE *)(v9 + 33) = 0;
+    std::unordered_map<enum ShaderLinkingArgument,CShaderLinkingGraphBuilder::Node>::_Try_emplace<enum ShaderLinkingArgument const &,>(
+      a1 + 2,
+      v13,
+      &v15);
+    v10 = v13[0];
+    Microsoft::WRL::ComPtr<ID3D11LinkingNode>::operator=(v13[0] + 24LL, i + 3);
+    v11 = 0;
+    *(_BYTE *)(v10 + 32) = a4;
+    *(_BYTE *)(v10 + 33) = 0;
   }
-  return v10;
+  return v11;
 }

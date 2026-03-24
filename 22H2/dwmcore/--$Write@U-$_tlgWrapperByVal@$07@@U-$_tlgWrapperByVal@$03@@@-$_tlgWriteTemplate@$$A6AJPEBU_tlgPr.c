@@ -1,15 +1,14 @@
 /*
- * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1801D1830
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1801564D4
  * Callers:
- *     ?WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18005052C (-WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
- *     ?ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x18020CACC (-ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z.c)
- *     ?SetMaxScale@CInteractionTracker@@AEAAXM@Z @ 0x180234D24 (-SetMaxScale@CInteractionTracker@@AEAAXM@Z.c)
- *     ?SetMinScale@CInteractionTracker@@AEAAXM@Z @ 0x180234ED8 (-SetMinScale@CInteractionTracker@@AEAAXM@Z.c)
- *     ?AdvanceToTime@CScalarForceEvaluator@@QEAAMMPEAUIAccelerator@@@Z @ 0x180276794 (-AdvanceToTime@CScalarForceEvaluator@@QEAAMMPEAUIAccelerator@@@Z.c)
- *     ?StopInteraction@CInteractionContextWrapper@@UEAAJXZ @ 0x180285430 (-StopInteraction@CInteractionContextWrapper@@UEAAJXZ.c)
+ *     ?OnWatchdogTimeout@CDwmRenderThreadWatchdog@@EEAAXXZ @ 0x1801565C0 (-OnWatchdogTimeout@CDwmRenderThreadWatchdog@@EEAAXXZ.c)
+ *     ?ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x1801C6BB0 (-ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z.c)
+ *     ?SetMaxScale@CInteractionTracker@@AEAAXM@Z @ 0x1801CBDA0 (-SetMaxScale@CInteractionTracker@@AEAAXM@Z.c)
+ *     ?SetMinScale@CInteractionTracker@@AEAAXM@Z @ 0x1801CBF60 (-SetMinScale@CInteractionTracker@@AEAAXM@Z.c)
+ *     ?StopInteraction@CInteractionContextWrapper@@UEAAJXZ @ 0x180231230 (-StopInteraction@CInteractionContextWrapper@@UEAAJXZ.c)
  * Callees:
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BB2A0 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152990 (_tlgWriteTransfer_EventWriteTransfer.c)
  */
 
 ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(

@@ -1,20 +1,26 @@
 /*
- * XREFs of ACPIInterruptDispatchEvents @ 0x1C0003AE8
+ * XREFs of ACPIInterruptDispatchEvents @ 0x1C00266A8
  * Callers:
- *     ACPIInterruptServiceRoutineDPC @ 0x1C0003E70 (ACPIInterruptServiceRoutineDPC.c)
+ *     ACPIInterruptServiceRoutineDPC @ 0x1C0025DB0 (ACPIInterruptServiceRoutineDPC.c)
  * Callees:
- *     AcpiDiagTraceUnexpectedGpe @ 0x1C0002680 (AcpiDiagTraceUnexpectedGpe.c)
- *     ACPIReadGpeStatusRegister @ 0x1C0038A6C (ACPIReadGpeStatusRegister.c)
- *     ACPIWriteGpeStatusRegister @ 0x1C0038BA4 (ACPIWriteGpeStatusRegister.c)
+ *     ACPIWriteGpeStatusRegister @ 0x1C0026890 (ACPIWriteGpeStatusRegister.c)
+ *     ACPIReadGpeStatusRegister @ 0x1C0026904 (ACPIReadGpeStatusRegister.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void ACPIInterruptDispatchEvents()
 {
-  unsigned int v0; // r14d
+  unsigned int v0; // r15d
   unsigned int v1; // edi
   __int64 v2; // rbx
   unsigned __int8 v3; // al
   unsigned __int8 v4; // si
+  char v5; // [rsp+30h] [rbp-40h] BYREF
+  unsigned int v6; // [rsp+38h] [rbp-38h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-30h] BYREF
+  char *v8; // [rsp+50h] [rbp-20h]
+  int v9; // [rsp+58h] [rbp-18h]
+  int v10; // [rsp+5Ch] [rbp-14h]
 
   v0 = *((unsigned __int16 *)AcpiInformation + 51);
   KeAcquireSpinLockAtDpcLevel(&GpeTableLock);
@@ -28,7 +34,18 @@ void ACPIInterruptDispatchEvents()
       v4 = v3 & *((_BYTE *)GpeCurEnable + v2);
       if ( (v3 & (unsigned __int8)~*((_BYTE *)GpeHandlerRegistered + v2)) != 0 )
       {
-        AcpiDiagTraceUnexpectedGpe(v1, v3 & ~*((_BYTE *)GpeHandlerRegistered + v2));
+        v5 = v3 & ~*((_BYTE *)GpeHandlerRegistered + v2);
+        v6 = v1;
+        if ( AcpiDiagHandle && EtwEventEnabled(AcpiDiagHandle, &ACPI_ETW_EVENT_UNEXPECTED_GPE) )
+        {
+          UserData.Reserved = 0;
+          v10 = 0;
+          UserData.Ptr = (unsigned __int64)&v6;
+          UserData.Size = 4;
+          v8 = &v5;
+          v9 = 1;
+          EtwWrite(AcpiDiagHandle, &ACPI_ETW_EVENT_UNEXPECTED_GPE, 0LL, 2u, &UserData);
+        }
         ACPIWriteGpeStatusRegister(v1);
       }
       *((_BYTE *)GpePending + v2) |= v4;

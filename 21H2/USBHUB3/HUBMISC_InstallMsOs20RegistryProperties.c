@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBMISC_InstallMsOs20RegistryProperties @ 0x1C002FFBC
+ * XREFs of HUBMISC_InstallMsOs20RegistryProperties @ 0x1C002F91C
  * Callers:
- *     HUBDSM_InstallingMsOs20RegistryValues @ 0x1C00225C0 (HUBDSM_InstallingMsOs20RegistryValues.c)
+ *     HUBDSM_InstallingMsOs20RegistryValues @ 0x1C0022170 (HUBDSM_InstallingMsOs20RegistryValues.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBDESC_GetNextMsOs20Descriptor @ 0x1C003AD3C (HUBDESC_GetNextMsOs20Descriptor.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C00812DC (HUBREG_WriteValueToDeviceHardwareKey.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBDESC_GetNextMsOs20Descriptor @ 0x1C003A670 (HUBDESC_GetNextMsOs20Descriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C007FD70 (HUBREG_WriteValueToDeviceHardwareKey.c)
  */
 
 __int64 __fastcall HUBMISC_InstallMsOs20RegistryProperties(__int64 a1)
@@ -60,7 +60,7 @@ __int64 __fastcall HUBMISC_InstallMsOs20RegistryProperties(__int64 a1)
       2u,
       5u,
       0x52u,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       Sizea);
   }
 LABEL_9:
@@ -81,7 +81,7 @@ LABEL_9:
         2u,
         5u,
         0x53u,
-        (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+        (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
         Size);
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SignalOnDirty@SFMLOGICALSURFACE@@QEAAJH@Z @ 0x1C0109DDC
+ * XREFs of ?SignalOnDirty@SFMLOGICALSURFACE@@QEAAJH@Z @ 0x1C0014AC0
  * Callers:
- *     GreSfmRegisterLogicalSurfaceForSignaling @ 0x1C0109CF0 (GreSfmRegisterLogicalSurfaceForSignaling.c)
+ *     GreSfmRegisterLogicalSurfaceForSignaling @ 0x1C00149D4 (GreSfmRegisterLogicalSurfaceForSignaling.c)
  * Callees:
  *     <none>
  */

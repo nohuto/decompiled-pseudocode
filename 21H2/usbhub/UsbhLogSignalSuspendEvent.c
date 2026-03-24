@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhLogSignalSuspendEvent @ 0x1C0033834
+ * XREFs of UsbhLogSignalSuspendEvent @ 0x1C0034B98
  * Callers:
- *     UsbhSignalSuspendEvent @ 0x1C00349E0 (UsbhSignalSuspendEvent.c)
- *     UsbhiSignalSuspendEvent @ 0x1C0035C0C (UsbhiSignalSuspendEvent.c)
+ *     UsbhSignalSuspendEvent @ 0x1C0035C9C (UsbhSignalSuspendEvent.c)
+ *     UsbhiSignalSuspendEvent @ 0x1C0036EC8 (UsbhiSignalSuspendEvent.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 __int64 __fastcall UsbhLogSignalSuspendEvent(__int64 a1, __int64 a2)

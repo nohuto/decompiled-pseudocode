@@ -1,12 +1,12 @@
 /*
- * XREFs of KiEnableGroupScheduling @ 0x1403AF3F4
+ * XREFs of KiEnableGroupScheduling @ 0x1403CBA9C
  * Callers:
- *     KeInsertSchedulingGroup @ 0x1402050DC (KeInsertSchedulingGroup.c)
+ *     KeInsertSchedulingGroup @ 0x1402DB0E8 (KeInsertSchedulingGroup.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeUpdateGroupSchedulingConstants @ 0x1403AF4E4 (KeUpdateGroupSchedulingConstants.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1403CBB8C (KeUpdateGroupSchedulingConstants.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KiEnableGroupScheduling()
@@ -27,7 +27,7 @@ __int64 KiEnableGroupScheduling()
   if ( !KiGroupSchedulingEnabled )
   {
     LOBYTE(v0) = 1;
-    qword_140C422B8 = (__int64)&KiSchedulingGroupList;
+    qword_140C31D78 = (__int64)&KiSchedulingGroupList;
     KiSchedulingGroupList = (__int64)&KiSchedulingGroupList;
     KeUpdateGroupSchedulingConstants(v0);
     KiGenerationEndTick = MEMORY[0xFFFFF78000000320] + (unsigned int)KiGenerationTicks;
@@ -38,33 +38,34 @@ __int64 KiEnableGroupScheduling()
       do
       {
         v3 = *v1++;
-        *(_QWORD *)(v3 + 34192) = v3 + 34184;
-        *(_QWORD *)(v3 + 34184) = v3 + 34184;
+        *(_QWORD *)(v3 + 33296) = v3 + 33288;
+        *(_QWORD *)(v3 + 33288) = v3 + 33288;
         *(_DWORD *)(v3 + 216) = 424 * *(_DWORD *)(v3 + 36) + 128;
-        *(_QWORD *)(v3 + 34520) = KiGenerationEndTick;
+        *(_QWORD *)(v3 + 33624) = KiGenerationEndTick;
         --v2;
       }
       while ( v2 );
     }
     KiGroupSchedulingEnabled = 1;
   }
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && LockHandle.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v8 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v8 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v8 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v8 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

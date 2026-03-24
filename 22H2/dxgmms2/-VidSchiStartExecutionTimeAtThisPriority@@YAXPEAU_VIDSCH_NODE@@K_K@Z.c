@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VidSchiStartExecutionTimeAtThisPriority@@YAXPEAU_VIDSCH_NODE@@K_K@Z @ 0x1C00146B0
+ * XREFs of ?VidSchiStartExecutionTimeAtThisPriority@@YAXPEAU_VIDSCH_NODE@@K_K@Z @ 0x1C0013854
  * Callers:
- *     VidSchiSetPriorityContext @ 0x1C00048C4 (VidSchiSetPriorityContext.c)
- *     VidSchiProcessDpcPreemptedPacket @ 0x1C00138CC (VidSchiProcessDpcPreemptedPacket.c)
- *     VidSchiProcessDpcSystemRequest @ 0x1C0013CC4 (VidSchiProcessDpcSystemRequest.c)
+ *     VidSchiSetPriorityContext @ 0x1C0011234 (VidSchiSetPriorityContext.c)
+ *     VidSchiProcessDpcPreemptedPacket @ 0x1C0012EAC (VidSchiProcessDpcPreemptedPacket.c)
+ *     VidSchiProcessDpcSystemRequest @ 0x1C0013290 (VidSchiProcessDpcSystemRequest.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ void __fastcall VidSchiStartExecutionTimeAtThisPriority(struct _VIDSCH_NODE *a1,
   v3 = gulPriorityToYieldPriorityBand[a2];
   if ( v3 )
   {
-    v4 = (_QWORD *)((char *)a1 + 8 * v3 + 1936);
+    v4 = (_QWORD *)((char *)a1 + 8 * v3 + 1928);
     do
     {
       if ( *(v4 - 4) )

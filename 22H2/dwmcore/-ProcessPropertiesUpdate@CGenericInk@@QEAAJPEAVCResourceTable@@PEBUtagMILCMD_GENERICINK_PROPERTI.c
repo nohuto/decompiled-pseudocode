@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessPropertiesUpdate@CGenericInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GENERICINK_PROPERTIESUPDATE@@PEBXI@Z @ 0x18022DD34
+ * XREFs of ?ProcessPropertiesUpdate@CGenericInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GENERICINK_PROPERTIESUPDATE@@PEBXI@Z @ 0x1801C2F10
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AddMultipleAndSet@?$DynArray@E$0A@@@QEAAJPEFBEI@Z @ 0x1801EEDAC (-AddMultipleAndSet@-$DynArray@E$0A@@@QEAAJPEFBEI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?AddMultipleAndSet@?$DynArray@E$0A@@@QEAAJPEFBEI@Z @ 0x1801894EC (-AddMultipleAndSet@-$DynArray@E$0A@@@QEAAJPEFBEI@Z.c)
  */
 
 __int64 __fastcall CGenericInk::ProcessPropertiesUpdate(
@@ -26,9 +26,9 @@ __int64 __fastcall CGenericInk::ProcessPropertiesUpdate(
   int v14; // eax
   __int64 v15; // rcx
 
-  *((_DWORD *)this + 58) = 0;
-  v5 = (_QWORD *)((char *)this + 208);
-  v7 = DynArray<unsigned char,0>::AddMultipleAndSet((__int64)this + 208, a4, a5);
+  *((_DWORD *)this + 48) = 0;
+  v5 = (_QWORD *)((char *)this + 168);
+  v7 = DynArray<unsigned char,0>::AddMultipleAndSet((__int64)this + 168, a4, a5);
   v9 = v7;
   if ( v7 < 0 )
   {
@@ -37,17 +37,17 @@ __int64 __fastcall CGenericInk::ProcessPropertiesUpdate(
   else
   {
     v10 = 0;
-    v11 = (__int64)(*((_QWORD *)this + 22) - *((_QWORD *)this + 21)) >> 3;
+    v11 = (__int64)(*((_QWORD *)this + 19) - *((_QWORD *)this + 18)) >> 3;
     if ( (_DWORD)v11 )
     {
       v12 = 0LL;
       while ( 1 )
       {
-        v13 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 21) + v12) + 80LL);
+        v13 = *(_QWORD *)(*(_QWORD *)(v12 + *((_QWORD *)this + 18)) + 80LL);
         v14 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)v13 + 40LL))(
                 v13,
                 *v5,
-                *((unsigned int *)this + 58));
+                *((unsigned int *)this + 48));
         v9 = v14;
         if ( v14 < 0 )
           break;

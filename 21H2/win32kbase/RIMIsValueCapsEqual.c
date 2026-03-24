@@ -1,7 +1,7 @@
 /*
- * XREFs of RIMIsValueCapsEqual @ 0x1C0194AFC
+ * XREFs of RIMIsValueCapsEqual @ 0x1C015F2D8
  * Callers:
- *     RIMValidateAllCollectionUsages @ 0x1C0195A6C (RIMValidateAllCollectionUsages.c)
+ *     RIMValidateAllCollectionUsages @ 0x1C015FDC8 (RIMValidateAllCollectionUsages.c)
  * Callees:
  *     <none>
  */

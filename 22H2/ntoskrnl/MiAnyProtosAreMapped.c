@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAnyProtosAreMapped @ 0x1402F0E98
+ * XREFs of MiAnyProtosAreMapped @ 0x14026EF90
  * Callers:
- *     MiTrimSection @ 0x1402EF974 (MiTrimSection.c)
+ *     MiTrimSection @ 0x14026FD60 (MiTrimSection.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiCheckProtoPtePageState @ 0x1402DBE30 (MiCheckProtoPtePageState.c)
+ *     MiUnlockProtoPoolPage @ 0x140239160 (MiUnlockProtoPoolPage.c)
+ *     MiCheckProtoPtePageState @ 0x14023ABE0 (MiCheckProtoPtePageState.c)
  */
 
 __int64 __fastcall MiAnyProtosAreMapped(__int64 a1, _QWORD *a2)
@@ -12,7 +12,7 @@ __int64 __fastcall MiAnyProtosAreMapped(__int64 a1, _QWORD *a2)
   unsigned int v2; // ebp
   ULONG_PTR v3; // rbx
   unsigned __int64 v4; // rdi
-  __int64 v5; // rsi
+  unsigned __int64 v5; // rsi
   unsigned __int64 v6; // rcx
   unsigned __int8 v7; // dl
   unsigned __int8 v9; // [rsp+30h] [rbp+8h] BYREF
@@ -26,7 +26,7 @@ __int64 __fastcall MiAnyProtosAreMapped(__int64 a1, _QWORD *a2)
   if ( a1 == a2[4] )
     v4 = a2[2] + 8LL;
   else
-    v4 = *(_QWORD *)(a1 + 8) + 8LL * *(unsigned int *)(a1 + 44);
+    v4 = v3 + 8LL * *(unsigned int *)(a1 + 44);
   if ( v3 < v4 )
   {
     do

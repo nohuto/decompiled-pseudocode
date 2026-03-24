@@ -1,17 +1,17 @@
 /*
- * XREFs of NtCreateLowBoxToken @ 0x140654F90
+ * XREFs of NtCreateLowBoxToken @ 0x140654F70
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
- *     SepLocateTokenIntegrity @ 0x1400A902C (SepLocateTokenIntegrity.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
- *     SepAppendAceToTokenDefaultDacl @ 0x140132CF8 (SepAppendAceToTokenDefaultDacl.c)
- *     SepCaptureHandles @ 0x140136A50 (SepCaptureHandles.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
+ *     SepLocateTokenIntegrity @ 0x1400A904C (SepLocateTokenIntegrity.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x140132D18 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepCaptureHandles @ 0x140136A70 (SepCaptureHandles.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
  *     SeReleaseLuidAndAttributesArray @ 0x1405BCE84 (SeReleaseLuidAndAttributesArray.c)
@@ -24,16 +24,16 @@
  *     SeReleaseSid @ 0x1406112AC (SeReleaseSid.c)
  *     SeCaptureSid @ 0x1406112D4 (SeCaptureSid.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     SepDuplicateToken @ 0x1406494A0 (SepDuplicateToken.c)
- *     RtlIsPackageSid @ 0x140654260 (RtlIsPackageSid.c)
- *     RtlGetAppContainerSidType @ 0x140654B80 (RtlGetAppContainerSidType.c)
- *     RtlIsCapabilitySid @ 0x140655558 (RtlIsCapabilitySid.c)
- *     SepSetTokenPackage @ 0x14065BD08 (SepSetTokenPackage.c)
- *     SepSetTokenCachedHandles @ 0x14065BDBC (SepSetTokenCachedHandles.c)
- *     SepSetTokenLowboxNumber @ 0x14065C104 (SepSetTokenLowboxNumber.c)
- *     SepCheckCapabilities @ 0x1406B3268 (SepCheckCapabilities.c)
- *     SepCheckCreateLowBox @ 0x1406CBE84 (SepCheckCreateLowBox.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
+ *     RtlIsPackageSid @ 0x140654240 (RtlIsPackageSid.c)
+ *     RtlGetAppContainerSidType @ 0x140654B60 (RtlGetAppContainerSidType.c)
+ *     RtlIsCapabilitySid @ 0x140655538 (RtlIsCapabilitySid.c)
+ *     SepSetTokenPackage @ 0x14065BCE8 (SepSetTokenPackage.c)
+ *     SepSetTokenCachedHandles @ 0x14065BD9C (SepSetTokenCachedHandles.c)
+ *     SepSetTokenLowboxNumber @ 0x14065C0E4 (SepSetTokenLowboxNumber.c)
+ *     SepCheckCapabilities @ 0x1406B3248 (SepCheckCapabilities.c)
+ *     SepCheckCreateLowBox @ 0x1406CBE64 (SepCheckCreateLowBox.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 int __fastcall NtCreateLowBoxToken(

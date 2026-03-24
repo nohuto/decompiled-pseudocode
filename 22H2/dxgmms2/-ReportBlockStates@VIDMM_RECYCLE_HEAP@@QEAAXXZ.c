@@ -1,41 +1,46 @@
 /*
- * XREFs of ?ReportBlockStates@VIDMM_RECYCLE_HEAP@@QEAAXXZ @ 0x1C00F62A4
+ * XREFs of ?ReportBlockStates@VIDMM_RECYCLE_HEAP@@QEAAXXZ @ 0x1C00C0400
  * Callers:
- *     ?ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ @ 0x1C00F6350 (-ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ.c)
+ *     ?ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ @ 0x1C00C04B4 (-ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ.c)
  * Callees:
- *     McTemplateK0pxqqt_EtwWriteTransfer @ 0x1C00321E4 (McTemplateK0pxqqt_EtwWriteTransfer.c)
- *     ?ReportStates@VIDMM_RECYCLE_BLOCK@@QEAAXXZ @ 0x1C00C442A (-ReportStates@VIDMM_RECYCLE_BLOCK@@QEAAXXZ.c)
+ *     McTemplateK0pxqqt_EtwWriteTransfer @ 0x1C0027F6C (McTemplateK0pxqqt_EtwWriteTransfer.c)
+ *     ?ReportStates@VIDMM_RECYCLE_BLOCK@@QEAAXXZ @ 0x1C00C05C8 (-ReportStates@VIDMM_RECYCLE_BLOCK@@QEAAXXZ.c)
  */
 
-void __fastcall VIDMM_RECYCLE_HEAP::ReportBlockStates(VIDMM_RECYCLE_HEAP *this, __int64 a2, __int64 a3)
+void __fastcall VIDMM_RECYCLE_HEAP::ReportBlockStates(VIDMM_RECYCLE_HEAP *this)
 {
-  char *v3; // rdi
+  char *v1; // rsi
   char *i; // rbx
-  __int64 v6; // r9
-  __int64 v7; // rcx
-  __int64 v8; // [rsp+28h] [rbp-20h]
-  __int64 v9; // [rsp+30h] [rbp-18h]
-  __int64 v10; // [rsp+38h] [rbp-10h]
+  __int64 v4; // r9
+  __int64 v5; // [rsp+28h] [rbp-20h]
+  __int64 v6; // [rsp+30h] [rbp-18h]
+  __int64 v7; // [rsp+38h] [rbp-10h]
 
-  v3 = (char *)this + 32;
-  for ( i = (char *)*((_QWORD *)this + 4); i != v3; i = *(char **)i )
+  v1 = (char *)this + 32;
+  for ( i = (char *)*((_QWORD *)this + 4); i != v1; i = *(char **)i )
   {
     if ( bTracingEnabled )
     {
-      v6 = *((_QWORD *)i + 3);
-      v7 = *((_QWORD *)i + 4) - v6;
-      a3 = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)this + 1) + 8LL) + 8LL);
-      a2 = *(unsigned int *)this;
-      if ( (unsigned int)(a2 - 3) <= 3 )
-        v6 = *((_QWORD *)i + 5);
-      if ( (byte_1C0076982 & 2) != 0 )
+      if ( (unsigned int)(*(_DWORD *)this - 3) > 3 )
+        v4 = *((_QWORD *)i + 3);
+      else
+        v4 = *((_QWORD *)i + 5);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
       {
-        LODWORD(v10) = 1;
-        LODWORD(v9) = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 1) + 8LL) + 8LL);
-        LODWORD(v8) = *(_DWORD *)this;
-        McTemplateK0pxqqt_EtwWriteTransfer(v7, &EventCreateProcessAllocation, a3, v6, v7, v8, v9, v10);
+        LODWORD(v7) = 1;
+        LODWORD(v6) = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 1) + 8LL) + 8LL);
+        LODWORD(v5) = *(_DWORD *)this;
+        McTemplateK0pxqqt_EtwWriteTransfer(
+          *((_QWORD *)i + 4) - *((_QWORD *)i + 3),
+          &EventCreateProcessAllocation,
+          *((_QWORD *)i + 3),
+          v4,
+          *((_QWORD *)i + 4) - *((_QWORD *)i + 3),
+          v5,
+          v6,
+          v7);
       }
     }
-    VIDMM_RECYCLE_BLOCK::ReportStates((VIDMM_RECYCLE_BLOCK *)(i - 16), a2, a3);
+    VIDMM_RECYCLE_BLOCK::ReportStates((VIDMM_RECYCLE_BLOCK *)(i - 16));
   }
 }

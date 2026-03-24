@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhSyncResumeDeviceInternal @ 0x1C00398B8
+ * XREFs of UsbhSyncResumeDeviceInternal @ 0x1C003ABC8
  * Callers:
- *     UsbhPdoSetD0 @ 0x1C00055F0 (UsbhPdoSetD0.c)
- *     Usbh_PdoSurpriseRemove_PdoEvent @ 0x1C003AA28 (Usbh_PdoSurpriseRemove_PdoEvent.c)
- *     UsbhPdoWaitForD3Reconnect @ 0x1C003C2B4 (UsbhPdoWaitForD3Reconnect.c)
- *     UsbhPdoPnp_RemoveDevice @ 0x1C0055AB0 (UsbhPdoPnp_RemoveDevice.c)
+ *     UsbhPdoSetD0 @ 0x1C00173C0 (UsbhPdoSetD0.c)
+ *     Usbh_PdoSurpriseRemove_PdoEvent @ 0x1C003BD38 (Usbh_PdoSurpriseRemove_PdoEvent.c)
+ *     UsbhPdoWaitForD3Reconnect @ 0x1C003D494 (UsbhPdoWaitForD3Reconnect.c)
+ *     UsbhPdoPnp_RemoveDevice @ 0x1C0057150 (UsbhPdoPnp_RemoveDevice.c)
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhSet_Pdo_Dx @ 0x1C000AFE0 (UsbhSet_Pdo_Dx.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhAcquirePdoStateLock @ 0x1C00312E4 (UsbhAcquirePdoStateLock.c)
- *     UsbhSyncResumePort @ 0x1C0039A30 (UsbhSyncResumePort.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSet_Pdo_Dx @ 0x1C0010D74 (UsbhSet_Pdo_Dx.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C001CDA8 (UsbhAcquirePdoStateLock.c)
+ *     UsbhSyncResumePort @ 0x1C003AD40 (UsbhSyncResumePort.c)
  */
 
 __int64 __fastcall UsbhSyncResumeDeviceInternal(__int64 a1, __int64 a2, struct _DEVICE_OBJECT *a3)
@@ -35,28 +35,27 @@ __int64 __fastcall UsbhSyncResumeDeviceInternal(__int64 a1, __int64 a2, struct _
     if ( PdoExt((__int64)a3)[281] == 3 )
     {
       *(_DWORD *)(a2 + 136) = 0;
-      WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+      qword_1C006C500 = 0LL;
       *(_DWORD *)(a2 + 88) = 1734964085;
-      KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, *(_BYTE *)(a2 + 132));
+      KeReleaseSpinLock(&HubG, *(_BYTE *)(a2 + 132));
       v10 = UsbhSyncResumePort(a1);
     }
     else
     {
       *(_DWORD *)(a2 + 136) = 0;
       v10 = -1073741810;
-      WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+      qword_1C006C500 = 0LL;
       v11 = *(_BYTE *)(a2 + 132);
       *(_DWORD *)(a2 + 88) = 1734964085;
-      KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v11);
+      KeReleaseSpinLock(&HubG, v11);
     }
   }
   else
   {
     v10 = -1073741810;
-    if ( !v7 )
-      return (unsigned int)v10;
   }
-  UsbhUnlatchPdo(a1, v7, 0LL, 0x70534D52u);
+  if ( v7 )
+    UsbhUnlatchPdo(a1, v7, 0LL, 0x70534D52u);
   if ( v10 >= 0 )
     UsbhSet_Pdo_Dx(a3, (POWER_STATE)1);
   return (unsigned int)v10;

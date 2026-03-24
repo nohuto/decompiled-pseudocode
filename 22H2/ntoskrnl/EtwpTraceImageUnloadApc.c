@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpTraceImageUnloadApc @ 0x1402107E0
+ * XREFs of EtwpTraceImageUnloadApc @ 0x140316A70
  * Callers:
  *     <none>
  * Callees:
- *     EtwpTraceImageUnload @ 0x140211D88 (EtwpTraceImageUnload.c)
- *     KeAreAllApcsDisabled @ 0x140215020 (KeAreAllApcsDisabled.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwpTraceImageUnload @ 0x140259F1C (EtwpTraceImageUnload.c)
+ *     KeAreAllApcsDisabled @ 0x14025A4E0 (KeAreAllApcsDisabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpTraceImageUnloadApc(PVOID P)
 {
   int v2; // eax
-  __int128 *v3; // rcx
+  unsigned __int16 *v3; // rcx
   __int128 v4; // [rsp+50h] [rbp-18h] BYREF
   __int64 v5; // [rsp+70h] [rbp+8h] BYREF
 
@@ -30,11 +30,11 @@ void __fastcall EtwpTraceImageUnloadApc(PVOID P)
   else
     v2 = -1073741637;
   if ( v2 < 0 )
-    LODWORD(v3) = *((_QWORD *)P + 11) + 88;
+    v3 = (unsigned __int16 *)(*((_QWORD *)P + 11) + 88LL);
   else
-    v3 = &v4;
+    v3 = (unsigned __int16 *)&v4;
   EtwpTraceImageUnload(
-    (_DWORD)v3,
+    v3,
     *((_QWORD *)P + 12),
     *((_QWORD *)P + 13),
     *((_QWORD *)P + 14),

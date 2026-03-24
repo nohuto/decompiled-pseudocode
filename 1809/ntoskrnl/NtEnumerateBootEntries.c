@@ -1,26 +1,26 @@
 /*
- * XREFs of NtEnumerateBootEntries @ 0x1408D38F0
+ * XREFs of NtEnumerateBootEntries @ 0x1408D38D0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExUnlockUserBuffer @ 0x14011A6F8 (ExUnlockUserBuffer.c)
- *     strcmp @ 0x140196EE0 (strcmp.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ExpIsDevicePathForRemovableMedia @ 0x14031CDE0 (ExpIsDevicePathForRemovableMedia.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
+ *     strcmp @ 0x140196F00 (strcmp.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ExpIsDevicePathForRemovableMedia @ 0x14031CEE0 (ExpIsDevicePathForRemovableMedia.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExLockUserBuffer @ 0x14069E938 (ExLockUserBuffer.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x1408211CC (IoEnumerateEnvironmentVariablesEx.c)
- *     ExpSafeWcslen @ 0x1408D16FC (ExpSafeWcslen.c)
- *     ExpTranslateBootEntryNameToId @ 0x1408D2650 (ExpTranslateBootEntryNameToId.c)
- *     ExpVerifyFilePath @ 0x1408D33A0 (ExpVerifyFilePath.c)
- *     ExpVerifyWindowsOsOptions @ 0x1408D34FC (ExpVerifyWindowsOsOptions.c)
+ *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x1408211AC (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExpSafeWcslen @ 0x1408D16DC (ExpSafeWcslen.c)
+ *     ExpTranslateBootEntryNameToId @ 0x1408D2630 (ExpTranslateBootEntryNameToId.c)
+ *     ExpVerifyFilePath @ 0x1408D3380 (ExpVerifyFilePath.c)
+ *     ExpVerifyWindowsOsOptions @ 0x1408D34DC (ExpVerifyWindowsOsOptions.c)
  */
 
 NTSTATUS __stdcall NtEnumerateBootEntries(PVOID Buffer, PULONG BufferLength)
@@ -90,7 +90,7 @@ NTSTATUS __stdcall NtEnumerateBootEntries(PVOID Buffer, PULONG BufferLength)
   void *v65; // [rsp+A8h] [rbp-50h]
   char v67; // [rsp+110h] [rbp+18h]
 
-  if ( dword_140409DD0 != 2 )
+  if ( dword_140409D90 != 2 )
     return -1073741822;
   if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
     return -1073741811;

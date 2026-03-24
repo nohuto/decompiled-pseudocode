@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C0026A54
+ * XREFs of HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C00240B8
  * Callers:
- *     HUBDSM_DisablingDeviceInControllerOnStopSuspendOnRenumWithAddress0Ownership @ 0x1C001F710 (HUBDSM_DisablingDeviceInControllerOnStopSuspendOnRenumWithAddress0Ownership.c)
+ *     HUBDSM_DisablingDeviceInControllerOnStopSuspendOnRenumWithAddress0Ownership @ 0x1C001CD00 (HUBDSM_DisablingDeviceInControllerOnStopSuspendOnRenumWithAddress0Ownership.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_q @ 0x1C00150D4 (WPP_RECORDER_SF_q.c)
- *     HUBUCX_SubmitUcxIoctl @ 0x1C00262CC (HUBUCX_SubmitUcxIoctl.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_q @ 0x1C001373C (WPP_RECORDER_SF_q.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C0023950 (HUBUCX_SubmitUcxIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl(__int64 *a1)
@@ -43,7 +43,7 @@ __int64 __fastcall HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl(__int64 *
             4u,
             5u,
             0x1Bu,
-            (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids,
+            (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
             v4);
         }
         *(_DWORD *)(v2 + 32) = 2;
@@ -59,7 +59,7 @@ __int64 __fastcall HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl(__int64 *
              2u,
              5u,
              0x1Cu,
-             (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids,
+             (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
              v6);
   }
   return result;

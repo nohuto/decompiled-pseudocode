@@ -1,9 +1,9 @@
 /*
- * XREFs of CcFindBcb @ 0x14028B018
+ * XREFs of CcFindBcb @ 0x14030F12C
  * Callers:
- *     CcAcquireByteRangeForWrite @ 0x140289260 (CcAcquireByteRangeForWrite.c)
+ *     CcAcquireByteRangeForWrite @ 0x14030FF40 (CcAcquireByteRangeForWrite.c)
  * Callees:
- *     CcGetBcbListHeadLargeOffset @ 0x14028DDD0 (CcGetBcbListHeadLargeOffset.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x14031E5E0 (CcGetBcbListHeadLargeOffset.c)
  */
 
 char __fastcall CcFindBcb(__int64 a1, __int64 a2, _QWORD *a3, __int64 *a4)

@@ -1,19 +1,20 @@
 /*
- * XREFs of ?bMergeScanline@RGNMEMOBJ@@QEAAHAEAVSTACKOBJ@@@Z @ 0x1C02B7DC4
+ * XREFs of ?bMergeScanline@RGNMEMOBJ@@QEAAHAEAVSTACKOBJ@@@Z @ 0x1C02B9AC8
  * Callers:
- *     NtGdiExtFloodFill @ 0x1C02B8670 (NtGdiExtFloodFill.c)
+ *     NtGdiExtFloodFill @ 0x1C02BA3E0 (NtGdiExtFloodFill.c)
  * Callees:
- *     ?bExpandScanline@STACKOBJ@@QEAAHKK@Z @ 0x1C02B7AA0 (-bExpandScanline@STACKOBJ@@QEAAHKK@Z.c)
- *     ?vMergeSpans@@YAXPEAU_SPAN@@0000@Z @ 0x1C02B8600 (-vMergeSpans@@YAXPEAU_SPAN@@0000@Z.c)
+ *     ?bExpandScanline@STACKOBJ@@QEAAHKK@Z @ 0x1C02B97AC (-bExpandScanline@STACKOBJ@@QEAAHKK@Z.c)
+ *     ?vMergeSpans@@YAXPEAU_SPAN@@0000@Z @ 0x1C02BA31C (-vMergeSpans@@YAXPEAU_SPAN@@0000@Z.c)
  */
 
 __int64 __fastcall RGNMEMOBJ::bMergeScanline(RGNMEMOBJ *this, struct STACKOBJ *a2)
 {
-  __int64 v2; // rax
-  __int64 v4; // rdi
-  __int64 v5; // rbp
+  __int64 v2; // rbp
+  __int64 v3; // rdi
+  struct STACKOBJ *v4; // r9
+  int v6; // r8d
   int v7; // edx
-  int v8; // ecx
+  unsigned int v8; // ecx
   unsigned int v9; // ebx
   unsigned int v10; // r14d
   unsigned int *v11; // r9
@@ -24,43 +25,44 @@ __int64 __fastcall RGNMEMOBJ::bMergeScanline(RGNMEMOBJ *this, struct STACKOBJ *a
   __int64 v16; // rcx
   unsigned int *v17; // r8
   int v18; // ecx
-  int v19; // r9d
-  unsigned int v20; // r12d
+  int v19; // r10d
+  unsigned int v20; // r13d
   signed int v21; // r8d
   unsigned int *v22; // rbx
   unsigned int *v23; // r14
   unsigned int v24; // ecx
-  __int64 v25; // r11
+  __int64 v25; // r12
   int v26; // edx
   unsigned int v27; // edx
-  __int64 v29; // r11
-  unsigned int v30; // r8d
-  signed int v31; // eax
-  unsigned int *v32; // rdi
-  __int64 v33; // rcx
-  unsigned int v34; // eax
-  _DWORD *v35; // rdx
+  unsigned int v29; // r8d
+  signed int v30; // eax
+  unsigned int *v31; // rdi
+  __int64 v32; // rcx
+  unsigned int v33; // eax
+  _DWORD *v34; // rdx
+  signed int v35; // eax
   signed int v36; // eax
-  signed int v37; // eax
-  int v38; // [rsp+60h] [rbp+8h]
+  int v37; // [rsp+60h] [rbp+8h]
 
-  v2 = *(_QWORD *)this;
-  v4 = *((_QWORD *)a2 + 1);
-  v5 = 0LL;
-  v7 = *(_DWORD *)(*(_QWORD *)this + 80LL);
-  v8 = *(_DWORD *)(v4 + 4);
-  if ( v7 != 16 )
+  v2 = 0LL;
+  v3 = *((_QWORD *)a2 + 1);
+  v4 = a2;
+  v6 = *(_DWORD *)(*(_QWORD *)this + 80LL);
+  v7 = *(_DWORD *)(v3 + 4);
+  v8 = *(_DWORD *)(*(_QWORD *)this + 24LL);
+  if ( v6 != 16 )
   {
-    v19 = 8 * v8;
-    v38 = 8 * v8;
-    v20 = 8 * v8 + 16;
-    if ( v20 > *(_DWORD *)(v2 + 24) - v7 )
+    v19 = 8 * v7;
+    v37 = 8 * v7;
+    v20 = 8 * v7 + 16;
+    if ( v20 > v8 - v6 )
     {
-      if ( !RGNOBJ::bExpand(this, v20 + *(_DWORD *)(v2 + 24) + 4832) )
+      if ( !RGNOBJ::bExpand(this, v20 + v8 + 4832) )
         return 0LL;
-      v19 = v38;
+      v4 = a2;
+      v19 = v37;
     }
-    v21 = *(_DWORD *)v4;
+    v21 = *(_DWORD *)v3;
     v22 = *(unsigned int **)(*(_QWORD *)this + 88LL);
     v23 = *(unsigned int **)(*(_QWORD *)this + 40LL);
     while ( v21 > (int)v22[1] )
@@ -70,36 +72,36 @@ __int64 __fastcall RGNMEMOBJ::bMergeScanline(RGNMEMOBJ *this, struct STACKOBJ *a
     {
       v22[-*(v22 - 1) - 2] = v21;
       ++*(_DWORD *)(*(_QWORD *)this + 84LL);
-      if ( *(_DWORD *)v4 < *(_DWORD *)(*(_QWORD *)this + 100LL) )
-        *(_DWORD *)(*(_QWORD *)this + 100LL) = *(_DWORD *)v4;
+      if ( *(_DWORD *)v3 < *(_DWORD *)(*(_QWORD *)this + 100LL) )
+        *(_DWORD *)(*(_QWORD *)this + 100LL) = *(_DWORD *)v3;
       goto LABEL_23;
     }
     if ( v24 + 1 != v22[2] )
     {
       ++*(_DWORD *)(*(_QWORD *)this + 84LL);
-      *(_DWORD *)(*(_QWORD *)this + 108LL) = *(_DWORD *)v4 + 1;
-      v22[1] = *(_DWORD *)v4 + 1;
+      *(_DWORD *)(*(_QWORD *)this + 108LL) = *(_DWORD *)v3 + 1;
+      v22[1] = *(_DWORD *)v3 + 1;
       goto LABEL_23;
     }
-    v25 = *((_QWORD *)a2 + 2);
+    v25 = *((_QWORD *)v4 + 2);
     v20 = v19;
     *(_DWORD *)v25 = v24;
-    v26 = *(_DWORD *)(v4 + 4) + (*v22 >> 1);
+    v26 = *(_DWORD *)(v3 + 4) + (*v22 >> 1);
     *(_DWORD *)(v25 + 4) = v26;
     v27 = 8 * v26 + 24;
     if ( v27 > *(_DWORD *)(v25 + 8) )
     {
-      if ( !(unsigned int)STACKOBJ::bExpandScanline(a2, v27, 0) )
+      if ( !(unsigned int)STACKOBJ::bExpandScanline(v4, v27, 0) )
         return 0LL;
       v25 = *((_QWORD *)a2 + 2);
     }
     vMergeSpans(
       (struct _SPAN *)(v22 + 3),
       (struct _SPAN *)&v22[*v22 + 3],
-      (struct _SPAN *)(v4 + 24),
-      (struct _SPAN *)(v4 + 8 * (*(unsigned int *)(v4 + 4) + 3LL)),
+      (struct _SPAN *)(v3 + 24),
+      (struct _SPAN *)(v3 + 8 * (*(unsigned int *)(v3 + 4) + 3LL)),
       (struct _SPAN *)(v25 + 24));
-    v4 = v29;
+    v3 = v25;
 LABEL_23:
     *(_QWORD *)(*(_QWORD *)this + 40LL) = (char *)v23 + v20;
     while ( v23 > v22 )
@@ -107,56 +109,56 @@ LABEL_23:
       --v23;
       *(unsigned int *)((char *)v23 + v20) = *v23;
     }
-    v30 = 2 * *(_DWORD *)(v4 + 4);
-    *v22 = v30;
-    v22[1] = *(_DWORD *)v4;
-    v31 = *(_DWORD *)v4;
-    v32 = (unsigned int *)(v4 + 24);
-    v22[2] = v31 + 1;
-    if ( v30 )
+    v29 = 2 * *(_DWORD *)(v3 + 4);
+    *v22 = v29;
+    v22[1] = *(_DWORD *)v3;
+    v30 = *(_DWORD *)v3;
+    v31 = (unsigned int *)(v3 + 24);
+    v22[2] = v30 + 1;
+    if ( v29 )
     {
       do
       {
-        v33 = (unsigned int)(v5 + 1);
-        v22[v5 + 3] = *v32;
-        v5 = (unsigned int)(v5 + 2);
-        v34 = v32[1];
-        v32 += 2;
-        v22[v33 + 3] = v34;
+        v32 = (unsigned int)(v2 + 1);
+        v22[v2 + 3] = *v31;
+        v2 = (unsigned int)(v2 + 2);
+        v33 = v31[1];
+        v31 += 2;
+        v22[v32 + 3] = v33;
       }
-      while ( (unsigned int)v5 < v30 );
+      while ( (unsigned int)v2 < v29 );
     }
-    v22[v5 + 3] = v30;
-    v35 = *(_DWORD **)this;
-    v36 = v22[3];
-    if ( *(_DWORD *)(*(_QWORD *)this + 96LL) > v36 )
+    v22[v2 + 3] = v29;
+    v34 = *(_DWORD **)this;
+    v35 = v22[3];
+    if ( *(_DWORD *)(*(_QWORD *)this + 96LL) > v35 )
     {
-      v35[24] = v36;
-      v35 = *(_DWORD **)this;
+      v34[24] = v35;
+      v34 = *(_DWORD **)this;
     }
-    v37 = v22[v30 + 2];
-    if ( v35[26] < v37 )
+    v36 = v22[v29 + 2];
+    if ( v34[26] < v36 )
     {
-      v35[26] = v37;
-      v35 = *(_DWORD **)this;
+      v34[26] = v36;
+      v34 = *(_DWORD **)this;
     }
-    v35[20] += v20;
+    v34[20] += v20;
     return 1LL;
   }
-  v9 = 2 * v8;
-  v10 = 8 * v8 + 48;
-  if ( v10 > *(_DWORD *)(v2 + 24) && !RGNOBJ::bExpand(this, 8 * v8 + 4880) )
+  v9 = 2 * v7;
+  v10 = 8 * v7 + 48;
+  if ( v10 > v8 && !RGNOBJ::bExpand(this, 8 * v7 + 4880) )
     return 0LL;
-  v11 = (unsigned int *)(v4 + 24);
+  v11 = (unsigned int *)(v3 + 24);
   v12 = 0;
   *(_DWORD *)(*(_QWORD *)this + 80LL) = v10;
   *(_DWORD *)(*(_QWORD *)this + 84LL) = 3;
   v13 = *(_DWORD **)(*(_QWORD *)this + 88LL);
-  v13[2] = *(_DWORD *)v4;
+  v13[2] = *(_DWORD *)v3;
   v14 = (_DWORD *)((char *)v13 + (unsigned int)(4 * *v13 + 16));
   *v14 = v9;
-  v14[1] = *(_DWORD *)v4;
-  for ( v14[2] = *(_DWORD *)v4 + 1; v12 < v9; v14[v16 + 3] = *(v11 - 1) )
+  v14[1] = *(_DWORD *)v3;
+  for ( v14[2] = *(_DWORD *)v3 + 1; v12 < v9; v14[v16 + 3] = *(v11 - 1) )
   {
     v15 = *v11;
     v11 += 2;
@@ -165,13 +167,13 @@ LABEL_23:
     v12 += 2;
   }
   v14[v12 + 3] = v9;
-  *(_DWORD *)(*(_QWORD *)this + 100LL) = *(_DWORD *)v4;
-  *(_DWORD *)(*(_QWORD *)this + 108LL) = *(_DWORD *)v4 + 1;
+  *(_DWORD *)(*(_QWORD *)this + 100LL) = *(_DWORD *)v3;
+  *(_DWORD *)(*(_QWORD *)this + 108LL) = *(_DWORD *)v3 + 1;
   *(_DWORD *)(*(_QWORD *)this + 96LL) = v14[3];
   *(_DWORD *)(*(_QWORD *)this + 104LL) = v14[v9 + 2];
   v17 = &v14[*v14 + 4];
   *v17 = 0;
-  v18 = *(_DWORD *)v4 + 1;
+  v18 = *(_DWORD *)v3 + 1;
   *((_QWORD *)v17 + 1) = 0x7FFFFFFFLL;
   v17[1] = v18;
   *(_QWORD *)(*(_QWORD *)this + 40LL) = v17 + 4;

@@ -1,19 +1,19 @@
 /*
- * XREFs of RaisePower @ 0x1C0095584
+ * XREFs of RaisePower @ 0x1C001F508
  * Callers:
- *     ComputeRGBLUTAA @ 0x1C0094050 (ComputeRGBLUTAA.c)
- *     pDCIAdjClr @ 0x1C0094724 (pDCIAdjClr.c)
- *     AdjustSrcDevGamma @ 0x1C00950A4 (AdjustSrcDevGamma.c)
- *     HT_CreateDeviceHalftoneInfo @ 0x1C0096118 (HT_CreateDeviceHalftoneInfo.c)
- *     BuildExpandAAInfo @ 0x1C00DA2D0 (BuildExpandAAInfo.c)
- *     HT_ComputeRGBGammaTable @ 0x1C025DE00 (HT_ComputeRGBGammaTable.c)
- *     ComputeBGRMappingTable @ 0x1C025E794 (ComputeBGRMappingTable.c)
+ *     ComputeRGBLUTAA @ 0x1C001BB38 (ComputeRGBLUTAA.c)
+ *     pDCIAdjClr @ 0x1C001C210 (pDCIAdjClr.c)
+ *     AdjustSrcDevGamma @ 0x1C001CB90 (AdjustSrcDevGamma.c)
+ *     BuildExpandAAInfo @ 0x1C00D3B80 (BuildExpandAAInfo.c)
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C01126A8 (HT_CreateDeviceHalftoneInfo.c)
+ *     HT_ComputeRGBGammaTable @ 0x1C0261190 (HT_ComputeRGBGammaTable.c)
+ *     ComputeBGRMappingTable @ 0x1C0261908 (ComputeBGRMappingTable.c)
  * Callees:
- *     MulFD6 @ 0x1C00945F0 (MulFD6.c)
- *     DivFD6 @ 0x1C00952E0 (DivFD6.c)
- *     AntiLog @ 0x1C0095678 (AntiLog.c)
- *     Log @ 0x1C00957B4 (Log.c)
- *     FD6DivL @ 0x1C009588C (FD6DivL.c)
+ *     MulFD6 @ 0x1C001C0DC (MulFD6.c)
+ *     DivFD6 @ 0x1C001CDDC (DivFD6.c)
+ *     AntiLog @ 0x1C001F5FC (AntiLog.c)
+ *     Log @ 0x1C001F73C (Log.c)
+ *     FD6DivL @ 0x1C001F814 (FD6DivL.c)
  */
 
 __int64 __fastcall RaisePower(int a1, signed int a2, char a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?LockForRead@CWICBitmapWrapper@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x180271940
+ * XREFs of ?LockForRead@CWICBitmapWrapper@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x180218580
  * Callers:
  *     <none>
  * Callees:
- *     ?Lock@CWICBitmapWrapper@@UEAAJPEBUWICRect@@W4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@@Z @ 0x1800E7EB0 (-Lock@CWICBitmapWrapper@@UEAAJPEBUWICRect@@W4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?Lock@CWICBitmapWrapper@@UEAAJPEBUWICRect@@W4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@@Z @ 0x18003DCB0 (-Lock@CWICBitmapWrapper@@UEAAJPEBUWICRect@@W4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CWICBitmapWrapper::LockForRead(__int64 a1, INT *a2, struct IBitmapLock **a3)
@@ -21,5 +21,5 @@ __int64 __fastcall CWICBitmapWrapper::LockForRead(__int64 a1, INT *a2, struct IB
   v5 = a2[3];
   v7.Y = v3;
   v7.Height = v5 - v3;
-  return CWICBitmapWrapper::Lock((CWICBitmapWrapper *)(a1 - 112), (__m128i *)&v7, WICBitmapLockRead, a3);
+  return CWICBitmapWrapper::Lock((CWICBitmapWrapper *)(a1 - 208), (__m128i *)&v7, WICBitmapLockRead, a3);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CInputSinkStruct@@QEAA@XZ @ 0x1800E1008
+ * XREFs of ??0CInputSinkStruct@@QEAA@XZ @ 0x1800E15A4
  * Callers:
- *     ?UpdateInputSink@CInteraction@@QEAAJPEAX@Z @ 0x1800E0D28 (-UpdateInputSink@CInteraction@@QEAAJPEAX@Z.c)
+ *     ?UpdateInputSink@CInteraction@@QEAAJPEAX@Z @ 0x1800E12C0 (-UpdateInputSink@CInteraction@@QEAAJPEAX@Z.c)
  * Callees:
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18008ED70 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1800949F0 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 CInputSinkStruct *__fastcall CInputSinkStruct::CInputSinkStruct(CInputSinkStruct *this)

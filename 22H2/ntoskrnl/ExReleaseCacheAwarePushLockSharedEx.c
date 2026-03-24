@@ -1,69 +1,73 @@
 /*
- * XREFs of ExReleaseCacheAwarePushLockSharedEx @ 0x1402BD560
+ * XREFs of ExReleaseCacheAwarePushLockSharedEx @ 0x1402CACA0
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     KiAbThreadClearAcquiredLockEntry @ 0x1402BD670 (KiAbThreadClearAcquiredLockEntry.c)
- *     KiAbEntryFreeAndEnableInterrupts @ 0x1402BD6D0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     KiAbThreadClearAcquiredLockEntry @ 0x1402CB4B0 (KiAbThreadClearAcquiredLockEntry.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
   char v2; // di
   __int64 result; // rax
-  ULONG_PTR v5; // rbx
-  struct _KTHREAD *CurrentThread; // rdi
+  ULONG_PTR v5; // rsi
+  struct _KTHREAD *CurrentThread; // rbx
   __int64 SessionId; // r8
-  unsigned int v8; // r8d
-  struct _KPRCB *CurrentPrcb; // rcx
-  _DWORD *SchedulerAssist; // r8
-  int v11; // ett
+  unsigned __int8 v8; // r14
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // rdi
+  unsigned int v13; // ecx
+  __int64 v14; // rdx
 
   v2 = BugCheckParameter1;
-  if ( (BugCheckParameter1 & 0xFFFFFFF8) != 0 )
+  if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
     KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, BugCheckParameter2, 0LL, 0LL);
   result = _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 0LL, 17LL);
   if ( result != 17 )
-    result = ExfReleasePushLockShared(BugCheckParameter2);
+    result = ExfReleasePushLockShared((signed __int64 *)BugCheckParameter2);
   if ( (v2 & 2) == 0 )
   {
     v5 = *(_QWORD *)(BugCheckParameter2 + 16);
     CurrentThread = KeGetCurrentThread();
-    if ( v5 - qword_140C65AE8 < 0x8000000000LL )
-      SessionId = (unsigned int)MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+    if ( (unsigned int)MiGetSystemRegionType(v5) == 1 )
+      SessionId = (unsigned int)MmGetSessionIdEx(CurrentThread->ApcState.Process);
     else
       SessionId = 0xFFFFFFFFLL;
-    _disable();
-    result = KiAbThreadClearAcquiredLockEntry(CurrentThread, v5, SessionId);
-    if ( result )
+    --CurrentThread->SpecialApcDisable;
+    v8 = ++CurrentThread->AbAllocationRegionCount;
+    v9 = KiAbThreadClearAcquiredLockEntry(CurrentThread, v5, SessionId);
+    v12 = v9;
+    if ( v9 )
     {
-      return KiAbEntryFreeAndEnableInterrupts(result, (_DWORD)CurrentThread, v5, 1, 0LL);
+      *(_BYTE *)(v9 + 32) |= 2u;
+      if ( *(__int64 *)(v9 + 32) < 0 )
+        KiAbEntryRemoveFromTree(v9, v10, v11);
+      v13 = *(_DWORD *)(v12 + 88) & 0xFFFE0000;
+      *(_BYTE *)(v12 + 25) &= ~1u;
+      *(_DWORD *)(v12 + 88) = v13;
+      *(_QWORD *)(v12 + 32) = 0LL;
+      v14 = (signed __int64)(v12 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+      if ( v8 == 1 )
+        CurrentThread->AbEntrySummary |= 1 << v14;
+      else
+        _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v14);
     }
-    else
+    else if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
     {
-      if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v5, v8, 0LL);
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      if ( SchedulerAssist )
-      {
-        _m_prefetchw(SchedulerAssist);
-        LODWORD(result) = *SchedulerAssist;
-        do
-        {
-          v11 = result;
-          result = (unsigned int)_InterlockedCompareExchange(SchedulerAssist, result & 0xFFDFFFFF, result);
-        }
-        while ( v11 != (_DWORD)result );
-        if ( (result & 0x200000) != 0 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-      }
-      _enable();
+      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v5, (unsigned int)v11, 0LL);
     }
+    --CurrentThread->AbAllocationRegionCount;
+    KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
+    return KiLeaveGuardedRegionUnsafe(CurrentThread);
   }
   return result;
 }

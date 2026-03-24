@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPalmRejectionEnabled@CManipulationContext@@UEBAHXZ @ 0x180105280
+ * XREFs of ?GetPalmRejectionEnabled@CManipulationContext@@UEBAHXZ @ 0x1800E3170
  * Callers:
  *     <none>
  * Callees:

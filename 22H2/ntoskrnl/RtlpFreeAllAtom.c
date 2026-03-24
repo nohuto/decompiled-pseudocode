@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpFreeAllAtom @ 0x14020BDA8
+ * XREFs of RtlpFreeAllAtom @ 0x140315918
  * Callers:
- *     RtlpDereferenceAtom @ 0x14020BD18 (RtlpDereferenceAtom.c)
+ *     RtlpDereferenceAtom @ 0x140315888 (RtlpDereferenceAtom.c)
  * Callees:
- *     RtlpFreeAtom @ 0x14069EC78 (RtlpFreeAtom.c)
- *     RtlpFreeHandleForAtom @ 0x14069ED40 (RtlpFreeHandleForAtom.c)
- *     RtlpHashStringToAtom @ 0x140717FE0 (RtlpHashStringToAtom.c)
+ *     RtlpHashStringToAtom @ 0x14061BF80 (RtlpHashStringToAtom.c)
+ *     RtlpFreeAtom @ 0x1406862EC (RtlpFreeAtom.c)
+ *     RtlpFreeHandleForAtom @ 0x14068631C (RtlpFreeHandleForAtom.c)
  */
 
 __int64 __fastcall RtlpFreeAllAtom(_QWORD *a1, __int64 a2)

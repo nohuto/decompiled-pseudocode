@@ -1,14 +1,14 @@
 /*
- * XREFs of KiTransitionSchedulingGroupGeneration @ 0x1400D3260
+ * XREFs of KiTransitionSchedulingGroupGeneration @ 0x1400D3280
  * Callers:
- *     KiGroupSchedulingGenerationEnd @ 0x1400D308C (KiGroupSchedulingGenerationEnd.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1400D30AC (KiGroupSchedulingGenerationEnd.c)
  * Callees:
- *     KiIsThreadRankNonZero @ 0x1400D1460 (KiIsThreadRankNonZero.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D1500 (KiGetThreadEffectiveRankNonZero.c)
- *     KiChargeSchedulingGroupCycleTime @ 0x1400D360C (KiChargeSchedulingGroupCycleTime.c)
- *     KiInsertNonMaxOverQuotaScb @ 0x14011701C (KiInsertNonMaxOverQuotaScb.c)
- *     KiAddThreadToPrcbQueue @ 0x14011754C (KiAddThreadToPrcbQueue.c)
- *     KiSetSchedulerAssistPriority @ 0x14029952C (KiSetSchedulerAssistPriority.c)
+ *     KiIsThreadRankNonZero @ 0x1400D1480 (KiIsThreadRankNonZero.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400D1520 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiChargeSchedulingGroupCycleTime @ 0x1400D362C (KiChargeSchedulingGroupCycleTime.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x14011703C (KiInsertNonMaxOverQuotaScb.c)
+ *     KiAddThreadToPrcbQueue @ 0x14011756C (KiAddThreadToPrcbQueue.c)
+ *     KiSetSchedulerAssistPriority @ 0x14029962C (KiSetSchedulerAssistPriority.c)
  */
 
 unsigned __int64 __fastcall KiTransitionSchedulingGroupGeneration(struct _KPRCB *a1, unsigned __int64 a2, char a3)

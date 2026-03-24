@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Render@CLegacyRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x180106990
+ * XREFs of ?Render@CLegacyRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F57F0
  * Callers:
  *     <none>
  * Callees:

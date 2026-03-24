@@ -1,35 +1,33 @@
 /*
- * XREFs of RtlGetPersistedStateLocation @ 0x140782DD0
+ * XREFs of RtlGetPersistedStateLocation @ 0x14063F9C0
  * Callers:
- *     PipUpdateDeviceProducts @ 0x1403C5610 (PipUpdateDeviceProducts.c)
- *     PopOpenThermalLoggingKey @ 0x1403DBE38 (PopOpenThermalLoggingKey.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x140642A44 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     PiGetStateRootPath @ 0x1406DF520 (PiGetStateRootPath.c)
- *     KGetAppModelStateSeparatedRegKeyPath @ 0x1406E295C (KGetAppModelStateSeparatedRegKeyPath.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1406F1A04 (RtlpGetTimeZoneInfoHandle.c)
- *     IopGetPersistedStateLocation @ 0x1407443F8 (IopGetPersistedStateLocation.c)
- *     WmipGetGuidSecurityDescriptor @ 0x140782C4C (WmipGetGuidSecurityDescriptor.c)
- *     PopOpenPersistedRegistryKey @ 0x140828F18 (PopOpenPersistedRegistryKey.c)
- *     PopInitHiberPersistedRegValues @ 0x14082902C (PopInitHiberPersistedRegValues.c)
- *     ExpRefreshTimeZoneInformation @ 0x140835844 (ExpRefreshTimeZoneInformation.c)
- *     IopUpdateSecureDeviceClassState @ 0x14084D3DC (IopUpdateSecureDeviceClassState.c)
- *     EtwpInitializeAutoLoggers @ 0x140851328 (EtwpInitializeAutoLoggers.c)
- *     SpRegOpenRedirectedKey @ 0x14085E1D0 (SpRegOpenRedirectedKey.c)
- *     ExpUuidLoadSequenceNumber @ 0x14085F064 (ExpUuidLoadSequenceNumber.c)
- *     ExpUuidSaveSequenceNumber @ 0x14085F1D0 (ExpUuidSaveSequenceNumber.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x140862E50 (WmipSaveGuidSecurityDescriptor.c)
- *     CmpRecordShutdownStopTime @ 0x140911EA8 (CmpRecordShutdownStopTime.c)
- *     PiDrvDbQuerySyncNodesUpdated @ 0x14095CDBC (PiDrvDbQuerySyncNodesUpdated.c)
- *     PopInitializePowerButtonHold @ 0x140B034C0 (PopInitializePowerButtonHold.c)
- *     EtwpInitializeSecurity @ 0x140B2F180 (EtwpInitializeSecurity.c)
+ *     PipUpdateDeviceProducts @ 0x1403C7360 (PipUpdateDeviceProducts.c)
+ *     PopOpenThermalLoggingKey @ 0x1403CC95C (PopOpenThermalLoggingKey.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1405BA900 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     WmipGetGuidSecurityDescriptor @ 0x14063FB18 (WmipGetGuidSecurityDescriptor.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x1406BC0F0 (KGetAppModelStateSeparatedRegKeyPath.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1406E0BD4 (RtlpGetTimeZoneInfoHandle.c)
+ *     IopGetPersistedStateLocation @ 0x140739B88 (IopGetPersistedStateLocation.c)
+ *     PiGetStateRootPath @ 0x1407812FC (PiGetStateRootPath.c)
+ *     SshpQueryRegistryValues @ 0x1407968F0 (SshpQueryRegistryValues.c)
+ *     EtwpInitializeAutoLoggers @ 0x14079AFB4 (EtwpInitializeAutoLoggers.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     IopUpdateSecureDeviceClassState @ 0x1407BD834 (IopUpdateSecureDeviceClassState.c)
+ *     ExpUuidLoadSequenceNumber @ 0x1407CF68C (ExpUuidLoadSequenceNumber.c)
+ *     ExpUuidSaveSequenceNumber @ 0x1407CF7F4 (ExpUuidSaveSequenceNumber.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x1407D3054 (WmipSaveGuidSecurityDescriptor.c)
+ *     CmpRecordShutdownStopTime @ 0x14086BF90 (CmpRecordShutdownStopTime.c)
+ *     PiDrvDbQuerySyncNodesUpdated @ 0x1408B6AF4 (PiDrvDbQuerySyncNodesUpdated.c)
+ *     PopInitializePowerButtonHold @ 0x140A40684 (PopInitializePowerButtonHold.c)
+ *     EtwpInitializeSecurity @ 0x140A724AC (EtwpInitializeSecurity.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlGetPersistedStateLocation(
@@ -63,18 +61,18 @@ __int64 __fastcall RtlGetPersistedStateLocation(
   Handle = 0LL;
   ResultLength = 0;
   PoolWithTag = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   if ( a4 > 1 )
     return 3221225713LL;
-  if ( byte_140C4EF1E )
+  if ( byte_140C4C5A9 )
   {
     v11 = -1073741772;
   }
   else
   {
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_140A38D50[2 * (int)a4];
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_1409843F8[2 * (int)a4];
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -82,7 +80,7 @@ __int64 __fastcall RtlGetPersistedStateLocation(
     v11 = v17;
     if ( v17 == -1073741772 )
     {
-      byte_140C4EF1E = 1;
+      byte_140C4C5A9 = 1;
     }
     else
     {

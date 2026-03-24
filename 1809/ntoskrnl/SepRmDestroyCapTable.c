@@ -1,15 +1,15 @@
 /*
- * XREFs of SepRmDestroyCapTable @ 0x1408A4ECC
+ * XREFs of SepRmDestroyCapTable @ 0x1408A4EAC
  * Callers:
- *     SepBuildCapPolicyTable @ 0x1401818B8 (SepBuildCapPolicyTable.c)
- *     SepRmDereferenceCapTable @ 0x1402FEC44 (SepRmDereferenceCapTable.c)
+ *     SepBuildCapPolicyTable @ 0x1401818D8 (SepBuildCapPolicyTable.c)
+ *     SepRmDereferenceCapTable @ 0x1402FED44 (SepRmDereferenceCapTable.c)
  * Callees:
- *     RtlEnumerateEntryHashTable @ 0x1400D9AA0 (RtlEnumerateEntryHashTable.c)
- *     RtlRemoveEntryHashTable @ 0x1400D9C40 (RtlRemoveEntryHashTable.c)
- *     RtlInitEnumerationHashTable @ 0x1400DA260 (RtlInitEnumerationHashTable.c)
- *     RtlDeleteHashTable @ 0x14012ACD0 (RtlDeleteHashTable.c)
- *     RtlEndEnumerationHashTable @ 0x14012F740 (RtlEndEnumerationHashTable.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlEnumerateEntryHashTable @ 0x1400D9AC0 (RtlEnumerateEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x1400D9C60 (RtlRemoveEntryHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x1400DA280 (RtlInitEnumerationHashTable.c)
+ *     RtlDeleteHashTable @ 0x14012ACF0 (RtlDeleteHashTable.c)
+ *     RtlEndEnumerationHashTable @ 0x14012F760 (RtlEndEnumerationHashTable.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

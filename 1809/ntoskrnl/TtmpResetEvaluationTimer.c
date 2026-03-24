@@ -1,8 +1,8 @@
 /*
- * XREFs of TtmpResetEvaluationTimer @ 0x14087F244
+ * XREFs of TtmpResetEvaluationTimer @ 0x14087F224
  * Callers:
- *     TtmpSetTerminalPendingCleanup @ 0x14087F33C (TtmpSetTerminalPendingCleanup.c)
- *     TtmpUpdateTerminalState @ 0x14087F550 (TtmpUpdateTerminalState.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x14087F31C (TtmpSetTerminalPendingCleanup.c)
+ *     TtmpUpdateTerminalState @ 0x14087F530 (TtmpUpdateTerminalState.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)

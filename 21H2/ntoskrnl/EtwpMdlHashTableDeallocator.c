@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpMdlHashTableDeallocator @ 0x1406334E8
+ * XREFs of EtwpMdlHashTableDeallocator @ 0x1405B0748
  * Callers:
- *     EtwpRegisterPartitionPages @ 0x140633504 (EtwpRegisterPartitionPages.c)
+ *     EtwpRegisterPartitionPages @ 0x1405B0764 (EtwpRegisterPartitionPages.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpMdlHashTableDeallocator(void *a1)

@@ -1,19 +1,18 @@
 /*
- * XREFs of ExGetSystemFirmwareTable @ 0x140860D40
+ * XREFs of ExGetSystemFirmwareTable @ 0x1407D0FA0
  * Callers:
- *     IpmiHwpReadSpmiConfiguration @ 0x140677A4C (IpmiHwpReadSpmiConfiguration.c)
- *     IpmiLibReadSmbiosRecord38 @ 0x140677B04 (IpmiLibReadSmbiosRecord38.c)
+ *     <none>
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14077EDF0 (ExpGetSystemFirmwareTableInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x14069061C (ExpGetSystemFirmwareTableInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExGetSystemFirmwareTable(int a1, int a2, void *a3, int a4, _DWORD *a5)
 {
   unsigned int v9; // ebp
-  __int64 Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v11; // rbx
   int SystemFirmwareTableInformation; // edi
   int v14; // [rsp+50h] [rbp+18h] BYREF
@@ -22,24 +21,21 @@ __int64 __fastcall ExGetSystemFirmwareTable(int a1, int a2, void *a3, int a4, _D
   if ( !a3 && a4 )
     return 3221225485LL;
   v9 = a4 + 16;
-  Pool2 = ExAllocatePool2(256LL, (unsigned int)(a4 + 16), 1413894721LL);
-  v11 = (_DWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(a4 + 16), 0x54465241u);
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 12) = a4;
-    *(_DWORD *)Pool2 = a1;
-    *(_DWORD *)(Pool2 + 4) = 1;
-    *(_DWORD *)(Pool2 + 8) = a2;
-    SystemFirmwareTableInformation = ExpGetSystemFirmwareTableInformation((char *)Pool2, 0, v9, &v14);
-    if ( (int)(SystemFirmwareTableInformation + 0x80000000) < 0 || SystemFirmwareTableInformation == -1073741789 )
+    PoolWithTag[3] = a4;
+    *PoolWithTag = a1;
+    PoolWithTag[1] = 1;
+    PoolWithTag[2] = a2;
+    SystemFirmwareTableInformation = ExpGetSystemFirmwareTableInformation((char *)PoolWithTag, 0, v9, &v14);
+    if ( ((int)(SystemFirmwareTableInformation + 0x80000000) < 0 || SystemFirmwareTableInformation == -1073741789) && a5 )
+      *a5 = v11[3];
+    if ( SystemFirmwareTableInformation >= 0 )
     {
-      if ( a5 )
-        *a5 = v11[3];
-      if ( SystemFirmwareTableInformation >= 0 )
-      {
-        if ( a3 )
-          memmove(a3, v11 + 4, (unsigned int)(v14 - 16));
-      }
+      if ( a3 )
+        memmove(a3, v11 + 4, (unsigned int)(v14 - 16));
     }
     ExFreePoolWithTag(v11, 0x54465241u);
   }

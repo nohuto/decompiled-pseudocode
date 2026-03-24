@@ -1,5 +1,5 @@
 /*
- * XREFs of NtStopProfile @ 0x1408DA660
+ * XREFs of NtStopProfile @ 0x1408DA640
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeStopProfile @ 0x140295C40 (KeStopProfile.c)
+ *     KeStopProfile @ 0x140295D40 (KeStopProfile.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */

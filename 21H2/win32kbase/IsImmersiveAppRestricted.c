@@ -1,5 +1,5 @@
 /*
- * XREFs of IsImmersiveAppRestricted @ 0x1C0087BA0
+ * XREFs of IsImmersiveAppRestricted @ 0x1C007A760
  * Callers:
  *     <none>
  * Callees:

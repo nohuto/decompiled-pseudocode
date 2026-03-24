@@ -1,5 +1,5 @@
 /*
- * XREFs of IoGetAffinityInterrupt @ 0x140190B30
+ * XREFs of IoGetAffinityInterrupt @ 0x140190B50
  * Callers:
  *     <none>
  * Callees:

@@ -1,65 +1,53 @@
 /*
- * XREFs of ?Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDCompositionDirectInkSuperWetRenderer@@PEAUIDCompositionDirectInkCommunicationPartner@@PEAVCLegacySwapChain@@PEAPEAV1@@Z @ 0x180202D8C
+ * XREFs of ?Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDCompositionDirectInkCommunicationPartner@@PEAPEAV1@@Z @ 0x1801A41A0
  * Callers:
- *     ?Initialize@CComputeScribbleRenderer@@AEAAJXZ @ 0x1801FBAC0 (-Initialize@CComputeScribbleRenderer@@AEAAJXZ.c)
+ *     ?Initialize@CComputeScribbleRenderer@@AEAAJXZ @ 0x18019F760 (-Initialize@CComputeScribbleRenderer@@AEAAJXZ.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??1?$unique_ptr@VCComputeScribbleScheduler@@U?$default_delete@VCComputeScribbleScheduler@@@std@@@std@@QEAA@XZ @ 0x1801FB858 (--1-$unique_ptr@VCComputeScribbleScheduler@@U-$default_delete@VCComputeScribbleScheduler@@@std@@.c)
- *     ??0CComputeScribbleScheduler@@AEAA@PEAUID3D12CommandQueue@@PEAUIDCompositionDirectInkSuperWetRenderer@@PEAVCLegacySwapChain@@@Z @ 0x1802026EC (--0CComputeScribbleScheduler@@AEAA@PEAUID3D12CommandQueue@@PEAUIDCompositionDirectInkSuperWetRen.c)
- *     ?Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommunicationPartner@@@Z @ 0x180203460 (-Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommun.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??0CComputeScribbleScheduler@@AEAA@PEAUID3D12CommandQueue@@@Z @ 0x1801A3C8C (--0CComputeScribbleScheduler@@AEAA@PEAUID3D12CommandQueue@@@Z.c)
+ *     ??1CComputeScribbleScheduler@@QEAA@XZ @ 0x1801A3D50 (--1CComputeScribbleScheduler@@QEAA@XZ.c)
+ *     ?Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommunicationPartner@@@Z @ 0x1801A4694 (-Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommun.c)
  */
 
 __int64 __fastcall CComputeScribbleScheduler::Create(
         struct IDXGIOutputDWM *a1,
         struct ID3D12CommandQueue *a2,
-        struct IDCompositionDirectInkSuperWetRenderer *a3,
-        struct IDCompositionDirectInkCommunicationPartner *a4,
-        struct CLegacySwapChain *a5,
-        struct CComputeScribbleScheduler **a6)
+        struct IDCompositionDirectInkCommunicationPartner *a3,
+        struct CComputeScribbleScheduler **a4)
 {
-  CComputeScribbleScheduler *v10; // rax
-  CComputeScribbleScheduler *v11; // rax
-  struct CComputeScribbleScheduler *v12; // rdi
-  int v13; // eax
-  unsigned int v14; // ebx
-  __int64 v15; // r9
-  __int64 v16; // rdx
-  CComputeScribbleScheduler *v18; // [rsp+20h] [rbp-18h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  CComputeScribbleScheduler *v8; // rax
+  CComputeScribbleScheduler *v9; // rbx
+  int v10; // eax
+  unsigned int v11; // edi
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  v10 = (CComputeScribbleScheduler *)DefaultHeap::Alloc(0xE0uLL);
-  if ( !v10 )
+  v8 = (CComputeScribbleScheduler *)operator new(0xA8uLL);
+  if ( v8 )
+    v9 = CComputeScribbleScheduler::CComputeScribbleScheduler(v8, a2);
+  else
+    v9 = 0LL;
+  v10 = CComputeScribbleScheduler::Initialize(v9, a1, a3);
+  v11 = v10;
+  if ( v10 >= 0 )
   {
-    v18 = 0LL;
-    goto LABEL_7;
+    v11 = 0;
+    *a4 = v9;
+    v9 = 0LL;
   }
-  v11 = CComputeScribbleScheduler::CComputeScribbleScheduler(v10, a2, a3, a5);
-  v18 = v11;
-  v12 = v11;
-  if ( !v11 )
+  else
   {
-LABEL_7:
-    v14 = -2147024882;
-    v16 = 89LL;
-    v15 = 2147942414LL;
-    goto LABEL_8;
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x57,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblescheduler.cpp",
+      (const char *)(unsigned int)v10);
   }
-  v13 = CComputeScribbleScheduler::Initialize(v11, a1, a4);
-  v14 = v13;
-  if ( v13 >= 0 )
+  if ( v9 )
   {
-    *a6 = v12;
-    return 0LL;
+    CComputeScribbleScheduler::~CComputeScribbleScheduler(v9);
+    operator delete(v9);
   }
-  v15 = (unsigned int)v13;
-  v16 = 91LL;
-LABEL_8:
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)v16,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblescheduler.cpp",
-    (const char *)v15);
-  std::unique_ptr<CComputeScribbleScheduler>::~unique_ptr<CComputeScribbleScheduler>(&v18);
-  return v14;
+  return v11;
 }

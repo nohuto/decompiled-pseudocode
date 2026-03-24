@@ -3,7 +3,7 @@
  * Callers:
  *     PiPnpRtlObjectEventCreate @ 0x1405980E4 (PiPnpRtlObjectEventCreate.c)
  *     PiDmLookupObject @ 0x140598A58 (PiDmLookupObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x1406F1B00 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406F1AE0 (PiDmAddCacheReferenceForObject.c)
  * Callees:
  *     RtlHashUnicodeString @ 0x140598BE0 (RtlHashUnicodeString.c)
  */

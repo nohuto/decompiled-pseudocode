@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CPropertySetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C02254E0
+ * XREFs of ?SetRemarshalingFlags@CPropertySetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EC4B0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetMarshalStatus@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAXIW4MarshalStatus@@@Z @ 0x1C0029BCC (-SetMarshalStatus@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator.c)
- *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C020EFCC (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetMarshalStatus@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAXIW4MarshalStatus@@@Z @ 0x1C006285C (-SetMarshalStatus@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator.c)
+ *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFAE4 (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CPropertySetMarshaler::SetRemarshalingFlags(
@@ -25,8 +25,8 @@ char __fastcall DirectComposition::CPropertySetMarshaler::SetRemarshalingFlags(
         v3++,
         1LL);
     while ( v3 < *((_DWORD *)this + 20) );
-    v4 = *((_DWORD *)this + 4) | 0x80;
-    *((_DWORD *)this + 4) = v4;
+    *((_DWORD *)this + 4) |= 0x80u;
+    v4 = *((_DWORD *)this + 4);
   }
   else
   {

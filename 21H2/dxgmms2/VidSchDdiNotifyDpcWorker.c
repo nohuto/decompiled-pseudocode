@@ -1,18 +1,18 @@
 /*
- * XREFs of VidSchDdiNotifyDpcWorker @ 0x1C0038574
+ * XREFs of VidSchDdiNotifyDpcWorker @ 0x1C002EE08
  * Callers:
- *     VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C00447E8 (VidSchiCompletePendingCommandInNodeHwQueue.c)
- *     VidSchiForceTdr @ 0x1C0044A7C (VidSchiForceTdr.c)
+ *     VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C003CAD8 (VidSchiCompletePendingCommandInNodeHwQueue.c)
+ *     VidSchiForceTdr @ 0x1C003CF2C (VidSchiForceTdr.c)
  * Callees:
- *     VidSchiProcessDpcVSyncCookie @ 0x1C0003BC0 (VidSchiProcessDpcVSyncCookie.c)
- *     VidSchiProcessDpcDmaPacket @ 0x1C0005700 (VidSchiProcessDpcDmaPacket.c)
- *     VidSchiProcessMonitoredFenceSignaledDpc @ 0x1C001F6F4 (VidSchiProcessMonitoredFenceSignaledDpc.c)
- *     ?ApertureCorruptionCheck@VIDMM_GLOBAL@@QEAAJE@Z @ 0x1C002D99C (-ApertureCorruptionCheck@VIDMM_GLOBAL@@QEAAJE@Z.c)
- *     VidSchiProcessPeriodicNotificationCookie @ 0x1C0038FAC (VidSchiProcessPeriodicNotificationCookie.c)
- *     ?VidSchiAsyncReCreateSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C003ECC8 (-VidSchiAsyncReCreateSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z.c)
- *     VidSchiProcessGpuEngineTimeoutDpc @ 0x1C0042CC0 (VidSchiProcessGpuEngineTimeoutDpc.c)
- *     VidSchiProcessHwQueuePageFaultedDpc @ 0x1C0042D28 (VidSchiProcessHwQueuePageFaultedDpc.c)
- *     VidSchiProcessSuspendContextCompletedDpc @ 0x1C00435F8 (VidSchiProcessSuspendContextCompletedDpc.c)
+ *     VidSchiProcessDpcVSyncCookie @ 0x1C0005790 (VidSchiProcessDpcVSyncCookie.c)
+ *     ?ApertureCorruptionCheck@VIDMM_GLOBAL@@QEAAJE@Z @ 0x1C00236BC (-ApertureCorruptionCheck@VIDMM_GLOBAL@@QEAAJE@Z.c)
+ *     VidSchiProcessDpcDmaPacket @ 0x1C002FF94 (VidSchiProcessDpcDmaPacket.c)
+ *     VidSchiProcessPeriodicNotificationCookie @ 0x1C0030484 (VidSchiProcessPeriodicNotificationCookie.c)
+ *     ?VidSchiAsyncReCreateSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0036430 (-VidSchiAsyncReCreateSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     VidSchiProcessGpuEngineTimeoutDpc @ 0x1C003AEC0 (VidSchiProcessGpuEngineTimeoutDpc.c)
+ *     VidSchiProcessHwQueuePageFaultedDpc @ 0x1C003AF28 (VidSchiProcessHwQueuePageFaultedDpc.c)
+ *     VidSchiProcessMonitoredFenceSignaledDpc @ 0x1C003B7E0 (VidSchiProcessMonitoredFenceSignaledDpc.c)
+ *     VidSchiProcessSuspendContextCompletedDpc @ 0x1C003B88C (VidSchiProcessSuspendContextCompletedDpc.c)
  */
 
 void __fastcall VidSchDdiNotifyDpcWorker(__int64 a1, int a2)
@@ -23,11 +23,12 @@ void __fastcall VidSchDdiNotifyDpcWorker(__int64 a1, int a2)
   _QWORD *p_Next; // r8
   struct _SLIST_ENTRY *v8; // rsi
   unsigned int Next; // ecx
-  struct _SLIST_ENTRY *v10; // rdi
-  int v11; // eax
+  __int64 v10; // rdx
+  struct _SLIST_ENTRY *v11; // rdi
+  int v12; // eax
 
-  v2 = *(union _SLIST_HEADER **)(a1 + 632);
-  v5 = ExpInterlockedFlushSList(v2 + 111);
+  v2 = *(union _SLIST_HEADER **)(a1 + 624);
+  v5 = ExpInterlockedFlushSList(v2 + 110);
   v6 = 0LL;
   if ( v5 )
   {
@@ -52,10 +53,10 @@ void __fastcall VidSchDdiNotifyDpcWorker(__int64 a1, int a2)
             VidSchiProcessMonitoredFenceSignaledDpc(v8);
             break;
           case 0xFu:
-            v10 = v8[2].Next;
-            ExpInterlockedPushEntrySList((PSLIST_HEADER)&v10[376], v8);
-            if ( (byte_1C006E943 & 2) != 0 )
-              VidSchiAsyncReCreateSchedulingLog((struct _VIDSCH_NODE *)v10);
+            v11 = v8[2].Next;
+            ExpInterlockedPushEntrySList((PSLIST_HEADER)&v11[375], v8);
+            if ( bTracingEnabled )
+              VidSchiAsyncReCreateSchedulingLog((struct _VIDSCH_NODE *)v11);
             break;
           case 0x10u:
             VidSchiProcessGpuEngineTimeoutDpc(v8);
@@ -67,16 +68,16 @@ void __fastcall VidSchDdiNotifyDpcWorker(__int64 a1, int a2)
             VidSchiProcessSuspendContextCompletedDpc(v8);
             break;
           default:
-            if ( Next <= 0x12 && (v11 = 263304, _bittest(&v11, Next)) )
+            if ( Next <= 0xA && (v12 = 1160, _bittest(&v12, Next)) )
             {
               VidSchiProcessDpcVSyncCookie((struct _VIDSCH_VSYNC_COOKIE *)&v8[-1]);
               ExpInterlockedPushEntrySList(
-                (PSLIST_HEADER)(*(&v2[200].Alignment + *((unsigned int *)&v8[5].Next + 3)) + 44592),
+                (PSLIST_HEADER)(*(&v2[194].Alignment + *((unsigned int *)&v8[4].Next + 2)) + 33648),
                 v8);
             }
             else if ( Next == 14 )
             {
-              VidSchiProcessPeriodicNotificationCookie(v2, &v8[-1]);
+              VidSchiProcessPeriodicNotificationCookie(v2, &v8[-1], p_Next);
             }
             break;
         }
@@ -85,9 +86,13 @@ void __fastcall VidSchDdiNotifyDpcWorker(__int64 a1, int a2)
       {
         if ( a2 )
         {
-          _InterlockedExchange((volatile __int32 *)&v8[2].Next[6].Next[30].Next + 2, 1);
+          _InterlockedExchange((volatile __int32 *)&v8[2].Next[6].Next[30], 1);
+          v10 = VIDMM_GLOBAL::_Config >> 4;
           if ( (VIDMM_GLOBAL::_Config & 0x10) != 0 )
-            VIDMM_GLOBAL::ApertureCorruptionCheck(*(VIDMM_GLOBAL **)(a1 + 656), 1u);
+          {
+            LOBYTE(v10) = 1;
+            VIDMM_GLOBAL::ApertureCorruptionCheck(*(VIDMM_GLOBAL **)(a1 + 648), v10);
+          }
         }
         VidSchiProcessDpcDmaPacket((struct _VIDSCH_DMA_PACKET *)&v8[-1]);
       }

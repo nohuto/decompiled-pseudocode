@@ -1,17 +1,17 @@
 /*
  * XREFs of PspDisablePrimaryTokenExchange @ 0x1405F7498
  * Callers:
- *     PspSystemThreadStartup @ 0x140132510 (PspSystemThreadStartup.c)
+ *     PspSystemThreadStartup @ 0x140132530 (PspSystemThreadStartup.c)
  *     PspUserThreadStartup @ 0x1405F6E40 (PspUserThreadStartup.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MiDeleteProcessShadow @ 0x1400686D0 (MiDeleteProcessShadow.c)
- *     KeSynchronizeAddressPolicy @ 0x14012DC28 (KeSynchronizeAddressPolicy.c)
- *     PspLockUnlockProcessExclusive @ 0x14012F2A0 (PspLockUnlockProcessExclusive.c)
- *     KeKvaShadowingActive @ 0x140136B24 (KeKvaShadowingActive.c)
+ *     KeSynchronizeAddressPolicy @ 0x14012DC48 (KeSynchronizeAddressPolicy.c)
+ *     PspLockUnlockProcessExclusive @ 0x14012F2C0 (PspLockUnlockProcessExclusive.c)
+ *     KeKvaShadowingActive @ 0x140136B44 (KeKvaShadowingActive.c)
  *     SeTokenIsAdmin @ 0x1405BBCD0 (SeTokenIsAdmin.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x1406B6964 (PspOneDirectionSecurityDomainCombine.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x1406B6944 (PspOneDirectionSecurityDomainCombine.c)
  */
 
 void __fastcall PspDisablePrimaryTokenExchange(__int64 a1)

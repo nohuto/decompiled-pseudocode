@@ -1,21 +1,21 @@
 /*
- * XREFs of VslQuerySecureKernelProfileInformation @ 0x14054BF04
+ * XREFs of VslQuerySecureKernelProfileInformation @ 0x1404FCD30
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x14033FE98 (HvlQueryVsmConnection.c)
- *     VslpLockPagesForTransfer @ 0x1403CE424 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x1403CE69C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x140340478 (HvlQueryVsmConnection.c)
+ *     VslpUnlockPagesForTransfer @ 0x140393974 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403939C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslQuerySecureKernelProfileInformation(__int64 a1, struct _MDL *a2, unsigned int a3, _DWORD *a4)
+__int64 __fastcall VslQuerySecureKernelProfileInformation(__int64 a1, struct _MDL *a2, ULONG a3, _DWORD *a4)
 {
   int v8; // ecx
   __int64 result; // rax
-  int v10; // edi
+  NTSTATUS v10; // edi
   unsigned int v11; // [rsp+20h] [rbp-108h]
   __int64 *v12[10]; // [rsp+30h] [rbp-F8h] BYREF
   _QWORD v13[14]; // [rsp+80h] [rbp-A8h] BYREF
@@ -31,7 +31,7 @@ __int64 __fastcall VslQuerySecureKernelProfileInformation(__int64 a1, struct _MD
     v13[2] = v12[0];
     v13[3] = v12[7];
     v13[1] = a1;
-    v10 = VslpEnterIumSecureMode(2u, 63, 0, (__int64)v13);
+    v10 = VslpEnterIumSecureMode(2u, 61, 0, (__int64)v13);
     if ( v10 >= 0 )
       *a4 = v13[2];
     if ( a3 )

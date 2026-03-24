@@ -1,9 +1,9 @@
 /*
- * XREFs of OpenVmSharedMemorySection @ 0x1C0241EC0
+ * XREFs of OpenVmSharedMemorySection @ 0x1C0200F0C
  * Callers:
- *     DirectComposition::TryOpenSharedSectionAndGetUserModeHandle @ 0x1C0229360 (DirectComposition--TryOpenSharedSectionAndGetUserModeHandle.c)
+ *     DirectComposition::TryOpenSharedSectionAndGetUserModeHandle @ 0x1C01E9630 (DirectComposition--TryOpenSharedSectionAndGetUserModeHandle.c)
  * Callees:
- *     ConstructVmSharedMemorySectionHostPath @ 0x1C0241CA8 (ConstructVmSharedMemorySectionHostPath.c)
+ *     ConstructVmSharedMemorySectionHostPath @ 0x1C0200CF4 (ConstructVmSharedMemorySectionHostPath.c)
  */
 
 __int64 __fastcall OpenVmSharedMemorySection(PHANDLE SectionHandle, unsigned int *a2, unsigned int *a3)
@@ -12,7 +12,7 @@ __int64 __fastcall OpenVmSharedMemorySection(PHANDLE SectionHandle, unsigned int
   PVOID P[2]; // [rsp+20h] [rbp-40h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
 
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   *(_OWORD *)P = 0LL;
   v4 = ConstructVmSharedMemorySectionHostPath((PUNICODE_STRING)P, a2, a3);
   if ( v4 >= 0 )

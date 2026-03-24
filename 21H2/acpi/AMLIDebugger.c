@@ -1,34 +1,34 @@
 /*
- * XREFs of AMLIDebugger @ 0x1C0067034
+ * XREFs of AMLIDebugger @ 0x1C0065C80
  * Callers:
- *     ParseOpcode @ 0x1C000B180 (ParseOpcode.c)
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     InsertReadyQueue @ 0x1C000E2B0 (InsertReadyQueue.c)
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
- *     RunContext @ 0x1C0010A50 (RunContext.c)
- *     ParsePackage @ 0x1C0012D00 (ParsePackage.c)
- *     ParseTerm @ 0x1C0013680 (ParseTerm.c)
- *     ParseScope @ 0x1C0014A90 (ParseScope.c)
- *     AMLIGetNameSpaceObjectNoLock @ 0x1C001817C (AMLIGetNameSpaceObjectNoLock.c)
- *     AMLIEvalPkgDataElement @ 0x1C0019244 (AMLIEvalPkgDataElement.c)
- *     AMLIAsyncEvalObject @ 0x1C0019E08 (AMLIAsyncEvalObject.c)
- *     Load @ 0x1C0022220 (Load.c)
- *     AMLIEvalPackageElement @ 0x1C0024258 (AMLIEvalPackageElement.c)
- *     CatError @ 0x1C0067084 (CatError.c)
- *     BreakPoint @ 0x1C0069C30 (BreakPoint.c)
- *     ProcessLoadTable @ 0x1C006A9B0 (ProcessLoadTable.c)
- *     AMLIInitialize @ 0x1C00BCDB8 (AMLIInitialize.c)
- *     AMLILoadDDB @ 0x1C00BD7A8 (AMLILoadDDB.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     InsertReadyQueue @ 0x1C00047A0 (InsertReadyQueue.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseScope @ 0x1C0008890 (ParseScope.c)
+ *     AMLIGetNameSpaceObjectNoLock @ 0x1C000AF30 (AMLIGetNameSpaceObjectNoLock.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIEvalPkgDataElement @ 0x1C000F09C (AMLIEvalPkgDataElement.c)
+ *     AMLIEvalPackageElement @ 0x1C0012380 (AMLIEvalPackageElement.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     ACPIDockIsDockDevice @ 0x1C0020C40 (ACPIDockIsDockDevice.c)
+ *     ParseOpcode @ 0x1C0022530 (ParseOpcode.c)
+ *     Load @ 0x1C0024DC0 (Load.c)
+ *     CatError @ 0x1C0065CD0 (CatError.c)
+ *     BreakPoint @ 0x1C0068960 (BreakPoint.c)
+ *     ProcessLoadTable @ 0x1C006A1F0 (ProcessLoadTable.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
+ *     AMLILoadDDB @ 0x1C00BE388 (AMLILoadDDB.c)
  * Callees:
- *     ConPrintf @ 0x1C00290CC (ConPrintf.c)
- *     Debugger @ 0x1C00680E0 (Debugger.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     Debugger @ 0x1C0066C38 (Debugger.c)
  */
 
-ULONG AMLIDebugger()
+__int64 AMLIDebugger()
 {
-  ULONG result; // eax
+  __int64 result; // rax
 
-  result = gdwfAMLIInit;
+  result = (unsigned int)gdwfAMLIInit;
   if ( (gdwfAMLIInit & 0x40) != 0 )
   {
     if ( (gDebugger & 4) != 0 )

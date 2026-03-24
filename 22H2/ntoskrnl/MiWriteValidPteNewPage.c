@@ -1,18 +1,19 @@
 /*
- * XREFs of MiWriteValidPteNewPage @ 0x1402EB04C
+ * XREFs of MiWriteValidPteNewPage @ 0x14030E048
  * Callers:
- *     MiTradeActivePage @ 0x1402EAE24 (MiTradeActivePage.c)
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiStealPage @ 0x1403BBD7C (MiStealPage.c)
- *     MiCopyKstack @ 0x14062CB50 (MiCopyKstack.c)
- *     MiWriteAweClusterPte @ 0x14064C578 (MiWriteAweClusterPte.c)
- *     MiTradeBootImagePage @ 0x140B4A55C (MiTradeBootImagePage.c)
- *     MxSwapPages @ 0x140B5BAA8 (MxSwapPages.c)
+ *     MiTradeActivePage @ 0x14030DD40 (MiTradeActivePage.c)
+ *     MiStealPage @ 0x140334CB4 (MiStealPage.c)
+ *     MiConvertPrivateToProto @ 0x1403699A0 (MiConvertPrivateToProto.c)
+ *     MiUnmapMdlCommon @ 0x140531664 (MiUnmapMdlCommon.c)
+ *     MiCopyKstack @ 0x140535B90 (MiCopyKstack.c)
+ *     MiWriteAweClusterPte @ 0x14054E124 (MiWriteAweClusterPte.c)
+ *     MiTradeBootImagePage @ 0x140A4FE60 (MiTradeBootImagePage.c)
+ *     MxSwapPages @ 0x140A57120 (MxSwapPages.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiWriteValidPteNewPage(__int64 *a1, __int64 a2, int a3)
@@ -24,7 +25,8 @@ __int64 __fastcall MiWriteValidPteNewPage(__int64 *a1, __int64 a2, int a3)
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
-  bool v12; // zf
+  __int64 v12; // r9
+  bool v13; // zf
 
   v3 = a3;
   if ( a3 )
@@ -41,22 +43,22 @@ __int64 __fastcall MiWriteValidPteNewPage(__int64 *a1, __int64 a2, int a3)
   result = MiPteInShadowRange((unsigned __int64)a1);
   if ( (_DWORD)result )
   {
-    result = MiPteHasShadow(v10, v9, v11);
+    result = MiPteHasShadow(v10, v9, v11, v12);
     if ( (_DWORD)result )
     {
       v3 = 1;
-      if ( HIBYTE(word_140C66DFC) )
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_5;
-      v12 = (v8 & 1) == 0;
+      v13 = (v8 & 1) == 0;
     }
     else
     {
       result = (__int64)KeGetCurrentThread();
       if ( (*(_DWORD *)(*(_QWORD *)(result + 184) + 2172LL) & 0x1000) == 0 )
         goto LABEL_5;
-      v12 = (v8 & 1) == 0;
+      v13 = (v8 & 1) == 0;
     }
-    if ( !v12 )
+    if ( !v13 )
     {
       result = 0x8000000000000000uLL;
       v8 |= 0x8000000000000000uLL;

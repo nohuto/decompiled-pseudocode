@@ -1,15 +1,15 @@
 /*
- * XREFs of ?UpdateForegroundForInput@CMouseProcessor@@AEAA_NPEAVCInputDest@@AEBVCButtonEvent@1@_J@Z @ 0x1C0041C6C
+ * XREFs of ?UpdateForegroundForInput@CMouseProcessor@@AEAA_NPEAVCInputDest@@AEBVCButtonEvent@1@_J@Z @ 0x1C004BDB0
  * Callers:
- *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C0040FFC (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C0049550 (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
  * Callees:
- *     _anonymous_namespace_::ValidateUIPI @ 0x1C0007E58 (_anonymous_namespace_--ValidateUIPI.c)
- *     ApiSetEditionChangeForegroundQueueForMouseInput @ 0x1C0008A0C (ApiSetEditionChangeForegroundQueueForMouseInput.c)
- *     ?DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z @ 0x1C0033FF0 (-DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z.c)
- *     ?GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ @ 0x1C00344F0 (-GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ.c)
- *     ??1CThreadLockInputDest@@QEAA@XZ @ 0x1C0042044 (--1CThreadLockInputDest@@QEAA@XZ.c)
- *     ??0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z @ 0x1C00422E0 (--0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z.c)
- *     ?PostQEventWork@CBaseProcessor@@IEAAXPEAUHWND__@@W4EventWorkId@1@I_K_J@Z @ 0x1C00BC62C (-PostQEventWork@CBaseProcessor@@IEAAXPEAUHWND__@@W4EventWorkId@1@I_K_J@Z.c)
+ *     ApiSetEditionChangeForegroundQueueForMouseInput @ 0x1C00053D4 (ApiSetEditionChangeForegroundQueueForMouseInput.c)
+ *     ?DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z @ 0x1C0044428 (-DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z.c)
+ *     ?GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ @ 0x1C0094BC8 (-GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ.c)
+ *     ??1CThreadLockInputDest@@QEAA@XZ @ 0x1C009C24C (--1CThreadLockInputDest@@QEAA@XZ.c)
+ *     ??0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z @ 0x1C009EBB4 (--0CThreadLockInputDest@@QEAA@PEAVCInputDest@@@Z.c)
+ *     ?PostQEventWork@CBaseProcessor@@IEAAXPEAUHWND__@@W4EventWorkId@1@I_K_J@Z @ 0x1C00A9560 (-PostQEventWork@CBaseProcessor@@IEAAXPEAUHWND__@@W4EventWorkId@1@I_K_J@Z.c)
+ *     _anonymous_namespace_::ValidateUIPI @ 0x1C00ADC2C (_anonymous_namespace_--ValidateUIPI.c)
  */
 
 bool __fastcall CMouseProcessor::UpdateForegroundForInput(
@@ -18,53 +18,48 @@ bool __fastcall CMouseProcessor::UpdateForegroundForInput(
         const struct CMouseProcessor::CButtonEvent *a3,
         __int64 a4)
 {
-  bool v5; // di
-  __int64 v7; // r8
+  bool v6; // di
   __int64 v9; // rcx
   __int64 v10; // rcx
   int v11; // ebx
-  __int64 v12; // r8
-  __int64 *v13; // rdx
+  __int64 *v12; // rdx
   HWND WindowHandle; // rax
-  __int64 v15; // rcx
-  __int64 v16; // rcx
-  _BYTE v17[64]; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v18; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v14; // rcx
+  _BYTE v15[64]; // [rsp+30h] [rbp-58h] BYREF
+  __int64 v16; // [rsp+A8h] [rbp+20h] BYREF
 
-  v18 = a4;
-  v5 = 1;
+  v16 = a4;
+  v6 = 1;
   if ( !CInputDest::DoesBelongToForeground((__int64)a2, 1) )
   {
     if ( *((_DWORD *)a3 + 8) == 1 )
     {
       if ( gpqForeground
-        && *((_DWORD *)a2 + 23) == 2
-        && (v9 = *((_QWORD *)a2 + 10)) != 0
-        && grpdeskRitInput
-        && v9 == *(_QWORD *)(*((_QWORD *)grpdeskRitInput + 1) + 24LL) )
+        && (*((_DWORD *)a2 + 23) != 2 ? (v9 = 0LL) : (v9 = *((_QWORD *)a2 + 10)),
+            v9 && grpdeskRitInput && v9 == *(_QWORD *)(*((_QWORD *)grpdeskRitInput + 1) + 24LL)) )
       {
         WindowHandle = CInputDest::GetWindowHandle(a2);
-        CBaseProcessor::PostQEventWork(v15, WindowHandle, 0LL);
+        CBaseProcessor::PostQEventWork(this, WindowHandle, 0LL);
       }
       else
       {
         v10 = *((_QWORD *)a3 + 1);
-        v18 = *(_QWORD *)(v10 + 132);
+        v16 = *(_QWORD *)(v10 + 132);
         v11 = *(_DWORD *)(v10 + 108);
-        CThreadLockInputDest::CThreadLockInputDest((CThreadLockInputDest *)v17, a2);
-        v13 = &v18;
+        CThreadLockInputDest::CThreadLockInputDest((CThreadLockInputDest *)v15, a2);
+        v12 = &v16;
         if ( v11 == 1 )
-          v13 = 0LL;
-        v5 = (unsigned int)ApiSetEditionChangeForegroundQueueForMouseInput((__int64)a2, (__int64)v13, v12) != 0;
-        CThreadLockInputDest::~CThreadLockInputDest((CThreadLockInputDest *)v17);
+          v12 = 0LL;
+        v6 = (unsigned int)ApiSetEditionChangeForegroundQueueForMouseInput((__int64)a2, (__int64)v12) != 0;
+        CThreadLockInputDest::~CThreadLockInputDest((CThreadLockInputDest *)v15);
       }
     }
     else
     {
-      v16 = *((_QWORD *)a3 + 1);
-      if ( *(_DWORD *)(v16 + 108) != 1 )
-        return anonymous_namespace_::ValidateUIPI(*(_QWORD *)(v16 + 132), a2, v7) != 0;
+      v14 = *((_QWORD *)a3 + 1);
+      if ( *(_DWORD *)(v14 + 108) != 1 )
+        return (unsigned __int8)anonymous_namespace_::ValidateUIPI(*(_QWORD *)(v14 + 132), a2) != 0;
     }
   }
-  return v5;
+  return v6;
 }

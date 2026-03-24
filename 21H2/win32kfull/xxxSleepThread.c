@@ -1,9 +1,9 @@
 /*
- * XREFs of xxxSleepThread @ 0x1C01D9FC0
+ * XREFs of xxxSleepThread @ 0x1C01D3500
  * Callers:
- *     xxxIsDragging @ 0x1C0244970 (xxxIsDragging.c)
+ *     xxxIsDragging @ 0x1C0248D98 (xxxIsDragging.c)
  * Callees:
- *     xxxSleepThread2 @ 0x1C0052D3C (xxxSleepThread2.c)
+ *     xxxSleepThread2 @ 0x1C0058750 (xxxSleepThread2.c)
  */
 
 __int64 __fastcall xxxSleepThread(unsigned int a1, unsigned int a2, int a3, int a4)

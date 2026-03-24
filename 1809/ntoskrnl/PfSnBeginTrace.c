@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnBeginTrace @ 0x140668544
+ * XREFs of PfSnBeginTrace @ 0x140668524
  * Callers:
- *     PfSnBeginScenario @ 0x1406672A4 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140667284 (PfSnBeginScenario.c)
  * Callees:
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
  *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     PfSnActivateTrace @ 0x1400E2188 (PfSnActivateTrace.c)
- *     PfSnTraceBufferAllocate @ 0x1400E22B8 (PfSnTraceBufferAllocate.c)
- *     PsGetThreadId @ 0x1401228B0 (PsGetThreadId.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     PfSnActivateTrace @ 0x1400E21A8 (PfSnActivateTrace.c)
+ *     PfSnTraceBufferAllocate @ 0x1400E22D8 (PfSnTraceBufferAllocate.c)
+ *     PsGetThreadId @ 0x1401228D0 (PsGetThreadId.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfSnCleanupTrace @ 0x1406695C4 (PfSnCleanupTrace.c)
+ *     PfSnCleanupTrace @ 0x1406695A4 (PfSnCleanupTrace.c)
  */
 
 __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD *a4, int a5, __int64 *a6)

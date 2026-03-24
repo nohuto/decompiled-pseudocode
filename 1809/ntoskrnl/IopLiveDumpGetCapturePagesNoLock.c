@@ -2,7 +2,7 @@
  * XREFs of IopLiveDumpGetCapturePagesNoLock @ 0x140578C58
  * Callers:
  *     IopLiveDumpBufferDumpData @ 0x140577FC0 (IopLiveDumpBufferDumpData.c)
- *     IopLiveDumpGetNtMergePages @ 0x14082031C (IopLiveDumpGetNtMergePages.c)
+ *     IopLiveDumpGetNtMergePages @ 0x1408202FC (IopLiveDumpGetNtMergePages.c)
  * Callees:
  *     RtlFindSetBitsEx @ 0x140061C10 (RtlFindSetBitsEx.c)
  */

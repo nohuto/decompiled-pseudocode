@@ -1,15 +1,15 @@
 /*
- * XREFs of NtFreezeRegistry @ 0x1407E93B0
+ * XREFs of NtFreezeRegistry @ 0x1407E9390
  * Callers:
  *     <none>
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     CmFreezeRegistry @ 0x1407F5844 (CmFreezeRegistry.c)
+ *     CmFreezeRegistry @ 0x1407F5824 (CmFreezeRegistry.c)
  */
 
 __int64 __fastcall NtFreezeRegistry(unsigned int a1)

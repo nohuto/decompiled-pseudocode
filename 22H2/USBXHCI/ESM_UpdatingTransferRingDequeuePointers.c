@@ -1,11 +1,11 @@
 /*
- * XREFs of ESM_UpdatingTransferRingDequeuePointers @ 0x1C0011280
+ * XREFs of ESM_UpdatingTransferRingDequeuePointers @ 0x1C000FB60
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     Endpoint_OnCancelSetDequeuePointer @ 0x1C0010AA4 (Endpoint_OnCancelSetDequeuePointer.c)
- *     XilEndpoint_FetchStreamContextArray @ 0x1C0038FE8 (XilEndpoint_FetchStreamContextArray.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     Endpoint_OnCancelSetDequeuePointer @ 0x1C00100F4 (Endpoint_OnCancelSetDequeuePointer.c)
+ *     XilEndpoint_FetchStreamContextArray @ 0x1C003754C (XilEndpoint_FetchStreamContextArray.c)
  */
 
 __int64 __fastcall ESM_UpdatingTransferRingDequeuePointers(__int64 a1)
@@ -28,12 +28,12 @@ __int64 __fastcall ESM_UpdatingTransferRingDequeuePointers(__int64 a1)
     {
       _m_prefetchw((const void *)(v1 + 32));
       if ( (_InterlockedOr((volatile signed __int32 *)(v1 + 32), 2u) & 2) == 0 )
-        ESM_AddEvent((KSPIN_LOCK *)(v1 + 296), 12);
+        ESM_AddEvent((KSPIN_LOCK *)(v1 + 288), 12);
     }
   }
   else
   {
-    Endpoint_OnCancelSetDequeuePointer(*(_QWORD *)(a1 + 960), 0);
+    Endpoint_OnCancelSetDequeuePointer(*(_QWORD *)(a1 + 960), 0LL);
   }
   return 1000LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlAddAccessAllowedObjectAce @ 0x1409B7D90
+ * XREFs of RtlAddAccessAllowedObjectAce @ 0x140912190
  * Callers:
- *     LocalGetAclForString @ 0x140675DA8 (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1407878AC (LocalGetAclForString.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     RtlpAddKnownObjectAce @ 0x1409B84A4 (RtlpAddKnownObjectAce.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownObjectAce @ 0x1409128A0 (RtlpAddKnownObjectAce.c)
  */
 
 __int64 __fastcall RtlAddAccessAllowedObjectAce(

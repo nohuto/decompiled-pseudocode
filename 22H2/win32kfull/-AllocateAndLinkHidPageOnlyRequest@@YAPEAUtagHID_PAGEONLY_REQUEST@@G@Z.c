@@ -1,7 +1,7 @@
 /*
- * XREFs of ?AllocateAndLinkHidPageOnlyRequest@@YAPEAUtagHID_PAGEONLY_REQUEST@@G@Z @ 0x1C01A945C
+ * XREFs of ?AllocateAndLinkHidPageOnlyRequest@@YAPEAUtagHID_PAGEONLY_REQUEST@@G@Z @ 0x1C0007A38
  * Callers:
- *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C009F8EC (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
+ *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C0108520 (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
  * Callees:
  *     <none>
  */
@@ -9,25 +9,24 @@
 struct tagHID_PAGEONLY_REQUEST *__fastcall AllocateAndLinkHidPageOnlyRequest(__int16 a1)
 {
   struct tagHID_PAGEONLY_REQUEST *result; // rax
-  __int64 v3; // rcx
-  struct tagHID_PAGEONLY_REQUEST *v4; // rbx
-  __int64 v5; // rax
-  __int64 v6; // rcx
+  struct tagHID_PAGEONLY_REQUEST *v3; // rdx
+  struct tagHID_PAGEONLY_REQUEST **v4; // rax
+  __int64 v5; // rcx
 
   result = (struct tagHID_PAGEONLY_REQUEST *)Win32AllocPoolZInit(24LL, 1919447893LL);
-  v4 = result;
+  v3 = result;
   if ( result )
   {
     *((_WORD *)result + 8) = a1;
-    v5 = SGDGetUserSessionState(v3) + 392;
-    v6 = *(_QWORD *)v5;
-    if ( *(_QWORD *)(*(_QWORD *)v5 + 8LL) != v5 )
+    v4 = (struct tagHID_PAGEONLY_REQUEST **)&RawInputManagerObject::gHidRequestTable[2];
+    v5 = RawInputManagerObject::gHidRequestTable[2];
+    if ( *(_QWORD **)(v5 + 8) != &RawInputManagerObject::gHidRequestTable[2] )
       __fastfail(3u);
-    *((_QWORD *)v4 + 1) = v5;
-    *(_QWORD *)v4 = v6;
-    *(_QWORD *)(v6 + 8) = v4;
-    *(_QWORD *)v5 = v4;
-    return v4;
+    *((_QWORD *)v3 + 1) = v4;
+    *(_QWORD *)v3 = v5;
+    *(_QWORD *)(v5 + 8) = v3;
+    *v4 = v3;
+    return v3;
   }
   return result;
 }

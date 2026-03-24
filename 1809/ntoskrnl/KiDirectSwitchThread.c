@@ -1,25 +1,25 @@
 /*
- * XREFs of KiDirectSwitchThread @ 0x1400C5210
+ * XREFs of KiDirectSwitchThread @ 0x1400C5230
  * Callers:
- *     KiExitDispatcher @ 0x1400C2F50 (KiExitDispatcher.c)
+ *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiUpdateThreadPriority @ 0x1400D0D20 (KiUpdateThreadPriority.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D1500 (KiGetThreadEffectiveRankNonZero.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1400D78CC (KiSetBasePriorityAndClearDecrement.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBDF0 (KiAcquireKobjectLockSafe.c)
- *     KiAbQueueAutoBoostDpc @ 0x14010EDBC (KiAbQueueAutoBoostDpc.c)
- *     KiScheduleNextForegroundBoost @ 0x14012293C (KiScheduleNextForegroundBoost.c)
- *     KiGetComparisonRanks @ 0x140136088 (KiGetComparisonRanks.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x1401B49B0 (KiReadGuestSchedulerAssistPriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
- *     KiBeginCounterAccumulation @ 0x140295D0C (KiBeginCounterAccumulation.c)
- *     KiEndCounterAccumulation @ 0x140295E70 (KiEndCounterAccumulation.c)
- *     KiSetSchedulerAssistPriority @ 0x14029952C (KiSetSchedulerAssistPriority.c)
- *     KiSetVpThreadSystemWork @ 0x140299660 (KiSetVpThreadSystemWork.c)
- *     EtwTraceReadyThread @ 0x140310254 (EtwTraceReadyThread.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400D1520 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x1400D78EC (KiSetBasePriorityAndClearDecrement.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14010EDDC (KiAbQueueAutoBoostDpc.c)
+ *     KiScheduleNextForegroundBoost @ 0x14012295C (KiScheduleNextForegroundBoost.c)
+ *     KiGetComparisonRanks @ 0x1401360A8 (KiGetComparisonRanks.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1401B49D0 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiBeginCounterAccumulation @ 0x140295E0C (KiBeginCounterAccumulation.c)
+ *     KiEndCounterAccumulation @ 0x140295F70 (KiEndCounterAccumulation.c)
+ *     KiSetSchedulerAssistPriority @ 0x14029962C (KiSetSchedulerAssistPriority.c)
+ *     KiSetVpThreadSystemWork @ 0x140299760 (KiSetVpThreadSystemWork.c)
+ *     EtwTraceReadyThread @ 0x140310354 (EtwTraceReadyThread.c)
  */
 
 bool __fastcall KiDirectSwitchThread(__int64 a1, unsigned int a2, char a3, unsigned __int64 a4)

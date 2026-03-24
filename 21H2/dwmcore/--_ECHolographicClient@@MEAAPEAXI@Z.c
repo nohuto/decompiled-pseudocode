@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ECHolographicClient@@MEAAPEAXI@Z @ 0x18029D4F0
+ * XREFs of ??_ECHolographicClient@@MEAAPEAXI@Z @ 0x18025AE00
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1CHolographicClient@@MEAA@XZ @ 0x18029D2C0 (--1CHolographicClient@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CHolographicClient@@MEAA@XZ @ 0x18025AC30 (--1CHolographicClient@@MEAA@XZ.c)
  */
 
 CHolographicClient *__fastcall CHolographicClient::`vector deleting destructor'(CHolographicClient *this, char a2)

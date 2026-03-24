@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1800B0478
+ * XREFs of ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1800ADE24
  * Callers:
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180039350 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@QEAAX_NW4R.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18003E9EC (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@QEAAX_NW4R.c)
  * Callees:
- *     ?EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ @ 0x1800B03C4 (-EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ.c)
- *     ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x1800B05AC (-GetCurrentFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@detai.c)
- *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800FA0F4 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
+ *     ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x1800AE1BC (-GetCurrentFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@detai.c)
+ *     ?EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ @ 0x1800AEA00 (-EnsureSubscribedToFeatureConfigurationChangesImpl@EnabledStateManager@details@wil@@AEAAIXZ.c)
+ *     ?push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z @ 0x1800AF664 (-push_back@heap_buffer@details_abi@wil@@QEAA_NPEBX_K@Z.c)
  */
 
 signed __int32 *__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_ProjectedShadow>::GetCachedFeatureEnabledState(
@@ -13,63 +13,65 @@ signed __int32 *__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_
         signed __int32 *a2)
 {
   volatile signed __int32 v2; // eax
-  int v6; // esi
-  signed __int32 v7; // edx
-  int v8; // eax
-  signed __int32 v9; // ecx
-  signed __int32 v10; // eax
-  int v11; // [rsp+20h] [rbp-18h] BYREF
-  volatile signed __int32 *v12; // [rsp+28h] [rbp-10h]
+  unsigned int v6; // esi
+  signed __int32 v7; // eax
+  int v8; // r8d
+  signed __int32 v9; // r9d
+  signed __int32 v10; // edx
+  int v11; // r8d
+  int v12; // [rsp+20h] [rbp-18h] BYREF
+  volatile signed __int32 *v13; // [rsp+28h] [rbp-10h]
   int i; // [rsp+40h] [rbp+8h] BYREF
-  int v14; // [rsp+48h] [rbp+10h] BYREF
+  int v15; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = *a1;
   *a2 = *a1;
   if ( (v2 & 6) != 6 )
   {
-    v6 = dword_1803E5E0C;
-    if ( !dword_1803E5E0C )
-      v6 = wil::details::EnabledStateManager::EnsureSubscribedToFeatureConfigurationChangesImpl((RTL_SRWLOCK *)&wil::details::g_enabledStateManager);
-    wil::details::FeatureImpl<__WilFeatureTraits_Feature_ProjectedShadow>::GetCurrentFeatureEnabledState(a1, &v14, &i);
+    v6 = dword_18034750C;
+    if ( !dword_18034750C )
+      v6 = wil::details::EnabledStateManager::EnsureSubscribedToFeatureConfigurationChangesImpl((wil::details::EnabledStateManager *)&wil::details::g_enabledStateManager);
+    wil::details::FeatureImpl<__WilFeatureTraits_Feature_ProjectedShadow>::GetCurrentFeatureEnabledState(a1, &v15, &i);
     v7 = *a2;
     v8 = v6 != 0 ? i : 0;
     for ( i = v8; ; v8 = i )
     {
       *a2 = v7;
       v9 = v7;
+      v10 = v7;
       if ( v8 && (v7 & 2) == 0 )
       {
-        v9 = v7 ^ ((unsigned __int16)v14 ^ (unsigned __int16)v7) & 0x9C1 | 2;
-        *a2 = v9;
+        v10 = v7 ^ ((unsigned __int16)v15 ^ (unsigned __int16)v7) & 0x9C1 | 2;
+        *a2 = v10;
       }
+      v11 = v7 & 4;
       if ( (v7 & 4) == 0 )
       {
-        v9 = ((unsigned __int16)v14 ^ (unsigned __int16)v9) & 0x400 ^ v9 | 4;
-        *a2 = v9;
+        v10 = ((unsigned __int16)v15 ^ (unsigned __int16)v10) & 0x400 ^ v10 | 4;
+        *a2 = v10;
       }
-      v10 = _InterlockedCompareExchange(a1, v9, v7);
-      if ( v7 == v10 )
+      v7 = _InterlockedCompareExchange(a1, v10, v7);
+      if ( v9 == v7 )
         break;
-      v7 = v10;
     }
-    if ( (v7 & 4) == 0 && wil::details::g_enabledStateManager )
+    if ( !v11 && wil::details::g_enabledStateManager )
     {
-      AcquireSRWLockExclusive(&stru_1803E5DF8);
+      AcquireSRWLockExclusive(&SRWLock);
       if ( !v6
-        || v6 != dword_1803E5E0C
-        || (v11 = 0,
-            v12 = a1,
+        || v6 != dword_18034750C
+        || (v12 = 0,
+            v13 = a1,
             !wil::details_abi::heap_buffer::push_back(
-               (wil::details_abi::heap_buffer *)&xmmword_1803E5E40,
-               &v11,
+               (wil::details_abi::heap_buffer *)&xmmword_180347540,
+               &v12,
                0x10uLL)) )
       {
         _InterlockedAnd(a1, 0xFFFFF7C1);
       }
-      ReleaseSRWLockExclusive(&stru_1803E5DF8);
+      ReleaseSRWLockExclusive(&SRWLock);
     }
     if ( (*(_BYTE *)a2 & 2) == 0 )
-      *a2 ^= ((unsigned __int16)v14 ^ (unsigned __int16)*a2) & 0x9C1;
+      *a2 ^= ((unsigned __int16)v15 ^ (unsigned __int16)*a2) & 0x9C1;
   }
   return a2;
 }

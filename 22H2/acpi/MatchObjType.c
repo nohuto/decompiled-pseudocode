@@ -1,13 +1,15 @@
 /*
- * XREFs of MatchObjType @ 0x1C004C084
+ * XREFs of MatchObjType @ 0x1C000ABEC
  * Callers:
- *     ValidateTarget @ 0x1C004D510 (ValidateTarget.c)
- *     CopyObject @ 0x1C0056570 (CopyObject.c)
+ *     Store @ 0x1C000AAB0 (Store.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
+ *     ExprOp2_64 @ 0x1C0020F60 (ExprOp2_64.c)
+ *     CopyObject @ 0x1C0069110 (CopyObject.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall MatchObjType(int a1, int a2)
+char __fastcall MatchObjType(unsigned int a1, int a2)
 {
   char v2; // r8
 
@@ -18,30 +20,32 @@ char __fastcall MatchObjType(int a1, int a2)
   {
     if ( a2 == 1 )
       return 1;
-LABEL_10:
+LABEL_6:
     a1 = 134;
-    goto LABEL_12;
+    goto LABEL_7;
   }
-  if ( a1 != 1 && a1 != 2 && a1 != 3 && a1 != 4 )
+  if ( a1 )
   {
-    if ( a1 != 5 )
-      goto LABEL_13;
-    goto LABEL_10;
+    if ( a1 <= 4 )
+    {
+      a1 = 133;
+      goto LABEL_7;
+    }
+    if ( a1 == 5 )
+      goto LABEL_6;
   }
-  a1 = 133;
-LABEL_12:
-  if ( a1 == a2 )
-    return 1;
-LABEL_13:
-  if ( a2 == 135 && (unsigned int)(a1 - 133) <= 1 )
-    return 1;
-  if ( !a1 )
+LABEL_7:
+  if ( a1 != a2 && (a2 != 135 || a1 - 133 > 1) )
   {
-    if ( a2 == 134 )
+    if ( a1 )
+    {
+      if ( a2 )
+        return v2;
+    }
+    else if ( a2 == 134 )
+    {
       return v2;
-    return 1;
+    }
   }
-  if ( !a2 )
-    return 1;
-  return v2;
+  return 1;
 }

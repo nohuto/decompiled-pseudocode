@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CViewBox::sc_Offset__ @ 0x1800030F0
+ * XREFs of _dynamic_initializer_for__CViewBox::sc_Offset__ @ 0x1800029E0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CViewBox::sc_Offset__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D23A0 = (unsigned __int64)CViewBox::SetAnimatedProperty;
-  qword_1803D23B0 = v1;
+  xmmword_180346478 = (unsigned __int64)CViewBox::SetAnimatedProperty;
+  qword_180346488 = v1;
   return result;
 }

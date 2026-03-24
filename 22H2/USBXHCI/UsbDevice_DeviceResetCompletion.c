@@ -1,22 +1,21 @@
 /*
- * XREFs of UsbDevice_DeviceResetCompletion @ 0x1C0048520
+ * XREFs of UsbDevice_DeviceResetCompletion @ 0x1C0045BB0
  * Callers:
  *     <none>
  * Callees:
- *     Endpoint_Disable @ 0x1C000B0DC (Endpoint_Disable.c)
- *     UsbDevice_GetEndpointState @ 0x1C00111E4 (UsbDevice_GetEndpointState.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0019380 (WPP_RECORDER_SF_dq.c)
- *     Controller_ReportFatalErrorEx @ 0x1C001EBDC (Controller_ReportFatalErrorEx.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033674 (Controller_HwVerifierBreakIfEnabled.c)
- *     WPP_RECORDER_SF_dLL @ 0x1C0049FB0 (WPP_RECORDER_SF_dLL.c)
- *     WPP_RECORDER_SF_dqLL @ 0x1C004A420 (WPP_RECORDER_SF_dqLL.c)
+ *     Endpoint_Disable @ 0x1C000AB88 (Endpoint_Disable.c)
+ *     UsbDevice_GetEndpointState @ 0x1C0010088 (UsbDevice_GetEndpointState.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0010CB0 (WPP_RECORDER_SF_dq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_dLL @ 0x1C0047630 (WPP_RECORDER_SF_dLL.c)
+ *     WPP_RECORDER_SF_dqLL @ 0x1C0047AA0 (WPP_RECORDER_SF_dqLL.c)
  */
 
-__int64 __fastcall UsbDevice_DeviceResetCompletion(__int64 a1, int a2, __int128 *a3, int a4)
+void __fastcall UsbDevice_DeviceResetCompletion(__int64 a1, int a2, __int128 *a3, int a4)
 {
   __int64 v4; // rbx
-  char v6; // r14
   int v8; // edx
   __int64 *v9; // rsi
   __int64 v10; // rdi
@@ -26,10 +25,9 @@ __int64 __fastcall UsbDevice_DeviceResetCompletion(__int64 a1, int a2, __int128 
   __int64 *v14; // rsi
   __int64 v15; // rdi
   __int64 v16; // rdx
-  int v18; // [rsp+20h] [rbp-48h]
+  int v17; // [rsp+20h] [rbp-38h]
 
   v4 = *(_QWORD *)(a1 + 48);
-  v6 = a2;
   if ( a2 == 3 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -39,9 +37,9 @@ __int64 __fastcall UsbDevice_DeviceResetCompletion(__int64 a1, int a2, __int128 
       WPP_RECORDER_SF_dq(
         *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
         v8,
-        12,
+        a2 + 9,
         62,
-        (__int64)&WPP_a3acd40f84823909f7fc3b79b04bc30f_Traceguids,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
         *(_BYTE *)(v4 + 135),
         *(_QWORD *)v4);
     }
@@ -59,10 +57,11 @@ LABEL_19:
     *(_DWORD *)(v4 + 152) = 3;
     v16 = *(_QWORD *)(v4 + 424);
     *(_QWORD *)(v4 + 424) = 0LL;
-    return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01023 + 2104))(
-             WdfDriverGlobals,
-             v16,
-             0LL);
+    (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01023 + 2104))(
+      WdfDriverGlobals,
+      v16,
+      0LL);
+    return;
   }
   if ( *(_BYTE *)(a1 + 60) == 1 )
   {
@@ -75,7 +74,7 @@ LABEL_19:
         v11,
         12,
         63,
-        (__int64)&WPP_a3acd40f84823909f7fc3b79b04bc30f_Traceguids,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
         *(_BYTE *)(a1 + 61),
         *(_QWORD *)v4);
     }
@@ -87,10 +86,10 @@ LABEL_19:
         *(unsigned __int8 *)(a1 + 61),
         v12,
         v13,
-        v18,
+        v17,
         *(_BYTE *)(a1 + 61),
         *(_BYTE *)(a1 + 60),
-        v6);
+        a2);
     }
     v14 = (__int64 *)(v4 + 184);
     v15 = 30LL;
@@ -114,5 +113,5 @@ LABEL_19:
     "Reset Device Command failed",
     (__int128 *)(a1 + 24),
     a3);
-  return Controller_ReportFatalErrorEx(*(_QWORD *)(v4 + 8), 2u, 4121, 0LL, 0LL, 0LL, 0LL, 0LL);
+  Controller_ReportFatalError(*(_QWORD *)(v4 + 8), 2, 4121, 0LL, 0LL, 0LL, 0LL);
 }

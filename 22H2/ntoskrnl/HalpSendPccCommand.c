@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpSendPccCommand @ 0x140935C80
+ * XREFs of HalpSendPccCommand @ 0x140866C0C
  * Callers:
- *     HalpChannelPowerRequest @ 0x140935A0C (HalpChannelPowerRequest.c)
+ *     HalpChannelPowerRequest @ 0x140866978 (HalpChannelPowerRequest.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpStartPccCommand @ 0x140935CEC (HalpStartPccCommand.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpStartPccCommand @ 0x140866C78 (HalpStartPccCommand.c)
  */
 
 __int64 __fastcall HalpSendPccCommand(unsigned __int16 a1, __int64 a2)
@@ -17,13 +17,13 @@ __int64 __fastcall HalpSendPccCommand(unsigned __int16 a1, __int64 a2)
   result = HalpStartPccCommand();
   if ( (int)result >= 0 )
   {
-    *(_DWORD *)(qword_140C60160 + 12) = v3;
-    *(_DWORD *)qword_140C60160 = *(_DWORD *)(a2 + 4);
+    *(_DWORD *)(qword_140C48D20 + 12) = v3;
+    *(_DWORD *)qword_140C48D20 = *(_DWORD *)(a2 + 4);
     if ( *(_DWORD *)(a2 + 4) == 2 )
-      *(_DWORD *)(qword_140C60160 + 8) = *(_DWORD *)(a2 + 16);
+      *(_DWORD *)(qword_140C48D20 + 8) = *(_DWORD *)(a2 + 16);
     LOBYTE(v5) = 3;
-    return (*((__int64 (__fastcall **)(_QWORD, __int64))&xmmword_140C60140 + 1))(
-             *((_QWORD *)&xmmword_140C60110 + 1),
+    return (*((__int64 (__fastcall **)(_QWORD, __int64))&xmmword_140C48D00 + 1))(
+             *((_QWORD *)&xmmword_140C48CD0 + 1),
              v5);
   }
   return result;

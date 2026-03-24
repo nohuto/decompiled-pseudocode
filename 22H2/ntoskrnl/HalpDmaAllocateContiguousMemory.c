@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaAllocateContiguousMemory @ 0x1405104D0
+ * XREFs of HalpDmaAllocateContiguousMemory @ 0x1404C6738
  * Callers:
- *     HalpDmaAllocateMapRegisters @ 0x14045B93E (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x140934000 (HalpDmaAllocateLocalContiguousPool.c)
- *     HalpDmaGrowContiguousMapBuffers @ 0x1409345D0 (HalpDmaGrowContiguousMapBuffers.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C683C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140864DE0 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x1408653B4 (HalpDmaGrowContiguousMapBuffers.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     MmAllocateContiguousNodeMemory @ 0x1403B95C0 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1402E7FF0 (MmAllocateContiguousNodeMemory.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
  */
 
 __int64 __fastcall HalpDmaAllocateContiguousMemory(
@@ -17,55 +17,55 @@ __int64 __fastcall HalpDmaAllocateContiguousMemory(
         _QWORD *a5)
 {
   __int64 v5; // rsi
-  __int64 v6; // r13
-  unsigned int v7; // r14d
-  __int64 v8; // rbx
-  char v9; // bp
+  char v6; // r12
+  __int64 v7; // rax
+  int v8; // r13d
+  unsigned int v9; // ebp
   __int64 v10; // rdi
-  char i; // r15
+  char i; // r14
+  __int64 v12; // rbx
   void *ContiguousNodeMemory; // rax
-  void *v13; // r12
+  void *v14; // r15
   PHYSICAL_ADDRESS PhysicalAddress; // rax
 
-  v5 = *(_QWORD *)(a1 + 144);
-  v6 = (unsigned __int64)a2 << 12;
-  v7 = a2;
-  if ( *(_BYTE *)(a1 + 153) || a2 > 0x10 )
-    v8 = 0LL;
-  else
-    v8 = 0x10000LL;
-  v9 = 0;
+  v5 = *(_QWORD *)(a1 + 136);
+  v6 = 0;
+  v7 = a1;
+  v8 = a2 << 12;
+  v9 = a2;
   while ( 2 )
   {
-    if ( (_DWORD)v5 == -1 )
-      v10 = 0x1000000LL;
-    else
+    if ( v6 || *(_BYTE *)(v7 + 145) || v9 > 0x10 )
       v10 = 0LL;
+    else
+      v10 = 0x10000LL;
     for ( i = 0; ; i = 1 )
     {
-      ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(v6, v10, v5, v8, 4, 0x80000000);
-      v13 = ContiguousNodeMemory;
+      v12 = 0LL;
+      if ( !i && (_DWORD)v5 == -1 )
+        v12 = 0x1000000LL;
+      ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(v8, v12, v5, v10, 4u, 0x80000000);
+      v14 = ContiguousNodeMemory;
       if ( ContiguousNodeMemory )
       {
         PhysicalAddress = MmGetPhysicalAddress(ContiguousNodeMemory);
-        *a3 = v13;
+        *a3 = v14;
         *a4 = PhysicalAddress;
-        goto LABEL_19;
+        goto LABEL_20;
       }
-      if ( i || !v10 )
+      if ( i || !v12 )
         break;
-      v10 = 0LL;
     }
-    if ( !v9 && v8 )
+    if ( !v6 && v10 )
     {
-      v9 = 1;
-      v8 = 0LL;
+      v7 = a1;
+      v6 = 1;
       continue;
     }
     break;
   }
-  v7 = 0;
-LABEL_19:
+  v9 = 0;
+LABEL_20:
   *a5 = 0LL;
-  return v7;
+  return v9;
 }

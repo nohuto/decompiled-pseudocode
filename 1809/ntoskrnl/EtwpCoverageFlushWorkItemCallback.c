@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCoverageFlushWorkItemCallback @ 0x140684760
+ * XREFs of EtwpCoverageFlushWorkItemCallback @ 0x140684740
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwpCoverageFlushPending @ 0x140684830 (EtwpCoverageFlushPending.c)
- *     EtwpCoverageReset @ 0x1408B6A48 (EtwpCoverageReset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwpCoverageFlushPending @ 0x140684810 (EtwpCoverageFlushPending.c)
+ *     EtwpCoverageReset @ 0x1408B6A28 (EtwpCoverageReset.c)
  */
 
 _QWORD *__fastcall EtwpCoverageFlushWorkItemCallback(_DWORD *a1)

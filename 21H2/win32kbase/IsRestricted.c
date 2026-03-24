@@ -1,5 +1,5 @@
 /*
- * XREFs of IsRestricted @ 0x1C00BB8C0
+ * XREFs of IsRestricted @ 0x1C0085FA0
  * Callers:
  *     <none>
  * Callees:

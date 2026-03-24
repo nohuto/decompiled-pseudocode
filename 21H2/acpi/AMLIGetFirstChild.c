@@ -1,10 +1,11 @@
 /*
- * XREFs of AMLIGetFirstChild @ 0x1C002BFAC
+ * XREFs of AMLIGetFirstChild @ 0x1C001665C
  * Callers:
- *     ACPIGpeBuildEventMasks @ 0x1C001B8FC (ACPIGpeBuildEventMasks.c)
- *     ACPIBuildMissingChildren @ 0x1C004A3DC (ACPIBuildMissingChildren.c)
- *     EnableDisableRegions @ 0x1C0094CC0 (EnableDisableRegions.c)
- *     EnableDisableIPMIRegions @ 0x1C00AF540 (EnableDisableIPMIRegions.c)
+ *     EnableDisableCMOSRegions @ 0x1C0016500 (EnableDisableCMOSRegions.c)
+ *     ACPIGpeBuildEventMasks @ 0x1C001718C (ACPIGpeBuildEventMasks.c)
+ *     ACPIBuildMissingChildren @ 0x1C00174CC (ACPIBuildMissingChildren.c)
+ *     EnableDisableRegions @ 0x1C009D934 (EnableDisableRegions.c)
+ *     EnableDisableIPMIRegions @ 0x1C00B0090 (EnableDisableIPMIRegions.c)
  * Callees:
  *     <none>
  */
@@ -25,9 +26,9 @@ volatile signed __int32 *__fastcall AMLIGetFirstChild(_QWORD *a1)
   }
   else
   {
-    dword_1C0081AC8 = 0;
+    dword_1C0082908 = 0;
     v5 = (volatile signed __int32 *)(v4 + 15);
-    byte_1C0081ACC = 0;
+    pszDest = 0;
     if ( (gdwfAMLI & 4) != 0 )
       _InterlockedIncrement(v5 + 2);
   }

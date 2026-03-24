@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VidSchiGetNumFlipQueueEntriesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0046580
+ * XREFs of ?VidSchiGetNumFlipQueueEntriesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C003D8EC
  * Callers:
- *     VidSchCollectDbgInfo @ 0x1C00F64B0 (VidSchCollectDbgInfo.c)
+ *     VidSchCollectDbgInfo @ 0x1C00D3C50 (VidSchCollectDbgInfo.c)
  * Callees:
- *     ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C001AF04 (-GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ.c)
+ *     ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C0029F94 (-GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ.c)
  */
 
 __int64 __fastcall VidSchiGetNumFlipQueueEntriesUsed(struct _VIDSCH_GLOBAL *a1, int a2)
@@ -13,33 +13,44 @@ __int64 __fastcall VidSchiGetNumFlipQueueEntriesUsed(struct _VIDSCH_GLOBAL *a1, 
   int v4; // r9d
   struct VIDSCH_FLIP_QUEUE *FlipQueue; // rax
   int v6; // r9d
-  unsigned int *v7; // rax
-  __int64 v8; // rdx
-  int v9; // r8d
-  struct _VIDSCH_GLOBAL *v11; // [rsp+20h] [rbp-18h] BYREF
-  int v12; // [rsp+28h] [rbp-10h]
-  int v13; // [rsp+2Ch] [rbp-Ch]
+  unsigned int *v7; // rcx
+  __int64 v8; // r8
+  int v9; // edx
+  bool v10; // dl
+  unsigned int v11; // eax
+  struct _VIDSCH_GLOBAL *v13; // [rsp+20h] [rbp-18h] BYREF
+  int v14; // [rsp+28h] [rbp-10h]
+  int v15; // [rsp+2Ch] [rbp-Ch]
 
-  v2 = *((_DWORD *)a1 + 38);
+  v2 = *((_DWORD *)a1 + 36);
   v3 = 0;
   v4 = -1;
-  v11 = a1;
-  v12 = a2;
+  v13 = a1;
+  v14 = a2;
   while ( 1 )
   {
-    v13 = v4;
+    v15 = v4;
     if ( v4 == v2 )
       break;
-    FlipQueue = VIDSCH_FLIP_QUEUE_ITERATOR::GetFlipQueue((VIDSCH_FLIP_QUEUE_ITERATOR *)&v11);
+    FlipQueue = VIDSCH_FLIP_QUEUE_ITERATOR::GetFlipQueue((VIDSCH_FLIP_QUEUE_ITERATOR *)&v13);
     if ( FlipQueue )
     {
-      v7 = (unsigned int *)((char *)FlipQueue + 1172);
+      v7 = (unsigned int *)((char *)FlipQueue + 1140);
       v8 = 64LL;
       do
       {
-        if ( *v7 > 0xC || (v9 = 4673, !_bittest(&v9, *v7)) )
-          ++v3;
-        v7 += 344;
+        v10 = 0;
+        if ( *v7 <= 0xC )
+        {
+          v9 = 4673;
+          if ( _bittest(&v9, *v7) )
+            v10 = 1;
+        }
+        v11 = v3 + 1;
+        if ( v10 )
+          v11 = v3;
+        v7 += 336;
+        v3 = v11;
         --v8;
       }
       while ( v8 );

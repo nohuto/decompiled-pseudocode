@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCMGetDeviceStatus @ 0x140799E78
+ * XREFs of PiCMGetDeviceStatus @ 0x140684648
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0810 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406AD630 (PiCMHandleIoctl.c)
  * Callees:
- *     PiCMReleaseObjectInputData @ 0x14079A5E8 (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x14079A694 (PiCMCaptureObjectInputData.c)
- *     _CmGetDeviceStatus @ 0x14079AA78 (_CmGetDeviceStatus.c)
- *     PiCMReturnStatusResultData @ 0x14079AEE0 (PiCMReturnStatusResultData.c)
+ *     PiCMReturnStatusResultData @ 0x140684750 (PiCMReturnStatusResultData.c)
+ *     _CmGetDeviceStatus @ 0x140684C00 (_CmGetDeviceStatus.c)
+ *     PiCMReleaseObjectInputData @ 0x1406B1920 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x1406B1954 (PiCMCaptureObjectInputData.c)
  */
 
 __int64 __fastcall PiCMGetDeviceStatus(

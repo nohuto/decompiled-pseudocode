@@ -1,48 +1,40 @@
 /*
- * XREFs of BRUSHOBJ_pvAllocRbrush @ 0x1C0265080
+ * XREFs of BRUSHOBJ_pvAllocRbrush @ 0x1C026CD20
  * Callers:
- *     VerifierBRUSHOBJ_pvAllocRbrush @ 0x1C02A6C00 (VerifierBRUSHOBJ_pvAllocRbrush.c)
- *     ?MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C02B03F0 (-MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
+ *     VerifierBRUSHOBJ_pvAllocRbrush @ 0x1C029DAD0 (VerifierBRUSHOBJ_pvAllocRbrush.c)
+ *     ?MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C02A3950 (-MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
  * Callees:
- *     <none>
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
  */
 
 PVOID __stdcall BRUSHOBJ_pvAllocRbrush(BRUSHOBJ *pbo, ULONG cj)
 {
-  __int64 v2; // rbx
-  struct Gre::Base::SESSION_GLOBALS *v4; // rax
-  unsigned int *v5; // r8
+  unsigned int *v4; // r8
   PVOID result; // rax
-  unsigned int v7; // ebx
-  __int64 v8; // rax
+  ULONG v6; // ebx
 
-  v2 = cj;
-  v4 = Gre::Base::Globals((Gre::Base *)pbo);
-  if ( *((_QWORD *)v4 + 24) )
+  if ( gpCachedDbrush )
   {
-    v5 = (unsigned int *)_InterlockedExchange64((volatile __int64 *)v4 + 24, 0LL);
-    if ( v5 )
+    v4 = (unsigned int *)_InterlockedExchange64((volatile __int64 *)gpCachedDbrush, 0LL);
+    if ( v4 )
     {
-      if ( (int)v2 + 16 >= (unsigned int)v2 && v5[1] >= (unsigned __int64)(v2 + 16) )
+      if ( cj + 16 >= cj && v4[1] >= (unsigned __int64)cj + 16 )
       {
-        result = v5 + 4;
+        result = v4 + 4;
 LABEL_6:
         pbo->pvRbrush = result;
         return result;
       }
-      Win32FreePool(v5);
+      Win32FreePool(v4);
     }
   }
-  v7 = v2 + 16;
-  if ( v7 )
+  v6 = cj + 16;
+  result = PALLOCMEM2(v6, 1919050823LL, 1);
+  if ( result )
   {
-    v8 = Win32AllocPoolZInit(v7, 1919050823LL);
-    if ( v8 )
-    {
-      *(_DWORD *)(v8 + 4) = v7;
-      result = (PVOID)(v8 + 16);
-      goto LABEL_6;
-    }
+    *((_DWORD *)result + 1) = v6;
+    result = (char *)result + 16;
+    goto LABEL_6;
   }
-  return 0LL;
+  return result;
 }

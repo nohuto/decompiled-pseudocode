@@ -1,13 +1,13 @@
 /*
- * XREFs of IoEnumerateRegisteredFiltersList @ 0x1407DC150
+ * XREFs of IoEnumerateRegisteredFiltersList @ 0x14076C090
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IopGetFsRegistrationInProgress @ 0x140557748 (IopGetFsRegistrationInProgress.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     IopGetFsRegistrationInProgress @ 0x140506470 (IopGetFsRegistrationInProgress.c)
  */
 
 NTSTATUS __stdcall IoEnumerateRegisteredFiltersList(
@@ -16,7 +16,7 @@ NTSTATUS __stdcall IoEnumerateRegisteredFiltersList(
         PULONG ActualNumberDriverObjects)
 {
   struct _KTHREAD *CurrentThread; // rax
-  ULONG v7; // ebx
+  ULONG v4; // ebx
   __int64 *v8; // rax
   ULONG v9; // esi
   bool v10; // cf
@@ -24,7 +24,7 @@ NTSTATUS __stdcall IoEnumerateRegisteredFiltersList(
   NTSTATUS i; // edi
 
   CurrentThread = KeGetCurrentThread();
-  v7 = 0;
+  v4 = 0;
   --CurrentThread->KernelApcDisable;
   if ( !ExAcquireResourceExclusiveLite(&IopDatabaseResource, 0) )
   {
@@ -40,10 +40,10 @@ NTSTATUS __stdcall IoEnumerateRegisteredFiltersList(
   while ( v8 != &IopFsNotifyChangeQueueHead )
   {
     v8 = (__int64 *)*v8;
-    ++v7;
+    ++v4;
   }
-  v10 = v9 < v7;
-  *ActualNumberDriverObjects = v7;
+  v10 = v9 < v4;
+  *ActualNumberDriverObjects = v4;
   v11 = IopFsNotifyChangeQueueHead;
   for ( i = v10 ? 0xC0000023 : 0; v9; --v9 )
   {

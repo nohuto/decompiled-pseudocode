@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReadTestAndStagingConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BEC3C
+ * XREFs of ?ReadTestAndStagingConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0092B68
  * Callers:
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0468 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0091434 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
  */
 
 void VIDMM_GLOBAL::ReadTestAndStagingConfiguration(void)
@@ -186,27 +186,27 @@ void VIDMM_GLOBAL::ReadTestAndStagingConfiguration(void)
   v0 = 100;
   if ( v3 < 0x64 )
     v0 = v3;
-  dword_1C00764E8 = v0;
-  dword_1C00764EC = v6;
+  dword_1C0050438 = v0;
+  dword_1C005043C = v6;
   if ( v6 > 0x51EB851 )
   {
-    dword_1C00764EC = 85899345;
+    dword_1C005043C = 85899345;
   }
   else if ( !v6 )
   {
-    dword_1C00764EC = 1;
+    dword_1C005043C = 1;
   }
   v1 = v11;
-  dword_1C0076560 = v7;
-  dword_1C007656C = v8;
+  dword_1C00504B0 = v7;
+  dword_1C00504BC = v8;
   v2 = 512;
   if ( v4 < 0x200 )
     v2 = v4;
-  dword_1C0076570 = v2;
-  dword_1C0076574 = v5 < 3 ? v5 : 0;
-  dword_1C0076564 = v9;
-  dword_1C0076568 = v10;
+  dword_1C00504C0 = v2;
+  dword_1C00504C4 = v5 < 3 ? v5 : 0;
+  dword_1C00504B4 = v9;
+  dword_1C00504B8 = v10;
   if ( (unsigned int)(v11 - 3) <= 0xFFFFFFFB )
     v1 = 0;
-  dword_1C007653C = v1;
+  dword_1C005048C = v1;
 }

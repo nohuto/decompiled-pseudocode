@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpAddRemoveRMLogContainer @ 0x14091BDB8
+ * XREFs of CmpAddRemoveRMLogContainer @ 0x1408751D4
  * Callers:
- *     CmpTransWriteLog @ 0x140717EE4 (CmpTransWriteLog.c)
+ *     CmpTransWriteLog @ 0x140763B98 (CmpTransWriteLog.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     CmpQueryNameString @ 0x140742C78 (CmpQueryNameString.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x14080B938 (CmpAddRemoveContainerToCLFSLog.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     CmpQueryNameString @ 0x140716838 (CmpQueryNameString.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x14077C9DC (CmpAddRemoveContainerToCLFSLog.c)
  */
 
 __int64 __fastcall CmpAddRemoveRMLogContainer(__int64 a1)
@@ -29,12 +29,12 @@ __int64 __fastcall CmpAddRemoveRMLogContainer(__int64 a1)
   UnicodeString.Buffer = 0LL;
   if ( (PVOID)a1 == CmRmSystem )
   {
-    v2 = qword_140C02770;
+    v2 = qword_140C01170;
     v3 = (UNICODE_STRING *)&CmpLogPath;
   }
   else
   {
-    v4 = CmpQueryNameString(*(void **)(*(_QWORD *)(a1 + 80) + 1544LL), &v9);
+    v4 = CmpQueryNameString(*(void **)(*(_QWORD *)(a1 + 80) + 1536LL), &v9);
     if ( v4 < 0 )
       goto LABEL_16;
     v2 = *(_QWORD *)(a1 + 80);
@@ -47,10 +47,10 @@ __int64 __fastcall CmpAddRemoveRMLogContainer(__int64 a1)
     if ( v5 >= 0x100 )
     {
 LABEL_10:
-      if ( (unsigned int)dword_140C03868 > 5 && tlgKeywordOn((__int64)&dword_140C03868, 1LL) )
+      if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 1LL) )
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C03868,
-          (unsigned __int8 *)&dword_140029F94,
+          (__int64)&dword_140C02130,
+          (unsigned __int8 *)byte_1400239A5,
           0LL,
           0LL,
           2u,
@@ -80,9 +80,9 @@ LABEL_10:
     }
   }
   if ( UnicodeString.Buffer )
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeAnsiString(&UnicodeString);
 LABEL_16:
   if ( v9.Buffer )
-    RtlFreeUnicodeString(&v9);
+    RtlFreeAnsiString(&v9);
   return (unsigned int)v4;
 }

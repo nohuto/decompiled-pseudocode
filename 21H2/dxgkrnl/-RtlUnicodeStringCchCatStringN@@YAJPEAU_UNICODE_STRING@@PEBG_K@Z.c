@@ -1,67 +1,38 @@
 /*
- * XREFs of ?RtlUnicodeStringCchCatStringN@@YAJPEAU_UNICODE_STRING@@PEBG_K@Z @ 0x1C005D068
+ * XREFs of ?RtlUnicodeStringCchCatStringN@@YAJPEAU_UNICODE_STRING@@PEBG_K@Z @ 0x1C0041000
  * Callers:
- *     ?VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z @ 0x1C03788C4 (-VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z.c)
+ *     ?VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z @ 0x1C0248D68 (-VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z.c)
  * Callees:
- *     <none>
+ *     RtlUnicodeStringValidateDestWorker_0 @ 0x1C0041104 (RtlUnicodeStringValidateDestWorker_0.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x1C00411BC (RtlWideCharArrayCopyStringWorker.c)
  */
 
-__int64 __fastcall RtlUnicodeStringCchCatStringN(struct _UNICODE_STRING *a1, wchar_t *a2)
+NTSTATUS __fastcall RtlUnicodeStringCchCatStringN(struct _UNICODE_STRING *a1, const unsigned __int16 *a2)
 {
-  unsigned __int64 Length; // r9
-  unsigned __int64 MaximumLength; // r8
-  wchar_t *Buffer; // rbx
-  __int64 result; // rax
-  unsigned __int64 v8; // rcx
-  __int64 v9; // r9
-  unsigned __int64 v10; // rdx
-  __int16 v11; // r8
-  wchar_t *v12; // rbx
-  unsigned __int64 v13; // rdx
+  NTSTATUS result; // eax
+  __int16 v5; // bx
+  size_t cchToCopy; // [rsp+20h] [rbp-20h]
+  ULONG v7; // [rsp+28h] [rbp-18h]
+  wchar_t *ppszDest; // [rsp+30h] [rbp-10h] BYREF
+  size_t pcchNewDestLength; // [rsp+38h] [rbp-8h] BYREF
+  size_t pcchDest; // [rsp+70h] [rbp+30h] BYREF
+  size_t pcchDestLength; // [rsp+78h] [rbp+38h] BYREF
 
-  Length = a1->Length;
-  if ( (Length & 1) != 0 )
-    return 3221225485LL;
-  MaximumLength = a1->MaximumLength;
-  if ( (MaximumLength & 1) != 0 )
-    return 3221225485LL;
-  if ( (unsigned __int16)Length > (unsigned __int16)MaximumLength )
-    return 3221225485LL;
-  if ( (_WORD)MaximumLength == 0xFFFF )
-    return 3221225485LL;
-  Buffer = a1->Buffer;
-  result = 0LL;
-  if ( !Buffer && ((_WORD)Length || (_WORD)MaximumLength) )
-    return 3221225485LL;
-  v8 = Length >> 1;
-  v9 = 1LL;
-  v10 = MaximumLength >> 1;
-  v11 = 0;
-  v12 = &Buffer[v8];
-  v13 = v10 - v8;
-  if ( v13 )
+  ppszDest = 0LL;
+  pcchDest = 0LL;
+  pcchDestLength = 0LL;
+  result = RtlUnicodeStringValidateDestWorker_0(a1, &ppszDest, &pcchDest, &pcchDestLength, cchToCopy, v7);
+  if ( result >= 0 )
   {
-    while ( v9 )
-    {
-      if ( *a2 )
-      {
-        *v12++ = *a2++;
-        --v9;
-        ++v11;
-        if ( --v13 )
-          continue;
-      }
-      if ( v13 || !v9 )
-        break;
-      goto LABEL_14;
-    }
+    pcchNewDestLength = 0LL;
+    v5 = pcchDestLength;
+    result = RtlWideCharArrayCopyStringWorker(
+               &ppszDest[pcchDestLength],
+               pcchDest - pcchDestLength,
+               &pcchNewDestLength,
+               a2,
+               1uLL);
+    a1->Length = 2 * (pcchNewDestLength + v5);
   }
-  else
-  {
-LABEL_14:
-    if ( *a2 )
-      result = 2147483653LL;
-  }
-  a1->Length = 2 * (v11 + v8);
   return result;
 }

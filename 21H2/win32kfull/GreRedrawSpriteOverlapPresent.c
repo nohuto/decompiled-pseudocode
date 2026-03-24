@@ -1,11 +1,11 @@
 /*
- * XREFs of GreRedrawSpriteOverlapPresent @ 0x1C0085D2C
+ * XREFs of GreRedrawSpriteOverlapPresent @ 0x1C006A43C
  * Callers:
- *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0047DD4 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006E030 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001F4EC (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?vSpRedrawSpriteOverlapPresent@@YAXPEAUHDEV__@@@Z @ 0x1C0085DF4 (-vSpRedrawSpriteOverlapPresent@@YAXPEAUHDEV__@@@Z.c)
- *     ??0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z @ 0x1C0086ADC (--0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vSpRedrawSpriteOverlapPresent@@YAXPEAUHDEV__@@@Z @ 0x1C006A504 (-vSpRedrawSpriteOverlapPresent@@YAXPEAUHDEV__@@@Z.c)
+ *     ??0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z @ 0x1C006A5FC (--0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z.c)
  */
 
 __int64 __fastcall GreRedrawSpriteOverlapPresent(__int64 a1)
@@ -18,25 +18,25 @@ __int64 __fastcall GreRedrawSpriteOverlapPresent(__int64 a1)
 
   GreIncNonRBLockCount(ghsemSprite);
   v2 = 0LL;
-  if ( *(_DWORD *)(a1 + 140) )
+  if ( *(_DWORD *)(a1 + 148) )
   {
     do
     {
-      v6 = *(_QWORD *)(*(_QWORD *)(a1 + 144) + 8 * v2);
+      v6 = *(_QWORD *)(*(_QWORD *)(a1 + 152) + 8 * v2);
       v5 = PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v6);
       SEMOBJEXORSHARED::SEMOBJEXORSHARED((SEMOBJEXORSHARED *)&v7, ghsemSprite, v5);
-      vSpRedrawSpriteOverlapPresent(*(HDEV *)(*(_QWORD *)(a1 + 144) + 8 * v2));
+      vSpRedrawSpriteOverlapPresent(*(HDEV *)(*(_QWORD *)(a1 + 152) + 8 * v2));
       SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v7);
       v2 = (unsigned int)(v2 + 1);
     }
-    while ( (unsigned int)v2 < *(_DWORD *)(a1 + 140) );
+    while ( (unsigned int)v2 < *(_DWORD *)(a1 + 148) );
   }
   else
   {
-    v7 = *(_QWORD *)(a1 + 80);
+    v7 = *(_QWORD *)(a1 + 88);
     v3 = PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v7);
     SEMOBJEXORSHARED::SEMOBJEXORSHARED((SEMOBJEXORSHARED *)&v6, ghsemSprite, v3);
-    vSpRedrawSpriteOverlapPresent(*(HDEV *)(a1 + 80));
+    vSpRedrawSpriteOverlapPresent(*(HDEV *)(a1 + 88));
     EtwTraceGreLockReleaseSemaphore(L"hsem", v6);
     GreReleaseSemaphoreInternal(v6);
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetMatchingCommonClassList @ 0x14082C26C
+ * XREFs of _CmGetMatchingCommonClassList @ 0x1407B0B7C
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x14069AE50 (_PnpDispatchInstallerClass.c)
- *     _PnpDispatchInterfaceClass @ 0x1407C6330 (_PnpDispatchInterfaceClass.c)
+ *     _PnpDispatchInterfaceClass @ 0x1406B4230 (_PnpDispatchInterfaceClass.c)
+ *     _PnpDispatchInstallerClass @ 0x14073B280 (_PnpDispatchInstallerClass.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmGetMatchingCommonClassListWorker @ 0x14082C384 (_CmGetMatchingCommonClassListWorker.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmGetMatchingCommonClassListWorker @ 0x1407B0C94 (_CmGetMatchingCommonClassListWorker.c)
  */
 
 __int64 __fastcall CmGetMatchingCommonClassList(

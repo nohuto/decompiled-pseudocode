@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpOpenFirstMatchingSubKey @ 0x140947190
+ * XREFs of PnpOpenFirstMatchingSubKey @ 0x1408A2024
  * Callers:
- *     PiDevCfgConfigureDeviceLocation @ 0x1406E6424 (PiDevCfgConfigureDeviceLocation.c)
- *     PiQueryRemovableDeviceOverride @ 0x14076AD40 (PiQueryRemovableDeviceOverride.c)
+ *     PiQueryRemovableDeviceOverride @ 0x140763F00 (PiQueryRemovableDeviceOverride.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x140770D0C (PiDevCfgConfigureDeviceLocation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall PnpOpenFirstMatchingSubKey(
@@ -18,8 +18,8 @@ NTSTATUS __fastcall PnpOpenFirstMatchingSubKey(
   const WCHAR *v6; // rbx
   NTSTATUS result; // eax
   __int64 v8; // rcx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
   v6 = SourceString;
   DestinationString = 0LL;

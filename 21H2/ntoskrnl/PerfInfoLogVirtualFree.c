@@ -1,13 +1,13 @@
 /*
- * XREFs of PerfInfoLogVirtualFree @ 0x1409E4084
+ * XREFs of PerfInfoLogVirtualFree @ 0x140937C94
  * Callers:
- *     MiFreeVadRange @ 0x1402ECEB0 (MiFreeVadRange.c)
- *     MmFreeVirtualMemory @ 0x1407B99C0 (MmFreeVirtualMemory.c)
- *     MiPreparePlaceholderVadReplacement @ 0x14097F038 (MiPreparePlaceholderVadReplacement.c)
+ *     MiFreeVadRange @ 0x1403185C4 (MiFreeVadRange.c)
+ *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x1408D84B0 (MiPreparePlaceholderVadReplacement.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140281380 (EtwTraceSiloKernelEvent.c)
- *     PsGetProcessServerSilo @ 0x140347680 (PsGetProcessServerSilo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
+ *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PerfInfoLogVirtualFree(__int64 a1, __int64 a2, __int64 a3, int a4)

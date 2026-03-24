@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierKeLeaveCriticalRegion @ 0x140A7F3D0
+ * XREFs of VerifierKeLeaveCriticalRegion @ 0x1409DAD90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViKeLogCriticalRegionStackTrace @ 0x140601534 (ViKeLogCriticalRegionStackTrace.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ViKeLogCriticalRegionStackTrace @ 0x1405A2188 (ViKeLogCriticalRegionStackTrace.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 VerifierKeLeaveCriticalRegion()
@@ -20,7 +20,7 @@ __int64 VerifierKeLeaveCriticalRegion()
   }
   if ( (MmVerifierData & 2) != 0 && KeGetCurrentThread()->KernelApcDisable > 0 )
     VerifierBugCheckIfAppropriate(0xC4u, 0x3EuLL, 0LL, 0LL, 0LL);
-  if ( (VfRuleClasses & 0x400000) == 0 || (VfFlightOptions & 0x21) != 0 )
+  if ( (MmVerifierData & 0x400000) == 0 || (VfFlightOptions & 0x21) != 0 )
     ViKeLogCriticalRegionStackTrace();
   return ((__int64 (*)(void))pXdvKeLeaveCriticalRegion)();
 }

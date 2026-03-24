@@ -1,49 +1,41 @@
 /*
- * XREFs of DxgkNotifyDisplayChange @ 0x1C034961C
+ * XREFs of DxgkNotifyDisplayChange @ 0x1C02A0134
  * Callers:
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01A0EB0 (DxgkDisplayConfigDeviceInfo.c)
- *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01C4C30 (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
- *     ?DisableDWMVirtualModeOnVidPnSource@@YAJII@Z @ 0x1C01EDEC0 (-DisableDWMVirtualModeOnVidPnSource@@YAJII@Z.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C012C020 (DxgkDisplayConfigDeviceInfo.c)
+ *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C014D6D4 (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
+ *     ?DisableDWMVirtualModeOnVidPnSource@@YAJII@Z @ 0x1C0174110 (-DisableDWMVirtualModeOnVidPnSource@@YAJII@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
-__int64 __fastcall DxgkNotifyDisplayChange(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall DxgkNotifyDisplayChange(__int64 a1, __int64 a2)
 {
-  char v4; // bl
+  char v2; // bl
   struct DXGPROCESS *Current; // rax
-  __int64 v6; // rcx
-  __int64 v7; // rax
-  void (__fastcall *v8)(__int64); // rax
-  unsigned int CurrentProcessSessionId; // eax
-  __int64 v11; // rcx
-  unsigned int v12; // eax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  void (__fastcall *v6)(__int64); // rax
+  __int64 v8; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
 
-  v4 = a1;
-  Current = DXGPROCESS::GetCurrent(a1, a2, a3, a4);
-  if ( Current && (v7 = *((_QWORD *)Current + 11)) != 0 && (v8 = *(void (__fastcall **)(__int64))(v7 + 368)) != 0LL )
+  v2 = a1;
+  Current = DXGPROCESS::GetCurrent(a1, a2);
+  if ( Current )
+    Current = (struct DXGPROCESS *)*((_QWORD *)Current + 11);
+  if ( Current && (v6 = (void (__fastcall *)(__int64))*((_QWORD *)Current + 46)) != 0LL )
   {
-    LOBYTE(v6) = v4;
-    v8(v6);
+    LOBYTE(v5) = v2;
+    v6(v5);
     return 0LL;
   }
   else
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v6);
-    WdLogSingleEntry2(2LL, CurrentProcessSessionId, -1073741811LL);
-    v12 = PsGetCurrentProcessSessionId(v11);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Cannot find the DxgkEng function table for session 0x%I64x, returning 0x%I64x.",
-      v12,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v8 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v10, v9);
+    *(_QWORD *)(v8 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v8);
     return 3221225485LL;
   }
 }

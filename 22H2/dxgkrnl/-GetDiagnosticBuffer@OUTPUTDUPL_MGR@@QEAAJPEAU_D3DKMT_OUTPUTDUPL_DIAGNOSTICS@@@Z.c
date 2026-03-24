@@ -1,35 +1,41 @@
 /*
- * XREFs of ?GetDiagnosticBuffer@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_OUTPUTDUPL_DIAGNOSTICS@@@Z @ 0x1C032C0F0
+ * XREFs of ?GetDiagnosticBuffer@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_OUTPUTDUPL_DIAGNOSTICS@@@Z @ 0x1C029A5C8
  * Callers:
- *     OutputDuplGetDiagnosticBuffer @ 0x1C0330A90 (OutputDuplGetDiagnosticBuffer.c)
+ *     OutputDuplGetDiagnosticBuffer @ 0x1C029E468 (OutputDuplGetDiagnosticBuffer.c)
  * Callees:
- *     ?ReadDiagnostics@DXGDIAGNOSTICS@@QEBAJPEAEPEAII@Z @ 0x1C0050F90 (-ReadDiagnostics@DXGDIAGNOSTICS@@QEBAJPEAEPEAII@Z.c)
- *     ?IsDiagRegKeyEnabled@OUTPUTDUPL_MGR@@AEAAHXZ @ 0x1C032C874 (-IsDiagRegKeyEnabled@OUTPUTDUPL_MGR@@AEAAHXZ.c)
+ *     ?ReadDiagnostics@DXGDIAGNOSTICS@@QEBAJPEAEPEAII@Z @ 0x1C0045C44 (-ReadDiagnostics@DXGDIAGNOSTICS@@QEBAJPEAEPEAII@Z.c)
+ *     ?GetDiagnosticBufferSize@OUTPUTDUPL_MGR@@AEBAIH@Z @ 0x1C029A63C (-GetDiagnosticBufferSize@OUTPUTDUPL_MGR@@AEBAIH@Z.c)
+ *     ?IsDiagRegKeyEnabled@OUTPUTDUPL_MGR@@AEAAHXZ @ 0x1C029ACD0 (-IsDiagRegKeyEnabled@OUTPUTDUPL_MGR@@AEAAHXZ.c)
  */
 
 __int64 __fastcall OUTPUTDUPL_MGR::GetDiagnosticBuffer(
-        DXGDIAGNOSTICS **this,
+        OUTPUTDUPL_MGR **this,
         struct _D3DKMT_OUTPUTDUPL_DIAGNOSTICS *a2)
 {
-  unsigned int *v5; // r8
-  unsigned int v6; // ecx
+  OUTPUTDUPL_MGR *v5; // rcx
+  unsigned int DiagnosticBufferSize; // eax
+  DXGFASTMUTEX **v7; // rcx
+  unsigned int *v8; // r8
 
   if ( !(unsigned int)OUTPUTDUPL_MGR::IsDiagRegKeyEnabled((OUTPUTDUPL_MGR *)this) )
     return 3221225506LL;
-  if ( *(_DWORD *)a2 || !this[10] )
+  if ( *(_DWORD *)a2 )
+    v5 = this[7];
+  else
+    v5 = this[8];
+  if ( v5 )
   {
-    *((_DWORD *)a2 + 1) = 0;
+    DiagnosticBufferSize = OUTPUTDUPL_MGR::GetDiagnosticBufferSize(v5, *(_DWORD *)a2);
+    if ( *v8 < DiagnosticBufferSize )
+    {
+      *v8 = DiagnosticBufferSize;
+      return 1075707914LL;
+    }
+    DXGDIAGNOSTICS::ReadDiagnostics(v7, (unsigned __int8 *)a2 + 8, v8, -1);
   }
   else
   {
-    v5 = (unsigned int *)((char *)a2 + 4);
-    v6 = g_IsInternalReleaseOrDbg != 0 ? 0x80000 : 0;
-    if ( *((_DWORD *)a2 + 1) < v6 )
-    {
-      *v5 = v6;
-      return 1075707914LL;
-    }
-    DXGDIAGNOSTICS::ReadDiagnostics(this[10], (unsigned __int8 *)a2 + 8, v5, 0xFFFFFFFF);
+    *((_DWORD *)a2 + 1) = 0;
   }
   return 0LL;
 }

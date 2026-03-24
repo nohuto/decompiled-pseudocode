@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpDeleteCallback @ 0x1406E0DD0
+ * XREFs of ExpDeleteCallback @ 0x140779DE0
  * Callers:
  *     <none>
  * Callees:
- *     ExpUnlockCallbackListExclusive @ 0x140257E3C (ExpUnlockCallbackListExclusive.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpUnlockCallbackListExclusive @ 0x1403A666C (ExpUnlockCallbackListExclusive.c)
  */
 
-_QWORD *__fastcall ExpDeleteCallback(__int64 a1)
+char __fastcall ExpDeleteCallback(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rdi
   _QWORD *v3; // rbx

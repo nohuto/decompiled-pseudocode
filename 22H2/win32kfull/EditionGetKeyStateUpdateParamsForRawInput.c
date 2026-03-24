@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionGetKeyStateUpdateParamsForRawInput @ 0x1C0012220
+ * XREFs of EditionGetKeyStateUpdateParamsForRawInput @ 0x1C0007270
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandleNoRip @ 0x1C00244B4 (HMValidateHandleNoRip.c)
+ *     HMValidateHandleNoRip @ 0x1C0023BCC (HMValidateHandleNoRip.c)
  */
 
 void __fastcall EditionGetKeyStateUpdateParamsForRawInput(__int64 a1, __int64 a2, _BYTE *a3, _DWORD *a4, int *a5)
@@ -11,7 +11,7 @@ void __fastcall EditionGetKeyStateUpdateParamsForRawInput(__int64 a1, __int64 a2
   __int64 v7; // rcx
   __int64 v8; // rax
 
-  if ( (*(_DWORD *)(a1 + 1272) & 0x200000) != 0 && !*(_QWORD *)(a2 + 32) )
+  if ( (*(_DWORD *)(a1 + 1232) & 0x200000) != 0 && !*(_QWORD *)(a2 + 32) )
   {
     v7 = *(_QWORD *)(a2 + 40);
     LOBYTE(a2) = 18;

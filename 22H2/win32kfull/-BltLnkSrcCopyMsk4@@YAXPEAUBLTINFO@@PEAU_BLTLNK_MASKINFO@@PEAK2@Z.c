@@ -1,5 +1,5 @@
 /*
- * XREFs of ?BltLnkSrcCopyMsk4@@YAXPEAUBLTINFO@@PEAU_BLTLNK_MASKINFO@@PEAK2@Z @ 0x1C0305560
+ * XREFs of ?BltLnkSrcCopyMsk4@@YAXPEAUBLTINFO@@PEAU_BLTLNK_MASKINFO@@PEAK2@Z @ 0x1C02DC290
  * Callers:
  *     <none>
  * Callees:
@@ -10,26 +10,26 @@ void __fastcall BltLnkSrcCopyMsk4(struct BLTINFO *a1, struct _BLTLNK_MASKINFO *a
 {
   __int64 v4; // r13
   __int64 v6; // rcx
-  int v8; // edi
+  int v8; // r14d
   __int64 v9; // r11
   int v10; // r15d
   unsigned int v11; // ebx
-  int v12; // r14d
+  int v12; // ebp
   unsigned int v13; // r12d
   unsigned __int8 *v14; // r10
-  unsigned __int8 *v15; // rsi
-  char v16; // r9
+  unsigned __int8 *v15; // rdi
+  char v16; // r8
   unsigned __int8 v17; // al
   char v18; // al
   unsigned __int8 *v19; // rax
-  int v20; // r14d
+  int v20; // ebp
   unsigned __int64 v21; // r13
   int v22; // r15d
   unsigned int v23; // edx
   unsigned int v24; // eax
   char v25; // bl
   unsigned int v26; // edx
-  char v27; // r9
+  char v27; // r8
   char v28; // cl
   char v29; // al
   unsigned __int8 v30; // cl

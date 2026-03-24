@@ -1,14 +1,14 @@
 /*
- * XREFs of MiQueuePageFileExtension @ 0x1402B86E4
+ * XREFs of MiQueuePageFileExtension @ 0x1402B87E4
  * Callers:
  *     MiContractPagingFiles @ 0x140091768 (MiContractPagingFiles.c)
- *     MiIssuePageExtendRequest @ 0x1402B826C (MiIssuePageExtendRequest.c)
- *     MiContractWsSwapPageFileWorker @ 0x1402CB5E0 (MiContractWsSwapPageFileWorker.c)
+ *     MiIssuePageExtendRequest @ 0x1402B836C (MiIssuePageExtendRequest.c)
+ *     MiContractWsSwapPageFileWorker @ 0x1402CB6E0 (MiContractWsSwapPageFileWorker.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2950 (KeReleaseSemaphoreEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiQueuePageFileExtension(__int64 a1, char a2, KIRQL a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockAllMemoryLists @ 0x1406509A8
+ * XREFs of MiLockAllMemoryLists @ 0x1403821EC
  * Callers:
- *     MmDuplicateMemory @ 0x140AAC90C (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x1409907AC (MmDuplicateMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIterateOverPartitions @ 0x14062947C (MiIterateOverPartitions.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIterateOverPartitions @ 0x140382280 (MiIterateOverPartitions.c)
  */
 
 void MiLockAllMemoryLists()
 {
-  MiIterateOverPartitions((void (__fastcall *)(__int64, __int64))MiLockMemoryLists, 1LL);
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C67370);
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C67360);
+  MiIterateOverPartitions(MiLockMemoryLists, 1LL);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4E570);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4E560);
 }

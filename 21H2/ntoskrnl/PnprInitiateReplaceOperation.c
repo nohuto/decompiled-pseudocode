@@ -1,21 +1,21 @@
 /*
- * XREFs of PnprInitiateReplaceOperation @ 0x140A67C74
+ * XREFs of PnprInitiateReplaceOperation @ 0x1409AD7FC
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140950E30 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC270 (PnpReplacePartitionUnit.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PnprCompleteWake @ 0x140562A68 (PnprCompleteWake.c)
- *     PnprQuiesce @ 0x140563058 (PnprQuiesce.c)
- *     PnprSwap @ 0x1405633A8 (PnprSwap.c)
- *     PnprReplaceStart @ 0x14095319C (PnprReplaceStart.c)
- *     MmDuplicateMemory @ 0x140A487C0 (MmDuplicateMemory.c)
- *     PnprWakeProcessors @ 0x140A692FC (PnprWakeProcessors.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PnprCompleteWake @ 0x14050F128 (PnprCompleteWake.c)
+ *     PnprQuiesce @ 0x14050F718 (PnprQuiesce.c)
+ *     PnprSwap @ 0x14050FA68 (PnprSwap.c)
+ *     PnprReplaceStart @ 0x1408AE73C (PnprReplaceStart.c)
+ *     MmDuplicateMemory @ 0x14099525C (MmDuplicateMemory.c)
+ *     PnprWakeProcessors @ 0x1409AEE1C (PnprWakeProcessors.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PnprInitiateReplaceOperation()
@@ -23,7 +23,7 @@ __int64 PnprInitiateReplaceOperation()
   char v0; // r14
   char v1; // r15
   struct _WORK_QUEUE_ITEM *v2; // rdi
-  struct _WORK_QUEUE_ITEM *Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
   __int64 v4; // rdx
   int v5; // ebx
   int v6; // ecx
@@ -57,45 +57,45 @@ __int64 PnprInitiateReplaceOperation()
   v0 = 0;
   v1 = 0;
   v2 = 0LL;
-  KeInitializeEvent((PRKEVENT)(PnprContext + 33048), NotificationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(PnprContext + 33072), NotificationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(PnprContext + 33096), NotificationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(PnprContext + 33120), NotificationEvent, 0);
+  KeInitializeEvent((PRKEVENT)(PnprContext + 20760), NotificationEvent, 0);
+  KeInitializeEvent((PRKEVENT)(PnprContext + 20784), NotificationEvent, 0);
+  KeInitializeEvent((PRKEVENT)(PnprContext + 20808), NotificationEvent, 0);
+  KeInitializeEvent((PRKEVENT)(PnprContext + 20832), NotificationEvent, 0);
   if ( (*(_DWORD *)(PnprContext + 64) & 0x20) == 0 )
   {
-    Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 32LL, 1366322768LL);
-    v2 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x51706E50u);
+    v2 = PoolWithTag;
+    if ( !PoolWithTag )
     {
       v4 = PnprContext;
       v5 = -1073741670;
-      v6 = *(_DWORD *)(PnprContext + 33272);
+      v6 = *(_DWORD *)(PnprContext + 20984);
       if ( !v6 )
-        v6 = 1656;
-      v7 = *(_DWORD *)(PnprContext + 33276);
-      *(_DWORD *)(PnprContext + 33272) = v6;
+        v6 = 1663;
+      v7 = *(_DWORD *)(PnprContext + 20988);
+      *(_DWORD *)(PnprContext + 20984) = v6;
       if ( !v7 )
         v7 = 10;
-      *(_DWORD *)(v4 + 33276) = v7;
+      *(_DWORD *)(v4 + 20988) = v7;
       goto LABEL_46;
     }
-    Pool2->List.Flink = 0LL;
-    Pool2->WorkerRoutine = (void (__fastcall *)(void *))PnprQuiesceWorker;
-    Pool2->Parameter = Pool2;
-    ExQueueWorkItem(Pool2, CriticalWorkQueue);
+    PoolWithTag->List.Flink = 0LL;
+    PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))PnprQuiesceWorker;
+    PoolWithTag->Parameter = PoolWithTag;
+    ExQueueWorkItem(PoolWithTag, CriticalWorkQueue);
   }
   v5 = PnprReplaceStart();
   if ( v5 < 0 )
   {
     v8 = PnprContext;
-    v9 = *(_DWORD *)(PnprContext + 33272);
+    v9 = *(_DWORD *)(PnprContext + 20984);
     if ( !v9 )
-      v9 = 1671;
-    *(_DWORD *)(PnprContext + 33272) = v9;
-    v10 = *(_DWORD *)(v8 + 33276);
+      v9 = 1678;
+    *(_DWORD *)(PnprContext + 20984) = v9;
+    v10 = *(_DWORD *)(v8 + 20988);
     if ( !v10 )
       v10 = 1;
-    *(_DWORD *)(v8 + 33276) = v10;
+    *(_DWORD *)(v8 + 20988) = v10;
     goto LABEL_46;
   }
   v1 = 1;
@@ -113,18 +113,18 @@ __int64 PnprInitiateReplaceOperation()
       v5 = 0;
     goto LABEL_46;
   }
-  v5 = (*(__int64 (__fastcall **)(_QWORD))(PnprContext + 33240))(*(_QWORD *)(PnprContext + 33168));
+  v5 = (*(__int64 (__fastcall **)(_QWORD))(PnprContext + 20952))(*(_QWORD *)(PnprContext + 20880));
   if ( v5 < 0 )
   {
     v11 = PnprContext;
-    v12 = *(_DWORD *)(PnprContext + 33272);
+    v12 = *(_DWORD *)(PnprContext + 20984);
     if ( !v12 )
-      v12 = 1739;
-    *(_DWORD *)(PnprContext + 33272) = v12;
-    v13 = *(_DWORD *)(v11 + 33276);
+      v12 = 1746;
+    *(_DWORD *)(PnprContext + 20984) = v12;
+    v13 = *(_DWORD *)(v11 + 20988);
     if ( !v13 )
       v13 = 8;
-    *(_DWORD *)(v11 + 33276) = v13;
+    *(_DWORD *)(v11 + 20988) = v13;
   }
   else
   {
@@ -134,14 +134,14 @@ LABEL_25:
     if ( v5 < 0 )
     {
       v18 = PnprContext;
-      v19 = *(_DWORD *)(PnprContext + 33272);
+      v19 = *(_DWORD *)(PnprContext + 20984);
       if ( !v19 )
-        v19 = 1772;
-      *(_DWORD *)(PnprContext + 33272) = v19;
-      v20 = *(_DWORD *)(v18 + 33276);
+        v19 = 1779;
+      *(_DWORD *)(PnprContext + 20984) = v19;
+      v20 = *(_DWORD *)(v18 + 20988);
       if ( !v20 )
         v20 = 1;
-      *(_DWORD *)(v18 + 33276) = v20;
+      *(_DWORD *)(v18 + 20988) = v20;
     }
     else
     {
@@ -149,16 +149,16 @@ LABEL_25:
       v5 = PnprSwap();
       if ( v5 < 0 )
       {
-        ((void (__fastcall *)(__int64, _QWORD))off_140C01CD8[0])(3LL, *(_QWORD *)(PnprContext + 33160));
+        ((void (__fastcall *)(__int64, _QWORD))off_140C00688[0])(3LL, *(_QWORD *)(PnprContext + 20872));
         v15 = PnprContext;
-        v16 = *(_DWORD *)(PnprContext + 33272);
+        v16 = *(_DWORD *)(PnprContext + 20984);
         if ( !v16 )
-          v16 = 1762;
-        *(_DWORD *)(PnprContext + 33272) = v16;
-        v17 = *(_DWORD *)(v15 + 33276);
+          v16 = 1769;
+        *(_DWORD *)(PnprContext + 20984) = v16;
+        v17 = *(_DWORD *)(v15 + 20988);
         if ( !v17 )
           v17 = 1;
-        *(_DWORD *)(v15 + 33276) = v17;
+        *(_DWORD *)(v15 + 20988) = v17;
       }
       PnprWakeProcessors();
     }
@@ -189,16 +189,16 @@ LABEL_46:
   }
   else if ( v2 )
   {
-    KeSetEvent((PRKEVENT)(PnprContext + 33096), 0, 0);
-    KeWaitForSingleObject((PVOID)(PnprContext + 33120), Executive, 0, 0, 0LL);
+    KeSetEvent((PRKEVENT)(PnprContext + 20808), 0, 0);
+    KeWaitForSingleObject((PVOID)(PnprContext + 20832), Executive, 0, 0, 0LL);
   }
-  if ( *(_QWORD *)(PnprContext + 33160) )
-    off_140C01CE0[0]();
+  if ( *(_QWORD *)(PnprContext + 20872) )
+    off_140C00690[0]();
   if ( v1 )
   {
     if ( *(_DWORD *)(*(_QWORD *)(PnprContext + 24) + 4LL) )
     {
-      v26 = (*(__int64 (__fastcall **)(_QWORD))(PnprContext + 33208))(*(_QWORD *)(PnprContext + 33168));
+      v26 = (*(__int64 (__fastcall **)(_QWORD))(PnprContext + 20920))(*(_QWORD *)(PnprContext + 20880));
       if ( v5 >= 0 )
         return v26;
     }

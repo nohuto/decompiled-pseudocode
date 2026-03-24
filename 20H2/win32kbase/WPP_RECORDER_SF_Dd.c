@@ -1,64 +1,60 @@
 /*
- * XREFs of WPP_RECORDER_SF_Dd @ 0x1C013958C
+ * XREFs of WPP_RECORDER_SF_dD @ 0x1C0177F30
  * Callers:
- *     NtUserReportInertia @ 0x1C0003BD0 (NtUserReportInertia.c)
- *     RIMRegisterForInputWithCallbacks @ 0x1C0006400 (RIMRegisterForInputWithCallbacks.c)
- *     NtUserInjectGenericHidInput @ 0x1C01333A0 (NtUserInjectGenericHidInput.c)
- *     NtUserInjectPointerInput @ 0x1C01343F0 (NtUserInjectPointerInput.c)
- *     rimAbCreateGlobalPenDeadzone @ 0x1C01593E0 (rimAbCreateGlobalPenDeadzone.c)
- *     rimAbShouldButtonContactBeSuppressed @ 0x1C0159CA4 (rimAbShouldButtonContactBeSuppressed.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C0167698 (RIMIDECreatePointerDeviceInfo.c)
- *     RIMIDEFillContactUsageValues @ 0x1C0168214 (RIMIDEFillContactUsageValues.c)
- *     RIMIDEGetTimeStampDelta @ 0x1C0168440 (RIMIDEGetTimeStampDelta.c)
- *     RIMIDEInjectDeviceInput @ 0x1C01687BC (RIMIDEInjectDeviceInput.c)
- *     RIMIDEValidateKeybdInputStruct @ 0x1C0169B54 (RIMIDEValidateKeybdInputStruct.c)
- *     RIMIDEValidateMouseInputStruct @ 0x1C0169DA0 (RIMIDEValidateMouseInputStruct.c)
- *     ?BuildValueDeviceUsages@@YAHKPEAPEAUtagINPUT_INJECTION_VALUE@@PEAK@Z @ 0x1C016ABE0 (-BuildValueDeviceUsages@@YAHKPEAPEAUtagINPUT_INJECTION_VALUE@@PEAK@Z.c)
- *     rimStorePointersInHoldingFrame @ 0x1C0171FE0 (rimStorePointersInHoldingFrame.c)
- *     rimDoProcessAnyPointerDeviceInput @ 0x1C017863C (rimDoProcessAnyPointerDeviceInput.c)
- *     rimExtractParallelFrameInfoAndAbandonIncompleteFrame @ 0x1C01793EC (rimExtractParallelFrameInfoAndAbandonIncompleteFrame.c)
- *     rimFindOrCreateActiveContact @ 0x1C017A304 (rimFindOrCreateActiveContact.c)
- *     rimObsDeliverInputToObserver @ 0x1C017CB90 (rimObsDeliverInputToObserver.c)
- *     rimObsPopInputMessage @ 0x1C017D36C (rimObsPopInputMessage.c)
- *     ?AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z @ 0x1C01A7288 (-AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z.c)
- *     ?AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z @ 0x1C01A74FC (-AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z.c)
- *     ?DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01A7750 (-DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ.c)
- *     ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01A7DCC (-ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
- *     ?ComposeDeadKeys@@YAHPEAUtagKL@@PEAUDEADKEY@@GPEAGHIH@Z @ 0x1C01AC380 (-ComposeDeadKeys@@YAHPEAUtagKL@@PEAUDEADKEY@@GPEAGHIH@Z.c)
- *     ?ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B2370 (-ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManage.c)
+ *     rimProcessMissingPointerDeviceContacts @ 0x1C017ACDC (rimProcessMissingPointerDeviceContacts.c)
  * Callees:
  *     _guard_dispatch_icall_nop @ 0x1C00D36F0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 WPP_RECORDER_SF_Dd(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)
-{
-  unsigned __int64 v7; // rdi
-  unsigned int v8; // esi
-  int v10; // eax
-  int v12; // [rsp+20h] [rbp-48h]
-  __int64 v13; // [rsp+50h] [rbp-18h]
-  __int64 v14; // [rsp+58h] [rbp-10h]
-  __int64 v15; // [rsp+98h] [rbp+30h] BYREF
-  va_list va; // [rsp+98h] [rbp+30h]
-  va_list va1; // [rsp+A0h] [rbp+38h] BYREF
-
-  va_start(va1, a5);
-  va_start(va, a5);
-  v15 = va_arg(va1, _QWORD);
-  v7 = (unsigned __int64)a3 >> 16;
-  v8 = a2;
-  v10 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v7 + (((a3 - 1) >> 5) & 0x7FF) + 1);
-  if ( _bittest(&v10, ((_BYTE)a3 - 1) & 0x1F) && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v7 + 1) >= a2 )
-    ((void (__fastcall *)(_QWORD, __int64, __int64, _QWORD, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
-      *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v7),
-      43LL,
-      a5,
-      a4,
-      (__int64 *)va,
-      4LL,
-      va1,
-      4LL,
-      0LL);
-  LOWORD(v12) = a4;
-  return WppAutoLogTrace(a1, v8, a3, a5, v12, (__int64 *)va, 4LL, va1, 4LL, 0LL, v13, v14);
-}
+/*
+ * Hex-Rays decompilation failed for WPP_RECORDER_SF_dD @ 0x1C0177F30
+ * Reason: Hex-Rays returned no pseudocode for 0x1C0177F30
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 00000001C0177F30: mov     r11, rsp
+ * 00000001C0177F33: mov     [r11+8], rbx
+ * 00000001C0177F37: mov     [r11+10h], rsi
+ * 00000001C0177F3B: push    rdi
+ * 00000001C0177F3C: sub     rsp, 50h
+ * 00000001C0177F40: mov     rcx, cs:WPP_GLOBAL_Control
+ * 00000001C0177F47: mov     esi, 4
+ * 00000001C0177F4C: mov     rdi, cs:?gRimLog@@3PEAURECORDER_LOG__@@EA; RECORDER_LOG__ * gRimLog
+ * 00000001C0177F53: movzx   ebx, r9w
+ * 00000001C0177F57: mov     eax, [rcx+2Ch]
+ * 00000001C0177F5A: test    al, 1
+ * 00000001C0177F5C: jz      short loc_1C0177F9F
+ * 00000001C0177F5E: cmp     [rcx+29h], sil
+ * 00000001C0177F62: jb      short loc_1C0177F9F
+ * 00000001C0177F64: and     qword ptr [r11-18h], 0
+ * 00000001C0177F69: lea     rdx, [r11+38h]
+ * 00000001C0177F6D: mov     rax, cs:pfnWppTraceMessage
+ * 00000001C0177F74: lea     r8, WPP_fa968752f5ee31807da3aa7ca7449649_Traceguids
+ * 00000001C0177F7B: mov     rcx, [rcx+18h]
+ * 00000001C0177F7F: mov     r9d, ebx
+ * 00000001C0177F82: mov     [r11-20h], rsi
+ * 00000001C0177F86: mov     [r11-28h], rdx
+ * 00000001C0177F8A: lea     rdx, [r11+30h]
+ * 00000001C0177F8E: mov     [r11-30h], rsi
+ * 00000001C0177F92: mov     [r11-38h], rdx
+ * 00000001C0177F96: lea     edx, [rsi+27h]
+ * 00000001C0177F99: call    cs:__guard_dispatch_icall_fptr
+ * 00000001C0177F9F: and     [rsp+58h+var_10], 0
+ * 00000001C0177FA5: lea     rax, [rsp+58h+arg_30]
+ * 00000001C0177FAD: mov     [rsp+58h+var_18], rsi
+ * 00000001C0177FB2: lea     r9, WPP_fa968752f5ee31807da3aa7ca7449649_Traceguids
+ * 00000001C0177FB9: mov     [rsp+58h+var_20], rax
+ * 00000001C0177FBE: mov     r8d, 1
+ * 00000001C0177FC4: lea     rax, [rsp+58h+arg_28]
+ * 00000001C0177FCC: mov     [rsp+58h+var_28], rsi
+ * 00000001C0177FD1: mov     [rsp+58h+var_30], rax
+ * 00000001C0177FD6: mov     edx, esi
+ * 00000001C0177FD8: mov     rcx, rdi
+ * 00000001C0177FDB: mov     [rsp+58h+var_38], bx
+ * 00000001C0177FE0: call    cs:__imp_WppAutoLogTrace
+ * 00000001C0177FE7: nop     dword ptr [rax+rax+00h]
+ * 00000001C0177FEC: mov     rbx, [rsp+58h+arg_0]
+ * 00000001C0177FF1: mov     rsi, [rsp+58h+arg_8]
+ * 00000001C0177FF6: add     rsp, 50h
+ * 00000001C0177FFA: pop     rdi
+ * 00000001C0177FFB: retn
+ */

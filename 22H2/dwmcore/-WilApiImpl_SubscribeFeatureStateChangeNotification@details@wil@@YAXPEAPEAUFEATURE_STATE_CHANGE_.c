@@ -1,5 +1,5 @@
 /*
- * XREFs of ?WilApiImpl_SubscribeFeatureStateChangeNotification@details@wil@@YAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800B02E0
+ * XREFs of ?WilApiImpl_SubscribeFeatureStateChangeNotification@details@wil@@YAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800AE480
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ void __fastcall wil::details::WilApiImpl_SubscribeFeatureStateChangeNotification
 {
   if ( a3 == (void (*)(void *))-1LL )
     wil::details::FeatureStateManager::SubscribeToUsageFlush(
-      (RTL_SRWLOCK *)&wil::details::g_featureStateManager,
+      (wil::details::FeatureStateManager *)&wil::details::g_featureStateManager,
       this,
       (void (*)(void *))a2);
   else

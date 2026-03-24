@@ -1,13 +1,13 @@
 /*
- * XREFs of BiIsLinkedToFirmwareVariable @ 0x140806574
+ * XREFs of BiIsLinkedToFirmwareVariable @ 0x1407848A8
  * Callers:
- *     BcdDeleteObject @ 0x140805284 (BcdDeleteObject.c)
- *     BcdCreateObject @ 0x1408052E0 (BcdCreateObject.c)
- *     BiDeleteElement @ 0x140805C00 (BiDeleteElement.c)
- *     BcdSetElementDataWithFlags @ 0x14080669C (BcdSetElementDataWithFlags.c)
+ *     BiDeleteElement @ 0x14078309C (BiDeleteElement.c)
+ *     BcdSetElementDataWithFlags @ 0x140783EDC (BcdSetElementDataWithFlags.c)
+ *     BcdCreateObject @ 0x14096EC68 (BcdCreateObject.c)
+ *     BcdDeleteObject @ 0x14096ED00 (BcdDeleteObject.c)
  * Callees:
- *     BiGetFirmwareType @ 0x1408065B4 (BiGetFirmwareType.c)
- *     BiIsLinkedToEfiVariable @ 0x14080663C (BiIsLinkedToEfiVariable.c)
+ *     BiGetFirmwareType @ 0x1407848DC (BiGetFirmwareType.c)
+ *     BiIsLinkedToEfiVariable @ 0x140972730 (BiIsLinkedToEfiVariable.c)
  */
 
 char __fastcall BiIsLinkedToFirmwareVariable(__int64 a1, __int64 a2)

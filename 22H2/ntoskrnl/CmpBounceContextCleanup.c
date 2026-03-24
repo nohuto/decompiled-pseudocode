@@ -1,24 +1,40 @@
 /*
- * XREFs of CmpBounceContextCleanup @ 0x1406DBE74
+ * XREFs of CmpBounceContextCleanup @ 0x1405F4E70
  * Callers:
- *     NtEnumerateKey @ 0x1406DBEC0 (NtEnumerateKey.c)
- *     NtQueryMultipleValueKey @ 0x14070DE10 (NtQueryMultipleValueKey.c)
- *     NtEnumerateValueKey @ 0x14070E3E0 (NtEnumerateValueKey.c)
+ *     NtEnumerateKey @ 0x1405F3E50 (NtEnumerateKey.c)
+ *     NtEnumerateValueKey @ 0x1405F48F0 (NtEnumerateValueKey.c)
+ *     NtQueryMultipleValueKey @ 0x140686BA0 (NtQueryMultipleValueKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExFreeToLookasideListEx @ 0x14020BA00 (ExFreeToLookasideListEx.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall CmpBounceContextCleanup(__int64 a1)
 {
-  struct _PRIVILEGE_SET *v2; // rcx
+  struct _SLIST_ENTRY *v1; // r8
 
-  v2 = *(struct _PRIVILEGE_SET **)(a1 + 8);
-  if ( v2 && v2 != *(struct _PRIVILEGE_SET **)a1 && v2 != (struct _PRIVILEGE_SET *)(a1 + 17) )
+  v1 = *(struct _SLIST_ENTRY **)(a1 + 8);
+  if ( v1 && v1 != *(struct _SLIST_ENTRY **)a1 && v1 != (struct _SLIST_ENTRY *)(a1 + 17) )
   {
     if ( (*(_BYTE *)(a1 + 16) & 1) != 0 )
-      ExFreeToLookasideListEx(&CmpBounceBufferLookaside, v2);
+    {
+      ++dword_140CDB91C;
+      if ( LOWORD(CmpBounceBufferLookaside.Alignment) >= (unsigned __int16)word_140CDB910 )
+      {
+        ++dword_140CDB920;
+        ((void (__fastcall *)(struct _SLIST_ENTRY *, union _SLIST_HEADER *))qword_140CDB938)(
+          v1,
+          &CmpBounceBufferLookaside);
+      }
+      else
+      {
+        RtlpInterlockedPushEntrySList(&CmpBounceBufferLookaside, v1);
+      }
+    }
     else
-      CmSiFreeMemory(v2);
+    {
+      CmSiFreeMemory(*(PPRIVILEGE_SET *)(a1 + 8));
+    }
   }
 }

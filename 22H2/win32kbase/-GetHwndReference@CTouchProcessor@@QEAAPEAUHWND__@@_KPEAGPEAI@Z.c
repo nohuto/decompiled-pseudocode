@@ -1,58 +1,60 @@
 /*
- * XREFs of ?GetHwndReference@CTouchProcessor@@QEAAPEAUHWND__@@_KPEAGPEAI@Z @ 0x1C01C7020
+ * XREFs of ?GetHwndReference@CTouchProcessor@@QEAAPEAUHWND__@@_KPEAGPEAI@Z @ 0x1C0191940
  * Callers:
  *     <none>
  * Callees:
- *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C00B9418 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00B9500 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4A4E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     ?GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z @ 0x1C01C7440 (-GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z.c)
- *     ?ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z @ 0x1C01D1DD4 (-ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z.c)
- *     ?UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C01D8320 (-UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCC60 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ?UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CD2DC (-UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C0187408 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01970E4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z @ 0x1C019ABD8 (-ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z.c)
  */
 
 __int64 __fastcall CTouchProcessor::GetHwndReference(
         CTouchProcessor *this,
-        void *a2,
+        unsigned int *a2,
         unsigned __int16 *a3,
         unsigned int *a4)
 {
-  CTouchProcessor *v8; // rcx
-  struct CPointerMsgData *NonConstMsgData; // rax
-  __int64 v10; // rbx
-  struct CPointerMsgData *v11; // rdi
-  __int64 v12; // rax
-  __int64 v13; // rsi
-  __int64 v14; // rbp
-  CInpLockGuard *v16[8]; // [rsp+20h] [rbp-68h] BYREF
+  __int64 v8; // rbx
+  const struct CPointerInputFrame *v9; // rsi
+  __int64 v10; // rax
+  __int64 v11; // rbp
+  int v12; // eax
+  CInpLockGuard *v14[8]; // [rsp+20h] [rbp-68h] BYREF
 
   CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
-    (CInpLockGuardExclusiveIfNeeded *)v16,
-    (CTouchProcessor *)((char *)this + 32),
+    (CInpLockGuardExclusiveIfNeeded *)v14,
+    (CTouchProcessor *)((char *)this + 40),
     a2);
-  NonConstMsgData = CTouchProcessor::GetNonConstMsgData(v8, (unsigned __int64)a2);
-  v10 = 0LL;
-  v11 = NonConstMsgData;
-  if ( NonConstMsgData )
+  v8 = 0LL;
+  if ( a2 )
   {
-    v12 = CTouchProcessor::ReferenceFrame(this, *((unsigned int *)NonConstMsgData + 7));
-    v13 = v12;
-    if ( v12 )
+    v9 = CTouchProcessor::ReferenceFrame(this, a2[7]);
+    if ( v9 )
     {
-      if ( *((_DWORD *)v11 + 8) >= *(_DWORD *)(v12 + 48) )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13599);
-      v14 = *(_QWORD *)(v13 + 240) + 480LL * *((unsigned int *)v11 + 8);
-      if ( !(unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v14) )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13601);
-      if ( *(_DWORD *)(v14 + 172) != *((unsigned __int16 *)v11 + 8) )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 13604);
-      *a3 = *((_WORD *)v11 + 8);
-      *a4 = *(_DWORD *)(v13 + 48);
-      v10 = *(_QWORD *)(v14 + 192);
-      CTouchProcessor::UnreferenceFrame(this, v13);
+      v10 = a2[8];
+      if ( (unsigned int)v10 >= *((_DWORD *)v9 + 12) )
+      {
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 12992);
+        v10 = a2[8];
+      }
+      v11 = *((_QWORD *)v9 + 17) + 480 * v10;
+      if ( !(unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v11) )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 12994);
+      v12 = *((unsigned __int16 *)a2 + 8);
+      if ( *(_DWORD *)(v11 + 172) != v12 )
+      {
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 12997);
+        LOWORD(v12) = *((_WORD *)a2 + 8);
+      }
+      *a3 = v12;
+      *a4 = *((_DWORD *)v9 + 12);
+      v8 = *(_QWORD *)(v11 + 192);
+      CTouchProcessor::UnreferenceFrame((__int64)this, (__int64)v9);
     }
   }
-  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v16);
-  return v10;
+  CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v14);
+  return v8;
 }

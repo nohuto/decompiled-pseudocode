@@ -1,8 +1,8 @@
 /*
- * XREFs of MmGetImageBase @ 0x1406BA3C4
+ * XREFs of MmGetImageBase @ 0x1406BA3A4
  * Callers:
- *     RtlpLookupUserFunctionTable @ 0x140133C78 (RtlpLookupUserFunctionTable.c)
- *     EtwpLocateDbgIdForRegEntry @ 0x1406BA0D0 (EtwpLocateDbgIdForRegEntry.c)
+ *     RtlpLookupUserFunctionTable @ 0x140133C98 (RtlpLookupUserFunctionTable.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1406BA0B0 (EtwpLocateDbgIdForRegEntry.c)
  * Callees:
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
  *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075460 (LOCK_ADDRESS_SPACE_SHARED.c)

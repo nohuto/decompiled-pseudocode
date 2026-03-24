@@ -1,64 +1,62 @@
 /*
- * XREFs of SdbTagRefToTagID @ 0x14080B368
+ * XREFs of SdbTagRefToTagID @ 0x1407C2850
  * Callers:
- *     KsepDbGetDriverShimsInternal @ 0x140694B7C (KsepDbGetDriverShimsInternal.c)
- *     KsepDbCacheReadDeviceInternal @ 0x14080AB88 (KsepDbCacheReadDeviceInternal.c)
- *     KsepDbGetShimInfo @ 0x140856450 (KsepDbGetShimInfo.c)
- *     SdbQueryDataEx @ 0x140A4EF54 (SdbQueryDataEx.c)
- *     SdbReadEntryInformation @ 0x140A4F3E4 (SdbReadEntryInformation.c)
+ *     KsepDbCacheReadDeviceInternal @ 0x140755564 (KsepDbCacheReadDeviceInternal.c)
+ *     KsepDbGetDriverShimsInternal @ 0x14075867C (KsepDbGetDriverShimsInternal.c)
+ *     PiIsDriverBlocked @ 0x14077E204 (PiIsDriverBlocked.c)
+ *     SdbReadEntryInformation @ 0x1407C21FC (SdbReadEntryInformation.c)
+ *     KsepDbGetShimInfo @ 0x1408BF86C (KsepDbGetShimInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     SdbpOpenLocalDatabaseEx @ 0x140A5253C (SdbpOpenLocalDatabaseEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x140966854 (SdbpOpenLocalDatabaseEx.c)
  */
 
 __int64 __fastcall SdbTagRefToTagID(__int64 a1, unsigned int a2, _QWORD *a3, int *a4)
 {
-  int v6; // ebx
-  __int64 v7; // r8
-  __int64 result; // rax
-  int v10; // ecx
-  __int64 v11; // rcx
-  __int128 v12; // xmm0
-  unsigned int v13; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v14; // [rsp+38h] [rbp-40h] BYREF
-  __int128 v15; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v6; // rax
+  unsigned int v7; // ecx
+  int v8; // ebx
+  __int128 *v9; // r8
+  int v11; // edx
+  __int128 v13; // xmm0
+  unsigned int v14; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v15; // [rsp+38h] [rbp-40h] BYREF
+  __int128 v16; // [rsp+40h] [rbp-38h] BYREF
 
-  v14 = 0LL;
-  v13 = a2 >> 28;
-  v6 = a2 & 0xFFFFFFF;
-  v7 = 32LL * (a2 >> 28);
-  result = 1LL;
-  v10 = *(_DWORD *)(v7 + a1 + 64);
-  if ( (v10 & 2) != 0 )
+  v6 = 0LL;
+  v14 = a2 >> 28;
+  v7 = 1;
+  v15 = 0LL;
+  v8 = a2 & 0xFFFFFFF;
+  v9 = (__int128 *)(a1 + 32 * ((a2 >> 28) + 1LL));
+  v11 = *((_DWORD *)v9 + 6);
+  if ( (v11 & 2) != 0 )
   {
-    v11 = *(_QWORD *)(v7 + a1 + 56);
-    *(_OWORD *)(v11 + 28) = *(_OWORD *)(v7 + a1 + 40);
+    v6 = *((_QWORD *)v9 + 2);
+    *(_OWORD *)(v6 + 28) = *v9;
+    goto LABEL_3;
   }
-  else
+  if ( (v11 & 1) != 0 )
   {
-    if ( (v10 & 1) == 0 )
-      goto LABEL_10;
-    v12 = *(_OWORD *)(v7 + a1 + 40);
-    *(_DWORD *)(v7 + a1 + 64) = 0;
-    v15 = v12;
-    result = SdbpOpenLocalDatabaseEx(a1, (unsigned int)&v15, v7, (unsigned int)&v14, (__int64)&v13);
-    v11 = v14;
+    v13 = *v9;
+    *((_DWORD *)v9 + 6) = 0;
+    v16 = v13;
+    v7 = SdbpOpenLocalDatabaseEx(a1, (unsigned int)&v16, (_DWORD)v9, (unsigned int)&v15, (__int64)&v14);
+    v6 = v15;
+LABEL_3:
+    if ( v6 )
+      goto LABEL_4;
   }
-  if ( v11 )
+  v7 = 0;
+LABEL_4:
+  if ( !v7 )
   {
-    if ( (_DWORD)result )
-      goto LABEL_5;
-    goto LABEL_11;
+    v6 = 0LL;
+    v8 = 0;
   }
-LABEL_10:
-  result = 0LL;
-LABEL_11:
-  v11 = 0LL;
-  v6 = 0;
-LABEL_5:
   if ( a3 )
-    *a3 = v11;
+    *a3 = v6;
   if ( a4 )
-    *a4 = v6;
-  return result;
+    *a4 = v8;
+  return v7;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddReaderToReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z @ 0x1801B7A3C
+ * XREFs of ?AddReaderToReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z @ 0x1801647EC
  * Callers:
- *     ?ProcessSetLookupId@CDataSourceReader@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DATASOURCEREADER_SETLOOKUPID@@@Z @ 0x1802291B0 (-ProcessSetLookupId@CDataSourceReader@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DATASOURCEREADER_S.c)
+ *     ?ProcessSetLookupId@CDataSourceReader@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DATASOURCEREADER_SETLOOKUPID@@@Z @ 0x1801BEA30 (-ProcessSetLookupId@CDataSourceReader@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DATASOURCEREADER_S.c)
  * Callees:
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ??$_Emplace_reallocate@AEBQEAVCDataSourceReader@@@?$vector@PEAVCDataSourceReader@@V?$allocator@PEAVCDataSourceReader@@@std@@@std@@QEAAPEAPEAVCDataSourceReader@@QEAPEAV2@AEBQEAV2@@Z @ 0x1801B7758 (--$_Emplace_reallocate@AEBQEAVCDataSourceReader@@@-$vector@PEAVCDataSourceReader@@V-$allocator@P.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18014CF54 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ??$_Emplace_reallocate@PEBVCVisual@@@?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@QEAAPEAPEBVCVisual@@QEAPEBV2@$$QEAPEBV2@@Z @ 0x180164458 (--$_Emplace_reallocate@PEBVCVisual@@@-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@std@@@std@.c)
  */
 
 void __fastcall DataProviderManager::AddReaderToReadyList(
@@ -14,29 +14,31 @@ void __fastcall DataProviderManager::AddReaderToReadyList(
         const char *a4)
 {
   _QWORD *v4; // rax
+  __int64 *v5; // rcx
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
-  struct CDataSourceReader *v6; // [rsp+38h] [rbp+10h] BYREF
+  struct CDataSourceReader *v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v6 = a2;
-  if ( (*((_BYTE *)a2 + 80) & 1) != 0 )
+  v7 = a2;
+  if ( (*((_BYTE *)a2 + 72) & 1) != 0 )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      426LL,
+      (void *)0x1AA,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataprovidermanager.cpp",
       a4);
+    __debugbreak();
+  }
   v4 = (_QWORD *)*((_QWORD *)this + 14);
-  if ( v4 == *((_QWORD **)this + 15) )
+  v5 = (__int64 *)((char *)this + 104);
+  if ( (_QWORD *)v5[2] == v4 )
   {
-    std::vector<CDataSourceReader *>::_Emplace_reallocate<CDataSourceReader * const &>(
-      (const void **)this + 13,
-      *((_BYTE **)this + 14),
-      &v6);
-    a2 = v6;
+    std::vector<CVisual const *>::_Emplace_reallocate<CVisual const *>(v5, v4, &v7);
+    a2 = v7;
   }
   else
   {
     *v4 = a2;
-    *((_QWORD *)this + 14) += 8LL;
+    v5[1] += 8LL;
   }
-  *((_BYTE *)a2 + 80) |= 2u;
+  *((_BYTE *)a2 + 72) |= 2u;
 }

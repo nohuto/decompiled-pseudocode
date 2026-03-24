@@ -1,7 +1,7 @@
 /*
- * XREFs of CmIsStateSeparationDevModeEnabled @ 0x1408662D8
+ * XREFs of CmIsStateSeparationDevModeEnabled @ 0x140868038
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
  * XREFs of VerifierBugCheckIfAppropriate @ 0x14092FD84
  * Callers:
- *     VfFailDeviceNode @ 0x140177DF0 (VfFailDeviceNode.c)
- *     VerifierFreeTrackedPool @ 0x1402BA31C (VerifierFreeTrackedPool.c)
- *     VfFailDriver @ 0x140309A20 (VfFailDriver.c)
- *     VfFailSystemBIOS @ 0x140309A50 (VfFailSystemBIOS.c)
- *     MdlInvariantPostProcessing1 @ 0x14030A54C (MdlInvariantPostProcessing1.c)
- *     MdlInvariantPreProcessing1 @ 0x14030A740 (MdlInvariantPreProcessing1.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     VfFailDeviceNode @ 0x140177E10 (VfFailDeviceNode.c)
+ *     VerifierFreeTrackedPool @ 0x1402BA41C (VerifierFreeTrackedPool.c)
+ *     VfFailDriver @ 0x140309B20 (VfFailDriver.c)
+ *     VfFailSystemBIOS @ 0x140309B50 (VfFailSystemBIOS.c)
+ *     MdlInvariantPostProcessing1 @ 0x14030A64C (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x14030A840 (MdlInvariantPreProcessing1.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     IovCompleteRequest @ 0x140923FD4 (IovCompleteRequest.c)
  *     IovFreeIrpPrivate @ 0x1409241EC (IovFreeIrpPrivate.c)
  *     IovInitializeTimer @ 0x1409242A0 (IovInitializeTimer.c)
@@ -101,8 +101,8 @@
  *     ExAllocatePoolSanityChecks @ 0x14094AC10 (ExAllocatePoolSanityChecks.c)
  *     ExFreePoolSanityChecks @ 0x14094AD7C (ExFreePoolSanityChecks.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierBugCheckIfAppropriate(

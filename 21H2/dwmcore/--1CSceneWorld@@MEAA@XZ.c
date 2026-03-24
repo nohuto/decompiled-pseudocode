@@ -1,12 +1,12 @@
 /*
- * XREFs of ??1CSceneWorld@@MEAA@XZ @ 0x180252D2C
+ * XREFs of ??1CSceneWorld@@MEAA@XZ @ 0x18020B44C
  * Callers:
- *     ??_GCSceneWorld@@MEAAPEAXI@Z @ 0x180252E50 (--_GCSceneWorld@@MEAAPEAXI@Z.c)
+ *     ??_GCSceneWorld@@MEAAPEAXI@Z @ 0x18020B540 (--_GCSceneWorld@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@UIHolographicExclusiveModeManagerProxy@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@UIHolographicExclusiveModeManagerProxy@@Uerr_returncode_policy@wil@@@wil@@QEAV12@AEAV?$allocator@V?$com_ptr_t@UIHolographicExclusiveModeManagerProxy@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x180192054 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@UIHolographicExclusiveModeManagerProxy@@Uerr_returnc.c)
- *     ?UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x180199EF0 (-UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x180168CF8 (-UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z.c)
  */
 
 void __fastcall CSceneWorld::~CSceneWorld(CSceneWorld *this)
@@ -14,42 +14,34 @@ void __fastcall CSceneWorld::~CSceneWorld(CSceneWorld *this)
   struct ISceneNotificationListener *v2; // rdx
   __int64 v3; // rcx
   __int64 v4; // rcx
-  __int64 *v5; // rcx
+  __int64 v5; // rcx
   void *v6; // rcx
+  __int64 v7; // rcx
 
   *(_QWORD *)this = &CSceneWorld::`vftable'{for `CContent'};
-  *((_QWORD *)this + 9) = &CSceneWorld::`vftable'{for `ISceneNotificationListener'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 4LL) + 64) = &CSceneWorld::`vftable'{for `IUnknown'};
-  v2 = (CSceneWorld *)((char *)this + 72);
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 64) = &CSceneWorld::`vftable'{for `IContent'};
-  v3 = *(int *)(*((_QWORD *)this + 8) + 4LL);
-  *(_DWORD *)((char *)this + v3 + 60) = v3 - 112;
-  v4 = *(int *)(*((_QWORD *)this + 8) + 8LL);
-  *(_DWORD *)((char *)this + v4 + 60) = v4 - 128;
-  CSceneResourceManager::UnregisterSceneListener(*(CSceneResourceManager **)(*((_QWORD *)this + 2) + 288LL), v2);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 19);
-  v5 = (__int64 *)*((_QWORD *)this + 16);
+  *((_QWORD *)this + 8) = &CSceneWorld::`vftable'{for `ISceneNotificationListener'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 4LL) + 56) = &CSceneWorld::`vftable'{for `IUnknown'};
+  v2 = (CSceneWorld *)((char *)this + 64);
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 56) = &CSceneWorld::`vftable'{for `IContent'};
+  v3 = *(int *)(*((_QWORD *)this + 7) + 4LL);
+  *(_DWORD *)((char *)this + v3 + 52) = v3 - 88;
+  v4 = *(int *)(*((_QWORD *)this + 7) + 8LL);
+  *(_DWORD *)((char *)this + v4 + 52) = v4 - 104;
+  CSceneResourceManager::UnregisterSceneListener(*(CSceneResourceManager **)(*((_QWORD *)this + 2) + 152LL), v2);
+  v5 = *((_QWORD *)this + 15);
   if ( v5 )
-  {
-    std::_Destroy_range<std::allocator<wil::com_ptr_t<IHolographicExclusiveModeManagerProxy,wil::err_returncode_policy>>>(
-      v5,
-      *((__int64 **)this + 17));
-    std::_Deallocate<16,0>(
-      *((void **)this + 16),
-      (*((_QWORD *)this + 18) - *((_QWORD *)this + 16)) & 0xFFFFFFFFFFFFFFF8uLL);
-    *((_QWORD *)this + 16) = 0LL;
-    *((_QWORD *)this + 17) = 0LL;
-    *((_QWORD *)this + 18) = 0LL;
-  }
-  v6 = (void *)*((_QWORD *)this + 13);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  v6 = (void *)*((_QWORD *)this + 12);
   if ( v6 )
   {
-    std::_Deallocate<16,0>(v6, (*((_QWORD *)this + 15) - (_QWORD)v6) & 0xFFFFFFFFFFFFFFF8uLL);
+    std::_Deallocate<16,0>(v6, (*((_QWORD *)this + 14) - (_QWORD)v6) & 0xFFFFFFFFFFFFFFF8uLL);
+    *((_QWORD *)this + 12) = 0LL;
     *((_QWORD *)this + 13) = 0LL;
     *((_QWORD *)this + 14) = 0LL;
-    *((_QWORD *)this + 15) = 0LL;
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 12);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 11);
+  v7 = *((_QWORD *)this + 11);
+  if ( v7 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 10);
   CResource::~CResource(this);
 }

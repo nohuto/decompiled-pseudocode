@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPDO_EvtDeviceQueryRemove @ 0x1C007BF10
+ * XREFs of HUBPDO_EvtDeviceQueryRemove @ 0x1C0077C80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceQueryRemove(__int64 a1)
@@ -13,7 +13,7 @@ __int64 __fastcall HUBPDO_EvtDeviceQueryRemove(__int64 a1)
                                                                                                 + 1616))(
                                   WdfDriverGlobals,
                                   a1,
-                                  off_1C00690F8)
+                                  off_1C00660D0)
                               + 32),
     0x800u);
   return 0LL;

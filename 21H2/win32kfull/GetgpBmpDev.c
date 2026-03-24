@@ -1,5 +1,5 @@
 /*
- * XREFs of GetgpBmpDev @ 0x1C0122FE0
+ * XREFs of GetgpBmpDev @ 0x1C01378A0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of CcInitializeCacheMap @ 0x14036A2D0
+ * XREFs of CcInitializeCacheMap @ 0x14032B680
  * Callers:
  *     <none>
  * Callees:
- *     CcInitializeCacheMapInternal @ 0x14025E7B0 (CcInitializeCacheMapInternal.c)
+ *     CcInitializeCacheMapEx @ 0x14022DF30 (CcInitializeCacheMapEx.c)
  */
 
 void __stdcall CcInitializeCacheMap(
@@ -13,12 +13,5 @@ void __stdcall CcInitializeCacheMap(
         PCACHE_MANAGER_CALLBACKS Callbacks,
         PVOID LazyWriteContext)
 {
-  CcInitializeCacheMapInternal(
-    (__int64)FileObject,
-    (__m128i *)FileSizes,
-    PinAccess,
-    Callbacks,
-    0LL,
-    (__int64)LazyWriteContext,
-    0);
+  CcInitializeCacheMapEx(FileObject, (__int128 *)FileSizes, PinAccess, (__int64)Callbacks, (__int64)LazyWriteContext, 0);
 }

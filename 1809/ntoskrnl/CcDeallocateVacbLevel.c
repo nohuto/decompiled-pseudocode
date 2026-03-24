@@ -1,5 +1,5 @@
 /*
- * XREFs of CcDeallocateVacbLevel @ 0x14012D04C
+ * XREFs of CcDeallocateVacbLevel @ 0x14012D06C
  * Callers:
  *     CcSetVacbLargeOffset @ 0x1400224B0 (CcSetVacbLargeOffset.c)
  * Callees:

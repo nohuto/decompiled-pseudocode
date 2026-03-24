@@ -1,46 +1,48 @@
 /*
- * XREFs of PsStartSiloMonitor @ 0x14084B360
+ * XREFs of PsStartSiloMonitor @ 0x1407C4430
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PspGetServerSiloStatePointer @ 0x1405A39B4 (PspGetServerSiloStatePointer.c)
- *     PspGetNextSilo @ 0x1406A31F4 (PspGetNextSilo.c)
- *     PspInvokeCreateCallback @ 0x14084B510 (PspInvokeCreateCallback.c)
- *     PspInvokeTerminateCallback @ 0x1409B42B8 (PspInvokeTerminateCallback.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PspGetServerSiloStatePointer @ 0x140580EE8 (PspGetServerSiloStatePointer.c)
+ *     PspGetNextSilo @ 0x140617F50 (PspGetNextSilo.c)
+ *     PspInvokeCreateCallback @ 0x1407C45E0 (PspInvokeCreateCallback.c)
+ *     PspInvokeTerminateCallback @ 0x14090B720 (PspInvokeTerminateCallback.c)
  */
 
 __int64 __fastcall PsStartSiloMonitor(__int64 a1)
 {
-  int v2; // edi
+  int v1; // edi
   struct _KTHREAD *CurrentThread; // rax
+  _DWORD *v4; // r9
   void *i; // rcx
   void *NextSilo; // rax
-  __int64 v6; // rbp
-  char v7; // bp
-  int v8; // r14d
+  __int64 v7; // rsi
+  char v8; // si
+  int v9; // r14d
   void *j; // rcx
-  void *v10; // rax
-  void *v11; // rdi
-  __int64 *v12; // rax
-  char v13; // si
-  void *v15; // r8
-  int v16; // ebp
+  void *v11; // rax
+  void *v12; // rdi
+  _DWORD *v13; // r9
+  __int64 *v14; // rax
+  char v15; // bp
+  void *v17; // r8
+  int v18; // esi
   void *k; // rcx
-  void *v18; // rax
-  void *v19; // rdi
-  __int64 v20; // rax
-  $115DCDF994C6370D29323EAB0E0C9502 v21; // [rsp+20h] [rbp-58h] BYREF
+  void *v20; // rax
+  void *v21; // rdi
+  __int64 v22; // rax
+  _OWORD v23[3]; // [rsp+20h] [rbp-58h] BYREF
 
-  memset(&v21, 0, sizeof(v21));
-  v2 = 0;
+  v1 = 0;
+  memset(v23, 0, sizeof(v23));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PspSiloMonitorLock, 0LL);
@@ -48,14 +50,14 @@ __int64 __fastcall PsStartSiloMonitor(__int64 a1)
   {
     if ( !*(_BYTE *)(a1 + 17) )
     {
-      for ( i = 0LL; ; i = v15 )
+      for ( i = 0LL; ; i = v17 )
       {
         NextSilo = PspGetNextSilo(i, 1);
         if ( !NextSilo )
           break;
         if ( (unsigned int)(*(_DWORD *)PspGetServerSiloStatePointer((__int64)NextSilo) - 1) <= 2 )
         {
-          v2 = -1073741637;
+          v1 = -1073741637;
           goto LABEL_15;
         }
       }
@@ -64,80 +66,80 @@ __int64 __fastcall PsStartSiloMonitor(__int64 a1)
     {
       if ( !*(_BYTE *)(a1 + 16) )
         goto LABEL_10;
-      KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v21);
-      v6 = PdcCreateWatchdogAroundClientCall();
-      v2 = PspInvokeCreateCallback(v6, a1);
-      if ( v2 < 0 && *(_QWORD *)(a1 + 32) )
-        PspInvokeTerminateCallback(v6, a1);
-      KiUnstackDetachProcess(&v21);
-      if ( v2 >= 0 )
+      KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v23, v4);
+      v7 = HalSystemVectorDispatchEntry();
+      v1 = PspInvokeCreateCallback(v7, a1);
+      if ( v1 < 0 && *(_QWORD *)(a1 + 32) )
+        PspInvokeTerminateCallback(v7, a1);
+      KiUnstackDetachProcess((__int64)v23, 0);
+      if ( v1 >= 0 )
       {
 LABEL_10:
-        v7 = 0;
         v8 = 0;
-        KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v21);
-        for ( j = 0LL; ; j = v11 )
+        v9 = 0;
+        KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v23, v4);
+        for ( j = 0LL; ; j = v12 )
         {
-          v10 = PspGetNextSilo(j, 1);
-          v11 = v10;
-          if ( !v10 )
+          v11 = PspGetNextSilo(j, 1);
+          v12 = v11;
+          if ( !v11 )
             break;
-          if ( (unsigned int)(*(_DWORD *)PspGetServerSiloStatePointer((__int64)v10) - 1) <= 2 )
+          if ( (unsigned int)(*(_DWORD *)PspGetServerSiloStatePointer((__int64)v11) - 1) <= 2 )
           {
-            ++v8;
-            if ( (int)PspInvokeCreateCallback(v11, a1) < 0 )
-              v7 = 1;
+            ++v9;
+            if ( (int)PspInvokeCreateCallback(v12, a1) < 0 )
+              v8 = 1;
           }
         }
-        KiUnstackDetachProcess(&v21);
-        if ( v7 )
+        KiUnstackDetachProcess((__int64)v23, 0);
+        if ( v8 )
         {
           if ( *(_QWORD *)(a1 + 32) )
           {
-            v16 = 0;
-            KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v21);
-            for ( k = 0LL; ; k = v19 )
+            v18 = 0;
+            KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v23, v13);
+            for ( k = 0LL; ; k = v21 )
             {
-              v18 = PspGetNextSilo(k, 1);
-              v19 = v18;
-              if ( !v18 )
+              v20 = PspGetNextSilo(k, 1);
+              v21 = v20;
+              if ( !v20 )
                 break;
-              if ( (unsigned int)(*(_DWORD *)PspGetServerSiloStatePointer((__int64)v18) - 1) <= 2 )
+              if ( (unsigned int)(*(_DWORD *)PspGetServerSiloStatePointer((__int64)v20) - 1) <= 2 )
               {
-                PspInvokeTerminateCallback(v19, a1);
-                ++v16;
+                PspInvokeTerminateCallback(v21, a1);
+                ++v18;
               }
             }
-            if ( v8 != v16 )
+            if ( v9 != v18 )
               __int2c();
             if ( *(_BYTE *)(a1 + 16) )
             {
-              v20 = PdcCreateWatchdogAroundClientCall();
-              PspInvokeCreateCallback(v20, a1);
+              v22 = HalSystemVectorDispatchEntry();
+              PspInvokeCreateCallback(v22, a1);
             }
-            KiUnstackDetachProcess(&v21);
+            KiUnstackDetachProcess((__int64)v23, 0);
           }
-          v2 = -1073741248;
+          v1 = -1073741248;
         }
         else
         {
-          v12 = (__int64 *)qword_140C381C8;
-          if ( *(__int64 **)qword_140C381C8 != &PspSiloMonitorList )
+          v14 = (__int64 *)qword_140C1E0A8;
+          if ( *(__int64 **)qword_140C1E0A8 != &PspSiloMonitorList )
             __fastfail(3u);
           *(_QWORD *)a1 = &PspSiloMonitorList;
-          v2 = 0;
-          *(_QWORD *)(a1 + 8) = v12;
-          *v12 = a1;
-          qword_140C381C8 = a1;
+          v1 = 0;
+          *(_QWORD *)(a1 + 8) = v14;
+          *v14 = a1;
+          qword_140C1E0A8 = a1;
         }
       }
     }
   }
 LABEL_15:
-  v13 = _InterlockedExchangeAdd64((volatile signed __int64 *)&PspSiloMonitorLock, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v13 & 2) != 0 && (v13 & 4) == 0 )
+  v15 = _InterlockedExchangeAdd64((volatile signed __int64 *)&PspSiloMonitorLock, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v15 & 2) != 0 && (v15 & 4) == 0 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PspSiloMonitorLock);
   KeAbPostRelease((ULONG_PTR)&PspSiloMonitorLock);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v2;
+  return (unsigned int)v1;
 }

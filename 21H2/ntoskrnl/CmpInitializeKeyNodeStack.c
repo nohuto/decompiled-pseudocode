@@ -1,41 +1,41 @@
 /*
- * XREFs of CmpInitializeKeyNodeStack @ 0x14069F2B4
+ * XREFs of CmpInitializeKeyNodeStack @ 0x140699D70
  * Callers:
- *     CmQueryLayeredKey @ 0x140226200 (CmQueryLayeredKey.c)
- *     CmSaveKey @ 0x14065A44C (CmSaveKey.c)
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x14065B560 (CmpDoAccessCheckOnLayeredSubtree.c)
- *     CmpPromoteSubtree @ 0x14065B6A0 (CmpPromoteSubtree.c)
- *     CmpKeyEnumStackInitialize @ 0x14069F1F4 (CmpKeyEnumStackInitialize.c)
- *     CmpSubtreeEnumeratorInitialize @ 0x14091D24C (CmpSubtreeEnumeratorInitialize.c)
- *     CmpGetSubKeyCountForKcbStack @ 0x140920CA0 (CmpGetSubKeyCountForKcbStack.c)
- *     CmpKeyEnumStackStartFromKcbStack @ 0x140920F1C (CmpKeyEnumStackStartFromKcbStack.c)
- *     CmpValueEnumStackStartFromKcbStack @ 0x140921F64 (CmpValueEnumStackStartFromKcbStack.c)
- *     CmpFullPromoteHiveRootFromKcbStack @ 0x140922400 (CmpFullPromoteHiveRootFromKcbStack.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x140922984 (CmpPromoteSingleKeyFromKcbStacks.c)
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140922B20 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
+ *     CmpKeyEnumStackInitialize @ 0x140699CBC (CmpKeyEnumStackInitialize.c)
+ *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x140729760 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpSubtreeEnumeratorInitialize @ 0x14072A288 (CmpSubtreeEnumeratorInitialize.c)
+ *     CmpGetSubKeyCountForKcbStack @ 0x14087A668 (CmpGetSubKeyCountForKcbStack.c)
+ *     CmpKeyEnumStackStartFromKcbStack @ 0x14087AC78 (CmpKeyEnumStackStartFromKcbStack.c)
+ *     CmpValueEnumStackStartFromKcbStack @ 0x14087BBAC (CmpValueEnumStackStartFromKcbStack.c)
+ *     CmpFullPromoteHiveRootFromKcbStack @ 0x14087FE44 (CmpFullPromoteHiveRootFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x14088057C (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140880718 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall CmpInitializeKeyNodeStack(char *a1)
 {
   char *v2; // rbx
-  __int64 v3; // rdi
   __int64 result; // rax
 
   memset(a1, 0, 0x50uLL);
   v2 = a1 + 32;
-  v3 = 2LL;
+  result = 2LL;
   do
   {
-    *(_OWORD *)(v2 - 24) = 0LL;
-    *(_OWORD *)(v2 - 8) = 0LL;
+    *((_QWORD *)v2 - 3) = 0LL;
+    *(_QWORD *)(v2 - 12) = 0LL;
+    *((_DWORD *)v2 - 1) = 0;
     *((_DWORD *)v2 - 4) = -1;
-    result = HvpGetCellContextReinitialize(v2);
+    *(_QWORD *)v2 = 0LL;
+    *(_DWORD *)v2 = -1;
+    *((_WORD *)v2 + 2) = 0;
     v2 += 32;
-    --v3;
+    --result;
   }
-  while ( v3 );
+  while ( result );
   return result;
 }

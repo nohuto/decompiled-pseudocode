@@ -1,19 +1,19 @@
 /*
- * XREFs of KeForceResumeProcess @ 0x14035EB3C
+ * XREFs of KeForceResumeProcess @ 0x1402EAA58
  * Callers:
- *     MiReAcquireCommitFailWorker @ 0x140580D80 (MiReAcquireCommitFailWorker.c)
- *     PsFreezeProcess @ 0x1406C03F0 (PsFreezeProcess.c)
- *     PspExitThread @ 0x1407A0088 (PspExitThread.c)
- *     PspTerminateProcess @ 0x1407D7E94 (PspTerminateProcess.c)
+ *     MiReAcquireCommitFailWorker @ 0x14052C330 (MiReAcquireCommitFailWorker.c)
+ *     PspExitThread @ 0x14064A838 (PspExitThread.c)
+ *     PsFreezeProcess @ 0x14067CC1C (PsFreezeProcess.c)
+ *     PspTerminateProcess @ 0x1406D9D20 (PspTerminateProcess.c)
  * Callees:
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiThawSingleThread @ 0x14035F27C (KiThawSingleThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiThawSingleThread @ 0x140283FD8 (KiThawSingleThread.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall KeForceResumeProcess(__int64 a1)
+__int64 __fastcall KeForceResumeProcess(__int64 a1)
 {
   _QWORD **v2; // rsi
   unsigned __int8 CurrentIrql; // bl
@@ -21,9 +21,9 @@ char __fastcall KeForceResumeProcess(__int64 a1)
   volatile LONG *v5; // r14
   __int64 v6; // r8
   __int64 v7; // r9
-  char result; // al
-  _DWORD *SchedulerAssist; // r9
+  __int64 result; // rax
   _QWORD *i; // rdi
+  _DWORD *SchedulerAssist; // r9
   unsigned __int8 v11; // al
   struct _KPRCB *v12; // r9
   _DWORD *v13; // r8
@@ -47,12 +47,11 @@ char __fastcall KeForceResumeProcess(__int64 a1)
     *(_DWORD *)(a1 + 888) = 0;
     for ( i = *v2; i != v2; i = (_QWORD *)*i )
     {
-      LOBYTE(v7) = 1;
       LOBYTE(v6) = 1;
-      KiThawSingleThread(CurrentPrcb, i - 95, v6, v7);
+      KiThawSingleThread((__int64)CurrentPrcb, (__int64)(i - 95), v6, v7);
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v5);
-    return KiExitDispatcher((__int64)CurrentPrcb, 0, 1, 0, CurrentIrql);
+    return KiExitDispatcher((_DWORD)CurrentPrcb, 0, 1, 0, CurrentIrql);
   }
   else
   {

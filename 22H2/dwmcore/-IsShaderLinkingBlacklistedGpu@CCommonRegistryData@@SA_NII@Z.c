@@ -1,12 +1,12 @@
 /*
- * XREFs of ?IsShaderLinkingBlacklistedGpu@CCommonRegistryData@@SA_NII@Z @ 0x1800D1718
+ * XREFs of ?IsShaderLinkingBlacklistedGpu@CCommonRegistryData@@SA_NII@Z @ 0x18002D1A0
  * Callers:
- *     ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x1800CFCEC (-Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z.c)
+ *     ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x18002AC38 (-Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z.c)
  * Callees:
- *     ?ParseGpuIdListKey@CCommonRegistryData@@CA_NPEBGPEAPEAUGpuId@1@PEAI@Z @ 0x180102664 (-ParseGpuIdListKey@CCommonRegistryData@@CA_NPEBGPEAPEAUGpuId@1@PEAI@Z.c)
+ *     ?ParseGpuIdListKey@CCommonRegistryData@@CA_NPEBDPEAPEAUGpuId@1@PEAI@Z @ 0x18002A060 (-ParseGpuIdListKey@CCommonRegistryData@@CA_NPEBDPEAPEAUGpuId@1@PEAI@Z.c)
  */
 
-char __fastcall CCommonRegistryData::IsShaderLinkingBlacklistedGpu(const unsigned __int16 *a1, unsigned __int16 a2)
+char __fastcall CCommonRegistryData::IsShaderLinkingBlacklistedGpu(const char *a1, unsigned __int16 a2)
 {
   const struct CCommonRegistryData::GpuId *v2; // rax
   int v3; // ebx
@@ -32,9 +32,9 @@ char __fastcall CCommonRegistryData::IsShaderLinkingBlacklistedGpu(const unsigne
   }
   else
   {
-    v2 = (const struct CCommonRegistryData::GpuId *)&unk_18033BD24;
+    v2 = (const struct CCommonRegistryData::GpuId *)&unk_18030582C;
     CCommonRegistryData::m_cShaderLinkingBlacklistedGpuIds = 0;
-    CCommonRegistryData::m_rgwShaderLinkingBlacklistedGpuIds = (const struct CCommonRegistryData::GpuId *const)&unk_18033BD24;
+    CCommonRegistryData::m_rgwShaderLinkingBlacklistedGpuIds = (const struct CCommonRegistryData::GpuId *const)&unk_18030582C;
     v6 = 0;
   }
   if ( !v6 )

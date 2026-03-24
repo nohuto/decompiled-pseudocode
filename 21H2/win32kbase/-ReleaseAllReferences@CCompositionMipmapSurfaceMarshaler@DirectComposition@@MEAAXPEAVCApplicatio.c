@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0237390
+ * XREFs of ?ReleaseAllReferences@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F7130
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::ReleaseAllReferences(
@@ -13,15 +13,15 @@ void __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::ReleaseAl
   __int64 i; // rdi
   struct DirectComposition::CResourceMarshaler *v5; // rdx
 
-  if ( *((_QWORD *)this + 8) )
+  if ( *((_QWORD *)this + 7) )
   {
-    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 21); i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 19); i = (unsigned int)(i + 1) )
     {
-      v5 = *(struct DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 8) + 24 * i);
+      v5 = *(struct DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 7) + 24 * i);
       if ( v5 )
       {
         DirectComposition::CApplicationChannel::ReleaseResource(a2, v5);
-        *(_QWORD *)(*((_QWORD *)this + 8) + 24 * i) = 0LL;
+        *(_QWORD *)(*((_QWORD *)this + 7) + 24 * i) = 0LL;
       }
     }
   }

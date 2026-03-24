@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InitPreviousUserString@@YAXXZ @ 0x1C00375A0
+ * XREFs of ?InitPreviousUserString@@YAXXZ @ 0x1C000DD00
  * Callers:
- *     OpenCacheKeyEx @ 0x1C00371E0 (OpenCacheKeyEx.c)
- *     CreateProfileUserName @ 0x1C0091D90 (CreateProfileUserName.c)
+ *     CreateProfileUserName @ 0x1C000DC60 (CreateProfileUserName.c)
+ *     OpenCacheKeyEx @ 0x1C00278B0 (OpenCacheKeyEx.c)
  * Callees:
- *     GetProcessLuid @ 0x1C0037670 (GetProcessLuid.c)
+ *     GetProcessLuid @ 0x1C000DDD0 (GetProcessLuid.c)
  */
 
 void InitPreviousUserString(void)

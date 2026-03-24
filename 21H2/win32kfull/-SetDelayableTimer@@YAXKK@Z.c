@@ -1,7 +1,8 @@
 /*
- * XREFs of ?SetDelayableTimer@@YAXKK@Z @ 0x1C0076474
+ * XREFs of ?SetDelayableTimer@@YAXKK@Z @ 0x1C00FB5CC
  * Callers:
- *     InternalSetTimer @ 0x1C0075120 (InternalSetTimer.c)
+ *     InternalSetTimer @ 0x1C0080820 (InternalSetTimer.c)
+ *     xxxTimersProc @ 0x1C01688E8 (xxxTimersProc.c)
  * Callees:
  *     <none>
  */

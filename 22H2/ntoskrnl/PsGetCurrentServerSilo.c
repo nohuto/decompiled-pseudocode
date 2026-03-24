@@ -1,80 +1,60 @@
 /*
- * XREFs of PsGetCurrentServerSilo @ 0x140289E70
+ * XREFs of PsGetCurrentServerSilo @ 0x14025C220
  * Callers:
- *     MmIsSessionInCurrentServerSilo @ 0x140201A78 (MmIsSessionInCurrentServerSilo.c)
- *     EtwpTraceFileName @ 0x140213570 (EtwpTraceFileName.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
- *     MmGetSessionById @ 0x1402C1E00 (MmGetSessionById.c)
- *     RtlGetNtProductType @ 0x1402F7F40 (RtlGetNtProductType.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x14030C2B0 (RtlpUpcaseUnicodeStringPrivate.c)
- *     ExLocalTimeToSystemTime @ 0x14033B0A0 (ExLocalTimeToSystemTime.c)
- *     ExSystemTimeToLocalTime @ 0x14033B0F0 (ExSystemTimeToLocalTime.c)
- *     RtlGetSystemGlobalData @ 0x140341000 (RtlGetSystemGlobalData.c)
- *     RtlSetSystemGlobalData @ 0x14035B9D0 (RtlSetSystemGlobalData.c)
- *     RtlGetActiveConsoleId @ 0x14035E670 (RtlGetActiveConsoleId.c)
- *     MiGetNextSession @ 0x14035E6B8 (MiGetNextSession.c)
- *     RtlGetCurrentServiceSessionId @ 0x14036DE20 (RtlGetCurrentServiceSessionId.c)
- *     SepAdtLogAuditRecord @ 0x14039B490 (SepAdtLogAuditRecord.c)
- *     UpcaseUnicodeToUTF8NHelper @ 0x1403A52CC (UpcaseUnicodeToUTF8NHelper.c)
- *     ExLogTimeZoneInformation @ 0x1403B0490 (ExLogTimeZoneInformation.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x140463564 (UpcaseUnicodeToMultiByteNHelper.c)
- *     IopCheckSessionDeviceAccess @ 0x1405576C8 (IopCheckSessionDeviceAccess.c)
- *     PerfInfoLogSysCallEntry @ 0x1405FEC50 (PerfInfoLogSysCallEntry.c)
- *     PerfInfoLogSysCallExit @ 0x1405FECE0 (PerfInfoLogSysCallExit.c)
- *     PopTransitionCheckpoint @ 0x1406825AC (PopTransitionCheckpoint.c)
- *     SepBlockAccessForLogonSession @ 0x140682C9C (SepBlockAccessForLogonSession.c)
- *     IoRegisterPlugPlayNotification @ 0x140687F00 (IoRegisterPlugPlayNotification.c)
- *     SepIsMinTCB @ 0x1406B9B9C (SepIsMinTCB.c)
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     PsLookupProcessByProcessId @ 0x1406FA420 (PsLookupProcessByProcessId.c)
- *     PsLookupThreadByThreadId @ 0x1406FAFC0 (PsLookupThreadByThreadId.c)
- *     ExpWnfGenerateStateName @ 0x140711608 (ExpWnfGenerateStateName.c)
- *     SeCreateClientSecurityEx @ 0x14071D220 (SeCreateClientSecurityEx.c)
- *     SepCreateClientSecurityEx @ 0x14071D960 (SepCreateClientSecurityEx.c)
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     ExpGetProcessInformation @ 0x1407432D0 (ExpGetProcessInformation.c)
- *     SepDeleteLogonSessionTrack @ 0x14076D84C (SepDeleteLogonSessionTrack.c)
- *     PnpNotifyTargetDeviceChange @ 0x14078386C (PnpNotifyTargetDeviceChange.c)
- *     PnpNotifyDeviceClassChange @ 0x14078F790 (PnpNotifyDeviceClassChange.c)
- *     MiSessionCreate @ 0x1407A95BC (MiSessionCreate.c)
- *     PsCaptureUserProcessParameters @ 0x1407ADC00 (PsCaptureUserProcessParameters.c)
- *     SepCreateLogonSessionTrack @ 0x1407BDA3C (SepCreateLogonSessionTrack.c)
- *     SepReferenceLogonSession @ 0x1407C38A4 (SepReferenceLogonSession.c)
- *     NtManageHotPatch @ 0x1407D4470 (NtManageHotPatch.c)
- *     NtGetNextProcess @ 0x1407D4BE0 (NtGetNextProcess.c)
- *     SepIsNgenImage @ 0x1407DD9F8 (SepIsNgenImage.c)
- *     NtImpersonateAnonymousToken @ 0x1407F5620 (NtImpersonateAnonymousToken.c)
- *     ExInitLicenseData @ 0x1408114F8 (ExInitLicenseData.c)
- *     RtlpInitCodePageTables @ 0x140823520 (RtlpInitCodePageTables.c)
- *     ExpRefreshTimeZoneInformation @ 0x140840928 (ExpRefreshTimeZoneInformation.c)
- *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1409569A0 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
- *     SepMakeLogonSessionsSiblings @ 0x1409D0170 (SepMakeLogonSessionsSiblings.c)
- *     ExProcessCounterSetCallback @ 0x1409F5E80 (ExProcessCounterSetCallback.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA744 (SLUpdateLicenseDataInternal.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
- *     ExpSystemErrorHandler2 @ 0x140AAB210 (ExpSystemErrorHandler2.c)
+ *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1405CEDD8 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
+ *     SepReferenceLogonSession @ 0x1405DC7C4 (SepReferenceLogonSession.c)
+ *     SepIsNgenImage @ 0x140603AA8 (SepIsNgenImage.c)
+ *     SepIsMinTCB @ 0x14060D584 (SepIsMinTCB.c)
+ *     ExpWnfGenerateStateName @ 0x14060E210 (ExpWnfGenerateStateName.c)
+ *     PsLookupThreadByThreadId @ 0x140625A50 (PsLookupThreadByThreadId.c)
+ *     ObpReferenceDeviceMap @ 0x140625B10 (ObpReferenceDeviceMap.c)
+ *     PsLookupProcessByProcessId @ 0x140625CA0 (PsLookupProcessByProcessId.c)
+ *     PspThreadFromTicket @ 0x140625D50 (PspThreadFromTicket.c)
+ *     ExpGetProcessInformation @ 0x14063E980 (ExpGetProcessInformation.c)
+ *     ObpLookupObjectName @ 0x140641640 (ObpLookupObjectName.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
+ *     SepCreateLogonSessionTrack @ 0x1406850AC (SepCreateLogonSessionTrack.c)
+ *     IoRegisterPlugPlayNotification @ 0x14069BFE0 (IoRegisterPlugPlayNotification.c)
+ *     PsCaptureUserProcessParameters @ 0x1406A5500 (PsCaptureUserProcessParameters.c)
+ *     SeCreateClientSecurityEx @ 0x1406D6D20 (SeCreateClientSecurityEx.c)
+ *     SepCreateClientSecurityEx @ 0x1406D6F20 (SepCreateClientSecurityEx.c)
+ *     NtImpersonateAnonymousToken @ 0x14070DED0 (NtImpersonateAnonymousToken.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
+ *     PnpNotifyTargetDeviceChange @ 0x14071AD38 (PnpNotifyTargetDeviceChange.c)
+ *     PnpNotifyDeviceClassChange @ 0x140739A78 (PnpNotifyDeviceClassChange.c)
+ *     PopTransitionCheckpoint @ 0x1407761D8 (PopTransitionCheckpoint.c)
+ *     SepBlockAccessForLogonSession @ 0x14077946C (SepBlockAccessForLogonSession.c)
+ *     SepDeleteLogonSessionTrack @ 0x14077A570 (SepDeleteLogonSessionTrack.c)
+ *     MiSessionCreateInternal @ 0x140786B10 (MiSessionCreateInternal.c)
+ *     NtGetNextProcess @ 0x14078A7B0 (NtGetNextProcess.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9984 (ExpRefreshTimeZoneInformation.c)
+ *     ExInitLicenseData @ 0x1407AB138 (ExInitLicenseData.c)
+ *     SepMakeLogonSessionsSiblings @ 0x1409239CC (SepMakeLogonSessionsSiblings.c)
+ *     SLUpdateLicenseDataInternal @ 0x14094E2E0 (SLUpdateLicenseDataInternal.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3140 (ExpSystemErrorHandler2.c)
  * Callees:
- *     PsIsServerSilo @ 0x14020C040 (PsIsServerSilo.c)
+ *     PsIsServerSilo @ 0x140361920 (PsIsServerSilo.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2494 (KeIsExecutingInArbitraryThreadContext.c)
  */
 
-__int64 PsGetCurrentServerSilo()
+__int64 __fastcall PsGetCurrentServerSilo(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 Blink; // rcx
-  __int64 v2; // rcx
+  struct _LIST_ENTRY *Blink; // rcx
+  __int64 v5; // rcx
 
-  if ( KeGetPcr()->Prcb.NestingLevel )
+  if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(a1, a2) )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
-  Blink = (__int64)CurrentThread[1].WaitBlock[3].WaitListEntry.Blink;
-  if ( Blink == -3 )
+  Blink = CurrentThread[1].WaitBlock[3].WaitListEntry.Blink;
+  if ( Blink == (struct _LIST_ENTRY *)-3LL )
     return *(_QWORD *)&CurrentThread->Process[2].Header.Lock;
-  if ( Blink )
-  {
-    while ( !PsIsServerSilo(Blink) )
-      Blink = *(_QWORD *)(v2 + 1288);
-    return v2;
-  }
-  return 0LL;
+  if ( !Blink )
+    return 0LL;
+  if ( (unsigned __int8)((__int64 (*)(void))PsIsServerSilo)() )
+    return v5;
+  while ( !(unsigned __int8)PsIsServerSilo(*(_QWORD *)(v5 + 1072)) )
+    ;
+  return v5;
 }

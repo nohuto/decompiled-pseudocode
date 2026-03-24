@@ -1,8 +1,8 @@
 /*
- * XREFs of ?MergePattern@@YAXPEAKJJJ@Z @ 0x1C03040D8
+ * XREFs of ?MergePattern@@YAXPEAKJJJ@Z @ 0x1C02DB1A8
  * Callers:
- *     vFetchAndMerge @ 0x1C0005A84 (vFetchAndMerge.c)
- *     vFetchShiftAndMerge @ 0x1C0304210 (vFetchShiftAndMerge.c)
+ *     vFetchAndMerge @ 0x1C0151D9C (vFetchAndMerge.c)
+ *     vFetchShiftAndMerge @ 0x1C02DB348 (vFetchShiftAndMerge.c)
  * Callees:
  *     <none>
  */

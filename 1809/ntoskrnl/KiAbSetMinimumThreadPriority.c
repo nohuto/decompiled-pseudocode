@@ -8,11 +8,11 @@
  * Callees:
  *     KiAbEntryGetCpuPriorityKey @ 0x140024E74 (KiAbEntryGetCpuPriorityKey.c)
  *     KiSetPriorityFloor @ 0x14002509C (KiSetPriorityFloor.c)
- *     PsGetIoPriorityThread @ 0x1400B6B20 (PsGetIoPriorityThread.c)
- *     PsGetBaseIoPriorityThread @ 0x1400B6DA0 (PsGetBaseIoPriorityThread.c)
- *     KiAbThreadBoostIoPriority @ 0x14010ECF4 (KiAbThreadBoostIoPriority.c)
- *     KiAbThreadInsertList @ 0x140128DB8 (KiAbThreadInsertList.c)
- *     EtwTraceAutoBoostSetFloor @ 0x14030F9BC (EtwTraceAutoBoostSetFloor.c)
+ *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
+ *     PsGetBaseIoPriorityThread @ 0x1400B6DC0 (PsGetBaseIoPriorityThread.c)
+ *     KiAbThreadBoostIoPriority @ 0x14010ED14 (KiAbThreadBoostIoPriority.c)
+ *     KiAbThreadInsertList @ 0x140128DD8 (KiAbThreadInsertList.c)
+ *     EtwTraceAutoBoostSetFloor @ 0x14030FABC (EtwTraceAutoBoostSetFloor.c)
  */
 
 __int64 __fastcall KiAbSetMinimumThreadPriority(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _DWORD *a6)

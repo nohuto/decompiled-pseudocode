@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CTreeEffectLayer@@UEBA?AW4LayerType@CLayer@@XZ @ 0x1800FAC90
+ * XREFs of ?GetType@CTreeEffectLayer@@UEBA?AW4LayerType@CLayer@@XZ @ 0x1800E2480
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 CTreeEffectLayer::GetType()
 {
-  return 5LL;
+  return 6LL;
 }

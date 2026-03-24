@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwManagePartition @ 0x1401BA2D0
+ * XREFs of ZwManagePartition @ 0x1401BA2F0
  * Callers:
  *     <none>
  * Callees:

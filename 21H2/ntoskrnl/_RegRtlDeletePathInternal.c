@@ -1,25 +1,25 @@
 /*
- * XREFs of _RegRtlDeletePathInternal @ 0x140A2D760
+ * XREFs of _RegRtlDeletePathInternal @ 0x14097C99C
  * Callers:
- *     PiDevCfgClearDeviceMigrationNode @ 0x14094B144 (PiDevCfgClearDeviceMigrationNode.c)
+ *     PiDevCfgClearDeviceMigrationNode @ 0x1408A55FC (PiDevCfgClearDeviceMigrationNode.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x1402DF9D0 (RtlUnalignedStringCchLengthW.c)
- *     RtlStringCchCopyExW @ 0x1402E0340 (RtlStringCchCopyExW.c)
- *     wcsrchr @ 0x1403E34B0 (wcsrchr.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlQueryInfoKey @ 0x1406CB590 (_RegRtlQueryInfoKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x14078003C (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140862B44 (_RegRtlDeleteKeyTransacted.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x1402659E4 (RtlUnalignedStringCchLengthW.c)
+ *     wcsrchr @ 0x1403D4100 (wcsrchr.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406426FC (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlQueryInfoKey @ 0x1406B69A8 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766D58 (_RegRtlDeleteKeyTransacted.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlDeletePathInternal(char *a1, const wchar_t *a2, char a3, __int64 a4, int a5)
 {
   int v9; // ebx
   size_t v10; // rbx
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   WCHAR *v12; // rdi
   char i; // al
   int v14; // eax
@@ -36,18 +36,18 @@ __int64 __fastcall RegRtlDeletePathInternal(char *a1, const wchar_t *a2, char a3
   if ( v9 < 0 )
     return (unsigned int)v9;
   v10 = pcchLength[0] + 1;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, 2 * (pcchLength[0] + 1), 1279739218LL);
-  v12 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2 * (pcchLength[0] + 1), 0x4C474552u);
+  v12 = PoolWithTag;
+  if ( !PoolWithTag )
     return (unsigned int)-1073741801;
-  v9 = RtlStringCchCopyExW(Pool2, v10, a2, 0LL, 0LL, 0x100u);
+  v9 = RtlStringCchCopyExW(PoolWithTag, v10, a2, 0LL, 0LL, 0x100u);
   if ( v9 )
     goto LABEL_26;
   for ( i = 1; ; i = 0 )
   {
     if ( i && a3 )
     {
-      v14 = RegRtlDeleteTreeInternal((__int64)a1, (__int64)v12, a4, 0);
+      v14 = RegRtlDeleteTreeInternal(a1, v12, a4, 0);
       goto LABEL_17;
     }
     v9 = RegRtlOpenKeyTransacted(a1, v12, 0, 1u, &Handle, a4);

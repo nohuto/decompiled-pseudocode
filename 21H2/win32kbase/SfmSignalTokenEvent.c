@@ -1,5 +1,5 @@
 /*
- * XREFs of SfmSignalTokenEvent @ 0x1C00B3CB0
+ * XREFs of SfmSignalTokenEvent @ 0x1C00A2780
  * Callers:
  *     <none>
  * Callees:

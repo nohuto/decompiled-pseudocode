@@ -1,33 +1,36 @@
 /*
- * XREFs of PpmParkReportUnparkedCore @ 0x1405DD2E0
+ * XREFs of PpmParkReportUnparkedCore @ 0x14057D960
  * Callers:
- *     PpmPerfAction @ 0x140343B00 (PpmPerfAction.c)
+ *     PpmPerfAction @ 0x140220770 (PpmPerfAction.c)
  * Callees:
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403B49A0 (KeInterlockedClearProcessorAffinityEx.c)
- *     KeTransitionProcessorParkState @ 0x14057C888 (KeTransitionProcessorParkState.c)
- *     PpmEventCoreParkingStateChange @ 0x1405D9630 (PpmEventCoreParkingStateChange.c)
+ *     KeTransitionProcessorParkState @ 0x1405254AC (KeTransitionProcessorParkState.c)
+ *     PpmEventCoreParkingStateChange @ 0x140579518 (PpmEventCoreParkingStateChange.c)
  */
 
 _BYTE *__fastcall PpmParkReportUnparkedCore(__int64 a1)
 {
-  int v2; // edx
+  __int64 v2; // rax
   _BYTE *result; // rax
 
   KeTransitionProcessorParkState(a1, 0);
-  v2 = *(_DWORD *)(a1 + 36);
-  *(_BYTE *)(a1 + 34060) = 0;
-  KeInterlockedClearProcessorAffinityEx((__int64)PpmPerfCoreParkingMask, v2);
-  if ( *(_BYTE *)(a1 + 33659) )
+  v2 = *(unsigned int *)(a1 + 36);
+  *(_BYTE *)(a1 + 33212) = 0;
+  _InterlockedAnd64(
+    &qword_140C11498[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v2] >> 6],
+    ~(1LL << (KiProcessorIndexToNumberMappingTable[v2] & 0x3F)));
+  if ( *(_BYTE *)(a1 + 32819) )
   {
-    KeInterlockedClearProcessorAffinityEx((__int64)PpmParkSoftParkingMask, *(_DWORD *)(a1 + 36));
-    *(_BYTE *)(a1 + 33659) = 0;
+    _InterlockedAnd64(
+      &qword_140C12B08[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)] >> 6],
+      ~(1LL << (KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a1 + 36)] & 0x3F)));
+    *(_BYTE *)(a1 + 32819) = 0;
   }
   PpmEventCoreParkingStateChange(a1);
-  result = *(_BYTE **)(a1 + 33600);
+  result = *(_BYTE **)(a1 + 0x8000);
   if ( result )
   {
     if ( *result == 1 )
-      *(_BYTE *)(a1 + 33669) = 1;
+      *(_BYTE *)(a1 + 32829) = 1;
   }
   return result;
 }

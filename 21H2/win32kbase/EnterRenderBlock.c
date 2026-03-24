@@ -1,9 +1,9 @@
 /*
- * XREFs of EnterRenderBlock @ 0x1C00C5330
+ * XREFs of EnterRenderBlock @ 0x1C00B7DD0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
  */
 
 __int64 EnterRenderBlock()

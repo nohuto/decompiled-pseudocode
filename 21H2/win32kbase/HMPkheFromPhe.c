@@ -1,12 +1,13 @@
 /*
- * XREFs of HMPkheFromPhe @ 0x1C00306E0
+ * XREFs of HMPkheFromPhe @ 0x1C0030070
  * Callers:
- *     <none>
+ *     ?DestroyHandleSecondPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C011B810 (-DestroyHandleSecondPass@@YAXPEAU_HANDLEENTRY@@@Z.c)
  * Callees:
- *     <none>
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C00300B0 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
  */
 
 char *__fastcall HMPkheFromPhe(__int64 a1)
 {
-  return (char *)gpKernelHandleTable + 24 * (unsigned int)((a1 - (__int64)qword_1C0294B68) >> 5);
+  GetDomainLockRef(14LL);
+  return (char *)gpKernelHandleTable + 24 * (unsigned int)((a1 - (__int64)qword_1C024FD58) >> 5);
 }

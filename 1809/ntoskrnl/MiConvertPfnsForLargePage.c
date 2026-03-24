@@ -1,11 +1,11 @@
 /*
- * XREFs of MiConvertPfnsForLargePage @ 0x1402C50EC
+ * XREFs of MiConvertPfnsForLargePage @ 0x1402C51EC
  * Callers:
- *     MiAssembleLargePagePfnList @ 0x14085CC1C (MiAssembleLargePagePfnList.c)
+ *     MiAssembleLargePagePfnList @ 0x14085CBFC (MiAssembleLargePagePfnList.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiConvertPfnsForLargePage(__int64 a1, __int64 a2, __int64 a3)

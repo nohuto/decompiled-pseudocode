@@ -1,9 +1,9 @@
 /*
- * XREFs of Endpoint_EvtDestroyCallback @ 0x1C003A3C0
+ * XREFs of Endpoint_EvtDestroyCallback @ 0x1C001A250
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall Endpoint_EvtDestroyCallback(__int64 a1)
@@ -14,11 +14,11 @@ void __fastcall Endpoint_EvtDestroyCallback(__int64 a1)
   v1 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00631A8);
-  v2 = *(struct _IO_WORKITEM **)(v1 + 1280);
+         off_1C00601A8);
+  v2 = *(struct _IO_WORKITEM **)(v1 + 1272);
   if ( v2 )
   {
     IoFreeWorkItem(v2);
-    *(_QWORD *)(v1 + 1280) = 0LL;
+    *(_QWORD *)(v1 + 1272) = 0LL;
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DX_MD5Final@@YAXPEAUMD5_CTX@@@Z @ 0x1C017FE54
+ * XREFs of ?DX_MD5Final@@YAXPEAUMD5_CTX@@@Z @ 0x1C0139688
  * Callers:
- *     ?CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z @ 0x1C017FD98 (-CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z.c)
+ *     ?CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z @ 0x1C01395BC (-CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z @ 0x1C017FF68 (-DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z.c)
- *     TransformMD5 @ 0x1C017FFF4 (TransformMD5.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     TransformMD5 @ 0x1C013979C (TransformMD5.c)
+ *     ?DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z @ 0x1C013A07C (-DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z.c)
  */
 
 void __fastcall DX_MD5Final(struct MD5_CTX *a1)
@@ -34,7 +34,7 @@ void __fastcall DX_MD5Final(struct MD5_CTX *a1)
   v4 = 56 - v3;
   if ( v3 >= 0x38 )
     v4 = 120 - v3;
-  DX_MD5Update(a1, &byte_1C01400F0, v4);
+  DX_MD5Update(a1, &byte_1C00B1F90, v4);
   v5 = 2;
   v6 = (int *)v15;
   LODWORD(v7) = 2;

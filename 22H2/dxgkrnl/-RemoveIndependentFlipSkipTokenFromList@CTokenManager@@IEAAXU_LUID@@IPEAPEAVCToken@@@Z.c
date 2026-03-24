@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RemoveIndependentFlipSkipTokenFromList@CTokenManager@@IEAAXU_LUID@@IPEAPEAVCToken@@@Z @ 0x1C0077E14
+ * XREFs of ?RemoveIndependentFlipSkipTokenFromList@CTokenManager@@IEAAXU_LUID@@IPEAPEAVCToken@@@Z @ 0x1C001C2CC
  * Callers:
- *     ?CompleteIndependentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I@Z @ 0x1C007755C (-CompleteIndependentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I.c)
+ *     ?CompleteIndendentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I@Z @ 0x1C001C120 (-CompleteIndendentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CTokenManager::RemoveIndependentFlipSkipTokenFromList(
@@ -16,14 +16,14 @@ void __fastcall CTokenManager::RemoveIndependentFlipSkipTokenFromList(
   char *v5; // rdi
   DWORD LowPart; // ebx
   struct CToken *v9; // rsi
-  __int64 v10; // rcx
-  char **v11; // rax
+  __int64 v10; // rax
+  char **v11; // rcx
   LONG HighPart; // [rsp+4Ch] [rbp+14h]
 
   HighPart = a2.HighPart;
   *a4 = 0LL;
-  v4 = (char *)this + 328;
-  v5 = (char *)*((_QWORD *)this + 41);
+  v4 = (char *)this + 304;
+  v5 = (char *)*((_QWORD *)this + 38);
   LowPart = a2.LowPart;
   while ( v5 != v4 )
   {

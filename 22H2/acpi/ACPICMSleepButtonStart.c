@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPICMSleepButtonStart @ 0x1C0082310
+ * XREFs of ACPICMSleepButtonStart @ 0x1C00AE460
  * Callers:
  *     <none>
  * Callees:
- *     ACPICMButtonStart @ 0x1C0082104 (ACPICMButtonStart.c)
+ *     ACPICMButtonStart @ 0x1C009089C (ACPICMButtonStart.c)
  */
 
 __int64 __fastcall ACPICMSleepButtonStart(ULONG_PTR a1, __int64 a2)

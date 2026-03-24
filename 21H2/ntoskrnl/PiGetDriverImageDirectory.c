@@ -1,13 +1,13 @@
 /*
- * XREFs of PiGetDriverImageDirectory @ 0x1409440D0
+ * XREFs of PiGetDriverImageDirectory @ 0x14089F384
  * Callers:
- *     IoGetDriverDirectory @ 0x140943930 (IoGetDriverDirectory.c)
+ *     IoGetDriverDirectory @ 0x14089EC10 (IoGetDriverDirectory.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     IoQueryFullDriverPath @ 0x1403B5230 (IoQueryFullDriverPath.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     IoQueryFullDriverPath @ 0x1403A6DE0 (IoQueryFullDriverPath.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall PiGetDriverImageDirectory(__int64 a1, HANDLE *a2)
@@ -20,10 +20,10 @@ __int64 __fastcall PiGetDriverImageDirectory(__int64 a1, HANDLE *a2)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE FileHandle; // [rsp+A0h] [rbp+20h] BYREF
 
-  DestinationString = 0LL;
   FileHandle = 0LL;
+  DestinationString = 0LL;
   IoStatusBlock = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   RtlInitUnicodeString(&DestinationString, 0LL);
   v4 = IoQueryFullDriverPath(a1, &DestinationString);
   if ( v4 >= 0 )
@@ -64,7 +64,7 @@ LABEL_9:
       v4 = -1073741811;
     }
   }
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   if ( FileHandle )
     ZwClose(FileHandle);
   return (unsigned int)v4;

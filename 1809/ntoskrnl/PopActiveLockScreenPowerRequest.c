@@ -1,12 +1,12 @@
 /*
- * XREFs of PopActiveLockScreenPowerRequest @ 0x140878C20
+ * XREFs of PopActiveLockScreenPowerRequest @ 0x140878C00
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseAdaptiveLock @ 0x1406DC650 (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x1406DC6E4 (PopAcquireAdaptiveLock.c)
- *     PopUpdateTimeouts @ 0x1406DC820 (PopUpdateTimeouts.c)
- *     PopGetLockConsoleTimeoutUnsafe @ 0x140878DFC (PopGetLockConsoleTimeoutUnsafe.c)
+ *     PopReleaseAdaptiveLock @ 0x1406DC630 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x1406DC6C4 (PopAcquireAdaptiveLock.c)
+ *     PopUpdateTimeouts @ 0x1406DC800 (PopUpdateTimeouts.c)
+ *     PopGetLockConsoleTimeoutUnsafe @ 0x140878DDC (PopGetLockConsoleTimeoutUnsafe.c)
  */
 
 __int64 __fastcall PopActiveLockScreenPowerRequest(__int64 a1, __int64 a2, char a3)

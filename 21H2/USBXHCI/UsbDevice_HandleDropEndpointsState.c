@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbDevice_HandleDropEndpointsState @ 0x1C0046C6C
+ * XREFs of UsbDevice_HandleDropEndpointsState @ 0x1C00467AC
  * Callers:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C000239C (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
  * Callees:
- *     UsbDevice_InitializeInputContextForAddDropEndpoints @ 0x1C0001F74 (UsbDevice_InitializeInputContextForAddDropEndpoints.c)
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C000239C (UsbDevice_QueueConfigureEndpointEvent.c)
- *     UsbDevice_SendConfigureEndpointCommand @ 0x1C0002A5C (UsbDevice_SendConfigureEndpointCommand.c)
+ *     UsbDevice_InitializeInputContextForAddDropEndpoints @ 0x1C0005AC0 (UsbDevice_InitializeInputContextForAddDropEndpoints.c)
+ *     UsbDevice_SendConfigureEndpointCommand @ 0x1C0005FDC (UsbDevice_SendConfigureEndpointCommand.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
  */
 
 __int64 __fastcall UsbDevice_HandleDropEndpointsState(__int64 a1, __int64 a2)

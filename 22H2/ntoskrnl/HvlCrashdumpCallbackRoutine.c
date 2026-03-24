@@ -1,22 +1,22 @@
 /*
- * XREFs of HvlCrashdumpCallbackRoutine @ 0x140547A80
+ * XREFs of HvlCrashdumpCallbackRoutine @ 0x1404F8A60
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-char HvlCrashdumpCallbackRoutine()
+BOOLEAN __fastcall HvlCrashdumpCallbackRoutine(PVOID Context, __int64 Handled)
 {
-  ULONG_PTR *v0; // rbx
+  ULONG_PTR *v2; // rbx
 
-  v0 = (ULONG_PTR *)qword_140C5F468;
-  if ( qword_140C5F468 && (*((_DWORD *)qword_140C5F468 + 1) & 1) != 0 )
+  v2 = (ULONG_PTR *)qword_140C47608;
+  if ( qword_140C47608 && (*((_DWORD *)qword_140C47608 + 1) & 1) != 0 )
   {
-    ((void (__fastcall *)(__int64))off_140C01AA8[0])(1LL);
+    ((void (__fastcall *)(__int64, __int64))off_140C00698[0])(1LL, Handled);
     KiHypervisorInitiatedCrashDump = 1;
-    KeBugCheckEx(0x20001u, v0[23], v0[24], v0[25], v0[26]);
+    KeBugCheckEx(0x20001u, v2[23], v2[24], v2[25], v2[26]);
   }
   return 0;
 }

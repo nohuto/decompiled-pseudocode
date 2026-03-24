@@ -1,32 +1,32 @@
 /*
- * XREFs of ?ShowHideCursors@CComposition@@IEAAX_N@Z @ 0x18001D500
+ * XREFs of ?ShowHideCursors@CComposition@@IEAAX_N@Z @ 0x1800DF12C
  * Callers:
- *     ?RenderForCapture@CaptureBitsResponse@@IEAAJXZ @ 0x180020CC4 (-RenderForCapture@CaptureBitsResponse@@IEAAJXZ.c)
- *     ?HideVisuals@COffScreenRenderTarget@@MEAAXXZ @ 0x1801E9F00 (-HideVisuals@COffScreenRenderTarget@@MEAAXXZ.c)
+ *     ?RenderForCapture@CaptureBitsResponse@@IEAAJXZ @ 0x180042FFC (-RenderForCapture@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?HideVisuals@COffScreenRenderTarget@@MEAAXXZ @ 0x180185870 (-HideVisuals@COffScreenRenderTarget@@MEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x18012E604 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
- *     ?Hide@CExcludeVisualReference@@QEAAXXZ @ 0x18012E61C (-Hide@CExcludeVisualReference@@QEAAXXZ.c)
- *     ??_GCExcludeVisualReference@@QEAAPEAXI@Z @ 0x1801B468C (--_GCExcludeVisualReference@@QEAAPEAXI@Z.c)
- *     ?RemoveAt@?$DynArray@PEAVCExcludeVisualReference@@$0A@@@QEAAJI@Z @ 0x1801B50FC (-RemoveAt@-$DynArray@PEAVCExcludeVisualReference@@$0A@@@QEAAJI@Z.c)
+ *     ?RemoveAt@?$DynArray@PEAVCCursorVisualReference@@$0A@@@QEAAJI@Z @ 0x1800D5AE0 (-RemoveAt@-$DynArray@PEAVCCursorVisualReference@@$0A@@@QEAAJI@Z.c)
+ *     ??_GCCursorVisualReference@@QEAAPEAXI@Z @ 0x1800E4DDC (--_GCCursorVisualReference@@QEAAPEAXI@Z.c)
+ *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x1800E5388 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Hide@CExcludeVisualReference@@QEAAXXZ @ 0x180173F2C (-Hide@CExcludeVisualReference@@QEAAXXZ.c)
  */
 
 void __fastcall CComposition::ShowHideCursors(CComposition *this, char a2)
 {
   int v2; // ebx
   _QWORD *v4; // rsi
-  CExcludeVisualReference *v5; // rdi
+  CCursorVisualReference *v5; // rdi
   CExcludeVisualReference *v6; // rcx
   unsigned int v7; // r8d
   unsigned int v8; // edx
 
-  v2 = *((_DWORD *)this + 248);
+  v2 = *((_DWORD *)this + 210);
   if ( v2 > 0 )
   {
-    v4 = (_QWORD *)((char *)this + 968);
+    v4 = (_QWORD *)((char *)this + 816);
     do
     {
-      v5 = *(CExcludeVisualReference **)(*v4 + 8LL * (unsigned int)(v2 - 1));
+      v5 = *(CCursorVisualReference **)(*v4 + 8LL * (unsigned int)(v2 - 1));
       if ( CExcludeVisualReference::GetVisual(v5) )
       {
         if ( a2 )
@@ -36,9 +36,9 @@ void __fastcall CComposition::ShowHideCursors(CComposition *this, char a2)
       }
       else
       {
-        DynArray<CExcludeVisualReference *,0>::RemoveAt(v4, v7);
+        DynArray<CCursorVisualReference *,0>::RemoveAt((__int64)v4, v7);
         if ( v5 )
-          CExcludeVisualReference::`scalar deleting destructor'(v5, v8);
+          CCursorVisualReference::`scalar deleting destructor'(v5, v8);
       }
       --v2;
     }

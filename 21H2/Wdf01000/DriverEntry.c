@@ -1,15 +1,15 @@
 /*
- * XREFs of DriverEntry @ 0x1C0032660
+ * XREFs of DriverEntry @ 0x1C002DDE0
  * Callers:
- *     GsDriverEntry @ 0x1C00C9010 (GsDriverEntry.c)
+ *     GsDriverEntry @ 0x1C00C8010 (GsDriverEntry.c)
  * Callees:
- *     ?WdfWriteKmdfVersionToRegistry@@YAXPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@@Z @ 0x1C00328C8 (-WdfWriteKmdfVersionToRegistry@@YAXPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@@Z.c)
- *     ?FxLibraryCreateDevice@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C0032B44 (-FxLibraryCreateDevice@@YAJPEAU_UNICODE_STRING@@@Z.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     ?FxLibraryCleanup@@YAXXZ @ 0x1C0052A38 (-FxLibraryCleanup@@YAXXZ.c)
- *     wil_UninitializeFeatureStaging @ 0x1C00BD008 (wil_UninitializeFeatureStaging.c)
- *     wil_InitializeFeatureStaging @ 0x1C00C90AC (wil_InitializeFeatureStaging.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ?FxLibraryCleanup@@YAXXZ @ 0x1C002D6FC (-FxLibraryCleanup@@YAXXZ.c)
+ *     ?FxLibraryCreateDevice@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C002D748 (-FxLibraryCreateDevice@@YAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?WdfWriteKmdfVersionToRegistry@@YAXPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@@Z @ 0x1C002DA14 (-WdfWriteKmdfVersionToRegistry@@YAXPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@@Z.c)
+ *     ?wil_UninitializeFeatureStaging@@YAXXZ @ 0x1C00BC008 (-wil_UninitializeFeatureStaging@@YAXXZ.c)
+ *     ?wil_InitializeFeatureStaging@@YAJXZ @ 0x1C00C80AC (-wil_InitializeFeatureStaging@@YAJXZ.c)
  */
 
 __int64 __fastcall DriverEntry(_DRIVER_OBJECT *DriverObject, _UNICODE_STRING *RegistryPath)
@@ -22,6 +22,7 @@ __int64 __fastcall DriverEntry(_DRIVER_OBJECT *DriverObject, _UNICODE_STRING *Re
 
   *(_DWORD *)(&name.MaximumLength + 1) = 0;
   string = 0LL;
+  wil_InitializeFeatureStaging();
   memset(&VersionInformation.dwMajorVersion, 0, 0x110uLL);
   VersionInformation.dwOSVersionInfoSize = 276;
   if ( RtlGetVersion(&VersionInformation) >= 0
@@ -31,10 +32,9 @@ __int64 __fastcall DriverEntry(_DRIVER_OBJECT *DriverObject, _UNICODE_STRING *Re
     ExDefaultNonPagedPoolType = NonPagedPoolNx;
     ExDefaultMdlProtection = 0x40000000;
   }
-  wil_InitializeFeatureStaging();
   RtlInitUnicodeString(&string, L"DbgPrintOn");
-  WdfLdrDiagnosticsValueByNameAsULONG(&string, &WPP_GLOBAL_WDF_Control.DeviceExtension);
-  if ( LODWORD(WPP_GLOBAL_WDF_Control.DeviceExtension) )
+  WdfLdrDiagnosticsValueByNameAsULONG(&string, &WdfLdrDbgPrintOn);
+  if ( WdfLdrDbgPrintOn )
   {
     DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
     DbgPrintEx(0x65u, 0, "DriverEntry\n");
@@ -48,26 +48,28 @@ __int64 __fastcall DriverEntry(_DRIVER_OBJECT *DriverObject, _UNICODE_STRING *Re
   name.Buffer = buffer;
   memset(buffer, 0, sizeof(buffer));
   v4 = FxLibraryCreateDevice(&name);
-  if ( v4 >= 0 )
+  if ( v4 < 0 )
   {
-    v4 = WdfRegisterLibrary(&WdfLibraryInfo, RegistryPath, &name);
-    if ( v4 >= 0 )
+    if ( WdfLdrDbgPrintOn )
     {
-      WdfWriteKmdfVersionToRegistry(DriverObject, RegistryPath);
-      return 0;
+      DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
+      DbgPrintEx(0x65u, 0, "ERROR: FxLibraryCreateDevice failed with Status 0x%x\n", v4);
     }
-    if ( LODWORD(WPP_GLOBAL_WDF_Control.DeviceExtension) )
+LABEL_11:
+    wil_UninitializeFeatureStaging();
+    return (unsigned int)v4;
+  }
+  v4 = WdfRegisterLibrary(&WdfLibraryInfo, RegistryPath, &name);
+  if ( v4 < 0 )
+  {
+    if ( WdfLdrDbgPrintOn )
     {
       DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
       DbgPrintEx(0x65u, 0, "ERROR: WdfRegisterLibrary failed with Status 0x%x\n", v4);
     }
     FxLibraryCleanup();
+    goto LABEL_11;
   }
-  else if ( LODWORD(WPP_GLOBAL_WDF_Control.DeviceExtension) )
-  {
-    DbgPrintEx(0x65u, 0, "%s: ", "Wdf01000");
-    DbgPrintEx(0x65u, 0, "ERROR: FxLibraryCreateDevice failed with Status 0x%x\n", v4);
-  }
-  wil_UninitializeFeatureStaging();
-  return (unsigned int)v4;
+  WdfWriteKmdfVersionToRegistry(DriverObject, RegistryPath);
+  return 0LL;
 }

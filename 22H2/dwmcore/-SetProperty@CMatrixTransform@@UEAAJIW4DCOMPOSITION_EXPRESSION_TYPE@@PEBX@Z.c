@@ -1,80 +1,81 @@
 /*
- * XREFs of ?SetProperty@CMatrixTransform@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18023B7D0
+ * XREFs of ?SetProperty@CMatrixTransform@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801B57F0
  * Callers:
  *     <none>
  * Callees:
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BC160 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180037460 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
-__int64 __fastcall CMatrixTransform::SetProperty(__int64 a1, int a2, int a3, float *a4)
+__int64 __fastcall CMatrixTransform::SetProperty(float *a1, int a2, int a3, float *a4)
 {
-  float v4; // xmm1_4
-  int v5; // edx
+  __int64 v4; // r10
+  float v5; // xmm1_4
   int v6; // edx
   int v7; // edx
   int v8; // edx
-  __int64 v9; // rax
-  float *v10; // rbx
+  int v9; // edx
+  __int64 v10; // rax
   unsigned int v11; // ebx
 
+  v4 = (__int64)a1;
   if ( a3 != 18 )
     goto LABEL_18;
-  v4 = *a4;
+  v5 = *a4;
   if ( a2 )
   {
-    v5 = a2 - 1;
-    if ( v5 )
+    v6 = a2 - 1;
+    if ( v6 )
     {
-      v6 = v5 - 1;
-      if ( v6 )
+      v7 = v6 - 1;
+      if ( v7 )
       {
-        v7 = v6 - 1;
-        if ( v7 )
+        v8 = v7 - 1;
+        if ( v8 )
         {
-          v8 = v7 - 1;
-          if ( v8 )
+          v9 = v8 - 1;
+          if ( v9 )
           {
-            if ( v8 != 1 )
+            if ( v9 != 1 )
             {
 LABEL_18:
               v11 = -2147024809;
-              MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x61u, 0LL);
+              MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0x63u, 0LL);
               return v11;
             }
-            v9 = 180LL;
+            v10 = 172LL;
           }
           else
           {
-            v9 = 176LL;
+            v10 = 168LL;
           }
         }
         else
         {
-          v9 = 172LL;
+          v10 = 164LL;
         }
       }
       else
       {
-        v9 = 168LL;
+        v10 = 160LL;
       }
     }
     else
     {
-      v9 = 164LL;
+      v10 = 156LL;
     }
   }
   else
   {
-    v9 = 160LL;
+    v10 = 152LL;
   }
-  v10 = (float *)(a1 + v9);
-  if ( !(a1 + v9) )
+  a1 = (float *)((char *)a1 + v10);
+  if ( !a1 )
     goto LABEL_18;
-  if ( *v10 != v4 )
+  if ( *a1 != v5 )
   {
-    *v10 = v4;
-    CResource::NotifyOnChanged(a1, 0, 0LL);
+    *a1 = v5;
+    CResource::NotifyOnChanged(v4, 0, 0LL);
   }
-  return v10 == 0LL ? 0x80070057 : 0;
+  return 0;
 }

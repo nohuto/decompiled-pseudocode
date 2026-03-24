@@ -4,9 +4,9 @@
  *     VfSuspectDriversLoadCallback @ 0x1409377A4 (VfSuspectDriversLoadCallback.c)
  * Callees:
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _stricmp @ 0x1401953C0 (_stricmp.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _stricmp @ 0x1401953E0 (_stricmp.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViCiPreprocessOptions @ 0x1409276E0 (ViCiPreprocessOptions.c)
  *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
  */
@@ -92,13 +92,13 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
             *(_QWORD *)Str1 = *(_QWORD *)v5;
             v12 = 0;
             ViCiPreprocessOptions(
-              byte_140405438,
+              byte_14040542C,
               "The image %wZ contains section 0x%p that is not page aligned (name %s).",
               8196LL,
               a1 + 88,
               v5,
               Str1);
-            VfReportIssueWithOptions(0xC4u, 0x2004uLL, a1 + 88, v5, (ULONG_PTR)Str1, byte_140405438);
+            VfReportIssueWithOptions(0xC4u, 0x2004uLL, a1 + 88, v5, (ULONG_PTR)Str1, byte_14040542C);
             if ( (MmVerifierData & 0x1000) != 0 )
               ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 280LL);
             _InterlockedIncrement(&dword_14041AA20);

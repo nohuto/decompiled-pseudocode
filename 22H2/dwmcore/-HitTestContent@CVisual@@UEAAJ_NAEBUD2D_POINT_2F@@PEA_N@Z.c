@@ -1,48 +1,54 @@
 /*
- * XREFs of ?HitTestContent@CVisual@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800DF8C0
+ * XREFs of ?HitTestContent@CVisual@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800C7D80
  * Callers:
- *     ?HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800DF780 (-HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     ?HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800C79E0 (-HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z.c)
  * Callees:
- *     ?GetTouchTargetBounds@CVisual@@IEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x180048C40 (-GetTouchTargetBounds@CVisual@@IEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?IsPointInRect@@YA_NAEBUD2D_POINT_2F@@AEBUMilRectF@@@Z @ 0x1800DFAE0 (-IsPointInRect@@YA_NAEBUD2D_POINT_2F@@AEBUMilRectF@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsPointInRect@@YA_NAEBUD2D_POINT_2F@@AEBUMilRectF@@@Z @ 0x180068D98 (-IsPointInRect@@YA_NAEBUD2D_POINT_2F@@AEBUMilRectF@@@Z.c)
+ *     ?GetTouchTargetBounds@CVisual@@IEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1800C9738 (-GetTouchTargetBounds@CVisual@@IEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CVisual::HitTestContent(CVisual *this, char a2, const struct D2D_POINT_2F *a3, bool *a4)
 {
   unsigned int v4; // ebx
-  __int64 v9; // rdx
-  __int64 v11; // rcx
-  int v12; // eax
-  __int64 v13; // rcx
-  __m128i *TouchTargetBounds; // rax
-  __m128i v15; // [rsp+30h] [rbp-48h] BYREF
+  bool v9; // al
+  __int64 v10; // rdx
+  __int64 v12; // rcx
+  int v13; // eax
+  __int64 v14; // rcx
+  const struct MilRectF *TouchTargetBounds; // rax
+  _BYTE v16[16]; // [rsp+30h] [rbp-48h] BYREF
 
   v4 = 0;
   *a4 = 0;
-  if ( (*(unsigned __int8 (__fastcall **)(CVisual *))(*(_QWORD *)this + 272LL))(this) )
+  if ( (*(unsigned __int8 (__fastcall **)(CVisual *))(*(_QWORD *)this + 296LL))(this) )
   {
     if ( a2 )
     {
-      TouchTargetBounds = CVisual::GetTouchTargetBounds((__int64)this, &v15);
-      *a4 = IsPointInRect(a3, (const struct MilRectF *)TouchTargetBounds);
+      TouchTargetBounds = (const struct MilRectF *)CVisual::GetTouchTargetBounds(this, v16);
+      v9 = IsPointInRect(a3, TouchTargetBounds);
+      *a4 = v9;
     }
-    if ( !*a4 )
+    else
     {
-      v9 = *((_QWORD *)this + 32);
-      if ( v9 )
+      v9 = *a4;
+    }
+    if ( !v9 )
+    {
+      v10 = *((_QWORD *)this + 31);
+      if ( v10 )
       {
-        v11 = v9 + 64 + *(int *)(*(_QWORD *)(v9 + 64) + 8LL);
-        v12 = (*(__int64 (__fastcall **)(__int64, char *, const struct D2D_POINT_2F *, bool *))(*(_QWORD *)v11 + 24LL))(
-                v11,
-                (char *)this + 140,
+        v12 = v10 + 56 + *(int *)(*(_QWORD *)(v10 + 56) + 8LL);
+        v13 = (*(__int64 (__fastcall **)(__int64, char *, const struct D2D_POINT_2F *, bool *))(*(_QWORD *)v12 + 24LL))(
+                v12,
+                (char *)this + 132,
                 a3,
                 a4);
-        v4 = v12;
-        if ( v12 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x136Eu, 0LL);
+        v4 = v13;
+        if ( v13 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x13B1u, 0LL);
       }
     }
   }

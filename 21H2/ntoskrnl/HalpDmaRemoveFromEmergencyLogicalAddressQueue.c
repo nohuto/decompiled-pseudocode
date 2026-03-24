@@ -1,14 +1,13 @@
 /*
- * XREFs of HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x140504BA4
+ * XREFs of HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x1404B8160
  * Callers:
- *     HalCancelAdapterChannel @ 0x140511600 (HalCancelAdapterChannel.c)
- *     HalCancelAdapterChannelDmaThin @ 0x1405157F0 (HalCancelAdapterChannelDmaThin.c)
- *     HalCancelAdapterChannelDmarThin @ 0x140515FD0 (HalCancelAdapterChannelDmarThin.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140517830 (HalpAllocateDmaResourcesInternal.c)
+ *     HalCancelAdapterChannel @ 0x1404C5EC0 (HalCancelAdapterChannel.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA5DC (HalpAllocateDmaResourcesInternal.c)
+ *     HalCancelAdapterChannelThin @ 0x1404CACE0 (HalCancelAdapterChannelThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall HalpDmaRemoveFromEmergencyLogicalAddressQueue(__int64 a1, _QWORD *a2)

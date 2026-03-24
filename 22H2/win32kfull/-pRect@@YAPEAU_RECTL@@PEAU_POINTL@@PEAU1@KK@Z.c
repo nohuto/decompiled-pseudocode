@@ -1,11 +1,11 @@
 /*
- * XREFs of ?pRect@@YAPEAU_RECTL@@PEAU_POINTL@@PEAU1@KK@Z @ 0x1C02C7F7C
+ * XREFs of ?pRect@@YAPEAU_RECTL@@PEAU_POINTL@@PEAU1@KK@Z @ 0x1C013D8FC
  * Callers:
- *     NtGdiEngBitBlt @ 0x1C02C8940 (NtGdiEngBitBlt.c)
- *     NtGdiEngCopyBits @ 0x1C02C8FB0 (NtGdiEngCopyBits.c)
- *     NtGdiEngPlgBlt @ 0x1C02CA710 (NtGdiEngPlgBlt.c)
- *     NtGdiEngStretchBlt @ 0x1C02CAB20 (NtGdiEngStretchBlt.c)
- *     NtGdiEngStretchBltROP @ 0x1C02CB070 (NtGdiEngStretchBltROP.c)
+ *     NtGdiEngCopyBits @ 0x1C013AC00 (NtGdiEngCopyBits.c)
+ *     NtGdiEngStretchBltROP @ 0x1C013AF80 (NtGdiEngStretchBltROP.c)
+ *     NtGdiEngBitBlt @ 0x1C013B6A0 (NtGdiEngBitBlt.c)
+ *     NtGdiEngStretchBlt @ 0x1C013CDD0 (NtGdiEngStretchBlt.c)
+ *     NtGdiEngPlgBlt @ 0x1C02B30F0 (NtGdiEngPlgBlt.c)
  * Callees:
  *     <none>
  */

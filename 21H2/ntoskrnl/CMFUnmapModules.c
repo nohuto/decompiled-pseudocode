@@ -1,23 +1,23 @@
 /*
- * XREFs of CMFUnmapModules @ 0x140A05784
+ * XREFs of CMFUnmapModules @ 0x140959A44
  * Callers:
- *     NtMapCMFModule @ 0x140A05860 (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x140959B20 (NtMapCMFModule.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CMFUnmapModules(__int16 a1)
 {
-  PVOID *v2; // rdi
-  PVOID *v3; // rbx
+  PADAPTER_OBJECT *v2; // rdi
+  PADAPTER_OBJECT *v3; // rbx
   __int64 v4; // rbp
-  PVOID v5; // rcx
-  PVOID v6; // rcx
+  struct _DMA_ADAPTER *v5; // rcx
+  struct _DMA_ADAPTER *v6; // rcx
 
   if ( (a1 & 0x20) != 0 )
   {
-    v2 = (PVOID *)CMFSegmentSectionPointer;
+    v2 = (PADAPTER_OBJECT *)CMFSegmentSectionPointer;
     _InterlockedExchange64((volatile __int64 *)&CMFSegmentSectionPointer, 0LL);
     if ( v2 )
     {
@@ -27,7 +27,7 @@ __int64 __fastcall CMFUnmapModules(__int16 a1)
       {
         if ( *v3 )
         {
-          ObfDereferenceObject(*v3);
+          HalPutDmaAdapter(*v3);
           *v3 = 0LL;
         }
         ++v3;
@@ -42,11 +42,11 @@ __int64 __fastcall CMFUnmapModules(__int16 a1)
     v5 = CMFDirectorySectionPointer;
     if ( CMFDirectorySectionPointer )
     {
-      if ( v5 == (PVOID)_InterlockedCompareExchange64(
-                          (volatile signed __int64 *)&CMFDirectorySectionPointer,
-                          0LL,
-                          (signed __int64)CMFDirectorySectionPointer) )
-        ObfDereferenceObject(v5);
+      if ( v5 == (struct _DMA_ADAPTER *)_InterlockedCompareExchange64(
+                                          (volatile signed __int64 *)&CMFDirectorySectionPointer,
+                                          0LL,
+                                          (signed __int64)CMFDirectorySectionPointer) )
+        HalPutDmaAdapter(v5);
     }
   }
   if ( (a1 & 0x100) != 0 )
@@ -54,11 +54,11 @@ __int64 __fastcall CMFUnmapModules(__int16 a1)
     v6 = CMFHitsSectionPointer;
     if ( CMFHitsSectionPointer )
     {
-      if ( v6 == (PVOID)_InterlockedCompareExchange64(
-                          (volatile signed __int64 *)&CMFHitsSectionPointer,
-                          0LL,
-                          (signed __int64)CMFHitsSectionPointer) )
-        ObfDereferenceObject(v6);
+      if ( v6 == (struct _DMA_ADAPTER *)_InterlockedCompareExchange64(
+                                          (volatile signed __int64 *)&CMFHitsSectionPointer,
+                                          0LL,
+                                          (signed __int64)CMFHitsSectionPointer) )
+        HalPutDmaAdapter(v6);
     }
   }
   return 0LL;

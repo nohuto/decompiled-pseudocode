@@ -1,7 +1,7 @@
 /*
- * XREFs of IoSizeofWorkItem @ 0x140363D10
+ * XREFs of IoSizeofWorkItem @ 0x14031B950
  * Callers:
- *     VfMiscIoInitializeWorkItem_Entry @ 0x140AE0D00 (VfMiscIoInitializeWorkItem_Entry.c)
+ *     VerifierIoInitializeWorkItem @ 0x1409C9690 (VerifierIoInitializeWorkItem.c)
  * Callees:
  *     <none>
  */

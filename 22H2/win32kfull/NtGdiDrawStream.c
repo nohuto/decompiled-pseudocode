@@ -1,28 +1,28 @@
 /*
- * XREFs of NtGdiDrawStream @ 0x1C009BBC0
+ * XREFs of NtGdiDrawStream @ 0x1C00838F0
  * Callers:
  *     <none>
  * Callees:
- *     GreDrawStream @ 0x1C00F9710 (GreDrawStream.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     GreDrawStream @ 0x1C00839D0 (GreDrawStream.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall NtGdiDrawStream(__int64 a1, __int64 a2, char *a3)
+__int64 __fastcall NtGdiDrawStream(__int64 a1, unsigned int a2, char *a3)
 {
   size_t v4; // rsi
   unsigned int v6; // edi
   _BYTE *v7; // rbx
   _BYTE v9[256]; // [rsp+30h] [rbp-128h] BYREF
 
-  v4 = (unsigned int)a2;
+  v4 = a2;
   v6 = 0;
   v7 = 0LL;
-  if ( (unsigned int)a2 > 0x100 )
+  if ( a2 > 0x100 )
   {
-    if ( (unsigned int)a2 > 0x2710000 )
+    if ( a2 > 0x2710000 )
       goto LABEL_7;
-    v7 = (_BYTE *)AllocFreeTmpBuffer((unsigned int)a2);
+    v7 = (_BYTE *)AllocFreeTmpBuffer(a2);
     if ( !v7 )
       goto LABEL_7;
   }
@@ -36,6 +36,6 @@ __int64 __fastcall NtGdiDrawStream(__int64 a1, __int64 a2, char *a3)
   v6 = GreDrawStream(a1, (unsigned int)v4, v7);
 LABEL_7:
   if ( v7 && v7 != v9 )
-    FreeTmpBuffer(v7, a2, a3);
+    FreeTmpBuffer(v7);
   return v6;
 }

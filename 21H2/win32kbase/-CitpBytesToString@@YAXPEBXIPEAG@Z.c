@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CitpBytesToString@@YAXPEBXIPEAG@Z @ 0x1C00A3588
+ * XREFs of ?CitpBytesToString@@YAXPEBXIPEAG@Z @ 0x1C008C43C
  * Callers:
- *     ?CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z @ 0x1C00A3364 (-CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z.c)
+ *     ?CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z @ 0x1C008C210 (-CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z.c)
  * Callees:
  *     <none>
  */

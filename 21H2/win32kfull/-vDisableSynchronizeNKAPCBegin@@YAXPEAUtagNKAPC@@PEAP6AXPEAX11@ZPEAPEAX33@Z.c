@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vDisableSynchronizeNKAPCBegin@@YAXPEAUtagNKAPC@@PEAP6AXPEAX11@ZPEAPEAX33@Z @ 0x1C029D5D0
+ * XREFs of ?vDisableSynchronizeNKAPCBegin@@YAXPEAUtagNKAPC@@PEAP6AXPEAX11@ZPEAPEAX33@Z @ 0x1C0162020
  * Callers:
  *     <none>
  * Callees:

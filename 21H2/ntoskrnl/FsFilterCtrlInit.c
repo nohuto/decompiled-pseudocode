@@ -1,16 +1,16 @@
 /*
- * XREFs of FsFilterCtrlInit @ 0x1402885A0
+ * XREFs of FsFilterCtrlInit @ 0x140357030
  * Callers:
- *     FsRtlAcquireFileForModWriteEx @ 0x14028B12C (FsRtlAcquireFileForModWriteEx.c)
- *     FsRtlReleaseFileForModWrite @ 0x14028D3BC (FsRtlReleaseFileForModWrite.c)
- *     FsRtlReleaseFile @ 0x1406FE310 (FsRtlReleaseFile.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x1406FE4F0 (FsRtlAcquireFileExclusiveCommon.c)
- *     FsRtlReleaseFileForCcFlush @ 0x1407F0748 (FsRtlReleaseFileForCcFlush.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1407F099C (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlQueryOpen @ 0x1407F730C (FsRtlQueryOpen.c)
+ *     FsRtlReleaseFileForModWrite @ 0x140254F94 (FsRtlReleaseFileForModWrite.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x1402559CC (FsRtlAcquireFileForModWriteEx.c)
+ *     FsRtlQueryOpen @ 0x1405D8FB0 (FsRtlQueryOpen.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x140647024 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x140647204 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFile @ 0x140707A70 (FsRtlReleaseFile.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x140707C40 (FsRtlAcquireFileExclusiveCommon.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     FsFilterAllocateCompletionStack @ 0x140459984 (FsFilterAllocateCompletionStack.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     FsFilterAllocateCompletionStack @ 0x1404F10BC (FsFilterAllocateCompletionStack.c)
  */
 
 __int64 __fastcall FsFilterCtrlInit(__int64 a1, char a2, __int64 a3, __int64 a4, __int64 a5, unsigned __int8 a6)
@@ -18,7 +18,9 @@ __int64 __fastcall FsFilterCtrlInit(__int64 a1, char a2, __int64 a3, __int64 a4,
   unsigned int v6; // edi
   unsigned __int16 v8; // ax
   void *v9; // rcx
+  unsigned int v10; // eax
   __int64 result; // rax
+  unsigned int v12; // [rsp+38h] [rbp+10h] BYREF
 
   v6 = 0;
   *(_QWORD *)(a1 + 16) = a5;
@@ -27,6 +29,7 @@ __int64 __fastcall FsFilterCtrlInit(__int64 a1, char a2, __int64 a3, __int64 a4,
   *(_QWORD *)(a1 + 8) = a3;
   *(_DWORD *)(a1 + 64) = 0;
   *(_OWORD *)(a1 + 24) = 0LL;
+  v12 = 0;
   *(_OWORD *)(a1 + 40) = 0LL;
   *(_QWORD *)(a1 + 56) = 0LL;
   v8 = *(char *)(a3 + 76);
@@ -36,13 +39,19 @@ __int64 __fastcall FsFilterCtrlInit(__int64 a1, char a2, __int64 a3, __int64 a4,
   {
     v9 = (void *)(a1 + 88);
     *(_QWORD *)(a1 + 80) = v9;
-    memset(v9, 0, 0x1E0uLL);
+    v10 = 480;
     *(_WORD *)(a1 + 72) = 15;
+LABEL_3:
+    memset(v9, 0, v10);
     return v6;
   }
-  result = FsFilterAllocateCompletionStack(a1, a6);
+  result = FsFilterAllocateCompletionStack(a1, a6, &v12);
   v6 = result;
   if ( (int)result >= 0 )
-    return v6;
+  {
+    v9 = *(void **)(a1 + 80);
+    v10 = v12;
+    goto LABEL_3;
+  }
   return result;
 }

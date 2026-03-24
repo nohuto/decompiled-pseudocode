@@ -1,27 +1,27 @@
 /*
- * XREFs of AslpFileGetVersionBlock @ 0x1408422F0
+ * XREFs of AslpFileGetVersionBlock @ 0x1407B3224
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x140841AE8 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x1407B2958 (AslpFileGetVersionAttributes.c)
  * Callees:
- *     RtlFileMapFree @ 0x1402D89E8 (RtlFileMapFree.c)
- *     RtlVerifyVersionInfo @ 0x1403B2B70 (RtlVerifyVersionInfo.c)
- *     VerSetConditionMask @ 0x1403B4740 (VerSetConditionMask.c)
- *     RtlFileMapMapView @ 0x1403CB4C0 (RtlFileMapMapView.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     LdrResSearchResource @ 0x140673120 (LdrResSearchResource.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     AslFileMappingEnsure @ 0x140841A58 (AslFileMappingEnsure.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlFileMapFree @ 0x1403714EC (RtlFileMapFree.c)
+ *     RtlVerifyVersionInfo @ 0x14037D8C0 (RtlVerifyVersionInfo.c)
+ *     VerSetConditionMask @ 0x14037F860 (VerSetConditionMask.c)
+ *     RtlFileMapMapView @ 0x1403BD8C4 (RtlFileMapMapView.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     LdrResSearchResource @ 0x14068C140 (LdrResSearchResource.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     AslFileMappingEnsure @ 0x1407B28C8 (AslFileMappingEnsure.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
 {
   __int64 v6; // rcx
   int v7; // ebx
-  unsigned __int64 v8; // r13
+  ULONGLONG v8; // r13
   int v9; // eax
   __int64 v10; // rcx
   unsigned __int64 v11; // r8
@@ -97,7 +97,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
         goto LABEL_43;
       AslLogCallPrintf(3LL);
       v8 = *((_QWORD *)&v29 + 1);
-      v7 = LdrResSearchResource(*((__int64 *)&v29 + 1), v27, 3u, 0, &Src, (__int64 *)&Size, 0LL, 0LL);
+      v7 = LdrResSearchResource(*((ULONGLONG *)&v29 + 1), v27, 3u, 0, &Src, (__int64 *)&Size, 0LL, 0LL);
       AslLogCallPrintf(2LL);
       if ( v7 < 0 )
         goto LABEL_43;

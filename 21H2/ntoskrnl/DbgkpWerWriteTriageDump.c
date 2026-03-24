@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkpWerWriteTriageDump @ 0x14092C358
+ * XREFs of DbgkpWerWriteTriageDump @ 0x140889918
  * Callers:
- *     DbgkpWerCaptureLiveTriageDump @ 0x14092BC54 (DbgkpWerCaptureLiveTriageDump.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x140888F28 (DbgkpWerCaptureLiveTriageDump.c)
  * Callees:
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     DbgkpWerUpdateTriageDumpHeader @ 0x14092C164 (DbgkpWerUpdateTriageDumpHeader.c)
- *     DbgkpWerWriteSecondaryData @ 0x14092C1F8 (DbgkpWerWriteSecondaryData.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     DbgkpWerUpdateTriageDumpHeader @ 0x140889724 (DbgkpWerUpdateTriageDumpHeader.c)
+ *     DbgkpWerWriteSecondaryData @ 0x1408897B8 (DbgkpWerWriteSecondaryData.c)
  */
 
 __int64 __fastcall DbgkpWerWriteTriageDump(__int64 a1)

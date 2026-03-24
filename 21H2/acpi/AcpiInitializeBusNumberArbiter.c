@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiInitializeBusNumberArbiter @ 0x1C00ACE08
+ * XREFs of AcpiInitializeBusNumberArbiter @ 0x1C00AE288
  * Callers:
- *     AcpiArblibInitializeArbiter @ 0x1C0049B58 (AcpiArblibInitializeArbiter.c)
+ *     AcpiArblibInitializeArbiter @ 0x1C00AD2D4 (AcpiArblibInitializeArbiter.c)
  * Callees:
- *     ArbInitializeArbiterInstance @ 0x1C009E128 (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeArbiterInstance @ 0x1C009FCF0 (ArbInitializeArbiterInstance.c)
  */
 
 __int64 __fastcall AcpiInitializeBusNumberArbiter(__int64 a1, __int64 a2)
@@ -15,5 +15,5 @@ __int64 __fastcall AcpiInitializeBusNumberArbiter(__int64 a1, __int64 a2)
   v3[16] = AcpiArblibPackResource;
   v3[17] = AcpiArblibUnpackResource;
   v3[18] = AcpiArblibScoreRequirement;
-  return ArbInitializeArbiterInstance((__int64)v3, *(_QWORD *)(a2 + 768), 6, a1);
+  return ArbInitializeArbiterInstance((__int64)v3, *(_QWORD *)(a2 + 728), 6, a1);
 }

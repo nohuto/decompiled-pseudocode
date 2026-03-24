@@ -1,28 +1,26 @@
 /*
- * XREFs of ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180028570
+ * XREFs of ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x1800AEC10
  * Callers:
- *     ?RecordFeatureUsage@FeatureStateData@details_abi@wil@@QEAA_NIW4wil_details_ServiceReportingKind@@_K@Z @ 0x180028974 (-RecordFeatureUsage@FeatureStateData@details_abi@wil@@QEAA_NIW4wil_details_ServiceReportingKind@.c)
- *     ?_lambda_invoker_cdecl_@_lambda_d51448ba32f8ef42e59400edd4566183_@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_TIMER@@@Z @ 0x1800F8EE0 (-_lambda_invoker_cdecl_@_lambda_d51448ba32f8ef42e59400edd4566183_@@CAXPEAU_TP_CALLBACK_INSTANCE@.c)
+ *     ?RecordFeatureUsage@FeatureStateData@details_abi@wil@@QEAA_NIW4wil_details_ServiceReportingKind@@_K@Z @ 0x1800AFAEC (-RecordFeatureUsage@FeatureStateData@details_abi@wil@@QEAA_NIW4wil_details_ServiceReportingKind@.c)
+ *     ?FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ @ 0x18014D344 (-FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ.c)
  * Callees:
- *     ??1?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x18002890C (--1-$unique_storage@U-$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1-ReleaseSRWLockExclusive@.c)
- *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x180028B68 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
- *     ??1UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800296E4 (--1UsageIndexes@details_abi@wil@@QEAA@XZ.c)
- *     ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x180029744 (-Record@UsageIndexes@details_abi@wil@@QEAAXXZ.c)
- *     ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x1800297D4 (-RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z.c)
+ *     ??1UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800AEC7C (--1UsageIndexes@details_abi@wil@@QEAA@XZ.c)
+ *     ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x1800AECD8 (-Record@UsageIndexes@details_abi@wil@@QEAAXXZ.c)
+ *     ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x1800AED68 (-RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z.c)
+ *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800AEDB8 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
  */
 
 void __fastcall wil::details_abi::FeatureStateData::RecordUsage(RTL_SRWLOCK *this)
 {
   _BYTE v2[200]; // [rsp+20h] [rbp-C8h] BYREF
-  RTL_SRWLOCK *v3; // [rsp+F0h] [rbp+8h] BYREF
 
   wil::details_abi::UsageIndexes::UsageIndexes((wil::details_abi::UsageIndexes *)v2);
   AcquireSRWLockExclusive(this);
-  v3 = this;
   wil::details_abi::FeatureStateData::RetrieveUsageUnderLock(
     (wil::details_abi::FeatureStateData *)this,
     (struct wil::details_abi::UsageIndexes *)v2);
-  wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>(&v3);
+  if ( this )
+    ReleaseSRWLockExclusive(this);
   wil::details_abi::UsageIndexes::Record((wil::details_abi::UsageIndexes *)v2);
   wil::details_abi::UsageIndexes::~UsageIndexes((wil::details_abi::UsageIndexes *)v2);
 }

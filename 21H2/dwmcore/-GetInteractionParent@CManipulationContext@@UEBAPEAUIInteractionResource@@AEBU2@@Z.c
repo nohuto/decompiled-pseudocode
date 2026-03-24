@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetInteractionParent@CManipulationContext@@UEBAPEAUIInteractionResource@@AEBU2@@Z @ 0x180182B60
+ * XREFs of ?GetInteractionParent@CManipulationContext@@UEBAPEAUIInteractionResource@@AEBU2@@Z @ 0x1802345B0
  * Callers:
  *     <none>
  * Callees:

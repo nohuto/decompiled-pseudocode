@@ -1,10 +1,10 @@
 /*
- * XREFs of GlobalLockEventHandler @ 0x1C00396B0
+ * XREFs of GlobalLockEventHandler @ 0x1C000F460
  * Callers:
  *     <none>
  * Callees:
- *     ACPIAsyncAcquireGlobalLock @ 0x1C0039150 (ACPIAsyncAcquireGlobalLock.c)
- *     ACPIReleaseGlobalLock @ 0x1C003939C (ACPIReleaseGlobalLock.c)
+ *     ACPIReleaseGlobalLock @ 0x1C000F4A4 (ACPIReleaseGlobalLock.c)
+ *     ACPIAsyncAcquireGlobalLock @ 0x1C000F580 (ACPIAsyncAcquireGlobalLock.c)
  */
 
 __int64 __fastcall GlobalLockEventHandler(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5)
@@ -20,6 +20,6 @@ __int64 __fastcall GlobalLockEventHandler(__int64 a1, int a2, __int64 a3, __int6
   {
     *(_QWORD *)a5 = a4;
     *(_WORD *)(a5 + 8) = 2;
-    return ACPIAsyncAcquireGlobalLock(a5);
+    return ACPIAsyncAcquireGlobalLock();
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_EFxObject@@UEAAPEAXI@Z @ 0x1C0033960
+ * XREFs of ??_EFxObject@@UEAAPEAXI@Z @ 0x1C0052F70
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxObject@@UEAA@XZ @ 0x1C00083A0 (--1FxObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxObject@@UEAA@XZ @ 0x1C00079A0 (--1FxObject@@UEAA@XZ.c)
  */
 
 FxWaitLock *__fastcall FxObject::`vector deleting destructor'(FxWaitLock *this, unsigned int a2, unsigned int a3)

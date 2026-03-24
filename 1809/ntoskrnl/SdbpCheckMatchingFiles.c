@@ -1,18 +1,18 @@
 /*
- * XREFs of SdbpCheckMatchingFiles @ 0x140721470
+ * XREFs of SdbpCheckMatchingFiles @ 0x140721450
  * Callers:
  *     <none>
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SdbFindFirstTag @ 0x14067D1A0 (SdbFindFirstTag.c)
- *     AslFileMappingCreate @ 0x14067E49C (AslFileMappingCreate.c)
- *     AslFileMappingDelete @ 0x14067E984 (AslFileMappingDelete.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     SdbpCheckAllAttributes @ 0x140720364 (SdbpCheckAllAttributes.c)
- *     SdbGetStringTagPtr @ 0x140721730 (SdbGetStringTagPtr.c)
- *     SdbpResolveMatchingFile @ 0x140721A94 (SdbpResolveMatchingFile.c)
- *     SdbpInitializeSearchDBContext @ 0x140722598 (SdbpInitializeSearchDBContext.c)
- *     AslFileNotFound @ 0x1407228D0 (AslFileNotFound.c)
+ *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
+ *     AslFileMappingCreate @ 0x14067E47C (AslFileMappingCreate.c)
+ *     AslFileMappingDelete @ 0x14067E964 (AslFileMappingDelete.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbpCheckAllAttributes @ 0x140720344 (SdbpCheckAllAttributes.c)
+ *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
+ *     SdbpResolveMatchingFile @ 0x140721A74 (SdbpResolveMatchingFile.c)
+ *     SdbpInitializeSearchDBContext @ 0x140722578 (SdbpInitializeSearchDBContext.c)
+ *     AslFileNotFound @ 0x1407228B0 (AslFileNotFound.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingFiles(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, _QWORD *a6)

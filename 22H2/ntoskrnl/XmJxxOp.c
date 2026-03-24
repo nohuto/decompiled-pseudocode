@@ -1,58 +1,79 @@
 /*
- * XREFs of XmJxxOp @ 0x1403C03B0
+ * XREFs of XmJxxOp @ 0x1403979B0
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall XmJxxOp(__int64 a1)
 {
-  unsigned int v1; // edx
-  int v3; // ecx
+  int v2; // r8d
   __int64 result; // rax
+  int v4; // ecx
   unsigned int v5; // ecx
-  unsigned int v6; // ecx
+  int v6; // eax
+  unsigned int v7; // eax
+  unsigned int v8; // ecx
+  unsigned int v9; // ecx
 
-  v1 = *(_DWORD *)(a1 + 108);
-  switch ( v1 >> 1 )
+  v2 = *(_DWORD *)(a1 + 108) & 1;
+  result = *(_DWORD *)(a1 + 108) >> 1;
+  if ( !(_DWORD)result )
   {
-    case 0u:
-      v3 = *(_DWORD *)(a1 + 16) >> 11;
-      goto LABEL_5;
-    case 1u:
-      v3 = *(_DWORD *)(a1 + 16);
-      goto LABEL_5;
-    case 2u:
-      v3 = *(_DWORD *)(a1 + 16) >> 6;
-LABEL_5:
-      result = 1LL;
-      v5 = v3 & 1;
-      goto LABEL_6;
-    case 3u:
-      v3 = *(_DWORD *)(a1 + 16) | (*(_DWORD *)(a1 + 16) >> 6);
-      goto LABEL_5;
-    case 4u:
-      v6 = *(_DWORD *)(a1 + 16);
-      goto LABEL_20;
-    case 5u:
-      v3 = *(_DWORD *)(a1 + 16) >> 2;
-      goto LABEL_5;
-  }
-  result = (v1 >> 1) - 6;
-  if ( v1 >> 1 == 6 )
-  {
-    v6 = *(_DWORD *)(a1 + 16) ^ (*(_DWORD *)(a1 + 16) >> 4);
-LABEL_20:
-    v3 = v6 >> 7;
+    v4 = *(_DWORD *)(a1 + 16) >> 11;
     goto LABEL_5;
   }
-  if ( v1 >> 1 != 7 )
+  result = (unsigned int)(result - 1);
+  if ( !(_DWORD)result )
+  {
+    v4 = *(_DWORD *)(a1 + 16);
+    goto LABEL_5;
+  }
+  result = (unsigned int)(result - 1);
+  if ( !(_DWORD)result )
+  {
+    v4 = *(_DWORD *)(a1 + 16) >> 6;
+LABEL_5:
+    v5 = v4 & 1;
+    goto LABEL_6;
+  }
+  v6 = result - 1;
+  if ( !v6 )
+  {
+    result = *(unsigned int *)(a1 + 16);
+    v4 = result | (*(_DWORD *)(a1 + 16) >> 6);
+    goto LABEL_5;
+  }
+  result = (unsigned int)(v6 - 1);
+  if ( !(_DWORD)result )
+  {
+    v9 = *(_DWORD *)(a1 + 16);
+    goto LABEL_20;
+  }
+  result = (unsigned int)(result - 1);
+  if ( !(_DWORD)result )
+  {
+    v4 = *(_DWORD *)(a1 + 16) >> 2;
+    goto LABEL_5;
+  }
+  result = (unsigned int)(result - 1);
+  if ( !(_DWORD)result )
+  {
+    result = *(unsigned int *)(a1 + 16);
+    v9 = result ^ (*(_DWORD *)(a1 + 16) >> 4);
+LABEL_20:
+    v4 = v9 >> 7;
+    goto LABEL_5;
+  }
+  if ( (_DWORD)result != 1 )
     return result;
-  result = 1LL;
-  v5 = (*(_DWORD *)(a1 + 16) & 0x40 | ((unsigned int)(*(_DWORD *)(a1 + 16) ^ (*(_DWORD *)(a1 + 16) >> 4)) >> 1) & 0x40) >> 6;
+  v7 = *(_DWORD *)(a1 + 16);
+  v8 = v7 ^ (v7 >> 4);
+  result = v7 & 0x40;
+  v5 = ((unsigned int)result | (v8 >> 1) & 0x40) >> 6;
 LABEL_6:
-  if ( v5 != (v1 & 1) )
+  if ( v5 != v2 )
   {
     result = *(unsigned __int16 *)(a1 + 104);
     *(_DWORD *)(a1 + 20) = result;

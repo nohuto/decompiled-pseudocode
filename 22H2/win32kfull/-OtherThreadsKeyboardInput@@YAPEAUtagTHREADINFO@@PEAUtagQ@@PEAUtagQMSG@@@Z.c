@@ -1,40 +1,26 @@
 /*
- * XREFs of ?OtherThreadsKeyboardInput@@YAPEAUtagTHREADINFO@@PEAUtagQ@@PEAUtagQMSG@@@Z @ 0x1C01B5640
+ * XREFs of ?OtherThreadsKeyboardInput@@YAPEAUtagTHREADINFO@@PEAUtagQ@@PEAUtagQMSG@@@Z @ 0x1C01E0704
  * Callers:
- *     SlowAppThreadInShellFrame @ 0x1C01B6A9C (SlowAppThreadInShellFrame.c)
+ *     SlowAppThreadInShellFrame @ 0x1C0124CD4 (SlowAppThreadInShellFrame.c)
  * Callees:
  *     <none>
  */
 
 struct tagTHREADINFO *__fastcall OtherThreadsKeyboardInput(struct tagQ *a1, struct tagQMSG *a2)
 {
-  __int64 v3; // rcx
+  unsigned int v2; // eax
+  __int64 v3; // rax
   struct tagTHREADINFO *result; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rcx
 
-  if ( *((_DWORD *)a2 + 6) != 256
-    && *((_DWORD *)a2 + 6) != 257
-    && *((_DWORD *)a2 + 6) != 258
-    && *((_DWORD *)a2 + 6) != 260
-    && *((_DWORD *)a2 + 6) != 261
-    && *((_DWORD *)a2 + 6) != 522
-    && *((_DWORD *)a2 + 6) != 526 )
-  {
+  v2 = *((_DWORD *)a2 + 6);
+  if ( v2 < 0x100 || v2 > 0x102 && (v2 <= 0x103 || v2 > 0x105 && v2 != 522 && v2 != 526) )
     return 0LL;
-  }
-  v3 = *((_QWORD *)a1 + 15);
-  result = 0LL;
-  if ( v3 )
+  v3 = *((_QWORD *)a1 + 14);
+  if ( !v3 || (result = *(struct tagTHREADINFO **)(v3 + 16), *((struct tagTHREADINFO **)a2 + 13) == result) )
   {
-    v5 = *(_QWORD *)(v3 + 16);
-    if ( *((_QWORD *)a2 + 13) != v5 )
-      return (struct tagTHREADINFO *)v5;
+    result = (struct tagTHREADINFO *)*((_QWORD *)a1 + 12);
+    if ( !result || *((struct tagTHREADINFO **)a2 + 13) == result )
+      return 0LL;
   }
-  v6 = *((_QWORD *)a1 + 13);
-  if ( !v6 )
-    return 0LL;
-  if ( *((_QWORD *)a2 + 13) != v6 )
-    return (struct tagTHREADINFO *)*((_QWORD *)a1 + 13);
   return result;
 }

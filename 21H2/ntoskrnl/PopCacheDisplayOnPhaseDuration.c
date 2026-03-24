@@ -1,11 +1,11 @@
 /*
- * XREFs of PopCacheDisplayOnPhaseDuration @ 0x1405D8F48
+ * XREFs of PopCacheDisplayOnPhaseDuration @ 0x140578C9C
  * Callers:
- *     PopSetWatchdog @ 0x140256998 (PopSetWatchdog.c)
+ *     PopSetWatchdog @ 0x140280568 (PopSetWatchdog.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopCacheDisplayOnPhaseDuration(int a1, __int64 a2)
@@ -16,8 +16,8 @@ __int64 __fastcall PopCacheDisplayOnPhaseDuration(int a1, __int64 a2)
   _DWORD *SchedulerAssist; // r9
   bool v8; // zf
 
-  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140C22378);
-  if ( dword_140C22380 )
+  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140C22FD8);
+  if ( dword_140C22FE0 )
   {
     switch ( a1 )
     {
@@ -25,14 +25,14 @@ __int64 __fastcall PopCacheDisplayOnPhaseDuration(int a1, __int64 a2)
         PopDisplayOnPerformance = a2;
         break;
       case '@':
-        qword_140C22368 = a2;
+        qword_140C22FC8 = a2;
         break;
       case '0':
-        qword_140C22370 = a2;
+        qword_140C22FD0 = a2;
         break;
     }
   }
-  KxReleaseSpinLock(&qword_140C22378);
+  KxReleaseSpinLock(&qword_140C22FD8);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateU0xdddddddd_EventWriteTransfer @ 0x180130C54
+ * XREFs of McTemplateU0xdddddddd_EventWriteTransfer @ 0x180183944
  * Callers:
- *     ?CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@PEBVCMILMatrix@@PEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x1801304AE (-CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisu.c)
+ *     ?CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisual@@PEAVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@PEBVCMILMatrix@@PEBVCShape@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x180182F54 (-CheckAndRecordOverlayCandidateForContext@COcclusionContext@@QEAAJPEAVCOverlayContext@@PEAVCVisu.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0xdddddddd_EventWriteTransfer(
+ULONG __fastcall McTemplateU0xdddddddd_EventWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -20,7 +20,7 @@ __int64 __fastcall McTemplateU0xdddddddd_EventWriteTransfer(
         char a10,
         char a11)
 {
-  _BYTE v12[16]; // [rsp+30h] [rbp-91h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v12; // [rsp+30h] [rbp-91h] BYREF
   __int64 *v13; // [rsp+40h] [rbp-81h]
   __int64 v14; // [rsp+48h] [rbp-79h]
   int *v15; // [rsp+50h] [rbp-71h]
@@ -63,9 +63,9 @@ __int64 __fastcall McTemplateU0xdddddddd_EventWriteTransfer(
   v28 = 4LL;
   v30 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_DISPLAYSURFACE_SWAPCHAINCANDIDATE,
            a3,
-           10LL,
-           v12);
+           0xAu,
+           &v12);
 }

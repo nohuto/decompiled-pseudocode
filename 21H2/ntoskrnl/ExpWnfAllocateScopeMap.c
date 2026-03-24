@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWnfAllocateScopeMap @ 0x14085F8CC
+ * XREFs of ExpWnfAllocateScopeMap @ 0x1407CFCBC
  * Callers:
- *     ExpWnfResolveScopeInstance @ 0x140798334 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x14060F4B4 (ExpWnfResolveScopeInstance.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfAllocateScopeMap(_QWORD *a1)

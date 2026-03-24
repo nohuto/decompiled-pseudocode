@@ -1,10 +1,10 @@
 /*
- * XREFs of PoSessionBuiltinPanelState @ 0x1405DC0A0
+ * XREFs of PoSessionBuiltinPanelState @ 0x14057C010
  * Callers:
- *     TtmpCallSetBuiltinPanelState @ 0x1409A216C (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x1408FC70C (TtmpCallSetBuiltinPanelState.c)
  * Callees:
- *     PopInvokeWin32Callout @ 0x1407F2AD0 (PopInvokeWin32Callout.c)
- *     PopBlockSessionSwitch @ 0x1407FE700 (PopBlockSessionSwitch.c)
+ *     PopInvokeWin32Callout @ 0x14067B7C8 (PopInvokeWin32Callout.c)
+ *     PopBlockSessionSwitch @ 0x140779D60 (PopBlockSessionSwitch.c)
  */
 
 __int64 __fastcall PoSessionBuiltinPanelState(__int64 a1, int a2)
@@ -24,11 +24,12 @@ __int64 __fastcall PoSessionBuiltinPanelState(__int64 a1, int a2)
 
   v13 = a2;
   v2 = a1;
-  v12 = 0;
+  v14 = 0;
   LOBYTE(a1) = 1;
-  PopBlockSessionSwitch(a1, &v12);
-  v14 = v2;
-  v9 = &v14;
+  v12 = 0;
+  PopBlockSessionSwitch(a1, &v14);
+  v12 = v2;
+  v9 = &v12;
   v6 = 0;
   v7 = 0;
   v8 = 4LL;
@@ -37,5 +38,5 @@ __int64 __fastcall PoSessionBuiltinPanelState(__int64 a1, int a2)
   v5 = 0;
   v11 = 0LL;
   ((void (__fastcall *)(__int64, int *, __int64, int *))PopInvokeWin32Callout)(5LL, &v4, 1LL, &v13);
-  return PopBlockSessionSwitch(0LL, &v12);
+  return PopBlockSessionSwitch(0LL, &v14);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiTrackSystemCallEntry @ 0x140975C40
+ * XREFs of KiTrackSystemCallEntry @ 0x1408BD140
  * Callers:
- *     KiSystemCall64 @ 0x140433500 (KiSystemCall64.c)
+ *     KiSystemCall64 @ 0x140411000 (KiSystemCall64.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KeIsTraceCallbackAllowed @ 0x14057D7F0 (KeIsTraceCallbackAllowed.c)
- *     PerfInfoLogSysCallEntry @ 0x1405FEC50 (PerfInfoLogSysCallEntry.c)
- *     KiSystemServiceTraceTableCompareFunction @ 0x140975C24 (KiSystemServiceTraceTableCompareFunction.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KeIsTraceCallbackAllowed @ 0x140523D8C (KeIsTraceCallbackAllowed.c)
+ *     PerfInfoLogSysCallEntry @ 0x1405AA240 (PerfInfoLogSysCallEntry.c)
+ *     KiSystemServiceTraceTableCompareFunction @ 0x1408BD120 (KiSystemServiceTraceTableCompareFunction.c)
  */
 
 __int64 __fastcall KiTrackSystemCallEntry(unsigned __int64 a1, __int64 a2, int a3, __int64 a4)
@@ -16,7 +16,7 @@ __int64 __fastcall KiTrackSystemCallEntry(unsigned __int64 a1, __int64 a2, int a
   int v10; // eax
   __int64 v11; // rax
 
-  if ( (unsigned int)KeIsTraceCallbackAllowed(KeGetCurrentThread()->PreviousMode) )
+  if ( KeIsTraceCallbackAllowed(KeGetCurrentThread()->PreviousMode) )
   {
     v8 = *(_QWORD *)KiSystemServiceTraceCallbackTable;
     if ( (*(_BYTE *)(KiSystemServiceTraceCallbackTable + 8) & 1) != 0 && v8 )
@@ -44,7 +44,7 @@ __int64 __fastcall KiTrackSystemCallEntry(unsigned __int64 a1, __int64 a2, int a
     {
       _InterlockedIncrement(&KiSystemServiceTraceCallbacksActive);
       if ( *(_BYTE *)(v8 + 40) )
-        ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, __int64, int, __int64))qword_140D1F270)(
+        ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, __int64, int, __int64))qword_140CFCBA0)(
           *(_QWORD *)(v8 + 24),
           *(_QWORD *)(v8 + 48),
           *(unsigned int *)(v8 + 32),

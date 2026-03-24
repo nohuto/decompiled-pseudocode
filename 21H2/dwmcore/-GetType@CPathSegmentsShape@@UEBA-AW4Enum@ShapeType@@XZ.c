@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CPathSegmentsShape@@UEBA?AW4Enum@ShapeType@@XZ @ 0x1800F9520
+ * XREFs of ?GetType@CPathSegmentsShape@@UEBA?AW4Enum@ShapeType@@XZ @ 0x1800E22C0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 CPathSegmentsShape::GetType()
 {
-  return 5LL;
+  return 4LL;
 }

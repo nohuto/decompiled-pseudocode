@@ -1,60 +1,47 @@
 /*
- * XREFs of ??0CMotion@@QEAA@XZ @ 0x18026E698
+ * XREFs of ??0CMotion@@QEAA@XZ @ 0x18020DF74
  * Callers:
- *     ?EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ @ 0x180232390 (-EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ.c)
- *     ??0CInteractionTrackerPositionAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1802668D8 (--0CInteractionTrackerPositionAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ @ 0x1801C90A0 (-EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ.c)
+ *     ??0CInteractionTrackerPositionAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1802052C0 (--0CInteractionTrackerPositionAnimation@@QEAA@PEAVCComposition@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??0CScalarForce@@QEAA@PEAUIAccelerator@@@Z @ 0x180275D80 (--0CScalarForce@@QEAA@PEAUIAccelerator@@@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??0CScalarForce@@QEAA@PEAUIAccelerator@@@Z @ 0x180214874 (--0CScalarForce@@QEAA@PEAUIAccelerator@@@Z.c)
  */
 
 CMotion *__fastcall CMotion::CMotion(CMotion *this)
 {
-  void (__fastcall ***v2)(_QWORD); // rax
-  void (__fastcall ***v3)(_QWORD); // rdi
-  __int64 v4; // rcx
-  CScalarForce *v5; // rax
-  CScalarForce *v6; // rdi
-  __int64 v7; // rcx
+  struct IAccelerator *v1; // rbx
+  void (__fastcall **v3)(char *); // rax
+  CScalarForce *v4; // rax
+  CScalarForce *v5; // rbx
+  CScalarForce *v6; // rcx
 
   *((_QWORD *)this + 10) = 0LL;
-  *((_QWORD *)this + 11) = 0LL;
-  *((_QWORD *)this + 12) = 0LL;
+  v1 = (CMotion *)((char *)this + 88);
   *(_QWORD *)this = &CMotion::`vftable';
-  v2 = (void (__fastcall ***)(_QWORD))operator new(0x28uLL);
-  v3 = v2;
-  if ( v2 )
-  {
-    *((_DWORD *)v2 + 2) = 0;
-    *v2 = (void (__fastcall **)(_QWORD))&CSpringAccelerator::`vftable';
-  }
+  *((_QWORD *)this + 11) = &CSpringAccelerator::`vftable'{for `IAccelerator'};
+  *((_QWORD *)this + 12) = &CSpringAccelerator::`vftable'{for `CMILRefCountBase'};
+  *((_DWORD *)this + 26) = 0;
+  v3 = (void (__fastcall **)(char *))*((_QWORD *)this + 11);
+  *((_QWORD *)this + 17) = 0LL;
+  (*v3)((char *)this + 88);
+  v4 = (CScalarForce *)operator new(0x78uLL);
+  if ( v4 )
+    v5 = CScalarForce::CScalarForce(v4, v1);
   else
+    v5 = 0LL;
+  v6 = (CScalarForce *)*((_QWORD *)this + 10);
+  if ( v6 != v5 )
   {
-    v3 = 0LL;
-  }
-  if ( *((void (__fastcall ****)(_QWORD))this + 11) != v3 )
-  {
-    if ( v3 )
-      (**v3)(v3);
-    v4 = *((_QWORD *)this + 11);
-    *((_QWORD *)this + 11) = v3;
-    if ( v4 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
-  }
-  v5 = (CScalarForce *)operator new(0x70uLL);
-  if ( v5 )
-    v6 = CScalarForce::CScalarForce(v5, *((struct IAccelerator **)this + 11));
-  else
-    v6 = 0LL;
-  if ( *((CScalarForce **)this + 10) != v6 )
-  {
+    if ( v5 )
+    {
+      (**(void (__fastcall ***)(CScalarForce *))v5)(v5);
+      v6 = (CScalarForce *)*((_QWORD *)this + 10);
+    }
+    *((_QWORD *)this + 10) = v5;
     if ( v6 )
-      (**(void (__fastcall ***)(CScalarForce *))v6)(v6);
-    v7 = *((_QWORD *)this + 10);
-    *((_QWORD *)this + 10) = v6;
-    if ( v7 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 8LL))(v7);
+      (*(void (__fastcall **)(CScalarForce *))(*(_QWORD *)v6 + 8LL))(v6);
   }
   return this;
 }

@@ -1,30 +1,30 @@
 /*
- * XREFs of PiDevCfgSetObjectProperty @ 0x14087BC10
+ * XREFs of PiDevCfgSetObjectProperty @ 0x14074178C
  * Callers:
- *     PiDevCfgProcessDevice @ 0x14087A6C0 (PiDevCfgProcessDevice.c)
- *     PiDevCfgConfigureDevice @ 0x14087AC04 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgMigrateDevice @ 0x14087C44C (PiDevCfgMigrateDevice.c)
- *     PiDevCfgCopyObjectProperties @ 0x14087C8C4 (PiDevCfgCopyObjectProperties.c)
- *     PiDevCfgCopyDeviceKey @ 0x14087E8F4 (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgRequestDriverConfigurations @ 0x14095FAB8 (PiDevCfgRequestDriverConfigurations.c)
- *     PiDevCfgResetDeviceDriverSettings @ 0x14095FC00 (PiDevCfgResetDeviceDriverSettings.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x140962D24 (PpDevCfgProcessDeviceExtensions.c)
- *     PpDevCfgInit @ 0x140B43330 (PpDevCfgInit.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x1407308D4 (PiDevCfgResetDeviceDriverSettings.c)
+ *     PiDevCfgProcessDevice @ 0x140736238 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x14073F2C0 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgCopyObjectProperties @ 0x140767498 (PiDevCfgCopyObjectProperties.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14076942C (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgMigrateDevice @ 0x14076DED4 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgRequestDriverConfigurations @ 0x1408A7EBC (PiDevCfgRequestDriverConfigurations.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AA93C (PpDevCfgProcessDeviceExtensions.c)
+ *     PpDevCfgInit @ 0x140A52024 (PpDevCfgInit.c)
  * Callees:
- *     PiPnpRtlSetObjectProperty @ 0x140796C98 (PiPnpRtlSetObjectProperty.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140741C2C (PiPnpRtlSetObjectProperty.c)
  */
 
 __int64 __fastcall PiDevCfgSetObjectProperty(
         __int64 a1,
         _DWORD *a2,
-        const WCHAR *a3,
-        int a4,
+        __int64 a3,
+        unsigned int a4,
         __int64 a5,
         int a6,
         __int64 a7,
         int a8,
-        const wchar_t *a9,
-        unsigned int a10,
+        __int64 a9,
+        int a10,
         int a11)
 {
   int v11; // eax

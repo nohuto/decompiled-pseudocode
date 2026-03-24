@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpMemoryListQuery @ 0x1403D4944
+ * XREFs of PfpMemoryListQuery @ 0x140379BF0
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14075DE28 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x1406CD5D0 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x1402F8958 (MmQueryMemoryListInformation.c)
- *     memset @ 0x140435400 (memset.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
+ *     MmQueryMemoryListInformation @ 0x14026EA10 (MmQueryMemoryListInformation.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
  */
 
 __int64 __fastcall PfpMemoryListQuery(__int64 a1, char a2, _DWORD *a3)
@@ -25,7 +25,7 @@ __int64 __fastcall PfpMemoryListQuery(__int64 a1, char a2, _DWORD *a3)
   }
   else
   {
-    MmQueryMemoryListInformation(0xFFFFFFFFFFFFFFFFuLL, v10, 0xB0u, v6, &v11);
+    MmQueryMemoryListInformation((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, v10, 0xB0u, v6, &v11);
     v8 = *(_QWORD *)(a1 + 16);
     if ( a2 )
       ProbeForWrite(*(volatile void **)(a1 + 16), *(unsigned int *)(a1 + 24), 8u);

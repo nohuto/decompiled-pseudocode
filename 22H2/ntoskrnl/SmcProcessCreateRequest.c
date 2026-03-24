@@ -1,100 +1,96 @@
 /*
- * XREFs of SmcProcessCreateRequest @ 0x1409D7F4C
+ * XREFs of SmcProcessCreateRequest @ 0x14092A830
  * Callers:
- *     SmSetStoreInformation @ 0x1407E82F4 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406A1334 (SmSetStoreInformation.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D1C0 (SSHSupportAllocateNonPaged.c)
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SmcCacheCreatePrepare @ 0x1409D7E80 (SmcCacheCreatePrepare.c)
- *     SmcCacheAdd @ 0x1409DAA80 (SmcCacheAdd.c)
- *     SmcCacheCleanup @ 0x1409DAB94 (SmcCacheCleanup.c)
- *     SmcCacheDelete @ 0x1409DAC2C (SmcCacheDelete.c)
- *     SmcCacheInitialize @ 0x1409DAC88 (SmcCacheInitialize.c)
- *     SmcCacheStart @ 0x1409DAFCC (SmcCacheStart.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SSHSupportAllocateNonPaged @ 0x140322FE4 (SSHSupportAllocateNonPaged.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmcCacheCreatePrepare @ 0x14092A764 (SmcCacheCreatePrepare.c)
+ *     SmcCacheAdd @ 0x14092D324 (SmcCacheAdd.c)
+ *     SmcCacheCleanup @ 0x14092D438 (SmcCacheCleanup.c)
+ *     SmcCacheDelete @ 0x14092D4BC (SmcCacheDelete.c)
+ *     SmcCacheInitialize @ 0x14092D514 (SmcCacheInitialize.c)
+ *     SmcCacheStart @ 0x14092D880 (SmcCacheStart.c)
  */
 
-__int64 __fastcall SmcProcessCreateRequest(unsigned __int64 a1, int a2, char a3)
+__int64 __fastcall SmcProcessCreateRequest(__int64 a1, unsigned __int64 a2, int a3, char a4)
 {
-  struct _PRIVILEGE_SET *v6; // rsi
-  struct _EX_RUNDOWN_REF *v7; // r14
+  struct _PRIVILEGE_SET *v8; // rsi
   int Prepare; // ebx
-  __int64 v9; // rcx
-  _OWORD *v10; // rax
-  _OWORD *v11; // rcx
-  __int64 v12; // rdx
-  __int64 NonPaged; // rax
-  _DWORD v15[4]; // [rsp+20h] [rbp-478h] BYREF
-  struct _EX_RUNDOWN_REF *v16; // [rsp+30h] [rbp-468h]
-  _QWORD v17[132]; // [rsp+40h] [rbp-458h] BYREF
+  __int64 v10; // rcx
+  _OWORD *v11; // rax
+  _OWORD *v12; // rcx
+  __int64 v13; // rdx
+  struct _PRIVILEGE_SET *NonPaged; // rax
+  _DWORD v16[4]; // [rsp+20h] [rbp-478h] BYREF
+  __int64 v17; // [rsp+30h] [rbp-468h]
+  _QWORD v18[132]; // [rsp+40h] [rbp-458h] BYREF
 
-  v6 = 0LL;
-  v15[0] = -1;
-  v7 = 0LL;
-  memset(v17, 0, sizeof(v17));
-  if ( a2 == 1056 )
+  v17 = a1;
+  v8 = 0LL;
+  v16[0] = -1;
+  memset(v18, 0, sizeof(v18));
+  if ( a3 == 1056 )
   {
-    if ( a3 )
+    if ( a4 )
     {
-      if ( (a1 & 7) != 0 )
+      if ( (a2 & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      v9 = 0x7FFFFFFF0000LL;
-      if ( a1 < 0x7FFFFFFF0000LL )
-        v9 = a1;
-      *(_BYTE *)v9 = *(_BYTE *)v9;
-      *(_BYTE *)(v9 + 1055) = *(_BYTE *)(v9 + 1055);
+      v10 = a2;
+      if ( a2 >= 0x7FFFFFFF0000LL )
+        v10 = 0x7FFFFFFF0000LL;
+      *(_BYTE *)v10 = *(_BYTE *)v10;
+      *(_BYTE *)(v10 + 1055) = *(_BYTE *)(v10 + 1055);
     }
-    v10 = (_OWORD *)a1;
-    v11 = v17;
-    v12 = 8LL;
+    v11 = (_OWORD *)a2;
+    v12 = v18;
+    v13 = 8LL;
     do
     {
-      *v11 = *v10;
-      v11[1] = v10[1];
-      v11[2] = v10[2];
-      v11[3] = v10[3];
-      v11[4] = v10[4];
-      v11[5] = v10[5];
-      v11[6] = v10[6];
+      *v12 = *v11;
+      v12[1] = v11[1];
+      v12[2] = v11[2];
+      v12[3] = v11[3];
+      v12[4] = v11[4];
+      v12[5] = v11[5];
+      v12[6] = v11[6];
+      v12 += 8;
+      *(v12 - 1) = v11[7];
       v11 += 8;
-      *(v11 - 1) = v10[7];
-      v10 += 8;
-      --v12;
+      --v13;
     }
-    while ( v12 );
-    *v11 = *v10;
-    v11[1] = v10[1];
-    if ( LOBYTE(v17[0]) != 3 || (v17[0] & 0xFFFFFF00) != 0 || HIDWORD(v17[2]) )
+    while ( v13 );
+    *v12 = *v11;
+    v12[1] = v11[1];
+    if ( LOBYTE(v18[0]) != 3 || (v18[0] & 0xFFFFFF00) != 0 || HIDWORD(v18[2]) )
     {
       Prepare = -1073741811;
     }
     else
     {
-      v7 = (struct _EX_RUNDOWN_REF *)(SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process) + 2128);
-      v16 = v7;
-      Prepare = SmcCacheCreatePrepare((__int64)v7);
+      Prepare = SmcCacheCreatePrepare(a1);
       if ( Prepare >= 0 )
       {
-        NonPaged = SSHSupportAllocateNonPaged(1064LL, 0x61436D73u);
-        v6 = (struct _PRIVILEGE_SET *)NonPaged;
+        NonPaged = (struct _PRIVILEGE_SET *)SSHSupportAllocateNonPaged(0x428uLL, 0x61436D73u);
+        v8 = NonPaged;
         if ( NonPaged )
         {
           SmcCacheInitialize(NonPaged);
-          HIWORD(v17[131]) = 0;
-          Prepare = SmcCacheStart(v7);
+          HIWORD(v18[131]) = 0;
+          Prepare = SmcCacheStart(v8, &v18[1], &v18[4]);
           if ( Prepare >= 0 )
           {
-            Prepare = SmcCacheAdd(v7, v6, v15);
+            Prepare = SmcCacheAdd(a1, v8, v16);
             if ( Prepare >= 0 )
             {
-              v6 = 0LL;
-              v15[1] = 1;
+              v8 = 0LL;
+              v16[1] = 1;
               Prepare = 0;
-              *(_DWORD *)(a1 + 4) = v15[0];
+              *(_DWORD *)(a2 + 4) = v16[0];
             }
           }
         }
@@ -109,12 +105,12 @@ __int64 __fastcall SmcProcessCreateRequest(unsigned __int64 a1, int a2, char a3)
   {
     Prepare = -1073741306;
   }
-  if ( v15[0] != -1 )
-    ExReleaseRundownProtection_0(&v7[4 * (v15[0] & 0xF) + 1]);
-  if ( v6 )
+  if ( v16[0] != -1 )
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 32LL * (v16[0] & 0xF) + 8));
+  if ( v8 )
   {
-    SmcCacheCleanup(v7, v6);
-    CmSiFreeMemory(v6);
+    SmcCacheCleanup(v8);
+    CmSiFreeMemory(v8);
   }
   return (unsigned int)Prepare;
 }

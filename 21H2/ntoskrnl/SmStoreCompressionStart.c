@@ -1,12 +1,12 @@
 /*
- * XREFs of SmStoreCompressionStart @ 0x1407F584C
+ * XREFs of SmStoreCompressionStart @ 0x14070F13C
  * Callers:
- *     MmProcessWorkingSetControl @ 0x1407F5540 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x14070EE14 (MmProcessWorkingSetControl.c)
  * Callees:
- *     SmpKeyedStoreEntryGet @ 0x1402A1124 (SmpKeyedStoreEntryGet.c)
- *     MmQueryProcessWorkingSetSwapPages @ 0x1402A188C (MmQueryProcessWorkingSetSwapPages.c)
- *     MmStoreFlushOutstandingEvictions @ 0x140373D18 (MmStoreFlushOutstandingEvictions.c)
- *     SmSwapStore @ 0x1406EBF2C (SmSwapStore.c)
+ *     MmQueryProcessWorkingSetSwapPages @ 0x1402D59A4 (MmQueryProcessWorkingSetSwapPages.c)
+ *     SmpKeyedStoreEntryGet @ 0x1402D6348 (SmpKeyedStoreEntryGet.c)
+ *     MmStoreFlushOutstandingEvictions @ 0x14035A558 (MmStoreFlushOutstandingEvictions.c)
+ *     SmSwapStore @ 0x14071059C (SmSwapStore.c)
  */
 
 int SmStoreCompressionStart()
@@ -19,16 +19,16 @@ int SmStoreCompressionStart()
 
   Process = KeGetCurrentThread()->ApcState.Process;
   v4 = Process;
-  v1 = SmpKeyedStoreEntryGet((ULONG_PTR)&qword_140D321C8, &v4, 0LL, 0);
+  v1 = SmpKeyedStoreEntryGet((ULONG_PTR)qword_140D24188, &v4, 0, 0);
   v2 = v1;
-  if ( v1 || dword_140D321F0 != -1 )
+  if ( v1 || dword_140D241B0 != -1 )
   {
     LODWORD(v1) = MmStoreFlushOutstandingEvictions();
     if ( v2 )
     {
       LODWORD(v1) = MmQueryProcessWorkingSetSwapPages((__int64)Process, &v5);
       if ( (int)v1 >= 0 )
-        LODWORD(v1) = SmSwapStore(0);
+        LODWORD(v1) = SmSwapStore(0LL);
     }
   }
   return v1;

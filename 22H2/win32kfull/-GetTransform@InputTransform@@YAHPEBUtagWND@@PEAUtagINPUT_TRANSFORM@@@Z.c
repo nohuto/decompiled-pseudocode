@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetTransform@InputTransform@@YAHPEBUtagWND@@PEAUtagINPUT_TRANSFORM@@@Z @ 0x1C0007BB8
+ * XREFs of ?GetTransform@InputTransform@@YAHPEBUtagWND@@PEAUtagINPUT_TRANSFORM@@@Z @ 0x1C01100B4
  * Callers:
- *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C0007A4C (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
- *     EditionGetInputTransform @ 0x1C01CB9B0 (EditionGetInputTransform.c)
+ *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C010FF40 (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
+ *     EditionGetInputTransform @ 0x1C01F5270 (EditionGetInputTransform.c)
  * Callees:
- *     ?QueryTransform@CompositionInputObject@@QEBAJPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C0007C60 (-QueryTransform@CompositionInputObject@@QEBAJPEAUtagINPUT_TRANSFORM@@@Z.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?QueryTransform@CompositionInputObject@@QEBAJPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C0006B70 (-QueryTransform@CompositionInputObject@@QEBAJPEAUtagINPUT_TRANSFORM@@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall InputTransform::GetTransform(
@@ -23,7 +23,7 @@ __int64 __fastcall InputTransform::GetTransform(
   _OWORD v11[4]; // [rsp+20h] [rbp-48h] BYREF
 
   if ( !(unsigned __int8)IsInputThread(this, a2, a3)
-    && PtiCurrentShared() != (struct tagTHREADINFO *)gptiManipulationThread )
+    && W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) != gptiManipulationThread )
   {
     return 0LL;
   }
@@ -33,7 +33,7 @@ __int64 __fastcall InputTransform::GetTransform(
   v7 = *(CompositionInputObject **)(v5 + 96);
   if ( !v7 )
     return 0LL;
-  memset_0(v11, 0, sizeof(v11));
+  memset(v11, 0, sizeof(v11));
   if ( (int)CompositionInputObject::QueryTransform(v7, (struct tagINPUT_TRANSFORM *)v11) < 0 )
     return 0LL;
   result = 1LL;

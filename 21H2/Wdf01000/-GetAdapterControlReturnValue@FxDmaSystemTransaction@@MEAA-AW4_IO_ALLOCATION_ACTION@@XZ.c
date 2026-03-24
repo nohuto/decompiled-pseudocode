@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAdapterControlReturnValue@FxDmaSystemTransaction@@MEAA?AW4_IO_ALLOCATION_ACTION@@XZ @ 0x1C000BB10
+ * XREFs of ?GetAdapterControlReturnValue@FxDmaSystemTransaction@@MEAA?AW4_IO_ALLOCATION_ACTION@@XZ @ 0x1C000DA40
  * Callers:
  *     <none>
  * Callees:

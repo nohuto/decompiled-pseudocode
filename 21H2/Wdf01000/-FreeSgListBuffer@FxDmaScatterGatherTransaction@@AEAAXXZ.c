@@ -1,19 +1,17 @@
 /*
- * XREFs of ?FreeSgListBuffer@FxDmaScatterGatherTransaction@@AEAAXXZ @ 0x1C0057EB0
+ * XREFs of ?FreeSgListBuffer@FxDmaScatterGatherTransaction@@AEAAXXZ @ 0x1C0034FF0
  * Callers:
- *     ?Dispose@FxDmaScatterGatherTransaction@@UEAAEXZ @ 0x1C0057E50 (-Dispose@FxDmaScatterGatherTransaction@@UEAAEXZ.c)
- *     ?SetNewSgListBuffer@FxDmaScatterGatherTransaction@@MEAAXPEAXK@Z @ 0x1C00581F0 (-SetNewSgListBuffer@FxDmaScatterGatherTransaction@@MEAAXPEAXK@Z.c)
+ *     ?Dispose@FxDmaScatterGatherTransaction@@UEAAEXZ @ 0x1C0034F90 (-Dispose@FxDmaScatterGatherTransaction@@UEAAEXZ.c)
+ *     ?SetNewSgListBuffer@FxDmaScatterGatherTransaction@@MEAAXPEAXK@Z @ 0x1C00353E0 (-SetNewSgListBuffer@FxDmaScatterGatherTransaction@@MEAAXPEAXK@Z.c)
  * Callees:
- *     FxFreeToNPagedLookasideList @ 0x1C0038068 (FxFreeToNPagedLookasideList.c)
+ *     FxFreeToNPagedLookasideList @ 0x1C0035998 (FxFreeToNPagedLookasideList.c)
  */
 
 void __fastcall FxDmaScatterGatherTransaction::FreeSgListBuffer(FxDmaScatterGatherTransaction *this)
 {
   if ( this->m_IsBufferFromLookaside )
   {
-    FxFreeToNPagedLookasideList(
-      (_PAGED_LOOKASIDE_LIST *)&this->m_DmaEnabler->m_SGList,
-      (_SLIST_ENTRY *)this->m_SGListBuffer);
+    FxFreeToNPagedLookasideList((_PAGED_LOOKASIDE_LIST *)&this->m_DmaEnabler->m_SGList, this->m_SGListBuffer);
     this->m_IsBufferFromLookaside = 0;
   }
   else

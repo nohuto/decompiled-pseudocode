@@ -1,7 +1,7 @@
 /*
- * XREFs of GreSfmDwmStartup @ 0x1C00D3A80
+ * XREFs of GreSfmDwmStartup @ 0x1C000CF88
  * Callers:
- *     GreDwmStartup @ 0x1C00D3840 (GreDwmStartup.c)
+ *     GreDwmStartup @ 0x1C000CD48 (GreDwmStartup.c)
  * Callees:
  *     <none>
  */

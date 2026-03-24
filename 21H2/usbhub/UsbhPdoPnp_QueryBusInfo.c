@@ -1,23 +1,23 @@
 /*
- * XREFs of UsbhPdoPnp_QueryBusInfo @ 0x1C0054A00
+ * XREFs of UsbhPdoPnp_QueryBusInfo @ 0x1C0056090
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall UsbhPdoPnp_QueryBusInfo(__int64 a1, IRP *a2)
 {
-  __int64 Pool2; // rax
+  GUID *PoolWithTag; // rax
   unsigned int v4; // ebx
 
-  Pool2 = ExAllocatePool2(256LL, 24LL, 1112885333LL);
-  if ( Pool2 )
+  PoolWithTag = (GUID *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x42554855u);
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(Pool2 + 16) = 15LL;
+    *(_QWORD *)&PoolWithTag[1].Data1 = 15LL;
     v4 = 0;
-    *(GUID *)Pool2 = GUID_BUS_TYPE_USB;
-    a2->IoStatus.Information = Pool2;
+    *PoolWithTag = GUID_BUS_TYPE_USB;
+    a2->IoStatus.Information = (unsigned __int64)PoolWithTag;
   }
   else
   {

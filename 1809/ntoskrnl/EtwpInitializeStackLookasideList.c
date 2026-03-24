@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpInitializeStackLookasideList @ 0x140741170
+ * XREFs of EtwpInitializeStackLookasideList @ 0x140741150
  * Callers:
  *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
  */
 
 __int64 EtwpInitializeStackLookasideList()

@@ -1,13 +1,12 @@
 /*
- * XREFs of McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1C000A448
+ * XREFs of McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1C0009C84
  * Callers:
- *     HUBSM_LogUnhandledEvent @ 0x1C000A75C (HUBSM_LogUnhandledEvent.c)
- *     HUBSM_FindAndSetTargetState @ 0x1C000A96C (HUBSM_FindAndSetTargetState.c)
- *     HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C000AF68 (HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState.c)
- *     HUBIDLE_AddEvent @ 0x1C003E9A4 (HUBIDLE_AddEvent.c)
+ *     HUBSM_FindAndSetTargetState @ 0x1C0009F9C (HUBSM_FindAndSetTargetState.c)
+ *     HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C000A6B0 (HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState.c)
+ *     HUBIDLE_AddEvent @ 0x1C003BAF4 (HUBIDLE_AddEvent.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0ppqqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

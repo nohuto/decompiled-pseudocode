@@ -1,9 +1,9 @@
 /*
- * XREFs of WppCleanupKm @ 0x1C00AB678
+ * XREFs of WppCleanupKm @ 0x1C00AC97C
  * Callers:
- *     ACPIUnload @ 0x1C00524C0 (ACPIUnload.c)
+ *     ACPIUnload @ 0x1C0052F10 (ACPIUnload.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall WppCleanupKm(__int64 a1)

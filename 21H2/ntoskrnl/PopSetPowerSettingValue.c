@@ -1,88 +1,88 @@
 /*
- * XREFs of PopSetPowerSettingValue @ 0x14075140C
+ * XREFs of PopSetPowerSettingValue @ 0x14067A8D8
  * Callers:
- *     PopScanIdleList @ 0x1402D6330 (PopScanIdleList.c)
- *     PopInitilizeAcDcSettings @ 0x1403C0FF4 (PopInitilizeAcDcSettings.c)
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407525EC (PopSetPowerSettingValueAcDc.c)
- *     PopSetSessionDisplayStatus @ 0x1407EDCAC (PopSetSessionDisplayStatus.c)
- *     PopSetSessionUserStatus @ 0x1407EF430 (PopSetSessionUserStatus.c)
- *     PopSetNewPolicyValue @ 0x1407FD344 (PopSetNewPolicyValue.c)
+ *     PopScanIdleList @ 0x140280878 (PopScanIdleList.c)
+ *     PopInitilizeAcDcSettings @ 0x1403AE404 (PopInitilizeAcDcSettings.c)
+ *     PopSetPowerSettingValueAcDc @ 0x140679E68 (PopSetPowerSettingValueAcDc.c)
+ *     PopSetNewPolicyValue @ 0x14067A6B0 (PopSetNewPolicyValue.c)
+ *     PopSetSessionUserStatus @ 0x14067D980 (PopSetSessionUserStatus.c)
+ *     PopSetSessionDisplayStatus @ 0x1407819B8 (PopSetSessionDisplayStatus.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PopIncrementPowerSettingPendingUpdates @ 0x1402D5E5C (PopIncrementPowerSettingPendingUpdates.c)
- *     PopDecrementPowerSettingPendingUpdates @ 0x1402D5EE4 (PopDecrementPowerSettingPendingUpdates.c)
- *     PopSetNotificationWork @ 0x1402D6220 (PopSetNotificationWork.c)
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     PopArePowerSettingsEqual @ 0x140751840 (PopArePowerSettingsEqual.c)
- *     PopFindPowerSettingConfiguration @ 0x140751880 (PopFindPowerSettingConfiguration.c)
- *     PopGetListHead @ 0x140751908 (PopGetListHead.c)
- *     PopStateIsSessionSpecific @ 0x14075197C (PopStateIsSessionSpecific.c)
- *     PopValidatePowerSettingData @ 0x1407519BC (PopValidatePowerSettingData.c)
- *     PoRegisterPowerSettingCallback @ 0x140762500 (PoRegisterPowerSettingCallback.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     PopIncrementPowerSettingPendingUpdates @ 0x140281428 (PopIncrementPowerSettingPendingUpdates.c)
+ *     PopDecrementPowerSettingPendingUpdates @ 0x1402814B0 (PopDecrementPowerSettingPendingUpdates.c)
+ *     PopSetNotificationWork @ 0x140281E90 (PopSetNotificationWork.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopArePowerSettingsEqual @ 0x14067AD38 (PopArePowerSettingsEqual.c)
+ *     PopFindPowerSettingConfiguration @ 0x14067AD78 (PopFindPowerSettingConfiguration.c)
+ *     PopGetListHead @ 0x14067AE00 (PopGetListHead.c)
+ *     PopStateIsSessionSpecific @ 0x14067AE74 (PopStateIsSessionSpecific.c)
+ *     PopValidatePowerSettingData @ 0x14067AEB4 (PopValidatePowerSettingData.c)
+ *     PoRegisterPowerSettingCallback @ 0x14067BD00 (PoRegisterPowerSettingCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopSetPowerSettingValue(LPCGUID SettingGuid, unsigned int a2, int a3, unsigned int a4, void *Src)
 {
   size_t v5; // r13
-  bool v6; // bp
-  LPCGUID v8; // r12
+  LPCGUID v7; // r12
+  bool v8; // bp
   _DWORD *v9; // r14
   void *v10; // r15
-  __int64 v11; // rbx
-  _DWORD *v12; // rsi
+  char *v11; // rbx
+  _DWORD *v12; // rbp
   unsigned int v13; // edi
   char v14; // si
   __int64 v16; // rax
-  _QWORD *v17; // r15
+  _QWORD *v17; // rsi
   char v18; // r12
-  __int64 i; // rbp
+  __int64 i; // r15
   bool v20; // zf
   _DWORD *v21; // rax
   signed __int32 v22; // eax
   _QWORD *j; // rax
-  __int64 v24; // rax
+  char *v24; // rax
   __int64 ListHead; // rax
   __int64 *v26; // r8
-  __int64 v27; // r9
+  __int64 v27; // r10
   __int64 *v28; // rcx
-  __int64 *v29; // r10
+  __int64 *v29; // r9
   __int64 v30; // rdx
   __int64 **v31; // rax
   __int64 **v32; // rdx
   __int64 *v33; // rdx
-  __int64 *v34; // rax
+  _QWORD *v34; // rax
   char IsSessionSpecific; // [rsp+40h] [rbp-68h]
   char v36; // [rsp+41h] [rbp-67h]
   char v37; // [rsp+42h] [rbp-66h]
-  void *Pool2; // [rsp+50h] [rbp-58h]
+  PVOID PoolWithTag; // [rsp+50h] [rbp-58h]
   __int64 PowerSettingConfiguration; // [rsp+60h] [rbp-48h]
 
   v5 = a4;
-  v6 = 0;
   v36 = 0;
-  v8 = SettingGuid;
+  v7 = SettingGuid;
+  v8 = 0;
   v9 = 0LL;
   v37 = 0;
-  Pool2 = (void *)ExAllocatePool2(256LL, a4, 1952797520LL);
-  v10 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, a4, 0x74655350u);
+  v10 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
   PopIncrementPowerSettingPendingUpdates(0);
-  memmove(Pool2, Src, (unsigned int)v5);
-  PopValidatePowerSettingData(v8, (unsigned int)v5, Pool2);
-  IsSessionSpecific = PopStateIsSessionSpecific(v8);
+  memmove(PoolWithTag, Src, (unsigned int)v5);
+  PopValidatePowerSettingData(v7, (unsigned int)v5, PoolWithTag);
+  IsSessionSpecific = PopStateIsSessionSpecific(v7);
   ExAcquireFastMutex(&PopSettingLock);
-  PowerSettingConfiguration = PopFindPowerSettingConfiguration(v8, a2);
-  v11 = PowerSettingConfiguration;
+  PowerSettingConfiguration = PopFindPowerSettingConfiguration(v7, a2);
+  v11 = (char *)PowerSettingConfiguration;
   if ( !PowerSettingConfiguration )
   {
-    v24 = ExAllocatePool2(256LL, 88LL, 1952797520LL);
-    PowerSettingConfiguration = v24;
+    v24 = (char *)ExAllocatePoolWithTag(PagedPool, 0x58uLL, 0x74655350u);
+    PowerSettingConfiguration = (__int64)v24;
     v11 = v24;
     if ( !v24 )
     {
@@ -90,12 +90,13 @@ __int64 __fastcall PopSetPowerSettingValue(LPCGUID SettingGuid, unsigned int a2,
       v14 = 0;
       goto LABEL_6;
     }
-    *(GUID *)(v24 + 32) = *v8;
-    ListHead = PopGetListHead(v8);
+    memset(v24, 0, 0x58uLL);
+    *((GUID *)v11 + 2) = *v7;
+    ListHead = PopGetListHead(v7);
     v26 = (__int64 *)(v11 + 16);
     v27 = ListHead;
-    *(_QWORD *)(v11 + 24) = v11 + 16;
-    *(_QWORD *)(v11 + 16) = v11 + 16;
+    *((_QWORD *)v11 + 3) = v11 + 16;
+    *((_QWORD *)v11 + 2) = v11 + 16;
     if ( !IsSessionSpecific )
     {
       v28 = (__int64 *)PopRegisteredPowerSettingCallbacks;
@@ -103,9 +104,9 @@ __int64 __fastcall PopSetPowerSettingValue(LPCGUID SettingGuid, unsigned int a2,
       {
         v29 = v28;
         v28 = (__int64 *)*v28;
-        v30 = *(__int64 *)((char *)v29 + 36) - *(_QWORD *)&v8->Data1;
+        v30 = *(__int64 *)((char *)v29 + 36) - *(_QWORD *)&v7->Data1;
         if ( !v30 )
-          v30 = *(__int64 *)((char *)v29 + 44) - *(_QWORD *)v8->Data4;
+          v30 = *(__int64 *)((char *)v29 + 44) - *(_QWORD *)v7->Data4;
         if ( !v30 )
         {
           v31 = (__int64 **)v28[1];
@@ -116,23 +117,23 @@ __int64 __fastcall PopSetPowerSettingValue(LPCGUID SettingGuid, unsigned int a2,
             goto LABEL_60;
           v28[1] = (__int64)v32;
           *v32 = v28;
-          v33 = *(__int64 **)(v11 + 24);
+          v33 = (__int64 *)*((_QWORD *)v11 + 3);
           if ( (__int64 *)*v33 != v26 )
             goto LABEL_60;
           *v31 = v26;
           v31[1] = v33;
           *v33 = (__int64)v31;
-          *(_QWORD *)(v11 + 24) = v31;
+          *((_QWORD *)v11 + 3) = v31;
         }
       }
       a2 = -1;
     }
-    *(_DWORD *)(v11 + 48) = a2;
-    v34 = *(__int64 **)(v27 + 8);
+    *((_DWORD *)v11 + 12) = a2;
+    v34 = *(_QWORD **)(v27 + 8);
     if ( *v34 != v27 )
 LABEL_60:
       __fastfail(3u);
-    *(_QWORD *)(v11 + 8) = v34;
+    *((_QWORD *)v11 + 1) = v34;
     *(_QWORD *)v11 = v27;
     *v34 = v11;
     *(_QWORD *)(v27 + 8) = v11;
@@ -140,15 +141,16 @@ LABEL_60:
     if ( PopPopPowerSettingSetChangeNotification )
       v37 = 1;
   }
-  v12 = *(_DWORD **)(v11 + 8LL * a3 + 64);
-  if ( (unsigned __int8)PopArePowerSettingsEqual(v12, Pool2, (unsigned int)v5) )
+  v12 = *(_DWORD **)&v11[8 * a3 + 64];
+  if ( (unsigned __int8)PopArePowerSettingsEqual(v12, PoolWithTag, (unsigned int)v5) )
   {
+    v8 = 0;
     v13 = 0;
   }
   else
   {
     v16 = a3;
-    v17 = (_QWORD *)(v11 + 64);
+    v17 = v11 + 64;
     v18 = 0;
     for ( i = 0LL; i < 3; ++i )
     {
@@ -156,7 +158,7 @@ LABEL_60:
       {
         if ( !v9 )
         {
-          v20 = (unsigned __int8)PopArePowerSettingsEqual(*v17, Pool2, (unsigned int)v5) == 0;
+          v20 = (unsigned __int8)PopArePowerSettingsEqual(*v17, PoolWithTag, (unsigned int)v5) == 0;
           v16 = a3;
           if ( !v20 )
           {
@@ -172,29 +174,32 @@ LABEL_60:
     v13 = 0;
     if ( v9 )
     {
-      v10 = Pool2;
+      v10 = PoolWithTag;
+      v14 = 1;
     }
     else
     {
-      v21 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(v5 + 12), 1952797520LL);
+      v21 = ExAllocatePoolWithTag(PagedPool, (unsigned int)(v5 + 12), 0x74655350u);
       v9 = v21;
       if ( !v21 )
       {
-        v6 = 0;
+        v8 = 0;
         v13 = -1073741670;
-        v10 = Pool2;
-        v8 = SettingGuid;
+        v10 = PoolWithTag;
+        v7 = SettingGuid;
         v14 = 0;
         goto LABEL_6;
       }
-      v21[1] = v5;
-      *v21 = 1;
+      memset(v21, 0, (unsigned int)(v5 + 12));
+      v14 = 1;
+      v9[1] = v5;
+      *v9 = 1;
       do
         v22 = _InterlockedIncrement(&PopPowerSettingChangeStamp);
       while ( !v22 );
-      v10 = Pool2;
+      v10 = PoolWithTag;
       v9[2] = v22;
-      memmove(v9 + 3, Pool2, v5);
+      memmove(v9 + 3, PoolWithTag, v5);
     }
     if ( v12 )
     {
@@ -212,30 +217,29 @@ LABEL_60:
       if ( v20 )
         ExFreePoolWithTag(v12, 0x74655350u);
     }
-    v6 = 0;
+    v8 = 0;
     *(_QWORD *)(PowerSettingConfiguration + 8LL * a3 + 64) = v9;
-    if ( dword_140C232CC == a3 )
-      v6 = IsSessionSpecific == 0;
+    if ( dword_140C23E8C == a3 )
+      v8 = IsSessionSpecific == 0;
     if ( *(_DWORD *)(PowerSettingConfiguration + 56) || *(_DWORD *)(PowerSettingConfiguration + 60) )
     {
+      v7 = SettingGuid;
       *(_DWORD *)(PowerSettingConfiguration + 52) |= 1u;
-      v14 = 1;
-      v8 = SettingGuid;
       goto LABEL_6;
     }
-    v8 = SettingGuid;
+    v7 = SettingGuid;
   }
   v14 = 0;
 LABEL_6:
   KeReleaseGuardedMutex(&PopSettingLock);
   if ( v36 )
-    PoRegisterPowerSettingCallback(0LL, v8, (PPOWER_SETTING_CALLBACK)PopTracePowerSettingChange, 0LL, 0LL);
+    PoRegisterPowerSettingCallback(0LL, v7, PopTracePowerSettingChange, 0LL, 0LL);
   ExFreePoolWithTag(v10, 0x74655350u);
   if ( (unsigned int)PopOsInitPhase >= 3 )
   {
     if ( v37 )
       ZwUpdateWnfStateData((__int64)&PopPopPowerSettingSetChangeNotification, 0LL);
-    if ( v6 )
+    if ( v8 )
     {
       PopIncrementPowerSettingPendingUpdates(1);
       PopSetNotificationWork(0x20u);

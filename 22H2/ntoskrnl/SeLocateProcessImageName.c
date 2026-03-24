@@ -1,12 +1,12 @@
 /*
- * XREFs of SeLocateProcessImageName @ 0x1407D8D40
+ * XREFs of SeLocateProcessImageName @ 0x14062F1C0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8 (PsGetAllocatedFullProcessImageNameEx.c)
  */
 
 NTSTATUS __stdcall SeLocateProcessImageName(PEPROCESS Process, PUNICODE_STRING *pImageFileName)
 {
-  return PsGetAllocatedFullProcessImageNameEx((__int64)Process);
+  return PsGetAllocatedFullProcessImageNameEx(Process, pImageFileName);
 }

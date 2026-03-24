@@ -1,18 +1,18 @@
 /*
- * XREFs of VerifierKeAcquireSpinLockAtDpcLevel @ 0x140AD6410
+ * XREFs of VerifierKeAcquireSpinLockAtDpcLevel @ 0x1409DA9A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViTargetIncrementCounter @ 0x140ACCBDC (ViTargetIncrementCounter.c)
+ *     ViKeAcquireSpinLockAtDpcLevelCommon @ 0x1409DBF00 (ViKeAcquireSpinLockAtDpcLevelCommon.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5D8 (VfDeadlockAcquireResource.c)
  */
 
-__int64 __fastcall VerifierKeAcquireSpinLockAtDpcLevel(__int64 a1)
+__int64 __fastcall VerifierKeAcquireSpinLockAtDpcLevel(ULONG_PTR a1)
 {
-  __int64 retaddr; // [rsp+28h] [rbp+0h]
+  int v1; // ebx
+  __int64 retaddr; // [rsp+38h] [rbp+0h]
 
-  ++dword_140C13968;
-  if ( (MmVerifierData & 0x1000) != 0 )
-    ViTargetIncrementCounter(retaddr, 164LL);
-  return ((__int64 (__fastcall *)(__int64))pXdvKeAcquireSpinLockAtDpcLevel)(a1);
+  v1 = a1;
+  ViKeAcquireSpinLockAtDpcLevelCommon(a1);
+  return VfDeadlockAcquireResource(v1, retaddr);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbDevice_ConfigureEndpointCompletion @ 0x1C0048250
+ * XREFs of UsbDevice_ConfigureEndpointCompletion @ 0x1C00458E0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dq @ 0x1C0019380 (WPP_RECORDER_SF_dq.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0010CB0 (WPP_RECORDER_SF_dq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UsbDevice_ConfigureEndpointCompletion(__int64 a1, int a2)
@@ -33,7 +33,7 @@ LABEL_10:
         v3,
         12,
         v4,
-        (__int64)&WPP_a3acd40f84823909f7fc3b79b04bc30f_Traceguids,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
         v10,
         *(_QWORD *)v2);
       goto LABEL_11;
@@ -61,7 +61,7 @@ LABEL_11:
       v5,
       12,
       77,
-      (__int64)&WPP_a3acd40f84823909f7fc3b79b04bc30f_Traceguids,
+      (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
       *(_BYTE *)(a1 + 61),
       *(_QWORD *)v2);
   }

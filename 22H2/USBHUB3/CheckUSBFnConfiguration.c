@@ -1,20 +1,20 @@
 /*
- * XREFs of CheckUSBFnConfiguration @ 0x1C004318C
+ * XREFs of CheckUSBFnConfiguration @ 0x1C0040C60
  * Callers:
- *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C004342C (ReadUSBFnFeaturesFromCurrentConfiguration.c)
- *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C00435BC (UsbDualRoleFeaturesQueryLocalMachine.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C0040F00 (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C0041090 (UsbDualRoleFeaturesQueryLocalMachine.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_Sd @ 0x1C0042BC0 (WPP_RECORDER_SF_Sd.c)
- *     MyRegOpenKeyForRead @ 0x1C004392C (MyRegOpenKeyForRead.c)
- *     MyRegQueryString @ 0x1C00439AC (MyRegQueryString.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_Sd @ 0x1C00406B0 (WPP_RECORDER_SF_Sd.c)
+ *     MyRegOpenKeyForRead @ 0x1C0041400 (MyRegOpenKeyForRead.c)
+ *     MyRegQueryString @ 0x1C004147C (MyRegQueryString.c)
  */
 
 __int64 __fastcall CheckUSBFnConfiguration(_DWORD *a1, const wchar_t *a2)
 {
   __int64 v4; // rax
-  rsize_t v5; // rsi
-  wchar_t *Pool2; // rax
+  SIZE_T v5; // rsi
+  wchar_t *PoolWithTag; // rax
   wchar_t *v7; // rbp
   int v8; // edi
   __int64 v9; // rcx
@@ -34,11 +34,11 @@ __int64 __fastcall CheckUSBFnConfiguration(_DWORD *a1, const wchar_t *a2)
     ++v4;
   while ( a2[v4] );
   v5 = 2 * v4 + 146;
-  Pool2 = (wchar_t *)ExAllocatePool2(64LL, v5, 1430540870LL);
-  v7 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v5, 0x55445246u);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    wcscpy_s(Pool2, v5, L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\Configurations\\");
+    wcscpy_s(PoolWithTag, v5, L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\Configurations\\");
     wcscat_s(v7, v5, a2);
     v8 = MyRegOpenKeyForRead(v9, v7, &Handle);
     if ( v8 >= 0 )

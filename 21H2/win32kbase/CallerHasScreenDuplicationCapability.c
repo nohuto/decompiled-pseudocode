@@ -1,7 +1,7 @@
 /*
- * XREFs of CallerHasScreenDuplicationCapability @ 0x1C022DC98
+ * XREFs of CallerHasScreenDuplicationCapability @ 0x1C01EE378
  * Callers:
- *     ?SetHandleProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C022E010 (-SetHandleProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z.c)
+ *     ?SetHandleProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C01EE6E0 (-SetHandleProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z.c)
  * Callees:
  *     <none>
  */

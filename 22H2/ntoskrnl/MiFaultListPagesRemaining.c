@@ -1,39 +1,44 @@
 /*
- * XREFs of MiFaultListPagesRemaining @ 0x14034AE8C
+ * XREFs of MiFaultListPagesRemaining @ 0x14030F284
  * Callers:
- *     MiComputeMaximumFaultCluster @ 0x1402385D0 (MiComputeMaximumFaultCluster.c)
+ *     MiComputeMaximumFaultCluster @ 0x14020F610 (MiComputeMaximumFaultCluster.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int64 __fastcall MiFaultListPagesRemaining(unsigned __int64 *a1)
 {
-  __int64 v1; // r8
-  unsigned __int64 v3; // rdx
-  unsigned __int64 v5; // rcx
-  unsigned __int64 v6; // r9
-  unsigned __int64 *v7; // rcx
-  unsigned __int64 v8; // rdx
-  unsigned __int64 v9; // r10
+  unsigned __int64 v1; // rax
+  __int64 v2; // rdx
+  unsigned __int64 v4; // rax
+  unsigned __int64 v6; // rcx
+  unsigned __int64 v7; // r8
+  unsigned __int64 *v8; // rcx
+  unsigned __int64 v9; // r9
+  unsigned __int64 v10; // r10
 
-  v1 = 1LL;
-  v3 = a1[2] & 0xFFFFFFFFFFFFFFFEuLL;
-  if ( (a1[2] & 1) != 0 && *(_BYTE *)v3 == 2 )
+  v1 = a1[2];
+  v2 = 1LL;
+  if ( (v1 & 1) != 0 )
   {
-    v5 = *(_QWORD *)(v3 + 24);
-    if ( v5 < *(_QWORD *)(v3 + 16) )
+    v4 = v1 & 0xFFFFFFFFFFFFFFFEuLL;
+    if ( *(_BYTE *)v4 == 2 )
     {
-      v6 = *a1;
-      v7 = (unsigned __int64 *)(*(_QWORD *)(v3 + 8) + 16 * v5);
-      v8 = *v7;
-      if ( v6 >= *v7 )
+      v6 = *(_QWORD *)(v4 + 24);
+      if ( v6 < *(_QWORD *)(v4 + 16) )
       {
-        v9 = v7[1];
-        if ( v6 < v9 + v8 )
-          return (((*(_DWORD *)v7 & 0xFFF) + v9 + 4095) >> 12)
-               - (((v6 & 0xFFFFFFFFFFFFF000uLL) - (v8 & 0xFFFFFFFFFFFFF000uLL)) >> 12);
+        v7 = *a1;
+        v8 = (unsigned __int64 *)(*(_QWORD *)(v4 + 8) + 16 * v6);
+        v9 = *v8;
+        if ( v7 >= *v8 )
+        {
+          v10 = v8[1];
+          if ( v7 < v10 + v9 )
+            return (((*(_DWORD *)v8 & 0xFFF) + v10 + 4095) >> 12)
+                 - (((v7 & 0xFFFFFFFFFFFFF000uLL) - (v9 & 0xFFFFFFFFFFFFF000uLL)) >> 12);
+        }
       }
     }
   }
-  return v1;
+  return v2;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_DeterminingPortResetTypeRequired @ 0x1C0024520
+ * XREFs of HUBDSM_DeterminingPortResetTypeRequired @ 0x1C0021D40
  * Callers:
  *     <none>
  * Callees:

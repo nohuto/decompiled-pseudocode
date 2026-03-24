@@ -3,10 +3,10 @@
  * Callers:
  *     MiFreeMdlPageRun @ 0x140029DE0 (MiFreeMdlPageRun.c)
  *     MiDeleteSubsectionPages @ 0x140094F80 (MiDeleteSubsectionPages.c)
- *     MiFreeContiguousPages @ 0x1401230D4 (MiFreeContiguousPages.c)
- *     MiDecommitLargePoolVa @ 0x14015B2C0 (MiDecommitLargePoolVa.c)
- *     MiFreeSlabEntry @ 0x1402C2228 (MiFreeSlabEntry.c)
- *     MiFreeLargePages @ 0x1402C54CC (MiFreeLargePages.c)
+ *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
+ *     MiDecommitLargePoolVa @ 0x14015B2E0 (MiDecommitLargePoolVa.c)
+ *     MiFreeSlabEntry @ 0x1402C2328 (MiFreeSlabEntry.c)
+ *     MiFreeLargePages @ 0x1402C55CC (MiFreeLargePages.c)
  * Callees:
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)
  *     MiInsertLargePageInNodeList @ 0x140028C1C (MiInsertLargePageInNodeList.c)
@@ -15,8 +15,8 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeLargePageMemory(ULONG_PTR a1, unsigned int a2, int a3)

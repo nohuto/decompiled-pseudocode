@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlOplockBreakToNoneEx @ 0x140542200
+ * XREFs of FsRtlOplockBreakToNoneEx @ 0x1404F02B0
  * Callers:
- *     FsRtlOplockBreakToNone @ 0x1405421A0 (FsRtlOplockBreakToNone.c)
+ *     FsRtlOplockBreakToNone @ 0x1404F0250 (FsRtlOplockBreakToNone.c)
  * Callees:
- *     FsRtlpOplockBreakToNone @ 0x140256F58 (FsRtlpOplockBreakToNone.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402A4E10 (FsRtlpOplockBreakByCacheFlags.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x140354E00 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockBreakToNone @ 0x14036D3C8 (FsRtlpOplockBreakToNone.c)
  */
 
 NTSTATUS __stdcall FsRtlOplockBreakToNoneEx(
@@ -20,12 +20,12 @@ NTSTATUS __stdcall FsRtlOplockBreakToNoneEx(
   PFAST_MUTEX *v8; // rbx
   NTSTATUS v9; // esi
   ULONG v10; // edi
-  void (__fastcall *v11)(__int64, __int64); // r15
+  POPLOCK_FS_PREPOST_IRP v11; // r15
   POPLOCK_WAIT_COMPLETE_ROUTINE v12; // r12
-  __int64 v14; // [rsp+20h] [rbp-98h]
-  _BYTE v15[8]; // [rsp+80h] [rbp-38h] BYREF
-  PVOID v16; // [rsp+88h] [rbp-30h]
-  char v17; // [rsp+C0h] [rbp+8h] BYREF
+  __int64 v14; // [rsp+20h] [rbp-88h]
+  _BYTE v15[8]; // [rsp+70h] [rbp-38h] BYREF
+  PVOID v16; // [rsp+78h] [rbp-30h]
+  char v17; // [rsp+B0h] [rbp+8h] BYREF
 
   v8 = (PFAST_MUTEX *)*Oplock;
   v16 = *Oplock;
@@ -38,7 +38,7 @@ NTSTATUS __stdcall FsRtlOplockBreakToNoneEx(
   else
   {
     v10 = Flags | 8;
-    v11 = (void (__fastcall *)(__int64, __int64))PostIrpRoutine;
+    v11 = PostIrpRoutine;
     v12 = CompletionRoutine;
     do
     {
@@ -56,32 +56,30 @@ NTSTATUS __stdcall FsRtlOplockBreakToNoneEx(
              v14,
              (__int64)Context,
              (__int64)v12,
-             v11,
+             (__int64)v11,
              0LL,
              0LL,
              0LL,
              &v17,
-             v15);
+             (__int64)v15);
       if ( !v9 )
       {
         LODWORD(v14) = 0;
         v9 = FsRtlpOplockBreakByCacheFlags(
                (__int64)v8,
                (__int64)Irp->Tail.Overlay.CurrentStackLocation,
-               (__int64)Irp,
+               Irp,
                v10,
                v14,
                28672,
-               0LL,
-               0LL,
                (__int64)Context,
                (__int64)v12,
-               v11,
+               (__int64)v11,
                0LL,
                0LL,
                0LL,
                &v17,
-               v15);
+               (__int64)v15);
       }
     }
     while ( v15[0] );

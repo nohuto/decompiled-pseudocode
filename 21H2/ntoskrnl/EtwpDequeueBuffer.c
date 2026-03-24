@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpDequeueBuffer @ 0x1402E1A74
+ * XREFs of EtwpDequeueBuffer @ 0x1402661F4
  * Callers:
- *     EtwpAdjustSiloTraceBuffers @ 0x1402E1140 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpDequeueFreeBuffer @ 0x1402E18F8 (EtwpDequeueFreeBuffer.c)
- *     EtwpFreeTraceBufferPool @ 0x1406D1CF4 (EtwpFreeTraceBufferPool.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140265D30 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpDequeueFreeBuffer @ 0x140266078 (EtwpDequeueFreeBuffer.c)
+ *     EtwpFreeTraceBufferPool @ 0x1406B566C (EtwpFreeTraceBufferPool.c)
  * Callees:
  *     <none>
  */
@@ -29,8 +29,8 @@ _QWORD *__fastcall EtwpDequeueBuffer(__int64 a1, _QWORD *a2)
     result = v3 - 4;
     if ( *((_DWORD *)v3 + 3) != 6 )
       break;
-    *v3 = *(_QWORD *)(a1 + 1184);
-    *(_QWORD *)(a1 + 1184) = v3;
+    *v3 = *(_QWORD *)(a1 + 1168);
+    *(_QWORD *)(a1 + 1168) = v3;
   }
   return result;
 }

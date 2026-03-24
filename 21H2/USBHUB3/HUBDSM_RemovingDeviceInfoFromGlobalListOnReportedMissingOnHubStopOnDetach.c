@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_RemovingDeviceInfoFromGlobalListOnReportedMissingOnHubStopOnDetach @ 0x1C001D7A0
+ * XREFs of HUBDSM_RemovingDeviceInfoFromGlobalListOnReportedMissingOnHubStopOnDetach @ 0x1C001D260
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C002DC28 (HUBMISC_RemoveDeviceInfoFromGlobalChildList.c)
- *     HUBMISC_ReleaseWdfReferenceOnPort @ 0x1C002FC44 (HUBMISC_ReleaseWdfReferenceOnPort.c)
+ *     HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C002D59C (HUBMISC_RemoveDeviceInfoFromGlobalChildList.c)
+ *     HUBMISC_ReleaseWdfReferenceOnPort @ 0x1C002F5A4 (HUBMISC_ReleaseWdfReferenceOnPort.c)
  */
 
 __int64 __fastcall HUBDSM_RemovingDeviceInfoFromGlobalListOnReportedMissingOnHubStopOnDetach(__int64 a1)

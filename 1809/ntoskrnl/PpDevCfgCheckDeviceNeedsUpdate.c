@@ -1,12 +1,12 @@
 /*
- * XREFs of PpDevCfgCheckDeviceNeedsUpdate @ 0x14083165C
+ * XREFs of PpDevCfgCheckDeviceNeedsUpdate @ 0x14083163C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     PiDevCfgFreeDeviceContext @ 0x1406F49F4 (PiDevCfgFreeDeviceContext.c)
- *     PiDevCfgInitDeviceContext @ 0x1406F4A38 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14082B57C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PiDevCfgFreeDeviceContext @ 0x1406F49D4 (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgInitDeviceContext @ 0x1406F4A18 (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14082B55C (PiDevCfgCheckDeviceNeedsUpdate.c)
  */
 
 __int64 __fastcall PpDevCfgCheckDeviceNeedsUpdate(__int64 a1, __int64 a2, unsigned int *a3)

@@ -1,121 +1,34 @@
 /*
- * XREFs of RtlpHpVsContextFreeList @ 0x14024EDD0
+ * XREFs of RtlpHpVsContextFreeList @ 0x1402BF0B0
  * Callers:
- *     RtlpHpVsContextFree @ 0x140323450 (RtlpHpVsContextFree.c)
- *     RtlpHpHeapCompact @ 0x140337B54 (RtlpHpHeapCompact.c)
+ *     RtlpHpVsContextFree @ 0x1402C1E90 (RtlpHpVsContextFree.c)
+ *     RtlpHpHeapCompact @ 0x14031D368 (RtlpHpHeapCompact.c)
  * Callees:
- *     RtlpHpAcquireQueuedLockExclusive @ 0x140207670 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpVsChunkFree @ 0x14024D5E0 (RtlpHpVsChunkFree.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x140289AC0 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpVsSubsegmentFree @ 0x14035674C (RtlpHpVsSubsegmentFree.c)
- *     RtlpLogHeapFailure @ 0x1405B4B5C (RtlpLogHeapFailure.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x14021CFC0 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1402BC110 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsContextFreeInternal @ 0x1402BF150 (RtlpHpVsContextFreeInternal.c)
  */
 
-__int64 __fastcall RtlpHpVsContextFreeList(__int64 a1, unsigned int a2, _QWORD *a3)
+__int64 __fastcall RtlpHpVsContextFreeList(__int64 a1, int a2, _QWORD *a3)
 {
-  int *v3; // rdi
   __int64 result; // rax
-  int v8; // r15d
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // r8
-  _QWORD *v11; // rcx
-  __int64 v12; // rax
-  unsigned __int64 v13; // r10
-  int v14; // edx
-  unsigned __int64 v15; // r10
-  __int64 v16; // rdi
-  __int64 v17; // r11
-  int v18; // edx
-  unsigned __int64 v19; // r11
-  unsigned __int64 v20; // r11
-  int v21; // ecx
-  __int128 v22; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v23; // [rsp+40h] [rbp-28h]
+  int v7; // ebp
+  int v8; // r8d
+  __int128 v9; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v10; // [rsp+40h] [rbp-18h]
 
-  v3 = (int *)(a1 + 8);
   result = 0LL;
-  v23 = 0LL;
-  v22 = 0LL;
-  v8 = a2 & 1;
+  v10 = 0LL;
+  v9 = 0LL;
+  v7 = a2 & 1;
   if ( (a2 & 1) == 0 )
-    result = RtlpHpAcquireQueuedLockExclusive((volatile signed __int32 *)a1, *v3, &v22);
-  if ( a3 )
+    result = RtlpHpAcquireQueuedLockExclusive((volatile LONG *)a1, *(_DWORD *)(a1 + 8), &v9);
+  for ( ; a3; result = RtlpHpVsContextFreeInternal(a1, a2, v8, a2, (__int64)&v9) )
   {
-    while ( 1 )
-    {
-      v9 = *(a3 - 2);
-      v10 = (unsigned __int64)(a3 - 2);
-      v11 = a3 - 2;
-      a3 = (_QWORD *)*a3;
-      v12 = v10 ^ RtlpHpHeapGlobals ^ v9;
-      v13 = v10;
-      if ( ((HIDWORD(v11) ^ ((RtlpHpHeapGlobals ^ v9) >> 32)) & 0xFF0000) != 0 )
-      {
-        v14 = (unsigned __int8)(RtlpHpHeapGlobals ^ *(_BYTE *)(v10 + 8) ^ v10);
-        goto LABEL_6;
-      }
-      if ( !WORD2(v12) )
-        goto LABEL_22;
-      v13 = v10 - 16LL * WORD2(v12);
-      v17 = RtlpHpHeapGlobals ^ *(_QWORD *)v13;
-      v18 = HIDWORD(v13) ^ HIDWORD(v17);
-      v19 = v13 ^ v17;
-      if ( (v18 & 0xFF0000) != 0 )
-      {
-        v14 = (unsigned __int8)(RtlpHpHeapGlobals ^ *(_BYTE *)(v13 + 8) ^ v13);
-        goto LABEL_6;
-      }
-      v20 = HIDWORD(v19);
-      if ( (_WORD)v20 )
-      {
-        v13 -= 16LL * (unsigned __int16)v20;
-        v14 = (unsigned __int8)(RtlpHpHeapGlobals ^ *(_BYTE *)(v13 + 8) ^ v13);
-      }
-      else
-      {
-LABEL_22:
-        v14 = 0;
-      }
-LABEL_6:
-      v15 = (v13 - (unsigned int)(v14 << 12)) & 0xFFFFFFFFFFFFF000uLL;
-      if ( (((unsigned __int16)(*(_WORD *)(v15 + 32) ^ *(_WORD *)(v15 + 34)) ^ 0x2BED) & 0x7FFF) != 0 )
-      {
-        LODWORD(v10) = v15;
-        v21 = 18;
-      }
-      else
-      {
-        if ( (v12 & 0xFF000000000000LL) != 0 )
-        {
-          result = RtlpHpVsChunkFree(a1, v15, v10, a2, &v22);
-          v16 = result;
-          if ( result )
-          {
-            if ( v8 )
-            {
-              result = RtlpHpVsSubsegmentFree(a1, result, a2);
-            }
-            else
-            {
-              RtlpHpReleaseQueuedLockExclusive(*(unsigned int *)(a1 + 8), &v22);
-              RtlpHpVsSubsegmentFree(a1, v16, a2);
-              result = RtlpHpAcquireQueuedLockExclusive((volatile signed __int32 *)a1, *(_DWORD *)(a1 + 8), &v22);
-            }
-          }
-          goto LABEL_9;
-        }
-        v21 = 8;
-      }
-      result = RtlpLogHeapFailure(v21, *(_DWORD *)(a1 + 128) ^ (unsigned int)a1, v10, 0, 0LL, 0LL);
-LABEL_9:
-      if ( !a3 )
-      {
-        v3 = (int *)(a1 + 8);
-        break;
-      }
-    }
+    v8 = (_DWORD)a3 - 16;
+    a3 = (_QWORD *)*a3;
   }
-  if ( !v8 )
-    return RtlpHpReleaseQueuedLockExclusive((unsigned int)*v3, &v22);
+  if ( !v7 )
+    return RtlpHpReleaseQueuedLockExclusive(*(_DWORD *)(a1 + 8), (__int64)&v9);
   return result;
 }

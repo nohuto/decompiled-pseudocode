@@ -1,7 +1,7 @@
 /*
- * XREFs of ?TargetBufferedFrames@CManipulationManager@@IEAAXIPEAXK@Z @ 0x1801A18B4
+ * XREFs of ?TargetBufferedFrames@CManipulationManager@@IEAAXIPEAXK@Z @ 0x180227398
  * Callers:
- *     ?TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x1801A198C (-TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18022746C (-TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,51 +13,39 @@ void __fastcall CManipulationManager::TargetBufferedFrames(
         unsigned int a4)
 {
   int v5; // eax
-  __int64 v7; // r10
+  __int64 i; // r10
   __int64 v10; // rbx
   unsigned int v11; // edx
-  __int64 v12; // r9
-  unsigned int v13; // r8d
+  __int64 v12; // r8
+  unsigned int v13; // r9d
   __int64 v14; // rcx
 
-  v5 = *((_DWORD *)this + 58) - 1;
-  v7 = v5;
-  if ( v5 >= 0 )
+  v5 = *((_DWORD *)this + 64) - 1;
+  for ( i = v5; i >= 0; *(_BYTE *)(*(_QWORD *)(v10 + 8 * i--) + 72LL) |= 1u )
   {
-    while ( 1 )
+    v10 = *((_QWORD *)this + 31);
+    v11 = 0;
+    v12 = *(_QWORD *)(v10 + 8 * i);
+    v13 = *(_DWORD *)(v12 + 16);
+    if ( a4 < v13 && *(_DWORD *)(248LL * a4 + v12 + 164) == a2 )
     {
-      v10 = *((_QWORD *)this + 28);
-      v11 = 0;
-      v12 = *(_QWORD *)(v10 + 8 * v7);
-      v13 = *(_DWORD *)(v12 + 16);
-      if ( a4 < v13 && *(_DWORD *)(248LL * a4 + v12 + 372) == a2 )
-      {
-        v11 = a4;
-      }
-      else
-      {
-        if ( v13 )
-        {
-          while ( *(_DWORD *)(248LL * v11 + v12 + 372) != a2 )
-          {
-            if ( ++v11 >= v13 )
-              goto LABEL_10;
-          }
-          a4 = v11;
-        }
-LABEL_10:
-        if ( v11 == v13 )
-          return;
-      }
-      v14 = 248LL * v11;
-      if ( *(_QWORD *)(v14 + v12 + 392) == -1LL )
-      {
-        *(_QWORD *)(v14 + v12 + 392) = a3;
-        *(_BYTE *)(*(_QWORD *)(v10 + 8 * v7--) + 176LL) |= 1u;
-        if ( v7 >= 0 )
-          continue;
-      }
-      return;
+      v11 = a4;
     }
+    else if ( v13 )
+    {
+      while ( *(_DWORD *)(248LL * v11 + v12 + 164) != a2 )
+      {
+        if ( ++v11 >= v13 )
+          goto LABEL_10;
+      }
+      a4 = v11;
+    }
+LABEL_10:
+    if ( v11 == v13 )
+      break;
+    v14 = 248LL * v11;
+    if ( *(_QWORD *)(v14 + v12 + 184) != -1LL )
+      break;
+    *(_QWORD *)(v14 + v12 + 184) = a3;
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of FxpBugCheckCallbackFilter @ 0x1C0091340
+ * XREFs of FxpBugCheckCallbackFilter @ 0x1C0090B70
  * Callers:
- *     FxpBugCheckCallback @ 0x1C0091290 (FxpBugCheckCallback.c)
+ *     FxpBugCheckCallback @ 0x1C0090AC0 (FxpBugCheckCallback.c)
  * Callees:
- *     FxpIsAddressKnownToWdf @ 0x1C00913C8 (FxpIsAddressKnownToWdf.c)
+ *     FxpIsAddressKnownToWdf @ 0x1C0090D3C (FxpIsAddressKnownToWdf.c)
  */
 
 unsigned __int8 __fastcall FxpBugCheckCallbackFilter(_FX_DRIVER_GLOBALS *FxDriverGlobals)
@@ -34,7 +34,7 @@ LABEL_16:
 LABEL_11:
       IsAddressKnownToWdf = FxpIsAddressKnownToWdf(v4, FxDriverGlobals);
       if ( IsAddressKnownToWdf )
-        *(_BYTE *)(v5 + 347) = 1;
+        *(_BYTE *)(v5 + 339) = 1;
       return IsAddressKnownToWdf;
     case 0xD1:
 LABEL_10:

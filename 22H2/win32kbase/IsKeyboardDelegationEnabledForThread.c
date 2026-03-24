@@ -1,14 +1,13 @@
 /*
- * XREFs of IsKeyboardDelegationEnabledForThread @ 0x1C0070D90
+ * XREFs of IsKeyboardDelegationEnabledForThread @ 0x1C0007B90
  * Callers:
- *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C006B3FC (xxxUpdateGlobalsAndSendKeyEvent.c)
- *     NtUserGetAsyncKeyState @ 0x1C0070AB0 (NtUserGetAsyncKeyState.c)
+ *     NtUserGetAsyncKeyState @ 0x1C0006820 (NtUserGetAsyncKeyState.c)
  * Callees:
- *     ?IsDelegationEnabledForThread@InputDelegation@@YA_NPEBUtagTHREADINFO@@@Z @ 0x1C01E7AF8 (-IsDelegationEnabledForThread@InputDelegation@@YA_NPEBUtagTHREADINFO@@@Z.c)
+ *     ?IsDelegationEnabledForThread@InputDelegation@@YA_NPEBUtagTHREADINFO@@@Z @ 0x1C01AE2DC (-IsDelegationEnabledForThread@InputDelegation@@YA_NPEBUtagTHREADINFO@@@Z.c)
  */
 
 bool __fastcall IsKeyboardDelegationEnabledForThread(InputDelegation *a1, const struct tagTHREADINFO *a2)
 {
-  return (*(&InputDelegation::CInputDelegationInfo::gInstance + 8) & 1) != 0
+  return (*(&InputDelegation::CInputDelegationInfo::gInstance + 4) & 1) != 0
       && InputDelegation::IsDelegationEnabledForThread(a1, a2);
 }

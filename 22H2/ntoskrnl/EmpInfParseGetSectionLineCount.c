@@ -1,14 +1,14 @@
 /*
- * XREFs of EmpInfParseGetSectionLineCount @ 0x140B5635C
+ * XREFs of EmpInfParseGetSectionLineCount @ 0x140A46A88
  * Callers:
- *     EmpParseEntryTypes @ 0x140B55494 (EmpParseEntryTypes.c)
- *     EmpParseCallbacks @ 0x140B5560C (EmpParseCallbacks.c)
- *     EmpParseRules @ 0x140B55E80 (EmpParseRules.c)
- *     EmpParseStrings @ 0x140B56184 (EmpParseStrings.c)
- *     EmpParseTargetRules @ 0x140B563B0 (EmpParseTargetRules.c)
+ *     EmpParseEntryTypes @ 0x140A45B7C (EmpParseEntryTypes.c)
+ *     EmpParseCallbacks @ 0x140A45CF4 (EmpParseCallbacks.c)
+ *     EmpParseRules @ 0x140A46580 (EmpParseRules.c)
+ *     EmpParseStrings @ 0x140A4689C (EmpParseStrings.c)
+ *     EmpParseTargetRules @ 0x140A46ADC (EmpParseTargetRules.c)
  * Callees:
- *     CmpSearchLineInSectionByIndex @ 0x140B56A60 (CmpSearchLineInSectionByIndex.c)
- *     CmpSearchSectionByName @ 0x140B56A90 (CmpSearchSectionByName.c)
+ *     CmpSearchLineInSectionByIndex @ 0x140A47150 (CmpSearchLineInSectionByIndex.c)
+ *     CmpSearchSectionByName @ 0x140A47180 (CmpSearchSectionByName.c)
  */
 
 __int64 __fastcall EmpInfParseGetSectionLineCount(__int64 a1, __int64 a2)

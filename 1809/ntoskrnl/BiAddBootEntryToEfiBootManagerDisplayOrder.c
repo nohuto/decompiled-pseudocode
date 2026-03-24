@@ -1,15 +1,15 @@
 /*
- * XREFs of BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x1408F1D5C
+ * XREFs of BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x1408F1D3C
  * Callers:
- *     BiExportBcdObjects @ 0x1408F3580 (BiExportBcdObjects.c)
+ *     BiExportBcdObjects @ 0x1408F3560 (BiExportBcdObjects.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
- *     BiGetElement @ 0x1408F1118 (BiGetElement.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
+ *     BiGetElement @ 0x1408F10F8 (BiGetElement.c)
  */
 
 __int64 __fastcall BiAddBootEntryToEfiBootManagerDisplayOrder(__int64 a1, __int64 a2)

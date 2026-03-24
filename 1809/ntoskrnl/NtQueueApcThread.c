@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueueApcThread @ 0x140677870
+ * XREFs of NtQueueApcThread @ 0x140677850
  * Callers:
  *     <none>
  * Callees:
- *     NtQueueApcThreadEx @ 0x1406776B0 (NtQueueApcThreadEx.c)
+ *     NtQueueApcThreadEx @ 0x140677690 (NtQueueApcThreadEx.c)
  */
 
 NTSTATUS __stdcall NtQueueApcThread(

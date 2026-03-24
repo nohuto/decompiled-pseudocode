@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmUpdateIdleStatesInplace @ 0x140586420
+ * XREFs of PpmUpdateIdleStatesInplace @ 0x140567E70
  * Callers:
  *     <none>
  * Callees:
@@ -16,30 +16,30 @@ __int64 __fastcall PpmUpdateIdleStatesInplace(__int64 a1, __int64 a2)
   int *v7; // rdx
   unsigned int v8; // ecx
 
-  v2 = *(_QWORD *)(a1 + 33600);
+  v2 = *(_QWORD *)(a1 + 0x8000);
   v3 = 0;
   if ( v2 )
   {
     v4 = *(unsigned int *)(a2 + 116);
-    if ( (_DWORD)v4 == *(_DWORD *)(v2 + 40) )
+    if ( (_DWORD)v4 == *(_DWORD *)(v2 + 32) )
     {
-      *(_QWORD *)(v2 + 688) = *(_QWORD *)(a2 + 8);
+      *(_QWORD *)(v2 + 488) = *(_QWORD *)(a2 + 8);
       if ( (_DWORD)v4 )
       {
-        v5 = v2 + 1392;
+        v5 = v2 + 1000;
         v6 = v4;
         v7 = (int *)(a2 + 120);
         do
         {
           *(_BYTE *)(v5 + 63) = (*v7 & 0x40000000) != 0;
           *(_DWORD *)v5 = v7[1];
-          v5 += 344LL;
-          *(_DWORD *)(v5 - 336) = v7[3];
-          *(_DWORD *)(v5 - 340) = v7[2];
-          *(_BYTE *)(v5 - 287) = *v7 < 0;
+          v5 += 248LL;
+          *(_DWORD *)(v5 - 240) = v7[3];
+          *(_DWORD *)(v5 - 244) = v7[2];
+          *(_BYTE *)(v5 - 191) = *v7 < 0;
           v8 = *v7;
           v7 += 8;
-          *(_DWORD *)(v5 - 332) = v8 >> 31;
+          *(_DWORD *)(v5 - 236) = v8 >> 31;
           --v6;
         }
         while ( v6 );

@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpGetFirmwareEnvironmentVariable @ 0x1409FCB38
+ * XREFs of ExpGetFirmwareEnvironmentVariable @ 0x1409507B4
  * Callers:
- *     NtQuerySystemEnvironmentValueEx @ 0x1406DC9F0 (NtQuerySystemEnvironmentValueEx.c)
- *     ExGetFirmwareEnvironmentVariable @ 0x1406DCAC0 (ExGetFirmwareEnvironmentVariable.c)
+ *     NtQuerySystemEnvironmentValueEx @ 0x1406C0810 (NtQuerySystemEnvironmentValueEx.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x1406C08E0 (ExGetFirmwareEnvironmentVariable.c)
  * Callees:
- *     ExUnlockUserBuffer @ 0x140231450 (ExUnlockUserBuffer.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExLockUserBuffer @ 0x1406A904C (ExLockUserBuffer.c)
- *     IoGetEnvironmentVariableEx @ 0x14093E520 (IoGetEnvironmentVariableEx.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
+ *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
+ *     IoGetEnvironmentVariableEx @ 0x140899A4C (IoGetEnvironmentVariableEx.c)
  */
 
 __int64 __fastcall ExpGetFirmwareEnvironmentVariable(
-        const WCHAR *a1,
+        const size_t *a1,
         __int64 a2,
         unsigned __int64 a3,
         int *a4,
@@ -35,7 +35,7 @@ __int64 __fastcall ExpGetFirmwareEnvironmentVariable(
     ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
     EnvironmentVariable = IoGetEnvironmentVariableEx(a1, a2, v13, a4, a5);
     ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( P )
       ExUnlockUserBuffer((struct _MDL *)P);
     return EnvironmentVariable;

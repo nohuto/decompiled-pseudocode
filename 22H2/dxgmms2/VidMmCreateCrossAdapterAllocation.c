@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmCreateCrossAdapterAllocation @ 0x1C002D070
+ * XREFs of VidMmCreateCrossAdapterAllocation @ 0x1C0022CA0
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateCrossAdapterAllocation@VIDMM_GLOBAL@@QEAAJPEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAX_KE@Z @ 0x1C00E0E50 (-CreateCrossAdapterAllocation@VIDMM_GLOBAL@@QEAAJPEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAX_KE@Z.c)
+ *     ?CreateCrossAdapterAllocation@VIDMM_GLOBAL@@QEAAJPEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAX_KE@Z @ 0x1C00AD138 (-CreateCrossAdapterAllocation@VIDMM_GLOBAL@@QEAAJPEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAX_KE@Z.c)
  */
 
 int __fastcall VidMmCreateCrossAdapterAllocation(

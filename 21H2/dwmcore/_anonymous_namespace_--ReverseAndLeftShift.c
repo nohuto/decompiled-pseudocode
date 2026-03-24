@@ -1,10 +1,10 @@
 /*
- * XREFs of _anonymous_namespace_::ReverseAndLeftShift @ 0x18018EA64
+ * XREFs of _anonymous_namespace_::ReverseAndLeftShift @ 0x18022EE78
  * Callers:
- *     ??$ComputeHandledInteractionsFromLocal@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@CInteractionProcessor@@AEAA?AUInteractionAxis@@PEAV?$CInputTypeContext@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@AEBUD2DVector3@@PEAUD2DMatrix@@@Z @ 0x180187AA0 (--$ComputeHandledInteractionsFromLocal@UDwmTouchpadInteractionConfigurationPrimitive@@U-$TMILFla.c)
+ *     ??$ComputeHandledInteractionsFromLocal@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@CInteractionProcessor@@AEAA?AUInteractionAxis@@PEAV?$CInputTypeContext@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@AEBUD2DVector3@@PEAUD2DMatrix@@@Z @ 0x18022978C (--$ComputeHandledInteractionsFromLocal@UDwmTouchpadInteractionConfigurationPrimitive@@U-$TMILFla.c)
  * Callees:
- *     _anonymous_namespace_::ConvertVectorArrayToMatrix @ 0x18018CB3C (_anonymous_namespace_--ConvertVectorArrayToMatrix.c)
- *     ?D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z @ 0x18026F2B8 (-D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z.c)
+ *     ?D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z @ 0x18021ED48 (-D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z.c)
+ *     _anonymous_namespace_::ConvertVectorArrayToMatrix @ 0x18022D400 (_anonymous_namespace_--ConvertVectorArrayToMatrix.c)
  */
 
 __int64 __fastcall anonymous_namespace_::ReverseAndLeftShift(__int64 a1, int *a2)
@@ -50,8 +50,8 @@ __int64 __fastcall anonymous_namespace_::ReverseAndLeftShift(__int64 a1, int *a2
   v10 = v21;
   do
   {
-    if ( (unsigned int)D3DXVectorAreCloseToZero((const struct D2DVector3 *)&v17)
-      && !(unsigned int)D3DXVectorAreCloseToZero((const struct D2DVector3 *)&v19) )
+    if ( D3DXVectorAreCloseToZero((const struct D2DVector3 *)&v17)
+      && !D3DXVectorAreCloseToZero((const struct D2DVector3 *)&v19) )
     {
       v18 = v11;
       v17 = v7;
@@ -59,8 +59,8 @@ __int64 __fastcall anonymous_namespace_::ReverseAndLeftShift(__int64 a1, int *a2
       v19 = v7;
       v20 = 0;
     }
-    if ( (unsigned int)D3DXVectorAreCloseToZero((const struct D2DVector3 *)&v19)
-      && !(unsigned int)D3DXVectorAreCloseToZero((const struct D2DVector3 *)&v21) )
+    if ( D3DXVectorAreCloseToZero((const struct D2DVector3 *)&v19)
+      && !D3DXVectorAreCloseToZero((const struct D2DVector3 *)&v21) )
     {
       v7 = v10;
       v19 = v10;

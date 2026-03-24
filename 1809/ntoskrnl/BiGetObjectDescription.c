@@ -1,15 +1,15 @@
 /*
- * XREFs of BiGetObjectDescription @ 0x140711234
+ * XREFs of BiGetObjectDescription @ 0x140711214
  * Callers:
- *     BcdQueryObject @ 0x140712724 (BcdQueryObject.c)
- *     BcdEnumerateObjects @ 0x1408F08FC (BcdEnumerateObjects.c)
- *     BiBuildIdentifierList @ 0x1408F2488 (BiBuildIdentifierList.c)
- *     BiIsLinkedToEfiVariable @ 0x1408F4198 (BiIsLinkedToEfiVariable.c)
+ *     BcdQueryObject @ 0x140712704 (BcdQueryObject.c)
+ *     BcdEnumerateObjects @ 0x1408F08DC (BcdEnumerateObjects.c)
+ *     BiBuildIdentifierList @ 0x1408F2468 (BiBuildIdentifierList.c)
+ *     BiIsLinkedToEfiVariable @ 0x1408F4178 (BiIsLinkedToEfiVariable.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiGetRegistryValue @ 0x1407131C4 (BiGetRegistryValue.c)
- *     BiOpenKey @ 0x1407137A0 (BiOpenKey.c)
- *     BiCloseKey @ 0x140713910 (BiCloseKey.c)
+ *     BiGetRegistryValue @ 0x1407131A4 (BiGetRegistryValue.c)
+ *     BiOpenKey @ 0x140713780 (BiOpenKey.c)
+ *     BiCloseKey @ 0x1407138F0 (BiCloseKey.c)
  */
 
 __int64 __fastcall BiGetObjectDescription(__int64 a1, _DWORD *a2)

@@ -1,23 +1,21 @@
 /*
- * XREFs of CmpVolumeContextCleanup @ 0x140863DA8
+ * XREFs of CmpVolumeContextCleanup @ 0x140872DD0
  * Callers:
- *     CmpVolumeContextDecrementRefCount @ 0x14067BD84 (CmpVolumeContextDecrementRefCount.c)
- *     CmpVolumeManagerGetContextForFile @ 0x14068B750 (CmpVolumeManagerGetContextForFile.c)
- *     CmpVolumeContextCreate @ 0x1408575AC (CmpVolumeContextCreate.c)
+ *     CmpVolumeContextDecrementRefCount @ 0x14071CA40 (CmpVolumeContextDecrementRefCount.c)
+ *     CmpVolumeContextCreate @ 0x1407D0100 (CmpVolumeContextCreate.c)
+ *     CmpVolumeContextFree @ 0x140872E08 (CmpVolumeContextFree.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PpPagePathRelease @ 0x140945F80 (PpPagePathRelease.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PiPagePathSetState @ 0x1407C9E40 (PiPagePathSetState.c)
  */
 
-LONG_PTR __fastcall CmpVolumeContextCleanup(__int64 a1)
+void __fastcall CmpVolumeContextCleanup(__int64 a1)
 {
-  void *v2; // rcx
-  LONG_PTR result; // rax
+  struct _DMA_ADAPTER *v2; // rcx
 
   if ( *(_BYTE *)(a1 + 64) )
-    result = PpPagePathRelease(*(_QWORD *)(a1 + 48));
-  v2 = *(void **)(a1 + 48);
+    PiPagePathSetState(*(struct _FILE_OBJECT **)(a1 + 48), 0);
+  v2 = *(struct _DMA_ADAPTER **)(a1 + 48);
   if ( v2 )
-    return ObfDereferenceObject(v2);
-  return result;
+    HalPutDmaAdapter(v2);
 }

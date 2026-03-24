@@ -1,22 +1,20 @@
 /*
- * XREFs of GetPowerTransitionsState @ 0x1C0071E30
+ * XREFs of GetPowerTransitionsState @ 0x1C0133B50
  * Callers:
  *     <none>
  * Callees:
- *     ?IsLockedShared@tagDomLock@@QEBA_NXZ @ 0x1C007085C (-IsLockedShared@tagDomLock@@QEBA_NXZ.c)
+ *     <none>
  */
 
-__int64 __fastcall GetPowerTransitionsState(_OWORD *a1)
+__int64 __fastcall GetPowerTransitionsState(__int64 a1)
 {
-  __int64 v2; // rcx
   __int64 result; // rax
 
-  if ( !tagDomLock::IsLockedShared((PERESOURCE *)gDomainPowerTransitionsStateLock) )
-    __int2c();
-  result = SGDGetUserSessionState(v2);
-  *a1 = *(_OWORD *)(result + 2952);
-  a1[1] = *(_OWORD *)(result + 2968);
-  a1[2] = *(_OWORD *)(result + 2984);
-  a1[3] = *(_OWORD *)(result + 3000);
+  *(_OWORD *)a1 = *(_OWORD *)gPowerTransitionsState;
+  *(_OWORD *)(a1 + 16) = *(_OWORD *)&gPowerTransitionsState[4];
+  *(_OWORD *)(a1 + 32) = *(_OWORD *)&gPowerTransitionsState[8];
+  *(_QWORD *)(a1 + 48) = *(_QWORD *)&gPowerTransitionsState[12];
+  result = (unsigned int)gPowerTransitionsState[14];
+  *(_DWORD *)(a1 + 56) = result;
   return result;
 }

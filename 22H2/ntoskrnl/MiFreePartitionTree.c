@@ -1,57 +1,59 @@
 /*
- * XREFs of MiFreePartitionTree @ 0x140659F08
+ * XREFs of MiFreePartitionTree @ 0x14056227C
  * Callers:
- *     MiInsertPartitionPages @ 0x14065A4F0 (MiInsertPartitionPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4438C (MiAllocatePartitionPhysicalPages.c)
- *     MiHotAddPartitionMemory @ 0x140A44D10 (MiHotAddPartitionMemory.c)
+ *     MiClearPartitionPageBitMap @ 0x140561394 (MiClearPartitionPageBitMap.c)
+ *     MiInsertPartitionPages @ 0x140562480 (MiInsertPartitionPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DA9C8 (MiAllocatePartitionPhysicalPages.c)
+ *     MiHotAddPartitionMemory @ 0x1408DB2CC (MiHotAddPartitionMemory.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     MiDeletePartitionPageNode @ 0x140659438 (MiDeletePartitionPageNode.c)
- *     MiFreePartitionNodePages @ 0x140659CE0 (MiFreePartitionNodePages.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     MiFreePartitionNodePages @ 0x140562224 (MiFreePartitionNodePages.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiFreePartitionTree(__int16 *a1, unsigned __int64 *a2, int a3, int a4)
+__int64 __fastcall MiFreePartitionTree(unsigned __int64 a1, unsigned __int64 *a2, char a3, int a4)
 {
-  unsigned __int64 *v4; // rdi
+  __int64 v4; // rdi
   bool v5; // bl
   int v6; // ebp
   _QWORD *v11; // rdx
   _QWORD *v12; // rax
 
-  v4 = (unsigned __int64 *)*a2;
+  v4 = *a2;
   v5 = 0;
   v6 = 0;
   while ( 1 )
   {
     if ( !v4 )
       return (unsigned int)v6;
-    RtlAvlRemoveNode(a2, v4);
-    if ( a4 )
+    RtlAvlRemoveNode(a2, (unsigned __int64 *)v4);
+    if ( a4 == 1 )
     {
-      v6 = MiFreePartitionNodePages(a1, (__int64)v4, a3);
+      v6 = MiFreePartitionNodePages(a1, v4, a3);
       if ( v6 < 0 )
         break;
     }
-    MiDeletePartitionPageNode((PVOID *)v4);
-    v4 = (unsigned __int64 *)*a2;
+    ExFreePoolWithTag(*(PVOID *)(v4 + 40), 0);
+    ExFreePoolWithTag((PVOID)v4, 0);
+    v4 = *a2;
   }
   v11 = (_QWORD *)*a2;
   if ( !*a2 )
-    goto LABEL_14;
-  while ( (v4[3] & 0x3FFFFFFFFFFFFFFFLL) < (v11[3] & 0x3FFFFFFFFFFFFFFFuLL) )
+    goto LABEL_11;
+  while ( (*(_QWORD *)(v4 + 24) & 0x7FFFFFFFFFFFFFFFuLL) < (v11[3] & 0x7FFFFFFFFFFFFFFFuLL) )
   {
     v12 = (_QWORD *)*v11;
     if ( !*v11 )
-      goto LABEL_14;
-LABEL_12:
+      goto LABEL_11;
+LABEL_14:
     v11 = v12;
   }
   v12 = (_QWORD *)v11[1];
   if ( v12 )
-    goto LABEL_12;
+    goto LABEL_14;
   v5 = 1;
-LABEL_14:
-  RtlAvlInsertNodeEx(a2, (unsigned __int64)v11, v5, (unsigned __int64)v4);
+LABEL_11:
+  RtlAvlInsertNodeEx(a2, (unsigned __int64)v11, v5, (_QWORD *)v4);
   return (unsigned int)v6;
 }

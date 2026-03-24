@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CGammaBlendLayer@@UEBA?AW4LayerType@CLayer@@XZ @ 0x180106BF0
+ * XREFs of ?GetType@CGammaBlendLayer@@UEBA?AW4LayerType@CLayer@@XZ @ 0x1800E2390
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 CGammaBlendLayer::GetType()
 {
-  return 9LL;
+  return 10LL;
 }

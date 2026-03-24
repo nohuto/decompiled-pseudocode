@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CCheckLLHookTime@@QEAA@XZ @ 0x1C015775E
+ * XREFs of ??1CCheckLLHookTime@@QEAA@XZ @ 0x1C0246BC4
  * Callers:
- *     xxxHkCallHook @ 0x1C0120850 (xxxHkCallHook.c)
+ *     xxxHkCallHook @ 0x1C005CA10 (xxxHkCallHook.c)
  * Callees:
- *     ?TraceLoggingSlowLowLevelHook@@YAXI_K0@Z @ 0x1C02025E8 (-TraceLoggingSlowLowLevelHook@@YAXI_K0@Z.c)
+ *     ?TraceLoggingSlowLowLevelHook@@YAXI_K0@Z @ 0x1C0225150 (-TraceLoggingSlowLowLevelHook@@YAXI_K0@Z.c)
  */
 
 void __fastcall CCheckLLHookTime::~CCheckLLHookTime(CCheckLLHookTime *this)

@@ -1,77 +1,76 @@
 /*
- * XREFs of PfSetSuperfetchInformation @ 0x14075FEA4
+ * XREFs of PfSetSuperfetchInformation @ 0x140709624
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     PfTSetTraceWorkerPriority @ 0x14035E7B0 (PfTSetTraceWorkerPriority.c)
- *     MmSetTrimWhileAgingState @ 0x14036A6E4 (MmSetTrimWhileAgingState.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PfpPrefetchRequest @ 0x140683EC8 (PfpPrefetchRequest.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     PfpPfnPrioRequest @ 0x14075E258 (PfpPfnPrioRequest.c)
- *     PfpRpControlRequest @ 0x1407B5518 (PfpRpControlRequest.c)
- *     PfpProcessScenarioPhase @ 0x1407D3BD0 (PfpProcessScenarioPhase.c)
- *     PfGenerateTrace @ 0x1407D4180 (PfGenerateTrace.c)
- *     MmSetMinimumAgeRate @ 0x1407E73E0 (MmSetMinimumAgeRate.c)
- *     PfTStart @ 0x140847C60 (PfTStart.c)
- *     PfpSetParameter @ 0x1408480C4 (PfpSetParameter.c)
- *     PfTInitialize @ 0x140848CBC (PfTInitialize.c)
- *     PfpDeprioritizeOldPagesInWs @ 0x14097DD2C (PfpDeprioritizeOldPagesInWs.c)
- *     PfpLogEventRequest @ 0x14097DE88 (PfpLogEventRequest.c)
- *     PfTCleanup @ 0x14097F218 (PfTCleanup.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     PfpScenCtxServiceThreadSet @ 0x140A91CE0 (PfpScenCtxServiceThreadSet.c)
- *     PfpScenCtxPrefetchStateSet @ 0x140AA0330 (PfpScenCtxPrefetchStateSet.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmSetTrimWhileAgingState @ 0x140303EBC (MmSetTrimWhileAgingState.c)
+ *     PfTSetTraceWorkerPriority @ 0x140382E94 (PfTSetTraceWorkerPriority.c)
+ *     PfLockExclusiveAcquire @ 0x1403CEF00 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1403CF9D0 (PfLockExclusiveRelease.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     PfpPfnPrioRequest @ 0x1406402D0 (PfpPfnPrioRequest.c)
+ *     MmSetMinimumAgeRate @ 0x140676240 (MmSetMinimumAgeRate.c)
+ *     PfpRpControlRequest @ 0x14070A2C0 (PfpRpControlRequest.c)
+ *     PfpPrefetchRequest @ 0x14070ADA8 (PfpPrefetchRequest.c)
+ *     PfpLogEventRequest @ 0x1407770EC (PfpLogEventRequest.c)
+ *     PfGenerateTrace @ 0x1407772D4 (PfGenerateTrace.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     PfpProcessScenarioPhase @ 0x14078CE98 (PfpProcessScenarioPhase.c)
+ *     PfTInitialize @ 0x1407BF500 (PfTInitialize.c)
+ *     PfpSetParameter @ 0x1407BF878 (PfpSetParameter.c)
+ *     PfTStart @ 0x1407C0200 (PfTStart.c)
+ *     PfpDeprioritizeOldPagesInWs @ 0x1408DF730 (PfpDeprioritizeOldPagesInWs.c)
+ *     PfTCleanup @ 0x1408E040C (PfTCleanup.c)
+ *     PfpScenCtxPrefetchStateSet @ 0x140998C10 (PfpScenCtxPrefetchStateSet.c)
+ *     PfpScenCtxServiceThreadSet @ 0x1409A155C (PfpScenCtxServiceThreadSet.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfSetSuperfetchInformation(__int64 a1, __int128 *a2, int a3, KPROCESSOR_MODE a4)
 {
   __int64 v7; // rdx
   int v8; // eax
-  int v9; // edi
+  int v9; // ebx
   int v11; // ecx
-  int v12; // ecx
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v14; // rdx
-  unsigned int v15; // edi
-  unsigned int v16; // ecx
+  unsigned int v12; // ecx
+  unsigned int v13; // eax
+  unsigned int v14; // edx
+  char *v15; // rcx
+  int v16; // esi
   __int64 v17; // rdx
-  char *v18; // rcx
-  __int128 v19; // [rsp+30h] [rbp-B8h] BYREF
-  __int128 v20; // [rsp+40h] [rbp-A8h]
-  int v21; // [rsp+50h] [rbp-98h]
-  __int64 v22; // [rsp+58h] [rbp-90h]
-  int v23; // [rsp+60h] [rbp-88h]
-  PVOID P; // [rsp+68h] [rbp-80h]
-  __int64 v25; // [rsp+70h] [rbp-78h]
-  int v26; // [rsp+78h] [rbp-70h]
-  void *Src[2]; // [rsp+80h] [rbp-68h] BYREF
-  unsigned int v28; // [rsp+90h] [rbp-58h]
-  int v29; // [rsp+94h] [rbp-54h]
-  __int64 v30; // [rsp+98h] [rbp-50h]
-  __int64 v31; // [rsp+A0h] [rbp-48h]
-  __int128 v32; // [rsp+A8h] [rbp-40h] BYREF
-  __int128 v33; // [rsp+B8h] [rbp-30h]
-  unsigned int v34; // [rsp+F0h] [rbp+8h] BYREF
-  KPROCESSOR_MODE v35; // [rsp+108h] [rbp+20h]
+  unsigned int v18; // ebx
+  __int64 v19; // rdx
+  __int128 v20; // [rsp+30h] [rbp-C8h] BYREF
+  __int128 v21; // [rsp+40h] [rbp-B8h]
+  int v22; // [rsp+50h] [rbp-A8h]
+  PVOID P; // [rsp+58h] [rbp-A0h]
+  __int64 v24; // [rsp+60h] [rbp-98h]
+  int v25; // [rsp+68h] [rbp-90h]
+  __int64 v26; // [rsp+70h] [rbp-88h]
+  int v27; // [rsp+78h] [rbp-80h]
+  void *Src[2]; // [rsp+80h] [rbp-78h] BYREF
+  unsigned int v29; // [rsp+90h] [rbp-68h]
+  int v30; // [rsp+94h] [rbp-64h]
+  __int64 v31; // [rsp+98h] [rbp-60h]
+  __int64 v32; // [rsp+A0h] [rbp-58h]
+  __int128 v33; // [rsp+A8h] [rbp-50h] BYREF
+  __int128 v34; // [rsp+B8h] [rbp-40h]
+  unsigned int v35; // [rsp+100h] [rbp+8h] BYREF
+  KPROCESSOR_MODE v36; // [rsp+118h] [rbp+20h]
 
-  v35 = a4;
-  v32 = 0LL;
+  v36 = a4;
   v33 = 0LL;
-  v30 = 0LL;
-  v21 = 0;
-  v22 = 0LL;
-  v23 = 0;
-  v25 = 0LL;
-  v26 = 0;
-  v34 = 0;
+  v34 = 0LL;
   v31 = 0LL;
+  v22 = 0;
+  v26 = 0LL;
+  v27 = 0;
+  v24 = 0LL;
+  v25 = 0;
+  v35 = 0;
+  v32 = 0LL;
   P = 0LL;
   if ( !SeSinglePrivilegeCheck(SeProfileSingleProcessPrivilege, a4) )
   {
@@ -83,222 +82,226 @@ __int64 __fastcall PfSetSuperfetchInformation(__int64 a1, __int128 *a2, int a3, 
     v9 = -1073741820;
     goto LABEL_12;
   }
-  v19 = 0LL;
   v20 = 0LL;
-  v19 = *a2;
-  v20 = a2[1];
-  if ( (_QWORD)v19 != 0x6B7568430000002DLL )
-    goto LABEL_111;
-  if ( DWORD2(v19) == 14 )
+  v21 = 0LL;
+  v20 = *a2;
+  v21 = a2[1];
+  if ( (_QWORD)v20 != 0x6B7568430000002DLL )
+    goto LABEL_84;
+  if ( DWORD2(v20) == 14 )
   {
     LOBYTE(v7) = a4;
-    v8 = PfpRpControlRequest(&v19, v7);
+    v8 = PfpRpControlRequest(&v20, v7);
     goto LABEL_11;
   }
-  if ( SDWORD2(v19) > 14 )
+  if ( SDWORD2(v20) > 14 )
   {
-    switch ( DWORD2(v19) )
+    if ( DWORD2(v20) == 15 )
     {
-      case 0xF:
-        if ( DWORD2(v20) != 4 )
-          goto LABEL_86;
-        if ( a4 && (v20 & 3) != 0 )
-          ExRaiseDatatypeMisalignment();
-        v29 = *(_DWORD *)v20;
-        v21 = v29 + dword_140C650AC;
-        v9 = PfpSetParameter(KeyHandle, 4u);
-        if ( v9 >= 0 )
-          dword_140C650AC = v21;
-        break;
-      case 0x12:
-        if ( DWORD2(v20) != 12 )
-          goto LABEL_86;
-        if ( a4 && (v20 & 3) != 0 )
-          ExRaiseDatatypeMisalignment();
-        v22 = *(_QWORD *)v20;
-        v12 = *(_DWORD *)(v20 + 8);
-        v23 = v12;
-        if ( (_DWORD)v22 != 2 || HIDWORD(v22) >= 2 || (v12 & 0xFFFFFFFC) != 0 )
-        {
-LABEL_111:
-          v9 = -1073741811;
-          break;
-        }
-        CurrentThread = KeGetCurrentThread();
-        --CurrentThread->KernelApcDisable;
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)&PfTGlobals, 0LL);
-        if ( HIDWORD(v22) )
-        {
-          v15 = dword_140C65248 & ~v23;
-          PfTCleanup(&PfTGlobals, &PfKernelGlobals);
-          PfTInitialize(&PfTGlobals, &PfKernelGlobals, 1LL);
-        }
-        else
-        {
-          v15 = v23 & ~dword_140C65248;
-        }
-        v9 = PfTStart(&PfTGlobals, v14, v15);
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PfTGlobals, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&PfTGlobals);
-        KeAbPostRelease((ULONG_PTR)&PfTGlobals);
-        KeLeaveCriticalRegion();
-        PfpScenCtxServiceThreadSet((ULONG_PTR)&qword_140C650B0);
-        break;
-      case 0x13:
-        if ( DWORD2(v20) == 12 )
-        {
-          v9 = 0;
-          if ( a4 && (v20 & 3) != 0 )
-            ExRaiseDatatypeMisalignment();
-          v25 = *(_QWORD *)v20;
-          v11 = *(_DWORD *)(v20 + 8);
-          v26 = v11;
-          if ( (_DWORD)v25 == 2 && SHIDWORD(v25) < 5 && (unsigned __int8)v26 <= 7u && BYTE1(v11) <= 7u && !HIWORD(v11) )
-          {
-            LOBYTE(v34) = BYTE4(v25);
-            BYTE1(v34) = v26;
-            HIWORD(v34) = BYTE1(v11);
-            MmSetTrimWhileAgingState(v34);
-            break;
-          }
-          goto LABEL_111;
-        }
-        goto LABEL_86;
-      case 0x16:
-        goto LABEL_10;
-      case 0x19:
-        if ( DWORD2(v20) == 8 )
-        {
-          v9 = 0;
-          if ( a4 && (v20 & 3) != 0 )
-            ExRaiseDatatypeMisalignment();
-          v31 = *(_QWORD *)v20;
-          if ( (_DWORD)v31 == 1 )
-          {
-            MmSetMinimumAgeRate(HIDWORD(v31));
-            break;
-          }
-          goto LABEL_111;
-        }
-        goto LABEL_86;
-      case 0x1A:
-        LOBYTE(v7) = a4;
-        v8 = PfpDeprioritizeOldPagesInWs(&v19, v7);
-        goto LABEL_11;
-      case 0x1D:
-LABEL_10:
-        v8 = PfpPfnPrioRequest((__int64)&v19, a4, &v34);
-LABEL_11:
-        v9 = v8;
-        break;
-      default:
-LABEL_102:
-        v9 = -1073741821;
-        break;
+      if ( DWORD2(v21) != 4 )
+        goto LABEL_94;
+      if ( a4 && (v21 & 3) != 0 )
+        ExRaiseDatatypeMisalignment();
+      v30 = *(_DWORD *)v21;
+      v22 = v30 + dword_140C502DC;
+      v9 = PfpSetParameter(KeyHandle, 4u);
+      if ( v9 >= 0 )
+        dword_140C502DC = v22;
+      goto LABEL_12;
     }
-  }
-  else
-  {
-    switch ( DWORD2(v19) )
+    if ( DWORD2(v20) != 18 )
     {
-      case 3:
-        v16 = 16;
-        if ( DWORD2(v20) != 16 )
-          goto LABEL_86;
-        if ( a4 && (v20 & 7) != 0 )
-          ExRaiseDatatypeMisalignment();
-        *(_OWORD *)Src = *(_OWORD *)v20;
-        if ( !Src[1] )
-          goto LABEL_111;
-        v17 = LODWORD(Src[0]) >> 7;
-        if ( !(_DWORD)v17 )
-          goto LABEL_111;
-        switch ( (__int64)Src[0] & 0x1F )
-        {
-          case 2LL:
-          case 3LL:
-            v16 = 36;
-            break;
-          case 5LL:
-            v16 = 12;
-            break;
-          case 27LL:
-            break;
-          default:
-            v9 = -1073741637;
-            goto LABEL_12;
-        }
-        if ( (unsigned int)v17 < v16 || (unsigned int)v17 >= 0xFF0 )
-          goto LABEL_111;
-        P = (PVOID)ExAllocatePool2(256LL, v17, 1145398864LL);
-        if ( P )
-        {
-          if ( a4 )
+      switch ( DWORD2(v20) )
+      {
+        case 0x13:
+          if ( DWORD2(v21) == 12 )
           {
-            if ( ((__int64)Src[1] & 1) != 0 )
+            v9 = 0;
+            if ( a4 && (v21 & 3) != 0 )
               ExRaiseDatatypeMisalignment();
-            v18 = (char *)Src[1] + ((unsigned __int64)LODWORD(Src[0]) >> 7);
-            if ( (unsigned __int64)v18 > 0x7FFFFFFF0000LL || v18 < Src[1] )
-              MEMORY[0x7FFFFFFF0000] = 0;
+            v24 = *(_QWORD *)v21;
+            v11 = *(_DWORD *)(v21 + 8);
+            v25 = v11;
+            if ( (_DWORD)v24 == 2 && SHIDWORD(v24) < 5 && (unsigned __int8)v25 <= 7u && BYTE1(v11) <= 7u && !HIWORD(v11) )
+            {
+              LOBYTE(v35) = BYTE4(v24);
+              BYTE1(v35) = v25;
+              HIWORD(v35) = BYTE1(v11);
+              MmSetTrimWhileAgingState(v35);
+              goto LABEL_12;
+            }
+            goto LABEL_84;
           }
-          memmove(P, Src[1], (unsigned __int64)LODWORD(Src[0]) >> 7);
-          Src[1] = P;
-          v8 = PfpLogEventRequest(Src);
-          goto LABEL_11;
-        }
-        v9 = -1073741670;
-        break;
-      case 4:
-        PfGenerateTrace(&Thread, 0LL);
-        v9 = 0;
-        break;
-      case 5:
-        v8 = PfpPrefetchRequest((__int64)&v19, a4);
-        goto LABEL_11;
-      case 7:
-        goto LABEL_10;
-      case 0xA:
-        if ( DWORD2(v20) == 32 )
-        {
-          if ( a4 && (v20 & 7) != 0 )
-            ExRaiseDatatypeMisalignment();
-          v32 = *(_OWORD *)v20;
-          v33 = *(_OWORD *)(v20 + 16);
-          LOBYTE(v7) = a4;
-          v8 = PfpProcessScenarioPhase(&v32, v7);
-          goto LABEL_11;
-        }
-        goto LABEL_86;
-      case 0xB:
-        if ( DWORD2(v20) != 4 )
-          goto LABEL_86;
-        if ( a4 && (v20 & 3) != 0 )
-          ExRaiseDatatypeMisalignment();
-        v28 = *(_DWORD *)v20;
-        v9 = -1073741431;
-        if ( (int)PfTSetTraceWorkerPriority(v28) <= 31 )
-          v9 = 0;
-        break;
-      case 0xD:
-        if ( DWORD2(v20) == 8 )
-        {
-          if ( a4 && (v20 & 3) != 0 )
-            ExRaiseDatatypeMisalignment();
-          v30 = *(_QWORD *)v20;
-          if ( (_WORD)v30 == 1 && (unsigned int)(HIDWORD(v30) - 1) <= 4 )
+          goto LABEL_94;
+        case 0x16:
+          goto LABEL_10;
+        case 0x19:
+          if ( DWORD2(v21) == 8 )
           {
-            v8 = PfpScenCtxPrefetchStateSet((ULONG_PTR)&qword_140C650B0);
-            goto LABEL_11;
+            v9 = 0;
+            if ( a4 && (v21 & 3) != 0 )
+              ExRaiseDatatypeMisalignment();
+            v32 = *(_QWORD *)v21;
+            if ( (_DWORD)v32 == 1 )
+            {
+              MmSetMinimumAgeRate(HIDWORD(v32));
+              goto LABEL_12;
+            }
+            goto LABEL_84;
           }
-          goto LABEL_111;
-        }
-LABEL_86:
-        v9 = -1073741306;
-        break;
-      default:
-        goto LABEL_102;
+          goto LABEL_94;
+        case 0x1A:
+          LOBYTE(v7) = a4;
+          v8 = PfpDeprioritizeOldPagesInWs(&v20, v7);
+          goto LABEL_11;
+        case 0x1D:
+LABEL_10:
+          v8 = PfpPfnPrioRequest((__int64)&v20, a4, &v35);
+LABEL_11:
+          v9 = v8;
+          goto LABEL_12;
+      }
+      goto LABEL_101;
     }
+    if ( DWORD2(v21) != 12 )
+      goto LABEL_94;
+    if ( a4 && (v21 & 3) != 0 )
+      ExRaiseDatatypeMisalignment();
+    v26 = *(_QWORD *)v21;
+    v16 = *(_DWORD *)(v21 + 8);
+    if ( (_DWORD)v26 == 2 && HIDWORD(v26) < 2 && (v16 & 0xFFFFFFFC) == 0 )
+    {
+      PfLockExclusiveAcquire((ULONG_PTR)&PfTGlobals);
+      if ( HIDWORD(v26) )
+      {
+        v18 = dword_140C4FBC8 & ~v16;
+        PfTCleanup(&PfTGlobals);
+        PfTInitialize(&PfTGlobals, v19, 1LL);
+      }
+      else
+      {
+        v18 = v16 & ~dword_140C4FBC8;
+      }
+      v9 = PfTStart(&PfTGlobals, v17, v18);
+      PfLockExclusiveRelease((ULONG_PTR)&PfTGlobals);
+      PfpScenCtxServiceThreadSet((ULONG_PTR)&qword_140C502E0);
+      goto LABEL_12;
+    }
+LABEL_84:
+    v9 = -1073741811;
+    goto LABEL_12;
   }
+  switch ( DWORD2(v20) )
+  {
+    case 3:
+      v12 = 16;
+      if ( DWORD2(v21) != 16 )
+        goto LABEL_94;
+      if ( a4 && (v21 & 7) != 0 )
+        ExRaiseDatatypeMisalignment();
+      *(_OWORD *)Src = *(_OWORD *)v21;
+      if ( !Src[1] )
+        goto LABEL_84;
+      v13 = LODWORD(Src[0]) >> 7;
+      if ( !(LODWORD(Src[0]) >> 7) )
+        goto LABEL_84;
+      v14 = (__int64)Src[0] & 0x1F;
+      if ( v14 >= 2 )
+      {
+        if ( v14 <= 3 )
+        {
+          v12 = 36;
+          goto LABEL_54;
+        }
+        if ( v14 == 5 )
+        {
+          v12 = 12;
+          goto LABEL_54;
+        }
+        if ( v14 == 27 )
+        {
+LABEL_54:
+          if ( v13 >= v12 && v13 < 0xFF0 )
+          {
+            P = ExAllocatePoolWithTag(PagedPool, v13, 0x44456650u);
+            if ( P )
+            {
+              if ( a4 )
+              {
+                if ( ((__int64)Src[1] & 1) != 0 )
+                  ExRaiseDatatypeMisalignment();
+                v15 = (char *)Src[1] + ((unsigned __int64)LODWORD(Src[0]) >> 7);
+                if ( (unsigned __int64)v15 > 0x7FFFFFFF0000LL || v15 < Src[1] )
+                  MEMORY[0x7FFFFFFF0000] = 0;
+              }
+              memmove(P, Src[1], (unsigned __int64)LODWORD(Src[0]) >> 7);
+              Src[1] = P;
+              v8 = PfpLogEventRequest(Src);
+              goto LABEL_11;
+            }
+            v9 = -1073741670;
+            goto LABEL_12;
+          }
+          goto LABEL_84;
+        }
+      }
+      v9 = -1073741637;
+      goto LABEL_12;
+    case 4:
+      PfGenerateTrace(&Thread, 0LL);
+      v9 = 0;
+      goto LABEL_12;
+    case 5:
+      LOBYTE(v7) = a4;
+      v8 = PfpPrefetchRequest(&v20, v7);
+      goto LABEL_11;
+    case 7:
+      goto LABEL_10;
+    case 0xA:
+      if ( DWORD2(v21) == 32 )
+      {
+        if ( a4 && (v21 & 7) != 0 )
+          ExRaiseDatatypeMisalignment();
+        v33 = *(_OWORD *)v21;
+        v34 = *(_OWORD *)(v21 + 16);
+        LOBYTE(v7) = a4;
+        v8 = PfpProcessScenarioPhase(&v33, v7);
+        goto LABEL_11;
+      }
+      goto LABEL_94;
+  }
+  if ( DWORD2(v20) != 11 )
+  {
+    if ( DWORD2(v20) == 13 )
+    {
+      if ( DWORD2(v21) == 8 )
+      {
+        if ( a4 && (v21 & 3) != 0 )
+          ExRaiseDatatypeMisalignment();
+        v31 = *(_QWORD *)v21;
+        if ( (_WORD)v31 == 1 && (unsigned int)(HIDWORD(v31) - 1) <= 4 )
+        {
+          v8 = PfpScenCtxPrefetchStateSet((ULONG_PTR)&qword_140C502E0);
+          goto LABEL_11;
+        }
+        goto LABEL_84;
+      }
+LABEL_94:
+      v9 = -1073741306;
+      goto LABEL_12;
+    }
+LABEL_101:
+    v9 = -1073741821;
+    goto LABEL_12;
+  }
+  if ( DWORD2(v21) != 4 )
+    goto LABEL_94;
+  if ( a4 && (v21 & 3) != 0 )
+    ExRaiseDatatypeMisalignment();
+  v29 = *(_DWORD *)v21;
+  v9 = -1073741431;
+  if ( (int)PfTSetTraceWorkerPriority(v29) <= 31 )
+    v9 = 0;
 LABEL_12:
   if ( P )
     ExFreePoolWithTag(P, 0);

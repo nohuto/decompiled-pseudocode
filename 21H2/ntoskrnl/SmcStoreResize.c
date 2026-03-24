@@ -1,30 +1,30 @@
 /*
- * XREFs of SmcStoreResize @ 0x1409D8588
+ * XREFs of SmcStoreResize @ 0x14092E078
  * Callers:
- *     SmcProcessResizeRequest @ 0x1409D4FF8 (SmcProcessResizeRequest.c)
+ *     SmcProcessResizeRequest @ 0x14092AAB0 (SmcProcessResizeRequest.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     RtlClearAllBits @ 0x14020AE80 (RtlClearAllBits.c)
- *     SmAlloc @ 0x140260C2C (SmAlloc.c)
- *     RtlSetAllBits @ 0x140262CA0 (RtlSetAllBits.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     SmStoreResize @ 0x1409D4A38 (SmStoreResize.c)
- *     SmcCacheReference @ 0x1409D7C2C (SmcCacheReference.c)
- *     SmcStoreEntryFind @ 0x1409D843C (SmcStoreEntryFind.c)
- *     SmcStorePlacementGet @ 0x1409D847C (SmcStorePlacementGet.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
+ *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
+ *     SmStoreResize @ 0x14092A658 (SmStoreResize.c)
+ *     SmcCacheReference @ 0x14092D704 (SmcCacheReference.c)
+ *     SmcStoreEntryFind @ 0x14092DF18 (SmcStoreEntryFind.c)
+ *     SmcStorePlacementGet @ 0x14092DF58 (SmcStorePlacementGet.c)
  */
 
 __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
 {
-  struct _PRIVILEGE_SET *v3; // rsi
-  unsigned int v4; // edx
-  __int64 v5; // rax
-  __int64 v6; // rdi
+  unsigned int v3; // edx
+  struct _PRIVILEGE_SET *NonPaged; // rsi
+  struct _EX_RUNDOWN_REF v5; // rax
+  unsigned __int64 Count; // rdi
   int v7; // edi
   __int64 v8; // rax
   ULONG *v9; // r13
@@ -34,45 +34,45 @@ __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
   volatile signed __int64 *v13; // r14
   struct _EX_RUNDOWN_REF *v14; // rax
   struct _EX_RUNDOWN_REF *v15; // rdi
-  struct _PRIVILEGE_SET *v16; // rcx
-  _DWORD *Count; // rdx
-  struct _PRIVILEGE_SET *v18; // r8
-  ULONG PrivilegeCount; // eax
+  struct _PRIVILEGE_SET *v16; // r8
+  unsigned __int64 v17; // rdx
+  unsigned __int64 v18; // r9
+  _DWORD *v19; // rcx
   struct _KTHREAD *v20; // rax
-  _DWORD *v21; // rdx
-  struct _PRIVILEGE_SET *v22; // rcx
-  struct _PRIVILEGE_SET *v23; // r8
-  ULONG v24; // eax
+  _DWORD *v21; // rcx
+  unsigned __int64 v22; // r9
+  struct _PRIVILEGE_SET *v23; // rdx
+  unsigned __int64 v24; // r8
   RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-30h] BYREF
   __int128 v27; // [rsp+40h] [rbp-20h] BYREF
   __int64 v28; // [rsp+50h] [rbp-10h]
   int v30; // [rsp+A8h] [rbp+48h]
   struct _EX_RUNDOWN_REF *v31; // [rsp+B0h] [rbp+50h]
 
-  v30 = 0;
-  v3 = 0LL;
-  v4 = a2[1];
+  v3 = a2[1];
   v28 = 0LL;
+  NonPaged = 0LL;
+  v30 = 0;
   v27 = 0LL;
   BitMapHeader = 0LL;
-  v5 = SmcCacheReference(a1, v4);
-  v6 = v5;
-  if ( !v5 )
+  v5.Count = SmcCacheReference(a1, v3).Count;
+  Count = v5.Count;
+  if ( !v5.Count )
     return (unsigned int)-1073741672;
-  v8 = *(unsigned int *)(v5 + 8);
+  v8 = *(unsigned int *)(v5.Count + 8);
   v9 = a2 + 4;
   if ( a2[4] > (unsigned int)v8 )
   {
     v7 = -1073741811;
-    goto LABEL_31;
+    goto LABEL_35;
   }
   v10 = (unsigned __int64)(v8 + 31) >> 5;
-  v3 = (struct _PRIVILEGE_SET *)SmAlloc((unsigned int)(4 * v10), 0x72436D73u);
-  if ( v3 )
+  NonPaged = (struct _PRIVILEGE_SET *)SSHSupportAllocateNonPaged((unsigned int)(4 * v10), 0x72436D73u);
+  if ( NonPaged )
   {
     v11 = (*a2 & 0x100) == 0;
-    BitMapHeader.SizeOfBitMap = *(_DWORD *)(v6 + 8);
-    BitMapHeader.Buffer = &v3->PrivilegeCount;
+    BitMapHeader.SizeOfBitMap = *(_DWORD *)(Count + 8);
+    BitMapHeader.Buffer = &NonPaged->PrivilegeCount;
     if ( v11 )
     {
       RtlClearAllBits(&BitMapHeader);
@@ -80,37 +80,41 @@ __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
     else
     {
       RtlSetAllBits(&BitMapHeader);
-      v28 = 0LL;
       DWORD1(v27) |= 4u;
-      *((_QWORD *)&v27 + 1) = v3;
+      v28 = 0LL;
+      *((_QWORD *)&v27 + 1) = NonPaged;
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v13 = (volatile signed __int64 *)(v6 + 160);
-    ExAcquirePushLockExclusiveEx(v6 + 160, 0LL);
-    v14 = (struct _EX_RUNDOWN_REF *)SmcStoreEntryFind(v6, a2[2], a2[3]);
+    v13 = (volatile signed __int64 *)(Count + 160);
+    ExAcquirePushLockExclusiveEx(Count + 160, 0LL);
+    v14 = (struct _EX_RUNDOWN_REF *)SmcStoreEntryFind(Count, a2[2], a2[3]);
     v31 = v14;
     if ( v14 )
     {
-      v30 = ExAcquireRundownProtection(v14 + 2);
+      v30 = ExAcquireRundownProtection_0(v14 + 2);
       if ( (*a2 & 0x100) != 0 )
       {
-        v7 = SmcStorePlacementGet(v6, *v9, (__int64)&v27);
+        v7 = SmcStorePlacementGet(Count, *v9, (__int64)&v27);
         if ( v7 < 0 )
-          goto LABEL_26;
+          goto LABEL_30;
         v15 = v31;
-        v16 = v3;
-        Count = (_DWORD *)v31[1].Count;
-        v18 = (struct _PRIVILEGE_SET *)((char *)v3 + 4 * (unsigned int)v10);
-        if ( v3 < v18 )
+        v16 = NonPaged;
+        v17 = (unsigned int)v10;
+        v18 = 0LL;
+        v19 = (_DWORD *)v31[1].Count;
+        if ( NonPaged > (struct _PRIVILEGE_SET *)((char *)NonPaged + 4 * (unsigned int)v10) )
+          v17 = 0LL;
+        if ( v17 )
         {
           do
           {
-            PrivilegeCount = v16->PrivilegeCount;
+            ++v18;
+            *v19 |= v16->PrivilegeCount;
             v16 = (struct _PRIVILEGE_SET *)((char *)v16 + 4);
-            *Count++ |= PrivilegeCount;
+            ++v19;
           }
-          while ( v16 < v18 );
+          while ( v18 < v17 );
         }
       }
       else
@@ -125,26 +129,30 @@ __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
       if ( (*a2 & 0x100) != 0 || !*v9 )
       {
         v7 = 0;
-LABEL_29:
+LABEL_33:
         if ( v30 )
-          ExReleaseRundownProtection(v31 + 2);
-        goto LABEL_31;
+          ExReleaseRundownProtection_0(v31 + 2);
+        goto LABEL_35;
       }
       v20 = KeGetCurrentThread();
       --v20->KernelApcDisable;
       ExAcquirePushLockExclusiveEx((ULONG_PTR)v13, 0LL);
       v21 = (_DWORD *)v15[1].Count;
-      v22 = v3;
-      v23 = (struct _PRIVILEGE_SET *)((char *)v3 + 4 * (unsigned int)v10);
-      if ( v3 < v23 )
+      v22 = (unsigned int)v10;
+      v23 = NonPaged;
+      v24 = 0LL;
+      if ( NonPaged > (struct _PRIVILEGE_SET *)((char *)NonPaged + 4 * (unsigned int)v10) )
+        v22 = 0LL;
+      if ( v22 )
       {
         do
         {
-          v24 = v22->PrivilegeCount;
-          v22 = (struct _PRIVILEGE_SET *)((char *)v22 + 4);
-          *v21++ ^= v24;
+          ++v24;
+          *v21 ^= v23->PrivilegeCount;
+          v23 = (struct _PRIVILEGE_SET *)((char *)v23 + 4);
+          ++v21;
         }
-        while ( v22 < v23 );
+        while ( v24 < v22 );
       }
       v7 = 0;
     }
@@ -152,17 +160,17 @@ LABEL_29:
     {
       v7 = -1073741672;
     }
-LABEL_26:
+LABEL_30:
     if ( (_InterlockedExchangeAdd64(v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v13);
     KeAbPostRelease((ULONG_PTR)v13);
     KeLeaveCriticalRegion();
-    goto LABEL_29;
+    goto LABEL_33;
   }
   v7 = -1073741670;
-LABEL_31:
-  ExReleaseRundownProtection((PEX_RUNDOWN_REF)(32LL * (a2[1] & 0xF) + a1 + 8));
-  if ( v3 )
-    CmSiFreeMemory(v3);
+LABEL_35:
+  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(32LL * (a2[1] & 0xF) + a1 + 8));
+  if ( NonPaged )
+    CmSiFreeMemory(NonPaged);
   return (unsigned int)v7;
 }

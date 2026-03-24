@@ -1,12 +1,19 @@
 /*
- * XREFs of _dynamic_atexit_destructor_for__CRadialGradientEffect::s_spCenteredCompiledEffectCache__ @ 0x180003EC0
+ * XREFs of _dynamic_atexit_destructor_for__CRadialGradientEffect::s_spCenteredCompiledEffectCache__ @ 0x1800F99B0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ??R?$default_delete@VCCompiledEffectCache@@@std@@QEBAXPEAVCCompiledEffectCache@@@Z @ 0x1800E6B54 (--R-$default_delete@VCCompiledEffectCache@@@std@@QEBAXPEAVCCompiledEffectCache@@@Z.c)
  */
 
-int dynamic_atexit_destructor_for__CRadialGradientEffect::s_spCenteredCompiledEffectCache__()
+CCompiledEffectCache *__fastcall dynamic_atexit_destructor_for__CRadialGradientEffect::s_spCenteredCompiledEffectCache__(
+        __int64 a1)
 {
-  return atexit((void (__cdecl *)())dynamic_atexit_destructor_for__CRadialGradientEffect::s_spCenteredCompiledEffectCache___0);
+  CCompiledEffectCache *result; // rax
+
+  if ( CRadialGradientEffect::s_spCenteredCompiledEffectCache )
+    return std::default_delete<CCompiledEffectCache>::operator()(
+             a1,
+             CRadialGradientEffect::s_spCenteredCompiledEffectCache);
+  return result;
 }

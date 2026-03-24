@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxFindAndReferenceAcpiDevice @ 0x1405CC3A0
+ * XREFs of PopFxFindAndReferenceAcpiDevice @ 0x14056ABE0
  * Callers:
- *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x1405DDD88 (PopFxAcpiForwardPepAcpiNotifyRequest.c)
+ *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x14057DE10 (PopFxAcpiForwardPepAcpiNotifyRequest.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     IoAcquireRemoveLockEx @ 0x1403553A0 (IoAcquireRemoveLockEx.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     IoAcquireRemoveLockEx @ 0x1402607C0 (IoAcquireRemoveLockEx.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PopFxFindAndReferenceAcpiDevice(__int64 *a1)
@@ -31,6 +31,6 @@ __int64 __fastcall PopFxFindAndReferenceAcpiDevice(__int64 *a1)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PopFxDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v3;
 }

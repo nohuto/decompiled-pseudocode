@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIncrementCompletionContextUsageCountAndReadData @ 0x1401B3FE4
+ * XREFs of IopIncrementCompletionContextUsageCountAndReadData @ 0x1401B4004
  * Callers:
- *     IopCompleteRequest @ 0x1400BFCF0 (IopCompleteRequest.c)
+ *     IopCompleteRequest @ 0x1400BFD10 (IopCompleteRequest.c)
  *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
  *     NtLockFile @ 0x1405FA000 (NtLockFile.c)
  * Callees:
  *     KeReleaseSpinLock @ 0x140063080 (KeReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall IopIncrementCompletionContextUsageCountAndReadData(

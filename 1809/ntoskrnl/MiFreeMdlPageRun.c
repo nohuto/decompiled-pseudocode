@@ -2,9 +2,9 @@
  * XREFs of MiFreeMdlPageRun @ 0x140029DE0
  * Callers:
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
- *     MiDeleteAweInfoPages @ 0x14084FD58 (MiDeleteAweInfoPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x14085FE84 (MiAllocatePartitionPhysicalPages.c)
- *     MiFreePartitionPageRun @ 0x140860364 (MiFreePartitionPageRun.c)
+ *     MiDeleteAweInfoPages @ 0x14084FD38 (MiDeleteAweInfoPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x14085FE64 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFreePartitionPageRun @ 0x140860344 (MiFreePartitionPageRun.c)
  * Callees:
  *     MiFreeLargePageMemory @ 0x140026200 (MiFreeLargePageMemory.c)
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)

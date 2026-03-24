@@ -1,12 +1,12 @@
 /*
- * XREFs of vProcessEntry @ 0x1C0105DF8
+ * XREFs of vProcessEntry @ 0x1C01193D8
  * Callers:
- *     QueryRegistryFontSubstituteListRoutine @ 0x1C03914B0 (QueryRegistryFontSubstituteListRoutine.c)
+ *     QueryRegistryFontSubstituteListRoutine @ 0x1C0394610 (QueryRegistryFontSubstituteListRoutine.c)
  * Callees:
- *     cCapString @ 0x1C0014ABC (cCapString.c)
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0014ED0 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     vCheckCharSet @ 0x1C0105ECC (vCheckCharSet.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0064CBC (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     cCapString @ 0x1C00BBE54 (cCapString.c)
+ *     vCheckCharSet @ 0x1C01194AC (vCheckCharSet.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall vProcessEntry(unsigned __int16 *a1, WCHAR *a2, void *a3)
@@ -22,27 +22,29 @@ __int64 __fastcall vProcessEntry(unsigned __int16 *a1, WCHAR *a2, void *a3)
   v6 = 0;
   if ( *v3 )
   {
-    while ( v3 < v5 )
+    do
     {
+      if ( v3 >= v5 )
+        break;
       v9 = v3 + 1;
       if ( *v3 == 44 )
-      {
-        if ( v3 == (unsigned __int16 *)-2LL )
-          goto LABEL_6;
-        v10 = v9 - a1;
-        vCheckCharSet(a2, v3 + 1);
-        goto LABEL_9;
-      }
+        goto LABEL_6;
       ++v3;
-      if ( !*v9 )
-        break;
     }
+    while ( *v9 );
   }
   v9 = 0LL;
 LABEL_6:
-  LODWORD(v10) = 32;
-  a2[32] = 257;
-LABEL_9:
+  if ( v9 )
+  {
+    v10 = v9 - a1;
+    vCheckCharSet(a2, v9);
+  }
+  else
+  {
+    LODWORD(v10) = 32;
+    a2[32] = 257;
+  }
   cCapString(a2, a1, v10);
   if ( a3 )
   {

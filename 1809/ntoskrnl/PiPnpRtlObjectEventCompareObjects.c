@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlObjectEventCompareObjects @ 0x1406AF380
+ * XREFs of PiPnpRtlObjectEventCompareObjects @ 0x1406AF360
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  */
 
 __int64 __fastcall PiPnpRtlObjectEventCompareObjects(

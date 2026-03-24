@@ -1,22 +1,25 @@
 /*
- * XREFs of McTemplateU0qqq_EventWriteTransfer @ 0x18012DF20
+ * XREFs of McTemplateU0qqq_EventWriteTransfer @ 0x180152748
  * Callers:
- *     ?ProcessBatches@CComposition@@IEAAJXZ @ 0x18004FCE0 (-ProcessBatches@CComposition@@IEAAJXZ.c)
- *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x180050DFC (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
- *     ?UpdateDXGIFactory@CDisplayManager@@AEAAJXZ @ 0x1800CE198 (-UpdateDXGIFactory@CDisplayManager@@AEAAJXZ.c)
- *     ?Partition_SwitchRemotingMode@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_SWITCHREMOTINGMODE@@@Z @ 0x180101798 (-Partition_SwitchRemotingMode@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUta.c)
- *     ?Present@CLegacySwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x18010A9E0 (-Present@CLegacySwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@I@Z.c)
- *     ?EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z @ 0x1801DD1F4 (-EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z.c)
- *     ?CheckCustomPresentDuration@CDirectFlipInfo@@IEAA_NXZ @ 0x1801F6EF0 (-CheckCustomPresentDuration@CDirectFlipInfo@@IEAA_NXZ.c)
- *     ?Present@CLegacyStereoSwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1802A0350 (-Present@CLegacyStereoSwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std.c)
+ *     ?UpdateDXGIFactory@CDisplayManager@@AEAAJXZ @ 0x18002ED30 (-UpdateDXGIFactory@CDisplayManager@@AEAAJXZ.c)
+ *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x180071D98 (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x180072020 (-PreRender@CComposition@@IEAAJXZ.c)
+ *     ?Partition_SwitchRemotingMode@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_SWITCHREMOTINGMODE@@@Z @ 0x1800DE65C (-Partition_SwitchRemotingMode@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUta.c)
+ *     ?Present@CLegacySwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1800F1D48 (-Present@CLegacySwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@I@Z.c)
+ *     ?Present@CLegacyStereoSwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1800F1E5C (-Present@CLegacyStereoSwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0qqq_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
+ULONG __fastcall McTemplateU0qqq_EventWriteTransfer(
+        __int64 a1,
+        const EVENT_DESCRIPTOR *a2,
+        __int64 a3,
+        int a4,
+        char a5)
 {
-  _BYTE v6[16]; // [rsp+30h] [rbp-50h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-50h] BYREF
   int *v7; // [rsp+40h] [rbp-40h]
   __int64 v8; // [rsp+48h] [rbp-38h]
   int *v9; // [rsp+50h] [rbp-30h]
@@ -34,5 +37,5 @@ __int64 __fastcall McTemplateU0qqq_EventWriteTransfer(__int64 a1, __int64 a2, __
   v11 = &a5;
   v10 = 4LL;
   v12 = 4LL;
-  return McGenEventWrite_EventWriteTransfer(&Microsoft_Windows_Dwm_Core_Provider_Context, a2, a3, 4LL, v6);
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, a3, 4u, &v6);
 }

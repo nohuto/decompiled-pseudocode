@@ -1,39 +1,32 @@
 /*
- * XREFs of NtUserSetProcessRestrictionExemption @ 0x1C01DC7E0
+ * XREFs of NtUserSetProcessRestrictionExemption @ 0x1C0202350
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserSetProcessRestrictionExemption(int a1)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rdi
+  __int64 v2; // rdi
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
+  __int64 v7; // rcx
 
-  EnterCrit(0LL, 0LL);
-  v3 = 0LL;
+  v2 = 1LL;
+  EnterCrit(0LL, 1LL);
   if ( (unsigned __int8)ExQueryFastCacheDevLicense() )
   {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v2);
-    if ( CurrentProcessWin32Process )
-    {
-      v6 = -*(_QWORD *)CurrentProcessWin32Process;
-      v5 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-      CurrentProcessWin32Process &= v5;
-    }
-    v3 = 1LL;
-    *(_DWORD *)(CurrentProcessWin32Process + 816) ^= (*(_DWORD *)(CurrentProcessWin32Process + 816) ^ (a1 << 8)) & 0x100;
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v4);
+    *(_DWORD *)(CurrentProcessWin32Process + 820) ^= (*(_DWORD *)(CurrentProcessWin32Process + 820) ^ (a1 << 8)) & 0x100;
   }
   else
   {
-    UserSetLastError(5);
+    UserSetLastError(5LL, v3, v5);
+    v2 = 0LL;
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
-  return v3;
+  UserSessionSwitchLeaveCrit(v7);
+  return v2;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PipGetRegistrySecurityWithFallback @ 0x1406F0344
+ * XREFs of PipGetRegistrySecurityWithFallback @ 0x1406F0324
  * Callers:
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x1406F05A8 (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x1406F0588 (PipChangeDeviceObjectFromRegistryProperties.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlValidRelativeSecurityDescriptor @ 0x1405AD180 (RtlValidRelativeSecurityDescriptor.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
  *     SeCaptureSecurityDescriptor @ 0x140630CC0 (SeCaptureSecurityDescriptor.c)
- *     _CmGetInstallerClassRegProp @ 0x1406F1254 (_CmGetInstallerClassRegProp.c)
+ *     _CmGetInstallerClassRegProp @ 0x1406F1234 (_CmGetInstallerClassRegProp.c)
  */
 
 __int64 __fastcall PipGetRegistrySecurityWithFallback(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)

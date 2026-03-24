@@ -1,8 +1,8 @@
 /*
- * XREFs of InitializeListHeadPte @ 0x14017004C
+ * XREFs of InitializeListHeadPte @ 0x14017006C
  * Callers:
- *     MiInitializeSpecialPool @ 0x1407155E8 (MiInitializeSpecialPool.c)
- *     MiInitializeSystemCache @ 0x14072A6BC (MiInitializeSystemCache.c)
+ *     MiInitializeSpecialPool @ 0x1407155C8 (MiInitializeSpecialPool.c)
+ *     MiInitializeSystemCache @ 0x14072A69C (MiInitializeSystemCache.c)
  * Callees:
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  */

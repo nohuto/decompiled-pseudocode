@@ -1,18 +1,23 @@
 /*
- * XREFs of GetPrimaryMonitorRect @ 0x1C00F266C
+ * XREFs of GetPrimaryMonitorRect @ 0x1C00FFCB4
  * Callers:
- *     xxxBroadcastDisplaySettingsChange @ 0x1C00F2460 (xxxBroadcastDisplaySettingsChange.c)
- *     _GetClientRect @ 0x1C00F2600 (_GetClientRect.c)
- *     xxxSoundSentry @ 0x1C011B3AC (xxxSoundSentry.c)
+ *     xxxBroadcastDisplaySettingsChange @ 0x1C00FFA40 (xxxBroadcastDisplaySettingsChange.c)
+ *     _GetClientRect @ 0x1C00FFC48 (_GetClientRect.c)
+ *     xxxSoundSentry @ 0x1C015DA30 (xxxSoundSentry.c)
  * Callees:
- *     GetMonitorRect @ 0x1C007CB08 (GetMonitorRect.c)
+ *     GetMonitorRect @ 0x1C0041DF8 (GetMonitorRect.c)
  */
 
-__int64 __fastcall GetPrimaryMonitorRect(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+_OWORD *__fastcall GetPrimaryMonitorRect(_OWORD *a1, __int64 a2)
 {
   __int64 DispInfo; // rax
+  __int128 v4; // xmm0
+  _OWORD *result; // rax
+  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
 
-  DispInfo = GetDispInfo(a1, a2, a3, a4);
-  GetMonitorRect(a1, *(_QWORD *)(DispInfo + 96));
-  return a1;
+  DispInfo = GetDispInfo(a1, a2);
+  v4 = *GetMonitorRect(&v6, *(_QWORD *)(DispInfo + 96));
+  result = a1;
+  *a1 = v4;
+  return result;
 }

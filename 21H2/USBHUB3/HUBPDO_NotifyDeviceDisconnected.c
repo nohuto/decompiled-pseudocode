@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBPDO_NotifyDeviceDisconnected @ 0x1C00162B4
+ * XREFs of HUBPDO_NotifyDeviceDisconnected @ 0x1C0015DEC
  * Callers:
- *     HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending @ 0x1C001D2A0 (HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending.c)
- *     HUBDSM_NotifyingDeviceDisconnectedOnDetachWithSpecialFile @ 0x1C001D420 (HUBDSM_NotifyingDeviceDisconnectedOnDetachWithSpecialFile.c)
- *     HUBDSM_PurgingDeviceIoOnDetachInConfigured @ 0x1C001D490 (HUBDSM_PurgingDeviceIoOnDetachInConfigured.c)
- *     HUBDSM_ReportingDeviceMissing @ 0x1C001D7D0 (HUBDSM_ReportingDeviceMissing.c)
- *     HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured @ 0x1C001E170 (HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured.c)
+ *     HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending @ 0x1C001CD60 (HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending.c)
+ *     HUBDSM_NotifyingDeviceDisconnectedOnDetachWithSpecialFile @ 0x1C001CEE0 (HUBDSM_NotifyingDeviceDisconnectedOnDetachWithSpecialFile.c)
+ *     HUBDSM_PurgingDeviceIoOnDetachInConfigured @ 0x1C001CF50 (HUBDSM_PurgingDeviceIoOnDetachInConfigured.c)
+ *     HUBDSM_ReportingDeviceMissing @ 0x1C001D290 (HUBDSM_ReportingDeviceMissing.c)
+ *     HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured @ 0x1C001DC30 (HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured.c)
  * Callees:
- *     HUBREG_DeleteUxdSettings @ 0x1C00823BC (HUBREG_DeleteUxdSettings.c)
+ *     HUBREG_DeleteUxdSettings @ 0x1C0080E50 (HUBREG_DeleteUxdSettings.c)
  */
 
 __int64 __fastcall HUBPDO_NotifyDeviceDisconnected(__int64 a1)

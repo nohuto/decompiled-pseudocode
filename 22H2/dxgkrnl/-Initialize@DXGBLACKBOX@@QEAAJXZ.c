@@ -1,37 +1,31 @@
 /*
- * XREFs of ?Initialize@DXGBLACKBOX@@QEAAJXZ @ 0x1C022719C
+ * XREFs of ?Initialize@DXGBLACKBOX@@QEAAJXZ @ 0x1C017D634
  * Callers:
- *     ?Initialize@DisplayDiagnostics@@QEAAXXZ @ 0x1C002368C (-Initialize@DisplayDiagnostics@@QEAAXXZ.c)
+ *     ?Initialize@DisplayDiagnostics@@QEAAXXZ @ 0x1C0021A10 (-Initialize@DisplayDiagnostics@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 __int64 __fastcall DXGBLACKBOX::Initialize(DXGBLACKBOX *this)
 {
   _DWORD *v2; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v6; // rax
 
-  v2 = (_DWORD *)operator new[](0x1000uLL, 0x4B677844u, 64LL);
-  *((_QWORD *)this + 7) = v2;
+  v2 = operator new[](0x1000uLL, 0x4B677844u, (POOL_TYPE)512);
+  *((_QWORD *)this + 6) = v2;
   if ( v2 )
   {
     *v2 = 2;
-    *(_DWORD *)(*((_QWORD *)this + 7) + 4LL) = 8;
+    *(_DWORD *)(*((_QWORD *)this + 6) + 4LL) = 8;
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, 42LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DXGBLACKBOX::Initialize() couldn't allocate data buffer.",
-      42LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdError(v4, v3);
+    *(_QWORD *)(v6 + 24) = 42LL;
+    WdLogEvent5_WdError(v6);
     return 3221225495LL;
   }
 }

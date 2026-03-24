@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_EDataProviderRegistrarPrincipal@@UEAAPEAXI@Z @ 0x1801E0B90
+ * XREFs of ??_EDataProviderRegistrarPrincipal@@UEAAPEAXI@Z @ 0x18017E2F0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ??1DataProviderRegistrarPrincipal@@UEAA@XZ @ 0x1801E09F0 (--1DataProviderRegistrarPrincipal@@UEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ @ 0x1800D7310 (-Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 DataProviderRegistrarPrincipal *__fastcall DataProviderRegistrarPrincipal::`vector deleting destructor'(
@@ -14,14 +14,20 @@ DataProviderRegistrarPrincipal *__fastcall DataProviderRegistrarPrincipal::`vect
         __int64 a3,
         const char *a4)
 {
-  char v4; // di
+  char v5; // di
+  Microsoft::BamoImpl::BamoImplObject *v6; // rcx
 
-  v4 = a2;
-  DataProviderRegistrarPrincipal::~DataProviderRegistrarPrincipal(this, a2, a3, a4);
-  if ( (v4 & 1) != 0 )
+  *((_QWORD *)this + 7) = 0LL;
+  *(_QWORD *)this = &DataProviderRegistrarPrincipal::`vftable'{for `Microsoft::Bamo::BamoPrincipal'};
+  v5 = a2;
+  *((_QWORD *)this + 1) = &BamoDataProviderRegistrarPrincipal::`vftable'{for `IDataProviderRegistrarPrincipal'};
+  v6 = (Microsoft::BamoImpl::BamoImplObject *)*((_QWORD *)this + 4);
+  if ( v6 )
+    Microsoft::BamoImpl::BamoImplObject::Release(v6, a2, a3, a4);
+  if ( (v5 & 1) != 0 )
   {
-    if ( (v4 & 4) != 0 )
-      __global_delete(this);
+    if ( (v5 & 4) != 0 )
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x40);
     else
       operator delete(this);
   }

@@ -1,163 +1,119 @@
 /*
- * XREFs of ?SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800D3270
+ * XREFs of ?SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800C3CA0
  * Callers:
  *     <none>
  * Callees:
- *     ?UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z @ 0x18009B580 (-UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z.c)
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3@Z @ 0x1800BB224 (--$Write@U-$_tlgWrapperByVal@$03@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUI.c)
- *     ?FindElement@?$CGenericTableMap@IVCAnimationSourceMapEntry@@@@QEAAPEAVCAnimationSourceMapEntry@@I@Z @ 0x1800BCD08 (-FindElement@-$CGenericTableMap@IVCAnimationSourceMapEntry@@@@QEAAPEAVCAnimationSourceMapEntry@@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetPlaybackRate@CKeyframeAnimation@@AEAAXM@Z @ 0x1800D3370 (-SetPlaybackRate@CKeyframeAnimation@@AEAAXM@Z.c)
- *     ?GetTracingCookie@CBaseExpression@@QEBAIXZ @ 0x1800E254C (-GetTracingCookie@CBaseExpression@@QEBAIXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AdjustAllKeyframeTime@CKeyframeAnimation@@AEAAXM@Z @ 0x180239C88 (-AdjustAllKeyframeTime@CKeyframeAnimation@@AEAAXM@Z.c)
- *     ?SetInitialDelay@CKeyframeAnimation@@AEAAJM@Z @ 0x18023A364 (-SetInitialDelay@CKeyframeAnimation@@AEAAJM@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetTracingCookie@CBaseExpression@@QEBAIXZ @ 0x1800CC514 (-GetTracingCookie@CBaseExpression@@QEBAIXZ.c)
+ *     ?UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z @ 0x1800CC910 (-UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z.c)
+ *     ?SetProgress@CKeyframeAnimation@@AEAAXM@Z @ 0x1800D5D94 (-SetProgress@CKeyframeAnimation@@AEAAXM@Z.c)
+ *     ?SetPlaybackRate@CKeyframeAnimation@@AEAAXM@Z @ 0x1800D7FC8 (-SetPlaybackRate@CKeyframeAnimation@@AEAAXM@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3@Z @ 0x180161A78 (--$Write@U-$_tlgWrapperByVal@$03@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUI.c)
+ *     ?AdjustAllKeyframeTime@CKeyframeAnimation@@AEAAXM@Z @ 0x1801D10C4 (-AdjustAllKeyframeTime@CKeyframeAnimation@@AEAAXM@Z.c)
+ *     ?SetInitialDelay@CKeyframeAnimation@@AEAAJM@Z @ 0x1801D1978 (-SetInitialDelay@CKeyframeAnimation@@AEAAJM@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::SetProperty(__int64 a1, int a2, int a3, float *a4)
 {
-  float v5; // xmm2_4
-  __int64 v6; // rax
-  __int64 v7; // rdi
-  struct _RTL_GENERIC_TABLE *v8; // rcx
-  __int64 v10; // rax
+  __int64 v5; // rax
+  unsigned int v6; // ebx
   int updated; // eax
-  __int64 v12; // rcx
-  unsigned int v13; // ebx
-  __int64 v14; // rax
-  _QWORD *Element; // rax
-  __int64 i; // r8
-  __int64 v17; // rcx
-  int v18; // eax
-  __int64 v19; // rcx
-  unsigned int v20; // edi
+  int v9; // r9d
   unsigned int TracingCookie; // eax
-  __int64 v22; // r8
-  __int64 v23; // r9
-  void *v24; // rdx
-  unsigned int v25[6]; // [rsp+30h] [rbp-18h] BYREF
-  float v26; // [rsp+60h] [rbp+18h] BYREF
+  int v11; // r8d
+  int v12; // r9d
+  void *v13; // rdx
+  unsigned int v14; // [rsp+20h] [rbp-28h]
+  unsigned int v15[6]; // [rsp+30h] [rbp-18h] BYREF
+  float v16; // [rsp+60h] [rbp+18h] BYREF
 
   if ( a3 == 18 )
   {
-    if ( a2 != 24 )
+    switch ( a2 )
     {
-      if ( a2 == 31 )
-      {
-        CKeyframeAnimation::SetPlaybackRate((CKeyframeAnimation *)a1, *a4);
-        return 0LL;
-      }
-      if ( a2 == 33 )
-      {
-        v5 = *a4;
-        if ( *(float *)(a1 + 532) != *a4 )
+      case 24:
+        v5 = *(_QWORD *)(a1 + 416);
+        *(float *)(a1 + 524) = fminf(fmaxf(*a4, 0.0), 1.0);
+        if ( (*(_BYTE *)(v5 + 112) & 4) != 0 )
         {
-          v6 = *(_QWORD *)(a1 + 16);
-          *(_BYTE *)(a1 + 580) |= 4u;
-          *(float *)(a1 + 532) = fminf(1.0, fmaxf(v5, 0.0));
-          v7 = *(_QWORD *)(v6 + 496);
-          if ( v7 == *(_QWORD *)(v6 + 504) )
+          if ( *(_DWORD *)(a1 + 528) )
           {
-            v14 = v7 + 1;
-            v7 = 1LL;
-            if ( v14 )
-              v7 = v14;
-          }
-          v8 = *(struct _RTL_GENERIC_TABLE **)(a1 + 40);
-          if ( v8 )
-          {
-            Element = CGenericTableMap<unsigned int,CAnimationSourceMapEntry>::FindElement(v8, 33);
-            if ( Element )
+            updated = CKeyframeAnimation::UpdatePlaybackState(a1, 0LL, 0LL, 0LL);
+            v6 = updated;
+            if ( updated < 0 )
             {
-              if ( Element != (_QWORD *)-8LL )
-              {
-                for ( i = 0LL; (unsigned int)i < *((_DWORD *)Element + 8); *(_QWORD *)(v17 + 296) = v7 )
-                {
-                  v17 = *(_QWORD *)(Element[1] + 8 * i);
-                  i = (unsigned int)(i + 1);
-                }
-                *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) + 448LL) |= 2u;
-                (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**(_QWORD **)(*(_QWORD *)(a1 + 16) + 656LL) + 32LL))(
-                  *(_QWORD *)(*(_QWORD *)(a1 + 16) + 656LL),
-                  0LL,
-                  8LL);
-              }
+              v14 = 2070;
+LABEL_10:
+              v9 = updated;
+LABEL_33:
+              MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, v9, v14, 0LL);
+              return v6;
             }
           }
         }
-        return 0LL;
-      }
-      goto LABEL_38;
+        return 0;
+      case 31:
+        CKeyframeAnimation::SetPlaybackRate((CKeyframeAnimation *)a1, *a4);
+        return 0;
+      case 33:
+        CKeyframeAnimation::SetProgress((CKeyframeAnimation *)a1, *a4);
+        return 0;
     }
-    v10 = *(_QWORD *)(a1 + 448);
-    *(float *)(a1 + 556) = fminf(fmaxf(*a4, 0.0), 1.0);
-    if ( *(_BYTE *)(v10 + 122) )
-    {
-      if ( *(_DWORD *)(a1 + 560) )
-      {
-        updated = CKeyframeAnimation::UpdatePlaybackState(a1, 0, 0, 0LL);
-        v13 = updated;
-        if ( updated < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, updated, 0x864u, 0LL);
-          return v13;
-        }
-      }
-    }
-    return 0LL;
+LABEL_32:
+    v6 = -2147024809;
+    v9 = -2147024809;
+    v14 = 2127;
+    goto LABEL_33;
   }
-  if ( a3 == 42 )
+  if ( a3 != 42 )
+    goto LABEL_32;
+  if ( a2 != 16 )
   {
-    if ( a2 == 16 )
+    if ( a2 != 30 )
+      goto LABEL_32;
+    v16 = *a4;
+    if ( v16 < 1.0 )
+      return 0;
+    CKeyframeAnimation::AdjustAllKeyframeTime((CKeyframeAnimation *)a1, v16);
+    if ( *(int *)(*(_QWORD *)(a1 + 304) + 4LL) >= 0
+      || (unsigned int)dword_180344E80 <= 4
+      || (qword_180344E90 & 4) == 0
+      || (qword_180344E98 & 4) != qword_180344E98 )
     {
-      v26 = *a4;
-      if ( v26 <= 0.0 )
-        return 0LL;
-      v18 = CKeyframeAnimation::SetInitialDelay((CKeyframeAnimation *)a1, v26);
-      v20 = v18;
-      if ( v18 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x86Du, 0LL);
-        return v20;
-      }
-      if ( (*(_DWORD *)(*(_QWORD *)(a1 + 328) + 4LL) & 0x40000000) == 0
-        || (unsigned int)dword_1803E3798 <= 4
-        || !tlgKeywordOn((__int64)&dword_1803E3798, 4LL) )
-      {
-        return 0LL;
-      }
-      TracingCookie = CBaseExpression::GetTracingCookie((CBaseExpression *)a1);
-      v24 = &unk_180380E18;
-LABEL_37:
-      v25[0] = TracingCookie;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        (int)&dword_1803E3798,
-        (int)v24,
-        v22,
-        v23,
-        (__int64)v25,
-        (__int64)&v26);
-      return 0LL;
+      return 0;
     }
-    if ( a2 == 30 )
+    TracingCookie = CBaseExpression::GetTracingCookie((CBaseExpression *)a1);
+    v13 = &unk_1802E8DB5;
+LABEL_31:
+    v15[0] = TracingCookie;
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      (unsigned int)&dword_180344E80,
+      (_DWORD)v13,
+      v11,
+      v12,
+      (__int64)v15,
+      (__int64)&v16);
+    return 0;
+  }
+  v16 = *a4;
+  if ( v16 > 0.0 )
+  {
+    updated = CKeyframeAnimation::SetInitialDelay((CKeyframeAnimation *)a1, v16);
+    v6 = updated;
+    if ( updated < 0 )
     {
-      v26 = *a4;
-      if ( v26 < 1.0 )
-        return 0LL;
-      CKeyframeAnimation::AdjustAllKeyframeTime((CKeyframeAnimation *)a1, v26);
-      if ( (*(_DWORD *)(*(_QWORD *)(a1 + 328) + 4LL) & 0x40000000) == 0
-        || (unsigned int)dword_1803E3798 <= 4
-        || !tlgKeywordOn((__int64)&dword_1803E3798, 4LL) )
-      {
-        return 0LL;
-      }
+      v14 = 2079;
+      goto LABEL_10;
+    }
+    if ( *(int *)(*(_QWORD *)(a1 + 304) + 4LL) < 0
+      && (unsigned int)dword_180344E80 > 4
+      && (qword_180344E90 & 4) != 0
+      && (qword_180344E98 & 4) == qword_180344E98 )
+    {
       TracingCookie = CBaseExpression::GetTracingCookie((CBaseExpression *)a1);
-      v24 = &unk_180380E5A;
-      goto LABEL_37;
+      v13 = &unk_1802E8D73;
+      goto LABEL_31;
     }
   }
-LABEL_38:
-  MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x89Du, 0LL);
-  return 2147942487LL;
+  return 0;
 }

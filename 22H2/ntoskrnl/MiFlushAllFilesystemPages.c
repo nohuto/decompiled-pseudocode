@@ -1,33 +1,36 @@
 /*
- * XREFs of MiFlushAllFilesystemPages @ 0x140629304
+ * XREFs of MiFlushAllFilesystemPages @ 0x140535508
  * Callers:
- *     MiInPageSingleKernelStack @ 0x14021B110 (MiInPageSingleKernelStack.c)
- *     MiGetNextPageTablePte @ 0x14025CF80 (MiGetNextPageTablePte.c)
- *     MiMakeSystemAddressValid @ 0x140277310 (MiMakeSystemAddressValid.c)
- *     MiWaitForInPageComplete @ 0x1402A1680 (MiWaitForInPageComplete.c)
- *     MiLockPagedAddress @ 0x1402ED4F0 (MiLockPagedAddress.c)
- *     MiMakeOutswappedPageResident @ 0x1406185DC (MiMakeOutswappedPageResident.c)
- *     MiShutdownSystem @ 0x140AABC30 (MiShutdownSystem.c)
+ *     MiGetNextPageTablePte @ 0x14020CD70 (MiGetNextPageTablePte.c)
+ *     MiCommitExistingVad @ 0x140218D50 (MiCommitExistingVad.c)
+ *     MiMakeSystemAddressValid @ 0x14028EA10 (MiMakeSystemAddressValid.c)
+ *     MiWaitForInPageComplete @ 0x14029B880 (MiWaitForInPageComplete.c)
+ *     MiSetProtectionOnSection @ 0x1402B3300 (MiSetProtectionOnSection.c)
+ *     MiInPageSingleKernelStack @ 0x1403561A0 (MiInPageSingleKernelStack.c)
+ *     MiLockPagedAddress @ 0x14036B274 (MiLockPagedAddress.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BA00 (MiMakeOutswappedPageResident.c)
+ *     MiShutdownSystem @ 0x1409AFEF8 (MiShutdownSystem.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     CcForEachPartition @ 0x140310BEC (CcForEachPartition.c)
- *     MiIsWorkingSetTrimThread @ 0x1403531E0 (MiIsWorkingSetTrimThread.c)
- *     MiEmptyAllWorkingSets @ 0x140634748 (MiEmptyAllWorkingSets.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     CcForEachPartition @ 0x140279290 (CcForEachPartition.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     MiIsWorkingSetTrimThread @ 0x14031E080 (MiIsWorkingSetTrimThread.c)
+ *     MiEmptyAllWorkingSets @ 0x14053B138 (MiEmptyAllWorkingSets.c)
  */
 
 __int64 MiFlushAllFilesystemPages()
 {
   __int64 result; // rax
-  __int64 (__fastcall *v1)(__int64); // r8
-  int v2; // r9d
-  int v3; // edi
-  unsigned int i; // ebx
+  __int64 (__fastcall *v1)(__int64); // rdx
+  int v2; // r8d
+  unsigned int v3; // ebx
+  int v4; // edi
 
   result = KeGetCurrentIrql();
   if ( (unsigned __int8)result <= 1u )
   {
     result = MiIsWorkingSetTrimThread();
+    v3 = 0;
     if ( !(_DWORD)result )
     {
       result = (__int64)MiModifiedPageWriter;
@@ -38,38 +41,35 @@ __int64 MiFlushAllFilesystemPages()
         {
           if ( v2 == 1 )
           {
-            result = (unsigned int)_InterlockedIncrement(&dword_140C67F48);
+            result = (unsigned int)_InterlockedIncrement(&dword_140C4E6C8);
             if ( (_DWORD)result != 1 )
               return result;
-            MiEmptyAllWorkingSets(MiSystemPartition);
+            MiEmptyAllWorkingSets(&MiSystemPartition);
           }
-          _InterlockedAdd(&dword_140C6B83C, 1u);
-          result = qword_140C6F9C0;
-          if ( qword_140C6F9C0 != qword_140C6FAA0 )
+          _InterlockedIncrement(&dword_140C51094);
+          result = qword_140C52B30;
+          if ( qword_140C52AC0 != qword_140C52B30 )
           {
-            v3 = dword_140C6B7D4;
-LABEL_10:
-            for ( i = 0; i < 0xFF; ++i )
+            v4 = dword_140C5102C;
+            do
             {
-              KeSetEvent(&stru_140C6B840, 0, 0);
-              CcForEachPartition(
-                (unsigned __int8 (__fastcall *)(__int64, _QWORD, __int64))CcNotifyWriteBehindHelper,
-                2LL,
-                0,
-                0);
-              result = qword_140C6F9C0;
-              if ( qword_140C6F9C0 == qword_140C6FAA0 )
+              KeSetEvent(&stru_140C51098, 0, 0);
+              CcForEachPartition((__int64 (__fastcall *)(__int64, __int64))CcNotifyWriteBehindHelper, 2LL, 0);
+              result = qword_140C52B30;
+              if ( qword_140C52AC0 == qword_140C52B30 )
                 break;
               KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&Mi30Milliseconds);
-              result = (unsigned int)dword_140C6B7D4;
-              if ( v3 != dword_140C6B7D4 )
+              result = (unsigned int)dword_140C5102C;
+              if ( v4 != dword_140C5102C )
               {
-                v3 = dword_140C6B7D4;
-                goto LABEL_10;
+                v4 = dword_140C5102C;
+                v3 = -1;
               }
+              ++v3;
             }
+            while ( v3 < 0xFF );
           }
-          _InterlockedDecrement(&dword_140C6B83C);
+          _InterlockedDecrement(&dword_140C51094);
         }
       }
     }

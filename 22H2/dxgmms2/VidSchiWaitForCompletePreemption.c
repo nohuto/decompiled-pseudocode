@@ -1,13 +1,13 @@
 /*
- * XREFs of VidSchiWaitForCompletePreemption @ 0x1C0106E4C
+ * XREFs of VidSchiWaitForCompletePreemption @ 0x1C00CF594
  * Callers:
- *     VidSchiSwitchFromSuspendedDevices @ 0x1C00046B0 (VidSchiSwitchFromSuspendedDevices.c)
- *     VidSchiCompletePreemption @ 0x1C003A478 (VidSchiCompletePreemption.c)
- *     VidSchiCompleteAllPendingCommand @ 0x1C0046E10 (VidSchiCompleteAllPendingCommand.c)
+ *     VidSchiSwitchFromSuspendedDevices @ 0x1C0016990 (VidSchiSwitchFromSuspendedDevices.c)
+ *     VidSchiCompletePreemption @ 0x1C002F28C (VidSchiCompletePreemption.c)
+ *     VidSchiCompleteAllPendingCommand @ 0x1C003C880 (VidSchiCompleteAllPendingCommand.c)
  * Callees:
- *     VidSchiProfilePerformanceTick @ 0x1C000AA30 (VidSchiProfilePerformanceTick.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     VidSchWaitForCompletionEvent @ 0x1C0087E2C (VidSchWaitForCompletionEvent.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C000B6D0 (VidSchiProfilePerformanceTick.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C0080A40 (VidSchWaitForCompletionEvent.c)
  */
 
 __int64 __fastcall VidSchiWaitForCompletePreemption(__int64 a1)

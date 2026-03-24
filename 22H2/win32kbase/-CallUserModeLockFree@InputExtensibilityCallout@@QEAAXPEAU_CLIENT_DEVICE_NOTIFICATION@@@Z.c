@@ -1,21 +1,26 @@
 /*
- * XREFs of ?CallUserModeLockFree@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z @ 0x1C01DC5D0
+ * XREFs of ?CallUserModeLockFree@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z @ 0x1C01A2ED0
  * Callers:
- *     InvokeMouseCursorPositionCallout @ 0x1C01E8470 (InvokeMouseCursorPositionCallout.c)
- *     ?UserModeCallout@MouseInterceptState@CMouseProcessor@@QEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01FB67C (-UserModeCallout@MouseInterceptState@CMouseProcessor@@QEAA-AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_M.c)
+ *     ?UserModeCallout@MouseInterceptState@CMouseProcessor@@QEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01C225C (-UserModeCallout@MouseInterceptState@CMouseProcessor@@QEAA-AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_M.c)
  * Callees:
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0057EC8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     ApiSetEditionInputExtensibilityCallout @ 0x1C020683C (ApiSetEditionInputExtensibilityCallout.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0043670 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     ApiSetEditionInputExtensibilityCallout @ 0x1C01CBE40 (ApiSetEditionInputExtensibilityCallout.c)
  */
 
 void __fastcall InputExtensibilityCallout::CallUserModeLockFree(
         InputExtensibilityCallout *this,
         struct _CLIENT_DEVICE_NOTIFICATION *a2)
 {
-  if ( !CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc)
-    && !CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.CurrentIrp) )
-  {
+  CInputThread *v2; // rdi
+  bool v5; // bl
+
+  v2 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v2, 0LL);
+  v5 = CInputThread::_CalledOnInputThread(v2);
+  ExReleasePushLockSharedEx(v2, 0LL);
+  KeLeaveCriticalRegion();
+  if ( !v5 )
     KeBugCheck(0x164u);
-  }
   ApiSetEditionInputExtensibilityCallout(*(_QWORD *)this, a2);
 }

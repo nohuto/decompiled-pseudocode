@@ -1,12 +1,12 @@
 /*
- * XREFs of PspBoostJobIoPriorityCallback @ 0x1406CA810
+ * XREFs of PspBoostJobIoPriorityCallback @ 0x1406ABCA0
  * Callers:
  *     <none>
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140280754 (IoBoostThreadIoPriority.c)
- *     PsGetIoPriorityThread @ 0x14033D760 (PsGetIoPriorityThread.c)
- *     PspGetNextJobProcess @ 0x1406CA970 (PspGetNextJobProcess.c)
- *     PsGetNextProcessThread @ 0x1407E7750 (PsGetNextProcessThread.c)
+ *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
+ *     IoBoostThreadIoPriority @ 0x140358630 (IoBoostThreadIoPriority.c)
+ *     PspGetNextJobProcess @ 0x1406ABE00 (PspGetNextJobProcess.c)
+ *     PsGetNextProcessThread @ 0x14070A2F0 (PsGetNextProcessThread.c)
  */
 
 __int64 __fastcall PspBoostJobIoPriorityCallback(__int64 a1)
@@ -14,7 +14,7 @@ __int64 __fastcall PspBoostJobIoPriorityCallback(__int64 a1)
   __int64 v1; // rsi
   struct _KTHREAD *CurrentThread; // rbp
   __int64 v3; // r9
-  __int64 NextJobProcess; // rbx
+  __int64 v4; // rbx
   KSPIN_LOCK *i; // rdx
   __int64 NextProcessThread; // rax
   KSPIN_LOCK *v8; // rdi
@@ -25,25 +25,29 @@ __int64 __fastcall PspBoostJobIoPriorityCallback(__int64 a1)
   v1 = a1;
   v10 = 0LL;
   v11 = 0LL;
-  if ( !*(_DWORD *)(a1 + 1052) )
+  if ( !*(_DWORD *)(a1 + 860) )
   {
     CurrentThread = KeGetCurrentThread();
     v3 = 0LL;
     while ( 1 )
     {
-      NextJobProcess = PspGetNextJobProcess(a1, CurrentThread, &v10, v3);
-      if ( !NextJobProcess )
+      v4 = ((__int64 (__fastcall *)(__int64, struct _KTHREAD *, __int128 *, __int64))PspGetNextJobProcess)(
+             a1,
+             CurrentThread,
+             &v10,
+             v3);
+      if ( !v4 )
         break;
       for ( i = 0LL; ; i = v8 )
       {
-        NextProcessThread = PsGetNextProcessThread(NextJobProcess, i);
+        NextProcessThread = PsGetNextProcessThread(v4, i);
         v8 = (KSPIN_LOCK *)NextProcessThread;
         if ( !NextProcessThread )
           break;
         IoPriorityThread = PsGetIoPriorityThread(NextProcessThread);
         IoBoostThreadIoPriority(v8, IoPriorityThread, 0);
       }
-      v3 = NextJobProcess;
+      v3 = v4;
       a1 = v1;
     }
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtAlertThreadByThreadId @ 0x140649FC0
+ * XREFs of NtAlertThreadByThreadId @ 0x140649FA0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeAlertThreadByThreadId @ 0x1400CCD8C (KeAlertThreadByThreadId.c)
- *     PsLookupThreadByThreadId @ 0x1406487C0 (PsLookupThreadByThreadId.c)
+ *     KeAlertThreadByThreadId @ 0x1400CCDAC (KeAlertThreadByThreadId.c)
+ *     PsLookupThreadByThreadId @ 0x1406487A0 (PsLookupThreadByThreadId.c)
  */
 
 NTSTATUS __fastcall NtAlertThreadByThreadId(void *a1)

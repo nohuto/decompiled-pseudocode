@@ -1,28 +1,26 @@
 /*
- * XREFs of MiStoreGraphicsProtectionInVad @ 0x140A2EB04
+ * XREFs of MiStoreGraphicsProtectionInVad @ 0x1408C6EA4
  * Callers:
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
  * Callees:
- *     RtlFindMostSignificantBit @ 0x140355E60 (RtlFindMostSignificantBit.c)
+ *     RtlFindMostSignificantBit @ 0x14030E3E0 (RtlFindMostSignificantBit.c)
  */
 
 CCHAR __fastcall MiStoreGraphicsProtectionInVad(__int64 a1, unsigned int a2)
 {
-  _DWORD *v2; // rbx
   CCHAR result; // al
 
-  v2 = (_DWORD *)(a1 + 48);
   if ( (a2 & 0x20000) != 0 )
   {
-    *v2 |= 0x4000000u;
+    *(_DWORD *)(a1 + 48) |= 0x2000000u;
     a2 &= ~0x20000u;
   }
   if ( (a2 & 0x40000) != 0 )
   {
-    *v2 |= 0x8000000u;
+    *(_DWORD *)(a1 + 48) |= 0x4000000u;
     a2 &= ~0x40000u;
   }
   result = RtlFindMostSignificantBit((unsigned __int64)a2 >> 11);
-  *v2 ^= (*v2 ^ (result << 28)) & 0x70000000;
+  *(_DWORD *)(a1 + 48) ^= (*(_DWORD *)(a1 + 48) ^ (result << 27)) & 0x38000000;
   return result;
 }

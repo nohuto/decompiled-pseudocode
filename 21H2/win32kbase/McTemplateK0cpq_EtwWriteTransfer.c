@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0cpq_EtwWriteTransfer @ 0x1C014F674
+ * XREFs of McTemplateK0cpq_EtwWriteTransfer @ 0x1C0124D1C
  * Callers:
- *     EtwTraceInputQueueLockedPeekRecursion @ 0x1C0004EC0 (EtwTraceInputQueueLockedPeekRecursion.c)
- *     EtwTraceInputQueueLocked @ 0x1C00AF960 (EtwTraceInputQueueLocked.c)
- *     EtwTraceInputQueueNoRemoveLocker @ 0x1C00BBD60 (EtwTraceInputQueueNoRemoveLocker.c)
- *     EtwTraceInputQueueUnLocked @ 0x1C00D0330 (EtwTraceInputQueueUnLocked.c)
+ *     EtwTraceInputQueueLocked @ 0x1C00994E0 (EtwTraceInputQueueLocked.c)
+ *     EtwTraceInputQueueLockedPeekRecursion @ 0x1C00AB3C0 (EtwTraceInputQueueLockedPeekRecursion.c)
+ *     EtwTraceInputQueueNoRemoveLocker @ 0x1C00AE7C0 (EtwTraceInputQueueNoRemoveLocker.c)
+ *     EtwTraceInputQueueUnLocked @ 0x1C00B67A0 (EtwTraceInputQueueUnLocked.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0cpq_EtwWriteTransfer(

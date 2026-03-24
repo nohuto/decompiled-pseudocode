@@ -1,42 +1,39 @@
 /*
- * XREFs of NtUserUpdateInstance @ 0x1C01DF5C0
+ * XREFs of NtUserUpdateInstance @ 0x1C0203C50
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandleNoRip @ 0x1C00244B4 (HMValidateHandleNoRip.c)
- *     xxxChangeMonitorFlags @ 0x1C00AC6D0 (xxxChangeMonitorFlags.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     HMValidateHandleNoRip @ 0x1C0023BCC (HMValidateHandleNoRip.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     xxxChangeMonitorFlags @ 0x1C012802C (xxxChangeMonitorFlags.c)
  */
 
 __int64 __fastcall NtUserUpdateInstance(__int64 a1, unsigned int *a2, int a3)
 {
   unsigned int v6; // ebx
-  unsigned int v7; // esi
-  _DWORD *v8; // rdx
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
+  _DWORD *v7; // rdx
+  __int64 v8; // rax
+  __int64 v9; // rcx
+  unsigned int v10; // eax
 
   v6 = 0;
-  v7 = 0;
-  EnterCrit(0LL, 0LL);
-  v8 = a2;
+  EnterCrit(0LL, 1LL);
+  v7 = a2;
   if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-    v8 = (_DWORD *)MmUserProbeAddress;
-  *v8 = *v8;
-  v9 = HMValidateHandleNoRip(a1, 9);
-  if ( v9 )
+    v7 = (_DWORD *)MmUserProbeAddress;
+  *v7 = *v7;
+  v8 = HMValidateHandleNoRip(a1, 9);
+  if ( v8 )
   {
-    xxxChangeMonitorFlags(v9, a3);
-    v7 = MonitorFlags;
+    xxxChangeMonitorFlags(v8, a3);
+    v10 = MonitorFlags;
   }
   else
   {
     v6 = 16390;
+    v10 = 0;
   }
-  *a2 = v7;
-  UserSessionSwitchLeaveCrit(v11, v10, v12, v13);
+  *a2 = v10;
+  UserSessionSwitchLeaveCrit(v9);
   return v6;
 }

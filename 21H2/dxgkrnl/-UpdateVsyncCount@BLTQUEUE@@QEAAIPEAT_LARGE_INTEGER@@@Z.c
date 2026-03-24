@@ -1,8 +1,8 @@
 /*
- * XREFs of ?UpdateVsyncCount@BLTQUEUE@@QEAAIPEAT_LARGE_INTEGER@@@Z @ 0x1C002FAA4
+ * XREFs of ?UpdateVsyncCount@BLTQUEUE@@QEAAIPEAT_LARGE_INTEGER@@@Z @ 0x1C005F314
  * Callers:
- *     ?NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C006CCBC (-NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?QueryPresentStatsDWM@BLTQUEUE@@QEAAJPEAU_D3DKMT_PRESENT_STATS_DWM2@@@Z @ 0x1C0226234 (-QueryPresentStatsDWM@BLTQUEUE@@QEAAJPEAU_D3DKMT_PRESENT_STATS_DWM2@@@Z.c)
+ *     ?NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C005EEA8 (-NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?QueryPresentStatsDWM@BLTQUEUE@@QEAAJPEAU_D3DKMT_PRESENT_STATS_DWM@@@Z @ 0x1C02FF018 (-QueryPresentStatsDWM@BLTQUEUE@@QEAAJPEAU_D3DKMT_PRESENT_STATS_DWM@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,17 +19,17 @@ __int64 __fastcall BLTQUEUE::UpdateVsyncCount(BLTQUEUE *this, union _LARGE_INTEG
 
   PerformanceFrequency.QuadPart = 0LL;
   v4 = KeQueryPerformanceCounter(&PerformanceFrequency);
-  v5 = *((unsigned int *)this + 92);
-  v6 = *((unsigned int *)this + 93);
+  v5 = *((unsigned int *)this + 90);
+  v6 = *((unsigned int *)this + 91);
   v7 = PerformanceFrequency;
   v8 = v5 * v4.QuadPart / v6 / PerformanceFrequency.QuadPart;
-  *((_QWORD *)this + 56) = v8;
+  *((_QWORD *)this + 55) = v8;
   v9 = v8;
-  *((_QWORD *)this + 57) = v7.QuadPart * v6 * (unsigned int)v8 / v5;
+  *((_QWORD *)this + 56) = v7.QuadPart * v6 * (unsigned int)v8 / v5;
   if ( a2 )
   {
     *a2 = v7;
-    return *((unsigned int *)this + 112);
+    return *((unsigned int *)this + 110);
   }
   return v9;
 }

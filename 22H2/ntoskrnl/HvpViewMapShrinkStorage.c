@@ -1,15 +1,13 @@
 /*
- * XREFs of HvpViewMapShrinkStorage @ 0x140A1D3A8
+ * XREFs of HvpViewMapShrinkStorage @ 0x140873678
  * Callers:
- *     HvFreeHivePartial @ 0x140707258 (HvFreeHivePartial.c)
- *     HvpAddBin @ 0x14074F684 (HvpAddBin.c)
+ *     HvFreeHivePartial @ 0x14072090C (HvFreeHivePartial.c)
+ *     HvpAddBin @ 0x140721E28 (HvpAddBin.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmSiUnmapViewOfSection @ 0x140208C80 (CmSiUnmapViewOfSection.c)
- *     RtlRbRemoveNode @ 0x14024B910 (RtlRbRemoveNode.c)
- *     CmSiReleaseProcessLockedPagesCharge @ 0x1402E9BBC (CmSiReleaseProcessLockedPagesCharge.c)
- *     HvcallpNoHypervisorPresent @ 0x14036E000 (HvcallpNoHypervisorPresent.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x140885B00 (HvpViewMapMakeViewRangeInvalid.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     RtlRbRemoveNode @ 0x1402C1170 (RtlRbRemoveNode.c)
+ *     CmSiUnmapViewOfSection @ 0x1403634A4 (CmSiUnmapViewOfSection.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x140734084 (HvpViewMapMakeViewRangeInvalid.c)
  */
 
 struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(__int64 a1, int a2)
@@ -21,12 +19,10 @@ struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(__int64 a1, int a2)
   __int64 v7; // rdi
   unsigned __int64 v8; // rbx
   unsigned __int64 v9; // rax
-  __int64 v10; // r14
+  __int64 v10; // rsi
   unsigned __int64 *Luid; // rax
   __int64 v12; // rax
   void *v13; // r8
-  __int64 v14; // rax
-  __int64 v15; // rcx
   struct _PRIVILEGE_SET *result; // rax
   struct _PRIVILEGE_SET Privileges; // [rsp+20h] [rbp-10h] BYREF
 
@@ -46,15 +42,15 @@ struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(__int64 a1, int a2)
         v8 ^= v7;
       while ( v8 )
       {
-        if ( v5 >= *(_QWORD *)(v8 + 40) )
+        if ( v5 < *(_QWORD *)(v8 + 40) )
+        {
+          v9 = *(_QWORD *)v8;
+        }
+        else
         {
           if ( v5 < *(_QWORD *)(v8 + 48) )
             break;
           v9 = *(_QWORD *)(v8 + 8);
-        }
-        else
-        {
-          v9 = *(_QWORD *)v8;
         }
         if ( (*(_BYTE *)(v7 + 8) & 1) != 0 && v9 )
           v8 ^= v9;
@@ -95,14 +91,7 @@ LABEL_22:
       return result;
     v13 = *(void **)&p_Privileges[2].Privilege[0].Attributes;
     if ( v13 )
-    {
       CmSiUnmapViewOfSection((__int64)&Privileges, *(HANDLE **)(a1 + 24), v13);
-      if ( *(_QWORD *)&p_Privileges[3].Control )
-      {
-        v14 = HvcallpNoHypervisorPresent();
-        CmSiReleaseProcessLockedPagesCharge(*(_QWORD **)(a1 + 24), v15 * v14);
-      }
-    }
     CmSiFreeMemory(p_Privileges);
     p_Privileges = *(struct _PRIVILEGE_SET **)&Privileges.PrivilegeCount;
     if ( *(struct _PRIVILEGE_SET **)(*(_QWORD *)&Privileges.PrivilegeCount + 8LL) != &Privileges )

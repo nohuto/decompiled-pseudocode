@@ -1,16 +1,16 @@
 /*
- * XREFs of ArbPruneOrdering @ 0x14083B1AC
+ * XREFs of ArbPruneOrdering @ 0x1407A2C90
  * Callers:
- *     ArbBuildAssignmentOrdering @ 0x14083AAB8 (ArbBuildAssignmentOrdering.c)
+ *     ArbBuildAssignmentOrdering @ 0x1407A2578 (ArbBuildAssignmentOrdering.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ArbPruneOrdering(unsigned __int16 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
-  __int64 Pool2; // rax
+  _BYTE *PoolWithTag; // rax
   _BYTE *v7; // rsi
   char *v8; // rbx
   __int64 v9; // rax
@@ -20,7 +20,7 @@ __int64 __fastcall ArbPruneOrdering(unsigned __int16 *a1, unsigned __int64 a2, u
   unsigned __int64 v13; // rdx
   unsigned __int64 v14; // r8
   __int64 v15; // rbx
-  void *v16; // r14
+  PVOID v16; // r14
   __int64 result; // rax
   unsigned int v18; // ebx
   void *v19; // rcx
@@ -31,11 +31,11 @@ __int64 __fastcall ArbPruneOrdering(unsigned __int16 *a1, unsigned __int64 a2, u
   }
   else
   {
-    Pool2 = ExAllocatePool2(256LL, 32LL * *a1 + 16, 1281520193LL);
-    v7 = (_BYTE *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 32LL * *a1 + 16, 0x4C627241u);
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v8 = (char *)Pool2;
+      v8 = PoolWithTag;
       v9 = *a1;
       if ( (_WORD)v9 )
       {
@@ -88,7 +88,7 @@ LABEL_14:
         goto LABEL_18;
       if ( (unsigned __int16)v15 <= a1[1] )
       {
-        v16 = (void *)*((_QWORD *)a1 + 1);
+        v16 = (PVOID)*((_QWORD *)a1 + 1);
 LABEL_17:
         memmove(v16, v7, 16LL * (unsigned __int16)v15);
 LABEL_18:
@@ -97,7 +97,7 @@ LABEL_18:
         *a1 = v15;
         return result;
       }
-      v16 = (void *)ExAllocatePool2(256LL, 16LL * (unsigned __int16)v15, 1281520193LL);
+      v16 = ExAllocatePoolWithTag(PagedPool, 16LL * (unsigned __int16)v15, 0x4C627241u);
       if ( v16 )
       {
         v19 = (void *)*((_QWORD *)a1 + 1);

@@ -1,13 +1,15 @@
 /*
- * XREFs of ?DbgPrintGDI@@YAXPEADZZ @ 0x1C0167EA0
+ * XREFs of ?DbgPrintGDI@@YAXPEADZZ @ 0x1C013A7B0
  * Callers:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0003B78 (rimProcessDeviceBufferAndStartRead.c)
- *     rimStackAttachAndProcessInput @ 0x1C0004590 (rimStackAttachAndProcessInput.c)
- *     RIMWatchDog @ 0x1C0043C80 (RIMWatchDog.c)
- *     RIMStartDeviceSpecificRead @ 0x1C004AF3C (RIMStartDeviceSpecificRead.c)
- *     RIMOpenDevWorker @ 0x1C004B0E0 (RIMOpenDevWorker.c)
- *     rimInputApc @ 0x1C00C06F0 (rimInputApc.c)
- *     ?dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C00C4674 (-dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z.c)
+ *     RIMWatchDog @ 0x1C0046BD0 (RIMWatchDog.c)
+ *     RIMDeviceClassNotify @ 0x1C0052EC0 (RIMDeviceClassNotify.c)
+ *     RIMStartDeviceSpecificRead @ 0x1C006A2E8 (RIMStartDeviceSpecificRead.c)
+ *     ?dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C0074738 (-dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z.c)
+ *     RIMOpenDev @ 0x1C00AD020 (RIMOpenDev.c)
+ *     RIMVirtDeviceClassNotify @ 0x1C016CA24 (RIMVirtDeviceClassNotify.c)
+ *     rimInputApc @ 0x1C01746A0 (rimInputApc.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175130 (rimProcessDeviceBufferAndStartRead.c)
+ *     rimStackAttachAndProcessInput @ 0x1C01761B4 (rimStackAttachAndProcessInput.c)
  * Callees:
  *     <none>
  */

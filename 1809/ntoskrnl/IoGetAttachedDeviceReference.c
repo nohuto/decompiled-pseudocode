@@ -1,21 +1,21 @@
 /*
- * XREFs of IoGetAttachedDeviceReference @ 0x1400ACE20
+ * XREFs of IoGetAttachedDeviceReference @ 0x1400ACE40
  * Callers:
  *     IoBuildPoDeviceNotifyList @ 0x14056CE10 (IoBuildPoDeviceNotifyList.c)
  *     IoShutdownSystem @ 0x140577C68 (IoShutdownSystem.c)
  *     CmpGetVolumeClusterSize @ 0x1405A4094 (CmpGetVolumeClusterSize.c)
  *     CmpVolumeManagerGetContextForFile @ 0x1405A4298 (CmpVolumeManagerGetContextForFile.c)
  *     WmipForwardWmiIrp @ 0x1405FB974 (WmipForwardWmiIrp.c)
- *     IopFilterResourceRequirementsCall @ 0x1406FBB10 (IopFilterResourceRequirementsCall.c)
- *     WmipRegisterDevice @ 0x14070B24C (WmipRegisterDevice.c)
- *     WmipGetFilePDO @ 0x14071DB70 (WmipGetFilePDO.c)
+ *     IopFilterResourceRequirementsCall @ 0x1406FBAF0 (IopFilterResourceRequirementsCall.c)
+ *     WmipRegisterDevice @ 0x14070B22C (WmipRegisterDevice.c)
+ *     WmipGetFilePDO @ 0x14071DB50 (WmipGetFilePDO.c)
  *     VfIrpSendSynchronousIrp @ 0x140930534 (VfIrpSendSynchronousIrp.c)
  * Callees:
  *     ObpIncrPointerCount @ 0x14005B360 (ObpIncrPointerCount.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
  */
 
 PDEVICE_OBJECT __stdcall IoGetAttachedDeviceReference(PDEVICE_OBJECT DeviceObject)

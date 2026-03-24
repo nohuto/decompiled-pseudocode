@@ -1,1 +1,53 @@
-/*\n * XREFs of MouseClassWWPowerUpComplete @ 0x1C0005670\n * Callers:\n *     <none>\n * Callees:\n *     MouseClassLogError @ 0x1C0004BA8 (MouseClassLogError.c)\n *     WPP_RECORDER_SF_q @ 0x1C0005E50 (WPP_RECORDER_SF_q.c)\n */\n\nvoid __fastcall MouseClassWWPowerUpComplete(\n        PDEVICE_OBJECT DeviceObject,\n        UCHAR MinorFunction,\n        POWER_STATE PowerState,\n        PVOID Context)\n{\n  int v5; // edx\n  _QWORD *Pool2; // rbx\n  int v7; // r8d\n  PIO_WORKITEM WorkItem; // rax\n  NTSTATUS v9; // eax\n  struct _IO_WORKITEM *v10; // rcx\n\n  if ( *((_BYTE *)Context + 345) )\n  {\n    Pool2 = (_QWORD *)ExAllocatePool2(64LL, 32LL, 1131769677LL);\n    if ( Pool2 )\n    {\n      WorkItem = IoAllocateWorkItem(*(PDEVICE_OBJECT *)Context);\n      Pool2[2] = WorkItem;\n      if ( WorkItem )\n      {\n        *Pool2 = 0LL;\n        Pool2[1] = Context;\n        v9 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)Context + 1, Pool2, File, 1u, 0x20u);\n        v10 = (struct _IO_WORKITEM *)Pool2[2];\n        if ( v9 < 0 )\n        {\n          IoFreeWorkItem(v10);\n          ExFreePoolWithTag(Pool2, 0);\n        }\n        else\n        {\n          IoQueueWorkItem(v10, MouseClassCreateWaitWakeIrpWorker, DelayedWorkQueue, Pool2);\n        }\n        return;\n      }\n      ExFreePoolWithTag(Pool2, 0);\n    }\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      WPP_RECORDER_SF_q(WPP_GLOBAL_Control->DeviceExtension, v5, v7, 85);\n    MouseClassLogError(*(void **)Context, -2147155954, 1, -1073741670, 0, 0LL, 0);\n  }\n}\n
+/*
+ * XREFs of MouseClassWWPowerUpComplete @ 0x1C0005670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MouseClassLogError @ 0x1C0004BA8 (MouseClassLogError.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0005E50 (WPP_RECORDER_SF_q.c)
+ */
+
+void __fastcall MouseClassWWPowerUpComplete(
+        PDEVICE_OBJECT DeviceObject,
+        UCHAR MinorFunction,
+        POWER_STATE PowerState,
+        PVOID Context)
+{
+  int v5; // edx
+  _QWORD *Pool2; // rbx
+  int v7; // r8d
+  PIO_WORKITEM WorkItem; // rax
+  NTSTATUS v9; // eax
+  struct _IO_WORKITEM *v10; // rcx
+
+  if ( *((_BYTE *)Context + 345) )
+  {
+    Pool2 = (_QWORD *)ExAllocatePool2(64LL, 32LL, 1131769677LL);
+    if ( Pool2 )
+    {
+      WorkItem = IoAllocateWorkItem(*(PDEVICE_OBJECT *)Context);
+      Pool2[2] = WorkItem;
+      if ( WorkItem )
+      {
+        *Pool2 = 0LL;
+        Pool2[1] = Context;
+        v9 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)Context + 1, Pool2, File, 1u, 0x20u);
+        v10 = (struct _IO_WORKITEM *)Pool2[2];
+        if ( v9 < 0 )
+        {
+          IoFreeWorkItem(v10);
+          ExFreePoolWithTag(Pool2, 0);
+        }
+        else
+        {
+          IoQueueWorkItem(v10, MouseClassCreateWaitWakeIrpWorker, DelayedWorkQueue, Pool2);
+        }
+        return;
+      }
+      ExFreePoolWithTag(Pool2, 0);
+    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_q(WPP_GLOBAL_Control->DeviceExtension, v5, v7, 85);
+    MouseClassLogError(*(void **)Context, -2147155954, 1, -1073741670, 0, 0LL, 0);
+  }
+}

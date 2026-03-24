@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DestroyTable@MULTIFONT@@QEAAXXZ @ 0x1C016F012
+ * XREFs of ?DestroyTable@MULTIFONT@@QEAAXXZ @ 0x1C02A1498
  * Callers:
- *     ??1MULTIFONT@@QEAA@XZ @ 0x1C016EFB8 (--1MULTIFONT@@QEAA@XZ.c)
- *     ?MulDestroyFont@@YAXPEAU_FONTOBJ@@@Z @ 0x1C02A0E10 (-MulDestroyFont@@YAXPEAU_FONTOBJ@@@Z.c)
+ *     ??1MULTIFONT@@QEAA@XZ @ 0x1C02A1364 (--1MULTIFONT@@QEAA@XZ.c)
+ *     ?MulDestroyFont@@YAXPEAU_FONTOBJ@@@Z @ 0x1C02A2F70 (-MulDestroyFont@@YAXPEAU_FONTOBJ@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoPropagateIrpExtension @ 0x14020C200
+ * XREFs of IoPropagateIrpExtension @ 0x1402EDFE0
  * Callers:
  *     <none>
  * Callees:
- *     IoPropagateIrpExtensionEx @ 0x14020C270 (IoPropagateIrpExtensionEx.c)
+ *     IoPropagateIrpExtensionEx @ 0x1402EE000 (IoPropagateIrpExtensionEx.c)
  */
 
 __int64 __fastcall IoPropagateIrpExtension(__int64 a1, __int64 a2, unsigned int a3)

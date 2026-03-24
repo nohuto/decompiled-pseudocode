@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpAddTriageDumpData @ 0x140A656A0
+ * XREFs of IopLiveDumpAddTriageDumpData @ 0x1409AB280
  * Callers:
- *     IopLiveDumpMarkImportantDumpData @ 0x140A66EB4 (IopLiveDumpMarkImportantDumpData.c)
+ *     IopLiveDumpMarkImportantDumpData @ 0x1409ACA58 (IopLiveDumpMarkImportantDumpData.c)
  * Callees:
- *     KiValidateTriageDumpDataArray @ 0x1403D7ED0 (KiValidateTriageDumpDataArray.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140567038 (KeValidateBugCheckCallbackRecord.c)
- *     KiValidateComponentName @ 0x1405682F4 (KiValidateComponentName.c)
- *     MmAddRangeToCrashDump @ 0x140593218 (MmAddRangeToCrashDump.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403CA18C (KiValidateTriageDumpDataArray.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140517B98 (KeValidateBugCheckCallbackRecord.c)
+ *     KiValidateComponentName @ 0x140518B40 (KiValidateComponentName.c)
+ *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
  */
 
-char __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 a2)
+char __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 (__fastcall **a2)(_QWORD, __int64, __int64))
 {
   PVOID *v2; // rbx
   char result; // al
@@ -18,7 +18,7 @@ char __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 a2)
   __int64 v7; // rdx
   __int64 v8; // rcx
   __int64 i; // rdi
-  __int64 v10; // rdx
+  unsigned __int64 v10; // rdx
   __int64 v11; // r8
   __int128 v12; // [rsp+30h] [rbp-40h] BYREF
   __int128 v13; // [rsp+40h] [rbp-30h]
@@ -34,7 +34,7 @@ char __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 a2)
   v12 = 0LL;
   v13 = 0LL;
   v14 = 0LL;
-  if ( KeBugCheckReasonCallbackListHead && qword_140C2B818 )
+  if ( KeBugCheckReasonCallbackListHead && qword_140C31DA8 )
   {
     v17 = &KeBugCheckReasonCallbackListHead;
     while ( v2 != &KeBugCheckReasonCallbackListHead )
@@ -61,7 +61,7 @@ char __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 a2)
               result = v12;
               if ( *(_DWORD *)(v12 + 16) )
               {
-                result = MmAddRangeToCrashDump(a2, (__int64)v2[3], v16 + 1LL);
+                result = MmAddRangeToCrashDump(a2, (unsigned __int64)v2[3], v16 + 1LL);
                 v8 = v12;
                 for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v8 + 16); i = (unsigned int)(i + 1) )
                 {

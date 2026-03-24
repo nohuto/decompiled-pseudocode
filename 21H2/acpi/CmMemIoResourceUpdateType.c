@@ -1,7 +1,7 @@
 /*
- * XREFs of CmMemIoResourceUpdateType @ 0x1C006167C
+ * XREFs of CmMemIoResourceUpdateType @ 0x1C00608BC
  * Callers:
- *     TranslateBridgeResources @ 0x1C00B56D0 (TranslateBridgeResources.c)
+ *     TranslateBridgeResources @ 0x1C00B60C0 (TranslateBridgeResources.c)
  * Callees:
  *     <none>
  */

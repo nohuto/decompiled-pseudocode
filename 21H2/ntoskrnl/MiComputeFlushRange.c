@@ -1,21 +1,21 @@
 /*
- * XREFs of MiComputeFlushRange @ 0x140283E8C
+ * XREFs of MiComputeFlushRange @ 0x140274890
  * Callers:
- *     MmTrimSection @ 0x14027F03C (MmTrimSection.c)
- *     MmFlushSection @ 0x140283C50 (MmFlushSection.c)
+ *     MmFlushSection @ 0x1402746FC (MmFlushSection.c)
+ *     MmTrimSection @ 0x1402EF648 (MmTrimSection.c)
  * Callees:
- *     MiDoesControlAreaHaveUserWritableReferences @ 0x140239CF8 (MiDoesControlAreaHaveUserWritableReferences.c)
- *     MiLockSectionControlArea @ 0x14028494C (MiLockSectionControlArea.c)
- *     MiComputeDataFlushRange @ 0x140286AB0 (MiComputeDataFlushRange.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockSectionControlArea @ 0x140274944 (MiLockSectionControlArea.c)
+ *     MiDoesControlAreaHaveUserWritableReferences @ 0x14029F9C4 (MiDoesControlAreaHaveUserWritableReferences.c)
+ *     MiComputeDataFlushRange @ 0x1403152C0 (MiComputeDataFlushRange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiComputeFlushRange(__int64 a1, int a2, int a3, int a4, __int64 a5)
 {
   __int64 v8; // rax
   int v9; // edx
-  __int64 v10; // r10
+  __int64 v10; // r11
   unsigned __int8 v12; // bl
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10

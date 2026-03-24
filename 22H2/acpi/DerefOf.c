@@ -1,13 +1,13 @@
 /*
- * XREFs of DerefOf @ 0x1C0006500
+ * XREFs of DerefOf @ 0x1C000B440
  * Callers:
  *     <none>
  * Callees:
- *     GetBaseData @ 0x1C00055CA (GetBaseData.c)
- *     ReadObject @ 0x1C0005BEE (ReadObject.c)
- *     GetBaseObject @ 0x1C004B938 (GetBaseObject.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     ReadObject @ 0x1C000B4C0 (ReadObject.c)
+ *     GetBaseData @ 0x1C000B5C4 (GetBaseData.c)
+ *     GetBaseObject @ 0x1C001477C (GetBaseObject.c)
  */
 
 __int64 __fastcall DerefOf(__int64 a1, __int64 a2)
@@ -15,10 +15,9 @@ __int64 __fastcall DerefOf(__int64 a1, __int64 a2)
   __int64 result; // rax
   __int64 BaseData; // rbx
   __int16 v6; // ax
-  __int64 BaseObject; // rax
-  __int64 v8; // rdx
+  unsigned __int64 BaseObject; // rax
 
-  result = ValidateArgTypes(a1, *(_QWORD *)(a2 + 80), 0LL, "R");
+  result = ValidateArgTypes(a1, *(_QWORD *)(a2 + 80), 0, "R");
   if ( !(_DWORD)result )
   {
     BaseData = *(_QWORD *)(a2 + 80);
@@ -27,7 +26,7 @@ __int64 __fastcall DerefOf(__int64 a1, __int64 a2)
     {
       BaseObject = GetBaseObject(*(_QWORD *)(BaseData + 16));
       BaseData = BaseObject + 64;
-      DereferenceObjectEx(BaseObject, v8);
+      DereferenceObjectEx(BaseObject);
     }
     else if ( v6 == 129 )
     {

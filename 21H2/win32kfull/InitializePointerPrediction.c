@@ -1,9 +1,9 @@
 /*
- * XREFs of InitializePointerPrediction @ 0x1C01229D0
+ * XREFs of InitializePointerPrediction @ 0x1C01372D0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 InitializePointerPrediction()
@@ -12,8 +12,9 @@ __int64 InitializePointerPrediction()
   __int128 v1; // [rsp+20h] [rbp-28h] BYREF
 
   result = gliQpcFreq;
-  LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) = 0;
-  WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink = 0LL;
+  glTOUCH_DRIVER_HW_STACK_LATENCY = 0;
+  glTOUCH_DRIVER_HW_STACK_SAMPLETIME = 0;
+  gbTOUCH_DRIVER_HW_STACK_TIMESTAMP = 0;
   v1 = 0LL;
   if ( gliQpcFreq )
   {

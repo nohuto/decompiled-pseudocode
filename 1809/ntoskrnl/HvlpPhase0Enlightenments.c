@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpPhase0Enlightenments @ 0x140279008
+ * XREFs of HvlpPhase0Enlightenments @ 0x140279108
  * Callers:
- *     HvlRestoreEnlightenment @ 0x140271018 (HvlRestoreEnlightenment.c)
- *     HvlPhase0Initialize @ 0x1407259E8 (HvlPhase0Initialize.c)
+ *     HvlRestoreEnlightenment @ 0x140271118 (HvlRestoreEnlightenment.c)
+ *     HvlPhase0Initialize @ 0x1407259C8 (HvlPhase0Initialize.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     HvlpGetRegister64 @ 0x140278A08 (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x140278AF4 (HvlpSetRegister64.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     HvlpGetRegister64 @ 0x140278B08 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x140278BF4 (HvlpSetRegister64.c)
  */
 
 __int64 __fastcall HvlpPhase0Enlightenments(__int64 a1)

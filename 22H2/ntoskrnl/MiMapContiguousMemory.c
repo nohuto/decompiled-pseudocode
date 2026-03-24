@@ -1,115 +1,136 @@
 /*
- * XREFs of MiMapContiguousMemory @ 0x140335858
+ * XREFs of MiMapContiguousMemory @ 0x1402E8974
  * Callers:
- *     MmMapIoSpaceEx @ 0x140335810 (MmMapIoSpaceEx.c)
- *     MiAllocateContiguousMemory @ 0x1403B9674 (MiAllocateContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x1402E7FA0 (MmMapIoSpaceEx.c)
+ *     MiAllocateContiguousMemory @ 0x1402E808C (MiAllocateContiguousMemory.c)
  * Callees:
- *     MiReservePtes @ 0x14027D070 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x14027E7A0 (MiFillSystemPtes.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiSanitizePage @ 0x140335A70 (MiSanitizePage.c)
- *     MiMappingHasIoReferences @ 0x140335AA0 (MiMappingHasIoReferences.c)
- *     MiMapContiguousMemoryLarge @ 0x14038C884 (MiMapContiguousMemoryLarge.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiInsertPteTracker @ 0x1406613F4 (MiInsertPteTracker.c)
+ *     MiReservePtes @ 0x140226570 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x140226EB0 (MiFillSystemPtes.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     MiMappingHasIoReferences @ 0x1402E8FE4 (MiMappingHasIoReferences.c)
+ *     MiMapContiguousMemoryLarge @ 0x1403B81F4 (MiMapContiguousMemoryLarge.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiInsertPteTracker @ 0x14055ED20 (MiInsertPteTracker.c)
  */
 
-__int64 __fastcall MiMapContiguousMemory(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5)
+__int64 __fastcall MiMapContiguousMemory(
+        unsigned __int64 a1,
+        unsigned __int64 a2,
+        unsigned int a3,
+        unsigned __int64 a4)
 {
+  char v4; // r12
   unsigned int v5; // esi
-  __int64 v7; // rax
-  unsigned __int64 v8; // r14
-  unsigned __int64 v9; // r13
-  ULONG_PTR v10; // rax
-  unsigned __int64 v11; // r9
-  __int64 v12; // r10
-  unsigned __int64 v13; // r14
-  int v14; // r15d
-  ULONG_PTR v15; // rdi
-  __int64 v16; // rdi
-  char v17; // cl
-  unsigned int v19; // ecx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  __int64 v22; // [rsp+30h] [rbp-61h] BYREF
-  ULONG_PTR v23; // [rsp+38h] [rbp-59h]
-  unsigned __int64 v24; // [rsp+40h] [rbp-51h]
-  __int64 v25; // [rsp+48h] [rbp-49h]
-  unsigned __int64 v26; // [rsp+50h] [rbp-41h]
-  __int64 v27; // [rsp+58h] [rbp-39h]
-  _QWORD v28[5]; // [rsp+60h] [rbp-31h] BYREF
-  int v29; // [rsp+88h] [rbp-9h]
-  int v30; // [rsp+8Ch] [rbp-5h]
-  unsigned __int64 v31; // [rsp+90h] [rbp-1h]
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // r13
+  ULONG_PTR v9; // rcx
+  __int64 v10; // r8
+  unsigned int v11; // r15d
+  int v12; // r14d
+  ULONG_PTR v13; // rdi
+  char v14; // al
+  __int64 v15; // rdi
+  unsigned int v16; // r15d
+  __int64 v18; // r8
+  __int64 v19; // r9
+  unsigned __int64 v20; // rax
+  int v21; // ebx
+  int v22; // [rsp+30h] [rbp-49h] BYREF
+  int v23; // [rsp+34h] [rbp-45h]
+  ULONG_PTR v24; // [rsp+38h] [rbp-41h]
+  __int64 v25; // [rsp+40h] [rbp-39h]
+  unsigned __int64 v26; // [rsp+48h] [rbp-31h]
+  _QWORD v27[5]; // [rsp+50h] [rbp-29h] BYREF
+  int v28; // [rsp+78h] [rbp-1h]
+  int v29; // [rsp+7Ch] [rbp+3h]
+  unsigned __int64 v30; // [rsp+80h] [rbp+7h]
 
-  v5 = a4;
-  v27 = a3;
-  if ( a4 == -1 || a4 == 24 || (a4 & 5) == 5 || (a4 & 0xFFFFFFF8) == 0x10 || a1 + a2 <= a1 && a1 + a2 )
+  v26 = a2;
+  v4 = a4;
+  v5 = a3;
+  if ( a3 == -1 )
     return 0LL;
-  v7 = a1 & 0xFFF;
-  v25 = v7;
-  v24 = (unsigned __int64)(v7 + a2 + 4095) >> 12;
-  v8 = a1 >> 12;
-  v9 = (unsigned __int64)(v7 + a3 + 4095) >> 12;
-  v26 = a1 >> 12;
-  v10 = MiSanitizePage(a1 >> 12, a2, a3, a2);
-  v23 = v10;
-  if ( (v5 & 2) != 0 && (MiFlags & 0x8000) != 0 )
+  if ( a3 == 24 )
+    return 0LL;
+  if ( (a3 & 5) == 5 )
+    return 0LL;
+  if ( (a3 & 0xFFFFFFF8) == 0x10 )
+    return 0LL;
+  v7 = a2 + a1;
+  if ( v7 <= a1 )
+  {
+    if ( v7 )
+      return 0LL;
+  }
+  v25 = a1 & 0xFFF;
+  v8 = (v25 + a2 + 4095) >> 12;
+  v9 = (a1 >> 12) & 0xFFFFFFFFFLL;
+  v10 = 0x1000000000LL;
+  if ( a1 >> 12 < 0x1000000000LL )
+    v9 = a1 >> 12;
+  v24 = v9;
+  if ( (v5 & 2) != 0 && (MiFlags & 0x10000) != 0 )
     v5 &= ~2u;
-  LODWORD(v22) = 0;
+  v22 = 0;
   if ( (a1 & 0x1FFFFF) != 0
-    || v11 < 0x200000
-    || (v14 = a5 & 1, (a5 & 1) != 0)
-    || v9 != v12
-    || (v16 = MiMapContiguousMemoryLarge(v10, (__int64)&v22)) == 0 )
+    || a2 < 0x200000
+    || (v12 = a4 & 1, (a4 & 1) != 0)
+    || (v15 = MiMapContiguousMemoryLarge(v9, (__int64)&v22)) == 0 )
   {
-    v13 = v9 + 1;
-    v14 = a5 & 1;
-    if ( (a5 & 1) == 0 )
-      v13 = v9;
-    if ( v13 > 0xFFFFFFFF )
-      return 0LL;
-    v15 = MiReservePtes((__int64)&qword_140C69A40, v13);
-    if ( !v15 )
-      return 0LL;
-    if ( (int)MiFillSystemPtes(v15, v24, v23, v5, (a5 & 2) != 0, &v22) < 0 )
+    v23 = 0;
+    v11 = v8;
+    v12 = v4 & 1;
+    if ( (v4 & 1) != 0 )
     {
-      MiReleasePtes((__int64)&qword_140C69A40, (__int64 *)v15, v13);
-      return 0LL;
+      v11 = v8 + 1;
+      if ( (_DWORD)v8 == -1 )
+        return 0LL;
+      v23 = 1;
     }
-    v8 = v26;
-    v16 = v25 + ((__int64)(v15 << 25) >> 16);
+    v13 = MiReservePtes((__int64)&qword_140C4EF40, v11, v10, a4);
+    if ( v13 )
+    {
+      v14 = v23 | 2;
+      if ( (v4 & 2) == 0 )
+        v14 = v23;
+      if ( (int)MiFillSystemPtes(v13, v8, v24, v5, v14, &v22) >= 0 )
+      {
+        v15 = v25 + ((__int64)(v13 << 25) >> 16);
+        goto LABEL_16;
+      }
+      MiReleasePtes((__int64)&qword_140C4EF40, (_QWORD *)v13, v11);
+    }
+    return 0LL;
   }
-  v17 = v22;
+LABEL_16:
+  v16 = v22 & 1;
   if ( (v22 & 1) != 0 )
+    MiMappingHasIoReferences(v15);
+  if ( (dword_140CFB17C & 1) != 0 )
   {
-    MiMappingHasIoReferences(v16);
-    v17 = v22;
-  }
-  if ( (dword_140D1D1CC & 1) != 0 )
-  {
-    v28[0] = 0LL;
-    v19 = v17 & 1;
-    v28[1] = 0LL;
-    v29 = 0;
-    v28[4] = a1 & 0xFFFFFFFFFFFFF000uLL;
-    v28[2] = v27;
-    v20 = v19 | 2;
-    v28[3] = v16;
-    v31 = v8;
-    v30 = a1 & 0xFFF;
-    if ( !v14 )
-      v20 = v19;
-    v21 = 1LL;
+    v27[0] = 0LL;
+    v27[1] = 0LL;
+    v28 = 0;
+    v18 = v16 | 2;
+    v30 = a1 >> 12;
+    v19 = 1LL;
+    v27[3] = v15;
+    v20 = a1 & 0xFFFFFFFFFFFFF000uLL;
+    v21 = a1 & 0xFFF;
+    v27[4] = v20;
+    v27[2] = v26;
+    if ( !v12 )
+      v18 = v16;
+    v29 = v21;
     if ( v5 >> 3 == 1 )
     {
-      v21 = 0LL;
+      v19 = 0LL;
     }
     else if ( v5 >> 3 == 3 && (v5 & 7) != 0 )
     {
-      v21 = 2LL;
+      v19 = 2LL;
     }
-    MiInsertPteTracker(v28, 1LL, v20, v21);
+    MiInsertPteTracker(v27, 1LL, v18, v19);
   }
-  return v16;
+  return v15;
 }

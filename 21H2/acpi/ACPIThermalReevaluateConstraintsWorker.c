@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIThermalReevaluateConstraintsWorker @ 0x1C002CA60
+ * XREFs of ACPIThermalReevaluateConstraintsWorker @ 0x1C002DB00
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     AcpiDiagTraceDeviceActiveCooling @ 0x1C00482C0 (AcpiDiagTraceDeviceActiveCooling.c)
- *     AcpiDiagTraceDevicePassiveCooling @ 0x1C0048564 (AcpiDiagTraceDevicePassiveCooling.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AcpiDiagTraceDeviceActiveCooling @ 0x1C002DC40 (AcpiDiagTraceDeviceActiveCooling.c)
+ *     AcpiDiagTraceDevicePassiveCooling @ 0x1C0049BB8 (AcpiDiagTraceDevicePassiveCooling.c)
  */
 
 void __fastcall ACPIThermalReevaluateConstraintsWorker(ULONG_PTR IoObject, _BYTE *Context, PIO_WORKITEM IoWorkItem)
@@ -58,8 +58,8 @@ void __fastcall ACPIThermalReevaluateConstraintsWorker(ULONG_PTR IoObject, _BYTE
         {
           LOBYTE(v11) = v8;
           AcpiDiagTraceDevicePassiveCooling(DeviceExtension, v11);
-          LOBYTE(v14) = v8;
-          PoSetThermalPassiveCooling(*((_QWORD *)Context + 8), v14);
+          LOBYTE(v15) = v8;
+          PoSetThermalPassiveCooling(*((_QWORD *)Context + 8), v15);
         }
       }
       if ( v9 != Context[43] )
@@ -70,8 +70,8 @@ void __fastcall ACPIThermalReevaluateConstraintsWorker(ULONG_PTR IoObject, _BYTE
         {
           LOBYTE(v11) = v9;
           AcpiDiagTraceDeviceActiveCooling(DeviceExtension, v11);
-          LOBYTE(v15) = v9;
-          PoSetThermalActiveCooling(*((_QWORD *)Context + 8), v15);
+          LOBYTE(v14) = v9;
+          PoSetThermalActiveCooling(*((_QWORD *)Context + 8), v14);
         }
       }
       v5 = KeAcquireSpinLockRaiseToDpc(&AcpiThermalConstraintLock);

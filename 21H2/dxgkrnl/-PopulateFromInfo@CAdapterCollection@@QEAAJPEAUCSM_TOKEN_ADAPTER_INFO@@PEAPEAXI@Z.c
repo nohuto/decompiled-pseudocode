@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C001BFAC
+ * XREFs of ?PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C00128D8
  * Callers:
- *     ?InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0007F94 (-InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0011CC4 (-InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
  * Callees:
- *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C0002ACC (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
- *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C000837C (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
- *     ?Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z @ 0x1C001C094 (-Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z.c)
+ *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C00120C0 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
+ *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C0012760 (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
+ *     ?Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z @ 0x1C00129C0 (-Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CAdapterCollection::PopulateFromInfo(
@@ -54,7 +54,7 @@ __int64 __fastcall CAdapterCollection::PopulateFromInfo(
       v12[1] = v13;
       *v13 = v12;
       *((_QWORD *)this + 4) = v12;
-      v16[v9] = (void *)*((_QWORD *)v11 + 6);
+      v16[v9] = (void *)*((_QWORD *)v11 + 5);
       v9 = (unsigned int)(v9 + 1);
       if ( (unsigned int)v9 >= a4 )
         goto LABEL_9;

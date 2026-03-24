@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECDDisplaySwapChain@@OBA@EAAPEAXI@Z @ 0x18011EB20
+ * XREFs of ??_ECDDisplaySwapChain@@OBA@EAAPEAXI@Z @ 0x1800F6820
  * Callers:
  *     <none>
  * Callees:

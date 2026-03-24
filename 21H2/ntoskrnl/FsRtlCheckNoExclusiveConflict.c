@@ -1,25 +1,25 @@
 /*
- * XREFs of FsRtlCheckNoExclusiveConflict @ 0x14021DC48
+ * XREFs of FsRtlCheckNoExclusiveConflict @ 0x14036BC98
  * Callers:
- *     FsRtlFastCheckLockForWrite @ 0x14021D280 (FsRtlFastCheckLockForWrite.c)
- *     FsRtlFastCheckLockForRead @ 0x14021DAF0 (FsRtlFastCheckLockForRead.c)
+ *     FsRtlFastCheckLockForWrite @ 0x1402BCD80 (FsRtlFastCheckLockForWrite.c)
+ *     FsRtlFastCheckLockForRead @ 0x140359020 (FsRtlFastCheckLockForRead.c)
  * Callees:
- *     RtlRealSuccessor @ 0x14021D710 (RtlRealSuccessor.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x14021DCF4 (FsRtlFindFirstOverlappingExclusiveNode.c)
- *     RtlSplay @ 0x14021ECC0 (RtlSplay.c)
+ *     RtlRealSuccessor @ 0x14029FD70 (RtlRealSuccessor.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1402ADCBC (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     RtlSplay @ 0x140359770 (RtlSplay.c)
  */
 
 char __fastcall FsRtlCheckNoExclusiveConflict(
         __int64 a1,
-        _RTL_SPLAY_LINKS **a2,
-        _RTL_SPLAY_LINKS **a3,
+        unsigned __int64 *a2,
+        unsigned __int64 *a3,
         int a4,
         __int64 a5,
         __int64 a6)
 {
   char v10; // bl
   PRTL_SPLAY_LINKS FirstOverlappingExclusiveNode; // r9
-  _RTL_SPLAY_LINKS *v13; // rdi
+  unsigned __int64 v13; // rdi
   __int64 v14; // rsi
   __int64 v15; // rbp
   PRTL_SPLAY_LINKS Links; // [rsp+60h] [rbp+8h] BYREF
@@ -27,19 +27,19 @@ char __fastcall FsRtlCheckNoExclusiveConflict(
   Links = 0LL;
   v10 = 1;
   FirstOverlappingExclusiveNode = (PRTL_SPLAY_LINKS)FsRtlFindFirstOverlappingExclusiveNode(
-                                                      *(_QWORD *)(a1 + 16),
-                                                      (_DWORD)a2,
-                                                      (_DWORD)a3,
-                                                      (unsigned int)&Links,
+                                                      *(_QWORD **)(a1 + 16),
+                                                      a2,
+                                                      a3,
+                                                      &Links,
                                                       0LL);
   if ( FirstOverlappingExclusiveNode )
   {
     v13 = *a3;
     v14 = a6;
     v15 = a5;
-    while ( v13 >= FirstOverlappingExclusiveNode[1].Parent )
+    while ( (_RTL_SPLAY_LINKS *)v13 >= FirstOverlappingExclusiveNode[1].Parent )
     {
-      if ( *a2 <= FirstOverlappingExclusiveNode[2].RightChild
+      if ( (_RTL_SPLAY_LINKS *)*a2 <= FirstOverlappingExclusiveNode[2].RightChild
         && (FirstOverlappingExclusiveNode[2].Parent != (_RTL_SPLAY_LINKS *)v15
          || FirstOverlappingExclusiveNode[2].LeftChild != (_RTL_SPLAY_LINKS *)v14
          || HIDWORD(FirstOverlappingExclusiveNode[1].RightChild) != a4) )

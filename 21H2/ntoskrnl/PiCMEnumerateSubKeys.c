@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMEnumerateSubKeys @ 0x140955628
+ * XREFs of PiCMEnumerateSubKeys @ 0x1408B036C
  * Callers:
- *     PiCMHandleIoctl @ 0x14077BCA0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
  * Callees:
- *     CmIsStateSeparationEnabled @ 0x1402201F8 (CmIsStateSeparationEnabled.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406994BC (_PnpCtxRegQueryInfoKey.c)
- *     _RegRtlEnumKey @ 0x1406CB3B4 (_RegRtlEnumKey.c)
- *     PiCMReturnBufferResultData @ 0x14077C780 (PiCMReturnBufferResultData.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x14078014C (_PnpCtxGetCachedContextBaseKey.c)
- *     PiCMCaptureEnumerateInputData @ 0x1408818C4 (PiCMCaptureEnumerateInputData.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     CmIsStateSeparationEnabled @ 0x1402C9DF8 (CmIsStateSeparationEnabled.c)
+ *     PiCMReturnBufferResultData @ 0x140637784 (PiCMReturnBufferResultData.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406C484C (_PnpCtxRegQueryInfoKey.c)
+ *     _RegRtlEnumKey @ 0x140766B7C (_RegRtlEnumKey.c)
+ *     PiCMCaptureEnumerateInputData @ 0x1408AF0A8 (PiCMCaptureEnumerateInputData.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMEnumerateSubKeys(
@@ -22,90 +22,96 @@ __int64 __fastcall PiCMEnumerateSubKeys(
         _DWORD *a6)
 {
   _DWORD *v6; // r12
-  unsigned int v9; // ebx
-  char *Pool2; // rdi
-  unsigned int v11; // esi
-  __int64 v12; // rcx
-  int v13; // esi
-  int v14; // edx
-  unsigned int v15; // ebx
+  unsigned int *PoolWithTag; // rdi
+  int v10; // ebx
+  __int64 v11; // rcx
+  int v12; // eax
+  unsigned int v14; // ebx
+  int v15; // edx
+  unsigned int v16; // ebx
   HANDLE KeyHandle; // [rsp+50h] [rbp-20h] BYREF
   __int128 v18; // [rsp+58h] [rbp-18h] BYREF
   int v19; // [rsp+68h] [rbp-8h]
 
   v6 = a6;
   KeyHandle = 0LL;
+  a5 = 0;
   LODWORD(a6) = 0;
-  v19 = 0;
   *v6 = 0;
   v18 = 0LL;
-  v9 = 0;
-  Pool2 = 0LL;
-  v11 = PiCMCaptureEnumerateInputData(a1, a2, (__int64)a3, (__int64)&v18);
-  if ( (v11 & 0x80000000) != 0 )
-    return v11;
-  if ( DWORD1(v18) || !a3 || a4 < 0x14 || a4 - 20 < 2 )
-    goto LABEL_26;
-  Pool2 = (char *)ExAllocatePool2(256LL, a4 - 20, 879783504LL);
-  if ( !Pool2 )
+  v19 = 0;
+  PoolWithTag = 0LL;
+  v10 = PiCMCaptureEnumerateInputData(a1, a2, (__int64)a3, (__int64)&v18);
+  if ( v10 < 0 )
+    return (unsigned int)v10;
+  if ( DWORD1(v18) )
+    goto LABEL_3;
+  if ( !a3 || a4 < 0x14 )
   {
-    LODWORD(v12) = -1073741670;
-    goto LABEL_27;
+    LODWORD(v11) = -1073741811;
+    goto LABEL_29;
   }
-  v13 = DWORD2(v18);
-  v9 = (a4 - 20) >> 1;
-  a5 = v9;
-  switch ( DWORD2(v18) )
+  v14 = a4 - 20;
+  if ( a4 - 20 < 2 )
+    goto LABEL_3;
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, v14, 0x34706E50u);
+  if ( !PoolWithTag )
   {
-    case 1:
-      v14 = 5;
-LABEL_14:
-      LODWORD(v12) = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, v14, (__int64)&KeyHandle);
-      if ( (int)v12 < 0 )
-        goto LABEL_27;
-      v15 = HIDWORD(v18);
-      LODWORD(v12) = RegRtlEnumKey(KeyHandle, HIDWORD(v18), Pool2, &a5);
-      if ( (_DWORD)v12 == -2147483622 )
-      {
-        if ( v13 != 3 )
-          goto LABEL_21;
-        if ( !CmIsStateSeparationEnabled() )
-          goto LABEL_21;
-        LODWORD(v12) = PnpCtxRegQueryInfoKey(v12, (int)KeyHandle, (int)&a6, 0, 0LL, 0LL, 0LL);
-        if ( (int)v12 < 0 )
-          goto LABEL_21;
-        if ( v15 < (unsigned int)a6 )
-        {
-          LODWORD(v12) = -1073741595;
-LABEL_21:
-          v9 = a5;
-          goto LABEL_27;
-        }
-        LODWORD(v12) = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 9, (__int64)&KeyHandle);
-        if ( (int)v12 < 0 )
-          goto LABEL_21;
-        LODWORD(v12) = RegRtlEnumKey(KeyHandle, v15 - (unsigned int)a6, Pool2, &a5);
-      }
-      if ( (int)v12 >= 0 )
-      {
-        v11 = PiCMReturnBufferResultData(v12, 2 * a5, 0, Pool2, 2 * a5, v19, a3, a4, v6);
-LABEL_28:
-        ExFreePoolWithTag(Pool2, 0x34706E50u);
-        return v11;
-      }
-      goto LABEL_21;
-    case 2:
-      v14 = 7;
-      goto LABEL_14;
-    case 3:
-      v14 = 8;
-      goto LABEL_14;
+    LODWORD(v11) = -1073741670;
+    goto LABEL_4;
   }
-LABEL_26:
-  LODWORD(v12) = -1073741811;
-LABEL_27:
-  v11 = PiCMReturnBufferResultData(v12, 2 * v9, 0, 0LL, 0, v19, a3, a4, v6);
-  if ( Pool2 )
-    goto LABEL_28;
-  return v11;
+  a5 = v14 >> 1;
+  if ( DWORD2(v18) == 1 )
+  {
+    v15 = 5;
+    goto LABEL_19;
+  }
+  if ( DWORD2(v18) == 2 )
+  {
+    v15 = 7;
+    goto LABEL_19;
+  }
+  if ( DWORD2(v18) != 3 )
+  {
+LABEL_3:
+    LODWORD(v11) = -1073741811;
+LABEL_4:
+    v12 = PiCMReturnBufferResultData(v11, 2 * a5, 0, 0LL, 0, v19, a3, a4, v6);
+    goto LABEL_5;
+  }
+  v15 = 8;
+LABEL_19:
+  LODWORD(v11) = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, v15, (__int64)&KeyHandle);
+  if ( (int)v11 < 0 )
+    goto LABEL_4;
+  v16 = HIDWORD(v18);
+  LODWORD(v11) = RegRtlEnumKey(KeyHandle, HIDWORD(v18), PoolWithTag, &a5);
+  if ( (_DWORD)v11 == -2147483622 )
+  {
+    if ( DWORD2(v18) != 3 )
+      goto LABEL_4;
+    if ( !CmIsStateSeparationEnabled() )
+      goto LABEL_4;
+    LODWORD(v11) = PnpCtxRegQueryInfoKey(v11, KeyHandle, &a6, 0LL, 0LL, 0LL, 0LL);
+    if ( (int)v11 < 0 )
+      goto LABEL_4;
+    if ( v16 < (unsigned int)a6 )
+    {
+      LODWORD(v11) = -1073741595;
+      goto LABEL_4;
+    }
+    LODWORD(v11) = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 9, (__int64)&KeyHandle);
+    if ( (int)v11 < 0 )
+      goto LABEL_4;
+    LODWORD(v11) = RegRtlEnumKey(KeyHandle, v16 - (unsigned int)a6, PoolWithTag, &a5);
+  }
+LABEL_29:
+  if ( (int)v11 < 0 )
+    goto LABEL_4;
+  v12 = PiCMReturnBufferResultData(v11, 2 * a5, 0, PoolWithTag, 2 * a5, v19, a3, a4, v6);
+LABEL_5:
+  v10 = v12;
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x34706E50u);
+  return (unsigned int)v10;
 }

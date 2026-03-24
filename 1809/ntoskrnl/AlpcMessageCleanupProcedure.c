@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcMessageCleanupProcedure @ 0x140696E60
+ * XREFs of AlpcMessageCleanupProcedure @ 0x140696E40
  * Callers:
  *     <none>
  * Callees:

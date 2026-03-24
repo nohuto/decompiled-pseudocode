@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSendWakeNotification @ 0x1406792F4
+ * XREFs of PspSendWakeNotification @ 0x140616198
  * Callers:
- *     PspDispatchWakeNotification @ 0x140679280 (PspDispatchWakeNotification.c)
- *     PspChargeJobWakeCounter @ 0x140700280 (PspChargeJobWakeCounter.c)
+ *     PspChargeJobWakeCounter @ 0x140617E18 (PspChargeJobWakeCounter.c)
+ *     PspDispatchWakeNotification @ 0x14067FC24 (PspDispatchWakeNotification.c)
  * Callees:
- *     PspRequestDeferredJobNotification @ 0x14025CFA4 (PspRequestDeferredJobNotification.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     EtwTraceWakeEvent @ 0x1409E2E08 (EtwTraceWakeEvent.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     PspRequestDeferredJobNotification @ 0x1402C568C (PspRequestDeferredJobNotification.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     EtwTraceWakeEvent @ 0x140936964 (EtwTraceWakeEvent.c)
  */
 
 char __fastcall PspSendWakeNotification(PVOID Object, unsigned int a2, _DWORD *a3, unsigned __int64 a4, char a5)
@@ -18,7 +18,7 @@ char __fastcall PspSendWakeNotification(PVOID Object, unsigned int a2, _DWORD *a
     return 0;
   }
   ObfReferenceObjectWithTag(Object, 0x6F4E7350u);
-  if ( (xmmword_140D06910 & 0x400) != 0 && (a5 & 4) != 0 && a4 == 1 )
+  if ( (xmmword_140CFC490 & 0x400) != 0 && (a5 & 4) != 0 && a4 == 1 )
     EtwTraceWakeEvent(Object, a2);
   if ( !PspRequestDeferredJobNotification((signed __int64)Object, 0x2000u) )
     ObfDereferenceObjectWithTag(Object, 0x6F4E7350u);

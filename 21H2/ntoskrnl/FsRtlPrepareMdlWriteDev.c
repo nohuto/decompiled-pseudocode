@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlPrepareMdlWriteDev @ 0x14092DCF0
+ * XREFs of FsRtlPrepareMdlWriteDev @ 0x14088B2B0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlIsNtstatusExpected @ 0x140247160 (FsRtlIsNtstatusExpected.c)
- *     CcPrepareMdlWrite @ 0x140253190 (CcPrepareMdlWrite.c)
- *     CcCanIWrite @ 0x140283F40 (CcCanIWrite.c)
- *     IoSetTopLevelIrp @ 0x140288140 (IoSetTopLevelIrp.c)
- *     IoGetTopLevelIrp @ 0x140288160 (IoGetTopLevelIrp.c)
- *     CcZeroData @ 0x14029BD20 (CcZeroData.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
+ *     CcPrepareMdlWrite @ 0x1402CC660 (CcPrepareMdlWrite.c)
+ *     CcZeroData @ 0x1402E82C0 (CcZeroData.c)
+ *     CcCanIWrite @ 0x1403131D0 (CcCanIWrite.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     IoSetTopLevelIrp @ 0x140356C20 (IoSetTopLevelIrp.c)
+ *     IoGetTopLevelIrp @ 0x140356C40 (IoGetTopLevelIrp.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __stdcall FsRtlPrepareMdlWriteDev(
@@ -127,7 +127,7 @@ BOOLEAN __stdcall FsRtlPrepareMdlWriteDev(
     {
 LABEL_52:
       ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       return 0;
     }
   }
@@ -194,6 +194,6 @@ LABEL_52:
     }
   }
   ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v23;
 }

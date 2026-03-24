@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetIndicesCore@CGeometry2DGroup@@MEAAJIPEAII@Z @ 0x18021DFD0
+ * XREFs of ?GetIndicesCore@CGeometry2DGroup@@MEAAJIPEAII@Z @ 0x1801B49E0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGeometry2DGroup::GetIndicesCore(
@@ -15,42 +15,40 @@ __int64 __fastcall CGeometry2DGroup::GetIndicesCore(
 {
   int v4; // eax
   unsigned int v5; // ebp
-  _QWORD *v10; // rbx
-  _QWORD *v11; // r14
+  __int64 i; // rdi
+  __int64 v11; // rax
   __int64 v12; // rsi
-  int v13; // eax
-  __int64 v14; // rcx
-  unsigned int v16; // [rsp+60h] [rbp+8h]
+  __int64 v13; // r13
+  int v14; // eax
+  __int64 v15; // rcx
 
   v4 = *((_DWORD *)this + 8);
   v5 = 0;
   *((_DWORD *)this + 8) = v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)(v4 + 2)) & 6;
   if ( (((unsigned __int8)v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)(v4 + 2)) & 6) & 6) == 2 )
   {
-    v10 = (_QWORD *)*((_QWORD *)this + 10);
-    v11 = (_QWORD *)*((_QWORD *)this + 11);
-    while ( v10 != v11 )
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 24); i = (unsigned int)(i + 1) )
     {
-      v12 = *v10;
-      if ( *v10 )
+      v11 = *((_QWORD *)this + 13);
+      v12 = *(_QWORD *)(v11 + 8 * i);
+      if ( v12 )
       {
-        v16 = (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)v12 + 192LL))(*v10);
-        v13 = (*(__int64 (__fastcall **)(__int64, _QWORD, unsigned int *, _QWORD))(*(_QWORD *)v12 + 216LL))(
+        v13 = (*(unsigned int (__fastcall **)(_QWORD))(*(_QWORD *)v12 + 208LL))(*(_QWORD *)(v11 + 8 * i));
+        v14 = (*(__int64 (__fastcall **)(__int64, _QWORD, unsigned int *, _QWORD))(*(_QWORD *)v12 + 232LL))(
                 v12,
                 a2,
                 a3,
                 a4);
-        v5 = v13;
-        if ( v13 < 0 )
+        v5 = v14;
+        if ( v14 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x174u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x17Fu, 0LL);
           break;
         }
-        a4 -= v16;
-        a3 += v16;
-        a2 += (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v12 + 184LL))(v12);
+        a3 += v13;
+        a4 -= v13;
+        a2 += (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v12 + 200LL))(v12);
       }
-      ++v10;
     }
   }
   *((_DWORD *)this + 8) ^= (*((_DWORD *)this + 8) ^ (2 * (*((_DWORD *)this + 8) >> 1) - 2)) & 6;

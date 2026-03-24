@@ -3,7 +3,7 @@
  * Callers:
  *     PopSetPowerSettingValue @ 0x14058B338 (PopSetPowerSettingValue.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  */
 
 bool __fastcall PopArePowerSettingsEqual(__int64 a1, const void *a2, unsigned int a3)

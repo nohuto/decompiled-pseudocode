@@ -1,47 +1,52 @@
 /*
- * XREFs of DrvIsExternalMonitorActive @ 0x1C00BE8B0
+ * XREFs of DrvIsExternalMonitorActive @ 0x1C009B0A8
  * Callers:
- *     UpdateExternalMonitorConnectedStatus @ 0x1C00BE7F0 (UpdateExternalMonitorConnectedStatus.c)
+ *     UpdateExternalMonitorConnectedStatus @ 0x1C009B014 (UpdateExternalMonitorConnectedStatus.c)
  * Callees:
- *     ?Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C00BE9AC (-Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z.c)
- *     ?Free@QDC_AUTO_BUFFERS@@QEAAXXZ @ 0x1C00BEA80 (-Free@QDC_AUTO_BUFFERS@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C009B300 (-Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z.c)
+ *     ?Free@QDC_AUTO_BUFFERS@@QEAAXXZ @ 0x1C009B414 (-Free@QDC_AUTO_BUFFERS@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall DrvIsExternalMonitorActive(_BYTE *a1)
 {
-  unsigned int v2; // ebx
-  int v3; // edi
-  __int64 v4; // r8
-  int v5; // eax
-  _BYTE v7[432]; // [rsp+20h] [rbp-1D8h] BYREF
-  unsigned int v8; // [rsp+1D0h] [rbp-28h]
-  __int64 v9; // [rsp+1D8h] [rbp-20h]
+  int v2; // ebx
+  unsigned int v3; // edx
+  __int64 v4; // r9
+  __int64 v5; // rax
+  int v6; // eax
+  _BYTE v8[400]; // [rsp+20h] [rbp-1B8h] BYREF
+  unsigned int v9; // [rsp+1B0h] [rbp-28h]
+  __int64 v10; // [rsp+1B8h] [rbp-20h]
 
-  memset(v7, 0, sizeof(v7));
-  v2 = 0;
-  v8 = 0;
-  v9 = 0LL;
+  memset(v8, 0, sizeof(v8));
+  v9 = 0;
+  v10 = 0LL;
   *a1 = 0;
-  v3 = QDC_AUTO_BUFFERS::Fill((QDC_AUTO_BUFFERS *)v7, 2u, 0LL);
-  if ( v3 >= 0 && v8 )
+  v2 = QDC_AUTO_BUFFERS::Fill((QDC_AUTO_BUFFERS *)v8, 2u, 0LL);
+  if ( v2 >= 0 )
   {
-    while ( 1 )
+    v3 = 0;
+    if ( v9 )
     {
-      v4 = 216LL * v2;
-      if ( (*(_QWORD *)(v4 + v9) & 0x9800000000000000uLL) == 0x8000000000000000uLL )
+      while ( 1 )
       {
-        v5 = *(_DWORD *)(v4 + v9 + 80);
-        if ( v5 != 0x80000000 && v5 != 11 && v5 != 13 )
-          break;
+        v4 = 200LL * v3;
+        v5 = *(_QWORD *)(v4 + v10);
+        if ( v5 < 0 && (v5 & 0x1000000000000000LL) == 0 && (v5 & 0x800000000000000LL) == 0 )
+        {
+          v6 = *(_DWORD *)(v4 + v10 + 80);
+          if ( v6 != 0x80000000 && v6 != 11 && v6 != 13 )
+            break;
+        }
+        if ( ++v3 >= v9 )
+          goto LABEL_10;
       }
-      if ( ++v2 >= v8 )
-        goto LABEL_8;
+      *a1 = 1;
     }
-    *a1 = 1;
   }
-LABEL_8:
-  QDC_AUTO_BUFFERS::Free((QDC_AUTO_BUFFERS *)v7);
-  return (unsigned int)v3;
+LABEL_10:
+  QDC_AUTO_BUFFERS::Free((QDC_AUTO_BUFFERS *)v8);
+  return (unsigned int)v2;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C015E01A
+ * XREFs of ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C013EF20
  * Callers:
- *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C015DC7A (-bWiden@WIDENER@@IEAAHXZ.c)
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C0140328 (-bWiden@WIDENER@@IEAAHXZ.c)
  * Callees:
- *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C015E238 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
- *     ?vAddRoundEndCap@WIDEPENOBJ@@QEAAXAEAVWIDENER@@AEAVLINEDATA@@HH@Z @ 0x1C015E2D8 (-vAddRoundEndCap@WIDEPENOBJ@@QEAAXAEAVWIDENER@@AEAVLINEDATA@@HH@Z.c)
- *     ?vecInDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C015E718 (-vecInDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?vecInPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C015E75E (-vecInPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02F359C (-vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C0140B60 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
+ *     ?vecInPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C0141070 (-vecInPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ *     ?vAddRoundEndCap@WIDEPENOBJ@@QEAAXAEAVWIDENER@@AEAVLINEDATA@@HH@Z @ 0x1C02CEAEC (-vAddRoundEndCap@WIDEPENOBJ@@QEAAXAEAVWIDENER@@AEAVLINEDATA@@HH@Z.c)
+ *     ?vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02CF0A4 (-vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ *     ?vecInDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C02CF144 (-vecInDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
  */
 
 void __fastcall WIDENER::vAddEndCap(WIDENER *this)
@@ -16,11 +16,11 @@ void __fastcall WIDENER::vAddEndCap(WIDENER *this)
   int v3; // ecx
   struct _POINTFIX *v4; // rbx
   WIDEPATHOBJ *v5; // rdi
-  struct LINEDATA *v6; // rdx
-  _DWORD *v7; // rax
-  _DWORD *v8; // rax
-  int v9; // r9d
-  struct EVECTORFX *v10; // r8
+  int v6; // r9d
+  struct EVECTORFX *v7; // r8
+  __int64 v8; // rcx
+  _DWORD *v9; // rax
+  _DWORD *v10; // rax
   __int64 *v11; // rax
   __int64 v12; // [rsp+50h] [rbp+20h] BYREF
   __int64 v13; // [rsp+58h] [rbp+28h] BYREF
@@ -32,27 +32,30 @@ void __fastcall WIDENER::vAddEndCap(WIDENER *this)
     v3 = v2 - 1;
     if ( !v3 )
     {
-      v6 = (struct LINEDATA *)*((_QWORD *)this + 88);
-      if ( (*(_DWORD *)v6 & 2) == 0 )
-        WIDENER::vVecSquareCompute(this, v6);
-      v12 = *(_QWORD *)(*((_QWORD *)this + 88) + 56LL);
+      v8 = *((_QWORD *)this + 88);
+      if ( (*(_DWORD *)v8 & 2) == 0 )
+      {
+        WIDENER::vVecSquareCompute(this, *((struct LINEDATA **)this + 88));
+        v8 = *((_QWORD *)this + 88);
+      }
+      v12 = *(_QWORD *)(v8 + 56);
       v13 = v12;
-      v7 = (_DWORD *)WIDENER::vecInPerp(this, &v14);
-      LODWORD(v12) = *v7 + v12;
-      HIDWORD(v12) += v7[1];
-      v8 = (_DWORD *)WIDENER::vecInPerp(this, &v14);
+      v9 = (_DWORD *)WIDENER::vecInPerp(this, &v14);
+      LODWORD(v12) = *v9 + v12;
+      HIDWORD(v12) += v9[1];
+      v10 = (_DWORD *)WIDENER::vecInPerp(this, &v14);
       v4 = (struct _POINTFIX *)((char *)this + 692);
       v5 = (WIDENER *)((char *)this + 1136);
-      LODWORD(v13) = v13 - *v8;
-      HIDWORD(v13) -= v8[1];
+      LODWORD(v13) = v13 - *v10;
+      HIDWORD(v13) -= v10[1];
       WIDEPATHOBJ::vAddPoint(
         (WIDENER *)((char *)this + 1136),
         (struct _POINTFIX *)((char *)this + 692),
         (struct EVECTORFX *)&v12,
         0);
-      v9 = 0;
-      v10 = (struct EVECTORFX *)&v13;
-      goto LABEL_13;
+      v6 = 0;
+      v7 = (struct EVECTORFX *)&v13;
+      goto LABEL_6;
     }
     if ( v3 != 1 )
       return;
@@ -86,8 +89,8 @@ void __fastcall WIDENER::vAddEndCap(WIDENER *this)
       0,
       *((_DWORD *)this + 10) & 0x10);
   }
-  v9 = 1;
-  v10 = (struct EVECTORFX *)&v12;
-LABEL_13:
-  WIDEPATHOBJ::vAddPoint(v5, v4, v10, v9);
+  v6 = 1;
+  v7 = (struct EVECTORFX *)&v12;
+LABEL_6:
+  WIDEPATHOBJ::vAddPoint(v5, v4, v7, v6);
 }

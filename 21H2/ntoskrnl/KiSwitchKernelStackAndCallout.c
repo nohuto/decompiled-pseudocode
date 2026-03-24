@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSwitchKernelStackAndCallout @ 0x140424000
+ * XREFs of KiSwitchKernelStackAndCallout @ 0x1404026A0
  * Callers:
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1402F4850 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x14032A230 (KiExpandKernelStackAndCalloutOnStackSegment.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall KiSwitchKernelStackAndCallout(int a1, int a2, __int64 a3, int
   v7 = a3;
   v8 = a3 & 0xFFFFFFFFFFFFFFFCuLL;
   CurrentThread = KeGetCurrentThread();
-  v10 = v8 + 80;
+  v10 = v8 + 48;
   *(_QWORD *)(v8 + 32) = v14;
   v11 = v8 - 80;
   *(_QWORD *)(v11 + 40) = &KiSwitchKernelStackContinue;
@@ -28,7 +28,7 @@ __int64 __fastcall KiSwitchKernelStackAndCallout(int a1, int a2, __int64 a3, int
   *(_QWORD *)(v8 + 24) = CurrentThread->StackLimit;
   CurrentThread->InitialStack = (void *)v8;
   __writegsqword(0x1A8u, v8);
-  CurrentThread->StackBase = (void *)(v8 + 80);
+  CurrentThread->StackBase = (void *)(v8 + 48);
   v12 = 24576LL;
   if ( (v7 & 2) != 0 )
     v12 = 73728LL;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwResetWriteWatch @ 0x14041D760
+ * XREFs of ZwResetWriteWatch @ 0x1403FC980
  * Callers:
  *     <none>
  * Callees:

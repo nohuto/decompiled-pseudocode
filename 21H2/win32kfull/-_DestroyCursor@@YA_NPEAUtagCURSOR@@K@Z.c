@@ -1,164 +1,158 @@
 /*
- * XREFs of ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00233C4
+ * XREFs of ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C004879C
  * Callers:
- *     NtUserDestroyCursor @ 0x1C0021300 (NtUserDestroyCursor.c)
- *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00233C4 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
- *     DestroyWindowSmIcon @ 0x1C0060E08 (DestroyWindowSmIcon.c)
- *     DestroyClassSmIcon @ 0x1C00634EC (DestroyClassSmIcon.c)
- *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C00A1E2C (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
- *     ?zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z @ 0x1C00A1F2C (-zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z.c)
- *     ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C00A36F0 (-xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z.c)
- *     ?DestroyAniIcon@@YAHPEAUtagACON@@@Z @ 0x1C0110F74 (-DestroyAniIcon@@YAHPEAUtagACON@@@Z.c)
- *     DestroyUnlockedCursor @ 0x1C0119E60 (DestroyUnlockedCursor.c)
- *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C01505FC (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
- *     ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C016A77E (-_CleanupUnneededSystemCursorSizes@@YAXI@Z.c)
+ *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C0007F90 (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
+ *     ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C0023584 (-xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z.c)
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0024C7C (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     ?zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z @ 0x1C0024D68 (-zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z.c)
+ *     NtUserDestroyCursor @ 0x1C00483C0 (NtUserDestroyCursor.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C004879C (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     DestroyWindowSmIcon @ 0x1C007C580 (DestroyWindowSmIcon.c)
+ *     DestroyClassSmIcon @ 0x1C010E6D0 (DestroyClassSmIcon.c)
+ *     ?DestroyAniIcon@@YAHPEAUtagACON@@@Z @ 0x1C012627C (-DestroyAniIcon@@YAHPEAUtagACON@@@Z.c)
+ *     DestroyUnlockedCursor @ 0x1C012D010 (DestroyUnlockedCursor.c)
+ *     ?zzzSetCursorContents@@YA_NPEAUtagCURSOR@@0@Z @ 0x1C0168D90 (-zzzSetCursorContents@@YA_NPEAUtagCURSOR@@0@Z.c)
+ *     ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C01D40B0 (-_CleanupUnneededSystemCursorSizes@@YAXI@Z.c)
  * Callees:
- *     ?DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C002331C (-DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
- *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C002338C (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
- *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00233C4 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
- *     ?RemoveCursorFromCaptionIconCache@@YAHPEAUtagCURSOR@@@Z @ 0x1C002359C (-RemoveCursorFromCaptionIconCache@@YAHPEAUtagCURSOR@@@Z.c)
- *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0023CB0 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
- *     ?CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C0026524 (-CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C004879C (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?RemoveCursorFromCaptionIconCache@@YAHPEAUtagCURSOR@@@Z @ 0x1C00489DC (-RemoveCursorFromCaptionIconCache@@YAHPEAUtagCURSOR@@@Z.c)
+ *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004B714 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C004B7F4 (-DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
+ *     ?CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C004B834 (-CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-bool __fastcall _DestroyCursor(struct tagCURSOR *a1, unsigned int a2)
+char __fastcall _DestroyCursor(struct tagCURSOR *a1, unsigned int a2)
 {
-  int v2; // ebp
-  struct tagCURSOR *v3; // r13
-  int v4; // r15d
-  bool v6; // si
-  int v7; // r14d
+  struct tagCURSOR *v2; // r12
+  int v5; // esi
+  int v6; // r14d
+  char v7; // bp
   struct tagTHREADINFO *CurrentLogicalCursorThread; // rax
-  __int64 v9; // rbx
-  __int64 v10; // r12
-  unsigned int v11; // edx
-  __int64 v12; // rax
-  struct tagCURSOR *v13; // rcx
-  __int64 v15; // rbx
-  struct tagCURSOR *v16; // rax
-  __int64 v17; // rcx
-  char v18; // [rsp+60h] [rbp+8h] BYREF
-  unsigned int v19; // [rsp+68h] [rbp+10h]
+  __int64 v10; // rbx
+  __int64 v11; // r15
+  int v12; // eax
+  __int64 v13; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  struct tagCURSOR *v17; // rax
+  __int64 v18; // rcx
+  struct tagCURSOR *v19; // rax
+  struct tagCURSOR *v20; // rcx
 
-  v19 = a2;
-  v2 = 0;
-  v3 = (struct tagCURSOR *)*((_QWORD *)a1 + 6);
-  v4 = 0;
-  v6 = 1;
+  v2 = (struct tagCURSOR *)*((_QWORD *)a1 + 6);
+  v5 = 0;
+  v6 = 0;
   v7 = 1;
   if ( gbInDestroyHandleTableObjects )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM();
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 964LL);
     DestroyEmptyCursorObject(a1);
-    return v6;
+    return 1;
   }
-  IdentifyPrimaryDestroyTarget::IdentifyPrimaryDestroyTarget((IdentifyPrimaryDestroyTarget *)&v18, a1);
   CurrentLogicalCursorThread = _GetCurrentLogicalCursorThread();
-  v9 = *((_QWORD *)a1 + 3);
-  v10 = *((_QWORD *)CurrentLogicalCursorThread + 53);
-  if ( !(unsigned int)RemoveCursorFromCaptionIconCache(a1) )
+  v10 = *((_QWORD *)a1 + 3);
+  v11 = *((_QWORD *)CurrentLogicalCursorThread + 53);
+  if ( (unsigned int)RemoveCursorFromCaptionIconCache(a1) )
+    return 1;
+  if ( a2 )
   {
-    v11 = v19;
-    if ( !v19 )
+    if ( a2 == 1 )
     {
-      v15 = _HMPkheFromObject(a1);
-      if ( *(_QWORD *)(v15 + 8) == PsGetProcessWin32Process(gpepCSRSS) && PsGetCurrentProcess() == gpepCSRSS )
-        FixupGlobalCursor(a1, v10);
-      goto LABEL_11;
-    }
-    if ( v19 == 1 )
-    {
-      if ( !v9 )
+      v12 = *((_DWORD *)a1 + 20);
+      if ( !v10 )
       {
-        v2 = 1;
-        v7 = *((_DWORD *)a1 + 20) & 1;
-LABEL_14:
-        if ( v3 != a1 && (*(_DWORD *)(*((_QWORD *)a1 + 6) + 80LL) & 0x2000) != 0 )
-          v4 = 1;
-        if ( v2 )
-        {
-          if ( v4 )
-          {
-            v16 = a1;
-            do
-            {
-              *((_QWORD *)v16 + 6) = a1;
-              v16 = (struct tagCURSOR *)*((_QWORD *)v16 + 5);
-            }
-            while ( v16 );
-          }
-        }
-        else
-        {
-          v12 = *((_QWORD *)a1 + 6);
-          if ( gpcurLogCurrent == (struct tagCURSOR *)v12 )
-          {
-            gpcurLogCurrent = 0LL;
-            gpcurPhysCurrent = 0LL;
-          }
-          if ( v3 == a1 || v4 )
-          {
-            v13 = (struct tagCURSOR *)*((_QWORD *)a1 + 5);
-            if ( v13 )
-            {
-              *((_QWORD *)a1 + 5) = 0LL;
-              _DestroyCursor(v13, v11);
-            }
-          }
-          else
-          {
-            while ( v12 )
-            {
-              v17 = v12;
-              v12 = *(_QWORD *)(v12 + 40);
-              if ( (struct tagCURSOR *)v12 == a1 )
-              {
-                *(_QWORD *)(v17 + 40) = *((_QWORD *)a1 + 5);
-                break;
-              }
-            }
-            *((_QWORD *)a1 + 5) = 0LL;
-            *((_QWORD *)a1 + 6) = a1;
-          }
-          CleanupCursorObject(a1);
-          DestroyEmptyCursorObject(a1);
-        }
-        v6 = v7 != 0;
-        goto LABEL_23;
+        v5 = 1;
+        v7 = v12 & 1;
+        goto LABEL_22;
       }
-      if ( (*((_DWORD *)a1 + 20) & 0x84) == 0 )
-      {
-        if ( v9 != v10 )
-        {
-          UserSetLastError(1435LL);
-          goto LABEL_33;
-        }
-LABEL_11:
-        if ( (unsigned int)HMMarkObjectDestroy(a1) )
-        {
-          *((_DWORD *)a1 + 20) |= 0x2000u;
-LABEL_13:
-          v11 = v19;
-          goto LABEL_14;
-        }
-LABEL_33:
-        v2 = 1;
-        v7 = 0;
+      if ( (v12 & 0x84) != 0 )
         goto LABEL_13;
+      if ( v10 != v11 )
+      {
+        UserSetLastError(1435LL);
+LABEL_20:
+        v5 = 1;
+        v7 = 0;
+        goto LABEL_22;
       }
     }
-    else if ( v19 != 2 || v9 )
+    else if ( a2 != 2 )
     {
-      goto LABEL_11;
+      goto LABEL_19;
     }
-    v2 = 1;
-    goto LABEL_14;
+    if ( !v10 )
+    {
+LABEL_13:
+      v5 = 1;
+      goto LABEL_22;
+    }
   }
-LABEL_23:
-  if ( v18 )
-    gphePrimaryDestroyTarget = 0LL;
-  return v6;
+  else
+  {
+    v13 = _HMPkheFromObject(a1, 0LL);
+    if ( *(_QWORD *)(v13 + 8) == PsGetProcessWin32Process(gpepCSRSS) && PsGetCurrentProcess(v15, v14, v16) == gpepCSRSS )
+      FixupGlobalCursor(a1, v11);
+  }
+LABEL_19:
+  if ( !(unsigned int)HMMarkObjectDestroy(a1) )
+    goto LABEL_20;
+  *((_DWORD *)a1 + 20) |= 0x2000u;
+LABEL_22:
+  if ( v2 != a1 && (*(_DWORD *)(*((_QWORD *)a1 + 6) + 80LL) & 0x2000) != 0 )
+    v6 = 1;
+  if ( v5 )
+  {
+    if ( v6 )
+    {
+      v17 = a1;
+      do
+      {
+        *((_QWORD *)v17 + 6) = a1;
+        v17 = (struct tagCURSOR *)*((_QWORD *)v17 + 5);
+      }
+      while ( v17 );
+    }
+  }
+  else
+  {
+    v18 = *((_QWORD *)a1 + 6);
+    if ( gpcurLogCurrent == (struct tagCURSOR *)v18 )
+    {
+      gpcurLogCurrent = 0LL;
+      gpcurPhysCurrent = 0LL;
+    }
+    if ( v2 == a1 || v6 )
+    {
+      v20 = (struct tagCURSOR *)*((_QWORD *)a1 + 5);
+      if ( v20 )
+      {
+        *((_QWORD *)a1 + 5) = 0LL;
+        _DestroyCursor(v20, a2);
+      }
+    }
+    else
+    {
+      if ( v18 )
+      {
+        do
+        {
+          v19 = *(struct tagCURSOR **)(v18 + 40);
+          if ( v19 == a1 )
+            break;
+          v18 = *(_QWORD *)(v18 + 40);
+        }
+        while ( v19 );
+        if ( v18 )
+          *(_QWORD *)(v18 + 40) = *((_QWORD *)a1 + 5);
+      }
+      *((_QWORD *)a1 + 5) = 0LL;
+      *((_QWORD *)a1 + 6) = a1;
+    }
+    CleanupCursorObject(a1);
+    DestroyEmptyCursorObject(a1);
+  }
+  return v7;
 }

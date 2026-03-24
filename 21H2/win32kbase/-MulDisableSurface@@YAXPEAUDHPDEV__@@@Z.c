@@ -1,11 +1,11 @@
 /*
- * XREFs of ?MulDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C016E370
+ * XREFs of ?MulDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C01414B0
  * Callers:
- *     ?MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C016EC50 (-MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ *     ?MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C0141D30 (-MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
  * Callees:
- *     bDeleteSurface @ 0x1C0019110 (bDeleteSurface.c)
- *     EngUnlockSurface @ 0x1C00205F0 (EngUnlockSurface.c)
- *     EngDeleteClip @ 0x1C0177FB0 (EngDeleteClip.c)
+ *     bDeleteSurface @ 0x1C001BA00 (bDeleteSurface.c)
+ *     EngUnlockSurface @ 0x1C002D030 (EngUnlockSurface.c)
+ *     EngDeleteClip @ 0x1C014BF10 (EngDeleteClip.c)
  */
 
 void __fastcall MulDisableSurface(struct DHPDEV__ *a1)

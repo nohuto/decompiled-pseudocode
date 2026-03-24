@@ -1,78 +1,77 @@
 /*
- * XREFs of NtUserGetProcessUIContextInformation @ 0x1C00F2780
+ * XREFs of NtUserGetProcessUIContextInformation @ 0x1C0103080
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetProcessUIContextInformation(HANDLE Handle, _QWORD *a2, __int64 a3)
+__int64 __fastcall NtUserGetProcessUIContextInformation(HANDLE Handle, _QWORD *a2)
 {
-  _QWORD *v3; // rsi
-  PVOID v5; // rbx
+  PVOID v4; // rdi
+  int v5; // ebx
   __int64 v6; // rcx
-  __int64 CurrentProcessWin32Process; // rax
+  NTSTATUS v7; // eax
   __int64 v8; // rdx
-  int v9; // edi
-  unsigned int v10; // ecx
-  ULONG64 v11; // rcx
-  NTSTATUS v13; // eax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // [rsp+70h] [rbp+8h]
+  __int64 v9; // r8
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 CurrentProcessWin32Process; // rax
+  unsigned int v13; // ecx
+  ULONG64 v14; // rcx
+  __int64 v16; // rcx
+  __int64 v17; // [rsp+70h] [rbp+8h]
   PVOID Object; // [rsp+80h] [rbp+18h] BYREF
-  PVOID v18; // [rsp+88h] [rbp+20h]
+  PVOID v19; // [rsp+88h] [rbp+20h]
 
-  v3 = a2;
-  v5 = 0LL;
-  v18 = 0LL;
-  EnterSharedCrit(Handle, a2, a3);
+  v4 = 0LL;
+  v19 = 0LL;
+  v5 = 1;
+  EnterSharedCrit(0LL, 1LL);
   if ( Handle == (HANDLE)-1LL )
   {
     CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v6);
-    v9 = 1;
   }
   else
   {
     Object = 0LL;
-    v9 = 1;
-    v13 = ObReferenceObjectByHandle(Handle, 0x1000u, (POBJECT_TYPE)PsProcessType, 1, &Object, 0LL);
-    v5 = Object;
-    v18 = Object;
-    if ( v13 < 0 )
+    v7 = ObReferenceObjectByHandle(Handle, 0x1000u, (POBJECT_TYPE)PsProcessType, 1, &Object, 0LL);
+    v4 = Object;
+    v19 = Object;
+    if ( v7 < 0 )
     {
-      UserSetLastError(87LL, v14);
-      v9 = 0;
-      goto LABEL_12;
+      UserSetLastError(87LL, v8, v9);
+      v5 = 0;
+      goto LABEL_14;
     }
     if ( (unsigned int)PsGetProcessSessionId(Object) != gSessionId )
     {
-      v15 = 87LL;
+      v16 = 87LL;
       goto LABEL_17;
     }
-    CurrentProcessWin32Process = PsGetProcessWin32Process(v5);
+    CurrentProcessWin32Process = PsGetProcessWin32Process(v4);
   }
   if ( CurrentProcessWin32Process && (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x21) != 0 )
   {
-    v10 = *(_DWORD *)(CurrentProcessWin32Process + 820);
-    LODWORD(v16) = (v10 >> 4) & 3;
-    HIDWORD(v16) = (v10 & 0x40) != 0;
-    if ( (v10 & 0x100) != 0 )
-      HIDWORD(v16) = ((v10 & 0x40) != 0) | 2;
-    v11 = MmUserProbeAddress;
-    if ( (unsigned __int64)v3 >= MmUserProbeAddress )
-      v3 = (_QWORD *)MmUserProbeAddress;
-    *v3 = v16;
-    goto LABEL_10;
+    v13 = *(_DWORD *)(CurrentProcessWin32Process + 820);
+    LODWORD(v17) = (v13 >> 4) & 3;
+    HIDWORD(v17) = (v13 & 0x40) != 0;
+    if ( (v13 & 0x100) != 0 )
+      HIDWORD(v17) = ((v13 & 0x40) != 0) | 2;
+    v14 = MmUserProbeAddress;
+    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+      a2 = (_QWORD *)MmUserProbeAddress;
+    *a2 = v17;
+    goto LABEL_12;
   }
-  v15 = 1471LL;
+  v16 = 1471LL;
 LABEL_17:
-  UserSetLastError(v15, v8);
-  v9 = 0;
-LABEL_10:
-  if ( v5 )
-    ObfDereferenceObject(v5);
+  UserSetLastError(v16, v10, v11);
+  v5 = 0;
 LABEL_12:
-  UserSessionSwitchLeaveCrit(v11);
-  return v9;
+  if ( v4 )
+    ObfDereferenceObject(v4);
+LABEL_14:
+  UserSessionSwitchLeaveCrit(v14);
+  return v5;
 }

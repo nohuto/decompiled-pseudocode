@@ -1,31 +1,27 @@
 /*
- * XREFs of MiProcessLoadConfigForDriver @ 0x1407D4904
+ * XREFs of MiProcessLoadConfigForDriver @ 0x14075C52C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703E70 (MmLoadSystemImageEx.c)
- *     MiReloadBootLoadedDrivers @ 0x140B4A0CC (MiReloadBootLoadedDrivers.c)
+ *     MmLoadSystemImageEx @ 0x14075B2EC (MmLoadSystemImageEx.c)
+ *     MiReloadBootLoadedDrivers @ 0x140A4F9F0 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x1407D4964 (MiProcessKernelCfgImageLoadConfig.c)
- *     LdrInitSecurityCookie @ 0x1407D49F8 (LdrInitSecurityCookie.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     LdrInitSecurityCookie @ 0x14075C57C (LdrInitSecurityCookie.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x14075C764 (MiProcessKernelCfgImageLoadConfig.c)
  */
 
-__int64 __fastcall MiProcessLoadConfigForDriver(__int64 a1, __int64 a2)
+__int64 __fastcall MiProcessLoadConfigForDriver(__int64 a1)
 {
   __int64 result; // rax
-  int v5; // eax
-  int v6; // r8d
+  int v3; // eax
+  int v4; // r8d
 
-  if ( !_bittest16((const signed __int16 *)(a1 + 110), 9u) )
+  result = MiProcessKernelCfgImageLoadConfig();
+  if ( (int)result >= 0 )
   {
-    result = MiProcessKernelCfgImageLoadConfig();
-    if ( (int)result < 0 )
-      return result;
-    if ( a2 )
-    {
-      ExGenRandom(0);
-      v5 = ExGenRandom(0);
-      LdrInitSecurityCookie(*(_QWORD *)(a1 + 48), *(_DWORD *)(a1 + 64), v6, v5);
-    }
+    ExGenRandom(0);
+    v3 = ExGenRandom(0);
+    LdrInitSecurityCookie(*(_QWORD *)(a1 + 48), *(_DWORD *)(a1 + 64), v4, v3);
+    return 0LL;
   }
-  return 0LL;
+  return result;
 }

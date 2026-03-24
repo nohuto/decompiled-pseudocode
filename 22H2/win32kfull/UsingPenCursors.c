@@ -1,8 +1,8 @@
 /*
- * XREFs of UsingPenCursors @ 0x1C01ADC9C
+ * XREFs of UsingPenCursors @ 0x1C00333D0
  * Callers:
- *     ?_GetCursorInfo@@YAXPEAUtagCURSORINFO@@@Z @ 0x1C000AA58 (-_GetCursorInfo@@YAXPEAUtagCURSORINFO@@@Z.c)
- *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C014F34E (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
+ *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C00313BC (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
+ *     ?_GetCursorInfo@@YAXPEAUtagCURSORINFO@@@Z @ 0x1C0032728 (-_GetCursorInfo@@YAXPEAUtagCURSORINFO@@@Z.c)
  * Callees:
  *     <none>
  */

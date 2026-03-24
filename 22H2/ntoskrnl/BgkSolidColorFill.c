@@ -1,11 +1,11 @@
 /*
- * XREFs of BgkSolidColorFill @ 0x14054EFB0
+ * XREFs of BgkSolidColorFill @ 0x1404FF590
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     BgkpAcquireConsole @ 0x14054F028 (BgkpAcquireConsole.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x1404FF608 (BgkpAcquireConsole.c)
  */
 
 void __fastcall BgkSolidColorFill(int a1, int a2, int a3, int a4, unsigned int a5)
@@ -14,9 +14,9 @@ void __fastcall BgkSolidColorFill(int a1, int a2, int a3, int a4, unsigned int a
   {
     if ( (unsigned __int8)BgkpAcquireConsole() )
     {
-      (*(void (__fastcall **)(_QWORD, char *))(qword_140C6AC68 + 16))(0LL, (char *)Palette + 4 * a5);
-      (*(void (**)(void))(qword_140C6AC68 + 8))();
-      ExReleaseRundownProtection_0(&stru_140C0BD38);
+      (*(void (__fastcall **)(_QWORD, char *))(qword_140C50B90 + 16))(0LL, (char *)Palette + 4 * a5);
+      (*(void (**)(void))(qword_140C50B90 + 8))();
+      ExReleaseRundownProtection(&stru_140C113B8);
     }
   }
 }

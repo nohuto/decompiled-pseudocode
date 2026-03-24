@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsThreadImpersonating @ 0x1407F9CD0
+ * XREFs of PsIsThreadImpersonating @ 0x140767430
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall PsIsThreadImpersonating(__int64 a1)
 {
-  return (*(_DWORD *)(a1 + 1376) & 8) != 0;
+  return (*(_DWORD *)(a1 + 1296) & 8) != 0;
 }

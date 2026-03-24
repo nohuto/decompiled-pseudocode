@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ELockable@@UEAAPEAXI@Z @ 0x1C006A780
+ * XREFs of ??_ELockable@@UEAAPEAXI@Z @ 0x1C005D520
  * Callers:
  *     <none>
  * Callees:
- *     ??1Lockable@@UEAA@XZ @ 0x1C03A7604 (--1Lockable@@UEAA@XZ.c)
+ *     ??1Lockable@@UEAA@XZ @ 0x1C02E8A4C (--1Lockable@@UEAA@XZ.c)
  */
 
 Lockable *__fastcall Lockable::`vector deleting destructor'(Lockable *P, char a2)

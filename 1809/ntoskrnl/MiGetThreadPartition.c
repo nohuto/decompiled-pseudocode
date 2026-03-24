@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetThreadPartition @ 0x14013DB40
+ * XREFs of MiGetThreadPartition @ 0x14013DB60
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
- *     MiResolveMemoryEvent @ 0x1406D1E50 (MiResolveMemoryEvent.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
+ *     MiResolveMemoryEvent @ 0x1406D1E30 (MiResolveMemoryEvent.c)
  * Callees:
  *     <none>
  */

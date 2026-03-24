@@ -1,65 +1,59 @@
 /*
- * XREFs of DrvDestroyMDEV @ 0x1C00A09A8
+ * XREFs of DrvDestroyMDEV @ 0x1C0016438
  * Callers:
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C001B5AC (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
- *     hdcOpenDCW @ 0x1C005ADC0 (hdcOpenDCW.c)
- *     DrvCleanupAndDestroyMDEV @ 0x1C00A074C (DrvCleanupAndDestroyMDEV.c)
+ *     DrvCleanupAndDestroyMDEV @ 0x1C000BDDC (DrvCleanupAndDestroyMDEV.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0013A90 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     hdcOpenDCW @ 0x1C0022A00 (hdcOpenDCW.c)
  * Callees:
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     ?vUnreferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C005B180 (-vUnreferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C0022D50 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
  */
 
-void __fastcall DrvDestroyMDEV(__int64 a1)
+__int64 __fastcall DrvDestroyMDEV(__int64 *a1)
 {
-  __int64 v2; // rdi
-  unsigned int v3; // eax
+  __int64 v2; // rax
+  __int64 result; // rax
   unsigned int i; // esi
-  struct PDEV *v5; // rbx
-  HSEMAPHORE v6; // rcx
-  struct _ERESOURCE *v7; // rcx
-  struct PDEV *v8; // rbx
-  HSEMAPHORE v9; // rcx
-  struct _ERESOURCE *v10; // rcx
-  struct PDEV *v11; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v5; // rbx
+  __int64 v6; // rbx
+  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  WdLogSingleEntry1(4LL, a1);
-  v3 = *(_DWORD *)(a1 + 20);
-  for ( i = 0; i < v3; ++i )
+  v2 = WdLogNewEntry5_WdEvent();
+  *(_QWORD *)(v2 + 24) = a1;
+  WdLogEvent5_WdEvent(v2);
+  result = *((unsigned int *)a1 + 5);
+  for ( i = 0; i < (unsigned int)result; ++i )
   {
-    v6 = *(HSEMAPHORE *)(v2 + 8);
-    v11 = *(struct PDEV **)(56LL * i + a1 + 40);
-    v5 = v11;
-    EngAcquireSemaphore(v6);
-    EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v2 + 8), 16);
-    --*((_DWORD *)v5 + 3);
-    EtwTraceGreLockReleaseSemaphore((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v2 + 8));
-    v7 = *(struct _ERESOURCE **)(v2 + 8);
-    if ( v7 )
+    v7 = a1[7 * i + 5];
+    v5 = v7;
+    EngAcquireSemaphore(ghsemDriverMgmt);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
+    --*(_DWORD *)(v5 + 12);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
+    if ( ghsemDriverMgmt )
     {
-      ExReleaseResourceAndLeaveCriticalRegion(v7);
+      ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
       PsLeavePriorityRegion();
     }
-    PDEVOBJ::vUnreferencePdev(&v11);
-    v3 = *(_DWORD *)(a1 + 20);
+    PDEVOBJ::vUnreferencePdev(&v7, 0LL);
+    result = *((unsigned int *)a1 + 5);
   }
-  if ( v3 > 1 )
+  if ( (unsigned int)result > 1 )
   {
-    v9 = *(HSEMAPHORE *)(v2 + 8);
-    v11 = *(struct PDEV **)a1;
-    v8 = v11;
-    EngAcquireSemaphore(v9);
-    EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v2 + 8), 16);
-    --*((_DWORD *)v8 + 3);
-    EtwTraceGreLockReleaseSemaphore((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v2 + 8));
-    v10 = *(struct _ERESOURCE **)(v2 + 8);
-    if ( v10 )
+    v7 = *a1;
+    v6 = v7;
+    EngAcquireSemaphore(ghsemDriverMgmt);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
+    --*(_DWORD *)(v6 + 12);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
+    if ( ghsemDriverMgmt )
     {
-      ExReleaseResourceAndLeaveCriticalRegion(v10);
+      ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
       PsLeavePriorityRegion();
     }
-    PDEVOBJ::vUnreferencePdev(&v11);
+    return PDEVOBJ::vUnreferencePdev(&v7, 0LL);
   }
+  return result;
 }

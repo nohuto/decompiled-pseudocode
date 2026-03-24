@@ -1,14 +1,14 @@
 /*
- * XREFs of ?PinMode@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@I_N@Z @ 0x1C0218300
+ * XREFs of ?PinMode@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@I_N@Z @ 0x1C012FF10
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@@SAPEAVDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@Z @ 0x1C0001B98 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@@S.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetContainer@?$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ @ 0x1C0014680 (-GetContainer@-$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z @ 0x1C019A86C (-PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@@SAPEAVDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@Z @ 0x1C00098BC (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@@S.c)
+ *     ?GetContainer@?$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ @ 0x1C0018EB8 (-GetContainer@-$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z @ 0x1C012E69C (-PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z.c)
  */
 
 __int64 __fastcall DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL::PinMode(
@@ -19,59 +19,81 @@ __int64 __fastcall DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL::PinMode(
   char v3; // r14
   __int64 v5; // rbp
   __int64 v6; // rax
-  struct DMMVIDPNSOURCEMODESET *v7; // rsi
-  __int64 v8; // rbx
-  __int64 Container; // rax
-  int v10; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct DMMVIDPNSOURCEMODESET *v9; // rsi
+  __int64 v10; // rbx
   __int64 v11; // rcx
-  __int64 v12; // r8
-  int v14; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v15; // [rsp+28h] [rbp-20h]
-  char v16; // [rsp+30h] [rbp-18h]
+  __int64 Container; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  int v15; // ebx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  int v23; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v24; // [rsp+28h] [rbp-20h]
+  char v25; // [rsp+30h] [rbp-18h]
 
-  v14 = -1;
+  v23 = -1;
   v3 = a3;
-  v15 = 0LL;
+  v24 = 0LL;
   v5 = (unsigned int)a2;
-  if ( (qword_1C013F870 & 2) != 0 )
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v16 = 1;
-    v14 = 6007;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v25 = 1;
+    v23 = 6007;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, a3, 6007);
   }
   else
   {
-    v16 = 0;
+    v25 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v14, 6007);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v23, 6007LL);
   v6 = ExposedViaHandle<DMMVIDPNSOURCEMODESET,D3DKMDT_HVIDPNSOURCEMODESET__ *>::GetFromHandle((__int64)this);
-  v7 = (struct DMMVIDPNSOURCEMODESET *)v6;
+  v9 = (struct DMMVIDPNSOURCEMODESET *)v6;
   if ( v6 )
   {
-    v8 = *(_QWORD *)(v6 + 112);
-    if ( !v8 )
-      WdLogSingleEntry0(1LL);
-    if ( !*(_QWORD *)(v8 + 40) )
-      WdLogSingleEntry0(1LL);
-    Container = ContainedBy<DMMVIDPN>::GetContainer(*(_QWORD *)(v8 + 40) + 64LL);
-    v10 = VIDPN_MGR::PinVidPnSourceMode(*(VIDPN_MGR **)(Container + 48), v7, v5, v3);
-    if ( v10 < 0 )
-      WdLogSingleEntry2(7LL, v5, this);
+    v10 = *(_QWORD *)(v6 + 112);
+    if ( !v10 )
+    {
+      v20 = WdLogNewEntry5_WdAssertion(v8, v7);
+      WdLogEvent5_WdAssertion(v20);
+    }
+    v11 = *(_QWORD *)(v10 + 40);
+    if ( !v11 )
+    {
+      v21 = WdLogNewEntry5_WdAssertion(0LL, v7);
+      WdLogEvent5_WdAssertion(v21);
+      v11 = *(_QWORD *)(v10 + 40);
+    }
+    Container = ContainedBy<DMMVIDPN>::GetContainer(v11 + 64, v7);
+    v15 = VIDPN_MGR::PinVidPnSourceMode(*(VIDPN_MGR **)(Container + 48), v9, v5, v3);
+    if ( v15 < 0 )
+    {
+      v22 = WdLogNewEntry5_WdDmmEvent(v14);
+      *(_QWORD *)(v22 + 24) = v5;
+      *(_QWORD *)(v22 + 32) = this;
+      WdLogEvent5_WdDmmEvent(v22);
+    }
     else
-      v10 = 0;
+    {
+      v15 = 0;
+    }
   }
   else
   {
-    WdLogSingleEntry1(2LL, this);
-    v10 = -1071774968;
+    v19 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v19 + 24) = this;
+    WdLogEvent5_WdError(v19);
+    v15 = -1071774968;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v14);
-  if ( v16 )
-  {
-    LOBYTE(v11) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v11, &EventProfilerExit, v12, v14);
-  }
-  return (unsigned int)v10;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v23, v13);
+  if ( v25 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v16, &EventProfilerExit, v17, v23);
+  return (unsigned int)v15;
 }

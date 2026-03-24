@@ -1,10 +1,10 @@
 /*
- * XREFs of XmPushaOp @ 0x1403D0EC0
+ * XREFs of XmPushaOp @ 0x1403C40A0
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmPushStack @ 0x1403A2E08 (XmPushStack.c)
- *     XmSetSourceValue @ 0x1403A2FA8 (XmSetSourceValue.c)
+ *     XmPushStack @ 0x140396D68 (XmPushStack.c)
+ *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
  */
 
 __int64 __fastcall XmPushaOp(__int64 a1)

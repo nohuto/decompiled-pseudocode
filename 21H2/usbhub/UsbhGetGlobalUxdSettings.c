@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhGetGlobalUxdSettings @ 0x1C00595D4
+ * XREFs of UsbhGetGlobalUxdSettings @ 0x1C005ACF0
  * Callers:
- *     UsbhRegPnpStart @ 0x1C0045F70 (UsbhRegPnpStart.c)
- *     UsbhDeleteUxdSettings @ 0x1C005932C (UsbhDeleteUxdSettings.c)
- *     UsbhUpdateUxdSettings @ 0x1C005A420 (UsbhUpdateUxdSettings.c)
- *     UsbhUxdShutdown @ 0x1C005A8E0 (UsbhUxdShutdown.c)
+ *     UsbhRegPnpStart @ 0x1C00472E0 (UsbhRegPnpStart.c)
+ *     UsbhDeleteUxdSettings @ 0x1C005AA30 (UsbhDeleteUxdSettings.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005BAE4 (UsbhUpdateUxdSettings.c)
+ *     UsbhUxdShutdown @ 0x1C005BFA4 (UsbhUxdShutdown.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_S @ 0x1C003ADD0 (WPP_RECORDER_SF_S.c)
- *     WPP_RECORDER_SF_SD @ 0x1C0047D34 (WPP_RECORDER_SF_SD.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003C0E0 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_SD @ 0x1C00490B4 (WPP_RECORDER_SF_SD.c)
  */
 
 __int64 __fastcall UsbhGetGlobalUxdSettings(__int64 a1, _OWORD *a2)
@@ -19,7 +19,7 @@ __int64 __fastcall UsbhGetGlobalUxdSettings(__int64 a1, _OWORD *a2)
   unsigned int v2; // edi
   PVOID SystemRoutineAddress; // rax
   int v4; // eax
-  int v5; // edx
+  __int64 v5; // rdx
   __int64 v6; // r8
   __int64 v7; // r9
   unsigned int v8; // esi
@@ -28,28 +28,28 @@ __int64 __fastcall UsbhGetGlobalUxdSettings(__int64 a1, _OWORD *a2)
   __int64 v12; // [rsp+30h] [rbp-D0h]
   int v13; // [rsp+40h] [rbp-C0h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 (__fastcall *v15)(__int64, __int64, _DWORD *, int, __int64, _DWORD *); // [rsp+60h] [rbp-A0h] BYREF
+  __int64 (__fastcall *v15)(const wchar_t *, __int64, _DWORD *, int, __int64, _DWORD *); // [rsp+60h] [rbp-A0h] BYREF
   int v16; // [rsp+68h] [rbp-98h]
   const wchar_t *v17; // [rsp+70h] [rbp-90h]
   _OWORD *v18; // [rsp+78h] [rbp-88h] BYREF
   int v19; // [rsp+80h] [rbp-80h]
   _OWORD *v20; // [rsp+88h] [rbp-78h]
   int v21; // [rsp+90h] [rbp-70h]
-  __int64 (__fastcall *v22)(__int64, __int64, _DWORD *, int, __int64, _DWORD *); // [rsp+98h] [rbp-68h]
+  __int64 (__fastcall *v22)(const wchar_t *, __int64, _DWORD *, int, __int64, _DWORD *); // [rsp+98h] [rbp-68h]
   int v23; // [rsp+A0h] [rbp-60h]
   const wchar_t *v24; // [rsp+A8h] [rbp-58h]
   char *v25; // [rsp+B0h] [rbp-50h]
   int v26; // [rsp+B8h] [rbp-48h]
   char *v27; // [rsp+C0h] [rbp-40h]
   int v28; // [rsp+C8h] [rbp-38h]
-  __int64 (__fastcall *v29)(__int64, __int64, _DWORD *, int, __int64, _DWORD *); // [rsp+D0h] [rbp-30h]
+  __int64 (__fastcall *v29)(const wchar_t *, __int64, _DWORD *, int, __int64, _DWORD *); // [rsp+D0h] [rbp-30h]
   int v30; // [rsp+D8h] [rbp-28h]
   const wchar_t *v31; // [rsp+E0h] [rbp-20h]
   char *v32; // [rsp+E8h] [rbp-18h]
   int v33; // [rsp+F0h] [rbp-10h]
   char *v34; // [rsp+F8h] [rbp-8h]
   int v35; // [rsp+100h] [rbp+0h]
-  __int64 (__fastcall *v36)(__int64, __int64, _DWORD *, int, __int64, _DWORD *); // [rsp+108h] [rbp+8h]
+  __int64 (__fastcall *v36)(const wchar_t *, __int64, _DWORD *, int, __int64, _DWORD *); // [rsp+108h] [rbp+8h]
   int v37; // [rsp+110h] [rbp+10h]
   const wchar_t *v38; // [rsp+118h] [rbp+18h]
   char *v39; // [rsp+120h] [rbp+20h]
@@ -113,7 +113,7 @@ __int64 __fastcall UsbhGetGlobalUxdSettings(__int64 a1, _OWORD *a2)
   v11 = 0;
   if ( !SystemRoutineAddress )
     SystemRoutineAddress = RtlQueryRegistryValues;
-  v4 = ((__int64 (__fastcall *)(__int64, const wchar_t *, __int64 (__fastcall **)(__int64, __int64, _DWORD *, int, __int64, _DWORD *)))SystemRoutineAddress)(
+  v4 = ((__int64 (__fastcall *)(__int64, const wchar_t *, __int64 (__fastcall **)(const wchar_t *, __int64, _DWORD *, int, __int64, _DWORD *)))SystemRoutineAddress)(
          1LL,
          L"usbhub\\uxd_control\\policy",
          &v15);
@@ -130,12 +130,12 @@ __int64 __fastcall UsbhGetGlobalUxdSettings(__int64 a1, _OWORD *a2)
         v4);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
       WPP_RECORDER_SF_S(
-        WPP_GLOBAL_Control->DeviceExtension,
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
         v5,
         v6,
-        63,
+        0x3Fu,
         (__int64)&WPP_290dcc7ac903398322657943f635c8d9_Traceguids,
-        (__int64)L"usbhub\\uxd_control\\policy");
+        L"usbhub\\uxd_control\\policy");
   }
   v9 = &v18;
   do

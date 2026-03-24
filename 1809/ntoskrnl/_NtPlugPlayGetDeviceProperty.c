@@ -1,10 +1,10 @@
 /*
- * XREFs of _NtPlugPlayGetDeviceProperty @ 0x1406C7C6C
+ * XREFs of _NtPlugPlayGetDeviceProperty @ 0x1406C7C4C
  * Callers:
  *     _CmGetDeviceMappedPropertyFromComposite @ 0x14059C504 (_CmGetDeviceMappedPropertyFromComposite.c)
  *     _CmGetDeviceRegPropWorker @ 0x1405C6B1C (_CmGetDeviceRegPropWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     _PnpCtxGetNtPlugPlayRoutine @ 0x1405C5884 (_PnpCtxGetNtPlugPlayRoutine.c)
  */
 

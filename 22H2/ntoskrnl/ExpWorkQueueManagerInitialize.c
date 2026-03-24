@@ -1,21 +1,20 @@
 /*
- * XREFs of ExpWorkQueueManagerInitialize @ 0x14084ABF0
+ * XREFs of ExpWorkQueueManagerInitialize @ 0x1407C2F58
  * Callers:
- *     ExpPartitionInitialize @ 0x14084A868 (ExpPartitionInitialize.c)
+ *     ExpPartitionInitialize @ 0x1407C2B6C (ExpPartitionInitialize.c)
  * Callees:
- *     KeSelectIdealProcessor @ 0x14020385C (KeSelectIdealProcessor.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeInitializeTimerEx @ 0x1402BE630 (KeInitializeTimerEx.c)
- *     KeQueryNodeActiveAffinity @ 0x140305880 (KeQueryNodeActiveAffinity.c)
- *     KeInitializeTimer2 @ 0x14031E320 (KeInitializeTimer2.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     KeSelectIdealProcessor @ 0x140340F98 (KeSelectIdealProcessor.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     KeQueryNodeActiveAffinity @ 0x1403544E0 (KeQueryNodeActiveAffinity.c)
+ *     KeInitializeTimer2 @ 0x14035A7C0 (KeInitializeTimer2.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-int __fastcall ExpWorkQueueManagerInitialize(__int64 a1, __int64 a2, __int64 a3)
+unsigned __int64 __fastcall ExpWorkQueueManagerInitialize(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 Mask; // rdx
-  unsigned __int64 v7; // rax
-  unsigned __int64 v8; // rax
+  __int16 v6; // cx
+  unsigned __int64 result; // rax
   struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   Affinity = 0LL;
@@ -26,18 +25,18 @@ int __fastcall ExpWorkQueueManagerInitialize(__int64 a1, __int64 a2, __int64 a3)
   KeInitializeTimerEx((PKTIMER)(a1 + 40), SynchronizationTimer);
   KeInitializeEvent((PRKEVENT)(a1 + 104), SynchronizationEvent, 0);
   KeInitializeTimer2(a1 + 128, (__int64)ExpWorkQueueManagerReaperTimer, a1, 8LL);
-  KeQueryNodeActiveAffinity(**(_WORD **)(a1 + 8), &Affinity, 0LL);
-  Mask = Affinity.Mask;
-  v7 = (Affinity.Mask >> 1) & 0x5555555555555555LL;
-  *(_WORD *)(a1 + 276) = 0;
-  v8 = (0x101010101010101LL
-      * ((((Mask - v7) & 0x3333333333333333LL)
-        + (((Mask - v7) >> 2) & 0x3333333333333333LL)
-        + ((((Mask - v7) & 0x3333333333333333LL) + (((Mask - v7) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
-  if ( (_BYTE)v8 )
+  KeQueryNodeActiveAffinity(*(_WORD *)(*(_QWORD *)(a1 + 8) + 146LL), &Affinity, 0LL);
+  v6 = 0;
+  result = (0x101010101010101LL
+          * ((((Affinity.Mask - ((Affinity.Mask >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+            + (((Affinity.Mask - ((Affinity.Mask >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+            + ((((Affinity.Mask - ((Affinity.Mask >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+              + (((Affinity.Mask - ((Affinity.Mask >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
+  if ( (_BYTE)result )
   {
-    LODWORD(v8) = KeSelectIdealProcessor((__int64)&Affinity, (_WORD *)(a1 + 276), 0LL, 0);
-    *(_WORD *)(a1 + 276) = v8;
+    result = KeSelectIdealProcessor(*(_QWORD *)(a1 + 8), &Affinity, 0LL, 0LL);
+    v6 = result;
   }
-  return v8;
+  *(_WORD *)(a1 + 276) = v6;
+  return result;
 }

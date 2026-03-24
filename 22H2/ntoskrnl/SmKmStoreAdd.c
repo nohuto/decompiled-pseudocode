@@ -1,38 +1,38 @@
 /*
- * XREFs of SmKmStoreAdd @ 0x1407B801C
+ * XREFs of SmKmStoreAdd @ 0x1406FD558
  * Callers:
- *     SmProcessCreateRequest @ 0x1407B7C2C (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x1406FD1F0 (SmProcessCreateRequest.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExInitializePushLock @ 0x1402235B0 (ExInitializePushLock.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D1C0 (SSHSupportAllocateNonPaged.c)
- *     SmEtwEnabled @ 0x140342DF4 (SmEtwEnabled.c)
- *     SmKmEtwLogStoreChange @ 0x1409D8824 (SmKmEtwLogStoreChange.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SmEtwEnabled @ 0x140268C58 (SmEtwEnabled.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     SSHSupportAllocateNonPaged @ 0x140322FE4 (SSHSupportAllocateNonPaged.c)
+ *     ExInitializePushLock @ 0x140341EF0 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     SmKmEtwLogStoreChange @ 0x14092B0BC (SmKmEtwLogStoreChange.c)
  */
 
 __int64 __fastcall SmKmStoreAdd(__int64 a1, __int64 a2, __int64 a3, int *a4)
 {
-  unsigned int v4; // r12d
-  __int64 v5; // r13
+  unsigned int v4; // r13d
+  __int64 v5; // r12
   unsigned __int64 v7; // rdi
   unsigned __int64 v8; // r15
-  volatile signed __int64 *v9; // rbp
+  volatile signed __int64 *v9; // rsi
   struct _KTHREAD *v10; // rax
   struct _KTHREAD *v11; // rax
-  volatile signed __int64 *v12; // rbp
+  volatile signed __int64 *v12; // rsi
   __int16 v13; // cx
   int v14; // eax
-  unsigned __int64 v15; // rax
-  unsigned __int64 NonPaged; // rax
-  struct _PRIVILEGE_SET *v19; // rsi
+  ULONGLONG *v15; // rax
+  struct _PRIVILEGE_SET *NonPaged; // rax
+  struct _PRIVILEGE_SET *v19; // rbp
   unsigned __int64 v20; // r15
-  unsigned __int64 v21; // rdi
+  LUID_AND_ATTRIBUTES *Privilege; // rdi
   struct _KTHREAD *CurrentThread; // rax
   _DWORD *v23; // [rsp+20h] [rbp-48h]
 
@@ -43,25 +43,25 @@ __int64 __fastcall SmKmStoreAdd(__int64 a1, __int64 a2, __int64 a3, int *a4)
   {
     if ( !*(_QWORD *)(a1 + 8 * v5) )
     {
-      NonPaged = SSHSupportAllocateNonPaged(1280LL, 0x61536D73u);
-      v19 = (struct _PRIVILEGE_SET *)NonPaged;
+      NonPaged = (struct _PRIVILEGE_SET *)SSHSupportAllocateNonPaged(0x500uLL, 0x61536D73u);
+      v19 = NonPaged;
       if ( !NonPaged )
         return (unsigned int)-1073741670;
-      v20 = NonPaged + 1280;
-      if ( NonPaged < NonPaged + 1280 )
+      v20 = (unsigned __int64)&NonPaged[64];
+      if ( NonPaged < &NonPaged[64] )
       {
-        v21 = NonPaged + 8;
+        Privilege = NonPaged->Privilege;
         do
         {
-          *(_OWORD *)(v21 - 8) = 0LL;
-          *(_OWORD *)(v21 + 8) = 0LL;
-          *(_QWORD *)(v21 + 24) = 0LL;
-          ExInitializePushLock((PEX_RUNDOWN_REF)v21);
-          ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)v21);
-          *(_QWORD *)(v21 + 8) = 0LL;
-          v21 += 40LL;
+          *(_OWORD *)&Privilege[-1].Luid.HighPart = 0LL;
+          *(_OWORD *)&Privilege->Attributes = 0LL;
+          Privilege[2].Luid = 0LL;
+          ExInitializePushLock((PKSPIN_LOCK)&Privilege->Luid);
+          ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)Privilege);
+          *(_QWORD *)&Privilege->Attributes = 0LL;
+          Privilege = (LUID_AND_ATTRIBUTES *)((char *)Privilege + 40);
         }
-        while ( v21 - 8 < v20 );
+        while ( (unsigned __int64)&Privilege[-1].Luid.HighPart < v20 );
       }
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
@@ -117,8 +117,8 @@ LABEL_35:
   else
   {
     v11 = KeGetCurrentThread();
-    v12 = (volatile signed __int64 *)(a1 + 416);
     --v11->KernelApcDisable;
+    v12 = (volatile signed __int64 *)(a1 + 416);
     ExAcquirePushLockExclusiveEx(a1 + 416, 0LL);
     if ( (*v23 & 0x100) == 0 )
       goto LABEL_12;
@@ -148,7 +148,7 @@ LABEL_12:
       if ( v15 )
         SmKmEtwLogStoreChange(v15, *(_QWORD *)v7, SmEventStoreCreate);
       _InterlockedExchange64((volatile __int64 *)(v7 + 8), 0LL);
-      ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v7 + 8));
+      ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v7 + 8));
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v7 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)(v7 + 16));
       KeAbPostRelease(v7 + 16);

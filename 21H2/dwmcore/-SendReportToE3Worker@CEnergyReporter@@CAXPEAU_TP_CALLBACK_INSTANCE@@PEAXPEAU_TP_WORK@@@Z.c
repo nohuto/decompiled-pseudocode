@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SendReportToE3Worker@CEnergyReporter@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z @ 0x1800E1D10
+ * XREFs of ?SendReportToE3Worker@CEnergyReporter@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z @ 0x1800CD8B0
  * Callers:
  *     <none>
  * Callees:

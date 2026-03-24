@@ -1,11 +1,11 @@
 /*
- * XREFs of TransformOffscreenAdjacentRect @ 0x1C00D00F8
+ * XREFs of TransformOffscreenAdjacentRect @ 0x1C00C08AC
  * Callers:
- *     TransformRectBetweenCoordinateSpaces @ 0x1C006D5A0 (TransformRectBetweenCoordinateSpaces.c)
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C0070250 (TransformRectBetweenCoordinateSpaces.c)
  * Callees:
- *     TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C006D8A0 (TransformRectBetweenCoordinateSpacesPerMonitor.c)
- *     FindAdjacentMonitor @ 0x1C00D01F4 (FindAdjacentMonitor.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C007053C (TransformRectBetweenCoordinateSpacesPerMonitor.c)
+ *     FindAdjacentMonitor @ 0x1C00C09A8 (FindAdjacentMonitor.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 __fastcall TransformOffscreenAdjacentRect(int *a1, int *a2, int *a3, unsigned int a4, unsigned int a5)

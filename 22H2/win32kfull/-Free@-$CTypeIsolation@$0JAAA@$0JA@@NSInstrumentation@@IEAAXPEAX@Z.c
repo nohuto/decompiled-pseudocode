@@ -1,27 +1,25 @@
 /*
- * XREFs of ?Free@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00991C4
+ * XREFs of ?Free@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00FE324
  * Callers:
- *     DestroyClass @ 0x1C00EAB74 (DestroyClass.c)
- *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C01BDFA0 (--$UserFreeIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C0167A2C (--$UserFreeIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z.c)
  * Callees:
- *     ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C0099320 (-CheckAllocationStatus@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAA-AW4Allocat.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z @ 0x1C0305F20 (-PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z.c)
+ *     ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C00FE454 (-CheckAllocationStatus@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAA-AW4Allocat.c)
+ *     ?Free@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00FE4F0 (-Free@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z @ 0x1C02DCA48 (-PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z.c)
+ *     ?PlatformFreeToPagedLookasideList@NSInstrumentation@@YAXPEAX0@Z @ 0x1C02DCB3C (-PlatformFreeToPagedLookasideList@NSInstrumentation@@YAXPEAX0@Z.c)
  */
 
-void __fastcall NSInstrumentation::CTypeIsolation<36864,144>::Free(__int64 a1, void *a2)
+void __fastcall NSInstrumentation::CTypeIsolation<36864,144>::Free(__int64 a1, struct _SLIST_ENTRY *a2)
 {
-  __int64 v4; // rdi
-  __int64 v5; // r8
-  _QWORD *i; // rsi
-  __int64 *v7; // r14
+  __int64 v4; // rbx
+  _QWORD *i; // r14
+  __int64 v6; // rbp
+  int v7; // eax
   int v8; // eax
   int v9; // eax
-  __int64 v10; // rbx
-  ULONG v11; // esi
-  __int64 v12; // r8
-  int v13; // eax
-  __int64 v14; // rcx
+  __int64 v10; // rcx
+  void *v11; // r8
 
   if ( a2 )
   {
@@ -34,48 +32,39 @@ void __fastcall NSInstrumentation::CTypeIsolation<36864,144>::Free(__int64 a1, v
       {
         if ( i == (_QWORD *)a1 )
         {
-          ExReleasePushLockSharedEx(v4, 0LL, v5);
+          ExReleasePushLockSharedEx(v4, 0LL);
           KeLeaveCriticalRegion();
           NSInstrumentation::PlatformAbort(3LL, a2);
           return;
         }
-        v7 = (__int64 *)i[4];
-        v8 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::CheckAllocationStatus(v7, a2);
-        if ( v8 )
+        v6 = i[4];
+        v7 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::CheckAllocationStatus(v6, a2);
+        if ( v7 )
         {
-          v9 = v8 - 1;
-          if ( !v9 )
+          v8 = v7 - 1;
+          if ( !v8 )
           {
-            v10 = *v7;
-            KeEnterCriticalRegion();
-            ExAcquirePushLockExclusiveEx(v10, 0LL);
-            v11 = ((unsigned __int16)a2 & 0xFFFu) / 0x90
-                + 28 * ((unsigned int)((_DWORD)a2 - (*((_DWORD *)v7 + 4) ^ *((_DWORD *)v7 + 2))) >> 12);
-            RtlClearBit((PRTL_BITMAP)(v7[2] ^ v7[3]), v11);
-            memset_0(a2, 0, 0x90uLL);
-            *((_DWORD *)v7 + 8) = v11;
-            ExReleasePushLockExclusiveEx(v10, 0LL);
-            KeLeaveCriticalRegion();
-            ExReleasePushLockSharedEx(v4, 0LL, v12);
+            NSInstrumentation::CSectionBitmapAllocator<36864,144>::Free(v6, a2);
+            ExReleasePushLockSharedEx(v4, 0LL);
             KeLeaveCriticalRegion();
             return;
           }
-          v13 = v9 - 1;
-          if ( v13 )
+          v9 = v8 - 1;
+          if ( v9 )
           {
-            if ( v13 != 1 )
+            if ( v9 != 1 )
               continue;
-            v14 = 2LL;
+            v10 = 2LL;
           }
           else
           {
-            v14 = 1LL;
+            v10 = 1LL;
           }
-          NSInstrumentation::PlatformAbort(v14, a2);
+          NSInstrumentation::PlatformAbort(v10, a2);
         }
       }
     }
-    memset_0(a2, 0, 0x90uLL);
-    ExFreeToPagedLookasideList(*(PPAGED_LOOKASIDE_LIST *)(a1 + 24), a2);
+    memset(a2, 0, 0x90uLL);
+    NSInstrumentation::PlatformFreeToPagedLookasideList(*(PSLIST_HEADER *)(a1 + 24), a2, v11);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiPccPlatformNotificationWorker @ 0x1C0034240
+ * XREFs of AcpiPccPlatformNotificationWorker @ 0x1C005A0E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall AcpiPccPlatformNotificationWorker(

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiUnwindUserSspForApcContextCopyBypass @ 0x14057C724
+ * XREFs of KiUnwindUserSspForApcContextCopyBypass @ 0x140525194
  * Callers:
- *     KiInitializeUserApc @ 0x14029A86C (KiInitializeUserApc.c)
+ *     KiInitializeUserApc @ 0x1402B2594 (KiInitializeUserApc.c)
  * Callees:
- *     RtlLocateExtendedFeature2 @ 0x14025CB30 (RtlLocateExtendedFeature2.c)
- *     RtlInitializeExtendedContext @ 0x140295100 (RtlInitializeExtendedContext.c)
- *     RtlGetExtendedContextLength @ 0x140295190 (RtlGetExtendedContextLength.c)
- *     RtlpSanitizeContextFlags @ 0x140298720 (RtlpSanitizeContextFlags.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _alloca_probe @ 0x14042A4D0 (_alloca_probe.c)
- *     KiVerifyContextXStateCetUEnabled @ 0x14056E34C (KiVerifyContextXStateCetUEnabled.c)
- *     RtlpReadExtendedContext @ 0x140703290 (RtlpReadExtendedContext.c)
+ *     RtlGetExtendedContextLength @ 0x140276470 (RtlGetExtendedContextLength.c)
+ *     RtlInitializeExtendedContext @ 0x1402764F0 (RtlInitializeExtendedContext.c)
+ *     RtlpSanitizeContextFlags @ 0x140276574 (RtlpSanitizeContextFlags.c)
+ *     RtlLocateExtendedFeature2 @ 0x140381600 (RtlLocateExtendedFeature2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404084A0 (_alloca_probe.c)
+ *     KiVerifyContextXStateCetUEnabled @ 0x140516020 (KiVerifyContextXStateCetUEnabled.c)
+ *     RtlpReadExtendedContext @ 0x140648200 (RtlpReadExtendedContext.c)
  */
 
 __int64 __fastcall KiUnwindUserSspForApcContextCopyBypass(__int64 a1)

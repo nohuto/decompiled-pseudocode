@@ -1,44 +1,36 @@
 /*
- * XREFs of _tlgCreate1Sz_wchar_t @ 0x1402A2094
+ * XREFs of _tlgCreate1Sz_wchar_t @ 0x140263EF0
  * Callers:
- *     CcPostVolumeTelemetry @ 0x1402541A8 (CcPostVolumeTelemetry.c)
- *     PopTraceThermalZonePassiveHistogram @ 0x14038ACD0 (PopTraceThermalZonePassiveHistogram.c)
- *     PopTraceThermalRequestPassiveHistogram @ 0x14038AF44 (PopTraceThermalRequestPassiveHistogram.c)
- *     PopTraceThermalZoneActiveActivity @ 0x14038B198 (PopTraceThermalZoneActiveActivity.c)
- *     PopDiagTraceIrpFinishTelemetry @ 0x1403A51D0 (PopDiagTraceIrpFinishTelemetry.c)
- *     ExLogTimeZoneInformation @ 0x1403DB94C (ExLogTimeZoneInformation.c)
- *     PopTraceThermalRequestActiveActivity @ 0x1405D4150 (PopTraceThermalRequestActiveActivity.c)
- *     PopTraceZoneCr3Mitigated @ 0x1405D44DC (PopTraceZoneCr3Mitigated.c)
- *     PopTraceZoneCr3Tripped @ 0x1405D4604 (PopTraceZoneCr3Tripped.c)
- *     CarEtwCrashEvent @ 0x140602478 (CarEtwCrashEvent.c)
- *     CarEtwRegister @ 0x140602644 (CarEtwRegister.c)
- *     CarEtwWriteBugCheckEvent @ 0x140602808 (CarEtwWriteBugCheckEvent.c)
- *     CarEtwWriteLiveDumpEvent @ 0x140602AEC (CarEtwWriteLiveDumpEvent.c)
- *     CarLoadImageHandler @ 0x140602F2C (CarLoadImageHandler.c)
- *     CarTipLogDriverLoad @ 0x140603128 (CarTipLogDriverLoad.c)
- *     CmpLogHiveFileInaccessible @ 0x1406D2D00 (CmpLogHiveFileInaccessible.c)
- *     EtwpWriteAppStateChangeSummary @ 0x140712BA0 (EtwpWriteAppStateChangeSummary.c)
- *     EtwpWriteProcessStarted @ 0x1407136E8 (EtwpWriteProcessStarted.c)
- *     PnpTraceDeviceConfig @ 0x14074703C (PnpTraceDeviceConfig.c)
- *     PopDiagTracePowerSettingRegistration @ 0x1407F77B8 (PopDiagTracePowerSettingRegistration.c)
- *     PopPotsLogPowerTransitionReliability @ 0x1407FE3D8 (PopPotsLogPowerTransitionReliability.c)
- *     ExpLogRefreshTimeZoneInformationSuccess @ 0x14083601C (ExpLogRefreshTimeZoneInformationSuccess.c)
- *     PopThermalHandlePreviousShutdown @ 0x1408604BC (PopThermalHandlePreviousShutdown.c)
- *     IoGetEnvironmentVariableEx @ 0x14093E520 (IoGetEnvironmentVariableEx.c)
- *     IoSetEnvironmentVariableEx @ 0x14093E830 (IoSetEnvironmentVariableEx.c)
- *     PnpTraceDriverBlocked @ 0x140957508 (PnpTraceDriverBlocked.c)
- *     PopDiagTraceDozeDeferralDecision @ 0x140992098 (PopDiagTraceDozeDeferralDecision.c)
- *     PopSqmThermalCriticalEvent @ 0x1409A023C (PopSqmThermalCriticalEvent.c)
- *     PopSqmThermalZoneEnumeration @ 0x1409A0558 (PopSqmThermalZoneEnumeration.c)
- *     TtmiLogDeviceArrivedTerminalEvent @ 0x1409A7718 (TtmiLogDeviceArrivedTerminalEvent.c)
- *     TtmiLogDeviceEnumeratedTerminalEvent @ 0x1409A7B30 (TtmiLogDeviceEnumeratedTerminalEvent.c)
- *     ExpLogRefreshTimeZoneInformationCutoverFail @ 0x1409F7D30 (ExpLogRefreshTimeZoneInformationCutoverFail.c)
- *     PopPotsLogDirtyPowerTransition @ 0x140B53288 (PopPotsLogDirtyPowerTransition.c)
+ *     PopDiagTraceIrpFinishTelemetry @ 0x14037AD2C (PopDiagTraceIrpFinishTelemetry.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x14038A424 (PopTraceThermalZonePassiveHistogram.c)
+ *     PopTraceThermalZoneActiveActivity @ 0x14038A5B4 (PopTraceThermalZoneActiveActivity.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x14038A888 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x14038AA74 (PopTraceThermalRequestActiveActivity.c)
+ *     ExLogTimeZoneInformation @ 0x1403B4A9C (ExLogTimeZoneInformation.c)
+ *     PopTraceZoneCr3Mitigated @ 0x140573AD0 (PopTraceZoneCr3Mitigated.c)
+ *     PopTraceZoneCr3Tripped @ 0x140573BFC (PopTraceZoneCr3Tripped.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x14062A95C (EtwpWriteAppStateChangeSummary.c)
+ *     PopLogPowerRequestAction @ 0x14062B588 (PopLogPowerRequestAction.c)
+ *     EtwpWriteProcessStarted @ 0x14062B670 (EtwpWriteProcessStarted.c)
+ *     CmpLogHiveFileInaccessible @ 0x1406772F4 (CmpLogHiveFileInaccessible.c)
+ *     PnpTraceDeviceConfig @ 0x14073AB24 (PnpTraceDeviceConfig.c)
+ *     ExpLogRefreshTimeZoneInformationSuccess @ 0x1407A9F38 (ExpLogRefreshTimeZoneInformationSuccess.c)
+ *     PopThermalHandlePreviousShutdown @ 0x1407D0A40 (PopThermalHandlePreviousShutdown.c)
+ *     IoGetEnvironmentVariableEx @ 0x140899A4C (IoGetEnvironmentVariableEx.c)
+ *     IoSetEnvironmentVariableEx @ 0x140899D5C (IoSetEnvironmentVariableEx.c)
+ *     PnpTraceDriverBlocked @ 0x1408B1BF8 (PnpTraceDriverBlocked.c)
+ *     PopDiagTraceDozeDeferralDecision @ 0x1408E9F00 (PopDiagTraceDozeDeferralDecision.c)
+ *     PopPublishAndPurgePowerRequestStats @ 0x1408F641C (PopPublishAndPurgePowerRequestStats.c)
+ *     PopSqmThermalCriticalEvent @ 0x1408F9B78 (PopSqmThermalCriticalEvent.c)
+ *     PopSqmThermalZoneEnumeration @ 0x1408F9E9C (PopSqmThermalZoneEnumeration.c)
+ *     TtmiLogDeviceArrivedTerminalEvent @ 0x140901BB4 (TtmiLogDeviceArrivedTerminalEvent.c)
+ *     TtmiLogDeviceEnumeratedTerminalEvent @ 0x140901FCC (TtmiLogDeviceEnumeratedTerminalEvent.c)
+ *     ExpLogRefreshTimeZoneInformationCutoverFail @ 0x14094B900 (ExpLogRefreshTimeZoneInformationCutoverFail.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall tlgCreate1Sz_wchar_t(__int64 a1, const WCHAR *a2)
+void __fastcall tlgCreate1Sz_wchar_t(__int64 a1, const size_t *a2)
 {
   __int64 v2; // rax
   int v3; // r8d
@@ -48,7 +40,7 @@ void __fastcall tlgCreate1Sz_wchar_t(__int64 a1, const WCHAR *a2)
     v2 = -1LL;
     do
       ++v2;
-    while ( a2[v2] );
+    while ( *((_WORD *)a2 + v2) );
     v3 = 2 * v2 + 2;
   }
   else

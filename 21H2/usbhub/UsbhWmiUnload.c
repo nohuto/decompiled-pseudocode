@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhWmiUnload @ 0x1C0049DF0
+ * XREFs of UsbhWmiUnload @ 0x1C004B1C0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
  */
 
 void UsbhWmiUnload()

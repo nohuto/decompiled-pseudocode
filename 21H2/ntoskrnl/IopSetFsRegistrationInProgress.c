@@ -1,10 +1,10 @@
 /*
- * XREFs of IopSetFsRegistrationInProgress @ 0x1403A5A30
+ * XREFs of IopSetFsRegistrationInProgress @ 0x14039A064
  * Callers:
- *     IoRegisterFileSystem @ 0x14080F4B0 (IoRegisterFileSystem.c)
+ *     IoRegisterFileSystem @ 0x1407808C0 (IoRegisterFileSystem.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
  */
 
 void __fastcall IopSetFsRegistrationInProgress(char a1)

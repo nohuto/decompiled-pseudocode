@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Stop@KeyframeSequence@@QEAAXXZ @ 0x18006FE60
+ * XREFs of ?Stop@KeyframeSequence@@QEAAXXZ @ 0x1800ACB88
  * Callers:
- *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x18006FDA0 (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
+ *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800A9A4C (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
  * Callees:
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall KeyframeSequence::Stop(KeyframeSequence *this)

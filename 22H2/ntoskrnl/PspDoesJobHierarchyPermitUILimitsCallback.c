@@ -1,5 +1,5 @@
 /*
- * XREFs of PspDoesJobHierarchyPermitUILimitsCallback @ 0x1409B22D0
+ * XREFs of PspDoesJobHierarchyPermitUILimitsCallback @ 0x1406A6160
  * Callers:
  *     <none>
  * Callees:
@@ -8,12 +8,8 @@
 
 __int64 __fastcall PspDoesJobHierarchyPermitUILimitsCallback(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
-
-  if ( a1 == a2 )
+  if ( a1 != a2 && ((*(_DWORD *)(a1 + 1320) & 0x10) != 0 || *(_DWORD *)(a1 + 480) == -2) )
+    return 3221227288LL;
+  else
     return 0LL;
-  result = 3221227288LL;
-  if ( (*(_DWORD *)(a1 + 1536) & 0x10) == 0 && *(_DWORD *)(a1 + 576) != -2 )
-    return 0LL;
-  return result;
 }

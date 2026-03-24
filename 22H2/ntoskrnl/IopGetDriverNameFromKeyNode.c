@@ -1,22 +1,22 @@
 /*
- * XREFs of IopGetDriverNameFromKeyNode @ 0x14068CCD4
+ * XREFs of IopGetDriverNameFromKeyNode @ 0x14073EDA0
  * Callers:
- *     PipCallDriverAddDeviceQueryRoutine @ 0x14068C35C (PipCallDriverAddDeviceQueryRoutine.c)
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
- *     PiGetDefaultMessageString @ 0x140849DD8 (PiGetDefaultMessageString.c)
- *     IopUnloadDriver @ 0x1408585F4 (IopUnloadDriver.c)
- *     PipInitializeEarlyLaunchDrivers @ 0x140B3F7CC (PipInitializeEarlyLaunchDrivers.c)
- *     PipInitializeCoreDriversByGroup @ 0x140B3FE48 (PipInitializeCoreDriversByGroup.c)
- *     IopInitializeSystemDrivers @ 0x140B40180 (IopInitializeSystemDrivers.c)
- *     IopInitializeBootDrivers @ 0x140B405B4 (IopInitializeBootDrivers.c)
- *     PnpLoadBootFilterDriver @ 0x140B6D398 (PnpLoadBootFilterDriver.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x14073E9B8 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     IopUnloadDriver @ 0x140768DB8 (IopUnloadDriver.c)
+ *     PiGetDefaultMessageString @ 0x14076A644 (PiGetDefaultMessageString.c)
+ *     PipInitializeEarlyLaunchDrivers @ 0x140A5B484 (PipInitializeEarlyLaunchDrivers.c)
+ *     PnpLoadBootFilterDriver @ 0x140A5B5A0 (PnpLoadBootFilterDriver.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140A5D42C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     ZwQueryKey @ 0x14041A960 (ZwQueryKey.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     ZwQueryKey @ 0x1403F9CE0 (ZwQueryKey.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetDriverNameFromKeyNode(HANDLE KeyHandle, PUNICODE_STRING Destination)
@@ -25,7 +25,7 @@ __int64 __fastcall IopGetDriverNameFromKeyNode(HANDLE KeyHandle, PUNICODE_STRING
   const WCHAR *v5; // r13
   int v6; // ecx
   unsigned int v7; // r15d
-  unsigned __int16 *Pool2; // rsi
+  unsigned __int16 *Pool; // rsi
   NTSTATUS v9; // eax
   NTSTATUS v10; // ebx
   unsigned int v11; // ebx
@@ -75,47 +75,47 @@ __int64 __fastcall IopGetDriverNameFromKeyNode(HANDLE KeyHandle, PUNICODE_STRING
         v7 = 24;
       }
       Length = 164;
-      Pool2 = (unsigned __int16 *)ExAllocatePool2(64LL, 164LL, 1699442505LL);
-      if ( !Pool2 )
+      Pool = (unsigned __int16 *)IopVerifierExAllocatePool(NonPagedPoolNx, 0xA4uLL);
+      if ( !Pool )
         goto LABEL_22;
-      v9 = ZwQueryKey(KeyHandle, KeyBasicInformation, Pool2, Length, &Length);
+      v9 = ZwQueryKey(KeyHandle, KeyBasicInformation, Pool, Length, &Length);
       v10 = v9;
       if ( v9 == -2147483643 || v9 == -1073741789 )
       {
-        ExFreePoolWithTag(Pool2, 0);
-        Pool2 = (unsigned __int16 *)ExAllocatePool2(64LL, Length, 1699442505LL);
-        if ( !Pool2 )
+        ExFreePoolWithTag(Pool, 0);
+        Pool = (unsigned __int16 *)IopVerifierExAllocatePool(NonPagedPoolNx, Length);
+        if ( !Pool )
           goto LABEL_22;
-        v10 = ZwQueryKey(KeyHandle, KeyBasicInformation, Pool2, Length, &Length);
+        v10 = ZwQueryKey(KeyHandle, KeyBasicInformation, Pool, Length, &Length);
       }
       if ( v10 < 0 )
       {
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(Pool, 0);
         goto LABEL_27;
       }
-      v11 = v7 + *((_DWORD *)Pool2 + 3);
+      v11 = v7 + *((_DWORD *)Pool + 3);
       if ( v11 < v7 )
       {
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(Pool, 0);
         v10 = -1073741675;
         goto LABEL_27;
       }
-      v12 = (wchar_t *)ExAllocatePool2(64LL, (unsigned __int16)(v7 + Pool2[6]), 827223881LL);
+      v12 = (wchar_t *)IopVerifierExAllocatePool(NonPagedPoolNx, (unsigned __int16)(v7 + Pool[6]));
       Destination->Buffer = v12;
       if ( v12 )
       {
         Destination->Length = 0;
         Destination->MaximumLength = v11;
         RtlAppendUnicodeToString(Destination, v5);
-        Source.Length = Pool2[6];
+        Source.Length = Pool[6];
         Source.MaximumLength = Source.Length;
-        Source.Buffer = Pool2 + 8;
+        Source.Buffer = Pool + 8;
         RtlAppendUnicodeStringToString(Destination, &Source);
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(Pool, 0);
         ExFreePoolWithTag(v4, 0);
         return 0LL;
       }
-      ExFreePoolWithTag(Pool2, 0);
+      ExFreePoolWithTag(Pool, 0);
 LABEL_22:
       v10 = -1073741670;
 LABEL_27:

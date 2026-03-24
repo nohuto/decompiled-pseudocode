@@ -1,16 +1,16 @@
 /*
- * XREFs of ?CopyPixels@CBitmap@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x1800A6F50
+ * XREFs of ?CopyPixels@CBitmap@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x18003D4A0
  * Callers:
- *     ?CopyPixels@CBitmap@@WDA@EAAJPEBUWICRect@@IIPEAE@Z @ 0x18011D2C0 (-CopyPixels@CBitmap@@WDA@EAAJPEBUWICRect@@IIPEAE@Z.c)
+ *     ?CopyPixels@CBitmap@@WCI@EAAJPEBUWICRect@@IIPEAE@Z @ 0x1800F54C0 (-CopyPixels@CBitmap@@WCI@EAAJPEBUWICRect@@IIPEAE@Z.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ??$ReleaseInterfaceNoNULL@VIBitmapLock@@@@YAXPEAVIBitmapLock@@@Z @ 0x1800A6DEC (--$ReleaseInterfaceNoNULL@VIBitmapLock@@@@YAXPEAVIBitmapLock@@@Z.c)
- *     ?CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z @ 0x1800A6E28 (-CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z.c)
- *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z @ 0x1800A712C (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z.c)
- *     ?HrCheckPixelRect@CBitmap@@IEAAJPEBUWICRect@@PEAV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x1800A7554 (-HrCheckPixelRect@CBitmap@@IEAAJPEBUWICRect@@PEAV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z @ 0x18003BC58 (-CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z.c)
+ *     ?HrCheckPixelRect@CBitmap@@IEAAJPEBUWICRect@@PEAV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18003C2CC (-HrCheckPixelRect@CBitmap@@IEAAJPEBUWICRect@@PEAV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3.c)
+ *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z @ 0x18003D428 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z.c)
+ *     ??$ReleaseInterfaceNoNULL@VIBitmapLock@@@@YAXPEAVIBitmapLock@@@Z @ 0x18003D65C (--$ReleaseInterfaceNoNULL@VIBitmapLock@@@@YAXPEAVIBitmapLock@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBitmap::CopyPixels(
@@ -22,8 +22,8 @@ __int64 __fastcall CBitmap::CopyPixels(
 {
   unsigned int v9; // ecx
   int v10; // eax
-  unsigned int v11; // ebx
-  int v13; // r9d
+  unsigned int v11; // ecx
+  unsigned int v12; // ebx
   unsigned int v14; // eax
   unsigned int v15; // [rsp+20h] [rbp-71h]
   unsigned int v16; // [rsp+50h] [rbp-41h] BYREF
@@ -32,7 +32,7 @@ __int64 __fastcall CBitmap::CopyPixels(
   int v19; // [rsp+60h] [rbp-31h] BYREF
   unsigned int v20; // [rsp+64h] [rbp-2Dh] BYREF
   unsigned __int8 *Src; // [rsp+68h] [rbp-29h] BYREF
-  struct _RTL_CRITICAL_SECTION *v22; // [rsp+70h] [rbp-21h] BYREF
+  char *v22; // [rsp+70h] [rbp-21h] BYREF
   __int64 v23; // [rsp+78h] [rbp-19h] BYREF
   int v24; // [rsp+80h] [rbp-11h]
   int v25; // [rsp+84h] [rbp-Dh]
@@ -40,105 +40,99 @@ __int64 __fastcall CBitmap::CopyPixels(
 
   v18 = 0LL;
   v19 = 0;
-  v22 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 56);
+  v22 = (char *)this + 120;
   v17 = 0;
   Src = 0LL;
   v16 = 0;
   v26 = 0LL;
-  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 56));
+  EnterCriticalSection((LPCRITICAL_SECTION)this + 3);
   if ( !a5 )
   {
-    v11 = -2147024809;
-    v15 = 163;
-LABEL_13:
-    v13 = v11;
-LABEL_26:
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v13, v15, 0LL);
+    v12 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024809, 0xABu, 0LL);
     goto LABEL_10;
   }
-  if ( a2 )
-    goto LABEL_3;
-  v14 = *((_DWORD *)this + 26);
-  v9 = 0x7FFFFFFF;
-  v23 = 0LL;
-  if ( v14 > 0x7FFFFFFF )
+  if ( !a2 )
   {
-    v24 = -1;
-    v11 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(0x7FFFFFFFu, 0LL, 0, -2147024362, 0xABu, 0LL);
-    goto LABEL_10;
+    v14 = *((_DWORD *)this + 42);
+    v23 = 0LL;
+    if ( v14 > 0x7FFFFFFF )
+    {
+      v24 = -1;
+      v12 = -2147024362;
+      MilInstrumentationCheckHR_MaybeFailFast(0x7FFFFFFFu, 0LL, 0, -2147024362, 0xB3u, 0LL);
+      goto LABEL_10;
+    }
+    v24 = v14;
+    if ( *((_DWORD *)this + 43) > 0x7FFFFFFFu )
+    {
+      v25 = -1;
+      v12 = -2147024362;
+      MilInstrumentationCheckHR_MaybeFailFast(0x7FFFFFFFu, 0LL, 0, -2147024362, 0xB4u, 0LL);
+      goto LABEL_10;
+    }
+    v25 = *((_DWORD *)this + 43);
+    a2 = (const struct WICRect *)&v23;
   }
-  v24 = v14;
-  if ( *((_DWORD *)this + 27) > 0x7FFFFFFFu )
-  {
-    v25 = -1;
-    v11 = -2147024362;
-    v15 = 172;
-    goto LABEL_13;
-  }
-  v25 = *((_DWORD *)this + 27);
-  a2 = (const struct WICRect *)&v23;
-LABEL_3:
-  v10 = CBitmap::HrCheckPixelRect(this, a2, &v26);
-  v11 = v10;
+  v10 = CBitmap::HrCheckPixelRect((__int64)this - 16, &a2->X, (__int64)&v26);
+  v12 = v10;
   if ( v10 < 0 )
   {
-    v15 = 177;
-    goto LABEL_25;
+    v15 = 185;
+    goto LABEL_24;
   }
-  v10 = HrCheckBufferSize((enum DXGI_FORMAT)*((_DWORD *)this + 30), a3, a2, a4);
-  v11 = v10;
+  v10 = HrCheckBufferSize(*((_DWORD *)this + 46), a3, a2, a4);
+  v12 = v10;
   if ( v10 < 0 )
   {
-    v15 = 182;
-    goto LABEL_25;
+    v15 = 190;
+    goto LABEL_24;
   }
-  v10 = (*(__int64 (__fastcall **)(char *, const struct WICRect *, __int64, __int64 *))(*((_QWORD *)this + 3) + 24LL))(
-          (char *)this + 24,
+  v10 = (*(__int64 (__fastcall **)(char *, const struct WICRect *, __int64, __int64 *))(*((_QWORD *)this + 2) + 24LL))(
+          (char *)this + 16,
           a2,
           1LL,
           &v18);
-  v11 = v10;
+  v12 = v10;
   if ( v10 < 0 )
   {
-    v15 = 184;
-    goto LABEL_25;
+    v15 = 192;
+    goto LABEL_24;
   }
   v10 = (*(__int64 (__fastcall **)(__int64, int *, unsigned int *))(*(_QWORD *)v18 + 8LL))(v18, &v19, &v17);
-  v11 = v10;
+  v12 = v10;
   if ( v10 < 0 )
   {
-    v15 = 186;
-    goto LABEL_25;
+    v15 = 194;
+    goto LABEL_24;
   }
   v10 = (*(__int64 (__fastcall **)(__int64, unsigned int *))(*(_QWORD *)v18 + 16LL))(v18, &v20);
-  v11 = v10;
+  v12 = v10;
   if ( v10 < 0 )
   {
-    v15 = 187;
-    goto LABEL_25;
+    v15 = 195;
+    goto LABEL_24;
   }
   v10 = (*(__int64 (__fastcall **)(__int64, unsigned int *, unsigned __int8 **))(*(_QWORD *)v18 + 24LL))(
           v18,
           &v16,
           &Src);
-  v11 = v10;
+  v12 = v10;
   if ( v10 < 0 )
   {
-    v15 = 189;
-    goto LABEL_25;
+    v15 = 197;
+    goto LABEL_24;
   }
-  v10 = CBitmap::CopyPixelsHelper(*((_DWORD *)this + 30), a2->Width, v17, v20, v16, Src, a3, a4, a5);
-  v11 = v10;
+  v10 = CBitmap::CopyPixelsHelper((enum DXGI_FORMAT)*((_DWORD *)this + 46), a2->Width, v17, v20, v16, Src, a3, a4, a5);
+  v12 = v10;
   if ( v10 < 0 )
   {
-    v15 = 202;
-LABEL_25:
-    v13 = v10;
-    goto LABEL_26;
+    v15 = 210;
+LABEL_24:
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, v15, 0LL);
   }
 LABEL_10:
   ReleaseInterfaceNoNULL<IBitmapLock>(v18);
   CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v22);
-  return v11;
+  return v12;
 }

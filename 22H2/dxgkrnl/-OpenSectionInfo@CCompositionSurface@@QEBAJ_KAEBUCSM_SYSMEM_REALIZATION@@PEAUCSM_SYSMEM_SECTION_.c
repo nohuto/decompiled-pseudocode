@@ -1,10 +1,10 @@
 /*
- * XREFs of ?OpenSectionInfo@CCompositionSurface@@QEBAJ_KAEBUCSM_SYSMEM_REALIZATION@@PEAUCSM_SYSMEM_SECTION_INFO@@@Z @ 0x1C007CCF8
+ * XREFs of ?OpenSectionInfo@CCompositionSurface@@QEBAJ_KAEBUCSM_SYSMEM_REALIZATION@@PEAUCSM_SYSMEM_SECTION_INFO@@@Z @ 0x1C0066314
  * Callers:
- *     NtOpenCompositionSurfaceSectionInfo @ 0x1C007B1D0 (NtOpenCompositionSurfaceSectionInfo.c)
+ *     NtOpenCompositionSurfaceSectionInfo @ 0x1C0065980 (NtOpenCompositionSurfaceSectionInfo.c)
  * Callees:
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00103F0 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     ?FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@Z @ 0x1C007D674 (-FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@.c)
+ *     ?FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@Z @ 0x1C0010C20 (-FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0011B50 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
  */
 
 __int64 __fastcall CCompositionSurface::OpenSectionInfo(
@@ -16,12 +16,11 @@ __int64 __fastcall CCompositionSurface::OpenSectionInfo(
   __int64 result; // rax
   __int64 *v6; // r11
   __int64 v7; // rax
-  struct CCompositionBuffer *v8; // [rsp+20h] [rbp-48h] BYREF
-  struct CBufferRealization *v9; // [rsp+28h] [rbp-40h] BYREF
-  _DWORD v10[2]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v11; // [rsp+38h] [rbp-30h]
-  __int128 v12; // [rsp+40h] [rbp-28h]
-  __int64 v13; // [rsp+50h] [rbp-18h]
+  struct CCompositionBuffer *v8; // [rsp+20h] [rbp-38h] BYREF
+  struct CBufferRealization *v9; // [rsp+28h] [rbp-30h] BYREF
+  _DWORD v10[2]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v11; // [rsp+38h] [rbp-20h]
+  __int128 v12; // [rsp+40h] [rbp-18h]
 
   v8 = 0LL;
   result = CCompositionSurface::FindBuffer(this, a2, &v8);
@@ -29,7 +28,6 @@ __int64 __fastcall CCompositionSurface::OpenSectionInfo(
   {
     v7 = *v6;
     v10[1] = 0;
-    v13 = 0LL;
     v12 = 0LL;
     v11 = v7;
     v10[0] = 1;

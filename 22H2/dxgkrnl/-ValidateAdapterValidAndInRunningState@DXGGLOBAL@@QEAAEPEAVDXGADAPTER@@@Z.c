@@ -1,28 +1,32 @@
 /*
- * XREFs of ?ValidateAdapterValidAndInRunningState@DXGGLOBAL@@QEAAEPEAVDXGADAPTER@@@Z @ 0x1C0315E08
+ * XREFs of ?ValidateAdapterValidAndInRunningState@DXGGLOBAL@@QEAAEPEAVDXGADAPTER@@@Z @ 0x1C026C758
  * Callers:
- *     ?RegisterSharedPowerComponent@DXGGLOBAL@@QEAAJPEAXQEAXP6AX0W4_DEVICE_POWER_STATE@@E0@ZP6AX00@ZP6AX0KIE0@ZP6AX00KEIU_GUID@@I@Z@Z @ 0x1C00520C0 (-RegisterSharedPowerComponent@DXGGLOBAL@@QEAAJPEAXQEAXP6AX0W4_DEVICE_POWER_STATE@@E0@ZP6AX00@ZP6.c)
- *     ?SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z @ 0x1C031562C (-SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z.c)
- *     ?UnregisterSharedPowerDriver@DXGGLOBAL@@QEAAJQEAX0@Z @ 0x1C0315CAC (-UnregisterSharedPowerDriver@DXGGLOBAL@@QEAAJQEAX0@Z.c)
+ *     ?RegisterSharedPowerComponent@DXGGLOBAL@@QEAAJPEAXQEAXP6AX0W4_DEVICE_POWER_STATE@@E0@ZP6AX00@ZP6AX0KIE0@ZP6AX00KEIU_GUID@@I@Z@Z @ 0x1C004690C (-RegisterSharedPowerComponent@DXGGLOBAL@@QEAAJPEAXQEAXP6AX0W4_DEVICE_POWER_STATE@@E0@ZP6AX00@ZP6.c)
+ *     ?SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z @ 0x1C026C004 (-SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z.c)
+ *     ?UnregisterSharedPowerDriver@DXGGLOBAL@@QEAAJQEAX0@Z @ 0x1C026C5F0 (-UnregisterSharedPowerDriver@DXGGLOBAL@@QEAAJQEAX0@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 bool __fastcall DXGGLOBAL::ValidateAdapterValidAndInRunningState(struct _KTHREAD **this, struct DXGADAPTER *a2)
 {
-  char v2; // bl
+  __int64 v4; // rax
+  struct DXGADAPTER **v5; // rbx
+  char v6; // cl
   struct DXGADAPTER *i; // rax
 
-  v2 = 0;
-  if ( this[87] != KeGetCurrentThread() )
+  if ( this[75] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 6503LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_AdapterListMutex.IsOwner()", 6503LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 5513LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  for ( i = this[96]; i != (struct DXGADAPTER *)(this + 96) && i; i = *(struct DXGADAPTER **)i )
+  v5 = this + 83;
+  v6 = 0;
+  for ( i = *v5; i != (struct DXGADAPTER *)v5 && i; i = *(struct DXGADAPTER **)i )
   {
     if ( i == a2 )
       return *((_DWORD *)a2 + 50) == 1;
   }
-  return v2;
+  return v6;
 }

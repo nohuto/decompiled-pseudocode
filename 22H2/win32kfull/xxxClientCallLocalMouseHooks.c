@@ -1,46 +1,51 @@
 /*
- * XREFs of xxxClientCallLocalMouseHooks @ 0x1C0211678
+ * XREFs of xxxClientCallLocalMouseHooks @ 0x1C02317E4
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
  */
 
-__int64 __fastcall xxxClientCallLocalMouseHooks(int a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall xxxClientCallLocalMouseHooks(int a1, __int128 *a2, int a3)
 {
-  int v4; // ebx
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 *v7; // rcx
-  __int64 result; // rax
-  _BYTE v9[4]; // [rsp+30h] [rbp-68h] BYREF
-  int v10; // [rsp+34h] [rbp-64h] BYREF
-  _QWORD v11[3]; // [rsp+38h] [rbp-60h] BYREF
-  _OWORD v12[3]; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v13; // [rsp+80h] [rbp-18h]
+  int v3; // ebx
+  ULONG64 v4; // rcx
+  _DWORD v6[2]; // [rsp+40h] [rbp-48h] BYREF
+  __int128 v7; // [rsp+48h] [rbp-40h]
+  __int128 v8; // [rsp+58h] [rbp-30h]
+  __int64 v9; // [rsp+68h] [rbp-20h]
+  int v10; // [rsp+70h] [rbp-18h]
+  int v11; // [rsp+74h] [rbp-14h]
+  char v12; // [rsp+90h] [rbp+8h] BYREF
+  int v13; // [rsp+98h] [rbp+10h] BYREF
+  char v14; // [rsp+A0h] [rbp+18h] BYREF
+  unsigned __int64 v15; // [rsp+A8h] [rbp+20h] BYREF
 
-  v11[0] = 0LL;
-  v10 = 0;
-  memset(v12, 0, sizeof(v12));
-  v13 = 0LL;
-  LODWORD(v12[0]) = a1;
-  *(_OWORD *)((char *)v12 + 8) = *(_OWORD *)a2;
-  *(_OWORD *)((char *)&v12[1] + 8) = *(_OWORD *)(a2 + 16);
-  *((_QWORD *)&v12[2] + 1) = *(_QWORD *)(a2 + 32);
-  LODWORD(v13) = a3;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v9, a2, a3, a4);
+  v15 = 0LL;
+  v13 = 0;
+  v6[1] = 0;
+  v11 = 0;
+  v6[0] = a1;
+  v7 = *a2;
+  v8 = a2[1];
+  v9 = *((_QWORD *)a2 + 4);
+  v10 = a3;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v14);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v12);
   EtwTraceBeginCallback(120LL);
-  v4 = KeUserModeCallback(120LL, v12, 56LL, v11, &v10);
+  v3 = KeUserModeCallback(120LL, v6, 56LL, &v15, &v13);
   EtwTraceEndCallback(120LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v9, v5, v6);
-  if ( v4 < 0 || v10 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v12);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v14);
+  if ( v3 < 0 || v13 != 24 )
     return 0LL;
-  v7 = (__int64 *)v11[0];
-  if ( (unsigned __int64)(v11[0] + 8LL) < v11[0] || v11[0] + 8LL > MmUserProbeAddress )
-    v7 = (__int64 *)MmUserProbeAddress;
-  result = *v7;
-  v11[1] = *v7;
-  return result;
+  v4 = v15;
+  if ( v15 + 8 < v15 || v15 + 8 > MmUserProbeAddress )
+    v4 = MmUserProbeAddress;
+  return *(_QWORD *)v4;
 }

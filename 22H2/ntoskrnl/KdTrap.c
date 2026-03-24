@@ -1,10 +1,10 @@
 /*
- * XREFs of KdTrap @ 0x14030DD5C
+ * XREFs of KdTrap @ 0x14033C88C
  * Callers:
- *     KiDispatchException @ 0x14030CAC0 (KiDispatchException.c)
+ *     KiDispatchException @ 0x14033C330 (KiDispatchException.c)
  * Callees:
- *     KdpStub @ 0x1403D00EC (KdpStub.c)
- *     KdpTrap @ 0x140AB137C (KdpTrap.c)
+ *     KdpStub @ 0x14033C8C4 (KdpStub.c)
+ *     KdpTrap @ 0x1409BAA20 (KdpTrap.c)
  */
 
 __int64 __fastcall KdTrap(int a1, int a2, int a3, int a4, char a5, char a6)

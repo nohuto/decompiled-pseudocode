@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetAutoTriggerWaveform@SimpleHapticsController@@QEAAJG@Z @ 0x1C0257EA0
+ * XREFs of ?SetAutoTriggerWaveform@SimpleHapticsController@@QEAAJG@Z @ 0x1C025B118
  * Callers:
- *     ?SetHapticsMode@InteractiveControlDevice@@QEAAJW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z @ 0x1C02550C8 (-SetHapticsMode@InteractiveControlDevice@@QEAAJW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z.c)
+ *     ?SetHapticsMode@InteractiveControlDevice@@QEAAJW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z @ 0x1C025838C (-SetHapticsMode@InteractiveControlDevice@@QEAAJW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C024E6A0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$01@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$01@@@Z @ 0x1C02565E0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$01@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ?SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z @ 0x1C025798C (-SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02516B4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$01@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$01@@@Z @ 0x1C025982C (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$01@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z @ 0x1C025AC1C (-SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z.c)
  */
 
 __int64 __fastcall SimpleHapticsController::SetAutoTriggerWaveform(PHIDP_PREPARSED_DATA *this, unsigned __int16 a2)
@@ -45,13 +45,13 @@ __int64 __fastcall SimpleHapticsController::SetAutoTriggerWaveform(PHIDP_PREPARS
   memset(&Capabilities, 0, sizeof(Capabilities));
   ValueCapsLength[0] = 1;
   memset(&ValueCaps, 0, sizeof(ValueCaps));
-  if ( (unsigned int)dword_1C0326288 > 4 )
+  if ( (unsigned int)dword_1C032B2C0 > 4 )
   {
     LOWORD(v27) = v2;
     v28 = (__int64)"SimpleHapticsController::SetAutoTriggerWaveform entry";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<2>>(
       v4,
-      byte_1C02F2082,
+      byte_1C02F4C1D,
       v5,
       v6,
       (void **)&v28,
@@ -61,7 +61,7 @@ __int64 __fastcall SimpleHapticsController::SetAutoTriggerWaveform(PHIDP_PREPARS
   v10 = Caps;
   if ( Caps >= 0 )
   {
-    v13 = (UCHAR *)Win32AllocPoolZInit(Capabilities.FeatureReportByteLength, 1667787091LL);
+    v13 = (UCHAR *)Win32AllocPool(Capabilities.FeatureReportByteLength, 1667787091LL);
     if ( v13 )
     {
       SpecificValueCaps = HidP_GetSpecificValueCaps(HidP_Feature, 0xEu, 0, 0x20u, &ValueCaps, ValueCapsLength, this[2]);
@@ -103,13 +103,13 @@ __int64 __fastcall SimpleHapticsController::SetAutoTriggerWaveform(PHIDP_PREPARS
             v10 = v23;
             if ( v23 < 0 )
             {
-              if ( (unsigned int)dword_1C0326288 > 2 )
+              if ( (unsigned int)dword_1C032B2C0 > 2 )
               {
                 LODWORD(v27) = v23;
                 v28 = (__int64)"Function failed.";
                 _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-                  (__int64)&dword_1C0326288,
-                  byte_1C02F1F9A,
+                  (__int64)&dword_1C032B2C0,
+                  byte_1C02F4B35,
                   v24,
                   v25,
                   (void **)&v28,
@@ -128,13 +128,13 @@ __int64 __fastcall SimpleHapticsController::SetAutoTriggerWaveform(PHIDP_PREPARS
           }
           else
           {
-            if ( (unsigned int)dword_1C0326288 > 2 )
+            if ( (unsigned int)dword_1C032B2C0 > 2 )
             {
               LODWORD(v27) = v20;
               v28 = (__int64)"Function failed.";
               _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-                (__int64)&dword_1C0326288,
-                byte_1C02F1F9A,
+                (__int64)&dword_1C032B2C0,
+                byte_1C02F4B35,
                 v21,
                 v22,
                 (void **)&v28,
@@ -153,13 +153,13 @@ __int64 __fastcall SimpleHapticsController::SetAutoTriggerWaveform(PHIDP_PREPARS
         }
         else
         {
-          if ( (unsigned int)dword_1C0326288 > 2 )
+          if ( (unsigned int)dword_1C032B2C0 > 2 )
           {
             LODWORD(v27) = v17;
             v28 = (__int64)"Function failed.";
             _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-              (__int64)&dword_1C0326288,
-              byte_1C02F1F9A,
+              (__int64)&dword_1C032B2C0,
+              byte_1C02F4B35,
               v18,
               v19,
               (void **)&v28,
@@ -178,13 +178,13 @@ __int64 __fastcall SimpleHapticsController::SetAutoTriggerWaveform(PHIDP_PREPARS
       }
       else
       {
-        if ( (unsigned int)dword_1C0326288 > 2 )
+        if ( (unsigned int)dword_1C032B2C0 > 2 )
         {
           LODWORD(v27) = SpecificValueCaps;
           v28 = (__int64)"Function failed.";
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-            (__int64)&dword_1C0326288,
-            byte_1C02F1F9A,
+            (__int64)&dword_1C032B2C0,
+            byte_1C02F4B35,
             v15,
             v16,
             (void **)&v28,
@@ -209,13 +209,13 @@ __int64 __fastcall SimpleHapticsController::SetAutoTriggerWaveform(PHIDP_PREPARS
   }
   else
   {
-    if ( (unsigned int)dword_1C0326288 > 2 )
+    if ( (unsigned int)dword_1C032B2C0 > 2 )
     {
       LODWORD(v27) = Caps;
       v28 = (__int64)"Function failed.";
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-        (__int64)&dword_1C0326288,
-        byte_1C02F1F9A,
+        (__int64)&dword_1C032B2C0,
+        byte_1C02F4B35,
         v8,
         v9,
         (void **)&v28,
@@ -231,13 +231,13 @@ __int64 __fastcall SimpleHapticsController::SetAutoTriggerWaveform(PHIDP_PREPARS
       v10,
       "Function failed.");
   }
-  if ( (unsigned int)dword_1C0326288 > 4 )
+  if ( (unsigned int)dword_1C032B2C0 > 4 )
   {
     LODWORD(v27) = v10;
     v28 = (__int64)"SimpleHapticsController::SetAutoTriggerWaveform exit";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C0326288,
-      byte_1C02F2013,
+      (__int64)&dword_1C032B2C0,
+      byte_1C02F4BAE,
       v11,
       v12,
       (void **)&v28,

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockPagedRange @ 0x1406C2718
+ * XREFs of MiLockPagedRange @ 0x140727860
  * Callers:
- *     MiInsertNewCombineBlocks @ 0x140245D28 (MiInsertNewCombineBlocks.c)
- *     MiCreatePatchTableProtos @ 0x140972D10 (MiCreatePatchTableProtos.c)
- *     MiBuildNewCloneDescriptor @ 0x14098056C (MiBuildNewCloneDescriptor.c)
+ *     MiInsertNewCombineBlocks @ 0x14036B858 (MiInsertNewCombineBlocks.c)
+ *     MiCreatePatchTableProtos @ 0x1408C98E8 (MiCreatePatchTableProtos.c)
+ *     MiBuildNewCloneDescriptor @ 0x1408D8F04 (MiBuildNewCloneDescriptor.c)
  * Callees:
- *     MiLockPagedAddress @ 0x140245DF4 (MiLockPagedAddress.c)
- *     MiUnlockPagedAddress @ 0x14025D494 (MiUnlockPagedAddress.c)
+ *     MiLockPagedAddress @ 0x14036B924 (MiLockPagedAddress.c)
+ *     MiUnlockPagedAddress @ 0x1405369F0 (MiUnlockPagedAddress.c)
  */
 
 __int64 __fastcall MiLockPagedRange(__int64 a1, unsigned __int64 a2)

@@ -1,9 +1,7 @@
 /*
- * XREFs of RtlTimelineBitmapMerge @ 0x1402C0A78
+ * XREFs of RtlTimelineBitmapMerge @ 0x140254748
  * Callers:
- *     PsAddProcessEnergyValues @ 0x1402C0878 (PsAddProcessEnergyValues.c)
- *     KeFoldProcessStatisticsThread @ 0x1402EACB4 (KeFoldProcessStatisticsThread.c)
- *     PsQueryProcessEnergyValues @ 0x1407424E0 (PsQueryProcessEnergyValues.c)
+ *     KeFoldProcessStatisticsThread @ 0x14025400C (KeFoldProcessStatisticsThread.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +11,7 @@ __int64 __fastcall RtlTimelineBitmapMerge(unsigned int *a1, unsigned int *a2)
   __int64 result; // rax
   unsigned int v4; // ecx
   unsigned int v5; // ecx
-  unsigned int v6; // eax
+  unsigned int v6; // ecx
 
   result = *a2;
   v4 = *a1;
@@ -21,11 +19,16 @@ __int64 __fastcall RtlTimelineBitmapMerge(unsigned int *a1, unsigned int *a2)
   {
     *a1 = result;
     if ( (unsigned int)result - v4 >= 0x20 )
+    {
       v6 = 0;
+      a1[1] = 0;
+    }
     else
-      v6 = a1[1] << (result - v4);
-    a1[1] = v6;
-    result = a2[1] | v6;
+    {
+      a1[1] <<= result - v4;
+      v6 = a1[1];
+    }
+    result = v6 | a2[1];
     a1[1] = result;
   }
   else

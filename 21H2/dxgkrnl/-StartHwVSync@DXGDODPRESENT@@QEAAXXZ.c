@@ -1,57 +1,55 @@
 /*
- * XREFs of ?StartHwVSync@DXGDODPRESENT@@QEAAXXZ @ 0x1C03BEFFC
+ * XREFs of ?StartHwVSync@DXGDODPRESENT@@QEAAXXZ @ 0x1C02FFE54
  * Callers:
- *     ?StartVSync@BLTQUEUE_HW_VSYNC_SOURCE@@UEAAJU_D3DDDI_RATIONAL@@I@Z @ 0x1C03BF920 (-StartVSync@BLTQUEUE_HW_VSYNC_SOURCE@@UEAAJU_D3DDDI_RATIONAL@@I@Z.c)
+ *     ?StartVSync@BLTQUEUE_HW_VSYNC_SOURCE@@UEAAJU_D3DDDI_RATIONAL@@I@Z @ 0x1C0300670 (-StartVSync@BLTQUEUE_HW_VSYNC_SOURCE@@UEAAJU_D3DDDI_RATIONAL@@I@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z @ 0x1C019E994 (-DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z @ 0x1C011F67C (-DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z.c)
  */
 
 void __fastcall DXGDODPRESENT::StartHwVSync(struct _KTHREAD **this)
 {
-  __int64 v2; // r8
-  int v3; // eax
-  int v4; // eax
-  _BYTE v5[8]; // [rsp+50h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v6; // [rsp+58h] [rbp-20h]
-  int v7; // [rsp+60h] [rbp-18h]
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  int v5; // eax
+  __int64 v6; // rax
+  int v7; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  _BYTE v11[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v12; // [rsp+28h] [rbp-20h]
+  int v13; // [rsp+30h] [rbp-18h]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v5, this + 13, 0);
-  DXGPUSHLOCK::AcquireExclusive(v6);
-  v3 = *((_DWORD *)this + 34);
-  v7 = 2;
-  if ( v3 < 0 )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v11, this + 13, 0);
+  DXGPUSHLOCK::AcquireExclusive(v12);
+  v5 = *((_DWORD *)this + 34);
+  v13 = 2;
+  if ( v5 < 0 )
   {
-    WdLogSingleEntry1(1LL, 4199LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_OutStandingHwVsyncRequests >= 0",
-      4199LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v3 = *((_DWORD *)this + 34);
+    v6 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v6 + 24) = 4093LL;
+    WdLogEvent5_WdAssertion(v6);
+    v5 = *((_DWORD *)this + 34);
   }
-  v4 = v3 + 1;
-  *((_DWORD *)this + 34) = v4;
-  if ( v4 == 1 )
+  v7 = v5 + 1;
+  *((_DWORD *)this + 34) = v7;
+  if ( v7 == 1 )
   {
-    LOBYTE(v2) = 1;
+    LOBYTE(v4) = 1;
     if ( (int)DXGADAPTER::DdiControlInterrupt(
                 *((DXGADAPTER **)this[11] + 2),
                 DXGK_INTERRUPT_DISPLAYONLY_VSYNC,
-                v2,
+                v4,
                 0xFFFFFFFD) < 0 )
     {
-      WdLogSingleEntry1(1LL, 4207LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NT_SUCCESS(Status)", 4207LL, 0LL, 0LL, 0LL, 0LL);
+      v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+      *(_QWORD *)(v10 + 24) = 4101LL;
+      WdLogEvent5_WdAssertion(v10);
     }
   }
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v5);
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v11);
 }

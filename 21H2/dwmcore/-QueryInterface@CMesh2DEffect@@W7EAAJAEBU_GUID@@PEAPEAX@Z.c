@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@CMesh2DEffect@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18010D570
+ * XREFs of ?QueryInterface@CMesh2DEffect@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F95C0
  * Callers:
  *     <none>
  * Callees:

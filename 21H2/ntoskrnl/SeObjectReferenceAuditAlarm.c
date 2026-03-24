@@ -1,33 +1,32 @@
 /*
- * XREFs of SeObjectReferenceAuditAlarm @ 0x1407225F4
+ * XREFs of SeObjectReferenceAuditAlarm @ 0x14066107C
  * Callers:
- *     ObpCheckObjectReference @ 0x14072266C (ObpCheckObjectReference.c)
+ *     ObpCheckObjectReference @ 0x140660F3C (ObpCheckObjectReference.c)
  * Callees:
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
- *     SeExamineGlobalSacl @ 0x140882A70 (SeExamineGlobalSacl.c)
- *     SepAdtObjectReferenceAuditAlarm @ 0x1409C8CBC (SepAdtObjectReferenceAuditAlarm.c)
- *     SeExamineSacl @ 0x1409CAE50 (SeExamineSacl.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtObjectReferenceAuditAlarm @ 0x14091F26C (SepAdtObjectReferenceAuditAlarm.c)
+ *     SeExamineSacl @ 0x140921420 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x140924A18 (SeExamineGlobalSacl.c)
  */
 
 void __fastcall SeObjectReferenceAuditAlarm(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        __int64 a4,
+        struct _SECURITY_SUBJECT_CONTEXT *a4,
         ACCESS_MASK DesiredAccess,
         BOOLEAN GenerateAlarm,
         BOOLEAN a7,
         char a8)
 {
-  __int64 v10; // r14
   BOOLEAN AccessGranted; // si
-  void *v12; // r8
+  PACCESS_TOKEN ClientToken; // r8
   __int16 v13; // ax
   ACL *v14; // rdx
   ACL *v15; // rcx
   __int64 v16; // rcx
   __int64 v17; // rax
-  void *v18; // r8
+  PACCESS_TOKEN PrimaryToken; // r8
   __int16 v19; // ax
   __int64 v20; // rax
   ACL *v21; // rdx
@@ -35,7 +34,6 @@ void __fastcall SeObjectReferenceAuditAlarm(
   __int64 GenerateAudit; // [rsp+60h] [rbp+8h] BYREF
 
   GenerateAudit = a1;
-  v10 = a2;
   LOBYTE(GenerateAudit) = 0;
   GenerateAlarm = 0;
   if ( !a8 )
@@ -43,12 +41,11 @@ void __fastcall SeObjectReferenceAuditAlarm(
   if ( !a3 )
     return;
   AccessGranted = a7;
-  LOBYTE(a2) = a7;
-  if ( !(unsigned __int8)SepAdtAuditThisEventWithContext(120LL, a2, 0LL, a4) )
+  if ( !(unsigned __int8)SepAdtAuditThisEventWithContext(121LL, a7, 0, a4) )
     return;
-  v12 = *(void **)a4;
-  if ( !*(_QWORD *)a4 )
-    v12 = *(void **)(a4 + 16);
+  ClientToken = a4->ClientToken;
+  if ( !a4->ClientToken )
+    ClientToken = a4->PrimaryToken;
   v13 = *(_WORD *)(a3 + 2);
   if ( (v13 & 0x10) != 0 )
   {
@@ -82,10 +79,10 @@ void __fastcall SeObjectReferenceAuditAlarm(
   }
   v15 = 0LL;
 LABEL_19:
-  SeExamineSacl(v15, v14, v12, DesiredAccess, AccessGranted, (PBOOLEAN)&GenerateAudit, &GenerateAlarm);
-  v18 = *(void **)a4;
-  if ( !*(_QWORD *)a4 )
-    v18 = *(void **)(a4 + 16);
+  SeExamineSacl(v15, v14, ClientToken, DesiredAccess, AccessGranted, (PBOOLEAN)&GenerateAudit, &GenerateAlarm);
+  PrimaryToken = a4->ClientToken;
+  if ( !a4->ClientToken )
+    PrimaryToken = a4->PrimaryToken;
   v19 = *(_WORD *)(a3 + 2);
   if ( (v19 & 0x10) == 0 )
     goto LABEL_25;
@@ -102,10 +99,10 @@ LABEL_25:
     v21 = 0LL;
 LABEL_27:
   SeExamineGlobalSacl(
-    (PUNICODE_STRING)(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v10 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v10 - 48) >> 8)]
+    (PUNICODE_STRING)(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a2 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a2 - 48) >> 8)]
                     + 16),
     v21,
-    v18,
+    PrimaryToken,
     DesiredAccess,
     AccessGranted,
     (PBOOLEAN)&GenerateAudit,
@@ -113,6 +110,6 @@ LABEL_27:
   if ( (_BYTE)GenerateAudit || GenerateAlarm )
   {
     LOBYTE(v22) = AccessGranted;
-    SepAdtObjectReferenceAuditAlarm(v10, a4, DesiredAccess, v22);
+    SepAdtObjectReferenceAuditAlarm(a2, a4, DesiredAccess, v22);
   }
 }

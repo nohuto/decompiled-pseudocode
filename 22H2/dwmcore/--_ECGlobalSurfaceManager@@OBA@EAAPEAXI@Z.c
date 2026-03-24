@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECGlobalSurfaceManager@@OBA@EAAPEAXI@Z @ 0x18011BBE0
+ * XREFs of ??_ECGlobalSurfaceManager@@OBA@EAAPEAXI@Z @ 0x1800F4100
  * Callers:
  *     <none>
  * Callees:

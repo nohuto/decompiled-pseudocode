@@ -1,11 +1,13 @@
 /*
- * XREFs of ClientFreeLibrary @ 0x1C0077D70
+ * XREFs of ClientFreeLibrary @ 0x1C011D824
  * Callers:
- *     xxxLoadHmodIndex @ 0x1C0054214 (xxxLoadHmodIndex.c)
- *     xxxDoSysExpunge @ 0x1C00781A4 (xxxDoSysExpunge.c)
+ *     xxxLoadHmodIndex @ 0x1C002067C (xxxLoadHmodIndex.c)
+ *     xxxDoSysExpunge @ 0x1C011D6C8 (xxxDoSysExpunge.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0052354 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005240C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00524D0 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052508 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
  */
 
 __int64 __fastcall ClientFreeLibrary(__int64 a1)
@@ -13,25 +15,30 @@ __int64 __fastcall ClientFreeLibrary(__int64 a1)
   int v1; // ebx
   __int64 *v2; // rcx
   __int64 result; // rax
-  __int64 v4; // [rsp+50h] [rbp+8h] BYREF
-  int v5; // [rsp+58h] [rbp+10h] BYREF
-  unsigned __int64 v6; // [rsp+60h] [rbp+18h] BYREF
-  __int64 v7; // [rsp+68h] [rbp+20h] BYREF
+  _QWORD v4[3]; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v5; // [rsp+50h] [rbp+8h] BYREF
+  char v6; // [rsp+58h] [rbp+10h] BYREF
+  int v7; // [rsp+60h] [rbp+18h] BYREF
+  unsigned __int64 v8; // [rsp+68h] [rbp+20h] BYREF
 
-  v6 = 0LL;
-  v5 = 0;
-  v7 = a1;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v4);
+  v8 = 0LL;
+  v7 = 0;
+  v4[0] = a1;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v6);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v5);
   EtwTraceBeginCallback(68LL);
-  v1 = KeUserModeCallback(68LL, &v7, 8LL, &v6, &v5);
+  v1 = KeUserModeCallback(68LL, v4, 8LL, &v8, &v7);
   EtwTraceEndCallback(68LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v4);
-  if ( v1 < 0 || v5 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v5);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v6);
+  if ( v1 < 0 || v7 != 24 )
     return 0LL;
-  v2 = (__int64 *)v6;
-  if ( v6 + 8 < v6 || v6 + 8 > MmUserProbeAddress )
+  v2 = (__int64 *)v8;
+  if ( v8 + 8 < v8 || v8 + 8 > MmUserProbeAddress )
     v2 = (__int64 *)MmUserProbeAddress;
   result = *v2;
-  v4 = *v2;
+  v5 = *v2;
   return result;
 }

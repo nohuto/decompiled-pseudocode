@@ -1,21 +1,21 @@
 /*
- * XREFs of HvlDeleteProcessor @ 0x140931100
+ * XREFs of HvlDeleteProcessor @ 0x14088E6C0
  * Callers:
- *     KiStartDynamicProcessor @ 0x14096029C (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140B03C68 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     HvlpFreeOverlayPages @ 0x140213380 (HvlpFreeOverlayPages.c)
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
- *     HvlpGetRegister64 @ 0x14054BFF0 (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x14054C0E0 (HvlpSetRegister64.c)
- *     MmFreeIndependentPages @ 0x14096ED20 (MmFreeIndependentPages.c)
+ *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     HvlpFreeOverlayPages @ 0x14036CFD0 (HvlpFreeOverlayPages.c)
+ *     HvlpGetRegister64 @ 0x1404FA210 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1404FA300 (HvlpSetRegister64.c)
+ *     MmFreeIndependentPages @ 0x1407645D0 (MmFreeIndependentPages.c)
  */
 
 void __fastcall HvlDeleteProcessor(struct _KPRCB *a1, SIZE_T a2, MEMORY_CACHING_TYPE a3)
 {
   void *VirtualApicAssist; // rcx
   void *SchedulerAssist; // rcx
-  void *HypercallCachedPages; // rcx
+  unsigned __int64 HypercallCachedPages; // rcx
   __int64 v7; // [rsp+30h] [rbp+8h] BYREF
 
   v7 = 0LL;
@@ -37,7 +37,7 @@ void __fastcall HvlDeleteProcessor(struct _KPRCB *a1, SIZE_T a2, MEMORY_CACHING_
   SchedulerAssist = a1->SchedulerAssist;
   if ( SchedulerAssist )
     HvlpFreeOverlayPages(SchedulerAssist, a2, a3);
-  HypercallCachedPages = a1->HypercallCachedPages;
+  HypercallCachedPages = (unsigned __int64)a1->HypercallCachedPages;
   if ( HypercallCachedPages )
-    MmFreeIndependentPages(HypercallCachedPages, 20480LL);
+    MmFreeIndependentPages(HypercallCachedPages, 0x5000uLL);
 }

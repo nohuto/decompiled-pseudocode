@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIGetPortRangeInterfaces @ 0x1C00246CC
+ * XREFs of ACPIGetPortRangeInterfaces @ 0x1C0026ABC
  * Callers:
- *     ACPIDispatchAddDevice @ 0x1C0023F50 (ACPIDispatchAddDevice.c)
+ *     ACPIDispatchAddDevice @ 0x1C0025260 (ACPIDispatchAddDevice.c)
  * Callees:
  *     <none>
  */
@@ -9,10 +9,10 @@
 __int64 __fastcall ACPIGetPortRangeInterfaces(PDEVICE_OBJECT DeviceObject)
 {
   struct _DEVICE_OBJECT *AttachedDeviceReference; // rdi
-  PIRP v4; // rax
-  IRP *v5; // rdx
-  unsigned int Status; // ebx
+  PIRP v3; // rax
+  IRP *v4; // rdx
   _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  unsigned int Status; // ebx
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-38h] BYREF
   struct _KEVENT Object; // [rsp+50h] [rbp-28h] BYREF
 
@@ -22,19 +22,19 @@ __int64 __fastcall ACPIGetPortRangeInterfaces(PDEVICE_OBJECT DeviceObject)
   AttachedDeviceReference = IoGetAttachedDeviceReference(DeviceObject);
   if ( !AttachedDeviceReference )
     return 3221225486LL;
-  v4 = IoBuildSynchronousFsdRequest(0x1Bu, AttachedDeviceReference, 0LL, 0, 0LL, &Object, &IoStatusBlock);
-  v5 = v4;
-  if ( v4 )
+  v3 = IoBuildSynchronousFsdRequest(0x1Bu, AttachedDeviceReference, 0LL, 0, 0LL, &Object, &IoStatusBlock);
+  v4 = v3;
+  if ( v3 )
   {
-    v4->IoStatus.Status = -1073741637;
-    v4->IoStatus.Information = 0LL;
-    CurrentStackLocation = v4->Tail.Overlay.CurrentStackLocation;
+    v3->IoStatus.Status = -1073741637;
+    v3->IoStatus.Information = 0LL;
+    CurrentStackLocation = v3->Tail.Overlay.CurrentStackLocation;
     CurrentStackLocation[-1].Parameters.WMI.ProviderId = (unsigned __int64)&GUID_ACPI_PORT_RANGES_INTERFACE_STANDARD;
     CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = (__int64)&HalPortRangeInterface;
     CurrentStackLocation[-1].MinorFunction = 8;
     CurrentStackLocation[-1].Parameters.Create.Options = 48;
     CurrentStackLocation[-1].Parameters.CreatePipe.Parameters = 0LL;
-    Status = IofCallDriver(AttachedDeviceReference, v5);
+    Status = IofCallDriver(AttachedDeviceReference, v4);
     if ( Status == 259 )
     {
       KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);

@@ -1,22 +1,24 @@
 /*
- * XREFs of CmpAllocate @ 0x140702FE0
+ * XREFs of CmpAllocate @ 0x1407201B0
  * Callers:
- *     CmpCreateHive @ 0x14070247C (CmpCreateHive.c)
- *     CmpCreateEmptyHiveClone @ 0x140A1CB70 (CmpCreateEmptyHiveClone.c)
+ *     CmpCreateHive @ 0x14071D9E8 (CmpCreateHive.c)
+ *     CmpCreateEmptyHiveClone @ 0x140872E98 (CmpCreateEmptyHiveClone.c)
  * Callees:
- *     CmpClaimGlobalQuota @ 0x14070304C (CmpClaimGlobalQuota.c)
- *     CmpReleaseGlobalQuota @ 0x1407099D8 (CmpReleaseGlobalQuota.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     CmpReleaseGlobalQuota @ 0x1406574DC (CmpReleaseGlobalQuota.c)
+ *     CmpClaimGlobalQuota @ 0x140720214 (CmpClaimGlobalQuota.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmpAllocate(unsigned int a1, char a2, unsigned int a3)
+PVOID __fastcall CmpAllocate(SIZE_T NumberOfBytes, char a2, ULONG a3)
 {
-  __int64 Pool2; // rdi
+  unsigned int v4; // ebx
+  PVOID PoolWithTag; // rdi
 
-  if ( !(unsigned __int8)CmpClaimGlobalQuota() )
+  v4 = NumberOfBytes;
+  if ( !(unsigned __int8)CmpClaimGlobalQuota(NumberOfBytes) )
     return 0LL;
-  Pool2 = ExAllocatePool2(a2 != 0 ? 264LL : 256LL, a1, a3);
-  if ( !Pool2 )
-    CmpReleaseGlobalQuota(a1);
-  return Pool2;
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)(a2 != 0 ? PagedPoolCacheAligned : PagedPool), v4, a3);
+  if ( !PoolWithTag )
+    CmpReleaseGlobalQuota(v4);
+  return PoolWithTag;
 }

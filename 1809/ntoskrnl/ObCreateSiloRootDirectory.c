@@ -1,5 +1,5 @@
 /*
- * XREFs of ObCreateSiloRootDirectory @ 0x140905F10
+ * XREFs of ObCreateSiloRootDirectory @ 0x140905EF0
  * Callers:
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  * Callees:
@@ -7,21 +7,21 @@
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     PsDereferenceSiloContext @ 0x14012C080 (PsDereferenceSiloContext.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x1401B8C70 (ZwOpenDirectoryObject.c)
- *     ZwCreateDirectoryObjectEx @ 0x1401B95B0 (ZwCreateDirectoryObjectEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     PsDereferenceSiloContext @ 0x14012C0A0 (PsDereferenceSiloContext.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1401B8C90 (ZwOpenDirectoryObject.c)
+ *     ZwCreateDirectoryObjectEx @ 0x1401B95D0 (ZwCreateDirectoryObjectEx.c)
  *     RtlIntegerToUnicodeString @ 0x1405A8E00 (RtlIntegerToUnicodeString.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     PsIsJobParentImmutable @ 0x1406064A4 (PsIsJobParentImmutable.c)
- *     ObpInitializeRootNamespace @ 0x14072BC8C (ObpInitializeRootNamespace.c)
- *     PsInsertPermanentSiloContextEx @ 0x140730A28 (PsInsertPermanentSiloContextEx.c)
- *     PsCreateSiloContext @ 0x140730CC0 (PsCreateSiloContext.c)
- *     PsGetParentSilo @ 0x140886730 (PsGetParentSilo.c)
- *     PsInsertSiloContext @ 0x140886780 (PsInsertSiloContext.c)
- *     ObpGetSilosRootDirectory @ 0x1409063AC (ObpGetSilosRootDirectory.c)
+ *     ObpInitializeRootNamespace @ 0x14072BC6C (ObpInitializeRootNamespace.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140730A08 (PsInsertPermanentSiloContextEx.c)
+ *     PsCreateSiloContext @ 0x140730CA0 (PsCreateSiloContext.c)
+ *     PsGetParentSilo @ 0x140886710 (PsGetParentSilo.c)
+ *     PsInsertSiloContext @ 0x140886760 (PsInsertSiloContext.c)
+ *     ObpGetSilosRootDirectory @ 0x14090638C (ObpGetSilosRootDirectory.c)
  */
 
 __int64 __fastcall ObCreateSiloRootDirectory(__int64 a1, int a2)

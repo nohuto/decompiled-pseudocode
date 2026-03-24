@@ -1,14 +1,14 @@
 /*
- * XREFs of BgkResumePrepare @ 0x140A4E794
+ * XREFs of BgkResumePrepare @ 0x1409961D8
  * Callers:
- *     PopAllocateHiberContext @ 0x140802068 (PopAllocateHiberContext.c)
- *     PopMarkComponentsBootPhase @ 0x140A4F19C (PopMarkComponentsBootPhase.c)
+ *     PopAllocateHiberContext @ 0x140777C44 (PopAllocateHiberContext.c)
+ *     PopMarkComponentsBootPhase @ 0x1409991F0 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x14038DBE0 (PoSetHiberRange.c)
- *     BgMarkHiberPhase @ 0x140AAB248 (BgMarkHiberPhase.c)
- *     BgGetContext @ 0x140AAB2D4 (BgGetContext.c)
- *     BgkpLockBgfxCodeSection @ 0x140AAB660 (BgkpLockBgfxCodeSection.c)
- *     BgkpUnlockBgfxCodeSection @ 0x140AAB6EC (BgkpUnlockBgfxCodeSection.c)
+ *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     BgGetContext @ 0x1409F1248 (BgGetContext.c)
+ *     BgkpUnlockBgfxCodeSection @ 0x1409F13F0 (BgkpUnlockBgfxCodeSection.c)
+ *     BgkpLockBgfxCodeSection @ 0x1409F3730 (BgkpLockBgfxCodeSection.c)
+ *     BgMarkHiberPhase @ 0x1409F664C (BgMarkHiberPhase.c)
  */
 
 __int64 __fastcall BgkResumePrepare(PVOID MemoryMap)
@@ -31,16 +31,16 @@ __int64 __fastcall BgkResumePrepare(PVOID MemoryMap)
       v5 = *(void **)(Context + 16);
       if ( v5 )
         PoSetHiberRange(MemoryMap, 0x8000u, v5, *(unsigned int *)(Context + 24), 0x4B494742u);
-      qword_140C547D8 = v4;
+      qword_140C50648 = v4;
       return v1;
     }
     BgkpUnlockBgfxCodeSection();
     return (unsigned int)-1073741670;
   }
-  v7 = qword_140C547D8;
-  if ( !qword_140C547D8 )
+  v7 = qword_140C50648;
+  if ( !qword_140C50648 )
     return (unsigned int)-1073741670;
-  PoSetHiberRange(0LL, 0x10000u, qword_140C547D8, *(unsigned int *)qword_140C547D8, 0);
+  PoSetHiberRange(0LL, 0x10000u, qword_140C50648, *(unsigned int *)qword_140C50648, 0);
   v8 = (void *)v7[2];
   if ( v8 )
     PoSetHiberRange(0LL, 0x10000u, v8, *((unsigned int *)v7 + 6), 0);

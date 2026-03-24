@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpiBiosMemoryToIoDescriptor @ 0x1C0091A60
+ * XREFs of PnpiBiosMemoryToIoDescriptor @ 0x1C009CA80
  * Callers:
- *     PnpBiosResourcesToNtResources @ 0x1C008EFEC (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  * Callees:
- *     PnpiUpdateResourceList @ 0x1C0092338 (PnpiUpdateResourceList.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
  */
 
 __int64 __fastcall PnpiBiosMemoryToIoDescriptor(unsigned __int8 *a1, __int64 a2, unsigned int a3)
 {
-  bool v4; // al
+  unsigned __int8 v3; // al
   __int16 v5; // di
   int v6; // ecx
   int v7; // ecx
@@ -16,15 +16,15 @@ __int64 __fastcall PnpiBiosMemoryToIoDescriptor(unsigned __int8 *a1, __int64 a2,
   int v9; // ebx
   __int64 result; // rax
   __int64 v11; // rcx
-  __int64 v12; // [rsp+20h] [rbp-18h]
-  __int64 v13; // [rsp+28h] [rbp-10h] BYREF
-  __int64 v14; // [rsp+40h] [rbp+8h]
+  __int64 v12; // [rsp+20h] [rbp-10h]
+  __int64 v13; // [rsp+28h] [rbp-8h] BYREF
+  __int64 v14; // [rsp+40h] [rbp+10h]
 
+  v3 = a1[3];
   HIDWORD(v14) = 0;
   HIDWORD(v12) = 0;
-  v4 = (a1[3] & 1) == 0;
   v13 = 0LL;
-  v5 = v4;
+  v5 = (v3 & 1) == 0;
   v6 = *a1 - 129;
   if ( v6 )
   {
@@ -49,7 +49,7 @@ __int64 __fastcall PnpiBiosMemoryToIoDescriptor(unsigned __int8 *a1, __int64 a2,
   else
   {
     v8 = *((unsigned __int16 *)a1 + 4);
-    v5 = v4 | 0x10;
+    v5 |= 0x10u;
     LODWORD(v14) = *((unsigned __int16 *)a1 + 2) << 8;
     v9 = *((unsigned __int16 *)a1 + 5) << 8;
     LODWORD(v12) = v9 + (*((unsigned __int16 *)a1 + 3) << 8) - 1;

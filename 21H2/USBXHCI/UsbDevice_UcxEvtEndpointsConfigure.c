@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbDevice_UcxEvtEndpointsConfigure @ 0x1C00027B0
+ * XREFs of UsbDevice_UcxEvtEndpointsConfigure @ 0x1C0007B20
  * Callers:
  *     <none>
  * Callees:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C000239C (UsbDevice_QueueConfigureEndpointEvent.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
 __int64 __fastcall UsbDevice_UcxEvtEndpointsConfigure(__int64 a1, __int64 a2)
@@ -30,12 +30,12 @@ __int64 __fastcall UsbDevice_UcxEvtEndpointsConfigure(__int64 a1, __int64 a2)
   *(_WORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
               WdfDriverGlobals,
               a2,
-              off_1C0061090) = 0;
+              off_1C0060090) = 0;
   v3 = *((_QWORD *)&v10[0] + 1);
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          *(_QWORD *)(*((_QWORD *)&v10[0] + 1) + 16LL),
-         off_1C00612C0);
+         off_1C00602C0);
   if ( !v5 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

@@ -1,26 +1,26 @@
 /*
- * XREFs of ?UMPDDrvStartDoc@@YAHPEAU_SURFOBJ@@PEAGK@Z @ 0x1C02BD350
+ * XREFs of ?UMPDDrvStartDoc@@YAHPEAU_SURFOBJ@@PEAGK@Z @ 0x1C015E080
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C0299CDC (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B78D8 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ?ThunkStringW@UMPDOBJ@@QEAAHPEAPEAG@Z @ 0x1C02B8468 (-ThunkStringW@UMPDOBJ@@QEAAHPEAPEAG@Z.c)
- *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02BEC8C (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
- *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C02BEF94 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C001ED70 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C001F424 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A190C (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ?ThunkStringW@UMPDOBJ@@QEAAHPEAPEAG@Z @ 0x1C00A45D0 (-ThunkStringW@UMPDOBJ@@QEAAHPEAPEAG@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02AC618 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
  */
 
 __int64 __fastcall UMPDDrvStartDoc(struct _SURFOBJ *a1, unsigned __int16 *a2, int a3)
 {
   int v4; // esi
   UMPDOBJ *v7; // rbx
-  __int64 v8; // rax
-  unsigned int v9; // eax
-  unsigned int v10; // eax
-  unsigned int v11; // edi
+  unsigned int v8; // edi
+  __int64 v10; // rax
+  unsigned int v11; // eax
+  unsigned int v12; // eax
   size_t Size; // [rsp+20h] [rbp-59h]
   unsigned int v14; // [rsp+40h] [rbp-39h] BYREF
   int v15; // [rsp+44h] [rbp-35h] BYREF
@@ -44,10 +44,10 @@ __int64 __fastcall UMPDDrvStartDoc(struct _SURFOBJ *a1, unsigned __int16 *a2, in
   *(_OWORD *)v21 = 0LL;
   *(_OWORD *)v22 = 0LL;
   if ( !v19 )
-    goto LABEL_19;
-  if ( !*((_DWORD *)v19 + 110) )
+    goto LABEL_10;
+  if ( !*((_DWORD *)v19 + 106) )
   {
-LABEL_10:
+LABEL_3:
     *(_QWORD *)&v20 = 0x2300000030LL;
     v21[0] = *(struct _SURFOBJ **)v7;
     v21[1] = a1;
@@ -56,37 +56,37 @@ LABEL_10:
     if ( !(unsigned int)UMPDOBJ::pso(v7, (UMPDOBJ *)((char *)v7 + 64), &v21[1])
       || !(unsigned int)UMPDOBJ::ThunkStringW(v7, v22)
       || (LODWORD(Size) = 4, (unsigned int)UMPDOBJ::Thunk(v7, &v20, 0x30u, &v14, Size) == -1)
-      || (v11 = 1, !v14) )
+      || (v8 = 1, !v14) )
     {
-      v11 = 0;
+      v8 = 0;
     }
-    goto LABEL_15;
+    goto LABEL_7;
   }
   v14 = 56;
   if ( a2 )
   {
-    v8 = -1LL;
+    v10 = -1LL;
     do
-      ++v8;
-    while ( a2[v8] );
-    v9 = 2 * v8 + 2;
-    if ( v9 + 7 >= v9 && ((v9 + 7) & 0xFFFFFFF8) + 56 >= 0x38 )
+      ++v10;
+    while ( a2[v10] );
+    v11 = 2 * v10 + 2;
+    if ( v11 + 7 >= v11 && ((v11 + 7) & 0xFFFFFFF8) + 56 >= 0x38 )
     {
-      v14 = ((v9 + 7) & 0xFFFFFFF8) + 56;
-      goto LABEL_9;
+      v14 = ((v11 + 7) & 0xFFFFFFF8) + 56;
+      goto LABEL_17;
     }
-LABEL_19:
-    v11 = 0;
-    goto LABEL_20;
+LABEL_10:
+    v8 = 0;
+    goto LABEL_8;
   }
-LABEL_9:
-  v10 = UMPDOBJ::bThunkLargeBitmap(v19, a1, &v17, &v18, &v16, &v15, &v14);
+LABEL_17:
+  v12 = UMPDOBJ::bThunkLargeBitmap(v19, a1, &v17, &v18, &v16, &v15, &v14);
   v4 = v15;
-  v11 = v10;
-  v14 = v10;
-  if ( v10 )
-    goto LABEL_10;
-LABEL_15:
+  v8 = v12;
+  v14 = v12;
+  if ( v12 )
+    goto LABEL_3;
+LABEL_7:
   if ( v16 )
   {
     if ( v4 )
@@ -94,7 +94,7 @@ LABEL_15:
     a1->pvBits = v17;
     a1->pvScan0 = v18;
   }
-LABEL_20:
+LABEL_8:
   XUMPDOBJ::~XUMPDOBJ(&v19);
-  return v11;
+  return v8;
 }

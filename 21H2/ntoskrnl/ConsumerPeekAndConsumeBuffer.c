@@ -1,25 +1,24 @@
 /*
- * XREFs of ConsumerPeekAndConsumeBuffer @ 0x140A4D310
+ * XREFs of ConsumerPeekAndConsumeBuffer @ 0x1409949AC
  * Callers:
- *     PopDecompressHiberBlocks @ 0x140A4CD9C (PopDecompressHiberBlocks.c)
+ *     PopDecompressHiberBlocks @ 0x140994874 (PopDecompressHiberBlocks.c)
  * Callees:
- *     KdCheckForDebugBreak @ 0x140222368 (KdCheckForDebugBreak.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     PopHiberPeekRangeTable @ 0x140A4CD50 (PopHiberPeekRangeTable.c)
- *     PopHiberCheckForDebugBreak @ 0x140A4D92C (PopHiberCheckForDebugBreak.c)
+ *     PopHiberCheckForDebugBreak @ 0x14099481C (PopHiberCheckForDebugBreak.c)
+ *     PopHiberPeekRangeTable @ 0x1409B132C (PopHiberPeekRangeTable.c)
  */
 
 unsigned __int64 __fastcall ConsumerPeekAndConsumeBuffer(__int64 a1, unsigned int *a2, char a3, __int64 a4, __int64 a5)
 {
-  unsigned __int64 v8; // rbp
-  unsigned int v9; // esi
-  unsigned int v10; // r14d
-  unsigned __int64 v11; // r12
-  unsigned int v12; // eax
-  __int64 v13; // rcx
+  unsigned __int64 v5; // r14
+  unsigned __int64 v9; // r15
+  unsigned int v10; // ecx
+  unsigned int v11; // ebp
+  unsigned int v12; // esi
   unsigned __int64 result; // rax
+  unsigned int v14; // eax
   int v15; // edx
 
+  v5 = 0LL;
   while ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 24), 1, 0) )
   {
     do
@@ -31,41 +30,39 @@ unsigned __int64 __fastcall ConsumerPeekAndConsumeBuffer(__int64 a1, unsigned in
   }
   while ( 1 )
   {
-    v8 = *(_QWORD *)(a1 + 48);
-    v9 = *a2;
-    v10 = *(_DWORD *)(a1 + 40) - v8;
+    v9 = *(_QWORD *)(a1 + 48);
+    v10 = *a2;
+    v11 = *(_DWORD *)(a1 + 40) - v9;
     if ( !*(_QWORD *)(a1 + 16) )
     {
-      if ( v9 >= *(_DWORD *)(a1 + 32) - (int)v8 )
-        v9 = *(_DWORD *)(a1 + 32) - v8;
-      *a2 = v9;
+      if ( v10 >= *(_DWORD *)(a1 + 32) - (int)v9 )
+        v10 = *(_DWORD *)(a1 + 32) - v9;
+      *a2 = v10;
     }
-    if ( v9 <= v10 )
+    v12 = v10;
+    if ( v10 <= v11 )
     {
-      if ( !v9 )
-        goto LABEL_10;
-      v11 = *(_QWORD *)a1 + v8 % *(unsigned int *)(a1 + 8);
-      v12 = PopHiberPeekRangeTable(*(_DWORD *)a1 + (unsigned int)(v8 % *(unsigned int *)(a1 + 8)), v9, a5);
-      v9 = v12;
-      if ( v12 <= v10 )
+      if ( !v10 )
+        goto LABEL_8;
+      v5 = *(_QWORD *)a1 + v9 % *(unsigned int *)(a1 + 8);
+      v14 = PopHiberPeekRangeTable(v5, v10, a5);
+      v12 = v14;
+      v10 = v14;
+      if ( v14 <= v11 )
         break;
     }
     if ( (a3 & 1) != 0 )
-      goto LABEL_10;
+      goto LABEL_9;
     *(_DWORD *)(a1 + 24) = 0;
     do
     {
       _mm_pause();
-      if ( !KeGetCurrentPrcb()->Number && (++PopDebugCount & 0x3F) == 0 )
-      {
-        KdCheckForDebugBreak();
-        KeQueryPerformanceCounter(0LL);
-      }
+      PopHiberCheckForDebugBreak();
       v15 = *(_DWORD *)(a1 + 48);
-      if ( !*(_QWORD *)(a1 + 16) && v9 >= *(_DWORD *)(a1 + 32) - v15 )
-        v9 = *(_DWORD *)(a1 + 32) - v15;
+      if ( !*(_QWORD *)(a1 + 16) && v12 >= *(_DWORD *)(a1 + 32) - v15 )
+        v12 = *(_DWORD *)(a1 + 32) - v15;
     }
-    while ( v9 > *(_DWORD *)(a1 + 40) - v15 && *(_QWORD *)(a1 + 48) == v8 );
+    while ( *(_QWORD *)(a1 + 48) == v9 && v12 > *(_DWORD *)(a1 + 40) - v15 );
     while ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 24), 1, 0) )
     {
       do
@@ -76,17 +73,17 @@ unsigned __int64 __fastcall ConsumerPeekAndConsumeBuffer(__int64 a1, unsigned in
       while ( *(_DWORD *)(a1 + 24) );
     }
   }
-  *a2 = v12;
-  if ( v12 )
-  {
-    v13 = v12;
-    result = v11;
-    *(_QWORD *)(a1 + 48) += v13;
-    goto LABEL_8;
-  }
-LABEL_10:
-  result = 0LL;
+  *a2 = v14;
 LABEL_8:
+  if ( !v10 )
+  {
+LABEL_9:
+    v5 = 0LL;
+    goto LABEL_10;
+  }
+  *(_QWORD *)(a1 + 48) += v10;
+LABEL_10:
+  result = v5;
   *(_DWORD *)(a1 + 24) = 0;
   return result;
 }

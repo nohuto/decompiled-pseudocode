@@ -3,9 +3,9 @@
  * Callers:
  *     HvpFindFreeCell @ 0x1405F9A70 (HvpFindFreeCell.c)
  *     HvpRemoveFreeCellHint @ 0x1405FBB90 (HvpRemoveFreeCellHint.c)
- *     MiFindDriverNonPagedSections @ 0x1406556BC (MiFindDriverNonPagedSections.c)
- *     SmcStorePlacementGet @ 0x1408AF500 (SmcStorePlacementGet.c)
- *     EtwQueryPerformanceTraceInformation @ 0x1408B9380 (EtwQueryPerformanceTraceInformation.c)
+ *     MiFindDriverNonPagedSections @ 0x14065569C (MiFindDriverNonPagedSections.c)
+ *     SmcStorePlacementGet @ 0x1408AF4E0 (SmcStorePlacementGet.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x1408B9360 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */

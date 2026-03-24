@@ -1,16 +1,16 @@
 /*
- * XREFs of WheaConfigureErrorSource @ 0x140A55520
+ * XREFs of WheaConfigureErrorSource @ 0x1409A0440
  * Callers:
- *     WheaAddErrorSourceDeviceDriver @ 0x14084E340 (WheaAddErrorSourceDeviceDriver.c)
- *     HalpWheaInitDiscard @ 0x140AF9508 (HalpWheaInitDiscard.c)
+ *     WheaAddErrorSourceDeviceDriver @ 0x1407AF0F0 (WheaAddErrorSourceDeviceDriver.c)
+ *     HalpWheaInitDiscard @ 0x140A63B9C (HalpWheaInitDiscard.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     WheapInitializeDeferredErrorSources @ 0x140643344 (WheapInitializeDeferredErrorSources.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     WheapInitializeDeferredErrorSources @ 0x1405BAE38 (WheapInitializeDeferredErrorSources.c)
  */
 
 __int64 __fastcall WheaConfigureErrorSource(signed int a1, __int64 a2)
@@ -34,20 +34,20 @@ __int64 __fastcall WheaConfigureErrorSource(signed int a1, __int64 a2)
     return (unsigned int)-1073741811;
   v4 = (volatile signed __int32 *)((char *)&WheapSourceConfiguration + 64 * (__int64)a1);
   v5 = -1073741823;
-  v6 = KeAbPreAcquire((__int64)&WheapConfigTableLock, 0LL);
+  v6 = KeAbPreAcquire((ULONG_PTR)&WheapConfigTableLock, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WheapConfigTableLock, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&WheapConfigTableLock, 0, v6, (__int64)&WheapConfigTableLock);
+    ExfAcquirePushLockSharedEx(&WheapConfigTableLock, v6, (ULONG_PTR)&WheapConfigTableLock);
   if ( v6 )
-    *(_BYTE *)(v6 + 18) = 1;
-  v7 = KeAbPreAcquire((__int64)&WheapSourceConfiguration + 64 * v2, 0LL);
+    *(_BYTE *)(v6 + 26) |= 1u;
+  v7 = KeAbPreAcquire((ULONG_PTR)&WheapSourceConfiguration + 64 * v2, 0LL, 0);
   v8 = v7;
   if ( _interlockedbittestandset64(v4, 0LL) )
     ExfAcquirePushLockExclusiveEx(
       (unsigned __int64 *)&WheapSourceConfiguration + 8 * v2,
       v7,
-      (__int64)&WheapSourceConfiguration + 64 * v2);
+      (ULONG_PTR)&WheapSourceConfiguration + 64 * v2);
   if ( v8 )
-    *(_BYTE *)(v8 + 18) = 1;
+    *(_BYTE *)(v8 + 26) |= 1u;
   if ( !*((_BYTE *)v4 + 8) )
   {
     *((_DWORD *)v4 + 3) = *(_DWORD *)a2;

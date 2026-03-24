@@ -1,47 +1,62 @@
 /*
- * XREFs of MiInitializePartitionThreads @ 0x14096C3A8
+ * XREFs of MiInitializePartitionThreads @ 0x1408C7C54
  * Callers:
- *     MmCreatePartition @ 0x1403D981C (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x1403CA974 (MmCreatePartition.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PsCreateSystemThreadEx @ 0x1406F0360 (PsCreateSystemThreadEx.c)
+ *     MiCreateZeroThreadContext @ 0x1403B0C88 (MiCreateZeroThreadContext.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiDeleteZeroThreadContext @ 0x14054FC14 (MiDeleteZeroThreadContext.c)
+ *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall MiInitializePartitionThreads(__int64 a1)
 {
-  unsigned int *v1; // rdi
-  __int64 *v2; // rsi
-  unsigned int v4; // ebx
-  ULONG_PTR v5; // r14
-  __int64 result; // rax
-  __int64 v7; // rcx
-  __int64 v8; // [rsp+50h] [rbp-58h] BYREF
-  _DWORD v9[4]; // [rsp+58h] [rbp-50h] BYREF
-  _QWORD v10[3]; // [rsp+68h] [rbp-40h] BYREF
+  __int64 *v1; // r15
+  unsigned int *v2; // rsi
+  unsigned int v4; // ebp
+  ULONG_PTR v5; // r12
+  __int64 v6; // rdi
+  PVOID ZeroThreadContext; // rax
+  int SystemThread; // r14d
+  int v10[2]; // [rsp+50h] [rbp-68h] BYREF
+  _DWORD v11[4]; // [rsp+58h] [rbp-60h] BYREF
+  _QWORD v12[3]; // [rsp+68h] [rbp-50h] BYREF
 
-  v8 = 0LL;
-  v9[0] = 0;
-  v1 = v9;
-  v10[0] = MiZeroPageThread;
-  v2 = v10;
-  v9[1] = 1;
-  v10[1] = MiRebuildLargePagesThread;
-  v9[2] = 2;
-  v10[2] = MiPartitionWorkingSetManager;
+  *(_QWORD *)v10 = 0LL;
+  v11[0] = 0;
+  v1 = v12;
+  v12[0] = MiZeroPageThread;
+  v2 = v11;
+  v11[1] = 1;
+  v12[1] = MiRebuildLargePagesThread;
+  v11[2] = 2;
+  v12[2] = MiPartitionWorkingSetManager;
   v4 = 0;
   v5 = *(_QWORD *)(*(_QWORD *)(a1 + 176) + 112LL);
   while ( 1 )
   {
-    result = PsCreateSystemThreadEx((int)&v8, 0x1FFFFF, 0LL, v5, 0LL, *v2, a1, 0LL, 0LL);
-    if ( (int)result < 0 )
+    v6 = *v2;
+    if ( !(_DWORD)v6 )
+    {
+      ZeroThreadContext = MiCreateZeroThreadContext(0LL, 0);
+      *(_QWORD *)(a1 + 6440) = ZeroThreadContext;
+      if ( !ZeroThreadContext )
+        return 3221225626LL;
+    }
+    SystemThread = PsCreateSystemThreadEx((__int64)v10, 0x1FFFFF, 0LL, v5, 0LL, *v1, a1, 0LL, 0LL);
+    if ( SystemThread < 0 )
       break;
-    v7 = *v1;
     ++v4;
     ++v2;
+    *(_QWORD *)(a1 + 8 * v6 + 128) = *(_QWORD *)v10;
     ++v1;
-    *(_QWORD *)(a1 + 8 * v7 + 128) = v8;
     if ( v4 >= 3 )
       return 0LL;
   }
-  return result;
+  if ( !(_DWORD)v6 )
+  {
+    MiDeleteZeroThreadContext(*(_QWORD **)(a1 + 6440));
+    *(_QWORD *)(a1 + 6440) = 0LL;
+  }
+  return (unsigned int)SystemThread;
 }

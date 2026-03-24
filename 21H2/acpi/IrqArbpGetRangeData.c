@@ -1,7 +1,7 @@
 /*
- * XREFs of IrqArbpGetRangeData @ 0x1C009FDC8
+ * XREFs of IrqArbpGetRangeData @ 0x1C00A0E68
  * Callers:
- *     IrqArbPackResource @ 0x1C009FD20 (IrqArbPackResource.c)
+ *     IrqArbPackResource @ 0x1C00A0DC0 (IrqArbPackResource.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall IrqArbpGetRangeData(__int64 a1, PVOID *a2)
 
   Range = 0LL;
   memset(&Iterator, 0, sizeof(Iterator));
-  RtlGetFirstRange(qword_1C0080810, &Iterator, &Range);
+  RtlGetFirstRange(qword_1C0081650, &Iterator, &Range);
   while ( 1 )
   {
     if ( !Range )

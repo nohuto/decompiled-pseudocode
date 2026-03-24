@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSubsectionNeedsExtents @ 0x1402B4590
+ * XREFs of MiSubsectionNeedsExtents @ 0x1402B4690
  * Callers:
  *     MiExtendSection @ 0x14061C4C8 (MiExtendSection.c)
  *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSubsectionNeedsExtents(_DWORD *a1)

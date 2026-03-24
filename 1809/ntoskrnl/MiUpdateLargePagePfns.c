@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdateLargePagePfns @ 0x1402C5BF8
+ * XREFs of MiUpdateLargePagePfns @ 0x1402C5CF8
  * Callers:
- *     MiFindLargePageMemory @ 0x14085D1A0 (MiFindLargePageMemory.c)
+ *     MiFindLargePageMemory @ 0x14085D180 (MiFindLargePageMemory.c)
  * Callees:
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdateLargePagePfns(__int64 a1, __int64 a2)

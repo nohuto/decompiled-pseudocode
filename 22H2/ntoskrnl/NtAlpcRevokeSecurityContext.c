@@ -1,23 +1,23 @@
 /*
- * XREFs of NtAlpcRevokeSecurityContext @ 0x140978DA0
+ * XREFs of NtAlpcRevokeSecurityContext @ 0x1408C27C0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcReferenceBlobByHandle @ 0x14071DC68 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     AlpcReferenceBlobByHandle @ 0x1406D9700 (AlpcReferenceBlobByHandle.c)
  */
 
 __int64 __fastcall NtAlpcRevokeSecurityContext(void *a1, int a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   NTSTATUS v5; // edi
-  PVOID v6; // rbp
+  struct _DMA_ADAPTER *v6; // rbp
   ULONG_PTR v7; // rax
   ULONG_PTR v8; // rsi
   volatile signed __int64 *v9; // rbp
@@ -36,12 +36,12 @@ __int64 __fastcall NtAlpcRevokeSecurityContext(void *a1, int a2, int a3)
     v5 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
     if ( v5 >= 0 )
     {
-      v6 = Object;
+      v6 = (struct _DMA_ADAPTER *)Object;
       v7 = AlpcReferenceBlobByHandle((_QWORD *)(*((_QWORD *)Object + 2) + 40LL), a3, AlpcSecurityType);
       v8 = v7;
       if ( v7 )
       {
-        if ( v6 == *(PVOID *)(v7 + 24) )
+        if ( v6 == *(struct _DMA_ADAPTER **)(v7 + 24) )
         {
           v9 = (volatile signed __int64 *)(v7 - 16);
           ExAcquirePushLockExclusiveEx(v7 - 16, 0LL);
@@ -58,7 +58,7 @@ __int64 __fastcall NtAlpcRevokeSecurityContext(void *a1, int a2, int a3)
           if ( (_InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
             ExfTryToWakePushLock(v9);
           KeAbPostRelease((ULONG_PTR)v9);
-          v6 = Object;
+          v6 = (struct _DMA_ADAPTER *)Object;
         }
         else
         {
@@ -70,7 +70,7 @@ __int64 __fastcall NtAlpcRevokeSecurityContext(void *a1, int a2, int a3)
       {
         v5 = -1073741816;
       }
-      ObfDereferenceObject(v6);
+      HalPutDmaAdapter(v6);
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());

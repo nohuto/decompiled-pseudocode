@@ -1,14 +1,14 @@
 /*
- * XREFs of KiStopProfileTarget @ 0x140571D50
+ * XREFs of KiStopProfileTarget @ 0x14051C360
  * Callers:
- *     KeStopProfile @ 0x1405716A4 (KeStopProfile.c)
+ *     KeStopProfile @ 0x14051BCE0 (KeStopProfile.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140292F90 (KeIsEmptyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     KiSubtractAffinityEx @ 0x1402FEDA0 (KiSubtractAffinityEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     KeSubtractAffinityEx @ 0x14022B670 (KeSubtractAffinityEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 ULONG_PTR __fastcall KiStopProfileTarget(__int64 *Argument)
@@ -21,30 +21,27 @@ ULONG_PTR __fastcall KiStopProfileTarget(__int64 *Argument)
   __int64 v7; // rcx
   _QWORD *v8; // rdx
   _QWORD *v9; // rax
-  _QWORD *v10; // rdi
+  _QWORD *v10; // rsi
   int v11; // edx
   bool v12; // zf
-  unsigned __int16 v13; // r9
-  __int64 v14; // rcx
-  _QWORD *v15; // rax
+  __int64 v13; // rcx
+  _QWORD *v14; // rax
   struct _KPRCB *CurrentPrcb; // rdx
-  unsigned __int8 v17; // al
-  struct _KPRCB *v18; // r9
-  _DWORD *v19; // r8
-  int v20; // eax
+  unsigned __int8 v16; // al
+  struct _KPRCB *v17; // r9
+  _DWORD *v18; // r8
+  int v19; // eax
   ULONG_PTR result; // rax
-  signed __int32 v22[8]; // [rsp+0h] [rbp-68h] BYREF
-  unsigned __int16 *v23[2]; // [rsp+20h] [rbp-48h] BYREF
-  __int16 v24; // [rsp+30h] [rbp-38h]
-  int v25; // [rsp+32h] [rbp-36h]
-  __int16 v26; // [rsp+36h] [rbp-32h]
-  unsigned int v27; // [rsp+70h] [rbp+8h] BYREF
+  signed __int32 v21[8]; // [rsp+0h] [rbp-58h] BYREF
+  __int128 v22; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v23; // [rsp+30h] [rbp-28h]
+  unsigned int v24; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = *Argument;
-  v25 = 0;
+  v24 = 0;
+  v22 = 0LL;
+  v23 = 0LL;
   v3 = KiProfileIrql;
-  v26 = 0;
-  v27 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8((unsigned __int8)KiProfileIrql);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v3 - 2) <= 0xDu )
@@ -52,16 +49,16 @@ ULONG_PTR __fastcall KiStopProfileTarget(__int64 *Argument)
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     SchedulerAssist[5] |= (-1LL << (CurrentIrql + 1)) & ((1LL << (v3 + 1)) - 1) & 0xFFFFFFFC;
   }
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)Argument + 2, 0xFFFFFFFF) == 1 && *(_BYTE *)(v1 + 346) )
+  if ( !_InterlockedDecrement((volatile signed __int32 *)Argument + 2) && *(_BYTE *)(v1 + 242) )
   {
+    *(_BYTE *)(v1 + 242) = 0;
     v6 = v1 + 8;
-    *(_BYTE *)(v1 + 346) = 0;
     v7 = *(_QWORD *)(v1 + 8);
     if ( v7 != v1 + 8 )
     {
       v8 = *(_QWORD **)(v1 + 16);
       if ( *(_QWORD *)(v7 + 8) != v6 || *v8 != v6 )
-        goto LABEL_28;
+        goto LABEL_26;
       *v8 = v7;
       *(_QWORD *)(v7 + 8) = v8;
     }
@@ -71,59 +68,55 @@ ULONG_PTR __fastcall KiStopProfileTarget(__int64 *Argument)
       v10 = v9;
       v9 = (_QWORD *)*v9;
     }
-    while ( *((_DWORD *)v10 + 4) != *(__int16 *)(v1 + 344) );
-    v24 = 0;
-    v23[1] = *(unsigned __int16 **)(v1 + 80);
-    v23[0] = (unsigned __int16 *)(v1 + 72);
-    while ( !(unsigned int)KeEnumerateNextProcessor(&v27, v23) )
+    while ( *((_DWORD *)v10 + 4) != *(__int16 *)(v1 + 240) );
+    *((_QWORD *)&v22 + 1) = *(_QWORD *)(v1 + 80);
+    *(_QWORD *)&v22 = v1 + 72;
+    while ( !(unsigned int)KeEnumerateNextProcessor(&v24, (unsigned __int16 **)&v22) )
     {
-      v11 = v27;
-      v12 = (*((_DWORD *)v10 + v27 + 72))-- == 1;
+      v11 = v24;
+      v12 = (*((_DWORD *)v10 + v24 + 48))-- == 1;
       if ( v12 )
-        KeAddProcessorAffinityEx((unsigned __int16 *)Argument + 8, v11);
+        KeAddProcessorAffinityEx((_WORD *)Argument + 8, v11);
     }
-    _InterlockedOr(v22, 0);
-    v13 = 0;
-    if ( v10 != (_QWORD *)-24LL )
-      v13 = *((_WORD *)v10 + 13);
-    KiSubtractAffinityEx((_WORD *)v10 + 12, (char *)Argument + 16, (_BYTE *)v10 + 24, v13);
+    _InterlockedOr(v21, 0);
+    KeSubtractAffinityEx((unsigned __int16 *)v10 + 12, (unsigned __int16 *)Argument + 8, (_BYTE *)v10 + 24);
     if ( !(unsigned int)KeIsEmptyAffinityEx((_WORD *)v10 + 12) )
-      goto LABEL_24;
-    v14 = *v10;
-    v15 = (_QWORD *)v10[1];
-    if ( *(_QWORD **)(*v10 + 8LL) == v10 && (_QWORD *)*v15 == v10 )
+      goto LABEL_22;
+    v13 = *v10;
+    v14 = (_QWORD *)v10[1];
+    if ( *(_QWORD **)(*v10 + 8LL) == v10 && (_QWORD *)*v14 == v10 )
     {
-      *v15 = v14;
-      *(_QWORD *)(v14 + 8) = v15;
-      Argument[35] = (__int64)v10;
-LABEL_24:
-      *((_BYTE *)Argument + 288) = 1;
-      goto LABEL_25;
+      *v14 = v13;
+      *(_QWORD *)(v13 + 8) = v14;
+      Argument[23] = (__int64)v10;
+LABEL_22:
+      *((_BYTE *)Argument + 192) = 1;
+      goto LABEL_23;
     }
-LABEL_28:
+LABEL_26:
     __fastfail(3u);
   }
-LABEL_25:
+LABEL_23:
   _InterlockedAdd((volatile signed __int32 *)Argument + 3, 0xFFFFFFFF);
   while ( *((int *)Argument + 3) > 0 )
     _mm_pause();
   CurrentPrcb = KeGetCurrentPrcb();
   if ( (Argument[CurrentPrcb->Group + 3] & CurrentPrcb->GroupSetMember) != 0 )
-    ((void (__fastcall *)(_QWORD, _QWORD))HalpProfileInterface[2])((unsigned int)*(__int16 *)(v1 + 344), 0LL);
+    (*((void (__fastcall **)(_QWORD, _QWORD))HalpProfileInterface[0] + 2))((unsigned int)*(__int16 *)(v1 + 240), 0LL);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v17 = KeGetCurrentIrql();
-      if ( v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+      v16 = KeGetCurrentIrql();
+      if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
       {
-        v18 = KeGetCurrentPrcb();
-        v19 = v18->SchedulerAssist;
-        v20 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v12 = (v20 & v19[5]) == 0;
-        v19[5] &= v20;
+        v17 = KeGetCurrentPrcb();
+        v18 = v17->SchedulerAssist;
+        v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v12 = (v19 & v18[5]) == 0;
+        v18[5] &= v19;
         if ( v12 )
-          KiRemoveSystemWorkPriorityKick((__int64)v18);
+          KiRemoveSystemWorkPriorityKick((__int64)v17);
       }
     }
   }

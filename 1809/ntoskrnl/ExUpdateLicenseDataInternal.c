@@ -1,7 +1,7 @@
 /*
  * XREFs of ExUpdateLicenseDataInternal @ 0x1405A0AD0
  * Callers:
- *     ExUpdateLicenseData @ 0x1408CED40 (ExUpdateLicenseData.c)
+ *     ExUpdateLicenseData @ 0x1408CED20 (ExUpdateLicenseData.c)
  *     ExInitLicenseData @ 0x1409C43A0 (ExInitLicenseData.c)
  * Callees:
  *     ExpLicUpdateChecksum @ 0x1400077F0 (ExpLicUpdateChecksum.c)
@@ -12,14 +12,14 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     qsort @ 0x1401962C0 (qsort.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateSection @ 0x1401B8AB0 (ZwCreateSection.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     sub_1405A1530 @ 0x1405A1530 (sub_1405A1530.c)
@@ -31,7 +31,7 @@
  *     ExpPutLicenseDataIntoRegistry @ 0x1405A2404 (ExpPutLicenseDataIntoRegistry.c)
  *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     sub_1408CF074 @ 0x1408CF074 (sub_1408CF074.c)
+ *     sub_1408CF054 @ 0x1408CF054 (sub_1408CF054.c)
  */
 
 __int64 __fastcall ExUpdateLicenseDataInternal(int a1, unsigned int *a2)
@@ -735,7 +735,7 @@ LABEL_157:
     v74 = 263;
 LABEL_102:
   if ( v130 && !byte_14096E4C1 )
-    sub_1408CF074(&KernelLicensingCacheCorruptionFixed);
+    sub_1408CF054(&KernelLicensingCacheCorruptionFixed);
   if ( v77 )
   {
     v47 = KeGetCurrentThread();

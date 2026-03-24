@@ -1,20 +1,20 @@
 /*
- * XREFs of PiIrpQueryRemoveDevice @ 0x14083B230
+ * XREFs of PiIrpQueryRemoveDevice @ 0x14083B210
  * Callers:
- *     PnpDisableDevice @ 0x140827CB8 (PnpDisableDevice.c)
- *     PnpQueryRemoveLockedDeviceNode @ 0x1408283FC (PnpQueryRemoveLockedDeviceNode.c)
+ *     PnpDisableDevice @ 0x140827C98 (PnpDisableDevice.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x1408283DC (PnpQueryRemoveLockedDeviceNode.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     PnpFindMountableDevice @ 0x14015A8F4 (PnpFindMountableDevice.c)
- *     PnpMarkDeviceForRemove @ 0x14016980C (PnpMarkDeviceForRemove.c)
- *     PnpLockMountableDevice @ 0x1401699C8 (PnpLockMountableDevice.c)
- *     PnpUnlockMountableDevice @ 0x140169AC8 (PnpUnlockMountableDevice.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x14016A170 (IopDecrementDeviceObjectHandleCount.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PnpAsynchronousCall @ 0x1406FCC24 (PnpAsynchronousCall.c)
- *     IopInvalidateVolumesForDevice @ 0x140704F6C (IopInvalidateVolumesForDevice.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     PnpFindMountableDevice @ 0x14015A914 (PnpFindMountableDevice.c)
+ *     PnpMarkDeviceForRemove @ 0x14016982C (PnpMarkDeviceForRemove.c)
+ *     PnpLockMountableDevice @ 0x1401699E8 (PnpLockMountableDevice.c)
+ *     PnpUnlockMountableDevice @ 0x140169AE8 (PnpUnlockMountableDevice.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x14016A190 (IopDecrementDeviceObjectHandleCount.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PnpAsynchronousCall @ 0x1406FCC04 (PnpAsynchronousCall.c)
+ *     IopInvalidateVolumesForDevice @ 0x140704F4C (IopInvalidateVolumesForDevice.c)
  */
 
 __int64 __fastcall PiIrpQueryRemoveDevice(PDEVICE_OBJECT DeviceObject, _QWORD *a2)

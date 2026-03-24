@@ -1,117 +1,85 @@
 /*
- * XREFs of ?Allocate@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C008DDF8
+ * XREFs of ?Allocate@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C01492BC
  * Callers:
- *     ??$_lambda_invoker_cdecl_@W4_POOL_TYPE@@_KKPEAU_LOOKASIDE_LIST_EX@@@_lambda_f819cb6c8dd8c05e62b85cfa98ab46a8_@@CAPEAXW4_POOL_TYPE@@_KKPEAU_LOOKASIDE_LIST_EX@@@Z @ 0x1C00ABCB0 (--$_lambda_invoker_cdecl_@W4_POOL_TYPE@@_KKPEAU_LOOKASIDE_LIST_EX@@@_lambda_f819cb6c8dd8c05e62b8.c)
+ *     ??$_lambda_invoker_cdecl_@W4_POOL_TYPE@@_KKPEAU_LOOKASIDE_LIST_EX@@@_lambda_f819cb6c8dd8c05e62b85cfa98ab46a8_@@CAPEAXW4_POOL_TYPE@@_KKPEAU_LOOKASIDE_LIST_EX@@@Z @ 0x1C009F860 (--$_lambda_invoker_cdecl_@W4_POOL_TYPE@@_KKPEAU_LOOKASIDE_LIST_EX@@@_lambda_f819cb6c8dd8c05e62b8.c)
  * Callees:
- *     ?Allocate@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C008DCC4 (-Allocate@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ.c)
- *     ?Create@?$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C008E14C (-Create@-$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ.c)
- *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C0091344 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ??1?$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrumentation@@QEAA@XZ @ 0x1C012C570 (--1-$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrument.c)
+ *     GreLeaveCriticalRegionAndReleasePushLockExclusive @ 0x1C00309D0 (GreLeaveCriticalRegionAndReleasePushLockExclusive.c)
+ *     GreEnterCriticalRegionAndAcquirePushLockExclusive @ 0x1C0031430 (GreEnterCriticalRegionAndAcquirePushLockExclusive.c)
+ *     ?AcquireShared@CPlatformReaderWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C007B700 (-AcquireShared@CPlatformReaderWriterLock@NSInstrumentation@@QEAAXXZ.c)
+ *     GreLeaveCriticalRegionAndReleasePushLockShared @ 0x1C007CAF0 (GreLeaveCriticalRegionAndReleasePushLockShared.c)
+ *     ?Allocate@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C00828F0 (-Allocate@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ.c)
+ *     ?Create@?$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00A1D34 (-Create@-$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ.c)
+ *     ?Destroy@?$CSectionEntry@$0MAAA@$0MA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00AFD54 (-Destroy@-$CSectionEntry@$0MAAA@$0MA@@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-PVOID __fastcall NSInstrumentation::CTypeIsolation<36864,144>::Allocate(__int64 a1)
+PSLIST_ENTRY __fastcall NSInstrumentation::CTypeIsolation<36864,144>::Allocate(__int64 **a1)
 {
-  __int64 v2; // rbx
-  __int64 v3; // r12
-  _QWORD *i; // r15
-  __int64 *v5; // rsi
-  __int64 v6; // rdi
-  ULONG ClearBits; // r13d
-  unsigned int v8; // eax
-  unsigned int v9; // ebp
-  __int64 v10; // rsi
-  __int64 v12; // rax
-  _QWORD *v13; // rdi
-  __int64 v14; // rbx
-  _QWORD *v15; // rcx
-  _QWORD *v16; // [rsp+70h] [rbp+8h]
-  unsigned int v17; // [rsp+78h] [rbp+10h]
-  void *v18; // [rsp+80h] [rbp+18h]
-  __int64 v19; // [rsp+88h] [rbp+20h] BYREF
+  NSInstrumentation::CPlatformReaderWriterLock *v2; // rbx
+  __int64 v3; // rbp
+  __int64 **i; // rsi
+  __int64 v5; // r14
+  void *v6; // rax
+  __int64 *v7; // rsi
+  __int64 v8; // rbx
+  __int64 ***v9; // rcx
+  PSLIST_ENTRY result; // rax
+  __int64 *v11; // rbx
 
-  if ( *(_BYTE *)(a1 + 36) )
-    return ExAllocateFromPagedLookasideList(*(PPAGED_LOOKASIDE_LIST *)(a1 + 24));
-  v2 = *(_QWORD *)(a1 + 16);
-  v3 = 0LL;
-  KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(v2, 0LL);
-  for ( i = *(_QWORD **)a1; i != (_QWORD *)a1; i = (_QWORD *)*i )
+  if ( *((_BYTE *)a1 + 36) )
   {
-    v5 = (__int64 *)i[4];
-    v19 = *v5;
-    v6 = v19;
-    KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(v6, 0LL);
-    ClearBits = RtlFindClearBits(
-                  (PRTL_BITMAP)(v5[3] ^ v5[2]),
-                  1u,
-                  *((_DWORD *)v5 + 8) < 0xFCu ? *((_DWORD *)v5 + 8) : 0);
-    if ( ClearBits == -1 )
-      goto LABEL_5;
-    v8 = *((_DWORD *)v5 + 9);
-    v9 = ClearBits / 0x1C;
-    if ( ClearBits / 0x1C < v8 || v8 >= 9 )
+    v11 = a1[3];
+    ++*((_DWORD *)v11 + 5);
+    result = ExpInterlockedPopEntrySList((PSLIST_HEADER)v11);
+    if ( !result )
     {
-      v17 = v9 << 12;
-      v16 = v5 + 1;
+      ++*((_DWORD *)v11 + 6);
+      return (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))v11[6])(
+                             *((unsigned int *)v11 + 9),
+                             *((unsigned int *)v11 + 11),
+                             *((unsigned int *)v11 + 10));
     }
-    else
+  }
+  else
+  {
+    v2 = (NSInstrumentation::CPlatformReaderWriterLock *)a1[2];
+    v3 = 0LL;
+    NSInstrumentation::CPlatformReaderWriterLock::AcquireShared(v2);
+    for ( i = (__int64 **)*a1; i != a1; i = (__int64 **)*i )
     {
-      v16 = v5 + 1;
-      v17 = v9 << 12;
-      v18 = (void *)((v9 << 12) + (v5[1] ^ v5[2]));
-      if ( (int)MmCommitSessionMappedView(v18, 4096LL) < 0 )
+      v5 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::Allocate(i[4]);
+      if ( v5 )
       {
-LABEL_5:
-        NSInstrumentation::CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPlatformReaderWriterLock>::~CAutoExclusiveCReaderWriterLock<NSInstrumentation::CPlatformReaderWriterLock>(&v19);
-        continue;
+        GreLeaveCriticalRegionAndReleasePushLockShared((__int64)v2);
+        return (PSLIST_ENTRY)v5;
       }
-      memset(v18, 0, 0x1000uLL);
-      ++*((_DWORD *)v5 + 9);
     }
-    RtlTestBit((PRTL_BITMAP)(v5[3] ^ v5[2]), ClearBits);
-    RtlSetBit((PRTL_BITMAP)(v5[3] ^ v5[2]), ClearBits);
-    if ( ++*((_DWORD *)v5 + 8) >= 0xFCu )
-      *((_DWORD *)v5 + 8) = 0;
-    v10 = v17 + (*v16 ^ v5[2]);
-    ExReleasePushLockExclusiveEx(v6, 0LL);
-    KeLeaveCriticalRegion();
-    if ( v10 + 144 * (ClearBits % 0x1C) )
+    GreLeaveCriticalRegionAndReleasePushLockShared((__int64)v2);
+    v6 = NSInstrumentation::CSectionEntry<36864,144>::Create();
+    v7 = (__int64 *)v6;
+    if ( v6 )
     {
-      ExReleasePushLockSharedEx(v2, 0LL);
-      KeLeaveCriticalRegion();
-      return (PVOID)(v10 + 144 * (ClearBits % 0x1C));
+      v3 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::Allocate(*((__int64 **)v6 + 4));
+      if ( v3 )
+      {
+        v8 = (__int64)a1[2];
+        GreEnterCriticalRegionAndAcquirePushLockExclusive(v8);
+        v9 = (__int64 ***)a1[1];
+        if ( *v9 != a1 )
+          __fastfail(3u);
+        v7[1] = (__int64)v9;
+        *v7 = (__int64)a1;
+        *v9 = (__int64 **)v7;
+        *((_DWORD *)a1 + 8) += 252;
+        a1[1] = v7;
+        GreLeaveCriticalRegionAndReleasePushLockExclusive(v8);
+      }
+      else
+      {
+        NSInstrumentation::CSectionEntry<49152,192>::Destroy(v7);
+      }
     }
+    return (PSLIST_ENTRY)v3;
   }
-  ExReleasePushLockSharedEx(v2, 0LL);
-  KeLeaveCriticalRegion();
-  v12 = NSInstrumentation::CSectionEntry<36864,144>::Create();
-  v13 = (_QWORD *)v12;
-  if ( v12 )
-  {
-    v3 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::Allocate(*(__int64 **)(v12 + 32));
-    if ( v3 )
-    {
-      v14 = *(_QWORD *)(a1 + 16);
-      KeEnterCriticalRegion();
-      ExAcquirePushLockExclusiveEx(v14, 0LL);
-      v15 = *(_QWORD **)(a1 + 8);
-      if ( *v15 != a1 )
-        __fastfail(3u);
-      v13[1] = v15;
-      *v13 = a1;
-      *v15 = v13;
-      *(_DWORD *)(a1 + 32) += 252;
-      *(_QWORD *)(a1 + 8) = v13;
-      ExReleasePushLockExclusiveEx(v14, 0LL);
-      KeLeaveCriticalRegion();
-    }
-    else
-    {
-      NSInstrumentation::CSectionEntry<24576,96>::~CSectionEntry<24576,96>(v13);
-      ExFreePoolWithTag(v13, 0);
-    }
-  }
-  return (PVOID)v3;
+  return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMUX_AckStopAfterSuspend @ 0x1C00118B8
+ * XREFs of HUBMUX_AckStopAfterSuspend @ 0x1C0010490
  * Callers:
- *     HUBDSM_AckingStopAfterSuspendOnDetach @ 0x1C001EE90 (HUBDSM_AckingStopAfterSuspendOnDetach.c)
+ *     HUBDSM_AckingStopAfterSuspendOnDetach @ 0x1C001C480 (HUBDSM_AckingStopAfterSuspendOnDetach.c)
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 void __fastcall HUBMUX_AckStopAfterSuspend(volatile signed __int32 *a1)

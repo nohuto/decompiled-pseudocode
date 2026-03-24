@@ -1,14 +1,14 @@
 /*
- * XREFs of KeCleanupImageTracepoints @ 0x1406EB948
+ * XREFs of KeCleanupImageTracepoints @ 0x14077369C
  * Callers:
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KeCleanupImageTracepoints(__int64 a1)
@@ -23,8 +23,8 @@ void __fastcall KeCleanupImageTracepoints(__int64 a1)
   void *v9; // rax
   signed __int32 v10[14]; // [rsp+0h] [rbp-38h] BYREF
 
-  if ( qword_140D070E0 )
-    qword_140D070E0();
+  if ( qword_140CFCBD0 )
+    qword_140CFCBD0();
   if ( KiTpHashTable )
   {
     v2 = *(_QWORD *)(a1 + 48);
@@ -48,7 +48,10 @@ void __fastcall KeCleanupImageTracepoints(__int64 a1)
         else
         {
           if ( *((_BYTE *)v7 + 48) )
-            --KiTpEnabledCount;
+          {
+            if ( !--KiTpEnabledCount )
+              _InterlockedAnd(&KiDynamicTraceMask, 0xFFFFFFFD);
+          }
           *v8 = *v7;
           _InterlockedOr(v10, 0);
           --KiTpRegisteredCount;

@@ -1,20 +1,20 @@
 /*
- * XREFs of IopUpdateMinidumpContext @ 0x140281B68
+ * XREFs of IopUpdateMinidumpContext @ 0x140281C68
  * Callers:
- *     IoWriteCrashDump @ 0x1402804AC (IoWriteCrashDump.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028217C (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IoWriteCrashDump @ 0x1402805AC (IoWriteCrashDump.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028227C (IopWriteCapsuleTriageDumpToFirmware.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     MmIsSpecialPoolAddress @ 0x140167090 (MmIsSpecialPoolAddress.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
- *     KiIsAddressRangeValid @ 0x140191DD4 (KiIsAddressRangeValid.c)
- *     IopGetMaxValidMemorySize @ 0x140281538 (IopGetMaxValidMemorySize.c)
- *     IopAddBugcheckPnpTriageData @ 0x140286B98 (IopAddBugcheckPnpTriageData.c)
- *     IopAddBugcheckPnpWatchdogTriageData @ 0x140286C00 (IopAddBugcheckPnpWatchdogTriageData.c)
- *     IopAddBugcheckPowerTriageData @ 0x140286CA8 (IopAddBugcheckPowerTriageData.c)
- *     IopAddBugcheckTriageDeviceNode @ 0x140287008 (IopAddBugcheckTriageDeviceNode.c)
- *     IopAddBugcheckTriageThread @ 0x140287254 (IopAddBugcheckTriageThread.c)
- *     PopInternalAddToDumpFile @ 0x1402D3224 (PopInternalAddToDumpFile.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     MmIsSpecialPoolAddress @ 0x1401670B0 (MmIsSpecialPoolAddress.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x140191DF4 (KiIsAddressRangeValid.c)
+ *     IopGetMaxValidMemorySize @ 0x140281638 (IopGetMaxValidMemorySize.c)
+ *     IopAddBugcheckPnpTriageData @ 0x140286C98 (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x140286D00 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckPowerTriageData @ 0x140286DA8 (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x140287108 (IopAddBugcheckTriageDeviceNode.c)
+ *     IopAddBugcheckTriageThread @ 0x140287354 (IopAddBugcheckTriageThread.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
  */
 
 __int64 __fastcall IopUpdateMinidumpContext(

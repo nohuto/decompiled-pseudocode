@@ -1,22 +1,20 @@
 /*
- * XREFs of ?VmBusSendSubmitCommandToHwQueue@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEBU_D3DKMT_SUBMITCOMMANDTOHWQUEUE@@@Z @ 0x1C038F394
+ * XREFs of ?VmBusSendSubmitCommandToHwQueue@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEBU_D3DKMT_SUBMITCOMMANDTOHWQUEUE@@@Z @ 0x1C024D3EC
  * Callers:
- *     DxgkSubmitCommandToHwQueueInternal @ 0x1C02311B8 (DxgkSubmitCommandToHwQueueInternal.c)
+ *     DxgkSubmitCommandToHwQueueInternal @ 0x1C0272228 (DxgkSubmitCommandToHwQueueInternal.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0007894 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGPROCESSDDILOCK@@QEAA@XZ @ 0x1C0023F50 (--1DXGPROCESSDDILOCK@@QEAA@XZ.c)
- *     ?GetAllocationUnsafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C0024FC4 (-GetAllocationUnsafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z @ 0x1C01A1DDC (-MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C01CB650 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
- *     ?GetHostProcess@DXGPROCESS@@QEAAIXZ @ 0x1C0344C50 (-GetHostProcess@DXGPROCESS@@QEAAIXZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncOrAsyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@@Z @ 0x1C0390024 (-VmBusSendSyncOrAsyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1C0005218 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ?GetAllocationUnsafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C0005790 (-GetAllocationUnsafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0008F14 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C0107C00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ?MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z @ 0x1C01550DC (-MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z.c)
+ *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C024DD40 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_M.c)
+ *     ?GetHostProcess@DXGPROCESS@@QEAAIXZ @ 0x1C02857F4 (-GetHostProcess@DXGPROCESS@@QEAAIXZ.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSubmitCommandToHwQueue(
@@ -25,115 +23,123 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSubmitCommandToHwQueue(
         const struct _D3DKMT_SUBMITCOMMANDTOHWQUEUE *a3)
 {
   DXG_GUEST_VIRTUALGPU_VMBUS *v5; // r12
-  __int64 v7; // rsi
-  unsigned int v8; // ecx
-  unsigned int v9; // r8d
-  __int64 v10; // r14
-  __int64 v11; // r13
-  size_t v12; // r8
-  void *v13; // rsi
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v9; // r14
+  __int64 v10; // rcx
+  unsigned int v11; // r15d
+  __int64 v12; // rax
+  struct _EX_RUNDOWN_REF *v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  struct _EX_RUNDOWN_REF *v18; // rsi
+  __int64 v19; // rax
+  size_t v20; // r8
+  char *v21; // r14
   const D3DKMT_HANDLE *WrittenPrimaries; // rdx
   __int64 PrivateDriverDataSize; // rax
   char *pPrivateDriverData; // rdx
-  unsigned int v17; // esi
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  unsigned int v27; // r14d
   struct _EX_RUNDOWN_REF **AllocationUnsafe; // rax
-  unsigned int v19; // eax
-  __int64 v20; // r9
-  int v21; // ecx
-  __int64 v22; // rax
-  unsigned int v23; // edi
-  int v24; // eax
-  char v25[8]; // [rsp+50h] [rbp-1B8h] BYREF
-  __int64 v26; // [rsp+58h] [rbp-1B0h]
-  char v27; // [rsp+60h] [rbp-1A8h]
-  struct _EX_RUNDOWN_REF *v28; // [rsp+68h] [rbp-1A0h] BYREF
-  struct _EX_RUNDOWN_REF *v29; // [rsp+70h] [rbp-198h] BYREF
-  DXG_GUEST_VIRTUALGPU_VMBUS *v30; // [rsp+78h] [rbp-190h]
-  struct DXGPROCESS *v31; // [rsp+80h] [rbp-188h]
-  _BYTE v32[24]; // [rsp+88h] [rbp-180h] BYREF
-  __int128 v33; // [rsp+A0h] [rbp-168h] BYREF
-  int v34; // [rsp+B0h] [rbp-158h]
+  __int64 v29; // rdx
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // r8
+  __int64 Count_low; // rdx
+  __int64 v34; // rax
+  __int64 v35; // r9
+  __int64 v36; // rax
+  __int64 v37; // rax
+  __int64 v38; // rdi
+  __int64 v39; // rax
+  __int64 v40; // rdx
+  __int64 v41; // rax
+  struct _MDL *v42; // r9
+  int v43; // eax
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  __int64 v46; // r8
+  __int64 v47; // rax
+  __int64 v48; // rax
+  struct _EX_RUNDOWN_REF *v49; // [rsp+20h] [rbp-88h] BYREF
+  struct _EX_RUNDOWN_REF *v50[2]; // [rsp+28h] [rbp-80h] BYREF
+  char v51[8]; // [rsp+38h] [rbp-70h] BYREF
+  __int64 v52; // [rsp+40h] [rbp-68h]
+  char v53; // [rsp+48h] [rbp-60h]
+  _BYTE v54[88]; // [rsp+50h] [rbp-58h] BYREF
 
   v5 = this;
-  v30 = this;
-  v31 = a2;
-  v26 = *((_QWORD *)this + 9);
-  v27 = 0;
-  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v25);
-  if ( *(_DWORD *)(*((_QWORD *)v5 + 9) + 200LL) != 1 )
+  v52 = *((_QWORD *)this + 8);
+  v53 = 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v51);
+  if ( *(_DWORD *)(*((_QWORD *)v5 + 8) + 200LL) != 1 )
   {
-    if ( v27 )
-      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v25);
+    if ( v53 )
+      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v51);
     return 3221226166LL;
   }
   if ( g_VgpuDisableSubmitCommand )
   {
-    if ( v27 )
-      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v25);
+    if ( v53 )
+      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v51);
     return 0LL;
   }
-  v7 = 4 * a3->NumPrimaries;
-  v8 = v7 + 80;
-  if ( (unsigned int)v7 >= 0xFFFFFFB0 )
+  v9 = 4 * a3->NumPrimaries;
+  v10 = (unsigned int)(v9 + 80);
+  if ( (unsigned int)v9 >= 0xFFFFFFB0 )
   {
-    WdLogSingleEntry1(3LL, 12213LL);
+    v48 = WdLogNewEntry5_WdWarning(v10, v6, v7);
+    *(_QWORD *)(v48 + 24) = 10294LL;
   }
   else
   {
-    v9 = v8 + a3->PrivateDriverDataSize;
-    if ( v9 >= v8 )
+    v11 = v10 + a3->PrivateDriverDataSize;
+    if ( v11 >= (unsigned int)v10 )
     {
-      if ( v9 > 0x20000 )
+      if ( v11 > 0x20000 )
       {
-        WdLogSingleEntry1(3LL, 12225LL);
-        if ( v27 )
-          DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v25);
+        v12 = WdLogNewEntry5_WdWarning(v10, v6, v7);
+        *(_QWORD *)(v12 + 24) = 10306LL;
+        WdLogEvent5_WdWarning(v12);
+        if ( v53 )
+          DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v51);
         return 3221225659LL;
       }
-      v33 = 0LL;
-      v34 = 0;
-      DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v33, v5, v9, 0LL, 0LL, 0LL);
-      v10 = v33;
-      if ( !(_QWORD)v33 )
+      v13 = (struct _EX_RUNDOWN_REF *)operator new[](v11, 0x4B677844u, (POOL_TYPE)512);
+      v18 = v13;
+      v50[1] = v13;
+      if ( !v13 )
       {
-        WdLogSingleEntry1(6LL, 12233LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262145,
-          -1,
-          (__int64)L"Failed to allocate DXGKVMB_COMMAND_SUBMITCOMMANDTOHWQUEUE",
-          12233LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v33);
-        if ( v27 )
-          DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v25);
+        v19 = WdLogNewEntry5_WdLowResource(v15, v14, v16, v17);
+        *(_QWORD *)(v19 + 24) = 10313LL;
+        WdLogEvent5_WdLowResource(v19);
+        if ( v53 )
+          DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v51);
         return 3221225495LL;
       }
-      *(_QWORD *)v33 = 0LL;
-      *(_DWORD *)(v10 + 8) = 0;
-      *(_BYTE *)(v10 + 12) = 0;
-      *(_DWORD *)(v10 + 12) &= 0x1FFu;
-      *(_QWORD *)(v10 + 16) = 52LL;
-      *(_DWORD *)(v10 + 8) = DXGPROCESS::GetHostProcess(a2);
-      *(_OWORD *)(v10 + 24) = *(_OWORD *)&a3->hHwQueue;
-      *(_OWORD *)(v10 + 40) = *(_OWORD *)&a3->CommandBuffer;
-      *(_OWORD *)(v10 + 56) = *(_OWORD *)&a3->pPrivateDriverData;
-      *(_QWORD *)(v10 + 72) = a3->WrittenPrimaries;
-      v11 = v10 + 80;
-      v12 = (unsigned int)v7;
-      v13 = (void *)(v10 + 80 + v7);
+      v13->Count = 0LL;
+      v13[1].Count = 0LL;
+      LODWORD(v13[2].Count) = 52;
+      LODWORD(v13[1].Count) = DXGPROCESS::GetHostProcess(a2);
+      *(_OWORD *)&v18[3].Count = *(_OWORD *)&a3->hHwQueue;
+      *(_OWORD *)&v18[5].Count = *(_OWORD *)&a3->CommandBuffer;
+      *(_OWORD *)&v18[7].Count = *(_OWORD *)&a3->pPrivateDriverData;
+      v18[9].Count = (ULONG_PTR)a3->WrittenPrimaries;
+      v20 = (unsigned int)v9;
+      v21 = (char *)&v18[10] + v9;
       if ( a3->NumPrimaries )
       {
         WrittenPrimaries = a3->WrittenPrimaries;
-        if ( (const D3DKMT_HANDLE *)((char *)WrittenPrimaries + v12) < WrittenPrimaries
-          || (unsigned __int64)WrittenPrimaries + v12 > MmUserProbeAddress )
+        if ( (const D3DKMT_HANDLE *)((char *)WrittenPrimaries + v20) < WrittenPrimaries
+          || (unsigned __int64)WrittenPrimaries + v20 > MmUserProbeAddress )
         {
           *(_BYTE *)MmUserProbeAddress = 0;
         }
-        memmove((void *)(v10 + 80), WrittenPrimaries, v12);
+        memmove(&v18[10], WrittenPrimaries, v20);
       }
       PrivateDriverDataSize = a3->PrivateDriverDataSize;
       if ( (_DWORD)PrivateDriverDataSize )
@@ -144,82 +150,99 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSubmitCommandToHwQueue(
         {
           *(_BYTE *)MmUserProbeAddress = 0;
         }
-        memmove(v13, pPrivateDriverData, (unsigned int)PrivateDriverDataSize);
+        memmove(v21, pPrivateDriverData, (unsigned int)PrivateDriverDataSize);
       }
-      DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v32, a2);
-      v17 = 0;
+      DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v54, (struct _KTHREAD **)a2);
+      v27 = 0;
       if ( a3->NumPrimaries )
       {
         while ( 1 )
         {
-          v28 = 0LL;
+          v49 = 0LL;
           AllocationUnsafe = (struct _EX_RUNDOWN_REF **)DXGPROCESS::GetAllocationUnsafe(
                                                           (__int64)a2,
-                                                          (DXGALLOCATIONREFERENCE *)&v29,
-                                                          *(_DWORD *)(v11 + 4LL * v17));
-          DXGALLOCATIONREFERENCE::MoveAssign(&v28, AllocationUnsafe);
-          DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v29);
-          if ( !v28 )
+                                                          (DXGALLOCATIONREFERENCE *)v50,
+                                                          *((_DWORD *)&v18[10].Count + v27));
+          DXGALLOCATIONREFERENCE::MoveAssign(&v49, AllocationUnsafe);
+          DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(v50, v29);
+          if ( !v49 )
             break;
-          *(_DWORD *)(v11 + 4LL * v17) = HIDWORD(v28[2].Ptr);
-          DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v28);
-          if ( ++v17 >= a3->NumPrimaries )
+          *((_DWORD *)&v18[10].Count + v27) = v49[12].Count;
+          DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v49, v30);
+          if ( ++v27 >= a3->NumPrimaries )
           {
-            v5 = v30;
+            v5 = this;
             goto LABEL_33;
           }
         }
-        WdLogSingleEntry1(3LL, 12275LL);
-        v23 = -1073741811;
-        DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v28);
-        goto LABEL_43;
+        v39 = WdLogNewEntry5_WdWarning(v31, v30, v32);
+        *(_QWORD *)(v39 + 24) = 10355LL;
+        WdLogEvent5_WdWarning(v39);
+        LODWORD(v38) = -1073741811;
+        DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v49, v40);
       }
-LABEL_33:
-      v19 = (*(_DWORD *)(v10 + 24) >> 6) & 0xFFFFFF;
-      if ( v19 < *((_DWORD *)a2 + 74) )
+      else
       {
-        v20 = *((_QWORD *)a2 + 35);
-        if ( ((*(_DWORD *)(v10 + 24) >> 25) & 0x60) == (*(_BYTE *)(v20 + 16LL * v19 + 8) & 0x60)
-          && (*(_DWORD *)(v20 + 16LL * v19 + 8) & 0x2000) == 0 )
+LABEL_33:
+        Count_low = LODWORD(v18[3].Count);
+        v34 = (LODWORD(v18[3].Count) >> 6) & 0xFFFFFF;
+        if ( (unsigned int)v34 < *((_DWORD *)a2 + 64) )
         {
-          v21 = *(_DWORD *)(v20 + 16LL * v19 + 8) & 0x1F;
-          if ( v21 )
+          v26 = (unsigned int)v34;
+          v35 = *((_QWORD *)a2 + 30);
+          v25 = *(unsigned int *)(v35 + 16 * v34 + 8);
+          Count_low = ((unsigned int)Count_low >> 25) & 0x60;
+          if ( (_BYTE)Count_low == (*(_BYTE *)(v35 + 16 * v34 + 8) & 0x60) && (v25 & 0x2000) == 0 && (v25 & 0x1F) != 0 )
           {
-            if ( v21 == 15 )
+            v26 = 2LL * (unsigned int)v34;
+            v25 &= 0x1Fu;
+            if ( (_BYTE)v25 == 15 )
             {
-              v22 = *(_QWORD *)(v20 + 16LL * v19);
-              goto LABEL_40;
+              v41 = *(_QWORD *)(v35 + 16LL * (unsigned int)v34);
+              if ( v41 )
+              {
+                LODWORD(v18[3].Count) = *(_DWORD *)(v41 + 28);
+                DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v54);
+                v43 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(
+                        v5,
+                        (struct DXGKVMB_COMMAND_BASE *)v18,
+                        v11,
+                        v42);
+                v38 = v43;
+                if ( v43 < 0 )
+                {
+                  v47 = WdLogNewEntry5_WdWarning(v45, v44, v46);
+                  *(_QWORD *)(v47 + 24) = v38;
+                  WdLogEvent5_WdWarning(v47);
+                }
+                goto LABEL_45;
+              }
             }
-            WdLogSingleEntry1(2LL, 316LL);
-            DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
+            else
+            {
+              v36 = WdLogNewEntry5_WdError(v25, Count_low);
+              *(_QWORD *)(v36 + 24) = 316LL;
+              WdLogEvent5_WdError(v36);
+            }
           }
         }
+        v37 = WdLogNewEntry5_WdWarning(v25, Count_low, v26);
+        *(_QWORD *)(v37 + 24) = 10365LL;
+        WdLogEvent5_WdWarning(v37);
+        LODWORD(v38) = -1073741811;
       }
-      v22 = 0LL;
-LABEL_40:
-      if ( v22 )
-      {
-        *(_DWORD *)(v10 + 24) = *(_DWORD *)(v22 + 28);
-        DXGPROCESSDDILOCK::~DXGPROCESSDDILOCK((DXGPROCESSDDILOCK *)v32);
-        v24 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncOrAsyncMessage(v5, (struct DXGVMBUSMESSAGE *)&v33);
-        v23 = v24;
-        if ( v24 < 0 )
-          WdLogSingleEntry1(3LL, v24);
-        goto LABEL_47;
-      }
-      WdLogSingleEntry1(3LL, 12285LL);
-      v23 = -1073741811;
-LABEL_43:
-      DXGPROCESSDDILOCK::~DXGPROCESSDDILOCK((DXGPROCESSDDILOCK *)v32);
-LABEL_47:
-      DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v33);
-      if ( v27 )
-        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v25);
-      return v23;
+      DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v54);
+LABEL_45:
+      operator delete[](v18);
+      if ( v53 )
+        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v51);
+      return (unsigned int)v38;
     }
-    WdLogSingleEntry1(3LL, 12219LL);
+    v48 = WdLogNewEntry5_WdWarning(v10, v6, v7);
+    *(_QWORD *)(v48 + 24) = 10300LL;
   }
-  if ( v27 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v25);
+  WdLogEvent5_WdWarning(v48);
+  if ( v53 )
+    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v51);
   return 3221225485LL;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of ?ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02B2EE0
+ * XREFs of ?ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A69B0
  * Callers:
- *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02B0550 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A3AB0 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ulSimulateSaveScreenBits(struct _SURFOBJ *a1, int a2, SURFOBJ *a3, struct _RECTL *a4)
 {
   HDEV hdev; // rbx
   int v8; // ebp
-  int v9; // r12d
+  int v9; // r15d
   __int64 (__fastcall *v10)(DHPDEV, unsigned __int64, _QWORD); // rax
   HBITMAP Bitmap; // rax
   SURFOBJ *v12; // rax
   __int64 v13; // rdi
   __int64 p_hsurf; // rax
   HSURF hsurf; // rbx
-  __int64 v17; // [rsp+48h] [rbp-60h] BYREF
-  _DWORD v18[4]; // [rsp+50h] [rbp-58h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-50h] BYREF
+  _DWORD v18[4]; // [rsp+50h] [rbp-48h] BYREF
 
   v17 = 0LL;
   hdev = a1->hdev;
@@ -32,7 +32,7 @@ __int64 __fastcall ulSimulateSaveScreenBits(struct _SURFOBJ *a1, int a2, SURFOBJ
       if ( !a1 )
         p_hsurf = 112LL;
       if ( (*(_DWORD *)p_hsurf & 0x400) != 0 )
-        (*((void (__fastcall **)(struct _SURFOBJ *, SURFOBJ *, _QWORD, _QWORD, struct _RECTL *, __int64 *))hdev + 352))(
+        (*((void (__fastcall **)(struct _SURFOBJ *, SURFOBJ *, _QWORD, _QWORD, struct _RECTL *, __int64 *))hdev + 355))(
           a1,
           a3,
           0LL,
@@ -56,7 +56,7 @@ __int64 __fastcall ulSimulateSaveScreenBits(struct _SURFOBJ *a1, int a2, SURFOBJ
   {
     v8 = a4->right - a4->left;
     v9 = a4->bottom - a4->top;
-    v10 = (__int64 (__fastcall *)(DHPDEV, unsigned __int64, _QWORD))*((_QWORD *)hdev + 343);
+    v10 = (__int64 (__fastcall *)(DHPDEV, unsigned __int64, _QWORD))*((_QWORD *)hdev + 346);
     if ( !v10
       || (Bitmap = (HBITMAP)v10(a1->dhpdev, __PAIR64__(v9, v8), a1->iBitmapFormat)) == 0LL
       || (_DWORD)Bitmap == -1 )
@@ -72,7 +72,7 @@ __int64 __fastcall ulSimulateSaveScreenBits(struct _SURFOBJ *a1, int a2, SURFOBJ
       v18[2] = v8;
       v18[3] = v9;
       if ( ((__int64)v12[1].hsurf & 0x400) != 0 )
-        (*((void (__fastcall **)(SURFOBJ *, struct _SURFOBJ *, _QWORD, _QWORD, _DWORD *, struct _RECTL *))hdev + 352))(
+        (*((void (__fastcall **)(SURFOBJ *, struct _SURFOBJ *, _QWORD, _QWORD, _DWORD *, struct _RECTL *))hdev + 355))(
           v12,
           a1,
           0LL,

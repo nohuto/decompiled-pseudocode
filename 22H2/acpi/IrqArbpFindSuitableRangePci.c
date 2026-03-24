@@ -1,19 +1,19 @@
 /*
- * XREFs of IrqArbpFindSuitableRangePci @ 0x1C009E1B4
+ * XREFs of IrqArbpFindSuitableRangePci @ 0x1C0096AB8
  * Callers:
- *     IrqArbFindSuitableRange @ 0x1C009D280 (IrqArbFindSuitableRange.c)
+ *     IrqArbFindSuitableRange @ 0x1C00918B0 (IrqArbFindSuitableRange.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
- *     LinkNodeCrackPrt @ 0x1C005CEBC (LinkNodeCrackPrt.c)
- *     LinkNodeGetPossibleGsiv @ 0x1C00994A4 (LinkNodeGetPossibleGsiv.c)
- *     IrqArbGsivFromIrq @ 0x1C009D6AC (IrqArbGsivFromIrq.c)
- *     IrqArbIrqFromGsiv @ 0x1C009D6CC (IrqArbIrqFromGsiv.c)
- *     IrqArbpAssignIrqFromLinkNode @ 0x1C009DB1C (IrqArbpAssignIrqFromLinkNode.c)
- *     IcGetPossibleInput @ 0x1C009F324 (IcGetPossibleInput.c)
- *     IcIsInputValid @ 0x1C009F434 (IcIsInputValid.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C004CA24 (WPP_RECORDER_SF_DD.c)
+ *     IcGetPossibleInput @ 0x1C0091E28 (IcGetPossibleInput.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
+ *     IcIsInputValid @ 0x1C0096C34 (IcIsInputValid.c)
+ *     LinkNodeGetPossibleGsiv @ 0x1C00B68E4 (LinkNodeGetPossibleGsiv.c)
+ *     IrqArbIrqFromGsiv @ 0x1C00B70AC (IrqArbIrqFromGsiv.c)
+ *     IrqArbpAssignIrqFromLinkNode @ 0x1C00B730C (IrqArbpAssignIrqFromLinkNode.c)
  */
 
 char __fastcall IrqArbpFindSuitableRangePci(__int64 a1, _QWORD *a2)
@@ -21,121 +21,123 @@ char __fastcall IrqArbpFindSuitableRangePci(__int64 a1, _QWORD *a2)
   __int64 v2; // rcx
   __int64 v4; // rcx
   __int64 v5; // rdx
-  __int64 v6; // rcx
-  unsigned int v7; // eax
-  int v8; // edx
-  unsigned __int64 v9; // r15
-  int v11; // edx
-  __int64 v12; // rcx
-  __int64 v13; // rax
+  unsigned int v6; // r10d
+  unsigned __int64 v7; // rax
+  unsigned __int64 v8; // rcx
+  __int64 v9; // r10
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  int v13; // r9d
   __int64 v14; // rdx
-  __int64 v15; // r8
-  int v16; // r9d
+  __int64 v15; // rcx
   __int64 v17; // rdx
   __int64 v18; // rcx
-  int v19; // edx
-  __int64 v20; // [rsp+80h] [rbp+30h] BYREF
-  unsigned int v21; // [rsp+88h] [rbp+38h] BYREF
-  __int64 v22; // [rsp+90h] [rbp+40h] BYREF
+  unsigned int v19; // eax
+  unsigned __int64 v20; // r15
+  __int64 v21; // [rsp+28h] [rbp-28h]
+  __int64 v22; // [rsp+80h] [rbp+30h] BYREF
+  unsigned int v23; // [rsp+88h] [rbp+38h] BYREF
+  __int64 v24; // [rsp+90h] [rbp+40h] BYREF
 
-  v20 = a1;
+  v22 = a1;
   v2 = a2[4];
-  v21 = 0;
-  v22 = 0LL;
+  v23 = 0;
+  v24 = 0LL;
   v4 = *(_QWORD *)(v2 + 32);
-  LOBYTE(v20) = 0;
-  if ( (int)LinkNodeCrackPrt(v4, &v22, &v21, 1) < 0 )
+  LOBYTE(v22) = 0;
+  if ( (int)LinkNodeCrackPrt(v4, &v24, &v23, 1) < 0 )
     return 0;
-  if ( !v22 )
+  if ( !v24 )
   {
-    if ( (int)IcGetPossibleInput(v21, v5, &v20) >= 0 && (v20 & 0xB) != 3
-      || (unsigned __int64)v21 < a2[2]
-      || (unsigned __int64)v21 > a2[3]
-      || !(unsigned __int8)IcIsInputValid(v21) )
-    {
+    if ( (int)IcGetPossibleInput(v23, v5, &v22) >= 0 && (v22 & 0xB) != 3 )
       return 0;
-    }
-    v13 = a2[5];
-    *a2 = v12;
-    a2[1] = v12;
-    *(_QWORD *)(v13 + 16) = 1LL;
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    v6 = v23;
+    v7 = a2[2];
+    if ( v23 < v7 )
+      return 0;
+    v8 = a2[3];
+    if ( v23 > v8 )
+      return 0;
+    if ( v7 <= v23 && v8 >= v23 )
     {
-      LOBYTE(v11) = 4;
-      WPP_RECORDER_SF_d(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v11,
-        20,
-        25,
-        (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
-        v12);
+      if ( !(unsigned __int8)IcIsInputValid(v23) )
+        return 0;
+      v10 = a2[5];
+      *a2 = v9;
+      a2[1] = v9;
+      *(_QWORD *)(v10 + 16) = 1LL;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_D(
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          4u,
+          0x14u,
+          0x19u,
+          (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
+          v9);
+      v6 = v23;
     }
-LABEL_21:
-    v14 = a2[5];
-    v15 = a2[9];
-    v16 = *(_DWORD *)(v14 + 36);
-    v17 = *(_QWORD *)(v14 + 40);
-    v18 = a2[4];
-    LODWORD(v20) = *(_BYTE *)(*(_QWORD *)(a2[7] + 40LL) + 4LL) & 1;
+    goto LABEL_12;
+  }
+  if ( (int)LinkNodeGetPossibleGsiv(v24, &v23) < 0 )
+  {
+    if ( (int)IrqArbpAssignIrqFromLinkNode(v18, a2, v18) < 0 )
+      return 0;
+    v6 = IrqArbGsivFromIrq(*(unsigned int *)a2);
+    v23 = v6;
+LABEL_12:
+    v11 = a2[5];
+    v12 = a2[9];
+    v13 = *(_DWORD *)(v11 + 36);
+    v14 = *(_QWORD *)(v11 + 40);
+    v15 = a2[4];
+    LODWORD(v22) = *(_BYTE *)(*(_QWORD *)(a2[7] + 40LL) + 4LL) & 1;
     if ( (int)((__int64 (__fastcall *)(_QWORD, __int64, __int64, __int64, unsigned int, _DWORD, int, int))ProcessorFindIdtEntries)(
-                *(_QWORD *)(v18 + 32),
-                v17,
-                v15,
+                *(_QWORD *)(v15 + 32),
+                v14,
+                v12,
                 1LL,
-                v21,
-                v20,
-                v16 & 1,
+                v6,
+                v22,
+                v13 & 1,
                 1) >= 0 )
       return 1;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v19) = 2;
       WPP_RECORDER_SF_(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v19,
-        20,
-        26,
-        (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids);
-    }
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0x14u,
+        0x1Au,
+        (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids);
     return 0;
   }
-  if ( (int)LinkNodeGetPossibleGsiv(v22, &v21) < 0 )
-  {
-    if ( (int)IrqArbpAssignIrqFromLinkNode(v6, a2, v6) < 0 )
-      return 0;
-    v21 = IrqArbGsivFromIrq(*(unsigned int *)a2);
-    goto LABEL_21;
-  }
-  v7 = IrqArbIrqFromGsiv(v21);
-  v9 = v7;
+  v19 = IrqArbIrqFromGsiv(v23, v17);
+  v20 = v19;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_D(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      0x14u,
+      0x17u,
+      (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
+      v19);
+  if ( a2[2] <= v20 && a2[3] >= v20 )
   {
-    LOBYTE(v8) = 4;
-    WPP_RECORDER_SF_d(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v8,
-      20,
-      23,
-      (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
-      v7);
-  }
-  if ( a2[2] <= v9 && a2[3] >= v9 )
-  {
-    *a2 = v9;
-    a2[1] = v9;
+    *a2 = v20;
+    a2[1] = v20;
     *(_QWORD *)(a2[5] + 16LL) = 1LL;
     return 1;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v8) = 4;
+    LODWORD(v21) = *(_DWORD *)a2;
     WPP_RECORDER_SF_DD(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v8,
-      20,
-      24,
-      (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
-      *(_DWORD *)a2,
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      0x14u,
+      0x18u,
+      (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
+      v21,
       *((_DWORD *)a2 + 2));
   }
   return 0;

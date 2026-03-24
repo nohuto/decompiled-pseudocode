@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TimeToMinimumVelocity@CScaleMotion@@MEBAMXZ @ 0x18026FCA0
+ * XREFs of ?TimeToMinimumVelocity@CScaleMotion@@MEBAMXZ @ 0x18020F4E0
  * Callers:
  *     <none>
  * Callees:
- *     logf_0 @ 0x18011B914 (logf_0.c)
+ *     logf_0 @ 0x1800F3FC3 (logf_0.c)
  */
 
 float __fastcall CScaleMotion::TimeToMinimumVelocity(CScaleMotion *this)

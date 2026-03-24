@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpEnumerateKeyProviders @ 0x140818934
+ * XREFs of EtwpEnumerateKeyProviders @ 0x140794898
  * Callers:
- *     EtwpEnableKeyProviders @ 0x14081881C (EtwpEnableKeyProviders.c)
+ *     EtwpEnableKeyProviders @ 0x14079C0FC (EtwpEnableKeyProviders.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1402DEF50 (RtlInsertElementGenericTableAvl.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     RtlNtStatusToDosError @ 0x14069E070 (RtlNtStatusToDosError.c)
- *     RtlWriteRegistryValue @ 0x1406D76C0 (RtlWriteRegistryValue.c)
- *     EtwpEnableAutoLoggerProvider @ 0x1408226C0 (EtwpEnableAutoLoggerProvider.c)
+ *     RtlInsertElementGenericTableAvl @ 0x140264B20 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     RtlNtStatusToDosError @ 0x14068A4C0 (RtlNtStatusToDosError.c)
+ *     RtlWriteRegistryValue @ 0x1406B4930 (RtlWriteRegistryValue.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x1407949F4 (EtwpEnableAutoLoggerProvider.c)
  */
 
 int __fastcall EtwpEnumerateKeyProviders(
@@ -50,16 +50,23 @@ int __fastcall EtwpEnumerateKeyProviders(
   {
     v11 = 0;
     v12 = a8;
-    while ( 1 )
+    do
     {
       v13 = ZwEnumerateKey(KeyHandle, v11, KeyBasicInformation, KeyInformation, 0x11Eu, (PULONG)&ValueData + 1);
       v14 = KeyInformation[3];
       if ( v14 >= 0x108 )
-        break;
+        v13 = -2147483643;
       if ( v13 < 0 )
       {
         if ( v13 != -2147483622 )
-          goto LABEL_13;
+        {
+          LODWORD(ValueData) = RtlNtStatusToDosError(v13);
+          if ( a4 )
+            v16 = a4;
+          else
+            v16 = a3;
+          RtlWriteRegistryValue(0, v16, L"EnableStatus", 4u, &ValueData, 4u);
+        }
       }
       else
       {
@@ -70,16 +77,8 @@ int __fastcall EtwpEnumerateKeyProviders(
           EtwpEnableAutoLoggerProvider(a1, a2, KeyInformation + 4, a3, a4, v12, ValueData);
       }
       ++v11;
-      if ( v13 < 0 )
-        return ZwClose(KeyHandle);
     }
-    v13 = -2147483643;
-LABEL_13:
-    LODWORD(ValueData) = RtlNtStatusToDosError(v13);
-    v16 = a4;
-    if ( !a4 )
-      v16 = a3;
-    RtlWriteRegistryValue(0, v16, L"EnableStatus", 4u, &ValueData, 4u);
+    while ( v13 >= 0 );
     return ZwClose(KeyHandle);
   }
   return result;

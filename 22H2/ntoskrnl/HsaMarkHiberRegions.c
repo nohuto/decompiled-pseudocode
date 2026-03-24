@@ -1,16 +1,16 @@
 /*
- * XREFs of HsaMarkHiberRegions @ 0x140A99890
+ * XREFs of HsaMarkHiberRegions @ 0x1409AAC70
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuExtMarkHiberMemory @ 0x140515408 (HalpIommuExtMarkHiberMemory.c)
+ *     HalpIommuExtMarkHiberMemory @ 0x1404CBD60 (HalpIommuExtMarkHiberMemory.c)
  */
 
 void __fastcall HsaMarkHiberRegions(void *a1, __int64 a2, __int64 ***a3)
 {
   __int64 **i; // rbx
-  void **v5; // rsi
-  unsigned int j; // ebp
+  unsigned int v5; // ebp
+  void **v6; // rsi
 
   if ( a1 )
   {
@@ -21,13 +21,17 @@ void __fastcall HsaMarkHiberRegions(void *a1, __int64 a2, __int64 ***a3)
     for ( i = *a3; i != (__int64 **)a3; i = (__int64 **)*i )
     {
       HalpIommuExtMarkHiberMemory(0LL, i[5], 0x2000u);
-      v5 = (void **)(i[5] + 512);
-      for ( j = 0; j < 0x200; ++j )
+      v5 = 0;
+      v6 = (void **)(i[5] + 512);
+      do
       {
-        if ( (*(_BYTE *)(v5 - 512) & 1) == 0 )
+        if ( (*(_BYTE *)(v6 - 512) & 1) == 0 )
           break;
-        HalpIommuExtMarkHiberMemory(0LL, *v5++, 0x1000u);
+        HalpIommuExtMarkHiberMemory(0LL, *v6, 0x1000u);
+        ++v5;
+        ++v6;
       }
+      while ( v5 < 0x200 );
     }
   }
 }

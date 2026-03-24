@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vDirectStretch16@@YAXPEAU_STR_BLT@@@Z @ 0x1C0302620
+ * XREFs of ?vDirectStretch16@@YAXPEAU_STR_BLT@@@Z @ 0x1C02DA000
  * Callers:
  *     <none>
  * Callees:
@@ -11,25 +11,25 @@ void __fastcall vDirectStretch16(struct _STR_BLT *a1)
   __int64 v1; // r8
   __int64 v3; // rdi
   int v4; // r9d
-  int v5; // r14d
+  int v5; // esi
   unsigned __int16 *v6; // rbx
-  unsigned int v7; // ebp
+  unsigned int v7; // r14d
   int v8; // edx
   unsigned __int16 *v9; // r10
   int v10; // r8d
   int v11; // eax
-  unsigned int v12; // esi
-  unsigned int v13; // r12d
+  unsigned int v12; // ebp
+  unsigned int v13; // r13d
   signed int v14; // edx
   int v15; // ecx
   __int64 v16; // r9
-  __int64 v17; // r13
+  __int64 v17; // r12
   __int64 v18; // r8
   unsigned int v19; // edi
   unsigned int v20; // r15d
-  unsigned __int16 *v21; // r14
+  unsigned __int16 *v21; // rsi
   bool v22; // cf
-  unsigned __int16 *v23; // r13
+  unsigned __int16 *v23; // r12
   int v24; // r9d
   unsigned int v25; // r8d
   unsigned __int16 *v26; // rcx
@@ -66,7 +66,7 @@ void __fastcall vDirectStretch16(struct _STR_BLT *a1)
   if ( v33 > 0 )
   {
     if ( v10 )
-      v15 = *((_DWORD *)a1 + 2) * v10;
+      v15 = v10 * *((_DWORD *)a1 + 2);
     v17 = v14;
     v18 = v3;
     v16 = (int)v16;
@@ -92,8 +92,8 @@ void __fastcall vDirectStretch16(struct _STR_BLT *a1)
         do
         {
           v24 = *v21;
-          v25 = v32 + v19;
-          v22 = v32 + v19 < v19;
+          v25 = v19 + v32;
+          v22 = v19 + v32 < v19;
           v19 += v32 + v32;
           v26 = &v21[v22 + v29];
           v21 = &v26[(v19 < v25) + v29];

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DpiBrightnessIfSet@@YAJPEAXE@Z @ 0x1C03A1C10
+ * XREFs of ?DpiBrightnessIfSet@@YAJPEAXE@Z @ 0x1C02D1600
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C017CDCC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C0198444 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01988F0 (DpiAcquireCoreSyncAccessSafe.c)
- *     DpiCallDrvSetBrightness @ 0x1C03A2510 (DpiCallDrvSetBrightness.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C012E130 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C012E3AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C0145F7C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiCallDrvSetBrightness @ 0x1C02D1FCC (DpiCallDrvSetBrightness.c)
  */
 
 __int64 __fastcall DpiBrightnessIfSet(_QWORD *a1, unsigned __int8 a2)
@@ -33,27 +33,31 @@ __int64 __fastcall DpiBrightnessIfSet(_QWORD *a1, unsigned __int8 a2)
   v2 = a1[8];
   v3 = 0LL;
   v4 = a2;
-  v6 = *(_WORD *)(v2 + 4682);
+  v6 = *(_WORD *)(v2 + 4738);
   if ( v6 == 2 )
-    v3 = v2 + 4680;
+    v3 = v2 + 4736;
   v7 = 0LL;
   if ( v6 == 1 )
-    v7 = v2 + 4680;
+    v7 = v2 + 4736;
   if ( (!v3 || !*(_QWORD *)(v3 + 40)) && (!v7 || !*(_QWORD *)(v7 + 40)) )
     return 3221225659LL;
-  KeWaitForSingleObject((PVOID)(v2 + 4408), Executive, 0, 0, 0LL);
+  KeWaitForSingleObject((PVOID)(v2 + 4464), Executive, 0, 0, 0LL);
   v9 = DpiAcquireCoreSyncAccessSafe((__int64)a1, 0);
   if ( v9 >= 0 )
   {
-    v10 = *(_BYTE *)(v2 + 4401) == 0;
-    *(_BYTE *)(v2 + 4403) = v4;
-    if ( v10 )
+    v10 = *(_BYTE *)(v2 + 4448) == 0;
+    *(_BYTE *)(v2 + 4456) = v4;
+    if ( !v10 || *(_BYTE *)(v2 + 4449) )
+    {
+      v9 = 0;
+    }
+    else
     {
       LOBYTE(v8) = v4;
       v9 = DpiCallDrvSetBrightness(a1, v8);
       if ( v9 >= 0 )
-        *(_BYTE *)(v2 + 4400) = v4;
-      if ( *(_BYTE *)(v2 + 4402) )
+        *(_BYTE *)(v2 + 4368) = v4;
+      if ( *(_BYTE *)(v2 + 4450) )
       {
         v15 = 0;
         v14 = 0;
@@ -69,12 +73,8 @@ __int64 __fastcall DpiBrightnessIfSet(_QWORD *a1, unsigned __int8 a2)
         DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v12, 0x200000000LL);
       }
     }
-    else
-    {
-      v9 = 0;
-    }
     DpiReleaseCoreSyncAccessSafe((__int64)a1, 0);
   }
-  KeReleaseMutex((PRKMUTEX)(v2 + 4408), 0);
+  KeReleaseMutex((PRKMUTEX)(v2 + 4464), 0);
   return (unsigned int)v9;
 }

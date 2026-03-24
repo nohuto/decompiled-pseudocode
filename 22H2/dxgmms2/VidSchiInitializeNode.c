@@ -1,103 +1,93 @@
 /*
- * XREFs of VidSchiInitializeNode @ 0x1C00B9AF0
+ * XREFs of VidSchiInitializeNode @ 0x1C008F028
  * Callers:
- *     VidSchInitializeAdapter @ 0x1C00B7A30 (VidSchInitializeAdapter.c)
+ *     VidSchInitializeAdapter @ 0x1C008E2C0 (VidSchInitializeAdapter.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?DdiSetupPriorityBands@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETUPPRIORITYBANDS@@@Z @ 0x1C002C880 (-DdiSetupPriorityBands@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETUPPRIORITYBANDS@@@Z.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?DdiSetupPriorityBands@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETUPPRIORITYBANDS@@@Z @ 0x1C00225F8 (-DdiSetupPriorityBands@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETUPPRIORITYBANDS@@@Z.c)
  */
 
 __int64 __fastcall VidSchiInitializeNode(__int64 a1)
 {
   __int64 v1; // r14
   __int64 v3; // rax
-  __int64 Pool2; // rax
-  unsigned int v5; // edi
-  __int64 v6; // rax
-  __int64 v7; // rax
+  PVOID PoolWithTag; // rax
+  __int64 v5; // rdi
+  SIZE_T v6; // rdx
+  PVOID v7; // rax
   unsigned int i; // esi
+  __int64 result; // rax
   unsigned int j; // esi
   unsigned int k; // esi
   unsigned int m; // esi
   unsigned int n; // esi
-  __int64 ii; // rax
+  UINT v14; // eax
   ADAPTER_RENDER *v15; // rcx
-  int v16; // eax
-  _DXGKARG_SETUPPRIORITYBANDS v17; // [rsp+20h] [rbp-98h] BYREF
+  _DXGKARG_SETUPPRIORITYBANDS v16; // [rsp+20h] [rbp-98h] BYREF
 
   v1 = *(_QWORD *)(a1 + 24);
-  v3 = *(unsigned int *)(v1 + 224);
+  v3 = *(unsigned int *)(v1 + 216);
   *(_DWORD *)(a1 + 192) = v3;
-  Pool2 = ExAllocatePool2(64LL, 112 * v3, 828467542LL);
-  v5 = 0;
-  *(_QWORD *)(a1 + 184) = Pool2;
-  if ( Pool2
-    && (v6 = *(unsigned int *)(v1 + 224),
-        *(_DWORD *)(a1 + 208) = v6,
-        v7 = ExAllocatePool2(64LL, 96 * v6, 828467542LL),
-        (*(_QWORD *)(a1 + 200) = v7) != 0LL) )
-  {
-    InitializeSListHead((PSLIST_HEADER)(a1 + 6272));
-    for ( i = 0; i < 0x10; ++i )
-      ExpInterlockedPushEntrySList((PSLIST_HEADER)(a1 + 6272), (PSLIST_ENTRY)(112LL * (int)i + a1 + 6288));
-    if ( (*(_DWORD *)(a1 + 12) & 2) == 0 )
-      return 0LL;
-    InitializeSListHead((PSLIST_HEADER)(a1 + 2960));
-    for ( j = 0;
-          j < 0x40;
-          ExpInterlockedPushEntrySList((PSLIST_HEADER)(a1 + 2960), (PSLIST_ENTRY)(a1 + 48 * ((int)j++ + 62LL))) )
-    {
-      ;
-    }
-    InitializeSListHead((PSLIST_HEADER)(a1 + 6048));
-    for ( k = 0;
-          k < 2;
-          ExpInterlockedPushEntrySList((PSLIST_HEADER)(a1 + 6048), (PSLIST_ENTRY)(48LL * (int)k++ + a1 + 6064)) )
-    {
-      ;
-    }
-    InitializeSListHead((PSLIST_HEADER)(a1 + 6160));
-    for ( m = 0;
-          m < 2;
-          ExpInterlockedPushEntrySList((PSLIST_HEADER)(a1 + 6160), (PSLIST_ENTRY)(48LL * (int)m++ + a1 + 6176)) )
-    {
-      ;
-    }
-    InitializeSListHead((PSLIST_HEADER)(a1 + 8080));
-    for ( n = 0;
-          n < 0x40;
-          ExpInterlockedPushEntrySList((PSLIST_HEADER)(a1 + 8080), (PSLIST_ENTRY)(48LL * (int)n++ + a1 + 8096)) )
-    {
-      ;
-    }
-    memset(&v17, 0, sizeof(v17));
-    for ( ii = 0LL; ii < 2; v17.processGracePeriodForBand[ii++] = 20000LL )
-      v17.processQuantumForBand[ii] = 50000LL;
-    v17.processGracePeriodForBand[3] = 50000LL;
-    v17.targetNormalBandPercentage = *(_DWORD *)(v1 + 208);
-    v15 = *(ADAPTER_RENDER **)(v1 + 8);
-    v17.processQuantumForBand[3] = 20000LL;
-    v17.gracePeriodForBand[2] = 10000LL;
-    v17.processQuantumForBand[2] = 10000LL;
-    v17.processGracePeriodForBand[2] = 30000LL;
-    v16 = ADAPTER_RENDER::DdiSetupPriorityBands(
-            v15,
-            (struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *)&v17);
-    if ( v16 < 0 )
-    {
-      if ( v16 != -1073741822 )
-        return (unsigned int)v16;
-      return v5;
-    }
-    else
-    {
-      return 0LL;
-    }
-  }
-  else
-  {
-    WdLogSingleEntry0(3LL);
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 112 * v3, 0x31616956u);
+  v5 = 0LL;
+  *(_QWORD *)(a1 + 184) = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225495LL;
+  memset(PoolWithTag, 0, 112LL * *(unsigned int *)(a1 + 192));
+  v6 = 88LL * *(unsigned int *)(v1 + 216);
+  *(_DWORD *)(a1 + 208) = *(_DWORD *)(v1 + 216);
+  v7 = ExAllocatePoolWithTag((POOL_TYPE)512, v6, 0x31616956u);
+  *(_QWORD *)(a1 + 200) = v7;
+  if ( !v7 )
+    return 3221225495LL;
+  memset(v7, 0, 88LL * *(unsigned int *)(a1 + 208));
+  InitializeSListHead((PSLIST_HEADER)(a1 + 6224));
+  for ( i = 0; i < 0x10; ++i )
+    ExpInterlockedPushEntrySList((PSLIST_HEADER)(a1 + 6224), (PSLIST_ENTRY)(112LL * (int)i + a1 + 6240));
+  if ( (*(_DWORD *)(a1 + 12) & 2) == 0 )
+    return 0LL;
+  InitializeSListHead((PSLIST_HEADER)(a1 + 2912));
+  for ( j = 0;
+        j < 0x40;
+        ExpInterlockedPushEntrySList((PSLIST_HEADER)(a1 + 2912), (PSLIST_ENTRY)(a1 + 48 * ((int)j++ + 61LL))) )
+  {
+    ;
   }
+  InitializeSListHead((PSLIST_HEADER)(a1 + 6000));
+  for ( k = 0; k < 2; ExpInterlockedPushEntrySList(
+                        (PSLIST_HEADER)(a1 + 6000),
+                        (PSLIST_ENTRY)(48LL * (int)k++ + a1 + 6016)) )
+    ;
+  InitializeSListHead((PSLIST_HEADER)(a1 + 6112));
+  for ( m = 0; m < 2; ExpInterlockedPushEntrySList(
+                        (PSLIST_HEADER)(a1 + 6112),
+                        (PSLIST_ENTRY)(48LL * (int)m++ + a1 + 6128)) )
+    ;
+  InitializeSListHead((PSLIST_HEADER)(a1 + 8032));
+  for ( n = 0;
+        n < 0x40;
+        ExpInterlockedPushEntrySList((PSLIST_HEADER)(a1 + 8032), (PSLIST_ENTRY)(48LL * (int)n++ + a1 + 8048)) )
+  {
+    ;
+  }
+  memset(&v16, 0, sizeof(v16));
+  do
+  {
+    v16.processQuantumForBand[v5] = 50000LL;
+    v16.processGracePeriodForBand[v5++] = 20000LL;
+  }
+  while ( v5 < 2 );
+  v16.processQuantumForBand[3] = 20000LL;
+  v16.gracePeriodForBand[2] = 10000LL;
+  v16.processQuantumForBand[2] = 10000LL;
+  v14 = *(_DWORD *)(v1 + 200);
+  v16.processGracePeriodForBand[3] = 50000LL;
+  v15 = *(ADAPTER_RENDER **)(v1 + 8);
+  v16.targetNormalBandPercentage = v14;
+  v16.processGracePeriodForBand[2] = 30000LL;
+  result = ADAPTER_RENDER::DdiSetupPriorityBands(v15, &v16);
+  if ( (int)(result + 0x80000000) < 0 || (_DWORD)result == -1073741822 )
+    return 0LL;
+  return result;
 }

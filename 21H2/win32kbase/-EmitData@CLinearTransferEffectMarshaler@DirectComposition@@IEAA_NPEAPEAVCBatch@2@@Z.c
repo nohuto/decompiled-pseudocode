@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitData@CLinearTransferEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217728
+ * XREFs of ?EmitData@CLinearTransferEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E1550
  * Callers:
- *     ?EmitUpdateCommands@CLinearTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217830 (-EmitUpdateCommands@CLinearTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CLinearTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E1650 (-EmitUpdateCommands@CLinearTransferEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 bool __fastcall DirectComposition::CLinearTransferEffectMarshaler::EmitData(
@@ -23,21 +23,21 @@ bool __fastcall DirectComposition::CLinearTransferEffectMarshaler::EmitData(
   *(_OWORD *)(v3 + 20) = 0LL;
   *(_OWORD *)(v3 + 36) = 0LL;
   *(_QWORD *)(v3 + 52) = 0LL;
-  *((_DWORD *)v3 + 1) = 484;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-  *((_DWORD *)v3 + 3) = *((_DWORD *)this + 30);
-  *((_DWORD *)v3 + 4) = *((_DWORD *)this + 31);
-  v3[20] = *((_BYTE *)this + 152) & 1;
-  *((_DWORD *)v3 + 6) = *((_DWORD *)this + 32);
-  *((_DWORD *)v3 + 7) = *((_DWORD *)this + 33);
-  v3[32] = (*((_BYTE *)this + 152) & 2) != 0;
-  *((_DWORD *)v3 + 9) = *((_DWORD *)this + 34);
-  *((_DWORD *)v3 + 10) = *((_DWORD *)this + 35);
-  v3[44] = (*((_BYTE *)this + 152) & 8) != 0;
+  *((_DWORD *)v3 + 1) = 489;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+  *((_DWORD *)v3 + 3) = *((_DWORD *)this + 28);
+  *((_DWORD *)v3 + 4) = *((_DWORD *)this + 29);
+  v3[20] = *((_BYTE *)this + 144) & 1;
+  *((_DWORD *)v3 + 6) = *((_DWORD *)this + 30);
+  *((_DWORD *)v3 + 7) = *((_DWORD *)this + 31);
+  v3[32] = (*((_BYTE *)this + 144) & 2) != 0;
+  *((_DWORD *)v3 + 9) = *((_DWORD *)this + 32);
+  *((_DWORD *)v3 + 10) = *((_DWORD *)this + 33);
+  v3[44] = (*((_BYTE *)this + 144) & 8) != 0;
   result = 1;
-  *((_DWORD *)v3 + 12) = *((_DWORD *)this + 36);
-  *((_DWORD *)v3 + 13) = *((_DWORD *)this + 37);
-  v3[56] = (*((_BYTE *)this + 152) & 4) != 0;
-  v3[57] = (*((_BYTE *)this + 152) & 0x10) != 0;
+  *((_DWORD *)v3 + 12) = *((_DWORD *)this + 34);
+  *((_DWORD *)v3 + 13) = *((_DWORD *)this + 35);
+  v3[56] = (*((_BYTE *)this + 144) & 4) != 0;
+  v3[57] = (*((_BYTE *)this + 144) & 0x10) != 0;
   return result;
 }

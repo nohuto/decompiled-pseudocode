@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpMetadataHeapCreate @ 0x140140A80
+ * XREFs of RtlpHpMetadataHeapCreate @ 0x140140AA0
  * Callers:
- *     RtlHpHeapManagerStart @ 0x140170248 (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerStart @ 0x140170268 (RtlHpHeapManagerStart.c)
  * Callees:
- *     RtlpHpHeapCreate @ 0x140140AC0 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x140140AE0 (RtlpHpHeapCreate.c)
  */
 
 __int64 __fastcall RtlpHpMetadataHeapCreate(PRTL_RUN_ONCE a1, __int128 *a2, PVOID *a3)

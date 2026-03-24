@@ -10,9 +10,9 @@
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
  *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
- *     MiAddMdlPageToTradeBlock @ 0x140126FB4 (MiAddMdlPageToTradeBlock.c)
- *     MiGetFastLargePage @ 0x14085D44C (MiGetFastLargePage.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
+ *     MiAddMdlPageToTradeBlock @ 0x140126FD4 (MiAddMdlPageToTradeBlock.c)
+ *     MiGetFastLargePage @ 0x14085D42C (MiGetFastLargePage.c)
  * Callees:
  *     <none>
  */

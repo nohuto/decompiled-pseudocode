@@ -1,10 +1,11 @@
 /*
- * XREFs of PopMeasureEnergyChange @ 0x140802EEC
+ * XREFs of PopMeasureEnergyChange @ 0x1408EDD0C
  * Callers:
- *     PopCalculateCsSummary @ 0x1405913C4 (PopCalculateCsSummary.c)
- *     PopTransitionTelemetryOsState @ 0x1408037CC (PopTransitionTelemetryOsState.c)
+ *     PopCalculateCsSummary @ 0x14056FDE0 (PopCalculateCsSummary.c)
+ *     PopDiagTraceControlCallback @ 0x1406F7FA0 (PopDiagTraceControlCallback.c)
+ *     PopTransitionTelemetryOsState @ 0x1407938D4 (PopTransitionTelemetryOsState.c)
  * Callees:
- *     PopGetEnergyCounter @ 0x140875C9C (PopGetEnergyCounter.c)
+ *     PopGetEnergyCounter @ 0x1408EDCC0 (PopGetEnergyCounter.c)
  */
 
 __int64 __fastcall PopMeasureEnergyChange(__int64 a1, __int64 a2)
@@ -12,13 +13,12 @@ __int64 __fastcall PopMeasureEnergyChange(__int64 a1, __int64 a2)
   __int64 result; // rax
   __int128 v5; // [rsp+20h] [rbp-18h] BYREF
 
-  *(_QWORD *)&v5 = 0LL;
-  DWORD2(v5) = 0;
+  v5 = 0LL;
   PopGetEnergyCounter(&v5);
   result = 0LL;
   if ( *(_QWORD *)(a2 + 8) )
   {
-    *(_DWORD *)a1 = *(_DWORD *)a2 | v5;
+    *(_DWORD *)a1 = v5 | *(_DWORD *)a2;
     result = *((_QWORD *)&v5 + 1) - *(_QWORD *)(a2 + 8);
   }
   else

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bValid@EWNDOBJ@@QEBAHXZ @ 0x1C0287334
+ * XREFs of ?bValid@EWNDOBJ@@QEBAHXZ @ 0x1C0286578
  * Callers:
- *     ?vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z @ 0x1C028789C (-vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z.c)
- *     GreDeleteWnd @ 0x1C0288120 (GreDeleteWnd.c)
- *     GreSetClientRgn @ 0x1C0288350 (GreSetClientRgn.c)
- *     ?hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z @ 0x1C02B2CDC (-hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z.c)
+ *     ?vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z @ 0x1C0286ABC (-vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z.c)
+ *     GreDeleteWnd @ 0x1C02872C0 (GreDeleteWnd.c)
+ *     GreSetClientRgn @ 0x1C02874CC (GreSetClientRgn.c)
+ *     ?hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z @ 0x1C02A67B0 (-hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z.c)
  * Callees:
  *     <none>
  */

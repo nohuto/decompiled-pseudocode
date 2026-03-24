@@ -1,9 +1,9 @@
 /*
- * XREFs of CcSetBcbOwnerPointer @ 0x1407E8820
+ * XREFs of CcSetBcbOwnerPointer @ 0x1407E8800
  * Callers:
  *     <none>
  * Callees:
- *     ExSetResourceOwnerPointer @ 0x140166890 (ExSetResourceOwnerPointer.c)
+ *     ExSetResourceOwnerPointer @ 0x1401668B0 (ExSetResourceOwnerPointer.c)
  */
 
 void __stdcall CcSetBcbOwnerPointer(PVOID Bcb, PVOID OwnerPointer)

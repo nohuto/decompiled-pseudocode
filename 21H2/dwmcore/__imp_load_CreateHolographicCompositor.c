@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_CreateHolographicCompositor @ 0x180103070
+ * XREFs of __imp_load_CreateHolographicCompositor @ 0x1800E917C
  * Callers:
  *     <none>
  * Callees:

@@ -1,45 +1,45 @@
 /*
- * XREFs of PopCallPowerSettingCallback @ 0x140782D84
+ * XREFs of PopCallPowerSettingCallback @ 0x1406F4808
  * Callers:
- *     PopDispatchPowerSettingCallbacks @ 0x140782C60 (PopDispatchPowerSettingCallbacks.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x1406F2CD0 (PopDispatchPowerSettingCallbacks.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopCallPowerSettingCallback(_QWORD *a1, __int64 a2)
 {
   _DWORD *v3; // rdi
-  int v4; // esi
-  REGHANDLE v5; // r14
-  unsigned __int8 CurrentIrql; // si
-  unsigned __int8 v7; // al
-  REGHANDLE v8; // rsi
-  _DWORD *v9; // rax
-  bool v10; // si
-  int v12; // [rsp+30h] [rbp-49h] BYREF
-  __int64 v13; // [rsp+38h] [rbp-41h] BYREF
-  __int64 v14; // [rsp+40h] [rbp-39h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v15; // [rsp+48h] [rbp-31h] BYREF
-  char *v16; // [rsp+58h] [rbp-21h]
-  int v17; // [rsp+60h] [rbp-19h]
-  int v18; // [rsp+64h] [rbp-15h]
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp-9h] BYREF
-  char *v20; // [rsp+80h] [rbp+7h]
-  int v21; // [rsp+88h] [rbp+Fh]
-  int v22; // [rsp+8Ch] [rbp+13h]
-  int *v23; // [rsp+90h] [rbp+17h]
-  int v24; // [rsp+98h] [rbp+1Fh]
-  int v25; // [rsp+9Ch] [rbp+23h]
-  _DWORD *v26; // [rsp+A0h] [rbp+27h]
-  int v27; // [rsp+A8h] [rbp+2Fh]
-  int v28; // [rsp+ACh] [rbp+33h]
+  unsigned int v4; // r14d
+  unsigned int v5; // r15d
+  void (__fastcall *v6)(_QWORD, _QWORD, _QWORD, _QWORD); // rsi
+  REGHANDLE v7; // r12
+  unsigned __int8 CurrentIrql; // r14
+  unsigned __int8 v9; // al
+  REGHANDLE v10; // rsi
+  _DWORD *v11; // rax
+  bool v12; // si
+  unsigned int v14; // [rsp+30h] [rbp-59h] BYREF
+  void (__fastcall *v15)(_QWORD, _QWORD, _QWORD, _QWORD); // [rsp+38h] [rbp-51h] BYREF
+  __int64 v16; // [rsp+40h] [rbp-49h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v17; // [rsp+48h] [rbp-41h] BYREF
+  char *v18; // [rsp+58h] [rbp-31h]
+  int v19; // [rsp+60h] [rbp-29h]
+  int v20; // [rsp+64h] [rbp-25h]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp-19h] BYREF
+  char *v22; // [rsp+80h] [rbp-9h]
+  __int64 v23; // [rsp+88h] [rbp-1h]
+  int *v24; // [rsp+90h] [rbp+7h]
+  __int64 v25; // [rsp+98h] [rbp+Fh]
+  _DWORD *v26; // [rsp+A0h] [rbp+17h]
+  unsigned int v27; // [rsp+A8h] [rbp+1Fh]
+  int v28; // [rsp+ACh] [rbp+23h]
 
   if ( a2 )
   {
@@ -53,63 +53,60 @@ void __fastcall PopCallPowerSettingCallback(_QWORD *a1, __int64 a2)
         {
           v3 = (_DWORD *)a1[9];
           ++*v3;
-          ExReleaseFastMutex(&PopSettingLock);
+          KeReleaseGuardedMutex(&PopSettingLock);
           v4 = v3[1];
-          v13 = a1[10];
-          v12 = v4;
+          v5 = v4;
+          v6 = (void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))a1[10];
+          v15 = v6;
+          v14 = v4;
           if ( PopDiagHandleRegistered )
           {
-            v5 = PopDiagHandle;
+            v7 = PopDiagHandle;
             if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_SETTING_CALLBACK_START) )
             {
-              UserData.Reserved = 0;
-              v22 = 0;
-              v25 = 0;
               v28 = 0;
-              UserData.Ptr = (ULONGLONG)&v13;
-              v24 = 4;
-              v20 = (char *)a1 + 36;
-              UserData.Size = 8;
-              v23 = &v12;
-              v26 = v3 + 3;
-              v21 = 16;
+              v25 = 4LL;
+              UserData.Ptr = (ULONGLONG)&v15;
+              *(_QWORD *)&UserData.Size = 8LL;
+              v22 = (char *)a1 + 36;
+              v23 = 16LL;
+              v24 = (int *)&v14;
               v27 = v4;
-              EtwWrite(v5, &POP_ETW_EVENT_POWER_SETTING_CALLBACK_START, 0LL, 4u, &UserData);
+              v26 = v3 + 3;
+              EtwWrite(v7, &POP_ETW_EVENT_POWER_SETTING_CALLBACK_START, 0LL, 4u, &UserData);
+              v5 = v3[1];
+              v6 = (void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))a1[10];
             }
           }
           CurrentIrql = KeGetCurrentIrql();
-          ((void (__fastcall *)(__int64, _DWORD *, _QWORD, _QWORD))a1[10])(
-            (__int64)a1 + 52,
-            v3 + 3,
-            (unsigned int)v3[1],
-            a1[11]);
-          v7 = KeGetCurrentIrql();
-          if ( v7 != CurrentIrql )
-            KeBugCheckEx(0xA0u, 0x900uLL, a1[10], CurrentIrql, v7);
-          v14 = a1[10];
+          v6((char *)a1 + 52, v3 + 3, v5, a1[11]);
+          v9 = KeGetCurrentIrql();
+          if ( v9 != CurrentIrql )
+            KeBugCheckEx(0xA0u, 0x900uLL, a1[10], CurrentIrql, v9);
+          v16 = a1[10];
           if ( PopDiagHandleRegistered )
           {
-            v8 = PopDiagHandle;
+            v10 = PopDiagHandle;
             if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_SETTING_CALLBACK_STOP) )
             {
-              v15.Reserved = 0;
-              v18 = 0;
-              v15.Ptr = (ULONGLONG)&v14;
-              v15.Size = 8;
-              v16 = (char *)a1 + 36;
-              v17 = 16;
-              EtwWrite(v8, &POP_ETW_EVENT_POWER_SETTING_CALLBACK_STOP, 0LL, 2u, &v15);
+              v17.Reserved = 0;
+              v20 = 0;
+              v17.Ptr = (ULONGLONG)&v16;
+              v17.Size = 8;
+              v18 = (char *)a1 + 36;
+              v19 = 16;
+              EtwWrite(v10, &POP_ETW_EVENT_POWER_SETTING_CALLBACK_STOP, 0LL, 2u, &v17);
             }
           }
           if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
             __fastfail(0x20u);
           ExAcquireFastMutex(&PopSettingLock);
-          v9 = (_DWORD *)a1[9];
-          v10 = v9 && v3 != v9;
+          v11 = (_DWORD *)a1[9];
+          v12 = v11 && v3 != v11;
           if ( (*v3)-- == 1 )
             ExFreePoolWithTag(v3, 0x74655350u);
         }
-        while ( v10 );
+        while ( v12 );
         a1[3] = 0LL;
       }
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiUEventReferenceEventEntry @ 0x14078BE00
+ * XREFs of PiUEventReferenceEventEntry @ 0x1406E6EFC
  * Callers:
- *     PiUEventNotifyUserMode @ 0x14078B2D4 (PiUEventNotifyUserMode.c)
- *     PiUEventNotifyClient @ 0x14078BC74 (PiUEventNotifyClient.c)
+ *     PiUEventNotifyUserMode @ 0x1406E675C (PiUEventNotifyUserMode.c)
+ *     PiUEventNotifyClient @ 0x1406E6D7C (PiUEventNotifyClient.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
  */
 
 __int64 __fastcall PiUEventReferenceEventEntry(__int64 a1)

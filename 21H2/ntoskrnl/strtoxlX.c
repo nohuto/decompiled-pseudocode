@@ -1,12 +1,12 @@
 /*
- * XREFs of strtoxlX @ 0x1403E0640
+ * XREFs of strtoxlX @ 0x1403D1270
  * Callers:
- *     strtol @ 0x1403E0868 (strtol.c)
- *     strtolX @ 0x1403E0898 (strtolX.c)
- *     strtoul @ 0x1403E08C8 (strtoul.c)
+ *     strtol @ 0x1403D14A0 (strtol.c)
+ *     strtolX @ 0x1403D14D0 (strtolX.c)
+ *     strtoul @ 0x1403D1500 (strtoul.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     __pctype_func @ 0x1403E50E4 (__pctype_func.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
+ *     __pctype_func @ 0x1403D5D38 (__pctype_func.c)
  */
 
 __int64 __fastcall strtoxlX(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a3, unsigned int a4, int a5, int a6)
@@ -126,6 +126,7 @@ LABEL_26:
 LABEL_51:
       if ( !a6 )
       {
+        gbl_errno = 34;
         if ( (v12 & 1) != 0 )
           i = -1;
         else

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetD2DEffectProperties@CColorMatrixEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x180245D40
+ * XREFs of ?SetD2DEffectProperties@CColorMatrixEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1801F6190
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CColorMatrixEffect::SetD2DEffectProperties(CColorMatrixEffect *this, struct ID2D1Effect *a2)
@@ -21,12 +21,12 @@ __int64 __fastcall CColorMatrixEffect::SetD2DEffectProperties(CColorMatrixEffect
          a2,
          0LL,
          0LL,
-         (char *)this + 160,
+         (char *)this + 152,
          80);
   v6 = v4;
   if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0x43u);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x43u, 0LL);
   }
   else
   {
@@ -34,12 +34,12 @@ __int64 __fastcall CColorMatrixEffect::SetD2DEffectProperties(CColorMatrixEffect
            a2,
            1LL,
            0LL,
-           (char *)this + 240,
+           (char *)this + 232,
            4);
     v6 = v7;
     if ( v7 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x48u);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x48u, 0LL);
     }
     else
     {
@@ -47,11 +47,11 @@ __int64 __fastcall CColorMatrixEffect::SetD2DEffectProperties(CColorMatrixEffect
              a2,
              2LL,
              0LL,
-             (char *)this + 244,
+             (char *)this + 236,
              4);
       v6 = v9;
       if ( v9 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x4Du);
+        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x4Du, 0LL);
     }
   }
   return v6;

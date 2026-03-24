@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFlushAllHintedStorePages @ 0x1402B7F34
+ * XREFs of MiFlushAllHintedStorePages @ 0x1402B8034
  * Callers:
- *     MmStoreFlushAllHintedPages @ 0x14085C304 (MmStoreFlushAllHintedPages.c)
+ *     MmStoreFlushAllHintedPages @ 0x14085C2E4 (MmStoreFlushAllHintedPages.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF20 (KeSetActualBasePriorityThread.c)
- *     MiStoreUpdateMemoryConditions @ 0x1400EEDAC (MiStoreUpdateMemoryConditions.c)
- *     MiWakeModifiedPageWriter @ 0x1401532B8 (MiWakeModifiedPageWriter.c)
- *     MiCanFlushMakeProgress @ 0x140153310 (MiCanFlushMakeProgress.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1400EEDCC (MiStoreUpdateMemoryConditions.c)
+ *     MiWakeModifiedPageWriter @ 0x1401532D8 (MiWakeModifiedPageWriter.c)
+ *     MiCanFlushMakeProgress @ 0x140153330 (MiCanFlushMakeProgress.c)
  */
 
 __int64 __fastcall MiFlushAllHintedStorePages(__int64 a1, __int64 a2, __int64 a3)

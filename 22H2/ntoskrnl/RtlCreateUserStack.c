@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCreateUserStack @ 0x14077458C
+ * XREFs of RtlCreateUserStack @ 0x1406C5268
  * Callers:
- *     PspSetupUserStack @ 0x140774454 (PspSetupUserStack.c)
+ *     PspSetupUserStack @ 0x1406C5144 (PspSetupUserStack.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     ZwAllocateVirtualMemory @ 0x14041A9A0 (ZwAllocateVirtualMemory.c)
- *     ZwSetInformationProcess @ 0x14041AA20 (ZwSetInformationProcess.c)
- *     ZwFreeVirtualMemory @ 0x14041AA60 (ZwFreeVirtualMemory.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     ZwAllocateVirtualMemory @ 0x1403F9D20 (ZwAllocateVirtualMemory.c)
+ *     ZwSetInformationProcess @ 0x1403F9DA0 (ZwSetInformationProcess.c)
+ *     ZwFreeVirtualMemory @ 0x1403F9DE0 (ZwFreeVirtualMemory.c)
  */
 
 __int64 __fastcall RtlCreateUserStack(
@@ -54,11 +54,11 @@ __int64 __fastcall RtlCreateUserStack(
   if ( HIBYTE(a4) > 0x40u )
     return 3221225485LL;
   v9 = 3 * v8;
-  v10 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[24];
+  v10 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[4];
   v11 = a1;
   if ( !a1 || (v12 = a2) == 0 )
   {
-    v22 = RtlImageNtHeader(KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[18]);
+    v22 = RtlImageNtHeader(KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[18]);
     if ( !v22 )
       return 3221225595LL;
     if ( *(_WORD *)(v22 + 24) == 523 )

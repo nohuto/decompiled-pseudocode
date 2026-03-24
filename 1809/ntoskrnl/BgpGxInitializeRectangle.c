@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpGxInitializeRectangle @ 0x14017B510
+ * XREFs of BgpGxInitializeRectangle @ 0x14017B530
  * Callers:
- *     RaspScanConvert @ 0x14017AC30 (RaspScanConvert.c)
- *     RaspRectangleCreate @ 0x14017B49C (RaspRectangleCreate.c)
- *     BgpClearScreen @ 0x140327614 (BgpClearScreen.c)
+ *     RaspScanConvert @ 0x14017AC50 (RaspScanConvert.c)
+ *     RaspRectangleCreate @ 0x14017B4BC (RaspRectangleCreate.c)
+ *     BgpClearScreen @ 0x140327714 (BgpClearScreen.c)
  * Callees:
  *     <none>
  */

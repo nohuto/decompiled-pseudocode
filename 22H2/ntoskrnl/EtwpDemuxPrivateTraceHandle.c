@@ -1,21 +1,23 @@
 /*
- * XREFs of EtwpDemuxPrivateTraceHandle @ 0x1409EC580
+ * XREFs of EtwpDemuxPrivateTraceHandle @ 0x14093F06C
  * Callers:
- *     EtwpNotifyGuid @ 0x14077FEF8 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x140780210 (EtwpEnableGuid.c)
+ *     EtwpNotifyGuid @ 0x1407150A4 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x140715CA4 (EtwpEnableGuid.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     PidNodeCompare @ 0x1409ECE60 (PidNodeCompare.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     PidNodeCompare @ 0x14093F970 (PidNodeCompare.c)
  */
 
-__int64 __fastcall EtwpDemuxPrivateTraceHandle(int a1, unsigned __int16 a2, unsigned __int16 *a3)
+__int64 __fastcall EtwpDemuxPrivateTraceHandle(__int64 a1, __int64 a2, _WORD *a3)
 {
+  __int16 v4; // bp
+  int v5; // edi
   __int64 v7; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v9; // r15
+  ULONG_PTR v9; // r15
   __int64 v10; // rcx
   unsigned __int64 v11; // rbx
   unsigned int v12; // edi
@@ -26,54 +28,65 @@ __int64 __fastcall EtwpDemuxPrivateTraceHandle(int a1, unsigned __int16 a2, unsi
   __int64 *i; // rax
   int v18; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( a2 >= 0x40u )
+  v4 = a2;
+  v5 = a1;
+  if ( (unsigned __int16)a2 >= 0x40u )
   {
-    v7 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
+    v7 = *((_QWORD *)PsGetCurrentServerSiloGlobals(a1, a2) + 108);
     CurrentThread = KeGetCurrentThread();
-    v9 = (__int64 *)(v7 + 4096);
     --CurrentThread->KernelApcDisable;
+    v9 = v7 + 4096;
     ExAcquirePushLockExclusiveEx(v7 + 4096, 0LL);
     v10 = v7 + 4080;
-    v18 = a1;
+    v18 = v5;
     v11 = *(_QWORD *)(v7 + 4080);
     v12 = 0;
-    if ( (*(_BYTE *)(v10 + 8) & 1) != 0 && v11 )
-      v11 ^= v10;
-    v13 = *(_BYTE *)(v10 + 8) & 1;
-    while ( v11 )
+    if ( (*(_BYTE *)(v10 + 8) & 1) != 0 )
     {
-      v14 = PidNodeCompare(&v18, v11);
-      if ( v14 >= 0 )
-      {
-        if ( v14 <= 0 )
-          break;
-        v15 = *(_QWORD *)(v11 + 8);
-      }
+      if ( v11 )
+        v11 ^= v10;
       else
-      {
-        v15 = *(_QWORD *)v11;
-      }
-      if ( v13 && v15 )
-        v11 ^= v15;
-      else
-        v11 = v15;
+        v11 = 0LL;
     }
+    v13 = *(_BYTE *)(v10 + 8) & 1;
     if ( v11 )
     {
-      v16 = (__int64 **)(v11 + 32);
-      for ( i = *v16; i != (__int64 *)v16; i = (__int64 *)*i )
+      do
       {
-        if ( *((_WORD *)i + 9) == a2 )
+        v14 = PidNodeCompare(&v18, v11);
+        if ( v14 >= 0 )
         {
-          *a3 = *((_WORD *)i + 8);
-          goto LABEL_22;
+          if ( v14 <= 0 )
+            break;
+          v15 = *(_QWORD *)(v11 + 8);
+        }
+        else
+        {
+          v15 = *(_QWORD *)v11;
+        }
+        if ( v13 && v15 )
+          v11 ^= v15;
+        else
+          v11 = v15;
+      }
+      while ( v11 );
+      if ( v11 )
+      {
+        v16 = (__int64 **)(v11 + 32);
+        for ( i = *v16; i != (__int64 *)v16; i = (__int64 *)*i )
+        {
+          if ( *((_WORD *)i + 9) == v4 )
+          {
+            *a3 = *((_WORD *)i + 8);
+            goto LABEL_23;
+          }
         }
       }
     }
     v12 = -1073741162;
-LABEL_22:
+LABEL_23:
     ExReleasePushLockEx(v9, 0LL);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return v12;
   }
   else

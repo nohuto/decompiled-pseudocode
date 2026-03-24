@@ -1,9 +1,7 @@
 /*
- * XREFs of _tlgKeywordOn @ 0x1C004BBD4
+ * XREFs of _tlgKeywordOn @ 0x1C0050C8C
  * Callers:
- *     Etw_DeviceUpdate @ 0x1C001D774 (Etw_DeviceUpdate.c)
- *     Etw_ReportControllerHealthWithPortInfo @ 0x1C001F858 (Etw_ReportControllerHealthWithPortInfo.c)
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00532E4 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00505B8 (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
  *     <none>
  */

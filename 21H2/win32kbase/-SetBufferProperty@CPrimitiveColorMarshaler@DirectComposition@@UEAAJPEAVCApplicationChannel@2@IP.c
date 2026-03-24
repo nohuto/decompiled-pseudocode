@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CPrimitiveColorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0229610
+ * XREFs of ?SetBufferProperty@CPrimitiveColorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E98D0
  * Callers:
  *     <none>
  * Callees:
- *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00B4480 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
+ *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0093AA8 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CPrimitiveColorMarshaler::SetBufferProperty(
@@ -21,15 +21,15 @@ __int64 __fastcall DirectComposition::CPrimitiveColorMarshaler::SetBufferPropert
   *a6 = 0;
   if ( !a3 && a4 && a5 == 16 )
   {
-    v8 = *((_QWORD *)this + 8) - *a4;
+    v8 = *((_QWORD *)this + 7) - *a4;
     if ( !v8 )
-      v8 = *((_QWORD *)this + 9) - a4[1];
+      v8 = *((_QWORD *)this + 8) - a4[1];
     if ( v8 )
     {
-      *((_OWORD *)this + 4) = *(_OWORD *)a4;
+      *(_OWORD *)((char *)this + 56) = *(_OWORD *)a4;
       *a6 = 1;
     }
-    if ( *((_QWORD *)this + 5) )
+    if ( *((_QWORD *)this + 4) )
     {
       DirectComposition::CApplicationChannel::UnbindAllAnimations(a2, this);
       *a6 = 1;

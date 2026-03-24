@@ -1,11 +1,9 @@
 /*
- * XREFs of ?IsWDAGContainer@@YAHXZ @ 0x1C01D2234
+ * XREFs of ?IsWDAGContainer@@YAHXZ @ 0x1C0167578
  * Callers:
- *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C004EC00 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
- *     WindowMargins::_anonymous_namespace_::CalculateWindowMargins @ 0x1C00B2B24 (WindowMargins--_anonymous_namespace_--CalculateWindowMargins.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 IsWDAGContainer(void)
@@ -26,8 +24,8 @@ __int64 IsWDAGContainer(void)
   *(&ObjectAttributes.Attributes + 1) = 0;
   ResultLength = 0;
   DestinationString = 0LL;
-  if ( dword_1C0337E04 )
-    return (unsigned int)dword_1C0337E00;
+  if ( dword_1C033AEE0 )
+    return (unsigned int)dword_1C033AEDC;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Hvsi");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
@@ -52,8 +50,8 @@ __int64 IsWDAGContainer(void)
     ZwClose(KeyHandle);
   if ( (int)(v2 + 0x80000000) < 0 || v2 == -1073741772 )
   {
-    dword_1C0337E00 = v0;
-    dword_1C0337E04 = 1;
+    dword_1C033AEDC = v0;
+    dword_1C033AEE0 = 1;
   }
   return v0;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of BiGetPhysicalDriveName @ 0x140A1DCEC
+ * XREFs of BiGetPhysicalDriveName @ 0x14096FD8C
  * Callers:
- *     BiGetDriveLayoutBlock @ 0x1408031CC (BiGetDriveLayoutBlock.c)
- *     BiCreatePartitionDevice @ 0x14080397C (BiCreatePartitionDevice.c)
+ *     BiGetDriveLayoutBlock @ 0x140782D38 (BiGetDriveLayoutBlock.c)
+ *     BiCreatePartitionDevice @ 0x1407850C0 (BiCreatePartitionDevice.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     BiGetVolumeDiskExtentsInformation @ 0x140A1DE3C (BiGetVolumeDiskExtentsInformation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     BiGetVolumeDiskExtentsInformation @ 0x14096FEDC (BiGetVolumeDiskExtentsInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetPhysicalDriveName(PCWSTR SourceString, wchar_t **a2)
@@ -26,14 +26,15 @@ __int64 __fastcall BiGetPhysicalDriveName(PCWSTR SourceString, wchar_t **a2)
   HANDLE FileHandle; // [rsp+B0h] [rbp+30h] BYREF
   PVOID P; // [rsp+B8h] [rbp+38h]
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle = 0LL;
   P = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   IoStatusBlock = 0LL;

@@ -1,24 +1,21 @@
 /*
- * XREFs of DxgkPowerOnOffMonitor @ 0x1C01EFB34
+ * XREFs of DxgkPowerOnOffMonitor @ 0x1C0176CB4
  * Callers:
- *     DpiGdoDispatchInternalIoctl @ 0x1C01AAA60 (DpiGdoDispatchInternalIoctl.c)
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C0307E5C (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
- *     ?SetDisplayStateCallback@CTTMDEVICE@@CAJ_KW4_TERMINAL_DISPLAY_STATE@@K@Z @ 0x1C0355B10 (-SetDisplayStateCallback@CTTMDEVICE@@CAJ_KW4_TERMINAL_DISPLAY_STATE@@K@Z.c)
+ *     DpiGdoDispatchInternalIoctl @ 0x1C012D8F0 (DpiGdoDispatchInternalIoctl.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025FCF4 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?SetDisplayStateCallback@CTTMDEVICE@@CAJ_KW4_TERMINAL_DISPLAY_STATE@@K@Z @ 0x1C029F900 (-SetDisplayStateCallback@CTTMDEVICE@@CAJ_KW4_TERMINAL_DISPLAY_STATE@@K@Z.c)
  * Callees:
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0002EE4 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0005BE4 (--1MUTEX_LOCK@@QEAA@XZ.c)
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C0005D78 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
- *     DxgkReportMonitorPowerRapidHpdTrigerEvent @ 0x1C001A4EC (DxgkReportMonitorPowerRapidHpdTrigerEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C0198444 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01988F0 (DpiAcquireCoreSyncAccessSafe.c)
- *     DpiPdoSetDevicePower @ 0x1C01EFA60 (DpiPdoSetDevicePower.c)
- *     MonitorEnableDisableMonitor @ 0x1C01F01CC (MonitorEnableDisableMonitor.c)
- *     DpiFdoInvalidateChildRelations @ 0x1C01F5100 (DpiFdoInvalidateChildRelations.c)
- *     DpiPdoSetMonitorDriverInterfaceState @ 0x1C03AA04C (DpiPdoSetMonitorDriverInterfaceState.c)
- *     MonitorRemovePhysicalMonitor @ 0x1C03C4890 (MonitorRemovePhysicalMonitor.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000983C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C012E130 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C012E3AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     DpiPdoSetDevicePower @ 0x1C01755DC (DpiPdoSetDevicePower.c)
+ *     MonitorEnableDisableMonitor @ 0x1C01772F4 (MonitorEnableDisableMonitor.c)
+ *     DpiFdoInvalidateChildRelations @ 0x1C01780D0 (DpiFdoInvalidateChildRelations.c)
+ *     DpiPdoSetMonitorDriverInterfaceState @ 0x1C02D9F70 (DpiPdoSetMonitorDriverInterfaceState.c)
+ *     MonitorRemovePhysicalMonitor @ 0x1C02F4814 (MonitorRemovePhysicalMonitor.c)
  */
 
 __int64 __fastcall DxgkPowerOnOffMonitor(
@@ -30,69 +27,97 @@ __int64 __fastcall DxgkPowerOnOffMonitor(
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a6)
 {
   __int64 v6; // rbx
-  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *QuadPart; // r15
-  int *v8; // r13
+  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v7; // r13
+  int *v8; // r12
   bool v9; // zf
-  struct _DEVICE_OBJECT *v11; // rdi
-  unsigned int v12; // r12d
+  __int64 v10; // r14
+  __int64 v11; // rdi
+  unsigned int v12; // r15d
   int v14; // ecx
   __int64 v15; // rax
-  char *v16; // r13
-  _QWORD **v17; // rsi
-  _QWORD *v18; // r14
-  _QWORD *v19; // r15
-  _QWORD *v20; // r13
-  struct _DEVICE_OBJECT *v21; // rcx
-  struct _ERESOURCE *v22; // r14
-  int v23; // r14d
-  union _LARGE_INTEGER v24; // rax
-  __int64 v25; // r13
-  unsigned int v26; // esi
-  ULONG v27; // r12d
-  NTSTATUS v28; // eax
-  int v29; // eax
-  _QWORD *v30; // rsi
-  _QWORD *v31; // r14
-  PVOID v32; // r14
-  unsigned int v33; // esi
-  _QWORD *v34; // rbx
-  PVOID *v35; // rcx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  char *v20; // r12
+  struct _KWAIT_BLOCK *v21; // rax
+  _QWORD *v22; // r8
+  _QWORD *v23; // r14
+  unsigned int v24; // r13d
+  _QWORD *v25; // r15
+  struct _DEVICE_OBJECT *v26; // rcx
+  int v27; // r14d
+  union _LARGE_INTEGER v28; // rax
+  __int64 v29; // r12
+  unsigned int v30; // esi
+  ULONG v31; // r15d
+  NTSTATUS v32; // eax
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // r8
+  int v36; // eax
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  _QWORD *v39; // rsi
+  _QWORD *v40; // r14
+  PVOID v41; // r14
+  unsigned int v42; // esi
+  _QWORD *v43; // rbx
+  __int64 v44; // rax
   __int64 DeviceExtension; // rsi
-  PIRP v38; // rax
-  __int64 v39; // rcx
-  __int64 v40; // rax
-  _DWORD *i; // rsi
-  __int64 v42; // rcx
-  __int64 v43; // rcx
-  _QWORD *v44; // rcx
-  __int64 v45; // rax
-  int v46; // eax
-  char WaitMode; // [rsp+20h] [rbp-B9h]
-  unsigned int InputBuffer; // [rsp+50h] [rbp-89h] BYREF
-  PVOID Object; // [rsp+58h] [rbp-81h] BYREF
-  int *v50; // [rsp+60h] [rbp-79h]
-  unsigned int v51; // [rsp+68h] [rbp-71h]
-  PVOID P; // [rsp+70h] [rbp-69h]
-  _DWORD *v53; // [rsp+78h] [rbp-61h]
-  __int64 v54; // [rsp+80h] [rbp-59h]
-  union _LARGE_INTEGER Timeout; // [rsp+88h] [rbp-51h] BYREF
-  PKWAIT_BLOCK WaitBlockArray; // [rsp+90h] [rbp-49h]
-  struct _KEVENT Event; // [rsp+98h] [rbp-41h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-29h] BYREF
-  __int128 v59; // [rsp+C0h] [rbp-19h] BYREF
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  struct _DEVICE_OBJECT *AttachedDeviceReference; // r12
+  PIRP v50; // rax
+  __int64 v51; // rdx
+  __int64 v52; // rcx
+  __int64 v53; // r8
+  __int64 v54; // r9
+  __int64 v55; // rcx
+  __int64 v56; // rax
+  __int64 v57; // rax
+  __int64 v58; // rcx
+  __int64 v59; // rax
+  __int64 v60; // rax
+  __int64 v61; // rax
+  __int64 v62; // rax
+  __int64 v63; // rdx
+  __int64 v64; // rcx
+  __int64 v65; // rax
+  _QWORD *v66; // rcx
+  __int64 v67; // rax
+  int v68; // eax
+  __int64 v69; // rdx
+  __int64 v70; // rcx
+  __int64 v71; // r8
+  __int64 v72; // rax
+  __int64 v73; // rax
+  int WaitMode; // [rsp+20h] [rbp-A9h]
+  unsigned int InputBuffer; // [rsp+50h] [rbp-79h] BYREF
+  int *v76; // [rsp+58h] [rbp-71h]
+  unsigned int v77; // [rsp+60h] [rbp-69h]
+  PVOID P; // [rsp+68h] [rbp-61h]
+  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *QuadPart; // [rsp+70h] [rbp-59h]
+  _DWORD *v80; // [rsp+78h] [rbp-51h]
+  PKWAIT_BLOCK WaitBlockArray; // [rsp+80h] [rbp-49h]
+  __int64 v82; // [rsp+88h] [rbp-41h]
+  union _LARGE_INTEGER Timeout[2]; // [rsp+90h] [rbp-39h] BYREF
+  struct _KEVENT Event; // [rsp+A0h] [rbp-29h] BYREF
+  __int128 v85; // [rsp+B8h] [rbp-11h] BYREF
 
   v6 = *(_QWORD *)(a1 + 64);
-  QuadPart = a6;
-  v59 = 0LL;
+  v7 = a6;
+  v85 = 0LL;
   v8 = a4;
-  v50 = a4;
-  v9 = *(_DWORD *)(v6 + 3500) == -1;
-  v53 = a3;
-  v51 = a2;
+  v76 = a4;
+  v9 = *(_DWORD *)(v6 + 3484) == -1;
+  v80 = a3;
+  v10 = a1;
+  v77 = a2;
   LODWORD(v11) = 0;
-  v54 = a1;
+  v82 = a1;
   v12 = 0;
-  Timeout.QuadPart = (LONGLONG)a6;
+  QuadPart = a6;
   InputBuffer = 0;
   P = 0LL;
   WaitBlockArray = 0LL;
@@ -100,27 +125,18 @@ __int64 __fastcall DxgkPowerOnOffMonitor(
     KeWaitForSingleObject(&::Event, Executive, 0, 0, 0LL);
   if ( *v8 <= 1 )
   {
-    for ( i = MONITOR_MGR::_pUsb4Manager; ; KeWaitForSingleObject(i + 32, Executive, 0, 0, 0LL) )
-    {
-      MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)&Object, (struct DXGFASTMUTEX *)(i + 20));
-      if ( !i[18] )
-        break;
-      MUTEX_LOCK::~MUTEX_LOCK((DXGFASTMUTEX **)&Object);
-    }
-    MUTEX_LOCK::~MUTEX_LOCK((DXGFASTMUTEX **)&Object);
     a5 = 1;
   }
   else
   {
-    DisplayLogSetMonitorPowerStage(a6, 1LL, 0LL, &v59);
-    LODWORD(v11) = DpiAcquireCoreSyncAccessSafe(a1, 1);
+    DisplayLogSetMonitorPowerStage(a6, 1LL, 0LL, &v85);
+    LODWORD(v11) = DpiAcquireCoreSyncAccessSafe(v10, 1);
     if ( (int)v11 >= 0 )
     {
-      DxgkReportMonitorPowerRapidHpdTrigerEvent(*(_QWORD *)(v6 + 3912), 1u);
-      MonitorEnableDisableMonitor(*(struct DXGADAPTER **)(v6 + 3912), WaitMode, 1LL, a6);
-      DpiReleaseCoreSyncAccessSafe(a1, 1);
+      MonitorEnableDisableMonitor(*(DXGADAPTER **)(v6 + 3896), WaitMode, 1LL, (__int64)a6);
+      DpiReleaseCoreSyncAccessSafe(v10, 1);
     }
-    DisplayLogSetMonitorPowerStage(a6, 2147483649LL, (unsigned int)v11, &v59);
+    DisplayLogSetMonitorPowerStage(a6, 2147483649LL, (unsigned int)v11, &v85);
   }
   KeEnterCriticalRegion();
   if ( *(_BYTE *)(v6 + 484) )
@@ -129,83 +145,87 @@ __int64 __fastcall DxgkPowerOnOffMonitor(
   v14 = *(_DWORD *)(v6 + 236);
   if ( v14 == 2 || *(_DWORD *)(v6 + 240) == 2 && ((v14 - 3) & 0xFFFFFFFC) == 0 && v14 != 4 )
   {
-    if ( *(_BYTE *)(v6 + 3529) && *v8 == 1 )
+    if ( *(_BYTE *)(v6 + 3513) && *v8 == 1 )
     {
-      DisplayLogSetMonitorPowerStage(a6, 2LL, 0LL, &v59);
-      DpiFdoInvalidateChildRelations(a1, 6LL, a6);
-      DisplayLogSetMonitorPowerStage(a6, 2147483650LL, 0LL, &v59);
+      DisplayLogSetMonitorPowerStage(a6, 2LL, 0LL, &v85);
+      DpiFdoInvalidateChildRelations(v10, 6LL, a6);
+      DisplayLogSetMonitorPowerStage(a6, 2147483650LL, 0LL, &v85);
     }
-    DisplayLogSetMonitorPowerStage(a6, 4LL, 0LL, &v59);
+    DisplayLogSetMonitorPowerStage(a6, 4LL, 0LL, &v85);
     KeEnterCriticalRegion();
-    ExAcquireResourceSharedLite((PERESOURCE)(v6 + 3320), 1u);
+    ExAcquireResourceSharedLite((PERESOURCE)(v6 + 3304), 1u);
     if ( a5 )
     {
-      v15 = *(unsigned int *)(v6 + 3680);
+      v15 = *(unsigned int *)(v6 + 3664);
       if ( (_DWORD)v15 )
       {
-        P = (PVOID)ExAllocatePool2(64LL, 56 * v15, 1953656900LL);
-        v16 = (char *)P;
+        P = ExAllocatePoolWithTag((POOL_TYPE)512, 56 * v15, 0x74727044u);
+        v20 = (char *)P;
         if ( !P )
-          WdLogSingleEntry1(6LL, 0LL);
-        WaitBlockArray = (PKWAIT_BLOCK)&v16[8 * *(unsigned int *)(v6 + 3680)];
+        {
+          v57 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+          *(_QWORD *)(v57 + 24) = 0LL;
+          WdLogEvent5_WdLowResource(v57);
+        }
+        v21 = (struct _KWAIT_BLOCK *)&v20[8 * *(unsigned int *)(v6 + 3664)];
+        v8 = v76;
+        WaitBlockArray = v21;
       }
     }
-    v17 = (_QWORD **)(v6 + 3480);
-    v18 = *(_QWORD **)(v6 + 3480);
-    if ( v18 != (_QWORD *)(v6 + 3480) )
+    v22 = (_QWORD *)(v6 + 3464);
+    v23 = *(_QWORD **)(v6 + 3464);
+    if ( v23 != (_QWORD *)(v6 + 3464) )
     {
-      v19 = P;
+      v24 = 0;
       do
       {
-        v20 = v18 - 4;
-        v18 = (_QWORD *)*v18;
-        if ( *(_DWORD *)v20 == 1 )
+        v25 = v23 - 4;
+        v23 = (_QWORD *)*v23;
+        if ( *(_DWORD *)v25 == 1 )
         {
-          if ( *v53 == -1 )
+          if ( *v80 == -1 )
             goto LABEL_20;
-          v42 = 0LL;
-          if ( v51 )
+          v58 = 0LL;
+          if ( v77 )
           {
             do
             {
-              if ( v53[v42] == *((_DWORD *)v20 + 6) )
+              if ( v80[v58] == *((_DWORD *)v25 + 6) )
                 break;
-              v42 = (unsigned int)(v42 + 1);
+              v58 = (unsigned int)(v58 + 1);
             }
-            while ( (unsigned int)v42 < v51 );
-            if ( (unsigned int)v42 < v51 )
+            while ( (unsigned int)v58 < v77 );
+            if ( (unsigned int)v58 < v77 )
             {
 LABEL_20:
-              v21 = (struct _DEVICE_OBJECT *)v20[6];
-              if ( v21 )
+              v26 = (struct _DEVICE_OBJECT *)v25[6];
+              if ( v26 )
               {
-                DeviceExtension = (__int64)v21->DeviceExtension;
-                Object = IoGetAttachedDeviceReference(v21);
-                v11 = (struct _DEVICE_OBJECT *)Object;
-                if ( Object )
+                DeviceExtension = (__int64)v26->DeviceExtension;
+                AttachedDeviceReference = IoGetAttachedDeviceReference(v26);
+                if ( AttachedDeviceReference )
                 {
-                  memset(&Event, 0, sizeof(Event));
-                  IoStatusBlock = 0LL;
+                  *(_OWORD *)&Timeout[0].LowPart = 0LL;
                   KeInitializeEvent(&Event, NotificationEvent, 0);
-                  InputBuffer = *v50;
-                  v38 = IoBuildDeviceIoControlRequest(
+                  InputBuffer = *v76;
+                  v50 = IoBuildDeviceIoControlRequest(
                           0x23242Fu,
-                          v11,
+                          AttachedDeviceReference,
                           &InputBuffer,
                           4u,
                           0LL,
                           0,
                           1u,
                           &Event,
-                          &IoStatusBlock);
-                  if ( v38 )
+                          (PIO_STATUS_BLOCK)Timeout);
+                  if ( v50 )
                   {
-                    v38->IoStatus.Status = -1073741637;
-                    LODWORD(v11) = IofCallDriver(v11, v38);
+                    v50->IoStatus.Status = -1073741637;
+                    LODWORD(v11) = IofCallDriver(AttachedDeviceReference, v50);
                     if ( (_DWORD)v11 == 259 )
                     {
                       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-                      LODWORD(v11) = IoStatusBlock.Status;
+                      LODWORD(v11) = Timeout[0].LowPart;
                     }
                     if ( (int)v11 < 0 )
                     {
@@ -213,48 +233,52 @@ LABEL_20:
                       if ( *(_BYTE *)(DeviceExtension + 484) )
                         DpiCheckForOutstandingD3Requests(DeviceExtension);
                       ExAcquireResourceExclusiveLite(*(PERESOURCE *)(DeviceExtension + 168), 1u);
-                      LODWORD(v11) = DpiPdoSetDevicePower(v20[6], *v50, 0);
+                      LODWORD(v11) = DpiPdoSetDevicePower(v25[6], *v76, 0);
                       if ( *(_BYTE *)(DeviceExtension + 484) )
                         DpiEnableD3Requests(*(_QWORD *)(DeviceExtension + 24));
                       ExReleaseResourceLite(*(PERESOURCE *)(DeviceExtension + 168));
                       KeLeaveCriticalRegion();
                     }
-                    else if ( v19 )
+                    else if ( P )
                     {
                       ObfReferenceObject(*(PVOID *)(DeviceExtension + 24));
-                      v39 = 1008LL;
-                      v40 = v12;
-                      if ( *v50 != 1 )
-                        v39 = 984LL;
-                      ++v12;
-                      v19[v40] = DeviceExtension + v39;
+                      v55 = 1008LL;
+                      if ( *v76 != 1 )
+                        v55 = 984LL;
+                      v56 = v24++;
+                      *((_QWORD *)P + v56) = DeviceExtension + v55;
                     }
                   }
                   else
                   {
                     LODWORD(v11) = -1073741670;
-                    WdLogSingleEntry1(6LL, -1073741670LL);
+                    v59 = WdLogNewEntry5_WdLowResource(v52, v51, v53, v54);
+                    *(_QWORD *)(v59 + 24) = -1073741670LL;
+                    WdLogEvent5_WdLowResource(v59);
                   }
-                  ObfDereferenceObject(Object);
+                  ObfDereferenceObject(AttachedDeviceReference);
                 }
                 else
                 {
                   LODWORD(v11) = -1073741823;
-                  WdLogSingleEntry1(2LL, -1073741823LL);
+                  v60 = WdLogNewEntry5_WdError(v48, v47);
+                  *(_QWORD *)(v60 + 24) = -1073741823LL;
+                  WdLogEvent5_WdError(v60);
                 }
-                v17 = (_QWORD **)(v6 + 3480);
+                v8 = v76;
+                v22 = (_QWORD *)(v6 + 3464);
               }
-              *((_DWORD *)v20 + 17) = *v50;
+              *((_DWORD *)v25 + 17) = *v8;
             }
           }
         }
       }
-      while ( v18 != v17 );
-      QuadPart = (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)Timeout.QuadPart;
-      InputBuffer = v12;
+      while ( v23 != v22 );
+      InputBuffer = v24;
+      v7 = QuadPart;
+      v12 = InputBuffer;
     }
-    v22 = (struct _ERESOURCE *)(v6 + 3320);
-    ExReleaseResourceLite((PERESOURCE)(v6 + 3320));
+    ExReleaseResourceLite((PERESOURCE)(v6 + 3304));
     KeLeaveCriticalRegion();
     if ( *(_BYTE *)(v6 + 484) )
       DpiEnableD3Requests(*(_QWORD *)(v6 + 24));
@@ -262,52 +286,59 @@ LABEL_20:
     KeLeaveCriticalRegion();
     if ( v12 )
     {
-      v23 = 10;
-      v24.QuadPart = -1000000LL * v12;
-      Object = (PVOID)v24.QuadPart;
-LABEL_28:
-      v25 = 0LL;
-      v26 = v12;
-      --v23;
-      while ( 1 )
+      v27 = 10;
+      v28.QuadPart = -1000000LL * v12;
+      QuadPart = (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v28.QuadPart;
+      do
       {
-        Timeout = v24;
-        v27 = v26;
-        if ( v26 > 0x40 )
-          v27 = 64;
-        v28 = KeWaitForMultipleObjects(v27, (PVOID *)P + v25, WaitAll, Executive, 0, 0, &Timeout, WaitBlockArray);
-        v11 = (struct _DEVICE_OBJECT *)v28;
-        if ( v28 == 258 )
+        v29 = 0LL;
+        v30 = v12;
+        --v27;
+        do
         {
-          v43 = 3LL;
-          if ( !v23 )
-            v43 = 2LL;
-          WdLogSingleEntry1(v43, 258LL);
-        }
-        else if ( v28 )
-        {
-          DisplayLogSetMonitorPowerStage(QuadPart, 2147483652LL, (unsigned int)v28, &v59);
-          WdLogSingleEntry1(2LL, v11);
-          v8 = v50;
-          goto LABEL_49;
-        }
-        v24.QuadPart = (LONGLONG)Object;
-        v25 = v27 + (unsigned int)v25;
-        v26 -= v27;
-        if ( !v26 )
-        {
-          if ( (_DWORD)v11 != 258 || (v12 = InputBuffer, !v23) )
+          Timeout[0] = v28;
+          v31 = v30;
+          if ( v30 > 0x40 )
+            v31 = 64;
+          v32 = KeWaitForMultipleObjects(v31, (PVOID *)P + v29, WaitAll, Executive, 0, 0, Timeout, WaitBlockArray);
+          v11 = v32;
+          if ( v32 == 258 )
           {
-            v22 = (struct _ERESOURCE *)(v6 + 3320);
-            v17 = (_QWORD **)(v6 + 3480);
-            break;
+            if ( v27 )
+            {
+              v61 = WdLogNewEntry5_WdWarning(v34, v33, v35);
+              *(_QWORD *)(v61 + 24) = 258LL;
+              WdLogEvent5_WdWarning(v61);
+            }
+            else
+            {
+              v62 = WdLogNewEntry5_WdError(v34, v33);
+              *(_QWORD *)(v62 + 24) = 258LL;
+              WdLogEvent5_WdError(v62);
+            }
           }
-          goto LABEL_28;
+          else if ( v32 )
+          {
+            DisplayLogSetMonitorPowerStage(v7, 2147483652LL, (unsigned int)v32, &v85);
+            v65 = WdLogNewEntry5_WdError(v64, v63);
+            *(_QWORD *)(v65 + 24) = v11;
+            WdLogEvent5_WdError(v65);
+            goto LABEL_48;
+          }
+          v28.QuadPart = (LONGLONG)QuadPart;
+          v29 = v31 + (unsigned int)v29;
+          v30 -= v31;
         }
+        while ( v30 );
+        if ( (_DWORD)v11 != 258 )
+          break;
+        v12 = InputBuffer;
       }
+      while ( v27 );
     }
-    DisplayLogSetMonitorPowerStage(QuadPart, 2147483652LL, (unsigned int)v11, &v59);
-    v8 = v50;
+    DisplayLogSetMonitorPowerStage(v7, 2147483652LL, (unsigned int)v11, &v85);
+    v8 = v76;
+    v10 = v82;
   }
   else
   {
@@ -315,87 +346,89 @@ LABEL_28:
       DpiEnableD3Requests(*(_QWORD *)(v6 + 24));
     ExReleaseResourceLite(*(PERESOURCE *)(v6 + 168));
     KeLeaveCriticalRegion();
-    v22 = (struct _ERESOURCE *)(v6 + 3320);
-    v17 = (_QWORD **)(v6 + 3480);
   }
   if ( *v8 == 1 )
   {
-    DisplayLogSetMonitorPowerStage(QuadPart, 8LL, 0LL, &v59);
+    DisplayLogSetMonitorPowerStage(v7, 8LL, 0LL, &v85);
     KeEnterCriticalRegion();
     if ( *(_BYTE *)(v6 + 484) )
       DpiCheckForOutstandingD3Requests(v6);
     ExAcquireResourceSharedLite(*(PERESOURCE *)(v6 + 168), 1u);
     KeEnterCriticalRegion();
-    ExAcquireResourceSharedLite(v22, 1u);
-    v29 = DpiAcquireCoreSyncAccessSafe(v54, 1);
-    LODWORD(v11) = v29;
-    if ( v29 < 0 )
+    ExAcquireResourceSharedLite((PERESOURCE)(v6 + 3304), 1u);
+    v36 = DpiAcquireCoreSyncAccessSafe(v10, 1);
+    v11 = v36;
+    if ( v36 < 0 )
     {
-      WdLogSingleEntry1(4LL, v29);
+      v73 = WdLogNewEntry5_WdEvent(v38, v37);
+      *(_QWORD *)(v73 + 24) = v11;
+      WdLogEvent5_WdEvent(v73);
     }
     else
     {
-      v30 = *v17;
-      if ( v30 != (_QWORD *)(v6 + 3480) )
+      v39 = *(_QWORD **)(v6 + 3464);
+      if ( v39 != (_QWORD *)(v6 + 3464) )
       {
         do
         {
-          v31 = v30;
-          v30 = (_QWORD *)*v30;
-          if ( IsInternalVideoOutput(*((enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)v31 - 7)) && !*((_BYTE *)v31 + 34) )
+          v40 = v39;
+          v39 = (_QWORD *)*v39;
+          if ( IsInternalVideoOutput(*((enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)v40 - 7)) && !*((_BYTE *)v40 + 34) )
           {
-            MonitorRemovePhysicalMonitor(*(void **)(v6 + 3912), *((_DWORD *)v31 - 2), (__int64)QuadPart);
-            v44 = (_QWORD *)v31[2];
-            if ( v44 )
+            MonitorRemovePhysicalMonitor(*(void **)(v6 + 3896), *((_DWORD *)v40 - 2), 0, v7);
+            v66 = (_QWORD *)v40[2];
+            v67 = v66 ? v66[8] : 0LL;
+            if ( v67 )
             {
-              v45 = v44[8];
-              if ( v45 )
+              if ( *(_BYTE *)(v67 + 944) )
               {
-                if ( *(_BYTE *)(v45 + 944) )
+                v68 = DpiPdoSetMonitorDriverInterfaceState(v66);
+                v11 = v68;
+                if ( v68 < 0 )
                 {
-                  v46 = DpiPdoSetMonitorDriverInterfaceState(v44);
-                  LODWORD(v11) = v46;
-                  if ( v46 < 0 )
-                    WdLogSingleEntry1(3LL, v46);
+                  v72 = WdLogNewEntry5_WdWarning(v70, v69, v71);
+                  *(_QWORD *)(v72 + 24) = v11;
+                  WdLogEvent5_WdWarning(v72);
                 }
               }
             }
           }
         }
-        while ( v30 != (_QWORD *)(v6 + 3480) );
-        v22 = (struct _ERESOURCE *)(v6 + 3320);
+        while ( v39 != (_QWORD *)(v6 + 3464) );
+        v10 = v82;
       }
-      DxgkReportMonitorPowerRapidHpdTrigerEvent(*(_QWORD *)(v6 + 3912), 0);
-      MonitorEnableDisableMonitor(*(struct DXGADAPTER **)(v6 + 3912), WaitMode, 0LL, QuadPart);
-      DpiReleaseCoreSyncAccessSafe(v54, 1);
+      MonitorEnableDisableMonitor(*(DXGADAPTER **)(v6 + 3896), WaitMode, 0LL, (__int64)v7);
+      DpiReleaseCoreSyncAccessSafe(v10, 1);
     }
-    DisplayLogSetMonitorPowerStage(QuadPart, 2147483656LL, (unsigned int)v11, &v59);
-    ExReleaseResourceLite(v22);
+    DisplayLogSetMonitorPowerStage(v7, 2147483656LL, (unsigned int)v11, &v85);
+    ExReleaseResourceLite((PERESOURCE)(v6 + 3304));
     KeLeaveCriticalRegion();
     if ( *(_BYTE *)(v6 + 484) )
       DpiEnableD3Requests(*(_QWORD *)(v6 + 24));
     ExReleaseResourceLite(*(PERESOURCE *)(v6 + 168));
     KeLeaveCriticalRegion();
+LABEL_48:
+    v8 = v76;
   }
-LABEL_49:
-  v32 = P;
+  v41 = P;
   if ( P )
   {
-    v33 = InputBuffer;
+    v42 = InputBuffer;
     if ( InputBuffer )
     {
-      v34 = (char *)P + 8 * InputBuffer;
+      v43 = (char *)P + 8 * InputBuffer;
       do
       {
-        v35 = (PVOID *)(*--v34 - 984LL);
+        --v43;
+        v44 = 1008LL;
         if ( *v8 != 1 )
-          v35 = (PVOID *)(*v34 - 960LL);
-        ObfDereferenceObject(*v35);
-        --v33;
+          v44 = 984LL;
+        ObfDereferenceObject(*(PVOID *)(*v43 - v44 + 24));
+        --v42;
       }
-      while ( v33 );
+      while ( v42 );
     }
-    ExFreePoolWithTag(v32, 0);
+    ExFreePoolWithTag(v41, 0);
   }
   return (unsigned int)v11;
 }

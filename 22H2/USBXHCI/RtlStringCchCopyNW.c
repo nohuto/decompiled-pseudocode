@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCchCopyNW @ 0x1C0053CA0
+ * XREFs of RtlStringCchCopyNW @ 0x1C0050EC0
  * Callers:
- *     WerKernelSubmitReport @ 0x1C0053FE0 (WerKernelSubmitReport.c)
+ *     WerKernelSubmitReport @ 0x1C005121C (WerKernelSubmitReport.c)
  * Callees:
  *     <none>
  */
@@ -12,44 +12,50 @@ NTSTATUS __stdcall RtlStringCchCopyNW(
         STRSAFE_PCNZWCH pszSrc,
         size_t cchToCopy)
 {
-  size_t v4; // r10
-  NTSTATUS result; // eax
-  size_t v6; // r9
-  signed __int64 v7; // r8
-  wchar_t v8; // ax
-  NTSTRSAFE_PWSTR v9; // rax
+  NTSTATUS v4; // r10d
+  size_t v5; // r9
+  signed __int64 v6; // r8
+  wchar_t v7; // ax
+  NTSTRSAFE_PWSTR v8; // rax
 
-  v4 = cchDest;
+  v4 = 0;
   if ( cchDest - 1 > 0x7FFFFFFE )
+    v4 = -1073741811;
+  if ( v4 < 0 )
   {
-    result = -1073741811;
-    if ( !cchDest )
-      return result;
-    goto LABEL_12;
+    if ( cchDest )
+      goto LABEL_15;
   }
-  if ( cchToCopy > 0x7FFFFFFE )
+  else
   {
-    result = -1073741811;
-LABEL_12:
-    *pszDest = 0;
-    return result;
+    if ( cchToCopy > 0x7FFFFFFE )
+    {
+      v4 = -1073741811;
+LABEL_15:
+      *pszDest = 0;
+      return v4;
+    }
+    if ( cchDest )
+    {
+      v5 = cchToCopy - cchDest;
+      v6 = (char *)pszSrc - (char *)pszDest;
+      do
+      {
+        if ( !(v5 + cchDest) )
+          break;
+        v7 = *(NTSTRSAFE_PWSTR)((char *)pszDest + v6);
+        if ( !v7 )
+          break;
+        *pszDest++ = v7;
+        --cchDest;
+      }
+      while ( cchDest );
+    }
+    v8 = pszDest - 1;
+    if ( cchDest )
+      v8 = pszDest;
+    v4 = cchDest == 0 ? 0x80000005 : 0;
+    *v8 = 0;
   }
-  v6 = cchToCopy - cchDest;
-  v7 = (char *)pszSrc - (char *)pszDest;
-  do
-  {
-    if ( !(v6 + v4) )
-      break;
-    v8 = *(NTSTRSAFE_PWSTR)((char *)pszDest + v7);
-    if ( !v8 )
-      break;
-    *pszDest++ = v8;
-    --v4;
-  }
-  while ( v4 );
-  v9 = pszDest - 1;
-  if ( v4 )
-    v9 = pszDest;
-  *v9 = 0;
-  return v4 == 0 ? 0x80000005 : 0;
+  return v4;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of BvgaDisplayString @ 0x1405518C0
+ * XREFs of BvgaDisplayString @ 0x1404FFC50
  * Callers:
  *     <none>
  * Callees:
- *     HeadlessDispatch @ 0x1403C2310 (HeadlessDispatch.c)
- *     BvgaAcquireLock @ 0x1405517A0 (BvgaAcquireLock.c)
- *     BvgaReleaseLock @ 0x140551AA0 (BvgaReleaseLock.c)
+ *     HeadlessDispatch @ 0x1403AF760 (HeadlessDispatch.c)
+ *     BvgaAcquireLock @ 0x1404FFB30 (BvgaAcquireLock.c)
+ *     BvgaReleaseLock @ 0x1404FFE30 (BvgaReleaseLock.c)
  */
 
 char __fastcall BvgaDisplayString(__int64 a1)

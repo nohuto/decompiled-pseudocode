@@ -1,50 +1,48 @@
 /*
- * XREFs of ?_LoadCursorsAndIcons@@YAHXZ @ 0x1C0115D4C
+ * XREFs of ?_LoadCursorsAndIcons@@YAHXZ @ 0x1C00259E0
  * Callers:
- *     NtUserLoadCursorsAndIcons @ 0x1C0115D10 (NtUserLoadCursorsAndIcons.c)
+ *     <none>
  * Callees:
- *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C00A1C0C (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C00249F4 (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall _LoadCursorsAndIcons(__int64 a1, __int64 a2)
+__int64 _LoadCursorsAndIcons(void)
 {
-  __int64 v2; // rdi
+  __int64 v0; // rdi
   struct tagCURSOR *i; // rbx
-  __int64 v4; // rcx
-  __int64 v5; // rax
-  unsigned int v6; // esi
-  __int64 v8; // rcx
-  _QWORD v9[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v2; // rax
+  unsigned int v3; // esi
+  __int64 v5; // rcx
+  _QWORD v6[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( PsGetCurrentProcess(a1, a2) == gpepCSRSS )
+  if ( PsGetCurrentProcess() == gpepCSRSS )
   {
-    v2 = 0LL;
+    v0 = 0LL;
     gdwHydraHint |= 0x4000u;
     for ( i = gpcurFirst; i; i = (struct tagCURSOR *)*((_QWORD *)i + 4) )
     {
-      v4 = (unsigned int)*((unsigned __int16 *)i + 37) - 1;
       if ( *((_WORD *)i + 37) == 1 )
       {
         if ( *((struct tagCURSOR **)i + 6) == i )
         {
-          v5 = *((unsigned __int16 *)i + 32);
-          v6 = v5 - 100;
-          if ( (unsigned int)(v5 - 100) > 0x12 || (v4 = 552 * v5, gasyscur[69 * v5 - 6899]) )
-            MicrosoftTelemetryAssertTriggeredNoArgsKM(v4);
-          zzzInternalSetSystemCursor((__int64)i, v6, (const struct _UNICODE_STRING *)((char *)i + 56), 0);
+          v2 = *((unsigned __int16 *)i + 32);
+          v3 = v2 - 100;
+          if ( (unsigned int)(v2 - 100) > 0x12 || gasyscur[69 * v2 - 6899] )
+            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 720LL);
+          zzzInternalSetSystemCursor((__int64)i, v3, (const struct _UNICODE_STRING *)((char *)i + 56), 0);
         }
       }
       else if ( *((_WORD *)i + 37) == 3 )
       {
-        v8 = 552 * (*((unsigned __int16 *)i + 32) - 100LL);
-        *((_QWORD *)i + 8) = *(unsigned __int16 *)((char *)&gasysico + v8);
+        v5 = 552 * (*((unsigned __int16 *)i + 32) - 100LL);
+        *((_QWORD *)i + 8) = *(unsigned __int16 *)((char *)&gasysico + v5);
         if ( (*((_DWORD *)i + 20) & 4) != 0 )
         {
-          v9[1] = i;
-          v9[0] = (char *)&gasysico + v8 + 8;
-          HMAssignmentLock(v9, 0LL);
+          v6[1] = i;
+          v6[0] = (char *)&gasysico + v5 + 8;
+          HMAssignmentLock(v6);
         }
         else
         {
@@ -52,9 +50,9 @@ __int64 __fastcall _LoadCursorsAndIcons(__int64 a1, __int64 a2)
         }
       }
     }
-    if ( qword_1C032CB00 )
-      v2 = *(_QWORD *)qword_1C032CB00;
-    *(_QWORD *)(gpsi + 6976LL) = v2;
+    if ( qword_1C03317D0 )
+      v0 = *(_QWORD *)qword_1C03317D0;
+    *(_QWORD *)(gpsi + 6976LL) = v0;
   }
   return 1LL;
 }

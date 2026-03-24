@@ -1,37 +1,34 @@
 /*
- * XREFs of ?UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z @ 0x1C00BE5B4
+ * XREFs of ?UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z @ 0x1C000C174
  * Callers:
- *     ??0CMouseAcceleration@@IEAA@I@Z @ 0x1C00BE518 (--0CMouseAcceleration@@IEAA@I@Z.c)
- *     UpdateMouseSensitivity @ 0x1C00BE580 (UpdateMouseSensitivity.c)
- *     UnpackMouseSettings @ 0x1C01E8C74 (UnpackMouseSettings.c)
+ *     ??0CMouseAcceleration@@IEAA@I@Z @ 0x1C000AE14 (--0CMouseAcceleration@@IEAA@I@Z.c)
+ *     UpdateMouseSensitivity @ 0x1C000C140 (UpdateMouseSensitivity.c)
+ *     UnpackMouseSettings @ 0x1C01AF9A0 (UnpackMouseSettings.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CMouseAcceleration::MOUSE_SENSITIVITY_INFO::UpdateMouseSensitivity(
         CMouseAcceleration::MOUSE_SENSITIVITY_INFO *this,
-        __int64 a2,
-        __int64 a3)
+        unsigned int a2)
 {
-  unsigned int v3; // ebx
-  unsigned int v5; // eax
-  unsigned int v6; // ebx
+  unsigned int v4; // eax
+  unsigned int v5; // ebx
 
-  v3 = a2;
-  if ( (unsigned int)(a2 - 1) > 0x13 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
-  *(_DWORD *)this = v3;
-  if ( v3 <= 2 )
+  if ( a2 - 1 > 0x13 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 519LL);
+  *(_DWORD *)this = a2;
+  if ( a2 <= 2 )
   {
-    v6 = (8 * v3) & 0x7FFFFFF;
+    v5 = (8 * a2) & 0x7FFFFFF;
   }
   else
   {
-    v5 = v3 << 8;
-    if ( v3 > 0xA )
-      v6 = (v5 - 1536) >> 2;
+    v4 = a2 << 8;
+    if ( a2 > 0xA )
+      v5 = (v4 - 1536) >> 2;
     else
-      v6 = (v5 - 512) >> 3;
+      v5 = (v4 - 512) >> 3;
   }
-  *((_DWORD *)this + 1) = v6;
+  *((_DWORD *)this + 1) = v5;
 }

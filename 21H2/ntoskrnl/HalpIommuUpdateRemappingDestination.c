@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuUpdateRemappingDestination @ 0x140A61B28
+ * XREFs of HalpIommuUpdateRemappingDestination @ 0x1409A7420
  * Callers:
- *     HalpUpdateIrtDestinationId @ 0x14051DB48 (HalpUpdateIrtDestinationId.c)
+ *     HalpUpdateIrtDestinationId @ 0x1404D1598 (HalpUpdateIrtDestinationId.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuUpdateRemappingDestination(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -21,7 +21,7 @@ __int64 __fastcall HalpIommuUpdateRemappingDestination(__int64 a1, __int64 a2, _
   {
     v9 = v5;
     v5 = (__int64 *)*v5;
-    result = *((unsigned int *)v9 + 118);
+    result = *((unsigned int *)v9 + 114);
     if ( (result & 0x40) != 0 )
     {
       LOBYTE(a2) = 1;

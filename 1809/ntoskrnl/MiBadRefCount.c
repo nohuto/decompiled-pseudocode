@@ -1,9 +1,9 @@
 /*
- * XREFs of MiBadRefCount @ 0x1402BF798
+ * XREFs of MiBadRefCount @ 0x1402BF898
  * Callers:
- *     MiFreeInitializationCode @ 0x1406C783C (MiFreeInitializationCode.c)
+ *     MiFreeInitializationCode @ 0x1406C781C (MiFreeInitializationCode.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn MiBadRefCount(__int64 a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of rimCompleteReads @ 0x1C0074F84
+ * XREFs of rimCompleteReads @ 0x1C0054548
  * Callers:
- *     RIMReadInput @ 0x1C0077620 (RIMReadInput.c)
+ *     RIMReadInput @ 0x1C00542C0 (RIMReadInput.c)
  * Callees:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0004A38 (rimProcessDeviceBufferAndStartRead.c)
- *     RimDeviceTypeToRimInputType @ 0x1C0005B28 (RimDeviceTypeToRimInputType.c)
- *     DeviceTypeToRimInputType @ 0x1C00750D0 (DeviceTypeToRimInputType.c)
- *     RimInputTypeToDeviceType @ 0x1C0075110 (RimInputTypeToDeviceType.c)
- *     rimFindPausedDeviceAndCompleteRead @ 0x1C0075170 (rimFindPausedDeviceAndCompleteRead.c)
- *     rimProcessAnyQueuedCompleteFrames @ 0x1C01A49C0 (rimProcessAnyQueuedCompleteFrames.c)
+ *     RimInputTypeToDeviceType @ 0x1C00060E0 (RimInputTypeToDeviceType.c)
+ *     DeviceTypeToRimInputType @ 0x1C0055500 (DeviceTypeToRimInputType.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C0056804 (RimDeviceTypeToRimInputType.c)
+ *     rimFindPausedDeviceAndCompleteRead @ 0x1C0056C40 (rimFindPausedDeviceAndCompleteRead.c)
+ *     rimProcessAnyQueuedCompleteFrames @ 0x1C0174C5C (rimProcessAnyQueuedCompleteFrames.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175060 (rimProcessDeviceBufferAndStartRead.c)
  */
 
 __int64 __fastcall rimCompleteReads(struct RawInputManagerObject *a1)
 {
   unsigned int v2; // esi
-  unsigned int v3; // r15d
+  int v3; // r15d
   __int64 i; // rbx
   int v6; // eax
   __int64 j; // rbx
@@ -39,7 +39,7 @@ LABEL_4:
         goto LABEL_4;
       if ( v2 == 2 )
       {
-        if ( ((unsigned int)RimDeviceTypeToRimInputType(i, 2) & *((_DWORD *)a1 + 21)) == 0 )
+        if ( ((unsigned int)RimDeviceTypeToRimInputType(i, 2LL) & *((_DWORD *)a1 + 21)) == 0 )
           continue;
         if ( (*(_DWORD *)(i + 200) & 0x80u) != 0 )
         {
@@ -53,7 +53,7 @@ LABEL_4:
       }
       v6 = *(_DWORD *)(i + 184);
       if ( (v6 & 0x400) == 0 && (v6 & 0x200) != 0 )
-        rimProcessDeviceBufferAndStartRead(a1, (struct RIMDEV *)i, 0);
+        rimProcessDeviceBufferAndStartRead(a1, (struct RIMDEV *)i);
     }
   }
   for ( j = *((_QWORD *)a1 + 53); j; j = *(_QWORD *)(j + 40) )
@@ -62,7 +62,7 @@ LABEL_4:
     {
       v8 = *(_DWORD *)(j + 184);
       if ( (v8 & 0x400) == 0 && (v8 & 0x200) != 0 )
-        rimProcessDeviceBufferAndStartRead(a1, (struct RIMDEV *)j, 0);
+        rimProcessDeviceBufferAndStartRead(a1, (struct RIMDEV *)j);
     }
     else
     {

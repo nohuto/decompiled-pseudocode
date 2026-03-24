@@ -1,26 +1,29 @@
 /*
- * XREFs of MmGetSectionStrongImageReference @ 0x140A4385C
+ * XREFs of MmGetSectionStrongImageReference @ 0x1408D7F78
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     PspGetSystemDllSecureHandle @ 0x140B97B2C (PspGetSystemDllSecureHandle.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
+ *     PspGetSystemDllSecureHandle @ 0x140A93648 (PspGetSystemDllSecureHandle.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     MiGetSectionStrongImageReference @ 0x140A43804 (MiGetSectionStrongImageReference.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     MiGetSectionStrongImageReference @ 0x1408D7F20 (MiGetSectionStrongImageReference.c)
  */
 
-NTSTATUS __fastcall MmGetSectionStrongImageReference(void *a1, KPROCESSOR_MODE a2, PVOID a3, _QWORD *a4)
+NTSTATUS __fastcall MmGetSectionStrongImageReference(void *a1, KPROCESSOR_MODE a2, struct _DMA_ADAPTER *a3, _QWORD *a4)
 {
   NTSTATUS result; // eax
   unsigned __int64 v8; // rax
   __int64 v9; // rdi
   int SectionStrongImageReference; // ebx
-  PVOID v11; // [rsp+50h] [rbp+8h] BYREF
+  struct _DMA_ADAPTER *v11; // [rsp+50h] [rbp+8h] BYREF
 
   if ( !a1
-    || (v11 = 0LL, result = ObReferenceObjectByHandle(a1, 0, MmSectionObjectType, a2, &v11, 0LL), a3 = v11, result >= 0) )
+    || (v11 = 0LL,
+        result = ObReferenceObjectByHandle(a1, 0, MmSectionObjectType, a2, (PVOID *)&v11, 0LL),
+        a3 = v11,
+        result >= 0) )
   {
     v8 = MiSectionControlArea((__int64)a3);
     if ( (*(_DWORD *)(v8 + 56) & 0x20) != 0 && (*(_DWORD *)(v8 + 92) & 0xC0000) != 0 )
@@ -39,7 +42,7 @@ NTSTATUS __fastcall MmGetSectionStrongImageReference(void *a1, KPROCESSOR_MODE a
       SectionStrongImageReference = -1073741811;
     }
     if ( a1 )
-      ObfDereferenceObject(a3);
+      HalPutDmaAdapter(a3);
     return SectionStrongImageReference;
   }
   return result;

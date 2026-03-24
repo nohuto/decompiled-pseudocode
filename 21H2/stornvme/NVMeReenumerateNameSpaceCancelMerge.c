@@ -1,7 +1,7 @@
 /*
- * XREFs of NVMeReenumerateNameSpaceCancelMerge @ 0x1C000EA68
+ * XREFs of NVMeReenumerateNameSpaceCancelMerge @ 0x1C0006AA8
  * Callers:
- *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C000EC00 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0006C40 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ __int64 __fastcall NVMeReenumerateNameSpaceCancelMerge(__int64 a1, unsigned int 
 
   if ( a2 )
   {
-    v2 = (__int64 *)(a1 + 1752);
+    v2 = (__int64 *)(a1 + 1736);
     v3 = a2;
     do
     {
@@ -31,6 +31,6 @@ __int64 __fastcall NVMeReenumerateNameSpaceCancelMerge(__int64 a1, unsigned int 
     }
     while ( v3 );
   }
-  *(_DWORD *)(a1 + 32) &= ~0x100u;
+  *(_DWORD *)(a1 + 24) &= ~0x100u;
   return StorPortResume();
 }

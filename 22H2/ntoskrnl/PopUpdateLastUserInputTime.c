@@ -1,36 +1,31 @@
 /*
- * XREFs of PopUpdateLastUserInputTime @ 0x1407A7840
+ * XREFs of PopUpdateLastUserInputTime @ 0x1407814C0
  * Callers:
- *     PopSystemIdleWorker @ 0x1407A72B0 (PopSystemIdleWorker.c)
- *     PopUpdateConsoleDisplayState @ 0x140873D64 (PopUpdateConsoleDisplayState.c)
+ *     PopUpdateConsoleDisplayState @ 0x1407813E4 (PopUpdateConsoleDisplayState.c)
+ *     PopSystemIdleWorker @ 0x1408F1150 (PopSystemIdleWorker.c)
  * Callees:
- *     PopPulseSystemIdleEvent @ 0x1407A8AEC (PopPulseSystemIdleEvent.c)
+ *     PopPulseSystemIdleEvent @ 0x14078E850 (PopPulseSystemIdleEvent.c)
  */
 
-__int64 PopUpdateLastUserInputTime()
+_DWORD *PopUpdateLastUserInputTime()
 {
   __int64 v0; // rcx
-  __int64 result; // rax
-  int v2; // edx
-  int *v3; // r8
+  _DWORD *result; // rax
 
   v0 = 0LL;
-  result = MEMORY[0xFFFFF780000002E4];
-  if ( dword_140C09810 )
+  if ( dword_140C0F220 )
   {
-    v2 = dword_140C0980C;
-    v3 = &dword_140C0980C;
     v0 = 1LL;
+    result = &unk_140C0F21C;
   }
   else
   {
-    v2 = dword_140C09808;
-    v3 = &dword_140C09808;
+    result = &unk_140C0F218;
   }
-  if ( v2 != MEMORY[0xFFFFF780000002E4] )
+  if ( *result != MEMORY[0xFFFFF780000002E4] )
   {
-    *v3 = MEMORY[0xFFFFF780000002E4];
-    return PopPulseSystemIdleEvent(v0);
+    *result = MEMORY[0xFFFFF780000002E4];
+    return (_DWORD *)PopPulseSystemIdleEvent(v0);
   }
   return result;
 }

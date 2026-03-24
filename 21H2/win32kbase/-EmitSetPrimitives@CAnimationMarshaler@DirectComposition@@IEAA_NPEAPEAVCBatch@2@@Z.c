@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetPrimitives@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AEF08
+ * XREFs of ?EmitSetPrimitives@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094EE8
  * Callers:
- *     ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AEC20 (-EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094C00 (-EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CAnimationMarshaler::EmitSetPrimitives(
@@ -15,7 +15,7 @@ char __fastcall DirectComposition::CAnimationMarshaler::EmitSetPrimitives(
   void *v6; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 1;
-  if ( (*((_DWORD *)this + 8) & 0x40) == 0 && *((_QWORD *)this + 12) && *((_QWORD *)this + 14) )
+  if ( (*((_DWORD *)this + 8) & 0x40) == 0 && *((_QWORD *)this + 11) && *((_QWORD *)this + 13) )
   {
     v6 = 0LL;
     if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x18uLL, &v6) )
@@ -25,10 +25,10 @@ char __fastcall DirectComposition::CAnimationMarshaler::EmitSetPrimitives(
       *(_OWORD *)(v4 + 4) = 0LL;
       *((_DWORD *)v4 + 5) = 0;
       *((_DWORD *)v4 + 1) = 9;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 12);
-      *((_DWORD *)v4 + 3) = *(_DWORD *)(*((_QWORD *)this + 12) + 32LL);
-      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 28);
-      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 26);
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 10);
+      *((_DWORD *)v4 + 3) = *(_DWORD *)(*((_QWORD *)this + 11) + 24LL);
+      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 26);
+      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 24);
       *((_DWORD *)this + 8) |= 0x40u;
     }
     else

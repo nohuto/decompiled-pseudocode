@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NlsSendParamVk@@YAHPEAUtagKE@@_KK@Z @ 0x1C00C94F0
+ * XREFs of ?NlsSendParamVk@@YAHPEAUtagKE@@_KK@Z @ 0x1C00BBF70
  * Callers:
  *     <none>
  * Callees:

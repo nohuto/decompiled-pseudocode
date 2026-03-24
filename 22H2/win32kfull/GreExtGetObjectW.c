@@ -1,244 +1,246 @@
 /*
- * XREFs of GreExtGetObjectW @ 0x1C002E520
+ * XREFs of GreExtGetObjectW @ 0x1C0083078
  * Callers:
- *     xxxCreateCaret @ 0x1C000FD64 (xxxCreateCaret.c)
- *     ?_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z @ 0x1C002DBDC (-_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z.c)
- *     NtGdiExtGetObjectW @ 0x1C002E410 (NtGdiExtGetObjectW.c)
- *     ?ProcessAlphaBitmap@@YAPEAUHBITMAP__@@PEAU1@@Z @ 0x1C0030EF0 (-ProcessAlphaBitmap@@YAPEAUHBITMAP__@@PEAU1@@Z.c)
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     EraseBitmap @ 0x1C006EC78 (EraseBitmap.c)
- *     CreateFontFromUserProfile @ 0x1C0078200 (CreateFontFromUserProfile.c)
- *     UserSetAltScaleFont @ 0x1C0078308 (UserSetAltScaleFont.c)
- *     xxxSetNCFonts @ 0x1C0078690 (xxxSetNCFonts.c)
- *     RecreateRedirectionBitmap @ 0x1C008E968 (RecreateRedirectionBitmap.c)
- *     GetWindowNCMetrics @ 0x1C00F0894 (GetWindowNCMetrics.c)
- *     GetWindowNCMetricsForDpi @ 0x1C00F0B8C (GetWindowNCMetricsForDpi.c)
- *     GetScaledLogFontForDpi @ 0x1C00F0E0C (GetScaledLogFontForDpi.c)
- *     CreateScaledFont @ 0x1C01BF458 (CreateScaledFont.c)
- *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C01C7A54 (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
- *     ?xxxBMPtoDIB@@YAPEAUtagBITMAPINFOHEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@PEAK@Z @ 0x1C01FC7BC (-xxxBMPtoDIB@@YAPEAUtagBITMAPINFOHEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@PEAK@Z.c)
- *     ?SendMITCursorShape@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z @ 0x1C0223490 (-SendMITCursorShape@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z.c)
- *     ?GetCursorHeight@@YAHXZ @ 0x1C0225430 (-GetCursorHeight@@YAHXZ.c)
- *     ?DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z @ 0x1C0233414 (-DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z.c)
- *     xxxRealDrawMenuItem @ 0x1C0236930 (xxxRealDrawMenuItem.c)
- *     ?xxxMNItemSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAUtagPOINT@@@Z @ 0x1C0237E5C (-xxxMNItemSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAU.c)
- *     CreateCompatiblePublicDC @ 0x1C023F4DC (CreateCompatiblePublicDC.c)
- *     xxxDrawState @ 0x1C023F6F0 (xxxDrawState.c)
+ *     EraseBitmap @ 0x1C0029604 (EraseBitmap.c)
+ *     GetScaledLogFontForDpi @ 0x1C0047A24 (GetScaledLogFontForDpi.c)
+ *     ?xxxMNItemSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAUtagPOINT@@@Z @ 0x1C0048148 (-xxxMNItemSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAU.c)
+ *     ?_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z @ 0x1C0065454 (-_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z.c)
+ *     NtGdiExtGetObjectW @ 0x1C0082F70 (NtGdiExtGetObjectW.c)
+ *     ?ProcessAlphaBitmap@@YAPEAUHBITMAP__@@PEAU1@@Z @ 0x1C00A9B10 (-ProcessAlphaBitmap@@YAPEAUHBITMAP__@@PEAU1@@Z.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     GetWindowNCMetrics @ 0x1C00E0960 (GetWindowNCMetrics.c)
+ *     CreateFontFromUserProfile @ 0x1C00E27E8 (CreateFontFromUserProfile.c)
+ *     xxxSetNCFonts @ 0x1C00E2938 (xxxSetNCFonts.c)
+ *     UserSetAltScaleFont @ 0x1C00E40D4 (UserSetAltScaleFont.c)
+ *     RecreateRedirectionBitmap @ 0x1C00F1598 (RecreateRedirectionBitmap.c)
+ *     xxxCreateCaret @ 0x1C0113A44 (xxxCreateCaret.c)
+ *     CreateCompatiblePublicDC @ 0x1C0159590 (CreateCompatiblePublicDC.c)
+ *     ?xxxBMPtoDIB@@YAPEAUtagBITMAPINFOHEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@PEAK@Z @ 0x1C015C860 (-xxxBMPtoDIB@@YAPEAUtagBITMAPINFOHEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@PEAK@Z.c)
+ *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C01D65BC (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
+ *     CreateScaledFont @ 0x1C01E9E50 (CreateScaledFont.c)
+ *     ?GetCursorHeight@@YAHXZ @ 0x1C0242064 (-GetCursorHeight@@YAHXZ.c)
+ *     ?DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z @ 0x1C024B3F8 (-DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z.c)
+ *     xxxRealDrawMenuItem @ 0x1C024D2E4 (xxxRealDrawMenuItem.c)
+ *     xxxDrawState @ 0x1C0250784 (xxxDrawState.c)
  * Callees:
- *     ?GreGetDIBitsInternalImpl@@YAHPEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_w@E@@PEAUtagBITMAPINFO@@III@Z @ 0x1C002F6C0 (-GreGetDIBitsInternalImpl@@YAHPEAUHDC__@@PEAUHBITMAP__@@IIAEAV-$umptr_w@E@@PEAUtagBITMAPINFO@@II.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0030084 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C005848C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?cjGetBrushOrPen@@YAJPEAXH0@Z @ 0x1C02A7A64 (-cjGetBrushOrPen@@YAJPEAXH0@Z.c)
- *     ?cjGetLogicalColorSpace@@YAHPEAXH0@Z @ 0x1C02CEB8C (-cjGetLogicalColorSpace@@YAHPEAXH0@Z.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C0019BA8 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     GreGetDIBitsInternal @ 0x1C0082984 (GreGetDIBitsInternal.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C00838AC (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?cjGetBrushOrPen@@YAJPEAXH0@Z @ 0x1C0146144 (-cjGetBrushOrPen@@YAJPEAXH0@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?cjGetLogicalColorSpace@@YAHPEAXH0@Z @ 0x1C02B5DCC (-cjGetLogicalColorSpace@@YAHPEAXH0@Z.c)
  */
 
-__int64 __fastcall GreExtGetObjectW(HBRUSH a1, __int64 a2, __int64 a3)
+__int64 __fastcall GreExtGetObjectW(HSURF a1, __int64 a2, char *a3)
 {
-  HBRUSH v3; // rbp
-  unsigned __int64 v4; // r15
-  int v5; // ebx
-  unsigned int v6; // ecx
-  unsigned int v8; // esi
-  Gre::Base *v9; // rcx
-  int v10; // ecx
-  int v11; // ecx
-  __int64 v12; // rax
-  __int64 v13; // rbx
+  HSURF v3; // r14
+  unsigned __int64 v4; // r12
+  int v5; // edi
+  unsigned int v7; // ebp
+  unsigned int v8; // ecx
+  unsigned int v9; // ecx
+  unsigned int v10; // ecx
+  unsigned int v11; // ecx
+  __int64 v13; // rax
+  __int64 v14; // rbx
   __int64 HDEV; // rax
-  int v15; // r14d
-  _QWORD *v16; // r13
-  __int64 v17; // rdx
-  int v18; // r14d
-  int v19; // r14d
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v23; // rax
-  unsigned __int64 v24; // rcx
-  int DIBitsInternalImpl; // eax
+  int v16; // r15d
+  _QWORD *v17; // r13
+  __int64 v18; // rdx
+  int v19; // r15d
+  int v20; // r15d
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  int v25; // eax
   __int64 v26; // rax
-  int v27; // ecx
-  __int64 v29[3]; // [rsp+50h] [rbp-78h] BYREF
-  __int16 v30; // [rsp+68h] [rbp-60h]
-  _BYTE v31[32]; // [rsp+70h] [rbp-58h] BYREF
-  __int64 v32; // [rsp+90h] [rbp-38h]
-  __int64 v33; // [rsp+D0h] [rbp+8h] BYREF
-  __int64 v34; // [rsp+E8h] [rbp+20h] BYREF
+  unsigned __int64 v27; // rcx
+  int DIBitsInternal; // eax
+  __int64 v29; // rax
+  int v30; // ecx
+  _BYTE v32[32]; // [rsp+50h] [rbp-68h] BYREF
+  __int64 v33; // [rsp+70h] [rbp-48h]
+  __int64 v34; // [rsp+C0h] [rbp+8h] BYREF
+  __int64 v35; // [rsp+D8h] [rbp+20h] BYREF
 
   v3 = a1;
   v4 = (int)a2;
   v5 = 0;
-  v6 = ((unsigned int)a1 >> 16) & 0x1F;
-  v8 = 0;
-  if ( v6 == 5 )
+  v7 = 0;
+  v8 = (((unsigned int)a1 >> 16) & 0x1F) - 5;
+  if ( !v8 )
   {
     if ( !a3 )
       return 32;
     if ( (int)a2 < 32 )
-      return v8;
-    SURFREF::SURFREF((SURFREF *)v31, (HSURF)v3);
-    v21 = v32;
-    if ( !v32 )
-    {
-LABEL_60:
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v31);
-      return v8;
-    }
-    if ( (*(_DWORD *)(v32 + 112) & 0x4100000) == 0 )
-      goto LABEL_58;
-    *(_DWORD *)a3 = 0;
-    *(_DWORD *)(a3 + 4) = *(_DWORD *)(v21 + 56);
-    *(_DWORD *)(a3 + 8) = *(_DWORD *)(v21 + 60);
-    if ( (*(_DWORD *)(v21 + 116) & 0x800) != 0 )
-    {
-      *(_DWORD *)(a3 + 4) = *(_DWORD *)(v21 + 668);
-      *(_DWORD *)(a3 + 8) = *(_DWORD *)(v21 + 672);
-    }
-    v22 = (unsigned __int16)gaulConvert[2 * *(unsigned int *)(v21 + 96)];
-    *(_WORD *)(a3 + 18) = v22;
-    v23 = v22 * *(int *)(v21 + 56);
-    *(_QWORD *)(a3 + 24) = 0LL;
-    *(_DWORD *)(a3 + 12) = ((unsigned __int64)(v23 + 15) >> 3) & 0xFFFFFFFE;
-    *(_WORD *)(a3 + 16) = 1;
-    v8 = 32;
-    if ( (*(_WORD *)(v21 + 100) || !*(_QWORD *)(v21 + 192)) && (*(_DWORD *)(v21 + 112) & 0x100000) == 0 )
-      goto LABEL_58;
-    v24 = *(_QWORD *)(v21 + 72);
-    if ( v24 < 0x10000 || v24 > (unsigned __int64)MmHighestUserAddress )
-      v24 = 0LL;
-    *(_QWORD *)(a3 + 24) = v24;
-    *(_DWORD *)(a3 + 12) = ((unsigned __int64)(v22 * *(int *)(v21 + 56) + 31) >> 3) & 0xFFFFFFFC;
-    if ( (unsigned int)v4 < 0x68 )
+      return v7;
+    SURFREF::SURFREF((SURFREF *)v32, v3);
+    v24 = v33;
+    if ( !v33 )
     {
 LABEL_58:
-      if ( v21 )
-        DEC_SHARE_REF_CNT(v21);
-      goto LABEL_60;
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v32);
+      return v7;
     }
-    *(_DWORD *)(a3 + 32) = 40;
-    *(_WORD *)(a3 + 46) = 0;
-    memset(v29, 0, sizeof(v29));
-    v30 = 0;
-    DIBitsInternalImpl = GreGetDIBitsInternalImpl(0, (int)v3, 0, 0, (__int64)v29, (void *)(a3 + 32), 0, 0, 104);
-    v21 = v32;
-    if ( DIBitsInternalImpl )
+    v25 = *(_DWORD *)(v33 + 112);
+    if ( (v25 & 0x4000000) == 0 && (v25 & 0x100000) == 0 )
+      goto LABEL_57;
+    *(_DWORD *)a3 = 0;
+    *((_DWORD *)a3 + 1) = *(_DWORD *)(v24 + 56);
+    *((_DWORD *)a3 + 2) = *(_DWORD *)(v24 + 60);
+    if ( (*(_DWORD *)(v24 + 116) & 0x800) != 0 )
     {
-      v8 = 104;
-      if ( (*(_DWORD *)(v32 + 112) & 0x100000) != 0 )
-        *(_DWORD *)(a3 + 52) = 0;
+      *((_DWORD *)a3 + 1) = *(_DWORD *)(v24 + 668);
+      *((_DWORD *)a3 + 2) = *(_DWORD *)(v24 + 672);
     }
-    v26 = *(_QWORD *)(v21 + 128);
-    if ( v26 )
+    v23 = *((unsigned __int16 *)&galBitsPerPixel + 2 * *(unsigned int *)(v24 + 96));
+    *((_WORD *)a3 + 9) = v23;
+    v26 = v23 * *(int *)(v24 + 56);
+    *((_QWORD *)a3 + 3) = 0LL;
+    *((_DWORD *)a3 + 3) = ((unsigned __int64)(v26 + 15) >> 3) & 0xFFFFFFFE;
+    *((_WORD *)a3 + 8) = 1;
+    v7 = 32;
+    if ( (*(_WORD *)(v24 + 100) || !*(_QWORD *)(v24 + 192)) && (*(_DWORD *)(v24 + 112) & 0x100000) == 0 )
+      goto LABEL_57;
+    v27 = *(_QWORD *)(v24 + 72);
+    if ( v27 < 0x10000 || v27 > (unsigned __int64)MmHighestUserAddress )
+      v27 = 0LL;
+    *((_QWORD *)a3 + 3) = v27;
+    *((_DWORD *)a3 + 3) = ((unsigned __int64)(v23 * *(int *)(v24 + 56) + 31) >> 3) & 0xFFFFFFFC;
+    if ( (unsigned int)v4 < 0x68 )
     {
-      v27 = *(_DWORD *)(v26 + 24);
-      if ( (v27 & 2) != 0 )
-      {
-        *(_DWORD *)(a3 + 72) = **(_DWORD **)(v26 + 112);
-        *(_DWORD *)(a3 + 76) = *(_DWORD *)(*(_QWORD *)(v26 + 112) + 4LL);
-        v5 = *(_DWORD *)(*(_QWORD *)(v26 + 112) + 8LL);
 LABEL_57:
-        *(_DWORD *)(a3 + 80) = v5;
-        *(_QWORD *)(a3 + 88) = *(_QWORD *)(v21 + 184);
-        *(_DWORD *)(a3 + 96) = *(_DWORD *)(v21 + 212);
-        goto LABEL_58;
-      }
-      if ( (v27 & 8) != 0 )
-        *(_DWORD *)(a3 + 48) = 0;
+      DEC_SHARE_REF_CNT(v24, v23);
+      goto LABEL_58;
     }
-    *(_QWORD *)(a3 + 72) = 0LL;
-    goto LABEL_57;
+    *((_DWORD *)a3 + 8) = 40;
+    *((_WORD *)a3 + 23) = 0;
+    DIBitsInternal = GreGetDIBitsInternal(0LL, v3, 0, 0, 0LL, (struct tagBITMAPINFO *)(a3 + 32), 0, 0, 0x68u);
+    v24 = v33;
+    if ( DIBitsInternal )
+    {
+      v7 = 104;
+      if ( (*(_DWORD *)(v33 + 112) & 0x100000) != 0 )
+        *((_DWORD *)a3 + 13) = 0;
+    }
+    v29 = *(_QWORD *)(v24 + 128);
+    if ( v29 )
+    {
+      v30 = *(_DWORD *)(v29 + 24);
+      if ( (v30 & 2) != 0 )
+      {
+        *((_DWORD *)a3 + 18) = **(_DWORD **)(v29 + 112);
+        v23 = *(unsigned int *)(*(_QWORD *)(v29 + 112) + 4LL);
+        *((_DWORD *)a3 + 19) = v23;
+        v5 = *(_DWORD *)(*(_QWORD *)(v29 + 112) + 8LL);
+LABEL_56:
+        *((_DWORD *)a3 + 20) = v5;
+        *((_QWORD *)a3 + 11) = *(_QWORD *)(v24 + 184);
+        *((_DWORD *)a3 + 24) = *(_DWORD *)(v24 + 212);
+        goto LABEL_57;
+      }
+      if ( (v30 & 8) != 0 )
+        *((_DWORD *)a3 + 12) = 0;
+    }
+    *((_QWORD *)a3 + 9) = 0LL;
+    goto LABEL_56;
   }
-  v9 = (Gre::Base *)(v6 - 8);
-  if ( (_DWORD)v9 )
+  v9 = v8 - 3;
+  if ( v9 )
   {
-    v10 = (_DWORD)v9 - 1;
+    v10 = v9 - 1;
     if ( !v10 )
-      return (unsigned int)cjGetLogicalColorSpace((HCOLORSPACE)v3, a2, (void *)a3);
+      return (unsigned int)cjGetLogicalColorSpace((HCOLORSPACE)v3, a2, a3);
     v11 = v10 - 1;
     if ( v11 )
     {
       if ( v11 == 6 )
-        return (unsigned int)cjGetBrushOrPen(v3, a2, (void *)a3);
-      return v8;
-    }
-    LOBYTE(a2) = 10;
-    v12 = HmgShareLock(v3, a2);
-    v13 = v12;
-    if ( v12 )
-    {
-      if ( (*(_DWORD *)(v12 + 28) & 1) == 0 )
-      {
-LABEL_18:
-        if ( a3 )
-        {
-          if ( v4 >= *(unsigned int *)(v13 + 272) )
-            LODWORD(v4) = *(_DWORD *)(v13 + 272);
-          v8 = v4;
-          memmove((void *)a3, (const void *)(v13 + 276), (unsigned int)v4);
-        }
-        else
-        {
-          v8 = *(_DWORD *)(v13 + 272);
-        }
-        if ( v13 )
-          DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT((struct LFONT *)v13);
-        return v8;
-      }
-      HDEV = UserGetHDEV();
-      v15 = *(_DWORD *)(v13 + 24);
-      v16 = (_QWORD *)HDEV;
-      DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT((struct LFONT *)v13);
-      if ( !v16 )
-        return v8;
-      v18 = v15 - 4;
-      if ( v18 )
-      {
-        v19 = v18 - 1;
-        if ( v19 )
-        {
-          if ( v19 == 1 )
-            v3 = (HBRUSH)v16[180];
-        }
-        else
-        {
-          v3 = (HBRUSH)v16[179];
-        }
-      }
-      else
-      {
-        v3 = (HBRUSH)v16[178];
-      }
-      LOBYTE(v17) = 10;
-      v13 = HmgShareLock(v3, v17);
-    }
-    if ( !v13 )
-      return v8;
-    goto LABEL_18;
-  }
-  v8 = 2;
-  if ( a3 )
-  {
-    if ( (int)a2 >= 2 )
-    {
-      v34 = *((_QWORD *)Gre::Base::Globals(v9) + 5);
-      GreAcquireSemaphore(v34);
-      EPALOBJ::EPALOBJ((EPALOBJ *)&v33, (HPALETTE)v3);
-      v20 = v33;
-      if ( v33 )
-        *(_WORD *)a3 = *(_WORD *)(v33 + 28);
-      else
-        v8 = 0;
-      if ( v20 )
-        DEC_SHARE_REF_CNT(v20);
-      SEMOBJ::vUnlock((SEMOBJ *)&v34);
+        return (unsigned int)cjGetBrushOrPen((HBRUSH)v3, a2, a3);
     }
     else
     {
-      return 0;
+      LOBYTE(a2) = 10;
+      v13 = HmgShareLock(v3, a2);
+      v14 = v13;
+      if ( v13 )
+      {
+        if ( (*(_DWORD *)(v13 + 28) & 1) != 0 )
+        {
+          HDEV = UserGetHDEV();
+          v16 = *(_DWORD *)(v14 + 24);
+          v17 = (_QWORD *)HDEV;
+          DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT((struct LFONT *)v14);
+          if ( !v17 )
+            return v7;
+          v19 = v16 - 4;
+          if ( v19 )
+          {
+            v20 = v19 - 1;
+            if ( v20 )
+            {
+              if ( v20 == 1 )
+                v3 = (HSURF)v17[181];
+            }
+            else
+            {
+              v3 = (HSURF)v17[180];
+            }
+          }
+          else
+          {
+            v3 = (HSURF)v17[179];
+          }
+          LOBYTE(v18) = 10;
+          v14 = HmgShareLock(v3, v18);
+        }
+        if ( v14 )
+        {
+          if ( a3 )
+          {
+            v7 = v4;
+            if ( v4 >= *(unsigned int *)(v14 + 272) )
+              v7 = *(_DWORD *)(v14 + 272);
+            memmove(a3, (const void *)(v14 + 276), v7);
+          }
+          else
+          {
+            v7 = *(_DWORD *)(v14 + 272);
+          }
+          DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT((struct LFONT *)v14);
+        }
+      }
     }
   }
-  return v8;
+  else
+  {
+    v7 = 2;
+    if ( a3 )
+    {
+      if ( (int)a2 >= 2 )
+      {
+        v35 = ghsemPalette;
+        GreAcquireSemaphore(ghsemPalette);
+        EPALOBJ::EPALOBJ((EPALOBJ *)&v34, (HPALETTE)v3);
+        v22 = v34;
+        if ( v34 )
+        {
+          *(_WORD *)a3 = *(_WORD *)(v34 + 28);
+          DEC_SHARE_REF_CNT(v22, v21);
+        }
+        else
+        {
+          v7 = 0;
+        }
+        SEMOBJ::vUnlock((SEMOBJ *)&v35);
+      }
+      else
+      {
+        return 0;
+      }
+    }
+  }
+  return v7;
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of ACPIInitialize @ 0x1C00BE48C
+ * XREFs of ACPIInitialize @ 0x1C00BED6C
  * Callers:
- *     ACPIInitStartACPI @ 0x1C00BEC40 (ACPIInitStartACPI.c)
+ *     ACPIInitStartACPI @ 0x1C00BB534 (ACPIInitStartACPI.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     ACPIInitializeKernelTableHandler @ 0x1C00241DC (ACPIInitializeKernelTableHandler.c)
- *     ACPIEnableInitializeACPI @ 0x1C00244C0 (ACPIEnableInitializeACPI.c)
- *     ACPIKsrSupportInitialize @ 0x1C0024810 (ACPIKsrSupportInitialize.c)
- *     ACPIInternalInterruptHonorBiosPolarities @ 0x1C002486C (ACPIInternalInterruptHonorBiosPolarities.c)
- *     ACPIGetTableVersion @ 0x1C00248C0 (ACPIGetTableVersion.c)
- *     ACPIQueryPhysicalDeviceLocation @ 0x1C00939F8 (ACPIQueryPhysicalDeviceLocation.c)
- *     ACPIInterruptInitialize @ 0x1C009E0C8 (ACPIInterruptInitialize.c)
- *     ACPIInitializeAMLI @ 0x1C00BCD04 (ACPIInitializeAMLI.c)
- *     ACPIInitializeDDBs @ 0x1C00BD6E4 (ACPIInitializeDDBs.c)
- *     ACPILoadProcessRSDT @ 0x1C00BD9F8 (ACPILoadProcessRSDT.c)
- *     AcpiIrqLibConfigureLibrary @ 0x1C00BE048 (AcpiIrqLibConfigureLibrary.c)
- *     NotifyHalWithMachineStatesAndRetrieveInterruptModel @ 0x1C00BE654 (NotifyHalWithMachineStatesAndRetrieveInterruptModel.c)
- *     AcpiIrqLibInitializeGlobalState @ 0x1C00BEA3C (AcpiIrqLibInitializeGlobalState.c)
+ *     ACPIGetTableVersion @ 0x1C0001E10 (ACPIGetTableVersion.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIEnableInitializeACPI @ 0x1C0010040 (ACPIEnableInitializeACPI.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIInitializeKernelTableHandler @ 0x1C0026BD4 (ACPIInitializeKernelTableHandler.c)
+ *     ACPIKsrSupportInitialize @ 0x1C0026C50 (ACPIKsrSupportInitialize.c)
+ *     ACPIInternalInterruptHonorBiosPolarities @ 0x1C0026CA8 (ACPIInternalInterruptHonorBiosPolarities.c)
+ *     ACPIInterruptInitialize @ 0x1C0097F74 (ACPIInterruptInitialize.c)
+ *     ACPIQueryPhysicalDeviceLocation @ 0x1C0099B3C (ACPIQueryPhysicalDeviceLocation.c)
+ *     ACPIInitializeAMLI @ 0x1C00BCC5C (ACPIInitializeAMLI.c)
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00BD584 (AcpiIrqLibConfigureLibrary.c)
+ *     NotifyHalWithMachineStatesAndRetrieveInterruptModel @ 0x1C00BDF8C (NotifyHalWithMachineStatesAndRetrieveInterruptModel.c)
+ *     ACPILoadProcessRSDT @ 0x1C00BE744 (ACPILoadProcessRSDT.c)
+ *     ACPIInitializeDDBs @ 0x1C00BE9B0 (ACPIInitializeDDBs.c)
+ *     AcpiIrqLibInitializeGlobalState @ 0x1C00BEF34 (AcpiIrqLibInitializeGlobalState.c)
  */
 
 char __fastcall ACPIInitialize(ULONG_PTR BugCheckParameter3)
@@ -45,12 +45,12 @@ char __fastcall ACPIInitialize(ULONG_PTR BugCheckParameter3)
   if ( v2 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LODWORD(v15) = v2;
-    WPP_RECORDER_SF_D(
+    WPP_RECORDER_SF_L(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       2u,
       1u,
       0x1Fu,
-      (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
+      (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
       v15);
   }
   v3 = ACPIInitializeAMLI();
@@ -59,12 +59,12 @@ char __fastcall ACPIInitialize(ULONG_PTR BugCheckParameter3)
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LODWORD(v15) = v3;
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         1u,
         0x20u,
-        (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
+        (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
         v15);
     }
     KeBugCheckEx(0xA5u, 0x11uLL, 0LL, 0LL, 0LL);
@@ -72,7 +72,7 @@ char __fastcall ACPIInitialize(ULONG_PTR BugCheckParameter3)
   AcpiIrqLibInitializeGlobalState(BugCheckParameter3);
   KeInitializeSpinLock(&GpeTableLock);
   KeInitializeSpinLock(&NotifyHandlerLock);
-  qword_1C0082768 = (__int64)&AcpiDynamicDataBlockTableList;
+  qword_1C00830F0 = (__int64)&AcpiDynamicDataBlockTableList;
   AcpiDynamicDataBlockTableList = (__int64)&AcpiDynamicDataBlockTableList;
   KeInitializeSpinLock((PKSPIN_LOCK)AcpiInformation + 8);
   v4 = (_QWORD *)((char *)AcpiInformation + 48);
@@ -86,12 +86,12 @@ char __fastcall ACPIInitialize(ULONG_PTR BugCheckParameter3)
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LODWORD(v15) = v5;
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         1u,
         0x21u,
-        (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
+        (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
         v15);
     }
     KeBugCheckEx(0xA5u, 0x11uLL, 3uLL, 0LL, 0LL);
@@ -108,12 +108,12 @@ char __fastcall ACPIInitialize(ULONG_PTR BugCheckParameter3)
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LODWORD(v15) = v7;
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         1u,
         0x22u,
-        (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
+        (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
         v15);
     }
     KeBugCheckEx(0xA5u, 0x11uLL, 4uLL, 0LL, BugCheckParameter4);
@@ -134,7 +134,7 @@ char __fastcall ACPIInitialize(ULONG_PTR BugCheckParameter3)
         2u,
         0x16u,
         0x23u,
-        (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids);
+        (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids);
     KeBugCheckEx(0xA5u, 0x11uLL, 7uLL, 0LL, v12);
   }
   ACPIInitializeKernelTableHandler(1, *(_QWORD *)(BugCheckParameter3 + 8));

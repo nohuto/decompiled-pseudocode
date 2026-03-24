@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpTimerGetSavedPerformanceCounter @ 0x140391800
+ * XREFs of HalpTimerGetSavedPerformanceCounter @ 0x140386AE0
  * Callers:
- *     HalpAcpiPreSleep @ 0x140A5072C (HalpAcpiPreSleep.c)
+ *     HalpAcpiPreSleep @ 0x140995EFC (HalpAcpiPreSleep.c)
  * Callees:
- *     HalpTimerScaleCounter @ 0x1403A572C (HalpTimerScaleCounter.c)
+ *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
  */
 
 __int64 HalpTimerGetSavedPerformanceCounter()
 {
-  ULONG_PTR v0; // r11
+  ULONG_PTR v0; // rbx
   __int64 v1; // rdx
-  __int64 v2; // rbx
-  __int64 v3; // rdi
+  __int64 v2; // rdi
+  __int64 v3; // rsi
   __int64 v4; // rax
   __int64 result; // rax
   __int64 v6; // r8

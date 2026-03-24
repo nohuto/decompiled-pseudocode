@@ -1,18 +1,18 @@
 /*
- * XREFs of ?PreInitClass@Time@@SAJXZ @ 0x180030D18
+ * XREFs of ?PreInitClass@Time@@SAJXZ @ 0x1800B6C0C
  * Callers:
- *     ?Create@CExpressionManager@@SAJPEAPEAV1@@Z @ 0x180030C98 (-Create@CExpressionManager@@SAJPEAPEAV1@@Z.c)
+ *     ?Create@CExpressionManager@@SAJPEAPEAV1@@Z @ 0x1800B6BA0 (-Create@CExpressionManager@@SAJPEAPEAV1@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 Time::PreInitClass(void)
 {
   signed int v0; // ebx
   signed int LastError; // eax
-  unsigned int v3; // ecx
+  __int64 v3; // rcx
   signed int v4; // eax
-  unsigned int v5; // ecx
+  __int64 v5; // rcx
 
   SetLastError(0);
   if ( !QueryPerformanceFrequency(&Time::s_luFreq) )

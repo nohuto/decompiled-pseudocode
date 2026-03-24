@@ -1,11 +1,11 @@
 /*
- * XREFs of ViCopyBackModifiedBuffer @ 0x140AC9664
+ * XREFs of ViCopyBackModifiedBuffer @ 0x1409CDFB0
  * Callers:
- *     ViFlushDoubleBuffer @ 0x140AC98D4 (ViFlushDoubleBuffer.c)
+ *     ViFlushDoubleBuffer @ 0x1409CE220 (ViFlushDoubleBuffer.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ViGetMdlBufferSa @ 0x140ACA044 (ViGetMdlBufferSa.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ViGetMdlBufferSa @ 0x1409CE94C (ViGetMdlBufferSa.c)
  */
 
 __int64 __fastcall ViCopyBackModifiedBuffer(__int64 a1, int a2, char *a3, char *a4, SIZE_T Length)
@@ -33,19 +33,17 @@ __int64 __fastcall ViCopyBackModifiedBuffer(__int64 a1, int a2, char *a3, char *
   if ( Length > v10 )
   {
     v11 = &a4[Length - 1];
-    while ( v11[a3 - a4] == *v11 )
+    do
     {
+      if ( v11[a3 - a4] != *v11 )
+        break;
       --v5;
       --v11;
-      if ( v5 <= v10 )
-        goto LABEL_6;
     }
-    goto LABEL_7;
+    while ( v5 > v10 );
   }
-LABEL_6:
   if ( v5 == v10 )
     return 0LL;
-LABEL_7:
   v12 = v5 - v10;
   v13 = &a3[v10];
   for ( i = (unsigned int)(*(_DWORD *)(a1 + 32) + *(_DWORD *)(a1 + 40) + *(_DWORD *)(a1 + 44) - v8);

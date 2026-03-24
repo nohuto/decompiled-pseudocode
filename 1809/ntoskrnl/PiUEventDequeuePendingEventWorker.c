@@ -3,8 +3,8 @@
  * Callers:
  *     PiUEventNotifyClient @ 0x14058F938 (PiUEventNotifyClient.c)
  *     PiUEventHandleGetEvent @ 0x14059FA1C (PiUEventHandleGetEvent.c)
- *     PiUEventFreeClientRegistrationContext @ 0x1406C80B8 (PiUEventFreeClientRegistrationContext.c)
- *     PiUEventHandleVetoEvent @ 0x1406FF7F0 (PiUEventHandleVetoEvent.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x1406C8098 (PiUEventFreeClientRegistrationContext.c)
+ *     PiUEventHandleVetoEvent @ 0x1406FF7D0 (PiUEventHandleVetoEvent.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiUEventDereferenceEventEntry @ 0x14058EAD8 (PiUEventDereferenceEventEntry.c)

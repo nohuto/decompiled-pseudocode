@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSaveProcessorState @ 0x14029AEF0
+ * XREFs of KiSaveProcessorState @ 0x140525410
  * Callers:
- *     KiFreezeTargetExecution @ 0x14029AF90 (KiFreezeTargetExecution.c)
- *     KxNmiInterrupt @ 0x14042D380 (KxNmiInterrupt.c)
+ *     KxNmiInterrupt @ 0x14040B240 (KxNmiInterrupt.c)
+ *     KiFreezeTargetExecution @ 0x14051DE60 (KiFreezeTargetExecution.c)
  * Callees:
- *     KiSaveNpxState @ 0x140242104 (KiSaveNpxState.c)
- *     KeContextFromKframes @ 0x140298BF0 (KeContextFromKframes.c)
- *     KiSaveProcessorControlState @ 0x14041F720 (KiSaveProcessorControlState.c)
+ *     KeContextFromKframes @ 0x140273B00 (KeContextFromKframes.c)
+ *     KiSaveProcessorControlState @ 0x1403FE240 (KiSaveProcessorControlState.c)
+ *     KiSaveNpxState @ 0x1405253B0 (KiSaveNpxState.c)
  */
 
 __int64 __fastcall KiSaveProcessorState(__int64 a1, __int64 a2)
@@ -14,6 +14,7 @@ __int64 __fastcall KiSaveProcessorState(__int64 a1, __int64 a2)
   struct _KPRCB *CurrentPrcb; // rdi
   __int64 Context; // rbx
   int ContextFlagsInit; // edx
+  int v7; // edx
 
   CurrentPrcb = KeGetCurrentPrcb();
   Context = (__int64)CurrentPrcb->Context;
@@ -25,5 +26,5 @@ __int64 __fastcall KiSaveProcessorState(__int64 a1, __int64 a2)
     KiSaveNpxState(Context, ContextFlagsInit);
   }
   KeContextFromKframes(a1, a2, Context);
-  return KiSaveProcessorControlState(&CurrentPrcb->ProcessorState);
+  return KiSaveProcessorControlState((__int64)&CurrentPrcb->ProcessorState, v7);
 }

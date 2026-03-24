@@ -1,225 +1,218 @@
 /*
- * XREFs of ACPIBusIrpQueryDeviceId @ 0x1C007F584
+ * XREFs of ACPIBusIrpQueryDeviceId @ 0x1C0096300
  * Callers:
- *     ACPIBusIrpQueryId @ 0x1C0080340 (ACPIBusIrpQueryId.c)
+ *     ACPIBusIrpQueryId @ 0x1C008FF00 (ACPIBusIrpQueryId.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     RtlStringCbPrintfExW @ 0x1C0017B4C (RtlStringCbPrintfExW.c)
- *     RtlStringCbPrintfW @ 0x1C0017D20 (RtlStringCbPrintfW.c)
- *     WPP_RECORDER_SF_qdLqss @ 0x1C0017F78 (WPP_RECORDER_SF_qdLqss.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
- *     AMLIGetNSObjectType @ 0x1C00483C8 (AMLIGetNSObjectType.c)
- *     ACPIAllocateBuffer @ 0x1C0097C3C (ACPIAllocateBuffer.c)
- *     ACPIValidateStringVendorDeviceIdFormat @ 0x1C0098A3C (ACPIValidateStringVendorDeviceIdFormat.c)
+ *     RtlStringCbPrintfExW @ 0x1C0002788 (RtlStringCbPrintfExW.c)
+ *     AMLIGetNSObjectType @ 0x1C0002924 (AMLIGetNSObjectType.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     RtlStringCbPrintfW @ 0x1C004E02C (RtlStringCbPrintfW.c)
+ *     WPP_RECORDER_SF_qdLqss @ 0x1C004E4F4 (WPP_RECORDER_SF_qdLqss.c)
+ *     ACPIAllocateBuffer @ 0x1C008FA90 (ACPIAllocateBuffer.c)
+ *     ACPIValidateStringVendorDeviceIdFormat @ 0x1C008FB34 (ACPIValidateStringVendorDeviceIdFormat.c)
  */
 
-__int64 __fastcall ACPIBusIrpQueryDeviceId(wchar_t **a1, size_t *a2, _QWORD *a3)
+__int64 __fastcall ACPIBusIrpQueryDeviceId(wchar_t **a1, SIZE_T *a2, __int64 *a3)
 {
   void *v6; // r13
   int v7; // esi
   wchar_t *v8; // rax
   NTSTRSAFE_PWSTR v9; // r15
   size_t v10; // rbx
-  __int64 v11; // rcx
-  size_t v12; // rdx
+  __int64 v11; // rdi
+  __int64 v12; // rcx
   __int64 v13; // rax
   __int64 v14; // r12
-  __int64 v15; // rax
-  __int64 v16; // rdx
-  void *v17; // rax
-  size_t v18; // r8
-  char *v19; // rdx
-  __int64 v20; // rdx
-  void *v21; // rax
-  __int64 v22; // rdi
-  int v23; // eax
-  __int64 v24; // rax
-  void *Pool2; // rax
-  const char *v26; // rax
-  __int64 v27; // rdx
-  const char *v28; // rcx
-  __int64 v29; // r8
+  int v15; // eax
+  int v16; // eax
+  const char *v18; // rax
+  __int64 v19; // rdx
+  const char *v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // rax
+  size_t v23; // rdx
+  PVOID PoolWithTag; // rax
+  size_t v25; // r8
+  char *v26; // rdx
+  SIZE_T v27; // rdx
+  PVOID v28; // rax
+  unsigned __int64 v29; // rdi
+  __int64 v30; // rax
+  PVOID v31; // rax
   int dwFlags; // [rsp+20h] [rbp-58h]
   int pszFormat; // [rsp+28h] [rbp-50h]
-  int v33; // [rsp+30h] [rbp-48h]
+  int v34; // [rsp+30h] [rbp-48h]
   size_t pcbRemaining; // [rsp+60h] [rbp-18h] BYREF
   NTSTRSAFE_PWSTR ppszDestEnd[2]; // [rsp+68h] [rbp-10h] BYREF
   size_t Size; // [rsp+C0h] [rbp+48h] BYREF
-  PVOID P; // [rsp+C8h] [rbp+50h] BYREF
-  void *Src; // [rsp+D0h] [rbp+58h] BYREF
-  unsigned __int64 v39; // [rsp+D8h] [rbp+60h] BYREF
+  size_t v38; // [rsp+C8h] [rbp+50h] BYREF
+  PVOID P; // [rsp+D0h] [rbp+58h] BYREF
+  void *Src; // [rsp+D8h] [rbp+60h] BYREF
 
   Src = 0LL;
   v6 = 0LL;
   Size = 0LL;
   v7 = 0;
   P = 0LL;
-  v39 = 0LL;
-  v8 = (wchar_t *)ACPIAllocateBuffer(a2, a3, 660LL);
+  v38 = 0LL;
+  v8 = (wchar_t *)ACPIAllocateBuffer(a2, (__int64)a3, 0x294uLL);
   *a1 = v8;
   v9 = v8;
   v10 = *a2;
+  v11 = 0LL;
   ppszDestEnd[0] = v8;
   pcbRemaining = v10;
   if ( !v8 )
-    goto LABEL_2;
-  v11 = a3[95];
-  if ( v11 && (unsigned int)AMLIGetNSObjectType(v11) == 12 )
+    goto LABEL_23;
+  v12 = a3[90];
+  if ( v12 && (unsigned int)AMLIGetNSObjectType(v12) == 12 )
   {
-    v7 = ACPIGet((__int64)a3, 0x4449485Fu, 268959798, 0LL, 0, 0LL, 0LL, (__int64)&Src, (__int64)&Size);
-    if ( v7 >= 0 )
+    v7 = ACPIGet(a3, 1145653343, 268959798, 0LL, 0, 0LL, 0LL, (__int64)&Src, (__int64)&Size);
+    if ( v7 < 0 )
+      goto LABEL_24;
+    if ( v10 >= Size )
     {
-      if ( v10 >= Size )
+      memmove(v9, Src, Size);
+LABEL_9:
+      if ( v10 < Size )
+        goto LABEL_12;
+      v16 = RtlStringCbPrintfExW(&v9[Size >> 1], v10 - Size, ppszDestEnd, &pcbRemaining, 0, &word_1C006F7EC);
+LABEL_11:
+      v7 = v16;
+LABEL_12:
+      if ( v7 >= 0 )
       {
-        memmove(v9, Src, Size);
-        v12 = Size;
-        if ( v10 < Size )
-          goto LABEL_48;
-        goto LABEL_38;
+LABEL_13:
+        if ( v6 )
+          ExFreePoolWithTag(v6, 0x53706341u);
+        goto LABEL_15;
       }
-      goto LABEL_2;
-    }
-LABEL_40:
-    v26 = byte_1C00622D0;
-    v27 = 0LL;
-    v28 = byte_1C00622D0;
-    if ( a3 )
-    {
-      v29 = a3[1];
-      v27 = (__int64)a3;
-      if ( (v29 & 0x200000000000LL) != 0 )
+LABEL_24:
+      v18 = byte_1C00701BA;
+      v19 = 0LL;
+      v20 = byte_1C00701BA;
+      if ( a3 )
       {
-        v26 = (const char *)a3[76];
-        if ( (v29 & 0x400000000000LL) != 0 )
-          v28 = (const char *)a3[77];
+        v21 = a3[1];
+        v19 = (__int64)a3;
+        if ( (v21 & 0x200000000000LL) != 0 )
+        {
+          v18 = (const char *)a3[71];
+          if ( (v21 & 0x400000000000LL) != 0 )
+            v20 = (const char *)a3[72];
+        }
       }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_qdLqss(
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          v19,
+          (__int64)&WPP_RECORDER_INITIALIZED,
+          0x28u,
+          dwFlags,
+          pszFormat,
+          v34,
+          v7,
+          v19,
+          v18,
+          v20);
+      goto LABEL_13;
     }
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_qdLqss(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        v27,
-        (__int64)&WPP_RECORDER_INITIALIZED,
-        0x28u,
-        dwFlags,
-        pszFormat,
-        v33,
-        v7,
-        v27,
-        v26,
-        v28);
-LABEL_46:
-    if ( !v6 )
-      goto LABEL_48;
-    goto LABEL_47;
+    goto LABEL_23;
   }
-  v13 = a3[126];
+  v13 = a3[120];
   v14 = -1LL;
   if ( (v13 & 8) == 0 || (v13 & 0x10) == 0 )
+    goto LABEL_5;
+  v22 = a3[71];
+  if ( !v22 )
   {
-LABEL_27:
-    v23 = ACPIGet((__int64)a3, 0x4449485Fu, 268959798, 0LL, 0, 0LL, 0LL, (__int64)&Src, (__int64)&Size);
-    v7 = v23;
-    if ( v23 == -1073741661 )
+    v16 = ACPIGet(a3, 1145653343, 268959782, 0LL, 0, 0LL, 0LL, (__int64)&P, (__int64)&v38);
+    goto LABEL_11;
+  }
+  v23 = -1LL;
+  do
+    ++v23;
+  while ( *(_BYTE *)(v22 + v23) );
+  v38 = v23;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v23, 0x42706341u);
+  P = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_17;
+  memset(PoolWithTag, 0, v38);
+  v25 = v38;
+  v26 = (char *)a3[71];
+  if ( v38 >= 5 )
+  {
+    v25 = v38 - 5;
+    v38 -= 5LL;
+    v26 += 5;
+  }
+  memmove(P, v26, v25);
+  if ( !ACPIValidateStringVendorDeviceIdFormat((__int64)P, v38) )
+  {
+LABEL_5:
+    v15 = ACPIGet(a3, 1145653343, 268959798, 0LL, 0, 0LL, 0LL, (__int64)&Src, (__int64)&Size);
+    v7 = v15;
+    if ( v15 == -1073741661 )
     {
-      v24 = a3[76];
-      if ( !v24 )
-        goto LABEL_40;
+      v30 = a3[71];
+      if ( !v30 )
+        goto LABEL_24;
       do
         ++v14;
-      while ( *(_BYTE *)(v24 + v14) );
+      while ( *(_BYTE *)(v30 + v14) );
       Size = 2 * v14 + 2;
-      Pool2 = (void *)ExAllocatePool2(256LL, Size, 1399874369LL);
-      Src = Pool2;
-      if ( !Pool2 )
-        goto LABEL_2;
-      RtlStringCbPrintfW((NTSTRSAFE_PWSTR)Pool2, Size, L"%S", a3[76]);
+      v31 = ExAllocatePoolWithTag(PagedPool, Size, 0x53706341u);
+      Src = v31;
+      if ( !v31 )
+        goto LABEL_23;
+      memset(v31, 0, Size);
+      RtlStringCbPrintfW((NTSTRSAFE_PWSTR)Src, Size, L"%S", a3[71]);
       v7 = 0;
     }
-    else if ( v23 < 0 )
+    else if ( v15 < 0 )
     {
-      goto LABEL_40;
+      goto LABEL_24;
     }
     if ( v10 >= Size )
     {
       memmove(v9, Src, Size);
-      if ( !v9 || (v12 = Size, v10 < Size) )
-      {
-LABEL_39:
-        if ( v7 >= 0 )
-          goto LABEL_46;
-        goto LABEL_40;
-      }
-LABEL_38:
-      v7 = RtlStringCbPrintfExW(&v9[v12 >> 1], v10 - v12, ppszDestEnd, &pcbRemaining, 0, &word_1C0063064);
-      goto LABEL_39;
+      if ( !v9 )
+        goto LABEL_12;
+      goto LABEL_9;
     }
-LABEL_2:
-    v7 = -1073741670;
-    goto LABEL_40;
-  }
-  v15 = a3[76];
-  if ( v15 )
-  {
-    v16 = -1LL;
-    do
-      ++v16;
-    while ( *(_BYTE *)(v15 + v16) );
-    v39 = v16;
-    v17 = (void *)ExAllocatePool2(256LL, v16, 1114661697LL);
-    P = v17;
-    if ( !v17 )
-      goto LABEL_50;
-    v18 = v39;
-    v19 = (char *)a3[76];
-    if ( v39 >= 5 )
-    {
-      v18 = v39 - 5;
-      v39 -= 5LL;
-      v19 += 5;
-    }
-    memmove(v17, v19, v18);
-    if ( !(unsigned __int8)ACPIValidateStringVendorDeviceIdFormat(P, v39) )
-      goto LABEL_27;
-    v21 = (void *)ExAllocatePool2(256LL, v20, 1114661697LL);
-    v6 = v21;
-    if ( !v21 )
-      goto LABEL_48;
-    if ( v39 == 7 )
-    {
-      v22 = 3LL;
-    }
-    else
-    {
-      v22 = 4LL;
-      if ( v39 <= 4 )
-      {
 LABEL_23:
-        v33 = (int)P;
-        v7 = RtlStringCbPrintfExW(v9, v10, ppszDestEnd, &pcbRemaining, 0, L"ACPI\\VEN_%S&DEV_%S&SUBSYS_%S&REV_%04X");
-        if ( v7 < 0 )
-          goto LABEL_40;
-        if ( !ppszDestEnd[0] || pcbRemaining < 2 )
-        {
-LABEL_47:
-          ExFreePoolWithTag(v6, 0x53706341u);
-          goto LABEL_48;
-        }
-        v9 = ppszDestEnd[0] + 1;
-        v10 = pcbRemaining - 2;
-        goto LABEL_27;
-      }
-    }
-    memmove(v21, (char *)P + v22, v39 - v22);
-    *((_BYTE *)P + v22) = 0;
-    goto LABEL_23;
+    v7 = -1073741670;
+    goto LABEL_24;
   }
-  v7 = ACPIGet((__int64)a3, 0x4449485Fu, 268959782, 0LL, 0, 0LL, 0LL, (__int64)&P, (__int64)&v39);
-  if ( v7 < 0 )
-    goto LABEL_39;
-LABEL_48:
+  v28 = ExAllocatePoolWithTag(PagedPool, v27, 0x42706341u);
+  v6 = v28;
+  if ( v28 )
+  {
+    LOBYTE(v11) = v38 != 7;
+    v29 = v11 + 3;
+    memset(v28, 0, v38);
+    if ( v38 > v29 )
+    {
+      memmove(v6, (char *)P + v29, v38 - v29);
+      *((_BYTE *)P + v29) = 0;
+    }
+    v34 = (int)P;
+    v7 = RtlStringCbPrintfExW(v9, v10, ppszDestEnd, &pcbRemaining, 0, L"ACPI\\VEN_%S&DEV_%S&SUBSYS_%S&REV_%04X");
+    if ( v7 < 0 )
+      goto LABEL_24;
+    if ( !ppszDestEnd[0] || pcbRemaining < 2 )
+      goto LABEL_12;
+    v9 = ppszDestEnd[0] + 1;
+    v10 = pcbRemaining - 2;
+    goto LABEL_5;
+  }
+LABEL_15:
   if ( P )
     ExFreePoolWithTag(P, 0x53706341u);
-LABEL_50:
+LABEL_17:
   if ( Src )
     ExFreePoolWithTag(Src, 0x53706341u);
   return (unsigned int)v7;

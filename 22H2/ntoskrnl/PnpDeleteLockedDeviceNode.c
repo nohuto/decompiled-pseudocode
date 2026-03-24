@@ -1,15 +1,18 @@
 /*
- * XREFs of PnpDeleteLockedDeviceNode @ 0x1408688F8
+ * XREFs of PnpDeleteLockedDeviceNode @ 0x14074B3F8
  * Callers:
- *     PnpDeleteLockedDeviceNodes @ 0x1408685F8 (PnpDeleteLockedDeviceNodes.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x14074B084 (PnpDeleteLockedDeviceNodes.c)
+ *     PnpCancelRemoveOnHungDevices @ 0x1408A22D0 (PnpCancelRemoveOnHungDevices.c)
  * Callees:
- *     PoFxActivateDevice @ 0x140322A64 (PoFxActivateDevice.c)
- *     PoFxIdleDevice @ 0x140322D9C (PoFxIdleDevice.c)
- *     PnpRemoveLockedDeviceNode @ 0x1403B6A4C (PnpRemoveLockedDeviceNode.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140882FB8 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PnpCancelRemoveLockedDeviceNode @ 0x140958FEC (PnpCancelRemoveLockedDeviceNode.c)
- *     PnpQueryRemoveLockedDeviceNode @ 0x1409591E8 (PnpQueryRemoveLockedDeviceNode.c)
+ *     PoFxIdleDevice @ 0x14036EFF4 (PoFxIdleDevice.c)
+ *     PoFxActivateDevice @ 0x14036F174 (PoFxActivateDevice.c)
+ *     PnpRemoveLockedDeviceNode @ 0x140370078 (PnpRemoveLockedDeviceNode.c)
+ *     PipRestoreDevNodeState @ 0x140371258 (PipRestoreDevNodeState.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x14073454C (PnpQueryRemoveLockedDeviceNode.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x1407477A0 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     IopRemoveDevice @ 0x14074B778 (IopRemoveDevice.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x14074C7F0 (PnpSurpriseRemoveLockedDeviceNode.c)
  */
 
 __int64 __fastcall PnpDeleteLockedDeviceNode(
@@ -17,8 +20,8 @@ __int64 __fastcall PnpDeleteLockedDeviceNode(
         int a2,
         unsigned int a3,
         unsigned int a4,
-        __int64 a5,
-        __int64 a6)
+        _DWORD *a5,
+        UNICODE_STRING *a6)
 {
   unsigned int v6; // edi
   int v10; // edx
@@ -53,14 +56,19 @@ __int64 __fastcall PnpDeleteLockedDeviceNode(
         KeBugCheckEx(0xCAu, 0xDuLL, BugCheckParameter2, 4uLL, 0LL);
       PoFxIdleDevice(*(_QWORD *)(BugCheckParameter2 + 32));
       *(_DWORD *)(BugCheckParameter2 + 704) &= ~4u;
-      PnpCancelRemoveLockedDeviceNode(BugCheckParameter2);
+      if ( *(_DWORD *)(BugCheckParameter2 + 300) == 784 )
+      {
+        IopRemoveDevice(*(PDEVICE_OBJECT *)(BugCheckParameter2 + 32));
+        PipRestoreDevNodeState(BugCheckParameter2);
+        PnpStartedDeviceNodeDependencyCheck(BugCheckParameter2);
+      }
     }
   }
   else
   {
     PoFxActivateDevice(*(_QWORD *)(BugCheckParameter2 + 32));
     *(_DWORD *)(BugCheckParameter2 + 704) |= 4u;
-    return (unsigned int)PnpQueryRemoveLockedDeviceNode(BugCheckParameter2, a5, a6);
+    return (unsigned int)PnpQueryRemoveLockedDeviceNode(BugCheckParameter2, a3, a5, a6);
   }
   return v6;
 }

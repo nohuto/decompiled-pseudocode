@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Convert_D2D1_COLOR_F_sRGB_To_D2D1_COLOR_F_scRGB@@YA?AU_D3DCOLORVALUE@@AEBU1@@Z @ 0x18026F358
+ * XREFs of ?Convert_D2D1_COLOR_F_sRGB_To_D2D1_COLOR_F_scRGB@@YA?AU_D3DCOLORVALUE@@AEBU1@@Z @ 0x18021EDE8
  * Callers:
- *     InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___ @ 0x180256B48 (InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___.c)
- *     InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___ @ 0x180256C40 (InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___.c)
+ *     InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___ @ 0x180206510 (InterpolateInLinearGamma__lambda_3407e8815db8ff72220510f30343e01a___.c)
+ *     InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___ @ 0x1802065F8 (InterpolateInLinearGamma__lambda_d9ec8cec7b93f46268f106f2fd316fdd___.c)
  * Callees:
- *     floor @ 0x1801018EC (floor.c)
+ *     floor @ 0x1800E8198 (floor.c)
  */
 
 struct _D3DCOLORVALUE *__fastcall Convert_D2D1_COLOR_F_sRGB_To_D2D1_COLOR_F_scRGB(

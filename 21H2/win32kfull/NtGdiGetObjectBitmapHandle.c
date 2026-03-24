@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetObjectBitmapHandle @ 0x1C02AD870
+ * XREFs of NtGdiGetObjectBitmapHandle @ 0x1C02AF130
  * Callers:
  *     <none>
  * Callees:
- *     GreGetObjectBitmapHandle @ 0x1C02B5D34 (GreGetObjectBitmapHandle.c)
+ *     GreGetObjectBitmapHandle @ 0x1C02B7C24 (GreGetObjectBitmapHandle.c)
  */
 
 HBRUSH __fastcall NtGdiGetObjectBitmapHandle(HBRUSH a1, _DWORD *a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetDirectoryFrameFromProcess @ 0x1407E95E4
+ * XREFs of MmGetDirectoryFrameFromProcess @ 0x140630F68
  * Callers:
- *     PfpLogApplicationEvent @ 0x1402FA074 (PfpLogApplicationEvent.c)
+ *     PfpLogApplicationEvent @ 0x14026E010 (PfpLogApplicationEvent.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of HUBFDO_CompleteGetDescriptorRequest @ 0x1C000E938
+ * XREFs of HUBFDO_CompleteGetDescriptorRequest @ 0x1C000D7A4
  * Callers:
- *     HUBSM_FindAndSetTargetState @ 0x1C000A96C (HUBSM_FindAndSetTargetState.c)
- *     HUBDTX_GetDeviceDescriptorComplete @ 0x1C002D7B0 (HUBDTX_GetDeviceDescriptorComplete.c)
- *     HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb @ 0x1C002D8E4 (HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb.c)
- *     HUBFDO_IoctlGetDescriptorFromNodeConnection @ 0x1C0079918 (HUBFDO_IoctlGetDescriptorFromNodeConnection.c)
+ *     HUBSM_FindAndSetTargetState @ 0x1C0009F9C (HUBSM_FindAndSetTargetState.c)
+ *     HUBDTX_GetDeviceDescriptorComplete @ 0x1C002A700 (HUBDTX_GetDeviceDescriptorComplete.c)
+ *     HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb @ 0x1C002A834 (HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb.c)
+ *     HUBFDO_IoctlGetDescriptorFromNodeConnection @ 0x1C0075C74 (HUBFDO_IoctlGetDescriptorFromNodeConnection.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CD5C (McTemplateK0pqq_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBFDO_CompleteGetDescriptorRequest(__int64 a1, int a2, __int64 a3, int a4, unsigned int a5)
@@ -27,17 +27,17 @@ __int64 __fastcall HUBFDO_CompleteGetDescriptorRequest(__int64 a1, int a2, __int
       *(_QWORD *)(a1 + 2520),
       4u,
       3u,
-      0x40u,
-      (__int64)&WPP_440221f57c503424f19abf9386554ba7_Traceguids,
+      0x2Fu,
+      (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
       a4,
       v15);
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
+  if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
   {
     v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2280))(WdfDriverGlobals, a3);
-    v10 = *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement
-        ? (*(__int64 (__fastcall **)(__int64, __int128 *))&WPP_MAIN_CB.AlignmentRequirement)(v9, &v15)
+    v10 = *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters
+        ? (*(__int64 (__fastcall **)(__int64, __int128 *))&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters)(v9, &v15)
         : -1073741275;
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
     {
       v11 = (const GUID *)&v15;
       LODWORD(v14) = a4;

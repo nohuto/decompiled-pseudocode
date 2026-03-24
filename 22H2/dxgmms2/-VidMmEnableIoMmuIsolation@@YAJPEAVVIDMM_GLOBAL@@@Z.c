@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VidMmEnableIoMmuIsolation@@YAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C002C9F0
+ * XREFs of ?VidMmEnableIoMmuIsolation@@YAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C00226E0
  * Callers:
  *     <none>
  * Callees:
- *     ?EnableIoMmuIsolation@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00E1A08 (-EnableIoMmuIsolation@VIDMM_GLOBAL@@QEAAJXZ.c)
+ *     ?EnableIoMmuIsolation@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00ADB8C (-EnableIoMmuIsolation@VIDMM_GLOBAL@@QEAAJXZ.c)
  */
 
 __int64 __fastcall VidMmEnableIoMmuIsolation(struct VIDMM_GLOBAL *a1)

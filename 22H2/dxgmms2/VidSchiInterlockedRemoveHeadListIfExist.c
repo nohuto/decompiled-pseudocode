@@ -1,15 +1,16 @@
 /*
- * XREFs of VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0007120
+ * XREFs of VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0007BA0
  * Callers:
- *     VidSchiDecrementContextReference @ 0x1C0001F40 (VidSchiDecrementContextReference.c)
- *     VidSchiSwitchContextWithCheck @ 0x1C000B640 (VidSchiSwitchContextWithCheck.c)
- *     ?VidSchiAllocatePacketFromGuaranteedPacketPool@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0018654 (-VidSchiAllocatePacketFromGuaranteedPacketPool@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU_VIDSCH_CONTEXT@.c)
- *     ?VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z @ 0x1C0042650 (-VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z.c)
- *     VidSchiAllocateDmaPacket @ 0x1C0087530 (VidSchiAllocateDmaPacket.c)
- *     VidSchiSubmitRenderVirtualCommand @ 0x1C00AD180 (VidSchiSubmitRenderVirtualCommand.c)
- *     VidSchSubmitCommand @ 0x1C00AD620 (VidSchSubmitCommand.c)
- *     VidSchiAllocateQueuePacket @ 0x1C00ADF10 (VidSchiAllocateQueuePacket.c)
- *     VidSchiAllocateHwQueuePacket @ 0x1C00C4732 (VidSchiAllocateHwQueuePacket.c)
+ *     VidSchiSwitchContextWithCheck @ 0x1C000C3B0 (VidSchiSwitchContextWithCheck.c)
+ *     VidSchiDecrementContextReference @ 0x1C0011630 (VidSchiDecrementContextReference.c)
+ *     ?VidSchiAllocatePacketFromGuaranteedPacketPool@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU_VIDSCH_CONTEXT@@@Z @ 0x1C002A354 (-VidSchiAllocatePacketFromGuaranteedPacketPool@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU_VIDSCH_CONTEXT@.c)
+ *     ?VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z @ 0x1C00375D0 (-VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z.c)
+ *     VidSchiSubmitRenderVirtualCommand @ 0x1C007DD90 (VidSchiSubmitRenderVirtualCommand.c)
+ *     VidSchSubmitCommand @ 0x1C007E2B0 (VidSchSubmitCommand.c)
+ *     VidSchiAllocateQueuePacket @ 0x1C007E910 (VidSchiAllocateQueuePacket.c)
+ *     VidSchiSubmitPagingCommand @ 0x1C0085280 (VidSchiSubmitPagingCommand.c)
+ *     VidSchiAllocateDmaPacket @ 0x1C0086E5C (VidSchiAllocateDmaPacket.c)
+ *     VidSchiAllocateHwQueuePacket @ 0x1C00D209C (VidSchiAllocateHwQueuePacket.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +22,6 @@ _QWORD *__fastcall VidSchiInterlockedRemoveHeadListIfExist(KSPIN_LOCK *a1, _QWOR
   _QWORD *v7; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   v5 = 0LL;
   KeAcquireInStackQueuedSpinLock(a1, &LockHandle);
   v6 = *a2;

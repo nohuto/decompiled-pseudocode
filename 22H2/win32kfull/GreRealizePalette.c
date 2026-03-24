@@ -1,331 +1,309 @@
 /*
- * XREFs of GreRealizePalette @ 0x1C02D181C
+ * XREFs of GreRealizePalette @ 0x1C011B8EC
  * Callers:
- *     xxxRealizePalette @ 0x1C0214E58 (xxxRealizePalette.c)
- *     ?DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z @ 0x1C026BDD0 (-DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z.c)
+ *     xxxRealizePalette @ 0x1C011B890 (xxxRealizePalette.c)
+ *     ?DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z @ 0x1C0273274 (-DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z.c)
  * Callees:
- *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C00AC154 (-ulTime@XEPALOBJ@@QEAAKXZ.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?bIsPalDefault@XEPALOBJ@@QEBAHXZ @ 0x1C00E0C08 (-bIsPalDefault@XEPALOBJ@@QEBAHXZ.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E13F4 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E1440 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C011BFB4 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ?RestoreAttributes@XDCOBJ@@AEAAXXZ @ 0x1C011C0AC (-RestoreAttributes@XDCOBJ@@AEAAXXZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ??0MDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C02C1B10 (--0MDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?ptransMatchAPal@@YAPEAU_TRANSLATE@@PEAVDC@@VXEPALOBJ@@1HPEAK2@Z @ 0x1C02D895C (-ptransMatchAPal@@YAPEAU_TRANSLATE@@PEAVDC@@VXEPALOBJ@@1HPEAK2@Z.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018B60 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018E8C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00AC9D8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2904 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C00D40AC (-ulTime@XEPALOBJ@@QEAAKXZ.c)
+ *     ?RestoreAttributes@XDCOBJ@@AEAAXXZ @ 0x1C00D6320 (-RestoreAttributes@XDCOBJ@@AEAAXXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ??0MDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C02AD964 (--0MDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?ptransMatchAPal@@YAPEAU_TRANSLATE@@PEAVDC@@VXEPALOBJ@@1HPEAK2@Z @ 0x1C02BC740 (-ptransMatchAPal@@YAPEAU_TRANSLATE@@PEAVDC@@VXEPALOBJ@@1HPEAK2@Z.c)
  */
 
 __int64 __fastcall GreRealizePalette(HDC a1)
 {
-  Gre::Base *v1; // rcx
+  __int64 v1; // rdx
   __int64 v2; // rax
-  struct Gre::Base::SESSION_GLOBALS *v3; // rdi
-  __int64 v4; // rdx
-  char *v5; // r8
-  __int64 v6; // r9
-  Gre::Base *v7; // rcx
-  __int64 v8; // rax
-  _QWORD *v9; // rbx
-  __int64 v10; // rsi
-  __int64 v11; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  _DWORD *v16; // rdx
-  int v17; // eax
-  HDC v18; // rdi
-  _DWORD *v19; // rcx
-  void *v20; // rcx
-  __int64 v21; // r8
-  unsigned int v22; // eax
-  __int64 v23; // rcx
+  __int64 v3; // rbx
+  HPALETTE v4; // rdi
+  struct _W32PROCESS *v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  struct _W32PROCESS *CurrentProcessWin32Process; // rax
+  _DWORD *v9; // rdx
+  int v10; // eax
+  HDC v11; // rdi
+  void *v12; // rcx
+  _DWORD *v13; // rcx
+  _DWORD *v14; // rdx
+  __int64 v15; // r8
+  unsigned int v16; // eax
+  __int64 v17; // rcx
   __int64 matched; // rax
-  HDC v25; // rbx
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  __int64 v28; // r9
-  _DWORD *v29; // rdx
-  int v30; // eax
-  HDC v31; // rdi
-  void *v32; // rcx
-  _DWORD *v33; // rcx
-  HDC v34; // rbx
-  void (__fastcall *v35)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD); // r10
-  signed __int64 v36; // r10
-  unsigned int v37; // ebx
-  __int64 v39; // [rsp+50h] [rbp-B0h] BYREF
-  Gre::Base *v40; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD v41[2]; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v42; // [rsp+70h] [rbp-90h] BYREF
-  int v43; // [rsp+78h] [rbp-88h]
-  _QWORD *v44; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v45; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v46; // [rsp+90h] [rbp-70h] BYREF
-  char v47[8]; // [rsp+98h] [rbp-68h] BYREF
-  _QWORD v48[2]; // [rsp+A0h] [rbp-60h] BYREF
-  _QWORD v49[2]; // [rsp+B0h] [rbp-50h] BYREF
-  _QWORD v50[2]; // [rsp+C0h] [rbp-40h] BYREF
-  char v51[32]; // [rsp+D0h] [rbp-30h] BYREF
-  __int128 v52; // [rsp+F0h] [rbp-10h] BYREF
-  Gre::Base *v53; // [rsp+100h] [rbp+0h]
-  int v54; // [rsp+108h] [rbp+8h]
-  _QWORD v55[2]; // [rsp+110h] [rbp+10h] BYREF
-  char v56[40]; // [rsp+120h] [rbp+20h] BYREF
-  __int64 v57; // [rsp+148h] [rbp+48h]
-  __int64 v58; // [rsp+150h] [rbp+50h]
-  char v59; // [rsp+1A8h] [rbp+A8h] BYREF
-  int v60; // [rsp+1B0h] [rbp+B0h] BYREF
-  int v61; // [rsp+1B8h] [rbp+B8h] BYREF
+  HDC v19; // rbx
+  _DWORD *v20; // rdx
+  int v21; // eax
+  HDC v22; // rdi
+  void *v23; // rcx
+  _DWORD *v24; // rcx
+  _DWORD *v25; // rax
+  HDC v26; // rbx
+  void (__fastcall *v27)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD); // r10
+  _DWORD *v28; // r8
+  unsigned int i; // r9d
+  DYNAMICMODECHANGESHARELOCK *v30; // rcx
+  unsigned int v31; // ebx
+  __int64 v33; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v34; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v35; // [rsp+60h] [rbp-A0h] BYREF
+  int v36; // [rsp+68h] [rbp-98h]
+  _BYTE v37[8]; // [rsp+70h] [rbp-90h] BYREF
+  _QWORD v38[2]; // [rsp+78h] [rbp-88h] BYREF
+  _QWORD v39[2]; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v40; // [rsp+98h] [rbp-68h] BYREF
+  __int64 v41; // [rsp+A0h] [rbp-60h] BYREF
+  _BYTE v42[8]; // [rsp+A8h] [rbp-58h] BYREF
+  _QWORD v43[2]; // [rsp+B0h] [rbp-50h] BYREF
+  _QWORD v44[2]; // [rsp+C0h] [rbp-40h] BYREF
+  _QWORD v45[2]; // [rsp+D0h] [rbp-30h] BYREF
+  _BYTE v46[32]; // [rsp+E0h] [rbp-20h] BYREF
+  __int128 v47; // [rsp+100h] [rbp+0h] BYREF
+  __int64 v48; // [rsp+110h] [rbp+10h]
+  int v49; // [rsp+118h] [rbp+18h]
+  _QWORD v50[2]; // [rsp+120h] [rbp+20h] BYREF
+  _BYTE v51[40]; // [rsp+130h] [rbp+30h] BYREF
+  __int64 v52; // [rsp+158h] [rbp+58h]
+  __int64 v53; // [rsp+160h] [rbp+60h]
+  char v54; // [rsp+1A8h] [rbp+A8h] BYREF
+  int v55; // [rsp+1B0h] [rbp+B0h] BYREF
+  int v56; // [rsp+1B8h] [rbp+B8h] BYREF
 
-  v61 = 0;
-  v60 = 0;
-  DCOBJ::DCOBJ((DCOBJ *)v50, a1);
-  v2 = v50[0];
-  if ( !v50[0] )
-    goto LABEL_83;
-  v3 = Gre::Base::Globals(v1);
-  v40 = *(Gre::Base **)(v50[0] + 48LL);
-  DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v59);
-  NEEDGRELOCK::vLock((NEEDGRELOCK *)v47, (struct PDEVOBJ *)&v40);
-  v46 = *((_QWORD *)v40 + 7);
-  GreAcquireSemaphore(v46);
-  DLODCOBJ::DLODCOBJ((DLODCOBJ *)v55);
-  v7 = v40;
-  v58 = 0LL;
+  v56 = 0;
+  v55 = 0;
+  DCOBJ::DCOBJ((DCOBJ *)v45, a1);
+  if ( !v45[0] )
+    goto LABEL_81;
+  v34 = *(_QWORD *)(v45[0] + 48LL);
+  DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v54);
+  NEEDGRELOCK::vLock((NEEDGRELOCK *)v42, (struct PDEVOBJ *)&v34);
+  v41 = *(_QWORD *)(v34 + 64);
+  GreAcquireSemaphore(v41);
+  DLODCOBJ::DLODCOBJ((DLODCOBJ *)v50);
+  v1 = v34;
+  v53 = 0LL;
+  v47 = 0LL;
   v52 = 0LL;
-  v57 = 0LL;
-  v55[0] = 0LL;
-  v54 = 1;
-  if ( (*((_DWORD *)v40 + 10) & 1) != 0 )
+  v50[0] = 0LL;
+  v49 = 1;
+  if ( (*(_DWORD *)(v34 + 40) & 1) != 0 )
   {
-    Gre::Base::Globals(v40);
-    *(_QWORD *)&v52 = *((_QWORD *)v40 + 6);
-    v53 = v40;
-    GreAcquireSemaphore(v52);
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v52, 11LL);
-    v7 = v40;
+    *(_QWORD *)&v47 = *(_QWORD *)(v34 + 48);
+    v48 = v34;
+    GreAcquireSemaphore(v47);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v47, 11LL);
+    v1 = v34;
   }
-  v8 = *((_QWORD *)v7 + 222);
-  v39 = v8;
-  v9 = *(_QWORD **)(v50[0] + 88LL);
-  v44 = v9;
-  v10 = *v9;
-  if ( (*((_DWORD *)v7 + 535) & 0x100) != 0 )
+  v2 = *(_QWORD *)(v1 + 1808);
+  v33 = v2;
+  v3 = *(_QWORD *)(v45[0] + 88LL);
+  v4 = *(HPALETTE *)v3;
+  if ( (*(_DWORD *)(v1 + 2172) & 0x100) != 0 )
   {
-    v45 = *((_QWORD *)v3 + 5);
-    GreAcquireSemaphore(v45);
-    if ( v10 != *((_QWORD *)v3 + 479) )
+    v40 = ghsemPalette;
+    GreAcquireSemaphore(ghsemPalette);
+    if ( v4 == hForePalette
+      || (v5 = *(struct _W32PROCESS **)(v45[0] + 976LL), *((_DWORD *)v5 + 52) == 1)
+      && (v6 = 16711680LL,
+          v5 = (struct _W32PROCESS *)((unsigned __int16)v4 | ((unsigned int)v4 >> 8) & 0xFF0000),
+          (_DWORD)v5 == ((unsigned __int16)hForePalette | ((unsigned int)hForePalette >> 8) & 0xFF0000))
+      && (CurrentProcessWin32Process = (struct _W32PROCESS *)PsGetCurrentProcessWin32Process(v5),
+          v5 = hForePID,
+          hForePID == CurrentProcessWin32Process) )
     {
-      if ( *(_DWORD *)(*(_QWORD *)(v50[0] + 976LL) + 208LL) != 1 )
-        goto LABEL_88;
-      v11 = (unsigned __int16)*((_DWORD *)v3 + 958) | (*((_DWORD *)v3 + 958) >> 8) & 0xFF0000u;
-      if ( ((unsigned __int16)v10 | ((unsigned int)v10 >> 8) & 0xFF0000) != (_DWORD)v11 )
-        goto LABEL_88;
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v11);
-      if ( CurrentProcessWin32Process )
-        CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-      if ( *((_QWORD *)v3 + 480) != CurrentProcessWin32Process )
+      if ( (struct PALETTE *)v3 == ppalDefault )
+        goto LABEL_66;
+      v20 = *(_DWORD **)(v3 + 72);
+      if ( v20 )
       {
-LABEL_88:
-        if ( XEPALOBJ::bIsPalDefault((XEPALOBJ *)&v44) )
-          goto LABEL_68;
-        v16 = (_DWORD *)v9[10];
-        if ( v16 )
+        if ( v20 == *(_DWORD **)(v3 + 80) )
         {
-          v17 = XEPALOBJ::ulTime((XEPALOBJ *)&v39);
-          if ( *v16 == v17 )
-            goto LABEL_68;
+          v21 = XEPALOBJ::ulTime((XEPALOBJ *)&v33);
+          if ( *v20 == v21 )
+            goto LABEL_66;
         }
-        GreAcquireHmgrSemaphore(v13, v16, v14, v15);
-        v18 = (HDC)v9[5];
-        while ( v18 )
-        {
-          MDCOBJ::MDCOBJ((MDCOBJ *)v41, v18);
-          if ( !v41[0] )
-            goto LABEL_38;
-          *(_DWORD *)(*(_QWORD *)(v41[0] + 976LL) + 152LL) = *(_DWORD *)(*(_QWORD *)(v50[0] + 976LL) + 152LL) | 0xF;
-          v18 = *(HDC *)(v41[0] + 984LL);
-          XDCOBJ::RestoreAttributes((XDCOBJ *)v41);
-          v41[0] = 0LL;
-        }
-        v20 = (void *)v9[11];
-        if ( v20 )
-        {
-          if ( v20 != (void *)v9[9] )
-            Win32FreePool(v20);
-          v9[11] = 0LL;
-        }
-        v19 = (_DWORD *)v9[9];
-        if ( v19 )
-        {
-          if ( *v19 )
-            goto LABEL_34;
-          if ( (_DWORD *)v9[10] != v19 )
-            Win32FreePool(v19);
-          v9[9] = 0LL;
-        }
-        v43 = 0;
-        v42 = 0LL;
-        if ( PALMEMOBJ::bCreatePalette((PALMEMOBJ *)&v42, 1u, *(_DWORD *)(v39 + 28), 0LL, 0, 0, 0, 0x800u, 1) )
-        {
-          v21 = *(unsigned int *)(v39 + 28);
-          v22 = *(_DWORD *)(v42 + 28);
-          if ( (unsigned int)v21 >= v22 )
-            v21 = v22;
-          memmove(*(void **)(v42 + 112), *(const void **)(v39 + 112), 4 * v21);
-          *(_DWORD *)(v42 + 60) = *(_DWORD *)(v39 + 60);
-          *(_DWORD *)(v42 + 24) = *(_DWORD *)(v39 + 24);
-          XEPALOBJ::vComputeCallTables((XEPALOBJ *)&v42);
-          v9[9] = ptransMatchAPal(v23, v42, v9, 1LL, &v59, &v59);
-        }
-        PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v42);
-LABEL_34:
-        v9[11] = v9[10];
-        if ( v9[9] )
-        {
-          matched = ptransMatchAPal(v19, v39, v9, 0LL, &v60, &v61);
-          v9[10] = matched;
-          if ( !matched )
-            v9[10] = v9[9];
-        }
-        else
-        {
-          v9[10] = 0LL;
-        }
-LABEL_38:
-        v25 = (HDC)v9[5];
-        while ( v25 != v18 )
-        {
-          MDCOBJ::MDCOBJ((MDCOBJ *)v48, v25);
-          _InterlockedDecrement((volatile signed __int32 *)(v48[0] + 12LL));
-          v25 = *(HDC *)(v48[0] + 984LL);
-          XDCOBJ::vUnlockFast((XDCOBJ *)v48);
-        }
-LABEL_67:
-        GreReleaseHmgrSemaphore(v19);
-LABEL_68:
-        SEMOBJ::vUnlock((SEMOBJ *)&v45);
-        v7 = v40;
-        v8 = v39;
-        goto LABEL_69;
       }
-    }
-    if ( XEPALOBJ::bIsPalDefault((XEPALOBJ *)&v44) )
-      goto LABEL_68;
-    v29 = (_DWORD *)v9[9];
-    if ( v29 )
-    {
-      if ( v29 == (_DWORD *)v9[10] )
+      GreAcquireHmgrSemaphore(v5, v20, v6, v7);
+      v22 = *(HDC *)(v3 + 40);
+      while ( v22 )
       {
-        v30 = XEPALOBJ::ulTime((XEPALOBJ *)&v39);
-        if ( *v29 == v30 )
-          goto LABEL_68;
+        MDCOBJ::MDCOBJ((MDCOBJ *)v39, v22);
+        if ( !v39[0] )
+          goto LABEL_62;
+        *(_DWORD *)(*(_QWORD *)(v39[0] + 976LL) + 152LL) = *(_DWORD *)(*(_QWORD *)(v45[0] + 976LL) + 152LL) | 0xF;
+        v22 = *(HDC *)(v39[0] + 984LL);
+        XDCOBJ::RestoreAttributes((XDCOBJ *)v39);
+        v39[0] = 0LL;
+        MDCOBJ::~MDCOBJ((MDCOBJ *)v39);
       }
-    }
-    GreAcquireHmgrSemaphore(v26, v29, v27, v28);
-    v31 = (HDC)v9[5];
-    while ( v31 )
-    {
-      MDCOBJ::MDCOBJ((MDCOBJ *)v41, v31);
-      if ( !v41[0] )
-        goto LABEL_63;
-      *(_DWORD *)(*(_QWORD *)(v41[0] + 976LL) + 152LL) = *(_DWORD *)(*(_QWORD *)(v50[0] + 976LL) + 152LL) | 0xF;
-      v31 = *(HDC *)(v41[0] + 984LL);
-      XDCOBJ::RestoreAttributes((XDCOBJ *)v41);
-      v41[0] = 0LL;
-    }
-    v32 = (void *)v9[11];
-    if ( v32 )
-    {
-      if ( v32 != (void *)v9[9] )
-        Win32FreePool(v32);
-      v9[11] = 0LL;
-    }
-    v33 = (_DWORD *)v9[9];
-    if ( v33 )
-    {
-      if ( *v33 )
+      v23 = *(void **)(v3 + 88);
+      if ( v23 )
       {
-        vMatchAPal(v50[0], v39, v9, &v60, &v61);
+        if ( v23 != *(void **)(v3 + 72) )
+          Win32FreePool(v23);
+        *(_QWORD *)(v3 + 88) = 0LL;
+      }
+      v24 = *(_DWORD **)(v3 + 72);
+      v25 = v24;
+      if ( v24 && !*v24 )
+      {
+        if ( *(_DWORD **)(v3 + 80) != v24 )
+          Win32FreePool(v24);
+        *(_QWORD *)(v3 + 72) = 0LL;
+        v25 = 0LL;
+      }
+      if ( v25 )
+        vMatchAPal(v45[0], v33, v3, &v55, &v56);
+      else
+        *(_QWORD *)(v3 + 72) = ptransMatchAPal(v24, v33, v3, 1LL, &v55, &v56);
+      *(_QWORD *)(v3 + 88) = *(_QWORD *)(v3 + 80);
+      *(_QWORD *)(v3 + 80) = *(_QWORD *)(v3 + 72);
 LABEL_62:
-        v9[11] = v9[10];
-        v9[10] = v9[9];
-LABEL_63:
-        v34 = (HDC)v9[5];
-        while ( v34 != v31 )
-        {
-          MDCOBJ::MDCOBJ((MDCOBJ *)v49, v34);
-          _InterlockedDecrement((volatile signed __int32 *)(v49[0] + 12LL));
-          v34 = *(HDC *)(v49[0] + 984LL);
-          XDCOBJ::vUnlockFast((XDCOBJ *)v49);
-        }
-        goto LABEL_67;
+      v26 = *(HDC *)(v3 + 40);
+      while ( v26 != v22 )
+      {
+        MDCOBJ::MDCOBJ((MDCOBJ *)v44, v26);
+        _InterlockedDecrement((volatile signed __int32 *)(v44[0] + 12LL));
+        v26 = *(HDC *)(v44[0] + 984LL);
+        MDCOBJ::~MDCOBJ((MDCOBJ *)v44);
       }
-      if ( (_DWORD *)v9[10] != v33 )
-        Win32FreePool(v33);
-      v9[9] = 0LL;
     }
-    v9[9] = ptransMatchAPal(v33, v39, v9, 1LL, &v60, &v61);
-    goto LABEL_62;
+    else
+    {
+      if ( (struct PALETTE *)v3 == ppalDefault )
+        goto LABEL_66;
+      v9 = *(_DWORD **)(v3 + 80);
+      if ( v9 )
+      {
+        v10 = XEPALOBJ::ulTime((XEPALOBJ *)&v33);
+        if ( *v9 == v10 )
+          goto LABEL_66;
+      }
+      GreAcquireHmgrSemaphore(v5, v9, v6, v7);
+      v11 = *(HDC *)(v3 + 40);
+      while ( v11 )
+      {
+        MDCOBJ::MDCOBJ((MDCOBJ *)v38, v11);
+        if ( !v38[0] )
+        {
+          MDCOBJ::~MDCOBJ((MDCOBJ *)v38);
+          goto LABEL_36;
+        }
+        *(_DWORD *)(*(_QWORD *)(v38[0] + 976LL) + 152LL) = *(_DWORD *)(*(_QWORD *)(v45[0] + 976LL) + 152LL) | 0xF;
+        v11 = *(HDC *)(v38[0] + 984LL);
+        XDCOBJ::RestoreAttributes((XDCOBJ *)v38);
+        v38[0] = 0LL;
+        MDCOBJ::~MDCOBJ((MDCOBJ *)v38);
+      }
+      v12 = *(void **)(v3 + 88);
+      if ( v12 )
+      {
+        if ( v12 != *(void **)(v3 + 72) )
+          Win32FreePool(v12);
+        *(_QWORD *)(v3 + 88) = 0LL;
+      }
+      v13 = *(_DWORD **)(v3 + 72);
+      v14 = v13;
+      if ( v13 && !*v13 )
+      {
+        if ( *(_DWORD **)(v3 + 80) != v13 )
+          Win32FreePool(v13);
+        *(_QWORD *)(v3 + 72) = 0LL;
+        v14 = 0LL;
+      }
+      if ( !v14 )
+      {
+        v36 = 0;
+        v35 = 0LL;
+        if ( PALMEMOBJ::bCreatePalette((PALMEMOBJ *)&v35, 1u, *(_DWORD *)(v33 + 28), 0LL, 0, 0, 0, 0x800u, 1) )
+        {
+          v15 = *(unsigned int *)(v33 + 28);
+          v16 = *(_DWORD *)(v35 + 28);
+          if ( (unsigned int)v15 >= v16 )
+            v15 = v16;
+          memmove(*(void **)(v35 + 112), *(const void **)(v33 + 112), 4 * v15);
+          *(_DWORD *)(v35 + 60) = *(_DWORD *)(v33 + 60);
+          *(_DWORD *)(v35 + 24) = *(_DWORD *)(v33 + 24);
+          XEPALOBJ::vComputeCallTables((XEPALOBJ *)&v35);
+          *(_QWORD *)(v3 + 72) = ptransMatchAPal(v17, v35, v3, 1LL, v37, v37);
+        }
+        PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v35);
+        v14 = *(_DWORD **)(v3 + 72);
+      }
+      *(_QWORD *)(v3 + 88) = *(_QWORD *)(v3 + 80);
+      if ( v14 )
+      {
+        matched = ptransMatchAPal(v13, v33, v3, 0LL, &v55, &v56);
+        *(_QWORD *)(v3 + 80) = matched;
+        if ( !matched )
+          *(_QWORD *)(v3 + 80) = *(_QWORD *)(v3 + 72);
+      }
+      else
+      {
+        *(_QWORD *)(v3 + 80) = 0LL;
+      }
+LABEL_36:
+      v19 = *(HDC *)(v3 + 40);
+      while ( v19 != v11 )
+      {
+        MDCOBJ::MDCOBJ((MDCOBJ *)v43, v19);
+        _InterlockedDecrement((volatile signed __int32 *)(v43[0] + 12LL));
+        v19 = *(HDC *)(v43[0] + 984LL);
+        MDCOBJ::~MDCOBJ((MDCOBJ *)v43);
+      }
+    }
+    GreReleaseHmgrSemaphore();
+LABEL_66:
+    SEMOBJ::vUnlock((SEMOBJ *)&v40);
+    v1 = v34;
+    v2 = v33;
   }
-LABEL_69:
-  if ( v60 )
+  if ( v55 )
   {
-    if ( (*((_DWORD *)v7 + 10) & 0x400) == 0 )
+    if ( (*(_DWORD *)(v1 + 40) & 0x400) == 0 )
     {
-      v35 = (void (__fastcall *)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))*((_QWORD *)v7 + 217);
-      if ( v35 )
+      v27 = *(void (__fastcall **)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))(v1 + 1768);
+      if ( v27 )
       {
-        v35(*(_QWORD *)(*((_QWORD *)v7 + 3) + 1768LL), &v39, 0LL, 0LL, *(_DWORD *)(v8 + 28));
-        v8 = v39;
+        v27(*(_QWORD *)(*(_QWORD *)(v1 + 24) + 1800LL), &v33, 0LL, 0LL, *(_DWORD *)(v2 + 28));
+        v2 = v33;
       }
     }
-    if ( *(_DWORD *)(v8 + 28) == 256 )
+    if ( *(_DWORD *)(v2 + 28) == 256 )
     {
-      v5 = *(char **)(v8 + 112);
-      v36 = (char *)aPalHalftone - v5;
-      v6 = 0LL;
-      while ( 1 )
+      v28 = &aPalHalftone;
+      for ( i = 0; i < 0x100; ++i )
       {
-        v4 = (unsigned int)(*(_DWORD *)v5 ^ *(_DWORD *)&v5[v36]);
-        if ( (v4 & 0xFFFFFF) != 0 )
+        if ( ((*v28 ^ *(_DWORD *)((char *)v28 + *(_QWORD *)(v2 + 112) - (_QWORD)&aPalHalftone)) & 0xFFFFFF) != 0 )
           break;
-        v6 = (unsigned int)(v6 + 1);
-        v5 += 4;
-        if ( (unsigned int)v6 >= 0x100 )
-        {
-          if ( (_DWORD)v6 == 256 )
-          {
-            *(_DWORD *)(v8 + 24) |= 0x100000u;
-            goto LABEL_80;
-          }
-          break;
-        }
+        ++v28;
       }
-      *(_DWORD *)(v8 + 24) &= ~0x100000u;
+      if ( i == 256 )
+        *(_DWORD *)(v2 + 24) |= 0x100000u;
+      else
+        *(_DWORD *)(v2 + 24) &= ~0x100000u;
     }
   }
-LABEL_80:
-  DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v52, v4, (__int64)v5, v6);
-  if ( v55[0] )
-    DLODCOBJ::vUnlock((DLODCOBJ *)v55);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v56);
-  SEMOBJ::vUnlock((SEMOBJ *)&v46);
-  NEEDGRELOCK::vUnlock((NEEDGRELOCK *)v47);
-  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v59);
-  v2 = v50[0];
-LABEL_83:
-  v37 = v61 | (v60 << 16);
-  if ( v2 )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v50);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v51);
-  return v37;
+  DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v47);
+  if ( v50[0] )
+    DLODCOBJ::vUnlock((DLODCOBJ *)v50);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v51);
+  SEMOBJ::vUnlock((SEMOBJ *)&v41);
+  NEEDGRELOCK::vUnlock((NEEDGRELOCK *)v42);
+  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v30);
+LABEL_81:
+  v31 = v56 | (v55 << 16);
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v45);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v46);
+  return v31;
 }

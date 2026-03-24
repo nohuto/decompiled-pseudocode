@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTraceJobServerSiloStateChange @ 0x1409E24C0
+ * XREFs of EtwTraceJobServerSiloStateChange @ 0x14093601C
  * Callers:
- *     PspConvertSiloToServerSilo @ 0x1409ABCF4 (PspConvertSiloToServerSilo.c)
- *     PspMarkServerSiloAsTerminating @ 0x1409B1DA0 (PspMarkServerSiloAsTerminating.c)
- *     PspNotifyServerSiloCreation @ 0x1409B1E4C (PspNotifyServerSiloCreation.c)
- *     PspNotifyServerSiloTermination @ 0x1409B1F54 (PspNotifyServerSiloTermination.c)
+ *     PspConvertSiloToServerSilo @ 0x140906054 (PspConvertSiloToServerSilo.c)
+ *     PspMarkServerSiloAsTerminating @ 0x14090B730 (PspMarkServerSiloAsTerminating.c)
+ *     PspNotifyServerSiloCreation @ 0x14090B7DC (PspNotifyServerSiloCreation.c)
+ *     PspNotifyServerSiloTermination @ 0x14090B8E4 (PspNotifyServerSiloTermination.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTraceJobServerSiloStateChange(__int64 a1, int a2)
@@ -28,9 +28,9 @@ BOOLEAN __fastcall EtwTraceJobServerSiloStateChange(__int64 a1, int a2)
   if ( result )
   {
     *(_QWORD *)&UserData.Size = 16LL;
-    UserData.Ptr = a1 + 1432;
+    UserData.Ptr = a1 + 1240;
     v7 = 4LL;
-    v6 = a1 + 1428;
+    v6 = a1 + 1236;
     v9 = 4LL;
     v8 = &v10;
     return EtwWrite(v2, &JobServerSiloStateChange, 0LL, 3u, &UserData);

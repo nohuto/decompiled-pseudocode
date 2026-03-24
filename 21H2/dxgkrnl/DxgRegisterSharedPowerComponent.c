@@ -1,10 +1,10 @@
 /*
- * XREFs of DxgRegisterSharedPowerComponent @ 0x1C02E2C8C
+ * XREFs of DxgRegisterSharedPowerComponent @ 0x1C0251620
  * Callers:
- *     DpiSharedPowerRegister @ 0x1C038C24C (DpiSharedPowerRegister.c)
+ *     DpiSharedPowerRegister @ 0x1C02CD11C (DpiSharedPowerRegister.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?RegisterSharedPowerComponent@DXGGLOBAL@@QEAAJPEAXQEAXP6AX0W4_DEVICE_POWER_STATE@@E0@ZP6AX00@ZP6AX0KIE0@ZP6AX00KEIU_GUID@@I@Z@Z @ 0x1C0053BFC (-RegisterSharedPowerComponent@DXGGLOBAL@@QEAAJPEAXQEAXP6AX0W4_DEVICE_POWER_STATE@@E0@ZP6AX00@ZP6.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?RegisterSharedPowerComponent@DXGGLOBAL@@QEAAJPEAXQEAXP6AX0W4_DEVICE_POWER_STATE@@E0@ZP6AX00@ZP6AX0KIE0@ZP6AX00KEIU_GUID@@I@Z@Z @ 0x1C00468EC (-RegisterSharedPowerComponent@DXGGLOBAL@@QEAAJPEAXQEAXP6AX0W4_DEVICE_POWER_STATE@@E0@ZP6AX00@ZP6.c)
  */
 
 __int64 __fastcall DxgRegisterSharedPowerComponent(
@@ -17,6 +17,6 @@ __int64 __fastcall DxgRegisterSharedPowerComponent(
 {
   DXGGLOBAL *Global; // rax
 
-  Global = DXGGLOBAL_GetGlobal();
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, (__int64)a2);
   return DXGGLOBAL::RegisterSharedPowerComponent(Global, a1, a2, a3, a4, a5, a6);
 }

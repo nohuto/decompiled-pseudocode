@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CViewBoxMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0215690
+ * XREFs of ?SetBufferProperty@CViewBoxMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E74C0
  * Callers:
  *     <none>
  * Callees:

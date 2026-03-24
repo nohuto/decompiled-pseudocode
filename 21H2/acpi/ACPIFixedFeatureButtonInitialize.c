@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIFixedFeatureButtonInitialize @ 0x1C00024D0
+ * XREFs of ACPIFixedFeatureButtonInitialize @ 0x1C0031290
  * Callers:
- *     ACPIRootInitialize @ 0x1C008F8C0 (ACPIRootInitialize.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
  * Callees:
- *     ACPIBuildFixedButtonExtension @ 0x1C0002530 (ACPIBuildFixedButtonExtension.c)
- *     ACPIInitReferenceDeviceExtension @ 0x1C00056D8 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIBuildFixedButtonExtension @ 0x1C00312F0 (ACPIBuildFixedButtonExtension.c)
  */
 
 void ACPIFixedFeatureButtonInitialize()
@@ -18,6 +18,6 @@ void ACPIFixedFeatureButtonInitialize()
   v3 = 0LL;
   v1 = v0;
   if ( (int)ACPIBuildFixedButtonExtension(v2, &v3) >= 0 && v3 )
-    ACPIInitReferenceDeviceExtension();
+    ACPIInitReferenceDeviceExtension(v3);
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v1);
 }

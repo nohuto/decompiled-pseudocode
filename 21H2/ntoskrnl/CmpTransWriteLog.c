@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpTransWriteLog @ 0x140717EE4
+ * XREFs of CmpTransWriteLog @ 0x140763B98
  * Callers:
- *     CmAddLogForAction @ 0x14071784C (CmAddLogForAction.c)
- *     CmLogTmRmAction @ 0x140742230 (CmLogTmRmAction.c)
+ *     CmAddLogForAction @ 0x1406AFE4C (CmAddLogForAction.c)
+ *     CmLogTmRmAction @ 0x140763AC8 (CmLogTmRmAction.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     CmpComputeLogFillLevel @ 0x140717FDC (CmpComputeLogFillLevel.c)
- *     CmpDoTransWriteLogRecord @ 0x140718128 (CmpDoTransWriteLogRecord.c)
- *     CmpLogCheckpoint @ 0x140742A44 (CmpLogCheckpoint.c)
- *     CmpAddRemoveRMLogContainer @ 0x14091BDB8 (CmpAddRemoveRMLogContainer.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     CmpComputeLogFillLevel @ 0x140763C98 (CmpComputeLogFillLevel.c)
+ *     CmpDoTransWriteLogRecord @ 0x140763DE4 (CmpDoTransWriteLogRecord.c)
+ *     CmpLogCheckpoint @ 0x1407705E4 (CmpLogCheckpoint.c)
+ *     CmpAddRemoveRMLogContainer @ 0x1408751D4 (CmpAddRemoveRMLogContainer.c)
  */
 
-__int64 __fastcall CmpTransWriteLog(__int64 a1, __int64 a2, unsigned int a3, int a4, PCLFS_LSN plsnFinish)
+__int64 __fastcall CmpTransWriteLog(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, PCLFS_LSN plsnFinish)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v6; // r14d
@@ -30,29 +30,31 @@ __int64 __fastcall CmpTransWriteLog(__int64 a1, __int64 a2, unsigned int a3, int
   int v18; // r14d
   int v19; // edx
   int v20; // r9d
-  unsigned int v21; // [rsp+30h] [rbp-91h] BYREF
-  int v22; // [rsp+34h] [rbp-8Dh] BYREF
-  int v23; // [rsp+38h] [rbp-89h] BYREF
-  int v24; // [rsp+3Ch] [rbp-85h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v25; // [rsp+40h] [rbp-81h] BYREF
-  int *v26; // [rsp+60h] [rbp-61h]
-  int v27; // [rsp+68h] [rbp-59h]
-  int v28; // [rsp+6Ch] [rbp-55h]
-  int *v29; // [rsp+70h] [rbp-51h]
-  int v30; // [rsp+78h] [rbp-49h]
-  int v31; // [rsp+7Ch] [rbp-45h]
-  struct _EVENT_DATA_DESCRIPTOR v32; // [rsp+80h] [rbp-41h] BYREF
-  int *v33; // [rsp+A0h] [rbp-21h]
-  int v34; // [rsp+A8h] [rbp-19h]
-  int v35; // [rsp+ACh] [rbp-15h]
-  int *v36; // [rsp+B0h] [rbp-11h]
-  int v37; // [rsp+B8h] [rbp-9h]
-  int v38; // [rsp+BCh] [rbp-5h]
+  unsigned int v21; // [rsp+30h] [rbp-A1h] BYREF
+  int v22; // [rsp+34h] [rbp-9Dh] BYREF
+  int v23; // [rsp+38h] [rbp-99h] BYREF
+  unsigned int v24; // [rsp+3Ch] [rbp-95h]
+  int v25; // [rsp+40h] [rbp-91h] BYREF
+  int v26; // [rsp+44h] [rbp-8Dh] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v27; // [rsp+50h] [rbp-81h] BYREF
+  int *v28; // [rsp+70h] [rbp-61h]
+  int v29; // [rsp+78h] [rbp-59h]
+  int v30; // [rsp+7Ch] [rbp-55h]
+  int *v31; // [rsp+80h] [rbp-51h]
+  int v32; // [rsp+88h] [rbp-49h]
+  int v33; // [rsp+8Ch] [rbp-45h]
+  struct _EVENT_DATA_DESCRIPTOR v34; // [rsp+90h] [rbp-41h] BYREF
+  int *v35; // [rsp+B0h] [rbp-21h]
+  int v36; // [rsp+B8h] [rbp-19h]
+  int v37; // [rsp+BCh] [rbp-15h]
+  int *v38; // [rsp+C0h] [rbp-11h]
+  int v39; // [rsp+C8h] [rbp-9h]
+  int v40; // [rsp+CCh] [rbp-5h]
 
   CurrentThread = KeGetCurrentThread();
   v6 = a4;
   v21 = 0;
-  v23 = a4;
+  v24 = a4;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a1 + 128), 1u);
   v10 = 0;
@@ -69,29 +71,29 @@ __int64 __fastcall CmpTransWriteLog(__int64 a1, __int64 a2, unsigned int a3, int
 LABEL_11:
       v21 = ++v10;
       v18 = CmpAddRemoveRMLogContainer(a1);
-      if ( (unsigned int)dword_140C03868 > 5 && tlgKeywordOn((__int64)&dword_140C03868, 1LL) )
+      if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 1LL) )
       {
-        v28 = 0;
-        v31 = 0;
-        v26 = &v24;
-        v24 = v16;
-        v29 = &v22;
-        v27 = v16 + 3;
-        v30 = v16 + 3;
-        v22 = v18;
+        v30 = 0;
+        v33 = 0;
+        v28 = &v22;
+        v22 = v16;
+        v31 = &v23;
+        v29 = v16 + 3;
+        v32 = v16 + 3;
+        v23 = v18;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C03868,
-          (unsigned __int8 *)byte_140029F61,
+          (__int64)&dword_140C02130,
+          (unsigned __int8 *)byte_140023A01,
           0LL,
           0LL,
           v16 + 3,
-          &v25);
+          &v27);
       }
       if ( v18 < 0 )
         goto LABEL_6;
       LOBYTE(v17) = 1;
       CmpLogCheckpoint(a1, v16, v17);
-      v6 = v23;
+      v6 = v24;
     }
     else
     {
@@ -113,30 +115,30 @@ LABEL_11:
     && v21 >= 0x50 )
   {
     CmpAddRemoveRMLogContainer(a1);
-    if ( (unsigned int)dword_140C03868 > 5 )
+    if ( (unsigned int)dword_140C02130 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C03868, 1LL) )
+      if ( tlgKeywordOn((__int64)&dword_140C02130, 1LL) )
       {
-        v35 = 0;
-        v38 = 0;
-        v33 = &v23;
-        v34 = v19 + 3;
-        v36 = &v22;
-        v22 = v20;
-        v37 = v19 + 3;
-        v23 = 2;
+        v37 = 0;
+        v40 = 0;
+        v35 = &v25;
+        v36 = v19 + 3;
+        v38 = &v26;
+        v26 = v20;
+        v39 = v19 + 3;
+        v25 = 2;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C03868,
-          (unsigned __int8 *)&word_140029F2E,
+          (__int64)&dword_140C02130,
+          (unsigned __int8 *)&word_1400239CE,
           0LL,
           0LL,
           v19 + 3,
-          &v32);
+          &v34);
       }
     }
   }
 LABEL_6:
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 128));
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v14;
 }

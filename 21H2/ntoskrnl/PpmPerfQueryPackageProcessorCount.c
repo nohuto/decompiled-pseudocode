@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfQueryPackageProcessorCount @ 0x1403DDBA0
+ * XREFs of PpmPerfQueryPackageProcessorCount @ 0x14056E850
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmPerfQueryPackageProcessorCount(int a1)
@@ -18,7 +18,7 @@ __int64 __fastcall PpmPerfQueryPackageProcessorCount(int a1)
   {
     Prcb = KeGetPrcb(i);
     v5 = v1 + 1;
-    if ( a1 != *(_DWORD *)(Prcb + 34840) )
+    if ( a1 != *(_DWORD *)(Prcb + 33848) )
       v5 = v1;
     ++i;
   }

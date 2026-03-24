@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpRpControlRequestVerify @ 0x14033DCF8
+ * XREFs of PfpRpControlRequestVerify @ 0x14035E494
  * Callers:
- *     PfpRpControlRequest @ 0x1407B5518 (PfpRpControlRequest.c)
+ *     PfpRpControlRequest @ 0x14070A2C0 (PfpRpControlRequest.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall PfpRpControlRequestVerify(_DWORD *a1)
   v7 = 0;
   if ( v3 )
   {
-LABEL_2:
+LABEL_4:
     v8 = a1[3] + a1[4];
     v9 = (_QWORD *)(((unsigned __int64)v6 + 7) & 0xFFFFFFFFFFFFFFF8uLL);
     v10 = 0;
@@ -47,7 +47,7 @@ LABEL_2:
     {
       v6 += 2;
       if ( ++v7 >= v4 )
-        goto LABEL_2;
+        goto LABEL_4;
     }
     return 1000LL;
   }

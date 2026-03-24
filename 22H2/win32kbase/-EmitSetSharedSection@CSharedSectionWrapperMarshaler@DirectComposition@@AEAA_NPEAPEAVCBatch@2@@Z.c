@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetSharedSection@CSharedSectionWrapperMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C023035C
+ * XREFs of ?EmitSetSharedSection@CSharedSectionWrapperMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F7EC8
  * Callers:
- *     ?EmitUpdateCommands@CSharedSectionWrapperMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02303F0 (-EmitUpdateCommands@CSharedSectionWrapperMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CSharedSectionWrapperMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F7F60 (-EmitUpdateCommands@CSharedSectionWrapperMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CSharedSectionWrapperMarshaler::EmitSetSharedSection(
@@ -25,11 +25,11 @@ char __fastcall DirectComposition::CSharedSectionWrapperMarshaler::EmitSetShared
     *(_DWORD *)v7 = 24;
     *(_OWORD *)(v4 + 4) = 0LL;
     *((_DWORD *)v4 + 5) = 0;
-    *((_DWORD *)v4 + 1) = 353;
-    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v4 + 1) = 368;
+    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
     v5 = *((_QWORD *)this + 7);
     if ( v5 )
-      v3 = *(_DWORD *)(v5 + 32);
+      v3 = *(_DWORD *)(v5 + 24);
     *((_DWORD *)v4 + 3) = v3;
     *((_DWORD *)v4 + 4) = *((_DWORD *)this + 16);
     *((_DWORD *)v4 + 5) = *((_DWORD *)this + 17);

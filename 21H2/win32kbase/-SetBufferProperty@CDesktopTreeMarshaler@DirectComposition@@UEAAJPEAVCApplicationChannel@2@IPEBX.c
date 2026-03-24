@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CDesktopTreeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00C5230
+ * XREFs of ?SetBufferProperty@CDesktopTreeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00B72C0
  * Callers:
  *     <none>
  * Callees:
@@ -23,9 +23,9 @@ __int64 __fastcall DirectComposition::CDesktopTreeMarshaler::SetBufferProperty(
     return (unsigned int)-1073741811;
   if ( a5 != 8 )
     return (unsigned int)-1073741811;
-  if ( *((_DWORD *)this + 16) )
+  if ( *((_DWORD *)this + 14) )
     return (unsigned int)-1073741811;
-  if ( *((_DWORD *)this + 17) )
+  if ( *((_DWORD *)this + 15) )
     return (unsigned int)-1073741811;
   v7 = *a4;
   if ( !*a4 )
@@ -35,7 +35,7 @@ __int64 __fastcall DirectComposition::CDesktopTreeMarshaler::SetBufferProperty(
   else
   {
     *((_DWORD *)this + 4) |= 0x20u;
-    *((_QWORD *)this + 8) = v7;
+    *((_QWORD *)this + 7) = v7;
     *a6 = 1;
   }
   return v6;

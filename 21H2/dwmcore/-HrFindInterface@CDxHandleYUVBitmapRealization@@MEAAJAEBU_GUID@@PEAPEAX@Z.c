@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CDxHandleYUVBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802A5DF0
+ * XREFs of ?HrFindInterface@CDxHandleYUVBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180266230
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800DD000 (-HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800CC530 (-HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CDxHandleYUVBitmapRealization::HrFindInterface(
@@ -56,7 +56,7 @@ LABEL_18:
       v9 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_51e2a1f0_4a0d_4788_800f_3cee7a2512a6.Data4;
     if ( !v9 )
     {
-      v8 = (char *)(((unsigned __int64)this + 360) & -(__int64)(this != 0LL));
+      v8 = (char *)(((unsigned __int64)this + 328) & -(__int64)(this != 0LL));
       goto LABEL_18;
     }
     return CBitmapRealization::HrFindInterface(this, a2, a3);

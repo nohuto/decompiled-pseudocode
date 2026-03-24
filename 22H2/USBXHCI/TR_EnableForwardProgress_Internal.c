@@ -1,12 +1,11 @@
 /*
- * XREFs of TR_EnableForwardProgress_Internal @ 0x1C0041504
+ * XREFs of TR_EnableForwardProgress_Internal @ 0x1C003F004
  * Callers:
- *     Endpoint_UcxEvtEndpointEnableForwardProgress @ 0x1C003C620 (Endpoint_UcxEvtEndpointEnableForwardProgress.c)
+ *     Endpoint_UcxEvtEndpointEnableForwardProgress @ 0x1C003A4B0 (Endpoint_UcxEvtEndpointEnableForwardProgress.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C0007CC0 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_DDd @ 0x1C001BD00 (WPP_RECORDER_SF_DDd.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001E0A4 (WPP_RECORDER_SF_DDD.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TR_EnableForwardProgress_Internal(_QWORD *a1, ULONG a2)
@@ -21,20 +20,23 @@ __int64 __fastcall TR_EnableForwardProgress_Internal(_QWORD *a1, ULONG a2)
   struct _MDL *v11; // rcx
   __int64 v12; // rdx
   int v13; // eax
-  _DWORD v15[4]; // [rsp+40h] [rbp-38h] BYREF
-  __int64 (__fastcall *v16)(); // [rsp+50h] [rbp-28h]
-  __int128 v17; // [rsp+58h] [rbp-20h]
+  _DWORD v15[3]; // [rsp+40h] [rbp-38h] BYREF
+  int v16; // [rsp+4Ch] [rbp-2Ch]
+  __int64 (__fastcall *v17)(); // [rsp+50h] [rbp-28h]
+  __int128 v18; // [rsp+58h] [rbp-20h]
 
+  v16 = 0;
+  v18 = 0LL;
   v4 = (*(__int64 (**)(void))(a1[4] + 48LL))();
   if ( v4 >= 0 )
   {
     Mdl = IoAllocateMdl(0LL, a2, 0, 0, 0LL);
     if ( Mdl )
     {
-      v15[3] = 0;
+      v16 = 0;
       v8 = a1[9];
-      v16 = TR_WdfEvtIoExamineIrpForForwardProgress;
-      v17 = 0LL;
+      v17 = TR_WdfEvtIoExamineIrpForForwardProgress;
+      v18 = 0LL;
       v15[0] = 40;
       v15[1] = 1;
       v15[2] = 2;
@@ -53,12 +55,12 @@ __int64 __fastcall TR_EnableForwardProgress_Internal(_QWORD *a1, ULONG a2)
           v12 = a1[7];
           v13 = *(_DWORD *)(v12 + 144);
           LOBYTE(v12) = 4;
-          WPP_RECORDER_SF_DDD(
+          WPP_RECORDER_SF_ddL(
             *(_QWORD *)(a1[5] + 72LL),
             v12,
             14,
             21,
-            (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids,
+            (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
             *(_BYTE *)(a1[6] + 135LL),
             v13,
             a2);
@@ -71,12 +73,12 @@ __int64 __fastcall TR_EnableForwardProgress_Internal(_QWORD *a1, ULONG a2)
           v9 = a1[7];
           v10 = *(_DWORD *)(v9 + 144);
           LOBYTE(v9) = 2;
-          WPP_RECORDER_SF_DDd(
+          WPP_RECORDER_SF_ddL(
             *(_QWORD *)(a1[5] + 72LL),
             v9,
             14,
             20,
-            (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids,
+            (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
             *(_BYTE *)(a1[6] + 135LL),
             v10,
             v4);
@@ -91,12 +93,12 @@ __int64 __fastcall TR_EnableForwardProgress_Internal(_QWORD *a1, ULONG a2)
         v6 = a1[7];
         v7 = *(_DWORD *)(v6 + 144);
         LOBYTE(v6) = 2;
-        WPP_RECORDER_SF_DD(
+        WPP_RECORDER_SF_dd(
           *(_QWORD *)(a1[5] + 72LL),
           v6,
           14,
           19,
-          (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids,
+          (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
           *(_BYTE *)(a1[6] + 135LL),
           v7);
       }

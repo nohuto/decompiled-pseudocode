@@ -1,14 +1,15 @@
 /*
- * XREFs of ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x1800805F0
+ * XREFs of ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x1800C073C
  * Callers:
- *     ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x180113676 (-TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z.c)
+ *     ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x180011FAC (-TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z.c)
+ *     ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x1800C0320 (-TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ.c)
  * Callees:
- *     ?MatchStateToHomogeneousLayer@CBatchOptimizer@@CA_NAEBUSharedStateLayer@@AEBUStateBlock@2@@Z @ 0x180017E6C (-MatchStateToHomogeneousLayer@CBatchOptimizer@@CA_NAEBUSharedStateLayer@@AEBUStateBlock@2@@Z.c)
- *     ?GetCommonSuperset@CRenderingEffect@@SA?AV?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@PEAV1@0@Z @ 0x180018D14 (-GetCommonSuperset@CRenderingEffect@@SA-AV-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@.c)
- *     ?PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z @ 0x180019080 (-PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z.c)
- *     ??4?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEffect@@@Z @ 0x1800803E4 (--4-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEff.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x180113676 (-TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z.c)
+ *     ?PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z @ 0x180011F18 (-PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x180011FAC (-TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z.c)
+ *     ?MatchStateToHomogeneousLayer@CBatchOptimizer@@CA_NAEBUSharedStateLayer@@AEBUStateBlock@2@@Z @ 0x180016BAC (-MatchStateToHomogeneousLayer@CBatchOptimizer@@CA_NAEBUSharedStateLayer@@AEBUStateBlock@2@@Z.c)
+ *     ?GetCommonSuperset@CRenderingEffect@@SA?AV?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@PEAV1@0@Z @ 0x1800183DC (-GetCommonSuperset@CRenderingEffect@@SA-AV-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@.c)
+ *     ??1?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800C0640 (--1-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??4?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEffect@@@Z @ 0x1800C08FC (--4-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEff.c)
  */
 
 void __fastcall CBatchOptimizer::ConsolidateAdjacentHomogeneousLayers(CBatchOptimizer *this, int a2)
@@ -20,9 +21,10 @@ void __fastcall CBatchOptimizer::ConsolidateAdjacentHomogeneousLayers(CBatchOpti
   __int64 *v7; // r14
   CBatchOptimizer *v8; // r9
   int v9; // r10d
-  _QWORD *CommonSuperset; // rax
-  void (__fastcall ***v11)(_QWORD); // rbx
-  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
+  __int64 *CommonSuperset; // rax
+  __int64 v11; // rbx
+  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v13; // [rsp+50h] [rbp+18h] BYREF
 
   if ( a2 != *((_DWORD *)this + 8) - 1 )
   {
@@ -45,17 +47,17 @@ void __fastcall CBatchOptimizer::ConsolidateAdjacentHomogeneousLayers(CBatchOpti
             if ( !*((_DWORD *)v6 + 26) )
             {
               CommonSuperset = CRenderingEffect::GetCommonSuperset(&v12, *v5, *v7);
-              v11 = (void (__fastcall ***)(_QWORD))*CommonSuperset;
+              v11 = *CommonSuperset;
               *CommonSuperset = 0LL;
-              if ( v12 )
-                (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 8LL))(v12);
+              v13 = v11;
+              wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::~com_ptr_t<CRenderingEffect,wil::err_returncode_policy>(&v12);
               if ( v11 )
               {
-                wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=(v5, v11);
-                wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=(v7, v11);
+                wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=(v5);
+                wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=(v7);
                 *((_DWORD *)v4 + 26) = 1;
-                (*v11)[1](v11);
               }
+              wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::~com_ptr_t<CRenderingEffect,wil::err_returncode_policy>(&v13);
             }
           }
         }

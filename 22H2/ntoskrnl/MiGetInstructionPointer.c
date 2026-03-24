@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetInstructionPointer @ 0x140617C30
+ * XREFs of MiGetInstructionPointer @ 0x14052DF04
  * Callers:
- *     MiAddMdlTracker @ 0x14061C55C (MiAddMdlTracker.c)
+ *     MiAddMdlTracker @ 0x140530794 (MiAddMdlTracker.c)
  * Callees:
  *     <none>
  */

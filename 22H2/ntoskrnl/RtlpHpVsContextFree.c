@@ -1,35 +1,26 @@
 /*
- * XREFs of RtlpHpVsContextFree @ 0x140323450
+ * XREFs of RtlpHpVsContextFree @ 0x1402C1E90
  * Callers:
- *     RtlpHpSegFree @ 0x140314F7C (RtlpHpSegFree.c)
- *     ExFreeHeapPool @ 0x140322ED0 (ExFreeHeapPool.c)
- *     RtlpFreeHeapInternal @ 0x14034C464 (RtlpFreeHeapInternal.c)
+ *     RtlpHpSegFree @ 0x1402C2890 (RtlpHpSegFree.c)
+ *     RtlpFreeHeapInternal @ 0x1402FEBC4 (RtlpFreeHeapInternal.c)
  * Callees:
- *     RtlpHpVsContextFreeList @ 0x14024EDD0 (RtlpHpVsContextFreeList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140428870 (RtlpInterlockedFlushSList.c)
- *     RtlpLogHeapFailure @ 0x1405B4B5C (RtlpLogHeapFailure.c)
+ *     RtlpHpVsContextFreeList @ 0x1402BF0B0 (RtlpHpVsContextFreeList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x140407030 (RtlpInterlockedFlushSList.c)
+ *     RtlpLogHeapFailure @ 0x1405934AC (RtlpLogHeapFailure.c)
  */
 
-__int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, unsigned int *a5)
+__int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, unsigned int *a5)
 {
   int v5; // r10d
   __int64 v6; // rbx
-  PSLIST_ENTRY v9; // rsi
-  unsigned int v10; // ecx
-  union _SLIST_HEADER *v11; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // r9
-  int v15; // ecx
-  unsigned __int64 v16; // r9
-  int v17; // ecx
-  unsigned __int64 v18; // r9
-  __int64 v19; // r9
-  int v20; // ecx
-  unsigned __int64 v21; // r9
-  unsigned __int64 v22; // r9
-  int v23; // r9d
-  int v24; // ecx
+  PSLIST_ENTRY v9; // rdi
+  unsigned int v11; // ecx
+  int v12; // ecx
+  int v13; // ecx
+  __int64 v14; // rdx
+  union _SLIST_HEADER *v15; // rcx
+  int v16; // ecx
 
   v5 = *(_DWORD *)(a1 + 176);
   v6 = a3 - 16;
@@ -38,69 +29,61 @@ __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 
   v9 = 0LL;
   if ( !a2 )
   {
-    v13 = v6;
-    v14 = RtlpHpHeapGlobals ^ *(_QWORD *)v6;
-    v15 = HIDWORD(v6) ^ HIDWORD(v14);
-    v16 = v6 ^ v14;
-    if ( (v15 & 0xFF0000) != 0 )
+    v12 = DWORD1(RtlpHpHeapGlobals) ^ HIDWORD(v6) ^ HIDWORD(*(_QWORD *)v6);
+    if ( (v12 & 0xFF0000) != 0 )
     {
-      v17 = (unsigned __int8)(RtlpHpHeapGlobals ^ *(_BYTE *)(v6 + 8) ^ v6);
-LABEL_15:
-      a2 = (v13 - (unsigned int)(v17 << 12)) & 0xFFFFFFFFFFFFF000uLL;
-      goto LABEL_5;
+      v13 = (unsigned __int8)(RtlpHpHeapGlobals ^ v6 ^ *(_BYTE *)(v6 + 8));
     }
-    v18 = HIDWORD(v16);
-    if ( (_WORD)v18 )
+    else
     {
-      v13 = v6 - 16LL * (unsigned __int16)v18;
-      v19 = RtlpHpHeapGlobals ^ *(_QWORD *)v13;
-      v20 = HIDWORD(v13) ^ HIDWORD(v19);
-      v21 = v13 ^ v19;
-      if ( (v20 & 0xFF0000) != 0 )
+      if ( (_WORD)v12 )
       {
-        v17 = (unsigned __int8)(RtlpHpHeapGlobals ^ *(_BYTE *)(v13 + 8) ^ v13);
-        goto LABEL_15;
+        v14 = v6 - 16LL * (unsigned __int16)((v6 ^ (unsigned __int64)RtlpHpHeapGlobals ^ *(_QWORD *)v6) >> 32);
+        v16 = DWORD1(RtlpHpHeapGlobals) ^ HIDWORD(*(_QWORD *)v14) ^ HIDWORD(v14);
+        if ( (v16 & 0xFF0000) != 0 )
+        {
+          v13 = (unsigned __int8)(RtlpHpHeapGlobals ^ v14 ^ *(_BYTE *)(v14 + 8));
+        }
+        else if ( (_WORD)v16 )
+        {
+          v14 -= 16LL * (unsigned __int16)(((unsigned __int64)RtlpHpHeapGlobals ^ *(_QWORD *)v14 ^ v14) >> 32);
+          v13 = (unsigned __int8)(RtlpHpHeapGlobals ^ v14 ^ *(_BYTE *)(v14 + 8));
+        }
+        else
+        {
+          v13 = 0;
+        }
+        goto LABEL_13;
       }
-      v22 = HIDWORD(v21);
-      if ( (_WORD)v22 )
-      {
-        v13 -= 16LL * (unsigned __int16)v22;
-        v17 = (unsigned __int8)(RtlpHpHeapGlobals ^ *(_BYTE *)(v13 + 8) ^ v13);
-        goto LABEL_15;
-      }
+      v13 = 0;
     }
-    v17 = 0;
-    goto LABEL_15;
+    v14 = v6;
+LABEL_13:
+    a2 = (v14 - (unsigned int)(v13 << 12)) & 0xFFFFFFFFFFFFF000uLL;
   }
-LABEL_5:
-  if ( (((unsigned __int16)(*(_WORD *)(a2 + 32) ^ *(_WORD *)(a2 + 34)) ^ 0x2BED) & 0x7FFF) != 0 )
+  if ( (((unsigned __int16)(*(_WORD *)(a2 + 32) ^ *(_WORD *)(a2 + 34)) ^ 0x2BED) & 0x7FFF) == 0 )
   {
-    v23 = 0;
-    LODWORD(a3) = a2;
-    v24 = 18;
-LABEL_24:
-    RtlpLogHeapFailure(v24, *(_DWORD *)(a1 + 128) ^ a1, a3, v23, 0LL, 0LL);
-    return 0LL;
-  }
-  if ( ((v6 ^ RtlpHpHeapGlobals ^ *(_QWORD *)v6) & 0xFF000000000000LL) == 0 )
-  {
-    v23 = v6;
-    v24 = 8;
-    goto LABEL_24;
-  }
-  v10 = 16 * ((((unsigned int)v6 ^ (unsigned int)*(_QWORD *)v6) >> 16) ^ WORD1(RtlpHpHeapGlobals)) - 16;
-  *a5 = v10;
-  if ( (v5 & 4) != 0 && v10 < 0x1000 )
-  {
-    v11 = (union _SLIST_HEADER *)(a1 + 64);
-    if ( *(_WORD *)(a1 + 64) < 0x20u )
+    if ( ((v6 ^ (unsigned __int64)RtlpHpHeapGlobals ^ *(_QWORD *)v6) & 0xFF000000000000LL) == 0 )
     {
-      RtlpInterlockedPushEntrySList(v11, (PSLIST_ENTRY)(v6 + 16));
-      return 1LL;
+      RtlpLogHeapFailure(8, a1 ^ *(_DWORD *)(a1 + 128), a3, v6, 0LL, 0LL);
+      return 0LL;
     }
-    v9 = RtlpInterlockedFlushSList(v11);
+    v11 = 16 * (WORD1(RtlpHpHeapGlobals) ^ WORD1(v6) ^ *(unsigned __int16 *)(v6 + 2)) - 16;
+    *a5 = v11;
+    if ( (v5 & 4) != 0 && v11 < 0x1000 )
+    {
+      v15 = (union _SLIST_HEADER *)(a1 + 64);
+      if ( *(_WORD *)(a1 + 64) < 0x20u )
+      {
+        RtlpInterlockedPushEntrySList(v15, (PSLIST_ENTRY)(v6 + 16));
+        return 1LL;
+      }
+      v9 = RtlpInterlockedFlushSList(v15);
+    }
+    *(_QWORD *)(v6 + 16) = v9;
+    RtlpHpVsContextFreeList(a1, a4, (_QWORD *)(v6 + 16));
+    return 1LL;
   }
-  *(_QWORD *)(v6 + 16) = v9;
-  RtlpHpVsContextFreeList(a1, a4, (_QWORD *)(v6 + 16));
-  return 1LL;
+  RtlpLogHeapFailure(18, a1 ^ *(_DWORD *)(a1 + 128), a2, 0, 0LL, 0LL);
+  return 0LL;
 }

@@ -1,70 +1,78 @@
 /*
- * XREFs of WmipQueueNotification @ 0x1409E14F4
+ * XREFs of WmipQueueNotification @ 0x140754E44
  * Callers:
- *     WmipWriteWnodeToObject @ 0x1405FBC44 (WmipWriteWnodeToObject.c)
+ *     WmipWriteWnodeToObject @ 0x140371BA4 (WmipWriteWnodeToObject.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall WmipQueueNotification(PRKEVENT Event, char **a2, unsigned int *a3)
+__int64 __fastcall WmipQueueNotification(struct _KEVENT *a1, char **a2, unsigned int *a3)
 {
-  char *v3; // rbp
-  unsigned int v5; // esi
-  unsigned int v6; // ebx
+  char *v3; // rdi
+  unsigned int v5; // ebp
+  unsigned int v6; // esi
   char *v7; // r15
   unsigned int v9; // edx
   struct _KEVENT *v10; // r12
-  unsigned int v11; // r14d
-  char *Pool2; // rax
-  void *v13; // rcx
+  int v11; // eax
+  unsigned int v12; // r14d
+  char *PoolWithTag; // rax
   char *v14; // rcx
-  unsigned int v17; // [rsp+68h] [rbp+10h]
+  void *v16; // rcx
+  unsigned int Size; // [rsp+68h] [rbp+10h]
 
   v3 = *a2;
   v5 = *((_DWORD *)a2 + 4);
   v6 = 0;
   v7 = a2[1];
   v9 = *a3;
-  v10 = Event;
-  v17 = *a3;
-  v11 = (*((_DWORD *)a2 + 5) + *a3 + 7) & 0xFFFFFFF8;
-  if ( !v3 || v11 > v5 )
+  v10 = a1;
+  v11 = *((_DWORD *)a2 + 5);
+  Size = *a3;
+  v12 = (v11 + *a3 + 7) & 0xFFFFFFF8;
+  if ( !v3 )
+    goto LABEL_20;
+  if ( v12 > v5 )
+    v3 = 0LL;
+  if ( !v3 )
   {
-    if ( v11 > 0x80000 )
-      goto LABEL_7;
-    if ( v11 > v5 )
-      v5 = (v11 + 0x3FFF) & 0xFFFFC000;
-    Pool2 = (char *)ExAllocatePool2(256LL, v5, 1885957463LL);
-    v3 = Pool2;
-    if ( !Pool2 )
+LABEL_20:
+    if ( v12 > 0x80000 )
+      goto LABEL_17;
+    if ( v12 > v5 )
+      v5 = (v12 + 0x3FFF) & 0xFFFFC000;
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v5, 0x70696D57u);
+    v3 = PoolWithTag;
+    if ( !PoolWithTag )
     {
-LABEL_7:
+LABEL_17:
       ++*((_DWORD *)a2 + 6);
       return (unsigned int)-1073741670;
     }
-    memset(Pool2, 0, v5);
+    memset(PoolWithTag, 0, v5);
     if ( *a2 )
     {
       memmove(v3, *a2, *((unsigned int *)a2 + 5));
-      v13 = *a2;
+      v16 = *a2;
       v7 += v3 - *a2;
       a2[1] = v7;
-      ExFreePoolWithTag(v13, 0);
+      ExFreePoolWithTag(v16, 0);
     }
-    v9 = v17;
-    v10 = Event;
+    v11 = *((_DWORD *)a2 + 5);
+    v9 = Size;
+    v10 = a1;
     *a2 = v3;
     *((_DWORD *)a2 + 4) = v5;
   }
-  v14 = &v3[*((unsigned int *)a2 + 5)];
+  v14 = &v3[v11];
   if ( v7 )
     *((_DWORD *)v7 + 3) = (_DWORD)v14 - (_DWORD)v7;
   a2[1] = v14;
-  *((_DWORD *)a2 + 5) = v11;
+  *((_DWORD *)a2 + 5) = v12;
   memmove(v14, a3, v9);
   KeSetEvent(v10, 0, 0);
   return v6;

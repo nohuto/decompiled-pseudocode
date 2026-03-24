@@ -1,49 +1,45 @@
 /*
- * XREFs of NtAreMappedFilesTheSame @ 0x140871B60
+ * XREFs of NtAreMappedFilesTheSame @ 0x1406A0330
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiObtainReferencedVadEx @ 0x140274B90 (MiObtainReferencedVadEx.c)
- *     MiVadDeleted @ 0x1402752F0 (MiVadDeleted.c)
- *     MiUnlockAndDereferenceVadShared @ 0x140275350 (MiUnlockAndDereferenceVadShared.c)
- *     MiLockVadShared @ 0x140275410 (MiLockVadShared.c)
- *     MiDereferenceVad @ 0x14028A770 (MiDereferenceVad.c)
- *     MiReferenceControlAreaFile @ 0x1402A22B4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A23C0 (MiDereferenceControlAreaFile.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     MiUnlockVadShared @ 0x14032A204 (MiUnlockVadShared.c)
- *     MiVadIsMetadataBitmap @ 0x1406B021C (MiVadIsMetadataBitmap.c)
+ *     MiObtainReferencedVadEx @ 0x14021B260 (MiObtainReferencedVadEx.c)
+ *     MiUnlockVadShared @ 0x14025A96C (MiUnlockVadShared.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14025AAB0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiVadDeleted @ 0x14025AB90 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x14025ABA4 (MiLockVadShared.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     MiDereferenceVad @ 0x140297ADC (MiDereferenceVad.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     MiDereferenceControlAreaFile @ 0x1402D7994 (MiDereferenceControlAreaFile.c)
+ *     MiVadIsCfgBitmap @ 0x14061E20C (MiVadIsCfgBitmap.c)
  */
 
 __int64 __fastcall NtAreMappedFilesTheSame(unsigned __int64 a1, unsigned __int64 a2)
 {
-  struct _KTHREAD *CurrentThread; // r13
-  __int64 *v5; // rax
-  __int64 v6; // rsi
-  __int64 *v7; // rax
-  __int64 v8; // rbp
-  unsigned __int64 v9; // rdi
-  signed __int64 *v10; // r14
-  __int64 *v11; // r12
-  __int64 *v12; // r15
-  __int64 v13; // r12
-  __int64 v14; // r15
-  __int64 v15; // rax
-  unsigned int v16; // edi
-  int v17; // ebx
-  unsigned __int64 v19; // rbx
-  int v20; // [rsp+70h] [rbp+18h] BYREF
+  struct _KTHREAD *CurrentThread; // rbp
+  volatile signed __int32 *v5; // rax
+  __int64 v6; // rdi
+  volatile signed __int32 *v7; // rax
+  __int64 v8; // rsi
+  __int64 v9; // rcx
+  __int64 *v10; // r15
+  __int64 *v11; // r14
+  __int64 v12; // r15
+  __int64 v13; // r14
+  unsigned int v14; // ebx
+  ULONG_PTR v15; // rax
+  unsigned int v17; // [rsp+60h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v5 = MiObtainReferencedVadEx(a1, 2, &v20);
+  v5 = MiObtainReferencedVadEx(a1, 2, (int *)&v17);
   v6 = (__int64)v5;
   if ( !v5 )
     return 3221225793LL;
   MiUnlockVadShared((__int64)CurrentThread, (__int64)v5);
-  v7 = MiObtainReferencedVadEx(a2, 2, &v20);
+  v7 = MiObtainReferencedVadEx(a2, 2, (int *)&v17);
   v8 = (__int64)v7;
   if ( !v7 )
   {
@@ -51,13 +47,13 @@ __int64 __fastcall NtAreMappedFilesTheSame(unsigned __int64 a1, unsigned __int64
     MiUnlockAndDereferenceVadShared((char *)v6);
     return 3221225793LL;
   }
-  if ( (__int64 *)v6 == v7 )
+  if ( (volatile signed __int32 *)v6 == v7 )
   {
     MiDereferenceVad(v6);
     MiUnlockAndDereferenceVadShared((char *)v8);
     return 0LL;
   }
-  else if ( (unsigned int)MiVadIsMetadataBitmap(v6) || (unsigned int)MiVadIsMetadataBitmap(v8) )
+  else if ( (unsigned int)MiVadIsCfgBitmap(v6) == 1 || (unsigned int)MiVadIsCfgBitmap(v8) == 1 )
   {
     MiUnlockAndDereferenceVadShared((char *)v8);
     MiLockVadShared((__int64)CurrentThread, v6);
@@ -70,60 +66,43 @@ __int64 __fastcall NtAreMappedFilesTheSame(unsigned __int64 a1, unsigned __int64
     {
       MiUnlockVadShared((__int64)CurrentThread, v8);
       MiLockVadShared((__int64)CurrentThread, v6);
-      v10 = (signed __int64 *)(v8 + 40);
-      v19 = KeAbPreAcquire(v8 + 40, 0LL);
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 40), 17LL, 0LL) )
-        ExfAcquirePushLockSharedEx((signed __int64 *)(v8 + 40), 0LL, v19, v8 + 40);
-      if ( v19 )
-        *(_BYTE *)(v19 + 18) = 1;
+      v9 = v8;
     }
     else
     {
-      v9 = KeAbPreAcquire(v6 + 40, 0LL);
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 40), 17LL, 0LL) )
-        ExfAcquirePushLockSharedEx((signed __int64 *)(v6 + 40), 0LL, v9, v6 + 40);
-      if ( v9 )
-        *(_BYTE *)(v9 + 18) = 1;
-      v10 = (signed __int64 *)(v8 + 40);
+      v9 = v6;
     }
+    ExAcquirePushLockSharedEx(v9 + 40, 0LL);
     if ( (unsigned int)MiVadDeleted(v6) || (unsigned int)MiVadDeleted(v8) )
     {
-      v16 = -1073741503;
       v17 = -1073741503;
     }
-    else if ( !_bittest((const signed __int32 *)(v6 + 48), 0x15u)
-           && !_bittest((const signed __int32 *)(v8 + 48), 0x15u)
-           && (v11 = *(__int64 **)(v6 + 72)) != 0LL
-           && (v12 = *(__int64 **)(v8 + 72)) != 0LL
+    else if ( (*(_DWORD *)(v6 + 48) & 0x100000) == 0
+           && (*(_DWORD *)(v8 + 48) & 0x100000) == 0
+           && (v10 = *(__int64 **)(v6 + 72)) != 0LL
+           && (v11 = *(__int64 **)(v8 + 72)) != 0LL
+           && (v12 = *v10) != 0
            && (v13 = *v11) != 0
-           && (v14 = *v12) != 0
-           && *(_QWORD *)(v13 + 64)
-           && *(_QWORD *)(v14 + 64) )
+           && *(_QWORD *)(v12 + 64)
+           && *(_QWORD *)(v13 + 64) )
     {
-      v15 = MiReferenceControlAreaFile(v14);
-      v16 = -1073741612;
-      v17 = -1073741612;
-      if ( v13 == *(_QWORD *)(*(_QWORD *)(v15 + 40) + 16LL) )
-      {
-        v16 = 0;
-        v17 = 0;
-      }
-      MiDereferenceControlAreaFile(v14, v15);
+      v14 = -1073741612;
+      v15 = MiReferenceControlAreaFile(v13);
+      if ( v12 == *(_QWORD *)(*(_QWORD *)(v15 + 40) + 16LL) )
+        v14 = 0;
+      v17 = v14;
+      MiDereferenceControlAreaFile(v13, v15);
     }
     else
     {
       v17 = -1073741800;
-      v16 = -1073741800;
     }
-    if ( _InterlockedCompareExchange64(v10, 0LL, 17LL) != 17 )
-    {
-      ExfReleasePushLockShared(v10);
-      v16 = v17;
-    }
-    KeAbPostRelease((ULONG_PTR)v10);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v8 + 40), 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)(v8 + 40));
+    KeAbPostRelease(v8 + 40);
     MiUnlockAndDereferenceVadShared((char *)v6);
     MiLockVadShared((__int64)CurrentThread, v8);
     MiUnlockAndDereferenceVadShared((char *)v8);
-    return v16;
+    return v17;
   }
 }

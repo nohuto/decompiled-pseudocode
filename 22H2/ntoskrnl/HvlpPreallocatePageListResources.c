@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpPreallocatePageListResources @ 0x140941790
+ * XREFs of HvlpPreallocatePageListResources @ 0x14088EB54
  * Callers:
- *     PopPreallocateHibernateMemory @ 0x1408014A4 (PopPreallocateHibernateMemory.c)
+ *     PopPreallocateHibernateMemory @ 0x14079B89C (PopPreallocateHibernateMemory.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C70C (MmAllocateIndependentPagesEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MmAllocateIndependentPagesEx @ 0x14076202C (MmAllocateIndependentPagesEx.c)
  */
 
 __int64 HvlpPreallocatePageListResources()
@@ -15,7 +15,7 @@ __int64 HvlpPreallocatePageListResources()
   v0 = 0;
   if ( !HvlpFallbackScratchPage )
   {
-    IndependentPages = (void *)MmAllocateIndependentPagesEx(0x1000uLL, -1, 0LL, 0);
+    IndependentPages = (void *)MmAllocateIndependentPagesEx(0x1000uLL, -1, 0LL, 0LL);
     HvlpFallbackScratchPage = IndependentPages;
     if ( IndependentPages )
       memset(IndependentPages, 0, 0x1000uLL);

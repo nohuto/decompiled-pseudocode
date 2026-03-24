@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpFindMatchingDescriptorCell @ 0x14070D99C
+ * XREFs of CmpFindMatchingDescriptorCell @ 0x1406E6978
  * Callers:
- *     CmpGetSecurityDescriptorNodeEx @ 0x14067F1B8 (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpSetSecurityDescriptorInfo @ 0x14070CFC8 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x1405CCAF8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1406E5AEC (CmpSetSecurityDescriptorInfo.c)
  * Callees:
- *     RtlLengthSecurityDescriptorStrict @ 0x1402973F4 (RtlLengthSecurityDescriptorStrict.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     CmpSecConvKey @ 0x14070DBA0 (CmpSecConvKey.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     RtlLengthSecurityDescriptorStrict @ 0x1403F7CEC (RtlLengthSecurityDescriptorStrict.c)
+ *     CmpSecConvKey @ 0x1406E6A44 (CmpSecConvKey.c)
  */
 
 char __fastcall CmpFindMatchingDescriptorCell(__int64 a1, const void *a2, int a3, _DWORD *a4, int **a5)
 {
-  size_t v8; // rbp
+  size_t v8; // r14
   __int64 v9; // rcx
   int v10; // r15d
-  _QWORD **v11; // r14
+  _QWORD **v11; // rsi
   _QWORD *i; // rdi
   int *v13; // rbx
-  int v14; // esi
+  int v14; // ebp
 
   v8 = (unsigned int)RtlLengthSecurityDescriptorStrict();
   v10 = CmpSecConvKey(v8, v9);
-  v11 = (_QWORD **)(16LL * (v10 & 0x3F) + a1 + 1896);
+  v11 = (_QWORD **)(a1 + 16 * ((v10 & 0x3F) + 118LL));
   for ( i = *v11; ; i = (_QWORD *)*i )
   {
     if ( i == v11 )

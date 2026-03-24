@@ -5,7 +5,7 @@
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     RtlLengthRequiredSid @ 0x1405BD5C0 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
  */
 
 int CmpInitializeTrustedInstallerSid()

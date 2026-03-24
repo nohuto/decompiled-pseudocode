@@ -1,63 +1,75 @@
 /*
- * XREFs of ?GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18000DFF0
+ * XREFs of ?GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180014904
  * Callers:
- *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180122420 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMi.c)
- *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180122B00 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUM.c)
- *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180122D80 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUM.c)
+ *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F83B0 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMi.c)
+ *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F8660 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUM.c)
+ *     ?GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F8820 (-GetTransform@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUM.c)
  * Callees:
- *     ?CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z @ 0x18000E11C (-CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z.c)
- *     ?CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z @ 0x18000E188 (-CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z.c)
- *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x1800622B0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180090E80 (-Translate@CMILMatrix@@QEAAXMM@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z @ 0x180014A5C (-CalcImageTransform@CBitmapRealization@@QEBA_NPEAVCMILMatrix@@@Z.c)
+ *     ?CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z @ 0x180014B10 (-CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041988 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180041E0C (-Translate@CMILMatrix@@QEAAXMM@Z.c)
+ *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180083CA0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-bool __fastcall CDxHandleBitmapRealization::GetTransform(__int64 a1, CMILMatrix *a2, float *a3)
+bool __fastcall CDxHandleBitmapRealization::GetTransform(__int64 a1, __int64 a2, float *a3)
 {
-  _DWORD *v6; // r8
-  int *v7; // rax
+  int *v6; // rax
+  int *v7; // rsi
   int *v8; // r14
-  int *v9; // rdi
-  UINT32 v10; // eax
-  _BYTE v12[64]; // [rsp+20h] [rbp-68h] BYREF
-  int v13; // [rsp+60h] [rbp-28h]
-  D2D_SIZE_U v14; // [rsp+90h] [rbp+8h] BYREF
+  int v9; // ecx
+  int v10; // edx
+  UINT32 v11; // eax
+  _BYTE v13[64]; // [rsp+20h] [rbp-68h] BYREF
+  int v14; // [rsp+60h] [rbp-28h]
+  D2D_SIZE_U v15; // [rsp+90h] [rbp+8h] BYREF
 
-  CMILMatrix::SetToIdentity(a2);
+  *(_QWORD *)a2 = 1065353216LL;
+  *(_QWORD *)(a2 + 8) = 0LL;
+  *(_DWORD *)(a2 + 16) = 0;
+  *(_QWORD *)(a2 + 20) = 1065353216LL;
+  *(_QWORD *)(a2 + 28) = 0LL;
+  *(_DWORD *)(a2 + 36) = 0;
+  *(_QWORD *)(a2 + 40) = 1065353216LL;
+  *(_QWORD *)(a2 + 48) = 0LL;
+  *(_DWORD *)(a2 + 56) = 0;
+  *(_DWORD *)(a2 + 60) = 1065353216;
+  *(_WORD *)(a2 + 64) = 32085;
   if ( *(_QWORD *)(a1 - 88) )
   {
-    v7 = (int *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(a1 - 104) + 48LL))(a1 - 104);
-    v8 = v7;
-    v9 = v7 + 1;
-    if ( *v7 || *v9 )
+    v6 = (int *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(a1 - 104) + 40LL))(a1 - 104);
+    v7 = v6;
+    v8 = v6 + 1;
+    if ( *v6 || (v9 = *v8, v10 = 0, *v8) )
+    {
       CMILMatrix::Translate(
-        a2,
-        COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*v7) ^ _xmm),
-        COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*v9) ^ _xmm));
-    v14.width = v8[2] - *v8;
-    v10 = v8[3] - *v9;
-    v13 = 0;
-    v14.height = v10;
-    if ( CBitmapRealization::CalcRotationTransform((CBitmapRealization *)(a1 - 464), &v14, (struct CMILMatrix *)v12) )
-      CMILMatrix::Multiply(a2, (const struct CMILMatrix *)v12);
-    if ( CBitmapRealization::CalcImageTransform((CBitmapRealization *)(a1 - 464), (struct CMILMatrix *)v12) )
-      CMILMatrix::Multiply(a2, (const struct CMILMatrix *)v12);
+        (CMILMatrix *)a2,
+        COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*v6) ^ _xmm),
+        COERCE_FLOAT(COERCE_UNSIGNED_INT((float)*v8) ^ _xmm));
+      v10 = *v7;
+      v9 = v7[1];
+    }
+    v15.width = v7[2] - v10;
+    v11 = v7[3] - v9;
+    v14 = 0;
+    v15.height = v11;
+    if ( CBitmapRealization::CalcRotationTransform((CBitmapRealization *)(a1 - 432), &v15, (struct CMILMatrix *)v13) )
+      CMILMatrix::Multiply((CMILMatrix *)a2, (const struct CMILMatrix *)v13);
+    if ( CBitmapRealization::CalcImageTransform((CBitmapRealization *)(a1 - 432), (struct CMILMatrix *)v13) )
+      CMILMatrix::Multiply((CMILMatrix *)a2, (const struct CMILMatrix *)v13);
     if ( a3 )
     {
-      *a3 = (float)*v8;
-      a3[1] = (float)*v9;
-      a3[2] = (float)v8[2];
-      a3[3] = (float)v8[3];
+      *a3 = (float)*v7;
+      a3[1] = (float)*v8;
+      a3[2] = (float)v7[2];
+      a3[3] = (float)v7[3];
     }
   }
   else if ( a3 )
   {
-    v6[3] = 0;
-    v6[2] = 0;
-    v6[1] = 0;
-    *v6 = 0;
+    *((_QWORD *)a3 + 1) = 0LL;
+    *(_QWORD *)a3 = 0LL;
   }
   return (unsigned __int8)CMILMatrix::IsIdentity<0>(a2) == 0;
 }

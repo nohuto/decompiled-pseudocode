@@ -1,222 +1,201 @@
 /*
- * XREFs of PiDevCfgConvertPropertyFromValue @ 0x14095D794
+ * XREFs of PiDevCfgConvertPropertyFromValue @ 0x140734B3C
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x14087E8F4 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14076942C (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDevCfgConvertPropertyFromValue(int a1, int a2, wchar_t *a3, unsigned int a4, int *a5, GUID **a6)
+__int64 __fastcall PiDevCfgConvertPropertyFromValue(
+        unsigned int a1,
+        int a2,
+        wchar_t *a3,
+        unsigned int a4,
+        int *a5,
+        _QWORD *a6)
 {
   unsigned int v6; // edi
   int v8; // esi
-  GUID *Pool2; // rbx
-  unsigned int v10; // r9d
-  unsigned int v11; // r9d
-  unsigned int v12; // r9d
-  unsigned int v13; // r9d
-  unsigned int v14; // r9d
-  unsigned int v15; // r9d
-  unsigned int v16; // r9d
-  unsigned int v17; // r9d
-  int v18; // ecx
-  int v19; // ecx
-  bool v20; // zf
-  bool v21; // zf
-  __int64 v22; // rbp
-  GUID *v23; // rax
-  int v24; // ebp
-  GUID *v25; // rax
-  int v26; // ebp
-  GUID *v27; // rax
-  unsigned int v28; // r9d
-  unsigned int v29; // r9d
-  unsigned int v30; // r9d
-  unsigned int v31; // r9d
-  unsigned int v32; // r9d
-  unsigned int v33; // r9d
-  unsigned int v34; // r9d
-  int v35; // ecx
-  int v36; // ebp
-  UNICODE_STRING GuidString; // [rsp+20h] [rbp-28h] BYREF
+  _BYTE *v9; // rbx
+  int v10; // ebp
+  int v12; // ebp
+  _WORD *v13; // rax
+  int v14; // ebp
+  _BYTE *v15; // rax
+  bool v16; // zf
+  __int64 v17; // rbp
+  _QWORD *v18; // rax
+  bool v19; // zf
+  GUID *PoolWithTag; // rax
+  UNICODE_STRING GuidString; // [rsp+20h] [rbp-18h] BYREF
 
   v6 = 0;
   *(_DWORD *)(&GuidString.MaximumLength + 1) = 0;
   v8 = 0;
-  Pool2 = 0LL;
+  v9 = 0LL;
   if ( a4 > 0x1003 )
   {
     if ( a4 != 8210 )
-      goto LABEL_60;
-    v21 = a1 == 7;
-    goto LABEL_58;
+      goto LABEL_8;
+    v16 = a1 == 7;
+LABEL_59:
+    if ( !v16 )
+      goto LABEL_8;
+    goto LABEL_11;
   }
   if ( a4 == 4099 )
-    goto LABEL_59;
-  if ( a4 > 0x10 )
   {
-    v28 = a4 - 17;
-    if ( !v28 )
+LABEL_11:
+    v8 = a2;
+    goto LABEL_35;
+  }
+  if ( a4 > 0x11 )
+  {
+    if ( a4 != 18 )
     {
-      if ( a1 != 4 )
-        goto LABEL_60;
-      v36 = *(_DWORD *)a3;
-      v8 = 1;
-      Pool2 = (GUID *)ExAllocatePool2(256LL, 1LL, 1667526736LL);
-      if ( Pool2 )
+      if ( a4 == 19 )
       {
-        LOBYTE(Pool2->Data1) = -(v36 != 0);
-        goto LABEL_60;
+        v19 = a1 == 3;
+        goto LABEL_41;
       }
-      return (unsigned int)-1073741670;
-    }
-    v29 = v28 - 1;
-    if ( v29 )
-    {
-      v30 = v29 - 1;
-      if ( !v30 )
+      if ( a4 != 20 )
       {
-        v20 = a1 == 3;
-LABEL_18:
+        if ( a4 <= 0x15 )
+          goto LABEL_8;
+        if ( a4 <= 0x18 )
+        {
+LABEL_56:
+          v19 = a1 == 4;
+          goto LABEL_41;
+        }
+        if ( a4 != 25 )
+          goto LABEL_8;
+      }
+    }
+    if ( a1 - 1 > 1 )
+      goto LABEL_8;
+    goto LABEL_11;
+  }
+  if ( a4 != 17 )
+  {
+    if ( a4 > 9 )
+    {
+      if ( a4 == 13 )
+      {
+        if ( !a1 )
+          goto LABEL_8;
+        if ( a1 <= 2 )
+        {
+          if ( a2 != 78 )
+            goto LABEL_8;
+          v8 = 16;
+          PoolWithTag = (GUID *)ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x63647050u);
+          v9 = PoolWithTag;
+          if ( PoolWithTag )
+          {
+            GuidString.Buffer = a3;
+            *(_DWORD *)&GuidString.Length = 5111884;
+            if ( RtlGUIDFromString(&GuidString, PoolWithTag) < 0 )
+            {
+              ExFreePoolWithTag(v9, 0);
+              v9 = 0LL;
+            }
+            goto LABEL_8;
+          }
+          return (unsigned int)-1073741670;
+        }
+        if ( a1 != 3 )
+          goto LABEL_8;
+        v19 = a2 == 16;
+LABEL_41:
         v8 = a2;
-        Pool2 = (GUID *)a3;
-        if ( !v20 )
+        v9 = a3;
+        if ( !v19 )
         {
           v8 = 0;
-          Pool2 = 0LL;
+          v9 = 0LL;
         }
-        goto LABEL_60;
+        goto LABEL_8;
       }
-      v31 = v30 - 1;
-      if ( v31 )
+      if ( a4 != 16 || a1 != 3 && a1 != 11 || a2 != 8 )
+        goto LABEL_8;
+      v8 = 8;
+LABEL_35:
+      v9 = a3;
+      goto LABEL_8;
+    }
+    if ( a4 < 8 )
+    {
+      if ( a4 < 2 )
+        goto LABEL_8;
+      if ( a4 <= 3 )
       {
-        v32 = v31 - 2;
-        if ( !v32 || (v33 = v32 - 1) == 0 || (v34 = v33 - 1) == 0 )
+        if ( a1 != 4 )
+          goto LABEL_8;
+        v14 = *(_DWORD *)a3;
+        if ( *(_DWORD *)a3 > 0xFFu )
+          goto LABEL_8;
+        v8 = 1;
+        v15 = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x63647050u);
+        v9 = v15;
+        if ( v15 )
         {
-LABEL_51:
-          v20 = a1 == 4;
-          goto LABEL_18;
+          *v15 = v14;
+          goto LABEL_8;
         }
-        if ( v34 != 1 )
-          goto LABEL_60;
+        return (unsigned int)-1073741670;
       }
+      if ( a4 <= 5 )
+      {
+        if ( a1 != 4 )
+          goto LABEL_8;
+        v12 = *(_DWORD *)a3;
+        if ( *(_DWORD *)a3 > 0xFFFFu )
+          goto LABEL_8;
+        v8 = 2;
+        v13 = ExAllocatePoolWithTag(PagedPool, 2uLL, 0x63647050u);
+        v9 = v13;
+        if ( v13 )
+        {
+          *v13 = v12;
+          goto LABEL_8;
+        }
+        return (unsigned int)-1073741670;
+      }
+      goto LABEL_56;
     }
-    v35 = a1 - 1;
-    if ( !v35 )
-      goto LABEL_59;
-    v21 = v35 == 1;
-    goto LABEL_58;
-  }
-  if ( a4 == 16 )
-  {
-    if ( a1 != 3 && a1 != 11 )
-      goto LABEL_60;
-    v21 = a2 == 8;
-LABEL_58:
-    if ( !v21 )
-      goto LABEL_60;
-LABEL_59:
-    v8 = a2;
-    Pool2 = (GUID *)a3;
-    goto LABEL_60;
-  }
-  v10 = a4 - 2;
-  if ( !v10 || (v11 = v10 - 1) == 0 )
-  {
-    if ( a1 != 4 )
-      goto LABEL_60;
-    v26 = *(_DWORD *)a3;
-    if ( *(_DWORD *)a3 > 0xFFu )
-      goto LABEL_60;
-    v8 = 1;
-    v27 = (GUID *)ExAllocatePool2(256LL, 1LL, 1667526736LL);
-    Pool2 = v27;
-    if ( v27 )
-    {
-      LOBYTE(v27->Data1) = v26;
-      goto LABEL_60;
-    }
-    return (unsigned int)-1073741670;
-  }
-  v12 = v11 - 1;
-  if ( !v12 || (v13 = v12 - 1) == 0 )
-  {
-    if ( a1 != 4 )
-      goto LABEL_60;
-    v24 = *(_DWORD *)a3;
-    if ( *(_DWORD *)a3 > 0xFFFFu )
-      goto LABEL_60;
-    v8 = 2;
-    v25 = (GUID *)ExAllocatePool2(256LL, 2LL, 1667526736LL);
-    Pool2 = v25;
-    if ( v25 )
-    {
-      LOWORD(v25->Data1) = v24;
-      goto LABEL_60;
-    }
-    return (unsigned int)-1073741670;
-  }
-  v14 = v13 - 1;
-  if ( !v14 )
-    goto LABEL_51;
-  v15 = v14 - 1;
-  if ( !v15 )
-    goto LABEL_51;
-  v16 = v15 - 1;
-  if ( !v16 || (v17 = v16 - 1) == 0 )
-  {
     if ( a1 == 4 )
     {
-      v22 = *(unsigned int *)a3;
+      v17 = *(unsigned int *)a3;
       v8 = 8;
-      v23 = (GUID *)ExAllocatePool2(256LL, 8LL, 1667526736LL);
-      Pool2 = v23;
-      if ( v23 )
+      v18 = ExAllocatePoolWithTag(PagedPool, 8uLL, 0x63647050u);
+      v9 = v18;
+      if ( v18 )
       {
-        *(_QWORD *)&v23->Data1 = v22;
-        goto LABEL_60;
+        *v18 = v17;
+        goto LABEL_8;
       }
       return (unsigned int)-1073741670;
     }
-    v21 = a1 == 11;
-    goto LABEL_58;
+    v16 = a1 == 11;
+    goto LABEL_59;
   }
-  if ( v17 != 4 )
-    goto LABEL_60;
-  v18 = a1 - 1;
-  if ( v18 )
+  if ( a1 == 4 )
   {
-    v19 = v18 - 1;
-    if ( v19 )
+    v10 = *(_DWORD *)a3;
+    v8 = 1;
+    v9 = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x63647050u);
+    if ( v9 )
     {
-      if ( v19 == 1 )
-      {
-        v20 = a2 == 16;
-        goto LABEL_18;
-      }
-LABEL_60:
-      *a5 = v8;
-      *a6 = Pool2;
-      return v6;
+      *v9 = -(v10 != 0);
+      goto LABEL_8;
     }
+    return (unsigned int)-1073741670;
   }
-  if ( a2 != 78 )
-    goto LABEL_60;
-  v8 = 16;
-  Pool2 = (GUID *)ExAllocatePool2(256LL, 16LL, 1667526736LL);
-  if ( Pool2 )
-  {
-    GuidString.Buffer = a3;
-    GuidString.MaximumLength = 78;
-    GuidString.Length = 76;
-    if ( RtlGUIDFromString(&GuidString, Pool2) < 0 )
-    {
-      ExFreePoolWithTag(Pool2, 0);
-      Pool2 = 0LL;
-    }
-    goto LABEL_60;
-  }
-  return (unsigned int)-1073741670;
+LABEL_8:
+  *a5 = v8;
+  *a6 = v9;
+  return v6;
 }

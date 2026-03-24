@@ -1,9 +1,9 @@
 /*
- * XREFs of _anonymous_namespace_::NTW_GetPrevTop @ 0x1C022396C
+ * XREFs of _anonymous_namespace_::NTW_GetPrevTop @ 0x1C0240AE4
  * Callers:
- *     ?NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z @ 0x1C0094D9C (-NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z.c)
+ *     ?NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z @ 0x1C0027EC8 (-NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z.c)
  * Callees:
- *     _anonymous_namespace_::NTW_GetNextTop @ 0x1C0094F08 (_anonymous_namespace_--NTW_GetNextTop.c)
+ *     _anonymous_namespace_::NTW_GetNextTop @ 0x1C002801C (_anonymous_namespace_--NTW_GetNextTop.c)
  */
 
 __int64 __fastcall anonymous_namespace_::NTW_GetPrevTop(__int64 a1, __int64 a2)

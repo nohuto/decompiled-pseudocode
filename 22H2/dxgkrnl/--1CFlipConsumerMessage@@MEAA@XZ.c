@@ -1,29 +1,25 @@
 /*
- * XREFs of ??1CFlipConsumerMessage@@MEAA@XZ @ 0x1C007FA70
+ * XREFs of ??1CFlipConsumerMessage@@MEAA@XZ @ 0x1C0068294
  * Callers:
- *     ??_ECFlipConsumerMessage@@MEAAPEAXI@Z @ 0x1C007FAD0 (--_ECFlipConsumerMessage@@MEAAPEAXI@Z.c)
+ *     ??_ECFlipConsumerMessage@@MEAAPEAXI@Z @ 0x1C00682F0 (--_ECFlipConsumerMessage@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1CFlipPropertySetBase@@MEAA@XZ @ 0x1C0085588 (--1CFlipPropertySetBase@@MEAA@XZ.c)
+ *     ??1CFlipPropertySetBase@@MEAA@XZ @ 0x1C006BE9C (--1CFlipPropertySetBase@@MEAA@XZ.c)
  */
 
 void __fastcall CFlipConsumerMessage::~CFlipConsumerMessage(CFlipConsumerMessage *this)
 {
-  unsigned __int64 v1; // r8
-  __int64 v2; // rdx
-  _QWORD *v3; // rax
+  CFlipConsumerMessage **v1; // r8
+  CFlipConsumerMessage **v2; // rax
 
   *(_QWORD *)this = &CFlipConsumerMessage::`vftable'{for `CFlipPropertySetBase'};
   *((_QWORD *)this + 5) = &CFlipPresentCancel::`vftable';
-  v1 = ((unsigned __int64)this + 48) & -(__int64)((CFlipConsumerMessage *)((char *)this + 40) != 0LL);
-  v2 = *(_QWORD *)v1;
-  if ( *(_QWORD *)(*(_QWORD *)v1 + 8LL) != v1
-    || (v3 = *(_QWORD **)((((unsigned __int64)this + 48) & -(__int64)((CFlipConsumerMessage *)((char *)this + 40) != 0LL))
-                        + 8),
-        *v3 != v1) )
+  v1 = (CFlipConsumerMessage **)*((_QWORD *)this + 6);
+  if ( v1[1] != (CFlipConsumerMessage *)((char *)this + 48)
+    || (v2 = (CFlipConsumerMessage **)*((_QWORD *)this + 7), *v2 != (CFlipConsumerMessage *)((char *)this + 48)) )
   {
     __fastfail(3u);
   }
-  *v3 = v2;
-  *(_QWORD *)(v2 + 8) = v3;
+  *v2 = (CFlipConsumerMessage *)v1;
+  v1[1] = (CFlipConsumerMessage *)v2;
   CFlipPropertySetBase::~CFlipPropertySetBase(this);
 }

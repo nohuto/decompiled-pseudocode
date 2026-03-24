@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDecompressCallback @ 0x140AA23D0
+ * XREFs of PopDecompressCallback @ 0x1409B13B0
  * Callers:
  *     <none>
  * Callees:
- *     PopRequestRead @ 0x140AA3C40 (PopRequestRead.c)
+ *     PopRequestRead @ 0x1409B1994 (PopRequestRead.c)
  */
 
 __int64 __fastcall PopDecompressCallback(ULONG_PTR a1)

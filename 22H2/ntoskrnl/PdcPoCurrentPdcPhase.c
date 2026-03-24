@@ -1,31 +1,32 @@
 /*
- * XREFs of PdcPoCurrentPdcPhase @ 0x140599840
+ * XREFs of PdcPoCurrentPdcPhase @ 0x140576300
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     PopFxPauseDeviceAccounting @ 0x14058B0B4 (PopFxPauseDeviceAccounting.c)
- *     PopFxResumeDeviceAccounting @ 0x14058B898 (PopFxResumeDeviceAccounting.c)
- *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x140598670 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
- *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x14059878C (PopDeepSleepResiliencyPhaseAccountingEnd.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x1407AA5CC (PopDisarmIdlePhaseWatchdog.c)
- *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140993CB8 (PopPowerAggregatorNotifyPdcSleepTransition.c)
- *     PopPowerAggregatorNotifyResiliencyReached @ 0x140993D84 (PopPowerAggregatorNotifyResiliencyReached.c)
- *     PopIdleCsStateChanged @ 0x14099BEEC (PopIdleCsStateChanged.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     PopFxPauseDeviceAccounting @ 0x14056B6A4 (PopFxPauseDeviceAccounting.c)
+ *     PopFxResumeDeviceAccounting @ 0x14056C580 (PopFxResumeDeviceAccounting.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x140577750 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x14057786C (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x1408EE6C8 (PopPowerAggregatorNotifyPdcSleepTransition.c)
+ *     PopPowerAggregatorNotifyResiliencyReached @ 0x1408EE7B0 (PopPowerAggregatorNotifyResiliencyReached.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1408EFD7C (PopDisarmIdlePhaseWatchdog.c)
+ *     PopIdleCsStateChanged @ 0x1408F5684 (PopIdleCsStateChanged.c)
  */
 
-__int64 __fastcall PdcPoCurrentPdcPhase(int a1, unsigned __int8 a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall PdcPoCurrentPdcPhase(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx
-  int v5; // ecx
+  __int64 v5; // rcx
   __int64 v6; // rcx
   __int64 v7; // rcx
-  int v8; // ecx
+  __int64 v8; // rcx
 
   v4 = 0;
   PopBsdCurrentCsPhase = a1;
-  v5 = a1 - 1;
-  if ( v5 )
+  LOBYTE(a4) = a2;
+  v5 = (unsigned int)(a1 - 1);
+  if ( (_DWORD)v5 )
   {
     v6 = (unsigned int)(v5 - 1);
     if ( (_DWORD)v6 )
@@ -33,42 +34,42 @@ __int64 __fastcall PdcPoCurrentPdcPhase(int a1, unsigned __int8 a2, unsigned int
       v7 = (unsigned int)(v6 - 4);
       if ( (_DWORD)v7 )
       {
-        v8 = v7 - 1;
-        if ( v8 )
+        v8 = (unsigned int)(v7 - 1);
+        if ( (_DWORD)v8 )
         {
-          if ( v8 == 1 )
-            PopPowerAggregatorNotifyResiliencyReached();
+          if ( (_DWORD)v8 == 1 )
+            PopPowerAggregatorNotifyResiliencyReached(v8, a2, a3, a4);
         }
-        else if ( a2 )
+        else if ( (_BYTE)a2 )
         {
-          qword_140CF7D08 = KeQueryPerformanceCounter(0LL).QuadPart;
-          PopDeepSleepResiliencyPhaseAccountingBegin(3u, 0);
-          if ( PopFxAccountingGroup == 2 )
+          qword_140C4FF48 = KeQueryPerformanceCounter(0LL).QuadPart;
+          PopDeepSleepResiliencyPhaseAccountingBegin(3LL, 0LL);
+          if ( (PopFxDeviceAccountingLevel & 2) != 0 )
             PopFxResumeDeviceAccounting();
         }
         else
         {
-          qword_140CF7D10 += *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140CF7D08;
-          if ( PopFxAccountingGroup == 2 )
+          qword_140C4FF50 += *(_QWORD *)&KeQueryPerformanceCounter(0LL) - qword_140C4FF48;
+          if ( (PopFxDeviceAccountingLevel & 2) != 0 )
             PopFxPauseDeviceAccounting();
-          PopDeepSleepResiliencyPhaseAccountingEnd(3u, 0);
+          PopDeepSleepResiliencyPhaseAccountingEnd(3LL, 0LL);
         }
       }
       else
       {
-        LODWORD(v7) = a2;
-        return (unsigned int)PopPowerAggregatorNotifyPdcSleepTransition(v7, a3, a4);
+        LODWORD(v7) = (unsigned __int8)a2;
+        return (unsigned int)PopPowerAggregatorNotifyPdcSleepTransition(v7, (unsigned int)a3);
       }
     }
     else
     {
-      LODWORD(v6) = a2 != 0;
+      LODWORD(v6) = (_BYTE)a2 != 0;
       PopIdleCsStateChanged(v6);
     }
   }
   else
   {
-    PopDisarmIdlePhaseWatchdog();
+    PopDisarmIdlePhaseWatchdog(v5, a2, a3, a4);
   }
   return v4;
 }

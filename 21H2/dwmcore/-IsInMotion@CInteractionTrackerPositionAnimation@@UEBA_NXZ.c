@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsInMotion@CInteractionTrackerPositionAnimation@@UEBA_NXZ @ 0x180256290
+ * XREFs of ?IsInMotion@CInteractionTrackerPositionAnimation@@UEBA_NXZ @ 0x180205A70
  * Callers:
  *     <none>
  * Callees:
- *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x180113E04 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
- *     ?IsInMotion@CScrollAnimation@@UEBA_NXZ @ 0x180254680 (-IsInMotion@CScrollAnimation@@UEBA_NXZ.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801C8390 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?IsInMotion@CScrollAnimation@@UEBA_NXZ @ 0x180203E00 (-IsInMotion@CScrollAnimation@@UEBA_NXZ.c)
  */
 
 char __fastcall CInteractionTrackerPositionAnimation::IsInMotion(CInteractionTrackerPositionAnimation *this)
@@ -17,11 +17,11 @@ char __fastcall CInteractionTrackerPositionAnimation::IsInMotion(CInteractionTra
 
   if ( CScrollAnimation::IsInMotion(this) )
     return 1;
-  v2 = *((_QWORD *)this + 44);
+  v2 = *((_QWORD *)this + 41);
   v3 = v2 ? *(CInteractionTracker **)(v2 + 16) : 0LL;
   if ( CInteractionTracker::AreInteractionAnimationsAlive(v3) )
-    v6 = *(_QWORD *)(*(_QWORD *)(v5 + 328) + 384LL);
-  if ( v6 > *((_QWORD *)this + 48) )
+    v6 = *(_QWORD *)(*(_QWORD *)(v5 + 320) + 360LL);
+  if ( v6 > *((_QWORD *)this + 45) )
     return 1;
   return v4;
 }

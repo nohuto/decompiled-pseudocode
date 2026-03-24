@@ -1,9 +1,9 @@
 /*
- * XREFs of GreEnableWindowResizeOptimization @ 0x1C0120B2C
+ * XREFs of GreEnableWindowResizeOptimization @ 0x1C0135180
  * Callers:
- *     NtUserEnableWindowResizeOptimization @ 0x1C0120AD0 (NtUserEnableWindowResizeOptimization.c)
+ *     NtUserEnableWindowResizeOptimization @ 0x1C0135120 (NtUserEnableWindowResizeOptimization.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall GreEnableWindowResizeOptimization(unsigned int a1, unsigned int a2, unsigned int a3)

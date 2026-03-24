@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CInteractionConfigurationGroup@DirectComposition@@QEAA@XZ @ 0x1C00942C0
+ * XREFs of ??1CInteractionConfigurationGroup@DirectComposition@@QEAA@XZ @ 0x1C0084CF8
  * Callers:
- *     ??1CInteractionMarshaler@DirectComposition@@UEAA@XZ @ 0x1C009379C (--1CInteractionMarshaler@DirectComposition@@UEAA@XZ.c)
+ *     ??1CInteractionMarshaler@DirectComposition@@UEAA@XZ @ 0x1C0084508 (--1CInteractionMarshaler@DirectComposition@@UEAA@XZ.c)
  * Callees:
- *     ??1?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAA@XZ @ 0x1C00942F4 (--1-$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposi.c)
+ *     ??1?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAA@XZ @ 0x1C0084D2C (--1-$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposi.c)
  */
 
 void __fastcall DirectComposition::CInteractionConfigurationGroup::~CInteractionConfigurationGroup(

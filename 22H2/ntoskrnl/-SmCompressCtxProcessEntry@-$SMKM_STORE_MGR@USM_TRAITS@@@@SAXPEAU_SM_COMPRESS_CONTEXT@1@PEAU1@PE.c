@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x1405BE94C
+ * XREFs of ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x140265610
  * Callers:
- *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1403B2C00 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140265340 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x14020D970 (MmBuildMdlForNonPagedPool.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     IoBuildPartialMdl @ 0x140324960 (IoBuildPartialMdl.c)
- *     RtlCompressBuffer @ 0x140363480 (RtlCompressBuffer.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x1405BEB04 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
- *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x14067BE00 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140264870 (MmBuildMdlForNonPagedPool.c)
+ *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x140266374 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
+ *     RtlCompressBuffer @ 0x140268980 (RtlCompressBuffer.c)
+ *     IoBuildPartialMdl @ 0x1402EE630 (IoBuildPartialMdl.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x140300354 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessEntry(
@@ -17,7 +17,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessEntry(
         __int64 a2,
         void *a3,
         void *a4,
-        PMDL TargetMdl)
+        PMDL MemoryDescriptorList)
 {
   PMDL v6; // rsi
   unsigned __int64 StartVa; // r12
@@ -25,51 +25,51 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessEntry(
   PVOID MappedSystemVa; // r13
   PVOID *p_MappedSystemVa; // r15
   __int16 v12; // bp
-  unsigned __int64 v13; // r9
-  __int64 v14; // rdx
+  __int64 v13; // rdx
+  unsigned __int64 v14; // r9
   __int64 v15; // r8
   ULONG FinalCompressedSize[18]; // [rsp+40h] [rbp-48h] BYREF
 
   FinalCompressedSize[0] = 0;
-  v6 = TargetMdl;
-  StartVa = (unsigned __int64)TargetMdl[1].StartVa;
+  v6 = MemoryDescriptorList;
+  StartVa = (unsigned __int64)MemoryDescriptorList[1].StartVa;
   v9 = *(struct _MDL **)(StartVa + 16);
   MappedSystemVa = v9->MappedSystemVa;
   memmove(a4, MappedSystemVa, 0x1000uLL);
   p_MappedSystemVa = &v6[1].MappedSystemVa;
   v12 = (_WORD)v6 + 72;
   if ( RtlCompressBuffer(
-         (USHORT)v6[1].Process[1].UniqueProcessId,
+         (USHORT)v6[1].Process[1].WoW64Process,
          (PUCHAR)a4,
          0x1000u,
          (PUCHAR)&v6[1].MappedSystemVa,
          StartVa - ((_DWORD)v6 + 72) + 4096,
          0x1000u,
          FinalCompressedSize,
-         a3) >= 0 )
-  {
-    v14 = FinalCompressedSize[0];
-    v6->Next = 0LL;
-    v6->MdlFlags = 0;
-    v6->ByteCount = v14;
-    v6->ByteOffset = v12 & 0xFFF;
-    v6->StartVa = (PVOID)((unsigned __int64)p_MappedSystemVa & 0xFFFFFFFFFFFFF000uLL);
-    v6->Size = 8 * ((((unsigned __int64)(v12 & 0xFFF) + v14 + 4095) >> 12) + 6);
-    MmBuildMdlForNonPagedPool(v6);
-  }
-  else
+         a3) < 0 )
   {
     FinalCompressedSize[0] = 4096;
     p_MappedSystemVa = (PVOID *)MappedSystemVa;
     IoBuildPartialMdl(v9, v6, (char *)v9->StartVa + v9->ByteOffset, 0);
   }
-  TargetMdl = 0LL;
+  else
+  {
+    v13 = FinalCompressedSize[0];
+    v6->Next = 0LL;
+    v6->MdlFlags = 0;
+    v6->ByteCount = v13;
+    v6->ByteOffset = v12 & 0xFFF;
+    v6->StartVa = (PVOID)((unsigned __int64)p_MappedSystemVa & 0xFFFFFFFFFFFFF000uLL);
+    v6->Size = 8 * ((((unsigned __int64)(v12 & 0xFFF) + v13 + 4095) >> 12) + 6);
+    MmBuildMdlForNonPagedPool(v6);
+  }
+  MemoryDescriptorList = 0LL;
   MetroHash64::Hash(
     (const unsigned __int8 *)p_MappedSystemVa,
     FinalCompressedSize[0],
-    (unsigned __int8 *const)&TargetMdl,
-    v13);
-  *(_QWORD *)&v6[1].Size = TargetMdl;
+    (unsigned __int8 *const)&MemoryDescriptorList,
+    v14);
+  *(_QWORD *)&v6[1].Size = MemoryDescriptorList;
   v6->Next = v9;
   *(_DWORD *)(StartVa + 8) |= 0x80000000;
   *(_QWORD *)(StartVa + 16) = v6;

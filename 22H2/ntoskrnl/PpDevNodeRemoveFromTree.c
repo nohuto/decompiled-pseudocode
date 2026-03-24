@@ -1,14 +1,14 @@
 /*
- * XREFs of PpDevNodeRemoveFromTree @ 0x1403D4BAC
+ * XREFs of PpDevNodeRemoveFromTree @ 0x1403710A8
  * Callers:
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140868334 (PnpUnlinkDeviceRemovalRelations.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x14074AADC (PnpUnlinkDeviceRemovalRelations.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PnpOrphanNotification @ 0x1408832B4 (PnpOrphanNotification.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PnpOrphanNotification @ 0x14074C754 (PnpOrphanNotification.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PpDevNodeRemoveFromTree(_QWORD *a1)
@@ -26,25 +26,24 @@ char __fastcall PpDevNodeRemoveFromTree(_QWORD *a1)
   _QWORD *v12; // rdi
   char result; // al
   _QWORD *v14; // rcx
-  _QWORD *v15; // rdx
-  __int64 v16; // r8
-  _QWORD *v17; // rax
-  __int64 v18; // r8
-  _QWORD *v19; // rax
-  __int64 v20; // rax
-  _QWORD *v21; // rcx
-  _QWORD *v22; // rdx
-  __int64 v23; // r8
-  _QWORD *v24; // rax
+  __int64 v15; // rdx
+  _QWORD *v16; // rax
+  __int64 v17; // r8
+  _QWORD *v18; // rdx
+  __int64 v19; // rax
+  _QWORD *v20; // rcx
+  _QWORD *v21; // rdx
+  __int64 v22; // r8
+  _QWORD *v23; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
-  int v28; // eax
-  bool v29; // zf
-  unsigned __int8 v30; // cl
-  struct _KPRCB *v31; // r10
-  _DWORD *v32; // r8
-  int v33; // eax
+  int v27; // eax
+  bool v28; // zf
+  unsigned __int8 v29; // al
+  struct _KPRCB *v30; // r10
+  _DWORD *v31; // r8
+  int v32; // eax
 
   v2 = 0;
   v3 = KeAcquireSpinLockRaiseToDpc(&PnpSpinLock);
@@ -70,19 +69,22 @@ char __fastcall PpDevNodeRemoveFromTree(_QWORD *a1)
       v5 = 0LL;
     }
     *(_QWORD *)(v8 + 24) = v5;
-    KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
+    KxReleaseSpinLock(&PnpSpinLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v28 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-        v29 = (v28 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v28;
-        if ( v29 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+          v28 = (v27 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v27;
+          if ( v28 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v3);
@@ -98,19 +100,22 @@ LABEL_28:
   }
   else
   {
-    KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
+    KxReleaseSpinLock(&PnpSpinLock);
     if ( KiIrqlFlags )
     {
-      v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v30 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v31 = KeGetCurrentPrcb();
-        v32 = v31->SchedulerAssist;
-        v33 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-        v29 = (v33 & v32[5]) == 0;
-        v32[5] &= v33;
-        if ( v29 )
-          KiRemoveSystemWorkPriorityKick(v31);
+        v29 = KeGetCurrentIrql();
+        if ( v29 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v29 >= 2u )
+        {
+          v30 = KeGetCurrentPrcb();
+          v31 = v30->SchedulerAssist;
+          v32 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+          v28 = (v32 & v31[5]) == 0;
+          v31[5] &= v32;
+          if ( v28 )
+            KiRemoveSystemWorkPriorityKick(v30);
+        }
       }
     }
     __writecr8(v3);
@@ -119,44 +124,43 @@ LABEL_28:
   while ( v11 != a1 + 22 )
   {
     v14 = v11 - 3;
-    v15 = v11;
-    v16 = *(v11 - 3);
     v11 = (_QWORD *)*v11;
-    v17 = (_QWORD *)v14[1];
-    if ( *(_QWORD **)(v16 + 8) != v14 )
+    v15 = *v14;
+    v16 = (_QWORD *)v14[1];
+    if ( *(_QWORD **)(*v14 + 8LL) != v14 )
       goto LABEL_28;
-    if ( (_QWORD *)*v17 != v14 )
+    if ( (_QWORD *)*v16 != v14 )
       goto LABEL_28;
-    *v17 = v16;
-    *(_QWORD *)(v16 + 8) = v17;
-    v18 = *v15;
-    v19 = (_QWORD *)v15[1];
-    if ( *(_QWORD **)(*v15 + 8LL) != v15 || (_QWORD *)*v19 != v15 )
+    *v16 = v15;
+    *(_QWORD *)(v15 + 8) = v16;
+    v17 = v14[3];
+    v18 = (_QWORD *)v14[4];
+    if ( *(_QWORD **)(v17 + 8) != v14 + 3 || (_QWORD *)*v18 != v14 + 3 )
       goto LABEL_28;
-    *v19 = v18;
-    *(_QWORD *)(v18 + 8) = v19;
+    *v18 = v17;
+    *(_QWORD *)(v17 + 8) = v18;
     ExFreePoolWithTag(v14, 0x72775044u);
   }
   v12 = (_QWORD *)a1[24];
   while ( v12 != a1 + 24 )
   {
-    v20 = *v12;
-    v21 = v12;
-    v12 = (_QWORD *)v20;
-    v22 = (_QWORD *)v21[1];
-    if ( *(_QWORD **)(v20 + 8) != v21 )
+    v19 = *v12;
+    v20 = v12;
+    v12 = (_QWORD *)v19;
+    v21 = (_QWORD *)v20[1];
+    if ( *(_QWORD **)(v19 + 8) != v20 )
       goto LABEL_28;
-    if ( (_QWORD *)*v22 != v21 )
+    if ( (_QWORD *)*v21 != v20 )
       goto LABEL_28;
-    *v22 = v20;
-    *(_QWORD *)(v20 + 8) = v22;
-    v23 = v21[3];
-    v24 = (_QWORD *)v21[4];
-    if ( *(_QWORD **)(v23 + 8) != v21 + 3 || (_QWORD *)*v24 != v21 + 3 )
+    *v21 = v19;
+    *(_QWORD *)(v19 + 8) = v21;
+    v22 = v20[3];
+    v23 = (_QWORD *)v20[4];
+    if ( *(_QWORD **)(v22 + 8) != v20 + 3 || (_QWORD *)*v23 != v20 + 3 )
       goto LABEL_28;
-    *v24 = v23;
-    *(_QWORD *)(v23 + 8) = v24;
-    ExFreePoolWithTag(v21, 0x72775044u);
+    *v23 = v22;
+    *(_QWORD *)(v22 + 8) = v23;
+    ExFreePoolWithTag(v20, 0x72775044u);
   }
   a1[2] = 0LL;
   result = v2;

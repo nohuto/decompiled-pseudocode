@@ -1,76 +1,77 @@
 /*
- * XREFs of RtlStringCbCatW @ 0x140370FC4
+ * XREFs of RtlStringCbCatW @ 0x14032E278
  * Callers:
- *     SeSetLearningModeObjectInformation @ 0x1405B845C (SeSetLearningModeObjectInformation.c)
- *     WmipInsertStaticNames @ 0x1406C8104 (WmipInsertStaticNames.c)
- *     PnpConcatPWSTR @ 0x1407FB058 (PnpConcatPWSTR.c)
- *     PerfDiagpStartPerfDiagLogger @ 0x14083D30C (PerfDiagpStartPerfDiagLogger.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1408411EC (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     WmipIncludeStaticNames @ 0x1409E0A34 (WmipIncludeStaticNames.c)
- *     VhdInitialize @ 0x140B3F4DC (VhdInitialize.c)
+ *     SeSetLearningModeObjectInformation @ 0x140345990 (SeSetLearningModeObjectInformation.c)
+ *     PnpConcatPWSTR @ 0x14068CC14 (PnpConcatPWSTR.c)
+ *     WmipInsertStaticNames @ 0x1406B1C50 (WmipInsertStaticNames.c)
+ *     PerfDiagpStartPerfDiagLogger @ 0x1407960A4 (PerfDiagpStartPerfDiagLogger.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AAA10 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     WmipIncludeStaticNames @ 0x14093282C (WmipIncludeStaticNames.c)
+ *     VhdInitialize @ 0x140A73778 (VhdInitialize.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall RtlStringCbCatW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, NTSTRSAFE_PCWSTR pszSrc)
 {
-  size_t v4; // r9
-  size_t v5; // rdx
-  NTSTRSAFE_PWSTR v6; // rax
-  NTSTATUS result; // eax
-  size_t v8; // r8
-  wchar_t *v9; // rdx
-  size_t v10; // rcx
-  __int64 v11; // rax
-  char *v12; // r11
-  wchar_t v13; // r8
-  wchar_t *v14; // rax
+  size_t v3; // r10
+  NTSTATUS v5; // r9d
+  size_t v7; // rcx
+  NTSTRSAFE_PWSTR i; // rax
+  size_t v9; // r8
+  wchar_t *v10; // rdx
+  size_t v11; // rcx
+  __int64 v12; // r9
+  char *v13; // r11
+  wchar_t v14; // ax
+  wchar_t *v15; // rax
 
-  v4 = cbDest >> 1;
-  if ( (cbDest >> 1) - 1 > 0x7FFFFFFE )
-    return -1073741811;
-  v5 = cbDest >> 1;
-  v6 = pszDest;
-  do
+  v3 = cbDest >> 1;
+  v5 = 0;
+  if ( v3 - 1 > 0x7FFFFFFE )
+    v5 = -1073741811;
+  if ( v5 < 0 )
+    goto LABEL_19;
+  v7 = v3;
+  for ( i = pszDest; v7; --v7 )
   {
-    if ( !*v6 )
+    if ( !*i )
       break;
-    ++v6;
-    --v5;
+    ++i;
   }
-  while ( v5 );
-  result = v5 == 0 ? 0xC000000D : 0;
-  if ( v5 )
-    v8 = v4 - v5;
+  v5 = v7 == 0 ? 0xC000000D : 0;
+  if ( v7 )
+    v9 = v3 - v7;
   else
-    v8 = 0LL;
-  if ( v5 )
+LABEL_19:
+    v9 = 0LL;
+  if ( v5 >= 0 )
   {
-    v9 = &pszDest[v8];
-    v10 = v4 - v8;
-    if ( v4 != v8 )
+    v10 = &pszDest[v9];
+    v11 = v3 - v9;
+    if ( v3 != v9 )
     {
-      v11 = 2147483646LL;
-      v12 = (char *)((char *)pszSrc - (char *)v9);
+      v12 = 2147483646LL;
+      v13 = (char *)((char *)pszSrc - (char *)v10);
       do
       {
-        if ( !v11 )
+        if ( !v12 )
           break;
-        v13 = *(wchar_t *)((char *)v9 + (_QWORD)v12);
-        if ( !v13 )
+        v14 = *(wchar_t *)((char *)v10 + (_QWORD)v13);
+        if ( !v14 )
           break;
-        *v9 = v13;
+        *v10 = v14;
+        --v12;
+        ++v10;
         --v11;
-        ++v9;
-        --v10;
       }
-      while ( v10 );
+      while ( v11 );
     }
-    v14 = v9 - 1;
-    if ( v10 )
-      v14 = v9;
-    *v14 = 0;
-    return v10 == 0 ? 0x80000005 : 0;
+    v15 = v10 - 1;
+    if ( v11 )
+      v15 = v10;
+    v5 = v11 == 0 ? 0x80000005 : 0;
+    *v15 = 0;
   }
-  return result;
+  return v5;
 }

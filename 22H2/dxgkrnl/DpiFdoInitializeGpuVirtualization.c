@@ -1,445 +1,378 @@
 /*
- * XREFs of DpiFdoInitializeGpuVirtualization @ 0x1C0201C54
+ * XREFs of DpiFdoInitializeGpuVirtualization @ 0x1C018B6B8
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C0198444 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01988F0 (DpiAcquireCoreSyncAccessSafe.c)
- *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C019F070 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
- *     DxgkIsGpuParavirtualizationSupported @ 0x1C02020BC (DxgkIsGpuParavirtualizationSupported.c)
- *     DpiQueryMiniportInterface @ 0x1C0204EAC (DpiQueryMiniportInterface.c)
- *     DpiCreateSecurityDescriptorForGpuVirtualization @ 0x1C0225100 (DpiCreateSecurityDescriptorForGpuVirtualization.c)
- *     DpiFdoCleanupGpuVirtualization @ 0x1C039AE30 (DpiFdoCleanupGpuVirtualization.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C012E130 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C012E3AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C0133E18 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
+ *     DxgkIsGpuParavirtualizationSupported @ 0x1C018B7CC (DxgkIsGpuParavirtualizationSupported.c)
+ *     DpiQueryMiniportInterface @ 0x1C018E538 (DpiQueryMiniportInterface.c)
+ *     DxgkCheckGpuVirtualizationCaps @ 0x1C0217DB8 (DxgkCheckGpuVirtualizationCaps.c)
+ *     DpiCreateSecurityDescriptorForGpuVirtualization @ 0x1C02C8AFC (DpiCreateSecurityDescriptorForGpuVirtualization.c)
+ *     DpiFdoCleanupGpuVirtualization @ 0x1C02C8EC0 (DpiFdoCleanupGpuVirtualization.c)
  */
 
 __int64 __fastcall DpiFdoInitializeGpuVirtualization(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi
-  __int64 v4; // rdx
-  __int64 v6; // rbx
-  int MiniportInterface; // eax
-  _BYTE *v8; // r14
-  char v9; // r15
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  NTSTATUS v14; // eax
-  int v15; // eax
-  int v16; // eax
-  NTSTATUS v17; // eax
-  NTSTATUS v18; // eax
-  NTSTATUS v19; // eax
-  NTSTATUS v20; // eax
-  _DWORD *v21; // rcx
-  NTSTATUS v22; // eax
+  __int64 v4; // rbx
+  _DWORD *v6; // rcx
+  __int64 v7; // rcx
+  char v8; // r14
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  int v13; // eax
+  __int64 v14; // rcx
+  DXGADAPTER *v15; // rcx
+  int *v16; // rsi
+  int v17; // eax
+  __int64 v18; // rax
+  struct _DEVICE_OBJECT *v19; // rcx
+  struct _DEVICE_OBJECT *v20; // rcx
+  __int64 v21; // rax
+  __int64 v22; // rax
   NTSTATUS v23; // eax
-  NTSTATUS v24; // eax
-  NTSTATUS v25; // eax
-  NTSTATUS v26; // eax
-  int v27; // eax
-  __int64 v28; // r8
-  DXGADAPTER *v29; // rcx
-  _DWORD *v30; // r14
-  __int64 v31; // rdx
-  struct _DEVICE_OBJECT *v32; // rcx
-  struct _DEVICE_OBJECT *v33; // rcx
-  int v34; // eax
-  int v35; // eax
-  __int64 v36; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rsi
+  int v26; // eax
+  __int64 v27; // rcx
+  int v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // rax
+  NTSTATUS v32; // eax
+  NTSTATUS v33; // eax
+  NTSTATUS v34; // eax
+  NTSTATUS v35; // eax
+  NTSTATUS v36; // eax
   NTSTATUS v37; // eax
-  NTSTATUS v38; // eax
-  __int64 v39; // r14
-  const wchar_t *v40; // r9
+  int v38; // eax
+  NTSTATUS v39; // eax
+  NTSTATUS v40; // eax
   NTSTATUS v41; // eax
   NTSTATUS v42; // eax
-  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-29h] BYREF
-  struct _DXGKARG_QUERYADAPTERINFO v44; // [rsp+60h] [rbp-19h] BYREF
-  PVOID P; // [rsp+E0h] [rbp+67h] BYREF
-  char Data; // [rsp+E8h] [rbp+6Fh] BYREF
-  char v47; // [rsp+F0h] [rbp+77h] BYREF
+  NTSTATUS v43; // eax
+  NTSTATUS v44; // eax
+  NTSTATUS v45; // eax
+  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-29h] BYREF
+  struct _UNICODE_STRING ReferenceString; // [rsp+50h] [rbp-19h] BYREF
+  struct _DXGKARG_QUERYADAPTERINFO v48; // [rsp+60h] [rbp-9h] BYREF
+  PVOID P; // [rsp+D0h] [rbp+67h] BYREF
+  char Data; // [rsp+D8h] [rbp+6Fh] BYREF
+  char v51; // [rsp+E0h] [rbp+77h] BYREF
 
   v3 = *(_QWORD *)(a1 + 64);
-  v4 = 0LL;
+  LODWORD(v4) = 0;
   LOBYTE(P) = 0;
-  LODWORD(v6) = 0;
-  if ( (**(_DWORD **)(*(_QWORD *)(v3 + 3912) + 2824LL) & 0x100) != 0 )
+  v6 = *(_DWORD **)(*(_QWORD *)(v3 + 3896) + 2600LL);
+  if ( (*v6 & 0x100) != 0 )
   {
-    v8 = (_BYTE *)(v3 + 4888);
-    v9 = 0;
-    goto LABEL_8;
+    v8 = 0;
+    goto LABEL_6;
   }
-  if ( !*(_BYTE *)(v3 + 5016) )
+  if ( !*(_BYTE *)(v3 + 5072) )
   {
-    MiniportInterface = DpiQueryMiniportInterface(a1, (unsigned int)&GUID_DXGKDDI_GPU_PARTITION_INTERFACE, 128, 1);
-    v4 = 0LL;
-    LODWORD(v6) = MiniportInterface;
-    if ( MiniportInterface < 0 )
-    {
-LABEL_4:
-      if ( *(_BYTE *)(v3 + 5016) )
-      {
-        v36 = (int)v6;
-        goto LABEL_103;
-      }
-      v8 = (_BYTE *)(v3 + 4888);
-      goto LABEL_6;
-    }
-    if ( !*(_QWORD *)(v3 + 5088)
-      || !*(_QWORD *)(v3 + 5112)
-      || !*(_QWORD *)(v3 + 5064)
-      || !*(_QWORD *)(v3 + 5072)
-      || !*(_QWORD *)(v3 + 5080)
-      || !*(_QWORD *)(v3 + 5096)
-      || !*(_QWORD *)(v3 + 5104)
+    LODWORD(v4) = DpiQueryMiniportInterface(a1, (unsigned int)&GUID_DXGKDDI_GPU_PARTITION_INTERFACE, 128, 1);
+    if ( (int)v4 < 0 )
+      goto LABEL_4;
+    if ( !*(_QWORD *)(v3 + 5144)
+      || !*(_QWORD *)(v3 + 5168)
       || !*(_QWORD *)(v3 + 5120)
       || !*(_QWORD *)(v3 + 5128)
       || !*(_QWORD *)(v3 + 5136)
-      || !*(_QWORD *)(v3 + 5144)
-      || !*(_QWORD *)(v3 + 5056) )
+      || !*(_QWORD *)(v3 + 5152)
+      || !*(_QWORD *)(v3 + 5160)
+      || !*(_QWORD *)(v3 + 5176)
+      || !*(_QWORD *)(v3 + 5184)
+      || !*(_QWORD *)(v3 + 5192)
+      || !*(_QWORD *)(v3 + 5200)
+      || !*(_QWORD *)(v3 + 5112) )
     {
-      goto LABEL_89;
+      goto LABEL_31;
     }
-    v27 = *(_DWORD *)(v3 + 3928);
-    *(_BYTE *)(v3 + 5016) = 1;
-    if ( v27 >= 9728 || (unsigned int)(v27 - 8454) <= 0xF9 )
+    v13 = *(_DWORD *)(v3 + 3912);
+    *(_BYTE *)(v3 + 5072) = 1;
+    if ( v13 >= 9728 || (unsigned int)(v13 - 8454) <= 0xF9 )
     {
-      LODWORD(v6) = DpiAcquireCoreSyncAccessSafe(a1, 1);
-      if ( (int)v6 < 0 )
-        goto LABEL_71;
-      v29 = *(DXGADAPTER **)(v3 + 3912);
-      v30 = (_DWORD *)(v3 + 5464);
-      memset(&v44, 0, 24);
-      v44.Type = DXGKQAITYPE_DEVICE_TYPE_CAPS|DXGKQAITYPE_QUERYSEGMENT;
-      v44.pOutputData = (void *)(v3 + 5464);
-      *(_OWORD *)&v44.OutputDataSize = 0LL;
-      v44.OutputDataSize = 4;
-      LODWORD(v6) = DXGADAPTER::DdiQueryAdapterInfo(v29, &v44, v28);
+      LODWORD(v4) = DpiAcquireCoreSyncAccessSafe(a1, 1);
+      if ( (int)v4 < 0 )
+        goto LABEL_56;
+      v15 = *(DXGADAPTER **)(v3 + 3896);
+      v16 = (int *)(v3 + 5520);
+      memset(&v48, 0, 24);
+      v48.Type = DXGKQAITYPE_DEVICE_TYPE_CAPS|DXGKQAITYPE_QUERYSEGMENT;
+      v48.pOutputData = (void *)(v3 + 5520);
+      *(_OWORD *)&v48.OutputDataSize = 0LL;
+      v48.OutputDataSize = 4;
+      LODWORD(v4) = DXGADAPTER::DdiQueryAdapterInfo(v15, &v48, a3);
       DpiReleaseCoreSyncAccessSafe(a1, 1);
-      v4 = 0LL;
-      if ( (int)v6 < 0 )
+      if ( (int)v4 < 0 )
       {
-LABEL_71:
-        WdLogSingleEntry1(3LL, (int)v6);
-        v4 = 0LL;
-        LODWORD(v6) = 0;
+LABEL_56:
+        v21 = WdLogNewEntry5_WdWarning(v14, a2, a3);
+        *(_QWORD *)(v21 + 24) = (int)v4;
+        WdLogEvent5_WdWarning(v21);
+        LODWORD(v4) = 0;
       }
       else
       {
-        if ( *v30 >= 4u )
+        v17 = *v16;
+        if ( (unsigned int)*v16 >= 4 )
         {
-          LODWORD(v6) = -1073741811;
-          v31 = -1073741811LL;
-LABEL_90:
-          WdLogSingleEntry1(2LL, v31);
-          goto LABEL_13;
+          LODWORD(v4) = -1073741811;
+          v18 = WdLogNewEntry5_WdError(v14, a2);
+          *(_QWORD *)(v18 + 24) = -1073741811LL;
+LABEL_32:
+          WdLogEvent5_WdError(v18);
+          goto LABEL_33;
         }
-        if ( (*v30 & 1) != 0 )
+        if ( (v17 & 1) != 0 )
         {
-          v32 = *(struct _DEVICE_OBJECT **)(v3 + 152);
+          v19 = *(struct _DEVICE_OBJECT **)(v3 + 152);
           Data = -1;
-          IoSetDevicePropertyData(v32, &DEVPKEY_Gpup_Supports_Guest_Hibernation, 0, 0, 0x11u, 1u, &Data);
-          v4 = 0LL;
+          IoSetDevicePropertyData(v19, &DEVPKEY_Gpup_Supports_Guest_Hibernation, 0, 0, 0x11u, 1u, &Data);
+          v17 = *(_DWORD *)(v3 + 5520);
         }
-        if ( (*v30 & 2) != 0 )
+        if ( (v17 & 2) != 0 )
         {
-          v33 = *(struct _DEVICE_OBJECT **)(v3 + 152);
-          v47 = -1;
-          IoSetDevicePropertyData(v33, &DEVPKEY_Gpup_Supports_Hot_Driver_Update, 0, 0, 0x11u, 1u, &v47);
-          v4 = 0LL;
+          v20 = *(struct _DEVICE_OBJECT **)(v3 + 152);
+          v51 = -1;
+          IoSetDevicePropertyData(v20, &DEVPKEY_Gpup_Supports_Hot_Driver_Update, 0, 0, 0x11u, 1u, &v51);
         }
       }
     }
   }
-  v8 = (_BYTE *)(v3 + 4888);
-  if ( !*(_BYTE *)(v3 + 4888) )
+  if ( *(_BYTE *)(v3 + 4944) )
+    goto LABEL_51;
+  LODWORD(v4) = DpiQueryMiniportInterface(a1, (unsigned int)&GUID_DXGKDDI_SRIOV_INTERFACE, 120, 1);
+  if ( (int)v4 >= 0 )
   {
-    v34 = DpiQueryMiniportInterface(a1, (unsigned int)&GUID_DXGKDDI_SRIOV_INTERFACE, 120, 1);
-    v4 = 0LL;
-    LODWORD(v6) = v34;
-    if ( v34 < 0 )
-      goto LABEL_4;
-    *v8 = 1;
-    if ( !*(_QWORD *)(v3 + 4928)
-      || !*(_QWORD *)(v3 + 4936)
-      || !*(_QWORD *)(v3 + 4944)
-      || !*(_QWORD *)(v3 + 4952)
-      || !*(_QWORD *)(v3 + 4960)
-      || !*(_QWORD *)(v3 + 4968)
-      || !*(_QWORD *)(v3 + 4976)
-      || !*(_QWORD *)(v3 + 4984)
+    *(_BYTE *)(v3 + 4944) = 1;
+    if ( !*(_QWORD *)(v3 + 4984)
       || !*(_QWORD *)(v3 + 4992)
+      || !*(_QWORD *)(v3 + 5000)
       || !*(_QWORD *)(v3 + 5008)
-      || !*(_QWORD *)(v3 + 5000) )
+      || !*(_QWORD *)(v3 + 5016)
+      || !*(_QWORD *)(v3 + 5024)
+      || !*(_QWORD *)(v3 + 5032)
+      || !*(_QWORD *)(v3 + 5040)
+      || !*(_QWORD *)(v3 + 5048)
+      || !*(_QWORD *)(v3 + 5064)
+      || !*(_QWORD *)(v3 + 5056) )
     {
-      goto LABEL_89;
+      goto LABEL_31;
     }
-  }
-  if ( !*(_BYTE *)(v3 + 5152) )
-  {
-    v35 = DpiQueryMiniportInterface(a1, (unsigned int)&GUID_DXGKDDI_MITIGABLE_DEVICE_INTERFACE, 48, 1);
-    v4 = 0LL;
-    LODWORD(v6) = v35;
-    if ( v35 < 0 )
+LABEL_51:
+    if ( !*(_BYTE *)(v3 + 5208) )
     {
-      LODWORD(v6) = 0;
+      LODWORD(v4) = DpiQueryMiniportInterface(a1, (unsigned int)&GUID_DXGKDDI_MITIGABLE_DEVICE_INTERFACE, 48, 1);
+      if ( (int)v4 < 0 )
+      {
+        LODWORD(v4) = 0;
+      }
+      else
+      {
+        *(_BYTE *)(v3 + 5208) = 1;
+        if ( !*(_QWORD *)(v3 + 5248) || !*(_QWORD *)(v3 + 5256) )
+          goto LABEL_31;
+      }
     }
-    else
+    if ( !*(_BYTE *)(v3 + 5264) )
     {
-      *(_BYTE *)(v3 + 5152) = 1;
-      if ( !*(_QWORD *)(v3 + 5192) || !*(_QWORD *)(v3 + 5200) )
-        goto LABEL_89;
+      LODWORD(v4) = DpiQueryMiniportInterface(a1, (unsigned int)&GUID_DXGKDDI_FLEXIOV_DEVICE_INTERFACE, 56, 1);
+      if ( (int)v4 < 0 )
+      {
+        LODWORD(v4) = 0;
+      }
+      else
+      {
+        *(_BYTE *)(v3 + 5264) = 1;
+        if ( !*(_QWORD *)(v3 + 5304) || !*(_QWORD *)(v3 + 5312) || !*(_QWORD *)(v3 + 5320) || *(_WORD *)(v3 + 5274) != 1 )
+        {
+LABEL_31:
+          LODWORD(v4) = -1073741823;
+          v18 = WdLogNewEntry5_WdError(v7, a2);
+          *(_QWORD *)(v18 + 24) = -1073741823LL;
+          goto LABEL_32;
+        }
+      }
     }
-  }
-  if ( *(_BYTE *)(v3 + 5208) )
-  {
-    if ( (int)v6 < 0 )
-      goto LABEL_4;
-  }
-  else
-  {
-    LODWORD(v6) = DpiQueryMiniportInterface(a1, (unsigned int)&GUID_DXGKDDI_FLEXIOV_DEVICE_INTERFACE, 56, 1);
-    if ( (int)v6 >= 0 )
+    if ( *(_BYTE *)(v3 + 5072) )
     {
-      *(_BYTE *)(v3 + 5208) = 1;
-      if ( *(_QWORD *)(v3 + 5248) && *(_QWORD *)(v3 + 5256) && *(_QWORD *)(v3 + 5264) && *(_WORD *)(v3 + 5218) == 1 )
-        goto LABEL_6;
-LABEL_89:
-      v31 = -1073741823LL;
-      LODWORD(v6) = -1073741823;
-      goto LABEL_90;
+      v8 = 1;
+      *(_BYTE *)(v3 + 4944) = 1;
+      *(_BYTE *)(v3 + 5264) = 1;
+      goto LABEL_6;
     }
-    LODWORD(v6) = 0;
-  }
+LABEL_5:
+    v8 = (char)P;
 LABEL_6:
-  if ( *(_BYTE *)(v3 + 5016) )
-  {
-    v9 = 1;
-    *v8 = 1;
-    *(_BYTE *)(v3 + 5208) = 1;
-  }
-  else
-  {
-    v9 = (char)P;
-  }
-LABEL_8:
-  if ( (unsigned __int8)DxgkIsGpuParavirtualizationSupported(*(_QWORD *)(v3 + 3912), v4, a3, 1LL) )
-  {
-    *v8 = v12;
-    *(_BYTE *)(v3 + 5208) = v12;
-    if ( !*(_QWORD *)(v3 + 2800) )
+    if ( (unsigned __int8)DxgkIsGpuParavirtualizationSupported(*(_QWORD *)(v3 + 3896), a2, a3, 1LL) )
     {
-      DestinationString = 0LL;
-      RtlInitUnicodeString(&DestinationString, L"GPUPARAV");
-      v14 = IoRegisterDeviceInterface(
-              *(PDEVICE_OBJECT *)(v3 + 152),
-              &GUID_DEVINTERFACE_GPU_PARTITIONING_DEVICE,
-              &DestinationString,
-              (PUNICODE_STRING)(v3 + 2792));
-      if ( v14 < 0 )
+      *(_BYTE *)(v3 + 4944) = v11;
+      *(_BYTE *)(v3 + 5264) = v11;
+      if ( !*(_QWORD *)(v3 + 2784) )
       {
-        v36 = v14;
-LABEL_103:
-        WdLogSingleEntry1(2LL, v36);
-        goto LABEL_13;
+        DestinationString = 0LL;
+        RtlInitUnicodeString(&DestinationString, L"GPUPARAV");
+        v23 = IoRegisterDeviceInterface(
+                *(PDEVICE_OBJECT *)(v3 + 152),
+                &GUID_DEVINTERFACE_GPU_PARTITIONING_DEVICE,
+                &DestinationString,
+                (PUNICODE_STRING)(v3 + 2776));
+        v25 = v23;
+        if ( v23 < 0 )
+        {
+          v22 = WdLogNewEntry5_WdError(v24, v9);
+          *(_QWORD *)(v22 + 24) = v25;
+          goto LABEL_108;
+        }
       }
     }
-  }
-  if ( v9 || *(_QWORD *)(v3 + 2800) )
-  {
-    P = 0LL;
-    *(_QWORD *)(v3 + 120) = DpiFdoDispatchIoctl;
-    *(_QWORD *)(v3 + 104) = DpiFdoDispatchCreate;
-    *(_BYTE *)(v3 + 58) = 1;
-    *(_QWORD *)(v3 + 96) = DpiFdoDispatchCleanupAndClose;
-    *(_DWORD *)(v3 + 5656) = 0;
-    v15 = DpiCreateSecurityDescriptorForGpuVirtualization(&P);
-    v6 = v15;
-    if ( v15 < 0 )
+    if ( v8 || *(_QWORD *)(v3 + 2784) )
     {
-LABEL_47:
-      v36 = v6;
-      goto LABEL_103;
-    }
-    v16 = ObSetSecurityObjectByPointer(a1, 4LL, P);
-    LODWORD(v6) = v16;
-    if ( v16 < 0 )
-      WdLogSingleEntry1(2LL, v16);
-    ExFreePoolWithTag(P, 0);
-  }
-  if ( (int)v6 < 0 )
-  {
-    LODWORD(v6) = 0;
-    goto LABEL_13;
-  }
-  if ( v9 )
-  {
-    if ( !*(_QWORD *)(v3 + 2784) )
-    {
-      v37 = IoRegisterDeviceInterface(
-              *(PDEVICE_OBJECT *)(v3 + 152),
-              &GUID_DEVINTERFACE_GPU_PARTITIONING_DEVICE,
-              0LL,
-              (PUNICODE_STRING)(v3 + 2776));
-      v6 = v37;
-      if ( v37 < 0 )
-        goto LABEL_47;
-    }
-    if ( !*(_QWORD *)(v3 + 2816) )
-    {
-      v38 = IoRegisterDeviceInterface(
-              *(PDEVICE_OBJECT *)(v3 + 152),
-              &GUID_DEVINTERFACE_VIRTUALIZABLE_DEVICE,
-              0LL,
-              (PUNICODE_STRING)(v3 + 2808));
-      v6 = v38;
-      if ( v38 < 0 )
-        goto LABEL_47;
-    }
-  }
-  if ( (unsigned __int8)DxgkIsGpuParavirtualizationSupported(*(_QWORD *)(v3 + 3912), v10, v11, v12) )
-  {
-    if ( !*(_QWORD *)(v3 + 2832) )
-    {
-      DestinationString = 0LL;
-      RtlInitUnicodeString(&DestinationString, L"GPUPARAV");
-      v17 = IoRegisterDeviceInterface(
-              *(PDEVICE_OBJECT *)(v3 + 152),
-              &GUID_DEVINTERFACE_VIRTUALIZABLE_DEVICE,
-              &DestinationString,
-              (PUNICODE_STRING)(v3 + 2824));
-      v6 = v17;
-      if ( v17 < 0 )
-        goto LABEL_47;
-    }
-  }
-  if ( !*(_QWORD *)(v3 + 2848) )
-  {
-    v18 = IoRegisterDeviceInterface(
-            *(PDEVICE_OBJECT *)(v3 + 152),
-            &GUID_MITIGABLE_DEVICE_INTERFACE,
-            0LL,
-            (PUNICODE_STRING)(v3 + 2840));
-    v6 = v18;
-    if ( v18 < 0 )
-      goto LABEL_47;
-  }
-  if ( !*(_QWORD *)(v3 + 2864) )
-  {
-    v19 = IoRegisterDeviceInterface(
-            *(PDEVICE_OBJECT *)(v3 + 152),
-            &GUID_SRIOV_DEVICE_INTERFACE_STANDARD,
-            0LL,
-            (PUNICODE_STRING)(v3 + 2856));
-    v6 = v19;
-    if ( v19 < 0 )
-      goto LABEL_47;
-  }
-  if ( !*(_QWORD *)(v3 + 2880) )
-  {
-    v20 = IoRegisterDeviceInterface(
-            *(PDEVICE_OBJECT *)(v3 + 152),
-            &GUID_FLEXIBLE_IOV_INTERFACE,
-            0LL,
-            (PUNICODE_STRING)(v3 + 2872));
-    v6 = v20;
-    if ( v20 < 0 )
-      goto LABEL_47;
-  }
-  v21 = *(_DWORD **)(v3 + 3912);
-  *(_BYTE *)(v3 + 5469) = 0;
-  if ( (v21[698] & 4) != 0 )
-  {
-    if ( (v21[571] & 0x400) != 0 || v9 )
-    {
-      if ( !v21[418] )
+      P = 0LL;
+      *(_QWORD *)(v3 + 120) = DpiFdoDispatchIoctl;
+      *(_QWORD *)(v3 + 104) = &DpiFdoDispatchCreate;
+      *(_BYTE *)(v3 + 57) = 1;
+      *(_QWORD *)(v3 + 96) = &DpiFdoDispatchCleanupAndClose;
+      *(_DWORD *)(v3 + 5712) = 0;
+      v26 = DpiCreateSecurityDescriptorForGpuVirtualization(&P);
+      v4 = v26;
+      if ( v26 < 0 )
       {
-        *(_BYTE *)(v3 + 5469) = 1;
-        goto LABEL_34;
+LABEL_107:
+        v22 = WdLogNewEntry5_WdError(v27, v9);
+        *(_QWORD *)(v22 + 24) = v4;
+        goto LABEL_108;
       }
-      v39 = 1427LL;
-      WdLogSingleEntry1(2LL, 1427LL);
-      v40 = L"VirtualGpuOnly cap is set, but driver deperted display outputs";
+      v28 = ObSetSecurityObjectByPointer(a1, 4LL, P);
+      v4 = v28;
+      if ( v28 < 0 )
+      {
+        v31 = WdLogNewEntry5_WdError(v30, v29);
+        *(_QWORD *)(v31 + 24) = v4;
+        WdLogEvent5_WdError(v31);
+      }
+      ExFreePoolWithTag(P, 0);
     }
-    else
+    if ( (int)v4 < 0 )
     {
-      v39 = 1422LL;
-      WdLogSingleEntry1(2LL, 1422LL);
-      v40 = L"VirtualGpuOnly cap is set, but driver does not support GPU-P or GPU-PARAV";
+      LODWORD(v4) = 0;
+      goto LABEL_11;
     }
-    LODWORD(v6) = -1073741811;
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v40, v39, 0LL, 0LL, 0LL, 0LL);
-    v36 = -1073741811LL;
-    goto LABEL_103;
+    if ( !v8
+      || (*(_QWORD *)(v3 + 2768)
+       || (v32 = IoRegisterDeviceInterface(
+                   *(PDEVICE_OBJECT *)(v3 + 152),
+                   &GUID_DEVINTERFACE_GPU_PARTITIONING_DEVICE,
+                   0LL,
+                   (PUNICODE_STRING)(v3 + 2760)),
+           v4 = v32,
+           v32 >= 0))
+      && (*(_QWORD *)(v3 + 2800)
+       || (v33 = IoRegisterDeviceInterface(
+                   *(PDEVICE_OBJECT *)(v3 + 152),
+                   &GUID_DEVINTERFACE_VIRTUALIZABLE_DEVICE,
+                   0LL,
+                   (PUNICODE_STRING)(v3 + 2792)),
+           v4 = v33,
+           v33 >= 0)) )
+    {
+      if ( !(unsigned __int8)DxgkIsGpuParavirtualizationSupported(*(_QWORD *)(v3 + 3896), v9, v10, v11)
+        || *(_QWORD *)(v3 + 2816)
+        || (ReferenceString = 0LL,
+            RtlInitUnicodeString(&ReferenceString, L"GPUPARAV"),
+            v34 = IoRegisterDeviceInterface(
+                    *(PDEVICE_OBJECT *)(v3 + 152),
+                    &GUID_DEVINTERFACE_VIRTUALIZABLE_DEVICE,
+                    &ReferenceString,
+                    (PUNICODE_STRING)(v3 + 2808)),
+            v4 = v34,
+            v34 >= 0) )
+      {
+        if ( *(_QWORD *)(v3 + 2832)
+          || (v35 = IoRegisterDeviceInterface(
+                      *(PDEVICE_OBJECT *)(v3 + 152),
+                      &GUID_MITIGABLE_DEVICE_INTERFACE,
+                      0LL,
+                      (PUNICODE_STRING)(v3 + 2824)),
+              v4 = v35,
+              v35 >= 0) )
+        {
+          if ( *(_QWORD *)(v3 + 2848)
+            || (v36 = IoRegisterDeviceInterface(
+                        *(PDEVICE_OBJECT *)(v3 + 152),
+                        &GUID_SRIOV_DEVICE_INTERFACE_STANDARD,
+                        0LL,
+                        (PUNICODE_STRING)(v3 + 2840)),
+                v4 = v36,
+                v36 >= 0) )
+          {
+            if ( *(_QWORD *)(v3 + 2864)
+              || (v37 = IoRegisterDeviceInterface(
+                          *(PDEVICE_OBJECT *)(v3 + 152),
+                          &GUID_FLEXIBLE_IOV_INTERFACE,
+                          0LL,
+                          (PUNICODE_STRING)(v3 + 2856)),
+                  v4 = v37,
+                  v37 >= 0) )
+            {
+              LOBYTE(v9) = v8;
+              v38 = DxgkCheckGpuVirtualizationCaps(*(_QWORD *)(v3 + 3896), v9, v3 + 5525);
+              v4 = v38;
+              if ( v38 >= 0 )
+              {
+                if ( !*(_BYTE *)(v3 + 5072)
+                  || (v39 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2760), 1u), v4 = v39, v39 >= 0) )
+                {
+                  if ( !*(_QWORD *)(v3 + 2784)
+                    || (v40 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2776), 1u), v4 = v40, v40 >= 0) )
+                  {
+                    if ( !*(_QWORD *)(v3 + 2800)
+                      || (v41 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2792), 1u), v4 = v41, v41 >= 0) )
+                    {
+                      if ( !*(_QWORD *)(v3 + 2816)
+                        || (v42 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2808), 1u), v4 = v42, v42 >= 0) )
+                      {
+                        if ( !*(_QWORD *)(v3 + 2832)
+                          || (v43 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2824), 1u), v4 = v43, v43 >= 0) )
+                        {
+                          if ( !*(_QWORD *)(v3 + 2848)
+                            || (v44 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2840), 1u), v4 = v44, v44 >= 0) )
+                          {
+                            if ( !*(_QWORD *)(v3 + 2864) )
+                              goto LABEL_11;
+                            v45 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2856), 1u);
+                            v4 = v45;
+                            if ( v45 >= 0 )
+                              return (unsigned int)v4;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    goto LABEL_107;
   }
-LABEL_34:
-  if ( v9 && g_VirtualGpuOnly )
-  {
-    v21[698] |= 4u;
-    *(_BYTE *)(v3 + 5469) = 1;
-  }
-  LODWORD(v6) = 0;
-  if ( *(_BYTE *)(v3 + 5016) )
-  {
-    v41 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2776), 1u);
-    v6 = v41;
-    if ( v41 < 0 )
-      goto LABEL_47;
-  }
-  if ( *(_QWORD *)(v3 + 2800) )
-  {
-    v22 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2792), 1u);
-    v6 = v22;
-    if ( v22 < 0 )
-      goto LABEL_47;
-  }
-  if ( *(_QWORD *)(v3 + 2816) )
-  {
-    v42 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2808), 1u);
-    v6 = v42;
-    if ( v42 < 0 )
-      goto LABEL_47;
-  }
-  if ( *(_QWORD *)(v3 + 2832) )
-  {
-    v23 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2824), 1u);
-    v6 = v23;
-    if ( v23 < 0 )
-      goto LABEL_47;
-  }
-  if ( *(_QWORD *)(v3 + 2848) )
-  {
-    v24 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2840), 1u);
-    v6 = v24;
-    if ( v24 < 0 )
-      goto LABEL_47;
-  }
-  if ( *(_QWORD *)(v3 + 2864) )
-  {
-    v25 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2856), 1u);
-    v6 = v25;
-    if ( v25 < 0 )
-      goto LABEL_47;
-  }
-  if ( *(_QWORD *)(v3 + 2880) )
-  {
-    v26 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2872), 1u);
-    v6 = v26;
-    if ( v26 < 0 )
-      goto LABEL_47;
-  }
-LABEL_13:
-  DxgkLogInternalTriageEvent(
-    *(_QWORD *)(v3 + 3912),
-    131075,
-    -1,
-    (__int64)L"GPU virtualization initialization has completed with status %1",
-    (int)v6,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  if ( (int)v6 < 0 )
+LABEL_4:
+  if ( !*(_BYTE *)(v3 + 5072) )
+    goto LABEL_5;
+  v22 = WdLogNewEntry5_WdError(v7, a2);
+  *(_QWORD *)(v22 + 24) = (int)v4;
+LABEL_108:
+  WdLogEvent5_WdError(v22);
+LABEL_11:
+  if ( (int)v4 < 0 )
+LABEL_33:
     DpiFdoCleanupGpuVirtualization(v3);
-  return (unsigned int)v6;
+  return (unsigned int)v4;
 }

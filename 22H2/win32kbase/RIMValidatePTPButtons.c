@@ -1,21 +1,22 @@
 /*
- * XREFs of RIMValidatePTPButtons @ 0x1C01B4150
+ * XREFs of RIMValidatePTPButtons @ 0x1C0181C0C
  * Callers:
- *     RIMGetDeviceButtons @ 0x1C0188A98 (RIMGetDeviceButtons.c)
+ *     RIMGetDeviceButtons @ 0x1C015D900 (RIMGetDeviceButtons.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
  */
 
 __int64 __fastcall RIMValidatePTPButtons(__int64 a1, unsigned int a2)
 {
-  int v2; // r8d
-  int v3; // eax
-  int v4; // r10d
-  int v5; // r9d
-  unsigned int v6; // ebp
-  _WORD *v7; // rcx
-  __int64 v8; // rsi
-  __int16 v9; // bx
+  int v2; // edi
+  int v3; // r10d
+  int v4; // r9d
+  int v5; // r8d
+  unsigned int v6; // ebx
+  __int16 *v7; // rcx
+  __int64 v8; // r11
+  __int16 v9; // ax
+  __int16 v10; // ax
 
   v2 = 0;
   v3 = 0;
@@ -23,69 +24,55 @@ __int64 __fastcall RIMValidatePTPButtons(__int64 a1, unsigned int a2)
   v5 = 0;
   v6 = -1073741668;
   if ( !a2 )
-    goto LABEL_21;
-  v7 = (_WORD *)(a1 + 56);
+    goto LABEL_18;
+  v7 = (__int16 *)(a1 + 56);
   v8 = a2;
   do
   {
     v9 = *(v7 - 28);
-    if ( v9 == 13 && *v7 == 71 )
+    if ( v9 == 13 )
     {
-      v5 = 1;
+      if ( *v7 != 71 )
+        goto LABEL_13;
+      v2 = 1;
     }
-    else if ( v9 == 9 )
+    if ( v9 == 9 )
     {
-      switch ( *v7 )
-      {
-        case 1:
-          v2 = 1;
-          break;
-        case 2:
-          v3 = 1;
-          break;
-        case 3:
-          v4 = 1;
-          break;
-      }
+      v10 = *v7;
+      if ( *v7 == 1 )
+        v3 = 1;
+      if ( v10 == 2 )
+        v4 = 1;
+      if ( v10 == 3 )
+        v5 = 1;
     }
+LABEL_13:
     v7 += 36;
     --v8;
   }
   while ( v8 );
-  if ( !v5 )
-    goto LABEL_21;
   if ( !v2 )
   {
 LABEL_18:
-    if ( !v3 )
-      goto LABEL_21;
-    goto LABEL_19;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(a2) = 3;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, a2, 1, 11, (__int64)&WPP_09f3a69173bf3f521b10e986f86340e6_Traceguids);
+    }
+    return v6;
   }
   if ( !v3 )
   {
     if ( !v4 )
-      return 0;
-    goto LABEL_18;
-  }
-LABEL_19:
-  if ( v4 )
-    return 0;
+      goto LABEL_18;
 LABEL_21:
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v2) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      v2,
-      (_DWORD)gRimLog,
-      3,
-      1,
-      11,
-      (__int64)&WPP_7feda21c293d34506eb30305bf17985f_Traceguids);
+    if ( !v5 )
+      goto LABEL_18;
+    return 0;
   }
-  return v6;
+  if ( v4 )
+    goto LABEL_21;
+  if ( v5 )
+    goto LABEL_18;
+  return 0;
 }

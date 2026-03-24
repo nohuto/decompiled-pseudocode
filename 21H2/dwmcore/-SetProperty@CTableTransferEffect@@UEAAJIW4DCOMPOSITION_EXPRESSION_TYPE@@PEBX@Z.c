@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetProperty@CTableTransferEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802425F0
+ * XREFs of ?SetProperty@CTableTransferEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801F0F40
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?PropertyIdToColorChannelAndIndex@CTableTransferEffect@@QEBA_NIPEAI0@Z @ 0x180242284 (-PropertyIdToColorChannelAndIndex@CTableTransferEffect@@QEBA_NIPEAI0@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?PropertyIdToColorChannelAndIndex@CTableTransferEffect@@QEBA_NIPEAI0@Z @ 0x1801F0C30 (-PropertyIdToColorChannelAndIndex@CTableTransferEffect@@QEBA_NIPEAI0@Z.c)
  */
 
 __int64 __fastcall CTableTransferEffect::SetProperty(__int64 a1, unsigned int a2, int a3, float *a4)
@@ -19,7 +19,7 @@ __int64 __fastcall CTableTransferEffect::SetProperty(__int64 a1, unsigned int a2
 
   if ( a3 == 18
     && (v4 = *a4, CTableTransferEffect::PropertyIdToColorChannelAndIndex((CTableTransferEffect *)a1, a2, &v10, v9))
-    && (a1 = v9[0], (v6 = (float *)(*(_QWORD *)(v5 + 40LL * v10 + 168) + 4LL * v9[0])) != 0LL) )
+    && (a1 = v9[0], (v6 = (float *)(*(_QWORD *)(v5 + 40 * (v10 + 4LL)) + 4LL * v9[0])) != 0LL) )
   {
     if ( *v6 != v4 )
     {
@@ -31,7 +31,7 @@ __int64 __fastcall CTableTransferEffect::SetProperty(__int64 a1, unsigned int a2
   else
   {
     v7 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2147024809, 0x8Fu);
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x8Fu, 0LL);
   }
   return v7;
 }

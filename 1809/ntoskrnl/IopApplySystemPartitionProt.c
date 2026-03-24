@@ -1,14 +1,14 @@
 /*
- * XREFs of IopApplySystemPartitionProt @ 0x1409F4F30
+ * XREFs of IopApplySystemPartitionProt @ 0x1409F4F40
  * Callers:
  *     IopProtectSystemPartition @ 0x1409DE514 (IopProtectSystemPartition.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     ExAllocatePoolWithTagPriority @ 0x1400FD810 (ExAllocatePoolWithTagPriority.c)
- *     RtlStringCchPrintfA @ 0x14018DFA0 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
- *     ZwSetSecurityObject @ 0x1401BB570 (ZwSetSecurityObject.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
+ *     RtlStringCchPrintfA @ 0x14018DFC0 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
+ *     ZwSetSecurityObject @ 0x1401BB590 (ZwSetSecurityObject.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
@@ -16,8 +16,8 @@
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x1406555A0 (RtlAddAccessAllowedAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
  */
 
 __int64 __fastcall IopApplySystemPartitionProt(__int64 a1)

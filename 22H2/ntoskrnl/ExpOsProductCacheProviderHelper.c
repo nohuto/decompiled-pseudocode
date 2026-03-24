@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpOsProductCacheProviderHelper @ 0x14085DD84
+ * XREFs of ExpOsProductCacheProviderHelper @ 0x1407D14C4
  * Callers:
- *     ExpCloudbookHardwareLockedProvider @ 0x14085DC70 (ExpCloudbookHardwareLockedProvider.c)
- *     ExpCloudbookHardwareIDProvider @ 0x1409F9980 (ExpCloudbookHardwareIDProvider.c)
- *     ExpGenuinePolicyPostProcess @ 0x1409F9E80 (ExpGenuinePolicyPostProcess.c)
- *     ExpOsProductContentIdCacheProvider @ 0x1409FA0D0 (ExpOsProductContentIdCacheProvider.c)
- *     ExpOsProductPfnCacheProvider @ 0x1409FA110 (ExpOsProductPfnCacheProvider.c)
+ *     ExpCloudbookHardwareLockedProvider @ 0x1407D13B0 (ExpCloudbookHardwareLockedProvider.c)
+ *     ExpCloudbookHardwareIDProvider @ 0x14094D4F0 (ExpCloudbookHardwareIDProvider.c)
+ *     ExpGenuinePolicyPostProcess @ 0x14094DA10 (ExpGenuinePolicyPostProcess.c)
+ *     ExpOsProductContentIdCacheProvider @ 0x14094DC60 (ExpOsProductContentIdCacheProvider.c)
+ *     ExpOsProductPfnCacheProvider @ 0x14094DCA0 (ExpOsProductPfnCacheProvider.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SpRegOpenRedirectedKey @ 0x14085DE30 (SpRegOpenRedirectedKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpOsProductCacheProviderHelper(
@@ -25,27 +25,27 @@ __int64 __fastcall ExpOsProductCacheProviderHelper(
         _BYTE *a7)
 {
   NTSTATUS v10; // ebx
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v13; // rdi
-  HANDLE KeyHandle[5]; // [rsp+30h] [rbp-28h] BYREF
+  HANDLE KeyHandle; // [rsp+30h] [rbp-28h] BYREF
   ULONG ResultLength; // [rsp+60h] [rbp+8h] BYREF
   int v16; // [rsp+64h] [rbp+Ch]
 
   v16 = HIDWORD(a1);
-  KeyHandle[0] = 0LL;
+  KeyHandle = 0LL;
   ResultLength = 0;
   *a7 = 1;
-  v10 = SpRegOpenRedirectedKey(a1, a2, KeyHandle);
+  v10 = ZwOpenKey(&KeyHandle, 0x20019u, (POBJECT_ATTRIBUTES)&stru_140984840);
   if ( v10 >= 0 )
   {
-    v10 = ZwQueryValueKey(KeyHandle[0], a2, KeyValuePartialInformation, 0LL, 0, &ResultLength);
+    v10 = ZwQueryValueKey(KeyHandle, a2, KeyValuePartialInformation, 0LL, 0, &ResultLength);
     if ( (int)(v10 + 0x80000000) < 0 || v10 == -1073741789 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(256LL, ResultLength, 542329939LL);
-      v13 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, ResultLength, 0x20534C53u);
+      v13 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        v10 = ZwQueryValueKey(KeyHandle[0], a2, KeyValuePartialInformation, Pool2, ResultLength, &ResultLength);
+        v10 = ZwQueryValueKey(KeyHandle, a2, KeyValuePartialInformation, PoolWithTag, ResultLength, &ResultLength);
         if ( v10 >= 0 )
         {
           *a6 = v13[2];
@@ -68,7 +68,7 @@ __int64 __fastcall ExpOsProductCacheProviderHelper(
         v10 = -1073741801;
       }
     }
-    ZwClose(KeyHandle[0]);
+    ZwClose(KeyHandle);
   }
   return (unsigned int)v10;
 }

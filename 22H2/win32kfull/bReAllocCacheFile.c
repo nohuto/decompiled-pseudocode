@@ -1,79 +1,77 @@
 /*
- * XREFs of bReAllocCacheFile @ 0x1C028A268
+ * XREFs of bReAllocCacheFile @ 0x1C0288998
  * Callers:
- *     EngFntCacheAllocInternal @ 0x1C028A3EC (EngFntCacheAllocInternal.c)
+ *     EngFntCacheAllocInternal @ 0x1C0288ADC (EngFntCacheAllocInternal.c)
  * Callees:
- *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C008895C (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
- *     vUnmapFontCacheFile @ 0x1C0089F40 (vUnmapFontCacheFile.c)
+ *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00E5DB4 (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
+ *     vUnmapFontCacheFile @ 0x1C00E62CC (vUnmapFontCacheFile.c)
  */
 
-__int64 __fastcall bReAllocCacheFile(__int64 a1)
+__int64 __fastcall bReAllocCacheFile(unsigned int a1)
 {
-  int v1; // esi
-  unsigned int v2; // edi
-  __int64 v3; // rbx
-  int *v4; // r9
-  _DWORD *v5; // r8
-  __int64 v7; // rcx
-  int v8; // ebp
-  int v9; // esi
-  unsigned int v10; // r14d
-  int v11; // r15d
-  unsigned int v12; // eax
-  const unsigned __int16 *v13; // rcx
-  int *v14; // r9
+  __int64 v1; // r8
+  unsigned int v2; // ebx
+  int *v3; // r9
+  const unsigned __int16 *v5; // rcx
+  int v6; // esi
+  unsigned int v7; // edi
+  unsigned int v8; // ebp
+  int v9; // r14d
+  const unsigned __int16 *v10; // rcx
+  int *v11; // r9
+  __int64 v12; // r9
+  __int64 v13; // rax
+  __int64 v14; // r8
   __int64 v15; // rdx
-  __int64 v16; // rcx
-  unsigned int v17; // edx
-  unsigned int v18; // eax
-  __int64 v19; // rcx
+  __int64 v16; // rax
+  unsigned int v17; // eax
+  __int64 v18; // rcx
+  __int64 v19; // rax
 
-  v1 = a1;
+  v1 = qword_1C0339BE8;
   v2 = 0;
-  v3 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  v5 = *(_DWORD **)(v3 + 19392);
-  if ( (v5[4] & 4) != 0 )
+  v3 = (int *)a1;
+  if ( (*(_DWORD *)(qword_1C0339BE8 + 16) & 4) != 0 )
     return 0LL;
-  v7 = (unsigned int)(v5[8] - v5[10]);
-  v8 = *(_DWORD *)(*(_QWORD *)v5 + 24LL);
-  v9 = ((v7 + v1 + 7) & 0xFFFFFFF8) + 0x2000;
-  v10 = v5[6] - *(_QWORD *)v5;
-  v11 = v9 + v8;
-  if ( *(_QWORD *)v5 )
-    vUnmapFontCacheFile(v7);
-  v12 = (unsigned int)bMapFileRetainHandle(
-                        (const unsigned __int16 *)v7,
-                        (struct _FILEVIEW *)(*(_QWORD *)(v3 + 19392) + 48LL),
-                        v11,
-                        v4);
-  v15 = *(_QWORD *)(v3 + 19392);
-  if ( v12 )
+  v5 = (const unsigned __int16 *)(unsigned int)(*(_DWORD *)(qword_1C0339BE8 + 32) - *(_DWORD *)(qword_1C0339BE8 + 40));
+  v6 = *(_DWORD *)(*(_QWORD *)qword_1C0339BE8 + 24LL);
+  v7 = (((_DWORD)v5 + (_DWORD)v3 + 7) & 0xFFFFFFF8) + 0x2000;
+  v8 = *(_DWORD *)(qword_1C0339BE8 + 24) - *(_QWORD *)qword_1C0339BE8;
+  v9 = v7 + v6;
+  if ( *(_QWORD *)qword_1C0339BE8 )
   {
+    vUnmapFontCacheFile();
+    v1 = qword_1C0339BE8;
+  }
+  if ( (unsigned int)bMapFileRetainHandle(v5, (struct _FILEVIEW *)(v1 + 48), v9, v3) )
+  {
+    v12 = qword_1C0339BE8;
     v2 = 1;
-    *(_QWORD *)v15 = *(_QWORD *)(v15 + 56);
-    *(_DWORD *)(**(_QWORD **)(v3 + 19392) + 24LL) = v11;
-    *(_DWORD *)(**(_QWORD **)(v3 + 19392) + 32LL) += v9;
-    v16 = *(_QWORD *)(v3 + 19392);
-    v17 = *(_DWORD *)(v16 + 32) - *(_DWORD *)(v16 + 24);
-    *(_QWORD *)(v16 + 24) = *(_QWORD *)v16 + v10;
-    *(_QWORD *)(*(_QWORD *)(v3 + 19392) + 32LL) = *(_QWORD *)(*(_QWORD *)(v3 + 19392) + 24LL) + v17;
-    *(_QWORD *)(*(_QWORD *)(v3 + 19392) + 40LL) = *(_QWORD *)(*(_QWORD *)(v3 + 19392) + 24LL)
-                                                + *(unsigned int *)(**(_QWORD **)(v3 + 19392) + 28LL)
-                                                + (unsigned __int64)*(unsigned int *)(**(_QWORD **)(v3 + 19392) + 32LL);
+    v13 = *(_QWORD *)(qword_1C0339BE8 + 56);
+    *(_QWORD *)qword_1C0339BE8 = v13;
+    *(_DWORD *)(v13 + 24) = v9;
+    *(_DWORD *)(*(_QWORD *)v12 + 32LL) += v7;
+    v14 = *(_QWORD *)v12;
+    v15 = *(_QWORD *)v12 + v8;
+    v16 = v15 + (unsigned int)(*(_DWORD *)(v12 + 32) - *(_DWORD *)(v12 + 24));
+    *(_QWORD *)(v12 + 24) = v15;
+    *(_QWORD *)(v12 + 32) = v16;
+    *(_QWORD *)(v12 + 40) = v15 + *(unsigned int *)(v14 + 32) + *(unsigned int *)(v14 + 28);
   }
   else
   {
-    v18 = (unsigned int)bMapFileRetainHandle(v13, (struct _FILEVIEW *)(v15 + 48), v8, v14);
-    v19 = *(_QWORD *)(v3 + 19392);
-    if ( v18 )
+    v17 = (unsigned int)bMapFileRetainHandle(v10, (struct _FILEVIEW *)(qword_1C0339BE8 + 48), v6, v11);
+    v18 = qword_1C0339BE8;
+    if ( v17 )
     {
-      *(_QWORD *)v19 = *(_QWORD *)(v19 + 56);
-      *(_DWORD *)(*(_QWORD *)(v3 + 19392) + 20LL) = 1;
-      *(_DWORD *)(*(_QWORD *)(v3 + 19392) + 16LL) |= 6u;
+      v19 = *(_QWORD *)(qword_1C0339BE8 + 56);
+      *(_DWORD *)(qword_1C0339BE8 + 16) |= 6u;
+      *(_QWORD *)v18 = v19;
+      *(_DWORD *)(v18 + 20) = 1;
     }
     else
     {
-      *(_DWORD *)(v19 + 16) |= 1u;
+      *(_DWORD *)(qword_1C0339BE8 + 16) |= 1u;
     }
   }
   return v2;

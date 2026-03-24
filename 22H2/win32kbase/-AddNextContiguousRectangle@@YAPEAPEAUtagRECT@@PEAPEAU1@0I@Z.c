@@ -1,211 +1,199 @@
 /*
- * XREFs of ?AddNextContiguousRectangle@@YAPEAPEAUtagRECT@@PEAPEAU1@0I@Z @ 0x1C02086A4
+ * XREFs of ?AddNextContiguousRectangle@@YAPEAPEAUtagRECT@@PEAPEAU1@0I@Z @ 0x1C01D15DC
  * Callers:
- *     ?RemoveGaps@@YAHPEAUtagRECT@@I@Z @ 0x1C02089A0 (-RemoveGaps@@YAHPEAUtagRECT@@I@Z.c)
+ *     ?RemoveGaps@@YAHPEAUtagRECT@@I@Z @ 0x1C01D18C0 (-RemoveGaps@@YAHPEAUtagRECT@@I@Z.c)
  * Callees:
- *     IntersectRect @ 0x1C0059BB8 (IntersectRect.c)
+ *     IntersectRect @ 0x1C0071DE4 (IntersectRect.c)
  */
 
 struct tagRECT **__fastcall AddNextContiguousRectangle(struct tagRECT **a1, struct tagRECT **a2, int a3)
 {
-  int v3; // r12d
+  struct tagRECT **v3; // rdi
   struct tagRECT **v4; // rbx
-  struct tagRECT **v5; // rdi
-  struct tagRECT **v6; // r10
-  struct tagRECT *v7; // r15
-  int **v8; // r13
+  struct tagRECT **v5; // rcx
+  struct tagRECT *v6; // r12
+  int **v7; // r13
   LONG top; // r11d
-  LONG bottom; // r8d
+  LONG bottom; // r14d
   LONG left; // edi
-  unsigned int v12; // ebx
-  __m128i *v13; // rdx
-  int v14; // r9d
-  int v15; // esi
-  int v16; // ecx
-  LONG v17; // eax
-  __int32 v18; // r14d
-  __int32 v19; // r8d
+  unsigned __int64 v11; // rbx
+  __m128i *v12; // rdx
+  int v13; // r9d
+  int v14; // esi
+  int v15; // ecx
+  LONG v16; // eax
+  __int32 v17; // r10d
+  int v18; // r15d
+  int v19; // r8d
   __m128i v20; // xmm0
-  int **v21; // rax
+  int **v21; // r14
   int *v22; // rdx
-  int v23; // eax
-  __int64 v24; // rax
-  int v25; // edx
-  int v26; // ecx
-  struct tagRECT *v27; // rax
-  __int64 v29; // [rsp+20h] [rbp-79h]
-  int v30; // [rsp+28h] [rbp-71h] BYREF
-  __int32 v31; // [rsp+2Ch] [rbp-6Dh]
-  __m128i v32; // [rsp+30h] [rbp-69h] BYREF
-  LONG v33; // [rsp+40h] [rbp-59h]
-  int *v34; // [rsp+48h] [rbp-51h]
-  __int64 *v35; // [rsp+50h] [rbp-49h]
-  _QWORD *v36; // [rsp+58h] [rbp-41h]
-  unsigned __int64 v37; // [rsp+60h] [rbp-39h]
-  struct tagRECT **v38; // [rsp+68h] [rbp-31h] BYREF
-  __int64 v39; // [rsp+70h] [rbp-29h] BYREF
-  int **v40; // [rsp+78h] [rbp-21h]
-  struct tagRECT **v41; // [rsp+80h] [rbp-19h] BYREF
-  __int64 v42; // [rsp+88h] [rbp-11h] BYREF
-  unsigned __int64 v43; // [rsp+90h] [rbp-9h]
-  __int128 v44[5]; // [rsp+98h] [rbp-1h] BYREF
-  struct tagRECT **v45; // [rsp+100h] [rbp+67h]
-  int v47; // [rsp+110h] [rbp+77h] BYREF
-  unsigned int v48; // [rsp+118h] [rbp+7Fh]
+  __int64 v23; // rax
+  int v24; // edx
+  int v25; // ecx
+  struct tagRECT *v26; // rax
+  __int64 v28; // [rsp+20h] [rbp-69h]
+  __m128i v29; // [rsp+28h] [rbp-61h] BYREF
+  LONG v30; // [rsp+38h] [rbp-51h]
+  LONG v31; // [rsp+3Ch] [rbp-4Dh]
+  int *v32; // [rsp+40h] [rbp-49h]
+  __int64 *v33; // [rsp+48h] [rbp-41h]
+  _QWORD *v34; // [rsp+50h] [rbp-39h]
+  struct tagRECT **v35; // [rsp+58h] [rbp-31h] BYREF
+  __int64 v36; // [rsp+60h] [rbp-29h] BYREF
+  struct tagRECT **v37; // [rsp+68h] [rbp-21h]
+  struct tagRECT **v38; // [rsp+70h] [rbp-19h] BYREF
+  __int64 v39; // [rsp+78h] [rbp-11h] BYREF
+  unsigned __int64 v40; // [rsp+80h] [rbp-9h]
+  __int128 v41[5]; // [rsp+88h] [rbp-1h] BYREF
+  struct tagRECT **v42; // [rsp+F0h] [rbp+67h]
+  int v44; // [rsp+100h] [rbp+77h] BYREF
+  int v45; // [rsp+108h] [rbp+7Fh] BYREF
 
-  v45 = a1;
+  v42 = a1;
+  v35 = 0LL;
   v38 = 0LL;
-  v41 = 0LL;
-  v3 = -1;
-  v39 = 0LL;
+  v3 = a1;
+  v36 = 0LL;
   v4 = a2;
-  v42 = 0LL;
-  v5 = a1;
-  v30 = -1;
-  v47 = -1;
-  v6 = &a1[a3];
-  v37 = (unsigned __int64)v6;
-  if ( a1 >= a2 )
+  v39 = 0LL;
+  v44 = -1;
+  v45 = -1;
+  v5 = &a1[a3];
+  v37 = v5;
+  if ( v3 >= a2 )
   {
-LABEL_31:
-    v26 = 0;
+LABEL_32:
     v25 = 0;
-    goto LABEL_32;
+    v24 = 0;
+    goto LABEL_33;
   }
   do
   {
-    v7 = *v5;
-    v8 = (int **)v4;
-    if ( v4 >= v6 )
-      goto LABEL_25;
-    top = v7->top;
-    bottom = v7->bottom;
-    left = v7->left;
-    v12 = v47;
-    v33 = top;
+    v6 = *v3;
+    v7 = (int **)v4;
+    if ( v4 >= v5 )
+      goto LABEL_26;
+    top = v6->top;
+    bottom = v6->bottom;
+    left = v6->left;
+    v11 = (unsigned __int64)v37;
+    v30 = top;
     v31 = bottom;
     do
     {
-      v13 = (__m128i *)*v8;
-      v14 = (*v8)[2];
-      if ( v14 > left )
+      v12 = (__m128i *)*v7;
+      v13 = (*v7)[2];
+      if ( v13 > left )
       {
-        v15 = v13->m128i_i32[0] - v7->right;
-        v16 = v7->right - v13->m128i_i32[0];
+        v14 = v12->m128i_i32[0] - v6->right;
+        v15 = v6->right - v12->m128i_i32[0];
       }
       else
       {
-        v15 = left - v14;
-        v16 = left - v14;
+        v14 = left - v13;
+        v15 = left - v13;
       }
-      v17 = v13->m128i_i32[3];
-      LODWORD(v29) = v16;
-      if ( v17 > top )
+      v16 = v12->m128i_i32[3];
+      v17 = v12->m128i_i32[1];
+      LODWORD(v28) = v15;
+      if ( v16 > top )
       {
-        v18 = v13->m128i_i32[1] - bottom;
-        v19 = bottom - v13->m128i_i32[1];
-        HIDWORD(v29) = v19;
+        v18 = v17 - bottom;
+        v19 = bottom - v17;
+        HIDWORD(v28) = bottom - v17;
       }
       else
       {
-        v18 = top - v17;
-        v19 = top - v17;
-        HIDWORD(v29) = top - v17;
+        v18 = top - v16;
+        v19 = top - v16;
+        HIDWORD(v28) = top - v16;
       }
-      v6 = (struct tagRECT **)v37;
-      if ( v13->m128i_i32[1] < v31 && v17 > top )
+      if ( v17 >= bottom || v16 <= top )
+      {
+        if ( v12->m128i_i32[0] >= v6->right || v13 <= left )
+        {
+          v34 = &v38;
+          v33 = &v39;
+          v32 = &v45;
+          goto LABEL_18;
+        }
+        v14 = 0;
+        v15 = 0;
+        LODWORD(v28) = 0;
+      }
+      else
       {
         v18 = 0;
         v19 = 0;
-        HIDWORD(v29) = 0;
-LABEL_16:
-        v48 = v3;
-        v36 = &v38;
-        v35 = &v39;
-        v34 = &v30;
-        goto LABEL_18;
+        HIDWORD(v28) = 0;
       }
-      if ( v13->m128i_i32[0] < v7->right && v14 > left )
-      {
-        v15 = 0;
-        v16 = 0;
-        LODWORD(v29) = 0;
-        goto LABEL_16;
-      }
-      v48 = v12;
-      v36 = &v41;
-      v35 = &v42;
-      v34 = &v47;
+      v34 = &v35;
+      v32 = &v44;
+      v33 = &v36;
 LABEL_18:
-      v32 = *v13;
-      v20 = v32;
-      v32.m128i_i32[2] += v16;
-      v32.m128i_i32[3] += v19;
-      v32.m128i_i32[1] += v19;
-      v32.m128i_i32[0] = v16 + _mm_cvtsi128_si32(v20);
-      v21 = v8 + 1;
-      v43 = (unsigned __int64)(v8 + 1);
-      v40 = v8 + 1;
-      if ( (unsigned __int64)(v8 + 1) >= v37 )
+      v29 = *v12;
+      v20 = v29;
+      v29.m128i_i32[2] += v15;
+      v29.m128i_i32[3] += v19;
+      v29.m128i_i32[1] += v19;
+      v29.m128i_i32[0] = v15 + _mm_cvtsi128_si32(v20);
+      v40 = (unsigned __int64)(v7 + 1);
+      v21 = v7 + 1;
+      if ( (unsigned __int64)(v7 + 1) >= v11 )
+        goto LABEL_22;
+      do
       {
-LABEL_21:
-        if ( v18 + v15 < v48 )
+        v22 = *v21;
+        v41[0] = 0LL;
+        if ( (unsigned int)IntersectRect(v41, v22, v29.m128i_i32) )
+          break;
+        ++v21;
+      }
+      while ( (unsigned __int64)v21 < v11 );
+      if ( (unsigned __int64)v21 >= v11 )
+      {
+LABEL_22:
+        if ( v18 + v14 < (unsigned int)*v32 )
         {
-          *v34 = v18 + v15;
-          v3 = v30;
-          v12 = v47;
-          *v35 = v29;
-          *v36 = v8;
+          *v32 = v18 + v14;
+          *v33 = v28;
+          *v34 = v7;
         }
       }
-      else
-      {
-        while ( 1 )
-        {
-          v22 = *v21;
-          v44[0] = 0LL;
-          v23 = IntersectRect(v44, v22, v32.m128i_i32);
-          v6 = (struct tagRECT **)v37;
-          if ( v23 )
-            break;
-          v21 = v40 + 1;
-          v40 = v21;
-          if ( (unsigned __int64)v21 >= v37 )
-            goto LABEL_21;
-        }
-      }
-      v8 = (int **)v43;
-      top = v33;
+      v7 = (int **)v40;
+      top = v30;
       bottom = v31;
     }
-    while ( v43 < (unsigned __int64)v6 );
+    while ( v40 < v11 );
     v4 = a2;
-    v5 = v45;
-LABEL_25:
-    v45 = ++v5;
+    v3 = v42;
+    v5 = v37;
+LABEL_26:
+    v42 = ++v3;
   }
-  while ( v5 < v4 );
-  if ( v3 != -1 )
+  while ( v3 < v4 );
+  if ( v44 != -1 )
   {
-    v4 = v38;
-    v24 = v39;
-    goto LABEL_30;
-  }
-  if ( v47 == -1 )
+    v4 = v35;
+    v23 = v36;
     goto LABEL_31;
-  v4 = v41;
-  v24 = v42;
-LABEL_30:
-  v25 = v24;
-  v26 = HIDWORD(v24);
-LABEL_32:
-  if ( v25 || v26 )
+  }
+  if ( v45 == -1 )
+    goto LABEL_32;
+  v4 = v38;
+  v23 = v39;
+LABEL_31:
+  v24 = v23;
+  v25 = HIDWORD(v23);
+LABEL_33:
+  if ( v24 || v25 )
   {
-    v27 = *v4;
-    v27->left += v25;
-    v27->right += v25;
-    v27->bottom += v26;
-    v27->top += v26;
+    v26 = *v4;
+    v26->left += v24;
+    v26->right += v24;
+    v26->bottom += v25;
+    v26->top += v25;
   }
   return v4;
 }

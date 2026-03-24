@@ -1,79 +1,76 @@
 /*
- * XREFs of NtUserSetShellWindowEx @ 0x1C00F1190
+ * XREFs of NtUserSetShellWindowEx @ 0x1C00D6DF0
  * Callers:
  *     <none>
  * Callees:
- *     ?ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C00244BC (-ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     xxxSetShellWindow @ 0x1C00F1340 (xxxSetShellWindow.c)
+ *     ?ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C0032378 (-ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     xxxSetShellWindow @ 0x1C00D6FA0 (xxxSetShellWindow.c)
  */
 
 __int64 __fastcall NtUserSetShellWindowEx(__int64 a1, HWND a2)
 {
-  int v4; // edi
+  int v2; // edi
   __int64 v5; // rax
   __int64 v6; // rcx
-  struct tagWND *v7; // rsi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  __int64 v12; // rcx
+  __int64 v7; // rsi
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
   __int64 CurrentProcessWin32Process; // rax
+  __int64 v13; // rcx
   __int64 v14; // rcx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int128 v19; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v20; // [rsp+30h] [rbp-20h]
-  __int128 v21; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v22; // [rsp+48h] [rbp-8h]
-  int v23; // [rsp+80h] [rbp+30h] BYREF
-  int v24; // [rsp+84h] [rbp+34h]
-  struct tagWND *v25; // [rsp+88h] [rbp+38h] BYREF
+  __int128 v16; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v17; // [rsp+30h] [rbp-20h]
+  __int128 v18; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v19; // [rsp+48h] [rbp-8h]
+  int v20; // [rsp+80h] [rbp+30h] BYREF
+  int v21; // [rsp+84h] [rbp+34h]
+  struct tagWND *v22; // [rsp+88h] [rbp+38h] BYREF
 
-  v24 = -1;
-  v23 = 0x2000;
-  v22 = 0LL;
-  v20 = 0LL;
-  v4 = 0;
-  v25 = 0LL;
-  v21 = 0LL;
+  v21 = -1;
+  v20 = 0x2000;
+  v2 = 0;
   v19 = 0LL;
-  EnterCrit(0LL, 0LL);
+  v22 = 0LL;
+  v17 = 0LL;
+  v18 = 0LL;
+  v16 = 0LL;
+  EnterCrit(0LL, 1LL);
   v5 = ValidateHwnd(a1);
-  v7 = (struct tagWND *)v5;
+  v7 = v5;
   if ( v5 )
   {
     v6 = (*(_WORD *)(*(_QWORD *)(v5 + 40) + 42LL) & 0x2FFFu) - 669;
     if ( (v6 & 0xFFFFFFFD) != 0 )
     {
-      *(_QWORD *)&v19 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v19;
-      *((_QWORD *)&v19 + 1) = v5;
+      *(_QWORD *)&v16 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v16;
+      *((_QWORD *)&v16 + 1) = v5;
       HMLockObject(v5);
-      if ( ValidateHWNDND(a2, &v25) )
+      if ( ValidateHWNDND(a2, &v22) )
       {
-        if ( PsGetCurrentProcessWin32Process(v9)
-          && (CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v12),
-              (unsigned __int8)CheckAccess(CurrentProcessWin32Process + 880, &v23))
-          && *(_QWORD *)(*((_QWORD *)v7 + 2) + 424LL) == PsGetCurrentProcessWin32Process(v14) )
+        if ( PsGetCurrentProcessWin32Process(v8)
+          && (CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v10),
+              (unsigned __int8)CheckAccess(CurrentProcessWin32Process + 880, &v20))
+          && *(_QWORD *)(*(_QWORD *)(v7 + 16) + 424LL) == PsGetCurrentProcessWin32Process(v13) )
         {
-          *(_QWORD *)&v21 = *(_QWORD *)(gptiCurrent + 416LL);
-          *(_QWORD *)(gptiCurrent + 416LL) = &v21;
-          *((_QWORD *)&v21 + 1) = v25;
-          HMLockObject(v25);
-          v4 = xxxSetShellWindow(v7);
-          ThreadUnlock1(v16, v15, v17);
+          *(_QWORD *)&v18 = *(_QWORD *)(gptiCurrent + 416LL);
+          *(_QWORD *)(gptiCurrent + 416LL) = &v18;
+          *((_QWORD *)&v18 + 1) = v22;
+          HMLockObject(v22);
+          v2 = xxxSetShellWindow((struct tagWND *)v7);
+          ThreadUnlock1(v14);
         }
         else
         {
-          UserSetLastError(5LL, v11);
+          UserSetLastError(5LL, v9, v11);
         }
       }
-      ThreadUnlock1(v9, v8, v10);
+      ThreadUnlock1(v8);
     }
   }
   UserSessionSwitchLeaveCrit(v6);
-  return v4;
+  return v2;
 }

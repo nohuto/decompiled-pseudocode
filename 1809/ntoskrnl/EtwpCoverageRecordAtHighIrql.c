@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCoverageRecordAtHighIrql @ 0x14030EF5C
+ * XREFs of EtwpCoverageRecordAtHighIrql @ 0x14030F05C
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x1406B3FA0 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1406B3F80 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     EtwTelemetryCoverageReport @ 0x14012A560 (EtwTelemetryCoverageReport.c)
- *     EtwpCoverageValidateCP @ 0x14012A68C (EtwpCoverageValidateCP.c)
- *     RtlStringCchCopyA @ 0x14012A7D4 (RtlStringCchCopyA.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
+ *     EtwpCoverageValidateCP @ 0x14012A6AC (EtwpCoverageValidateCP.c)
+ *     RtlStringCchCopyA @ 0x14012A7F4 (RtlStringCchCopyA.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall EtwpCoverageRecordAtHighIrql(__int128 *a1)

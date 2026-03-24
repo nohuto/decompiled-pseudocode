@@ -1,65 +1,56 @@
 /*
- * XREFs of ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C0049BF0
+ * XREFs of ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00E1190
  * Callers:
- *     ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C0048044 (-GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z.c)
- *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C01F3320 (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
- *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C01F3510 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
- *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C01F36B4 (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
+ *     EditionGetPointerDeviceConfigurationKey @ 0x1C00E10C0 (EditionGetPointerDeviceConfigurationKey.c)
+ *     ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C00E17E8 (-GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z.c)
+ *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0208F1C (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0209118 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C02092BC (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
  * Callees:
- *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0048318 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00483D0 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00E130C (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E1514 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?IsTouchpadQuery@@YAHKPEAG@Z @ 0x1C00E176C (-IsTouchpadQuery@@YAHKPEAG@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall OpenDeviceCfgKey(unsigned int a1, unsigned __int16 *a2, ACCESS_MASK a3, void **a4, int a5)
 {
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   NTSTATUS v9; // eax
-  bool v11; // zf
   ULONG Disposition; // [rsp+40h] [rbp-C0h] BYREF
   void *KeyHandle; // [rsp+48h] [rbp-B8h] BYREF
-  struct _UNICODE_STRING v14; // [rsp+50h] [rbp-B0h] BYREF
+  struct _UNICODE_STRING v13; // [rsp+50h] [rbp-B0h] BYREF
   struct _UNICODE_STRING KeyPath; // [rsp+60h] [rbp-A0h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
-  char v17; // [rsp+A0h] [rbp-60h] BYREF
+  char v16; // [rsp+A0h] [rbp-60h] BYREF
 
   KeyHandle = 0LL;
   if ( a1 <= 0x15E )
   {
-    *(_QWORD *)&v14.Length = 45875200LL;
-    v14.Buffer = (PWSTR)&v17;
-    if ( a1 == 122 )
+    *(_QWORD *)&v13.Length = 45875200LL;
+    v13.Buffer = (PWSTR)&v16;
+    if ( (unsigned int)IsTouchpadQuery(a1, a2) )
     {
-      v11 = RtlCompareMemory(L"\\Software\\Microsoft\\Windows\\CurrentVersion\\PrecisionTouchPad", a2, 0x7AuLL) == 122;
+      if ( grpWinStaList )
+        v8 = RtlUnicodeStringCopy(&v13, (const struct _UNICODE_STRING *)(grpWinStaList + 200LL));
+      else
+        v8 = -1073741595;
     }
     else
     {
-      if ( a1 != 136 )
-        goto LABEL_4;
-      v11 = RtlCompareMemory(L"\\Software\\Microsoft\\Windows\\CurrentVersion\\PrecisionTouchPad\\Status", a2, 0x88uLL) == 136;
+      KeyPath = 0LL;
+      v8 = RtlFormatCurrentUserKeyPath(&KeyPath);
+      if ( v8 < 0 )
+        return (unsigned int)v8;
+      v8 = RtlUnicodeStringCopy(&v13, &KeyPath);
+      RtlFreeUnicodeString(&KeyPath);
     }
-    if ( v11 )
-    {
-      if ( grpWinStaList )
-        v8 = RtlUnicodeStringCopy(&v14, (const struct _UNICODE_STRING *)(grpWinStaList + 200LL));
-      else
-        v8 = -1073741595;
-      goto LABEL_6;
-    }
-LABEL_4:
-    KeyPath = 0LL;
-    v8 = RtlFormatCurrentUserKeyPath(&KeyPath);
-    if ( v8 < 0 )
-      return (unsigned int)v8;
-    v8 = RtlUnicodeStringCopy(&v14, &KeyPath);
-    RtlFreeUnicodeString(&KeyPath);
-LABEL_6:
     if ( v8 >= 0 )
     {
-      v8 = RtlUnicodeStringCatString(&v14, a2);
+      v8 = RtlUnicodeStringCatString(&v13, a2);
       if ( v8 >= 0 )
       {
-        ObjectAttributes.ObjectName = &v14;
+        ObjectAttributes.ObjectName = &v13;
         *(_QWORD *)&ObjectAttributes.Length = 48LL;
         *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InitializeObjectCaches@CThreadContext@@SAJXZ @ 0x1800F7D98
+ * XREFs of ?InitializeObjectCaches@CThreadContext@@SAJXZ @ 0x1800DFF98
  * Callers:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x18002E810 (-Initialize@CComposition@@MEAAJXZ.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B48A0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800AF6DC (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x180055FE8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 CThreadContext::InitializeObjectCaches(void)
@@ -19,29 +19,27 @@ __int64 CThreadContext::InitializeObjectCaches(void)
   v2 = Current;
   if ( Current < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v1, 0LL, 0LL, Current, 0x131u);
+    MilInstrumentationCheckHR_MaybeFailFast(v1, 0LL, 0, Current, 0xB1u, 0LL);
   }
   else
   {
     v3 = v5;
-    *((_DWORD *)v5 + 8) = 32;
-    *((_DWORD *)v3 + 12) = 32;
-    *((_DWORD *)v3 + 16) = 32;
-    *((_DWORD *)v3 + 24) = 2;
-    *((_DWORD *)v3 + 28) = 2;
-    *((_DWORD *)v3 + 32) = 32;
-    *((_DWORD *)v3 + 36) = 32;
-    *((_DWORD *)v3 + 40) = 32;
-    *((_DWORD *)v3 + 44) = 32;
-    *((_DWORD *)v3 + 48) = 32;
-    *((_DWORD *)v3 + 52) = 32;
-    *((_DWORD *)v3 + 56) = 8;
-    *((_DWORD *)v3 + 60) = 8;
-    *((_DWORD *)v3 + 64) = 8;
-    *((_DWORD *)v3 + 68) = 8;
-    *((_DWORD *)v3 + 72) = 8;
-    *((_DWORD *)v3 + 76) = 8;
-    *((_DWORD *)v3 + 80) = 1;
+    *((_DWORD *)v5 + 2) = 32;
+    *((_DWORD *)v3 + 6) = 32;
+    *((_DWORD *)v3 + 14) = 2;
+    *((_DWORD *)v3 + 18) = 32;
+    *((_DWORD *)v3 + 22) = 32;
+    *((_DWORD *)v3 + 26) = 32;
+    *((_DWORD *)v3 + 30) = 32;
+    *((_DWORD *)v3 + 34) = 32;
+    *((_DWORD *)v3 + 38) = 32;
+    *((_DWORD *)v3 + 42) = 8;
+    *((_DWORD *)v3 + 46) = 8;
+    *((_DWORD *)v3 + 50) = 8;
+    *((_DWORD *)v3 + 54) = 8;
+    *((_DWORD *)v3 + 58) = 8;
+    *((_DWORD *)v3 + 62) = 8;
+    *((_DWORD *)v3 + 66) = 1;
   }
   return v2;
 }

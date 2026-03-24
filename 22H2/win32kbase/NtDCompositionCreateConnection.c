@@ -1,31 +1,32 @@
 /*
- * XREFs of NtDCompositionCreateConnection @ 0x1C0086440
+ * XREFs of NtDCompositionCreateConnection @ 0x1C00AAB20
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00864C8 (-Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
- *     ?DestroyHandle@CConnection@DirectComposition@@SAJPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00C38D8 (-DestroyHandle@CConnection@DirectComposition@@SAJPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
+ *     ?Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00AABBC (-Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
+ *     ?DestroyHandle@CConnection@DirectComposition@@SAJPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00B6C18 (-DestroyHandle@CConnection@DirectComposition@@SAJPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
  */
 
 __int64 __fastcall NtDCompositionCreateConnection(void *a1, struct HDCOMPOSITIONCONNECTION__ **a2)
 {
-  struct HDCOMPOSITIONCONNECTION__ *v3; // rdx
-  signed int v4; // ebx
-  struct HDCOMPOSITIONCONNECTION__ *v6; // [rsp+38h] [rbp+10h] BYREF
+  struct HDCOMPOSITIONCONNECTION__ **v2; // rdi
+  int v3; // ebx
+  struct HDCOMPOSITIONCONNECTION__ *v5; // [rsp+50h] [rbp+18h] BYREF
 
-  v3 = 0LL;
-  v6 = 0LL;
-  v4 = a2 == 0LL ? 0xC000000D : 0;
+  v2 = a2;
+  v5 = 0LL;
   if ( a2 )
   {
-    v4 = DirectComposition::CConnection::Create(a1, &v6);
-    v3 = v6;
+    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+      a2 = (struct HDCOMPOSITIONCONNECTION__ **)MmUserProbeAddress;
+    *a2 = *a2;
+    v3 = DirectComposition::CConnection::Create(a1, &v5);
+    if ( v3 >= 0 )
+      *v2 = v5;
   }
-  if ( v4 >= 0 )
+  else
   {
-    if ( a2 + 1 < a2 || (unsigned __int64)(a2 + 1) > MmUserProbeAddress )
-      *(_BYTE *)MmUserProbeAddress = 0;
-    *a2 = v3;
+    return (unsigned int)-1073741811;
   }
-  return (unsigned int)v4;
+  return (unsigned int)v3;
 }

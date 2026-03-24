@@ -1,63 +1,64 @@
 /*
- * XREFs of WPP_RECORDER_SF_Sq @ 0x1C0034518
+ * XREFs of WPP_RECORDER_SF_sq @ 0x1C002B468
  * Callers:
- *     HUBREG_ReadUsb4HostNameStringFromDeviceHardwareKey @ 0x1C00880CC (HUBREG_ReadUsb4HostNameStringFromDeviceHardwareKey.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 WPP_RECORDER_SF_Sq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, const wchar_t *a6, ...)
+__int64 WPP_RECORDER_SF_sq(__int64 a1, __int64 a2, unsigned int a3, unsigned __int16 a4, int a5, const char *a6, ...)
 {
-  const wchar_t *v6; // rbp
-  __int64 v7; // rdi
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  const wchar_t *v11; // rcx
-  bool v12; // zf
-  int v14; // [rsp+20h] [rbp-48h]
+  const char *v6; // rbp
+  __int64 v8; // rbx
+  unsigned __int64 v10; // rsi
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rdx
+  const char *v15; // rcx
+  int v17; // [rsp+20h] [rbp-48h]
   va_list va; // [rsp+A0h] [rbp+38h] BYREF
 
   va_start(va, a6);
-  v6 = L"NULL";
-  v7 = -1LL;
-  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
+  v6 = "NULL";
+  v8 = -1LL;
+  v10 = (unsigned __int64)a3 >> 16;
+  v12 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v10 + (((a3 - 1) >> 5) & 0x7FF) + 1);
+  if ( _bittest(&v12, (a3 - 1) & 0x1F) && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v10 + 1) >= 2u )
   {
     if ( a6 )
     {
-      v9 = -1LL;
+      v13 = -1LL;
       do
-        ++v9;
-      while ( a6[v9] );
-      v10 = 2 * v9 + 2;
+        ++v13;
+      while ( a6[v13] );
+      v14 = v13 + 1;
     }
     else
     {
-      v10 = 10LL;
+      v14 = 5LL;
     }
-    v11 = L"NULL";
+    v15 = "NULL";
     if ( a6 )
-      v11 = a6;
-    pfnWppTraceMessage(
-      WPP_GLOBAL_Control->AttachedDevice,
+      v15 = a6;
+    ((void (__fastcall *)(_QWORD, __int64, void *, _QWORD, const char *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+      *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v10),
       43LL,
-      &WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
-      158LL,
-      v11,
-      v10,
+      &WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
+      a4,
+      v15,
+      v14,
       va,
       8LL,
       0LL);
   }
-  v12 = a6 == 0LL;
   if ( a6 )
   {
     do
-      ++v7;
-    while ( a6[v7] );
-    v12 = a6 == 0LL;
+      ++v8;
+    while ( a6[v8] );
   }
-  if ( !v12 )
+  if ( a6 )
     v6 = a6;
-  LOWORD(v14) = 158;
-  return WppAutoLogTrace(a1, 4LL, 5LL, &WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids, v14, v6);
+  LOWORD(v17) = a4;
+  return WppAutoLogTrace(a1, 2LL, a3, &WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v17, v6);
 }

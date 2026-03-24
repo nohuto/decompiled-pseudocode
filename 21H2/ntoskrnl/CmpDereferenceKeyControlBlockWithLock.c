@@ -1,82 +1,84 @@
 /*
- * XREFs of CmpDereferenceKeyControlBlockWithLock @ 0x1406FEA54
+ * XREFs of CmpDereferenceKeyControlBlockWithLock @ 0x1406934B0
  * Callers:
- *     CmpDrainDelayDerefContext @ 0x140346C60 (CmpDrainDelayDerefContext.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1406E93C0 (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpTransMgrFreeVolatileData @ 0x14071BC94 (CmpTransMgrFreeVolatileData.c)
- *     CmpDereferenceKeyControlBlock @ 0x14071BF40 (CmpDereferenceKeyControlBlock.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1407350A0 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
- *     CmpUnfreezeHive @ 0x140914CA4 (CmpUnfreezeHive.c)
- *     CmpCleanupDiscardReplacePost @ 0x14091CAC0 (CmpCleanupDiscardReplacePost.c)
- *     CmpCommitDiscardReplacePost @ 0x14091CBB0 (CmpCommitDiscardReplacePost.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x1409239EC (CmpLightWeightCommitRenameKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140923ED0 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpDrainDelayDerefContext @ 0x140351100 (CmpDrainDelayDerefContext.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071D4D0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpUnfreezeHive @ 0x140730C38 (CmpUnfreezeHive.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x140734AA4 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmpCleanupDiscardReplacePost @ 0x140875F30 (CmpCleanupDiscardReplacePost.c)
+ *     CmpCommitDiscardReplacePost @ 0x140876020 (CmpCommitDiscardReplacePost.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14087EEC4 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F7C4 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     CmpFreeKeyControlBlock @ 0x14069FA30 (CmpFreeKeyControlBlock.c)
- *     CmpDeleteHive @ 0x1406BBAD8 (CmpDeleteHive.c)
- *     CmpDoQueueLateUnloadWorker @ 0x1406CE3EC (CmpDoQueueLateUnloadWorker.c)
- *     CmpAddToDelayedClose @ 0x1406FEB88 (CmpAddToDelayedClose.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1407C09E0 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405EE874 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1406725FC (CmpDoQueueLateUnloadWorker.c)
+ *     CmpAddToDelayedClose @ 0x140693604 (CmpAddToDelayedClose.c)
+ *     CmpFreeKeyControlBlock @ 0x140719B20 (CmpFreeKeyControlBlock.c)
+ *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
  */
 
 void __fastcall CmpDereferenceKeyControlBlockWithLock(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)
 {
-  __int64 v4; // rcx
-  signed __int64 v5; // rax
-  int v6; // r9d
-  bool v7; // dl
-  bool v8; // r8
-  __int64 v9; // rdi
+  __int64 v5; // rcx
+  signed __int64 v7; // rdi
+  int v8; // r9d
+  bool v9; // dl
+  bool v10; // r8
+  __int64 v11; // rdi
   struct _KTHREAD *CurrentThread; // rax
 
-  v4 = *(_QWORD *)(BugCheckParameter2 + 32);
-  v5 = _InterlockedDecrement64((volatile signed __int64 *)BugCheckParameter2);
-  if ( v5 == 2 )
+  v5 = *(_QWORD *)(BugCheckParameter2 + 32);
+  v7 = _InterlockedDecrement64((volatile signed __int64 *)BugCheckParameter2);
+  if ( v7 == 2 )
   {
-    if ( (*(_DWORD *)(BugCheckParameter2 + 184) & 0x40000) != 0 && *(_BYTE *)(v4 + 2944) == 1 )
-      CmpDoQueueLateUnloadWorker(v4);
+    if ( (*(_DWORD *)(BugCheckParameter2 + 184) & 0x40000) == 0 || *(_BYTE *)(v5 + 2936) != 1 )
+      return;
+    CmpDoQueueLateUnloadWorker(v5);
   }
-  else if ( !v5 )
+  if ( !v7 )
   {
     if ( (*(_DWORD *)(BugCheckParameter2 + 184) & 0x40000) != 0 )
     {
-      v9 = *(_QWORD *)(BugCheckParameter2 + 32);
-      CmpCleanUpKcbCacheWithLock(BugCheckParameter2);
+      v11 = *(_QWORD *)(BugCheckParameter2 + 32);
+      CmpCleanUpKcbCacheWithLock(BugCheckParameter2, a2);
       CurrentThread = KeGetCurrentThread();
-      *(_DWORD *)(v9 + 160) |= 0x80u;
-      *(_QWORD *)(v9 + 4176) = CurrentThread;
-      *(_DWORD *)(v9 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(v9 + 4236), 1u) & 0x7F) + 4240) = 31;
-      if ( (*(_DWORD *)(v9 + 160) & 0x20) == 0
-        && _InterlockedExchangeAdd((volatile signed __int32 *)(v9 + 4232), 0xFFFFFFFF) == 1 )
+      *(_DWORD *)(v11 + 160) |= 0x80u;
+      *(_QWORD *)(v11 + 4216) = CurrentThread;
+      *(_DWORD *)(v11 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 4276), 1u) & 0x7F) + 4280) = 31;
+      if ( (*(_DWORD *)(v11 + 160) & 0x20) == 0
+        && _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 4272), 0xFFFFFFFF) == 1 )
       {
-        CmpDeleteHive((_QWORD *)v9);
+        CmpDeleteHive((PVOID)v11);
       }
     }
     else
     {
-      v6 = *(_DWORD *)(BugCheckParameter2 + 8);
-      v7 = 0;
-      if ( (v6 & 0x20000) == 0 )
-        v7 = a3 == 0;
-      v8 = 0;
-      if ( (v6 & 0x20) == 0 )
-        v8 = v7;
+      v8 = *(_DWORD *)(BugCheckParameter2 + 8);
+      v9 = 0;
+      v10 = 0;
+      if ( (v8 & 0x20000) == 0 )
+        v9 = a3 == 0;
+      if ( (v8 & 0x20) == 0 )
+        v10 = v9;
       if ( CmpHoldLazyFlush
         && (*(_WORD *)(BugCheckParameter2 + 186) & 0x10) == 0
-        && (*(_BYTE *)(BugCheckParameter2 + 8) & 8) == 0
-        || !v8 )
+        && (*(_BYTE *)(BugCheckParameter2 + 8) & 8) == 0 )
       {
-        CmpCleanUpKcbCacheWithLock(BugCheckParameter2);
+        v10 = 0;
+      }
+      if ( v10 )
+      {
+        CmpAddToDelayedClose(BugCheckParameter2);
+      }
+      else
+      {
+        CmpCleanUpKcbCacheWithLock(BugCheckParameter2, a2);
         if ( *(struct _KTHREAD **)(BugCheckParameter2 + 56) != KeGetCurrentThread()
           && (*(_DWORD *)(BugCheckParameter2 + 8) & 0x80000) != 0 )
         {
           CmpFreeKeyControlBlock(BugCheckParameter2);
         }
-      }
-      else
-      {
-        CmpAddToDelayedClose(BugCheckParameter2);
       }
     }
   }

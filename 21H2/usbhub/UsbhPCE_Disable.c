@@ -1,18 +1,18 @@
 /*
- * XREFs of UsbhPCE_Disable @ 0x1C0033B7C
+ * XREFs of UsbhPCE_Disable @ 0x1C0034EE0
  * Callers:
- *     UsbhQueueDriverOvercurrent @ 0x1C002F5A0 (UsbhQueueDriverOvercurrent.c)
- *     UsbhQueueOvercurrentReset @ 0x1C002F720 (UsbhQueueOvercurrentReset.c)
- *     Usbh_PCE_SoftDisconnect_Action @ 0x1C0035734 (Usbh_PCE_SoftDisconnect_Action.c)
+ *     UsbhQueueDriverOvercurrent @ 0x1C0030970 (UsbhQueueDriverOvercurrent.c)
+ *     UsbhQueueOvercurrentReset @ 0x1C0030AF0 (UsbhQueueOvercurrentReset.c)
+ *     Usbh_PCE_SoftDisconnect_Action @ 0x1C00369F0 (Usbh_PCE_SoftDisconnect_Action.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     UsbhCancelEnumeration @ 0x1C001EB50 (UsbhCancelEnumeration.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
- *     UsbhBusUnlatchPdo @ 0x1C004C104 (UsbhBusUnlatchPdo.c)
+ *     UsbhCancelEnumeration @ 0x1C00023E0 (UsbhCancelEnumeration.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004D510 (UsbhBusUnlatchPdo.c)
  */
 
 __int64 __fastcall UsbhPCE_Disable(__int64 a1, unsigned __int16 a2, __int64 a3)
@@ -46,7 +46,7 @@ __int64 __fastcall UsbhPCE_Disable(__int64 a1, unsigned __int16 a2, __int64 a3)
   v9 = result;
   if ( result )
   {
-    UsbhDispatch_PortChangeQueueEventEx(a1, result, 2LL, a3, 0LL, 0, 0LL, 0LL);
+    UsbhDispatch_PortChangeQueueEventEx(a1, result, 2, a3, 0LL, 0, 0LL, 0LL);
     result = UsbhLatchPdo(a1, *(_WORD *)(v9 + 4), 0LL, 0x7050444Fu);
     v10 = result;
     if ( result )

@@ -1,20 +1,20 @@
 /*
- * XREFs of CcGetPartitionFromFileObject @ 0x1402FBB08
+ * XREFs of CcGetPartitionFromFileObject @ 0x140359C24
  * Callers:
- *     CcZeroData @ 0x1402FB700 (CcZeroData.c)
- *     CcDeferWrite @ 0x140537530 (CcDeferWrite.c)
+ *     CcZeroData @ 0x140359820 (CcZeroData.c)
+ *     CcDeferWrite @ 0x1404E9F80 (CcDeferWrite.c)
  * Callees:
- *     <none>
+ *     CcGetPartition @ 0x140293E80 (CcGetPartition.c)
  */
 
-__int64 __fastcall CcGetPartitionFromFileObject(__int64 a1)
+__int64 __fastcall CcGetPartitionFromFileObject(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v1; // rax
-  __int64 v2; // rax
+  __int64 v4; // rcx
+  _QWORD *v5; // rcx
 
-  v1 = *(_QWORD *)(a1 + 40);
-  if ( v1 && (v2 = *(_QWORD *)(v1 + 8)) != 0 )
-    return *(_QWORD *)(v2 + 536);
+  v4 = *(_QWORD *)(a1 + 40);
+  if ( v4 && (v5 = *(_QWORD **)(v4 + 8)) != 0LL )
+    return CcGetPartition(v5, a2, a3, a4);
   else
     return *((_QWORD *)PspSystemPartition + 1);
 }

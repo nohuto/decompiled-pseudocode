@@ -1,52 +1,40 @@
 /*
- * XREFs of SmKmStoreHelperWaitForCommand @ 0x1405CBB18
+ * XREFs of SmKmStoreHelperWaitForCommand @ 0x14034F4D8
  * Callers:
- *     SmKmStoreHelperCheckWaitCommand @ 0x140342C2C (SmKmStoreHelperCheckWaitCommand.c)
- *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1405C0CB8 (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
+ *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x14034F1F0 (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
+ *     SmKmStoreHelperCheckWaitCommand @ 0x14034F5FC (SmKmStoreHelperCheckWaitCommand.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
  */
 
-NTSTATUS __fastcall SmKmStoreHelperWaitForCommand(__int64 a1, _OWORD *a2, LARGE_INTEGER *Timeout, int a4)
+__int64 __fastcall SmKmStoreHelperWaitForCommand(__int64 a1, _OWORD *a2, LARGE_INTEGER *a3, int a4)
 {
-  struct _KEVENT *v4; // rsi
-  NTSTATUS result; // eax
-  signed __int32 v10; // eax
-  int v11; // eax
+  struct _KEVENT *v5; // rsi
+  unsigned int v9; // r10d
+  int v10; // eax
+  signed __int32 v12; // eax
 
-  v4 = (struct _KEVENT *)(a1 + 32);
-  result = KeWaitForSingleObject((PVOID)(a1 + 32), Executive, 0, 0, Timeout);
-  if ( result )
+  v5 = (struct _KEVENT *)(a1 + 32);
+  while ( 1 )
   {
-    if ( a4 )
-    {
-      while ( 1 )
-      {
-        v10 = *(_DWORD *)(a1 + 56);
-        if ( (v10 & 1) == 0
-          && (_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 56), v10 | 2, v10) & 1) == 0 )
-        {
-          return -1073741536;
-        }
-        if ( !KeWaitForSingleObject(v4, Executive, 0, 0, Timeout) )
-          goto LABEL_6;
-      }
-    }
+    v9 = KeWaitForSingleObject(v5, Executive, 0, 0, a3);
+    if ( !v9 )
+      break;
+    if ( !a4 )
+      return v9;
+    v12 = *(_DWORD *)(a1 + 56);
+    if ( (v12 & 1) == 0 && (_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 56), v12 | 2, v12) & 1) == 0 )
+      return (unsigned int)-1073741536;
   }
-  else
+  KeResetEvent(v5);
+  if ( a2 )
   {
-LABEL_6:
-    KeResetEvent(v4);
-    if ( a2 )
-    {
-      *a2 = *(_OWORD *)(a1 + 64);
-      a2[1] = *(_OWORD *)(a1 + 80);
-      a2[2] = *(_OWORD *)(a1 + 96);
-    }
-    v11 = *(_DWORD *)(a1 + 56);
-    *(_DWORD *)(a1 + 56) = 0;
-    return (v11 & 2) != 0 ? 0xC0000120 : 0;
+    *a2 = *(_OWORD *)(a1 + 64);
+    a2[1] = *(_OWORD *)(a1 + 80);
+    a2[2] = *(_OWORD *)(a1 + 96);
   }
-  return result;
+  v10 = *(_DWORD *)(a1 + 56);
+  *(_DWORD *)(a1 + 56) = 0;
+  return (v10 & 2) != 0 ? 0xC0000120 : 0;
 }

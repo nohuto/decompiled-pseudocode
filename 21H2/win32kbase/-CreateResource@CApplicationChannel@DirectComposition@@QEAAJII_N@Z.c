@@ -1,36 +1,31 @@
 /*
- * XREFs of ?CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z @ 0x1C0015178
+ * XREFs of ?CreateResource@CApplicationChannel@DirectComposition@@QEAAJII_N@Z @ 0x1C0028520
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C008A134 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007E324 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXI@Z @ 0x1C00150D4 (-InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXI@Z.c)
- *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C001520C (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
- *     ?CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00585EC (-CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarsh.c)
- *     McTemplateK0qqqxxqtt_EtwWriteTransfer @ 0x1C02152D0 (McTemplateK0qqqxxqtt_EtwWriteTransfer.c)
+ *     ?InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXI@Z @ 0x1C002847C (-InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXI@Z.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00285B4 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
+ *     ?CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C004AC64 (-CreateInternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarsh.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     McTemplateK0qqqxxqtt_EtwWriteTransfer @ 0x1C01D57E0 (McTemplateK0qqqxxqtt_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::CreateResource(
         DirectComposition::CApplicationChannel *this,
         unsigned int a2,
-        unsigned int a3,
+        char a3,
         char a4)
 {
-  char v4; // si
   int InternalSharedResource; // eax
   int inserted; // ebx
   int v10; // ecx
   struct DirectComposition::CResourceMarshaler *v12[2]; // [rsp+60h] [rbp-18h] BYREF
 
   v12[0] = 0LL;
-  v4 = a3;
   if ( a4 )
     InternalSharedResource = DirectComposition::CApplicationChannel::CreateInternalSharedResource(this, a3, v12);
   else
-    InternalSharedResource = DirectComposition::CApplicationChannel::CreateInternalResource(
-                               this,
-                               (DirectComposition *)a3,
-                               v12);
+    InternalSharedResource = DirectComposition::CApplicationChannel::CreateInternalResource(this, a3, v12);
   inserted = InternalSharedResource;
   if ( InternalSharedResource >= 0 )
   {
@@ -49,11 +44,11 @@ __int64 __fastcall DirectComposition::CApplicationChannel::CreateResource(
         a2,
         0,
         *((_DWORD *)this + 7),
-        *((_DWORD *)v12[0] + 8),
+        *((_DWORD *)v12[0] + 6),
         a2,
-        *((_DWORD *)v12[0] + 8),
+        *((_DWORD *)v12[0] + 6),
         a2,
-        v4,
+        a3,
         a4,
         0);
     }

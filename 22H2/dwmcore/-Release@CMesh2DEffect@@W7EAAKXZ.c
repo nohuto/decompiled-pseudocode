@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@CMesh2DEffect@@W7EAAKXZ @ 0x1801240C0
+ * XREFs of ?Release@CMesh2DEffect@@W7EAAKXZ @ 0x1800F64E0
  * Callers:
  *     <none>
  * Callees:

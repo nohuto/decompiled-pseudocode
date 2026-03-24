@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpGetLastHive @ 0x1406C2314
+ * XREFs of CmpGetLastHive @ 0x1406C22F4
  * Callers:
- *     CmpDoFlushAll @ 0x1401579E8 (CmpDoFlushAll.c)
+ *     CmpDoFlushAll @ 0x140157A08 (CmpDoFlushAll.c)
  *     CmLoadAppKey @ 0x1405CF54C (CmLoadAppKey.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)

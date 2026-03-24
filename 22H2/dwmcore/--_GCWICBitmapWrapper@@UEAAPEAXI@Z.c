@@ -1,18 +1,22 @@
 /*
- * XREFs of ??_GCWICBitmapWrapper@@UEAAPEAXI@Z @ 0x1800A6600
+ * XREFs of ??_GCWICBitmapWrapper@@UEAAPEAXI@Z @ 0x18003D690
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1CBitmap@@MEAA@XZ @ 0x1800A8094 (--1CBitmap@@MEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??1CBitmap@@UEAA@XZ @ 0x18003CCB4 (--1CBitmap@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 CWICBitmapWrapper *__fastcall CWICBitmapWrapper::`scalar deleting destructor'(CWICBitmapWrapper *this, char a2)
 {
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 20);
+  __int64 v4; // rcx
+
+  v4 = *((_QWORD *)this + 33);
+  if ( v4 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
   CBitmap::~CBitmap(this);
   if ( (a2 & 1) != 0 )
-    operator delete(this, 0xC8uLL);
+    operator delete(this, 0x130uLL);
   return this;
 }

@@ -1,106 +1,81 @@
 /*
- * XREFs of HalpTscAdvSynchToLeader @ 0x1403ACB14
+ * XREFs of HalpTscAdvSynchToLeader @ 0x1404C114C
  * Callers:
- *     HalpTscAdvSynchLeader @ 0x1403AC640 (HalpTscAdvSynchLeader.c)
+ *     HalpTscAdvSynchLeader @ 0x14039CC94 (HalpTscAdvSynchLeader.c)
  * Callees:
- *     HalpTscAdvSynchCalculateRemoteDelta @ 0x1403ACC4C (HalpTscAdvSynchCalculateRemoteDelta.c)
- *     HalpTscTraceProcessorSynchronization @ 0x1403ACEA4 (HalpTscTraceProcessorSynchronization.c)
+ *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14039D104 (HalpTscAdvSynchCalculateRemoteDelta.c)
+ *     HalpTscTraceProcessorSynchronization @ 0x14039D3B4 (HalpTscTraceProcessorSynchronization.c)
  */
 
 __int64 __fastcall HalpTscAdvSynchToLeader(unsigned int a1)
 {
-  __int64 v1; // rdi
-  __int64 v2; // rbp
-  __int64 v3; // rsi
-  unsigned int v4; // ebx
-  __int64 v5; // r14
-  unsigned int v6; // r15d
-  __int64 v7; // rdx
+  unsigned __int64 v1; // rbx
+  __int64 v2; // r12
+  __int64 v3; // r14
+  __int64 v4; // rsi
+  unsigned int i; // edi
+  __int64 v6; // r15
+  __int64 v7; // rbp
+  __int64 v8; // rax
+  unsigned int v9; // edi
+  unsigned int v10; // ebp
+  __int64 v11; // r15
   __int64 result; // rax
-  unsigned int v9; // r15d
-  __int64 v10; // rbx
-  __int64 v11; // rax
-  __int64 v12; // r12
-  __int64 v13; // rax
-  __int64 v14; // r14
-  signed __int32 v15[8]; // [rsp+0h] [rbp-58h] BYREF
+  signed __int32 v13[8]; // [rsp+0h] [rbp-58h] BYREF
+  __int64 v14; // [rsp+20h] [rbp-38h]
 
-  v1 = a1;
-  if ( !HalpTscAdjustAvailable )
+  v1 = (unsigned __int64)a1 << 7;
+  v2 = a1;
+  *(_QWORD *)(v1 + TscRequest + 8) = 0LL;
+  _InterlockedOr(v13, 0);
+  _InterlockedExchange((volatile __int32 *)(v1 + TscRequest), 1);
+  while ( *(_DWORD *)(v1 + TscRequest) == 1 )
+    _mm_pause();
+  v3 = 0LL;
+  v4 = 0x7FFFFFFFFFFFFFFFLL;
+  for ( i = 0; i < HalpTscSyncRecalculateSkews; ++i )
   {
-    *(_QWORD *)(((unsigned __int64)a1 << 7) + TscRequest + 8) = 0LL;
-    _InterlockedOr(v15, 0);
-    _InterlockedExchange((volatile __int32 *)(((unsigned __int64)a1 << 7) + TscRequest), 1);
-    while ( *(_DWORD *)(((unsigned __int64)a1 << 7) + TscRequest) == 1 )
+    v6 = v4;
+    v7 = HalpTscAdvSynchCalculateRemoteDelta(v2, (unsigned int)HalpTscRequestedIterations, 0LL);
+    v8 = TscRequest;
+    *(_QWORD *)(v1 + TscRequest + 8) = 0LL;
+    *(_DWORD *)(v1 + v8 + 4) = 100;
+    _InterlockedOr(v13, 0);
+    _InterlockedExchange((volatile __int32 *)(v1 + TscRequest), 2);
+    while ( *(_DWORD *)(v1 + TscRequest) == 2 )
       _mm_pause();
+    v3 = HalpTscAdvSynchCalculateRemoteDelta(v2, (unsigned int)HalpTscRequestedIterations, 0LL);
+    v4 = (v7 - v3) / 100;
+    if ( v4 >= v6 )
+      v4 = v6;
   }
-  v2 = HalpTscAdvSynchCalculateRemoteDelta(a1, 0LL);
-  v3 = 0x7FFFFFFFFFFFFFFFLL;
-  if ( !HalpTscAdjustAvailable )
-  {
-    v9 = 0;
-    if ( HalpTscSyncRecalculateSkews )
-    {
-      v10 = v1 << 7;
-      do
-      {
-        v11 = TscRequest;
-        v12 = v3;
-        *(_QWORD *)(v10 + TscRequest + 8) = 0LL;
-        *(_DWORD *)(v10 + v11 + 4) = 100;
-        _InterlockedOr(v15, 0);
-        _InterlockedExchange((volatile __int32 *)(v10 + TscRequest), 2);
-        while ( *(_DWORD *)(v10 + TscRequest) == 2 )
-          _mm_pause();
-        v13 = HalpTscAdvSynchCalculateRemoteDelta((unsigned int)v1, 0LL);
-        v14 = v2 - v13;
-        v2 = v13;
-        v3 = v14 / 100;
-        if ( v14 / 100 >= v12 )
-          v3 = v12;
-        ++v9;
-      }
-      while ( v9 < HalpTscSyncRecalculateSkews );
-    }
-    *(_DWORD *)(HalpTscSkewOffset + 4 * v1) = v3;
-  }
-  v4 = 0;
-  LODWORD(v5) = 0;
-  v6 = 0;
+  v9 = 0;
+  v10 = 0;
+  *(_DWORD *)(HalpTscSkewOffset + 4 * v2) = v4;
   do
   {
-    if ( !v4 )
+    v11 = v4 - v3;
+    if ( !v9 )
     {
-      v5 = -v2;
-      v7 = v1 << 7;
-      if ( HalpTscAdjustAvailable )
-      {
-        *(_QWORD *)(v7 + TscRequest + 8) = v5;
-        _InterlockedOr(v15, 0);
-        _InterlockedExchange((volatile __int32 *)(v7 + TscRequest), 3);
-        while ( *(_DWORD *)(v7 + TscRequest) == 3 )
-          _mm_pause();
-      }
-      else
-      {
-        LODWORD(v5) = v3 - v2;
-        *(_QWORD *)(v7 + TscRequest + 8) = v3 - v2;
-        _InterlockedOr(v15, 0);
-        _InterlockedExchange((volatile __int32 *)(v7 + TscRequest), 1);
-        while ( *(_DWORD *)(v7 + TscRequest) == 1 )
-          _mm_pause();
-      }
+      *(_QWORD *)(v1 + TscRequest + 8) = v11;
+      _InterlockedOr(v13, 0);
+      _InterlockedExchange((volatile __int32 *)(v1 + TscRequest), 1);
+      while ( *(_DWORD *)(v1 + TscRequest) == 1 )
+        _mm_pause();
     }
-    v2 = HalpTscAdvSynchCalculateRemoteDelta((unsigned int)v1, 0LL);
-    if ( !v4 )
-      HalpTscTraceProcessorSynchronization(KeGetCurrentPrcb()->Number, v1, v2, v5, v6);
-    ++v4;
-    if ( (unsigned __int64)(v2 + 24) > 0x30 )
-      v4 = 0;
-    ++v6;
+    v3 = HalpTscAdvSynchCalculateRemoteDelta(v2, (unsigned int)HalpTscRequestedIterations, 0LL);
+    if ( !v9 )
+    {
+      LODWORD(v14) = v10;
+      HalpTscTraceProcessorSynchronization(KeGetCurrentPrcb()->Number, v2, v3, v11, v14);
+    }
+    ++v9;
+    if ( (unsigned __int64)(v3 + 24) > 0x30 )
+      v9 = 0;
+    ++v10;
   }
-  while ( v4 < 2 && v6 < 0x32 );
+  while ( v10 < 0x32 && v9 < 2 );
   result = HalpTscWaves;
-  *(_DWORD *)(HalpTscWaves + 4 * v1) = v6;
+  *(_DWORD *)(HalpTscWaves + 4 * v2) = v10;
   return result;
 }

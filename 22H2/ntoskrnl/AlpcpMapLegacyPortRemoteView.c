@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpMapLegacyPortRemoteView @ 0x1407E9350
+ * XREFs of AlpcpMapLegacyPortRemoteView @ 0x14076FFB0
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x1407169EC (AlpcpAcceptConnectPort.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     AlpcpInsertResourcePort @ 0x14071EC4C (AlpcpInsertResourcePort.c)
- *     AlpcpRemoveResourcePort @ 0x14071ECD0 (AlpcpRemoveResourcePort.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073C150 (AlpcpUnlockBlob.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
+ *     AlpcpRemoveResourcePort @ 0x14061E930 (AlpcpRemoveResourcePort.c)
+ *     AlpcpInsertResourcePort @ 0x1406D9B8C (AlpcpInsertResourcePort.c)
  */
 
 __int64 __fastcall AlpcpMapLegacyPortRemoteView(signed __int64 *Object, __int64 a2, __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall AlpcpMapLegacyPortRemoteView(signed __int64 *Object, __int64 
   if ( Object != v7 )
   {
     AlpcpRemoveResourcePort((__int64)v7, v3);
-    ObfDereferenceObject(*(PVOID *)(v3 + 24));
+    HalPutDmaAdapter(*(PADAPTER_OBJECT *)(v3 + 24));
     ObfReferenceObject(Object);
     *(_QWORD *)(v3 + 24) = Object;
     AlpcpInsertResourcePort((__int64)Object, v3);

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBufferSize@FxMemoryObject@@UEAA_KXZ @ 0x1C000BBC0
+ * XREFs of ?GetBufferSize@FxMemoryObject@@UEAA_KXZ @ 0x1C000DB00
  * Callers:
  *     <none>
  * Callees:

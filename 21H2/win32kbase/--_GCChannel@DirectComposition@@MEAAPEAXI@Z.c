@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCChannel@DirectComposition@@MEAAPEAXI@Z @ 0x1C0214080
+ * XREFs of ??_GCChannel@DirectComposition@@MEAAPEAXI@Z @ 0x1C01D40A0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CChannel@DirectComposition@@MEAA@XZ @ 0x1C000C9E4 (--1CChannel@DirectComposition@@MEAA@XZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ??1CChannel@DirectComposition@@MEAA@XZ @ 0x1C0059D98 (--1CChannel@DirectComposition@@MEAA@XZ.c)
  */
 
 DirectComposition::CChannel *__fastcall DirectComposition::CChannel::`scalar deleting destructor'(
@@ -12,9 +12,7 @@ DirectComposition::CChannel *__fastcall DirectComposition::CChannel::`scalar del
         char a2)
 {
   DirectComposition::CChannel::~CChannel(this);
-  if ( (a2 & 1) != 0 && this )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)this);
+  if ( (a2 & 1) != 0 )
+    Win32FreePool((__int64)this);
   return this;
 }

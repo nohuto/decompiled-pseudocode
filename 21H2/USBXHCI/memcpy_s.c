@@ -1,11 +1,11 @@
 /*
- * XREFs of memcpy_s @ 0x1C0018EF0
+ * XREFs of memcpy_s @ 0x1C0019F70
  * Callers:
- *     Controller_ExecuteDSM @ 0x1C006C218 (Controller_ExecuteDSM.c)
+ *     Controller_ExecuteDSM @ 0x1C006EEB8 (Controller_ExecuteDSM.c)
  * Callees:
- *     Control_Cleanup @ 0x1C000ADE0 (Control_Cleanup.c)
- *     memmove @ 0x1C0019A00 (memmove.c)
- *     memset @ 0x1C0019CC0 (memset.c)
+ *     Control_Cleanup @ 0x1C000A1F0 (Control_Cleanup.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 errno_t __cdecl memcpy_s(void *a1, rsize_t DstSize, const void *Src, rsize_t MaxCount)

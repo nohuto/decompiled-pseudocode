@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmGetDeviceInstanceKeyPath @ 0x1406CF41C
+ * XREFs of _CmGetDeviceInstanceKeyPath @ 0x1406BBA20
  * Callers:
- *     _CmGetDeviceRegKeyPath @ 0x1406CE6EC (_CmGetDeviceRegKeyPath.c)
+ *     _CmGetDeviceRegKeyPath @ 0x1406BAECC (_CmGetDeviceRegKeyPath.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
  */
 
 NTSTATUS __fastcall CmGetDeviceInstanceKeyPath(
@@ -55,22 +55,24 @@ NTSTATUS __fastcall CmGetDeviceInstanceKeyPath(
       ++v11;
     while ( *(_WORD *)(a2 + 2 * v11) );
     v12 = v11 + 82;
-    if ( v12 > 0xFFFFFFFF )
-      return -1073741675;
-    if ( a8 )
-      *a8 = v12;
-    if ( (unsigned int)v12 <= (unsigned int)cchDest )
-      return RtlStringCchPrintfExW(
-               pszDest,
-               (unsigned int)cchDest,
-               0LL,
-               0LL,
-               0x800u,
-               L"%s\\%s\\%s",
-               L"System\\CurrentControlSet\\Hardware Profiles\\Current",
-               L"System\\CurrentControlSet\\Enum",
-               a2);
-    return -1073741789;
+    if ( v12 <= 0xFFFFFFFF )
+    {
+      if ( a8 )
+        *a8 = v12;
+      if ( (unsigned int)v12 <= (unsigned int)cchDest )
+        return RtlStringCchPrintfExW(
+                 pszDest,
+                 (unsigned int)cchDest,
+                 0LL,
+                 0LL,
+                 0x800u,
+                 L"%s\\%s\\%s",
+                 L"System\\CurrentControlSet\\Hardware Profiles\\Current",
+                 L"System\\CurrentControlSet\\Enum",
+                 a2);
+      return -1073741789;
+    }
+    return -1073741675;
   }
   if ( a4 == -1 )
     return -1073741811;

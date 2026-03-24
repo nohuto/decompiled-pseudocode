@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DestroyObjectCaches@CThreadContext@@SAXXZ @ 0x180261B4C
+ * XREFs of ?DestroyObjectCaches@CThreadContext@@SAXXZ @ 0x180210C40
  * Callers:
- *     ??1CComposition@@MEAA@XZ @ 0x18019233C (--1CComposition@@MEAA@XZ.c)
+ *     ??1CComposition@@MEAA@XZ @ 0x180154FA0 (--1CComposition@@MEAA@XZ.c)
  * Callees:
- *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800AF6DC (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
- *     ?Destroy@CObjectCache@@QEAAXXZ @ 0x180261B0C (-Destroy@CObjectCache@@QEAAXXZ.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x180055FE8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
+ *     ?Destroy@CObjectCache@@QEAAXXZ @ 0x180210C00 (-Destroy@CObjectCache@@QEAAXXZ.c)
  */
 
 void CThreadContext::DestroyObjectCaches(void)
@@ -19,22 +19,20 @@ void CThreadContext::DestroyObjectCaches(void)
   if ( Current < 0 )
     ModuleFailFastForHRESULT(Current, retaddr);
   v1 = v3;
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v3 + 32));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 48));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 64));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 96));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 112));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 128));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 144));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 160));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 176));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 192));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 208));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 224));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 240));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 256));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 272));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 288));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 304));
-  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 320));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v3 + 8));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 24));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 56));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 72));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 88));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 104));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 120));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 136));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 152));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 168));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 184));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 200));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 216));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 232));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 248));
+  CObjectCache::Destroy((struct CThreadContext *)((char *)v1 + 264));
 }

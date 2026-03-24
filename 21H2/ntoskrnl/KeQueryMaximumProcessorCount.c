@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryMaximumProcessorCount @ 0x14056D7D0
+ * XREFs of KeQueryMaximumProcessorCount @ 0x140515560
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402631C0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14027B730 (KeQueryMaximumProcessorCountEx.c)
  */
 
 ULONG __noreturn KeQueryMaximumProcessorCount(void)

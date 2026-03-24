@@ -5,9 +5,9 @@
  *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
  *     CmpConstructNameWithStatus @ 0x1405D73A0 (CmpConstructNameWithStatus.c)
  *     CmpConstructNameFromKeyNodes @ 0x1405D75E0 (CmpConstructNameFromKeyNodes.c)
- *     CmpPopulateKcbStack @ 0x1406440B0 (CmpPopulateKcbStack.c)
- *     CmQueryValueKey @ 0x1406451B0 (CmQueryValueKey.c)
- *     CmpIsKeyDeleted @ 0x140698140 (CmpIsKeyDeleted.c)
+ *     CmpPopulateKcbStack @ 0x140644090 (CmpPopulateKcbStack.c)
+ *     CmQueryValueKey @ 0x140645190 (CmQueryValueKey.c)
+ *     CmpIsKeyDeleted @ 0x140698120 (CmpIsKeyDeleted.c)
  * Callees:
  *     <none>
  */

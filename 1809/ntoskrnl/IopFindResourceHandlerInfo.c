@@ -1,8 +1,8 @@
 /*
- * XREFs of IopFindResourceHandlerInfo @ 0x14072F860
+ * XREFs of IopFindResourceHandlerInfo @ 0x14072F840
  * Callers:
- *     IoTranslateBusAddress @ 0x140287FA0 (IoTranslateBusAddress.c)
- *     IopSetupArbiterAndTranslators @ 0x14072F478 (IopSetupArbiterAndTranslators.c)
+ *     IoTranslateBusAddress @ 0x1402880A0 (IoTranslateBusAddress.c)
+ *     IopSetupArbiterAndTranslators @ 0x14072F458 (IopSetupArbiterAndTranslators.c)
  * Callees:
  *     <none>
  */

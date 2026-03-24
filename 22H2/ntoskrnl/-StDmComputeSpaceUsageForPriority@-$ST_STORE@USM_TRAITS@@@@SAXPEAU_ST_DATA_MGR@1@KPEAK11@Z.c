@@ -1,7 +1,7 @@
 /*
- * XREFs of ?StDmComputeSpaceUsageForPriority@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAK11@Z @ 0x1405C5218
+ * XREFs of ?StDmComputeSpaceUsageForPriority@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAK11@Z @ 0x14026BD68
  * Callers:
- *     ?StDmCheckForCompaction@?$ST_STORE@USM_TRAITS@@@@SA?AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA_MGR@1@K@Z @ 0x1405C44F0 (-StDmCheckForCompaction@-$ST_STORE@USM_TRAITS@@@@SA-AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA.c)
+ *     ?StDmCheckForCompaction@?$ST_STORE@USM_TRAITS@@@@SA?AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA_MGR@1@K@Z @ 0x14026BBD8 (-StDmCheckForCompaction@-$ST_STORE@USM_TRAITS@@@@SA-AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA.c)
  * Callees:
  *     <none>
  */
@@ -21,8 +21,8 @@ _DWORD *__fastcall ST_STORE<SM_TRAITS>::StDmComputeSpaceUsageForPriority(
   unsigned int v13; // r9d
   int v14; // r15d
   unsigned int v15; // r8d
-  __int64 v16; // rcx
   _DWORD *result; // rax
+  __int64 v17; // rcx
 
   v5 = a2;
   v6 = 0;
@@ -35,11 +35,11 @@ _DWORD *__fastcall ST_STORE<SM_TRAITS>::StDmComputeSpaceUsageForPriority(
   v13 = *(_DWORD *)(a1 + 816);
   v14 = *(_DWORD *)(a1 + 820);
   v15 = v10 * (v13 - v14 + 1) - v11;
-  if ( v10 * (v13 - v14 + 1) >= v11 && v15 >= v13 )
+  if ( v15 >= v13 && v10 * (*(_DWORD *)(a1 + 816) - v14 + 1) >= v11 )
   {
-    v16 = *(unsigned int *)(a1 + 16 * (v5 + 78));
-    if ( (_DWORD)v16 != -1 )
-      v15 = v14 + (*(_WORD *)(*(_QWORD *)(a1 + 1032) + 2 * v16) & 0x1FFF) - v13 + v15 - 1;
+    v17 = *(unsigned int *)(a1 + 16 * (v5 + 78));
+    if ( (_DWORD)v17 != -1 )
+      v15 = v14 + (*(_WORD *)(*(_QWORD *)(a1 + 1032) + 2 * v17) & 0x1FFF) - v13 + v15 - 1;
     if ( v15 >= v13 )
       v6 = v15;
   }

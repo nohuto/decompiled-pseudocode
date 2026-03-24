@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CColorGradientStop::sc_Offset__ @ 0x1800016E0
+ * XREFs of _dynamic_initializer_for__CColorGradientStop::sc_Offset__ @ 0x180001590
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CColorGradientStop::sc_Offset__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D17B8 = (unsigned __int64)CColorGradientStop::SetAnimatedProperty;
-  qword_1803D17C8 = v1;
+  xmmword_180345C98 = (unsigned __int64)CColorGradientStop::SetAnimatedProperty;
+  qword_180345CA8 = v1;
   return result;
 }

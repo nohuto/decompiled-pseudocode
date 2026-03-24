@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z @ 0x1C001F018
+ * XREFs of ?ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z @ 0x1C0115FE4
  * Callers:
- *     ?ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z @ 0x1C001D14C (-ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z.c)
+ *     ?ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z @ 0x1C005F930 (-ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z.c)
  * Callees:
- *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C00134A0 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
- *     ?pvSimBold@IFIOBJ@@QEAAPEAXXZ @ 0x1C001ED70 (-pvSimBold@IFIOBJ@@QEAAPEAXXZ.c)
- *     ?bSimItalic@IFIOBJ@@QEAAHXZ @ 0x1C014AA04 (-bSimItalic@IFIOBJ@@QEAAHXZ.c)
- *     ulCharsetToCodePage @ 0x1C0170DBA (ulCharsetToCodePage.c)
- *     ?bInitPrivatePFT@@YAHXZ @ 0x1C0270730 (-bInitPrivatePFT@@YAHXZ.c)
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C00BAFC4 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ *     ?pvSimBold@IFIOBJ@@QEAAPEAXXZ @ 0x1C010DB38 (-pvSimBold@IFIOBJ@@QEAAPEAXXZ.c)
+ *     ?bSimItalic@IFIOBJ@@QEAAHXZ @ 0x1C0155D3C (-bSimItalic@IFIOBJ@@QEAAHXZ.c)
+ *     ?bInitPrivatePFT@@YAHXZ @ 0x1C0272AA0 (-bInitPrivatePFT@@YAHXZ.c)
+ *     ulCharsetToCodePage @ 0x1C02DD638 (ulCharsetToCodePage.c)
  */
 
 struct PFE *__fastcall MAPPER::ppfeSynthesizeAMatch(
@@ -19,6 +19,7 @@ struct PFE *__fastcall MAPPER::ppfeSynthesizeAMatch(
   int v4; // eax
   unsigned int v5; // r10d
   __int64 v6; // rsi
+  struct _POINTL *v7; // r13
   char *v10; // rdi
   __int64 *v11; // r14
   int v12; // r12d
@@ -27,30 +28,33 @@ struct PFE *__fastcall MAPPER::ppfeSynthesizeAMatch(
   int v16; // eax
   int v17; // eax
   unsigned int v18; // r8d
-  __int64 v19; // r9
-  int v20; // esi
-  int v21; // r14d
+  int v19; // edi
+  unsigned int v20; // r9d
+  int v21; // esi
   __int64 v22; // r11
-  int v23; // edi
-  __int64 v24; // rax
-  unsigned int v25; // ecx
+  int v23; // eax
+  __int16 v24; // cx
+  unsigned int v25; // eax
   __int64 v26; // rax
   __int64 v27; // r9
   int v28; // r8d
   int v29; // eax
   int v30; // r8d
   int *v31; // r9
-  size_t v32; // [rsp+28h] [rbp-41h]
-  struct PFF *v33; // [rsp+70h] [rbp+7h] BYREF
-  _QWORD v34[9]; // [rsp+78h] [rbp+Fh] BYREF
-  unsigned int v35; // [rsp+D0h] [rbp+67h] BYREF
-  unsigned int *v36; // [rsp+E0h] [rbp+77h]
+  size_t v32; // [rsp+30h] [rbp-41h]
+  struct PFF *v33; // [rsp+78h] [rbp+7h] BYREF
+  _QWORD v34[9]; // [rsp+80h] [rbp+Fh] BYREF
+  unsigned int v35; // [rsp+D8h] [rbp+67h] BYREF
+  unsigned int *v36; // [rsp+E8h] [rbp+77h]
+  struct _POINTL *v37; // [rsp+F0h] [rbp+7Fh]
 
+  v37 = a4;
   v36 = a3;
   v4 = *((_DWORD *)this + 22);
   v5 = 0;
   v6 = 0LL;
   v35 = 0;
+  v7 = a4;
   if ( (v4 & 1) != 0 )
     v10 = (char *)this + 92;
   else
@@ -81,34 +85,35 @@ LABEL_14:
         else
         {
           v18 = 0;
-          v19 = 0LL;
-          v20 = 0x7FFFFFFF;
+          v19 = 0x7FFFFFFF;
+          v20 = 0;
           v21 = *((_DWORD *)this + 43);
           do
           {
-            v22 = *(_QWORD *)(*((_QWORD *)v15 + v19 + 27) + 32LL);
-            v23 = v21 - *(unsigned __int16 *)(v22 + 46);
-            if ( *(unsigned __int16 *)(v22 + 46) - v21 >= 0 )
-              v23 = *(unsigned __int16 *)(v22 + 46) - v21;
-            if ( v23 <= v20 )
+            v22 = *(_QWORD *)(*((_QWORD *)v15 + v20 + 27) + 32LL);
+            v23 = *(unsigned __int16 *)(v22 + 46) - v21;
+            if ( v23 < 0 )
+              v23 = v21 - *(unsigned __int16 *)(v22 + 46);
+            if ( v23 <= v19 )
             {
-              v20 = v23;
-              v24 = *(int *)(v22 + 8);
+              v19 = v23;
+              v24 = *(_WORD *)(*(int *)(v22 + 8) + v22);
               if ( (*((_DWORD *)this + 63) & 0x2000000) != 0 )
               {
-                v25 = v19;
-                if ( *(_WORD *)(v24 + v22) != 64 )
+                v25 = v20;
+                if ( v24 != 64 )
                   v25 = v18;
                 v18 = v25;
               }
-              else if ( *(_WORD *)(v24 + v22) != 64 )
+              else if ( v24 != 64 )
               {
-                v18 = v19;
+                v18 = v20;
               }
             }
-            v19 = (unsigned int)(v19 + 1);
+            ++v20;
           }
-          while ( (unsigned int)v19 < v5 );
+          while ( v20 < v5 );
+          v7 = v37;
           v6 = *((_QWORD *)v15 + v18 + 27);
         }
         *a2 = 0;
@@ -127,8 +132,8 @@ LABEL_14:
         *v36 = *(unsigned __int8 *)(*((_QWORD *)this + 1) + 23LL) << 24;
         v29 = ulCharsetToCodePage();
         *v31 = v30 | (v29 << 8);
-        a4->y = 1;
-        a4->x = 1;
+        v7->y = 1;
+        v7->x = 1;
       }
       return (struct PFE *)v6;
     }

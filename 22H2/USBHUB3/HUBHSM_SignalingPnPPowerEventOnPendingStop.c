@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_SignalingPnPPowerEventOnPendingStop @ 0x1C0009100
+ * XREFs of HUBHSM_SignalingPnPPowerEventOnPendingStop @ 0x1C0008930
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_ReleaseWdfPowerReference @ 0x1C000DEB0 (HUBFDO_ReleaseWdfPowerReference.c)
- *     HUBFDO_SignalPnpPowerEvent @ 0x1C000DFC4 (HUBFDO_SignalPnpPowerEvent.c)
+ *     HUBFDO_ReleaseWdfPowerReference @ 0x1C000CCC0 (HUBFDO_ReleaseWdfPowerReference.c)
+ *     HUBFDO_SignalPnpPowerEvent @ 0x1C000CDD4 (HUBFDO_SignalPnpPowerEvent.c)
  */
 
 __int64 __fastcall HUBHSM_SignalingPnPPowerEventOnPendingStop(__int64 a1)

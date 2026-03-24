@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0phuzu_EtwWriteTransfer @ 0x1C00294C8
+ * XREFs of McTemplateK0phuzu_EtwWriteTransfer @ 0x1C00268B4
  * Callers:
- *     HUBDTX_LogAlternateMode @ 0x1C002D024 (HUBDTX_LogAlternateMode.c)
+ *     HUBDTX_LogAlternateMode @ 0x1C0029F8C (HUBDTX_LogAlternateMode.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0phuzu_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

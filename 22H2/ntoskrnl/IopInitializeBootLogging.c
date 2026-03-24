@@ -1,92 +1,96 @@
 /*
- * XREFs of IopInitializeBootLogging @ 0x140944EF8
+ * XREFs of IopInitializeBootLogging @ 0x140891768
  * Callers:
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     RtlFindMessage @ 0x140755AA0 (RtlFindMessage.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     IopBootLog @ 0x1407E3A4C (IopBootLog.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x1408100F0 (RtlCreateUnicodeStringFromAsciiz.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFindMessage @ 0x1406724A0 (RtlFindMessage.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     IopBootLog @ 0x1407716E0 (IopBootLog.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x1407A7470 (RtlCreateUnicodeStringFromAsciiz.c)
  */
 
 void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
 {
-  __int64 Pool2; // rax
-  __int64 v5; // rsi
-  __int64 v6; // rbx
-  __int64 v7; // rax
-  PUNICODE_STRING v8; // r8
-  unsigned __int16 v9; // ax
-  PUNICODE_STRING v10; // r8
+  UNICODE_STRING *Pool; // rax
+  UNICODE_STRING *v5; // rbx
+  __int64 v6; // rdi
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  unsigned __int64 v9; // rcx
+  wchar_t *Buffer; // rax
+  PUNICODE_STRING v11; // r8
   unsigned __int16 Length; // ax
-  unsigned __int16 v12; // ax
+  unsigned __int16 v13; // ax
   PVOID *i; // rbx
   STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int16 *v15; // [rsp+70h] [rbp+30h] BYREF
+  unsigned __int16 *v16; // [rsp+70h] [rbp+30h] BYREF
 
-  v15 = 0LL;
+  v16 = 0LL;
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
-  if ( !qword_140D53028 )
+  if ( !qword_140D2D030 )
   {
-    Pool2 = ExAllocatePool2(64LL, 176LL, 538996553LL);
-    qword_140D53028 = (PUNICODE_STRING)Pool2;
-    if ( Pool2 )
+    Pool = (UNICODE_STRING *)IopVerifierExAllocatePool(NonPagedPoolNx, 0xB0uLL);
+    qword_140D2D030 = Pool;
+    v5 = Pool;
+    if ( Pool )
     {
-      ExInitializeResourceLite((PERESOURCE)(Pool2 + 64));
-      ExAcquireResourceExclusiveLite((PERESOURCE)&qword_140D53028[4], 1u);
-      v5 = *(_QWORD *)(a1 + 16);
-      v6 = -1LL;
-      if ( (int)RtlFindMessage(*(_QWORD *)(v5 + 48), 0xBu, 0, 0xB5u, &v15) >= 0 )
+      memset(Pool, 0, 0xB0uLL);
+      ExInitializeResourceLite((PERESOURCE)&v5[4]);
+      ExAcquireResourceExclusiveLite((PERESOURCE)&qword_140D2D030[4], 1u);
+      v6 = *(_QWORD *)(a1 + 16);
+      v7 = -1LL;
+      if ( (int)RtlFindMessage(*(_QWORD *)(v6 + 48), 0xBu, 0, 0xB5u, &v16) >= 0 )
       {
-        v7 = -1LL;
-        SourceString.Buffer = (char *)(v15 + 2);
+        v8 = -1LL;
+        SourceString.Buffer = (char *)(v16 + 2);
         do
-          ++v7;
-        while ( *((_BYTE *)v15 + v7 + 4) );
-        SourceString.Length = v7;
-        SourceString.MaximumLength = v7 + 1;
-        RtlAnsiStringToUnicodeString(qword_140D53028, &SourceString, 1u);
-        v8 = qword_140D53028;
-        if ( qword_140D53028->Length > 4u )
+          ++v8;
+        while ( *((_BYTE *)v16 + v8 + 4) );
+        SourceString.Length = v8;
+        SourceString.MaximumLength = v8 + 1;
+        RtlAnsiStringToUnicodeString(qword_140D2D030, &SourceString, 1u);
+        if ( qword_140D2D030->Length > 4u )
         {
-          v9 = qword_140D53028->Length - 4;
-          qword_140D53028->Length = v9;
-          v8->Buffer[(unsigned __int64)v9 >> 1] = 0;
+          v9 = (unsigned __int16)(qword_140D2D030->Length - 4);
+          Buffer = qword_140D2D030->Buffer;
+          qword_140D2D030->Length = v9;
+          Buffer[v9 >> 1] = 0;
         }
       }
-      if ( (int)RtlFindMessage(*(_QWORD *)(v5 + 48), 0xBu, 0, 0xB6u, &v15) < 0 )
+      if ( (int)RtlFindMessage(*(_QWORD *)(v6 + 48), 0xBu, 0, 0xB6u, &v16) < 0 )
       {
-        v10 = qword_140D53028;
+        v11 = qword_140D2D030;
       }
       else
       {
-        SourceString.Buffer = (char *)(v15 + 2);
+        SourceString.Buffer = (char *)(v16 + 2);
         do
-          ++v6;
-        while ( *((_BYTE *)v15 + v6 + 4) );
-        SourceString.Length = v6;
-        SourceString.MaximumLength = v6 + 1;
-        RtlAnsiStringToUnicodeString(qword_140D53028 + 1, &SourceString, 1u);
-        v10 = qword_140D53028;
-        Length = qword_140D53028[1].Length;
+          ++v7;
+        while ( *((_BYTE *)v16 + v7 + 4) );
+        SourceString.Length = v7;
+        SourceString.MaximumLength = v7 + 1;
+        RtlAnsiStringToUnicodeString(qword_140D2D030 + 1, &SourceString, 1u);
+        v11 = qword_140D2D030;
+        Length = qword_140D2D030[1].Length;
         if ( Length > 4u )
         {
-          v12 = Length - 4;
-          qword_140D53028[1].Length = v12;
-          v10[1].Buffer[(unsigned __int64)v12 >> 1] = 0;
+          v13 = Length - 4;
+          qword_140D2D030[1].Length = v13;
+          v11[1].Buffer[(unsigned __int64)v13 >> 1] = 0;
         }
       }
-      RtlCreateUnicodeStringFromAsciiz(v10 + 3, (const char *)(a2 + 1));
+      RtlCreateUnicodeStringFromAsciiz(v11 + 3, (const char *)(a2 + 1));
       ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
       for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
         IopBootLog((PCUNICODE_STRING)(i + 9), 1);
       ExReleaseResourceLite(&PsLoadedModuleResource);
-      ExReleaseResourceLite((PERESOURCE)&qword_140D53028[4]);
+      ExReleaseResourceLite((PERESOURCE)&qword_140D2D030[4]);
     }
   }
 }

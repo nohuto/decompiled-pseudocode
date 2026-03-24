@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlDeleteAce @ 0x1406DC070
+ * XREFs of RtlDeleteAce @ 0x1406B0FF0
  * Callers:
- *     SepRemoveAceFromTokenDefaultDacl @ 0x140254F94 (SepRemoveAceFromTokenDefaultDacl.c)
+ *     SepRemoveAceFromTokenDefaultDacl @ 0x1402C3FB4 (SepRemoveAceFromTokenDefaultDacl.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     RtlFirstFreeAce @ 0x140724CE0 (RtlFirstFreeAce.c)
- *     RtlValidAcl @ 0x1407B4A50 (RtlValidAcl.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlFirstFreeAce @ 0x14065B880 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x14065C5C0 (RtlValidAcl.c)
  */
 
 NTSTATUS __stdcall RtlDeleteAce(PACL Acl, ULONG AceIndex)
 {
   PACL v4; // rdx
   __int64 v5; // rcx
-  size_t AclSize; // r8
+  size_t AclSize; // r9
   unsigned int v7; // r10d
-  unsigned int v8; // r9d
+  unsigned int v8; // r8d
   UCHAR *v10; // r11
   UCHAR v11; // al
   __int64 v12; // rcx
   __int64 v13; // [rsp+40h] [rbp+18h] BYREF
 
   v13 = 0LL;
-  if ( !(unsigned __int8)RtlValidAcl(Acl) || AceIndex >= Acl->AceCount || !(unsigned __int8)RtlFirstFreeAce(Acl, &v13) )
+  if ( !RtlValidAcl((__int64)Acl) || AceIndex >= Acl->AceCount || !RtlFirstFreeAce((__int64)Acl, &v13) )
     return -1073741811;
   v4 = Acl + 1;
   if ( AceIndex )

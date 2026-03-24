@@ -1,15 +1,15 @@
 /*
- * XREFs of CloseProtectedHandle @ 0x1C00A6598
+ * XREFs of CloseProtectedHandle @ 0x1C00D93E8
  * Callers:
- *     _CloseDesktop @ 0x1C00A2C38 (_CloseDesktop.c)
- *     xxxRestoreCsrssThreadDesktop @ 0x1C00A64D0 (xxxRestoreCsrssThreadDesktop.c)
- *     xxxSetCsrssThreadDesktop @ 0x1C00A65F0 (xxxSetCsrssThreadDesktop.c)
- *     EditionOpenInputDesktopEntryPoint @ 0x1C00CE790 (EditionOpenInputDesktopEntryPoint.c)
- *     _OpenDesktop @ 0x1C00CEF78 (_OpenDesktop.c)
- *     xxxResolveDesktop @ 0x1C00CF130 (xxxResolveDesktop.c)
- *     xxxCreateDesktopEx @ 0x1C00CFDF4 (xxxCreateDesktopEx.c)
- *     _OpenThreadDesktop @ 0x1C01E418C (_OpenThreadDesktop.c)
- *     xxxResolveDesktopForWOW @ 0x1C01E43F8 (xxxResolveDesktopForWOW.c)
+ *     EditionOpenInputDesktopEntryPoint @ 0x1C000EA00 (EditionOpenInputDesktopEntryPoint.c)
+ *     _OpenDesktop @ 0x1C000F208 (_OpenDesktop.c)
+ *     xxxResolveDesktop @ 0x1C000F4F0 (xxxResolveDesktop.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     xxxRestoreCsrssThreadDesktop @ 0x1C00D91B0 (xxxRestoreCsrssThreadDesktop.c)
+ *     _CloseDesktop @ 0x1C00D92C8 (_CloseDesktop.c)
+ *     xxxSetCsrssThreadDesktop @ 0x1C00D9440 (xxxSetCsrssThreadDesktop.c)
+ *     _OpenThreadDesktop @ 0x1C01E99F8 (_OpenThreadDesktop.c)
+ *     xxxResolveDesktopForWOW @ 0x1C01E9C64 (xxxResolveDesktopForWOW.c)
  * Callees:
  *     <none>
  */

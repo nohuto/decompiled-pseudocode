@@ -1,136 +1,133 @@
 /*
- * XREFs of ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C000BF1C
+ * XREFs of ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C00A5720
  * Callers:
- *     ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00EF5FC (-bCleanupFontTable@@YAHPEAPEAVPFT@@@Z.c)
+ *     ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00E674C (-bCleanupFontTable@@YAHPEAPEAVPFT@@@Z.c)
  * Callees:
- *     ?vKill@PFFOBJ@@QEAAXXZ @ 0x1C000BD98 (-vKill@PFFOBJ@@QEAAXXZ.c)
- *     prfntKillList @ 0x1C000BDE0 (prfntKillList.c)
- *     ?vCleanupFontFile@@YAXPEAVPFFCLEANUP@@@Z @ 0x1C000C12C (-vCleanupFontFile@@YAXPEAVPFFCLEANUP@@@Z.c)
- *     bKillPFFOBJ @ 0x1C000CDC0 (bKillPFFOBJ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C0012A20 (-vRemoveHash@PFFOBJ@@QEAAXXZ.c)
- *     vKillRFONTList @ 0x1C027108C (vKillRFONTList.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?vKill@PFFOBJ@@QEAAXXZ @ 0x1C00A5498 (-vKill@PFFOBJ@@QEAAXXZ.c)
+ *     prfntKillList @ 0x1C00A54E0 (prfntKillList.c)
+ *     ?vCleanupFontFile@@YAXPEAVPFFCLEANUP@@@Z @ 0x1C00A594C (-vCleanupFontFile@@YAXPEAVPFFCLEANUP@@@Z.c)
+ *     bKillPFFOBJ @ 0x1C00A59D8 (bKillPFFOBJ.c)
+ *     ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C00BA214 (-vRemoveHash@PFFOBJ@@QEAAXXZ.c)
+ *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C016AAC0 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
+ *     ??1SEMOBJ@@QEAA@XZ @ 0x1C026D7BC (--1SEMOBJ@@QEAA@XZ.c)
+ *     vKillRFONTList @ 0x1C027320C (vKillRFONTList.c)
  */
 
 __int64 __fastcall PFTOBJ::bUnloadAllButPermanentFonts(PFTOBJ *this)
 {
-  int v2; // r13d
+  int v2; // r12d
   __int64 v3; // rdx
   unsigned int v4; // ebx
   unsigned int v5; // eax
-  unsigned int v6; // eax
-  char *v7; // rbp
-  __int64 *v8; // rsi
-  char *v9; // rdi
+  _DWORD *v6; // rsi
+  struct PFF **v7; // rdi
+  _DWORD *v8; // r14
   unsigned __int64 i; // rcx
-  __int64 v11; // r12
-  int v12; // r15d
+  struct PFF *j; // rcx
+  struct PFF *v11; // r13
+  int v12; // ebp
   __int64 v13; // r9
   __int64 v14; // rcx
   __int64 v15; // rcx
   __int64 v16; // rax
-  __int64 v17; // rax
-  __int64 v18; // r9
-  __int64 v19; // r14
-  unsigned __int64 v20; // rdi
-  _DWORD *v21; // rsi
-  __int64 v23[7]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v24; // [rsp+60h] [rbp+8h] BYREF
+  unsigned __int64 v17; // rax
+  struct PFF *v18; // rax
+  __int64 v19; // rbp
+  unsigned __int64 v20; // r14
+  unsigned __int64 v21; // r14
+  _DWORD *v22; // rdi
+  __int64 v24[7]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v25; // [rsp+60h] [rbp+8h] BYREF
 
   v2 = 0;
-  v24 = ghsemPublicPFT;
+  v25 = ghsemPublicPFT;
   GreAcquireSemaphore(ghsemPublicPFT);
   v3 = *(_QWORD *)this;
   v4 = 1;
   v5 = *(_DWORD *)(*(_QWORD *)this + 28LL);
   if ( !v5 )
-    goto LABEL_32;
-  if ( v5 > 0x40 )
+    goto LABEL_5;
+  if ( v5 <= 0x40 )
   {
-    v6 = 48 * v5;
-    if ( v6 )
-    {
-      v7 = (char *)Win32AllocPool(v6, 1769367111LL);
-      if ( v7 )
-      {
-        v3 = *(_QWORD *)this;
-        v2 = 1;
-        goto LABEL_6;
-      }
-    }
-    v4 = 0;
-LABEL_32:
-    SEMOBJ::vUnlock((SEMOBJ *)&v24);
-    return v4;
+    v6 = &gFntVict;
   }
-  v7 = (char *)&gFntVict;
-LABEL_6:
-  v8 = (__int64 *)(v3 + 40);
-  v9 = v7;
-  for ( i = v3 + 8LL * *(unsigned int *)(v3 + 24) + 40;
-        (unsigned __int64)v8 < i;
-        i = v3 + 8 * (*(unsigned int *)(v3 + 24) + 5LL) )
+  else
   {
-    v18 = *v8;
-    if ( *v8 )
+    v6 = PALLOCMEM2(48 * v5, 1769367111LL, 0);
+    if ( !v6 )
     {
-      do
-      {
-        v11 = *(_QWORD *)(v18 + 8);
-        v12 = *(_DWORD *)(v18 + 52) & 0x200;
-        *(_DWORD *)(v18 + 56) = 0;
-        *(_DWORD *)(v18 + 60) = 0;
-        v23[0] = v18;
-        PFFOBJ::vKill((PFFOBJ *)v23);
-        if ( *v8 == v13 )
-          *v8 = *(_QWORD *)(v13 + 8);
-        v14 = *(_QWORD *)(v13 + 8);
-        if ( v14 )
-          *(_QWORD *)(v14 + 16) = *(_QWORD *)(v13 + 16);
-        v15 = *(_QWORD *)(v13 + 16);
-        if ( v15 )
-          *(_QWORD *)(v15 + 8) = *(_QWORD *)(v13 + 8);
-        *(_QWORD *)v9 = v13;
-        PFFOBJ::vRemoveHash((PFFOBJ *)v23);
-        v16 = *(_QWORD *)this;
-        if ( !v12 )
-          ++*(_DWORD *)(v16 + 32);
-        --*(_DWORD *)(v16 + 28);
-        v17 = prfntKillList(v23);
-        *((_QWORD *)v9 + 1) = v17;
-        if ( !v17 )
-          *((_DWORD *)v9 + 10) = bKillPFFOBJ(v23, v9 + 16);
-        v9 += 48;
-        v18 = v11;
-      }
-      while ( v11 );
-      v3 = *(_QWORD *)this;
+      v4 = 0;
+LABEL_5:
+      SEMOBJ::~SEMOBJ((SEMOBJ *)&v25);
+      return v4;
     }
-    ++v8;
+    v3 = *(_QWORD *)this;
+    v2 = 1;
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v24);
+  v7 = (struct PFF **)(v3 + 40);
+  v8 = v6;
+  for ( i = v3 + 8 * (*(unsigned int *)(v3 + 24) + 5LL);
+        (unsigned __int64)v7 < i;
+        i = *(_QWORD *)this + 8LL * *(unsigned int *)(*(_QWORD *)this + 24LL) + 40 )
+  {
+    for ( j = *v7; ; j = v11 )
+    {
+      v18 = SkipInvalidPff(j);
+      if ( !v18 )
+        break;
+      v11 = (struct PFF *)*((_QWORD *)v18 + 1);
+      v12 = *((_DWORD *)v18 + 13) & 0x200;
+      *((_DWORD *)v18 + 14) = 0;
+      *((_DWORD *)v18 + 15) = 0;
+      v24[0] = (__int64)v18;
+      PFFOBJ::vKill((PFFOBJ *)v24);
+      if ( *v7 == (struct PFF *)v13 )
+        *v7 = *(struct PFF **)(v13 + 8);
+      v14 = *(_QWORD *)(v13 + 8);
+      if ( v14 )
+        *(_QWORD *)(v14 + 16) = *(_QWORD *)(v13 + 16);
+      v15 = *(_QWORD *)(v13 + 16);
+      if ( v15 )
+        *(_QWORD *)(v15 + 8) = *(_QWORD *)(v13 + 8);
+      *(_QWORD *)v8 = v13;
+      PFFOBJ::vRemoveHash((PFFOBJ *)v24);
+      v16 = *(_QWORD *)this;
+      if ( !v12 )
+        ++*(_DWORD *)(v16 + 32);
+      --*(_DWORD *)(v16 + 28);
+      v17 = prfntKillList(v24);
+      *((_QWORD *)v8 + 1) = v17;
+      if ( !v17 )
+        v8[10] = bKillPFFOBJ(v24, v8 + 4);
+      v8 += 12;
+    }
+    ++v7;
+  }
+  SEMOBJ::~SEMOBJ((SEMOBJ *)&v25);
   v19 = 0LL;
-  v20 = 0xAAAAAAAAAAAAAAABuLL * ((v9 - v7) >> 4);
-  if ( (_DWORD)v20 )
+  v20 = (__int64)((unsigned __int128)(((char *)v8 - (char *)v6) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
+  v21 = (v20 >> 63) + v20;
+  if ( (_DWORD)v21 )
   {
-    v21 = v7 + 40;
+    v22 = v6 + 10;
     do
     {
-      if ( *((_QWORD *)v21 - 4) )
+      if ( *((_QWORD *)v22 - 4) )
       {
-        v23[0] = *((_QWORD *)v21 - 5);
-        vKillRFONTList((PFFOBJ *)v23);
+        v24[0] = *((_QWORD *)v22 - 5);
+        vKillRFONTList((PFFOBJ *)v24);
       }
-      else if ( *v21 )
+      else if ( *v22 )
       {
-        vCleanupFontFile((struct PFFCLEANUP *)&v7[48 * v19 + 16]);
+        vCleanupFontFile((struct PFFCLEANUP *)&v6[12 * v19 + 4]);
       }
       v19 = (unsigned int)(v19 + 1);
-      v21 += 12;
+      v22 += 12;
     }
-    while ( (unsigned int)v19 < (unsigned int)v20 );
+    while ( (unsigned int)v19 < (unsigned int)v21 );
   }
   if ( v2 )
-    Win32FreePool(v7);
+    Win32FreePool(v6);
   return v4;
 }

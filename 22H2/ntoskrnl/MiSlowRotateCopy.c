@@ -1,115 +1,115 @@
 /*
- * XREFs of MiSlowRotateCopy @ 0x140632FD4
+ * XREFs of MiSlowRotateCopy @ 0x140539C3C
  * Callers:
- *     MiReplaceRotateWithDemandZero @ 0x140A31478 (MiReplaceRotateWithDemandZero.c)
- *     MiRotateToFrameBuffer @ 0x140A31710 (MiRotateToFrameBuffer.c)
+ *     MmRotatePhysicalView @ 0x14065FD60 (MmRotatePhysicalView.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiReturnPteMappingSet @ 0x140284068 (MiReturnPteMappingSet.c)
- *     MiGetPteMappingSet @ 0x1402840D0 (MiGetPteMappingSet.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     KeCopyPage @ 0x140424020 (KeCopyPage.c)
- *     MiInitializeSlowPte @ 0x1406326E8 (MiInitializeSlowPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     KeCopyPage @ 0x1404024D0 (KeCopyPage.c)
+ *     MiInitializeSlowPte @ 0x1405399EC (MiInitializeSlowPte.c)
+ *     MiGetPteMappingPair @ 0x14056353C (MiGetPteMappingPair.c)
+ *     MiReturnPteMappingPair @ 0x140563600 (MiReturnPteMappingPair.c)
  */
 
 char __fastcall MiSlowRotateCopy(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 *v3; // r13
+  unsigned __int64 *v3; // r14
   unsigned __int64 v4; // rsi
   int v6; // edx
+  bool v7; // cl
   char result; // al
-  int v8; // r15d
-  int v9; // ebp
-  __int64 v10; // rbx
-  unsigned __int64 v11; // rdi
-  __int64 v12; // r14
-  unsigned __int64 v13; // rbx
-  __int64 v14; // r8
-  unsigned __int64 v15; // rbx
-  int v16; // edi
-  __int64 v17; // r8
-  bool v18; // zf
-  __int128 v19; // [rsp+20h] [rbp-48h] BYREF
-  unsigned __int64 *v20; // [rsp+30h] [rbp-38h]
-  __int64 v21; // [rsp+70h] [rbp+8h]
+  __int64 v9; // r8
+  unsigned int v10; // ebp
+  __int64 v11; // r13
+  unsigned __int64 v12; // rdi
+  __int64 v13; // r15
+  unsigned __int64 v14; // rbx
+  __int64 v15; // r8
+  unsigned __int64 v16; // rbx
+  int v17; // edi
+  BOOL v18; // eax
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  bool v21; // zf
+  __int128 v22; // [rsp+20h] [rbp-48h] BYREF
+  unsigned __int64 *v23; // [rsp+30h] [rbp-38h]
 
   v3 = (unsigned __int64 *)(a2 + 48);
   v4 = (unsigned __int64)*(unsigned int *)(a2 + 40) >> 12;
-  v19 = 0LL;
-  v20 = 0LL;
+  v22 = 0LL;
+  v23 = 0LL;
   v6 = *(_DWORD *)(a3 + 48) & 0xC00;
+  v7 = (*(_DWORD *)(a3 + 48) & 0x380) != 0;
   result = v6 == 3072;
-  v8 = 0;
-  if ( (*(_DWORD *)(a3 + 48) & 0x380) != 0 && v6 == 3072 )
-    v9 = 2;
+  v9 = 0LL;
+  if ( v7 && v6 == 3072 )
+    v10 = 2;
   else
-    v9 = v6 != 1024;
+    v10 = v6 != 1024;
   if ( v4 )
   {
-    v10 = a1 - a2;
-    v21 = a1 - a2;
-    do
+    v11 = a1 - (_QWORD)v3;
+    while ( 1 )
     {
-      MiGetPteMappingSet(1, 2LL, (__int64)&v19);
-      v11 = (unsigned __int64)v20;
-      v12 = (__int64)(v20 + 1);
-      MiInitializeSlowPte(v20, *v3, v9);
-      MiInitializeSlowPte((unsigned __int64 *)v12, *(unsigned __int64 *)((char *)v3 + v10), v9);
-      KeCopyPage(v12 << 25 >> 16, (__int64)(v11 << 25) >> 16);
-      v13 = ZeroPte;
-      if ( MiPteInShadowRange(v11) )
-      {
-        if ( MiPteHasShadow() )
-        {
-          v8 = 1;
-          if ( !HIBYTE(word_140C66DFC) && (ZeroPte & 1) != 0 )
-            v13 = ZeroPte | 0x8000000000000000uLL;
-        }
-        else
-        {
-          if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-            && (ZeroPte & 1) != 0 )
-          {
-            v13 = ZeroPte | 0x8000000000000000uLL;
-          }
-          v11 = (unsigned __int64)v20;
-        }
-      }
-      *(_QWORD *)v11 = v13;
-      if ( v8 )
-        MiWritePteShadow(v11, v13, v14);
-      v15 = ZeroPte;
-      v8 = 0;
-      v16 = 0;
+      MiGetPteMappingPair(1LL, &v22, v9);
+      v12 = (unsigned __int64)v23;
+      v13 = (__int64)(v23 + 1);
+      MiInitializeSlowPte(v23, *v3, v10);
+      MiInitializeSlowPte((unsigned __int64 *)v13, *(unsigned __int64 *)((char *)v3 + v11 + 48), v10);
+      KeCopyPage(v13 << 25 >> 16, (__int64)(v12 << 25) >> 16);
+      v14 = ZeroPte;
       if ( !MiPteInShadowRange(v12) )
-        goto LABEL_25;
-      if ( MiPteHasShadow() )
+        goto LABEL_16;
+      if ( !(unsigned int)MiPteHasShadow() )
+        break;
+      if ( !HIBYTE(word_140C4E008) && (ZeroPte & 1) != 0 )
+        v14 = ZeroPte | 0x8000000000000000uLL;
+      *(_QWORD *)v12 = v14;
+      MiWritePteShadow(v12, v14, v15);
+LABEL_17:
+      v16 = ZeroPte;
+      v17 = 0;
+      v18 = MiPteInShadowRange(v13);
+      v20 = 0LL;
+      if ( v18 )
       {
-        v16 = 1;
-        if ( !HIBYTE(word_140C66DFC) )
+        if ( (unsigned int)MiPteHasShadow() )
         {
-          v18 = (ZeroPte & 1) == 0;
-          goto LABEL_23;
+          v17 = v20 + 1;
+          if ( HIBYTE(word_140C4E008) == (_BYTE)v20 )
+          {
+            v21 = ((unsigned __int8)ZeroPte & (unsigned __int8)v17) == 0;
+            goto LABEL_23;
+          }
+        }
+        else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+        {
+          v21 = (ZeroPte & 1) == 0;
+LABEL_23:
+          if ( !v21 )
+            v16 = ZeroPte | 0x8000000000000000uLL;
         }
       }
-      else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
-      {
-        v18 = (ZeroPte & 1) == 0;
-LABEL_23:
-        if ( !v18 )
-          v15 = ZeroPte | 0x8000000000000000uLL;
-      }
-LABEL_25:
-      *(_QWORD *)v12 = v15;
-      if ( v16 )
-        MiWritePteShadow(v12, v15, v17);
-      result = MiReturnPteMappingSet((__int64)&v19);
-      v10 = v21;
+      *(_QWORD *)v13 = v16;
+      if ( v17 )
+        MiWritePteShadow(v13, v16, v19);
+      result = MiReturnPteMappingPair(&v22, v20);
       ++v3;
-      --v4;
+      if ( !--v4 )
+        return result;
     }
-    while ( v4 );
+    if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
+    {
+      *v23 = ZeroPte;
+      goto LABEL_17;
+    }
+    v12 = (unsigned __int64)v23;
+    if ( (ZeroPte & 1) != 0 )
+      v14 = ZeroPte | 0x8000000000000000uLL;
+LABEL_16:
+    *(_QWORD *)v12 = v14;
+    goto LABEL_17;
   }
   return result;
 }

@@ -1,13 +1,13 @@
 /*
  * XREFs of RtlCopyBitMap @ 0x14000F710
  * Callers:
- *     HvpGrowDirtyVectors @ 0x1401368C0 (HvpGrowDirtyVectors.c)
+ *     HvpGrowDirtyVectors @ 0x1401368E0 (HvpGrowDirtyVectors.c)
  *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
  *     PspQueryRateControlHistory @ 0x1405A7F5C (PspQueryRateControlHistory.c)
- *     MiSelectRelocationStartHint @ 0x14064FBE4 (MiSelectRelocationStartHint.c)
+ *     MiSelectRelocationStartHint @ 0x14064FBC4 (MiSelectRelocationStartHint.c)
  * Callees:
  *     RtlpCopyBitMapTailToHead @ 0x14000F80C (RtlpCopyBitMapTailToHead.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 unsigned __int64 __fastcall RtlCopyBitMap(unsigned int *a1, __int64 a2, unsigned int a3)

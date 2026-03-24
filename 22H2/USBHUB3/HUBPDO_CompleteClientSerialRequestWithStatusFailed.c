@@ -1,26 +1,27 @@
 /*
- * XREFs of HUBPDO_CompleteClientSerialRequestWithStatusFailed @ 0x1C00157B0
+ * XREFs of HUBPDO_CompleteClientSerialRequestWithStatusFailed @ 0x1C00142F0
  * Callers:
- *     HUBDSM_CompletingClientRequestOnFailureInDisabled @ 0x1C001F2A0 (HUBDSM_CompletingClientRequestOnFailureInDisabled.c)
- *     HUBDSM_IssuingPortCycleAndCompletingClientRequestOnEnumFailue @ 0x1C001F870 (HUBDSM_IssuingPortCycleAndCompletingClientRequestOnEnumFailue.c)
+ *     HUBDSM_CompletingClientRequestOnFailureInDisabled @ 0x1C001C890 (HUBDSM_CompletingClientRequestOnFailureInDisabled.c)
+ *     HUBDSM_IssuingPortCycleAndCompletingClientRequestOnEnumFailue @ 0x1C001CE60 (HUBDSM_IssuingPortCycleAndCompletingClientRequestOnEnumFailue.c)
  * Callees:
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CD5C (McTemplateK0pqq_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     HUBPDO_GetUSBDErrorFromNTStatus @ 0x1C001402C (HUBPDO_GetUSBDErrorFromNTStatus.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_CompleteClientSerialRequestWithStatusFailed(__int64 a1)
 {
-  __int64 v1; // rbp
+  __int64 v1; // rsi
   __int64 v3; // rcx
-  _QWORD *v4; // rdi
-  unsigned __int16 *v5; // rsi
-  unsigned __int16 v6; // ax
-  __int64 v8; // [rsp+20h] [rbp-58h]
-  __int64 v9; // [rsp+28h] [rbp-50h]
-  __int128 v10; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v11; // [rsp+40h] [rbp-38h]
-  __int64 v12; // [rsp+50h] [rbp-28h]
+  __int64 v4; // rdi
+  int USBDErrorFromNTStatus; // eax
+  __int16 v6; // ax
+  __int64 v8; // [rsp+20h] [rbp-48h]
+  __int64 v9; // [rsp+28h] [rbp-40h]
+  __int128 v10; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v11; // [rsp+40h] [rbp-28h]
+  __int64 v12; // [rsp+50h] [rbp-18h]
 
   v1 = *(_QWORD *)(a1 + 456);
   *(_QWORD *)(a1 + 456) = 0LL;
@@ -36,37 +37,40 @@ __int64 __fastcall HUBPDO_CompleteClientSerialRequestWithStatusFailed(__int64 a1
     &v10);
   if ( DWORD2(v11) == 2228227 )
   {
-    v4 = (_QWORD *)*((_QWORD *)&v10 + 1);
-    *(_DWORD *)(*((_QWORD *)&v10 + 1) + 4LL) = -2147482880;
-    v5 = (unsigned __int16 *)v4 + 1;
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
+    v4 = *((_QWORD *)&v10 + 1);
+    USBDErrorFromNTStatus = HUBPDO_GetUSBDErrorFromNTStatus(-1073741823);
+    *(_DWORD *)(v4 + 4) = USBDErrorFromNTStatus;
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
       McTemplateK0pqq_EtwWriteTransfer(
-        v3,
+        *(unsigned __int16 *)(v4 + 2),
         &USBHUB3_ETW_EVENT_DEVICE_URB_COMPLETE,
         (const GUID *)(a1 + 1516),
         *(_QWORD *)(a1 + 24),
-        *v5,
-        -2147482880);
-    if ( *v5 == 1 || *v5 == 59 )
+        *(unsigned __int16 *)(v4 + 2),
+        USBDErrorFromNTStatus);
+    v6 = *(_WORD *)(v4 + 2);
+    if ( v6 == 1 || v6 == 59 )
+    {
       _InterlockedOr((volatile signed __int32 *)(a1 + 1636), 0x10u);
-    v6 = *v5;
-    if ( *v5 )
+      v6 = *(_WORD *)(v4 + 2);
+    }
+    if ( v6 )
     {
       if ( v6 == 1 )
       {
-        v4[5] = -1LL;
+        *(_QWORD *)(v4 + 40) = -1LL;
       }
       else if ( v6 == 59 )
       {
-        v4[7] = -1LL;
+        *(_QWORD *)(v4 + 56) = -1LL;
       }
     }
     else
     {
-      v4[4] = 0LL;
+      *(_QWORD *)(v4 + 32) = 0LL;
     }
   }
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
+  if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
   {
     LODWORD(v9) = -1073741823;
     LODWORD(v8) = DWORD2(v11);

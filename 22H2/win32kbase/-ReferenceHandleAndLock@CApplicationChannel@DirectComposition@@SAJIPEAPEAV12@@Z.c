@@ -1,25 +1,29 @@
 /*
- * XREFs of ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C00269C4
+ * XREFs of ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005EB28
  * Callers:
- *     ?RemoveCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIII@Z @ 0x1C00082B8 (-RemoveCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIII@Z.c)
- *     ?AddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIIIHII@Z @ 0x1C0008440 (-AddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIIIHII@Z.c)
- *     NtDCompositionGetFrameIdFromBatchId @ 0x1C000B680 (NtDCompositionGetFrameIdFromBatchId.c)
- *     ?ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCrossChannelVisualData@2@@Z @ 0x1C000CAF8 (-ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCros.c)
- *     NtDCompositionSuspendAnimations @ 0x1C000ED20 (NtDCompositionSuspendAnimations.c)
- *     NtDCompositionSetChannelCommitCompletionEvent @ 0x1C0020FA0 (NtDCompositionSetChannelCommitCompletionEvent.c)
- *     NtDCompositionTelemetrySetApplicationId @ 0x1C0024FE0 (NtDCompositionTelemetrySetApplicationId.c)
- *     NtDCompositionSynchronize @ 0x1C00268F0 (NtDCompositionSynchronize.c)
- *     NtDCompositionCreateAndBindSharedSection @ 0x1C0093290 (NtDCompositionCreateAndBindSharedSection.c)
- *     NtDCompositionGetDeletedResources @ 0x1C00AA4D0 (NtDCompositionGetDeletedResources.c)
- *     NtDCompositionSetChannelConnectionId @ 0x1C00ADBC0 (NtDCompositionSetChannelConnectionId.c)
- *     NtDCompositionWaitForChannel @ 0x1C00B02F0 (NtDCompositionWaitForChannel.c)
- *     NtDCompositionReleaseAllResources @ 0x1C00B0890 (NtDCompositionReleaseAllResources.c)
- *     NtDCompositionSetDebugCounter @ 0x1C00B8AD0 (NtDCompositionSetDebugCounter.c)
- *     NtDCompositionNotifySuperWetInkWork @ 0x1C0209B50 (NtDCompositionNotifySuperWetInkWork.c)
- *     NtVisualCaptureBits @ 0x1C0209F80 (NtVisualCaptureBits.c)
+ *     ?AddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIIIHII@Z @ 0x1C0002660 (-AddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIIIHII@Z.c)
+ *     NtDCompositionTelemetryTouchInteractionUpdate @ 0x1C0003260 (NtDCompositionTelemetryTouchInteractionUpdate.c)
+ *     NtDCompositionTelemetryTouchInteractionBegin @ 0x1C0004A10 (NtDCompositionTelemetryTouchInteractionBegin.c)
+ *     NtDCompositionTelemetryTouchInteractionEnd @ 0x1C00050F0 (NtDCompositionTelemetryTouchInteractionEnd.c)
+ *     NtDCompositionSetChannelCommitCompletionEvent @ 0x1C0059010 (NtDCompositionSetChannelCommitCompletionEvent.c)
+ *     NtDCompositionSetChannelConnectionId @ 0x1C005B4E0 (NtDCompositionSetChannelConnectionId.c)
+ *     NtDCompositionGetDeletedResources @ 0x1C005B710 (NtDCompositionGetDeletedResources.c)
+ *     NtDCompositionTelemetrySetApplicationId @ 0x1C005B8D0 (NtDCompositionTelemetrySetApplicationId.c)
+ *     NtDCompositionSynchronize @ 0x1C005E960 (NtDCompositionSynchronize.c)
+ *     NtDCompositionCreateAndBindSharedSection @ 0x1C009F5B0 (NtDCompositionCreateAndBindSharedSection.c)
+ *     NtDCompositionWaitForChannel @ 0x1C009FBB0 (NtDCompositionWaitForChannel.c)
+ *     NtDCompositionTelemetryAnimationScenarioBegin @ 0x1C00A0420 (NtDCompositionTelemetryAnimationScenarioBegin.c)
+ *     NtDCompositionReleaseAllResources @ 0x1C00A0E50 (NtDCompositionReleaseAllResources.c)
+ *     NtDCompositionTelemetryAnimationScenarioReference @ 0x1C00A2450 (NtDCompositionTelemetryAnimationScenarioReference.c)
+ *     NtDCompositionTelemetryAnimationScenarioUnreference @ 0x1C00A2550 (NtDCompositionTelemetryAnimationScenarioUnreference.c)
+ *     NtDCompositionSetDebugCounter @ 0x1C00AC8D0 (NtDCompositionSetDebugCounter.c)
+ *     NtDCompositionSuspendAnimations @ 0x1C01D2A20 (NtDCompositionSuspendAnimations.c)
+ *     NtVisualCaptureBits @ 0x1C01D2D30 (NtVisualCaptureBits.c)
+ *     ?ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCrossChannelVisualData@2@@Z @ 0x1C01D4EEC (-ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCros.c)
+ *     ?RemoveCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIII@Z @ 0x1C01D4F6C (-RemoveCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIII@Z.c)
  * Callees:
- *     ?ReferenceHandleAndLock@CChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0026A28 (-ReferenceHandleAndLock@CChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?ReferenceHandleAndLock@CChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005FC94 (-ReferenceHandleAndLock@CChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::ReferenceHandleAndLock(

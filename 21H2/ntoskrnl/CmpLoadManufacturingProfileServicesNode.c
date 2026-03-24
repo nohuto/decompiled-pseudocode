@@ -1,47 +1,41 @@
 /*
- * XREFs of CmpLoadManufacturingProfileServicesNode @ 0x140B4E4C8
+ * XREFs of CmpLoadManufacturingProfileServicesNode @ 0x140A8EE84
  * Callers:
- *     CmpFindDrivers @ 0x140B141E0 (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x140A60F64 (CmpFindDrivers.c)
  * Callees:
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     CmpFindSubKeyByName @ 0x14082F108 (CmpFindSubKeyByName.c)
- *     CmpLoadManufacturingProfileNode @ 0x140B4E3D8 (CmpLoadManufacturingProfileNode.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByName @ 0x1407AC8D4 (CmpFindSubKeyByName.c)
+ *     CmpLoadManufacturingProfileNode @ 0x140A8EDBC (CmpLoadManufacturingProfileNode.c)
  */
 
-char __fastcall CmpLoadManufacturingProfileServicesNode(
-        ULONG_PTR BugCheckParameter3,
-        ULONG_PTR a2,
+bool __fastcall CmpLoadManufacturingProfileServicesNode(
+        __int64 a1,
+        __int64 a2,
         const WCHAR *a3,
         __int64 *a4,
-        unsigned int *a5)
+        __int64 a5)
 {
   unsigned int SubKeyByName; // edi
-  __int64 CellPaged; // rax
-  __int64 v10; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v8; // rax
+  bool result; // al
+  _DWORD v10[2]; // [rsp+30h] [rbp-18h] BYREF
   __int64 v11; // [rsp+38h] [rbp-10h] BYREF
 
   v11 = 0LL;
-  v10 = 0xFFFFFFFFLL;
-  if ( !CmpLoadManufacturingProfileNode(BugCheckParameter3, a2, a3, &v11, (unsigned int *)&v10) )
-    return 0;
-  SubKeyByName = CmpFindSubKeyByName(BugCheckParameter3);
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, &v10);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v10);
-  if ( SubKeyByName != -1
-    && ((*(_BYTE *)(BugCheckParameter3 + 140) & 1) == 0
-      ? (CellPaged = HvpGetCellPaged(BugCheckParameter3, SubKeyByName, a5))
-      : (CellPaged = HvpGetCellFlat(BugCheckParameter3, SubKeyByName, a5)),
-        (*a4 = CellPaged) != 0) )
+  v10[0] = -1;
+  v10[1] = 0;
+  result = 0;
+  if ( CmpLoadManufacturingProfileNode(a1, a2, a3, &v11, (__int64)v10) )
   {
-    return 1;
+    SubKeyByName = CmpFindSubKeyByName(a1, v11, (__int64)&CmpServicesString);
+    (*(void (__fastcall **)(__int64, _DWORD *))(a1 + 16))(a1, v10);
+    if ( SubKeyByName != -1 )
+    {
+      v8 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(a1 + 8))(a1, SubKeyByName, a5);
+      *a4 = v8;
+      if ( v8 )
+        return 1;
+    }
   }
-  else
-  {
-    return 0;
-  }
+  return result;
 }

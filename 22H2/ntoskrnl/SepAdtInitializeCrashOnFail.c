@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAdtInitializeCrashOnFail @ 0x140843A24
+ * XREFs of SepAdtInitializeCrashOnFail @ 0x14079E738
  * Callers:
- *     SepAdtRegNotificationCallback @ 0x1408019E0 (SepAdtRegNotificationCallback.c)
- *     SepAdtInitializeAuditingOptions @ 0x140B648B0 (SepAdtInitializeAuditingOptions.c)
+ *     SepAdtRegNotificationCallback @ 0x14079E5F0 (SepAdtRegNotificationCallback.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140A4BB0C (SepAdtInitializeAuditingOptions.c)
  * Callees:
- *     SepRegQueryValue @ 0x1407F59F4 (SepRegQueryValue.c)
+ *     SepRegQueryValue @ 0x14070E238 (SepRegQueryValue.c)
  */
 
 __int64 SepAdtInitializeCrashOnFail()

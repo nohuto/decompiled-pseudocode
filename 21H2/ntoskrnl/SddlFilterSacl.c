@@ -1,9 +1,9 @@
 /*
- * XREFs of SddlFilterSacl @ 0x140819FB0
+ * XREFs of SddlFilterSacl @ 0x140926808
  * Callers:
- *     LocalConvertSDToStringSD_Rev1 @ 0x140676314 (LocalConvertSDToStringSD_Rev1.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x140676E30 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall SddlFilterSacl(__int64 *a1, __int64 i, unsigned int *a3, unsigned int a4)
@@ -15,17 +15,18 @@ __int64 __fastcall SddlFilterSacl(__int64 *a1, __int64 i, unsigned int *a3, unsi
   unsigned __int8 *v10; // r11
   unsigned int v11; // ecx
   bool v12; // zf
-  unsigned int v13; // r10d
-  char *v14; // rsi
-  unsigned int v15; // edi
-  unsigned int v16; // ecx
-  unsigned int v17; // eax
-  bool v18; // zf
-  __int64 v19; // rax
-  unsigned int v20; // ecx
+  unsigned int v13; // ecx
+  unsigned int v14; // ecx
+  unsigned int v15; // r10d
+  char *v16; // rsi
+  unsigned int v17; // edi
+  unsigned int v18; // ecx
+  unsigned int v19; // eax
+  char v20; // al
   unsigned int v21; // ecx
   unsigned int v22; // ecx
-  unsigned int v23; // ecx
+  bool v23; // zf
+  __int64 v24; // rax
 
   result = *((unsigned __int16 *)a1 + 2);
   v5 = a1 + 1;
@@ -40,20 +41,18 @@ __int64 __fastcall SddlFilterSacl(__int64 *a1, __int64 i, unsigned int *a3, unsi
       v11 = *v10;
       if ( v11 > 0x12 )
       {
-        v20 = v11 - 19;
-        if ( v20 )
+        v13 = v11 - 19;
+        if ( v13 )
         {
-          v21 = v20 - 1;
-          if ( !v21 )
+          v14 = v13 - 1;
+          if ( !v14 )
           {
-            if ( (a4 & 0x80u) == 0 )
-              goto LABEL_9;
-LABEL_8:
-            v9 += *((unsigned __int16 *)v10 + 1);
-            goto LABEL_9;
+            if ( (a4 & 0x80u) != 0 )
+              goto LABEL_17;
+            goto LABEL_18;
           }
-          if ( v21 != 1 )
-            goto LABEL_31;
+          if ( v14 != 1 )
+            goto LABEL_7;
           v12 = (a4 & 0x100) == 0;
         }
         else
@@ -68,103 +67,108 @@ LABEL_8:
           if ( v11 > 0x10 )
           {
             v12 = (a4 & 0x10) == 0;
-            goto LABEL_7;
+            goto LABEL_16;
           }
-LABEL_31:
+LABEL_7:
           v12 = (a4 & 8) == 0;
-          goto LABEL_7;
+          goto LABEL_16;
         }
         v12 = (a4 & 0x20) == 0;
       }
-LABEL_7:
+LABEL_16:
       if ( !v12 )
-        goto LABEL_8;
-LABEL_9:
+LABEL_17:
+        v9 += *((unsigned __int16 *)v10 + 1);
+LABEL_18:
       result = *((unsigned __int16 *)v10 + 1);
       v10 += result;
     }
   }
-  v13 = (v9 + 3) & 0xFFFFFFFC;
-  if ( *a3 < v13 )
+  v15 = (v9 + 3) & 0xFFFFFFFC;
+  if ( *a3 < v15 )
   {
-    *a3 = v13;
+    *a3 = v15;
     return result;
   }
   result = *a1;
-  v14 = (char *)(v6 + 8);
+  v16 = (char *)(v6 + 8);
   *(_QWORD *)v6 = *a1;
-  v15 = i;
+  v17 = i;
   *(_DWORD *)(v6 + 2) = 8;
   if ( (unsigned __int16)i < *((_WORD *)a1 + 2) )
   {
     do
     {
-      v16 = *(unsigned __int8 *)v5;
-      if ( v16 > 0x12 )
+      v18 = *(unsigned __int8 *)v5;
+      if ( v18 > 0x12 )
       {
-        v22 = v16 - 19;
-        if ( !v22 )
+        v21 = v18 - 19;
+        if ( !v21 )
         {
-          v18 = (a4 & 0x40) == 0;
-          goto LABEL_24;
+          if ( (a4 & 0x40) == 0 )
+            goto LABEL_45;
+          v20 = 1;
+          goto LABEL_42;
         }
-        v23 = v22 - 1;
-        if ( v23 )
+        v22 = v21 - 1;
+        if ( v22 )
         {
-          if ( v23 != 1 )
+          if ( v22 != 1 )
           {
-LABEL_29:
-            v18 = (a4 & 8) == 0;
-            goto LABEL_24;
+LABEL_37:
+            v23 = (a4 & 8) == 0;
+            goto LABEL_43;
           }
-          v17 = a4 >> 8;
+          v19 = a4 >> 8;
         }
         else
         {
-          v17 = a4 >> 7;
+          v19 = a4 >> 7;
         }
       }
-      else if ( v16 == 18 )
+      else if ( v18 == 18 )
       {
-        v17 = a4 >> 5;
+        v19 = a4 >> 5;
       }
       else
       {
-        if ( v16 < 2 )
-          goto LABEL_29;
-        if ( v16 <= 3 )
-          goto LABEL_28;
-        if ( v16 <= 6 )
-          goto LABEL_29;
-        if ( v16 <= 8 )
-          goto LABEL_28;
-        if ( v16 <= 0xC )
-          goto LABEL_29;
-        if ( v16 <= 0x10 )
-LABEL_28:
-          v17 = a4 >> 3;
+        if ( v18 < 2 )
+          goto LABEL_37;
+        if ( v18 <= 3 )
+          goto LABEL_31;
+        if ( v18 <= 6 )
+          goto LABEL_37;
+        if ( v18 <= 8 )
+          goto LABEL_31;
+        if ( v18 <= 0xC )
+          goto LABEL_37;
+        if ( v18 <= 0x10 )
+LABEL_31:
+          v19 = a4 >> 3;
         else
-          v17 = a4 >> 4;
+          v19 = a4 >> 4;
       }
-      v18 = (v17 & 1) == 0;
-LABEL_24:
-      if ( v18 )
+      v20 = v19 & 1;
+LABEL_42:
+      v23 = v20 == 0;
+LABEL_43:
+      if ( v23 )
       {
-        LOWORD(v19) = v5[1];
+LABEL_45:
+        LOWORD(v24) = v5[1];
+        goto LABEL_46;
       }
-      else
-      {
-        memmove(v14, v5, (unsigned __int16)v5[1]);
-        ++*(_WORD *)(v6 + 4);
-        *(_WORD *)(v6 + 2) += v5[1];
-        v19 = (unsigned __int16)v5[1];
-        v14 += v19;
-      }
-      ++v15;
-      v5 = (_WORD *)((char *)v5 + (unsigned __int16)v19);
+      memmove(v16, v5, (unsigned __int16)v5[1]);
+      ++*(_WORD *)(v6 + 4);
+      *(_WORD *)(v6 + 2) += v5[1];
+      v24 = (unsigned __int16)v5[1];
+      v16 += v24;
+LABEL_46:
+      ++v17;
+      v5 = (_WORD *)((char *)v5 + (unsigned __int16)v24);
       result = *((unsigned __int16 *)a1 + 2);
     }
-    while ( v15 < (unsigned int)result );
+    while ( v17 < (unsigned int)result );
   }
   return result;
 }

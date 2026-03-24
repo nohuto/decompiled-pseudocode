@@ -1,47 +1,33 @@
 /*
- * XREFs of CmpFreeIndexByCell @ 0x140A23514
+ * XREFs of CmpFreeIndexByCell @ 0x14087A624
  * Callers:
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A27FB4 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14087EB14 (CmpLightWeightCleanupModifyKeyDataUoW.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvFreeCell @ 0x14070AC90 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvFreeCell @ 0x140656BC4 (HvFreeCell.c)
  */
 
-signed __int32 __fastcall CmpFreeIndexByCell(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
+char __fastcall CmpFreeIndexByCell(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   unsigned int v2; // ebp
-  _WORD *CellFlat; // rax
-  _WORD *v5; // rdi
-  __int64 v6; // rsi
-  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  _WORD *v4; // rsi
+  __int64 i; // rbx
+  int v7; // [rsp+30h] [rbp+8h] BYREF
+  int v8; // [rsp+34h] [rbp+Ch]
 
-  v8 = 0xFFFFFFFFLL;
+  v7 = -1;
   v2 = BugCheckParameter3;
-  if ( (*(_BYTE *)(BugCheckParameter2 + 140) & 1) != 0 )
-    CellFlat = (_WORD *)HvpGetCellFlat(BugCheckParameter2, BugCheckParameter3, &v8);
-  else
-    CellFlat = (_WORD *)HvpGetCellPaged(BugCheckParameter2, BugCheckParameter3, (unsigned int *)&v8);
-  v5 = CellFlat;
-  if ( *CellFlat == 26994 )
+  v8 = 0;
+  v4 = (_WORD *)(*(__int64 (__fastcall **)(ULONG_PTR, ULONG_PTR, int *))(BugCheckParameter2 + 8))(
+                  BugCheckParameter2,
+                  BugCheckParameter3,
+                  &v7);
+  if ( *v4 == 26994 )
   {
-    v6 = 0LL;
-    if ( CellFlat[1] )
-    {
-      do
-      {
-        HvFreeCell(BugCheckParameter2, *(unsigned int *)&v5[2 * v6 + 2]);
-        v6 = (unsigned int)(v6 + 1);
-      }
-      while ( (unsigned int)v6 < (unsigned __int16)v5[1] );
-    }
+    for ( i = 0LL; (unsigned int)i < (unsigned __int16)v4[1]; i = (unsigned int)(i + 1) )
+      HvFreeCell(BugCheckParameter2, *(unsigned int *)&v4[2 * i + 2]);
   }
-  if ( (*(_BYTE *)(BugCheckParameter2 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter2, &v8);
-  else
-    HvpReleaseCellPaged(BugCheckParameter2, (unsigned int *)&v8);
+  (*(void (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v7);
   return HvFreeCell(BugCheckParameter2, v2);
 }

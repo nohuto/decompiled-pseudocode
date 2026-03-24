@@ -1,9 +1,9 @@
 /*
- * XREFs of PciConfigSpaceHandler @ 0x1C000C800
+ * XREFs of PciConfigSpaceHandler @ 0x1C0018390
  * Callers:
  *     <none>
  * Callees:
- *     PciConfigSpaceHandlerWorker @ 0x1C000C920 (PciConfigSpaceHandlerWorker.c)
+ *     PciConfigSpaceHandlerWorker @ 0x1C00184A0 (PciConfigSpaceHandlerWorker.c)
  */
 
 __int64 __fastcall PciConfigSpaceHandler(
@@ -16,33 +16,43 @@ __int64 __fastcall PciConfigSpaceHandler(
         __int64 a7,
         __int64 a8)
 {
-  __int64 Pool2; // rax
-  __int64 v13; // rdx
+  _OWORD *PoolWithTag; // rax
+  char v13; // cl
+  __int64 v14; // rdx
+  __int64 v15; // rcx
 
-  Pool2 = ExAllocatePool2(64LL, 96LL, 1181770561LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x60uLL, 0x46706341u);
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_DWORD *)Pool2 = a1;
-  *(_QWORD *)(Pool2 + 8) = a2;
-  dword_1C0081AC8 = 0;
-  byte_1C0081ACC = 0;
-  if ( (gdwfAMLI & 4) != 0 )
+  v13 = gdwfAMLI;
+  *PoolWithTag = 0LL;
+  PoolWithTag[1] = 0LL;
+  PoolWithTag[2] = 0LL;
+  PoolWithTag[3] = 0LL;
+  PoolWithTag[4] = 0LL;
+  PoolWithTag[5] = 0LL;
+  *(_DWORD *)PoolWithTag = a1;
+  *((_QWORD *)PoolWithTag + 1) = a2;
+  dword_1C0082908 = 0;
+  pszDest = 0;
+  if ( (v13 & 4) != 0 )
     _InterlockedIncrement(a2 + 2);
-  *(_QWORD *)(Pool2 + 24) = a5;
-  *(_DWORD *)(Pool2 + 32) = a6;
-  *(_QWORD *)(Pool2 + 40) = a7;
-  *(_QWORD *)(Pool2 + 48) = a8;
-  *(_DWORD *)(Pool2 + 16) = a3;
-  *(_DWORD *)(Pool2 + 20) = a4;
-  v13 = *(_QWORD *)(*(_QWORD *)a2 + 104LL);
-  *(_QWORD *)(Pool2 + 56) = v13;
-  if ( v13 )
+  *((_QWORD *)PoolWithTag + 3) = a5;
+  *((_DWORD *)PoolWithTag + 8) = a6;
+  *((_QWORD *)PoolWithTag + 5) = a7;
+  *((_QWORD *)PoolWithTag + 6) = a8;
+  *((_DWORD *)PoolWithTag + 4) = a3;
+  *((_DWORD *)PoolWithTag + 5) = a4;
+  v14 = *(_QWORD *)(*(_QWORD *)a2 + 104LL);
+  *((_QWORD *)PoolWithTag + 7) = v14;
+  if ( v14 )
   {
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
+    dword_1C0082908 = 0;
+    pszDest = 0;
     if ( (gdwfAMLI & 4) != 0 )
-      _InterlockedIncrement((volatile signed __int32 *)(v13 + 8));
+      _InterlockedIncrement((volatile signed __int32 *)(v14 + 8));
   }
-  *(_DWORD *)(Pool2 + 80) = -1;
-  return PciConfigSpaceHandlerWorker(*(_QWORD *)(Pool2 + 56), 0LL, 0LL, Pool2);
+  v15 = *((_QWORD *)PoolWithTag + 7);
+  *((_DWORD *)PoolWithTag + 20) = -1;
+  return PciConfigSpaceHandlerWorker(v15, 0LL, 0LL, PoolWithTag);
 }

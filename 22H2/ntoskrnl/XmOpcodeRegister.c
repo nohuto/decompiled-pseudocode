@@ -1,23 +1,23 @@
 /*
- * XREFs of XmOpcodeRegister @ 0x1403B8A20
+ * XREFs of XmOpcodeRegister @ 0x1403966F0
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
  */
 
-__int64 __fastcall XmOpcodeRegister(__int64 a1)
+__int64 __fastcall XmOpcodeRegister(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v1; // r8d
-  __int64 v2; // rdx
+  __int64 v4; // r8
+  __int64 v5; // rdx
 
-  v1 = *(_DWORD *)(a1 + 112) & 7;
+  v4 = *(_DWORD *)(a1 + 112) & 7;
   *(_DWORD *)(a1 + 120) = *(_BYTE *)(a1 + 138) != 0 ? 3 : 1;
-  v2 = a1 + 4 * (v1 + 6LL);
+  v5 = a1 + 4 * ((unsigned int)v4 + 6LL);
   if ( *(_DWORD *)(a1 + 124) == 36 )
-    XmSetSourceValue(a1, v2);
+    XmSetSourceValue(a1, v5, v4, a4);
   else
-    XmSetDestinationValue(a1, v2);
+    XmSetDestinationValue(a1, v5);
   return 1LL;
 }

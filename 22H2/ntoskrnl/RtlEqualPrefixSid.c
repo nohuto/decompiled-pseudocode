@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlEqualPrefixSid @ 0x1407E391C
+ * XREFs of RtlEqualPrefixSid @ 0x1406D6A8C
  * Callers:
- *     RtlpCopyEffectiveAce @ 0x1406C4B30 (RtlpCopyEffectiveAce.c)
+ *     RtlpCopyEffectiveAce @ 0x1406D66A0 (RtlpCopyEffectiveAce.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 BOOLEAN __stdcall RtlEqualPrefixSid(PSID Sid1, PSID Sid2)
 {
   __int64 v3; // r10
   __int64 v4; // r8
-  int v5; // r9d
-  __int64 v6; // rax
+  __int64 v5; // rax
+  int v6; // r9d
   _DWORD *v7; // r9
   signed __int64 v8; // rdx
 
@@ -36,15 +36,15 @@ BOOLEAN __stdcall RtlEqualPrefixSid(PSID Sid1, PSID Sid2)
   if ( (_BYTE)v3 )
   {
     if ( (_BYTE)v3 != 11 )
-      goto LABEL_15;
-    v5 = *(_DWORD *)((char *)Sid1 + 2);
-    if ( !v5 )
-      v5 = *((unsigned __int16 *)Sid1 + 3) - 2816;
-    v6 = 5LL;
-    if ( v5 )
-LABEL_15:
-      v6 = 1LL;
-    if ( v3 - v6 > 0 )
+      goto LABEL_12;
+    v6 = *(_DWORD *)((char *)Sid1 + 2);
+    if ( !v6 )
+      v6 = *((unsigned __int16 *)Sid1 + 3) - 2816;
+    v5 = 5LL;
+    if ( v6 )
+LABEL_12:
+      v5 = 1LL;
+    if ( v3 - v5 > 0 )
     {
       v7 = (char *)Sid1 + 8;
       v8 = (_BYTE *)Sid2 - (_BYTE *)Sid1;
@@ -52,7 +52,7 @@ LABEL_15:
       {
         ++v4;
         ++v7;
-        if ( v4 >= v3 - v6 )
+        if ( v4 >= v3 - v5 )
           return 1;
       }
       return 0;

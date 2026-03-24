@@ -1,14 +1,14 @@
 /*
- * XREFs of VmColdPagesHint @ 0x1405F89C0
+ * XREFs of VmColdPagesHint @ 0x1405A2710
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ZwUnlockVirtualMemory @ 0x14041E200 (ZwUnlockVirtualMemory.c)
- *     VmpProcessContextLockShared @ 0x140466734 (VmpProcessContextLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpLogColdHint @ 0x1405F9C70 (VmpLogColdHint.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwUnlockVirtualMemory @ 0x1403FD3C0 (ZwUnlockVirtualMemory.c)
+ *     VmpLogColdHint @ 0x1405A3E8C (VmpLogColdHint.c)
+ *     VmpProcessContextLockShared @ 0x1405A4914 (VmpProcessContextLockShared.c)
  */
 
 __int64 __fastcall VmColdPagesHint(unsigned __int64 a1, unsigned __int64 a2, __int64 a3)
@@ -20,20 +20,20 @@ __int64 __fastcall VmColdPagesHint(unsigned __int64 a1, unsigned __int64 a2, __i
   unsigned __int8 v8; // di
   unsigned __int64 v9; // rax
   unsigned __int64 v10; // rcx
-  _QWORD *v11; // rdx
-  unsigned __int64 v12; // rax
+  _QWORD *v12; // rdx
+  unsigned __int64 v13; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v16; // eax
-  bool v17; // zf
-  __int64 v18; // rcx
-  __int64 v20; // [rsp+20h] [rbp-10h]
-  unsigned __int64 v21; // [rsp+28h] [rbp-8h]
-  unsigned __int64 v22; // [rsp+78h] [rbp+48h] BYREF
+  int v17; // eax
+  bool v18; // zf
+  __int64 v19; // rcx
+  __int64 v21; // [rsp+20h] [rbp-10h]
+  unsigned __int64 v22; // [rsp+28h] [rbp-8h]
+  unsigned __int64 v23; // [rsp+78h] [rbp+48h] BYREF
 
-  v22 = 0LL;
-  v4 = KeGetCurrentThread()->ApcState.Process[2].Affinity.StaticBitmap[5];
+  v23 = 0LL;
+  v4 = KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[5];
   if ( !v4 )
     NT_ASSERT("ProcessContext != ((void *)0)");
   if ( *(_QWORD *)(v4 + 72) != a3 )
@@ -41,60 +41,70 @@ __int64 __fastcall VmColdPagesHint(unsigned __int64 a1, unsigned __int64 a2, __i
   v5 = a1 >> 12;
   v6 = (unsigned __int64 *)(v4 + 8);
   v7 = 0LL;
-  v21 = (a1 >> 12) + a2 - 1;
+  v22 = (a1 >> 12) + a2 - 1;
   do
   {
     v8 = VmpProcessContextLockShared((PEX_SPIN_LOCK)v4);
     v9 = *v6;
     if ( (*(_BYTE *)(v4 + 16) & 1) != 0 && v9 )
       v9 ^= (unsigned __int64)v6;
-    while ( v9 )
+    while ( 1 )
     {
+      if ( !v9 )
+        goto LABEL_19;
       if ( v5 <= *(_QWORD *)(v9 + 32) )
-      {
-        if ( v5 >= *(_QWORD *)(v9 + 24) )
-          break;
-        v10 = *(_QWORD *)v9;
-      }
-      else
-      {
-        v10 = *(_QWORD *)(v9 + 8);
-      }
+        break;
+      v10 = *(_QWORD *)(v9 + 8);
+LABEL_14:
       if ( (*(_BYTE *)(v4 + 16) & 1) != 0 && v10 )
         v9 ^= v10;
       else
         v9 = v10;
     }
-    if ( !v9 || (v11 = (_QWORD *)(v9 - 24), v9 == 24) )
+    if ( v5 < *(_QWORD *)(v9 + 24) )
+    {
+      v10 = *(_QWORD *)v9;
+      goto LABEL_14;
+    }
+    v12 = (_QWORD *)(v9 - 24);
+    if ( v9 == 24 )
+LABEL_19:
       NT_ASSERT("GpaMemoryRange != ((void *)0)");
-    v22 = *(_QWORD *)(v11[2] + 24LL);
-    v22 = v5 + v22 - v11[6];
-    v12 = v11[7];
-    if ( v12 >= v21 )
-      v12 = v21;
-    v20 = v12 - v5 + 1;
+    v23 = *(_QWORD *)(v12[2] + 24LL);
+    v23 = v5 + v23 - v12[6];
+    v13 = v12[7];
+    if ( v13 >= v22 )
+      v13 = v22;
+    v21 = v13 - v5 + 1;
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)v4);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v16 = ~(unsigned __int16)(-1LL << (v8 + 1));
-        v17 = (v16 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v16;
-        if ( v17 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v17 = ~(unsigned __int16)(-1LL << (v8 + 1));
+          v18 = (v17 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v17;
+          if ( v18 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v8);
-    v7 += v20;
-    v5 += v20;
-    if ( VmpTraceLoggingProvider && *(_DWORD *)VmpTraceLoggingProvider && tlgKeywordOn(VmpTraceLoggingProvider, 4LL) )
-      VmpLogColdHint(v18, v5, v22);
-    v22 <<= 12;
-    ZwUnlockVirtualMemory(-1LL, (__int64)&v22);
+    v19 = VmpTraceLoggingProvider;
+    v7 += v21;
+    v5 += v21;
+    if ( VmpTraceLoggingProvider )
+    {
+      if ( *(_DWORD *)VmpTraceLoggingProvider && tlgKeywordOn(VmpTraceLoggingProvider, 4LL) )
+        VmpLogColdHint(v19, v5, v23);
+    }
+    v23 <<= 12;
+    ZwUnlockVirtualMemory(-1LL, (__int64)&v23);
   }
   while ( v7 < a2 );
   return 0LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmWorkerHasQueuedPaging @ 0x1C0018ED0
+ * XREFs of VidMmWorkerHasQueuedPaging @ 0x1C0023230
  * Callers:
  *     <none>
  * Callees:
- *     ?WorkerHasQueuedPaging@VIDMM_GLOBAL@@QEAAEXZ @ 0x1C00B55C8 (-WorkerHasQueuedPaging@VIDMM_GLOBAL@@QEAAEXZ.c)
+ *     ?WorkerHasQueuedPaging@VIDMM_GLOBAL@@QEAAEXZ @ 0x1C00B642C (-WorkerHasQueuedPaging@VIDMM_GLOBAL@@QEAAEXZ.c)
  */
 
 unsigned __int8 __fastcall VidMmWorkerHasQueuedPaging(VIDMM_GLOBAL *a1)

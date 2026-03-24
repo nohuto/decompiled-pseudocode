@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipSendWmiIrpToTraceDeviceList @ 0x14081AB80
+ * XREFs of WmipSendWmiIrpToTraceDeviceList @ 0x1407C1634
  * Callers:
- *     WmiTraceRundownNotify @ 0x14081AA90 (WmiTraceRundownNotify.c)
- *     WmiSetNetworkNotify @ 0x1409DE1A0 (WmiSetNetworkNotify.c)
+ *     WmiTraceRundownNotify @ 0x1407C1544 (WmiTraceRundownNotify.c)
+ *     WmiSetNetworkNotify @ 0x140933548 (WmiSetNetworkNotify.c)
  * Callees:
- *     IoInitializeIrp @ 0x140229D70 (IoInitializeIrp.c)
- *     IoAllocateIrp @ 0x1402AAB20 (IoAllocateIrp.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
- *     WmipForwardWmiIrp @ 0x140783A9C (WmipForwardWmiIrp.c)
+ *     IoInitializeIrp @ 0x1402A73A0 (IoInitializeIrp.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
+ *     WmipForwardWmiIrp @ 0x1406396EC (WmipForwardWmiIrp.c)
  */
 
 __int64 __fastcall WmipSendWmiIrpToTraceDeviceList(

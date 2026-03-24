@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetupTimeIncrement @ 0x1403D94C0
+ * XREFs of KiSetupTimeIncrement @ 0x1403B4944
  * Callers:
- *     KeInitializeClock @ 0x140B27884 (KeInitializeClock.c)
+ *     KeInitializeClock @ 0x140A4B7CC (KeInitializeClock.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     RtlGenerateQpcToIncrementConstants @ 0x1403A4A60 (RtlGenerateQpcToIncrementConstants.c)
- *     RtlpComputeFraction @ 0x1403A4A9C (RtlpComputeFraction.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     RtlGenerateQpcToIncrementConstants @ 0x140397FCC (RtlGenerateQpcToIncrementConstants.c)
+ *     RtlpComputeFraction @ 0x140398008 (RtlpComputeFraction.c)
  */
 
 __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
@@ -50,7 +50,7 @@ __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
   KiTickOffset = v3;
   v13 = 0;
   KiMaximumIncrementReciprocal = RtlpComputeFraction(1u, v3, &v13);
-  KeNumberProcessorsGroup0[1] = -v13;
+  KeNumberProcessorsGroup0[3] = -v13;
   v7 = KeQueryPerformanceCounter(&PerformanceFrequency);
   v8 = PerformanceFrequency;
   KeTimeAdjustmentFrequency = PerformanceFrequency.QuadPart;

@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpThreadEnumCallback @ 0x140827EF0
+ * XREFs of EtwpThreadEnumCallback @ 0x140792AE0
  * Callers:
- *     EtwpProcessEnumCallback @ 0x140827970 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x1407925D0 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpTraceThreadRundown @ 0x14038C22C (EtwpTraceThreadRundown.c)
- *     EtwpTraceThreadRundownWithStack @ 0x140601B3C (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpTraceThreadRundown @ 0x1403A9640 (EtwpTraceThreadRundown.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x1405AB7CC (EtwpTraceThreadRundownWithStack.c)
  */
 
 __int64 __fastcall EtwpThreadEnumCallback(__int64 a1, __int64 a2, __int64 a3)
 {
   bool v3; // zf
 
-  if ( (*(_DWORD *)(a2 + 1376) & 1) == 0 || !*(_BYTE *)(a2 + 4) )
+  if ( (*(_DWORD *)(a2 + 1296) & 1) == 0 || !*(_BYTE *)(a2 + 4) )
   {
     v3 = *(_BYTE *)(a3 + 66) == 0;
     *(_DWORD *)(a3 + 40) = 6297859;

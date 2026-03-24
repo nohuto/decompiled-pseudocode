@@ -1,193 +1,101 @@
 /*
- * XREFs of DxgkCbReportDiagnostic @ 0x1C004F970
+ * XREFs of DxgkCbReportDiagnostic @ 0x1C004CFB0
  * Callers:
  *     <none>
  * Callees:
- *     DpiGetDxgAdapter @ 0x1C000B430 (DpiGetDxgAdapter.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     DpiGetDxgAdapter @ 0x1C0013A20 (DpiGetDxgAdapter.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DxgkCbReportDiagnostic(__int64 a1, unsigned int *a2)
 {
-  int v4; // edx
-  int v5; // ecx
-  int v6; // r8d
-  __int64 DxgAdapter; // r9
-  int v8; // edx
-  int v9; // ecx
-  int v10; // r8d
-  unsigned int v11; // ecx
-  int v12; // edx
-  int v13; // ecx
-  int v14; // r8d
-  int v15; // edx
-  int v16; // ecx
-  int v17; // r8d
-  __int64 v18; // rdx
-  int v19; // edx
-  int v20; // ecx
-  int v21; // r8d
-  int v22; // edx
-  int v23; // ecx
-  int v24; // r8d
-  unsigned int v25; // eax
-  int v26; // edx
-  int v27; // ecx
-  int v28; // r8d
+  _QWORD *v3; // rax
+  unsigned int v4; // ebx
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 DxgAdapter; // r8
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  _QWORD *v11; // rax
 
   if ( KeGetCurrentIrql() > 2u )
   {
-    WdLogSingleEntry5(0LL, 275LL, 20LL, 0LL, 0LL, 0LL);
+    v3 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+    v3[3] = 275LL;
+    v3[4] = 20LL;
+    v3[5] = 0LL;
+    v3[6] = 0LL;
+    v3[7] = 0LL;
+    WdLogEvent5_WdCriticalError(v3);
     return 3221225485LL;
   }
+  v4 = 0;
   if ( !a1 )
   {
-    WdLogSingleEntry1(2LL, 1LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v5,
-          v4,
-          v6,
-          0LL,
-          0,
-          -1,
-          L"NULL device handle passed to DxgkCbReportDiagnostic (%d).",
-          1LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v5 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v5 + 24) = 1LL;
+LABEL_5:
+    WdLogEvent5_WdError(v5);
     return 3221225485LL;
   }
-  DxgAdapter = DpiGetDxgAdapter(a1);
+  DxgAdapter = DpiGetDxgAdapter(a1, (__int64)a2);
   if ( !DxgAdapter )
   {
-    WdLogSingleEntry1(2LL, 2LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v9,
-        v8,
-        v10,
-        0LL,
-        0,
-        -1,
-        L"Invalid device handle passed to DxgkCbReportDiagnostic (%d).",
-        2LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+    v5 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v5 + 24) = 2LL;
+    goto LABEL_5;
+  }
+  v9 = *a2;
+  if ( !(_DWORD)v9 )
+  {
+    v5 = WdLogNewEntry5_WdError(v9, v6);
+    *(_QWORD *)(v5 + 24) = 3LL;
+    goto LABEL_5;
+  }
+  if ( (((_DWORD)v9 - 1) & (unsigned int)v9) != 0 )
+  {
+    v5 = WdLogNewEntry5_WdError(v9, v6);
+    *(_QWORD *)(v5 + 24) = *a2;
+    *(_QWORD *)(v5 + 32) = 4LL;
+    goto LABEL_5;
+  }
+  v10 = a2[1];
+  if ( !(_DWORD)v10 )
+  {
+    v5 = WdLogNewEntry5_WdError(v9, v10);
+    *(_QWORD *)(v5 + 24) = 6LL;
+    goto LABEL_5;
+  }
+  if ( (((_DWORD)v10 - 1) & (unsigned int)v10) != 0 )
+  {
+    v5 = WdLogNewEntry5_WdError(v9, v10);
+    *(_QWORD *)(v5 + 24) = a2[1];
+    *(_QWORD *)(v5 + 32) = 7LL;
+    goto LABEL_5;
+  }
+  do
+  {
+    if ( _bittest((const int *)&v9, v4) )
+      break;
+    ++v4;
+  }
+  while ( v4 < 2 );
+  if ( v4 >= 2 )
+  {
+    v5 = WdLogNewEntry5_WdError(v9, v10);
+    *(_QWORD *)(v5 + 24) = *a2;
+    *(_QWORD *)(v5 + 32) = 5LL;
+    goto LABEL_5;
+  }
+  if ( (*(_DWORD *)(DxgAdapter + 4LL * v4 + 4384) & *(_DWORD *)(DxgAdapter + 4LL * v4 + 4392) & (unsigned int)v10) == 0 )
+  {
+    v11 = (_QWORD *)WdLogNewEntry5_WdWarning(v4, v10, DxgAdapter);
+    v11[3] = *a2;
+    v11[4] = a2[1];
+    v11[5] = 8LL;
+    WdLogEvent5_WdWarning(v11);
     return 3221225485LL;
   }
-  v11 = *a2;
-  if ( !*a2 )
-  {
-    WdLogSingleEntry1(2LL, 3LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v13,
-        v12,
-        v14,
-        0LL,
-        0,
-        -1,
-        L"Zero diagnostic categories set for DxgkCbReportDiagnostic. (%d)",
-        3LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    return 3221225485LL;
-  }
-  if ( ((v11 - 1) & v11) != 0 )
-  {
-    WdLogSingleEntry2(2LL, *a2, 4LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v16,
-        v15,
-        v17,
-        0LL,
-        0,
-        -1,
-        L"Multiple diagnostic categories: 0x%I64x set for DxgkCbReportDiagnostic. (%d)",
-        *a2,
-        4LL,
-        0LL,
-        0LL,
-        0LL);
-    return 3221225485LL;
-  }
-  v18 = a2[1];
-  if ( !(_DWORD)v18 )
-  {
-    WdLogSingleEntry1(2LL, 6LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v20,
-        v19,
-        v21,
-        0LL,
-        0,
-        -1,
-        L"Zero diagnostic types set for DxgkCbReportDiagnostic. (%d)",
-        6LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    return 3221225485LL;
-  }
-  if ( (((_DWORD)v18 - 1) & (unsigned int)v18) != 0 )
-  {
-    WdLogSingleEntry2(2LL, v18, 7LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v23,
-        v22,
-        v24,
-        0LL,
-        0,
-        -1,
-        L"Multiple diagnostic types: 0x%I64x set for DxgkCbReportDiagnostic. (%d)",
-        a2[1],
-        7LL,
-        0LL,
-        0LL,
-        0LL);
-    return 3221225485LL;
-  }
-  v25 = 0;
-  while ( !_bittest((const int *)&v11, v25) )
-  {
-    if ( ++v25 >= 2 )
-    {
-      WdLogSingleEntry2(2LL, *a2, 5LL);
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v27,
-          v26,
-          v28,
-          0LL,
-          0,
-          -1,
-          L"Undefined diagnostic category 0x%I64x reported to DxgkCbReportDiagnostic. (%d)",
-          *a2,
-          5LL,
-          0LL,
-          0LL,
-          0LL);
-      return 3221225485LL;
-    }
-  }
-  if ( (*(_DWORD *)(DxgAdapter + 4LL * v25 + 4620) & *(_DWORD *)(DxgAdapter + 4LL * v25 + 4628) & (unsigned int)v18) == 0 )
-  {
-    WdLogSingleEntry3(3LL, *a2, a2[1], 8LL);
-    return 3221225485LL;
-  }
-  return ((__int64 (__fastcall *)(unsigned int *))(&DiagnosticCategoryHandler)[v25])(a2);
+  return ((__int64 (__fastcall *)(unsigned int *))(&DiagnosticCategoryHandler)[v4])(a2);
 }

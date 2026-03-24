@@ -1,48 +1,44 @@
 /*
- * XREFs of MiMakeEntireHugePfnGood @ 0x140587900
+ * XREFs of MiMakeEntireHugePfnGood @ 0x1403F394C
  * Callers:
- *     MiHotRemoveHugeRange @ 0x140586A44 (MiHotRemoveHugeRange.c)
+ *     MiHotRemoveHugeRange @ 0x140532CF8 (MiHotRemoveHugeRange.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     MiHugePfnPartition @ 0x14058727C (MiHugePfnPartition.c)
- *     MiUnlinkHugeRange @ 0x1405891A4 (MiUnlinkHugeRange.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     MiHugePfnPartition @ 0x1403F38E8 (MiHugePfnPartition.c)
+ *     MiUnlinkHugeRange @ 0x140533B5C (MiUnlinkHugeRange.c)
  */
 
-unsigned __int64 *__fastcall MiMakeEntireHugePfnGood(__int64 a1)
+unsigned __int64 *__fastcall MiMakeEntireHugePfnGood(int a1)
 {
-  unsigned __int64 v2; // rbp
-  _QWORD *v3; // rsi
-  __int64 v4; // r15
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // r14
-  unsigned __int64 *v8; // rdi
-  unsigned __int64 v9; // rax
+  _QWORD *v1; // rdi
+  __int64 v2; // rax
+  unsigned __int64 v3; // r8
+  __int64 v4; // r9
+  unsigned __int64 *v5; // rsi
+  unsigned __int64 *v6; // rbx
+  unsigned __int64 v7; // rcx
 
-  v2 = a1 & 0x3FFFFF;
-  v3 = (_QWORD *)(qword_140C52968 + 8 * v2);
-  v4 = MiHugePfnPartition(v3);
-  v7 = *(_QWORD *)(v4 + 16)
-     + 24512LL * *((unsigned int *)MiSearchNumaNodeTable((unsigned __int64)(unsigned int)v2 << 18) + 2);
-  v8 = *(unsigned __int64 **)(v7 + 22640);
-  while ( v8 )
+  v1 = (_QWORD *)(qword_140C4E670 + 8 * (*(_QWORD *)&a1 & 0x3FFFFLL));
+  v2 = MiHugePfnPartition(v1);
+  v5 = (unsigned __int64 *)(v2 + 4896);
+  v6 = *(unsigned __int64 **)(v2 + 4896);
+  while ( v6 )
   {
-    v9 = v8[3] & 0x3FFFFF;
-    if ( v2 <= v9 )
+    v7 = v4 & v6[3];
+    if ( v3 > v7 )
     {
-      if ( v2 >= v9 )
-        break;
-      v8 = (unsigned __int64 *)*v8;
+      v6 = (unsigned __int64 *)v6[1];
     }
     else
     {
-      v8 = (unsigned __int64 *)v8[1];
+      if ( v3 >= v7 )
+        break;
+      v6 = (unsigned __int64 *)*v6;
     }
   }
-  if ( (*(_DWORD *)v3 & 0x1C00000) == 0x1000000LL )
-    MiUnlinkHugeRange(v4, a1, v5, v6);
-  RtlAvlRemoveNode((unsigned __int64 *)(v7 + 22640), v8);
-  *v3 &= ~0x1000000000000uLL;
-  return v8;
+  if ( (*(_DWORD *)v1 & 0x1C0000) == 0x100000LL )
+    MiUnlinkHugeRange(v2);
+  RtlAvlRemoveNode(v5, v6);
+  *v1 &= ~0x10000000000uLL;
+  return v6;
 }

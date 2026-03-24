@@ -1,15 +1,16 @@
 /*
- * XREFs of KeFindFirstSetRightGroupAffinity @ 0x1402FE230
+ * XREFs of KeFindFirstSetRightGroupAffinity @ 0x14027B530
  * Callers:
- *     MiAddZeroingThreads @ 0x14024576C (MiAddZeroingThreads.c)
- *     MiReduceZeroingThreads @ 0x140266CA8 (MiReduceZeroingThreads.c)
- *     KiCallInterruptServiceRoutine @ 0x140294110 (KiCallInterruptServiceRoutine.c)
- *     KiIntPartGetLowestClassProcessorInMask @ 0x1402FE1C4 (KiIntPartGetLowestClassProcessorInMask.c)
- *     MiSetIdealProcessorThread @ 0x14035CA04 (MiSetIdealProcessorThread.c)
- *     HalpTimerConfigureInterrupt @ 0x1403AEA08 (HalpTimerConfigureInterrupt.c)
- *     MiTimeSingleLargePageZero @ 0x1403D4314 (MiTimeSingleLargePageZero.c)
- *     HalpIommuConfigureInterrupt @ 0x140517DCC (HalpIommuConfigureInterrupt.c)
- *     PpmRegisterPerfStates @ 0x140848C18 (PpmRegisterPerfStates.c)
+ *     KiCallInterruptServiceRoutine @ 0x14027A9B0 (KiCallInterruptServiceRoutine.c)
+ *     MiReduceZeroingThreads @ 0x1402BB870 (MiReduceZeroingThreads.c)
+ *     MiSetIdealProcessorThread @ 0x1402ECE20 (MiSetIdealProcessorThread.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x140378014 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A2584 (HalpTimerConfigureInterrupt.c)
+ *     MiAddZeroingThreads @ 0x1403A55A0 (MiAddZeroingThreads.c)
+ *     MiTimeSingleLargePageZero @ 0x1403B0510 (MiTimeSingleLargePageZero.c)
+ *     HalpIommuConfigureInterrupt @ 0x1404CBC80 (HalpIommuConfigureInterrupt.c)
+ *     ExProcessorCounterSetCallback @ 0x14064DC60 (ExProcessorCounterSetCallback.c)
+ *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
  * Callees:
  *     <none>
  */

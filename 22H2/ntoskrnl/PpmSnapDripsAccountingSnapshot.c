@@ -1,45 +1,45 @@
 /*
- * XREFs of PpmSnapDripsAccountingSnapshot @ 0x140585EA0
+ * XREFs of PpmSnapDripsAccountingSnapshot @ 0x140567880
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C78A0 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570498 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PpmConvertTime @ 0x1402553F0 (PpmConvertTime.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopDiagTraceDripsHistogram @ 0x140592CE4 (PopDiagTraceDripsHistogram.c)
- *     PpmEventTraceDripsAccountingSnapshot @ 0x140998EEC (PpmEventTraceDripsAccountingSnapshot.c)
+ *     PpmConvertTime @ 0x14034523C (PpmConvertTime.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopDiagTraceDripsHistogram @ 0x140571778 (PopDiagTraceDripsHistogram.c)
+ *     PpmEventTraceDripsAccountingSnapshot @ 0x1408F30D4 (PpmEventTraceDripsAccountingSnapshot.c)
  */
 
 __int64 __fastcall PpmSnapDripsAccountingSnapshot(__int64 a1, int a2, int a3)
 {
   __int64 result; // rax
-  __int64 v5; // r11
-  int v6; // ebp
-  __int64 v8; // r14
-  _QWORD *v9; // rbx
-  unsigned __int64 v10; // rax
-  __int64 v11; // rcx
-  __int64 v12; // r11
-  int v13; // r9d
-  _QWORD v14[26]; // [rsp+30h] [rbp-F8h] BYREF
+  __int64 v5; // rbx
+  int v6; // r15d
+  __int64 v8; // rsi
+  _QWORD *v9; // rdi
+  __int64 v10; // rcx
+  int v11; // r9d
+  _QWORD v12[26]; // [rsp+30h] [rbp-108h] BYREF
 
-  result = (unsigned int)dword_140CF7E40;
+  result = (unsigned int)dword_140C50080;
   v5 = 0LL;
   v6 = PopWnfCsEnterScenarioId;
-  if ( PpmPlatformStates && dword_140CF7E40 != -1 )
+  if ( PpmPlatformStates && dword_140C50080 != -1 )
   {
     v8 = 26LL;
-    v9 = (_QWORD *)(1016LL * (unsigned int)dword_140CF7E40 + *(_QWORD *)(PpmPlatformStates + 48) + 208LL);
+    v9 = (_QWORD *)(1008LL * (unsigned int)dword_140C50080 + *(_QWORD *)(PpmPlatformStates + 48) + 200LL);
     do
     {
-      v10 = PpmConvertTime(*v9 - *(_QWORD *)((char *)&PpmDripsAccountingSnapshot + v5), PopQpcFrequency, 0x989680uLL);
-      *(_QWORD *)((char *)v14 + v12) = v10;
-      v5 = v12 + 8;
+      v12[v5] = PpmConvertTime(
+                  *v9 - *(_QWORD *)((char *)&PpmDripsAccountingSnapshot + v5 * 8),
+                  PopQpcFrequency,
+                  0x989680uLL);
+      ++v5;
       v9 += 4;
       --v8;
     }
     while ( v8 );
-    PpmEventTraceDripsAccountingSnapshot(v11, v14);
-    return PopDiagTraceDripsHistogram(v6, a2, a3, v13, (__int64)v14);
+    PpmEventTraceDripsAccountingSnapshot(v10, v12);
+    return PopDiagTraceDripsHistogram(v6, a2, a3, v11, (__int64)v12);
   }
   return result;
 }

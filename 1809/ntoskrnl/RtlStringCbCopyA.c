@@ -2,9 +2,9 @@
  * XREFs of RtlStringCbCopyA @ 0x140011EF8
  * Callers:
  *     PfpPrivSourceEnum @ 0x1405B1B60 (PfpPrivSourceEnum.c)
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
- *     ObpRegisterObject @ 0x14086362C (ObpRegisterObject.c)
- *     EtwpLogRefSetAutoMark @ 0x1408BEB8C (EtwpLogRefSetAutoMark.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
+ *     ObpRegisterObject @ 0x14086360C (ObpRegisterObject.c)
+ *     EtwpLogRefSetAutoMark @ 0x1408BEB6C (EtwpLogRefSetAutoMark.c)
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  *     IopStoreArcInformation @ 0x1409DC2D4 (IopStoreArcInformation.c)
  * Callees:

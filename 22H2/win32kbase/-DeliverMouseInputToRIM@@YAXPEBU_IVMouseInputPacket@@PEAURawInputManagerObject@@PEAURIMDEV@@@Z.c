@@ -1,11 +1,12 @@
 /*
- * XREFs of ?DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C01ECED4
+ * XREFs of ?DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C01B3E5C
  * Callers:
- *     ?ivHandleMouseInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EDC60 (-ivHandleMouseInputPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
+ *     ?ivHandleMouseInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B8740 (-ivHandleMouseInputPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     RIMQueueMouseInput @ 0x1C0197AEC (RIMQueueMouseInput.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     RIMQueueMouseInput @ 0x1C016A46C (RIMQueueMouseInput.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175060 (rimProcessDeviceBufferAndStartRead.c)
  */
 
 void __fastcall DeliverMouseInputToRIM(
@@ -13,16 +14,16 @@ void __fastcall DeliverMouseInputToRIM(
         struct RawInputManagerObject *a2,
         struct RIMDEV *a3)
 {
-  char *v3; // rbx
+  char *v3; // rsi
   unsigned int v7; // r9d
-  _WORD *v8; // r8
-  _WORD *v9; // r10
-  __int64 v10; // r11
+  _WORD *v8; // r10
+  _WORD *v9; // r11
+  __int64 v10; // rcx
   __int16 v11; // ax
   _OWORD v12[24]; // [rsp+20h] [rbp-1A8h] BYREF
 
-  v3 = (char *)a2 + 760;
-  RIMLockExclusive((__int64)a2 + 760);
+  v3 = (char *)a2 + 568;
+  RIMLockExclusive((__int64)a2 + 568);
   v7 = *((_DWORD *)a1 + 8);
   if ( v7 )
   {
@@ -32,21 +33,22 @@ void __fastcall DeliverMouseInputToRIM(
     do
     {
       v11 = *v8;
-      v8 += 24;
+      v8 += 18;
       *(v9 - 2) = v11;
-      *(v9 - 1) = *(v8 - 22);
-      *v9 = *(v8 - 20);
+      *(v9 - 1) = *(v8 - 16);
+      *v9 = *(v8 - 14);
       v9 += 12;
-      *(v9 - 11) = *(v8 - 18);
-      *((_DWORD *)v9 - 5) = *((_DWORD *)v8 - 8);
-      *((_DWORD *)v9 - 4) = *((_DWORD *)v8 - 7);
-      *((_DWORD *)v9 - 3) = *((_DWORD *)v8 - 6);
-      *((_DWORD *)v9 - 2) = *((_DWORD *)v8 - 5);
+      *(v9 - 11) = *(v8 - 12);
+      *((_DWORD *)v9 - 5) = *((_DWORD *)v8 - 5);
+      *((_DWORD *)v9 - 4) = *((_DWORD *)v8 - 4);
+      *((_DWORD *)v9 - 3) = *((_DWORD *)v8 - 3);
+      *((_DWORD *)v9 - 2) = *((_DWORD *)v8 - 2);
       --v10;
     }
     while ( v10 );
   }
   RIMQueueMouseInput(a2, a3, v12, v7);
+  rimProcessDeviceBufferAndStartRead(a2, a3, 1);
   *((_QWORD *)v3 + 1) = 0LL;
   ExReleasePushLockExclusiveEx(v3, 0LL);
   KeLeaveCriticalRegion();

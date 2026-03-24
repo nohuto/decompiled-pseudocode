@@ -1,21 +1,21 @@
 /*
- * XREFs of Control_WdfEvtTimerForTransferTimeout @ 0x1C00431B0
+ * XREFs of Control_WdfEvtTimerForTransferTimeout @ 0x1C0040490
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     TR_QueueDpcForTransferCompletion @ 0x1C000F2B4 (TR_QueueDpcForTransferCompletion.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_DDi @ 0x1C0041F7C (WPP_RECORDER_SF_DDi.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
  */
 
 void __fastcall Control_WdfEvtTimerForTransferTimeout(__int64 a1)
 {
   char v1; // si
-  char v2; // r15
+  char v2; // r14
   __int64 v3; // rax
   __int64 v4; // rbx
-  __int64 v5; // r14
+  __int64 v5; // rbp
   __int64 v6; // rcx
   int v7; // edx
   KIRQL v8; // al
@@ -27,7 +27,7 @@ void __fastcall Control_WdfEvtTimerForTransferTimeout(__int64 a1)
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          v3,
-         off_1C0063388);
+         off_1C0060388);
   v5 = *(_QWORD *)(v4 + 344);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
@@ -39,7 +39,7 @@ void __fastcall Control_WdfEvtTimerForTransferTimeout(__int64 a1)
       v7,
       *(unsigned __int8 *)(*(_QWORD *)(v4 + 48) + 135LL),
       40,
-      (__int64)&WPP_1132998d7a983e6252cacd8244985166_Traceguids,
+      (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v4 + 48) + 135LL),
       *(_DWORD *)(v6 + 144),
       *(_QWORD *)(v5 + 24));
@@ -59,7 +59,7 @@ void __fastcall Control_WdfEvtTimerForTransferTimeout(__int64 a1)
     v9 = *(_QWORD *)(v4 + 56);
     _m_prefetchw((const void *)(v9 + 32));
     if ( (_InterlockedOr((volatile signed __int32 *)(v9 + 32), 1u) & 1) == 0 )
-      ESM_AddEvent((KSPIN_LOCK *)(v9 + 296), 130);
+      ESM_AddEvent((KSPIN_LOCK *)(v9 + 288), 130);
   }
   *(_BYTE *)(v4 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 96));
   if ( *(_DWORD *)(v5 + 116) == 2 && (!v2 || (*(_DWORD *)(v4 + 352) & 0xA) != 0) )

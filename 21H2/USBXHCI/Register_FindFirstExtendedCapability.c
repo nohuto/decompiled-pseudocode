@@ -1,10 +1,10 @@
 /*
- * XREFs of Register_FindFirstExtendedCapability @ 0x1C0017208
+ * XREFs of Register_FindFirstExtendedCapability @ 0x1C0018F9C
  * Callers:
- *     RootHub_PrepareHardware @ 0x1C006F968 (RootHub_PrepareHardware.c)
- *     Register_ParseCapabilityRegister @ 0x1C0070B8C (Register_ParseCapabilityRegister.c)
+ *     RootHub_PrepareHardware @ 0x1C006F400 (RootHub_PrepareHardware.c)
+ *     Register_ParseCapabilityRegister @ 0x1C006FA80 (Register_ParseCapabilityRegister.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
  */
 
 unsigned int *__fastcall Register_FindFirstExtendedCapability(__int64 a1, unsigned __int8 a2)

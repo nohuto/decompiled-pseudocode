@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlCheckTokenMembershipEx @ 0x1400DCB10
+ * XREFs of RtlCheckTokenMembershipEx @ 0x1400DCB30
  * Callers:
- *     RtlCheckTokenMembership @ 0x1400DCAF0 (RtlCheckTokenMembership.c)
- *     RtlCapabilityCheck @ 0x1408938E0 (RtlCapabilityCheck.c)
- *     RtlpCapabilityCheckSystemCapability @ 0x140894238 (RtlpCapabilityCheckSystemCapability.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A30 (ExpFirmwareAccessAppContainerCheck.c)
- *     ExpUmdfSidCheck @ 0x1408D32F0 (ExpUmdfSidCheck.c)
+ *     RtlCheckTokenMembership @ 0x1400DCB10 (RtlCheckTokenMembership.c)
+ *     RtlCapabilityCheck @ 0x1408938C0 (RtlCapabilityCheck.c)
+ *     RtlpCapabilityCheckSystemCapability @ 0x140894218 (RtlpCapabilityCheckSystemCapability.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A10 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExpUmdfSidCheck @ 0x1408D32D0 (ExpUmdfSidCheck.c)
  * Callees:
  *     SeAccessCheckWithHint @ 0x1400157C0 (SeAccessCheckWithHint.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwDuplicateToken @ 0x1401B89B0 (ZwDuplicateToken.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlInitializeSidEx @ 0x1402EDED0 (RtlInitializeSidEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwDuplicateToken @ 0x1401B89D0 (ZwDuplicateToken.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlInitializeSidEx @ 0x1402EDFD0 (RtlInitializeSidEx.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x1406555A0 (RtlAddAccessAllowedAce.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1406555D0 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140655630 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1406555B0 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140655610 (RtlSetOwnerSecurityDescriptor.c)
  */
 
 __int64 __fastcall RtlCheckTokenMembershipEx(HANDLE ExistingTokenHandle, PSID Owner, int a3, _BYTE *a4)

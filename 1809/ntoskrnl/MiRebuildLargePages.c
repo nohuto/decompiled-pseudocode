@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRebuildLargePages @ 0x1402CE550
+ * XREFs of MiRebuildLargePages @ 0x1402CE650
  * Callers:
  *     <none>
  * Callees:
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiNodeFreeZeroPages @ 0x1400EE2D4 (MiNodeFreeZeroPages.c)
- *     MiNodeLargeFreeZeroPages @ 0x1400EE908 (MiNodeLargeFreeZeroPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetNodeStandbyPageCount @ 0x1402C02B0 (MiGetNodeStandbyPageCount.c)
- *     MiRebuildLargePage @ 0x1402CE2E4 (MiRebuildLargePage.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiNodeFreeZeroPages @ 0x1400EE2F4 (MiNodeFreeZeroPages.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1400EE928 (MiNodeLargeFreeZeroPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetNodeStandbyPageCount @ 0x1402C03B0 (MiGetNodeStandbyPageCount.c)
+ *     MiRebuildLargePage @ 0x1402CE3E4 (MiRebuildLargePage.c)
  */
 
 void __fastcall MiRebuildLargePages(unsigned __int64 a1)

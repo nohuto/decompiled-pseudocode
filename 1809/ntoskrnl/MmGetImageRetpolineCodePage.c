@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetImageRetpolineCodePage @ 0x1406D05A0
+ * XREFs of MmGetImageRetpolineCodePage @ 0x1406D0580
  * Callers:
  *     <none>
  * Callees:
- *     MiIsRetpolineEnabled @ 0x1400DA550 (MiIsRetpolineEnabled.c)
- *     MiLookupDataTableEntry @ 0x1400DA570 (MiLookupDataTableEntry.c)
+ *     MiIsRetpolineEnabled @ 0x1400DA570 (MiIsRetpolineEnabled.c)
+ *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
  */
 
 __int64 __fastcall MmGetImageRetpolineCodePage(__int64 a1, _QWORD *a2)

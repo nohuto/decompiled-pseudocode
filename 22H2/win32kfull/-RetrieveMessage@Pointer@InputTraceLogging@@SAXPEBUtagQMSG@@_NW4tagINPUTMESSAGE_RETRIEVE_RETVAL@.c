@@ -1,75 +1,80 @@
 /*
- * XREFs of ?RetrieveMessage@Pointer@InputTraceLogging@@SAXPEBUtagQMSG@@_NW4tagINPUTMESSAGE_RETRIEVE_RETVAL@@@Z @ 0x1C01508A8
+ * XREFs of ?RetrieveMessage@Pointer@InputTraceLogging@@SAXPEBUtagQMSG@@_NW4tagINPUTMESSAGE_RETRIEVE_RETVAL@@@Z @ 0x1C01E0B94
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     ?DiscardPointerMessage@@YA?AW4tagINPUTMESSAGE_RETRIEVE_RETVAL@@PEAUtagTHREADINFO@@PEAUtagQMSG@@PEAUtagWND@@PEAUtagMSG@@@Z @ 0x1C01C58C8 (-DiscardPointerMessage@@YA-AW4tagINPUTMESSAGE_RETRIEVE_RETVAL@@PEAUtagTHREADINFO@@PEAUtagQMSG@@P.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?DiscardPointerMessage@@YA?AW4tagINPUTMESSAGE_RETRIEVE_RETVAL@@PEAUtagTHREADINFO@@PEAUtagQMSG@@PEAUtagWND@@PEAUtagMSG@@@Z @ 0x1C01F0884 (-DiscardPointerMessage@@YA-AW4tagINPUTMESSAGE_RETRIEVE_RETVAL@@PEAUtagTHREADINFO@@PEAUtagQMSG@@P.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0041D94 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$01@@U1@U?$_tlgWrapperByVal@$03@@U3@U?$_tlgWrapSz@D@@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$01@@3AEBU?$_tlgWrapperByVal@$03@@5AEBU?$_tlgWrapSz@D@@5@Z @ 0x1C01B49C0 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$01@@U1@U-$_tlgWrapperByVal@$_ea_1C01B49C0.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$01@@U1@U?$_tlgWrapperByVal@$03@@U3@U?$_tlgWrapSz@D@@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$01@@3AEBU?$_tlgWrapperByVal@$03@@5AEBU?$_tlgWrapSz@D@@5@Z @ 0x1C01DF420 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$01@@U1@U-$_tlgWrapperByVal@$_ea_1C01DF420.c)
  */
 
-void InputTraceLogging::Pointer::RetrieveMessage()
+void __fastcall InputTraceLogging::Pointer::RetrieveMessage(__int64 a1, unsigned __int8 a2, int a3)
 {
-  int v0; // r9d
-  __int64 v1; // r10
-  int v2; // r11d
-  int v3; // r9d
-  int v4; // r9d
-  int v5; // r9d
-  const char *v6; // rax
-  int v7; // [rsp+60h] [rbp+27h] BYREF
-  int v8; // [rsp+64h] [rbp+2Bh] BYREF
-  __int64 v9; // [rsp+68h] [rbp+2Fh] BYREF
-  __int64 v10; // [rsp+70h] [rbp+37h] BYREF
-  __int64 v11; // [rsp+78h] [rbp+3Fh] BYREF
-  __int64 v12; // [rsp+80h] [rbp+47h] BYREF
-  __int64 v13; // [rsp+B8h] [rbp+7Fh] BYREF
+  __int64 v3; // r9
+  int v4; // r10d
+  __int16 v5; // r11
+  __int64 v6; // rbx
+  __int64 v7; // r8
+  const char *v8; // rax
+  int v9; // [rsp+60h] [rbp+27h] BYREF
+  int v10; // [rsp+64h] [rbp+2Bh] BYREF
+  __int64 v11; // [rsp+68h] [rbp+2Fh] BYREF
+  __int64 v12; // [rsp+70h] [rbp+37h] BYREF
+  __int64 v13; // [rsp+78h] [rbp+3Fh] BYREF
+  __int64 v14; // [rsp+80h] [rbp+47h] BYREF
+  __int64 v15; // [rsp+B8h] [rbp+7Fh] BYREF
 
-  if ( (unsigned int)dword_1C0359080 > 4 && tlgKeywordOn((__int64)&dword_1C0359080, 32LL) )
+  if ( (unsigned int)dword_1C032FB20 > 4 && (qword_1C032FB30 & 0x20) != 0 && (qword_1C032FB38 & 0x20) == qword_1C032FB38 )
   {
-    v7 = v2;
-    v3 = v0 - 1;
-    if ( v3 )
+    v3 = *(unsigned int *)(a1 + 24);
+    v4 = *(unsigned __int16 *)(a1 + 34);
+    v5 = *(_WORD *)(a1 + 32);
+    v6 = *(_QWORD *)(a1 + 136);
+    v9 = a2;
+    v7 = (unsigned int)(a3 - 1);
+    if ( (_DWORD)v7 )
     {
-      v4 = v3 - 1;
-      if ( v4 )
+      v7 = (unsigned int)(v7 - 1);
+      if ( (_DWORD)v7 )
       {
-        v5 = v4 - 1;
-        if ( v5 )
+        v7 = (unsigned int)(v7 - 1);
+        if ( (_DWORD)v7 )
         {
-          if ( v5 == 1 )
-            v6 = "ContinueScan";
+          if ( (_DWORD)v7 == 1 )
+            v8 = "ContinueScan";
           else
-            v6 = "UNKNOWN";
+            v8 = "UNKNOWN";
         }
         else
         {
-          v6 = "SkipMsg";
+          v8 = "SkipMsg";
         }
       }
       else
       {
-        v6 = "NoMsg";
+        v8 = "NoMsg";
       }
     }
     else
     {
-      v6 = "ReturnMsg";
+      v8 = "ReturnMsg";
     }
-    v10 = (__int64)v6;
-    v8 = *(_DWORD *)(v1 + 24);
-    LODWORD(v9) = *(unsigned __int16 *)(v1 + 34);
-    v11 = *(_QWORD *)(v1 + 40);
-    LOWORD(v13) = *(_WORD *)(v1 + 32);
-    v12 = *(_QWORD *)(v1 + 136);
+    v12 = (__int64)v8;
+    v13 = *(_QWORD *)(a1 + 40);
+    v10 = v3;
+    LODWORD(v11) = v4;
+    LOWORD(v15) = v5;
+    v14 = v6;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (int)&dword_1C0359080,
-      (__int64)&v12,
+      (__int64)&dword_1C032FB20,
+      byte_1C02F0C6C,
+      v7,
+      v3,
+      (__int64)&v14,
+      (__int64)&v15,
       (__int64)&v13,
       (__int64)&v11,
-      (__int64)&v9,
-      (__int64)&v8,
       (__int64)&v10,
-      (__int64)&v7);
+      (void **)&v12,
+      (__int64)&v9);
   }
 }

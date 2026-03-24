@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vUntransform@HFDBASIS64@@QEAAXPEAJ@Z @ 0x1C015E394
+ * XREFs of ?vUntransform@HFDBASIS64@@QEAAXPEAJ@Z @ 0x1C0141640
  * Callers:
- *     ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C015D730 (-bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z.c)
+ *     ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C0140E30 (-bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z.c)
  * Callees:
  *     <none>
  */

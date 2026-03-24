@@ -1,32 +1,32 @@
 /*
- * XREFs of ExpCovQueryInformation @ 0x140A0685C
+ * XREFs of ExpCovQueryInformation @ 0x14095782C
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusive @ 0x1402FCDF0 (ExfAcquirePushLockExclusive.c)
- *     ExfAcquirePushLockShared @ 0x1402FD020 (ExfAcquirePushLockShared.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x1407B7570 (RtlDuplicateUnicodeString.c)
- *     MmEnumerateSystemImages @ 0x140828110 (MmEnumerateSystemImages.c)
- *     ExpCovDeleteUnloadedModuleEntry @ 0x140A06408 (ExpCovDeleteUnloadedModuleEntry.c)
- *     ExpCovIsUnLoadedModulePresent @ 0x140A065C4 (ExpCovIsUnLoadedModulePresent.c)
- *     ExpCovQueryHypervisorInformation @ 0x140A065F8 (ExpCovQueryHypervisorInformation.c)
- *     ExpCovReadRequestBuffer @ 0x140A06F8C (ExpCovReadRequestBuffer.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x140271AC0 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusive @ 0x1402732F0 (ExfAcquirePushLockExclusive.c)
+ *     ExfAcquirePushLockShared @ 0x140273520 (ExfAcquirePushLockShared.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlDuplicateUnicodeString @ 0x14066FCD0 (RtlDuplicateUnicodeString.c)
+ *     MmEnumerateSystemImages @ 0x140792C70 (MmEnumerateSystemImages.c)
+ *     ExpCovDeleteUnloadedModuleEntry @ 0x1409573D0 (ExpCovDeleteUnloadedModuleEntry.c)
+ *     ExpCovIsUnLoadedModulePresent @ 0x14095758C (ExpCovIsUnLoadedModulePresent.c)
+ *     ExpCovQueryHypervisorInformation @ 0x1409575C0 (ExpCovQueryHypervisorInformation.c)
+ *     ExpCovReadRequestBuffer @ 0x140957F2C (ExpCovReadRequestBuffer.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpCovQueryInformation(unsigned __int64 a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int *v3; // r15
-  __int64 v4; // rdi
-  unsigned int *Pool2; // rsi
+  SIZE_T v4; // rdi
+  unsigned int *PoolWithTag; // rsi
   __int64 v8; // rax
   int v9; // ebx
   struct _KTHREAD *CurrentThread; // rax
@@ -34,90 +34,87 @@ __int64 __fastcall ExpCovQueryInformation(unsigned __int64 a1, unsigned int a2, 
   unsigned int *v12; // rdi
   int v13; // eax
   unsigned __int64 v14; // r14
-  void *v15; // r15
+  void *v15; // r12
   __int64 v16; // rax
-  __int64 i; // rdi
-  __int64 v18; // r15
-  unsigned int v19; // ecx
-  unsigned int v20; // r15d
-  unsigned int v21; // eax
-  _WORD *v22; // rdx
-  void *v23; // rax
-  unsigned int *v24; // [rsp+20h] [rbp-138h]
-  int v25; // [rsp+28h] [rbp-130h] BYREF
-  int v26; // [rsp+2Ch] [rbp-12Ch]
-  unsigned __int64 v27; // [rsp+30h] [rbp-128h]
-  unsigned int *v28; // [rsp+38h] [rbp-120h]
-  unsigned int v29; // [rsp+40h] [rbp-118h]
-  UNICODE_STRING StringIn; // [rsp+48h] [rbp-110h] BYREF
-  _WORD *v31; // [rsp+58h] [rbp-100h]
-  void *v32; // [rsp+60h] [rbp-F8h]
-  _QWORD *v33; // [rsp+68h] [rbp-F0h]
-  unsigned __int64 v34; // [rsp+70h] [rbp-E8h]
-  UNICODE_STRING v35[4]; // [rsp+80h] [rbp-D8h] BYREF
-  _OWORD v36[4]; // [rsp+C0h] [rbp-98h] BYREF
-  UNICODE_STRING v37; // [rsp+100h] [rbp-58h] BYREF
+  __int64 v17; // rdi
+  unsigned int v18; // ecx
+  unsigned int v19; // r15d
+  unsigned int v20; // eax
+  void *v21; // rax
+  int v22; // [rsp+20h] [rbp-128h] BYREF
+  int v23; // [rsp+24h] [rbp-124h]
+  unsigned __int64 v24; // [rsp+28h] [rbp-120h]
+  unsigned int *v25; // [rsp+30h] [rbp-118h]
+  unsigned int *v26; // [rsp+38h] [rbp-110h]
+  unsigned int v27; // [rsp+40h] [rbp-108h]
+  void *v28; // [rsp+48h] [rbp-100h]
+  UNICODE_STRING StringIn; // [rsp+50h] [rbp-F8h] BYREF
+  _QWORD *v30; // [rsp+60h] [rbp-E8h]
+  unsigned __int64 v31; // [rsp+68h] [rbp-E0h]
+  UNICODE_STRING v32[4]; // [rsp+70h] [rbp-D8h] BYREF
+  _OWORD v33[4]; // [rsp+B0h] [rbp-98h] BYREF
+  UNICODE_STRING v34; // [rsp+F0h] [rbp-58h] BYREF
 
   v3 = a3;
-  v24 = a3;
+  v26 = a3;
   v4 = a2;
-  v29 = a2;
-  v34 = a1;
-  memset(v35, 0, sizeof(v35));
+  v27 = a2;
+  v31 = a1;
+  memset(v32, 0, sizeof(v32));
   StringIn = 0LL;
-  v25 = 0;
-  v27 = 0LL;
-  Pool2 = 0LL;
-  v28 = 0LL;
-  LODWORD(v35[3].Buffer) = 64;
-  LODWORD(v35[0].Buffer) = v4;
+  v22 = 0;
+  v24 = 0LL;
+  PoolWithTag = 0LL;
+  v25 = 0LL;
+  LODWORD(v32[3].Buffer) = 64;
+  LODWORD(v32[0].Buffer) = v4;
   if ( !ExCovMaxPagedPoolToUse )
     return 3221225506LL;
   if ( v3 )
     *v3 = 64;
   if ( (unsigned int)v4 < 0x40 )
     return 3221225476LL;
-  v27 = a1 + 32;
-  v8 = 0x7FFFFFFF0000LL;
-  if ( a1 < 0x7FFFFFFF0000LL )
-    v8 = a1;
-  v36[0] = *(_OWORD *)v8;
-  v36[1] = *(_OWORD *)(v8 + 16);
-  v36[2] = *(_OWORD *)(v8 + 32);
-  v36[3] = *(_OWORD *)(v8 + 48);
-  BYTE4(v35[0].Buffer) = LODWORD(v36[0]) == 1;
-  v9 = ExpCovReadRequestBuffer((char *)v36 + 8, &StringIn, &v37, &v25);
+  v24 = a1 + 32;
+  v8 = a1;
+  if ( a1 >= 0x7FFFFFFF0000LL )
+    v8 = 0x7FFFFFFF0000LL;
+  v33[0] = *(_OWORD *)v8;
+  v33[1] = *(_OWORD *)(v8 + 16);
+  v33[2] = *(_OWORD *)(v8 + 32);
+  v33[3] = *(_OWORD *)(v8 + 48);
+  BYTE4(v32[0].Buffer) = LODWORD(v33[0]) == 1;
+  v9 = ExpCovReadRequestBuffer((char *)v33 + 8, &StringIn, &v34, &v22);
   if ( v9 >= 0 )
   {
-    *(_DWORD *)&v35[3].Length = v25;
-    v35[2] = v37;
-    if ( !StringIn.Buffer || (v9 = RtlDuplicateUnicodeString(1u, &StringIn, &v35[1]), v9 >= 0) )
+    *(_DWORD *)&v32[3].Length = v22;
+    v32[2] = v34;
+    if ( !StringIn.Buffer || (v9 = RtlDuplicateUnicodeString(1u, &StringIn, &v32[1]), v9 >= 0) )
     {
-      Pool2 = (unsigned int *)ExAllocatePool2(64LL, v4, 1920364355LL);
-      v28 = Pool2;
-      *(_QWORD *)&v35[0].Length = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x72766F43u);
+      v25 = PoolWithTag;
+      *(_QWORD *)&v32[0].Length = PoolWithTag;
+      if ( !PoolWithTag )
       {
         v9 = -1073741670;
-        goto LABEL_51;
+        goto LABEL_52;
       }
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v9 = MmEnumerateSystemImages((__int64 (__fastcall *)(PVOID *, __int64))ExpCovQueryInfoCallBack, (__int64)v35);
+      v9 = MmEnumerateSystemImages((__int64 (__fastcall *)(PVOID *, __int64))ExpCovQueryInfoCallBack, (__int64)v32);
       if ( v9 < 0 )
       {
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-        goto LABEL_51;
+        goto LABEL_52;
       }
-      ExpCovQueryHypervisorInformation((__int64 *)v35);
-      Buffer = (unsigned int)v35[3].Buffer;
-      v26 = *(_DWORD *)(&v35[3].MaximumLength + 1);
-      if ( (unsigned int)v4 >= LODWORD(v35[3].Buffer)
-        && (unsigned int)((__int64)(*(_QWORD *)&v35[0].Length - (_QWORD)Pool2) >> 5) )
+      ExpCovQueryHypervisorInformation((__int64 *)v32);
+      Buffer = (unsigned int)v32[3].Buffer;
+      v23 = *(_DWORD *)(&v32[3].MaximumLength + 1);
+      if ( (unsigned int)v4 >= LODWORD(v32[3].Buffer)
+        && (unsigned int)((__int64)(*(_QWORD *)&v32[0].Length - (_QWORD)PoolWithTag) >> 5) )
       {
-        v12 = Pool2;
-        v13 = *(_DWORD *)(&v35[3].MaximumLength + 1);
-        v14 = v27;
+        v12 = PoolWithTag;
+        v13 = *(_DWORD *)(&v32[3].MaximumLength + 1);
+        v14 = v24;
         while ( v13 )
         {
           v15 = (void *)(v12[6] + v14 + 32);
@@ -131,98 +128,105 @@ __int64 __fastcall ExpCovQueryInformation(unsigned __int64 a1, unsigned int a2, 
           memmove(v15, *((const void **)v12 + 2), *((unsigned __int16 *)v12 + 4));
           v16 = *v12;
           v14 += v16;
-          v27 = v14;
+          v24 = v14;
           v12 = (unsigned int *)((char *)v12 + v16);
-          v13 = --*(_DWORD *)(&v35[3].MaximumLength + 1);
+          v13 = --*(_DWORD *)(&v32[3].MaximumLength + 1);
         }
-        v3 = v24;
       }
       else
       {
-        if ( (unsigned int)v4 < LODWORD(v35[3].Buffer) )
+        if ( (unsigned int)v4 < LODWORD(v32[3].Buffer) )
           v9 = -1073741820;
-        v14 = v27;
+        v14 = v24;
       }
-      if ( LODWORD(v36[0]) == 1 )
+      if ( LODWORD(v33[0]) == 1 )
         ExfAcquirePushLockExclusive((__int64)&ExpCovPushLock);
       else
         ExfAcquirePushLockShared((__int64)&ExpCovPushLock);
-      for ( i = ExpCovUnloadedModuleList; ; i = *(_QWORD *)i )
+      v17 = ExpCovUnloadedModuleList;
+      while ( 1 )
       {
         while ( 1 )
         {
-          if ( (__int64 *)i == &ExpCovUnloadedModuleList )
+          if ( (__int64 *)v17 == &ExpCovUnloadedModuleList )
           {
             ExfReleasePushLock(&ExpCovPushLock);
             KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
             if ( v3 )
               *v3 = Buffer;
-            *(_DWORD *)(v34 + 4) = v26;
-            goto LABEL_51;
+            *(_DWORD *)(v31 + 4) = v23;
+            goto LABEL_52;
           }
-          v33 = (_QWORD *)i;
-          v18 = *(_QWORD *)(i + 56);
-          if ( v18 )
+          v30 = (_QWORD *)v17;
+          v28 = *(void **)(v17 + 56);
+          if ( v28 )
           {
-            if ( ExpCovIsUnLoadedModulePresent(i, v25, &StringIn, &v37) )
+            if ( ExpCovIsUnLoadedModulePresent(v17, v22, &StringIn, &v34) )
               break;
           }
 LABEL_31:
-          i = *(_QWORD *)i;
-          v3 = v24;
+          v17 = *(_QWORD *)v17;
         }
-        v19 = *(_DWORD *)(i + 48);
-        if ( LODWORD(v36[0]) != 1 )
-          v19 -= *(_DWORD *)(v18 + 28);
-        if ( v19 >= 0xFFFFFFE0 || (v20 = *(unsigned __int16 *)(i + 32) + v19 + 32, v20 < 0x20) )
-          v20 = -1;
-        v31 = (_WORD *)(i + 32);
-        v21 = v20 + Buffer;
-        if ( v20 + Buffer < Buffer )
+        v18 = *(_DWORD *)(v17 + 48);
+        if ( LODWORD(v33[0]) != 1 )
+          v18 -= *((_DWORD *)v28 + 7);
+        if ( v18 < 0xFFFFFFE0 )
         {
-          DbgPrintEx(0x7Eu, 2u, "COV: Overflow when calculating total required length for %wZ\n", i + 32, v24);
-          goto LABEL_31;
-        }
-        Buffer += v20;
-        if ( v29 >= v21 )
-        {
-          v32 = (void *)(v19 + v14 + 32);
-          *(_DWORD *)v14 = v20;
-          *(_DWORD *)(v14 + 4) = 0;
-          *(_DWORD *)(v14 + 24) = v19;
-          memmove((void *)(v14 + 28), *(const void **)(i + 56), v19);
-          v22 = v31;
-          *(_WORD *)(v14 + 8) = *v31;
-          *(_WORD *)(v14 + 10) = *v22;
-          v23 = v32;
-          *(_QWORD *)(v14 + 16) = v32;
-          memmove(v23, *(const void **)(i + 40), (unsigned __int16)*v22);
-          v14 += v20;
-          v27 = v14;
-          if ( LODWORD(v36[0]) == 1 )
-          {
-            i = *(_QWORD *)(i + 8);
-            ExpCovDeleteUnloadedModuleEntry(v33);
-          }
-          v3 = v24;
+          v19 = *(unsigned __int16 *)(v17 + 32) + v18 + 32;
+          if ( v19 < 0x20 )
+            v19 = -1;
         }
         else
         {
-          v3 = v24;
-          if ( v24 )
-            *v24 = v21;
-          v9 = -1073741820;
+          v19 = -1;
         }
-        ++v26;
+        v20 = v19 + Buffer;
+        if ( v19 + Buffer >= Buffer )
+        {
+          Buffer += v19;
+          if ( v27 >= v20 )
+          {
+            v28 = (void *)(v18 + v14 + 32);
+            *(_DWORD *)v14 = v19;
+            *(_DWORD *)(v14 + 4) = 0;
+            *(_DWORD *)(v14 + 24) = v18;
+            memmove((void *)(v14 + 28), *(const void **)(v17 + 56), v18);
+            *(_WORD *)(v14 + 8) = *(_WORD *)(v17 + 32);
+            *(_WORD *)(v14 + 10) = *(_WORD *)(v17 + 32);
+            v21 = v28;
+            *(_QWORD *)(v14 + 16) = v28;
+            memmove(v21, *(const void **)(v17 + 40), *(unsigned __int16 *)(v17 + 32));
+            v14 += v19;
+            v24 = v14;
+            if ( LODWORD(v33[0]) == 1 )
+            {
+              v17 = *(_QWORD *)(v17 + 8);
+              ExpCovDeleteUnloadedModuleEntry(v30);
+            }
+            v3 = v26;
+          }
+          else
+          {
+            v3 = v26;
+            if ( v26 )
+              *v26 = v20;
+            v9 = -1073741820;
+          }
+          ++v23;
+          goto LABEL_31;
+        }
+        DbgPrintEx(0x7Eu, 2u, "COV: Overflow when calculating total required length for %wZ\n", v17 + 32);
+        v17 = *(_QWORD *)v17;
+        v3 = v26;
       }
     }
   }
-LABEL_51:
+LABEL_52:
   if ( StringIn.Buffer )
-    RtlFreeUnicodeString(&StringIn);
-  if ( v35[1].Buffer )
-    RtlFreeUnicodeString(&v35[1]);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x72766F43u);
+    RtlFreeAnsiString(&StringIn);
+  if ( v32[1].Buffer )
+    RtlFreeAnsiString(&v32[1]);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x72766F43u);
   return (unsigned int)v9;
 }

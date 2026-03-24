@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiOpenPnpRegistryKey @ 0x1C001C580
+ * XREFs of DpiOpenPnpRegistryKey @ 0x1C0017200
  * Callers:
- *     VidSchiReadNodeConfiguration @ 0x1C00B04F8 (VidSchiReadNodeConfiguration.c)
+ *     VidSchiReadNodeConfiguration @ 0x1C0092990 (VidSchiReadNodeConfiguration.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DpiOpenPnpRegistryKey(__int64 a1)

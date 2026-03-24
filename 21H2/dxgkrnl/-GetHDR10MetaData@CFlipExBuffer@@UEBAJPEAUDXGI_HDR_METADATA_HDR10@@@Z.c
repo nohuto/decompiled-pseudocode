@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetHDR10MetaData@CFlipExBuffer@@UEBAJPEAUDXGI_HDR_METADATA_HDR10@@@Z @ 0x1C0078E20
+ * XREFs of ?GetHDR10MetaData@CFlipExBuffer@@UEBAJPEAUDXGI_HDR_METADATA_HDR10@@@Z @ 0x1C0066F00
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ __int64 __fastcall CFlipExBuffer::GetHDR10MetaData(CFlipExBuffer *this, struct D
   __int64 v2; // rax
   unsigned int v3; // r8d
 
-  v2 = *((_QWORD *)this + 46);
+  v2 = *((_QWORD *)this + 42);
   v3 = -1073741823;
   if ( v2 )
   {

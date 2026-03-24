@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTracePointerDeviceOutOfRangeMessageStart @ 0x1C014E310
+ * XREFs of EtwTracePointerDeviceOutOfRangeMessageStart @ 0x1C01236F0
  * Callers:
- *     ApiSetPostPointerDeviceOutOfRangeMessage @ 0x1C020ECC8 (ApiSetPostPointerDeviceOutOfRangeMessage.c)
+ *     ApiSetPostPointerDeviceOutOfRangeMessage @ 0x1C01D00C4 (ApiSetPostPointerDeviceOutOfRangeMessage.c)
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePointerDeviceOutOfRangeMessageStart(__int64 a1)

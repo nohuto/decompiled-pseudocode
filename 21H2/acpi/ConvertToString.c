@@ -1,16 +1,16 @@
 /*
- * XREFs of ConvertToString @ 0x1C006B6E8
+ * XREFs of ConvertToString @ 0x1C006B458
  * Callers:
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     Concat @ 0x1C0027500 (Concat.c)
- *     ToString @ 0x1C006B340 (ToString.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     Concat @ 0x1C0068C00 (Concat.c)
+ *     ToString @ 0x1C006AF40 (ToString.c)
  * Callees:
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     IsCompatableDSDTRevision @ 0x1C0019BAC (IsCompatableDSDTRevision.c)
- *     RtlStringCchPrintfA @ 0x1C001D284 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     RtlStringCchPrintfA @ 0x1C000C948 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ConvertToString(__int64 a1, unsigned int a2, __int64 a3)
@@ -22,17 +22,17 @@ __int64 __fastcall ConvertToString(__int64 a1, unsigned int a2, __int64 a3)
   int v9; // ecx
   unsigned int v10; // ecx
   __int64 v11; // r14
-  _SLIST_ENTRY *v12; // rax
-  _SLIST_ENTRY *v13; // r14
+  void *v12; // rax
+  _BYTE *v13; // r14
   unsigned int v14; // eax
-  _SLIST_ENTRY *v15; // rax
-  _SLIST_ENTRY *v16; // r14
+  void *v15; // rax
+  _BYTE *v16; // r14
   size_t v17; // r14
-  _SLIST_ENTRY *v18; // rax
-  _SLIST_ENTRY *v19; // rsi
+  void *v18; // rax
+  _BYTE *v19; // rsi
   __int128 v21; // [rsp+20h] [rbp-50h]
   __int128 v22; // [rsp+30h] [rbp-40h]
-  _SLIST_ENTRY *v23; // [rsp+40h] [rbp-30h]
+  void *v23; // [rsp+40h] [rbp-30h]
   char pszDest[16]; // [rsp+48h] [rbp-28h] BYREF
   char v25; // [rsp+58h] [rbp-18h]
 
@@ -60,13 +60,13 @@ __int64 __fastcall ConvertToString(__int64 a1, unsigned int a2, __int64 a3)
     if ( !(_DWORD)v3 || v3 >= v17 )
       LODWORD(v3) = strnlen(pszDest, v17);
     DWORD2(v22) = v3 + 1;
-    v18 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, (int)v3 + 1);
+    v18 = (void *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, (int)v3 + 1);
     v23 = v18;
     v19 = v18;
     if ( v18 )
     {
       memmove(v18, pszDest, (unsigned int)(v3 + 1));
-      *((_BYTE *)&v19->Next + (unsigned int)v3) = 0;
+      v19[(unsigned int)v3] = 0;
       goto LABEL_30;
     }
     return (unsigned int)-1073741670;
@@ -80,13 +80,13 @@ __int64 __fastcall ConvertToString(__int64 a1, unsigned int a2, __int64 a3)
       if ( !a2 )
         v3 = v14;
       DWORD2(v22) = v3 + 1;
-      v15 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, (int)v3 + 1);
+      v15 = (void *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, (int)v3 + 1);
       v23 = v15;
       v16 = v15;
       if ( v15 )
       {
         memmove(v15, *(const void **)(a1 + 32), (unsigned int)(v3 + 1));
-        *((_BYTE *)&v16->Next + v3) = 0;
+        v16[v3] = 0;
         goto LABEL_30;
       }
       return (unsigned int)-1073741670;
@@ -109,13 +109,13 @@ __int64 __fastcall ConvertToString(__int64 a1, unsigned int a2, __int64 a3)
       }
 LABEL_13:
       DWORD2(v22) = v3 + 1;
-      v12 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, (int)v3 + 1);
+      v12 = (void *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, (int)v3 + 1);
       v23 = v12;
       v13 = v12;
       if ( v12 )
       {
         memmove(v12, *(const void **)(a1 + 32), (unsigned int)v3);
-        *((_BYTE *)&v13->Next + (unsigned int)v3) = 0;
+        v13[(unsigned int)v3] = 0;
 LABEL_30:
         FreeDataBuffs(a3, 1u);
         *(_OWORD *)a3 = v21;

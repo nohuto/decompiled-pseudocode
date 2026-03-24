@@ -1,13 +1,11 @@
 /*
- * XREFs of ?PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z @ 0x18027C854
+ * XREFs of ?PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z @ 0x180216990
  * Callers:
- *     ?CheckForMajorityScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ @ 0x18008C39C (-CheckForMajorityScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ.c)
- *     ??1CLegacyRenderTarget@@MEAA@XZ @ 0x1800C8144 (--1CLegacyRenderTarget@@MEAA@XZ.c)
- *     ??1CDDisplayRenderTarget@@UEAA@XZ @ 0x1801C1D78 (--1CDDisplayRenderTarget@@UEAA@XZ.c)
- *     ?SignalSEB@CFSVPProvider@@AEAAX_NI@Z @ 0x1801E7640 (-SignalSEB@CFSVPProvider@@AEAAX_NI@Z.c)
+ *     ?SignalSEB@CLegacyRenderTarget@@AEAAX_NI@Z @ 0x1800246CC (-SignalSEB@CLegacyRenderTarget@@AEAAX_NI@Z.c)
+ *     ??1CLegacyRenderTarget@@MEAA@XZ @ 0x180025C94 (--1CLegacyRenderTarget@@MEAA@XZ.c)
  * Callees:
- *     ?PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z @ 0x1800FDD10 (-PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z.c)
- *     ?Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z @ 0x1800FDE7C (-Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z.c)
+ *     ?PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z @ 0x180024A24 (-PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z.c)
+ *     ?Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z @ 0x180024C00 (-Find@ContextTable@@QEAAPEAXPEAU_SEB_RPC_PUBLISH_DATA@@@Z.c)
  */
 
 __int64 __fastcall PubSebiUpdateLevelEventRpc(struct _SEB_RPC_PUBLISH_DATA *a1, unsigned __int8 a2)

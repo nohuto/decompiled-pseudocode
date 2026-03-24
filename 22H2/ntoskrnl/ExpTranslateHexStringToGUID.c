@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpTranslateHexStringToGUID @ 0x1409FE244
+ * XREFs of ExpTranslateHexStringToGUID @ 0x14095263C
  * Callers:
- *     ExpParseSignatureName @ 0x1409FCF20 (ExpParseSignatureName.c)
+ *     ExpParseSignatureName @ 0x140950E14 (ExpParseSignatureName.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     towlower @ 0x1403DB140 (towlower.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     towlower @ 0x1403D36A0 (towlower.c)
  */
 
 __int64 __fastcall ExpTranslateHexStringToGUID(wint_t *a1, _OWORD *a2)

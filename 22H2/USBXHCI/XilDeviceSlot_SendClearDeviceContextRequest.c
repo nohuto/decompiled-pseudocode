@@ -1,13 +1,13 @@
 /*
- * XREFs of XilDeviceSlot_SendClearDeviceContextRequest @ 0x1C0038440
+ * XREFs of XilDeviceSlot_SendClearDeviceContextRequest @ 0x1C0036980
  * Callers:
- *     UsbDevice_SetDeviceDisabled @ 0x1C000FD7C (UsbDevice_SetDeviceDisabled.c)
- *     UsbDevice_DisableCompletion @ 0x1C0048760 (UsbDevice_DisableCompletion.c)
+ *     UsbDevice_SetDeviceDisabled @ 0x1C000AA1C (UsbDevice_SetDeviceDisabled.c)
+ *     UsbDevice_DisableCompletion @ 0x1C0045DE4 (UsbDevice_DisableCompletion.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 char __fastcall XilDeviceSlot_SendClearDeviceContextRequest(__int64 *a1, __int64 a2)
@@ -54,7 +54,7 @@ char __fastcall XilDeviceSlot_SendClearDeviceContextRequest(__int64 *a1, __int64
           v7,
           10,
           27,
-          (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+          (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
           v12);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v8, v9, v10);
@@ -72,7 +72,7 @@ char __fastcall XilDeviceSlot_SendClearDeviceContextRequest(__int64 *a1, __int64
                    v7,
                    10,
                    26,
-                   (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+                   (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
                    v6);
   }
   return v6;

@@ -1,43 +1,55 @@
 /*
- * XREFs of CmpLockTwoKcbsShared @ 0x1407C300C
+ * XREFs of CmpLockTwoKcbsShared @ 0x1405F38C0
  * Callers:
- *     CmQueryMultipleValueKey @ 0x1406B3C34 (CmQueryMultipleValueKey.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x14071B730 (CmpFindSubkeyInHashByChildCell.c)
- *     CmEnumerateKey @ 0x1407C16A0 (CmEnumerateKey.c)
- *     CmQueryKey @ 0x1407C1B70 (CmQueryKey.c)
- *     NtNotifyChangeMultipleKeys @ 0x1407E5600 (NtNotifyChangeMultipleKeys.c)
- *     CmSaveMergedKeys @ 0x14090CFF8 (CmSaveMergedKeys.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x140915854 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmEnumerateKey @ 0x1405F4350 (CmEnumerateKey.c)
+ *     CmQueryKey @ 0x1405F5810 (CmQueryKey.c)
+ *     NtNotifyChangeMultipleKeys @ 0x140663230 (NtNotifyChangeMultipleKeys.c)
+ *     CmQueryMultipleValueKey @ 0x140669674 (CmQueryMultipleValueKey.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x140766570 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x14086F410 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
  * Callees:
- *     CmpGetCorrectKcbLockOrder @ 0x14071B20C (CmpGetCorrectKcbLockOrder.c)
- *     CmpLockKcbShared @ 0x140AB42D0 (CmpLockKcbShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     CmpGetCorrectKcbLockOrder @ 0x1406BA63C (CmpGetCorrectKcbLockOrder.c)
  */
 
-__int64 __fastcall CmpLockTwoKcbsShared(unsigned __int64 a1, unsigned __int64 a2)
+__int64 __fastcall CmpLockTwoKcbsShared(__int64 a1, __int64 a2)
 {
+  __int64 v3; // rbx
   __int64 result; // rax
-  unsigned __int64 v3; // [rsp+30h] [rbp+8h] BYREF
-  unsigned __int64 v4; // [rsp+40h] [rbp+18h] BYREF
+  ULONG_PTR v5; // rcx
+  __int64 v6; // rbx
+  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
 
-  v3 = 0LL;
-  v4 = 0LL;
+  v7 = 0LL;
+  v8 = 0LL;
+  v3 = a1;
   if ( a1 )
   {
     if ( a2 )
     {
       if ( a1 != a2 )
       {
-        CmpGetCorrectKcbLockOrder(a1, a2, &v3, &v4);
-        CmpLockKcbShared(v3);
-        a1 = v4;
+        CmpGetCorrectKcbLockOrder(a1, a2, &v7, &v8);
+        v6 = v7;
+        ExAcquirePushLockSharedEx(v7 + 48, 0LL);
+        _InterlockedIncrement((volatile signed __int32 *)(v6 + 56));
+        v3 = v8;
       }
+      v5 = v3 + 48;
     }
+    else
+    {
+      v5 = a1 + 48;
+    }
+    result = ExAcquirePushLockSharedEx(v5, 0LL);
+    _InterlockedIncrement((volatile signed __int32 *)(v3 + 56));
   }
-  else
+  else if ( a2 )
   {
-    if ( !a2 )
-      return result;
-    a1 = a2;
+    result = ExAcquirePushLockSharedEx(a2 + 48, 0LL);
+    _InterlockedIncrement((volatile signed __int32 *)(a2 + 56));
   }
-  return CmpLockKcbShared(a1);
+  return result;
 }

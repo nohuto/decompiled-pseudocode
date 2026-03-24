@@ -1,30 +1,46 @@
 /*
- * XREFs of LogDiagSDCAccessDenied @ 0x1C0168854
+ * XREFs of LogDiagSDCAccessDenied @ 0x1C01486E8
  * Callers:
- *     xxxUserSetDisplayConfig @ 0x1C0012540 (xxxUserSetDisplayConfig.c)
+ *     xxxUserSetDisplayConfig @ 0x1C00770F0 (xxxUserSetDisplayConfig.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ?RtlStringCchCopyUnicodeStringEx@@YAJPEAG_KPEBU_UNICODE_STRING@@PEAPEAGPEA_KK@Z @ 0x1C016485C (-RtlStringCchCopyUnicodeStringEx@@YAJPEAG_KPEBU_UNICODE_STRING@@PEAPEAGPEA_KK@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
-__int64 __fastcall LogDiagSDCAccessDenied(struct _UNICODE_STRING *a1, struct _UNICODE_STRING *a2)
+__int64 __fastcall LogDiagSDCAccessDenied(unsigned __int16 *a1, unsigned __int16 *a2)
 {
-  wchar_t *v4; // rdx
-  unsigned __int16 **v5; // r9
-  wchar_t *v6; // rdx
-  unsigned __int16 **v7; // r9
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 DxgkWin32kInterface; // rax
-  _QWORD v12[14]; // [rsp+30h] [rbp-88h] BYREF
+  size_t v4; // rbx
+  const void *v5; // rdx
+  size_t v6; // r8
+  const void *v7; // rdx
+  _QWORD v9[14]; // [rsp+20h] [rbp-88h] BYREF
 
-  memset(v12, 0, sizeof(v12));
-  v12[0] = 0x700000002BLL;
-  memset(&v12[1], 0, 36);
-  RtlStringCchCopyUnicodeStringEx((NTSTRSAFE_PWSTR)&v12[6], v4, a1, v5);
-  RtlStringCchCopyUnicodeStringEx((NTSTRSAFE_PWSTR)&v12[10], v6, a2, v7);
-  DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v9, v8);
-  return (*(__int64 (__fastcall **)(_QWORD *))(DxgkWin32kInterface + 304))(v12);
+  memset(v9, 0, sizeof(v9));
+  v9[0] = 0x700000002BLL;
+  v4 = 32LL;
+  memset(&v9[1], 0, 36);
+  if ( a1 )
+  {
+    v5 = (const void *)*((_QWORD *)a1 + 1);
+    if ( v5 )
+    {
+      v6 = 32LL;
+      if ( 2 * (unsigned __int64)*a1 < 0x20 )
+        v6 = 2LL * *a1;
+      memmove(&v9[6], v5, v6);
+    }
+  }
+  if ( a2 )
+  {
+    v7 = (const void *)*((_QWORD *)a2 + 1);
+    if ( v7 )
+    {
+      if ( 2 * (unsigned __int64)*a2 < 0x20 )
+        v4 = 2LL * *a2;
+      memmove(&v9[10], v7, v4);
+    }
+  }
+  return ((__int64 (__fastcall *)(_QWORD *))qword_1C02509C0)(v9);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlInternTableIntern @ 0x14069EE7C
+ * XREFs of RtlInternTableIntern @ 0x14069EE5C
  * Callers:
- *     PopEtStringIntern @ 0x14069EA74 (PopEtStringIntern.c)
- *     PopEtAppIdIntern @ 0x14069ED50 (PopEtAppIdIntern.c)
+ *     PopEtStringIntern @ 0x14069EA54 (PopEtStringIntern.c)
+ *     PopEtAppIdIntern @ 0x14069ED30 (PopEtAppIdIntern.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     RtlpInternEntryFind @ 0x14069F204 (RtlpInternEntryFind.c)
- *     RtlpInternEntryHash @ 0x14069F358 (RtlpInternEntryHash.c)
- *     RtlpInternEntryCreate @ 0x14069F6D8 (RtlpInternEntryCreate.c)
- *     RtlpInternHashBucketsAllocate @ 0x140762A24 (RtlpInternHashBucketsAllocate.c)
- *     RtlpInternHashBucketsFree @ 0x140762F7C (RtlpInternHashBucketsFree.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlpInternEntryFind @ 0x14069F1E4 (RtlpInternEntryFind.c)
+ *     RtlpInternEntryHash @ 0x14069F338 (RtlpInternEntryHash.c)
+ *     RtlpInternEntryCreate @ 0x14069F6B8 (RtlpInternEntryCreate.c)
+ *     RtlpInternHashBucketsAllocate @ 0x140762A04 (RtlpInternHashBucketsAllocate.c)
+ *     RtlpInternHashBucketsFree @ 0x140762F5C (RtlpInternHashBucketsFree.c)
  */
 
 __int64 __fastcall RtlInternTableIntern(__int64 a1, __int64 a2)

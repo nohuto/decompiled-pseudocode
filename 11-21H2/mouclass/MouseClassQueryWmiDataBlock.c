@@ -1,1 +1,69 @@
-/*\n * XREFs of MouseClassQueryWmiDataBlock @ 0x1C0004E40\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\nNTSTATUS __fastcall MouseClassQueryWmiDataBlock(\n        PDEVICE_OBJECT DeviceObject,\n        PIRP Irp,\n        int a3,\n        int a4,\n        int a5,\n        ULONG *a6,\n        unsigned int a7,\n        _QWORD *a8)\n{\n  KSPIN_LOCK *DeviceExtension; // rdi\n  ULONG v9; // ebx\n  NTSTATUS v12; // r8d\n  KSPIN_LOCK *v13; // rsi\n  KIRQL v14; // al\n  bool v15; // di\n\n  DeviceExtension = (KSPIN_LOCK *)DeviceObject->DeviceExtension;\n  v9 = 0;\n  if ( !a3 )\n  {\n    if ( !a4 && a5 == 1 )\n    {\n      v9 = 8;\n      if ( a7 >= 8 )\n      {\n        *a8 = DeviceObject;\nLABEL_17:\n        v12 = 0;\n        *a6 = v9;\n        return WmiCompleteRequest(DeviceObject, Irp, v12, v9, 0);\n      }\nLABEL_15:\n      v12 = -1073741789;\n      return WmiCompleteRequest(DeviceObject, Irp, v12, v9, 0);\n    }\nLABEL_18:\n    v12 = -1073741808;\n    return WmiCompleteRequest(DeviceObject, Irp, v12, v9, 0);\n  }\n  if ( a3 == 1 )\n  {\n    if ( !a4 && a5 == 1 )\n    {\n      v9 = 1;\n      if ( a7 )\n      {\n        v13 = DeviceExtension + 9;\n        v14 = KeAcquireSpinLockRaiseToDpc(DeviceExtension + 9);\n        v15 = DeviceExtension[35] && !*((_BYTE *)DeviceExtension + 288);\n        KeReleaseSpinLock(v13, v14);\n        *(_BYTE *)a8 = v15;\n        goto LABEL_17;\n      }\n      goto LABEL_15;\n    }\n    goto LABEL_18;\n  }\n  v12 = -1073741163;\n  return WmiCompleteRequest(DeviceObject, Irp, v12, v9, 0);\n}\n
+/*
+ * XREFs of MouseClassQueryWmiDataBlock @ 0x1C0004E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS __fastcall MouseClassQueryWmiDataBlock(
+        PDEVICE_OBJECT DeviceObject,
+        PIRP Irp,
+        int a3,
+        int a4,
+        int a5,
+        ULONG *a6,
+        unsigned int a7,
+        _QWORD *a8)
+{
+  KSPIN_LOCK *DeviceExtension; // rdi
+  ULONG v9; // ebx
+  NTSTATUS v12; // r8d
+  KSPIN_LOCK *v13; // rsi
+  KIRQL v14; // al
+  bool v15; // di
+
+  DeviceExtension = (KSPIN_LOCK *)DeviceObject->DeviceExtension;
+  v9 = 0;
+  if ( !a3 )
+  {
+    if ( !a4 && a5 == 1 )
+    {
+      v9 = 8;
+      if ( a7 >= 8 )
+      {
+        *a8 = DeviceObject;
+LABEL_17:
+        v12 = 0;
+        *a6 = v9;
+        return WmiCompleteRequest(DeviceObject, Irp, v12, v9, 0);
+      }
+LABEL_15:
+      v12 = -1073741789;
+      return WmiCompleteRequest(DeviceObject, Irp, v12, v9, 0);
+    }
+LABEL_18:
+    v12 = -1073741808;
+    return WmiCompleteRequest(DeviceObject, Irp, v12, v9, 0);
+  }
+  if ( a3 == 1 )
+  {
+    if ( !a4 && a5 == 1 )
+    {
+      v9 = 1;
+      if ( a7 )
+      {
+        v13 = DeviceExtension + 9;
+        v14 = KeAcquireSpinLockRaiseToDpc(DeviceExtension + 9);
+        v15 = DeviceExtension[35] && !*((_BYTE *)DeviceExtension + 288);
+        KeReleaseSpinLock(v13, v14);
+        *(_BYTE *)a8 = v15;
+        goto LABEL_17;
+      }
+      goto LABEL_15;
+    }
+    goto LABEL_18;
+  }
+  v12 = -1073741163;
+  return WmiCompleteRequest(DeviceObject, Irp, v12, v9, 0);
+}

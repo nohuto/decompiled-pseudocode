@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetSize@CColorKeyBitmapRealization@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1801359E0
+ * XREFs of ?GetSize@CColorKeyBitmapRealization@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1802625E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 struct D2D_SIZE_U __fastcall CColorKeyBitmapRealization::GetSize(CColorKeyBitmapRealization *this, __int64 a2)
 {
-  (***((void (__fastcall ****)(_QWORD))this - 6))(*((_QWORD *)this - 6));
+  (**(void (__fastcall ***)(__int64))(*((_QWORD *)this - 6) + 16LL))(*((_QWORD *)this - 6) + 16LL);
   return (struct D2D_SIZE_U)a2;
 }

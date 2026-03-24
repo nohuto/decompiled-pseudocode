@@ -1,21 +1,18 @@
 /*
- * XREFs of ?HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA?AW4InertiaEndSuppressionResult@2@_K@Z @ 0x1C01F7FE8
+ * XREFs of ?HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA?AW4InertiaEndSuppressionResult@2@_K@Z @ 0x1C01C0514
  * Callers:
- *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C01F9484 (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C004ABB0 (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
  * Callees:
- *     ?QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z @ 0x1C01E1FE0 (-QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z.c)
+ *     ?GetInstance@CInertiaManager@@SAPEAV1@XZ @ 0x1C0004300 (-GetInstance@CInertiaManager@@SAPEAV1@XZ.c)
+ *     ?QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z @ 0x1C01A8F40 (-QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z.c)
  */
 
-__int64 __fastcall CMouseProcessor::InertiaEndSuppression::HandleMake(
-        _BYTE *a1,
-        unsigned __int64 a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall CMouseProcessor::InertiaEndSuppression::HandleMake(_BYTE *a1, unsigned __int64 a2)
 {
-  __int64 v6; // rbx
+  struct CInertiaManager *Instance; // rbx
 
-  v6 = SGDGetUserSessionState(a1, a2, a3, a4);
-  if ( !CInertiaManager::QueryInertia(v6 + 16904, *(_QWORD *)&gptCursorAsync, 15) && a2 > *(_QWORD *)(v6 + 16904) )
+  Instance = CInertiaManager::GetInstance();
+  if ( !CInertiaManager::QueryInertia((__int64)Instance, *(_QWORD *)&gptCursorAsync, 15) && a2 > *(_QWORD *)Instance )
     return 1LL;
   *a1 = 1;
   return 0LL;

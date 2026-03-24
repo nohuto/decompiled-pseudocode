@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDeviceCompletePhase3Off @ 0x1C002B300
+ * XREFs of ACPIDeviceCompletePhase3Off @ 0x1C002D5C0
  * Callers:
- *     ACPIDevicePowerProcessPhase3 @ 0x1C0022FAC (ACPIDevicePowerProcessPhase3.c)
+ *     ACPIDevicePowerProcessPhase3 @ 0x1C00136BC (ACPIDevicePowerProcessPhase3.c)
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
- *     ACPIDeviceCompletePhase3Common @ 0x1C00080D4 (ACPIDeviceCompletePhase3Common.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     ACPIDeviceCompletePhase3Common @ 0x1C001CD30 (ACPIDeviceCompletePhase3Common.c)
  */
 
 void __fastcall ACPIDeviceCompletePhase3Off(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -25,7 +25,7 @@ void __fastcall ACPIDeviceCompletePhase3Off(__int64 a1, int a2, __int64 a3, __in
       4u,
       0xAu,
       0xFu,
-      (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a4,
       a2);
   v6 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
@@ -48,7 +48,7 @@ void __fastcall ACPIDeviceCompletePhase3Off(__int64 a1, int a2, __int64 a3, __in
   {
     v10 = *(i - 1);
     v11 = 1;
-    v12 = *(_QWORD **)(v10 + 440);
+    v12 = *(_QWORD **)(v10 + 400);
     if ( v12 )
     {
       do
@@ -62,7 +62,7 @@ void __fastcall ACPIDeviceCompletePhase3Off(__int64 a1, int a2, __int64 a3, __in
       }
       while ( v12 );
       if ( v14 )
-        *(_QWORD *)(v10 + 1000) |= 0x10000uLL;
+        *(_QWORD *)(v10 + 960) |= 0x10000uLL;
     }
   }
   KeReleaseSpinLock(&AcpiPowerLock, v6);

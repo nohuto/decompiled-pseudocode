@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpInitDelayDerefKCBEngine @ 0x1407621BC
+ * XREFs of CmpInitDelayDerefKCBEngine @ 0x14076219C
  * Callers:
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  * Callees:
  *     KeInitializeGuardedMutex @ 0x1400063D0 (KeInitializeGuardedMutex.c)
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     KeInitializeTimer2 @ 0x1400FD4B0 (KeInitializeTimer2.c)
+ *     KeInitializeTimer2 @ 0x1400FD4D0 (KeInitializeTimer2.c)
  */
 
 __int64 CmpInitDelayDerefKCBEngine()

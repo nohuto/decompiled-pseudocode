@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIGpeIndexToByteIndex @ 0x1C0030BE0
+ * XREFs of ACPIGpeIndexToByteIndex @ 0x1C002697C
  * Callers:
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C001FF34 (ACPIWakeRemoveDevicesAndUpdate.c)
- *     ACPIInterruptDispatchEventDpc @ 0x1C0057880 (ACPIInterruptDispatchEventDpc.c)
- *     ACPIVectorDisconnect @ 0x1C0061BB0 (ACPIVectorDisconnect.c)
- *     ACPIVectorInstall @ 0x1C0061EF8 (ACPIVectorInstall.c)
+ *     ACPIInterruptDispatchEventDpc @ 0x1C0026060 (ACPIInterruptDispatchEventDpc.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIVectorDisconnect @ 0x1C0060DF0 (ACPIVectorDisconnect.c)
+ *     ACPIVectorInstall @ 0x1C0061154 (ACPIVectorInstall.c)
  * Callees:
- *     ACPIGpeValidIndex @ 0x1C001D604 (ACPIGpeValidIndex.c)
+ *     ACPIGpeValidIndex @ 0x1C001A140 (ACPIGpeValidIndex.c)
  */
 
 __int64 __fastcall ACPIGpeIndexToByteIndex(__int64 a1)

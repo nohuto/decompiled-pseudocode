@@ -1,60 +1,64 @@
 /*
- * XREFs of ExpWnfDeleteScopeById @ 0x1407914BC
+ * XREFs of ExpWnfDeleteScopeById @ 0x1406135B8
  * Callers:
- *     MiDereferenceSessionFinal @ 0x140693A28 (MiDereferenceSessionFinal.c)
- *     ExWnfExitProcess @ 0x140791970 (ExWnfExitProcess.c)
+ *     ExWnfExitProcess @ 0x140612E8C (ExWnfExitProcess.c)
+ *     MiDereferenceSessionFinal @ 0x140778320 (MiDereferenceSessionFinal.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExpWnfFreeScopeInstance @ 0x1406E1C68 (ExpWnfFreeScopeInstance.c)
- *     ExpWnfFindScopeInstance @ 0x1407915C4 (ExpWnfFindScopeInstance.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     ExpWnfFindScopeInstance @ 0x14061043C (ExpWnfFindScopeInstance.c)
+ *     ExpWnfFreeScopeInstance @ 0x1406BF6E0 (ExpWnfFreeScopeInstance.c)
  */
 
-void __fastcall ExpWnfDeleteScopeById(__int64 a1, __int64 a2, unsigned int a3)
+char __fastcall ExpWnfDeleteScopeById(__int64 a1, const void *a2, unsigned int a3)
 {
-  __int64 v5; // rdx
-  __int64 v6; // r9
-  __int64 v7; // r14
-  unsigned __int64 *v8; // rbx
-  __int64 v9; // rax
-  __int64 v10; // rdi
-  __int64 ScopeInstance; // rax
-  struct _EX_RUNDOWN_REF *v12; // rdi
-  _QWORD *v13; // rcx
-  __int64 v14; // rdx
-  _QWORD *v15; // rax
+  __int64 v4; // rbx
+  _QWORD *CurrentServerSiloGlobals; // rax
+  __int64 v7; // r9
+  __int64 v8; // r14
+  unsigned __int64 *v9; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rdi
+  _QWORD *ScopeInstance; // rax
+  void *v13; // rdi
+  _QWORD *v14; // rcx
+  __int64 v15; // rdx
+  _QWORD *v16; // rax
 
-  v6 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 114);
-  if ( v6 )
+  v4 = (unsigned int)a1;
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals(a1, (__int64)a2);
+  v7 = CurrentServerSiloGlobals[114];
+  if ( v7 )
   {
-    v7 = v6 + 24 * v5;
-    v8 = (unsigned __int64 *)(v6 + 8 * (3 * v5 + 4));
-    v9 = KeAbPreAcquire((__int64)v8, 0LL);
-    v10 = v9;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v8, v9, (__int64)v8);
-    if ( v10 )
-      *(_BYTE *)(v10 + 18) = 1;
-    ScopeInstance = ExpWnfFindScopeInstance(v7 + 40, a2, a3);
-    v12 = (struct _EX_RUNDOWN_REF *)ScopeInstance;
+    v8 = v7 + 24 * v4;
+    v9 = (unsigned __int64 *)(v7 + 8 * (3 * v4 + 4));
+    v10 = KeAbPreAcquire((ULONG_PTR)v9, 0LL, 0);
+    v11 = v10;
+    if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
+      ExfAcquirePushLockExclusiveEx(v9, v10, (ULONG_PTR)v9);
+    if ( v11 )
+      *(_BYTE *)(v11 + 26) |= 1u;
+    ScopeInstance = ExpWnfFindScopeInstance((_QWORD **)(v8 + 40), a2, a3);
+    v13 = ScopeInstance;
     if ( ScopeInstance )
     {
-      v13 = (_QWORD *)(ScopeInstance + 32);
-      v14 = *(_QWORD *)(ScopeInstance + 32);
-      v15 = *(_QWORD **)(ScopeInstance + 40);
-      if ( *(_QWORD **)(v14 + 8) != v13 || (_QWORD *)*v15 != v13 )
+      v14 = ScopeInstance + 4;
+      v15 = ScopeInstance[4];
+      v16 = (_QWORD *)ScopeInstance[5];
+      if ( *(_QWORD **)(v15 + 8) != v14 || (_QWORD *)*v16 != v14 )
         __fastfail(3u);
-      *v15 = v14;
-      *(_QWORD *)(v14 + 8) = v15;
-      *v13 = 0LL;
+      *v16 = v15;
+      *(_QWORD *)(v15 + 8) = v16;
+      *v14 = 0LL;
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v8);
-    KeAbPostRelease((ULONG_PTR)v8);
-    if ( v12 )
-      ExpWnfFreeScopeInstance(v12, 1);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v9);
+    LOBYTE(CurrentServerSiloGlobals) = KeAbPostRelease((ULONG_PTR)v9);
+    if ( v13 )
+      LOBYTE(CurrentServerSiloGlobals) = ExpWnfFreeScopeInstance(v13);
   }
+  return (char)CurrentServerSiloGlobals;
 }

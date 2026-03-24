@@ -1,24 +1,22 @@
 /*
- * XREFs of HalpProcInitSystem @ 0x140A8AEE0
+ * XREFs of HalpProcInitSystem @ 0x14099E630
  * Callers:
  *     <none>
  * Callees:
- *     HalpIsHvPresent @ 0x1403785CC (HalpIsHvPresent.c)
- *     HalpMcUpdateMicrocode @ 0x1403805A8 (HalpMcUpdateMicrocode.c)
- *     HalpProcGetFeatureBits @ 0x140380604 (HalpProcGetFeatureBits.c)
- *     HalMcFinishMicrocode @ 0x1403B0774 (HalMcFinishMicrocode.c)
- *     PrExtLogToTelemetry @ 0x1403B48D4 (PrExtLogToTelemetry.c)
- *     HalpInterruptStartBlockedProcessors @ 0x14051AB14 (HalpInterruptStartBlockedProcessors.c)
- *     HalpMcUpdateInitialize @ 0x140820694 (HalpMcUpdateInitialize.c)
- *     HalpBlkInitSystem @ 0x140B4C628 (HalpBlkInitSystem.c)
- *     HalpProcInitDiscard @ 0x140B768D0 (HalpProcInitDiscard.c)
+ *     HalpMcUpdateMicrocode @ 0x1403A5E14 (HalpMcUpdateMicrocode.c)
+ *     HalpProcGetFeatureBits @ 0x1403AF1CC (HalpProcGetFeatureBits.c)
+ *     HalMcFinishMicrocode @ 0x1403AF500 (HalMcFinishMicrocode.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x1404D19FC (HalpInterruptStartBlockedProcessors.c)
+ *     HalpMcUpdateInitialize @ 0x14079B080 (HalpMcUpdateInitialize.c)
+ *     HalpProcInitDiscard @ 0x140A449E0 (HalpProcInitDiscard.c)
+ *     HalpBlkInitSystem @ 0x140A44A4C (HalpBlkInitSystem.c)
+ *     HalpMcInitializeMicrocodeInfo @ 0x140A44AC4 (HalpMcInitializeMicrocodeInfo.c)
  */
 
 __int64 __fastcall HalpProcInitSystem(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v3; // ebx
+  __int64 v4; // rcx
 
-  v3 = a1;
   switch ( (_DWORD)a1 )
   {
     case 4:
@@ -29,22 +27,21 @@ __int64 __fastcall HalpProcInitSystem(__int64 a1, __int64 a2, __int64 a3)
       return 0LL;
     case 0xC:
       HalpProcInitDiscard(a3);
-      goto LABEL_11;
+      v4 = 12LL;
+      goto LABEL_10;
   }
   if ( (_DWORD)a1 != 17 )
   {
     if ( (_DWORD)a1 != 21 )
-    {
-      if ( (_DWORD)a1 == 32 && !HalpIsHvPresent() )
-        PrExtLogToTelemetry();
       return 0LL;
-    }
-    HalMcFinishMicrocode(a3, a2);
-LABEL_11:
-    HalpBlkInitSystem(v3);
+    HalMcFinishMicrocode(a1);
+    v4 = 21LL;
+LABEL_10:
+    HalpBlkInitSystem(v4);
     return 0LL;
   }
   HalpMcUpdateInitialize(a3, 0LL);
+  HalpMcInitializeMicrocodeInfo();
   if ( HalpInterruptBlockedProcessors )
     HalpInterruptStartBlockedProcessors(0);
   return 0LL;

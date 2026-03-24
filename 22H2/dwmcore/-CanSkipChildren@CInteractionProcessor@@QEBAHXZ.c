@@ -1,18 +1,18 @@
 /*
- * XREFs of ?CanSkipChildren@CInteractionProcessor@@QEBAHXZ @ 0x1801AC560
+ * XREFs of ?CanSkipChildren@CInteractionProcessor@@QEBAHXZ @ 0x18022C1C8
  * Callers:
- *     ?CanSkipChildren@CInteraction@@UEBAHXZ @ 0x18020BEC0 (-CanSkipChildren@CInteraction@@UEBAHXZ.c)
+ *     ?CanSkipChildren@CInteraction@@UEBAHXZ @ 0x1801C5D70 (-CanSkipChildren@CInteraction@@UEBAHXZ.c)
  * Callees:
- *     _anonymous_namespace_::GetTemporaryConfigWithMask @ 0x1800EA564 (_anonymous_namespace_--GetTemporaryConfigWithMask.c)
- *     ?SupportsAllInteractions@?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@SA_NAEBV?$DynArray@UDwmMousewheelInteractionConfigurationPrimitive@@$0A@@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@1@Z @ 0x18012DB54 (-SupportsAllInteractions@-$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U-.c)
+ *     _anonymous_namespace_::GetTemporaryConfigWithMask @ 0x1800C9964 (_anonymous_namespace_--GetTemporaryConfigWithMask.c)
+ *     ?SupportsAllInteractions@?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@SA_NAEBV?$DynArray@UDwmMousewheelInteractionConfigurationPrimitive@@$0A@@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@1@Z @ 0x18022F2DC (-SupportsAllInteractions@-$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U-.c)
  */
 
 __int64 __fastcall CInteractionProcessor::CanSkipChildren(CInteractionProcessor *this)
 {
   __int64 v1; // r11
   __int64 result; // rax
-  int v3; // [rsp+30h] [rbp+8h] BYREF
-  int v4; // [rsp+38h] [rbp+10h] BYREF
+  unsigned int v3; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v4; // [rsp+38h] [rbp+10h] BYREF
 
   if ( (*((_BYTE *)this + 1264) & 3) != 0 )
   {

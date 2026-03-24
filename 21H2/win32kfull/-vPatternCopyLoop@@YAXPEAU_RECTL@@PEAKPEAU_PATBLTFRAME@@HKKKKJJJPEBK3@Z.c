@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z @ 0x1C02C6DBC
+ * XREFs of ?vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z @ 0x1C02C85CC
  * Callers:
- *     ?vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C5710 (-vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
- *     ?vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C5970 (-vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
+ *     ?vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C6F30 (-vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
+ *     ?vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C7190 (-vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
  * Callees:
  *     <none>
  */
@@ -255,7 +255,8 @@ LABEL_67:
           {
             v14 = a1;
             v13 = a12;
-            goto LABEL_138;
+            v20 = 4 * v15;
+            goto LABEL_139;
           }
         }
         v37 = v25 + 2;

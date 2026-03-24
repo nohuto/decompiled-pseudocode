@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedWriteScalarMarshaler @ 0x1C0239FA0
+ * XREFs of CreateSharedWriteScalarMarshaler @ 0x1C01F8F50
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedWriteScalarMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C0239D6C (-Create@CSharedWriteScalarMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@.c)
+ *     ?Create@CSharedWriteScalarMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01F8E00 (-Create@CSharedWriteScalarMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@.c)
  */
 
 __int64 __fastcall CreateSharedWriteScalarMarshaler(

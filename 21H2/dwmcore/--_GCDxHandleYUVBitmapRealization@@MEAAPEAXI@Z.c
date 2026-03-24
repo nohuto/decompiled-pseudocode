@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCDxHandleYUVBitmapRealization@@MEAAPEAXI@Z @ 0x1802A5270
+ * XREFs of ??_GCDxHandleYUVBitmapRealization@@MEAAPEAXI@Z @ 0x1802657F0
  * Callers:
- *     ??_ECDxHandleYUVBitmapRealization@@OBEA@EAAPEAXI@Z @ 0x18010C3F0 (--_ECDxHandleYUVBitmapRealization@@OBEA@EAAPEAXI@Z.c)
+ *     ??_ECDxHandleYUVBitmapRealization@@OBCA@EAAPEAXI@Z @ 0x1800F90D0 (--_ECDxHandleYUVBitmapRealization@@OBCA@EAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1CDxHandleYUVBitmapRealization@@MEAA@XZ @ 0x1802A50A8 (--1CDxHandleYUVBitmapRealization@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CDxHandleYUVBitmapRealization@@MEAA@XZ @ 0x180265634 (--1CDxHandleYUVBitmapRealization@@MEAA@XZ.c)
  */
 
 CDxHandleYUVBitmapRealization *__fastcall CDxHandleYUVBitmapRealization::`scalar deleting destructor'(

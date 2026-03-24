@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmiAcquireCurrentSession @ 0x1409A49E0
+ * XREFs of TtmiAcquireCurrentSession @ 0x1408FF014
  * Callers:
- *     TtmNotifyDeviceArrival @ 0x1409A2610 (TtmNotifyDeviceArrival.c)
- *     TtmNotifyDeviceDeparture @ 0x1409A2910 (TtmNotifyDeviceDeparture.c)
- *     TtmNotifyDeviceInput @ 0x1409A29D0 (TtmNotifyDeviceInput.c)
- *     TtmiSessionsRundown @ 0x1409A4B8C (TtmiSessionsRundown.c)
- *     TtmpDispatchOpenTerminal @ 0x1409A687C (TtmpDispatchOpenTerminal.c)
+ *     TtmNotifyDeviceArrival @ 0x1408FBC50 (TtmNotifyDeviceArrival.c)
+ *     TtmNotifyDeviceDeparture @ 0x1408FBF50 (TtmNotifyDeviceDeparture.c)
+ *     TtmNotifyDeviceInput @ 0x1408FC010 (TtmNotifyDeviceInput.c)
+ *     TtmiSessionsRundown @ 0x1408FF1C8 (TtmiSessionsRundown.c)
+ *     TtmpDispatchOpenTerminal @ 0x140900F28 (TtmpDispatchOpenTerminal.c)
  * Callees:
- *     PsGetProcessSessionIdEx @ 0x14036F3B0 (PsGetProcessSessionIdEx.c)
- *     TtmpAcquireSessionById @ 0x1409A4FE0 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
+ *     PsGetProcessSessionIdEx @ 0x140315400 (PsGetProcessSessionIdEx.c)
+ *     TtmpAcquireSessionById @ 0x1408FF640 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiAcquireCurrentSession(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall TtmiAcquireCurrentSession(__int64 a1)
   if ( ProcessSessionId == -1 )
   {
     v3 = -1073740715;
-    TtmiLogError("TtmiAcquireCurrentSession", 1758LL, 0xFFFFFFFFLL, 3221226581LL);
+    TtmiLogError("TtmiAcquireCurrentSession", 1762LL, 0xFFFFFFFFLL, 3221226581LL);
   }
   else
   {

@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x14032242C
+ * XREFs of PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x14036F0E8
  * Callers:
- *     PnpStartDeviceNode @ 0x1407939E0 (PnpStartDeviceNode.c)
- *     PipEnumerateDevice @ 0x14079528C (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x14073A3A4 (PnpStartDeviceNode.c)
+ *     PipEnumerateDevice @ 0x1407432C8 (PipEnumerateDevice.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall PnpDeviceCompletionQueueRemoveCompletedRequest(__int64 a1, _QWORD *a2)
 {
   KIRQL v3; // al
   __int64 v4; // rdx
-  unsigned __int64 v5; // rbx
+  unsigned __int64 v5; // rdi
   _QWORD *v6; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -22,8 +22,8 @@ _QWORD *__fastcall PnpDeviceCompletionQueueRemoveCompletedRequest(__int64 a1, _Q
   int v11; // eax
   bool v12; // zf
 
-  KeWaitForSingleObject(&byte_140C5CAA8, Executive, 0, 0, 0LL);
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C5CAC8);
+  KeWaitForSingleObject(&byte_140C44B88, Executive, 0, 0, 0LL);
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C44BA8);
   v4 = *a2;
   v5 = v3;
   v6 = (_QWORD *)a2[1];
@@ -31,19 +31,22 @@ _QWORD *__fastcall PnpDeviceCompletionQueueRemoveCompletedRequest(__int64 a1, _Q
     __fastfail(3u);
   *v6 = v4;
   *(_QWORD *)(v4 + 8) = v6;
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5CAC8);
+  KxReleaseSpinLock(&qword_140C44BA8);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v12 = (v11 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v11;
-      if ( v12 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v12 = (v11 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v5);

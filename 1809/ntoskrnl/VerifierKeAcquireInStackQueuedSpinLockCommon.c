@@ -4,7 +4,7 @@
  *     VerifierKeAcquireInStackQueuedSpinLock @ 0x140939390 (VerifierKeAcquireInStackQueuedSpinLock.c)
  *     VerifierKeAcquireInStackQueuedSpinLockNoReboot @ 0x140939680 (VerifierKeAcquireInStackQueuedSpinLockNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     VfUtilCheckKernelAddress @ 0x1409260A4 (VfUtilCheckKernelAddress.c)
  *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
  *     ViKeRaiseIrqlSanityChecks @ 0x14093B048 (ViKeRaiseIrqlSanityChecks.c)

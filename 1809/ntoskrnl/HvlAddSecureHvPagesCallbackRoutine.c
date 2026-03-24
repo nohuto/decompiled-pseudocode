@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlAddSecureHvPagesCallbackRoutine @ 0x140277500
+ * XREFs of HvlAddSecureHvPagesCallbackRoutine @ 0x140277600
  * Callers:
  *     <none>
  * Callees:
- *     HvlAddSecurePagesCallbackRoutine @ 0x14027751C (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x14027761C (HvlAddSecurePagesCallbackRoutine.c)
  */
 
 void __fastcall HvlAddSecureHvPagesCallbackRoutine(

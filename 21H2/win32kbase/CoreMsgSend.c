@@ -1,13 +1,13 @@
 /*
- * XREFs of CoreMsgSend @ 0x1C003B860
+ * XREFs of CoreMsgSend @ 0x1C004D190
  * Callers:
- *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C003B6C4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
+ *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C004CFF4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
  * Callees:
- *     ?Send@ServerPorts@CoreMessagingK@@SAJPEAXDPEBXI@Z @ 0x1C003B908 (-Send@ServerPorts@CoreMessagingK@@SAJPEAXDPEBXI@Z.c)
- *     ?Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z @ 0x1C003BBA0 (-Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004DAC0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$00@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$00@@@Z @ 0x1C019A278 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$00@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgPr.c)
+ *     ?Send@ServerPorts@CoreMessagingK@@SAJPEAXDPEBXI@Z @ 0x1C004D238 (-Send@ServerPorts@CoreMessagingK@@SAJPEAXDPEBXI@Z.c)
+ *     ?Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z @ 0x1C004D5FC (-Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C008F428 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$00@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$00@@@Z @ 0x1C0173708 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$00@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgPr.c)
  */
 
 __int64 __fastcall CoreMsgSend(void *a1, __int64 a2, const void *a3, unsigned int a4)
@@ -23,13 +23,13 @@ __int64 __fastcall CoreMsgSend(void *a1, __int64 a2, const void *a3, unsigned in
   int v16; // [rsp+6Ch] [rbp-14h]
 
   v10 = 0;
-  if ( (unsigned int)dword_1C028D8C0 > 5 )
+  if ( (unsigned int)dword_1C024A450 > 5 )
   {
     v11[0] = 0;
     v12 = a1;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<1>>(
-      (unsigned int)&dword_1C028D8C0,
-      (unsigned int)&unk_1C0266395,
+      (unsigned int)&dword_1C024A450,
+      (unsigned int)&unk_1C02230E2,
       (_DWORD)a3,
       a4,
       (__int64)&v12,
@@ -37,15 +37,15 @@ __int64 __fastcall CoreMsgSend(void *a1, __int64 a2, const void *a3, unsigned in
   }
   CoreMessagingK::EntryLock::Acquire(&v10, 4LL);
   v8 = CoreMessagingK::ServerPorts::Send(a1, v7, a3, a4);
-  if ( (unsigned int)dword_1C028D8C0 > 5 )
+  if ( (unsigned int)dword_1C024A450 > 5 )
   {
     v16 = 0;
     v14 = &v12;
     LODWORD(v12) = v8;
     v15 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C028D8C0, (int)&dword_1C0266283, 0, 0, 3u, &v13);
+    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024A450, (int)&dword_1C0223166, 0, 0, 3u, &v13);
   }
   if ( v10 )
-    KeReleaseMutex(Mutex, 0);
+    KeReleaseMutex(P, 0);
   return v8;
 }

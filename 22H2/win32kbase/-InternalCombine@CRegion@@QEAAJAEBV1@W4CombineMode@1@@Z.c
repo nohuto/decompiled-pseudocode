@@ -1,136 +1,114 @@
 /*
- * XREFs of ?InternalCombine@CRegion@@QEAAJAEBV1@W4CombineMode@1@@Z @ 0x1C007D318
+ * XREFs of ?InternalCombine@CRegion@@QEAAJAEBV1@W4CombineMode@1@@Z @ 0x1C0026878
  * Callers:
- *     ?Combine@CRegion@@UEAAJAEBUIRegion@@W4CombineMode@2@@Z @ 0x1C007D300 (-Combine@CRegion@@UEAAJAEBUIRegion@@W4CombineMode@2@@Z.c)
+ *     ?Combine@CRegion@@UEAAJAEBUIRegion@@W4CombineMode@2@@Z @ 0x1C0026860 (-Combine@CRegion@@UEAAJAEBUIRegion@@W4CombineMode@2@@Z.c)
  * Callees:
- *     ?vDeleteRGNCOREOBJ@RGNCOREOBJ@@QEAAXXZ @ 0x1C007D23C (-vDeleteRGNCOREOBJ@RGNCOREOBJ@@QEAAXXZ.c)
- *     RGNCOREOBJ::bMerge__lambda_4f08034d680f118a0a3da8ec85dc396d___ @ 0x1C007D49C (RGNCOREOBJ--bMerge__lambda_4f08034d680f118a0a3da8ec85dc396d___.c)
- *     ?InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z @ 0x1C007E494 (-InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z.c)
- *     ??0RGNCOREMEMOBJ@@QEAA@K@Z @ 0x1C007E588 (--0RGNCOREMEMOBJ@@QEAA@K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?bCopy@RGNCOREOBJ@@QEAA_NAEBV1@@Z @ 0x1C016D660 (-bCopy@RGNCOREOBJ@@QEAA_NAEBV1@@Z.c)
+ *     ?InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z @ 0x1C00288F0 (-InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002C4A8 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002CBC0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002CCE4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C002D230 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
+ *     ?bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z @ 0x1C0035490 (-bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CRegion::InternalCombine(CRegion *a1, __int64 a2, int a3)
+__int64 __fastcall CRegion::InternalCombine(__int64 a1, __int64 a2, int a3)
 {
   _DWORD *v4; // rdi
   int v5; // ecx
   unsigned int v6; // ebx
-  int v7; // r14d
-  void *v9; // rbx
-  __int64 v10; // rax
-  int v11; // r9d
-  PVOID v12; // rax
-  int v14[2]; // [rsp+30h] [rbp-10h] BYREF
-  PVOID v15; // [rsp+70h] [rbp+30h] BYREF
-  void *v16; // [rsp+88h] [rbp+48h] BYREF
+  int v7; // esi
+  __int64 v9; // rbx
+  __int64 v11; // [rsp+20h] [rbp-10h] BYREF
+  int v12; // [rsp+28h] [rbp-8h]
+  __int64 v13; // [rsp+60h] [rbp+30h] BYREF
+  __int64 v14; // [rsp+78h] [rbp+48h] BYREF
 
   v4 = (_DWORD *)(a2 + 12);
-  v5 = *((_DWORD *)a1 + 3);
+  v5 = *(_DWORD *)(a1 + 12);
   v6 = 0;
   v7 = a3;
   if ( v5 == 2 && *v4 == 2 )
-    goto LABEL_6;
-  if ( !*v4 )
+    goto LABEL_7;
+  if ( *v4 )
   {
-    if ( a3 != 5 )
-      goto LABEL_6;
-    goto LABEL_26;
-  }
-  if ( *v4 == 1 )
-  {
-    switch ( a3 )
+    if ( *v4 != 1 )
     {
-      case 1:
+      if ( !v5 )
+      {
+        v6 = CRegion::InitializeFromRect((CRegion *)a1, &CRegion::sc_rcEmpty);
         goto LABEL_6;
-      case 2:
-LABEL_22:
-        (*(void (__fastcall **)(CRegion *))(*(_QWORD *)a1 + 32LL))(a1);
+      }
+      if ( v5 != 1 )
+        return (unsigned int)-1073741595;
+      if ( a3 == 1 )
+        goto LABEL_36;
+      if ( a3 == 2 )
+        goto LABEL_7;
+      if ( a3 <= 2 )
+        return (unsigned int)-1073741811;
+      if ( a3 > 4 )
+      {
+        if ( a3 != 5 )
+          return (unsigned int)-1073741811;
+LABEL_36:
+        v6 = CRegion::InitializeFromRect((CRegion *)a1, &CRegion::sc_rcEmpty);
+        v7 = 5;
         goto LABEL_6;
-      case 3:
+      }
+      return (unsigned int)-2147020579;
+    }
+    if ( a3 == 1 )
+      goto LABEL_7;
+    if ( a3 != 2 )
+    {
+      if ( a3 == 3 )
         return (unsigned int)-2147020579;
-    }
-    if ( a3 != 4 )
-    {
+      if ( a3 == 4 )
+      {
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)a1 + 16LL))(a1);
+        goto LABEL_7;
+      }
       if ( a3 != 5 )
         return (unsigned int)-1073741811;
-      goto LABEL_22;
     }
-LABEL_26:
-    (*(void (__fastcall **)(CRegion *))(*(_QWORD *)a1 + 16LL))(a1);
-    goto LABEL_6;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)a1 + 32LL))(a1);
+    goto LABEL_7;
   }
-  if ( !v5 )
-    goto LABEL_5;
-  if ( v5 != 1 )
-    return (unsigned int)-1073741595;
-  if ( a3 != 1 )
-  {
-    if ( a3 == 2 )
-      goto LABEL_6;
-    if ( a3 != 3 && a3 != 4 )
-    {
-      if ( a3 != 5 )
-        return (unsigned int)-1073741811;
-      goto LABEL_35;
-    }
-    return (unsigned int)-2147020579;
-  }
-LABEL_35:
-  v7 = 5;
-LABEL_5:
-  v6 = CRegion::InitializeFromRect(a1, &CRegion::sc_rcEmpty);
+  if ( a3 == 5 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)a1 + 16LL))(a1);
+LABEL_6:
   if ( (v6 & 0x80000000) != 0 )
     return v6;
-LABEL_6:
-  if ( *((_DWORD *)a1 + 3) != 2 || *v4 != 2 )
+LABEL_7:
+  if ( *(_DWORD *)(a1 + 12) != 2 || *v4 != 2 )
     return v6;
-  v9 = (void *)*((_QWORD *)a1 + 2);
-  v10 = *(_QWORD *)(a2 + 16);
-  *(_QWORD *)v14 = v10;
-  v16 = v9;
-  if ( !v9 || !v10 || (unsigned int)(v7 - 1) > 4 )
+  v14 = *(_QWORD *)(a2 + 16);
+  if ( !v14 || (unsigned int)(v7 - 1) > 4 )
     return (unsigned int)-1073741811;
-  if ( v7 == 5 )
+  v9 = *(_QWORD *)(a1 + 16);
+  v11 = 0LL;
+  v12 = 0;
+  v13 = v9;
+  RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v11, 0x70u);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v11);
+  if ( v9 && v11 )
   {
-    if ( RGNCOREOBJ::bCopy((RGNCOREOBJ *)&v16, (const struct RGNCOREOBJ *)v14) )
+    if ( (unsigned int)RGNOBJ::bMerge((RGNOBJ *)&v11, (struct RGNOBJ *)&v13, (struct RGNOBJ *)&v14, byte_1C0211448[v7]) )
     {
+      RGNOBJ::vSwap((RGNOBJ *)&v11, (struct RGNOBJ *)&v13);
       v6 = 0;
-      *((_QWORD *)a1 + 2) = v16;
+      *(_QWORD *)(a1 + 16) = v13;
     }
     else
     {
-      return (unsigned int)-1073741801;
+      v6 = -1073741823;
     }
   }
   else
   {
-    RGNCOREMEMOBJ::RGNCOREMEMOBJ((RGNCOREMEMOBJ *)&v15, 0x70u);
-    if ( v15 )
-    {
-      LOBYTE(v11) = byte_1C024CD58[v7];
-      if ( (unsigned __int8)RGNCOREOBJ::bMerge__lambda_4f08034d680f118a0a3da8ec85dc396d___(
-                              (int)&v15,
-                              (int)&v16,
-                              (int)v14,
-                              v11,
-                              (struct RGNCOREOBJ *)&v15) )
-      {
-        v12 = v15;
-        v15 = v9;
-        v6 = 0;
-        *((_QWORD *)a1 + 2) = v12;
-      }
-      else
-      {
-        v6 = -1073741823;
-      }
-    }
-    else
-    {
-      v6 = -1073741801;
-    }
-    RGNCOREOBJ::vDeleteRGNCOREOBJ(&v15);
+    v6 = -1073741801;
   }
+  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v11);
   return v6;
 }

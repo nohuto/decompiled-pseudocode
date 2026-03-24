@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpDisableCompression @ 0x1403150A8
+ * XREFs of EtwpDisableCompression @ 0x1403151A8
  * Callers:
  *     EtwpDequeueFreeBuffer @ 0x140015278 (EtwpDequeueFreeBuffer.c)
- *     EtwpDequeueBufferPendingCompression @ 0x140314F44 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x140315044 (EtwpDequeueBufferPendingCompression.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -11,9 +11,9 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeGetEffectiveIrql @ 0x1400CAAB0 (KeGetEffectiveIrql.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     EtwpRelinquishCompressionTarget @ 0x1403156BC (EtwpRelinquishCompressionTarget.c)
+ *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     EtwpRelinquishCompressionTarget @ 0x1403157BC (EtwpRelinquishCompressionTarget.c)
  */
 
 void __fastcall EtwpDisableCompression(__int64 a1)

@@ -1,34 +1,34 @@
 /*
- * XREFs of EtwpCCSwapInitializeProcessor @ 0x14081FE64
+ * XREFs of EtwpCCSwapInitializeProcessor @ 0x140793D7C
  * Callers:
- *     EtwInitializeProcessor @ 0x14081FD58 (EtwInitializeProcessor.c)
+ *     EtwInitializeProcessor @ 0x140793D0C (EtwInitializeProcessor.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCCSwapInitializeProcessor(__int64 a1)
 {
-  __int64 *v1; // rdi
+  _QWORD *v1; // rdi
   unsigned __int64 v2; // rbx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
 
-  v1 = (__int64 *)(a1 + 392);
+  v1 = (_QWORD *)(a1 + 296);
   v2 = 0LL;
   while ( 1 )
   {
-    if ( *(_DWORD *)((char *)&CCSwapNumLoggersPerClockType + v2) )
+    if ( CCSwapNumLoggersPerClockType[v2] )
     {
       if ( !*v1 )
       {
-        Pool2 = ExAllocatePool2(64LL, 1024LL, 2004042563LL);
-        *v1 = Pool2;
-        if ( !Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x400uLL, 0x77734343u);
+        *v1 = PoolWithTag;
+        if ( !PoolWithTag )
           break;
       }
     }
-    v2 += 4LL;
+    ++v2;
     ++v1;
-    if ( v2 >= 0x14 )
+    if ( v2 >= 5 )
       return 0LL;
   }
   return 3221225495LL;

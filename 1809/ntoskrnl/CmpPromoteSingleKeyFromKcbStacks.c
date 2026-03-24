@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpPromoteSingleKeyFromKcbStacks @ 0x1408058E0
+ * XREFs of CmpPromoteSingleKeyFromKcbStacks @ 0x1408058C0
  * Callers:
- *     CmpPartialPromoteSubkeys @ 0x140805410 (CmpPartialPromoteSubkeys.c)
- *     CmpPromoteKey @ 0x140805600 (CmpPromoteKey.c)
- *     CmpPromoteSubtree @ 0x140805B5C (CmpPromoteSubtree.c)
+ *     CmpPartialPromoteSubkeys @ 0x1408053F0 (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteKey @ 0x1408055E0 (CmpPromoteKey.c)
+ *     CmpPromoteSubtree @ 0x140805B3C (CmpPromoteSubtree.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     CmpRebuildKcbCacheFromNode @ 0x1405AC984 (CmpRebuildKcbCacheFromNode.c)
  *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
- *     CmpCleanupKeyNodeStack @ 0x1407F99C0 (CmpCleanupKeyNodeStack.c)
- *     CmpInitializeKeyNodeStack @ 0x1407F9F48 (CmpInitializeKeyNodeStack.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA038 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x1407FA580 (CmpStartKeyNodeStackFromKcbStack.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140804EA0 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140805288 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpCleanupKeyNodeStack @ 0x1407F99A0 (CmpCleanupKeyNodeStack.c)
+ *     CmpInitializeKeyNodeStack @ 0x1407F9F28 (CmpInitializeKeyNodeStack.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA018 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x1407FA560 (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140804E80 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140805268 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
  */
 
 __int64 __fastcall CmpPromoteSingleKeyFromKcbStacks(__int64 a1, __int64 a2, char a3)

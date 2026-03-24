@@ -1,29 +1,42 @@
 /*
- * XREFs of MonitorInitializeAdapterDone @ 0x1C0218564
+ * XREFs of MonitorInitializeAdapterDone @ 0x1C0190158
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
  * Callees:
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?_OnAdapterInitializationDone@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02185D4 (-_OnAdapterInitializationDone@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?_OnAdapterInitializationDone@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01901C8 (-_OnAdapterInitializationDone@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  */
 
-__int64 __fastcall MonitorInitializeAdapterDone(PERESOURCE *this, struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2)
+__int64 __fastcall MonitorInitializeAdapterDone(
+        PERESOURCE *this,
+        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2,
+        __int64 a3,
+        __int64 a4)
 {
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   __int64 result; // rax
-  MONITOR_MGR *v5; // rcx
+  MONITOR_MGR *v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rax
 
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2) + 24) = this;
+  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2, a3, a4) + 24) = this;
   if ( !this )
     return 3221225485LL;
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this) )
-    WdLogSingleEntry0(1LL);
-  result = (__int64)this[349];
+  {
+    v11 = WdLogNewEntry5_WdAssertion(v7, v6);
+    WdLogEvent5_WdAssertion(v11);
+  }
+  result = (__int64)this[337];
   if ( result )
   {
-    v5 = *(MONITOR_MGR **)(result + 112);
-    if ( v5 )
-      return MONITOR_MGR::_OnAdapterInitializationDone(v5, a2);
-    WdLogSingleEntry1(2LL, this);
+    v9 = *(MONITOR_MGR **)(result + 96);
+    if ( v9 )
+      return MONITOR_MGR::_OnAdapterInitializationDone(v9, a2);
+    v10 = WdLogNewEntry5_WdError(0LL, v6);
+    *(_QWORD *)(v10 + 24) = this;
+    WdLogEvent5_WdError(v10);
     return 3221225485LL;
   }
   return result;

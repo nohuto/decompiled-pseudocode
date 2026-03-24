@@ -1,12 +1,12 @@
 /*
- * XREFs of SepAdtRegNotificationCallback @ 0x14084CA10
+ * XREFs of SepAdtRegNotificationCallback @ 0x14079E1C0
  * Callers:
  *     <none>
  * Callees:
- *     NtNotifyChangeKey @ 0x1407E5590 (NtNotifyChangeKey.c)
- *     SepAdtInitializeBounds @ 0x14084CA74 (SepAdtInitializeBounds.c)
- *     SepAdtInitializePrivilegeAuditing @ 0x14084CAF8 (SepAdtInitializePrivilegeAuditing.c)
- *     SepAdtInitializeCrashOnFail @ 0x14084CB58 (SepAdtInitializeCrashOnFail.c)
+ *     NtNotifyChangeKey @ 0x1406631C0 (NtNotifyChangeKey.c)
+ *     SepAdtInitializeBounds @ 0x14079E224 (SepAdtInitializeBounds.c)
+ *     SepAdtInitializePrivilegeAuditing @ 0x14079E2A8 (SepAdtInitializePrivilegeAuditing.c)
+ *     SepAdtInitializeCrashOnFail @ 0x14079E308 (SepAdtInitializeCrashOnFail.c)
  */
 
 __int64 SepAdtRegNotificationCallback()

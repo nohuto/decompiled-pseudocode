@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetValueAt@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat3@Numerics@Foundation@Windows@@MAEBV?$span@M$0?0@gsl@@AEAV78@@Z @ 0x180240E08
+ * XREFs of ?GetValueAt@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat3@Numerics@Foundation@Windows@@MAEBV?$span@M$0?0@gsl@@AEAV78@@Z @ 0x1801DBA1C
  * Callers:
- *     ?AnimateSingle@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x1802404E0 (-AnimateSingle@-$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@UEBAXA.c)
+ *     ?AnimateSingle@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x1801DB0F0 (-AnimateSingle@-$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@UEBAXA.c)
  * Callees:
- *     ?FindFirstFrameIndex@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@IEBAIM@Z @ 0x180240B14 (-FindFirstFrameIndex@-$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@.c)
- *     ?GetValueForFrame@?$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat3@Numerics@Foundation@Windows@@AEBV?$span@M$0?0@gsl@@0@Z @ 0x180241040 (-GetValueForFrame@-$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA-AUflo.c)
+ *     ?FindFirstFrameIndex@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@IEBAIM@Z @ 0x1801DB6F8 (-FindFirstFrameIndex@-$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@.c)
+ *     ?GetValueForFrame@?$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat3@Numerics@Foundation@Windows@@AEBV?$span@M$0?0@gsl@@0@Z @ 0x1801DBC80 (-GetValueForFrame@-$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA-AUflo.c)
  */
 
 __int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float3>::GetValueAt(
@@ -15,9 +15,9 @@ __int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numer
         __int64 a5)
 {
   int FirstFrameIndex; // eax
-  __int64 v8; // rcx
-  __int64 v9; // rdx
-  unsigned __int64 v10; // r11
+  __int64 v8; // r10
+  __int64 v9; // r11
+  unsigned __int64 v10; // rbx
   float *ValueForFrame; // rbx
   __int64 v12; // r9
   __int64 v13; // r10
@@ -38,7 +38,7 @@ __int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numer
                       a3);
   v9 = *(_QWORD *)(v8 + 8);
   v10 = (unsigned int)(FirstFrameIndex + 1);
-  if ( v10 >= 0xAAAAAAAAAAAAAAABuLL * ((*(_QWORD *)(v8 + 16) - v9) >> 3) )
+  if ( v10 >= (*(_QWORD *)(v8 + 16) - v9) / 24 )
   {
     v21 = *(_QWORD *)(v8 + 16);
     v22 = *(_QWORD *)(v21 - 20);

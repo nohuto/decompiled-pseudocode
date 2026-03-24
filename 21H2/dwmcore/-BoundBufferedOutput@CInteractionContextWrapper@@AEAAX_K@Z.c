@@ -1,11 +1,11 @@
 /*
- * XREFs of ?BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z @ 0x180272D38
+ * XREFs of ?BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z @ 0x18022FFDC
  * Callers:
- *     ?AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z @ 0x180272C10 (-AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z.c)
+ *     ?AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z @ 0x18022FE74 (-AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ?PeekFirst@?$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOutput@@@Z @ 0x180273BF4 (-PeekFirst@-$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOut.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?PeekFirst@?$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOutput@@@Z @ 0x180230E8C (-PeekFirst@-$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOut.c)
  */
 
 void __fastcall CInteractionContextWrapper::BoundBufferedOutput(CInteractionContextWrapper *this, __int64 a2)
@@ -18,11 +18,11 @@ void __fastcall CInteractionContextWrapper::BoundBufferedOutput(CInteractionCont
   void *v9; // rdi
   char *v10; // rcx
   __int64 v11; // rax
-  void *v12; // [rsp+40h] [rbp+8h] BYREF
+  void *lpMem; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( *((_DWORD *)this + 138) >= 0x7D0u )
+  if ( *((_DWORD *)this + 140) >= 0x7D0u )
   {
-    v4 = (char *)this + 536;
+    v4 = (char *)this + 544;
     do
     {
       v5 = 0LL;
@@ -40,16 +40,16 @@ LABEL_17:
         --*((_DWORD *)v4 + 4);
       }
       LeaveCriticalSection((LPCRITICAL_SECTION)(v4 + 24));
-      v12 = v5;
-      DefaultHeap::Free(v5);
+      lpMem = v5;
+      operator delete(v5);
     }
-    while ( *((_DWORD *)this + 138) >= 0x7D0u );
+    while ( *((_DWORD *)this + 140) >= 0x7D0u );
   }
-  v8 = (char *)this + 536;
-  while ( CQueue<CBufferedInteractionOutput *>::PeekFirst(v8, a2, &v12) )
+  v8 = (char *)this + 544;
+  while ( CQueue<CBufferedInteractionOutput *>::PeekFirst(v8, a2, &lpMem) )
   {
-    v9 = v12;
-    if ( (unsigned __int64)(a2 - *(_QWORD *)v12) <= 0x1E8480 )
+    v9 = lpMem;
+    if ( (unsigned __int64)(a2 - *(_QWORD *)lpMem) <= 0x1E8480 )
       break;
     EnterCriticalSection((LPCRITICAL_SECTION)(v8 + 24));
     v10 = *(char **)v8;
@@ -66,6 +66,6 @@ LABEL_17:
       --*((_DWORD *)v8 + 4);
     }
     LeaveCriticalSection((LPCRITICAL_SECTION)(v8 + 24));
-    DefaultHeap::Free(v9);
+    operator delete(v9);
   }
 }

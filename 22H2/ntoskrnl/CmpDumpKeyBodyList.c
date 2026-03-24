@@ -1,75 +1,74 @@
 /*
- * XREFs of CmpDumpKeyBodyList @ 0x140A17148
+ * XREFs of CmpDumpKeyBodyList @ 0x14086EC98
  * Callers:
- *     CmpSearchForOpenSubKeys @ 0x140875624 (CmpSearchForOpenSubKeys.c)
- *     CmpFreeAllMemory @ 0x140A113DC (CmpFreeAllMemory.c)
- *     CmpSearchAndCountWorker @ 0x140A177A0 (CmpSearchAndCountWorker.c)
+ *     CmpSearchForOpenSubKeys @ 0x14066C648 (CmpSearchForOpenSubKeys.c)
+ *     CmpFreeAllMemory @ 0x14086BCE8 (CmpFreeAllMemory.c)
+ *     CmpSearchAndCountWorker @ 0x14086F1B0 (CmpSearchAndCountWorker.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     CmpConstructNameWithStatus @ 0x1406D7C60 (CmpConstructNameWithStatus.c)
- *     CmpDumpOneKeyBody @ 0x140A17280 (CmpDumpOneKeyBody.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
+ *     CmpDumpOneKeyBody @ 0x14086EDD0 (CmpDumpOneKeyBody.c)
  */
 
 void __fastcall CmpDumpKeyBodyList(_QWORD *a1, _DWORD *a2, __int64 a3)
 {
   unsigned int v3; // ebx
-  __int64 v4; // rbp
-  signed __int64 *v7; // r15
-  unsigned int v8; // ecx
-  _QWORD *v9; // rax
-  _QWORD **v10; // rsi
-  __int64 v11; // rcx
+  char v7; // r8
+  signed __int64 *v8; // r15
+  unsigned int v9; // ecx
+  _QWORD *v10; // rax
+  _QWORD **v11; // rsi
+  __int64 v12; // rcx
   _QWORD *i; // r14
-  signed __int64 v13; // rsi
-  void *v14; // [rsp+50h] [rbp+8h] BYREF
+  signed __int64 v14; // rsi
+  void *v15; // [rsp+50h] [rbp+8h] BYREF
 
   v3 = 0;
-  v4 = a3;
-  LOBYTE(a3) = 1;
+  v7 = 1;
   if ( *a1 )
   {
-    v7 = a1 + 17;
-    v8 = 0;
-    v9 = a1 + 17;
-    while ( !*v9 )
+    v8 = a1 + 17;
+    v9 = 0;
+    v10 = a1 + 17;
+    while ( !*v10 )
     {
-      ++v8;
       ++v9;
-      if ( v8 >= 4 )
+      ++v10;
+      if ( v9 >= 4 )
         goto LABEL_7;
     }
-    LOBYTE(a3) = 0;
+    v7 = 0;
 LABEL_7:
-    v10 = (_QWORD **)(a1 + 15);
-    if ( *v10 != v10 || (_BYTE)a3 != 1 )
+    v11 = (_QWORD **)(a1 + 15);
+    if ( *v11 != v11 || v7 != 1 )
     {
-      v14 = 0LL;
-      CmpConstructNameWithStatus((__int64)a1, &v14, a3);
-      if ( v14 )
+      v15 = 0LL;
+      CmpConstructNameWithStatus((__int64)a1, &v15);
+      if ( v15 )
       {
-        for ( i = *v10; i != v10; i = (_QWORD *)*i )
+        for ( i = *v11; i != v11; i = (_QWORD *)*i )
         {
-          CmpDumpOneKeyBody(v11, i - 4, v14, v4);
+          CmpDumpOneKeyBody(v12, i - 4, v15, a3);
           ++*a2;
         }
         do
         {
-          v13 = *v7;
-          if ( (unsigned __int64)*v7 >= 3 && v13 == _InterlockedCompareExchange64(&a1[v3 + 17], 1LL, v13) )
+          v14 = *v8;
+          if ( (unsigned __int64)*v8 >= 3 && v14 == _InterlockedCompareExchange64(&a1[v3 + 17], 1LL, v14) )
           {
-            CmpDumpOneKeyBody(v11, v13, v14, v4);
+            CmpDumpOneKeyBody(v12, v14, v15, a3);
             ++*a2;
-            _InterlockedCompareExchange64(&a1[v3 + 17], v13, 1LL);
+            _InterlockedCompareExchange64(&a1[v3 + 17], v14, 1LL);
           }
           ++v3;
-          ++v7;
+          ++v8;
         }
         while ( v3 < 4 );
-        CmpFreeTransientPoolWithTag(v14, 0x624E4D43u);
+        CmpFreeTransientPoolWithTag(v15, 0x624E4D43u);
       }
-      else if ( v4 )
+      else if ( a3 )
       {
-        *(_DWORD *)(v4 + 20) = -1073741670;
+        *(_DWORD *)(a3 + 20) = -1073741670;
       }
     }
   }

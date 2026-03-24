@@ -1,13 +1,13 @@
 /*
- * XREFs of PiLookupInDDBCache @ 0x14067F1E8
+ * XREFs of PiLookupInDDBCache @ 0x14067F1C8
  * Callers:
- *     PpCheckInDriverDatabase @ 0x14067F0FC (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x14067F0DC (PpCheckInDriverDatabase.c)
  * Callees:
  *     RtlIsGenericTableEmptyAvl @ 0x1400067C0 (RtlIsGenericTableEmptyAvl.c)
  *     RtlLookupElementGenericTableAvl @ 0x140006BF0 (RtlLookupElementGenericTableAvl.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcsrchr @ 0x1401978A0 (wcsrchr.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
  */
 
 __int64 __fastcall PiLookupInDDBCache(__int64 a1, void *a2, __int64 a3, _OWORD *a4)

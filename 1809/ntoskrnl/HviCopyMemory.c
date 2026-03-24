@@ -1,13 +1,13 @@
 /*
- * XREFs of HviCopyMemory @ 0x1402FC604
+ * XREFs of HviCopyMemory @ 0x1402FC704
  * Callers:
  *     CcMapAndCopyInToCache @ 0x1400321D0 (CcMapAndCopyInToCache.c)
- *     CcCopyBytesToUserBuffer @ 0x1400B1900 (CcCopyBytesToUserBuffer.c)
+ *     CcCopyBytesToUserBuffer @ 0x1400B1920 (CcCopyBytesToUserBuffer.c)
  * Callees:
- *     HvipApertureVmfuncSwitchEptp @ 0x1401C6FC0 (HvipApertureVmfuncSwitchEptp.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     HvipApertureDetectParameters @ 0x1402FC704 (HvipApertureDetectParameters.c)
- *     HvipApertureDirectHypercall @ 0x1402FC80C (HvipApertureDirectHypercall.c)
+ *     HvipApertureVmfuncSwitchEptp @ 0x1401C6FE0 (HvipApertureVmfuncSwitchEptp.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     HvipApertureDetectParameters @ 0x1402FC804 (HvipApertureDetectParameters.c)
+ *     HvipApertureDirectHypercall @ 0x1402FC90C (HvipApertureDirectHypercall.c)
  */
 
 __int64 __fastcall HviCopyMemory(__int64 a1, __int64 a2, unsigned int a3)
@@ -24,12 +24,12 @@ __int64 __fastcall HviCopyMemory(__int64 a1, __int64 a2, unsigned int a3)
       v7 = a3 - v6;
       if ( a3 - (unsigned int)v6 > 0x100000 )
         v7 = 0x100000;
-      if ( !byte_1404E14CD )
+      if ( !byte_1404E148D )
         HvipApertureDetectParameters();
       _disable();
       if ( !byte_1404052ED )
       {
-        if ( byte_1404E14CE )
+        if ( byte_1404E148E )
           HvipApertureVmfuncSwitchEptp();
         else
           HvipApertureDirectHypercall(6LL, 1LL);
@@ -37,7 +37,7 @@ __int64 __fastcall HviCopyMemory(__int64 a1, __int64 a2, unsigned int a3)
       result = (__int64)memmove((void *)(v6 + a1), (const void *)(v6 + a2), v7);
       if ( !byte_1404052ED )
       {
-        if ( byte_1404E14CE )
+        if ( byte_1404E148E )
           result = HvipApertureVmfuncSwitchEptp();
         else
           result = HvipApertureDirectHypercall(6LL, 0LL);

@@ -1,114 +1,111 @@
 /*
- * XREFs of ExpLogRefreshTimeZoneInformationCutoverFail @ 0x1409F7D30
+ * XREFs of ExpLogRefreshTimeZoneInformationCutoverFail @ 0x14094B900
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140835844 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402A2094 (_tlgCreate1Sz_wchar_t.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-int ExpLogRefreshTimeZoneInformationCutoverFail()
+int __fastcall ExpLogRefreshTimeZoneInformationCutoverFail(__int64 a1, __int64 a2, __int64 *a3, char a4)
 {
+  char v6; // r14
   _QWORD *CurrentServerSiloGlobals; // rax
-  char v1; // dl
-  __int64 *v2; // r8
-  char v3; // r9
-  __int64 v4; // r10
-  _DWORD *v5; // rcx
-  int *v6; // r10
-  char v7; // cl
-  char v9; // [rsp+30h] [rbp-D0h] BYREF
-  char v10; // [rsp+31h] [rbp-CFh] BYREF
-  char v11; // [rsp+32h] [rbp-CEh] BYREF
-  char v12; // [rsp+33h] [rbp-CDh] BYREF
-  int v13; // [rsp+34h] [rbp-CCh] BYREF
-  int v14; // [rsp+38h] [rbp-C8h] BYREF
-  int v15; // [rsp+3Ch] [rbp-C4h] BYREF
-  int v16; // [rsp+40h] [rbp-C0h] BYREF
-  int v17; // [rsp+44h] [rbp-BCh] BYREF
-  int v18; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v19; // [rsp+50h] [rbp-B0h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v20; // [rsp+60h] [rbp-A0h] BYREF
-  char *v21; // [rsp+80h] [rbp-80h]
-  __int64 v22; // [rsp+88h] [rbp-78h]
-  int *v23; // [rsp+90h] [rbp-70h]
-  __int64 v24; // [rsp+98h] [rbp-68h]
-  int *v25; // [rsp+A0h] [rbp-60h]
-  __int64 v26; // [rsp+A8h] [rbp-58h]
-  int *v27; // [rsp+B0h] [rbp-50h]
-  __int64 v28; // [rsp+B8h] [rbp-48h]
-  char *v29; // [rsp+C0h] [rbp-40h]
-  __int64 v30; // [rsp+C8h] [rbp-38h]
-  char *v31; // [rsp+D0h] [rbp-30h]
-  __int64 v32; // [rsp+D8h] [rbp-28h]
-  __int64 *v33; // [rsp+E0h] [rbp-20h]
-  __int64 v34; // [rsp+E8h] [rbp-18h]
-  _BYTE v35[16]; // [rsp+F0h] [rbp-10h] BYREF
-  char *v36; // [rsp+100h] [rbp+0h]
-  __int64 v37; // [rsp+108h] [rbp+8h]
-  int *v38; // [rsp+110h] [rbp+10h]
-  __int64 v39; // [rsp+118h] [rbp+18h]
-  int *v40; // [rsp+120h] [rbp+20h]
-  __int64 v41; // [rsp+128h] [rbp+28h]
-  int *v42; // [rsp+130h] [rbp+30h]
-  __int64 v43; // [rsp+138h] [rbp+38h]
-  int *v44; // [rsp+140h] [rbp+40h]
-  __int64 v45; // [rsp+148h] [rbp+48h]
-  int *v46; // [rsp+150h] [rbp+50h]
-  __int64 v47; // [rsp+158h] [rbp+58h]
+  _DWORD *v9; // rcx
+  char v10; // cl
+  char v12; // [rsp+30h] [rbp-D0h] BYREF
+  char v13; // [rsp+31h] [rbp-CFh] BYREF
+  char v14; // [rsp+32h] [rbp-CEh] BYREF
+  char v15; // [rsp+33h] [rbp-CDh] BYREF
+  int v16; // [rsp+34h] [rbp-CCh] BYREF
+  int v17; // [rsp+38h] [rbp-C8h] BYREF
+  int v18; // [rsp+3Ch] [rbp-C4h] BYREF
+  int v19; // [rsp+40h] [rbp-C0h] BYREF
+  int v20; // [rsp+44h] [rbp-BCh] BYREF
+  int v21; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v22; // [rsp+50h] [rbp-B0h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v23; // [rsp+60h] [rbp-A0h] BYREF
+  char *v24; // [rsp+80h] [rbp-80h]
+  __int64 v25; // [rsp+88h] [rbp-78h]
+  int *v26; // [rsp+90h] [rbp-70h]
+  __int64 v27; // [rsp+98h] [rbp-68h]
+  int *v28; // [rsp+A0h] [rbp-60h]
+  __int64 v29; // [rsp+A8h] [rbp-58h]
+  int *v30; // [rsp+B0h] [rbp-50h]
+  __int64 v31; // [rsp+B8h] [rbp-48h]
+  char *v32; // [rsp+C0h] [rbp-40h]
+  __int64 v33; // [rsp+C8h] [rbp-38h]
+  char *v34; // [rsp+D0h] [rbp-30h]
+  __int64 v35; // [rsp+D8h] [rbp-28h]
+  __int64 *v36; // [rsp+E0h] [rbp-20h]
+  __int64 v37; // [rsp+E8h] [rbp-18h]
+  _BYTE v38[16]; // [rsp+F0h] [rbp-10h] BYREF
+  char *v39; // [rsp+100h] [rbp+0h]
+  __int64 v40; // [rsp+108h] [rbp+8h]
+  int *v41; // [rsp+110h] [rbp+10h]
+  __int64 v42; // [rsp+118h] [rbp+18h]
+  int *v43; // [rsp+120h] [rbp+20h]
+  __int64 v44; // [rsp+128h] [rbp+28h]
+  int *v45; // [rsp+130h] [rbp+30h]
+  __int64 v46; // [rsp+138h] [rbp+38h]
+  __int64 v47; // [rsp+140h] [rbp+40h]
+  __int64 v48; // [rsp+148h] [rbp+48h]
+  __int64 v49; // [rsp+150h] [rbp+50h]
+  __int64 v50; // [rsp+158h] [rbp+58h]
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  v5 = (_DWORD *)CurrentServerSiloGlobals[157];
-  if ( (unsigned int)dword_140C06820 > 5 )
+  v6 = a2;
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals(a1, a2);
+  v9 = (_DWORD *)CurrentServerSiloGlobals[133];
+  if ( (unsigned int)dword_140C02C60 > 5 )
   {
-    v11 = v1;
-    v21 = &v9;
-    v13 = v5[250];
-    v23 = &v13;
-    v14 = v5[109];
-    v25 = &v14;
-    v15 = v5[108];
-    v27 = &v15;
-    v10 = ExpRealTimeIsUniversal;
-    v29 = &v10;
-    v31 = &v11;
-    v19 = *v2;
-    v33 = &v19;
-    v9 = v3;
-    v22 = 1LL;
-    v24 = 4LL;
-    v26 = 4LL;
-    v28 = 4LL;
-    v30 = 1LL;
-    v32 = 1LL;
-    v34 = 8LL;
-    tlgCreate1Sz_wchar_t((__int64)v35, (const WCHAR *)(v4 + 172));
-    v7 = *((_BYTE *)v6 + 428);
-    v36 = &v12;
-    v16 = *v6;
-    v12 = v7;
-    v38 = &v16;
-    v17 = v6[21];
-    v40 = &v17;
-    v18 = v6[42];
-    v42 = &v18;
-    v44 = v6 + 17;
-    v46 = v6 + 38;
-    v45 = 16LL;
-    v47 = 16LL;
-    v37 = 1LL;
-    v39 = 4LL;
-    v41 = 4LL;
-    v43 = 4LL;
+    v12 = a4;
+    v24 = &v12;
+    v16 = v9[250];
+    v26 = &v16;
+    v17 = v9[109];
+    v28 = &v17;
+    v18 = v9[108];
+    v30 = &v18;
+    v13 = ExpRealTimeIsUniversal;
+    v32 = &v13;
+    v34 = &v14;
+    v22 = *a3;
+    v36 = &v22;
+    v25 = 1LL;
+    v27 = 4LL;
+    v29 = 4LL;
+    v31 = 4LL;
+    v33 = 1LL;
+    v14 = v6;
+    v35 = 1LL;
+    v37 = 8LL;
+    tlgCreate1Sz_wchar_t((__int64)v38, (const size_t *)(a1 + 172));
+    v10 = *(_BYTE *)(a1 + 428);
+    v39 = &v15;
+    v19 = *(_DWORD *)a1;
+    v15 = v10;
+    v41 = &v19;
+    v20 = *(_DWORD *)(a1 + 84);
+    v43 = &v20;
+    v21 = *(_DWORD *)(a1 + 168);
+    v45 = &v21;
+    v47 = a1 + 68;
+    v49 = a1 + 152;
+    v48 = 16LL;
+    v50 = 16LL;
+    v40 = 1LL;
+    v42 = 4LL;
+    v44 = 4LL;
+    v46 = 4LL;
     LODWORD(CurrentServerSiloGlobals) = tlgWriteTransfer_EtwWriteTransfer(
-                                          (__int64)&dword_140C06820,
-                                          (unsigned __int8 *)byte_140036359,
+                                          (__int64)&dword_140C02C60,
+                                          (unsigned __int8 *)byte_14002DB71,
                                           0LL,
                                           0LL,
                                           0x10u,
-                                          &v20);
+                                          &v23);
   }
   return (int)CurrentServerSiloGlobals;
 }

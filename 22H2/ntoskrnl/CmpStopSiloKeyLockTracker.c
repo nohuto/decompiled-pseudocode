@@ -1,87 +1,69 @@
 /*
- * XREFs of CmpStopSiloKeyLockTracker @ 0x140A1BF48
+ * XREFs of CmpStopSiloKeyLockTracker @ 0x140872968
  * Callers:
- *     PspDeleteExternalServerSiloState @ 0x1409ACE68 (PspDeleteExternalServerSiloState.c)
- *     CmpFreeSiloContextCallback @ 0x140A11CB0 (CmpFreeSiloContextCallback.c)
+ *     CmCleanupServerSiloState @ 0x14087342C (CmCleanupServerSiloState.c)
+ *     CmpFreeSiloContextCallback @ 0x140873470 (CmpFreeSiloContextCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
- *     CmpLockSiloKeyLockTrackerExclusive @ 0x140849504 (CmpLockSiloKeyLockTrackerExclusive.c)
- *     CmpFreeSiloKeyLockEntry @ 0x140A1BE2C (CmpFreeSiloKeyLockEntry.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x140872804 (CmpFreeSiloKeyLockEntry.c)
  */
 
 ULONG_PTR *__fastcall CmpStopSiloKeyLockTracker(ULONG_PTR BugCheckParameter2)
 {
-  ULONG_PTR v2; // rdx
-  ULONG_PTR **v3; // rax
-  signed __int64 v4; // rax
-  signed __int64 v5; // rdx
-  unsigned __int64 v6; // rtt
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
+  struct _KTHREAD *CurrentThread; // rax
+  ULONG_PTR v3; // rdx
+  ULONG_PTR **v4; // rax
   ULONG_PTR *result; // rax
-  __int64 v12; // r8
-  __int64 v13; // r9
-  ULONG_PTR *v14; // rax
-  ULONG_PTR v15; // rcx
-  ULONG_PTR v16; // [rsp+20h] [rbp-10h] BYREF
-  ULONG_PTR *v17; // [rsp+28h] [rbp-8h]
+  ULONG_PTR *v6; // rax
+  ULONG_PTR v7; // rcx
+  ULONG_PTR v8; // [rsp+20h] [rbp-10h] BYREF
+  ULONG_PTR *v9; // [rsp+28h] [rbp-8h]
 
-  CmpLockSiloKeyLockTrackerExclusive((unsigned __int64 *)BugCheckParameter2);
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockExclusiveEx(BugCheckParameter2, 0LL);
   *(_DWORD *)(BugCheckParameter2 + 8) = *(_DWORD *)(BugCheckParameter2 + 8) & 0xFFFFFFFC | 2;
-  v2 = *(_QWORD *)(BugCheckParameter2 + 16);
-  v17 = &v16;
-  v16 = (ULONG_PTR)&v16;
-  if ( v2 != BugCheckParameter2 + 16 )
+  v3 = *(_QWORD *)(BugCheckParameter2 + 16);
+  v9 = &v8;
+  v8 = (ULONG_PTR)&v8;
+  if ( v3 != BugCheckParameter2 + 16 )
   {
-    v3 = *(ULONG_PTR ***)(BugCheckParameter2 + 24);
-    v16 = v2;
-    v17 = (ULONG_PTR *)v3;
-    *(_QWORD *)(v2 + 8) = &v16;
-    *v3 = &v16;
+    v4 = *(ULONG_PTR ***)(BugCheckParameter2 + 24);
+    v8 = v3;
+    v9 = (ULONG_PTR *)v4;
+    *(_QWORD *)(v3 + 8) = &v8;
+    *v4 = &v8;
     *(_QWORD *)(BugCheckParameter2 + 24) = BugCheckParameter2 + 16;
     *(_QWORD *)(BugCheckParameter2 + 16) = BugCheckParameter2 + 16;
   }
-  _m_prefetchw((const void *)BugCheckParameter2);
-  v4 = *(_QWORD *)BugCheckParameter2;
-  v5 = *(_QWORD *)BugCheckParameter2 - 16LL;
-  if ( (*(_QWORD *)BugCheckParameter2 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-    v5 = 0LL;
-  if ( (v4 & 2) != 0
-    || (v6 = *(_QWORD *)BugCheckParameter2,
-        v6 != _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, v5, v4)) )
-  {
-    ExfReleasePushLock((_QWORD *)BugCheckParameter2);
-  }
-  KeAbPostRelease(BugCheckParameter2);
+  ExReleasePushLockEx(BugCheckParameter2, 0LL);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  result = &v16;
-  if ( (ULONG_PTR *)v16 != &v16 )
+  result = &v8;
+  if ( (ULONG_PTR *)v8 != &v8 )
   {
-    CmpLockRegistry(v8, v7, v9, v10);
-    v14 = (ULONG_PTR *)v16;
-    v15 = *(_QWORD *)v16;
-    if ( *(ULONG_PTR **)(v16 + 8) != &v16 )
-LABEL_10:
+    CmpLockRegistry();
+    v6 = (ULONG_PTR *)v8;
+    v7 = *(_QWORD *)v8;
+    if ( *(ULONG_PTR **)(v8 + 8) != &v8 )
+LABEL_5:
       __fastfail(3u);
     while ( 1 )
     {
-      if ( *(ULONG_PTR **)(v15 + 8) != v14 )
-        goto LABEL_10;
-      v16 = v15;
-      *(_QWORD *)(v15 + 8) = &v16;
-      if ( v14 == &v16 )
-        return (ULONG_PTR *)CmpUnlockRegistry(&v16, &v16, v12, v13);
-      CmpFreeSiloKeyLockEntry(v14);
-      v14 = (ULONG_PTR *)v16;
-      if ( *(ULONG_PTR **)(v16 + 8) != &v16 )
-        goto LABEL_10;
-      v15 = *(_QWORD *)v16;
+      if ( *(ULONG_PTR **)(v7 + 8) != v6 )
+        goto LABEL_5;
+      v8 = v7;
+      *(_QWORD *)(v7 + 8) = &v8;
+      if ( v6 == &v8 )
+        return (ULONG_PTR *)CmpUnlockRegistry();
+      CmpFreeSiloKeyLockEntry(v6);
+      v6 = (ULONG_PTR *)v8;
+      if ( *(ULONG_PTR **)(v8 + 8) != &v8 )
+        goto LABEL_5;
+      v7 = *(_QWORD *)v8;
     }
   }
   return result;

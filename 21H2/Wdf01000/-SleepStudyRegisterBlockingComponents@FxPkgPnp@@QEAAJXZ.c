@@ -1,24 +1,20 @@
 /*
- * XREFs of ?SleepStudyRegisterBlockingComponents@FxPkgPnp@@QEAAJXZ @ 0x1C0089F00
+ * XREFs of ?SleepStudyRegisterBlockingComponents@FxPkgPnp@@QEAAJXZ @ 0x1C00856B8
  * Callers:
- *     ?SleepStudyEvaluateDripsConstraint@FxPkgPnp@@QEAAXE@Z @ 0x1C0089D80 (-SleepStudyEvaluateDripsConstraint@FxPkgPnp@@QEAAXE@Z.c)
+ *     ?SleepStudyEvaluateDripsConstraint@FxPkgPnp@@QEAAXE@Z @ 0x1C0085300 (-SleepStudyEvaluateDripsConstraint@FxPkgPnp@@QEAAXE@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     RtlUnicodeStringPrintf @ 0x1C0032C5C (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     SleepstudyHelper_GenerateGuid @ 0x1C0091024 (SleepstudyHelper_GenerateGuid.c)
- *     SleepstudyHelper_GetPdoFriendlyName @ 0x1C00BF9D0 (SleepstudyHelper_GetPdoFriendlyName.c)
- *     SleepstudyHelper_RegisterComponentEx @ 0x1C00BFA90 (SleepstudyHelper_RegisterComponentEx.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     RtlUnicodeStringPrintf @ 0x1C002E384 (RtlUnicodeStringPrintf.c)
  */
 
 __int64 __fastcall FxPkgPnp::SleepStudyRegisterBlockingComponents(FxPkgPnp *this)
 {
   FxDeviceBase *m_DeviceBase; // rax
   _DEVICE_OBJECT *m_DeviceObject; // rdi
-  unsigned __int64 v4; // rbx
+  _DEVICE_OBJECT *v4; // rbx
   signed int _a2; // ebx
   const void *_a1; // rax
   unsigned __int16 v7; // r9
@@ -48,9 +44,9 @@ __int64 __fastcall FxPkgPnp::SleepStudyRegisterBlockingComponents(FxPkgPnp *this
   componentPowerRef = 0LL;
   irql[0] = 0;
   m_DeviceObject = m_DeviceBase->m_PhysicalDevice.m_DeviceObject;
-  v4 = (unsigned __int64)m_DeviceBase->m_DeviceObject.m_DeviceObject;
-  SleepstudyHelper_GenerateGuid(SSH_PDO, (unsigned __int64)m_DeviceObject, &parentGuid);
-  SleepstudyHelper_GenerateGuid(SSH_FDO, v4, &thisGuid);
+  v4 = m_DeviceBase->m_DeviceObject.m_DeviceObject;
+  SleepstudyHelper_GenerateGuid(0LL, m_DeviceObject, &parentGuid);
+  SleepstudyHelper_GenerateGuid(2LL, v4, &thisGuid);
   _a2 = SleepstudyHelper_GetPdoFriendlyName(m_DeviceObject, &pdoFriendlyName);
   if ( _a2 < 0 )
   {
@@ -60,10 +56,13 @@ LABEL_3:
     v8 = 2;
 LABEL_4:
     WPP_IFR_SF_qL(this->m_Globals, v8, 0xCu, v7, WPP_FxPkgPnpKM_cpp_Traceguids, _a1, _a2);
-    goto $Done_70;
+    goto $Done_65;
   }
   friendlyName.MaximumLength = pdoFriendlyName.Length + 144;
-  friendlyName.Buffer = (wchar_t *)ExAllocatePool2(64LL, (unsigned __int16)(pdoFriendlyName.Length + 144), 1397970260LL);
+  friendlyName.Buffer = (wchar_t *)ExAllocatePoolWithTag(
+                                     ExDefaultNonPagedPoolType,
+                                     (unsigned __int16)(pdoFriendlyName.Length + 144),
+                                     0x53535554u);
   if ( friendlyName.Buffer )
   {
     _a2 = RtlUnicodeStringPrintf(
@@ -90,15 +89,11 @@ LABEL_4:
       goto LABEL_4;
     }
     this->m_SleepStudy->ComponentPowerRef = componentPowerRef;
-    if ( unk_1C00AB350 )
-      unk_1C00AB350(this->m_SleepStudy->ComponentPowerRef, irql);
-    if ( this->m_SleepStudyPowerRefIoCount && unk_1C00AB340 )
-      unk_1C00AB340(this->m_SleepStudy->ComponentPowerRef);
-    if ( unk_1C00AB358 )
-    {
-      LOBYTE(v12) = irql[0];
-      unk_1C00AB358(this->m_SleepStudy->ComponentPowerRef, v12);
-    }
+    SleepstudyHelper_AcquireComponentLock(this->m_SleepStudy->ComponentPowerRef, irql);
+    if ( this->m_SleepStudyPowerRefIoCount )
+      SleepstudyHelper_ComponentActiveLocked(this->m_SleepStudy->ComponentPowerRef);
+    LOBYTE(v12) = irql[0];
+    SleepstudyHelper_ReleaseComponentLock(this->m_SleepStudy->ComponentPowerRef, v12);
   }
   else
   {
@@ -106,7 +101,7 @@ LABEL_4:
     WPP_IFR_SF_q(this->m_Globals, 2u, 0xCu, 0x17u, WPP_FxPkgPnpKM_cpp_Traceguids, ObjectHandleUnchecked);
     _a2 = -1073741664;
   }
-$Done_70:
+$Done_65:
   if ( friendlyName.Buffer )
     ExFreePoolWithTag(friendlyName.Buffer, 0);
   return (unsigned int)_a2;

@@ -1,30 +1,32 @@
 /*
- * XREFs of Etw_DeviceListRundown @ 0x1C0014C30
+ * XREFs of Etw_DeviceListRundown @ 0x1C0014A50
  * Callers:
- *     Etw_ControllerRundown @ 0x1C0014B40 (Etw_ControllerRundown.c)
+ *     Etw_ControllerRundown @ 0x1C0014964 (Etw_ControllerRundown.c)
  * Callees:
- *     Etw_DeviceRundown @ 0x1C000D98C (Etw_DeviceRundown.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     Etw_DeviceRundown @ 0x1C000B108 (Etw_DeviceRundown.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 void __fastcall Etw_DeviceListRundown(__int64 a1, __int64 a2)
 {
-  KSPIN_LOCK *v2; // rsi
+  KSPIN_LOCK *v2; // rbp
   __int64 v3; // r13
   KIRQL v5; // al
-  __int64 v6; // rdi
-  __int64 *Pool2; // rbx
-  KIRQL v8; // al
-  KIRQL v9; // r14
-  _QWORD *v10; // rbp
-  __int64 v11; // r12
-  _QWORD *v12; // r15
-  _QWORD *v13; // rax
-  __int64 v14; // r8
-  __int64 v15; // r9
-  unsigned int v16; // ebp
-  __int64 *v17; // r14
-  _QWORD *v18; // rsi
+  __int64 v6; // rsi
+  __int64 *PoolWithTag; // rax
+  __int64 *v8; // rbx
+  KIRQL v9; // al
+  KIRQL v10; // di
+  _QWORD *v11; // r14
+  __int64 v12; // r12
+  _QWORD *v13; // r15
+  _QWORD *v14; // rax
+  __int64 v15; // r8
+  __int64 v16; // r9
+  unsigned int v17; // ebp
+  __int64 *v18; // r14
+  _QWORD *v19; // rdi
 
   v2 = (KSPIN_LOCK *)(a2 + 40);
   v3 = a1;
@@ -35,62 +37,68 @@ void __fastcall Etw_DeviceListRundown(__int64 a1, __int64 a2)
   {
     while ( 1 )
     {
-      Pool2 = (__int64 *)ExAllocatePool2(64LL, 8 * v6, 1229146200LL);
-      if ( !Pool2 )
+      PoolWithTag = (__int64 *)ExAllocatePoolWithTag(
+                                 (POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState,
+                                 8 * v6,
+                                 0x49434858u);
+      v8 = PoolWithTag;
+      if ( !PoolWithTag )
         break;
-      v8 = KeAcquireSpinLockRaiseToDpc(v2);
-      v9 = v8;
+      memset(PoolWithTag, 0, 8 * v6);
+      v9 = KeAcquireSpinLockRaiseToDpc(v2);
+      v10 = v9;
       if ( (unsigned int)v6 >= *(_DWORD *)(a2 + 64) )
       {
-        v10 = (_QWORD *)(a2 + 48);
-        v11 = 0LL;
-        v12 = (_QWORD *)(*v10 - 72LL);
-        if ( v10 != (_QWORD *)*v10 )
+        v11 = (_QWORD *)(a2 + 48);
+        v12 = 0LL;
+        v13 = (_QWORD *)(*v11 - 72LL);
+        if ( v11 != (_QWORD *)*v11 )
         {
           do
           {
             (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64 (__fastcall *)(_QWORD, _QWORD), __int64, const char *))(WdfFunctions_01023 + 1640))(
               WdfDriverGlobals,
-              *v12,
+              *v13,
               Etw_DeviceListRundown,
-              589LL,
+              593LL,
               "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\etw.c");
-            Pool2[v11] = (__int64)v12;
-            v11 = (unsigned int)(v11 + 1);
-            v13 = (_QWORD *)v12[9];
-            v12 = v13 - 9;
+            v8[v12] = (__int64)v13;
+            v12 = (unsigned int)(v12 + 1);
+            v14 = (_QWORD *)v13[9];
+            v13 = v14 - 9;
           }
-          while ( v10 != v13 );
+          while ( v11 != v14 );
           v3 = a1;
         }
-        KeReleaseSpinLock(v2, v9);
-        v16 = 0;
+        KeReleaseSpinLock(v2, v10);
+        v17 = 0;
         if ( (_DWORD)v6 )
         {
-          v17 = Pool2;
+          v18 = v8;
           do
           {
-            v18 = (_QWORD *)*v17;
-            if ( !*v17 )
+            v19 = (_QWORD *)*v18;
+            if ( !*v18 )
               break;
-            Etw_DeviceRundown(v3, *v17, v14, v15);
+            Etw_DeviceRundown(v3, *v18, v15, v16);
             (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64 (__fastcall *)(_QWORD, _QWORD), __int64, const char *))(WdfFunctions_01023 + 1648))(
               WdfDriverGlobals,
-              *v18,
+              *v19,
               Etw_DeviceListRundown,
-              625LL,
+              629LL,
               "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\etw.c");
-            ++v16;
             ++v17;
+            ++v18;
           }
-          while ( v16 < (unsigned int)v6 );
+          while ( v17 < (unsigned int)v6 );
         }
-        ExFreePoolWithTag(Pool2, 0x49434858u);
+        if ( v8 )
+          ExFreePoolWithTag(v8, 0x49434858u);
         return;
       }
       v6 = *(unsigned int *)(a2 + 64);
-      KeReleaseSpinLock(v2, v8);
-      ExFreePoolWithTag(Pool2, 0x49434858u);
+      KeReleaseSpinLock(v2, v9);
+      ExFreePoolWithTag(v8, 0x49434858u);
     }
   }
 }

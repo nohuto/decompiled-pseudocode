@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetEllipseCenter@CRadialGradientBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_RADIALGRADIENTBRUSH_SETELLIPSECENTER@@@Z @ 0x18024E2BC
+ * XREFs of ?ProcessSetEllipseCenter@CRadialGradientBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_RADIALGRADIENTBRUSH_SETELLIPSECENTER@@@Z @ 0x1801E814C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CRadialGradientBrush::ProcessSetEllipseCenter(
@@ -16,8 +16,8 @@ __int64 __fastcall CRadialGradientBrush::ProcessSetEllipseCenter(
   unsigned int v4; // ebx
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  v3 = ((__int64 (__fastcall *)(char *, void *, char *))xmmword_1803E4A50)(
-         (char *)this + SDWORD2(xmmword_1803E4A50),
+  v3 = ((__int64 (__fastcall *)(char *, void *, char *))xmmword_180346280)(
+         (char *)this + SDWORD2(xmmword_180346280),
          &CRadialGradientBrush::sc_ellipseCenter,
          (char *)a3 + 8);
   v4 = v3;
@@ -25,8 +25,8 @@ __int64 __fastcall CRadialGradientBrush::ProcessSetEllipseCenter(
     return 0LL;
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)0x106,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\radialgradientbrush.cpp",
+    (void *)0x107,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\radialgradientbrush.cpp",
     (const char *)(unsigned int)v3);
   return v4;
 }

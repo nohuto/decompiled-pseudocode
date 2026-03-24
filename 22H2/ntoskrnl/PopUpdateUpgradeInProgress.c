@@ -1,18 +1,18 @@
 /*
- * XREFs of PopUpdateUpgradeInProgress @ 0x1408620A0
+ * XREFs of PopUpdateUpgradeInProgress @ 0x1405CF3D0
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     ZwNotifyChangeKey @ 0x14041CAC0 (ZwNotifyChangeKey.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x1407A8DEC (PopRemoveReasonRecordByReasonCode.c)
- *     PopLogSleepDisabled @ 0x14087404C (PopLogSleepDisabled.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     ZwNotifyChangeKey @ 0x1403FBD60 (ZwNotifyChangeKey.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x1406F441C (PopRemoveReasonRecordByReasonCode.c)
+ *     PopLogSleepDisabled @ 0x14077EB0C (PopLogSleepDisabled.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 int __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
@@ -22,19 +22,18 @@ int __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
   int v4; // ecx
   __int64 v5; // rdx
   __int64 v6; // rcx
-  __int64 v7; // r8
   HANDLE KeyHandlea; // [rsp+50h] [rbp-19h] BYREF
   ULONG ResultLength; // [rsp+58h] [rbp-11h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
   __int128 KeyValueInformation; // [rsp+A0h] [rbp+37h] BYREF
-  int v13; // [rsp+B0h] [rbp+47h]
+  int v12; // [rsp+B0h] [rbp+47h]
 
   ResultLength = 0;
-  v13 = 0;
-  v2 = KeyHandle;
   KeyHandlea = KeyHandle;
-  memset(&ObjectAttributes, 0, 44);
+  v12 = 0;
+  v2 = KeyHandle;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   KeyValueInformation = 0LL;
   DestinationString = 0LL;
   if ( !KeyHandle )
@@ -47,7 +46,7 @@ int __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     result = ZwOpenKey(&KeyHandlea, 0x20019u, &ObjectAttributes);
     if ( result < 0 )
-      goto LABEL_8;
+      goto LABEL_13;
     v2 = KeyHandlea;
   }
   RtlInitUnicodeString(&DestinationString, L"SystemSetupInProgress");
@@ -58,20 +57,20 @@ int __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
              &KeyValueInformation,
              0x14u,
              &ResultLength);
-  if ( result < 0 || !HIDWORD(KeyValueInformation) || *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL )
+  if ( result < 0 || *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL || !HIDWORD(KeyValueInformation) )
   {
     if ( KeyHandle )
     {
       PopAcquirePolicyLock(v4);
-      PopRemoveReasonRecordByReasonCode();
-      result = PopReleasePolicyLock(v6, v5, v7);
+      PopRemoveReasonRecordByReasonCode(15LL);
+      result = PopReleasePolicyLock(v6, v5);
     }
-    goto LABEL_8;
+    goto LABEL_13;
   }
   if ( !KeyHandle && (result = PopLogSleepDisabled(15LL, 8LL, 0LL, 0LL), result < 0)
     || (*(_QWORD *)PopSetupInProgressUpdateWorkItem = 0LL,
-        qword_140C3F730 = (__int64)PopUpdateUpgradeInProgress,
-        qword_140C3F738 = (__int64)KeyHandlea,
+        qword_140C25270 = (__int64)PopUpdateUpgradeInProgress,
+        qword_140C25278 = (__int64)KeyHandlea,
         result = ZwNotifyChangeKey(
                    KeyHandlea,
                    0LL,
@@ -85,7 +84,7 @@ int __fastcall PopUpdateUpgradeInProgress(HANDLE KeyHandle)
                    1u),
         result < 0) )
   {
-LABEL_8:
+LABEL_13:
     if ( KeyHandlea )
       return ZwClose(KeyHandlea);
   }

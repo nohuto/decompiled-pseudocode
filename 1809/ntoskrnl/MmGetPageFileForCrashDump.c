@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetPageFileForCrashDump @ 0x140853660
+ * XREFs of MmGetPageFileForCrashDump @ 0x140853640
  * Callers:
- *     IoConfigureCrashDump @ 0x14018848C (IoConfigureCrashDump.c)
+ *     IoConfigureCrashDump @ 0x1401884AC (IoConfigureCrashDump.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)

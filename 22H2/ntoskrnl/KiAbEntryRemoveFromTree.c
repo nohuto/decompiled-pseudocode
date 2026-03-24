@@ -1,217 +1,366 @@
 /*
- * XREFs of KiAbEntryRemoveFromTree @ 0x14024B530
+ * XREFs of KiAbEntryRemoveFromTree @ 0x1402E5430
  * Callers:
- *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F8B0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KiAbEntryFreeAndEnableInterrupts @ 0x1402BD6D0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
- *     KiAbCrossThreadRelease @ 0x1403CA6DC (KiAbCrossThreadRelease.c)
+ *     PspStorageEmptyArrayNonReadonly @ 0x140200C90 (PspStorageEmptyArrayNonReadonly.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF40 (MiUnlockAndDereferenceVad.c)
+ *     NtCancelTimer @ 0x140248470 (NtCancelTimer.c)
+ *     ExpSetTimerObject @ 0x140248D90 (ExpSetTimerObject.c)
+ *     PspUnlockProcessListExclusive @ 0x140251C28 (PspUnlockProcessListExclusive.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14025A688 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     ExpDeleteTimer @ 0x14025FA00 (ExpDeleteTimer.c)
+ *     ?SmFeEvictComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x1402630AC (-SmFeEvictComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
+ *     SmpKeyedStoreEntryGet @ 0x140264198 (SmpKeyedStoreEntryGet.c)
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x140264F1C (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ *     ?SmFeAddComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KKK@Z @ 0x140265D80 (-SmFeAddComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KKK@Z.c)
+ *     ?SmFeAddInitiate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@K@Z @ 0x140266538 (-SmFeAddInitiate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1.c)
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14026782C (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?StDmPageRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14026A65C (-StDmPageRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     KeAbPreWait @ 0x140273740 (KeAbPreWait.c)
+ *     CcApplyLowIoPriorityToThread @ 0x140276988 (CcApplyLowIoPriorityToThread.c)
+ *     MiCreatePrototypePtes @ 0x140278478 (MiCreatePrototypePtes.c)
+ *     MiInsertInSystemSpace @ 0x14027B460 (MiInsertInSystemSpace.c)
+ *     MiDeletePartialVad @ 0x14027DF5C (MiDeletePartialVad.c)
+ *     MiRemoveFromSystemSpace @ 0x1402854CC (MiRemoveFromSystemSpace.c)
+ *     RtlpHpSegContextCompact @ 0x140286E50 (RtlpHpSegContextCompact.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140287430 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x140287DB0 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x140288450 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x1402898E8 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14028A070 (RtlpHpSegPageRangeAllocate.c)
+ *     MiManageSubsectionView @ 0x140291780 (MiManageSubsectionView.c)
+ *     MiObtainSystemCacheView @ 0x140292B80 (MiObtainSystemCacheView.c)
+ *     MiUnlockVad @ 0x140294CD8 (MiUnlockVad.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140294EE0 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiAddViewsForSection @ 0x140295C70 (MiAddViewsForSection.c)
+ *     MiGetWsAndInsertVad @ 0x140296700 (MiGetWsAndInsertVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140296E08 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiFinishVadDeletion @ 0x140297440 (MiFinishVadDeletion.c)
+ *     PfFileInfoNotify @ 0x14029DC90 (PfFileInfoNotify.c)
+ *     RtlpHpSegPageRangeShrink @ 0x1402AA080 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1402BC110 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1402BD4D0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpVsChunkSplit @ 0x1402BF820 (RtlpHpVsChunkSplit.c)
+ *     KeAbEntryFree @ 0x1402C91B0 (KeAbEntryFree.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     ExReleaseCacheAwarePushLockSharedEx @ 0x1402CACA0 (ExReleaseCacheAwarePushLockSharedEx.c)
+ *     ExReleasePushLockExclusiveEx @ 0x1402CAE10 (ExReleasePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1402F9E90 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     RtlpHpVaMgrCtxFree @ 0x1402FBDA0 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrAlloc @ 0x1402FC8A0 (RtlpHpVaMgrAlloc.c)
+ *     RtlpCSparseBitmapUnlock @ 0x1402FD14C (RtlpCSparseBitmapUnlock.c)
+ *     RtlpHpSegMgrVaCtxAlloc @ 0x1402FD80C (RtlpHpSegMgrVaCtxAlloc.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x1402FDBE0 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpLargeFree @ 0x1402FDE04 (RtlpHpLargeFree.c)
+ *     RtlpHpLargeAlloc @ 0x1402FDFBC (RtlpHpLargeAlloc.c)
+ *     RtlInsertDynamicFunctionTable @ 0x1402FFEE8 (RtlInsertDynamicFunctionTable.c)
+ *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x140303A38 (RtlpHpLfhSubsegmentIncBlockCounts.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x140303FA4 (MiUnlockDynamicMemoryExclusive.c)
+ *     RtlRemoveDynamicFunctionTable @ 0x14030479C (RtlRemoveDynamicFunctionTable.c)
+ *     CcAmILowPriorityWriter @ 0x1403080A0 (CcAmILowPriorityWriter.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x1403085A0 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x140308854 (RtlpHpLfhBucketAddSubsegment.c)
+ *     MiExpandPtes @ 0x14030A9E8 (MiExpandPtes.c)
+ *     MiObtainSessionVa @ 0x14030B904 (MiObtainSessionVa.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x1403116A8 (CcBoostLowPriorityWorkerThread.c)
+ *     ?SmFeEvictInitiate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2@Z @ 0x1403131AC (-SmFeEvictInitiate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2@Z.c)
+ *     PspUnlockThreadSecurityExclusive @ 0x1403164E8 (PspUnlockThreadSecurityExclusive.c)
+ *     PspUnlockQuotaExpansion @ 0x140318984 (PspUnlockQuotaExpansion.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x140319688 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpSegMgrCommitComplete @ 0x14032106C (RtlpHpSegMgrCommitComplete.c)
+ *     EtwpFreeCompression @ 0x1403213C4 (EtwpFreeCompression.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x140322E08 (SSHSupportReleasePushLockExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x140324DF8 (PspUnlockProcessExclusive.c)
+ *     RtlpHpHeapExtendContext @ 0x140326BBC (RtlpHpHeapExtendContext.c)
+ *     RtlpHpAcquireReleaseLockExclusive @ 0x140326F34 (RtlpHpAcquireReleaseLockExclusive.c)
+ *     MiDereferenceExtendInfo @ 0x140328F64 (MiDereferenceExtendInfo.c)
+ *     MiReleaseSessionVa @ 0x14032A55C (MiReleaseSessionVa.c)
+ *     RtlpHpFixedVsAllocate @ 0x14032B0B0 (RtlpHpFixedVsAllocate.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1403306A0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     SepDeleteSessionLowboxEntries @ 0x14034CFD4 (SepDeleteSessionLowboxEntries.c)
+ *     ?SmFeStoreDelete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@K@Z @ 0x14034DDA4 (-SmFeStoreDelete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@K@Z.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14034E538 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x14034F1F0 (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
+ *     MmOutSwapVirtualAddresses @ 0x1403504CC (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapWorkingSet @ 0x140350FC0 (MmOutSwapWorkingSet.c)
+ *     SmpKeyedStoreSetVaRanges @ 0x140351A08 (SmpKeyedStoreSetVaRanges.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x140352B08 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     MiUnlockLoaderEntry @ 0x140358A50 (MiUnlockLoaderEntry.c)
+ *     FlushLookUpTableBucket @ 0x14036D0F0 (FlushLookUpTableBucket.c)
+ *     KsepShimDbChanged @ 0x140372DD0 (KsepShimDbChanged.c)
+ *     MiUnlockDriverMappings @ 0x1403731A8 (MiUnlockDriverMappings.c)
+ *     RtlpHpFixedVsFree @ 0x1403800B0 (RtlpHpFixedVsFree.c)
+ *     ExQueryHandleExceptionsPermanency @ 0x140380800 (ExQueryHandleExceptionsPermanency.c)
+ *     PfTSetTraceWorkerPriority @ 0x140382E94 (PfTSetTraceWorkerPriority.c)
+ *     KiAbCrossThreadRelease @ 0x14038E150 (KiAbCrossThreadRelease.c)
+ *     ExpSaAllocatorAllocate @ 0x140390ECC (ExpSaAllocatorAllocate.c)
+ *     ExpSaPageGroupAllocateMemory @ 0x14039133C (ExpSaPageGroupAllocateMemory.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1403916E8 (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaAllocatorFree @ 0x140393C54 (ExpSaAllocatorFree.c)
+ *     ExpSaPageGroupFreeMemory @ 0x140393E5C (ExpSaPageGroupFreeMemory.c)
+ *     SeRegisterObjectTypeMandatoryPolicy @ 0x1403A84B4 (SeRegisterObjectTypeMandatoryPolicy.c)
+ *     EmpQueueRuleUpdateState @ 0x1403B3B68 (EmpQueueRuleUpdateState.c)
+ *     PopPepRemoveDevice @ 0x1403BD4C0 (PopPepRemoveDevice.c)
+ *     PopFxInsertDevice @ 0x1403BDBF4 (PopFxInsertDevice.c)
+ *     PopPepInsertDevice @ 0x1403BE1E8 (PopPepInsertDevice.c)
+ *     PopFxRemoveDevice @ 0x1403BE844 (PopFxRemoveDevice.c)
+ *     EmpRuleUpdateWorkerThread @ 0x1403C5E80 (EmpRuleUpdateWorkerThread.c)
+ *     MiFreeUnusedPfnPages @ 0x1403CD9E0 (MiFreeUnusedPfnPages.c)
+ *     MiUnlockPartitionSystemThreads @ 0x1403CEBDC (MiUnlockPartitionSystemThreads.c)
+ *     PspUnlockQuotaListExclusive @ 0x1403CF5DC (PspUnlockQuotaListExclusive.c)
+ *     PfLockExclusiveRelease @ 0x1403CF9D0 (PfLockExclusiveRelease.c)
+ *     HalpLeaveDmaDomain @ 0x1404C4DEC (HalpLeaveDmaDomain.c)
+ *     HalpIommuBlockDevice @ 0x1404C8DA0 (HalpIommuBlockDevice.c)
+ *     HalpIommuUnblockDevice @ 0x1404C9DC0 (HalpIommuUnblockDevice.c)
+ *     IommuBeginDeviceReset @ 0x1404D7A50 (IommuBeginDeviceReset.c)
+ *     IommuFinalizeDeviceReset @ 0x1404D8710 (IommuFinalizeDeviceReset.c)
+ *     CcChangeBackingFileObject @ 0x1404E8A28 (CcChangeBackingFileObject.c)
+ *     MiUpControlAreaRefs @ 0x14052AAB0 (MiUpControlAreaRefs.c)
+ *     MiUnlockDynamicMemoryNestedParentExclusive @ 0x14052F544 (MiUnlockDynamicMemoryNestedParentExclusive.c)
+ *     MiMarkSystemVaAllocated @ 0x14053DBB0 (MiMarkSystemVaAllocated.c)
+ *     MiCommitPageTableRangesForVad @ 0x1405451CC (MiCommitPageTableRangesForVad.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140549968 (MiDecommitHardwareEnclavePages.c)
+ *     MiIncrementAweMapCount @ 0x14054C5B4 (MiIncrementAweMapCount.c)
+ *     MiRemovePlaceholderVad @ 0x1405552A8 (MiRemovePlaceholderVad.c)
+ *     MiContractWsSwapPageFileWorker @ 0x14055C3F0 (MiContractWsSwapPageFileWorker.c)
+ *     MiClearPartitionPageBitMap @ 0x140561394 (MiClearPartitionPageBitMap.c)
+ *     MiDeletePartitionResources @ 0x140561858 (MiDeletePartitionResources.c)
+ *     PopDirectedDripsNotifyResiliencyCompletionWorker @ 0x140568860 (PopDirectedDripsNotifyResiliencyCompletionWorker.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140569350 (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1405695C4 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxClearDirectedDripsCandidateDeviceList @ 0x140569F98 (PopFxClearDirectedDripsCandidateDeviceList.c)
+ *     PopFxInsertAcpiDevice @ 0x14056ACA8 (PopFxInsertAcpiDevice.c)
+ *     PopFxPrepareDevicesForShutdown @ 0x14056BA4C (PopFxPrepareDevicesForShutdown.c)
+ *     PopFxRegisterPluginEx @ 0x14056BE38 (PopFxRegisterPluginEx.c)
+ *     PopFxRemoveAcpiDevice @ 0x14056C2D4 (PopFxRemoveAcpiDevice.c)
+ *     PopPepPlatformStateRegistered @ 0x1405753FC (PopPepPlatformStateRegistered.c)
+ *     PopDirectedDripsDiagTraceNotifyDevices @ 0x14057CB90 (PopDirectedDripsDiagTraceNotifyDevices.c)
+ *     SshpSetCollectionActive @ 0x14057FD7C (SshpSetCollectionActive.c)
+ *     PspUnlockAffinityUpdateExclusive @ 0x140581894 (PspUnlockAffinityUpdateExclusive.c)
+ *     PspUnlockWorkingSetChangeExclusiveUnsafe @ 0x140581B14 (PspUnlockWorkingSetChangeExclusiveUnsafe.c)
+ *     PspUnlockProcessExclusiveUnsafe @ 0x140582780 (PspUnlockProcessExclusiveUnsafe.c)
+ *     PsAdjustBasicEnclaveThreadList @ 0x140584314 (PsAdjustBasicEnclaveThreadList.c)
+ *     PsGetProcessEnclaveModuleInfo @ 0x14058464C (PsGetProcessEnclaveModuleInfo.c)
+ *     PsLoadVsmEnclaveData @ 0x140584A7C (PsLoadVsmEnclaveData.c)
+ *     NormalizationList__Unlock @ 0x140594318 (NormalizationList__Unlock.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x140594B70 (RtlpHpSegMgrVaCtxFree.c)
+ *     ?SmFeEmpty@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140598C94 (-SmFeEmpty@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmFeSetEvictFailed@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x140598ED0 (-SmFeSetEvictFailed@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x14059E4BC (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14059E8C0 (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     ?SmFeStoreEvictKeys@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x14059EE68 (-SmFeStoreEvictKeys@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
+ *     EtwpBufferingModeCompressionFlush @ 0x1405AC43C (EtwpBufferingModeCompressionFlush.c)
+ *     EtwpCompressPendingBuffers @ 0x1405AC9DC (EtwpCompressPendingBuffers.c)
+ *     EtwpCompressionProc @ 0x1405ACCE0 (EtwpCompressionProc.c)
+ *     EtwpDisableCompression @ 0x1405AD098 (EtwpDisableCompression.c)
+ *     EtwpSetCompressionSettings @ 0x1405AD7A4 (EtwpSetCompressionSettings.c)
+ *     ExDisableHandleTracing @ 0x1405B28D8 (ExDisableHandleTracing.c)
+ *     ExGetWakeTimerList @ 0x1405B6088 (ExGetWakeTimerList.c)
+ *     ExShareAddressSpaceWithDevice @ 0x1405B71C0 (ExShareAddressSpaceWithDevice.c)
+ *     ExSvmBeginDeviceReset @ 0x1405B7E40 (ExSvmBeginDeviceReset.c)
+ *     ExSvmFinalizeDeviceReset @ 0x1405B8270 (ExSvmFinalizeDeviceReset.c)
+ *     ExpSvmDereferenceDevice @ 0x1405B8DB4 (ExpSvmDereferenceDevice.c)
+ *     ExpSaPageGroupDescriptorFree @ 0x1405BA41C (ExpSaPageGroupDescriptorFree.c)
+ *     EmpParseInfDatabase @ 0x140A455E8 (EmpParseInfDatabase.c)
+ *     MiInitializePagedPoolEvents @ 0x140A4EB3C (MiInitializePagedPoolEvents.c)
+ *     MiInitializeMirroring @ 0x140A54728 (MiInitializeMirroring.c)
+ *     WheaInitialize @ 0x140A6305C (WheaInitialize.c)
+ *     ExpWorkerInitialization @ 0x140A6AE74 (ExpWorkerInitialization.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B910 (RtlRbRemoveNode.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025ABF0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CAB0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiAbTryDecrementIoWaiterCounts @ 0x14033F5F8 (KiAbTryDecrementIoWaiterCounts.c)
- *     RtlRbReplaceNode @ 0x140348720 (RtlRbReplaceNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14029CF60 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x1402C1170 (RtlRbRemoveNode.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     KiAbTryDecrementIoWaiterCounts @ 0x1402E57C8 (KiAbTryDecrementIoWaiterCounts.c)
+ *     RtlRbReplaceNode @ 0x1402E5850 (RtlRbReplaceNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiAbEntryRemoveFromTree(__int64 a1)
+__int64 __fastcall KiAbEntryRemoveFromTree(unsigned __int64 a1)
 {
   __int64 v2; // rax
-  volatile LONG *v3; // rsi
-  unsigned __int64 v4; // r12
-  unsigned __int8 CurrentIrql; // r15
-  int v6; // edi
-  __int64 v7; // rax
+  volatile LONG *v3; // r15
+  unsigned __int64 *v4; // r14
+  unsigned __int8 CurrentIrql; // r12
+  int i; // edi
+  unsigned __int64 v7; // rax
   unsigned __int64 v8; // rbx
   int v9; // edx
   unsigned __int64 v10; // rax
   unsigned int v11; // eax
   unsigned __int64 v12; // rax
-  _QWORD *v13; // rbp
-  _QWORD *v14; // rcx
-  _BYTE *v15; // rbx
-  __int64 v16; // r14
+  unsigned __int64 *v13; // rcx
+  char v14; // al
+  unsigned __int64 v15; // rcx
   __int64 result; // rax
-  _DWORD *SchedulerAssist; // r8
-  __int64 v19; // r9
-  __int64 v20; // r8
-  _QWORD *v21; // r9
-  _OWORD *v22; // r13
-  __int64 v23; // rdi
-  __int64 v24; // r8
-  __int64 v25; // r9
-  unsigned __int8 v26; // cl
+  unsigned __int64 v17; // rdi
+  __int64 v18; // rax
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int8 v20; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v28; // r8
-  int v29; // eax
-  bool v30; // zf
-  unsigned __int64 v31; // [rsp+20h] [rbp-78h]
-  unsigned int v32; // [rsp+28h] [rbp-70h]
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-68h] BYREF
-  struct _KLOCK_QUEUE_HANDLE v34; // [rsp+48h] [rbp-50h] BYREF
+  _DWORD *v22; // r8
+  int v23; // eax
+  bool v24; // zf
+  unsigned __int64 v25; // [rsp+20h] [rbp-68h]
+  unsigned int v26; // [rsp+28h] [rbp-60h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-58h] BYREF
+  struct _KLOCK_QUEUE_HANDLE v28; // [rsp+48h] [rbp-40h] BYREF
 
-  v32 = *(_DWORD *)(a1 + 8);
-  v31 = *(_QWORD *)a1 & 0x7FFFFFFFFFFFFFFCLL;
-  v2 = ((v31 >> 4) & 0x3FF) << 6;
+  v26 = *(_DWORD *)(a1 + 40);
+  v25 = *(_QWORD *)(a1 + 32) & 0x7FFFFFFFFFFFFFFCLL;
+  v2 = ((v25 >> 4) & 0x3FF) << 6;
   memset(&LockHandle, 0, sizeof(LockHandle));
   v3 = (volatile LONG *)((char *)&KiAbTreeArray + v2 + 16);
-  memset(&v34, 0, sizeof(v34));
-  v4 = (unsigned __int64)&KiAbTreeArray + v2;
+  memset(&v28, 0, sizeof(v28));
+  v4 = (unsigned __int64 *)((char *)&KiAbTreeArray + v2);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v19) = 4;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+  }
+  for ( i = *(_BYTE *)(a1 + 27) & 1; ; i = 1 )
+  {
+    if ( i )
+      ExAcquireSpinLockExclusiveAtDpcLevel(v3);
     else
-      v19 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v19;
-  }
-  v6 = *(_BYTE *)(a1 + 19) & 1;
-  if ( (*(_BYTE *)(a1 + 19) & 1) == 0 )
-  {
-    ExAcquireSpinLockSharedAtDpcLevel(v3);
-    goto LABEL_4;
-  }
-  while ( 1 )
-  {
-    ExAcquireSpinLockExclusiveAtDpcLevel(v3);
-LABEL_4:
-    v7 = *(_QWORD *)(v4 + 8);
-    v8 = *(_QWORD *)v4;
-    if ( (v7 & 1) != 0 )
-    {
-      if ( !v8 )
-        goto LABEL_13;
-      v8 ^= v4;
-    }
+      ExAcquireSpinLockSharedAtDpcLevel(v3);
+    v7 = v4[1];
+    v8 = *v4;
+    if ( (v7 & 1) != 0 && v8 )
+      v8 ^= (unsigned __int64)v4;
     v9 = v7 & 1;
     while ( v8 )
     {
-      v10 = *(_QWORD *)(v8 - 24) & 0x7FFFFFFFFFFFFFFCLL;
-      if ( v10 < v31 )
-        goto LABEL_26;
-      if ( v10 > v31 )
-        goto LABEL_10;
-      v11 = *(_DWORD *)(v8 - 16);
-      if ( v11 == v32 )
+      v10 = *(_QWORD *)(v8 + 32) & 0x7FFFFFFFFFFFFFFCLL;
+      if ( v10 < v25 )
+        goto LABEL_29;
+      if ( v10 > v25 )
+        goto LABEL_13;
+      v11 = *(_DWORD *)(v8 + 40);
+      if ( v11 == v26 )
         break;
-      if ( v11 < v32 )
+      if ( v11 < v26 )
       {
-LABEL_26:
+LABEL_29:
         v12 = *(_QWORD *)(v8 + 8);
         if ( v9 && v12 )
         {
-LABEL_30:
+LABEL_33:
           v8 ^= v12;
           continue;
         }
       }
       else
       {
-LABEL_10:
+LABEL_13:
         v12 = *(_QWORD *)v8;
         if ( v9 && v12 )
-          goto LABEL_30;
+          goto LABEL_33;
       }
       v8 = v12;
     }
-LABEL_13:
-    v13 = (_QWORD *)(v8 - 24);
-    KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v8 - 24 + 80), &LockHandle);
-    if ( v8 - 24 != a1 )
+    LockHandle.LockQueue.Next = 0LL;
+    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v8 + 80);
+    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(v8 + 80));
+    if ( v8 != a1 )
       break;
-    if ( v6 )
+    if ( i )
     {
-      if ( v13[8] )
+      if ( *(_QWORD *)(v8 + 64) )
       {
-        v14 = v13 + 8;
-        v22 = v13 + 6;
+        v13 = (unsigned __int64 *)(v8 + 64);
       }
       else
       {
-        v14 = v13 + 6;
-        if ( !v13[6] )
-          goto LABEL_17;
-        v22 = v13 + 6;
+        v13 = (unsigned __int64 *)(v8 + 48);
+        if ( !*(_QWORD *)(v8 + 48) )
+          goto LABEL_20;
       }
-      if ( v14 )
+      if ( v13 )
       {
-        v23 = *v14;
-        RtlRbRemoveNode(v14, *v14);
-        RtlRbReplaceNode(v4, v8, v23);
-        KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v23 + 56), &v34);
+        v17 = *v13;
+        RtlRbRemoveNode(v13, *v13);
+        RtlRbReplaceNode(v4, v8, v17);
+        v28.LockQueue.Next = 0LL;
+        v28.LockQueue.Lock = (unsigned __int64 *volatile)(v17 + 80);
+        KxAcquireQueuedSpinLock((__int64)&v28, (volatile __int64 *)(v17 + 80));
         ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-        *(_OWORD *)(v23 + 24) = *v22;
-        *(_OWORD *)(v23 + 40) = *((_OWORD *)v13 + 4);
-        *(_BYTE *)(v23 + 68) = *((_BYTE *)v13 + 92);
-        *(_DWORD *)(v23 + 68) ^= (*(_DWORD *)(v23 + 68) ^ *((_DWORD *)v13 + 23)) & 0x7F00;
-        KiAbTryDecrementIoWaiterCounts(v8 - 24, v23 - 24, v24, v25);
-        *(_BYTE *)(v23 - 5) |= 1u;
-        KxReleaseQueuedSpinLock(&v34);
+        *(_OWORD *)(v17 + 48) = *(_OWORD *)(v8 + 48);
+        *(_OWORD *)(v17 + 64) = *(_OWORD *)(v8 + 64);
+        *(_WORD *)(v17 + 90) ^= (*(_WORD *)(v17 + 90) ^ *(_WORD *)(v8 + 90)) & 0x1FE;
+        *(_WORD *)(v17 + 90) = *(_WORD *)(v8 + 90) ^ (*(_WORD *)(v17 + 90) ^ *(_WORD *)(v8 + 90)) & 0x1FF;
+        KiAbTryDecrementIoWaiterCounts(v8, v17);
+        *(_BYTE *)(v17 + 27) |= 1u;
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&v28);
       }
       else
       {
-LABEL_17:
+LABEL_20:
         RtlRbRemoveNode(v4, v8);
         ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-        if ( (*((_BYTE *)v13 + 19) & 2) != 0 )
+        v14 = *(_BYTE *)(v8 + 27);
+        if ( (v14 & 2) != 0 )
         {
-          --*((_BYTE *)v13 + 92);
-          *((_BYTE *)v13 + 19) &= ~2u;
+          *(_WORD *)(v8 + 90) ^= (*(_WORD *)(v8 + 90) ^ (2 * ((*(_WORD *)(v8 + 90) >> 1) - 1))) & 0x1FE;
+          *(_BYTE *)(v8 + 27) &= ~2u;
+          v14 = *(_BYTE *)(v8 + 27);
         }
-        if ( (*((_BYTE *)v13 + 19) & 4) != 0 )
+        if ( (v14 & 4) != 0 )
         {
-          *((_DWORD *)v13 + 23) ^= ((unsigned __int16)*((_DWORD *)v13 + 23) ^ (unsigned __int16)(((unsigned __int16)(*((_DWORD *)v13 + 23) >> 8)
-                                                                                                - 1) << 8)) & 0x7F00;
-          *((_BYTE *)v13 + 19) &= ~4u;
+          *(_WORD *)(v8 + 90) = *(_WORD *)(v8 + 90) & 0x1FF | (((*(_WORD *)(v8 + 90) >> 9) - 1) << 9);
+          *(_BYTE *)(v8 + 27) &= ~4u;
         }
       }
-      v15 = (_BYTE *)(a1 + 17);
-      *((_BYTE *)v13 + 7) &= ~0x80u;
-      *((_BYTE *)v13 + 19) &= ~1u;
-      goto LABEL_22;
+      *(_BYTE *)(v8 + 39) &= ~0x80u;
+      *(_BYTE *)(v8 + 27) &= ~1u;
+      goto LABEL_25;
     }
     ExReleaseSpinLockSharedFromDpcLevel(v3);
-    KxReleaseQueuedSpinLock(&LockHandle);
-    v6 = 1;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   }
-  if ( v6 )
+  if ( i )
     ExReleaseSpinLockExclusiveFromDpcLevel(v3);
   else
     ExReleaseSpinLockSharedFromDpcLevel(v3);
-  v15 = (_BYTE *)(a1 + 17);
-  *(_BYTE *)(a1 + 7) &= ~0x80u;
-  if ( *(_BYTE *)(a1 + 17) )
-    KiAbTryDecrementIoWaiterCounts(a1, v13, v20, v13 + 8);
+  *(_BYTE *)(a1 + 39) &= ~0x80u;
+  if ( (*(_BYTE *)(a1 + 25) & 1) != 0 )
+  {
+    KiAbTryDecrementIoWaiterCounts(a1, v8);
+    v18 = 64LL;
+  }
   else
-    v21 = v13 + 6;
-  RtlRbRemoveNode(v21, a1 + 24);
-LABEL_22:
-  KxReleaseQueuedSpinLock(&LockHandle);
-  v16 = a1 - 96LL * *(unsigned __int8 *)(a1 + 16);
-  if ( *v15 )
-    --*(_BYTE *)(v16 - 903);
+  {
+    v18 = 48LL;
+  }
+  RtlRbRemoveNode((unsigned __int64 *)(v8 + v18), a1);
+LABEL_25:
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  v15 = a1 - 16LL * *(unsigned __int8 *)(a1 + 24);
+  if ( (*(_BYTE *)(a1 + 25) & 1) != 0 )
+    --*(_BYTE *)(v15 + 793);
   else
-    _InterlockedExchangeAdd8((volatile signed __int8 *)(v16 - 825), 0xFFu);
+    _InterlockedExchangeAdd8((volatile signed __int8 *)(v15 + 871), 0xFFu);
   if ( KiIrqlFlags )
   {
-    v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v28 = CurrentPrcb->SchedulerAssist;
-      v29 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v30 = (v29 & v28[5]) == 0;
-      v28[5] &= v29;
-      if ( v30 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v20 = KeGetCurrentIrql();
+      if ( v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v22 = CurrentPrcb->SchedulerAssist;
+        v23 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v24 = (v23 & v22[5]) == 0;
+        v22[5] &= v23;
+        if ( v24 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   result = CurrentIrql;

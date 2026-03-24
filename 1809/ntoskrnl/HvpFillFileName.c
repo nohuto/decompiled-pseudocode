@@ -2,10 +2,10 @@
  * XREFs of HvpFillFileName @ 0x1405A4BD4
  * Callers:
  *     HvHiveStartFileBacked @ 0x1405A4A3C (HvHiveStartFileBacked.c)
- *     HvHiveStartMemoryBacked @ 0x14073CB2C (HvHiveStartMemoryBacked.c)
+ *     HvHiveStartMemoryBacked @ 0x14073CB0C (HvHiveStartMemoryBacked.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void *__fastcall HvpFillFileName(__int64 a1, unsigned __int16 *a2)

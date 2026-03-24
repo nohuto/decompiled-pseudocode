@@ -1,99 +1,89 @@
 /*
- * XREFs of _RegRtlDeletePathInternal @ 0x140A6AC0C
+ * XREFs of _RegRtlDeletePathInternal @ 0x14097C9EC
  * Callers:
- *     PiDevCfgClearDeviceMigrationNode @ 0x14095D064 (PiDevCfgClearDeviceMigrationNode.c)
+ *     PiDevCfgClearDeviceMigrationNode @ 0x1408A564C (PiDevCfgClearDeviceMigrationNode.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14022B258 (RtlStringCchCopyExW.c)
- *     RtlUnalignedStringCchLengthW @ 0x14022B68C (RtlUnalignedStringCchLengthW.c)
- *     wcsrchr @ 0x1403DB4B0 (wcsrchr.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _RegRtlOpenKeyTransacted @ 0x1406CEE20 (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140863068 (_RegRtlDeleteKeyTransacted.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B738 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlQueryInfoKey @ 0x14086B8B4 (_RegRtlQueryInfoKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCchCopyExW @ 0x14032E518 (RtlStringCchCopyExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x14032EA54 (RtlUnalignedStringCchLengthW.c)
+ *     wcsrchr @ 0x1403D3A00 (wcsrchr.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _RegRtlQueryInfoKey @ 0x140699968 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406BB4DC (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140765F94 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766378 (_RegRtlDeleteKeyTransacted.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RegRtlDeletePathInternal(void *a1, const wchar_t *a2, char a3, __int64 a4, int a5)
+__int64 __fastcall RegRtlDeletePathInternal(char *a1, const wchar_t *a2, char a3, __int64 a4, int a5)
 {
   int v9; // ebx
   size_t v10; // rbx
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   WCHAR *v12; // rdi
-  int i; // eax
-  wchar_t *v14; // rax
-  int v16; // [rsp+30h] [rbp-20h] BYREF
+  char i; // al
+  int v14; // eax
+  wchar_t *v15; // rax
+  int v17; // [rsp+30h] [rbp-20h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-18h] BYREF
   size_t pcchLength[2]; // [rsp+40h] [rbp-10h] BYREF
 
   pcchLength[0] = 0LL;
   Handle = 0LL;
   a5 = 0;
-  v16 = 0;
+  v17 = 0;
   v9 = RtlUnalignedStringCchLengthW(a2, 0x7FFFuLL, pcchLength);
-  if ( v9 >= 0 )
+  if ( v9 < 0 )
+    return (unsigned int)v9;
+  v10 = pcchLength[0] + 1;
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2 * (pcchLength[0] + 1), 0x4C474552u);
+  v12 = PoolWithTag;
+  if ( !PoolWithTag )
+    return (unsigned int)-1073741801;
+  v9 = RtlStringCchCopyExW(PoolWithTag, v10, a2, 0LL, 0LL, 0x100u);
+  if ( v9 )
+    goto LABEL_26;
+  for ( i = 1; ; i = 0 )
   {
-    v10 = pcchLength[0] + 1;
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, 2 * (pcchLength[0] + 1), 1279739218LL);
-    v12 = Pool2;
-    if ( Pool2 )
+    if ( i && a3 )
     {
-      v9 = RtlStringCchCopyExW(Pool2, v10, a2, 0LL, 0LL, 0x100u);
-      if ( !v9 )
-      {
-        if ( !a3 )
-          goto LABEL_7;
-        for ( i = RegRtlDeleteTreeInternal(a1, v12, a4, 0); ; i = RegRtlDeleteKeyTransacted(a1, v12, 0LL) )
-        {
-          v9 = i;
-          if ( i )
-          {
-            if ( i != -1073741772 )
-              break;
-          }
-          v14 = wcsrchr(v12, 0x5Cu);
-          if ( !v14 )
-            break;
-          do
-          {
-            *v14 = 0;
-            if ( v14 == v12 )
-              break;
-            --v14;
-          }
-          while ( *v14 == 92 );
-LABEL_7:
-          v9 = RegRtlOpenKeyTransacted(a1, v12, 0, 1u, &Handle, a4);
-          if ( v9 )
-          {
-            if ( v9 != -1073741772 )
-            {
-              if ( v9 == -1073741444 )
-                v9 = 0;
-              break;
-            }
-          }
-          else
-          {
-            v9 = RegRtlQueryInfoKey(Handle, &a5, 0LL, &v16, 0LL, 0LL);
-            ZwClose(Handle);
-            if ( v9 != -1073741444 && v9 )
-              break;
-            if ( a5 || v16 )
-            {
-              v9 = -1073741535;
-              break;
-            }
-          }
-        }
-      }
-      ExFreePoolWithTag(v12, 0);
+      v14 = RegRtlDeleteTreeInternal(a1, v12, a4, 0);
+      goto LABEL_17;
     }
-    else
+    v9 = RegRtlOpenKeyTransacted(a1, v12, 0, 1u, &Handle, a4);
+    if ( !v9 )
     {
-      return (unsigned int)-1073741801;
+      v9 = RegRtlQueryInfoKey(Handle, &a5, 0LL, &v17, 0LL, 0LL);
+      ZwClose(Handle);
+      if ( v9 != -1073741444 && v9 )
+        goto LABEL_26;
+      if ( a5 || v17 )
+      {
+        v9 = -1073741535;
+        goto LABEL_26;
+      }
+      goto LABEL_16;
+    }
+    if ( v9 != -1073741772 )
+      break;
+LABEL_16:
+    v14 = RegRtlDeleteKeyTransacted(a1, v12, 0LL);
+LABEL_17:
+    v9 = v14;
+    if ( v14 && v14 != -1073741772 )
+      goto LABEL_26;
+    v15 = wcsrchr(v12, 0x5Cu);
+    if ( !v15 )
+      goto LABEL_26;
+    for ( *v15 = 0; v15 != v12; *v15 = 0 )
+    {
+      if ( *--v15 != 92 )
+        break;
     }
   }
+  if ( v9 == -1073741444 )
+    v9 = 0;
+LABEL_26:
+  ExFreePoolWithTag(v12, 0);
   return (unsigned int)v9;
 }

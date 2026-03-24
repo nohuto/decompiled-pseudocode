@@ -1,10 +1,10 @@
 /*
- * XREFs of KiOp_SGDTSIDT @ 0x14057FBB0
+ * XREFs of KiOp_SGDTSIDT @ 0x140524980
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     KiOpRetrieveRegMemAddress @ 0x14057F77C (KiOpRetrieveRegMemAddress.c)
+ *     KiOpRetrieveRegMemAddress @ 0x1403CCD00 (KiOpRetrieveRegMemAddress.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall KiOp_SGDTSIDT(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall KiOp_SGDTSIDT(__int64 a1)
   v13 = 0LL;
   v12 = 0;
   *(_QWORD *)((char *)&Src + 2) = 0LL;
-  if ( (KiBugCheckActive & 3) != 0 || PopHibernateHvMinloopEnabled )
+  if ( (KiBugCheckActive & 3) != 0 )
   {
     v2 = 1;
     if ( VslVsmEnabled )

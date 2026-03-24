@@ -1,20 +1,20 @@
 /*
- * XREFs of PerfDiagpShutdownProxyCallback @ 0x140808C50
+ * XREFs of PerfDiagpShutdownProxyCallback @ 0x14092FD80
  * Callers:
  *     <none>
  * Callees:
- *     PerfDiagpRequestState @ 0x14081C88C (PerfDiagpRequestState.c)
+ *     PerfDiagpRequestState @ 0x1407CF54C (PerfDiagpRequestState.c)
  */
 
 void __fastcall PerfDiagpShutdownProxyCallback(
         LPCGUID SourceId,
-        __int64 ControlCode,
-        __int64 Level,
+        ULONG ControlCode,
+        UCHAR Level,
         ULONGLONG MatchAnyKeyword)
 {
-  if ( (_DWORD)ControlCode )
+  if ( ControlCode )
   {
-    if ( (_BYTE)Level == 85 )
-      PerfDiagpRequestState(7LL, ControlCode, Level, MatchAnyKeyword);
+    if ( Level == 85 )
+      PerfDiagpRequestState(7);
   }
 }

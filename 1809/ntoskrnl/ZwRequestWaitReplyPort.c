@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRequestWaitReplyPort @ 0x1401B85B0
+ * XREFs of ZwRequestWaitReplyPort @ 0x1401B85D0
  * Callers:
- *     SepRmDispatchDataToLsa @ 0x14012FD44 (SepRmDispatchDataToLsa.c)
+ *     SepRmDispatchDataToLsa @ 0x14012FD64 (SepRmDispatchDataToLsa.c)
  * Callees:
  *     <none>
  */

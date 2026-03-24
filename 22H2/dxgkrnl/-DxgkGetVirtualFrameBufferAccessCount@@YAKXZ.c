@@ -1,30 +1,33 @@
 /*
- * XREFs of ?DxgkGetVirtualFrameBufferAccessCount@@YAKXZ @ 0x1C02DFCD0
+ * XREFs of ?DxgkGetVirtualFrameBufferAccessCount@@YAKXZ @ 0x1C019A130
  * Callers:
  *     <none>
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
  */
 
-__int64 DxgkGetVirtualFrameBufferAccessCount(void)
+__int64 __fastcall DxgkGetVirtualFrameBufferAccessCount(__int64 a1, __int64 a2)
 {
   struct DXGGLOBAL *Global; // rax
-  unsigned int *v1; // rcx
-  unsigned int v2; // ebx
-  _BYTE v4[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rdx
+  unsigned int *v6; // rcx
+  unsigned int v7; // ebx
+  _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  Global = DXGGLOBAL::GetGlobal();
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v4, (struct DXGGLOBAL *)((char *)Global + 1632), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v4);
-  v1 = (unsigned int *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 203);
-  if ( v1 )
-    v2 = *v1;
+  Global = DXGGLOBAL::GetGlobal(a1, a2);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v9, (struct DXGGLOBAL *)((char *)Global + 1504), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v9);
+  v6 = (unsigned int *)*((_QWORD *)DXGGLOBAL::GetGlobal(v4, v3) + 187);
+  if ( v6 )
+    v7 = *v6;
   else
-    v2 = 0;
-  if ( v4[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v4);
-  return v2;
+    v7 = 0;
+  if ( v9[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v9, v5);
+  return v7;
 }

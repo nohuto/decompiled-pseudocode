@@ -1,26 +1,26 @@
 /*
- * XREFs of PnpDetermineResourceListSize @ 0x1407906DC
+ * XREFs of PnpDetermineResourceListSize @ 0x14075020C
  * Callers:
- *     IopQueryDeviceResources @ 0x140790134 (IopQueryDeviceResources.c)
- *     IoGetDeviceProperty @ 0x140792EB0 (IoGetDeviceProperty.c)
- *     IopCombineCmResourceList @ 0x140812B38 (IopCombineCmResourceList.c)
- *     IopLegacyResourceAllocation @ 0x140817DC4 (IopLegacyResourceAllocation.c)
- *     PnpBuildCmResourceLists @ 0x1408185D4 (PnpBuildCmResourceLists.c)
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     IopChangeInterfaceType @ 0x140957110 (IopChangeInterfaceType.c)
- *     PnpSetRegistryResourceList @ 0x1409585AC (PnpSetRegistryResourceList.c)
- *     IopCombineLegacyResources @ 0x140959E54 (IopCombineLegacyResources.c)
- *     PnpCopyResourceList @ 0x14096C978 (PnpCopyResourceList.c)
- *     PnpRestoreResourcesInternal @ 0x14096D7E4 (PnpRestoreResourcesInternal.c)
- *     IopReportBootResources @ 0x140B441C0 (IopReportBootResources.c)
+ *     IoGetDeviceProperty @ 0x1406B8A70 (IoGetDeviceProperty.c)
+ *     PnpBuildCmResourceLists @ 0x14074ED3C (PnpBuildCmResourceLists.c)
+ *     IopQueryDeviceResources @ 0x14074FC5C (IopQueryDeviceResources.c)
+ *     IopLegacyResourceAllocation @ 0x140752C64 (IopLegacyResourceAllocation.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
+ *     IopCombineCmResourceList @ 0x1407B61AC (IopCombineCmResourceList.c)
+ *     IopChangeInterfaceType @ 0x1408A042C (IopChangeInterfaceType.c)
+ *     PnpSetRegistryResourceList @ 0x1408A19C8 (PnpSetRegistryResourceList.c)
+ *     IopCombineLegacyResources @ 0x1408A2E40 (IopCombineLegacyResources.c)
+ *     PnpCopyResourceList @ 0x1408B25F0 (PnpCopyResourceList.c)
+ *     PnpRestoreResourcesInternal @ 0x1408B3398 (PnpRestoreResourcesInternal.c)
+ *     IopReportBootResources @ 0x140A675C0 (IopReportBootResources.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PnpDetermineResourceListSize(_DWORD *a1)
 {
+  _DWORD *v1; // r8
   __int64 result; // rax
-  _DWORD *v2; // r8
   __int64 v3; // r10
   unsigned int v4; // ecx
   _DWORD *v5; // r9
@@ -30,15 +30,15 @@ __int64 __fastcall PnpDetermineResourceListSize(_DWORD *a1)
 
   if ( !a1 )
     return 0LL;
-  v2 = a1 + 1;
+  v1 = a1 + 1;
   result = 4LL;
   if ( *a1 )
   {
     v3 = (unsigned int)*a1;
     do
     {
-      v4 = v2[3];
-      v5 = v2 + 4;
+      v4 = v1[3];
+      v5 = v1 + 4;
       v6 = 16;
       if ( v4 )
       {
@@ -55,7 +55,7 @@ __int64 __fastcall PnpDetermineResourceListSize(_DWORD *a1)
         while ( v7 );
       }
       result = v6 + (unsigned int)result;
-      v2 = (_DWORD *)((char *)v2 + v6);
+      v1 = (_DWORD *)((char *)v1 + v6);
       --v3;
     }
     while ( v3 );

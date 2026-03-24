@@ -1,31 +1,38 @@
 /*
- * XREFs of KsepLogError @ 0x140368C88
+ * XREFs of KsepLogError @ 0x140371F74
  * Callers:
- *     KseKPSOHookDriverTargeted @ 0x14057F1F0 (KseKPSOHookDriverTargeted.c)
- *     KsepEngineGetShimsFromRegistry @ 0x14075CC14 (KsepEngineGetShimsFromRegistry.c)
- *     KsepGetShimCallbacksForDriver @ 0x14075EC70 (KsepGetShimCallbacksForDriver.c)
- *     KseAddHardwareId @ 0x1407EC8C4 (KseAddHardwareId.c)
- *     KsepShimDatabaseTime @ 0x1407ECB78 (KsepShimDatabaseTime.c)
- *     KsepSdbMapToMemory @ 0x1407ECCD0 (KsepSdbMapToMemory.c)
- *     KseRegisterShimEx @ 0x140825A70 (KseRegisterShimEx.c)
- *     KsepSdbBootInitialize @ 0x1408277FC (KsepSdbBootInitialize.c)
- *     KseUnregisterShim @ 0x140963EA0 (KseUnregisterShim.c)
- *     KsepApplyShimsToDriver @ 0x140964230 (KsepApplyShimsToDriver.c)
- *     KsepResolveApplicableShimsForDriver @ 0x1409646B4 (KsepResolveApplicableShimsForDriver.c)
- *     KsepDeletePatchSdb @ 0x140964CB8 (KsepDeletePatchSdb.c)
- *     KseInitialize @ 0x140AFFF64 (KseInitialize.c)
- *     KseVersionLieInitialize @ 0x140B003F8 (KseVersionLieInitialize.c)
- *     KsepEngineReadFlags @ 0x140B01140 (KsepEngineReadFlags.c)
- *     KsepMatchInitMachineInfo @ 0x140B01388 (KsepMatchInitMachineInfo.c)
- *     KseShimDatabaseBootInitialize @ 0x140B01670 (KseShimDatabaseBootInitialize.c)
+ *     KseKPSOHookDriverTargeted @ 0x1403F3810 (KseKPSOHookDriverTargeted.c)
+ *     KsepSdbMapToMemory @ 0x140755A54 (KsepSdbMapToMemory.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140758650 (KsepGetShimCallbacksForDriver.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14075B74C (KsepEngineGetShimsFromRegistry.c)
+ *     KsepShimDatabaseTime @ 0x14075F2C8 (KsepShimDatabaseTime.c)
+ *     KseAddHardwareId @ 0x14075F69C (KseAddHardwareId.c)
+ *     KseRegisterShimEx @ 0x1407BD440 (KseRegisterShimEx.c)
+ *     KsepSdbBootInitialize @ 0x1407D1ED8 (KsepSdbBootInitialize.c)
+ *     KseUnregisterShim @ 0x1408BFE20 (KseUnregisterShim.c)
+ *     KsepApplyShimsToDriver @ 0x1408C01B0 (KsepApplyShimsToDriver.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x1408C0634 (KsepResolveApplicableShimsForDriver.c)
+ *     KsepDeletePatchSdb @ 0x1408C0C74 (KsepDeletePatchSdb.c)
+ *     KseKernelPadSectionsOverrideInitialize @ 0x140A38BB0 (KseKernelPadSectionsOverrideInitialize.c)
+ *     KseUserCetInitialize @ 0x140A38C28 (KseUserCetInitialize.c)
+ *     KseInitialize @ 0x140A3C89C (KseInitialize.c)
+ *     KseZeroPoolInitialize @ 0x140A686BC (KseZeroPoolInitialize.c)
+ *     KseClearPCIDBitsInitialize @ 0x140A68758 (KseClearPCIDBitsInitialize.c)
+ *     KseMemcpyInitialize @ 0x140A68784 (KseMemcpyInitialize.c)
+ *     KseKasperskyInitialize @ 0x140A687B0 (KseKasperskyInitialize.c)
+ *     KseSkipDriverUnloadInitialize @ 0x140A687DC (KseSkipDriverUnloadInitialize.c)
+ *     KseVersionLieInitialize @ 0x140A68808 (KseVersionLieInitialize.c)
+ *     KsepMatchInitMachineInfo @ 0x140A6A0D0 (KsepMatchInitMachineInfo.c)
+ *     KsepEngineReadFlags @ 0x140A6A47C (KsepEngineReadFlags.c)
+ *     KseShimDatabaseBootInitialize @ 0x140A72134 (KseShimDatabaseBootInitialize.c)
  * Callees:
- *     KsepLogEtwMessage @ 0x140368CB8 (KsepLogEtwMessage.c)
+ *     KsepLogEtwMessage @ 0x1403717D8 (KsepLogEtwMessage.c)
  */
 
-__int64 KsepLogError(__int64 a1, __int64 a2, ...)
+void KsepLogError(int a1, const char *a2, ...)
 {
   va_list va; // [rsp+50h] [rbp+18h] BYREF
 
   va_start(va, a2);
-  return KsepLogEtwMessage(a1, 0LL, a2, (__int64 *)va);
+  KsepLogEtwMessage(a1, 0, a2, va);
 }

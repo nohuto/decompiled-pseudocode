@@ -1,21 +1,16 @@
 /*
- * XREFs of VerifierPortExAllocatePoolWithTagPriority @ 0x140ADE490
+ * XREFs of VerifierPortExAllocatePoolWithTagPriority @ 0x1409E4D40
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14034E400 (ExAllocatePoolWithTagPriority.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1402BC770 (ExAllocatePoolWithTagPriority.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-PVOID __fastcall VerifierPortExAllocatePoolWithTagPriority(
-        POOL_TYPE a1,
-        SIZE_T a2,
-        ULONG a3,
-        EX_POOL_PRIORITY a4,
-        __int64 a5)
+PVOID __fastcall VerifierPortExAllocatePoolWithTagPriority(POOL_TYPE a1, SIZE_T a2, ULONG a3, EX_POOL_PRIORITY a4)
 {
-  if ( (VfRuleClasses & 0x400000) == 0 || (MmVerifierData & 1) != 0 )
-    return (PVOID)pXdvExAllocatePoolWithTagPriority(a1 | 0x80u, 0, a2, a3, a4, 0LL, 0, a5, (__int64)VfHandlePoolAlloc);
+  if ( (MmVerifierData & 0x400000) == 0 || (MmVerifierData & 1) != 0 )
+    return (PVOID)((__int64 (__fastcall *)(_QWORD))pXdvExAllocatePoolWithTagPriority)(a1 | 0x80u);
   else
     return ExAllocatePoolWithTagPriority(a1, a2, a3, a4);
 }

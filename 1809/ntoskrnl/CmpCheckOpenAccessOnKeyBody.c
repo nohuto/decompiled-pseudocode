@@ -1,7 +1,7 @@
 /*
  * XREFs of CmpCheckOpenAccessOnKeyBody @ 0x140596210
  * Callers:
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
  * Callees:
  *     PsGetServerSiloServiceSessionId @ 0x1400067D0 (PsGetServerSiloServiceSessionId.c)
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
@@ -13,7 +13,7 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpCheckKeyOwnerForPca @ 0x140580A4C (CmpCheckKeyOwnerForPca.c)
  *     CmpGetSecurityDescriptorForKcbStackEx @ 0x140580AA0 (CmpGetSecurityDescriptorForKcbStackEx.c)
  *     SeOpenObjectAuditAlarmWithTransaction @ 0x140596850 (SeOpenObjectAuditAlarmWithTransaction.c)
@@ -22,12 +22,12 @@
  *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)
  *     CmpSetKcbAtLayerHeight @ 0x1405D5E8C (CmpSetKcbAtLayerHeight.c)
  *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
- *     CmpIsKeyStackDeleted @ 0x140644670 (CmpIsKeyStackDeleted.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
- *     CmRmIsKCBVisible @ 0x140699950 (CmRmIsKCBVisible.c)
- *     SeAppendPrivileges @ 0x140699A40 (SeAppendPrivileges.c)
- *     CmListGetPrevElement @ 0x1406C060C (CmListGetPrevElement.c)
- *     CmpSetAccessStateForBackupRestore @ 0x140705610 (CmpSetAccessStateForBackupRestore.c)
+ *     CmpIsKeyStackDeleted @ 0x140644650 (CmpIsKeyStackDeleted.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
+ *     CmRmIsKCBVisible @ 0x140699930 (CmRmIsKCBVisible.c)
+ *     SeAppendPrivileges @ 0x140699A20 (SeAppendPrivileges.c)
+ *     CmListGetPrevElement @ 0x1406C05EC (CmListGetPrevElement.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x1407055F0 (CmpSetAccessStateForBackupRestore.c)
  */
 
 __int64 __fastcall CmpCheckOpenAccessOnKeyBody(

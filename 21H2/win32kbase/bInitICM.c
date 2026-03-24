@@ -1,15 +1,15 @@
 /*
- * XREFs of bInitICM @ 0x1C02E5C44
+ * XREFs of bInitICM @ 0x1C029A608
  * Callers:
- *     InitializeGre @ 0x1C02E38D0 (InitializeGre.c)
+ *     InitializeGre @ 0x1C029A0FC (InitializeGre.c)
  * Callees:
- *     HmgShareLockEx @ 0x1C0020870 (HmgShareLockEx.c)
- *     HmgSetOwner @ 0x1C0028640 (HmgSetOwner.c)
- *     GreGetStockObject @ 0x1C002E9B0 (GreGetStockObject.c)
- *     HmgMarkUndeletable @ 0x1C0063C80 (HmgMarkUndeletable.c)
- *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C00643E0 (-bSetStockObject@@YAHPEAXHH@Z.c)
- *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C00BEE40 (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C0015DD0 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     HmgMarkUndeletable @ 0x1C001B940 (HmgMarkUndeletable.c)
+ *     GreGetStockObject @ 0x1C002AB20 (GreGetStockObject.c)
+ *     HmgShareLockEx @ 0x1C002D5E0 (HmgShareLockEx.c)
+ *     HmgSetOwner @ 0x1C0035470 (HmgSetOwner.c)
+ *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C009F904 (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 bInitICM()
@@ -17,8 +17,8 @@ __int64 bInitICM()
   unsigned int v0; // ebx
   NTSTATUS v1; // eax
   int v2; // ecx
-  __int64 v3; // rax
-  _BYTE *v4; // rcx
+  _BYTE *v3; // rcx
+  __int64 v4; // rax
   struct tagLOGCOLORSPACEW *v5; // rdx
   __int128 v6; // xmm1
   __int128 v7; // xmm0
@@ -60,44 +60,51 @@ __int64 bInitICM()
   v20 = v2;
   if ( (v2 & 0x10000) == 0 )
   {
-    dword_1C028F4BC = 1934772034;
+    dword_1C024BF2C = 1934772034;
     wcscpy_s(&Dst, 0x104uLL, L"sRGB Color Space Profile.icm");
   }
-  v3 = 4LL;
-  v4 = v25;
+  giIcmGammaRange = 128;
+  QueryTable.Name = L"GdiIcmGammaRange";
+  QueryTable.EntryContext = &giIcmGammaRange;
+  if ( RtlQueryRegistryValues(3u, L"ICM", &QueryTable, 0LL, 0LL) < 0 )
+    giIcmGammaRange = 128;
+  if ( giIcmGammaRange > 0x100 )
+    giIcmGammaRange = 256;
+  v3 = v25;
+  v4 = 4LL;
   v5 = &gcsStockColorSpace;
   do
   {
     v6 = *(_OWORD *)&v5->lcsIntent;
-    *(_OWORD *)v4 = *(_OWORD *)&v5->lcsSignature;
+    *(_OWORD *)v3 = *(_OWORD *)&v5->lcsSignature;
     v7 = *(_OWORD *)&v5->lcsEndpoints.ciexyzGreen.ciexyzX;
-    *((_OWORD *)v4 + 1) = v6;
+    *((_OWORD *)v3 + 1) = v6;
     v8 = *(_OWORD *)&v5->lcsEndpoints.ciexyzBlue.ciexyzY;
-    *((_OWORD *)v4 + 2) = v7;
+    *((_OWORD *)v3 + 2) = v7;
     v9 = *(_OWORD *)&v5->lcsGammaBlue;
-    *((_OWORD *)v4 + 3) = v8;
+    *((_OWORD *)v3 + 3) = v8;
     v10 = *(_OWORD *)&v5->lcsFilename[6];
-    *((_OWORD *)v4 + 4) = v9;
+    *((_OWORD *)v3 + 4) = v9;
     v11 = *(_OWORD *)&v5->lcsFilename[14];
-    *((_OWORD *)v4 + 5) = v10;
+    *((_OWORD *)v3 + 5) = v10;
     v12 = *(_OWORD *)&v5->lcsFilename[22];
     v5 = (struct tagLOGCOLORSPACEW *)((char *)v5 + 128);
-    *((_OWORD *)v4 + 6) = v11;
-    v4 += 128;
-    *((_OWORD *)v4 - 1) = v12;
-    --v3;
+    *((_OWORD *)v3 + 6) = v11;
+    v3 += 128;
+    *((_OWORD *)v3 - 1) = v12;
+    --v4;
   }
-  while ( v3 );
+  while ( v4 );
   v13 = *(_QWORD *)&v5->lcsGammaBlue;
   v14 = *(_OWORD *)&v5->lcsIntent;
-  *(_OWORD *)v4 = *(_OWORD *)&v5->lcsSignature;
+  *(_OWORD *)v3 = *(_OWORD *)&v5->lcsSignature;
   v15 = *(_OWORD *)&v5->lcsEndpoints.ciexyzGreen.ciexyzX;
-  *((_OWORD *)v4 + 1) = v14;
+  *((_OWORD *)v3 + 1) = v14;
   v16 = *(_OWORD *)&v5->lcsEndpoints.ciexyzBlue.ciexyzY;
-  *((_OWORD *)v4 + 2) = v15;
-  *((_OWORD *)v4 + 3) = v16;
-  *((_QWORD *)v4 + 8) = v13;
-  *((_DWORD *)v4 + 18) = *(_DWORD *)&v5->lcsFilename[2];
+  *((_OWORD *)v3 + 2) = v15;
+  *((_OWORD *)v3 + 3) = v16;
+  *((_QWORD *)v3 + 8) = v13;
+  *((_DWORD *)v3 + 18) = *(_DWORD *)&v5->lcsFilename[2];
   v26 = 0;
   ColorSpace = GreCreateColorSpace((struct _LOGCOLORSPACEEXW *)v25);
   v18 = (unsigned __int64)ColorSpace;
@@ -108,8 +115,8 @@ __int64 bInitICM()
   bSetStockObject(v18, 20, 0);
   ghStockColorSpace = (HCOLORSPACE)GreGetStockObject(20);
   gpStockColorSpace = (struct COLORSPACE *)HmgShareLockEx((unsigned int)ghStockColorSpace, 9, 0);
-  *(_QWORD *)&WPP_MAIN_CB.DeviceQueue.Type = ghStockColorSpace;
-  qword_1C028F2E0 = (__int64)gpStockColorSpace;
+  WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc = (PKDPC)ghStockColorSpace;
+  qword_1C024BD50 = (__int64)gpStockColorSpace;
   if ( !gpStockColorSpace )
     return 0;
   return v0;

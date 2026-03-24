@@ -1,11 +1,11 @@
 /*
- * XREFs of ?LookUpWndobjs@@YAHPEAVDCOBJ@@0PEAPEAUHDC__@@H@Z @ 0x1C0276514
+ * XREFs of ?LookUpWndobjs@@YAHPEAVDCOBJ@@0PEAPEAUHDC__@@H@Z @ 0x1C027B564
  * Callers:
- *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C0276D58 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
+ *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C027B628 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
  * Callees:
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C011CD7C (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
- *     UserGetHwnd @ 0x1C01BDE2C (UserGetHwnd.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A038 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ?vUnlock@XDCOBJ@@IEAAXXZ @ 0x1C016A198 (-vUnlock@XDCOBJ@@IEAAXXZ.c)
+ *     UserGetHwnd @ 0x1C01E861C (UserGetHwnd.c)
  */
 
 __int64 __fastcall LookUpWndobjs(struct DCOBJ *a1, struct DCOBJ *a2, HDC *a3, int a4)
@@ -36,8 +36,7 @@ __int64 __fastcall LookUpWndobjs(struct DCOBJ *a1, struct DCOBJ *a2, HDC *a3, in
     }
     else
     {
-      XDCOBJ::vUnlockFast(a2);
-      *(_QWORD *)a2 = 0LL;
+      XDCOBJ::vUnlock(a2);
       *a3 = 0LL;
     }
     ++a3;

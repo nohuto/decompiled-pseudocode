@@ -1,12 +1,12 @@
 /*
- * XREFs of MiZeroAndConvertLargePage @ 0x140118CA8
+ * XREFs of MiZeroAndConvertLargePage @ 0x140118CC8
  * Callers:
  *     MiGet64KPage @ 0x14002B8B0 (MiGet64KPage.c)
- *     MiZeroInParallelWorker @ 0x14013C6A0 (MiZeroInParallelWorker.c)
- *     MiAllocateLargeZeroPages @ 0x14085C900 (MiAllocateLargeZeroPages.c)
+ *     MiZeroInParallelWorker @ 0x14013C6C0 (MiZeroInParallelWorker.c)
+ *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
  * Callees:
  *     MiChangePageAttributeBatch @ 0x1400823F0 (MiChangePageAttributeBatch.c)
- *     MiZeroLargePage @ 0x140118D5C (MiZeroLargePage.c)
+ *     MiZeroLargePage @ 0x140118D7C (MiZeroLargePage.c)
  */
 
 void __fastcall MiZeroAndConvertLargePage(__int64 a1, unsigned int a2, int a3)

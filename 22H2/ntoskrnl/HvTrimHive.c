@@ -1,11 +1,11 @@
 /*
- * XREFs of HvTrimHive @ 0x14085FA7C
+ * XREFs of HvTrimHive @ 0x14069FEEC
  * Callers:
- *     CmpTrimHive @ 0x14074ED94 (CmpTrimHive.c)
+ *     CmpTrimHive @ 0x14071C6E0 (CmpTrimHive.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiDeprioritizeVirtualAddresses @ 0x14062D73C (MiDeprioritizeVirtualAddresses.c)
- *     HvpGetCellMap @ 0x140AF6280 (HvpGetCellMap.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14053660C (MiDeprioritizeVirtualAddresses.c)
+ *     HvpGetCellMap @ 0x140655DC0 (HvpGetCellMap.c)
  */
 
 void __fastcall HvTrimHive(__int64 a1, unsigned int a2, unsigned int a3)
@@ -17,9 +17,9 @@ void __fastcall HvTrimHive(__int64 a1, unsigned int a2, unsigned int a3)
   __int64 v9; // r11
   __int64 v10; // r10
 
-  v4 = a2;
-  if ( (*(_DWORD *)(a1 + 160) & 0x2000000) == 0 && a2 < a3 )
+  if ( a2 < a3 )
   {
+    v4 = a2;
     do
     {
       CellMap = HvpGetCellMap(a1, v4);

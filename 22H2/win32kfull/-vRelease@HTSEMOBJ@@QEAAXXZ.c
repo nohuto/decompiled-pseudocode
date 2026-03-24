@@ -1,21 +1,18 @@
 /*
- * XREFs of ?vRelease@HTSEMOBJ@@QEAAXXZ @ 0x1C00563B8
+ * XREFs of ?vRelease@HTSEMOBJ@@QEAAXXZ @ 0x1C001A908
  * Callers:
- *     ?EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C00551B0 (-EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
- *     ??1HTSEMOBJ@@QEAA@XZ @ 0x1C02DE8E8 (--1HTSEMOBJ@@QEAA@XZ.c)
- *     EngHTBlt @ 0x1C02DECB0 (EngHTBlt.c)
+ *     ?EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C00191E0 (-EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
+ *     EngHTBlt @ 0x1C0019E98 (EngHTBlt.c)
+ *     ??1HTSEMOBJ@@QEAA@XZ @ 0x1C02C0838 (--1HTSEMOBJ@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall HTSEMOBJ::vRelease(HTSEMOBJ *this)
 {
-  struct Gre::Base::SESSION_GLOBALS *v1; // rbx
-
   if ( *(_DWORD *)this )
   {
-    v1 = Gre::Base::Globals(this);
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemHT");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v1 + 17));
+    EtwTraceGreLockReleaseSemaphore(L"ghsemHT", ghsemHT);
+    GreReleaseSemaphoreInternal(ghsemHT);
   }
 }

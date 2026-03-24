@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpApicTimerDiscover @ 0x1403BCDA0
+ * XREFs of HalpApicTimerDiscover @ 0x1403AA91C
  * Callers:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403BCA40 (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403AA5BC (HalpTimerRegisterBuiltinPlugins.c)
  * Callees:
- *     HalSocRequestApi @ 0x1403B38C8 (HalSocRequestApi.c)
- *     HalpTimerRegister @ 0x1403BE0BC (HalpTimerRegister.c)
- *     HalSocGetAcpiTable @ 0x1403BE664 (HalSocGetAcpiTable.c)
- *     HalpApicTimerIsInvariant @ 0x1403BE694 (HalpApicTimerIsInvariant.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalSocRequestApi @ 0x1403A209C (HalSocRequestApi.c)
+ *     HalpTimerRegister @ 0x1403ABC00 (HalpTimerRegister.c)
+ *     HalSocGetAcpiTable @ 0x1403AC144 (HalSocGetAcpiTable.c)
+ *     HalpApicTimerIsInvariant @ 0x1403AC174 (HalpApicTimerIsInvariant.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 HalpApicTimerDiscover()
@@ -26,9 +26,7 @@ __int64 HalpApicTimerDiscover()
   _QWORD v11[18]; // [rsp+40h] [rbp-39h] BYREF
   __int64 v12; // [rsp+E0h] [rbp+67h] BYREF
 
-  *(_WORD *)((char *)&v12 + 1) = 0;
   v10 = 0LL;
-  BYTE3(v12) = 0;
   if ( HalSocGetAcpiTable(1128878145LL) )
   {
     v1 = 0LL;

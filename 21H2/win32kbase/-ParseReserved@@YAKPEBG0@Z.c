@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ParseReserved@@YAKPEBG0@Z @ 0x1C00C3470
+ * XREFs of ?ParseReserved@@YAKPEBG0@Z @ 0x1C00B5C14
  * Callers:
- *     xxxCreateThreadInfo @ 0x1C003911C (xxxCreateThreadInfo.c)
+ *     xxxCreateThreadInfo @ 0x1C003D918 (xxxCreateThreadInfo.c)
  * Callees:
- *     wcsstr @ 0x1C00D5E08 (wcsstr.c)
+ *     wcsstr @ 0x1C00C51C8 (wcsstr.c)
  */
 
 __int64 __fastcall ParseReserved(const unsigned __int16 *a1, const unsigned __int16 *a2)

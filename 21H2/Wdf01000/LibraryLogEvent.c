@@ -1,12 +1,12 @@
 /*
- * XREFs of LibraryLogEvent @ 0x1C00601B8
+ * XREFs of LibraryLogEvent @ 0x1C00421A8
  * Callers:
- *     LibraryRegisterClient @ 0x1C0028570 (LibraryRegisterClient.c)
- *     ?PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ @ 0x1C00290A4 (-PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ.c)
- *     ?ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z @ 0x1C005FDF8 (-ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z.c)
+ *     LibraryRegisterClient @ 0x1C002E160 (LibraryRegisterClient.c)
+ *     ?ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z @ 0x1C0041664 (-ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z.c)
+ *     ?PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ @ 0x1C0081B54 (-PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ.c)
  * Callees:
- *     memset @ 0x1C0036C00 (memset.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
  */
 
 void __fastcall LibraryLogEvent(

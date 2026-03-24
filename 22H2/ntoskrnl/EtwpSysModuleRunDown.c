@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpSysModuleRunDown @ 0x140827FC8
+ * XREFs of EtwpSysModuleRunDown @ 0x140792B28
  * Callers:
- *     EtwpProcessEnumCallback @ 0x140827970 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x1407925D0 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     HvlQueryConnection @ 0x14038C7E0 (HvlQueryConnection.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MmEnumerateSystemImages @ 0x140828110 (MmEnumerateSystemImages.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     HvlQueryConnection @ 0x1403AA280 (HvlQueryConnection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MmEnumerateSystemImages @ 0x140792C70 (MmEnumerateSystemImages.c)
  */
 
 __int64 __fastcall EtwpSysModuleRunDown(__int64 a1, char a2)
@@ -35,14 +35,14 @@ __int64 __fastcall EtwpSysModuleRunDown(__int64 a1, char a2)
   if ( !a2 )
   {
     v6 = *(_DWORD *)a1;
-    v7 = *(_QWORD *)(a1 + 1096);
+    v7 = *(_QWORD *)(a1 + 1080);
     v16 = &PsNtosImageBase;
     v17 = 8LL;
     EtwpLogKernelEvent((__int64)&v16, v7, v6, 1u, 0x1421u, 0x401802u);
     if ( !(unsigned int)HvlQueryConnection(&v10) )
     {
       v8 = *(_DWORD *)a1;
-      v9 = *(_QWORD *)(a1 + 1096);
+      v9 = *(_QWORD *)(a1 + 1080);
       v16 = (ULONG_PTR *)&v10;
       v17 = 8LL;
       EtwpLogKernelEvent((__int64)&v16, v9, v8, 1u, 0x1422u, 0x401802u);

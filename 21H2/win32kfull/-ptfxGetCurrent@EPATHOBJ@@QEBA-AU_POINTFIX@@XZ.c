@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ptfxGetCurrent@EPATHOBJ@@QEBA?AU_POINTFIX@@XZ @ 0x1C01388BC
+ * XREFs of ?ptfxGetCurrent@EPATHOBJ@@QEBA?AU_POINTFIX@@XZ @ 0x1C0145E20
  * Callers:
- *     GrePolylineTo @ 0x1C0136880 (GrePolylineTo.c)
- *     GrePolyBezierTo @ 0x1C0137490 (GrePolyBezierTo.c)
- *     ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0137C34 (--0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
- *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C0137FE4 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
- *     GreAngleArc @ 0x1C029E684 (GreAngleArc.c)
- *     GrePolyDraw @ 0x1C029EE18 (GrePolyDraw.c)
- *     NtGdiArcInternal @ 0x1C02AFE50 (NtGdiArcInternal.c)
+ *     GrePolylineTo @ 0x1C0143CD0 (GrePolylineTo.c)
+ *     GrePolyBezierTo @ 0x1C0144930 (GrePolyBezierTo.c)
+ *     ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0145120 (--0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
+ *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C01454C4 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
+ *     GreAngleArc @ 0x1C029FD70 (GreAngleArc.c)
+ *     GrePolyDraw @ 0x1C02A0538 (GrePolyDraw.c)
+ *     NtGdiArcInternal @ 0x1C02B1280 (NtGdiArcInternal.c)
  * Callees:
  *     <none>
  */

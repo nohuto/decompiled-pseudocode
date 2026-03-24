@@ -1,19 +1,29 @@
 /*
- * XREFs of DpiAppendNumberToString @ 0x1C02037FC
+ * XREFs of DpiAppendNumberToString @ 0x1C0189AC4
  * Callers:
- *     DpiPdoHandleQueryId @ 0x1C0203310 (DpiPdoHandleQueryId.c)
- *     DpiGdoCreateGdiObjects @ 0x1C0203500 (DpiGdoCreateGdiObjects.c)
- *     DpiGdoDestroyGdiObjects @ 0x1C039834C (DpiGdoDestroyGdiObjects.c)
+ *     DpiPdoHandleQueryId @ 0x1C01895D0 (DpiPdoHandleQueryId.c)
+ *     DpiGdoCreateGdiObjects @ 0x1C01897B4 (DpiGdoCreateGdiObjects.c)
+ *     DpiGdoDestroyGdiObjects @ 0x1C02D9DC0 (DpiGdoDestroyGdiObjects.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 __int64 __fastcall DpiAppendNumberToString(PCWSTR SourceString, ULONG Value, PUNICODE_STRING Destination)
 {
   wchar_t *PoolWithTag; // rax
-  NTSTATUS v6; // ebx
-  SIZE_T v7; // rdx
-  wchar_t *v8; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  NTSTATUS v10; // edi
+  SIZE_T v11; // rdx
+  wchar_t *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v18; // rax
+  __int64 v19; // rax
   struct _UNICODE_STRING String; // [rsp+20h] [rbp-20h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
 
@@ -26,32 +36,36 @@ __int64 __fastcall DpiAppendNumberToString(PCWSTR SourceString, ULONG Value, PUN
   if ( PoolWithTag )
   {
     memset(PoolWithTag, 0, String.MaximumLength);
-    v6 = RtlIntegerToUnicodeString(Value, 0xAu, &String);
-    if ( v6 >= 0 )
+    v10 = RtlIntegerToUnicodeString(Value, 0xAu, &String);
+    if ( v10 >= 0 )
     {
-      v7 = (unsigned __int16)(String.MaximumLength + DestinationString.MaximumLength);
-      Destination->MaximumLength = v7;
+      v11 = (unsigned __int16)(String.MaximumLength + DestinationString.MaximumLength);
+      Destination->MaximumLength = v11;
       Destination->Length = 0;
-      v8 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v7, 0x74727044u);
-      Destination->Buffer = v8;
-      if ( v8 )
+      v12 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v11, 0x74727044u);
+      Destination->Buffer = v12;
+      if ( v12 )
       {
-        memset(v8, 0, Destination->MaximumLength);
+        memset(v12, 0, Destination->MaximumLength);
         RtlCopyUnicodeString(Destination, &DestinationString);
         RtlAppendUnicodeStringToString(Destination, &String);
       }
       else
       {
-        v6 = -1073741801;
-        WdLogSingleEntry1(6LL, -1073741801LL);
+        v10 = -1073741801;
+        v19 = WdLogNewEntry5_WdLowResource(v14, v13, v15, v16);
+        *(_QWORD *)(v19 + 24) = -1073741801LL;
+        WdLogEvent5_WdLowResource(v19);
       }
     }
     ExFreePoolWithTag(String.Buffer, 0x74727044u);
   }
   else
   {
-    v6 = -1073741801;
-    WdLogSingleEntry1(6LL, -1073741801LL);
+    v10 = -1073741801;
+    v18 = WdLogNewEntry5_WdLowResource(v7, v6, v8, v9);
+    *(_QWORD *)(v18 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v18);
   }
-  return (unsigned int)v6;
+  return (unsigned int)v10;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DetachFromParent@CVisualMarshaler@DirectComposition@@MEAA_NPEAVCApplicationChannel@2@@Z @ 0x1C00A2680
+ * XREFs of ?DetachFromParent@CVisualMarshaler@DirectComposition@@MEAA_NPEAVCApplicationChannel@2@@Z @ 0x1C0092FA0
  * Callers:
  *     <none>
  * Callees:
@@ -15,7 +15,7 @@ bool __fastcall DirectComposition::CVisualMarshaler::DetachFromParent(
   bool result; // al
 
   v2 = *((_DWORD *)this + 4);
-  *((_QWORD *)this + 25) = 0LL;
+  *((_QWORD *)this + 24) = 0LL;
   v3 = v2 & 0xFFFFFFEF;
   result = (v2 & 0x10) != 0;
   *((_DWORD *)this + 4) = v3;

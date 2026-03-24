@@ -1,20 +1,28 @@
 /*
- * XREFs of HalpMcaClearError @ 0x140506CA4
+ * XREFs of HalpMcaClearError @ 0x1404BA2E8
  * Callers:
- *     HalpCmcPollProcessor @ 0x1403AAA5C (HalpCmcPollProcessor.c)
- *     HalpMceHandlerCore @ 0x140507820 (HalpMceHandlerCore.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A61564 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpCmcPollProcessor @ 0x1403A0B10 (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x1404BADC4 (HalpMceHandlerCore.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A6DF0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     HalpWheaWriteMsrStatus @ 0x1403AAD84 (HalpWheaWriteMsrStatus.c)
- *     HalpMcaProcessorBankClear @ 0x140509D78 (HalpMcaProcessorBankClear.c)
+ *     HalpWheaWriteMsrStatus @ 0x1403A0E70 (HalpWheaWriteMsrStatus.c)
+ *     HalpGetCpuVendor @ 0x1403A0F3C (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpMcaProcessorBankClearAMD @ 0x1404BD2C8 (HalpMcaProcessorBankClearAMD.c)
  */
 
-__int64 __fastcall HalpMcaClearError(__int64 a1, __int64 a2)
+char __fastcall HalpMcaClearError(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
+  unsigned int v4; // edi
+  char result; // al
 
-  HalpMcaProcessorBankClear(a2, *(unsigned int *)(a1 + 36));
-  result = HalpWheaWriteMsrStatus(a2, *(_DWORD *)(a1 + 36));
+  if ( *(_DWORD *)(a1 + 64) )
+    HalpWheaWriteMsr(a2, 392LL, 0LL);
+  HalpWheaWriteMsrStatus(a2, *(_DWORD *)(a1 + 36));
+  v4 = *(_DWORD *)(a1 + 36);
+  result = HalpGetCpuVendor();
+  if ( result == 1 && HalpMcaScalableRasSupported )
+    result = HalpMcaProcessorBankClearAMD(a2, v4);
   _mm_mfence();
   return result;
 }

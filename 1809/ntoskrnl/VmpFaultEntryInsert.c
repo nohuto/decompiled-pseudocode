@@ -1,12 +1,12 @@
 /*
- * XREFs of VmpFaultEntryInsert @ 0x14030C08C
+ * XREFs of VmpFaultEntryInsert @ 0x14030C18C
  * Callers:
- *     VmpAccessFaultBatch @ 0x14030B978 (VmpAccessFaultBatch.c)
+ *     VmpAccessFaultBatch @ 0x14030BA78 (VmpAccessFaultBatch.c)
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall VmpFaultEntryInsert(__int64 a1, _QWORD *a2, unsigned int a3)

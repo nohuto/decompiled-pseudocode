@@ -1,9 +1,9 @@
 /*
- * XREFs of ScaleRGB @ 0x1C0255384
+ * XREFs of ScaleRGB @ 0x1C02620EC
  * Callers:
- *     ComputeBGRMappingTable @ 0x1C0253890 (ComputeBGRMappingTable.c)
+ *     ComputeBGRMappingTable @ 0x1C0261348 (ComputeBGRMappingTable.c)
  * Callees:
- *     DivFD6 @ 0x1C0157C2C (DivFD6.c)
+ *     DivFD6 @ 0x1C001CD3C (DivFD6.c)
  */
 
 __int64 __fastcall ScaleRGB(_DWORD *a1)

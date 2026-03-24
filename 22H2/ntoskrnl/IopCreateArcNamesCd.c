@@ -1,25 +1,25 @@
 /*
- * XREFs of IopCreateArcNamesCd @ 0x140B3D2CC
+ * XREFs of IopCreateArcNamesCd @ 0x140A61E50
  * Callers:
- *     IopCreateArcNames @ 0x140B3D704 (IopCreateArcNames.c)
+ *     IopCreateArcNames @ 0x140A61BAC (IopCreateArcNames.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IopBuildDeviceIoControlRequest @ 0x1402510F0 (IopBuildDeviceIoControlRequest.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     RtlStringCchPrintfA @ 0x14037507C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IoGetDeviceObjectPointer @ 0x14075B770 (IoGetDeviceObjectPointer.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     IoBuildSynchronousFsdRequest @ 0x1407FDA30 (IoBuildSynchronousFsdRequest.c)
- *     IoCreateSymbolicLink @ 0x140870130 (IoCreateSymbolicLink.c)
- *     IoGetConfigurationInformation @ 0x140875CF0 (IoGetConfigurationInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     IopFetchConfigurationInformation @ 0x140B3D434 (IopFetchConfigurationInformation.c)
+ *     IopBuildDeviceIoControlRequest @ 0x14022B300 (IopBuildDeviceIoControlRequest.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfA @ 0x1403B7F0C (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IoGetDeviceObjectPointer @ 0x140621240 (IoGetDeviceObjectPointer.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     IoBuildSynchronousFsdRequest @ 0x1406FF190 (IoBuildSynchronousFsdRequest.c)
+ *     IoCreateSymbolicLink @ 0x14076D2F0 (IoCreateSymbolicLink.c)
+ *     IoGetConfigurationInformation @ 0x140781A10 (IoGetConfigurationInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     IopFetchConfigurationInformation @ 0x140A61FB8 (IopFetchConfigurationInformation.c)
  */
 
 __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
@@ -38,7 +38,7 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   WCHAR *v13; // r11
   int v14; // r8d
   int v15; // edx
-  char *Pool2; // rdi
+  char *Pool; // rdi
   int v18; // r15d
   int v19; // esi
   __int64 v20; // rax
@@ -68,6 +68,7 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   int v44; // [rsp+108h] [rbp+0h]
   char pszDest[128]; // [rsp+118h] [rbp+10h] BYREF
   char SourceString[128]; // [rsp+198h] [rbp+90h] BYREF
+  __int64 retaddr; // [rsp+250h] [rbp+148h]
 
   v1 = *(WCHAR ***)(a1 + 232);
   v40 = a1;
@@ -116,8 +117,8 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
   while ( v9 != (WCHAR *)v1 );
   if ( !v13 )
     goto LABEL_9;
-  Pool2 = (char *)ExAllocatePool2(72LL, 0x800uLL, 0x20206F49u);
-  if ( !Pool2 )
+  Pool = (char *)IopVerifierExAllocatePool(NonPagedPoolNxCacheAligned, 0x800uLL);
+  if ( !Pool )
     goto LABEL_9;
   v18 = 0;
   Object = 0;
@@ -149,7 +150,8 @@ __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
               0xCu,
               0,
               &Object_8,
-              &IoStatusBlock);
+              &IoStatusBlock,
+              retaddr);
       if ( !v23 )
         goto LABEL_52;
       LOWORD(Object_8.Header.Lock) = 0;
@@ -188,7 +190,7 @@ LABEL_52:
           ExFreePoolWithTag(v6, 0);
         DeviceObjectPointer = -1073741670;
 LABEL_43:
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(Pool, 0);
         return (unsigned int)DeviceObjectPointer;
       }
       if ( IoGetDeviceObjectPointer((PUNICODE_STRING)&P[1], 0x80u, &FileObject, &DeviceObject) < 0 )
@@ -196,7 +198,7 @@ LABEL_43:
       v22 = DeviceObject;
     }
     StartingOffset[0].QuadPart = 0x8000LL;
-    v24 = IoBuildSynchronousFsdRequest(3u, v22, Pool2, 0x800u, StartingOffset, &Object_8, &IoStatusBlock);
+    v24 = IoBuildSynchronousFsdRequest(3u, v22, Pool, 0x800u, StartingOffset, &Object_8, &IoStatusBlock);
     if ( v24 )
     {
       LOWORD(Object_8.Header.Lock) = 0;
@@ -216,7 +218,7 @@ LABEL_43:
         v27 = 0LL;
         do
         {
-          v28 = _mm_loadu_si128((const __m128i *)&Pool2[4 * v26]);
+          v28 = _mm_loadu_si128((const __m128i *)&Pool[4 * v26]);
           v26 += 4LL;
           v29 = _mm_add_epi32(v28, v27);
           v27 = v29;
@@ -231,7 +233,7 @@ LABEL_43:
     v19 = 0;
     if ( !v31 )
       break;
-    RtlFreeUnicodeString((PUNICODE_STRING)&P[1]);
+    RtlFreeAnsiString((PUNICODE_STRING)&P[1]);
     if ( ++v2 >= CdRomCount )
       goto LABEL_49;
     v18 = Object;
@@ -241,18 +243,18 @@ LABEL_43:
   DeviceObjectPointer = RtlAnsiStringToUnicodeString(&SymbolicLinkName, &v42, 1u);
   if ( DeviceObjectPointer < 0 )
   {
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(Pool, 0);
     if ( v6 )
       ExFreePoolWithTag(v6, 0);
-    RtlFreeUnicodeString((PUNICODE_STRING)&P[1]);
+    RtlFreeAnsiString((PUNICODE_STRING)&P[1]);
     return (unsigned int)DeviceObjectPointer;
   }
   IoCreateSymbolicLink(&SymbolicLinkName, (PUNICODE_STRING)&P[1]);
-  RtlFreeUnicodeString(&SymbolicLinkName);
+  RtlFreeAnsiString(&SymbolicLinkName);
 LABEL_48:
-  RtlFreeUnicodeString((PUNICODE_STRING)&P[1]);
+  RtlFreeAnsiString((PUNICODE_STRING)&P[1]);
 LABEL_49:
-  ExFreePoolWithTag(Pool2, 0);
+  ExFreePoolWithTag(Pool, 0);
 LABEL_9:
   if ( v6 )
     ExFreePoolWithTag(v6, 0);

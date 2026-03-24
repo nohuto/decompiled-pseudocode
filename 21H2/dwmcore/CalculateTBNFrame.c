@@ -1,90 +1,88 @@
 /*
- * XREFs of CalculateTBNFrame @ 0x18000DC2C
+ * XREFs of CalculateTBNFrame @ 0x180021EF8
  * Callers:
- *     ?CalculateTBNFrameFrom3Vertices@@YA?AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBVCMILMatrix@@2@Z @ 0x18000D6E4 (-CalculateTBNFrameFrom3Vertices@@YA-AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV-$StridedSpan@$$CBU-$.c)
+ *     ?CalculateTBNFrameFrom3Vertices@@YA?AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBVCMILMatrix@@2@Z @ 0x180021798 (-CalculateTBNFrameFrom3Vertices@@YA-AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV-$StridedSpan@$$CBU-$.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CalculateTBNFrame(_QWORD *a1, _QWORD *a2, float *a3, float *a4, __int64 a5)
+__int64 __fastcall CalculateTBNFrame(float **a1, _QWORD *a2, float *a3, float *a4, __int64 a5)
 {
-  float *v5; // rax
-  float v6; // xmm11_4
-  float v7; // xmm12_4
-  float *v8; // rax
-  float v9; // xmm11_4
+  float *v5; // r10
+  float *v6; // rax
+  float *v7; // rcx
+  float v8; // xmm11_4
+  float v9; // xmm13_4
   float v10; // xmm12_4
-  float v11; // xmm13_4
-  float v12; // xmm14_4
-  float *v13; // rax
-  float v14; // xmm13_4
-  float v15; // xmm14_4
+  float v11; // xmm14_4
+  float *v12; // rax
+  float v13; // xmm9_4
+  float v14; // xmm3_4
+  float *v15; // rax
   float v16; // xmm9_4
-  float *v17; // rax
-  __m128 v18; // xmm5
-  float v19; // xmm9_4
-  float v20; // xmm6_4
-  float v21; // xmm7_4
-  float v22; // xmm2_4
-  __m128 v23; // xmm10
-  __m128 v24; // xmm1
-  unsigned __int64 v25; // xmm10_8
-  float v26; // xmm8_4
-  float v27; // xmm6_4
-  float v28; // xmm7_4
+  float v17; // xmm3_4
+  float v18; // xmm10_4
+  float v19; // xmm6_4
+  float v20; // xmm2_4
+  __m128 v21; // xmm4
+  float v22; // xmm8_4
+  __m128 v23; // xmm0
+  float v24; // xmm7_4
+  __m128 v25; // xmm1
+  float v26; // xmm6_4
+  unsigned __int64 v27; // xmm9_8
   __int64 result; // rax
-  float v30; // xmm4_4
+  float v29; // xmm2_4
+  float v30; // xmm7_4
   float v31; // xmm6_4
-  float v32; // xmm7_4
-  float v33; // [rsp+8h] [rbp-A0h]
+  float v32; // [rsp+8h] [rbp-A0h]
 
-  v5 = (float *)a1[1];
-  v6 = *v5;
-  v7 = v5[1];
-  v8 = (float *)a1[2];
-  v9 = v6 - *(float *)*a1;
-  v10 = v7 - *(float *)(*a1 + 4LL);
-  v11 = *v8;
-  v12 = v8[1];
-  v13 = (float *)a2[1];
-  v14 = v11 - *(float *)*a1;
-  v15 = v12 - *(float *)(*a1 + 4LL);
-  v18 = (__m128)*(unsigned int *)v13;
-  v16 = v13[1];
-  v17 = (float *)a2[2];
-  v18.m128_f32[0] = v18.m128_f32[0] - *(float *)*a2;
-  v19 = v16 - *(float *)(*a2 + 4LL);
-  v20 = *v17 - *(float *)*a2;
-  v21 = v17[1] - *(float *)(*a2 + 4LL);
-  v22 = (float)(v21 * v18.m128_f32[0]) - (float)(v20 * v19);
-  if ( COERCE_FLOAT(LODWORD(v22) & _xmm) < 0.0000011920929 )
+  v5 = a1[1];
+  v6 = *a1;
+  v7 = a1[2];
+  v8 = *v5 - *v6;
+  v9 = *v7 - *v6;
+  v10 = v5[1] - v6[1];
+  v11 = v7[1] - v6[1];
+  v12 = (float *)a2[1];
+  v13 = *v12;
+  v14 = v12[1];
+  v15 = (float *)a2[2];
+  v16 = v13 - *(float *)*a2;
+  v17 = v14 - *(float *)(*a2 + 4LL);
+  v18 = *v15 - *(float *)*a2;
+  v19 = v15[1] - *(float *)(*a2 + 4LL);
+  v20 = (float)(v19 * v16) - (float)(v18 * v17);
+  if ( COERCE_FLOAT(LODWORD(v20) & _xmm) < 0.0000011920929 )
   {
-    v26 = *(float *)&FLOAT_1_0;
-    v33 = 0.0;
-    v27 = 0.0;
-    v28 = 0.0;
-    v25 = _mm_unpacklo_ps((__m128)0LL, (__m128)(unsigned int)FLOAT_1_0).m128_u64[0];
+    v22 = *(float *)&FLOAT_1_0;
+    v32 = 0.0;
+    v24 = 0.0;
+    v26 = 0.0;
+    v27 = _mm_unpacklo_ps((__m128)0LL, (__m128)(unsigned int)FLOAT_1_0).m128_u64[0];
   }
   else
   {
-    v23 = v18;
-    v24 = v18;
-    v23.m128_f32[0] = (float)((float)(v18.m128_f32[0] * v14) - (float)(v20 * v9)) * (float)(1.0 / v22);
-    v24.m128_f32[0] = (float)((float)(v18.m128_f32[0] * v15) - (float)(v20 * v10)) * (float)(1.0 / v22);
-    v33 = (float)((float)(v18.m128_f32[0] * 0.0) - (float)(v20 * 0.0)) * (float)(1.0 / v22);
-    v25 = _mm_unpacklo_ps(v23, v24).m128_u64[0];
-    v26 = (float)((float)(v21 * v9) - (float)(v19 * v14)) * (float)(1.0 / v22);
-    v27 = (float)((float)(v21 * v10) - (float)(v19 * v15)) * (float)(1.0 / v22);
-    v28 = (float)((float)(v21 * 0.0) - (float)(v19 * 0.0)) * (float)(1.0 / v22);
+    v21 = (__m128)(unsigned int)FLOAT_1_0;
+    v21.m128_f32[0] = 1.0 / v20;
+    v22 = (float)((float)(v19 * v8) - (float)(v17 * v9)) * (float)(1.0 / v20);
+    v23 = v21;
+    v24 = (float)((float)(v19 * v10) - (float)(v17 * v11)) * (float)(1.0 / v20);
+    v23.m128_f32[0] = (float)(1.0 / v20) * (float)((float)(v16 * v9) - (float)(v18 * v8));
+    v25 = v21;
+    v26 = (float)((float)(v19 * 0.0) - (float)(v17 * 0.0)) * (float)(1.0 / v20);
+    v25.m128_f32[0] = (float)(1.0 / v20) * (float)((float)(v16 * v11) - (float)(v18 * v10));
+    v32 = (float)(1.0 / v20) * (float)((float)(v16 * 0.0) - (float)(v18 * 0.0));
+    v27 = _mm_unpacklo_ps(v23, v25).m128_u64[0];
   }
-  result = LODWORD(v33);
-  v30 = (float)((float)(*a3 * v26) + (float)(a3[1] * v27)) + (float)(a3[2] * v28);
-  v31 = v27 - (float)(a3[1] * v30);
-  v32 = v28 - (float)(a3[2] * v30);
-  *a4 = v26 - (float)(*a3 * v30);
-  a4[1] = v31;
-  a4[2] = v32;
-  *(_QWORD *)a5 = v25;
-  *(float *)(a5 + 8) = v33;
+  result = LODWORD(v32);
+  v29 = (float)((float)(*a3 * v22) + (float)(a3[1] * v24)) + (float)(a3[2] * v26);
+  v30 = v24 - (float)(a3[1] * v29);
+  v31 = v26 - (float)(a3[2] * v29);
+  *a4 = v22 - (float)(*a3 * v29);
+  a4[1] = v30;
+  a4[2] = v31;
+  *(_QWORD *)a5 = v27;
+  *(float *)(a5 + 8) = v32;
   return result;
 }

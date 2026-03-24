@@ -1,20 +1,20 @@
 /*
- * XREFs of DisplayBootBitmap @ 0x14018173C
+ * XREFs of DisplayBootBitmap @ 0x14018175C
  * Callers:
- *     DisplayFilter @ 0x1402688D0 (DisplayFilter.c)
+ *     DisplayFilter @ 0x1402689D0 (DisplayFilter.c)
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     InbvReleaseResources @ 0x140181794 (InbvReleaseResources.c)
- *     InbvIsBootDriverInstalled @ 0x140181830 (InbvIsBootDriverInstalled.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     InbvAcquireLock @ 0x14027D1DC (InbvAcquireLock.c)
- *     InbvGetResourceAddress @ 0x14027D2A0 (InbvGetResourceAddress.c)
- *     InbvReleaseLock @ 0x14027D2F8 (InbvReleaseLock.c)
- *     InbvSetTextColor @ 0x14027D390 (InbvSetTextColor.c)
- *     InbvSolidColorFill @ 0x14027D3C0 (InbvSolidColorFill.c)
- *     RotBarInit @ 0x14027D53C (RotBarInit.c)
- *     PsCreateSystemThread @ 0x14066AA90 (PsCreateSystemThread.c)
+ *     InbvReleaseResources @ 0x1401817B4 (InbvReleaseResources.c)
+ *     InbvIsBootDriverInstalled @ 0x140181850 (InbvIsBootDriverInstalled.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     InbvAcquireLock @ 0x14027D2DC (InbvAcquireLock.c)
+ *     InbvGetResourceAddress @ 0x14027D3A0 (InbvGetResourceAddress.c)
+ *     InbvReleaseLock @ 0x14027D3F8 (InbvReleaseLock.c)
+ *     InbvSetTextColor @ 0x14027D490 (InbvSetTextColor.c)
+ *     InbvSolidColorFill @ 0x14027D4C0 (InbvSolidColorFill.c)
+ *     RotBarInit @ 0x14027D63C (RotBarInit.c)
+ *     PsCreateSystemThread @ 0x14066AA70 (PsCreateSystemThread.c)
  */
 
 int __fastcall DisplayBootBitmap(char a1)
@@ -32,7 +32,7 @@ int __fastcall DisplayBootBitmap(char a1)
   HANDLE ThreadHandle; // [rsp+58h] [rbp+10h] BYREF
 
   v1 = 0;
-  if ( byte_1404DC700 )
+  if ( byte_1404DC6F0 )
   {
     ((void (*)(void))InbvAcquireLock)();
     RotBarSelection = 0;
@@ -80,7 +80,7 @@ int __fastcall DisplayBootBitmap(char a1)
       }
     }
 LABEL_29:
-    if ( !byte_1404DC700 )
+    if ( !byte_1404DC6F0 )
       return (int)v3;
     goto LABEL_30;
   }
@@ -116,13 +116,13 @@ LABEL_29:
         v11(v9, 0LL, 0LL);
     }
   }
-  if ( !byte_1404DC700 )
+  if ( !byte_1404DC6F0 )
   {
     LODWORD(v3) = PsCreateSystemThread(&ThreadHandle, 0, 0LL, 0LL, 0LL, InbvRotateGuiBootDisplay, 0LL);
     if ( (int)v3 >= 0 )
     {
       LODWORD(v3) = ZwClose(ThreadHandle);
-      byte_1404DC700 = 1;
+      byte_1404DC6F0 = 1;
     }
     goto LABEL_29;
   }

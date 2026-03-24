@@ -1,15 +1,15 @@
 /*
- * XREFs of _SetMenuDefaultItem @ 0x1C00BC748
+ * XREFs of _SetMenuDefaultItem @ 0x1C01110FC
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
- *     NtUserSetMenuDefaultItem @ 0x1C00BA4F0 (NtUserSetMenuDefaultItem.c)
- *     xxxSetSysMenu @ 0x1C00BC268 (xxxSetSysMenu.c)
- *     ?_SetCloseDefault@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C00BC70C (-_SetCloseDefault@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     xxxSetSysMenu @ 0x1C0046D10 (xxxSetSysMenu.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
+ *     NtUserSetMenuDefaultItem @ 0x1C0110FE0 (NtUserSetMenuDefaultItem.c)
+ *     ?_SetCloseDefault@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C01110C0 (-_SetCloseDefault@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
  * Callees:
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C0066A74 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     MNLookUpItem @ 0x1C0067EE0 (MNLookUpItem.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00685A0 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00E7BF4 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     MNLookUpItem @ 0x1C0061BA0 (MNLookUpItem.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A9DC (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE4E0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010139C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
  */
 
 __int64 __fastcall SetMenuDefaultItem(__int64 a1, unsigned int a2, int a3)
@@ -22,9 +22,9 @@ __int64 __fastcall SetMenuDefaultItem(__int64 a1, unsigned int a2, int a3)
   __int64 v11; // r8
   int v12; // eax
   int v13; // eax
-  _QWORD v15[2]; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-10h]
-  __int64 v17; // [rsp+78h] [rbp+38h] BYREF
+  _QWORD v15[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v16; // [rsp+30h] [rbp-18h]
+  __int64 v17; // [rsp+68h] [rbp+20h] BYREF
 
   SmartObjStackRefBase<tagMENU>::Init(v15, 0LL);
   v6 = 0;
@@ -38,8 +38,7 @@ __int64 __fastcall SetMenuDefaultItem(__int64 a1, unsigned int a2, int a3)
   {
     v17 = *(_QWORD *)v15[0];
     v7 = MNLookUpItem(a1, a2, a3, &v17);
-    v16 = 0LL;
-    SmartObjStackRefBase<tagMENU>::operator=((__int64)v15, v17);
+    SmartObjStackRefBase<tagMENU>::operator=(v15, v17);
     if ( !v7 )
       goto LABEL_15;
     v8 = v16 ? v16 == a1 : *(_QWORD *)v15[0] == a1;

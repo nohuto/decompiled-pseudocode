@@ -1,8 +1,8 @@
 /*
- * XREFs of BgpFwFreeMemory @ 0x14016ECCC
+ * XREFs of BgpFwFreeMemory @ 0x14016ECEC
  * Callers:
- *     BgpFwQueryBootGraphicsInformation @ 0x14016F2A0 (BgpFwQueryBootGraphicsInformation.c)
- *     RaspFreeMemory @ 0x14017AB3C (RaspFreeMemory.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x14016F2C0 (BgpFwQueryBootGraphicsInformation.c)
+ *     RaspFreeMemory @ 0x14017AB5C (RaspFreeMemory.c)
  *     ResFwFreeContext @ 0x14094E218 (ResFwFreeContext.c)
  *     ResFwpPageOutBackground @ 0x14094E460 (ResFwpPageOutBackground.c)
  *     AnFwDisplayFade @ 0x14094EBA8 (AnFwDisplayFade.c)
@@ -24,12 +24,12 @@
  *     TxtpAddCacheEntry @ 0x140951524 (TxtpAddCacheEntry.c)
  *     BgpConsoleInitialize @ 0x140951730 (BgpConsoleInitialize.c)
  *     BgpDisplayCharacterGetContext @ 0x140951948 (BgpDisplayCharacterGetContext.c)
- *     BgpFoInitialize @ 0x1409FA888 (BgpFoInitialize.c)
- *     FopReadMappingTable @ 0x1409FAAAC (FopReadMappingTable.c)
- *     FopValidateFontNameTable @ 0x1409FAC7C (FopValidateFontNameTable.c)
- *     FopReadCmapTable @ 0x1409FAE10 (FopReadCmapTable.c)
- *     FopReadNamingTable @ 0x1409FB144 (FopReadNamingTable.c)
- *     BgpBcInitializeCriticalMode @ 0x1409FB410 (BgpBcInitializeCriticalMode.c)
+ *     BgpFoInitialize @ 0x1409FA898 (BgpFoInitialize.c)
+ *     FopReadMappingTable @ 0x1409FAABC (FopReadMappingTable.c)
+ *     FopValidateFontNameTable @ 0x1409FAC8C (FopValidateFontNameTable.c)
+ *     FopReadCmapTable @ 0x1409FAE20 (FopReadCmapTable.c)
+ *     FopReadNamingTable @ 0x1409FB154 (FopReadNamingTable.c)
+ *     BgpBcInitializeCriticalMode @ 0x1409FB420 (BgpBcInitializeCriticalMode.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)

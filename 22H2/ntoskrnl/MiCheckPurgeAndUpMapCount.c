@@ -1,21 +1,22 @@
 /*
- * XREFs of MiCheckPurgeAndUpMapCount @ 0x1402870D0
+ * XREFs of MiCheckPurgeAndUpMapCount @ 0x140296630
  * Callers:
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MmLoadSystemImageEx @ 0x140703E70 (MmLoadSystemImageEx.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
- *     MiCreateUserPhysicalView @ 0x140A417E8 (MiCreateUserPhysicalView.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiMapViewInSystemSpace @ 0x140635F9C (MiMapViewInSystemSpace.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
+ *     MmLoadSystemImageEx @ 0x14075B2EC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C9248 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiCreateUserPhysicalView @ 0x1408D5BF8 (MiCreateUserPhysicalView.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x14034A780 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x1402ED0C4 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCheckPurgeAndUpMapCount(__int64 a1)
 {
-  volatile LONG *v1; // r14
+  volatile LONG *v1; // rsi
   KIRQL i; // di
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // al
@@ -50,16 +51,19 @@ __int64 __fastcall MiCheckPurgeAndUpMapCount(__int64 a1)
     ExReleaseSpinLockExclusiveFromDpcLevel(v1);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && i <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v8 = ~(unsigned __int16)(-1LL << (i + 1));
-        v9 = (v8 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v8;
-        if ( v9 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && i <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v8 = ~(unsigned __int16)(-1LL << (i + 1));
+          v9 = (v8 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v8;
+          if ( v9 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(i);
@@ -70,16 +74,19 @@ __int64 __fastcall MiCheckPurgeAndUpMapCount(__int64 a1)
   ExReleaseSpinLockExclusiveFromDpcLevel(v1);
   if ( KiIrqlFlags )
   {
-    v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && i <= 0xFu && v10 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v11 = KeGetCurrentPrcb();
-      v12 = v11->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << (i + 1));
-      v9 = (v13 & v12[5]) == 0;
-      v12[5] &= v13;
-      if ( v9 )
-        KiRemoveSystemWorkPriorityKick(v11);
+      v10 = KeGetCurrentIrql();
+      if ( v10 <= 0xFu && i <= 0xFu && v10 >= 2u )
+      {
+        v11 = KeGetCurrentPrcb();
+        v12 = v11->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << (i + 1));
+        v9 = (v13 & v12[5]) == 0;
+        v12[5] &= v13;
+        if ( v9 )
+          KiRemoveSystemWorkPriorityKick(v11);
+      }
     }
   }
   result = i;

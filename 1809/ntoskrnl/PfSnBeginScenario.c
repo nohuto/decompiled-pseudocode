@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnBeginScenario @ 0x1406672A4
+ * XREFs of PfSnBeginScenario @ 0x140667284
  * Callers:
- *     PfSnBeginAppLaunch @ 0x140666C14 (PfSnBeginAppLaunch.c)
- *     PfSnOperationProcess @ 0x1406CF884 (PfSnOperationProcess.c)
+ *     PfSnBeginAppLaunch @ 0x140666BF4 (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x1406CF864 (PfSnOperationProcess.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     PsGetIoPriorityThread @ 0x1400B6B20 (PsGetIoPriorityThread.c)
- *     PfSnStartTraceTimer @ 0x1400E2308 (PfSnStartTraceTimer.c)
+ *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
+ *     PfSnStartTraceTimer @ 0x1400E2328 (PfSnStartTraceTimer.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfSnLogScenarioDecision @ 0x1406675AC (PfSnLogScenarioDecision.c)
- *     PfSnCheckActionsNeeded @ 0x140667E5C (PfSnCheckActionsNeeded.c)
- *     PfSnBeginTrace @ 0x140668544 (PfSnBeginTrace.c)
- *     PfSnLogIdentifier @ 0x1406687C0 (PfSnLogIdentifier.c)
- *     PfSnGetPrefetchInstructions @ 0x140668838 (PfSnGetPrefetchInstructions.c)
- *     PfSnPrefetchScenario @ 0x1406C0F20 (PfSnPrefetchScenario.c)
+ *     PfSnLogScenarioDecision @ 0x14066758C (PfSnLogScenarioDecision.c)
+ *     PfSnCheckActionsNeeded @ 0x140667E3C (PfSnCheckActionsNeeded.c)
+ *     PfSnBeginTrace @ 0x140668524 (PfSnBeginTrace.c)
+ *     PfSnLogIdentifier @ 0x1406687A0 (PfSnLogIdentifier.c)
+ *     PfSnGetPrefetchInstructions @ 0x140668818 (PfSnGetPrefetchInstructions.c)
+ *     PfSnPrefetchScenario @ 0x1406C0F00 (PfSnPrefetchScenario.c)
  */
 
 __int64 __fastcall PfSnBeginScenario(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, __int64 a5)

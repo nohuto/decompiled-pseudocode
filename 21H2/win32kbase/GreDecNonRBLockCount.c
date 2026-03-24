@@ -1,9 +1,9 @@
 /*
- * XREFs of GreDecNonRBLockCount @ 0x1C00A2BB0
+ * XREFs of GreDecNonRBLockCount @ 0x1C0097490
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
  */
 
 __int64 GreDecNonRBLockCount()

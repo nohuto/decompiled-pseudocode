@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockWorkingSetForLargeMapping @ 0x1401B57E0
+ * XREFs of MiLockWorkingSetForLargeMapping @ 0x1401B5800
  * Callers:
- *     MiInsertLargeUserMapping @ 0x1402C56F0 (MiInsertLargeUserMapping.c)
+ *     MiInsertLargeUserMapping @ 0x1402C57F0 (MiInsertLargeUserMapping.c)
  * Callees:
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiLockWorkingSetExclusive @ 0x1402BF554 (MiLockWorkingSetExclusive.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiLockWorkingSetExclusive @ 0x1402BF654 (MiLockWorkingSetExclusive.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

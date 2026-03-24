@@ -1,23 +1,23 @@
 /*
- * XREFs of ?MockDriverStateCreatePlaneLiveDump@@YAXPEAX@Z @ 0x1C0323320
+ * XREFs of ?MockDriverStateCreatePlaneLiveDump@@YAXPEAX@Z @ 0x1C02BF0E0
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x1C0003734 (_tlgKeywordOn.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ??$Write@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$07@@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U?$_tlgWrapSz@G@@U2@U1@U3@U3@U3@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$07@@4AEBU?$_tlgWrapperByVal@$03@@5555AEBU?$_tlgWrapSz@G@@43555555@Z @ 0x1C00536BC (--$Write@U-$_tlgWrapperByVal@$01@@U-$_tlgWrapperByVal@$07@@U2@U-$_tlgWrapperByVal@$_ea_1C00536BC.c)
- *     ?DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z @ 0x1C02CE0E4 (-DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     _tlgKeywordOn @ 0x1C000C284 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$07@@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U?$_tlgWrapSz@G@@U2@U1@U3@U3@U3@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$07@@4AEBU?$_tlgWrapperByVal@$03@@5555AEBU?$_tlgWrapSz@G@@43555555@Z @ 0x1C004E2A0 (--$Write@U-$_tlgWrapperByVal@$01@@U-$_tlgWrapperByVal@$07@@U2@U-$_tlgWrapperByVal@$_ea_1C004E2A0.c)
+ *     ?DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z @ 0x1C0221860 (-DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z.c)
  */
 
-void __fastcall MockDriverStateCreatePlaneLiveDump(int *a1)
+void __fastcall MockDriverStateCreatePlaneLiveDump(_QWORD *a1)
 {
-  __int64 v1; // rbx
+  __int64 v2; // rdi
   __int64 v3; // rcx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
+  int v4; // ebx
+  unsigned __int8 IsDebuggerPresent; // al
+  __int64 v6; // r8
   __int64 v7; // r9
   int v8; // [rsp+B0h] [rbp-80h] BYREF
   int v9; // [rsp+B4h] [rbp-7Ch] BYREF
@@ -36,73 +36,75 @@ void __fastcall MockDriverStateCreatePlaneLiveDump(int *a1)
   _BYTE v22[8]; // [rsp+100h] [rbp-30h] BYREF
   __int64 v23; // [rsp+108h] [rbp-28h]
   char v24; // [rsp+110h] [rbp-20h]
-  __int64 v25; // [rsp+150h] [rbp+20h] BYREF
-  __int16 v26; // [rsp+158h] [rbp+28h] BYREF
+  __int16 v25; // [rsp+150h] [rbp+20h] BYREF
+  unsigned __int64 v26; // [rsp+158h] [rbp+28h] BYREF
   int v27; // [rsp+160h] [rbp+30h] BYREF
-  int IsDebuggerPresent; // [rsp+168h] [rbp+38h] BYREF
+  int v28; // [rsp+168h] [rbp+38h] BYREF
 
-  v1 = *(_QWORD *)a1;
-  if ( *(_QWORD *)a1 )
+  if ( a1 )
   {
-    v23 = *(_QWORD *)a1;
-    v24 = 0;
-    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v22);
-    DXGADAPTER::ReleaseReference((DXGADAPTER *)v1);
-    if ( *(_DWORD *)(v1 + 200) == 1 )
+    v2 = a1[320];
+    if ( v2 )
     {
-      v17 = *(_QWORD *)(v1 + 404);
-      if ( (unsigned int)dword_1C013F918 > 5 )
+      v23 = a1[320];
+      v24 = 0;
+      DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v22);
+      DXGADAPTER::ReleaseReference((DXGADAPTER *)v2);
+      if ( *(_DWORD *)(v2 + 200) == 1 )
       {
-        if ( tlgKeywordOn((__int64)&dword_1C013F918, 0x400000020000LL) )
+        v17 = *(_QWORD *)(v2 + 316);
+        if ( (unsigned int)dword_1C00B1A90 > 5 )
         {
-          LOBYTE(v3) = 1;
-          v27 = *(unsigned __int8 *)(v1 + 209);
-          v21 = 0x1000000LL;
-          IsDebuggerPresent = (unsigned __int8)WdIsDebuggerPresent(v3);
-          v8 = *(_DWORD *)(v1 + 3016);
-          v9 = *(unsigned __int8 *)(v1 + 2870);
-          v10 = a1[655];
-          v11 = a1[654];
-          LOWORD(v25) = *(_WORD *)(v1 + 2820);
-          v18 = *(_QWORD *)(v1 + 1824);
-          v19 = *(void **)(v1 + 1816);
-          v12 = *(_DWORD *)(v1 + 428);
-          v13 = *(_DWORD *)(v1 + 424);
-          v14 = *(_DWORD *)(v1 + 420);
-          v15 = *(_DWORD *)(v1 + 416);
-          v16 = *(_DWORD *)(v1 + 412);
-          v20 = v17;
-          v26 = 1;
-          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<2>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-            v4,
-            byte_1C00A8D28,
-            v5,
-            v6,
-            (__int64)&v26,
-            (__int64)&v21,
-            (__int64)&v20,
-            (__int64)&v16,
-            (__int64)&v15,
-            (__int64)&v14,
-            (__int64)&v13,
-            (__int64)&v12,
-            &v19,
-            (__int64)&v18,
-            (__int64)&v25,
-            (__int64)&v11,
-            (__int64)&v10,
-            (__int64)&v9,
-            (__int64)&v8,
-            (__int64)&IsDebuggerPresent,
-            (__int64)&v27);
+          if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000020000LL) )
+          {
+            v4 = *(unsigned __int8 *)(v2 + 209);
+            LOBYTE(v3) = 1;
+            IsDebuggerPresent = WdIsDebuggerPresent(v3);
+            v27 = v4;
+            v8 = *(_DWORD *)(v2 + 2792);
+            v9 = *(unsigned __int8 *)(v2 + 2646);
+            v10 = *((_DWORD *)a1 + 653);
+            v11 = *((_DWORD *)a1 + 652);
+            v25 = *(_WORD *)(v2 + 2596);
+            v18 = *(_QWORD *)(v2 + 1600);
+            v19 = *(void **)(v2 + 1592);
+            v12 = *(_DWORD *)(v2 + 340);
+            v13 = *(_DWORD *)(v2 + 336);
+            v14 = *(_DWORD *)(v2 + 332);
+            v15 = *(_DWORD *)(v2 + 328);
+            v16 = *(_DWORD *)(v2 + 324);
+            v20 = v17;
+            v28 = IsDebuggerPresent;
+            v21 = 0x1000000LL;
+            LOWORD(v26) = 1;
+            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<2>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+              IsDebuggerPresent,
+              byte_1C0080446,
+              v6,
+              v7,
+              (__int64)&v26,
+              (__int64)&v21,
+              (__int64)&v20,
+              (__int64)&v16,
+              (__int64)&v15,
+              (__int64)&v14,
+              (__int64)&v13,
+              (__int64)&v12,
+              &v19,
+              (__int64)&v18,
+              (__int64)&v25,
+              (__int64)&v11,
+              (__int64)&v10,
+              (__int64)&v9,
+              (__int64)&v8,
+              (__int64)&v28,
+              (__int64)&v27);
+          }
         }
       }
+      if ( v24 )
+        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v22);
     }
-    if ( v24 )
-      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v22);
   }
-  v25 = 0LL;
-  v7 = a1[654];
-  LOBYTE(v25) = 1;
-  DxgCreateLiveDumpWithWdLogs2(0x193u, 2067LL, 0LL, v7, *((_QWORD *)a1 + 328), 1LL);
+  DxgCreateLiveDumpWithWdLogs(0x193u, 2067LL, 0LL, 0LL, 0LL, 1);
 }

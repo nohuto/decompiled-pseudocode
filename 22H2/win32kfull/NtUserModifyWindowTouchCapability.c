@@ -1,11 +1,10 @@
 /*
- * XREFs of NtUserModifyWindowTouchCapability @ 0x1C0016FC0
+ * XREFs of NtUserModifyWindowTouchCapability @ 0x1C01FF740
  * Callers:
  *     <none>
  * Callees:
- *     _SetTouchWindowFlags @ 0x1C0017060 (_SetTouchWindowFlags.c)
- *     InternalRemoveProp @ 0x1C00C94BC (InternalRemoveProp.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _SetTouchWindowFlags @ 0x1C01DC784 (_SetTouchWindowFlags.c)
  */
 
 __int64 __fastcall NtUserModifyWindowTouchCapability(__int64 a1, int a2, int a3)
@@ -15,39 +14,33 @@ __int64 __fastcall NtUserModifyWindowTouchCapability(__int64 a1, int a2, int a3)
   __int64 v8; // rcx
   __int64 v9; // r8
   int v10; // ebx
-  __int64 v11; // r9
-  __int64 v13; // rcx
+  __int64 v11; // rcx
+  int v12; // edx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v6 = ValidateHwnd(a1);
   v10 = 0;
-  v11 = v6;
   if ( v6 )
   {
     if ( (a2 & 0xFFFFFFFC) != 0 )
     {
-      v13 = 1004LL;
+      v11 = 1004LL;
+LABEL_4:
+      UserSetLastError(v11, v7, v9);
+      goto LABEL_11;
     }
-    else
+    if ( gptiCurrent != *(_QWORD *)(v6 + 16) )
     {
-      if ( gptiCurrent == *(_QWORD *)(v6 + 16) )
-      {
-        if ( a3 )
-        {
-          v10 = SetTouchWindowFlags(v6, a2 | 0x10000u);
-        }
-        else
-        {
-          v10 = 1;
-          InternalRemoveProp(v6, (unsigned __int16)gatomTouchFlags, 1LL);
-        }
-        goto LABEL_6;
-      }
-      v13 = 5LL;
+      v11 = 5LL;
+      goto LABEL_4;
     }
-    UserSetLastError(v13);
+    if ( a3 )
+      v12 = a2 | 0x10000;
+    else
+      v12 = 0;
+    v10 = SetTouchWindowFlags(v6, v12);
   }
-LABEL_6:
-  UserSessionSwitchLeaveCrit(v8, v7, v9, v11);
+LABEL_11:
+  UserSessionSwitchLeaveCrit(v8);
   return v10;
 }

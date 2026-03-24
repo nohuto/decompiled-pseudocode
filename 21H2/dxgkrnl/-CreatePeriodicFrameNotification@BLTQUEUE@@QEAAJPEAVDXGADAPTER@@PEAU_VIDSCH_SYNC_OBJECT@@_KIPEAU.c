@@ -1,13 +1,12 @@
 /*
- * XREFs of ?CreatePeriodicFrameNotification@BLTQUEUE@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@PEA_K@Z @ 0x1C03BB840
+ * XREFs of ?CreatePeriodicFrameNotification@BLTQUEUE@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@PEA_K@Z @ 0x1C02FCDB4
  * Callers:
- *     ?CreatePeriodicFrameNotification@DXGDODPRESENT@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@PEA_K@Z @ 0x1C03BBAAC (-CreatePeriodicFrameNotification@DXGDODPRESENT@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_K.c)
+ *     ?CreatePeriodicFrameNotification@DXGDODPRESENT@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@PEA_K@Z @ 0x1C02FCFC0 (-CreatePeriodicFrameNotification@DXGDODPRESENT@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_K.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C000FB94 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019134 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
  */
 
 __int64 __fastcall BLTQUEUE::CreatePeriodicFrameNotification(
@@ -19,91 +18,89 @@ __int64 __fastcall BLTQUEUE::CreatePeriodicFrameNotification(
         struct _D3DDDI_SYNCHRONIZATIONOBJECTINFO2 *a6,
         unsigned __int64 *a7)
 {
-  unsigned int v10; // ebx
-  __int64 FenceValueCPUVirtualAddress; // rbp
-  const wchar_t *v12; // r9
-  int v13; // edi
-  unsigned __int64 v14; // rsi
-  _QWORD *v15; // rax
-  unsigned int v16; // edi
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  unsigned int v12; // ebx
+  __int64 v13; // rax
+  void *FenceValueCPUVirtualAddress; // rbp
+  __int64 v15; // rdx
+  __int64 Timer; // rcx
   unsigned __int64 v17; // rsi
-  struct _KTHREAD *v18; // rax
-  __int64 v19; // rdx
-  struct _KTHREAD *v20; // rcx
-  _BYTE v22[8]; // [rsp+50h] [rbp-38h] BYREF
-  DXGPUSHLOCK *v23; // [rsp+58h] [rbp-30h]
-  int v24; // [rsp+60h] [rbp-28h]
+  _QWORD *v18; // rax
+  unsigned __int64 v19; // rsi
+  struct _KTHREAD *v20; // rax
+  __int64 v21; // rdx
+  unsigned __int64 v22; // rcx
+  __int64 v23; // rax
+  char v25[8]; // [rsp+20h] [rbp-38h] BYREF
+  DXGPUSHLOCK *v26; // [rsp+28h] [rbp-30h]
+  int v27; // [rsp+30h] [rbp-28h]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v22, this + 358, 0);
-  v10 = 0;
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v25, this + 356, 0);
+  v12 = 0;
   *a7 = 0LL;
-  if ( !this[362] )
+  if ( this[360] )
   {
-    FenceValueCPUVirtualAddress = 3607LL;
-    WdLogSingleEntry1(2LL, 3607LL);
-    v12 = L"BltQueue ran out of unique bits for periodic monitored fence ID assignment";
-    v13 = -1073741801;
-LABEL_14:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v12, FenceValueCPUVirtualAddress, 0LL, 0LL, 0LL, 0LL);
-    v10 = v13;
-    goto LABEL_15;
+    FenceValueCPUVirtualAddress = a6->MonitoredFence.FenceValueCPUVirtualAddress;
+    if ( (__int64)FenceValueCPUVirtualAddress < 0
+      || (v10 = (unsigned int)(10000000 * *((_DWORD *)this + 91)) % *((_DWORD *)this + 90),
+          v11 = (unsigned int)(10000000 * *((_DWORD *)this + 91)) / *((_DWORD *)this + 90),
+          (__int64)FenceValueCPUVirtualAddress > v11) )
+    {
+      v23 = WdLogNewEntry5_WdError(v11, v10);
+      *(_QWORD *)(v23 + 24) = FenceValueCPUVirtualAddress;
+      WdLogEvent5_WdError(v23);
+      v12 = -1073741811;
+    }
+    else
+    {
+      DXGPUSHLOCK::AcquireExclusive(v26);
+      v17 = 0LL;
+      v18 = (_QWORD *)((char *)this[362] + 48);
+      v27 = 2;
+      while ( *v18 )
+      {
+        ++v17;
+        v18 += 8;
+        if ( v17 >= 8 )
+          goto LABEL_9;
+      }
+      v19 = v17 << 6;
+      Timer = ExAllocateTimer(0LL, 0LL, 4LL);
+      *(_QWORD *)((char *)this[362] + v19) = Timer;
+      v20 = this[362];
+      if ( !*(_QWORD *)((char *)v20 + v19) )
+      {
+LABEL_9:
+        v13 = WdLogNewEntry5_WdError(Timer, v15);
+        *(_QWORD *)(v13 + 24) = 3554LL;
+        goto LABEL_3;
+      }
+      DXGADAPTER_REFERENCE::Assign((DXGADAPTER **)((char *)v20 + v19 + 16), a2);
+      v21 = 0LL;
+      *(_QWORD *)((char *)this[362] + v19 + 8) = a3;
+      *(_QWORD *)((char *)this[362] + v19 + 32) = FenceValueCPUVirtualAddress;
+      *(_QWORD *)((char *)this[362] + v19 + 40) = 0LL;
+      *(_QWORD *)((char *)this[362] + v19 + 48) = this[360];
+      this[360] = (struct _KTHREAD *)((char *)this[360] + 1);
+      do
+      {
+        v22 = v19 + v21++;
+        *((_BYTE *)this[362] + v22 + 56) = 0;
+      }
+      while ( v21 < 2 );
+      ++*((_DWORD *)this + 722);
+      *a7 = *(_QWORD *)((char *)this[362] + v19 + 48);
+    }
   }
-  FenceValueCPUVirtualAddress = (__int64)a6->MonitoredFence.FenceValueCPUVirtualAddress;
-  if ( FenceValueCPUVirtualAddress < 0
-    || FenceValueCPUVirtualAddress > (unsigned int)(10000000 * *((_DWORD *)this + 93)) / *((_DWORD *)this + 92) )
+  else
   {
-    WdLogSingleEntry1(2LL, a6->PeriodicMonitoredFence.Time);
-    v12 = L"Failed to create DOD periodic frame notification, invalid offset: %lld";
-    v13 = -1073741811;
-    goto LABEL_14;
+    v13 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v13 + 24) = 3510LL;
+LABEL_3:
+    WdLogEvent5_WdError(v13);
+    v12 = -1073741801;
   }
-  DXGPUSHLOCK::AcquireExclusive(v23);
-  v14 = 0LL;
-  v15 = (_QWORD *)((char *)this[364] + 48);
-  v24 = 2;
-  while ( *v15 )
-  {
-    ++v14;
-    v15 += 8;
-    if ( v14 >= 8 )
-      goto LABEL_8;
-  }
-  v17 = v14 << 6;
-  *(_QWORD *)((char *)this[364] + v17) = ExAllocateTimer(0LL, 0LL, 4LL);
-  v18 = this[364];
-  if ( !*(_QWORD *)((char *)v18 + v17) )
-  {
-LABEL_8:
-    WdLogSingleEntry1(2LL, 3651LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to allocate DOD periodic frame notification",
-      3651LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v16 = -1073741801;
-    goto LABEL_16;
-  }
-  DXGADAPTER_REFERENCE::Assign((DXGADAPTER **)((char *)v18 + v17 + 16), a2);
-  v19 = 0LL;
-  *(_QWORD *)((char *)this[364] + v17 + 8) = a3;
-  *(_QWORD *)((char *)this[364] + v17 + 32) = FenceValueCPUVirtualAddress;
-  *(_QWORD *)((char *)this[364] + v17 + 40) = 0LL;
-  v20 = this[362];
-  this[362] = (struct _KTHREAD *)((char *)v20 + 1);
-  *(_QWORD *)((char *)this[364] + v17 + 48) = v20;
-  do
-    *((_BYTE *)this[364] + v17 + v19++ + 56) = 0;
-  while ( v19 < 2 );
-  ++*((_DWORD *)this + 726);
-  *a7 = *(_QWORD *)((char *)this[364] + v17 + 48);
-LABEL_15:
-  v16 = v10;
-LABEL_16:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v22);
-  return v16;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v25);
+  return v12;
 }

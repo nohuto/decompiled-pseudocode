@@ -1,18 +1,22 @@
 /*
- * XREFs of VidSchSetInProcessPriorityContext @ 0x1C00A70C0
+ * XREFs of VidSchSetInProcessPriorityContext @ 0x1C008B1D0
  * Callers:
  *     <none>
  * Callees:
- *     VidSchiSetInProcessPriorityContext @ 0x1C0018C58 (VidSchiSetInProcessPriorityContext.c)
+ *     VidSchiSetInProcessPriorityContext @ 0x1C0015FAC (VidSchiSetInProcessPriorityContext.c)
  */
 
-__int64 __fastcall VidSchSetInProcessPriorityContext(__int64 a1, int a2)
+__int64 __fastcall VidSchSetInProcessPriorityContext(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rdx
+  __int64 v2; // rbx
+  __int64 v4; // rax
 
-  v3 = *(_QWORD *)(a1 + 104);
-  if ( !*(_BYTE *)(v3 + 204) && !_InterlockedCompareExchange((volatile signed __int32 *)(v3 + 200), 0, 0) )
+  v2 = *(_QWORD *)(a1 + 104);
+  if ( !*(_BYTE *)(v2 + 204) && !_InterlockedCompareExchange((volatile signed __int32 *)(v2 + 200), 0, 0) )
     return VidSchiSetInProcessPriorityContext(a1, a2);
-  WdLogSingleEntry2(3LL, v3, -1071775232LL);
+  v4 = WdLogNewEntry5_WdWarning(a1, a2);
+  *(_QWORD *)(v4 + 24) = v2;
+  *(_QWORD *)(v4 + 32) = -1071775232LL;
+  WdLogEvent5_WdWarning(v4);
   return 3223192064LL;
 }

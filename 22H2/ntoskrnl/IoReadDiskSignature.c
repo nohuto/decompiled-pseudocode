@@ -1,14 +1,14 @@
 /*
- * XREFs of IoReadDiskSignature @ 0x140940720
+ * XREFs of IoReadDiskSignature @ 0x14088DB90
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ??0SC_DISK@@QEAA@XZ @ 0x1406753D8 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x140675500 (--1SC_DISK@@UEAA@XZ.c)
- *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140675B6C (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1409404E8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x1405C6914 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1405C6A24 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C6EE8 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088D958 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoReadDiskSignature(PDEVICE_OBJECT DeviceObject, ULONG BytesPerSector, PDISK_SIGNATURE Signature)
@@ -17,11 +17,11 @@ NTSTATUS __stdcall IoReadDiskSignature(PDEVICE_OBJECT DeviceObject, ULONG BytesP
   NTSTATUS v5; // ebx
   int PartitionTable; // eax
   char *v7; // rcx
-  PVOID P; // [rsp+20h] [rbp-1B8h] BYREF
-  _QWORD v10[50]; // [rsp+30h] [rbp-1A8h] BYREF
+  PVOID P; // [rsp+20h] [rbp-198h] BYREF
+  _QWORD v10[46]; // [rsp+30h] [rbp-188h] BYREF
 
   SC_DISK::SC_DISK((SC_DISK *)v10);
-  v10[49] = 0LL;
+  v10[44] = 0LL;
   P = 0LL;
   v10[0] = &NT_DISK::`vftable';
   v5 = NT_DISK::Initialize((NT_DISK *)v10, v4);

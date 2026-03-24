@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0098CA0
+ * XREFs of ?SetIntegerProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0084580
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0098D70 (-SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
+ *     ?SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0084650 (-SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
  */
 
 __int64 __fastcall DirectComposition::CExpressionMarshaler::SetIntegerProperty(
@@ -20,38 +20,38 @@ __int64 __fastcall DirectComposition::CExpressionMarshaler::SetIntegerProperty(
   switch ( a3 )
   {
     case 0xCu:
+      if ( *((_QWORD *)this + 17) == a4 )
+        return v5;
+      *((_QWORD *)this + 17) = a4;
+      goto LABEL_10;
+    case 0xDu:
       if ( *((_QWORD *)this + 18) == a4 )
         return v5;
       *((_QWORD *)this + 18) = a4;
-      goto LABEL_10;
-    case 0xDu:
-      if ( *((_QWORD *)this + 19) == a4 )
-        return v5;
-      *((_QWORD *)this + 19) = a4;
-      goto LABEL_10;
+LABEL_10:
+      *((_DWORD *)this + 4) &= ~0x400u;
+      *a5 = 1;
+      return v5;
     case 0x10u:
+      if ( *((_QWORD *)this + 20) == a4 )
+        return v5;
+      *((_QWORD *)this + 20) = a4;
+      goto LABEL_10;
+    case 0x11u:
       if ( *((_QWORD *)this + 21) == a4 )
         return v5;
       *((_QWORD *)this + 21) = a4;
       goto LABEL_10;
-    case 0x11u:
-      if ( *((_QWORD *)this + 22) == a4 )
-        return v5;
-      *((_QWORD *)this + 22) = a4;
-      goto LABEL_10;
     case 0x12u:
-      if ( *((_DWORD *)this + 46) == a4 )
+      if ( *((_DWORD *)this + 44) == a4 )
         return v5;
-      *((_DWORD *)this + 46) = a4;
+      *((_DWORD *)this + 44) = a4;
       goto LABEL_10;
     case 0x13u:
-      if ( *((_DWORD *)this + 47) == a4 )
+      if ( *((_DWORD *)this + 45) == a4 )
         return v5;
-      *((_DWORD *)this + 47) = a4;
-LABEL_10:
-      *((_DWORD *)this + 4) &= ~0x800u;
-      *a5 = 1;
-      return v5;
+      *((_DWORD *)this + 45) = a4;
+      goto LABEL_10;
   }
   return (unsigned int)DirectComposition::CBaseExpressionMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
 }

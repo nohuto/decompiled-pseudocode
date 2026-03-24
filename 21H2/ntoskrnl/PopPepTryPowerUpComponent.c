@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepTryPowerUpComponent @ 0x140354C00
+ * XREFs of PopPepTryPowerUpComponent @ 0x140262688
  * Callers:
- *     PopPepTriggerComponentActivatingActivity @ 0x140354A20 (PopPepTriggerComponentActivatingActivity.c)
- *     PopPepTriggerComponentIdleStateChangeActivity @ 0x14045E800 (PopPepTriggerComponentIdleStateChangeActivity.c)
+ *     PopPepTriggerComponentActivatingActivity @ 0x140262410 (PopPepTriggerComponentActivatingActivity.c)
+ *     PopPepTriggerComponentIdleStateChangeActivity @ 0x1403A6700 (PopPepTriggerComponentIdleStateChangeActivity.c)
  * Callees:
- *     PopPepTriggerActivity @ 0x140356BCC (PopPepTriggerActivity.c)
+ *     PopPepTriggerActivity @ 0x1402621F8 (PopPepTriggerActivity.c)
  */
 
 __int64 __fastcall PopPepTryPowerUpComponent(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall PopPepTryPowerUpComponent(__int64 a1, __int64 a2)
     {
       result = *(_QWORD *)(a1 + 72);
       if ( !*(_DWORD *)result )
-        return PopPepTriggerActivity(a1, 0LL, 0LL, 0LL);
+        return PopPepTriggerActivity(a1, 0LL, 0, 0);
     }
   }
   return result;

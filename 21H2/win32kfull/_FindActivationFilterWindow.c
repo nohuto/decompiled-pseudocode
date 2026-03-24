@@ -1,8 +1,8 @@
 /*
- * XREFs of _FindActivationFilterWindow @ 0x1C005FD68
+ * XREFs of _FindActivationFilterWindow @ 0x1C007C288
  * Callers:
- *     _SetActivationFilter @ 0x1C00042D4 (_SetActivationFilter.c)
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
+ *     _SetActivationFilter @ 0x1C0008170 (_SetActivationFilter.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ _QWORD *__fastcall FindActivationFilterWindow(__int64 a1)
   v2 = 0LL;
   if ( v1 )
   {
-    v3 = (_QWORD *)(v1 + 304);
+    v3 = (_QWORD *)(v1 + 312);
     for ( i = (_QWORD *)*v3; i != v3; i = (_QWORD *)*i )
     {
       if ( i[2] == a1 )

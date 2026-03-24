@@ -1,9 +1,9 @@
 /*
- * XREFs of ?xxxEnumTurnOffCompositing@@YAHPEAUtagWND@@_J@Z @ 0x1C01E22A0
+ * XREFs of ?xxxEnumTurnOffCompositing@@YAHPEAUtagWND@@_J@Z @ 0x1C01E7B10
  * Callers:
  *     <none>
  * Callees:
- *     xxxSetWindowStyle @ 0x1C0050020 (xxxSetWindowStyle.c)
+ *     xxxSetWindowStyle @ 0x1C005E1E0 (xxxSetWindowStyle.c)
  */
 
 __int64 __fastcall xxxEnumTurnOffCompositing(struct tagWND *a1)

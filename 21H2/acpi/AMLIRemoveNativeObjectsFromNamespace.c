@@ -1,13 +1,13 @@
 /*
- * XREFs of AMLIRemoveNativeObjectsFromNamespace @ 0x1C006581C
+ * XREFs of AMLIRemoveNativeObjectsFromNamespace @ 0x1C00645A0
  * Callers:
- *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C004A950 (ACPIBuildProcessNotifyPepDeleteDevice.c)
+ *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C002D1D0 (ACPIBuildProcessNotifyPepDeleteDevice.c)
  * Callees:
- *     NewObjOwner @ 0x1C00285B8 (NewObjOwner.c)
- *     MarkNativeObjectsDefunct @ 0x1C0065908 (MarkNativeObjectsDefunct.c)
- *     FreeObjOwner @ 0x1C00663E4 (FreeObjOwner.c)
- *     FreeOwnedObjects @ 0x1C00665BC (FreeOwnedObjects.c)
- *     MigrateDefunctObjectsToNewOwner @ 0x1C00668B0 (MigrateDefunctObjectsToNewOwner.c)
+ *     NewObjOwner @ 0x1C0023628 (NewObjOwner.c)
+ *     MarkNativeObjectsDefunct @ 0x1C006468C (MarkNativeObjectsDefunct.c)
+ *     FreeObjOwner @ 0x1C006517C (FreeObjOwner.c)
+ *     FreeOwnedObjects @ 0x1C006535C (FreeOwnedObjects.c)
+ *     MigrateDefunctObjectsToNewOwner @ 0x1C00654F8 (MigrateDefunctObjectsToNewOwner.c)
  */
 
 void __fastcall AMLIRemoveNativeObjectsFromNamespace(__int64 *a1)

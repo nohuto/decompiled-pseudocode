@@ -1,9 +1,9 @@
 /*
- * XREFs of tolower @ 0x1401974B0
+ * XREFs of tolower @ 0x1401974D0
  * Callers:
  *     <none>
  * Callees:
- *     __pctype_func @ 0x1401997DC (__pctype_func.c)
+ *     __pctype_func @ 0x1401997FC (__pctype_func.c)
  */
 
 int __cdecl tolower(int C)

@@ -1,20 +1,19 @@
 /*
- * XREFs of ACPIAmliEvaluatePcch @ 0x1C007C978
+ * XREFs of ACPIAmliEvaluatePcch @ 0x1C0098400
  * Callers:
- *     ACPIPccLegacyInitialize @ 0x1C00897B8 (ACPIPccLegacyInitialize.c)
+ *     ACPIPccLegacyInitialize @ 0x1C00982D0 (ACPIPccLegacyInitialize.c)
  * Callees:
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C0047BBC (AMLIEvalNameSpaceObject.c)
- *     AMLIFreeDataBuffs @ 0x1C00482E4 (AMLIFreeDataBuffs.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
- *     AcpiParseGenRegDesc @ 0x1C007CAD4 (AcpiParseGenRegDesc.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     AcpiParseGenRegDesc @ 0x1C00ACC90 (AcpiParseGenRegDesc.c)
  */
 
-__int64 __fastcall ACPIAmliEvaluatePcch(_QWORD *a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall ACPIAmliEvaluatePcch(__int64 *a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)
 {
   __int64 *v8; // rdi
   int v9; // ebx
-  __int64 v10; // rdx
   __int64 v11; // r11
   __int64 v12; // rcx
   bool v13; // zf
@@ -22,30 +21,30 @@ __int64 __fastcall ACPIAmliEvaluatePcch(_QWORD *a1, __int64 a2, __int64 a3, _QWO
   __int128 v15; // xmm1
   __int64 v16; // xmm0_8
   __int64 v17; // r11
-  _OWORD v19[2]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+40h] [rbp-18h]
+  _OWORD v18[2]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v19; // [rsp+40h] [rbp-18h]
 
   v8 = AMLIGetNamedChild(a1, 1212367696);
   if ( v8 )
   {
-    v20 = 0LL;
-    memset(v19, 0, sizeof(v19));
-    v9 = AMLIEvalNameSpaceObject(v8, (__int64)v19, 0, 0LL);
+    v19 = 0LL;
+    memset(v18, 0, sizeof(v18));
+    v9 = AMLIEvalNameSpaceObject((unsigned __int64 *)v8, (__int64)v18, 0, 0LL);
     if ( v9 < 0 )
     {
-LABEL_17:
-      AMLIDereferenceHandleEx((volatile signed __int32 *)v8, v10);
+LABEL_18:
+      AMLIDereferenceHandleEx((__int64)v8);
       return (unsigned int)v9;
     }
-    if ( WORD1(v19[0]) == 4 )
+    if ( WORD1(v18[0]) == 4 )
     {
-      v11 = v20;
-      if ( *(_DWORD *)v20 == 4 && *(_WORD *)(v20 + 10) == 3 && *(_DWORD *)(v20 + 32) >= 0x2Eu )
+      v11 = v19;
+      if ( *(_DWORD *)v19 == 4 && *(_WORD *)(v19 + 10) == 3 && *(_DWORD *)(v19 + 32) >= 0x2Eu )
       {
-        v12 = *(_QWORD *)(v20 + 40);
+        v12 = *(_QWORD *)(v19 + 40);
         if ( *(_BYTE *)v12 == 0x8A )
         {
-          v13 = *(_WORD *)(v20 + 50) == 3;
+          v13 = *(_WORD *)(v19 + 50) == 3;
           v14 = *(_DWORD *)(v12 + 40);
           v15 = *(_OWORD *)(v12 + 16);
           *(_OWORD *)a2 = *(_OWORD *)v12;
@@ -59,9 +58,9 @@ LABEL_17:
             v9 = AcpiParseGenRegDesc(*(_QWORD *)(v11 + 80), a3);
             if ( v9 < 0 )
             {
-LABEL_16:
-              AMLIFreeDataBuffs((__int64)v19);
-              goto LABEL_17;
+LABEL_17:
+              AMLIFreeDataBuffs((__int64)v18);
+              goto LABEL_18;
             }
             if ( *(_WORD *)(v17 + 90) == 1 )
             {
@@ -69,7 +68,7 @@ LABEL_16:
               if ( *(_WORD *)(v17 + 130) == 1 )
               {
                 *a5 = *(_QWORD *)(v17 + 144);
-                goto LABEL_16;
+                goto LABEL_17;
               }
             }
           }
@@ -77,7 +76,7 @@ LABEL_16:
       }
     }
     v9 = -1072431096;
-    goto LABEL_16;
+    goto LABEL_17;
   }
   return (unsigned int)-1073741823;
 }

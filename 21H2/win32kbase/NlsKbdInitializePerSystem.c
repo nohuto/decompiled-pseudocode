@@ -1,10 +1,10 @@
 /*
- * XREFs of NlsKbdInitializePerSystem @ 0x1C00BF520
+ * XREFs of NlsKbdInitializePerSystem @ 0x1C00B1FA0
  * Callers:
  *     <none>
  * Callees:
- *     ?NlsSetKeyStateToggle@@YAXE@Z @ 0x1C00BF750 (-NlsSetKeyStateToggle@@YAXE@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     ?NlsSetKeyStateToggle@@YAXE@Z @ 0x1C00B21D0 (-NlsSetKeyStateToggle@@YAXE@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 void NlsKbdInitializePerSystem()

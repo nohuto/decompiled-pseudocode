@@ -1,10 +1,10 @@
 /*
- * XREFs of InsertOwnerObjList @ 0x1C004BE10
+ * XREFs of InsertOwnerObjList @ 0x1C002D368
  * Callers:
- *     InitializeNativeNamespace @ 0x1C0049FF4 (InitializeNativeNamespace.c)
- *     AMLIAddNamespaceOverride @ 0x1C004A2C8 (AMLIAddNamespaceOverride.c)
- *     MigrateDefunctObjectsToNewOwner @ 0x1C004C0FC (MigrateDefunctObjectsToNewOwner.c)
- *     CreateNameSpaceObject @ 0x1C004F12C (CreateNameSpaceObject.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     InitializeNativeNamespace @ 0x1C0023AF0 (InitializeNativeNamespace.c)
+ *     MigrateDefunctObjectsToNewOwner @ 0x1C00654F8 (MigrateDefunctObjectsToNewOwner.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
  *     <none>
  */

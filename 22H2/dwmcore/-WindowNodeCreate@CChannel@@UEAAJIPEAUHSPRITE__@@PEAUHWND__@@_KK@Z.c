@@ -1,12 +1,11 @@
 /*
- * XREFs of ?WindowNodeCreate@CChannel@@UEAAJIPEAUHSPRITE__@@PEAUHWND__@@_KK@Z @ 0x1800F4840
+ * XREFs of ?WindowNodeCreate@CChannel@@UEAAJIPEAUHSPRITE__@@PEAUHWND__@@_KK@Z @ 0x18005FD60
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180044038 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005E108 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E530 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::WindowNodeCreate(
@@ -17,26 +16,27 @@ __int64 __fastcall CChannel::WindowNodeCreate(
         unsigned __int64 a5,
         unsigned int a6)
 {
-  __int128 v8; // rdi
+  __int128 v7; // rdi
   unsigned int v9; // ebx
-  _BYTE v11[16]; // [rsp+20h] [rbp-40h] BYREF
-  _DWORD v12[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v13; // [rsp+38h] [rbp-28h]
-  unsigned __int64 v14; // [rsp+48h] [rbp-18h]
-  unsigned int v15; // [rsp+50h] [rbp-10h]
-  int v16; // [rsp+54h] [rbp-Ch]
+  _DWORD v11[2]; // [rsp+20h] [rbp-30h] BYREF
+  __int128 v12; // [rsp+28h] [rbp-28h]
+  unsigned __int64 v13; // [rsp+38h] [rbp-18h]
+  unsigned int v14; // [rsp+40h] [rbp-10h]
+  int v15; // [rsp+44h] [rbp-Ch]
+  struct _RTL_CRITICAL_SECTION *v16; // [rsp+70h] [rbp+20h] BYREF
 
-  *((_QWORD *)&v8 + 1) = a4;
-  *(_QWORD *)&v8 = a3;
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v11, this);
-  CChannel::CheckHandle((__int64)this, a2, 204);
-  v12[0] = 430;
-  v16 = 0;
-  v14 = a5;
-  v15 = a6;
-  v12[1] = a2;
-  v13 = v8;
-  v9 = CChannel::SendCommand(this, v12, 0x28u);
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v11);
+  *((_QWORD *)&v7 + 1) = a4;
+  *(_QWORD *)&v7 = a3;
+  v16 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  CChannel::CheckHandle((__int64)this, a2, 203);
+  v11[0] = 444;
+  v15 = 0;
+  v13 = a5;
+  v14 = a6;
+  v11[1] = a2;
+  v12 = v7;
+  v9 = CChannel::SendCommand(this, v11, 0x28u);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v16);
   return v9;
 }

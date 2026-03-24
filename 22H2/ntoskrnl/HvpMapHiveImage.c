@@ -1,34 +1,36 @@
 /*
- * XREFs of HvpMapHiveImage @ 0x140A1DDA4
+ * XREFs of HvpMapHiveImage @ 0x140873EE4
  * Callers:
- *     HvpMapHiveImageFromFile @ 0x140A1DF28 (HvpMapHiveImageFromFile.c)
+ *     HvpMapHiveImageFromFile @ 0x140874058 (HvpMapHiveImageFromFile.c)
  * Callees:
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     HvpProtectBinPartial @ 0x14070B090 (HvpProtectBinPartial.c)
- *     HvpPointMapEntriesToBuffer @ 0x1407502DC (HvpPointMapEntriesToBuffer.c)
- *     HvpAllocateBin @ 0x1407506DC (HvpAllocateBin.c)
- *     HvpFreeBin @ 0x1407E9ED8 (HvpFreeBin.c)
- *     HvpReadHiveDataFromFile @ 0x140A1DFDC (HvpReadHiveDataFromFile.c)
+ *     SetFailureLocation @ 0x14031DB78 (SetFailureLocation.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     HvpPointMapEntriesToBuffer @ 0x14072242C (HvpPointMapEntriesToBuffer.c)
+ *     HvpProtectBin @ 0x140723D50 (HvpProtectBin.c)
+ *     HvpAllocateBin @ 0x140723D8C (HvpAllocateBin.c)
+ *     HvpFreeBin @ 0x140724FA0 (HvpFreeBin.c)
+ *     HvpReadHiveDataFromFile @ 0x14087468C (HvpReadHiveDataFromFile.c)
  */
 
-__int64 __fastcall HvpMapHiveImage(ULONG_PTR BugCheckParameter2, __int64 a2, int a3, __int64 a4, __int64 a5)
+__int64 __fastcall HvpMapHiveImage(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  __int64 v7; // r15
+  __int64 v6; // r15
+  int v7; // r14d
   int v8; // eax
   int Bin; // ebx
   unsigned int v10; // esi
   const void *v11; // r12
-  __int64 v12; // r8
+  __int64 v12; // rcx
   int v13; // eax
   __int64 v15; // [rsp+60h] [rbp+8h] BYREF
-  unsigned int v16; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v16; // [rsp+70h] [rbp+18h] BYREF
   void *v17; // [rsp+78h] [rbp+20h] BYREF
 
   v15 = 0LL;
   v16 = 0;
   v17 = 0LL;
-  v7 = *(_QWORD *)(BugCheckParameter2 + 56);
+  v6 = *(_QWORD *)(BugCheckParameter2 + 56);
+  v7 = 0;
   do
   {
 LABEL_2:
@@ -39,7 +41,7 @@ LABEL_2:
       if ( v8 == -1073741807 )
         return 0;
       else
-        SetFailureLocation(v7, 0, 7, v8, 0);
+        SetFailureLocation(v6, 0, 7, v8, 0);
       return (unsigned int)Bin;
     }
     v10 = 0;
@@ -52,22 +54,22 @@ LABEL_2:
     if ( Bin < 0 )
       break;
     memmove(v17, v11, 0x1000uLL);
-    Bin = HvpProtectBinPartial(BugCheckParameter2, (__int64)v17, v12, 0, 0x1000u, 0);
+    Bin = HvpProtectBin(v12, 0x1000u, (__int64)v17, 0);
     if ( Bin < 0 )
     {
       v13 = 32;
       goto LABEL_10;
     }
-    HvpPointMapEntriesToBuffer(BugCheckParameter2, (__int64)v17, 4096, a3, 1, 0LL);
+    HvpPointMapEntriesToBuffer(BugCheckParameter2, (__int64)v17, 4096, v7, 1, 0LL);
     v17 = 0LL;
-    a3 += 4096;
+    v7 += 4096;
     v10 += 4096;
     if ( v10 >= v16 )
       goto LABEL_2;
   }
   v13 = 16;
 LABEL_10:
-  SetFailureLocation(v7, 0, 7, Bin, v13);
+  SetFailureLocation(v6, 0, 7, Bin, v13);
   if ( v17 )
     HvpFreeBin(BugCheckParameter2, 0x1000u, (unsigned __int64)v17);
   return (unsigned int)Bin;

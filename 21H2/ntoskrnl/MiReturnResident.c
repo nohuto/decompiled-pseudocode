@@ -1,23 +1,21 @@
 /*
- * XREFs of MiReturnResident @ 0x140216E18
+ * XREFs of MiReturnResident @ 0x140296E9C
  * Callers:
- *     MiDeletePartitionResources @ 0x1405BDFF8 (MiDeletePartitionResources.c)
- *     MiDereferenceSessionFinal @ 0x140693A28 (MiDereferenceSessionFinal.c)
- *     MmDeleteProcessAddressSpace @ 0x140693C24 (MmDeleteProcessAddressSpace.c)
- *     MiCreatePagingFileMap @ 0x1406F3A44 (MiCreatePagingFileMap.c)
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
- *     MmCleanProcessAddressSpace @ 0x1406F89A4 (MmCleanProcessAddressSpace.c)
- *     MiFreeInitializationCode @ 0x14075F23C (MiFreeInitializationCode.c)
- *     MiReleaseVadEventBlocks @ 0x1407B97B0 (MiReleaseVadEventBlocks.c)
- *     MiRemoveVadCharges @ 0x1407BC750 (MiRemoveVadCharges.c)
- *     MmCreateProcessAddressSpace @ 0x1407F17B4 (MmCreateProcessAddressSpace.c)
- *     MiSessionCreateInternal @ 0x1407F336C (MiSessionCreateInternal.c)
- *     MiReturnSystemImageCommitment @ 0x14081C984 (MiReturnSystemImageCommitment.c)
- *     MiMarkBootGuardPage @ 0x140829B50 (MiMarkBootGuardPage.c)
- *     MmReturnChargesToLockPagedPool @ 0x14096CA90 (MmReturnChargesToLockPagedPool.c)
- *     MiChargeLargeProtoSubsection @ 0x14096FE9C (MiChargeLargeProtoSubsection.c)
- *     MiReturnVadCharges @ 0x140977F8C (MiReturnVadCharges.c)
- *     MiFreePartitionPhysicalPages @ 0x140981A04 (MiFreePartitionPhysicalPages.c)
+ *     MiCreatePagingFileMap @ 0x14061C548 (MiCreatePagingFileMap.c)
+ *     MmDeleteProcessAddressSpace @ 0x140682D54 (MmDeleteProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D04E4 (MmCreateProcessAddressSpace.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
+ *     MmCleanProcessAddressSpace @ 0x1406EB24C (MmCleanProcessAddressSpace.c)
+ *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
+ *     MiRemoveVadCharges @ 0x1406ED1F0 (MiRemoveVadCharges.c)
+ *     MiReleaseVadEventBlocks @ 0x1406ED390 (MiReleaseVadEventBlocks.c)
+ *     MiFreeInitializationCode @ 0x14075EC6C (MiFreeInitializationCode.c)
+ *     MiReturnSystemImageCommitment @ 0x140773240 (MiReturnSystemImageCommitment.c)
+ *     MiDereferenceSessionFinal @ 0x140778320 (MiDereferenceSessionFinal.c)
+ *     MiMarkBootGuardPage @ 0x14079F9BC (MiMarkBootGuardPage.c)
+ *     MmReturnChargesToLockPagedPool @ 0x1408C84E0 (MmReturnChargesToLockPagedPool.c)
+ *     MiChargeLargeProtoSubsection @ 0x1408CFC70 (MiChargeLargeProtoSubsection.c)
+ *     MiFreePartitionPhysicalPages @ 0x1408DB0F0 (MiFreePartitionPhysicalPages.c)
  * Callees:
  *     <none>
  */
@@ -66,6 +64,6 @@ unsigned __int64 __fastcall MiReturnResident(__int64 a1, unsigned __int64 a2)
     }
   }
   if ( a2 )
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), a2);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), a2);
   return result;
 }

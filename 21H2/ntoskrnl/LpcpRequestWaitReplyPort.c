@@ -1,17 +1,17 @@
 /*
- * XREFs of LpcpRequestWaitReplyPort @ 0x140965F28
+ * XREFs of LpcpRequestWaitReplyPort @ 0x1408C1F4C
  * Callers:
- *     LpcRequestWaitReplyPort @ 0x140881960 (LpcRequestWaitReplyPort.c)
- *     LpcRequestWaitReplyPortEx @ 0x140965BF0 (LpcRequestWaitReplyPortEx.c)
+ *     LpcRequestWaitReplyPort @ 0x1408C1C00 (LpcRequestWaitReplyPort.c)
+ *     LpcRequestWaitReplyPortEx @ 0x1408C1C20 (LpcRequestWaitReplyPortEx.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     AlpcpProcessSynchronousRequest @ 0x1407AD040 (AlpcpProcessSynchronousRequest.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
  */
 
 __int64 __fastcall LpcpRequestWaitReplyPort(__int64 a1, __int128 *a2, unsigned __int64 a3, __int64 a4, char a5)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v7; // edx
+  unsigned int v7; // edx
   unsigned int v8; // ebx
 
   CurrentThread = KeGetCurrentThread();
@@ -20,7 +20,7 @@ __int64 __fastcall LpcpRequestWaitReplyPort(__int64 a1, __int128 *a2, unsigned _
   if ( a5 != 1 )
     v7 = 131074;
   v8 = AlpcpProcessSynchronousRequest(a1, v7, a2, 0LL, a3, 0LL, 0LL, 0LL, 0);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v8 == -1073740029 )
     v8 = -1073741769;
   if ( v8 == -1073740031 )

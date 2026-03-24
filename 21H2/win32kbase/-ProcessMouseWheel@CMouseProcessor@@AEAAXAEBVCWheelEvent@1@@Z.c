@@ -1,388 +1,300 @@
 /*
- * XREFs of ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C01FBCD8
+ * XREFs of ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C01C17AC
  * Callers:
- *     ?ComputeAndDeliverMouseWheel@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C01F97F0 (-ComputeAndDeliverMouseWheel@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z.c)
+ *     ?ComputeAndDeliverMouseWheel@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C01BF170 (-ComputeAndDeliverMouseWheel@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z.c)
  * Callees:
- *     _anonymous_namespace_::ValidateUIPI @ 0x1C0007E58 (_anonymous_namespace_--ValidateUIPI.c)
- *     ?UsingInjectorUIPI@CMouseEvent@CMouseProcessor@@QEBA_NXZ @ 0x1C0033B24 (-UsingInjectorUIPI@CMouseEvent@CMouseProcessor@@QEBA_NXZ.c)
- *     ?DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z @ 0x1C0033FF0 (-DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z.c)
- *     ?GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ @ 0x1C00344F0 (-GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ.c)
- *     ??4CInputDest@@QEAAAEAV0@$$QEAV0@@Z @ 0x1C00355CC (--4CInputDest@@QEAAAEAV0@$$QEAV0@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ??1EndStreamToken@CMouseProcessor@@QEAA@XZ @ 0x1C00387C4 (--1EndStreamToken@CMouseProcessor@@QEAA@XZ.c)
- *     ?MouseHitTest@CMouseProcessor@@AEAA?AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@1@W4MouseHitTestOptions@@PEAI@Z @ 0x1C003880C (-MouseHitTest@CMouseProcessor@@AEAA-AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@.c)
- *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0038C0C (-SetEmpty@CInputDest@@QEAAXXZ.c)
- *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C003A380 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
- *     ??8CInputDest@@QEBA_NAEBUtagINPUTDEST@@@Z @ 0x1C003B608 (--8CInputDest@@QEBA_NAEBUtagINPUTDEST@@@Z.c)
- *     ?ForwardInputToISM@CMouseProcessor@@AEAA?AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEvent@1@AEBUInputDeliveryContext@1@AEBUtagPOINT@@II_K@Z @ 0x1C003BCDC (-ForwardInputToISM@CMouseProcessor@@AEAA-AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEv.c)
- *     ?GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C003C340 (-GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
- *     ?OnBackgroundMouseInput@Telemetry@CMouseProcessor@@SAXAEBVCInputDest@@@Z @ 0x1C003D444 (-OnBackgroundMouseInput@Telemetry@CMouseProcessor@@SAXAEBVCInputDest@@@Z.c)
- *     _anonymous_namespace_::InMouseRawInputMode @ 0x1C00419A8 (_anonymous_namespace_--InMouseRawInputMode.c)
- *     ?PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z @ 0x1C0041E98 (-PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z.c)
- *     ?GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ @ 0x1C00423CC (-GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ.c)
- *     ?InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z @ 0x1C0042514 (-InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?IsUMSuppressed@CBaseProcessor@@QEBA_NXZ @ 0x1C01F41B0 (-IsUMSuppressed@CBaseProcessor@@QEBA_NXZ.c)
- *     ?DeliverMouseWheelToInputDest@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@AEBVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01F9E20 (-DeliverMouseWheelToInputDest@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@AEBVCInputDest@@AEBUInputD.c)
- *     ?DropWheel@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C01F9FC8 (-DropWheel@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
- *     ?GetInputDestFromForegroundFocus@QHelper@@YA?AUtagINPUTDEST@@XZ @ 0x1C01FA83C (-GetInputDestFromForegroundFocus@QHelper@@YA-AUtagINPUTDEST@@XZ.c)
- *     ?GetMouseWheelForegroundThread@CMouseProcessor@@CAPEAUtagTHREADINFO@@XZ @ 0x1C01FA948 (-GetMouseWheelForegroundThread@CMouseProcessor@@CAPEAUtagTHREADINFO@@XZ.c)
- *     ?GetWheelMessage@CWheelEvent@CMouseProcessor@@QEBAKXZ @ 0x1C01FAA48 (-GetWheelMessage@CWheelEvent@CMouseProcessor@@QEBAKXZ.c)
- *     _anonymous_namespace_::HasThreadRequestedFocusMouseWheelRouting @ 0x1C01FACE0 (_anonymous_namespace_--HasThreadRequestedFocusMouseWheelRouting.c)
- *     ?HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01FAD64 (-HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
- *     ?ProcessWheel@Mouse@InputTraceLogging@@SAX_KAEBUtagPOINT@@IFKPEAUHWND__@@_N@Z @ 0x1C01FC478 (-ProcessWheel@Mouse@InputTraceLogging@@SAX_KAEBUtagPOINT@@IFKPEAUHWND__@@_N@Z.c)
- *     ?RerouteWheel@Mouse@InputTraceLogging@@SAX_K@Z @ 0x1C01FC5B4 (-RerouteWheel@Mouse@InputTraceLogging@@SAX_K@Z.c)
- *     _anonymous_namespace_::ResolveApplicationFrameChildThread @ 0x1C01FC648 (_anonymous_namespace_--ResolveApplicationFrameChildThread.c)
- *     ?ShouldDeliverWheelEventToInputDest@CMouseProcessor@@AEBA_NAEBVCWheelEvent@1@AEBVCInputDest@@@Z @ 0x1C01FC70C (-ShouldDeliverWheelEventToInputDest@CMouseProcessor@@AEBA_NAEBVCWheelEvent@1@AEBVCInputDest@@@Z.c)
- *     APISetEditionGetMouseWheelRoutingMode @ 0x1C0205848 (APISetEditionGetMouseWheelRoutingMode.c)
- *     ApiSetEditionLLMouseWheelHook @ 0x1C02093B0 (ApiSetEditionLLMouseWheelHook.c)
- *     ApiSetEditionPostMouseWheelToForeground @ 0x1C020A888 (ApiSetEditionPostMouseWheelToForeground.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0042894 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     ??8CInputDest@@QEBA_NAEBUtagINPUTDEST@@@Z @ 0x1C00428EC (--8CInputDest@@QEBA_NAEBUtagINPUTDEST@@@Z.c)
+ *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C0042A50 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
+ *     ?MouseHitTest@CMouseProcessor@@AEAA?AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@1@W4MouseHitTestOptions@@PEAI@Z @ 0x1C0043240 (-MouseHitTest@CMouseProcessor@@AEAA-AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@.c)
+ *     ??4CInputDest@@QEAAAEAV0@$$QEAV0@@Z @ 0x1C00435A0 (--4CInputDest@@QEAAAEAV0@$$QEAV0@@Z.c)
+ *     ?DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z @ 0x1C0044428 (-DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z.c)
+ *     ?GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C004450C (-GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
+ *     ?OnBackgroundMouseInput@Telemetry@CMouseProcessor@@SAXAEBVCInputDest@@@Z @ 0x1C0047554 (-OnBackgroundMouseInput@Telemetry@CMouseProcessor@@SAXAEBVCInputDest@@@Z.c)
+ *     _anonymous_namespace_::InMouseRawInputMode @ 0x1C0047B74 (_anonymous_namespace_--InMouseRawInputMode.c)
+ *     ?UsingInjectorUIPI@CMouseEvent@CMouseProcessor@@QEBA_NXZ @ 0x1C004BBEC (-UsingInjectorUIPI@CMouseEvent@CMouseProcessor@@QEBA_NXZ.c)
+ *     ?ForwardInputToISM@CMouseProcessor@@AEAA?AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEvent@1@AEBUInputDeliveryContext@1@AEBUtagPOINT@@II_K@Z @ 0x1C004BD08 (-ForwardInputToISM@CMouseProcessor@@AEAA-AW4ISMForwardingDecision@1@AEAVCInputDest@@AEBVCMouseEv.c)
+ *     ?GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ @ 0x1C0094BC8 (-GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ.c)
+ *     ?PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z @ 0x1C009B424 (-PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z.c)
+ *     ?GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ @ 0x1C00A1AF4 (-GetExtraInfoForHook@CMouseEvent@CMouseProcessor@@QEBA_KXZ.c)
+ *     ?InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z @ 0x1C00A4678 (-InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z.c)
+ *     _anonymous_namespace_::ValidateUIPI @ 0x1C00ADC2C (_anonymous_namespace_--ValidateUIPI.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?IsUMSuppressed@CBaseProcessor@@QEBA_NXZ @ 0x1C01BB0F0 (-IsUMSuppressed@CBaseProcessor@@QEBA_NXZ.c)
+ *     ?DeliverMouseWheelToInputDest@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@AEBVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01BF4A8 (-DeliverMouseWheelToInputDest@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@AEBVCInputDest@@AEBUInputD.c)
+ *     ?DropWheel@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C01BF824 (-DropWheel@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
+ *     ?GetInputDestFromForegroundFocus@QHelper@@YA?AUtagINPUTDEST@@XZ @ 0x1C01C02E0 (-GetInputDestFromForegroundFocus@QHelper@@YA-AUtagINPUTDEST@@XZ.c)
+ *     ?GetMouseWheelForegroundThread@CMouseProcessor@@CAPEAUtagTHREADINFO@@XZ @ 0x1C01C03EC (-GetMouseWheelForegroundThread@CMouseProcessor@@CAPEAUtagTHREADINFO@@XZ.c)
+ *     ?GetWheelMessage@CWheelEvent@CMouseProcessor@@QEBAKXZ @ 0x1C01C04EC (-GetWheelMessage@CWheelEvent@CMouseProcessor@@QEBAKXZ.c)
+ *     _anonymous_namespace_::HasThreadRequestedFocusMouseWheelRouting @ 0x1C01C07B8 (_anonymous_namespace_--HasThreadRequestedFocusMouseWheelRouting.c)
+ *     ?HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01C0848 (-HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
+ *     ?ProcessWheel@Mouse@InputTraceLogging@@SAX_KAEBUtagPOINT@@IFKPEAUHWND__@@_N@Z @ 0x1C01C1E18 (-ProcessWheel@Mouse@InputTraceLogging@@SAX_KAEBUtagPOINT@@IFKPEAUHWND__@@_N@Z.c)
+ *     ?RerouteWheel@Mouse@InputTraceLogging@@SAX_K@Z @ 0x1C01C1F50 (-RerouteWheel@Mouse@InputTraceLogging@@SAX_K@Z.c)
+ *     _anonymous_namespace_::ResolveApplicationFrameChildThread @ 0x1C01C1FE4 (_anonymous_namespace_--ResolveApplicationFrameChildThread.c)
+ *     ?ShouldDeliverWheelEventToInputDest@CMouseProcessor@@AEBA_NAEBVCWheelEvent@1@AEBVCInputDest@@@Z @ 0x1C01C21D8 (-ShouldDeliverWheelEventToInputDest@CMouseProcessor@@AEBA_NAEBVCWheelEvent@1@AEBVCInputDest@@@Z.c)
+ *     APISetEditionGetMouseWheelRoutingMode @ 0x1C01CA2E0 (APISetEditionGetMouseWheelRoutingMode.c)
+ *     ApiSetEditionLLMouseWheelHook @ 0x1C01CC79C (ApiSetEditionLLMouseWheelHook.c)
+ *     ApiSetEditionPostMouseWheelToForeground @ 0x1C01CD3A8 (ApiSetEditionPostMouseWheelToForeground.c)
  */
 
 void __fastcall CMouseProcessor::ProcessMouseWheel(
         CMouseProcessor *this,
         const struct CMouseProcessor::CWheelEvent *a2)
 {
-  char v4; // si
+  char v4; // di
   __int64 v5; // rcx
   struct tagPOINT v6; // rbx
-  bool v7; // zf
-  int v8; // r8d
-  bool v9; // r14
-  int v10; // edx
-  __int64 v11; // r8
-  __int64 v12; // r8
-  int v13; // edi
-  int v14; // ebx
-  __int64 v15; // rdx
+  int v7; // edx
+  __int64 v8; // r8
+  __int64 v9; // r8
+  int v10; // eax
+  BOOL v11; // ebx
   unsigned int WheelMessage; // eax
-  char v17; // r14
-  int v18; // eax
-  int v19; // edx
-  int v20; // r8d
-  char v21; // di
-  bool ShouldDeliverWheelEventToInputDest; // r12
-  _QWORD *v23; // rax
-  CMouseProcessor *v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // rcx
+  _QWORD *v13; // rax
+  CMouseProcessor *v14; // rcx
+  __int64 v15; // rcx
   struct tagTHREADINFO *ThreadInfo; // rax
-  int v28; // r8d
-  struct tagTHREADINFO *v29; // rbx
+  struct tagTHREADINFO *v17; // rbx
   _OWORD *InputDestFromForegroundFocus; // rax
-  __int128 v31; // xmm1
-  __int128 v32; // xmm0
-  __int128 v33; // xmm1
-  __int128 v34; // xmm0
-  __int128 v35; // xmm1
-  __int128 v36; // xmm0
-  __int64 v37; // r8
-  int v38; // edx
+  __int128 v19; // xmm1
+  __int128 v20; // xmm0
+  __int128 v21; // xmm1
+  __int128 v22; // xmm0
+  __int128 v23; // xmm1
+  __int128 v24; // xmm0
+  char v25; // si
   struct tagTHREADINFO *MouseWheelForegroundThread; // rax
-  CMouseProcessor *v40; // rcx
-  int v41; // edx
-  int v42; // r8d
-  HWND WindowHandle; // rdi
-  unsigned int v44; // esi
-  __int16 v45; // bx
-  __int64 v46; // rdx
-  __int64 v47; // r8
-  unsigned int v48; // eax
-  int v49; // ebx
-  __int64 v50; // rdx
-  __int64 v51; // rax
-  __int64 v52; // rbx
-  int v53; // eax
-  __int64 v54; // rsi
-  char v55; // al
-  __int64 v56; // r14
-  char v57; // bl
-  __int64 v58; // r15
-  int v59; // r12d
-  int v60; // edi
-  __int64 v61; // rdx
-  CMouseProcessor::CWheelEvent *v62; // rcx
-  __int64 v63; // r8
-  int v64; // eax
-  int v65; // [rsp+50h] [rbp-B0h] BYREF
-  struct tagPOINT v66; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v67; // [rsp+60h] [rbp-A0h] BYREF
-  int v68; // [rsp+68h] [rbp-98h]
-  __int64 v69; // [rsp+6Ch] [rbp-94h]
-  int v70; // [rsp+74h] [rbp-8Ch]
-  __int64 v71; // [rsp+80h] [rbp-80h]
-  struct tagPOINT v72; // [rsp+88h] [rbp-78h] BYREF
-  _QWORD v73[2]; // [rsp+90h] [rbp-70h] BYREF
-  char v74; // [rsp+A0h] [rbp-60h]
-  _OWORD v75[7]; // [rsp+B0h] [rbp-50h] BYREF
-  __int128 v76[7]; // [rsp+120h] [rbp+20h] BYREF
-  struct tagPOINT v77; // [rsp+190h] [rbp+90h] BYREF
-  int v78; // [rsp+198h] [rbp+98h]
-  int v79; // [rsp+19Ch] [rbp+9Ch]
-  int v80; // [rsp+1A0h] [rbp+A0h]
-  int v81; // [rsp+1A4h] [rbp+A4h]
-  __int64 ExtraInfoForHook; // [rsp+1A8h] [rbp+A8h]
-  __int128 v83[7]; // [rsp+1B0h] [rbp+B0h] BYREF
-  char v84; // [rsp+220h] [rbp+120h]
-  _BYTE v85[128]; // [rsp+230h] [rbp+130h] BYREF
+  CMouseProcessor *v27; // rcx
+  __int64 v28; // rdi
+  unsigned int v29; // r15d
+  __int16 v30; // si
+  unsigned __int64 v31; // r14
+  HWND WindowHandle; // rbx
+  unsigned int v33; // eax
+  int v34; // edi
+  __int64 v35; // rax
+  __int64 v36; // rbx
+  int v37; // eax
+  __int64 v38; // rbx
+  __int64 v39; // r14
+  __int64 v40; // r15
+  int v41; // r12d
+  unsigned __int64 v42; // rsi
+  int v43; // r10d
+  int v44; // edi
+  CMouseProcessor::CWheelEvent *v45; // rcx
+  int v46; // eax
+  bool ShouldDeliverWheelEventToInputDest; // [rsp+50h] [rbp-B0h]
+  struct tagPOINT v48; // [rsp+58h] [rbp-A8h] BYREF
+  int v49; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v50; // [rsp+68h] [rbp-98h]
+  __int64 v51; // [rsp+70h] [rbp-90h] BYREF
+  struct tagPOINT v52; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v53; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v54; // [rsp+90h] [rbp-70h] BYREF
+  int v55; // [rsp+98h] [rbp-68h]
+  __int64 v56; // [rsp+A0h] [rbp-60h] BYREF
+  int v57; // [rsp+A8h] [rbp-58h]
+  __int64 v58; // [rsp+ACh] [rbp-54h]
+  int v59; // [rsp+B4h] [rbp-4Ch]
+  _OWORD v60[7]; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE v61[128]; // [rsp+130h] [rbp+30h] BYREF
+  _OWORD v62[7]; // [rsp+1B0h] [rbp+B0h] BYREF
+  struct tagPOINT v63; // [rsp+220h] [rbp+120h] BYREF
+  int v64; // [rsp+228h] [rbp+128h]
+  int v65; // [rsp+22Ch] [rbp+12Ch]
+  int v66; // [rsp+230h] [rbp+130h]
+  int v67; // [rsp+234h] [rbp+134h]
+  __int64 ExtraInfoForHook; // [rsp+238h] [rbp+138h]
+  __int128 v69[7]; // [rsp+240h] [rbp+140h] BYREF
+  char v70; // [rsp+2B0h] [rbp+1B0h]
+  _BYTE v71[128]; // [rsp+2C0h] [rbp+1C0h] BYREF
 
-  LODWORD(v67) = 0;
+  v48.x = 0;
   v4 = 0;
-  v73[0] = this;
   v5 = *((_QWORD *)a2 + 1);
-  v73[1] = a2;
   v6 = (struct tagPOINT)*((_QWORD *)gpsi + 620);
-  v72 = v6;
-  v7 = (*(_DWORD *)(v5 + 112) & 0x200) == 0;
-  v74 = 0;
-  if ( !v7 )
+  v52 = v6;
+  if ( (*(_DWORD *)(v5 + 112) & 0x200) != 0 )
     v6 = *(struct tagPOINT *)(v5 + 52);
-  v66 = v6;
-  v71 = (LOWORD(v6.y) << 16) | LOWORD(v6.x);
-  memset(v83, 0, sizeof(v83));
-  v84 = 0;
-  CMouseProcessor::InformUMObservers(this, a2, &v66, &v66);
+  v48 = v6;
+  v50 = (LOWORD(v6.y) << 16) | LOWORD(v6.x);
+  memset(v69, 0, sizeof(v69));
+  v70 = 0;
+  CMouseProcessor::InformUMObservers(this, a2, &v48, &v48);
   if ( (*(_DWORD *)(*((_QWORD *)a2 + 1) + 112LL) & 0x80u) == 0 && CBaseProcessor::IsUMSuppressed(this) )
   {
-    v9 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) != 0
-      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v10 = 40;
-      LOBYTE(v10) = v9;
-      LOBYTE(v8) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v10,
-        v8,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        6,
-        40,
-        (__int64)&WPP_47101fbb63c9386296243f9d06c06c50_Traceguids);
+      LOBYTE(v7) = 4;
+      WPP_RECORDER_SF_((_DWORD)gBaseLog, v7, 6, 39, (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
     }
-    goto LABEL_70;
+    goto LABEL_48;
   }
-  v11 = *((_QWORD *)a2 + 1);
-  v77 = v6;
-  v78 = *(unsigned __int16 *)(v11 + 30) << 16;
-  v79 = *(unsigned __int8 *)(v11 + 112) >> 7;
-  v80 = *(_DWORD *)(v11 + 80);
-  v81 = 0;
+  v8 = *((_QWORD *)a2 + 1);
+  v63 = v6;
+  v64 = *(unsigned __int16 *)(v8 + 30) << 16;
+  v65 = *(unsigned __int8 *)(v8 + 112) >> 7;
+  v66 = *(_DWORD *)(v8 + 80);
+  v67 = 0;
   ExtraInfoForHook = CMouseProcessor::CMouseEvent::GetExtraInfoForHook(a2);
-  v13 = *(_DWORD *)(v12 + 112);
-  v14 = *(_DWORD *)(v12 + 140);
-  v67 = *(_QWORD *)(v12 + 132);
-  WheelMessage = CMouseProcessor::CWheelEvent::GetWheelMessage(a2, v15, v12);
-  v17 = 1;
-  v68 = v14;
-  v18 = ApiSetEditionLLMouseWheelHook(&v77, WheelMessage, &v67, (v13 & 1) == 0);
-  v21 = 0;
-  if ( v18 )
+  v10 = *(_DWORD *)(v9 + 140);
+  v11 = (*(_DWORD *)(v9 + 112) & 1) == 0;
+  v54 = *(_QWORD *)(v9 + 132);
+  v55 = v10;
+  WheelMessage = CMouseProcessor::CWheelEvent::GetWheelMessage(a2);
+  if ( (unsigned int)ApiSetEditionLLMouseWheelHook(&v63, WheelMessage, &v54, v11) )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-      || (LOBYTE(v19) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-    {
-      LOBYTE(v19) = 0;
-    }
-    if ( (_BYTE)v19 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v20) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v19,
-        v20,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        6,
-        41,
-        (__int64)&WPP_47101fbb63c9386296243f9d06c06c50_Traceguids);
-    }
-    goto LABEL_70;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_((_DWORD)gBaseLog, 4, 6, 40, (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+    goto LABEL_48;
   }
   if ( gpqForeground
     && (*(_DWORD *)(*((_QWORD *)a2 + 1) + 112LL) & 8) == 0
     && (*(&InputDelegation::CInputDelegationInfo::gInstance + 4) & 2) == 0 )
   {
-    CMouseProcessor::CMouseRawInput::PostRawMouse((__int64)this + 3464, 0, 0);
+    CMouseProcessor::CMouseRawInput::PostRawMouse((__int64)this + 3456, 0, 0);
   }
   ShouldDeliverWheelEventToInputDest = 0;
-  v65 = 0;
+  v49 = 0;
   if ( *((_DWORD *)a2 + 6) || (*(&InputDelegation::CInputDelegationInfo::gInstance + 4) & 2) != 0 )
   {
-    v67 = *((_QWORD *)gpsi + 619);
-    v23 = CMouseProcessor::MouseHitTest((__int64)this, (__int64)v85, &v72, (__int64)&v67, a2, 0, &v65);
-    CInputDest::operator=((__int64)v83, v23);
-    CInputDest::SetEmpty((CInputDest *)v85);
-    v74 = 1;
+    v51 = *((_QWORD *)gpsi + 619);
+    v13 = CMouseProcessor::MouseHitTest(
+            (__int64)this,
+            (__int64)v61,
+            &v52,
+            (__int64)&v51,
+            a2,
+            _InterlockedCompareExchange((volatile signed __int32 *)this + 922, 1, 1) != 0,
+            &v49);
+    CInputDest::operator=((__int64)v69, v13);
+    CInputDest::SetEmpty((CInputDest *)v61);
     ShouldDeliverWheelEventToInputDest = CMouseProcessor::ShouldDeliverWheelEventToInputDest(
-                                           v24,
+                                           v14,
                                            a2,
-                                           (const struct CInputDest *)v83);
+                                           (const struct CInputDest *)v69);
     if ( ShouldDeliverWheelEventToInputDest )
     {
-      if ( !CInputDest::DoesBelongToForeground((__int64)v83, 0) )
-        CMouseProcessor::Telemetry::OnBackgroundMouseInput((const struct CInputDest *)v83);
-      v26 = *((_QWORD *)a2 + 1);
-      if ( (*(_DWORD *)(v26 + 112) & 8) != 0
-        && (*(_DWORD *)(v26 + 108) == 1 || anonymous_namespace_::ValidateUIPI(*(_QWORD *)(v26 + 132), v83, v25)) )
+      if ( !CInputDest::DoesBelongToForeground((__int64)v69, 0) )
+        CMouseProcessor::Telemetry::OnBackgroundMouseInput((const struct CInputDest *)v69);
+      v15 = *((_QWORD *)a2 + 1);
+      if ( (*(_DWORD *)(v15 + 112) & 8) != 0
+        && (*(_DWORD *)(v15 + 108) == 1 || anonymous_namespace_::ValidateUIPI(*(_QWORD *)(v15 + 132), v69)) )
       {
-        CMouseProcessor::CMouseRawInput::PostRawMouse((__int64)this + 3464, (int)v83, 0);
+        CMouseProcessor::CMouseRawInput::PostRawMouse((__int64)this + 3456, (int)v69, 0);
       }
-      ThreadInfo = CInputDest::GetThreadInfo((CInputDest *)v83);
-      v29 = ThreadInfo;
-      if ( ThreadInfo )
-      {
-        if ( anonymous_namespace_::HasThreadRequestedFocusMouseWheelRouting((__int64)ThreadInfo) )
-        {
-          InputDestFromForegroundFocus = QHelper::GetInputDestFromForegroundFocus(v76);
-          v31 = InputDestFromForegroundFocus[1];
-          v75[0] = *InputDestFromForegroundFocus;
-          v32 = InputDestFromForegroundFocus[2];
-          v75[1] = v31;
-          v33 = InputDestFromForegroundFocus[3];
-          v75[2] = v32;
-          v34 = InputDestFromForegroundFocus[4];
-          v75[3] = v33;
-          v35 = InputDestFromForegroundFocus[5];
-          v75[4] = v34;
-          v36 = InputDestFromForegroundFocus[6];
-          v75[5] = v35;
-          v75[6] = v36;
-          CInputDest::CInputDest((CInputDest *)v85, (const struct tagINPUTDEST *)v75);
-          v4 = 1;
-          if ( !CInputDest::operator==((unsigned int *)v83, (__int64)v85, v37) )
-            v21 = 1;
-        }
-      }
+      ThreadInfo = CInputDest::GetThreadInfo((CInputDest *)v69);
+      v17 = ThreadInfo;
+      if ( !ThreadInfo )
+        goto LABEL_27;
+      if ( !anonymous_namespace_::HasThreadRequestedFocusMouseWheelRouting((__int64)ThreadInfo) )
+        goto LABEL_27;
+      InputDestFromForegroundFocus = QHelper::GetInputDestFromForegroundFocus(v62);
+      v19 = InputDestFromForegroundFocus[1];
+      v60[0] = *InputDestFromForegroundFocus;
+      v20 = InputDestFromForegroundFocus[2];
+      v60[1] = v19;
+      v21 = InputDestFromForegroundFocus[3];
+      v60[2] = v20;
+      v22 = InputDestFromForegroundFocus[4];
+      v60[3] = v21;
+      v23 = InputDestFromForegroundFocus[5];
+      v60[4] = v22;
+      v24 = InputDestFromForegroundFocus[6];
+      v60[5] = v23;
+      v60[6] = v24;
+      CInputDest::CInputDest((CInputDest *)v71, (const struct tagINPUTDEST *)v60);
+      v4 = 1;
+      v25 = 1;
+      if ( CInputDest::operator==((int *)v69, (__int64)v71) )
+LABEL_27:
+        v25 = 0;
       if ( (v4 & 1) != 0 )
-        CInputDest::SetEmpty((CInputDest *)v85);
-      if ( v21 )
+        CInputDest::SetEmpty((CInputDest *)v71);
+      if ( v25 )
       {
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-          || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
-        {
-          v17 = 0;
-        }
-        if ( v17 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          v38 = 42;
-          LOBYTE(v38) = v17;
-          LOBYTE(v28) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          WPP_RECORDER_AND_TRACE_SF_(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v38,
-            v28,
-            WPP_MAIN_CB.Queue.ListEntry.Flink,
-            4,
-            6,
-            42,
-            (__int64)&WPP_47101fbb63c9386296243f9d06c06c50_Traceguids);
-        }
-        goto LABEL_70;
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_((_DWORD)gBaseLog, 4, 6, 41, (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
+        goto LABEL_48;
       }
       MouseWheelForegroundThread = CMouseProcessor::GetMouseWheelForegroundThread();
       if ( MouseWheelForegroundThread
-        && *((_QWORD *)v29 + 53) != *(_QWORD *)(anonymous_namespace_::ResolveApplicationFrameChildThread(MouseWheelForegroundThread)
+        && *((_QWORD *)v17 + 53) != *(_QWORD *)(anonymous_namespace_::ResolveApplicationFrameChildThread(MouseWheelForegroundThread)
                                               + 424)
         && !(unsigned int)APISetEditionGetMouseWheelRoutingMode()
-        && CMouseProcessor::HittestWheelRoutingRequested(v40) )
+        && CMouseProcessor::HittestWheelRoutingRequested(v27) )
       {
-        LOBYTE(v41) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                   && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) != 0
-                   && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        if ( (_BYTE)v41 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v42) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          WPP_RECORDER_AND_TRACE_SF_(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v41,
-            v42,
-            WPP_MAIN_CB.Queue.ListEntry.Flink,
-            4,
-            6,
-            43,
-            (__int64)&WPP_47101fbb63c9386296243f9d06c06c50_Traceguids);
-        }
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_((_DWORD)gBaseLog, 4, 6, 42, (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
         InputTraceLogging::Mouse::RerouteWheel(*(_QWORD *)(*((_QWORD *)a2 + 1) + 88LL));
         ShouldDeliverWheelEventToInputDest = 0;
       }
     }
   }
-  WindowHandle = CInputDest::GetWindowHandle((CInputDest *)v83);
-  v44 = *((_DWORD *)a2 + 6);
-  v45 = *(_WORD *)(*((_QWORD *)a2 + 1) + 30LL);
-  v48 = CMouseProcessor::CWheelEvent::GetWheelMessage(a2, v46, v47);
+  v28 = *((_QWORD *)a2 + 1);
+  v29 = *((_DWORD *)a2 + 6);
+  v30 = *(_WORD *)(v28 + 30);
+  v31 = *(_QWORD *)(v28 + 88);
+  WindowHandle = CInputDest::GetWindowHandle((CInputDest *)v69);
+  v33 = CMouseProcessor::CWheelEvent::GetWheelMessage(a2);
   InputTraceLogging::Mouse::ProcessWheel(
-    *(_QWORD *)(*((_QWORD *)a2 + 1) + 88LL),
-    (const struct tagPOINT *)(*((_QWORD *)a2 + 1) + 52LL),
-    v48,
-    v45,
-    v44,
+    v31,
+    (const struct tagPOINT *)(v28 + 52),
+    v33,
+    v30,
+    v29,
     WindowHandle,
     ShouldDeliverWheelEventToInputDest);
-  v49 = 2 * (unsigned __int8)CMouseProcessor::CMouseEvent::UsingInjectorUIPI(a2);
-  LODWORD(v67) = v49;
+  v34 = 2 * (unsigned __int8)CMouseProcessor::CMouseEvent::UsingInjectorUIPI(a2);
   if ( ShouldDeliverWheelEventToInputDest )
   {
-    if ( !anonymous_namespace_::InMouseRawInputMode((__int64)v83, 1LL, 1) )
+    if ( !anonymous_namespace_::InMouseRawInputMode((__int64)v69, 1, 1) )
     {
-      v51 = *((_QWORD *)a2 + 1);
-      v69 = 0LL;
-      v70 = 0;
-      v67 = v71;
-      v68 = v49;
-      v52 = *(unsigned __int16 *)(v51 + 30);
-      v53 = CMouseProcessor::CWheelEvent::GetWheelMessage(a2, v50, v71);
+      v35 = *((_QWORD *)a2 + 1);
+      v58 = 0LL;
+      v59 = 0;
+      v56 = v50;
+      v57 = v34;
+      v36 = (unsigned __int64)*(unsigned __int16 *)(v35 + 30) << 16;
+      v37 = CMouseProcessor::CWheelEvent::GetWheelMessage(a2);
       if ( (unsigned int)CMouseProcessor::ForwardInputToISM(
-                           this,
-                           v83,
+                           (__int64)this,
+                           v69,
                            a2,
-                           (struct CMouseProcessor::InputDeliveryContext *)&v67,
-                           &v66,
-                           v65,
-                           v53,
-                           v52 << 16) == 1 )
+                           (const struct CMouseProcessor::InputDeliveryContext *)&v56,
+                           &v48,
+                           v49,
+                           v37,
+                           v36) == 1 )
         CMouseProcessor::DeliverMouseWheelToInputDest(
           this,
           a2,
-          (const struct CInputDest *)v83,
-          (const struct CMouseProcessor::InputDeliveryContext *)&v67);
+          (const struct CInputDest *)v69,
+          (const struct CMouseProcessor::InputDeliveryContext *)&v56);
     }
   }
   else
   {
-    if ( !gpqForeground || anonymous_namespace_::InMouseRawInputMode(0LL, 1LL, 1) )
+    if ( !gpqForeground || anonymous_namespace_::InMouseRawInputMode(0LL, 1, 1) )
     {
-LABEL_70:
+LABEL_48:
       InputTraceLogging::Mouse::DropWheel();
-      goto LABEL_71;
+      goto LABEL_49;
     }
-    v54 = *((_QWORD *)a2 + 1);
-    v66 = *(struct tagPOINT *)(v54 + 132);
-    v55 = CMouseProcessor::CMouseEvent::UsingInjectorUIPI(a2);
-    v56 = *(unsigned int *)(v54 + 40);
-    v57 = v55;
-    v58 = *(_QWORD *)(v54 + 88);
-    v59 = *(_DWORD *)(v54 + 80);
-    v60 = *(unsigned __int16 *)(v54 + 30);
-    v64 = CMouseProcessor::CWheelEvent::GetWheelMessage(v62, v61, v63);
-    ApiSetEditionPostMouseWheelToForeground(
-      v64,
-      v60 << 16,
-      v71,
-      v59,
-      v58,
-      v56,
-      v67 | 0x20,
-      v54 + 104,
-      (unsigned __int64)&v66 & -(__int64)(v57 != 0));
+    v38 = *((_QWORD *)a2 + 1);
+    v39 = *(unsigned int *)(v38 + 40);
+    v40 = *(_QWORD *)(v38 + 88);
+    v41 = *(_DWORD *)(v38 + 80);
+    v53 = *(_QWORD *)(v38 + 132);
+    v42 = (unsigned __int64)&v53 & -(__int64)(CMouseProcessor::CMouseEvent::UsingInjectorUIPI(a2) != 0);
+    v48.x = v34 | 0x20;
+    v44 = v43 << 16;
+    v46 = CMouseProcessor::CWheelEvent::GetWheelMessage(v45);
+    ApiSetEditionPostMouseWheelToForeground(v46, v44, v50, v41, v40, v39, v48.x, v38 + 104, v42);
   }
-LABEL_71:
-  CInputDest::SetEmpty((CInputDest *)v83);
-  CMouseProcessor::EndStreamToken::~EndStreamToken((CMouseProcessor::EndStreamToken *)v73);
+LABEL_49:
+  CInputDest::SetEmpty((CInputDest *)v69);
 }

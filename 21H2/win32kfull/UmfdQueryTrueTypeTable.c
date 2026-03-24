@@ -1,10 +1,10 @@
 /*
- * XREFs of UmfdQueryTrueTypeTable @ 0x1C0018730
+ * XREFs of UmfdQueryTrueTypeTable @ 0x1C009AA70
  * Callers:
  *     <none>
  * Callees:
- *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C001B9B8 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
- *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C001BC7C (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C009A610 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall UmfdQueryTrueTypeTable(
@@ -19,37 +19,51 @@ __int64 __fastcall UmfdQueryTrueTypeTable(
 {
   int v12; // eax
   unsigned int v13; // ecx
-  _QWORD v15[6]; // [rsp+28h] [rbp-59h] BYREF
-  int v16; // [rsp+58h] [rbp-29h]
-  int v17; // [rsp+5Ch] [rbp-25h]
-  int v18; // [rsp+60h] [rbp-21h]
-  int v19; // [rsp+64h] [rbp-1Dh]
-  __int64 v20; // [rsp+68h] [rbp-19h]
-  _QWORD *v21; // [rsp+70h] [rbp-11h]
-  _DWORD *v22; // [rsp+78h] [rbp-9h]
-  int v23; // [rsp+80h] [rbp-1h]
-  __int128 v24; // [rsp+88h] [rbp+7h]
-  __int64 v25; // [rsp+98h] [rbp+17h]
+  void **v15; // [rsp+38h] [rbp-79h] BYREF
+  int v16; // [rsp+40h] [rbp-71h]
+  struct _KTHREAD *CurrentThread; // [rsp+48h] [rbp-69h]
+  __int64 v18; // [rsp+50h] [rbp-61h]
+  char v19; // [rsp+58h] [rbp-59h]
+  __int64 v20; // [rsp+60h] [rbp-51h]
+  int v21; // [rsp+68h] [rbp-49h]
+  int v22; // [rsp+6Ch] [rbp-45h]
+  int v23; // [rsp+70h] [rbp-41h]
+  int v24; // [rsp+74h] [rbp-3Dh]
+  __int64 v25; // [rsp+78h] [rbp-39h]
+  _QWORD *v26; // [rsp+80h] [rbp-31h]
+  _DWORD *v27; // [rsp+88h] [rbp-29h]
+  int v28; // [rsp+90h] [rbp-21h]
+  __int128 v29; // [rsp+98h] [rbp-19h]
+  __int64 v30; // [rsp+A8h] [rbp-9h]
+  __int128 ThreadInformation; // [rsp+B8h] [rbp+7h] BYREF
 
   if ( a7 )
     *a7 = 0LL;
   if ( a8 )
     *a8 = 0;
-  FontDriverDdiRequest::FontDriverDdiRequest(v15, 10LL);
-  v25 = 0LL;
-  v15[0] = &QueryTrueTypeTableRequest::`vftable';
-  v19 = a5;
-  v22 = a8;
-  v20 = a6;
-  v24 = 0LL;
-  v15[5] = a1;
-  v16 = a2;
-  v17 = a3;
-  v18 = a4;
-  v21 = a7;
-  v23 = -1;
-  v12 = UmfdClientSendAndWaitForCompletion(*(unsigned int *)(a1 + 8), v15);
-  v13 = v23;
+  v16 = 10;
+  CurrentThread = KeGetCurrentThread();
+  v19 = 0;
+  ThreadInformation = 0LL;
+  if ( ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadAmILastThread|0x20, &ThreadInformation, 0x10u, 0LL) >= 0 )
+  {
+    v18 = ThreadInformation;
+    v19 = 1;
+  }
+  v30 = 0LL;
+  v15 = &QueryTrueTypeTableRequest::`vftable';
+  v24 = a5;
+  v27 = a8;
+  v25 = a6;
+  v29 = 0LL;
+  v20 = a1;
+  v21 = a2;
+  v22 = a3;
+  v23 = a4;
+  v26 = a7;
+  v28 = -1;
+  v12 = UmfdClientSendAndWaitForCompletion(*(_DWORD *)(a1 + 8), (__int64)&v15);
+  v13 = v28;
   if ( v12 < 0 )
     return (unsigned int)-1;
   return v13;

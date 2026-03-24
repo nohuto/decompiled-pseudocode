@@ -1,28 +1,28 @@
 /*
- * XREFs of UsbhWait @ 0x1C002D834
+ * XREFs of UsbhWait @ 0x1C001853C
  * Callers:
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
- *     UsbhCancelResetTimeout @ 0x1C000DCF0 (UsbhCancelResetTimeout.c)
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
- *     UsbhReset1Complete @ 0x1C001BA90 (UsbhReset1Complete.c)
- *     UsbhInitializeDevice @ 0x1C001E90C (UsbhInitializeDevice.c)
- *     UsbhInitialize @ 0x1C002C450 (UsbhInitialize.c)
- *     UsbhOvercurrentResetWorker @ 0x1C002F330 (UsbhOvercurrentResetWorker.c)
- *     UsbhQueueSoftConnectChange @ 0x1C00345D4 (UsbhQueueSoftConnectChange.c)
- *     UsbhFdoSetD0Warm @ 0x1C003B8A0 (UsbhFdoSetD0Warm.c)
- *     UsbhPdoWaitForD3Reconnect @ 0x1C003C2B4 (UsbhPdoWaitForD3Reconnect.c)
- *     UsbhHardReset_Action @ 0x1C003C838 (UsbhHardReset_Action.c)
- *     UsbhPortConnect @ 0x1C004C820 (UsbhPortConnect.c)
- *     UsbhPortResumeFailed @ 0x1C004D050 (UsbhPortResumeFailed.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhReset2Complete @ 0x1C0010540 (UsbhReset2Complete.c)
+ *     UsbhCancelResetTimeout @ 0x1C0013AE0 (UsbhCancelResetTimeout.c)
+ *     UsbhReset1Complete @ 0x1C0018F50 (UsbhReset1Complete.c)
+ *     UsbhInitializeDevice @ 0x1C001C46C (UsbhInitializeDevice.c)
+ *     UsbhInitialize @ 0x1C002D870 (UsbhInitialize.c)
+ *     UsbhOvercurrentResetWorker @ 0x1C0030700 (UsbhOvercurrentResetWorker.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0035938 (UsbhQueueSoftConnectChange.c)
+ *     UsbhFdoSetD0Warm @ 0x1C003CBD0 (UsbhFdoSetD0Warm.c)
+ *     UsbhPdoWaitForD3Reconnect @ 0x1C003D494 (UsbhPdoWaitForD3Reconnect.c)
+ *     UsbhHardReset_Action @ 0x1C003DA18 (UsbhHardReset_Action.c)
+ *     UsbhPortConnect @ 0x1C004DC30 (UsbhPortConnect.c)
+ *     UsbhPortResumeFailed @ 0x1C004E460 (UsbhPortResumeFailed.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhRawWait @ 0x1C001A650 (UsbhRawWait.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhRawWait @ 0x1C0018570 (UsbhRawWait.c)
  */
 
-void __fastcall UsbhWait(__int64 a1, unsigned int a2)
+__int64 __fastcall UsbhWait(__int64 a1, unsigned int a2)
 {
-  int v2; // r10d
+  unsigned int v2; // r10d
 
   Log(a1, 8, 2002872692, a2, 0LL);
-  UsbhRawWait(v2);
+  return UsbhRawWait(v2);
 }

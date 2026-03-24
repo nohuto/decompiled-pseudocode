@@ -1,16 +1,16 @@
 /*
- * XREFs of MmUpdateOldWorkingSetPages @ 0x1402B4274
+ * XREFs of MmUpdateOldWorkingSetPages @ 0x1402B4374
  * Callers:
- *     PfpDeprioritizeOldPagesInWs @ 0x140863EA4 (PfpDeprioritizeOldPagesInWs.c)
+ *     PfpDeprioritizeOldPagesInWs @ 0x140863E84 (PfpDeprioritizeOldPagesInWs.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiTbFlushType @ 0x1400EDB84 (MiTbFlushType.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MmUpdateOldWorkingSetPages(ULONG_PTR BugCheckParameter1, int a2, char a3)

@@ -1,22 +1,23 @@
 /*
- * XREFs of ??0PATHMEMOBJ@@QEAA@XZ @ 0x1C0152CD0
+ * XREFs of ??0PATHMEMOBJ@@QEAA@XZ @ 0x1C0023260
  * Callers:
- *     GreExtCreateRegion @ 0x1C007C890 (GreExtCreateRegion.c)
- *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C015CD90 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
- *     GreCreatePolyPolygonRgnInternal @ 0x1C016AE70 (GreCreatePolyPolygonRgnInternal.c)
+ *     GreExtCreateRegion @ 0x1C0024210 (GreExtCreateRegion.c)
+ *     GreCreatePolyPolygonRgnInternal @ 0x1C00BDA24 (GreCreatePolyPolygonRgnInternal.c)
+ *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C0140900 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
  * Callees:
- *     ??1HmgInsertObjectHelper@@QEAA@XZ @ 0x1C003F2C0 (--1HmgInsertObjectHelper@@QEAA@XZ.c)
- *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z @ 0x1C0047860 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z.c)
- *     PushThreadGuardedObject @ 0x1C0049F70 (PushThreadGuardedObject.c)
- *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C0150A68 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
- *     ??$FreeIsolatedType@V?$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C0152AE8 (--$FreeIsolatedType@V-$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@@@YAXPEAX@Z.c)
- *     ?Allocate@?$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C0152F10 (-Allocate@-$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ??$FreeIsolatedType@V?$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C002348C (--$FreeIsolatedType@V-$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     PushThreadGuardedObject @ 0x1C002E110 (PushThreadGuardedObject.c)
+ *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0035F00 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
+ *     ??1HmgInsertObjectHelper@@QEAA@XZ @ 0x1C00360A8 (--1HmgInsertObjectHelper@@QEAA@XZ.c)
+ *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C013BC44 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
+ *     ?Allocate@?$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C013CF40 (-Allocate@-$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@IEAAPEAXXZ.c)
  */
 
 PATHMEMOBJ *__fastcall PATHMEMOBJ::PATHMEMOBJ(PATHMEMOBJ *this)
 {
   __int64 v2; // rdi
-  _BYTE v4[56]; // [rsp+30h] [rbp-38h] BYREF
+  _BYTE v4[32]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v5; // [rsp+40h] [rbp-18h]
 
   *((_DWORD *)this + 28) = 0;
   *((_QWORD *)this + 1) = 0LL;
@@ -30,27 +31,28 @@ PATHMEMOBJ *__fastcall PATHMEMOBJ::PATHMEMOBJ(PATHMEMOBJ *this)
   *((_QWORD *)this + 6) = 0LL;
   if ( !*((_DWORD *)this + 28) )
   {
-    PushThreadGuardedObject((_QWORD *)this + 10, (__int64)this, (__int64)THREAD_GUARDED_EPATHOBJ::vThreadCleanup);
+    PushThreadGuardedObject((char *)this + 80, this, THREAD_GUARDED_EPATHOBJ::vThreadCleanup);
     *((_DWORD *)this + 28) = 1;
   }
-  if ( *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(SGDGetSessionState(this) + 24) + 6504LL) + 32LL) )
-  {
+  if ( gpTypeIsolation[4] )
     v2 = NSInstrumentation::CTypeIsolation<81920,320>::Allocate();
-    if ( v2 )
+  else
+    v2 = 0LL;
+  if ( v2 )
+  {
+    HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v4);
+    if ( v5 || !HmgInsertObjectInternal((struct OBJECT *)v2, 3u, 7u) )
     {
-      HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v4);
-      if ( HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)v4, (struct OBJECT *)v2, 1u, 0, 7) )
-      {
-        *((_QWORD *)this + 1) = v2;
-        *(_DWORD *)(v2 + 80) = 3;
-        *(_QWORD *)this = 0LL;
-      }
-      else
-      {
-        FreeIsolatedType<NSInstrumentation::CTypeIsolation<81920,320>>(v2);
-      }
-      HmgInsertObjectHelper::~HmgInsertObjectHelper((HmgInsertObjectHelper *)v4);
+      FreeIsolatedType<NSInstrumentation::CTypeIsolation<81920,320>>(v2);
     }
+    else
+    {
+      v5 = v2;
+      *((_QWORD *)this + 1) = v2;
+      *(_DWORD *)(v2 + 80) = 3;
+      *(_QWORD *)this = 0LL;
+    }
+    HmgInsertObjectHelper::~HmgInsertObjectHelper((HmgInsertObjectHelper *)v4);
   }
   return this;
 }

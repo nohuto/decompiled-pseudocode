@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CDropShadow::sc_Color__ @ 0x1800025D0
+ * XREFs of _dynamic_initializer_for__CDropShadow::sc_Color__ @ 0x1800020B0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CDropShadow::sc_Color__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E4820 = (unsigned __int64)CDropShadow::SetAnimatedProperty;
-  qword_1803E4830 = v1;
+  xmmword_180346050 = (unsigned __int64)CBrush::SetAnimatedProperty;
+  qword_180346060 = v1;
   return result;
 }

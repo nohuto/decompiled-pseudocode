@@ -1,9 +1,9 @@
 /*
- * XREFs of PopProcessorQueryCoordinatedDependencyNotification @ 0x14058CEE0
+ * XREFs of PopProcessorQueryCoordinatedDependencyNotification @ 0x14056E310
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopProcessorQueryCoordinatedDependencyNotification(__int64 a1, __int64 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ApplyTimerDelay@@YAXPEAUtagTIMER@@@Z @ 0x1C01C04AC
+ * XREFs of ?ApplyTimerDelay@@YAXPEAUtagTIMER@@@Z @ 0x1C00FB180
  * Callers:
- *     ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01C0774 (-xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
+ *     ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C0167FD0 (-xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ void __fastcall ApplyTimerDelay(struct tagTIMER *a1)
   int v1; // r8d
   int v2; // eax
 
-  v1 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 3) + 424LL) + 1044LL);
+  v1 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 3) + 424LL) + 1036LL);
   if ( v1 )
   {
     v2 = 0x7FFFFFFF;

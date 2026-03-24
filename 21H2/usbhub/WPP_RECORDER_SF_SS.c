@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_RECORDER_SF_SS @ 0x1C005A9C4
+ * XREFs of WPP_RECORDER_SF_SS @ 0x1C005C0E4
  * Callers:
- *     UsbhGetUxdDeviceKey @ 0x1C00599F0 (UsbhGetUxdDeviceKey.c)
- *     UsbhGetUxdPortKey @ 0x1C0059C74 (UsbhGetUxdPortKey.c)
- *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005C1EC (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     UsbhGetUxdDeviceKey @ 0x1C005B10C (UsbhGetUxdDeviceKey.c)
+ *     UsbhGetUxdPortKey @ 0x1C005B39C (UsbhGetUxdPortKey.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005D870 (ReadUSBFnFeaturesFromCurrentConfiguration.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_SS(
@@ -67,7 +67,7 @@ __int64 __fastcall WPP_RECORDER_SF_SS(
     v17 = a6;
     if ( !a6 )
       v17 = L"NULL";
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, __int64, _QWORD, const wchar_t *, __int64, const wchar_t *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, __int64, _QWORD, const wchar_t *, __int64, const wchar_t *, __int64, _QWORD))WPP_MAIN_CB.SecurityDescriptor)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       a5,

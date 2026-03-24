@@ -1,16 +1,16 @@
 /*
- * XREFs of VfCheckForResource @ 0x140AE538C
+ * XREFs of VfCheckForResource @ 0x1409E249C
  * Callers:
- *     ExpCheckForResource @ 0x14060ACC8 (ExpCheckForResource.c)
+ *     ExpCheckForResource @ 0x1405B5564 (ExpCheckForResource.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x14020A004 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     VfAvlDeleteTreeNode @ 0x14020A740 (VfAvlDeleteTreeNode.c)
- *     VfUtilFreePoolCheckIRQL @ 0x14020A930 (VfUtilFreePoolCheckIRQL.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
- *     VfPoolIsInternalFree @ 0x1405D1C2C (VfPoolIsInternalFree.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14037E440 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlDeleteTreeNode @ 0x14037E4A8 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14037E564 (VfAvlLookupTreeNode.c)
+ *     VfPoolIsInternalFree @ 0x1405A24DC (VfPoolIsInternalFree.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfCheckForResource(ULONG_PTR BugCheckParameter3, __int64 a2)
@@ -24,7 +24,7 @@ __int64 __fastcall VfCheckForResource(ULONG_PTR BugCheckParameter3, __int64 a2)
   v8 = 0LL;
   if ( !ViResourceInitialized )
     return 0LL;
-  if ( !(unsigned int)VfPoolIsInternalFree() && qword_140D70748 )
+  if ( !(unsigned int)VfPoolIsInternalFree() && qword_140D4A380 )
   {
     v9 = 0LL;
     VfAvlInitializeLockContext((__int64)&v8, 1);
@@ -45,7 +45,7 @@ __int64 __fastcall VfCheckForResource(ULONG_PTR BugCheckParameter3, __int64 a2)
       VfAvlCleanupLockContext((__int64)&v8);
       if ( v6 )
       {
-        if ( dword_140D70760 == 1 )
+        if ( dword_140D4A398 == 1 )
           ExFreeToNPagedLookasideList(&ViAvlNodeLookaside, v6);
         else
           VfUtilFreePoolCheckIRQL(v6);

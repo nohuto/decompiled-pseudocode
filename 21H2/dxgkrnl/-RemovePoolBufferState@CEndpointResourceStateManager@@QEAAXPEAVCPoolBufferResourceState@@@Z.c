@@ -1,12 +1,12 @@
 /*
- * XREFs of ?RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z @ 0x1C0080B64
+ * XREFs of ?RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z @ 0x1C006D520
  * Callers:
- *     ?ProcessProducerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C007E6C4 (-ProcessProducerDisconnect@CFlipManager@@IEAAXXZ.c)
- *     ?RemovePoolBuffer@CFlipManager@@QEAAJ_K@Z @ 0x1C007EA7C (-RemovePoolBuffer@CFlipManager@@QEAAJ_K@Z.c)
- *     ?ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z @ 0x1C007F5C4 (-ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z.c)
+ *     ?RemovePoolBuffer@FlipManagerObject@@QEAAJ_K@Z @ 0x1C0068AD0 (-RemovePoolBuffer@FlipManagerObject@@QEAAJ_K@Z.c)
+ *     ?ProcessProducerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C006BBC4 (-ProcessProducerDisconnect@CFlipManager@@IEAAXXZ.c)
+ *     ?ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z @ 0x1C006C0EC (-ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z @ 0x1C00816B4 (-SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z @ 0x1C006E8C8 (-SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z.c)
  */
 
 void __fastcall CEndpointResourceStateManager::RemovePoolBufferState(

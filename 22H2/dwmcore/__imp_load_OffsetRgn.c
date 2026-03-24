@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_OffsetRgn @ 0x180111191
+ * XREFs of __imp_load_OffsetRgn @ 0x1800E8DCB
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of SepRemoveAceFromTokenDefaultDacl @ 0x14036FDD8
+ * XREFs of SepRemoveAceFromTokenDefaultDacl @ 0x14031D324
  * Callers:
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
  * Callees:
- *     RtlFindAceBySid @ 0x140227990 (RtlFindAceBySid.c)
- *     RtlDeleteAce @ 0x1407EF6A0 (RtlDeleteAce.c)
+ *     RtlFindAceBySid @ 0x140347920 (RtlFindAceBySid.c)
+ *     RtlDeleteAce @ 0x1406941B0 (RtlDeleteAce.c)
  */
 
-void __fastcall SepRemoveAceFromTokenDefaultDacl(__int64 a1, _WORD *a2)
+void __fastcall SepRemoveAceFromTokenDefaultDacl(__int64 a1, __int64 a2)
 {
   ACL *v2; // rbx
   ULONG AceIndex; // [rsp+30h] [rbp+8h] BYREF

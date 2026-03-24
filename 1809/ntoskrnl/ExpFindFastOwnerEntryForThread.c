@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpFindFastOwnerEntryForThread @ 0x140166064
+ * XREFs of ExpFindFastOwnerEntryForThread @ 0x140166084
  * Callers:
- *     ExIsFastResourceHeldExclusive @ 0x1401648B0 (ExIsFastResourceHeldExclusive.c)
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x140164940 (ExpFastResourceLegacyConvertExclusiveToShared.c)
- *     ExpFastResourceLegacyRelease @ 0x140164B08 (ExpFastResourceLegacyRelease.c)
- *     ExAcquireFastResourceExclusive @ 0x1401652B0 (ExAcquireFastResourceExclusive.c)
- *     ExIsFastResourceHeld @ 0x1401655C0 (ExIsFastResourceHeld.c)
- *     ExDisownFastResource @ 0x140165650 (ExDisownFastResource.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x140165910 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExAcquireFastResourceShared @ 0x140165B40 (ExAcquireFastResourceShared.c)
- *     ExpFastResourceLegacyIsAcquiredShared @ 0x14031B7DC (ExpFastResourceLegacyIsAcquiredShared.c)
+ *     ExIsFastResourceHeldExclusive @ 0x1401648D0 (ExIsFastResourceHeldExclusive.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x140164960 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     ExpFastResourceLegacyRelease @ 0x140164B28 (ExpFastResourceLegacyRelease.c)
+ *     ExAcquireFastResourceExclusive @ 0x1401652D0 (ExAcquireFastResourceExclusive.c)
+ *     ExIsFastResourceHeld @ 0x1401655E0 (ExIsFastResourceHeld.c)
+ *     ExDisownFastResource @ 0x140165670 (ExDisownFastResource.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x140165930 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceShared @ 0x140165B60 (ExAcquireFastResourceShared.c)
+ *     ExpFastResourceLegacyIsAcquiredShared @ 0x14031B8DC (ExpFastResourceLegacyIsAcquiredShared.c)
  * Callees:
  *     <none>
  */

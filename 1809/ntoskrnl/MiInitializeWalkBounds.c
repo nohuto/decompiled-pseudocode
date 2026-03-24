@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeWalkBounds @ 0x14013117C
+ * XREFs of MiInitializeWalkBounds @ 0x14013119C
  * Callers:
- *     MiGenerateRandomPte @ 0x1401310FC (MiGenerateRandomPte.c)
+ *     MiGenerateRandomPte @ 0x14013111C (MiGenerateRandomPte.c)
  * Callees:
  *     <none>
  */

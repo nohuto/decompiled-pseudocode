@@ -1,19 +1,19 @@
 /*
- * XREFs of DrvDbGetObjectSubKeyCallback @ 0x140A6C580
+ * XREFs of DrvDbGetObjectSubKeyCallback @ 0x14097E150
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyExW @ 0x14022B258 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyW @ 0x14022C6D0 (RtlStringCchCopyW.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14082CF10 (_PnpCtxRegEnumKeyWithCallback.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140877FDC (_PnpCtxRegQueryInfoKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCchCopyExW @ 0x14032E518 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchCopyW @ 0x140371E80 (RtlStringCchCopyW.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F9E0C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B18C8 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbGetObjectSubKeyCallback(__int64 a1, __int64 a2, const wchar_t *a3, __int64 a4)
@@ -22,17 +22,17 @@ __int64 __fastcall DrvDbGetObjectSubKeyCallback(__int64 a1, __int64 a2, const wc
   __int64 v5; // rsi
   int v6; // edi
   unsigned int v11; // edi
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v13; // r14
   wchar_t *v14; // rcx
   int v15; // eax
   NTSTRSAFE_PWSTR v16; // rcx
   __int64 v17; // rcx
   __int64 v18; // rcx
-  __int64 v19; // rax
-  _OWORD *v20; // rcx
-  _OWORD *v21; // rax
-  __int64 v22; // rdx
+  _OWORD *v19; // rax
+  __int64 v20; // rdx
+  _OWORD *v21; // rcx
+  _OWORD *v22; // rax
   __int128 v23; // xmm1
   unsigned __int8 (__fastcall *v24)(__int64, wchar_t *, _QWORD, _QWORD); // rax
   unsigned int v25; // eax
@@ -44,7 +44,7 @@ __int64 __fastcall DrvDbGetObjectSubKeyCallback(__int64 a1, __int64 a2, const wc
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
   int v33; // [rsp+B8h] [rbp+48h] BYREF
 
-  v4 = (const wchar_t **)off_140008178;
+  v4 = (const wchar_t **)&off_1400074A8;
   ppszDestEnd = 0LL;
   pcchRemaining = 0LL;
   v5 = 0LL;
@@ -60,14 +60,20 @@ __int64 __fastcall DrvDbGetObjectSubKeyCallback(__int64 a1, __int64 a2, const wc
     if ( v6 )
     {
       v11 = 256;
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, 512LL, 1111770192LL);
-      v13 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x42444450u);
+      v13 = PoolWithTag;
+      if ( !PoolWithTag )
         break;
-      v14 = Pool2;
+      v14 = PoolWithTag;
       if ( *(_WORD *)(a4 + 8) )
       {
-        if ( RtlStringCchCopyExW(Pool2, 0x100uLL, (NTSTRSAFE_PCWSTR)(a4 + 8), &ppszDestEnd, &pcchRemaining, 0x900u) >= 0 )
+        if ( RtlStringCchCopyExW(
+               PoolWithTag,
+               0x100uLL,
+               (NTSTRSAFE_PCWSTR)(a4 + 8),
+               &ppszDestEnd,
+               &pcchRemaining,
+               0x900u) >= 0 )
         {
           v15 = pcchRemaining;
           if ( pcchRemaining >= 2 )
@@ -97,32 +103,32 @@ LABEL_9:
       }
       if ( v33 && *(_DWORD *)(a4 + 4) < *(_DWORD *)a4 )
       {
-        v19 = ExAllocatePool2(256LL, 552LL, 1111770192LL);
-        v5 = v19;
+        v19 = ExAllocatePoolWithTag(PagedPool, 0x228uLL, 0x42444450u);
+        v5 = (__int64)v19;
         if ( !v19 )
           goto LABEL_28;
-        v20 = (_OWORD *)v19;
-        v21 = (_OWORD *)a4;
-        v22 = 4LL;
+        v20 = 4LL;
+        v21 = v19;
+        v22 = (_OWORD *)a4;
         do
         {
-          *v20 = *v21;
-          v20[1] = v21[1];
-          v20[2] = v21[2];
-          v20[3] = v21[3];
-          v20[4] = v21[4];
-          v20[5] = v21[5];
-          v20[6] = v21[6];
-          v20 += 8;
-          v23 = v21[7];
+          *v21 = *v22;
+          v21[1] = v22[1];
+          v21[2] = v22[2];
+          v21[3] = v22[3];
+          v21[4] = v22[4];
+          v21[5] = v22[5];
+          v21[6] = v22[6];
           v21 += 8;
-          *(v20 - 1) = v23;
-          --v22;
+          v23 = v22[7];
+          v22 += 8;
+          *(v21 - 1) = v23;
+          --v20;
         }
-        while ( v22 );
-        *v20 = *v21;
-        v20[1] = v21[1];
-        *((_QWORD *)v20 + 4) = *((_QWORD *)v21 + 4);
+        while ( v20 );
+        *v21 = *v22;
+        v21[1] = v22[1];
+        *((_QWORD *)v21 + 4) = *((_QWORD *)v22 + 4);
         ++*(_DWORD *)(v5 + 4);
         RtlStringCchCopyExW((NTSTRSAFE_PWSTR)(v5 + 8), 0x100uLL, v13, 0LL, 0LL, 0x900u);
         PnpCtxRegEnumKeyWithCallback(a1, Handle, (__int64)&DrvDbGetObjectSubKeyCallback, v5);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?isOwned@CInpLockGuard@@QEAAHXZ @ 0x1C008B8A0
+ * XREFs of ?isOwned@CInpLockGuard@@QEAAHXZ @ 0x1C007B5E0
  * Callers:
- *     ?LockExclusive@CInpLockGuard@@QEAAXXZ @ 0x1C00DCD70 (-LockExclusive@CInpLockGuard@@QEAAXXZ.c)
- *     ?LockShared@CInpLockGuard@@QEAAX_N@Z @ 0x1C00DCDC0 (-LockShared@CInpLockGuard@@QEAAX_N@Z.c)
- *     ?UnLock@CInpLockGuard@@QEAAXXZ @ 0x1C00DCE00 (-UnLock@CInpLockGuard@@QEAAXXZ.c)
+ *     ?UnLock@CInpLockGuard@@QEAAXXZ @ 0x1C007B590 (-UnLock@CInpLockGuard@@QEAAXXZ.c)
+ *     ?LockExclusive@CInpLockGuard@@QEAAXXZ @ 0x1C00CD830 (-LockExclusive@CInpLockGuard@@QEAAXXZ.c)
+ *     ?LockShared@CInpLockGuard@@QEAAX_N@Z @ 0x1C00CD890 (-LockShared@CInpLockGuard@@QEAAX_N@Z.c)
  * Callees:
  *     <none>
  */

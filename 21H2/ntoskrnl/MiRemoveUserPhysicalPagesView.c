@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRemoveUserPhysicalPagesView @ 0x14097D5F0
+ * XREFs of MiRemoveUserPhysicalPagesView @ 0x1408D644C
  * Callers:
- *     MiDeleteVad @ 0x1407BC0B0 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     MiLocatePhysicalViewInTree @ 0x1405AB920 (MiLocatePhysicalViewInTree.c)
- *     MiLockAweVadsExclusive @ 0x1405AB9B8 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x1405AC950 (MiUnlockAweVadsExclusive.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     MiLocatePhysicalViewInTree @ 0x14054CF68 (MiLocatePhysicalViewInTree.c)
+ *     MiLockAweVadsExclusive @ 0x14054D000 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054DFF8 (MiUnlockAweVadsExclusive.c)
  */
 
 unsigned __int64 *__fastcall MiRemoveUserPhysicalPagesView(__int64 a1)
@@ -16,14 +16,14 @@ unsigned __int64 *__fastcall MiRemoveUserPhysicalPagesView(__int64 a1)
   unsigned __int64 *PhysicalViewInTree; // rbx
   unsigned __int64 *v6; // r11
 
-  if ( (*(_DWORD *)(a1 + 48) & 0x6200000) == 0x4200000 )
+  if ( (*(_DWORD *)(a1 + 48) & 0x3100000) == 0x2100000 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
-  v4 = CurrentThread->ApcState.Process[1].ActiveProcessors.StaticBitmap[28];
+  v4 = CurrentThread->ApcState.Process[1].ActiveProcessorsPadding[8];
   MiLockAweVadsExclusive((__int64)CurrentThread);
   PhysicalViewInTree = MiLocatePhysicalViewInTree(
                          *(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32),
-                         (_QWORD *)(v4 + 384));
+                         (_QWORD *)(v4 + 400));
   RtlAvlRemoveNode(v6, PhysicalViewInTree);
   MiUnlockAweVadsExclusive((__int64)CurrentThread);
   PhysicalViewInTree[2] = 0LL;

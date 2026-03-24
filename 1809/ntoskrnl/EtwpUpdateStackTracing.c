@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUpdateStackTracing @ 0x1408B70F0
+ * XREFs of EtwpUpdateStackTracing @ 0x1408B70D0
  * Callers:
- *     EtwpCheckForStackTracingExtension @ 0x14065AF6C (EtwpCheckForStackTracingExtension.c)
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A6C (EtwSetPerformanceTraceInformation.c)
+ *     EtwpCheckForStackTracingExtension @ 0x14065AF4C (EtwpCheckForStackTracingExtension.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
- *     EtwpInitializeStackTracing @ 0x1408B6F24 (EtwpInitializeStackTracing.c)
+ *     EtwpInitializeStackTracing @ 0x1408B6F04 (EtwpInitializeStackTracing.c)
  */
 
 __int64 __fastcall EtwpUpdateStackTracing(struct _RTL_BITMAP *a1, __int64 a2, unsigned int a3)

@@ -1,13 +1,12 @@
 /*
- * XREFs of ?NotifyAllocationReclaimed@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@H@Z @ 0x1C00E5FD8
+ * XREFs of ?NotifyAllocationReclaimed@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@H@Z @ 0x1C00B07EC
  * Callers:
- *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1C0093270 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4_VIDMM_PLACEMENT_RESTRICTION@@_NPEA_N.c)
- *     ?EvictAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00E2664 (-EvictAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
- *     ?NotifyAllocationReclaimed@@YAXPEAX@Z @ 0x1C00E5FB0 (-NotifyAllocationReclaimed@@YAXPEAX@Z.c)
- *     ?ReclaimAllocationForVPRCallback@@YAEPEAX0@Z @ 0x1C00FEC0C (-ReclaimAllocationForVPRCallback@@YAEPEAX0@Z.c)
- *     ?TrimResidentBytes@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z @ 0x1C00FFE90 (-TrimResidentBytes@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z.c)
+ *     ?TrimResidentBytes@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z @ 0x1C0086864 (-TrimResidentBytes@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z.c)
+ *     ?EvictAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00AE298 (-EvictAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?NotifyAllocationReclaimed@@YAXPEAX@Z @ 0x1C00B07C0 (-NotifyAllocationReclaimed@@YAXPEAX@Z.c)
+ *     ?ReclaimAllocationForVPRCallback@@YAEPEAX0@Z @ 0x1C00C7310 (-ReclaimAllocationForVPRCallback@@YAEPEAX0@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall VIDMM_GLOBAL::NotifyAllocationReclaimed(
@@ -15,33 +14,32 @@ void __fastcall VIDMM_GLOBAL::NotifyAllocationReclaimed(
         struct _VIDMM_GLOBAL_ALLOC *a2,
         unsigned int a3)
 {
-  char *v6; // rcx
+  char *v6; // rdx
   __int64 v7; // rax
-  bool v8; // zf
-  char *v9; // rax
-  char **v10; // rdx
+  char *v8; // rax
+  char **v9; // rcx
 
   if ( g_IsInternalReleaseOrDbg )
     *(_QWORD *)(WdLogNewEntry5_WdTrace(this) + 24) = a2;
-  (*(void (__fastcall **)(_QWORD, struct _VIDMM_GLOBAL_ALLOC *, _QWORD))(**((_QWORD **)a2 + 15) + 32LL))(
-    *((_QWORD *)a2 + 15),
+  (*(void (__fastcall **)(_QWORD, struct _VIDMM_GLOBAL_ALLOC *, _QWORD))(**((_QWORD **)a2 + 16) + 32LL))(
+    *((_QWORD *)a2 + 16),
     a2,
     a3);
-  v6 = (char *)this + 3752;
-  *(_WORD *)(*((_QWORD *)a2 + 67) + 6LL) = 0;
-  *(_QWORD *)(*((_QWORD *)a2 + 67) + 32LL) = 0LL;
-  v7 = *((_QWORD *)a2 + 15);
-  *((_QWORD *)a2 + 17) = 0LL;
-  *((_DWORD *)a2 + 28) = 0;
-  v8 = (*(_DWORD *)(v7 + 80) & 0x1001) == 0;
-  v9 = (char *)a2 + 344;
-  if ( !v8 )
-    v6 = (char *)this + 3736;
-  v10 = (char **)*((_QWORD *)v6 + 1);
-  if ( *v10 != v6 )
+  v6 = (char *)a2 + 320;
+  *(_WORD *)(*((_QWORD *)a2 + 62) + 6LL) = 0;
+  *(_QWORD *)(*((_QWORD *)a2 + 62) + 32LL) = 0LL;
+  v7 = *((_QWORD *)a2 + 16);
+  *((_QWORD *)a2 + 18) = 0LL;
+  *((_DWORD *)a2 + 30) = 0;
+  if ( (*(_DWORD *)(v7 + 80) & 0x1001) != 0 )
+    v8 = (char *)this + 3736;
+  else
+    v8 = (char *)this + 3752;
+  v9 = (char **)*((_QWORD *)v8 + 1);
+  if ( *v9 != v8 )
     __fastfail(3u);
-  *(_QWORD *)v9 = v6;
-  *((_QWORD *)a2 + 44) = v10;
-  *v10 = v9;
-  *((_QWORD *)v6 + 1) = v9;
+  *(_QWORD *)v6 = v8;
+  *((_QWORD *)a2 + 41) = v9;
+  *v9 = v6;
+  *((_QWORD *)v8 + 1) = v6;
 }

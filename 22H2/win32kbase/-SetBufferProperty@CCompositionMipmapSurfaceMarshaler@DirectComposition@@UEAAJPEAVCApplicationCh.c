@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022F7F0
+ * XREFs of ?SetBufferProperty@CCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F70D0
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
  */
 
 __int64 __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetBufferProperty(
@@ -14,7 +14,7 @@ __int64 __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetBuf
         unsigned __int64 a5,
         bool *a6)
 {
-  unsigned int v6; // ebx
+  unsigned int v7; // ebx
   int v8; // r8d
   unsigned int v9; // ebp
   unsigned int v10; // esi
@@ -22,10 +22,10 @@ __int64 __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetBuf
   unsigned int v12; // r13d
   unsigned __int64 v13; // r14
   unsigned int v14; // eax
-  __int64 QuotaZInit; // rax
+  void *v15; // rax
   __int64 v17; // rax
 
-  v6 = 0;
+  v7 = 0;
   *a6 = 0;
   v8 = a3 - 1;
   if ( !v8 )
@@ -39,7 +39,7 @@ __int64 __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetBuf
         *(_OWORD *)(*((_QWORD *)this + 7) + 24 * v17 + 8) = *(_OWORD *)a4;
         *a6 = 1;
         *((_DWORD *)this + 22) |= 1 << *((_BYTE *)this + 64);
-        return v6;
+        return v7;
       }
     }
     return (unsigned int)-1073741811;
@@ -75,20 +75,16 @@ __int64 __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetBuf
   }
   if ( is_mul_ok(v13, 0x18uLL) )
   {
-    QuotaZInit = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                   (NSInstrumentation::CLeakTrackingAllocator *)(unsigned int)(v13 - 1),
-                   (a4[2] * (unsigned __int128)0x18u) >> 64,
-                   24 * v13,
-                   0x6D6D4344u);
-    if ( QuotaZInit )
+    v15 = Win32AllocPoolWithQuotaZInit(24LL * a4[2], 0x6D6D4344u);
+    if ( v15 )
     {
+      *((_DWORD *)this + 22) = 0;
       *((_DWORD *)this + 17) = v9;
       *((_DWORD *)this + 18) = v10;
       *((_DWORD *)this + 19) = v13;
       *((_DWORD *)this + 21) = v12;
       *((_DWORD *)this + 20) = v11;
-      *((_QWORD *)this + 7) = QuotaZInit;
-      *((_DWORD *)this + 22) = 0;
+      *((_QWORD *)this + 7) = v15;
       *a6 = 1;
       *((_DWORD *)this + 4) |= 0x20u;
     }
@@ -101,5 +97,5 @@ __int64 __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetBuf
   {
     return (unsigned int)-1073741675;
   }
-  return v6;
+  return v7;
 }

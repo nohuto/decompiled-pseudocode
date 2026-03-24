@@ -1,5 +1,5 @@
 /*
- * XREFs of NtHWCursorUpdatePointer @ 0x1C0159670
+ * XREFs of NtHWCursorUpdatePointer @ 0x1C0165F90
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of RaspMapGlyphIndexToLocation @ 0x140385F4C
+ * XREFs of RaspMapGlyphIndexToLocation @ 0x1403ADF80
  * Callers:
- *     RaspGetUnscaledGlyphData @ 0x140385358 (RaspGetUnscaledGlyphData.c)
- *     RaspGetCompositeGlyphList @ 0x14067351C (RaspGetCompositeGlyphList.c)
+ *     RaspGetUnscaledGlyphData @ 0x1403AD344 (RaspGetUnscaledGlyphData.c)
+ *     RaspGetCompositeGlyphList @ 0x1405C5A1C (RaspGetCompositeGlyphList.c)
  * Callees:
- *     FioFwReadUshortAtOffset @ 0x140385FE8 (FioFwReadUshortAtOffset.c)
- *     FioFwReadUlongAtOffset @ 0x140387014 (FioFwReadUlongAtOffset.c)
+ *     FioFwReadUlongAtOffset @ 0x1403AC61C (FioFwReadUlongAtOffset.c)
+ *     FioFwReadUshortAtOffset @ 0x1403AE01C (FioFwReadUshortAtOffset.c)
  */
 
 __int64 __fastcall RaspMapGlyphIndexToLocation(__int64 a1, int a2, int *a3)
@@ -42,12 +42,12 @@ __int64 __fastcall RaspMapGlyphIndexToLocation(__int64 a1, int a2, int *a3)
   if ( v5 != 1 )
     return 3221225595LL;
   v10 = (unsigned int)(*(_DWORD *)(a1 + 72) + 4 * a2);
-  result = FioFwReadUlongAtOffset(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL), v10, &v13);
+  result = FioFwReadUlongAtOffset(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL), v10, (unsigned int *)&v13);
   if ( (int)result >= 0 )
   {
     v11 = *(_QWORD *)(a1 + 16);
     *a3 = v13;
-    result = FioFwReadUlongAtOffset(*(_QWORD *)(v11 + 16), (unsigned int)(v10 + 4), &v13);
+    result = FioFwReadUlongAtOffset(*(_QWORD *)(v11 + 16), (unsigned int)(v10 + 4), (unsigned int *)&v13);
     if ( (int)result >= 0 )
     {
       v9 = v13;

@@ -1,75 +1,83 @@
 /*
- * XREFs of DpUnmapMemory @ 0x1C021AF40
+ * XREFs of DpUnmapMemory @ 0x1C019F250
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DpUnmapMemory(__int64 a1, __int64 a2)
+__int64 __fastcall DpUnmapMemory(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v2; // ebx
-  __int64 *v4; // rdi
-  char v5; // r14
-  __int64 v6; // rsi
-  __int64 *v7; // rax
-  __int64 *v8; // rcx
-  __int64 *v10; // rcx
-  __int64 **v11; // rdx
+  unsigned int v3; // ebx
+  __int64 *v5; // rdi
+  char v6; // r14
+  __int64 v7; // rsi
+  __int64 *v8; // rax
+  __int64 *v9; // rcx
+  __int64 *v11; // rcx
+  __int64 **v12; // rdx
+  __int64 v14; // rax
+  __int64 v15; // rax
 
-  v2 = 0;
-  v4 = 0LL;
-  v5 = 0;
+  v3 = 0;
+  v5 = 0LL;
+  v6 = 0;
   if ( a1
     && a2
-    && (v6 = *(_QWORD *)(a1 + 64)) != 0
-    && *(_DWORD *)(v6 + 16) == 1953656900
-    && (unsigned int)(*(_DWORD *)(v6 + 20) - 2) <= 1 )
+    && (v7 = *(_QWORD *)(a1 + 64)) != 0
+    && *(_DWORD *)(v7 + 16) == 1953656900
+    && (unsigned int)(*(_DWORD *)(v7 + 20) - 2) <= 1 )
   {
     if ( KeGetCurrentIrql() )
-      WdLogSingleEntry1(3LL, -1073741811LL);
-    KeWaitForSingleObject((PVOID)(v6 + 2520), Executive, 0, 0, 0LL);
-    v7 = *(__int64 **)(v6 + 2504);
-    v8 = v7;
-    if ( (__int64 *)*v7 != v7 )
+    {
+      v14 = WdLogNewEntry5_WdWarning(a1, a2, a3);
+      *(_QWORD *)(v14 + 24) = -1073741811LL;
+      WdLogEvent5_WdWarning(v14);
+    }
+    KeWaitForSingleObject((PVOID)(v7 + 2520), Executive, 0, 0, 0LL);
+    v8 = *(__int64 **)(v7 + 2504);
+    v9 = v8;
+    if ( (__int64 *)*v8 != v8 )
     {
       while ( 1 )
       {
-        v4 = v7;
-        if ( v7[8] == a2 )
+        v5 = v8;
+        if ( v8[8] == a2 )
           break;
-        v7 = (__int64 *)*v7;
-        if ( (__int64 *)*v7 == v8 )
+        v8 = (__int64 *)*v8;
+        if ( (__int64 *)*v8 == v9 )
           goto LABEL_14;
       }
-      if ( (*((_DWORD *)v7 + 6))-- == 1 )
+      if ( (*((_DWORD *)v8 + 6))-- == 1 )
       {
-        v10 = (__int64 *)*v7;
-        if ( *(__int64 **)(*v7 + 8) != v7 || (v11 = (__int64 **)v7[1], *v11 != v7) )
+        v11 = (__int64 *)*v8;
+        if ( *(__int64 **)(*v8 + 8) != v8 || (v12 = (__int64 **)v8[1], *v12 != v8) )
           __fastfail(3u);
-        *v11 = v10;
-        v5 = 1;
-        v10[1] = (__int64)v11;
+        *v12 = v11;
+        v6 = 1;
+        v11[1] = (__int64)v12;
       }
     }
 LABEL_14:
-    KeReleaseMutex((PRKMUTEX)(v6 + 2520), 0);
-    if ( v5 == 1 )
+    KeReleaseMutex((PRKMUTEX)(v7 + 2520), 0);
+    if ( v6 == 1 )
     {
-      if ( *((_BYTE *)v4 + 72) == 1 )
+      if ( *((_BYTE *)v5 + 72) == 1 )
       {
-        if ( *((_BYTE *)v4 + 45) == 1 )
-          v2 = ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)v4[8]);
+        if ( *((_BYTE *)v5 + 45) == 1 )
+          v3 = ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)v5[8]);
         else
-          MmUnmapIoSpace((PVOID)v4[8], *((unsigned int *)v4 + 10));
+          MmUnmapIoSpace((PVOID)v5[8], *((unsigned int *)v5 + 10));
       }
-      ExFreePoolWithTag(v4, 0x74727044u);
+      ExFreePoolWithTag(v5, 0x74727044u);
     }
   }
   else
   {
-    v2 = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
+    v3 = -1073741811;
+    v15 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v15 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v15);
   }
-  return v2;
+  return v3;
 }

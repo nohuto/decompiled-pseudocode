@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileMappingGetFileKind @ 0x14075AC24
+ * XREFs of AslpFileMappingGetFileKind @ 0x1407B3CD4
  * Callers:
- *     AslFileMappingCreate @ 0x14075844C (AslFileMappingCreate.c)
- *     AslFileMappingEnsure @ 0x140759400 (AslFileMappingEnsure.c)
- *     AslFileMappingCreateFromImageView @ 0x140849CE8 (AslFileMappingCreateFromImageView.c)
- *     AslFileMappingEnsureMappedAs @ 0x140A5471C (AslFileMappingEnsureMappedAs.c)
- *     AslpFileLargeEnsureLargeFileMapping @ 0x140A59538 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslFileMappingCreate @ 0x1407581E8 (AslFileMappingCreate.c)
+ *     AslFileMappingEnsure @ 0x1407B2D08 (AslFileMappingEnsure.c)
+ *     AslFileMappingCreateFromImageView @ 0x1407B3BD8 (AslFileMappingCreateFromImageView.c)
+ *     AslFileMappingEnsureMappedAs @ 0x140967FD4 (AslFileMappingEnsureMappedAs.c)
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x14096BF44 (AslpFileLargeEnsureLargeFileMapping.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileMappingGetFileKind(_QWORD *a1, int *a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlInitializeWorkerThread @ 0x140B69528
+ * XREFs of FsRtlInitializeWorkerThread @ 0x140A6BC0C
  * Callers:
- *     FsRtlInitSystem @ 0x140B693F0 (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140A6B9E0 (FsRtlInitSystem.c)
  * Callees:
- *     KeInitializeQueue @ 0x140220E30 (KeInitializeQueue.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     PsCreateSystemThread @ 0x1407B86B0 (PsCreateSystemThread.c)
+ *     KeInitializeQueue @ 0x140310CC0 (KeInitializeQueue.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1406FDA10 (PsCreateSystemThread.c)
  */
 
 NTSTATUS FsRtlInitializeWorkerThread()
@@ -13,13 +13,13 @@ NTSTATUS FsRtlInitializeWorkerThread()
   unsigned int v0; // edi
   NTSTATUS result; // eax
   NTSTATUS v2; // ebx
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
-  HANDLE ThreadHandle; // [rsp+80h] [rbp+10h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-38h] BYREF
+  HANDLE ThreadHandle; // [rsp+80h] [rbp+8h] BYREF
 
+  memset(&ObjectAttributes.Length + 1, 0, 44);
   ThreadHandle = 0LL;
-  memset(&ObjectAttributes.RootDirectory, 0, 40);
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   v0 = 0;
+  ObjectAttributes.Length = 48;
   while ( 1 )
   {
     KeInitializeQueue((PRKQUEUE)&FsRtlWorkerQueues + v0, 0);

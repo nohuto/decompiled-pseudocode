@@ -1,27 +1,26 @@
 /*
- * XREFs of ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C006A3B0
+ * XREFs of ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D9B74
  * Callers:
- *     xxxDesktopThread @ 0x1C0069C00 (xxxDesktopThread.c)
+ *     xxxDesktopThread @ 0x1C00D9400 (xxxDesktopThread.c)
  * Callees:
- *     xxxInternalGetMessage @ 0x1C006A4F0 (xxxInternalGetMessage.c)
- *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C006D000 (WPP_RECORDER_AND_TRACE_SF_d.c)
- *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C006DCB0 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
- *     xxxCleanupMotherDesktopWindow @ 0x1C00BE0EC (xxxCleanupMotherDesktopWindow.c)
- *     xxxDispatchMessage @ 0x1C0117884 (xxxDispatchMessage.c)
+ *     WPP_RECORDER_SF_d @ 0x1C003AC94 (WPP_RECORDER_SF_d.c)
+ *     xxxDispatchMessage @ 0x1C006ADB4 (xxxDispatchMessage.c)
+ *     xxxCleanupMotherDesktopWindow @ 0x1C00D6A54 (xxxCleanupMotherDesktopWindow.c)
+ *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D84E8 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     xxxInternalGetMessage @ 0x1C00D9C60 (xxxInternalGetMessage.c)
  */
 
 __int64 __fastcall xxxHandleDesktopMessages(struct tagTHREADINFO *a1, struct tagTERMINAL *a2)
 {
-  char v4; // bl
-  int v5; // r8d
-  int v7; // eax
-  unsigned int v8; // edx
-  __int128 v9; // [rsp+50h] [rbp-38h] BYREF
-  __int128 v10; // [rsp+60h] [rbp-28h]
-  __int128 v11; // [rsp+70h] [rbp-18h]
+  int v4; // edx
+  int v6; // eax
+  unsigned int v7; // ecx
+  __int64 v8; // [rsp+28h] [rbp-40h]
+  __int128 v9; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v10; // [rsp+40h] [rbp-28h]
+  __int128 v11; // [rsp+50h] [rbp-18h]
 
   v9 = 0LL;
-  v4 = 1;
   v10 = 0LL;
   v11 = 0LL;
   while ( 1 )
@@ -30,49 +29,34 @@ __int64 __fastcall xxxHandleDesktopMessages(struct tagTHREADINFO *a1, struct tag
       return 1LL;
     if ( a2 == (struct tagTERMINAL *)&gTermNOIO )
     {
-      v7 = DWORD2(v9);
+      v6 = DWORD2(v9);
       if ( DWORD2(v9) != 18 )
         goto LABEL_6;
-      xxxCleanupMotherDesktopWindow(a2);
+      xxxCleanupMotherDesktopWindow((__int64)a2);
     }
-    v7 = DWORD2(v9);
+    v6 = DWORD2(v9);
     if ( DWORD2(v9) == 18 )
     {
-      v8 = *((_DWORD *)a1 + 226);
-      if ( v8 <= 1 )
+      v7 = *((_DWORD *)a1 + 224);
+      if ( v7 <= 1 )
         break;
     }
 LABEL_6:
-    if ( v7 == 796 )
+    if ( v6 == 796 )
     {
       if ( (_QWORD)v10 == 2LL )
         DestroyPendingDesktops(a1, a2);
     }
     else
     {
-      xxxDispatchMessage(&v9);
+      xxxDispatchMessage((__int64)&v9);
     }
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) == 0
-    || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v4 = 0;
-  }
-  if ( v4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v8) = v4;
-    LOBYTE(v5) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_d(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v8,
-      v5,
-      (_DWORD)gFullLog,
-      4,
-      8,
-      21,
-      (__int64)&WPP_580b03b5f0a135a81a235548571d0f77_Traceguids,
-      *((_DWORD *)a1 + 226));
+    LODWORD(v8) = *((_DWORD *)a1 + 224);
+    LOBYTE(v4) = 4;
+    WPP_RECORDER_SF_d(v7, v4, 8, 21, (__int64)&WPP_4cc55f0eccd63a8558931143e45fab5e_Traceguids, v8, (_QWORD)v9);
   }
   return 0LL;
 }

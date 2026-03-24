@@ -1,38 +1,34 @@
 /*
- * XREFs of ?TrackObjectReferenceInitialization@@YAXW4ReferenceTrackerCountedType@@PEAXI@Z @ 0x1C00478FC
+ * XREFs of ?TrackObjectReferenceInitialization@@YAXW4ReferenceTrackerCountedType@@PEAXI@Z @ 0x1C0081DB4
  * Callers:
- *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0046F30 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
- *     ?InitializeClientReferenceCount@PDEV@@QEAAXXZ @ 0x1C00A9C04 (-InitializeClientReferenceCount@PDEV@@QEAAXXZ.c)
+ *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0035F00 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
+ *     ?InitializeClientReferenceCount@PDEV@@QEAAXXZ @ 0x1C007ED80 (-InitializeClientReferenceCount@PDEV@@QEAAXXZ.c)
  * Callees:
- *     ?ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAUSCircularBuffer@123@_N@Z @ 0x1C016EC94 (-ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAU.c)
+ *     ?ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAUSCircularBuffer@123@_N@Z @ 0x1C014DC64 (-ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAU.c)
  */
 
 void __fastcall TrackObjectReferenceInitialization(
-        __int64 a1,
+        unsigned int a1,
         struct NSInstrumentation::CReferenceTracker::CReferenceCountedType::SCircularBuffer *a2,
         unsigned int a3)
 {
-  __int64 v3; // rbx
-  __int64 v5; // rdi
-  __int64 v6; // rcx
-  NSInstrumentation::CReferenceTracker::CReferenceCountedType *v7; // rdi
+  NSInstrumentation::CReferenceTracker::CReferenceCountedType *v4; // rdi
+  __int64 v5; // rbx
 
-  v3 = a3;
-  v5 = (unsigned int)a1;
-  v6 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
   if ( a2 )
   {
-    v7 = *(NSInstrumentation::CReferenceTracker::CReferenceCountedType **)(v6 + 16 * v5 + 8040);
-    if ( v7 )
+    v4 = *(&qword_1C024B3F8 + 2 * a1);
+    if ( v4 )
     {
-      if ( (_DWORD)v3 )
+      if ( a3 )
       {
+        v5 = a3;
         do
         {
-          NSInstrumentation::CReferenceTracker::CReferenceCountedType::ReferenceDereferenceCommon(v7, a2, 1);
-          --v3;
+          NSInstrumentation::CReferenceTracker::CReferenceCountedType::ReferenceDereferenceCommon(v4, a2, 1);
+          --v5;
         }
-        while ( v3 );
+        while ( v5 );
       }
     }
   }

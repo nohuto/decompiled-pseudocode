@@ -1,148 +1,168 @@
 /*
- * XREFs of MonitorNotifyDeviceNodeReady @ 0x1C020643C
+ * XREFs of MonitorNotifyDeviceNodeReady @ 0x1C018F74C
  * Callers:
- *     DpiPdoDispatchPnp @ 0x1C01E4250 (DpiPdoDispatchPnp.c)
- *     DpiPdoHandleChildConnectionChange @ 0x1C02164B8 (DpiPdoHandleChildConnectionChange.c)
+ *     DpiPdoDispatchPnp @ 0x1C0168730 (DpiPdoDispatchPnp.c)
+ *     DpiPdoHandleChildConnectionChange @ 0x1C0179B08 (DpiPdoHandleChildConnectionChange.c)
  * Callees:
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0?$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z @ 0x1C00135F8 (--0-$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJAEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01579C0 (-_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJAEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXG.c)
- *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C01A2ECC (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
- *     ?_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C01E285C (-_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_.c)
- *     ?_GetMonitorDiagInfo@DXGMONITOR@@QEBAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C0207244 (-_GetMonitorDiagInfo@DXGMONITOR@@QEBAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z.c)
- *     ??1MonitorEventDeferral@@UEAA@XZ @ 0x1C0208A3C (--1MonitorEventDeferral@@UEAA@XZ.c)
- *     ?FlushEventsWithContext@MonitorEventDeferral@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0208AB8 (-FlushEventsWithContext@MonitorEventDeferral@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ?_CopyMonitorInformation@DXGMONITOR@@QEAAJPEBV1@@Z @ 0x1C03B5278 (-_CopyMonitorInformation@DXGMONITOR@@QEAAJPEBV1@@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?_GetAttachedPhysicalMonitor@DXGMONITOR@@QEAAPEAV1@XZ @ 0x1C005DEC8 (-_GetAttachedPhysicalMonitor@DXGMONITOR@@QEAAPEAV1@XZ.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0129B38 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C0161C8C (-_LogMonitorPresentEvent@MONITOR_MGR@@QEAAXW4_DMM_MONITOR_PRESENCE_EVENT_TYPE@@IJPEAU_DXGK_DIAG_.c)
+ *     ?_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C018C2F4 (-_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?_GetMonitorDiagInfo@DXGMONITOR@@QEAAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C018F0D0 (-_GetMonitorDiagInfo@DXGMONITOR@@QEAAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z.c)
+ *     ?_CopyMonitorInformation@DXGMONITOR@@QEAAJPEBV1@@Z @ 0x1C02F99D8 (-_CopyMonitorInformation@DXGMONITOR@@QEAAJPEBV1@@Z.c)
  */
 
 __int64 __fastcall MonitorNotifyDeviceNodeReady(PERESOURCE *this, unsigned int a2, __int64 a3)
 {
-  __int64 v3; // r15
+  __int64 v3; // r12
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // rax
-  PERESOURCE v9; // rsi
-  MONITOR_MGR *Blink; // rsi
-  int MonitorInstance; // ebx
-  DXGMONITOR *v13; // rbx
-  DXGMONITOR *v14; // rdi
-  int v15; // r14d
-  int v16; // ebx
-  DXGMONITOR *v17; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v18; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v19; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v20; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v21; // [rsp+50h] [rbp-B0h] BYREF
-  _OWORD v22[2]; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD v23[2]; // [rsp+80h] [rbp-80h] BYREF
-  __int128 v24; // [rsp+90h] [rbp-70h]
-  __int128 v25; // [rsp+A0h] [rbp-60h]
-  __int128 v26; // [rsp+B0h] [rbp-50h]
-  int v27; // [rsp+C0h] [rbp-40h]
-  _QWORD v28[10]; // [rsp+D0h] [rbp-30h] BYREF
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  PERESOURCE v13; // rax
+  struct _FAST_MUTEX *SpinLock; // r14
+  struct DXGMONITOR *AttachedPhysicalMonitor; // rsi
+  int MonitorInstance; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  DXGMONITOR *v19; // rdi
+  int v20; // ebx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  int v23; // ebx
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  int v26; // esi
+  struct DXGMONITOR *v27; // rdi
+  __int64 v28; // r8
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  DXGMONITOR *v38; // [rsp+30h] [rbp-69h] BYREF
+  struct DXGMONITOR *v39; // [rsp+38h] [rbp-61h] BYREF
+  _OWORD v40[2]; // [rsp+40h] [rbp-59h] BYREF
+  _QWORD v41[10]; // [rsp+60h] [rbp-39h] BYREF
 
   v3 = a2;
-  memset(v28, 0, 0x48uLL);
-  EtwActivityIdControl(3u, (LPGUID)&v28[1]);
-  v28[8] = MEMORY[0xFFFFF78000000014];
-  LODWORD(v28[3]) = 8;
-  LOBYTE(v28[6]) = -1;
-  v8 = WdLogNewEntry5_WdTrace(v7, v6);
-  *(_QWORD *)(v8 + 24) = v3;
-  *(_QWORD *)(v8 + 32) = this;
+  memset(v41, 0, 0x48uLL);
+  EtwActivityIdControl(3u, (LPGUID)&v41[1]);
+  v41[8] = MEMORY[0xFFFFF78000000014];
+  LODWORD(v41[3]) = 8;
+  LOBYTE(v41[6]) = -1;
+  v10 = WdLogNewEntry5_WdTrace(v7, v6, v8, v9);
+  *(_QWORD *)(v10 + 24) = v3;
+  *(_QWORD *)(v10 + 32) = this;
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this) )
-    WdLogSingleEntry0(1LL);
-  v9 = this[349];
-  if ( !v9 )
   {
-    WdLogSingleEntry0(1LL);
-    v9 = this[349];
+    v30 = WdLogNewEntry5_WdAssertion(v12, v11);
+    WdLogEvent5_WdAssertion(v30);
   }
-  Blink = (MONITOR_MGR *)v9[1].SystemResourcesList.Blink;
-  if ( !Blink )
+  v13 = this[337];
+  if ( !v13 )
   {
-    WdLogSingleEntry1(2LL, this);
+    v31 = WdLogNewEntry5_WdAssertion(v12, v11);
+    WdLogEvent5_WdAssertion(v31);
+    v13 = this[337];
+  }
+  SpinLock = (struct _FAST_MUTEX *)v13->SpinLock;
+  if ( !SpinLock )
+  {
+    v32 = WdLogNewEntry5_WdError(v12, v11);
+    *(_QWORD *)(v32 + 24) = this;
+    WdLogEvent5_WdError(v32);
     return 3221225485LL;
   }
-  v17 = 0LL;
-  MonitorInstance = MONITOR_MGR::_GetMonitorInstance(Blink, v3, 0, &v17);
+  v38 = 0LL;
+  AttachedPhysicalMonitor = 0LL;
+  MonitorInstance = MONITOR_MGR::_GetMonitorInstance(SpinLock, (unsigned int)v3, 0, &v38);
+  v19 = v38;
+  v20 = MonitorInstance;
   if ( MonitorInstance < 0 )
   {
-    if ( v17 )
-      WdLogSingleEntry0(1LL);
-    if ( MonitorInstance != -1073741275 )
-      WdLogSingleEntry0(1LL);
-    goto LABEL_31;
-  }
-  v13 = v17;
-  if ( !v17 )
-    WdLogSingleEntry0(1LL);
-  if ( *((_DWORD *)v13 + 78) == 1 )
-  {
-    v14 = v13;
-    v13 = 0LL;
+    if ( v38 )
+    {
+      v34 = WdLogNewEntry5_WdAssertion(v18, v17);
+      WdLogEvent5_WdAssertion(v34);
+    }
+    if ( v20 == -1073741275 )
+      goto LABEL_27;
+    v35 = WdLogNewEntry5_WdAssertion(v18, v17);
+    WdLogEvent5_WdAssertion(v35);
   }
   else
   {
-    v14 = (DXGMONITOR *)*((_QWORD *)v13 + 40);
+    if ( !v38 )
+    {
+      v33 = WdLogNewEntry5_WdAssertion(v18, v17);
+      WdLogEvent5_WdAssertion(v33);
+    }
+    if ( *((_DWORD *)v19 + 108) == 1 )
+    {
+      AttachedPhysicalMonitor = v19;
+      v19 = 0LL;
+    }
+    else
+    {
+      AttachedPhysicalMonitor = DXGMONITOR::_GetAttachedPhysicalMonitor(v19, v17);
+    }
   }
-  if ( !v14 || *(_QWORD *)(*((_QWORD *)v14 + 25) + 8LL) != a3 )
+  if ( !AttachedPhysicalMonitor || *((_QWORD *)AttachedPhysicalMonitor + 7) != a3 )
   {
-LABEL_31:
-    WdLogSingleEntry1(7LL, v3);
+LABEL_27:
+    v37 = WdLogNewEntry5_WdDmmEvent(v18, v17);
+    *(_QWORD *)(v37 + 24) = v3;
+    WdLogEvent5_WdDmmEvent(v37);
     return 3221226021LL;
   }
-  v27 = 0;
-  v23[0] = &MonitorEventDeferral::`vftable';
-  v23[1] = (char *)Blink + 8;
-  v24 = 0LL;
-  v25 = 0LL;
-  v26 = 0LL;
-  RESOURCE_LOCK<DXGMONITOR>::RESOURCE_LOCK<DXGMONITOR>(&v18, (__int64)v14, 1);
-  v15 = DXGMONITOR::_OnMonitorDeviceNodeReady(
-          v14,
-          (struct DxgMonitor::IMonitorDeferredEventSource *)v23,
-          (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v28);
-  if ( v18 )
+  KeEnterCriticalRegion();
+  ExAcquireResourceExclusiveLite((PERESOURCE)((char *)AttachedPhysicalMonitor + 296), 1u);
+  v23 = DXGMONITOR::_OnMonitorDeviceNodeReady(
+          AttachedPhysicalMonitor,
+          (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v41,
+          v21,
+          v22);
+  ExReleaseResourceLite((PERESOURCE)((char *)AttachedPhysicalMonitor + 296));
+  KeLeaveCriticalRegion();
+  if ( v23 >= 0 && v19 )
   {
-    ExReleaseResourceLite((PERESOURCE)(v18 + 24));
+    KeEnterCriticalRegion();
+    ExAcquireResourceExclusiveLite((PERESOURCE)((char *)v19 + 296), 1u);
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)AttachedPhysicalMonitor + 296), 1u);
+    DXGMONITOR::_CopyMonitorInformation(v19, AttachedPhysicalMonitor);
+    ExReleaseResourceLite((PERESOURCE)((char *)AttachedPhysicalMonitor + 296));
+    KeLeaveCriticalRegion();
+    ExReleaseResourceLite((PERESOURCE)((char *)v19 + 296));
     KeLeaveCriticalRegion();
   }
-  MonitorEventDeferral::FlushEventsWithContext(
-    (MonitorEventDeferral *)v23,
-    (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v28);
-  if ( v15 >= 0 && v13 )
+  v39 = 0LL;
+  memset(v40, 0, sizeof(v40));
+  v26 = MONITOR_MGR::_GetMonitorInstance(SpinLock, (unsigned int)v3, 1, &v39);
+  if ( v26 >= 0 )
   {
-    RESOURCE_LOCK<DXGMONITOR>::RESOURCE_LOCK<DXGMONITOR>(&v20, (__int64)v13, 1);
-    RESOURCE_LOCK<DXGMONITOR>::RESOURCE_LOCK<DXGMONITOR>(&v19, (__int64)v14, 0);
-    DXGMONITOR::_CopyMonitorInformation(v13, v14);
-    if ( v19 )
+    v27 = v39;
+    if ( !v39 )
     {
-      ExReleaseResourceLite((PERESOURCE)(v19 + 24));
-      KeLeaveCriticalRegion();
+      v36 = WdLogNewEntry5_WdAssertion(v25, v24);
+      WdLogEvent5_WdAssertion(v36);
     }
-    if ( v20 )
-    {
-      ExReleaseResourceLite((PERESOURCE)(v20 + 24));
-      KeLeaveCriticalRegion();
-    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v27 + 296), 1u);
+    DXGMONITOR::_GetMonitorDiagInfo(v27, (struct _DXGK_DIAG_MONITOR_MGR_EXTRA_INFO *)v40, v28);
+    ExReleaseResourceLite((PERESOURCE)((char *)v27 + 296));
+    KeLeaveCriticalRegion();
   }
-  v17 = 0LL;
-  memset(v22, 0, sizeof(v22));
-  v16 = MONITOR_MGR::_GetMonitorInstance(Blink, v3, 1, &v17);
-  if ( v16 >= 0 )
-  {
-    RESOURCE_LOCK<DXGMONITOR>::RESOURCE_LOCK<DXGMONITOR>(&v21, (__int64)v17, 0);
-    DXGMONITOR::_GetMonitorDiagInfo(v17, (struct _DXGK_DIAG_MONITOR_MGR_EXTRA_INFO *)v22);
-    if ( v21 )
-    {
-      ExReleaseResourceLite((PERESOURCE)(v21 + 24));
-      KeLeaveCriticalRegion();
-    }
-  }
-  MONITOR_MGR::_LogMonitorPresentEvent((__int64)Blink, 7, v3, v16, v22);
-  MonitorEventDeferral::~MonitorEventDeferral((MonitorEventDeferral *)v23);
-  return (unsigned int)v16;
+  MONITOR_MGR::_LogMonitorPresentEvent((__int64)SpinLock, 7LL, v3, v26, v40);
+  return (unsigned int)v26;
 }

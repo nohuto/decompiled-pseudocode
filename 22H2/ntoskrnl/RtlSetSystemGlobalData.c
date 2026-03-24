@@ -1,164 +1,20 @@
 /*
- * XREFs of RtlSetSystemGlobalData @ 0x14035B9D0
+ * XREFs of RtlSetSystemGlobalData @ 0x1403F7C14
  * Callers:
- *     HalpTimerPropagateQpcBiasUpdate @ 0x14037AD70 (HalpTimerPropagateQpcBiasUpdate.c)
- *     HalpTimerConfigureQpcBypass @ 0x1403B2A74 (HalpTimerConfigureQpcBypass.c)
- *     HalpTscFallback @ 0x14050A330 (HalpTscFallback.c)
- *     ExpRefreshTimeZoneInformation @ 0x140840928 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9984 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 __fastcall RtlSetSystemGlobalData(int a1, _QWORD *a2, int a3)
+__int64 __fastcall RtlSetSystemGlobalData(__int64 a1, _DWORD *a2)
 {
-  int v4; // ecx
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
-  int v10; // ecx
-  int v11; // ecx
-  int v12; // ecx
-  int v13; // ecx
-  __int64 CurrentServerSilo; // rax
-  _QWORD *v15; // rcx
-  int v16; // ecx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
 
-  if ( a1 > 14 )
-  {
-    v10 = a1 - 15;
-    if ( v10 )
-    {
-      v11 = v10 - 1;
-      if ( v11 )
-      {
-        v12 = v11 - 1;
-        if ( v12 )
-        {
-          v13 = v12 - 1;
-          if ( v13 )
-          {
-            if ( v13 != 1 )
-              return 3221225485LL;
-            if ( a3 == 8 )
-            {
-              *(_QWORD *)(MmWriteableSharedUserData + 952) = *a2;
-              return 0LL;
-            }
-          }
-          else if ( a3 == 2 )
-          {
-            *(_WORD *)(MmWriteableSharedUserData + 966) = *(_WORD *)a2;
-            return 0LL;
-          }
-        }
-        else if ( a3 == 1 )
-        {
-          *(_BYTE *)(MmWriteableSharedUserData + 966) = *(_BYTE *)a2;
-          return 0LL;
-        }
-      }
-      else if ( a3 == 1 )
-      {
-        *(_BYTE *)(MmWriteableSharedUserData + 967) = *(_BYTE *)a2;
-        return 0LL;
-      }
-    }
-    else if ( a3 == 2 )
-    {
-      *(_WORD *)(MmWriteableSharedUserData + 48) = *(_WORD *)a2;
-      return 0LL;
-    }
-    return 3221225990LL;
-  }
-  if ( a1 == 14 )
-  {
-    if ( a3 == 4 )
-    {
-      v16 = *(_DWORD *)a2;
-      if ( (*(_DWORD *)a2 & 0x40000000) != 0 )
-      {
-        _interlockedbittestandset((volatile signed __int32 *)(MmWriteableSharedUserData + 752), v16 & 0xBFFFFFFF);
-        return 0LL;
-      }
-      if ( v16 < 0 )
-      {
-        _interlockedbittestandreset((volatile signed __int32 *)(MmWriteableSharedUserData + 752), v16 & 0x7FFFFFFF);
-        return 0LL;
-      }
-    }
-    return 3221225990LL;
-  }
-  v4 = a1 - 1;
-  if ( !v4 )
-  {
-    if ( a3 == 8 )
-    {
-      *(_QWORD *)(MmWriteableSharedUserData + 592) = *a2;
-      return 0LL;
-    }
-    return 3221225990LL;
-  }
-  v5 = v4 - 3;
-  if ( !v5 )
-  {
-    if ( a3 == 2 )
-    {
-      *(_WORD *)(MmWriteableSharedUserData + 44) = *(_WORD *)a2;
-      return 0LL;
-    }
-    return 3221225990LL;
-  }
-  v6 = v5 - 1;
-  if ( !v6 )
-  {
-    if ( a3 == 2 )
-    {
-      *(_WORD *)(MmWriteableSharedUserData + 46) = *(_WORD *)a2;
-      return 0LL;
-    }
-    return 3221225990LL;
-  }
-  v7 = v6 - 1;
-  if ( !v7 )
-  {
-    if ( a3 == 4 )
-    {
-      if ( PsIsCurrentThreadInServerSilo() )
-      {
-        CurrentServerSilo = PsGetCurrentServerSilo();
-        v15 = &PspHostSiloGlobals;
-        if ( CurrentServerSilo )
-          v15 = *(_QWORD **)(CurrentServerSilo + 1488);
-        *(_DWORD *)(v15[165] + 584LL) = *(_DWORD *)a2;
-      }
-      else
-      {
-        *(_DWORD *)(MmWriteableSharedUserData + 576) = *(_DWORD *)a2;
-      }
-      return 0LL;
-    }
-    return 3221225990LL;
-  }
-  v8 = v7 - 4;
-  if ( !v8 )
-  {
-    if ( a3 == 1 )
-    {
-      *(_BYTE *)(MmWriteableSharedUserData + 724) = *(_BYTE *)a2;
-      return 0LL;
-    }
-    return 3221225990LL;
-  }
-  if ( v8 == 3 )
-  {
-    if ( a3 == 4 )
-    {
-      *(_DWORD *)(MmWriteableSharedUserData + 740) = *(_DWORD *)a2;
-      return 0LL;
-    }
-    return 3221225990LL;
-  }
-  return 3221225485LL;
+  if ( PsIsCurrentThreadInServerSilo(a1, (__int64)a2) )
+    *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals(v4, v3) + 141) + 584LL) = *a2;
+  else
+    MEMORY[0xFFFFF78000000240] = *a2;
+  return 0LL;
 }

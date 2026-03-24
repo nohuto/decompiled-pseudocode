@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CManipulationTransformMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00ADD10
+ * XREFs of ?Initialize@CManipulationTransformMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0096370
  * Callers:
  *     <none>
  * Callees:

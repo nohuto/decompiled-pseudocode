@@ -1,30 +1,32 @@
 /*
- * XREFs of HvlpAllocateOverlayPages @ 0x14054CA0C
+ * XREFs of HvlpAllocateOverlayPages @ 0x1404FAC4C
  * Callers:
- *     HvlSetupPhysicalFaultNotificationQueue @ 0x140543EB0 (HvlSetupPhysicalFaultNotificationQueue.c)
- *     HvlInitializeProcessor @ 0x14082A2D4 (HvlInitializeProcessor.c)
+ *     HvlSetupPhysicalFaultNotificationQueue @ 0x1404F2660 (HvlSetupPhysicalFaultNotificationQueue.c)
+ *     HvlInitializeProcessor @ 0x14079FD30 (HvlInitializeProcessor.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x140214190 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x140294EA0 (MmAllocateContiguousNodeMemory.c)
  */
 
 __int64 HvlpAllocateOverlayPages()
 {
-  unsigned int v0; // edi
-  __int64 v1; // rsi
-  unsigned int v2; // eax
-  __int64 result; // rax
+  __int64 ContiguousNodeMemory; // rcx
+  unsigned int v1; // edi
+  __int64 v2; // rsi
+  unsigned int v3; // eax
 
-  v0 = 0;
-  v1 = -1LL;
-  while ( 1 )
+  ContiguousNodeMemory = 0LL;
+  v1 = 0;
+  v2 = -1LL;
+  do
   {
-    v2 = v0++;
-    if ( v2 >= 4 )
+    v3 = v1++;
+    if ( v3 >= 4 )
       break;
-    v1 += 0x40000000LL;
-    result = MmAllocateContiguousNodeMemory(4096LL, 0, v1, 0, 4, 0x80000000);
-    if ( result )
-      return result;
+    v2 += 0x40000000LL;
+    ContiguousNodeMemory = MmAllocateContiguousNodeMemory(4096, 0LL, v2, 0, 4u, 0x80000000);
   }
-  return MmAllocateContiguousNodeMemory(4096LL, 0, -1, 0, 4, 0x80000000);
+  while ( !ContiguousNodeMemory );
+  if ( !ContiguousNodeMemory )
+    return MmAllocateContiguousNodeMemory(4096, 0LL, -1LL, 0, 4u, 0x80000000);
+  return ContiguousNodeMemory;
 }

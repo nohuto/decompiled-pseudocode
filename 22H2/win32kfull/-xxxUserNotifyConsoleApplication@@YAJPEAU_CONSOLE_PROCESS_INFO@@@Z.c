@@ -1,87 +1,75 @@
 /*
- * XREFs of ?xxxUserNotifyConsoleApplication@@YAJPEAU_CONSOLE_PROCESS_INFO@@@Z @ 0x1C00E3594
+ * XREFs of ?xxxUserNotifyConsoleApplication@@YAJPEAU_CONSOLE_PROCESS_INFO@@@Z @ 0x1C003BF08
  * Callers:
- *     xxxConsoleControl @ 0x1C00E3258 (xxxConsoleControl.c)
+ *     xxxConsoleControl @ 0x1C003BBB8 (xxxConsoleControl.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_DD @ 0x1C004C704 (WPP_RECORDER_AND_TRACE_SF_DD.c)
- *     LockProcessByClientId @ 0x1C004FEE0 (LockProcessByClientId.c)
- *     ?ApplyForegroundPolicyConsole@ForegroundLaunch@@YAXPEAU_EPROCESS@@@Z @ 0x1C00E52A0 (-ApplyForegroundPolicyConsole@ForegroundLaunch@@YAXPEAU_EPROCESS@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C00E5B60 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     ?xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z @ 0x1C0118748 (-xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z.c)
- *     ??1CLockProcessByPid@@QEAA@XZ @ 0x1C01B2E14 (--1CLockProcessByPid@@QEAA@XZ.c)
+ *     LockProcessByClientId @ 0x1C003C078 (LockProcessByClientId.c)
+ *     WPP_RECORDER_SF_sqq @ 0x1C003C0F4 (WPP_RECORDER_SF_sqq.c)
+ *     CheckAllowForeground @ 0x1C003C200 (CheckAllowForeground.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxUserNotifyConsoleApplication(struct _CONSOLE_PROCESS_INFO *a1)
 {
-  int inited; // edi
-  char v4; // bl
-  struct _EPROCESS *v5; // rdx
-  bool v6; // bl
-  bool v7; // si
-  char ProcessId; // al
-  int v9; // r8d
-  int v10; // edx
-  PEPROCESS Process; // [rsp+50h] [rbp-18h] BYREF
-  int v12; // [rsp+58h] [rbp-10h]
+  __int64 result; // rax
+  int inited; // esi
+  __int64 v4; // rcx
+  __int64 CurrentProcessWin32Process; // rdi
+  int v6; // edx
+  const char *v7; // rbx
+  char ProcessWin32Process; // al
+  int v9; // edx
+  int v10; // ecx
+  int v11; // ecx
+  PVOID Object; // [rsp+58h] [rbp+10h] BYREF
 
+  Object = 0LL;
   if ( !gptiRit )
     return 3221225506LL;
-  inited = LockProcessByClientId((void *)*(int *)a1, &Process);
-  v12 = inited;
-  if ( Process )
+  result = LockProcessByClientId(*(int *)a1, &Object);
+  if ( (int)result >= 0 )
   {
-    inited = xxxSetProcessInitState(Process, 0LL);
-    if ( inited < 0 )
+    inited = xxxSetProcessInitState(Object, 0LL);
+    if ( inited >= 0 )
     {
-      v6 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-        && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-      v7 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      v4 = *((unsigned int *)a1 + 1);
+      if ( (v4 & 1) != 0 )
       {
-        ProcessId = (unsigned __int8)PsGetProcessId(Process);
-        LOBYTE(v9) = v7;
-        LOBYTE(v10) = v6;
-        WPP_RECORDER_AND_TRACE_SF_D(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v10,
-          v9,
-          (_DWORD)gFullLog,
-          3,
-          2,
-          12,
-          (__int64)&WPP_da10ed9f41f835a692699b91a3623186_Traceguids,
-          ProcessId);
+        CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v4);
+        if ( (unsigned int)CheckAllowForeground(Object) )
+        {
+          v11 = *(_DWORD *)(CurrentProcessWin32Process + 12);
+          if ( (v11 & 0x40) == 0 )
+            SetAppStarting(CurrentProcessWin32Process);
+          gdwPUDFlags |= 0x8000000u;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v6) = 4;
+            WPP_RECORDER_SF_(v11, v6, 2, 11, (__int64)&WPP_fae14e43e2df34d42d304f3db5b27b93_Traceguids);
+          }
+          *(_DWORD *)(CurrentProcessWin32Process + 12) |= 0x100u;
+        }
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          v7 = "set";
+          if ( (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x100) == 0 )
+            v7 = "NOT";
+          ProcessWin32Process = PsGetProcessWin32Process(Object);
+          WPP_RECORDER_SF_sqq(
+            v10,
+            v9,
+            2,
+            12,
+            (__int64)&WPP_fae14e43e2df34d42d304f3db5b27b93_Traceguids,
+            (__int64)v7,
+            CurrentProcessWin32Process,
+            ProcessWin32Process);
+        }
       }
     }
-    else if ( (*((_DWORD *)a1 + 1) & 1) != 0 )
-    {
-      ForegroundLaunch::ApplyForegroundPolicyConsole(Process, v5);
-    }
-    if ( Process )
-      ObfDereferenceObject(Process);
+    ObfDereferenceObject(Object);
+    return (unsigned int)inited;
   }
-  else
-  {
-    v4 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-      && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-    if ( v4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      WPP_RECORDER_AND_TRACE_SF_DD(
-        (__int64)WPP_GLOBAL_Control->AttachedDevice,
-        v4,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-        (__int64)gFullLog,
-        3u,
-        2u,
-        0xBu,
-        (__int64)&WPP_da10ed9f41f835a692699b91a3623186_Traceguids,
-        *(_DWORD *)a1,
-        inited);
-      inited = v12;
-    }
-    CLockProcessByPid::~CLockProcessByPid((CLockProcessByPid *)&Process);
-  }
-  return (unsigned int)inited;
+  return result;
 }

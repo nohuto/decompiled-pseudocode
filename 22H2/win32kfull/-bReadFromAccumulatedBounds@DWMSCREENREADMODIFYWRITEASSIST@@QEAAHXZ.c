@@ -1,37 +1,40 @@
 /*
- * XREFs of ?bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C02A8980
+ * XREFs of ?bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C029EC9C
  * Callers:
- *     NtGdiLineTo @ 0x1C015AE20 (NtGdiLineTo.c)
- *     NtGdiInvertRgn @ 0x1C02A9D30 (NtGdiInvertRgn.c)
- *     GrePolyBezier @ 0x1C02ABFF0 (GrePolyBezier.c)
- *     GrePolyPolygon @ 0x1C02AC330 (GrePolyPolygon.c)
- *     GrePolyPolyline @ 0x1C02AC620 (GrePolyPolyline.c)
- *     NtGdiRectangle @ 0x1C02AD690 (NtGdiRectangle.c)
+ *     GrePolyPolyline @ 0x1C0142500 (GrePolyPolyline.c)
+ *     NtGdiRectangle @ 0x1C0143A10 (NtGdiRectangle.c)
+ *     GrePolyPolygon @ 0x1C0144870 (GrePolyPolygon.c)
+ *     NtGdiLineTo @ 0x1C0144E10 (NtGdiLineTo.c)
+ *     NtGdiInvertRgn @ 0x1C0148D60 (NtGdiInvertRgn.c)
+ *     GrePolyBezier @ 0x1C029FE00 (GrePolyBezier.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0266514 (-bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
- *     ?bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z @ 0x1C029A604 (-bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z @ 0x1C0147A10 (-bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DWMSCREENREADMODIFYWRITEASSIST::bReadFromAccumulatedBounds(DWMSCREENREADMODIFYWRITEASSIST *this)
 {
   _QWORD **v1; // rax
   unsigned int v3; // ebx
-  struct _RECTL v5; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v4; // r8
+  __int64 v5; // rdx
+  struct _RECTL v7; // [rsp+20h] [rbp-28h] BYREF
 
   v1 = (_QWORD **)*((_QWORD *)this + 3);
   v3 = 0;
   if ( *v1 )
   {
-    if ( (unsigned int)GreGetBounds(**v1, &v5, 4LL) )
+    if ( (unsigned int)GreGetBounds(**v1, &v7, 4LL) )
     {
-      ERECTL::bOffsetSubtract(
-        (ERECTL *)&v5,
-        (const struct _POINTL *)(**((_QWORD **)this + 3) + 8LL * (*(_DWORD *)(**((_QWORD **)this + 3) + 40LL) & 1) + 1016),
-        0);
-      if ( !ERECTL::bEmpty((ERECTL *)&v5) )
-        return DWMSCREENREADMODIFYWRITEASSIST::bReadBackRect(this, &v5);
+      v4 = **((_QWORD **)this + 3);
+      v5 = *(_DWORD *)(v4 + 40) & 1;
+      v7.left -= *(_DWORD *)(v4 + 8 * v5 + 1016);
+      v7.right -= *(_DWORD *)(v4 + 8 * v5 + 1016);
+      v7.top -= *(_DWORD *)(v4 + 8 * v5 + 1020);
+      v7.bottom -= *(_DWORD *)(v4 + 8 * v5 + 1020);
+      if ( !ERECTL::bEmpty((ERECTL *)&v7) )
+        return (unsigned int)DWMSCREENREADMODIFYWRITEASSIST::bReadBackRect(this, &v7);
     }
   }
   return v3;

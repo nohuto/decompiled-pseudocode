@@ -1,21 +1,28 @@
 /*
- * XREFs of NtMITDispatchCompletion @ 0x1C0037BD0
+ * XREFs of NtMITDispatchCompletion @ 0x1C0042080
  * Callers:
  *     <none>
  * Callees:
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0037CB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     UserDispatchMITCompletion @ 0x1C0037D4C (UserDispatchMITCompletion.c)
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C00388BC (UserSetLastError.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0042200 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     UserDispatchMITCompletion @ 0x1C0042228 (UserDispatchMITCompletion.c)
  */
 
 __int64 __fastcall NtMITDispatchCompletion(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // r8
+  CInputThread *v2; // rdi
+  bool v5; // bl
+  __int64 v6; // rdx
 
-  if ( CInputThreadBase::IsInputThread(gpInputThread) )
+  v2 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v2, 0LL);
+  v5 = CInputThread::_CalledOnInputThread(v2);
+  ExReleasePushLockSharedEx(v2, 0LL);
+  KeLeaveCriticalRegion();
+  if ( v5 )
     UserDispatchMITCompletion(a1, a2);
   else
-    UserSetLastError(5LL, v4, v5);
+    UserSetLastError(5LL, v6);
   return 0LL;
 }

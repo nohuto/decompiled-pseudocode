@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CitpBitmapUpdateForTimeRange@@YAXPEAU_CIT_BITMAP@@IIII@Z @ 0x1C00A42B0
+ * XREFs of ?CitpBitmapUpdateForTimeRange@@YAXPEAU_CIT_BITMAP@@IIII@Z @ 0x1C00A0D78
  * Callers:
- *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00A3D44 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
+ *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C004B234 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
  * Callees:
- *     ?CitpBitmapUpdateBits@@YAXPEAU_CIT_BITMAP@@II@Z @ 0x1C00A430C (-CitpBitmapUpdateBits@@YAXPEAU_CIT_BITMAP@@II@Z.c)
+ *     ?CitpBitmapUpdateBits@@YAXPEAU_CIT_BITMAP@@II@Z @ 0x1C00A0DD4 (-CitpBitmapUpdateBits@@YAXPEAU_CIT_BITMAP@@II@Z.c)
  */
 
 void __fastcall CitpBitmapUpdateForTimeRange(struct _CIT_BITMAP *a1, int a2, int a3, int a4, unsigned int a5)
@@ -12,6 +12,7 @@ void __fastcall CitpBitmapUpdateForTimeRange(struct _CIT_BITMAP *a1, int a2, int
   unsigned int v8; // r9d
   unsigned int v9; // eax
   unsigned int v10; // r8d
+  unsigned int v11; // edx
 
   if ( *((_QWORD *)a1 + 1) )
   {
@@ -21,8 +22,9 @@ void __fastcall CitpBitmapUpdateForTimeRange(struct _CIT_BITMAP *a1, int a2, int
     v10 = v7 - 1;
     if ( v9 < v7 )
       v10 = v9;
-    if ( v8 > v10 )
-      v8 = v10;
-    CitpBitmapUpdateBits(a1, v8, v10);
+    v11 = v10;
+    if ( v8 <= v10 )
+      v11 = v8;
+    CitpBitmapUpdateBits(a1, v11, v10);
   }
 }

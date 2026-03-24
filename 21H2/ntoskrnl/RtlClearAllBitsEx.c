@@ -1,14 +1,13 @@
 /*
- * XREFs of RtlClearAllBitsEx @ 0x1402340F0
+ * XREFs of RtlClearAllBitsEx @ 0x1402C1650
  * Callers:
- *     MiCopyToCfgBitMap @ 0x140700460 (MiCopyToCfgBitMap.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x140700A40 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     IopLiveDumpAllocAndInitResources @ 0x14093AAEC (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14093DA18 (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     MiIdentifyPatchImageDataPages @ 0x1409739A4 (MiIdentifyPatchImageDataPages.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x140A666B0 (IopLiveDumpEstimateMemoryPages.c)
+ *     MiCopyToCfgBitMap @ 0x1406E9880 (MiCopyToCfgBitMap.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406EA060 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140896BBC (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140898EA0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1409AC28C (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void *__fastcall RtlClearAllBitsEx(__int64 a1)

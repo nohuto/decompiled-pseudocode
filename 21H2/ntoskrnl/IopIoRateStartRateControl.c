@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIoRateStartRateControl @ 0x14024FA14
+ * XREFs of IopIoRateStartRateControl @ 0x1402007C8
  * Callers:
- *     IoStartIoRateControl @ 0x14024F90C (IoStartIoRateControl.c)
+ *     IoStartIoRateControl @ 0x1402006C0 (IoStartIoRateControl.c)
  * Callees:
- *     IoDiskIoAttributionQuery @ 0x140208F20 (IoDiskIoAttributionQuery.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     IoDiskIoAttributionQuery @ 0x14028A33C (IoDiskIoAttributionQuery.c)
+ *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IopIoRateStartRateControl(
@@ -52,7 +52,7 @@ __int64 __fastcall IopIoRateStartRateControl(
       v12 = 0;
       *a6 = v13;
     }
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 64));
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 64));
   }
   else
   {

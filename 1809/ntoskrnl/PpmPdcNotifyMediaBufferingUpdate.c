@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPdcNotifyMediaBufferingUpdate @ 0x14087A7A8
+ * XREFs of PpmPdcNotifyMediaBufferingUpdate @ 0x14087A788
  * Callers:
- *     PpmMediaBufferingWorker @ 0x14013EF80 (PpmMediaBufferingWorker.c)
+ *     PpmMediaBufferingWorker @ 0x14013EFA0 (PpmMediaBufferingWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 (*PpmPdcNotifyMediaBufferingUpdate())(void)

@@ -1,49 +1,40 @@
 /*
- * XREFs of HvlpFastFlushPasidAddressList @ 0x1405461B8
+ * XREFs of HvlpFastFlushPasidAddressList @ 0x1404F725C
  * Callers:
- *     HvlFlushPasid @ 0x140543EF0 (HvlFlushPasid.c)
+ *     HvlSvmFlushPasid @ 0x1404F6B50 (HvlSvmFlushPasid.c)
  * Callees:
- *     HvcallFastExtended @ 0x1403CBB50 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     HvcallFastExtended @ 0x14038FC00 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall HvlpFastFlushPasidAddressList(int a1, int a2, __int64 a3, const void *a4, char a5)
+__int64 __fastcall HvlpFastFlushPasidAddressList(int a1, int a2, unsigned int a3, __int64 a4)
 {
-  __int16 v5; // bx
-  unsigned int v6; // edi
-  signed __int64 v7; // r9
-  __int64 *v8; // rdx
-  __int64 v10; // [rsp+30h] [rbp-98h]
-  _DWORD v11[2]; // [rsp+40h] [rbp-88h] BYREF
-  __int64 v12; // [rsp+48h] [rbp-80h]
-  _BYTE v13[96]; // [rsp+50h] [rbp-78h] BYREF
+  __int64 v4; // r10
+  __int64 v5; // r9
+  __int64 *v6; // rdx
+  __int64 v8; // [rsp+30h] [rbp-98h]
+  _DWORD v9[2]; // [rsp+40h] [rbp-88h] BYREF
+  __int64 v10; // [rsp+48h] [rbp-80h]
+  _BYTE v11[96]; // [rsp+50h] [rbp-78h] BYREF
 
-  v12 = 0LL;
-  v5 = a3;
-  v11[1] = a1;
-  v11[0] = a2;
-  v6 = 8 * a3 + 16;
-  if ( a5 )
+  v10 = 0LL;
+  v9[1] = a1;
+  v9[0] = a2;
+  if ( a3 )
   {
-    memmove(v13, a4, 8LL * (unsigned int)a3);
-    LODWORD(v12) = v12 | 1;
-  }
-  else if ( (_DWORD)a3 )
-  {
-    a3 = (unsigned int)a3;
-    v7 = (_BYTE *)a4 - v13;
-    v8 = (__int64 *)v13;
+    v4 = a3;
+    v5 = a4 - (_QWORD)v11;
+    v6 = (__int64 *)v11;
     do
     {
-      *v8 = *(__int64 *)((char *)v8 + v7) & 0x800 | (*(__int64 *)((char *)v8 + v7)
-                                                   + (*(__int64 *)((char *)v8 + v7) & 0xC00));
-      ++v8;
-      --a3;
+      *v6 = *(__int64 *)((char *)v6 + v5) & 0x800 | (*(__int64 *)((char *)v6 + v5)
+                                                   + (*(__int64 *)((char *)v6 + v5) & 0xC00));
+      ++v6;
+      --v4;
     }
-    while ( a3 );
+    while ( v4 );
   }
-  LODWORD(v10) = 65697;
-  HIDWORD(v10) = v5 & 0xFFF;
-  return HvcallFastExtended(v10, (__int64)v11, v6, 0LL, 0);
+  LODWORD(v8) = 65697;
+  HIDWORD(v8) = a3 & 0xFFF;
+  return HvcallFastExtended(v8, (__int64)v9, 8 * a3 + 16, 0LL, 0);
 }

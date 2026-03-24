@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCallbackLockPtr@FxDriver@@UEAAPEAVFxCallbackLock@@PEAPEAVFxObject@@@Z @ 0x1C0069E50
+ * XREFs of ?GetCallbackLockPtr@FxDriver@@UEAAPEAVFxCallbackLock@@PEAPEAVFxObject@@@Z @ 0x1C0053C60
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of AcpiExternalTranslateBiosToNtResources @ 0x1C00ADE20
+ * XREFs of AcpiExternalTranslateBiosToNtResources @ 0x1C00AF1D0
  * Callers:
- *     PnpiBiosGpioInterruptIoToNtIoDescriptor @ 0x1C00B3428 (PnpiBiosGpioInterruptIoToNtIoDescriptor.c)
- *     PnpiBiosVendorToNtIoDescriptor @ 0x1C00B3510 (PnpiBiosVendorToNtIoDescriptor.c)
+ *     PnpiBiosGpioInterruptIoToNtIoDescriptor @ 0x1C00B4020 (PnpiBiosGpioInterruptIoToNtIoDescriptor.c)
+ *     PnpiBiosVendorToNtIoDescriptor @ 0x1C00B4108 (PnpiBiosVendorToNtIoDescriptor.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     AcpiCheckExternalConnection @ 0x1C00918BC (AcpiCheckExternalConnection.c)
- *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00AE324 (ExternalRequestBiosNameDeviceAssociation.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     AcpiCheckExternalConnection @ 0x1C009DB14 (AcpiCheckExternalConnection.c)
+ *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00AF6D4 (ExternalRequestBiosNameDeviceAssociation.c)
  */
 
 __int64 __fastcall AcpiExternalTranslateBiosToNtResources(
@@ -20,20 +20,20 @@ __int64 __fastcall AcpiExternalTranslateBiosToNtResources(
         _OWORD *a5)
 {
   __int64 DeviceExtension; // rbp
-  __int64 v9; // rdi
+  char *v9; // rdi
   int v10; // ebx
-  __int64 (__fastcall *v11)(_QWORD, ULONG_PTR, __int64, _QWORD, unsigned int, __int64, unsigned int *); // r14
+  __int64 (__fastcall *v11)(_QWORD, ULONG_PTR, __int64, _QWORD, unsigned int, char *, SIZE_T *); // r14
   int v12; // esi
   unsigned int v13; // eax
-  __int64 Pool2; // rax
-  unsigned int v15; // ecx
+  char *PoolWithTag; // rax
+  int v15; // ecx
   unsigned int v16; // edx
   __int64 v17; // rax
   __int64 v19; // [rsp+30h] [rbp-48h]
-  unsigned int v20[4]; // [rsp+40h] [rbp-38h] BYREF
+  SIZE_T NumberOfBytes[2]; // [rsp+40h] [rbp-38h] BYREF
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  v20[0] = 120;
+  LODWORD(NumberOfBytes[0]) = 120;
   v9 = 0LL;
   AcpiCheckExternalConnection();
   v10 = -1073741822;
@@ -41,25 +41,25 @@ __int64 __fastcall AcpiExternalTranslateBiosToNtResources(
   ExAcquireResourceSharedLite(&ExternalTranslatorInterfaceLock, 1u);
   if ( ExternalTranslationInterface )
   {
-    v11 = (__int64 (__fastcall *)(_QWORD, ULONG_PTR, __int64, _QWORD, unsigned int, __int64, unsigned int *))*((_QWORD *)ExternalTranslationInterface + 7);
+    v11 = (__int64 (__fastcall *)(_QWORD, ULONG_PTR, __int64, _QWORD, unsigned int, char *, SIZE_T *))*((_QWORD *)ExternalTranslationInterface + 7);
     v12 = 0;
-    v13 = v20[0];
+    v13 = NumberOfBytes[0];
     while ( 1 )
     {
-      Pool2 = ExAllocatePool2(256LL, v13, 1483760449LL);
-      v9 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v13, 0x58706341u);
+      v9 = PoolWithTag;
+      if ( !PoolWithTag )
         break;
-      v10 = v11(*((_QWORD *)ExternalTranslationInterface + 5), a1, a2, a3, a4, Pool2, v20);
+      v10 = v11(*((_QWORD *)ExternalTranslationInterface + 5), a1, a2, a3, a4, PoolWithTag, NumberOfBytes);
       if ( v10 < 0 )
       {
-        ExFreePoolWithTag((PVOID)v9, 0x58706341u);
+        ExFreePoolWithTag(v9, 0x58706341u);
         v9 = 0LL;
       }
       if ( v10 == -1073741789 )
       {
-        v13 = v20[0];
-        if ( v20[0] )
+        v13 = NumberOfBytes[0];
+        if ( LODWORD(NumberOfBytes[0]) )
         {
           if ( (unsigned int)++v12 < 2 )
             continue;
@@ -74,8 +74,8 @@ LABEL_11:
   KeLeaveCriticalRegion();
   if ( v10 >= 0 )
   {
-    v15 = v20[0];
-    if ( v20[0] < 0x38 )
+    v15 = NumberOfBytes[0];
+    if ( LODWORD(NumberOfBytes[0]) < 0x38 )
     {
 LABEL_13:
       v10 = -1073741637;
@@ -83,11 +83,11 @@ LABEL_13:
     }
     *a5 = *(_OWORD *)(v9 + 8);
     a5[1] = *(_OWORD *)(v9 + 24);
-    v16 = *(_DWORD *)(v9 + 44);
+    v16 = *((_DWORD *)v9 + 11);
     if ( v16 )
     {
-      v17 = *(unsigned int *)(v9 + 40);
-      if ( v16 > v15 - (unsigned int)v17 )
+      v17 = *((unsigned int *)v9 + 10);
+      if ( v16 > v15 - (int)v17 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_(
@@ -98,7 +98,7 @@ LABEL_13:
             (__int64)&WPP_8cd4999731163fb3621cd0c511e30926_Traceguids);
         goto LABEL_13;
       }
-      v10 = ExternalRequestBiosNameDeviceAssociation(v9 + v17, DeviceExtension, a4);
+      v10 = ExternalRequestBiosNameDeviceAssociation(&v9[v17], DeviceExtension, a4);
       if ( v10 < 0 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -119,6 +119,6 @@ LABEL_13:
   }
 LABEL_22:
   if ( v9 )
-    ExFreePoolWithTag((PVOID)v9, 0x58706341u);
+    ExFreePoolWithTag(v9, 0x58706341u);
   return (unsigned int)v10;
 }

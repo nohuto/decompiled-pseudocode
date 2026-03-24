@@ -1,5 +1,5 @@
 /*
- * XREFs of PfpParametersWatcher @ 0x140865A30
+ * XREFs of PfpParametersWatcher @ 0x140865A10
  * Callers:
  *     <none>
  * Callees:
@@ -7,15 +7,15 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
- *     ZwNotifyChangeKey @ 0x1401BA3D0 (ZwNotifyChangeKey.c)
- *     PfpParametersRead @ 0x14075216C (PfpParametersRead.c)
- *     PfSnParametersRead @ 0x140752340 (PfSnParametersRead.c)
- *     PfSnDetermineEnablePrefetcher @ 0x140764250 (PfSnDetermineEnablePrefetcher.c)
- *     PfpParametersPropagate @ 0x140865904 (PfpParametersPropagate.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
+ *     ZwNotifyChangeKey @ 0x1401BA3F0 (ZwNotifyChangeKey.c)
+ *     PfpParametersRead @ 0x14075214C (PfpParametersRead.c)
+ *     PfSnParametersRead @ 0x140752320 (PfSnParametersRead.c)
+ *     PfSnDetermineEnablePrefetcher @ 0x140764230 (PfSnDetermineEnablePrefetcher.c)
+ *     PfpParametersPropagate @ 0x1408658E4 (PfpParametersPropagate.c)
  */
 
 void __fastcall PfpParametersWatcher(__int64 a1)

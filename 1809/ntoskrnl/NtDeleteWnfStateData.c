@@ -1,11 +1,11 @@
 /*
- * XREFs of NtDeleteWnfStateData @ 0x14075E540
+ * XREFs of NtDeleteWnfStateData @ 0x14075E520
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ExpWnfLookupPermanentName @ 0x1405AA92C (ExpWnfLookupPermanentName.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
@@ -15,9 +15,9 @@
  *     ExpWnfResolveScopeInstance @ 0x14060F9EC (ExpWnfResolveScopeInstance.c)
  *     ExpWnfCaptureScopeInstanceId @ 0x14060FE20 (ExpWnfCaptureScopeInstanceId.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     ExpWnfDeleteStateData @ 0x1406ABA28 (ExpWnfDeleteStateData.c)
- *     ExpWnfCheckCrossScopeAccess @ 0x1406C70B0 (ExpWnfCheckCrossScopeAccess.c)
- *     ExpWnfDeletePermanentStateData @ 0x1408DB540 (ExpWnfDeletePermanentStateData.c)
+ *     ExpWnfDeleteStateData @ 0x1406ABA08 (ExpWnfDeleteStateData.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1406C7090 (ExpWnfCheckCrossScopeAccess.c)
+ *     ExpWnfDeletePermanentStateData @ 0x1408DB520 (ExpWnfDeletePermanentStateData.c)
  */
 
 __int64 __fastcall NtDeleteWnfStateData(__int64 *a1, _DWORD *a2)

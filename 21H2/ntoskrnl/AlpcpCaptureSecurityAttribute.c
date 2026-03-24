@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpCaptureSecurityAttribute @ 0x1407A80A0
+ * XREFs of AlpcpCaptureSecurityAttribute @ 0x14066076C
  * Callers:
- *     AlpcpCaptureAttributes @ 0x1407AB790 (AlpcpCaptureAttributes.c)
+ *     AlpcpCaptureAttributes @ 0x1405E6290 (AlpcpCaptureAttributes.c)
  * Callees:
- *     AlpcpCaptureSecurityAttributeInternal @ 0x1407A817C (AlpcpCaptureSecurityAttributeInternal.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x140660844 (AlpcpCaptureSecurityAttributeInternal.c)
  */
 
-__int64 __fastcall AlpcpCaptureSecurityAttribute(PVOID Object, __int64 a2, __int64 a3)
+__int64 __fastcall AlpcpCaptureSecurityAttribute(void *a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax
-  PVOID Objecta; // [rsp+78h] [rbp+20h]
+  PVOID Object; // [rsp+38h] [rbp-30h]
 
   if ( !KeGetCurrentThread()->PreviousMode )
-    return AlpcpCaptureSecurityAttributeInternal(Object, a3);
-  Objecta = *(PVOID *)(a2 + 16);
-  result = AlpcpCaptureSecurityAttributeInternal(Object, a3);
+    return AlpcpCaptureSecurityAttributeInternal(a1, a3);
+  Object = *(PVOID *)(a2 + 16);
+  result = AlpcpCaptureSecurityAttributeInternal(a1, a3);
   if ( (int)result >= 0 )
-    *(_QWORD *)(a2 + 16) = Objecta;
+    *(_QWORD *)(a2 + 16) = Object;
   return result;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of GreGetSystemPaletteUse @ 0x1C001F4AC
+ * XREFs of GreGetSystemPaletteUse @ 0x1C012D988
  * Callers:
- *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C0020C7C (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
- *     CreateScreenPalette @ 0x1C0228088 (CreateScreenPalette.c)
- *     NtGdiGetSystemPaletteUse @ 0x1C02C34C0 (NtGdiGetSystemPaletteUse.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00462FC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     NtGdiGetSystemPaletteUse @ 0x1C012D970 (NtGdiGetSystemPaletteUse.c)
+ *     CreateScreenPalette @ 0x1C024376C (CreateScreenPalette.c)
  * Callees:
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E13F4 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E1440 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018B60 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018E8C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreGetSystemPaletteUse(HDC a1)
 {
   unsigned int v1; // edi
   __int64 v2; // rbx
-  int v3; // edi
+  DYNAMICMODECHANGESHARELOCK *v3; // rcx
   _QWORD v5[2]; // [rsp+20h] [rbp-38h] BYREF
   _BYTE v6[40]; // [rsp+30h] [rbp-28h] BYREF
   char v7; // [rsp+68h] [rbp+10h] BYREF
@@ -27,18 +27,22 @@ __int64 __fastcall GreGetSystemPaletteUse(HDC a1)
   {
     v2 = *(_QWORD *)(v5[0] + 48LL);
     DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v7);
-    if ( (*(_DWORD *)(v2 + 2140) & 0x100) != 0 )
+    if ( (*(_DWORD *)(v2 + 2172) & 0x100) != 0 )
     {
-      v3 = *(_DWORD *)(*(_QWORD *)(v2 + 1776) + 24LL);
-      if ( (v3 & 0x1000) != 0 )
+      v3 = (DYNAMICMODECHANGESHARELOCK *)*(unsigned int *)(*(_QWORD *)(v2 + 1808) + 24LL);
+      if ( ((unsigned __int16)v3 & 0x1000) != 0 )
+      {
         v1 = 2;
+      }
       else
-        v1 = (v3 & 0x10000 | 0x8000u) >> 15;
+      {
+        v3 = (DYNAMICMODECHANGESHARELOCK *)(((unsigned int)v3 & 0x10000 | 0x8000) >> 15);
+        v1 = (unsigned int)v3;
+      }
     }
-    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v7);
-    if ( v5[0] )
-      XDCOBJ::vUnlockFast((XDCOBJ *)v5);
+    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v3);
   }
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v5);
   UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v6);
   return v1;
 }

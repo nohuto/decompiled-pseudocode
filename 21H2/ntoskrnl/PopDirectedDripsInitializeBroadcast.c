@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDirectedDripsInitializeBroadcast @ 0x14098BDD4
+ * XREFs of PopDirectedDripsInitializeBroadcast @ 0x1408E334C
  * Callers:
- *     PopDirectedDripsSuspendDevices @ 0x14098C45C (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x1408E3A78 (PopDirectedDripsSuspendDevices.c)
  * Callees:
- *     IoControlPnpDeviceActionQueue @ 0x140253DB4 (IoControlPnpDeviceActionQueue.c)
- *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x1405CAE90 (PopFxBuildDirectedDripsCandidateDeviceList.c)
- *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x1405CBFFC (PopFxDestroyDirectedDripsCandidateDeviceList.c)
- *     PopPowerAggregatorHandleIntent @ 0x1407F2244 (PopPowerAggregatorHandleIntent.c)
- *     PoInitializeBroadcast @ 0x140802640 (PoInitializeBroadcast.c)
- *     PopDirectedDripsQueryMitigationStatus @ 0x140809458 (PopDirectedDripsQueryMitigationStatus.c)
- *     PopDirectedDripsBuildBroadcastTreePartial @ 0x14099F5D8 (PopDirectedDripsBuildBroadcastTreePartial.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     IoControlPnpDeviceActionQueue @ 0x1402C6F2C (IoControlPnpDeviceActionQueue.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140569410 (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x14056A830 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
+ *     PoInitializeBroadcast @ 0x140778238 (PoInitializeBroadcast.c)
+ *     PopDirectedDripsQueryMitigationStatus @ 0x1408E37A8 (PopDirectedDripsQueryMitigationStatus.c)
+ *     PopPowerAggregatorHandleIntent @ 0x1408EE308 (PopPowerAggregatorHandleIntent.c)
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x1408F8CF0 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *a1)
@@ -179,7 +179,7 @@ LABEL_43:
     if ( v2 )
     {
       PopAcquirePolicyLock(v19);
-      PopPowerAggregatorHandleIntent(4u, 0LL, 0, 0x2Au);
+      PopPowerAggregatorHandleIntent(4LL, 0LL, 42LL);
       PopReleasePolicyLock(v21, v20);
     }
   }

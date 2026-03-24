@@ -3,18 +3,18 @@
  * Callers:
  *     PopSetNotificationWork @ 0x1400041F0 (PopSetNotificationWork.c)
  *     PopCheckForIdleness @ 0x140010410 (PopCheckForIdleness.c)
- *     PoNotifySystemTimeSet @ 0x14017832C (PoNotifySystemTimeSet.c)
- *     PopCoalescingCheck @ 0x1402DB72C (PopCoalescingCheck.c)
- *     PopCoalesingTimerDpcCallback @ 0x1402DB890 (PopCoalesingTimerDpcCallback.c)
+ *     PoNotifySystemTimeSet @ 0x14017834C (PoNotifySystemTimeSet.c)
+ *     PopCoalescingCheck @ 0x1402DB82C (PopCoalescingCheck.c)
+ *     PopCoalesingTimerDpcCallback @ 0x1402DB990 (PopCoalesingTimerDpcCallback.c)
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopExecutePowerAction @ 0x1406DE110 (PopExecutePowerAction.c)
- *     PopPolicyWorkerAction @ 0x1406DE6F0 (PopPolicyWorkerAction.c)
- *     PopPolicyWorkerActionPromote @ 0x1406E2690 (PopPolicyWorkerActionPromote.c)
- *     PopBatteryApplyCompositeState @ 0x14071A168 (PopBatteryApplyCompositeState.c)
+ *     PopExecutePowerAction @ 0x1406DE0F0 (PopExecutePowerAction.c)
+ *     PopPolicyWorkerAction @ 0x1406DE6D0 (PopPolicyWorkerAction.c)
+ *     PopPolicyWorkerActionPromote @ 0x1406E2670 (PopPolicyWorkerActionPromote.c)
+ *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopGetPolicyWorker(int a1)

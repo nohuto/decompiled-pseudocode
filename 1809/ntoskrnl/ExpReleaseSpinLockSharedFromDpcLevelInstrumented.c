@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C1A4
+ * XREFs of ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C2A4
  * Callers:
  *     ExReleaseSpinLockShared @ 0x140007960 (ExReleaseSpinLockShared.c)
  *     MiEndingOffsetWithLock @ 0x140031000 (MiEndingOffsetWithLock.c)
@@ -10,11 +10,11 @@
  *     NtGetWriteWatch @ 0x140086AD0 (NtGetWriteWatch.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     MiQueueLargeFreeZeroRebuild @ 0x14009D1D0 (MiQueueLargeFreeZeroRebuild.c)
- *     MiOffsetToProtos @ 0x1400AF810 (MiOffsetToProtos.c)
- *     ExpAddTagForBigPages @ 0x1400E70F0 (ExpAddTagForBigPages.c)
+ *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
+ *     ExpAddTagForBigPages @ 0x1400E7110 (ExpAddTagForBigPages.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  * Callees:
- *     PerfLogSpinLockRelease @ 0x140313A38 (PerfLogSpinLockRelease.c)
+ *     PerfLogSpinLockRelease @ 0x140313B38 (PerfLogSpinLockRelease.c)
  */
 
 void __fastcall ExpReleaseSpinLockSharedFromDpcLevelInstrumented(volatile signed __int32 *a1, __int64 a2)

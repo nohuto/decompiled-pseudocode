@@ -1,15 +1,15 @@
 /*
- * XREFs of SepSetTokenPackage @ 0x14065BD08
+ * XREFs of SepSetTokenPackage @ 0x14065BCE8
  * Callers:
- *     SepGetAnonymousToken @ 0x1400DD4EC (SepGetAnonymousToken.c)
- *     SepDuplicateToken @ 0x1406494A0 (SepDuplicateToken.c)
- *     NtCreateLowBoxToken @ 0x140654F90 (NtCreateLowBoxToken.c)
- *     SepFilterToken @ 0x140657CEC (SepFilterToken.c)
+ *     SepGetAnonymousToken @ 0x1400DD50C (SepGetAnonymousToken.c)
+ *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
+ *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
+ *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCopySid @ 0x1406491B0 (RtlCopySid.c)
- *     RtlIsParentOfChildAppContainer @ 0x140654C54 (RtlIsParentOfChildAppContainer.c)
+ *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
+ *     RtlIsParentOfChildAppContainer @ 0x140654C34 (RtlIsParentOfChildAppContainer.c)
  */
 
 __int64 __fastcall SepSetTokenPackage(__int64 a1, unsigned __int8 *a2)

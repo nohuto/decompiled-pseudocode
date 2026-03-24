@@ -1,103 +1,102 @@
 /*
- * XREFs of GrePolyPolylineInternal @ 0x1C02AC73C
+ * XREFs of GrePolyPolylineInternal @ 0x1C0142620
  * Callers:
- *     GrePolyPolyline @ 0x1C02AC620 (GrePolyPolyline.c)
+ *     GrePolyPolyline @ 0x1C0142500 (GrePolyPolyline.c)
  * Callees:
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0099E60 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C015A6C4 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C015A700 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
- *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C015A8B2 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
- *     ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0284824 (--0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
- *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEBU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0285B9C (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEBU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FD8F4 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0144B70 (--0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C01468E4 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GrePolyPolylineInternal(HDC a1, struct _POINTL *a2, int *a3, unsigned int a4, int a5)
 {
-  __int64 v6; // rdi
-  unsigned int v8; // ebx
-  POINTL *v9; // rax
-  POINTL v10; // rdx
-  int v11; // ebx
-  int *v13; // r12
-  __int64 v14; // rdi
-  ULONG v15; // ecx
-  POINTL *v17[2]; // [rsp+30h] [rbp-D0h] BYREF
-  char v18[32]; // [rsp+40h] [rbp-C0h] BYREF
-  struct _XFORMOBJ v19; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v6; // rsi
+  unsigned int v7; // ebx
+  int v9; // edi
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  int v12; // edi
+  ULONG v13; // ecx
+  int *v15; // r13
+  __int64 v16; // rsi
+  struct _XFORMOBJ v18; // [rsp+30h] [rbp-D0h] BYREF
+  _QWORD v19[2]; // [rsp+40h] [rbp-C0h] BYREF
+  char v20[32]; // [rsp+50h] [rbp-B0h] BYREF
   PATHOBJ ppo; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v21; // [rsp+78h] [rbp-88h]
+  __int64 v22; // [rsp+78h] [rbp-88h]
+  _BYTE v23[32]; // [rsp+C0h] [rbp-40h] BYREF
+  int v24; // [rsp+E0h] [rbp-20h]
 
   v6 = a4;
-  v8 = 0;
-  DCOBJ::DCOBJ((DCOBJ *)v17, a1);
-  if ( !v17[0] || (v17[0][4].y & 0x10000) != 0 )
+  v7 = 0;
+  v9 = 0;
+  DCOBJ::DCOBJ((DCOBJ *)v19, a1);
+  if ( !v19[0] || (*(_DWORD *)(v19[0] + 36LL) & 0x10000) != 0 )
   {
     EngSetLastError(6u);
-LABEL_24:
-    v9 = v17[0];
-LABEL_25:
-    if ( v9 )
-      XDCOBJ::vUnlockFast((XDCOBJ *)v17);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v18);
-    return v8;
+LABEL_26:
+    v7 = v9;
+    goto LABEL_27;
   }
-  EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v19, (struct XDCOBJ *)v17, 516);
-  v9 = v17[0];
-  v10 = v17[0][122];
-  v11 = *(_DWORD *)(*(_QWORD *)&v10 + 152LL);
-  if ( (v11 & 0x1000) != 0 )
+  EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v18, (struct XDCOBJ *)v19, 516);
+  v10 = v19[0];
+  v11 = *(_QWORD *)(v19[0] + 976LL);
+  v12 = *(_DWORD *)(v11 + 152);
+  if ( (v12 & 0x1000) != 0 )
   {
-    GreDCSelectBrush(v17[0], *(_QWORD *)(*(_QWORD *)&v10 + 160LL));
-    v9 = v17[0];
+    GreDCSelectBrush(v19[0], *(_QWORD *)(v11 + 160));
+    v10 = v19[0];
   }
-  if ( (v11 & 0x2000) != 0 )
-  {
-    GreDCSelectPen(v9, *(_QWORD *)(*(_QWORD *)&v9[122] + 168LL));
-    v9 = v17[0];
-  }
-  v8 = 1;
+  if ( (v12 & 0x2000) != 0 )
+    GreDCSelectPen(v10, *(_QWORD *)(*(_QWORD *)(v10 + 976) + 168LL));
+  v9 = 1;
   if ( !(_DWORD)v6 )
-    goto LABEL_25;
-  PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)&ppo, (DC **)v17, 1);
-  if ( v21 )
+    goto LABEL_26;
+  PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)&ppo, (struct XDCOBJ *)v19, 1);
+  if ( v22 )
   {
-    v13 = &a3[v6];
+    v15 = &a3[v6];
     do
     {
-      v14 = *a3;
-      a5 -= v14;
-      if ( a5 < 0 || (int)v14 < 2 )
+      v16 = *a3;
+      a5 -= v16;
+      if ( a5 < 0 || (int)v16 < 2 )
       {
-        v15 = 87;
-        goto LABEL_21;
-      }
-      if ( !(unsigned int)EPATHOBJ::bMoveTo((EPATHOBJ *)&ppo, (struct EXFORMOBJ *)&v19, a2)
-        || !(unsigned int)EPATHOBJ::bPolyLineTo((EPATHOBJ *)&ppo, (struct EXFORMOBJ *)&v19, a2 + 1, (int)v14 - 1) )
-      {
+        v13 = 87;
         goto LABEL_22;
       }
+      if ( !EPATHOBJ::bMoveTo((EPATHOBJ *)&ppo, (struct EXFORMOBJ *)&v18, a2)
+        || !EPATHOBJ::bPolyLineTo((EPATHOBJ *)&ppo, (struct EXFORMOBJ *)&v18, a2 + 1, v16 - 1) )
+      {
+        goto LABEL_23;
+      }
       ++a3;
-      a2 += v14;
+      a2 += v16;
     }
-    while ( a3 < v13 );
-    if ( (v17[0][31].x & 1) == 0
-      && !(unsigned int)EPATHOBJ::bStrokeAndOrFill(&ppo, v17, (LINEATTRS *)&v17[0][26], &v19, 1u) )
+    while ( a3 < v15 );
+    if ( (*(_DWORD *)(v19[0] + 248LL) & 1) == 0
+      && !(unsigned int)EPATHOBJ::bStrokeAndOrFill(&ppo, (struct XDCOBJ *)v19, (LINEATTRS *)(v19[0] + 208LL), &v18, 1u) )
     {
-      v8 = 0;
+      v9 = 0;
     }
-    XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)&ppo);
-    goto LABEL_24;
+    EPATHOBJ::vUnlock((EPATHOBJ *)&ppo);
+    if ( v24 )
+      PopThreadGuardedObject(v23);
+    goto LABEL_26;
   }
-  v15 = 8;
-LABEL_21:
-  EngSetLastError(v15);
+  v13 = 8;
 LABEL_22:
-  XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)&ppo);
-  DCOBJ::~DCOBJ((DCOBJ *)v17);
-  return 0LL;
+  EngSetLastError(v13);
+LABEL_23:
+  EPATHOBJ::vUnlock((EPATHOBJ *)&ppo);
+  if ( v24 )
+    PopThreadGuardedObject(v23);
+LABEL_27:
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v19);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v20);
+  return v7;
 }

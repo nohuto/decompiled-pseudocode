@@ -1,183 +1,207 @@
 /*
- * XREFs of MiPfnRangeIsZero @ 0x1403C8EF8
+ * XREFs of MiPfnRangeIsZero @ 0x1403B9BE8
  * Callers:
- *     MiFreedUnusedPfnPagesWorker @ 0x1403C8AA8 (MiFreedUnusedPfnPagesWorker.c)
+ *     MiFreedUnusedPfnPagesWorker @ 0x1403B9758 (MiFreedUnusedPfnPagesWorker.c)
  * Callees:
- *     MiFreeLargeZeroPages @ 0x14026E05C (MiFreeLargeZeroPages.c)
- *     MiInitializeLargePfnList @ 0x14026E1F4 (MiInitializeLargePfnList.c)
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     MiGetLeafVa @ 0x1402CFEB0 (MiGetLeafVa.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x14033AC10 (MiGetContainingPageTable.c)
- *     MiReplacePfnWithGapMapping @ 0x1403C92F4 (MiReplacePfnWithGapMapping.c)
- *     MiPreparePfnDatabasePageForFree @ 0x1403C9394 (MiPreparePfnDatabasePageForFree.c)
- *     MiClearSystemAccessBits @ 0x1403C9494 (MiClearSystemAccessBits.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1403C9590 (MiDemoteValidLargePageOneLevel.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiReplicatePfnDatabaseMappings @ 0x1405839A4 (MiReplicatePfnDatabaseMappings.c)
+ *     MiGetContainingPageTable @ 0x14023E450 (MiGetContainingPageTable.c)
+ *     MiFreeLargeZeroPages @ 0x1402FD354 (MiFreeLargeZeroPages.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetLeafVa @ 0x14032CE60 (MiGetLeafVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiReplacePfnWithGapMapping @ 0x1403B9F4C (MiReplacePfnWithGapMapping.c)
+ *     MiPreparePfnDatabasePageForFree @ 0x1403BA024 (MiPreparePfnDatabasePageForFree.c)
+ *     MiClearSystemAccessBits @ 0x1403BA13C (MiClearSystemAccessBits.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1403BA228 (MiDemoteValidLargePageOneLevel.c)
+ *     MiReplicatePfnDatabaseMappings @ 0x14052EF2C (MiReplicatePfnDatabaseMappings.c)
  */
 
-void __fastcall MiPfnRangeIsZero(unsigned __int64 LeafVa, unsigned __int64 a2)
+void __fastcall MiPfnRangeIsZero(unsigned __int64 a1, unsigned __int64 a2)
 {
-  __int64 v4; // rdi
-  unsigned __int64 v5; // r15
-  int v6; // eax
-  int v7; // esi
-  unsigned __int64 v8; // rbx
-  __int64 v9; // r13
-  __int64 v10; // r14
-  __int64 v11; // rcx
-  __int64 v12; // rdx
-  unsigned __int64 v13; // rcx
-  __int64 v14; // r8
-  unsigned __int64 v15; // rbp
-  __int64 v16; // rax
-  _QWORD *v17; // rdx
-  _QWORD *v18; // rax
-  _QWORD *v19; // rcx
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // rdi
-  struct _KPRCB *CurrentPrcb; // r9
-  unsigned __int64 v23; // r8
+  unsigned __int64 v2; // r15
+  unsigned __int64 LeafVa; // rdi
+  unsigned __int64 v4; // rsi
+  unsigned __int64 v5; // r12
+  unsigned __int64 v6; // r14
+  int v7; // eax
+  int v8; // ebp
+  __int64 v9; // rdx
+  unsigned __int64 v10; // rbx
+  __int64 v11; // r13
+  __int64 v12; // rax
+  unsigned __int64 v13; // rdi
+  _QWORD *v14; // rdx
+  unsigned __int64 v15; // rcx
+  struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
-  bool v25; // zf
-  signed __int32 v26; // eax
-  int v27; // [rsp+20h] [rbp-D8h]
-  unsigned __int64 v28; // [rsp+28h] [rbp-D0h]
-  __int64 v29; // [rsp+30h] [rbp-C8h] BYREF
-  __int64 v30[3]; // [rsp+38h] [rbp-C0h] BYREF
-  _QWORD v31[12]; // [rsp+50h] [rbp-A8h] BYREF
+  bool v18; // zf
+  signed __int32 v19; // eax
+  __int64 v20; // rdx
+  unsigned __int64 v21; // rcx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v25; // rax
+  unsigned __int64 v26; // [rsp+20h] [rbp-78h]
+  _OWORD v27[7]; // [rsp+28h] [rbp-70h] BYREF
+  int v28; // [rsp+A0h] [rbp+8h]
+  BOOL v29; // [rsp+A8h] [rbp+10h]
+  __int64 v30; // [rsp+B0h] [rbp+18h] BYREF
+  __int64 v31; // [rsp+B8h] [rbp+20h]
 
-  memset(v31, 0, sizeof(v31));
-  v29 = 0LL;
+  v2 = a2;
+  LeafVa = a1;
+  v27[0] = 0LL;
   if ( a2 > MmPfnDatabase + (MxPfnAllocation << 12) )
-    a2 = MmPfnDatabase + (MxPfnAllocation << 12);
-  if ( LeafVa >= a2 )
+    v2 = MmPfnDatabase + (MxPfnAllocation << 12);
+  v27[1] = 0LL;
+  if ( a1 >= v2 )
     return;
-  MiInitializeLargePfnList(v31);
   v4 = 0LL;
   v5 = 0LL;
-  v28 = 0LL;
+  v6 = 0LL;
+  v26 = 0LL;
   do
   {
-    v6 = MI_IS_PHYSICAL_ADDRESS(LeafVa);
-    v7 = v6;
-    v8 = ((LeafVa >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v7 = MI_IS_PHYSICAL_ADDRESS(LeafVa);
+    v8 = v7;
     v9 = 1LL;
-    LODWORD(v10) = 3;
-    if ( v6 > 0 )
+    v10 = ((LeafVa >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v31 = 1LL;
+    LODWORD(v11) = 3;
+    if ( v7 > 0 )
     {
-      v11 = (unsigned int)v6;
+      v22 = (unsigned int)v7;
       do
       {
-        LODWORD(v10) = v10 - 1;
-        v8 = ((v8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-        --v11;
+        LODWORD(v11) = v11 - 1;
+        v10 = ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+        --v22;
       }
-      while ( v11 );
-      if ( (_DWORD)v10 != 3 )
+      while ( v22 );
+      if ( (_DWORD)v11 != 3 )
       {
-        v10 = (unsigned int)(v10 - 1);
-        v9 = MiLargePageSizes[v10];
+        v11 = (unsigned int)(v11 - 1);
+        v9 = MiLargePageSizes[v11];
+        v31 = v9;
       }
     }
-    if ( (((v9 << 12) - 1) & LeafVa) != 0 || a2 - LeafVa < v9 << 12 )
+    if ( (((v9 << 12) - 1) & LeafVa) == 0 && v2 - LeafVa >= v9 << 12 )
     {
-      if ( (unsigned int)MiDemoteValidLargePageOneLevel(LeafVa) )
-        continue;
-      v20 = v8 + 8;
-    }
-    else
-    {
-      if ( (*(_BYTE *)v8 & 0x20) != 0 && ((unsigned __int8)(1 << v6) & (unsigned __int8)byte_140C506CE) != 0 )
+      if ( (*(_BYTE *)v10 & 0x20) != 0 )
       {
-        v12 = 512 - ((v8 >> 3) & 0x1FF);
-        v13 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-        if ( v6 > 0 )
+        v20 = 512 - ((v10 >> 3) & 0x1FF);
+        v21 = ((v2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+        if ( v7 > 0 )
         {
-          v14 = (unsigned int)v6;
+          v23 = (unsigned int)v7;
           do
           {
-            v13 = ((v13 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-            --v14;
+            v21 = ((v21 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+            --v23;
           }
-          while ( v14 );
+          while ( v23 );
         }
-        if ( ((v13 ^ v8) & 0xFFFFFFFFF000LL) == 0 )
-          v12 = (__int64)(v13 - v8) >> 3;
-        MiClearSystemAccessBits(v8, v12, (unsigned int)v6);
+        if ( ((v21 ^ v10) & 0xFFFFFFFFF000LL) == 0 )
+          v20 = (__int64)(v21 - v10) >> 3;
+        MiClearSystemAccessBits(v10, v20, (unsigned int)v7);
       }
-      v27 = v7;
-      while ( v7 < 4 )
+      v28 = v8;
+      if ( v8 < 4 )
       {
-        v15 = v5;
-        v16 = MI_READ_PTE_LOCK_FREE(v8);
-        v30[0] = v16;
-        if ( v7 != v27 && (v16 & 0x20) != 0 && ((unsigned __int8)(1 << v7) & (unsigned __int8)byte_140C506CE) != 0 )
-          MiClearSystemAccessBits(v8, 1LL, 0LL);
-        MiPreparePfnDatabasePageForFree(v8, (unsigned int)v7, (unsigned int)v10);
-        v4 += v9;
-        v17 = (_QWORD *)(48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)v30) >> 12) & 0xFFFFFFFFFFLL)
-                       - 0x220000000000LL);
-        v18 = &v31[3 * (unsigned int)v10];
-        v19 = (_QWORD *)v18[1];
-        if ( (_QWORD *)*v19 != v18 )
-          __fastfail(3u);
-        *v17 = v18;
-        v17[1] = v19;
-        *v19 = v17;
-        v18[1] = v17;
-        if ( v7 == 3 )
+        v29 = MiPteInShadowRange((unsigned __int64)&v30);
+        while ( 1 )
         {
-          v28 = v8;
-          v5 = v8;
-          if ( v15 )
-            v5 = v15;
+          v12 = MI_READ_PTE_LOCK_FREE(v10);
+          v30 = v12;
+          v13 = v12;
+          if ( v8 != v28 && (v12 & 0x20) != 0 )
+            MiClearSystemAccessBits(v10, 1LL, 0LL);
+          MiPreparePfnDatabasePageForFree(v10, (unsigned int)v8, (unsigned int)v11);
+          v4 += v31;
+          if ( v29
+            && (MiFlags & 0xC00000) != 0
+            && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+            && (v13 & 1) != 0
+            && ((v13 & 0x20) == 0 || (v13 & 0x42) == 0) )
+          {
+            Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+            if ( Flink )
+            {
+              v25 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v30 >> 3) & 0x1FF));
+              if ( (v25 & 0x20) != 0 )
+                v13 |= 0x20uLL;
+              if ( (v25 & 0x42) != 0 )
+                v13 |= 0x42uLL;
+            }
+            else
+            {
+              v13 = v30;
+            }
+          }
+          v14 = (_QWORD *)(48 * ((v13 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
+          *v14 = *((_QWORD *)v27 + (unsigned int)v11);
+          *((_QWORD *)v27 + (unsigned int)v11) = v14;
+          if ( v8 == 3 )
+          {
+            v26 = v10;
+            v6 = v10;
+            if ( !v5 )
+              v5 = v10;
+          }
+          else
+          {
+            v6 = v26;
+          }
+          MiReplacePfnWithGapMapping(v10, (unsigned int)v8);
+          if ( (*(_QWORD *)(48 * MiGetContainingPageTable(v10 & 0xFFFFFFFFFFFFF000uLL) - 0x58000000000LL + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1 )
+            break;
+          v31 = 1LL;
+          LODWORD(v11) = 3;
+          v10 = ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+          if ( ++v8 >= 4 )
+            goto LABEL_17;
         }
-        MiReplacePfnWithGapMapping(v8, (unsigned int)v7);
-        if ( (*(_QWORD *)(48 * MiGetContainingPageTable(v8 & 0xFFFFFFFFFFFFF000uLL) - 0x220000000000LL + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1 )
-        {
-          v8 += 8LL;
-          break;
-        }
-        LODWORD(v10) = 3;
-        v9 = 1LL;
-        v8 = ((v8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-        ++v7;
+        v10 += 8LL;
       }
-      v20 = v8;
+LABEL_17:
+      v15 = v10;
+      goto LABEL_18;
     }
-    LeafVa = MiGetLeafVa(v20);
+    if ( !(unsigned int)MiDemoteValidLargePageOneLevel(LeafVa) )
+    {
+      v15 = v10 + 8;
+LABEL_18:
+      LeafVa = MiGetLeafVa(v15);
+    }
   }
-  while ( LeafVa < a2 );
+  while ( LeafVa < v2 );
   if ( v5 )
-    MiReplicatePfnDatabaseMappings(v5, v28);
-  MiFreeLargeZeroPages((int)&MiSystemPartition, (__int64)v31, 0, &v29);
-  v21 = v4 - v29;
-  MiReturnCommit((__int64)&MiSystemPartition, v21);
+    MiReplicatePfnDatabaseMappings(v5, v6);
+  _InterlockedExchangeAdd64(&qword_140C4EFD8, -(__int64)v4);
+  MiFreeLargeZeroPages((int)&MiSystemPartition, (__int64)v27, 0LL);
+  MiReturnCommit((__int64)&MiSystemPartition, v4);
   CurrentPrcb = KeGetCurrentPrcb();
-  v23 = v21;
   CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
   if ( (_DWORD)CachedResidentAvailable != -1 )
   {
-    if ( v21 + CachedResidentAvailable <= 0x100 )
+    if ( v4 + CachedResidentAvailable <= 0x100 )
     {
       do
       {
-        if ( v21 >= 0x80000 )
+        if ( v4 >= 0x80000 )
           break;
-        v26 = _InterlockedCompareExchange(
+        v19 = _InterlockedCompareExchange(
                 (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                CachedResidentAvailable + v21,
+                CachedResidentAvailable + v4,
                 CachedResidentAvailable);
-        v25 = (_DWORD)CachedResidentAvailable == v26;
-        LODWORD(CachedResidentAvailable) = v26;
-        if ( v25 )
-          goto LABEL_52;
+        v18 = (_DWORD)CachedResidentAvailable == v19;
+        LODWORD(CachedResidentAvailable) = v19;
+        if ( v18 )
+          return;
       }
-      while ( v26 != -1 && v21 + v26 <= 0x100 );
+      while ( v19 != -1 && v4 + v19 <= 0x100 );
     }
     if ( (int)CachedResidentAvailable > 192
       && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
@@ -185,11 +209,9 @@ void __fastcall MiPfnRangeIsZero(unsigned __int64 LeafVa, unsigned __int64 a2)
                                               192,
                                               CachedResidentAvailable) )
     {
-      v23 = v21 + (int)CachedResidentAvailable - 192;
+      v4 += (int)CachedResidentAvailable - 192;
     }
   }
-  if ( v23 )
-    _InterlockedExchangeAdd64(&qword_140C591C0, v23);
-LABEL_52:
-  _InterlockedExchangeAdd64(&qword_140C53558, -(__int64)v21);
+  if ( v4 )
+    _InterlockedExchangeAdd64(&qword_140C52980, v4);
 }

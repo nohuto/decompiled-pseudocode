@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vLookupScript@@YAXKPEAGK@Z @ 0x1C00C8768
+ * XREFs of ?vLookupScript@@YAXKPEAGK@Z @ 0x1C00E4D98
  * Callers:
- *     vIFIMetricsToEnumLogFontExDvW @ 0x1C00C86F8 (vIFIMetricsToEnumLogFontExDvW.c)
+ *     vIFIMetricsToEnumLogFontExDvW @ 0x1C00E4D28 (vIFIMetricsToEnumLogFontExDvW.c)
  * Callees:
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0014ED0 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     InitializeScripts @ 0x1C03901B0 (InitializeScripts.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0064CBC (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     InitializeScripts @ 0x1C03931F0 (InitializeScripts.c)
  */
 
 void __fastcall vLookupScript(int a1, char *a2)
@@ -21,18 +21,18 @@ void __fastcall vLookupScript(int a1, char *a2)
   {
     v6 = a1 + 1000;
     v7 = &aScripts;
-    while ( *v7 != v6 )
+    do
     {
+      if ( *v7 == v6 )
+        break;
       ++v5;
       v7 += 4;
-      if ( v5 >= 0x13 )
-      {
-        v8 = (char *)qword_1C0335BA8;
-        goto LABEL_7;
-      }
     }
-    v8 = (char *)*((_QWORD *)&aScripts + 2 * v5 + 1);
-LABEL_7:
+    while ( v5 < 0x13 );
+    if ( v5 >= 0x13 )
+      v8 = (char *)qword_1C033A9F8;
+    else
+      v8 = (char *)*((_QWORD *)&aScripts + 2 * v5 + 1);
     StringCchCopyW(a2, 32LL, v8);
   }
 }

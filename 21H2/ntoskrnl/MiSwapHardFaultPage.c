@@ -1,38 +1,40 @@
 /*
- * XREFs of MiSwapHardFaultPage @ 0x1405C4C94
+ * XREFs of MiSwapHardFaultPage @ 0x140563770
  * Callers:
- *     MiHardFaultPageRelease @ 0x140231A68 (MiHardFaultPageRelease.c)
- *     MiIdealClusterPage @ 0x1405C3C6C (MiIdealClusterPage.c)
+ *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
+ *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140239060 (MiLockNestedPageAtDpcInline.c)
- *     MiUpdateTransitionPteFrame @ 0x1402E7D14 (MiUpdateTransitionPteFrame.c)
- *     MiCopyPfnEntryEx @ 0x1402E8154 (MiCopyPfnEntryEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
- *     MiRemoveLockedPageCharge @ 0x1403377E0 (MiRemoveLockedPageCharge.c)
- *     MiPfnReferenceCountIsZero @ 0x140338500 (MiPfnReferenceCountIsZero.c)
- *     MiSetPfnIdentity @ 0x14033C300 (MiSetPfnIdentity.c)
+ *     MiRemoveLockedPageCharge @ 0x14023AEB0 (MiRemoveLockedPageCharge.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14026AF90 (MiLockNestedPageAtDpcInline.c)
+ *     MiUpdateTransitionPteFrame @ 0x14026D9E0 (MiUpdateTransitionPteFrame.c)
+ *     MiCopyPfnEntryEx @ 0x14026DA30 (MiCopyPfnEntryEx.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiPfnReferenceCountIsZero @ 0x140325DF0 (MiPfnReferenceCountIsZero.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
-__int64 __fastcall MiSwapHardFaultPage(__int64 *a1, __m128i *a2, __m128i *a3)
+__int64 __fastcall MiSwapHardFaultPage(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rax
   __int64 updated; // rbx
   int v8; // ebp
-  __int64 v9; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // rcx
   __int64 result; // rax
 
   v6 = MI_READ_PTE_LOCK_FREE((unsigned __int64)a1);
-  updated = MiUpdateTransitionPteFrame(v6, 0xAAAAAAAAAAAAAAABuLL * ((__int64)a3[0x22000000000LL].m128i_i64 >> 4));
+  updated = MiUpdateTransitionPteFrame(v6, (a3 + 0x58000000000LL) / 48);
   v8 = 0;
   if ( MiPteInShadowRange((unsigned __int64)a1) )
   {
     if ( (unsigned int)MiPteHasShadow() )
     {
       v8 = 1;
-      if ( HIBYTE(word_140C51864) )
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_8;
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
@@ -45,26 +47,26 @@ __int64 __fastcall MiSwapHardFaultPage(__int64 *a1, __m128i *a2, __m128i *a3)
 LABEL_8:
   *a1 = updated;
   if ( v8 )
-    MiWritePteShadow((__int64)a1, updated);
-  MiLockNestedPageAtDpcInline((__int64)a3);
+    MiWritePteShadow((__int64)a1, updated, v10);
+  MiLockNestedPageAtDpcInline(a3, v9, v10, v11);
   MiCopyPfnEntryEx(a3, a2);
-  if ( (((unsigned __int64)a2[2].m128i_i64[1] >> 60) & 7) == 3 )
-    MiSetPfnIdentity((__int64)a3, 3);
-  a3[1].m128i_i64[1] &= 0xC000000000000000uLL;
-  a2[1].m128i_i64[1] |= 0x4000000000000000uLL;
-  v9 = a2[1].m128i_i64[0];
-  if ( (v9 & 4) != 0 )
+  if ( ((*(_QWORD *)(a2 + 40) >> 60) & 7) == 3 )
+    *(_QWORD *)(a3 + 40) = *(_QWORD *)(a3 + 40) & 0x8FFFFFFFFFFFFFFFuLL | 0x3000000000000000LL;
+  *(_QWORD *)(a3 + 24) &= 0xC000000000000000uLL;
+  *(_QWORD *)(a2 + 24) |= 0x4000000000000000uLL;
+  v12 = *(_QWORD *)(a2 + 16);
+  if ( (v12 & 4) != 0 )
   {
-    v9 &= ~4uLL;
-    a2[1].m128i_i64[0] = v9;
+    v12 &= ~4uLL;
+    *(_QWORD *)(a2 + 16) = v12;
   }
-  if ( (v9 & 2) != 0 )
-    a2[1].m128i_i64[0] = v9 & 0xFFFFFFFFFFFFFFFDuLL;
-  if ( (unsigned int)MiRemoveLockedPageCharge((__int64)a2) )
-    MiPfnReferenceCountIsZero((ULONG_PTR)a2, 0xAAAAAAAAAAAAAAABuLL * ((__int64)a2[0x22000000000LL].m128i_i64 >> 4));
+  if ( (v12 & 2) != 0 )
+    *(_QWORD *)(a2 + 16) = v12 & 0xFFFFFFFFFFFFFFFDuLL;
+  if ( (unsigned int)MiRemoveLockedPageCharge(a2) )
+    MiPfnReferenceCountIsZero(a2, (a2 + 0x58000000000LL) / 48);
   else
-    a3[2].m128i_i16[0] = 1;
+    *(_WORD *)(a3 + 32) = 1;
   result = 0x7FFFFFFFFFFFFFFFLL;
-  _InterlockedAnd64(&a2[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);
+  _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   return result;
 }

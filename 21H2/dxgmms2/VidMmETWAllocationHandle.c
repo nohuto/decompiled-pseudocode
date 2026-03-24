@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmETWAllocationHandle @ 0x1C0002D70
+ * XREFs of VidMmETWAllocationHandle @ 0x1C0001560
  * Callers:
  *     <none>
  * Callees:
- *     ?ETWAllocationHandle@VIDMM_GLOBAL@@QEAAPEAXI@Z @ 0x1C0092250 (-ETWAllocationHandle@VIDMM_GLOBAL@@QEAAPEAXI@Z.c)
+ *     ?ETWAllocationHandle@VIDMM_GLOBAL@@QEAAPEAXI@Z @ 0x1C00690A0 (-ETWAllocationHandle@VIDMM_GLOBAL@@QEAAPEAXI@Z.c)
  */
 
 void *__fastcall VidMmETWAllocationHandle(VIDMM_GLOBAL *a1, unsigned int a2)

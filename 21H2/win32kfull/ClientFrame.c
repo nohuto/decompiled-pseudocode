@@ -1,11 +1,11 @@
 /*
- * XREFs of ClientFrame @ 0x1C025AC14
+ * XREFs of ClientFrame @ 0x1C025E040
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
  * Callees:
- *     GrePolyPatBlt @ 0x1C00C1D4C (GrePolyPatBlt.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?GetSignFromMappingMode@@YAHPEAUHDC__@@PEAUtagPOINT@@@Z @ 0x1C025AB80 (-GetSignFromMappingMode@@YAHPEAUHDC__@@PEAUtagPOINT@@@Z.c)
+ *     GrePolyPatBlt @ 0x1C0045794 (GrePolyPatBlt.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?GetSignFromMappingMode@@YAHPEAUHDC__@@PEAUtagPOINT@@@Z @ 0x1C025DFAC (-GetSignFromMappingMode@@YAHPEAUHDC__@@PEAUtagPOINT@@@Z.c)
  */
 
 __int64 __fastcall ClientFrame(HDC a1, int *a2, __int64 a3)
@@ -15,7 +15,7 @@ __int64 __fastcall ClientFrame(HDC a1, int *a2, __int64 a3)
   int v8; // edx
   int v9; // edi
   int v10; // ebx
-  struct tagPOINT v12; // [rsp+30h] [rbp-49h] BYREF
+  tagPOINT v12; // [rsp+30h] [rbp-49h] BYREF
   _DWORD v13[4]; // [rsp+40h] [rbp-39h] BYREF
   __int64 v14; // [rsp+50h] [rbp-29h]
   int v15; // [rsp+58h] [rbp-21h]
@@ -66,5 +66,5 @@ __int64 __fastcall ClientFrame(HDC a1, int *a2, __int64 a3)
   v25 = v10 - v12.x;
   v27 = v12.x;
   v29 = a3;
-  return GrePolyPatBlt(a1, 5898313, (struct _POLYPATBLT *)v13, 4);
+  return GrePolyPatBlt(a1, 0x5A0049u, (struct _POLYPATBLT *)v13, 4u);
 }

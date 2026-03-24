@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SBSetParms@@YAHPEAUtagSBDATA@@PEAUtagSCROLLINFO@@PEAHPEAJ@Z @ 0x1C00C6E68
+ * XREFs of ?SBSetParms@@YAHPEAUtagSBDATA@@PEAUtagSCROLLINFO@@PEAHPEAJ@Z @ 0x1C00F60E0
  * Callers:
- *     xxxSetScrollBar @ 0x1C00C6C68 (xxxSetScrollBar.c)
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     xxxSetScrollBar @ 0x1C00F5D08 (xxxSetScrollBar.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ __int64 __fastcall SBSetParms(struct tagSBDATA *a1, struct tagSCROLLINFO *a2, in
   int v16; // eax
   int v17; // ecx
   int v18; // edx
-  int v19; // ecx
+  bool v19; // zf
 
   v4 = *((_DWORD *)a2 + 1);
   v5 = 0;
@@ -106,20 +106,24 @@ __int64 __fastcall SBSetParms(struct tagSBDATA *a1, struct tagSCROLLINFO *a2, in
     {
       *((_DWORD *)a1 + 3) = v16;
       v8 = 1;
+      v4 = *((_DWORD *)a2 + 1);
     }
   }
-  v19 = *((_DWORD *)a2 + 1);
-  if ( (v19 & 0x1000) == 0 )
+  if ( (v4 & 0x1000) == 0 )
     *a4 = *((_DWORD *)a1 + 3);
-  if ( (v19 & 1) == 0 )
+  if ( (v4 & 1) == 0 )
   {
-    if ( (v19 & 2) == 0 )
+    if ( (v4 & 2) == 0 )
       return v8;
     goto LABEL_22;
   }
-  if ( *(_DWORD *)a1 != *((_DWORD *)a1 + 1) )
+  v19 = *(_DWORD *)a1 == *((_DWORD *)a1 + 1);
+  *a3 = *(_DWORD *)a1 != *((_DWORD *)a1 + 1);
+  if ( !v19 )
+  {
 LABEL_22:
     LOBYTE(v5) = *((_DWORD *)a1 + 2) <= *((_DWORD *)a1 + 1) - *(_DWORD *)a1;
-  *a3 = v5;
+    *a3 = v5;
+  }
   return v8;
 }

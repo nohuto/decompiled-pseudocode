@@ -1,9 +1,9 @@
 /*
- * XREFs of SetManipulationInputTargetTransform @ 0x1C02332C4
+ * XREFs of SetManipulationInputTargetTransform @ 0x1C01FC62C
  * Callers:
- *     ApiSetSetManipulationInputTargetTransform @ 0x1C02081B4 (ApiSetSetManipulationInputTargetTransform.c)
+ *     ApiSetSetManipulationInputTargetTransform @ 0x1C01D0D8C (ApiSetSetManipulationInputTargetTransform.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall SetManipulationInputTargetTransform(_OWORD *a1))(_QWORD)
@@ -15,8 +15,8 @@ __int64 (__fastcall *__fastcall SetManipulationInputTargetTransform(_OWORD *a1))
   __int128 v5; // xmm0
   _OWORD v6[7]; // [rsp+30h] [rbp-78h] BYREF
 
-  result = qword_1C02969C8;
-  if ( qword_1C02969C8 )
+  result = qword_1C0257710;
+  if ( qword_1C0257710 )
   {
     v2 = a1[1];
     v6[0] = *a1;
@@ -29,7 +29,7 @@ __int64 (__fastcall *__fastcall SetManipulationInputTargetTransform(_OWORD *a1))
     v6[3] = v4;
     v6[5] = a1[5];
     v6[6] = v5;
-    return (__int64 (__fastcall *)(_QWORD))qword_1C02969C8(v6);
+    return (__int64 (__fastcall *)(_QWORD))qword_1C0257710(v6);
   }
   return result;
 }

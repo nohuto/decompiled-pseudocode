@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpGetNtProductTypeFromRegistry @ 0x14080A670
+ * XREFs of RtlpGetNtProductTypeFromRegistry @ 0x14077AA04
  * Callers:
- *     RtlGetNtProductType @ 0x140245CC0 (RtlGetNtProductType.c)
- *     PspSiloInitializeUserSharedData @ 0x1409AC998 (PspSiloInitializeUserSharedData.c)
+ *     RtlGetNtProductType @ 0x1402C2020 (RtlGetNtProductType.c)
+ *     PspSiloInitializeUserSharedData @ 0x140906BEC (PspSiloInitializeUserSharedData.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall RtlpGetNtProductTypeFromRegistry(_DWORD *a1)
@@ -28,13 +28,13 @@ __int64 __fastcall RtlpGetNtProductTypeFromRegistry(_DWORD *a1)
   unsigned int v15; // [rsp+E0h] [rbp+2Fh]
   int v16; // [rsp+E4h] [rbp+33h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   ResultLength = 0;
   *(_DWORD *)(&String1.MaximumLength + 1) = 0;
   KeyHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
   v7[1] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ProductOptions";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ValueName.Buffer = L"ProductType";
   v10.Buffer = L"LanmanNt";
   v11.Buffer = L"ServerNt";
@@ -45,6 +45,7 @@ __int64 __fastcall RtlpGetNtProductTypeFromRegistry(_DWORD *a1)
   *(_QWORD *)&v10.Length = 1179664LL;
   *(_QWORD *)&v11.Length = 1179664LL;
   *(_QWORD *)&String2.Length = 786442LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   v2 = ZwOpenKey(&KeyHandle, 1u, &ObjectAttributes);
   if ( v2 >= 0 )

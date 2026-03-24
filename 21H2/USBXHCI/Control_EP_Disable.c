@@ -1,5 +1,5 @@
 /*
- * XREFs of Control_EP_Disable @ 0x1C000CF20
+ * XREFs of Control_EP_Disable @ 0x1C000A7B0
  * Callers:
  *     <none>
  * Callees:
@@ -12,8 +12,12 @@ void __fastcall Control_EP_Disable(__int64 a1)
   KIRQL v3; // al
 
   do
-    v2 = *(_DWORD *)(a1 + 108);
-  while ( ((v2 - 1) & 0xFFFFFFFD) == 0 );
+  {
+    do
+      v2 = *(_DWORD *)(a1 + 108);
+    while ( v2 == 3 );
+  }
+  while ( v2 == 1 );
   v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
   *(_BYTE *)(a1 + 104) = v3;
   if ( v2 )

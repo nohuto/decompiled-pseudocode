@@ -1,58 +1,54 @@
 /*
- * XREFs of ?GetCddAllocationHandles@ADAPTER_DISPLAY@@QEBAXIPEAI0@Z @ 0x1C016A114
+ * XREFs of ?GetCddAllocationHandles@ADAPTER_DISPLAY@@QEBAXIPEAI0@Z @ 0x1C0148618
  * Callers:
- *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C0168160 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
- *     ?PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z @ 0x1C02DFFE0 (-PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z.c)
+ *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C00DE810 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
+ *     ?PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z @ 0x1C01968D4 (-PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z.c)
  * Callees:
- *     ?IsCddPrimaryStale@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0001414 (-IsCddPrimaryStale@ADAPTER_DISPLAY@@QEBAEI@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCddPrimaryStale@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C000C520 (-IsCddPrimaryStale@ADAPTER_DISPLAY@@QEBAEI@Z.c)
  */
 
 void __fastcall ADAPTER_DISPLAY::GetCddAllocationHandles(
-        ADAPTER_DISPLAY *this,
-        unsigned int a2,
+        DXGADAPTER **this,
+        __int64 a2,
         unsigned int *a3,
         unsigned int *a4)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rsi
-  __int64 v9; // r9
-  __int64 v10; // rdx
-  unsigned int v11; // eax
+  __int64 v7; // rsi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  unsigned int v10; // ebx
+  DXGADAPTER *v11; // r9
+  __int64 v12; // rdx
+  unsigned int v13; // eax
+  __int64 v14; // rax
+  __int64 v15; // rax
 
-  v4 = 0;
-  v5 = a2;
-  if ( a2 >= *((_DWORD *)this + 24) )
+  v7 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= *((_DWORD *)this + 20) )
   {
-    WdLogSingleEntry1(1LL, 1462LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"VidPnSourceId < m_NumVidPnSources",
-      1462LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v14 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v14 + 24) = 1419LL;
+    WdLogEvent5_WdAssertion(v14);
   }
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this + 2)) )
+  v10 = 0;
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 1463LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 1463LL, 0LL, 0LL, 0LL, 0LL);
+    v15 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v15 + 24) = 1420LL;
+    WdLogEvent5_WdAssertion(v15);
   }
-  if ( ADAPTER_DISPLAY::IsCddPrimaryStale(this, v5)
-    || (v9 = *((_QWORD *)this + 16), (v10 = *(_QWORD *)(4000 * v5 + v9 + 88)) == 0)
-    || (*(_DWORD *)(*(_QWORD *)(v10 + 48) + 4LL) & 0x10) != 0 )
+  if ( ADAPTER_DISPLAY::IsCddPrimaryStale((ADAPTER_DISPLAY *)this, v7)
+    || (v11 = this[14], (v12 = *((_QWORD *)v11 + 496 * v7 + 11)) == 0)
+    || (*(_DWORD *)(*(_QWORD *)(v12 + 48) + 4LL) & 0x10) != 0 )
   {
-    v11 = 0;
+    v13 = 0;
   }
   else
   {
-    v4 = *(_DWORD *)(*(_QWORD *)(4000 * v5 + v9 + 600) + 16LL);
-    v11 = *(_DWORD *)(v10 + 16);
+    v10 = *(_DWORD *)(*((_QWORD *)v11 + 496 * v7 + 75) + 16LL);
+    v13 = *(_DWORD *)(v12 + 16);
   }
-  *a3 = v11;
-  *a4 = v4;
+  *a3 = v13;
+  *a4 = v10;
 }

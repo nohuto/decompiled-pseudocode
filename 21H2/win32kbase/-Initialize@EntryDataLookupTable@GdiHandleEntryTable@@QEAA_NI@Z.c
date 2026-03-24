@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Initialize@EntryDataLookupTable@GdiHandleEntryTable@@QEAA_NI@Z @ 0x1C009A560
+ * XREFs of ?Initialize@EntryDataLookupTable@GdiHandleEntryTable@@QEAA_NI@Z @ 0x1C0091D80
  * Callers:
- *     ?AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z @ 0x1C001F808 (-AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z.c)
+ *     ?AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z @ 0x1C002BC40 (-AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC74 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     Win32AllocPool @ 0x1C002AE60 (Win32AllocPool.c)
  */
 
 char __fastcall GdiHandleEntryTable::EntryDataLookupTable::Initialize(
@@ -22,11 +22,7 @@ char __fastcall GdiHandleEntryTable::EntryDataLookupTable::Initialize(
   v6 = v2 >> 8;
   if ( !*(_QWORD *)(*(_QWORD *)this + 8 * v6) )
   {
-    *(_QWORD *)(*(_QWORD *)this + 8 * v6) = NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                                              (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-                                              260LL,
-                                              0x1000uLL,
-                                              1668048199);
+    *(_QWORD *)(*(_QWORD *)this + 8 * v6) = Win32AllocPool(4096LL, 0x636C6547u);
     v5 = *(_QWORD *)this;
     if ( !*(_QWORD *)(*(_QWORD *)this + 8 * v6) )
       return 0;

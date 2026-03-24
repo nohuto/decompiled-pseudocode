@@ -1,119 +1,87 @@
 /*
- * XREFs of CmpLateUnloadHiveWorker @ 0x140693350
+ * XREFs of CmpLateUnloadHiveWorker @ 0x14071B940
  * Callers:
  *     <none>
  * Callees:
- *     CmpDecrementAppHiveUnloadCount @ 0x140207A0C (CmpDecrementAppHiveUnloadCount.c)
- *     CmpTryToRundownHive @ 0x1402092DC (CmpTryToRundownHive.c)
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
- *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
- *     CmpDeleteHive @ 0x14074EBE4 (CmpDeleteHive.c)
- *     UNLOCK_HIVE_LOAD @ 0x140752340 (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x1407523B8 (LOCK_HIVE_LOAD.c)
- *     CmpLockRegistryFreezeAware @ 0x140753CF8 (CmpLockRegistryFreezeAware.c)
- *     CmpDereferenceKeyControlBlock @ 0x14076B020 (CmpDereferenceKeyControlBlock.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF6008 (CmpReleaseHiveLoadUnloadRundown.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF602C (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     CmpDecrementAppHiveUnloadCount @ 0x140360BD0 (CmpDecrementAppHiveUnloadCount.c)
+ *     CmpTryToRundownHive @ 0x140360C44 (CmpTryToRundownHive.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140648D30 (CmpDereferenceKeyControlBlock.c)
+ *     CmpReleaseShutdownRundown @ 0x1406CE440 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x1406CF870 (CmpAcquireShutdownRundown.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406EB3B0 (UNLOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406EB4E0 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x1406EB544 (LOCK_HIVE_LOAD.c)
+ *     CmpDereferenceHive @ 0x14071BA9C (CmpDereferenceHive.c)
+ *     CmpCompleteUnloadKey @ 0x14071BF04 (CmpCompleteUnloadKey.c)
  */
 
-__int64 __fastcall CmpLateUnloadHiveWorker(PVOID P)
+_QWORD *__fastcall CmpLateUnloadHiveWorker(__int64 a1)
 {
-  char v2; // bl
-  __int64 v3; // rdx
-  char UnloadRundown; // si
+  __int64 v2; // rbx
+  char v3; // al
+  __int64 v4; // rdx
   __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rcx
-  __int64 v8; // rcx
-  int v9; // eax
-  __int64 v10; // rdx
-  ULONG_PTR v11; // rbx
-  __int64 v12; // rdx
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  bool v21; // zf
-  signed __int32 v23[8]; // [rsp+0h] [rbp-70h] BYREF
-  __int64 v24; // [rsp+20h] [rbp-50h] BYREF
-  __int128 v25; // [rsp+28h] [rbp-48h] BYREF
-  _OWORD v26[3]; // [rsp+38h] [rbp-38h] BYREF
+  _DWORD *v6; // r9
+  ULONG_PTR v7; // rbx
+  __int64 v8; // rdx
+  BOOLEAN v10[4]; // [rsp+20h] [rbp-48h] BYREF
+  int v11; // [rsp+24h] [rbp-44h] BYREF
+  _OWORD v12[3]; // [rsp+28h] [rbp-40h] BYREF
 
-  v25 = 0LL;
-  memset(v26, 0, sizeof(v26));
-  CmpInitializeThreadInfo((__int64)&v25);
-  v2 = 0;
-  LODWORD(v24) = 0;
-  *((_DWORD *)P + (_InterlockedExchangeAdd((volatile signed __int32 *)P + 1059, 1u) & 0x7F) + 1060) = 22;
-  UnloadRundown = CmpAcquireHiveLoadUnloadRundown();
-  if ( UnloadRundown )
+  v11 = 2;
+  memset(v12, 0, sizeof(v12));
+  LOCK_HIVE_LOAD();
+  CmpLockRegistryFreezeAware(1);
+  *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4276), 1u) & 0x7F) + 4280) = 22;
+  v2 = *(_QWORD *)(a1 + 2928);
+  if ( (*(_DWORD *)(a1 + 160) & 0x40) != 0 )
   {
-    LOCK_HIVE_LOAD();
-    LOBYTE(v7) = 1;
-    CmpLockRegistryFreezeAware(v7);
-    v9 = *((_DWORD *)P + 40);
-    LODWORD(v24) = 6;
-    if ( (v9 & 0x40) != 0 )
-    {
-      *((_DWORD *)P + (_InterlockedExchangeAdd((volatile signed __int32 *)P + 1059, 1u) & 0x7F) + 1060) = 23;
-    }
-    else if ( *((_BYTE *)P + 2944) )
-    {
-      v10 = *((_QWORD *)P + 367);
-      if ( (*((_DWORD *)P + 1028) & 0x20) != 0 )
-      {
-        v2 = 1;
-        ++CmpActiveAppHiveUnloadCount;
-      }
-      if ( CmpTryToRundownHive((struct _EX_RUNDOWN_REF *)P, v10) )
-      {
-        v11 = *((_QWORD *)P + 367);
-        *((_DWORD *)P + (_InterlockedExchangeAdd((volatile signed __int32 *)P + 1059, 1u) & 0x7F) + 1060) = 30;
-        CmpAttachToRegistryProcess(v26);
-        CmpCompleteUnloadKey(v11, v12, &v24);
-        CmpDetachFromRegistryProcess(v26);
-        CmpLockRegistry(v14, v13, v15, v16);
-        CmpDereferenceKeyControlBlock(v11);
-        CmpUnlockRegistry(v18, v17, v19, v20, v24, v25);
-      }
-      else if ( v2 )
-      {
-        CmpDecrementAppHiveUnloadCount();
-      }
-    }
-    else
-    {
-      *((_DWORD *)P + (_InterlockedExchangeAdd((volatile signed __int32 *)P + 1059, 1u) & 0x7F) + 1060) = 25;
-    }
-  }
-  else
-  {
-    v8 = _InterlockedExchangeAdd((volatile signed __int32 *)P + 1059, 1u) & 0x7F;
-    *((_DWORD *)P + (unsigned int)v8 + 1060) = 24;
-  }
-  v21 = (v24 & 2) == 0;
-  *((_DWORD *)P + 1200) = 0;
-  if ( !v21 )
-    CmpUnlockRegistry(v8, v3, v5, v6, v24, v25);
-  _InterlockedOr(v23, 0);
-  if ( *((_QWORD *)P + 601) )
-    ExfUnblockPushLock((volatile __int64 *)P + 601, 0LL);
-  if ( (v24 & 4) != 0 )
+    *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4276), 1u) & 0x7F) + 4280) = 23;
+LABEL_11:
+    CmpUnlockRegistry();
     UNLOCK_HIVE_LOAD();
-  if ( UnloadRundown )
-    CmpReleaseHiveLoadUnloadRundown();
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 1058, 0xFFFFFFFF) == 1 )
-    CmpDeleteHive(P);
-  return CmCleanupThreadInfo((__int64 *)&v25);
+    return (_QWORD *)CmpDereferenceHive(a1);
+  }
+  v10[0] = CmpAcquireShutdownRundown();
+  if ( !v10[0] )
+  {
+    *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4276), 1u) & 0x7F) + 4280) = 24;
+    goto LABEL_11;
+  }
+  if ( !*(_BYTE *)(a1 + 2936) )
+  {
+    *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4276), 1u) & 0x7F) + 4280) = 25;
+    goto LABEL_8;
+  }
+  if ( (*(_DWORD *)(a1 + 4152) & 0x20) != 0 )
+    ++CmpActiveAppHiveUnloadCount;
+  v3 = CmpTryToRundownHive((struct _EX_RUNDOWN_REF *)a1, v2, v10);
+  *(_QWORD *)(a1 + 2944) = 0LL;
+  if ( v3 )
+  {
+    v7 = *(_QWORD *)(a1 + 2928);
+    *(_DWORD *)(a1 + 4LL * (_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4276), 1u) & 0x7F) + 4280) = 30;
+    CmpAttachToRegistryProcess((__int64)v12, v4, v5, v6);
+    CmpCompleteUnloadKey(v7, v8, &v11);
+    CmpDetachFromRegistryProcess((__int64)v12);
+    CmpLockRegistry();
+    CmpDereferenceKeyControlBlock(v7);
+LABEL_8:
+    CmpUnlockRegistry();
+    UNLOCK_HIVE_LOAD();
+    CmpDereferenceHive(a1);
+    return CmpReleaseShutdownRundown();
+  }
+  if ( (*(_DWORD *)(a1 + 4152) & 0x20) != 0 )
+    CmpDecrementAppHiveUnloadCount();
+  CmpUnlockRegistry();
+  UNLOCK_HIVE_LOAD();
+  if ( v10[0] )
+    CmpReleaseShutdownRundown();
+  return (_QWORD *)CmpDereferenceHive(a1);
 }

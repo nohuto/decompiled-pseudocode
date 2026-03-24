@@ -1,15 +1,15 @@
 /*
- * XREFs of SepAddTokenLogonSession @ 0x1409CD320
+ * XREFs of SepAddTokenLogonSession @ 0x1409236D0
  * Callers:
- *     SepCreateTokenEx @ 0x1402022FC (SepCreateTokenEx.c)
- *     SepFilterToken @ 0x14078E3F0 (SepFilterToken.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
- *     SepSetServerSiloToken @ 0x1409C664C (SepSetServerSiloToken.c)
+ *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
+ *     SepSetServerSiloToken @ 0x14091CC64 (SepSetServerSiloToken.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall SepAddTokenLogonSession(__int64 a1)
@@ -19,7 +19,7 @@ void __fastcall SepAddTokenLogonSession(__int64 a1)
   __int64 v4; // rbx
   struct _ERESOURCE *v5; // rsi
   __int64 *v6; // rbx
-  __int64 *Pool2; // rax
+  __int64 *PoolWithTag; // rax
   __int64 *v8; // rbx
   __int64 **v9; // rdx
 
@@ -40,20 +40,20 @@ void __fastcall SepAddTokenLogonSession(__int64 a1)
       if ( !v6 )
         goto LABEL_11;
     }
-    Pool2 = (__int64 *)ExAllocatePool2(256LL, 24LL, 1934386515LL);
-    if ( Pool2 )
+    PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x734C6553u);
+    if ( PoolWithTag )
     {
-      *Pool2 = 0LL;
+      *PoolWithTag = 0LL;
       v8 = v6 + 22;
-      Pool2[1] = 0LL;
-      Pool2[2] = a1;
+      PoolWithTag[1] = 0LL;
+      PoolWithTag[2] = a1;
       v9 = (__int64 **)v8[1];
       if ( *v9 != v8 )
         __fastfail(3u);
-      *Pool2 = (__int64)v8;
-      Pool2[1] = (__int64)v9;
-      *v9 = Pool2;
-      v8[1] = (__int64)Pool2;
+      *PoolWithTag = (__int64)v8;
+      PoolWithTag[1] = (__int64)v9;
+      *v9 = PoolWithTag;
+      v8[1] = (__int64)PoolWithTag;
     }
   }
 LABEL_11:

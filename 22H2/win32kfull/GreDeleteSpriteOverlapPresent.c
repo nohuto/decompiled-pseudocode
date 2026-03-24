@@ -1,14 +1,14 @@
 /*
- * XREFs of GreDeleteSpriteOverlapPresent @ 0x1C00F72B4
+ * XREFs of GreDeleteSpriteOverlapPresent @ 0x1C007C220
  * Callers:
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
- *     ?InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z @ 0x1C026EBF0 (-InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
+ *     ?InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z @ 0x1C0275DA4 (-InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z.c)
  * Callees:
- *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B7D4 (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?vSpComputeNoPresentRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C001D9F0 (-vSpComputeNoPresentRegion@@YAXPEAU_SPRITESTATE@@H@Z.c)
- *     ?pSpGetPresent@@YAPEAU_PRESENT@@PEAUHDEV__@@PEAUHWND__@@@Z @ 0x1C027F590 (-pSpGetPresent@@YAPEAU_PRESENT@@PEAUHDEV__@@PEAUHWND__@@@Z.c)
- *     ?vSpRemovePresent@@YAXPEAUHDEV__@@PEAU_PRESENT@@@Z @ 0x1C02824D0 (-vSpRemovePresent@@YAXPEAUHDEV__@@PEAU_PRESENT@@@Z.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vSpComputeNoPresentRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00F02F8 (-vSpComputeNoPresentRegion@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00F0C8C (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?pSpGetPresent@@YAPEAU_PRESENT@@PEAUHDEV__@@PEAUHWND__@@@Z @ 0x1C02817B0 (-pSpGetPresent@@YAPEAU_PRESENT@@PEAUHDEV__@@PEAUHWND__@@@Z.c)
+ *     ?vSpRemovePresent@@YAXPEAUHDEV__@@PEAU_PRESENT@@@Z @ 0x1C0283F64 (-vSpRemovePresent@@YAXPEAUHDEV__@@PEAU_PRESENT@@@Z.c)
  */
 
 void __fastcall GreDeleteSpriteOverlapPresent(HDEV a1, HWND a2)
@@ -16,82 +16,83 @@ void __fastcall GreDeleteSpriteOverlapPresent(HDEV a1, HWND a2)
   unsigned int v2; // esi
   int v5; // r14d
   SPRITERANGELOCK *v6; // rbx
-  __int64 i; // rdx
+  __int64 v7; // rdx
   unsigned int v8; // edi
   __int64 v9; // r12
   struct _PRESENT *Present; // rdx
   HDEV v11; // rcx
   void *v12; // rdx
   void *v13; // rdx
-  Gre::Base *v14; // rcx
-  __int64 v15; // rdi
-  __int64 v16; // rbx
-  Gre::Base *v17; // rcx
+  __int64 v14; // rdi
 
   v2 = 0;
   v5 = 0;
-  if ( *((_DWORD *)a1 + 35) )
+  if ( *((_DWORD *)a1 + 37) )
   {
     v8 = 0;
     do
     {
-      v9 = *(_QWORD *)(*((_QWORD *)a1 + 18) + 8LL * v8);
-      SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(v9 + 200));
-      Present = pSpGetPresent(*(HDEV *)(*((_QWORD *)a1 + 18) + 8LL * v8), a2);
+      v9 = *(_QWORD *)(*((_QWORD *)a1 + 19) + 8LL * v8);
+      SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(v9 + 208));
+      Present = pSpGetPresent(*(HDEV *)(*((_QWORD *)a1 + 19) + 8LL * v8), a2);
       if ( Present )
       {
         vSpRemovePresent(v11, Present);
         Win32FreePool(v12);
         v5 = 1;
       }
-      SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(v9 + 200));
+      SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(v9 + 208));
       ++v8;
     }
-    while ( v8 < *((_DWORD *)a1 + 35) );
-    v6 = (SPRITERANGELOCK *)(a1 + 50);
+    while ( v8 < *((_DWORD *)a1 + 37) );
+    v6 = (SPRITERANGELOCK *)(a1 + 52);
   }
   else
   {
-    v6 = (SPRITERANGELOCK *)(a1 + 50);
-    GreAcquireSemaphore(*((_QWORD *)a1 + 25));
+    v6 = (SPRITERANGELOCK *)(a1 + 52);
+    GreAcquireSemaphore(*((_QWORD *)a1 + 26));
     EtwTraceGreLockAcquireSemaphoreExclusive(L"hsem", *(_QWORD *)v6, 8LL);
     if ( a2 )
     {
-      for ( i = *((_QWORD *)a1 + 20); i; i = *(_QWORD *)(i + 8) )
+      v7 = *((_QWORD *)a1 + 21);
+      if ( v7 )
       {
-        if ( *(HWND *)i == a2 )
+        do
         {
-          vSpRemovePresent(a1, (struct _PRESENT *)i);
+          if ( *(HWND *)v7 == a2 )
+            break;
+          v7 = *(_QWORD *)(v7 + 8);
+        }
+        while ( v7 );
+        if ( v7 )
+        {
+          vSpRemovePresent(a1, (struct _PRESENT *)v7);
           Win32FreePool(v13);
           v5 = 1;
-          break;
         }
       }
     }
-    EtwTraceGreLockReleaseSemaphore(L"hsem");
+    EtwTraceGreLockReleaseSemaphore(L"hsem", *(_QWORD *)v6);
     GreReleaseSemaphoreInternal(*(_QWORD *)v6);
   }
   if ( v5 )
   {
-    if ( *((_DWORD *)a1 + 35) )
+    if ( *((_DWORD *)a1 + 37) )
     {
       do
       {
-        v15 = *(_QWORD *)(*((_QWORD *)a1 + 18) + 8LL * v2);
-        SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(v15 + 200));
-        v16 = *(_QWORD *)(*((_QWORD *)a1 + 18) + 8LL * v2);
-        Gre::Base::Globals(v17);
-        vSpComputeNoPresentRegion((REGION **)(v16 + 80), 0);
-        SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(v15 + 200));
+        v14 = *(_QWORD *)(*((_QWORD *)a1 + 19) + 8LL * v2);
+        SPRITERANGELOCK::vLockExclusive((SPRITERANGELOCK *)(v14 + 208));
+        vSpComputeNoPresentRegion((struct _SPRITESTATE *)(*(_QWORD *)(*((_QWORD *)a1 + 19) + 8LL * v2) + 88LL), 0);
+        SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(v14 + 208));
         ++v2;
       }
-      while ( v2 < *((_DWORD *)a1 + 35) );
+      while ( v2 < *((_DWORD *)a1 + 37) );
     }
     else
     {
       SPRITERANGELOCK::vLockExclusive(v6);
-      Gre::Base::Globals(v14);
-      vSpComputeNoPresentRegion((REGION **)a1 + 10, 0);
+      vSpComputeNoPresentRegion((struct _SPRITESTATE *)(a1 + 22), 0);
       SPRITERANGELOCK::vUnlock(v6);
     }
   }

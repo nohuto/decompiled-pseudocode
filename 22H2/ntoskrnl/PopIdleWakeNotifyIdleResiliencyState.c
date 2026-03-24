@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIdleWakeNotifyIdleResiliencyState @ 0x14059DA24
+ * XREFs of PopIdleWakeNotifyIdleResiliencyState @ 0x14057B6B4
  * Callers:
- *     PopPdcIdleResiliencyCallback @ 0x14099812C (PopPdcIdleResiliencyCallback.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F009C (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopIdleWakeInsertTimeInterval @ 0x14059D8D0 (PopIdleWakeInsertTimeInterval.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIdleWakeInsertTimeInterval @ 0x14057B560 (PopIdleWakeInsertTimeInterval.c)
  */
 
 __int64 __fastcall PopIdleWakeNotifyIdleResiliencyState(char a1)
@@ -17,15 +17,15 @@ __int64 __fastcall PopIdleWakeNotifyIdleResiliencyState(char a1)
   unsigned __int64 v4; // rdi
   unsigned int v5; // ecx
   BOOL v6; // edx
-  LARGE_INTEGER v7; // r14
+  LARGE_INTEGER v7; // rbp
   ULONG LowPart; // eax
-  LONGLONG v9; // rsi
+  LONGLONG v9; // r11
   unsigned __int64 v10; // rcx
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v14; // zf
-  LARGE_INTEGER v15; // [rsp+58h] [rbp+10h] BYREF
+  LARGE_INTEGER v15; // [rsp+48h] [rbp+10h] BYREF
 
   v15.QuadPart = 0LL;
   v2 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
@@ -39,21 +39,21 @@ __int64 __fastcall PopIdleWakeNotifyIdleResiliencyState(char a1)
       v6 = a1 == 0;
       if ( ((v5 >> 1) & 1) != v6 )
       {
-        *(_DWORD *)PopIdleWakeContext = v5 & 0xFFFFFFFD | (2 * v6);
+        *(_DWORD *)PopIdleWakeContext = (2 * v6) | v5 & 0xFFFFFFFD;
         RtlGetInterruptTimePrecise(&v15);
         v7 = v15;
         LowPart = v3->LowPart;
         v9 = v15.QuadPart - v3[1].QuadPart;
         if ( (v3->LowPart & 8) == 0 )
         {
-          v10 = v15.QuadPart - v3[6].QuadPart;
+          v10 = v15.QuadPart - v3[23].QuadPart;
           if ( v10 > PopIdleWakeSourceSpuriousThresholdQpc )
             v3->LowPart = LowPart | 4;
           PopIdleWakeInsertTimeInterval(
             v10,
             6u,
-            (__int64)PopIdleWakeContext + 72,
-            (__int64)PopIdleWakeContext + 96,
+            (__int64)PopIdleWakeContext + 208,
+            (__int64)PopIdleWakeContext + 232,
             PopIdleSpuriousWakeBucketLimitsQpc);
           v3->LowPart |= 8u;
           LowPart = v3->LowPart;
@@ -74,22 +74,23 @@ __int64 __fastcall PopIdleWakeNotifyIdleResiliencyState(char a1)
       }
     }
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&PopIdleWakeContextLock);
+  KxReleaseSpinLock(&PopIdleWakeContextLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v4 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-      v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v14 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v4 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v14 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v4);

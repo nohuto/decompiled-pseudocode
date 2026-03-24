@@ -1,54 +1,59 @@
 /*
- * XREFs of DxgkDispMgrOperation @ 0x1C01C89E0
+ * XREFs of DxgkDispMgrOperation @ 0x1C0165D00
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ??1?$NT_OBJECT_REFERENCE@PEAUDXGDISPLAYMANAGEROBJECT_CONTAINER@@@@QEAA@XZ @ 0x1C01C436C (--1-$NT_OBJECT_REFERENCE@PEAUDXGDISPLAYMANAGEROBJECT_CONTAINER@@@@QEAA@XZ.c)
- *     ?ConnectSessionDisplayBroker@DXGSESSIONDATA@@QEAAJXZ @ 0x1C01C88B4 (-ConnectSessionDisplayBroker@DXGSESSIONDATA@@QEAAJXZ.c)
- *     ??1?$NT_OBJECT_REFERENCE@PEAUDXGSWAPCHAIN_CONTAINER@@@@QEAA@XZ @ 0x1C01C8B9C (--1-$NT_OBJECT_REFERENCE@PEAUDXGSWAPCHAIN_CONTAINER@@@@QEAA@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ??1?$NT_OBJECT_REFERENCE@PEAUDXGDISPLAYMANAGEROBJECT_CONTAINER@@@@QEAA@XZ @ 0x1C01660F4 (--1-$NT_OBJECT_REFERENCE@PEAUDXGDISPLAYMANAGEROBJECT_CONTAINER@@@@QEAA@XZ.c)
+ *     ??1?$NT_OBJECT_REFERENCE@PEAX@@QEAA@XZ @ 0x1C016612C (--1-$NT_OBJECT_REFERENCE@PEAX@@QEAA@XZ.c)
+ *     ?ConnectSessionDisplayBroker@DXGSESSIONDATA@@QEAAJXZ @ 0x1C0166160 (-ConnectSessionDisplayBroker@DXGSESSIONDATA@@QEAAJXZ.c)
  */
 
 __int64 __fastcall DxgkDispMgrOperation(_OWORD *a1)
 {
   ULONG64 v2; // rcx
-  __int64 v3; // rsi
-  NTSTATUS v4; // eax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rbx
-  __int64 v8; // r8
-  __int64 v9; // r9
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rdi
+  __int64 v6; // r8
+  NTSTATUS v7; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  DXGSESSIONMGR *v13; // rdi
   unsigned int CurrentProcessSessionId; // eax
+  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rdi
   struct DXGPROCESS *Current; // rax
-  int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 CurrentProcess; // rax
-  unsigned int ProcessSessionId; // eax
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  int v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
   __int64 v24; // rax
-  unsigned int v25; // eax
-  HANDLE Handle[2]; // [rsp+50h] [rbp-28h]
-  HANDLE v27[2]; // [rsp+60h] [rbp-18h]
-  PVOID v28; // [rsp+88h] [rbp+10h] BYREF
-  PVOID Object; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rbx
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 CurrentProcess; // rax
+  HANDLE Handle[2]; // [rsp+40h] [rbp-28h]
+  HANDLE v33[2]; // [rsp+50h] [rbp-18h]
+  PVOID v34; // [rsp+78h] [rbp+10h] BYREF
+  PVOID Object; // [rsp+80h] [rbp+18h] BYREF
 
   v2 = (ULONG64)(a1 + 2);
   if ( v2 < (unsigned __int64)a1 || v2 > MmUserProbeAddress )
     *(_BYTE *)MmUserProbeAddress = 0;
   *(_OWORD *)Handle = *a1;
-  *(_OWORD *)v27 = a1[1];
+  *(_OWORD *)v33 = a1[1];
   Object = 0LL;
-  LODWORD(v3) = ObReferenceObjectByHandleWithTag(
+  LODWORD(v5) = ObReferenceObjectByHandleWithTag(
                   Handle[1],
                   0x20000u,
                   g_pDxgkDisplayManagerObjectType,
@@ -56,72 +61,73 @@ __int64 __fastcall DxgkDispMgrOperation(_OWORD *a1)
                   0x4B677844u,
                   &Object,
                   0LL);
-  if ( (int)v3 < 0 )
+  if ( (int)v5 < 0 )
   {
-    WdLogSingleEntry1(3LL, Handle[1]);
+    v24 = WdLogNewEntry5_WdWarning(v4, v3, v6);
+    *(HANDLE *)(v24 + 24) = Handle[1];
+    WdLogEvent5_WdWarning(v24);
     goto LABEL_17;
   }
   if ( !*(_QWORD *)Object )
   {
-    WdLogSingleEntry1(3LL, 859LL);
-    goto LABEL_20;
+    v25 = WdLogNewEntry5_WdWarning(v4, v3, v6);
+    *(_QWORD *)(v25 + 24) = 856LL;
+    WdLogEvent5_WdWarning(v25);
+    goto LABEL_21;
   }
   if ( LODWORD(Handle[0]) != 1 )
   {
-LABEL_20:
-    LODWORD(v3) = -1073741811;
+LABEL_21:
+    LODWORD(v5) = -1073741811;
     goto LABEL_17;
   }
-  v28 = 0LL;
-  v4 = ObReferenceObjectByHandleWithTag(v27[0], 0x1F0001u, LpcPortObjectType, 1, 0x4B677844u, &v28, 0LL);
-  LODWORD(v3) = v4;
-  if ( v4 < 0 )
+  v34 = 0LL;
+  v7 = ObReferenceObjectByHandleWithTag(v33[0], 0x1F0001u, LpcPortObjectType, 1, 0x4B677844u, &v34, 0LL);
+  v5 = v7;
+  if ( v7 < 0 )
   {
-    WdLogSingleEntry2(3LL, v27[0], v4);
+    v26 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+    *(HANDLE *)(v26 + 24) = v33[0];
+    *(_QWORD *)(v26 + 32) = v5;
+    WdLogEvent5_WdWarning(v26);
   }
-  else if ( LODWORD(v27[1]) )
+  else if ( LODWORD(v33[1]) )
   {
-    SessionDataForSpecifiedSession = (struct DXGSESSIONDATA *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-    if ( SessionDataForSpecifiedSession )
+    v13 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v9, v8) + 102);
+    if ( v13 )
     {
-      CurrentProcessSessionId = PsGetCurrentProcessSessionId(v6);
-      SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
-                                         SessionDataForSpecifiedSession,
-                                         CurrentProcessSessionId);
+      CurrentProcessSessionId = PsGetCurrentProcessSessionId(v12, v11);
+      SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v13, CurrentProcessSessionId);
     }
-    Current = DXGPROCESS::GetCurrent(v6, v5, v8, v9);
+    else
+    {
+      SessionDataForSpecifiedSession = 0LL;
+    }
+    Current = DXGPROCESS::GetCurrent(v12, v11);
     if ( !Current
       || !SessionDataForSpecifiedSession
-      || (*((_DWORD *)Current + 106) & 4) == 0 && !*((_BYTE *)SessionDataForSpecifiedSession + 18500) )
+      || !*((_BYTE *)Current + 346) && !*((_BYTE *)SessionDataForSpecifiedSession + 18492) )
     {
-      WdLogSingleEntry1(3LL, 883LL);
-      NT_OBJECT_REFERENCE<DXGSWAPCHAIN_CONTAINER *>::~NT_OBJECT_REFERENCE<DXGSWAPCHAIN_CONTAINER *>(&v28);
-      LODWORD(v3) = -1073741790;
+      v27 = WdLogNewEntry5_WdWarning(v18, v17, v19);
+      *(_QWORD *)(v27 + 24) = 880LL;
+      WdLogEvent5_WdWarning(v27);
+      NT_OBJECT_REFERENCE<void *>::~NT_OBJECT_REFERENCE<void *>(&v34);
+      LODWORD(v5) = -1073741790;
       goto LABEL_17;
     }
-    v12 = DXGSESSIONDATA::ConnectSessionDisplayBroker(SessionDataForSpecifiedSession);
-    v3 = v12;
-    if ( v12 < 0 )
+    v20 = DXGSESSIONDATA::ConnectSessionDisplayBroker(SessionDataForSpecifiedSession);
+    v5 = v20;
+    if ( v20 < 0 )
     {
-      CurrentProcess = PsGetCurrentProcess(v14, v13, v15, v16);
-      ProcessSessionId = PsGetProcessSessionId(CurrentProcess);
-      WdLogSingleEntry2(2LL, v3, ProcessSessionId);
-      v24 = PsGetCurrentProcess(v21, v20, v22, v23);
-      v25 = PsGetProcessSessionId(v24);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to connect to session broker with status 0x%I64x in session 0x%I64x",
-        v3,
-        v25,
-        0LL,
-        0LL,
-        0LL);
+      v28 = WdLogNewEntry5_WdError(v22, v21);
+      *(_QWORD *)(v28 + 24) = v5;
+      CurrentProcess = PsGetCurrentProcess(v30, v29);
+      *(_QWORD *)(v28 + 32) = (unsigned int)PsGetProcessSessionId(CurrentProcess);
+      WdLogEvent5_WdError(v28);
     }
   }
-  NT_OBJECT_REFERENCE<DXGSWAPCHAIN_CONTAINER *>::~NT_OBJECT_REFERENCE<DXGSWAPCHAIN_CONTAINER *>(&v28);
+  NT_OBJECT_REFERENCE<void *>::~NT_OBJECT_REFERENCE<void *>(&v34);
 LABEL_17:
   NT_OBJECT_REFERENCE<DXGDISPLAYMANAGEROBJECT_CONTAINER *>::~NT_OBJECT_REFERENCE<DXGDISPLAYMANAGEROBJECT_CONTAINER *>(&Object);
-  return (unsigned int)v3;
+  return (unsigned int)v5;
 }

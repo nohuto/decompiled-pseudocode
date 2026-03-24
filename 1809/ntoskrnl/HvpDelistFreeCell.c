@@ -4,7 +4,7 @@
  *     HvpIsFreeNeighbor @ 0x1405ADDAC (HvpIsFreeNeighbor.c)
  *     HvpDoAllocateCell @ 0x1405FB690 (HvpDoAllocateCell.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     HvpRemoveFreeCellHint @ 0x1405FBB90 (HvpRemoveFreeCellHint.c)
  */
 

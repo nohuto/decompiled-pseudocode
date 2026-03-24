@@ -1,25 +1,25 @@
 /*
- * XREFs of ExpCovQueryInformation @ 0x140A0350C
+ * XREFs of ExpCovQueryInformation @ 0x1409577DC
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExfAcquirePushLockExclusive @ 0x14029F100 (ExfAcquirePushLockExclusive.c)
- *     ExfAcquirePushLockShared @ 0x14029F330 (ExfAcquirePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLock @ 0x140359E10 (ExfReleasePushLock.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlDuplicateUnicodeString @ 0x1406A9D20 (RtlDuplicateUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     MmEnumerateSystemImages @ 0x140814DC0 (MmEnumerateSystemImages.c)
- *     ExpCovDeleteUnloadedModuleEntry @ 0x140A030B0 (ExpCovDeleteUnloadedModuleEntry.c)
- *     ExpCovIsUnLoadedModulePresent @ 0x140A0326C (ExpCovIsUnLoadedModulePresent.c)
- *     ExpCovQueryHypervisorInformation @ 0x140A032A0 (ExpCovQueryHypervisorInformation.c)
- *     ExpCovReadRequestBuffer @ 0x140A03C14 (ExpCovReadRequestBuffer.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x1402F1440 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusive @ 0x1402F2C70 (ExfAcquirePushLockExclusive.c)
+ *     ExfAcquirePushLockShared @ 0x1402F2EA0 (ExfAcquirePushLockShared.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlDuplicateUnicodeString @ 0x14068B130 (RtlDuplicateUnicodeString.c)
+ *     MmEnumerateSystemImages @ 0x140797DE0 (MmEnumerateSystemImages.c)
+ *     ExpCovDeleteUnloadedModuleEntry @ 0x140957380 (ExpCovDeleteUnloadedModuleEntry.c)
+ *     ExpCovIsUnLoadedModulePresent @ 0x14095753C (ExpCovIsUnLoadedModulePresent.c)
+ *     ExpCovQueryHypervisorInformation @ 0x140957570 (ExpCovQueryHypervisorInformation.c)
+ *     ExpCovReadRequestBuffer @ 0x140957EDC (ExpCovReadRequestBuffer.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpCovQueryInformation(unsigned __int64 a1, unsigned int a2, unsigned int *a3)
@@ -75,9 +75,9 @@ __int64 __fastcall ExpCovQueryInformation(unsigned __int64 a1, unsigned int a2, 
   if ( (unsigned int)v4 < 0x40 )
     return 3221225476LL;
   v24 = a1 + 32;
-  v8 = 0x7FFFFFFF0000LL;
-  if ( a1 < 0x7FFFFFFF0000LL )
-    v8 = a1;
+  v8 = a1;
+  if ( a1 >= 0x7FFFFFFF0000LL )
+    v8 = 0x7FFFFFFF0000LL;
   v33[0] = *(_OWORD *)v8;
   v33[1] = *(_OWORD *)(v8 + 16);
   v33[2] = *(_OWORD *)(v8 + 32);
@@ -103,7 +103,7 @@ __int64 __fastcall ExpCovQueryInformation(unsigned __int64 a1, unsigned int a2, 
       v9 = MmEnumerateSystemImages((__int64 (__fastcall *)(PVOID *, __int64))ExpCovQueryInfoCallBack, (__int64)v32);
       if ( v9 < 0 )
       {
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         goto LABEL_52;
       }
       ExpCovQueryHypervisorInformation((__int64 *)v32);
@@ -151,7 +151,7 @@ __int64 __fastcall ExpCovQueryInformation(unsigned __int64 a1, unsigned int a2, 
           if ( (__int64 *)v17 == &ExpCovUnloadedModuleList )
           {
             ExfReleasePushLock(&ExpCovPushLock);
-            KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
             if ( v3 )
               *v3 = Buffer;
             *(_DWORD *)(v31 + 4) = v23;
@@ -223,9 +223,9 @@ LABEL_31:
   }
 LABEL_52:
   if ( StringIn.Buffer )
-    RtlFreeUnicodeString(&StringIn);
+    RtlFreeAnsiString(&StringIn);
   if ( v32[1].Buffer )
-    RtlFreeUnicodeString(&v32[1]);
+    RtlFreeAnsiString(&v32[1]);
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0x72766F43u);
   return (unsigned int)v9;

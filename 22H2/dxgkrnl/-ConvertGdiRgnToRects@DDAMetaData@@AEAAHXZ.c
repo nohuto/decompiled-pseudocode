@@ -1,27 +1,34 @@
 /*
- * XREFs of ?ConvertGdiRgnToRects@DDAMetaData@@AEAAHXZ @ 0x1C0331A5C
+ * XREFs of ?ConvertGdiRgnToRects@DDAMetaData@@AEAAHXZ @ 0x1C02A0F68
  * Callers:
- *     ?CombineNewMetaData@DDAMetaData@@QEAAHPEAU_D3DKMT_PRESENT_RGNS@@PEAT_LARGE_INTEGER@@HPEAH@Z @ 0x1C03316E8 (-CombineNewMetaData@DDAMetaData@@QEAAHPEAU_D3DKMT_PRESENT_RGNS@@PEAT_LARGE_INTEGER@@HPEAH@Z.c)
+ *     ?CombineNewMetaData@DDAMetaData@@QEAAHPEAU_D3DKMT_PRESENT_RGNS@@PEAT_LARGE_INTEGER@@HPEAH@Z @ 0x1C02A0CB0 (-CombineNewMetaData@DDAMetaData@@QEAAHPEAU_D3DKMT_PRESENT_RGNS@@PEAT_LARGE_INTEGER@@HPEAH@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C01E93B0 (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
- *     ?GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z @ 0x1C0331E50 (-GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C016D17C (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
+ *     ?GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z @ 0x1C02A12A0 (-GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z.c)
  */
 
 __int64 __fastcall DDAMetaData::ConvertGdiRgnToRects(DDAMetaData *this)
 {
   unsigned int v2; // eax
-  unsigned int v3; // edi
+  unsigned int v3; // esi
   unsigned __int64 v4; // rbx
-  unsigned int v5; // r14d
+  unsigned int v5; // esi
   unsigned int *v6; // rbx
-  unsigned int v7; // r15d
-  unsigned int (__fastcall *v8)(_QWORD, struct tagRECT *); // rbx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  unsigned int v9; // ebp
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rbx
   struct tagRECT *DirtyRectData; // rax
-  __int64 v10; // rbx
-  const wchar_t *v11; // r9
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rax
   void *Buffer; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
 
   v2 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(*((_QWORD *)this + 7) + 112LL))(
          *((_QWORD *)this + 8),
@@ -31,15 +38,14 @@ __int64 __fastcall DDAMetaData::ConvertGdiRgnToRects(DDAMetaData *this)
   v4 = ((unsigned __int64)v2 - 32) >> 4;
   if ( (unsigned int)v4 <= *((_DWORD *)this + 5) )
   {
-    Buffer = AUTOEXPANDALLOCATION::GetBuffer(*((const void ***)this + 4), v2, 0);
+    Buffer = AUTOEXPANDALLOCATION::GetBuffer(*((AUTOEXPANDALLOCATION **)this + 4), v2, 0);
     if ( !(*(unsigned int (__fastcall **)(_QWORD, _QWORD, void *))(*((_QWORD *)this + 7) + 112LL))(
             *((_QWORD *)this + 8),
             v3,
             Buffer) )
     {
-      v10 = 1161LL;
-      WdLogSingleEntry1(2LL, 1161LL);
-      v11 = L"Failed to get dirty rects from region";
+      v16 = WdLogNewEntry5_WdError(v21, v20);
+      *(_QWORD *)(v16 + 24) = 1158LL;
       goto LABEL_11;
     }
   }
@@ -51,13 +57,13 @@ __int64 __fastcall DDAMetaData::ConvertGdiRgnToRects(DDAMetaData *this)
       v6 = (unsigned int *)(**((_QWORD **)this + 6) + 16LL);
       while ( 1 )
       {
-        v7 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, unsigned int))(*((_QWORD *)this + 7) + 96LL))(
+        v9 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, unsigned int))(*((_QWORD *)this + 7) + 96LL))(
                *((_QWORD *)this + 9),
                *(v6 - 2),
                *(v6 - 1),
                *v6,
                v6[1]);
-        if ( !v7 )
+        if ( !v9 )
           break;
         if ( !(*(unsigned int (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(*((_QWORD *)this + 7) + 104LL))(
                 *((_QWORD *)this + 8),
@@ -65,39 +71,29 @@ __int64 __fastcall DDAMetaData::ConvertGdiRgnToRects(DDAMetaData *this)
                 *((_QWORD *)this + 9),
                 2LL) )
         {
-          WdLogSingleEntry1(2LL, 1135LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to combine move rect with dirty region",
-            1135LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          return v7;
+          v17 = WdLogNewEntry5_WdError(v11, v10);
+          *(_QWORD *)(v17 + 24) = 1132LL;
+          WdLogEvent5_WdError(v17);
+          return v9;
         }
         ++v5;
         v6 += 6;
         if ( v5 >= *((_DWORD *)this + 11) )
           goto LABEL_7;
       }
-      v10 = 1129LL;
-      WdLogSingleEntry1(2LL, 1129LL);
-      v11 = L"Failed to set tmp region to current dirty rect";
+      v16 = WdLogNewEntry5_WdError(v8, v7);
+      *(_QWORD *)(v16 + 24) = 1126LL;
       goto LABEL_11;
     }
 LABEL_7:
-    v8 = *(unsigned int (__fastcall **)(_QWORD, struct tagRECT *))(*((_QWORD *)this + 7) + 120LL);
+    v12 = *((_QWORD *)this + 7);
     DirtyRectData = DDAMetaData::GetDirtyRectData(this, 1u);
-    if ( !v8(*((_QWORD *)this + 8), DirtyRectData) )
+    if ( !(*(unsigned int (__fastcall **)(_QWORD, struct tagRECT *))(v12 + 120))(*((_QWORD *)this + 8), DirtyRectData) )
     {
-      v10 = 1143LL;
-      WdLogSingleEntry1(2LL, 1143LL);
-      v11 = L"Failed to get bounding box";
+      v16 = WdLogNewEntry5_WdError(v15, v14);
+      *(_QWORD *)(v16 + 24) = 1140LL;
 LABEL_11:
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v11, v10, 0LL, 0LL, 0LL, 0LL);
+      WdLogEvent5_WdError(v16);
       return 0LL;
     }
     *((_DWORD *)this + 11) = 0;

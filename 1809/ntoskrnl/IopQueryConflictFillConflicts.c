@@ -1,10 +1,10 @@
 /*
- * XREFs of IopQueryConflictFillConflicts @ 0x140841A9C
+ * XREFs of IopQueryConflictFillConflicts @ 0x140841A7C
  * Callers:
- *     IopQueryConflictListInternal @ 0x140842074 (IopQueryConflictListInternal.c)
+ *     IopQueryConflictListInternal @ 0x140842054 (IopQueryConflictListInternal.c)
  * Callees:
- *     IopEliminateBogusConflict @ 0x14028B8F0 (IopEliminateBogusConflict.c)
- *     IopQueryConflictFillString @ 0x140841ECC (IopQueryConflictFillString.c)
+ *     IopEliminateBogusConflict @ 0x14028B9F0 (IopEliminateBogusConflict.c)
+ *     IopQueryConflictFillString @ 0x140841EAC (IopQueryConflictFillString.c)
  */
 
 __int64 IopQueryConflictFillConflicts(__int64 a1, unsigned int a2, _QWORD *a3, __int64 a4, ...)

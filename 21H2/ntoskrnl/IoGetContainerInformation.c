@@ -1,11 +1,11 @@
 /*
- * XREFs of IoGetContainerInformation @ 0x1409371A0
+ * XREFs of IoGetContainerInformation @ 0x1408949C0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentProcessSessionId @ 0x140287F00 (PsGetCurrentProcessSessionId.c)
- *     MmGetSessionObjectById @ 0x1402DF7D8 (MmGetSessionObjectById.c)
- *     MmGetIoSessionState @ 0x14096DD80 (MmGetIoSessionState.c)
+ *     MmGetSessionObjectById @ 0x140206364 (MmGetSessionObjectById.c)
+ *     PsGetCurrentProcessSessionId @ 0x14025F5C0 (PsGetCurrentProcessSessionId.c)
+ *     MmGetIoSessionState @ 0x1408C8BF0 (MmGetIoSessionState.c)
  */
 
 NTSTATUS __stdcall IoGetContainerInformation(
@@ -17,10 +17,8 @@ NTSTATUS __stdcall IoGetContainerInformation(
   PVOID SessionObjectById; // rax
   unsigned int CurrentProcessSessionId; // eax
   __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  bool v11; // zf
-  int v12; // [rsp+30h] [rbp+8h] BYREF
+  bool v9; // zf
+  int v10; // [rsp+30h] [rbp+8h] BYREF
 
   SessionObjectById = ContainerObject;
   if ( InformationClass )
@@ -30,14 +28,14 @@ NTSTATUS __stdcall IoGetContainerInformation(
   if ( !ContainerObject )
   {
     CurrentProcessSessionId = PsGetCurrentProcessSessionId();
-    SessionObjectById = MmGetSessionObjectById(CurrentProcessSessionId, v8, v9, v10);
+    SessionObjectById = MmGetSessionObjectById(CurrentProcessSessionId, v8);
     if ( !SessionObjectById )
       return -1073741584;
   }
-  v12 = 0;
-  *((_DWORD *)Buffer + 1) = MmGetIoSessionState(SessionObjectById, &v12);
-  v11 = v12 == MEMORY[0xFFFFF780000002D8];
-  *(_DWORD *)Buffer = v12;
-  *((_BYTE *)Buffer + 8) = v11;
+  v10 = 0;
+  *((_DWORD *)Buffer + 1) = MmGetIoSessionState(SessionObjectById, &v10);
+  v9 = v10 == MEMORY[0xFFFFF780000002D8];
+  *(_DWORD *)Buffer = v10;
+  *((_BYTE *)Buffer + 8) = v9;
   return 0;
 }

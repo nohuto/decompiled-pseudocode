@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEsWorker @ 0x14071C8A0
+ * XREFs of PopEsWorker @ 0x14071C880
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     ExSubscribeWnfStateChange @ 0x1406BC490 (ExSubscribeWnfStateChange.c)
- *     PopEsUpdateState @ 0x14071C9D4 (PopEsUpdateState.c)
- *     PopEsStartTelemetry @ 0x14071CA88 (PopEsStartTelemetry.c)
- *     PopEsUpdateSetting @ 0x1407612A0 (PopEsUpdateSetting.c)
- *     PopEsPublishState @ 0x140762CA4 (PopEsPublishState.c)
+ *     ExSubscribeWnfStateChange @ 0x1406BC470 (ExSubscribeWnfStateChange.c)
+ *     PopEsUpdateState @ 0x14071C9B4 (PopEsUpdateState.c)
+ *     PopEsStartTelemetry @ 0x14071CA68 (PopEsStartTelemetry.c)
+ *     PopEsUpdateSetting @ 0x140761280 (PopEsUpdateSetting.c)
+ *     PopEsPublishState @ 0x140762C84 (PopEsPublishState.c)
  */
 
 void PopEsWorker()

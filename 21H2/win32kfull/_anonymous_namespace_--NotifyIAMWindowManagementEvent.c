@@ -1,60 +1,58 @@
 /*
- * XREFs of _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C00A9418
+ * XREFs of _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C003E22C
  * Callers:
- *     ?xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z @ 0x1C00A8268 (-xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z.c)
- *     ?TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z @ 0x1C00BA8E8 (-TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z.c)
- *     _anonymous_namespace_::NotifyShellSimplePayload @ 0x1C00F4DAC (_anonymous_namespace_--NotifyShellSimplePayload.c)
- *     _anonymous_namespace_::NotifyShellWindowPosChangedCommon @ 0x1C0236714 (_anonymous_namespace_--NotifyShellWindowPosChangedCommon.c)
- *     ?WindowPosAndStateApplied@NotifyShell@@YAXPEBUtagWND@@AEBUtagSHELL_REQUESTED_POS_APPLIED@@@Z @ 0x1C0236EBC (-WindowPosAndStateApplied@NotifyShell@@YAXPEBUtagWND@@AEBUtagSHELL_REQUESTED_POS_APPLIED@@@Z.c)
+ *     ?xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z @ 0x1C0034BF4 (-xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z.c)
+ *     ?TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z @ 0x1C011CA30 (-TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z.c)
+ *     _anonymous_namespace_::NotifyShellSimplePayload @ 0x1C0124960 (_anonymous_namespace_--NotifyShellSimplePayload.c)
+ *     _anonymous_namespace_::NotifyShellWindowPosChangedCommon @ 0x1C023D5D0 (_anonymous_namespace_--NotifyShellWindowPosChangedCommon.c)
+ *     ?NotifyTemplateApplied@CWindowGroupManager@@QEAAXPEBUtagWND@@AEBUtagGROUP_WINDOW_TEMPLATE_APPLIED@@@Z @ 0x1C0240790 (-NotifyTemplateApplied@CWindowGroupManager@@QEAAXPEBUtagWND@@AEBUtagGROUP_WINDOW_TEMPLATE_APPLIE.c)
  * Callees:
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?IsThreadHung@@YAHPEBUtagTHREADINFO@@K@Z @ 0x1C00A93A4 (-IsThreadHung@@YAHPEBUtagTHREADINFO@@K@Z.c)
- *     xxxSendMessageCallback @ 0x1C00ACE14 (xxxSendMessageCallback.c)
- *     _anonymous_namespace_::SeverWindowManagementConnectionToShell @ 0x1C0236B90 (_anonymous_namespace_--SeverWindowManagementConnectionToShell.c)
+ *     IsThreadHung @ 0x1C003E194 (IsThreadHung.c)
+ *     xxxSendMessageCallback @ 0x1C00405E4 (xxxSendMessageCallback.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     _anonymous_namespace_::SeverWindowManagementConnectionToShell @ 0x1C023D698 (_anonymous_namespace_--SeverWindowManagementConnectionToShell.c)
  */
 
-__int64 anonymous_namespace_::NotifyIAMWindowManagementEvent()
+__int64 __fastcall anonymous_namespace_::NotifyIAMWindowManagementEvent(int a1)
 {
-  unsigned int v0; // ebx
-  __int64 v1; // r8
-  __int64 v2; // rdx
+  unsigned int v2; // ebx
   __int64 v3; // rdi
-  const struct tagTHREADINFO **v4; // rsi
-  __int64 v5; // rdx
+  __int64 v4; // rsi
+  __int64 ThreadWin32Thread; // rax
   __int64 v6; // rcx
-  __int64 v7; // r8
-  __int128 v9; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v10; // [rsp+60h] [rbp-18h]
-  char v11; // [rsp+88h] [rbp+10h] BYREF
+  _QWORD v8[4]; // [rsp+50h] [rbp-28h] BYREF
+  char v9; // [rsp+88h] [rbp+10h] BYREF
 
-  v0 = 0;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v11);
-  v2 = gptiCurrent;
+  v2 = 0;
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v9);
   v3 = *(_QWORD *)(gptiCurrent + 456LL);
   if ( v3 )
   {
-    if ( *(_QWORD *)(v3 + 280) )
+    if ( *(_QWORD *)(v3 + 288) )
     {
-      v4 = *(const struct tagTHREADINFO ***)(v3 + 320);
+      v4 = *(_QWORD *)(v3 + 328);
       if ( v4 )
       {
-        if ( (unsigned int)IsThreadHung(v4[2], 0) )
+        if ( (unsigned int)IsThreadHung(*(_QWORD **)(v4 + 16), 0) )
         {
           anonymous_namespace_::SeverWindowManagementConnectionToShell(v3);
         }
         else
         {
-          v9 = 0LL;
-          v10 = 0LL;
-          ThreadLock((__int64)v4, (__int64 *)&v9);
-          v0 = xxxSendMessageCallback((struct tagWND *)v4, 0x342u, 0LL, 1LL, 0, 1, 1);
-          ThreadUnlock1(v6, v5, v7);
+          v8[2] = 0LL;
+          ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+          v8[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+          *(_QWORD *)(ThreadWin32Thread + 416) = v8;
+          v8[1] = v4;
+          HMLockObject(v4);
+          v2 = xxxSendMessageCallback(v4, 834, 0, a1, 0LL, 1LL, 0, 1, 1);
+          ThreadUnlock1(v6);
         }
       }
     }
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v11, v2, v1);
-  return v0;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v9);
+  return v2;
 }

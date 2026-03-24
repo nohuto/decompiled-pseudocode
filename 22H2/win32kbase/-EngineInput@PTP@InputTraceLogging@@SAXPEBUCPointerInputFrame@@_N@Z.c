@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EngineInput@PTP@InputTraceLogging@@SAXPEBUCPointerInputFrame@@_N@Z @ 0x1C00E5002
+ * XREFs of ?EngineInput@PTP@InputTraceLogging@@SAXPEBUCPointerInputFrame@@_N@Z @ 0x1C01A5ABC
  * Callers:
- *     ?ProcessInput@CPTPProcessor@@QEAAXPEAX0KHHPEA_N@Z @ 0x1C00D49B8 (-ProcessInput@CPTPProcessor@@QEAAXPEAX0KHHPEA_N@Z.c)
+ *     ?ProcessInput@CPTPProcessor@@QEAAXPEAX0HHH@Z @ 0x1C01A6D70 (-ProcessInput@CPTPProcessor@@QEAAXPEAX0HHH@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0079EA8 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 void __fastcall InputTraceLogging::PTP::EngineInput(const struct CPointerInputFrame *a1)
@@ -30,12 +30,12 @@ void __fastcall InputTraceLogging::PTP::EngineInput(const struct CPointerInputFr
   int *v18; // [rsp+B0h] [rbp+37h]
   __int64 v19; // [rsp+B8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 128LL) )
+  if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 128LL) )
   {
     v5 = *(_DWORD *)(v1 + 48);
     v6 = *(_DWORD *)(v1 + 40);
     v7 = *(_QWORD *)(v1 + 72);
-    v8 = *(_QWORD *)(v1 + 216);
+    v8 = *(_QWORD *)(v1 + 112);
     v18 = &v4;
     v16 = &v5;
     v14 = &v6;
@@ -47,6 +47,6 @@ void __fastcall InputTraceLogging::PTP::EngineInput(const struct CPointerInputFr
     v15 = v3;
     v13 = 8LL;
     v11 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0289810, (unsigned __int8 *)dword_1C025D8D9, 0LL, 0LL, 7u, &v9);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C024AA90, (unsigned __int8 *)dword_1C021EAEB, 0LL, 0LL, 7u, &v9);
   }
 }

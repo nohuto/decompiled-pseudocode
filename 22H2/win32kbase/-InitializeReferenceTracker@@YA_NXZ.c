@@ -1,48 +1,48 @@
 /*
- * XREFs of ?InitializeReferenceTracker@@YA_NXZ @ 0x1C007EDF8
+ * XREFs of ?InitializeReferenceTracker@@YA_NXZ @ 0x1C006C21C
  * Callers:
- *     HmgCreate @ 0x1C007C9D4 (HmgCreate.c)
+ *     HmgCreate @ 0x1C006BCFC (HmgCreate.c)
  * Callees:
- *     ?Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@Z @ 0x1C016EBD0 (-Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@.c)
+ *     ?Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@Z @ 0x1C014DB74 (-Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@.c)
  */
 
-char __fastcall InitializeReferenceTracker(__int64 a1)
+char InitializeReferenceTracker(void)
 {
-  __int64 v1; // rbx
-  _QWORD *Pool2; // rax
-  unsigned int v3; // edi
-  struct NSInstrumentation::CReferenceTracker::CReferenceCountedType **i; // rsi
-  int v5; // eax
-  struct NSInstrumentation::CReferenceTracker::CReferenceCountedType *v7; // rax
+  _QWORD *PoolWithTag; // rax
+  NSInstrumentation::CReferenceTracker::CReferenceCountedType **v1; // rdi
+  unsigned int v2; // ebx
+  unsigned int v3; // eax
+  struct NSInstrumentation::CReferenceTracker::CReferenceCountedType *v5; // rax
 
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  if ( v1 == -8032 )
-    return 1;
-  Pool2 = (_QWORD *)ExAllocatePool2(262LL, 16LL, 961114965LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolSession, 0x10uLL, 0x39497355u);
+  if ( PoolWithTag )
   {
-    Pool2[1] = Pool2;
-    *Pool2 = Pool2;
-  }
-  *(_QWORD *)(v1 + 8024) = Pool2;
-  if ( Pool2 )
-  {
-    v3 = 0;
-    for ( i = (struct NSInstrumentation::CReferenceTracker::CReferenceCountedType **)(v1 + 8040); ; i += 2 )
+    PoolWithTag[1] = PoolWithTag;
+    v1 = &qword_1C024B3F8;
+    *PoolWithTag = PoolWithTag;
+    v2 = 0;
+    gpReferenceTracker = PoolWithTag;
+    do
     {
-      v5 = *(_DWORD *)(v1 + 8016);
-      if ( _bittest(&v5, v3) )
+      v3 = gReferenceTrackedTypes;
+      if ( _bittest((const int *)&v3, v2) )
       {
-        v7 = NSInstrumentation::CReferenceTracker::CReferenceCountedType::Create(
-               *(struct _LIST_ENTRY **)(v1 + 8024),
-               *((_DWORD *)i - 2));
-        if ( !v7 )
+        v5 = NSInstrumentation::CReferenceTracker::CReferenceCountedType::Create(
+               (struct _LIST_ENTRY *)gpReferenceTracker,
+               *((_DWORD *)v1 - 2));
+        if ( !v5 )
           return 0;
-        *i = v7;
+        *v1 = v5;
       }
-      if ( ++v3 >= 3 )
-        return 1;
+      ++v2;
+      v1 += 2;
     }
+    while ( v2 < 3 );
+    return 1;
   }
-  return 0;
+  else
+  {
+    gpReferenceTracker = 0LL;
+    return 0;
+  }
 }

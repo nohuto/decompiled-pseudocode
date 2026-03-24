@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECHoverPointerSource@@W7EAAPEAXI@Z @ 0x18011DC00
+ * XREFs of ??_ECHoverPointerSource@@W7EAAPEAXI@Z @ 0x1800F5F40
  * Callers:
  *     <none>
  * Callees:

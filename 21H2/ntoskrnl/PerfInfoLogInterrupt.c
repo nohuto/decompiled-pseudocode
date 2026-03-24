@@ -1,13 +1,13 @@
 /*
- * XREFs of PerfInfoLogInterrupt @ 0x140223B10
+ * XREFs of PerfInfoLogInterrupt @ 0x14029BD60
  * Callers:
- *     KiScanInterruptObjectList @ 0x140421050 (KiScanInterruptObjectList.c)
- *     KiInterruptSubDispatch @ 0x140421230 (KiInterruptSubDispatch.c)
- *     KiInterruptSubDispatchNoLock @ 0x140421380 (KiInterruptSubDispatchNoLock.c)
- *     KiInvokeInterruptServiceRoutine @ 0x140576200 (KiInvokeInterruptServiceRoutine.c)
+ *     KiScanInterruptObjectList @ 0x1403FF9B0 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x1403FFB90 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x1403FFCE0 (KiInterruptSubDispatchNoLock.c)
+ *     KiInvokeInterruptServiceRoutine @ 0x14052196C (KiInvokeInterruptServiceRoutine.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PerfInfoLogInterrupt(__int64 a1, int a2, __int64 a3)
@@ -56,24 +56,24 @@ __int64 __fastcall PerfInfoLogInterrupt(__int64 a1, int a2, __int64 a3)
   result = EtwpHostSiloState;
   v17 = v4;
   v18 = 0;
-  v7 = *(_DWORD *)(EtwpHostSiloState + 4248);
+  v7 = *(_DWORD *)(EtwpHostSiloState + 4224);
   for ( i = !_BitScanForward(&v9, v7); !i; i = !_BitScanForward(&v9, v7) )
   {
     v7 &= v7 - 1;
     v10 = v9;
     result = 32LL * v9;
-    v11 = result + EtwpHostSiloState + 4284;
+    v11 = result + EtwpHostSiloState + 4260;
     if ( v11 )
     {
       if ( (*(_DWORD *)(v11 + 4) & 0x4000) != 0 )
       {
-        v12 = *(unsigned __int8 *)(EtwpHostSiloState + 2 * v10 + 4233) - 1LL;
+        v12 = *(unsigned __int8 *)(EtwpHostSiloState + 2 * v10 + 4209) - 1LL;
         v16[1] = 8LL;
         v16[0] = a3 + 8 * v12;
         result = EtwpLogKernelEvent(
                    (unsigned int)v16,
                    EtwpHostSiloState,
-                   *(unsigned __int8 *)(EtwpHostSiloState + 2 * v10 + 4232),
+                   *(unsigned __int8 *)(EtwpHostSiloState + 2 * v10 + 4208),
                    2,
                    v5,
                    4196866);

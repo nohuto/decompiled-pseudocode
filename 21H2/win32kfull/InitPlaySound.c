@@ -1,5 +1,5 @@
 /*
- * XREFs of InitPlaySound @ 0x1C0122610
+ * XREFs of InitPlaySound @ 0x1C0136EC0
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ __int64 InitPlaySound()
   __int64 v0; // rcx
   __int64 result; // rax
 
-  v0 = Win32AllocPoolZInit(16LL, 1936749397LL);
+  v0 = Win32AllocPool(16LL, 1936749397LL);
   CUserPlaySound::s_pUserPlaySound = (RPC_BINDING_HANDLE *)v0;
   result = 0LL;
   if ( !v0 )

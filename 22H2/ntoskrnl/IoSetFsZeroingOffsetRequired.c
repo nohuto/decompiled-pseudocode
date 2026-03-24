@@ -1,23 +1,23 @@
 /*
- * XREFs of IoSetFsZeroingOffsetRequired @ 0x140558F20
+ * XREFs of IoSetFsZeroingOffsetRequired @ 0x140507970
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpHasValidCombinationOfExtensionTypes @ 0x14028F7F8 (IopIrpHasValidCombinationOfExtensionTypes.c)
- *     IopIrpHasExtensionType @ 0x140290158 (IopIrpHasExtensionType.c)
- *     IopAllocateIrpExtension @ 0x1402906EC (IopAllocateIrpExtension.c)
+ *     IopIrpHasExtensionType @ 0x1402E6690 (IopIrpHasExtensionType.c)
+ *     IopAllocateIrpExtension @ 0x1402E6980 (IopAllocateIrpExtension.c)
+ *     IopIrpHasValidCombinationOfExtensionTypes @ 0x1405079E0 (IopIrpHasValidCombinationOfExtensionTypes.c)
  */
 
 __int64 __fastcall IoSetFsZeroingOffsetRequired(__int64 a1)
 {
-  int v1; // edx
+  __int64 v1; // rdx
   __int64 v2; // rcx
   __int64 v4; // r11
   _WORD *IrpExtension; // rax
 
   if ( IopIrpHasExtensionType(a1, 4u) )
     return 3221225505LL;
-  if ( !IopIrpHasValidCombinationOfExtensionTypes(v2, v1) )
+  if ( !(unsigned __int8)IopIrpHasValidCombinationOfExtensionTypes(v2, v1) )
     return 3221225659LL;
   IrpExtension = IopAllocateIrpExtension(v4, 4);
   if ( !IrpExtension )

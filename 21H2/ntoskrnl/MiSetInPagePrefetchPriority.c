@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetInPagePrefetchPriority @ 0x1402538D0
+ * XREFs of MiSetInPagePrefetchPriority @ 0x14028E1B4
  * Callers:
- *     MiResolveMappedFileFault @ 0x140339520 (MiResolveMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x1403927C4 (MiResolvePageFileFault.c)
+ *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
+ *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
  * Callees:
- *     MiSetInPagePriority @ 0x14027466C (MiSetInPagePriority.c)
+ *     MiSetInPagePriority @ 0x1402FCA78 (MiSetInPagePriority.c)
  */
 
 __int64 __fastcall MiSetInPagePrefetchPriority(__int64 a1, __int64 a2)

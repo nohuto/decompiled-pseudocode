@@ -1,32 +1,32 @@
 /*
- * XREFs of HalpTimerSaveProcessorFrequency @ 0x14037B548
+ * XREFs of HalpTimerSaveProcessorFrequency @ 0x1403AFA90
  * Callers:
- *     HalpTimerInitSystem @ 0x14037B080 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403AF740 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpFindTimer @ 0x14037B658 (HalpFindTimer.c)
+ *     HalpFindTimer @ 0x14039CD58 (HalpFindTimer.c)
  */
 
-__int64 HalpTimerSaveProcessorFrequency()
+ULONG_PTR *HalpTimerSaveProcessorFrequency()
 {
   KPCR *Pcr; // rbx
-  __int64 Timer; // rax
+  ULONG_PTR *Timer; // rax
   unsigned __int64 v2; // rcx
-  __int64 result; // rax
+  ULONG_PTR *result; // rax
 
   Pcr = KeGetPcr();
   Timer = HalpFindTimer(5, 0, 0, 0, 1);
   if ( Timer )
   {
-    *(_QWORD *)Pcr->HalReserved = 10000 * ((*(_QWORD *)(Timer + 192) + 5000LL) / 0x2710uLL);
-    v2 = 1000000 * ((*(_QWORD *)(Timer + 192) + 500000LL) / 0xF4240uLL);
+    *(_QWORD *)Pcr->HalReserved = 10000 * ((Timer[24] + 5000) / 0x2710);
+    v2 = 1000000 * ((Timer[24] + 500000) / 0xF4240);
     Pcr->StallScaleFactor = v2 / 0xF4240;
     KeGetCurrentPrcb()->MHz = v2 / 0xF4240;
   }
-  result = HalpFindTimer(6, 0, 0, 0, 1);
+  result = HalpFindTimer(7, 0, 0, 0, 1);
   if ( result )
   {
-    result = 10000 * (unsigned int)((*(_QWORD *)(result + 192) + 5000LL) / 0x2710uLL);
-    Pcr->HalReserved[3] = result;
+    result = (ULONG_PTR *)(10000 * (unsigned int)((result[24] + 5000) / 0x2710));
+    Pcr->HalReserved[3] = (unsigned int)result;
   }
   return result;
 }

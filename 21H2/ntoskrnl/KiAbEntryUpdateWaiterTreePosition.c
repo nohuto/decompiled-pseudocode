@@ -1,75 +1,80 @@
 /*
- * XREFs of KiAbEntryUpdateWaiterTreePosition @ 0x14035A718
+ * XREFs of KiAbEntryUpdateWaiterTreePosition @ 0x1402F261C
  * Callers:
- *     KiAbProcessContextSwitch @ 0x1402B4EC0 (KiAbProcessContextSwitch.c)
- *     KiAbProcessThreadLocks @ 0x1403591D8 (KiAbProcessThreadLocks.c)
- *     KiAbForceProcessLockEntry @ 0x14039C4BC (KiAbForceProcessLockEntry.c)
+ *     KiAbProcessThreadLocks @ 0x1402F10C4 (KiAbProcessThreadLocks.c)
+ *     KiAbProcessContextSwitch @ 0x140347C50 (KiAbProcessContextSwitch.c)
+ *     KiAbForceProcessLockEntry @ 0x14038FA84 (KiAbForceProcessLockEntry.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14034D8D0 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x14034E6B0 (RtlRbInsertNodeEx.c)
+ *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
  */
 
-char __fastcall KiAbEntryUpdateWaiterTreePosition(__int64 a1, __int64 a2)
+__int64 __fastcall KiAbEntryUpdateWaiterTreePosition(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  char result; // al
-  __int64 v4; // rbx
-  bool v5; // cl
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // rax
+  __int64 v5; // r8
+  __int64 result; // rax
+  __int64 v7; // rbx
+  char v8; // cl
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // rax
 
-  result = *(_BYTE *)(a1 - 96LL * *(unsigned __int8 *)(a1 + 16) - 1501);
-  if ( result > 30 )
-    result = 30;
-  if ( *(_BYTE *)(a1 + 48) != result )
+  v5 = *(unsigned __int8 *)(a1 - 16LL * *(unsigned __int8 *)(a1 + 24) + 195);
+  result = v5;
+  if ( (char)v5 > 15 )
+    result = 15LL;
+  if ( *(_BYTE *)(a1 + 48) != (_BYTE)result )
   {
-    v4 = a2 + 64;
+    v7 = a2 + 64;
     *(_BYTE *)(a1 + 48) = result;
-    RtlRbRemoveNode((unsigned __int64 *)(a2 + 64), a1 + 24);
-    v5 = 0;
-    v6 = *(_QWORD *)v4;
-    if ( (*(_BYTE *)(v4 + 8) & 1) != 0 )
+    RtlRbRemoveNode(a2 + 64, a1, v5, a4);
+    v8 = 0;
+    v9 = *(_QWORD *)v7;
+    if ( (*(_BYTE *)(v7 + 8) & 1) != 0 )
     {
-      if ( v6 )
-        v6 ^= v4;
+      if ( v9 )
+        v9 ^= v7;
       else
-        v6 = 0LL;
+        v9 = 0LL;
     }
-    if ( v6 )
+    v10 = *(_BYTE *)(v7 + 8) & 1;
+    if ( v9 )
     {
       while ( 1 )
       {
-        if ( *(_BYTE *)(v6 + 24) < *(_BYTE *)(a1 + 48) )
+        if ( *(_BYTE *)(v9 + 48) < *(_BYTE *)(a1 + 48) )
         {
-          v7 = *(_QWORD *)v6;
-          if ( (*(_BYTE *)(v4 + 8) & 1) != 0 )
+          v11 = *(_QWORD *)v9;
+          if ( (*(_BYTE *)(v7 + 8) & 1) != 0 )
           {
-            if ( !v7 )
-              return RtlRbInsertNodeEx((unsigned __int64 *)v4, v6, v5, a1 + 24);
-            v7 ^= v6;
+            if ( !v11 )
+              break;
+            v11 ^= v9;
           }
-          if ( !v7 )
-            return RtlRbInsertNodeEx((unsigned __int64 *)v4, v6, v5, a1 + 24);
+          if ( !v11 )
+            break;
         }
         else
         {
-          v7 = *(_QWORD *)(v6 + 8);
-          if ( (*(_BYTE *)(v4 + 8) & 1) != 0 )
+          v11 = *(_QWORD *)(v9 + 8);
+          if ( (*(_BYTE *)(v7 + 8) & 1) != 0 )
           {
-            if ( !v7 )
+            if ( !v11 )
               goto LABEL_11;
-            v7 ^= v6;
+            v11 ^= v9;
           }
-          if ( !v7 )
+          if ( !v11 )
           {
 LABEL_11:
-            v5 = 1;
-            return RtlRbInsertNodeEx((unsigned __int64 *)v4, v6, v5, a1 + 24);
+            v8 = 1;
+            break;
           }
         }
-        v6 = v7;
+        v9 = v11;
       }
     }
-    return RtlRbInsertNodeEx((unsigned __int64 *)v4, v6, v5, a1 + 24);
+    LOBYTE(v10) = v8;
+    return RtlRbInsertNodeEx(v7, v9, v10, a1);
   }
   return result;
 }

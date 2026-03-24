@@ -1,13 +1,13 @@
 /*
- * XREFs of PsRegisterAltSystemCallHandler @ 0x1409B5390
+ * XREFs of PsRegisterAltSystemCallHandler @ 0x14090BB40
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PsRegisterAltSystemCallHandler(__int64 a1, unsigned int a2)
@@ -25,12 +25,12 @@ __int64 __fastcall PsRegisterAltSystemCallHandler(__int64 a1, unsigned int a2)
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PsAltSystemCallRegistrationLock, 0LL);
   if ( PsAltSystemCallHandlers[v2] )
   {
-    ExReleasePushLockEx((__int64 *)&PsAltSystemCallRegistrationLock, 0LL);
+    ExReleasePushLockEx((ULONG_PTR)&PsAltSystemCallRegistrationLock, 0LL);
     KeLeaveCriticalRegion();
     KeBugCheckEx(0x1E0u, 1uLL, PsAltSystemCallHandlers[v2], 0LL, 0LL);
   }
   PsAltSystemCallHandlers[v2] = a1;
-  ExReleasePushLockEx((__int64 *)&PsAltSystemCallRegistrationLock, 0LL);
+  ExReleasePushLockEx((ULONG_PTR)&PsAltSystemCallRegistrationLock, 0LL);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return 0LL;
 }

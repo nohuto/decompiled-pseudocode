@@ -1,15 +1,15 @@
 /*
- * XREFs of imp_WdfCxDeviceInitSetFileObjectConfig @ 0x1C0065780
+ * XREFs of imp_WdfCxDeviceInitSetFileObjectConfig @ 0x1C004B520
  * Callers:
  *     <none>
  * Callees:
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_dd @ 0x1C0053078 (WPP_IFR_SF_dd.c)
- *     WPP_IFR_SF_D @ 0x1C005B340 (WPP_IFR_SF_D.c)
- *     FxValiateCx @ 0x1C0065314 (FxValiateCx.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_dd @ 0x1C002E818 (WPP_IFR_SF_dd.c)
+ *     WPP_IFR_SF_D @ 0x1C0039220 (WPP_IFR_SF_D.c)
+ *     FxValiateCx @ 0x1C004B104 (FxValiateCx.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 void __fastcall imp_WdfCxDeviceInitSetFileObjectConfig(
@@ -18,7 +18,7 @@ void __fastcall imp_WdfCxDeviceInitSetFileObjectConfig(
         _WDFCX_FILEOBJECT_CONFIG *CxFileObjectConfig,
         _WDF_OBJECT_ATTRIBUTES *FileObjectAttributes)
 {
-  _FX_DRIVER_GLOBALS *v4; // rcx
+  _FX_DRIVER_GLOBALS *DriverName; // rcx
   _FX_DRIVER_GLOBALS *ClientDriverGlobals; // rbx
   unsigned __int8 v9; // dl
   _WDF_TRI_STATE AutoForwardCleanupClose; // eax
@@ -26,11 +26,11 @@ void __fastcall imp_WdfCxDeviceInitSetFileObjectConfig(
   unsigned __int16 v12; // r9
   void *retaddr; // [rsp+48h] [rbp+0h]
 
-  v4 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   if ( !CxDeviceInit )
-    FxVerifierNullBugCheck(v4, retaddr);
+    FxVerifierNullBugCheck(DriverName, retaddr);
   ClientDriverGlobals = CxDeviceInit->ClientDriverGlobals;
-  if ( (int)FxValiateCx(ClientDriverGlobals, v4) >= 0 )
+  if ( (int)FxValiateCx(ClientDriverGlobals, DriverName) >= 0 )
   {
     if ( !CxFileObjectConfig )
       FxVerifierNullBugCheck(ClientDriverGlobals, retaddr);

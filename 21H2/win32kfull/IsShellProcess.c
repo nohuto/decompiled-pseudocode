@@ -1,15 +1,15 @@
 /*
- * XREFs of IsShellProcess @ 0x1C007B10C
+ * XREFs of IsShellProcess @ 0x1C003C638
  * Callers:
- *     CheckAllowForeground @ 0x1C007AD80 (CheckAllowForeground.c)
- *     _RegisterHotKey @ 0x1C009E114 (_RegisterHotKey.c)
- *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00F1804 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
- *     ?TraceLoggingProcessUsageDataAggregationHelper@@YAXQEAUtagWND@@@Z @ 0x1C00FD77C (-TraceLoggingProcessUsageDataAggregationHelper@@YAXQEAUtagWND@@@Z.c)
- *     ?_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z @ 0x1C0109AC4 (-_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z.c)
- *     NtUserGetWindowProcessHandle @ 0x1C010EA70 (NtUserGetWindowProcessHandle.c)
- *     NtUserRegisterShellPTPListener @ 0x1C011DBA0 (NtUserRegisterShellPTPListener.c)
- *     NtUserRegisterEdgy @ 0x1C01FB790 (NtUserRegisterEdgy.c)
- *     NtUserSetInteractiveControlFocus @ 0x1C01FD470 (NtUserSetInteractiveControlFocus.c)
+ *     _RegisterHotKey @ 0x1C0032C74 (_RegisterHotKey.c)
+ *     ?TraceLoggingProcessUsageDataAggregationHelper@@YAXQEAUtagWND@@@Z @ 0x1C003AEB8 (-TraceLoggingProcessUsageDataAggregationHelper@@YAXQEAUtagWND@@@Z.c)
+ *     CheckAllowForeground @ 0x1C003C2A0 (CheckAllowForeground.c)
+ *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00D7770 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
+ *     NtUserGetWindowProcessHandle @ 0x1C011E120 (NtUserGetWindowProcessHandle.c)
+ *     ?_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z @ 0x1C0122D00 (-_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z.c)
+ *     NtUserRegisterShellPTPListener @ 0x1C0132B90 (NtUserRegisterShellPTPListener.c)
+ *     NtUserRegisterEdgy @ 0x1C0200A50 (NtUserRegisterEdgy.c)
+ *     NtUserSetInteractiveControlFocus @ 0x1C02020D0 (NtUserSetInteractiveControlFocus.c)
  * Callees:
  *     <none>
  */

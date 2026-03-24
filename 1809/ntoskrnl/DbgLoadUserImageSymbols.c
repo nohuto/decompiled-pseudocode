@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgLoadUserImageSymbols @ 0x1401921D0
+ * XREFs of DbgLoadUserImageSymbols @ 0x1401921F0
  * Callers:
- *     MiLoadUserSymbols @ 0x140760AD8 (MiLoadUserSymbols.c)
+ *     MiLoadUserSymbols @ 0x140760AB8 (MiLoadUserSymbols.c)
  * Callees:
- *     DebugService2 @ 0x1401C5380 (DebugService2.c)
+ *     DebugService2 @ 0x1401C53A0 (DebugService2.c)
  */
 
 __int64 __fastcall DbgLoadUserImageSymbols(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)

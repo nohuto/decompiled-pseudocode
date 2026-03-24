@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_VfWdfFileObjectGetFileName @ 0x1C00C1D40
+ * XREFs of imp_VfWdfFileObjectGetFileName @ 0x1C00C0D40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 _UNICODE_STRING *__fastcall imp_VfWdfFileObjectGetFileName(

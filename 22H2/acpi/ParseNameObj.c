@@ -1,38 +1,44 @@
 /*
- * XREFs of ParseNameObj @ 0x1C005B98C
+ * XREFs of ParseNameObj @ 0x1C0021920
  * Callers:
- *     ParseOpcode @ 0x1C005BD60 (ParseOpcode.c)
+ *     ParseScope @ 0x1C0008890 (ParseScope.c)
+ *     ParseOpcode @ 0x1C0022530 (ParseOpcode.c)
  * Callees:
- *     ReadObject @ 0x1C0005BEE (ReadObject.c)
- *     GetBaseObject @ 0x1C004B938 (GetBaseObject.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
- *     PushCall @ 0x1C0053B18 (PushCall.c)
- *     ParseAndGetNameSpaceObject @ 0x1C005A3D4 (ParseAndGetNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     ReadObject @ 0x1C000B4C0 (ReadObject.c)
+ *     ParseAndGetNameSpaceObject @ 0x1C00217BC (ParseAndGetNameSpaceObject.c)
+ *     PushCall @ 0x1C00219CC (PushCall.c)
  */
 
 __int64 __fastcall ParseNameObj(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8
-  unsigned int NameSpaceObject; // edi
-  __int64 BaseObject; // rax
-  __int64 v7; // rbx
+  unsigned int NameSpaceObject; // esi
+  unsigned __int64 v6; // rdi
+  unsigned __int64 i; // rbx
   unsigned int Object; // eax
-  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v10; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = *(_QWORD *)(a1 + 80);
   v10 = 0LL;
-  NameSpaceObject = ParseAndGetNameSpaceObject(a1, a1 + 120, v2, &v10, 0);
+  NameSpaceObject = ParseAndGetNameSpaceObject(a1, (char **)(a1 + 120), v2, &v10, 0);
   if ( !NameSpaceObject )
   {
-    BaseObject = GetBaseObject(v10);
-    v7 = BaseObject;
-    if ( *(_WORD *)(BaseObject + 66) == 8 )
-      Object = PushCall(a1, BaseObject, a2);
+    v6 = v10;
+    for ( i = v10; *(_WORD *)(i + 66) == 128; i = *(_QWORD *)(i + 80) )
+      ;
+    if ( (gdwfAMLI & 4) != 0 )
+    {
+      _InterlockedIncrement((volatile signed __int32 *)(i + 112));
+      v6 = v10;
+    }
+    if ( *(_WORD *)(i + 66) == 8 )
+      Object = PushCall(a1, i, a2);
     else
-      Object = ReadObject(a1, BaseObject + 64, a2);
+      Object = ReadObject(a1, i + 64, a2);
     NameSpaceObject = Object;
-    DereferenceObjectEx(v7);
-    DereferenceObjectEx(v10);
+    DereferenceObjectEx(i);
+    DereferenceObjectEx(v6);
   }
   return NameSpaceObject;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDeleteNonPagedPoolPte @ 0x140111590
+ * XREFs of MiDeleteNonPagedPoolPte @ 0x1401115B0
  * Callers:
  *     <none>
  * Callees:
@@ -9,13 +9,13 @@
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
  *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
  *     MiEvictPageTableLock @ 0x1400983A0 (MiEvictPageTableLock.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushStamps @ 0x14011185C (MiInitializeTbFlushStamps.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x1401118C8 (MiInsertRecursiveTbFlushEntries.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiDecommitLargePoolVa @ 0x14015B2C0 (MiDecommitLargePoolVa.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushStamps @ 0x14011187C (MiInitializeTbFlushStamps.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1401118E8 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiDecommitLargePoolVa @ 0x14015B2E0 (MiDecommitLargePoolVa.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int a3)

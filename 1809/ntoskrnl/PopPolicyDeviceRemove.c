@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPolicyDeviceRemove @ 0x1408764DC
+ * XREFs of PopPolicyDeviceRemove @ 0x1408764BC
  * Callers:
- *     PopPolicyDeviceTargetChange @ 0x140876550 (PopPolicyDeviceTargetChange.c)
+ *     PopPolicyDeviceTargetChange @ 0x140876530 (PopPolicyDeviceTargetChange.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IoFreeIrp @ 0x1400B9650 (IoFreeIrp.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 LONG_PTR __fastcall PopPolicyDeviceRemove(__int64 a1)

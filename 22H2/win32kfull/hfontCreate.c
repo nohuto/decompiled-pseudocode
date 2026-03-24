@@ -1,89 +1,61 @@
 /*
- * XREFs of hfontCreate @ 0x1C007B9C0
+ * XREFs of hfontCreate @ 0x1C00BBBA0
  * Callers:
- *     GreCreateFontIndirectW @ 0x1C007B6E8 (GreCreateFontIndirectW.c)
- *     NtGdiHfontCreate @ 0x1C0093A70 (NtGdiHfontCreate.c)
- *     bInitStockFontsInternal @ 0x1C03B31F8 (bInitStockFontsInternal.c)
- *     bInitOneStockFontInternal @ 0x1C03B35E0 (bInitOneStockFontInternal.c)
- *     hfontInitDefaultGuiFont @ 0x1C03B3AAC (hfontInitDefaultGuiFont.c)
- *     bInitSystemFont @ 0x1C03B55BC (bInitSystemFont.c)
+ *     GreCreateFontIndirectW @ 0x1C00B9E30 (GreCreateFontIndirectW.c)
+ *     NtGdiHfontCreate @ 0x1C00F7A30 (NtGdiHfontCreate.c)
+ *     bInitStockFontsInternal @ 0x1C0392344 (bInitStockFontsInternal.c)
+ *     bInitOneStockFontInternal @ 0x1C0392720 (bInitOneStockFontInternal.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03929F0 (hfontInitDefaultGuiFont.c)
+ *     bInitSystemFont @ 0x1C039434C (bInitSystemFont.c)
  * Callees:
- *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z @ 0x1C007E7B4 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z.c)
- *     cCapString @ 0x1C0116A58 (cCapString.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C02651D4 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
+ *     cCapString @ 0x1C00BBAF4 (cCapString.c)
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z @ 0x1C00BCC18 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C026CE38 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
  */
 
-struct HOBJ__ *__fastcall hfontCreate(_DWORD *Src, int a2, int a3, __int64 a4, unsigned int a5)
+struct HOBJ__ *__fastcall hfontCreate(WCHAR *Src, int a2, int a3, __int64 a4, unsigned int a5)
 {
   unsigned int v9; // eax
-  unsigned int v10; // ebp
-  _DWORD *Object; // rax
-  struct OBJECT *v12; // rbx
-  Gre::Base *v13; // rcx
-  struct HOBJ__ *v14; // rbp
-  __int64 v15; // rcx
-  __int64 v16; // rdi
-  __int64 v17; // rdx
-  _QWORD *CurrentProcessWin32Process; // rax
-  _QWORD *v20; // rbx
-  __int64 ProcessWow64Process; // rax
-  __int64 v22; // rdx
-  int v23; // ecx
-  _BYTE v24[32]; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v25; // [rsp+50h] [rbp-28h]
+  unsigned int v10; // esi
+  WCHAR *Object; // rax
+  WCHAR *v12; // rbx
+  struct HOBJ__ *v13; // rdi
+  _BYTE v15[32]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v16; // [rsp+40h] [rbp-28h]
 
   if ( !Src )
     return 0LL;
-  v9 = Src[88];
+  v9 = *((_DWORD *)Src + 88);
   if ( v9 > 0x10 )
     return 0LL;
   v10 = 4 * v9 + 356;
-  Object = (_DWORD *)AllocateObject(4 * v9 + 632, 10LL, 0LL);
-  v12 = (struct OBJECT *)Object;
+  Object = (WCHAR *)AllocateObject(4 * v9 + 632, 10LL, 0LL);
+  v12 = Object;
   if ( !Object )
     return 0LL;
-  Object[6] = a2;
-  Object[7] = a3;
-  Object[68] = v10;
-  memmove(Object + 69, Src, v10);
+  *((_DWORD *)Object + 6) = a2;
+  *((_DWORD *)Object + 7) = a3;
+  *((_DWORD *)Object + 68) = v10;
+  memmove(Object + 138, Src, v10);
   *((_DWORD *)v12 + 8) = 0;
-  *((_DWORD *)v12 + 9) = *(_DWORD *)(*((_QWORD *)Gre::Base::Globals(v13) + 241) + 1573016LL);
-  cCapString((char *)v12 + 208, Src + 7, 32LL);
-  Src[3] = lNormAngle((unsigned int)Src[3]);
-  HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v24);
-  v14 = HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)v24, v12, 0xAu, a5);
-  if ( !v14 )
+  *((_DWORD *)v12 + 9) = *(_DWORD *)(gpGdiSharedMemory + 1573016LL);
+  cCapString(v12 + 104, Src + 14, 32);
+  *((_DWORD *)Src + 3) = lNormAngle(*((unsigned int *)Src + 3));
+  HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v15);
+  v13 = HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)v15, (struct OBJECT *)v12, 0xAu, a5);
+  if ( !v13 )
   {
     FreeObject(v12, 10LL);
-    if ( v25 )
-      _InterlockedDecrement((volatile signed __int32 *)(v25 + 12));
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v24);
+    if ( v16 )
+      _InterlockedDecrement((volatile signed __int32 *)(v16 + 12));
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v15);
     return 0LL;
   }
-  v16 = HmgPentryFromPobj(v12);
-  if ( a4 )
-  {
-    CurrentProcessWin32Process = (_QWORD *)PsGetCurrentProcessWin32Process(v15);
-    v20 = CurrentProcessWin32Process;
-    if ( !CurrentProcessWin32Process || !*CurrentProcessWin32Process )
-      KeBugCheckEx(0x164u, 0x29uLL, 0LL, 0LL, 0LL);
-    ProcessWow64Process = PsGetProcessWow64Process(*CurrentProcessWin32Process);
-    v22 = *((unsigned int *)v20 + 73);
-    v23 = *((_DWORD *)v20 + 73);
-    if ( ProcessWow64Process )
-      v17 = (unsigned int)__ROR4__(a4 ^ v22, v23 & 0x1F);
-    else
-      v17 = __ROR8__(a4 ^ v22, v23 & 0x3F);
-  }
-  else
-  {
-    v17 = 0LL;
-  }
-  *(_QWORD *)(v16 + 16) = v17;
-  if ( v25 )
-    _InterlockedDecrement((volatile signed __int32 *)(v25 + 12));
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v24);
-  return v14;
+  *(_QWORD *)(HmgPentryFromPobj(v12) + 16) = a4;
+  if ( v16 )
+    _InterlockedDecrement((volatile signed __int32 *)(v16 + 12));
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v15);
+  return v13;
 }

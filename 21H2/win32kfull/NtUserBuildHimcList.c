@@ -1,80 +1,75 @@
 /*
- * XREFs of NtUserBuildHimcList @ 0x1C010F110
+ * XREFs of NtUserBuildHimcList @ 0x1C0125E40
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?_BuildHimcList@@YAIPEBUtagTHREADINFO@@IPEAPEAUHIMC__@@@Z @ 0x1C010F208 (-_BuildHimcList@@YAIPEBUtagTHREADINFO@@IPEAPEAUHIMC__@@@Z.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _BuildHimcList @ 0x1C0125F38 (_BuildHimcList.c)
  */
 
-__int64 __fastcall NtUserBuildHimcList(__int64 a1, __int64 a2, volatile void *a3, unsigned int *a4)
+__int64 __fastcall NtUserBuildHimcList(unsigned int a1, unsigned int a2, volatile void *a3, unsigned int *a4)
 {
   __int64 v6; // rsi
-  unsigned int v7; // ebx
   __int64 v8; // rdx
-  const struct tagTHREADINFO *ThreadWin32Thread; // rbx
-  _DWORD *v10; // rdx
-  unsigned int v11; // eax
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  unsigned int v14; // ebx
-  __int64 v15; // rcx
-  __int64 v17; // rax
-  _BYTE v18[4]; // [rsp+20h] [rbp-28h] BYREF
-  unsigned int v19; // [rsp+24h] [rbp-24h]
+  __int64 v9; // r8
+  __int64 v10; // rbx
+  _DWORD *v11; // rdx
+  unsigned int v12; // eax
+  unsigned int v13; // ebx
+  __int64 v14; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rdx
+  _BYTE v18[32]; // [rsp+28h] [rbp-20h] BYREF
 
-  v6 = (unsigned int)a2;
-  v7 = a1;
-  EnterSharedCrit(a1, a2, a3);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v18);
+  v6 = a2;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v18);
   if ( (*gpsi & 4) != 0 )
   {
-    if ( v7 )
+    if ( a1 )
     {
-      if ( v7 == -1 )
+      if ( a1 == -1 )
       {
-        ThreadWin32Thread = 0LL;
+        v10 = 0LL;
       }
       else
       {
-        v17 = PtiFromThreadId(v7);
-        ThreadWin32Thread = (const struct tagTHREADINFO *)v17;
-        if ( !v17 || !*(_QWORD *)(v17 + 456) )
+        v16 = PtiFromThreadId(a1);
+        v10 = v16;
+        if ( !v16 || (v17 = *(_QWORD *)(v16 + 456)) == 0 )
         {
-          v14 = -1073741811;
+          v13 = -1073741811;
           goto LABEL_7;
         }
-        if ( *(_QWORD *)(v17 + 456) != *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) )
+        if ( v17 != *(_QWORD *)(gptiCurrent + 456LL) )
         {
-          v14 = -1073741790;
+          v13 = -1073741790;
           goto LABEL_7;
         }
       }
     }
     else
     {
-      ThreadWin32Thread = (const struct tagTHREADINFO *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      v10 = gptiCurrent;
     }
     ProbeForWrite(a3, 8 * v6, 4u);
-    v10 = a4;
+    v11 = a4;
     if ( (unsigned __int64)a4 >= MmUserProbeAddress )
-      v10 = (_DWORD *)MmUserProbeAddress;
-    *v10 = *v10;
-    v11 = _BuildHimcList(ThreadWin32Thread, v6, (struct HIMC__ **)a3);
-    v14 = (unsigned int)v6 < v11 ? 0xC0000023 : 0;
-    v19 = v14;
-    *a4 = v11;
+      v11 = (_DWORD *)MmUserProbeAddress;
+    *v11 = *v11;
+    v12 = BuildHimcList(v10, (unsigned int)v6, a3);
+    v13 = (unsigned int)v6 < v12 ? 0xC0000023 : 0;
+    *a4 = v12;
   }
   else
   {
-    UserSetLastError(120LL, v8);
-    v14 = -1073741823;
+    UserSetLastError(120LL, v8, v9);
+    v13 = -1073741823;
   }
 LABEL_7:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v18, v12, v13);
-  UserSessionSwitchLeaveCrit(v15);
-  return v14;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v18);
+  UserSessionSwitchLeaveCrit(v14);
+  return v13;
 }

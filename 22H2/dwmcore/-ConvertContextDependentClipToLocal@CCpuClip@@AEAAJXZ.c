@@ -1,52 +1,66 @@
 /*
- * XREFs of ?ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ @ 0x1801FC1B0
+ * XREFs of ?ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ @ 0x180018480
  * Callers:
- *     ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x18005F4C0 (-AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAtt.c)
- *     ?ResolveClip@CCpuClip@@QEAAJPEAPEBVCShape@@PEAVCMILMatrix@@@Z @ 0x1800E7A74 (-ResolveClip@CCpuClip@@QEAAJPEAPEBVCShape@@PEAVCMILMatrix@@@Z.c)
- *     ?AddPrimitiveClip@CCpuClip@@QEAAJPEBVCShape@@PEBVCMILMatrix@@@Z @ 0x1801FC0CC (-AddPrimitiveClip@CCpuClip@@QEAAJPEBVCShape@@PEBVCMILMatrix@@@Z.c)
+ *     ?ResolveClip@CCpuClip@@QEAAJPEAPEBVCShape@@@Z @ 0x180018434 (-ResolveClip@CCpuClip@@QEAAJPEAPEBVCShape@@@Z.c)
+ *     ?AddPrimitiveClip@CCpuClip@@QEAAJPEBVCShape@@PEBVCMILMatrix@@@Z @ 0x18019D908 (-AddPrimitiveClip@CCpuClip@@QEAAJPEBVCShape@@PEBVCMILMatrix@@@Z.c)
  * Callees:
- *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x18005C8F8 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
- *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x1800629A0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DC518 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?Invert@Matrix3x2F@D2D1@@QEAA_NXZ @ 0x1800E7B68 (-Invert@Matrix3x2F@D2D1@@QEAA_NXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?Invert@Matrix3x2F@D2D1@@QEAA_NXZ @ 0x180018594 (-Invert@Matrix3x2F@D2D1@@QEAA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x180080AA0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
+ *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800C4488 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall CCpuClip::ConvertContextDependentClipToLocal(CCpuClip *this)
+__int64 __fastcall CCpuClip::ConvertContextDependentClipToLocal(CShape **this)
 {
-  unsigned int v1; // esi
-  unsigned int v3; // xmm1_4
-  int v4; // eax
-  __int64 v5; // rcx
-  struct CShape *v6; // rbx
-  struct CShape *v8; // [rsp+38h] [rbp-29h] BYREF
-  _BYTE v9[80]; // [rsp+48h] [rbp-19h] BYREF
-  struct D2D_MATRIX_3X2_F v10; // [rsp+98h] [rbp+37h] BYREF
+  unsigned int v2; // edi
+  CShape *v3; // rcx
+  const struct CMILMatrix *v4; // rdx
+  CShape *v5; // rax
+  CMILMatrix *v6; // rax
+  int v7; // eax
+  unsigned int v8; // ecx
+  struct CShape *v10; // [rsp+30h] [rbp-79h] BYREF
+  _OWORD v11[4]; // [rsp+40h] [rbp-69h] BYREF
+  int v12; // [rsp+80h] [rbp-29h]
+  char v13[72]; // [rsp+90h] [rbp-19h] BYREF
+  struct D2D_MATRIX_3X2_F v14; // [rsp+D8h] [rbp+2Fh] BYREF
 
-  v1 = 0;
-  if ( *(_QWORD *)this )
+  v2 = 0;
+  v3 = *this;
+  if ( v3 )
   {
-    v3 = *((_DWORD *)this + 3);
-    v10.m11 = *((FLOAT *)this + 2);
-    *(_QWORD *)&v10.m[0][1] = __PAIR64__(*((_DWORD *)this + 6), v3);
-    *(_QWORD *)&v10.m[1][1] = __PAIR64__(*((_DWORD *)this + 14), *((_DWORD *)this + 7));
-    v10.dy = *((FLOAT *)this + 15);
-    D2D1::Matrix3x2F::Invert(&v10);
-    CMILMatrix::CMILMatrix((CMILMatrix *)v9, &v10);
-    v4 = CShape::CopyShape(*(CShape **)this, (const struct CMILMatrix *)v9, &v8);
-    v1 = v4;
-    if ( v4 < 0 )
+    v12 = 0;
+    v4 = 0LL;
+    v5 = this[1];
+    if ( v5 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x112u, 0LL);
+      *(_QWORD *)&v14.m11 = *(_QWORD *)v5;
+      *(_QWORD *)&v14.m[1][0] = *((_QWORD *)v5 + 2);
+      *(_QWORD *)&v14.m[2][0] = *((_QWORD *)v5 + 6);
+      D2D1::Matrix3x2F::Invert((D2D1::Matrix3x2F *)&v14);
+      v6 = CMILMatrix::CMILMatrix((CMILMatrix *)v13, &v14);
+      v3 = *this;
+      v4 = (const struct CMILMatrix *)v11;
+      v11[0] = *(_OWORD *)v6;
+      v11[1] = *((_OWORD *)v6 + 1);
+      v11[2] = *((_OWORD *)v6 + 2);
+      v11[3] = *((_OWORD *)v6 + 3);
+      v12 = *((_DWORD *)v6 + 16);
+    }
+    v7 = CShape::CopyShape(v3, v4, &v10);
+    v2 = v7;
+    if ( v7 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xEFu, 0LL);
     }
     else
     {
-      v6 = v8;
-      CShapePtr::Release((CCpuClip *)((char *)this + 80));
-      *((_QWORD *)this + 10) = v6;
-      *((_BYTE *)this + 88) = 1;
+      CShapePtr::Release((CShapePtr *)(this + 2));
+      this[2] = v10;
+      *((_BYTE *)this + 24) = 1;
     }
   }
-  return v1;
+  return v2;
 }

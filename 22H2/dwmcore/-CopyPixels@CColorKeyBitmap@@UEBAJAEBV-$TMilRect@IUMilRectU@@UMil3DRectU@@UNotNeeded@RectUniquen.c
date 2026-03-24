@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CopyPixels@CColorKeyBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x1802B6A90
+ * XREFs of ?CopyPixels@CColorKeyBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x180267740
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z @ 0x1800A6E28 (-CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z @ 0x18003BC58 (-CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CColorKeyBitmap::CopyPixels(
@@ -30,7 +30,7 @@ __int64 __fastcall CColorKeyBitmap::CopyPixels(
   unsigned int v17; // r15d
   unsigned int v18; // edi
   unsigned int v19; // ebx
-  int *v20; // rax
+  enum DXGI_FORMAT *v20; // rax
   int v21; // eax
   __int64 v22; // rcx
   __int64 v24; // [rsp+50h] [rbp-31h] BYREF
@@ -77,7 +77,7 @@ __int64 __fastcall CColorKeyBitmap::CopyPixels(
         v17 = v26;
         v18 = a2[3] - a2[1];
         v19 = a2[2] - *a2;
-        v20 = (int *)(**(__int64 (__fastcall ***)(__int64, _BYTE *))v24)(v24, v30);
+        v20 = (enum DXGI_FORMAT *)(**(__int64 (__fastcall ***)(__int64, _BYTE *))v24)(v24, v30);
         v21 = CBitmap::CopyPixelsHelper(*v20, v19, v18, v17, v16, Src, a3, v27, v29);
         v10 = v21;
         if ( v21 < 0 )

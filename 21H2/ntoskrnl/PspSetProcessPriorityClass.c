@@ -1,15 +1,15 @@
 /*
- * XREFs of PspSetProcessPriorityClass @ 0x1406D2718
+ * XREFs of PspSetProcessPriorityClass @ 0x1406B3F80
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
- *     PspApplyIFEOPerfOptions @ 0x1407F7128 (PspApplyIFEOPerfOptions.c)
+ *     PspApplyIFEOPerfOptions @ 0x1406BEDD4 (PspApplyIFEOPerfOptions.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SeCheckPrivilegedObject @ 0x1406E856C (SeCheckPrivilegedObject.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     SeCheckPrivilegedObject @ 0x14078DE60 (SeCheckPrivilegedObject.c)
  */
 
 __int64 __fastcall PspSetProcessPriorityClass(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4)
@@ -39,10 +39,10 @@ __int64 __fastcall PspSetProcessPriorityClass(__int64 a1, unsigned __int8 a2, __
   {
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceSharedLite((PERESOURCE)(v6 + 56), 1u);
-    if ( (*(_DWORD *)(v6 + 1040) & 0x20) != 0 )
-      v4 = *(_BYTE *)(v6 + 1064);
+    if ( (*(_DWORD *)(v6 + 848) & 0x20) != 0 )
+      v4 = *(_BYTE *)(v6 + 872);
     ExReleaseResourceLite((PERESOURCE)(v6 + 56));
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
   *(_BYTE *)(a1 + 1463) = v4;
   return 0LL;

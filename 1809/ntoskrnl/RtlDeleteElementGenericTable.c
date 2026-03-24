@@ -5,7 +5,7 @@
  * Callees:
  *     RtlDelete @ 0x14008D4C0 (RtlDelete.c)
  *     FindNodeOrParent_0 @ 0x14008EEB4 (FindNodeOrParent_0.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __stdcall RtlDeleteElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)

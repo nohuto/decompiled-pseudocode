@@ -1,18 +1,18 @@
 /*
- * XREFs of IopBuildFullDriverPath @ 0x14067B1DC
+ * XREFs of IopBuildFullDriverPath @ 0x140740308
  * Callers:
- *     PiNormalizeDeviceText @ 0x1406E1D34 (PiNormalizeDeviceText.c)
- *     IopLoadDriver @ 0x14074A178 (IopLoadDriver.c)
- *     PpCheckInDriverDatabase @ 0x14075EA10 (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x14073DAC0 (PpCheckInDriverDatabase.c)
+ *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     PiNormalizeDeviceText @ 0x14076AC40 (PiNormalizeDeviceText.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     IopQueryRegistryKeySystemPath @ 0x14067AFB0 (IopQueryRegistryKeySystemPath.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlPrefixUnicodeString @ 0x14077F870 (RtlPrefixUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IopQueryRegistryKeySystemPath @ 0x140740FE0 (IopQueryRegistryKeySystemPath.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopBuildFullDriverPath(UNICODE_STRING *a1, void *a2, UNICODE_STRING *a3)
@@ -21,15 +21,15 @@ __int64 __fastcall IopBuildFullDriverPath(UNICODE_STRING *a1, void *a2, UNICODE_
   __int64 v7; // r14
   unsigned __int16 Length; // bx
   unsigned int v9; // edx
-  __int64 Pool2; // rax
+  wchar_t *Pool; // rax
   UNICODE_STRING v12; // xmm0
-  UNICODE_STRING String2; // [rsp+28h] [rbp-29h] BYREF
-  UNICODE_STRING Source; // [rsp+38h] [rbp-19h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-9h] BYREF
-  UNICODE_STRING String1; // [rsp+58h] [rbp+7h] BYREF
-  UNICODE_STRING v17; // [rsp+68h] [rbp+17h]
-  UNICODE_STRING v18; // [rsp+78h] [rbp+27h] BYREF
-  UNICODE_STRING v19; // [rsp+88h] [rbp+37h] BYREF
+  UNICODE_STRING String2; // [rsp+20h] [rbp-39h] BYREF
+  UNICODE_STRING Source; // [rsp+30h] [rbp-29h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-19h] BYREF
+  UNICODE_STRING String1; // [rsp+50h] [rbp-9h] BYREF
+  UNICODE_STRING v17; // [rsp+60h] [rbp+7h]
+  UNICODE_STRING v18; // [rsp+70h] [rbp+17h] BYREF
+  UNICODE_STRING v19; // [rsp+80h] [rbp+27h] BYREF
 
   *(_QWORD *)&String1.Length = 1703960LL;
   *(_QWORD *)&v17.Length = 2359330LL;
@@ -62,7 +62,7 @@ __int64 __fastcall IopBuildFullDriverPath(UNICODE_STRING *a1, void *a2, UNICODE_
   {
     if ( MEMORY[0xC] > 0xFFFFu )
     {
-LABEL_19:
+LABEL_18:
       appended = -2147483643;
       goto LABEL_14;
     }
@@ -92,12 +92,12 @@ LABEL_19:
   }
   v9 = Source.Length + 2 + v18.Length + v19.Length + Length;
   if ( v9 > 0xFFFF )
-    goto LABEL_19;
+    goto LABEL_18;
   a3->MaximumLength = v9;
   a3->Length = 0;
-  Pool2 = ExAllocatePool2(256LL, (unsigned __int16)v9, 538996553LL);
-  a3->Buffer = (wchar_t *)Pool2;
-  if ( Pool2 )
+  Pool = (wchar_t *)IopVerifierExAllocatePool(PagedPool, (unsigned __int16)v9);
+  a3->Buffer = Pool;
+  if ( Pool )
   {
     appended = RtlAppendUnicodeStringToString(a3, &Source);
     if ( appended >= 0 )
@@ -120,6 +120,6 @@ LABEL_19:
     appended = -1073741670;
   }
 LABEL_14:
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   return (unsigned int)appended;
 }

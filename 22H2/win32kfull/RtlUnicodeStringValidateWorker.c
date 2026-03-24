@@ -1,10 +1,8 @@
 /*
- * XREFs of RtlUnicodeStringValidateWorker @ 0x1C0048004
+ * XREFs of RtlUnicodeStringValidateWorker @ 0x1C00E1638
  * Callers:
- *     ReadPointerDeviceSettingsFull @ 0x1C0047820 (ReadPointerDeviceSettingsFull.c)
- *     EditionGetPointerDeviceConfigurationKey @ 0x1C0047C70 (EditionGetPointerDeviceConfigurationKey.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x1C00482A8 (RtlUnicodeStringValidateDestWorker.c)
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00483D0 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00E130C (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C00E15C8 (RtlUnicodeStringValidateDestWorker.c)
  * Callees:
  *     <none>
  */

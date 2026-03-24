@@ -1,32 +1,32 @@
 /*
- * XREFs of ?BeginTrack@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@QEAAPEAXPEAX@Z @ 0x1C016EAFC
+ * XREFs of ?BeginTrack@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@QEAAPEAXPEAX@Z @ 0x1C014DAA0
  * Callers:
- *     ?AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z @ 0x1C00478B4 (-AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z.c)
+ *     ?AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z @ 0x1C0080950 (-AcquireReferenceCountedObjectHandle@@YA_NW4ReferenceTrackerCountedType@@PEAXPEAPEAX@Z.c)
  * Callees:
- *     ?Create@CPlatformSignal@NSInstrumentation@@SAPEAV12@XZ @ 0x1C016D720 (-Create@CPlatformSignal@NSInstrumentation@@SAPEAV12@XZ.c)
- *     ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C016F1BC (-Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z.c)
+ *     ?Create@CPlatformSignal@NSInstrumentation@@SAPEAV12@XZ @ 0x1C014D840 (-Create@CPlatformSignal@NSInstrumentation@@SAPEAV12@XZ.c)
+ *     ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C014E750 (-Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z.c)
  */
 
 _QWORD *__fastcall NSInstrumentation::CReferenceTracker::CReferenceCountedType::BeginTrack(
         NSInstrumentation::CPointerHashTable **this,
         void *a2)
 {
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v5; // rbx
   struct _KEVENT *v6; // rax
   void *v7; // rcx
   void *v9; // rcx
 
-  Pool2 = ExAllocatePool2(262LL, 4096LL, 1648980821LL);
-  v5 = (_QWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolSession, 0x1000uLL, 0x62497355u);
+  v5 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(Pool2 + 40) = -1LL;
-    *(_QWORD *)(Pool2 + 32) = 0LL;
-    *(_DWORD *)(Pool2 + 48) = 0;
-    *(_QWORD *)(Pool2 + 8) = Pool2;
-    *(_QWORD *)Pool2 = Pool2;
-    *(_QWORD *)(Pool2 + 16) = NSInstrumentation::CPlatformSignal::Create();
+    PoolWithTag[5] = -1LL;
+    PoolWithTag[4] = 0LL;
+    *((_DWORD *)PoolWithTag + 12) = 0;
+    PoolWithTag[1] = PoolWithTag;
+    *PoolWithTag = PoolWithTag;
+    PoolWithTag[2] = NSInstrumentation::CPlatformSignal::Create();
     v6 = NSInstrumentation::CPlatformSignal::Create();
     v7 = (void *)v5[2];
     v5[3] = v6;

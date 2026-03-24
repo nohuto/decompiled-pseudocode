@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwTraceControl @ 0x14041F140
+ * XREFs of ZwTraceControl @ 0x1403FDC40
  * Callers:
- *     EtwWriteStartScenario @ 0x14081C9F0 (EtwWriteStartScenario.c)
+ *     EtwWriteStartScenario @ 0x140788490 (EtwWriteStartScenario.c)
  * Callees:
  *     <none>
  */

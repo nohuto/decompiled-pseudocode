@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TryReleaseDeviceLockForAllDevices@ADAPTER_RENDER@@QEAAXW4DXGADAPTER_DEVICELISTTYPE@@@Z @ 0x1C01F2440
+ * XREFs of ?TryReleaseDeviceLockForAllDevices@ADAPTER_RENDER@@QEAAXW4DXGADAPTER_DEVICELISTTYPE@@@Z @ 0x1C02171A8
  * Callers:
- *     ?ReleaseLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ @ 0x1C01F2400 (-ReleaseLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ.c)
+ *     ?ReleaseLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ @ 0x1C020EB2C (-ReleaseLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 void __fastcall ADAPTER_RENDER::TryReleaseDeviceLockForAllDevices(__int64 a1, int a2)
@@ -28,7 +28,7 @@ void __fastcall ADAPTER_RENDER::TryReleaseDeviceLockForAllDevices(__int64 a1, in
     || DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(a1 + 16)) )
   {
     for ( i = *v6;
-          i != (__int64 *)v6 && i && (*((_BYTE *)i + 72) || ExIsResourceAcquiredExclusiveLite((PERESOURCE)i[17]));
+          i != (__int64 *)v6 && i && (*((_DWORD *)i + 18) || ExIsResourceAcquiredExclusiveLite((PERESOURCE)i[17]));
           i = (__int64 *)*i )
     {
       ExReleaseResourceLite((PERESOURCE)i[17]);

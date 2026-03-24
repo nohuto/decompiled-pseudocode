@@ -1,10 +1,10 @@
 /*
- * XREFs of IoctlStorageStreamsReleaseId @ 0x1C001C598
+ * XREFs of IoctlStorageStreamsReleaseId @ 0x1C0013D0C
  * Callers:
- *     IoctlToNVMe @ 0x1C0002DE0 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     GetNamespaceId @ 0x1C00051C8 (GetNamespaceId.c)
- *     NVMeDirectiveStreamsReleaseId @ 0x1C0022854 (NVMeDirectiveStreamsReleaseId.c)
+ *     GetNamespaceId @ 0x1C00058D4 (GetNamespaceId.c)
+ *     NVMeDirectiveStreamsReleaseId @ 0x1C0018B74 (NVMeDirectiveStreamsReleaseId.c)
  */
 
 __int64 __fastcall IoctlStorageStreamsReleaseId(__int64 a1, __int64 a2)
@@ -51,10 +51,10 @@ LABEL_22:
     *(_BYTE *)(a2 + 3) = 32;
     goto LABEL_22;
   }
-  if ( (*(_BYTE *)(a1 + 3808) & 3) == 3 && *(unsigned __int8 *)(a1 + 3809) == v7 )
+  if ( (*(_BYTE *)(a1 + 3792) & 3) == 3 && *(unsigned __int8 *)(a1 + 3793) == v7 )
   {
     v9 = v5[9];
-    if ( !v9 || *(unsigned __int16 *)(a1 + 3810) < v9 || v9 > 0xFFFF )
+    if ( !v9 || *(unsigned __int16 *)(a1 + 3794) < v9 || v9 > 0xFFFF )
     {
       *(_BYTE *)(a2 + 3) = 6;
       goto LABEL_22;

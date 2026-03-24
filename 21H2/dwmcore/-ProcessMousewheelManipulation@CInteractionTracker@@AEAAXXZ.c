@@ -1,20 +1,20 @@
 /*
- * XREFs of ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x18021BBDC
+ * XREFs of ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x1801CA730
  * Callers:
- *     ?UpdateActiveManipulations@InteractionSourceManager@@AEAAXXZ @ 0x18026503C (-UpdateActiveManipulations@InteractionSourceManager@@AEAAXXZ.c)
+ *     ?UpdateActiveManipulations@InteractionSourceManager@@AEAAXXZ @ 0x180214140 (-UpdateActiveManipulations@InteractionSourceManager@@AEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?AnimateToScale@CInteractionTracker@@AEAAJMAEBUD2DVector2@@MH@Z @ 0x180219080 (-AnimateToScale@CInteractionTracker@@AEAAJMAEBUD2DVector2@@MH@Z.c)
- *     ?CalculatePositionAnimationDuration@CInteractionTracker@@AEAAMAEBUD2DVector3@@@Z @ 0x180219BB4 (-CalculatePositionAnimationDuration@CInteractionTracker@@AEAAMAEBUD2DVector3@@@Z.c)
- *     ?CalculateScaleAnimationDuration@CInteractionTracker@@AEAAMM@Z @ 0x180219D1C (-CalculateScaleAnimationDuration@CInteractionTracker@@AEAAMM@Z.c)
- *     ?ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z @ 0x18021A0F0 (-ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z.c)
- *     ?HasRunningDefaultPositionAnimation@CInteractionTracker@@QEBA_NXZ @ 0x18021B39C (-HasRunningDefaultPositionAnimation@CInteractionTracker@@QEBA_NXZ.c)
- *     ?HasRunningDefaultScaleAnimation@CInteractionTracker@@QEBA_NXZ @ 0x18021B3BC (-HasRunningDefaultScaleAnimation@CInteractionTracker@@QEBA_NXZ.c)
- *     ?ScrollToPosition@CInteractionTracker@@AEAAJAEBUD2DVector3@@MH@Z @ 0x18021C660 (-ScrollToPosition@CInteractionTracker@@AEAAJAEBUD2DVector3@@MH@Z.c)
- *     ?GetLastKeyframeValueForPosition@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x1802555C8 (-GetLastKeyframeValueForPosition@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
- *     ?GetLastKeyframeValueForScale@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x180255B08 (-GetLastKeyframeValueForScale@CScrollScaleKeyframeAnimation@@QEBAMXZ.c)
- *     ?GetActiveManipulationCenterpoint@InteractionSourceManager@@QEBA?AUD2DVector3@@XZ @ 0x180264074 (-GetActiveManipulationCenterpoint@InteractionSourceManager@@QEBA-AUD2DVector3@@XZ.c)
- *     ?GetActiveManipulationDelta@InteractionSourceManager@@QEBAMW4ScrollAxis@@@Z @ 0x1802640E0 (-GetActiveManipulationDelta@InteractionSourceManager@@QEBAMW4ScrollAxis@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?AnimateToScale@CInteractionTracker@@AEAAJMAEBUD2DVector2@@MH@Z @ 0x1801C800C (-AnimateToScale@CInteractionTracker@@AEAAJMAEBUD2DVector2@@MH@Z.c)
+ *     ?CalculatePositionAnimationDuration@CInteractionTracker@@AEAAMAEBUD2DVector3@@@Z @ 0x1801C8A30 (-CalculatePositionAnimationDuration@CInteractionTracker@@AEAAMAEBUD2DVector3@@@Z.c)
+ *     ?CalculateScaleAnimationDuration@CInteractionTracker@@AEAAMM@Z @ 0x1801C8B94 (-CalculateScaleAnimationDuration@CInteractionTracker@@AEAAMM@Z.c)
+ *     ?ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z @ 0x1801C8F38 (-ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z.c)
+ *     ?HasRunningDefaultPositionAnimation@CInteractionTracker@@QEBA_NXZ @ 0x1801C9FD8 (-HasRunningDefaultPositionAnimation@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?HasRunningDefaultScaleAnimation@CInteractionTracker@@QEBA_NXZ @ 0x1801C9FF8 (-HasRunningDefaultScaleAnimation@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?ScrollToPosition@CInteractionTracker@@AEAAJAEBUD2DVector3@@MH@Z @ 0x1801CB118 (-ScrollToPosition@CInteractionTracker@@AEAAJAEBUD2DVector3@@MH@Z.c)
+ *     ?GetLastKeyframeValueForPosition@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180204D74 (-GetLastKeyframeValueForPosition@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
+ *     ?GetLastKeyframeValueForScale@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x18020531C (-GetLastKeyframeValueForScale@CScrollScaleKeyframeAnimation@@QEBAMXZ.c)
+ *     ?GetActiveManipulationCenterpoint@InteractionSourceManager@@QEBA?AUD2DVector3@@XZ @ 0x18021315C (-GetActiveManipulationCenterpoint@InteractionSourceManager@@QEBA-AUD2DVector3@@XZ.c)
+ *     ?GetActiveManipulationDelta@InteractionSourceManager@@QEBAMW4ScrollAxis@@@Z @ 0x1802131D0 (-GetActiveManipulationDelta@InteractionSourceManager@@QEBAMW4ScrollAxis@@@Z.c)
  */
 
 void __fastcall CInteractionTracker::ProcessMousewheelManipulation(CInteractionTracker *this)
@@ -48,8 +48,8 @@ void __fastcall CInteractionTracker::ProcessMousewheelManipulation(CInteractionT
   __int64 v28; // [rsp+58h] [rbp-19h] BYREF
   int v29; // [rsp+60h] [rbp-11h]
 
-  v1 = (char *)this + 200;
-  ActiveManipulationDelta = InteractionSourceManager::GetActiveManipulationDelta((char *)this + 200, 0LL);
+  v1 = (char *)this + 192;
+  ActiveManipulationDelta = InteractionSourceManager::GetActiveManipulationDelta((char *)this + 192, 0LL);
   v4 = *(float *)&ActiveManipulationDelta;
   v5 = InteractionSourceManager::GetActiveManipulationDelta(v1, 1LL);
   v6 = *(float *)&v5;
@@ -62,15 +62,15 @@ void __fastcall CInteractionTracker::ProcessMousewheelManipulation(CInteractionT
     if ( CInteractionTracker::HasRunningDefaultPositionAnimation(this) )
     {
       LastKeyframeValueForPosition = CScrollPositionKeyframeAnimation::GetLastKeyframeValueForPosition(
-                                       *((_QWORD *)this + 58),
+                                       *((_QWORD *)this + 57),
                                        v25);
       v17 = *(_QWORD *)LastKeyframeValueForPosition;
       v18 = *(_DWORD *)(LastKeyframeValueForPosition + 8);
     }
     else
     {
-      v17 = *((_QWORD *)this + 10);
-      v18 = *((_DWORD *)this + 22);
+      v17 = *((_QWORD *)this + 9);
+      v18 = *((_DWORD *)this + 20);
     }
     v27 = v18;
     v26 = v17;
@@ -88,11 +88,11 @@ void __fastcall CInteractionTracker::ProcessMousewheelManipulation(CInteractionT
       *((float *)&v28 + 1) = *((float *)&v26 + 1) + v6;
       HIDWORD(v26) = CInteractionTracker::ClampValueToBoundary((__int64)this, 1LL, v20).m128_u32[0];
     }
-    v21 = *((_QWORD *)this + 10);
+    v21 = *((_QWORD *)this + 9);
     v27 = 0;
     v22 = v21 - v26;
     if ( !v22 )
-      v22 = *((unsigned int *)this + 22) - (unsigned __int64)v27;
+      v22 = *((unsigned int *)this + 20) - (unsigned __int64)v27;
     if ( v22 )
     {
       v23 = CInteractionTracker::CalculatePositionAnimationDuration(this, (const struct D2DVector3 *)&v28);
@@ -103,9 +103,9 @@ void __fastcall CInteractionTracker::ProcessMousewheelManipulation(CInteractionT
   {
     if ( CInteractionTracker::HasRunningDefaultScaleAnimation(this) )
       LastKeyframeValueForScale = CScrollScaleKeyframeAnimation::GetLastKeyframeValueForScale(*((CScrollScaleKeyframeAnimation **)this
-                                                                                              + 59));
+                                                                                              + 58));
     else
-      LastKeyframeValueForScale = *((float *)this + 34);
+      LastKeyframeValueForScale = *((float *)this + 32);
     *(_QWORD *)&v10 = LODWORD(FLOAT_0_001);
     *(float *)&v10 = fmaxf(0.001, LastKeyframeValueForScale * v8);
     v12 = CInteractionTracker::ClampValueToBoundary((__int64)this, 2LL, v10).m128_f32[0];

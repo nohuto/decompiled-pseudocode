@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptMarkProcessorStarted @ 0x14037DB88
+ * XREFs of HalpInterruptMarkProcessorStarted @ 0x1403A39AC
  * Callers:
- *     HalpInterruptInitializeLocalUnit @ 0x14037C0A0 (HalpInterruptInitializeLocalUnit.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x1403A360C (HalpInterruptInitializeLocalUnit.c)
  * Callees:
  *     <none>
  */
@@ -10,13 +10,13 @@ void __fastcall HalpInterruptMarkProcessorStarted(int a1)
 {
   char v2; // bp
   char v3; // r9
-  unsigned int v4; // r11d
-  unsigned int Group; // esi
+  unsigned int Group; // edi
   unsigned __int8 GroupIndex; // r14
+  unsigned int v6; // r11d
   unsigned int i; // r10d
   char v8; // bl
-  ULONG_PTR v9; // r8
-  int v10; // edx
+  ULONG_PTR v9; // rdx
+  int v10; // r8d
   unsigned int v11; // edx
   __int64 v12; // rcx
   int v13; // [rsp+30h] [rbp+10h]
@@ -26,17 +26,17 @@ void __fastcall HalpInterruptMarkProcessorStarted(int a1)
   {
     v2 = 0;
     v3 = 0;
-    v4 = 0;
     Group = KeGetCurrentPrcb()->Group;
     LOWORD(v13) = Group;
     GroupIndex = KeGetCurrentPrcb()->GroupIndex;
     BYTE2(v13) = GroupIndex;
+    v6 = 0;
     for ( i = ~(KeGetCurrentPrcb()->LogicalProcessorsPerCore * KeGetCurrentPrcb()->CoresPerPhysicalProcessor - 1);
-          v4 < (unsigned int)HalpInterruptProcessorCount;
-          ++v4 )
+          v6 < (unsigned int)HalpInterruptProcessorCount;
+          ++v6 )
     {
       v8 = 0;
-      v9 = HalpInterruptProcessorState + ((unsigned __int64)v4 << 6);
+      v9 = HalpInterruptProcessorState + ((unsigned __int64)v6 << 6);
       if ( *(_BYTE *)(v9 + 12) || !(_WORD)Group && !GroupIndex )
         v8 = 1;
       if ( (unsigned int)HalpInterruptGicVersion >= 3 )
@@ -57,7 +57,7 @@ void __fastcall HalpInterruptMarkProcessorStarted(int a1)
       }
       else
       {
-        if ( *(_BYTE *)(v9 + 13) && (*(_DWORD *)v9 & i) == (a1 & i) )
+        if ( *(_BYTE *)(v9 + 13) && (i & *(_DWORD *)v9) == (a1 & i) )
           v3 = 1;
         if ( !v2 )
           continue;

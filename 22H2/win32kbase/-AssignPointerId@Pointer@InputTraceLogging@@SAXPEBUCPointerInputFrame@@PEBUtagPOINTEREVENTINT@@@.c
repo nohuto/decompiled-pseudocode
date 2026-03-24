@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AssignPointerId@Pointer@InputTraceLogging@@SAXPEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@@Z @ 0x1C01BAB84
+ * XREFs of ?AssignPointerId@Pointer@InputTraceLogging@@SAXPEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@@Z @ 0x1C01883E8
  * Callers:
- *     ?PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@K@Z @ 0x1C01CE024 (-PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@K@Z.c)
+ *     ?PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@PEAUtagCHitTestState@@K@Z @ 0x1C0197C28 (-PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@PEA.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0079EA8 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 void __fastcall InputTraceLogging::Pointer::AssignPointerId(
@@ -28,12 +28,12 @@ void __fastcall InputTraceLogging::Pointer::AssignPointerId(
   int *v15; // [rsp+A0h] [rbp+37h]
   __int64 v16; // [rsp+A8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 32LL) )
+  if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 32LL) )
   {
     v5 = *((_DWORD *)v2 + 3);
     v4 = *v2;
     v6 = *(_QWORD *)(v3 + 72);
-    v7 = *(_QWORD *)(v3 + 216);
+    v7 = *(_QWORD *)(v3 + 112);
     v15 = &v5;
     v13 = &v4;
     v11 = &v6;
@@ -42,6 +42,6 @@ void __fastcall InputTraceLogging::Pointer::AssignPointerId(
     v14 = 2LL;
     v12 = 8LL;
     v10 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0289810, (unsigned __int8 *)dword_1C025C9CB, 0LL, 0LL, 6u, &v8);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C024AA90, (unsigned __int8 *)dword_1C021E0D1, 0LL, 0LL, 6u, &v8);
   }
 }

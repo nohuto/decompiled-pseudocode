@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReplaceTransitionPage @ 0x14011844C
+ * XREFs of MiReplaceTransitionPage @ 0x14011846C
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiTradeTransitionPage @ 0x14011810C (MiTradeTransitionPage.c)
- *     MiFinalizeImageHeaderPage @ 0x14012DD90 (MiFinalizeImageHeaderPage.c)
+ *     MiTradeTransitionPage @ 0x14011812C (MiTradeTransitionPage.c)
+ *     MiFinalizeImageHeaderPage @ 0x14012DDB0 (MiFinalizeImageHeaderPage.c)
  * Callees:
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
@@ -15,20 +15,20 @@
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
  *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiDecreaseAvailablePages @ 0x1400EE82C (MiDecreaseAvailablePages.c)
- *     MiCopyPfnEntryEx @ 0x14010DFE0 (MiCopyPfnEntryEx.c)
- *     MiUpdateTransitionPteFrame @ 0x140118984 (MiUpdateTransitionPteFrame.c)
- *     MiReplaceNumaStandbyPage @ 0x1401189CC (MiReplaceNumaStandbyPage.c)
- *     MiIsDecayPfn @ 0x140118BEC (MiIsDecayPfn.c)
- *     MiDetermineModifiedPageListHead @ 0x140118C14 (MiDetermineModifiedPageListHead.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
- *     KeMakeKernelDirectoryTableBase @ 0x14013CC9C (KeMakeKernelDirectoryTableBase.c)
- *     MiUnlinkNumaStandbyPage @ 0x140152260 (MiUnlinkNumaStandbyPage.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiDecreaseAvailablePages @ 0x1400EE84C (MiDecreaseAvailablePages.c)
+ *     MiCopyPfnEntryEx @ 0x14010E000 (MiCopyPfnEntryEx.c)
+ *     MiUpdateTransitionPteFrame @ 0x1401189A4 (MiUpdateTransitionPteFrame.c)
+ *     MiReplaceNumaStandbyPage @ 0x1401189EC (MiReplaceNumaStandbyPage.c)
+ *     MiIsDecayPfn @ 0x140118C0C (MiIsDecayPfn.c)
+ *     MiDetermineModifiedPageListHead @ 0x140118C34 (MiDetermineModifiedPageListHead.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x14013CCBC (KeMakeKernelDirectoryTableBase.c)
+ *     MiUnlinkNumaStandbyPage @ 0x140152280 (MiUnlinkNumaStandbyPage.c)
  */
 
 char __fastcall MiReplaceTransitionPage(__int64 a1, __int64 a2, unsigned int *a3)

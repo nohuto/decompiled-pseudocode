@@ -1,10 +1,10 @@
 /*
- * XREFs of ?D2DMatrixRotationY@@YAPEAUD2DMatrix@@PEAU1@MUD2DVector3@@@Z @ 0x18026D99C
+ * XREFs of ?D2DMatrixRotationY@@YAPEAUD2DMatrix@@PEAU1@MUD2DVector3@@@Z @ 0x18021D5A0
  * Callers:
- *     ?Matrix4x4FromRotationY@CExpressionValueStack@@QEAAJI@Z @ 0x18024D8C4 (-Matrix4x4FromRotationY@CExpressionValueStack@@QEAAJI@Z.c)
+ *     ?Matrix4x4FromRotationY@CExpressionValueStack@@QEAAJI@Z @ 0x1801FEC34 (-Matrix4x4FromRotationY@CExpressionValueStack@@QEAAJI@Z.c)
  * Callees:
- *     cosf @ 0x1801018C8 (cosf.c)
- *     _o_sinf_0 @ 0x180101964 (_o_sinf_0.c)
+ *     cosf_0 @ 0x1800F4763 (cosf_0.c)
+ *     sinf_0 @ 0x1800F479F (sinf_0.c)
  */
 
 __int64 __fastcall D2DMatrixRotationY(__int64 a1, float a2, float *a3)
@@ -15,8 +15,8 @@ __int64 __fastcall D2DMatrixRotationY(__int64 a1, float a2, float *a3)
   float v8; // xmm4_4
   __int64 result; // rax
 
-  v5 = o_sinf_0(a2);
-  v6 = cosf(a2);
+  v5 = sinf_0(a2);
+  v6 = cosf_0(a2);
   v7 = *a3;
   v8 = a3[2];
   *(_DWORD *)(a1 + 8) = LODWORD(v5) ^ _xmm;

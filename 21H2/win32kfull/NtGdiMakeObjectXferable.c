@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiMakeObjectXferable @ 0x1C01410F0
+ * XREFs of NtGdiMakeObjectXferable @ 0x1C0114FD0
  * Callers:
  *     <none>
  * Callees:
- *     ?bPrepareDCForXfer@XFERDCOBJ@@SAHPEAUHDC__@@K@Z @ 0x1C014117C (-bPrepareDCForXfer@XFERDCOBJ@@SAHPEAUHDC__@@K@Z.c)
+ *     ?bPrepareDCForXfer@XFERDCOBJ@@SAHPEAUHDC__@@K@Z @ 0x1C011505C (-bPrepareDCForXfer@XFERDCOBJ@@SAHPEAUHDC__@@K@Z.c)
  */
 
 __int64 __fastcall NtGdiMakeObjectXferable(HDC a1, __int64 a2, __int64 a3, __int64 a4)

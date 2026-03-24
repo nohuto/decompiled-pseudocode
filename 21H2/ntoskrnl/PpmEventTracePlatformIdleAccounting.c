@@ -1,50 +1,48 @@
 /*
- * XREFs of PpmEventTracePlatformIdleAccounting @ 0x14099AB34
+ * XREFs of PpmEventTracePlatformIdleAccounting @ 0x1408F32A0
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140864680 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D53F0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PpmTranslatePlatformIdleAccounting @ 0x1405D7630 (PpmTranslatePlatformIdleAccounting.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PpmTranslatePlatformIdleAccounting @ 0x1405774C0 (PpmTranslatePlatformIdleAccounting.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PpmEventTracePlatformIdleAccounting()
 {
-  void *v0; // rbx
+  _QWORD *v0; // rbx
   __int64 v1; // r13
   int v2; // esi
   unsigned int v3; // edi
-  __int64 Pool2; // rax
-  _QWORD *v5; // rdx
-  __int64 v6; // r9
-  __int64 *v7; // r8
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v5; // rcx
+  __int64 v6; // r8
+  __int64 *v7; // rdx
   __int64 v8; // rax
-  __int64 v9; // rax
-  void *v10; // r15
+  PVOID v9; // rax
+  void *v10; // r14
   ULONG v11; // r9d
-  char v12; // [rsp+38h] [rbp-29h] BYREF
-  __int16 v13; // [rsp+3Ch] [rbp-25h] BYREF
-  unsigned int v14; // [rsp+40h] [rbp-21h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-19h] BYREF
-  __int16 *v16; // [rsp+58h] [rbp-9h]
-  int v17; // [rsp+60h] [rbp-1h]
-  int v18; // [rsp+64h] [rbp+3h]
-  char *v19; // [rsp+68h] [rbp+7h]
-  int v20; // [rsp+70h] [rbp+Fh]
-  int v21; // [rsp+74h] [rbp+13h]
-  int *v22; // [rsp+78h] [rbp+17h]
-  int v23; // [rsp+80h] [rbp+1Fh]
-  int v24; // [rsp+84h] [rbp+23h]
-  void *v25; // [rsp+88h] [rbp+27h]
-  int v26; // [rsp+90h] [rbp+2Fh]
-  int v27; // [rsp+94h] [rbp+33h]
+  char v12; // [rsp+38h] [rbp-39h] BYREF
+  __int16 v13; // [rsp+3Ch] [rbp-35h] BYREF
+  unsigned int v14; // [rsp+40h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-29h] BYREF
+  __int16 *v16; // [rsp+58h] [rbp-19h]
+  __int64 v17; // [rsp+60h] [rbp-11h]
+  char *v18; // [rsp+68h] [rbp-9h]
+  __int64 v19; // [rsp+70h] [rbp-1h]
+  int *v20; // [rsp+78h] [rbp+7h]
+  __int64 v21; // [rsp+80h] [rbp+Fh]
+  _QWORD *v22; // [rsp+88h] [rbp+17h]
+  int v23; // [rsp+90h] [rbp+1Fh]
+  int v24; // [rsp+94h] [rbp+23h]
 
   v14 = 0;
   v0 = 0LL;
-  v13 = 32;
+  v13 = 20;
   v12 = 64;
   if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PLATFORM_IDLE_ACCOUNTING_RUNDOWN) && PpmPlatformStates )
   {
@@ -54,13 +52,14 @@ void PpmEventTracePlatformIdleAccounting()
     if ( *(_DWORD *)(PpmPlatformStates + 4) == 1 )
     {
       v2 = 80 * v3;
-      Pool2 = ExAllocatePool2(64LL, 80 * v3, 1699565648LL);
-      v0 = (void *)Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 80 * v3, 0x654D5050u);
+      v0 = PoolWithTag;
+      if ( !PoolWithTag )
         return;
+      memset(PoolWithTag, 0, 80 * v3);
       if ( v3 )
       {
-        v5 = (_QWORD *)(Pool2 + 16);
+        v5 = v0 + 2;
         v6 = v3;
         v7 = (__int64 *)(v1 + 112);
         do
@@ -83,35 +82,33 @@ void PpmEventTracePlatformIdleAccounting()
         while ( v6 );
       }
     }
-    v9 = ExAllocatePool2(64LL, 664 * v3 + 32, 1699565648LL);
-    v10 = (void *)v9;
+    v9 = ExAllocatePoolWithTag(NonPagedPoolNx, 664 * v3 + 32, 0x654D5050u);
+    v10 = v9;
     if ( v9 )
     {
-      PpmTranslatePlatformIdleAccounting(v1, v9);
-      UserData.Reserved = 0;
-      v18 = 0;
-      v21 = 0;
-      v11 = 4;
-      v16 = &v13;
-      v19 = &v12;
+      memset(v9, 0, 664 * v3 + 32);
+      PpmTranslatePlatformIdleAccounting(v1, (__int64)v10);
       UserData.Ptr = (ULONGLONG)v10;
       UserData.Size = 664 * v3 + 32;
-      v17 = 2;
-      v20 = 1;
+      v16 = &v13;
+      UserData.Reserved = 0;
+      v17 = 2LL;
+      v18 = &v12;
+      v11 = 4;
+      v19 = 1LL;
       if ( v0 )
       {
-        v27 = 0;
         v11 = 5;
-        v25 = v0;
-        v26 = v2;
+        v22 = v0;
+        v23 = v2;
+        v24 = 0;
       }
       else
       {
         v3 = 0;
       }
-      v24 = 0;
-      v22 = (int *)&v14;
-      v23 = 4;
+      v20 = (int *)&v14;
+      v21 = 4LL;
       v14 = v3;
       EtwWrite(PpmEtwHandle, &PPM_ETW_PLATFORM_IDLE_ACCOUNTING_RUNDOWN, 0LL, v11, &UserData);
       ExFreePoolWithTag(v10, 0x654D5050u);

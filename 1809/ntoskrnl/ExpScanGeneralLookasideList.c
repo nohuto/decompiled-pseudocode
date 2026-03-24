@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpScanGeneralLookasideList @ 0x1401070C0
+ * XREFs of ExpScanGeneralLookasideList @ 0x1401070E0
  * Callers:
- *     KeBalanceSetManager @ 0x140183AB0 (KeBalanceSetManager.c)
+ *     KeBalanceSetManager @ 0x140183AD0 (KeBalanceSetManager.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpScanGeneralLookasideList(_QWORD *a1, KSPIN_LOCK *a2)

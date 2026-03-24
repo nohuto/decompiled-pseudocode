@@ -1,5 +1,5 @@
 /*
- * XREFs of ?bUnMap@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C00827D0
+ * XREFs of ?bUnMap@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C0079D60
  * Callers:
  *     <none>
  * Callees:
@@ -10,8 +10,7 @@ __int64 __fastcall SURFACE::bUnMap(SURFACE *this, void *a2, struct DC *a3)
 {
   LONG v5; // r8d
 
-  if ( (*((_QWORD *)this + 31) || (*((_DWORD *)this + 29) & 1) != 0)
-    && _bittest16((const signed __int16 *)this + 51, 0xBu) )
+  if ( (*((_QWORD *)this + 31) || (*((_DWORD *)this + 29) & 1) != 0) && (*((_WORD *)this + 51) & 0x800) != 0 )
   {
     KeReleaseMutex((PRKMUTEX)(*((_QWORD *)this + 39) + 64LL), 0);
     KeWaitForSingleObject((PVOID)(*((_QWORD *)this + 39) + 64LL), UserRequest, 0, 0, 0LL);

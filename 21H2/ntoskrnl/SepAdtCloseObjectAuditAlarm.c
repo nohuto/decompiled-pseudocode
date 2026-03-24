@@ -1,20 +1,20 @@
 /*
- * XREFs of SepAdtCloseObjectAuditAlarm @ 0x1409C8548
+ * XREFs of SepAdtCloseObjectAuditAlarm @ 0x14091EAF8
  * Callers:
- *     NtCloseObjectAuditAlarm @ 0x1406BC4A0 (NtCloseObjectAuditAlarm.c)
- *     SeCloseObjectAuditAlarm @ 0x1409CAD20 (SeCloseObjectAuditAlarm.c)
- *     SeCloseObjectAuditAlarmForNonObObject @ 0x1409CAD90 (SeCloseObjectAuditAlarmForNonObObject.c)
+ *     NtCloseObjectAuditAlarm @ 0x1406A0710 (NtCloseObjectAuditAlarm.c)
+ *     SeCloseObjectAuditAlarm @ 0x1409212F0 (SeCloseObjectAuditAlarm.c)
+ *     SeCloseObjectAuditAlarmForNonObObject @ 0x140921360 (SeCloseObjectAuditAlarmForNonObObject.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14023A1C0 (PsGetCurrentThreadProcess.c)
- *     ObpIsKernelHandle @ 0x1402F3558 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x140723F80 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1407B66E0 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1409CF1A0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
+ *     ObpIsKernelHandle @ 0x1403488C0 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x140627514 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406CC938 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepAdtCloseObjectAuditAlarm(
@@ -46,11 +46,11 @@ void __fastcall SepAdtCloseObjectAuditAlarm(
   P = 0LL;
   v23 = 0;
   if ( (unsigned __int8)SepAdtAuditObjectAccessWithContext(a4, a1, 1, 0, (__int64)a3, a5, &v23)
-    && SepAdtAuditThisEventWithContext(123LL, 1u, 0, a3) )
+    && (unsigned __int8)SepAdtAuditThisEventWithContext(124LL, 1u, 0, a3) )
   {
     CurrentThreadProcess = PsGetCurrentThreadProcess();
     Flink = CurrentThreadProcess[1].Header.WaitListHead.Flink;
-    AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, &P);
+    AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&P);
     if ( AllocatedFullProcessImageName < 0 )
     {
       SepAuditFailed((unsigned int)AllocatedFullProcessImageName);

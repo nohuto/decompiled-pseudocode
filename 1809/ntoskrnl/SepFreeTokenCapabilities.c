@@ -5,7 +5,7 @@
  *     SepTokenDeleteMethod @ 0x1405DEE70 (SepTokenDeleteMethod.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepDeReferenceSharedSidEntries @ 0x1408A3DDC (SepDeReferenceSharedSidEntries.c)
+ *     SepDeReferenceSharedSidEntries @ 0x1408A3DBC (SepDeReferenceSharedSidEntries.c)
  */
 
 void __fastcall SepFreeTokenCapabilities(__int64 a1)

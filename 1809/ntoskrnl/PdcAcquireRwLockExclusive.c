@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcAcquireRwLockExclusive @ 0x14089AEEC
+ * XREFs of PdcAcquireRwLockExclusive @ 0x14089AECC
  * Callers:
- *     PdcTaskClientRequest @ 0x14089A708 (PdcTaskClientRequest.c)
- *     PdcNotificationClientAcknowledge @ 0x14089A81C (PdcNotificationClientAcknowledge.c)
- *     PdcNotificationClientRegister @ 0x14089A964 (PdcNotificationClientRegister.c)
- *     PdcNotificationClientUnregister @ 0x14089AB08 (PdcNotificationClientUnregister.c)
- *     PdcpNotificationClientCallback @ 0x14089AC70 (PdcpNotificationClientCallback.c)
+ *     PdcTaskClientRequest @ 0x14089A6E8 (PdcTaskClientRequest.c)
+ *     PdcNotificationClientAcknowledge @ 0x14089A7FC (PdcNotificationClientAcknowledge.c)
+ *     PdcNotificationClientRegister @ 0x14089A944 (PdcNotificationClientRegister.c)
+ *     PdcNotificationClientUnregister @ 0x14089AAE8 (PdcNotificationClientUnregister.c)
+ *     PdcpNotificationClientCallback @ 0x14089AC50 (PdcpNotificationClientCallback.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)

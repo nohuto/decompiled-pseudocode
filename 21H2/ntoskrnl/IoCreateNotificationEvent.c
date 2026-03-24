@@ -1,12 +1,11 @@
 /*
- * XREFs of IoCreateNotificationEvent @ 0x1406EAB50
+ * XREFs of IoCreateNotificationEvent @ 0x14078D5F0
  * Callers:
- *     DifIoCreateNotificationEventWrapper @ 0x14060E1E0 (DifIoCreateNotificationEventWrapper.c)
- *     IoCaptureLiveDump @ 0x14093A0B8 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x140896298 (IoCaptureLiveDump.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 PKEVENT __stdcall IoCreateNotificationEvent(PUNICODE_STRING EventName, PHANDLE EventHandle)
@@ -18,11 +17,12 @@ PKEVENT __stdcall IoCreateNotificationEvent(PUNICODE_STRING EventName, PHANDLE E
   HANDLE EventHandlea; // [rsp+70h] [rbp+10h] BYREF
   PVOID Object; // [rsp+80h] [rbp+20h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   EventHandlea = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = EventName;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 640;
   if ( ZwCreateEvent(&EventHandlea, 0x1F0003u, &ObjectAttributes, NotificationEvent, 1u) < 0 )
     return 0LL;
@@ -32,7 +32,7 @@ PKEVENT __stdcall IoCreateNotificationEvent(PUNICODE_STRING EventName, PHANDLE E
   if ( v3 < 0 )
     v4 = 0LL;
   else
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   result = v4;
   *EventHandle = EventHandlea;
   return result;

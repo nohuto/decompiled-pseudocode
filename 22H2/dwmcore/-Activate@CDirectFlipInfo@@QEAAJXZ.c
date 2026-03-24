@@ -1,107 +1,77 @@
 /*
- * XREFs of ?Activate@CDirectFlipInfo@@QEAAJXZ @ 0x1801F6ABC
+ * XREFs of ?Activate@CDirectFlipInfo@@QEAAJXZ @ 0x180183B20
  * Callers:
- *     ?ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@PEA_N2@Z @ 0x18008BF64 (-ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV-$vector@PEBVCVisual@@V-$allocat.c)
+ *     ?ApplyConfiguration@COverlayContext@@QEAAJPEAV?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@PEA_N1@Z @ 0x18009258C (-ApplyConfiguration@COverlayContext@@QEAAJPEAV-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@s.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?RenderingRealizationChanged@CDirectFlipInfo@@QEBA_NXZ @ 0x1801315DC (-RenderingRealizationChanged@CDirectFlipInfo@@QEBA_NXZ.c)
- *     ?CalcIndependentFlipSupport@CDirectFlipInfo@@IEAAXXZ @ 0x1801F6E70 (-CalcIndependentFlipSupport@CDirectFlipInfo@@IEAAXXZ.c)
- *     ?CheckCustomPresentDuration@CDirectFlipInfo@@IEAA_NXZ @ 0x1801F6EF0 (-CheckCustomPresentDuration@CDirectFlipInfo@@IEAA_NXZ.c)
- *     ?DisableIndependentFlip@CDirectFlipInfo@@QEAAJXZ @ 0x1801F7050 (-DisableIndependentFlip@CDirectFlipInfo@@QEAAJXZ.c)
- *     ?EnableIndependentFlip@CDirectFlipInfo@@QEAAJXZ @ 0x1801F70E0 (-EnableIndependentFlip@CDirectFlipInfo@@QEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?CalcIndependentFlipSupport@CDirectFlipInfo@@IEAAXXZ @ 0x180183D8C (-CalcIndependentFlipSupport@CDirectFlipInfo@@IEAAXXZ.c)
+ *     ?CheckCustomPresentDuration@CDirectFlipInfo@@IEAA_NXZ @ 0x180183DF8 (-CheckCustomPresentDuration@CDirectFlipInfo@@IEAA_NXZ.c)
+ *     ?IsIndependentFlip@CDirectFlipInfo@@QEBA_NXZ @ 0x18018418C (-IsIndependentFlip@CDirectFlipInfo@@QEBA_NXZ.c)
+ *     ?SetIndependentFlip@CDirectFlipInfo@@QEAAJ_N@Z @ 0x180184228 (-SetIndependentFlip@CDirectFlipInfo@@QEAAJ_N@Z.c)
  */
 
-__int64 __fastcall CDirectFlipInfo::Activate(CDirectFlipInfo *this)
+__int64 __fastcall CDirectFlipInfo::Activate(CDirectFlipInfo *this, __int64 a2, __int64 a3)
 {
-  int v1; // edi
-  unsigned int v2; // ebx
-  char v3; // bp
-  struct CComposition *v5; // rax
-  __int64 v6; // rdi
-  __int64 (__fastcall *v7)(__int64, _QWORD, __int64, __int64); // rbx
-  __int64 v8; // rax
-  __int64 v9; // r8
+  int v3; // ebp
+  unsigned int v4; // esi
+  int v6; // eax
+  CDirectFlipInfo *v7; // rcx
+  bool v8; // dl
+  char v9; // di
   int v10; // eax
   __int64 v11; // rcx
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 v14; // rdx
 
-  v1 = *((_DWORD *)this + 12);
-  v2 = 0;
-  v3 = *((_BYTE *)this + 124);
-  if ( v1 != 3 )
+  v3 = *((_DWORD *)this + 12);
+  v4 = 0;
+  if ( v3 != 4 )
     CDirectFlipInfo::CalcIndependentFlipSupport(this);
-  v5 = g_pComposition;
-  *((_BYTE *)this + 124) = 0;
-  if ( *(_BYTE *)(*((_QWORD *)v5 + 27) + 577LL) )
+  if ( *((_DWORD *)this + 24) != -1 )
   {
-    if ( *((_DWORD *)this + 13) == 1 )
-      goto LABEL_10;
-    if ( *((_DWORD *)this + 13) != 2 )
+    if ( CDirectFlipInfo::IsIndependentFlip(this) )
     {
-      if ( *((_DWORD *)this + 13) != 4 )
-        goto LABEL_11;
-      goto LABEL_10;
-    }
-    if ( !*((_BYTE *)this + 122)
-      && (*(unsigned int (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 72LL))(*((_QWORD *)this + 2)) == 2 )
-    {
-LABEL_10:
-      *((_BYTE *)this + 124) = 1;
-    }
-  }
+      v6 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 264LL))(*((_QWORD *)this + 2));
+      v7 = this;
+      if ( v6 == -1 )
+      {
+        v8 = 0;
 LABEL_11:
-  if ( v1 != 3 || v3 != *((_BYTE *)this + 124) )
-  {
-    v6 = *((_QWORD *)this + 2);
-    v7 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64, __int64))(*(_QWORD *)v6 + 240LL);
-    v8 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 176LL))(*(_QWORD *)this);
-    LOBYTE(v9) = *((_BYTE *)this + 124);
-    v10 = v7(v6, *((_QWORD *)this + 3), v9, v8);
-    v2 = v10;
-    if ( v10 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x102u, 0LL);
-      return v2;
-    }
-    *((_DWORD *)this + 12) = 3;
-  }
-  if ( *((_BYTE *)this + 122) )
-  {
-    if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 320LL))(*((_QWORD *)this + 2)) )
-    {
-      if ( (*(unsigned int (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 336LL))(*((_QWORD *)this + 2)) == -1 )
-      {
-        CDirectFlipInfo::DisableIndependentFlip(this);
+        CDirectFlipInfo::SetIndependentFlip(v7, v8);
+        goto LABEL_12;
       }
-      else
-      {
-        v12 = *(_QWORD *)this + 8LL + *(int *)(*(_QWORD *)(*(_QWORD *)this + 8LL) + 12LL);
-        v13 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v12 + 8LL))(v12);
-        LOBYTE(v14) = 1;
-        (*(void (__fastcall **)(_QWORD, __int64, __int64, __int64))(**((_QWORD **)this + 2) + 216LL))(
-          *((_QWORD *)this + 2),
-          v14,
-          1LL,
-          v13);
-        if ( CDirectFlipInfo::CheckCustomPresentDuration(this) )
-          (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**((_QWORD **)this + 2) + 368LL))(
-            *((_QWORD *)this + 2),
-            *((_QWORD *)this + 3),
-            *((unsigned int *)this + 17));
-      }
+      if ( !CDirectFlipInfo::CheckCustomPresentDuration(this) )
+        goto LABEL_12;
     }
-    else if ( (int)CDirectFlipInfo::EnableIndependentFlip(this) >= 0 )
+    else
     {
       CDirectFlipInfo::CheckCustomPresentDuration(this);
-      if ( *((_DWORD *)this + 17) )
-        (*(void (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 2) + 368LL))(
-          *((_QWORD *)this + 2),
-          *((_QWORD *)this + 3));
+    }
+    v7 = this;
+    v8 = 1;
+    goto LABEL_11;
+  }
+LABEL_12:
+  v9 = 0;
+  if ( *(_BYTE *)(*((_QWORD *)g_pComposition + 11) + 129LL) )
+    v9 = *((_DWORD *)this + 13) != 3;
+  if ( v3 != 4 || v9 != *((_BYTE *)this + 114) )
+  {
+    LOBYTE(a2) = v9;
+    LOBYTE(a3) = *((_DWORD *)this + 13) == 1;
+    v10 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(**((_QWORD **)this + 2) + 208LL))(
+            *((_QWORD *)this + 2),
+            a2,
+            a3);
+    v4 = v10;
+    if ( v10 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x139u, 0LL);
+    }
+    else
+    {
+      *((_BYTE *)this + 114) = v9;
+      *((_DWORD *)this + 12) = 4;
     }
   }
-  *((_BYTE *)this + 121) |= CDirectFlipInfo::RenderingRealizationChanged(this);
-  return v2;
+  return v4;
 }

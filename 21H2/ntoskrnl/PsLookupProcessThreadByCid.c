@@ -1,32 +1,32 @@
 /*
- * XREFs of PsLookupProcessThreadByCid @ 0x140663880
+ * XREFs of PsLookupProcessThreadByCid @ 0x14069F110
  * Callers:
- *     PsOpenThread @ 0x1406634A0 (PsOpenThread.c)
- *     PsOpenProcess @ 0x1407292A0 (PsOpenProcess.c)
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     PsOpenThread @ 0x140625D00 (PsOpenThread.c)
+ *     PsOpenProcess @ 0x14065A730 (PsOpenProcess.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PsLookupThreadByThreadId @ 0x1407A7D90 (PsLookupThreadByThreadId.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PsLookupThreadByThreadId @ 0x140625630 (PsLookupThreadByThreadId.c)
  */
 
-NTSTATUS __fastcall PsLookupProcessThreadByCid(__int64 a1, _QWORD *a2, _QWORD *a3)
+NTSTATUS __fastcall PsLookupProcessThreadByCid(__int64 a1, _QWORD *a2, PADAPTER_OBJECT *a3)
 {
   NTSTATUS result; // eax
-  PVOID v7; // rdi
+  PADAPTER_OBJECT v7; // rdi
   void *v8; // rbx
-  PVOID Object; // [rsp+30h] [rbp+8h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+30h] [rbp+8h] BYREF
 
-  Object = 0LL;
-  result = PsLookupThreadByThreadId(*(HANDLE *)(a1 + 8), (PETHREAD *)&Object);
+  DmaAdapter = 0LL;
+  result = PsLookupThreadByThreadId(*(HANDLE *)(a1 + 8), (PETHREAD *)&DmaAdapter);
   if ( result >= 0 )
   {
-    v7 = Object;
-    if ( *((_QWORD *)Object + 153) == *(_QWORD *)a1 )
+    v7 = DmaAdapter;
+    if ( DmaAdapter[71].DmaOperations == *(_DMA_OPERATIONS **)a1 )
     {
       if ( a2 )
       {
-        v8 = (void *)*((_QWORD *)Object + 68);
+        v8 = *(void **)&DmaAdapter[34].Version;
         ObfReferenceObjectWithTag(v8, 0x746C6644u);
         *a2 = v8;
       }
@@ -35,7 +35,7 @@ NTSTATUS __fastcall PsLookupProcessThreadByCid(__int64 a1, _QWORD *a2, _QWORD *a
     }
     else
     {
-      ObfDereferenceObject(Object);
+      HalPutDmaAdapter(DmaAdapter);
       return -1073741813;
     }
   }

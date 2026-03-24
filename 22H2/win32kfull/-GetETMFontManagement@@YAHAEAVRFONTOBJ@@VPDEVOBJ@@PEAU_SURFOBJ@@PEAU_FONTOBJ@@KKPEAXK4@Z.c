@@ -1,78 +1,77 @@
 /*
- * XREFs of ?GetETMFontManagement@@YAHAEAVRFONTOBJ@@VPDEVOBJ@@PEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK4@Z @ 0x1C02BF818
+ * XREFs of ?GetETMFontManagement@@YAHAEAVRFONTOBJ@@VPDEVOBJ@@PEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK4@Z @ 0x1C014001C
  * Callers:
- *     NtGdiGetETM @ 0x1C02D5D30 (NtGdiGetETM.c)
+ *     NtGdiGetETM @ 0x1C013F420 (NtGdiGetETM.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C02BFC6C (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
- *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C02BFF40 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
- *     ?FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x1C02E1204 (-FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
+ *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C013C6B4 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C013C88C (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x1C02C1D80 (-FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
  */
 
 __int64 __fastcall GetETMFontManagement(
         struct RFONTOBJ *a1,
-        __int64 a2,
+        struct PDEV *a2,
         struct _SURFOBJ *a3,
         __int64 a4,
         __int64 a5,
         __int64 a6,
         void *a7)
 {
-  int *v7; // rdi
-  unsigned int v8; // r15d
-  int v9; // eax
-  unsigned int v10; // r12d
-  unsigned int v11; // r13d
-  __int64 v13; // rcx
-  int v14; // r14d
-  int v16; // eax
-  unsigned int v18; // [rsp+40h] [rbp-59h] BYREF
-  unsigned int v19; // [rsp+44h] [rbp-55h] BYREF
-  int v20; // [rsp+48h] [rbp-51h]
-  int *v21[2]; // [rsp+50h] [rbp-49h] BYREF
-  void *v22; // [rsp+60h] [rbp-39h]
-  struct _SURFOBJ *v23; // [rsp+68h] [rbp-31h]
-  int v24[10]; // [rsp+70h] [rbp-29h] BYREF
+  void *v8; // rdx
+  int *v9; // rdi
+  unsigned int v10; // r15d
+  unsigned int v11; // r12d
+  int v12; // eax
+  unsigned int v14; // r14d
+  int v15; // r13d
+  struct _SURFOBJ *v16; // r10
+  __int64 v17; // rcx
+  int v19; // eax
+  unsigned int v20; // [rsp+40h] [rbp-59h] BYREF
+  unsigned int v21; // [rsp+44h] [rbp-55h] BYREF
+  int *v22; // [rsp+48h] [rbp-51h] BYREF
+  struct _SURFOBJ *v23; // [rsp+50h] [rbp-49h]
+  void *v24; // [rsp+58h] [rbp-41h] BYREF
+  int v25[10]; // [rsp+68h] [rbp-31h] BYREF
 
-  v7 = v24;
-  v22 = a7;
-  v8 = 0;
-  v9 = *(_DWORD *)(a2 + 40);
-  v10 = 0;
-  v20 = 0;
-  v11 = 0;
   v23 = a3;
-  v13 = 32896LL;
-  v18 = 0;
-  v19 = 0;
+  v8 = a7;
+  v9 = v25;
+  v10 = 0;
+  v24 = a7;
+  v11 = 0;
+  v20 = 0;
+  v12 = *((_DWORD *)a2 + 10);
+  v21 = 0;
+  v22 = v25;
   v14 = 0;
-  v21[0] = v24;
-  if ( (v9 & 0x8080) == 0x8080 && *(_QWORD *)a1 )
+  v15 = 0;
+  v16 = a3;
+  if ( (v12 & 0x8080) == 0x8080 && *(_QWORD *)a1 )
   {
-    v16 = UMPDReleaseRFONTSem(a1, 0LL, &v18, &v19, v21);
-    v10 = v18;
-    v11 = v19;
-    v7 = v21[0];
-    v20 = v16;
+    v19 = UMPDReleaseRFONTSem(a1, 0LL, &v20, &v21, (void **)&v22);
+    v16 = v23;
+    v15 = v19;
+    v8 = v24;
+    v10 = v20;
+    v11 = v21;
+    v9 = v22;
   }
-  if ( a2 != *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v13) + 32) + 23448LL) )
-    goto LABEL_9;
-  if ( *(_QWORD *)a1 && *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 24LL) + 8LL) == 3 )
-    v14 = 1;
-  if ( v14 )
+  v17 = *(_QWORD *)a1;
+  if ( a2 != qword_1C0340AC0 || v17 && *(_DWORD *)(*(_QWORD *)(v17 + 24) + 8LL) == 3 )
   {
-LABEL_9:
-    v21[0] = *(int **)(*(_QWORD *)a1 + 128LL);
-    v8 = PFFOBJ::FontManagement((PFFOBJ *)v21, v23, 0LL, 8u, 4u, v22, 0, 0LL);
+    v24 = *(void **)(v17 + 128);
+    v14 = PFFOBJ::FontManagement((PFFOBJ *)&v24, v16, 0LL, 8u, 4u, v8, 0, 0LL);
   }
-  if ( v20 )
+  if ( v15 )
   {
-    UMPDAcquireRFONTSem(a1, 0LL, v10, v11, v7);
-    if ( v7 )
+    UMPDAcquireRFONTSem(a1, 0LL, v10, v11, v9);
+    if ( v9 )
     {
-      if ( v7 != v24 )
-        Win32FreePool(v7);
+      if ( v9 != v25 )
+        Win32FreePool(v9);
     }
   }
-  return v8;
+  return v14;
 }

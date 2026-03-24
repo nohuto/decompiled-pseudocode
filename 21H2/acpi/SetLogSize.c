@@ -1,29 +1,29 @@
 /*
- * XREFs of SetLogSize @ 0x1C002EE70
+ * XREFs of SetLogSize @ 0x1C00104C8
  * Callers:
- *     AMLIInitialize @ 0x1C00BCDB8 (AMLIInitialize.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     memset @ 0x1C0030080 (memset.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 char SetLogSize()
 {
   char v0; // bl
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
 
   v0 = 0;
-  if ( qword_1C0081AA0 )
+  if ( qword_1C00828E0 )
   {
-    ExFreePoolWithTag(qword_1C0081AA0, 0);
-    qword_1C0081AA0 = 0LL;
-    qword_1C0081A98 = 0LL;
+    ExFreePoolWithTag(qword_1C00828E0, 0);
+    qword_1C00828E0 = 0LL;
+    qword_1C00828D8 = 0LL;
   }
-  Pool2 = (void *)ExAllocatePool2(64LL, 14688LL, 1196379205LL);
-  qword_1C0081AA0 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3960uLL, 0x474F4C45u);
+  qword_1C00828E0 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    qword_1C0081A98 = 204LL;
-    memset(Pool2, 0, 0x3960uLL);
+    qword_1C00828D8 = 204LL;
+    memset(PoolWithTag, 0, 0x3960uLL);
     return 1;
   }
   return v0;

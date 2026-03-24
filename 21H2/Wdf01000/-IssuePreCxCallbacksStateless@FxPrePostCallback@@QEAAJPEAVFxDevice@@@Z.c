@@ -1,36 +1,42 @@
 /*
- * XREFs of ?IssuePreCxCallbacksStateless@FxPrePostCallback@@QEAAJPEAVFxDevice@@@Z @ 0x1C00398CE
+ * XREFs of ?IssuePreCxCallbacksStateless@FxPrePostCallback@@QEAAJPEAVFxDevice@@@Z @ 0x1C0085CCC
  * Callers:
- *     ?InvokeStateless@FxPrePostCallback@@QEAAJXZ @ 0x1C000D528 (-InvokeStateless@FxPrePostCallback@@QEAAJXZ.c)
+ *     ?InvokeStateless@FxPrePostCallback@@QEAAJXZ @ 0x1C00109A4 (-InvokeStateless@FxPrePostCallback@@QEAAJXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?GetCxPnpPowerCallbackContexts@FxCxDeviceInfo@@QEAAPEAVFxCxPnpPowerCallbackContext@@W4FxCxCallbackType@@@Z @ 0x1C0039866 (-GetCxPnpPowerCallbackContexts@FxCxDeviceInfo@@QEAAPEAVFxCxPnpPowerCallbackContext@@W4FxCxCallba.c)
+ *     ?GetCxPnpPowerCallbackContexts@FxCxDeviceInfo@@QEAAPEAVFxCxPnpPowerCallbackContext@@W4FxCxCallbackType@@@Z @ 0x1C001C76C (-GetCxPnpPowerCallbackContexts@FxCxDeviceInfo@@QEAAPEAVFxCxPnpPowerCallbackContext@@W4FxCxCallba.c)
+ *     ?_SaveTheFirstError@FxPrePostCallback@@SAXPEAJJ@Z @ 0x1C001C7D4 (-_SaveTheFirstError@FxPrePostCallback@@SAXPEAJJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FxPrePostCallback::IssuePreCxCallbacksStateless(FxPrePostCallback *this, FxDevice *Device)
 {
-  _LIST_ENTRY *p_m_CxDeviceInfoListHead; // rdi
-  FxCxDeviceInfo *Flink; // rbx
-  int v5; // esi
+  unsigned int v2; // ebx
+  _LIST_ENTRY *p_m_CxDeviceInfoListHead; // rsi
+  FxCxDeviceInfo *Flink; // rdi
   FxCxPnpPowerCallbackContext *CxPnpPowerCallbackContexts; // rax
   int v7; // eax
+  int status; // [rsp+38h] [rbp+10h] BYREF
 
+  v2 = 0;
   p_m_CxDeviceInfoListHead = &Device->m_CxDeviceInfoListHead;
-  Flink = (FxCxDeviceInfo *)Device->m_CxDeviceInfoListHead.Flink;
-  v5 = 0;
-  while ( Flink != (FxCxDeviceInfo *)p_m_CxDeviceInfoListHead && Flink )
+  status = 0;
+  Flink = 0LL;
+  if ( Device->m_CxDeviceInfoListHead.Flink != &Device->m_CxDeviceInfoListHead )
+    Flink = (FxCxDeviceInfo *)Device->m_CxDeviceInfoListHead.Flink;
+  if ( Flink )
   {
-    CxPnpPowerCallbackContexts = FxCxDeviceInfo::GetCxPnpPowerCallbackContexts(Flink, this->m_CallbackType);
-    if ( CxPnpPowerCallbackContexts )
+    do
     {
-      if ( CxPnpPowerCallbackContexts->u.Generic.PreCallback )
+      CxPnpPowerCallbackContexts = FxCxDeviceInfo::GetCxPnpPowerCallbackContexts(Flink, this->m_CallbackType);
+      if ( CxPnpPowerCallbackContexts && CxPnpPowerCallbackContexts->u.Generic.PreCallback )
       {
         v7 = this->InvokeCxCallback(this, CxPnpPowerCallbackContexts, FxCxInvokePreCallback);
-        if ( v5 >= 0 )
-          v5 = v7;
+        FxPrePostCallback::_SaveTheFirstError(&status, v7);
       }
+      Flink = (FxCxDeviceInfo *)Flink->ListEntry.Flink;
     }
-    Flink = (FxCxDeviceInfo *)Flink->ListEntry.Flink;
+    while ( Flink != (FxCxDeviceInfo *)p_m_CxDeviceInfoListHead && Flink );
+    return (unsigned int)status;
   }
-  return (unsigned int)v5;
+  return v2;
 }

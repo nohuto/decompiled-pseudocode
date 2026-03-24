@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitCreate@CHolographicExclusiveViewMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022D224
+ * XREFs of ?EmitCreate@CHolographicExclusiveViewMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ED924
  * Callers:
- *     ?EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022D3A0 (-EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@.c)
+ *     ?EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EDAA0 (-EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     OpenDwmHandle @ 0x1C009090C (OpenDwmHandle.c)
+ *     OpenDwmHandle @ 0x1C0049280 (OpenDwmHandle.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::EmitCreate(
@@ -25,7 +25,7 @@ char __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::EmitCreat
   if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x1CuLL, &v9) )
   {
     v10 = 0LL;
-    v3 = (void *)*((_QWORD *)this + 10);
+    v3 = (void *)*((_QWORD *)this + 9);
     if ( v3 )
     {
       v8 = 0LL;
@@ -36,10 +36,10 @@ char __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::EmitCreat
     *(_DWORD *)v9 = 28;
     *(_OWORD *)(v5 + 4) = 0LL;
     *(_QWORD *)(v5 + 20) = 0LL;
-    *((_DWORD *)v5 + 1) = 169;
-    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v5 + 5) = *((_DWORD *)this + 17);
-    *((_DWORD *)v5 + 6) = *((_DWORD *)this + 16);
+    *((_DWORD *)v5 + 1) = 178;
+    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v5 + 5) = *((_DWORD *)this + 15);
+    *((_DWORD *)v5 + 6) = *((_DWORD *)this + 14);
     *(_QWORD *)(v5 + 12) = v10;
     *((_DWORD *)this + 4) &= ~0x20u;
     return 1;

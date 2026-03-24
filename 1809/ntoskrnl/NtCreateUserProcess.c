@@ -12,12 +12,12 @@
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     RtlGetExtendedContextLength @ 0x1400A1D44 (RtlGetExtendedContextLength.c)
  *     RtlInitializeExtendedContext @ 0x1400A1D9C (RtlInitializeExtendedContext.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _alloca_probe @ 0x1401C5DA0 (_alloca_probe.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
@@ -47,11 +47,11 @@
  *     PspMapThreadCreationFlags @ 0x1406220A4 (PspMapThreadCreationFlags.c)
  *     PspBuildCreateProcessContext @ 0x140622378 (PspBuildCreateProcessContext.c)
  *     PspDeleteCreateProcessContext @ 0x140623608 (PspDeleteCreateProcessContext.c)
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
- *     SeQueryServerSiloToken @ 0x1406C5520 (SeQueryServerSiloToken.c)
- *     PsTerminateProcess @ 0x1406C98F4 (PsTerminateProcess.c)
- *     SeDuplicateTokenAndAddOriginClaim @ 0x1408A1A3C (SeDuplicateTokenAndAddOriginClaim.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     SeQueryServerSiloToken @ 0x1406C5500 (SeQueryServerSiloToken.c)
+ *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
+ *     SeDuplicateTokenAndAddOriginClaim @ 0x1408A1A1C (SeDuplicateTokenAndAddOriginClaim.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtCreateUserProcess(
@@ -436,10 +436,10 @@ LABEL_101:
                           break;
                         if ( (v69 & 0x30) != 0 && (v71 & 0x30) != (v69 & 0x30) )
                           goto LABEL_133;
-                        if ( !qword_14040DDC0 )
+                        if ( !qword_14040DDA0 )
                           goto LABEL_133;
                         LOBYTE(v62) = v69;
-                        if ( !(unsigned int)qword_14040DDC0(v63, v62) )
+                        if ( !(unsigned int)qword_14040DDA0(v63, v62) )
                           goto LABEL_133;
                         ObCloseHandle((HANDLE)v101[23], 0);
                         ObfDereferenceObject((PVOID)v101[25]);

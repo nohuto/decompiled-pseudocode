@@ -1,30 +1,30 @@
 /*
- * XREFs of CmpCloneToUnbackedKcb @ 0x140914D00
+ * XREFs of CmpCloneToUnbackedKcb @ 0x14086EADC
  * Callers:
- *     CmpPrepareDiscardReplacePost @ 0x14091CFF0 (CmpPrepareDiscardReplacePost.c)
+ *     CmpPrepareDiscardReplacePost @ 0x1408764A0 (CmpPrepareDiscardReplacePost.c)
  * Callees:
- *     CmpFreeKeyControlBlock @ 0x14069FA30 (CmpFreeKeyControlBlock.c)
- *     CmpDereferenceNameControlBlockWithLock @ 0x1406E7088 (CmpDereferenceNameControlBlockWithLock.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x14071BC64 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpAllocateKeyControlBlock @ 0x1409157D0 (CmpAllocateKeyControlBlock.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1405EF620 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x1405EFEA0 (CmpDereferenceNameControlBlockWithLock.c)
+ *     CmpAllocateKeyControlBlock @ 0x1405EFFAC (CmpAllocateKeyControlBlock.c)
+ *     CmpFreeKeyControlBlock @ 0x140719B20 (CmpFreeKeyControlBlock.c)
  */
 
 __int64 __fastcall CmpCloneToUnbackedKcb(__int64 a1, ULONG_PTR *a2)
 {
-  __int64 KeyControlBlock; // rax
+  PSLIST_ENTRY KeyControlBlock; // rax
   ULONG_PTR v5; // rbx
   unsigned int v6; // edi
   _QWORD *v7; // rax
   _DWORD *v8; // rcx
-  unsigned int *v9; // rcx
+  __int64 v9; // rax
   __int64 v10; // rax
-  __int64 v11; // rax
+  unsigned int *v11; // rcx
 
   KeyControlBlock = CmpAllocateKeyControlBlock();
-  v5 = KeyControlBlock;
+  v5 = (ULONG_PTR)KeyControlBlock;
   if ( KeyControlBlock )
   {
-    v7 = (_QWORD *)(KeyControlBlock + 120);
+    v7 = &KeyControlBlock[7].Next + 1;
     v7[1] = v7;
     *v7 = v7;
     *(_OWORD *)(v5 + 136) = 0LL;
@@ -51,32 +51,36 @@ __int64 __fastcall CmpCloneToUnbackedKcb(__int64 a1, ULONG_PTR *a2)
     if ( (*v8 & 0xFFFFFFFE) == 0xFFFFFFFE )
     {
       v6 = -1073741670;
-      v9 = *(unsigned int **)(v5 + 80);
-      if ( v9 )
-      {
-        CmpDereferenceNameControlBlockWithLock(v9);
-        *(_QWORD *)(v5 + 80) = 0LL;
-      }
-      *(_DWORD *)(v5 + 8) |= 0x80000u;
-      CmpFreeKeyControlBlock(v5);
     }
     else
     {
       *(_QWORD *)(v5 + 80) = v8;
       *v8 += 2;
-      v10 = *(_QWORD *)(a1 + 72);
-      if ( v10 )
+      v9 = *(_QWORD *)(a1 + 72);
+      if ( v9 )
       {
-        *(_BYTE *)(v5 + 65) = ((*(_BYTE *)(v10 + 65) - 1) & 0xFD) == 0;
+        *(_BYTE *)(v5 + 65) = ((*(_BYTE *)(v9 + 65) - 1) & 0xFD) == 0;
         CmpReferenceKeyControlBlockUnsafe(*(volatile signed __int64 **)(a1 + 72));
         *(_QWORD *)(v5 + 72) = *(_QWORD *)(a1 + 72);
       }
-      v11 = *(_QWORD *)(v5 + 32);
+      v10 = *(_QWORD *)(v5 + 32);
       *(_DWORD *)(v5 + 8) ^= (*(_DWORD *)(v5 + 8) ^ *(_DWORD *)(a1 + 8)) & 0x7FE00000;
-      if ( *(_BYTE *)(v11 + 2944) == 1 )
+      if ( *(_BYTE *)(v10 + 2936) == 1 )
         *(_WORD *)(v5 + 8) |= 0x20u;
       *a2 = v5;
-      return 0;
+      v5 = 0LL;
+      v6 = 0;
+    }
+    if ( v5 )
+    {
+      v11 = *(unsigned int **)(v5 + 80);
+      if ( v11 )
+      {
+        CmpDereferenceNameControlBlockWithLock(v11);
+        *(_QWORD *)(v5 + 80) = 0LL;
+      }
+      *(_DWORD *)(v5 + 8) |= 0x80000u;
+      CmpFreeKeyControlBlock(v5);
     }
   }
   else

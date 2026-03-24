@@ -1,12 +1,12 @@
 /*
- * XREFs of CcMapData @ 0x1407BDE60
+ * XREFs of CcMapData @ 0x1406EF810
  * Callers:
  *     <none>
  * Callees:
- *     CcUnpinFileDataEx @ 0x14028A370 (CcUnpinFileDataEx.c)
- *     CcGetVirtualAddress @ 0x140328180 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x140328510 (CcMapAndRead.c)
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
+ *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
+ *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
+ *     CcGetVirtualAddress @ 0x140320F10 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x1403213E0 (CcMapAndRead.c)
  */
 
 BOOLEAN __stdcall CcMapData(
@@ -24,7 +24,7 @@ BOOLEAN __stdcall CcMapData(
   ULONG v12; // ebx
   BOOLEAN result; // al
   int v14; // [rsp+54h] [rbp-34h] BYREF
-  __int64 *v15; // [rsp+58h] [rbp-30h] BYREF
+  volatile signed __int32 *v15; // [rsp+58h] [rbp-30h] BYREF
   _QWORD v16[5]; // [rsp+60h] [rbp-28h] BYREF
 
   v8 = 0;
@@ -32,9 +32,9 @@ BOOLEAN __stdcall CcMapData(
   v15 = 0LL;
   v9 = Flags & 1;
   if ( v9 )
-    v10 = 33872;
+    v10 = 33040;
   else
-    v10 = 33868;
+    v10 = 33036;
   __incgsdword(v10);
   KeGetCurrentThread()[1].Timer.DueTime.HighPart = 0;
   if ( v9 )
@@ -58,12 +58,12 @@ BOOLEAN __stdcall CcMapData(
                1,
                0,
                Flags,
-               (ULONG_PTR *)&v15,
-               (__int64 *)Buffer,
+               (__int64 *)&v15,
+               Buffer,
                v16);
     if ( !result )
     {
-      __incgsdword(0x848Cu);
+      __incgsdword(0x814Cu);
       return result;
     }
   }
@@ -79,7 +79,7 @@ BOOLEAN __stdcall CcMapData(
     if ( v12 )
       BYTE5(KeGetCurrentThread()[1].Queue) = v8 - 2;
   }
-  __addgsdword(0x8490u, KeGetCurrentThread()[1].Timer.DueTime.HighPart);
+  __addgsdword(0x8150u, KeGetCurrentThread()[1].Timer.DueTime.HighPart);
   *Bcb = (char *)v15 + 1;
   return 1;
 }

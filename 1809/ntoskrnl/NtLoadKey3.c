@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtLoadKey3(int a1, int a2, int a3, __int64 a4, int a5, ACCESS_MASK DesiredAccess, __int64 a7)

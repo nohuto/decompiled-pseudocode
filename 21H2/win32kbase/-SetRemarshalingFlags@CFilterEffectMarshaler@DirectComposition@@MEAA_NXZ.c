@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CFilterEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0215EE0
+ * XREFs of ?SetRemarshalingFlags@CFilterEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E0090
  * Callers:
  *     <none>
  * Callees:
@@ -9,6 +9,6 @@
 bool __fastcall DirectComposition::CFilterEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CFilterEffectMarshaler *this)
 {
-  *((_DWORD *)this + 28) = 0;
-  return *((_DWORD *)this + 20) != 0;
+  *((_DWORD *)this + 26) = 0;
+  return *((_DWORD *)this + 18) != 0;
 }

@@ -1,19 +1,20 @@
 /*
- * XREFs of HalpGetNumaProcMemoryCount @ 0x140B4C3F8
+ * XREFs of HalpGetNumaProcMemoryCount @ 0x140A8CEAC
  * Callers:
- *     HalpNumaSwapP0NodeToFront @ 0x1403BBA90 (HalpNumaSwapP0NodeToFront.c)
- *     HalpNumaInitializeStaticConfiguration @ 0x140AFA274 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpNumaSwapP0NodeToFront @ 0x1403BBCD4 (HalpNumaSwapP0NodeToFront.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140A63EE0 (HalpNumaInitializeStaticConfiguration.c)
  * Callees:
- *     HalpParseChannelCount @ 0x1403BF66C (HalpParseChannelCount.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalpUpdateConfigurationFromMsct @ 0x140B4C8B8 (HalpUpdateConfigurationFromMsct.c)
- *     HalpVerifySratEntryLengthAndFlag @ 0x140B4CC80 (HalpVerifySratEntryLengthAndFlag.c)
+ *     HalpParseChannelCount @ 0x1403BBC54 (HalpParseChannelCount.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpUpdateConfigurationFromMsct @ 0x140A8D2CC (HalpUpdateConfigurationFromMsct.c)
+ *     HalpVerifySratEntryLengthAndFlag @ 0x140A8D690 (HalpVerifySratEntryLengthAndFlag.c)
  */
 
-char __fastcall HalpGetNumaProcMemoryCount(unsigned int *a1, unsigned __int64 a2, _DWORD *a3, _DWORD *a4)
+char __fastcall HalpGetNumaProcMemoryCount(unsigned int *a1, unsigned __int64 i, unsigned __int64 a3, _DWORD *a4)
 {
   __int64 v4; // r15
   unsigned int v5; // ebx
+  _DWORD *v7; // r14
   _DWORD *v8; // rsi
   __int64 v9; // r10
   bool v11; // r13
@@ -22,19 +23,20 @@ char __fastcall HalpGetNumaProcMemoryCount(unsigned int *a1, unsigned __int64 a2
   __int64 v14; // r10
   unsigned __int8 *v15; // r11
   int v16; // ecx
-  unsigned int v17; // r8d
-  unsigned int v18; // ecx
-  _DWORD *v19; // r8
-  __int64 v20; // r10
+  unsigned int v17; // ecx
+  _DWORD *v18; // r8
+  __int64 v19; // r10
+  unsigned int v20; // ecx
   _DWORD v22[64]; // [rsp+40h] [rbp-258h] BYREF
   _DWORD v23[64]; // [rsp+140h] [rbp-158h] BYREF
 
   v4 = HalpAcpiSrat;
   v5 = 0;
   *a1 = 0;
-  *a3 = 0;
-  *(_DWORD *)a2 = 0;
-  v8 = (_DWORD *)a2;
+  *(_DWORD *)a3 = 0;
+  v7 = (_DWORD *)a3;
+  *(_DWORD *)i = 0;
+  v8 = (_DWORD *)i;
   *a4 = 0;
   v9 = v4 + 48;
   v11 = *(_BYTE *)(v4 + 8) >= 3u;
@@ -44,8 +46,8 @@ char __fastcall HalpGetNumaProcMemoryCount(unsigned int *a1, unsigned __int64 a2
     v13 = *(unsigned __int8 *)(v9 + 1);
     if ( (unsigned __int8)v13 < 2u || v9 + v13 > v12 )
       break;
-    LOBYTE(a2) = v11;
-    if ( !(unsigned __int8)HalpVerifySratEntryLengthAndFlag(v9, a2) )
+    LOBYTE(i) = v11;
+    if ( !(unsigned __int8)HalpVerifySratEntryLengthAndFlag(v9, i, a3, a4) )
       goto LABEL_22;
     if ( *(_BYTE *)(v4 + 8) == 1 )
     {
@@ -64,28 +66,19 @@ char __fastcall HalpGetNumaProcMemoryCount(unsigned int *a1, unsigned __int64 a2
           + ((*(unsigned __int8 *)(v14 + 9)
             + ((*(unsigned __int8 *)(v14 + 10) + (*(unsigned __int8 *)(v14 + 11) << 8)) << 8)) << 8);
     }
-    v17 = *a1;
-    a2 = 0LL;
-    if ( *a1 )
+    a3 = *a1;
+    for ( i = 0LL; (unsigned int)i < (unsigned int)a3; i = (unsigned int)(i + 1) )
     {
-      while ( v16 != v23[(unsigned int)a2] )
-      {
-        a2 = (unsigned int)(a2 + 1);
-        if ( (unsigned int)a2 >= v17 )
-          goto LABEL_15;
-      }
+      if ( v16 == v23[(unsigned int)i] )
+        break;
     }
-    else
+    if ( (_DWORD)i == (_DWORD)a3 )
     {
-LABEL_15:
-      if ( (_DWORD)a2 == v17 )
-      {
-        if ( (_DWORD)a2 == 64 )
-          return 0;
-        v23[(unsigned int)a2] = v16;
-        v22[(unsigned int)a2] = 0;
-        *a1 = v17 + 1;
-      }
+      if ( (_DWORD)i == 64 )
+        return 0;
+      v23[(unsigned int)i] = v16;
+      v22[(unsigned int)i] = 0;
+      *a1 = a3 + 1;
     }
     if ( !*(_BYTE *)v14 )
       goto LABEL_21;
@@ -95,37 +88,34 @@ LABEL_15:
         goto LABEL_22;
 LABEL_21:
       ++*v8;
-      ++v22[(unsigned int)a2];
+      ++v22[(unsigned int)i];
       goto LABEL_22;
     }
-    ++*a3;
+    ++*v7;
 LABEL_22:
     v9 = *(unsigned __int8 *)(v14 + 1) + v14;
   }
-  if ( *a3 && *v8 )
+  if ( *v7 && *v8 )
   {
     if ( HalpAcpiMsct )
       HalpUpdateConfigurationFromMsct((_DWORD)a1, 64, (_DWORD)v8, 0, 0LL, (__int64)v23, (__int64)v22, 0LL);
-    v18 = *a1;
-    if ( HalpSplitLargeNumaNodes )
+    v17 = *a1;
+    if ( *a1 )
     {
-      if ( v18 )
+      v18 = v22;
+      v19 = v17;
+      do
       {
-        v19 = v22;
-        v20 = v18;
-        do
-        {
-          if ( *v19 > (unsigned int)HalpMaximumGroupSize )
-            v5 = (HalpMaximumGroupSize + *v19 - 1) / (unsigned int)HalpMaximumGroupSize + v5 - 1;
-          ++v19;
-          --v20;
-        }
-        while ( v20 );
+        if ( *v18 > (unsigned int)HalpMaximumGroupSize )
+          v5 = (HalpMaximumGroupSize + *v18 - 1) / (unsigned int)HalpMaximumGroupSize + v5 - 1;
+        ++v18;
+        --v19;
       }
-      v18 += v5;
-      *a1 = v18;
+      while ( v19 );
     }
-    if ( v18 <= 0x40 )
+    v20 = v5 + v17;
+    *a1 = v20;
+    if ( v20 <= 0x40 )
     {
       *a4 = HalpParseChannelCount();
       return 1;

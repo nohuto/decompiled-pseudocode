@@ -1,27 +1,26 @@
 /*
- * XREFs of PoHandleIrp @ 0x1403A379C
+ * XREFs of PoHandleIrp @ 0x140398684
  * Callers:
- *     IopPoHandleIrp @ 0x1403A374C (IopPoHandleIrp.c)
+ *     IopPoHandleIrp @ 0x140398634 (IopPoHandleIrp.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     PoDeviceReleaseIrp @ 0x1403A38BC (PoDeviceReleaseIrp.c)
- *     PoDeviceAcquireIrp @ 0x1403A39B8 (PoDeviceAcquireIrp.c)
- *     PopDispatchQuerySetIrp @ 0x1403A3B18 (PopDispatchQuerySetIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PoDeviceAcquireIrp @ 0x14037C864 (PoDeviceAcquireIrp.c)
+ *     PoDeviceReleaseIrp @ 0x14037CF94 (PoDeviceReleaseIrp.c)
+ *     PopDispatchQuerySetIrp @ 0x1403987A4 (PopDispatchQuerySetIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PoHandleIrp(PIRP Irp, _DWORD *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r15
-  _DWORD *v3; // r14
-  PDEVICE_OBJECT DeviceObject; // rbp
+  __int64 DeviceObject; // rbp
   __int64 v6; // rax
   __int64 v7; // r8
-  ULONG *p_Flags; // rdi
-  ULONG Flags; // eax
-  ULONG *v10; // rcx
+  _DWORD *v8; // rdi
+  int v9; // eax
+  _DWORD *v10; // rcx
   char v11; // si
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
@@ -32,19 +31,17 @@ char __fastcall PoHandleIrp(PIRP Irp, _DWORD *a2)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-  v3 = a2;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  DeviceObject = CurrentStackLocation->DeviceObject;
+  DeviceObject = (__int64)CurrentStackLocation->DeviceObject;
   v6 = *((_QWORD *)&Irp->Tail.CompletionKey + 9 * Irp->StackCount + 10);
   v7 = *(_QWORD *)(v6 + 40);
   if ( v7 )
   {
-    LOBYTE(a2) = *(_BYTE *)(v6 + 184);
-    PoDeviceReleaseIrp(Irp, a2, v7);
-    p_Flags = &DeviceObject->Flags;
-    Flags = DeviceObject->Flags;
-    v10 = &DeviceObject->Flags;
-    if ( (Flags & 0x8000) == 0 && ((Flags & 0x2000) == 0 || KeGetCurrentIrql() != 2) )
+    PoDeviceReleaseIrp((__int64)Irp, *(_BYTE *)(v6 + 184), v7);
+    v8 = (_DWORD *)(DeviceObject + 48);
+    v9 = *(_DWORD *)(DeviceObject + 48);
+    v10 = (_DWORD *)(DeviceObject + 48);
+    if ( (v9 & 0x8000) == 0 && ((v9 & 0x2000) == 0 || KeGetCurrentIrql() != 2) )
     {
       v11 = 0;
       goto LABEL_5;
@@ -52,24 +49,23 @@ char __fastcall PoHandleIrp(PIRP Irp, _DWORD *a2)
   }
   else
   {
-    v10 = &DeviceObject->Flags;
+    v10 = (_DWORD *)(DeviceObject + 48);
   }
-  p_Flags = v10;
+  v8 = v10;
   v11 = 1;
   if ( (*v10 & 0x8000) != 0 )
   {
 LABEL_5:
-    LOBYTE(a2) = CurrentStackLocation->MinorFunction;
-    PoDeviceAcquireIrp(Irp, a2, DeviceObject);
+    PoDeviceAcquireIrp((__int64)Irp, CurrentStackLocation->MinorFunction, DeviceObject);
     if ( !v11 )
       return v11;
   }
-  if ( (*p_Flags & 0x8000) != 0 )
+  if ( (*v8 & 0x8000) != 0 )
   {
     Irp->IoStatus.Status = 0;
     Irp->IoStatus.Information = 0LL;
     IofCompleteRequest(Irp, 0);
-    *v3 = 0;
+    *a2 = 0;
   }
   else
   {
@@ -95,7 +91,7 @@ LABEL_5:
       }
     }
     __writecr8(OldIrql);
-    *v3 = 259;
+    *a2 = 259;
   }
   return v11;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Grow@?$CDynamicArray@PEAUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C00941D0
+ * XREFs of ?Grow@?$CDynamicArray@PEAUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C0084C18
  * Callers:
- *     ?InsertAt@?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAAJAEBUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@I@Z @ 0x1C00940DC (-InsertAt@-$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@Direct.c)
+ *     ?InsertAt@?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAAJAEBUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@I@Z @ 0x1C0084B68 (-InsertAt@-$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@Direct.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall CDynamicArray<DirectComposition::CInteractionConfigurationGroup::ContactRangeConfiguration *,2003858261>::Grow(
@@ -24,19 +24,14 @@ __int64 __fastcall CDynamicArray<DirectComposition::CInteractionConfigurationGro
     return v3;
   if ( !is_mul_ok(v2, 8uLL) )
     return (unsigned int)-1073741675;
-  v4 = (void *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                 gpLeakTrackingAllocator,
-                 260LL,
-                 8LL * v2,
-                 0x77707355u);
+  v4 = (void *)Win32AllocPool(8LL * v2, 0x77707355u);
   v5 = v4;
   if ( v4 )
   {
     if ( *(_QWORD *)a1 )
     {
       memmove(v4, *(const void **)a1, 8LL * *(unsigned int *)(a1 + 8));
-      if ( *(_QWORD *)a1 )
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, *(char **)a1);
+      Win32FreePool(*(_QWORD *)a1);
     }
     *(_QWORD *)a1 = v5;
     *(_DWORD *)(a1 + 12) = v2;

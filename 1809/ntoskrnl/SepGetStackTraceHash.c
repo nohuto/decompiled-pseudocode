@@ -1,12 +1,12 @@
 /*
- * XREFs of SepGetStackTraceHash @ 0x1402FE9FC
+ * XREFs of SepGetStackTraceHash @ 0x1402FEAFC
  * Callers:
- *     SepLogLpacAccessFailure @ 0x1402FEB00 (SepLogLpacAccessFailure.c)
+ *     SepLogLpacAccessFailure @ 0x1402FEC00 (SepLogLpacAccessFailure.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x1400CCBB0 (RtlWalkFrameChain.c)
- *     RtlCaptureStackBackTrace @ 0x1400CCC90 (RtlCaptureStackBackTrace.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x1401B85D0 (ZwQueryVirtualMemory.c)
+ *     RtlWalkFrameChain @ 0x1400CCBD0 (RtlWalkFrameChain.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1401B85F0 (ZwQueryVirtualMemory.c)
  */
 
 ULONG __fastcall SepGetStackTraceHash(ULONG *a1)

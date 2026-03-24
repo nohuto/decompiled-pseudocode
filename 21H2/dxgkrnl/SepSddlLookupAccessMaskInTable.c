@@ -1,9 +1,9 @@
 /*
- * XREFs of SepSddlLookupAccessMaskInTable @ 0x1C0385594
+ * XREFs of SepSddlLookupAccessMaskInTable @ 0x1C02C48A8
  * Callers:
- *     SepSddlGetAclForString @ 0x1C0385144 (SepSddlGetAclForString.c)
+ *     SepSddlGetAclForString @ 0x1C02C4444 (SepSddlGetAclForString.c)
  * Callees:
- *     _wcsnicmp_0 @ 0x1C002B232 (_wcsnicmp_0.c)
+ *     _wcsnicmp_0 @ 0x1C00249D2 (_wcsnicmp_0.c)
  */
 
 __int64 __fastcall SepSddlLookupAccessMaskInTable(wchar_t *Str1, _DWORD *a2, _QWORD *a3)
@@ -12,7 +12,7 @@ __int64 __fastcall SepSddlLookupAccessMaskInTable(wchar_t *Str1, _DWORD *a2, _QW
   unsigned int v7; // ebx
   __int64 result; // rax
 
-  v4 = &off_1C012FF40;
+  v4 = &off_1C00B1E40;
   v7 = 0;
   while ( wcsnicmp_0(Str1, *v4, *((unsigned int *)v4 + 2)) )
   {
@@ -27,7 +27,7 @@ __int64 __fastcall SepSddlLookupAccessMaskInTable(wchar_t *Str1, _DWORD *a2, _QW
     }
   }
   result = 1LL;
-  *a2 = *((_DWORD *)&off_1C012FF40 + 4 * v7 + 3);
-  *a3 = &Str1[*((unsigned int *)&off_1C012FF40 + 4 * v7 + 2)];
+  *a2 = *((_DWORD *)&off_1C00B1E40 + 4 * v7 + 3);
+  *a3 = &Str1[*((unsigned int *)&off_1C00B1E40 + 4 * v7 + 2)];
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of GetTouchHoldTime @ 0x1C01F3A90
+ * XREFs of GetTouchHoldTime @ 0x1C0209650
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 GetTouchHoldTime()
 {
-  return GetTouchTimeFromCPLValue(1000LL, 1000LL, 8LL);
+  return GetTouchTimeFromCPLValue(1000LL, 1000LL, 8LL, 0LL);
 }

@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQuerySymbolicLinkObject @ 0x14041E420
+ * XREFs of ZwQuerySymbolicLinkObject @ 0x1403FCF80
  * Callers:
- *     DifZwQuerySymbolicLinkObjectWrapper @ 0x140625AB0 (DifZwQuerySymbolicLinkObjectWrapper.c)
- *     SiTranslateSymbolicLink @ 0x1406BB4A0 (SiTranslateSymbolicLink.c)
- *     BiTranslateSymbolicLink @ 0x140803050 (BiTranslateSymbolicLink.c)
- *     IoIsValidNameGraftingBuffer @ 0x1409375D0 (IoIsValidNameGraftingBuffer.c)
- *     ExpTranslateSymbolicLink @ 0x1409FEF6C (ExpTranslateSymbolicLink.c)
- *     SiGetBiosSystemDisk @ 0x140A22520 (SiGetBiosSystemDisk.c)
+ *     SiTranslateSymbolicLink @ 0x1406A4F0C (SiTranslateSymbolicLink.c)
+ *     SiGetBiosSystemDisk @ 0x14077AEC0 (SiGetBiosSystemDisk.c)
+ *     BiTranslateSymbolicLink @ 0x140782BBC (BiTranslateSymbolicLink.c)
+ *     IoIsValidNameGraftingBuffer @ 0x140894DF0 (IoIsValidNameGraftingBuffer.c)
+ *     ExpTranslateSymbolicLink @ 0x140952BBC (ExpTranslateSymbolicLink.c)
  * Callees:
  *     <none>
  */

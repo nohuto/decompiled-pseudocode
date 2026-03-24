@@ -1,29 +1,28 @@
 /*
- * XREFs of CmpIsKeyStackSymlink @ 0x1406D32B0
+ * XREFs of CmpIsKeyStackSymlink @ 0x1406492A0
  * Callers:
- *     CmQueryLayeredKey @ 0x14035D634 (CmQueryLayeredKey.c)
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
+ *     <none>
  */
 
 bool __fastcall CmpIsKeyStackSymlink(__int64 a1)
 {
-  __int64 v1; // r8
-  __int64 KcbAtLayerHeight; // rax
-  __int16 v3; // dx
+  __int16 v1; // ax
+  __int64 v2; // rdx
 
-  v1 = a1;
-  if ( *(__int16 *)(a1 + 2) < 0 )
+  v1 = *(_WORD *)(a1 + 2);
+  if ( v1 < 0 )
     return 0;
   while ( 1 )
   {
-    KcbAtLayerHeight = CmpGetKcbAtLayerHeight(v1);
-    if ( *(_DWORD *)(KcbAtLayerHeight + 40) != -1 )
+    v2 = v1 >= 2 ? *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL * v1 - 16) : *(_QWORD *)(a1 + 8LL * v1 + 8);
+    if ( *(_DWORD *)(v2 + 40) != -1 )
       break;
-    if ( (__int16)(v3 - 1) < 0 )
+    if ( --v1 < 0 )
       return 0;
   }
-  return (*(_DWORD *)(KcbAtLayerHeight + 184) & 0x100000) != 0;
+  return (*(_DWORD *)(v2 + 184) & 0x100000) != 0;
 }

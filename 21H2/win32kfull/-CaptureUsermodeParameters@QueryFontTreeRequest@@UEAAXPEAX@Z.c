@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CaptureUsermodeParameters@QueryFontTreeRequest@@UEAAXPEAX@Z @ 0x1C00DD710
+ * XREFs of ?CaptureUsermodeParameters@QueryFontTreeRequest@@UEAAXPEAX@Z @ 0x1C00D1EF0
  * Callers:
  *     <none>
  * Callees:
- *     ?CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ @ 0x1C00DD778 (-CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ.c)
- *     ?CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ @ 0x1C013A7AC (-CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ.c)
+ *     ?CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ @ 0x1C00D1F60 (-CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ.c)
+ *     ?CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ @ 0x1C014CABC (-CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ.c)
  */
 
 void __fastcall QueryFontTreeRequest::CaptureUsermodeParameters(QueryFontTreeRequest *this, _QWORD *a2)

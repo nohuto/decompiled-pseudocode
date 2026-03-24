@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptBuildKnownResourceIdString @ 0x1403BE068
+ * XREFs of HalpInterruptBuildKnownResourceIdString @ 0x1403ABBAC
  * Callers:
- *     HalpInterruptRegisterController @ 0x1403BDD00 (HalpInterruptRegisterController.c)
+ *     HalpInterruptRegisterController @ 0x1403AB844 (HalpInterruptRegisterController.c)
  * Callees:
- *     HalpExtBuildResourceIdString @ 0x1403BE424 (HalpExtBuildResourceIdString.c)
+ *     HalpExtBuildResourceIdString @ 0x1403ABF68 (HalpExtBuildResourceIdString.c)
  */
 
 __int64 __fastcall HalpInterruptBuildKnownResourceIdString(__int64 a1, __int64 a2, wchar_t *Dst)
@@ -15,10 +15,10 @@ __int64 __fastcall HalpInterruptBuildKnownResourceIdString(__int64 a1, __int64 a
            1413894989,
            0,
            0x4000,
-           *(unsigned __int16 *)(a1 + 212),
+           *(unsigned __int16 *)(a1 + 204),
            1,
            0,
-           *(_DWORD *)(a1 + 216),
+           *(_DWORD *)(a1 + 208),
            SizeInWords,
            Dst);
 }

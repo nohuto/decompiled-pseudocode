@@ -1,18 +1,18 @@
 /*
- * XREFs of KeRegisterProcessorChangeCallback @ 0x140822950
+ * XREFs of KeRegisterProcessorChangeCallback @ 0x1407C8720
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExRegisterCallback @ 0x140367250 (ExRegisterCallback.c)
- *     ExUnregisterCallback @ 0x14036E050 (ExUnregisterCallback.c)
- *     HalGetProcessorIdByNtNumber @ 0x140383D00 (HalGetProcessorIdByNtNumber.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExCreateCallback @ 0x1407DC8B0 (ExCreateCallback.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140376FC0 (HalGetProcessorIdByNtNumber.c)
+ *     ExRegisterCallback @ 0x14037E950 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x1403812B0 (ExUnregisterCallback.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExCreateCallback @ 0x1406A0050 (ExCreateCallback.c)
  */
 
 PVOID __stdcall KeRegisterProcessorChangeCallback(
@@ -20,12 +20,12 @@ PVOID __stdcall KeRegisterProcessorChangeCallback(
         PVOID CallbackContext,
         ULONG Flags)
 {
-  unsigned int v5; // ebx
+  ULONG v5; // ebx
   char v6; // di
   PVOID v7; // rsi
-  unsigned int v9; // r15d
+  ULONG v9; // r15d
   __int64 *v10; // r12
-  unsigned int v11; // edi
+  ULONG v11; // edi
   __int64 *v12; // r14
   __int64 v13; // rcx
   int v14; // eax
@@ -38,13 +38,13 @@ PVOID __stdcall KeRegisterProcessorChangeCallback(
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-39h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-29h] BYREF
   __int128 v23; // [rsp+80h] [rbp+7h] BYREF
-  int v24; // [rsp+90h] [rbp+17h]
+  int v24; // [rsp+90h] [rbp+17h] BYREF
 
   v19 = CallbackContext;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-  v24 = 0;
   v5 = 0;
+  v24 = 0;
   CallbackObject = 0LL;
   v6 = Flags;
   DestinationString = 0LL;
@@ -59,11 +59,11 @@ PVOID __stdcall KeRegisterProcessorChangeCallback(
     ExAcquireFastMutex(&KiDynamicProcessorLock);
     v7 = ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)CallbackFunction, CallbackContext);
     v20 = v7;
-    ObfDereferenceObject(CallbackObject);
+    HalPutDmaAdapter((PADAPTER_OBJECT)CallbackObject);
     if ( !v7 || (v6 & 1) == 0 )
     {
 LABEL_4:
-      ExReleaseFastMutex(&KiDynamicProcessorLock);
+      KeReleaseGuardedMutex(&KiDynamicProcessorLock);
       return v7;
     }
     v9 = KeNumberProcessors_0;
@@ -78,7 +78,7 @@ LABEL_4:
         *(_QWORD *)((char *)&v23 + 4) = v11;
         WORD6(v23) = *(unsigned __int8 *)(v13 + 208);
         BYTE14(v23) = *(_BYTE *)(v13 + 209);
-        HalGetProcessorIdByNtNumber(v11);
+        HalGetProcessorIdByNtNumber(v11, &v24);
         LODWORD(v23) = 0;
         v17 = 0;
         ((void (__fastcall *)(PVOID, __int128 *, NTSTATUS *))CallbackFunction)(v19, &v23, &v17);
@@ -117,7 +117,7 @@ LABEL_11:
         DWORD1(v23) = v5;
         WORD6(v23) = *(unsigned __int8 *)(v16 + 208);
         BYTE14(v23) = *(_BYTE *)(v16 + 209);
-        HalGetProcessorIdByNtNumber(v5);
+        HalGetProcessorIdByNtNumber(v5, &v24);
         ((void (__fastcall *)(PVOID, __int128 *, NTSTATUS *))CallbackFunction)(v15, &v23, &v17);
         ++v5;
         ++v10;

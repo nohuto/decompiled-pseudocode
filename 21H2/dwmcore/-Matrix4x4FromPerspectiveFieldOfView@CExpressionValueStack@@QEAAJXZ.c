@@ -1,146 +1,146 @@
 /*
- * XREFs of ?Matrix4x4FromPerspectiveFieldOfView@CExpressionValueStack@@QEAAJXZ @ 0x18024CF88
+ * XREFs of ?Matrix4x4FromPerspectiveFieldOfView@CExpressionValueStack@@QEAAJXZ @ 0x1801FE40C
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800710E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A2E0 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ??0CExpressionValue@@QEAA@XZ @ 0x180049DC8 (--0CExpressionValue@@QEAA@XZ.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18004E110 (--1CExpressionValue@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??A?$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z @ 0x1800C9370 (--A-$DynArray@VCExpressionValue@@$00@@QEBAAEAVCExpressionValue@@I@Z.c)
- *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800F19F4 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
- *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NXZ @ 0x180104284 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAA_NX.c)
- *     ?D2DMatrixPerspectiveFieldOfView@@YAPEAUD2DMatrix@@PEAU1@MMMM@Z @ 0x18026D260 (-D2DMatrixPerspectiveFieldOfView@@YAPEAUD2DMatrix@@PEAU1@MMMM@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800A0C74 (--0CExpressionValue@@QEAA@XZ.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x1800AC224 (--1CExpressionValue@@QEAA@XZ.c)
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x1800DBC54 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ?D2DMatrixPerspectiveFieldOfView@@YAPEAUD2DMatrix@@PEAU1@MMMM@Z @ 0x18021CE64 (-D2DMatrixPerspectiveFieldOfView@@YAPEAUD2DMatrix@@PEAU1@MMMM@Z.c)
  */
 
 __int64 __fastcall CExpressionValueStack::Matrix4x4FromPerspectiveFieldOfView(CExpressionValueStack *this)
 {
-  unsigned int v2; // edi
-  unsigned __int8 IsEnabled; // al
-  float *v4; // r15
-  unsigned int v5; // edx
-  CExpressionValue *v6; // rax
-  _DWORD *v7; // r14
-  unsigned __int8 v8; // al
-  unsigned int v9; // edx
+  __int64 v2; // rcx
+  unsigned int v3; // ebx
+  unsigned int v4; // edx
+  __int64 v5; // rax
+  float *v6; // rdi
+  CExpressionValue *v7; // rax
+  _DWORD *v8; // rsi
+  __int64 v9; // rax
   CExpressionValue *v10; // rax
-  unsigned __int8 v11; // al
-  unsigned int v12; // edx
+  float *v11; // r15
+  __int64 v12; // rax
   CExpressionValue *v13; // rax
-  float *v14; // r13
-  unsigned __int8 v15; // al
-  unsigned int v16; // edx
-  CExpressionValue *v17; // rax
-  __int128 v18; // xmm0
-  unsigned int v20; // [rsp+20h] [rbp-60h]
-  _OWORD v21[5]; // [rsp+30h] [rbp-50h] BYREF
-  float *v22; // [rsp+B0h] [rbp+30h]
+  float *v14; // r14
+  CExpressionValue *v15; // rax
+  __int128 v16; // xmm0
+  unsigned int v18; // [rsp+20h] [rbp-60h]
+  _OWORD v19[5]; // [rsp+30h] [rbp-50h] BYREF
 
-  if ( *((_DWORD *)this + 4) >= 4u )
+  v2 = *((unsigned int *)this + 4);
+  if ( (unsigned int)v2 >= 4 )
   {
-    IsEnabled = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-    v4 = (float *)&CExpressionValueStack::s_emptyValue;
-    v5 = *((_DWORD *)this + 4) - 4;
-    if ( IsEnabled && v5 >= *((_DWORD *)this + 12) )
+    v4 = *((_DWORD *)this + 12);
+    v5 = (unsigned int)(v2 - 4);
+    v6 = (float *)&CExpressionValueStack::s_emptyValue;
+    if ( (unsigned int)v5 < v4 )
     {
-      v6 = CExpressionValue::CExpressionValue((CExpressionValue *)v21);
-      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v6);
-      CExpressionValue::~CExpressionValue((CExpressionValue *)v21);
-      v7 = &CExpressionValueStack::s_emptyValue;
+      v8 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v5);
     }
     else
     {
-      v7 = (_DWORD *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v5);
+      v7 = CExpressionValue::CExpressionValue((CExpressionValue *)v19);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v7);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v19);
+      LODWORD(v2) = *((_DWORD *)this + 4);
+      v8 = &CExpressionValueStack::s_emptyValue;
+      v4 = *((_DWORD *)this + 12);
     }
-    v8 = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-    v9 = *((_DWORD *)this + 4) - 3;
-    if ( v8 && v9 >= *((_DWORD *)this + 12) )
+    v9 = (unsigned int)(v2 - 3);
+    if ( (unsigned int)v9 < v4 )
     {
-      v10 = CExpressionValue::CExpressionValue((CExpressionValue *)v21);
+      v11 = (float *)(*((_QWORD *)this + 3) + 80 * v9);
+    }
+    else
+    {
+      v10 = CExpressionValue::CExpressionValue((CExpressionValue *)v19);
       CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v10);
-      CExpressionValue::~CExpressionValue((CExpressionValue *)v21);
-      v22 = (float *)&CExpressionValueStack::s_emptyValue;
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v19);
+      LODWORD(v2) = *((_DWORD *)this + 4);
+      v11 = (float *)&CExpressionValueStack::s_emptyValue;
+      v4 = *((_DWORD *)this + 12);
+    }
+    v12 = (unsigned int)(v2 - 2);
+    if ( (unsigned int)v12 < v4 )
+    {
+      v14 = (float *)(*((_QWORD *)this + 3) + 80 * v12);
     }
     else
     {
-      v22 = (float *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v9);
-    }
-    v11 = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-    v12 = *((_DWORD *)this + 4) - 2;
-    if ( v11 && v12 >= *((_DWORD *)this + 12) )
-    {
-      v13 = CExpressionValue::CExpressionValue((CExpressionValue *)v21);
+      v13 = CExpressionValue::CExpressionValue((CExpressionValue *)v19);
       CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v13);
-      CExpressionValue::~CExpressionValue((CExpressionValue *)v21);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v19);
+      LODWORD(v2) = *((_DWORD *)this + 4);
       v14 = (float *)&CExpressionValueStack::s_emptyValue;
+      v4 = *((_DWORD *)this + 12);
+    }
+    v2 = (unsigned int)(v2 - 1);
+    if ( (unsigned int)v2 < v4 )
+    {
+      v6 = (float *)(*((_QWORD *)this + 3) + 80 * v2);
     }
     else
     {
-      v14 = (float *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v12);
+      v15 = CExpressionValue::CExpressionValue((CExpressionValue *)v19);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v15);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v19);
     }
-    v15 = wil::details::FeatureImpl<__WilFeatureTraits_Feature_1781982525>::__private_IsEnabled((wil::details *)&`wil::Feature<__WilFeatureTraits_Feature_1781982525>::GetImpl'::`2'::impl);
-    v16 = *((_DWORD *)this + 4) - 1;
-    if ( v15 && v16 >= *((_DWORD *)this + 12) )
+    if ( v8[18] == 18 )
     {
-      v17 = CExpressionValue::CExpressionValue((CExpressionValue *)v21);
-      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v17);
-      CExpressionValue::~CExpressionValue((CExpressionValue *)v21);
-    }
-    else
-    {
-      v4 = (float *)DynArray<CExpressionValue,1>::operator[]((_QWORD *)this + 3, v16);
-    }
-    if ( v7[18] == 18 )
-    {
-      if ( *((_DWORD *)v22 + 18) == 18 )
+      if ( *((_DWORD *)v11 + 18) == 18 )
       {
         if ( *((_DWORD *)v14 + 18) == 18 )
         {
-          if ( *((_DWORD *)v4 + 18) == 18 )
+          if ( *((_DWORD *)v6 + 18) == 18 )
           {
-            if ( D2DMatrixPerspectiveFieldOfView((struct D2DMatrix *)v21, *(float *)v7, *v22, *v14, *v4) )
+            if ( D2DMatrixPerspectiveFieldOfView((struct D2DMatrix *)v19, *(float *)v8, *v11, *v14, *v6) )
             {
-              v18 = v21[0];
-              v7[18] = 265;
-              *(_OWORD *)v7 = v18;
-              *((_OWORD *)v7 + 1) = v21[1];
-              *((_OWORD *)v7 + 2) = v21[2];
-              *((_OWORD *)v7 + 3) = v21[3];
-              *((_BYTE *)v7 + 76) = 1;
+              v16 = v19[0];
+              v8[18] = 265;
+              *(_OWORD *)v8 = v16;
+              *((_OWORD *)v8 + 1) = v19[1];
+              *((_OWORD *)v8 + 2) = v19[2];
+              *((_OWORD *)v8 + 3) = v19[3];
+              *((_BYTE *)v8 + 76) = 1;
               *((_DWORD *)this + 4) -= 3;
               return 0;
             }
-            v20 = 6724;
+            v18 = 6718;
           }
           else
           {
-            v20 = 6699;
+            v18 = 6693;
           }
         }
         else
         {
-          v20 = 6698;
+          v18 = 6692;
         }
       }
       else
       {
-        v20 = 6697;
+        v18 = 6691;
       }
     }
     else
     {
-      v20 = 6696;
+      v18 = 6690;
     }
   }
   else
   {
-    v20 = 6688;
+    v18 = 6682;
   }
-  v2 = -2147467259;
+  v3 = -2147467259;
   MilInstrumentationCheckHR_MaybeFailFast(
-    (__int64)this,
+    v2,
     &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
-    1LL,
+    1u,
     -2147467259,
-    v20);
-  return v2;
+    v18,
+    0LL);
+  return v3;
 }

@@ -1,35 +1,33 @@
 /*
- * XREFs of ?LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z @ 0x1C000F0A8
+ * XREFs of ?LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z @ 0x1C0010C88
  * Callers:
- *     NtUnBindCompositionSurface @ 0x1C000E650 (NtUnBindCompositionSurface.c)
- *     NtBindCompositionSurface @ 0x1C000ED80 (NtBindCompositionSurface.c)
- *     ?NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C007A94C (-NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
- *     NtNotifyPresentToCompositionSurface @ 0x1C007ADA0 (NtNotifyPresentToCompositionSurface.c)
- *     NtSetCompositionSurfaceAnalogExclusive @ 0x1C007B8A0 (NtSetCompositionSurfaceAnalogExclusive.c)
- *     NtSetCompositionSurfaceBufferUsage @ 0x1C007B9B0 (NtSetCompositionSurfaceBufferUsage.c)
- *     NtSetCompositionSurfaceDirectFlipState @ 0x1C007BB50 (NtSetCompositionSurfaceDirectFlipState.c)
- *     NtSetCompositionSurfaceIndependentFlipInfo @ 0x1C007BCC0 (NtSetCompositionSurfaceIndependentFlipInfo.c)
- *     NtSetCompositionSurfaceStatistics @ 0x1C007BFA0 (NtSetCompositionSurfaceStatistics.c)
- *     ?RebindCompositionSurfaceBuffer@CContentResource@@QEAAJPEAVCCompositionSwapchainBuffer@@@Z @ 0x1C00885AC (-RebindCompositionSurfaceBuffer@CContentResource@@QEAAJPEAVCCompositionSwapchainBuffer@@@Z.c)
+ *     NtSetCompositionSurfaceBufferUsage @ 0x1C000E8F0 (NtSetCompositionSurfaceBufferUsage.c)
+ *     NtUnBindCompositionSurface @ 0x1C000F6C0 (NtUnBindCompositionSurface.c)
+ *     NtBindCompositionSurface @ 0x1C000FB90 (NtBindCompositionSurface.c)
+ *     NtSetCompositionSurfaceIndependentFlipInfo @ 0x1C001DA40 (NtSetCompositionSurfaceIndependentFlipInfo.c)
+ *     NtSetCompositionSurfaceDirectFlipState @ 0x1C001DDC0 (NtSetCompositionSurfaceDirectFlipState.c)
+ *     NtNotifyPresentToCompositionSurface @ 0x1C00655E0 (NtNotifyPresentToCompositionSurface.c)
+ *     NtSetCompositionSurfaceAnalogExclusive @ 0x1C0065B80 (NtSetCompositionSurfaceAnalogExclusive.c)
+ *     NtSetCompositionSurfaceStatistics @ 0x1C0065C80 (NtSetCompositionSurfaceStatistics.c)
+ *     ??1CContentResource@@UEAA@XZ @ 0x1C006DF3C (--1CContentResource@@UEAA@XZ.c)
+ *     ?RebindCompositionSurfaceBuffer@CContentResource@@QEAAJPEBUCSM_BUFFER_INFO@@@Z @ 0x1C006E208 (-RebindCompositionSurfaceBuffer@CContentResource@@QEAAJPEBUCSM_BUFFER_INFO@@@Z.c)
  * Callees:
- *     <none>
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00118B4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
  */
 
-__int64 __fastcall CompositionSurfaceObject::LockForWrite(
-        CompositionSurfaceObject *this,
-        struct CCompositionSurface **a2)
+__int64 __fastcall CompositionSurfaceObject::LockForWrite(char *Object, struct CCompositionSurface **a2)
 {
-  NTSTATUS v4; // r8d
+  NTSTATUS v4; // edi
 
   *a2 = 0LL;
-  v4 = ObReferenceObjectByPointer(this, 3u, g_pDxgkCompositionObjectType, 0);
+  v4 = ObReferenceObjectByPointer(Object, 3u, g_pDxgkCompositionObjectType, 0);
   if ( v4 >= 0 )
   {
-    KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx((char *)this + 48, 0LL);
-    v4 = 0;
-    *((_QWORD *)this + 7) = KeGetCurrentThread();
-    *a2 = (CompositionSurfaceObject *)((char *)this + 40);
+    v4 = CPushLock::AcquireLockExclusive((CPushLock *)(Object + 48));
+    if ( v4 < 0 )
+      ObfDereferenceObject(Object);
+    else
+      *a2 = (struct CCompositionSurface *)(Object + 40);
   }
   return (unsigned int)v4;
 }

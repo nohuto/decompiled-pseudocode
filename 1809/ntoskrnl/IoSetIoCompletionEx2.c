@@ -1,17 +1,17 @@
 /*
- * XREFs of IoSetIoCompletionEx2 @ 0x1400FD5C8
+ * XREFs of IoSetIoCompletionEx2 @ 0x1400FD5E8
  * Callers:
- *     AlpcpQueueIoCompletionPort @ 0x1400D3880 (AlpcpQueueIoCompletionPort.c)
- *     ExpShutdownWorkerFactory @ 0x1400FADC0 (ExpShutdownWorkerFactory.c)
- *     ExpWorkerFactoryCompletionPacketRoutine @ 0x14010A680 (ExpWorkerFactoryCompletionPacketRoutine.c)
- *     AlpcpLookasidePacketCallbackRoutine @ 0x14010A840 (AlpcpLookasidePacketCallbackRoutine.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1400D38A0 (AlpcpQueueIoCompletionPort.c)
+ *     ExpShutdownWorkerFactory @ 0x1400FADE0 (ExpShutdownWorkerFactory.c)
+ *     ExpWorkerFactoryCompletionPacketRoutine @ 0x14010A6A0 (ExpWorkerFactoryCompletionPacketRoutine.c)
+ *     AlpcpLookasidePacketCallbackRoutine @ 0x14010A860 (AlpcpLookasidePacketCallbackRoutine.c)
  *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
  *     NtLockFile @ 0x1405FA000 (NtLockFile.c)
- *     NtSetIoCompletion @ 0x14068A830 (NtSetIoCompletion.c)
- *     IoSetIoCompletion @ 0x1406CA360 (IoSetIoCompletion.c)
+ *     NtSetIoCompletion @ 0x14068A810 (NtSetIoCompletion.c)
+ *     IoSetIoCompletion @ 0x1406CA340 (IoSetIoCompletion.c)
  * Callees:
- *     KeInsertQueueEx @ 0x1400FD680 (KeInsertQueueEx.c)
- *     IopAllocateMiniCompletionPacket @ 0x14068A8DC (IopAllocateMiniCompletionPacket.c)
+ *     KeInsertQueueEx @ 0x1400FD6A0 (KeInsertQueueEx.c)
+ *     IopAllocateMiniCompletionPacket @ 0x14068A8BC (IopAllocateMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoSetIoCompletionEx2(

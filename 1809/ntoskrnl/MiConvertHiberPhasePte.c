@@ -6,9 +6,9 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiReadPteShadow @ 0x14006C550 (MiReadPteShadow.c)
- *     MiIsPfn @ 0x1400A88C0 (MiIsPfn.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiConvertHiberPhasePte(__int64 a1, __int64 *a2, int a3)

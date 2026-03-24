@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SupportsInteractionType@CInteractionProcessor@@QEBAHW4InputType@@I_N@Z @ 0x1800EF6CC
+ * XREFs of ?SupportsInteractionType@CInteractionProcessor@@QEBAHW4InputType@@I_N@Z @ 0x1800CCB6C
  * Callers:
- *     ?SupportsInteractionType@CInteraction@@UEBAHW4InputType@@I_N@Z @ 0x1800EF6B0 (-SupportsInteractionType@CInteraction@@UEBAHW4InputType@@I_N@Z.c)
- *     ?SupportsInteractionType@CInteractionRoot@@UEBAHW4InputType@@I_N@Z @ 0x1801A6D20 (-SupportsInteractionType@CInteractionRoot@@UEBAHW4InputType@@I_N@Z.c)
+ *     ?SupportsInteractionType@CInteraction@@UEBAHW4InputType@@I_N@Z @ 0x1800CCB50 (-SupportsInteractionType@CInteraction@@UEBAHW4InputType@@I_N@Z.c)
+ *     ?SupportsInteractionType@CInteractionRoot@@UEBAHW4InputType@@I_N@Z @ 0x1802366D0 (-SupportsInteractionType@CInteractionRoot@@UEBAHW4InputType@@I_N@Z.c)
  * Callees:
- *     _anonymous_namespace_::GetTemporaryConfigWithMask @ 0x1800EA564 (_anonymous_namespace_--GetTemporaryConfigWithMask.c)
- *     ?ConfigurationListContainsType@?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@QEBAHIU?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@0@Z @ 0x18012DAB8 (-ConfigurationListContainsType@-$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimiti.c)
+ *     _anonymous_namespace_::GetTemporaryConfigWithMask @ 0x1800C9964 (_anonymous_namespace_--GetTemporaryConfigWithMask.c)
+ *     ?ConfigurationListContainsType@?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@QEBAHIU?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@0@Z @ 0x18022C618 (-ConfigurationListContainsType@-$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimiti.c)
  */
 
 __int64 __fastcall CInteractionProcessor::SupportsInteractionType(__int64 a1, int a2, unsigned int a3, char a4)

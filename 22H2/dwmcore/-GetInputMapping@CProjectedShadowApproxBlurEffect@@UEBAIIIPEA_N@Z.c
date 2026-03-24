@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetInputMapping@CProjectedShadowApproxBlurEffect@@UEBAIIIPEA_N@Z @ 0x180108F70
+ * XREFs of ?GetInputMapping@CProjectedShadowApproxBlurEffect@@UEBAIIIPEA_N@Z @ 0x1800E3950
  * Callers:
  *     <none>
  * Callees:

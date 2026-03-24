@@ -1,10 +1,10 @@
 /*
- * XREFs of NtDCompositionSetChannelConnectionId @ 0x1C00ADBC0
+ * XREFs of NtDCompositionSetChannelConnectionId @ 0x1C005B4E0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C00269C4 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005EB28 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtDCompositionSetChannelConnectionId(unsigned int a1, int a2, __int64 a3)
@@ -23,19 +23,19 @@ __int64 __fastcall NtDCompositionSetChannelConnectionId(unsigned int a1, int a2,
     v6 = v11;
     v5 = 0;
     v7 = a2 != 0 ? 8 : 0;
-    if ( a3 && *(_QWORD *)((char *)v11 + v7 + 2656) )
+    if ( a3 && *(_QWORD *)((char *)v11 + v7 + 664) )
     {
       v5 = -1073741790;
     }
     else
     {
-      *(_QWORD *)((char *)v11 + v7 + 2656) = a3;
-      v8 = *((_BYTE *)v6 + 241);
+      *(_QWORD *)((char *)v11 + v7 + 664) = a3;
+      v8 = *((_BYTE *)v6 + 240);
       if ( a2 )
-        v9 = v8 | 2;
+        v9 = v8 | 0x40;
       else
-        v9 = v8 | 1;
-      *((_BYTE *)v6 + 241) = v9;
+        v9 = v8 | 0x20;
+      *((_BYTE *)v6 + 240) = v9;
     }
     (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v6)(v6);
   }

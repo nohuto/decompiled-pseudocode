@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxClearDeviceConstraints @ 0x1405CB6D8
+ * XREFs of PopFxClearDeviceConstraints @ 0x140569DC4
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PoFxIdleDevice @ 0x1402D25CC (PoFxIdleDevice.c)
- *     PopFxActivateDevice @ 0x1402D2864 (PopFxActivateDevice.c)
- *     PopFxAddRefDevice @ 0x140355350 (PopFxAddRefDevice.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PpmGetDeepSleepPlatformStateIndex @ 0x1405C75AC (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopPepClearDripsDeviceVetoMask @ 0x1405D4B84 (PopPepClearDripsDeviceVetoMask.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     PopFxAddRefDevice @ 0x14026077C (PopFxAddRefDevice.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
+ *     PopFxActivateDevice @ 0x14036FCD0 (PopFxActivateDevice.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x140565CEC (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopPepClearDripsDeviceVetoMask @ 0x1405740C4 (PopPepClearDripsDeviceVetoMask.c)
  */
 
 __int64 __fastcall PopFxClearDeviceConstraints(__int64 a1)
@@ -63,7 +63,7 @@ __int64 __fastcall PopFxClearDeviceConstraints(__int64 a1)
         *(_BYTE *)(a1 + 608) = 0;
         *(_QWORD *)(a1 + 624) = 0LL;
         *(_DWORD *)(a1 + 612) = 5;
-        _InterlockedAnd((volatile signed __int32 *)(a1 + 824), 0xFFFFF7EF);
+        _InterlockedAnd((volatile signed __int32 *)(a1 + 824), 0xFFFFFFEF);
         KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 600));
         if ( KiIrqlFlags )
         {

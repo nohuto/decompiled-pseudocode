@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpIsCmRm @ 0x140742190
+ * XREFs of CmpIsCmRm @ 0x1406A3C54
  * Callers:
- *     CmKtmNotification @ 0x140741CF0 (CmKtmNotification.c)
+ *     CmKtmNotification @ 0x1406A36F0 (CmKtmNotification.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     CmListGetNextElement @ 0x140AB4218 (CmListGetNextElement.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
  */
 
 char __fastcall CmpIsCmRm(_QWORD *a1)
@@ -41,6 +41,6 @@ char __fastcall CmpIsCmRm(_QWORD *a1)
     }
   }
   ExReleaseFastMutexUnsafe(&CmpRmListLock);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v2;
 }

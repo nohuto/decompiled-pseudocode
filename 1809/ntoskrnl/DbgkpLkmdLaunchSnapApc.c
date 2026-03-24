@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdLaunchSnapApc @ 0x140811D54
+ * XREFs of DbgkpLkmdLaunchSnapApc @ 0x140811D34
  * Callers:
- *     DbgkpLkmdSnapThread @ 0x14026DD34 (DbgkpLkmdSnapThread.c)
+ *     DbgkpLkmdSnapThread @ 0x14026DE34 (DbgkpLkmdSnapThread.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     KeInsertQueueApc @ 0x1400F1460 (KeInsertQueueApc.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

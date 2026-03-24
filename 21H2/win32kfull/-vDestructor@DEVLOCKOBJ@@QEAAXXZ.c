@@ -1,80 +1,77 @@
 /*
- * XREFs of ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70
+ * XREFs of ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0
  * Callers:
- *     GreStretchDIBitsInternal @ 0x1C0029B2C (GreStretchDIBitsInternal.c)
- *     GreSetDIBitsToDeviceInternal @ 0x1C002E3F0 (GreSetDIBitsToDeviceInternal.c)
- *     GreDrawStream @ 0x1C003C990 (GreDrawStream.c)
- *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C003D428 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C003FD30 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     NtGdiExtSelectClipRgn @ 0x1C0041BA0 (NtGdiExtSelectClipRgn.c)
- *     NtGdiPatBlt @ 0x1C0042E10 (NtGdiPatBlt.c)
- *     NtGdiGetPixel @ 0x1C008A200 (NtGdiGetPixel.c)
- *     GreGetDIBColorTable @ 0x1C008A670 (GreGetDIBColorTable.c)
- *     GreExtTextOutWInternal @ 0x1C008ABC0 (GreExtTextOutWInternal.c)
- *     GreExtTextOutRect @ 0x1C008AD4C (GreExtTextOutRect.c)
- *     GreGetBoundsRect @ 0x1C008B388 (GreGetBoundsRect.c)
- *     ?vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z @ 0x1C0090A60 (-vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z.c)
- *     GreCreateCompatibleBitmapInternal @ 0x1C0090C1C (GreCreateCompatibleBitmapInternal.c)
- *     ?bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z @ 0x1C00CBDF4 (-bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z.c)
- *     GrePolyTextOutW @ 0x1C00E3570 (GrePolyTextOutW.c)
- *     ?GreSetICMMode@@YAHPEAUHDC__@@KK@Z @ 0x1C00E3818 (-GreSetICMMode@@YAHPEAUHDC__@@KK@Z.c)
- *     vAccNotifyDeleteSurfaceWrap @ 0x1C00EDE70 (vAccNotifyDeleteSurfaceWrap.c)
- *     ?vProfileDriver@PDEVOBJ@@QEAAXXZ @ 0x1C0113FC8 (-vProfileDriver@PDEVOBJ@@QEAAXXZ.c)
- *     GreRealizeDefaultPalette @ 0x1C0116400 (GreRealizeDefaultPalette.c)
- *     NtGdiFillRgn @ 0x1C012E830 (NtGdiFillRgn.c)
- *     NtGdiFrameRgn @ 0x1C0132220 (NtGdiFrameRgn.c)
- *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0134298 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
- *     ?NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C0138E34 (-NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z.c)
- *     ?iSetMapMode@DC@@QEAAHH@Z @ 0x1C013E220 (-iSetMapMode@DC@@QEAAHH@Z.c)
- *     GreRealizePalette @ 0x1C01470CC (GreRealizePalette.c)
- *     GreExtSelectClipRgnInternal @ 0x1C014CBF4 (GreExtSelectClipRgnInternal.c)
- *     GreSpDwmSyncCaptureSurfaceBits @ 0x1C026DCB8 (GreSpDwmSyncCaptureSurfaceBits.c)
- *     GreWindowResizeComplete @ 0x1C026E008 (GreWindowResizeComplete.c)
- *     ?DxEngSyncPaletteTableWithDevice@@YAHPEAUHPALETTE__@@PEAUHDEV__@@@Z @ 0x1C02735E0 (-DxEngSyncPaletteTableWithDevice@@YAHPEAUHPALETTE__@@PEAUHDEV__@@@Z.c)
- *     ??1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ @ 0x1C02792DC (--1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ.c)
- *     ?iWndObjSetupExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C0279E28 (-iWndObjSetupExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
- *     GreDrawEscape @ 0x1C027A3F4 (GreDrawEscape.c)
- *     GreDeleteWnd @ 0x1C02844B0 (GreDeleteWnd.c)
- *     ?bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C02918A8 (-bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
- *     ?hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C0291ACC (-hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
- *     ?RedirAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@Z @ 0x1C029A060 (-RedirAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@Z.c)
- *     ?RedirBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C029A2C0 (-RedirBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRU.c)
- *     ?RedirDrawEscape@@YAKPEAU_SURFOBJ@@KPEAU_CLIPOBJ@@PEAU_RECTL@@KPEAX@Z @ 0x1C029A5D0 (-RedirDrawEscape@@YAKPEAU_SURFOBJ@@KPEAU_CLIPOBJ@@PEAU_RECTL@@KPEAX@Z.c)
- *     ?RedirDrawStream@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@KPEAXPEAU_DSSTATE@@@Z @ 0x1C029A7B0 (-RedirDrawStream@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@KPEAXP.c)
- *     ?RedirFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C029AA30 (-RedirFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
- *     ?RedirGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_RECTL@@PEAU_POINTL@@K@Z @ 0x1C029AC40 (-RedirGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_REC.c)
- *     ?RedirLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C029AE90 (-RedirLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
- *     ?RedirNineGrid@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAUNINEGRID@@PEAU_BLENDOBJ@@PEAX@Z @ 0x1C029B0C0 (-RedirNineGrid@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAUNINEGRID@@PEAU_B.c)
- *     ?RedirPlgBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_POINTFIX@@PEAU_RECTL@@4K@Z @ 0x1C029B340 (-RedirPlgBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINT.c)
- *     ?RedirStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C029B610 (-RedirStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_P.c)
- *     ?RedirStretchBltROP@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAU_BRUSHOBJ@@K@Z @ 0x1C029B8E0 (-RedirStretchBltROP@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEA.c)
- *     ?RedirStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C029BBE0 (-RedirStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHO.c)
- *     ?RedirStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C029BE30 (-RedirStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEA.c)
- *     ?RedirTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@K@Z @ 0x1C029C060 (-RedirTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSH.c)
- *     ?RedirTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KK@Z @ 0x1C029C2B0 (-RedirTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KK@Z.c)
- *     GreCreateBitmapFromDxSurface @ 0x1C029F870 (GreCreateBitmapFromDxSurface.c)
- *     ?GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z @ 0x1C02B4434 (-GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z.c)
- *     GreSetDIBColorTable @ 0x1C02B6140 (GreSetDIBColorTable.c)
- *     GreSetSystemPaletteUse @ 0x1C02B6390 (GreSetSystemPaletteUse.c)
- *     NtGdiUpdateColors @ 0x1C02B6B20 (NtGdiUpdateColors.c)
- *     NtGdiExtFloodFill @ 0x1C02B8670 (NtGdiExtFloodFill.c)
- *     ?ipfdDevMaxGet@XDCOBJ@@QEAAJXZ @ 0x1C02BB108 (-ipfdDevMaxGet@XDCOBJ@@QEAAJXZ.c)
- *     GreDescribePixelFormat @ 0x1C02BB240 (GreDescribePixelFormat.c)
- *     NtGdiSetPixelFormat @ 0x1C02BB3F0 (NtGdiSetPixelFormat.c)
+ *     ?vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z @ 0x1C0018F78 (-vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z.c)
+ *     ?bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z @ 0x1C002DD04 (-bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z.c)
+ *     GreDrawStream @ 0x1C0083A60 (GreDrawStream.c)
+ *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C0087D58 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C008E970 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     GreGetDIBColorTable @ 0x1C00A9A60 (GreGetDIBColorTable.c)
+ *     GreExtTextOutRect @ 0x1C00AA21C (GreExtTextOutRect.c)
+ *     GrePolyTextOutW @ 0x1C00AA89C (GrePolyTextOutW.c)
+ *     GreExtTextOutWInternal @ 0x1C00AAE5C (GreExtTextOutWInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AAFE8 (GreCreateCompatibleBitmapInternal.c)
+ *     GreStretchDIBitsInternal @ 0x1C00AE0CC (GreStretchDIBitsInternal.c)
+ *     NtGdiPatBlt @ 0x1C00B42B0 (NtGdiPatBlt.c)
+ *     GreGetBoundsRect @ 0x1C00FC958 (GreGetBoundsRect.c)
+ *     vAccNotifyDeleteSurfaceWrap @ 0x1C0101AB0 (vAccNotifyDeleteSurfaceWrap.c)
+ *     NtGdiGetPixel @ 0x1C01093E0 (NtGdiGetPixel.c)
+ *     ?iSetMapMode@DC@@QEAAHH@Z @ 0x1C010CB40 (-iSetMapMode@DC@@QEAAHH@Z.c)
+ *     GreRealizePalette @ 0x1C011BC6C (GreRealizePalette.c)
+ *     ?vProfileDriver@PDEVOBJ@@QEAAXXZ @ 0x1C01297E8 (-vProfileDriver@PDEVOBJ@@QEAAXXZ.c)
+ *     GreRealizeDefaultPalette @ 0x1C012B944 (GreRealizeDefaultPalette.c)
+ *     NtGdiFrameRgn @ 0x1C013EC70 (NtGdiFrameRgn.c)
+ *     NtGdiFillRgn @ 0x1C0146850 (NtGdiFillRgn.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0146E94 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     ?NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C0148F08 (-NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z.c)
+ *     ?GreSetICMMode@@YAHPEAUHDC__@@KK@Z @ 0x1C014C758 (-GreSetICMMode@@YAHPEAUHDC__@@KK@Z.c)
+ *     GreSpDwmSyncCaptureSurfaceBits @ 0x1C0270200 (GreSpDwmSyncCaptureSurfaceBits.c)
+ *     GreWindowResizeComplete @ 0x1C0270430 (GreWindowResizeComplete.c)
+ *     ?DxEngSyncPaletteTableWithDevice@@YAHPEAUHPALETTE__@@PEAUHDEV__@@@Z @ 0x1C0275CD4 (-DxEngSyncPaletteTableWithDevice@@YAHPEAUHPALETTE__@@PEAUHDEV__@@@Z.c)
+ *     ??1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ @ 0x1C027B734 (--1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ.c)
+ *     ?iWndObjSetupExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C027C2B8 (-iWndObjSetupExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
+ *     GreDrawEscape @ 0x1C027C884 (GreDrawEscape.c)
+ *     GreDeleteWnd @ 0x1C02878F0 (GreDeleteWnd.c)
+ *     ?bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C0293E94 (-bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
+ *     ?hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C02940B8 (-hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
+ *     ?RedirAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@Z @ 0x1C029B790 (-RedirAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@Z.c)
+ *     ?RedirBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C029B9E0 (-RedirBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRU.c)
+ *     ?RedirDrawEscape@@YAKPEAU_SURFOBJ@@KPEAU_CLIPOBJ@@PEAU_RECTL@@KPEAX@Z @ 0x1C029BCF0 (-RedirDrawEscape@@YAKPEAU_SURFOBJ@@KPEAU_CLIPOBJ@@PEAU_RECTL@@KPEAX@Z.c)
+ *     ?RedirDrawStream@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@KPEAXPEAU_DSSTATE@@@Z @ 0x1C029BED0 (-RedirDrawStream@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@KPEAXP.c)
+ *     ?RedirFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C029C140 (-RedirFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?RedirGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_RECTL@@PEAU_POINTL@@K@Z @ 0x1C029C350 (-RedirGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_REC.c)
+ *     ?RedirLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C029C5A0 (-RedirLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     ?RedirNineGrid@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAUNINEGRID@@PEAU_BLENDOBJ@@PEAX@Z @ 0x1C029C7D0 (-RedirNineGrid@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAUNINEGRID@@PEAU_B.c)
+ *     ?RedirPlgBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_POINTFIX@@PEAU_RECTL@@4K@Z @ 0x1C029CA50 (-RedirPlgBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINT.c)
+ *     ?RedirStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C029CD20 (-RedirStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_P.c)
+ *     ?RedirStretchBltROP@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAU_BRUSHOBJ@@K@Z @ 0x1C029CFF0 (-RedirStretchBltROP@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEA.c)
+ *     ?RedirStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C029D2F0 (-RedirStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHO.c)
+ *     ?RedirStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C029D540 (-RedirStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEA.c)
+ *     ?RedirTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@K@Z @ 0x1C029D770 (-RedirTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSH.c)
+ *     ?RedirTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KK@Z @ 0x1C029D9C0 (-RedirTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KK@Z.c)
+ *     GreCreateBitmapFromDxSurface @ 0x1C02A0D70 (GreCreateBitmapFromDxSurface.c)
+ *     ?GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z @ 0x1C02B61D8 (-GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z.c)
+ *     GreSetDIBColorTable @ 0x1C02B7FE0 (GreSetDIBColorTable.c)
+ *     GreSetSystemPaletteUse @ 0x1C02B8254 (GreSetSystemPaletteUse.c)
+ *     NtGdiUpdateColors @ 0x1C02B89F0 (NtGdiUpdateColors.c)
+ *     NtGdiExtFloodFill @ 0x1C02BA3E0 (NtGdiExtFloodFill.c)
+ *     ?ipfdDevMaxGet@XDCOBJ@@QEAAJXZ @ 0x1C02BCB58 (-ipfdDevMaxGet@XDCOBJ@@QEAAJXZ.c)
+ *     GreDescribePixelFormat @ 0x1C02BCC90 (GreDescribePixelFormat.c)
+ *     NtGdiSetPixelFormat @ 0x1C02BCE40 (NtGdiSetPixelFormat.c)
  * Callees:
- *     GreDereferenceObject @ 0x1C002669C (GreDereferenceObject.c)
- *     ?vClearRendering@DC@@QEAAXXZ @ 0x1C00357C0 (-vClearRendering@DC@@QEAAXXZ.c)
- *     ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0037530 (-GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??0DCVISRGNSHARELOCK@@QEAA@XZ @ 0x1C00F4808 (--0DCVISRGNSHARELOCK@@QEAA@XZ.c)
- *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C0113C20 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C015D9D8 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C026AD30 (--0SURFREF@@QEAA@XZ.c)
- *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C0299B94 (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
- *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C029C55C (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
+ *     GreDereferenceObject @ 0x1C004B94C (GreDereferenceObject.c)
+ *     ??0DCVISRGNSHARELOCK@@QEAA@XZ @ 0x1C008BAEC (--0DCVISRGNSHARELOCK@@QEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?vClearRendering@DC@@QEAAXXZ @ 0x1C0090120 (-vClearRendering@DC@@QEAAXXZ.c)
+ *     ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0090370 (-GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C01256A0 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C016AA20 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C026CF90 (--0SURFREF@@QEAA@XZ.c)
+ *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C029B2BC (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C029DC68 (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
  */
 
 void __fastcall DEVLOCKOBJ::vDestructor(DEVLOCKOBJ *this)
@@ -89,24 +86,38 @@ void __fastcall DEVLOCKOBJ::vDestructor(DEVLOCKOBJ *this)
   __int64 ThreadWin32Thread; // rax
   __int64 v10; // rax
   int v11; // eax
-  __int64 *v12; // rax
-  __int64 v13; // rax
-  int v14; // eax
-  __int64 v15; // rdx
-  __int64 v16; // rdx
-  __int64 v17; // rax
-  __int64 v18; // rcx
-  __int64 v19; // rdx
-  HSURF v20; // rbx
-  char v21; // bl
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v13; // rcx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v19; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 *v21; // rax
   __int64 v22; // rax
-  __int64 v23; // rax
-  _BYTE v24[8]; // [rsp+30h] [rbp-98h] BYREF
-  _BYTE v25[32]; // [rsp+38h] [rbp-90h] BYREF
-  HSURF *v26; // [rsp+58h] [rbp-70h]
-  DC *v27[6]; // [rsp+60h] [rbp-68h] BYREF
-  _BYTE v28[32]; // [rsp+90h] [rbp-38h] BYREF
-  struct SURFACE *v29; // [rsp+B0h] [rbp-18h]
+  int v23; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rdx
+  __int64 v26; // rax
+  __int64 v27; // rcx
+  __int64 v28; // rdx
+  HSURF v29; // rbx
+  __int64 v30; // rdx
+  __int64 v31; // rdx
+  char v32; // bl
+  __int64 v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rdx
+  __int64 v36; // rdx
+  char v37; // [rsp+30h] [rbp-98h] BYREF
+  _BYTE v38[7]; // [rsp+31h] [rbp-97h] BYREF
+  _BYTE v39[32]; // [rsp+38h] [rbp-90h] BYREF
+  HSURF *v40; // [rsp+58h] [rbp-70h]
+  DC *v41[6]; // [rsp+60h] [rbp-68h] BYREF
+  _BYTE v42[32]; // [rsp+90h] [rbp-38h] BYREF
+  struct SURFACE *v43; // [rsp+B0h] [rbp-18h]
 
   v1 = *((_QWORD *)this + 4);
   if ( v1 && *((_BYTE *)this + 81) )
@@ -141,24 +152,23 @@ void __fastcall DEVLOCKOBJ::vDestructor(DEVLOCKOBJ *this)
           *(_DWORD *)(v6 + 44) &= ~1u;
           v7 = *((_QWORD *)this + 4);
           if ( (*(_DWORD *)(v7 + 36) & 0x4000) != 0 && *(_QWORD *)(v7 + 472) && *(_DWORD *)(v7 + 488) )
-            GreUpdateSpriteDevLockEnd((HDC **)this + 4, *((_DWORD *)this + 6) & 0x400000);
+            GreUpdateSpriteDevLockEnd((DEVLOCKOBJ *)((char *)this + 32), *((_DWORD *)this + 6) & 0x400000);
         }
       }
       if ( (*((_DWORD *)this + 6) & 0x10) != 0 )
       {
         *(_DWORD *)(*((_QWORD *)this + 4) + 36LL) &= ~0x4000u;
-        DC::pSurface(*((DC **)this + 4), *(struct SURFACE **)(v4 + 2528));
+        DC::pSurface(*((DC **)this + 4), *(struct SURFACE **)(v4 + 2552));
       }
       v8 = *((_QWORD *)this + 4);
       if ( v8 && *((_BYTE *)this + 81) && (*((_DWORD *)this + 6) & 0x1000) != 0 && (*(_DWORD *)(v8 + 36) & 0x200) != 0 )
       {
-        GreAcquireSemaphoreSharedInternal(ghsemDCVisRgn);
-        EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDCVisRgn", ghsemDCVisRgn);
+        DCVISRGNSHARELOCK::DCVISRGNSHARELOCK((DCVISRGNSHARELOCK *)&v37);
         if ( !*((_QWORD *)this + 11) )
           DC::vClearRendering(*((DC **)this + 4));
         if ( (*(_DWORD *)(*((_QWORD *)this + 4) + 36LL) & 0x4000) == 0 )
         {
-          ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+          ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
           if ( ThreadWin32Thread )
             *(_DWORD *)(ThreadWin32Thread + 328) &= ~1u;
         }
@@ -169,7 +179,13 @@ void __fastcall DEVLOCKOBJ::vDestructor(DEVLOCKOBJ *this)
     v10 = *((_QWORD *)this + 4);
     if ( v10 )
     {
-      if ( !*((_BYTE *)this + 80) || (*(_DWORD *)(v10 + 40) &= ~2u, *((_BYTE *)this + 80) = 0, *((_QWORD *)this + 4)) )
+      if ( *((_BYTE *)this + 80) )
+      {
+        *(_DWORD *)(v10 + 40) &= ~2u;
+        v10 = *((_QWORD *)this + 4);
+        *((_BYTE *)this + 80) = 0;
+      }
+      if ( v10 )
         XDCOBJ::vUnlockFast((DEVLOCKOBJ *)((char *)this + 32));
     }
     *((_QWORD *)this + 4) = 0LL;
@@ -179,14 +195,22 @@ void __fastcall DEVLOCKOBJ::vDestructor(DEVLOCKOBJ *this)
   {
     GreDecLockCount();
     *((_DWORD *)this + 6) &= ~0x1000u;
-    v12 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( v12 )
+    CurrentThread = KeGetCurrentThread();
+    if ( !(unsigned __int8)KeIsAttachedProcess(v13)
+      || (CurrentProcess = PsGetCurrentProcess(v15, v14, v16),
+          ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+          CurrentThreadProcess = PsGetCurrentThreadProcess(v19),
+          ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
     {
-      v13 = *v12;
-      if ( v13 )
+      v21 = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+      if ( v21 )
       {
-        *(_QWORD *)(v13 + 320) = 0LL;
-        *(_QWORD *)(v13 + 312) = 0LL;
+        v22 = *v21;
+        if ( v22 )
+        {
+          *(_QWORD *)(v22 + 320) = 0LL;
+          *(_QWORD *)(v22 + 312) = 0LL;
+        }
       }
     }
   }
@@ -200,56 +224,56 @@ void __fastcall DEVLOCKOBJ::vDestructor(DEVLOCKOBJ *this)
     EtwTraceGreLockReleaseSemaphore(L"hsemTrg", *(_QWORD *)this);
     GreReleaseSemaphoreInternal(*(_QWORD *)this);
   }
-  v14 = *((_DWORD *)this + 6);
-  if ( (v14 & 8) != 0 )
-    *((_DWORD *)this + 6) = v14 & 0xFFFFFFF7;
-  v15 = *((_QWORD *)this + 1);
-  if ( v15 )
+  v23 = *((_DWORD *)this + 6);
+  if ( (v23 & 8) != 0 )
+    *((_DWORD *)this + 6) = v23 & 0xFFFFFFF7;
+  v24 = *((_QWORD *)this + 1);
+  if ( v24 )
   {
-    EtwTraceGreLockReleaseSemaphore(L"hsemDMC", v15);
+    EtwTraceGreLockReleaseSemaphore(L"hsemDMC", v24);
     GreReleaseSemaphoreInternal(*((_QWORD *)this + 1));
   }
   if ( *((_QWORD *)this + 12) )
   {
-    DCOBJ::DCOBJ((DCOBJ *)v27, *((HDC *)this + 13));
-    SURFREF::SURFREF((SURFREF *)v25);
-    SURFREF::SURFREF((SURFREF *)v28);
-    LOBYTE(v16) = 5;
-    v17 = HmgShareLock(*((_QWORD *)this + 11), v16);
-    v18 = *((_QWORD *)this + 12);
-    LOBYTE(v19) = 5;
-    v26 = (HSURF *)v17;
-    v29 = (struct SURFACE *)HmgShareLock(v18, v19);
-    v20 = *v26;
-    DC::pSurface(v27[0], v29);
-    DEC_SHARE_REF_CNT(v26);
-    v26 = 0LL;
-    DEC_SHARE_REF_CNT(v29);
-    v29 = 0LL;
-    GreDereferenceObject(v20, 1u);
+    DCOBJ::DCOBJ((DCOBJ *)v41, *((HDC *)this + 13));
+    SURFREF::SURFREF((SURFREF *)v39);
+    SURFREF::SURFREF((SURFREF *)v42);
+    LOBYTE(v25) = 5;
+    v26 = HmgShareLock(*((_QWORD *)this + 11), v25);
+    v27 = *((_QWORD *)this + 12);
+    LOBYTE(v28) = 5;
+    v40 = (HSURF *)v26;
+    v43 = (struct SURFACE *)HmgShareLock(v27, v28);
+    v29 = *v40;
+    DC::pSurface(v41[0], v43);
+    DEC_SHARE_REF_CNT(v40, v30);
+    v40 = 0LL;
+    DEC_SHARE_REF_CNT(v43, v31);
+    v43 = 0LL;
+    GreDereferenceObject(v29, 1u);
     *((_QWORD *)this + 13) = 0LL;
     *((_QWORD *)this + 11) = 0LL;
     if ( this != (DEVLOCKOBJ *)-28LL )
-      *((_DWORD *)v27[0] + 9) |= *((_DWORD *)this + 7);
-    if ( (*((_DWORD *)v27[0] + 9) & 0x200) != 0 )
+      *((_DWORD *)v41[0] + 9) |= *((_DWORD *)this + 7);
+    if ( (*((_DWORD *)v41[0] + 9) & 0x200) != 0 )
     {
-      v21 = 0;
+      v32 = 0;
       if ( !(unsigned int)GreGetLockCount() && !(unsigned int)GreIsSemaphoreOwnedOrSharedByCurrentThread(ghsemGreLock) )
       {
         GreAcquireSemaphoreSharedInternal(ghsemGreLock);
         EtwTraceGreLockAcquireSemaphoreShared(L"ghsemGreLock", ghsemGreLock);
-        v21 = 1;
+        v32 = 1;
       }
-      DCVISRGNSHARELOCK::DCVISRGNSHARELOCK((DCVISRGNSHARELOCK *)v24);
-      v22 = HmgShareUnlockRemoveObject(*((_QWORD *)this + 12), 0LL, 0LL, 0LL, 5);
-      if ( v22 )
-        SURFACE::bDeleteSurface(v22, 0LL, 1LL);
-      *((_QWORD *)v27[0] + 63) = 0LL;
-      DC::vClearRendering(v27[0]);
+      DCVISRGNSHARELOCK::DCVISRGNSHARELOCK((DCVISRGNSHARELOCK *)v38);
+      v33 = HmgShareUnlockRemoveObject(*((_QWORD *)this + 12), 0LL, 0LL, 0LL, 5);
+      if ( v33 )
+        SURFACE::bDeleteSurface(v33, 0LL, 1LL);
+      *((_QWORD *)v41[0] + 63) = 0LL;
+      DC::vClearRendering(v41[0]);
       *((_QWORD *)this + 12) = 0LL;
       EtwTraceGreLockReleaseSemaphore(L"ghsemDCVisRgn", ghsemDCVisRgn);
       GreReleaseSemaphoreInternal(ghsemDCVisRgn);
-      if ( v21 )
+      if ( v32 )
       {
         EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
         GreReleaseSemaphoreInternal(ghsemGreLock);
@@ -257,20 +281,20 @@ void __fastcall DEVLOCKOBJ::vDestructor(DEVLOCKOBJ *this)
     }
     else
     {
-      v23 = HmgShareUnlockRemoveObject(*((_QWORD *)this + 12), 0LL, 0LL, 0LL, 5);
-      if ( v23 )
-        SURFACE::bDeleteSurface(v23, 0LL, 1LL);
-      *((_QWORD *)v27[0] + 63) = 0LL;
+      v34 = HmgShareUnlockRemoveObject(*((_QWORD *)this + 12), 0LL, 0LL, 0LL, 5);
+      if ( v34 )
+        SURFACE::bDeleteSurface(v34, 0LL, 1LL);
+      *((_QWORD *)v41[0] + 63) = 0LL;
       *((_QWORD *)this + 12) = 0LL;
     }
     EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
     GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
-    if ( v29 )
-      DEC_SHARE_REF_CNT(v29);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v28);
-    if ( v26 )
-      DEC_SHARE_REF_CNT(v26);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v25);
-    DCOBJ::~DCOBJ((DCOBJ *)v27);
+    if ( v43 )
+      DEC_SHARE_REF_CNT(v43, v35);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v42);
+    if ( v40 )
+      DEC_SHARE_REF_CNT(v40, v36);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v39);
+    DCOBJ::~DCOBJ((DCOBJ *)v41);
   }
 }

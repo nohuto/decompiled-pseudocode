@@ -1,0 +1,12 @@
+/*
+ * XREFs of Win32DestroySection @ 0x1C01D41A0
+ * Callers:
+ *     ?SecureConnectPort@PROXYPORT@@QEAAJPEAPEAXPEAU_UNICODE_STRING@@PEAU_SECURITY_QUALITY_OF_SERVICE@@PEAU_PORT_VIEW@@PEAXPEAU_REMOTE_PORT_VIEW@@PEAK46@Z @ 0x1C011F7B0 (-SecureConnectPort@PROXYPORT@@QEAAJPEAPEAXPEAU_UNICODE_STRING@@PEAU_SECURITY_QUALITY_OF_SERVICE@.c)
+ * Callees:
+ *     <none>
+ */
+
+LONG_PTR __fastcall Win32DestroySection(void *a1)
+{
+  return ObfDereferenceObject(a1);
+}

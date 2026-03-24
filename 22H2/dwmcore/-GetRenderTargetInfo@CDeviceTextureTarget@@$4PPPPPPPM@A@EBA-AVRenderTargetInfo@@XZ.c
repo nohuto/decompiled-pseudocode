@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRenderTargetInfo@CDeviceTextureTarget@@$4PPPPPPPM@A@EBA?AVRenderTargetInfo@@XZ @ 0x180120460
+ * XREFs of ?GetRenderTargetInfo@CDeviceTextureTarget@@$4PPPPPPPM@A@EBA?AVRenderTargetInfo@@XZ @ 0x1800F7A80
  * Callers:
  *     <none>
  * Callees:

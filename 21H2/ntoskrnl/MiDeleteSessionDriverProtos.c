@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteSessionDriverProtos @ 0x1406EB270
+ * XREFs of MiDeleteSessionDriverProtos @ 0x140779628
  * Callers:
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
- *     MiMapSystemImage @ 0x140761714 (MiMapSystemImage.c)
- *     MiCreateSessionDriverProtos @ 0x140981070 (MiCreateSessionDriverProtos.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
+ *     MiMapSystemImage @ 0x14075D0C4 (MiMapSystemImage.c)
+ *     MiCreateSessionDriverProtos @ 0x1408DA7D8 (MiCreateSessionDriverProtos.c)
  * Callees:
- *     MiDeletePerSessionProtos @ 0x14025592C (MiDeletePerSessionProtos.c)
- *     MiGetSubsectionDriverProtos @ 0x14027B234 (MiGetSubsectionDriverProtos.c)
+ *     MiDeletePerSessionProtos @ 0x1402CF174 (MiDeletePerSessionProtos.c)
+ *     MiGetSubsectionDriverProtos @ 0x1402FCDE0 (MiGetSubsectionDriverProtos.c)
  */
 
 __int64 __fastcall MiDeleteSessionDriverProtos(__int64 *a1)

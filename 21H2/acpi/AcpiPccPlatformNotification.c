@@ -1,7 +1,7 @@
 /*
- * XREFs of AcpiPccPlatformNotification @ 0x1C005AE9C
+ * XREFs of AcpiPccPlatformNotification @ 0x1C005A034
  * Callers:
- *     ACPIPccProcessSci @ 0x1C005A6BC (ACPIPccProcessSci.c)
+ *     ACPIPccProcessSci @ 0x1C005984C (ACPIPccProcessSci.c)
  * Callees:
  *     <none>
  */
@@ -12,8 +12,8 @@ void __fastcall AcpiPccPlatformNotification(char *Context)
   KIRQL v3; // si
   struct _IO_WORKITEM *WorkItem; // rax
 
-  v1 = (KSPIN_LOCK *)(Context + 648);
-  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)Context + 81);
+  v1 = (KSPIN_LOCK *)(Context + 640);
+  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)Context + 80);
   _InterlockedAnd16(*((volatile signed __int16 **)Context + 7), 0xFFF7u);
   if ( *((_QWORD *)Context + 33) )
   {

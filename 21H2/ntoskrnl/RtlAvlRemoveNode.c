@@ -1,63 +1,62 @@
 /*
- * XREFs of RtlAvlRemoveNode @ 0x1402C66C0
+ * XREFs of RtlAvlRemoveNode @ 0x140234B20
  * Callers:
- *     MiFreeCombineBlock @ 0x140239A98 (MiFreeCombineBlock.c)
- *     MiUpdatePerSessionProto @ 0x140255870 (MiUpdatePerSessionProto.c)
- *     MiCombiningInProgress @ 0x14025B5E0 (MiCombiningInProgress.c)
- *     MiRemoveFaultNode @ 0x14025CE80 (MiRemoveFaultNode.c)
- *     MiRemoveFromSystemSpace @ 0x14026D048 (MiRemoveFromSystemSpace.c)
- *     MiUpdateSystemProtoPtesTree @ 0x14026EA80 (MiUpdateSystemProtoPtesTree.c)
- *     MiWaitForInPageComplete @ 0x14027AA30 (MiWaitForInPageComplete.c)
- *     MiZeroPage @ 0x1402C4E50 (MiZeroPage.c)
- *     MiProcessLoaderEntry @ 0x1402D8C20 (MiProcessLoaderEntry.c)
- *     MiSessionRemoveImage @ 0x1402DBD88 (MiSessionRemoveImage.c)
- *     MiRemoveVad @ 0x14030DA80 (MiRemoveVad.c)
- *     MmManageFaultRange @ 0x140372224 (MmManageFaultRange.c)
- *     MiRemoveMappingNode @ 0x1403864DC (MiRemoveMappingNode.c)
- *     MiUpdatePageFileList @ 0x1403CF758 (MiUpdatePageFileList.c)
- *     MiFreeMdlTracker @ 0x140584374 (MiFreeMdlTracker.c)
- *     MmUpdateMdlTrackerForMdlSwitch @ 0x14058503C (MmUpdateMdlTrackerForMdlSwitch.c)
- *     MiHotRemoveHugeRange @ 0x140586A44 (MiHotRemoveHugeRange.c)
- *     MiMakeEntireHugePfnGood @ 0x140587900 (MiMakeEntireHugePfnGood.c)
- *     MiMarkHugePfnGood @ 0x1405882D0 (MiMarkHugePfnGood.c)
- *     MiReleasePartitionHugeIoSpace @ 0x140588C48 (MiReleasePartitionHugeIoSpace.c)
- *     MiRemovePendingBadPageNode @ 0x14058E7F4 (MiRemovePendingBadPageNode.c)
- *     MiDeleteKernelStackNode @ 0x140590C24 (MiDeleteKernelStackNode.c)
- *     MiDeleteStaleCacheMaps @ 0x1405910C0 (MiDeleteStaleCacheMaps.c)
- *     MiUnlinkSessionList @ 0x140599658 (MiUnlinkSessionList.c)
- *     MiInsertCopyExtents @ 0x14059F6F4 (MiInsertCopyExtents.c)
- *     MiMergeCopyExtents @ 0x14059FC8C (MiMergeCopyExtents.c)
- *     MiCloneVads @ 0x1405B99AC (MiCloneVads.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x1405BA6F0 (MiDeleteDeferredCloneDescriptors.c)
- *     MiActOnPartitionNodePages @ 0x1405BCBC4 (MiActOnPartitionNodePages.c)
- *     MiClearRangeInPartitionTree @ 0x1405BDDAC (MiClearRangeInPartitionTree.c)
- *     MiDeletePartitionPageNodes @ 0x1405BDF64 (MiDeletePartitionPageNodes.c)
- *     MiDeletePartitionResources @ 0x1405BDFF8 (MiDeletePartitionResources.c)
- *     MiFreePartitionTree @ 0x1405BE614 (MiFreePartitionTree.c)
- *     MiInsertPartitionPages @ 0x1405BE81C (MiInsertPartitionPages.c)
- *     MiMergePageNodes @ 0x1405BF028 (MiMergePageNodes.c)
- *     MiPartitionDeleteMemoryNode @ 0x1405BF2A0 (MiPartitionDeleteMemoryNode.c)
- *     MiAllocateLargeZeroPages @ 0x1405C0D40 (MiAllocateLargeZeroPages.c)
- *     MiReplaceSystemProtoPtesNode @ 0x1405C350C (MiReplaceSystemProtoPtesNode.c)
- *     PsAdjustBasicEnclaveThreadList @ 0x1405E2E00 (PsAdjustBasicEnclaveThreadList.c)
- *     MiProcessCrcList @ 0x1406F2C30 (MiProcessCrcList.c)
- *     MiSectionDelete @ 0x1406FC070 (MiSectionDelete.c)
- *     MiRemoveSharedCommitNode @ 0x1406FC2F0 (MiRemoveSharedCommitNode.c)
- *     ExpWnfDeleteNameInstance @ 0x140791CAC (ExpWnfDeleteNameInstance.c)
- *     MiDeleteFileExtentList @ 0x140970668 (MiDeleteFileExtentList.c)
- *     MiDeleteHotPatchRecord @ 0x140972E78 (MiDeleteHotPatchRecord.c)
- *     MiInsertHotPatchRecord @ 0x140973D6C (MiInsertHotPatchRecord.c)
- *     MiInsertSecureImageActivePatch @ 0x140973EA4 (MiInsertSecureImageActivePatch.c)
- *     MiUnloadHotPatch @ 0x140977B70 (MiUnloadHotPatch.c)
- *     MiUnloadHotPatchForUserSid @ 0x140977CBC (MiUnloadHotPatchForUserSid.c)
- *     MiRemoveUserPhysicalPagesView @ 0x14097D5F0 (MiRemoveUserPhysicalPagesView.c)
- *     MiHotAddPartitionMemory @ 0x140981BB0 (MiHotAddPartitionMemory.c)
- *     PspProcessDynamicEHContinuationTargets @ 0x1409ADDA4 (PspProcessDynamicEHContinuationTargets.c)
- *     PsCallEnclave @ 0x1409B35D0 (PsCallEnclave.c)
- *     RtlRemoveDynamicEnforcedAddressRange @ 0x1409BFEC8 (RtlRemoveDynamicEnforcedAddressRange.c)
- *     MiInitializeDriverPtes @ 0x140B1A80C (MiInitializeDriverPtes.c)
+ *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
+ *     MiZeroPage @ 0x140233310 (MiZeroPage.c)
+ *     MiDeleteStaleCacheMaps @ 0x140271BD0 (MiDeleteStaleCacheMaps.c)
+ *     MiDereferenceIoPages @ 0x140297968 (MiDereferenceIoPages.c)
+ *     MiRemoveUnmappedIoNode @ 0x140297F50 (MiRemoveUnmappedIoNode.c)
+ *     MiRemoveFaultNode @ 0x1402C71BC (MiRemoveFaultNode.c)
+ *     MiUpdatePerSessionProto @ 0x1402CF0B8 (MiUpdatePerSessionProto.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x1402F8260 (MiUpdateSystemProtoPtesTree.c)
+ *     MiRemoveFromSystemSpace @ 0x140304E4C (MiRemoveFromSystemSpace.c)
+ *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
+ *     MiCombiningInProgress @ 0x140366CB8 (MiCombiningInProgress.c)
+ *     MiFreeCombineBlock @ 0x14036B730 (MiFreeCombineBlock.c)
+ *     MiProcessLoaderEntry @ 0x140372360 (MiProcessLoaderEntry.c)
+ *     MiRemoveMappingNode @ 0x14037A5F0 (MiRemoveMappingNode.c)
+ *     MiSessionRemoveImage @ 0x14038AFF8 (MiSessionRemoveImage.c)
+ *     MmManageFaultRange @ 0x14039DB08 (MmManageFaultRange.c)
+ *     MiUpdatePageFileList @ 0x1403BFAAC (MiUpdatePageFileList.c)
+ *     MiMakeEntireHugePfnGood @ 0x1403F394C (MiMakeEntireHugePfnGood.c)
+ *     MiMarkHugePfnGood @ 0x1403F3DA8 (MiMarkHugePfnGood.c)
+ *     MiFreeMdlTracker @ 0x140530B30 (MiFreeMdlTracker.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x140531398 (MmUpdateMdlTrackerForMdlSwitch.c)
+ *     MiHotRemoveHugeRange @ 0x140532CF8 (MiHotRemoveHugeRange.c)
+ *     MiReleasePartitionHugeIoSpace @ 0x140533888 (MiReleasePartitionHugeIoSpace.c)
+ *     MiDeleteKernelStackNode @ 0x140535E6C (MiDeleteKernelStackNode.c)
+ *     MiMakeIoRangePermanent @ 0x140536BB8 (MiMakeIoRangePermanent.c)
+ *     MiUnlinkSessionList @ 0x14053E120 (MiUnlinkSessionList.c)
+ *     MiRemoveVad @ 0x1405555C0 (MiRemoveVad.c)
+ *     MiReplaceSystemProtoPtesNode @ 0x140557EB0 (MiReplaceSystemProtoPtesNode.c)
+ *     MiCloneVads @ 0x140559328 (MiCloneVads.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x14055A0C0 (MiDeleteDeferredCloneDescriptors.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
+ *     MiActOnPartitionNodePages @ 0x1405608A0 (MiActOnPartitionNodePages.c)
+ *     MiClearRangeInPartitionTree @ 0x140561770 (MiClearRangeInPartitionTree.c)
+ *     MiDeletePartitionResources @ 0x140561918 (MiDeletePartitionResources.c)
+ *     MiFreePartitionTree @ 0x14056233C (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x140562540 (MiInsertPartitionPages.c)
+ *     PsAdjustBasicEnclaveThreadList @ 0x1405843D4 (PsAdjustBasicEnclaveThreadList.c)
+ *     RtlRemoveDynamicEnforcedAddressRange @ 0x1405CFF24 (RtlRemoveDynamicEnforcedAddressRange.c)
+ *     ExpWnfDeleteNameInstance @ 0x140610DD0 (ExpWnfDeleteNameInstance.c)
+ *     MiSectionDelete @ 0x1406EAB00 (MiSectionDelete.c)
+ *     MiRemoveSharedCommitNode @ 0x1406EB4E0 (MiRemoveSharedCommitNode.c)
+ *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
+ *     MiDeleteHotPatchRecord @ 0x1408C99FC (MiDeleteHotPatchRecord.c)
+ *     MiInsertHotPatchRecord @ 0x1408CA9A0 (MiInsertHotPatchRecord.c)
+ *     MiInsertSecureImageActivePatch @ 0x1408CAAF4 (MiInsertSecureImageActivePatch.c)
+ *     MiUnloadHotPatch @ 0x1408CE7C8 (MiUnloadHotPatch.c)
+ *     MiUnloadHotPatchForUserSid @ 0x1408CE914 (MiUnloadHotPatchForUserSid.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1408CF2A4 (MiAllocateEntireImageFileExtents.c)
+ *     MiDeleteImageExtentList @ 0x1408D0010 (MiDeleteImageExtentList.c)
+ *     MiRemoveUserPhysicalPagesView @ 0x1408D644C (MiRemoveUserPhysicalPagesView.c)
+ *     MiHotAddPartitionMemory @ 0x1408DB27C (MiHotAddPartitionMemory.c)
+ *     PspProcessDynamicEHContinuationTargets @ 0x140907D04 (PspProcessDynamicEHContinuationTargets.c)
+ *     PsCallEnclave @ 0x14090D1D0 (PsCallEnclave.c)
+ *     MiInitializeDriverPtes @ 0x140A66EF8 (MiInitializeDriverPtes.c)
  * Callees:
- *     RtlpTreeDoubleRotateNodes @ 0x14034FD50 (RtlpTreeDoubleRotateNodes.c)
+ *     RtlpTreeDoubleRotateNodes @ 0x140318450 (RtlpTreeDoubleRotateNodes.c)
  */
 
 char __fastcall RtlAvlRemoveNode(unsigned __int64 *a1, unsigned __int64 *a2)
@@ -87,11 +86,11 @@ char __fastcall RtlAvlRemoveNode(unsigned __int64 *a1, unsigned __int64 *a2)
   _QWORD *v26; // r11
   unsigned __int64 v27; // rcx
   __int64 v28; // rcx
-  _QWORD *v29; // rax
-  __int64 v30; // rax
-  __int64 v31; // rdi
-  char v32; // r9
-  unsigned __int8 v33; // cl
+  __int64 v29; // rax
+  _QWORD *v30; // rax
+  char v31; // r9
+  unsigned __int8 v32; // cl
+  __int64 v33; // rdi
 
   v2 = *a2;
   v4 = a2[1];
@@ -107,7 +106,7 @@ char __fastcall RtlAvlRemoveNode(unsigned __int64 *a1, unsigned __int64 *a2)
     if ( v5 )
     {
       if ( *(unsigned __int64 **)(v5 + 16) != a2 )
-        goto LABEL_76;
+        goto LABEL_77;
       *(_QWORD *)(v5 + 16) = v8;
     }
     if ( v8 )
@@ -116,13 +115,13 @@ char __fastcall RtlAvlRemoveNode(unsigned __int64 *a1, unsigned __int64 *a2)
       {
         v9 = 3;
         *(_QWORD *)(v8 + 8) = v5;
-        goto LABEL_16;
+        goto LABEL_14;
       }
       if ( *(unsigned __int64 **)v8 == a2 )
       {
         v9 = 1;
         *(_QWORD *)v8 = v5;
-        goto LABEL_16;
+        goto LABEL_14;
       }
     }
     else if ( (unsigned __int64 *)*a1 == a2 )
@@ -130,25 +129,25 @@ char __fastcall RtlAvlRemoveNode(unsigned __int64 *a1, unsigned __int64 *a2)
       *a1 = v5;
       return v7;
     }
-LABEL_76:
+LABEL_77:
     __fastfail(0x1Du);
   }
   if ( (a2[2] & 3) == 3 )
   {
-    v29 = *(_QWORD **)(v2 + 8);
+    v30 = *(_QWORD **)(v2 + 8);
     v18 = 0;
     v17 = *a2;
     v8 = *a2;
-    if ( v29 )
+    if ( v30 )
     {
       v18 = 1;
       do
       {
         v8 = v17;
-        v17 = (unsigned __int64)v29;
-        v29 = (_QWORD *)v29[1];
+        v17 = (unsigned __int64)v30;
+        v30 = (_QWORD *)v30[1];
       }
-      while ( v29 );
+      while ( v30 );
     }
     v19 = *(_QWORD *)v17;
   }
@@ -175,19 +174,19 @@ LABEL_76:
   *(_QWORD *)(v17 + 8) = v4;
   v20 = *(_QWORD *)(v2 + 16);
   if ( (unsigned __int64 *)(v20 & 0xFFFFFFFFFFFFFFFCuLL) != a2 )
-    goto LABEL_76;
+    goto LABEL_77;
   *(_QWORD *)(v2 + 16) = v17 | v20 & 3;
   v21 = *(_QWORD *)(v4 + 16);
   if ( (unsigned __int64 *)(v21 & 0xFFFFFFFFFFFFFFFCuLL) != a2 )
-    goto LABEL_76;
+    goto LABEL_77;
   *(_QWORD *)(v4 + 16) = v17 | v21 & 3;
   if ( (*(_QWORD *)(v17 + 16) & 0xFFFFFFFFFFFFFFFCuLL) != v8 )
-    goto LABEL_76;
+    goto LABEL_77;
   *(_QWORD *)(v8 + 8LL * v18) = v19;
   if ( v19 )
   {
     if ( *(_QWORD *)(v19 + 16) != v17 )
-      goto LABEL_76;
+      goto LABEL_77;
     *(_QWORD *)(v19 + 16) = v8;
   }
   *(_QWORD *)(v17 + 16) = a2[2];
@@ -200,19 +199,19 @@ LABEL_76:
     if ( (unsigned __int64 *)*a1 == a2 )
     {
       *a1 = v17;
-      goto LABEL_16;
+      goto LABEL_14;
     }
-    goto LABEL_76;
+    goto LABEL_77;
   }
-  v30 = 0LL;
+  v29 = 0LL;
   if ( *(unsigned __int64 **)(v22 + 8) == a2 )
-    v30 = 8LL;
-  if ( *(unsigned __int64 **)(v30 + v22) != a2 )
-    goto LABEL_76;
-  *(_QWORD *)(v30 + v22) = v17;
+    v29 = 8LL;
+  if ( *(unsigned __int64 **)(v29 + v22) != a2 )
+    goto LABEL_77;
+  *(_QWORD *)(v29 + v22) = v17;
   while ( 1 )
   {
-LABEL_16:
+LABEL_14:
     v10 = *(_BYTE *)(v8 + 16);
     v11 = (_BYTE *)(v8 + 16);
     v12 = v10 & 3;
@@ -239,10 +238,10 @@ LABEL_16:
     v7 = RtlpTreeDoubleRotateNodes(a1, v8, v23, v9 == 1);
     *v11 &= 0xFCu;
     v8 = v7;
-    v32 = *(_BYTE *)(v23 + 16) & 0xFC;
-    *(_BYTE *)(v23 + 16) = v32;
-    v33 = *(_BYTE *)(v7 + 16);
-    LODWORD(v7) = v33 & 3;
+    v31 = *(_BYTE *)(v23 + 16) & 0xFC;
+    *(_BYTE *)(v23 + 16) = v31;
+    v32 = *(_BYTE *)(v7 + 16);
+    LODWORD(v7) = v32 & 3;
     if ( v12 == (_DWORD)v7 )
     {
       LOBYTE(v7) = (v12 ^ *v11 ^ 0xFE) & 3;
@@ -251,8 +250,8 @@ LABEL_16:
     }
     else
     {
-      if ( v12 == ((v33 ^ 0xFE) & 3) )
-        *(_BYTE *)(v23 + 16) = v12 | v32;
+      if ( v12 == ((v32 ^ 0xFE) & 3) )
+        *(_BYTE *)(v23 + 16) = v12 | v31;
       *(_BYTE *)(v8 + 16) &= 0xFCu;
     }
 LABEL_20:
@@ -266,13 +265,13 @@ LABEL_20:
       v9 = 1;
   }
   if ( (*(_QWORD *)(v23 + 16) & 0xFFFFFFFFFFFFFFFCuLL) != v8 )
-    goto LABEL_76;
+    goto LABEL_77;
   v25 = 0LL;
   if ( v9 == 1 )
     v25 = 8LL;
   v26 = (_QWORD *)(v25 + v8);
   if ( *(_QWORD *)(v25 + v8) != v23 )
-    goto LABEL_76;
+    goto LABEL_77;
   v27 = v13 & 0xFFFFFFFFFFFFFFFCuLL;
   if ( (v13 & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
   {
@@ -283,14 +282,14 @@ LABEL_20:
     else
     {
       if ( *(_QWORD *)v27 != v8 )
-        goto LABEL_76;
+        goto LABEL_77;
       *(_QWORD *)v27 = v23;
     }
   }
   else
   {
     if ( *a1 != v8 )
-      goto LABEL_76;
+      goto LABEL_77;
     *a1 = v23;
   }
   *(_QWORD *)(v23 + 16) = v27 | *(_DWORD *)(v23 + 16) & 3;
@@ -300,10 +299,10 @@ LABEL_20:
   v28 = *(_QWORD *)(v7 + v23);
   if ( v28 )
   {
-    v31 = *(_QWORD *)(v28 + 16);
-    if ( (v31 & 0xFFFFFFFFFFFFFFFCuLL) != v23 )
-      goto LABEL_76;
-    *(_QWORD *)(v28 + 16) = v8 | v31 & 3;
+    v33 = *(_QWORD *)(v28 + 16);
+    if ( (v33 & 0xFFFFFFFFFFFFFFFCuLL) != v23 )
+      goto LABEL_77;
+    *(_QWORD *)(v28 + 16) = v8 | v33 & 3;
   }
   *v26 = v28;
   *(_QWORD *)(v7 + v23) = v8;

@@ -1,90 +1,84 @@
 /*
- * XREFs of ?CreateUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C0075D40
+ * XREFs of ?CreateUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C00A6200
  * Callers:
  *     <none>
  * Callees:
- *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C0075888 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
- *     ?PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z @ 0x1C00760C4 (-PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C00A658C (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     ?PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z @ 0x1C00A6694 (-PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall QueryGlyphMetricsPlusBitsRequest::CreateUsermodeParameters(
         QueryGlyphMetricsPlusBitsRequest *this,
-        UmfdUMBuffer **a2,
+        struct UmfdTls *a2,
         void **a3)
 {
-  unsigned int v6; // esi
-  unsigned int v7; // r14d
-  __int64 v8; // r13
-  unsigned int v9; // eax
-  unsigned int v10; // edx
-  unsigned int v11; // ecx
-  int v12; // eax
-  bool v13; // r8
-  unsigned int v14; // eax
-  unsigned int v15; // eax
-  char *v16; // rax
-  _QWORD *v17; // rdi
-  struct _FONTOBJ *v18; // r8
-  char *v19; // rax
+  __int64 v5; // rsi
+  unsigned int v6; // r15d
+  __int64 v7; // r12
+  unsigned int v8; // eax
+  __int64 v9; // r14
+  unsigned int v10; // ecx
+  char v11; // al
+  unsigned int v12; // eax
+  char *v13; // rax
+  _QWORD *v14; // rdi
 
+  v5 = 0LL;
   v6 = 0;
-  v7 = 0;
-  v8 = *(_QWORD *)(*((_QWORD *)this + 7) + 72LL);
-  v9 = *((_DWORD *)this + 20);
-  if ( v9 + 7 < v9 )
+  v7 = *(_QWORD *)(*((_QWORD *)this + 7) + 72LL);
+  v8 = *((_DWORD *)this + 20);
+  if ( v8 + 7 < v8 )
+    return 3221225495LL;
+  v9 = (v8 + 7) & 0xFFFFFFF8;
+  v10 = v7 != 0 ? 0x14 : 0;
+  if ( v10 + 7 < v10 )
   {
-    v13 = 0;
+    v11 = 0;
   }
   else
   {
-    v6 = (v9 + 7) & 0xFFFFFFF8;
-    v10 = v8 != 0 ? 0x14 : 0;
-    v11 = v10 + 7;
-    v12 = -1;
-    if ( v10 + 7 >= v10 )
-      v12 = v10 + 7;
-    v13 = v11 >= v10;
-    v14 = v12 & 0xFFFFFFF8;
-    if ( v11 >= v10 )
-      v7 = v14;
+    v6 = (v10 + 7) & 0xFFFFFFF8;
+    v11 = 1;
   }
+  if ( !v11 )
+    return 3221225495LL;
+  if ( v6 + (unsigned int)v9 < (unsigned int)v9 )
+    return 3221225495LL;
+  if ( v6 + (unsigned int)v9 + 64 < 0x40 )
+    return 3221225495LL;
+  v12 = v6 + v9 + 144;
+  if ( v12 < 0x50 )
+    return 3221225495LL;
+  if ( v12 >= 0xFFFFFFD0 )
+    return 3221225495LL;
+  v13 = (char *)UmfdTls::CommitUMBuffer(a2, v6 + (unsigned int)v9 + 192, 1);
+  v14 = v13;
   if ( !v13 )
     return 3221225495LL;
-  if ( v7 + v6 < v6 )
-    return 3221225495LL;
-  if ( v7 + v6 + 64 < 0x40 )
-    return 3221225495LL;
-  v15 = v7 + v6 + 144;
-  if ( v15 < 0x50 )
-    return 3221225495LL;
-  if ( v15 >= 0xFFFFFFD0 )
-    return 3221225495LL;
-  v16 = (char *)UmfdTls::CommitUMBuffer(a2, v7 + v6 + 192, 1);
-  v17 = v16;
-  if ( !v16 )
-    return 3221225495LL;
-  v18 = (struct _FONTOBJ *)(v16 + 48);
-  *((_QWORD *)this + 13) = v16 + 48;
-  v19 = v16 + 128;
-  *((_QWORD *)this + 14) = v19;
-  v19 += 64;
-  *((_QWORD *)this + 15) = v19;
-  *((_QWORD *)this + 16) = &v19[v6];
-  FontDriverDdiRequest::PrepareUsermodeFontObj((struct UmfdTls *)a2, *((struct _FONTOBJ **)this + 7), v18);
+  *((_QWORD *)this + 13) = v13 + 48;
+  *((_QWORD *)this + 14) = v13 + 128;
+  *((_QWORD *)this + 15) = v13 + 192;
+  *((_QWORD *)this + 16) = &v13[v9 + 192];
+  FontDriverDdiRequest::PrepareUsermodeFontObj(a2, *((struct _FONTOBJ **)this + 7), *((struct _FONTOBJ **)this + 13));
   *(_DWORD *)(*((_QWORD *)this + 13) + 64LL) = *(_DWORD *)(*((_QWORD *)this + 7) + 64LL);
-  if ( v8 )
-    memmove(*((void **)this + 16), *(const void **)(*((_QWORD *)this + 7) + 72LL), v7);
+  if ( v7 )
+  {
+    memmove(*((void **)this + 16), *(const void **)(*((_QWORD *)this + 7) + 72LL), v6);
+    v5 = *((_QWORD *)this + 16);
+  }
   else
+  {
     *((_QWORD *)this + 16) = 0LL;
-  *(_QWORD *)(*((_QWORD *)this + 13) + 72LL) = *((_QWORD *)this + 16);
-  v17[2] = *((_QWORD *)this + 13);
-  *v17 = *((_QWORD *)this + 5);
-  *((_DWORD *)v17 + 2) = *((_DWORD *)this + 12);
-  *((_DWORD *)v17 + 3) = *((_DWORD *)this + 13);
-  v17[3] = *((_QWORD *)this + 14);
-  v17[4] = *((_QWORD *)this + 15);
-  *((_DWORD *)v17 + 10) = *((_DWORD *)this + 20);
-  *a3 = v17;
+  }
+  *(_QWORD *)(*((_QWORD *)this + 13) + 72LL) = v5;
+  v14[2] = *((_QWORD *)this + 13);
+  *v14 = *((_QWORD *)this + 5);
+  *((_DWORD *)v14 + 2) = *((_DWORD *)this + 12);
+  *((_DWORD *)v14 + 3) = *((_DWORD *)this + 13);
+  v14[3] = *((_QWORD *)this + 14);
+  v14[4] = *((_QWORD *)this + 15);
+  *((_DWORD *)v14 + 10) = *((_DWORD *)this + 20);
+  *a3 = v14;
   return 0LL;
 }

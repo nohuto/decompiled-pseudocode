@@ -1,52 +1,66 @@
 /*
- * XREFs of NtUserDisableThreadIme @ 0x1C00A3140
+ * XREFs of NtUserDisableThreadIme @ 0x1C0125FD0
  * Callers:
  *     <none>
  * Callees:
- *     ?UserDisableImeForProcess@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C00A31DC (-UserDisableImeForProcess@@YAXPEAUtagPROCESSINFO@@@Z.c)
- *     ?UserDisableImeForThread@@YAXPEAUtagTHREADINFO@@_N@Z @ 0x1C00A3214 (-UserDisableImeForThread@@YAXPEAUtagTHREADINFO@@_N@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FBD0 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     xxxDestroyWindow @ 0x1C007DC00 (xxxDestroyWindow.c)
  */
 
 __int64 __fastcall NtUserDisableThreadIme(unsigned int a1)
 {
-  __int64 v2; // rdx
-  struct tagTHREADINFO *v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v6; // rbx
-  bool v8; // dl
+  __int64 v2; // r8
+  unsigned __int64 v3; // rcx
+  __int64 v4; // rbx
+  __int64 i; // rdi
+  unsigned __int64 *v7; // rax
+  unsigned __int64 *v8; // rax
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( (*gpsi & 4) == 0 )
   {
-    UserSetLastError(120LL);
-    v6 = 0LL;
+    UserSetLastError(120LL, gpsi, v2);
+    v4 = 0LL;
     goto LABEL_3;
   }
+  v4 = 0LL;
   if ( a1 == -1 )
   {
-    UserDisableImeForProcess(*(struct tagPROCESSINFO **)(gptiCurrent + 424LL));
-LABEL_6:
-    v6 = 1LL;
+    *(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) |= 0x800000u;
+    for ( i = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 320LL); i; i = *(_QWORD *)(i + 664) )
+    {
+      *(_DWORD *)(i + 488) |= 0x2000000u;
+      if ( i != gptiCurrent )
+      {
+        v7 = *(unsigned __int64 **)(i + 784);
+        if ( v7 )
+          PostEventMessageEx((struct tagTHREADINFO *)i, *(struct tagQ **)(i + 432), 8u, 0LL, 0, *v7, 0LL, 0LL);
+      }
+    }
+LABEL_11:
+    v3 = *(_QWORD *)(gptiCurrent + 784LL);
+    if ( v3 )
+      xxxDestroyWindow(v3);
+LABEL_13:
+    v4 = 1LL;
     goto LABEL_3;
   }
-  v6 = 0LL;
   if ( !a1 )
   {
-    v8 = 1;
-    v3 = (struct tagTHREADINFO *)gptiCurrent;
-LABEL_9:
-    UserDisableImeForThread(v3, v8);
-    goto LABEL_6;
+    *(_DWORD *)(gptiCurrent + 488LL) |= 0x2000000u;
+    goto LABEL_11;
   }
-  v3 = (struct tagTHREADINFO *)PtiFromThreadId(a1);
-  if ( v3 && *((_QWORD *)v3 + 53) == *(_QWORD *)(gptiCurrent + 424LL) )
+  v3 = PtiFromThreadId(a1);
+  if ( v3 && *(_QWORD *)(v3 + 424) == *(_QWORD *)(gptiCurrent + 424LL) )
   {
-    v8 = v3 == (struct tagTHREADINFO *)gptiCurrent;
-    goto LABEL_9;
+    *(_DWORD *)(v3 + 488) |= 0x2000000u;
+    v8 = *(unsigned __int64 **)(v3 + 784);
+    if ( v8 )
+      PostEventMessageEx((struct tagTHREADINFO *)v3, *(struct tagQ **)(v3 + 432), 8u, 0LL, 0, *v8, 0LL, 0LL);
+    goto LABEL_13;
   }
 LABEL_3:
-  UserSessionSwitchLeaveCrit(v3, v2, v4, v5);
-  return v6;
+  UserSessionSwitchLeaveCrit(v3);
+  return v4;
 }

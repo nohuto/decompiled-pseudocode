@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFreeRegistration @ 0x1406E1508
+ * XREFs of PopFreeRegistration @ 0x1406E14E8
  * Callers:
  *     PopDispatchNotificationsToList @ 0x140588518 (PopDispatchNotificationsToList.c)
- *     PopFreeSessionState @ 0x1406E1458 (PopFreeSessionState.c)
+ *     PopFreeSessionState @ 0x1406E1438 (PopFreeSessionState.c)
  * Callees:
- *     ZwDeleteWnfStateName @ 0x1401B9BD0 (ZwDeleteWnfStateName.c)
+ *     ZwDeleteWnfStateName @ 0x1401B9BF0 (ZwDeleteWnfStateName.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

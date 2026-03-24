@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAllocateSfioStreamIdentifier @ 0x1405573D0
+ * XREFs of IoAllocateSfioStreamIdentifier @ 0x1405058B0
  * Callers:
  *     <none>
  * Callees:
- *     IopGetSetStreamIdentifier @ 0x14055802C (IopGetSetStreamIdentifier.c)
+ *     IopGetSetStreamIdentifier @ 0x140506824 (IopGetSetStreamIdentifier.c)
  */
 
 NTSTATUS __stdcall IoAllocateSfioStreamIdentifier(

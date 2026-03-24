@@ -1,80 +1,104 @@
 /*
- * XREFs of ?TrimCheckCandidatesList@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x1801DE580
+ * XREFs of ?TrimCheckCandidatesList@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18017CA8C
  * Callers:
- *     ?ComputeOverlayConfigurationForAdapter@COverlayContext@@CAJAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@@Z @ 0x180052DE0 (-ComputeOverlayConfigurationForAdapter@COverlayContext@@CAJAEBV-$span@PEAVCOverlayContext@@$0-0@.c)
+ *     ?ComputeOverlayConfiguration@COverlayContext@@SAJAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@@Z @ 0x18006D330 (-ComputeOverlayConfiguration@COverlayContext@@SAJAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x1800FACC0 (-GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@.c)
- *     ?DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@_N@Z @ 0x1800FAD18 (-DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV-$span@PEAVOverlayPlaneInfo@COverlayCont.c)
- *     ??$?0$0?0V?$vector_facade@U_LUID@@V?$buffer_impl@U_LUID@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@$0A@@?$span@U_LUID@@$0?0@gsl@@QEAA@AEAV?$vector_facade@U_LUID@@V?$buffer_impl@U_LUID@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x180103B70 (--$-0$0-0V-$vector_facade@U_LUID@@V-$buffer_impl@U_LUID@@$01$00Vliberal_expansion_policy@detail@.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?clear_region@?$vector_facade@PEAVIMonitorTarget@@V?$buffer_impl@PEAVIMonitorTarget@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18012E360 (-clear_region@-$vector_facade@PEAVIMonitorTarget@@V-$buffer_impl@PEAVIMonitorTarget@@$01$00Vlibe.c)
- *     ?erase@?$vector_facade@PEAVCOverlayContext@@V?$buffer_impl@PEAVCOverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@PEAVCOverlayContext@@@2@V?$basic_iterator@QEAVCOverlayContext@@@2@@Z @ 0x18012FD84 (-erase@-$vector_facade@PEAVCOverlayContext@@V-$buffer_impl@PEAVCOverlayContext@@$0BA@$00Vliberal.c)
- *     ?FindLowestPriorityOverlayCandidateIndex@COverlayContext@@CAHAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@@Z @ 0x1801DD6B0 (-FindLowestPriorityOverlayCandidateIndex@COverlayContext@@CAHAEBV-$span@PEAVOverlayPlaneInfo@COv.c)
+ *     ?RemoveUnbackedSurfaces@COverlayContext@@CAXPEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18002FD34 (-RemoveUnbackedSurfaces@COverlayContext@@CAXPEAV-$vector_facade@PEAVOverlayPlaneInfo@COverlayCon.c)
+ *     ?GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18002FD6C (-GetContextCandidates@COverlayContext@@CAXPEAV1@AEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@.c)
+ *     ?DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@_N@Z @ 0x180030064 (-DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV-$span@PEAVOverlayPlaneInfo@COverlayCont.c)
+ *     ??$?0V?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@X@?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@QEAA@AEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x180042FA8 (--$-0V-$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V-$buffer_impl@PEAVOverlayPlaneInfo@.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?clear_region@?$vector_facade@PEAVCDesktopTree@@V?$buffer_impl@PEAVCDesktopTree@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180155E6C (-clear_region@-$vector_facade@PEAVCDesktopTree@@V-$buffer_impl@PEAVCDesktopTree@@$00$00Vliberal_.c)
+ *     ?FindLowestPriorityOverlayCandidateIndex@COverlayContext@@CAHAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@@Z @ 0x18017BD84 (-FindLowestPriorityOverlayCandidateIndex@COverlayContext@@CAHAEBV-$span@PEAVOverlayPlaneInfo@COv.c)
+ *     ?erase@?$vector_facade@PEAVCOverlayContext@@V?$buffer_impl@PEAVCOverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@PEAVCOverlayContext@@@2@V?$basic_iterator@QEAVCOverlayContext@@@2@@Z @ 0x18017D05C (-erase@-$vector_facade@PEAVCOverlayContext@@V-$buffer_impl@PEAVCOverlayContext@@$0BA@$00Vliberal.c)
  */
 
-char __fastcall COverlayContext::TrimCheckCandidatesList(_QWORD *a1, __int64 *a2)
+char __fastcall COverlayContext::TrimCheckCandidatesList(_QWORD *a1, __int64 a2)
 {
   char v2; // di
   __int64 *v5; // rcx
   __int64 *v6; // rdx
   __int64 v7; // rax
-  COverlayContext **v8; // r15
-  char v9; // si
-  COverlayContext **i; // r12
-  COverlayContext *v11; // r13
-  char v12; // bl
-  _BYTE *v13; // rcx
-  __int64 v14; // r8
-  _QWORD v16[2]; // [rsp+20h] [rbp-99h] BYREF
-  _QWORD v17[2]; // [rsp+30h] [rbp-89h] BYREF
-  _BYTE *v18; // [rsp+40h] [rbp-79h] BYREF
-  _BYTE *v19; // [rsp+48h] [rbp-71h]
-  __int64 *v20; // [rsp+50h] [rbp-69h]
-  _BYTE v21[128]; // [rsp+58h] [rbp-61h] BYREF
-  __int64 v22; // [rsp+D8h] [rbp+1Fh] BYREF
+  COverlayContext **v8; // r12
+  char v9; // r14
+  __int64 v10; // r13
+  __int64 v11; // r15
+  COverlayContext *v12; // rbx
+  char v13; // r8
+  COverlayContext *v14; // rbx
+  gsl::details *v15; // rcx
+  __int64 v16; // r8
+  COverlayContext *v18; // [rsp+20h] [rbp-A9h] BYREF
+  __int64 v19[2]; // [rsp+28h] [rbp-A1h] BYREF
+  __int64 v20[2]; // [rsp+38h] [rbp-91h] BYREF
+  gsl::details *v21; // [rsp+48h] [rbp-81h] BYREF
+  _BYTE *v22; // [rsp+50h] [rbp-79h]
+  __int64 *v23; // [rsp+58h] [rbp-71h]
+  _BYTE v24[128]; // [rsp+60h] [rbp-69h] BYREF
+  __int64 v25; // [rsp+E0h] [rbp+17h] BYREF
 
   v2 = 0;
-  if ( ((a2[1] - *a2) & 0xFFFFFFFFFFFFFFF8uLL) != 0 )
+  if ( ((*(_QWORD *)(a2 + 8) - *(_QWORD *)a2) & 0xFFFFFFFFFFFFFFF8uLL) != 0 )
   {
-    gsl::span<_LUID,-1>::span<_LUID,-1>((gsl::details *)v16, a2);
-    v17[0] = *a2 + 8LL * (int)COverlayContext::FindLowestPriorityOverlayCandidateIndex((gsl::details *)v16);
+    gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::span<COverlayContext::OverlayPlaneInfo *,-1>(
+      v19,
+      (gsl::details **)a2);
+    v18 = (COverlayContext *)(*(_QWORD *)a2
+                            + 8LL
+                            * (int)COverlayContext::FindLowestPriorityOverlayCandidateIndex((unsigned __int64 *)v19));
     detail::vector_facade<COverlayContext *,detail::buffer_impl<COverlayContext *,16,1,detail::liberal_expansion_policy>>::erase(
       a2,
-      v16,
-      v17);
+      v19,
+      &v18);
+    COverlayContext::RemoveUnbackedSurfaces((__int64 **)a2);
 LABEL_10:
     v8 = (COverlayContext **)a1[1];
     v9 = 0;
-    for ( i = &v8[*a1]; v8 != i; ++v8 )
+    v10 = 0LL;
+    v11 = *a1 & 0x1FFFFFFFFFFFFFFFLL;
+    if ( v8 > &v8[*a1] )
+      v11 = 0LL;
+    if ( v11 )
     {
-      v11 = *v8;
-      v18 = v21;
-      v19 = v21;
-      v20 = &v22;
-      gsl::span<_LUID,-1>::span<_LUID,-1>((gsl::details *)v16, a2);
-      COverlayContext::GetContextCandidates((__int64)v11, (__int64)v16, &v18);
-      v12 = *((_BYTE *)v11 + 11328);
-      gsl::span<_LUID,-1>::span<_LUID,-1>((gsl::details *)v17, (__int64 *)&v18);
-      COverlayContext::DeriveDesktopPlaneAttributes(v11, v17, v12);
-      if ( *((_BYTE *)v11 + 11024) && *((_BYTE *)v11 + 11025) )
-        v9 = 1;
-      v13 = v18;
-      v14 = (v19 - v18) >> 3;
-      if ( v14 )
+      do
       {
-        detail::vector_facade<IMonitorTarget *,detail::buffer_impl<IMonitorTarget *,2,1,detail::liberal_expansion_policy>>::clear_region(
-          (__int64 *)&v18,
-          0LL,
-          v14);
-        v13 = v18;
+        v12 = *v8;
+        v21 = (gsl::details *)v24;
+        v18 = v12;
+        v22 = v24;
+        v23 = &v25;
+        gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::span<COverlayContext::OverlayPlaneInfo *,-1>(
+          v19,
+          (gsl::details **)a2);
+        COverlayContext::GetContextCandidates((__int64)v12, v19, &v21);
+        LOBYTE(v12) = *((_BYTE *)v12 + 11450);
+        gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::span<COverlayContext::OverlayPlaneInfo *,-1>(v20, &v21);
+        v13 = (char)v12;
+        v14 = v18;
+        COverlayContext::DeriveDesktopPlaneAttributes(v18, v20, v13);
+        if ( *((_BYTE *)v14 + 11032) && *((_BYTE *)v14 + 11033) )
+          v9 = 1;
+        v15 = v21;
+        v16 = (v22 - (_BYTE *)v21) >> 3;
+        if ( v16 )
+        {
+          detail::vector_facade<CDesktopTree *,detail::buffer_impl<CDesktopTree *,1,1,detail::liberal_expansion_policy>>::clear_region(
+            (__int64 *)&v21,
+            0LL,
+            v16);
+          v15 = v21;
+        }
+        v21 = 0LL;
+        if ( v15 == (gsl::details *)v24 )
+          v15 = 0LL;
+        operator delete(v15);
+        ++v8;
+        ++v10;
       }
-      v18 = 0LL;
-      if ( v13 == v21 )
-        v13 = 0LL;
-      operator delete(v13);
+      while ( v10 != v11 );
     }
-    if ( ((a2[1] - *a2) & 0xFFFFFFFFFFFFFFF8uLL) != 0 || v9 )
+    if ( ((*(_QWORD *)(a2 + 8) - *(_QWORD *)a2) & 0xFFFFFFFFFFFFFFF8uLL) != 0 || v9 )
       return 1;
   }
   else
@@ -84,9 +108,9 @@ LABEL_10:
     while ( v5 != v6 )
     {
       v7 = *v5;
-      if ( *(_BYTE *)(*v5 + 11024) && *(_BYTE *)(v7 + 11025) )
+      if ( *(_BYTE *)(*v5 + 11032) && *(_BYTE *)(v7 + 11033) )
       {
-        *(_BYTE *)(v7 + 11328) = 0;
+        *(_BYTE *)(v7 + 11450) = 0;
         goto LABEL_10;
       }
       ++v5;

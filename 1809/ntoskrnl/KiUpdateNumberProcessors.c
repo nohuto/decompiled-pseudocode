@@ -3,8 +3,8 @@
  * Callers:
  *     KiInitializeDynamicProcessorDpc @ 0x14057B260 (KiInitializeDynamicProcessorDpc.c)
  * Callees:
- *     KeIpiGenericCall @ 0x140175910 (KeIpiGenericCall.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeIpiGenericCall @ 0x140175930 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 ULONG_PTR __fastcall KiUpdateNumberProcessors(int a1)

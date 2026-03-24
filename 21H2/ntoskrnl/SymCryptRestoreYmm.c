@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptRestoreYmm @ 0x14056AF68
+ * XREFs of SymCryptRestoreYmm @ 0x1403C924C
  * Callers:
- *     SymCryptParallelSha256Process @ 0x1403FD830 (SymCryptParallelSha256Process.c)
+ *     SymCryptParallelSha256Process @ 0x1403EF0D4 (SymCryptParallelSha256Process.c)
  * Callees:
- *     SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater @ 0x1403FB28C (SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater @ 0x1403EC0EC (SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater.c)
  */
 
-void __fastcall SymCryptRestoreYmm(struct _XSTATE_SAVE *a1)
+__int64 SymCryptRestoreYmm()
 {
-  SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater(a1);
+  return SymCryptRestoreYmmEnvWindowsKernelmodeWin8_1nLater();
 }

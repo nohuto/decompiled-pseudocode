@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     MiWriteWsle @ 0x1400DB178 (MiWriteWsle.c)
+ *     MiWriteWsle @ 0x1400DB198 (MiWriteWsle.c)
  */
 
 __int64 __fastcall MiCreatePteWsle(__int64 a1, _BYTE *a2, int a3)

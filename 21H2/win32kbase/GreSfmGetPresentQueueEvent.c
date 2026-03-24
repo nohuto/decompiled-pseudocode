@@ -1,9 +1,9 @@
 /*
- * XREFs of GreSfmGetPresentQueueEvent @ 0x1C01755E0
+ * XREFs of GreSfmGetPresentQueueEvent @ 0x1C0148DA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GreSfmGetPresentQueueEvent(__int64 a1, void **a2)
@@ -14,7 +14,7 @@ __int64 __fastcall GreSfmGetPresentQueueEvent(__int64 a1, void **a2)
 
   Object = 0LL;
   Handle = 0LL;
-  v3 = ((__int64 (__fastcall *)(__int64, PVOID *))qword_1C0296728)(a1, &Object);
+  v3 = ((__int64 (__fastcall *)(__int64, PVOID *))qword_1C0251938)(a1, &Object);
   if ( v3 >= 0 )
   {
     v3 = ObOpenObjectByPointer(Object, 0x80u, 0LL, 0x100000u, (POBJECT_TYPE)ExEventObjectType, 1, &Handle);

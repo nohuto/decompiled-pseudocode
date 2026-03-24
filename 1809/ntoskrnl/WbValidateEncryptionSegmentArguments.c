@@ -3,8 +3,8 @@
  * Callers:
  *     WbGetInitializedEncryptionSegment @ 0x140583F8C (WbGetInitializedEncryptionSegment.c)
  * Callees:
- *     ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4E4C (-wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeatureProperty.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4E6C (-wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeatureProperty.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     WbAlloc @ 0x140624D14 (WbAlloc.c)
  */
@@ -89,7 +89,7 @@ __int64 __fastcall WbValidateEncryptionSegmentArguments(__int64 a1, unsigned int
   {
     g_wil_details_pfnFeatureLoggingHook(
       0xE67B5Au,
-      (const struct FEATURE_LOGGED_TRAITS *)&unk_14035B838,
+      (const struct FEATURE_LOGGED_TRAITS *)&unk_14035B948,
       0LL,
       0,
       (const enum wil_ReportingKind *)&v16,

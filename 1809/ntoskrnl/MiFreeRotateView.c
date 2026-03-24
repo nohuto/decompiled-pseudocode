@@ -1,5 +1,5 @@
 /*
- * XREFs of MiFreeRotateView @ 0x14084F2B4
+ * XREFs of MiFreeRotateView @ 0x14084F294
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)

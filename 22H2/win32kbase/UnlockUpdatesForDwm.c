@@ -1,5 +1,5 @@
 /*
- * XREFs of UnlockUpdatesForDwm @ 0x1C00C5750
+ * XREFs of UnlockUpdatesForDwm @ 0x1C00B87F0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void UnlockUpdatesForDwm()
 {
-  LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceRoutine) = 0;
+  g_bLockUpdatesForDwm = 0;
 }

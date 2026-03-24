@@ -1,20 +1,19 @@
 /*
- * XREFs of IoGetAttachedDeviceReferenceWithTag @ 0x1402D30A0
+ * XREFs of IoGetAttachedDeviceReferenceWithTag @ 0x140362020
  * Callers:
- *     PopAllocateIrp @ 0x1403A3F0C (PopAllocateIrp.c)
- *     PnpAsynchronousCall @ 0x14074C5A8 (PnpAsynchronousCall.c)
- *     PnpQueryInterface @ 0x14074C6C0 (PnpQueryInterface.c)
- *     IopSynchronousCall @ 0x14074CA9C (IopSynchronousCall.c)
- *     PipCallDriverAddDevice @ 0x1407743C8 (PipCallDriverAddDevice.c)
- *     PiControlGetDeviceStack @ 0x1407F1CDC (PiControlGetDeviceStack.c)
- *     PopFxRegisterDevice @ 0x1408236BC (PopFxRegisterDevice.c)
- *     IopEjectDevice @ 0x1409585A4 (IopEjectDevice.c)
- *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x14098C04C (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
+ *     PopAllocateIrp @ 0x14036DF40 (PopAllocateIrp.c)
+ *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
+ *     PiControlGetDeviceStack @ 0x14072FB64 (PiControlGetDeviceStack.c)
+ *     PipCallDriverAddDevice @ 0x140741988 (PipCallDriverAddDevice.c)
+ *     PnpQueryInterface @ 0x140765D84 (PnpQueryInterface.c)
+ *     PnpAsynchronousCall @ 0x14076910C (PnpAsynchronousCall.c)
+ *     PopFxRegisterDevice @ 0x1407B578C (PopFxRegisterDevice.c)
+ *     IopEjectDevice @ 0x1408B29C0 (IopEjectDevice.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     IoGetAttachedDevice @ 0x1402A78F0 (IoGetAttachedDevice.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     IoGetAttachedDevice @ 0x140353740 (IoGetAttachedDevice.c)
  */
 
 PDEVICE_OBJECT __fastcall IoGetAttachedDeviceReferenceWithTag(PDEVICE_OBJECT DeviceObject, ULONG Tag)

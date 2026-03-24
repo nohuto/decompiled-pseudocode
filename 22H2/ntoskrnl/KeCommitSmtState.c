@@ -1,38 +1,42 @@
 /*
- * XREFs of KeCommitSmtState @ 0x1403B2944
+ * XREFs of KeCommitSmtState @ 0x1403CD23C
  * Callers:
- *     CmpAcceptBoot @ 0x1407E9258 (CmpAcceptBoot.c)
+ *     CmpAcceptBoot @ 0x14078D470 (CmpAcceptBoot.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
  */
 
 int KeCommitSmtState()
 {
   int result; // eax
   int v1; // ecx
-  int Data; // [rsp+30h] [rbp-29h] BYREF
-  HANDLE KeyHandle; // [rsp+38h] [rbp-21h] BYREF
-  ULONG ResultLength; // [rsp+40h] [rbp-19h] BYREF
-  UNICODE_STRING ValueName; // [rsp+48h] [rbp-11h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-1h] BYREF
-  __int128 KeyValueInformation; // [rsp+88h] [rbp+2Fh] BYREF
-  int v8; // [rsp+98h] [rbp+3Fh]
+  int Data; // [rsp+30h] [rbp-39h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-31h] BYREF
+  ULONG ResultLength; // [rsp+40h] [rbp-29h] BYREF
+  UNICODE_STRING ValueName; // [rsp+48h] [rbp-21h] BYREF
+  _QWORD v6[2]; // [rsp+58h] [rbp-11h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-1h] BYREF
+  __int128 KeyValueInformation; // [rsp+98h] [rbp+2Fh] BYREF
+  int v9; // [rsp+A8h] [rbp+3Fh]
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
-  ObjectAttributes.RootDirectory = 0LL;
   ResultLength = 0;
   Data = 0;
-  v8 = 0;
+  ObjectAttributes.RootDirectory = 0LL;
+  v9 = 0;
+  v6[1] = L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management";
   ValueName.Buffer = L"FeatureSettings";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  ObjectAttributes.ObjectName = &CmRegistryMachineSystemCurrentControlSetControlSessionManagerMemoryManagement;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v6;
   KeyValueInformation = 0LL;
+  v6[0] = 11141288LL;
   *(_QWORD *)&ValueName.Length = 2097182LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   result = ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes);
   if ( result < 0 )
@@ -54,7 +58,7 @@ int KeCommitSmtState()
       goto LABEL_7;
     v1 = HIDWORD(KeyValueInformation);
   }
-  Data = v1 ^ (KiFeatureSettings ^ v1) & 0x1C0000;
+  Data = v1 ^ (v1 ^ KiFeatureSettings) & 0x1C0000;
   result = ZwSetValueKey(KeyHandle, &ValueName, 0, 4u, &Data, 4u);
 LABEL_7:
   if ( KeyHandle )

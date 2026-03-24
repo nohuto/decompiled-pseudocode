@@ -1,26 +1,19 @@
 /*
- * XREFs of NtUserGetKeyNameText @ 0x1C00AF290
+ * XREFs of NtUserGetKeyNameText @ 0x1C01204D0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetKeyNameText(__int64 a1, volatile void *a2, __int64 a3)
+__int64 __fastcall NtUserGetKeyNameText(unsigned int a1, volatile void *a2, unsigned int a3)
 {
-  unsigned int v3; // ebx
-  unsigned int v5; // esi
   unsigned int KeyNameText; // ebx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
+  __int64 v7; // rcx
 
-  v3 = a3;
-  v5 = a1;
-  EnterSharedCrit(a1, a2, a3);
-  ProbeForWrite(a2, 2LL * v3, 2u);
-  KeyNameText = _GetKeyNameText(v5, a2, v3);
-  UserSessionSwitchLeaveCrit(v8, v7, v9, v10);
+  EnterSharedCrit(0LL, 1LL);
+  ProbeForWrite(a2, 2LL * a3, 2u);
+  KeyNameText = _GetKeyNameText(a1, a2, a3);
+  UserSessionSwitchLeaveCrit(v7);
   return KeyNameText;
 }

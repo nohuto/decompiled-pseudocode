@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmEventTraceMakeupPerfCheck @ 0x1402E689C
+ * XREFs of PpmEventTraceMakeupPerfCheck @ 0x1402E699C
  * Callers:
- *     PpmCheckMakeupSkippedChecks @ 0x1400A5420 (PpmCheckMakeupSkippedChecks.c)
+ *     PpmCheckMakeupSkippedChecks @ 0x1400A5440 (PpmCheckMakeupSkippedChecks.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
  */
 
 void PpmEventTraceMakeupPerfCheck()

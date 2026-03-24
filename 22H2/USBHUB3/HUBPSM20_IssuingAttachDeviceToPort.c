@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_IssuingAttachDeviceToPort @ 0x1C0011F60
+ * XREFs of HUBPSM20_IssuingAttachDeviceToPort @ 0x1C0010B40
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_AttachDevice @ 0x1C0030FE4 (HUBMISC_AttachDevice.c)
+ *     HUBMISC_AttachDevice @ 0x1C002DE1C (HUBMISC_AttachDevice.c)
  */
 
 __int64 __fastcall HUBPSM20_IssuingAttachDeviceToPort(__int64 a1)

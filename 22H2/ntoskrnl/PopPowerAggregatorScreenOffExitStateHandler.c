@@ -1,35 +1,58 @@
 /*
- * XREFs of PopPowerAggregatorScreenOffExitStateHandler @ 0x140993F50
+ * XREFs of PopPowerAggregatorScreenOffExitStateHandler @ 0x1408EE9F0
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874ED8 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140776C08 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x1408781A4 (PopPowerAggregatorEnterScreenOff.c)
- *     PopPowerAggregatorSetCurrentState @ 0x1408782B8 (PopPowerAggregatorSetCurrentState.c)
- *     PopPdcAreAllPhasesDisengaged @ 0x140883E68 (PopPdcAreAllPhasesDisengaged.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776AA8 (PopPowerAggregatorSetCurrentState.c)
+ *     PdcPoPerfOverride @ 0x1408EF958 (PdcPoPerfOverride.c)
+ *     PopPdcAreAllPhasesDisengaged @ 0x1408EFE28 (PopPdcAreAllPhasesDisengaged.c)
+ *     PopPdcDisengagePhases @ 0x1408F0070 (PopPdcDisengagePhases.c)
  */
 
 __int64 __fastcall PopPowerAggregatorScreenOffExitStateHandler(__int64 a1)
 {
-  char v2; // bl
-  _OWORD v4[2]; // [rsp+20h] [rbp-28h] BYREF
+  int v1; // eax
+  char v3; // bl
+  _OWORD v5[2]; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( *(_QWORD *)(a1 + 64) == *(_QWORD *)(a1 + 32) )
+  v1 = *(_DWORD *)(a1 + 88);
+  if ( !v1 )
+    goto LABEL_7;
+  if ( v1 == 1 )
   {
-    PopReleaseRwLock(&PopPowerAggregatorLock);
-    v2 = PopPdcAreAllPhasesDisengaged();
-    PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
-    if ( v2 )
-    {
-      memset(v4, 0, sizeof(v4));
-      LODWORD(v4[0]) = 3;
-      PopPowerAggregatorSetCurrentState(a1, (__int64)v4);
-    }
+LABEL_10:
+    memset(v5, 0, sizeof(v5));
+    LODWORD(v5[0]) = 3;
+    PopPowerAggregatorSetCurrentState(a1, (__int64)v5);
+    return 0LL;
   }
-  else
+  if ( v1 > 1 )
   {
-    PopPowerAggregatorEnterScreenOff(a1);
+    if ( v1 > 3 )
+    {
+      if ( v1 != 4 )
+        return 0LL;
+LABEL_8:
+      PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
+      PopPdcDisengagePhases();
+      v3 = PopPdcAreAllPhasesDisengaged();
+      PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
+      if ( v3 )
+      {
+        *(_DWORD *)(a1 + 88) = 1;
+        goto LABEL_10;
+      }
+      return 0LL;
+    }
+LABEL_7:
+    PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
+    PdcPoPerfOverride();
+    PopPdcDisengagePhases();
+    PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
+    *(_DWORD *)(a1 + 88) = 4;
+    goto LABEL_8;
   }
   return 0LL;
 }

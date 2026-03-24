@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionWorkerStart @ 0x1408857AC
+ * XREFs of TtmiLogSessionWorkerStart @ 0x14088578C
  * Callers:
- *     TtmpSessionWorker @ 0x1408810E0 (TtmpSessionWorker.c)
+ *     TtmpSessionWorker @ 0x1408810C0 (TtmpSessionWorker.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionWorkerStart()
@@ -25,7 +25,7 @@ void TtmiLogSessionWorkerStart()
       v3 = &v1;
       v1 = v0;
       v4 = 4;
-      TlgWrite(&stru_14096D820, &unk_140372A33, 0LL, 0LL, 3u, &pData);
+      TlgWrite(&stru_14096D820, &unk_1403729E3, 0LL, 0LL, 3u, &pData);
     }
   }
 }

@@ -1,22 +1,25 @@
 /*
- * XREFs of TtmpCloseTerminalHandle @ 0x1409AB810
+ * XREFs of TtmpCloseTerminalHandle @ 0x1408FDE40
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     TtmiLogTerminalHandleClosed @ 0x1409AA574 (TtmiLogTerminalHandleClosed.c)
- *     TtmpSetTerminalPendingCleanup @ 0x1409ABAE0 (TtmpSetTerminalPendingCleanup.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PsGetProcessId @ 0x1403446B0 (PsGetProcessId.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x1408FE110 (TtmpSetTerminalPendingCleanup.c)
+ *     TtmiLogTerminalHandleClosed @ 0x140904AF8 (TtmiLogTerminalHandleClosed.c)
  */
 
-void __fastcall TtmpCloseTerminalHandle(PEPROCESS Process, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall TtmpCloseTerminalHandle(PEPROCESS Process, __int64 a2, __int64 a3, __int64 a4)
 {
-  int v6; // ebp
+  unsigned int v5; // r14d
+  unsigned int v8; // ebp
   struct _KTHREAD *CurrentThread; // rax
+  HANDLE ProcessId; // rax
 
-  v6 = **(_DWORD **)(a2 + 16);
+  v5 = *(_DWORD *)(a2 + 28);
+  v8 = **(_DWORD **)(a2 + 16);
   if ( a4 == 1 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -26,6 +29,6 @@ void __fastcall TtmpCloseTerminalHandle(PEPROCESS Process, __int64 a2, __int64 a
     ExReleaseResourceLite(&TtmpSessionLock);
     KeLeaveCriticalRegion();
   }
-  PsGetProcessId(Process);
-  TtmiLogTerminalHandleClosed(v6);
+  ProcessId = PsGetProcessId(Process);
+  return TtmiLogTerminalHandleClosed(v8, v5, ProcessId, a4);
 }

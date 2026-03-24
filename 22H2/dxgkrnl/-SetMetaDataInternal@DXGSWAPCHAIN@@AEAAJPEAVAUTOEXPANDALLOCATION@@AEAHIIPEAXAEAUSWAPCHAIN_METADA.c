@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@AEAHIIPEAXAEAUSWAPCHAIN_METADATA_ETW_INFO@1@D@Z @ 0x1C035A048
+ * XREFs of ?SetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@AEAHIIPEAXAEAUSWAPCHAIN_METADATA_ETW_INFO@1@D@Z @ 0x1C02ACC74
  * Callers:
- *     ?GetSetMetaData@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@IPEAXD@Z @ 0x1C03582C8 (-GetSetMetaData@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@IPEAXD@Z.c)
- *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z @ 0x1C03596D4 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z.c)
+ *     ?GetSetMetaData@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@IPEAXD@Z @ 0x1C02AB304 (-GetSetMetaData@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@IPEAXD@Z.c)
+ *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C02AC574 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C01E93B0 (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
- *     ?MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z @ 0x1C03589E4 (-MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z.c)
+ *     ?RtlUIntAdd@@YAJIIPEAI@Z @ 0x1C0008E50 (-RtlUIntAdd@@YAJIIPEAI@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C016D17C (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
+ *     ?MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z @ 0x1C02AB9C8 (-MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z.c)
  */
 
 __int64 __fastcall DXGSWAPCHAIN::SetMetaDataInternal(
@@ -16,143 +16,114 @@ __int64 __fastcall DXGSWAPCHAIN::SetMetaDataInternal(
         struct AUTOEXPANDALLOCATION *a2,
         int *a3,
         unsigned int a4,
-        size_t Size,
+        size_t a5,
         char *Src,
         struct DXGSWAPCHAIN::SWAPCHAIN_METADATA_ETW_INFO *a7,
         char a8)
 {
-  __int64 v8; // r12
-  struct AUTOEXPANDALLOCATION *v9; // r9
-  __int64 CurrentProcess; // rax
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 v15; // rbx
-  __int64 v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rax
+  __int64 v8; // r15
+  __int64 v12; // rax
+  __int64 v13; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r9
   __int64 v19; // rdx
-  __int64 v20; // r8
-  unsigned int v21; // eax
-  __int64 v22; // rax
+  __int64 v20; // rcx
+  __int64 v21; // rbx
+  __int64 v22; // rdx
   __int64 v23; // rcx
-  __int64 v24; // rax
-  __int64 v25; // rdx
-  __int64 v26; // r8
-  unsigned int v27; // ebx
+  __int64 v24; // r8
+  __int64 v25; // r9
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  unsigned int v28; // edi
+  _QWORD *v29; // rbx
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // r8
+  __int64 v33; // r9
+  __int64 v34; // rdx
+  __int64 v35; // r8
+  unsigned int v36; // ebx
   char *Buffer; // rax
-  char *v29; // rsi
-  char *v30; // rsi
-  size_t v31; // rbx
-  int *v33; // [rsp+A0h] [rbp+18h]
+  __int64 v38; // rdx
+  __int64 v39; // rcx
+  __int64 v40; // r8
+  __int64 v41; // r9
+  char *v42; // rbx
+  __int64 v43; // rax
+  char *v44; // rbx
+  size_t v45; // rdi
+  size_t Size[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  v33 = a3;
   v8 = a4;
-  v9 = a2;
-  if ( this[3] != KeGetCurrentThread() )
+  if ( this[2] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 3291LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_SwapChainLock.IsOwner()", 3291LL, 0LL, 0LL, 0LL, 0LL);
-    a3 = v33;
-    v9 = a2;
+    v12 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v12 + 24) = 3226LL;
+    WdLogEvent5_WdAssertion(v12);
   }
-  if ( !(_DWORD)Size )
+  if ( !(_DWORD)a5 )
   {
-    CurrentProcess = PsGetCurrentProcess(this);
-    WdLogSingleEntry1(2LL, CurrentProcess);
-    v13 = PsGetCurrentProcess(v12);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"SetMetaDataInternal caller (0x%I64x) passed in buffer size of zero",
-      v13,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v13 + 24) = PsGetCurrentProcess(v15, v14, v16, v17);
+    WdLogEvent5_WdError(v13);
     return 3221225485LL;
   }
-  if ( (int)v8 + (int)Size < (unsigned int)v8 )
+  LODWORD(Size[0]) = 0;
+  if ( (int)RtlUIntAdd(v8, a5, (unsigned int *)Size) < 0 )
   {
-    v16 = PsGetCurrentProcess(this);
-    WdLogSingleEntry1(2LL, v16);
-    v18 = PsGetCurrentProcess(v17);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"SetMetaDataInternal caller (0x%I64x) overflow when calc used size",
-      v18,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    DXGSWAPCHAIN::MarkAbandoned(this, v19, v20);
+    v21 = WdLogNewEntry5_WdError(v20, v19);
+    *(_QWORD *)(v21 + 24) = PsGetCurrentProcess(v23, v22, v24, v25);
+    WdLogEvent5_WdError(v21);
+    DXGSWAPCHAIN::MarkAbandoned(this, v26, v27);
     return 3221225485LL;
   }
-  v15 = (unsigned int)(v8 + Size);
-  v21 = *((_DWORD *)v9 + 2);
-  if ( (unsigned int)v15 <= v21 )
-    v15 = v21;
-  if ( (unsigned int)v15 > 0x2000 )
+  v28 = *((_DWORD *)a2 + 2);
+  if ( LODWORD(Size[0]) > v28 )
+    v28 = Size[0];
+  if ( v28 > 0x2000 )
   {
-    v22 = PsGetCurrentProcess(this);
-    WdLogSingleEntry3(2LL, v22, (unsigned int)v15, 0x2000LL);
-    v24 = PsGetCurrentProcess(v23);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"SetMetaDataInternal caller (0x%I64x) provided metadata of size 0x%I64x which is bigger than max 0x%I64x",
-      v24,
-      v15,
-      0x2000LL,
-      0LL,
-      0LL);
-    v27 = -1073741811;
-LABEL_15:
-    DXGSWAPCHAIN::MarkAbandoned(this, v25, v26);
-    return v27;
+    v29 = (_QWORD *)WdLogNewEntry5_WdError(v20, v19);
+    v29[3] = PsGetCurrentProcess(v31, v30, v32, v33);
+    v29[4] = v28;
+    v29[5] = 0x2000LL;
+    WdLogEvent5_WdError(v29);
+    v36 = -1073741811;
+LABEL_14:
+    DXGSWAPCHAIN::MarkAbandoned(this, v34, v35);
+    return v36;
   }
-  Buffer = (char *)AUTOEXPANDALLOCATION::GetBuffer((const void **)v9, v15, *a3);
-  v29 = Buffer;
+  Buffer = (char *)AUTOEXPANDALLOCATION::GetBuffer(a2, v28, *a3);
+  v42 = Buffer;
   if ( !Buffer )
   {
-    WdLogSingleEntry1(6LL, v15);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to expand metadata buffer size to 0x%lx",
-      v15,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v27 = -1073741801;
-    goto LABEL_15;
+    v43 = WdLogNewEntry5_WdLowResource(v39, v38, v40, v41);
+    *(_QWORD *)(v43 + 24) = v28;
+    WdLogEvent5_WdLowResource(v43);
+    v36 = -1073741801;
+    goto LABEL_14;
   }
-  if ( !*v33 && (_DWORD)v8 )
-    memset(Buffer, 0, (unsigned int)v15);
-  v30 = &v29[v8];
+  if ( !*a3 && (_DWORD)v8 )
+    memset(Buffer, 0, v28);
+  v44 = &v42[v8];
   if ( a8 == 1 )
   {
-    v31 = (unsigned int)Size;
-    if ( &Src[(unsigned int)Size] < Src || (unsigned __int64)&Src[(unsigned int)Size] > MmUserProbeAddress )
+    v45 = (unsigned int)a5;
+    if ( &Src[(unsigned int)a5] < Src || (unsigned __int64)&Src[(unsigned int)a5] > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(v30, Src, (unsigned int)Size);
+    memmove(v44, Src, (unsigned int)a5);
   }
   else
   {
-    v31 = (unsigned int)Size;
-    memmove(v30, Src, (unsigned int)Size);
+    v45 = (unsigned int)a5;
+    memmove(v44, Src, (unsigned int)a5);
   }
-  *v33 = 1;
-  *((_DWORD *)a7 + 5) = Size;
-  *((_QWORD *)a7 + 1) = a2;
-  *((_DWORD *)a7 + 4) = v8;
-  if ( (unsigned int)Size > 0x10 )
-    v31 = 16LL;
-  memmove((char *)a7 + 24, v30, v31);
+  *a3 = 1;
+  *((_DWORD *)a7 + 2) = a5;
+  if ( (unsigned int)a5 > 0x10 )
+    v45 = 16LL;
+  memmove((char *)a7 + 12, v44, v45);
   return 0LL;
 }

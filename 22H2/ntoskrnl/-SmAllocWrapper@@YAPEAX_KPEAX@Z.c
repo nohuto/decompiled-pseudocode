@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x1403B655C
+ * XREFs of ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x14032D0C0
  * Callers:
- *     SmpKeyedStoreEntryGet @ 0x1403445F4 (SmpKeyedStoreEntryGet.c)
+ *     SmpKeyedStoreEntryGet @ 0x140264198 (SmpKeyedStoreEntryGet.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SmAllocWrapper(__int64 a1, unsigned int *a2)
+PVOID __fastcall SmAllocWrapper(SIZE_T NumberOfBytes, ULONG *a2)
 {
-  return ExAllocatePool2(64LL, a1, *a2);
+  return ExAllocatePoolWithTag(NonPagedPoolNx, NumberOfBytes, *a2);
 }

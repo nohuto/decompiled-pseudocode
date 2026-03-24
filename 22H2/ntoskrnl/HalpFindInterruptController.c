@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpFindInterruptController @ 0x1403B3D7C
+ * XREFs of HalpFindInterruptController @ 0x1403B0574
  * Callers:
- *     HalpInterruptSelectController @ 0x1403B3CF8 (HalpInterruptSelectController.c)
+ *     HalpInterruptSelectController @ 0x1403B04F0 (HalpInterruptSelectController.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ ULONG_PTR *__fastcall HalpFindInterruptController(int a1)
     {
       result = v1;
       v1 = (ULONG_PTR *)*v1;
-      if ( !a1 || *((_DWORD *)result + 60) == a1 )
+      if ( !a1 || *((_DWORD *)result + 54) == a1 )
         return result;
     }
   }

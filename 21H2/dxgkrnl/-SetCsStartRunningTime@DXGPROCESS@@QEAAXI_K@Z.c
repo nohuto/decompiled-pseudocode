@@ -1,38 +1,22 @@
 /*
- * XREFs of ?SetCsStartRunningTime@DXGPROCESS@@QEAAXI_K@Z @ 0x1C0057BE8
+ * XREFs of ?SetCsStartRunningTime@DXGPROCESS@@QEAAXI_K@Z @ 0x1C0048BB4
  * Callers:
- *     ?ApplyCsFunctionAdapterCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0334D90 (-ApplyCsFunctionAdapterCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ?ApplyCsFunctionAdapterCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0284180 (-ApplyCsFunctionAdapterCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-void __fastcall DXGPROCESS::SetCsStartRunningTime(DXGPROCESS *this, unsigned int a2, __int64 a3)
+void __fastcall DXGPROCESS::SetCsStartRunningTime(DXGPROCESS *this, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx
-  int v6; // edx
-  int v7; // r8d
+  __int64 v6; // rax
 
-  v3 = a2;
-  if ( a2 >= 6 )
+  v3 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= 6 )
   {
-    WdLogSingleEntry1(1LL, 1096LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          0,
-          v6,
-          v7,
-          0LL,
-          2,
-          -1,
-          L"adapterOrdinal < DripsBlockerMaxAdapters",
-          1096LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 1183LL;
+    WdLogEvent5_WdAssertion(v6);
   }
   *(_QWORD *)(*((_QWORD *)this + 9) + 8 * v3) = a3;
 }

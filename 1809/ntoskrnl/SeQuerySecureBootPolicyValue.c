@@ -1,11 +1,11 @@
 /*
- * XREFs of SeQuerySecureBootPolicyValue @ 0x1407641C0
+ * XREFs of SeQuerySecureBootPolicyValue @ 0x1407641A0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     SepSecureBootFindMatchingRegistryRule @ 0x1408A3318 (SepSecureBootFindMatchingRegistryRule.c)
- *     SepSecureBootGetPolicyValueByRef @ 0x1408A3440 (SepSecureBootGetPolicyValueByRef.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     SepSecureBootFindMatchingRegistryRule @ 0x1408A32F8 (SepSecureBootFindMatchingRegistryRule.c)
+ *     SepSecureBootGetPolicyValueByRef @ 0x1408A3420 (SepSecureBootGetPolicyValueByRef.c)
  */
 
 __int64 __fastcall SeQuerySecureBootPolicyValue(
@@ -22,13 +22,13 @@ __int64 __fastcall SeQuerySecureBootPolicyValue(
   size_t Size; // [rsp+20h] [rbp-18h] BYREF
   void *Src; // [rsp+28h] [rbp-10h] BYREF
 
-  if ( qword_1404DC690 )
+  if ( qword_1404DC688 )
   {
     MatchingRegistryRule = SepSecureBootFindMatchingRegistryRule(a1, a1, a2);
     if ( MatchingRegistryRule )
     {
       PolicyValueByRef = SepSecureBootGetPolicyValueByRef(
-                           qword_1404E1530 + *(unsigned int *)(MatchingRegistryRule + 12),
+                           qword_1404E14E8 + *(unsigned int *)(MatchingRegistryRule + 12),
                            a3,
                            &Src,
                            &Size);

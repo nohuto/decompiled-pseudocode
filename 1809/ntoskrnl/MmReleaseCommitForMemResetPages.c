@@ -1,21 +1,21 @@
 /*
- * XREFs of MmReleaseCommitForMemResetPages @ 0x1402A5484
+ * XREFs of MmReleaseCommitForMemResetPages @ 0x1402A5584
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     KeForceAttachProcess @ 0x14001674C (KeForceAttachProcess.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiPrepareAttachThread @ 0x1400EEA1C (MiPrepareAttachThread.c)
- *     MiAttachThreadDone @ 0x1400EEA7C (MiAttachThreadDone.c)
- *     KeForceDetachProcess @ 0x140127F54 (KeForceDetachProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeRetryOutswapProcess @ 0x14028E544 (KeRetryOutswapProcess.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiPrepareAttachThread @ 0x1400EEA3C (MiPrepareAttachThread.c)
+ *     MiAttachThreadDone @ 0x1400EEA9C (MiAttachThreadDone.c)
+ *     KeForceDetachProcess @ 0x140127F74 (KeForceDetachProcess.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRetryOutswapProcess @ 0x14028E644 (KeRetryOutswapProcess.c)
  */
 
 __int64 __fastcall MmReleaseCommitForMemResetPages(volatile signed __int32 *BugCheckParameter1, int a2)

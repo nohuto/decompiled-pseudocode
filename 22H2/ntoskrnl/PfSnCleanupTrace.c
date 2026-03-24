@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnCleanupTrace @ 0x14074BFD8
+ * XREFs of PfSnCleanupTrace @ 0x14062CEBC
  * Callers:
- *     PfSnEndTrace @ 0x14074AD58 (PfSnEndTrace.c)
- *     PfSnBeginTrace @ 0x14074DEC8 (PfSnBeginTrace.c)
+ *     PfSnEndTrace @ 0x14062CC78 (PfSnEndTrace.c)
+ *     PfSnBeginTrace @ 0x14062E040 (PfSnBeginTrace.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfSnCleanupTrace(__int64 a1)
@@ -15,84 +15,87 @@ void __fastcall PfSnCleanupTrace(__int64 a1)
   __int64 v1; // rbx
   bool v3; // zf
   unsigned __int64 v4; // rcx
-  int v5; // ebp
-  unsigned __int64 v6; // rax
+  char v5; // al
+  int v6; // ebp
   _QWORD *v7; // rdx
-  unsigned __int64 v8; // rdi
-  char v9; // al
-  void *v10; // rcx
-  _QWORD **v11; // rbx
-  _QWORD *v12; // rcx
-  _QWORD *v13; // rax
-  void *v14; // rcx
+  __int64 v8; // rax
+  unsigned __int64 v9; // rdx
+  unsigned __int64 v10; // rsi
+  void *v11; // rcx
+  _QWORD **v12; // rbx
+  _QWORD *v13; // rcx
+  _QWORD *v14; // rax
   void *v15; // rcx
+  void *v16; // rcx
 
   v1 = a1 + 520;
   v3 = (*(_BYTE *)(a1 + 528) & 1) == 0;
   v4 = *(_QWORD *)(a1 + 520);
   if ( !v3 && v4 )
     v4 ^= v1;
-  v5 = *(_BYTE *)(v1 + 8) & 1;
+  v5 = *(_BYTE *)(v1 + 8);
+  v6 = v5 & 1;
   if ( v4 )
   {
     while ( 1 )
     {
-      v6 = *(_QWORD *)v4;
-      if ( *(_QWORD *)v4 )
-        break;
-      v7 = (_QWORD *)(v4 + 8);
-      v6 = *(_QWORD *)(v4 + 8);
-      if ( v6 )
+      while ( 1 )
       {
-LABEL_5:
-        if ( v5 )
-          v4 ^= v6;
-        else
-          v4 = v6;
-        *v7 = 0LL;
-      }
-      else
-      {
-        v8 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( v5 && v8 )
-          v8 ^= v4;
-        CmSiFreeMemory((PPRIVILEGE_SET)v4);
+        while ( *(_QWORD *)v4 )
+        {
+          v7 = (_QWORD *)v4;
+          if ( v6 )
+            v4 ^= *(_QWORD *)v4;
+          else
+            v4 = *(_QWORD *)v4;
+          *v7 = 0LL;
+        }
+        v8 = *(_QWORD *)(v4 + 8);
         if ( !v8 )
-          goto LABEL_13;
-        v4 = v8;
+          break;
+        v9 = v4;
+        if ( v6 )
+          v4 ^= v8;
+        else
+          v4 = *(_QWORD *)(v4 + 8);
+        *(_QWORD *)(v9 + 8) = 0LL;
       }
+      v10 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+      if ( v6 && v10 )
+        v10 ^= v4;
+      CmSiFreeMemory((PPRIVILEGE_SET)v4);
+      if ( !v10 )
+        break;
+      v4 = v10;
     }
-    v7 = (_QWORD *)v4;
-    goto LABEL_5;
+    v5 = *(_BYTE *)(v1 + 8);
   }
-LABEL_13:
-  v9 = *(_BYTE *)(v1 + 8);
   *(_QWORD *)v1 = 0LL;
   *(_QWORD *)(v1 + 8) = 0LL;
-  if ( (v9 & 1) != 0 )
+  if ( (v5 & 1) != 0 )
     *(_BYTE *)(v1 + 8) = 1;
-  v10 = *(void **)(a1 + 584);
-  if ( v10 )
-    ExFreePoolWithTag(v10, 0);
-  v11 = (_QWORD **)(a1 + 104);
+  v11 = *(void **)(a1 + 584);
+  if ( v11 )
+    ExFreePoolWithTag(v11, 0);
+  v12 = (_QWORD **)(a1 + 104);
   while ( 1 )
   {
-    v12 = *v11;
-    if ( *v11 == v11 )
+    v13 = *v12;
+    if ( *v12 == v12 )
       break;
-    if ( (_QWORD **)v12[1] != v11 || (v13 = (_QWORD *)*v12, *(_QWORD **)(*v12 + 8LL) != v12) )
+    if ( (_QWORD **)v13[1] != v12 || (v14 = (_QWORD *)*v13, *(_QWORD **)(*v13 + 8LL) != v13) )
       __fastfail(3u);
-    *v11 = v13;
-    v13[1] = v11;
+    *v12 = v14;
+    v14[1] = v12;
     --*(_DWORD *)(a1 + 120);
-    ExFreePoolWithTag(v12, 0);
+    ExFreePoolWithTag(v13, 0);
   }
-  v14 = *(void **)(a1 + 472);
-  if ( v14 )
-    ExFreePoolWithTag(v14, 0);
-  v15 = *(void **)(a1 + 352);
+  v15 = *(void **)(a1 + 472);
   if ( v15 )
-    ObfDereferenceObjectWithTag(v15, 0x73576650u);
+    ExFreePoolWithTag(v15, 0);
+  v16 = *(void **)(a1 + 352);
+  if ( v16 )
+    ObfDereferenceObjectWithTag(v16, 0x73576650u);
   if ( (*(_BYTE *)(a1 + 486) & 2) != 0 )
-    ExReleaseRundownProtection_0(&stru_140C651D0);
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&stru_140C50400);
 }

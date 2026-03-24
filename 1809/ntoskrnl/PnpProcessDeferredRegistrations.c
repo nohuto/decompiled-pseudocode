@@ -6,7 +6,7 @@
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PnpDereferenceNotify @ 0x1406FF0F8 (PnpDereferenceNotify.c)
+ *     PnpDereferenceNotify @ 0x1406FF0D8 (PnpDereferenceNotify.c)
  */
 
 void PnpProcessDeferredRegistrations()

@@ -1,183 +1,179 @@
 /*
- * XREFs of MiEmptyPteBins @ 0x14021E170
+ * XREFs of MiEmptyPteBins @ 0x14028F900
  * Callers:
- *     MiAdjustPteBins @ 0x14021DD08 (MiAdjustPteBins.c)
- *     MiReservePtes @ 0x14027D070 (MiReservePtes.c)
- *     MiCheckProcessorPteCache @ 0x14027D730 (MiCheckProcessorPteCache.c)
- *     MiInsertCachedPte @ 0x1402CBB10 (MiInsertCachedPte.c)
+ *     MiCheckProcessorPteCache @ 0x140225E50 (MiCheckProcessorPteCache.c)
+ *     MiReservePtes @ 0x140226570 (MiReservePtes.c)
+ *     MiInsertCachedPte @ 0x140245570 (MiInsertCachedPte.c)
+ *     MiAdjustPteBins @ 0x14033B2E8 (MiAdjustPteBins.c)
  * Callees:
- *     MiTbFlushTimeStampMayNeedFlush @ 0x14021E3B4 (MiTbFlushTimeStampMayNeedFlush.c)
- *     MiReleaseSmallPteMappings @ 0x1402CBF20 (MiReleaseSmallPteMappings.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseLargePdeMappings @ 0x14065F844 (MiReleaseLargePdeMappings.c)
+ *     MiReplenishBitMap @ 0x1402DEAF0 (MiReplenishBitMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseLargePteMappings @ 0x140553EFC (MiReleaseLargePteMappings.c)
  */
 
-__int64 __fastcall MiEmptyPteBins(__int64 a1)
+__int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
 {
-  unsigned int v1; // ebp
-  unsigned int v3; // ecx
-  __int64 v4; // rsi
+  __int64 v2; // r8
+  unsigned int v4; // esi
   int v5; // r13d
-  int i; // r12d
-  int v7; // ebx
-  unsigned int j; // edi
-  signed __int64 v9; // rax
-  volatile signed __int64 *v11; // r9
-  __int64 *v12; // r10
-  int v13; // r11d
-  unsigned __int8 CurrentIrql; // r14
-  signed __int64 v15; // rtt
-  unsigned __int8 MayNeedFlush; // al
-  __int64 v17; // r10
-  int v18; // ebp
-  unsigned __int64 v19; // r15
-  _DWORD *SchedulerAssist; // r10
-  __int64 v21; // rdx
-  unsigned __int8 v22; // al
-  struct _KPRCB *v23; // r10
-  _DWORD *v24; // r9
-  int v25; // eax
-  bool v26; // zf
-  unsigned __int8 v27; // cl
-  struct _KPRCB *v28; // r10
-  _DWORD *v29; // r9
-  int v30; // eax
-  unsigned __int8 v31; // cl
+  __int64 v6; // rdi
+  unsigned int v7; // r14d
+  unsigned int v8; // r12d
+  unsigned int i; // ebx
+  volatile signed __int64 *v10; // r10
+  signed __int64 v11; // rax
+  int v13; // ecx
+  unsigned __int8 CurrentIrql; // bp
+  unsigned __int64 v15; // rax
+  int v16; // esi
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int8 v18; // al
+  struct _KPRCB *v19; // r10
+  _DWORD *v20; // r9
+  int v21; // eax
+  bool v22; // zf
+  unsigned __int8 v23; // al
+  struct _KPRCB *v24; // r10
+  _DWORD *v25; // r9
+  int v26; // eax
   struct _KPRCB *CurrentPrcb; // rcx
-  _DWORD *v33; // r8
-  signed __int32 v34[26]; // [rsp+0h] [rbp-68h] BYREF
-  int v36; // [rsp+80h] [rbp+18h]
-  signed __int64 v37; // [rsp+88h] [rbp+20h] BYREF
+  _DWORD *v28; // r8
+  signed __int32 v29[22]; // [rsp+0h] [rbp-58h] BYREF
+  signed __int64 v30; // [rsp+60h] [rbp+8h] BYREF
+  int v31; // [rsp+68h] [rbp+10h]
 
-  v37 = 0LL;
-  v1 = 0;
-  _InterlockedOr(v34, 0);
-  v3 = KiTbFlushTimeStamp;
-  v4 = *(_QWORD *)(a1 + 72);
-  v36 = KiTbFlushTimeStamp;
-  if ( (__int64 *)a1 == &qword_140C69A40 )
+  v31 = a2;
+  v2 = 0LL;
+  v4 = 0;
+  _InterlockedOr(v29, 0);
+  v5 = KiTbFlushTimeStamp;
+  v6 = *(_QWORD *)(a1 + 80);
+  v7 = 0;
+  v8 = 2 * (unsigned __int16)KeNumberNodes;
+  if ( (__int64 *)a1 != &qword_140C4EF40 )
+    v8 = (unsigned __int16)KeNumberNodes;
+  if ( v8 )
   {
-    v5 = 3;
-  }
-  else if ( (*(_DWORD *)(a1 + 24) & 1) != 0 )
-  {
-    v5 = 2;
-  }
-  else
-  {
-    v5 = 1;
-  }
-  for ( i = 0; i < v5; ++i )
-  {
-    v7 = 0;
-    if ( KeNumberNodes )
+    while ( 2 )
     {
-      while ( 2 )
+      for ( i = 0; i < 8; ++i )
       {
-        for ( j = 0; j < 8; ++j )
+        v10 = (volatile signed __int64 *)(v6 + 8LL * i);
+        v11 = *v10;
+        v30 = v11;
+        if ( (_DWORD)v11 )
         {
-          v9 = *(_QWORD *)(v4 + 8LL * j);
-          v37 = v9;
-          if ( (_DWORD)v9 )
+          if ( (unsigned int)(v5 - v11) <= 2 )
           {
-            if ( !(unsigned __int8)MiTbFlushTimeStampMayNeedFlush((unsigned int)v9, v3, 0xFFFFFFFFLL) || v13 )
+            if ( (v11 & 1) != 0 || (v13 = 0, (unsigned int)(v5 - v11) < 2) )
+              v13 = 1;
+          }
+          else
+          {
+            v13 = 0;
+          }
+          if ( v13 != 1 || a2 )
+          {
+            CurrentIrql = KeGetCurrentIrql();
+            __writecr8(2uLL);
+            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
-              CurrentIrql = KeGetCurrentIrql();
-              __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+              SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+              v11 = v30;
+              a2 = v31;
+              SchedulerAssist[5] |= (-1LL << (CurrentIrql + 1)) & 4;
+              v2 = 0LL;
+            }
+            if ( CurrentIrql == 2 && (__int64 *)a1 == &qword_140C4EF40 && v7 >= v8 >> 1 )
+            {
+              if ( KiIrqlFlags )
               {
-                SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-                if ( CurrentIrql == 2 )
-                  LODWORD(v21) = 4;
-                else
-                  v21 = (-1LL << (CurrentIrql + 1)) & 4;
-                SchedulerAssist[5] |= v21;
-                v12 = (__int64 *)a1;
+                if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
+                {
+                  CurrentPrcb = KeGetCurrentPrcb();
+                  v28 = CurrentPrcb->SchedulerAssist;
+                  v22 = (v28[5] & 0xFFFF0007) == 0;
+                  v28[5] &= 0xFFFF0007;
+                  if ( v22 )
+                    KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                }
               }
-              if ( CurrentIrql == 2 && v12 == &qword_140C69A40 && i )
+              __writecr8(2uLL);
+              return v4;
+            }
+            if ( v11 == _InterlockedCompareExchange64(v10, 0LL, v11) )
+            {
+              _InterlockedOr(v29, 0);
+              if ( (unsigned int)(KiTbFlushTimeStamp - v30) <= 2
+                && ((v30 & 1) != 0 || (unsigned int)(KiTbFlushTimeStamp - v30) < 2) )
               {
+                v2 = 1LL;
+              }
+              if ( (__int64 *)a1 == &qword_140C4EF40 && v7 >= v8 >> 1 )
+              {
+                v16 = MiReleaseLargePteMappings(a1, &v30, v2);
                 if ( KiIrqlFlags )
                 {
-                  v31 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v31 - 2) <= 0xDu )
+                  if ( (KiIrqlFlags & 1) != 0 )
                   {
-                    CurrentPrcb = KeGetCurrentPrcb();
-                    v33 = CurrentPrcb->SchedulerAssist;
-                    v26 = (v33[5] & 0xFFFF0007) == 0;
-                    v33[5] &= 0xFFFF0007;
-                    if ( v26 )
-                      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-                  }
-                }
-                __writecr8(2uLL);
-                return v1;
-              }
-              v15 = v37;
-              if ( v15 == _InterlockedCompareExchange64(v11, 0LL, v37) )
-              {
-                _InterlockedOr(v34, 0);
-                MayNeedFlush = MiTbFlushTimeStampMayNeedFlush(
-                                 (unsigned int)v37,
-                                 (unsigned int)KiTbFlushTimeStamp,
-                                 0xFFFFFFFFLL);
-                if ( i == 2 )
-                {
-                  v18 = MiReleaseLargePdeMappings(v17, &v37, MayNeedFlush);
-                  if ( KiIrqlFlags )
-                  {
-                    v22 = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
+                    v18 = KeGetCurrentIrql();
+                    if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
                     {
-                      v23 = KeGetCurrentPrcb();
-                      v24 = v23->SchedulerAssist;
-                      v25 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                      v26 = (v25 & v24[5]) == 0;
-                      v24[5] &= v25;
-                      if ( v26 )
-                        KiRemoveSystemWorkPriorityKick(v23);
+                      v19 = KeGetCurrentPrcb();
+                      v20 = v19->SchedulerAssist;
+                      v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                      v22 = (v21 & v20[5]) == 0;
+                      v20[5] &= v21;
+                      if ( v22 )
+                        KiRemoveSystemWorkPriorityKick(v19);
                     }
                   }
-                  v19 = CurrentIrql;
-                  __writecr8(CurrentIrql);
                 }
-                else
-                {
-                  v18 = MiReleaseSmallPteMappings(v17, (unsigned int)i, HIDWORD(v37), MayNeedFlush);
-                  v19 = CurrentIrql;
-                }
-                _InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 64), -v18);
-                v1 = 1;
+                __writecr8(CurrentIrql);
               }
               else
               {
-                --j;
-                v19 = CurrentIrql;
+                v15 = MiReplenishBitMap(a1, HIDWORD(v30), v2);
+                v16 = v15;
+                _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 88), v15);
               }
-              if ( KiIrqlFlags )
+              _InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 64), -v16);
+              a2 = v31;
+              v4 = 1;
+              v2 = 0LL;
+            }
+            else
+            {
+              --i;
+            }
+            if ( KiIrqlFlags )
+            {
+              if ( (KiIrqlFlags & 1) != 0 )
               {
-                v27 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+                v23 = KeGetCurrentIrql();
+                if ( v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
                 {
-                  v28 = KeGetCurrentPrcb();
-                  v29 = v28->SchedulerAssist;
-                  v30 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                  v26 = (v30 & v29[5]) == 0;
-                  v29[5] &= v30;
-                  if ( v26 )
-                    KiRemoveSystemWorkPriorityKick(v28);
+                  v24 = KeGetCurrentPrcb();
+                  v25 = v24->SchedulerAssist;
+                  v26 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                  v22 = (v26 & v25[5]) == 0;
+                  v25[5] &= v26;
+                  if ( v22 )
+                    KiRemoveSystemWorkPriorityKick(v24);
+                  a2 = v31;
+                  v2 = 0LL;
                 }
               }
-              __writecr8(v19);
             }
-            v3 = v36;
+            __writecr8(CurrentIrql);
           }
         }
-        v4 += 72LL;
-        if ( ++v7 < (unsigned int)(unsigned __int16)KeNumberNodes )
-          continue;
-        break;
       }
+      v6 += 72LL;
+      if ( ++v7 < v8 )
+        continue;
+      break;
     }
   }
-  return v1;
+  return v4;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?bSrcCopySRLE8D16@@YAHPEAUBLTINFO@@@Z @ 0x1C02EDA90
+ * XREFs of ?bSrcCopySRLE8D16@@YAHPEAUBLTINFO@@@Z @ 0x1C02CB870
  * Callers:
  *     <none>
  * Callees:

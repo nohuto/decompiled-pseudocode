@@ -1,16 +1,15 @@
 /*
- * XREFs of ?CombineNewMetaData@DDAMetaData@@QEAAHPEAU_D3DKMT_PRESENT_RGNS@@PEAT_LARGE_INTEGER@@HPEAH@Z @ 0x1C03316E8
+ * XREFs of ?CombineNewMetaData@DDAMetaData@@QEAAHPEAU_D3DKMT_PRESENT_RGNS@@PEAT_LARGE_INTEGER@@HPEAH@Z @ 0x1C02A0CB0
  * Callers:
- *     ?ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUTEX@@PEAU_PRODUCER_INFO@@PEAH3@Z @ 0x1C0333B30 (-ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUT.c)
+ *     ?ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUTEX@@PEAU_PRODUCER_INFO@@PEAH3@Z @ 0x1C02A2A88 (-ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUT.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?ConvertGdiRgnToRects@DDAMetaData@@AEAAHXZ @ 0x1C0331A5C (-ConvertGdiRgnToRects@DDAMetaData@@AEAAHXZ.c)
- *     ?ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C0332E8C (-ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z.c)
- *     ?ProcessNewMoveRegions@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C0332F98 (-ProcessNewMoveRegions@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?ConvertGdiRgnToRects@DDAMetaData@@AEAAHXZ @ 0x1C02A0F68 (-ConvertGdiRgnToRects@DDAMetaData@@AEAAHXZ.c)
+ *     ?ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C02A2008 (-ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z.c)
+ *     ?ProcessNewMoveRegions@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C02A20CC (-ProcessNewMoveRegions@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z.c)
  */
 
 __int64 __fastcall DDAMetaData::CombineNewMetaData(
@@ -20,78 +19,75 @@ __int64 __fastcall DDAMetaData::CombineNewMetaData(
         int a4,
         int *a5)
 {
-  unsigned int v9; // edi
-  const wchar_t *v10; // r9
-  int v11; // ecx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  int v15; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v16; // [rsp+58h] [rbp-30h]
-  char v17; // [rsp+60h] [rbp-28h]
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  unsigned int v11; // edi
+  __int64 v12; // rax
+  int v13; // ecx
+  __int64 v14; // rcx
+  __int64 v15; // rcx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  int v19; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v20; // [rsp+28h] [rbp-20h]
+  char v21; // [rsp+30h] [rbp-18h]
 
-  v15 = -1;
-  v16 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v19 = -1;
+  v20 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v17 = 1;
-    v15 = 11000;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v21 = 1;
+    v19 = 11000;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, (__int64)a3, 11000);
   }
   else
   {
-    v17 = 0;
+    v21 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v15, 11000);
-  v9 = DDAMetaData::ProcessNewMoveRegions(this, a2);
-  if ( !v9 )
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v19, 11000LL);
+  v11 = DDAMetaData::ProcessNewMoveRegions(this, a2);
+  if ( !v11 )
+    goto LABEL_6;
+  v11 = DDAMetaData::ProcessNewDirtyRects(this, a2);
+  if ( !v11 )
+    goto LABEL_6;
+  if ( !*((_QWORD *)this + 8) )
   {
-    WdLogSingleEntry1(2LL, this);
-    v10 = L"Failed to process new move regions, this = 0x%I64x";
-LABEL_7:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v10, (__int64)this, 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_18;
+    v13 = 0;
+    goto LABEL_12;
   }
-  v9 = DDAMetaData::ProcessNewDirtyRects(this, a2);
-  if ( !v9 )
+  v11 = DDAMetaData::ConvertGdiRgnToRects(this);
+  if ( !v11 )
   {
-    WdLogSingleEntry1(2LL, this);
-    v10 = L"Failed to process new dirty rects, this = 0x%I64x";
-    goto LABEL_7;
+LABEL_6:
+    v12 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v12 + 24) = this;
+    WdLogEvent5_WdError(v12);
+    goto LABEL_15;
   }
-  if ( *((_QWORD *)this + 8) )
-  {
-    v9 = DDAMetaData::ConvertGdiRgnToRects(this);
-    if ( !v9 )
-    {
-      WdLogSingleEntry1(2LL, this);
-      v10 = L"Failed to get dirty rect from Gdi region, this = 0x%I64x";
-      goto LABEL_7;
-    }
-    v11 = 1;
-  }
-  else
-  {
-    v11 = 0;
-  }
-  *a5 = v11;
+  v13 = 1;
+LABEL_12:
+  *a5 = v13;
   *((union _LARGE_INTEGER *)this + 1) = *a3;
   if ( a4 )
     *(_DWORD *)this = 1;
   ++*((_DWORD *)this + 1);
-LABEL_18:
-  if ( *((_QWORD *)this + 8) )
+LABEL_15:
+  v14 = *((_QWORD *)this + 8);
+  if ( v14 )
   {
-    (*(void (**)(void))(*((_QWORD *)this + 7) + 128LL))();
+    (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)this + 7) + 128LL))(v14, v9);
     *((_QWORD *)this + 8) = 0LL;
   }
-  if ( *((_QWORD *)this + 9) )
+  v15 = *((_QWORD *)this + 9);
+  if ( v15 )
   {
-    (*(void (**)(void))(*((_QWORD *)this + 7) + 128LL))();
+    (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)this + 7) + 128LL))(v15, v9);
     *((_QWORD *)this + 9) = 0LL;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v15);
-  if ( v17 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v12, &EventProfilerExit, v13, v15);
-  return v9;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19, v9);
+  if ( v21 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v16, &EventProfilerExit, v17, v19);
+  return v11;
 }

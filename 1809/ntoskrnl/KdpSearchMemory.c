@@ -3,8 +3,8 @@
  * Callers:
  *     KdpSendWaitContinue @ 0x140917100 (KdpSendWaitContinue.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MmDbgCopyMemory @ 0x1402BB4E0 (MmDbgCopyMemory.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MmDbgCopyMemory @ 0x1402BB5E0 (MmDbgCopyMemory.c)
  *     KdpQuickMoveMemory @ 0x140918B04 (KdpQuickMoveMemory.c)
  */
 

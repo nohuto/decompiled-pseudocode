@@ -1,23 +1,23 @@
 /*
- * XREFs of EditionKeyEventLLHook @ 0x1C00EA4C0
+ * XREFs of EditionKeyEventLLHook @ 0x1C0020240
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C0053590 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
- *     HasHidTable @ 0x1C00ABFD0 (HasHidTable.c)
- *     PtiKbdFromQ @ 0x1C00AC810 (PtiKbdFromQ.c)
- *     PhkFirstValid @ 0x1C00EA6F4 (PhkFirstValid.c)
- *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C00F5CE8 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
- *     IsUninterceptable @ 0x1C00F62B4 (IsUninterceptable.c)
- *     IsSAS @ 0x1C00F6904 (IsSAS.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     PhkFirstValid @ 0x1C00202CC (PhkFirstValid.c)
+ *     PtiKbdFromQ @ 0x1C004FC28 (PtiKbdFromQ.c)
+ *     HasHidTable @ 0x1C0052630 (HasHidTable.c)
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C005BDB0 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     IsUninterceptable @ 0x1C0105218 (IsUninterceptable.c)
+ *     IsSAS @ 0x1C0105958 (IsSAS.c)
+ *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C01100C8 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall EditionKeyEventLLHook(
         __int64 a1,
         unsigned __int16 a2,
         __int64 a3,
-        unsigned int a4,
+        __int64 a4,
         unsigned __int8 a5,
         unsigned __int16 a6,
         int a7,
@@ -27,6 +27,7 @@ _BOOL8 __fastcall EditionKeyEventLLHook(
         unsigned int a11,
         _QWORD *a12)
 {
+  int v13; // r15d
   __int64 Valid; // r14
   __int64 v17; // rax
   __int64 v18; // rbx
@@ -42,9 +43,10 @@ _BOOL8 __fastcall EditionKeyEventLLHook(
   _DWORD v28[4]; // [rsp+40h] [rbp-20h] BYREF
   __int64 v29; // [rsp+50h] [rbp-10h]
 
+  v13 = a4;
   v26 = a4;
   v25 = a3;
-  Valid = PhkFirstValid(a1, 13LL, a3);
+  Valid = PhkFirstValid(a1, 13LL, a3, a4);
   if ( !Valid )
     return 0LL;
   v27 = 0;
@@ -67,7 +69,7 @@ _BOOL8 __fastcall EditionKeyEventLLHook(
   v28[1] = a6;
   v20 = a2 | 0x2000;
   v28[0] = a5;
-  if ( v25 == a4 )
+  if ( v25 == v13 )
     v20 = a2;
   v28[3] = a9;
   v29 = a10;

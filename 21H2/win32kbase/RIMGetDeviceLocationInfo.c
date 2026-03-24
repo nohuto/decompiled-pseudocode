@@ -1,12 +1,12 @@
 /*
- * XREFs of RIMGetDeviceLocationInfo @ 0x1C01928F4
+ * XREFs of RIMGetDeviceLocationInfo @ 0x1C015DD18
  * Callers:
- *     RIMEnableMonitorMappingForDevice @ 0x1C0182990 (RIMEnableMonitorMappingForDevice.c)
- *     RIMCreatePointerDeviceInfo @ 0x1C0190190 (RIMCreatePointerDeviceInfo.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C019B9FC (RIMIDECreatePointerDeviceInfo.c)
+ *     RIMEnableMonitorMappingForDevice @ 0x1C0155860 (RIMEnableMonitorMappingForDevice.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015C02C (RIMCreatePointerDeviceInfo.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167958 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     RIMGetPanelId @ 0x1C00A1AB8 (RIMGetPanelId.c)
- *     RIMGetContainerId @ 0x1C0192030 (RIMGetContainerId.c)
+ *     RIMGetPanelId @ 0x1C006D1D4 (RIMGetPanelId.c)
+ *     RIMGetContainerId @ 0x1C015D8D0 (RIMGetContainerId.c)
  */
 
 __int64 __fastcall RIMGetDeviceLocationInfo(struct _DEVICE_OBJECT *a1, __int64 a2)

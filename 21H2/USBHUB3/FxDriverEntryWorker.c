@@ -1,12 +1,12 @@
 /*
- * XREFs of FxDriverEntryWorker @ 0x1C003F314
+ * XREFs of FxDriverEntryWorker @ 0x1C003EA34
  * Callers:
- *     FxDriverEntry @ 0x1C003F2E0 (FxDriverEntry.c)
+ *     FxDriverEntry @ 0x1C003EA00 (FxDriverEntry.c)
  * Callees:
- *     ?FxStubDriverUnloadCommon@@YAXXZ @ 0x1C003F190 (-FxStubDriverUnloadCommon@@YAXXZ.c)
- *     ?FxStubBindClasses@@YAJPEAU_WDF_BIND_INFO@@@Z @ 0x1C003F43C (-FxStubBindClasses@@YAJPEAU_WDF_BIND_INFO@@@Z.c)
- *     ?FxStubInitTypes@@YAJXZ @ 0x1C003F5C8 (-FxStubInitTypes@@YAJXZ.c)
- *     DriverEntry @ 0x1C008C008 (DriverEntry.c)
+ *     ?FxStubDriverUnloadCommon@@YAXXZ @ 0x1C003E918 (-FxStubDriverUnloadCommon@@YAXXZ.c)
+ *     ?FxStubBindClasses@@YAJPEAU_WDF_BIND_INFO@@@Z @ 0x1C003EB5C (-FxStubBindClasses@@YAJPEAU_WDF_BIND_INFO@@@Z.c)
+ *     ?FxStubInitTypes@@YAJXZ @ 0x1C003ED34 (-FxStubInitTypes@@YAJXZ.c)
+ *     DriverEntry @ 0x1C0088008 (DriverEntry.c)
  */
 
 NTSTATUS __fastcall FxDriverEntryWorker(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
@@ -20,7 +20,7 @@ NTSTATUS __fastcall FxDriverEntryWorker(_DRIVER_OBJECT *DriverObject, PUNICODE_S
   if ( !DriverObject )
     return DriverEntry(0LL, RegistryPath);
   *(_DWORD *)&DestinationString.Length = 34078720;
-  DestinationString.Buffer = (wchar_t *)&unk_1C006A990;
+  DestinationString.Buffer = (wchar_t *)&unk_1C00698D0;
   RtlCopyUnicodeString(&DestinationString, RegistryPath);
   result = WdfVersionBind(DriverObject, &DestinationString, &WdfBindInfo, &WdfDriverGlobals);
   if ( result >= 0 )
@@ -42,10 +42,10 @@ LABEL_8:
     }
     if ( WdfDriverGlobals->DisplaceDriverUnload )
     {
-      DriverUnload = qword_1C006AB98;
+      DriverUnload = qword_1C0069AD8;
       if ( DriverObject->DriverUnload )
         DriverUnload = (__int64 (*)(void))DriverObject->DriverUnload;
-      qword_1C006AB98 = DriverUnload;
+      qword_1C0069AD8 = DriverUnload;
       DriverObject->DriverUnload = (void (__fastcall *)(_DRIVER_OBJECT *))FxStubDriverUnload;
     }
     return 0;

@@ -1,103 +1,109 @@
 /*
- * XREFs of KiConnectSecondaryInterrupt @ 0x1403A2544
+ * XREFs of KiConnectSecondaryInterrupt @ 0x140518F94
  * Callers:
- *     KeConnectInterrupt @ 0x140320874 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x14037723C (KeConnectInterrupt.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x1403A2AE8 (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiAcquireSecondaryPassiveConnectLock @ 0x1403A3118 (KiAcquireSecondaryPassiveConnectLock.c)
- *     KiInsertInterruptObjectOrdered @ 0x1403A679C (KiInsertInterruptObjectOrdered.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x140518E6C (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiAcquireSecondaryPassiveConnectLock @ 0x140518EE4 (KiAcquireSecondaryPassiveConnectLock.c)
+ *     KiInsertInterruptObjectOrdered @ 0x1405212E8 (KiInsertInterruptObjectOrdered.c)
  */
 
 __int64 __fastcall KiConnectSecondaryInterrupt(__int64 a1)
 {
-  char v2; // si
-  unsigned __int8 v3; // cl
-  __int64 v4; // r8
-  char v5; // bp
-  unsigned __int8 v6; // al
-  __int64 v7; // rdi
-  __int64 v8; // r10
+  char v3; // si
+  unsigned __int8 v4; // cl
+  __int64 v5; // rdx
+  char v6; // bp
+  unsigned __int8 v7; // al
+  __int64 v8; // rdi
+  __int64 v9; // r10
   __int64 v10; // r10
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
+  unsigned __int8 v12; // bl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v14; // zf
+  int v15; // eax
+  bool v16; // zf
+  unsigned __int8 v17; // [rsp+38h] [rbp+10h] BYREF
 
-  if ( KiSecondaryInterruptServicesEnabled )
+  v17 = 0;
+  if ( !KiSecondaryInterruptServicesEnabled )
+    return 3221225473LL;
+  v3 = 0;
+  v4 = *(_BYTE *)(a1 + 92);
+  v5 = (unsigned int)(*(_DWORD *)(a1 + 88) - 256);
+  v6 = 0;
+  if ( (unsigned int)v5 > 0xFF )
+    return 3221225711LL;
+  if ( v4 > 0xCu )
+    return 3221225711LL;
+  if ( *(_DWORD *)(a1 + 96) >= (unsigned int)KeNumberProcessors_0 )
+    return 3221225711LL;
+  v7 = *(_BYTE *)(a1 + 93);
+  if ( v7 < v4 )
   {
-    v2 = 0;
-    v3 = *(_BYTE *)(a1 + 92);
-    v4 = (unsigned int)(*(_DWORD *)(a1 + 88) - 256);
-    v5 = 0;
-    if ( (unsigned int)v4 > 0xFF )
+    if ( v7 )
       return 3221225711LL;
-    if ( v3 > 0xCu )
-      return 3221225711LL;
-    if ( *(_DWORD *)(a1 + 96) >= (unsigned int)KeNumberProcessors_0 )
-      return 3221225711LL;
-    v6 = *(_BYTE *)(a1 + 93);
-    if ( v6 < v3 )
-    {
-      if ( v6 )
-        return 3221225711LL;
-    }
-    v7 = KiGlobalSecondaryIDT + 48 * v4;
-    KiAcquireSecondaryPassiveConnectLock(v7);
-    KiAcquireSecondaryInterruptConnectLock((PKSPIN_LOCK)v7);
-    if ( *(_BYTE *)(a1 + 95) )
-    {
-LABEL_12:
-      KxReleaseSpinLock((volatile signed __int64 *)v7);
-      if ( KiIrqlFlags )
-      {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && CurrentIrql >= 2u )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v14 = (SchedulerAssist[5] & 0xFFFF0001) == 0;
-          SchedulerAssist[5] &= 0xFFFF0001;
-          if ( v14 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-        }
-      }
-      __writecr8(0LL);
-      KeSetEvent((PRKEVENT)(v7 + 8), 0, 0);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      if ( v5 )
-        return v2 != 0 ? 0x127 : 0;
-      return 3221225711LL;
-    }
-    v8 = *(_QWORD *)(v7 + 40);
-    if ( v8 )
+  }
+  v8 = KiGlobalSecondaryIDT + 48 * v5;
+  KiAcquireSecondaryPassiveConnectLock(v8);
+  KiAcquireSecondaryInterruptConnectLock((PKSPIN_LOCK)v8, &v17);
+  if ( !*(_BYTE *)(a1 + 95) )
+  {
+    v9 = *(_QWORD *)(v8 + 40);
+    if ( v9 )
     {
       if ( !*(_BYTE *)(a1 + 100) )
-        goto LABEL_11;
-      if ( !*(_BYTE *)(v8 + 100) )
-        goto LABEL_11;
-      if ( *(_DWORD *)(v8 + 108) != *(_DWORD *)(a1 + 108) )
-        goto LABEL_11;
-      v5 = 1;
-      v2 = 1;
-      KiInsertInterruptObjectOrdered(*(_QWORD *)(v7 + 40), a1);
+        goto LABEL_17;
+      if ( !*(_BYTE *)(v9 + 100) )
+        goto LABEL_17;
+      if ( *(_DWORD *)(v9 + 108) != *(_DWORD *)(a1 + 108) )
+        goto LABEL_17;
+      v6 = 1;
+      v3 = 1;
+      KiInsertInterruptObjectOrdered(*(_QWORD *)(v8 + 40), a1);
       if ( *(_BYTE *)(v10 + 93) || !*(_BYTE *)(a1 + 93) )
-        goto LABEL_11;
+        goto LABEL_17;
     }
     else
     {
-      v5 = 1;
+      v6 = 1;
       *(_QWORD *)(a1 + 16) = a1 + 8;
       *(_QWORD *)(a1 + 8) = a1 + 8;
-      *(_BYTE *)(v7 + 32) = 0;
+      *(_BYTE *)(v8 + 32) = 0;
     }
-    *(_QWORD *)(v7 + 40) = a1;
-LABEL_11:
+    *(_QWORD *)(v8 + 40) = a1;
+LABEL_17:
     *(_BYTE *)(a1 + 95) = 1;
-    goto LABEL_12;
   }
-  return 3221225473LL;
+  KxReleaseSpinLock((PKSPIN_LOCK)v8);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
+  {
+    v12 = v17;
+    if ( v17 <= 0xFu && CurrentIrql >= 2u )
+    {
+      CurrentPrcb = KeGetCurrentPrcb();
+      SchedulerAssist = CurrentPrcb->SchedulerAssist;
+      v12 = v17;
+      v15 = ~(unsigned __int16)(-1LL << (v17 + 1));
+      v16 = (v15 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v15;
+      if ( v16 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+    }
+  }
+  else
+  {
+    v12 = v17;
+  }
+  __writecr8(v12);
+  KeSetEvent((PRKEVENT)(v8 + 8), 0, 0);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( v6 )
+    return v3 != 0 ? 0x127 : 0;
+  return 3221225711LL;
 }

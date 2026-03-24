@@ -1,68 +1,68 @@
 /*
- * XREFs of ?RequestSyncCallout@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z @ 0x1C030C54C
+ * XREFs of ?RequestSyncCallout@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z @ 0x1C026B578
  * Callers:
- *     DxgkRequestSyncDisplaySwitchCallout @ 0x1C030D618 (DxgkRequestSyncDisplaySwitchCallout.c)
+ *     DxgkRequestSyncDisplaySwitchCallout @ 0x1C026C3C4 (DxgkRequestSyncDisplaySwitchCallout.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??_GDISPLAY_CALLOUT_ENTRY@@QEAAPEAXI@Z @ 0x1C004D410 (--_GDISPLAY_CALLOUT_ENTRY@@QEAAPEAXI@Z.c)
- *     DpiGdiSyncDisplayCallout @ 0x1C0387190 (DpiGdiSyncDisplayCallout.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ??_GDISPLAY_CALLOUT_ENTRY@@QEAAPEAXI@Z @ 0x1C0046438 (--_GDISPLAY_CALLOUT_ENTRY@@QEAAPEAXI@Z.c)
+ *     DpiGdiSyncDisplayCallout @ 0x1C02C668C (DpiGdiSyncDisplayCallout.c)
  */
 
 __int64 __fastcall DXGDISPLAYCALLOUTQUEUE::RequestSyncCallout(DXGDISPLAYCALLOUTQUEUE *this, char *P, __int64 a3)
 {
-  char **v6; // rax
-  char *v7; // rbx
-  __int64 v8; // rdx
+  __int64 v6; // rdx
+  char **v7; // rax
+  char *v8; // rbx
   int v9; // eax
   __int64 v10; // rsi
-  char *v11; // rax
+  char **v11; // rdx
   char *v12; // rcx
-  char **v13; // rdx
-  _BYTE v15[24]; // [rsp+50h] [rbp-18h] BYREF
+  char *v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rdx
+  _BYTE v17[24]; // [rsp+20h] [rbp-18h] BYREF
 
   P[20] = 1;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v15, this, 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v15);
-  v6 = (char **)*((_QWORD *)this + 7);
-  v7 = (char *)this + 48;
-  if ( *v6 != v7 )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v17, this, 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
+  v7 = (char **)*((_QWORD *)this + 6);
+  v8 = (char *)this + 40;
+  if ( *v7 != v8 )
     goto LABEL_15;
-  *(_QWORD *)P = v7;
-  *((_QWORD *)P + 1) = v6;
-  *v6 = P;
-  *((_QWORD *)v7 + 1) = P;
-  DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v15);
-  LOBYTE(v8) = 1;
-  v9 = DpiGdiSyncDisplayCallout(a3, v8);
+  *(_QWORD *)P = v8;
+  *((_QWORD *)P + 1) = v7;
+  *v7 = P;
+  *((_QWORD *)v8 + 1) = P;
+  DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17, v6);
+  v9 = DpiGdiSyncDisplayCallout(a3);
   v10 = v9;
   if ( v9 >= 0 )
   {
     LODWORD(v10) = *((_DWORD *)P + 14);
     goto LABEL_12;
   }
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v15);
-  v11 = *(char **)v7;
-  if ( *(char **)v7 != v7 )
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
+  v13 = *(char **)v8;
+  if ( *(char **)v8 != v8 )
   {
     while ( 1 )
     {
-      v12 = *(char **)v11;
-      if ( v11 == P )
+      v12 = *(char **)v13;
+      if ( v13 == P )
         break;
-      v11 = *(char **)v11;
-      if ( v12 == v7 )
+      v13 = *(char **)v13;
+      if ( v12 == v8 )
         goto LABEL_11;
     }
-    if ( *((char **)v12 + 1) == v11 )
+    if ( *((char **)v12 + 1) == v13 )
     {
-      v13 = (char **)*((_QWORD *)v11 + 1);
-      if ( *v13 == v11 )
+      v11 = (char **)*((_QWORD *)v13 + 1);
+      if ( *v11 == v13 )
       {
-        *v13 = v12;
-        *((_QWORD *)v12 + 1) = v13;
+        *v11 = v12;
+        *((_QWORD *)v12 + 1) = v11;
         goto LABEL_11;
       }
     }
@@ -70,20 +70,12 @@ LABEL_15:
     __fastfail(3u);
   }
 LABEL_11:
-  WdLogSingleEntry1(2LL, v10);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Failed request a synchronous Display Callout (Status == 0x%I64x)",
-    v10,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v14 = WdLogNewEntry5_WdError(v12, v11);
+  *(_QWORD *)(v14 + 24) = v10;
+  WdLogEvent5_WdError(v14);
 LABEL_12:
   DISPLAY_CALLOUT_ENTRY::`scalar deleting destructor'((DISPLAY_CALLOUT_ENTRY *)P);
-  if ( v15[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v15);
+  if ( v17[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17, v15);
   return (unsigned int)v10;
 }

@@ -1,302 +1,314 @@
 /*
- * XREFs of VmpSplitMemoryRange @ 0x1405FB140
+ * XREFs of VmpSplitMemoryRange @ 0x1405A5084
  * Callers:
- *     VmSplitMemoryRange @ 0x1409DCB90 (VmSplitMemoryRange.c)
+ *     VmSplitMemoryRange @ 0x14092F240 (VmSplitMemoryRange.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     VmpProcessContextLockExclusive @ 0x1404666BE (VmpProcessContextLockExclusive.c)
- *     VmpProcessContextLockShared @ 0x140466734 (VmpProcessContextLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpVaRangeNumberOfGpaRanges @ 0x1405FB858 (VmpVaRangeNumberOfGpaRanges.c)
- *     VmpAllocateMemoryRanges @ 0x1409DD064 (VmpAllocateMemoryRanges.c)
- *     VmpFreeMemoryRanges @ 0x1409DD25C (VmpFreeMemoryRanges.c)
- *     VmpLockMemoryForPin @ 0x1409DD2B8 (VmpLockMemoryForPin.c)
- *     VmpUnlockMemoryForPin @ 0x1409DD890 (VmpUnlockMemoryForPin.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1402C0B10 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockExclusive @ 0x1405A489C (VmpProcessContextLockExclusive.c)
+ *     VmpProcessContextLockShared @ 0x1405A4914 (VmpProcessContextLockShared.c)
+ *     VmpVaRangeNumberOfGpaRanges @ 0x1405A5510 (VmpVaRangeNumberOfGpaRanges.c)
+ *     VmpAllocateMemoryRanges @ 0x14092F59C (VmpAllocateMemoryRanges.c)
+ *     VmpFreeMemoryRanges @ 0x14092F6E8 (VmpFreeMemoryRanges.c)
  */
 
 __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 a2, __int64 a3)
 {
-  unsigned __int64 MemoryRanges; // rbp
-  __int64 v7; // r12
-  int v8; // edi
-  unsigned __int64 *v9; // rsi
-  __int64 v10; // rbx
-  __int64 v11; // rax
-  __int64 v12; // rdi
-  unsigned __int8 CurrentIrql; // al
+  int v6; // r14d
+  __int64 v7; // rdi
+  unsigned __int64 v8; // rbx
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // rax
+  unsigned int v11; // ebx
+  __int64 v12; // rax
+  __int64 v13; // r15
+  __int64 v14; // r14
+  unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v16; // eax
-  bool v17; // zf
-  __int64 v18; // rcx
-  int v19; // r12d
-  __int64 v20; // rax
-  int v21; // r12d
-  unsigned __int64 v22; // rdi
-  __int64 v23; // rax
-  unsigned __int64 v24; // rdx
-  bool v25; // r8
-  unsigned __int64 v26; // r8
-  unsigned __int64 v27; // rax
-  __int64 *v28; // rdi
-  __int64 *v29; // r14
-  __int64 *v30; // rsi
-  unsigned __int64 *v31; // rbx
-  __int64 v32; // rbp
-  __int64 v33; // rcx
-  __int64 v34; // rax
-  unsigned __int64 v35; // rdx
-  bool v36; // r8
-  unsigned __int64 v37; // r8
-  unsigned __int64 v38; // rax
-  unsigned __int8 v39; // cl
-  struct _KPRCB *v40; // r9
-  _DWORD *v41; // r8
-  int v42; // eax
-  __int64 v44; // [rsp+48h] [rbp-60h] BYREF
-  __int64 v45; // [rsp+50h] [rbp-58h]
-  __int64 v46; // [rsp+58h] [rbp-50h]
-  __int64 v47; // [rsp+60h] [rbp-48h]
-  __int64 v48; // [rsp+68h] [rbp-40h]
-  int v49; // [rsp+B0h] [rbp+8h]
-  int v50; // [rsp+C0h] [rbp+18h]
+  int v18; // eax
+  bool v19; // zf
+  _QWORD *MemoryRanges; // r14
+  unsigned __int8 v21; // al
+  struct _KPRCB *v22; // r10
+  _DWORD *v23; // r9
+  int v24; // eax
+  unsigned __int64 *v25; // rcx
+  unsigned __int64 v26; // r12
+  unsigned __int64 v27; // r12
+  unsigned __int64 v28; // rdx
+  bool v29; // r8
+  unsigned __int64 v30; // r8
+  unsigned __int64 v31; // rax
+  _QWORD *v32; // r14
+  _QWORD *v33; // rbp
+  _QWORD *v34; // r15
+  unsigned __int64 *v35; // rbx
+  unsigned __int64 v36; // rcx
+  unsigned __int64 v37; // rdx
+  bool v38; // r8
+  unsigned __int64 v39; // r8
+  unsigned __int64 v40; // rax
+  unsigned __int8 v41; // al
+  struct _KPRCB *v42; // r9
+  _DWORD *v43; // r8
+  int v44; // eax
+  unsigned __int8 v45; // al
+  struct _KPRCB *v46; // r10
+  _DWORD *v47; // r9
+  int v48; // edx
 
-  v50 = 1;
-  MemoryRanges = 0LL;
-  v45 = 0LL;
-  v44 = 0LL;
-  v47 = 0LL;
-  v46 = 0LL;
-  v49 = 0;
-  v7 = VmpProcessContextLockShared(SpinLock);
-  if ( *((_QWORD *)SpinLock + 9) != a3 )
+  while ( 2 )
   {
-    v8 = -1073740007;
-    goto LABEL_73;
-  }
-  v9 = (unsigned __int64 *)(SpinLock + 6);
-  v10 = *((_QWORD *)SpinLock + 3);
-  if ( (SpinLock[8] & 1) != 0 && v10 )
-    v10 ^= (unsigned __int64)v9;
-  while ( v10 )
-  {
-    if ( a2 <= *(_QWORD *)(v10 + 32) )
+    v6 = 1;
+    v7 = VmpProcessContextLockShared(SpinLock);
+    if ( *((_QWORD *)SpinLock + 9) != a3 )
     {
-      if ( a2 >= *(_QWORD *)(v10 + 24) )
+      v11 = -1073740007;
+      goto LABEL_77;
+    }
+    v8 = *((_QWORD *)SpinLock + 3);
+    if ( (SpinLock[8] & 1) != 0 && v8 )
+      v8 ^= (unsigned __int64)(SpinLock + 6);
+    while ( 1 )
+    {
+      if ( !v8 )
+      {
+        v11 = -1073741172;
+        goto LABEL_77;
+      }
+      v9 = *(_QWORD *)(v8 + 32);
+      if ( a2 <= v9 )
         break;
-      v11 = *(_QWORD *)v10;
+      v10 = *(_QWORD *)(v8 + 8);
+LABEL_10:
+      if ( (SpinLock[8] & 1) != 0 && v10 )
+        v8 ^= v10;
+      else
+        v8 = v10;
     }
-    else
+    if ( a2 < *(_QWORD *)(v8 + 24) )
     {
-      v11 = *(_QWORD *)(v10 + 8);
+      v10 = *(_QWORD *)v8;
+      goto LABEL_10;
     }
-    if ( (SpinLock[8] & 1) != 0 && v11 )
-      v10 ^= v11;
-    else
-      v10 = v11;
-  }
-  if ( !v10 )
-  {
-    v8 = -1073741172;
-    goto LABEL_73;
-  }
-  if ( a2 == *(_QWORD *)(v10 + 32) )
-  {
-    v8 = -1073741503;
-    goto LABEL_73;
-  }
-  v12 = VmpVaRangeNumberOfGpaRanges(v10);
-  ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-  if ( KiIrqlFlags )
-  {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( a2 == v9 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v17 = (v16 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v16;
-      if ( v17 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v11 = -1073741503;
+      goto LABEL_77;
     }
-  }
-  __writecr8((unsigned __int8)v7);
-  v50 = 0;
-  MemoryRanges = VmpAllocateMemoryRanges(v12);
-  if ( !MemoryRanges )
-  {
-    v8 = -1073741670;
-    goto LABEL_87;
-  }
-  if ( *(_QWORD *)(v10 + 56) )
-  {
-    v18 = *(_QWORD *)(v10 + 32);
-    v19 = *(_DWORD *)(v10 + 64);
-    v20 = v18 - *(_QWORD *)(v10 + 24);
-    v47 = *(_QWORD *)(v10 + 24);
-    v46 = v20 + 1;
-    v21 = v19 & 1;
-    v8 = VmpLockMemoryForPin((_DWORD)SpinLock, (int)a2 + 1, (int)v18 - (int)a2, v21, (__int64)&v44);
-    if ( v8 < 0 )
-      goto LABEL_87;
-    v22 = a2 + 1;
-    v49 = v21;
-  }
-  else
-  {
-    v22 = a2 + 1;
-  }
-  v7 = VmpProcessContextLockExclusive(SpinLock);
-  v48 = a2 - *(_QWORD *)(v10 + 24) + 1;
-  *(_QWORD *)(MemoryRanges + 32) = *(_QWORD *)(v10 + 32);
-  v23 = v44;
-  v44 = 0LL;
-  *(_QWORD *)(MemoryRanges + 24) = v22;
-  *(_QWORD *)(v10 + 32) = a2;
-  *(_QWORD *)(MemoryRanges + 56) = v23;
-  *(_DWORD *)(MemoryRanges + 64) = v49 | *(_DWORD *)(MemoryRanges + 64) & 0xFFFFFFFE;
-  v17 = (SpinLock[8] & 1) == 0;
-  v24 = *v9;
-  v45 = *(_QWORD *)(v10 + 56);
-  if ( !v17 && v24 )
-    v24 ^= (unsigned __int64)v9;
-  v25 = 0;
-  if ( !v24 )
-    goto LABEL_51;
-  v26 = *(_QWORD *)(MemoryRanges + 24);
-  while ( 1 )
-  {
-    if ( v26 <= *(_QWORD *)(v24 + 32) && v26 < *(_QWORD *)(v24 + 24) )
+    v12 = VmpVaRangeNumberOfGpaRanges(v8);
+    v13 = *((_QWORD *)SpinLock + 5);
+    v14 = v12;
+    ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
+    if ( KiIrqlFlags )
     {
-      v27 = *(_QWORD *)v24;
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+          v19 = (v18 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v18;
+          if ( v19 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
+      }
+    }
+    __writecr8((unsigned __int8)v7);
+    MemoryRanges = (_QWORD *)VmpAllocateMemoryRanges(v14);
+    if ( !MemoryRanges )
+      return (unsigned int)-1073741670;
+    v7 = VmpProcessContextLockExclusive(SpinLock);
+    if ( v13 != *((_QWORD *)SpinLock + 5) )
+    {
+      ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v21 = KeGetCurrentIrql();
+          if ( v21 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v21 >= 2u )
+          {
+            v22 = KeGetCurrentPrcb();
+            v23 = v22->SchedulerAssist;
+            v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+            v19 = (v24 & v23[5]) == 0;
+            v23[5] &= v24;
+            if ( v19 )
+              KiRemoveSystemWorkPriorityKick((__int64)v22);
+          }
+        }
+      }
+      __writecr8((unsigned __int8)v7);
+      VmpFreeMemoryRanges(MemoryRanges);
+      continue;
+    }
+    break;
+  }
+  v25 = (unsigned __int64 *)(SpinLock + 6);
+  v26 = a2 - *(_QWORD *)(v8 + 24);
+  MemoryRanges[4] = *(_QWORD *)(v8 + 32);
+  v27 = v26 + 1;
+  MemoryRanges[3] = a2 + 1;
+  *(_QWORD *)(v8 + 32) = a2;
+  v28 = *((_QWORD *)SpinLock + 3);
+  if ( (SpinLock[8] & 1) != 0 && v28 )
+    v28 ^= (unsigned __int64)v25;
+  v29 = 0;
+  if ( !v28 )
+    goto LABEL_52;
+  v30 = MemoryRanges[3];
+  while ( 2 )
+  {
+    if ( v30 <= *(_QWORD *)(v28 + 32) && v30 < *(_QWORD *)(v28 + 24) )
+    {
+      v31 = *(_QWORD *)v28;
       if ( (SpinLock[8] & 1) != 0 )
       {
-        if ( !v27 )
-          goto LABEL_44;
-        v27 ^= v24;
+        if ( !v31 )
+          goto LABEL_45;
+        v31 ^= v28;
       }
-      if ( !v27 )
+      if ( !v31 )
       {
-LABEL_44:
-        v25 = 0;
-        goto LABEL_51;
+LABEL_45:
+        v29 = 0;
+        goto LABEL_52;
       }
-      goto LABEL_49;
+LABEL_50:
+      v28 = v31;
+      continue;
     }
-    v27 = *(_QWORD *)(v24 + 8);
-    if ( (SpinLock[8] & 1) != 0 )
-    {
-      if ( !v27 )
-        break;
-      v27 ^= v24;
-    }
-    if ( !v27 )
-      break;
-LABEL_49:
-    v24 = v27;
+    break;
   }
-  v25 = 1;
+  v31 = *(_QWORD *)(v28 + 8);
+  if ( (SpinLock[8] & 1) != 0 )
+  {
+    if ( !v31 )
+      goto LABEL_51;
+    v31 ^= v28;
+  }
+  if ( v31 )
+    goto LABEL_50;
 LABEL_51:
-  RtlRbInsertNodeEx((unsigned __int64 *)SpinLock + 3, v24, v25, MemoryRanges);
-  v28 = *(__int64 **)(MemoryRanges + 40);
-  v29 = (__int64 *)(v10 + 40);
-  v30 = *(__int64 **)(v10 + 40);
-  v31 = (unsigned __int64 *)(SpinLock + 2);
-  v32 = v48;
+  v29 = 1;
+LABEL_52:
+  RtlRbInsertNodeEx(v25, v28, v29, (unsigned __int64)MemoryRanges);
+  v32 = (_QWORD *)MemoryRanges[5];
+  v33 = (_QWORD *)(v8 + 40);
+  v34 = *(_QWORD **)(v8 + 40);
+  v35 = (unsigned __int64 *)(SpinLock + 2);
   while ( 1 )
   {
-    v33 = v32 + v30[6];
-    v28[6] = v33;
-    v28[7] = v30[7];
-    v34 = v33 - 1;
-    LODWORD(v33) = *((_DWORD *)v30 + 16);
-    v30[7] = v34;
-    *((_DWORD *)v28 + 16) ^= (*((_DWORD *)v28 + 16) ^ v33) & 1;
-    v35 = *v31;
-    if ( (SpinLock[4] & 1) != 0 && v35 )
-      v35 ^= (unsigned __int64)v31;
-    v36 = 0;
-    if ( v35 )
+    v36 = v27 + v34[6];
+    v32[6] = v36;
+    v32[7] = v34[7];
+    v34[7] = v36 - 1;
+    v37 = *v35;
+    if ( (SpinLock[4] & 1) != 0 && v37 )
+      v37 ^= (unsigned __int64)v35;
+    v38 = 0;
+    if ( v37 )
     {
-      v37 = v28[6];
+      v39 = v32[6];
       while ( 1 )
       {
-        if ( v37 > *(_QWORD *)(v35 + 32) || v37 >= *(_QWORD *)(v35 + 24) )
+        if ( v39 > *(_QWORD *)(v37 + 32) || v39 >= *(_QWORD *)(v37 + 24) )
         {
-          v38 = *(_QWORD *)(v35 + 8);
+          v40 = *(_QWORD *)(v37 + 8);
           if ( (SpinLock[4] & 1) != 0 )
           {
-            if ( !v38 )
-              goto LABEL_69;
-            v38 ^= v35;
+            if ( !v40 )
+              goto LABEL_70;
+            v40 ^= v37;
           }
-          if ( !v38 )
+          if ( !v40 )
           {
-LABEL_69:
-            v36 = 1;
+LABEL_70:
+            v38 = 1;
             break;
           }
         }
         else
         {
-          v38 = *(_QWORD *)v35;
+          v40 = *(_QWORD *)v37;
           if ( (SpinLock[4] & 1) != 0 )
           {
-            if ( !v38 )
-              goto LABEL_63;
-            v38 ^= v35;
+            if ( !v40 )
+              goto LABEL_64;
+            v40 ^= v37;
           }
-          if ( !v38 )
+          if ( !v40 )
           {
-LABEL_63:
-            v36 = 0;
+LABEL_64:
+            v38 = 0;
             break;
           }
         }
-        v35 = v38;
+        v37 = v40;
       }
     }
-    RtlRbInsertNodeEx((unsigned __int64 *)SpinLock + 1, v35, v36, (unsigned __int64)(v28 + 3));
-    v30 = (__int64 *)*v30;
-    if ( v30 == v29 )
+    RtlRbInsertNodeEx((unsigned __int64 *)SpinLock + 1, v37, v38, (unsigned __int64)(v32 + 3));
+    v34 = (_QWORD *)*v34;
+    if ( v34 == v33 )
       break;
-    v28 = (__int64 *)*v28;
+    v32 = (_QWORD *)*v32;
   }
   ++*((_QWORD *)SpinLock + 5);
-  MemoryRanges = 0LL;
-  v8 = 0;
-LABEL_73:
+  v6 = 0;
+  v11 = 0;
+LABEL_77:
   if ( v7 != -1 )
   {
-    if ( v50 )
-      ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-    else
-      ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-    if ( KiIrqlFlags )
+    if ( v6 )
     {
-      v39 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v39 >= 2u )
+      ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
+      if ( KiIrqlFlags )
       {
-        v40 = KeGetCurrentPrcb();
-        v41 = v40->SchedulerAssist;
-        v42 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-        v17 = (v42 & v41[5]) == 0;
-        v41[5] &= v42;
-        if ( v17 )
-          KiRemoveSystemWorkPriorityKick((__int64)v40);
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v41 = KeGetCurrentIrql();
+          if ( v41 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v41 >= 2u )
+          {
+            v42 = KeGetCurrentPrcb();
+            v43 = v42->SchedulerAssist;
+            v44 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+            v19 = (v44 & v43[5]) == 0;
+            v43[5] &= v44;
+            if ( v19 )
+              KiRemoveSystemWorkPriorityKick((__int64)v42);
+          }
+        }
+      }
+    }
+    else
+    {
+      ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v45 = KeGetCurrentIrql();
+          if ( v45 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v45 >= 2u )
+          {
+            v46 = KeGetCurrentPrcb();
+            v47 = v46->SchedulerAssist;
+            v48 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+            v19 = (v48 & v47[5]) == 0;
+            v47[5] &= v48;
+            if ( v19 )
+              KiRemoveSystemWorkPriorityKick((__int64)v46);
+          }
+        }
       }
     }
     __writecr8((unsigned __int8)v7);
   }
-  if ( v45 )
-    VmpUnlockMemoryForPin(SpinLock, v45);
-LABEL_87:
-  if ( v44 )
-    VmpUnlockMemoryForPin(SpinLock, v44);
-  if ( MemoryRanges )
-    VmpFreeMemoryRanges((PVOID)MemoryRanges);
-  return (unsigned int)v8;
+  return v11;
 }

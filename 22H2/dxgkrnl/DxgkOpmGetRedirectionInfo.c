@@ -1,168 +1,140 @@
 /*
- * XREFs of DxgkOpmGetRedirectionInfo @ 0x1C02C2AFC
+ * XREFs of DxgkOpmGetRedirectionInfo @ 0x1C0217FB0
  * Callers:
- *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x1C00639F0 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
+ *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x1C0057FF4 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z @ 0x1C00082D8 (-GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z.c)
- *     ?DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z @ 0x1C019D5FC (-DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z.c)
- *     ?DodGetOpmMftContext@ADAPTER_DISPLAY@@QEAAJIPEA_K@Z @ 0x1C02BCB30 (-DodGetOpmMftContext@ADAPTER_DISPLAY@@QEAAJIPEA_K@Z.c)
- *     ?DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAU_D3DKMDT_2DREGION@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C03ACE24 (-DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3D.c)
+ *     ?GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z @ 0x1C00026B4 (-GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z @ 0x1C013EA9C (-DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z.c)
+ *     ?DodGetOpmMftContext@ADAPTER_DISPLAY@@QEAAJIPEA_K@Z @ 0x1C02128B0 (-DodGetOpmMftContext@ADAPTER_DISPLAY@@QEAAJIPEA_K@Z.c)
+ *     ?DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAU_D3DKMDT_2DREGION@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C02DCE30 (-DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3D.c)
  */
 
 __int64 __fastcall DxgkOpmGetRedirectionInfo(ADAPTER_DISPLAY **a1, unsigned int a2, unsigned __int64 *a3, __int64 a4)
 {
-  __int64 v5; // r15
-  unsigned int SourceConnectedToTargetInClientVidPn; // esi
+  __int64 v5; // r14
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  int SourceConnectedToTargetInClientVidPn; // esi
+  __int64 v12; // rax
   __int64 result; // rax
-  const wchar_t *v10; // r9
-  __int64 Numerator; // rsi
-  const struct _DXGK_DISPLAYMODE_INFO *DisplayModeInfo; // r14
-  struct _D3DDDI_RATIONAL v13; // [rsp+50h] [rbp-10h] BYREF
-  struct _D3DDDI_RATIONAL v14; // [rsp+A0h] [rbp+40h] BYREF
-  struct _D3DKMDT_2DREGION v15; // [rsp+B0h] [rbp+50h] BYREF
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rsi
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  const struct _DXGK_DISPLAYMODE_INFO *DisplayModeInfo; // r15
+  __int64 v22; // rax
+  __int64 v23; // rcx
+  __int64 v24; // rax
+  int v25; // ecx
+  int v26; // ecx
+  struct _D3DDDI_RATIONAL v27; // [rsp+40h] [rbp-10h] BYREF
+  enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING v28; // [rsp+80h] [rbp+30h] BYREF
+  struct _D3DKMDT_2DREGION v29; // [rsp+90h] [rbp+40h] BYREF
 
   v5 = a2;
   if ( !DXGADAPTER::IsCoreResourceSharedOwner((DXGADAPTER *)a1) )
   {
-    WdLogSingleEntry1(1LL, 1078LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pDxgAdapter->IsCoreResourceSharedOwner()",
-      1078LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v10 + 24) = 1024LL;
+    WdLogEvent5_WdAssertion(v10);
   }
   SourceConnectedToTargetInClientVidPn = 0;
   if ( !a3 )
     goto LABEL_7;
-  if ( (*((_DWORD *)a1 + 109) & 0x100) == 0 )
+  if ( (*((_DWORD *)a1 + 87) & 0x100) == 0 )
   {
-    WdLogSingleEntry1(2LL, a1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Try to call DxgkOpmGetRedirectionInfo on a non-indirect display adapter 0x%I64x!",
-      (__int64)a1,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v12 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v12 + 24) = a1;
+    WdLogEvent5_WdError(v12);
     return 3221225659LL;
   }
-  result = ADAPTER_DISPLAY::DodGetOpmMftContext(a1[365], (unsigned int)v5, a3);
+  result = ADAPTER_DISPLAY::DodGetOpmMftContext(a1[337], (unsigned int)v5, a3);
   SourceConnectedToTargetInClientVidPn = result;
   if ( (int)result >= 0 )
   {
 LABEL_7:
     if ( a4 )
     {
-      v14.Numerator = 0;
-      SourceConnectedToTargetInClientVidPn = DmmGetSourceConnectedToTargetInClientVidPn(a1, v5, (unsigned int *)&v14);
-      if ( (SourceConnectedToTargetInClientVidPn & 0x80000000) != 0 )
+      v28 = D3DDDI_VSSLO_UNINITIALIZED;
+      SourceConnectedToTargetInClientVidPn = DmmGetSourceConnectedToTargetInClientVidPn(
+                                               a1,
+                                               (unsigned int)v5,
+                                               (unsigned int *)&v28);
+      if ( SourceConnectedToTargetInClientVidPn < 0 )
+        goto LABEL_9;
+      v17 = (unsigned int)v28;
+      if ( v28 == -1 )
       {
-        WdLogSingleEntry2(2LL, v5, a1);
-        v10 = L"Could not find SourceID for TargetId 0x%I64x on adapter 0x%I64x!";
-LABEL_10:
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v10, v5, (__int64)a1, 0LL, 0LL, 0LL);
-        return SourceConnectedToTargetInClientVidPn;
+        v18 = WdLogNewEntry5_WdAssertion(v15, v14);
+        *(_QWORD *)(v18 + 24) = 1054LL;
+        WdLogEvent5_WdAssertion(v18);
       }
-      Numerator = v14.Numerator;
-      if ( v14.Numerator == -1 )
-      {
-        WdLogSingleEntry1(1LL, 1108LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"VidPnSourceId != D3DDDI_ID_UNINITIALIZED",
-          1108LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-      }
-      DisplayModeInfo = ADAPTER_DISPLAY::GetDisplayModeInfo(a1[365], Numerator);
+      DisplayModeInfo = ADAPTER_DISPLAY::GetDisplayModeInfo(a1[337], v17);
       if ( !DisplayModeInfo )
       {
-        WdLogSingleEntry2(2LL, Numerator, a1);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Could not find display infoSource 0x%I64x on adapter 0x%I64x!",
-          Numerator,
-          (__int64)a1,
-          0LL,
-          0LL,
-          0LL);
+        v22 = WdLogNewEntry5_WdError(v20, v19);
+        *(_QWORD *)(v22 + 24) = v17;
+        *(_QWORD *)(v22 + 32) = a1;
+        WdLogEvent5_WdError(v22);
         return 3221225485LL;
       }
-      v15 = 0LL;
-      v13 = 0LL;
-      v14.Numerator = 0;
-      SourceConnectedToTargetInClientVidPn = DmmGetClientVidPnTargetModeInfo(
-                                               a1,
-                                               v5,
-                                               0LL,
-                                               0LL,
-                                               0LL,
-                                               (struct _D3DDDI_RATIONAL)&v14,
-                                               &v15,
-                                               &v13);
-      if ( (SourceConnectedToTargetInClientVidPn & 0x80000000) != 0 )
+      v29 = 0LL;
+      v27 = 0LL;
+      v28 = D3DDDI_VSSLO_UNINITIALIZED;
+      SourceConnectedToTargetInClientVidPn = DmmGetClientVidPnTargetModeInfo(a1, v5, 0LL, 0LL, 0LL, &v28, &v29, &v27);
+      if ( SourceConnectedToTargetInClientVidPn < 0 )
       {
-        WdLogSingleEntry2(2LL, v5, a1);
-        v10 = L"Could not find target mode info for TargetId 0x%I64x on adapter 0x%I64x!";
-        goto LABEL_10;
+LABEL_9:
+        v16 = WdLogNewEntry5_WdError(v15, v14);
+        *(_QWORD *)(v16 + 24) = v5;
+        *(_QWORD *)(v16 + 32) = a1;
+        WdLogEvent5_WdError(v16);
       }
-      *(_OWORD *)a4 = 0LL;
-      *(_OWORD *)(a4 + 16) = 0LL;
-      *(_QWORD *)(a4 + 32) = 0LL;
-      *(_DWORD *)(a4 + 40) = 0;
-      *(struct _D3DKMDT_2DREGION *)(a4 + 20) = v15;
-      *(_DWORD *)(a4 + 32) = *((_DWORD *)DisplayModeInfo + 2);
-      *(struct _D3DDDI_RATIONAL *)(a4 + 36) = v13;
-      if ( v14.Numerator != *((_DWORD *)DisplayModeInfo + 6) )
+      else
       {
-        WdLogSingleEntry1(1LL, 1134LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"ScanLineOrder == pDisplayModeInfo->DisplayMode.ScanLineOrdering",
-          1134LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-      }
-      switch ( *((_DWORD *)DisplayModeInfo + 6) )
-      {
-        case 1:
-          goto LABEL_26;
-        case 2:
+        *(_OWORD *)a4 = 0LL;
+        *(_OWORD *)(a4 + 16) = 0LL;
+        *(_QWORD *)(a4 + 32) = 0LL;
+        *(_DWORD *)(a4 + 40) = 0;
+        *(struct _D3DKMDT_2DREGION *)(a4 + 20) = v29;
+        *(_DWORD *)(a4 + 32) = *((_DWORD *)DisplayModeInfo + 2);
+        *(struct _D3DDDI_RATIONAL *)(a4 + 36) = v27;
+        v23 = *((unsigned int *)DisplayModeInfo + 6);
+        if ( v28 != (_DWORD)v23 )
+        {
+          v24 = WdLogNewEntry5_WdAssertion(v23, v14);
+          *(_QWORD *)(v24 + 24) = 1080LL;
+          WdLogEvent5_WdAssertion(v24);
+          LODWORD(v23) = *((_DWORD *)DisplayModeInfo + 6);
+        }
+        v25 = v23 - 2;
+        if ( v25 )
+        {
+          v26 = v25 - 1;
+          if ( v26 )
+          {
+            if ( v26 == 252 )
+              *(_DWORD *)(a4 + 28) = 0;
+            else
+              *(_DWORD *)(a4 + 28) = 2;
+          }
+          else
+          {
+            *(_DWORD *)(a4 + 28) = 3;
+          }
+        }
+        else
+        {
           *(_DWORD *)(a4 + 28) = 4;
-          return SourceConnectedToTargetInClientVidPn;
-        case 3:
-          *(_DWORD *)(a4 + 28) = 3;
-          return SourceConnectedToTargetInClientVidPn;
+        }
       }
-      if ( *((_DWORD *)DisplayModeInfo + 6) != 255 )
-      {
-LABEL_26:
-        *(_DWORD *)(a4 + 28) = 2;
-        return SourceConnectedToTargetInClientVidPn;
-      }
-      *(_DWORD *)(a4 + 28) = 0;
     }
-    return SourceConnectedToTargetInClientVidPn;
+    return (unsigned int)SourceConnectedToTargetInClientVidPn;
   }
   return result;
 }

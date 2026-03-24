@@ -1,5 +1,5 @@
 /*
- * XREFs of SeObjectCreateSaclAccessBits @ 0x1406B0FB8
+ * XREFs of SeObjectCreateSaclAccessBits @ 0x1406B0F98
  * Callers:
  *     ObOpenObjectByNameEx @ 0x1405E2E30 (ObOpenObjectByNameEx.c)
  *     ObpAdjustAccessMask @ 0x14061172C (ObpAdjustAccessMask.c)

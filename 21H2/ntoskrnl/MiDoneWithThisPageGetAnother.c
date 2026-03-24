@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDoneWithThisPageGetAnother @ 0x1405BA768
+ * XREFs of MiDoneWithThisPageGetAnother @ 0x14055A138
  * Callers:
- *     MiUpdateForkMaps @ 0x1405BBD5C (MiUpdateForkMaps.c)
+ *     MiUpdateForkMaps @ 0x14055B7A0 (MiUpdateForkMaps.c)
  * Callees:
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14030FA80 (MiUnlockWorkingSetExclusive.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     MiInitializePageColorBase @ 0x140339C20 (MiInitializePageColorBase.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     MiWaitForFreePage @ 0x1405B8348 (MiWaitForFreePage.c)
- *     MiFinishLastForkPageTable @ 0x1405BACCC (MiFinishLastForkPageTable.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
+ *     MiFinishLastForkPageTable @ 0x14055A6A0 (MiFinishLastForkPageTable.c)
+ *     MiWaitForFreePage @ 0x14055C1FC (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiDoneWithThisPageGetAnother(__int64 *a1, __int64 a2, __int64 a3, unsigned __int8 a4)
@@ -18,8 +18,8 @@ __int64 __fastcall MiDoneWithThisPageGetAnother(__int64 *a1, __int64 a2, __int64
   __int64 v5; // rdx
   signed __int32 v9; // eax
   unsigned int v10; // ebp
-  _QWORD *v11; // r15
-  volatile LONG *SharedVm; // rbx
+  __int64 v11; // r15
+  LONG *SharedVm; // rbx
   KIRQL v13; // al
   __int64 Page; // rax
   __int64 result; // rax
@@ -33,21 +33,21 @@ __int64 __fastcall MiDoneWithThisPageGetAnother(__int64 *a1, __int64 a2, __int64
   MiInitializePageColorBase(v4, 0, (__int64)&v16);
   v9 = _InterlockedExchangeAdd((volatile signed __int32 *)v16, 1u);
   v10 = HIDWORD(v16) | v9 & DWORD2(v16);
-  v11 = *(_QWORD **)(qword_140C51F48 + 8LL * *(unsigned __int16 *)(a3 + 1838));
+  v11 = *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a3 + 1838));
   while ( 1 )
   {
-    Page = MiGetPage((__int64)v11, v10, 0x302u);
+    Page = MiGetPage(v11, v10, 770LL);
     *a1 = Page;
     if ( Page != -1 )
       break;
     MiUnlockWorkingSetExclusive(v4, a4);
     MiWaitForFreePage(v11);
-    SharedVm = (volatile LONG *)MiGetSharedVm(v4);
+    SharedVm = MiGetSharedVm(v4);
     v13 = ExAcquireSpinLockExclusive(SharedVm);
-    *((_DWORD *)SharedVm + 1) = 0;
+    SharedVm[1] = 0;
     a4 = v13;
   }
   result = 6 * Page;
-  *(_QWORD *)(8 * result - 0x220000000000LL + 16) &= 0xFFFFFFFFFC00FFFFuLL;
+  *(_QWORD *)(8 * result - 0x58000000000LL + 16) &= 0xFFFFFFFFFC00FFFFuLL;
   return result;
 }

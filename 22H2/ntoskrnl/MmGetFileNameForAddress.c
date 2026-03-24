@@ -1,22 +1,22 @@
 /*
- * XREFs of MmGetFileNameForAddress @ 0x1408AC1EE
+ * XREFs of MmGetFileNameForAddress @ 0x1408C4094
  * Callers:
- *     DbgkPostModuleMessage @ 0x14053BACC (DbgkPostModuleMessage.c)
- *     EtwpProviderArrivalCallback @ 0x14077E16C (EtwpProviderArrivalCallback.c)
+ *     DbgkPostModuleMessage @ 0x1404EDEAC (DbgkPostModuleMessage.c)
+ *     EtwpProviderArrivalCallback @ 0x14068DF0C (EtwpProviderArrivalCallback.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     MiObtainReferencedVadEx @ 0x140274B90 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x140275350 (MiUnlockAndDereferenceVadShared.c)
- *     MiReferenceControlAreaFile @ 0x1402A22B4 (MiReferenceControlAreaFile.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ObQueryNameStringMode @ 0x14075BD04 (ObQueryNameStringMode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiObtainReferencedVadEx @ 0x14021B260 (MiObtainReferencedVadEx.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14025AAB0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ObQueryNameStringMode @ 0x14070FFB0 (ObQueryNameStringMode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmGetFileNameForAddress(unsigned __int64 a1, __int64 a2)
 {
-  __int64 *v3; // rax
+  volatile signed __int32 *v3; // rax
   char *v4; // rbx
   __int64 v6; // rcx
   char *v7; // rbp
@@ -33,7 +33,7 @@ __int64 __fastcall MmGetFileNameForAddress(unsigned __int64 a1, __int64 a2)
   v4 = (char *)v3;
   if ( !v3 )
     return 3221225793LL;
-  if ( (v3[6] & 0x200000) != 0 || (v6 = *(_QWORD *)v3[9], (*(_DWORD *)(v6 + 56) & 0x20) == 0) )
+  if ( (v3[12] & 0x100000) != 0 || (v6 = **((_QWORD **)v3 + 9), (*(_DWORD *)(v6 + 56) & 0x20) == 0) )
   {
     MiUnlockAndDereferenceVadShared((char *)v3);
     return 3221225545LL;
@@ -65,7 +65,7 @@ __int64 __fastcall MmGetFileNameForAddress(unsigned __int64 a1, __int64 a2)
     }
     v11 = -1073741801;
 LABEL_12:
-    ObfDereferenceObjectWithTag(v7, 0x63536D4Du);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v7);
     return (unsigned int)v11;
   }
 }

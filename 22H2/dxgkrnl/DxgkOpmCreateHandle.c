@@ -1,74 +1,60 @@
 /*
- * XREFs of DxgkOpmCreateHandle @ 0x1C02C2904
+ * XREFs of DxgkOpmCreateHandle @ 0x1C0172D60
  * Callers:
- *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x1C00639F0 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
- *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C0063D88 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
+ *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C001CBE4 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
+ *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x1C0057FF4 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?OpmCreateHandle@ADAPTER_DISPLAY@@QEAAJPEAXPEAPEAX@Z @ 0x1C02BE1EC (-OpmCreateHandle@ADAPTER_DISPLAY@@QEAAJPEAXPEAPEAX@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?OpmCreateHandle@ADAPTER_DISPLAY@@QEAAJPEAXPEAPEAX@Z @ 0x1C0172E08 (-OpmCreateHandle@ADAPTER_DISPLAY@@QEAAJPEAXPEAPEAX@Z.c)
  */
 
-__int64 __fastcall DxgkOpmCreateHandle(DXGADAPTER ***this, void *a2, void **a3)
+__int64 __fastcall DxgkOpmCreateHandle(struct _KTHREAD ***this, void *a2, void **a3)
 {
-  DXGADAPTER **v6; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  struct _KTHREAD **v8; // rcx
+  __int64 v9; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rax
 
   if ( !this )
   {
-    WdLogSingleEntry1(1LL, 970LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pDxgAdapter != NULL", 970LL, 0LL, 0LL, 0LL, 0LL);
+    v11 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    *(_QWORD *)(v11 + 24) = 916LL;
+    WdLogEvent5_WdAssertion(v11);
   }
   if ( !a3 )
   {
-    WdLogSingleEntry1(1LL, 971LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"phOpmAdapterHandle != NULL", 971LL, 0LL, 0LL, 0LL, 0LL);
+    v12 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v12 + 24) = 917LL;
+    WdLogEvent5_WdAssertion(v12);
   }
   if ( !DXGADAPTER::IsCoreResourceSharedOwner((DXGADAPTER *)this) )
   {
-    WdLogSingleEntry1(1LL, 972LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pDxgAdapter->IsCoreResourceSharedOwner()",
-      972LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v13 + 24) = 918LL;
+    WdLogEvent5_WdAssertion(v13);
   }
-  v6 = this[365];
-  if ( v6 )
+  v8 = this[337];
+  if ( v8 )
   {
-    if ( v6[49] != KeGetCurrentThread() )
+    if ( v8[42] != KeGetCurrentThread() )
     {
-      WdLogSingleEntry1(1LL, 976LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pDxgAdapter->GetDisplayCore()->IsOpmI2CMutexOwner()",
-        976LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v9 = WdLogNewEntry5_WdAssertion(v8, v6);
+      *(_QWORD *)(v9 + 24) = 922LL;
+      WdLogEvent5_WdAssertion(v9);
+      v8 = this[337];
     }
-    return ADAPTER_DISPLAY::OpmCreateHandle(this[365], a2, a3);
+    return ADAPTER_DISPLAY::OpmCreateHandle((ADAPTER_DISPLAY *)v8, a2, a3);
   }
   else
   {
-    WdLogSingleEntry2(2LL, this, -1073741637LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Try to call DxgkOpmCreateHandle on a render only adapter 0x%I64x (Status = 0x%I64x)!",
-      (__int64)this,
-      -1073741637LL,
-      0LL,
-      0LL,
-      0LL);
+    v14 = WdLogNewEntry5_WdError(0LL, v6);
+    *(_QWORD *)(v14 + 24) = this;
+    *(_QWORD *)(v14 + 32) = -1073741637LL;
+    WdLogEvent5_WdError(v14);
     return 3221225659LL;
   }
 }

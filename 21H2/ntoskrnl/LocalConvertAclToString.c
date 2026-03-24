@@ -1,27 +1,27 @@
 /*
- * XREFs of LocalConvertAclToString @ 0x140676B80
+ * XREFs of LocalConvertAclToString @ 0x140673794
  * Callers:
- *     LocalConvertSDToStringSD_Rev1 @ 0x140676314 (LocalConvertSDToStringSD_Rev1.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x140676E30 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
- *     _ultow_s @ 0x1403E6130 (_ultow_s.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     LookupAccessMaskInTable @ 0x1406773CC (LookupAccessMaskInTable.c)
- *     LocalGetAceCondition @ 0x140677460 (LocalGetAceCondition.c)
- *     LookupAceTypeInTable @ 0x1406774E8 (LookupAceTypeInTable.c)
- *     SddlpAlloc @ 0x14067757C (SddlpAlloc.c)
- *     LookupSidInTable @ 0x1406775C8 (LookupSidInTable.c)
- *     LookupAceFlagsInTable @ 0x140677764 (LookupAceFlagsInTable.c)
- *     RtlNtStatusToDosError @ 0x14069E070 (RtlNtStatusToDosError.c)
- *     LocalConvertSidToStringSidW @ 0x1406C85A0 (LocalConvertSidToStringSidW.c)
- *     SddlpUuidToString @ 0x1409CFFF0 (SddlpUuidToString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     _ultow_s @ 0x1403D6D00 (_ultow_s.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     LocalConvertSidToStringSidW @ 0x140673500 (LocalConvertSidToStringSidW.c)
+ *     LookupAccessMaskInTable @ 0x140673F88 (LookupAccessMaskInTable.c)
+ *     LocalGetAceCondition @ 0x140674020 (LocalGetAceCondition.c)
+ *     LookupAceFlagsInTable @ 0x140674148 (LookupAceFlagsInTable.c)
+ *     LookupAceTypeInTable @ 0x1406741F8 (LookupAceTypeInTable.c)
+ *     LookupSidInTable @ 0x14067432C (LookupSidInTable.c)
+ *     SddlpAlloc @ 0x140674548 (SddlpAlloc.c)
+ *     RtlNtStatusToDosError @ 0x14068A4C0 (RtlNtStatusToDosError.c)
+ *     SddlpUuidToString @ 0x140926B58 (SddlpUuidToString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall LocalConvertAclToString(
         __int64 a1,
         char a2,
         char a3,
-        wchar_t **a4,
+        __int64 *a4,
         unsigned int *a5,
         __int64 a6,
         __int64 a7,
@@ -31,7 +31,7 @@ __int64 __fastcall LocalConvertAclToString(
   __int64 v10; // rsi
   unsigned int v11; // edi
   size_t v12; // rcx
-  unsigned int v13; // r13d
+  __int64 v13; // r13
   char *v14; // r15
   __int64 *v15; // rax
   __int64 v16; // rcx
@@ -44,111 +44,114 @@ __int64 __fastcall LocalConvertAclToString(
   ULONG AceCondition; // r14d
   int v24; // ebx
   _QWORD *v25; // rax
-  __int64 v26; // rbx
-  __int64 v27; // rax
-  wchar_t **v28; // rbx
-  __int64 v29; // rax
-  __int64 v30; // r13
-  unsigned __int64 v31; // rbx
-  PVOID *v32; // r15
-  wchar_t *v33; // rdi
-  unsigned __int64 v34; // rbx
-  wchar_t *v35; // rdi
-  rsize_t v36; // rbx
-  const wchar_t **v37; // rax
-  const wchar_t **v38; // rsi
-  __int64 v39; // rax
-  char *v40; // r15
-  unsigned int v41; // esi
-  wchar_t *v42; // rdi
-  rsize_t v43; // rbx
-  __int64 v44; // r15
-  char *v45; // r14
-  rsize_t v46; // rbx
-  wchar_t *v47; // rdi
-  __int64 v48; // r12
-  unsigned __int8 v49; // al
+  unsigned int v26; // eax
+  int v27; // edi
+  __int64 *v28; // rax
+  __int64 v29; // rcx
+  __int64 v30; // rax
+  __int64 *v31; // rax
+  __int64 v32; // rcx
+  __int64 v33; // rax
+  __int64 v34; // rax
+  wchar_t **v35; // rbx
+  __int64 v36; // rcx
+  __int64 v37; // rax
+  __int64 v38; // rbx
+  int v39; // eax
+  unsigned __int64 v40; // rbx
+  PVOID *v41; // r15
+  _WORD *v42; // rdi
+  unsigned __int64 v43; // rbx
+  wchar_t *v44; // rdi
+  rsize_t v45; // rbx
+  const wchar_t **v46; // rax
+  const wchar_t **v47; // rsi
+  __int64 v48; // rax
+  char *v49; // r15
   unsigned int v50; // esi
-  int v51; // eax
-  const wchar_t **v52; // rax
-  const wchar_t **v53; // rsi
-  __int64 v54; // rax
+  wchar_t *v51; // rdi
+  rsize_t v52; // rbx
+  __int64 v53; // r15
+  char *v54; // r14
   rsize_t v55; // rbx
   wchar_t *v56; // rdi
-  rsize_t v57; // rbx
-  wchar_t *v58; // rdi
-  _QWORD *v59; // r12
-  __int64 v60; // r15
-  rsize_t v61; // rbx
-  wchar_t *v62; // rdi
-  const wchar_t *v63; // rsi
-  __int64 v64; // rax
-  const wchar_t *v65; // rsi
-  wchar_t *v66; // rdi
-  unsigned __int64 v67; // rbx
-  char *v68; // rcx
-  unsigned int v69; // r15d
-  unsigned int v70; // ebx
-  _BYTE *v71; // r13
-  __int64 *v73; // rax
-  __int64 v74; // rcx
-  __int64 v75; // rax
-  const wchar_t **v76; // rax
-  const wchar_t **v77; // r14
-  __int64 v78; // rax
-  unsigned int v79; // eax
-  int v80; // edi
-  __int64 *v81; // rax
-  __int64 v82; // rcx
-  __int64 v83; // rax
-  NTSTATUS v84; // eax
+  __int64 v57; // r12
+  unsigned __int8 v58; // al
+  unsigned int v59; // esi
+  int v60; // eax
+  __int64 v61; // rax
+  rsize_t v62; // rbx
+  wchar_t *v63; // rdi
+  rsize_t v64; // rbx
+  wchar_t *v65; // rdi
+  _QWORD *v66; // r12
+  __int64 v67; // r15
+  rsize_t v68; // rbx
+  wchar_t *v69; // rdi
+  const wchar_t *v70; // rsi
+  __int64 v71; // rax
+  wchar_t *v72; // rsi
+  wchar_t *v73; // rdi
+  unsigned __int64 v74; // rbx
+  char *v75; // rcx
+  unsigned int v76; // r15d
+  const wchar_t **v77; // rax
+  const wchar_t **v78; // r14
+  __int64 v79; // rax
+  const wchar_t **v80; // rax
+  const wchar_t **v81; // rsi
+  unsigned int v82; // ebx
+  _BYTE *v83; // r13
   void *v85; // rcx
-  bool v86; // cc
-  unsigned int v87; // eax
-  const wchar_t **v88; // rax
-  const wchar_t **v89; // r15
+  rsize_t v86; // rbx
+  wchar_t *v87; // rdi
+  __int64 v88; // rax
+  bool v89; // cc
   __int64 v90; // rax
   unsigned int v91; // ecx
-  wchar_t *v92; // rax
-  PVOID v93; // rcx
-  int v94; // edx
-  unsigned int v95; // r8d
-  char *v96; // rax
+  PVOID v92; // rcx
+  unsigned int v93; // eax
+  int v94; // r8d
+  __int64 v95; // r9
+  __int64 v96; // rax
   wchar_t *v97; // rax
-  int v98; // edx
+  int v98; // ecx
   unsigned int v99; // r8d
-  wchar_t *v100; // r15
-  __int64 v101; // rsi
-  int v102; // eax
-  wchar_t *v103; // r15
-  __int64 v104; // rsi
-  rsize_t v105; // rbx
-  wchar_t *v106; // rdi
-  __int64 v107; // rax
+  __int64 v100; // rdx
+  unsigned int v101; // eax
+  const wchar_t **v102; // rax
+  const wchar_t **v103; // r15
+  __int64 v104; // rax
+  PVOID v105; // r15
+  __int64 v106; // rsi
+  int v107; // eax
+  PVOID v108; // r15
+  __int64 v109; // rsi
   unsigned int Val; // [rsp+58h] [rbp-69h]
   wchar_t Str2[2]; // [rsp+5Ch] [rbp-65h] BYREF
-  int v110; // [rsp+60h] [rbp-61h]
+  int v112; // [rsp+60h] [rbp-61h]
   PVOID P; // [rsp+68h] [rbp-59h]
-  ULONG v112; // [rsp+70h] [rbp-51h] BYREF
-  PVOID v113; // [rsp+78h] [rbp-49h] BYREF
-  PSID Sid1; // [rsp+80h] [rbp-41h]
-  char *v115; // [rsp+88h] [rbp-39h]
-  __int64 v116; // [rsp+90h] [rbp-31h] BYREF
-  PVOID v117; // [rsp+98h] [rbp-29h]
-  __int64 v118; // [rsp+A0h] [rbp-21h]
-  wchar_t *Src; // [rsp+A8h] [rbp-19h] BYREF
-  int v120; // [rsp+B0h] [rbp-11h]
-  PVOID v121; // [rsp+B8h] [rbp-9h]
-  unsigned int v124; // [rsp+140h] [rbp+7Fh]
+  ULONG v114; // [rsp+70h] [rbp-51h] BYREF
+  wchar_t *Src; // [rsp+78h] [rbp-49h] BYREF
+  PSID Sid; // [rsp+80h] [rbp-41h]
+  char *v117; // [rsp+88h] [rbp-39h]
+  __int64 v118; // [rsp+90h] [rbp-31h] BYREF
+  PVOID v119; // [rsp+98h] [rbp-29h]
+  PVOID v120; // [rsp+A0h] [rbp-21h] BYREF
+  int v121; // [rsp+A8h] [rbp-19h]
+  PVOID v122; // [rsp+B0h] [rbp-11h]
+  __int64 v123; // [rsp+B8h] [rbp-9h]
+  unsigned int v126; // [rsp+140h] [rbp+7Fh]
 
-  v120 = 0;
+  v126 = 0;
   v10 = a1;
-  Src = 0LL;
+  v121 = 0;
   v11 = 0;
+  v120 = 0LL;
   Val = 0;
-  Sid1 = 0LL;
-  v116 = 0LL;
-  v113 = 0LL;
+  Sid = 0LL;
+  v118 = 0LL;
+  Src = 0LL;
   if ( !a4 || !a5 )
     return 87LL;
   if ( !a2 )
@@ -161,56 +164,66 @@ __int64 __fastcall LocalConvertAclToString(
   {
     *a4 = 0LL;
     *a5 = 36;
-    v92 = (wchar_t *)SddlpAlloc(0x24uLL);
-    *a4 = v92;
-    if ( !v92 )
+    v90 = SddlpAlloc(0x24uLL);
+    *a4 = v90;
+    if ( !v90 )
     {
       v91 = 8;
-      goto LABEL_119;
+LABEL_123:
+      *a5 = 0;
+      return v91;
     }
-    wcscpy(v92, L"NO_ACCESS_CONTROL");
+    *(_OWORD *)v90 = *(_OWORD *)L"NO_ACCESS_CONTROL";
+    *(_OWORD *)(v90 + 16) = *(_OWORD *)L"S_CONTROL";
+    *(_DWORD *)(v90 + 32) = *(_DWORD *)L"L";
     return 0LL;
   }
   if ( !*(_WORD *)(a1 + 4) )
   {
     *a4 = 0LL;
     v91 = 0;
-LABEL_119:
-    *a5 = 0;
-    return v91;
+    goto LABEL_123;
   }
   v12 = 8LL * *(unsigned __int16 *)(a1 + 4);
-  v110 = 2 - (a3 != 0);
+  v112 = 2 - (a3 != 0);
   P = (PVOID)SddlpAlloc(v12);
   if ( !P )
     return 8LL;
-  v121 = (PVOID)SddlpAlloc(*(unsigned __int16 *)(v10 + 4));
-  if ( !v121 )
+  v122 = (PVOID)SddlpAlloc(*(unsigned __int16 *)(v10 + 4));
+  if ( !v122 )
   {
-    v93 = P;
-LABEL_126:
-    ExFreePoolWithTag(v93, 0);
+    v92 = P;
+LABEL_125:
+    ExFreePoolWithTag(v92, 0);
     return 8LL;
   }
-  v117 = (PVOID)SddlpAlloc(4LL * *(unsigned __int16 *)(v10 + 4));
-  if ( !v117 )
+  v119 = (PVOID)SddlpAlloc(4LL * *(unsigned __int16 *)(v10 + 4));
+  if ( !v119 )
   {
     ExFreePoolWithTag(P, 0);
-    v93 = v121;
-    goto LABEL_126;
+    v92 = v122;
+    goto LABEL_125;
   }
-  v13 = 0;
+  v13 = 0LL;
+  v117 = (char *)(v10 + 8);
   v14 = (char *)(v10 + 8);
-  v115 = (char *)(v10 + 8);
   if ( !*(_WORD *)(v10 + 4) )
-    goto LABEL_182;
+  {
+LABEL_145:
+    AceCondition = 1336;
+    goto LABEL_50;
+  }
   while ( 1 )
   {
     v11 += 2;
-    v124 = v11;
+    v126 = v11;
     v15 = (__int64 *)LookupAceTypeInTable(0LL);
     if ( !v15 )
-      break;
+    {
+LABEL_112:
+      AceCondition = 1336;
+      goto LABEL_49;
+    }
     v16 = *v15;
     v17 = -1LL;
     do
@@ -222,15 +235,15 @@ LABEL_126:
     {
       if ( ((unsigned __int8)(1 << v18) & (unsigned __int8)v14[1]) != 0 )
       {
-        v73 = (__int64 *)LookupAceFlagsInTable(0LL);
-        if ( v73 )
+        v31 = (__int64 *)LookupAceFlagsInTable(0LL);
+        if ( v31 )
         {
-          v74 = *v73;
-          v75 = -1LL;
+          v32 = *v31;
+          v33 = -1LL;
           do
-            ++v75;
-          while ( *(_WORD *)(v74 + 2 * v75) );
-          v19 += 2 * v75;
+            ++v33;
+          while ( *(_WORD *)(v32 + 2 * v33) );
+          v19 += 2 * v33;
         }
       }
       ++v18;
@@ -238,21 +251,23 @@ LABEL_126:
     while ( v18 < 8 );
     v20 = *v14;
     v11 = v19 + 2;
-    v124 = v11;
+    v126 = v11;
     *(_DWORD *)Str2 = v11;
     if ( v20 > 0xBu )
     {
       if ( v20 != 13 )
       {
         if ( v20 <= 0x10u )
-          break;
-        v86 = v20 <= 0x15u;
-        goto LABEL_105;
+          goto LABEL_112;
+        v89 = v20 <= 0x15u;
+LABEL_111:
+        if ( !v89 )
+          goto LABEL_112;
       }
 LABEL_19:
       v21 = *((_DWORD *)v14 + 1);
       v22 = v14 + 8;
-      Sid1 = v14 + 8;
+      Sid = v14 + 8;
       Val = v21;
       goto LABEL_20;
     }
@@ -261,458 +276,438 @@ LABEL_19:
       if ( v20 <= 3u )
         goto LABEL_19;
       if ( v20 <= 4u )
-        break;
+        goto LABEL_112;
       if ( v20 > 8u )
       {
-        v86 = v20 <= 0xAu;
-LABEL_105:
-        if ( !v86 )
-          break;
-        goto LABEL_19;
+        v89 = v20 <= 0xAu;
+        goto LABEL_111;
       }
     }
-    v94 = *((_DWORD *)v14 + 2) & 2;
-    v95 = *((_DWORD *)v14 + 2) & 1;
+    v93 = *((_DWORD *)v14 + 2) & 1;
     Val = *((_DWORD *)v14 + 1);
-    v22 = &v14[16 * v95 + (v94 != 0 ? 28LL : 12LL)];
-    Sid1 = v22;
-    if ( v95 && v14 != (char *)-12LL )
+    v94 = *((_DWORD *)v14 + 2) & 2;
+    v95 = 16LL * v93;
+    v22 = &v14[v95 + (v94 != 0 ? 28LL : 12LL)];
+    Sid = v22;
+    if ( (-(__int64)(v93 != 0) & (unsigned __int64)(v14 + 12)) != 0 )
     {
       v11 += 72;
       *(_DWORD *)Str2 = v11;
     }
     if ( v94 )
-    {
-      v96 = v14 + 28;
-      if ( !v95 )
-        v96 = v14 + 12;
-      if ( v96 )
-        *(_DWORD *)Str2 = v11 + 72;
-    }
+      v96 = (__int64)&v14[v95 + 12];
+    else
+      v96 = 0LL;
+    if ( v96 )
+      *(_DWORD *)Str2 = v11 + 72;
 LABEL_20:
-    if ( v113 )
+    if ( Src )
     {
-      ExFreePoolWithTag(v113, 0);
-      v113 = 0LL;
+      ExFreePoolWithTag(Src, 0);
+      Src = 0LL;
     }
-    v112 = 0;
-    AceCondition = LocalGetAceCondition(v14, v22, &v113, &v112);
+    v114 = 0;
+    AceCondition = LocalGetAceCondition(v14, v22, &Src, &v114);
     if ( AceCondition )
     {
       v11 = *(_DWORD *)Str2;
-      v124 = *(_DWORD *)Str2;
-      goto LABEL_145;
+      v126 = *(_DWORD *)Str2;
+      goto LABEL_143;
     }
     v24 = 0;
-    *((_DWORD *)v117 + v13) = 0;
+    *((_DWORD *)v119 + (unsigned int)v13) = 0;
     v25 = (_QWORD *)LookupAccessMaskInTable(0LL);
     if ( !v25 )
     {
-      v79 = Val;
-      v80 = 0;
+      v26 = Val;
+      v27 = 0;
       while ( 1 )
       {
-        if ( (v79 & (1 << v80)) != 0 )
+        if ( (v26 & (1 << v27)) != 0 )
         {
-          v81 = (__int64 *)LookupAccessMaskInTable(0LL);
-          if ( !v81 )
+          v28 = (__int64 *)LookupAccessMaskInTable(0LL);
+          if ( !v28 )
           {
             v24 = 20;
-            *((_DWORD *)v117 + v13) = 2;
-            goto LABEL_27;
+            *((_DWORD *)v119 + (unsigned int)v13) = 2;
+            goto LABEL_37;
           }
-          v82 = *v81;
-          v83 = -1LL;
+          v29 = *v28;
+          v30 = -1LL;
           do
-            ++v83;
-          while ( *(_WORD *)(v82 + 2 * v83) );
-          v24 += 2 * v83;
-          v79 = Val;
+            ++v30;
+          while ( *(_WORD *)(v29 + 2 * v30) );
+          v24 += 2 * v30;
+          v26 = Val;
         }
-        if ( (unsigned int)++v80 >= 0x20 )
-          goto LABEL_27;
+        if ( (unsigned int)++v27 >= 0x20 )
+          goto LABEL_37;
       }
     }
-    v26 = -1LL;
-    *((_DWORD *)v117 + v13) = 1;
+    v38 = -1LL;
+    *((_DWORD *)v119 + (unsigned int)v13) = 1;
     do
-      ++v26;
-    while ( *(_WORD *)(*v25 + 2 * v26) );
-    v24 = 2 * v26;
-LABEL_27:
+      ++v38;
+    while ( *(_WORD *)(*v25 + 2 * v38) );
+    v24 = 2 * v38;
+LABEL_37:
     v11 = v24 + *(_DWORD *)Str2 + 6;
-    v124 = v11;
-    v27 = LookupSidInTable(0LL, Sid1, Str2, a9, (__int64)&v116);
-    v28 = (wchar_t **)((char *)P + 8 * v13);
-    if ( v27 )
+    v126 = v11;
+    v34 = LookupSidInTable(0LL, Sid, Str2, a9, (__int64)&v118);
+    v35 = (wchar_t **)((char *)P + 8 * (unsigned int)v13);
+    if ( v34 )
     {
-      *v28 = (wchar_t *)(v27 + 2);
+      v36 = v34 + 2;
+      *v35 = (wchar_t *)(v34 + 2);
+      goto LABEL_39;
+    }
+    if ( v118 )
+    {
+      v97 = (wchar_t *)SddlpAlloc(6uLL);
+      *v35 = v97;
+      if ( !v97 )
+      {
+        AceCondition = 8;
+        goto LABEL_143;
+      }
+      wcscpy_s(v97, 3uLL, L"SA");
+      goto LABEL_48;
+    }
+    v39 = LocalConvertSidToStringSidW(Sid, (wchar_t **)P + (unsigned int)v13);
+    if ( v39 < 0 )
+      break;
+LABEL_48:
+    *((_BYTE *)v122 + (unsigned int)v13) = 1;
+    v36 = (__int64)*v35;
+LABEL_39:
+    v37 = -1LL;
+    do
+      ++v37;
+    while ( *(_WORD *)(v36 + 2 * v37) );
+    v10 = a1;
+    v11 += 2 * v37 + 4;
+    v14 += *((unsigned __int16 *)v14 + 1);
+    v126 = v11;
+    LODWORD(v13) = v13 + 1;
+    if ( (unsigned int)v13 >= *(unsigned __int16 *)(a1 + 4) )
+      goto LABEL_49;
+  }
+  AceCondition = RtlNtStatusToDosError(v39);
+LABEL_143:
+  v10 = a1;
+LABEL_49:
+  v13 = 0LL;
+  if ( !v11 )
+    goto LABEL_145;
+LABEL_50:
+  if ( AceCondition )
+    goto LABEL_179;
+  if ( (v11 & 1) != 0 )
+    v126 = ++v11;
+  v40 = v11;
+  v41 = (PVOID *)a4;
+  v42 = (_WORD *)SddlpAlloc(v11);
+  *a4 = (__int64)v42;
+  if ( !v42 )
+  {
+    v11 = v126;
+    AceCondition = 8;
+    goto LABEL_180;
+  }
+  v43 = v40 >> 1;
+  *(_DWORD *)Str2 = 0;
+  if ( !*(_WORD *)(v10 + 4) )
+    goto LABEL_178;
+  while ( 2 )
+  {
+    if ( !v43 )
+      goto LABEL_177;
+    *v42 = 40;
+    v44 = v42 + 1;
+    v45 = v43 - 1;
+    v46 = (const wchar_t **)LookupAceTypeInTable(0LL);
+    v47 = v46;
+    if ( v46 )
+    {
+      wcscpy_s(v44, v45, *v46);
+      v48 = *((unsigned int *)v47 + 2);
+      v45 -= v48;
+      v44 += v48;
+    }
+    if ( !v45 )
+      goto LABEL_177;
+    v49 = v117;
+    *v44 = 59;
+    v50 = v13;
+    v51 = v44 + 1;
+    v52 = v45 - 1;
+    do
+    {
+      if ( ((unsigned __int8)(1 << v50) & (unsigned __int8)v49[1]) != 0 )
+      {
+        v77 = (const wchar_t **)LookupAceFlagsInTable(0LL);
+        v78 = v77;
+        if ( v77 )
+        {
+          wcscpy_s(v51, v52, *v77);
+          v79 = *((unsigned int *)v78 + 2);
+          v52 -= v79;
+          v51 += v79;
+        }
+      }
+      ++v50;
+    }
+    while ( v50 < 8 );
+    v53 = *(unsigned int *)Str2;
+    if ( !v52 )
+    {
+LABEL_177:
+      AceCondition = 1336;
+      goto LABEL_178;
+    }
+    v54 = v117;
+    *v51 = 59;
+    v55 = v52 - 1;
+    v56 = v51 + 1;
+    v123 = v13;
+    v57 = v13;
+    v118 = v13;
+    v58 = *v54;
+    if ( (unsigned __int8)*v54 > 0xBu )
+    {
+      if ( v58 == 13 || v58 > 0x10u && v58 <= 0x15u )
+        goto LABEL_66;
     }
     else
     {
-      if ( v116 )
+      if ( *v54 == 11 )
+        goto LABEL_147;
+      if ( v58 <= 3u )
+        goto LABEL_66;
+      if ( v58 > 4u )
       {
-        v97 = (wchar_t *)SddlpAlloc(6uLL);
-        *v28 = v97;
-        if ( !v97 )
+        if ( v58 > 8u )
         {
-          AceCondition = 8;
-LABEL_145:
-          v10 = a1;
-          goto LABEL_32;
+          if ( v58 > 0xAu )
+            goto LABEL_67;
+LABEL_66:
+          Val = *((_DWORD *)v54 + 1);
+          Sid = v54 + 8;
+          goto LABEL_67;
         }
-        wcscpy_s(v97, 3uLL, L"SA");
+LABEL_147:
+        v98 = *((_DWORD *)v54 + 2) & 2;
+        v99 = *((_DWORD *)v54 + 2) & 1;
+        v100 = 16LL * v99;
+        Val = *((_DWORD *)v54 + 1);
+        Sid = &v54[v100 + (v98 != 0 ? 28LL : 12LL)];
+        if ( v98 )
+          v13 = (__int64)&v54[v100 + 12];
+        else
+          v13 = 0LL;
+        v118 = v13;
+        v57 = (unsigned __int64)(v54 + 12) & -(__int64)(v99 != 0);
+        v123 = v57;
       }
-      else
-      {
-        v84 = LocalConvertSidToStringSidW(Sid1);
-        if ( v84 < 0 )
-        {
-          AceCondition = RtlNtStatusToDosError(v84);
-          goto LABEL_145;
-        }
-      }
-      *((_BYTE *)v121 + v13) = 1;
     }
-    v29 = -1LL;
-    do
-      ++v29;
-    while ( *(_WORD *)(*((_QWORD *)P + v13) + 2 * v29) );
-    v10 = a1;
-    v11 += 2 * v29 + 4;
-    v14 += *((unsigned __int16 *)v14 + 1);
-    v124 = v11;
-    if ( ++v13 >= *(unsigned __int16 *)(a1 + 4) )
-      goto LABEL_32;
-  }
-  AceCondition = 1336;
-LABEL_32:
-  v30 = 0LL;
-  if ( !v11 )
-  {
-LABEL_182:
-    AceCondition = 1336;
-    goto LABEL_180;
-  }
-  if ( AceCondition )
-    goto LABEL_180;
-  if ( (v11 & 1) != 0 )
-    v124 = ++v11;
-  v31 = v11;
-  v32 = (PVOID *)a4;
-  v33 = (wchar_t *)SddlpAlloc(v11);
-  *a4 = v33;
-  if ( !v33 )
-  {
-    v11 = v124;
-    AceCondition = 8;
-    goto LABEL_181;
-  }
-  v34 = v31 >> 1;
-  *(_DWORD *)Str2 = 0;
-  if ( !*(_WORD *)(v10 + 4) )
-    goto LABEL_179;
-  while ( 2 )
-  {
-    if ( v34 )
+LABEL_67:
+    v59 = (unsigned int)Src;
+    if ( Src )
     {
-      *v33 = 40;
-      v35 = v33 + 1;
-      v36 = v34 - 1;
-      v37 = (const wchar_t **)LookupAceTypeInTable(0LL);
-      v38 = v37;
-      if ( v37 )
+      ExFreePoolWithTag(Src, 0);
+      v59 = 0;
+      Src = 0LL;
+    }
+    v114 = v59;
+    v114 = LocalGetAceCondition(v54, Sid, &Src, &v114);
+    AceCondition = v114;
+    if ( v114 )
+      goto LABEL_176;
+    v60 = *((_DWORD *)v119 + v53);
+    if ( v60 == 2 )
+    {
+      wcscpy_s(v56, v55, L"0x");
+      v56 += 2;
+      v55 -= 2LL;
+      ultow_s(Val, v56, v55, AceCondition + 16);
+      v61 = -1LL;
+      do
+        ++v61;
+      while ( v56[v61] != (_WORD)v59 );
+LABEL_73:
+      v56 += v61;
+      v55 -= v61;
+    }
+    else if ( v60 == 1 )
+    {
+      v80 = (const wchar_t **)LookupAccessMaskInTable(0LL);
+      v81 = v80;
+      if ( v80 )
       {
-        wcscpy_s(v35, v36, *v37);
-        v39 = *((unsigned int *)v38 + 2);
-        v36 -= v39;
-        v35 += v39;
+        wcscpy_s(v56, v55, *v80);
+        v61 = *((unsigned int *)v81 + 2);
+        goto LABEL_73;
       }
-      if ( v36 )
+    }
+    else
+    {
+      v101 = Val;
+      do
       {
-        v40 = v115;
-        *v35 = 59;
-        v41 = v30;
-        v42 = v35 + 1;
-        v43 = v36 - 1;
+        if ( (v101 & (1 << v59)) != 0 )
+        {
+          v102 = (const wchar_t **)LookupAccessMaskInTable(0LL);
+          v103 = v102;
+          if ( v102 )
+          {
+            wcscpy_s(v56, v55, *v102);
+            v104 = *((unsigned int *)v103 + 2);
+            v55 -= v104;
+            v56 += v104;
+          }
+          v101 = Val;
+        }
+        ++v59;
+      }
+      while ( v59 < 0x20 );
+      AceCondition = v114;
+      v57 = v123;
+      v13 = v118;
+    }
+    if ( !v55 )
+      break;
+    v62 = v55 - 1;
+    *v56 = 59;
+    v63 = v56 + 1;
+    if ( v57 )
+    {
+      if ( !(unsigned int)SddlpUuidToString(v57, &v120) )
+        goto LABEL_176;
+      v105 = v120;
+      v106 = -1LL;
+      do
+        ++v106;
+      while ( *((_WORD *)v120 + v106) );
+      wcscpy_s(v63, v62, (const wchar_t *)v120);
+      v62 -= v106;
+      v63 += v106;
+      if ( v105 )
+        ExFreePoolWithTag(v105, 0);
+    }
+    if ( v62 )
+    {
+      *v63 = 59;
+      v64 = v62 - 1;
+      v65 = v63 + 1;
+      if ( v13 )
+      {
+        v107 = SddlpUuidToString(v13, &v120);
+        v13 = 0LL;
+        if ( !v107 )
+          goto LABEL_178;
+        v108 = v120;
+        v109 = -1LL;
         do
-        {
-          if ( ((unsigned __int8)(1 << v41) & (unsigned __int8)v40[1]) != 0 )
-          {
-            v76 = (const wchar_t **)LookupAceFlagsInTable(0LL);
-            v77 = v76;
-            if ( v76 )
-            {
-              wcscpy_s(v42, v43, *v76);
-              v78 = *((unsigned int *)v77 + 2);
-              v43 -= v78;
-              v42 += v78;
-            }
-          }
-          ++v41;
-        }
-        while ( v41 < 8 );
-        v44 = *(unsigned int *)Str2;
-        if ( v43 )
-        {
-          v45 = v115;
-          *v42 = 59;
-          v46 = v43 - 1;
-          v47 = v42 + 1;
-          v116 = v30;
-          v48 = v30;
-          v118 = v30;
-          v49 = *v45;
-          if ( (unsigned __int8)*v45 > 0xBu )
-          {
-            if ( v49 == 13 || v49 > 0x10u && v49 <= 0x15u )
-              goto LABEL_49;
-          }
-          else
-          {
-            if ( *v45 == 11 )
-              goto LABEL_153;
-            if ( v49 <= 3u )
-              goto LABEL_49;
-            if ( v49 > 4u )
-            {
-              if ( v49 > 8u )
-              {
-                if ( v49 > 0xAu )
-                  goto LABEL_50;
-LABEL_49:
-                Val = *((_DWORD *)v45 + 1);
-                Sid1 = v45 + 8;
-                goto LABEL_50;
-              }
-LABEL_153:
-              v98 = *((_DWORD *)v45 + 2) & 2;
-              v99 = *((_DWORD *)v45 + 2) & 1;
-              Val = *((_DWORD *)v45 + 1);
-              Sid1 = &v45[16 * v99 + 12 + (v98 != 0 ? 0x10 : 0)];
-              if ( v98 )
-              {
-                if ( v99 )
-                {
-                  v30 = (__int64)(v45 + 28);
-                  v118 = (__int64)(v45 + 28);
-                  goto LABEL_156;
-                }
-                v30 = (__int64)(v45 + 12);
-              }
-              else
-              {
-                v30 = 0LL;
-              }
-              v118 = v30;
-              if ( !v99 )
-              {
-                v48 = 0LL;
-                v116 = 0LL;
-                goto LABEL_50;
-              }
-LABEL_156:
-              v48 = (__int64)(v45 + 12);
-              v116 = (__int64)(v45 + 12);
-            }
-          }
-LABEL_50:
-          v50 = (unsigned int)v113;
-          if ( v113 )
-          {
-            ExFreePoolWithTag(v113, 0);
-            v50 = 0;
-            v113 = 0LL;
-          }
-          v112 = v50;
-          v112 = LocalGetAceCondition(v45, Sid1, &v113, &v112);
-          AceCondition = v112;
-          if ( v112 )
-            goto LABEL_179;
-          v51 = *((_DWORD *)v117 + v44);
-          if ( v51 == 2 )
-          {
-            wcscpy_s(v47, v46, L"0x");
-            v47 += 2;
-            v46 -= 2LL;
-            ultow_s(Val, v47, v46, 16);
-            v54 = -1LL;
-            do
-              ++v54;
-            while ( v47[v54] != (_WORD)v50 );
-LABEL_57:
-            v47 += v54;
-            v46 -= v54;
-          }
-          else if ( v51 == 1 )
-          {
-            v52 = (const wchar_t **)LookupAccessMaskInTable(0LL);
-            v53 = v52;
-            if ( v52 )
-            {
-              wcscpy_s(v47, v46, *v52);
-              v54 = *((unsigned int *)v53 + 2);
-              goto LABEL_57;
-            }
-          }
-          else
-          {
-            v87 = Val;
-            do
-            {
-              if ( (v87 & (1 << v50)) != 0 )
-              {
-                v88 = (const wchar_t **)LookupAccessMaskInTable(0LL);
-                v89 = v88;
-                if ( v88 )
-                {
-                  wcscpy_s(v47, v46, *v88);
-                  v90 = *((unsigned int *)v89 + 2);
-                  v46 -= v90;
-                  v47 += v90;
-                }
-                v87 = Val;
-              }
-              ++v50;
-            }
-            while ( v50 < 0x20 );
-            AceCondition = v112;
-            v48 = v116;
-            v30 = v118;
-          }
-          if ( !v46 )
-            break;
-          v55 = v46 - 1;
-          *v47 = 59;
-          v56 = v47 + 1;
-          if ( v48 )
-          {
-            if ( !(unsigned int)SddlpUuidToString(v48, &Src) )
-              goto LABEL_179;
-            v100 = Src;
-            v101 = -1LL;
-            do
-              ++v101;
-            while ( Src[v101] );
-            wcscpy_s(v56, v55, Src);
-            v55 -= v101;
-            v56 += v101;
-            if ( v100 )
-              ExFreePoolWithTag(v100, 0);
-          }
-          if ( !v55 )
-            break;
-          *v56 = 59;
-          v57 = v55 - 1;
-          v58 = v56 + 1;
-          if ( v30 )
-          {
-            v102 = SddlpUuidToString(v30, &Src);
-            v30 = 0LL;
-            if ( !v102 )
-              goto LABEL_179;
-            v103 = Src;
-            v104 = -1LL;
-            do
-              ++v104;
-            while ( Src[v104] );
-            wcscpy_s(v58, v57, Src);
-            v57 -= v104;
-            v58 += v104;
-            if ( v103 )
-              ExFreePoolWithTag(v103, 0);
-          }
-          v59 = P;
-          if ( !v57 )
-          {
-LABEL_177:
-            AceCondition = 1336;
-LABEL_68:
-            v11 = v124;
-            v32 = (PVOID *)a4;
-            goto LABEL_69;
-          }
-          v60 = *(unsigned int *)Str2;
-          v61 = v57 - 1;
-          *v58 = 59;
-          v62 = v58 + 1;
-          v63 = (const wchar_t *)v59[v60];
-          wcscpy_s(v62, v61, v63);
-          v64 = -1LL;
-          do
-            ++v64;
-          while ( v63[v64] != (_WORD)v30 );
-          v65 = (const wchar_t *)v113;
-          v66 = &v62[v64];
-          v67 = v61 - v64;
-          if ( v113 )
-          {
-            if ( !v67 )
-              goto LABEL_177;
-            v105 = v67 - 1;
-            *v66 = 59;
-            v106 = v66 + 1;
-            wcscpy_s(v106, v105, v65);
-            v107 = -1LL;
-            do
-              ++v107;
-            while ( v65[v107] != (_WORD)v30 );
-            v66 = &v106[v107];
-            v67 = v105 - v107;
-          }
-          if ( v67 <= 1 )
-            goto LABEL_177;
-          v68 = v115;
-          *v66 = 41;
-          v69 = v60 + 1;
-          v33 = v66 + 1;
-          *(_DWORD *)Str2 = v69;
-          v34 = v67 - 1;
-          *v33 = v30;
-          v115 = &v68[*((unsigned __int16 *)v68 + 1)];
-          if ( v69 >= *(unsigned __int16 *)(a1 + 4) )
-            goto LABEL_68;
-          continue;
-        }
+          ++v109;
+        while ( *((_WORD *)v120 + v109) );
+        wcscpy_s(v65, v64, (const wchar_t *)v120);
+        v64 -= v109;
+        v65 += v109;
+        if ( v108 )
+          ExFreePoolWithTag(v108, 0);
       }
+      v66 = P;
+      if ( !v64 )
+      {
+LABEL_174:
+        AceCondition = 1336;
+LABEL_91:
+        v11 = v126;
+        v41 = (PVOID *)a4;
+        goto LABEL_92;
+      }
+      v67 = *(unsigned int *)Str2;
+      v68 = v64 - 1;
+      *v65 = 59;
+      v69 = v65 + 1;
+      v70 = (const wchar_t *)v66[v67];
+      wcscpy_s(v69, v68, v70);
+      v71 = -1LL;
+      do
+        ++v71;
+      while ( v70[v71] != (_WORD)v13 );
+      v72 = Src;
+      v73 = &v69[v71];
+      v74 = v68 - v71;
+      if ( Src )
+      {
+        if ( !v74 )
+          goto LABEL_174;
+        v86 = v74 - 1;
+        *v73 = 59;
+        v87 = v73 + 1;
+        wcscpy_s(v87, v86, v72);
+        v88 = -1LL;
+        do
+          ++v88;
+        while ( v72[v88] != (_WORD)v13 );
+        v73 = &v87[v88];
+        v74 = v86 - v88;
+      }
+      if ( v74 <= 1 )
+        goto LABEL_174;
+      v75 = v117;
+      *v73 = 41;
+      v76 = v67 + 1;
+      v42 = v73 + 1;
+      *(_DWORD *)Str2 = v76;
+      v43 = v74 - 1;
+      *v42 = v13;
+      v117 = &v75[*((unsigned __int16 *)v75 + 1)];
+      if ( v76 >= *(unsigned __int16 *)(a1 + 4) )
+        goto LABEL_91;
+      continue;
     }
     break;
   }
   AceCondition = 1336;
+LABEL_176:
+  v13 = 0LL;
+LABEL_178:
+  v11 = v126;
 LABEL_179:
-  v11 = v124;
+  v41 = (PVOID *)a4;
 LABEL_180:
-  v32 = (PVOID *)a4;
-LABEL_181:
-  v59 = P;
-LABEL_69:
-  v70 = 0;
-  if ( *(_WORD *)(a1 + 4) )
+  v66 = P;
+LABEL_92:
+  v82 = v13;
+  if ( (unsigned __int16)v13 < *(_WORD *)(a1 + 4) )
   {
-    v71 = v121;
+    v83 = v122;
     do
     {
-      if ( v71[v70] )
+      if ( v83[v82] )
       {
-        v85 = (void *)v59[v70];
+        v85 = (void *)v66[v82];
         if ( v85 )
           ExFreePoolWithTag(v85, 0);
       }
-      ++v70;
+      ++v82;
     }
-    while ( v70 < *(unsigned __int16 *)(a1 + 4) );
+    while ( v82 < *(unsigned __int16 *)(a1 + 4) );
+    v13 = 0LL;
   }
-  ExFreePoolWithTag(v59, 0);
-  ExFreePoolWithTag(v121, 0);
-  ExFreePoolWithTag(v117, 0);
-  if ( v113 )
-    ExFreePoolWithTag(v113, 0);
+  ExFreePoolWithTag(v66, 0);
+  ExFreePoolWithTag(v122, 0);
+  ExFreePoolWithTag(v119, 0);
+  if ( Src )
+    ExFreePoolWithTag(Src, 0);
   if ( AceCondition )
   {
-    if ( *v32 )
-      ExFreePoolWithTag(*v32, 0);
-    *v32 = 0LL;
-    *a5 = 0;
+    if ( *v41 )
+      ExFreePoolWithTag(*v41, 0);
+    *v41 = (PVOID)v13;
+    *a5 = v13;
   }
   else
   {

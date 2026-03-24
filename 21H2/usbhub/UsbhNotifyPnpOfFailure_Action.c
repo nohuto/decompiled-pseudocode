@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhNotifyPnpOfFailure_Action @ 0x1C00383C8
+ * XREFs of UsbhNotifyPnpOfFailure_Action @ 0x1C0039698
  * Callers:
- *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0044150 (Usbh_FDO_WaitPnpStop_CB.c)
+ *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0045400 (Usbh_FDO_WaitPnpStop_CB.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhWaitEventWithTimeoutEx @ 0x1C0011440 (UsbhWaitEventWithTimeoutEx.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00038F0 (UsbhWaitEventWithTimeoutEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
  */
 
 void __fastcall UsbhNotifyPnpOfFailure_Action(__int64 a1)

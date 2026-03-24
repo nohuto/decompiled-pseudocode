@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetCertificateSize@COPM@@QEAAJPEAXW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z @ 0x1C00CE910
+ * XREFs of ?GetCertificateSize@COPM@@QEAAJPEAXW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z @ 0x1C00BF278
  * Callers:
- *     NtGdiGetCertificateSizeByHandle @ 0x1C00CE200 (NtGdiGetCertificateSizeByHandle.c)
- *     NtGdiGetCertificateByHandle @ 0x1C00CE290 (NtGdiGetCertificateByHandle.c)
+ *     NtGdiGetCertificateSizeByHandle @ 0x1C00BEB60 (NtGdiGetCertificateSizeByHandle.c)
+ *     NtGdiGetCertificateByHandle @ 0x1C00BEBF0 (NtGdiGetCertificateByHandle.c)
  * Callees:
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C009ABA0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
- *     ?GetCertificateSize@COPMProtectedOutput@@QEAAJW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z @ 0x1C00CE9AC (-GetCertificateSize@COPMProtectedOutput@@QEAAJW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z.c)
- *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C00CEDBC (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00870E0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?GetCertificateSize@COPMProtectedOutput@@QEAAJW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z @ 0x1C00BF314 (-GetCertificateSize@COPMProtectedOutput@@QEAAJW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C00BF6F0 (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
  */
 
 __int64 __fastcall COPM::GetCertificateSize(COPM *this, void *a2, enum _DXGKMDT_CERTIFICATE_TYPE a3, unsigned int *a4)
@@ -17,9 +17,9 @@ __int64 __fastcall COPM::GetCertificateSize(COPM *this, void *a2, enum _DXGKMDT_
   COPMProtectedOutput *v11; // [rsp+40h] [rbp+8h] BYREF
 
   v11 = this;
-  v4 = qword_1C0296A08;
-  v8 = (PRKMUTEX *)((char *)qword_1C0296A08 + 48);
-  OPM::CMutex::Lock((void **)qword_1C0296A08 + 6);
+  v4 = qword_1C0251C30;
+  v8 = (PRKMUTEX *)((char *)qword_1C0251C30 + 48);
+  OPM::CMutex::Lock((void **)qword_1C0251C30 + 6);
   v11 = 0LL;
   HandleObject = OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::GetHandleObject((char *)v4 + 24, a2, &v11);
   if ( HandleObject >= 0 )

@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqGetRelativeObjectRegPath @ 0x1406D9F40
+ * XREFs of PiDqGetRelativeObjectRegPath @ 0x1406D9F20
  * Callers:
- *     PiDqOpenUserObjectRegKey @ 0x1406D9CA0 (PiDqOpenUserObjectRegKey.c)
- *     PiDqDeleteUserObject @ 0x14082ACBC (PiDqDeleteUserObject.c)
+ *     PiDqOpenUserObjectRegKey @ 0x1406D9C80 (PiDqOpenUserObjectRegKey.c)
+ *     PiDqDeleteUserObject @ 0x14082AC9C (PiDqDeleteUserObject.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _CmGetCommonClassRegKeyPath @ 0x140596C9C (_CmGetCommonClassRegKeyPath.c)
  *     _CmGetDeviceInterfaceRegKeyPath @ 0x14059B86C (_CmGetDeviceInterfaceRegKeyPath.c)
  *     _CmGetDeviceRegKeyPath @ 0x1405C7544 (_CmGetDeviceRegKeyPath.c)
- *     _CmGetDeviceContainerRegKeyPath @ 0x1406EA5C8 (_CmGetDeviceContainerRegKeyPath.c)
- *     _CmGetDevicePanelRegKeyPath @ 0x1408FBF84 (_CmGetDevicePanelRegKeyPath.c)
+ *     _CmGetDeviceContainerRegKeyPath @ 0x1406EA5A8 (_CmGetDeviceContainerRegKeyPath.c)
+ *     _CmGetDevicePanelRegKeyPath @ 0x1408FBF64 (_CmGetDevicePanelRegKeyPath.c)
  */
 
 __int64 __fastcall PiDqGetRelativeObjectRegPath(__int64 a1, int a2, PVOID *a3)

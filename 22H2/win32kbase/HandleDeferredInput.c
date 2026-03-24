@@ -1,204 +1,157 @@
 /*
- * XREFs of HandleDeferredInput @ 0x1C00074D0
+ * XREFs of HandleDeferredInput @ 0x1C0001830
  * Callers:
- *     NtUserSetInputServiceState @ 0x1C00AD930 (NtUserSetInputServiceState.c)
+ *     NtUserSetInputServiceState @ 0x1C009B910 (NtUserSetInputServiceState.c)
  * Callees:
- *     ?UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C00077EC (-UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_qiqdd @ 0x1C000785C (WPP_RECORDER_AND_TRACE_SF_qiqdd.c)
- *     ?EndKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@SAXPEAUtagQMSG@@_N@Z @ 0x1C0007948 (-EndKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@SAXPEAUtagQMSG@@_N@Z.c)
- *     ?GetKeyboardInputLatency@KeyboardInputTelemetry@@CAK_K@Z @ 0x1C00079D8 (-GetKeyboardInputLatency@KeyboardInputTelemetry@@CAK_K@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C00749F8 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     UpdateKeyStateForMessage @ 0x1C00A6E40 (UpdateKeyStateForMessage.c)
- *     ApiSetEditionDelQEntry @ 0x1C00C97FC (ApiSetEditionDelQEntry.c)
- *     ApiSetEditionWakeSomeone @ 0x1C00C9C84 (ApiSetEditionWakeSomeone.c)
+ *     WPP_RECORDER_SF_qiqdd @ 0x1C0001B60 (WPP_RECORDER_SF_qiqdd.c)
+ *     ?UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C0001C44 (-UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
+ *     ApiSetEditionDelQEntry @ 0x1C0001CB0 (ApiSetEditionDelQEntry.c)
+ *     ?EndKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@QEAAXPEAUtagQMSG@@_N@Z @ 0x1C0001D70 (-EndKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@QEAAXPEAUtagQMSG@@_N@Z.c)
+ *     ApiSetEditionWakeSomeone @ 0x1C000201C (ApiSetEditionWakeSomeone.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0008140 (WPP_RECORDER_SF_qq.c)
+ *     UpdateKeyStateForMessage @ 0x1C0093B30 (UpdateKeyStateForMessage.c)
  */
 
-int __fastcall HandleDeferredInput(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall HandleDeferredInput(__int64 a1, int a2, int a3)
 {
-  __int64 v4; // rsi
-  int v5; // r12d
-  int v6; // r15d
-  __int64 v7; // rdi
-  bool v8; // r13
-  __int64 **v9; // r14
-  __int64 *v10; // rbx
-  char v11; // bp
-  int v12; // eax
-  int v13; // edx
-  __int64 v14; // r8
-  __int64 *v15; // rbx
-  __int64 v16; // rax
-  __int64 v17; // rbx
-  unsigned int v18; // edx
-  unsigned int v19; // r8d
-  unsigned int v20; // ecx
-  __int64 v21; // r8
-  int v22; // ecx
+  __int64 v3; // rdi
+  int v4; // r9d
+  bool v6; // r10
+  __int64 v8; // rax
+  char v9; // r13
+  __int64 v10; // rax
+  __int128 *v11; // r8
+  __int64 result; // rax
+  __int64 **v13; // r12
+  __int64 *v14; // rbx
+  __int64 v15; // rdx
+  KeyboardInputTelemetry *v16; // rcx
+  char v17; // r14
+  int v18; // eax
+  int v19; // edx
+  int v20; // ecx
+  int v21; // r8d
+  int v22; // edx
+  __int64 *i; // rbx
+  int v24; // ecx
+  __int64 v25; // r8
+  bool v26; // [rsp+B8h] [rbp+48h]
 
-  v4 = *(_QWORD *)(a1 + 432);
-  v5 = a3;
-  v6 = a2;
-  v7 = a1;
-  v8 = (_DWORD)a2 == 4;
-  v9 = (__int64 **)(v4 + 24);
-LABEL_2:
-  v10 = *v9;
-  v11 = 0;
-  while ( v10 )
-  {
-    a2 = v10[13];
-    if ( a2 == v7 && (unsigned int)(*((_DWORD *)v10 + 6) - 256) <= 9 )
-    {
-      a1 = *((unsigned int *)v10 + 25);
-      if ( (a1 & 0x2000) != 0 || (a1 & 0x4000) != 0 || (*(_DWORD *)(a2 + 1272) & 0x1000000) != 0 && (a1 & 0x8000) == 0 )
-      {
-        if ( (*(_DWORD *)(v7 + 1272) & 0x1000000) != 0 && v5 != *((_DWORD *)v10 + 39) )
-          v11 = 1;
-        if ( v6 == 6 && !v11 && (a1 & 0x40000) == 0 )
-        {
-          LODWORD(v16) = UpdateKeyStateForMessage(v7, v10);
-          *((_DWORD *)v10 + 25) |= 0x40000u;
-          return v16;
-        }
-        KeyboardInputTelemetry::EndKeyboardEventProcessingByInputService((struct tagQMSG *)v10, v8);
-        if ( (*(_DWORD *)(v7 + 1272) & 0x1000000) == 0 && (*((_DWORD *)v10 + 25) & 0x2000) != 0 )
-          *(_DWORD *)(v10[13] + 1272) &= ~0x20000000u;
-        v12 = *((_DWORD *)v10 + 25);
-        if ( (v12 & 0x2000) != 0 || (v12 & 0x4000) != 0 || (v12 & 0x10000) != 0 )
-        {
-          *((_DWORD *)v10 + 25) = v12 & 0xFFFE9FFF;
-          ++*(_DWORD *)(v4 + 40);
-        }
-        *((_DWORD *)v10 + 25) |= 0x8000u;
-        InputTraceLogging::Delivery::UpdateISODState((const struct tagQMSG *)v10);
-        LOBYTE(v13) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                   && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40000) != 0
-                   && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        LOBYTE(v14) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( (_BYTE)v13 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_AND_TRACE_SF_qiqdd(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v13,
-            v14,
-            WPP_MAIN_CB.Queue.ListEntry.Flink);
-        if ( v6 != 2 && !v11 )
-        {
-          v21 = *((unsigned int *)v10 + 6);
-          v22 = 0;
-          if ( v6 == 5 )
-            v22 = 0x4000000;
-          *((_DWORD *)v10 + 25) = *((_DWORD *)v10 + 25) & 0xFBFFFFFF | v22 | 0x20000;
-          ApiSetEditionWakeSomeone(v4, v7, v21, v10);
-          break;
-        }
-        if ( v10 == *(__int64 **)(v4 + 88) )
-        {
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40000) == 0
-            || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-          {
-            LOBYTE(v13) = 0;
-          }
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-            || (LOBYTE(v14) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-          {
-            LOBYTE(v14) = 0;
-          }
-          if ( (_BYTE)v13 || (_BYTE)v14 )
-            WPP_RECORDER_AND_TRACE_SF_qq(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v13,
-              v14,
-              WPP_MAIN_CB.Queue.ListEntry.Flink,
-              5,
-              19,
-              12,
-              (__int64)&WPP_9aa367dbf6743197e78245d66571217e_Traceguids,
-              v4,
-              *(_QWORD *)(v4 + 88));
-          *(_QWORD *)(v4 + 88) = 0LL;
-        }
-        if ( (*((_DWORD *)v10 + 25) & 0x40000) == 0 )
-          UpdateKeyStateForMessage(v7, v10);
-        ApiSetEditionDelQEntry(v4 + 24, v10, v14);
-        if ( v11 )
-          goto LABEL_2;
-        break;
-      }
-    }
-    v10 = (__int64 *)*v10;
-  }
-  v15 = *v9;
-  LOBYTE(a1) = 1;
-  if ( *v9 )
-  {
-    while ( 1 )
-    {
-      a2 = *((unsigned int *)v15 + 25);
-      LODWORD(v16) = -__CFSHR__(*((_DWORD *)v15 + 25), 15);
-      if ( __CFSHR__(*((_DWORD *)v15 + 25), 15) && v6 != 4 && v15[13] == v7 )
-        break;
-      if ( (a2 & 0x10000) != 0 || __CFSHR__(*((_DWORD *)v15 + 25), 15) )
-      {
-        v16 = v15[13];
-        if ( v16 == v7 || *((_DWORD *)v15 + 24) == 4 )
-        {
-          *(_DWORD *)(v16 + 1272) &= ~0x20000000u;
-          *((_DWORD *)v15 + 25) &= 0xFFFE9FFF;
-          ++*(_DWORD *)(v4 + 40);
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40000) == 0
-            || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-          {
-            LOBYTE(a2) = 0;
-          }
-          if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_qiqdd(
-              WPP_GLOBAL_Control->AttachedDevice,
-              a2,
-              a3,
-              WPP_MAIN_CB.Queue.ListEntry.Flink);
-          }
-          *((_DWORD *)v15 + 25) |= 0x20000u;
-          InputTraceLogging::Delivery::UpdateISODState((const struct tagQMSG *)v15);
-          LODWORD(v16) = ApiSetEditionWakeSomeone(v4, v7, *((unsigned int *)v15 + 6), v15);
-          LOBYTE(a1) = 0;
-        }
-      }
-      v15 = (__int64 *)*v15;
-      if ( !v15 )
-      {
-        if ( !(_BYTE)a1 )
-          return v16;
-        goto LABEL_28;
-      }
-    }
-  }
+  v3 = *(_QWORD *)(a1 + 432);
+  v4 = a3;
+  v6 = a2 == 4;
+  v26 = a2 == 4;
+  v8 = *(_QWORD *)(v3 + 120);
+  v9 = 1;
+  if ( v8 )
+    v10 = *(_QWORD *)(v8 + 16);
   else
+    v10 = 0LL;
+  v11 = &gObjDummyLock;
+  if ( v10 )
+    LODWORD(v11) = v10 + 392;
+  result = *(_QWORD *)(v3 + 96);
+  v13 = (__int64 **)(v3 + 24);
+  v14 = *(__int64 **)(v3 + 24);
+  if ( !v14 )
+    goto LABEL_28;
+  while ( 1 )
   {
-LABEL_28:
-    v16 = SGDGetUserSessionState(a1, a2, a3, a4);
-    v17 = v16 + 14168;
-    if ( *(_DWORD *)(v16 + 14176) )
+    v15 = v14[13];
+    if ( v15 != a1
+      || (result = (unsigned int)(*((_DWORD *)v14 + 6) - 256), (unsigned int)result > 9)
+      || (v16 = (KeyboardInputTelemetry *)*((unsigned int *)v14 + 25), ((unsigned int)v16 & 0x10000) == 0)
+      && ((unsigned int)v16 & 0x20000) == 0
+      && ((*(_DWORD *)(v15 + 1232) & 0x1000000) == 0 || ((unsigned int)v16 & 0x40000) != 0) )
     {
-      LODWORD(v16) = KeyboardInputTelemetry::GetKeyboardInputLatency(*(_QWORD *)v17);
-      v18 = *(_DWORD *)(v17 + 12);
-      v19 = v18 + *(_DWORD *)(v17 + 8);
-      if ( v19 >= v18 )
+      v14 = (__int64 *)*v14;
+      goto LABEL_46;
+    }
+    if ( v9 )
+    {
+      v9 = 0;
+      KeyboardInputTelemetry::EndKeyboardEventProcessingByInputService(v16, (struct tagQMSG *)v14, v6);
+      v4 = a3;
+    }
+    if ( (*(_DWORD *)(a1 + 1232) & 0x1000000) == 0 || (v17 = 1, v4 == *((_DWORD *)v14 + 39)) )
+      v17 = 0;
+    if ( a2 == 6 && !v17 && (*((_DWORD *)v14 + 25) & 0x200000) == 0 )
+    {
+      result = UpdateKeyStateForMessage(a1, v14);
+      *((_DWORD *)v14 + 25) |= 0x200000u;
+      return result;
+    }
+    if ( (*(_DWORD *)(a1 + 1232) & 0x1000000) == 0 && (*((_DWORD *)v14 + 25) & 0x10000) != 0 )
+      *(_DWORD *)(v14[13] + 1232) &= ~0x20000000u;
+    v18 = *((_DWORD *)v14 + 25);
+    if ( (v18 & 0x10000) != 0 || (v18 & 0x20000) != 0 || (v18 & 0x80000) != 0 )
+    {
+      *((_DWORD *)v14 + 25) = v18 & 0xFFF4FFFF;
+      ++*(_DWORD *)(v3 + 40);
+      v18 = *((_DWORD *)v14 + 25);
+    }
+    *((_DWORD *)v14 + 25) = v18 | 0x40000;
+    InputTraceLogging::Delivery::UpdateISODState((const struct tagQMSG *)v14);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_qiqdd(v20, v19, v21, 11);
+    v22 = 0;
+    if ( a2 != 2 && !v17 )
+      break;
+    if ( v14 == *(__int64 **)(v3 + 80) )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
       {
-        v20 = *(_DWORD *)(v17 + 20);
-        LODWORD(v16) = v20 + v16;
-        if ( (unsigned int)v16 >= v20 )
-        {
-          ++*(_DWORD *)(v17 + 16);
-          *(_DWORD *)(v17 + 20) = v16;
-          *(_DWORD *)(v17 + 12) = v19;
-        }
+        LOBYTE(v22) = 5;
+        WPP_RECORDER_SF_qq(
+          WPP_MAIN_CB.Queue.ListEntry.Flink,
+          v22,
+          19,
+          12,
+          (__int64)&WPP_1c7a2d3f68873b8e54a3fdd9a54d5a8c_Traceguids,
+          v3,
+          *(_QWORD *)(v3 + 80));
       }
-      *(_DWORD *)(v17 + 8) = 0;
+      *(_QWORD *)(v3 + 80) = 0LL;
+    }
+    if ( (*((_DWORD *)v14 + 25) & 0x200000) == 0 )
+      UpdateKeyStateForMessage(a1, v14);
+    result = ApiSetEditionDelQEntry(v3 + 24, v14);
+    v14 = *v13;
+    if ( !v17 )
+      goto LABEL_28;
+    v4 = a3;
+    v6 = v26;
+LABEL_46:
+    if ( !v14 )
+      goto LABEL_28;
+  }
+  if ( a2 == 5 )
+    v14[4] = 229LL;
+  v25 = *((unsigned int *)v14 + 6);
+  *((_DWORD *)v14 + 25) |= 0x100000u;
+  result = ApiSetEditionWakeSomeone(v3, a1, v25, v14);
+LABEL_28:
+  for ( i = *v13; i; i = (__int64 *)*i )
+  {
+    v24 = *((_DWORD *)i + 25);
+    result = (unsigned int)-__CFSHR__(v24, 18);
+    if ( __CFSHR__(v24, 18) && a2 != 4 && i[13] == a1 )
+      break;
+    if ( (v24 & 0x80000) != 0 || __CFSHR__(v24, 18) )
+    {
+      result = i[13];
+      if ( result == a1 || *((_DWORD *)i + 24) == 4 )
+      {
+        *(_DWORD *)(result + 1232) &= ~0x20000000u;
+        *((_DWORD *)i + 25) &= 0xFFF4FFFF;
+        ++*(_DWORD *)(v3 + 40);
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_qiqdd(v24, (unsigned int)&WPP_RECORDER_INITIALIZED, (_DWORD)v11, 13);
+        *((_DWORD *)i + 25) |= 0x100000u;
+        InputTraceLogging::Delivery::UpdateISODState((const struct tagQMSG *)i);
+        result = ApiSetEditionWakeSomeone(v3, a1, *((unsigned int *)i + 6), i);
+      }
     }
   }
-  return v16;
+  return result;
 }

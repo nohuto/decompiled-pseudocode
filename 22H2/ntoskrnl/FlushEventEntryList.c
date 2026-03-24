@@ -1,10 +1,10 @@
 /*
- * XREFs of FlushEventEntryList @ 0x1408802E8
+ * XREFs of FlushEventEntryList @ 0x140735B18
  * Callers:
- *     FlushLookUpTableBucket @ 0x1403CFDB8 (FlushLookUpTableBucket.c)
+ *     FlushLookUpTableBucket @ 0x14036D0F0 (FlushLookUpTableBucket.c)
  * Callees:
- *     EtwWriteTransfer @ 0x14034DC10 (EtwWriteTransfer.c)
- *     DestroyEventEntry @ 0x1403CFFDC (DestroyEventEntry.c)
+ *     EtwWriteTransfer @ 0x14025D530 (EtwWriteTransfer.c)
+ *     DestroyEventEntry @ 0x14036D4D4 (DestroyEventEntry.c)
  */
 
 void __fastcall FlushEventEntryList(REGHANDLE RegHandle, PCEVENT_DESCRIPTOR EventDescriptor)

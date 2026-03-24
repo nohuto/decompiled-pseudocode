@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPepGetMinimumDevicePowerState @ 0x1405D5234
+ * XREFs of PopPepGetMinimumDevicePowerState @ 0x140574890
  * Callers:
- *     PopFxSetDeviceAccountingCsPlatformState @ 0x1405CDDF8 (PopFxSetDeviceAccountingCsPlatformState.c)
- *     PopPepUpdateDripsDeviceVetoMask @ 0x1405D67D4 (PopPepUpdateDripsDeviceVetoMask.c)
- *     PoFxSetTargetDripsDevicePowerState @ 0x14098CEF0 (PoFxSetTargetDripsDevicePowerState.c)
+ *     PopFxSetDeviceAccountingCsPlatformState @ 0x14056C884 (PopFxSetDeviceAccountingCsPlatformState.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x140576100 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     PoFxSetTargetDripsDevicePowerState @ 0x1408E4550 (PoFxSetTargetDripsDevicePowerState.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PopPepGetMinimumDevicePowerState(__int64 a1, char a2, char a3, _DWORD *a4, _DWORD *a5)

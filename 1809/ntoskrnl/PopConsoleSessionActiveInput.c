@@ -1,12 +1,12 @@
 /*
- * XREFs of PopConsoleSessionActiveInput @ 0x1406DC440
+ * XREFs of PopConsoleSessionActiveInput @ 0x1406DC420
  * Callers:
- *     PopSessionInputChange @ 0x1406DC520 (PopSessionInputChange.c)
- *     PopSessionConnected @ 0x14071D74C (PopSessionConnected.c)
- *     PopLazySensorActiveInput @ 0x140878F40 (PopLazySensorActiveInput.c)
+ *     PopSessionInputChange @ 0x1406DC500 (PopSessionInputChange.c)
+ *     PopSessionConnected @ 0x14071D72C (PopSessionConnected.c)
+ *     PopLazySensorActiveInput @ 0x140878F20 (PopLazySensorActiveInput.c)
  * Callees:
- *     PopRemoteSessionActiveInput @ 0x1406DC4B4 (PopRemoteSessionActiveInput.c)
- *     PopUpdateTimeouts @ 0x1406DC820 (PopUpdateTimeouts.c)
+ *     PopRemoteSessionActiveInput @ 0x1406DC494 (PopRemoteSessionActiveInput.c)
+ *     PopUpdateTimeouts @ 0x1406DC800 (PopUpdateTimeouts.c)
  */
 
 __int64 __fastcall PopConsoleSessionActiveInput(unsigned int a1, int a2, int *a3)

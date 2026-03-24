@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vOrder@EXFORMOBJ@@QEBAXAEAU_RECTL@@@Z @ 0x1C0038790
+ * XREFs of ?vOrder@EXFORMOBJ@@QEBAXAEAU_RECTL@@@Z @ 0x1C0024120
  * Callers:
  *     <none>
  * Callees:
@@ -8,54 +8,57 @@
 
 void __fastcall EXFORMOBJ::vOrder(float **this, struct _RECTL *a2)
 {
-  float v2; // xmm1_4
+  float *v2; // r8
   LONG *p_right; // rax
-  LONG left; // r8d
-  LONG v5; // r9d
-  float v6; // xmm1_4
+  float v5; // xmm1_4
+  LONG left; // ecx
+  LONG v7; // r9d
+  float v8; // xmm1_4
   LONG *p_bottom; // rax
   LONG *p_top; // rdx
-  LONG v9; // ecx
-  LONG v10; // r8d
+  LONG v11; // ecx
+  LONG v12; // r8d
 
-  v2 = **this;
+  v2 = *this;
   p_right = &a2->right;
-  if ( v2 < 0.0 )
+  v5 = **this;
+  if ( v5 < 0.0 )
   {
     left = a2->left;
-    v5 = *p_right;
+    v7 = *p_right;
     if ( a2->left < *p_right )
       goto LABEL_10;
-    if ( v2 < 0.0 )
+    if ( v5 < 0.0 )
       goto LABEL_3;
   }
   left = a2->left;
-  v5 = *p_right;
+  v7 = *p_right;
   if ( a2->left > *p_right )
   {
 LABEL_10:
-    a2->left = v5;
+    a2->left = v7;
     *p_right = left;
+    v2 = *this;
   }
 LABEL_3:
-  v6 = (*this)[3];
+  v8 = v2[3];
   p_bottom = &a2->bottom;
   p_top = &a2->top;
-  if ( v6 >= 0.0 )
+  if ( v8 >= 0.0 )
     goto LABEL_4;
-  v9 = *p_top;
-  v10 = *p_bottom;
+  v11 = *p_top;
+  v12 = *p_bottom;
   if ( *p_top < *p_bottom )
-    goto LABEL_11;
-  if ( v6 >= 0.0 )
+    goto LABEL_6;
+  if ( v8 >= 0.0 )
   {
 LABEL_4:
-    v9 = *p_top;
-    v10 = *p_bottom;
+    v11 = *p_top;
+    v12 = *p_bottom;
     if ( *p_top <= *p_bottom )
       return;
-LABEL_11:
-    *p_top = v10;
-    *p_bottom = v9;
+LABEL_6:
+    *p_top = v12;
+    *p_bottom = v11;
   }
 }

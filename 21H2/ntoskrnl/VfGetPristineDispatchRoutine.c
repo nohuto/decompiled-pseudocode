@@ -1,10 +1,10 @@
 /*
- * XREFs of VfGetPristineDispatchRoutine @ 0x140A8C89C
+ * XREFs of VfGetPristineDispatchRoutine @ 0x1409D0CCC
  * Callers:
- *     IovpCallDriver1 @ 0x140A8B840 (IovpCallDriver1.c)
- *     VfBeforeCallDriver @ 0x140A8CC6C (VfBeforeCallDriver.c)
+ *     IovpCallDriver1 @ 0x1409CFC4C (IovpCallDriver1.c)
+ *     VfBeforeCallDriver @ 0x1409D1078 (VfBeforeCallDriver.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x1402D87B0 (MmIsDriverVerifying.c)
+ *     MmIsDriverVerifying @ 0x14037DFD0 (MmIsDriverVerifying.c)
  */
 
 PDRIVER_DISPATCH __fastcall VfGetPristineDispatchRoutine(struct _DRIVER_OBJECT *a1, unsigned int a2)

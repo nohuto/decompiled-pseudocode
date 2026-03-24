@@ -1,154 +1,156 @@
 /*
- * XREFs of Register_BiosHandoff @ 0x1C0018740
+ * XREFs of Register_BiosHandoff @ 0x1C0013F74
  * Callers:
- *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014500 (Controller_WdfEvtDeviceD0Entry.c)
- *     Register_PrepareHardware @ 0x1C00733C8 (Register_PrepareHardware.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014CE0 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Register_PrepareHardware @ 0x1C006CD24 (Register_PrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     Register_ControllerStop @ 0x1C000EEE0 (Register_ControllerStop.c)
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     XilRegister_ReadUchar @ 0x1C0018954 (XilRegister_ReadUchar.c)
- *     Register_WriteSecureMmio @ 0x1C003F0E8 (Register_WriteSecureMmio.c)
- *     Etw_StartDeviceFail @ 0x1C004ABDC (Etw_StartDeviceFail.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     Register_ControllerStop @ 0x1C000B014 (Register_ControllerStop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     XilRegister_ReadUchar @ 0x1C00140B8 (XilRegister_ReadUchar.c)
+ *     Register_WriteSecureMmio @ 0x1C003CEA0 (Register_WriteSecureMmio.c)
+ *     Etw_StartDeviceFail @ 0x1C0048624 (Etw_StartDeviceFail.c)
  */
 
-__int64 __fastcall Register_BiosHandoff(__int64 a1)
+__int64 __fastcall Register_BiosHandoff(_QWORD *a1)
 {
-  _QWORD *v1; // rbx
-  __int64 v2; // r13
+  __int64 v1; // rbp
   char Uchar; // al
-  __int64 v5; // rcx
-  char v6; // al
-  int v7; // edi
-  int i; // r12d
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  int v11; // r9d
+  __int64 v4; // rcx
+  char v5; // al
+  int v6; // ebx
+  int i; // r14d
+  unsigned __int64 v8; // rdx
+  __int64 v9; // rcx
+  int v10; // r9d
   int Ulong; // eax
-  unsigned int v13; // edi
-  __int64 v15; // r8
-  __int64 v16; // rcx
-  int v17; // eax
-  int v18; // edx
-  signed __int32 v19[8]; // [rsp+0h] [rbp-68h] BYREF
-  int v20; // [rsp+28h] [rbp-40h]
-  char v21; // [rsp+70h] [rbp+8h] BYREF
-  union _LARGE_INTEGER Interval; // [rsp+78h] [rbp+10h] BYREF
+  unsigned int v12; // ebx
+  __int64 v14; // r8
+  int v15; // eax
+  int v16; // edx
+  signed __int32 v17[8]; // [rsp+0h] [rbp-58h] BYREF
+  int v18; // [rsp+28h] [rbp-30h]
+  char v19; // [rsp+60h] [rbp+8h] BYREF
+  union _LARGE_INTEGER Interval; // [rsp+68h] [rbp+10h] BYREF
 
   Interval.QuadPart = 0LL;
-  v1 = (_QWORD *)(a1 + 8);
-  v2 = *(_QWORD *)(a1 + 64);
-  if ( v2 )
+  v1 = a1[8];
+  if ( v1 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(*v1 + 72LL), 4, 6, 50, (__int64)&WPP_9becb08c9a963bf1570437ff97ef33f0_Traceguids);
-    Uchar = XilRegister_ReadUchar(a1, v2 + 3);
-    v5 = *v1;
-    v6 = Uchar | 1;
-    v21 = v6;
-    if ( *(_BYTE *)(v5 + 601) )
+      WPP_RECORDER_SF_(*(_QWORD *)(a1[1] + 72LL), 4, 6, 50, (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids);
+    Uchar = XilRegister_ReadUchar(a1, v1 + 3);
+    v4 = a1[1];
+    v5 = Uchar | 1;
+    v19 = v5;
+    if ( *(_BYTE *)(v4 + 553) )
     {
-      Register_WriteSecureMmio(a1, v2 + 3, 0LL, &v21);
+      Register_WriteSecureMmio(a1, v1 + 3, 0LL, &v19);
     }
     else
     {
-      *(_BYTE *)(v2 + 3) = v6;
-      _InterlockedOr(v19, 0);
+      *(_BYTE *)(v1 + 3) = v5;
+      _InterlockedOr(v17, 0);
     }
-    v7 = 20;
+    v6 = 20;
     for ( i = 0; ; i += 100 )
     {
-      if ( (XilRegister_ReadUchar(a1, v2 + 2) & 1) == 0 )
+      if ( (XilRegister_ReadUchar(a1, v1 + 2) & 1) == 0 )
       {
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           goto LABEL_11;
-        v10 = *v1;
-        v11 = 51;
-        v20 = i;
-        LOBYTE(v9) = 4;
+        v9 = a1[1];
+        v10 = 51;
+        v18 = i;
+        LOBYTE(v8) = 4;
         goto LABEL_10;
       }
-      if ( !v7 )
+      if ( !v6 )
         break;
-      --v7;
+      --v6;
       Interval.QuadPart = -1000000LL;
       KeDelayExecutionThread(0, 0, &Interval);
     }
-    v10 = *v1;
-    if ( (*(_QWORD *)(*v1 + 336LL) & 4) == 0 )
+    v9 = a1[1];
+    if ( (*(_QWORD *)(v9 + 336) & 4) == 0 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v9) = 2;
+        LOBYTE(v8) = 2;
         WPP_RECORDER_SF_d(
-          *(_QWORD *)(v10 + 72),
-          v9,
+          *(_QWORD *)(v9 + 72),
+          v8,
           6,
           53,
-          (__int64)&WPP_9becb08c9a963bf1570437ff97ef33f0_Traceguids,
+          (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids,
           208);
+        v9 = a1[1];
       }
-      v15 = 1LL;
+      v14 = 1LL;
       goto LABEL_28;
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v11 = 52;
-      v20 = 2000;
-      LOBYTE(v9) = 3;
+      v10 = 52;
+      v18 = 2000;
+      LOBYTE(v8) = 3;
 LABEL_10:
       WPP_RECORDER_SF_d(
-        *(_QWORD *)(v10 + 72),
-        v9,
+        *(_QWORD *)(v9 + 72),
+        v8,
         6,
-        v11,
-        (__int64)&WPP_9becb08c9a963bf1570437ff97ef33f0_Traceguids,
-        v20);
+        v10,
+        (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids,
+        v18);
     }
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    WPP_RECORDER_SF_(*(_QWORD *)(*v1 + 72LL), 3, 6, 49, (__int64)&WPP_9becb08c9a963bf1570437ff97ef33f0_Traceguids);
+    WPP_RECORDER_SF_(*(_QWORD *)(a1[1] + 72LL), 3, 6, 49, (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids);
   }
 LABEL_11:
-  if ( (XilRegister_ReadUlong(a1, (unsigned int *)(*(_QWORD *)(a1 + 32) + 4LL)) & 1) != 0 )
+  if ( (XilRegister_ReadUlong((__int64)a1, (unsigned int *)(a1[4] + 4LL)) & 1) != 0 )
   {
 LABEL_12:
-    if ( v2 )
+    if ( v1 )
     {
-      Ulong = XilRegister_ReadUlong(a1, (unsigned int *)(v2 + 4));
-      XilRegister_WriteUlong(a1, (_DWORD *)(v2 + 4), Ulong & 0x1FFFDFFF);
+      Ulong = XilRegister_ReadUlong((__int64)a1, (unsigned int *)(v1 + 4));
+      XilRegister_WriteUlong((__int64)a1, (_DWORD *)(v1 + 4), Ulong & 0x1FFFDFFF);
     }
     return 0;
   }
-  v16 = *v1;
-  if ( _bittest64((const signed __int64 *)(*v1 + 336LL), 0x3Fu) )
+  v9 = a1[1];
+  v8 = 0x8000000000000000uLL;
+  if ( *(__int64 *)(v9 + 336) < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(v16 + 72), 2, 6, 54, (__int64)&WPP_9becb08c9a963bf1570437ff97ef33f0_Traceguids);
-    v15 = 2LL;
+    {
+      WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), 2, 6, 54, (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids);
+      v9 = a1[1];
+    }
+    v14 = 2LL;
 LABEL_28:
-    Etw_StartDeviceFail(*v1, v9, v15);
+    Etw_StartDeviceFail(v9, v8, v14);
     return (unsigned int)-1073741823;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(*(_QWORD *)(v16 + 72), 2, 6, 55, (__int64)&WPP_9becb08c9a963bf1570437ff97ef33f0_Traceguids);
-  v17 = Register_ControllerStop(a1);
-  v13 = v17;
-  if ( v17 >= 0 )
+    WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), 2, 6, 55, (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids);
+  v15 = Register_ControllerStop((__int64)a1);
+  v12 = v15;
+  if ( v15 >= 0 )
     goto LABEL_12;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v18) = 2;
+    LOBYTE(v16) = 2;
     WPP_RECORDER_SF_d(
-      *(_QWORD *)(*v1 + 72LL),
-      v18,
+      *(_QWORD *)(a1[1] + 72LL),
+      v16,
       6,
       56,
-      (__int64)&WPP_9becb08c9a963bf1570437ff97ef33f0_Traceguids,
-      v17);
+      (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids,
+      v15);
   }
-  return v13;
+  return v12;
 }

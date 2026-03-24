@@ -1,7 +1,7 @@
 /*
- * XREFs of PopIsWakeTimerImmanent @ 0x14086F8BC
+ * XREFs of PopIsWakeTimerImmanent @ 0x14086F89C
  * Callers:
- *     PopDeferDoze @ 0x14086F730 (PopDeferDoze.c)
+ *     PopDeferDoze @ 0x14086F710 (PopDeferDoze.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ExGetNextWakeTime @ 0x14057E734 (ExGetNextWakeTime.c)

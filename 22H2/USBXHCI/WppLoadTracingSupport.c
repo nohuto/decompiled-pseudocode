@@ -1,44 +1,44 @@
 /*
- * XREFs of WppLoadTracingSupport @ 0x1C00749C8
+ * XREFs of WppLoadTracingSupport @ 0x1C0071710
  * Callers:
- *     DriverEntry @ 0x1C00743A0 (DriverEntry.c)
+ *     DriverEntry @ 0x1C007112C (DriverEntry.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
-void *WppLoadTracingSupport()
+_DEVOBJ_EXTENSION *WppLoadTracingSupport()
 {
-  void *result; // rax
+  _DEVOBJ_EXTENSION *result; // rax
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   unsigned int v2; // [rsp+50h] [rbp+10h] BYREF
 
   v2 = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"PsGetVersion");
-  WPP_MAIN_CB.DeviceObjectExtension = (_DEVOBJ_EXTENSION *)MmGetSystemRoutineAddress(&DestinationString);
+  WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink = (_LIST_ENTRY *)MmGetSystemRoutineAddress(&DestinationString);
   RtlInitUnicodeString(&DestinationString, L"WmiTraceMessage");
-  pfnWppTraceMessage = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))MmGetSystemRoutineAddress(&DestinationString);
+  WPP_MAIN_CB.Reserved = MmGetSystemRoutineAddress(&DestinationString);
   RtlInitUnicodeString(&DestinationString, L"WmiQueryTraceInformation");
-  pfnWppQueryTraceInformation = (__int64)MmGetSystemRoutineAddress(&DestinationString);
-  result = WPP_MAIN_CB.DeviceObjectExtension;
-  *(_DWORD *)&WPP_MAIN_CB.SectorSize = 2;
-  if ( WPP_MAIN_CB.DeviceObjectExtension )
-    result = (void *)((__int64 (__fastcall *)(unsigned int *, _QWORD, _QWORD, _QWORD))WPP_MAIN_CB.DeviceObjectExtension)(
-                       &v2,
-                       0LL,
-                       0LL,
-                       0LL);
+  *((_QWORD *)&WPP_MAIN_CB.Reserved + 1) = MmGetSystemRoutineAddress(&DestinationString);
+  result = (_DEVOBJ_EXTENSION *)WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink;
+  LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink) = 2;
+  if ( WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink )
+    result = (_DEVOBJ_EXTENSION *)((__int64 (__fastcall *)(unsigned int *, _QWORD, _QWORD, _QWORD))WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink)(
+                                    &v2,
+                                    0LL,
+                                    0LL,
+                                    0LL);
   if ( v2 >= 6 )
   {
     RtlInitUnicodeString(&DestinationString, L"EtwRegisterClassicProvider");
-    result = MmGetSystemRoutineAddress(&DestinationString);
-    WPP_MAIN_CB.Reserved = result;
+    result = (_DEVOBJ_EXTENSION *)MmGetSystemRoutineAddress(&DestinationString);
+    *(_QWORD *)&WPP_MAIN_CB.SectorSize = result;
     if ( result )
     {
       RtlInitUnicodeString(&DestinationString, L"EtwUnregister");
-      result = MmGetSystemRoutineAddress(&DestinationString);
-      *((_QWORD *)&WPP_MAIN_CB.Reserved + 1) = result;
-      *(_DWORD *)&WPP_MAIN_CB.SectorSize = 4;
+      result = (_DEVOBJ_EXTENSION *)MmGetSystemRoutineAddress(&DestinationString);
+      WPP_MAIN_CB.DeviceObjectExtension = result;
+      LODWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink) = 4;
     }
   }
   return result;

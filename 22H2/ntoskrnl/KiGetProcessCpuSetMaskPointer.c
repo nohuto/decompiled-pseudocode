@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetProcessCpuSetMaskPointer @ 0x14039D144
+ * XREFs of KiGetProcessCpuSetMaskPointer @ 0x1403C5D40
  * Callers:
- *     KeSetCpuSetsProcess @ 0x14039C834 (KeSetCpuSetsProcess.c)
- *     KeQueryCpuSetsProcess @ 0x140575064 (KeQueryCpuSetsProcess.c)
+ *     KeSetCpuSetsProcess @ 0x1403C5984 (KeSetCpuSetsProcess.c)
+ *     KeQueryCpuSetsProcess @ 0x14051C594 (KeQueryCpuSetsProcess.c)
  * Callees:
  *     <none>
  */

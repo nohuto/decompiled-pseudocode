@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceCsEnterReason @ 0x140871174
+ * XREFs of PopDiagTraceCsEnterReason @ 0x140871154
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DEFEC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char PopDiagTraceCsEnterReason()
@@ -125,7 +125,7 @@ char PopDiagTraceCsEnterReason()
       v42 = 4LL;
       v44 = 4LL;
       v46 = 4LL;
-      return TlgWrite(&pCallbackContext, &unk_140370C50, 0LL, 0LL, 8u, &pData);
+      return TlgWrite(&pCallbackContext, &unk_140370C08, 0LL, 0LL, 8u, &pData);
     }
   }
   return result;

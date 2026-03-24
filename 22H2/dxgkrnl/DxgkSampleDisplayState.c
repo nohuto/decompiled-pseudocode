@@ -1,48 +1,38 @@
 /*
- * XREFs of DxgkSampleDisplayState @ 0x1C02F4844
+ * XREFs of DxgkSampleDisplayState @ 0x1C025B6EC
  * Callers:
- *     InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_2792f1a5517d9286fa3e49da2fcc5db9__&DxgkSampleDisplayState_ @ 0x1C004A0D8 (InitDisplayBrokerMessage_DispBroker--AlpcRequest_8___lambda_2792f1a5517d9286fa3e49da2fcc5db9__-D.c)
- *     InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_2b831a354495e24a997c7e563732c286__&DxgkSampleDisplayState_ @ 0x1C004A160 (InitDisplayBrokerMessage_DispBroker--AlpcRequest_8___lambda_2b831a354495e24a997c7e563732c286__-D.c)
+ *     InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_2792f1a5517d9286fa3e49da2fcc5db9__&DxgkSampleDisplayState_ @ 0x1C0043C90 (InitDisplayBrokerMessage_DispBroker--AlpcRequest_8___lambda_2792f1a5517d9286fa3e49da2fcc5db9__-D.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
-__int64 __fastcall DxgkSampleDisplayState(__int64 a1)
+__int64 __fastcall DxgkSampleDisplayState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   struct DXGPROCESS *Current; // rax
-  int v4; // eax
-  __int64 v5; // rcx
-  __int64 v6; // rdi
-  __int64 CurrentProcess; // rax
-  unsigned int ProcessSessionId; // eax
+  int v7; // eax
+  __int64 v8; // rdx
   __int64 v9; // rcx
-  __int64 v10; // rax
-  unsigned int v11; // eax
+  __int64 v10; // rdi
+  __int64 v11; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  __int64 CurrentProcess; // rax
 
   if ( !a1 )
     return 3221225485LL;
-  Current = DXGPROCESS::GetCurrent(a1);
-  v4 = (*(__int64 (__fastcall **)(__int64))(*((_QWORD *)Current + 11) + 392LL))(a1);
-  v6 = v4;
-  if ( v4 < 0 )
+  Current = DXGPROCESS::GetCurrent(a1, a2, a3, a4);
+  v7 = (*(__int64 (__fastcall **)(__int64))(*((_QWORD *)Current + 11) + 392LL))(a1);
+  v10 = v7;
+  if ( v7 < 0 )
   {
-    CurrentProcess = PsGetCurrentProcess(v5);
-    ProcessSessionId = PsGetProcessSessionId(CurrentProcess);
-    WdLogSingleEntry2(2LL, ProcessSessionId, v6);
-    v10 = PsGetCurrentProcess(v9);
-    v11 = PsGetProcessSessionId(v10);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to sample display state in session 0x%I64x, (Status = 0x%I64x).",
-      v11,
-      v6,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdError(v9, v8);
+    CurrentProcess = PsGetCurrentProcess(v13, v12, v14, v15);
+    *(_QWORD *)(v11 + 24) = (unsigned int)PsGetProcessSessionId(CurrentProcess);
+    *(_QWORD *)(v11 + 32) = v10;
+    WdLogEvent5_WdError(v11);
   }
-  return (unsigned int)v6;
+  return (unsigned int)v10;
 }

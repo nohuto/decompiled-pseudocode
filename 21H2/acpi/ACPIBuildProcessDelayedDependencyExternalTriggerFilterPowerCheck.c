@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck @ 0x1C0027B30
+ * XREFs of ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck @ 0x1C002D448
  * Callers:
  *     ACPIDispatchIrp @ 0x1C0001010 (ACPIDispatchIrp.c)
  * Callees:
- *     ACPIDevicePowerFlushQueue @ 0x1C000776C (ACPIDevicePowerFlushQueue.c)
- *     ACPIBuildScheduleDpc @ 0x1C000C2F4 (ACPIBuildScheduleDpc.c)
- *     ACPIBuildProcessDelayedDependencyShouldDelayRequest @ 0x1C0027C04 (ACPIBuildProcessDelayedDependencyShouldDelayRequest.c)
- *     ACPIBuildFlushQueue @ 0x1C0094E40 (ACPIBuildFlushQueue.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001C6E0 (ACPIDevicePowerFlushQueue.c)
+ *     ACPIBuildScheduleDpc @ 0x1C001E54C (ACPIBuildScheduleDpc.c)
+ *     ACPIBuildProcessDelayedDependencyShouldDelayRequest @ 0x1C002E844 (ACPIBuildProcessDelayedDependencyShouldDelayRequest.c)
+ *     ACPIBuildFlushQueue @ 0x1C009E358 (ACPIBuildFlushQueue.c)
  */
 
 void __fastcall ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck(__int64 a1)
@@ -15,8 +15,8 @@ void __fastcall ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck
   KIRQL v3; // al
   __int64 *v4; // rbx
   KIRQL v5; // r14
-  __int64 *v6; // rsi
-  __int64 v7; // rdx
+  __int64 v6; // rdx
+  __int64 *v7; // rsi
 
   v2 = 0;
   v3 = KeAcquireSpinLockRaiseToDpc(&AcpiBuildQueueLock);
@@ -26,11 +26,11 @@ void __fastcall ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck
   {
     do
     {
-      v6 = v4;
+      v7 = v4;
       v4 = (__int64 *)*v4;
-      if ( v6[10] && !(unsigned __int8)ACPIBuildProcessDelayedDependencyShouldDelayRequest() )
+      if ( v7[10] && !(unsigned __int8)ACPIBuildProcessDelayedDependencyShouldDelayRequest() )
       {
-        _InterlockedCompareExchange((volatile signed __int32 *)v6 + 6, 4, 1);
+        _InterlockedCompareExchange((volatile signed __int32 *)v7 + 6, 4, 1);
         v2 = 1;
       }
     }
@@ -41,8 +41,8 @@ void __fastcall ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck
   KeReleaseSpinLock(&AcpiBuildQueueLock, v5);
   if ( v2 )
   {
-    LOBYTE(v7) = 1;
-    ACPIBuildFlushQueue(a1, v7);
+    LOBYTE(v6) = 1;
+    ACPIBuildFlushQueue(a1, v6);
     ACPIDevicePowerFlushQueue(a1);
   }
 }

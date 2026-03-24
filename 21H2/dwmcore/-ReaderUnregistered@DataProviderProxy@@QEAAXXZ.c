@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReaderUnregistered@DataProviderProxy@@QEAAXXZ @ 0x1801BE4A4
+ * XREFs of ?ReaderUnregistered@DataProviderProxy@@QEAAXXZ @ 0x180181E48
  * Callers:
- *     ?UnregisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z @ 0x1801BD2CC (-UnregisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z.c)
+ *     ?UnregisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z @ 0x18018115C (-UnregisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DataProviderProxy::ReaderUnregistered(DataProviderProxy *this)

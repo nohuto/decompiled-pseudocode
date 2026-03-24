@@ -1,700 +1,686 @@
 /*
- * XREFs of PiDevCfgCopyDeviceKey @ 0x140679BEC
+ * XREFs of PiDevCfgCopyDeviceKey @ 0x140769E0C
  * Callers:
- *     PiDevCfgCopyDeviceKeys @ 0x140679ADC (PiDevCfgCopyDeviceKeys.c)
- *     PiDevCfgConfigureDeviceKeyCallback @ 0x1406E8E20 (PiDevCfgConfigureDeviceKeyCallback.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x14094B580 (PiDevCfgConfigureDeviceInterface.c)
- *     PiDevCfgResetDeviceKeyCallback @ 0x14094DD00 (PiDevCfgResetDeviceKeyCallback.c)
+ *     PiDevCfgConfigureDeviceKeyCallback @ 0x140769C80 (PiDevCfgConfigureDeviceKeyCallback.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x140769CFC (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x1408A5A38 (PiDevCfgConfigureDeviceInterface.c)
+ *     PiDevCfgResetDeviceKeyCallback @ 0x1408A7FC0 (PiDevCfgResetDeviceKeyCallback.c)
  * Callees:
- *     PiDevCfgParsePropertyKeyName @ 0x1402012BC (PiDevCfgParsePropertyKeyName.c)
- *     PiDevCfgPushCopyKeyEntry @ 0x14020881C (PiDevCfgPushCopyKeyEntry.c)
- *     PiDevCfgParseVariableName @ 0x1402202AC (PiDevCfgParseVariableName.c)
- *     PnpRegistryValueExists @ 0x14025D12C (PnpRegistryValueExists.c)
- *     PnpValidateStringData @ 0x1402D19D8 (PnpValidateStringData.c)
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x14041B9C0 (ZwEnumerateValueKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     ZwSetSecurityObject @ 0x14041EDA0 (ZwSetSecurityObject.c)
- *     PiDevCfgConvertPropertyFromValue @ 0x1406618A4 (PiDevCfgConvertPropertyFromValue.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x140678874 (PiDevCfgGetKeySecurityDescriptor.c)
- *     IopGetRegistryKeyInformation @ 0x14067A3F4 (IopGetRegistryKeyInformation.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     PiDevCfgResolveVariable @ 0x14069A1F8 (PiDevCfgResolveVariable.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     PiDevCfgSetObjectProperty @ 0x14077139C (PiDevCfgSetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     PiDevCfgResolveMultiSzValue @ 0x14080A890 (PiDevCfgResolveMultiSzValue.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PiDevCfgParsePropertyKeyName @ 0x14036CFE8 (PiDevCfgParsePropertyKeyName.c)
+ *     PnpValidateStringData @ 0x14036EF78 (PnpValidateStringData.c)
+ *     PiDevCfgPushCopyKeyEntry @ 0x14037C694 (PiDevCfgPushCopyKeyEntry.c)
+ *     PiDevCfgParseVariableName @ 0x140393E6C (PiDevCfgParseVariableName.c)
+ *     PnpRegistryValueExists @ 0x140394E18 (PnpRegistryValueExists.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1403FA600 (ZwEnumerateValueKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     ZwSetSecurityObject @ 0x1403FD8C0 (ZwSetSecurityObject.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     PiDevCfgConvertPropertyFromValue @ 0x1407347EC (PiDevCfgConvertPropertyFromValue.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x14073C380 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     PiDevCfgSetObjectProperty @ 0x1407452EC (PiDevCfgSetObjectProperty.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     IopGetRegistryKeyInformation @ 0x14076A5E4 (IopGetRegistryKeyInformation.c)
+ *     PiDevCfgResolveMultiSzValue @ 0x14077B33C (PiDevCfgResolveMultiSzValue.c)
+ *     PiDevCfgResolveVariable @ 0x14077B570 (PiDevCfgResolveVariable.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgCopyDeviceKey(
         HANDLE KeyHandle,
         void *a2,
         __int64 a3,
-        int a4,
-        unsigned int a5,
+        unsigned int a4,
+        int a5,
         HANDLE *a6,
         __int64 a7)
 {
   __int64 v7; // rsi
-  int v8; // r12d
-  __int64 v9; // r15
+  unsigned int v8; // r13d
+  __int64 v9; // r12
   int RegistryKeyInformation; // ebx
   ULONG v11; // edx
   ULONG v12; // eax
-  ULONG v13; // ebx
-  __int64 Pool2; // r13
+  ULONG Length; // edi
+  WCHAR *PoolWithTag; // r15
   ULONG i; // r14d
   NTSTATUS v16; // eax
-  PVOID v17; // r14
-  ULONG v18; // r15d
-  ULONG v19; // esi
-  HANDLE v20; // r12
+  HANDLE *v17; // r13
+  PVOID v18; // r14
+  HANDLE v19; // r12
+  ULONG j; // esi
   NTSTATUS v21; // eax
-  int v23; // edi
-  unsigned int v24; // ebx
-  bool v25; // si
-  int v26; // ebx
-  wchar_t *v27; // r12
-  unsigned int v28; // r15d
+  const WCHAR *v22; // rdi
+  unsigned int v24; // edi
+  unsigned int v25; // ebx
+  bool v26; // si
+  int v27; // ebx
+  PVOID v28; // r12
+  ULONG *v29; // r13
+  unsigned int v30; // r15d
   ULONG MaximumLength; // edi
-  wchar_t *Buffer; // r14
-  ULONG v31; // esi
-  int v32; // edx
-  int v33; // eax
-  PVOID v34; // rdi
-  HANDLE v35; // r14
-  __int64 v36; // rbx
-  const WCHAR *v37; // rdi
-  __int64 v38; // r9
-  int v39; // eax
-  bool v40; // al
-  int v41; // eax
-  _WORD *v42; // rcx
-  int v43; // eax
-  int v44; // ecx
-  unsigned int v45; // r9d
-  int v46; // eax
-  wchar_t *v47; // rdi
-  unsigned int v48; // eax
-  int v49; // ecx
-  int v50; // eax
-  int v51; // eax
-  __int64 v52; // r9
-  __int64 v53; // rax
-  __int64 v54; // r8
-  int v55; // eax
-  int v56; // edx
-  NTSTATUS v57; // eax
-  HANDLE v58; // rdx
-  __int64 v59; // r9
-  __int64 v60; // rax
-  wchar_t *Length; // [rsp+20h] [rbp-E0h]
+  char *Buffer; // rsi
+  ULONG v33; // r14d
+  int v34; // eax
+  _WORD *v35; // rcx
+  int v36; // eax
+  __int64 v37; // rdx
+  int v38; // eax
+  char *v39; // rdi
+  int v40; // eax
+  bool v41; // al
+  int v42; // eax
+  __int64 v43; // rbx
+  unsigned int v44; // r9d
+  int v45; // eax
+  char *v46; // rdi
+  int v47; // eax
+  int v48; // ecx
+  int v49; // eax
+  __int64 v50; // rax
+  __int64 v51; // r8
+  int v52; // eax
+  int v53; // edx
+  NTSTATUS v54; // eax
+  HANDLE v55; // rdx
+  __int64 v56; // rax
   int ResultLength; // [rsp+28h] [rbp-D8h]
   ULONG ResultLengtha; // [rsp+28h] [rbp-D8h]
-  unsigned int v64; // [rsp+60h] [rbp-A0h] BYREF
-  HANDLE v65; // [rsp+68h] [rbp-98h]
-  ULONG v66; // [rsp+70h] [rbp-90h] BYREF
-  int v67; // [rsp+74h] [rbp-8Ch] BYREF
+  int v59; // [rsp+60h] [rbp-A0h] BYREF
+  ULONG DataSize; // [rsp+64h] [rbp-9Ch] BYREF
+  HANDLE v61; // [rsp+68h] [rbp-98h]
+  unsigned int v62; // [rsp+70h] [rbp-90h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp-88h] BYREF
-  HANDLE v69; // [rsp+80h] [rbp-80h] BYREF
-  PVOID v70; // [rsp+88h] [rbp-78h]
-  PVOID v71; // [rsp+90h] [rbp-70h] BYREF
-  ULONG v72[2]; // [rsp+98h] [rbp-68h]
-  int v73; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v74; // [rsp+A8h] [rbp-58h] BYREF
-  PVOID P; // [rsp+B0h] [rbp-50h]
-  UNICODE_STRING ValueName; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v77; // [rsp+D0h] [rbp-30h]
-  int v78; // [rsp+D8h] [rbp-28h] BYREF
-  int v79; // [rsp+DCh] [rbp-24h]
-  ULONG v80; // [rsp+E0h] [rbp-20h]
-  ULONG Disposition; // [rsp+E4h] [rbp-1Ch] BYREF
-  __int64 v82; // [rsp+E8h] [rbp-18h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+F0h] [rbp-10h] BYREF
-  PVOID v84; // [rsp+120h] [rbp+20h] BYREF
-  HANDLE *v85; // [rsp+128h] [rbp+28h]
-  UNICODE_STRING v86; // [rsp+130h] [rbp+30h] BYREF
-  UNICODE_STRING v87; // [rsp+140h] [rbp+40h] BYREF
-  HANDLE KeyHandlea; // [rsp+150h] [rbp+50h]
-  UNICODE_STRING v89; // [rsp+160h] [rbp+60h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+170h] [rbp+70h] BYREF
-  GUID v91; // [rsp+180h] [rbp+80h] BYREF
-  int v92; // [rsp+190h] [rbp+90h]
+  HANDLE v64; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v65; // [rsp+88h] [rbp-78h]
+  PVOID v66; // [rsp+90h] [rbp-70h] BYREF
+  PVOID v67; // [rsp+98h] [rbp-68h] BYREF
+  int v68; // [rsp+A0h] [rbp-60h] BYREF
+  PVOID P; // [rsp+A8h] [rbp-58h]
+  UNICODE_STRING ValueName; // [rsp+B0h] [rbp-50h] BYREF
+  PVOID Data; // [rsp+C0h] [rbp-40h]
+  __int64 v72; // [rsp+C8h] [rbp-38h]
+  int v73; // [rsp+D0h] [rbp-30h] BYREF
+  unsigned int v74; // [rsp+D4h] [rbp-2Ch]
+  ULONG v75; // [rsp+D8h] [rbp-28h]
+  ULONG Disposition; // [rsp+DCh] [rbp-24h] BYREF
+  PVOID v77; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v78; // [rsp+E8h] [rbp-18h]
+  UNICODE_STRING v79; // [rsp+F0h] [rbp-10h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+100h] [rbp+0h] BYREF
+  UNICODE_STRING v81; // [rsp+130h] [rbp+30h] BYREF
+  HANDLE KeyHandlea; // [rsp+140h] [rbp+40h]
+  HANDLE *v83; // [rsp+148h] [rbp+48h]
+  UNICODE_STRING v84; // [rsp+150h] [rbp+50h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+160h] [rbp+60h] BYREF
+  GUID v86; // [rsp+170h] [rbp+70h] BYREF
+  int v87; // [rsp+180h] [rbp+80h]
 
   v7 = a7;
   KeyHandlea = KeyHandle;
-  v85 = a6;
+  v61 = a2;
+  v83 = a6;
+  v74 = a4;
+  v87 = 0;
+  v78 = a3;
   v8 = a4;
-  v65 = a2;
+  v72 = a7;
   v9 = a3;
-  v92 = 0;
   Handle = 0LL;
-  v69 = 0LL;
-  v71 = 0LL;
-  v66 = 0;
-  P = 0LL;
-  Disposition = 0;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  v64 = 0LL;
+  v67 = 0LL;
+  DataSize = 0;
   v84 = 0LL;
-  v64 = 0;
-  v73 = 0;
-  v79 = a4;
-  v82 = a3;
-  v77 = a7;
-  memset(&ObjectAttributes, 0, 44);
-  v78 = 1;
-  v89 = 0LL;
-  v87 = 0LL;
+  P = 0LL;
+  v81 = 0LL;
+  Disposition = 0;
   DestinationString = 0LL;
+  v73 = 1;
   ValueName = 0LL;
+  v77 = 0LL;
+  v79 = 0LL;
+  v59 = 0;
   v86 = 0LL;
-  v91 = 0LL;
+  v68 = 0;
   RegistryKeyInformation = IopGetRegistryKeyInformation(KeyHandle);
   if ( RegistryKeyInformation < 0 )
-    goto LABEL_17;
+    goto LABEL_19;
   v11 = 2 * *((_DWORD *)P + 6) + 26;
-  v66 = 2 * *((_DWORD *)P + 9) + 18;
-  v12 = v66;
-  if ( v66 <= v11 )
+  DataSize = 2 * *((_DWORD *)P + 9) + 18;
+  v12 = DataSize;
+  if ( DataSize <= v11 )
     v12 = v11;
-  v13 = v12;
-  *(_QWORD *)v72 = v12;
+  Length = v12;
+  v65 = v12;
   ExFreePoolWithTag(P, 0);
-  Pool2 = ExAllocatePool2(256LL, v13, 1667526736LL);
-  if ( !Pool2 )
+  PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, Length, 0x63647050u);
+  P = PoolWithTag;
+  if ( !PoolWithTag )
   {
     RegistryKeyInformation = -1073741670;
-    goto LABEL_17;
+    goto LABEL_19;
   }
   for ( i = 0; ; ++i )
   {
-    v80 = i;
-    v16 = ZwEnumerateValueKey(KeyHandlea, i, KeyValueBasicInformation, (PVOID)Pool2, v13, &v66);
+    v75 = i;
+    v16 = ZwEnumerateValueKey(KeyHandlea, i, KeyValueBasicInformation, PoolWithTag, Length, &DataSize);
     RegistryKeyInformation = v16;
     if ( v16 >= 0 )
     {
-      *(_WORD *)(Pool2 + 2 * ((unsigned __int64)*(unsigned int *)(Pool2 + 8) >> 1) + 12) = 0;
-      RegistryKeyInformation = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)(Pool2 + 12));
+      v24 = 0;
+      PoolWithTag[((unsigned __int64)*((unsigned int *)PoolWithTag + 2) >> 1) + 6] = 0;
+      RegistryKeyInformation = RtlInitUnicodeStringEx(&DestinationString, PoolWithTag + 6);
       if ( RegistryKeyInformation < 0 )
-        goto LABEL_90;
-      v23 = 0;
+        goto LABEL_110;
       ValueName = DestinationString;
-      v67 = 0;
+      v62 = 0;
       if ( v7 )
       {
         if ( *(_QWORD *)(v7 + 16) )
         {
-          v40 = PiDevCfgParseVariableName(DestinationString.Buffer, &v86, &v67);
-          v23 = v67;
-          if ( v40 )
+          v41 = PiDevCfgParseVariableName(DestinationString.Buffer, &v79, &v62);
+          v24 = v62;
+          if ( v41 )
           {
-            if ( (v67 & 0x400000) != 0 )
-              goto LABEL_51;
-            v74 = 0LL;
-            v41 = PiDevCfgResolveVariable(v7, v86.Buffer, &v74);
-            if ( v41 >= 0 )
+            if ( (v62 & 0x400000) != 0 )
+              goto LABEL_64;
+            v66 = 0LL;
+            v42 = PiDevCfgResolveVariable(v7, v79.Buffer, &v66);
+            if ( v42 >= 0 )
             {
-              if ( (unsigned int)(*(_DWORD *)(v74 + 32) - 1) > 1 || *(_DWORD *)(v74 + 36) > 0xFFFEu )
-                goto LABEL_51;
-              ValueName.Buffer = *(wchar_t **)(v74 + 40);
-              ValueName.Length = *(_WORD *)(v74 + 36) - 2;
-              ValueName.MaximumLength = *(_WORD *)(v74 + 36);
+              if ( (unsigned int)(*((_DWORD *)v66 + 8) - 1) > 1 || *((_DWORD *)v66 + 9) > 0xFFFEu )
+                goto LABEL_64;
+              ValueName.Buffer = (wchar_t *)*((_QWORD *)v66 + 5);
+              ValueName.Length = *((_WORD *)v66 + 18) - 2;
+              ValueName.MaximumLength = *((_WORD *)v66 + 18);
             }
             else
             {
-              if ( v41 != -1073741772 )
-                goto LABEL_51;
-              ValueName = v86;
+              if ( v42 != -1073741772 )
+                goto LABEL_64;
+              ValueName = v79;
             }
           }
         }
       }
-      v24 = *(_DWORD *)(Pool2 + 4) & 0xFFFF0000;
-      *(_WORD *)(Pool2 + 6) = 0;
-      if ( (v24 & 0x400000) != 0 || v9 && !PiDevCfgParsePropertyKeyName(&ValueName.Length, &v91, &v78) )
-        goto LABEL_51;
-      v25 = (a5 & 1) != 0;
-      v26 = v23 | v24;
-      if ( (v26 & 0x30000) != 0 || !v25 )
+      v25 = *((_DWORD *)PoolWithTag + 1) & 0xFFFF0000;
+      PoolWithTag[3] = 0;
+      if ( (v25 & 0x400000) != 0 || v9 && !PiDevCfgParsePropertyKeyName(&ValueName.Length, &v86, &v73) )
+        goto LABEL_64;
+      v26 = (a5 & 1) != 0;
+      v27 = v24 | v25;
+      if ( (v27 & 0x30000) != 0 || !v26 )
       {
         if ( v9 )
         {
           if ( (unsigned int)PnpGetObjectProperty(
-                               PiPnpRtlCtx,
+                               *(__int64 *)&PiPnpRtlCtx,
                                v9,
                                v8,
-                               (_DWORD)v65,
+                               (__int64)v61,
                                0LL,
-                               (__int64)&v91,
-                               (__int64)&v64,
+                               (__int64)&v86,
+                               (__int64)&v59,
                                0LL,
                                0,
-                               (__int64)&v73,
+                               (__int64)&v68,
                                0) != -1073741789 )
           {
-LABEL_30:
-            if ( (v26 & 0x10000) == 0 )
-              goto LABEL_31;
-LABEL_50:
-            v7 = v77;
-LABEL_51:
-            v13 = v72[0];
+LABEL_32:
+            if ( (v27 & 0x10000) == 0 )
+              goto LABEL_33;
+LABEL_63:
+            v7 = v72;
+LABEL_64:
+            Length = v65;
             continue;
           }
         }
-        else if ( !PnpRegistryValueExists(v65, &ValueName) )
+        else if ( !PnpRegistryValueExists(v61, &ValueName) )
         {
-          goto LABEL_30;
+          goto LABEL_32;
         }
-        if ( (v26 & 0x20000) != 0 || !v25 )
-          goto LABEL_50;
+        if ( (v27 & 0x20000) != 0 || !v26 )
+          goto LABEL_63;
       }
-LABEL_31:
-      v70 = 0LL;
-      v27 = 0LL;
-      P = 0LL;
-      RegistryKeyInformation = IopGetRegistryValue(KeyHandlea);
+LABEL_33:
+      v66 = 0LL;
+      v28 = 0LL;
+      Data = 0LL;
+      RegistryKeyInformation = IopGetRegistryValue(KeyHandlea, DestinationString.Buffer, 0, &v66);
       if ( RegistryKeyInformation < 0 )
-        goto LABEL_90;
-      v28 = *((_DWORD *)v70 + 1) & 0xFFFF0000;
-      MaximumLength = *((_DWORD *)v70 + 3);
-      Buffer = (wchar_t *)((char *)v70 + *((unsigned int *)v70 + 2));
-      v31 = (unsigned __int16)*((_DWORD *)v70 + 1);
-      if ( v77 && *(_QWORD *)(v77 + 16) )
+        goto LABEL_110;
+      v29 = (ULONG *)v66;
+      v30 = *((_DWORD *)v66 + 1) & 0xFFFF0000;
+      MaximumLength = *((_DWORD *)v66 + 3);
+      Buffer = (char *)v66 + *((unsigned int *)v66 + 2);
+      v33 = (unsigned __int16)*((_DWORD *)v66 + 1);
+      if ( v72
+        && *(_QWORD *)(v72 + 16)
+        && v33 - 1 <= 1
+        && PnpValidateStringData((__int64)v66 + *((unsigned int *)v66 + 2), MaximumLength)
+        && PiDevCfgParseVariableName(v35, &v79, &v62) )
       {
-        if ( v31 - 1 > 1 )
+        Buffer = (char *)v79.Buffer;
+        v66 = 0LL;
+        v36 = PiDevCfgResolveVariable(v72, v79.Buffer, &v66);
+        RegistryKeyInformation = v36;
+        if ( v36 < 0 )
         {
-LABEL_35:
-          if ( v31 != 2 && v31 != 7 )
-            goto LABEL_37;
-LABEL_74:
-          if ( (v28 & 0xC0000) != 0 )
-          {
-            ResultLength = (int)ValueName.Buffer;
-            v39 = PiDevCfgResolveMultiSzValue(v31, MaximumLength, Buffer);
-            v27 = (wchar_t *)P;
-            RegistryKeyInformation = v39;
-            if ( v39 < 0 )
-            {
-              RegistryKeyInformation = 0;
-              goto LABEL_105;
-            }
-            goto LABEL_76;
-          }
-          goto LABEL_37;
-        }
-        if ( PnpValidateStringData((__int64)v70 + *((unsigned int *)v70 + 2), MaximumLength)
-          && PiDevCfgParseVariableName(v42, &v86, &v67) )
-        {
-          Buffer = v86.Buffer;
-          v74 = 0LL;
-          v43 = PiDevCfgResolveVariable(v77, v86.Buffer, &v74);
-          RegistryKeyInformation = v43;
-          if ( v43 < 0 )
-          {
-            RegistryKeyInformation = 0;
-            if ( v43 == -1073741772 )
-              MaximumLength = v86.MaximumLength;
-            else
-              Buffer = 0LL;
-            goto LABEL_37;
-          }
-          if ( (v67 & 0xC0000) != 0 )
-          {
-            ResultLength = (int)ValueName.Buffer;
-            v51 = PiDevCfgResolveMultiSzValue(
-                    *(unsigned int *)(v74 + 32),
-                    *(unsigned int *)(v74 + 36),
-                    *(_QWORD *)(v74 + 40));
-            v27 = (wchar_t *)P;
-            RegistryKeyInformation = v51;
-            if ( v51 >= 0 )
-            {
-LABEL_76:
-              MaximumLength = v66;
-              Buffer = v27;
-              v31 = 7;
-              if ( v66 >= 2 && !*v27 )
-                v28 |= 0x200000u;
-              goto LABEL_37;
-            }
-            Buffer = 0LL;
-            RegistryKeyInformation = 0;
-          }
+          RegistryKeyInformation = 0;
+          if ( v36 == -1073741772 )
+            MaximumLength = v79.MaximumLength;
           else
+            Buffer = 0LL;
+          goto LABEL_49;
+        }
+        if ( (v62 & 0xC0000) == 0 )
+        {
+          MaximumLength = *((_DWORD *)v66 + 9);
+          Buffer = (char *)*((_QWORD *)v66 + 5);
+          v33 = (unsigned __int16)*((_DWORD *)v66 + 8);
+          v30 |= *((_DWORD *)v66 + 8) & 0xFFFF0000;
+          goto LABEL_49;
+        }
+        ResultLength = (int)ValueName.Buffer;
+        v34 = PiDevCfgResolveMultiSzValue(
+                *((unsigned int *)v66 + 8),
+                *((unsigned int *)v66 + 9),
+                *((_QWORD *)v66 + 5),
+                v62,
+                v61);
+      }
+      else
+      {
+        if ( v33 != 7 && v33 - 1 > 1 || (v30 & 0xC0000) == 0 )
+          goto LABEL_49;
+        ResultLength = (int)ValueName.Buffer;
+        v34 = PiDevCfgResolveMultiSzValue(v33, MaximumLength, Buffer, v30, v61);
+      }
+      v28 = Data;
+      RegistryKeyInformation = v34;
+      if ( v34 < 0 )
+      {
+        Buffer = 0LL;
+        RegistryKeyInformation = 0;
+      }
+      else
+      {
+        MaximumLength = DataSize;
+        v33 = 7;
+        Buffer = (char *)Data;
+        if ( DataSize >= 2 && !*(_WORD *)Data )
+          v30 |= 0x200000u;
+      }
+LABEL_49:
+      if ( Buffer )
+      {
+        if ( v33 == 0x8000 )
+        {
+          if ( !v78 )
           {
-            v44 = *(_DWORD *)(v74 + 32);
-            v28 |= v44;
-            MaximumLength = *(_DWORD *)(v74 + 36);
-            Buffer = *(wchar_t **)(v74 + 40);
-            v31 = (unsigned __int16)v44;
+            v39 = (char *)v61;
+            if ( !v83 )
+              goto LABEL_56;
+            v40 = PiDevCfgPushCopyKeyEntry(v83, Buffer, v61, ((v30 & 0x20000) == 0) | 0x80000000);
+            goto LABEL_55;
           }
-LABEL_37:
-          if ( Buffer )
+        }
+        else if ( v33 || (v30 & 0x100000) == 0 )
+        {
+          v37 = v78;
+          v38 = v30 & 0x200000;
+          if ( !v78 )
           {
-            if ( v31 == 0x8000 )
+            if ( v38 )
             {
-              if ( !v82 && v85 )
-              {
-                v52 = (v28 & 0x20000) == 0;
-                LODWORD(v52) = v52 | 0x80000000;
-                RegistryKeyInformation = PiDevCfgPushCopyKeyEntry(v85, Buffer, v65, v52);
-              }
-              goto LABEL_105;
+              v39 = (char *)v61;
+              RegistryKeyInformation = ZwDeleteValueKey(v61, &ValueName);
+              if ( RegistryKeyInformation == -1073741772 )
+                RegistryKeyInformation = 0;
+              goto LABEL_56;
             }
-            if ( v31 || (v28 & 0x100000) == 0 )
+            ResultLengtha = MaximumLength;
+            v39 = (char *)v61;
+            v40 = ZwSetValueKey(v61, &ValueName, *v29, v33, Buffer, ResultLengtha);
+LABEL_55:
+            RegistryKeyInformation = v40;
+LABEL_56:
+            if ( v28 )
+              ExFreePoolWithTag(v28, 0);
+            v9 = v78;
+            if ( !v78 && v33 != 0x8000 && (v30 & 0x100000) != 0 )
             {
-              v32 = v82;
-              v33 = v28 & 0x200000;
-              if ( !v82 )
+              if ( *(_QWORD *)&PiPnpRtlCtx && (v50 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
+                v51 = *(_QWORD *)(v50 + 8);
+              else
+                v51 = 0LL;
+              RegRtlDeleteTreeInternal(v39, ValueName.Buffer, v51, 0);
+            }
+            ExFreePoolWithTag(v29, 0);
+            if ( RegistryKeyInformation < 0 )
+              goto LABEL_110;
+            PoolWithTag = (WCHAR *)P;
+            i = v75;
+            v8 = v74;
+            goto LABEL_63;
+          }
+          if ( v38 )
+          {
+            v47 = 0;
+            v77 = 0LL;
+            v48 = 0;
+            v59 = 0;
+            v68 = 0;
+            v46 = 0LL;
+            goto LABEL_101;
+          }
+          if ( v73 != 1 )
+          {
+            v44 = v73;
+            v59 = v73;
+LABEL_100:
+            v45 = PiDevCfgConvertPropertyFromValue(v33, MaximumLength, (wchar_t *)Buffer, v44, &v68, &v77);
+            v46 = (char *)v77;
+            RegistryKeyInformation = v45;
+            v47 = v59;
+            v48 = v68;
+            v37 = v78;
+LABEL_101:
+            if ( RegistryKeyInformation >= 0 && (v46 || !v47) )
+            {
+              v49 = PiDevCfgSetObjectProperty(
+                      *(__int64 *)&PiPnpRtlCtx,
+                      0LL,
+                      v37,
+                      v74,
+                      (__int64)v61,
+                      ResultLength,
+                      (__int64)&v86,
+                      v47,
+                      (__int64)v46,
+                      v48,
+                      0);
+              RegistryKeyInformation = v49;
+              if ( v49 == -1073741790 || !v59 && v49 == -1073741275 )
+                RegistryKeyInformation = 0;
+              if ( v46 )
               {
-                if ( !v33 )
-                {
-                  ResultLengtha = MaximumLength;
-                  v34 = v70;
-                  Length = Buffer;
-                  v35 = v65;
-                  RegistryKeyInformation = ZwSetValueKey(v65, &ValueName, *(_DWORD *)v70, v31, Length, ResultLengtha);
-LABEL_43:
-                  if ( v27 )
-                    ExFreePoolWithTag(v27, 0);
-                  if ( !v82 && v31 != 0x8000 && (v28 & 0x100000) != 0 )
-                  {
-                    if ( *(_QWORD *)&PiPnpRtlCtx && (v53 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
-                      v54 = *(_QWORD *)(v53 + 8);
-                    else
-                      v54 = 0LL;
-                    RegRtlDeleteTreeInternal(v35, ValueName.Buffer, v54, 0LL);
-                  }
-                  ExFreePoolWithTag(v34, 0);
-                  if ( RegistryKeyInformation < 0 )
-                    goto LABEL_90;
-                  v9 = v82;
-                  i = v80;
-                  v8 = v79;
-                  goto LABEL_50;
-                }
-                v35 = v65;
-                RegistryKeyInformation = ZwDeleteValueKey(v65, &ValueName);
-                if ( RegistryKeyInformation == -1073741772 )
-                  RegistryKeyInformation = 0;
-LABEL_106:
-                v34 = v70;
-                goto LABEL_43;
+                if ( v46 != Buffer )
+                  ExFreePoolWithTag(v46, 0);
+                v77 = 0LL;
               }
-              if ( v33 )
-              {
-                v48 = 0;
-                v84 = 0LL;
-                v49 = 0;
-                v64 = 0;
-                v73 = 0;
-                v47 = 0LL;
-                goto LABEL_97;
-              }
-              if ( v78 != 1 )
-              {
-                v45 = v78;
-                v64 = v78;
-LABEL_96:
-                v46 = PiDevCfgConvertPropertyFromValue(v31, MaximumLength, Buffer, v45, &v73, &v84);
-                v47 = (wchar_t *)v84;
-                RegistryKeyInformation = v46;
-                v48 = v64;
-                v49 = v73;
-                v32 = v82;
-LABEL_97:
-                if ( RegistryKeyInformation >= 0 && (v47 || !v48) )
-                {
-                  v50 = PiDevCfgSetObjectProperty(
-                          PiPnpRtlCtx,
-                          0,
-                          v32,
-                          v79,
-                          (__int64)v65,
-                          ResultLength,
-                          (__int64)&v91,
-                          v48,
-                          (__int64)v47,
-                          v49,
-                          0);
-                  RegistryKeyInformation = v50;
-                  if ( v50 == -1073741790 || !v64 && v50 == -1073741275 )
-                    RegistryKeyInformation = 0;
-                  if ( v47 )
-                  {
-                    if ( v47 != Buffer )
-                      ExFreePoolWithTag(v47, 0);
-                    v84 = 0LL;
-                  }
-                }
-                goto LABEL_105;
-              }
-              if ( v31 )
-              {
-                if ( v31 <= 2 )
-                {
-                  v45 = 18;
-                  goto LABEL_140;
-                }
-                switch ( v31 )
-                {
-                  case 4u:
-                    v45 = 7;
-                    goto LABEL_140;
-                  case 7u:
-                    v45 = 8210;
-                    goto LABEL_140;
-                  case 0xBu:
-                    v45 = 9;
-LABEL_140:
-                    v64 = v45;
-                    goto LABEL_96;
-                }
-              }
-              v45 = 4099;
-              goto LABEL_140;
+            }
+            goto LABEL_109;
+          }
+          if ( v33 )
+          {
+            if ( v33 <= 2 )
+            {
+              v44 = 18;
+              goto LABEL_143;
+            }
+            switch ( v33 )
+            {
+              case 4u:
+                v44 = 7;
+                goto LABEL_143;
+              case 7u:
+                v44 = 8210;
+                goto LABEL_143;
+              case 0xBu:
+                v44 = 9;
+LABEL_143:
+                v59 = v44;
+                goto LABEL_100;
             }
           }
-LABEL_105:
-          v35 = v65;
-          goto LABEL_106;
+          v44 = 4099;
+          goto LABEL_143;
         }
       }
-      if ( v31 == 1 )
-        goto LABEL_74;
-      goto LABEL_35;
+LABEL_109:
+      v39 = (char *)v61;
+      goto LABEL_56;
     }
     if ( v16 == -2147483622 )
-      break;
-    if ( v16 != -2147483643 )
-      goto LABEL_90;
-    ExFreePoolWithTag((PVOID)Pool2, 0);
-    v13 = v66;
-    *(_QWORD *)v72 = v66;
-    Pool2 = ExAllocatePool2(256LL, v66, 1667526736LL);
-    if ( !Pool2 )
     {
-      v17 = v71;
-      RegistryKeyInformation = -1073741670;
-      goto LABEL_15;
+      RegistryKeyInformation = 0;
+      goto LABEL_9;
     }
+    if ( v16 != -2147483643 )
+      goto LABEL_158;
+    ExFreePoolWithTag(PoolWithTag, 0);
+    Length = DataSize;
+    v65 = DataSize;
+    P = ExAllocatePoolWithTag(PagedPool, DataSize, 0x63647050u);
+    PoolWithTag = (WCHAR *)P;
+    if ( !P )
+      break;
     --i;
   }
-  RegistryKeyInformation = 0;
+  RegistryKeyInformation = -1073741670;
+LABEL_158:
+  if ( RegistryKeyInformation < 0 )
+    goto LABEL_110;
+LABEL_9:
   if ( v9 )
   {
-LABEL_90:
-    v17 = v71;
-    goto LABEL_14;
+LABEL_110:
+    v18 = v67;
+    goto LABEL_15;
   }
-  v17 = v71;
-  if ( !v85 )
-    goto LABEL_14;
-  v18 = v72[0];
-  v19 = 0;
-  v20 = KeyHandlea;
-  while ( 2 )
+  v17 = v83;
+  v18 = v67;
+  if ( v83 )
   {
-    v21 = ZwEnumerateKey(v20, v19, KeyBasicInformation, (PVOID)Pool2, v18, &v66);
-    RegistryKeyInformation = v21;
-    if ( v21 < 0 )
+    v19 = KeyHandlea;
+    for ( j = 0; ; ++j )
     {
+      v21 = ZwEnumerateKey(v19, j, KeyBasicInformation, PoolWithTag, Length, &DataSize);
+      v22 = 0LL;
+      RegistryKeyInformation = v21;
+      if ( v21 >= 0 )
+        break;
       if ( v21 == -2147483622 )
       {
         RegistryKeyInformation = 0;
-        goto LABEL_14;
+        goto LABEL_15;
       }
       if ( v21 != -2147483643 )
-        goto LABEL_14;
-      ExFreePoolWithTag((PVOID)Pool2, 0);
-      v18 = v66;
-      Pool2 = ExAllocatePool2(256LL, v66, 1667526736LL);
-      if ( !Pool2 )
+        goto LABEL_15;
+      ExFreePoolWithTag(PoolWithTag, 0);
+      Length = DataSize;
+      v65 = DataSize;
+      P = ExAllocatePoolWithTag(PagedPool, DataSize, 0x63647050u);
+      PoolWithTag = (WCHAR *)P;
+      if ( !P )
       {
         RegistryKeyInformation = -1073741670;
         goto LABEL_15;
       }
-      --v19;
-LABEL_73:
-      ++v19;
-      continue;
+      --j;
+LABEL_92:
+      ;
     }
-    break;
-  }
-  *(_WORD *)(Pool2 + 2 * ((unsigned __int64)*(unsigned int *)(Pool2 + 12) >> 1) + 16) = 0;
-  RegistryKeyInformation = RtlInitUnicodeStringEx(&v89, (PCWSTR)(Pool2 + 16));
-  if ( RegistryKeyInformation < 0 )
-    goto LABEL_14;
-  v87 = v89;
-  ObjectAttributes.Length = 48;
-  ObjectAttributes.RootDirectory = v20;
-  ObjectAttributes.Attributes = 576;
-  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  ObjectAttributes.ObjectName = &v89;
-  RegistryKeyInformation = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
-  if ( RegistryKeyInformation < 0 )
-    goto LABEL_14;
-  v36 = v77;
-  v37 = 0LL;
-  v67 = 0;
-  if ( v77 && *(_QWORD *)(v77 + 16) && PiDevCfgParseVariableName(v89.Buffer, &v86, &v67) )
-  {
-    v74 = 0LL;
-    v55 = PiDevCfgResolveVariable(v36, v86.Buffer, &v74);
-    if ( v55 < 0 )
+    PoolWithTag[((unsigned __int64)*((unsigned int *)PoolWithTag + 3) >> 1) + 8] = 0;
+    RegistryKeyInformation = RtlInitUnicodeStringEx(&v84, PoolWithTag + 8);
+    if ( RegistryKeyInformation < 0 )
+      goto LABEL_15;
+    v81 = v84;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = v19;
+    ObjectAttributes.Attributes = 576;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    ObjectAttributes.ObjectName = &v84;
+    RegistryKeyInformation = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
+    if ( RegistryKeyInformation < 0 )
+      goto LABEL_15;
+    v43 = v72;
+    v62 = 0;
+    if ( v72 && *(_QWORD *)(v72 + 16) && PiDevCfgParseVariableName(v84.Buffer, &v79, &v62) )
     {
-      if ( v55 != -1073741772 )
-        goto LABEL_163;
-      v87 = v86;
+      v66 = 0LL;
+      v52 = PiDevCfgResolveVariable(v43, v79.Buffer, &v66);
+      if ( v52 < 0 )
+      {
+        if ( v52 != -1073741772 )
+          goto LABEL_168;
+        v81 = v79;
+      }
+      else
+      {
+        v53 = *((_DWORD *)v66 + 8);
+        if ( (unsigned int)(v53 - 1) > 1 )
+        {
+          if ( v53 == 7 )
+          {
+            v22 = (const WCHAR *)*((_QWORD *)v66 + 5);
+            goto LABEL_75;
+          }
+LABEL_168:
+          ZwClose(Handle);
+          Handle = 0LL;
+LABEL_91:
+          Length = v65;
+          goto LABEL_92;
+        }
+        v81.Buffer = (wchar_t *)*((_QWORD *)v66 + 5);
+        v81.Length = *((_WORD *)v66 + 18) - 2;
+        v81.MaximumLength = *((_WORD *)v66 + 18);
+      }
+    }
+LABEL_75:
+    RegistryKeyInformation = PiDevCfgGetKeySecurityDescriptor(Handle, &v67);
+    if ( RegistryKeyInformation >= 0 )
+    {
+      v18 = v67;
     }
     else
     {
-      v56 = *(_DWORD *)(v74 + 32);
-      if ( (unsigned int)(v56 - 1) > 1 )
+      RegistryKeyInformation = 0;
+      v67 = 0LL;
+      v18 = 0LL;
+    }
+    if ( !v22 )
+    {
+      ObjectAttributes.RootDirectory = v61;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.ObjectName = &v81;
+      ObjectAttributes.Attributes = 576;
+      ObjectAttributes.SecurityDescriptor = v18;
+      ObjectAttributes.SecurityQualityOfService = 0LL;
+      RegistryKeyInformation = ZwCreateKey(&v64, 0xF003Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
+      if ( RegistryKeyInformation >= 0 )
       {
-        if ( v56 == 7 )
-        {
-          v37 = *(const WCHAR **)(v74 + 40);
-          goto LABEL_57;
-        }
-LABEL_163:
+        if ( Disposition == 2 && v18 )
+          ZwSetSecurityObject(v64, 4u, v18);
+        RegistryKeyInformation = PiDevCfgPushCopyKeyEntry(v17, Handle, v64, a5 | 0x40000000u);
+        if ( RegistryKeyInformation < 0 )
+          ZwClose(v64);
+        Handle = 0LL;
+LABEL_85:
+        v64 = 0LL;
+      }
+LABEL_86:
+      if ( v18 )
+      {
+        ExFreePoolWithTag(v18, 0);
+        v18 = 0LL;
+        v67 = 0LL;
+      }
+      if ( Handle )
+      {
         ZwClose(Handle);
         Handle = 0LL;
-        goto LABEL_73;
       }
-      v87.Buffer = *(wchar_t **)(v74 + 40);
-      v87.Length = *(_WORD *)(v74 + 36) - 2;
-      v87.MaximumLength = *(_WORD *)(v74 + 36);
+      if ( RegistryKeyInformation < 0 )
+        goto LABEL_15;
+      goto LABEL_91;
     }
-  }
-LABEL_57:
-  RegistryKeyInformation = PiDevCfgGetKeySecurityDescriptor(Handle, &v71);
-  if ( RegistryKeyInformation >= 0 )
-  {
-    v17 = v71;
-  }
-  else
-  {
-    RegistryKeyInformation = 0;
-    v71 = 0LL;
-    v17 = 0LL;
-  }
-  if ( v37 )
-  {
-    while ( 1 )
+    if ( !*v22 )
+      goto LABEL_86;
+    while ( 2 )
     {
-      if ( !*v37 )
-        goto LABEL_68;
-      RtlInitUnicodeString(&v87, v37);
-      ObjectAttributes.RootDirectory = v65;
+      RtlInitUnicodeString(&v81, v22);
+      ObjectAttributes.RootDirectory = v61;
       ObjectAttributes.SecurityQualityOfService = 0LL;
-      ObjectAttributes.ObjectName = &v87;
+      ObjectAttributes.ObjectName = &v81;
       ObjectAttributes.Length = 48;
       ObjectAttributes.Attributes = 576;
-      ObjectAttributes.SecurityDescriptor = v17;
-      v57 = ZwOpenKey(&v69, 0xF003Fu, &ObjectAttributes);
-      RegistryKeyInformation = v57;
-      if ( v57 < 0 )
+      ObjectAttributes.SecurityDescriptor = v18;
+      v54 = ZwOpenKey(&v64, 0xF003Fu, &ObjectAttributes);
+      RegistryKeyInformation = v54;
+      if ( v54 >= 0 )
       {
-        if ( v57 != -1073741772 )
-          goto LABEL_68;
-        if ( (v67 & 0x10000) != 0 )
+        if ( v18 )
+          ZwSetSecurityObject(v64, 4u, v18);
+        goto LABEL_181;
+      }
+      if ( v54 != -1073741772 )
+        goto LABEL_86;
+      if ( (v62 & 0x10000) != 0 )
+      {
+        RegistryKeyInformation = 0;
+      }
+      else
+      {
+        RegistryKeyInformation = ZwCreateKey(&v64, 0xF003Fu, &ObjectAttributes, 0, 0LL, 0, 0LL);
+        if ( RegistryKeyInformation < 0 )
+          goto LABEL_86;
+LABEL_181:
+        v55 = Handle;
+        if ( !Handle )
         {
-          RegistryKeyInformation = 0;
-          goto LABEL_180;
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.ObjectName = &v84;
+          ObjectAttributes.RootDirectory = v19;
+          ObjectAttributes.Attributes = 576;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          RegistryKeyInformation = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
+          if ( RegistryKeyInformation < 0 )
+            goto LABEL_190;
+          v55 = Handle;
         }
-        RegistryKeyInformation = ZwCreateKey(&v69, 0xF003Fu, &ObjectAttributes, 0, 0LL, 0, 0LL);
+        RegistryKeyInformation = PiDevCfgPushCopyKeyEntry(v17, v55, v64, a5 | 0x40000000u);
         if ( RegistryKeyInformation < 0 )
-          goto LABEL_68;
+        {
+LABEL_190:
+          ZwClose(v64);
+          goto LABEL_85;
+        }
+        Handle = 0LL;
+        v64 = 0LL;
       }
-      else if ( v17 )
-      {
-        ZwSetSecurityObject(v69, 4u, v17);
-      }
-      v58 = Handle;
-      if ( !Handle )
-      {
-        ObjectAttributes.Length = 48;
-        ObjectAttributes.ObjectName = &v89;
-        ObjectAttributes.RootDirectory = v20;
-        ObjectAttributes.Attributes = 576;
-        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        RegistryKeyInformation = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
-        if ( RegistryKeyInformation < 0 )
-          goto LABEL_185;
-        v58 = Handle;
-      }
-      v59 = a5;
-      LODWORD(v59) = a5 | 0x40000000;
-      RegistryKeyInformation = PiDevCfgPushCopyKeyEntry(v85, v58, v69, v59);
-      if ( RegistryKeyInformation < 0 )
-      {
-LABEL_185:
-        ZwClose(v69);
-        goto LABEL_67;
-      }
-      Handle = 0LL;
-      v69 = 0LL;
-LABEL_180:
-      v60 = -1LL;
+      v56 = -1LL;
       do
-        ++v60;
-      while ( v37[v60] );
-      v37 += v60 + 1;
+        ++v56;
+      while ( v22[v56] );
+      v22 += v56 + 1;
+      if ( !*v22 )
+        goto LABEL_86;
+      continue;
     }
   }
-  ObjectAttributes.RootDirectory = v65;
-  ObjectAttributes.SecurityQualityOfService = 0LL;
-  ObjectAttributes.ObjectName = &v87;
-  ObjectAttributes.Length = 48;
-  ObjectAttributes.Attributes = 576;
-  ObjectAttributes.SecurityDescriptor = v17;
-  RegistryKeyInformation = ZwCreateKey(&v69, 0xF003Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
-  if ( RegistryKeyInformation >= 0 )
-  {
-    if ( Disposition == 2 && v17 )
-      ZwSetSecurityObject(v69, 4u, v17);
-    v38 = a5;
-    LODWORD(v38) = a5 | 0x40000000;
-    RegistryKeyInformation = PiDevCfgPushCopyKeyEntry(v85, Handle, v69, v38);
-    if ( RegistryKeyInformation < 0 )
-      ZwClose(v69);
-    Handle = 0LL;
-LABEL_67:
-    v69 = 0LL;
-  }
-LABEL_68:
-  if ( v17 )
-  {
-    ExFreePoolWithTag(v17, 0);
-    v17 = 0LL;
-    v71 = 0LL;
-  }
-  if ( Handle )
-  {
-    ZwClose(Handle);
-    Handle = 0LL;
-  }
-  if ( RegistryKeyInformation >= 0 )
-    goto LABEL_73;
-LABEL_14:
-  ExFreePoolWithTag((PVOID)Pool2, 0);
 LABEL_15:
-  if ( v17 )
-    ExFreePoolWithTag(v17, 0);
-LABEL_17:
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  if ( v18 )
+    ExFreePoolWithTag(v18, 0);
+LABEL_19:
   if ( Handle )
     ZwClose(Handle);
-  if ( v69 )
-    ZwClose(v69);
+  if ( v64 )
+    ZwClose(v64);
   return (unsigned int)RegistryKeyInformation;
 }

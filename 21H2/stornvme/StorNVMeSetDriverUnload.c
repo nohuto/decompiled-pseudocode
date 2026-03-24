@@ -1,7 +1,7 @@
 /*
- * XREFs of StorNVMeSetDriverUnload @ 0x1C000FC60
+ * XREFs of StorNVMeSetDriverUnload @ 0x1C0007C50
  * Callers:
- *     DriverEntry @ 0x1C000E12C (DriverEntry.c)
+ *     DriverEntry @ 0x1C000A530 (DriverEntry.c)
  * Callees:
  *     <none>
  */

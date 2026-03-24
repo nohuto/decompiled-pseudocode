@@ -1,23 +1,23 @@
 /*
- * XREFs of BiDeleteElement @ 0x1407125BC
+ * XREFs of BiDeleteElement @ 0x14071259C
  * Callers:
- *     PopBcdClearPendingResume @ 0x140710FC8 (PopBcdClearPendingResume.c)
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
- *     SepSecureBootUpdateBcdDataForRule @ 0x1408A3564 (SepSecureBootUpdateBcdDataForRule.c)
- *     BiHandleFirmwareDefaultEntry @ 0x1408F401C (BiHandleFirmwareDefaultEntry.c)
- *     BiUpdateBcdObject @ 0x1408F4908 (BiUpdateBcdObject.c)
+ *     PopBcdClearPendingResume @ 0x140710FA8 (PopBcdClearPendingResume.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x1408A3544 (SepSecureBootUpdateBcdDataForRule.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x1408F3FFC (BiHandleFirmwareDefaultEntry.c)
+ *     BiUpdateBcdObject @ 0x1408F48E8 (BiUpdateBcdObject.c)
  * Callees:
- *     BiIsOfflineHandle @ 0x14016E59C (BiIsOfflineHandle.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _ultow_s @ 0x14019A750 (_ultow_s.c)
- *     BiSetFirmwareModifiedFromObject @ 0x1403272A8 (BiSetFirmwareModifiedFromObject.c)
- *     BiDeleteKey @ 0x1406E1E8C (BiDeleteKey.c)
- *     BiOpenKey @ 0x1407137A0 (BiOpenKey.c)
- *     BiCloseKey @ 0x140713910 (BiCloseKey.c)
- *     BiReleaseBcdSyncMutant @ 0x140713AF0 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x140713CA0 (BiAcquireBcdSyncMutant.c)
- *     BiIsLinkedToFirmwareVariable @ 0x140713CF8 (BiIsLinkedToFirmwareVariable.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
+ *     BiIsOfflineHandle @ 0x14016E5BC (BiIsOfflineHandle.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _ultow_s @ 0x14019A770 (_ultow_s.c)
+ *     BiSetFirmwareModifiedFromObject @ 0x1403273A8 (BiSetFirmwareModifiedFromObject.c)
+ *     BiDeleteKey @ 0x1406E1E6C (BiDeleteKey.c)
+ *     BiOpenKey @ 0x140713780 (BiOpenKey.c)
+ *     BiCloseKey @ 0x1407138F0 (BiCloseKey.c)
+ *     BiReleaseBcdSyncMutant @ 0x140713AD0 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140713C80 (BiAcquireBcdSyncMutant.c)
+ *     BiIsLinkedToFirmwareVariable @ 0x140713CD8 (BiIsLinkedToFirmwareVariable.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
  */
 
 __int64 __fastcall BiDeleteElement(void *a1, unsigned int a2)

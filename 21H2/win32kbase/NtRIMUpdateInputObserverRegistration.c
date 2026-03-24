@@ -1,84 +1,45 @@
 /*
- * XREFs of NtRIMUpdateInputObserverRegistration @ 0x1C0181490
+ * XREFs of NtRIMUpdateInputObserverRegistration @ 0x1C0154790
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     rimObsCheckForObservationPermissions @ 0x1C01B3B48 (rimObsCheckForObservationPermissions.c)
- *     rimObsUpdateInputObserverRegistration @ 0x1C01B59EC (rimObsUpdateInputObserverRegistration.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     rimObsCheckForObservationPermissions @ 0x1C017DE84 (rimObsCheckForObservationPermissions.c)
+ *     rimObsUpdateInputObserverRegistration @ 0x1C017F5AC (rimObsUpdateInputObserverRegistration.c)
  */
 
-__int64 __fastcall NtRIMUpdateInputObserverRegistration(HANDLE Handle, __int64 a2, __int64 a3)
+__int64 __fastcall NtRIMUpdateInputObserverRegistration(HANDLE Handle, unsigned int a2)
 {
-  unsigned int v3; // ebx
-  char v5; // di
+  unsigned int v2; // ebx
   unsigned int updated; // ebx
 
-  v3 = a2;
-  v5 = 1;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400000) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      23,
-      161,
-      (__int64)&WPP_df94b808a2303b7a296e0888e8df2dc4_Traceguids);
-  if ( v3 )
+  v2 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    if ( (unsigned int)rimObsCheckForObservationPermissions(v3, a2, a3) )
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)gBaseLog, a2, 23, 152, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids);
+  }
+  if ( v2 )
+  {
+    if ( (unsigned int)rimObsCheckForObservationPermissions(v2) )
       updated = rimObsUpdateInputObserverRegistration(Handle, 1);
     else
       updated = -1073741790;
   }
   else
   {
-    LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400000) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-    if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_D(
-        WPP_GLOBAL_Control->AttachedDevice,
-        a2,
-        a3,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        3,
-        23,
-        162,
-        (__int64)&WPP_df94b808a2303b7a296e0888e8df2dc4_Traceguids,
-        0);
+      LOBYTE(a2) = 3;
+      WPP_RECORDER_SF_d((_DWORD)gBaseLog, a2, 23, 153, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids, 0);
     }
     updated = -1073741811;
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400000) == 0
-    || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v5 = 0;
-  }
-  if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(a2) = v5;
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_D(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      23,
-      163,
-      (__int64)&WPP_df94b808a2303b7a296e0888e8df2dc4_Traceguids,
-      updated);
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_d((_DWORD)gBaseLog, a2, 23, 154, (__int64)&WPP_458f9cb2c9d13fde67ad7c5a84ebc3a7_Traceguids, updated);
   }
   return updated;
 }

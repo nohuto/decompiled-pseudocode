@@ -1,79 +1,64 @@
 /*
- * XREFs of ?SetSyncLockGroup@ADAPTER_DISPLAY@@QEAAXIKIW4_DXGK_SYNC_LOCK_STYLE@@K@Z @ 0x1C001F884
+ * XREFs of ?SetSyncLockGroup@ADAPTER_DISPLAY@@QEAAXIKIW4_DXGK_SYNC_LOCK_STYLE@@K@Z @ 0x1C001B24C
  * Callers:
- *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C01B85D0 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C013FB1C (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
-void __fastcall ADAPTER_DISPLAY::SetSyncLockGroup(
-        __int64 a1,
-        unsigned int a2,
-        int a3,
-        __int64 a4,
-        int a5,
-        unsigned int a6)
+void __fastcall ADAPTER_DISPLAY::SetSyncLockGroup(__int64 a1, unsigned int a2, int a3, int a4, int a5, unsigned int a6)
 {
-  __int64 v6; // r14
+  __int64 v7; // r14
   __int64 v8; // rdi
-  __int64 v9; // rsi
-  int v10; // edx
-  int v11; // ecx
-  int v12; // r8d
-  KSPIN_LOCK *v13; // rcx
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+60h] [rbp-28h] BYREF
+  char *v9; // rsi
+  char *v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  __int64 v15; // rax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v6 = a2;
+  v7 = a2;
   v8 = 10LL * a2;
-  *(_DWORD *)(a1 + 8 * v8 + 872) = a5;
-  *(_DWORD *)(a1 + 8 * v8 + 864) = a3;
-  *(_DWORD *)(a1 + 8 * v8 + 868) = a4;
-  *(_DWORD *)(a1 + 8 * v8 + 904) = a6 >> 1;
+  *(_DWORD *)(a1 + 8 * v8 + 776) = a5;
+  *(_DWORD *)(a1 + 8 * v8 + 768) = a3;
+  *(_DWORD *)(a1 + 8 * v8 + 772) = a4;
+  *(_DWORD *)(a1 + 8 * v8 + 808) = a6 >> 1;
   if ( a3 )
   {
     v9 = 0LL;
-    if ( *(_QWORD *)(a1 + 80LL * a2 + 928) || (v9 = operator new[](0xF90uLL, 0x4B677844u, 64LL, a4)) != 0 )
+    if ( !*(_QWORD *)(a1 + 80LL * a2 + 832) )
     {
-      v13 = (KSPIN_LOCK *)(*(_QWORD *)(a1 + 16) + 4064LL);
-      memset(&LockHandle, 0, sizeof(LockHandle));
-      KeAcquireInStackQueuedSpinLock(v13, &LockHandle);
-      if ( v9 )
+      v10 = (char *)operator new[](0xF90uLL, 0x4B677844u, (POOL_TYPE)512);
+      v9 = v10;
+      if ( !v10 )
       {
-        *(_QWORD *)(a1 + 8 * v8 + 884) = 0LL;
-        *(_QWORD *)(a1 + 8 * v8 + 892) = 0LL;
-        *(_DWORD *)(a1 + 8 * v8 + 900) = 0;
-        *(_QWORD *)(a1 + 8 * v8 + 912) = 0LL;
-        *(_QWORD *)(a1 + 8 * v8 + 920) = 0LL;
-        *(_DWORD *)(a1 + 728) = 0;
-        *(_DWORD *)(a1 + 732) = MEMORY[0xFFFFF78000000008] / 0x989680uLL;
-        *(_QWORD *)(a1 + 8 * v8 + 928) = v9;
-        *(_QWORD *)(a1 + 8 * v8 + 936) = v9 + 384;
-        KeSetTimerEx((PKTIMER)(a1 + 736), (LARGE_INTEGER)-40000000LL, 4000, (PKDPC)(a1 + 800));
+        v15 = WdLogNewEntry5_WdLowResource(v12, v11, v13, v14);
+        *(_QWORD *)(v15 + 24) = 6637LL;
+        WdLogEvent5_WdLowResource(v15);
+        return;
       }
-      *(_BYTE *)(a1 + 80 * (v6 + 11)) = 1;
-      KeReleaseInStackQueuedSpinLock(&LockHandle);
+      memset(v10, 0, 0xF90uLL);
     }
-    else
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*(_QWORD *)(a1 + 16) + 3968LL), &LockHandle);
+    if ( v9 )
     {
-      WdLogSingleEntry1(6LL, 6844LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v11,
-            v10,
-            v12,
-            0,
-            1,
-            -1,
-            (__int64)L"Failed to allocate SyncLock VSync Drift telemetry buffer.",
-            6844LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      *(_DWORD *)(a1 + 8 * v8 + 788) = 0;
+      *(_DWORD *)(a1 + 8 * v8 + 792) = 0;
+      *(_DWORD *)(a1 + 8 * v8 + 796) = 0;
+      *(_DWORD *)(a1 + 8 * v8 + 804) = 0;
+      *(_QWORD *)(a1 + 8 * v8 + 816) = 0LL;
+      *(_QWORD *)(a1 + 8 * v8 + 824) = 0LL;
+      *(_DWORD *)(a1 + 80 * (v7 + 10)) = 0;
+      *(_DWORD *)(a1 + 632) = 0;
+      *(_DWORD *)(a1 + 636) = MEMORY[0xFFFFF78000000008] / 0x989680uLL;
+      *(_QWORD *)(a1 + 8 * v8 + 832) = v9;
+      *(_QWORD *)(a1 + 8 * v8 + 840) = v9 + 384;
+      KeSetTimerEx((PKTIMER)(a1 + 640), (LARGE_INTEGER)-40000000LL, 4000, (PKDPC)(a1 + 704));
     }
+    *(_BYTE *)(a1 + 8 * v8 + 784) = 1;
+    KeReleaseInStackQueuedSpinLock(&LockHandle);
   }
 }

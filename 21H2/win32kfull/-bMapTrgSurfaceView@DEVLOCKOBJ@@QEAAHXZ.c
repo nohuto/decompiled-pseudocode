@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00DBB40
+ * XREFs of ?bMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00D5EA0
  * Callers:
- *     DEVLOCKOBJ_bPrepareTrgDcoWrap @ 0x1C00DBA70 (DEVLOCKOBJ_bPrepareTrgDcoWrap.c)
+ *     DEVLOCKOBJ_bPrepareTrgDcoWrap @ 0x1C00D5DD0 (DEVLOCKOBJ_bPrepareTrgDcoWrap.c)
  * Callees:
- *     ?bHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C00DBBF8 (-bHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
- *     ?bHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C02998C8 (-bHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C00D5F58 (-bHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C029AFEC (-bHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
  */
 
 _BOOL8 __fastcall DEVLOCKOBJ::bMapTrgSurfaceView(DEVLOCKOBJ *this)
@@ -23,7 +23,7 @@ _BOOL8 __fastcall DEVLOCKOBJ::bMapTrgSurfaceView(DEVLOCKOBJ *this)
   v3 = *(_QWORD *)(v1 + 496);
   if ( !v3 )
     return 1LL;
-  v4 = SURFACE::Map(*(_QWORD *)(v1 + 496), this, v1);
+  v4 = SURFACE::Map(*(_QWORD *)(v1 + 496), this);
   if ( v4 <= 1 )
   {
     if ( (*(_DWORD *)(v3 + 112) & 0x800) != 0

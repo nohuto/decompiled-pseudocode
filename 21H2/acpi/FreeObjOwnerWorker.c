@@ -1,10 +1,10 @@
 /*
- * XREFs of FreeObjOwnerWorker @ 0x1C0066590
+ * XREFs of FreeObjOwnerWorker @ 0x1C0065330
  * Callers:
  *     <none>
  * Callees:
- *     AMLIRestartContext @ 0x1C00648F4 (AMLIRestartContext.c)
- *     FreeObjOwner @ 0x1C00663E4 (FreeObjOwner.c)
+ *     AMLIRestartContext @ 0x1C0063670 (AMLIRestartContext.c)
+ *     FreeObjOwner @ 0x1C006517C (FreeObjOwner.c)
  */
 
 void __fastcall FreeObjOwnerWorker(struct _EX_RUNDOWN_REF *StartContext)

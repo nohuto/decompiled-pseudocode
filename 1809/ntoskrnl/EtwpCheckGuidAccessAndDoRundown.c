@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCheckGuidAccessAndDoRundown @ 0x1408BE4EC
+ * XREFs of EtwpCheckGuidAccessAndDoRundown @ 0x1408BE4CC
  * Callers:
- *     EtwpEnableDisableSpecialGuids @ 0x140656BB0 (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x140656B90 (EtwpEnableDisableSpecialGuids.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     EtwpCheckGuidAccess @ 0x140656D24 (EtwpCheckGuidAccess.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x1408BE634 (EtwpCheckLoggerAccessAndDoRundown.c)
- *     EtwpLogKernelTraceRundown @ 0x1408BE988 (EtwpLogKernelTraceRundown.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     EtwpCheckGuidAccess @ 0x140656D04 (EtwpCheckGuidAccess.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1408BE614 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpLogKernelTraceRundown @ 0x1408BE968 (EtwpLogKernelTraceRundown.c)
  */
 
 __int64 __fastcall EtwpCheckGuidAccessAndDoRundown(

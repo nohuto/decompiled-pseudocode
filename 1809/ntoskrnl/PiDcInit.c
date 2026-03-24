@@ -4,8 +4,8 @@
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
  *     RtlInitializeGenericTableAvl @ 0x140006820 (RtlInitializeGenericTableAvl.c)
- *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x14073ADAC (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
- *     PiDcInitUpdateProperties @ 0x14073AEA4 (PiDcInitUpdateProperties.c)
+ *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x14073AD8C (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
+ *     PiDcInitUpdateProperties @ 0x14073AE84 (PiDcInitUpdateProperties.c)
  */
 
 __int64 __fastcall PiDcInit(int a1)

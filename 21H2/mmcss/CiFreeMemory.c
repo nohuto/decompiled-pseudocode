@@ -1,9 +1,9 @@
 /*
- * XREFs of CiFreeMemory @ 0x1C0004DEC
+ * XREFs of CiFreeMemory @ 0x1C0004B3C
  * Callers:
- *     CiTaskIndexCreate @ 0x1C000B4E0 (CiTaskIndexCreate.c)
- *     CsTerminate @ 0x1C000C514 (CsTerminate.c)
- *     CiSystemTerminate @ 0x1C000C908 (CiSystemTerminate.c)
+ *     CiTaskIndexCreate @ 0x1C000B170 (CiTaskIndexCreate.c)
+ *     CsTerminate @ 0x1C000C7D8 (CsTerminate.c)
+ *     CiSystemTerminate @ 0x1C000CCC4 (CiSystemTerminate.c)
  * Callees:
  *     <none>
  */

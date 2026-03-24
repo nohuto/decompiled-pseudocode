@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFreeCombineBlock @ 0x140239A98
+ * XREFs of MiFreeCombineBlock @ 0x14036B730
  * Callers:
- *     MiDecrementCombinedPte @ 0x1402399A8 (MiDecrementCombinedPte.c)
- *     MiDemoteCombinedPte @ 0x1403336E0 (MiDemoteCombinedPte.c)
- *     MiProcessCrcList @ 0x1406F2C30 (MiProcessCrcList.c)
+ *     MiDecrementCombinedPte @ 0x140366EC4 (MiDecrementCombinedPte.c)
+ *     MiDemoteCombinedPte @ 0x14036B260 (MiDemoteCombinedPte.c)
+ *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeCombineBlock(__int64 a1)
@@ -27,14 +27,14 @@ __int64 __fastcall MiFreeCombineBlock(__int64 a1)
   __int64 v10; // rcx
   __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
-  _QWORD *v13; // rax
-  unsigned int i; // ecx
-  __int64 v15; // r8
-  _QWORD *v16; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v20; // eax
+  int v16; // eax
+  _QWORD *v17; // rax
+  unsigned int i; // ecx
+  __int64 v19; // r8
+  _QWORD *v20; // rdx
   struct _KPRCB *v21; // r10
   _DWORD *v22; // r9
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
@@ -48,7 +48,7 @@ __int64 __fastcall MiFreeCombineBlock(__int64 a1)
     v5 = v1 & 0xF;
     v6 = 16LL * (unsigned int)v5;
     v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v6 + v4 + 104));
-    RtlAvlRemoveNode(v4 + 16 * (v5 + 6), a1);
+    RtlAvlRemoveNode((unsigned __int64 *)(v4 + 16 * (v5 + 6)), (unsigned __int64 *)a1);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + v4 + 104));
     if ( KiIrqlFlags )
     {
@@ -59,9 +59,9 @@ __int64 __fastcall MiFreeCombineBlock(__int64 a1)
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-          v8 = (v20 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v20;
+          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+          v8 = (v16 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v16;
           if ( v8 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
@@ -75,19 +75,19 @@ __int64 __fastcall MiFreeCombineBlock(__int64 a1)
   v8 = (*(_DWORD *)(v2 + 8))-- == 1;
   if ( v8 )
   {
-    v13 = (_QWORD *)(v2 + 72);
+    v17 = (_QWORD *)(v2 + 72);
     for ( i = 0; i < 0x37; ++i )
     {
-      if ( v13 != (_QWORD *)a1 )
+      if ( v17 != (_QWORD *)a1 )
       {
-        v15 = *v13;
-        v16 = (_QWORD *)v13[1];
-        if ( *(_QWORD **)(*v13 + 8LL) != v13 || (_QWORD *)*v16 != v13 )
-          goto LABEL_17;
-        *v16 = v15;
-        *(_QWORD *)(v15 + 8) = v16;
+        v19 = *v17;
+        v20 = (_QWORD *)v17[1];
+        if ( *(_QWORD **)(*v17 + 8LL) != v17 || (_QWORD *)*v20 != v17 )
+          goto LABEL_23;
+        *v20 = v19;
+        *(_QWORD *)(v19 + 8) = v20;
       }
-      v13 += 9;
+      v17 += 9;
     }
     *(_QWORD *)v2 = *(_QWORD *)(v4 + 24);
     *(_QWORD *)(v4 + 24) = v2;
@@ -104,7 +104,7 @@ __int64 __fastcall MiFreeCombineBlock(__int64 a1)
     v9 = (_QWORD *)(v4 + 72);
     v10 = *(_QWORD *)(v4 + 72);
     if ( *(_QWORD *)(v10 + 8) != v4 + 72 )
-LABEL_17:
+LABEL_23:
       __fastfail(3u);
     *(_QWORD *)a1 = v10;
     *(_QWORD *)(a1 + 8) = v9;

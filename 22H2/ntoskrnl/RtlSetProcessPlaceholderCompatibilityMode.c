@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlSetProcessPlaceholderCompatibilityMode @ 0x1409C0470
+ * XREFs of RtlSetProcessPlaceholderCompatibilityMode @ 0x140917630
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ char __fastcall RtlSetProcessPlaceholderCompatibilityMode(unsigned __int8 a1)
 
   if ( a1 > 3u )
     return -1;
-  v1 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[24];
+  v1 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[4];
   if ( !v1 )
     return -3;
   result = *(_BYTE *)(v1 + 1968);

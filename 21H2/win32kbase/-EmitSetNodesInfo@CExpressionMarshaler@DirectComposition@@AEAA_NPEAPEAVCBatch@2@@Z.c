@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetNodesInfo@CExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000F808
+ * XREFs of ?EmitSetNodesInfo@CExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C005FFC8
  * Callers:
- *     ?EmitUpdateCommands@CExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000F7A0 (-EmitUpdateCommands@CExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C005FF60 (-EmitUpdateCommands@CExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CExpressionMarshaler::EmitSetNodesInfo(
@@ -16,7 +16,7 @@ char __fastcall DirectComposition::CExpressionMarshaler::EmitSetNodesInfo(
   void *v7; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 1;
-  if ( (*((_DWORD *)this + 4) & 0x800) == 0 && *((_QWORD *)this + 17) && *((_QWORD *)this + 19) )
+  if ( (*((_DWORD *)this + 4) & 0x400) == 0 && *((_QWORD *)this + 16) && *((_QWORD *)this + 18) )
   {
     v7 = 0LL;
     if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x30uLL, &v7) )
@@ -27,22 +27,22 @@ char __fastcall DirectComposition::CExpressionMarshaler::EmitSetNodesInfo(
       *(_OWORD *)(v4 + 20) = 0LL;
       *(_QWORD *)(v4 + 36) = 0LL;
       *((_DWORD *)v4 + 11) = 0;
-      *((_DWORD *)v4 + 1) = 143;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-      *((_DWORD *)v4 + 3) = *(_DWORD *)(*((_QWORD *)this + 17) + 32LL);
-      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 38);
-      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 36);
-      v5 = *((_QWORD *)this + 20);
+      *((_DWORD *)v4 + 1) = 148;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)v4 + 3) = *(_DWORD *)(*((_QWORD *)this + 16) + 24LL);
+      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 36);
+      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 34);
+      v5 = *((_QWORD *)this + 19);
       if ( v5 )
-        LODWORD(v5) = *(_DWORD *)(v5 + 32);
+        LODWORD(v5) = *(_DWORD *)(v5 + 24);
       *((_DWORD *)v4 + 6) = v5;
-      *((_DWORD *)v4 + 7) = *((_DWORD *)this + 44);
-      *((_DWORD *)v4 + 8) = *((_DWORD *)this + 42);
-      *((_DWORD *)v4 + 10) = *((_DWORD *)this + 46);
-      *((_DWORD *)v4 + 11) = *((_DWORD *)this + 47);
-      *((_DWORD *)v4 + 9) = *((_DWORD *)this + 48);
-      *((_DWORD *)this + 48) = 0;
-      *((_DWORD *)this + 4) |= 0x800u;
+      *((_DWORD *)v4 + 7) = *((_DWORD *)this + 42);
+      *((_DWORD *)v4 + 8) = *((_DWORD *)this + 40);
+      *((_DWORD *)v4 + 10) = *((_DWORD *)this + 44);
+      *((_DWORD *)v4 + 11) = *((_DWORD *)this + 45);
+      *((_DWORD *)v4 + 9) = *((_DWORD *)this + 46);
+      *((_DWORD *)this + 46) = 0;
+      *((_DWORD *)this + 4) |= 0x400u;
     }
     else
     {

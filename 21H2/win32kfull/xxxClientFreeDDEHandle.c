@@ -1,11 +1,13 @@
 /*
- * XREFs of xxxClientFreeDDEHandle @ 0x1C022C468
+ * XREFs of xxxClientFreeDDEHandle @ 0x1C0232B48
  * Callers:
- *     ?xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z @ 0x1C0216B18 (-xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z.c)
- *     ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C0216BBC (-xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
+ *     ?xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z @ 0x1C021C0E8 (-xxxFreeDDEHandle@@YAXPEAUtagDDECONV@@PEAXK@Z.c)
+ *     ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C021C148 (-xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0052354 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005240C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00524D0 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052508 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
  */
 
 __int64 __fastcall xxxClientFreeDDEHandle(__int64 a1, int a2)
@@ -16,27 +18,31 @@ __int64 __fastcall xxxClientFreeDDEHandle(__int64 a1, int a2)
   __int64 v5; // [rsp+38h] [rbp-20h] BYREF
   int v6; // [rsp+40h] [rbp-18h]
   int v7; // [rsp+44h] [rbp-14h]
-  int v8; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v8; // [rsp+60h] [rbp+8h] BYREF
   char v9; // [rsp+68h] [rbp+10h] BYREF
-  unsigned __int64 v10; // [rsp+70h] [rbp+18h] BYREF
-  __int64 v11; // [rsp+78h] [rbp+20h]
+  int v10; // [rsp+70h] [rbp+18h] BYREF
+  unsigned __int64 v11; // [rsp+78h] [rbp+20h] BYREF
 
-  v10 = 0LL;
-  v8 = 0;
+  v11 = 0LL;
+  v10 = 0;
   v7 = 0;
   v5 = a1;
   v6 = a2;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v8);
   LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v9);
   EtwTraceBeginCallback(67LL);
-  v2 = KeUserModeCallback(67LL, &v5, 16LL, &v10, &v8);
+  v2 = KeUserModeCallback(67LL, &v5, 16LL, &v11, &v10);
   EtwTraceEndCallback(67LL);
   LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v9);
-  if ( v2 < 0 || v8 != 24 )
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v8);
+  if ( v2 < 0 || v10 != 24 )
     return 0LL;
-  v3 = (__int64 *)v10;
-  if ( v10 + 8 < v10 || v10 + 8 > MmUserProbeAddress )
+  v3 = (__int64 *)v11;
+  if ( v11 + 8 < v11 || v11 + 8 > MmUserProbeAddress )
     v3 = (__int64 *)MmUserProbeAddress;
   result = *v3;
-  v11 = *v3;
+  v8 = *v3;
   return result;
 }

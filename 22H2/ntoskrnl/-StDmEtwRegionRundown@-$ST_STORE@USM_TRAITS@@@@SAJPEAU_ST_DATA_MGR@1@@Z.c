@@ -1,24 +1,24 @@
 /*
- * XREFs of ?StDmEtwRegionRundown@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1405C5CB8
+ * XREFs of ?StDmEtwRegionRundown@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059B520
  * Callers:
- *     ?StGetStats@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C875C (-StGetStats@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StGetStats@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14059C754 (-StGetStats@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
  * Callees:
- *     SmEtwEnabled @ 0x140342DF4 (SmEtwEnabled.c)
- *     SmEtwLogRegionOp @ 0x1405CAF4C (SmEtwLogRegionOp.c)
+ *     SmEtwEnabled @ 0x140268C58 (SmEtwEnabled.c)
+ *     SmEtwLogRegionOp @ 0x14059D830 (SmEtwLogRegionOp.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmEtwRegionRundown(__int64 a1)
 {
-  unsigned __int64 v2; // rax
+  ULONGLONG *v2; // rax
   unsigned int v3; // ebx
   int v4; // ebp
   __int64 v6; // rdi
   __int64 v7; // rax
-  char v8; // r8
+  char v8; // cl
 
   v2 = SmEtwEnabled(3);
   v3 = 0;
-  v4 = v2;
+  v4 = (int)v2;
   if ( v2 )
   {
     LODWORD(v6) = -1;

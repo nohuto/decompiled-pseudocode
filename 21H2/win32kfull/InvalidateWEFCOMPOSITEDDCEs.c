@@ -1,9 +1,9 @@
 /*
- * XREFs of InvalidateWEFCOMPOSITEDDCEs @ 0x1C01E2634
+ * XREFs of InvalidateWEFCOMPOSITEDDCEs @ 0x1C01E7FA0
  * Callers:
- *     xxxSystemTimerProc @ 0x1C010B7C0 (xxxSystemTimerProc.c)
+ *     xxxSystemTimerProc @ 0x1C002AF20 (xxxSystemTimerProc.c)
  * Callees:
- *     FlushWEFCOMPOSITEDDCEBounds @ 0x1C016BA80 (FlushWEFCOMPOSITEDDCEBounds.c)
+ *     FlushWEFCOMPOSITEDDCEBounds @ 0x1C01E7E80 (FlushWEFCOMPOSITEDDCEBounds.c)
  */
 
 __int64 InvalidateWEFCOMPOSITEDDCEs()

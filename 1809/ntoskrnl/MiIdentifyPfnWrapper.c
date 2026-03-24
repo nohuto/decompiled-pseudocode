@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIdentifyPfnWrapper @ 0x1400A7E10
+ * XREFs of MiIdentifyPfnWrapper @ 0x1400A7E30
  * Callers:
- *     MiLogAllocateWsleEvent @ 0x1402A7BB4 (MiLogAllocateWsleEvent.c)
- *     MiQueryLeafPte @ 0x1402BEF70 (MiQueryLeafPte.c)
+ *     MiLogAllocateWsleEvent @ 0x1402A7CB4 (MiLogAllocateWsleEvent.c)
+ *     MiQueryLeafPte @ 0x1402BF070 (MiQueryLeafPte.c)
  *     PfpPfnPrioRequest @ 0x14062A220 (PfpPfnPrioRequest.c)
- *     MmIdentifyPhysicalMemory @ 0x14084E2F4 (MmIdentifyPhysicalMemory.c)
- *     MmRelocatePfnList @ 0x14085F328 (MmRelocatePfnList.c)
+ *     MmIdentifyPhysicalMemory @ 0x14084E2D4 (MmIdentifyPhysicalMemory.c)
+ *     MmRelocatePfnList @ 0x14085F308 (MmRelocatePfnList.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiIdentifyPfn @ 0x1400A7EC0 (MiIdentifyPfn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiIdentifyPfnWrapper(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)

@@ -1,20 +1,23 @@
 /*
- * XREFs of ?ValidateIncomingPathModalityFlags@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C01E5F2C
+ * XREFs of ?ValidateIncomingPathModalityFlags@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C016C204
  * Callers:
- *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C01B5124 (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
- *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C03A9374 (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
+ *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C013AEF4 (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
+ *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C02EA94C (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C01ABE88 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013527C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
  */
 
 void __fastcall CCD_TOPOLOGY::ValidateIncomingPathModalityFlags(CCD_TOPOLOGY *this)
 {
   unsigned int i; // ebx
   __int64 v3; // rax
-  unsigned __int16 v4; // cx
+  unsigned __int16 v4; // dx
+  __int64 v5; // rdx
   const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rdi
-  __int64 v6; // rcx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
 
   for ( i = 0; ; ++i )
   {
@@ -23,52 +26,28 @@ void __fastcall CCD_TOPOLOGY::ValidateIncomingPathModalityFlags(CCD_TOPOLOGY *th
     if ( i >= v4 )
       break;
     PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor(this, i);
-    v6 = *(_QWORD *)PathDescriptor;
+    v7 = *(_QWORD *)PathDescriptor;
     if ( (*(_QWORD *)PathDescriptor & 0x10000000000000LL) != 0 )
     {
-      WdLogSingleEntry1(1LL, 1245LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"(PathDescriptor->Flags & D3DKMT_PATHMODALITY_DESCRIPTOR_PATH_SMI_TMI_FORCED_FIXED) == 0",
-        1245LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v6 = *(_QWORD *)PathDescriptor;
+      v8 = WdLogNewEntry5_WdAssertion(v7, v5);
+      *(_QWORD *)(v8 + 24) = 1184LL;
+      WdLogEvent5_WdAssertion(v8);
+      v7 = *(_QWORD *)PathDescriptor;
     }
-    if ( (v6 & 0x800000) != 0 )
+    if ( (v7 & 0x800000) != 0 )
     {
-      if ( (v6 & 0x100) == 0 )
+      if ( (v7 & 0x100) == 0 )
       {
-        WdLogSingleEntry1(1LL, 1252LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"PathDescriptor->Flags & D3DKMT_PATHMODALITY_DESCRIPTOR_SMI_VALID",
-          1252LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        v6 = *(_QWORD *)PathDescriptor;
+        v9 = WdLogNewEntry5_WdAssertion(v7, v5);
+        *(_QWORD *)(v9 + 24) = 1191LL;
+        WdLogEvent5_WdAssertion(v9);
+        v7 = *(_QWORD *)PathDescriptor;
       }
-      if ( (v6 & 0x20000) == 0 )
+      if ( (v7 & 0x20000) == 0 )
       {
-        WdLogSingleEntry1(1LL, 1253LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"PathDescriptor->Flags & D3DKMT_PATHMODALITY_DESCRIPTOR_CONTENT_SIZE_VALID",
-          1253LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v10 = WdLogNewEntry5_WdAssertion(v7, v5);
+        *(_QWORD *)(v10 + 24) = 1192LL;
+        WdLogEvent5_WdAssertion(v10);
       }
     }
   }

@@ -1,33 +1,32 @@
 /*
- * XREFs of CmpPostApcRunDown @ 0x140A0F7D0
+ * XREFs of CmpPostApcRunDown @ 0x14086A1E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     CmpFreeSubordinatePost @ 0x140767DEC (CmpFreeSubordinatePost.c)
- *     CmpFreePostBlock @ 0x140768860 (CmpFreePostBlock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpFreeSubordinatePost @ 0x1406815D0 (CmpFreeSubordinatePost.c)
+ *     CmpFreePostBlock @ 0x1406E0850 (CmpFreePostBlock.c)
  */
 
 __int64 __fastcall CmpPostApcRunDown(__int64 a1)
 {
-  unsigned __int8 CurrentIrql; // si
+  unsigned __int8 CurrentIrql; // di
   _QWORD *v2; // rbx
   _QWORD *v3; // rdx
-  _KPROCESS *Process; // rcx
+  unsigned __int64 v4; // rcx
   __int16 v5; // ax
-  char v6; // al
-  _QWORD *v7; // rdx
-  struct _KEVENT *v8; // rcx
-  __int64 v9; // rdx
-  _QWORD *v10; // rcx
-  unsigned __int8 v11; // al
+  _QWORD *v6; // rdx
+  struct _KEVENT *v7; // rcx
+  __int64 v8; // rdx
+  _QWORD *v9; // rcx
+  unsigned __int8 v10; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v14; // eax
-  bool v15; // zf
+  int v13; // eax
+  bool v14; // zf
   __int64 result; // rax
 
   CurrentIrql = KeGetCurrentIrql();
@@ -43,9 +42,8 @@ __int64 __fastcall CmpPostApcRunDown(__int64 a1)
         __debugbreak();
     }
   }
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( Process[1].Affinity.StaticBitmap[30]
-    && ((v5 = WORD2(Process[2].Affinity.StaticBitmap[20]), v5 == 332) || v5 == 452 ? (v6 = 1) : (v6 = 0), v6) )
+  v4 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  if ( v4 && ((v5 = *(_WORD *)(v4 + 8), v5 == 332) || v5 == 452) )
   {
     **(_DWORD **)(v2[8] + 104LL) = 267;
     *(_DWORD *)(*(_QWORD *)(v2[8] + 104LL) + 4LL) = 0;
@@ -55,42 +53,45 @@ __int64 __fastcall CmpPostApcRunDown(__int64 a1)
     **(_DWORD **)(v2[8] + 104LL) = 267;
     *(_QWORD *)(*(_QWORD *)(v2[8] + 104LL) + 8LL) = 0LL;
   }
-  v7 = (_QWORD *)v2[8];
-  if ( (_QWORD *)v7[13] == v7 + 13 )
+  v6 = (_QWORD *)v2[8];
+  if ( (_QWORD *)v6[13] == v6 + 13 )
   {
-    DbgPrint("IoStatusBlock pointing onto itself AsyncUser = %p\n", v7);
+    DbgPrint("IoStatusBlock pointing onto itself AsyncUser = %p\n", v6);
     if ( (_BYTE)KdDebuggerEnabled )
     {
       if ( !(_BYTE)KdDebuggerNotPresent )
         __debugbreak();
     }
   }
-  v8 = *(struct _KEVENT **)(v2[8] + 8LL);
-  if ( v8 )
+  v7 = *(struct _KEVENT **)(v2[8] + 8LL);
+  if ( v7 )
   {
-    KeSetEvent(v8, 0, 0);
-    ObfDereferenceObject(*(PVOID *)(v2[8] + 8LL));
+    KeSetEvent(v7, 0, 0);
+    HalPutDmaAdapter(*(PADAPTER_OBJECT *)(v2[8] + 8LL));
   }
-  v9 = v2[2];
-  v10 = (_QWORD *)v2[3];
-  if ( *(_QWORD **)(v9 + 8) != v2 + 2 || (_QWORD *)*v10 != v2 + 2 )
+  v8 = v2[2];
+  v9 = (_QWORD *)v2[3];
+  if ( *(_QWORD **)(v8 + 8) != v2 + 2 || (_QWORD *)*v9 != v2 + 2 )
     __fastfail(3u);
-  *v10 = v9;
-  *(_QWORD *)(v9 + 8) = v10;
+  *v9 = v8;
+  *(_QWORD *)(v8 + 8) = v9;
   CmpFreeSubordinatePost((__int64)v2);
   CmpFreePostBlock(v2);
   if ( KiIrqlFlags )
   {
-    v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v15 = (v14 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v14;
-      if ( v15 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v10 = KeGetCurrentIrql();
+      if ( v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v14 = (v13 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v13;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   result = CurrentIrql;

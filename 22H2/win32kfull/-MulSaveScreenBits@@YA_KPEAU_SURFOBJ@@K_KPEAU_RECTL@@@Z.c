@@ -1,12 +1,12 @@
 /*
- * XREFs of ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02B0550
+ * XREFs of ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A3AB0
  * Callers:
- *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02B0550 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A3AB0 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02B0550 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
- *     ?ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02B2EE0 (-ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A3AB0 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ *     ?ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A69B0 (-ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
  */
 
 unsigned __int64 __fastcall MulSaveScreenBits(struct _SURFOBJ *a1, unsigned int a2, _QWORD *a3, struct _RECTL *a4)
@@ -59,10 +59,10 @@ unsigned __int64 __fastcall MulSaveScreenBits(struct _SURFOBJ *a1, unsigned int 
         }
         else
         {
-          v23 = stru_1C0328FC0;
+          v23 = grclEmpty;
         }
         if ( v20 != 2
-          || (v16 = *(unsigned __int64 (**)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *))(v14 + 2984)) == 0LL )
+          || (v16 = *(unsigned __int64 (**)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *))(v14 + 3008)) == 0LL )
         {
           v16 = ulSimulateSaveScreenBits;
         }
@@ -74,9 +74,9 @@ unsigned __int64 __fastcall MulSaveScreenBits(struct _SURFOBJ *a1, unsigned int 
         }
         else
         {
-          a4 = (struct _RECTL *)&stru_1C0328FC0;
+          a4 = &grclEmpty;
           v5 = 0LL;
-          v18 = (struct _RECTL *)&stru_1C0328FC0;
+          v18 = &grclEmpty;
           v8 = 2;
         }
       }
@@ -106,8 +106,8 @@ unsigned __int64 __fastcall MulSaveScreenBits(struct _SURFOBJ *a1, unsigned int 
       v23.right -= *v11;
       v23.top -= *((_DWORD *)v7 + 8);
       v23.bottom -= *((_DWORD *)v7 + 8);
-      if ( *(_QWORD *)(v7[6] + 2984) )
-        v6 = *(unsigned __int64 (**)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *))(v7[6] + 2984);
+      if ( *(_QWORD *)(v7[6] + 3008) )
+        v6 = *(unsigned __int64 (**)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *))(v7[6] + 3008);
       v12 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, struct _RECTL *))v6)(v7[8], 0LL, 0LL, &v23);
       if ( !v12 )
       {
@@ -127,6 +127,6 @@ unsigned __int64 __fastcall MulSaveScreenBits(struct _SURFOBJ *a1, unsigned int 
       return v5;
     a4 = v18;
   }
-  MulSaveScreenBits(a1, 2u, v5, (struct _RECTL *)&stru_1C0328FC0);
+  MulSaveScreenBits(a1, 2u, v5, &grclEmpty);
   return 0LL;
 }

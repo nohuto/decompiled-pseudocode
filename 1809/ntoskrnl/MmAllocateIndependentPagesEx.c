@@ -1,10 +1,10 @@
 /*
- * XREFs of MmAllocateIndependentPagesEx @ 0x140108F9C
+ * XREFs of MmAllocateIndependentPagesEx @ 0x140108FBC
  * Callers:
- *     MmAllocateIndependentPages @ 0x140108F80 (MmAllocateIndependentPages.c)
- *     KeAllocateInterrupt @ 0x14016DA08 (KeAllocateInterrupt.c)
- *     HvlStartBootLogicalProcessors @ 0x14017EA70 (HvlStartBootLogicalProcessors.c)
- *     HvlpInitializeHvCrashdump @ 0x140277D5C (HvlpInitializeHvCrashdump.c)
+ *     MmAllocateIndependentPages @ 0x140108FA0 (MmAllocateIndependentPages.c)
+ *     KeAllocateInterrupt @ 0x14016DA28 (KeAllocateInterrupt.c)
+ *     HvlStartBootLogicalProcessors @ 0x14017EA90 (HvlStartBootLogicalProcessors.c)
+ *     HvlpInitializeHvCrashdump @ 0x140277E5C (HvlpInitializeHvCrashdump.c)
  *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
  *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
  *     InitializePool @ 0x1409B6DF8 (InitializePool.c)
@@ -17,13 +17,13 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiInitializePfn @ 0x140109410 (MiInitializePfn.c)
- *     MiObtainPoolCharges @ 0x1401097C4 (MiObtainPoolCharges.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiGetSlabPage @ 0x1402C28DC (MiGetSlabPage.c)
- *     MiWaitForFreePage @ 0x1402CB3A4 (MiWaitForFreePage.c)
+ *     MiInitializePfn @ 0x140109430 (MiInitializePfn.c)
+ *     MiObtainPoolCharges @ 0x1401097E4 (MiObtainPoolCharges.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
+ *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MmAllocateIndependentPagesEx(unsigned __int64 a1, int a2, _QWORD *a3, unsigned int a4)

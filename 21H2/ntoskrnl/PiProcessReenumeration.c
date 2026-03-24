@@ -1,27 +1,27 @@
 /*
- * XREFs of PiProcessReenumeration @ 0x140764BE0
+ * XREFs of PiProcessReenumeration @ 0x14076D850
  * Callers:
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PiMarkDeviceTreeForReenumeration @ 0x140764C94 (PiMarkDeviceTreeForReenumeration.c)
- *     PipClearDevNodeFlags @ 0x14076FBEC (PipClearDevNodeFlags.c)
- *     PipProcessDevNodeTree @ 0x140777578 (PipProcessDevNodeTree.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
+ *     PipClearDevNodeFlags @ 0x140746A74 (PipClearDevNodeFlags.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x14076D904 (PiMarkDeviceTreeForReenumeration.c)
  */
 
 __int64 __fastcall PiProcessReenumeration(__int64 a1, __int64 a2)
 {
-  _QWORD *v3; // rcx
-  __int64 v4; // rdi
+  struct _DMA_ADAPTER *v3; // rcx
+  __int64 FlushAdapterBuffers; // rdi
   int v5; // esi
   __int64 v7; // [rsp+50h] [rbp+8h] BYREF
 
   v7 = 0LL;
-  v3 = *(_QWORD **)(a1 + 16);
-  v4 = *(_QWORD *)(v3[39] + 40LL);
-  if ( (unsigned int)(*(_DWORD *)(v4 + 300) - 789) <= 1 )
+  v3 = *(struct _DMA_ADAPTER **)(a1 + 16);
+  FlushAdapterBuffers = (__int64)v3[19].DmaOperations->FlushAdapterBuffers;
+  if ( (unsigned int)(*(_DWORD *)(FlushAdapterBuffers + 300) - 787) <= 1 )
   {
-    ObfDereferenceObject(v3);
+    HalPutDmaAdapter(v3);
     return 3221225558LL;
   }
   else
@@ -29,7 +29,7 @@ __int64 __fastcall PiProcessReenumeration(__int64 a1, __int64 a2)
     if ( *(_DWORD *)(a1 + 24) == 8 )
     {
       if ( *(_BYTE *)(a1 + 32) )
-        PipClearDevNodeFlags(*(_QWORD *)(v3[39] + 40LL), 0x80000000LL);
+        PipClearDevNodeFlags((__int64)v3[19].DmaOperations->FlushAdapterBuffers, 0x80000000);
       v5 = 1;
     }
     else
@@ -37,10 +37,10 @@ __int64 __fastcall PiProcessReenumeration(__int64 a1, __int64 a2)
       v5 = 2;
     }
     LOBYTE(a2) = v5 != 1;
-    PiMarkDeviceTreeForReenumeration(v4, a2);
+    PiMarkDeviceTreeForReenumeration(FlushAdapterBuffers, a2);
     BYTE4(v7) = PnPBootDriversInitialized;
     LODWORD(v7) = 3;
-    PipProcessDevNodeTree(v4, a1, (unsigned int)&v7, v5, 0, 0, 0);
+    PipProcessDevNodeTree(FlushAdapterBuffers, a1, (__int64)&v7, v5, 0, 0, 0);
     return 0LL;
   }
 }

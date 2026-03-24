@@ -1,82 +1,66 @@
 /*
- * XREFs of ?PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x180292F84
+ * XREFs of ?PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x18024FBE8
  * Callers:
- *     ?PresentMPO@CConversionSwapChain@@$4PPPPPPPM@A@EAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x18010A730 (-PresentMPO@CConversionSwapChain@@$4PPPPPPPM@A@EAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRE.c)
+ *     ?PresentMPO@CConversionSwapChain@@$4PPPPPPPM@A@EAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x1800F7F10 (-PresentMPO@CConversionSwapChain@@$4PPPPPPPM@A@EAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRE.c)
  * Callees:
- *     ?Present@CLegacySwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x18001BE80 (-Present@CLegacySwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@I@Z.c)
- *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x18003FA54 (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18008248C (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180083EF4 (-Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?GetRectangles@CRegion@@QEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800B8414 (-GetRectangles@CRegion@@QEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800D3824 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
- *     ?PresentDFlip@CLegacySwapChain@@UEAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_METADATA_TYPE@@PEBXAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x18028B78C (-PresentDFlip@CLegacySwapChain@@UEAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_M.c)
- *     ??$_Emplace_reallocate@AEBUtagRECT@@@?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@QEAAPEAUtagRECT@@QEAU2@AEBU2@@Z @ 0x180290FD8 (--$_Emplace_reallocate@AEBUtagRECT@@@-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@QEAAP.c)
- *     ?CalcPresentMode@CConversionSwapChain@@IEAAJPEAI@Z @ 0x1802913AC (-CalcPresentMode@CConversionSwapChain@@IEAAJPEAI@Z.c)
- *     ?ConvertDesktopAndAppPlanes@CConversionSwapChain@@IEAAJAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@0@Z @ 0x1802916D4 (-ConvertDesktopAndAppPlanes@CConversionSwapChain@@IEAAJAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@0@Z.c)
- *     ?ConvertSingleAppPlane@CConversionSwapChain@@IEAAJAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z @ 0x180291F60 (-ConvertSingleAppPlane@CConversionSwapChain@@IEAAJAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z.c)
- *     ?ConvertSingleDesktopPlane@CConversionSwapChain@@IEAAJXZ @ 0x1802920CC (-ConvertSingleDesktopPlane@CConversionSwapChain@@IEAAJXZ.c)
- *     ?IsDesktopPlane@CConversionSwapChain@@IEBA_NAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z @ 0x180292C78 (-IsDesktopPlane@CConversionSwapChain@@IEBA_NAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Union@CRegion@@QEAAXAEBV1@@Z @ 0x18009B3B8 (-Union@CRegion@@QEAAXAEBV1@@Z.c)
+ *     ??1CRegion@@QEAA@XZ @ 0x18009B648 (--1CRegion@@QEAA@XZ.c)
+ *     ??0CRegion@@QEAA@XZ @ 0x18009B654 (--0CRegion@@QEAA@XZ.c)
+ *     ?Copy@CRegion@@QEAAXAEBV1@@Z @ 0x1800D0BD8 (-Copy@CRegion@@QEAAXAEBV1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?GetRectangles@CRegion@@QEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1800EE504 (-GetRectangles@CRegion@@QEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@@Z.c)
+ *     ?Present@CLegacySwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1800F2518 (-Present@CLegacySwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@I@Z.c)
+ *     ?IsDesktopPlane@CConversionSwapChain@@IEBA_NAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z @ 0x1800F2740 (-IsDesktopPlane@CConversionSwapChain@@IEBA_NAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z.c)
+ *     ?push_back@?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@QEAAXAEBUtagRECT@@@Z @ 0x1800F2848 (-push_back@-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@QEAAXAEBUtagRECT@@@Z.c)
+ *     ??1?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@QEAA@XZ @ 0x18016BBF0 (--1-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@QEAA@XZ.c)
+ *     ??0CRegion@@QEAA@AEBUtagRECT@@@Z @ 0x1801746E4 (--0CRegion@@QEAA@AEBUtagRECT@@@Z.c)
+ *     ?PresentDFlip@CLegacySwapChain@@UEAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_METADATA_TYPE@@PEBXAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x18024A094 (-PresentDFlip@CLegacySwapChain@@UEAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_M.c)
+ *     ?CalcPresentMode@CConversionSwapChain@@IEAAJPEAI@Z @ 0x18024E328 (-CalcPresentMode@CConversionSwapChain@@IEAAJPEAI@Z.c)
+ *     ?ConvertDesktopAndAppPlanes@CConversionSwapChain@@IEAAJAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@0@Z @ 0x18024E63C (-ConvertDesktopAndAppPlanes@CConversionSwapChain@@IEAAJAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@0@Z.c)
+ *     ?ConvertSingleAppPlane@CConversionSwapChain@@IEAAJAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z @ 0x18024EE94 (-ConvertSingleAppPlane@CConversionSwapChain@@IEAAJAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z.c)
+ *     ?ConvertSingleDesktopPlane@CConversionSwapChain@@IEAAJXZ @ 0x18024F000 (-ConvertSingleDesktopPlane@CConversionSwapChain@@IEAAJXZ.c)
  */
 
 __int64 __fastcall CConversionSwapChain::PresentMPO(
         CConversionSwapChain *this,
         unsigned int a2,
-        unsigned int a3,
+        char a3,
         enum DXGI_HDR_METADATA_TYPE a4,
         const void *a5,
         const struct _DXGI_PRESENT_MULTIPLANE_OVERLAY *a6,
         unsigned int a7)
 {
-  __int64 v7; // r14
+  __int64 v12; // r14
   __int64 v13; // rdx
   char *v14; // r8
   int v15; // eax
   __int64 v16; // rcx
   unsigned int v17; // ebx
-  int v18; // eax
-  __int64 v19; // rcx
-  int v20; // ecx
-  int v21; // ecx
+  int v18; // ecx
+  int v19; // ecx
+  __int64 v20; // rcx
+  int v21; // eax
   __int64 v22; // rcx
   int v23; // eax
-  int v24; // eax
-  int v25; // eax
-  __int64 v26; // rcx
-  int v27; // eax
-  __int64 v28; // rcx
-  __int64 v29; // rdx
-  int v30; // eax
-  __int64 v31; // rcx
-  int v32; // eax
-  __int64 v33; // rcx
-  int v34; // eax
-  __int64 v35; // rcx
-  int v36; // eax
-  __int64 v37; // rcx
-  int v38; // eax
-  __int64 v39; // rcx
-  unsigned int v41; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v42; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v43; // [rsp+68h] [rbp-98h]
-  _DWORD v44[4]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v45; // [rsp+80h] [rbp-80h] BYREF
-  int v46; // [rsp+88h] [rbp-78h]
-  int v47; // [rsp+8Ch] [rbp-74h]
-  int *v48; // [rsp+90h] [rbp-70h] BYREF
-  int v49; // [rsp+98h] [rbp-68h] BYREF
-  void *v50[10]; // [rsp+E0h] [rbp-20h] BYREF
-  const void *retaddr; // [rsp+188h] [rbp+88h]
+  __int64 v24; // rcx
+  __int64 v25; // rdx
+  unsigned int v27; // [rsp+20h] [rbp-E0h]
+  unsigned int v28; // [rsp+50h] [rbp-B0h] BYREF
+  __int128 v29; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v30; // [rsp+68h] [rbp-98h]
+  _DWORD v31[4]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v32; // [rsp+80h] [rbp-80h] BYREF
+  int v33; // [rsp+88h] [rbp-78h]
+  int v34; // [rsp+8Ch] [rbp-74h]
+  void *v35[10]; // [rsp+90h] [rbp-70h] BYREF
+  void *v36[10]; // [rsp+E0h] [rbp-20h] BYREF
 
-  LODWORD(v7) = 0;
-  v43 = 0LL;
-  v42 = 0LL;
+  v30 = 0LL;
+  v29 = 0LL;
   if ( a7 )
   {
-    v7 = a7;
+    v12 = a7;
     do
     {
       v13 = *(unsigned int *)a6;
@@ -92,150 +76,135 @@ __int64 __fastcall CConversionSwapChain::PresentMPO(
       *((_QWORD *)v14 + 16) = *((_QWORD *)a6 + 16);
       if ( *((_DWORD *)this + 34 * v13 - 113)
         && !CConversionSwapChain::IsDesktopPlane(
-              (CConversionSwapChain *)((char *)this - 824),
+              (CConversionSwapChain *)((char *)this - 776),
               (CConversionSwapChain *)((char *)this + 136 * v13 - 456)) )
       {
         *((_BYTE *)this - 80) = 1;
         a3 &= ~2u;
       }
       a6 = (const struct _DXGI_PRESENT_MULTIPLANE_OVERLAY *)((char *)a6 + 136);
-      --v7;
+      --v12;
     }
-    while ( v7 );
+    while ( v12 );
   }
-  if ( (a3 & 2) != 0 )
+  v15 = CConversionSwapChain::CalcPresentMode((CConversionSwapChain *)((char *)this - 776), &v28);
+  v17 = v15;
+  if ( v15 < 0 )
   {
-    v15 = CLegacySwapChain::Present((__int64)this - 424, a2, a3, (__int64)&v42, v7);
+    v27 = 328;
+    goto LABEL_31;
+  }
+  v18 = *((_DWORD *)this - 115);
+  if ( !v18 )
+  {
+    v15 = CConversionSwapChain::ConvertSingleDesktopPlane((CConversionSwapChain *)((char *)this - 776));
     v17 = v15;
     if ( v15 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, v15, 0x1AFu);
-    goto LABEL_38;
-  }
-  v18 = CConversionSwapChain::CalcPresentMode((CConversionSwapChain *)((char *)this - 824), &v41);
-  v17 = v18;
-  if ( v18 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0LL, v18, 0x14Fu);
-    return v17;
-  }
-  v20 = *((_DWORD *)this - 115);
-  if ( v20 )
-  {
-    v21 = v20 - 1;
-    if ( !v21 )
     {
-      v32 = CConversionSwapChain::ConvertSingleAppPlane(
-              (CConversionSwapChain *)((char *)this - 824),
-              (CConversionSwapChain *)((char *)this + 136 * v41 - 456));
-      v17 = v32;
-      if ( v32 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0LL, v32, 0x162u);
-        return v17;
-      }
-      std::vector<tagRECT>::_Emplace_reallocate<tagRECT const &>((__int64 *)&v42, 0LL, (_OWORD *)this - 6);
-      v34 = CLegacySwapChain::Present((__int64)this - 424, a2, a3, (__int64)&v42, 0);
-      v17 = v34;
-      if ( v34 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0LL, v34, 0x168u);
-        goto LABEL_38;
-      }
-      goto LABEL_36;
-    }
-    v22 = (unsigned int)(v21 - 1);
-    if ( !(_DWORD)v22 )
-    {
-      v29 = 136LL * v41;
-      v45 = *(_QWORD *)((char *)this + v29 - 428);
-      v46 = *(_DWORD *)((char *)this + v29 - 420);
-      v47 = *(_DWORD *)((char *)this + v29 - 416);
-      v44[0] = *(_DWORD *)((char *)this + v29 - 412);
-      v44[1] = *((_DWORD *)this + 34 * v41 - 102);
-      v44[2] = *(_DWORD *)((char *)this + v29 - 404);
-      v44[3] = *(_DWORD *)((char *)this + v29 - 400);
-      v30 = CLegacySwapChain::PresentDFlip(
-              (__int64)this - 424,
-              a2,
-              a3,
-              0LL,
-              *(_QWORD *)((char *)this + v29 - 448),
-              (enum DXGI_COLOR_SPACE_TYPE)*(_DWORD *)((char *)this + v29 - 356),
-              a4,
-              (__int64)a5,
-              &v45,
-              v44);
-      v17 = v30;
-      if ( v30 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0LL, v30, 0x186u);
-        return v17;
-      }
-      goto LABEL_36;
-    }
-    if ( (_DWORD)v22 != 1 )
-    {
-      v17 = -2003292412;
-      MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, -2003292412, 0x1A2u);
-      return v17;
-    }
-    v49 = 0;
-    v48 = &v49;
-    v23 = FastRegion::CRegion::Copy(&v48, (int **)this - 23);
-    if ( v23 < 0 )
-      ModuleFailFastForHRESULT(v23, retaddr);
-    if ( *((_BYTE *)this - 80) )
-    {
-      FastRegion::CRegion::CRegion((FastRegion::CRegion *)v50, (const struct tagRECT *)this - 6);
-      v24 = FastRegion::CRegion::Union(
-              (const struct FastRegion::Internal::CRgnData **)&v48,
-              (const struct FastRegion::Internal::CRgnData **)v50);
-      if ( v24 < 0 )
-        ModuleFailFastForHRESULT(v24, retaddr);
-      FastRegion::CRegion::FreeMemory(v50);
-    }
-    CRegion::GetRectangles((FastRegion::CRegion *)&v48, &v42);
-    v25 = CConversionSwapChain::ConvertDesktopAndAppPlanes(
-            (CConversionSwapChain *)((char *)this - 824),
-            (CConversionSwapChain *)((char *)this - 456),
-            (CConversionSwapChain *)((char *)this - 320));
-    v17 = v25;
-    if ( v25 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0LL, v25, 0x198u);
+      v27 = 336;
     }
     else
     {
-      v27 = CLegacySwapChain::Present((__int64)this - 424, a2, a3, (__int64)&v42, 0);
-      v17 = v27;
-      if ( v27 >= 0 )
-      {
-        FastRegion::CRegion::FreeMemory((void **)&v48);
-LABEL_36:
-        **((_DWORD **)this - 23) = 0;
-        *((_BYTE *)this - 80) = 0;
-        goto LABEL_38;
-      }
-      MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0LL, v27, 0x19Du);
+      CRegion::GetRectangles((int **)this - 23, &v29);
+      v15 = CLegacySwapChain::Present((__int64)this - 424, a2, a3, (__int64)&v29, 0);
+      v17 = v15;
+      if ( v15 >= 0 )
+        goto LABEL_32;
+      v27 = 340;
     }
-    FastRegion::CRegion::FreeMemory((void **)&v48);
-    goto LABEL_38;
+    goto LABEL_31;
   }
-  v36 = CConversionSwapChain::ConvertSingleDesktopPlane((CConversionSwapChain *)((char *)this - 824));
-  v17 = v36;
-  if ( v36 < 0 )
+  v19 = v18 - 1;
+  if ( !v19 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0LL, v36, 0x157u);
-    return v17;
+    v15 = CConversionSwapChain::ConvertSingleAppPlane(
+            (CConversionSwapChain *)((char *)this - 776),
+            (CConversionSwapChain *)((char *)this + 136 * v28 - 456));
+    v17 = v15;
+    if ( v15 < 0 )
+    {
+      v27 = 344;
+    }
+    else
+    {
+      std::vector<tagRECT>::push_back(&v29, (_OWORD *)this - 6);
+      v15 = CLegacySwapChain::Present((__int64)this - 424, a2, a3, (__int64)&v29, 0);
+      v17 = v15;
+      if ( v15 >= 0 )
+        goto LABEL_32;
+      v27 = 348;
+    }
+    goto LABEL_31;
   }
-  CRegion::GetRectangles((CConversionSwapChain *)((char *)this - 184), &v42);
-  v38 = CLegacySwapChain::Present((__int64)this - 424, a2, a3, (__int64)&v42, 0);
-  v17 = v38;
-  if ( v38 >= 0 )
-    goto LABEL_36;
-  MilInstrumentationCheckHR_MaybeFailFast(v39, 0LL, 0LL, v38, 0x15Eu);
-LABEL_38:
-  if ( (_QWORD)v42 )
-    std::_Deallocate<16,0>((void *)v42, (v43 - v42) & 0xFFFFFFFFFFFFFFF0uLL);
+  v20 = (unsigned int)(v19 - 1);
+  if ( !(_DWORD)v20 )
+  {
+    v25 = 136LL * v28;
+    v32 = *(_QWORD *)((char *)this + v25 - 428);
+    v33 = *(_DWORD *)((char *)this + v25 - 420);
+    v34 = *(_DWORD *)((char *)this + v25 - 416);
+    v31[0] = *(_DWORD *)((char *)this + v25 - 412);
+    v31[1] = *((_DWORD *)this + 34 * v28 - 102);
+    v31[2] = *(_DWORD *)((char *)this + v25 - 404);
+    v31[3] = *(_DWORD *)((char *)this + v25 - 400);
+    v15 = CLegacySwapChain::PresentDFlip(
+            (__int64)this - 424,
+            a2,
+            a3,
+            0LL,
+            *(_QWORD *)((char *)this + v25 - 448),
+            (enum DXGI_COLOR_SPACE_TYPE)*(_DWORD *)((char *)this + v25 - 356),
+            a4,
+            (__int64)a5,
+            &v32,
+            v31);
+    v17 = v15;
+    if ( v15 >= 0 )
+      goto LABEL_32;
+    v27 = 378;
+LABEL_31:
+    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, v27, 0LL);
+    goto LABEL_32;
+  }
+  if ( (_DWORD)v20 == 1 )
+  {
+    CRegion::CRegion((CRegion *)v35);
+    CRegion::Copy(
+      (const struct FastRegion::Internal::CRgnData **)v35,
+      (const struct FastRegion::Internal::CRgnData **)this - 23);
+    if ( *((_BYTE *)this - 80) )
+    {
+      CRegion::CRegion((CRegion *)v36, (const struct tagRECT *)this - 6);
+      CRegion::Union((CRegion *)v35, (const struct CRegion *)v36);
+      CRegion::~CRegion(v36);
+    }
+    CRegion::GetRectangles((int **)v35, &v29);
+    v21 = CConversionSwapChain::ConvertDesktopAndAppPlanes(
+            (CConversionSwapChain *)((char *)this - 776),
+            (CConversionSwapChain *)((char *)this - 456),
+            (CConversionSwapChain *)((char *)this - 320));
+    v17 = v21;
+    if ( v21 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x18Cu, 0LL);
+    }
+    else
+    {
+      v23 = CLegacySwapChain::Present((__int64)this - 424, a2, a3, (__int64)&v29, 0);
+      v17 = v23;
+      if ( v23 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0x18Eu, 0LL);
+    }
+    CRegion::~CRegion(v35);
+  }
+  else
+  {
+    v17 = -2003292412;
+    MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, -2003292412, 0x193u, 0LL);
+  }
+LABEL_32:
+  **((_DWORD **)this - 23) = 0;
+  *((_BYTE *)this - 80) = 0;
+  std::vector<tagRECT>::~vector<tagRECT>((__int64)&v29);
   return v17;
 }

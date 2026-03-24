@@ -1,64 +1,78 @@
 /*
- * XREFs of GetInterruptMessageInformation @ 0x1C0009B6C
+ * XREFs of GetInterruptMessageInformation @ 0x1C000B6D4
  * Callers:
- *     NVMeControllerInitPart2 @ 0x1C000DAA0 (NVMeControllerInitPart2.c)
+ *     NVMeControllerInitPart2 @ 0x1C000DDD0 (NVMeControllerInitPart2.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003750 (__security_check_cookie.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     FreeMsiInfo @ 0x1C0009A38 (FreeMsiInfo.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     __security_check_cookie @ 0x1C00066D0 (__security_check_cookie.c)
+ *     FreeMsiInfo @ 0x1C000B5A0 (FreeMsiInfo.c)
  */
 
-char __fastcall GetInterruptMessageInformation(__int64 a1)
+char __fastcall GetInterruptMessageInformation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int16 v1; // si
-  unsigned __int16 v3; // bp
-  _QWORD *v4; // rbx
-  __int64 v5; // rdx
-  __int64 v6; // r8
+  unsigned __int16 v4; // si
+  __int64 v6; // rbx
+  unsigned __int16 v7; // bp
+  _QWORD *v8; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  _OWORD v15[2]; // [rsp+30h] [rbp-48h] BYREF
 
-  v1 = 0;
-  if ( *(_BYTE *)(a1 + 20) )
+  v4 = 0;
+  v6 = 0LL;
+  memset(v15, 0, sizeof(v15));
+  if ( *(_BYTE *)(a1 + 16) )
     return 1;
-  FreeMsiInfo(a1);
-  if ( (unsigned int)(*(_DWORD *)(a1 + 16) - 2) > 1 )
-    goto LABEL_10;
-  v3 = 0;
-  if ( (unsigned int)StorPortExtendedFunction(13LL, a1, 0LL) )
-    goto LABEL_9;
+  FreeMsiInfo(a1, a2, a3, a4);
+  if ( (unsigned int)(*(_DWORD *)(a1 + 12) - 2) > 1 )
+    goto LABEL_12;
+  v7 = 0;
+  if ( (unsigned int)StorPortExtendedFunction(13LL, a1, 0LL, v15) )
+    goto LABEL_11;
   do
   {
-    if ( v3 && *(_DWORD *)(a1 + 16) != 3 )
-      *(_DWORD *)(a1 + 16) = 2;
-    ++v3;
-  }
-  while ( !(unsigned int)StorPortExtendedFunction(13LL, a1, v3) );
-  if ( !v3 )
-  {
-LABEL_9:
-    *(_DWORD *)(a1 + 16) = 1;
-LABEL_10:
-    v3 = 1;
-  }
-  v4 = (_QWORD *)(a1 + 288);
-  *(_WORD *)(a1 + 280) = v3;
-  StorPortExtendedFunction(0LL, a1, 24 * (unsigned int)v3);
-  if ( *(_QWORD *)(a1 + 288) )
-  {
-    NVMeZeroMemory(*(void **)(a1 + 288), 24 * *(unsigned __int16 *)(a1 + 280));
-    StorPortExtendedFunction(0LL, a1, 16 * (unsigned int)*(unsigned __int16 *)(a1 + 280));
-    if ( *(_QWORD *)(a1 + 296) )
+    if ( v7 )
     {
-      NVMeZeroMemory(*(void **)(a1 + 296), 16 * *(unsigned __int16 *)(a1 + 280));
-      while ( v1 < *(_WORD *)(a1 + 280) )
+      if ( v6 == *((_QWORD *)&v15[0] + 1) && *(_DWORD *)(a1 + 12) != 3 )
+        *(_DWORD *)(a1 + 12) = 2;
+    }
+    else
+    {
+      v6 = *((_QWORD *)&v15[0] + 1);
+    }
+    ++v7;
+  }
+  while ( !(unsigned int)StorPortExtendedFunction(13LL, a1, v7, v15) );
+  if ( !v7 )
+  {
+LABEL_11:
+    *(_DWORD *)(a1 + 12) = 1;
+LABEL_12:
+    v7 = 1;
+  }
+  v8 = (_QWORD *)(a1 + 264);
+  *(_WORD *)(a1 + 256) = v7;
+  StorPortExtendedFunction(0LL, a1, 24 * (unsigned int)v7, 1701672526LL);
+  if ( *(_QWORD *)(a1 + 264) )
+  {
+    NVMeZeroMemory(*(void **)(a1 + 264), 24 * *(unsigned __int16 *)(a1 + 256));
+    StorPortExtendedFunction(0LL, a1, 16 * (unsigned int)*(unsigned __int16 *)(a1 + 256), 1701672526LL);
+    if ( *(_QWORD *)(a1 + 272) )
+    {
+      NVMeZeroMemory(*(void **)(a1 + 272), 16 * *(unsigned __int16 *)(a1 + 256));
+      while ( v4 < *(_WORD *)(a1 + 256) )
       {
-        v5 = 3LL * v1;
-        *(_DWORD *)(*v4 + 8 * v5) = v1;
-        v6 = *(_QWORD *)(a1 + 296) + 16LL * v1++;
-        *(_QWORD *)(*v4 + 8 * v5 + 8) = v6;
+        v12 = 3LL * v4;
+        *(_DWORD *)(*v8 + 8 * v12) = v4;
+        v13 = *(_QWORD *)(a1 + 272) + 16LL * v4++;
+        *(_QWORD *)(*v8 + 8 * v12 + 8) = v13;
       }
       return 1;
     }
   }
-  FreeMsiInfo(a1);
+  FreeMsiInfo(a1, v9, v10, v11);
   return 0;
 }

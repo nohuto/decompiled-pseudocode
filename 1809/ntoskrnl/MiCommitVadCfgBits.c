@@ -6,8 +6,8 @@
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
  *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiCfgInitializeProcess @ 0x140677D70 (MiCfgInitializeProcess.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544C0 (MiMapViewOfPhysicalSection.c)
+ *     MiCfgInitializeProcess @ 0x140677D50 (MiCfgInitializeProcess.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
  * Callees:
  *     MiIsProcessCfgEnabled @ 0x1400884BC (MiIsProcessCfgEnabled.c)
  *     MiMarkProcessCfgBits @ 0x1405F47C4 (MiMarkProcessCfgBits.c)

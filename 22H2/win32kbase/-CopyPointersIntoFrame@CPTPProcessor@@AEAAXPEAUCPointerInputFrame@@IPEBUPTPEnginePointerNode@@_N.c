@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CopyPointersIntoFrame@CPTPProcessor@@AEAAXPEAUCPointerInputFrame@@IPEBUPTPEnginePointerNode@@_N@Z @ 0x1C01DE940
+ * XREFs of ?CopyPointersIntoFrame@CPTPProcessor@@AEAAXPEAUCPointerInputFrame@@IPEBUPTPEnginePointerNode@@_N@Z @ 0x1C01A567C
  * Callers:
- *     ?CreateGestureCache@CPTPProcessor@@AEAAPEAUCPointerInputFrame@@IPEBUPTPEnginePointerNode@@_N@Z @ 0x1C01DEA48 (-CreateGestureCache@CPTPProcessor@@AEAAPEAUCPointerInputFrame@@IPEBUPTPEnginePointerNode@@_N@Z.c)
- *     ?OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z @ 0x1C01DF5B0 (-OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z.c)
+ *     ?CreateGestureCache@CPTPProcessor@@AEAAXIPEBUPTPEnginePointerNode@@_N@Z @ 0x1C01A5780 (-CreateGestureCache@CPTPProcessor@@AEAAXIPEBUPTPEnginePointerNode@@_N@Z.c)
+ *     ?OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z @ 0x1C01A61D0 (-OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z.c)
  * Callees:
- *     ?CommitFrame@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUCPointerInputFrame@@@Z @ 0x1C01BDB4C (-CommitFrame@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUCPointerInputFrame@@@Z.c)
- *     ?CommitFramePointer@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@@Z @ 0x1C01BDCE8 (-CommitFramePointer@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUCPointerInputFrame@@PEBUtagPOI.c)
+ *     ?CommitFrame@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUCPointerInputFrame@@@Z @ 0x1C018AA9C (-CommitFrame@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUCPointerInputFrame@@@Z.c)
+ *     ?CommitFramePointer@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@@Z @ 0x1C018AC34 (-CommitFramePointer@Pointer@InputTraceLogging@@SAXPEBURIMDEV@@PEBUCPointerInputFrame@@PEBUtagPOI.c)
  */
 
 void __fastcall CPTPProcessor::CopyPointersIntoFrame(
@@ -22,7 +22,7 @@ void __fastcall CPTPProcessor::CopyPointersIntoFrame(
   const struct RIMDEV *v10; // rbp
   const struct tagPOINTEREVENTINT *v11; // rsi
 
-  v5 = *((_QWORD *)a2 + 30);
+  v5 = *((_QWORD *)a2 + 17);
   v7 = 0;
   v8 = 0;
   if ( *((_DWORD *)a2 + 12) )
@@ -39,7 +39,7 @@ void __fastcall CPTPProcessor::CopyPointersIntoFrame(
       *(_OWORD *)(v9 + 80) = *((_OWORD *)a4 + 5);
       *(_DWORD *)(v9 + 4) = 0;
       if ( a5 )
-        *((_QWORD *)a2 + 27) = ++*(_QWORD *)(v9 + 80);
+        *((_QWORD *)a2 + 14) = ++*(_QWORD *)(v9 + 80);
       *(_DWORD *)(v9 - 164) |= 0x1000u;
       a4 = (const struct PTPEnginePointerNode *)((char *)a4 + 96);
       v9 += 480LL;
@@ -49,11 +49,11 @@ void __fastcall CPTPProcessor::CopyPointersIntoFrame(
   }
   if ( a5 )
   {
-    v10 = *(const struct RIMDEV **)(*((_QWORD *)a2 + 32) + 16LL);
+    v10 = *(const struct RIMDEV **)(*((_QWORD *)a2 + 19) + 16LL);
     InputTraceLogging::Pointer::CommitFrame(v10, a2);
     if ( *((_DWORD *)a2 + 12) )
     {
-      v11 = (const struct tagPOINTEREVENTINT *)(*((_QWORD *)a2 + 30) + 160LL);
+      v11 = (const struct tagPOINTEREVENTINT *)(*((_QWORD *)a2 + 17) + 160LL);
       do
       {
         InputTraceLogging::Pointer::CommitFramePointer(v10, a2, v11);

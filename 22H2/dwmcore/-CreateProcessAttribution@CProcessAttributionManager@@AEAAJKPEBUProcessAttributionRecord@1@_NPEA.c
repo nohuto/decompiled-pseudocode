@@ -1,18 +1,17 @@
 /*
- * XREFs of ?CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEAPEAVCProcessAttribution@@@Z @ 0x1800AC308
+ * XREFs of ?CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEAPEAVCProcessAttribution@@@Z @ 0x18003425C
  * Callers:
- *     ?GetNullProcessAttribution@CProcessAttributionManager@@QEAAPEAVCProcessAttribution@@XZ @ 0x18008CF7C (-GetNullProcessAttribution@CProcessAttributionManager@@QEAAPEAVCProcessAttribution@@XZ.c)
- *     ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x1800AB428 (-GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z.c)
+ *     ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x180035A2C (-GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z.c)
+ *     ?BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOverlayContext@@@Z @ 0x18007A778 (-BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOv.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$_Emplace_reallocate@AEBQEAUProcessAttributionRecord@CProcessAttributionManager@@@?$vector@PEAUProcessAttributionRecord@CProcessAttributionManager@@V?$allocator@PEAUProcessAttributionRecord@CProcessAttributionManager@@@std@@@std@@QEAAPEAPEAUProcessAttributionRecord@CProcessAttributionManager@@QEAPEAU23@AEBQEAU23@@Z @ 0x1800F41F0 (--$_Emplace_reallocate@AEBQEAUProcessAttributionRecord@CProcessAttributionManager@@@-$vector@PEA.c)
- *     ?IsLessThan@ProcessAttributionRecord@CProcessAttributionManager@@SA_NPEBU12@_J@Z @ 0x1800F4A18 (-IsLessThan@ProcessAttributionRecord@CProcessAttributionManager@@SA_NPEBU12@_J@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?IsLessThan@ProcessAttributionRecord@CProcessAttributionManager@@SA_NPEBU12@_J@Z @ 0x1800CF8B4 (-IsLessThan@ProcessAttributionRecord@CProcessAttributionManager@@SA_NPEBU12@_J@Z.c)
+ *     ??$_Emplace_reallocate@AEBQEAUProcessAttributionRecord@CProcessAttributionManager@@@?$vector@PEAUProcessAttributionRecord@CProcessAttributionManager@@V?$allocator@PEAUProcessAttributionRecord@CProcessAttributionManager@@@std@@@std@@QEAAPEAPEAUProcessAttributionRecord@CProcessAttributionManager@@QEAPEAU23@AEBQEAU23@@Z @ 0x1800D1194 (--$_Emplace_reallocate@AEBQEAUProcessAttributionRecord@CProcessAttributionManager@@@-$vector@PEA.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CProcessAttributionManager::CreateProcessAttribution(
@@ -26,15 +25,15 @@ __int64 __fastcall CProcessAttributionManager::CreateProcessAttribution(
   char *v10; // rax
   __int64 *v11; // rsi
   __int64 *v12; // r13
-  _OWORD *v13; // rax
-  unsigned int v14; // ecx
-  _OWORD *v15; // rbx
-  __int128 v16; // xmm0
-  __int64 v17; // r9
-  char *v18; // rcx
-  char *v20; // rdi
-  unsigned __int64 v21; // rbx
-  const struct CProcessAttributionManager::ProcessAttributionRecord **v22; // r12
+  const struct CProcessAttributionManager::ProcessAttributionRecord **v13; // r12
+  char *v14; // rdi
+  __int64 v15; // rbx
+  __int64 v16; // rax
+  _OWORD *v17; // rax
+  unsigned int v18; // ecx
+  _OWORD *v19; // rbx
+  __int64 v20; // r9
+  char *v21; // rcx
   _OWORD *v23; // [rsp+30h] [rbp-38h] BYREF
   void *retaddr; // [rsp+68h] [rbp+0h]
 
@@ -42,75 +41,83 @@ __int64 __fastcall CProcessAttributionManager::CreateProcessAttribution(
   v10 = (char *)DefaultHeap::AllocClear(0x88uLL);
   if ( !v10 )
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
-  *((_DWORD *)v10 + 32) = a2;
   *((_DWORD *)v10 + 2) = 0;
   *(_QWORD *)v10 = &CProcessAttribution::`vftable';
+  *((_DWORD *)v10 + 32) = a2;
   *((_QWORD *)v10 + 2) = *(_QWORD *)a3;
   *(_OWORD *)(v10 + 24) = *(_OWORD *)((char *)a3 + 8);
   *((_DWORD *)v10 + 10) = *((_DWORD *)a3 + 6);
   *a5 = (struct CProcessAttribution *)v10;
-  CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v10 + 8));
+  _InterlockedIncrement((volatile signed __int32 *)v10 + 2);
   if ( a4 )
   {
     v11 = (__int64 *)*((_QWORD *)this + 3);
     v12 = (__int64 *)*((_QWORD *)this + 4);
     while ( v11 != v12 )
     {
-      v20 = *(char **)(*v11 + 16);
-      v21 = (__int64)(*(_QWORD *)(*v11 + 24) - (_QWORD)v20) >> 3;
-      while ( (__int64)v21 > 0 )
+      v16 = *v11;
+      v14 = *(char **)(*v11 + 16);
+      v15 = (__int64)(*(_QWORD *)(*v11 + 24) - (_QWORD)v14) >> 3;
+      if ( v15 > 0 )
       {
-        v22 = (const struct CProcessAttributionManager::ProcessAttributionRecord **)&v20[8 * (v21 >> 1)];
-        if ( CProcessAttributionManager::ProcessAttributionRecord::IsLessThan(*v22, *(_QWORD *)a3) )
+        do
         {
-          v20 = (char *)(v22 + 1);
-          v21 += -1LL - (v21 >> 1);
+          v13 = (const struct CProcessAttributionManager::ProcessAttributionRecord **)&v14[8 * (v15 >> 1)];
+          if ( CProcessAttributionManager::ProcessAttributionRecord::IsLessThan(*v13, *(_QWORD *)a3) )
+          {
+            v14 = (char *)(v13 + 1);
+            v15 += -1 - (v15 >> 1);
+          }
+          else
+          {
+            v15 >>= 1;
+          }
         }
-        else
-        {
-          v21 >>= 1;
-        }
+        while ( v15 > 0 );
+        v16 = *v11;
       }
-      if ( v20 == *(char **)(*v11 + 24) || **(_QWORD **)v20 != *(_QWORD *)a3 )
+      if ( v14 == *(char **)(v16 + 24) || **(_QWORD **)v14 != *(_QWORD *)a3 )
       {
-        v13 = DefaultHeap::Alloc(0x70uLL);
-        v15 = v13;
-        if ( !v13 )
+        v17 = DefaultHeap::Alloc(0x70uLL);
+        v19 = v17;
+        if ( v17 )
+          memset_0(v17, 0, 0x70uLL);
+        else
+          v19 = 0LL;
+        v23 = v19;
+        if ( !v19 )
         {
           v9 = -2147024882;
-          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024882, 0x1DFu, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024882, 0x1DFu, 0LL);
           return v9;
         }
-        memset_0(v13, 0, 0x70uLL);
-        v16 = *(_OWORD *)a3;
-        v23 = v15;
-        *v15 = v16;
-        v15[1] = *((_OWORD *)a3 + 1);
-        v15[2] = *((_OWORD *)a3 + 2);
-        v15[3] = *((_OWORD *)a3 + 3);
-        v15[4] = *((_OWORD *)a3 + 4);
-        v15[5] = *((_OWORD *)a3 + 5);
-        v15[6] = *((_OWORD *)a3 + 6);
-        v17 = *v11;
-        v18 = *(char **)(*v11 + 24);
-        if ( v18 == *(char **)(*v11 + 32) )
+        *v19 = *(_OWORD *)a3;
+        v19[1] = *((_OWORD *)a3 + 1);
+        v19[2] = *((_OWORD *)a3 + 2);
+        v19[3] = *((_OWORD *)a3 + 3);
+        v19[4] = *((_OWORD *)a3 + 4);
+        v19[5] = *((_OWORD *)a3 + 5);
+        v19[6] = *((_OWORD *)a3 + 6);
+        v20 = *v11;
+        v21 = *(char **)(*v11 + 24);
+        if ( *(char **)(*v11 + 32) == v21 )
         {
           std::vector<CProcessAttributionManager::ProcessAttributionRecord *>::_Emplace_reallocate<CProcessAttributionManager::ProcessAttributionRecord * const &>(
-            v17 + 16,
-            v20,
+            v20 + 16,
+            v14,
             &v23);
         }
-        else if ( v20 == v18 )
+        else if ( v14 == v21 )
         {
-          *(_QWORD *)v18 = v15;
-          *(_QWORD *)(v17 + 24) += 8LL;
+          *(_QWORD *)v21 = v19;
+          *(_QWORD *)(v20 + 24) += 8LL;
         }
         else
         {
-          *(_QWORD *)v18 = *((_QWORD *)v18 - 1);
-          *(_QWORD *)(v17 + 24) += 8LL;
-          memmove_0(v20 + 8, v20, v18 - v20 - 8);
-          *(_QWORD *)v20 = v15;
+          *(_QWORD *)v21 = *((_QWORD *)v21 - 1);
+          *(_QWORD *)(v20 + 24) += 8LL;
+          memmove_0(v14 + 8, v14, v21 - v14 - 8);
+          *(_QWORD *)v14 = v19;
         }
       }
       ++v11;

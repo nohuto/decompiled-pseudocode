@@ -1,5 +1,5 @@
 /*
- * XREFs of ExQueryBootEntropyInformation @ 0x140736934
+ * XREFs of ExQueryBootEntropyInformation @ 0x140736914
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)

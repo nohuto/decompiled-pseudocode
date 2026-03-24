@@ -1,1 +1,21 @@
-/*\n * XREFs of KeyboardClassCreateWaitWakeIrp @ 0x1C000D170\n * Callers:\n *     KeyboardClassPower @ 0x1C0001BA0 (KeyboardClassPower.c)\n *     KeyboardStart @ 0x1C00025B0 (KeyboardStart.c)\n *     KeyboardToggleWaitWakeWorker @ 0x1C0005300 (KeyboardToggleWaitWakeWorker.c)\n *     KeyboardClassCreateWaitWakeIrpWorker @ 0x1C000E470 (KeyboardClassCreateWaitWakeIrpWorker.c)\n * Callees:\n *     <none>\n */\n\nbool __fastcall KeyboardClassCreateWaitWakeIrp(char *Context)\n{\n  return PoRequestPowerIrp(\n           *((PDEVICE_OBJECT *)Context + 3),\n           0,\n           *(POWER_STATE *)(Context + 288),\n           (PREQUEST_POWER_COMPLETE)KeyboardClassWaitWakeComplete,\n           Context,\n           0LL) == 259;\n}\n
+/*
+ * XREFs of KeyboardClassCreateWaitWakeIrp @ 0x1C000D170
+ * Callers:
+ *     KeyboardClassPower @ 0x1C0001BA0 (KeyboardClassPower.c)
+ *     KeyboardStart @ 0x1C00025B0 (KeyboardStart.c)
+ *     KeyboardToggleWaitWakeWorker @ 0x1C0005300 (KeyboardToggleWaitWakeWorker.c)
+ *     KeyboardClassCreateWaitWakeIrpWorker @ 0x1C000E470 (KeyboardClassCreateWaitWakeIrpWorker.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall KeyboardClassCreateWaitWakeIrp(char *Context)
+{
+  return PoRequestPowerIrp(
+           *((PDEVICE_OBJECT *)Context + 3),
+           0,
+           *(POWER_STATE *)(Context + 288),
+           (PREQUEST_POWER_COMPLETE)KeyboardClassWaitWakeComplete,
+           Context,
+           0LL) == 259;
+}

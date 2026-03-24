@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBPARENT_ResetHubComplete @ 0x1C0007790
+ * XREFs of HUBPARENT_ResetHubComplete @ 0x1C00074C0
  * Callers:
  *     <none>
  * Callees:
  *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001870 (McTemplateK0pq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs @ 0x1C0010380 (HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs @ 0x1C000FF64 (HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPARENT_ResetHubComplete(__int64 a1, __int64 a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall HUBPARENT_ResetHubComplete(__int64 a1, __int64 a2, __int64 a3
   v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v5,
-         off_1C0067198);
+         off_1C0066170);
   v8 = v6;
   v9 = *(_DWORD *)(a3 + 8);
   if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 0x20) != 0 )

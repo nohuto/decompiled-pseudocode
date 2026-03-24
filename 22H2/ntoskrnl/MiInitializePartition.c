@@ -1,303 +1,216 @@
 /*
- * XREFs of MiInitializePartition @ 0x140838DF0
+ * XREFs of MiInitializePartition @ 0x1407974EC
  * Callers:
- *     MmCreatePartition @ 0x1403ABECC (MmCreatePartition.c)
- *     MiCreatePfnDatabase @ 0x140B487C8 (MiCreatePfnDatabase.c)
+ *     MmCreatePartition @ 0x1403CA2A4 (MmCreatePartition.c)
+ *     MiCreatePfnDatabase @ 0x140A42AEC (MiCreatePfnDatabase.c)
  * Callees:
- *     InitializeSListHead @ 0x140221440 (InitializeSListHead.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlRandomEx @ 0x140292480 (RtlRandomEx.c)
- *     KeInitializeGate @ 0x140293114 (KeInitializeGate.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MiInitializePfnListHead @ 0x14036D150 (MiInitializePfnListHead.c)
- *     MiInitializeCommitment @ 0x140394014 (MiInitializeCommitment.c)
- *     MiInitializeCombining @ 0x1403960DC (MiInitializeCombining.c)
- *     MiProtectPageListLocks @ 0x140396130 (MiProtectPageListLocks.c)
- *     MiInitializeNuma @ 0x1403961D8 (MiInitializeNuma.c)
- *     MiInitializeLargePageNodeLists @ 0x140839478 (MiInitializeLargePageNodeLists.c)
- *     MiInitializeSections @ 0x14083969C (MiInitializeSections.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     KeInitializeGate @ 0x14032BE90 (KeInitializeGate.c)
+ *     InitializeSListHead @ 0x140352660 (InitializeSListHead.c)
+ *     RtlRandomEx @ 0x1403572D0 (RtlRandomEx.c)
+ *     MiInitializeSlabAllocator @ 0x1403AA9EC (MiInitializeSlabAllocator.c)
+ *     MiInitializePfnListHead @ 0x1403AAA4C (MiInitializePfnListHead.c)
+ *     MiInitializeCombining @ 0x1403AAA74 (MiInitializeCombining.c)
+ *     MiInitializeNuma @ 0x1403AAAC8 (MiInitializeNuma.c)
+ *     MiInitializeCommitment @ 0x1403BF284 (MiInitializeCommitment.c)
+ *     MiInitializeSections @ 0x140797A24 (MiInitializeSections.c)
+ *     MiInitializeLargePageNodeLists @ 0x140797BAC (MiInitializeLargePageNodeLists.c)
  */
 
-char __fastcall MiInitializePartition(unsigned __int64 a1, __int16 a2)
+char __fastcall MiInitializePartition(__int64 a1, __int16 a2)
 {
-  __int64 v3; // rbx
-  __int64 *v4; // r8
-  int v5; // edx
-  int v6; // r9d
-  __int64 v7; // rcx
-  unsigned int v8; // edi
-  int v9; // edx
-  _QWORD *v10; // rdi
+  int v3; // eax
+  int v4; // ecx
+  __int64 *v5; // r8
+  unsigned int v6; // edi
+  __int64 i; // rax
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r10
   __int64 v11; // rcx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // r10
-  __int64 v16; // r11
-  __int64 v17; // rax
-  bool v18; // cf
-  __int64 v19; // rdi
-  unsigned int v20; // r14d
-  ULONG *v21; // rdi
-  unsigned int v22; // r8d
-  unsigned int v23; // edi
-  __int64 i; // r14
-  signed int v25; // eax
-  __int64 v26; // rdi
-  int v27; // edx
-  __int64 v28; // rcx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  struct _KEVENT *v31; // r14
-  __int64 v32; // r15
-  __int64 v33; // rcx
+  __int64 v12; // r9
+  unsigned int v13; // edi
+  __int64 j; // rbx
+  ULONG v15; // eax
+  __int64 v16; // rcx
+  unsigned int v17; // ebx
+  __int64 v18; // rdi
+  unsigned int k; // ebp
+  unsigned int v20; // r8d
+  unsigned int v21; // edi
+  __int64 m; // rbx
+  __int64 v23; // r14
+  signed int v24; // eax
+  __int64 v25; // rdi
+  __int64 v26; // rcx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  struct _KEVENT *v29; // rbx
+  __int64 v30; // rbp
   __m128i si128; // xmm0
-  struct _KEVENT *v35; // rbx
-  _QWORD *v36; // rax
-  __int64 v37; // rcx
-  unsigned __int64 v38; // rcx
-  unsigned __int64 v39; // rax
-  struct _KTHREAD *CurrentThread; // rdi
-  __int64 v41; // rax
-  __int64 v42; // rbx
-  char v43; // bp
-  $C71981A45BEB2B45F82C232A7085991E *v44; // rax
+  __int64 v32; // rcx
+  struct _KEVENT *v33; // rbx
+  struct _KTHREAD *CurrentThread; // rbx
 
-  *(_DWORD *)(a1 + 8) = 305535296;
   *(_WORD *)a1 = a2;
+  *(_DWORD *)(a1 + 8) = 305535296;
   *(_DWORD *)(a1 + 4) = 0;
-  v3 = 16LL;
-  if ( (unsigned __int16 *)a1 == MiSystemPartition )
-  {
-    qword_140C67400 = 0LL;
-    qword_140C67428 = (__int64)&qword_140C67420;
-    qword_140C67420 = &qword_140C67420;
-    qword_140C67460 = 0LL;
-  }
-  else
-  {
-    *(_DWORD *)(a1 + 4) = 16;
-  }
-  *(_QWORD *)(a1 + 15872) = 0LL;
+  v3 = 0;
+  *(_QWORD *)(a1 + 4928) = 0LL;
+  if ( (ULONG_PTR *)a1 != &MiSystemPartition )
+    v3 = 32;
+  *(_DWORD *)(a1 + 4) = v3;
   KeInitializeEvent((PRKEVENT)(a1 + 104), NotificationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(a1 + 128), SynchronizationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(a1 + 16112), SynchronizationEvent, 0);
-  v4 = (__int64 *)(a1 + 2496);
-  v5 = 0;
-  v6 = 3 * dword_140C65BFC;
+  KeInitializeEvent((PRKEVENT)(a1 + 5144), SynchronizationEvent, 0);
+  v4 = 0;
+  v5 = (__int64 *)(a1 + 2176);
   do
   {
-    v7 = *v4;
-    v8 = 0;
-    if ( v6 )
+    v6 = 0;
+    for ( i = *v5; v6 < dword_140C4DEFC; i += 40LL )
     {
-      do
-      {
-        *(_DWORD *)(v7 + 8) = v5;
-        ++v8;
-        *(_QWORD *)(v7 + 16) = 0x3FFFFFFFFFLL;
-        *(_QWORD *)(v7 + 24) = 0x3FFFFFFFFFLL;
-        *(_QWORD *)v7 = 0LL;
-        *(_DWORD *)(v7 + 32) = 0;
-        v7 += 88LL;
-        v6 = 3 * dword_140C65BFC;
-      }
-      while ( v8 < 3 * dword_140C65BFC );
+      *(_DWORD *)(i + 8) = v4;
+      ++v6;
+      *(_QWORD *)(i + 16) = 0xFFFFFFFFFLL;
+      *(_QWORD *)(i + 24) = 0xFFFFFFFFFLL;
+      *(_QWORD *)i = 0LL;
+      *(_QWORD *)(i + 32) = 0LL;
     }
-    ++v5;
     ++v4;
+    ++v5;
   }
-  while ( v5 <= 1 );
-  MiInitializePfnListHead(a1 + 2560, 0);
-  MiInitializePfnListHead(a1 + 2688, 1);
-  MiInitializePfnListHead(a1 + 2816, 2);
-  v10 = (_QWORD *)(a1 + 11520);
-  v11 = a1 + 2944;
+  while ( v4 <= 1 );
+  MiInitializePfnListHead(a1 + 2240, 0);
+  MiInitializePfnListHead(a1 + 2304, 1);
+  MiInitializePfnListHead(a1 + 2368, 2);
+  MiInitializePfnListHead(a1 + 4160, 5);
+  v8 = a1 + 2432;
   do
   {
-    MiInitializePfnListHead(v11, v9);
-    v17 = 64LL;
-    do
-    {
-      *(v10 - 512) = -1LL;
-      *v10++ = -1LL;
-      --v17;
-    }
-    while ( v17 );
-    v11 = v12 + 88;
+    MiInitializePfnListHead(v8, 2);
+    v8 = v11 + 40;
   }
-  while ( v13 != 1 );
-  *(_QWORD *)(a1 + 6824) = v14;
-  *(_QWORD *)(a1 + 6832) = v15;
-  *(_QWORD *)(a1 + 6840) = v16;
+  while ( v12 != 1 );
+  *(_QWORD *)(a1 + 4216) = a1 + 2240;
+  *(_QWORD *)(a1 + 4224) = v9;
+  *(_QWORD *)(a1 + 4232) = v10;
   MiInitializeLargePageNodeLists(a1);
-  v18 = KeNumberNodes != 0;
-  v19 = *(_QWORD *)(a1 + 16);
-  v20 = 0;
-  *(_QWORD *)(a1 + 16096) = a1 + 16088;
-  *(_QWORD *)(a1 + 16088) = a1 + 16088;
-  if ( v18 )
+  v13 = 0;
+  for ( j = *(_QWORD *)(a1 + 16); v13 < (unsigned __int16)KeNumberNodes; *(_DWORD *)(4544 * v16 + j + 4184) = v15 )
   {
-    v21 = (ULONG *)(v19 + 22848);
-    do
+    v15 = RtlRandomEx(&Seed);
+    v16 = v13++;
+  }
+  v17 = 0;
+  v18 = a1 + 5184;
+  do
+  {
+    for ( k = 0; k < 4; ++k )
     {
-      *v21 = RtlRandomEx(&Seed);
-      ++v20;
-      v21 += 6352;
+      MiInitializeSlabAllocator(v18, v17, k);
+      v18 += 120LL;
     }
-    while ( v20 < (unsigned __int16)KeNumberNodes );
+    ++v17;
   }
-  v22 = dword_140C65BFC;
-  v23 = 0;
-  for ( i = *(_QWORD *)(a1 + 6808); v23 < 2 * dword_140C65BFC; ++v23 )
+  while ( v17 < 2 );
+  v20 = dword_140C4DEFC;
+  v21 = 0;
+  for ( m = *(_QWORD *)(a1 + 4200); v21 < 2 * dword_140C4DEFC; ++v21 )
   {
-    InitializeSListHead((PSLIST_HEADER)(i + 16LL * v23));
-    v22 = dword_140C65BFC;
+    InitializeSListHead((PSLIST_HEADER)(m + 16LL * v21));
+    v20 = dword_140C4DEFC;
   }
-  v25 = (unsigned int)(*(_QWORD *)(a1 + 17040) / 0x64uLL) / v22;
-  if ( v25 < 4 )
-  {
-    v25 = 4;
-  }
-  else if ( (unsigned int)v25 > 0x10 )
-  {
-    v25 = 16;
-  }
-  *(_DWORD *)(a1 + 16512) = v25;
-  if ( (unsigned __int16 *)a1 == MiSystemPartition )
-    MiInitializePfnListHead((__int64)&qword_140C65788, 5);
-  KeInitializeEvent((PRKEVENT)(a1 + 16488), NotificationEvent, 0);
-  v26 = 3LL;
-  MiInitializePfnListHead(a1 + 17600, 3);
-  MiInitializePfnListHead(a1 + 17728, 4);
-  MiInitializePfnListHead(a1 + 3648, 3);
-  MiInitializePfnListHead(a1 + 3776, v27);
-  v28 = a1 + 3904;
+  v23 = 16LL;
+  v24 = (unsigned int)(*(_QWORD *)(a1 + 6928) / 0x64uLL) / v20;
+  if ( v24 < 4 )
+    v24 = 4;
+  if ( v24 > 16 )
+    v24 = 16;
+  *(_DWORD *)(a1 + 6300) = v24;
+  if ( (ULONG_PTR *)a1 == &MiSystemPartition )
+    MiInitializePfnListHead((__int64)&qword_140C4CAC0, 5);
+  v25 = 3LL;
+  MiInitializePfnListHead(a1 + 7488, 3);
+  MiInitializePfnListHead(a1 + 7552, 4);
+  MiInitializePfnListHead(a1 + 2752, 3);
+  v26 = a1 + 2816;
   do
   {
-    MiInitializePfnListHead(v28, 3);
-    v28 = v29 + 88;
+    MiInitializePfnListHead(v26, 3);
+    v26 = v27 + 40;
   }
-  while ( v30 != 1 );
-  v31 = (struct _KEVENT *)(a1 + 7032);
-  v32 = a1 + 5312;
+  while ( v28 != 1 );
+  v29 = (struct _KEVENT *)(a1 + 4408);
+  v30 = a1 + 3456;
   do
   {
-    MiInitializePfnListHead(v32, 3);
-    KeInitializeEvent(v31, SynchronizationEvent, 0);
-    v32 += 88LL;
-    ++v31;
-    --v3;
+    MiInitializePfnListHead(v30, 3);
+    KeInitializeEvent(v29, SynchronizationEvent, 0);
+    v30 += 40LL;
+    ++v29;
+    --v23;
   }
-  while ( v3 );
-  MiInitializePfnListHead(a1 + 6720, 5);
-  *(_QWORD *)(a1 + 6864) = v33;
-  *(_QWORD *)(a1 + 6848) = a1 + 17600;
-  *(_QWORD *)(a1 + 6856) = a1 + 17728;
-  *(_QWORD *)(a1 + 16248) = -1LL;
-  MiProtectPageListLocks(a1);
+  while ( v23 );
+  MiInitializePfnListHead(a1 + 4096, 5);
   si128 = _mm_load_si128((const __m128i *)&_xmm_fffffffefffffffefffffffefffffffe);
-  v35 = (struct _KEVENT *)(a1 + 15880);
-  *(__m128i *)(a1 + 15744) = si128;
-  *(__m128i *)(a1 + 15760) = si128;
+  *(_QWORD *)(a1 + 4256) = v32;
+  *(_QWORD *)(a1 + 4240) = a1 + 7488;
+  *(_QWORD *)(a1 + 4248) = a1 + 7552;
+  *(__m128i *)(a1 + 4792) = si128;
+  *(__m128i *)(a1 + 4808) = si128;
+  KeInitializeEvent((PRKEVENT)(a1 + 6272), NotificationEvent, 0);
+  v33 = (struct _KEVENT *)(a1 + 4936);
   do
   {
-    KeInitializeEvent(v35, NotificationEvent, 1u);
-    v35 = (struct _KEVENT *)((char *)v35 + 32);
-    --v26;
+    KeInitializeEvent(v33, NotificationEvent, 1u);
+    v33 = (struct _KEVENT *)((char *)v33 + 32);
+    --v25;
   }
-  while ( v26 );
-  v36 = (_QWORD *)(a1 + 2144);
-  *(_QWORD *)(a1 + 216) = 0LL;
-  v37 = 9LL;
-  do
-  {
-    *v36 = -1LL;
-    v36 += 4;
-    --v37;
-  }
-  while ( v37 );
-  KeInitializeEvent((PRKEVENT)(a1 + 232), NotificationEvent, 0);
-  memset64((void *)(a1 + 272), a1 + 232, 0xBuLL);
-  *(_QWORD *)(a1 + 16936) = a1 + 16928;
-  *(_QWORD *)(a1 + 16928) = a1 + 16928;
-  KeInitializeEvent((PRKEVENT)(a1 + 832), SynchronizationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(a1 + 776), SynchronizationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(a1 + 800), NotificationEvent, 0);
-  *(_DWORD *)(a1 + 760) = 18;
-  *(_QWORD *)(a1 + 992) = 0LL;
-  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(a1 + 992));
-  _InterlockedExchange64((volatile __int64 *)(a1 + 992), 1LL);
-  KeInitializeEvent((PRKEVENT)(a1 + 736), NotificationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(a1 + 920), NotificationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(a1 + 1048), NotificationEvent, 0);
-  KeInitializeGate(a1 + 688, 0);
-  *(_QWORD *)(a1 + 680) = a1 + 672;
-  *(_QWORD *)(a1 + 672) = a1 + 672;
-  KeInitializeEvent((PRKEVENT)(a1 + 960), SynchronizationEvent, 0);
-  *(_QWORD *)(a1 + 952) = a1 + 944;
-  *(_QWORD *)(a1 + 944) = a1 + 944;
-  if ( (unsigned __int16 *)a1 != MiSystemPartition )
+  while ( v25 );
+  *(_QWORD *)(a1 + 192) = 0LL;
+  KeInitializeEvent((PRKEVENT)(a1 + 208), NotificationEvent, 0);
+  memset64((void *)(a1 + 248), a1 + 208, 0xBuLL);
+  *(_QWORD *)(a1 + 6864) = a1 + 6856;
+  *(_QWORD *)(a1 + 6856) = a1 + 6856;
+  KeInitializeEvent((PRKEVENT)(a1 + 792), SynchronizationEvent, 0);
+  KeInitializeEvent((PRKEVENT)(a1 + 736), SynchronizationEvent, 0);
+  KeInitializeEvent((PRKEVENT)(a1 + 760), NotificationEvent, 0);
+  *(_DWORD *)(a1 + 720) = 18;
+  KeInitializeEvent((PRKEVENT)(a1 + 696), NotificationEvent, 0);
+  KeInitializeEvent((PRKEVENT)(a1 + 880), NotificationEvent, 0);
+  KeInitializeEvent((PRKEVENT)(a1 + 1008), NotificationEvent, 0);
+  KeInitializeGate(a1 + 648);
+  *(_QWORD *)(a1 + 640) = a1 + 632;
+  *(_QWORD *)(a1 + 632) = a1 + 632;
+  KeInitializeEvent((PRKEVENT)(a1 + 920), SynchronizationEvent, 0);
+  *(_QWORD *)(a1 + 912) = a1 + 904;
+  *(_QWORD *)(a1 + 904) = a1 + 904;
+  if ( (ULONG_PTR *)a1 != &MiSystemPartition )
     MiInitializeCommitment(a1);
-  InitializeSListHead((PSLIST_HEADER)(a1 + 464));
-  if ( (unsigned __int16 *)a1 == MiSystemPartition )
-  {
-    *(_QWORD *)(a1 + 16136) = qword_140D1D210;
-    v38 = qword_140D1D210 << 8;
-    *(_QWORD *)(a1 + 16136) = qword_140D1D210 << 8;
-    *(_QWORD *)(a1 + 16144) = qword_140D1D218;
-    v39 = qword_140D1D218 << 8;
-    *(_QWORD *)(a1 + 16144) = qword_140D1D218 << 8;
-    if ( v39 < v38 )
-    {
-      if ( v39 )
-        v39 = v38;
-      *(_QWORD *)(a1 + 16144) = v39;
-    }
-  }
-  MiInitializeNuma(a1);
-  *(_QWORD *)(a1 + 1168) = 0LL;
-  *(_QWORD *)(a1 + 1144) = MiContractWsSwapPageFileWorker;
-  *(_QWORD *)(a1 + 1152) = a1;
+  MiInitializeNuma((ULONG_PTR *)a1);
+  *(_DWORD *)(a1 + 1156) = -1;
+  *(_QWORD *)(a1 + 1104) = MiContractWsSwapPageFileWorker;
   *(_QWORD *)(a1 + 1128) = 0LL;
-  *(_DWORD *)(a1 + 1188) = -1;
-  KeInitializeEvent((PRKEVENT)(a1 + 1240), NotificationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(a1 + 1312), NotificationEvent, 0);
-  KeInitializeEvent((PRKEVENT)(a1 + 1264), NotificationEvent, 0);
-  InitializeSListHead((PSLIST_HEADER)(a1 + 1296));
+  *(_QWORD *)(a1 + 1112) = a1;
+  *(_QWORD *)(a1 + 1088) = 0LL;
+  KeInitializeEvent((PRKEVENT)(a1 + 1200), NotificationEvent, 0);
+  KeInitializeEvent((PRKEVENT)(a1 + 1248), NotificationEvent, 0);
+  InitializeSListHead((PSLIST_HEADER)(a1 + 1232));
   MiInitializeSections(a1);
-  MiInitializeCombining(a1, (_QWORD *)(a1 + 16520));
-  *(_QWORD *)(a1 + 1416) = 1LL;
-  *(_QWORD *)(a1 + 16952) = a1 + 16944;
-  *(_QWORD *)(a1 + 16944) = a1 + 16944;
-  *(_QWORD *)(a1 + 16968) = a1 + 16960;
-  *(_QWORD *)(a1 + 16960) = a1 + 16960;
-  *(_QWORD *)(a1 + 1424) = 1LL;
-  *(_QWORD *)(a1 + 1432) = 1LL;
+  MiInitializeCombining(a1, (_QWORD *)(a1 + 6448));
+  *(_QWORD *)(a1 + 1352) = 1LL;
+  *(_QWORD *)(a1 + 1360) = 1LL;
+  *(_QWORD *)(a1 + 1368) = 1LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v41 = KeAbPreAcquire((__int64)&qword_140C67488, 0LL);
-  v18 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140C67488, 0LL);
-  v42 = v41;
-  if ( v18 )
-    ExfAcquirePushLockExclusiveEx(&qword_140C67488, v41, (__int64)&qword_140C67488);
-  if ( v42 )
-    *(_BYTE *)(v42 + 18) = 1;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4E608, 0LL);
   *(_DWORD *)(a1 + 4) |= 2u;
-  v43 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C67488, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v43 & 2) != 0 && (v43 & 4) == 0 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C67488);
-  LOBYTE(v44) = KeAbPostRelease((ULONG_PTR)&qword_140C67488);
-  if ( CurrentThread->SpecialApcDisable++ == -1 )
-  {
-    v44 = &CurrentThread->152;
-    if ( ($C71981A45BEB2B45F82C232A7085991E *)v44->ApcState.ApcListHead[0].Flink != v44 )
-      LOBYTE(v44) = KiCheckForKernelApcDelivery();
-  }
-  return (char)v44;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4E608, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C4E608);
+  KeAbPostRelease((ULONG_PTR)&qword_140C4E608);
+  return KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
 }

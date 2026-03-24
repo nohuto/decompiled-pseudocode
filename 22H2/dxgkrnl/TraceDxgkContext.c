@@ -1,9 +1,9 @@
 /*
- * XREFs of TraceDxgkContext @ 0x1C0025760
+ * XREFs of TraceDxgkContext @ 0x1C0026440
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C00488C4 (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C003FDDC (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall TraceDxgkContext(
@@ -28,7 +28,7 @@ __int64 __fastcall TraceDxgkContext(
   {
     if ( a1 == 1 )
     {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
         return McTemplateK0pqqqqqqqqppp_EtwWriteTransfer(
                  (_DWORD)a5,
                  (unsigned int)&EventDestroyContext,
@@ -46,7 +46,7 @@ __int64 __fastcall TraceDxgkContext(
                  a10,
                  a11);
     }
-    else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
+    else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
     {
       return McTemplateK0pqqqqqqqqppp_EtwWriteTransfer(
                (_DWORD)a5,
@@ -66,7 +66,7 @@ __int64 __fastcall TraceDxgkContext(
                a11);
     }
   }
-  else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
+  else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
   {
     return McTemplateK0pqqqqqqqqppp_EtwWriteTransfer(
              (_DWORD)a5,

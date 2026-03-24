@@ -1,149 +1,183 @@
 /*
- * XREFs of MiValidatePagefilePageHash @ 0x14045D5EA
+ * XREFs of MiValidatePagefilePageHash @ 0x14055D71C
  * Callers:
- *     MiWaitForInPageComplete @ 0x14027AA30 (MiWaitForInPageComplete.c)
- *     MiMakeOutswappedPageResident @ 0x1405803C8 (MiMakeOutswappedPageResident.c)
+ *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
  * Callees:
- *     MiGetPagingFileOffset @ 0x1402E76C0 (MiGetPagingFileOffset.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiInPageSkipPage @ 0x14045BA46 (MiInPageSkipPage.c)
- *     MiObtainPagefileHashes @ 0x14045D4C6 (MiObtainPagefileHashes.c)
- *     MiArePagefileContentsCorrupted @ 0x1405BC2C4 (MiArePagefileContentsCorrupted.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiGetPagingFileOffset @ 0x1402712A0 (MiGetPagingFileOffset.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiComputePageHash @ 0x14038A190 (MiComputePageHash.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiComparePageHash @ 0x14055D340 (MiComparePageHash.c)
+ *     MiObtainPagefileHashes @ 0x14055D5C0 (MiObtainPagefileHashes.c)
  */
 
-__int64 __fastcall MiValidatePagefilePageHash(_QWORD *a1)
+__int64 __fastcall MiValidatePagefilePageHash(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  struct _MDL *v1; // rax
-  struct _MDL *v2; // r10
-  unsigned int v3; // r15d
-  __int64 v4; // rcx
-  unsigned int v5; // r13d
-  struct _MDL *v6; // r14
-  unsigned __int64 v7; // rbx
-  char *MappedSystemVa; // rdi
-  struct _MDL *Next; // r12
-  char *v10; // rsi
-  __int64 v11; // rbx
-  signed __int64 v12; // rdx
-  __int64 v13; // rcx
-  unsigned __int64 v14; // rbp
-  unsigned __int64 v15; // rsi
-  __int64 v16; // rdx
-  int PagingFileOffset; // r10d
-  __int64 v18; // rcx
-  __int64 v19; // rax
+  __int64 v4; // r10
+  __int64 v5; // r13
+  __int64 *v6; // r12
+  __int64 v7; // rdx
+  unsigned __int64 v8; // rbp
+  unsigned __int64 v9; // rbx
+  _QWORD *v10; // rdi
+  unsigned __int64 v11; // rax
+  __int64 v12; // r14
+  _QWORD *v13; // rsi
+  __int64 v14; // rbx
+  unsigned __int64 v15; // r15
+  unsigned int v16; // eax
+  __int64 v17; // rdi
+  ULONG_PTR v18; // rbp
+  unsigned int PagingFileOffset; // eax
+  ULONG_PTR v20; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
   int v23; // eax
   bool v24; // zf
-  signed __int64 v26; // [rsp+38h] [rbp-160h]
-  __int64 v27; // [rsp+40h] [rbp-158h]
-  unsigned int v28; // [rsp+48h] [rbp-150h]
-  unsigned __int64 v30; // [rsp+58h] [rbp-140h]
-  _OWORD v31[16]; // [rsp+60h] [rbp-138h] BYREF
+  __int64 v26; // rax
+  ULONG_PTR BugCheckParameter4; // rdi
+  int v28; // eax
+  _QWORD *v29; // [rsp+30h] [rbp-A8h]
+  __int64 v30; // [rsp+38h] [rbp-A0h]
+  __int64 v31; // [rsp+40h] [rbp-98h]
+  unsigned __int64 v32; // [rsp+48h] [rbp-90h]
+  unsigned int v33; // [rsp+50h] [rbp-88h]
+  unsigned int v34[16]; // [rsp+60h] [rbp-78h] BYREF
 
-  v1 = (struct _MDL *)a1[32];
-  v2 = (struct _MDL *)(a1 + 34);
-  v3 = 0;
-  v4 = a1[11];
-  if ( v1 )
-    v2 = v1;
-  v5 = 0;
-  v28 = 0;
-  v27 = 0LL;
-  v6 = v2 + 1;
-  v7 = (unsigned __int64)&v2[1]
-     + 8 * (((unsigned __int64)((LODWORD(v2->StartVa) + v2->ByteOffset) & 0xFFF) + v4 + 4095) >> 12);
-  v26 = 8 * (((unsigned __int64)((LODWORD(v2->StartVa) + v2->ByteOffset) & 0xFFF) + v4 + 4095) >> 12);
-  v30 = v7;
-  if ( (v2->MdlFlags & 5) != 0 )
-    MappedSystemVa = (char *)v2->MappedSystemVa;
+  v4 = a1 + 272;
+  if ( *(_QWORD *)(a1 + 256) )
+    v4 = *(_QWORD *)(a1 + 256);
+  v5 = 0LL;
+  v33 = 0;
+  v31 = 0LL;
+  v6 = (__int64 *)(v4 + 48);
+  v7 = (*(_DWORD *)(v4 + 32) + *(_DWORD *)(v4 + 44)) & 0xFFF;
+  v8 = 8 * ((unsigned __int64)(v7 + *(_QWORD *)(a1 + 88) + 4095LL) >> 12);
+  v9 = v8 + v4 + 48;
+  v30 = v8;
+  v32 = v9;
+  if ( (*(_BYTE *)(v4 + 10) & 5) != 0 )
+    v10 = *(_QWORD **)(v4 + 24);
   else
-    MappedSystemVa = (char *)MmMapLockedPagesSpecifyCache(v2, 0, MmCached, 0LL, 0, 0xC0000010);
-  if ( (unsigned __int64)v6 < v7 )
+    v10 = MmMapLockedPagesSpecifyCache((PMDL)v4, 0, MmCached, 0LL, 0, 0xC0000010);
+  if ( (unsigned __int64)v6 < v9 )
   {
-    do
+    v11 = v9;
+    while ( 1 )
     {
-      Next = v6->Next;
-      v10 = MappedSystemVa;
-      v11 = 48 * (__int64)v6->Next - 0x220000000000LL;
-      if ( !(unsigned int)MiInPageSkipPage(v11) )
-      {
-        v14 = (unsigned __int8)MiLockPageInline(v13);
-        if ( (*(_QWORD *)(v11 + 24) & 0x4000000000000000LL) == 0 )
-        {
-          v15 = *(_QWORD *)(v11 + 16);
-          v16 = (v15 >> 5) & 0x1F;
-          if ( (dword_140D051C0 & 1) != 0
-            || (_DWORD)v16 == 31
-            || ((unsigned int)v16 >> 3 != 3 || ((v15 >> 5) & 7) == 0) && (unsigned int)v16 >> 3 != 1 )
-          {
-            PagingFileOffset = MiGetPagingFileOffset(v11 + 16);
-            if ( PagingFileOffset )
-            {
-              v18 = v27;
-              if ( !v27 )
-              {
-                v18 = *(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(v11 + 40) >> 43) & 0x3FFLL))
-                                + 8LL * ((unsigned __int16)v15 >> 12)
-                                + 16736);
-                v27 = v18;
-              }
-              if ( v5 >= v28 )
-              {
-                v19 = v26 >> 3;
-                if ( (unsigned int)(v26 >> 3) > 0x10 )
-                  LODWORD(v19) = 16;
-                v28 = v19;
-                MiObtainPagefileHashes(v18, PagingFileOffset, v19, (__int64)v31);
-                v5 = 0;
-              }
-              if ( (unsigned int)MiArePagefileContentsCorrupted(Next, &v31[v5], MappedSystemVa, 1LL) )
-              {
-                if ( v11 == a1[31] )
-                  v3 = -1073741761;
-                *(_BYTE *)(v11 + 35) |= 0x10u;
-              }
-            }
-          }
-          v10 = MappedSystemVa;
-        }
-        if ( (_BYTE)v14 != 17 )
-        {
-          _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
-          {
-            if ( (KiIrqlFlags & 1) != 0 )
-            {
-              CurrentIrql = KeGetCurrentIrql();
-              if ( CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
-              {
-                CurrentPrcb = KeGetCurrentPrcb();
-                SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-                v24 = (v23 & SchedulerAssist[5]) == 0;
-                SchedulerAssist[5] &= v23;
-                if ( v24 )
-                  KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-              }
-            }
-          }
-          __writecr8(v14);
-        }
-        v12 = v26;
-      }
-      MappedSystemVa = v10 + 4096;
-      ++v5;
-      v26 = v12 - 8;
-      v6 = (struct _MDL *)((char *)v6 + 8);
-      if ( !v10 )
-        MappedSystemVa = 0LL;
+      v12 = *v6;
+      v13 = v10;
+      v29 = v10;
+      v14 = 48 * *v6 - 0x58000000000LL;
+      if ( v14 != qword_140C4ED70 )
+        break;
+LABEL_30:
+      v8 -= 8LL;
+      v10 = v13 + 512;
+      v5 = (unsigned int)(v5 + 1);
+      v30 = v8;
+      ++v6;
+      if ( !v13 )
+        v10 = 0LL;
+      if ( (unsigned __int64)v6 >= v11 )
+        return 0LL;
     }
-    while ( (unsigned __int64)v6 < v30 );
+    v15 = (unsigned __int8)MiLockPageInline(48 * v12 - 0x58000000000LL, v7, a3, SchedulerAssist);
+    if ( (*(_QWORD *)(v14 + 24) & 0x4000000000000000LL) != 0 )
+    {
+LABEL_20:
+      if ( (_BYTE)v15 != 17 )
+      {
+        _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              v7 = -1LL << ((unsigned __int8)v15 + 1);
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v23 = ~(unsigned __int16)v7;
+              v24 = (v23 & SchedulerAssist[5]) == 0;
+              a3 = (unsigned int)v23 & SchedulerAssist[5];
+              SchedulerAssist[5] = a3;
+              if ( v24 )
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
+          }
+        }
+        __writecr8(v15);
+      }
+      v11 = v32;
+      goto LABEL_30;
+    }
+    v7 = (*(_DWORD *)(v14 + 16) >> 5) & 0x1F;
+    if ( (dword_140CFB180 & 1) == 0
+      && (_DWORD)v7 != 31
+      && ((unsigned int)v7 >> 3 == 3 && ((*(_DWORD *)(v14 + 16) >> 5) & 7) != 0 || (unsigned int)v7 >> 3 == 1) )
+    {
+      v13 = v10;
+      goto LABEL_20;
+    }
+    v16 = MiComputePageHash(48 * v12 - 0x58000000000LL, v10);
+    v17 = v31;
+    v18 = v16;
+    if ( !v31 )
+    {
+      v17 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v14 + 40) >> 39) & 0x3FFLL))
+                      + 8LL * ((unsigned __int8)HIBYTE(*(_WORD *)(v14 + 16)) >> 4)
+                      + 6944);
+      v31 = v17;
+    }
+    PagingFileOffset = MiGetPagingFileOffset(v14 + 16);
+    v20 = PagingFileOffset;
+    if ( !PagingFileOffset )
+    {
+      v31 = 0LL;
+LABEL_19:
+      v8 = v30;
+      v13 = v29;
+      goto LABEL_20;
+    }
+    if ( (unsigned int)v5 >= v33 )
+    {
+      v26 = v30 >> 3;
+      if ( (unsigned int)(v30 >> 3) > 0x10 )
+        LODWORD(v26) = 16;
+      v33 = v26;
+      MiObtainPagefileHashes(v17, v20, v26, v34);
+      v5 = 0LL;
+    }
+    BugCheckParameter4 = v34[v5];
+    if ( (_DWORD)v18 == (_DWORD)BugCheckParameter4
+      || (*(_QWORD *)(v14 + 24) & 0x4000000000000000LL) != 0
+      || (_DWORD)BugCheckParameter4 == 2 )
+    {
+      goto LABEL_19;
+    }
+    if ( (_DWORD)BugCheckParameter4 )
+    {
+      if ( byte_140C4E880 == 1 )
+        goto LABEL_19;
+      v28 = -1073741761;
+    }
+    else
+    {
+      v28 = MiComparePageHash(v31, v20, v18);
+    }
+    if ( v28 < 0 )
+    {
+      ++dword_140C4E7C8;
+      qword_140C4E770 = v12;
+      KeBugCheckEx(0x1Au, 0x3FuLL, v20, v18, BugCheckParameter4);
+    }
+    goto LABEL_19;
   }
-  return v3;
+  return 0LL;
 }

@@ -1,16 +1,13 @@
 /*
- * XREFs of CmGetVisibleMaxNameLenAndClassLen @ 0x1406A52D4
+ * XREFs of CmGetVisibleMaxNameLenAndClassLen @ 0x14066AA6C
  * Callers:
- *     CmpQueryKeyDataFromCache @ 0x1406A4E90 (CmpQueryKeyDataFromCache.c)
- *     CmpQueryKeyDataFromNode @ 0x1407C3490 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromCache @ 0x14066A75C (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x14066AB20 (CmpQueryKeyDataFromNode.c)
  * Callees:
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpIsKeyDeleted @ 0x14071A6D4 (CmpIsKeyDeleted.c)
- *     CmEqualTrans @ 0x140721FD0 (CmEqualTrans.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     CmListGetNextElement @ 0x140AB4218 (CmListGetNextElement.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpIsKeyDeleted @ 0x140670F30 (CmpIsKeyDeleted.c)
+ *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
  */
 
 __int64 __fastcall CmGetVisibleMaxNameLenAndClassLen(
@@ -23,24 +20,20 @@ __int64 __fastcall CmGetVisibleMaxNameLenAndClassLen(
   unsigned int *v7; // rbx
   __int64 v9; // r14
   __int64 NextElement; // rax
-  __int64 v11; // r8
+  __int64 v11; // rdi
   __int64 v12; // rdi
-  __int64 v13; // rdi
-  ULONG_PTR v14; // rcx
-  __int64 CellFlat; // rax
-  __int64 v16; // rcx
-  unsigned int v17; // eax
-  unsigned int v18; // eax
-  __int64 v19; // rcx
-  int v20; // [rsp+48h] [rbp+10h] BYREF
-  int v21; // [rsp+4Ch] [rbp+14h]
-  __int64 v22; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v13; // rax
+  unsigned int v14; // ecx
+  unsigned int v15; // eax
+  int v16; // [rsp+48h] [rbp+10h] BYREF
+  int v17; // [rsp+4Ch] [rbp+14h]
+  __int64 v18; // [rsp+58h] [rbp+20h] BYREF
 
-  v20 = -1;
-  v22 = 0LL;
+  v16 = -1;
+  v18 = 0LL;
   v7 = a5;
   *a4 = 0;
-  v21 = 0;
+  v17 = 0;
   if ( v7 )
     *v7 = 0;
   if ( a2 )
@@ -57,39 +50,33 @@ __int64 __fastcall CmGetVisibleMaxNameLenAndClassLen(
       v9 = a1 + 208;
       while ( 1 )
       {
-        NextElement = CmListGetNextElement(v9, &v22, 32LL);
-        v12 = NextElement;
+        NextElement = CmListGetNextElement(v9, &v18, 32LL);
+        v11 = NextElement;
         if ( !NextElement )
           break;
-        if ( (unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), a3, v11) )
+        if ( (unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), a3) )
         {
-          if ( *(_DWORD *)(v12 + 68) == 1 )
+          if ( *(_DWORD *)(v11 + 68) == 1 )
           {
-            v13 = *(_QWORD *)(v12 + 88);
-            if ( !(unsigned __int8)CmpIsKeyDeleted(v13, 0LL) )
+            v12 = *(_QWORD *)(v11 + 88);
+            if ( !(unsigned __int8)CmpIsKeyDeleted(v12, 0LL) )
             {
-              v14 = *(_QWORD *)(v13 + 32);
-              if ( (*(_BYTE *)(v14 + 140) & 1) != 0 )
-                CellFlat = HvpGetCellFlat(v14, *(unsigned int *)(v13 + 40));
-              else
-                CellFlat = HvpGetCellPaged(v14);
-              v16 = CellFlat;
-              if ( !CellFlat )
+              v13 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, int *))(*(_QWORD *)(v12 + 32) + 8LL))(
+                      *(_QWORD *)(v12 + 32),
+                      *(unsigned int *)(v12 + 40),
+                      &v16);
+              if ( !v13 )
                 return 3221225626LL;
-              v17 = (unsigned __int16)*(_DWORD *)(CellFlat + 52);
-              if ( *a4 < v17 )
-                *a4 = v17;
+              v14 = (unsigned __int16)*(_DWORD *)(v13 + 52);
+              if ( *a4 < v14 )
+                *a4 = v14;
               if ( v7 )
               {
-                v18 = *(_DWORD *)(v16 + 56);
-                if ( *v7 < v18 )
-                  *v7 = v18;
+                v15 = *(_DWORD *)(v13 + 56);
+                if ( *v7 < v15 )
+                  *v7 = v15;
               }
-              v19 = *(_QWORD *)(v13 + 32);
-              if ( (*(_BYTE *)(v19 + 140) & 1) != 0 )
-                HvpReleaseCellFlat(v19, &v20);
-              else
-                HvpReleaseCellPaged(v19, &v20);
+              (*(void (__fastcall **)(_QWORD, int *))(*(_QWORD *)(v12 + 32) + 16LL))(*(_QWORD *)(v12 + 32), &v16);
             }
           }
         }

@@ -1,20 +1,19 @@
 /*
- * XREFs of ?Add@?$Set@VDMMVIDPNPRESENTPATH@@@@QEAAEQEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C0006E44
+ * XREFs of ?Add@?$Set@VDMMVIDPNPRESENTPATH@@@@QEAAEQEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C00093D4
  * Callers:
- *     ?AddPath@DMMVIDPNTOPOLOGY@@QEAAJPEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C019ABC0 (-AddPath@DMMVIDPNTOPOLOGY@@QEAAJPEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@.c)
+ *     ?AddPath@DMMVIDPNTOPOLOGY@@QEAAJPEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C012EF70 (-AddPath@DMMVIDPNTOPOLOGY@@QEAAJPEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@.c)
  * Callees:
- *     ?FindByValue@?$Set@VDMMVIDPNPRESENTPATH@@@@QEBAPEAVDMMVIDPNPRESENTPATH@@QEBV2@@Z @ 0x1C0006EB4 (-FindByValue@-$Set@VDMMVIDPNPRESENTPATH@@@@QEBAPEAVDMMVIDPNPRESENTPATH@@QEBV2@@Z.c)
- *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNPRESENTPATH@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNPRESENTPATH@@@@@@QEAAEQEBVDMMVIDPNPRESENTPATH@@@Z @ 0x1C0006F10 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNPRESENTPATH@@U-$DoubleLinkedListElementDeleter@.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?FindByValue@?$Set@VDMMVIDPNPRESENTPATH@@@@QEBAPEAVDMMVIDPNPRESENTPATH@@QEBV2@@Z @ 0x1C0009444 (-FindByValue@-$Set@VDMMVIDPNPRESENTPATH@@@@QEBAPEAVDMMVIDPNPRESENTPATH@@QEBV2@@Z.c)
+ *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNPRESENTPATH@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNPRESENTPATH@@@@@@QEAAEQEBVDMMVIDPNPRESENTPATH@@@Z @ 0x1C00094A0 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNPRESENTPATH@@U-$DoubleLinkedListElementDeleter@.c)
  */
 
 char __fastcall Set<DMMVIDPNPRESENTPATH>::Add(__int64 a1, __int64 a2)
 {
-  _QWORD *v4; // rdx
-  _QWORD *v5; // rax
-  int v7; // edx
-  int v8; // ecx
-  int v9; // r8d
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  _QWORD *v6; // rdx
+  _QWORD *v7; // rax
+  __int64 v9; // rax
 
   if ( Set<DMMVIDPNPRESENTPATH>::FindByValue() )
     return 0;
@@ -22,32 +21,20 @@ char __fastcall Set<DMMVIDPNPRESENTPATH>::Add(__int64 a1, __int64 a2)
                           a1 + 8,
                           a2) )
   {
-    WdLogSingleEntry1(1LL, 108LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v8,
-        v7,
-        v9,
-        0,
-        2,
-        -1,
-        (__int64)L"bInsertTailStatus == TRUE",
-        108LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+    v9 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v9 + 24) = 108LL;
+    WdLogEvent5_WdAssertion(v9);
   }
   else
   {
-    v4 = *(_QWORD **)(a1 + 32);
-    v5 = (_QWORD *)(a2 + 8);
-    if ( *v4 != a1 + 24 )
+    v6 = *(_QWORD **)(a1 + 32);
+    v7 = (_QWORD *)(a2 + 8);
+    if ( *v6 != a1 + 24 )
       __fastfail(3u);
-    *v5 = a1 + 24;
-    *(_QWORD *)(a2 + 16) = v4;
-    *v4 = v5;
-    *(_QWORD *)(a1 + 32) = v5;
+    *v7 = a1 + 24;
+    *(_QWORD *)(a2 + 16) = v6;
+    *v6 = v7;
+    *(_QWORD *)(a1 + 32) = v7;
     ++*(_QWORD *)(a1 + 40);
   }
   return 1;

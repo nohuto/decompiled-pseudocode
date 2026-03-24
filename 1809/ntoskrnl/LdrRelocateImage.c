@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrRelocateImage @ 0x14072A764
+ * XREFs of LdrRelocateImage @ 0x14072A744
  * Callers:
  *     MiRelocateBootImage @ 0x1409B82CC (MiRelocateBootImage.c)
  * Callees:
- *     LdrRelocateImageWithBias @ 0x14072A778 (LdrRelocateImageWithBias.c)
+ *     LdrRelocateImageWithBias @ 0x14072A758 (LdrRelocateImageWithBias.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

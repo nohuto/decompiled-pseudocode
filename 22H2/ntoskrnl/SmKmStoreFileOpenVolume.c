@@ -1,27 +1,27 @@
 /*
- * XREFs of SmKmStoreFileOpenVolume @ 0x1409DA478
+ * XREFs of SmKmStoreFileOpenVolume @ 0x14092CD24
  * Callers:
- *     SmKmEtwAppendProductName @ 0x1405CB41C (SmKmEtwAppendProductName.c)
- *     SmKmStoreFileCreate @ 0x1409D9774 (SmKmStoreFileCreate.c)
- *     SmcCacheStart @ 0x1409DAFCC (SmcCacheStart.c)
+ *     SmKmEtwAppendProductName @ 0x14059DD08 (SmKmEtwAppendProductName.c)
+ *     SmKmStoreFileCreate @ 0x14092C02C (SmKmStoreFileCreate.c)
+ *     SmcCacheStart @ 0x14092D880 (SmcCacheStart.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateFile @ 0x14041B140 (ZwCreateFile.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObQueryNameStringMode @ 0x14075BD04 (ObQueryNameStringMode.c)
+ *     IoSetThreadHardErrorMode @ 0x14024FB60 (IoSetThreadHardErrorMode.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateFile @ 0x1403FA4C0 (ZwCreateFile.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ObQueryNameStringMode @ 0x14070FFB0 (ObQueryNameStringMode.c)
  */
 
-__int64 __fastcall SmKmStoreFileOpenVolume(__int64 a1, _QWORD *a2, PDEVICE_OBJECT *a3)
+__int64 __fastcall SmKmStoreFileOpenVolume(__int64 a1, struct _DMA_ADAPTER **a2, PDEVICE_OBJECT *a3)
 {
   BOOLEAN v6; // si
   int v7; // edi
   NTSTATUS v8; // eax
-  PVOID v9; // rbx
+  struct _DMA_ADAPTER *v9; // rbx
   PDEVICE_OBJECT RelatedDeviceObject; // rax
   int v12; // [rsp+60h] [rbp-A0h] BYREF
   HANDLE FileHandle; // [rsp+68h] [rbp-98h] BYREF
@@ -49,19 +49,17 @@ __int64 __fastcall SmKmStoreFileOpenVolume(__int64 a1, _QWORD *a2, PDEVICE_OBJEC
     {
       Object = 0LL;
       v8 = ObReferenceObjectByHandle(FileHandle, 3u, 0LL, 0, &Object, 0LL);
-      v9 = Object;
+      v9 = (struct _DMA_ADAPTER *)Object;
       v7 = v8;
-      if ( v8 < 0 )
-      {
-        if ( Object )
-          ObfDereferenceObject(Object);
-      }
-      else
+      if ( v8 >= 0 )
       {
         RelatedDeviceObject = IoGetRelatedDeviceObject((PFILE_OBJECT)Object);
         *a2 = v9;
+        v9 = 0LL;
         *a3 = RelatedDeviceObject;
       }
+      if ( v9 )
+        HalPutDmaAdapter(v9);
     }
   }
   if ( FileHandle )

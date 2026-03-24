@@ -1,9 +1,9 @@
 /*
- * XREFs of XilCoreDeviceSlot_ClearDeviceContext @ 0x1C00112BC
+ * XREFs of XilCoreDeviceSlot_ClearDeviceContext @ 0x1C000A9B0
  * Callers:
- *     UsbDevice_DisableCompletion @ 0x1C0048760 (UsbDevice_DisableCompletion.c)
+ *     UsbDevice_DisableCompletion @ 0x1C0045DE4 (UsbDevice_DisableCompletion.c)
  * Callees:
- *     WPP_RECORDER_SF_qd @ 0x1C0014244 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0014518 (WPP_RECORDER_SF_qd.c)
  */
 
 _UNKNOWN **__fastcall XilCoreDeviceSlot_ClearDeviceContext(_QWORD *a1, int a2, unsigned int a3)
@@ -25,7 +25,7 @@ _UNKNOWN **__fastcall XilCoreDeviceSlot_ClearDeviceContext(_QWORD *a1, int a2, u
                           a2,
                           10,
                           10,
-                          (__int64)&WPP_cb7a5c278baa3da630509d7564b04261_Traceguids,
+                          (__int64)&WPP_57b4ec5b2a77395746dfb5e96c966fbd_Traceguids,
                           v5,
                           a3);
   }

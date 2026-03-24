@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vFill_rgbquads@XEPALOBJ@@QEAAXPEAUtagRGBQUAD@@KK@Z @ 0x1C0026464
+ * XREFs of ?vFill_rgbquads@XEPALOBJ@@QEAAXPEAUtagRGBQUAD@@KK@Z @ 0x1C01091AC
  * Callers:
- *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C0028378 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
- *     GreGetDIBColorTable @ 0x1C008A670 (GreGetDIBColorTable.c)
+ *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C007F448 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
+ *     GreGetDIBColorTable @ 0x1C00A9A60 (GreGetDIBColorTable.c)
  * Callees:
  *     <none>
  */
@@ -12,11 +12,10 @@ void __fastcall XEPALOBJ::vFill_rgbquads(XEPALOBJ *this, struct tagRGBQUAD *a2, 
   __int64 v4; // r11
   int v6; // eax
   unsigned int v7; // ecx
-  __int64 v8; // rax
+  __int64 v8; // r9
   __int64 v9; // r8
-  __int64 v10; // r9
-  int v11; // ecx
-  struct tagRGBQUAD v12; // [rsp+8h] [rbp+8h]
+  int v10; // ecx
+  struct tagRGBQUAD v11; // [rsp+8h] [rbp+8h]
 
   v4 = *(_QWORD *)this;
   v6 = *(_DWORD *)(*(_QWORD *)this + 24LL);
@@ -45,18 +44,17 @@ void __fastcall XEPALOBJ::vFill_rgbquads(XEPALOBJ *this, struct tagRGBQUAD *a2, 
       v7 = *(_DWORD *)(v4 + 28);
     if ( a3 < v7 )
     {
-      v8 = a3;
-      v12.rgbReserved = 0;
+      v8 = 4LL * a3;
+      v11.rgbReserved = 0;
       v9 = v7 - a3;
-      v10 = 4 * v8;
       do
       {
-        v11 = *(_DWORD *)(v10 + *(_QWORD *)(*(_QWORD *)this + 112LL));
-        v12.rgbRed = v11;
-        v10 += 4LL;
-        v12.rgbBlue = BYTE2(v11);
-        v12.rgbGreen = BYTE1(v11);
-        *a2++ = v12;
+        v10 = *(_DWORD *)(v8 + *(_QWORD *)(*(_QWORD *)this + 112LL));
+        v11.rgbRed = v10;
+        v8 += 4LL;
+        v11.rgbBlue = BYTE2(v10);
+        v11.rgbGreen = BYTE1(v10);
+        *a2++ = v11;
         --v9;
       }
       while ( v9 );

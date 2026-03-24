@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C02538D4
+ * XREFs of ?CreateDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C0256B5C
  * Callers:
- *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0254100 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
- *     ?PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C02545EC (-PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z.c)
+ *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0257390 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C02578C0 (-PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z.c)
  * Callees:
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C010C048 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
- *     GetUserHandedness @ 0x1C01E8E90 (GetUserHandedness.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5E60 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     GetUserHandedness @ 0x1C01EE890 (GetUserHandedness.c)
  */
 
 __int64 __fastcall InteractiveControlDevice::CreateDeadzone(
@@ -24,7 +24,8 @@ __int64 __fastcall InteractiveControlDevice::CreateDeadzone(
   int v12; // edx
   __int64 v13; // rcx
   int v14; // eax
-  __int64 v15; // rcx
+  struct InteractiveControlManager *v15; // rax
+  void **v16; // rcx
   __int64 i; // rsi
 
   v4 = *((_QWORD *)this + 30);
@@ -33,13 +34,13 @@ __int64 __fastcall InteractiveControlDevice::CreateDeadzone(
     return (unsigned int)-1073741811;
   if ( !*((_DWORD *)InteractiveControlManager::Instance() + 67) )
     return 0;
-  v8 = (_DWORD *)Win32AllocPoolZInit(24LL, 1819440195LL);
+  v8 = (_DWORD *)Win32AllocPool(24LL, 1819440195LL);
   v9 = v8;
   if ( !v8 )
     return (unsigned int)-1073741670;
   *v8 = 2;
   v8[4] = 1;
-  v10 = Win32AllocPoolZInit(24LL, 1819440195LL);
+  v10 = Win32AllocPool(24LL, 1819440195LL);
   *((_QWORD *)v9 + 1) = v10;
   if ( UserHandedness == 1 )
   {
@@ -48,14 +49,14 @@ __int64 __fastcall InteractiveControlDevice::CreateDeadzone(
       **((_DWORD **)v9 + 1) = *((_DWORD *)InteractiveControlManager::Instance() + 73);
       *(_DWORD *)(*((_QWORD *)v9 + 1) + 4LL) = *((_DWORD *)InteractiveControlManager::Instance() + 75);
       *(_DWORD *)(*((_QWORD *)v9 + 1) + 16LL) = 1;
-      *(_QWORD *)(*((_QWORD *)v9 + 1) + 8LL) = Win32AllocPoolZInit(
+      *(_QWORD *)(*((_QWORD *)v9 + 1) + 8LL) = Win32AllocPool(
                                                  8LL * *(unsigned int *)(*((_QWORD *)v9 + 1) + 16LL),
                                                  1819440195LL);
       if ( *(_QWORD *)(*((_QWORD *)v9 + 1) + 8LL) )
       {
         v11 = *((_DWORD *)InteractiveControlManager::Instance() + 77);
         **(_DWORD **)(*((_QWORD *)v9 + 1) + 8LL) = 0;
-        v12 = 100 * v11;
+        v12 = v11 * v11;
         v13 = *(_QWORD *)(*((_QWORD *)v9 + 1) + 8LL);
         v14 = 1;
 LABEL_15:
@@ -71,12 +72,13 @@ LABEL_15:
     **((_DWORD **)v9 + 1) = *((_DWORD *)InteractiveControlManager::Instance() + 69);
     *(_DWORD *)(*((_QWORD *)v9 + 1) + 4LL) = *((_DWORD *)InteractiveControlManager::Instance() + 71);
     *(_DWORD *)(*((_QWORD *)v9 + 1) + 16LL) = 1;
-    *(_QWORD *)(*((_QWORD *)v9 + 1) + 8LL) = Win32AllocPoolZInit(
+    *(_QWORD *)(*((_QWORD *)v9 + 1) + 8LL) = Win32AllocPool(
                                                8LL * *(unsigned int *)(*((_QWORD *)v9 + 1) + 16LL),
                                                1819440195LL);
     if ( *(_QWORD *)(*((_QWORD *)v9 + 1) + 8LL) )
     {
-      v12 = 100 * *((_DWORD *)InteractiveControlManager::Instance() + 77);
+      v15 = InteractiveControlManager::Instance();
+      v12 = *((_DWORD *)v15 + 77) * *((_DWORD *)v15 + 77);
       **(_DWORD **)(*((_QWORD *)v9 + 1) + 8LL) = 0;
       v13 = *(_QWORD *)(*((_QWORD *)v9 + 1) + 8LL);
       v14 = 0;
@@ -85,20 +87,20 @@ LABEL_15:
   }
   v7 = -1073741670;
 LABEL_16:
-  v15 = *((_QWORD *)v9 + 1);
-  if ( v15 )
+  v16 = (void **)*((_QWORD *)v9 + 1);
+  if ( v16 )
   {
     for ( i = 0LL; (unsigned int)i < v9[4]; i = (unsigned int)(i + 1) )
     {
-      v15 = *((_QWORD *)v9 + 1);
-      if ( *(_QWORD *)(v15 + 24 * i + 8) )
+      v16 = (void **)*((_QWORD *)v9 + 1);
+      if ( v16[3 * i + 1] )
       {
-        Win32FreePool(*(_QWORD *)(v15 + 24 * i + 8));
+        Win32FreePool(v16[3 * i + 1]);
         *(_QWORD *)(*((_QWORD *)v9 + 1) + 24 * i + 8) = 0LL;
-        v15 = *((_QWORD *)v9 + 1);
+        v16 = (void **)*((_QWORD *)v9 + 1);
       }
     }
-    Win32FreePool(v15);
+    Win32FreePool(v16);
     *((_QWORD *)v9 + 1) = 0LL;
   }
   Win32FreePool(v9);

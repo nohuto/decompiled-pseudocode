@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetVisual@CVisualReferenceControllerMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVCVisualMarshaler@2@PEA_N@Z @ 0x1C0009E7C
+ * XREFs of ?SetVisual@CVisualReferenceControllerMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVCVisualMarshaler@2@PEA_N@Z @ 0x1C009523C
  * Callers:
- *     ?SetReferenceProperty@CVisualReferenceControllerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0009E00 (-SetReferenceProperty@CVisualReferenceControllerMarshaler@DirectComposition@@UEAAJPEAVCApplicati.c)
+ *     ?SetReferenceProperty@CVisualReferenceControllerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00951C0 (-SetReferenceProperty@CVisualReferenceControllerMarshaler@DirectComposition@@UEAAJPEAVCApplicati.c)
  * Callees:
- *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C000B2B0 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
- *     ?GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPEAVCWeakReferenceBase@2@@Z @ 0x1C009BA0C (-GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPE.c)
+ *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C005FF10 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
+ *     ?GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPEAVCWeakReferenceBase@2@@Z @ 0x1C01D4D04 (-GetWeakReferenceBase@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@PEAPE.c)
  */
 
 __int64 __fastcall DirectComposition::CVisualReferenceControllerMarshaler::SetVisual(
@@ -21,7 +21,7 @@ __int64 __fastcall DirectComposition::CVisualReferenceControllerMarshaler::SetVi
   struct DirectComposition::CWeakReferenceBase *v13; // [rsp+40h] [rbp+8h] BYREF
 
   WeakReferenceBase = 0;
-  v6 = *((_QWORD *)this + 8);
+  v6 = *((_QWORD *)this + 7);
   if ( v6 )
     v9 = *(struct DirectComposition::CVisualMarshaler **)(v6 + 16);
   else
@@ -33,7 +33,7 @@ __int64 __fastcall DirectComposition::CVisualReferenceControllerMarshaler::SetVi
       DirectComposition::CApplicationChannel::ReleaseWeakReference(
         a2,
         (struct DirectComposition::CWeakReferenceBase *)v6);
-      *((_QWORD *)this + 8) = 0LL;
+      *((_QWORD *)this + 7) = 0LL;
     }
   }
   else
@@ -47,10 +47,10 @@ __int64 __fastcall DirectComposition::CVisualReferenceControllerMarshaler::SetVi
         return (unsigned int)WeakReferenceBase;
       v11 = v13;
     }
-    v12 = (struct DirectComposition::CWeakReferenceBase *)*((_QWORD *)this + 8);
+    v12 = (struct DirectComposition::CWeakReferenceBase *)*((_QWORD *)this + 7);
     if ( v12 )
       DirectComposition::CApplicationChannel::ReleaseWeakReference(a2, v12);
-    *((_QWORD *)this + 8) = v11;
+    *((_QWORD *)this + 7) = v11;
     *a4 = 1;
   }
   return (unsigned int)WeakReferenceBase;

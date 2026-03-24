@@ -1,17 +1,17 @@
 /*
- * XREFs of ?ProcessFrameInputPostTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18019F4CC
+ * XREFs of ?ProcessFrameInputPostTargeting@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180225B50
  * Callers:
- *     ?ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18019FA48 (-ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ *     ?ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180226008 (-ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  * Callees:
- *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x180031D98 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
- *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F2B9C (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ @ 0x18012D2E2 (-IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ.c)
- *     ?Lookup@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBA?AV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@AEBI@Z @ 0x18012D302 (-Lookup@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@V.c)
- *     ?Add@?$CArray@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@V?$CArrayEqualHelper@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@@@QEAAHAEBV?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@Z @ 0x18019DBFC (-Add@-$CArray@V-$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@V-$CArrayEqualHelper@V-$ComPtr@VCMa.c)
- *     ?OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@Z @ 0x18019F36C (-OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@.c)
- *     ?OnContactHoverDepart@CManipulationContext@@QEAAXI@Z @ 0x1801A4DD8 (-OnContactHoverDepart@CManipulationContext@@QEAAXI@Z.c)
+ *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x18004EDF4 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3444 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D42F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Add@?$CArray@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@V?$CArrayEqualHelper@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@@@QEAAHAEBV?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@Z @ 0x1802243D8 (-Add@-$CArray@V-$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@V-$CArrayEqualHelper@V-$ComPtr@VCMa.c)
+ *     ?IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ @ 0x180224D00 (-IsMousewheelFrame@CManipulationFrame@@QEBA_NXZ.c)
+ *     ?Lookup@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBA?AV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@AEBI@Z @ 0x180224D70 (-Lookup@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@V.c)
+ *     ?OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@Z @ 0x1802259F8 (-OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@.c)
+ *     ?OnContactHoverDepart@CManipulationContext@@QEAAXI@Z @ 0x1802349EC (-OnContactHoverDepart@CManipulationContext@@QEAAXI@Z.c)
  */
 
 void __fastcall CManipulationManager::ProcessFrameInputPostTargeting(
@@ -22,9 +22,9 @@ void __fastcall CManipulationManager::ProcessFrameInputPostTargeting(
   unsigned int v5; // esi
   bool IsMousewheelFrame; // r13
   __int64 v7; // rdx
-  __int64 v8; // r15
+  __int64 v8; // r14
   int v9; // eax
-  int *v10; // r14
+  int *v10; // r15
   CManipulationContext *v11; // rcx
   __int64 (__fastcall ***v12)(_QWORD); // rbx
   unsigned int v13; // eax
@@ -41,38 +41,38 @@ void __fastcall CManipulationManager::ProcessFrameInputPostTargeting(
     do
     {
       v8 = 248LL * v5;
-      v9 = *(_DWORD *)((char *)a2 + v8 + 380);
+      v9 = *(_DWORD *)((char *)a2 + v8 + 172);
       v10 = (int *)((char *)a2 + v8);
       if ( (v9 & 0x840000) != 0 || IsMousewheelFrame )
       {
         CMap<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>,CMapEqualHelper<unsigned int,Microsoft::WRL::ComPtr<CManipulationContext>>>::Lookup(
-          (__int64)this + 160,
-          &v17,
-          v10 + 93);
-        v12 = v17;
-        if ( v17 )
+          (__int64)this + 184,
+          &v16,
+          v10 + 41);
+        v12 = v16;
+        if ( v16 )
         {
-          ((__int64 (__fastcall *)(__int64 (__fastcall ***)(_QWORD), _QWORD))(*v17)[3])(v17, (unsigned int)v10[93]);
-          v13 = ConvertToInputType(*((_DWORD *)a2 + 92), *((_DWORD *)a2 + 95));
-          CManipulationManager::OnUp((__int64)this, v15, v10[93], v13, v12, 0, 0, v14);
+          ((void (__fastcall *)(__int64 (__fastcall ***)(_QWORD), _QWORD))(*v16)[3])(v16, (unsigned int)v10[41]);
+          v13 = ConvertToInputType(*((_DWORD *)a2 + 40), *((_DWORD *)a2 + 43));
+          CManipulationManager::OnUp((__int64)this, v15, v10[41], v13, v12, 0, 0, v14);
         }
-        Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v17);
+        Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v16);
       }
       else if ( (v9 & 2) == 0 )
       {
-        v11 = (CManipulationContext *)*((_QWORD *)this + 30);
+        v11 = (CManipulationContext *)*((_QWORD *)this + 33);
         if ( v11 )
-          CManipulationContext::OnContactHoverDepart(v11, v10[93]);
+          CManipulationContext::OnContactHoverDepart(v11, v10[41]);
       }
-      if ( !v4 && *(_QWORD *)((char *)a2 + v8 + 392) == -1LL )
+      if ( !v4 && *(_QWORD *)((char *)a2 + v8 + 184) == -1LL )
       {
-        v16 = (__int64 (__fastcall ***)(_QWORD))a2;
+        v17 = (__int64 (__fastcall ***)(_QWORD))a2;
         v4 = 1;
-        Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v16);
+        Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef(&v17);
         CArray<Microsoft::WRL::ComPtr<CManipulationFrame>,CArrayEqualHelper<Microsoft::WRL::ComPtr<CManipulationFrame>>>::Add(
-          (int *)this + 56,
-          &v16);
-        Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v16);
+          (char **)this + 31,
+          &v17);
+        (*(void (__fastcall **)(struct CManipulationFrame *))(*(_QWORD *)a2 + 8LL))(a2);
       }
       ++v5;
     }

@@ -1,18 +1,18 @@
 /*
- * XREFs of GreUpdateSpriteClipRgn @ 0x1C0084B9C
+ * XREFs of GreUpdateSpriteClipRgn @ 0x1C00BA4D8
  * Callers:
- *     xxxSetLayeredWindow @ 0x1C0082DD4 (xxxSetLayeredWindow.c)
- *     SelectWindowRgn @ 0x1C00847C0 (SelectWindowRgn.c)
+ *     xxxSetLayeredWindow @ 0x1C0035DC0 (xxxSetLayeredWindow.c)
+ *     SelectWindowRgn @ 0x1C0111AAC (SelectWindowRgn.c)
  * Callees:
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00228A4 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00228D8 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C0022938 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
- *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C0022A50 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0042D7C (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00495DC (--1DWMSPRITELOCK@@QEAA@XZ.c)
- *     ?vSpDwmFlushSpriteClipRgnChange@@YAXPEAVSFMLOGICALSURFACE@@@Z @ 0x1C0084E3C (-vSpDwmFlushSpriteClipRgnChange@@YAXPEAVSFMLOGICALSURFACE@@@Z.c)
- *     UserGetWindowRect @ 0x1C0084E98 (UserGetWindowRect.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?vSpDwmFlushSpriteClipRgnChange@@YAXPEAVSFMLOGICALSURFACE@@@Z @ 0x1C0017500 (-vSpDwmFlushSpriteClipRgnChange@@YAXPEAVSFMLOGICALSURFACE@@@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00B307C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BD148 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BD17C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00BDAE4 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00BE388 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00BE4A0 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
+ *     UserGetWindowRect @ 0x1C011F708 (UserGetWindowRect.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 void __fastcall GreUpdateSpriteClipRgn(__int64 a1, struct PDEVOBJ *a2, HRGN a3, int a4)
@@ -50,7 +50,7 @@ LABEL_26:
       goto LABEL_27;
     }
     PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v13, (struct _EX_PUSH_LOCK *)(v18 + 88));
-    v8 = *(_QWORD *)(v7 + 144);
+    v8 = *(_QWORD *)(v7 + 168);
     PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v12, (struct _EX_PUSH_LOCK *)(v8 + 256));
     if ( v19[0] && (unsigned int)UserGetWindowRect(*(_QWORD *)(v7 + 40), v16) )
     {
@@ -71,10 +71,10 @@ LABEL_26:
       v11.y = -v16[1];
       if ( RGNOBJ::bOffset((RGNOBJ *)&v10, &v11) )
       {
-        if ( (*(_DWORD *)(v7 + 140) & 0x20) != 0 )
+        if ( (*(_DWORD *)(v7 + 164) & 0x20) != 0 )
           RGNOBJ::vScale(
             &v10,
-            _mm_unpacklo_ps((__m128)*(unsigned int *)(v7 + 132), (__m128)*(unsigned int *)(v7 + 136)).m128_u64[0]);
+            _mm_unpacklo_ps((__m128)*(unsigned int *)(v7 + 156), (__m128)*(unsigned int *)(v7 + 160)).m128_u64[0]);
         *(_QWORD *)(v8 + 88) = v10;
         goto LABEL_20;
       }

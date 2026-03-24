@@ -1,288 +1,279 @@
 /*
- * XREFs of OSReadRegValue @ 0x1C008E6B0
+ * XREFs of OSReadRegValue @ 0x1C0097444
  * Callers:
- *     AMLIAddNextNamespaceOverrideObject @ 0x1C004A554 (AMLIAddNextNamespaceOverrideObject.c)
- *     ACPIInitGlobalHeapSize @ 0x1C00878C8 (ACPIInitGlobalHeapSize.c)
- *     ACPIRegReadAMLRegistryEntry @ 0x1C008D3EC (ACPIRegReadAMLRegistryEntry.c)
- *     ACPIRegReadEntireAcpiTable @ 0x1C008D6AC (ACPIRegReadEntireAcpiTable.c)
- *     ACPIRegReadEntireSimulatorAcpiTable @ 0x1C008D930 (ACPIRegReadEntireSimulatorAcpiTable.c)
- *     ACPIInitShutdownNotification @ 0x1C00936B0 (ACPIInitShutdownNotification.c)
- *     ACPIRootInitialize @ 0x1C0093778 (ACPIRootInitialize.c)
- *     ACPIThermalGetParameter @ 0x1C00959B4 (ACPIThermalGetParameter.c)
- *     AcpiDiagInitialize @ 0x1C00A71F8 (AcpiDiagInitialize.c)
- *     ACPIInitReadRegistryKeys @ 0x1C00A89A8 (ACPIInitReadRegistryKeys.c)
- *     ACPIInitializeAMLI @ 0x1C00A92E4 (ACPIInitializeAMLI.c)
- *     AMLIInitialize @ 0x1C00AAAC0 (AMLIInitialize.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C006498C (AMLIAddNextNamespaceOverrideObject.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008FCF0 (ACPIRegReadAMLRegistryEntry.c)
+ *     ACPIInitGlobalHeapSize @ 0x1C00977FC (ACPIInitGlobalHeapSize.c)
+ *     ACPIInitShutdownNotification @ 0x1C00978B8 (ACPIInitShutdownNotification.c)
+ *     ACPIThermalGetParameter @ 0x1C009B9BC (ACPIThermalGetParameter.c)
+ *     ACPIRegReadEntireAcpiTable @ 0x1C00B24BC (ACPIRegReadEntireAcpiTable.c)
+ *     ACPIRegReadEntireSimulatorAcpiTable @ 0x1C00B2740 (ACPIRegReadEntireSimulatorAcpiTable.c)
+ *     ACPIInitializeAMLI @ 0x1C00BCC5C (ACPIInitializeAMLI.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
+ *     ACPIInitReadRegistryKeys @ 0x1C00BD2FC (ACPIInitReadRegistryKeys.c)
+ *     AcpiDiagInitialize @ 0x1C00BDE98 (AcpiDiagInitialize.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
- *     OSOpenHandle @ 0x1C008DF20 (OSOpenHandle.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_LL @ 0x1C00170AC (WPP_RECORDER_SF_LL.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
  */
 
 __int64 __fastcall OSReadRegValue(PCSZ SourceString, void *a2, _BYTE *a3, unsigned int *a4)
 {
-  int v8; // edx
-  int v9; // ebx
-  NTSTATUS v11; // eax
-  int v12; // edx
-  NTSTATUS v13; // eax
-  int v14; // edx
-  unsigned int v15; // r13d
-  WCHAR *Pool2; // rdi
+  int v8; // ebx
+  NTSTATUS v9; // eax
+  unsigned int v10; // r13d
+  WCHAR *PoolWithTag; // rdi
   ULONG Length; // ebx
+  NTSTATUS v14; // eax
+  const WCHAR *v15; // r15
+  __int64 v16; // rsi
+  unsigned int v17; // ebx
   int v18; // edx
-  NTSTATUS v19; // eax
-  int v20; // edx
-  unsigned int v21; // eax
-  const WCHAR *v22; // r15
-  ULONG v23; // ecx
-  unsigned int v24; // ebx
-  ULONG v25; // esi
-  NTSTATUS v26; // eax
-  int v27; // edx
-  int v28; // edx
+  WCHAR v19; // cx
+  bool v20; // zf
+  NTSTATUS v21; // eax
+  unsigned int v22; // eax
   PULONG ResultLength; // [rsp+28h] [rbp-48h]
-  NTSTATUS v30; // [rsp+40h] [rbp-30h]
-  HANDLE Handle; // [rsp+48h] [rbp-28h] BYREF
-  struct _UNICODE_STRING ValueName; // [rsp+50h] [rbp-20h] BYREF
-  struct _STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
-  ULONG v34; // [rsp+A8h] [rbp+38h] BYREF
+  HANDLE KeyHandle; // [rsp+40h] [rbp-30h] BYREF
+  struct _UNICODE_STRING ValueName; // [rsp+48h] [rbp-28h] BYREF
+  struct _STRING DestinationString; // [rsp+58h] [rbp-18h] BYREF
+  ULONG v27; // [rsp+A8h] [rbp+38h] BYREF
 
-  Handle = 0LL;
-  v34 = 0;
+  KeyHandle = 0LL;
+  v27 = 0;
   DestinationString = 0LL;
   ValueName = 0LL;
   if ( a2 )
   {
-    Handle = a2;
+    KeyHandle = a2;
   }
   else
   {
-    v9 = OSOpenHandle(
+    v8 = OSOpenHandle(
            "\\Registry\\Machine\\System\\CurrentControlSet\\Services\\ACPI\\Parameters",
            0LL,
-           (__int64)&Handle);
-    if ( v9 < 0 || !Handle )
+           (__int64)&KeyHandle);
+    if ( v8 < 0 || !KeyHandle )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v8) = 2;
-        WPP_RECORDER_SF_d(
-          WPP_GLOBAL_Control->DeviceExtension,
-          v8,
-          11,
-          19,
-          (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-          v9);
-      }
-      return (unsigned int)v9;
+        WPP_RECORDER_SF_L(
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          2u,
+          0xBu,
+          0x13u,
+          (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+          v8);
+      return (unsigned int)v8;
     }
   }
   RtlInitAnsiString(&DestinationString, SourceString);
-  v11 = RtlAnsiStringToUnicodeString(&ValueName, &DestinationString, 1u);
-  v9 = v11;
-  if ( v11 < 0 )
+  v8 = RtlAnsiStringToUnicodeString(&ValueName, &DestinationString, 1u);
+  if ( v8 < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v12) = 2;
-      WPP_RECORDER_SF_d(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v12,
-        11,
-        20,
-        (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-        v11);
-    }
+      WPP_RECORDER_SF_L(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0xBu,
+        0x14u,
+        (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+        v8);
     if ( !a2 )
-      ZwClose(Handle);
-    return (unsigned int)v9;
+      ZwClose(KeyHandle);
+    return (unsigned int)v8;
   }
-  v13 = ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformationAlign64, 0LL, 0, &v34);
-  v15 = -2147483643;
-  v9 = v13;
-  if ( v13 != -2147483643 && v13 != -1073741789 )
+  v9 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformationAlign64, 0LL, 0, &v27);
+  v8 = v9;
+  v10 = -2147483643;
+  if ( v9 != -1073741789 && v9 != -2147483643 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LODWORD(ResultLength) = v13;
-      LOBYTE(v14) = 2;
-      WPP_RECORDER_SF_d(
-        WPP_GLOBAL_Control->DeviceExtension,
-        v14,
-        11,
-        21,
-        (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+      LODWORD(ResultLength) = v9;
+      WPP_RECORDER_SF_L(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0xBu,
+        0x15u,
+        (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
         ResultLength);
     }
     RtlFreeUnicodeString(&ValueName);
     if ( !a2 )
-      ZwClose(Handle);
-    if ( v9 >= 0 )
+      ZwClose(KeyHandle);
+    if ( v8 >= 0 )
       return (unsigned int)-1073741823;
-    return (unsigned int)v9;
+    return (unsigned int)v8;
   }
   while ( 1 )
   {
-    if ( v9 != -2147483643 )
+    if ( v8 != -2147483643 )
     {
-      Pool2 = 0LL;
-      if ( v9 != -1073741789 )
-        goto LABEL_34;
+      PoolWithTag = 0LL;
+      if ( v8 != -1073741789 )
+        goto LABEL_21;
     }
-    Length = v34;
-    Pool2 = (WCHAR *)ExAllocatePool2(256LL, v34, 1299211073LL);
-    if ( !Pool2 )
+    Length = v27;
+    PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, v27, 0x4D706341u);
+    if ( !PoolWithTag )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LODWORD(ResultLength) = v34;
-        LOBYTE(v18) = 2;
-        WPP_RECORDER_SF_d(
-          WPP_GLOBAL_Control->DeviceExtension,
-          v18,
-          22,
-          22,
-          (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+        LODWORD(ResultLength) = v27;
+        WPP_RECORDER_SF_L(
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          2u,
+          0x16u,
+          0x16u,
+          (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
           ResultLength);
       }
       RtlFreeUnicodeString(&ValueName);
       if ( !a2 )
-        ZwClose(Handle);
+        ZwClose(KeyHandle);
       return 3221225626LL;
     }
-    v19 = ZwQueryValueKey(Handle, &ValueName, KeyValuePartialInformationAlign64, Pool2, Length, &v34);
-    v9 = v19;
-    if ( v19 != -2147483643 && v19 != -1073741789 )
+    v14 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformationAlign64, PoolWithTag, Length, &v27);
+    v8 = v14;
+    if ( v14 != -2147483643 && v14 != -1073741789 )
       break;
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
-  if ( v19 >= 0 )
+  if ( v14 < 0 )
   {
-LABEL_34:
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LODWORD(ResultLength) = v14;
+      WPP_RECORDER_SF_L(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0x15u,
+        0x17u,
+        (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+        ResultLength);
+    }
     RtlFreeUnicodeString(&ValueName);
     if ( !a2 )
-      ZwClose(Handle);
-    if ( *(_DWORD *)Pool2 == 1 || *(_DWORD *)Pool2 == 7 )
+      ZwClose(KeyHandle);
+    ExFreePoolWithTag(PoolWithTag, 0);
+    return (unsigned int)v8;
+  }
+LABEL_21:
+  RtlFreeUnicodeString(&ValueName);
+  if ( !a2 )
+    ZwClose(KeyHandle);
+  if ( *(_DWORD *)PoolWithTag == 1 || *(_DWORD *)PoolWithTag == 7 )
+  {
+    v15 = PoolWithTag + 4;
+    LODWORD(v16) = (v27 - 8) >> 1;
+    v17 = 0;
+    if ( !(_DWORD)v16 )
+      goto LABEL_67;
+    while ( 1 )
     {
-      v22 = Pool2 + 4;
-      v23 = (v34 - 8) >> 1;
-      v24 = 0;
-      if ( v23 )
+      v18 = v16;
+      v16 = (unsigned int)(v16 - 1);
+      v19 = v15[v16];
+      v20 = v19 == 0;
+      if ( !v19 )
+        break;
+      if ( !(_DWORD)v16 )
       {
-        while ( 1 )
+        v20 = v19 == 0;
+        break;
+      }
+    }
+    if ( v20 )
+      LODWORD(v16) = v18;
+    if ( (_DWORD)v16 )
+    {
+      while ( *v15 )
+      {
+        RtlInitUnicodeString(&ValueName, v15);
+        v21 = RtlUnicodeStringToAnsiString(&DestinationString, &ValueName, 1u);
+        v10 = v21;
+        if ( v21 < 0 )
         {
-          v25 = v23--;
-          if ( !v22[v23] )
-            break;
-          if ( !v23 )
-            goto LABEL_54;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LODWORD(ResultLength) = v21;
+            WPP_RECORDER_SF_L(
+              (__int64)WPP_GLOBAL_Control->DeviceExtension,
+              2u,
+              0x16u,
+              0x18u,
+              (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+              ResultLength);
+          }
+          goto LABEL_66;
         }
-        do
+        v17 += DestinationString.MaximumLength;
+        if ( *a4 >= v17 )
         {
-          if ( !*v22 )
-            break;
-          RtlInitUnicodeString(&ValueName, v22);
-          v26 = RtlUnicodeStringToAnsiString(&DestinationString, &ValueName, 1u);
-          v30 = v26;
-          if ( v26 < 0 )
-          {
-            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              LODWORD(ResultLength) = v26;
-              LOBYTE(v27) = 2;
-              WPP_RECORDER_SF_d(
-                WPP_GLOBAL_Control->DeviceExtension,
-                v27,
-                22,
-                24,
-                (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-                ResultLength);
-              v26 = v30;
-            }
-            v15 = v26;
-            goto LABEL_66;
-          }
-          v24 += DestinationString.MaximumLength;
-          if ( *a4 >= v24 )
-          {
-            memmove(a3, DestinationString.Buffer, DestinationString.MaximumLength);
-            a3 += DestinationString.MaximumLength;
-          }
-          RtlFreeAnsiString(&DestinationString);
-          v25 -= ValueName.Length >> 1;
-          v22 += (unsigned __int64)ValueName.Length >> 1;
-          if ( *(_DWORD *)Pool2 == 7 )
-          {
-            if ( !v25 )
-              break;
-            ++v22;
-            --v25;
-          }
+          memmove(a3, DestinationString.Buffer, DestinationString.MaximumLength);
+          a3 += DestinationString.MaximumLength;
         }
-        while ( v25 );
-        if ( v24 )
-          goto LABEL_56;
+        RtlFreeAnsiString(&DestinationString);
+        LODWORD(v16) = v16 - (ValueName.Length >> 1);
+        v15 += (unsigned __int64)ValueName.Length >> 1;
+        if ( *(_DWORD *)PoolWithTag == 7 )
+        {
+          if ( !(_DWORD)v16 )
+            break;
+          ++v15;
+          LODWORD(v16) = v16 - 1;
+        }
+        if ( !(_DWORD)v16 )
+          break;
       }
-LABEL_54:
-      v24 = 1;
-      if ( *a4 )
-        *a3++ = 0;
-LABEL_56:
-      if ( *(_DWORD *)Pool2 == 7 && *a4 >= ++v24 )
-        *a3 = 0;
-      ExFreePoolWithTag(Pool2, 0);
-      if ( *a4 >= v24 )
-      {
-        *a4 = v24;
-        return 0LL;
-      }
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v28) = 2;
-        WPP_RECORDER_SF_DD(
-          WPP_GLOBAL_Control->DeviceExtension,
-          v28,
-          11,
-          25,
-          (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-          *a4,
-          v24);
-      }
-      *a4 = v24;
+      v10 = -2147483643;
+      if ( !v17 )
+        goto LABEL_67;
     }
     else
     {
-      v21 = *((_DWORD *)Pool2 + 1);
-      if ( *a4 >= v21 )
-      {
-        memmove(a3, Pool2 + 4, v21);
-        *a4 = *((_DWORD *)Pool2 + 1);
-        ExFreePoolWithTag(Pool2, 0);
-        return 0LL;
-      }
-      *a4 = v21;
-LABEL_66:
-      ExFreePoolWithTag(Pool2, 0);
+LABEL_67:
+      v17 = 1;
+      if ( *a4 )
+        *a3++ = 0;
     }
-    return v15;
+    if ( *(_DWORD *)PoolWithTag == 7 && *a4 >= ++v17 )
+      *a3 = 0;
+    ExFreePoolWithTag(PoolWithTag, 0);
+    if ( *a4 >= v17 )
+    {
+      *a4 = v17;
+      return 0LL;
+    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LODWORD(ResultLength) = *a4;
+      WPP_RECORDER_SF_LL(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        0xBu,
+        0x19u,
+        (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
+        ResultLength,
+        v17);
+    }
+    *a4 = v17;
   }
-  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  else
   {
-    LODWORD(ResultLength) = v19;
-    LOBYTE(v20) = 2;
-    WPP_RECORDER_SF_d(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v20,
-      21,
-      23,
-      (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
-      ResultLength);
+    v22 = *((_DWORD *)PoolWithTag + 1);
+    if ( *a4 >= v22 )
+    {
+      memmove(a3, PoolWithTag + 4, v22);
+      *a4 = *((_DWORD *)PoolWithTag + 1);
+      ExFreePoolWithTag(PoolWithTag, 0);
+      return 0LL;
+    }
+    *a4 = v22;
+LABEL_66:
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
-  RtlFreeUnicodeString(&ValueName);
-  if ( !a2 )
-    ZwClose(Handle);
-  ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)v9;
+  return v10;
 }

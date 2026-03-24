@@ -1,10 +1,9 @@
 /*
- * XREFs of FastZeroMemory @ 0x1C00A33A0
+ * XREFs of FastZeroMemory @ 0x1C0077E10
  * Callers:
- *     ?ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C00A32BC (-ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
+ *     ?ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C0077D30 (-ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     memset @ 0x1C001DC40 (memset.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
  */
 
 __int64 __fastcall FastZeroMemory(__m128i *a1, size_t Size)

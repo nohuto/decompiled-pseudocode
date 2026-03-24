@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhFdoDevicePowerState @ 0x1C0005910
+ * XREFs of UsbhFdoDevicePowerState @ 0x1C00101B0
  * Callers:
- *     UsbhFdoPower_SetPower @ 0x1C0004020 (UsbhFdoPower_SetPower.c)
+ *     UsbhFdoPower_SetPower @ 0x1C001AA90 (UsbhFdoPower_SetPower.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhFdoSetPowerDx_Action @ 0x1C0009A20 (UsbhFdoSetPowerDx_Action.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhEtwLogHubPowerEvent @ 0x1C000C730 (UsbhEtwLogHubPowerEvent.c)
- *     UsbhFdoSetPowerD0_Action @ 0x1C000CD2C (UsbhFdoSetPowerD0_Action.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhReleaseFdoPwrLock @ 0x1C00313A8 (UsbhReleaseFdoPwrLock.c)
- *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003BE4C (UsbhPoStartNextPowerIrp_Fdo.c)
- *     UsbhSetFdoPowerState @ 0x1C003BF08 (UsbhSetFdoPowerState.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000F880 (UsbhFdoSetPowerDx_Action.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhEtwLogHubPowerEvent @ 0x1C0012210 (UsbhEtwLogHubPowerEvent.c)
+ *     UsbhFdoSetPowerD0_Action @ 0x1C0012C98 (UsbhFdoSetPowerD0_Action.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0018364 (UsbhReleaseFdoPwrLock.c)
+ *     UsbhSetFdoPowerState @ 0x1C001CE0C (UsbhSetFdoPowerState.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003D17C (UsbhPoStartNextPowerIrp_Fdo.c)
  */
 
 NTSTATUS __fastcall UsbhFdoDevicePowerState(struct _DEVICE_OBJECT *a1, IRP *a2)
@@ -21,23 +21,23 @@ NTSTATUS __fastcall UsbhFdoDevicePowerState(struct _DEVICE_OBJECT *a1, IRP *a2)
   _IO_STACK_LOCATION *CurrentStackLocation; // rdx
   char *DeviceExtension; // rdi
   __int64 v6; // rcx
-  int LowPart; // r14d
+  __int64 LowPart; // r14
   NTSTATUS v8; // eax
-  NTSTATUS v9; // ebx
+  __int64 v9; // rbx
   char *v10; // rbx
   char *v11; // rsi
-  __int64 v12; // rax
+  _DWORD *v12; // rax
   __int64 v13; // rdx
-  __int64 v14; // rax
+  _DWORD *v14; // rax
   __int64 v15; // rcx
-  __int64 v16; // rbx
+  _DWORD *v16; // rbx
   KIRQL v17; // dl
   __int16 v19; // r9
-  __int64 v20; // rax
+  _DWORD *v20; // rax
   __int64 v21; // rdx
-  __int64 v22; // rax
+  _DWORD *v22; // rax
   __int64 v23; // rcx
-  __int64 v24; // rbx
+  _DWORD *v24; // rbx
   KIRQL v25; // dl
   _IO_STACK_LOCATION *v26; // rax
 
@@ -60,8 +60,8 @@ NTSTATUS __fastcall UsbhFdoDevicePowerState(struct _DEVICE_OBJECT *a1, IRP *a2)
     *(_QWORD *)(v6 + 16) = 0LL;
     *(_QWORD *)(v6 + 24) = a2;
   }
-  LowPart = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
-  if ( LowPart != 1 )
+  LowPart = (int)CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
+  if ( (_DWORD)LowPart != 1 )
   {
     v8 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(DeviceExtension + 1224), a2, File, 1u, 0x20u);
     v9 = v8;
@@ -69,7 +69,7 @@ NTSTATUS __fastcall UsbhFdoDevicePowerState(struct _DEVICE_OBJECT *a1, IRP *a2)
     {
       a2->IoStatus.Status = v8;
       UsbhPoStartNextPowerIrp_Fdo(a1, a2, 2881LL);
-      Log((_DWORD)a1, 16, 1348761121, v9, (__int64)a2);
+      Log((__int64)a1, 16, 1348761121, v9, (__int64)a2);
       IofCompleteRequest(a2, 0);
       return v9;
     }
@@ -88,9 +88,9 @@ LABEL_32:
   *((_DWORD *)v10 + 355) = 1937139044;
   *((_QWORD *)v10 + 176) = KeGetCurrentThread();
   *((_QWORD *)v10 + 168) = v10 + 1384;
-  if ( LowPart == 1 )
+  if ( (_DWORD)LowPart == 1 )
   {
-    Log((_DWORD)a1, 16, 1348420656, 0, (__int64)a2);
+    Log((__int64)a1, 16, 1348420656, 0LL, (__int64)a2);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
       && LOWORD(WPP_GLOBAL_Control->DeviceType) != v19 )
     {
@@ -102,31 +102,31 @@ LABEL_32:
         (__int64)&WPP_fe7d9686e7a73592f5b78ddce8c5363a_Traceguids);
     }
     UsbhEtwLogHubPowerEvent(a1, a2, 0LL, &USBHUB_ETW_EVENT_HUB_POWER_SET_D0_DISPATCH, 1, 0);
-    v20 = FdoExt(a1);
-    v21 = ((unsigned __int8)*(_DWORD *)(v20 + 828) + 1) & 7;
-    *(_DWORD *)(v20 + 828) = v21;
+    v20 = FdoExt((__int64)a1);
+    v21 = ((unsigned __int8)v20[207] + 1) & 7;
+    v20[207] = v21;
     v21 *= 32LL;
-    *(_DWORD *)(v21 + v20 + 284) = 107;
-    *(_DWORD *)(v21 + v20 + 288) = *(_DWORD *)(v20 + 4172);
-    *(_QWORD *)(v21 + v20 + 292) = 211LL;
-    *(_DWORD *)(v20 + 4172) = 211;
-    v22 = FdoExt(a1);
+    *(_DWORD *)((char *)v20 + v21 + 284) = 107;
+    *(_DWORD *)((char *)v20 + v21 + 288) = v20[1043];
+    *(_QWORD *)((char *)v20 + v21 + 292) = 211LL;
+    v20[1043] = 211;
+    v22 = FdoExt((__int64)a1);
     v23 = *((_QWORD *)v10 + 174);
     v24 = v22;
     FdoExt(v23);
     *((_DWORD *)v11 + 8) = 1734964085;
-    v25 = *(_BYTE *)(v24 + 5064);
-    *(_QWORD *)(v24 + 1344) = 0LL;
-    KeReleaseSpinLock((PKSPIN_LOCK)(v24 + 5056), v25);
+    v25 = *((_BYTE *)v24 + 5064);
+    *((_QWORD *)v24 + 168) = 0LL;
+    KeReleaseSpinLock((PKSPIN_LOCK)v24 + 632, v25);
     return UsbhFdoSetPowerD0_Action(a1, v11, a2);
   }
   else
   {
-    if ( LowPart >= 2 )
+    if ( (int)LowPart >= 2 )
     {
-      if ( LowPart <= 3 )
+      if ( (int)LowPart <= 3 )
       {
-        Log((_DWORD)a1, 16, 1348420728, LowPart, (__int64)a2);
+        Log((__int64)a1, 16, 1348420728, LowPart, (__int64)a2);
         UsbhEtwLogHubPowerEvent(a1, a2, 0LL, &USBHUB_ETW_EVENT_HUB_POWER_SET_DX_DISPATCH, LowPart, 0);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
           WPP_RECORDER_SF_d(
@@ -136,13 +136,13 @@ LABEL_32:
             24,
             (__int64)&WPP_fe7d9686e7a73592f5b78ddce8c5363a_Traceguids,
             LowPart);
-        UsbhSetFdoPowerState(a1, 1LL, 204LL);
+        UsbhSetFdoPowerState(a1, 1LL, 204LL, 106LL);
         UsbhReleaseFdoPwrLock(a1, v10 + 1384);
-        return UsbhFdoSetPowerDx_Action(a1);
+        return UsbhFdoSetPowerDx_Action(a1, *((_QWORD *)DeviceExtension + 114), a2);
       }
-      if ( LowPart == 4 )
+      if ( (_DWORD)LowPart == 4 )
       {
-        Log((_DWORD)a1, 16, 1348420728, 4, (__int64)a2);
+        Log((__int64)a1, 16, 1348420728, 4LL, (__int64)a2);
         UsbhEtwLogHubPowerEvent(a1, a2, 0LL, &USBHUB_ETW_EVENT_HUB_POWER_SET_DX_DISPATCH, 4, 0);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
@@ -155,23 +155,23 @@ LABEL_32:
               (__int64)&WPP_fe7d9686e7a73592f5b78ddce8c5363a_Traceguids,
               4);
         }
-        v12 = FdoExt(a1);
-        v13 = ((unsigned __int8)*(_DWORD *)(v12 + 828) + 1) & 7;
-        *(_DWORD *)(v12 + 828) = v13;
+        v12 = FdoExt((__int64)a1);
+        v13 = ((unsigned __int8)v12[207] + 1) & 7;
+        v12[207] = v13;
         v13 *= 32LL;
-        *(_DWORD *)(v13 + v12 + 284) = 105;
-        *(_DWORD *)(v13 + v12 + 288) = *(_DWORD *)(v12 + 4172);
-        *(_QWORD *)(v13 + v12 + 292) = 204LL;
-        *(_DWORD *)(v12 + 4172) = 204;
-        v14 = FdoExt(a1);
+        *(_DWORD *)((char *)v12 + v13 + 284) = 105;
+        *(_DWORD *)((char *)v12 + v13 + 288) = v12[1043];
+        *(_QWORD *)((char *)v12 + v13 + 292) = 204LL;
+        v12[1043] = 204;
+        v14 = FdoExt((__int64)a1);
         v15 = *((_QWORD *)v10 + 174);
         v16 = v14;
         FdoExt(v15);
         *((_DWORD *)v11 + 8) = 1734964085;
-        v17 = *(_BYTE *)(v16 + 5064);
-        *(_QWORD *)(v16 + 1344) = 0LL;
-        KeReleaseSpinLock((PKSPIN_LOCK)(v16 + 5056), v17);
-        return UsbhFdoSetPowerDx_Action(a1);
+        v17 = *((_BYTE *)v16 + 5064);
+        *((_QWORD *)v16 + 168) = 0LL;
+        KeReleaseSpinLock((PKSPIN_LOCK)v16 + 632, v17);
+        return UsbhFdoSetPowerDx_Action(a1, *((_QWORD *)DeviceExtension + 114), a2);
       }
     }
     UsbhReleaseFdoPwrLock(a1, v10 + 1384);

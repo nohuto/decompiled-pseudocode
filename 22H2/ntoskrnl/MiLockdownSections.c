@@ -1,22 +1,22 @@
 /*
- * XREFs of MiLockdownSections @ 0x1407059B4
+ * XREFs of MiLockdownSections @ 0x14075DD54
  * Callers:
- *     MiConstructLoaderEntry @ 0x140704A3C (MiConstructLoaderEntry.c)
- *     MiInitializeLoadedModuleList @ 0x140B5FD1C (MiInitializeLoadedModuleList.c)
+ *     MiConstructLoaderEntry @ 0x14075D5C0 (MiConstructLoaderEntry.c)
+ *     MiInitializeLoadedModuleList @ 0x140A55E9C (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
- *     MiUnlockLoaderEntry @ 0x140291FB8 (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x140292044 (MiLockLoaderEntry.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
+ *     MiUnlockLoaderEntry @ 0x140358A50 (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x140358C88 (MiLockLoaderEntry.c)
  */
 
-int __fastcall MiLockdownSections(__int64 a1)
+char __fastcall MiLockdownSections(__int64 a1)
 {
   __int64 v1; // r15
   __int64 v2; // rsi
   int v3; // ebx
-  int result; // eax
+  int SystemRegionType; // eax
   int v5; // edi
   __int64 v6; // rbx
   __int64 v7; // r14
@@ -30,17 +30,17 @@ int __fastcall MiLockdownSections(__int64 a1)
   v1 = *(_QWORD *)(a1 + 48);
   v2 = a1 + 160;
   v3 = 0;
-  if ( (MiFlags & 0x8000) != 0 && (!*(_QWORD *)(a1 + 112) || (*(_DWORD *)(a1 + 196) & 2) != 0) )
+  if ( (MiFlags & 0x10000) != 0 && (!*(_QWORD *)(a1 + 112) || (*(_DWORD *)(a1 + 196) & 2) != 0) )
     v3 = 2;
-  result = MiGetSystemRegionType(*(_QWORD *)(a1 + 48));
+  SystemRegionType = MiGetSystemRegionType(*(_QWORD *)(a1 + 48));
   v5 = v3 | 1;
-  if ( result == 1 )
+  if ( SystemRegionType == 1 )
     v5 = v3;
   if ( v5 )
   {
     v6 = RtlImageNtHeader(v1);
     v7 = *(unsigned __int16 *)(v6 + 20) + 60LL;
-    MiLockLoaderEntry(v2, 0);
+    MiLockLoaderEntry(v2, 0LL);
     v8 = *(unsigned __int16 *)(v6 + 6);
     v9 = *(RTL_BITMAP **)(v2 + 112);
     if ( *(_WORD *)(v6 + 6) )
@@ -69,7 +69,7 @@ int __fastcall MiLockdownSections(__int64 a1)
       }
       while ( v8 > 0 );
     }
-    return MiUnlockLoaderEntry(v2, 0);
+    LOBYTE(SystemRegionType) = MiUnlockLoaderEntry(v2, 0);
   }
-  return result;
+  return SystemRegionType;
 }

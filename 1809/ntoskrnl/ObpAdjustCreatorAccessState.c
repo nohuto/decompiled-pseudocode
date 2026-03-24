@@ -5,13 +5,13 @@
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
  * Callees:
  *     SeComputeCreatorDeniedRights @ 0x14004D520 (SeComputeCreatorDeniedRights.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
  *     ObpReferenceSecurityDescriptor @ 0x1405C9750 (ObpReferenceSecurityDescriptor.c)
  *     SePrivilegeCheck @ 0x14062A1D0 (SePrivilegeCheck.c)
  *     SePrivilegedServiceAuditAlarm @ 0x14062CE68 (SePrivilegedServiceAuditAlarm.c)
- *     RtlMapGenericMask @ 0x14063ED50 (RtlMapGenericMask.c)
- *     SeAppendPrivileges @ 0x140699A40 (SeAppendPrivileges.c)
+ *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
+ *     SeAppendPrivileges @ 0x140699A20 (SeAppendPrivileges.c)
  */
 
 __int64 __fastcall ObpAdjustCreatorAccessState(PACCESS_STATE AccessState, KPROCESSOR_MODE a2, __int64 a3, __int64 a4)

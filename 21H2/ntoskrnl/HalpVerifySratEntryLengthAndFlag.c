@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpVerifySratEntryLengthAndFlag @ 0x140B4CC80
+ * XREFs of HalpVerifySratEntryLengthAndFlag @ 0x140A8D690
  * Callers:
- *     HalpNumaInitializeStaticConfiguration @ 0x140AFA274 (HalpNumaInitializeStaticConfiguration.c)
- *     HalpGetNumaProcMemoryCount @ 0x140B4C3F8 (HalpGetNumaProcMemoryCount.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140A63EE0 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140A8CEAC (HalpGetNumaProcMemoryCount.c)
  * Callees:
  *     <none>
  */

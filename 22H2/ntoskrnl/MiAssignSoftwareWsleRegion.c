@@ -1,77 +1,72 @@
 /*
- * XREFs of MiAssignSoftwareWsleRegion @ 0x14039B11C
+ * XREFs of MiAssignSoftwareWsleRegion @ 0x1403B6B00
  * Callers:
- *     MiInitializeSystemVa @ 0x140B635F8 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x140A4F300 (MiInitializeSystemVa.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     RtlFindClearBitsAndSet @ 0x140295D80 (RtlFindClearBitsAndSet.c)
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     RtlFindClearBitsAndSet @ 0x1402509C0 (RtlFindClearBitsAndSet.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall MiAssignSoftwareWsleRegion(__int64 a1, unsigned __int64 a2)
 {
-  unsigned int v4; // edi
-  unsigned __int64 v5; // rbx
+  unsigned __int64 v4; // rbx
+  unsigned int i; // edi
   unsigned __int64 v6; // rsi
-  unsigned __int64 v7; // r14
-  _QWORD *v8; // rbx
-  __int64 v9; // rdi
-  __int16 v10; // ax
+  _QWORD *v7; // rbx
+  __int64 v8; // rdi
+  __int16 v9; // ax
   __int64 result; // rax
-  RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-49h] BYREF
-  int v13; // [rsp+38h] [rbp-39h]
-  _DWORD v14[9]; // [rsp+3Ch] [rbp-35h] BYREF
-  __int64 v15; // [rsp+60h] [rbp-11h]
-  _BYTE v16[64]; // [rsp+68h] [rbp-9h] BYREF
+  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-49h] BYREF
+  int v12; // [rsp+30h] [rbp-39h]
+  _DWORD v13[9]; // [rsp+34h] [rbp-35h] BYREF
+  __int64 v14; // [rsp+58h] [rbp-11h]
+  signed __int32 v15[16]; // [rsp+60h] [rbp-9h] BYREF
 
-  memset(v14, 0, 12);
-  memset(&v14[6], 0, 12);
-  *(_QWORD *)&BitMapHeader.SizeOfBitMap = 512LL;
-  memset(v16, 0, sizeof(v16));
-  BitMapHeader.Buffer = (unsigned int *)v16;
+  *(&BitMapHeader.SizeOfBitMap + 1) = 0;
+  memset(v13, 0, 12);
+  memset(&v13[6], 0, 12);
+  memset(v15, 0, sizeof(v15));
+  BitMapHeader.SizeOfBitMap = 512;
+  BitMapHeader.Buffer = (unsigned int *)v15;
   if ( (MI_READ_PTE_LOCK_FREE(8 * ((a2 >> 39) & 0x1FF) - 0x90482413000LL) & 1) != 0 )
   {
-    v4 = 0;
-    v5 = (__int64)((8 * ((a2 >> 39) & 0x1FF) - 0x90482413000LL) << 25) >> 16;
-    v6 = 0LL;
-    do
+    v4 = (__int64)((8 * ((a2 >> 39) & 0x1FF) - 0x90482413000LL) << 25) >> 16;
+    for ( i = 0; i < 0x200; ++i )
     {
-      if ( MI_READ_PTE_LOCK_FREE(v5) )
-        v16[v6 >> 3] |= 1 << (v4 & 7);
-      v5 += 8LL;
-      ++v4;
-      ++v6;
+      if ( MI_READ_PTE_LOCK_FREE(v4) )
+        _bittestandset(v15, i);
+      v4 += 8LL;
     }
-    while ( v4 < 0x200 );
   }
-  v14[5] = 1;
-  v7 = a2 & 0xFFFFFF8000000000uLL;
-  v8 = &v14[1];
-  v13 = 0;
-  *(_QWORD *)&v14[3] = 0x1000000000LL;
-  v9 = 2LL;
-  v15 = 0x80000000LL;
+  v13[5] = 1;
+  v6 = a2 & 0xFFFFFF8000000000uLL;
+  v7 = &v13[1];
+  v12 = 0;
+  *(_QWORD *)&v13[3] = 0x1000000000LL;
+  v8 = 2LL;
+  v14 = 0x80000000LL;
   do
   {
-    v10 = ExGenRandom(1);
-    *v8 = v7
+    v9 = ExGenRandom(1);
+    *v7 = v6
         + ((unsigned __int64)RtlFindClearBitsAndSet(
                                &BitMapHeader,
-                               ((unsigned __int64)(v8[1] + 0x3FFFFFFFLL) >> 30) + 1,
-                               v10 & 0x1FF) << 30);
-    v8 += 3;
-    --v9;
+                               ((unsigned __int64)(v7[1] + 0x3FFFFFFFLL) >> 30) + 1,
+                               v9 & 0x1FF) << 30);
+    v7 += 3;
+    --v8;
   }
-  while ( v9 );
-  qword_140C67138 = *(_QWORD *)&v14[1];
-  qword_140C67140 = *(_QWORD *)&v14[1];
-  qword_140C67148 = *(_QWORD *)&v14[1];
-  qword_140C67058 = v15;
-  qword_140C67050 = *(_QWORD *)&v14[7];
-  *(_QWORD *)(*(_QWORD *)(a1 + 240) + 2960LL) = *(_QWORD *)&v14[7];
-  result = qword_140C67058;
-  *(_QWORD *)(*(_QWORD *)(a1 + 240) + 2968LL) = qword_140C67058;
+  while ( v8 );
+  qword_140C4E330 = *(_QWORD *)&v13[1];
+  qword_140C4E338 = *(_QWORD *)&v13[1];
+  qword_140C4E340 = *(_QWORD *)&v13[1];
+  qword_140C4E250 = v14;
+  qword_140C4E248 = *(_QWORD *)&v13[7];
+  *(_QWORD *)(*(_QWORD *)(a1 + 240) + 2928LL) = *(_QWORD *)&v13[7];
+  result = qword_140C4E250;
+  *(_QWORD *)(*(_QWORD *)(a1 + 240) + 2936LL) = qword_140C4E250;
   return result;
 }

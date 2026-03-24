@@ -1,13 +1,13 @@
 /*
- * XREFs of SkipDIB_CY @ 0x1C02647C0
+ * XREFs of SkipDIB_CY @ 0x1C026C400
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     GetFixupScan @ 0x1C0158C70 (GetFixupScan.c)
- *     AlphaBlendBGRF @ 0x1C025DB34 (AlphaBlendBGRF.c)
- *     MappingBGRF @ 0x1C0262D64 (MappingBGRF.c)
+ *     GetFixupScan @ 0x1C00C7690 (GetFixupScan.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     AlphaBlendBGRF @ 0x1C0266540 (AlphaBlendBGRF.c)
+ *     MappingBGRF @ 0x1C026B6C4 (MappingBGRF.c)
  */
 
 __int64 __fastcall SkipDIB_CY(__int128 *a1)

@@ -1,140 +1,126 @@
 /*
- * XREFs of CmpVEExecuteOpenLogic @ 0x1406DD580
+ * XREFs of CmpVEExecuteOpenLogic @ 0x1406CDD50
  * Callers:
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     CmpFindPathByNameEx @ 0x14067EED0 (CmpFindPathByNameEx.c)
- *     CmpLockKcbExclusive @ 0x1406D8518 (CmpLockKcbExclusive.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     HvpMarkCellDirty @ 0x1407474B0 (HvpMarkCellDirty.c)
- *     CmpIsSystemEntity @ 0x1407BAAAC (CmpIsSystemEntity.c)
- *     CmpIsKeyDeleted @ 0x1407CB78C (CmpIsKeyDeleted.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpBlockHiveWrites @ 0x140A13854 (CmpBlockHiveWrites.c)
- *     CmpUnblockHiveWrites @ 0x140A13A24 (CmpUnblockHiveWrites.c)
- *     CmVirtualKCBToRealPath @ 0x140A188B8 (CmVirtualKCBToRealPath.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockKcb @ 0x140AF65A0 (CmpUnlockKcb.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpFindPathByNameEx @ 0x1405CC874 (CmpFindPathByNameEx.c)
+ *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockKcb @ 0x140640260 (CmpUnlockKcb.c)
+ *     HvpMarkCellDirty @ 0x140655AB0 (HvpMarkCellDirty.c)
+ *     CmpIsSystemEntity @ 0x1406CF8B0 (CmpIsSystemEntity.c)
+ *     CmpUnblockHiveWrites @ 0x1406E8B98 (CmpUnblockHiveWrites.c)
+ *     CmpBlockHiveWrites @ 0x1406E8C40 (CmpBlockHiveWrites.c)
+ *     CmpIsKeyDeleted @ 0x1406E9D20 (CmpIsKeyDeleted.c)
+ *     CmVirtualKCBToRealPath @ 0x14086FB28 (CmVirtualKCBToRealPath.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmpVEExecuteOpenLogic(__int64 a1, _DWORD *a2, char a3, __m128i *a4, unsigned __int8 a5, __int64 a6)
+__int64 __fastcall CmpVEExecuteOpenLogic(ULONG_PTR a1, _DWORD *a2, char a3, __int64 a4, unsigned __int8 a5)
 {
-  int v10; // ebx
+  int v9; // ebx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  _DWORD *v13; // r9
   char PathByName; // bl
-  void *v13; // rcx
-  signed __int64 *v14; // rbx
-  unsigned __int64 v15; // rbp
-  ULONG_PTR v16; // rbp
-  __int64 CellFlat; // rax
-  __int64 v18; // r14
-  __int64 v19; // rcx
-  unsigned int v20; // [rsp+30h] [rbp-58h] BYREF
-  __int64 v21; // [rsp+38h] [rbp-50h] BYREF
-  __int64 v22; // [rsp+40h] [rbp-48h] BYREF
-  ULONG_PTR v23[2]; // [rsp+48h] [rbp-40h] BYREF
-  __m128i P; // [rsp+58h] [rbp-30h] BYREF
+  void *v15; // rcx
+  __int64 v16; // rbp
+  __int64 v17; // rbx
+  unsigned int v18; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v19; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v20; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v21; // [rsp+48h] [rbp-30h] BYREF
+  PVOID P[2]; // [rsp+50h] [rbp-28h] BYREF
 
-  v20 = 0;
-  v23[0] = 0LL;
+  v18 = 0;
   v21 = 0LL;
-  v22 = 0LL;
-  P = 0LL;
-  RtlInitUnicodeString((PUNICODE_STRING)&P, 0LL);
-  HvpGetCellContextReinitialize(&v21);
+  v20 = 0LL;
+  *(_OWORD *)P = 0LL;
+  RtlInitUnicodeString((PUNICODE_STRING)P, 0LL);
+  v19 = 0xFFFFFFFFLL;
   if ( CmpVEEnabled )
   {
     if ( (a2[6] & 0x10) != 0 )
     {
-      v10 = -1073741199;
+      v9 = -1073741199;
     }
     else if ( *(_WORD *)(a1 + 66) )
     {
-      v10 = -1073741199;
+      v9 = -1073741199;
     }
     else if ( (*(_DWORD *)(a1 + 184) & 0x2000000) != 0 )
     {
       if ( (*(_DWORD *)(a1 + 8) & 0x7FE00000u) > 0xA00000 )
       {
-        if ( (unsigned __int8)CmpIsSystemEntity(a5, a6, a2 + 4) )
+        if ( (unsigned __int8)CmpIsSystemEntity(a5) )
         {
-          v10 = -1073741199;
+          v9 = -1073741199;
         }
         else if ( CmpVEEnabled && (*(_DWORD *)(a1 + 184) & 0x1000000) != 0 )
         {
-          v10 = -1073741199;
+          v9 = -1073741199;
         }
         else
         {
           if ( (a2[40] & 1) == 0 )
           {
-            CmpAttachToRegistryProcess(a2 + 42);
+            CmpAttachToRegistryProcess((__int64)(a2 + 42), v11, v12, v13);
             a2[40] |= 1u;
           }
-          v10 = CmVirtualKCBToRealPath(a1, &P);
-          if ( v10 >= 0 )
+          v9 = CmVirtualKCBToRealPath(a1, P);
+          if ( v9 >= 0 )
           {
-            v10 = CmpBlockHiveWrites(0LL, 16LL, &v22);
-            if ( v10 < 0 )
+            v9 = CmpBlockHiveWrites(0LL, 16LL, &v20);
+            if ( v9 < 0 )
             {
-              if ( v22 )
+              if ( v20 )
                 CmpUnblockHiveWrites(0LL);
             }
             else
             {
-              PathByName = CmpFindPathByNameEx(0LL, &P, 0LL, 16, &v20, v23);
+              PathByName = CmpFindPathByNameEx(0LL, (__m128i *)P, 0LL, 16, &v18, &v21);
               CmpUnblockHiveWrites(0LL);
               if ( PathByName )
               {
-                v13 = (void *)a4->m128i_i64[1];
-                if ( v13 )
-                  ExFreePoolWithTag(v13, 0);
-                *a4 = P;
-                RtlInitUnicodeString((PUNICODE_STRING)&P, 0LL);
+                v15 = *(void **)(a4 + 8);
+                if ( v15 )
+                  ExFreePoolWithTag(v15, 0);
+                *(_OWORD *)a4 = *(_OWORD *)P;
+                RtlInitUnicodeString((PUNICODE_STRING)P, 0LL);
                 *a2 |= 8u;
-                v10 = 260;
+                v9 = 260;
               }
               else if ( a3 || (CmpUnlockKcb(a1), CmpLockKcbExclusive(a1), !(unsigned __int8)CmpIsKeyDeleted(a1, 0LL)) )
               {
-                v14 = (signed __int64 *)(*(_QWORD *)(a1 + 32) + 72LL);
-                v15 = KeAbPreAcquire((__int64)v14, 0LL);
-                if ( _InterlockedCompareExchange64(v14, 17LL, 0LL) )
-                  ExfAcquirePushLockSharedEx(v14, 0LL, v15, (__int64)v14);
-                if ( v15 )
-                  *(_BYTE *)(v15 + 18) = 1;
+                ExAcquirePushLockSharedEx(*(_QWORD *)(a1 + 32) + 72LL, 0LL);
                 v16 = *(_QWORD *)(a1 + 32);
-                if ( (*(_BYTE *)(v16 + 140) & 1) != 0 )
-                  CellFlat = HvpGetCellFlat(v16, *(unsigned int *)(a1 + 40));
-                else
-                  CellFlat = HvpGetCellPaged(v16);
-                v18 = CellFlat;
-                if ( CellFlat )
+                v17 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(v16 + 8))(
+                        v16,
+                        *(unsigned int *)(a1 + 40),
+                        &v19);
+                if ( v17 )
                 {
-                  v10 = HvpMarkCellDirty(*(_QWORD *)(a1 + 32), *(unsigned int *)(a1 + 40));
-                  if ( v10 >= 0 )
+                  if ( HvpMarkCellDirty(*(_QWORD *)(a1 + 32), *(unsigned int *)(a1 + 40), 1) )
                   {
-                    *(_WORD *)(v18 + 2) |= 0x100u;
+                    *(_WORD *)(v17 + 2) |= 0x100u;
                     *(_WORD *)(a1 + 186) |= 0x100u;
                     *a2 |= 8u;
-                    v10 = 260;
+                    v9 = 260;
                   }
-                  v19 = *(_QWORD *)(a1 + 32);
-                  if ( (*(_BYTE *)(v19 + 140) & 1) != 0 )
-                    HvpReleaseCellFlat(v19, &v21);
                   else
-                    HvpReleaseCellPaged(v19, &v21);
+                  {
+                    v9 = -1073741443;
+                  }
+                  (*(void (__fastcall **)(_QWORD, __int64 *))(*(_QWORD *)(a1 + 32) + 16LL))(*(_QWORD *)(a1 + 32), &v19);
                 }
                 else
                 {
-                  v10 = -1073741670;
+                  v9 = -1073741670;
                 }
                 if ( v16 )
                 {
@@ -145,7 +131,7 @@ __int64 __fastcall CmpVEExecuteOpenLogic(__int64 a1, _DWORD *a2, char a3, __m128
               }
               else
               {
-                v10 = -1073741772;
+                v9 = -1073741772;
               }
             }
           }
@@ -153,19 +139,19 @@ __int64 __fastcall CmpVEExecuteOpenLogic(__int64 a1, _DWORD *a2, char a3, __m128
       }
       else
       {
-        v10 = -1073741199;
+        v9 = -1073741199;
       }
     }
     else
     {
-      v10 = -1073741199;
+      v9 = -1073741199;
     }
   }
   else
   {
-    v10 = -1073741199;
+    v9 = -1073741199;
   }
-  if ( P.m128i_i64[1] )
-    ExFreePoolWithTag((PVOID)P.m128i_i64[1], 0);
-  return (unsigned int)v10;
+  if ( P[1] )
+    ExFreePoolWithTag(P[1], 0);
+  return (unsigned int)v9;
 }

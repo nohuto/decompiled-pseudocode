@@ -1,14 +1,14 @@
 /*
- * XREFs of KeInsertHeadQueue @ 0x140570CF0
+ * XREFs of KeInsertHeadQueue @ 0x14051AF80
  * Callers:
  *     <none>
  * Callees:
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1402F6A70 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14035B550 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056B1E4 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x14062DA60 (EtwTraceEnqueueWork.c)
+ *     KiWakeOtherQueueWaiters @ 0x140243310 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x14024C4F0 (KiWakeQueueWaiter.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KeIsThreadRunning @ 0x140513054 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405A77C0 (EtwTraceEnqueueWork.c)
  */
 
 LONG __stdcall KeInsertHeadQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)
@@ -22,10 +22,10 @@ LONG __stdcall KeInsertHeadQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)
   _KTHREAD *CurrentThread; // r14
   __int64 v10; // r8
   __int64 v11; // r9
-  LONG SignalState; // r12d
-  LONG v13; // edx
+  LONG v12; // edx
   LIST_ENTRY *p_EntryListHead; // rax
   struct _LIST_ENTRY *Flink; // rcx
+  LONG SignalState; // [rsp+50h] [rbp+8h]
 
   v4 = Entry;
   p_WaitListHead = &Queue->Header.WaitListHead;
@@ -52,8 +52,8 @@ LONG __stdcall KeInsertHeadQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)
     || (PRKQUEUE)CurrentThread->Queue == Queue && CurrentThread->WaitReason == 15
     || !KiWakeQueueWaiter((__int64)CurrentPrcb, (__int64)Queue, (__int64)v4, v11) )
   {
-    v13 = Queue->Header.SignalState;
-    Queue->Header.SignalState = v13 + 1;
+    v12 = Queue->Header.SignalState;
+    Queue->Header.SignalState = v12 + 1;
     p_EntryListHead = &Queue->EntryListHead;
     Flink = Queue->EntryListHead.Flink;
     if ( Flink->Blink != &Queue->EntryListHead )
@@ -62,14 +62,10 @@ LONG __stdcall KeInsertHeadQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)
     v4->Blink = p_EntryListHead;
     Flink->Blink = v4;
     p_EntryListHead->Flink = v4;
-    if ( !v13 && p_WaitListHead->Flink != p_WaitListHead )
+    if ( !v12 && p_WaitListHead->Flink != p_WaitListHead )
       KiWakeOtherQueueWaiters((__int64)CurrentPrcb, (__int64)Queue);
   }
-  else
-  {
-    v4->Flink = 0LL;
-  }
   _InterlockedAnd(&Queue->Header.Lock, 0xFFFFFF7F);
-  KiExitDispatcher((__int64)CurrentPrcb, 0, 1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)CurrentPrcb, 0LL, 1LL, 0LL, CurrentIrql);
   return SignalState;
 }

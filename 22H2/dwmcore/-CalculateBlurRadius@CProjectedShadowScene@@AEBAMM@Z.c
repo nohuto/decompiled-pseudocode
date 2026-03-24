@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CalculateBlurRadius@CProjectedShadowScene@@AEBAMM@Z @ 0x1800076DC
+ * XREFs of ?CalculateBlurRadius@CProjectedShadowScene@@AEBAMM@Z @ 0x18000C4E4
  * Callers:
- *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180004FF4 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x18000A740 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
  * Callees:
  *     <none>
  */
@@ -10,6 +10,6 @@ float __fastcall CProjectedShadowScene::CalculateBlurRadius(CProjectedShadowScen
 {
   float v3; // xmm0_4
 
-  v3 = fmaxf(*((float *)this + 29), a2 * *((float *)this + 30));
-  return fminf(*((float *)this + 28), v3);
+  v3 = fmaxf(*((float *)this + 27), a2 * *((float *)this + 28));
+  return fminf(*((float *)this + 26), v3);
 }

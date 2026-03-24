@@ -1,91 +1,84 @@
 /*
- * XREFs of ACPIInternalEvaluateOST @ 0x1C00573B4
+ * XREFs of ACPIInternalEvaluateOST @ 0x1C0056CB4
  * Callers:
- *     ACPIProcessorStartDeviceWorker @ 0x1C0004D10 (ACPIProcessorStartDeviceWorker.c)
- *     ACPICheckModuleStarted @ 0x1C005969C (ACPICheckModuleStarted.c)
- *     ACPIInitShutdownInProgress @ 0x1C005F760 (ACPIInitShutdownInProgress.c)
- *     ACPINotifyOsShutdownWorker @ 0x1C005F8A0 (ACPINotifyOsShutdownWorker.c)
- *     ACPIRootEvent @ 0x1C005F9E0 (ACPIRootEvent.c)
- *     AcpiShutdownNotificationTimerWorkItem @ 0x1C0060070 (AcpiShutdownNotificationTimerWorkItem.c)
- *     ACPIBusIrpStartDeviceWorker @ 0x1C008F350 (ACPIBusIrpStartDeviceWorker.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C000D040 (ACPIProcessorStartDeviceWorker.c)
+ *     ACPICheckModuleStarted @ 0x1C0058954 (ACPICheckModuleStarted.c)
+ *     ACPIInitShutdownInProgress @ 0x1C005E94C (ACPIInitShutdownInProgress.c)
+ *     ACPINotifyOsShutdownWorker @ 0x1C005EA80 (ACPINotifyOsShutdownWorker.c)
+ *     ACPIRootEvent @ 0x1C005EBC0 (ACPIRootEvent.c)
+ *     AcpiShutdownNotificationTimerWorkItem @ 0x1C005F280 (AcpiShutdownNotificationTimerWorkItem.c)
+ *     ACPIBusIrpStartDeviceWorker @ 0x1C00A2EE0 (ACPIBusIrpStartDeviceWorker.c)
  * Callees:
- *     WPP_RECORDER_SF_Dqss @ 0x1C0004A40 (WPP_RECORDER_SF_Dqss.c)
- *     WPP_RECORDER_SF_qss @ 0x1C00077E8 (WPP_RECORDER_SF_qss.c)
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIAsyncEvalObject @ 0x1C0019E08 (AMLIAsyncEvalObject.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memset @ 0x1C0030080 (memset.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C001DAB8 (WPP_RECORDER_SF_qss.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIInternalEvaluateOST(__int64 a1, int a2, int a3)
 {
-  unsigned int v6; // edi
-  __int64 *v7; // rbp
-  int v8; // esi
-  __int64 v9; // rdx
-  const char *v10; // rax
-  const char *v11; // r8
-  __int64 v12; // rdx
-  const char *v13; // rax
-  const char *v14; // r8
-  _QWORD v16[16]; // [rsp+50h] [rbp-A8h] BYREF
+  int v6; // edi
+  __int64 *v7; // rsi
+  __int64 v8; // rdx
+  const char *v9; // rax
+  const char *v10; // r8
+  __int64 v11; // rdx
+  const char *v12; // rax
+  const char *v13; // r8
+  _QWORD v15[16]; // [rsp+50h] [rbp-A8h] BYREF
 
   v6 = -1073741823;
-  v7 = AMLIGetNamedChild(*(__int64 **)(a1 + 760), 1414745951);
+  v7 = AMLIGetNamedChild(*(__int64 **)(a1 + 720), 1414745951);
   if ( v7 )
   {
-    memset(v16, 0, 0x78uLL);
-    v16[14] = 0LL;
-    LODWORD(v16[2]) = a2;
-    WORD1(v16[0]) = 1;
-    WORD1(v16[5]) = 1;
-    WORD1(v16[10]) = 2;
-    LODWORD(v16[7]) = a3;
-    v8 = AMLIAsyncEvalObject(v7, 0LL, 3u, v16, 0LL, 0LL);
-    AMLIDereferenceHandleEx((volatile signed __int32 *)v7);
-    if ( v8 == 259 )
+    memset(v15, 0, 0x78uLL);
+    LODWORD(v15[7]) = a3;
+    WORD1(v15[0]) = 1;
+    LODWORD(v15[2]) = a2;
+    WORD1(v15[10]) = 2;
+    WORD1(v15[5]) = 1;
+    v15[14] = 0LL;
+    v6 = AMLIAsyncEvalObject(v7, 0LL, 3u, v15, 0LL, 0LL);
+    AMLIDereferenceHandleEx((__int64)v7);
+    if ( v6 == 259 )
+      v6 = 0;
+    if ( v6 < 0 )
     {
-      return 0;
-    }
-    else
-    {
-      v6 = v8;
-      if ( v8 < 0 )
+      v8 = *(_QWORD *)(a1 + 8);
+      v9 = (const char *)&unk_1C00701BA;
+      v10 = (const char *)&unk_1C00701BA;
+      if ( (v8 & 0x200000000000LL) != 0 )
       {
-        v9 = *(_QWORD *)(a1 + 8);
-        v10 = (const char *)&unk_1C006FB8B;
-        v11 = (const char *)&unk_1C006FB8B;
-        if ( (v9 & 0x200000000000LL) != 0 )
-        {
-          v10 = *(const char **)(a1 + 608);
-          if ( (v9 & 0x400000000000LL) != 0 )
-            v11 = *(const char **)(a1 + 616);
-        }
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_Dqss(
-            (__int64)WPP_GLOBAL_Control->DeviceExtension,
-            2u,
-            6u,
-            0xFu,
-            (__int64)&WPP_95d701b52be23d9498d45ac18e77591e_Traceguids,
-            v8,
-            a1,
-            v10,
-            v11);
+        v9 = *(const char **)(a1 + 568);
+        if ( (v8 & 0x400000000000LL) != 0 )
+          v10 = *(const char **)(a1 + 576);
       }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_Dqss(
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          2u,
+          6u,
+          0xFu,
+          (__int64)&WPP_93e06651ed773e0c6f8a5613c80b6645_Traceguids,
+          v6,
+          a1,
+          v9,
+          v10);
     }
   }
   else
   {
-    v12 = *(_QWORD *)(a1 + 8);
-    v13 = (const char *)&unk_1C006FB8B;
-    v14 = (const char *)&unk_1C006FB8B;
-    if ( (v12 & 0x200000000000LL) != 0 )
+    v11 = *(_QWORD *)(a1 + 8);
+    v12 = (const char *)&unk_1C00701BA;
+    v13 = (const char *)&unk_1C00701BA;
+    if ( (v11 & 0x200000000000LL) != 0 )
     {
-      v13 = *(const char **)(a1 + 608);
-      if ( (v12 & 0x400000000000LL) != 0 )
-        v14 = *(const char **)(a1 + 616);
+      v12 = *(const char **)(a1 + 568);
+      if ( (v11 & 0x400000000000LL) != 0 )
+        v13 = *(const char **)(a1 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_qss(
@@ -93,10 +86,10 @@ __int64 __fastcall ACPIInternalEvaluateOST(__int64 a1, int a2, int a3)
         4u,
         6u,
         0x10u,
-        (__int64)&WPP_95d701b52be23d9498d45ac18e77591e_Traceguids,
+        (__int64)&WPP_93e06651ed773e0c6f8a5613c80b6645_Traceguids,
         a1,
-        v13,
-        v14);
+        v12,
+        v13);
   }
-  return v6;
+  return (unsigned int)v6;
 }

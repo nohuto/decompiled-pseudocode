@@ -1,10 +1,10 @@
 /*
- * XREFs of XilDeviceSlot_ReleaseHardware @ 0x1C0036B74
+ * XREFs of XilDeviceSlot_ReleaseHardware @ 0x1C0036934
  * Callers:
- *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0077140 (Controller_WdfEvtDeviceReleaseHardware.c)
+ *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0075D30 (Controller_WdfEvtDeviceReleaseHardware.c)
  * Callees:
- *     XilDeviceSlot_FreeSecureResources @ 0x1C0036724 (XilDeviceSlot_FreeSecureResources.c)
- *     XilCoreDeviceSlot_FreeResources @ 0x1C0050CC8 (XilCoreDeviceSlot_FreeResources.c)
+ *     XilDeviceSlot_FreeSecureResources @ 0x1C00364E4 (XilDeviceSlot_FreeSecureResources.c)
+ *     XilCoreDeviceSlot_FreeResources @ 0x1C00500C4 (XilCoreDeviceSlot_FreeResources.c)
  */
 
 void __fastcall XilDeviceSlot_ReleaseHardware(__int64 a1)

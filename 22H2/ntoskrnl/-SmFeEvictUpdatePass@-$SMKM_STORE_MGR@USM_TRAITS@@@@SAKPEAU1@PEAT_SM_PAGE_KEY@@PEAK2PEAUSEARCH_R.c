@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SmFeEvictUpdatePass@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2PEAUSEARCH_RESULT@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@@Z @ 0x1405BF884
+ * XREFs of ?SmFeEvictUpdatePass@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2PEAUSEARCH_RESULT@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@@Z @ 0x140313454
  * Callers:
- *     ?SmFeEvictInitiate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2@Z @ 0x1405BF75C (-SmFeEvictInitiate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2@Z.c)
+ *     ?SmFeEvictInitiate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2@Z @ 0x1403131AC (-SmFeEvictInitiate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAK2@Z.c)
  * Callees:
- *     SmKmStoreReferenceEx @ 0x140344C68 (SmKmStoreReferenceEx.c)
+ *     SmKmStoreReferenceEx @ 0x1402673EC (SmKmStoreReferenceEx.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictUpdatePass(
@@ -14,136 +14,117 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictUpdatePass(
         __int64 a5)
 {
   unsigned int v5; // ebx
-  unsigned int v6; // r15d
+  unsigned int v6; // ebp
   int v7; // esi
   unsigned int v8; // r9d
-  int v9; // eax
-  unsigned int v10; // edi
-  __int64 v11; // r8
-  unsigned int v12; // r12d
-  __m128i *v13; // rax
-  __int64 v14; // r13
-  unsigned __int64 v15; // rdx
-  __int64 v16; // r14
-  __int64 v17; // rbp
-  unsigned int v18; // eax
+  unsigned int v9; // r15d
+  int v10; // eax
+  unsigned int v11; // edi
+  __m128i *v12; // rax
+  __int64 v13; // r12
+  unsigned __int64 v14; // r13
+  __int64 v15; // r14
+  __int64 v16; // rcx
+  unsigned int v17; // eax
   int v19; // ecx
   int v20; // r8d
-  unsigned __int16 *v21; // rbp
-  __int64 v22; // rax
-  unsigned int v24; // [rsp+80h] [rbp+8h]
-  unsigned __int64 v28; // [rsp+A0h] [rbp+28h]
+  unsigned int v21; // [rsp+70h] [rbp+8h]
 
   v5 = *a2;
   v6 = 0;
   v7 = 0;
   v8 = *a3;
-  v9 = *(_DWORD *)(a5 + 24);
-  v10 = *a3 + *a2 - 1;
-  v11 = a1;
-  v24 = v8;
-  v12 = 1024;
-  if ( v9 == -1 || !v9 )
-    v13 = (__m128i *)(a5 + 8);
+  v9 = 1024;
+  v10 = *(_DWORD *)(a5 + 24);
+  v11 = *a3 + *a2 - 1;
+  v21 = *a3;
+  if ( v10 == -1 || !v10 )
+    v12 = (__m128i *)(a5 + 8);
   else
-    v13 = (__m128i *)(*(_QWORD *)a5 + 16LL * (unsigned int)(v9 - 1));
-  v14 = v13->m128i_i64[0];
-  v15 = _mm_srli_si128(*v13, 8).m128i_u64[0] - 8;
-  v28 = v15;
+    v12 = (__m128i *)(*(_QWORD *)a5 + 16LL * (unsigned int)(v10 - 1));
+  v13 = v12->m128i_i64[0];
+  v14 = _mm_srli_si128(*v12, 8).m128i_u64[0] - 8;
   while ( 1 )
   {
-    if ( !v14 )
+    if ( !v13 )
     {
-      v16 = 0LL;
-      v17 = 0LL;
-LABEL_8:
-      v18 = v10;
+      v15 = 0LL;
+LABEL_27:
+      v17 = v11;
       v19 = 1;
-      goto LABEL_9;
+      goto LABEL_28;
     }
-    v16 = v15 + 8;
-    v28 = v15 + 8;
-    if ( v15 + 8 >= v14 + 8 * (unsigned __int64)(unsigned __int16)*(_DWORD *)v14 + 16 )
+    v14 += 8LL;
+    v15 = v14;
+    if ( v14 >= v13 + 8 * ((unsigned __int64)(unsigned __int16)*(_DWORD *)v13 + 2) )
     {
-      v22 = *(_QWORD *)(v14 + 8);
-      if ( v22 )
+      v16 = *(_QWORD *)(v13 + 8);
+      if ( v16 )
       {
-        v14 = *(_QWORD *)(v14 + 8);
-        v28 = v22 + 16;
+        v13 = *(_QWORD *)(v13 + 8);
+        v14 = v16 + 16;
       }
-      v16 = (v22 + 16) & -(__int64)(v22 != 0);
+      v15 = (v16 + 16) & -(__int64)(v16 != 0);
     }
-    v17 = v16;
-    if ( !v16 )
-      goto LABEL_8;
-    v18 = *(_DWORD *)v16;
-    if ( v5 >= *(_DWORD *)v16 && (*(_BYTE *)(v16 + 7) & 1) == 0 )
+    if ( !v15 )
+      goto LABEL_27;
+    v17 = *(_DWORD *)v15;
+    if ( v5 >= *(_DWORD *)v15 && (*(_BYTE *)(v15 + 7) & 1) == 0 )
       goto LABEL_13;
-    if ( v10 < v18 )
-      goto LABEL_8;
+    if ( v11 < v17 )
+      goto LABEL_27;
     v19 = 0;
-LABEL_9:
-    v7 += v18 - v5;
+LABEL_28:
+    v7 += v17 - v5;
     v20 = v7;
     if ( v6 )
       break;
     if ( v19 )
-      goto LABEL_37;
-    v6 = v18 - v5;
-    v5 = v18;
-    if ( (*(_BYTE *)(v16 + 7) & 1) != 0 )
-      goto LABEL_35;
-    v11 = a1;
+    {
+LABEL_23:
+      ++v7;
+      goto LABEL_24;
+    }
+    v6 = v17 - v5;
+    v5 = v17;
+    if ( (*(_BYTE *)(v15 + 7) & 1) == 0 )
+    {
 LABEL_13:
-    if ( v12 == 1024 )
-    {
-      v21 = (unsigned __int16 *)(v17 + 4);
-    }
-    else
-    {
-      v21 = (unsigned __int16 *)(v16 + 4);
-      if ( v12 != *(unsigned __int16 *)(v16 + 4) )
-        goto LABEL_40;
-    }
-    if ( *(_BYTE *)(v16 + 6) == 2 )
-    {
-      if ( v12 != 1024 )
-        goto LABEL_40;
-    }
-    else
-    {
-      if ( v6 )
+      if ( v9 != 1024 && v9 != *(unsigned __int16 *)(v15 + 4) )
+        goto LABEL_24;
+      if ( *(_BYTE *)(v15 + 6) == 2 )
       {
-        if ( v12 == 1024 )
-          goto LABEL_40;
+        if ( v9 != 1024 )
+          goto LABEL_24;
       }
       else
       {
-        if ( !SmKmStoreReferenceEx(v11, *v21, v11) )
+        if ( v6 )
         {
-LABEL_37:
-          ++v7;
-          goto LABEL_40;
+          if ( v9 == 1024 )
+            goto LABEL_24;
         }
-        v12 = *v21;
-        v8 = v24;
+        else
+        {
+          if ( !SmKmStoreReferenceEx((__int64)&SmGlobals, *(unsigned __int16 *)(v15 + 4)) )
+            goto LABEL_23;
+          v9 = *(unsigned __int16 *)(v15 + 4);
+          v8 = v21;
+        }
+        *(_BYTE *)(v15 + 6) = 2;
       }
-      *(_BYTE *)(v16 + 6) = 2;
     }
-LABEL_35:
     ++v6;
     ++v7;
     if ( v6 == v8 )
-      goto LABEL_40;
-    v15 = v28;
+      goto LABEL_24;
     ++v5;
-    v11 = a1;
   }
   ++v7;
   if ( !v19 )
     v7 = v20;
-LABEL_40:
+LABEL_24:
   *a3 = v6;
   *a4 = v7;
-  return v12;
+  return v9;
 }

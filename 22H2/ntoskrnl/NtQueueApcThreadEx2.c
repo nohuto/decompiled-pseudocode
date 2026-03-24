@@ -1,107 +1,112 @@
 /*
- * XREFs of NtQueueApcThreadEx2 @ 0x140779F90
+ * XREFs of NtQueueApcThreadEx2 @ 0x1405CF9B0
  * Callers:
- *     NtQueueApcThread @ 0x140779F00 (NtQueueApcThread.c)
- *     NtQueueApcThreadEx @ 0x140779F40 (NtQueueApcThreadEx.c)
+ *     NtQueueApcThreadEx @ 0x1405D6B00 (NtQueueApcThreadEx.c)
+ *     NtQueueApcThread @ 0x14069D450 (NtQueueApcThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeInitializeApc @ 0x1402BE6A0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeInsertQueueApc @ 0x14025F120 (KeInsertQueueApc.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     KeInitializeApc @ 0x140341E70 (KeInitializeApc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtQueueApcThreadEx2(void *a1, void *a2, int a3, __int64 a4, __int64 a5, __int64 a6, _DWORD *a7)
+NTSTATUS __fastcall NtQueueApcThreadEx2(void *a1, void *a2, int a3, __int64 a4, __int64 a5, __int64 a6, __int64 a7)
 {
-  char v10; // r15
-  KPROCESSOR_MODE PreviousMode; // bp
-  char v12; // r14
+  char v10; // r14
+  KPROCESSOR_MODE PreviousMode; // si
+  char v12; // bp
   NTSTATUS result; // eax
-  PVOID v14; // rsi
-  _KPROCESS *Process; // rcx
-  char *Pool2; // rbx
-  __int64 (__fastcall *v17)(); // r9
-  void (__stdcall *v18)(PVOID); // rbp
-  NTSTATUS v19; // ebx
-  __int16 v20; // ax
-  __int64 v21; // rax
-  PVOID Object; // [rsp+40h] [rbp-28h] BYREF
-  PVOID v23; // [rsp+48h] [rbp-20h] BYREF
+  struct _DMA_ADAPTER *v14; // rdi
+  NTSTATUS v15; // ebx
+  unsigned __int64 v16; // rax
+  __int16 v17; // ax
+  __int64 v18; // rcx
+  __int64 (__fastcall *v19)(); // r9
+  void (__stdcall *v20)(PVOID, ULONG); // rsi
+  char *PoolWithQuotaTag; // rbx
+  PVOID Object; // [rsp+40h] [rbp-38h] BYREF
+  PVOID v23; // [rsp+48h] [rbp-30h] BYREF
 
   v10 = 1;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a3 & 0xFFFEFFFE) != 0 )
-    return -1073741811;
-  if ( (a3 & 1) == 0 )
+  if ( (a3 & 0xFFFEFFFE) == 0 )
   {
-    v12 = 0;
-    goto LABEL_4;
-  }
-  if ( a2 )
-    return -1073741811;
-  v12 = 1;
-LABEL_4:
-  Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
-  if ( result < 0 )
-    return result;
-  v14 = Object;
-  if ( (*((_DWORD *)Object + 29) & 0x400) != 0
-    || (v14 = Object, Process = KeGetCurrentThread()->ApcState.Process, Process[1].Affinity.StaticBitmap[30])
-    && ((v20 = WORD2(Process[2].Affinity.StaticBitmap[20]), v20 == 332) || v20 == 452)
-    && ((v21 = *((_QWORD *)Object + 68), !*(_QWORD *)(v21 + 1408)) || *(_WORD *)(v21 + 2412) == 0x8664)
-    && (unsigned __int64)-(a4 >> 2) <= 0xFFFFFFFF )
-  {
-    v19 = -1073741816;
-  }
-  else if ( a2 )
-  {
-    v23 = 0LL;
-    v19 = ObReferenceObjectByHandle(a2, 2u, PspMemoryReserveObjectTypes, PreviousMode, &v23, 0LL);
-    if ( v19 >= 0 )
+    if ( (a3 & 1) == 0 )
     {
-      if ( !_InterlockedCompareExchange((volatile signed __int32 *)v23, 1, 0) )
+      v12 = 0;
+LABEL_6:
+      Object = 0LL;
+      result = ObReferenceObjectByHandle(a1, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
+      if ( result < 0 )
+        return result;
+      v14 = (struct _DMA_ADAPTER *)Object;
+      if ( (*((_DWORD *)Object + 29) & 0x400) != 0
+        || (v14 = (struct _DMA_ADAPTER *)Object,
+            (v16 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10]) != 0)
+        && ((v17 = *(_WORD *)(v16 + 8), v17 == 332) || v17 == 452)
+        && ((v18 = *(_QWORD *)(*((_QWORD *)Object + 68) + 1408LL)) == 0 || *(_WORD *)(v18 + 8) == 0x8664)
+        && (unsigned __int64)-(a4 >> 2) <= 0xFFFFFFFF )
       {
-        v17 = PspUserApcReserveKernelRoutine;
-        v14 = Object;
-        v18 = (void (__stdcall *)(PVOID))PspUserApcReserveKernelRoutine;
-        Pool2 = (char *)v23 + 8;
-LABEL_11:
-        KeInitializeApc((__int64)Pool2, (__int64)v14, 0, (__int64)v17, (__int64)v18, a4, v10, a5);
-        if ( (a3 & 0x10000) != 0 )
-          Pool2[1] |= 1u;
-        if ( (unsigned __int8)KeInsertQueueApc((__int64)Pool2, a6, a7, 0) )
-        {
-          v19 = 0;
-        }
-        else
-        {
-          ((void (__fastcall *)(char *))v18)(Pool2);
-          v19 = -1073741823;
-        }
-        goto LABEL_15;
+        v15 = -1073741816;
       }
-      ObfDereferenceObject(v23);
-      v14 = Object;
-      v19 = -1073741584;
+      else
+      {
+        if ( !a2 )
+        {
+          PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 0x58uLL, 0x70617350u);
+          if ( !PoolWithQuotaTag )
+          {
+            v15 = -1073741801;
+            goto LABEL_29;
+          }
+          v19 = (__int64 (__fastcall *)())KeSpecialUserApcKernelRoutine;
+          v10 = v12 ^ 1;
+          v20 = ExFreePoolWithTag;
+          if ( !v12 )
+            v19 = (__int64 (__fastcall *)())SC_ENV::Free;
+          goto LABEL_24;
+        }
+        v23 = 0LL;
+        v15 = ObReferenceObjectByHandle(a2, 2u, PspMemoryReserveObjectTypes, PreviousMode, &v23, 0LL);
+        if ( v15 >= 0 )
+        {
+          if ( _InterlockedCompareExchange((volatile signed __int32 *)v23, 1, 0) )
+          {
+            HalPutDmaAdapter((PADAPTER_OBJECT)v23);
+            v14 = (struct _DMA_ADAPTER *)Object;
+            v15 = -1073741584;
+            goto LABEL_29;
+          }
+          v19 = PspUserApcReserveKernelRoutine;
+          v14 = (struct _DMA_ADAPTER *)Object;
+          v20 = (void (__stdcall *)(PVOID, ULONG))PspUserApcReserveKernelRoutine;
+          PoolWithQuotaTag = (char *)v23 + 8;
+LABEL_24:
+          KeInitializeApc((__int64)PoolWithQuotaTag, (__int64)v14, 0, (__int64)v19, (__int64)v20, a4, v10, a5);
+          if ( (a3 & 0x10000) != 0 )
+            PoolWithQuotaTag[1] |= 1u;
+          if ( KeInsertQueueApc((__int64)PoolWithQuotaTag, a6, a7, 0) )
+          {
+            v15 = 0;
+          }
+          else
+          {
+            ((void (__fastcall *)(char *))v20)(PoolWithQuotaTag);
+            v15 = -1073741823;
+          }
+        }
+      }
+LABEL_29:
+      HalPutDmaAdapter(v14);
+      return v15;
     }
-  }
-  else
-  {
-    Pool2 = (char *)ExAllocatePool2(65LL, 88LL, 1885434704LL);
-    if ( Pool2 )
+    if ( !a2 )
     {
-      v17 = (__int64 (__fastcall *)())KeSpecialUserApcKernelRoutine;
-      v10 = v12 ^ 1;
-      v18 = ExFreePool;
-      if ( !v12 )
-        v17 = (__int64 (__fastcall *)())SC_ENV::Free;
-      goto LABEL_11;
+      v12 = 1;
+      goto LABEL_6;
     }
-    v19 = -1073741801;
   }
-LABEL_15:
-  ObfDereferenceObject(v14);
-  return v19;
+  return -1073741811;
 }

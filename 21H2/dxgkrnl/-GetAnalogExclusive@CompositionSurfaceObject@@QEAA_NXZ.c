@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetAnalogExclusive@CompositionSurfaceObject@@QEAA_NXZ @ 0x1C0005748
+ * XREFs of ?GetAnalogExclusive@CompositionSurfaceObject@@QEAA_NXZ @ 0x1C001C868
  * Callers:
- *     ?SignalFlipImmediate@CFlipToken@@UEAAXXZ @ 0x1C00056C0 (-SignalFlipImmediate@CFlipToken@@UEAAXXZ.c)
+ *     ?SignalFlipImmediate@CFlipToken@@UEAAXXZ @ 0x1C001C770 (-SignalFlipImmediate@CFlipToken@@UEAAXXZ.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00069FC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0006A48 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0010D40 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
  */
 
 char __fastcall CompositionSurfaceObject::GetAnalogExclusive(CompositionSurfaceObject *this)
@@ -17,7 +17,7 @@ char __fastcall CompositionSurfaceObject::GetAnalogExclusive(CompositionSurfaceO
   v3 = 0;
   if ( (int)CPushLock::AcquireLockShared((CompositionSurfaceObject *)((char *)this + 48)) >= 0 )
   {
-    v4 = *((_BYTE *)this + 153);
+    v4 = *((_BYTE *)this + 128);
     CPushLock::ReleaseLock(v1);
     return v4 != 0;
   }

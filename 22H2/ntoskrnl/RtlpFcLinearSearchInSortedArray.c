@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcLinearSearchInSortedArray @ 0x1409C8100
+ * XREFs of RtlpFcLinearSearchInSortedArray @ 0x14091A1A4
  * Callers:
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x1407D14B4 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14091A310 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpFcLinearSearchInSortedArray(
@@ -14,14 +14,14 @@ __int64 __fastcall RtlpFcLinearSearchInSortedArray(
         __int64 (__fastcall *a5)(__int64, __int64))
 {
   unsigned __int64 i; // rdi
-  int v9; // eax
+  int v10; // eax
 
-  for ( i = 0LL; i < a3; a2 += 16LL )
+  for ( i = 0LL; i < a3; a2 += a4 )
   {
-    v9 = a5(a1, a2);
-    if ( v9 < 0 )
+    v10 = a5(a1, a2);
+    if ( v10 < 0 )
       break;
-    if ( !v9 )
+    if ( !v10 )
       return a2;
     ++i;
   }

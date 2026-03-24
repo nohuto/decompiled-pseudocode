@@ -1,16 +1,16 @@
 /*
- * XREFs of ??1CaptureBitsResponse@@UEAA@XZ @ 0x18002736C
+ * XREFs of ??1CaptureBitsResponse@@UEAA@XZ @ 0x180043D50
  * Callers:
- *     ??1VisualCaptureBitsResponse@@UEAA@XZ @ 0x180026D38 (--1VisualCaptureBitsResponse@@UEAA@XZ.c)
- *     ??_GCaptureBitsResponse@@UEAAPEAXI@Z @ 0x1801B9830 (--_GCaptureBitsResponse@@UEAAPEAXI@Z.c)
- *     ??1MagnifierCaptureBitsResponse@@UEAA@XZ @ 0x1801E18D0 (--1MagnifierCaptureBitsResponse@@UEAA@XZ.c)
+ *     ??1VisualCaptureBitsResponse@@UEAA@XZ @ 0x180043A7C (--1VisualCaptureBitsResponse@@UEAA@XZ.c)
+ *     ??_GCaptureBitsResponse@@UEAAPEAXI@Z @ 0x1801938C0 (--_GCaptureBitsResponse@@UEAAPEAXI@Z.c)
+ *     ??1MagnifierCaptureBitsResponse@@UEAA@XZ @ 0x18019AF9C (--1MagnifierCaptureBitsResponse@@UEAA@XZ.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EBC0 (--1-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1COcclusionContext@@QEAA@XZ @ 0x1800644D8 (--1COcclusionContext@@QEAA@XZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800D193C (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E98E4 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D2C0 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1COcclusionContext@@QEAA@XZ @ 0x18003EF58 (--1COcclusionContext@@QEAA@XZ.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800520D0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D09C8 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
  */
 
 void __fastcall CaptureBitsResponse::~CaptureBitsResponse(CaptureBitsResponse *this)
@@ -18,24 +18,23 @@ void __fastcall CaptureBitsResponse::~CaptureBitsResponse(CaptureBitsResponse *t
   __int64 *v2; // rdi
   const void *v3; // rcx
   void *v4; // rcx
-  __int64 v5; // rcx
+  CDrawListEntry *v5; // rcx
 
-  v2 = (__int64 *)((char *)this + 1680);
+  v2 = (__int64 *)((char *)this + 1712);
   *(_QWORD *)this = &CaptureBitsResponse::`vftable';
-  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((char *)this + 1680);
-  v3 = (const void *)*((_QWORD *)this + 208);
+  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((char *)this + 1712);
+  v3 = (const void *)*((_QWORD *)this + 212);
   if ( v3 )
     UnmapViewOfFile(v3);
-  v4 = (void *)*((_QWORD *)this + 207);
+  v4 = (void *)*((_QWORD *)this + 211);
   if ( v4 )
     CloseHandle(v4);
-  _InterlockedDecrement(&CaptureBitsResponse::s_cOutstandingCaptures);
-  wil::com_ptr_t<CVisual,wil::err_returncode_policy>::~com_ptr_t<CVisual,wil::err_returncode_policy>(v2);
-  COcclusionContext::~COcclusionContext((CaptureBitsResponse *)((char *)this + 72));
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(v2);
+  COcclusionContext::~COcclusionContext((void **)this + 9);
   wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)this + 64);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 6);
-  v5 = *((_QWORD *)this + 5);
+  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)this + 6);
+  v5 = (CDrawListEntry *)*((_QWORD *)this + 5);
   if ( v5 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v5);
+    CDrawListEntry::Release(v5);
   *(_QWORD *)this = &CResponseItem::`vftable';
 }

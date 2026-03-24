@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPrepareToWaitForResourceExclusive @ 0x140120D94
+ * XREFs of ExpPrepareToWaitForResourceExclusive @ 0x140120DB4
  * Callers:
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireFastResourceExclusive @ 0x1401652B0 (ExAcquireFastResourceExclusive.c)
+ *     ExAcquireFastResourceExclusive @ 0x1401652D0 (ExAcquireFastResourceExclusive.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall ExpPrepareToWaitForResourceExclusive(__int64 a1, __int64 a2, _QWORD *a3)

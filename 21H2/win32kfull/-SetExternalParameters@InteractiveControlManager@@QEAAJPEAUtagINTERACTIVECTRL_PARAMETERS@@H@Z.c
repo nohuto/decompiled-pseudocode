@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z @ 0x1C024FEF4
+ * XREFs of ?SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z @ 0x1C0252F08
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C024E6A0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ?SetDeviceHapticsMode@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z @ 0x1C024FDC8 (-SetDeviceHapticsMode@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z.c)
- *     ?WriteSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C0253550 (-WriteSettings@InteractiveControlSettings@@QEAAJXZ.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02516B4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?SetDeviceHapticsMode@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z @ 0x1C0252DDC (-SetDeviceHapticsMode@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_HAPTICS_MODE@@@Z.c)
+ *     ?WriteSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C02567C4 (-WriteSettings@InteractiveControlSettings@@QEAAJXZ.c)
  */
 
 __int64 __fastcall InteractiveControlManager::SetExternalParameters(
@@ -23,13 +23,13 @@ __int64 __fastcall InteractiveControlManager::SetExternalParameters(
   __int64 v13; // [rsp+68h] [rbp+38h] BYREF
 
   v4 = a3;
-  if ( (unsigned int)dword_1C03262C0 > 4 )
+  if ( (unsigned int)dword_1C032B2F8 > 4 )
   {
     LODWORD(v12) = a3;
     v13 = (__int64)"InteractiveControlManager::SetExternalParameters entry";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C03262C0,
-      byte_1C02F165D,
+      (__int64)&dword_1C032B2F8,
+      byte_1C02F41F8,
       a3,
       a4,
       (void **)&v13,
@@ -41,13 +41,13 @@ __int64 __fastcall InteractiveControlManager::SetExternalParameters(
     *((_DWORD *)this + 25) = *(_DWORD *)a2;
     v9 = InteractiveControlManager::SetDeviceHapticsMode((__int64)this, (int)a2, v8 == 0, a4);
     v7 = v9;
-    if ( v9 < 0 && (unsigned int)dword_1C03262C0 > 2 )
+    if ( v9 < 0 && (unsigned int)dword_1C032B2F8 > 2 )
     {
       LODWORD(v12) = v9;
       v13 = (__int64)"Function failed.";
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-        (__int64)&dword_1C03262C0,
-        byte_1C02F15F5,
+        (__int64)&dword_1C032B2F8,
+        byte_1C02F4190,
         a3,
         a4,
         (void **)&v13,
@@ -57,13 +57,13 @@ __int64 __fastcall InteractiveControlManager::SetExternalParameters(
     {
       v10 = InteractiveControlSettings::WriteSettings((InteractiveControlManager *)((char *)this + 84));
       v7 = v10;
-      if ( v10 < 0 && (unsigned int)dword_1C03262C0 > 2 )
+      if ( v10 < 0 && (unsigned int)dword_1C032B2F8 > 2 )
       {
         LODWORD(v12) = v10;
         v13 = (__int64)"Function failed.";
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-          (__int64)&dword_1C03262C0,
-          byte_1C02F15F5,
+          (__int64)&dword_1C032B2F8,
+          byte_1C02F4190,
           a3,
           a4,
           (void **)&v13,
@@ -75,13 +75,13 @@ __int64 __fastcall InteractiveControlManager::SetExternalParameters(
   {
     v7 = -1073741811;
   }
-  if ( (unsigned int)dword_1C03262C0 > 4 )
+  if ( (unsigned int)dword_1C032B2F8 > 4 )
   {
     LODWORD(v12) = v7;
     v13 = (__int64)"InteractiveControlManager::SetExternalParameters exit";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C03262C0,
-      byte_1C02F1582,
+      (__int64)&dword_1C032B2F8,
+      byte_1C02F411D,
       a3,
       a4,
       (void **)&v13,

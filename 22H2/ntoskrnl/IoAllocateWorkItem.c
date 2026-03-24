@@ -1,16 +1,16 @@
 /*
- * XREFs of IoAllocateWorkItem @ 0x140322880
+ * XREFs of IoAllocateWorkItem @ 0x14030CC30
  * Callers:
- *     PnpDeviceCompletionRequestDestroy @ 0x140322824 (PnpDeviceCompletionRequestDestroy.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x14036EDA4 (PnpDeviceCompletionRequestDestroy.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
  */
 
 PIO_WORKITEM __stdcall IoAllocateWorkItem(PDEVICE_OBJECT DeviceObject)
 {
   PIO_WORKITEM result; // rax
 
-  result = (PIO_WORKITEM)ExAllocatePool2(64LL, 88LL, 1230466889LL);
+  result = (PIO_WORKITEM)IopVerifierExAllocatePool(NonPagedPoolNx, 0x58uLL);
   if ( result )
   {
     result->WorkOnBehalfThread = 0LL;

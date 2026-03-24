@@ -1,267 +1,287 @@
 /*
- * XREFs of ?InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C0006AB0
+ * XREFs of ?InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C0010850
  * Callers:
  *     <none>
  * Callees:
- *     ?TraceStateChanged@CFlipToken@@AEBAXXZ @ 0x1C0006F44 (-TraceStateChanged@CFlipToken@@AEBAXXZ.c)
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00070D4 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0010CC4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0010D40 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?TraceStateChanged@CFlipToken@@AEBAXXZ @ 0x1C0010DB0 (-TraceStateChanged@CFlipToken@@AEBAXXZ.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0010F60 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CFlipToken::InFrame(CFlipToken *this, struct CCompositionFrame *a2, bool *a3)
 {
-  unsigned int v3; // r14d
-  char v4; // al
-  __int64 v8; // rdi
+  int v3; // edi
+  unsigned int v4; // r12d
+  __int64 v8; // rsi
   __int64 v9; // rbp
-  __int64 v10; // rsi
-  _QWORD *v11; // rax
-  _QWORD *v12; // rdi
-  int v13; // edi
-  __int64 v14; // rsi
-  char v15; // bp
-  unsigned int v16; // eax
-  __int64 v17; // rcx
-  int v18; // ebp
-  __int64 v19; // rsi
-  __int64 v20; // rdx
-  _QWORD *v21; // r14
-  _QWORD *v22; // r14
-  __int64 v23; // rcx
-  int v24; // r14d
-  __int64 v25; // rdi
-  __int64 v26; // rcx
-  unsigned __int64 v27; // rax
-  unsigned __int64 v28; // r15
-  __int64 v29; // rdi
-  unsigned __int64 v30; // rsi
-  __int64 v31; // rcx
-  __int64 v32; // rdi
-  __int64 v33; // rsi
-  __int64 v34; // rbx
-  _QWORD *v35; // rax
-  _QWORD *v36; // rdi
-  _QWORD *v38; // rdx
-  void (__fastcall ***v39)(_QWORD, __int64); // rcx
-  _QWORD *v40; // r8
-  _QWORD *v41; // rax
-  char v42; // [rsp+60h] [rbp+8h] BYREF
-  struct CCompositionBuffer *v43; // [rsp+68h] [rbp+10h] BYREF
+  _QWORD *v10; // rax
+  int v11; // ebp
+  __int64 v12; // rcx
+  __int64 v13; // rsi
+  char v14; // bp
+  unsigned int v15; // eax
+  __int64 v16; // rcx
+  __int64 v17; // rsi
+  _QWORD *v18; // r14
+  _QWORD *v19; // rcx
+  _QWORD *v20; // r14
+  __int64 v21; // rcx
+  int v22; // ebp
+  __int64 v23; // rsi
+  __int64 v24; // rcx
+  unsigned __int64 v25; // rax
+  unsigned __int64 v26; // rbp
+  _QWORD *v27; // rsi
+  unsigned __int64 v28; // r14
+  _QWORD *v29; // rcx
+  bool v30; // zf
+  __int64 v31; // rsi
+  __int64 v32; // rbx
+  _QWORD *v33; // rdx
+  __int64 v34; // rcx
+  _QWORD *v36; // rdx
+  void (__fastcall ***v37)(_QWORD, __int64); // rcx
+  _QWORD *v38; // r8
+  _QWORD *v39; // rax
+  char v40; // [rsp+60h] [rbp+8h] BYREF
+  struct CCompositionBuffer *v41; // [rsp+68h] [rbp+10h] BYREF
 
-  v3 = *((_DWORD *)a2 + 12);
-  v4 = 0;
+  v3 = 0;
+  v4 = *((_DWORD *)a2 + 12);
   *a3 = 0;
-  if ( *((_DWORD *)this + 6) == 2 )
+  if ( *((_DWORD *)this + 6) != 2 )
+    goto LABEL_24;
+  v8 = *((_QWORD *)this + 4);
+  v9 = *((_QWORD *)this + 5);
+  if ( !(**(unsigned __int8 (__fastcall ***)(__int64))(v8 + 48))(v8 + 48) )
+    goto LABEL_11;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v8 + 56, 0LL);
+  if ( !(**(unsigned __int8 (__fastcall ***)(__int64))(v8 + 48))(v8 + 48) )
   {
-    if ( (*(unsigned __int8 (__fastcall **)(CFlipToken *))(*(_QWORD *)this + 144LL))(this) )
+    CPushLock::ReleaseLock((CPushLock *)(v8 + 48));
+    goto LABEL_11;
+  }
+  if ( !*(_DWORD *)(v8 + 120) || (v10 = *(_QWORD **)(v8 + 104), v10 == (_QWORD *)(v8 + 104)) )
+  {
+LABEL_67:
+    v11 = 0;
+  }
+  else
+  {
+    while ( *(v10 - 1) != v9 )
     {
-      v4 = *((_BYTE *)this + 564);
-      *a3 = v4;
+      v10 = (_QWORD *)*v10;
+      if ( v10 == (_QWORD *)(v8 + 104) )
+        goto LABEL_67;
     }
-    else
+    v11 = (*(__int64 (__fastcall **)(_QWORD *))(*(v10 - 3) + 176LL))(v10 - 3);
+  }
+  v12 = v8 + 56;
+  if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v8 + 64) )
+  {
+    *(_QWORD *)(v8 + 64) = 0LL;
+    ExReleasePushLockExclusiveEx(v12, 0LL);
+  }
+  else
+  {
+    ExReleasePushLockSharedEx(v12, 0LL);
+  }
+  KeLeaveCriticalRegion();
+  if ( v11 != 2 )
+  {
+LABEL_11:
+    v13 = *((_QWORD *)this + 4);
+    v14 = 1;
+    if ( (**(unsigned __int8 (__fastcall ***)(__int64))(v13 + 48))(v13 + 48) )
     {
-      v8 = *((_QWORD *)this + 4);
-      v9 = *((_QWORD *)this + 5);
       KeEnterCriticalRegion();
-      v10 = v8 + 48;
-      ExAcquirePushLockSharedEx(v8 + 48, 0LL);
-      if ( !*(_DWORD *)(v8 + 128) || (v11 = *(_QWORD **)(v8 + 112), v12 = (_QWORD *)(v8 + 112), v11 == v12) )
+      ExAcquirePushLockSharedEx(v13 + 56, 0LL);
+      if ( (**(unsigned __int8 (__fastcall ***)(__int64))(v13 + 48))(v13 + 48) )
       {
-LABEL_58:
-        v13 = 0;
-      }
-      else
-      {
-        while ( *(v11 - 1) != v9 )
+        v15 = *(_DWORD *)(v13 + 124);
+        v14 = 0;
+        if ( !v15 || v4 > v15 || v15 - v4 > 4 || *(_QWORD *)(v13 + 136) )
+          v14 = 1;
+        v16 = v13 + 56;
+        if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v13 + 64) )
         {
-          v11 = (_QWORD *)*v11;
-          if ( v11 == v12 )
-            goto LABEL_58;
-        }
-        v13 = (*(__int64 (__fastcall **)(_QWORD *))(*(v11 - 3) + 184LL))(v11 - 3);
-      }
-      if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v10 + 8) )
-      {
-        *(_QWORD *)(v10 + 8) = 0LL;
-        ExReleasePushLockExclusiveEx(v10, 0LL);
-      }
-      else
-      {
-        ExReleasePushLockSharedEx(v10, 0LL);
-      }
-      KeLeaveCriticalRegion();
-      if ( v13 != 2 )
-      {
-        v14 = *((_QWORD *)this + 4);
-        KeEnterCriticalRegion();
-        ExAcquirePushLockSharedEx(v14 + 48, 0LL);
-        v15 = 0;
-        if ( !v3 || (v16 = *(_DWORD *)(v14 + 132)) == 0 || v3 > v16 || v16 - v3 > 4 || *(_QWORD *)(v14 + 144) )
-          v15 = 1;
-        v17 = v14 + 48;
-        if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v14 + 56) )
-        {
-          *(_QWORD *)(v14 + 56) = 0LL;
-          ExReleasePushLockExclusiveEx(v17, 0LL);
+          *(_QWORD *)(v13 + 64) = 0LL;
+          ExReleasePushLockExclusiveEx(v16, 0LL);
         }
         else
         {
-          ExReleasePushLockSharedEx(v17, 0LL);
+          ExReleasePushLockSharedEx(v16, 0LL);
         }
         KeLeaveCriticalRegion();
-        if ( v15 || !*((_DWORD *)this + 28) )
-          *a3 = 1;
+        goto LABEL_20;
       }
-      v4 = *a3;
+      CPushLock::ReleaseLock((CPushLock *)(v13 + 48));
     }
+    v3 = -1073741816;
+LABEL_20:
+    if ( v3 >= 0 && (v14 || !*((_DWORD *)this + 28)) )
+      *a3 = 1;
   }
-  v18 = 0;
-  if ( v4 )
+LABEL_24:
+  if ( v3 >= 0 && *a3 )
   {
     *((_DWORD *)this + 6) = 3;
     CFlipToken::TraceStateChanged(this);
-    v19 = *((_QWORD *)this + 4);
-    KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(v19 + 48, 0LL);
-    *(_QWORD *)(v19 + 56) = KeGetCurrentThread();
-    v20 = *((_QWORD *)this + 5);
-    v42 = 0;
-    if ( !*(_DWORD *)(v19 + 128) || (v21 = *(_QWORD **)(v19 + 112), v21 == (_QWORD *)(v19 + 112)) )
+    v17 = *((_QWORD *)this + 4);
+    v40 = 0;
+    v3 = CPushLock::AcquireLockExclusive((CPushLock *)(v17 + 48));
+    if ( v3 >= 0 )
     {
-LABEL_62:
-      v18 = -1073741275;
-    }
-    else
-    {
-      while ( *(v21 - 1) != v20 )
+      v18 = 0LL;
+      v3 = -1073741275;
+      if ( *(_DWORD *)(v17 + 120) )
       {
-        v21 = (_QWORD *)*v21;
-        if ( v21 == (_QWORD *)(v19 + 112) )
-          goto LABEL_62;
-      }
-      v18 = (*(__int64 (__fastcall **)(_QWORD *, CFlipToken *, char *))(*(v21 - 3) + 120LL))(v21 - 3, this, &v42);
-      if ( v18 >= 0 )
-      {
-        if ( v42 )
+        v19 = *(_QWORD **)(v17 + 104);
+        if ( v19 != (_QWORD *)(v17 + 104) )
         {
-          v22 = (_QWORD *)*v21;
-          while ( v22 != (_QWORD *)(v19 + 112) )
+          while ( *(v19 - 1) != *((_QWORD *)this + 5) )
           {
-            v38 = (_QWORD *)*v22;
-            v39 = (void (__fastcall ***)(_QWORD, __int64))(v22 - 3);
-            v40 = v22;
-            v22 = v38;
-            if ( (_QWORD *)v38[1] != v40 || (v41 = (_QWORD *)v40[1], (_QWORD *)*v41 != v40) )
-              __fastfail(3u);
-            *v41 = v38;
-            v38[1] = v41;
-            --*(_DWORD *)(v19 + 128);
-            if ( v39 )
-              (**v39)(v39, 1LL);
+            v19 = (_QWORD *)*v19;
+            if ( v19 == (_QWORD *)(v17 + 104) )
+              goto LABEL_31;
+          }
+          v18 = v19 - 3;
+          v3 = 0;
+        }
+      }
+LABEL_31:
+      if ( v3 >= 0 )
+      {
+        v3 = (*(__int64 (__fastcall **)(_QWORD *, CFlipToken *, char *))(*v18 + 120LL))(v18, this, &v40);
+        if ( v3 >= 0 )
+        {
+          if ( v40 )
+          {
+            v20 = (_QWORD *)v18[3];
+            while ( v20 != (_QWORD *)(v17 + 104) )
+            {
+              v36 = (_QWORD *)*v20;
+              v37 = (void (__fastcall ***)(_QWORD, __int64))(v20 - 3);
+              v38 = v20;
+              v20 = v36;
+              if ( (_QWORD *)v36[1] != v38 || (v39 = (_QWORD *)v38[1], (_QWORD *)*v39 != v38) )
+                __fastfail(3u);
+              *v39 = v36;
+              v36[1] = v39;
+              --*(_DWORD *)(v17 + 120);
+              if ( v37 )
+                (**v37)(v37, 1LL);
+            }
           }
         }
       }
+      v21 = v17 + 56;
+      if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v17 + 64) )
+      {
+        *(_QWORD *)(v17 + 64) = 0LL;
+        ExReleasePushLockExclusiveEx(v21, 0LL);
+      }
+      else
+      {
+        ExReleasePushLockSharedEx(v21, 0LL);
+      }
+      KeLeaveCriticalRegion();
     }
-    v23 = v19 + 48;
-    if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v19 + 56) )
+    if ( v3 >= 0 )
     {
-      *(_QWORD *)(v19 + 56) = 0LL;
-      ExReleasePushLockExclusiveEx(v23, 0LL);
-    }
-    else
-    {
-      ExReleasePushLockSharedEx(v23, 0LL);
-    }
-    KeLeaveCriticalRegion();
-    if ( v18 >= 0 )
-    {
-      *((_BYTE *)this + 88) = v42;
-      v24 = (*(__int64 (__fastcall **)(CFlipToken *, _QWORD))(*(_QWORD *)this + 136LL))(
+      *((_BYTE *)this + 88) = v40;
+      v22 = (*(__int64 (__fastcall **)(CFlipToken *, _QWORD))(*(_QWORD *)this + 136LL))(
               this,
               *((unsigned int *)a2 + 12));
-      if ( v24 )
+      if ( v22 )
       {
-        v25 = *((_QWORD *)this + 4);
-        KeEnterCriticalRegion();
-        ExAcquirePushLockExclusiveEx(v25 + 48, 0LL);
-        v26 = v25 + 48;
-        *(_QWORD *)(v25 + 56) = KeGetCurrentThread();
-        *(_DWORD *)(v25 + 132) = v24;
-        if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v25 + 56) )
+        v23 = *((_QWORD *)this + 4);
+        if ( (int)CPushLock::AcquireLockExclusive((CPushLock *)(v23 + 48)) >= 0 )
         {
-          *(_QWORD *)(v25 + 56) = 0LL;
-          ExReleasePushLockExclusiveEx(v26, 0LL);
-        }
-        else
-        {
-          ExReleasePushLockSharedEx(v26, 0LL);
-        }
-        KeLeaveCriticalRegion();
-      }
-      if ( !*((_BYTE *)this + 48) )
-      {
-        v27 = *((_QWORD *)this + 12);
-        if ( v27 > 1 )
-        {
-          v28 = v27 - 1;
-          v29 = *((_QWORD *)this + 4);
-          v30 = *((_QWORD *)this + 5);
-          KeEnterCriticalRegion();
-          ExAcquirePushLockSharedEx(v29 + 48, 0LL);
-          v43 = 0LL;
-          if ( (int)CCompositionSurface::FindBuffer((CCompositionSurface *)(v29 + 40), v30, &v43) >= 0 )
-            (*(void (__fastcall **)(struct CCompositionBuffer *, unsigned __int64, _QWORD))(*(_QWORD *)v43 + 104LL))(
-              v43,
-              v28,
-              0LL);
-          v31 = v29 + 48;
-          if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v29 + 56) )
+          *(_DWORD *)(v23 + 124) = v22;
+          v24 = v23 + 56;
+          if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v23 + 64) )
           {
-            *(_QWORD *)(v29 + 56) = 0LL;
-            ExReleasePushLockExclusiveEx(v31, 0LL);
+            *(_QWORD *)(v23 + 64) = 0LL;
+            ExReleasePushLockExclusiveEx(v24, 0LL);
           }
           else
           {
-            ExReleasePushLockSharedEx(v31, 0LL);
+            ExReleasePushLockSharedEx(v24, 0LL);
           }
           KeLeaveCriticalRegion();
         }
       }
-      *((_QWORD *)this + 12) = 0LL;
-      if ( !*((_BYTE *)this + 89) )
+      if ( !*((_BYTE *)this + 48) )
       {
-        v32 = *((_QWORD *)this + 4);
-        v33 = *((_QWORD *)this + 5);
-        *((_BYTE *)this + 89) = 1;
-        KeEnterCriticalRegion();
-        v34 = v32 + 48;
-        ExAcquirePushLockSharedEx(v32 + 48, 0LL);
-        if ( *(_DWORD *)(v32 + 128) )
+        v25 = *((_QWORD *)this + 12);
+        if ( v25 > 1 )
         {
-          v35 = *(_QWORD **)(v32 + 112);
-          v36 = (_QWORD *)(v32 + 112);
-          if ( v35 != v36 )
+          v26 = v25 - 1;
+          v27 = (_QWORD *)*((_QWORD *)this + 4);
+          v28 = *((_QWORD *)this + 5);
+          if ( (int)CPushLock::AcquireLockShared((CPushLock *)(v27 + 6)) >= 0 )
           {
-            while ( *(v35 - 1) != v33 )
+            v41 = 0LL;
+            if ( (int)CCompositionSurface::FindBuffer((CCompositionSurface *)(v27 + 5), v28, &v41) >= 0 )
+              (*(void (__fastcall **)(struct CCompositionBuffer *, unsigned __int64, _QWORD))(*(_QWORD *)v41 + 104LL))(
+                v41,
+                v26,
+                0LL);
+            v29 = v27 + 7;
+            if ( KeGetCurrentThread() == (struct _KTHREAD *)v27[8] )
             {
-              v35 = (_QWORD *)*v35;
-              if ( v35 == v36 )
-                goto LABEL_46;
+              v27[8] = 0LL;
+              ExReleasePushLockExclusiveEx(v29, 0LL);
             }
-            (*(void (__fastcall **)(_QWORD *))(*(v35 - 3) + 112LL))(v35 - 3);
+            else
+            {
+              ExReleasePushLockSharedEx(v29, 0LL);
+            }
+            KeLeaveCriticalRegion();
           }
         }
-LABEL_46:
-        if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v34 + 8) )
+      }
+      v30 = *((_BYTE *)this + 89) == 0;
+      *((_QWORD *)this + 12) = 0LL;
+      if ( v30 )
+      {
+        v31 = *((_QWORD *)this + 5);
+        *((_BYTE *)this + 89) = 1;
+        v32 = *((_QWORD *)this + 4);
+        if ( (int)CPushLock::AcquireLockShared((CPushLock *)(v32 + 48)) >= 0 )
         {
-          *(_QWORD *)(v34 + 8) = 0LL;
-          ExReleasePushLockExclusiveEx(v34, 0LL);
+          if ( *(_DWORD *)(v32 + 120) )
+          {
+            v33 = *(_QWORD **)(v32 + 104);
+            if ( v33 != (_QWORD *)(v32 + 104) )
+            {
+              while ( *(v33 - 1) != v31 )
+              {
+                v33 = (_QWORD *)*v33;
+                if ( v33 == (_QWORD *)(v32 + 104) )
+                  goto LABEL_58;
+              }
+              (*(void (__fastcall **)(_QWORD *))(*(v33 - 3) + 112LL))(v33 - 3);
+            }
+          }
+LABEL_58:
+          v34 = v32 + 56;
+          if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v32 + 64) )
+          {
+            *(_QWORD *)(v32 + 64) = 0LL;
+            ExReleasePushLockExclusiveEx(v34, 0LL);
+          }
+          else
+          {
+            ExReleasePushLockSharedEx(v34, 0LL);
+          }
+          KeLeaveCriticalRegion();
         }
-        else
-        {
-          ExReleasePushLockSharedEx(v34, 0LL);
-        }
-        KeLeaveCriticalRegion();
       }
     }
   }
@@ -269,5 +289,5 @@ LABEL_46:
   {
     ++*((_DWORD *)this + 7);
   }
-  return (unsigned int)v18;
+  return (unsigned int)v3;
 }

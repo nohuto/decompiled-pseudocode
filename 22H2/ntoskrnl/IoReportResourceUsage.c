@@ -1,11 +1,11 @@
 /*
- * XREFs of IoReportResourceUsage @ 0x140956E00
+ * XREFs of IoReportResourceUsage @ 0x1408A0120
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     IoReportResourceUsageInternal @ 0x140956FE8 (IoReportResourceUsageInternal.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     IoReportResourceUsageInternal @ 0x1408A0308 (IoReportResourceUsageInternal.c)
  */
 
 NTSTATUS __stdcall IoReportResourceUsage(
@@ -24,9 +24,11 @@ NTSTATUS __stdcall IoReportResourceUsage(
   UNICODE_STRING *p_DriverName; // rcx
   char *v13; // rcx
   unsigned __int16 *v14; // rsi
-  _WORD *v15; // rcx
-  __int64 v16; // rax
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v16; // rcx
   __int64 v17; // rcx
+  _WORD *v18; // rcx
+  __int64 v19; // rcx
 
   if ( DeviceObject )
   {
@@ -62,28 +64,31 @@ NTSTATUS __stdcall IoReportResourceUsage(
         if ( v13 )
         {
           v14 = (unsigned __int16 *)(v13 + 40);
-          IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)0x388);
+          IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)0x310);
           if ( *v14 )
           {
             IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
             IoAddTriageDumpDataBlock(*((_QWORD *)v14 + 1), (PVOID)*v14);
           }
-          v15 = (char *)DeviceObject->DeviceObjectExtension->DeviceNode + 56;
-          if ( *v15 )
+          DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
+          v16 = (char *)DeviceObjectExtension->DeviceNode + 56;
+          if ( *v16 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v15, (PVOID)2);
+            IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
             IoAddTriageDumpDataBlock(
               *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 8),
               (PVOID)*((unsigned __int16 *)DeviceObject->DeviceObjectExtension->DeviceNode + 28));
+            DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
           }
-          v16 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
-          if ( v16 )
+          v17 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+          if ( v17 )
           {
-            if ( *(_WORD *)(v16 + 56) )
+            v18 = (_WORD *)(v17 + 56);
+            if ( *v18 )
             {
-              IoAddTriageDumpDataBlock(v16 + 56, (PVOID)2);
-              v17 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
-              IoAddTriageDumpDataBlock(*(_QWORD *)(v17 + 64), (PVOID)*(unsigned __int16 *)(v17 + 56));
+              IoAddTriageDumpDataBlock((ULONG)v18, (PVOID)2);
+              v19 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
+              IoAddTriageDumpDataBlock(*(_QWORD *)(v19 + 64), (PVOID)*(unsigned __int16 *)(v19 + 56));
             }
           }
         }

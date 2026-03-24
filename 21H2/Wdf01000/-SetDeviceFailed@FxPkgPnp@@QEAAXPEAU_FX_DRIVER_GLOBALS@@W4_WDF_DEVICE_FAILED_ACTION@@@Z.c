@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetDeviceFailed@FxPkgPnp@@QEAAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_DEVICE_FAILED_ACTION@@@Z @ 0x1C0088A24
+ * XREFs of ?SetDeviceFailed@FxPkgPnp@@QEAAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_DEVICE_FAILED_ACTION@@@Z @ 0x1C0082898
  * Callers:
- *     ?InvalidateDeviceStateAndReportFailed@FxCompanionTarget@@EEAAXXZ @ 0x1C00611D0 (-InvalidateDeviceStateAndReportFailed@FxCompanionTarget@@EEAAXXZ.c)
- *     imp_WdfDeviceSetFailed @ 0x1C0063670 (imp_WdfDeviceSetFailed.c)
+ *     ?InvalidateDeviceStateAndReportFailed@FxCompanionTarget@@EEAAXXZ @ 0x1C0043800 (-InvalidateDeviceStateAndReportFailed@FxCompanionTarget@@EEAAXXZ.c)
+ *     imp_WdfDeviceSetFailed @ 0x1C00486C0 (imp_WdfDeviceSetFailed.c)
  * Callees:
- *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0019824 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
- *     ?InvalidateDeviceState@FxPkgPnp@@AEAAXXZ @ 0x1C0088730 (-InvalidateDeviceState@FxPkgPnp@@AEAAXXZ.c)
- *     ?SetDeviceFailedAttemptRestart@FxPkgPnp@@AEAAXE@Z @ 0x1C0088A74 (-SetDeviceFailedAttemptRestart@FxPkgPnp@@AEAAXE@Z.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C00150E8 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     ?InvalidateDeviceState@FxPkgPnp@@AEAAXXZ @ 0x1C0080F74 (-InvalidateDeviceState@FxPkgPnp@@AEAAXXZ.c)
+ *     ?SetDeviceFailedAttemptRestart@FxPkgPnp@@AEAAXE@Z @ 0x1C00828E8 (-SetDeviceFailedAttemptRestart@FxPkgPnp@@AEAAXE@Z.c)
  */
 
 void __fastcall FxPkgPnp::SetDeviceFailed(

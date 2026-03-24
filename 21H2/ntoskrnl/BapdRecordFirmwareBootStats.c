@@ -1,22 +1,22 @@
 /*
- * XREFs of BapdRecordFirmwareBootStats @ 0x140A5464C
+ * XREFs of BapdRecordFirmwareBootStats @ 0x140999260
  * Callers:
- *     PopBootLoaderTraceProcess @ 0x1408087A4 (PopBootLoaderTraceProcess.c)
- *     IoInitSystemPreDrivers @ 0x140AFE7A0 (IoInitSystemPreDrivers.c)
+ *     PopBootLoaderTraceProcess @ 0x14077A118 (PopBootLoaderTraceProcess.c)
+ *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     BapdRegisterEtwProvider @ 0x1403B7244 (BapdRegisterEtwProvider.c)
- *     ExIsSoftBoot @ 0x1403B72A0 (ExIsSoftBoot.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     EtwUnregister @ 0x1406B7470 (EtwUnregister.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1406D2264 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     BapdpWriteEventDataToRegistry @ 0x140A5496C (BapdpWriteEventDataToRegistry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     BapdRegisterEtwProvider @ 0x14039B414 (BapdRegisterEtwProvider.c)
+ *     ExIsSoftBoot @ 0x14039B470 (ExIsSoftBoot.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     EtwUnregister @ 0x1407601D0 (EtwUnregister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     BapdpWriteEventDataToRegistry @ 0x1409994B4 (BapdpWriteEventDataToRegistry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void BapdRecordFirmwareBootStats()
@@ -67,18 +67,18 @@ void BapdRecordFirmwareBootStats()
   PoolWithTag = 0LL;
   LODWORD(NumberOfBytes) = 0;
   Data = 0LL;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C045E0, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_140C02E70, 0LL, 0LL);
   if ( !ExIsSoftBoot() )
   {
     if ( BapdRegisterEtwProvider((const GUID *)&BOOTENV_ETW_PROVIDER, 1, &RegHandle) >= 0
-      && ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))off_140C020D8[0])(
+      && ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))off_140C00A68[0])(
            34LL,
            0LL,
            0LL,
            &NumberOfBytes) == -1073741820
       && (_DWORD)NumberOfBytes
       && (PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x73627746u)) != 0LL
-      && ((int (__fastcall *)(__int64, _QWORD, _QWORD *, SIZE_T *))off_140C020D8[0])(
+      && ((int (__fastcall *)(__int64, _QWORD, _QWORD *, SIZE_T *))off_140C00A68[0])(
            34LL,
            (unsigned int)NumberOfBytes,
            PoolWithTag,
@@ -102,7 +102,7 @@ void BapdRecordFirmwareBootStats()
       v21 = 8LL;
       v23 = 8LL;
       EtwWrite(RegHandle, &BOOT_FW_BOOT_PERF_DATA, 0LL, 5u, &UserData);
-      if ( (unsigned int)dword_140C045E0 > 4 && tlgKeywordOn((__int64)&dword_140C045E0, 0x400000000000LL) )
+      if ( (unsigned int)dword_140C02E70 > 4 && tlgKeywordOn((__int64)&dword_140C02E70, 0x400000000000LL) )
       {
         RegHandle = v6;
         v26 = 8LL;
@@ -120,8 +120,8 @@ void BapdRecordFirmwareBootStats()
         v32 = 8LL;
         v34 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C045E0,
-          (unsigned __int8 *)&word_140035DF6,
+          (__int64)&dword_140C02E70,
+          (unsigned __int8 *)&word_14002DA5E,
           0LL,
           0LL,
           7u,

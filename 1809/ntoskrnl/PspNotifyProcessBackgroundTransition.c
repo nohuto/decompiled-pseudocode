@@ -1,15 +1,15 @@
 /*
- * XREFs of PspNotifyProcessBackgroundTransition @ 0x1401314A8
+ * XREFs of PspNotifyProcessBackgroundTransition @ 0x1401314C8
  * Callers:
  *     PspApplyJobChainLimitsToProcess @ 0x140603EB0 (PspApplyJobChainLimitsToProcess.c)
- *     PspSetProcessBackgroundCountCallback @ 0x1406BCC10 (PspSetProcessBackgroundCountCallback.c)
+ *     PspSetProcessBackgroundCountCallback @ 0x1406BCBF0 (PspSetProcessBackgroundCountCallback.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KeAbProcessBaseIoPriorityChange @ 0x1400DEFB4 (KeAbProcessBaseIoPriorityChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbProcessBaseIoPriorityChange @ 0x1400DEFD4 (KeAbProcessBaseIoPriorityChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall PspNotifyProcessBackgroundTransition(__int64 a1, int a2)

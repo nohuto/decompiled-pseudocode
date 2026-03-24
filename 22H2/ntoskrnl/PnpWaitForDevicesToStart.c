@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpWaitForDevicesToStart @ 0x140B41B00
+ * XREFs of PnpWaitForDevicesToStart @ 0x140A5D40C
  * Callers:
- *     IopInitializeSystemDrivers @ 0x140B40180 (IopInitializeSystemDrivers.c)
- *     IopInitializeBootDrivers @ 0x140B405B4 (IopInitializeBootDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     PnpWaitForEmptyDeviceActionQueue @ 0x140813664 (PnpWaitForEmptyDeviceActionQueue.c)
+ *     PnpWaitForEmptyDeviceActionQueue @ 0x1407ACB04 (PnpWaitForEmptyDeviceActionQueue.c)
  */
 
 _BOOL8 PnpWaitForDevicesToStart()

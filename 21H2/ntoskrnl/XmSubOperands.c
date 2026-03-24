@@ -1,13 +1,13 @@
 /*
- * XREFs of XmSubOperands @ 0x1403A2C48
+ * XREFs of XmSubOperands @ 0x140396BA8
  * Callers:
- *     XmDecOp @ 0x1403A25F0 (XmDecOp.c)
- *     XmSubOp @ 0x1403A2C30 (XmSubOp.c)
- *     XmCmpxchgOp @ 0x1405356F0 (XmCmpxchgOp.c)
- *     XmNegOp @ 0x140535760 (XmNegOp.c)
- *     XmSbbOp @ 0x140535790 (XmSbbOp.c)
+ *     XmDecOp @ 0x140396550 (XmDecOp.c)
+ *     XmSubOp @ 0x140396B90 (XmSubOp.c)
+ *     XmCmpxchgOp @ 0x1404E5A10 (XmCmpxchgOp.c)
+ *     XmNegOp @ 0x1404E5A80 (XmNegOp.c)
+ *     XmSbbOp @ 0x1404E5AB0 (XmSbbOp.c)
  * Callees:
- *     XmStoreResult @ 0x1403A2E60 (XmStoreResult.c)
+ *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
  */
 
 __int64 __fastcall XmSubOperands(_DWORD *a1, unsigned int a2)
@@ -46,8 +46,8 @@ __int64 __fastcall XmSubOperands(_DWORD *a1, unsigned int a2)
       v19 = a1[26];
       v8 = 31;
       v20 = a1[27];
-      LOBYTE(v6) = v19 < a2;
-      LOBYTE(v3) = v19 - a2 < v20;
+      LOBYTE(v6) = v19 - a2 < v20;
+      LOBYTE(v3) = v19 < a2;
       v10 = v3 | v6;
       v11 = v19 - a2 - v20;
       goto LABEL_4;

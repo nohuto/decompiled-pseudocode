@@ -1,21 +1,21 @@
 /*
- * XREFs of PspNotifyProcessBackgroundTransition @ 0x14035B760
+ * XREFs of PspNotifyProcessBackgroundTransition @ 0x1402F0C14
  * Callers:
- *     PspApplyJobChainLimitsToProcess @ 0x140683088 (PspApplyJobChainLimitsToProcess.c)
- *     PspSetProcessBackgroundCountCallback @ 0x1406E6FA0 (PspSetProcessBackgroundCountCallback.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x14060514C (PspApplyJobChainLimitsToProcess.c)
+ *     PspSetProcessBackgroundCountCallback @ 0x1406C0050 (PspSetProcessBackgroundCountCallback.c)
  * Callees:
- *     KeAbProcessBaseIoPriorityChange @ 0x14028F718 (KeAbProcessBaseIoPriorityChange.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbProcessBaseIoPriorityChange @ 0x1402F7370 (KeAbProcessBaseIoPriorityChange.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall PspNotifyProcessBackgroundTransition(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // r12
-  signed __int64 *v5; // rdi
+  volatile signed __int64 *v5; // rdi
   unsigned __int8 CurrentIrql; // si
   __int64 *v7; // r14
   __int64 *i; // rbx
@@ -34,7 +34,7 @@ _QWORD *__fastcall PspNotifyProcessBackgroundTransition(__int64 a1, int a2)
     _interlockedbittestandreset((volatile signed __int32 *)(a1 + 1124), 0x14u);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = (signed __int64 *)(a1 + 2144);
+  v5 = (volatile signed __int64 *)(a1 + 2144);
   ExAcquirePushLockSharedEx(a1 + 2144, 0LL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
@@ -46,7 +46,7 @@ _QWORD *__fastcall PspNotifyProcessBackgroundTransition(__int64 a1, int a2)
   v7 = (__int64 *)(a1 + 1504);
   for ( i = *(__int64 **)(a1 + 1504); i != v7; i = (__int64 *)*i )
   {
-    if ( (*((unsigned __int8 *)i - 544) | *((unsigned __int8 *)i - 466)) != 0x3F )
+    if ( (*((char *)i - 464) | *((char *)i - 386)) != 0x3F )
     {
       v9 = (*((_DWORD *)i + 10) >> 9) & 7;
       if ( a2 )
@@ -59,7 +59,7 @@ _QWORD *__fastcall PspNotifyProcessBackgroundTransition(__int64 a1, int a2)
         v10 = 0;
       }
       if ( v10 != v9 )
-        KeAbProcessBaseIoPriorityChange((__int64)(i - 167), v10, v9);
+        KeAbProcessBaseIoPriorityChange(i - 157);
     }
   }
   if ( KiIrqlFlags )

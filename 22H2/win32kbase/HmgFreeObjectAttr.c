@@ -1,72 +1,65 @@
 /*
- * XREFs of HmgFreeObjectAttr @ 0x1C00C4E90
+ * XREFs of HmgFreeObjectAttr @ 0x1C009BCC4
  * Callers:
- *     bDeleteRegion @ 0x1C003DA20 (bDeleteRegion.c)
- *     GreDeleteObject @ 0x1C00472A0 (GreDeleteObject.c)
- *     GreSetBrushOwner @ 0x1C00601D0 (GreSetBrushOwner.c)
- *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C00605C0 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
- *     NtGdiCreateRectRgn @ 0x1C008A780 (NtGdiCreateRectRgn.c)
- *     ?bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ @ 0x1C008AFB0 (-bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ.c)
- *     bDeleteBrush @ 0x1C00C64F0 (bDeleteBrush.c)
+ *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C001D0C0 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
+ *     bDeleteBrush @ 0x1C001D7B0 (bDeleteBrush.c)
+ *     GreSetBrushOwner @ 0x1C001DDE0 (GreSetBrushOwner.c)
+ *     ?bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ @ 0x1C0032950 (-bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ.c)
+ *     NtGdiDeleteObjectApp @ 0x1C0033780 (NtGdiDeleteObjectApp.c)
+ *     NtGdiCreateRectRgn @ 0x1C0080D10 (NtGdiCreateRectRgn.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     GreReleaseHmgrSemaphore @ 0x1C00427F0 (GreReleaseHmgrSemaphore.c)
- *     GreAcquireHmgrSemaphore @ 0x1C0042870 (GreAcquireHmgrSemaphore.c)
- *     W32GetThreadWin32Thread @ 0x1C0046340 (W32GetThreadWin32Thread.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C003A090 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C003A1E0 (GreAcquireHmgrSemaphore.c)
  */
 
-_QWORD *__fastcall HmgFreeObjectAttr(__int64 a1)
+__int64 __fastcall HmgFreeObjectAttr(__int64 a1)
 {
-  _QWORD *result; // rax
+  __int64 result; // rax
   __int64 v3; // rcx
-  __int64 v4; // rcx
-  _QWORD *v5; // rdi
-  __int64 *v6; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // rax
+  int v4; // edx
+  __int64 v5; // rcx
+  int v6; // r8d
+  __int64 v7; // rsi
+  int v8; // ecx
+  int v9; // r8d
+  __int64 v10; // rbx
+  _QWORD *v11; // rdx
+  __int64 v12; // rax
 
-  result = (_QWORD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  result = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   if ( a1 && result )
   {
-    if ( !result[4] )
+    if ( !*(_QWORD *)(result + 32) )
     {
-      result[4] = a1;
+      *(_QWORD *)(result + 32) = a1;
       return result;
     }
-    result = (_QWORD *)PsGetCurrentProcessWin32Process(v3);
-    v5 = result;
+    result = PsGetCurrentProcessWin32Process(v3);
+    v7 = result;
     if ( result )
     {
-      if ( *result )
+      GreAcquireHmgrSemaphore(v5, v4, v6);
+      v10 = v7 + 208;
+      v11 = *(_QWORD **)(v7 + 208);
+      if ( v11 == (_QWORD *)(v7 + 208) || *((_DWORD *)v11 + 4) == 170 )
       {
-        GreAcquireHmgrSemaphore(v4);
-        v6 = v5 + 26;
-        v7 = v5[26];
-        if ( (_QWORD *)v7 == v5 + 26 || *(_DWORD *)(v7 + 16) == 170 )
-        {
-          v7 = NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                 gpLeakTrackingAllocator,
-                 260LL,
-                 0x568uLL,
-                 0x66616247u);
-          if ( !v7 )
-            return (_QWORD *)GreReleaseHmgrSemaphore(v8);
-          v9 = *v6;
-          if ( *(__int64 **)(*v6 + 8) != v6 )
-            __fastfail(3u);
-          *(_QWORD *)v7 = v9;
-          *(_QWORD *)(v7 + 8) = v6;
-          *(_QWORD *)(v9 + 8) = v7;
-          *v6 = v7;
-          *(_DWORD *)(v7 + 16) = 0;
-        }
-        v8 = *(unsigned int *)(v7 + 16);
-        *(_DWORD *)(v7 + 16) = v8 + 1;
-        *(_QWORD *)(v7 + 8 * v8 + 24) = a1;
-        v5[6] = a1;
-        return (_QWORD *)GreReleaseHmgrSemaphore(v8);
+        v11 = PALLOCMEM2(0x568uLL, 1717658183LL, 0);
+        if ( !v11 )
+          return GreReleaseHmgrSemaphore(v8, (__int64)v11, v9);
+        v12 = *(_QWORD *)v10;
+        if ( *(_QWORD *)(*(_QWORD *)v10 + 8LL) != v10 )
+          __fastfail(3u);
+        *v11 = v12;
+        v11[1] = v10;
+        *(_QWORD *)(v12 + 8) = v11;
+        *(_QWORD *)v10 = v11;
+        *((_DWORD *)v11 + 4) = 0;
       }
+      v11[(unsigned int)(*((_DWORD *)v11 + 4))++ + 3] = a1;
+      *(_QWORD *)(v7 + 48) = a1;
+      return GreReleaseHmgrSemaphore(v8, (__int64)v11, v9);
     }
   }
   return result;

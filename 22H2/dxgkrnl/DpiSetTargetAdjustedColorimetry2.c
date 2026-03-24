@@ -1,32 +1,32 @@
 /*
- * XREFs of DpiSetTargetAdjustedColorimetry2 @ 0x1C0015774
+ * XREFs of DpiSetTargetAdjustedColorimetry2 @ 0x1C0059DE0
  * Callers:
- *     ?SetTargetAdjustedColorimetry@KernelDriver@@UEAAJU_DXGK_COLORIMETRY@@I@Z @ 0x1C01E2B10 (-SetTargetAdjustedColorimetry@KernelDriver@@UEAAJU_DXGK_COLORIMETRY@@I@Z.c)
+ *     ?_SendAdjustedHDRParamsToDriver@DXGMONITOR@@QEAAJ_N0@Z @ 0x1C016C284 (-_SendAdjustedHDRParamsToDriver@DXGMONITOR@@QEAAJ_N0@Z.c)
  * Callees:
- *     DpiFdoGetChildDescriptor @ 0x1C00157F4 (DpiFdoGetChildDescriptor.c)
- *     DpiDxgkDdiSetTargetAdjustedColorimetry2 @ 0x1C0015820 (DpiDxgkDdiSetTargetAdjustedColorimetry2.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C001A070 (DpiFdoGetChildDescriptor.c)
+ *     DpiDxgkDdiSetTargetAdjustedColorimetry2 @ 0x1C00597DC (DpiDxgkDdiSetTargetAdjustedColorimetry2.c)
  */
 
-__int64 __fastcall DpiSetTargetAdjustedColorimetry2(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall DpiSetTargetAdjustedColorimetry2(__int64 a1, int a2, __int64 a3)
 {
-  int v4; // edx
+  unsigned int v4; // edx
   int v5; // r9d
   __int64 v6; // r10
-  __int64 ChildDescriptor; // r11
+  _QWORD *ChildDescriptor; // r11
   __int64 result; // rax
   __int64 v9; // rcx
-  int v10; // r8d
+  __int64 v10; // r8
   __int128 v11; // xmm1
   int v12; // eax
   __int64 v13; // rdx
-  _OWORD v14[3]; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v14[3]; // [rsp+30h] [rbp-48h] BYREF
   int v15; // [rsp+60h] [rbp-18h]
 
-  ChildDescriptor = DpiFdoGetChildDescriptor(*(_QWORD *)(a1 + 64));
+  ChildDescriptor = DpiFdoGetChildDescriptor(*(_QWORD *)(a1 + 64), a2);
   result = 0LL;
   if ( !ChildDescriptor )
     return 3221225485LL;
-  if ( *(_BYTE *)(ChildDescriptor + 65) )
+  if ( *((_BYTE *)ChildDescriptor + 65) )
   {
     v9 = *(_QWORD *)(v6 + 40);
     if ( *(_DWORD *)(v9 + 28) >= 0xA007u )
@@ -39,7 +39,7 @@ __int64 __fastcall DpiSetTargetAdjustedColorimetry2(__int64 a1, __int64 a2, __in
       v14[2] = *(_OWORD *)(a3 + 32);
       v14[1] = v11;
       v15 = v12;
-      return DpiDxgkDdiSetTargetAdjustedColorimetry2(v9, v13, v10, (unsigned int)v14, v5);
+      return DpiDxgkDdiSetTargetAdjustedColorimetry2(v9, v13, v10, v14, v5);
     }
   }
   return result;

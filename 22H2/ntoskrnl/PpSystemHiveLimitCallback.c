@@ -1,10 +1,10 @@
 /*
- * XREFs of PpSystemHiveLimitCallback @ 0x140958630
+ * XREFs of PpSystemHiveLimitCallback @ 0x1408A1A40
  * Callers:
  *     <none>
  * Callees:
- *     PnpRequestDeviceAction @ 0x140358A44 (PnpRequestDeviceAction.c)
- *     PpResetProblemDevices @ 0x140959904 (PpResetProblemDevices.c)
+ *     PnpRequestDeviceAction @ 0x14036F614 (PnpRequestDeviceAction.c)
+ *     PpResetProblemDevices @ 0x1408A2940 (PpResetProblemDevices.c)
  */
 
 __int64 __fastcall PpSystemHiveLimitCallback(__int64 a1, unsigned int a2)
@@ -15,7 +15,7 @@ __int64 __fastcall PpSystemHiveLimitCallback(__int64 a1, unsigned int a2)
   {
     PnpSystemHiveTooLarge = 0;
     PpResetProblemDevices();
-    return PnpRequestDeviceAction(*((PVOID *)IopRootDeviceNode + 4), 0xEu, 0, 0LL, 0LL, 0LL, 0LL);
+    return PnpRequestDeviceAction(*((PVOID *)IopRootDeviceNode + 4), 14, 0, 0LL, 0LL, 0LL, 0LL);
   }
   else
   {

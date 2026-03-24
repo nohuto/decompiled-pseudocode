@@ -1,20 +1,20 @@
 /*
- * XREFs of Isoch_ProcessTransferRingEmptyEvent @ 0x1C0044F3C
+ * XREFs of Isoch_ProcessTransferRingEmptyEvent @ 0x1C00422A0
  * Callers:
- *     Isoch_ProcessTransferEventWithED0 @ 0x1C0044BF4 (Isoch_ProcessTransferEventWithED0.c)
+ *     Isoch_ProcessTransferEventWithED0 @ 0x1C0041F88 (Isoch_ProcessTransferEventWithED0.c)
  * Callees:
- *     Isoch_MapTransfers @ 0x1C0001C9C (Isoch_MapTransfers.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0007CC0 (WPP_RECORDER_SF_DD.c)
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Controller_GetFrameNumber @ 0x1C0033390 (Controller_GetFrameNumber.c)
- *     WPP_RECORDER_SF_DDDL @ 0x1C0046028 (WPP_RECORDER_SF_DDDL.c)
+ *     Isoch_MapTransfers @ 0x1C0001D00 (Isoch_MapTransfers.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_GetFrameNumber @ 0x1C00319B4 (Controller_GetFrameNumber.c)
+ *     WPP_RECORDER_SF_DDDL @ 0x1C00433FC (WPP_RECORDER_SF_DDDL.c)
  */
 
 void __fastcall Isoch_ProcessTransferRingEmptyEvent(__int64 a1, __int64 a2)
 {
-  char v4; // r14
-  int FrameNumber; // ebp
+  char v4; // bp
+  int FrameNumber; // esi
   KIRQL v6; // al
   int v7; // ecx
   unsigned int v8; // ecx
@@ -42,7 +42,7 @@ void __fastcall Isoch_ProcessTransferRingEmptyEvent(__int64 a1, __int64 a2)
     v8 &= ~0x20u;
     *(_DWORD *)(a1 + 328) = v8;
   }
-  if ( _bittest64((const signed __int64 *)(*(_QWORD *)(a1 + 40) + 336LL), 0x2Au)
+  if ( (*(_QWORD *)(*(_QWORD *)(a1 + 40) + 336LL) & 0x40000000000LL) != 0
     && v9
     && (v8 & 0x20) != 0
     && FrameNumber - *(_DWORD *)(a1 + 364) >= 0 )
@@ -51,12 +51,12 @@ void __fastcall Isoch_ProcessTransferRingEmptyEvent(__int64 a1, __int64 a2)
     {
       v10 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
       LOBYTE(v10) = 4;
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dd(
         *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
         v10,
         14,
         39,
-        (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+        (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
         *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
         *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL));
     }
@@ -68,7 +68,7 @@ void __fastcall Isoch_ProcessTransferRingEmptyEvent(__int64 a1, __int64 a2)
     v11 = *(_QWORD *)(a1 + 56);
     _m_prefetchw((const void *)(v11 + 32));
     if ( (_InterlockedOr((volatile signed __int32 *)(v11 + 32), 1u) & 1) == 0 )
-      ESM_AddEvent((KSPIN_LOCK *)(v11 + 296), 130);
+      ESM_AddEvent((KSPIN_LOCK *)(v11 + 288), 130);
   }
   else
   {

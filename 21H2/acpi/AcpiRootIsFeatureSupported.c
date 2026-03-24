@@ -1,10 +1,9 @@
 /*
- * XREFs of AcpiRootIsFeatureSupported @ 0x1C0002730
+ * XREFs of AcpiRootIsFeatureSupported @ 0x1C002DD00
  * Callers:
  *     <none>
  * Callees:
- *     IsHypervisorLpiCapable @ 0x1C0002648 (IsHypervisorLpiCapable.c)
- *     HviIsAnyHypervisorPresent @ 0x1C00027A8 (HviIsAnyHypervisorPresent.c)
+ *     IsHypervisorLpiCapable @ 0x1C00319D0 (IsHypervisorLpiCapable.c)
  */
 
 __int64 __fastcall AcpiRootIsFeatureSupported(char *Str1)
@@ -12,7 +11,7 @@ __int64 __fastcall AcpiRootIsFeatureSupported(char *Str1)
   unsigned int v2; // ebx
 
   v2 = -1073741637;
-  if ( !(unsigned __int8)HviIsAnyHypervisorPresent() || IsHypervisorLpiCapable() )
+  if ( !(unsigned __int8)HviIsAnyHypervisorPresent() || (unsigned __int8)IsHypervisorLpiCapable() )
     v2 = _stricmp(Str1, "Processor Aggregator Device") != 0 ? 0xC00000BB : 0;
   if ( !(unsigned __int8)HviIsAnyHypervisorPresent() && !_stricmp(Str1, "Resource Appending") )
   {

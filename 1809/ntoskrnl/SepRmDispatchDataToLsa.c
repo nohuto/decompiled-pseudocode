@@ -1,18 +1,18 @@
 /*
- * XREFs of SepRmDispatchDataToLsa @ 0x14012FD44
+ * XREFs of SepRmDispatchDataToLsa @ 0x14012FD64
  * Callers:
- *     SepRmCallLsa @ 0x14012FB20 (SepRmCallLsa.c)
- *     SepAdtLogAuditRecord @ 0x140186DA0 (SepAdtLogAuditRecord.c)
+ *     SepRmCallLsa @ 0x14012FB40 (SepRmCallLsa.c)
+ *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
  * Callees:
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwFreeVirtualMemory @ 0x1401B8530 (ZwFreeVirtualMemory.c)
- *     ZwRequestWaitReplyPort @ 0x1401B85B0 (ZwRequestWaitReplyPort.c)
- *     ZwRequestPort @ 0x1401BAF70 (ZwRequestPort.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwFreeVirtualMemory @ 0x1401B8550 (ZwFreeVirtualMemory.c)
+ *     ZwRequestWaitReplyPort @ 0x1401B85D0 (ZwRequestWaitReplyPort.c)
+ *     ZwRequestPort @ 0x1401BAF90 (ZwRequestPort.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepAdtCopyToLsaSharedMemory @ 0x1408A46C8 (SepAdtCopyToLsaSharedMemory.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
+ *     SepAdtCopyToLsaSharedMemory @ 0x1408A46A8 (SepAdtCopyToLsaSharedMemory.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
  */
 
 __int64 __fastcall SepRmDispatchDataToLsa(__int64 a1)

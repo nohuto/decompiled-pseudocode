@@ -1,26 +1,26 @@
 /*
- * XREFs of KiSetAffinityThread @ 0x14011545C
+ * XREFs of KiSetAffinityThread @ 0x14011547C
  * Callers:
- *     KeSetLegacyAffinityThread @ 0x1401151D0 (KeSetLegacyAffinityThread.c)
- *     KeSetAffinityThread @ 0x14016B290 (KeSetAffinityThread.c)
- *     KeSetAffinityProcess @ 0x140190494 (KeSetAffinityProcess.c)
+ *     KeSetLegacyAffinityThread @ 0x1401151F0 (KeSetLegacyAffinityThread.c)
+ *     KeSetAffinityThread @ 0x14016B2B0 (KeSetAffinityThread.c)
+ *     KeSetAffinityProcess @ 0x1401904B4 (KeSetAffinityProcess.c)
  * Callees:
  *     KiSendSoftwareInterrupt @ 0x140003AE4 (KiSendSoftwareInterrupt.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     KiComputeThreadAffinity @ 0x14008A430 (KiComputeThreadAffinity.c)
- *     KiAcquireThreadStateLock @ 0x1400CFA30 (KiAcquireThreadStateLock.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15A4 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x1400D559C (KiUpdateNodeAffinitizedFlag.c)
- *     KiPrcbInGroupAffinity @ 0x1400D5714 (KiPrcbInGroupAffinity.c)
- *     KiReleaseThreadStateLock @ 0x1400D8044 (KiReleaseThreadStateLock.c)
- *     KeSelectIdealProcessor @ 0x1400D8994 (KeSelectIdealProcessor.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x140115688 (KiRescheduleThreadAfterAffinityChange.c)
- *     KeSelectNodeForAffinity @ 0x140115748 (KeSelectNodeForAffinity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIdealProcessor @ 0x14030FD0C (EtwTraceIdealProcessor.c)
- *     EtwTraceThreadAffinity @ 0x1403105D8 (EtwTraceThreadAffinity.c)
+ *     KiAcquireThreadStateLock @ 0x1400CFA50 (KiAcquireThreadStateLock.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15C4 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x1400D55BC (KiUpdateNodeAffinitizedFlag.c)
+ *     KiPrcbInGroupAffinity @ 0x1400D5734 (KiPrcbInGroupAffinity.c)
+ *     KiReleaseThreadStateLock @ 0x1400D8064 (KiReleaseThreadStateLock.c)
+ *     KeSelectIdealProcessor @ 0x1400D89B4 (KeSelectIdealProcessor.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1401156A8 (KiRescheduleThreadAfterAffinityChange.c)
+ *     KeSelectNodeForAffinity @ 0x140115768 (KeSelectNodeForAffinity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIdealProcessor @ 0x14030FE0C (EtwTraceIdealProcessor.c)
+ *     EtwTraceThreadAffinity @ 0x1403106D8 (EtwTraceThreadAffinity.c)
  */
 
 int __fastcall KiSetAffinityThread(__int64 a1, __int64 a2, __int64 a3)

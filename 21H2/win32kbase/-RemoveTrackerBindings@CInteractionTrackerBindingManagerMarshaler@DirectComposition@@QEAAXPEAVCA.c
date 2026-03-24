@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveTrackerBindings@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@I@Z @ 0x1C02314CC
+ * XREFs of ?RemoveTrackerBindings@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@I@Z @ 0x1C00CE58C
  * Callers:
- *     ?ReleaseAllReferences@CInteractionTrackerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C022FFB0 (-ReleaseAllReferences@CInteractionTrackerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChann.c)
+ *     ?ReleaseAllReferences@CInteractionTrackerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F0580 (-ReleaseAllReferences@CInteractionTrackerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChann.c)
  * Callees:
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     ?CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0231098 (-CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@A.c)
+ *     ?CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00CE3DC (-CleanUpListItemsPendingDeletion@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@A.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 void __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::RemoveTrackerBindings(
@@ -20,27 +20,27 @@ void __fastcall DirectComposition::CInteractionTrackerBindingManagerMarshaler::R
   __int128 Src; // [rsp+20h] [rbp-28h] BYREF
   __int128 v12; // [rsp+30h] [rbp-18h]
 
-  if ( !*((_BYTE *)this + 73) )
+  if ( !*((_BYTE *)this + 65) )
   {
     v6 = 0;
-    if ( *((_QWORD *)this + 13) )
+    if ( *((_QWORD *)this + 12) )
     {
       v7 = 0LL;
       do
       {
-        v8 = *((_QWORD *)this + 14);
-        v9 = (__int128 *)(*((_QWORD *)this + 10) + v7 * v8);
+        v8 = *((_QWORD *)this + 13);
+        v9 = (__int128 *)(*((_QWORD *)this + 9) + v7 * v8);
         v10 = v9[1];
         Src = *v9;
         v12 = v10;
-        if ( *(_DWORD *)(Src + 32) == a3 || *(_DWORD *)(*((_QWORD *)&Src + 1) + 32LL) == a3 )
+        if ( *(_DWORD *)(Src + 24) == a3 || *(_DWORD *)(*((_QWORD *)&Src + 1) + 24LL) == a3 )
         {
           LODWORD(v12) = 0;
           memmove(v9, &Src, v8);
         }
         v7 = ++v6;
       }
-      while ( (unsigned __int64)v6 < *((_QWORD *)this + 13) );
+      while ( (unsigned __int64)v6 < *((_QWORD *)this + 12) );
     }
     DirectComposition::CInteractionTrackerBindingManagerMarshaler::CleanUpListItemsPendingDeletion(this, a2);
   }

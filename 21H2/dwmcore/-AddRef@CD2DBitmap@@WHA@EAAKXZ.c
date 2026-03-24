@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddRef@CD2DBitmap@@WHA@EAAKXZ @ 0x1801096B0
+ * XREFs of ?AddRef@CD2DBitmap@@WHA@EAAKXZ @ 0x1800F6060
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CD2DBitmap::AddRef(__int64 a1)
 {
-  return CDxHandleBitmapRealization::AddRef((CDxHandleBitmapRealization *)(a1 - 112));
+  return CMILCOMBase::InternalAddRef((CMILCOMBase *)(a1 - 112));
 }

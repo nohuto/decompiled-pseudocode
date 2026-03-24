@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qqDqqqd @ 0x1C0072DB8
+ * XREFs of WPP_IFR_SF_qqDqqqd @ 0x1C006315C
  * Callers:
- *     imp_WdfIoTargetFormatRequestForInternalIoctlOthers @ 0x1C001ADA0 (imp_WdfIoTargetFormatRequestForInternalIoctlOthers.c)
+ *     imp_WdfIoTargetFormatRequestForInternalIoctlOthers @ 0x1C000D080 (imp_WdfIoTargetFormatRequestForInternalIoctlOthers.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqDqqqd(

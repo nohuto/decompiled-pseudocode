@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpInsertMessageMainQueue @ 0x140662CD4
+ * XREFs of AlpcpInsertMessageMainQueue @ 0x1406BAB44
  * Callers:
- *     AlpcpSendLegacySynchronousRequest @ 0x1406666B4 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
-__int64 __fastcall AlpcpInsertMessageMainQueue(__int64 a1, __int64 a2)
+char __fastcall AlpcpInsertMessageMainQueue(__int64 a1, __int64 a2)
 {
   volatile signed __int64 *v2; // rsi
   int v5; // eax

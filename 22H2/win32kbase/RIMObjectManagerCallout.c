@@ -1,11 +1,11 @@
 /*
- * XREFs of RIMObjectManagerCallout @ 0x1C007254C
+ * XREFs of RIMObjectManagerCallout @ 0x1C004FB98
  * Callers:
- *     W32CalloutDispatch @ 0x1C00DE840 (W32CalloutDispatch.c)
+ *     W32CalloutDispatch @ 0x1C004EFB0 (W32CalloutDispatch.c)
  * Callees:
- *     RawInputManagerObjectOpen @ 0x1C00725D8 (RawInputManagerObjectOpen.c)
- *     RawInputManagerObjectDelete @ 0x1C007267C (RawInputManagerObjectDelete.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RawInputManagerObjectOpen @ 0x1C0052524 (RawInputManagerObjectOpen.c)
+ *     RawInputManagerObjectDelete @ 0x1C005287C (RawInputManagerObjectDelete.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall RIMObjectManagerCallout(int a1, __int64 a2)

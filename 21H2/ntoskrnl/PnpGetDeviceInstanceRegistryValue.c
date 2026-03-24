@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpGetDeviceInstanceRegistryValue @ 0x140945E70
+ * XREFs of PnpGetDeviceInstanceRegistryValue @ 0x1408A0E90
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
  */
 
 __int64 __fastcall PnpGetDeviceInstanceRegistryValue(__int64 a1, char a2, const WCHAR *a3, int a4, _QWORD *a5)
@@ -38,7 +38,7 @@ __int64 __fastcall PnpGetDeviceInstanceRegistryValue(__int64 a1, char a2, const 
     v11 = v9;
   RegistryValue = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, a1, v11, 0, 131097, 0, (__int64)Handle, 0LL);
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( RegistryValue >= 0 )
   {
     RegistryValue = IopGetRegistryValue(Handle[0], a3, a4, a5);

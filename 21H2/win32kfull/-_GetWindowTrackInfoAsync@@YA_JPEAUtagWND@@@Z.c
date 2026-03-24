@@ -1,33 +1,34 @@
 /*
- * XREFs of ?_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z @ 0x1C0109AC4
+ * XREFs of ?_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z @ 0x1C0122D00
  * Callers:
- *     NtUserGetWindowTrackInfoAsync @ 0x1C0109A10 (NtUserGetWindowTrackInfoAsync.c)
+ *     <none>
  * Callees:
- *     IAMThreadAccessGranted @ 0x1C0023254 (IAMThreadAccessGranted.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     IsShellProcess @ 0x1C007B10C (IsShellProcess.c)
- *     ?IsThreadHung@@YAHPEBUtagTHREADINFO@@K@Z @ 0x1C00A93A4 (-IsThreadHung@@YAHPEBUtagTHREADINFO@@K@Z.c)
- *     ?EligibleWindow@ShellWindowManagement@@YA_NPEBUtagWND@@@Z @ 0x1C0109B50 (-EligibleWindow@ShellWindowManagement@@YA_NPEBUtagWND@@@Z.c)
- *     ?BeginGetWidnowTrackInfoAsync@@YA_NPEAUtagWND@@@Z @ 0x1C0109B94 (-BeginGetWidnowTrackInfoAsync@@YA_NPEAUtagWND@@@Z.c)
+ *     IAMThreadAccessGranted @ 0x1C0037FF4 (IAMThreadAccessGranted.c)
+ *     IsShellProcess @ 0x1C003C638 (IsShellProcess.c)
+ *     IsThreadHung @ 0x1C003E194 (IsThreadHung.c)
+ *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C004B630 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
+ *     _anonymous_namespace_::EligibleWindow @ 0x1C004B788 (_anonymous_namespace_--EligibleWindow.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     ?BeginGetWidnowTrackInfoAsync@@YA_NPEAUtagWND@@@Z @ 0x1C0122DA0 (-BeginGetWidnowTrackInfoAsync@@YA_NPEAUtagWND@@@Z.c)
  */
 
-_BOOL8 __fastcall _GetWindowTrackInfoAsync(struct tagWND *this)
+_BOOL8 __fastcall _GetWindowTrackInfoAsync(struct tagWND *a1)
 {
-  const struct tagTHREADINFO *v2; // rbx
-  const struct tagWND *v3; // rdx
+  __int64 v2; // rdi
+  __int64 v3; // rdx
   __int64 v4; // r8
-  const struct tagTHREADINFO *v5; // r8
 
-  v2 = (const struct tagTHREADINFO *)*((_QWORD *)this + 2);
+  v2 = *((_QWORD *)a1 + 2);
   if ( IAMThreadAccessGranted(gptiCurrent)
     && (unsigned int)IsShellProcess(*(_QWORD *)(v4 + 424))
-    && v5 != v2
-    && ShellWindowManagement::EligibleWindow(this, v3)
-    && (*((_DWORD *)v2 + 314) & 0x20) == 0
-    && !(unsigned int)IsThreadHung(v2, 0) )
+    && v4 != v2
+    && ShellWindowManagement::BehaviorEnabled(*((ShellWindowManagement **)a1 + 3), (const struct tagDESKTOP *)0xFF)
+    && anonymous_namespace_::EligibleWindow(a1, 0)
+    && (*(_DWORD *)(v2 + 1232) & 0x20) == 0
+    && !(unsigned int)IsThreadHung((_QWORD *)v2, 0) )
   {
-    return BeginGetWidnowTrackInfoAsync(this);
+    return BeginGetWidnowTrackInfoAsync(a1);
   }
-  UserSetLastError(5LL, (__int64)v3);
+  UserSetLastError(5LL, v3, v4);
   return 0LL;
 }

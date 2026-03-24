@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$EnableDriverDiagnosticsTelemetryProviderCallback@$00@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C03043B0
+ * XREFs of ??$EnableDriverDiagnosticsTelemetryProviderCallback@$00@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C02B0A00
  * Callers:
  *     <none>
  * Callees:
- *     ?EnableDriverDiagnosticsTelemetryProviderImpl@@YAXKK_K@Z @ 0x1C0304534 (-EnableDriverDiagnosticsTelemetryProviderImpl@@YAXKK_K@Z.c)
+ *     ?EnableDriverDiagnosticsTelemetryProviderImpl@@YAXKK_K@Z @ 0x1C02B0C10 (-EnableDriverDiagnosticsTelemetryProviderImpl@@YAXKK_K@Z.c)
  */
 
 void __fastcall EnableDriverDiagnosticsTelemetryProviderCallback<1>(

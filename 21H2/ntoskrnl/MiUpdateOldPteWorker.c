@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdateOldPteWorker @ 0x14045BF06
+ * XREFs of MiUpdateOldPteWorker @ 0x14053C728
  * Callers:
- *     MiUpdateOldPte @ 0x14045BDA0 (MiUpdateOldPte.c)
- *     MiUpdateOldPagesEPTCallback @ 0x1405974D0 (MiUpdateOldPagesEPTCallback.c)
+ *     MiUpdateOldPagesEPTCallback @ 0x14053C480 (MiUpdateOldPagesEPTCallback.c)
+ *     MiUpdateOldPte @ 0x14053C5B0 (MiUpdateOldPte.c)
  * Callees:
- *     MiEmptyWorkingSetHelper @ 0x140226EE0 (MiEmptyWorkingSetHelper.c)
- *     MiGetPfnPriority @ 0x140273234 (MiGetPfnPriority.c)
- *     MiLockSetPfnPriority @ 0x140386110 (MiLockSetPfnPriority.c)
+ *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
+ *     MiLockSetPfnPriority @ 0x14028BE6C (MiLockSetPfnPriority.c)
+ *     MiEmptyWorkingSetHelper @ 0x140306534 (MiEmptyWorkingSetHelper.c)
  */
 
 __int64 __fastcall MiUpdateOldPteWorker(__int64 a1, __int64 a2, __int64 a3)

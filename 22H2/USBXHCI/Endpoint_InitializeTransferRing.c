@@ -1,12 +1,12 @@
 /*
- * XREFs of Endpoint_InitializeTransferRing @ 0x1C0013B04
+ * XREFs of Endpoint_InitializeTransferRing @ 0x1C00102D0
  * Callers:
- *     Endpoint_OnCancelSetDequeuePointer @ 0x1C0010AA4 (Endpoint_OnCancelSetDequeuePointer.c)
- *     Endpoint_UcxEvtDefaultEndpointUpdate @ 0x1C001B660 (Endpoint_UcxEvtDefaultEndpointUpdate.c)
- *     Endpoint_OnResetEndpointConfigure @ 0x1C003AC30 (Endpoint_OnResetEndpointConfigure.c)
- *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C003B090 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
+ *     Endpoint_OnCancelSetDequeuePointer @ 0x1C00100F4 (Endpoint_OnCancelSetDequeuePointer.c)
+ *     Endpoint_UcxEvtDefaultEndpointUpdate @ 0x1C0016620 (Endpoint_UcxEvtDefaultEndpointUpdate.c)
+ *     Endpoint_OnResetEndpointConfigure @ 0x1C0038D28 (Endpoint_OnResetEndpointConfigure.c)
+ *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C0039170 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
  * Callees:
- *     TR_InitializeTransferRing @ 0x1C0007E2C (TR_InitializeTransferRing.c)
+ *     TR_InitializeTransferRing @ 0x1C0005758 (TR_InitializeTransferRing.c)
  */
 
 __int64 __fastcall Endpoint_InitializeTransferRing(__int64 *a1, unsigned int a2)
@@ -19,7 +19,7 @@ __int64 __fastcall Endpoint_InitializeTransferRing(__int64 *a1, unsigned int a2)
   if ( *((_BYTE *)a1 + 37) )
   {
     v5 = *a1;
-    if ( _bittest64((const signed __int64 *)(v5 + 336), 0x2Cu) )
+    if ( (*(_QWORD *)(v5 + 336) & 0x100000000000LL) != 0 )
     {
       v6 = *(_QWORD *)(*(_QWORD *)(a1[17] + 32) + 16LL) + 16LL * a2;
       v7 = *(_QWORD *)(v5 + 336);

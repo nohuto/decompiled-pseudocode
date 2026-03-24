@@ -1,251 +1,283 @@
 /*
- * XREFs of SepAdjustPrivileges @ 0x14079E024
+ * XREFs of SepAdjustPrivileges @ 0x140608110
  * Callers:
- *     NtAdjustPrivilegesToken @ 0x14079DC50 (NtAdjustPrivilegesToken.c)
+ *     NtAdjustPrivilegesToken @ 0x140607D30 (NtAdjustPrivilegesToken.c)
  * Callees:
- *     RtlSidDominates @ 0x1402ED880 (RtlSidDominates.c)
- *     SepCopyTokenIntegrity @ 0x1402ED98C (SepCopyTokenIntegrity.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SepAdtTokenRightAdjusted @ 0x14079D470 (SepAdtTokenRightAdjusted.c)
+ *     RtlSidDominates @ 0x140252890 (RtlSidDominates.c)
+ *     SepCopyTokenIntegrity @ 0x14025299C (SepCopyTokenIntegrity.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SepAdtTokenRightAdjusted @ 0x140608640 (SepAdtTokenRightAdjusted.c)
  */
 
 __int64 __fastcall SepAdjustPrivileges(
         __int64 a1,
-        unsigned __int8 a2,
+        char a2,
         char a3,
-        unsigned int a4,
+        int a4,
         unsigned int *a5,
         __int64 a6,
         int *a7,
         _DWORD *a8,
         _BYTE *a9)
 {
-  int v10; // r14d
-  unsigned int v11; // r15d
+  unsigned int v10; // r15d
+  unsigned int v11; // r12d
+  char *v13; // rsi
   __int64 result; // rax
-  int v14; // esi
-  __int64 v16; // rdx
-  unsigned __int64 v17; // r13
-  __int64 v18; // r9
-  __int64 v19; // r8
-  char v20; // r10
-  int v21; // r11d
-  unsigned int v22; // eax
-  unsigned int v23; // edx
-  int v24; // eax
-  unsigned int v25; // edx
-  __int64 v26; // rcx
-  int v27; // eax
-  __int64 v28; // rcx
-  __int64 v29; // rcx
+  __int64 v16; // r10
+  __int64 v17; // r9
+  __int64 v18; // rax
+  __int64 v19; // rsi
+  __int64 v20; // r11
+  unsigned int v21; // ecx
+  int v22; // edi
+  unsigned int v23; // r10d
+  char v24; // al
+  int v25; // edi
+  int v26; // eax
+  __int64 v27; // xmm1_8
+  __int64 v28; // rax
+  bool v29; // zf
   __int64 v30; // rcx
   __int64 v31; // rcx
-  __int64 v32; // rax
-  signed int i; // edx
-  __int64 v34; // r8
-  int v35; // r9d
-  int v36; // r9d
-  __int64 v37; // rax
+  __int64 v32; // xmm1_8
+  __int64 v33; // rcx
+  __int64 v34; // rcx
+  unsigned int v35; // edx
+  __int64 v36; // rcx
+  int v37; // eax
   __int64 v38; // rcx
   __int64 v39; // rcx
-  __int16 v40; // [rsp+38h] [rbp-D0h] BYREF
-  bool v41; // [rsp+3Ah] [rbp-CEh] BYREF
-  unsigned int v42; // [rsp+3Ch] [rbp-CCh]
-  _QWORD Buf1[3]; // [rsp+40h] [rbp-C8h]
-  __int64 v44; // [rsp+58h] [rbp-B0h]
-  unsigned int v45; // [rsp+68h] [rbp-A0h]
-  int v46; // [rsp+6Ch] [rbp-9Ch]
-  __int64 v47; // [rsp+70h] [rbp-98h]
-  _BYTE *v48; // [rsp+78h] [rbp-90h]
-  int *v49; // [rsp+80h] [rbp-88h]
-  _QWORD v50[54]; // [rsp+88h] [rbp-80h] BYREF
-  _QWORD v51[54]; // [rsp+238h] [rbp+130h] BYREF
+  __int64 v40; // rdx
+  signed int v41; // edx
+  __int64 v42; // r8
+  BOOL v43; // r9d
+  int v44; // r9d
+  __int64 v45; // rax
+  __int64 v46; // rcx
+  __int64 v47; // rcx
+  bool v49; // [rsp+31h] [rbp-CFh] BYREF
+  bool v50; // [rsp+32h] [rbp-CEh] BYREF
+  int v51; // [rsp+34h] [rbp-CCh]
+  unsigned int v52; // [rsp+38h] [rbp-C8h]
+  int v53; // [rsp+3Ch] [rbp-C4h]
+  int v54; // [rsp+40h] [rbp-C0h]
+  __int64 v55; // [rsp+48h] [rbp-B8h]
+  __int64 v56; // [rsp+50h] [rbp-B0h]
+  _BYTE *v57; // [rsp+60h] [rbp-A0h]
+  int *v58; // [rsp+68h] [rbp-98h]
+  void *Buf1[2]; // [rsp+70h] [rbp-90h]
+  _QWORD v60[54]; // [rsp+80h] [rbp-80h] BYREF
+  _QWORD v61[54]; // [rsp+230h] [rbp+130h] BYREF
 
   v10 = 0;
   v11 = 0;
-  v49 = a7;
-  HIDWORD(Buf1[0]) = 0;
-  v41 = 0;
-  LOBYTE(Buf1[0]) = 0;
-  v42 = 0;
-  v40 = a2;
-  v44 = 0LL;
-  v45 = a4;
-  v48 = a9;
-  *(_OWORD *)&Buf1[1] = 0LL;
-  memset(v50, 0, sizeof(v50));
-  memset(v51, 0, sizeof(v51));
+  v58 = a7;
+  v51 = 0;
+  v52 = 0;
+  v56 = 0LL;
+  v49 = 0;
+  v50 = 0;
+  LOBYTE(v54) = 0;
+  LODWORD(v55) = a4;
+  v57 = a9;
+  *(_OWORD *)Buf1 = 0LL;
+  memset(v60, 0, sizeof(v60));
+  memset(v61, 0, sizeof(v61));
   *a8 = 0;
   *a9 = 0;
   SepCopyTokenIntegrity(a1);
-  result = RtlSidDominates((_DWORD *)Buf1[1], SeHighMandatorySid, (bool *)&v40 + 1);
-  v46 = result;
-  v14 = result;
+  v13 = (char *)Buf1[0];
+  result = RtlSidDominates((char *)Buf1[0], (char *)SeHighMandatorySid, &v49);
+  v53 = result;
   if ( (int)result < 0 )
     return result;
-  if ( !HIBYTE(v40) )
+  if ( !v49 )
   {
-    result = RtlSidDominates((_DWORD *)Buf1[1], SeMediumMandatorySid, &v41);
-    v46 = result;
-    v14 = result;
+    result = RtlSidDominates(v13, (char *)SeMediumMandatorySid, &v50);
+    v53 = result;
     if ( (int)result < 0 )
       return result;
-    v27 = LOBYTE(Buf1[0]);
-    if ( !v41 )
-      v27 = 1;
-    LODWORD(Buf1[0]) = v27;
+    v37 = (unsigned __int8)v54;
+    if ( !v50 )
+      v37 = 1;
+    v54 = v37;
   }
   if ( a3 )
   {
-    for ( i = 0; (unsigned int)i <= 0x24; ++i )
+    v24 = a2;
+    v41 = 0;
+    v23 = 0;
+    do
     {
-      v34 = *(_QWORD *)(a1 + 72);
-      if ( (v34 & (1LL << i)) != 0 )
+      v42 = *(_QWORD *)(a1 + 72);
+      if ( (v42 & (1LL << v41)) != 0 )
       {
-        if ( (_BYTE)v40 )
+        if ( v24 )
         {
-          v35 = -(((1LL << i) & *(_QWORD *)(a1 + 80)) != 0);
-          Buf1[1] = i;
-          v36 = 2 - v35;
-          v44 = i;
-          v37 = v11++;
-          v38 = 3 * v37;
-          *(_QWORD *)((char *)v50 + 4 * v38) = i;
-          *((_DWORD *)&v50[1] + v38) = v36;
+          v43 = ((1LL << v41) & *(_QWORD *)(a1 + 80)) != 0;
+          v55 = v41;
+          v44 = v43 + 2;
+          v56 = v41;
+          v45 = v23++;
+          v46 = 3 * v45;
+          *(_QWORD *)((char *)v60 + 4 * v46) = v41;
+          *((_DWORD *)&v60[1] + v46) = v44;
           if ( a6 )
           {
-            v39 = 3LL * (unsigned int)*a8;
-            *(_QWORD *)(a6 + 4 * v39 + 4) = i;
-            *(_DWORD *)(a6 + 4 * v39 + 12) = v36;
-            v34 = *(_QWORD *)(a1 + 72);
+            v47 = 3LL * (unsigned int)*a8;
+            *(_QWORD *)(a6 + 4 * v47 + 4) = v41;
+            *(_DWORD *)(a6 + 4 * v47 + 12) = v44;
+            v42 = *(_QWORD *)(a1 + 72);
           }
-          _bittestandreset64(&v34, (unsigned int)i);
-          *(_QWORD *)(a1 + 72) = v34;
+          _bittestandreset64(&v42, (unsigned int)v41);
+          v24 = a2;
+          *(_QWORD *)(a1 + 72) = v42;
         }
         ++*a8;
       }
+      ++v41;
     }
-    goto LABEL_36;
-  }
-  if ( !v45 )
-  {
-LABEL_36:
-    v23 = 0;
+    while ( (unsigned int)v41 <= 0x24 );
+LABEL_15:
+    v25 = v53;
     goto LABEL_16;
   }
-  v16 = v45;
-  Buf1[1] = v45;
+  if ( !(_DWORD)v55 )
+  {
+    v23 = 0;
+LABEL_14:
+    v24 = a2;
+    goto LABEL_15;
+  }
+  v16 = (unsigned int)v55;
   do
   {
-    v17 = *a5;
-    v18 = *(_QWORD *)(a1 + 64);
-    if ( !_bittest64(&v18, v17) )
-      goto LABEL_13;
-    ++HIDWORD(Buf1[0]);
-    v19 = *(_QWORD *)(a1 + 72);
-    v44 = *(_QWORD *)a5;
-    v20 = v44;
-    v21 = ((v19 & (1LL << v20)) != 0 ? 2 : 0) | (((1LL << v20) & *(_QWORD *)(a1 + 80)) != 0);
-    v22 = a5[2];
-    LODWORD(v47) = v22;
-    if ( (v22 & 4) == 0 )
+    v17 = *(_QWORD *)(a1 + 64);
+    v18 = 1LL << *a5;
+    if ( (v17 & v18) == 0 )
+      goto LABEL_10;
+    v19 = *(_QWORD *)a5;
+    ++v10;
+    v56 = *(_QWORD *)a5;
+    v20 = *(_QWORD *)(a1 + 72);
+    v21 = a5[2];
+    v22 = (((1LL << v56) & v20) != 0 ? 2 : 0) | (((1LL << v56) & *(_QWORD *)(a1 + 80)) != 0);
+    if ( (v21 & 4) != 0 )
     {
-      if ( _bittest64(&v19, (unsigned int)v17) || (v22 & 2) == 0 )
+      if ( a2 )
       {
-        if ( (_bittest64(&v19, (unsigned int)v17) & ((v47 & 2) == 0)) == 0 )
-          goto LABEL_12;
-        if ( (_BYTE)v40 )
-        {
-          if ( a6 )
-          {
-            v30 = 3LL * (unsigned int)*a8;
-            *(_QWORD *)(a6 + 4 * v30 + 4) = v44;
-            *(_DWORD *)(a6 + 4 * v30 + 12) = v21;
-            v19 = *(_QWORD *)(a1 + 72);
-          }
-          v31 = 3LL * v11;
-          *(_QWORD *)((char *)v50 + 4 * v31) = v44;
-          *((_DWORD *)&v50[1] + v31) = v21;
-          ++v11;
-          *(_QWORD *)(a1 + 72) = v19 & ~(1LL << v20);
-        }
-LABEL_10:
-        ++*a8;
-LABEL_12:
-        v16 = Buf1[1];
-        goto LABEL_13;
+        *(_QWORD *)(a1 + 72) = v20 & ~(1LL << v19);
+        *(_DWORD *)(a1 + 200) |= 0x800u;
+        *(_QWORD *)(a1 + 64) = v17 & ~(1LL << v19);
       }
-      if ( !(_BYTE)v40 )
+    }
+    else if ( (v21 & 2) != 0 )
+    {
+      if ( (v20 & v18) != 0 )
         goto LABEL_10;
+      if ( !a2 )
+        goto LABEL_30;
+      v27 = v56;
       if ( a6 )
       {
-        v28 = 3LL * (unsigned int)*a8;
-        *(_QWORD *)(a6 + 4 * v28 + 4) = v44;
-        *(_DWORD *)(a6 + 4 * v28 + 12) = v21;
+        v36 = 3LL * (unsigned int)*a8;
+        *(_QWORD *)(a6 + 4 * v36 + 4) = v56;
+        *(_DWORD *)(a6 + 4 * v36 + 12) = v22;
       }
-      v25 = v42;
-      v26 = 3LL * v42;
-      *(_QWORD *)((char *)v51 + 4 * v26) = v44;
-      *((_DWORD *)&v51[1] + v26) = v21;
-      v42 = v25 + 1;
-      if ( HIBYTE(v40) )
+      v28 = v11++;
+      v29 = !v49;
+      v30 = 3 * v28;
+      *(_QWORD *)((char *)v61 + 4 * v30) = v27;
+      *((_DWORD *)&v61[1] + v30) = v22;
+      if ( !v29 )
+        goto LABEL_29;
+      if ( v50 )
       {
-LABEL_26:
-        *(_QWORD *)(a1 + 72) |= 1LL << v20;
-        goto LABEL_10;
-      }
-      if ( v41 )
-      {
-        v29 = 0x1120160684LL;
-        if ( !_bittest64(&v29, *a5) )
-          goto LABEL_26;
+        v38 = 0x1120160684LL;
+        if ( _bittest64(&v38, *a5) )
+          goto LABEL_52;
       }
       else
       {
-        if ( !LOBYTE(Buf1[0]) )
-          goto LABEL_10;
+        if ( !(_BYTE)v54 )
+          goto LABEL_30;
+        v40 = 1LL << *a5;
         if ( (*(_DWORD *)(a1 + 200) & 0x4000) != 0 )
-          v32 = 0x200800000LL;
-        else
-          v32 = 0x202800000LL;
-        if ( ((1LL << *a5) & v32) != 0 )
-          goto LABEL_26;
+        {
+          if ( (v40 & 0x200800000LL) != 0 )
+          {
+LABEL_29:
+            v31 = *(_QWORD *)(a1 + 72);
+            _bittestandset64(&v31, (unsigned int)v19);
+            *(_QWORD *)(a1 + 72) = v31;
+          }
+          else
+          {
+LABEL_52:
+            ++v51;
+          }
+LABEL_30:
+          ++*a8;
+          goto LABEL_10;
+        }
+        if ( (v40 & 0x202800000LL) == 0 )
+          goto LABEL_52;
       }
-      ++v10;
-      goto LABEL_10;
+      v39 = *(_QWORD *)(a1 + 72);
+      _bittestandset64(&v39, (unsigned int)v19);
+      *(_QWORD *)(a1 + 72) = v39;
+      ++*a8;
     }
-    v16 = Buf1[1];
-    if ( (_BYTE)v40 )
+    else if ( (v20 & v18) != 0 )
     {
-      *(_QWORD *)(a1 + 72) = v19 & ~(1LL << v44);
-      *(_DWORD *)(a1 + 200) |= 0x800u;
-      *(_QWORD *)(a1 + 64) = v18 & ~(1LL << v20);
+      if ( a2 )
+      {
+        v32 = v56;
+        if ( a6 )
+        {
+          v33 = 3LL * (unsigned int)*a8;
+          *(_QWORD *)(a6 + 4 * v33 + 4) = v56;
+          *(_DWORD *)(a6 + 4 * v33 + 12) = v22;
+          v20 = *(_QWORD *)(a1 + 72);
+        }
+        v34 = 3LL * v52;
+        v35 = v52 + 1;
+        _bittestandreset64(&v20, (unsigned int)v19);
+        *(_QWORD *)((char *)v60 + 4 * v34) = v32;
+        *(_QWORD *)(a1 + 72) = v20;
+        *((_DWORD *)&v60[1] + v34) = v22;
+        v52 = v35;
+      }
+      ++*a8;
     }
-LABEL_13:
+LABEL_10:
     a5 += 3;
-    Buf1[1] = --v16;
+    --v16;
   }
   while ( v16 );
-  v14 = v46;
-  if ( HIDWORD(Buf1[0]) < v45 || (v23 = v42, v10) )
+  if ( v10 >= (unsigned int)v55 && !v51 )
   {
-    v14 = 262;
-    v23 = v42;
+    v23 = v52;
+    goto LABEL_14;
   }
+  v24 = a2;
+  v25 = 262;
+  v23 = v52;
 LABEL_16:
-  if ( *a8 && (_BYTE)v40 )
+  if ( *a8 && v24 )
   {
-    *v48 = 1;
-    SepAdtTokenRightAdjusted(a1, (char *)v50, v11, (char *)v51, v23, v14 >= 0);
+    *v57 = 1;
+    SepAdtTokenRightAdjusted(a1, (unsigned int)v60, v23, (unsigned int)v61, v11, v25 >= 0);
   }
   if ( a6 )
   {
     if ( *a8 > 1u )
-      v24 = 12 * *a8 + 4;
+      v26 = 12 * *a8 + 4;
     else
-      v24 = 16;
-    *v49 = v24;
+      v26 = 16;
+    *v58 = v26;
   }
-  return (unsigned int)v14;
+  return (unsigned int)v25;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of ??_EFxWorkItem@@UEAAPEAXI@Z @ 0x1C0018930
+ * XREFs of ??_EFxWorkItem@@UEAAPEAXI@Z @ 0x1C0014190
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxWorkItem@@UEAA@XZ @ 0x1C0018970 (--1FxWorkItem@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxWorkItem@@UEAA@XZ @ 0x1C00141D0 (--1FxWorkItem@@UEAA@XZ.c)
  */
 
 FxWorkItem *__fastcall FxWorkItem::`vector deleting destructor'(FxWorkItem *this, char a2)
 {
-  FX_POOL_TRACKER *p_m_Callback; // rcx
+  FxWorkItem *v4; // rcx
 
   FxWorkItem::~FxWorkItem(this);
   if ( (a2 & 1) != 0 )
   {
-    p_m_Callback = (FX_POOL_TRACKER *)&this[-1].m_Callback;
+    v4 = (FxWorkItem *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      p_m_Callback = (FX_POOL_TRACKER *)this;
-    FxPoolFree(p_m_Callback);
+      v4 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v4);
   }
   return this;
 }

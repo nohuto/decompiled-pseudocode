@@ -1,91 +1,95 @@
 /*
- * XREFs of MiRemoveVadCharges @ 0x1407BC750
+ * XREFs of MiRemoveVadCharges @ 0x1406ED1F0
  * Callers:
- *     MiFinishVadDeletion @ 0x14030FEC0 (MiFinishVadDeletion.c)
+ *     MiFinishVadDeletion @ 0x140316DC0 (MiFinishVadDeletion.c)
  * Callees:
- *     MiReturnResident @ 0x140216E18 (MiReturnResident.c)
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     MiReturnFullProcessCharges @ 0x14028CDA0 (MiReturnFullProcessCharges.c)
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     MiIsVadLarge @ 0x14031077C (MiIsVadLarge.c)
- *     MiFillCommitReturnInfo @ 0x1403107F0 (MiFillCommitReturnInfo.c)
- *     MiGetProcessPartition @ 0x14032A72C (MiGetProcessPartition.c)
- *     MiResidentPagesForSpan @ 0x1406DD778 (MiResidentPagesForSpan.c)
- *     MiReleaseVadEventBlocks @ 0x1407B97B0 (MiReleaseVadEventBlocks.c)
+ *     MiGetProcessPartition @ 0x14021AD40 (MiGetProcessPartition.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     MiReturnResident @ 0x140296E9C (MiReturnResident.c)
+ *     MiFillCommitReturnInfo @ 0x140318224 (MiFillCommitReturnInfo.c)
+ *     MiVadCommitCrossPartition @ 0x14031823C (MiVadCommitCrossPartition.c)
+ *     MiIsVadLarge @ 0x140318264 (MiIsVadLarge.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiReturnFullProcessCharges @ 0x140318370 (MiReturnFullProcessCharges.c)
+ *     MiResidentPagesForSpan @ 0x1406B5F44 (MiResidentPagesForSpan.c)
+ *     MiReleaseVadEventBlocks @ 0x1406ED390 (MiReleaseVadEventBlocks.c)
  */
 
-void __fastcall MiRemoveVadCharges(__int64 a1, __int64 a2)
+__int64 __fastcall MiRemoveVadCharges(__int64 a1, __int64 a2)
 {
   __int64 ProcessPartition; // r14
-  BOOL v5; // ebp
-  __int64 v6; // rax
-  unsigned __int64 v7; // rcx
-  __int64 v8; // rdi
-  _QWORD *SharedVm; // rax
-  unsigned __int64 v10; // rdx
-  unsigned __int64 v11; // rcx
-  int v12; // eax
-  unsigned __int64 v13; // rax
-  __int128 v14; // [rsp+20h] [rbp-68h] BYREF
-  _QWORD v15[4]; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v16; // [rsp+50h] [rbp-38h]
-  __int64 v17; // [rsp+60h] [rbp-28h]
+  int v5; // ebp
+  int v6; // r8d
+  __int64 v7; // rcx
+  unsigned __int64 v8; // r9
+  __int64 v9; // rdi
+  int v10; // eax
+  LONG *SharedVm; // rax
+  unsigned __int64 v13; // rdx
+  unsigned __int64 v14; // rcx
+  unsigned __int64 v15; // rax
+  __int128 v16; // [rsp+20h] [rbp-58h] BYREF
+  _QWORD v17[3]; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v18; // [rsp+48h] [rbp-30h]
+  __int64 v19; // [rsp+58h] [rbp-20h]
 
-  v15[0] = 0LL;
-  v15[2] = 0LL;
-  v17 = 0LL;
+  v17[0] = 0LL;
+  v19 = 0LL;
+  v18 = 0LL;
   v16 = 0LL;
-  v14 = 0LL;
   ProcessPartition = MiGetProcessPartition(a2);
   v5 = 0;
-  if ( (unsigned int)MiIsVadLarge(a1) )
-    v5 = (*(_BYTE *)(a1 + 48) & 0x70) != 80;
-  v6 = *(unsigned int *)(a1 + 52);
-  LODWORD(v6) = v6 & 0x7FFFFFFF;
-  v7 = v6 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31);
-  if ( v7 < 0x7FFFFFFFDLL )
+  if ( (unsigned int)MiIsVadLarge(a1) && (*(_BYTE *)(a1 + 48) & 0x70) != 0x50 )
   {
-    v15[1] = *(_QWORD *)(a1 + 8);
-    v15[3] = *(_QWORD *)a1;
-    MiFillCommitReturnInfo(v7, (__int64)v15, &v14);
-    v8 = v14;
-    if ( (_QWORD)v14 )
+    v5 = 1;
+    v6 = MiVadCommitCrossPartition(a1);
+  }
+  v7 = *(unsigned int *)(a1 + 52);
+  LODWORD(v7) = v7 & 0x7FFFFFFF;
+  v8 = v7 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31);
+  if ( v8 < 0x7FFFFFFFDLL && !v6 )
+  {
+    v17[1] = *(_QWORD *)(a1 + 8);
+    v17[2] = *(_QWORD *)a1;
+    MiFillCommitReturnInfo(v8, (__int64)v17, &v16);
+    v9 = v16;
+    if ( (_QWORD)v16 )
     {
-      MiReturnFullProcessCharges(a2, v14);
+      MiReturnFullProcessCharges(a2, v16);
       if ( v5 )
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 2032), -v8);
+        _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 2032), -v9);
     }
-    if ( !*((_QWORD *)&v14 + 1) )
-      goto LABEL_11;
+    if ( !*((_QWORD *)&v16 + 1) )
+      goto LABEL_6;
     SharedVm = MiGetSharedVm(a2 + 1664);
-    v11 = SharedVm[1];
-    if ( v11 )
+    v14 = *((_QWORD *)SharedVm + 1);
+    if ( v14 )
     {
-      if ( v10 <= v11 )
+      if ( v13 <= v14 )
       {
-        SharedVm[1] = v11 - v10;
-LABEL_11:
+        *((_QWORD *)SharedVm + 1) = v14 - v13;
+LABEL_6:
         *(_DWORD *)(a1 + 52) &= 0x80000000;
         *(_BYTE *)(a1 + 34) = 0;
-        goto LABEL_12;
+        goto LABEL_7;
       }
-      v10 -= v11;
-      SharedVm[1] = 0LL;
+      v13 -= v14;
+      *((_QWORD *)SharedVm + 1) = 0LL;
     }
-    if ( v10 )
-      MiReturnCommit(ProcessPartition, v10);
-    goto LABEL_11;
+    if ( v13 )
+      MiReturnCommit(ProcessPartition, v13);
+    goto LABEL_6;
   }
-LABEL_12:
-  v12 = *(_DWORD *)(a1 + 48) & 0x70;
-  if ( v12 == 16 || v12 == 64 )
+LABEL_7:
+  v10 = *(_DWORD *)(a1 + 48) & 0x70;
+  if ( v10 == 64 || v10 == 16 )
   {
-    v13 = MiResidentPagesForSpan(
+    v15 = MiResidentPagesForSpan(
             (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) << 12,
             ((*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32)) << 12) | 0xFFF,
             0);
-    if ( v13 )
-      MiReturnResident(ProcessPartition, v13);
+    if ( v15 )
+      MiReturnResident(ProcessPartition, v15);
   }
-  MiReleaseVadEventBlocks(a1, 1);
+  return MiReleaseVadEventBlocks(a1, 1LL);
 }

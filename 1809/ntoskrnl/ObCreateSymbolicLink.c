@@ -1,15 +1,15 @@
 /*
- * XREFs of ObCreateSymbolicLink @ 0x1406B721C
+ * XREFs of ObCreateSymbolicLink @ 0x1406B71FC
  * Callers:
- *     NtCreateSymbolicLinkObject @ 0x1406B6F20 (NtCreateSymbolicLinkObject.c)
- *     MiCreateMemoryEvent @ 0x14072BB04 (MiCreateMemoryEvent.c)
+ *     NtCreateSymbolicLinkObject @ 0x1406B6F00 (NtCreateSymbolicLinkObject.c)
+ *     MiCreateMemoryEvent @ 0x14072BAE4 (MiCreateMemoryEvent.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     RtlIsSandboxedToken @ 0x14064A350 (RtlIsSandboxedToken.c)
+ *     RtlIsSandboxedToken @ 0x14064A330 (RtlIsSandboxedToken.c)
  */
 
 __int64 __fastcall ObCreateSymbolicLink(__int64 *a1, unsigned int a2, int a3, __int64 a4, char a5)

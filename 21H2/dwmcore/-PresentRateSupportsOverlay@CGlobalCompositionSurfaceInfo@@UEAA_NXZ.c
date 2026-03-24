@@ -1,20 +1,25 @@
 /*
- * XREFs of ?PresentRateSupportsOverlay@CGlobalCompositionSurfaceInfo@@UEAA_NXZ @ 0x180011310
+ * XREFs of ?PresentRateSupportsOverlay@CGlobalCompositionSurfaceInfo@@UEAA_NXZ @ 0x1800F13A0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?CalcCurrentPresentCount@CPresentRate@@IEBAIPEBVCGlobalCompositionSurfaceInfo@@@Z @ 0x18020D00C (-CalcCurrentPresentCount@CPresentRate@@IEBAIPEBVCGlobalCompositionSurfaceInfo@@@Z.c)
+ *     ?IsSufficientIntervalForStats@CPresentRate@@IEBA_N_N@Z @ 0x18020D0D8 (-IsSufficientIntervalForStats@CPresentRate@@IEBA_N_N@Z.c)
+ *     ?IsSufficientPresentCount@CPresentRate@@IEAA_NI_N@Z @ 0x18020D1D0 (-IsSufficientPresentCount@CPresentRate@@IEAA_NI_N@Z.c)
  */
 
-bool __fastcall CGlobalCompositionSurfaceInfo::PresentRateSupportsOverlay(CGlobalCompositionSurfaceInfo *this)
+char __fastcall CGlobalCompositionSurfaceInfo::PresentRateSupportsOverlay(CGlobalCompositionSurfaceInfo *this)
 {
-  __int64 v1; // rcx
-  unsigned int v3; // [rsp+38h] [rbp+10h] BYREF
+  char v1; // bl
+  CPresentRate *v3; // rcx
+  unsigned int v4; // eax
 
-  if ( !CCommonRegistryData::OverlayMinFPS )
-    return 1;
-  v1 = *((_QWORD *)this + 4);
-  v3 = 0;
-  NtQueryCompositionSurfaceFrameRate(v1, &v3);
-  return v3 >= CCommonRegistryData::OverlayMinFPS;
+  v1 = *((_BYTE *)this + 265);
+  if ( CPresentRate::IsSufficientIntervalForStats((CGlobalCompositionSurfaceInfo *)((char *)this + 88), v1) )
+  {
+    v4 = CPresentRate::CalcCurrentPresentCount(v3, this);
+    if ( v4 )
+      return CPresentRate::IsSufficientPresentCount((CGlobalCompositionSurfaceInfo *)((char *)this + 88), v4, v1);
+  }
+  return v1;
 }

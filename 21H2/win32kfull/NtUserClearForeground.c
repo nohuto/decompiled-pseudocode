@@ -1,36 +1,36 @@
 /*
- * XREFs of NtUserClearForeground @ 0x1C01F1D70
+ * XREFs of NtUserClearForeground @ 0x1C01F7290
  * Callers:
  *     <none>
  * Callees:
- *     IAMThreadAccessGranted @ 0x1C0023254 (IAMThreadAccessGranted.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     IAMThreadAccessGranted @ 0x1C0037FF4 (IAMThreadAccessGranted.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 NtUserClearForeground()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rbx
+  __int64 v0; // rbx
+  __int64 v1; // rdx
   __int64 v2; // r8
   __int64 v3; // rcx
   char v5; // [rsp+30h] [rbp+8h] BYREF
 
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v5);
-  v1 = 0LL;
-  if ( *(_QWORD *)(gptiCurrent + 456LL) == grpdeskRitInput || !IAMThreadAccessGranted(gptiCurrent) )
+  v0 = 1LL;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v5);
+  v2 = *(_QWORD *)(gptiCurrent + 456LL);
+  if ( v2 == grpdeskRitInput || !IAMThreadAccessGranted(gptiCurrent) )
   {
-    UserSetLastError(5LL, v0);
+    UserSetLastError(5LL, v1, v2);
+    v0 = 0LL;
   }
-  else
+  else if ( v2 )
   {
-    if ( v2 )
-      HMAssignmentUnlock(v2 + 88);
-    v1 = 1LL;
+    HMAssignmentUnlock(v2 + 88);
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v5, v0, v2);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v5);
   UserSessionSwitchLeaveCrit(v3);
-  return v1;
+  return v0;
 }

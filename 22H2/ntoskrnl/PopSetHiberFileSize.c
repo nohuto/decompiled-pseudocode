@@ -1,38 +1,54 @@
 /*
- * XREFs of PopSetHiberFileSize @ 0x140989134
+ * XREFs of PopSetHiberFileSize @ 0x1408E72F0
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     PopCalculateHiberFileSize @ 0x1408016AC (PopCalculateHiberFileSize.c)
- *     PopSetHiberFileType @ 0x1409891D8 (PopSetHiberFileType.c)
- *     PopSetHiberPersistedRegValue @ 0x140989288 (PopSetHiberPersistedRegValue.c)
- *     PopValidateHiberFileSize @ 0x140989320 (PopValidateHiberFileSize.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PopOpenKey @ 0x1403A75B0 (PopOpenKey.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     PopValidateHiberFileSize @ 0x140773EB8 (PopValidateHiberFileSize.c)
+ *     PopCalculateHiberFileSize @ 0x14078D708 (PopCalculateHiberFileSize.c)
+ *     PopSetHiberFileType @ 0x1408E7400 (PopSetHiberFileType.c)
  */
 
-__int64 __fastcall PopSetHiberFileSize(unsigned int a1, _QWORD *a2)
+__int64 __fastcall PopSetHiberFileSize(unsigned int a1, __int64 *a2)
 {
-  int v3; // ebx
-  __int64 v4; // rsi
-  __int64 result; // rax
-  __int64 v6; // [rsp+40h] [rbp+18h] BYREF
+  int v3; // edi
+  __int64 v4; // rbp
+  int v5; // ebx
+  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
+  HANDLE KeyHandle; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v9; // [rsp+78h] [rbp+20h] BYREF
 
-  v6 = 0LL;
+  v9 = 0LL;
+  KeyHandle = 0LL;
+  DestinationString = 0LL;
   if ( a1 > 0x64 )
-    return 3221225485LL;
-  v3 = PopHiberFileSizePercent;
-  PopHiberFileSizePercent = a1;
-  PopCalculateHiberFileSize(&v6, 0LL);
-  v4 = v6;
-  result = PopValidateHiberFileSize(v6, 0LL);
-  if ( (int)result < 0
-    || (unsigned int)PopHiberFileSizePercent >= 0x28 && (result = PopSetHiberFileType(2LL, 0LL), (int)result < 0)
-    || (result = PopSetHiberPersistedRegValue(1LL), (int)result < 0) )
   {
-    PopHiberFileSizePercent = v3;
+    return (unsigned int)-1073741811;
   }
-  else if ( a2 )
+  else
   {
-    *a2 = v4;
+    v3 = PopHiberFileSizePercent;
+    PopHiberFileSizePercent = a1;
+    PopCalculateHiberFileSize(&v9, 0LL);
+    v4 = v9;
+    v5 = PopValidateHiberFileSize(v9, 0LL, 0LL);
+    if ( v5 < 0
+      || (unsigned int)PopHiberFileSizePercent >= 0x28 && (v5 = PopSetHiberFileType(2LL, 0LL), v5 < 0)
+      || (v5 = PopOpenKey(&KeyHandle, L"Control\\Power", 0x20006u), v5 < 0)
+      || (RtlInitUnicodeString(&DestinationString, L"HiberFileSizePercent"),
+          v5 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &PopHiberFileSizePercent, 4u),
+          ZwClose(KeyHandle),
+          v5 < 0) )
+    {
+      PopHiberFileSizePercent = v3;
+    }
+    else if ( a2 )
+    {
+      *a2 = v4;
+    }
   }
-  return result;
+  return (unsigned int)v5;
 }

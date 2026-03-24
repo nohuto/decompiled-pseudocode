@@ -1,146 +1,141 @@
 /*
- * XREFs of xxxDrawMenuItem @ 0x1C0234CAC
+ * XREFs of xxxDrawMenuItem @ 0x1C004470C
  * Callers:
- *     ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C02257F4 (-xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z.c)
- *     xxxMNInvertItem @ 0x1C0235660 (xxxMNInvertItem.c)
- *     xxxMenuDraw @ 0x1C02361F4 (xxxMenuDraw.c)
+ *     xxxMenuDraw @ 0x1C0043668 (xxxMenuDraw.c)
+ *     ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C0242388 (-xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z.c)
+ *     xxxMNInvertItem @ 0x1C024C7C0 (xxxMNInvertItem.c)
  * Callees:
- *     PrepareHDCBITSBitmap @ 0x1C0016A4C (PrepareHDCBITSBitmap.c)
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreSetTextColor @ 0x1C0027D58 (GreSetTextColor.c)
- *     GrePolyPatBlt @ 0x1C0029770 (GrePolyPatBlt.c)
- *     GetDPIMETRICSForDpi @ 0x1C0041198 (GetDPIMETRICSForDpi.c)
- *     MNGetpItemIndex @ 0x1C0064060 (MNGetpItemIndex.c)
- *     GetDPIServerInfoForDpi @ 0x1C008A410 (GetDPIServerInfoForDpi.c)
- *     GetOemBitmapInfoForDpi @ 0x1C009A53C (GetOemBitmapInfoForDpi.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GreSetBkMode @ 0x1C0115C14 (GreSetBkMode.c)
- *     GreSelectFontInternal @ 0x1C0119F34 (GreSelectFontInternal.c)
- *     MNIsUAHMenu @ 0x1C0216918 (MNIsUAHMenu.c)
- *     ?DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z @ 0x1C0233708 (-DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z.c)
- *     ?MNDrawHilite@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0233888 (-MNDrawHilite@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     ?MNDrawInsertionBar@@YAXPEAUHDC__@@PEAUtagITEM@@@Z @ 0x1C02338E0 (-MNDrawInsertionBar@@YAXPEAUHDC__@@PEAUtagITEM@@@Z.c)
- *     ?MNDrawMenu3DHotTracking@@YAXPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0233A28 (-MNDrawMenu3DHotTracking@@YAXPEAUHDC__@@AEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     ?MNIsCachedBmpOnly@@YAHPEAUtagITEM@@@Z @ 0x1C0233DA0 (-MNIsCachedBmpOnly@@YAHPEAUtagITEM@@@Z.c)
- *     ?xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagWND@@@Z @ 0x1C0234208 (-xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPE.c)
- *     MNIsOwnerDrawItem @ 0x1C0234ACC (MNIsOwnerDrawItem.c)
- *     BltColor @ 0x1C023F394 (BltColor.c)
- *     xxxDrawState @ 0x1C023F6F0 (xxxDrawState.c)
- *     GreGetTextCharacterExtra @ 0x1C02D7CB4 (GreGetTextCharacterExtra.c)
- *     GreSetTextCharacterExtra @ 0x1C02D7D98 (GreSetTextCharacterExtra.c)
+ *     GreSetTextColor @ 0x1C0044578 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     ?MNDrawInsertionBar@@YAXPEAUHDC__@@PEAUtagITEM@@@Z @ 0x1C0044688 (-MNDrawInsertionBar@@YAXPEAUHDC__@@PEAUtagITEM@@@Z.c)
+ *     ?MNDrawHilite@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0044A40 (-MNDrawHilite@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     ?xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagWND@@@Z @ 0x1C0044A6C (-xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPE.c)
+ *     GetDPIServerInfoForDpi @ 0x1C0044E58 (GetDPIServerInfoForDpi.c)
+ *     GrePolyPatBlt @ 0x1C00456F4 (GrePolyPatBlt.c)
+ *     GreSelectFont @ 0x1C0045E80 (GreSelectFont.c)
+ *     GreSetBkMode @ 0x1C0045E9C (GreSetBkMode.c)
+ *     GetDPIMETRICSForDpi @ 0x1C00480F0 (GetDPIMETRICSForDpi.c)
+ *     MNGetpItemIndex @ 0x1C00482D0 (MNGetpItemIndex.c)
+ *     MNIsOwnerDrawItem @ 0x1C0048BB8 (MNIsOwnerDrawItem.c)
+ *     MNIsUAHMenu @ 0x1C0049030 (MNIsUAHMenu.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C010710C (GetOemBitmapInfoForDpi.c)
+ *     PrepareHDCBITSBitmap @ 0x1C010721C (PrepareHDCBITSBitmap.c)
+ *     ?DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z @ 0x1C024B6F0 (-DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z.c)
+ *     ?MNDrawMenu3DHotTracking@@YAXPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C024B7A8 (-MNDrawMenu3DHotTracking@@YAXPEAUHDC__@@AEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     ?MNIsCachedBmpOnly@@YAHPEAUtagITEM@@@Z @ 0x1C024B994 (-MNIsCachedBmpOnly@@YAHPEAUtagITEM@@@Z.c)
+ *     BltColor @ 0x1C025063C (BltColor.c)
+ *     xxxDrawState @ 0x1C0250784 (xxxDrawState.c)
+ *     GreGetTextCharacterExtra @ 0x1C02BBDC8 (GreGetTextCharacterExtra.c)
+ *     GreSetTextCharacterExtra @ 0x1C02BBE10 (GreSetTextCharacterExtra.c)
  */
 
-_DWORD *__fastcall xxxDrawMenuItem(HDC a1, unsigned int a2, __int64 **a3, __int64 a4, char a5, ULONG_PTR a6)
+__int64 __fastcall xxxDrawMenuItem(HDC a1, unsigned int a2, _QWORD **a3, struct tagITEM *a4, char a5, __int64 a6)
 {
-  __int64 v9; // rcx
-  unsigned int v10; // ebx
-  int v12; // r8d
+  _QWORD *v7; // rcx
+  int v11; // eax
+  unsigned int v12; // r11d
   int v13; // r12d
   BOOL v14; // r15d
-  __int64 v15; // rdx
-  int v16; // edx
-  __int64 v17; // rcx
-  _DWORD *result; // rax
-  __int64 v19; // rcx
-  int v20; // ebx
-  unsigned int DpiForSystem; // eax
+  int v15; // edx
+  _QWORD *v16; // rcx
+  __int64 result; // rax
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  _QWORD *v21; // rcx
   __int64 v22; // rdx
+  int v23; // ebx
+  unsigned int DpiForSystem; // eax
   __int16 *OemBitmapInfoForDpi; // rbx
-  int v24; // esi
-  int v25; // r11d
-  __int64 v26; // rcx
-  __int64 v27; // r13
-  int v28; // ebx
-  __int64 v29; // rdi
-  int v30; // r8d
-  int v31; // r11d
-  int v32; // r11d
-  _DWORD *v33; // rcx
-  unsigned int v34; // ebx
-  int v35; // r15d
-  __int64 v36; // rcx
-  int v37; // [rsp+20h] [rbp-A8h]
-  int v38; // [rsp+50h] [rbp-78h]
-  int v39; // [rsp+54h] [rbp-74h]
-  __int64 v40; // [rsp+58h] [rbp-70h]
-  _DWORD v41[4]; // [rsp+70h] [rbp-58h] BYREF
-  __int64 v42; // [rsp+80h] [rbp-48h]
-  int v43; // [rsp+E0h] [rbp+18h]
+  int v26; // r15d
+  int v27; // edx
+  __int64 v28; // rcx
+  int v29; // ebx
+  __int64 v30; // rdi
+  int v31; // r8d
+  unsigned int v32; // ebx
+  int v33; // r15d
+  _QWORD *v34; // rcx
+  int v35; // [rsp+50h] [rbp-78h]
+  int v36; // [rsp+54h] [rbp-74h]
+  __int64 v37; // [rsp+58h] [rbp-70h]
+  int v38; // [rsp+E0h] [rbp+18h]
 
+  v35 = 0;
+  v37 = 0LL;
+  v7 = a3[2];
   v38 = 0;
-  v40 = 0LL;
-  v43 = 0;
-  v9 = (__int64)a3[2];
-  v10 = (unsigned int)gpdwCPUserPreferencesMask & 0x80020000;
-  if ( !v9 )
-    v9 = **a3;
-  v39 = MNIsOwnerDrawItem(v9, (_DWORD **)a4);
-  if ( v10 == v12 )
+  if ( !v7 )
+    v7 = (_QWORD *)**a3;
+  v36 = MNIsOwnerDrawItem(v7, a4);
+  v11 = MNDrawHilite(a3, a4);
+  if ( v12 == -2147352576 )
   {
-    if ( (unsigned int)MNDrawHilite((__int64)a3, a4) || (v13 = 0, (*(_DWORD *)(*(_QWORD *)a4 + 4LL) & 0x10000100) != 0) )
+    if ( v11 || (v13 = 0, (*(_DWORD *)(*(_QWORD *)a4 + 4LL) & 0x10000100) != 0) )
       v13 = 1;
-    v14 = (*(_DWORD *)(*(_QWORD *)(**a3 + 40) + 40LL) & 1) == 0;
+    v14 = (*(_DWORD *)(*(_QWORD *)(**a3 + 40LL) + 40LL) & 1) == 0;
   }
   else
   {
-    v13 = MNDrawHilite((__int64)a3, a4);
+    v13 = v11;
     v14 = 0;
   }
   if ( (*(_DWORD *)(*(_QWORD *)a4 + 4LL) & 0x1000) != 0 )
   {
-    v15 = *(_QWORD *)(GetDPIMETRICSForDpi() + 48);
-    if ( v15 )
+    v20 = *(_QWORD *)(GetDPIMETRICSForDpi(a2) + 48);
+    if ( v20 )
     {
-      v40 = GreSelectFontInternal((__int64)a1, v15, 1);
+      v37 = GreSelectFont(a1, v20);
     }
     else
     {
-      v43 = 64;
+      v38 = 64;
       GreGetTextCharacterExtra(a1);
       GetDPIServerInfoForDpi(a2);
-      GetDPIMETRICSForDpi();
+      GetDPIMETRICSForDpi(a2);
       GreSetTextCharacterExtra(a1);
-      v10 = (unsigned int)gpdwCPUserPreferencesMask & 0x80020000;
     }
+    v12 = (unsigned int)gpdwCPUserPreferencesMask & 0x80020000;
   }
-  if ( v39 )
+  if ( v36 )
   {
-    GreSetTextColor((__int64)a1, *(_DWORD *)(gpsi + 4596LL));
+    GreSetTextColor(a1, *(_DWORD *)(gpsi + 4596LL));
     if ( v14 )
-      v16 = *(_DWORD *)(gpsi + 4688LL);
+      v15 = *(_DWORD *)(gpsi + 4688LL);
     else
-      v16 = *(_DWORD *)(gpsi + 4584LL);
-    GreSetBkColor(a1, v16);
-    xxxSendMenuDrawItemMessage((__int64)a1, (a5 & 1) + 1, a3, a4, 0, 0, a6);
-    v17 = (__int64)a3[2];
-    if ( !v17 )
-      v17 = **a3;
-    result = (_DWORD *)MNGetpItemIndex(v17, a4);
+      v15 = *(_DWORD *)(gpsi + 4584LL);
+    GreSetBkColor(a1, v15);
+    xxxSendMenuDrawItemMessage((_DWORD)a1, (a5 & 1) + 1, (_DWORD)a3, (_DWORD)a4, 0, 0, a6);
+    v16 = a3[2];
+    if ( !v16 )
+      v16 = (_QWORD *)**a3;
+    result = MNGetpItemIndex(v16, a4);
     if ( (_DWORD)result != -1 )
     {
-      if ( (*(_DWORD *)(*(_QWORD *)(**a3 + 40) + 40LL) & 1) != 0 && *(_QWORD *)(a4 + 16) )
+      if ( (*(_DWORD *)(*(_QWORD *)(**a3 + 40LL) + 40LL) & 1) != 0 && *((_QWORD *)a4 + 2) )
       {
-        v19 = (__int64)a3[2];
-        if ( !v19 )
-          v19 = **a3;
-        if ( !(unsigned int)MNIsUAHMenu(v19) )
+        v21 = a3[2];
+        if ( !v21 )
+          v21 = (_QWORD *)**a3;
+        if ( !(unsigned int)MNIsUAHMenu(v21, v18, v19) )
         {
-          v20 = (**(_DWORD **)a4 & 0x2000) != 0 ? 0x1E : 0;
-          DpiForSystem = GetDpiForSystem(-(**(_DWORD **)a4 & 0x2000));
-          OemBitmapInfoForDpi = (__int16 *)GetOemBitmapInfoForDpi((unsigned int)(v20 + 62), DpiForSystem);
+          v23 = (**(_DWORD **)a4 & 0x2000) != 0 ? 0x1E : 0;
+          DpiForSystem = GetDpiForSystem(-(**(_DWORD **)a4 & 0x2000), v22);
+          OemBitmapInfoForDpi = (__int16 *)GetOemBitmapInfoForDpi((unsigned int)(v23 + 62), DpiForSystem);
           if ( *(_DWORD *)(*(_QWORD *)a4 + 76LL) >= OemBitmapInfoForDpi[3] )
           {
-            if ( PrepareHDCBITSBitmap(0LL, v22) )
+            if ( PrepareHDCBITSBitmap(0LL) )
             {
-              v24 = OemBitmapInfoForDpi[3];
-              v25 = (*(_DWORD *)(*(_QWORD *)a4 + 76LL) - v24 - 2) / 2;
-              if ( v25 <= 0 )
-                v25 = 0;
+              v26 = OemBitmapInfoForDpi[3];
+              v27 = (*(_DWORD *)(*(_QWORD *)a4 + 76LL) - v26 - 2) / 2;
+              if ( v27 <= 0 )
+                v27 = 0;
               BltColor(
                 a1,
-                *(_DWORD *)(*(_QWORD *)a4 + 68LL) + v25,
+                v27 + *(_DWORD *)(*(_QWORD *)a4 + 68LL),
                 OemBitmapInfoForDpi[2],
-                v24,
+                v26,
                 *OemBitmapInfoForDpi,
                 OemBitmapInfoForDpi[1],
                 1);
@@ -148,94 +143,80 @@ _DWORD *__fastcall xxxDrawMenuItem(HDC a1, unsigned int a2, __int64 **a3, __int6
           }
         }
       }
-LABEL_72:
-      MNDrawInsertionBar(a1, (struct tagITEM *)a4);
-      if ( v38 )
-        GreSetBkMode(a1, v38);
-      result = *(_DWORD **)a4;
+LABEL_15:
+      MNDrawInsertionBar(a1, a4);
+      if ( v35 )
+        GreSetBkMode(a1);
+      result = *(_QWORD *)a4;
       if ( (*(_DWORD *)(*(_QWORD *)a4 + 4LL) & 0x1000) != 0 )
       {
-        if ( v40 )
+        if ( v37 )
         {
-          return (_DWORD *)GreSelectFontInternal((__int64)a1, v40, 1);
+          return GreSelectFont(a1, v37);
         }
         else
         {
           GreGetTextCharacterExtra(a1);
-          return (_DWORD *)GreSetTextCharacterExtra(a1);
+          return GreSetTextCharacterExtra(a1);
         }
       }
       return result;
     }
     return result;
   }
-  if ( v13 )
+  if ( !v13 )
   {
-    if ( v10 == -2147352576 )
+    if ( v14 )
     {
-      v26 = gpsi;
-      v27 = *(_QWORD *)(gpsi + 4928LL);
-LABEL_35:
-      v28 = *(_DWORD *)(v26 + 4624);
-      v29 = *(_QWORD *)(v26 + 4808);
-      goto LABEL_41;
+      v29 = *(_DWORD *)(gpsi + 4596LL);
+      v30 = *(_QWORD *)(gpsi + 4752LL);
+      goto LABEL_44;
     }
-    if ( (*(_DWORD *)(*(_QWORD *)(**a3 + 40) + 40LL) & 1) != 0 )
-    {
-      v26 = gpsi;
-      v27 = *(_QWORD *)(gpsi + 4800LL);
-      goto LABEL_35;
-    }
-LABEL_40:
-    v27 = *(_QWORD *)(gpsi + 4728LL);
-    v28 = *(_DWORD *)(gpsi + 4596LL);
-    v29 = *(_QWORD *)(gpsi + 4752LL);
-    goto LABEL_41;
+    goto LABEL_43;
   }
-  if ( !v14 )
-    goto LABEL_40;
-  v28 = *(_DWORD *)(gpsi + 4596LL);
-  v29 = *(_QWORD *)(gpsi + 4752LL);
-  if ( *(_QWORD *)(*(_QWORD *)(**a3 + 40) + 24LL) )
-    v27 = *(_QWORD *)(*(_QWORD *)(**a3 + 40) + 24LL);
-  else
-    v27 = *(_QWORD *)(gpsi + 4936LL);
-LABEL_41:
-  if ( !MNIsCachedBmpOnly((struct tagITEM *)a4)
-    && ((*(_DWORD *)(*(_QWORD *)a4 + 4LL) & 1) != 0 || (*(_DWORD *)(*(_QWORD *)(**a3 + 40) + 40LL) & 0x10) != 0) )
+  if ( v12 != -2147352576 )
   {
-    if ( v13 || v30 != *(_DWORD *)(gpsi + 4628LL) || *(_DWORD *)(gpsi + 2188LL) )
+    if ( (*(_DWORD *)(*(_QWORD *)(**a3 + 40LL) + 40LL) & 1) != 0 )
     {
-      if ( *(_DWORD *)(gpsi + 4636LL) != v30 )
+      v28 = gpsi;
+      goto LABEL_40;
+    }
+LABEL_43:
+    v29 = *(_DWORD *)(gpsi + 4596LL);
+    v30 = *(_QWORD *)(gpsi + 4752LL);
+    goto LABEL_44;
+  }
+  v28 = gpsi;
+LABEL_40:
+  v29 = *(_DWORD *)(v28 + 4624);
+  v30 = *(_QWORD *)(v28 + 4808);
+LABEL_44:
+  if ( !(unsigned int)MNIsCachedBmpOnly(a4)
+    && ((*(_DWORD *)(*(_QWORD *)a4 + 4LL) & 1) != 0 || (*(_DWORD *)(*(_QWORD *)(**a3 + 40LL) + 40LL) & 0x10) != 0) )
+  {
+    if ( v13 || v31 != *(_DWORD *)(gpsi + 4628LL) || *(_DWORD *)(gpsi + 2188LL) )
+    {
+      if ( *(_DWORD *)(gpsi + 4636LL) != v31 )
       {
-        v29 = *(_QWORD *)(gpsi + 4832LL);
-        v28 = *(_DWORD *)(gpsi + 4636LL);
-        goto LABEL_54;
+        v30 = *(_QWORD *)(gpsi + 4832LL);
+        v29 = *(_DWORD *)(gpsi + 4636LL);
+        goto LABEL_56;
       }
     }
-    else if ( *(_DWORD *)(gpsi + 4632LL) != v30 || *(_DWORD *)(gpsi + 4648LL) != v30 )
+    else if ( *(_DWORD *)(gpsi + 4632LL) != v31 || *(_DWORD *)(gpsi + 4648LL) != v31 )
     {
-      v32 = ((*(_DWORD *)(*(_QWORD *)(**a3 + 40) + 40LL) & 0x10) != 0 ? 256 : 32) | v31;
-LABEL_52:
-      v43 = v32;
-      goto LABEL_54;
+      v38 |= (*(_DWORD *)(*(_QWORD *)(**a3 + 40LL) + 40LL) & 0x10) != 0 ? 256 : 32;
+      goto LABEL_56;
     }
-    v32 = v31 | 0x10;
-    goto LABEL_52;
+    v38 |= 0x10u;
   }
-LABEL_54:
-  GreSetBkColor(a1, v30);
-  GreSetTextColor((__int64)a1, v28);
-  if ( (a5 & 1) != 0 && !*(_QWORD *)(*(_QWORD *)(**a3 + 40) + 24LL) || v13 || v14 )
+LABEL_56:
+  GreSetBkColor(a1, v31);
+  GreSetTextColor(a1, v29);
+  if ( (a5 & 1) != 0 && !*(_QWORD *)(*(_QWORD *)(**a3 + 40LL) + 24LL) || v13 || v14 )
   {
-    v33 = *(_DWORD **)a4;
-    v42 = v27;
-    v41[0] = v33[16];
-    v41[1] = v33[17];
-    v41[2] = v33[18];
-    v41[3] = v33[19];
-    GrePolyPatBlt(a1, 0xF00021u, (struct _POLYPATBLT *)v41, 1u, v37);
-    v34 = (unsigned int)gpdwCPUserPreferencesMask & 0x80020000;
+    GrePolyPatBlt(a1);
+    v32 = (unsigned int)gpdwCPUserPreferencesMask & 0x80020000;
     if ( v13 && ((unsigned int)gpdwCPUserPreferencesMask & 0x80020000) == 0x80020000 )
       DrawOutline(
         a1,
@@ -248,35 +229,35 @@ LABEL_54:
   }
   else
   {
-    v34 = (unsigned int)gpdwCPUserPreferencesMask & 0x80020000;
+    v32 = (unsigned int)gpdwCPUserPreferencesMask & 0x80020000;
   }
-  if ( *(_QWORD *)(*(_QWORD *)(**a3 + 40) + 24LL) )
+  if ( *(_QWORD *)(*(_QWORD *)(**a3 + 40LL) + 24LL) )
   {
-    v35 = GreSetBkMode(a1, 1);
-    v38 = v35;
+    v33 = GreSetBkMode(a1);
+    v35 = v33;
   }
   else
   {
-    v35 = 0;
+    v33 = 0;
   }
-  GreSelectBrush(a1, v29);
+  GreSelectBrush(a1, v30);
   xxxDrawState(
     a1,
     *(_DWORD *)(*(_QWORD *)a4 + 68LL),
     *(_DWORD *)(*(_QWORD *)a4 + 72LL),
     *(_DWORD *)(*(_QWORD *)a4 + 76LL),
-    v43);
-  v36 = (__int64)a3[2];
-  if ( !v36 )
-    v36 = **a3;
-  result = (_DWORD *)MNGetpItemIndex(v36, a4);
+    v38);
+  v34 = a3[2];
+  if ( !v34 )
+    v34 = (_QWORD *)**a3;
+  result = MNGetpItemIndex(v34, a4);
   if ( (_DWORD)result != -1 )
   {
-    if ( v34 != -2147352576 )
-      MNDrawMenu3DHotTracking(a1, (__int64)a3, a4);
-    goto LABEL_72;
+    if ( v32 != -2147352576 )
+      MNDrawMenu3DHotTracking(a1);
+    goto LABEL_15;
   }
-  if ( v35 )
-    return (_DWORD *)GreSetBkMode(a1, v35);
+  if ( v33 )
+    return GreSetBkMode(a1);
   return result;
 }

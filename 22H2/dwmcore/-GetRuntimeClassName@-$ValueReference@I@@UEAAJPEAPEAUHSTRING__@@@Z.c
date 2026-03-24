@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRuntimeClassName@?$ValueReference@I@@UEAAJPEAPEAUHSTRING__@@@Z @ 0x1802961F0
+ * XREFs of ?GetRuntimeClassName@?$ValueReference@I@@UEAAJPEAPEAUHSTRING__@@@Z @ 0x1802454B0
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PnpEventRestartReleaseHardware@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0084990
+ * XREFs of ?PnpEventRestartReleaseHardware@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007B1A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?PnpReleaseHardware@FxPkgPnp@@IEAAJXZ @ 0x1C0084F24 (-PnpReleaseHardware@FxPkgPnp@@IEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?PnpReleaseHardware@FxPkgPnp@@IEAAJXZ @ 0x1C007C08C (-PnpReleaseHardware@FxPkgPnp@@IEAAJXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PnpEventRestartReleaseHardware(FxPkgPnp *This)

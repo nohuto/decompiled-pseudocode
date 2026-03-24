@@ -1,13 +1,13 @@
 /*
- * XREFs of ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01C83EC
+ * XREFs of ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01D6F68
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     ?xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z @ 0x1C01C8170 (-xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     ?xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z @ 0x1C01D6CF4 (-xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z.c)
  * Callees:
- *     xxxInternalInvalidate @ 0x1C0032FD0 (xxxInternalInvalidate.c)
- *     xxxSetWindowNCMetrics @ 0x1C0076530 (xxxSetWindowNCMetrics.c)
- *     xxxMetricsRecalc @ 0x1C01C88FC (xxxMetricsRecalc.c)
- *     MenuRecalc @ 0x1C022DC1C (MenuRecalc.c)
+ *     xxxInternalInvalidate @ 0x1C00724E0 (xxxInternalInvalidate.c)
+ *     xxxSetWindowNCMetrics @ 0x1C00E22DC (xxxSetWindowNCMetrics.c)
+ *     xxxMetricsRecalc @ 0x1C01D76D4 (xxxMetricsRecalc.c)
+ *     MenuRecalc @ 0x1C0242D5C (MenuRecalc.c)
  */
 
 __int64 __fastcall xxxSetAndDrawNCMetrics(struct _UNICODE_STRING *a1, int a2, struct tagNONCLIENTMETRICSW *a3)
@@ -29,7 +29,7 @@ __int64 __fastcall xxxSetAndDrawNCMetrics(struct _UNICODE_STRING *a1, int a2, st
   int v21; // [rsp+98h] [rbp+20h]
 
   v5 = 0LL;
-  SessionDpiServerInfo = GetSessionDpiServerInfo(a1);
+  SessionDpiServerInfo = GetSessionDpiServerInfo();
   v7 = *(_DWORD *)(SessionDpiServerInfo + 4);
   v8 = *(_DWORD *)(gpsi + 2400LL);
   v20 = *(_DWORD *)(gpsi + 2124LL);

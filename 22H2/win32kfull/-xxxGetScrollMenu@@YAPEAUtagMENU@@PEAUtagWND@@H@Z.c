@@ -1,56 +1,55 @@
 /*
- * XREFs of ?xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z @ 0x1C0229648
+ * XREFs of ?xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z @ 0x1C0244778
  * Callers:
- *     xxxDoScrollMenu @ 0x1C0229F4C (xxxDoScrollMenu.c)
+ *     xxxDoScrollMenu @ 0x1C024510C (xxxDoScrollMenu.c)
  * Callees:
- *     xxxClientLoadMenu @ 0x1C001F60C (xxxClientLoadMenu.c)
- *     RtlInitUnicodeStringOrId @ 0x1C001FB94 (RtlInitUnicodeStringOrId.c)
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00635B4 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     _GetSubMenu @ 0x1C0066FE8 (_GetSubMenu.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C009D540 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C009E5C0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     LockDesktopMenu @ 0x1C00AFA90 (LockDesktopMenu.c)
+ *     xxxClientLoadMenu @ 0x1C0023740 (xxxClientLoadMenu.c)
+ *     RtlInitUnicodeStringOrId @ 0x1C00254A4 (RtlInitUnicodeStringOrId.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078AA0 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     _GetSubMenu @ 0x1C00DC7AC (_GetSubMenu.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010104C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     LockDesktopMenu @ 0x1C0129298 (LockDesktopMenu.c)
  */
 
 struct tagMENU *__fastcall xxxGetScrollMenu(struct tagWND *a1, int a2)
 {
   __int64 v4; // rax
-  __int64 *v5; // rbx
-  unsigned __int8 *Menu; // rax
-  __int64 v7; // rcx
   __int64 SubMenu; // rbx
-  struct _UNICODE_STRING v10; // [rsp+20h] [rbp-30h] BYREF
-  _QWORD *v11[2]; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v12; // [rsp+40h] [rbp-10h]
+  __int64 *v6; // rdi
+  __int64 v7; // rdx
+  unsigned __int8 *Menu; // rax
+  __int64 v9; // rcx
+  struct _UNICODE_STRING v11; // [rsp+20h] [rbp-30h] BYREF
+  _QWORD *v12[2]; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v13; // [rsp+40h] [rbp-10h]
 
-  SmartObjStackRefBase<tagMENU>::Init(v11, 0LL);
+  SmartObjStackRefBase<tagMENU>::Init(v12, 0LL);
   v4 = *((_QWORD *)a1 + 3);
-  v12 = 0LL;
-  v5 = (__int64 *)(v4 + 80);
+  SubMenu = 0LL;
+  v6 = (__int64 *)(v4 + 80);
   if ( !a2 )
-    v5 = (__int64 *)(v4 + 72);
-  SmartObjStackRefBase<tagMENU>::operator=(v11, *v5);
-  if ( SmartObjStackRef<tagMENU>::operator==((__int64)v11) && (*(_DWORD *)(gptiCurrent + 488LL) & 5) == 0 )
+    v6 = (__int64 *)(v4 + 72);
+  v7 = *v6;
+  v13 = 0LL;
+  SmartObjStackRefBase<tagMENU>::operator=(v12, v7);
+  if ( SmartObjStackRef<tagMENU>::operator==((__int64)v12) && (*(_DWORD *)(gptiCurrent + 488LL) & 5) == 0 )
   {
-    v10 = 0LL;
-    RtlInitUnicodeStringOrId(&v10, (WCHAR *)(a2 != 0 ? 80LL : 64LL));
-    Menu = xxxClientLoadMenu(0LL, (void **)&v10);
-    v12 = 0LL;
-    SmartObjStackRefBase<tagMENU>::operator=(v11, (__int64)Menu);
-    LockDesktopMenu((__int64)v5, v11);
+    v11 = 0LL;
+    RtlInitUnicodeStringOrId(&v11, (WCHAR *)(a2 != 0 ? 80LL : 64LL));
+    Menu = xxxClientLoadMenu(0LL, &v11.Length);
+    v13 = 0LL;
+    SmartObjStackRefBase<tagMENU>::operator=(v12, (__int64)Menu);
+    LockDesktopMenu((__int64)v6, v12);
   }
-  if ( SmartObjStackRef<tagMENU>::operator==((__int64)v11) )
+  if ( !SmartObjStackRef<tagMENU>::operator==((__int64)v12) )
   {
-    SubMenu = 0LL;
+    v9 = v13;
+    if ( !v13 )
+      v9 = *v12[0];
+    SubMenu = GetSubMenu(v9);
   }
-  else
-  {
-    v7 = v12;
-    if ( !v12 )
-      v7 = *v11[0];
-    SubMenu = GetSubMenu(v7);
-  }
-  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v11);
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v12);
   return (struct tagMENU *)SubMenu;
 }

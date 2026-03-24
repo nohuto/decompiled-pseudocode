@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhFdoPower_PowerSequence @ 0x1C003B840
+ * XREFs of UsbhFdoPower_PowerSequence @ 0x1C003CB70
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 NTSTATUS __fastcall UsbhFdoPower_PowerSequence(__int64 a1, IRP *a2)

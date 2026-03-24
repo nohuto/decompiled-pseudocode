@@ -1,13 +1,13 @@
 /*
- * XREFs of SetMinMetrics @ 0x1C00C6F10
+ * XREFs of SetMinMetrics @ 0x1C00E24DC
  * Callers:
- *     xxxUpdatePerUserSystemParameters @ 0x1C00B8188 (xxxUpdatePerUserSystemParameters.c)
- *     ?xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z @ 0x1C00C8AD0 (-xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z.c)
- *     xxxInitWindowStation @ 0x1C00D42E4 (xxxInitWindowStation.c)
- *     UserOnGreTextReady @ 0x1C00EE588 (UserOnGreTextReady.c)
+ *     xxxInitWindowStation @ 0x1C000C0B8 (xxxInitWindowStation.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026814 (xxxUpdatePerUserSystemParameters.c)
+ *     UserOnGreTextReady @ 0x1C00E62DC (UserOnGreTextReady.c)
+ *     ?xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z @ 0x1C013218C (-xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z.c)
  * Callees:
- *     ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C00C72CC (-GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C00E2884 (-GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SetMinMetrics(struct _UNICODE_STRING *a1, __int128 *a2)

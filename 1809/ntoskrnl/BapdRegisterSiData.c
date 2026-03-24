@@ -4,9 +4,9 @@
  *     PopBootLoaderSiData @ 0x1405664E4 (PopBootLoaderSiData.c)
  *     BapdpRegisterWbclData @ 0x1409D14E8 (BapdpRegisterWbclData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
  *     BapdGetISRegistryKey @ 0x14056EEC8 (BapdGetISRegistryKey.c)
  */
 

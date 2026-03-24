@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x1402E8A14
+ * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x1402E8B14
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x14087CFB4 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x14087CF94 (PopRecordPoBlackboxInformation.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)

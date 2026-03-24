@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OpenSharedHandle@CSharedCompositionPointLightMarshaler@DirectComposition@@UEAAJPEAPEAX@Z @ 0x1C023B330
+ * XREFs of ?OpenSharedHandle@CSharedCompositionPointLightMarshaler@DirectComposition@@UEAAJPEAPEAX@Z @ 0x1C01F9AC0
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C0058820 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
+ *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C004AC10 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
  */
 
 NTSTATUS __fastcall DirectComposition::CSharedCompositionPointLightMarshaler::OpenSharedHandle(
@@ -12,7 +12,7 @@ NTSTATUS __fastcall DirectComposition::CSharedCompositionPointLightMarshaler::Op
 {
   __int64 v2; // rcx
 
-  v2 = *((_QWORD *)this + 21);
+  v2 = *((_QWORD *)this + 20);
   if ( v2 )
     return CompositionObject::CreateHandle((CompositionObject *)(v2 - 24), 1u, 0, 1, a2);
   else

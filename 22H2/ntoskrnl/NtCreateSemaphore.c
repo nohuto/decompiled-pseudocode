@@ -1,24 +1,24 @@
 /*
- * XREFs of NtCreateSemaphore @ 0x1407336E0
+ * XREFs of NtCreateSemaphore @ 0x1406526A0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeSemaphore @ 0x1402B32C0 (KeInitializeSemaphore.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
+ *     KeInitializeSemaphore @ 0x1402D6DB0 (KeInitializeSemaphore.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateSemaphore(unsigned __int64 a1, __int64 a2, __int64 a3, LONG a4, int Limit)
+__int64 __fastcall NtCreateSemaphore(unsigned __int64 a1, ACCESS_MASK a2, int a3, LONG a4, int Limit)
 {
-  _QWORD *v6; // rdi
+  _QWORD *v7; // rdi
   char PreviousMode; // si
   int inserted; // ecx
-  __int64 v10; // [rsp+20h] [rbp-58h]
+  char *v11; // [rsp+20h] [rbp-58h]
   PRKSEMAPHORE Semaphore; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v12; // [rsp+58h] [rbp-20h] BYREF
+  __int64 v13; // [rsp+58h] [rbp-20h] BYREF
 
-  v6 = (_QWORD *)a1;
-  v12 = 0LL;
+  v7 = (_QWORD *)a1;
+  v13 = 0LL;
   Semaphore = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
@@ -29,14 +29,14 @@ __int64 __fastcall NtCreateSemaphore(unsigned __int64 a1, __int64 a2, __int64 a3
   }
   if ( Limit <= 0 || a4 < 0 || a4 > Limit )
     return 3221225485LL;
-  inserted = ObCreateObjectEx(PreviousMode, ExSemaphoreObjectType, a3, PreviousMode, v10, 32, 0, 0, &Semaphore, 0LL);
+  inserted = ObCreateObjectEx(PreviousMode, ExSemaphoreObjectType, a3, PreviousMode, v11, 32, 0, 0, &Semaphore, 0LL);
   if ( inserted >= 0 )
   {
     KeInitializeSemaphore(Semaphore, a4, Limit);
-    inserted = ObInsertObjectEx(Semaphore, 0LL, 0, 0LL, (__int64)&v12);
+    inserted = ObInsertObjectEx((PADAPTER_OBJECT)Semaphore, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&v13);
     LODWORD(Semaphore) = inserted;
     if ( inserted >= 0 )
-      *v6 = v12;
+      *v7 = v13;
   }
   return (unsigned int)inserted;
 }

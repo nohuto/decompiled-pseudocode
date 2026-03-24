@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qq_EtwWriteTransfer @ 0x1C002B34A
+ * XREFs of McTemplateK0qq_EtwWriteTransfer @ 0x1C003E644
  * Callers:
- *     ?StopVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z @ 0x1C03D49B8 (-StopVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z.c)
+ *     ?DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z @ 0x1C0007EC8 (-DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -25,5 +25,10 @@ NTSTATUS __fastcall McTemplateK0qq_EtwWriteTransfer(__int64 a1, __int64 a2, __in
   v10 = &a5;
   v12 = 0;
   v11 = 4;
-  return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, &EventBltQueueVsyncStop, a3, 3u, &v6);
+  return McGenEventWrite_EtwWriteTransfer(
+           (REGHANDLE *)&DxgkControlGuid_Context,
+           &EventDdiControlInterrupt2,
+           a3,
+           3u,
+           &v6);
 }

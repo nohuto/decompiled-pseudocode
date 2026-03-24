@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpProviderArrivalCallback @ 0x14070A0C4
+ * XREFs of EtwpProviderArrivalCallback @ 0x14070A0A4
  * Callers:
  *     EtwpTrackProviderRegistration @ 0x1405C1F34 (EtwpTrackProviderRegistration.c)
  *     EtwpAddRegEntryToGroup @ 0x1405C2750 (EtwpAddRegEntryToGroup.c)
- *     EtwpEnableGuid @ 0x140655F58 (EtwpEnableGuid.c)
- *     EtwpTrackProviderBinary @ 0x14071D4AC (EtwpTrackProviderBinary.c)
- *     EtwpTrackGuidEntryRegistrations @ 0x1408C2E00 (EtwpTrackGuidEntryRegistrations.c)
+ *     EtwpEnableGuid @ 0x140655F38 (EtwpEnableGuid.c)
+ *     EtwpTrackProviderBinary @ 0x14071D48C (EtwpTrackProviderBinary.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x1408C2DE0 (EtwpTrackGuidEntryRegistrations.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpLocateDbgIdForRegEntry @ 0x1406BA0D0 (EtwpLocateDbgIdForRegEntry.c)
- *     EtwpTrackDebugIdForSession @ 0x14070A1D8 (EtwpTrackDebugIdForSession.c)
- *     MmGetFileNameForAddress @ 0x14084BC70 (MmGetFileNameForAddress.c)
- *     RtlPcToFilePath @ 0x140899680 (RtlPcToFilePath.c)
- *     EtwpSendDbgId @ 0x1408BDC08 (EtwpSendDbgId.c)
- *     EtwpTrackBinaryForSession @ 0x1408C2A44 (EtwpTrackBinaryForSession.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1406BA0B0 (EtwpLocateDbgIdForRegEntry.c)
+ *     EtwpTrackDebugIdForSession @ 0x14070A1B8 (EtwpTrackDebugIdForSession.c)
+ *     MmGetFileNameForAddress @ 0x14084BC50 (MmGetFileNameForAddress.c)
+ *     RtlPcToFilePath @ 0x140899660 (RtlPcToFilePath.c)
+ *     EtwpSendDbgId @ 0x1408BDBE8 (EtwpSendDbgId.c)
+ *     EtwpTrackBinaryForSession @ 0x1408C2A24 (EtwpTrackBinaryForSession.c)
  */
 
 __int64 __fastcall EtwpProviderArrivalCallback(__int64 a1, char a2, __int64 a3)

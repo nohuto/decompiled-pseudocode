@@ -1,38 +1,41 @@
 /*
- * XREFs of HMCleanupGrantedHandle @ 0x1C0141578
+ * XREFs of HMCleanupGrantedHandle @ 0x1C0113CB8
  * Callers:
- *     ?HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C00305C8 (-HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z.c)
- *     HMFreeObject @ 0x1C004E3F0 (HMFreeObject.c)
- *     HMRemoveHandleForObject @ 0x1C0050440 (HMRemoveHandleForObject.c)
+ *     HMFreeObject @ 0x1C0007F10 (HMFreeObject.c)
+ *     HMRemoveHandleForObject @ 0x1C0008390 (HMRemoveHandleForObject.c)
+ *     ?HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C004264C (-HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z.c)
  * Callees:
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ??0?$CLockDomainExclusive@VDLT_JOB@@@@QEAA@XZ @ 0x1C0086274 (--0-$CLockDomainExclusive@VDLT_JOB@@@@QEAA@XZ.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
-void *__fastcall HMCleanupGrantedHandle(__int64 a1)
+__int64 __fastcall HMCleanupGrantedHandle(__int64 a1)
 {
-  _DWORD *i; // rbx
-  unsigned int v3; // r8d
-  __int64 v4; // rdx
-  _QWORD *v5; // rcx
-  void *result; // rax
+  __int64 result; // rax
+  __int64 i; // rbx
+  unsigned int v4; // ecx
+  __int64 v5; // rdx
+  _QWORD *v6; // r9
+  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  for ( i = gpJobsList; i; i = *(_DWORD **)i )
+  result = CLockDomainExclusive<DLT_JOB>::CLockDomainExclusive<DLT_JOB>((__int64)v7);
+  for ( i = gpJobsList; i; i = *(_QWORD *)i )
   {
-    v3 = i[12];
-    v4 = 0LL;
-    if ( v3 )
+    v4 = *(_DWORD *)(i + 48);
+    v5 = 0LL;
+    if ( v4 )
     {
       while ( 1 )
       {
-        v5 = (_QWORD *)(*((_QWORD *)i + 7) + 8 * v4);
-        if ( *v5 == a1 )
+        v6 = (_QWORD *)(*(_QWORD *)(i + 56) + 8 * v5);
+        if ( *v6 == a1 )
           break;
-        v4 = (unsigned int)(v4 + 1);
-        if ( (unsigned int)v4 >= v3 )
+        v5 = (unsigned int)(v5 + 1);
+        if ( (unsigned int)v5 >= v4 )
           goto LABEL_7;
       }
-      result = memmove(v5, v5 + 1, 8LL * (v3 - (unsigned int)v4 - 1));
-      --i[12];
+      result = (__int64)memmove(v6, v6 + 1, 8LL * (v4 - (unsigned int)v5 - 1));
+      --*(_DWORD *)(i + 48);
     }
 LABEL_7:
     ;

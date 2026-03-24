@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CCompositionPointLight::sc_Attenuation1__ @ 0x180001D70
+ * XREFs of _dynamic_initializer_for__CCompositionPointLight::sc_Attenuation1__ @ 0x180001AD0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CCompositionPointLight::sc_Attenuation1__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D1DB8 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
-  qword_1803D1DC8 = v1;
+  xmmword_180345EC8 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
+  qword_180345ED8 = v1;
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?InitContinuousReader@FxUsbPipe@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z @ 0x1C007A47C
+ * XREFs of ?InitContinuousReader@FxUsbPipe@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z @ 0x1C006D8EC
  * Callers:
- *     imp_WdfUsbTargetPipeConfigContinuousReader @ 0x1C0075F20 (imp_WdfUsbTargetPipeConfigContinuousReader.c)
+ *     imp_WdfUsbTargetPipeConfigContinuousReader @ 0x1C00688E0 (imp_WdfUsbTargetPipeConfigContinuousReader.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ??0FxUsbPipeContinuousReader@@QEAA@PEAVFxUsbPipe@@E@Z @ 0x1C007917C (--0FxUsbPipeContinuousReader@@QEAA@PEAVFxUsbPipe@@E@Z.c)
- *     ??_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z @ 0x1C0079560 (--_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z.c)
- *     ?Config@FxUsbPipeContinuousReader@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z @ 0x1C008078C (-Config@FxUsbPipeContinuousReader@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Config@FxUsbPipeContinuousReader@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z @ 0x1C006BDCC (-Config@FxUsbPipeContinuousReader@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z.c)
+ *     ??0FxUsbPipeContinuousReader@@QEAA@PEAVFxUsbPipe@@E@Z @ 0x1C006C578 (--0FxUsbPipeContinuousReader@@QEAA@PEAVFxUsbPipe@@E@Z.c)
+ *     ??_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z @ 0x1C006C9D0 (--_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z.c)
  */
 
 __int64 __fastcall FxUsbPipe::InitContinuousReader(
@@ -19,16 +19,11 @@ __int64 __fastcall FxUsbPipe::InitContinuousReader(
   const void *_a1; // rax
   unsigned __int8 NumPendingReads; // al
   unsigned __int8 v9; // bl
-  _FX_DRIVER_GLOBALS *m_Globals; // rcx
-  ULONG Tag; // r10d
-  void *v12; // r8
-  FX_POOL **v13; // rax
-  FxUsbPipeContinuousReader *v14; // rax
-  FxUsbPipeContinuousReader *v15; // rbx
-  int v16; // ebp
-  __m128i v17; // [rsp+40h] [rbp-28h]
-  __m128i v18; // [rsp+50h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+68h] [rbp+0h]
+  FX_POOL **v10; // rax
+  FxUsbPipeContinuousReader *v11; // rax
+  FxUsbPipeContinuousReader *v12; // rbx
+  int v13; // ebp
+  void *retaddr; // [rsp+48h] [rbp+0h]
 
   if ( this->m_Reader )
   {
@@ -49,34 +44,38 @@ __int64 __fastcall FxUsbPipe::InitContinuousReader(
     {
       v9 = 2;
     }
-    m_Globals = this->m_Globals;
-    v17.m128i_i64[0] = 0LL;
-    v17.m128i_i64[1] = 64LL;
-    Tag = m_Globals->Tag;
-    if ( m_Globals->FxPoolTrackingOn )
-      v12 = retaddr;
-    else
-      v12 = 0LL;
-    v18 = v17;
-    v13 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v18, 120LL * ((unsigned int)v9 - 1) + 216, Tag, v12);
-    if ( v13
-      && (FxUsbPipeContinuousReader::FxUsbPipeContinuousReader((FxUsbPipeContinuousReader *)v13, this, v9),
-          (v15 = v14) != 0LL) )
+    v10 = FxPoolAllocator(
+            this->m_Globals,
+            &this->m_Globals->FxPoolFrameworks,
+            ExDefaultNonPagedPoolType,
+            120LL * ((unsigned int)v9 - 1) + 216,
+            this->m_Globals->Tag,
+            retaddr);
+    if ( v10 )
     {
-      v16 = FxUsbPipeContinuousReader::Config(v14, Config, TotalBufferLength);
-      if ( v16 >= 0 )
+      FxUsbPipeContinuousReader::FxUsbPipeContinuousReader((FxUsbPipeContinuousReader *)v10, this, v9);
+      v12 = v11;
+    }
+    else
+    {
+      v12 = 0LL;
+    }
+    if ( v12 )
+    {
+      v13 = FxUsbPipeContinuousReader::Config(v12, Config, TotalBufferLength);
+      if ( v13 >= 0 )
       {
-        v15->m_ReadCompleteCallback = Config->EvtUsbTargetPipeReadComplete;
-        v15->m_ReadCompleteContext = Config->EvtUsbTargetPipeReadCompleteContext;
-        v15->m_ReadersFailedCallback = Config->EvtUsbTargetPipeReadersFailed;
-        if ( _InterlockedCompareExchange64((volatile signed __int64 *)&this->m_Reader, (signed __int64)v15, 0LL) )
-          FxUsbPipeContinuousReader::`scalar deleting destructor'(v15);
+        v12->m_ReadCompleteCallback = Config->EvtUsbTargetPipeReadComplete;
+        v12->m_ReadCompleteContext = Config->EvtUsbTargetPipeReadCompleteContext;
+        v12->m_ReadersFailedCallback = Config->EvtUsbTargetPipeReadersFailed;
+        if ( _InterlockedCompareExchange64((volatile signed __int64 *)&this->m_Reader, (signed __int64)v12, 0LL) )
+          FxUsbPipeContinuousReader::`scalar deleting destructor'(v12);
         return 0LL;
       }
       else
       {
-        FxUsbPipeContinuousReader::`scalar deleting destructor'(v15);
-        return (unsigned int)v16;
+        FxUsbPipeContinuousReader::`scalar deleting destructor'(v12);
+        return (unsigned int)v13;
       }
     }
     else

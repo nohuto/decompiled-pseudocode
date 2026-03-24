@@ -1,334 +1,334 @@
 /*
- * XREFs of ?SubmitLocked@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z @ 0x1C000B1D0
+ * XREFs of ?SubmitLocked@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z @ 0x1C0001F90
  * Callers:
- *     imp_WdfRequestSend @ 0x1C000AF90 (imp_WdfRequestSend.c)
- *     ?SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z @ 0x1C001A8A0 (-SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z.c)
- *     ?Submit@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z @ 0x1C007462C (-Submit@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z.c)
- *     ?ResubmitRepeater@FxUsbPipeContinuousReader@@QEAAKPEAUFxUsbPipeRepeatReader@@PEAJ@Z @ 0x1C007A7B0 (-ResubmitRepeater@FxUsbPipeContinuousReader@@QEAAKPEAUFxUsbPipeRepeatReader@@PEAJ@Z.c)
+ *     imp_WdfRequestSend @ 0x1C0001AD0 (imp_WdfRequestSend.c)
+ *     ?SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z @ 0x1C0001D10 (-SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z.c)
+ *     ?Submit@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z @ 0x1C0065D2C (-Submit@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z.c)
+ *     ?ResubmitRepeater@FxUsbPipeContinuousReader@@QEAAKPEAUFxUsbPipeRepeatReader@@PEAJ@Z @ 0x1C006DCB4 (-ResubmitRepeater@FxUsbPipeContinuousReader@@QEAAKPEAUFxUsbPipeRepeatReader@@PEAJ@Z.c)
  * Callees:
- *     ?DecrementIoCount@FxIoTarget@@IEAAXXZ @ 0x1C000505C (-DecrementIoCount@FxIoTarget@@IEAAXXZ.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?Start@MxTimer@@QEAAXT_LARGE_INTEGER@@K@Z @ 0x1C0013E68 (-Start@MxTimer@@QEAAXT_LARGE_INTEGER@@K@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_qid @ 0x1C005A5D0 (WPP_IFR_SF_qid.c)
- *     ?SetVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0064138 (-SetVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
- *     WPP_IFR_SF_qLqd @ 0x1C0068AE4 (WPP_IFR_SF_qLqd.c)
- *     ?CreateTimer@FxRequestBase@@QEAAJXZ @ 0x1C00699AC (-CreateTimer@FxRequestBase@@QEAAJXZ.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
- *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C006E6F0 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
- *     ?PendRequestLocked@FxIoTarget@@IEAAJPEAVFxRequestBase@@@Z @ 0x1C007409C (-PendRequestLocked@FxIoTarget@@IEAAJPEAVFxRequestBase@@@Z.c)
- *     ?Vf_VerifySubmitLocked@FxIoTarget@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequestBase@@@Z @ 0x1C00C7F18 (-Vf_VerifySubmitLocked@FxIoTarget@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequestBase@@@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?CanComplete@FxRequestBase@@QEAAEXZ @ 0x1C000C910 (-CanComplete@FxRequestBase@@QEAAEXZ.c)
+ *     ?DecrementIoCount@FxIoTarget@@IEAAXXZ @ 0x1C000C9A0 (-DecrementIoCount@FxIoTarget@@IEAAXXZ.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?Start@MxTimer@@QEAAXT_LARGE_INTEGER@@K@Z @ 0x1C0018E90 (-Start@MxTimer@@QEAAXT_LARGE_INTEGER@@K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     ?SetVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0049D8C (-SetVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     WPP_IFR_SF_qLqd @ 0x1C004F4F0 (WPP_IFR_SF_qLqd.c)
+ *     ?CreateTimer@FxRequestBase@@QEAAJXZ @ 0x1C0053654 (-CreateTimer@FxRequestBase@@QEAAJXZ.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C005B788 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
+ *     ?PendRequestLocked@FxIoTarget@@IEAAJPEAVFxRequestBase@@@Z @ 0x1C006576C (-PendRequestLocked@FxIoTarget@@IEAAJPEAVFxRequestBase@@@Z.c)
+ *     ?Vf_VerifySubmitLocked@FxIoTarget@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequestBase@@@Z @ 0x1C00C6E30 (-Vf_VerifySubmitLocked@FxIoTarget@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequestBase@@@Z.c)
  */
 
 __int64 __fastcall FxIoTarget::SubmitLocked(
         FxIoTarget *this,
-        unsigned __int64 Request,
+        FxRequestBase *Request,
         _WDF_REQUEST_SEND_OPTIONS *Options,
         int Flags)
 {
-  _FX_DRIVER_GLOBALS *m_Globals; // r10
-  char v6; // r13
-  char v7; // r12
-  char v8; // r14
-  _WDF_REQUEST_SEND_OPTIONS *v9; // rax
-  unsigned __int64 v10; // rbx
-  int v12; // edi
-  char v13; // r15
+  _FX_DRIVER_GLOBALS *m_Globals; // r13
+  char v7; // r15
+  char v8; // dl
+  unsigned int v9; // ebp
+  _WDF_REQUEST_SEND_OPTIONS *v10; // rax
+  char v12; // r12
   _WDF_IO_TARGET_STATE m_State; // r8d
-  unsigned int v15; // edi
-  int v16; // ecx
-  int v17; // ebp
-  unsigned int v18; // edx
-  bool v19; // zf
-  _LIST_ENTRY *v20; // rax
+  int Timer; // r14d
+  unsigned int v15; // edx
+  bool v16; // zf
+  $55631384234A24007A0779E5E472941C *v17; // rax
   _LIST_ENTRY *p_m_IgnoredIoListHead; // rcx
-  _LIST_ENTRY *Blink; // rdx
-  _FX_DRIVER_GLOBALS *v23; // r12
-  unsigned __int64 v24; // rbp
-  unsigned __int16 *v26; // rdi
-  unsigned __int64 v27; // rsi
-  unsigned __int64 v28; // rax
-  int v29; // eax
-  signed int Timer; // r13d
+  _IRP *Blink; // rdx
+  unsigned __int64 v20; // rsi
+  unsigned __int16 *p_m_ObjectSize; // rdi
+  unsigned __int64 v23; // rsi
+  FxRequestBase *v24; // rax
+  int v25; // eax
+  unsigned __int64 v26; // rcx
+  FxRequestBase *v27; // rax
+  FxRequestBase *_a3; // rdx
+  unsigned __int64 v29; // rcx
+  const void *v30; // rcx
   unsigned __int64 v31; // rcx
-  const void *v32; // rax
-  const void *_a3; // rdx
-  unsigned __int64 v34; // rcx
-  const void *v35; // rcx
+  FxRequestBase *v32; // rdx
+  const void *v33; // rcx
+  unsigned __int64 v34; // rdx
+  FxRequestBase *v35; // rax
   unsigned __int64 v36; // rcx
-  __int64 v37; // rdx
-  const void *v38; // rcx
-  unsigned __int64 v39; // rdx
-  const void *v40; // rax
-  unsigned __int64 v41; // rcx
-  FxTagTracker *v42; // rax
-  _IO_STACK_LOCATION *v43; // rcx
-  const void *v44; // rdx
-  unsigned __int64 v45; // rax
-  const void *v46; // rcx
-  unsigned int v47; // eax
-  const void *v48; // rax
-  MxTimer *v49; // rcx
+  FxTagTracker *m_TargetCompletionContext; // rcx
+  unsigned int v38; // r9d
+  _IO_STACK_LOCATION *CurrentStackLocation; // rcx
+  unsigned __int64 v40; // rdx
+  FxRequestBase *v41; // rcx
+  unsigned __int64 v42; // rax
+  FxRequestBase *v43; // rax
+  FxRequestTimer *m_Timer; // rcx
   __int64 Timeout; // rdx
-  int v51; // [rsp+90h] [rbp+8h]
-  int v52; // [rsp+90h] [rbp+8h]
-  _FX_DRIVER_GLOBALS *FxDriverGlobals; // [rsp+98h] [rbp+10h]
+  char v46; // [rsp+90h] [rbp+8h]
 
   m_Globals = this->m_Globals;
-  FxDriverGlobals = m_Globals;
-  v6 = 0;
   v7 = 0;
   v8 = 0;
-  v9 = Options;
-  v10 = Request;
-  v12 = 0;
-  if ( *(_DWORD *)(Request + 208) )
+  v9 = 0;
+  v10 = Options;
+  v46 = 0;
+  if ( Request->m_IrpCompletionReferenceCount )
   {
-    v26 = (unsigned __int16 *)(Request + 10);
-    v27 = Request ^ 0xFFFFFFFFFFFFFFF8uLL;
-    v28 = Request ^ 0xFFFFFFFFFFFFFFF8uLL;
-    if ( !*(_WORD *)(Request + 10) )
-      v28 = 0LL;
-    if ( v28 )
-      v10 = v28;
-    WPP_IFR_SF_q(m_Globals, 2u, 0xEu, 0x1Du, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, (const void *)v10);
-    if ( !*v26 )
-      v27 = 0LL;
-    FxVerifierBugCheckWorker(FxDriverGlobals, WDF_REQUEST_FATAL_ERROR, 3uLL, v27);
+    p_m_ObjectSize = &Request->m_ObjectSize;
+    v23 = (unsigned __int64)Request ^ 0xFFFFFFFFFFFFFFF8uLL;
+    v24 = (FxRequestBase *)((unsigned __int64)Request ^ 0xFFFFFFFFFFFFFFF8uLL);
+    if ( !Request->m_ObjectSize )
+      v24 = 0LL;
+    if ( v24 )
+      Request = v24;
+    WPP_IFR_SF_q(m_Globals, 2u, 0xEu, 0x1Du, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, Request);
+    if ( !*p_m_ObjectSize )
+      v23 = 0LL;
+    FxVerifierBugCheckWorker(m_Globals, WDF_REQUEST_FATAL_ERROR, 3uLL, v23);
   }
   if ( m_Globals->FxVerifierOn && m_Globals->FxVerifierIO )
   {
-    v13 = 1;
-    v29 = FxIoTarget::Vf_VerifySubmitLocked(this, m_Globals, (FxRequestBase *)Request);
-    if ( v29 < 0 )
-    {
-      Timer = v29;
-      goto LABEL_86;
-    }
-    m_Globals = FxDriverGlobals;
-    v9 = Options;
+    v12 = 1;
+    v25 = FxIoTarget::Vf_VerifySubmitLocked(this, m_Globals, Request);
+    v8 = 0;
+    Timer = v25;
+    if ( v25 < 0 )
+      goto LABEL_54;
+    v10 = Options;
   }
   else
   {
-    v13 = 0;
+    v12 = 0;
   }
-  if ( (Flags & 1) != 0 && v9->Timeout )
+  if ( (Flags & 1) == 0 || !v10->Timeout )
   {
-    Timer = FxRequestBase::CreateTimer((FxRequestBase *)v10);
-    if ( Timer < 0 )
+LABEL_5:
+    m_State = this->m_State;
+    if ( (Flags & 4) != 0 )
     {
-      v31 = v10 ^ 0xFFFFFFFFFFFFFFF8uLL;
-      if ( !*(_WORD *)(v10 + 10) )
-        v31 = 0LL;
-      v32 = (const void *)v10;
-      if ( v31 )
-        v32 = (const void *)v31;
-      WPP_IFR_SF_qL(FxDriverGlobals, 2u, 0xEu, 0x1Eu, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, v32, Timer);
-      goto LABEL_86;
-    }
-    m_Globals = FxDriverGlobals;
-    v6 = 1;
-  }
-  m_State = this->m_State;
-  if ( (Flags & 4) != 0 )
-  {
-    if ( (unsigned int)(m_State - 3) <= 2 && !this->m_Removing )
-    {
+      if ( (unsigned int)(m_State - 3) > 2 || this->m_Removing )
+      {
+        v9 = 1;
+        v31 = (unsigned __int64)Request ^ 0xFFFFFFFFFFFFFFF8uLL;
+        v32 = Request;
+        if ( !Request->m_ObjectSize )
+          v31 = 0LL;
+        if ( v31 )
+          v32 = (FxRequestBase *)v31;
+        v33 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+        if ( !this->m_ObjectSize )
+          v33 = 0LL;
+        WPP_IFR_SF_qid(
+          m_Globals,
+          4u,
+          0xEu,
+          0x20u,
+          (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids,
+          v33,
+          (__int64)v32,
+          m_State);
+        Request->m_TargetFlags |= 0x10u;
+        v8 = 0;
+        v7 = 1;
+        goto LABEL_8;
+      }
       Timer = -1073741436;
-      _a3 = (const void *)v10;
-      v34 = v10 ^ 0xFFFFFFFFFFFFFFF8uLL;
-      if ( !*(_WORD *)(v10 + 10) )
-        v34 = 0LL;
-      if ( v34 )
-        _a3 = (const void *)v34;
-      v35 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+      _a3 = Request;
+      v29 = (unsigned __int64)Request ^ 0xFFFFFFFFFFFFFFF8uLL;
+      if ( !Request->m_ObjectSize )
+        v29 = 0LL;
+      if ( v29 )
+        _a3 = (FxRequestBase *)v29;
+      v30 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
       if ( !this->m_ObjectSize )
-        v35 = 0LL;
+        v30 = 0LL;
       WPP_IFR_SF_qLqd(
         m_Globals,
         4u,
         0xEu,
         0x1Fu,
         (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids,
-        v35,
+        v30,
         m_State,
         _a3,
         -1073741436);
-      goto LABEL_86;
+      v8 = 0;
     }
-    v15 = 1;
-    v36 = v10 ^ 0xFFFFFFFFFFFFFFF8uLL;
-    v37 = v10;
-    if ( !*(_WORD *)(v10 + 10) )
-      v36 = 0LL;
-    if ( v36 )
-      v37 = v36;
-    v38 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
-    if ( !this->m_ObjectSize )
-      v38 = 0LL;
-    WPP_IFR_SF_qid(m_Globals, 4u, 0xEu, 0x20u, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, v38, v37, m_State);
-    *(_BYTE *)(v10 + 212) |= 0x10u;
-    v7 = 1;
-    goto LABEL_8;
-  }
-  if ( m_State == WdfIoTargetStarted )
-  {
-    v15 = 1;
-LABEL_8:
-    v16 = 3;
-    v17 = 1;
-    goto LABEL_9;
-  }
-  if ( m_State != WdfIoTargetStopped )
-  {
-    v39 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
-    v40 = (const void *)v10;
-    if ( !this->m_ObjectSize )
-      v39 = 0LL;
-    v41 = v10 ^ 0xFFFFFFFFFFFFFFF8uLL;
-    if ( !*(_WORD *)(v10 + 10) )
-      v41 = 0LL;
-    if ( v41 )
-      v40 = (const void *)v41;
-    WPP_IFR_SF_qid(m_Globals, 2u, 0xEu, 0x21u, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, v40, v39, m_State);
-    Timer = -1073741436;
-    goto LABEL_86;
-  }
-  if ( Flags < 0 )
-  {
-    Timer = -1073741436;
-    goto LABEL_86;
-  }
-  v15 = 2;
-  v17 = 0;
-  v16 = 2;
-LABEL_9:
-  v51 = v16;
-  *(_QWORD *)(v10 + 128) = v10 + 120;
-  *(_QWORD *)(v10 + 120) = v10 + 120;
-  *(_QWORD *)(v10 + 160) = this;
-  _InterlockedIncrement(&this->m_IoCount);
-  v18 = _InterlockedIncrement((volatile signed __int32 *)(v10 + 12));
-  if ( *(char *)(v10 + 24) < 0 )
-  {
-    v42 = *(FxTagTracker **)(v10 - 48);
-    if ( v42 )
+    else
     {
+      if ( m_State == WdfIoTargetStarted )
+      {
+        v9 = 1;
+LABEL_8:
+        Timer = 0;
+LABEL_9:
+        Request->m_CsqContext.Irp = (_IRP *)&Request->120;
+        Request->m_ListEntry.Flink = (_LIST_ENTRY *)&Request->120;
+        goto $Done;
+      }
+      if ( m_State == WdfIoTargetStopped )
+      {
+        if ( Flags < 0 )
+        {
+          Timer = -1073741436;
+          goto LABEL_54;
+        }
+        v9 = 2;
+        Timer = 1075838976;
+        goto LABEL_9;
+      }
+      v34 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
+      v35 = Request;
+      if ( !this->m_ObjectSize )
+        v34 = 0LL;
+      v36 = (unsigned __int64)Request ^ 0xFFFFFFFFFFFFFFF8uLL;
+      if ( !Request->m_ObjectSize )
+        v36 = 0LL;
+      if ( v36 )
+        v35 = (FxRequestBase *)v36;
+      WPP_IFR_SF_qid(m_Globals, 2u, 0xEu, 0x21u, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, v35, v34, m_State);
+      v8 = 0;
+      Timer = -1073741436;
+    }
+LABEL_54:
+    v9 &= ~1u;
+    Request->m_Irp.m_Irp->IoStatus.Status = Timer;
+    if ( !v8 )
+      return v9;
+    goto LABEL_23;
+  }
+  Timer = FxRequestBase::CreateTimer(Request);
+  if ( Timer >= 0 )
+  {
+    v8 = 0;
+    v46 = 1;
+    goto LABEL_5;
+  }
+  v26 = (unsigned __int64)Request ^ 0xFFFFFFFFFFFFFFF8uLL;
+  v27 = Request;
+  if ( !Request->m_ObjectSize )
+    v26 = 0LL;
+  if ( v26 )
+    v27 = (FxRequestBase *)v26;
+  WPP_IFR_SF_qL(m_Globals, 2u, 0xEu, 0x1Eu, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, v27, Timer);
+  v8 = 0;
+$Done:
+  if ( Timer < 0 )
+    goto LABEL_54;
+  Request->m_Target = this;
+  _InterlockedIncrement(&this->m_IoCount);
+  v15 = _InterlockedIncrement(&Request->m_Refcnt);
+  if ( SLOBYTE(Request->m_ObjectFlags) < 0 )
+  {
+    m_TargetCompletionContext = (FxTagTracker *)Request[-1].m_TargetCompletionContext;
+    if ( m_TargetCompletionContext )
       FxTagTracker::UpdateTagHistory(
-        v42,
+        m_TargetCompletionContext,
         this,
         1472,
         "minkernel\\wdf\\framework\\shared\\targets\\general\\fxiotarget.cpp",
         TagAddRef,
-        v18);
-      v16 = v51;
-    }
+        v15);
   }
-  v19 = *(_BYTE *)(v10 + 215) == 0;
-  v8 = 1;
-  *(_DWORD *)(v10 + 208) = 1;
-  if ( !v19 )
+  v16 = Request->m_Canceled == 0;
+  Request->m_IrpCompletionReferenceCount = 1;
+  if ( !v16 )
   {
-    v12 = 0;
+    v9 = 2;
     Timer = -1073741536;
-    if ( _InterlockedAdd((volatile signed __int32 *)(v10 + 208), 0xFFFFFFFF) )
-      v12 = v16;
-    goto LABEL_86;
+    if ( FxRequestBase::CanComplete(Request) )
+      v9 = v38;
+    goto LABEL_54;
   }
-  if ( !v17 )
+  if ( (v9 & 1) != 0 )
   {
-    v52 = FxIoTarget::PendRequestLocked(this, (FxRequestBase *)v10);
-    v23 = FxDriverGlobals;
-    v44 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
-    if ( !this->m_ObjectSize )
-      v44 = 0LL;
-    v24 = v10 ^ 0xFFFFFFFFFFFFFFF8uLL;
-    v45 = v10 ^ 0xFFFFFFFFFFFFFFF8uLL;
-    if ( !*(_WORD *)(v10 + 10) )
-      v45 = 0LL;
-    v46 = (const void *)v10;
-    if ( v45 )
-      v46 = (const void *)v45;
-    WPP_IFR_SF_qqd(FxDriverGlobals, 4u, 0xEu, 0x22u, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, v46, v44, v52);
-    if ( v52 >= 0 )
-      goto LABEL_17;
-    Timer = v52;
-    v47 = 0;
-    if ( _InterlockedAdd((volatile signed __int32 *)(v10 + 208), 0xFFFFFFFF) )
-      v47 = v15;
-    v12 = v47;
-LABEL_86:
-    v15 = v12 & 0xFFFFFFFE;
-    *(_DWORD *)(*(_QWORD *)(v10 + 152) + 48LL) = Timer;
-    if ( !v8 )
-      return v15;
-    goto LABEL_20;
-  }
-  v20 = (_LIST_ENTRY *)(v10 + 120);
-  if ( v7 )
-  {
-    p_m_IgnoredIoListHead = &this->m_IgnoredIoListHead;
-    Blink = this->m_IgnoredIoListHead.Blink;
-    if ( Blink->Flink == &this->m_IgnoredIoListHead )
-      goto LABEL_14;
-LABEL_75:
+    v17 = &Request->120;
+    if ( v7 )
+    {
+      p_m_IgnoredIoListHead = &this->m_IgnoredIoListHead;
+      Blink = (_IRP *)this->m_IgnoredIoListHead.Blink;
+      if ( *(FxIoTarget **)&Blink->Type == (FxIoTarget *)&this->m_IgnoredIoListHead )
+        goto LABEL_16;
+    }
+    else
+    {
+      p_m_IgnoredIoListHead = &this->m_SentIoListHead;
+      Blink = (_IRP *)this->m_SentIoListHead.Blink;
+      if ( *(FxIoTarget **)&Blink->Type == (FxIoTarget *)&this->m_SentIoListHead )
+      {
+LABEL_16:
+        v17->m_ListEntry.Flink = p_m_IgnoredIoListHead;
+        Request->m_CsqContext.Irp = Blink;
+        *(_QWORD *)&Blink->Type = v17;
+        p_m_IgnoredIoListHead->Blink = (_LIST_ENTRY *)v17;
+        if ( IoSetCompletionRoutineEx(
+               this->m_InStackDevice,
+               Request->m_Irp.m_Irp,
+               FxIoTarget::_RequestCompletionRoutine,
+               Request,
+               1u,
+               1u,
+               1u) < 0 )
+        {
+          CurrentStackLocation = Request->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation;
+          CurrentStackLocation[-1].CompletionRoutine = FxIoTarget::_RequestCompletionRoutine;
+          CurrentStackLocation[-1].Context = Request;
+          CurrentStackLocation[-1].Control = -32;
+        }
+        v20 = (unsigned __int64)Request ^ 0xFFFFFFFFFFFFFFF8uLL;
+        goto LABEL_19;
+      }
+    }
     __fastfail(3u);
   }
-  p_m_IgnoredIoListHead = &this->m_SentIoListHead;
-  Blink = this->m_SentIoListHead.Blink;
-  if ( Blink->Flink != &this->m_SentIoListHead )
-    goto LABEL_75;
-LABEL_14:
-  v20->Flink = p_m_IgnoredIoListHead;
-  *(_QWORD *)(v10 + 128) = Blink;
-  Blink->Flink = v20;
-  p_m_IgnoredIoListHead->Blink = v20;
-  if ( IoSetCompletionRoutineEx(
-         this->m_InStackDevice,
-         *(PIRP *)(v10 + 152),
-         (PIO_COMPLETION_ROUTINE)FxIoTarget::_RequestCompletionRoutine,
-         (PVOID)v10,
-         1u,
-         1u,
-         1u) < 0 )
+  Timer = FxIoTarget::PendRequestLocked(this, Request);
+  v40 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
+  v41 = Request;
+  if ( !this->m_ObjectSize )
+    v40 = 0LL;
+  v20 = (unsigned __int64)Request ^ 0xFFFFFFFFFFFFFFF8uLL;
+  v42 = (unsigned __int64)Request ^ 0xFFFFFFFFFFFFFFF8uLL;
+  if ( !Request->m_ObjectSize )
+    v42 = 0LL;
+  if ( v42 )
+    v41 = (FxRequestBase *)v42;
+  WPP_IFR_SF_qid(m_Globals, 4u, 0xEu, 0x22u, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, v41, v40, Timer);
+  if ( Timer >= 0 )
+    goto LABEL_20;
+  if ( FxRequestBase::CanComplete(Request) )
+    v9 = 0;
+LABEL_19:
+  if ( Timer < 0 )
   {
-    v43 = *(_IO_STACK_LOCATION **)(*(_QWORD *)(v10 + 152) + 184LL);
-    v43[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))FxIoTarget::_RequestCompletionRoutine;
-    v43[-1].Context = (void *)v10;
-    v43[-1].Control = -32;
+    v8 = 1;
+    goto LABEL_54;
   }
-  v23 = FxDriverGlobals;
-  v24 = v10 ^ 0xFFFFFFFFFFFFFFF8uLL;
-LABEL_17:
-  if ( v6 )
-  {
-    if ( v23->FxVerboseOn )
-    {
-      if ( !*(_WORD *)(v10 + 10) )
-        v24 = 0LL;
-      v48 = (const void *)v10;
-      if ( v24 )
-        v48 = (const void *)v24;
-      WPP_IFR_SF_q(v23, 5u, 0xEu, 0x23u, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, v48);
-    }
-    v49 = *(MxTimer **)(v10 + 176);
-    Timeout = Options->Timeout;
-    *(_BYTE *)(v10 + 212) |= 4u;
-    MxTimer::Start(v49, (_LARGE_INTEGER)Timeout, 0);
-  }
-  if ( v13 )
-    FxRequestBase::SetVerifierFlags((FxRequestBase *)v10, 256);
 LABEL_20:
-  if ( !v15 )
+  if ( v46 )
   {
-    (*(void (__fastcall **)(unsigned __int64, FxIoTarget *, __int64, const char *))(*(_QWORD *)v10 + 16LL))(
-      v10,
-      this,
-      1630LL,
-      "minkernel\\wdf\\framework\\shared\\targets\\general\\fxiotarget.cpp");
+    if ( m_Globals->FxVerboseOn )
+    {
+      if ( !Request->m_ObjectSize )
+        v20 = 0LL;
+      v43 = Request;
+      if ( v20 )
+        v43 = (FxRequestBase *)v20;
+      WPP_IFR_SF_q(m_Globals, 5u, 0xEu, 0x23u, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, v43);
+    }
+    m_Timer = Request->m_Timer;
+    Timeout = Options->Timeout;
+    Request->m_TargetFlags |= 4u;
+    MxTimer::Start(&m_Timer->Timer, (_LARGE_INTEGER)Timeout, 0);
+  }
+  if ( v12 )
+    FxRequestBase::SetVerifierFlags(Request, 256);
+LABEL_23:
+  if ( !v9 )
+  {
+    Request->Release(Request, this, 1630, "minkernel\\wdf\\framework\\shared\\targets\\general\\fxiotarget.cpp");
     FxIoTarget::DecrementIoCount(this);
   }
-  return v15;
+  return v9;
 }

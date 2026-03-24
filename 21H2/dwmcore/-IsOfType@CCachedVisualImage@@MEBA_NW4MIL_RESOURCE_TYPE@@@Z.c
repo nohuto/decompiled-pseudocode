@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CCachedVisualImage@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E5C50
+ * XREFs of ?IsOfType@CCachedVisualImage@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D1B60
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CCachedVisualImage::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 83 || a2 == 16;
+  return a2 == 83 || a2 == 15;
 }

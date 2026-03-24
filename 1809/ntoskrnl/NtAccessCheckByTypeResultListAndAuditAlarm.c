@@ -1,5 +1,5 @@
 /*
- * XREFs of NtAccessCheckByTypeResultListAndAuditAlarm @ 0x1408A0420
+ * XREFs of NtAccessCheckByTypeResultListAndAuditAlarm @ 0x1408A0400
  * Callers:
  *     <none>
  * Callees:

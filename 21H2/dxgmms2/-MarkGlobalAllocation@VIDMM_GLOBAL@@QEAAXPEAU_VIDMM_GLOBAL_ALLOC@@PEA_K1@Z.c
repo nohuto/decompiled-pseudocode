@@ -1,62 +1,56 @@
 /*
- * XREFs of ?MarkGlobalAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z @ 0x1C009FC3C
+ * XREFs of ?MarkGlobalAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z @ 0x1C0061D84
  * Callers:
- *     ?ProcessSystemMemoryOfferList@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C009EB00 (-ProcessSystemMemoryOfferList@VIDMM_GLOBAL@@QEAAXXZ.c)
- *     ?OfferAllocation@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00A3248 (-OfferAllocation@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?DecommitGlobalAllocation@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00D5C58 (-DecommitGlobalAllocation@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?TrimAllocation@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z @ 0x1C00ED37C (-TrimAllocation@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z.c)
+ *     ?ProcessSystemMemoryOfferList@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C0061EF0 (-ProcessSystemMemoryOfferList@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?DecommitGlobalAllocation@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00AE9E4 (-DecommitGlobalAllocation@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?OfferAllocation@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00C7C40 (-OfferAllocation@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?TrimAllocation@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z @ 0x1C00C9828 (-TrimAllocation@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z.c)
  * Callees:
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00039B0 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003A80 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?NotifyAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_NPEA_K2@Z @ 0x1C00A0A9C (-NotifyAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_NPEA_K2@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006030 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00060DC (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?NotifyAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_NPEA_K2@Z @ 0x1C0073DC0 (-NotifyAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_NPEA_K2@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::MarkGlobalAllocation(
         VIDMM_GLOBAL *this,
-        struct _VIDMM_GLOBAL_ALLOC *a2,
+        DXGFASTMUTEX **a2,
         unsigned __int64 *a3,
         unsigned __int64 *a4)
 {
-  struct _KTHREAD **v4; // r15
-  _QWORD **v7; // r14
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  _QWORD *v12; // rdi
-  _QWORD *v13; // rsi
-  _QWORD **v14; // rsi
-  _QWORD *v15; // rbx
-  struct VIDMM_ALLOC *v16; // rbp
-  struct _KTHREAD **v18; // [rsp+78h] [rbp+10h]
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  DXGFASTMUTEX *v9; // r15
+  DXGFASTMUTEX *v10; // rdi
+  DXGFASTMUTEX *v11; // rsi
+  _QWORD **v12; // rsi
+  _QWORD *v13; // rbx
+  struct VIDMM_ALLOC *v14; // rbp
 
-  v4 = (struct _KTHREAD **)((char *)a2 + 296);
-  v18 = (struct _KTHREAD **)((char *)a2 + 296);
-  v7 = (_QWORD **)((char *)a2 + 272);
-  DXGFASTMUTEX::Acquire((struct _VIDMM_GLOBAL_ALLOC *)((char *)a2 + 296));
-  v12 = *v7;
-  if ( *v7 != v7 )
+  DXGFASTMUTEX::Acquire(a2[39]);
+  v9 = (DXGFASTMUTEX *)(a2 + 36);
+  v10 = a2[36];
+  while ( v10 != v9 )
   {
-    do
+    v11 = v10;
+    v10 = *(DXGFASTMUTEX **)v10;
+    v12 = (_QWORD **)((char *)v11 - 16);
+    v13 = *v12;
+    if ( *v12 != v12 )
     {
-      v13 = v12;
-      v12 = (_QWORD *)*v12;
-      v14 = (_QWORD **)(v13 - 2);
-      v15 = *v14;
-      while ( v15 != v14 )
+      do
       {
-        v16 = (struct VIDMM_ALLOC *)(v15 - 5);
-        v15 = (_QWORD *)*v15;
-        if ( (*((_BYTE *)v16 + 28) & 3) == 2 )
+        v14 = (struct VIDMM_ALLOC *)(v13 - 5);
+        v13 = (_QWORD *)*v13;
+        if ( (*((_BYTE *)v14 + 28) & 3) == 2 )
         {
           if ( g_IsInternalReleaseOrDbg )
-            *(_QWORD *)(WdLogNewEntry5_WdTrace(v9, v8, v10, v11) + 24) = v16;
-          VIDMM_GLOBAL::NotifyAllocationEviction(this, v16, 0, a3, a4);
+            *(_QWORD *)(WdLogNewEntry5_WdTrace(v8) + 24) = v14;
+          VIDMM_GLOBAL::NotifyAllocationEviction(this, v14, 0, a3, a4);
         }
       }
+      while ( v13 != v12 );
+      v9 = (DXGFASTMUTEX *)(a2 + 36);
     }
-    while ( v12 != v7 );
-    v4 = v18;
   }
-  DXGFASTMUTEX::Release(v4);
+  DXGFASTMUTEX::Release((struct _KTHREAD **)a2[39], v7);
 }

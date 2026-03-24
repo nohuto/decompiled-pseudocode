@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTransientPageListWriter @ 0x1402CD794
+ * XREFs of MiTransientPageListWriter @ 0x1402CD894
  * Callers:
- *     MiSystemFault @ 0x1400E88E0 (MiSystemFault.c)
+ *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiTransientPageListWriter(unsigned __int64 a1, unsigned __int64 a2)

@@ -1,134 +1,114 @@
 /*
- * XREFs of UsbhPdoSetD0 @ 0x1C00055F0
+ * XREFs of UsbhPdoSetD0 @ 0x1C00173C0
  * Callers:
  *     <none>
  * Callees:
- *     UsbhCompletePdoIdleIrp @ 0x1C0001330 (UsbhCompletePdoIdleIrp.c)
- *     UsbhAcquireFdoPwrLock @ 0x1C00019E0 (UsbhAcquireFdoPwrLock.c)
- *     UsbhPdoSetD0_Finish @ 0x1C0001A6C (UsbhPdoSetD0_Finish.c)
- *     UsbhDisableDeviceForWake @ 0x1C0001BF8 (UsbhDisableDeviceForWake.c)
- *     UsbhSetPdoPowerState @ 0x1C0002CC0 (UsbhSetPdoPowerState.c)
- *     UsbhReleasePowerContext @ 0x1C00035EC (UsbhReleasePowerContext.c)
- *     UsbhClearPdoIdleReady @ 0x1C0004AC0 (UsbhClearPdoIdleReady.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhSet_Pdo_Dx @ 0x1C000AFE0 (UsbhSet_Pdo_Dx.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhEtwLogDevicePowerEvent @ 0x1C000DFB0 (UsbhEtwLogDevicePowerEvent.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dd @ 0x1C002DDB8 (WPP_RECORDER_SF_dd.c)
- *     UsbhReleaseFdoPwrLock @ 0x1C00313A8 (UsbhReleaseFdoPwrLock.c)
- *     UsbhSyncResumeDeviceInternal @ 0x1C00398B8 (UsbhSyncResumeDeviceInternal.c)
- *     UsbhPdoWaitForD3Reconnect @ 0x1C003C2B4 (UsbhPdoWaitForD3Reconnect.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSet_Pdo_Dx @ 0x1C0010D74 (UsbhSet_Pdo_Dx.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhClearPdoIdleReady @ 0x1C0013058 (UsbhClearPdoIdleReady.c)
+ *     UsbhEtwLogDevicePowerEvent @ 0x1C0013DA0 (UsbhEtwLogDevicePowerEvent.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhSetPdoPowerState @ 0x1C0017660 (UsbhSetPdoPowerState.c)
+ *     UsbhAcquireFdoPwrLock @ 0x1C00176F8 (UsbhAcquireFdoPwrLock.c)
+ *     UsbhDisableDeviceForWake @ 0x1C0018160 (UsbhDisableDeviceForWake.c)
+ *     UsbhPdoSetD0_Finish @ 0x1C001820C (UsbhPdoSetD0_Finish.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0018364 (UsbhReleaseFdoPwrLock.c)
+ *     UsbhReleasePowerContext @ 0x1C0018750 (UsbhReleasePowerContext.c)
+ *     UsbhCompletePdoIdleIrp @ 0x1C0018D98 (UsbhCompletePdoIdleIrp.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002F194 (WPP_RECORDER_SF_dd.c)
+ *     UsbhSyncResumeDeviceInternal @ 0x1C003ABC8 (UsbhSyncResumeDeviceInternal.c)
+ *     UsbhPdoWaitForD3Reconnect @ 0x1C003D494 (UsbhPdoWaitForD3Reconnect.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
-void __fastcall UsbhPdoSetD0(PDEVICE_OBJECT DeviceObject, unsigned int a2, _QWORD *a3)
+void __fastcall UsbhPdoSetD0(PDEVICE_OBJECT DeviceObject, unsigned int a2, __int64 a3)
 {
-  ULONG_PTR v3; // rbp
+  struct _DEVICE_OBJECT *v3; // rbp
   __int64 v5; // r12
-  __int64 v7; // r14
-  __int64 v8; // r13
-  __int64 v9; // rdi
-  __int64 v10; // rbx
-  KIRQL v11; // al
-  int v12; // ecx
-  __int64 v13; // r8
-  __int64 v14; // rbx
-  KIRQL v15; // dl
-  __int64 v16; // rbx
-  KIRQL v17; // al
-  int v18; // ecx
-  int v19; // ebx
-  int v20; // edx
-  int v21; // ecx
-  __int64 v22; // r8
-  __int64 v23; // rbx
-  KIRQL v24; // dl
-  KIRQL v25; // al
-  _QWORD *v26; // r15
-  _QWORD *v27; // r8
-  int v28; // ebx
-  __int64 v29; // rdx
-  int v30; // ebx
-  __int64 v31; // r8
-  unsigned int v32; // eax
-  BOOLEAN v33; // r9
-  __int64 v34; // rdx
-  __int64 v35; // [rsp+A8h] [rbp+20h]
+  _DWORD *v7; // r14
+  KSPIN_LOCK *v8; // r13
+  _DWORD *v9; // rdi
+  int v10; // r8d
+  _DWORD *v11; // rbx
+  KIRQL v12; // dl
+  int v13; // ebx
+  int v14; // edx
+  int v15; // ecx
+  int v16; // r8d
+  _DWORD *v17; // rbx
+  KIRQL v18; // dl
+  KIRQL v19; // al
+  KSPIN_LOCK *v20; // r15
+  KSPIN_LOCK **v21; // r8
+  int v22; // ebx
+  __int64 v23; // rdx
+  int v24; // ebx
+  int v25; // r8d
+  unsigned int v26; // eax
+  BOOLEAN v27; // r9
+  __int64 v28; // rdx
+  PLARGE_INTEGER Timeout; // [rsp+20h] [rbp-68h]
+  int v30; // [rsp+48h] [rbp-40h]
+  int v31; // [rsp+A0h] [rbp+18h] BYREF
+  __int64 v32; // [rsp+A8h] [rbp+20h]
 
-  v3 = a3[6];
+  v3 = *(struct _DEVICE_OBJECT **)(a3 + 48);
   v5 = a2;
-  v7 = PdoExt(v3);
-  v8 = FdoExt(*(_QWORD *)(v7 + 1184));
-  v35 = *(_QWORD *)(a3[8] + 184LL);
-  Log((_DWORD)DeviceObject, 16, 1346651184, (_DWORD)a3, v3);
-  v9 = PdoExt(v3) + 944;
-  v10 = FdoExt(DeviceObject);
-  v11 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v10 + 5056));
-  v12 = *(_DWORD *)(v10 + 4172);
-  *(_BYTE *)(v10 + 5064) = v11;
-  *(_DWORD *)(v9 + 40) = v12;
-  *(_DWORD *)(v9 + 44) = 126;
-  *(_DWORD *)(v9 + 32) = 844055622;
-  *(_DWORD *)(v9 + 36) = 1381131376;
-  *(_QWORD *)(v9 + 24) = KeGetCurrentThread();
-  *(_QWORD *)(v10 + 1344) = v9;
-  UsbhSetPdoPowerState(v9, v3, v13, 8, 8);
-  v14 = FdoExt(DeviceObject);
-  FdoExt(*(_QWORD *)(v9 + 8));
-  *(_DWORD *)(v9 + 32) = 1734964085;
-  v15 = *(_BYTE *)(v14 + 5064);
-  *(_QWORD *)(v14 + 1344) = 0LL;
-  KeReleaseSpinLock((PKSPIN_LOCK)(v14 + 5056), v15);
-  a3[14] = UsbhIncHubBusy((_DWORD)DeviceObject, v9, v3, 1430414448, 1);
-  v16 = FdoExt(DeviceObject);
-  v17 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v16 + 5056));
-  v18 = *(_DWORD *)(v16 + 4172);
-  *(_BYTE *)(v16 + 5064) = v17;
-  *(_DWORD *)(v9 + 40) = v18;
-  *(_DWORD *)(v9 + 44) = 126;
-  *(_DWORD *)(v9 + 32) = 844055622;
-  *(_DWORD *)(v9 + 36) = 809792336;
-  *(_QWORD *)(v9 + 24) = KeGetCurrentThread();
-  *(_QWORD *)(v16 + 1344) = v9;
-  v19 = *(_DWORD *)(PdoExt(a3[6]) + 1128);
-  FdoExt(*(_QWORD *)(v9 + 8));
-  v21 = *(_DWORD *)(FdoExt(*(_QWORD *)(v9 + 8)) + 4172);
-  if ( v21 == 201 )
+  v31 = 0;
+  v7 = PdoExt((__int64)v3);
+  v8 = (KSPIN_LOCK *)FdoExt(*((_QWORD *)v7 + 148));
+  v32 = *(_QWORD *)(*(_QWORD *)(a3 + 64) + 184LL);
+  Log((__int64)DeviceObject, 16, 1346651184, a3, (__int64)v3);
+  v9 = PdoExt((__int64)v3) + 236;
+  UsbhAcquireFdoPwrLock(DeviceObject, v9, 126LL, 1381131376LL);
+  UsbhSetPdoPowerState((_DWORD)v9, (_DWORD)v3, v10, 8, 8);
+  v11 = FdoExt((__int64)DeviceObject);
+  FdoExt(*((_QWORD *)v9 + 1));
+  v9[8] = 1734964085;
+  v12 = *((_BYTE *)v11 + 5064);
+  *((_QWORD *)v11 + 168) = 0LL;
+  KeReleaseSpinLock((PKSPIN_LOCK)v11 + 632, v12);
+  *(_QWORD *)(a3 + 112) = UsbhIncHubBusy((__int64)DeviceObject, (__int64)v9, (__int64)v3, 1430414448, 1);
+  UsbhAcquireFdoPwrLock(DeviceObject, v9, 126LL, 809792336LL);
+  v13 = PdoExt(*(_QWORD *)(a3 + 48))[282];
+  FdoExt(*((_QWORD *)v9 + 1));
+  v15 = FdoExt(*((_QWORD *)v9 + 1))[1043];
+  if ( v15 == 201 )
     goto LABEL_22;
-  if ( v21 <= 201 )
+  if ( v15 <= 201 )
   {
 LABEL_21:
-    UsbhSetPdoPowerState(v9, v3, v22, v19, 3);
+    UsbhSetPdoPowerState((_DWORD)v9, (_DWORD)v3, v16, v13, 3);
     UsbhReleaseFdoPwrLock(DeviceObject, v9);
-    v28 = -1073741101;
+    v22 = -1073741101;
     goto LABEL_37;
   }
-  if ( v21 <= 205 )
+  if ( v15 <= 205 )
     goto LABEL_18;
-  if ( v21 == 206 )
+  if ( v15 == 206 )
   {
 LABEL_22:
-    v30 = v19 - 1;
-    if ( v30 )
+    v24 = v13 - 1;
+    if ( v24 )
     {
-      if ( v30 == 6 )
+      if ( v24 == 6 )
       {
-        UsbhSetPdoPowerState(v9, v3, v22, 7, 13);
+        UsbhSetPdoPowerState((_DWORD)v9, (_DWORD)v3, v16, 7, 13);
         UsbhReleaseFdoPwrLock(DeviceObject, v9);
-        Log((_DWORD)DeviceObject, 16, 1999782960, 0, *(unsigned __int16 *)(v7 + 1428));
-        KeWaitForSingleObject((PVOID)(v7 + 2360), Executive, 0, v33, 0LL);
+        Log((__int64)DeviceObject, 16, 1999782960, 0LL, *((unsigned __int16 *)v7 + 714));
+        KeWaitForSingleObject(v7 + 590, Executive, 0, v27, 0LL);
       }
       else
       {
-        UsbhSetPdoPowerState(v9, v3, v22, 7, 8);
+        UsbhSetPdoPowerState((_DWORD)v9, (_DWORD)v3, v16, 7, 8);
         UsbhReleaseFdoPwrLock(DeviceObject, v9);
-        if ( (*(_DWORD *)(v7 + 1420) & 0x4000000) != 0 )
+        if ( (v7[355] & 0x4000000) != 0 )
         {
           UsbhPdoWaitForD3Reconnect(DeviceObject);
         }
@@ -144,63 +124,66 @@ LABEL_22:
               1,
               16,
               (__int64)&WPP_c17b1c85f60233f7ab03bac02008ab80_Traceguids,
-              *(_WORD *)(v7 + 1428));
+              *((_WORD *)v7 + 714));
           }
-          UsbhSet_Pdo_Dx(v3, 1LL);
+          UsbhSet_Pdo_Dx(v3, (POWER_STATE)1);
         }
-        UsbhAcquireFdoPwrLock((__int64)DeviceObject, v9, 126, 809792336);
-        PdoExt(a3[6]);
-        *(_DWORD *)(v7 + 2384) = *(_DWORD *)(v8 + 4216);
-        UsbhSetPdoPowerState(v9, v3, v31, 1, 8);
-        KeSetEvent((PRKEVENT)(v7 + 2360), 0, 0);
+        UsbhAcquireFdoPwrLock(DeviceObject, v9, 126LL, 809792336LL);
+        PdoExt(*(_QWORD *)(a3 + 48));
+        v7[596] = *((_DWORD *)v8 + 1054);
+        UsbhSetPdoPowerState((_DWORD)v9, (_DWORD)v3, v25, 1, 8);
+        KeSetEvent((PRKEVENT)(v7 + 590), 0, 0);
         UsbhReleaseFdoPwrLock(DeviceObject, v9);
-        UsbhCompletePdoIdleIrp((__int64)DeviceObject, v3, 0);
-        UsbhClearPdoIdleReady((__int64)DeviceObject, v3, (__int64)a3);
-        if ( (*(_DWORD *)(v7 + 1420) & 0x100) != 0 )
+        UsbhCompletePdoIdleIrp(DeviceObject, v3, 0LL);
+        UsbhClearPdoIdleReady((__int64)DeviceObject, (__int64)v3, a3);
+        if ( (v7[355] & 0x100) != 0 )
         {
-          v32 = UsbhDisableDeviceForWake(*(_QWORD *)(v9 + 8), v3);
-          v29 = v32;
-          if ( (v32 & 0xC0000000) == 0xC0000000 && !(unsigned __int8)Usb_Disconnected(v32) )
+          v26 = UsbhDisableDeviceForWake(*((_QWORD *)v9 + 1), v3, &v31);
+          v23 = v26;
+          if ( (v26 & 0xC0000000) == 0xC0000000 && !(unsigned __int8)Usb_Disconnected(v26) )
+          {
+            LOBYTE(v30) = 0;
             UsbhException(
-              *(_QWORD *)(v9 + 8),
-              *(unsigned __int16 *)(v7 + 1428),
+              *((_QWORD *)v9 + 1),
+              *((unsigned __int16 *)v7 + 714),
               49,
               0,
               0,
-              v29,
-              0,
+              v23,
+              v31,
               usbfile_pdopwr_c,
               1186,
-              0);
+              v30);
+          }
         }
       }
     }
     else
     {
-      UsbhSetPdoPowerState(v9, v3, v22, 1, 13);
+      UsbhSetPdoPowerState((_DWORD)v9, (_DWORD)v3, v16, 1, 13);
       UsbhReleaseFdoPwrLock(DeviceObject, v9);
-      Log((_DWORD)DeviceObject, 16, 1999848496, 0, *(unsigned __int16 *)(v7 + 1428));
+      Log((__int64)DeviceObject, 16, 1999848496, 0LL, *((unsigned __int16 *)v7 + 714));
     }
-    v28 = 0;
+    v22 = 0;
     goto LABEL_37;
   }
-  if ( v21 <= 208 )
+  if ( v15 <= 208 )
     goto LABEL_21;
-  if ( v21 > 211 )
+  if ( v15 > 211 )
   {
-    if ( v21 != 212 )
+    if ( v15 != 212 )
     {
-      if ( v21 == 213 )
+      if ( v15 == 213 )
       {
-        v28 = -1073741810;
+        v22 = -1073741810;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
           WPP_RECORDER_SF_dd(
             WPP_GLOBAL_Control->DeviceExtension,
-            v20,
+            v14,
             1,
             14,
             (__int64)&WPP_c17b1c85f60233f7ab03bac02008ab80_Traceguids,
-            *(_WORD *)(v7 + 1428),
+            *((_WORD *)v7 + 714),
             14);
         UsbhReleaseFdoPwrLock(DeviceObject, v9);
         goto LABEL_37;
@@ -208,60 +191,61 @@ LABEL_22:
       goto LABEL_21;
     }
 LABEL_18:
-    UsbhSetPdoPowerState(v9, v3, v22, v19, 9);
+    UsbhSetPdoPowerState((_DWORD)v9, (_DWORD)v3, v16, v13, 9);
     UsbhReleaseFdoPwrLock(DeviceObject, v9);
-    v28 = -1073741101;
+    v22 = -1073741101;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
       WPP_RECORDER_SF_dd(
         WPP_GLOBAL_Control->DeviceExtension,
-        v29,
+        v23,
         1,
         15,
         (__int64)&WPP_c17b1c85f60233f7ab03bac02008ab80_Traceguids,
-        *(_WORD *)(v7 + 1428),
+        *((_WORD *)v7 + 714),
         211);
     goto LABEL_37;
   }
-  UsbhSetPdoPowerState(v9, v3, v22, 3, 7);
-  v23 = FdoExt(DeviceObject);
-  FdoExt(*(_QWORD *)(v9 + 8));
-  *(_DWORD *)(v9 + 32) = 1734964085;
-  v24 = *(_BYTE *)(v23 + 5064);
-  *(_QWORD *)(v23 + 1344) = 0LL;
-  KeReleaseSpinLock((PKSPIN_LOCK)(v23 + 5056), v24);
-  Log((_DWORD)DeviceObject, 16, 1349862448, (_DWORD)a3, v3);
-  UsbhClearPdoIdleReady((__int64)DeviceObject, v3, (__int64)a3);
-  Log((_DWORD)DeviceObject, 16, 2003321904, 0, v5);
-  v25 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v8 + 4176));
-  if ( !*(_BYTE *)(v8 + 4184) )
+  UsbhSetPdoPowerState((_DWORD)v9, (_DWORD)v3, v16, 3, 7);
+  v17 = FdoExt((__int64)DeviceObject);
+  FdoExt(*((_QWORD *)v9 + 1));
+  v9[8] = 1734964085;
+  v18 = *((_BYTE *)v17 + 5064);
+  *((_QWORD *)v17 + 168) = 0LL;
+  KeReleaseSpinLock((PKSPIN_LOCK)v17 + 632, v18);
+  Log((__int64)DeviceObject, 16, 1349862448, a3, (__int64)v3);
+  UsbhClearPdoIdleReady((__int64)DeviceObject, (__int64)v3, a3);
+  Log((__int64)DeviceObject, 16, 2003321904, 0LL, v5);
+  v19 = KeAcquireSpinLockRaiseToDpc(v8 + 522);
+  if ( !*((_BYTE *)v8 + 4184) )
   {
-    KeReleaseSpinLock((PKSPIN_LOCK)(v8 + 4176), v25);
-    UsbhPdoSetD0_Finish(v9, v3, a3[8]);
-    v28 = 0;
+    KeReleaseSpinLock(v8 + 522, v19);
+    UsbhPdoSetD0_Finish(v9, v3, *(_QWORD *)(a3 + 64));
+    v22 = 0;
 LABEL_37:
-    *(_QWORD *)(v7 + 2560) = MEMORY[0xFFFFF78000000014];
-    UsbhDecHubBusy(DeviceObject, v29, a3[14]);
-    v34 = a3[8];
-    a3[14] = 0LL;
+    *((_QWORD *)v7 + 320) = MEMORY[0xFFFFF78000000014];
+    UsbhDecHubBusy((__int64)DeviceObject, v23, *(_QWORD **)(a3 + 112));
+    v28 = *(_QWORD *)(a3 + 64);
+    LODWORD(Timeout) = v22;
+    *(_QWORD *)(a3 + 112) = 0LL;
     UsbhEtwLogDevicePowerEvent(
-      v7,
-      v34,
+      (__int64)v7,
+      v28,
       &USBHUB_ETW_EVENT_DEVICE_POWER_SET_D0_COMPLETE,
-      *(unsigned int *)(v35 + 24),
-      v28);
-    *(_DWORD *)(a3[8] + 48LL) = v28;
-    IofCompleteRequest((PIRP)a3[8], 0);
-    UsbhDecPdoIoCount(v3, a3[8]);
-    UsbhReleasePowerContext((__int64)DeviceObject, (__int64)a3);
+      *(_DWORD *)(v32 + 24),
+      Timeout);
+    *(_DWORD *)(*(_QWORD *)(a3 + 64) + 48LL) = v22;
+    IofCompleteRequest(*(PIRP *)(a3 + 64), 0);
+    UsbhDecPdoIoCount((ULONG_PTR)v3, *(_QWORD *)(a3 + 64));
+    UsbhReleasePowerContext(DeviceObject, a3);
     return;
   }
-  v26 = a3 + 12;
-  v27 = *(_QWORD **)(v8 + 4200);
-  if ( *v27 != v8 + 4192 )
+  v20 = (KSPIN_LOCK *)(a3 + 96);
+  v21 = (KSPIN_LOCK **)v8[525];
+  if ( *v21 != v8 + 524 )
     __fastfail(3u);
-  *v26 = v8 + 4192;
-  v26[1] = v27;
-  *v27 = v26;
-  *(_QWORD *)(v8 + 4200) = v26;
-  KeReleaseSpinLock((PKSPIN_LOCK)(v8 + 4176), v25);
+  *v20 = (KSPIN_LOCK)(v8 + 524);
+  v20[1] = (KSPIN_LOCK)v21;
+  *v21 = v20;
+  v8[525] = (KSPIN_LOCK)v20;
+  KeReleaseSpinLock(v8 + 522, v19);
 }

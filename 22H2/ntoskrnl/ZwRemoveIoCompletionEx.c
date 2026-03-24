@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRemoveIoCompletionEx @ 0x14041D640
+ * XREFs of ZwRemoveIoCompletionEx @ 0x1403FC860
  * Callers:
- *     DifZwRemoveIoCompletionExWrapper @ 0x1405F5F50 (DifZwRemoveIoCompletionExWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

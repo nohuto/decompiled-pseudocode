@@ -1,9 +1,9 @@
 /*
- * XREFs of XEPATHOBJ_vConstructHPATHWrap @ 0x1C0287200
+ * XREFs of XEPATHOBJ_vConstructHPATHWrap @ 0x1C0145740
  * Callers:
  *     <none>
  * Callees:
- *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C01597BA (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
+ *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C01457A4 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
  */
 
 void __fastcall XEPATHOBJ_vConstructHPATHWrap(EPATHOBJ *this, struct HPATH__ *a2)

@@ -1,39 +1,38 @@
 /*
- * XREFs of CmpBounceContextStart @ 0x1406DC3D0
+ * XREFs of CmpBounceContextStart @ 0x1405F47B0
  * Callers:
- *     NtQueryKey @ 0x1406D6C60 (NtQueryKey.c)
- *     NtEnumerateKey @ 0x1406DBEC0 (NtEnumerateKey.c)
- *     NtQueryMultipleValueKey @ 0x14070DE10 (NtQueryMultipleValueKey.c)
- *     NtEnumerateValueKey @ 0x14070E3E0 (NtEnumerateValueKey.c)
+ *     NtEnumerateKey @ 0x1405F3E50 (NtEnumerateKey.c)
+ *     NtEnumerateValueKey @ 0x1405F48F0 (NtEnumerateValueKey.c)
+ *     NtQueryKey @ 0x140645C90 (NtQueryKey.c)
+ *     NtQueryMultipleValueKey @ 0x140686BA0 (NtQueryMultipleValueKey.c)
  * Callees:
- *     _tlgWriteAgg @ 0x140212EB4 (_tlgWriteAgg.c)
- *     ExAllocateFromLookasideListEx @ 0x14022D0A0 (ExAllocateFromLookasideListEx.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1402974DC (CmpAllocateTransientPoolWithQuota.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpIsBufferGloballyVisible @ 0x14073EBA0 (CmpIsBufferGloballyVisible.c)
+ *     CmpAllocateTransientPoolWithQuotaTag @ 0x140347F68 (CmpAllocateTransientPoolWithQuotaTag.c)
+ *     _tlgWriteAgg @ 0x14036D53C (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpIsBufferGloballyVisible @ 0x140678780 (CmpIsBufferGloballyVisible.c)
  */
 
 __int64 __fastcall CmpBounceContextStart(__int64 a1, void *a2, size_t a3, int a4, char a5)
 {
-  PVOID v6; // rdi
-  PVOID v8; // rax
-  __int64 TransientPoolWithQuota; // rax
-  unsigned int v11; // edx
-  char v12; // cl
-  char v13; // [rsp+30h] [rbp-88h] BYREF
-  __int64 v14; // [rsp+38h] [rbp-80h] BYREF
-  __int64 v15; // [rsp+40h] [rbp-78h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v16; // [rsp+50h] [rbp-68h] BYREF
-  __int64 *v17; // [rsp+70h] [rbp-48h]
-  __int64 v18; // [rsp+78h] [rbp-40h]
-  char *v19; // [rsp+80h] [rbp-38h]
-  __int64 v20; // [rsp+88h] [rbp-30h]
-  __int64 *v21; // [rsp+90h] [rbp-28h]
-  __int64 v22; // [rsp+98h] [rbp-20h]
+  void *TransientPoolWithQuotaTag; // rdi
+  unsigned int v9; // edx
+  char v10; // cl
+  char v11; // [rsp+30h] [rbp-98h] BYREF
+  __int64 v12; // [rsp+38h] [rbp-90h] BYREF
+  __int64 v13; // [rsp+40h] [rbp-88h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v14; // [rsp+50h] [rbp-78h] BYREF
+  __int64 *v15; // [rsp+70h] [rbp-58h]
+  __int64 v16; // [rsp+78h] [rbp-50h]
+  char *v17; // [rsp+80h] [rbp-48h]
+  __int64 v18; // [rsp+88h] [rbp-40h]
+  __int64 *v19; // [rsp+90h] [rbp-38h]
+  __int64 v20; // [rsp+98h] [rbp-30h]
 
   *(_QWORD *)a1 = a2;
-  v6 = a2;
+  TransientPoolWithQuotaTag = a2;
   if ( !a3 )
   {
     *(_QWORD *)(a1 + 8) = 0LL;
@@ -42,59 +41,63 @@ __int64 __fastcall CmpBounceContextStart(__int64 a1, void *a2, size_t a3, int a4
   if ( !*((_QWORD *)&CmpRegistryProcess + 1) || !a4 && (unsigned __int8)CmpIsBufferGloballyVisible(a2) )
   {
 LABEL_10:
-    *(_QWORD *)(a1 + 8) = v6;
+    *(_QWORD *)(a1 + 8) = TransientPoolWithQuotaTag;
     return 0LL;
   }
-  if ( (unsigned int)dword_140C04390 > 5 && (byte_140C043A0 & 4) != 0 && (qword_140C043A8 & 4) == qword_140C043A8 )
+  if ( (unsigned int)dword_140C02130 > 5 && (byte_140C02140 & 4) != 0 && (qword_140C02148 & 4) == qword_140C02148 )
   {
-    v14 = 1LL;
-    v17 = &v14;
-    v11 = a3;
-    v13 = a5;
-    v19 = &v13;
-    v18 = 8LL;
-    v20 = 1LL;
+    v12 = 1LL;
+    v15 = &v12;
+    v9 = a3;
+    v11 = a5;
+    v17 = &v11;
+    v16 = 8LL;
+    v18 = 1LL;
     if ( (((_DWORD)a3 - 1) & (unsigned int)a3) != 0 )
     {
-      v12 = -1;
+      v10 = -1;
       if ( (_DWORD)a3 )
       {
         do
         {
-          ++v12;
-          v11 >>= 1;
+          ++v10;
+          v9 >>= 1;
         }
-        while ( v11 );
+        while ( v9 );
       }
-      v11 = 1 << (v12 + 1);
+      v9 = 1 << (v10 + 1);
     }
-    v15 = v11;
-    v22 = 8LL;
-    v21 = &v15;
-    tlgWriteAgg((__int64)&dword_140C04390, (unsigned __int8 *)&byte_140036B01, a3, 5u, &v16);
+    v13 = v9;
+    v20 = 8LL;
+    v19 = &v13;
+    tlgWriteAgg((__int64)&dword_140C02130, (unsigned __int8 *)&dword_1400233A9 + 2, a3, 5u, &v14);
   }
   if ( a3 <= 0x40 )
   {
-    v6 = (PVOID)(a1 + 17);
-    memset((void *)(a1 + 17), 0, a3);
+    TransientPoolWithQuotaTag = (void *)(a1 + 17);
+LABEL_13:
+    memset(TransientPoolWithQuotaTag, 0, a3);
     goto LABEL_10;
   }
   if ( a3 <= 0x1000 )
   {
-    v8 = ExAllocateFromLookasideListEx(&CmpBounceBufferLookaside);
-    v6 = v8;
-    if ( v8 )
+    ++dword_140CDB914;
+    TransientPoolWithQuotaTag = RtlpInterlockedPopEntrySList(&CmpBounceBufferLookaside);
+    if ( TransientPoolWithQuotaTag
+      || (++dword_140CDB918,
+          (TransientPoolWithQuotaTag = (void *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, union _SLIST_HEADER *))qword_140CDB930)(
+                                                 (unsigned int)dword_140CDB924,
+                                                 (unsigned int)dword_140CDB92C,
+                                                 (unsigned int)dword_140CDB928,
+                                                 &CmpBounceBufferLookaside)) != 0LL) )
     {
-      memset(v8, 0, a3);
+      memset(TransientPoolWithQuotaTag, 0, a3);
       *(_BYTE *)(a1 + 16) |= 1u;
       goto LABEL_10;
     }
   }
-  TransientPoolWithQuota = CmpAllocateTransientPoolWithQuota(a1, a3, 1111641411LL);
-  if ( TransientPoolWithQuota )
-  {
-    *(_QWORD *)(a1 + 8) = TransientPoolWithQuota;
-    return 0LL;
-  }
+  TransientPoolWithQuotaTag = CmpAllocateTransientPoolWithQuotaTag(a1, a3, 0x42424D43u);
+  if ( TransientPoolWithQuotaTag )
+    goto LABEL_13;
   return 3221225626LL;
 }

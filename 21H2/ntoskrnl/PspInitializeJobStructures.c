@@ -1,21 +1,21 @@
 /*
- * XREFs of PspInitializeJobStructures @ 0x140B2E74C
+ * XREFs of PspInitializeJobStructures @ 0x140A72054
  * Callers:
- *     PspInitPhase0 @ 0x140AFD7A4 (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140A3DC68 (PspInitPhase0.c)
  * Callees:
- *     ExCreateHandleTable @ 0x1406A6378 (ExCreateHandleTable.c)
+ *     ExCreateHandleTable @ 0x14062B4B8 (ExCreateHandleTable.c)
  */
 
 char PspInitializeJobStructures()
 {
-  __int64 HandleTable; // rax
+  _QWORD *HandleTable; // rax
 
-  HandleTable = ExCreateHandleTable(0LL, 0LL);
-  PspUniqueJobIdTable = HandleTable;
+  HandleTable = ExCreateHandleTable(0LL, 0);
+  PspUniqueJobIdTable = (__int64)HandleTable;
   if ( HandleTable )
   {
-    *(_BYTE *)(HandleTable + 44) |= 1u;
-    qword_140D3B2F8 = (__int64)&PspJobList;
+    *((_BYTE *)HandleTable + 44) |= 1u;
+    qword_140D2D338 = (__int64)&PspJobList;
     PspJobList = (__int64)&PspJobList;
     PspJobNotificationItem.WorkerRoutine = (void (__fastcall *)(void *))PspJobNotificationWorker;
     PspJobTimeLimitsWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PspJobTimeLimitsWork;
@@ -36,5 +36,5 @@ char PspInitializeJobStructures()
       PspSystemNoWakeChargeLimit = 200;
     LOBYTE(HandleTable) = 1;
   }
-  return HandleTable;
+  return (char)HandleTable;
 }

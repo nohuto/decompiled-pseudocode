@@ -1,11 +1,11 @@
 /*
- * XREFs of Controller_GetDeviceEnumerator @ 0x1C00728B8
+ * XREFs of Controller_GetDeviceEnumerator @ 0x1C006CC14
  * Callers:
- *     Controller_Create @ 0x1C00702D4 (Controller_Create.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_GetDeviceEnumerator(__int64 a1, int a2)
@@ -27,7 +27,7 @@ __int64 __fastcall Controller_GetDeviceEnumerator(__int64 a1, int a2)
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return v3;
-    WPP_RECORDER_SF_d(a2, 2, 4, 93, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, DeviceProperty);
+    WPP_RECORDER_SF_d(a2, 2, 4, 93, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, DeviceProperty);
   }
   else if ( _wcsicmp(PropertyBuffer, L"ACPI") )
   {
@@ -41,7 +41,7 @@ __int64 __fastcall Controller_GetDeviceEnumerator(__int64 a1, int a2)
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v6) = 4;
-    WPP_RECORDER_SF_d(a2, v6, 4, 94, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v3);
+    WPP_RECORDER_SF_d(a2, v6, 4, 94, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v3);
   }
   return v3;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReserveWorkingSetSwapSpace @ 0x1407F71B0
+ * XREFs of MiReserveWorkingSetSwapSpace @ 0x14070FCE8
  * Callers:
- *     MmOutSwapWorkingSet @ 0x140260144 (MmOutSwapWorkingSet.c)
- *     MmOutSwapVirtualAddresses @ 0x140375974 (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapVirtualAddresses @ 0x14035BCDC (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapWorkingSet @ 0x14035C7D0 (MmOutSwapWorkingSet.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     MiFreeReservationRuns @ 0x1406EC288 (MiFreeReservationRuns.c)
- *     MiReserveWorkingSetSwapSpaceRuns @ 0x1407F7238 (MiReserveWorkingSetSwapSpaceRuns.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiReserveWorkingSetSwapSpaceRuns @ 0x14070FD70 (MiReserveWorkingSetSwapSpaceRuns.c)
+ *     MiFreeReservationRuns @ 0x1407106D0 (MiFreeReservationRuns.c)
  */
 
 __int64 __fastcall MiReserveWorkingSetSwapSpace(
@@ -24,7 +24,7 @@ __int64 __fastcall MiReserveWorkingSetSwapSpace(
   __int64 result; // rax
 
   v6 = a4;
-  for ( i = *(unsigned int **)(a1 + 8LL * a4 + 16736); ; i = *(unsigned int **)(a1 + 8LL * a5 + 16736) )
+  for ( i = *(unsigned int **)(a1 + 8LL * a4 + 6944); ; i = *(unsigned int **)(a1 + 8LL * a5 + 6944) )
   {
     if ( v6 == a5 || a5 == 16 )
     {
@@ -38,7 +38,7 @@ __int64 __fastcall MiReserveWorkingSetSwapSpace(
     result = MiReserveWorkingSetSwapSpaceRuns(a1, a6, v6, v11, (__int64)a2);
     if ( !result )
       break;
-    MiFreeReservationRuns(a1, (unsigned __int64)a2);
+    MiFreeReservationRuns(a1, a2);
     memset(a2, 0, 0x50uLL);
     if ( v6 == a5 || a5 >= 0x10 )
       return 3221226021LL;

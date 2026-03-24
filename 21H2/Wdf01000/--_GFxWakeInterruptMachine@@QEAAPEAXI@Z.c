@@ -1,13 +1,13 @@
 /*
- * XREFs of ??_GFxWakeInterruptMachine@@QEAAPEAXI@Z @ 0x1C008CE30
+ * XREFs of ??_GFxWakeInterruptMachine@@QEAAPEAXI@Z @ 0x1C00890E0
  * Callers:
- *     ?CreateDevicePowerRequirementMachine@FxPoxInterface@@QEAAJXZ @ 0x1C0020408 (-CreateDevicePowerRequirementMachine@FxPoxInterface@@QEAAJXZ.c)
- *     ?CreateWakeInterruptMachine@FxInterrupt@@QEAAJXZ @ 0x1C008CE60 (-CreateWakeInterruptMachine@FxInterrupt@@QEAAJXZ.c)
- *     ?DeleteObject@FxInterrupt@@UEAAXXZ @ 0x1C008D030 (-DeleteObject@FxInterrupt@@UEAAXXZ.c)
- *     ??1FxPoxInterface@@QEAA@XZ @ 0x1C008EDE0 (--1FxPoxInterface@@QEAA@XZ.c)
+ *     ??1FxPowerPolicyOwnerSettings@@QEAA@XZ @ 0x1C00862EC (--1FxPowerPolicyOwnerSettings@@QEAA@XZ.c)
+ *     ?CreateWakeInterruptMachine@FxInterrupt@@QEAAJXZ @ 0x1C00892D0 (-CreateWakeInterruptMachine@FxInterrupt@@QEAAJXZ.c)
+ *     ?DeleteObject@FxInterrupt@@UEAAXXZ @ 0x1C0089480 (-DeleteObject@FxInterrupt@@UEAAXXZ.c)
+ *     ?CreateDevicePowerRequirementMachine@FxPoxInterface@@QEAAJXZ @ 0x1C008C890 (-CreateDevicePowerRequirementMachine@FxPoxInterface@@QEAAJXZ.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ?Free@MxWorkItem@@QEAAXXZ @ 0x1C001AD70 (-Free@MxWorkItem@@QEAAXXZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?Free@MxWorkItem@@QEAAXXZ @ 0x1C0014268 (-Free@MxWorkItem@@QEAAXXZ.c)
  */
 
 FxDevicePwrRequirementMachine *__fastcall FxWakeInterruptMachine::`scalar deleting destructor'(

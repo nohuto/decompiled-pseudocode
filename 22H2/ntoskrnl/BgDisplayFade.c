@@ -1,14 +1,15 @@
 /*
- * XREFs of BgDisplayFade @ 0x140AF020C
+ * XREFs of BgDisplayFade @ 0x1409F161C
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1403AD4F0 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkDisplayStringEx @ 0x14054EE44 (BgkDisplayStringEx.c)
- *     PoBroadcastSystemState @ 0x140AA6B28 (PoBroadcastSystemState.c)
- *     BgkDisplayCharacter @ 0x140AF1F70 (BgkDisplayCharacter.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14039B440 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkDisplayStringEx @ 0x1404FF424 (BgkDisplayStringEx.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
+ *     BgkDisplayCharacter @ 0x1409F6340 (BgkDisplayCharacter.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x140384860 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403848B0 (BgpFwAcquireLock.c)
- *     AnFwDisplayFade @ 0x140AED9AC (AnFwDisplayFade.c)
+ *     KeGetCurrentIrql @ 0x14021FA90 (KeGetCurrentIrql.c)
+ *     BgpFwReleaseLock @ 0x14039BBA8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039BBF8 (BgpFwAcquireLock.c)
+ *     AnFwDisplayFade @ 0x1409F1C00 (AnFwDisplayFade.c)
  */
 
 __int64 BgDisplayFade()
@@ -18,7 +19,7 @@ __int64 BgDisplayFade()
   if ( KeGetCurrentIrql() > 2u )
     return 3221225473LL;
   BgpFwAcquireLock();
-  if ( (dword_140C0E4B0 & 1) != 0 )
+  if ( (dword_140C134F0 & 1) != 0 )
     v0 = AnFwDisplayFade();
   else
     v0 = -1073741823;

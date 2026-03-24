@@ -1,59 +1,53 @@
 /*
- * XREFs of IopSelectNextConfiguration @ 0x14081F924
+ * XREFs of IopSelectNextConfiguration @ 0x1407D0380
  * Callers:
- *     PnpFindBestConfigurationWorker @ 0x14081FF7C (PnpFindBestConfigurationWorker.c)
+ *     PnpFindBestConfigurationWorker @ 0x14075273C (PnpFindBestConfigurationWorker.c)
  * Callees:
- *     IopAddRemoveReqDescs @ 0x140821B98 (IopAddRemoveReqDescs.c)
+ *     IopAddRemoveReqDescs @ 0x140752A40 (IopAddRemoveReqDescs.c)
  */
 
-char __fastcall IopSelectNextConfiguration(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+char __fastcall IopSelectNextConfiguration(__int64 a1, unsigned int a2, _QWORD *a3)
 {
-  unsigned int v4; // edi
-  unsigned int v8; // ebx
-  __int64 *v9; // r14
-  __int64 v10; // rbp
-  __int64 *v12; // r14
-  __int64 v13; // rbx
+  unsigned int v3; // edi
+  unsigned int v7; // ebx
+  __int64 *v8; // r14
+  __int64 v9; // rbp
+  __int64 *v11; // r14
+  __int64 v12; // rbx
 
-  v4 = 0;
-  v8 = 0;
+  v3 = 0;
+  v7 = 0;
   if ( a2 )
   {
-    v9 = (__int64 *)(a1 + 32);
-    while ( 1 )
-    {
-      v10 = *v9;
-      IopAddRemoveReqDescs(**(_QWORD **)(*v9 + 16) + 24LL, *(unsigned int *)(**(_QWORD **)(*v9 + 16) + 20LL), 0LL, 0LL);
-      *(_QWORD *)(v10 + 16) += 8LL;
-      if ( *(_QWORD *)(v10 + 16) < *(_QWORD *)(v10 + 24) )
-        break;
-      ++v8;
-      v9 += 8;
-      *(_QWORD *)(v10 + 16) = v10 + 40;
-      if ( v8 >= a2 )
-        goto LABEL_5;
-    }
-  }
-  else
-  {
-LABEL_5:
-    if ( v8 == a2 )
-      return 0;
-  }
-  if ( a2 )
-  {
-    v12 = (__int64 *)(a1 + 32);
+    v8 = (__int64 *)(a1 + 32);
     do
     {
-      v13 = *v12;
-      LOBYTE(a4) = 1;
-      IopAddRemoveReqDescs(**(_QWORD **)(*v12 + 16) + 24LL, *(unsigned int *)(**(_QWORD **)(*v12 + 16) + 20LL), a3, a4);
-      if ( *(_QWORD *)(v13 + 16) != v13 + 40 )
+      v9 = *v8;
+      IopAddRemoveReqDescs(**(_QWORD **)(*v8 + 16) + 24LL, *(_DWORD *)(**(_QWORD **)(*v8 + 16) + 20LL), 0LL, 0);
+      *(_QWORD *)(v9 + 16) += 8LL;
+      if ( *(_QWORD *)(v9 + 16) < *(_QWORD *)(v9 + 24) )
         break;
-      ++v4;
-      v12 += 8;
+      ++v7;
+      v8 += 8;
+      *(_QWORD *)(v9 + 16) = v9 + 40;
     }
-    while ( v4 < a2 );
+    while ( v7 < a2 );
+  }
+  if ( v7 == a2 )
+    return 0;
+  if ( a2 )
+  {
+    v11 = (__int64 *)(a1 + 32);
+    do
+    {
+      v12 = *v11;
+      IopAddRemoveReqDescs(**(_QWORD **)(*v11 + 16) + 24LL, *(_DWORD *)(**(_QWORD **)(*v11 + 16) + 20LL), a3, 1);
+      if ( *(_QWORD *)(v12 + 16) != v12 + 40 )
+        break;
+      ++v3;
+      v11 += 8;
+    }
+    while ( v3 < a2 );
   }
   return 1;
 }

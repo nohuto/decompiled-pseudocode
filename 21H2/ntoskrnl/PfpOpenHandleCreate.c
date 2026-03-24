@@ -1,19 +1,19 @@
 /*
- * XREFs of PfpOpenHandleCreate @ 0x1407DFC68
+ * XREFs of PfpOpenHandleCreate @ 0x1406C94F8
  * Callers:
- *     PfpPrefetchDirectoryStream @ 0x1406AEA14 (PfpPrefetchDirectoryStream.c)
- *     PfpVolumeOpenAndVerify @ 0x1406AECC0 (PfpVolumeOpenAndVerify.c)
- *     PfSnOpenVolumesForPrefetch @ 0x1407DDABC (PfSnOpenVolumesForPrefetch.c)
- *     PfSnQueryVolumeInfo @ 0x1407DE074 (PfSnQueryVolumeInfo.c)
- *     PfpPrefetchEntireDirectory @ 0x1407DE480 (PfpPrefetchEntireDirectory.c)
- *     PfpFileBuildReadSupport @ 0x1407DEE78 (PfpFileBuildReadSupport.c)
- *     PfSnGetSectionObject @ 0x1407DF794 (PfSnGetSectionObject.c)
- *     PfpQueryFileExtentsRequest @ 0x1409876B8 (PfpQueryFileExtentsRequest.c)
+ *     PfpVolumeOpenAndVerify @ 0x1406C5DFC (PfpVolumeOpenAndVerify.c)
+ *     PfpPrefetchDirectoryStream @ 0x1406C7550 (PfpPrefetchDirectoryStream.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x1406C7A68 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnQueryVolumeInfo @ 0x1406C8048 (PfSnQueryVolumeInfo.c)
+ *     PfpPrefetchEntireDirectory @ 0x1406C846C (PfpPrefetchEntireDirectory.c)
+ *     PfpFileBuildReadSupport @ 0x1406C85E0 (PfpFileBuildReadSupport.c)
+ *     PfSnGetSectionObject @ 0x1406C8EA8 (PfSnGetSectionObject.c)
+ *     PfpQueryFileExtentsRequest @ 0x1408DFD0C (PfpQueryFileExtentsRequest.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     PfpCheckPrefetchAbort @ 0x140360A84 (PfpCheckPrefetchAbort.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     PfpCheckPrefetchAbort @ 0x1402D4204 (PfpCheckPrefetchAbort.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall PfpOpenHandleCreate(
@@ -71,7 +71,7 @@ __int64 __fastcall PfpOpenHandleCreate(
       *(_QWORD *)((char *)&v19[4] + 4) = __PAIR64__(v14, v13);
       if ( v12 )
         *((_QWORD *)&v19[0] + 1) = *(_QWORD *)(v12 + 8);
-      v17 = (*(__int64 (__fastcall **)(_OWORD *))qword_140C54638)(v19);
+      v17 = (*(__int64 (__fastcall **)(_OWORD *))qword_140C503F8)(v19);
       if ( (v17 & 0x80000000) == 0 )
       {
         *(_OWORD *)a1 = v19[5];

@@ -1,13 +1,10 @@
 /*
- * XREFs of ??$Write@U?$_tlgWrapSz@D@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@3333333333333AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1801AA07C
+ * XREFs of ??$Write@U?$_tlgWrapSz@D@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@3333333333333AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x180229DC0
  * Callers:
- *     ??$UpdateActiveConfig@UDwmMousewheelInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogging@@SAXAEBUDwmMousewheelInteractionConfigurationPrimitive@@@Z @ 0x1801A97FC (--$UpdateActiveConfig@UDwmMousewheelInteractionConfigurationPrimitive@@@GestureTargeting@InputTr.c)
- *     ??$UpdateActiveConfig@UDwmPenInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogging@@SAXAEBUDwmPenInteractionConfigurationPrimitive@@@Z @ 0x1801A9A1C (--$UpdateActiveConfig@UDwmPenInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogg.c)
- *     ??$UpdateActiveConfig@UDwmTouchInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogging@@SAXAEBUDwmTouchInteractionConfigurationPrimitive@@@Z @ 0x1801A9C3C (--$UpdateActiveConfig@UDwmTouchInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLo.c)
- *     ??$UpdateActiveConfig@UDwmTouchpadInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogging@@SAXAEBUDwmTouchpadInteractionConfigurationPrimitive@@@Z @ 0x1801A9E5C (--$UpdateActiveConfig@UDwmTouchpadInteractionConfigurationPrimitive@@@GestureTargeting@InputTrac.c)
+ *     ??$UpdateActiveConfig@UDwmMousewheelInteractionConfigurationPrimitive@@@GestureTargeting@InputTraceLogging@@SAXAEBUDwmMousewheelInteractionConfigurationPrimitive@@@Z @ 0x180229B94 (--$UpdateActiveConfig@UDwmMousewheelInteractionConfigurationPrimitive@@@GestureTargeting@InputTr.c)
  * Callees:
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BB2A0 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152990 (_tlgWriteTransfer_EventWriteTransfer.c)
  */
 
 ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
@@ -15,106 +12,106 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
         unsigned __int8 *a2,
         __int64 a3,
         __int64 a4,
-        const char **a5,
-        const char **a6,
-        const char **a7,
-        const char **a8,
-        const char **a9,
-        const char **a10,
-        const char **a11,
-        const char **a12,
-        const char **a13,
-        const char **a14,
-        const char **a15,
-        const char **a16,
-        const char **a17,
-        const char **a18,
+        const unsigned __int16 **a5,
+        const unsigned __int16 **a6,
+        const unsigned __int16 **a7,
+        const unsigned __int16 **a8,
+        const unsigned __int16 **a9,
+        const unsigned __int16 **a10,
+        const unsigned __int16 **a11,
+        const unsigned __int16 **a12,
+        const unsigned __int16 **a13,
+        const unsigned __int16 **a14,
+        const unsigned __int16 **a15,
+        const unsigned __int16 **a16,
+        const unsigned __int16 **a17,
+        const unsigned __int16 **a18,
         __int64 a19,
         __int64 a20)
 {
   __int64 v21; // rdx
-  const char *v22; // r8
+  const unsigned __int16 *v22; // r8
   __int64 v23; // rax
   int v24; // eax
-  const char *v25; // r8
+  const unsigned __int16 *v25; // r8
   __int64 v26; // rax
   int v27; // eax
-  const char *v28; // r8
+  const unsigned __int16 *v28; // r8
   __int64 v29; // rax
   int v30; // eax
-  const char *v31; // r8
+  const unsigned __int16 *v31; // r8
   __int64 v32; // rax
   int v33; // eax
-  const char *v34; // r8
+  const unsigned __int16 *v34; // r8
   __int64 v35; // rax
   int v36; // eax
-  const char *v37; // r8
+  const unsigned __int16 *v37; // r8
   __int64 v38; // rax
   int v39; // eax
-  const char *v40; // r8
+  const unsigned __int16 *v40; // r8
   __int64 v41; // rax
   int v42; // eax
-  const char *v43; // r8
+  const unsigned __int16 *v43; // r8
   __int64 v44; // rax
   int v45; // eax
-  const char *v46; // r8
+  const unsigned __int16 *v46; // r8
   __int64 v47; // rax
   int v48; // eax
-  const char *v49; // r8
+  const unsigned __int16 *v49; // r8
   __int64 v50; // rax
   int v51; // eax
-  const char *v52; // r8
+  const unsigned __int16 *v52; // r8
   __int64 v53; // rax
   int v54; // eax
-  const char *v55; // r8
+  const unsigned __int16 *v55; // r8
   __int64 v56; // rax
   int v57; // eax
-  const char *v58; // r8
+  const unsigned __int16 *v58; // r8
   __int64 v59; // rax
   int v60; // eax
-  const char *v61; // r8
+  const unsigned __int16 *v61; // r8
   int v62; // edx
   struct _EVENT_DATA_DESCRIPTOR v64; // [rsp+30h] [rbp-D0h] BYREF
-  const char *v65; // [rsp+50h] [rbp-B0h]
+  const unsigned __int16 *v65; // [rsp+50h] [rbp-B0h]
   int v66; // [rsp+58h] [rbp-A8h]
   int v67; // [rsp+5Ch] [rbp-A4h]
-  const char *v68; // [rsp+60h] [rbp-A0h]
+  const unsigned __int16 *v68; // [rsp+60h] [rbp-A0h]
   int v69; // [rsp+68h] [rbp-98h]
   int v70; // [rsp+6Ch] [rbp-94h]
-  const char *v71; // [rsp+70h] [rbp-90h]
+  const unsigned __int16 *v71; // [rsp+70h] [rbp-90h]
   int v72; // [rsp+78h] [rbp-88h]
   int v73; // [rsp+7Ch] [rbp-84h]
-  const char *v74; // [rsp+80h] [rbp-80h]
+  const unsigned __int16 *v74; // [rsp+80h] [rbp-80h]
   int v75; // [rsp+88h] [rbp-78h]
   int v76; // [rsp+8Ch] [rbp-74h]
-  const char *v77; // [rsp+90h] [rbp-70h]
+  const unsigned __int16 *v77; // [rsp+90h] [rbp-70h]
   int v78; // [rsp+98h] [rbp-68h]
   int v79; // [rsp+9Ch] [rbp-64h]
-  const char *v80; // [rsp+A0h] [rbp-60h]
+  const unsigned __int16 *v80; // [rsp+A0h] [rbp-60h]
   int v81; // [rsp+A8h] [rbp-58h]
   int v82; // [rsp+ACh] [rbp-54h]
-  const char *v83; // [rsp+B0h] [rbp-50h]
+  const unsigned __int16 *v83; // [rsp+B0h] [rbp-50h]
   int v84; // [rsp+B8h] [rbp-48h]
   int v85; // [rsp+BCh] [rbp-44h]
-  const char *v86; // [rsp+C0h] [rbp-40h]
+  const unsigned __int16 *v86; // [rsp+C0h] [rbp-40h]
   int v87; // [rsp+C8h] [rbp-38h]
   int v88; // [rsp+CCh] [rbp-34h]
-  const char *v89; // [rsp+D0h] [rbp-30h]
+  const unsigned __int16 *v89; // [rsp+D0h] [rbp-30h]
   int v90; // [rsp+D8h] [rbp-28h]
   int v91; // [rsp+DCh] [rbp-24h]
-  const char *v92; // [rsp+E0h] [rbp-20h]
+  const unsigned __int16 *v92; // [rsp+E0h] [rbp-20h]
   int v93; // [rsp+E8h] [rbp-18h]
   int v94; // [rsp+ECh] [rbp-14h]
-  const char *v95; // [rsp+F0h] [rbp-10h]
+  const unsigned __int16 *v95; // [rsp+F0h] [rbp-10h]
   int v96; // [rsp+F8h] [rbp-8h]
   int v97; // [rsp+FCh] [rbp-4h]
-  const char *v98; // [rsp+100h] [rbp+0h]
+  const unsigned __int16 *v98; // [rsp+100h] [rbp+0h]
   int v99; // [rsp+108h] [rbp+8h]
   int v100; // [rsp+10Ch] [rbp+Ch]
-  const char *v101; // [rsp+110h] [rbp+10h]
+  const unsigned __int16 *v101; // [rsp+110h] [rbp+10h]
   int v102; // [rsp+118h] [rbp+18h]
   int v103; // [rsp+11Ch] [rbp+1Ch]
-  const char *v104; // [rsp+120h] [rbp+20h]
+  const unsigned __int16 *v104; // [rsp+120h] [rbp+20h]
   int v105; // [rsp+128h] [rbp+28h]
   int v106; // [rsp+12Ch] [rbp+2Ch]
   __int64 v107; // [rsp+130h] [rbp+30h]
@@ -133,12 +130,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v23 = -1LL;
     do
       ++v23;
-    while ( v22[v23] );
+    while ( *((_BYTE *)v22 + v23) );
     v24 = v23 + 1;
   }
   else
   {
-    v22 = word_18033C020;
+    v22 = &word_1802CE406;
     v24 = 1;
   }
   v105 = v24;
@@ -150,12 +147,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v26 = -1LL;
     do
       ++v26;
-    while ( v25[v26] );
+    while ( *((_BYTE *)v25 + v26) );
     v27 = v26 + 1;
   }
   else
   {
-    v25 = word_18033C020;
+    v25 = &word_1802CE406;
     v27 = 1;
   }
   v102 = v27;
@@ -167,12 +164,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v29 = -1LL;
     do
       ++v29;
-    while ( v28[v29] );
+    while ( *((_BYTE *)v28 + v29) );
     v30 = v29 + 1;
   }
   else
   {
-    v28 = word_18033C020;
+    v28 = &word_1802CE406;
     v30 = 1;
   }
   v99 = v30;
@@ -184,12 +181,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v32 = -1LL;
     do
       ++v32;
-    while ( v31[v32] );
+    while ( *((_BYTE *)v31 + v32) );
     v33 = v32 + 1;
   }
   else
   {
-    v31 = word_18033C020;
+    v31 = &word_1802CE406;
     v33 = 1;
   }
   v96 = v33;
@@ -201,12 +198,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v35 = -1LL;
     do
       ++v35;
-    while ( v34[v35] );
+    while ( *((_BYTE *)v34 + v35) );
     v36 = v35 + 1;
   }
   else
   {
-    v34 = word_18033C020;
+    v34 = &word_1802CE406;
     v36 = 1;
   }
   v93 = v36;
@@ -218,12 +215,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v38 = -1LL;
     do
       ++v38;
-    while ( v37[v38] );
+    while ( *((_BYTE *)v37 + v38) );
     v39 = v38 + 1;
   }
   else
   {
-    v37 = word_18033C020;
+    v37 = &word_1802CE406;
     v39 = 1;
   }
   v90 = v39;
@@ -235,12 +232,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v41 = -1LL;
     do
       ++v41;
-    while ( v40[v41] );
+    while ( *((_BYTE *)v40 + v41) );
     v42 = v41 + 1;
   }
   else
   {
-    v40 = word_18033C020;
+    v40 = &word_1802CE406;
     v42 = 1;
   }
   v87 = v42;
@@ -252,12 +249,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v44 = -1LL;
     do
       ++v44;
-    while ( v43[v44] );
+    while ( *((_BYTE *)v43 + v44) );
     v45 = v44 + 1;
   }
   else
   {
-    v43 = word_18033C020;
+    v43 = &word_1802CE406;
     v45 = 1;
   }
   v84 = v45;
@@ -269,12 +266,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v47 = -1LL;
     do
       ++v47;
-    while ( v46[v47] );
+    while ( *((_BYTE *)v46 + v47) );
     v48 = v47 + 1;
   }
   else
   {
-    v46 = word_18033C020;
+    v46 = &word_1802CE406;
     v48 = 1;
   }
   v81 = v48;
@@ -286,12 +283,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v50 = -1LL;
     do
       ++v50;
-    while ( v49[v50] );
+    while ( *((_BYTE *)v49 + v50) );
     v51 = v50 + 1;
   }
   else
   {
-    v49 = word_18033C020;
+    v49 = &word_1802CE406;
     v51 = 1;
   }
   v78 = v51;
@@ -303,12 +300,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v53 = -1LL;
     do
       ++v53;
-    while ( v52[v53] );
+    while ( *((_BYTE *)v52 + v53) );
     v54 = v53 + 1;
   }
   else
   {
-    v52 = word_18033C020;
+    v52 = &word_1802CE406;
     v54 = 1;
   }
   v75 = v54;
@@ -320,12 +317,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v56 = -1LL;
     do
       ++v56;
-    while ( v55[v56] );
+    while ( *((_BYTE *)v55 + v56) );
     v57 = v56 + 1;
   }
   else
   {
-    v55 = word_18033C020;
+    v55 = &word_1802CE406;
     v57 = 1;
   }
   v72 = v57;
@@ -337,12 +334,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
     v59 = -1LL;
     do
       ++v59;
-    while ( v58[v59] );
+    while ( *((_BYTE *)v58 + v59) );
     v60 = v59 + 1;
   }
   else
   {
-    v58 = word_18033C020;
+    v58 = &word_1802CE406;
     v60 = 1;
   }
   v69 = v60;
@@ -353,12 +350,12 @@ ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GU
   {
     do
       ++v21;
-    while ( v61[v21] );
+    while ( *((_BYTE *)v61 + v21) );
     v62 = v21 + 1;
   }
   else
   {
-    v61 = word_18033C020;
+    v61 = &word_1802CE406;
     v62 = 1;
   }
   v65 = v61;

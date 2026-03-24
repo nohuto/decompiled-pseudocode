@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AddDirtyRegion@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAXAEBVCRegion@@@Z @ 0x180122C60
+ * XREFs of ?AddDirtyRegion@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAXAEBVCRegion@@@Z @ 0x1800F8750
  * Callers:
  *     <none>
  * Callees:

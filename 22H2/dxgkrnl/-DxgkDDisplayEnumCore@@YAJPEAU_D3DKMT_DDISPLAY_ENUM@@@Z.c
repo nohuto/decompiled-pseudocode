@@ -1,36 +1,36 @@
 /*
- * XREFs of ?DxgkDDisplayEnumCore@@YAJPEAU_D3DKMT_DDISPLAY_ENUM@@@Z @ 0x1C017EF24
+ * XREFs of ?DxgkDDisplayEnumCore@@YAJPEAU_D3DKMT_DDISPLAY_ENUM@@@Z @ 0x1C013AC08
  * Callers:
- *     DxgkDDisplayEnumInternal @ 0x1C017EB50 (DxgkDDisplayEnumInternal.c)
+ *     DxgkDDisplayEnumInternal @ 0x1C013A870 (DxgkDDisplayEnumInternal.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C017F1B0 (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C013C28C (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
  */
 
-__int64 __fastcall DxgkDDisplayEnumCore(struct _D3DKMT_DDISPLAY_ENUM *a1)
+__int64 __fastcall DxgkDDisplayEnumCore(struct _D3DKMT_DDISPLAY_ENUM *a1, __int64 a2)
 {
   struct DXGGLOBAL *Global; // rax
-  _QWORD v3[4]; // [rsp+20h] [rbp-20h] BYREF
-  struct _D3DKMT_DDISPLAY_ENUM *v4; // [rsp+50h] [rbp+10h] BYREF
-  unsigned int v5; // [rsp+58h] [rbp+18h] BYREF
-  int v6; // [rsp+60h] [rbp+20h] BYREF
+  _QWORD v4[4]; // [rsp+20h] [rbp-20h] BYREF
+  struct _D3DKMT_DDISPLAY_ENUM *v5; // [rsp+50h] [rbp+10h] BYREF
+  unsigned int v6; // [rsp+58h] [rbp+18h] BYREF
+  int v7; // [rsp+60h] [rbp+20h] BYREF
 
-  v4 = a1;
+  v5 = a1;
+  v7 = 0;
   v6 = 0;
-  v5 = 0;
-  Global = DXGGLOBAL::GetGlobal();
-  v3[0] = &v6;
-  v3[1] = &v4;
-  v3[2] = &v5;
+  v4[0] = &v7;
+  v4[1] = &v5;
+  v4[2] = &v6;
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, a2);
   DXGGLOBAL::IterateAdaptersWithCallback(
     Global,
-    lambda_6c26126ad1bc2cece2687303122ecfc1_::_lambda_invoker_cdecl_,
-    v3,
+    lambda_3dc479c6339d8ea3367aebfddfa054a6_::_lambda_invoker_cdecl_,
+    v4,
     4LL);
-  *(_DWORD *)v4 = v6;
-  *((_DWORD *)v4 + 4) = v5;
-  if ( *((_DWORD *)v4 + 1) >= *(_DWORD *)v4 )
-    return *((_DWORD *)v4 + 5) < v5 ? 0xC0000023 : 0;
-  else
+  *(_DWORD *)v5 = v7;
+  *((_DWORD *)v5 + 4) = v6;
+  if ( *((_DWORD *)v5 + 1) < *(_DWORD *)v5 || *((_DWORD *)v5 + 5) < v6 )
     return 3221225507LL;
+  else
+    return 0LL;
 }

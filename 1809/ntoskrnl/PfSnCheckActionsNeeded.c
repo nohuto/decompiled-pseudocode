@@ -1,17 +1,17 @@
 /*
- * XREFs of PfSnCheckActionsNeeded @ 0x140667E5C
+ * XREFs of PfSnCheckActionsNeeded @ 0x140667E3C
  * Callers:
- *     PfSnBeginScenario @ 0x1406672A4 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140667284 (PfSnBeginScenario.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     MmQueryMemoryListInformation @ 0x1400A89B0 (MmQueryMemoryListInformation.c)
- *     PsGetPagePriorityThread @ 0x1400B5BC0 (PsGetPagePriorityThread.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     MmGetDefaultPagePriority @ 0x1400E217C (MmGetDefaultPagePriority.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PfpGetPageListCount @ 0x140662420 (PfpGetPageListCount.c)
- *     PfSnPrefetchCacheEntryGet @ 0x140668158 (PfSnPrefetchCacheEntryGet.c)
+ *     MmQueryMemoryListInformation @ 0x1400A89D0 (MmQueryMemoryListInformation.c)
+ *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MmGetDefaultPagePriority @ 0x1400E219C (MmGetDefaultPagePriority.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PfpGetPageListCount @ 0x140662400 (PfpGetPageListCount.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x140668138 (PfSnPrefetchCacheEntryGet.c)
  */
 
 __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, __int64 a2, __int64 a3, int *a4, int *a5)

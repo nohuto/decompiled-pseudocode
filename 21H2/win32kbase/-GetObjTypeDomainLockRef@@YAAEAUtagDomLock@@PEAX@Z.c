@@ -1,29 +1,24 @@
 /*
- * XREFs of ?GetObjTypeDomainLockRef@@YAAEAUtagDomLock@@PEAX@Z @ 0x1C0144930
+ * XREFs of ?GetObjTypeDomainLockRef@@YAAEAUtagDomLock@@PEAX@Z @ 0x1C0114A30
  * Callers:
  *     <none>
  * Callees:
- *     UserIsUserCritSecInExclusive @ 0x1C002A1D0 (UserIsUserCritSecInExclusive.c)
- *     IS_USERCRIT_OWNED_SHARED @ 0x1C002C87C (IS_USERCRIT_OWNED_SHARED.c)
- *     ?IsLockedShared@tagDomLock@@QEBA_NXZ @ 0x1C006D24C (-IsLockedShared@tagDomLock@@QEBA_NXZ.c)
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C006D270 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
- *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C006EB70 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C00300B0 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0031C90 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
  */
 
-PVOID *__fastcall GetObjTypeDomainLockRef(_DWORD *a1, __int64 a2, __int64 a3)
+PVOID *__fastcall GetObjTypeDomainLockRef(_DWORD *a1)
 {
-  if ( !a1 )
-    return &gDomainDummyLock;
-  if ( !gbInDestroyHandleTableObjects
-    && !UserIsUserCritSecInExclusive()
-    && (!IS_USERCRIT_OWNED_SHARED()
-     || !tagDomLock::IsLockedExclusive(&gDomainHandleManagerLock)
-     && !tagDomLock::IsLockedShared(&gDomainHandleManagerLock)) )
+  _BYTE v3[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  if ( a1
+    && (CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>((__int64)v3),
+        *((_BYTE *)qword_1C024FD58 + dword_1C024FD60 * (unsigned int)(unsigned __int16)*a1 + 24) == 1) )
   {
-    __int2c();
+    return (PVOID *)GetDomainLockRef(10);
   }
-  if ( *((_BYTE *)qword_1C0294B68 + dword_1C0294B70 * (unsigned int)(unsigned __int16)*a1 + 24) == 1 )
-    return (PVOID *)GetDomainLockRef(10LL, a2, a3);
   else
-    return &gDomainDummyLock;
+  {
+    return gDomainDummyLock;
+  }
 }

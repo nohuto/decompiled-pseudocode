@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwCreateResourceManager @ 0x14041BF00
+ * XREFs of ZwCreateResourceManager @ 0x1403FB1E0
  * Callers:
- *     DifZwCreateResourceManagerWrapper @ 0x1405EEC70 (DifZwCreateResourceManagerWrapper.c)
- *     CmpInitCmRM @ 0x14068571C (CmpInitCmRM.c)
+ *     CmpInitCmRM @ 0x14070D220 (CmpInitCmRM.c)
  * Callees:
  *     <none>
  */

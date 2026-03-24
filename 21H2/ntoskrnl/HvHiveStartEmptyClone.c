@@ -1,11 +1,11 @@
 /*
- * XREFs of HvHiveStartEmptyClone @ 0x14091A170
+ * XREFs of HvHiveStartEmptyClone @ 0x140873798
  * Callers:
- *     CmpCreateEmptyHiveClone @ 0x14091972C (CmpCreateEmptyHiveClone.c)
+ *     CmpCreateEmptyHiveClone @ 0x140872E48 (CmpCreateEmptyHiveClone.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     HvpViewMapStart @ 0x14068D6C4 (HvpViewMapStart.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     HvpViewMapStart @ 0x1407234E4 (HvpViewMapStart.c)
  */
 
 int __fastcall HvHiveStartEmptyClone(__int64 a1, __int64 a2)
@@ -40,23 +40,23 @@ int __fastcall HvHiveStartEmptyClone(__int64 a1, __int64 a2)
   *(_BYTE *)(a1 + 140) ^= (*(_BYTE *)(v3 + 140) ^ v8) & 1;
   *(_BYTE *)(a1 + 140) ^= (*(_BYTE *)(v3 + 140) ^ *(_BYTE *)(a1 + 140)) & 2;
   *(_DWORD *)(a1 + 160) = *(_DWORD *)(v3 + 160) & 0xFFFFFFEF;
+  *(_DWORD *)(a1 + 164) = *(_DWORD *)(v3 + 164);
   *(_DWORD *)(a1 + 168) = *(_DWORD *)(v3 + 168);
   *(_DWORD *)(a1 + 172) = *(_DWORD *)(v3 + 172);
   *(_DWORD *)(a1 + 176) = *(_DWORD *)(v3 + 176);
   *(_DWORD *)(a1 + 180) = *(_DWORD *)(v3 + 180);
   *(_DWORD *)(a1 + 184) = *(_DWORD *)(v3 + 184);
-  *(_DWORD *)(a1 + 188) = *(_DWORD *)(v3 + 188);
-  *(_WORD *)(a1 + 192) = *(_WORD *)(v3 + 192);
-  *(_BYTE *)(a1 + 194) = *(_BYTE *)(v3 + 194);
-  *(_BYTE *)(a1 + 195) = *(_BYTE *)(v3 + 195);
-  *(_QWORD *)(a1 + 200) = *(_QWORD *)(v3 + 200);
-  *(_WORD *)(a1 + 208) = *(_WORD *)(v3 + 208);
+  *(_WORD *)(a1 + 188) = *(_WORD *)(v3 + 188);
+  *(_BYTE *)(a1 + 190) = *(_BYTE *)(v3 + 190);
+  *(_BYTE *)(a1 + 191) = *(_BYTE *)(v3 + 191);
+  *(_QWORD *)(a1 + 192) = *(_QWORD *)(v3 + 192);
+  *(_WORD *)(a1 + 200) = *(_WORD *)(v3 + 200);
+  *(_DWORD *)(a1 + 204) = *(_DWORD *)(v3 + 204);
+  *(_DWORD *)(a1 + 208) = *(_DWORD *)(v3 + 208);
   *(_DWORD *)(a1 + 212) = *(_DWORD *)(v3 + 212);
-  *(_DWORD *)(a1 + 216) = *(_DWORD *)(v3 + 216);
-  *(_DWORD *)(a1 + 220) = *(_DWORD *)(v3 + 220);
   if ( (*(_DWORD *)(v3 + 160) & 0x20000) == 0 )
     return 0;
-  result = HvpViewMapStart(a1 + 224, *(void **)(a1 + 1544), 0, *(_QWORD *)(v3 + 248), *(_DWORD *)(v3 + 256));
+  result = HvpViewMapStart(a1 + 216, *(void **)(a1 + 1536), 0, *(_QWORD *)(v3 + 240), *(_DWORD *)(v3 + 248));
   if ( result >= 0 )
     return 0;
   return result;

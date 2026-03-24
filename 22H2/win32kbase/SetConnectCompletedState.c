@@ -1,29 +1,31 @@
 /*
- * XREFs of SetConnectCompletedState @ 0x1C0011090
+ * XREFs of SetConnectCompletedState @ 0x1C00B0CF0
  * Callers:
- *     xxxRemoteConnect @ 0x1C00115D0 (xxxRemoteConnect.c)
+ *     xxxRemoteConnect @ 0x1C0117AB0 (xxxRemoteConnect.c)
  * Callees:
- *     PowerConnectionEvent @ 0x1C00110E4 (PowerConnectionEvent.c)
- *     ReferenceDwmApiPort @ 0x1C0047A70 (ReferenceDwmApiPort.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ReferenceDwmApiPort @ 0x1C00165F0 (ReferenceDwmApiPort.c)
+ *     PowerConnectionEvent @ 0x1C00B0D4C (PowerConnectionEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall SetConnectCompletedState(int a1)
 {
-  __int64 v1; // rcx
+  int v1; // eax
+  PVOID v2; // rcx
 
   gbConnectCompleted = a1;
   if ( !gServiceSessionId )
   {
     PowerConnectionEvent();
-    if ( qword_1C0296150 )
+    if ( qword_1C0256E70 )
+      v1 = qword_1C0256E70();
+    else
+      v1 = -1073741637;
+    if ( v1 >= 0 )
     {
-      if ( (int)qword_1C0296150() >= 0 )
-      {
-        v1 = ReferenceDwmApiPort();
-        if ( qword_1C0296158 )
-          qword_1C0296158(v1);
-      }
+      v2 = ReferenceDwmApiPort();
+      if ( qword_1C0256E78 )
+        qword_1C0256E78(v2);
     }
   }
 }

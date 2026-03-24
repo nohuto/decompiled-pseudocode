@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAuditEnumerateRsdtsInRange @ 0x140AF8F6C
+ * XREFs of HalpAuditEnumerateRsdtsInRange @ 0x140A656CC
  * Callers:
- *     HalpAuditEnumerateRsdts @ 0x140AF8ED0 (HalpAuditEnumerateRsdts.c)
+ *     HalpAuditEnumerateRsdts @ 0x140A65638 (HalpAuditEnumerateRsdts.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140215340 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
- *     HalpAuditSelectRsdtOrXsdt @ 0x140AF9048 (HalpAuditSelectRsdtOrXsdt.c)
- *     HalpAuditAllocateRsdtArrayTable @ 0x140AF917C (HalpAuditAllocateRsdtArrayTable.c)
+ *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     HalpAuditSelectRsdtOrXsdt @ 0x140A657A8 (HalpAuditSelectRsdtOrXsdt.c)
+ *     HalpAuditAllocateRsdtArrayTable @ 0x140A658DC (HalpAuditAllocateRsdtArrayTable.c)
  */
 
 __int64 __fastcall HalpAuditEnumerateRsdtsInRange(__int64 a1, unsigned int a2, char a3, __int64 *a4)

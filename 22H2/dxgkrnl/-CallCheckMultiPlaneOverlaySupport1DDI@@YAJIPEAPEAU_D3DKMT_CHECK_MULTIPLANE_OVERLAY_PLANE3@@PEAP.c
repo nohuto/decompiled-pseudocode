@@ -1,98 +1,115 @@
 /*
- * XREFs of ?CallCheckMultiPlaneOverlaySupport1DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXPEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C02E6D0C
+ * XREFs of ?CallCheckMultiPlaneOverlaySupport1DDI@@YAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXPEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C025281C
  * Callers:
- *     ?CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C02E7664 (-CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CH.c)
+ *     ?CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C0253194 (-CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CH.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?DdiCheckMultiPlaneOverlaySupport@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_CHECKMULTIPLANEOVERLAYSUPPORT@@@Z @ 0x1C02C40CC (-DdiCheckMultiPlaneOverlaySupport@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_CHECKMULTIPLANEOVERLAYSUPPO.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?DdiCheckMultiPlaneOverlaySupport@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_CHECKMULTIPLANEOVERLAYSUPPORT@@@Z @ 0x1C0218CE0 (-DdiCheckMultiPlaneOverlaySupport@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_CHECKMULTIPLANEOVERLAYSUPPO.c)
  */
 
 __int64 __fastcall CallCheckMultiPlaneOverlaySupport1DDI(
         __int64 a1,
-        struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **a2,
+        unsigned __int64 a2,
         void **a3,
         struct ADAPTER_DISPLAY *a4,
         int *a5,
         struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO *a6)
 {
   void **v7; // rsi
-  __int64 v9; // rbx
+  struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **v8; // r15
+  UINT v9; // ebx
   __int64 v10; // rdi
-  _BYTE *Pool2; // r9
-  __int64 CurrentProcess; // rax
-  unsigned int v13; // ebx
-  char *v14; // r14
-  __int64 v15; // r10
-  int v16; // ecx
-  int v17; // edx
-  int v18; // eax
-  _DXGKARG_CHECKMULTIPLANEOVERLAYSUPPORT v20; // [rsp+20h] [rbp-E0h] BYREF
+  _BYTE *PoolWithTag; // r9
+  DXGK_CHECK_MULTIPLANE_OVERLAY_SUPPORT_PLANE *v12; // r9
+  _QWORD *v13; // rbx
+  unsigned int v14; // edi
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  signed __int64 v19; // r15
+  __int64 v20; // r10
+  _DWORD *v21; // rcx
+  int v22; // eax
+  int v23; // eax
+  int v24; // eax
+  _DXGKARG_CHECKMULTIPLANEOVERLAYSUPPORT v26; // [rsp+20h] [rbp-E0h] BYREF
   PVOID P; // [rsp+40h] [rbp-C0h]
-  _BYTE v22[312]; // [rsp+48h] [rbp-B8h] BYREF
-  int v23; // [rsp+180h] [rbp+80h]
+  _BYTE v28[312]; // [rsp+48h] [rbp-B8h] BYREF
+  UINT v29; // [rsp+180h] [rbp+80h]
 
   v7 = a3;
   P = 0LL;
-  v23 = 0;
+  v8 = (struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **)a2;
+  v29 = 0;
   *a5 = 0;
   a6->Value = 0;
-  v9 = (unsigned int)a1;
+  v9 = a1;
+  v10 = (unsigned int)a1;
   if ( (unsigned int)a1 <= 3 )
   {
-    Pool2 = v22;
-    P = v22;
-    if ( (_DWORD)a1 )
-    {
-      memset(v22, 0, 104LL * (unsigned int)a1);
-      Pool2 = P;
-    }
+    PoolWithTag = v28;
+    P = v28;
   }
   else
   {
-    v10 = (unsigned int)a1;
+    a2 = 0xFFFFFFFFFFFFFFFFuLL % (unsigned int)a1;
     if ( 0xFFFFFFFFFFFFFFFFuLL / (unsigned int)a1 < 0x68 )
     {
 LABEL_7:
-      CurrentProcess = PsGetCurrentProcess(a1);
-      v13 = -1073741801;
-      WdLogSingleEntry3(3LL, v10, -1073741801LL, CurrentProcess);
+      v13 = (_QWORD *)WdLogNewEntry5_WdWarning(a1, a2, a3);
+      v13[3] = v10;
+      v14 = -1073741801;
+      v13[4] = -1073741801LL;
+      v13[5] = PsGetCurrentProcess(v16, v15, v17, v18);
+      WdLogEvent5_WdWarning(v13);
       goto LABEL_24;
     }
-    Pool2 = (_BYTE *)ExAllocatePool2(256LL, 104LL * (unsigned int)a1, 1265072196LL);
-    P = Pool2;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 104LL * (unsigned int)a1, 0x4B677844u);
+    P = PoolWithTag;
   }
-  v23 = v9;
-  v10 = v9;
-  if ( !Pool2 )
+  v29 = v9;
+  if ( !PoolWithTag )
     goto LABEL_7;
-  if ( (_DWORD)v9 )
+  memset(PoolWithTag, 0, 104 * v10);
+  v12 = (DXGK_CHECK_MULTIPLANE_OVERLAY_SUPPORT_PLANE *)P;
+  if ( !P )
+    goto LABEL_7;
+  if ( v9 )
   {
-    a3 = (void **)(Pool2 + 16);
-    v14 = (char *)((char *)a2 - (char *)v7);
+    a3 = (void **)((char *)P + 16);
+    v19 = (char *)v8 - (char *)v7;
     do
     {
-      v15 = *(__int64 *)((char *)v7 + (_QWORD)v14);
+      v20 = *(__int64 *)((char *)v7 + v19);
       *(a3 - 2) = *v7;
-      *((_DWORD *)a3 - 2) = *(_DWORD *)(v15 + 16);
-      *(_OWORD *)a3 = *(_OWORD *)(*(_QWORD *)(v15 + 24) + 4LL);
-      *((_OWORD *)a3 + 1) = *(_OWORD *)(*(_QWORD *)(v15 + 24) + 20LL);
-      *((_OWORD *)a3 + 2) = *(_OWORD *)(*(_QWORD *)(v15 + 24) + 36LL);
-      *((_DWORD *)a3 + 12) = *(_DWORD *)(*(_QWORD *)(v15 + 24) + 52LL);
-      v16 = *(_DWORD *)(*(_QWORD *)(v15 + 24) + 72LL);
-      if ( v16 == 6 || v16 == 8 )
+      *((_DWORD *)a3 - 2) = *(_DWORD *)(v20 + 16);
+      *(_OWORD *)a3 = *(_OWORD *)(*(_QWORD *)(v20 + 24) + 4LL);
+      *((_OWORD *)a3 + 1) = *(_OWORD *)(*(_QWORD *)(v20 + 24) + 20LL);
+      *((_OWORD *)a3 + 2) = *(_OWORD *)(*(_QWORD *)(v20 + 24) + 36LL);
+      *((_DWORD *)a3 + 12) = *(_DWORD *)(*(_QWORD *)(v20 + 24) + 52LL);
+      v21 = *(_DWORD **)(v20 + 24);
+      v22 = v21[18];
+      if ( v22 == 6 || v22 == 8 )
+      {
         *((_DWORD *)a3 + 15) |= 1u;
-      if ( *(_DWORD *)(*(_QWORD *)(v15 + 24) + 72LL) == 8 || *(_DWORD *)(*(_QWORD *)(v15 + 24) + 72LL) == 9 )
+        v21 = *(_DWORD **)(v20 + 24);
+      }
+      v23 = v21[18];
+      if ( v23 >= 8 && v23 <= 9 )
+      {
         *((_DWORD *)a3 + 15) |= 2u;
-      v17 = *((_DWORD *)a3 - 1) ^ ((unsigned __int8)*((_DWORD *)a3 - 1) ^ (unsigned __int8)**(_DWORD **)(v15 + 24)) & 1;
-      *((_DWORD *)a3 - 1) = v17;
-      *((_DWORD *)a3 - 1) = v17 ^ (**(_DWORD **)(v15 + 24) ^ v17) & 2;
-      *((_DWORD *)a3 + 13) ^= (*((_DWORD *)a3 + 13) ^ *(_DWORD *)(*(_QWORD *)(v15 + 24) + 56LL)) & 1;
-      if ( *(_DWORD *)(*(_QWORD *)(v15 + 24) + 76LL) == 1 )
+        v21 = *(_DWORD **)(v20 + 24);
+      }
+      *((_DWORD *)a3 - 1) ^= (*((_DWORD *)a3 - 1) ^ *v21) & 1;
+      *((_DWORD *)a3 - 1) ^= ((unsigned __int8)*((_DWORD *)a3 - 1) ^ (unsigned __int8)**(_DWORD **)(v20 + 24)) & 2;
+      *((_DWORD *)a3 + 13) ^= (*((_DWORD *)a3 + 13) ^ *(_DWORD *)(*(_QWORD *)(v20 + 24) + 56LL)) & 1;
+      if ( *(_DWORD *)(*(_QWORD *)(v20 + 24) + 76LL) == 1 )
       {
         *((_DWORD *)a3 + 20) = 1;
       }
-      else if ( *(_DWORD *)(*(_QWORD *)(v15 + 24) + 76LL) == 2 )
+      else if ( *(_DWORD *)(*(_QWORD *)(v20 + 24) + 76LL) == 2 )
       {
         *((_DWORD *)a3 + 20) = 2;
       }
@@ -102,16 +119,16 @@ LABEL_7:
     }
     while ( v10 );
   }
-  *(&v20.PlaneCount + 1) = 0;
-  *(_QWORD *)&v20.Supported = 0LL;
-  v20.PlaneCount = v9;
-  v20.pPlanes = (DXGK_CHECK_MULTIPLANE_OVERLAY_SUPPORT_PLANE *)Pool2;
-  v18 = ADAPTER_DISPLAY::DdiCheckMultiPlaneOverlaySupport(a4, &v20, (__int64)a3);
-  if ( v18 >= 0 )
-    *a5 = v20.Supported;
-  v13 = v18;
+  *(&v26.PlaneCount + 1) = 0;
+  *(_QWORD *)&v26.Supported = 0LL;
+  v26.PlaneCount = v9;
+  v26.pPlanes = v12;
+  v24 = ADAPTER_DISPLAY::DdiCheckMultiPlaneOverlaySupport(a4, &v26, (__int64)a3);
+  if ( v24 >= 0 )
+    *a5 = v26.Supported;
+  v14 = v24;
 LABEL_24:
-  if ( P != v22 && P )
+  if ( P != v28 && P )
     ExFreePoolWithTag(P, 0);
-  return v13;
+  return v14;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhPortDisconnect @ 0x1C004CDA0
+ * XREFs of UsbhPortDisconnect @ 0x1C004E1B0
  * Callers:
- *     UsbhHandleSuspend @ 0x1C001B878 (UsbhHandleSuspend.c)
- *     UsbhPortCycle @ 0x1C004CBE0 (UsbhPortCycle.c)
- *     UsbhReset1Debounce @ 0x1C004D320 (UsbhReset1Debounce.c)
+ *     UsbhHandleSuspend @ 0x1C001BDDC (UsbhHandleSuspend.c)
+ *     UsbhPortCycle @ 0x1C004DFF0 (UsbhPortCycle.c)
+ *     UsbhReset1Debounce @ 0x1C004E730 (UsbhReset1Debounce.c)
  * Callees:
- *     UsbhUnlinkPdoDeviceHandle @ 0x1C00015D0 (UsbhUnlinkPdoDeviceHandle.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhSignalResumeEvent @ 0x1C001B0E8 (UsbhSignalResumeEvent.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhSignalSuspendEvent @ 0x1C00349E0 (UsbhSignalSuspendEvent.c)
- *     Usbh_Disconnect_PdoEvent @ 0x1C003A55C (Usbh_Disconnect_PdoEvent.c)
- *     UsbhBusUnlatchPdo @ 0x1C004C104 (UsbhBusUnlatchPdo.c)
- *     UsbhDeleteUxdSettings @ 0x1C005932C (UsbhDeleteUxdSettings.c)
+ *     UsbhSignalResumeEvent @ 0x1C00015A0 (UsbhSignalResumeEvent.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C0018990 (UsbhUnlinkPdoDeviceHandle.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhSignalSuspendEvent @ 0x1C0035C9C (UsbhSignalSuspendEvent.c)
+ *     Usbh_Disconnect_PdoEvent @ 0x1C003B86C (Usbh_Disconnect_PdoEvent.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004D510 (UsbhBusUnlatchPdo.c)
+ *     UsbhDeleteUxdSettings @ 0x1C005AA30 (UsbhDeleteUxdSettings.c)
  */
 
 __int64 __fastcall UsbhPortDisconnect(__int64 a1, __int64 a2, __int64 a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?InitializeForFormatConversion@CScanPipeline@@QEAAJAEBUPixelFormatInfo@@0IE@Z @ 0x1802BC710
+ * XREFs of ?InitializeForFormatConversion@CScanPipeline@@QEAAJAEBUPixelFormatInfo@@0IE@Z @ 0x1802198E0
  * Callers:
- *     ?Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z @ 0x1802BC478 (-Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z.c)
+ *     ?Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z @ 0x180219698 (-Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z.c)
  * Callees:
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180048AEC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?ResetPipeline@CScanPipeline@@MEAAXXZ @ 0x1802BC6C0 (-ResetPipeline@CScanPipeline@@MEAAXXZ.c)
- *     ?AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecificData@@W4Subpipe@1@@Z @ 0x1802BCB10 (-AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecif.c)
- *     ?Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z @ 0x1802BCC50 (-Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z.c)
- *     ?ConvertDestBufferReferences@ScanPipelineBuilder@@IEAAJXZ @ 0x1802BD0B4 (-ConvertDestBufferReferences@ScanPipelineBuilder@@IEAAJXZ.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800421E0 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?ResetPipeline@CScanPipeline@@MEAAXXZ @ 0x180219890 (-ResetPipeline@CScanPipeline@@MEAAXXZ.c)
+ *     ?AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecificData@@W4Subpipe@1@@Z @ 0x180219CE0 (-AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecif.c)
+ *     ?Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z @ 0x180219E24 (-Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z.c)
+ *     ?ConvertDestBufferReferences@ScanPipelineBuilder@@IEAAJXZ @ 0x18021A284 (-ConvertDestBufferReferences@ScanPipelineBuilder@@IEAAJXZ.c)
  */
 
 __int64 __fastcall CScanPipeline::InitializeForFormatConversion(
@@ -19,21 +19,21 @@ __int64 __fastcall CScanPipeline::InitializeForFormatConversion(
         const struct PixelFormatInfo *a3,
         unsigned int a4)
 {
-  __int64 v8; // r14
+  __int64 v8; // rsi
   int v9; // eax
   __int64 v10; // rcx
-  unsigned int v11; // ebx
-  __int64 v12; // r14
-  _QWORD *v13; // rdx
-  __int64 *v14; // r9
-  __int64 v15; // r10
+  int v11; // ebx
+  __int64 v12; // rsi
+  __int64 *v13; // rdx
+  __int64 *v14; // r8
+  __int64 v15; // r9
   __int64 v16; // rcx
+  __int64 v17; // rcx
   int appended; // eax
-  __int64 v18; // rcx
-  void (__fastcall *v19)(const struct PipelineParams *, const struct ScanOpParams *); // rdx
-  int v20; // r9d
-  int v21; // eax
-  __int64 v22; // rcx
+  int v19; // eax
+  void (__fastcall *v20)(const struct PipelineParams *, const struct ScanOpParams *); // rdx
+  int v21; // r9d
+  int v22; // eax
   unsigned int v24; // [rsp+20h] [rbp-78h]
   _QWORD v25[2]; // [rsp+30h] [rbp-68h] BYREF
   __int16 v26; // [rsp+40h] [rbp-58h]
@@ -50,68 +50,87 @@ __int64 __fastcall CScanPipeline::InitializeForFormatConversion(
   if ( v9 < 0 )
   {
     MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x33u, 0LL);
-    v24 = 66;
-    goto LABEL_23;
   }
-  v12 = 16 * v8;
-  v13 = this + 81;
-  v14 = (__int64 *)(this + 80);
-  v15 = 2LL;
-  do
+  else
   {
-    v16 = *v14++;
-    *v13++ = v12 + v16;
-    --v15;
+    v12 = 16 * v8;
+    v13 = (__int64 *)(this + 81);
+    v14 = (__int64 *)(this + 80);
+    v15 = 2LL;
+    do
+    {
+      v16 = *v14++;
+      v17 = v12 + v16;
+      *v13++ = v17;
+      --v15;
+    }
+    while ( v15 );
   }
-  while ( v15 );
+  if ( v11 < 0 )
+  {
+    v24 = 66;
+    goto LABEL_28;
+  }
   v28 = 0;
   v26 = 257;
   v27 = 1;
   si128 = _mm_load_si128((const __m128i *)&_xmm);
   v25[0] = this;
   v25[1] = this + 80;
-  appended = ScanPipelineBuilder::Append_Convert(v25, a2, a3, v14);
+  appended = ScanPipelineBuilder::Append_Convert(v25, a2, a3);
   v11 = appended;
   if ( appended < 0 )
   {
     v24 = 81;
-    goto LABEL_18;
+    goto LABEL_21;
   }
   if ( !*(_DWORD *)(v25[0] + 32LL) )
   {
+    v19 = *(_DWORD *)a2;
     if ( *(_DWORD *)a2 == 2 )
     {
-      v19 = Copy_128;
-    }
-    else if ( *(_DWORD *)a2 == 10 || *(_DWORD *)a2 == 11 )
-    {
-      v19 = Copy_64;
+      v20 = Copy_128;
     }
     else
     {
-      v19 = *(_DWORD *)a2 == 24 || *(_DWORD *)a2 == 28 || (unsigned int)(*(_DWORD *)a2 - 87) < 2 ? Copy_32 : 0LL;
+      if ( v19 > 9 )
+      {
+        if ( v19 <= 11 )
+        {
+          v20 = Copy_64;
+          goto LABEL_19;
+        }
+        if ( v19 == 24 || v19 == 28 || (unsigned int)(v19 - 87) <= 1 )
+        {
+          v20 = Copy_32;
+          goto LABEL_19;
+        }
+      }
+      v20 = 0LL;
     }
-    appended = ScanPipelineBuilder::AddOp_Binary(v25, v19);
+LABEL_19:
+    appended = ScanPipelineBuilder::AddOp_Binary(v25, v20);
     v11 = appended;
     if ( appended < 0 )
     {
       v24 = 93;
-LABEL_18:
-      v20 = appended;
-LABEL_24:
-      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v20, v24, 0LL);
-      return v11;
+LABEL_21:
+      v21 = appended;
+LABEL_29:
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v21, v24, 0LL);
+      return (unsigned int)v11;
     }
   }
-  v21 = ScanPipelineBuilder::ConvertDestBufferReferences((ScanPipelineBuilder *)v25);
-  v11 = v21;
-  if ( v21 < 0 )
+  v22 = ScanPipelineBuilder::ConvertDestBufferReferences((ScanPipelineBuilder *)v25);
+  v11 = v22;
+  if ( v22 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v22, 0x95u, 0LL);
+  if ( v11 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x95u, 0LL);
     v24 = 96;
-LABEL_23:
-    v20 = v11;
-    goto LABEL_24;
+LABEL_28:
+    v21 = v11;
+    goto LABEL_29;
   }
-  return v11;
+  return (unsigned int)v11;
 }

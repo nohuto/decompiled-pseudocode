@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitUpdateCommands@CVisualReferenceControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00BBB60
+ * XREFs of ?EmitUpdateCommands@CVisualReferenceControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A44F0
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CVisualReferenceControllerMarshaler::EmitUpdateCommands(
@@ -22,14 +22,14 @@ char __fastcall DirectComposition::CVisualReferenceControllerMarshaler::EmitUpda
   *(_DWORD *)v7 = 16;
   *(_QWORD *)(v3 + 4) = 0LL;
   *((_DWORD *)v3 + 3) = 0;
-  *((_DWORD *)v3 + 1) = 507;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-  v4 = *((_QWORD *)this + 8);
+  *((_DWORD *)v3 + 1) = 512;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+  v4 = *((_QWORD *)this + 7);
   if ( v4 )
   {
     v5 = *(_QWORD *)(v4 + 16);
     if ( v5 )
-      *((_DWORD *)v3 + 3) = *(_DWORD *)(v5 + 32);
+      *((_DWORD *)v3 + 3) = *(_DWORD *)(v5 + 24);
   }
   return 1;
 }

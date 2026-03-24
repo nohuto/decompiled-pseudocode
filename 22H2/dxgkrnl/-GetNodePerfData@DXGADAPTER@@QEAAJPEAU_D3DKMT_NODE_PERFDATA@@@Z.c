@@ -1,104 +1,101 @@
 /*
- * XREFs of ?GetNodePerfData@DXGADAPTER@@QEAAJPEAU_D3DKMT_NODE_PERFDATA@@@Z @ 0x1C022E5EA
+ * XREFs of ?GetNodePerfData@DXGADAPTER@@QEAAJPEAU_D3DKMT_NODE_PERFDATA@@@Z @ 0x1C020DCC4
  * Callers:
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018FB80 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
- *     DxgkQueryStatisticsInternal @ 0x1C02D4710 (DxgkQueryStatisticsInternal.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C01309C0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     DxgkQueryStatisticsInternal @ 0x1C0226088 (DxgkQueryStatisticsInternal.c)
  * Callees:
- *     McTemplateK0pqqxxxqqqx_EtwWriteTransfer @ 0x1C0041450 (McTemplateK0pqqxxxqqqx_EtwWriteTransfer.c)
- *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C019F070 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
+ *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C0133E18 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
  */
 
-__int64 __fastcall DXGADAPTER::GetNodePerfData(DXGADAPTER *this, struct _D3DKMT_NODE_PERFDATA *a2)
+__int64 __fastcall DXGADAPTER::GetNodePerfData(DXGADAPTER *this, struct _D3DKMT_NODE_PERFDATA *a2, __int64 a3)
 {
-  __int64 PhysicalAdapterIndex; // r13
-  __int64 NodeOrdinal; // r12
-  unsigned __int16 *v6; // r15
-  __int64 v7; // rax
-  _QWORD *v8; // rdi
-  LARGE_INTEGER v9; // rax
-  LARGE_INTEGER v10; // rbx
-  unsigned int v11; // r12d
-  int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  bool v15; // zf
-  __int64 v17; // [rsp+70h] [rbp-19h]
-  struct _DXGKARG_QUERYADAPTERINFO v18; // [rsp+78h] [rbp-11h] BYREF
-  int v19; // [rsp+F8h] [rbp+6Fh] BYREF
-  int v20; // [rsp+100h] [rbp+77h]
-  union _LARGE_INTEGER PerformanceFrequency; // [rsp+108h] [rbp+7Fh] BYREF
+  __int64 PhysicalAdapterIndex; // r12
+  __int64 NodeOrdinal; // r13
+  unsigned __int16 *v7; // r15
+  __int64 v8; // rax
+  _QWORD *v9; // r14
+  LARGE_INTEGER v10; // rax
+  LARGE_INTEGER v11; // r8
+  LARGE_INTEGER v12; // rbx
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r12
+  __int64 v18; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  struct _DXGKARG_QUERYADAPTERINFO v22; // [rsp+20h] [rbp-30h] BYREF
+  int v23; // [rsp+98h] [rbp+48h] BYREF
+  union _LARGE_INTEGER PerformanceFrequency; // [rsp+A0h] [rbp+50h] BYREF
 
   if ( a2
-    && (PhysicalAdapterIndex = a2->PhysicalAdapterIndex, (unsigned int)PhysicalAdapterIndex < *((_DWORD *)this + 72))
+    && (PhysicalAdapterIndex = a2->PhysicalAdapterIndex, (unsigned int)PhysicalAdapterIndex < *((_DWORD *)this + 70))
     && (NodeOrdinal = a2->NodeOrdinal,
-        v20 = NodeOrdinal,
-        v6 = (unsigned __int16 *)(*((_QWORD *)this + 351) + 344 * PhysicalAdapterIndex),
-        (unsigned int)NodeOrdinal < *v6) )
+        v7 = (unsigned __int16 *)(*((_QWORD *)this + 323) + 360 * PhysicalAdapterIndex),
+        (unsigned int)NodeOrdinal < *v7) )
   {
-    v7 = *((_QWORD *)v6 + 13);
-    if ( v7 && *((_QWORD *)v6 + 14) )
+    v8 = *((_QWORD *)v7 + 15);
+    if ( v8 && *((_QWORD *)v7 + 16) )
     {
       PerformanceFrequency.QuadPart = 0LL;
-      v17 = NodeOrdinal;
-      v8 = (_QWORD *)(v7 + 44 * NodeOrdinal);
-      v9 = KeQueryPerformanceCounter(&PerformanceFrequency);
-      v10 = v9;
-      if ( bTracingEnabled
-        || *((_DWORD *)this + 40) != 1
-        && 1000 * (v9.QuadPart - *(_QWORD *)(*((_QWORD *)v6 + 14) + 8 * NodeOrdinal)) / PerformanceFrequency.QuadPart >= 450 )
+      v9 = (_QWORD *)(v8 + 44 * NodeOrdinal);
+      v10 = KeQueryPerformanceCounter(&PerformanceFrequency);
+      v12 = v10;
+      if ( *((_DWORD *)this + 40) == 1
+        || 1000 * (v10.QuadPart - *(_QWORD *)(*((_QWORD *)v7 + 16) + 8 * NodeOrdinal)) / PerformanceFrequency.QuadPart < 450 )
       {
-        *(_QWORD *)&v18.Type = 24LL;
-        *(_QWORD *)&v18.InputDataSize = 4LL;
-        v19 = NodeOrdinal | ((_DWORD)PhysicalAdapterIndex << 16);
-        *(_QWORD *)&v18.Flags.0 = 0LL;
-        v18.pInputData = &v19;
-        HIDWORD(v18.hKmdProcessHandle) = 0;
-        v18.pOutputData = v8;
-        v18.OutputDataSize = 44;
-        v12 = DXGADAPTER::DdiQueryAdapterInfo(this, &v18, 0LL);
-        v11 = v12;
-        if ( v12 < 0 )
-        {
-          WdLogSingleEntry2(3LL, this, v12);
-          return v11;
-        }
-        v15 = bTracingEnabled == 0;
-        *(LARGE_INTEGER *)(*((_QWORD *)v6 + 14) + 8 * v17) = v10;
-        if ( !v15 && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
-          McTemplateK0pqqxxxqqqx_EtwWriteTransfer(
-            *(_QWORD *)((char *)v8 + 36),
-            v13,
-            v14,
-            this,
-            v20,
-            PhysicalAdapterIndex,
-            *v8,
-            v8[1],
-            v8[2],
-            *((_DWORD *)v8 + 6),
-            *((_DWORD *)v8 + 7),
-            *((_DWORD *)v8 + 8),
-            *(_QWORD *)((char *)v8 + 36));
+        LODWORD(v17) = 0;
       }
       else
       {
-        v11 = 0;
+        *(_QWORD *)&v22.Flags.0 = 0LL;
+        HIDWORD(v22.hKmdProcessHandle) = 0;
+        v23 = NodeOrdinal | ((_DWORD)PhysicalAdapterIndex << 16);
+        v22.pInputData = &v23;
+        *(_QWORD *)&v22.Type = 24LL;
+        *(_QWORD *)&v22.InputDataSize = 4LL;
+        v22.pOutputData = v9;
+        v22.OutputDataSize = 44;
+        v13 = DXGADAPTER::DdiQueryAdapterInfo(this, &v22, v11.QuadPart);
+        v17 = v13;
+        if ( v13 < 0 )
+        {
+          v18 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+          *(_QWORD *)(v18 + 24) = this;
+          *(_QWORD *)(v18 + 32) = v17;
+          WdLogEvent5_WdWarning(v18);
+        }
+        else
+        {
+          *(LARGE_INTEGER *)(*((_QWORD *)v7 + 16) + 8 * NodeOrdinal) = v12;
+        }
       }
-      a2->Frequency = *v8;
-      a2->MaxFrequency = v8[1];
-      a2->MaxFrequencyOC = v8[2];
-      a2->Voltage = *((_DWORD *)v8 + 6);
-      a2->VoltageMax = *((_DWORD *)v8 + 7);
-      a2->VoltageMaxOC = *((_DWORD *)v8 + 8);
-      a2->MaxTransitionLatency = *(_QWORD *)((char *)v8 + 36);
-      return v11;
+      if ( (int)v17 >= 0 )
+      {
+        a2->Frequency = *v9;
+        a2->MaxFrequency = v9[1];
+        a2->MaxFrequencyOC = v9[2];
+        a2->Voltage = *((_DWORD *)v9 + 6);
+        a2->VoltageMax = *((_DWORD *)v9 + 7);
+        a2->VoltageMaxOC = *((_DWORD *)v9 + 8);
+        a2->MaxTransitionLatency = *(_QWORD *)((char *)v9 + 36);
+      }
+      return (unsigned int)v17;
     }
-    WdLogSingleEntry1(3LL, this);
-    return 3221225659LL;
+    else
+    {
+      v20 = WdLogNewEntry5_WdWarning(this, a2, a3);
+      *(_QWORD *)(v20 + 24) = this;
+      WdLogEvent5_WdWarning(v20);
+      return 3221225659LL;
+    }
   }
   else
   {
-    WdLogSingleEntry1(3LL, this);
+    v21 = WdLogNewEntry5_WdWarning(this, a2, a3);
+    *(_QWORD *)(v21 + 24) = this;
+    WdLogEvent5_WdWarning(v21);
     return 3221225485LL;
   }
 }

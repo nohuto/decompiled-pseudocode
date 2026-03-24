@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfCommitPerformance @ 0x14023A080
+ * XREFs of PpmPerfCommitPerformance @ 0x14039AE90
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfControlExecuteAction @ 0x14023A0BC (PpmPerfControlExecuteAction.c)
+ *     PpmPerfControlExecuteAction @ 0x1402AF68C (PpmPerfControlExecuteAction.c)
  */
 
-__int64 PpmPerfCommitPerformance()
+bool PpmPerfCommitPerformance()
 {
-  return PpmPerfControlExecuteAction(PpmPerfControlCommitPerformance);
+  return PpmPerfControlExecuteAction((void (__fastcall *)(__int64 (__fastcall *)()))PpmPerfControlCommitPerformance);
 }

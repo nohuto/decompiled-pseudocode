@@ -1,66 +1,76 @@
 /*
- * XREFs of ?_DispatchIoctrls@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C0198818
+ * XREFs of ?_DispatchIoctrls@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C015EFF0
  * Callers:
- *     DpiPdoDispatchIoctl @ 0x1C01982A0 (DpiPdoDispatchIoctl.c)
+ *     DpiPdoDispatchIoctl @ 0x1C015EE80 (DpiPdoDispatchIoctl.c)
  * Callees:
- *     ?_QueryColorSpaceTransformCaps@MonitorGammaState@DxgMonitor@@AEAAJKPEAXPEA_K@Z @ 0x1C0197FC0 (-_QueryColorSpaceTransformCaps@MonitorGammaState@DxgMonitor@@AEAAJKPEAXPEA_K@Z.c)
- *     ?_SetColorSpaceTransform@MonitorGammaState@DxgMonitor@@AEAAJKPEAX@Z @ 0x1C0198C2C (-_SetColorSpaceTransform@MonitorGammaState@DxgMonitor@@AEAAJKPEAX@Z.c)
- *     ?OnIoctl@MonitorMipiDsiState@DxgMonitor@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C03CF544 (-OnIoctl@MonitorMipiDsiState@DxgMonitor@@QEAAJKKPEAXK0PEA_K@Z.c)
+ *     ?_SetColorSpaceTransform@DXGMONITOR@@AEAAJKPEAX@Z @ 0x1C015F084 (-_SetColorSpaceTransform@DXGMONITOR@@AEAAJKPEAX@Z.c)
+ *     ?_QueryColorSpaceTransformCaps@DXGMONITOR@@AEAAJKPEAXPEA_K@Z @ 0x1C015F524 (-_QueryColorSpaceTransformCaps@DXGMONITOR@@AEAAJKPEAXPEA_K@Z.c)
+ *     ?_DsiReset@DXGMONITOR@@AEAAJKPEAXK0PEA_K@Z @ 0x1C02FBD78 (-_DsiReset@DXGMONITOR@@AEAAJKPEAXK0PEA_K@Z.c)
+ *     ?_DsiTransmission@DXGMONITOR@@AEAAJKPEAXK0PEA_K@Z @ 0x1C02FBFF4 (-_DsiTransmission@DXGMONITOR@@AEAAJKPEAXK0PEA_K@Z.c)
+ *     ?_QueryMipiDsiCaps@DXGMONITOR@@AEAAJKPEAXPEA_K@Z @ 0x1C02FC404 (-_QueryMipiDsiCaps@DXGMONITOR@@AEAAJKPEAXPEA_K@Z.c)
+ *     ?_SetActiveColorProfileName@DXGMONITOR@@AEAAJKPEAX@Z @ 0x1C02FC4F4 (-_SetActiveColorProfileName@DXGMONITOR@@AEAAJKPEAX@Z.c)
  */
 
 __int64 __fastcall DXGMONITOR::_DispatchIoctrls(
-        DxgMonitor::MonitorGammaState **this,
+        DXGMONITOR *this,
         __int64 a2,
-        __int64 a3,
+        unsigned int a3,
         void *a4,
         unsigned int a5,
-        _OWORD *a6,
+        void *a6,
         unsigned __int64 *a7)
 {
   __int64 v8; // rbx
-  unsigned int v9; // r14d
-  unsigned int v11; // edi
-  __int64 v12; // rax
-  DxgMonitor::MonitorGammaState *v13; // rcx
+  __int64 v11; // rax
+  unsigned int v12; // edx
+  void *v13; // r8
   int v14; // ebx
   int v15; // ebx
-  DxgMonitor::MonitorMipiDsiState *v18; // rcx
+  unsigned int active; // eax
+  unsigned int v17; // ecx
+  int v20; // ebx
+  int v21; // ebx
+  int v22; // ebx
 
   v8 = (unsigned int)a2;
-  v9 = a3;
-  v11 = -1073741637;
-  v12 = WdLogNewEntry5_WdTrace(this, a2, a3, a4);
-  *(_QWORD *)(v12 + 24) = v8;
-  *(_QWORD *)(v12 + 32) = this;
-  if ( (_DWORD)v8 == 2297856 || (_DWORD)v8 == 2297860 || (_DWORD)v8 == 2297864 )
+  v11 = WdLogNewEntry5_WdTrace(this, a2);
+  *(_QWORD *)(v11 + 24) = v8;
+  *(_QWORD *)(v11 + 32) = this;
+  v14 = v8 - 2297856;
+  if ( !v14 )
+    return (unsigned int)DXGMONITOR::_QueryColorSpaceTransformCaps(this, a5, a6, a7);
+  v15 = v14 - 4;
+  if ( v15 )
   {
-    v13 = this[31];
-    v14 = v8 - 2297856;
-    if ( v14 )
+    v20 = v15 - 4;
+    if ( !v20 )
     {
-      v15 = v14 - 4;
-      if ( v15 )
+      active = DXGMONITOR::_SetActiveColorProfileName(this, v12, v13);
+      goto LABEL_4;
+    }
+    v21 = v20 - 1016;
+    if ( v21 )
+    {
+      v22 = v21 - 4;
+      if ( v22 )
       {
-        if ( v15 == 4 )
-        {
-          *a7 = 0LL;
-          return 0;
-        }
-        return v11;
+        if ( v22 != 4 )
+          return (unsigned int)-1073741637;
+        return (unsigned int)DXGMONITOR::_DsiReset(this, a3, a4, a5, a6, a7);
       }
-      *a7 = 0LL;
-      return (unsigned int)DxgMonitor::MonitorGammaState::_SetColorSpaceTransform(v13, v9, a4);
+      else
+      {
+        return (unsigned int)DXGMONITOR::_DsiTransmission(this, a3, a4, a5, a6, a7);
+      }
     }
     else
     {
-      return (unsigned int)DxgMonitor::MonitorGammaState::_QueryColorSpaceTransformCaps(v13, a5, a6, a7);
+      return (unsigned int)DXGMONITOR::_QueryMipiDsiCaps(this, a5, a6, a7);
     }
   }
-  if ( (_DWORD)v8 == 2298880 || (_DWORD)v8 == 2298884 || (_DWORD)v8 == 2298888 )
-  {
-    v18 = this[32];
-    if ( v18 )
-      return (unsigned int)DxgMonitor::MonitorMipiDsiState::OnIoctl(v18, v8, v9, a4, a5, a6, a7);
-  }
-  return v11;
+  active = DXGMONITOR::_SetColorSpaceTransform(this, a3, a4);
+LABEL_4:
+  v17 = active;
+  *a7 = 0LL;
+  return v17;
 }

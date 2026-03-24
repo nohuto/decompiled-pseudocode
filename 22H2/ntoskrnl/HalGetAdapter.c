@@ -1,9 +1,9 @@
 /*
- * XREFs of HalGetAdapter @ 0x140933270
+ * XREFs of HalGetAdapter @ 0x1408642B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpGetAdapter @ 0x140829354 (HalpGetAdapter.c)
+ *     HalpGetAdapter @ 0x140763D6C (HalpGetAdapter.c)
  */
 
 PADAPTER_OBJECT __stdcall HalGetAdapter(PDEVICE_DESCRIPTION DeviceDescription, PULONG NumberOfMapRegisters)

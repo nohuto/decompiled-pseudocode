@@ -1,41 +1,44 @@
 /*
- * XREFs of KiProcessProfileList @ 0x140571980
+ * XREFs of KiProcessProfileList @ 0x14051BFC0
  * Callers:
- *     KeProfileInterruptWithSource @ 0x140571540 (KeProfileInterruptWithSource.c)
+ *     KeProfileInterruptWithSource @ 0x14051BB80 (KeProfileInterruptWithSource.c)
  * Callees:
- *     KeCheckProcessorAffinityEx @ 0x140345D30 (KeCheckProcessorAffinityEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-unsigned __int64 __fastcall KiProcessProfileList(__int64 a1, int a2, unsigned __int16 *a3)
+unsigned __int64 __fastcall KiProcessProfileList(__int64 a1, int a2, __int64 **a3)
 {
   unsigned __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r14
-  unsigned __int16 *i; // rbx
-  unsigned __int64 v9; // rcx
+  __int64 *i; // rbx
+  unsigned __int64 v9; // rax
+  char v10; // cl
+  unsigned __int64 v11; // rcx
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = (unsigned __int64)&retaddr;
   CurrentPrcb = KeGetCurrentPrcb();
-  for ( i = *(unsigned __int16 **)a3; i != a3; i = *(unsigned __int16 **)i )
+  for ( i = *a3; i != (__int64 *)a3; i = (__int64 *)*i )
   {
-    result = (unsigned int)(__int16)i[168];
+    result = (unsigned int)*((__int16 *)i + 116);
     if ( (_DWORD)result == a2 )
     {
-      if ( *(i - 4) == 17 )
+      if ( *((_WORD *)i - 4) == 17 )
       {
-        result = (*((__int64 (__fastcall **)(__int64, _QWORD))i + 3))(a1, *((_QWORD *)i + 4));
+        result = ((__int64 (__fastcall *)(__int64, __int64))i[3])(a1, i[4]);
       }
       else
       {
-        result = KeCheckProcessorAffinityEx(i + 32, CurrentPrcb->Number);
-        if ( (_DWORD)result )
+        v9 = (unsigned int)KiProcessorIndexToNumberMappingTable[CurrentPrcb->Number];
+        v10 = v9 & 0x3F;
+        result = v9 >> 6;
+        if ( (((unsigned __int64)i[result + 9] >> v10) & 1) != 0 )
         {
           result = *(_QWORD *)(a1 + 360);
-          v9 = *((_QWORD *)i + 3);
-          if ( result >= v9 && result < *((_QWORD *)i + 4) )
+          v11 = i[3];
+          if ( result >= v11 && result < i[4] )
           {
-            result = *((_QWORD *)i + 6) + (((result - v9) >> *((_DWORD *)i + 10)) & 0xFFFFFFFC);
+            result = i[6] + (((result - v11) >> *((_DWORD *)i + 10)) & 0xFFFFFFFC);
             _InterlockedIncrement((volatile signed __int32 *)result);
           }
         }

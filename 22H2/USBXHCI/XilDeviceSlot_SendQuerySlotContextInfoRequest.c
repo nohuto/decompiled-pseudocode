@@ -1,14 +1,14 @@
 /*
- * XREFs of XilDeviceSlot_SendQuerySlotContextInfoRequest @ 0x1C0038734
+ * XREFs of XilDeviceSlot_SendQuerySlotContextInfoRequest @ 0x1C0036C74
  * Callers:
- *     UsbDevice_EndpointsConfigureCompletion @ 0x1C000D0A0 (UsbDevice_EndpointsConfigureCompletion.c)
- *     UsbDevice_UcxEvtReset @ 0x1C0018D80 (UsbDevice_UcxEvtReset.c)
- *     UsbDevice_SetAddressCompletion @ 0x1C0019A50 (UsbDevice_SetAddressCompletion.c)
+ *     UsbDevice_EndpointsConfigureCompletion @ 0x1C00074B0 (UsbDevice_EndpointsConfigureCompletion.c)
+ *     UsbDevice_SetAddressCompletion @ 0x1C000F9A0 (UsbDevice_SetAddressCompletion.c)
+ *     UsbDevice_UcxEvtReset @ 0x1C0010610 (UsbDevice_UcxEvtReset.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 char __fastcall XilDeviceSlot_SendQuerySlotContextInfoRequest(__int64 *a1, __int64 a2, _DWORD *a3, _DWORD *a4)
@@ -66,7 +66,7 @@ char __fastcall XilDeviceSlot_SendQuerySlotContextInfoRequest(__int64 *a1, __int
           v9,
           10,
           29,
-          (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+          (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
           v20);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v10, v11, v12);
@@ -84,7 +84,7 @@ char __fastcall XilDeviceSlot_SendQuerySlotContextInfoRequest(__int64 *a1, __int
                    v9,
                    10,
                    28,
-                   (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+                   (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
                    v8);
   }
   return v8;

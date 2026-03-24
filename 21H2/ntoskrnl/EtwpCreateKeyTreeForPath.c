@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCreateKeyTreeForPath @ 0x1406332E0
+ * XREFs of EtwpCreateKeyTreeForPath @ 0x1405ABA6C
  * Callers:
- *     EtwStartAutoLogger @ 0x140817CD8 (EtwStartAutoLogger.c)
+ *     EtwStartAutoLogger @ 0x14079B594 (EtwStartAutoLogger.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpCreateKey @ 0x14063323C (EtwpCreateKey.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpCreateKey @ 0x1405AB9C8 (EtwpCreateKey.c)
  */
 
 __int64 __fastcall EtwpCreateKeyTreeForPath(_WORD *a1)

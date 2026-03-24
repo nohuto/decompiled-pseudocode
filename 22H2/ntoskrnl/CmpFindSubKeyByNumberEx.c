@@ -1,27 +1,24 @@
 /*
- * XREFs of CmpFindSubKeyByNumberEx @ 0x1406DB080
+ * XREFs of CmpFindSubKeyByNumberEx @ 0x1405F35A0
  * Callers:
- *     CmEnumerateKey @ 0x1406DC4F0 (CmEnumerateKey.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x140A196B8 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmEnumerateKey @ 0x1405F4350 (CmEnumerateKey.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x140870498 (CmpFindSubKeyByNumberFromMergedView.c)
  * Callees:
- *     CmpDelayDerefKeyControlBlock @ 0x1406D8750 (CmpDelayDerefKeyControlBlock.c)
- *     CmpDoFindSubKeyByNumber @ 0x1406DAE8C (CmpDoFindSubKeyByNumber.c)
- *     CmpFindSubKeyByNumber @ 0x1406DAFB0 (CmpFindSubKeyByNumber.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     CmEqualTrans @ 0x1407696D0 (CmEqualTrans.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1407697F0 (CmpFindSubkeyInHashByChildCell.c)
- *     CmpReferenceKeyControlBlock @ 0x14076AC00 (CmpReferenceKeyControlBlock.c)
- *     CmRmIsKCBVisible @ 0x1407B3F90 (CmRmIsKCBVisible.c)
- *     CmpIsKeyDeleted @ 0x1407CB78C (CmpIsKeyDeleted.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmListGetNextElement @ 0x140AF66A8 (CmListGetNextElement.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1405EE99C (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1405F2D00 (CmpDoFindSubKeyByNumber.c)
+ *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
+ *     CmRmIsKCBVisible @ 0x140649CF0 (CmRmIsKCBVisible.c)
+ *     CmpReferenceKeyControlBlock @ 0x14066D0B0 (CmpReferenceKeyControlBlock.c)
+ *     CmListGetNextElement @ 0x14066EA14 (CmListGetNextElement.c)
+ *     CmpIsKeyDeleted @ 0x1406E9D20 (CmpIsKeyDeleted.c)
+ *     CmEqualTrans @ 0x14071CD40 (CmEqualTrans.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x140765B90 (CmpFindSubkeyInHashByChildCell.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNumberEx(
-        ULONG_PTR BugCheckParameter3,
-        ULONG_PTR a2,
+        __int64 a1,
+        __int64 a2,
         unsigned int a3,
         _DWORD *a4,
         __int64 a5,
@@ -30,208 +27,188 @@ __int64 __fastcall CmpFindSubKeyByNumberEx(
         __int64 a8,
         ULONG_PTR *a9)
 {
-  ULONG_PTR v9; // r15
+  __int64 (__fastcall *v9)(__int64, __int64, _DWORD *); // rax
+  ULONG_PTR v10; // r13
   unsigned int SubKeyByNumber; // r14d
-  _DWORD *CellFlat; // rax
   _DWORD *v14; // rdi
   __int64 result; // rax
   int v16; // ecx
   int v17; // eax
-  bool v18; // zf
-  int v19; // eax
-  unsigned int v20; // ecx
-  int v21; // r14d
-  char v22; // al
-  _WORD *v23; // rax
+  unsigned int v18; // ecx
+  unsigned int v19; // eax
+  int v20; // r14d
+  bool v21; // cf
+  __int64 (__fastcall *v22)(__int64, _QWORD, _DWORD *); // rax
+  __int16 *v23; // rax
   int v24; // eax
   _DWORD *v25; // rdx
+  int v26; // r9d
   int SubkeyInHashByChildCell; // eax
   __int64 NextElement; // rax
-  int v28; // eax
-  _WORD *CellPaged; // rax
+  int v29; // eax
+  __int16 *v30; // rax
   unsigned int i; // [rsp+30h] [rbp-48h]
-  _DWORD v31[2]; // [rsp+38h] [rbp-40h] BYREF
-  ULONG_PTR BugCheckParameter2; // [rsp+40h] [rbp-38h]
-  unsigned int BugCheckParameter4; // [rsp+48h] [rbp-30h]
-  unsigned int BugCheckParameter4_4; // [rsp+4Ch] [rbp-2Ch]
-  __int64 j; // [rsp+50h] [rbp-28h]
-  _DWORD v36[2]; // [rsp+58h] [rbp-20h] BYREF
-  _DWORD v37[2]; // [rsp+60h] [rbp-18h] BYREF
-  __int64 v38; // [rsp+68h] [rbp-10h] BYREF
-  int v39; // [rsp+B0h] [rbp+38h]
+  ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-40h] BYREF
+  unsigned int v33; // [rsp+40h] [rbp-38h]
+  unsigned int v34; // [rsp+44h] [rbp-34h]
+  _DWORD v35[2]; // [rsp+48h] [rbp-30h] BYREF
+  __int64 v36; // [rsp+50h] [rbp-28h]
+  __int64 v37; // [rsp+58h] [rbp-20h] BYREF
+  _DWORD v38[2]; // [rsp+60h] [rbp-18h] BYREF
+  _DWORD v39[2]; // [rsp+68h] [rbp-10h] BYREF
+  int v40; // [rsp+B0h] [rbp+38h]
 
-  v31[0] = -1;
-  v9 = 0LL;
-  v31[1] = 0;
-  SubKeyByNumber = 0;
+  v35[0] = -1;
+  v35[1] = 0;
+  v9 = *(__int64 (__fastcall **)(__int64, __int64, _DWORD *))(a1 + 8);
+  v10 = 0LL;
   BugCheckParameter2 = 0LL;
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = (_DWORD *)HvpGetCellFlat(BugCheckParameter3, a2);
-  else
-    CellFlat = (_DWORD *)HvpGetCellPaged(BugCheckParameter3);
-  v14 = CellFlat;
-  if ( !CellFlat )
+  SubKeyByNumber = 0;
+  v14 = (_DWORD *)v9(a1, a2, v35);
+  if ( !v14 )
     return 3221225626LL;
   *a4 = -1;
   if ( a9 )
     *a9 = 0LL;
   if ( !a5 || *(_QWORD *)(a5 + 208) == a5 + 208 )
   {
-    SubKeyByNumber = CmpFindSubKeyByNumber(BugCheckParameter3, CellFlat, a3, a4);
+    SubKeyByNumber = CmpFindSubKeyByNumber(a1, v14, a3, a4);
   }
   else
   {
-    v16 = CellFlat[5];
-    v39 = 0;
-    v36[0] = -1;
-    v36[1] = 0;
-    v37[0] = -1;
-    v37[1] = 0;
-    LODWORD(v38) = v16;
+    v16 = v14[5];
+    v40 = 0;
+    v38[0] = -1;
+    v38[1] = 0;
+    v39[0] = -1;
+    v39[1] = 0;
+    LODWORD(v37) = v16;
     if ( v16 )
-      BugCheckParameter4 = CellFlat[7];
+      v34 = v14[7];
     else
-      BugCheckParameter4 = -1;
-    v17 = CellFlat[6];
+      v34 = -1;
+    v17 = v14[6];
     if ( v17 )
-      BugCheckParameter4_4 = v14[8];
+      LODWORD(v36) = v14[8];
     else
-      BugCheckParameter4_4 = -1;
-    v18 = (*(_BYTE *)(BugCheckParameter3 + 140) & 1) == 0;
-    LODWORD(j) = v16 + v17;
-    if ( v18 )
-      HvpReleaseCellPaged(BugCheckParameter3, v31);
-    else
-      HvpReleaseCellFlat(BugCheckParameter3, v31);
-    v19 = j;
-    v20 = 0;
+      LODWORD(v36) = -1;
+    v33 = v16 + v17;
+    (*(void (__fastcall **)(__int64, _DWORD *))(a1 + 16))(a1, v35);
+    v18 = v33;
+    v19 = 0;
     v14 = 0LL;
-    for ( i = 0; v20 < (unsigned int)j; i = v20 )
+    for ( i = 0; v19 < v33; i = v19 )
     {
-      v21 = v38;
-      v22 = *(_BYTE *)(BugCheckParameter3 + 140) & 1;
+      v20 = v37;
+      v21 = v19 < (unsigned int)v37;
+      v22 = *(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(a1 + 8);
       BugCheckParameter2 = 0LL;
-      if ( v20 >= (unsigned int)v38 )
+      if ( v21 )
       {
-        if ( v22 )
-          CellPaged = (_WORD *)HvpGetCellFlat(BugCheckParameter3, BugCheckParameter4_4);
-        else
-          CellPaged = (_WORD *)HvpGetCellPaged(BugCheckParameter3);
-        if ( !CellPaged )
-          return 3221225626LL;
-        v24 = CmpDoFindSubKeyByNumber(BugCheckParameter3, CellPaged, i - v21);
-        v25 = v37;
-      }
-      else
-      {
-        if ( v22 )
-          v23 = (_WORD *)HvpGetCellFlat(BugCheckParameter3, BugCheckParameter4);
-        else
-          v23 = (_WORD *)HvpGetCellPaged(BugCheckParameter3);
+        v23 = (__int16 *)v22(a1, v34, v38);
         if ( !v23 )
           return 3221225626LL;
-        v24 = CmpDoFindSubKeyByNumber(BugCheckParameter3, v23, i);
-        v25 = v36;
+        v24 = CmpDoFindSubKeyByNumber(a1, v23, i);
+        v25 = v38;
       }
-      v18 = (*(_BYTE *)(BugCheckParameter3 + 140) & 1) == 0;
-      *a4 = v24;
-      if ( v18 )
-        HvpReleaseCellPaged(BugCheckParameter3, v25);
       else
-        HvpReleaseCellFlat(BugCheckParameter3, v25);
+      {
+        v30 = (__int16 *)v22(a1, (unsigned int)v36, v39);
+        if ( !v30 )
+          return 3221225626LL;
+        v24 = CmpDoFindSubKeyByNumber(a1, v30, i - v20);
+        v25 = v39;
+      }
+      *a4 = v24;
+      (*(void (__fastcall **)(__int64, _DWORD *))(a1 + 16))(a1, v25);
       if ( *a4 == -1 )
         return 3221225626LL;
-      result = CmpFindSubkeyInHashByChildCell(a5, a6, BugCheckParameter3);
+      result = CmpFindSubkeyInHashByChildCell(a5, a6, a1, *a4, (__int64)&BugCheckParameter2);
       SubKeyByNumber = result;
       if ( (int)result < 0 )
         return result;
-      v9 = BugCheckParameter2;
+      v10 = BugCheckParameter2;
       if ( !BugCheckParameter2
-        || (unsigned __int8)CmRmIsKCBVisible(BugCheckParameter2, a7) && !(unsigned __int8)CmpIsKeyDeleted(v9, a7) )
+        || (unsigned __int8)CmRmIsKCBVisible(BugCheckParameter2, a7) && !(unsigned __int8)CmpIsKeyDeleted(v10, a7) )
       {
-        ++v39;
+        ++v40;
       }
-      if ( v39 == a3 + 1 )
+      if ( v40 == a3 + 1 )
       {
-        v20 = i;
-        v19 = j;
+        v19 = i;
+        v18 = v33;
         break;
       }
-      if ( v9 )
-        CmpDelayDerefKeyControlBlock(v9, a8);
-      v19 = j;
-      v20 = i + 1;
+      if ( v10 )
+        CmpDelayDerefKeyControlBlock(v10, a8);
+      v18 = v33;
+      v19 = i + 1;
     }
-    if ( v20 == v19 )
+    if ( v19 == v18 )
     {
-      v38 = 0LL;
+      v37 = 0LL;
       *a4 = -1;
-      NextElement = CmListGetNextElement(a5 + 208, &v38, 32LL);
-      for ( j = NextElement; NextElement; j = NextElement )
+      while ( 1 )
       {
+        NextElement = CmListGetNextElement(a5 + 208, &v37, 32LL);
+        v36 = NextElement;
+        if ( !NextElement )
+          break;
         if ( (unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), a7) )
         {
-          v28 = *(_DWORD *)(j + 68);
-          if ( v28 == 1 )
+          v29 = *(_DWORD *)(v36 + 68);
+          if ( v29 == 1 )
           {
-            v9 = *(_QWORD *)(j + 88);
+            v10 = *(_QWORD *)(v36 + 88);
           }
           else
           {
-            if ( v28 != 10 )
-              goto LABEL_56;
-            v9 = *(_QWORD *)(j + 96);
+            if ( v29 != 10 )
+              goto LABEL_46;
+            v10 = *(_QWORD *)(v36 + 96);
           }
-          BugCheckParameter2 = v9;
-          if ( (unsigned __int8)CmRmIsKCBVisible(v9, a7) && !(unsigned __int8)CmpIsKeyDeleted(v9, a7) )
+          BugCheckParameter2 = v10;
+          if ( (unsigned __int8)CmRmIsKCBVisible(v10, a7) && !(unsigned __int8)CmpIsKeyDeleted(v10, a7) )
           {
-            if ( v39 == a3 )
+            if ( v40 == a3 )
             {
-              *a4 = *(_DWORD *)(v9 + 40);
-              CmpReferenceKeyControlBlock(v9);
+              *a4 = *(_DWORD *)(v10 + 40);
+              CmpReferenceKeyControlBlock(v10);
               break;
             }
-            ++v39;
+            ++v40;
           }
         }
-LABEL_56:
-        v9 = 0LL;
+LABEL_46:
+        v10 = 0LL;
         BugCheckParameter2 = 0LL;
-        NextElement = CmListGetNextElement(a5 + 208, &v38, 32LL);
       }
     }
   }
-  if ( !a9 || *a4 == -1 )
+  if ( !a9 || (v26 = *a4, *a4 == -1) )
   {
-    if ( v9 )
-      CmpDelayDerefKeyControlBlock(v9, a8);
+    if ( v10 )
+      CmpDelayDerefKeyControlBlock(v10, a8);
   }
   else
   {
-    if ( !v9 )
+    if ( !v10 )
     {
       if ( v14 )
       {
-        if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-          HvpReleaseCellFlat(BugCheckParameter3, v31);
-        else
-          HvpReleaseCellPaged(BugCheckParameter3, v31);
+        (*(void (__fastcall **)(__int64, _DWORD *))(a1 + 16))(a1, v35);
+        v26 = *a4;
         v14 = 0LL;
       }
-      SubkeyInHashByChildCell = CmpFindSubkeyInHashByChildCell(a5, a6, BugCheckParameter3);
-      v9 = BugCheckParameter2;
+      SubkeyInHashByChildCell = CmpFindSubkeyInHashByChildCell(a5, a6, a1, v26, (__int64)&BugCheckParameter2);
+      v10 = BugCheckParameter2;
       SubKeyByNumber = SubkeyInHashByChildCell;
       if ( SubkeyInHashByChildCell < 0 )
         *a4 = -1;
     }
-    *a9 = v9;
+    *a9 = v10;
   }
   if ( v14 )
-  {
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, v31);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, v31);
-  }
+    (*(void (__fastcall **)(__int64, _DWORD *))(a1 + 16))(a1, v35);
   return SubKeyByNumber;
 }

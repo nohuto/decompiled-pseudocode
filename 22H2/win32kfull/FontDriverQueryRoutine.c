@@ -1,10 +1,10 @@
 /*
- * XREFs of FontDriverQueryRoutine @ 0x1C03B5790
+ * XREFs of FontDriverQueryRoutine @ 0x1C0394510
  * Callers:
  *     <none>
  * Callees:
- *     ?FntCacheHDEV@@YAXPEAVPDEV@@K@Z @ 0x1C00A5D80 (-FntCacheHDEV@@YAXPEAVPDEV@@K@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?FntCacheHDEV@@YAXPEAVPDEV@@K@Z @ 0x1C00F47AC (-FntCacheHDEV@@YAXPEAVPDEV@@K@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FontDriverQueryRoutine(__int64 a1, int a2, const wchar_t *a3, int a4)

@@ -1,27 +1,20 @@
 /*
- * XREFs of CmpLogTransactionAbortedWithChildName @ 0x1407EA278
+ * XREFs of CmpLogTransactionAbortedWithChildName @ 0x1406A4E54
  * Callers:
- *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14070EFD4 (CmDeleteValueKey.c)
- *     CmpLogTransactionAbortedForRollbackPacket @ 0x1407EAEF8 (CmpLogTransactionAbortedForRollbackPacket.c)
- *     CmpSaveBootControlSet @ 0x140A0A5C8 (CmpSaveBootControlSet.c)
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x140A15A64 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140A15F98 (CmSetLastWriteTimeKey.c)
+ *     CmpLogTransactionAbortedForRollbackPacket @ 0x14066D87C (CmpLogTransactionAbortedForRollbackPacket.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
+ *     CmpLogTransactionAborted @ 0x140874CB4 (CmpLogTransactionAborted.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     RtlUnicodeStringCat @ 0x140208C9C (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x140208D74 (RtlUnicodeStringValidateDestWorker.c)
- *     RtlUnicodeStringCopy @ 0x140208E68 (RtlUnicodeStringCopy.c)
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x140A17018 (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpLogTransactionAbortedByName @ 0x140A1E4B8 (CmpLogTransactionAbortedByName.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     RtlUnicodeStringCat @ 0x140206B20 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCopy @ 0x140206C90 (RtlUnicodeStringCopy.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringCatString @ 0x1403C3D6C (RtlUnicodeStringCatString.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x140778B38 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpLogTransactionAbortedByName @ 0x140874CD4 (CmpLogTransactionAbortedByName.c)
  */
 
 void __fastcall CmpLogTransactionAbortedWithChildName(
@@ -34,93 +27,55 @@ void __fastcall CmpLogTransactionAbortedWithChildName(
   wchar_t *Buffer; // rbx
   int v9; // eax
   __int64 v10; // r8
-  UNICODE_STRING *v11; // rdi
-  unsigned __int64 v12; // rdx
-  const wchar_t *v13; // r8
-  __int16 v14; // r11
-  __int64 v15; // r9
-  __int16 v16; // dx
-  char *v17; // r10
-  char *v18; // rcx
+  struct _LOOKASIDE_LIST_EX *v11; // r9
+  UNICODE_STRING *v12; // rdi
+  unsigned __int64 v13; // r8
   PCUNICODE_STRING p_DestinationString; // rcx
-  size_t v20; // [rsp+20h] [rbp-30h]
-  ULONG v21; // [rsp+28h] [rbp-28h]
-  size_t pcchDestLength; // [rsp+30h] [rbp-20h] BYREF
-  wchar_t *ppszDest; // [rsp+38h] [rbp-18h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
-  PCUNICODE_STRING SourceString; // [rsp+88h] [rbp+38h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-10h] BYREF
+  PCUNICODE_STRING SourceString; // [rsp+68h] [rbp+38h] BYREF
 
-  DestinationString = 0LL;
   SourceString = 0LL;
+  DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  if ( !a5 || (unsigned int)dword_140C04390 <= 4 || !tlgKeywordOn((__int64)&dword_140C04390, 1LL) )
+  if ( !a5 || (unsigned int)dword_140C02130 <= 4 || !tlgKeywordOn((__int64)&dword_140C02130, 1LL) )
   {
     Buffer = DestinationString.Buffer;
     goto LABEL_3;
   }
   v9 = CmpConstructNameFromKcbNameBlocks(a1, &SourceString);
-  v11 = (UNICODE_STRING *)SourceString;
+  v12 = (UNICODE_STRING *)SourceString;
   if ( v9 < 0 )
-    goto LABEL_21;
+    goto LABEL_14;
   if ( !a2 )
   {
     p_DestinationString = SourceString;
-LABEL_20:
+LABEL_13:
     CmpLogTransactionAbortedByName(p_DestinationString, a3, v10, a5);
-    goto LABEL_21;
+    goto LABEL_14;
   }
-  v12 = SourceString->Length + 2LL + a2->Length;
-  if ( v12 <= 0xFFFF )
+  v13 = SourceString->Length + 2LL + a2->Length;
+  if ( v13 <= 0xFFFF )
   {
     DestinationString.MaximumLength = SourceString->Length + 2 + a2->Length;
-    DestinationString.Buffer = (wchar_t *)CmpAllocatePool(256LL, (unsigned __int16)v12, 1649298755LL);
+    DestinationString.Buffer = (wchar_t *)CmpAllocateTransientPoolWithTag(
+                                            PagedPool,
+                                            (unsigned __int16)v13,
+                                            0x624E4D43u,
+                                            v11);
     Buffer = DestinationString.Buffer;
     if ( !DestinationString.Buffer )
-      goto LABEL_22;
-    RtlUnicodeStringCopy(&DestinationString, v11);
-    ppszDest = 0LL;
-    SourceString = 0LL;
-    pcchDestLength = 0LL;
-    if ( RtlUnicodeStringValidateDestWorker(
-           &DestinationString,
-           &ppszDest,
-           (size_t *)&SourceString,
-           &pcchDestLength,
-           v20,
-           v21) >= 0 )
-    {
-      v13 = L"\\";
-      v14 = pcchDestLength;
-      v15 = 0x7FFFLL;
-      v16 = 0;
-      v17 = (char *)SourceString - pcchDestLength;
-      if ( SourceString != (PCUNICODE_STRING)pcchDestLength )
-      {
-        v18 = (char *)ppszDest + 2 * pcchDestLength - (_QWORD)L"\\";
-        do
-        {
-          if ( !v15 )
-            break;
-          if ( !*v13 )
-            break;
-          *(const wchar_t *)((char *)v13 + (_QWORD)v18) = *v13;
-          --v15;
-          ++v13;
-          ++v16;
-        }
-        while ( &v17[v15 - 0x7FFF] );
-      }
-      DestinationString.Length = 2 * (v14 + v16);
-    }
+      goto LABEL_15;
+    RtlUnicodeStringCopy(&DestinationString, v12);
+    RtlUnicodeStringCatString(&DestinationString, L"\\");
     RtlUnicodeStringCat(&DestinationString, a2);
     p_DestinationString = &DestinationString;
-    goto LABEL_20;
+    goto LABEL_13;
   }
-LABEL_21:
+LABEL_14:
   Buffer = DestinationString.Buffer;
-LABEL_22:
-  if ( v11 )
-    CmpFreeTransientPoolWithTag(v11, 0x624E4D43u);
+LABEL_15:
+  if ( v12 )
+    CmpFreeTransientPoolWithTag(v12, 0x624E4D43u);
 LABEL_3:
   if ( Buffer )
     CmSiFreeMemory((PPRIVILEGE_SET)Buffer);

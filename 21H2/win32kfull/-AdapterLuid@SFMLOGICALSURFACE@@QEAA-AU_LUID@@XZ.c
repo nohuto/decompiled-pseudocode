@@ -1,8 +1,8 @@
 /*
- * XREFs of ?AdapterLuid@SFMLOGICALSURFACE@@QEAA?AU_LUID@@XZ @ 0x1C0150434
+ * XREFs of ?AdapterLuid@SFMLOGICALSURFACE@@QEAA?AU_LUID@@XZ @ 0x1C015FD58
  * Callers:
- *     GreGetDxSharedSurface @ 0x1C00ED940 (GreGetDxSharedSurface.c)
- *     GreWindowResizeComplete @ 0x1C026E008 (GreWindowResizeComplete.c)
+ *     GreGetDxSharedSurface @ 0x1C0118EDC (GreGetDxSharedSurface.c)
+ *     GreWindowResizeComplete @ 0x1C0270430 (GreWindowResizeComplete.c)
  * Callees:
  *     <none>
  */

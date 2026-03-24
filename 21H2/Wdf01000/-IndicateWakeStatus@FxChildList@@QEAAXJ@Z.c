@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IndicateWakeStatus@FxChildList@@QEAAXJ@Z @ 0x1C005C0B0
+ * XREFs of ?IndicateWakeStatus@FxChildList@@QEAAXJ@Z @ 0x1C003B8C0
  * Callers:
- *     ?PowerPolicyDisarmWakeFromSx@FxPkgPnp@@AEAAXXZ @ 0x1C008C974 (-PowerPolicyDisarmWakeFromSx@FxPkgPnp@@AEAAXXZ.c)
+ *     ?PowerPolicyDisarmWakeFromSx@FxPkgPnp@@AEAAXXZ @ 0x1C0088900 (-PowerPolicyDisarmWakeFromSx@FxPkgPnp@@AEAAXXZ.c)
  * Callees:
- *     ?PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z @ 0x1C0086EF4 (-PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z.c)
+ *     ?PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z @ 0x1C007DF24 (-PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z.c)
  */
 
 void __fastcall FxChildList::IndicateWakeStatus(FxChildList *this, int WaitWakeStatus)

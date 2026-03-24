@@ -3,10 +3,10 @@
  * Callers:
  *     IopGetDeviceInterfaces @ 0x14059E6C4 (IopGetDeviceInterfaces.c)
  *     PiUEventCopyEventData @ 0x14059FB98 (PiUEventCopyEventData.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x1406D8960 (PiSwDeviceInterfacesUpdateState.c)
- *     PiDmObjectCreate @ 0x1406F1C50 (PiDmObjectCreate.c)
- *     IopRegisterDeviceInterface @ 0x140709AF4 (IopRegisterDeviceInterface.c)
- *     PiSwDeviceInterfaceSetState @ 0x140754344 (PiSwDeviceInterfaceSetState.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x1406D8940 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiDmObjectCreate @ 0x1406F1C30 (PiDmObjectCreate.c)
+ *     IopRegisterDeviceInterface @ 0x140709AD4 (IopRegisterDeviceInterface.c)
+ *     PiSwDeviceInterfaceSetState @ 0x140754324 (PiSwDeviceInterfaceSetState.c)
  * Callees:
  *     _CmValidateDeviceInterfaceName @ 0x1405C6810 (_CmValidateDeviceInterfaceName.c)
  */

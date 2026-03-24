@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z @ 0x1C00CD710
+ * XREFs of ?CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z @ 0x1C0078F40
  * Callers:
- *     NtGdiOpenDCW @ 0x1C0071250 (NtGdiOpenDCW.c)
+ *     NtGdiOpenDCW @ 0x1C00219E0 (NtGdiOpenDCW.c)
  * Callees:
- *     PopThreadGuardedObject @ 0x1C0023630 (PopThreadGuardedObject.c)
- *     AllocThreadBufferWithTag @ 0x1C0081F60 (AllocThreadBufferWithTag.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     PopThreadGuardedObject @ 0x1C002C080 (PopThreadGuardedObject.c)
+ *     AllocThreadBufferWithTag @ 0x1C0079250 (AllocThreadBufferWithTag.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 struct _DRIVER_INFO_2W *__fastcall CaptureDriverInfo2W(struct _DRIVER_INFO_2W *a1)
@@ -27,8 +27,8 @@ struct _DRIVER_INFO_2W *__fastcall CaptureDriverInfo2W(struct _DRIVER_INFO_2W *a
   _QWORD *v14; // rax
   void *v15; // rcx
   void *v16; // rcx
-  __int64 Size; // [rsp+28h] [rbp-40h]
-  size_t v19; // [rsp+70h] [rbp+8h]
+  __int64 Size; // [rsp+28h] [rbp-50h]
+  size_t v19; // [rsp+80h] [rbp+8h]
 
   v2 = *((_QWORD *)a1 + 1);
   v3 = 0LL;
@@ -92,7 +92,7 @@ LABEL_48:
     return 0LL;
   if ( (_DWORD)v13 )
   {
-    v14 = (_QWORD *)AllocThreadBufferWithTag(v13, 1886221383, 0);
+    v14 = (_QWORD *)AllocThreadBufferWithTag((unsigned int)v13, 1886221383LL, 0LL);
     v3 = v14;
     if ( v14 )
       memset(v14, 0, (unsigned int)v13);
@@ -113,7 +113,7 @@ LABEL_48:
     if ( Size + v4 < v4 || Size + v4 > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
     memmove(v15, (const void *)v4, Size);
-    v16 = (void *)(v3[3] + Size + 2);
+    v16 = (void *)(Size + v3[3] + 2LL);
     v3[4] = v16;
     if ( v5 + v12 < v5 || v5 + v12 > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;

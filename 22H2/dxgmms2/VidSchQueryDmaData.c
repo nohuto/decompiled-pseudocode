@@ -1,9 +1,9 @@
 /*
- * XREFs of VidSchQueryDmaData @ 0x1C0109E6C
+ * XREFs of VidSchQueryDmaData @ 0x1C00D2DCC
  * Callers:
- *     ?WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z @ 0x1C00F0804 (-WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z.c)
+ *     ?WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z @ 0x1C00BA20C (-WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z.c)
  * Callees:
- *     VidSchiBlockDriverCallback @ 0x1C010A02C (VidSchiBlockDriverCallback.c)
+ *     VidSchiBlockDriverCallback @ 0x1C00D2FA4 (VidSchiBlockDriverCallback.c)
  */
 
 __int64 __fastcall VidSchQueryDmaData(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -23,32 +23,32 @@ __int64 __fastcall VidSchQueryDmaData(__int64 a1, unsigned int a2, __int64 a3, _
   unsigned int v18; // [rsp+44h] [rbp+1Ch]
 
   v18 = HIDWORD(a3);
-  v5 = *(__int64 **)(a1 + 632);
+  v5 = *(__int64 **)(a1 + 624);
   v6 = a3;
-  if ( a2 < *(_DWORD *)(a1 + 704) )
+  if ( a2 < *(_DWORD *)(a1 + 696) )
     v5 += a2;
   v8 = *v5;
   VidSchiBlockDriverCallback(a1);
-  v9 = *(_DWORD *)(a1 + 2620);
+  v9 = *(_DWORD *)(a1 + 2532);
   v10 = 0;
   if ( !v9 )
     return 3221225485LL;
-  for ( i = v8 + 11404; *(_DWORD *)(i - 20) == 3 || *(_QWORD *)(i - 4) != __PAIR64__(v18, v6); i += 224LL )
+  for ( i = v8 + 11356; *(_DWORD *)(i - 20) == 3 || *(_QWORD *)(i - 4) != __PAIR64__(v18, v6); i += 224LL )
   {
     if ( ++v10 >= v9 )
       return 3221225485LL;
   }
   v13 = 224LL * v10;
   result = 0LL;
-  v14 = *(_OWORD *)(v13 + v8 + 11424);
-  *(_OWORD *)a4 = *(_OWORD *)(v13 + v8 + 11408);
-  v15 = *(_OWORD *)(v13 + v8 + 11440);
+  v14 = *(_OWORD *)(v13 + v8 + 11376);
+  *(_OWORD *)a4 = *(_OWORD *)(v13 + v8 + 11360);
+  v15 = *(_OWORD *)(v13 + v8 + 11392);
   *(_OWORD *)(a4 + 16) = v14;
-  v16 = *(_OWORD *)(v13 + v8 + 11456);
+  v16 = *(_OWORD *)(v13 + v8 + 11408);
   *(_OWORD *)(a4 + 32) = v15;
-  v17 = *(_OWORD *)(v13 + v8 + 11472);
+  v17 = *(_OWORD *)(v13 + v8 + 11424);
   *(_OWORD *)(a4 + 48) = v16;
-  *(_QWORD *)&v16 = *(_QWORD *)(v13 + v8 + 11488);
+  *(_QWORD *)&v16 = *(_QWORD *)(v13 + v8 + 11440);
   *(_OWORD *)(a4 + 64) = v17;
   *(_QWORD *)(a4 + 80) = v16;
   return result;

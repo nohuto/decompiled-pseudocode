@@ -3,9 +3,9 @@
  * Callers:
  *     MmSecureVirtualMemory @ 0x1405F5DF0 (MmSecureVirtualMemory.c)
  *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
- *     VmSecureBackingMemory @ 0x1408B04E0 (VmSecureBackingMemory.c)
- *     AslpFileLargeMapCreate @ 0x1408EE06C (AslpFileLargeMapCreate.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     VmSecureBackingMemory @ 0x1408B04C0 (VmSecureBackingMemory.c)
+ *     AslpFileLargeMapCreate @ 0x1408EE04C (AslpFileLargeMapCreate.c)
  * Callees:
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
  *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)

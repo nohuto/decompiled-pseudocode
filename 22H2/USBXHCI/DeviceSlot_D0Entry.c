@@ -1,10 +1,10 @@
 /*
- * XREFs of DeviceSlot_D0Entry @ 0x1C001487C
+ * XREFs of DeviceSlot_D0Entry @ 0x1C0014754
  * Callers:
- *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014500 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014CE0 (Controller_WdfEvtDeviceD0Entry.c)
  * Callees:
- *     WPP_RECORDER_SF_qd @ 0x1C0014244 (WPP_RECORDER_SF_qd.c)
- *     DeviceSlot_Initialize @ 0x1C00148D8 (DeviceSlot_Initialize.c)
+ *     DeviceSlot_Initialize @ 0x1C00144D8 (DeviceSlot_Initialize.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0014518 (WPP_RECORDER_SF_qd.c)
  */
 
 __int64 __fastcall DeviceSlot_D0Entry(__int64 a1, int a2)

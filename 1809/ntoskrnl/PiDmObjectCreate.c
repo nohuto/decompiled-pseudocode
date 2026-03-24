@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDmObjectCreate @ 0x1406F1C50
+ * XREFs of PiDmObjectCreate @ 0x1406F1C30
  * Callers:
- *     PiDmAddCacheReferenceForObject @ 0x1406F1B00 (PiDmAddCacheReferenceForObject.c)
- *     PiDmObjectManagerPopulate @ 0x14072C910 (PiDmObjectManagerPopulate.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406F1AE0 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmObjectManagerPopulate @ 0x14072C8F0 (PiDmObjectManagerPopulate.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     RtlHashUnicodeString @ 0x140598BE0 (RtlHashUnicodeString.c)
  *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
@@ -12,8 +12,8 @@
  *     PiDmGetCachedKeyIndex @ 0x140598ECC (PiDmGetCachedKeyIndex.c)
  *     PnpAllocatePWSTR @ 0x14059A42C (PnpAllocatePWSTR.c)
  *     _CmSetDeviceInterfacePathFormat @ 0x14059EAFC (_CmSetDeviceInterfacePathFormat.c)
- *     PiDmCacheDataEncode @ 0x1406F269C (PiDmCacheDataEncode.c)
- *     _PnpValidateObjectName @ 0x1406F27FC (_PnpValidateObjectName.c)
+ *     PiDmCacheDataEncode @ 0x1406F267C (PiDmCacheDataEncode.c)
+ *     _PnpValidateObjectName @ 0x1406F27DC (_PnpValidateObjectName.c)
  */
 
 __int64 __fastcall PiDmObjectCreate(unsigned int a1, const wchar_t *a2, _QWORD *a3)

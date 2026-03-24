@@ -1,17 +1,17 @@
 /*
- * XREFs of ??0?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@QEAA@XZ @ 0x18010480C
+ * XREFs of ??0?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@QEAA@XZ @ 0x1800DFC24
  * Callers:
- *     _dynamic_initializer_for__CManipulationManager::s_InputQueue__ @ 0x1800012D0 (_dynamic_initializer_for__CManipulationManager--s_InputQueue__.c)
+ *     _dynamic_initializer_for__CManipulationManager::s_InputQueue__ @ 0x180003560 (_dynamic_initializer_for__CManipulationManager--s_InputQueue__.c)
  * Callees:
  *     <none>
  */
 
-__int64 *CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>::CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>()
+void **CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>::CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>()
 {
-  dword_1803E6210 = 0;
-  qword_1803E6208 = (__int64)&CManipulationManager::s_InputQueue;
-  CManipulationManager::s_InputQueue = (__int64)&CManipulationManager::s_InputQueue;
-  byte_1803E6214 = 0;
-  InitializeCriticalSection(&stru_1803E6218);
+  dword_18034B540 = 0;
+  qword_18034B538 = (__int64)&CManipulationManager::s_InputQueue;
+  CManipulationManager::s_InputQueue = &CManipulationManager::s_InputQueue;
+  byte_18034B544 = 0;
+  InitializeCriticalSection(&stru_18034B548);
   return &CManipulationManager::s_InputQueue;
 }

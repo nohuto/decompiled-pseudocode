@@ -1,34 +1,34 @@
 /*
- * XREFs of InitIllegalIOAddressListFromHAL @ 0x1C00BF108
+ * XREFs of InitIllegalIOAddressListFromHAL @ 0x1C00BDA5C
  * Callers:
- *     AMLIInitialize @ 0x1C00BCDB8 (AMLIInitialize.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
- *     FreellegalIOAddressList @ 0x1C00C0988 (FreellegalIOAddressList.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     FreellegalIOAddressList @ 0x1C00C08F4 (FreellegalIOAddressList.c)
  */
 
 void InitIllegalIOAddressListFromHAL()
 {
   int v0; // eax
   int v1; // eax
-  size_t v2; // rbx
-  void *Pool2; // rax
+  SIZE_T v2; // rbx
+  PVOID PoolWithTag; // rax
   const void *v4; // rdx
   int v5; // ecx
-  unsigned int v6; // [rsp+40h] [rbp+8h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+40h] [rbp+8h] BYREF
 
-  v6 = 0;
+  LODWORD(NumberOfBytes) = 0;
   if ( !gpBadIOAddressList )
   {
-    v0 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, unsigned int *))HalDispatchTable->HalQuerySystemInformation)(
+    v0 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))HalDispatchTable->HalQuerySystemInformation)(
            16LL,
            0LL,
            0LL,
-           &v6);
+           &NumberOfBytes);
     if ( v0 != -1073741820 )
     {
       if ( v0 == -1073741496 )
@@ -43,13 +43,13 @@ void InitIllegalIOAddressListFromHAL()
       }
       goto LABEL_17;
     }
-    if ( !v6 )
+    if ( !(_DWORD)NumberOfBytes )
     {
       v4 = 0LL;
       v5 = 75;
       goto LABEL_17;
     }
-    gpBadIOAddressList = (PVOID)ExAllocatePool2(64LL, v6, 1231842625LL);
+    gpBadIOAddressList = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x496C6D41u);
     if ( !gpBadIOAddressList )
     {
       LogError(-1073741670);
@@ -58,25 +58,25 @@ void InitIllegalIOAddressListFromHAL()
       v5 = 71;
       goto LABEL_17;
     }
-    v1 = ((__int64 (__fastcall *)(__int64, _QWORD, PVOID, unsigned int *))HalDispatchTable->HalQuerySystemInformation)(
+    v1 = ((__int64 (__fastcall *)(__int64, _QWORD, PVOID, SIZE_T *))HalDispatchTable->HalQuerySystemInformation)(
            16LL,
-           v6,
+           (unsigned int)NumberOfBytes,
            gpBadIOAddressList,
-           &v6);
+           &NumberOfBytes);
     if ( v1 )
     {
       PrintDebugMessage(73, (const void *)v1, 0LL, 0LL, 0LL);
       FreellegalIOAddressList();
       return;
     }
-    if ( v6 / 0x18 != 1 )
+    if ( (unsigned int)NumberOfBytes / 0x18 != 1 )
     {
-      v2 = 4LL * (v6 / 0x18 - 1);
-      Pool2 = (void *)ExAllocatePool2(64LL, v2, 1231842625LL);
-      gpBadIOErrorLogDoneList = Pool2;
-      if ( Pool2 )
+      v2 = 4LL * ((unsigned int)NumberOfBytes / 0x18 - 1);
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v2, 0x496C6D41u);
+      gpBadIOErrorLogDoneList = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memset(Pool2, 0, v2);
+        memset(PoolWithTag, 0, v2);
         return;
       }
       LogError(-1073741670);

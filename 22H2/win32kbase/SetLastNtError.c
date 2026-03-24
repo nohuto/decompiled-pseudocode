@@ -1,20 +1,18 @@
 /*
- * XREFs of SetLastNtError @ 0x1C00D5700
+ * XREFs of SetLastNtError @ 0x1C00CDE58
  * Callers:
- *     NtUserEnumDisplayMonitors @ 0x1C005C570 (NtUserEnumDisplayMonitors.c)
- *     NtUserGetAsyncKeyState @ 0x1C0070AB0 (NtUserGetAsyncKeyState.c)
- *     NtUserGetInputContainerId @ 0x1C01447E0 (NtUserGetInputContainerId.c)
- *     NtUserInitializeInputDeviceInjection @ 0x1C0146880 (NtUserInitializeInputDeviceInjection.c)
- *     NtUserSetAdditionalForegroundBoostProcesses @ 0x1C014A390 (NtUserSetAdditionalForegroundBoostProcesses.c)
- *     NtUserSystemParametersInfo @ 0x1C014C300 (NtUserSystemParametersInfo.c)
+ *     NtUserDisplayConfigGetDeviceInfo @ 0x1C001E9F0 (NtUserDisplayConfigGetDeviceInfo.c)
+ *     NtUserLoadKeyboardLayoutEx @ 0x1C01326C0 (NtUserLoadKeyboardLayoutEx.c)
+ *     NtUserSystemParametersInfo @ 0x1C0135470 (NtUserSystemParametersInfo.c)
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
 struct _NT_TIB *__fastcall SetLastNtError(NTSTATUS a1)
 {
   ULONG v1; // eax
+  __int64 v2; // rdx
 
   v1 = RtlNtStatusToDosError(a1);
-  return UserSetLastError(v1);
+  return UserSetLastError(v1, v2);
 }

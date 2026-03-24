@@ -1,23 +1,15 @@
 /*
- * XREFs of MiAddPageToHeatRanges @ 0x140653D64
+ * XREFs of MiAddPageToHeatRanges @ 0x14055F43C
  * Callers:
- *     MiUpdatePfnForPrefetchByPte @ 0x140272F60 (MiUpdatePfnForPrefetchByPte.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiAllocateLargeZeroPages @ 0x1402E77E0 (MiAllocateLargeZeroPages.c)
- *     MiDemoteLocalLargePage @ 0x1402E81B0 (MiDemoteLocalLargePage.c)
- *     MiGetLargePageChain @ 0x1402EBA40 (MiGetLargePageChain.c)
- *     MmSetPfnListInfo @ 0x140389DC0 (MmSetPfnListInfo.c)
- *     MiSplitDirectMapPage @ 0x14063F2D4 (MiSplitDirectMapPage.c)
- *     MiChangePageHeatImmediate @ 0x140653E5C (MiChangePageHeatImmediate.c)
- *     MiMakeTransitionHeatBatch @ 0x140654328 (MiMakeTransitionHeatBatch.c)
+ *     MiAddPageToHeatList @ 0x1403F7308 (MiAddPageToHeatList.c)
+ *     MiMakeTransitionHeatBatch @ 0x14055F9B0 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiAddPageToHeatRanges(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v3; // rsi
+  __int64 v3; // rdi
   unsigned int v4; // r11d
   __int64 *v7; // rcx
   unsigned __int64 v8; // r9

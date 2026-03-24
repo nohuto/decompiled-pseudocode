@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreWriteModifiedCompleteApc @ 0x14065CE60
+ * XREFs of MiStoreWriteModifiedCompleteApc @ 0x14032BD50
  * Callers:
  *     <none>
  * Callees:
- *     MiWriteComplete @ 0x1402F4320 (MiWriteComplete.c)
+ *     MiWriteComplete @ 0x1402549D0 (MiWriteComplete.c)
  */
 
 LONG __fastcall MiStoreWriteModifiedCompleteApc(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
 {
-  return MiWriteComplete(*a4, (int *)(*a4 + 16), 0);
+  return MiWriteComplete(*a4, (unsigned int *)(*a4 + 16), 0);
 }

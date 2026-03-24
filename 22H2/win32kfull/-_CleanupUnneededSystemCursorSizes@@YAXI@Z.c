@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C014E90E
+ * XREFs of ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C01D3AF0
  * Callers:
- *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C0024A88 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
+ *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C01668D8 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
  * Callees:
- *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C0027440 (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
- *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C002B6EC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C0024CA8 (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00486FC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
  */
 
 void __fastcall _CleanupUnneededSystemCursorSizes(int a1)
@@ -31,8 +31,6 @@ void __fastcall _CleanupUnneededSystemCursorSizes(int a1)
         if ( DPICursor != v6 )
         {
           ProcessWin32Process = PsGetProcessWin32Process(gpepCSRSS);
-          if ( ProcessWin32Process )
-            ProcessWin32Process &= -(__int64)(*(_QWORD *)ProcessWin32Process != 0LL);
           FixupGlobalCursor(v7, ProcessWin32Process);
           _DestroyCursor(v7, 0);
         }

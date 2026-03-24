@@ -1,167 +1,177 @@
 /*
- * XREFs of ParseFieldConnection @ 0x1C006BCC4
+ * XREFs of ParseFieldConnection @ 0x1C006BA34
  * Callers:
- *     ParseField @ 0x1C0015980 (ParseField.c)
+ *     ParseField @ 0x1C0021D30 (ParseField.c)
  * Callees:
- *     ParseIntObj @ 0x1C000B2AC (ParseIntObj.c)
- *     ParseName @ 0x1C000BE54 (ParseName.c)
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
- *     ParsePackageLen @ 0x1C006C04C (ParsePackageLen.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ParseName @ 0x1C00214C4 (ParseName.c)
+ *     ParseIntObj @ 0x1C0022724 (ParseIntObj.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     ParsePackageLen @ 0x1C006BD9C (ParsePackageLen.c)
  */
 
-__int64 __fastcall ParseFieldConnection(__int64 a1, _SLIST_ENTRY **a2)
+__int64 __fastcall ParseFieldConnection(__int64 a1, __int64 *a2)
 {
-  _WORD **v2; // rsi
+  unsigned __int64 *v2; // rsi
   _BYTE *v3; // rax
-  _WORD *v6; // r13
-  bool v7; // zf
-  int v8; // eax
-  unsigned __int64 v9; // rdi
-  _WORD *v10; // r15
-  const void *v11; // rbx
-  int v12; // r12d
-  int v13; // eax
-  char *v14; // rax
-  __int64 v15; // rdx
-  unsigned __int64 v16; // rdi
-  _SLIST_ENTRY *v17; // rcx
-  const void *v18; // rdx
-  int v19; // ecx
-  _SLIST_ENTRY *v20; // rax
-  _SLIST_ENTRY *v21; // rcx
-  unsigned int v22; // eax
-  unsigned __int64 v24; // [rsp+30h] [rbp-178h] BYREF
-  __int128 v25; // [rsp+38h] [rbp-170h] BYREF
-  __int128 v26; // [rsp+48h] [rbp-160h]
-  __int64 v27; // [rsp+58h] [rbp-150h]
+  unsigned __int64 v6; // rdi
+  int v7; // r12d
+  _WORD *v8; // r13
+  bool v9; // zf
+  int v10; // eax
+  _WORD *v11; // rbp
+  const void *v12; // rbx
+  const void *v13; // rdx
+  int v14; // ecx
+  unsigned __int64 v15; // r8
+  int v16; // eax
+  char *v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  unsigned __int64 v20; // rdi
+  __int64 v21; // rcx
+  const void *v22; // rdx
+  int v23; // ecx
+  __int64 v24; // rax
+  void *v25; // rcx
+  unsigned int v26; // eax
+  unsigned __int64 v28; // [rsp+30h] [rbp-178h] BYREF
+  __int128 v29; // [rsp+38h] [rbp-170h] BYREF
+  __int128 v30; // [rsp+48h] [rbp-160h]
+  __int64 v31; // [rsp+58h] [rbp-150h]
   char Src[256]; // [rsp+60h] [rbp-148h] BYREF
 
-  v2 = (_WORD **)(a1 + 120);
-  v27 = 0LL;
+  v2 = (unsigned __int64 *)(a1 + 120);
+  v28 = 0LL;
+  v31 = 0LL;
   v3 = *(_BYTE **)(a1 + 120);
-  v24 = 0LL;
   v6 = 0LL;
-  v25 = 0LL;
-  v7 = *v3 == 17;
-  v26 = 0LL;
-  if ( !v7 )
+  v29 = 0LL;
+  v7 = 0;
+  v8 = 0LL;
+  v9 = *v3 == 17;
+  v30 = 0LL;
+  if ( v9 )
   {
-    v13 = ParseName(a1, (char **)(a1 + 120), Src);
-    v11 = (const void *)v13;
-    if ( v13 )
+    *v2 = (unsigned __int64)(v3 + 1);
+    ParsePackageLen(a1 + 120, &v28);
+    v10 = ParseIntObj(a1, (_WORD **)v2, (__int64)&v29, 0);
+    v6 = (unsigned int)v30;
+    v11 = (_WORD *)v28;
+    v12 = (const void *)v10;
+    if ( v10 )
     {
-      LogError(v13);
-      AcpiDiagTraceAmlError(a1, (int)v11);
-      PrintDebugMessage(41, v11, 0LL, 0LL, 0LL);
-      return (unsigned int)v11;
+      LogError(v10);
+      AcpiDiagTraceAmlError(a1, (int)v12);
+      v13 = v12;
+      v14 = 40;
+      v15 = 0LL;
     }
-    v14 = Src;
-    v15 = 256LL;
+    else
+    {
+      if ( *v2 <= v28 && (unsigned int)v30 <= (int)v28 - *(_DWORD *)v2 + 1 )
+        goto LABEL_8;
+      LODWORD(v12) = -1072431089;
+      LogError(-1072431089);
+      AcpiDiagTraceAmlError(a1, -1072431089);
+      v13 = (const void *)v6;
+      v15 = (unsigned int)((_DWORD)v11 - *(_DWORD *)v2);
+      v14 = 42;
+    }
+    PrintDebugMessage(v14, v13, (const void *)v15, 0LL, 0LL);
+LABEL_8:
+    v8 = (_WORD *)*v2;
+    v7 = 2;
+    *v2 = (unsigned __int64)v11;
+    goto LABEL_21;
+  }
+  v16 = ParseName(a1, (char **)(a1 + 120), Src);
+  v12 = (const void *)v16;
+  if ( v16 )
+  {
+    LogError(v16);
+    AcpiDiagTraceAmlError(a1, (int)v12);
+    PrintDebugMessage(41, v12, 0LL, 0LL, 0LL);
+  }
+  else
+  {
+    v17 = Src;
+    v18 = 256LL;
     do
     {
-      if ( !*v14 )
+      if ( !*v17 )
         break;
-      ++v14;
-      --v15;
+      ++v17;
+      --v18;
     }
-    while ( v15 );
-    v16 = (256 - v15) & -(__int64)(v15 != 0);
-    LODWORD(v11) = v15 == 0 ? 0xC000000D : 0;
-    if ( v15 )
-    {
-      if ( v16 > 0x100 )
-      {
-        v9 = 256LL;
-LABEL_18:
-        v12 = 1;
-        goto LABEL_19;
-      }
-    }
+    while ( v18 );
+    LODWORD(v12) = v18 == 0 ? 0xC000000D : 0;
+    if ( v18 )
+      v19 = 256 - v18;
     else
-    {
-      v16 = 0LL;
-    }
-    v9 = v16 + 1;
-    goto LABEL_18;
+      v19 = 0LL;
+    v20 = v19 & -(__int64)(v18 != 0);
+    if ( v20 > 0x100 )
+      v6 = 256LL;
+    else
+      v6 = v20 + 1;
+    v7 = 1;
   }
-  *v2 = v3 + 1;
-  ParsePackageLen(a1 + 120, &v24);
-  v8 = ParseIntObj(a1, v2, (__int64)&v25, 0);
-  v9 = (unsigned int)v26;
-  v10 = (_WORD *)v24;
-  v11 = (const void *)v8;
-  if ( v8 )
-  {
-    LogError(v8);
-    AcpiDiagTraceAmlError(a1, (int)v11);
-    PrintDebugMessage(40, v11, 0LL, 0LL, 0LL);
-  }
-  else if ( (unsigned __int64)*v2 > v24 || (unsigned int)v26 > (int)v24 - *(_DWORD *)v2 + 1 )
-  {
-    LogError(-1072431089);
-    AcpiDiagTraceAmlError(a1, -1072431089);
-    PrintDebugMessage(42, (const void *)v9, (const void *)(unsigned int)((_DWORD)v10 - *(_DWORD *)v2), 0LL, 0LL);
-    LODWORD(v11) = -1072431089;
-  }
-  v6 = *v2;
-  v12 = 2;
-  *v2 = v10;
-LABEL_19:
-  if ( (_DWORD)v11 )
-    return (unsigned int)v11;
-  v17 = *a2;
+LABEL_21:
+  if ( (_DWORD)v12 )
+    return (unsigned int)v12;
+  v21 = *a2;
   if ( *a2 )
   {
-    if ( *((unsigned int *)&v17->Next + 2) >= v9 )
-      goto LABEL_29;
-    HeapFree(v17);
+    if ( *(unsigned int *)(v21 + 8) >= v6 )
+      goto LABEL_31;
+    HeapFree((_QWORD *)v21);
     *a2 = 0LL;
   }
-  if ( v9 > 0xFFFFFFEF )
+  if ( v6 > 0xFFFFFFEF )
   {
-    LODWORD(v11) = -1072431089;
+    LODWORD(v12) = -1072431089;
     LogError(-1072431089);
     AcpiDiagTraceAmlError(a1, -1072431089);
-    v18 = (const void *)v9;
-    v19 = 39;
-LABEL_27:
-    PrintDebugMessage(v19, v18, 0LL, 0LL, 0LL);
-    goto LABEL_29;
+    v22 = (const void *)v6;
+    v23 = 39;
+LABEL_29:
+    PrintDebugMessage(v23, v22, 0LL, 0LL, 0LL);
+    goto LABEL_31;
   }
-  v20 = HeapAlloc(*(struct _SLIST_ENTRY **)(a1 + 320), 1314407240, (int)v9 + 16);
-  *a2 = v20;
-  if ( !v20 )
+  v24 = HeapAlloc(*(struct _SLIST_ENTRY **)(a1 + 320), 1314407240, (int)v6 + 16);
+  *a2 = v24;
+  if ( !v24 )
   {
-    LODWORD(v11) = -1073741670;
+    LODWORD(v12) = -1073741670;
     LogError(-1073741670);
     AcpiDiagTraceAmlError(a1, -1073741670);
-    v18 = 0LL;
-    v19 = 126;
-    goto LABEL_27;
+    v22 = 0LL;
+    v23 = 126;
+    goto LABEL_29;
   }
-  *((_DWORD *)&v20->Next + 2) = v9;
-LABEL_29:
+  *(_DWORD *)(v24 + 8) = v6;
+LABEL_31:
   if ( *a2 )
   {
-    *((_DWORD *)&(*a2)->Next + 3) = v9;
-    LODWORD((*a2)->Next) = v12;
-    v21 = *a2 + 1;
-    v22 = *((_DWORD *)&(*a2)->Next + 3);
-    if ( v12 == 2 )
+    *(_DWORD *)(*a2 + 12) = v6;
+    *(_DWORD *)*a2 = v7;
+    v25 = (void *)(*a2 + 16);
+    v26 = *(_DWORD *)(*a2 + 12);
+    if ( v7 == 2 )
     {
-      memmove(v21, v6, v22);
+      memmove(v25, v8, v26);
     }
     else
     {
-      memmove(v21, Src, v22 - 1);
-      *((_BYTE *)&(*a2)[1].Next + (unsigned int)(*((_DWORD *)&(*a2)->Next + 3) - 1)) = 0;
+      memmove(v25, Src, v26 - 1);
+      *(_BYTE *)((unsigned int)(*(_DWORD *)(*a2 + 12) - 1) + *a2 + 16) = 0;
     }
   }
-  return (unsigned int)v11;
+  return (unsigned int)v12;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ShrinkMask_CY @ 0x1C025D920
+ * XREFs of ShrinkMask_CY @ 0x1C0266330
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall ShrinkMask_CY(__int64 a1)
@@ -16,15 +16,14 @@ __int64 __fastcall ShrinkMask_CY(__int64 a1)
   int v6; // ecx
   unsigned __int64 i; // r8
   int v8; // eax
-  int v9; // eax
-  __int64 v10; // rcx
-  unsigned __int16 *v11; // rax
-  int v12; // r10d
-  unsigned int v13; // edx
-  __int64 v14; // rcx
+  __int64 v9; // rcx
+  unsigned __int16 *v10; // rax
+  int v11; // r10d
+  unsigned int v12; // edx
+  __int64 v13; // rcx
+  int v14; // eax
   int v15; // eax
-  int v16; // eax
-  char v17; // al
+  char v16; // al
 
   v1 = *(_QWORD *)(a1 + 216);
   v3 = *(_QWORD *)(a1 + 208);
@@ -56,37 +55,35 @@ __int64 __fastcall ShrinkMask_CY(__int64 a1)
   {
     memmove((void *)v3, (const void *)v1, v4);
   }
-  v9 = *(_DWORD *)(a1 + 228) - 1;
-  *(_DWORD *)(a1 + 228) = v9;
-  if ( v9 > 0 )
+  if ( (int)--*(_DWORD *)(a1 + 228) > 0 )
     *(_QWORD *)(a1 + 216) += *(int *)(a1 + 224);
-  v10 = *(_QWORD *)(a1 + 312);
-  v11 = *(unsigned __int16 **)(v10 + 152);
-  v12 = *v11;
-  *(_QWORD *)(v10 + 152) = v11 + 1;
-  while ( --v12 )
+  v9 = *(_QWORD *)(a1 + 312);
+  v10 = *(unsigned __int16 **)(v9 + 152);
+  v11 = *v10;
+  *(_QWORD *)(v9 + 152) = v10 + 1;
+  while ( --v11 )
   {
-    v13 = *(_DWORD *)(a1 + 200);
+    v12 = *(_DWORD *)(a1 + 200);
     i = *(_QWORD *)(a1 + 216);
-    v3 = v13 & 3;
-    v14 = *(_QWORD *)(a1 + 208);
-    v1 = v13 >> 2;
+    v3 = v12 & 3;
+    v13 = *(_QWORD *)(a1 + 208);
+    v1 = v12 >> 2;
     if ( (*(_DWORD *)a1 & 0x100) != 0 )
     {
       for ( ; (_DWORD)v1; v1 = (unsigned int)(v1 - 1) )
       {
-        v15 = *(_DWORD *)i;
+        v14 = *(_DWORD *)i;
         i += 4LL;
-        *(_DWORD *)v14 |= ~v15;
-        v14 += 4LL;
+        *(_DWORD *)v13 |= ~v14;
+        v13 += 4LL;
       }
       if ( (_DWORD)v3 )
       {
-        i -= v14;
+        i -= v13;
         do
         {
-          *(_BYTE *)v14 |= ~*(_BYTE *)(i + v14);
-          ++v14;
+          *(_BYTE *)v13 |= ~*(_BYTE *)(i + v13);
+          ++v13;
           v3 = (unsigned int)(v3 - 1);
         }
         while ( (_DWORD)v3 );
@@ -96,15 +93,15 @@ __int64 __fastcall ShrinkMask_CY(__int64 a1)
     {
       for ( ; (_DWORD)v1; v1 = (unsigned int)(v1 - 1) )
       {
-        v16 = *(_DWORD *)i;
+        v15 = *(_DWORD *)i;
         i += 4LL;
-        *(_DWORD *)v14 |= v16;
-        v14 += 4LL;
+        *(_DWORD *)v13 |= v15;
+        v13 += 4LL;
       }
       for ( ; (_DWORD)v3; v3 = (unsigned int)(v3 - 1) )
       {
-        v17 = *(_BYTE *)i++;
-        *(_BYTE *)v14++ |= v17;
+        v16 = *(_BYTE *)i++;
+        *(_BYTE *)v13++ |= v16;
       }
     }
     if ( (int)--*(_DWORD *)(a1 + 228) > 0 )

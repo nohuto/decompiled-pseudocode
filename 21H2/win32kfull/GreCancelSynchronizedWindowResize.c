@@ -1,12 +1,12 @@
 /*
- * XREFs of GreCancelSynchronizedWindowResize @ 0x1C026CE90
+ * XREFs of GreCancelSynchronizedWindowResize @ 0x1C026F170
  * Callers:
- *     ?ResizeTimerFunc@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C020AEC0 (-ResizeTimerFunc@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?ResizeTimerFunc@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C020C070 (-ResizeTimerFunc@@YAXPEAUtagWND@@I_K_J@Z.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C0022938 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026B550 (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00BE388 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026D7D4 (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
  */
 
 void __fastcall GreCancelSynchronizedWindowResize(HWND a1)
@@ -29,7 +29,7 @@ void __fastcall GreCancelSynchronizedWindowResize(HWND a1)
       if ( *((int *)v4 + 29) >= 1 )
       {
         CheckAndProcessWindowResizeComplete(v4, 1, 0LL);
-        *((_DWORD *)v2 + 32) = 1;
+        *((_DWORD *)v2 + 38) = 1;
         v2 = v4;
       }
       if ( v2 )

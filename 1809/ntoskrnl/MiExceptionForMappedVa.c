@@ -1,12 +1,12 @@
 /*
- * XREFs of MiExceptionForMappedVa @ 0x1402A577C
+ * XREFs of MiExceptionForMappedVa @ 0x1402A587C
  * Callers:
  *     MiWaitForInPageComplete @ 0x14001B7E0 (MiWaitForInPageComplete.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
  */
 
 __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)

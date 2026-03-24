@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CCaptureControllerMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C02365F0
+ * XREFs of ?SetFloatProperty@CCaptureControllerMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01F5D40
  * Callers:
  *     <none>
  * Callees:
@@ -29,9 +29,9 @@ __int64 __fastcall DirectComposition::CCaptureControllerMarshaler::SetFloatPrope
       goto LABEL_11;
     }
     v5 = 128;
-    if ( *((float *)this + 19) != a3 )
+    if ( *((float *)this + 17) != a3 )
     {
-      *((float *)this + 19) = a3;
+      *((float *)this + 17) = a3;
 LABEL_9:
       v7 = 1;
       goto LABEL_10;
@@ -40,9 +40,9 @@ LABEL_9:
   else
   {
     v5 = 128;
-    if ( *((float *)this + 18) != a3 )
+    if ( *((float *)this + 16) != a3 )
     {
-      *((float *)this + 18) = a3;
+      *((float *)this + 16) = a3;
       goto LABEL_9;
     }
   }

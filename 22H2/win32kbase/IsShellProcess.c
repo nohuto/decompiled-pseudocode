@@ -1,9 +1,9 @@
 /*
- * XREFs of IsShellProcess @ 0x1C00AD8FC
+ * XREFs of IsShellProcess @ 0x1C004823C
  * Callers:
- *     DestroyProcessInfo @ 0x1C00C5EA0 (DestroyProcessInfo.c)
- *     NtSetShellCursorState @ 0x1C0142BE0 (NtSetShellCursorState.c)
- *     ?ShouldDeliverWheelEventToInputDest@CMouseProcessor@@AEBA_NAEBVCWheelEvent@1@AEBVCInputDest@@@Z @ 0x1C01FB278 (-ShouldDeliverWheelEventToInputDest@CMouseProcessor@@AEBA_NAEBVCWheelEvent@1@AEBVCInputDest@@@Z.c)
+ *     DestroyProcessInfo @ 0x1C0046DC0 (DestroyProcessInfo.c)
+ *     NtSetShellCursorState @ 0x1C012D180 (NtSetShellCursorState.c)
+ *     ?ShouldDeliverWheelEventToInputDest@CMouseProcessor@@AEBA_NAEBVCWheelEvent@1@AEBVCInputDest@@@Z @ 0x1C01C2108 (-ShouldDeliverWheelEventToInputDest@CMouseProcessor@@AEBA_NAEBVCWheelEvent@1@AEBVCInputDest@@@Z.c)
  * Callees:
  *     <none>
  */

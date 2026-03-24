@@ -1,16 +1,16 @@
 /*
- * XREFs of DmrpRmrrTreeAddNewScope @ 0x140538748
+ * XREFs of DmrpRmrrTreeAddNewScope @ 0x1404E8938
  * Callers:
- *     DmrEnumerateRmrrDomains @ 0x140538580 (DmrEnumerateRmrrDomains.c)
+ *     DmrEnumerateRmrrDomains @ 0x1404E8770 (DmrEnumerateRmrrDomains.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x1403CE24C (ExtEnvAllocateMemory.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
  */
 
 __int64 __fastcall DmrpRmrrTreeAddNewScope(__int64 a1, __int16 a2, unsigned __int8 *a3)
 {
   __int64 v6; // rbx
-  _QWORD *v7; // rcx
+  __int64 *v7; // rcx
   __int64 v9; // [rsp+40h] [rbp+18h] BYREF
 
   v9 = 0LL;
@@ -22,7 +22,7 @@ __int64 __fastcall DmrpRmrrTreeAddNewScope(__int64 a1, __int16 a2, unsigned __in
     *(_QWORD *)(v6 + 16) = v6 + 16;
     memmove((void *)(v6 + 34), a3, a3[1]);
     *(_WORD *)(v6 + 32) = a2;
-    v7 = *(_QWORD **)(a1 + 16);
+    v7 = *(__int64 **)(a1 + 16);
     if ( *v7 != a1 + 8 )
       __fastfail(3u);
     *(_QWORD *)v6 = a1 + 8;

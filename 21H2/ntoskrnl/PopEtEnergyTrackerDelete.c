@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtEnergyTrackerDelete @ 0x14099A400
+ * XREFs of PopEtEnergyTrackerDelete @ 0x1408F2B80
  * Callers:
  *     <none>
  * Callees:
- *     PopEtEnergyTrackerCleanup @ 0x14099A23C (PopEtEnergyTrackerCleanup.c)
+ *     PopEtEnergyTrackerCleanup @ 0x1408F29B4 (PopEtEnergyTrackerCleanup.c)
  */
 
 __int64 __fastcall PopEtEnergyTrackerDelete(__int64 a1)

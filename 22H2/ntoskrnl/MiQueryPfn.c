@@ -1,29 +1,34 @@
 /*
- * XREFs of MiQueryPfn @ 0x1402F23C4
+ * XREFs of MiQueryPfn @ 0x140322BC8
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1402F1954 (MiGetWorkingSetInfoList.c)
+ *     MiGetWorkingSetInfoList @ 0x1403378AC (MiGetWorkingSetInfoList.c)
  * Callees:
- *     MiIsPageOnBadList @ 0x1402186E0 (MiIsPageOnBadList.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
+ *     MiGetPfnPriority @ 0x140218590 (MiGetPfnPriority.c)
+ *     MiIsPageOnBadList @ 0x140283BEC (MiIsPageOnBadList.c)
  */
 
 char __fastcall MiQueryPfn(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r8
+  __int64 v2; // r9
+  __int64 v3; // r8
   int PfnPriority; // eax
-  __int64 v4; // rdx
   __int64 v5; // r9
-  __int64 v6; // r8
+  __int64 v6; // r10
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
   char result; // al
 
-  v2 = 48 * a1 - 0x220000000000LL;
-  if ( (*(_BYTE *)(v2 + 35) & 0x40) != 0 || MiIsPageOnBadList(48 * a1 - 0x220000000000LL) )
-    *(_QWORD *)(a2 + 8) |= 0x80000000uLL;
-  PfnPriority = MiGetPfnPriority(v2);
-  *(_QWORD *)(v4 + 8) ^= (*(_DWORD *)(v4 + 8) ^ (PfnPriority << 24)) & 0x7000000;
-  result = *(_BYTE *)(v6 + 34) & 7;
+  v2 = a2;
+  v3 = 48 * a1 - 0x58000000000LL;
+  if ( (*(_BYTE *)(v3 + 35) & 0x40) != 0 || MiIsPageOnBadList(48 * a1 - 0x58000000000LL) )
+    *(_QWORD *)(v2 + 8) |= 0x80000000uLL;
+  PfnPriority = MiGetPfnPriority(v3);
+  v8 = v7 ^ ((unsigned int)v7 ^ (PfnPriority << 24)) & 0x7000000;
+  *(_QWORD *)(v5 + 8) = v8;
+  result = *(_BYTE *)(v9 + 34) & 7;
   if ( result == 3 )
-    v5 = 0x8000000LL;
-  *(_QWORD *)(v4 + 8) = *(_QWORD *)(v4 + 8) & 0xFFFFFFFFF77FFFFFuLL | v5 & 0xFFFFFFFFFF7FFFFFuLL | 0x400000;
+    v6 = 0x8000000LL;
+  *(_QWORD *)(v5 + 8) = v8 & 0xFFFFFFFFF77FFFFFuLL | v6 & 0xFFFFFFFFFF7FFFFFuLL | 0x400000;
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerInitializeProfiling @ 0x1403BB340
+ * XREFs of HalpTimerInitializeProfiling @ 0x1403A8850
  * Callers:
- *     HalpTimerInitSystem @ 0x1403BB0A0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     HalpTimerConfigureInterrupt @ 0x1403AEA08 (HalpTimerConfigureInterrupt.c)
- *     HalpInterruptSetIdtEntry @ 0x1403AEF08 (HalpInterruptSetIdtEntry.c)
- *     HalpMmAllocatePerProcessorMemory @ 0x1403BB634 (HalpMmAllocatePerProcessorMemory.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A2584 (HalpTimerConfigureInterrupt.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A26AC (HalpInterruptSetIdtEntry.c)
+ *     HalpMmAllocatePerProcessorMemory @ 0x1403A8B44 (HalpMmAllocatePerProcessorMemory.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpTimerInitializeProfiling()
@@ -27,7 +27,7 @@ __int64 HalpTimerInitializeProfiling()
   if ( HalpProfileData || (HalpProfileData = HalpMmAllocatePerProcessorMemory(32LL)) != 0 )
   {
     v6 = 10000;
-    ((void (__fastcall *)(_QWORD, int *))HalpProfileInterface[3])(0LL, &v6);
+    (*((void (__fastcall **)(_QWORD, int *))HalpProfileInterface[0] + 3))(0LL, &v6);
     if ( KeGetPcr()->Prcb.Number )
     {
       if ( v0 )
@@ -47,7 +47,7 @@ __int64 HalpTimerInitializeProfiling()
     }
     else if ( v0 )
     {
-      *((_QWORD *)&v7 + 1) = (unsigned __int16)(KiProcessorIndexToNumberMappingTable[0] >> 6);
+      *((_QWORD *)&v7 + 1) = (unsigned __int16)((unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6);
       *(_QWORD *)&v7 = 1LL << (KiProcessorIndexToNumberMappingTable[0] & 0x3F);
       return (unsigned int)HalpTimerConfigureInterrupt(
                              v0,

@@ -1,11 +1,11 @@
 /*
- * XREFs of GreMultiUserInitSession @ 0x1C0011DF0
+ * XREFs of GreMultiUserInitSession @ 0x1C00C45A0
  * Callers:
- *     xxxRemoteConnect @ 0x1C00115D0 (xxxRemoteConnect.c)
+ *     xxxRemoteConnect @ 0x1C0117AB0 (xxxRemoteConnect.c)
  * Callees:
- *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C0024ED4 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00804D0 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
  */
 
 __int64 __fastcall GreMultiUserInitSession(
@@ -21,49 +21,41 @@ __int64 __fastcall GreMultiUserInitSession(
         int a10,
         unsigned __int16 *a11)
 {
-  unsigned int v11; // edi
-  void *v13; // rdx
+  unsigned int v12; // esi
+  __int64 v13; // rcx
   __int64 v14; // rbp
-  unsigned __int16 *v15; // rax
-  void *v16; // rdx
-  unsigned __int16 *v17; // rax
+  char *v15; // rax
+  __int64 v16; // rcx
+  char *v17; // rax
 
-  v11 = 0;
   *(_DWORD *)(a1 + 4) = a5;
-  *(_QWORD *)(a1 + 24) = a2;
-  v13 = *(void **)(a1 + 40);
+  v12 = 0;
   *(_QWORD *)(a1 + 8) = a6;
   *(_QWORD *)(a1 + 16) = a7;
   *(_DWORD *)a1 = a4;
   *(_QWORD *)(a1 + 32) = a3;
+  *(_QWORD *)(a1 + 24) = a2;
+  v13 = *(_QWORD *)(a1 + 40);
   if ( v13 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v13);
+    Win32FreePool(v13);
   v14 = (unsigned int)(a8 + 1);
-  v15 = (unsigned __int16 *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                              gpLeakTrackingAllocator,
-                              0x104uLL,
-                              2 * v14,
-                              0x79737355u);
+  v15 = (char *)Win32AllocPool(2 * v14, 0x79737355u);
   *(_QWORD *)(a1 + 40) = v15;
   if ( v15 )
   {
-    StringCchCopyNW(v15, (unsigned int)(a8 + 1), a9, (unsigned int)(a8 + 1));
+    StringCchCopyNW(v15, (unsigned int)(a8 + 1), (char *)a9, (unsigned int)(a8 + 1));
     *(_DWORD *)(a1 + 48) = v14;
-    v11 = 1;
+    v12 = 1;
   }
-  v16 = *(void **)(a1 + 56);
+  v16 = *(_QWORD *)(a1 + 56);
   if ( v16 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v16);
-  v17 = (unsigned __int16 *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                              gpLeakTrackingAllocator,
-                              0x104uLL,
-                              2LL * (unsigned int)(a10 + 1),
-                              0x79737355u);
+    Win32FreePool(v16);
+  v17 = (char *)Win32AllocPool(2LL * (unsigned int)(a10 + 1), 0x79737355u);
   *(_QWORD *)(a1 + 56) = v17;
   if ( v17 )
   {
-    StringCchCopyNW(v17, (unsigned int)(a10 + 1), a11, (unsigned int)(a10 + 1));
+    StringCchCopyNW(v17, (unsigned int)(a10 + 1), (char *)a11, (unsigned int)(a10 + 1));
     return 1;
   }
-  return v11;
+  return v12;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpRunDownCmRM @ 0x140692FD4
+ * XREFs of CmpRunDownCmRM @ 0x140692FB4
  * Callers:
- *     CmpPerformUnloadKey @ 0x1406923B0 (CmpPerformUnloadKey.c)
- *     CmShutdownCmRM @ 0x140692F8C (CmShutdownCmRM.c)
- *     CmShutdownSystem @ 0x1407EC8D4 (CmShutdownSystem.c)
+ *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
+ *     CmShutdownCmRM @ 0x140692F6C (CmShutdownCmRM.c)
+ *     CmShutdownSystem @ 0x1407EC8B4 (CmShutdownSystem.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1040 (ObDereferenceObjectDeferDelete.c)
- *     CmpDelayFreeCmRm @ 0x140693150 (CmpDelayFreeCmRm.c)
- *     CmpCleanupTransactionState @ 0x140701C4C (CmpCleanupTransactionState.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
+ *     CmpDelayFreeCmRm @ 0x140693130 (CmpDelayFreeCmRm.c)
+ *     CmpCleanupTransactionState @ 0x140701C2C (CmpCleanupTransactionState.c)
  */
 
 void __fastcall CmpRunDownCmRM(__int64 *a1, char a2)

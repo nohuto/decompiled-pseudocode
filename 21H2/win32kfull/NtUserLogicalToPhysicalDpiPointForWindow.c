@@ -1,36 +1,35 @@
 /*
- * XREFs of NtUserLogicalToPhysicalDpiPointForWindow @ 0x1C01F9050
+ * XREFs of NtUserLogicalToPhysicalDpiPointForWindow @ 0x1C01FE600
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     LogicalToPhysicalInPlaceRectWithSubpixel @ 0x1C00FD738 (LogicalToPhysicalInPlaceRectWithSubpixel.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     LogicalToPhysicalInPlaceRectWithSubpixel @ 0x1C00F180C (LogicalToPhysicalInPlaceRectWithSubpixel.c)
  */
 
-__int64 __fastcall NtUserLogicalToPhysicalDpiPointForWindow(__int64 a1, _QWORD *a2, __int64 a3)
+__int64 __fastcall NtUserLogicalToPhysicalDpiPointForWindow(__int64 a1, _QWORD *a2)
 {
-  __int64 v5; // rcx
-  const struct tagWND *v6; // r9
-  int v7; // ebx
-  _BYTE *v8; // rdx
-  _QWORD v10[3]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v4; // rcx
+  struct tagWND *v5; // r9
+  int v6; // ebx
+  _QWORD *v7; // rdx
+  _QWORD v9[3]; // [rsp+50h] [rbp-18h] BYREF
 
-  EnterSharedCrit(a1, a2, a3);
-  v6 = (const struct tagWND *)ValidateHwnd(a1);
-  v7 = 0;
-  if ( v6 )
+  EnterSharedCrit(0LL, 1LL);
+  v5 = (struct tagWND *)ValidateHwnd(a1);
+  v6 = 0;
+  if ( v5 )
   {
-    v8 = a2;
+    v7 = a2;
     if ( (unsigned __int64)a2 >= MmUserProbeAddress )
-      v8 = (_BYTE *)MmUserProbeAddress;
-    *v8 = *v8;
-    v8[7] = v8[7];
-    v10[0] = *a2;
-    v10[1] = v10[0];
-    v7 = LogicalToPhysicalInPlaceRectWithSubpixel(v6, (int *)v10, 0LL);
-    if ( v7 == 1 )
-      *a2 = v10[0];
+      v7 = (_QWORD *)MmUserProbeAddress;
+    *v7 = *v7;
+    v9[0] = *a2;
+    v9[1] = v9[0];
+    v6 = LogicalToPhysicalInPlaceRectWithSubpixel(v5, (int *)v9, 0LL);
+    if ( v6 == 1 )
+      *a2 = v9[0];
   }
-  UserSessionSwitchLeaveCrit(v5);
-  return v7;
+  UserSessionSwitchLeaveCrit(v4);
+  return v6;
 }

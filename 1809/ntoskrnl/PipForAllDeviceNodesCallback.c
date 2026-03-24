@@ -3,7 +3,7 @@
  * Callers:
  *     PipForAllChildDeviceNodes @ 0x1405857D8 (PipForAllChildDeviceNodes.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     PipForAllChildDeviceNodes @ 0x1405857D8 (PipForAllChildDeviceNodes.c)
  */
 

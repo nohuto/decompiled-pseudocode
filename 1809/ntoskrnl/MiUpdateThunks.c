@@ -3,7 +3,7 @@
  * Callers:
  *     MiRelocateBootImage @ 0x1409B82CC (MiRelocateBootImage.c)
  * Callees:
- *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C50 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C70 (RtlpImageDirectoryEntryToDataEx.c)
  */
 
 int __fastcall MiUpdateThunks(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)

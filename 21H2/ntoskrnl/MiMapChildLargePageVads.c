@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMapChildLargePageVads @ 0x140980FA0
+ * XREFs of MiMapChildLargePageVads @ 0x1408D9960
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x1409806C8 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x1408D9060 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiIsVadLargePrivate @ 0x14030FBE0 (MiIsVadLargePrivate.c)
- *     MiLocateAddress @ 0x1403126F0 (MiLocateAddress.c)
- *     MiCopyLargeVad @ 0x140982B6C (MiCopyLargeVad.c)
+ *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
+ *     MiIsVadLargePrivate @ 0x1402AD514 (MiIsVadLargePrivate.c)
+ *     MiCopyLargeVad @ 0x1408D9D20 (MiCopyLargeVad.c)
  */
 
 __int64 __fastcall MiMapChildLargePageVads(__int64 a1, __int64 a2)

@@ -1,16 +1,22 @@
 /*
- * XREFs of ?FreeHookIfSupported@@YAXPEAUtagHOOK@@@Z @ 0x1C00B4310
+ * XREFs of ?FreeHookIfSupported@@YAXPEAUtagHOOK@@@Z @ 0x1C00AB9F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FreeHookIfSupported(struct tagHOOK *a1)
 {
-  if ( qword_1C0295B88 && (int)qword_1C0295B88() >= 0 )
+  int v2; // eax
+
+  if ( qword_1C0256778 )
+    v2 = qword_1C0256778();
+  else
+    v2 = -1073741637;
+  if ( v2 >= 0 )
   {
-    if ( qword_1C0295B90 )
-      qword_1C0295B90(a1);
+    if ( qword_1C0256780 )
+      qword_1C0256780(a1);
   }
 }

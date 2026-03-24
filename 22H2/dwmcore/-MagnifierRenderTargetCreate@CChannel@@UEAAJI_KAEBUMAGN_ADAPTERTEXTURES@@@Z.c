@@ -1,13 +1,12 @@
 /*
- * XREFs of ?MagnifierRenderTargetCreate@CChannel@@UEAAJI_KAEBUMAGN_ADAPTERTEXTURES@@@Z @ 0x1801CFB00
+ * XREFs of ?MagnifierRenderTargetCreate@CChannel@@UEAAJI_KAEBUMAGN_ADAPTERTEXTURES@@@Z @ 0x18014FFF0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180044038 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005E108 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E530 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 __int64 __fastcall CChannel::MagnifierRenderTargetCreate(
@@ -29,57 +28,58 @@ __int64 __fastcall CChannel::MagnifierRenderTargetCreate(
   __int128 v18; // xmm0
   __int128 v19; // xmm1
   unsigned int v20; // ebx
-  _BYTE v22[16]; // [rsp+20h] [rbp-F8h] BYREF
-  int v23; // [rsp+30h] [rbp-E8h] BYREF
-  unsigned int v24; // [rsp+34h] [rbp-E4h] BYREF
-  __int64 v25; // [rsp+38h] [rbp-E0h]
-  __int128 v26; // [rsp+40h] [rbp-D8h]
-  __int128 v27; // [rsp+50h] [rbp-C8h]
-  __int128 v28; // [rsp+60h] [rbp-B8h]
-  __int128 v29; // [rsp+70h] [rbp-A8h]
-  __int128 v30; // [rsp+80h] [rbp-98h]
-  __int128 v31; // [rsp+90h] [rbp-88h]
-  __int128 v32; // [rsp+A0h] [rbp-78h]
-  __int128 v33; // [rsp+B0h] [rbp-68h]
-  __int128 v34; // [rsp+C0h] [rbp-58h]
-  __int128 v35; // [rsp+D0h] [rbp-48h]
-  __int128 v36; // [rsp+E0h] [rbp-38h]
-  __int128 v37; // [rsp+F0h] [rbp-28h]
-  __int128 v38; // [rsp+100h] [rbp-18h]
+  int v22; // [rsp+20h] [rbp-E8h] BYREF
+  unsigned int v23; // [rsp+24h] [rbp-E4h] BYREF
+  __int64 v24; // [rsp+28h] [rbp-E0h]
+  __int128 v25; // [rsp+30h] [rbp-D8h]
+  __int128 v26; // [rsp+40h] [rbp-C8h]
+  __int128 v27; // [rsp+50h] [rbp-B8h]
+  __int128 v28; // [rsp+60h] [rbp-A8h]
+  __int128 v29; // [rsp+70h] [rbp-98h]
+  __int128 v30; // [rsp+80h] [rbp-88h]
+  __int128 v31; // [rsp+90h] [rbp-78h]
+  __int128 v32; // [rsp+A0h] [rbp-68h]
+  __int128 v33; // [rsp+B0h] [rbp-58h]
+  __int128 v34; // [rsp+C0h] [rbp-48h]
+  __int128 v35; // [rsp+D0h] [rbp-38h]
+  __int128 v36; // [rsp+E0h] [rbp-28h]
+  __int128 v37; // [rsp+F0h] [rbp-18h]
+  struct _RTL_CRITICAL_SECTION *v38; // [rsp+110h] [rbp+8h] BYREF
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v22, this);
-  CChannel::CheckHandle((__int64)this, a2, 104);
-  v23 = 243;
-  memset_0(&v24, 0, 0xDCuLL);
+  v38 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  CChannel::CheckHandle((__int64)this, a2, 102);
+  v22 = 252;
+  memset_0(&v23, 0, 0xDCuLL);
   v8 = *(_OWORD *)a4;
-  v24 = a2;
+  v23 = a2;
   v9 = *((_OWORD *)a4 + 1);
-  v25 = a3;
-  v26 = v8;
+  v24 = a3;
+  v25 = v8;
   v10 = *((_OWORD *)a4 + 2);
-  v27 = v9;
+  v26 = v9;
   v11 = *((_OWORD *)a4 + 3);
-  v28 = v10;
+  v27 = v10;
   v12 = *((_OWORD *)a4 + 4);
-  v29 = v11;
+  v28 = v11;
   v13 = *((_OWORD *)a4 + 5);
-  v30 = v12;
+  v29 = v12;
   v14 = *((_OWORD *)a4 + 6);
-  v31 = v13;
-  v32 = v14;
+  v30 = v13;
+  v31 = v14;
   v15 = *((_OWORD *)a4 + 7);
   a4 = (const struct MAGN_ADAPTERTEXTURES *)((char *)a4 + 128);
-  v33 = v15;
+  v32 = v15;
   v16 = *((_OWORD *)a4 + 1);
-  v34 = *(_OWORD *)a4;
+  v33 = *(_OWORD *)a4;
   v17 = *((_OWORD *)a4 + 2);
-  v35 = v16;
+  v34 = v16;
   v18 = *((_OWORD *)a4 + 3);
-  v36 = v17;
+  v35 = v17;
   v19 = *((_OWORD *)a4 + 4);
-  v37 = v18;
-  v38 = v19;
-  v20 = CChannel::SendCommand(this, &v23, 0xE0u);
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v22);
+  v36 = v18;
+  v37 = v19;
+  v20 = CChannel::SendCommand(this, &v22, 0xE0u);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v38);
   return v20;
 }

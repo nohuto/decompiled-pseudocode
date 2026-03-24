@@ -1,20 +1,20 @@
 /*
- * XREFs of UsbhBusPnpStop_Action @ 0x1C0030B18
+ * XREFs of UsbhBusPnpStop_Action @ 0x1C0031EC0
  * Callers:
- *     Usbh_BS_BusSuspend @ 0x1C000FE40 (Usbh_BS_BusSuspend.c)
- *     Usbh_BS_BusPause @ 0x1C0010190 (Usbh_BS_BusPause.c)
- *     Usbh_BS_BusRun @ 0x1C00102A0 (Usbh_BS_BusRun.c)
+ *     Usbh_BS_BusSuspend @ 0x1C0002D20 (Usbh_BS_BusSuspend.c)
+ *     Usbh_BS_BusPause @ 0x1C0003070 (Usbh_BS_BusPause.c)
+ *     Usbh_BS_BusRun @ 0x1C0003180 (Usbh_BS_BusRun.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhQueryPortState @ 0x1C0018E60 (UsbhQueryPortState.c)
- *     UsbhDisablePortIndicators @ 0x1C002E5F4 (UsbhDisablePortIndicators.c)
- *     UsbhPCE_Close @ 0x1C0033AA0 (UsbhPCE_Close.c)
- *     UsbhPCE_HW_Stop @ 0x1C0033D98 (UsbhPCE_HW_Stop.c)
- *     UsbhDecrementHubIsrWorkerReference @ 0x1C0036ACC (UsbhDecrementHubIsrWorkerReference.c)
- *     UsbhDisablePort @ 0x1C0036D8C (UsbhDisablePort.c)
- *     Usbh_BusPnpStop_PdoEvent @ 0x1C003A10C (Usbh_BusPnpStop_PdoEvent.c)
- *     UsbhFreeTimerObject @ 0x1C003B1B0 (UsbhFreeTimerObject.c)
+ *     UsbhQueryPortState @ 0x1C000A080 (UsbhQueryPortState.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhDecrementHubIsrWorkerReference @ 0x1C001BAA4 (UsbhDecrementHubIsrWorkerReference.c)
+ *     UsbhDisablePortIndicators @ 0x1C002F9D0 (UsbhDisablePortIndicators.c)
+ *     UsbhPCE_Close @ 0x1C0034E04 (UsbhPCE_Close.c)
+ *     UsbhPCE_HW_Stop @ 0x1C00350FC (UsbhPCE_HW_Stop.c)
+ *     UsbhDisablePort @ 0x1C0038040 (UsbhDisablePort.c)
+ *     Usbh_BusPnpStop_PdoEvent @ 0x1C003B41C (Usbh_BusPnpStop_PdoEvent.c)
+ *     UsbhFreeTimerObject @ 0x1C003C4DC (UsbhFreeTimerObject.c)
  */
 
 void __fastcall UsbhBusPnpStop_Action(__int64 a1, __int64 a2)

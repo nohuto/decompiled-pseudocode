@@ -1,12 +1,12 @@
 /*
- * XREFs of PipGetDriverKsrGuidRegistryValue @ 0x140953348
+ * XREFs of PipGetDriverKsrGuidRegistryValue @ 0x14089C8DC
  * Callers:
- *     PipGetDriverKsrGuid @ 0x140953250 (PipGetDriverKsrGuid.c)
+ *     PipGetDriverKsrGuid @ 0x14089C7E4 (PipGetDriverKsrGuid.c)
  * Callees:
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     PnpRegSzToString @ 0x1407C274C (PnpRegSzToString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     PnpRegSzToString @ 0x14073C4CC (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipGetDriverKsrGuidRegistryValue(void *a1, GUID *a2)
@@ -14,8 +14,8 @@ __int64 __fastcall PipGetDriverKsrGuidRegistryValue(void *a1, GUID *a2)
   NTSTATUS RegistryValue; // eax
   _WORD *v4; // rbx
   unsigned int v5; // edi
-  unsigned int v6; // ecx
-  unsigned int v7; // edx
+  unsigned int v6; // edx
+  __int64 v7; // rcx
   _WORD *v8; // rcx
   wchar_t *v9; // rax
   UNICODE_STRING GuidString; // [rsp+20h] [rbp-18h] BYREF
@@ -29,17 +29,20 @@ __int64 __fastcall PipGetDriverKsrGuidRegistryValue(void *a1, GUID *a2)
   if ( RegistryValue >= 0 && *((_DWORD *)P + 1) == 1 )
   {
     v6 = *((_DWORD *)P + 3);
-    if ( v6 >= 2 && !*(_WORD *)((char *)P + 2 * ((unsigned __int64)v6 >> 1) + *((unsigned int *)P + 2) - 2) )
+    if ( v6 >= 2 )
     {
-      v7 = *((_DWORD *)P + 3);
-      v8 = (char *)P + *((unsigned int *)P + 2);
-      LODWORD(P) = 0;
-      PnpRegSzToString(v8, v7, (int *)&P);
-      GuidString.MaximumLength = v4[6];
-      v9 = (_WORD *)((char *)v4 + *((unsigned int *)v4 + 2));
-      GuidString.Length = (unsigned __int16)P;
-      GuidString.Buffer = v9;
-      v5 = RtlGUIDFromString(&GuidString, a2);
+      v7 = *((unsigned int *)P + 2);
+      if ( !*(_WORD *)((char *)P + 2 * ((unsigned __int64)v6 >> 1) + v7 - 2) )
+      {
+        v8 = (char *)P + v7;
+        LODWORD(P) = 0;
+        PnpRegSzToString(v8, v6, (int *)&P);
+        GuidString.MaximumLength = v4[6];
+        v9 = (_WORD *)((char *)v4 + *((unsigned int *)v4 + 2));
+        GuidString.Length = (unsigned __int16)P;
+        GuidString.Buffer = v9;
+        v5 = RtlGUIDFromString(&GuidString, a2);
+      }
     }
   }
   if ( v4 )

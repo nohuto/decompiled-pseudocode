@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReleaseResources@CCompositionMipmapSurface@@AEAAXXZ @ 0x180224690
+ * XREFs of ?ReleaseResources@CCompositionMipmapSurface@@AEAAXXZ @ 0x1801BA734
  * Callers:
- *     ??1CCompositionMipmapSurface@@UEAA@XZ @ 0x180223E50 (--1CCompositionMipmapSurface@@UEAA@XZ.c)
+ *     ??1CCompositionMipmapSurface@@UEAA@XZ @ 0x1801B9F30 (--1CCompositionMipmapSurface@@UEAA@XZ.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x18001ED10 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800293B0 (-RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x180047FF0 (-RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D42F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 void __fastcall CCompositionMipmapSurface::ReleaseResources(CCompositionMipmapSurface *this)
@@ -15,11 +15,11 @@ void __fastcall CCompositionMipmapSurface::ReleaseResources(CCompositionMipmapSu
   __int64 v4; // rsi
   __int64 v5; // rsi
   struct CResource *v6; // rdx
-  CD3DResource *v7; // rcx
+  __int64 v7; // rcx
 
-  v1 = *((_QWORD *)this + 12);
+  v1 = *((_QWORD *)this + 11);
   v2 = 0;
-  if ( (*((_QWORD *)this + 13) - v1) >> 5 )
+  if ( (*((_QWORD *)this + 12) - v1) >> 5 )
   {
     v4 = 0LL;
     do
@@ -31,18 +31,16 @@ void __fastcall CCompositionMipmapSurface::ReleaseResources(CCompositionMipmapSu
         CResource::UnRegisterNotifierInternal(this, v6);
         *(_QWORD *)(v5 + v1) = 0LL;
       }
-      v1 = *((_QWORD *)this + 12);
+      v1 = *((_QWORD *)this + 11);
       v4 = ++v2;
     }
-    while ( v2 < (unsigned __int64)((*((_QWORD *)this + 13) - v1) >> 5) );
+    while ( v2 < (unsigned __int64)((*((_QWORD *)this + 12) - v1) >> 5) );
   }
-  *((_QWORD *)this + 13) = v1;
-  v7 = (CD3DResource *)*((_QWORD *)this + 21);
+  *((_QWORD *)this + 12) = v1;
+  v7 = *((_QWORD *)this + 20);
   if ( v7 )
   {
-    CD3DResource::RemoveResourceNotifier(
-      v7,
-      (const struct IDeviceResourceNotify *)(((unsigned __int64)this + 80) & -(__int64)(this != 0LL)));
-    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 21);
+    CD3DResource::RemoveResourceNotifier((CD3DResource *)(v7 + 24), (CCompositionMipmapSurface *)((char *)this + 72));
+    Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 20);
   }
 }

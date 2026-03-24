@@ -1,42 +1,41 @@
 /*
- * XREFs of PsReferenceProcessFilePointer @ 0x140673AD0
+ * XREFs of PsReferenceProcessFilePointer @ 0x140604BE0
  * Callers:
- *     SepMandatorySubProcessToken @ 0x140205B1C (SepMandatorySubProcessToken.c)
- *     SepVerifyDesktopAppxImage @ 0x1403761D8 (SepVerifyDesktopAppxImage.c)
- *     PsCheckProcessFileSigningLevel @ 0x14065FD10 (PsCheckProcessFileSigningLevel.c)
- *     CmpCheckExeOwnerForPca @ 0x1406B4F98 (CmpCheckExeOwnerForPca.c)
- *     PspCallProcessNotifyRoutines @ 0x1406F80E4 (PspCallProcessNotifyRoutines.c)
- *     DbgkCreateThread @ 0x140702604 (DbgkCreateThread.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     SepVerifyDesktopAppxImage @ 0x1402013A4 (SepVerifyDesktopAppxImage.c)
+ *     SepMandatorySubProcessToken @ 0x1402517DC (SepMandatorySubProcessToken.c)
+ *     PspCallProcessNotifyRoutines @ 0x14061AEAC (PspCallProcessNotifyRoutines.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     DbgkCreateThread @ 0x140647420 (DbgkCreateThread.c)
+ *     CmpCheckExeOwnerForPca @ 0x14076FB68 (CmpCheckExeOwnerForPca.c)
  * Callees:
- *     MiReferenceControlAreaFileWithTag @ 0x14027A794 (MiReferenceControlAreaFileWithTag.c)
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
  */
 
-__int64 __fastcall PsReferenceProcessFilePointer(struct _EX_RUNDOWN_REF *a1, __int64 *a2)
+__int64 __fastcall PsReferenceProcessFilePointer(struct _EX_RUNDOWN_REF *a1, ULONG_PTR *a2)
 {
   struct _EX_RUNDOWN_REF *v2; // rdi
   __int64 Count; // rcx
   unsigned __int64 v6; // rax
-  __int64 v7; // rbx
+  ULONG_PTR v7; // rbx
   __int64 result; // rax
 
   v2 = a1 + 139;
-  if ( ExAcquireRundownProtection(a1 + 139) )
+  if ( ExAcquireRundownProtection_0(a1 + 139) )
   {
     Count = a1[163].Count;
     if ( Count )
     {
       v6 = MiSectionControlArea(Count);
-      v7 = MiReferenceControlAreaFileWithTag(v6, 1953261124LL);
-      ExReleaseRundownProtection(v2);
+      v7 = MiReferenceControlAreaFile(v6);
+      ExReleaseRundownProtection_0(v2);
       result = 0LL;
       *a2 = v7;
       return result;
     }
-    ExReleaseRundownProtection(v2);
+    ExReleaseRundownProtection_0(v2);
   }
   return 3221225473LL;
 }

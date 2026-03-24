@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFreeZeroPageSlistSufficient @ 0x1402BF9B4
+ * XREFs of MiFreeZeroPageSlistSufficient @ 0x1402BFAB4
  * Callers:
  *     MiZeroPage @ 0x140036A00 (MiZeroPage.c)
  * Callees:
- *     MiNodeFreeZeroPages @ 0x1400EE2D4 (MiNodeFreeZeroPages.c)
+ *     MiNodeFreeZeroPages @ 0x1400EE2F4 (MiNodeFreeZeroPages.c)
  */
 
 _BOOL8 __fastcall MiFreeZeroPageSlistSufficient(__int64 a1, unsigned int a2, int a3)

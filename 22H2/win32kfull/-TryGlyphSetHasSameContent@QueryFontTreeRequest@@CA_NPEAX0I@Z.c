@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TryGlyphSetHasSameContent@QueryFontTreeRequest@@CA_NPEAX0I@Z @ 0x1C009D1E0
+ * XREFs of ?TryGlyphSetHasSameContent@QueryFontTreeRequest@@CA_NPEAX0I@Z @ 0x1C0104820
  * Callers:
  *     <none>
  * Callees:

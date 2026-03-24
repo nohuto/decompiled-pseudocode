@@ -1,12 +1,32 @@
 /*
- * XREFs of _lambda_940d064d943a20fd52938170853ed62c_::_lambda_invoker_cdecl_ @ 0x1C01DAAE0
+ * XREFs of _lambda_940d064d943a20fd52938170853ed62c_::_lambda_invoker_cdecl_ @ 0x1C00DFE20
  * Callers:
  *     <none>
  * Callees:
- *     _lambda_940d064d943a20fd52938170853ed62c_::operator() @ 0x1C01DAAF8 (_lambda_940d064d943a20fd52938170853ed62c_--operator().c)
+ *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00027F8 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C00E0464 (-ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
  */
 
-__int64 __fastcall lambda_940d064d943a20fd52938170853ed62c_::_lambda_invoker_cdecl_(__int64 a1)
+__int64 __fastcall lambda_940d064d943a20fd52938170853ed62c_::_lambda_invoker_cdecl_(struct ADAPTER_RENDER **a1)
 {
-  return lambda_940d064d943a20fd52938170853ed62c_::operator()(a1, a1);
+  int v2; // r8d
+  __int64 v3; // rdx
+  ADAPTER_DISPLAY *v4; // rcx
+  _BYTE v6[144]; // [rsp+20h] [rbp-A8h] BYREF
+
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v6, (struct DXGADAPTER *const)a1, 0LL);
+  if ( (int)COREADAPTERACCESS::AcquireExclusive((__int64)v6, (unsigned int)(v2 + 1)) >= 0 )
+  {
+    v4 = a1[337];
+    if ( v4 )
+    {
+      if ( !a1[550] )
+        ADAPTER_DISPLAY::ReleaseAllVidPnSourceOwners(v4, a1[338]);
+    }
+  }
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v6, v3);
+  return 0LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RIMRevokeConfigurationChange @ 0x1C0182C20
+ * XREFs of RIMRevokeConfigurationChange @ 0x1C0162190
  * Callers:
  *     <none>
  * Callees:
- *     RIMDeliverConfigRequest @ 0x1C0180768 (RIMDeliverConfigRequest.c)
+ *     RIMDeliverConfigRequest @ 0x1C01613B4 (RIMDeliverConfigRequest.c)
  */
 
 __int64 __fastcall RIMRevokeConfigurationChange(__int64 a1, unsigned __int16 a2)
 {
-  return RIMDeliverConfigRequest((struct RIMDEV *)a1, *(_QWORD *)(a1 + 456), a2, 0);
+  return RIMDeliverConfigRequest((struct RIMDEV *)a1, *(_QWORD *)(a1 + 464), a2, 0);
 }

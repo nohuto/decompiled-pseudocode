@@ -1,20 +1,20 @@
 /*
- * XREFs of KeAllocateCalloutStackEx @ 0x140871A70
+ * XREFs of KeAllocateCalloutStackEx @ 0x1407800A0
  * Callers:
- *     KeAllocateCalloutStack @ 0x140851370 (KeAllocateCalloutStack.c)
+ *     KeAllocateCalloutStack @ 0x1407C7640 (KeAllocateCalloutStack.c)
  * Callees:
- *     MmCreateKernelStack @ 0x140271580 (MmCreateKernelStack.c)
- *     KeInitializeMutex @ 0x14033ABB0 (KeInitializeMutex.c)
- *     MmDeleteKernelStack @ 0x1403D5FE0 (MmDeleteKernelStack.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmCreateKernelStack @ 0x1402AABF0 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1402AB200 (MmDeleteKernelStack.c)
+ *     KeInitializeMutex @ 0x14035FBE0 (KeInitializeMutex.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KeAllocateCalloutStackEx(int a1, unsigned __int8 a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v4; // ebp
   unsigned __int8 v5; // si
-  _DWORD *Pool2; // rbx
+  _DWORD *PoolWithTag; // rbx
   unsigned int v7; // edi
   __int64 *v8; // r14
   __int64 KernelStack; // rax
@@ -34,13 +34,13 @@ __int64 __fastcall KeAllocateCalloutStackEx(int a1, unsigned __int8 a2, __int64 
     return 3221225712LL;
   if ( a3 )
     return 3221225713LL;
-  Pool2 = (_DWORD *)ExAllocatePool2(64LL, 8LL * a2 + 64, 1666409803LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * a2 + 64, 0x6353654Bu);
+  if ( !PoolWithTag )
     return 3221225495LL;
   v7 = 0;
   if ( (_BYTE)v4 )
   {
-    v8 = (__int64 *)(Pool2 + 16);
+    v8 = (__int64 *)(PoolWithTag + 16);
     while ( 1 )
     {
       KernelStack = MmCreateKernelStack(v5 != 0 ? 5 : 0, 0, 0LL);
@@ -53,19 +53,19 @@ __int64 __fastcall KeAllocateCalloutStackEx(int a1, unsigned __int8 a2, __int64 
         goto LABEL_10;
     }
     while ( v7 )
-      MmDeleteKernelStack(*(_QWORD *)&Pool2[2 * --v7 + 16], v5);
-    ExFreePoolWithTag(Pool2, 0);
+      MmDeleteKernelStack(*(_QWORD *)&PoolWithTag[2 * --v7 + 16], (struct _LIST_ENTRY *)v5);
+    ExFreePoolWithTag(PoolWithTag, 0);
     return 3221225626LL;
   }
   else
   {
 LABEL_10:
-    *Pool2 = 1801548883;
-    *((_BYTE *)Pool2 + 4) = v5;
-    *((_BYTE *)Pool2 + 5) = v4;
-    *((_BYTE *)Pool2 + 6) = 0;
-    KeInitializeMutex((PRKMUTEX)(Pool2 + 2), 0);
-    *a4 = Pool2;
+    *PoolWithTag = 1801548883;
+    *((_BYTE *)PoolWithTag + 4) = v5;
+    *((_BYTE *)PoolWithTag + 5) = v4;
+    *((_BYTE *)PoolWithTag + 6) = 0;
+    KeInitializeMutex((PRKMUTEX)(PoolWithTag + 2), 0);
+    *a4 = PoolWithTag;
     return 0LL;
   }
 }

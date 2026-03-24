@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02F4CEC
+ * XREFs of ?bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02CF584
  * Callers:
- *     ?EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02F4858 (-EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C01476A0 (-EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
  * Callees:
- *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C0091438 (-bUMPDSecurityGateEx@@YAHXZ.c)
- *     ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C02F4F18 (-bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00CF858 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C0147B60 (-bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
  */
 
 __int64 __fastcall bBrushPath(
@@ -20,8 +20,8 @@ __int64 __fastcall bBrushPath(
   __int64 v13; // rdi
   unsigned int v14; // r9d
   unsigned int v15; // r8d
-  int v16; // r10d
-  LONG y; // r11d
+  int v16; // r11d
+  LONG y; // r10d
   __int64 v18; // rcx
   _QWORD v19[4]; // [rsp+30h] [rbp-50h] BYREF
   int v20; // [rsp+50h] [rbp-30h]
@@ -34,37 +34,46 @@ __int64 __fastcall bBrushPath(
   int v27; // [rsp+70h] [rbp-10h]
   int v28; // [rsp+74h] [rbp-Ch]
 
-  if ( (unsigned int)(*((_DWORD *)a1 + 24) - 1) > 5 && (unsigned int)bUMPDSecurityGateEx() )
+  if ( (unsigned int)(*((_DWORD *)a1 + 24) - 1) > 5 && bUMPDSecurityGateEx() )
+  {
+    if ( gfUMPDDebug )
+      DbgPrint(
+        "clientcore\\windows\\core\\ntgdi\\gre\\windows\\fastfill.cxx:%d:bBrushPath:Invalid surface format.\n",
+        250);
     return 0LL;
-  pvRbrush = a4[1].pvRbrush;
-  v22 = 0LL;
-  v28 = 0;
-  v13 = *((unsigned int *)a1 + 24);
-  v19[2] = *((_QWORD *)a1 + 10);
-  v20 = *((_DWORD *)a1 + 22);
-  v27 = *((_DWORD *)&aulMulFormat + v13);
-  v19[3] = pvRbrush[4];
-  v21 = *((_DWORD *)pvRbrush + 7);
-  v14 = *((_DWORD *)pvRbrush + 5) * v27;
-  v25 = v14;
-  v15 = *((_DWORD *)pvRbrush + 6);
-  v26 = v15;
-  v16 = a5->x * v27;
-  y = a5->y;
-  v24 = y;
-  v23 = v16;
-  if ( v16 < 0 )
-    v23 = v14 - ~v16 % v14 - 1;
-  if ( y < 0 )
-    v24 = v15 - (-1 - y) % v15 - 1;
-  v18 = a6 + 3 * v13;
-  v19[0] = qword_1C030B370[v18];
-  v19[1] = qword_1C030B420[v18];
-  return bEngFastFillEnum(
-           (struct EPATHOBJ *)a2,
-           a3,
-           a7,
-           (void (*)(struct _RECTL *, unsigned int, void *))vBrushPathEnum,
-           (void (*)(int, struct _ROW *, unsigned int, void *))vBrushPathEnumRow,
-           v19);
+  }
+  else
+  {
+    pvRbrush = a4[1].pvRbrush;
+    v22 = 0LL;
+    v28 = 0;
+    v13 = *((unsigned int *)a1 + 24);
+    v19[2] = *((_QWORD *)a1 + 10);
+    v20 = *((_DWORD *)a1 + 22);
+    v27 = *((_DWORD *)&aulMulFormat + v13);
+    v19[3] = pvRbrush[4];
+    v21 = *((_DWORD *)pvRbrush + 7);
+    v14 = v27 * *((_DWORD *)pvRbrush + 5);
+    v25 = v14;
+    v15 = *((_DWORD *)pvRbrush + 6);
+    v26 = v15;
+    v16 = a5->x * v27;
+    y = a5->y;
+    v24 = y;
+    v23 = v16;
+    if ( v16 < 0 )
+      v23 = v14 - ~v16 % v14 - 1;
+    if ( y < 0 )
+      v24 = v15 - ~y % v15 - 1;
+    v18 = a6 + 3 * v13;
+    v19[0] = *(&apfnPatRect + v18);
+    v19[1] = *(&apfnPatRow + v18);
+    return bEngFastFillEnum(
+             (struct EPATHOBJ *)a2,
+             a3,
+             a7,
+             (void (*)(struct _RECTL *, unsigned int, void *))vBrushPathEnum,
+             (void (*)(int, struct _ROW *, unsigned int, void *))vBrushPathEnumRow,
+             v19);
+  }
 }

@@ -1,30 +1,30 @@
 /*
- * XREFs of PiAuCheckTokenMembership @ 0x140949950
+ * XREFs of PiAuCheckTokenMembership @ 0x1408A3B68
  * Callers:
- *     PiAuCheckClientInteractive @ 0x140949890 (PiAuCheckClientInteractive.c)
+ *     PiAuCheckClientInteractive @ 0x1408A3AA8 (PiAuCheckClientInteractive.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14078ED60 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14078EDC0 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140676C10 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuCheckTokenMembership(void *Src, BOOLEAN *a2)
 {
   ULONG v4; // ebx
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   ACL *v6; // rdi
   int Acl; // ebx
-  ACL *v8; // rsi
   NTSTATUS AccessStatus; // [rsp+50h] [rbp-9h] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+54h] [rbp-5h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+58h] [rbp-1h] BYREF
@@ -39,21 +39,21 @@ __int64 __fastcall PiAuCheckTokenMembership(void *Src, BOOLEAN *a2)
   GenericMapping.GenericAll = 2031617;
   *a2 = 0;
   v4 = 3 * (RtlLengthSid(Src) + 20);
-  Pool2 = (ACL *)ExAllocatePool2(256LL, v4, 538996816LL);
-  v6 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v4, 0x20207050u);
+  v6 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v8 = Pool2 + 5;
-    RtlCreateSecurityDescriptor(Pool2, 1u);
+    memset(PoolWithTag, 0, v4);
+    RtlCreateSecurityDescriptor(v6, 1u);
     RtlSetOwnerSecurityDescriptor(v6, Src, 0);
     RtlSetGroupSecurityDescriptor(v6, Src, 0);
-    Acl = RtlCreateAcl(v8, v4 - 40, 2u);
+    Acl = RtlCreateAcl(v6 + 5, v4 - 40, 2u);
     if ( Acl >= 0 )
     {
-      Acl = RtlpAddKnownAce((__int64)v8, 2u, 0, 1, (unsigned __int8 *)Src, 0);
+      Acl = RtlpAddKnownAce((__int64)&v6[5], 2u, 0, 1, (unsigned __int8 *)Src, 0);
       if ( Acl >= 0 )
       {
-        Acl = RtlSetDaclSecurityDescriptor(v6, 1u, v8, 0);
+        Acl = RtlSetDaclSecurityDescriptor(v6, 1u, v6 + 5, 0);
         if ( Acl >= 0 )
         {
           SeCaptureSubjectContext(&SubjectContext);

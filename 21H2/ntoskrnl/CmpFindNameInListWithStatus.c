@@ -1,53 +1,42 @@
 /*
- * XREFs of CmpFindNameInListWithStatus @ 0x1407221B0
+ * XREFs of CmpFindNameInListWithStatus @ 0x140665F7C
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1406803C0 (CmpGetSymbolicLinkTarget.c)
- *     CmDeleteValueKey @ 0x140714E58 (CmDeleteValueKey.c)
- *     CmpFindNameInList @ 0x14071F68C (CmpFindNameInList.c)
- *     CmSetValueKey @ 0x140720260 (CmSetValueKey.c)
- *     CmpCompareNewValueDataAgainstKCBCache @ 0x140721FFC (CmpCompareNewValueDataAgainstKCBCache.c)
- *     CmQueryMultipleValueForLayeredKey @ 0x14091210C (CmQueryMultipleValueForLayeredKey.c)
- *     CmpMergeKeyValues @ 0x14091FCD8 (CmpMergeKeyValues.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
+ *     CmpCompareNewValueDataAgainstKCBCache @ 0x140665DE8 (CmpCompareNewValueDataAgainstKCBCache.c)
+ *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
+ *     CmpFindNameInList @ 0x1406695F8 (CmpFindNameInList.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x14086C548 (CmQueryMultipleValueForLayeredKey.c)
  * Callees:
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpFindNameInListCellWithStatus @ 0x140722280 (CmpFindNameInListCellWithStatus.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpFindNameInListCellWithStatus @ 0x140666030 (CmpFindNameInListCellWithStatus.c)
  */
 
 __int64 __fastcall CmpFindNameInListWithStatus(
-        ULONG_PTR BugCheckParameter3,
-        _DWORD *a2,
+        __int64 a1,
+        unsigned int *a2,
         __int64 a3,
         int a4,
         __int64 a5,
         __int64 a6)
 {
-  __int64 v9; // rdi
-  __int64 CellFlat; // rax
-  unsigned int NameInListCellWithStatus; // esi
-  __int64 v13; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v6; // rsi
+  __int64 v10; // r8
+  __int64 v12; // rax
+  unsigned int NameInListCellWithStatus; // edi
+  __int64 v15; // [rsp+68h] [rbp+10h] BYREF
 
-  v13 = 0LL;
-  v9 = 0LL;
-  HvpGetCellContextReinitialize(&v13);
-  if ( *a2 )
+  v6 = 0LL;
+  v15 = 0xFFFFFFFFLL;
+  v10 = *a2;
+  if ( (_DWORD)v10 )
   {
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      CellFlat = HvpGetCellFlat(BugCheckParameter3, (unsigned int)a2[1], &v13);
-    else
-      CellFlat = HvpGetCellPaged(BugCheckParameter3);
-    v9 = CellFlat;
+    v12 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(a1 + 8))(a1, a2[1], &v15);
+    v10 = *a2;
+    v6 = v12;
   }
-  NameInListCellWithStatus = CmpFindNameInListCellWithStatus(BugCheckParameter3, a4, a5, a6);
-  if ( v9 )
-  {
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, &v13);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, &v13);
-  }
+  NameInListCellWithStatus = CmpFindNameInListCellWithStatus(a1, v6, v10, a3, a4, a5, a6);
+  if ( v6 )
+    (*(void (__fastcall **)(__int64, __int64 *))(a1 + 16))(a1, &v15);
   return NameInListCellWithStatus;
 }

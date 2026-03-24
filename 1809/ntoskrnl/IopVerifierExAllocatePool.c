@@ -4,9 +4,9 @@
  *     IopAllocateFileObjectExtension @ 0x140062920 (IopAllocateFileObjectExtension.c)
  *     IopSetLockOperationProcess @ 0x14008C654 (IopSetLockOperationProcess.c)
  *     IopGetSetSpecificExtension @ 0x14008D07C (IopGetSetSpecificExtension.c)
- *     NtUnlockFile @ 0x14069B660 (NtUnlockFile.c)
+ *     NtUnlockFile @ 0x14069B640 (NtUnlockFile.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x1400FD810 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

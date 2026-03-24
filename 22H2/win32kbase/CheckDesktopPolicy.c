@@ -1,17 +1,17 @@
 /*
- * XREFs of CheckDesktopPolicy @ 0x1C00616B0
+ * XREFs of CheckDesktopPolicy @ 0x1C000FFF0
  * Callers:
  *     <none>
  * Callees:
- *     OpenCacheKeyEx @ 0x1C00371E0 (OpenCacheKeyEx.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     RtlLoadStringOrError @ 0x1C0061FA0 (RtlLoadStringOrError.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     RtlLoadStringOrError @ 0x1C0010F50 (RtlLoadStringOrError.c)
+ *     OpenCacheKeyEx @ 0x1C00278B0 (OpenCacheKeyEx.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-__int64 __fastcall CheckDesktopPolicy(const UNICODE_STRING *a1, const WCHAR *a2)
+__int64 __fastcall CheckDesktopPolicy(__int64 a1, const WCHAR *a2)
 {
-  void *v5; // rsi
+  void *v4; // rsi
   NTSTATUS v6; // ebx
   int v7; // [rsp+30h] [rbp-D0h] BYREF
   ULONG ResultLength; // [rsp+34h] [rbp-CCh] BYREF
@@ -32,15 +32,15 @@ __int64 __fastcall CheckDesktopPolicy(const UNICODE_STRING *a1, const WCHAR *a2)
     }
     do
     {
-      v5 = OpenCacheKeyEx(a1, 4LL, 131097LL, &v7);
-      if ( !v5 )
+      v4 = (void *)OpenCacheKeyEx(a1, 4LL, 131097LL, &v7);
+      if ( !v4 )
         break;
       RtlInitUnicodeString(&DestinationString, a2);
-      v6 = ZwQueryValueKey(v5, &DestinationString, KeyValueBasicInformation, &KeyValueInformation, 0x10u, &ResultLength);
-      ZwClose(v5);
+      v6 = ZwQueryValueKey(v4, &DestinationString, KeyValueBasicInformation, &KeyValueInformation, 0x10u, &ResultLength);
+      ZwClose(v4);
       if ( (v6 & 0xC0000000) != 0xC0000000 )
       {
-        UserSetLastError(1260);
+        UserSetLastError(1260LL);
         return 1LL;
       }
     }

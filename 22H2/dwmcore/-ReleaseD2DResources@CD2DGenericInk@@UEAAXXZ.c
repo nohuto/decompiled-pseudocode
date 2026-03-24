@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ReleaseD2DResources@CD2DGenericInk@@UEAAXXZ @ 0x18029CFC0
+ * XREFs of ?ReleaseD2DResources@CD2DGenericInk@@UEAAXXZ @ 0x18024D120
  * Callers:
  *     <none>
  * Callees:

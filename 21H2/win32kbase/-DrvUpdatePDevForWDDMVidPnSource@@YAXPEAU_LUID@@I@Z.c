@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DrvUpdatePDevForWDDMVidPnSource@@YAXPEAU_LUID@@I@Z @ 0x1C006A3FC
+ * XREFs of ?DrvUpdatePDevForWDDMVidPnSource@@YAXPEAU_LUID@@I@Z @ 0x1C000FCB8
  * Callers:
- *     ?DxgkEngSetDisplayModeCallback@@YAJU_LUID@@I@Z @ 0x1C006A200 (-DxgkEngSetDisplayModeCallback@@YAJU_LUID@@I@Z.c)
+ *     ?DxgkEngSetDisplayModeCallback@@YAJU_LUID@@I@Z @ 0x1C000C480 (-DxgkEngSetDisplayModeCallback@@YAJU_LUID@@I@Z.c)
  * Callees:
- *     ?DrvUpdatePDevForWDDMDevice@@YAXVPDEVOBJ@@@Z @ 0x1C006A688 (-DrvUpdatePDevForWDDMDevice@@YAXVPDEVOBJ@@@Z.c)
- *     hdevEnumerate @ 0x1C006FCD0 (hdevEnumerate.c)
- *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0072044 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
- *     ?pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C0072080 (-pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ.c)
+ *     ?DrvUpdatePDevForWDDMDevice@@YAXVPDEVOBJ@@@Z @ 0x1C000C720 (-DrvUpdatePDevForWDDMDevice@@YAXVPDEVOBJ@@@Z.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0010CB4 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     ?pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C0010CF0 (-pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ.c)
+ *     hdevEnumerate @ 0x1C0010E40 (hdevEnumerate.c)
  */
 
 void __fastcall DrvUpdatePDevForWDDMVidPnSource(struct _LUID *a1, int a2)
@@ -33,7 +33,7 @@ void __fastcall DrvUpdatePDevForWDDMVidPnSource(struct _LUID *a1, int a2)
         v8 = PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v9);
         if ( v8->LowPart == a1->LowPart
           && v8->HighPart == a1->HighPart
-          && *(_DWORD *)(*(_QWORD *)(v6 + 2552) + 256LL) == a2 )
+          && *(_DWORD *)(*(_QWORD *)(v6 + 2576) + 256LL) == a2 )
         {
           DrvUpdatePDevForWDDMDevice(v6);
         }

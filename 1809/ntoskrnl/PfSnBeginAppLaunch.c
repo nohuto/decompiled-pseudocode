@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnBeginAppLaunch @ 0x140666C14
+ * XREFs of PfSnBeginAppLaunch @ 0x140666BF4
  * Callers:
- *     PfProcessCreateNotification @ 0x140666B7C (PfProcessCreateNotification.c)
- *     PfSnAppLaunchScenarioControl @ 0x14086570C (PfSnAppLaunchScenarioControl.c)
+ *     PfProcessCreateNotification @ 0x140666B5C (PfProcessCreateNotification.c)
+ *     PfSnAppLaunchScenarioControl @ 0x1408656EC (PfSnAppLaunchScenarioControl.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfSnCheckScenario @ 0x140666E10 (PfSnCheckScenario.c)
- *     PfCalculateProcessHash @ 0x140666FC0 (PfCalculateProcessHash.c)
- *     PfSnBeginScenario @ 0x1406672A4 (PfSnBeginScenario.c)
- *     PfSnLogScenarioDecision @ 0x1406675AC (PfSnLogScenarioDecision.c)
- *     PfSnCheckModernApp @ 0x140667720 (PfSnCheckModernApp.c)
- *     PfSnScanCommandLine @ 0x140667A14 (PfSnScanCommandLine.c)
- *     PfSnIsHostingApplication @ 0x140667D0C (PfSnIsHostingApplication.c)
- *     PfSnFindImageFileName @ 0x140667E10 (PfSnFindImageFileName.c)
+ *     PfSnCheckScenario @ 0x140666DF0 (PfSnCheckScenario.c)
+ *     PfCalculateProcessHash @ 0x140666FA0 (PfCalculateProcessHash.c)
+ *     PfSnBeginScenario @ 0x140667284 (PfSnBeginScenario.c)
+ *     PfSnLogScenarioDecision @ 0x14066758C (PfSnLogScenarioDecision.c)
+ *     PfSnCheckModernApp @ 0x140667700 (PfSnCheckModernApp.c)
+ *     PfSnScanCommandLine @ 0x1406679F4 (PfSnScanCommandLine.c)
+ *     PfSnIsHostingApplication @ 0x140667CEC (PfSnIsHostingApplication.c)
+ *     PfSnFindImageFileName @ 0x140667DF0 (PfSnFindImageFileName.c)
  */
 
 __int64 __fastcall PfSnBeginAppLaunch(__int64 a1, __int128 *a2, int a3)

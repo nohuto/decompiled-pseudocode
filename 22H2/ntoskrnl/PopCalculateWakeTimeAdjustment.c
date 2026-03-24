@@ -1,10 +1,9 @@
 /*
- * XREFs of PopCalculateWakeTimeAdjustment @ 0x140987218
+ * XREFs of PopCalculateWakeTimeAdjustment @ 0x1408E698C
  * Callers:
- *     PopValidateRTCWake @ 0x140AA1594 (PopValidateRTCWake.c)
+ *     PopValidateRTCWake @ 0x1409985EC (PopValidateRTCWake.c)
  * Callees:
- *     PpmConvertTime @ 0x1402553F0 (PpmConvertTime.c)
- *     PopPowerTransitionTimesInMs @ 0x140583550 (PopPowerTransitionTimesInMs.c)
+ *     PopPowerTransitionTimesInMs @ 0x140382A80 (PopPowerTransitionTimesInMs.c)
  */
 
 unsigned __int64 PopCalculateWakeTimeAdjustment()
@@ -14,7 +13,7 @@ unsigned __int64 PopCalculateWakeTimeAdjustment()
 
   result = 0LL;
   v1 = 0;
-  if ( dword_140C3CE40 == 4 )
+  if ( dword_140C23A60 == 4 )
   {
     if ( !PoResumeFromHibernate )
     {
@@ -26,5 +25,5 @@ unsigned __int64 PopCalculateWakeTimeAdjustment()
   {
     return result;
   }
-  return PpmConvertTime(qword_140C3D4A8, PopQpcFrequency, 0x3E8uLL);
+  return qword_140C240A8 / (unsigned __int64)qword_140C24070;
 }

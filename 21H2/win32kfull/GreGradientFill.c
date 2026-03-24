@@ -1,345 +1,364 @@
 /*
- * XREFs of GreGradientFill @ 0x1C0087BF0
+ * XREFs of GreGradientFill @ 0x1C00B63E4
  * Callers:
- *     NtGdiGradientFill @ 0x1C00879F0 (NtGdiGradientFill.c)
- *     ?FillGradient@@YAXPEAUHDC__@@PEBUtagRECT@@KK@Z @ 0x1C00BA304 (-FillGradient@@YAXPEAUHDC__@@PEBUtagRECT@@KK@Z.c)
+ *     NtGdiGradientFill @ 0x1C00B8140 (NtGdiGradientFill.c)
+ *     ?FillGradient@@YAXPEAUHDC__@@PEBUtagRECT@@KK@Z @ 0x1C0159C14 (-FillGradient@@YAXPEAUHDC__@@PEBUtagRECT@@KK@Z.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C002C61C (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C002C6B0 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ??0DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C002C6F4 (--0DEVLOCKBLTOBJ@@QEAA@XZ.c)
- *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C002CF6C (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00398B0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C003F250 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C0042DBC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
- *     ?bCalcMeshExtent@@YAHPEAU_TRIVERTEX@@KPEAXKKPEAU_RECTL@@@Z @ 0x1C0088264 (-bCalcMeshExtent@@YAHPEAU_TRIVERTEX@@KPEAXKKPEAU_RECTL@@@Z.c)
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C0088D80 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
- *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C00894E4 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ?vAccumulate@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C010B4E4 (-vAccumulate@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     bCvtPts1 @ 0x1C0084CF0 (bCvtPts1.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084EE0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C008AFC0 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00ACD0C (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00B30BC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B59BC (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     ??0DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C00B5A00 (--0DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C00B61E0 (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
+ *     ?bCalcMeshExtent@@YAHPEAU_TRIVERTEX@@KPEAXKKPEAU_RECTL@@@Z @ 0x1C00B7AB4 (-bCalcMeshExtent@@YAHPEAU_TRIVERTEX@@KPEAXKKPEAU_RECTL@@@Z.c)
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C00B7CA8 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C0145DBC (-vAccumulate@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GreGradientFill(
         HDC a1,
         struct _TRIVERTEX *a2,
         unsigned int a3,
-        char *a4,
+        unsigned int *a4,
         unsigned int a5,
         unsigned __int8 a6)
 {
   unsigned int v7; // edi
-  char *v9; // r14
+  unsigned int *v9; // r14
   struct _TRIVERTEX *v10; // rsi
   int v11; // r8d
-  unsigned __int64 v12; // rax
-  unsigned __int64 v13; // rcx
-  unsigned int v14; // edx
-  unsigned __int64 v15; // rbx
-  unsigned int v16; // eax
-  char *v17; // rax
-  unsigned int v18; // r9d
-  char *v19; // r8
-  __int64 v20; // rdx
-  signed __int64 v21; // rcx
-  unsigned int v22; // r10d
-  unsigned int v23; // ecx
-  unsigned int v24; // eax
-  __int64 v25; // r11
-  __int64 v26; // rbx
-  __int64 v27; // rcx
+  unsigned __int64 v12; // rcx
+  unsigned __int64 v13; // rax
+  unsigned __int64 v14; // rcx
+  unsigned int v15; // edx
+  unsigned __int64 v16; // rbx
+  unsigned int v17; // eax
+  struct _TRIVERTEX *v18; // rax
+  unsigned int v19; // r9d
+  unsigned int *v20; // r8
+  __int64 v21; // rdx
+  signed __int64 v22; // rcx
+  unsigned int v23; // r10d
+  unsigned int v24; // ecx
+  unsigned __int32 v25; // eax
+  __int64 v26; // r11
+  __int64 v27; // rbx
+  __int64 v28; // rcx
   COLOR16 Alpha; // ax
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  unsigned int v31; // r11d
-  __int64 v32; // rax
-  unsigned int v33; // r15d
-  ULONG v34; // ecx
-  struct _POINTL *v35; // rbx
-  __int64 v36; // r15
-  LONG x; // edx
-  char *v38; // rcx
-  int v39; // r14d
-  struct REGION *v40; // rax
-  struct ECLIPOBJ *v41; // rdx
-  DC *v42; // r15
-  struct ECLIPOBJ *v43; // rdx
-  __int64 v44; // r15
-  __int64 v45; // rbx
-  __int64 v46; // r8
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  unsigned int v32; // r11d
+  __int64 v33; // rax
+  unsigned int v34; // r15d
+  __int64 v35; // rdx
+  SURFACE **v36; // r8
+  ULONG v37; // ecx
+  __int64 v38; // r10
+  struct _TRIVERTEX *v39; // rbx
+  __int32 x; // edx
+  int v41; // eax
+  __int32 y; // r9d
+  char *v43; // rcx
+  struct ECLIPOBJ *v44; // rdx
+  SURFACE **v45; // r8
+  int v46; // r14d
+  struct REGION *v47; // rax
+  DC *v48; // r15
+  struct ECLIPOBJ *v49; // rdx
+  __int64 v50; // r15
+  __int64 v51; // rbx
+  __int64 v52; // r8
   int inited; // eax
-  char *v48; // rax
-  __int64 v49; // rax
-  BOOL (__stdcall *v50)(SURFOBJ *, CLIPOBJ *, XLATEOBJ *, TRIVERTEX *, ULONG, PVOID, ULONG, RECTL *, POINTL *, ULONG); // rax
-  unsigned int v52; // [rsp+60h] [rbp-A0h]
-  unsigned int v53; // [rsp+64h] [rbp-9Ch]
-  struct _POINTL v54[2]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v55; // [rsp+80h] [rbp-80h] BYREF
-  char *v56; // [rsp+88h] [rbp-78h]
-  DC *v57[2]; // [rsp+90h] [rbp-70h] BYREF
-  char v58[32]; // [rsp+A0h] [rbp-60h] BYREF
-  _QWORD v59[2]; // [rsp+C0h] [rbp-40h] BYREF
-  _BYTE v60[288]; // [rsp+D0h] [rbp-30h] BYREF
-  struct _RECTL si128; // [rsp+1F0h] [rbp+F0h] BYREF
-  _BYTE v62[4]; // [rsp+200h] [rbp+100h] BYREF
-  char v63[76]; // [rsp+204h] [rbp+104h] BYREF
-  __int64 v64; // [rsp+250h] [rbp+150h]
-  int v65; // [rsp+258h] [rbp+158h]
-  int v66; // [rsp+280h] [rbp+180h]
-  __int64 v67; // [rsp+290h] [rbp+190h]
+  char *v54; // rax
+  __int64 v55; // rax
+  BOOL (__stdcall *v56)(SURFOBJ *, CLIPOBJ *, XLATEOBJ *, TRIVERTEX *, ULONG, PVOID, ULONG, RECTL *, POINTL *, ULONG); // rax
+  unsigned int v58; // [rsp+60h] [rbp-A0h]
+  __int64 v59; // [rsp+68h] [rbp-98h] BYREF
+  unsigned int v60; // [rsp+70h] [rbp-90h]
+  __m128i v61; // [rsp+80h] [rbp-80h] BYREF
+  unsigned int *v62; // [rsp+90h] [rbp-70h]
+  DC *v63[2]; // [rsp+98h] [rbp-68h] BYREF
+  char v64[32]; // [rsp+A8h] [rbp-58h] BYREF
+  unsigned __int64 v65[3]; // [rsp+C8h] [rbp-38h] BYREF
+  _BYTE v66[288]; // [rsp+E0h] [rbp-20h] BYREF
+  struct _RECTL si128; // [rsp+200h] [rbp+100h] BYREF
+  _BYTE v68[4]; // [rsp+210h] [rbp+110h] BYREF
+  char v69[52]; // [rsp+214h] [rbp+114h] BYREF
+  __int64 v70; // [rsp+248h] [rbp+148h]
+  __int64 v71; // [rsp+260h] [rbp+160h]
+  int v72; // [rsp+268h] [rbp+168h]
+  int v73; // [rsp+290h] [rbp+190h]
+  __int64 v74; // [rsp+2A0h] [rbp+1A0h]
 
-  v56 = a4;
+  v62 = a4;
   v7 = 0;
-  v52 = a6;
+  v58 = a6;
   v9 = a4;
   v10 = 0LL;
-  DCOBJ::DCOBJ((DCOBJ *)v57, a1);
-  if ( !v57[0] || (*((_DWORD *)v57[0] + 9) & 0x10000) != 0 )
+  DCOBJ::DCOBJ((DCOBJ *)v63, a1);
+  if ( !v63[0] || (*((_DWORD *)v63[0] + 9) & 0x10000) != 0 )
   {
-    v39 = 0;
-LABEL_63:
-    v7 = v39;
-    goto LABEL_64;
-  }
-  DEVLOCKBLTOBJ::DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v60);
-  if ( !(unsigned int)DEVLOCKBLTOBJ::bLock((DEVLOCKBLTOBJ *)v60, (struct XDCOBJ *)v57, v11) )
-  {
-    v39 = XDCOBJ::bFullScreen((XDCOBJ *)v57);
-LABEL_60:
-    DEVLOCKBLTOBJ::~DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v60);
-    if ( v10 )
-      Win32FreePool(v10);
+    v46 = 0;
     goto LABEL_63;
   }
-  EXFORMOBJ::vQuickInit((EXFORMOBJ *)v59, (struct XDCOBJ *)v57, 0x204u);
-  if ( (*(_DWORD *)(v59[0] + 32LL) & 1) != 0 || a6 > 1u )
+  DEVLOCKBLTOBJ::DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v66);
+  if ( DEVLOCKBLTOBJ::bLock((DEVLOCKBLTOBJ *)v66, (struct XDCOBJ *)v63, v11) )
   {
-    v33 = a5;
-    v53 = a5;
-LABEL_31:
-    si128 = (struct _RECTL)_mm_load_si128((const __m128i *)&_xmm);
-    if ( a3 )
+    EXFORMOBJ::vQuickInit((EXFORMOBJ *)v65, (struct XDCOBJ *)v63, 0x204u);
+    v12 = v65[0];
+    if ( (*(_DWORD *)(v65[0] + 32) & 1) == 0 && a6 <= 1u )
     {
-      v35 = (struct _POINTL *)a2;
-      v36 = a3;
-      do
+      v13 = 2LL * a5;
+      if ( v13 > 0xFFFFFFFF
+        || (v14 = 12LL * (unsigned int)v13, v14 > 0xFFFFFFFF)
+        || (v15 = a3 + 2 * a5, v60 = 2 * a5, v15 < 2 * a5)
+        || (v16 = 16LL * v15, v16 > 0xFFFFFFFF)
+        || (v17 = v16 + v14, (int)v16 + (int)v14 < (unsigned int)v14) )
       {
-        v54[0] = *v35;
-        EXFORMOBJ::bXform((EXFORMOBJ *)v59, v54, 1uLL);
-        x = v54[0].x;
-        if ( (*(_DWORD *)(*((_QWORD *)v57[0] + 122) + 108LL) & 1) != 0 )
-          x = v54[0].x + 1;
-        v38 = (char *)v57[0] + 1024;
-        if ( (*((_DWORD *)v57[0] + 10) & 1) == 0 )
-          v38 = (char *)v57[0] + 1016;
-        v35->x = x + *(_DWORD *)v38;
-        v35->y = v54[0].y + *((_DWORD *)v57[0] + 2 * (*((_DWORD *)v57[0] + 10) & 1) + 255);
-        v35 += 2;
-        --v36;
-      }
-      while ( v36 );
-      v33 = v53;
-    }
-    v39 = bCalcMeshExtent(a2, a3, v9, v33, v52, &si128);
-    if ( v39 )
-    {
-      v40 = XDCOBJ::prgnEffRao(v57);
-      v64 = 0LL;
-      v65 = 0;
-      v66 = 1;
-      v67 = 0LL;
-      XCLIPOBJ::vSetup((XCLIPOBJ *)v62, v40, (struct ERECTL *)&si128, 0);
-      if ( ERECTL::bEmpty((ERECTL *)v63) )
-        goto LABEL_58;
-      v42 = v57[0];
-      if ( (*((_DWORD *)v57[0] + 9) & 0xE0) != 0 )
-      {
-        *(struct _RECTL *)&v54[0].x = si128;
-        XDCOBJ::vAccumulate((XDCOBJ *)v57, v41, (struct ERECTL *)v54);
-        XDCOBJ::vAccumulateTight((XDCOBJ *)v57, v43, (__m128i *)v54);
-        v42 = v57[0];
-      }
-      v44 = *((_QWORD *)v42 + 62);
-      if ( !v44 )
-      {
-LABEL_58:
-        v39 = 1;
+        v37 = 534;
       }
       else
       {
-        ++*(_DWORD *)(v44 + 92);
-        v45 = *(_QWORD *)(v44 + 48);
-        v55 = 0LL;
-        if ( (*(_DWORD *)(v45 + 40) & 0x80u) != 0 || *(_DWORD *)(v44 + 96) <= 3u )
+        if ( v17 <= 0x2710000 )
+        {
+          v18 = (struct _TRIVERTEX *)PALLOCMEM2(v17, 1886221383LL, 0);
+          v10 = v18;
+          if ( v18 )
+          {
+            v19 = 0;
+            v20 = (unsigned int *)((char *)v18 + (unsigned int)v16);
+            if ( a3 )
+            {
+              v21 = a3;
+              v22 = (char *)a2 - (char *)v18;
+              v19 = a3;
+              do
+              {
+                *v18 = *(struct _TRIVERTEX *)((char *)v18 + v22);
+                ++v18;
+                --v21;
+              }
+              while ( v21 );
+            }
+            v23 = 0;
+            if ( a5 )
+            {
+              while ( 1 )
+              {
+                v24 = *v9;
+                v25 = v9[1];
+                LODWORD(v59) = v24;
+                v61.m128i_i32[0] = v25;
+                if ( v24 >= a3 || v25 >= a3 )
+                  break;
+                v26 = v19;
+                v27 = v24;
+                v28 = v19 + 1;
+                v10[v26].x = a2[v25].x;
+                v10[v26].y = a2[v27].y;
+                v10[v28].x = a2[v27].x;
+                v10[v28].y = a2[v25].y;
+                if ( a6 == 1 )
+                {
+                  v10[v19].Red = a2[v27].Red;
+                  v10[v19].Green = a2[v27].Green;
+                  v10[v19].Blue = a2[v27].Blue;
+                  v10[v19].Alpha = a2[v27].Alpha;
+                  v10[v19 + 1].Red = a2[v25].Red;
+                  v10[v19 + 1].Green = a2[v25].Green;
+                  v10[v19 + 1].Blue = a2[v25].Blue;
+                  Alpha = a2[v25].Alpha;
+                }
+                else
+                {
+                  v10[v19].Red = a2[v25].Red;
+                  v10[v19].Green = a2[v25].Green;
+                  v10[v19].Blue = a2[v25].Blue;
+                  v10[v19].Alpha = a2[v25].Alpha;
+                  v10[v19 + 1].Red = a2[v27].Red;
+                  v10[v19 + 1].Green = a2[v27].Green;
+                  v10[v19 + 1].Blue = a2[v27].Blue;
+                  Alpha = a2[v27].Alpha;
+                }
+                v10[v19 + 1].Alpha = Alpha;
+                v30 = 2 * v23;
+                v31 = 3 * v30;
+                v20[v31] = v59;
+                v32 = v19 + 1;
+                v20[v31 + 1] = v19;
+                ++v23;
+                v20[v31 + 2] = v19 + 1;
+                LODWORD(v31) = v61.m128i_i32[0];
+                v33 = 3LL * (unsigned int)(v30 + 1);
+                v20[v33 + 1] = v19;
+                v9 += 2;
+                v19 += 2;
+                v20[v33] = v31;
+                v20[v33 + 2] = v32;
+                if ( v23 >= a5 )
+                  goto LABEL_23;
+              }
+              EngSetLastError(0x57u);
+              Win32FreePool(v10);
+              goto LABEL_28;
+            }
+LABEL_23:
+            v12 = v65[0];
+            v9 = v20;
+            v34 = v60;
+            a2 = v10;
+            v62 = v20;
+            a3 = v19;
+            v58 = 2;
+            goto LABEL_30;
+          }
+        }
+        v37 = 8;
+      }
+      EngSetLastError(v37);
+LABEL_28:
+      DEVLOCKBLTOBJ::~DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v66, v35, v36);
+      goto LABEL_66;
+    }
+    v34 = a5;
+    v60 = a5;
+LABEL_30:
+    si128 = (struct _RECTL)_mm_load_si128((const __m128i *)&_xmm);
+    if ( a3 )
+    {
+      v38 = a3;
+      v39 = a2;
+      v59 = a3;
+      while ( 1 )
+      {
+        x = v39->x;
+        v41 = *(_DWORD *)(v12 + 32) & 0x43;
+        y = v39->y;
+        v61.m128i_i32[0] = v39->x;
+        v61.m128i_i32[1] = y;
+        if ( (_BYTE)v41 != 67 )
+        {
+          bCvtPts1(v12, &v61, 1LL);
+          y = v61.m128i_i32[1];
+          x = v61.m128i_i32[0];
+          v38 = v59;
+        }
+        if ( (*(_DWORD *)(*((_QWORD *)v63[0] + 122) + 108LL) & 1) != 0 )
+          ++x;
+        v43 = (char *)v63[0] + 1024;
+        if ( (*((_DWORD *)v63[0] + 10) & 1) == 0 )
+          v43 = (char *)v63[0] + 1016;
+        v39->x = x + *(_DWORD *)v43;
+        v39->y = y + *((_DWORD *)v63[0] + 2 * (*((_DWORD *)v63[0] + 10) & 1) + 255);
+        ++v39;
+        v59 = --v38;
+        if ( !v38 )
+          break;
+        v12 = v65[0];
+      }
+    }
+    v46 = bCalcMeshExtent(a2, a3, v9, v34, v58, &si128);
+    if ( v46 )
+    {
+      v47 = XDCOBJ::prgnEffRao(v63);
+      v70 = 0LL;
+      v71 = 0LL;
+      v72 = 0;
+      v73 = 1;
+      v74 = 0LL;
+      XCLIPOBJ::vSetup((XCLIPOBJ *)v68, v47, (struct ERECTL *)&si128, 0);
+      if ( ERECTL::bEmpty((ERECTL *)v69) )
+        goto LABEL_59;
+      v48 = v63[0];
+      if ( (*((_DWORD *)v63[0] + 9) & 0xE0) != 0 )
+      {
+        v61 = (__m128i)si128;
+        XDCOBJ::vAccumulate((XDCOBJ *)v63, v44, (struct ERECTL *)&v61);
+        XDCOBJ::vAccumulateTight((XDCOBJ *)v63, v49, &v61);
+        v48 = v63[0];
+      }
+      v50 = *((_QWORD *)v48 + 62);
+      if ( !v50 )
+      {
+LABEL_59:
+        v46 = 1;
+      }
+      else
+      {
+        ++*(_DWORD *)(v50 + 92);
+        v51 = *(_QWORD *)(v50 + 48);
+        v59 = 0LL;
+        if ( (*(_DWORD *)(v51 + 40) & 0x80u) != 0 || *(_DWORD *)(v50 + 96) <= 3u )
         {
           inited = EXLATEOBJ::bInitXlateObj(
-                     &v55,
-                     *(_QWORD *)(*((_QWORD *)v57[0] + 122) + 248LL),
-                     *((_DWORD *)v57[0] + 30),
+                     &v59,
+                     *(_QWORD *)(*((_QWORD *)v63[0] + 122) + 248LL),
+                     *((_DWORD *)v63[0] + 30),
                      (__int64)gppalRGB,
-                     *(_QWORD *)(v44 + 128),
-                     *((_QWORD *)v57[0] + 11),
-                     *((_QWORD *)v57[0] + 11),
-                     *(_DWORD *)(*((_QWORD *)v57[0] + 122) + 184LL),
-                     *(_DWORD *)(*((_QWORD *)v57[0] + 122) + 176LL),
+                     *(_QWORD *)(v50 + 128),
+                     *((_QWORD *)v63[0] + 11),
+                     *((_QWORD *)v63[0] + 11),
+                     *(_DWORD *)(*((_QWORD *)v63[0] + 122) + 184LL),
+                     *(_DWORD *)(*((_QWORD *)v63[0] + 122) + 176LL),
                      0,
                      0);
-          v46 = v55;
-          v39 = inited;
+          v52 = v59;
+          v46 = inited;
         }
         else
         {
-          v46 = 0LL;
+          v52 = 0LL;
         }
-        v48 = (char *)v57[0] + 1024;
-        if ( (*((_DWORD *)v57[0] + 10) & 1) == 0 )
-          v48 = (char *)v57[0] + 1016;
-        v49 = *(_QWORD *)v48;
-        v54[0].x = -(int)v49;
-        v54[0].y = -HIDWORD(v49);
-        if ( *(_DWORD *)(v44 + 96) == 3 || (*(_DWORD *)(v44 + 112) & 0x20000) == 0 )
-          v50 = EngGradientFill;
+        v54 = (char *)v63[0] + 1024;
+        if ( (*((_DWORD *)v63[0] + 10) & 1) == 0 )
+          v54 = (char *)v63[0] + 1016;
+        v55 = *(_QWORD *)v54;
+        v61.m128i_i32[0] = -(int)v55;
+        v61.m128i_i32[1] = -HIDWORD(v55);
+        if ( *(_DWORD *)(v50 + 96) == 3 || (*(_DWORD *)(v50 + 112) & 0x20000) == 0 )
+          v56 = EngGradientFill;
         else
-          v50 = *(BOOL (__stdcall **)(SURFOBJ *, CLIPOBJ *, XLATEOBJ *, TRIVERTEX *, ULONG, PVOID, ULONG, RECTL *, POINTL *, ULONG))(v45 + 3208);
-        if ( !v39
-          || (v39 = 1,
-              !((unsigned int (__fastcall *)(__int64, _BYTE *, __int64, struct _TRIVERTEX *, unsigned int, char *, unsigned int, struct _RECTL *, struct _POINTL *, unsigned int))v50)(
-                 v44 + 24,
-                 v62,
-                 v46,
+          v56 = *(BOOL (__stdcall **)(SURFOBJ *, CLIPOBJ *, XLATEOBJ *, TRIVERTEX *, ULONG, PVOID, ULONG, RECTL *, POINTL *, ULONG))(v51 + 3232);
+        if ( !v46
+          || (v46 = 1,
+              !((unsigned int (__fastcall *)(__int64, _BYTE *, __int64, struct _TRIVERTEX *, unsigned int, unsigned int *, unsigned int, struct _RECTL *, __m128i *, unsigned int))v56)(
+                 v50 + 24,
+                 v68,
+                 v52,
                  a2,
                  a3,
-                 v56,
-                 v53,
+                 v62,
+                 v60,
                  &si128,
-                 v54,
-                 v52)) )
+                 &v61,
+                 v58)) )
         {
-          v39 = 0;
+          v46 = 0;
         }
-        EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v55);
+        EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v59, (__int64)v44);
       }
     }
-    goto LABEL_60;
+    goto LABEL_61;
   }
-  v12 = 2LL * a5;
-  if ( v12 > 0xFFFFFFFF
-    || (v13 = 12LL * (unsigned int)v12, v13 > 0xFFFFFFFF)
-    || (v14 = a3 + 2 * a5, v53 = 2 * a5, v14 < 2 * a5)
-    || (v15 = 16LL * v14, v15 > 0xFFFFFFFF)
-    || (v16 = v15 + v13, (int)v15 + (int)v13 < (unsigned int)v13) )
-  {
-    v34 = 534;
-  }
-  else
-  {
-    if ( v16 <= 0x2710000 )
-    {
-      if ( v16 )
-      {
-        v17 = (char *)Win32AllocPool(v16, 1886221383LL);
-        v10 = (struct _TRIVERTEX *)v17;
-        if ( v17 )
-        {
-          v18 = 0;
-          v19 = &v17[(unsigned int)v15];
-          if ( a3 )
-          {
-            v20 = a3;
-            v21 = (char *)a2 - v17;
-            v18 = a3;
-            do
-            {
-              *(_OWORD *)v17 = *(_OWORD *)&v17[v21];
-              v17 += 16;
-              --v20;
-            }
-            while ( v20 );
-          }
-          v22 = 0;
-          if ( a5 )
-          {
-            while ( 1 )
-            {
-              v23 = *(_DWORD *)v9;
-              v24 = *((_DWORD *)v9 + 1);
-              LODWORD(v55) = v23;
-              v54[0].x = v24;
-              if ( v23 >= a3 || v24 >= a3 )
-                break;
-              v25 = v18;
-              v26 = v23;
-              v27 = v18 + 1;
-              v10[v25].x = a2[v24].x;
-              v10[v25].y = a2[v26].y;
-              v10[v27].x = a2[v26].x;
-              v10[v27].y = a2[v24].y;
-              if ( a6 == 1 )
-              {
-                v10[v18].Red = a2[v26].Red;
-                v10[v18].Green = a2[v26].Green;
-                v10[v18].Blue = a2[v26].Blue;
-                v10[v18].Alpha = a2[v26].Alpha;
-                v10[v18 + 1].Red = a2[v24].Red;
-                v10[v18 + 1].Green = a2[v24].Green;
-                v10[v18 + 1].Blue = a2[v24].Blue;
-                Alpha = a2[v24].Alpha;
-              }
-              else
-              {
-                v10[v18].Red = a2[v24].Red;
-                v10[v18].Green = a2[v24].Green;
-                v10[v18].Blue = a2[v24].Blue;
-                v10[v18].Alpha = a2[v24].Alpha;
-                v10[v18 + 1].Red = a2[v26].Red;
-                v10[v18 + 1].Green = a2[v26].Green;
-                v10[v18 + 1].Blue = a2[v26].Blue;
-                Alpha = a2[v26].Alpha;
-              }
-              v10[v18 + 1].Alpha = Alpha;
-              v29 = 2 * v22;
-              v30 = 3 * v29;
-              *(_DWORD *)&v19[4 * v30] = v55;
-              v31 = v18 + 1;
-              *(_DWORD *)&v19[4 * v30 + 4] = v18;
-              ++v22;
-              *(_DWORD *)&v19[4 * v30 + 8] = v18 + 1;
-              LODWORD(v30) = v54[0].x;
-              v32 = 3LL * (unsigned int)(v29 + 1);
-              *(_DWORD *)&v19[4 * v32 + 4] = v18;
-              v9 += 8;
-              v18 += 2;
-              *(_DWORD *)&v19[4 * v32] = v30;
-              *(_DWORD *)&v19[4 * v32 + 8] = v31;
-              if ( v22 >= a5 )
-                goto LABEL_24;
-            }
-            EngSetLastError(0x57u);
-            Win32FreePool(v10);
-            goto LABEL_29;
-          }
-LABEL_24:
-          v33 = 2 * a5;
-          v9 = v19;
-          v56 = v19;
-          a2 = v10;
-          v52 = 2;
-          a3 = v18;
-          goto LABEL_31;
-        }
-      }
-    }
-    v34 = 8;
-  }
-  EngSetLastError(v34);
-LABEL_29:
-  DEVLOCKBLTOBJ::~DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v60);
-LABEL_64:
-  MDCOBJ::~MDCOBJ((MDCOBJ *)v57);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v58);
+  v46 = XDCOBJ::bFullScreen((XDCOBJ *)v63);
+LABEL_61:
+  DEVLOCKBLTOBJ::~DEVLOCKBLTOBJ((DEVLOCKBLTOBJ *)v66, (__int64)v44, v45);
+LABEL_63:
+  if ( v10 )
+    Win32FreePool(v10);
+  v7 = v46;
+LABEL_66:
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v63);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v64);
   return v7;
 }

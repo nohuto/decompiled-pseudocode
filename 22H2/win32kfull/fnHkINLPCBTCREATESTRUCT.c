@@ -1,385 +1,380 @@
 /*
- * XREFs of fnHkINLPCBTCREATESTRUCT @ 0x1C02103E8
+ * XREFs of fnHkINLPCBTCREATESTRUCT @ 0x1C001E5E0
  * Callers:
- *     xxxHkCallHook @ 0x1C0120850 (xxxHkCallHook.c)
+ *     xxxHkCallHook @ 0x1C005CA10 (xxxHkCallHook.c)
  * Callees:
- *     ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C0022D84 (-AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z.c)
- *     ?CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C0024328 (-CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0024460 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     GetThreadDesktopWindow @ 0x1C00EC080 (GetThreadDesktopWindow.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?CaptureAnsiCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAXH@Z @ 0x1C013CD84 (-CaptureAnsiCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAXH@Z.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?CaptureUnicodeCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C02050E4 (-CaptureUnicodeCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z.c)
+ *     ?CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C00219B8 (-CaptureCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z.c)
+ *     ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C0021A5C (-AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z.c)
+ *     ?CaptureUnicodeCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z @ 0x1C0023CD4 (-CaptureUnicodeCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAX@Z.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     GetThreadDesktopWindow @ 0x1C0103DD0 (GetThreadDesktopWindow.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?CaptureAnsiCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAXH@Z @ 0x1C01692B4 (-CaptureAnsiCallbackData@@YAJPEAU_CAPTUREBUF@@PEAXKPEAPEAXH@Z.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-unsigned __int8 *__fastcall fnHkINLPCBTCREATESTRUCT(int a1, __int64 a2, _QWORD *a3, __int64 a4, int a5)
+__int64 __fastcall fnHkINLPCBTCREATESTRUCT(unsigned int a1, __int64 a2, __int64 *a3, __int64 a4, unsigned int a5)
 {
-  unsigned __int64 v6; // r14
-  unsigned __int64 v7; // r12
-  unsigned int v8; // r15d
-  __int64 *ThreadDesktopWindow; // r13
-  int *v10; // rbx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  struct tagTHREADINFO *v15; // rax
-  __int64 v16; // rdi
-  unsigned __int64 v17; // rdx
-  unsigned int v18; // eax
-  unsigned __int64 v19; // r8
-  unsigned int v20; // eax
-  unsigned __int8 *result; // rax
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // r9
-  _QWORD *v26; // r15
-  _OWORD *v27; // rax
-  CHAR *v28; // rdx
-  void **v29; // r9
-  struct _CAPTUREBUF *v30; // rcx
-  unsigned int v31; // r8d
-  unsigned int v32; // r8d
-  int v33; // eax
-  CHAR *v34; // rax
-  int v35; // r8d
-  void **v36; // r9
-  unsigned int v37; // r8d
-  CHAR *v38; // rdx
-  int v39; // eax
-  unsigned int v40; // r8d
-  __int64 v41; // rdx
-  __int64 v42; // r8
-  __int64 v43; // r9
-  ULONG_PTR v44; // rsi
-  __int64 v45; // rax
-  __int64 v46; // rcx
-  __int64 v47; // rcx
-  int v48; // edi
-  __int64 v49; // rdx
-  __int64 v50; // r8
-  __int64 v51; // rdx
-  __int64 v52; // rcx
-  __int64 v53; // r8
-  __int64 v54; // r8
-  __int64 v55; // r9
-  __int64 v56; // rcx
-  __int64 *v57; // rcx
-  ULONG64 v58; // rdx
-  __int64 v59; // rdi
-  __int64 v60; // rcx
-  ULONG64 v61; // rcx
-  __int128 v62; // xmm4
-  __int128 v63; // xmm5
-  __int128 v64; // xmm2
-  __int128 v65; // xmm3
-  _BYTE v66[4]; // [rsp+30h] [rbp-4D8h] BYREF
-  int v67; // [rsp+34h] [rbp-4D4h] BYREF
-  int *v68; // [rsp+38h] [rbp-4D0h]
-  CHAR v69; // [rsp+40h] [rbp-4C8h]
-  int v70; // [rsp+44h] [rbp-4C4h] BYREF
-  __int16 v71; // [rsp+48h] [rbp-4C0h]
-  __int64 v72; // [rsp+78h] [rbp-490h]
-  unsigned __int64 v73; // [rsp+80h] [rbp-488h] BYREF
-  ULONG_PTR RegionSize[4]; // [rsp+88h] [rbp-480h] BYREF
-  __int64 v75; // [rsp+A8h] [rbp-460h]
-  _QWORD *v76; // [rsp+B0h] [rbp-458h]
-  __int64 v77; // [rsp+B8h] [rbp-450h]
-  __int128 v78; // [rsp+C8h] [rbp-440h]
-  __int64 v79; // [rsp+D8h] [rbp-430h]
-  __int128 v80; // [rsp+E0h] [rbp-428h] BYREF
-  __int64 v81; // [rsp+F0h] [rbp-418h]
-  __int64 v82; // [rsp+110h] [rbp-3F8h]
-  __int128 v83; // [rsp+138h] [rbp-3D0h] BYREF
-  __int64 v84; // [rsp+148h] [rbp-3C0h]
-  _OWORD v85[5]; // [rsp+150h] [rbp-3B8h] BYREF
-  __int64 v86; // [rsp+1A0h] [rbp-368h]
-  __int128 v87; // [rsp+1D0h] [rbp-338h]
-  __int64 v88; // [rsp+200h] [rbp-308h]
-  int v89; // [rsp+210h] [rbp-2F8h] BYREF
-  char v90[172]; // [rsp+214h] [rbp-2F4h] BYREF
-  unsigned __int8 v91[512]; // [rsp+2C0h] [rbp-248h] BYREF
+  unsigned int v6; // r14d
+  __int64 *ThreadDesktopWindow; // r15
+  unsigned __int8 *v8; // rbx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v10; // r13
+  __int64 v11; // rdi
+  unsigned __int64 v12; // rcx
+  unsigned __int64 v13; // r8
+  int v14; // edx
+  unsigned int v15; // eax
+  unsigned __int64 v16; // r8
+  _OWORD *v17; // rax
+  void **v18; // r9
+  unsigned int v19; // r8d
+  CHAR *v20; // rdx
+  unsigned int v21; // r8d
+  int v22; // eax
+  __int64 v23; // rax
+  __int64 v24; // rsi
+  __int64 v25; // rax
+  __int64 v26; // rcx
+  __int64 v27; // rcx
+  int v28; // edi
+  __int64 v29; // rcx
+  __int64 *v30; // rcx
+  __int64 v31; // rdi
+  __int64 v32; // rdx
+  ULONG64 v33; // rcx
+  __int128 v34; // xmm4
+  __int128 v35; // xmm5
+  __int128 v36; // xmm2
+  __int128 v37; // xmm3
+  int v39; // edx
+  unsigned int v40; // eax
+  CHAR *v41; // rdx
+  void **v42; // r9
+  struct _CAPTUREBUF *v43; // rcx
+  unsigned int v44; // r8d
+  int v45; // eax
+  unsigned int v46; // r8d
+  unsigned __int64 v47; // rax
+  unsigned __int64 v48; // rax
+  CHAR *v49; // rax
+  int v50; // r8d
+  char v51; // [rsp+30h] [rbp-4E8h] BYREF
+  _BYTE v52[3]; // [rsp+31h] [rbp-4E7h] BYREF
+  unsigned int v53; // [rsp+34h] [rbp-4E4h]
+  unsigned int v54; // [rsp+38h] [rbp-4E0h]
+  unsigned __int8 *v55; // [rsp+40h] [rbp-4D8h]
+  CHAR v56; // [rsp+48h] [rbp-4D0h]
+  int v57; // [rsp+4Ch] [rbp-4CCh] BYREF
+  int v58; // [rsp+50h] [rbp-4C8h] BYREF
+  __int16 v59; // [rsp+54h] [rbp-4C4h]
+  unsigned int v60; // [rsp+58h] [rbp-4C0h]
+  unsigned __int64 v61; // [rsp+88h] [rbp-490h] BYREF
+  unsigned int v62; // [rsp+90h] [rbp-488h]
+  __int64 v63; // [rsp+A8h] [rbp-470h]
+  __int64 v64; // [rsp+B0h] [rbp-468h]
+  __int128 v65; // [rsp+B8h] [rbp-460h]
+  ULONG_PTR RegionSize; // [rsp+C8h] [rbp-450h] BYREF
+  __int128 v67; // [rsp+D0h] [rbp-448h] BYREF
+  __int64 v68; // [rsp+E0h] [rbp-438h]
+  __int128 v69; // [rsp+E8h] [rbp-430h]
+  __int64 v70; // [rsp+F8h] [rbp-420h]
+  __int128 v71; // [rsp+100h] [rbp-418h] BYREF
+  __int64 v72; // [rsp+110h] [rbp-408h]
+  __int64 v73; // [rsp+130h] [rbp-3E8h]
+  _OWORD v74[8]; // [rsp+160h] [rbp-3B8h] BYREF
+  __int128 v75; // [rsp+1E0h] [rbp-338h]
+  __int64 v76; // [rsp+210h] [rbp-308h]
+  _DWORD v77[44]; // [rsp+220h] [rbp-2F8h] BYREF
+  unsigned __int8 v78[512]; // [rsp+2D0h] [rbp-248h] BYREF
 
-  v77 = a4;
-  v76 = a3;
-  v75 = a2;
-  v67 = a1;
-  LODWORD(v6) = 0;
-  LODWORD(v7) = 0;
-  v8 = 0;
-  memset_0(v85, 0, 0x58uLL);
+  v64 = a4;
+  v63 = a2;
+  v60 = a1;
+  v53 = 0;
+  v54 = 0;
+  v6 = 0;
+  memset(v74, 0, 0x58uLL);
   ThreadDesktopWindow = (__int64 *)GetThreadDesktopWindow(0LL);
-  memset_0(&v89, 0, 0xA8uLL);
-  v10 = &v89;
-  v73 = 0LL;
-  v70 = 0;
-  v83 = 0LL;
-  v84 = 0LL;
-  v78 = 0LL;
-  v79 = 0LL;
-  v15 = PtiCurrentShared(v12, v11, v13, v14);
-  RegionSize[0] = (ULONG_PTR)v15;
+  memset(v77, 0, 0xA8uLL);
+  v8 = (unsigned __int8 *)v77;
+  v61 = 0LL;
+  v58 = 0;
+  v67 = 0LL;
+  v68 = 0LL;
+  v69 = 0LL;
+  v70 = 0LL;
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  *(_QWORD *)&v65 = ThreadWin32Thread;
   if ( ThreadDesktopWindow )
-    v72 = ThreadDesktopWindow[5] - *((_QWORD *)v15 + 59);
+    v10 = ThreadDesktopWindow[5] - *(_QWORD *)(ThreadWin32Thread + 472);
   else
-    v72 = 0LL;
-  v16 = *a3;
-  v17 = *(_QWORD *)(v16 + 56);
-  if ( v17 && (*(_DWORD *)(v16 + 84) >> 31 != a5 || v17 >= (unsigned __int64)MmSystemRangeStart) )
+    v10 = 0LL;
+  v11 = *a3;
+  v12 = *(_QWORD *)(*a3 + 56);
+  if ( v12 )
   {
-    v18 = *(_DWORD *)(v16 + 80);
-    v6 = v18 + 2;
-    if ( (unsigned int)v6 < v18 )
-      goto LABEL_76;
-    if ( *(int *)(v16 + 84) < 0 && !a5 )
+    v39 = *(_DWORD *)(v11 + 84) >> 31;
+    if ( v39 != a5 || v12 >= (unsigned __int64)MmSystemRangeStart )
     {
-      v6 *= 2LL;
-      if ( v6 > 0xFFFFFFFF )
-        goto LABEL_76;
+      v40 = *(_DWORD *)(v11 + 80);
+      if ( v40 + 2 < v40 )
+        goto LABEL_60;
+      v53 = v40 + 2;
+      if ( v39 && !a5 )
+      {
+        v47 = 2LL * (v40 + 2);
+        if ( v47 > 0xFFFFFFFF )
+          goto LABEL_60;
+        v53 = v47;
+      }
+      v6 = 1;
     }
-    v8 = 1;
   }
-  v19 = *(_QWORD *)(v16 + 64);
-  if ( (v19 & 0xFFFFFFFFFFFF0000uLL) != 0
-    && (*(_DWORD *)(v16 + 100) >> 31 != a5 || v19 >= (unsigned __int64)MmSystemRangeStart) )
+  v13 = *(_QWORD *)(v11 + 64);
+  if ( (v13 & 0xFFFFFFFFFFFF0000uLL) != 0 )
   {
-    v20 = *(_DWORD *)(v16 + 96);
-    v7 = v20 + 2;
-    if ( (unsigned int)v7 < v20 )
-      goto LABEL_76;
-    if ( *(int *)(v16 + 100) < 0 && !a5 )
+    v14 = *(_DWORD *)(v11 + 100) >> 31;
+    if ( v14 != a5 || v13 >= (unsigned __int64)MmSystemRangeStart )
     {
-      v7 *= 2LL;
-      if ( v7 > 0xFFFFFFFF )
-        goto LABEL_76;
+      v15 = *(_DWORD *)(v11 + 96);
+      if ( v15 + 2 < v15 )
+        goto LABEL_60;
+      v54 = v15 + 2;
+      if ( v14 && !a5 )
+      {
+        v48 = 2LL * (v15 + 2);
+        if ( v48 > 0xFFFFFFFF )
+          goto LABEL_60;
+        v54 = v48;
+      }
+      ++v6;
     }
-    ++v8;
   }
-  if ( (int)v7 + (int)v6 >= (unsigned int)v6 )
+  v16 = v53 + v54;
+  if ( (unsigned int)v16 < v53 )
+    goto LABEL_60;
+  v62 = v53 + v54;
+  if ( v6 )
   {
-    if ( v8 )
+    v8 = (unsigned __int8 *)AllocCallbackMessage(0xA8u, v6, v16, v78, 1, 0x200uLL);
+    v55 = v8;
+    if ( !v8 )
+      return 0LL;
+  }
+  else
+  {
+    v8 = (unsigned __int8 *)v77;
+    v55 = (unsigned __int8 *)v77;
+    memset(&v77[1], 0, 0xA4uLL);
+    v77[0] = 168;
+  }
+  W32GetThreadWin32Thread(KeGetCurrentThread());
+  v71 = 0LL;
+  v72 = 0LL;
+  if ( v8 != (unsigned __int8 *)v77 && v8 != v78 )
+    PushW32ThreadLock(v8, &v71, Win32FreePool);
+  *((_QWORD *)v8 + 5) = v10;
+  *((_DWORD *)v8 + 12) = v60;
+  *((_QWORD *)v8 + 7) = v63;
+  *(_DWORD *)(*a3 + 52) = 0;
+  *(_DWORD *)(*a3 + 76) = 0;
+  v17 = (_OWORD *)*a3;
+  *((_OWORD *)v8 + 4) = *(_OWORD *)*a3;
+  *((_OWORD *)v8 + 5) = v17[1];
+  *((_OWORD *)v8 + 6) = v17[2];
+  *((_OWORD *)v8 + 7) = v17[3];
+  *((_OWORD *)v8 + 8) = v17[4];
+  if ( v53 )
+  {
+    if ( *(int *)(v11 + 84) < 0 )
     {
-      result = AllocCallbackMessage(168, v8, (unsigned int)(v7 + v6), v91, 1, 0x200uLL);
-      v10 = (int *)result;
-      v68 = (int *)result;
-      if ( !result )
-        return result;
-    }
-    else
-    {
-      v10 = &v89;
-      v68 = &v89;
-      memset_0(v90, 0, 0xA4uLL);
-      v89 = 168;
-    }
-    PtiCurrentShared(v23, v22, v24, v25);
-    v80 = 0LL;
-    v81 = 0LL;
-    if ( v10 != &v89 && v10 != (int *)v91 )
-      PushW32ThreadLock((__int64)v10, &v80, (__int64)Win32FreePool);
-    *((_QWORD *)v10 + 5) = v72;
-    v10[12] = v67;
-    *((_QWORD *)v10 + 7) = v75;
-    v26 = v76;
-    *(_DWORD *)(*v76 + 52LL) = 0;
-    *(_DWORD *)(*v26 + 76LL) = 0;
-    v27 = (_OWORD *)*v26;
-    *((_OWORD *)v10 + 4) = *(_OWORD *)*v26;
-    *((_OWORD *)v10 + 5) = v27[1];
-    *((_OWORD *)v10 + 6) = v27[2];
-    *((_OWORD *)v10 + 7) = v27[3];
-    *((_OWORD *)v10 + 8) = v27[4];
-    if ( !(_DWORD)v6 )
-      goto LABEL_48;
-    if ( *(int *)(v16 + 84) < 0 )
-    {
-      v34 = *(CHAR **)(v16 + 56);
-      v69 = *v34;
-      if ( v69 == -1 )
+      v49 = *(CHAR **)(v11 + 56);
+      v56 = *v49;
+      if ( v56 == -1 )
       {
         if ( a5 )
         {
-          v31 = 3;
-          v28 = v34;
+          v46 = 3;
+          v41 = v49;
         }
         else
         {
-          v67 = 0;
-          v67 = ((unsigned __int16)(*(_DWORD *)v34 >> 8) << 16) | 0xFFFF;
-          v31 = 4;
-          v28 = (CHAR *)&v67;
+          v57 = 0;
+          v57 = ((unsigned __int16)(*(_DWORD *)v49 >> 8) << 16) | 0xFFFF;
+          v46 = 4;
+          v41 = (CHAR *)&v57;
         }
-        v29 = (void **)(v10 + 30);
-        v30 = (struct _CAPTUREBUF *)v10;
+        v42 = (void **)(v8 + 120);
+        v43 = (struct _CAPTUREBUF *)v8;
       }
       else
       {
-        v29 = (void **)(v10 + 30);
-        v35 = *(_DWORD *)(v16 + 80);
-        v28 = *(CHAR **)(v16 + 88);
-        v30 = (struct _CAPTUREBUF *)v10;
+        v42 = (void **)(v8 + 120);
+        v50 = *(_DWORD *)(v11 + 80);
+        v41 = *(CHAR **)(v11 + 88);
+        v43 = (struct _CAPTUREBUF *)v8;
         if ( !a5 )
         {
-          if ( (int)CaptureUnicodeCallbackData((struct _CAPTUREBUF *)v10, v28, 2 * v35 + 2, v29) < 0 )
-            goto LABEL_76;
-          goto LABEL_48;
+          if ( (int)CaptureUnicodeCallbackData((struct _CAPTUREBUF *)v8, v41, 2 * v50 + 2, v42) < 0 )
+            goto LABEL_60;
+          goto LABEL_17;
         }
-        v31 = v35 + 1;
+        v46 = v50 + 1;
       }
     }
     else
     {
-      v28 = *(CHAR **)(v16 + 56);
-      v71 = *(_WORD *)v28;
-      v29 = (void **)(v10 + 30);
-      v30 = (struct _CAPTUREBUF *)v10;
-      if ( v71 == -1 )
+      v41 = *(CHAR **)(v11 + 56);
+      v59 = *(_WORD *)v41;
+      v42 = (void **)(v8 + 120);
+      v43 = (struct _CAPTUREBUF *)v8;
+      if ( v59 == -1 )
       {
         if ( a5 )
         {
-          ++v28;
-          v31 = 3;
+          ++v41;
+          v46 = 3;
         }
         else
         {
-          v31 = 4;
+          v46 = 4;
         }
       }
       else
       {
-        v32 = *(_DWORD *)(v16 + 80);
-        v28 = *(CHAR **)(v16 + 88);
+        v44 = *(_DWORD *)(v11 + 80);
+        v41 = *(CHAR **)(v11 + 88);
         if ( a5 )
         {
-          v33 = CaptureAnsiCallbackData((struct _CAPTUREBUF *)v10, (PCWCH)v28, (v32 >> 1) + 1, v29, 0);
-          goto LABEL_45;
+          v45 = CaptureAnsiCallbackData((struct _CAPTUREBUF *)v8, (PCWCH)v41, (PCWCH)((v44 >> 1) + 1), v42, 0);
+          goto LABEL_59;
         }
-        v31 = v32 + 2;
+        v46 = v44 + 2;
       }
     }
-    v33 = CaptureCallbackData(v30, v28, v31, v29);
-LABEL_45:
-    if ( v33 < 0 )
-      goto LABEL_76;
-LABEL_48:
-    if ( !(_DWORD)v7 )
-    {
-LABEL_58:
-      *((_QWORD *)v10 + 18) = v26[1];
-      *((_QWORD *)v10 + 19) = v77;
-      v10[40] = a5;
-      ThreadLock(ThreadDesktopWindow, &v83);
-      v44 = RegionSize[0];
-      v45 = *(_QWORD *)(RegionSize[0] + 480);
-      *(_OWORD *)RegionSize = *(_OWORD *)(v45 + 64);
-      v78 = *(_OWORD *)RegionSize;
-      v79 = *(_QWORD *)(v45 + 80);
-      *(_QWORD *)(v45 + 72) = v72;
-      if ( ThreadDesktopWindow )
-        v46 = *ThreadDesktopWindow;
-      else
-        v46 = 0LL;
-      *(_QWORD *)(*(_QWORD *)(v44 + 480) + 64LL) = v46;
-      if ( ThreadDesktopWindow )
-        v47 = *(_QWORD *)(ThreadDesktopWindow[5] + 224);
-      else
-        v47 = 0LL;
-      *(_QWORD *)(*(_QWORD *)(v44 + 480) + 80LL) = v47;
-      LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition(
-        (LeaveEnterCritProperDisposition *)v66,
-        v41,
-        v42,
-        v43);
-      EtwTraceBeginCallback(42LL);
-      *((_QWORD *)v10 + 2) = 0LL;
-      v48 = KeUserModeCallback(42LL, v10, (unsigned int)*v10, &v73, &v70);
-      EtwTraceEndCallback(42LL);
-      LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition(
-        (LeaveEnterCritProperDisposition *)v66,
-        v49,
-        v50);
-      ThreadUnlock1(v52, v51, v53);
-      v56 = *(_QWORD *)(v44 + 480);
-      *(_OWORD *)(v56 + 64) = *(_OWORD *)RegionSize;
-      *(_QWORD *)(v56 + 80) = v79;
-      if ( v48 >= 0 && v70 == 24 )
-      {
-        v57 = (__int64 *)v73;
-        v58 = v73 + 8;
-        if ( v73 + 8 < v73 || v58 > MmUserProbeAddress )
-          v57 = (__int64 *)MmUserProbeAddress;
-        v59 = *v57;
-        v82 = *v57;
-        v60 = *((_QWORD *)PtiCurrentShared((__int64)v57, v58, v54, v55) + 64);
-        if ( !v60 || (*(_DWORD *)(v60 + 84) & 1) == 0 || *(_OWORD **)(v60 + 96) != v85 )
-        {
-          v61 = *(_QWORD *)(v73 + 16);
-          if ( v61 + 88 < v61 || v61 + 88 > MmUserProbeAddress )
-            v61 = MmUserProbeAddress;
-          v62 = *(_OWORD *)v61;
-          v63 = *(_OWORD *)(v61 + 16);
-          v87 = *(_OWORD *)(v61 + 32);
-          v64 = *(_OWORD *)(v61 + 48);
-          v65 = *(_OWORD *)(v61 + 64);
-          v88 = *(_QWORD *)(v61 + 80);
-          v85[0] = v62;
-          v85[1] = v63;
-          v85[2] = v87;
-          v85[3] = v64;
-          v85[4] = v65;
-          v86 = v88;
-          v26[1] = v88;
-          *(_OWORD *)(*v26 + 32LL) = v87;
-          goto LABEL_77;
-        }
-      }
-      goto LABEL_76;
-    }
-    v36 = (void **)(v10 + 32);
-    v37 = *(_DWORD *)(v16 + 96);
-    v38 = *(CHAR **)(v16 + 104);
-    if ( *(int *)(v16 + 100) < 0 )
-    {
-      if ( !a5 )
-      {
-        v39 = CaptureUnicodeCallbackData((struct _CAPTUREBUF *)v10, v38, 2 * v37 + 2, v36);
-LABEL_57:
-        if ( v39 < 0 )
-          goto LABEL_76;
-        goto LABEL_58;
-      }
-      v40 = v37 + 1;
-    }
-    else
+    v45 = CaptureCallbackData(v43, v41, v46, v42);
+LABEL_59:
+    if ( v45 < 0 )
+      goto LABEL_60;
+  }
+LABEL_17:
+  if ( v54 )
+  {
+    v18 = (void **)(v8 + 128);
+    v19 = *(_DWORD *)(v11 + 96);
+    v20 = *(CHAR **)(v11 + 104);
+    if ( *(int *)(v11 + 100) < 0 )
     {
       if ( a5 )
       {
-        v39 = CaptureAnsiCallbackData((struct _CAPTUREBUF *)v10, (PCWCH)v38, (v37 >> 1) + 1, v36, 0);
-        goto LABEL_57;
+        v21 = v19 + 1;
+        goto LABEL_21;
       }
-      v40 = v37 + 2;
+      v22 = CaptureUnicodeCallbackData((struct _CAPTUREBUF *)v8, v20, 2 * v19 + 2, v18);
     }
-    v39 = CaptureCallbackData((struct _CAPTUREBUF *)v10, v38, v40, v36);
-    goto LABEL_57;
-  }
-LABEL_76:
-  v59 = 0LL;
-LABEL_77:
-  if ( v10 != &v89 && v10 != (int *)v91 )
-  {
-    if ( *((_QWORD *)v10 + 4) )
+    else
     {
-      RegionSize[0] = 0LL;
-      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)v10 + 4, RegionSize, 0x8000u);
+      if ( !a5 )
+      {
+        v21 = v19 + 2;
+LABEL_21:
+        v22 = CaptureCallbackData((struct _CAPTUREBUF *)v8, v20, v21, v18);
+        goto LABEL_22;
+      }
+      v22 = CaptureAnsiCallbackData((struct _CAPTUREBUF *)v8, (PCWCH)v20, (PCWCH)((v19 >> 1) + 1), v18, 0);
     }
-    PopAndFreeAlwaysW32ThreadLock((__int64)&v80);
+LABEL_22:
+    if ( v22 < 0 )
+      goto LABEL_60;
   }
-  return (unsigned __int8 *)v59;
+  *((_QWORD *)v8 + 18) = a3[1];
+  *((_QWORD *)v8 + 19) = v64;
+  *((_DWORD *)v8 + 40) = a5;
+  v23 = W32GetThreadWin32Thread(KeGetCurrentThread());
+  *(_QWORD *)&v67 = *(_QWORD *)(v23 + 416);
+  *(_QWORD *)(v23 + 416) = &v67;
+  *((_QWORD *)&v67 + 1) = ThreadDesktopWindow;
+  if ( ThreadDesktopWindow )
+    HMLockObject(ThreadDesktopWindow);
+  v24 = v65;
+  v25 = *(_QWORD *)(v65 + 480);
+  v65 = *(_OWORD *)(v25 + 64);
+  v69 = v65;
+  v70 = *(_QWORD *)(v25 + 80);
+  *(_QWORD *)(v25 + 72) = v10;
+  if ( ThreadDesktopWindow )
+    v26 = *ThreadDesktopWindow;
+  else
+    v26 = 0LL;
+  *(_QWORD *)(*(_QWORD *)(v24 + 480) + 64LL) = v26;
+  if ( ThreadDesktopWindow )
+    v27 = *(_QWORD *)(ThreadDesktopWindow[5] + 224);
+  else
+    v27 = 0LL;
+  *(_QWORD *)(*(_QWORD *)(v24 + 480) + 80LL) = v27;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v52);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v51);
+  EtwTraceBeginCallback(42LL);
+  *((_QWORD *)v8 + 2) = 0LL;
+  v28 = KeUserModeCallback(42LL, v8, *(unsigned int *)v8, &v61, &v58);
+  EtwTraceEndCallback(42LL);
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v51);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v52);
+  ThreadUnlock1();
+  v29 = *(_QWORD *)(v24 + 480);
+  *(_OWORD *)(v29 + 64) = v65;
+  *(_QWORD *)(v29 + 80) = v70;
+  if ( v28 >= 0 && v58 == 24 )
+  {
+    v30 = (__int64 *)v61;
+    if ( v61 + 8 < v61 || v61 + 8 > MmUserProbeAddress )
+      v30 = (__int64 *)MmUserProbeAddress;
+    v31 = *v30;
+    v73 = *v30;
+    v32 = *(_QWORD *)(gptiCurrent + 512LL);
+    if ( !v32 || (*(_DWORD *)(v32 + 84) & 1) == 0 || *(_OWORD **)(v32 + 96) != v74 )
+    {
+      v33 = *(_QWORD *)(v61 + 16);
+      if ( v33 + 88 < v33 || v33 + 88 > MmUserProbeAddress )
+        v33 = MmUserProbeAddress;
+      v34 = *(_OWORD *)v33;
+      v35 = *(_OWORD *)(v33 + 16);
+      v75 = *(_OWORD *)(v33 + 32);
+      v36 = *(_OWORD *)(v33 + 48);
+      v37 = *(_OWORD *)(v33 + 64);
+      v76 = *(_QWORD *)(v33 + 80);
+      v74[0] = v34;
+      v74[1] = v35;
+      v74[2] = v75;
+      v74[3] = v36;
+      v74[4] = v37;
+      *(_QWORD *)&v74[5] = v76;
+      a3[1] = v76;
+      *(_OWORD *)(*a3 + 32) = v75;
+      goto LABEL_42;
+    }
+  }
+LABEL_60:
+  v31 = 0LL;
+LABEL_42:
+  if ( v8 != (unsigned __int8 *)v77 && v8 != v78 )
+  {
+    if ( *((_QWORD *)v8 + 4) )
+    {
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)v8 + 4, &RegionSize, 0x8000u);
+    }
+    PopAndFreeAlwaysW32ThreadLock(&v71);
+  }
+  return v31;
 }

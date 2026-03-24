@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpDeleteDeviceInterfaces @ 0x140825AFC
+ * XREFs of PnpDeleteDeviceInterfaces @ 0x140825ADC
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1406E2E54 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x1406E2E34 (PiDevCfgConfigureDevice.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PnpUnicodeStringToWstrFree @ 0x1405980AC (PnpUnicodeStringToWstrFree.c)
  *     PnpUnicodeStringToWstr @ 0x140599CA8 (PnpUnicodeStringToWstr.c)
  *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x14059ED20 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     _CmDeleteDeviceInterface @ 0x1408F67F4 (_CmDeleteDeviceInterface.c)
+ *     _CmDeleteDeviceInterface @ 0x1408F67D4 (_CmDeleteDeviceInterface.c)
  */
 
 __int64 __fastcall PnpDeleteDeviceInterfaces(unsigned __int16 *a1)

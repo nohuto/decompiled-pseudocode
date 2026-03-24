@@ -4,8 +4,8 @@
  *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
  *     VfDeadlockReleaseResource @ 0x14093C260 (VfDeadlockReleaseResource.c)
  * Callees:
- *     ViLowerIrql @ 0x14030B40C (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x14030B468 (ViRaiseIrqlToDpcLevel.c)
+ *     ViLowerIrql @ 0x14030B50C (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x14030B568 (ViRaiseIrqlToDpcLevel.c)
  *     ViDeadlockDetectionLock @ 0x14093D1AC (ViDeadlockDetectionLock.c)
  *     ViDeadlockDetectionUnlock @ 0x14093D1E4 (ViDeadlockDetectionUnlock.c)
  *     ViDeadlockSearchThread @ 0x14093DCD8 (ViDeadlockSearchThread.c)

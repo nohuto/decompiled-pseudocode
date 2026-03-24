@@ -1,8 +1,8 @@
 /*
- * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x1400E02BC
+ * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x1400E02DC
  * Callers:
- *     CcPostWorkQueueAsyncRead @ 0x1400E00B8 (CcPostWorkQueueAsyncRead.c)
- *     CcAsyncReadWorker @ 0x140140390 (CcAsyncReadWorker.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1400E00D8 (CcPostWorkQueueAsyncRead.c)
+ *     CcAsyncReadWorker @ 0x1401403B0 (CcAsyncReadWorker.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)

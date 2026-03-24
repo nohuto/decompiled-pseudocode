@@ -1,29 +1,30 @@
 /*
- * XREFs of ACPIBuildThermalZoneExtension @ 0x1C0013D70
+ * XREFs of ACPIBuildThermalZoneExtension @ 0x1C002FAC4
  * Callers:
- *     OSNotifyCreateThermalZone @ 0x1C0032BE0 (OSNotifyCreateThermalZone.c)
+ *     OSNotifyCreateThermalZone @ 0x1C002F970 (OSNotifyCreateThermalZone.c)
  * Callees:
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPIBuildDeviceExtension @ 0x1C000C314 (ACPIBuildDeviceExtension.c)
+ *     ACPIBuildDeviceExtension @ 0x1C001BA9C (ACPIBuildDeviceExtension.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall ACPIBuildThermalZoneExtension(volatile signed __int32 *a1, __int64 a2, __int64 *a3)
+__int64 __fastcall ACPIBuildThermalZoneExtension(volatile signed __int32 *a1, __int64 a2, struct _KEVENT **a3)
 {
   __int64 result; // rax
   unsigned int v5; // esi
-  __int64 v6; // rbx
-  __int64 Pool2; // rax
-  __int64 v8; // rdi
-  __int64 v9; // rax
-  const char *v10; // rdi
-  const char *v11; // rdx
-  const char *v12; // rcx
-  const char *v13; // rcx
-  void *v14; // rcx
-  _QWORD *v15; // rax
-  __int64 v16; // rcx
-  const char *v17; // rdi
-  const char *v18; // rax
+  struct _KEVENT *v6; // rbx
+  _LIST_ENTRY *PoolWithTag; // rax
+  _LIST_ENTRY *v8; // rdi
+  _LIST_ENTRY *Flink; // rcx
+  _LIST_ENTRY *Blink; // rdi
+  void *v11; // rax
+  _LIST_ENTRY *v12; // rax
+  _LIST_ENTRY *v13; // rdi
+  const char *v14; // rdx
+  const char *v15; // rcx
+  void *v16; // rcx
+  _LIST_ENTRY *v17; // rcx
 
   result = ACPIBuildDeviceExtension(a1, RootDeviceExtension, a3);
   v5 = result;
@@ -32,90 +33,90 @@ __int64 __fastcall ACPIBuildThermalZoneExtension(volatile signed __int32 *a1, __
     v6 = *a3;
     if ( v6 )
     {
-      _InterlockedOr64((volatile signed __int64 *)(v6 + 8), 0x8300000uLL);
-      Pool2 = ExAllocatePool2(64LL, 344LL, 1416651585LL);
-      *(_QWORD *)(v6 + 200) = Pool2;
-      v8 = Pool2;
-      if ( Pool2 )
+      _InterlockedOr64((volatile signed __int64 *)&v6->Header.WaitListHead, 0x8300000uLL);
+      PoolWithTag = (_LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x150uLL, 0x54706341u);
+      v6[8].Header.WaitListHead.Flink = PoolWithTag;
+      v8 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        v15 = (_QWORD *)(Pool2 + 176);
-        v15[1] = v15;
-        *v15 = v15;
-        KeInitializeEvent((PRKEVENT)(v8 + 248), NotificationEvent, 1u);
-        KeInitializeEvent((PRKEVENT)(v8 + 280), NotificationEvent, 1u);
-        v16 = *(_QWORD *)(v6 + 8);
-        v17 = (const char *)&unk_1C00622D0;
-        v18 = (const char *)&unk_1C00622D0;
-        if ( (v16 & 0x200000000000LL) != 0 )
+        memset(PoolWithTag, 0, 0x150uLL);
+        v8[11].Blink = v8 + 11;
+        v8[11].Flink = v8 + 11;
+        KeInitializeEvent((PRKEVENT)&v8[15].Blink, NotificationEvent, 1u);
+        KeInitializeEvent((PRKEVENT)&v8[17].Blink, NotificationEvent, 1u);
+        Flink = v6->Header.WaitListHead.Flink;
+        Blink = (_LIST_ENTRY *)&unk_1C00701BA;
+        v11 = &unk_1C00701BA;
+        if ( ((unsigned __int64)Flink & 0x200000000000LL) != 0 )
         {
-          v17 = *(const char **)(v6 + 608);
-          if ( (v16 & 0x400000000000LL) != 0 )
-            v18 = *(const char **)(v6 + 616);
+          Blink = v6[23].Header.WaitListHead.Blink;
+          if ( ((unsigned __int64)Flink & 0x400000000000LL) != 0 )
+            v11 = *(void **)&v6[24].Header.Lock;
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_dqss(
+          WPP_RECORDER_SF_Lqss(
             (__int64)WPP_GLOBAL_Control->DeviceExtension,
             2u,
             6u,
             0x59u,
-            (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+            (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
             v5,
-            v6,
-            v17,
-            v18);
+            (char)v6,
+            (__int64)Blink,
+            (__int64)v11);
       }
       else
       {
-        v9 = *(_QWORD *)(v6 + 8);
-        v10 = (const char *)&unk_1C00622D0;
-        v11 = (const char *)&unk_1C00622D0;
-        v12 = (const char *)&unk_1C00622D0;
-        if ( (v9 & 0x200000000000LL) != 0 )
+        v12 = v6->Header.WaitListHead.Flink;
+        v13 = (_LIST_ENTRY *)&unk_1C00701BA;
+        v14 = (const char *)&unk_1C00701BA;
+        v15 = (const char *)&unk_1C00701BA;
+        if ( ((unsigned __int64)v12 & 0x200000000000LL) != 0 )
         {
-          v11 = *(const char **)(v6 + 608);
-          if ( (v9 & 0x400000000000LL) != 0 )
-            v12 = *(const char **)(v6 + 616);
+          v14 = (const char *)v6[23].Header.WaitListHead.Blink;
+          if ( ((unsigned __int64)v12 & 0x400000000000LL) != 0 )
+            v15 = *(const char **)&v6[24].Header.Lock;
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          WPP_RECORDER_SF_dqss(
+          WPP_RECORDER_SF_Dqss(
             (__int64)WPP_GLOBAL_Control->DeviceExtension,
             2u,
             0x10u,
             0x57u,
-            (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
-            88,
-            v6,
-            v11,
-            v12);
-          v9 = *(_QWORD *)(v6 + 8);
+            (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
+            80,
+            (char)v6,
+            v14,
+            v15);
+          v12 = v6->Header.WaitListHead.Flink;
         }
         v5 = -1073741670;
-        v13 = (const char *)&unk_1C00622D0;
-        if ( (v9 & 0x200000000000LL) != 0 )
+        v16 = &unk_1C00701BA;
+        if ( ((unsigned __int64)v12 & 0x200000000000LL) != 0 )
         {
-          v10 = *(const char **)(v6 + 608);
-          if ( (v9 & 0x400000000000LL) != 0 )
-            v13 = *(const char **)(v6 + 616);
+          v13 = v6[23].Header.WaitListHead.Blink;
+          if ( ((unsigned __int64)v12 & 0x400000000000LL) != 0 )
+            v16 = *(void **)&v6[24].Header.Lock;
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_dqss(
+          WPP_RECORDER_SF_Lqss(
             (__int64)WPP_GLOBAL_Control->DeviceExtension,
             2u,
             0x10u,
             0x58u,
-            (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+            (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
             154,
-            v6,
-            v10,
-            v13);
-        v14 = *(void **)(v6 + 200);
-        if ( v14 )
+            (char)v6,
+            (__int64)v13,
+            (__int64)v16);
+        v17 = v6[8].Header.WaitListHead.Flink;
+        if ( v17 )
         {
-          ExFreePoolWithTag(v14, 0);
-          *(_QWORD *)(v6 + 200) = 0LL;
+          ExFreePoolWithTag(v17, 0);
+          v6[8].Header.WaitListHead.Flink = 0LL;
         }
-        _InterlockedOr64((volatile signed __int64 *)(v6 + 8), 0x2000000000000uLL);
+        _InterlockedOr64((volatile signed __int64 *)&v6->Header.WaitListHead, 0x2000000000000uLL);
       }
       return v5;
     }

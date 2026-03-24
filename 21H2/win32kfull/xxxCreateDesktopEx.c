@@ -1,189 +1,173 @@
 /*
- * XREFs of xxxCreateDesktopEx @ 0x1C00CFDF4
+ * XREFs of xxxCreateDesktopEx @ 0x1C00101D4
  * Callers:
- *     EditionCreateDesktopEntryPoint @ 0x1C00CE610 (EditionCreateDesktopEntryPoint.c)
- *     xxxResolveDesktop @ 0x1C00CF130 (xxxResolveDesktop.c)
- *     xxxConnectService @ 0x1C00D159C (xxxConnectService.c)
- *     ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C00D31F8 (-xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C000DB68 (-xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z.c)
+ *     EditionCreateDesktopEntryPoint @ 0x1C000E880 (EditionCreateDesktopEntryPoint.c)
+ *     xxxResolveDesktop @ 0x1C000F4F0 (xxxResolveDesktop.c)
+ *     xxxConnectService @ 0x1C012F544 (xxxConnectService.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     zzzEndDeferWinEventNotify @ 0x1C0048944 (zzzEndDeferWinEventNotify.c)
- *     xxxSetWindowPos @ 0x1C0048A4C (xxxSetWindowPos.c)
- *     zzzSetDesktop @ 0x1C005DB40 (zzzSetDesktop.c)
- *     ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@@PEAX@Z @ 0x1C0060FF4 (-LockPointer@@YA-AU_LOCKASSIGNPAIR@@PEAV-$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@.c)
- *     xxxDestroyWindow @ 0x1C0062330 (xxxDestroyWindow.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     LinkWindow @ 0x1C006F9A0 (LinkWindow.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     xxxInheritWindowMonitor @ 0x1C0075834 (xxxInheritWindowMonitor.c)
- *     MapDesktop @ 0x1C0077E30 (MapDesktop.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     zzzDecomposeDesktop @ 0x1C0097998 (zzzDecomposeDesktop.c)
- *     DwmAsyncDesktopFree @ 0x1C0098654 (DwmAsyncDesktopFree.c)
- *     DwmAsyncDesktopCreate @ 0x1C0099104 (DwmAsyncDesktopCreate.c)
- *     _CloseDesktop @ 0x1C00A2C38 (_CloseDesktop.c)
- *     CloseProtectedHandle @ 0x1C00A6598 (CloseProtectedHandle.c)
- *     zzzComposeDesktop @ 0x1C00B2FD8 (zzzComposeDesktop.c)
- *     OpenDesktopCompletion @ 0x1C00D0E3C (OpenDesktopCompletion.c)
- *     ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C00D31F8 (-xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C0159AD4 (--0LeaveEnterCrit@@QEAA@XZ.c)
- *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0159AFC (--1LeaveEnterCrit@@QEAA@XZ.c)
- *     ??1?$SmartObjStackRef@UtagMENU@@@@QEAA@XZ @ 0x1C0159CDC (--1-$SmartObjStackRef@UtagMENU@@@@QEAA@XZ.c)
- *     ??0?$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z @ 0x1C0159FF4 (--0-$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z.c)
- *     ??1AtomicExecutionCheck@@QEAA@XZ @ 0x1C01CC410 (--1AtomicExecutionCheck@@QEAA@XZ.c)
- *     ?CleanupDirtyDesktops@@YAXXZ @ 0x1C01E3CBC (-CleanupDirtyDesktops@@YAXXZ.c)
+ *     ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C000DB68 (-xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z.c)
+ *     OpenDesktopCompletion @ 0x1C0011364 (OpenDesktopCompletion.c)
+ *     ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@@PEAX@Z @ 0x1C0013DA4 (-LockPointer@@YA-AU_LOCKASSIGNPAIR@@PEAV-$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     MapDesktop @ 0x1C004EE50 (MapDesktop.c)
+ *     W32SetCurrentThreadDpiAwarenessContext @ 0x1C005CFA0 (W32SetCurrentThreadDpiAwarenessContext.c)
+ *     zzzSetDesktop @ 0x1C0065EC0 (zzzSetDesktop.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     xxxSetWindowPos @ 0x1C006BC54 (xxxSetWindowPos.c)
+ *     xxxInheritWindowMonitor @ 0x1C006C878 (xxxInheritWindowMonitor.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
+ *     LinkWindow @ 0x1C006FD00 (LinkWindow.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxDestroyWindow @ 0x1C007DCA0 (xxxDestroyWindow.c)
+ *     ??1?$SmartObjStackRef@UtagMENU@@@@QEAA@XZ @ 0x1C008A9C4 (--1-$SmartObjStackRef@UtagMENU@@@@QEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     _CloseDesktop @ 0x1C00D92C8 (_CloseDesktop.c)
+ *     CloseProtectedHandle @ 0x1C00D93E8 (CloseProtectedHandle.c)
+ *     DwmAsyncDesktopCreate @ 0x1C00E96D4 (DwmAsyncDesktopCreate.c)
+ *     DwmAsyncDesktopFree @ 0x1C00E9BB4 (DwmAsyncDesktopFree.c)
+ *     zzzDecomposeDesktop @ 0x1C00EAD8C (zzzDecomposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
+ *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C0136788 (--0LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C01367B0 (--1LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??0?$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z @ 0x1C0167A30 (--0-$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?CleanupDirtyDesktops@@YAXXZ @ 0x1C01E9620 (-CleanupDirtyDesktops@@YAXXZ.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall xxxCreateDesktopEx(
-        union _LARGE_INTEGER *a1,
-        unsigned int a2,
-        __int64 a3,
-        ACCESS_MASK a4,
-        HANDLE *a5,
-        int a6)
+__int64 __fastcall xxxCreateDesktopEx(__int64 a1, unsigned int a2, __int64 a3, int a4, HANDLE *a5, int a6)
 {
   int v6; // r11d
-  _QWORD *v8; // r12
-  int v9; // r15d
+  __int64 Window; // r13
+  int v9; // r14d
   NTSTATUS v10; // eax
   int v11; // ebx
   ULONG v12; // eax
-  __int64 v13; // rdx
-  ULONG v14; // eax
-  __int64 v15; // rdx
-  int v16; // eax
-  char *v17; // rdi
-  ULONG v18; // eax
-  __int64 v19; // rdx
-  __int64 v20; // rbx
-  __int64 v21; // r15
-  __int64 v22; // rcx
+  ULONG v13; // eax
+  int v14; // eax
+  _QWORD **v15; // rsi
+  ULONG v16; // eax
+  struct tagWINDOWSTATION *v17; // rbx
+  __int64 v18; // r14
+  int v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  int v22; // r12d
   ULONG v23; // eax
   __int64 v24; // rdx
-  __int64 v25; // r14
-  __int64 **v26; // rax
-  __int64 v27; // rbx
-  void *v28; // rax
-  int v29; // r14d
-  AtomicExecutionCheck *v30; // rcx
-  ShellWindowManagement *v31; // rbx
-  int v32; // eax
-  __int64 v33; // rcx
+  __int64 v25; // r12
+  void *v26; // rax
+  int v27; // esi
+  int v28; // eax
   __int64 CurrentProcessWin32Process; // rax
-  int v35; // r14d
-  struct tagWND *Window; // r14
-  __int64 v37; // rcx
-  __int64 v38; // rcx
-  __int64 v39; // rax
-  __int64 v40; // rcx
-  _QWORD *v41; // rdx
-  __int64 v42; // rcx
-  struct tagWINDOWSTATION *v43; // rbx
-  __int64 v44; // rcx
-  __int64 v45; // rax
-  int v46; // r14d
-  __int64 v47; // rdx
-  __int64 v48; // rcx
-  __int64 v49; // r8
-  void *v50; // rcx
-  bool v51; // zf
-  struct tagWND *v52; // r15
-  __int64 v53; // rdx
-  __int64 v54; // rcx
-  __int64 v55; // r8
-  __int64 v56; // rdx
-  __int64 v57; // rcx
-  __int64 v58; // r8
+  int v30; // esi
   __int64 ThreadWin32Thread; // rax
-  __int64 v61; // rax
-  int v62; // edx
-  _UNKNOWN **v63; // r8
-  _QWORD *v64; // rcx
-  __int64 v65; // rcx
-  __int64 **v66; // rcx
-  __int64 v67; // rbx
-  void *v68; // rax
-  char v69; // [rsp+90h] [rbp-208h] BYREF
-  char v70; // [rsp+91h] [rbp-207h] BYREF
-  char v71; // [rsp+92h] [rbp-206h] BYREF
-  _BYTE v72[5]; // [rsp+93h] [rbp-205h] BYREF
-  HANDLE Handle; // [rsp+98h] [rbp-200h] BYREF
-  _BYTE v74[4]; // [rsp+A0h] [rbp-1F8h] BYREF
-  unsigned int v75; // [rsp+A4h] [rbp-1F4h]
-  int v76; // [rsp+A8h] [rbp-1F0h]
-  ShellWindowManagement *v77; // [rsp+B0h] [rbp-1E8h]
-  int v78; // [rsp+B8h] [rbp-1E0h]
-  union _LARGE_INTEGER Timeout; // [rsp+C0h] [rbp-1D8h] BYREF
-  int v80; // [rsp+C8h] [rbp-1D0h]
-  struct tagWND *v81[2]; // [rsp+D0h] [rbp-1C8h]
-  _QWORD *v82; // [rsp+E8h] [rbp-1B0h]
-  __int64 v83; // [rsp+F0h] [rbp-1A8h]
-  struct _OBJECT_HANDLE_INFORMATION v84; // [rsp+F8h] [rbp-1A0h] BYREF
-  PVOID Object; // [rsp+100h] [rbp-198h] BYREF
-  struct tagWINDOWSTATION *v86; // [rsp+108h] [rbp-190h]
-  __int64 v87; // [rsp+110h] [rbp-188h]
-  void *v88; // [rsp+118h] [rbp-180h]
-  __int64 v89; // [rsp+120h] [rbp-178h]
-  union _LARGE_INTEGER v90; // [rsp+130h] [rbp-168h]
-  _DWORD v91[2]; // [rsp+138h] [rbp-160h] BYREF
-  __int64 v92; // [rsp+140h] [rbp-158h]
-  char *v93; // [rsp+148h] [rbp-150h]
-  int v94; // [rsp+150h] [rbp-148h]
-  int v95; // [rsp+154h] [rbp-144h]
-  __int128 v96; // [rsp+158h] [rbp-140h] BYREF
-  __int64 v97; // [rsp+168h] [rbp-130h]
-  _QWORD v98[2]; // [rsp+170h] [rbp-128h] BYREF
-  _QWORD v99[2]; // [rsp+180h] [rbp-118h] BYREF
-  _QWORD v100[4]; // [rsp+190h] [rbp-108h] BYREF
-  __int128 v101; // [rsp+1B0h] [rbp-E8h] BYREF
-  __int128 v102; // [rsp+1C0h] [rbp-D8h] BYREF
-  __int64 v103[3]; // [rsp+1D0h] [rbp-C8h] BYREF
-  __int128 v104; // [rsp+1E8h] [rbp-B0h] BYREF
-  __int64 v105; // [rsp+1F8h] [rbp-A0h]
-  __int64 v106[3]; // [rsp+200h] [rbp-98h] BYREF
-  __int128 v107; // [rsp+218h] [rbp-80h] BYREF
-  __int64 v108; // [rsp+228h] [rbp-70h]
-  __int64 v109[3]; // [rsp+230h] [rbp-68h] BYREF
-  __int128 v110; // [rsp+248h] [rbp-50h] BYREF
-  __int64 v111; // [rsp+258h] [rbp-40h]
-  __int64 v112; // [rsp+260h] [rbp-38h] BYREF
-  __int64 v113; // [rsp+270h] [rbp-28h] BYREF
+  __int64 v32; // rax
+  int v33; // esi
+  __int64 v34; // rsi
+  int v35; // ecx
+  __int64 v36; // rax
+  _QWORD *v37; // rdx
+  BOOL v38; // ebx
+  __int64 v39; // rax
+  __int64 v40; // rbx
+  __int64 v41; // rax
+  struct tagWINDOWSTATION *v42; // r12
+  struct tagWINDOWSTATION *v43; // rdx
+  LeaveEnterCrit *v44; // rcx
+  void *v45; // rcx
+  __int64 v46; // rax
+  __int64 v48; // r14
+  __int64 v49; // rax
+  int v50; // edx
+  _QWORD *v51; // rcx
+  __int64 v52; // rdx
+  __int64 v53; // rcx
+  __int64 v54; // r12
+  _QWORD *v55; // rbx
+  void *v56; // rax
+  HANDLE Handle; // [rsp+90h] [rbp-258h] BYREF
+  PVOID Object; // [rsp+98h] [rbp-250h] BYREF
+  unsigned int v59; // [rsp+A0h] [rbp-248h]
+  _BYTE v60[4]; // [rsp+A4h] [rbp-244h] BYREF
+  int v61; // [rsp+A8h] [rbp-240h]
+  _BYTE v62[8]; // [rsp+B0h] [rbp-238h] BYREF
+  int v63; // [rsp+B8h] [rbp-230h]
+  __int64 v64; // [rsp+C0h] [rbp-228h]
+  __int64 v65; // [rsp+C8h] [rbp-220h]
+  PVOID v66; // [rsp+D0h] [rbp-218h]
+  struct tagWINDOWSTATION *v67; // [rsp+D8h] [rbp-210h]
+  _QWORD *v68; // [rsp+E8h] [rbp-200h]
+  __int128 v69; // [rsp+F0h] [rbp-1F8h] BYREF
+  __int64 v70; // [rsp+100h] [rbp-1E8h]
+  _DWORD v71[2]; // [rsp+108h] [rbp-1E0h] BYREF
+  _BYTE v72[8]; // [rsp+110h] [rbp-1D8h] BYREF
+  __int64 v73; // [rsp+118h] [rbp-1D0h]
+  __int64 v74; // [rsp+120h] [rbp-1C8h]
+  __int64 v75; // [rsp+128h] [rbp-1C0h]
+  _BYTE v76[8]; // [rsp+130h] [rbp-1B8h] BYREF
+  _BYTE v77[8]; // [rsp+138h] [rbp-1B0h] BYREF
+  __int64 *v78; // [rsp+140h] [rbp-1A8h]
+  union _LARGE_INTEGER Timeout; // [rsp+148h] [rbp-1A0h] BYREF
+  HWINSTA v80; // [rsp+150h] [rbp-198h]
+  _BYTE v81[16]; // [rsp+158h] [rbp-190h] BYREF
+  _QWORD v82[3]; // [rsp+168h] [rbp-180h] BYREF
+  int v83; // [rsp+180h] [rbp-168h]
+  int v84; // [rsp+184h] [rbp-164h]
+  __int128 v85; // [rsp+188h] [rbp-160h] BYREF
+  __int64 v86; // [rsp+198h] [rbp-150h]
+  __int128 v87; // [rsp+1A0h] [rbp-148h] BYREF
+  __int64 v88; // [rsp+1B0h] [rbp-138h]
+  __int128 v89; // [rsp+1B8h] [rbp-130h] BYREF
+  __int64 v90; // [rsp+1C8h] [rbp-120h]
+  __int128 v91; // [rsp+1D0h] [rbp-118h] BYREF
+  __int64 v92; // [rsp+1E0h] [rbp-108h]
+  _QWORD v93[2]; // [rsp+1F0h] [rbp-F8h] BYREF
+  _QWORD v94[2]; // [rsp+200h] [rbp-E8h] BYREF
+  _QWORD v95[2]; // [rsp+210h] [rbp-D8h] BYREF
+  _QWORD v96[4]; // [rsp+220h] [rbp-C8h] BYREF
+  __int128 v97; // [rsp+240h] [rbp-A8h] BYREF
+  _BYTE v98[24]; // [rsp+250h] [rbp-98h] BYREF
+  _BYTE v99[24]; // [rsp+268h] [rbp-80h] BYREF
+  _BYTE v100[32]; // [rsp+280h] [rbp-68h] BYREF
+  __int128 v101; // [rsp+2A0h] [rbp-48h] BYREF
+  _BYTE v102[16]; // [rsp+2B0h] [rbp-38h] BYREF
+  _BYTE v103[16]; // [rsp+2C0h] [rbp-28h] BYREF
 
   v6 = a3;
   Handle = 0LL;
-  v81[0] = 0LL;
-  v77 = 0LL;
-  v8 = 0LL;
-  v104 = 0LL;
-  v105 = 0LL;
-  v107 = 0LL;
-  v108 = 0LL;
-  v110 = 0LL;
-  v111 = 0LL;
+  Window = 0LL;
+  v65 = 0LL;
+  v64 = 0LL;
+  v85 = 0LL;
+  v86 = 0LL;
+  v87 = 0LL;
+  v88 = 0LL;
+  v89 = 0LL;
+  v90 = 0LL;
   v9 = 0;
-  v78 = -1;
-  v96 = 0LL;
-  v97 = 0LL;
-  v80 = 0;
-  v75 = 0;
-  Timeout = a1[1];
-  v90 = Timeout;
-  v84.HandleAttributes = gSessionId;
-  v84.GrantedAccess = a4;
+  v61 = -1;
+  v91 = 0LL;
+  v92 = 0LL;
+  v63 = 0;
+  v59 = 0;
+  v80 = *(HWINSTA *)(a1 + 8);
+  v71[0] = gSessionId;
+  v71[1] = a4;
   LOBYTE(a3) = a6 == 0;
-  v10 = ObOpenObjectByName(a1, ExDesktopObjectType, a3, 0LL, v6, &v84, &Handle);
+  v10 = ObOpenObjectByName(a1, ExDesktopObjectType, a3, 0LL, v6, v71, &Handle);
   v11 = v10;
   if ( v10 < 0 )
   {
     v12 = RtlNtStatusToDosError(v10);
-    UserSetLastError(v12, v13);
+    UserSetLastError(v12);
     CleanupDirtyDesktops();
-LABEL_79:
+LABEL_80:
     *a5 = 0LL;
     return (unsigned int)v11;
   }
@@ -191,414 +175,431 @@ LABEL_79:
   {
     if ( !(unsigned int)SetHandleFlag(Handle, 1LL, 1LL) )
     {
-      v14 = RtlNtStatusToDosError(-1073741801);
-      UserSetLastError(v14, v15);
-      CloseProtectedHandle(Handle, 0);
-LABEL_6:
+      v13 = RtlNtStatusToDosError(-1073741801);
+      UserSetLastError(v13);
+      CloseProtectedHandle(Handle);
       v11 = -1073741801;
-      goto LABEL_79;
+      goto LABEL_80;
     }
     *a5 = Handle;
     v9 = 1;
   }
   Object = 0LL;
-  v16 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)ExDesktopObjectType, 1, &Object, 0LL);
-  v11 = v16;
-  v17 = (char *)Object;
-  if ( v16 < 0 )
+  v14 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)ExDesktopObjectType, 1, &Object, 0LL);
+  v11 = v14;
+  v15 = (_QWORD **)Object;
+  v66 = Object;
+  if ( v14 < 0 )
   {
-    v18 = RtlNtStatusToDosError(v16);
-    UserSetLastError(v18, v19);
-    CloseProtectedHandle(Handle, 0);
-    goto LABEL_79;
+    v16 = RtlNtStatusToDosError(v14);
+    UserSetLastError(v16);
+    CloseProtectedHandle(Handle);
+    goto LABEL_80;
   }
   if ( v9 )
   {
     v11 = OpenDesktopCompletion(Object, Handle, a2);
     if ( v11 < 0 )
     {
-      CloseProtectedHandle(Handle, 0);
+      CloseProtectedHandle(Handle);
       *a5 = 0LL;
     }
-    ObfDereferenceObject(v17);
+    ObfDereferenceObject(v15);
     return (unsigned int)v11;
   }
-  v20 = *((_QWORD *)Object + 5);
-  v86 = (struct tagWINDOWSTATION *)v20;
-  v21 = *(_QWORD *)(v20 + 56);
-  v82 = (_QWORD *)*((_QWORD *)Object + 1);
-  v82[22] = 0LL;
-  if ( !(unsigned int)SetHandleFlag(Handle, 0LL, a2 & 1) )
+  v17 = (struct tagWINDOWSTATION *)*((_QWORD *)Object + 5);
+  v67 = v17;
+  v18 = *((_QWORD *)v17 + 7);
+  v68 = (_QWORD *)*((_QWORD *)Object + 1);
+  v68[22] = 0LL;
+  v19 = SetHandleFlag(Handle, 0LL, a2 & 1);
+  v20 = 0LL;
+  if ( !v19 )
   {
-    CloseProtectedHandle(Handle, 0);
-    ObfDereferenceObject(v17);
-    goto LABEL_6;
+    CloseProtectedHandle(Handle);
+    ObfDereferenceObject(v15);
+    v11 = -1073741801;
+    goto LABEL_80;
   }
-  v22 = gpepCSRSS;
+  v21 = gpepCSRSS;
   if ( gpepCSRSS )
   {
-    v91[1] = 0;
-    v91[0] = 1;
-    v92 = gpepCSRSS;
-    v93 = v17;
-    v94 = 0;
-    v95 = 1;
-    v76 = MapDesktop((__int64)v91);
-    if ( v76 < 0 )
+    v82[0] = 1LL;
+    v82[1] = gpepCSRSS;
+    v82[2] = v15;
+    v83 = 0;
+    v84 = 1;
+    v22 = MapDesktop(v82);
+    if ( v22 < 0 )
     {
-      CloseProtectedHandle(Handle, 0);
-      ObfDereferenceObject(v17);
+      CloseProtectedHandle(Handle);
+      ObfDereferenceObject(v15);
       v23 = RtlNtStatusToDosError(-1073741790);
-      UserSetLastError(v23, v24);
-      v11 = v76;
-      goto LABEL_79;
+      UserSetLastError(v23);
+      v11 = v22;
+      goto LABEL_80;
     }
   }
-  v25 = ReferenceDwmApiPort(v22);
+  v25 = ReferenceDwmApiPort(v21, v20);
   if ( v25 )
   {
-    if ( (*(_DWORD *)(v20 + 64) & 0x200) != 0 )
+    if ( (*((_DWORD *)v17 + 16) & 0x200) != 0 )
     {
-      v26 = (__int64 **)*((_QWORD *)v17 + 1);
-      v27 = **v26;
-      v28 = (void *)ReferenceDwmApiPort(*v26);
-      DwmAsyncDesktopCreate(v28, v27);
-      zzzComposeDesktop((struct tagDESKTOP *)v17);
-      v80 = 1;
+      v26 = (void *)ReferenceDwmApiPort(*v15[1], v24);
+      DwmAsyncDesktopCreate(v26);
+      zzzComposeDesktop((struct tagDESKTOP *)v15);
+      v63 = 1;
+      v17 = v67;
     }
     DereferenceDwmApiPort(v25);
   }
-  v87 = *(_QWORD *)(gptiCurrent + 424LL);
-  v83 = *(_QWORD *)(v87 + 336);
-  v89 = *(_QWORD *)(gptiCurrent + 456LL);
-  v88 = *(void **)(gptiCurrent + 592LL);
-  *(_QWORD *)(gptiCurrent + 424LL) = *(_QWORD *)(*(_QWORD *)(v21 + 16) + 424LL);
-  PushW32ThreadLock((__int64)v17, &v96, UserDereferenceObject);
+  v73 = *(_QWORD *)(gptiCurrent + 424LL);
+  v70 = *(_QWORD *)(v73 + 336);
+  v75 = *(_QWORD *)(gptiCurrent + 456LL);
+  v74 = *(_QWORD *)(gptiCurrent + 592LL);
+  *(_QWORD *)(gptiCurrent + 424LL) = *(_QWORD *)(*(_QWORD *)(v18 + 16) + 424LL);
+  PushW32ThreadLock(v15, &v91, UserDereferenceObject);
   ++gdwDeferWinEvent;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v69);
-  v29 = zzzSetDesktop(gptiCurrent, (__int64)v17, Handle);
-  if ( v29 < 0 )
-    goto LABEL_24;
-  v75 = W32SetCurrentThreadDpiAwarenessContext(18LL);
-  v32 = *(_DWORD *)(gptiCurrent + 488LL);
-  v78 = v32 & 0x10000000;
-  *(_DWORD *)(gptiCurrent + 488LL) = v32 | 0x10000000;
-  *(_OWORD *)v81 = *(_OWORD *)(*gpDispInfo + 24LL);
-  v35 = 0;
-  if ( PsGetCurrentProcessWin32Process(gpDispInfo) )
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v62);
+  v27 = zzzSetDesktop(gptiCurrent);
+  if ( v27 < 0 )
+    goto LABEL_23;
+  v59 = W32SetCurrentThreadDpiAwarenessContext(18LL);
+  v28 = *(_DWORD *)(gptiCurrent + 488LL);
+  v61 = v28 & 0x10000000;
+  *(_DWORD *)(gptiCurrent + 488LL) = v28 | 0x10000000;
+  v69 = *(_OWORD *)(*gpDispInfo + 24LL);
+  if ( !PsGetCurrentProcessWin32Process()
+    || (CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(),
+        v30 = 1,
+        !(unsigned int)IsImmersiveAppRestricted(CurrentProcessWin32Process)) )
   {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v33);
-    if ( (unsigned int)IsImmersiveAppRestricted(CurrentProcessWin32Process) )
-      v35 = 1;
+    v30 = 0;
   }
-  SmartObjStackRef<tagMENU>::SmartObjStackRef<tagMENU>(v103, 0LL);
-  Window = (struct tagWND *)xxxCreateWindowEx(
-                              0,
-                              (wchar_t *)0x8001,
-                              32769LL,
-                              0LL,
-                              0x82000000,
-                              (int)v81[0],
-                              SHIDWORD(v81[0]),
-                              LODWORD(v81[1]) - LODWORD(v81[0]),
-                              HIDWORD(v81[1]) - HIDWORD(v81[0]),
-                              0LL,
-                              (__int64)v103,
-                              hModuleWin,
-                              0LL,
-                              1u,
-                              0x30Au,
-                              v35,
-                              0LL);
-  v81[0] = Window;
-  SmartObjStackRef<tagMENU>::~SmartObjStackRef<tagMENU>(v103);
+  SmartObjStackRef<tagMENU>::SmartObjStackRef<tagMENU>(v98, 0LL);
+  Window = xxxCreateWindowEx(
+             0,
+             32769,
+             32769,
+             0,
+             -2113929216,
+             v69,
+             DWORD1(v69),
+             DWORD2(v69) - (int)v69,
+             HIDWORD(v69) - DWORD1(v69),
+             0LL,
+             (__int64)v98,
+             hModuleWin,
+             0LL,
+             1,
+             778,
+             v30,
+             0LL);
+  SmartObjStackRef<tagMENU>::~SmartObjStackRef<tagMENU>(v98);
   if ( !Window )
+    goto LABEL_28;
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  *(_QWORD *)&v85 = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = &v85;
+  *((_QWORD *)&v85 + 1) = Window;
+  HMLockObject(Window);
+  if ( !PsGetCurrentProcessWin32Process()
+    || (v32 = PsGetCurrentProcessWin32Process(), v33 = 1, !(unsigned int)IsImmersiveAppRestricted(v32)) )
   {
-LABEL_31:
-    v29 = -1073741801;
-LABEL_24:
-    v30 = (AtomicExecutionCheck *)&v69;
-LABEL_25:
-    AtomicExecutionCheck::~AtomicExecutionCheck(v30);
-    v31 = v77;
-    goto LABEL_99;
+    v33 = 0;
   }
-  ThreadLock((__int64)Window, (__int64 *)&v104);
-  v76 = PsGetCurrentProcessWin32Process(v37)
-     && (v39 = PsGetCurrentProcessWin32Process(v38), (unsigned int)IsImmersiveAppRestricted(v39));
-  SmartObjStackRef<tagMENU>::SmartObjStackRef<tagMENU>(v106, 0LL);
-  v31 = (ShellWindowManagement *)xxxCreateWindowEx(
-                                   0,
-                                   (wchar_t *)(unsigned __int16)gatomMessage,
-                                   (unsigned __int16)gatomMessage,
-                                   0LL,
-                                   0x82000000,
-                                   0,
-                                   0,
-                                   100,
-                                   100,
-                                   0LL,
-                                   (__int64)v106,
-                                   hModuleWin,
-                                   0LL,
-                                   1u,
-                                   0x30Au,
-                                   v76,
-                                   0LL);
-  v77 = v31;
-  SmartObjStackRef<tagMENU>::~SmartObjStackRef<tagMENU>(v106);
-  if ( v31 )
+  SmartObjStackRef<tagMENU>::SmartObjStackRef<tagMENU>(v99, 0LL);
+  v34 = xxxCreateWindowEx(
+          0,
+          (unsigned __int16)gatomMessage,
+          (unsigned __int16)gatomMessage,
+          0,
+          -2113929216,
+          0,
+          0,
+          100,
+          100,
+          0LL,
+          (__int64)v99,
+          hModuleWin,
+          0LL,
+          1,
+          778,
+          v33,
+          0LL);
+  v65 = v34;
+  SmartObjStackRef<tagMENU>::~SmartObjStackRef<tagMENU>(v99);
+  if ( !v34 )
   {
-    v40 = *(unsigned __int16 *)(*((_QWORD *)v31 + 5) + 42LL);
-    if ( (v40 & 0xFFFF3FFF) == 0 )
+LABEL_28:
+    v27 = -1073741801;
+LABEL_23:
+    UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v62);
+    goto LABEL_95;
+  }
+  v35 = *(unsigned __int16 *)(*(_QWORD *)(v34 + 40) + 42LL);
+  if ( (v35 & 0xFFFF3FFF) != 0 )
+  {
+    if ( (v35 & 0x1000) != 0 )
     {
-      ThreadLock((__int64)v31, (__int64 *)&v107);
-      *(_WORD *)(*((_QWORD *)v31 + 5) + 42LL) = *(_WORD *)(*((_QWORD *)v31 + 5) + 42LL) & 0xC000 | 0x29F;
-      v41 = v82 + 3;
-      *(_QWORD *)(*v82 + 8LL) = *((_QWORD *)Window + 6);
-      v98[0] = v41;
-      v98[1] = Window;
-      HMAssignmentLock(v98, 0LL);
-      v101 = *(_OWORD *)LockPointer(&v112, (__int64)v31 + 104, *(_QWORD *)(v21 + 8));
-      HMAssignmentLock(&v101, 0LL);
-      AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v74);
-      xxxInheritWindowMonitor(v31, 0LL, 0);
-      AtomicExecutionCheck::~AtomicExecutionCheck((AtomicExecutionCheck *)v74);
-      LinkWindow(v31, 0LL, *(_QWORD *)(v21 + 8));
-      v99[0] = v17 + 104;
-      v99[1] = v31;
-      HMAssignmentLock(v99, 0LL);
-      *(_QWORD *)(*((_QWORD *)v31 + 5) + 64LL) = 0LL;
-      HMAssignmentUnlock((char *)v31 + 120);
-      v102 = *(_OWORD *)LockPointer(&v113, (__int64)Window + 104, *(_QWORD *)(v21 + 8));
-      HMAssignmentLock(&v102, 0LL);
-      AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v70);
-      xxxInheritWindowMonitor(Window, 0LL, 0);
-      AtomicExecutionCheck::~AtomicExecutionCheck((AtomicExecutionCheck *)&v70);
-      LinkWindow(Window, 0LL, *(_QWORD *)(v21 + 8));
-      *(_QWORD *)(*((_QWORD *)Window + 5) + 64LL) = 0LL;
-      HMAssignmentUnlock((char *)Window + 120);
-      if ( (*(_DWORD *)(gpDispInfo + 132LL) & 1) == 0 )
-      {
-        v42 = *((_QWORD *)Window + 5);
-        *(_QWORD *)(v42 + 168) = *(_QWORD *)(gpDispInfo + 120LL);
-      }
-      v43 = v86;
-      if ( (*((_DWORD *)v86 + 16) & 4) == 0 )
-      {
-        if ( !PsGetCurrentProcessWin32Process(v42)
-          || (v45 = PsGetCurrentProcessWin32Process(v44), v46 = 1, !(unsigned int)IsImmersiveAppRestricted(v45)) )
-        {
-          v46 = 0;
-        }
-        SmartObjStackRef<tagMENU>::SmartObjStackRef<tagMENU>(v109, 0LL);
-        v8 = (_QWORD *)xxxCreateWindowEx(
-                         136,
-                         (wchar_t *)0x8006,
-                         32774LL,
-                         0LL,
-                         0x80800000,
-                         0,
-                         0,
-                         100,
-                         100,
-                         *((struct tagWND **)v17 + 13),
-                         (__int64)v109,
-                         hModuleWin,
-                         0LL,
-                         1u,
-                         0x30Au,
-                         v46,
-                         0LL);
-        SmartObjStackRef<tagMENU>::~SmartObjStackRef<tagMENU>(v109);
-        if ( !v8 )
-          goto LABEL_31;
-        v100[0] = v17 + 112;
-        v100[1] = v8;
-        HMAssignmentLock(v100, 0LL);
-        ThreadLock((__int64)v8, (__int64 *)&v110);
-        v43 = v86;
-      }
-      HMChangeOwnerThread(v82[3], *(_QWORD *)(v21 + 16));
-      HMChangeOwnerThread(v77, *(_QWORD *)(v21 + 16));
-      if ( (*((_DWORD *)v43 + 16) & 4) == 0 )
-        HMChangeOwnerThread(v8, *(_QWORD *)(v21 + 16));
-      W32SetCurrentThreadDpiAwarenessContext(v75);
-      v75 = 0;
-      *(_QWORD *)(gptiCurrent + 424LL) = v87;
-      *(_DWORD *)(gptiCurrent + 488LL) = v78 | *(_DWORD *)(gptiCurrent + 488LL) & 0xEFFFFFFF;
-      v29 = zzzSetDesktop(gptiCurrent, v89, v88);
-      v30 = (AtomicExecutionCheck *)&v69;
-      if ( v29 < 0 )
-        goto LABEL_25;
-      AtomicExecutionCheck::~AtomicExecutionCheck((AtomicExecutionCheck *)&v69);
-      zzzEndDeferWinEventNotify();
-      if ( *(_QWORD *)(v21 + 56) )
-      {
-        if ( (*(_DWORD *)v21 & 2) != 0 )
-        {
-          ++gdwDeferWinEvent;
-          AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v72);
-          v29 = zzzSetDesktop(*(struct tagTHREADINFO **)(v21 + 16), (__int64)v17, 0LL);
-          v30 = (AtomicExecutionCheck *)v72;
-          if ( v29 < 0 )
-            goto LABEL_25;
-          AtomicExecutionCheck::~AtomicExecutionCheck((AtomicExecutionCheck *)v72);
-          zzzEndDeferWinEventNotify();
-        }
-        else
-        {
-          *(_QWORD *)(gptiRit + 616LL) = v43;
-          *(_QWORD *)(*(_QWORD *)(v21 + 16) + 616LL) = v43;
-        }
-        KeSetEvent(*(PRKEVENT *)(v21 + 56), 1, 0);
-        if ( (*(_DWORD *)v21 & 2) == 0 )
-        {
-          LeaveEnterCrit::LeaveEnterCrit((LeaveEnterCrit *)&v71);
-          while ( !grpdeskRitInput )
-          {
-            if ( WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc )
-            {
-              Timeout.QuadPart = -200000LL;
-              KeWaitForSingleObject(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc, Executive, 0, 0, &Timeout);
-            }
-            else
-            {
-              UserSleep(20LL);
-            }
-          }
-          LeaveEnterCrit::~LeaveEnterCrit((LeaveEnterCrit *)&v71);
-        }
-        v50 = *(void **)(v21 + 56);
-        if ( v50 )
-        {
-          ObfDereferenceObject(v50);
-          *(_QWORD *)(v21 + 56) = 0LL;
-        }
-        v48 = gpsi;
-        _InterlockedOr(gpsi, 0x800u);
-        Timeout = v90;
-      }
-      v51 = v21 == gTermIO[0];
-      v52 = v81[0];
-      if ( v51 )
-        xxxSetWindowPos(v81[0], 1LL, 0LL, 0LL, 0, 0, 1115);
-      if ( !v83 )
-        UnlockObjectAssignment(*(_QWORD *)(gptiCurrent + 424LL) + 336LL);
-      if ( gspdeskDisconnect || v17 != grpdeskLogon )
-        goto LABEL_82;
-      if ( xxxCreateDisconnectDesktop((HWINSTA)Timeout.QuadPart, v43) )
-      {
-        KeSetEvent(gpEventDiconnectDesktop, 1, 0);
-        gdwHydraHint |= 0x40000u;
-        goto LABEL_82;
-      }
-      if ( v8 )
-        ThreadUnlock1(v54, v53, v55);
-      ThreadUnlock1(v54, v53, v55);
-      ThreadUnlock1(v57, v56, v58);
-      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-      *(_QWORD *)(ThreadWin32Thread + 16) = v96;
-      ObfDereferenceObject(v17);
-      CloseDesktop((unsigned __int64)Handle, 0);
-      v11 = -1073741823;
-      goto LABEL_79;
+      LODWORD(Object) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 2320LL);
     }
-    if ( (v40 & 0x1000) != 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v40);
-    v29 = -1073741790;
+    v27 = -1073741790;
+    goto LABEL_23;
+  }
+  v36 = W32GetThreadWin32Thread(KeGetCurrentThread());
+  *(_QWORD *)&v87 = *(_QWORD *)(v36 + 416);
+  *(_QWORD *)(v36 + 416) = &v87;
+  *((_QWORD *)&v87 + 1) = v34;
+  HMLockObject(v34);
+  *(_WORD *)(*(_QWORD *)(v34 + 40) + 42LL) = *(_WORD *)(*(_QWORD *)(v34 + 40) + 42LL) & 0xC000 | 0x29F;
+  v37 = v68 + 3;
+  *(_QWORD *)(*v68 + 8LL) = *(_QWORD *)(Window + 48);
+  v93[0] = v37;
+  v93[1] = Window;
+  HMAssignmentLock(v93);
+  SetOrClrWF(0LL, Window, 1799LL, 1LL);
+  SetOrClrWF(1LL, Window, 1794LL, 1LL);
+  if ( (*((_DWORD *)v17 + 16) & 4) == 0 && !gspwndFullScreen )
+  {
+    v94[0] = &gspwndFullScreen;
+    v94[1] = Window;
+    HMAssignmentLock(v94);
+  }
+  v97 = *(_OWORD *)LockPointer(v102, v34 + 104, *(_QWORD *)(v18 + 8));
+  HMAssignmentLock(&v97);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v76);
+  xxxInheritWindowMonitor((struct tagWND *)v34);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v76);
+  LinkWindow((struct tagWND *)v34);
+  v78 = (__int64 *)((char *)Object + 104);
+  v95[0] = (char *)Object + 104;
+  v95[1] = v34;
+  HMAssignmentLock(v95);
+  *(_QWORD *)(*(_QWORD *)(v34 + 40) + 64LL) = 0LL;
+  HMAssignmentUnlock(v34 + 120);
+  v101 = *(_OWORD *)LockPointer(v103, Window + 104, *(_QWORD *)(v18 + 8));
+  HMAssignmentLock(&v101);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v77);
+  xxxInheritWindowMonitor((struct tagWND *)Window);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v77);
+  LinkWindow((struct tagWND *)Window);
+  *(_QWORD *)(*(_QWORD *)(Window + 40) + 64LL) = 0LL;
+  HMAssignmentUnlock(Window + 120);
+  if ( (*(_DWORD *)(gpDispInfo + 132LL) & 1) == 0 )
+    *(_QWORD *)(*(_QWORD *)(Window + 40) + 168LL) = *(_QWORD *)(gpDispInfo + 120LL);
+  if ( (*((_DWORD *)v17 + 16) & 4) != 0 )
+  {
+    v40 = v64;
   }
   else
   {
-    v29 = -1073741801;
+    v38 = 0;
+    if ( PsGetCurrentProcessWin32Process() )
+    {
+      v39 = PsGetCurrentProcessWin32Process();
+      v38 = IsImmersiveAppRestricted(v39) != 0;
+    }
+    SmartObjStackRef<tagMENU>::SmartObjStackRef<tagMENU>(v100, 0LL);
+    v40 = xxxCreateWindowEx(
+            136,
+            32774,
+            32774,
+            0,
+            -2139095040,
+            0,
+            0,
+            100,
+            100,
+            *v78,
+            (__int64)v100,
+            hModuleWin,
+            0LL,
+            1,
+            778,
+            v38,
+            0LL);
+    v64 = v40;
+    SmartObjStackRef<tagMENU>::~SmartObjStackRef<tagMENU>(v100);
+    if ( !v40 )
+    {
+      v27 = -1073741801;
+      UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v62);
+      goto LABEL_95;
+    }
+    v96[0] = (char *)Object + 112;
+    v96[1] = v40;
+    HMAssignmentLock(v96);
+    v41 = W32GetThreadWin32Thread(KeGetCurrentThread());
+    *(_QWORD *)&v89 = *(_QWORD *)(v41 + 416);
+    *(_QWORD *)(v41 + 416) = &v89;
+    *((_QWORD *)&v89 + 1) = v40;
+    HMLockObject(v40);
   }
-  AtomicExecutionCheck::~AtomicExecutionCheck((AtomicExecutionCheck *)&v69);
+  HMChangeOwnerThread(v68[3], *(_QWORD *)(v18 + 16));
+  HMChangeOwnerThread(v34, *(_QWORD *)(v18 + 16));
+  v42 = v67;
+  if ( (*((_DWORD *)v67 + 16) & 4) == 0 )
+    HMChangeOwnerThread(v40, *(_QWORD *)(v18 + 16));
+  W32SetCurrentThreadDpiAwarenessContext(v59);
+  v59 = 0;
+  *(_QWORD *)(gptiCurrent + 424LL) = v73;
+  *(_DWORD *)(gptiCurrent + 488LL) = v61 | *(_DWORD *)(gptiCurrent + 488LL) & 0xEFFFFFFF;
+  v27 = zzzSetDesktop(gptiCurrent);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v62);
+  if ( v27 >= 0 )
+  {
+    zzzEndDeferWinEventNotify();
+    if ( !*(_QWORD *)(v18 + 56) )
+      goto LABEL_70;
+    if ( (*(_DWORD *)v18 & 2) == 0 )
+    {
+      v43 = v67;
+      *(_QWORD *)(gptiRit + 616LL) = v67;
+      *(_QWORD *)(*(_QWORD *)(v18 + 16) + 616LL) = v43;
+LABEL_57:
+      KeSetEvent(*(PRKEVENT *)(v18 + 56), 1, 0);
+      if ( (*(_DWORD *)v18 & 2) == 0 )
+      {
+        if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+          KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+        LeaveEnterCrit::LeaveEnterCrit((LeaveEnterCrit *)v60);
+        while ( !grpdeskRitInput )
+        {
+          if ( gpEventSwitchDesktop )
+          {
+            Timeout.QuadPart = -200000LL;
+            KeWaitForSingleObject(gpEventSwitchDesktop, Executive, 0, 0, &Timeout);
+          }
+          else
+          {
+            UserSleep(20LL);
+          }
+        }
+        LeaveEnterCrit::~LeaveEnterCrit(v44);
+      }
+      v45 = *(void **)(v18 + 56);
+      if ( v45 )
+      {
+        ObfDereferenceObject(v45);
+        *(_QWORD *)(v18 + 56) = 0LL;
+      }
+      _InterlockedOr(gpsi, 0x800u);
+      v42 = v67;
+LABEL_70:
+      if ( v18 == gTermIO )
+        xxxSetWindowPos((struct tagWND *)Window, 0, 0, 1115);
+      if ( !v70 )
+        UnlockObjectAssignment(*(_QWORD *)(gptiCurrent + 424LL) + 336LL);
+      if ( !gspdeskDisconnect && Object == grpdeskLogon )
+      {
+        if ( !(unsigned int)xxxCreateDisconnectDesktop(v80, v42) )
+        {
+          if ( v40 )
+            ThreadUnlock1();
+          ThreadUnlock1();
+          ThreadUnlock1();
+          v46 = W32GetThreadWin32Thread(KeGetCurrentThread());
+          *(_QWORD *)(v46 + 16) = v91;
+          ObfDereferenceObject(Object);
+          CloseDesktop(Handle);
+          v11 = -1073741823;
+          goto LABEL_80;
+        }
+        KeSetEvent(gpEventDiconnectDesktop, 1, 0);
+        gdwHydraHint |= 0x40000u;
+      }
+      v48 = v65;
+      goto LABEL_84;
+    }
+    ++gdwDeferWinEvent;
+    UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v72);
+    v27 = zzzSetDesktop(*(struct tagTHREADINFO **)(v18 + 16));
+    UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v72);
+    if ( v27 >= 0 )
+    {
+      zzzEndDeferWinEventNotify();
+      goto LABEL_57;
+    }
+  }
   while ( 1 )
   {
-LABEL_99:
-    AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v71);
-    if ( v75 )
-      W32SetCurrentThreadDpiAwarenessContext(v75);
-    if ( v8 )
+LABEL_95:
+    UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v81);
+    if ( v59 )
+      W32SetCurrentThreadDpiAwarenessContext(v59);
+    v40 = v64;
+    if ( v64 )
     {
-      xxxDestroyWindow(v8);
-      HMAssignmentUnlock(v17 + 112);
+      xxxDestroyWindow(v64);
+      HMAssignmentUnlock((char *)v66 + 112);
     }
-    if ( v31 )
+    v48 = v65;
+    if ( v65 )
     {
-      xxxDestroyWindow(v31);
-      HMAssignmentUnlock(v17 + 104);
+      xxxDestroyWindow(v65);
+      HMAssignmentUnlock((char *)v66 + 104);
     }
-    v52 = v81[0];
-    if ( v81[0] )
+    if ( Window )
     {
-      xxxDestroyWindow((_QWORD *)v81[0]);
-      v64 = v82 + 3;
-      *(_QWORD *)(*v82 + 8LL) = 0LL;
-      HMAssignmentUnlock(v64);
+      xxxDestroyWindow(Window);
+      v51 = v68 + 3;
+      *(_QWORD *)(*v68 + 8LL) = 0LL;
+      HMAssignmentUnlock(v51);
+      HMAssignmentUnlock(&gspwndFullScreen);
     }
-    *(_QWORD *)(gptiCurrent + 424LL) = v87;
-    if ( v78 != -1 )
-      *(_DWORD *)(gptiCurrent + 488LL) = v78 | *(_DWORD *)(gptiCurrent + 488LL) & 0xEFFFFFFF;
-    AtomicExecutionCheck::~AtomicExecutionCheck((AtomicExecutionCheck *)&v71);
+    *(_QWORD *)(gptiCurrent + 424LL) = v73;
+    if ( v61 != -1 )
+      *(_DWORD *)(gptiCurrent + 488LL) = v61 | *(_DWORD *)(gptiCurrent + 488LL) & 0xEFFFFFFF;
+    UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v81);
     zzzEndDeferWinEventNotify();
-    AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v70);
-    zzzSetDesktop(gptiCurrent, v89, v88);
-    AtomicExecutionCheck::~AtomicExecutionCheck((AtomicExecutionCheck *)&v70);
-    if ( v80 )
+    UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v69);
+    zzzSetDesktop(gptiCurrent);
+    UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v69);
+    if ( v63 )
     {
-      Timeout.QuadPart = ReferenceDwmApiPort(v65);
-      if ( Timeout.QuadPart )
+      v54 = ReferenceDwmApiPort(v53, v52);
+      if ( v54 )
       {
-        zzzDecomposeDesktop((struct tagDESKTOP *)v17);
-        v66 = (__int64 **)*((_QWORD *)v17 + 1);
-        v67 = **v66;
-        v68 = (void *)ReferenceDwmApiPort(v66);
-        DwmAsyncDesktopFree(v68, v67);
-        ((void (__fastcall *)(_QWORD))DereferenceDwmApiPort)((union _LARGE_INTEGER)Timeout.QuadPart);
+        v55 = v66;
+        zzzDecomposeDesktop((struct tagDESKTOP *)v66);
+        v56 = (void *)ReferenceDwmApiPort(v55[1], *(_QWORD *)v55[1]);
+        DwmAsyncDesktopFree(v56);
+        DereferenceDwmApiPort(v54);
+        v40 = v64;
       }
     }
-    CloseProtectedHandle(Handle, 0);
+    CloseProtectedHandle(Handle);
     Handle = 0LL;
-    if ( !v83 )
+    if ( !v70 )
       UnlockObjectAssignment(*(_QWORD *)(gptiCurrent + 424LL) + 336LL);
-LABEL_82:
-    if ( v8 )
-      v8 = (_QWORD *)ThreadUnlock1(v48, v47, v49);
-    v31 = v77;
-    if ( v77 )
+LABEL_84:
+    if ( v40 )
+      v64 = ThreadUnlock1();
+    if ( v48 )
+      v65 = ThreadUnlock1();
+    if ( Window )
+      Window = ThreadUnlock1();
+    v49 = W32GetThreadWin32Thread(KeGetCurrentThread());
+    *(_QWORD *)(v49 + 16) = v91;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v31 = (ShellWindowManagement *)ThreadUnlock1(v48, v47, v49);
-      v77 = v31;
-    }
-    if ( v52 )
-      v81[0] = (struct tagWND *)ThreadUnlock1(v48, v47, v49);
-    v61 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-    *(_QWORD *)(v61 + 16) = v96;
-    LOBYTE(v62) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-               && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
-               && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    v63 = &WPP_RECORDER_INITIALIZED;
-    if ( (_BYTE)v62 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v63) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v62,
-        (_DWORD)v63,
-        22,
-        4,
+      LOBYTE(v50) = 4;
+      WPP_RECORDER_SF_(
+        (unsigned int)&WPP_RECORDER_INITIALIZED,
+        v50,
         3,
         22,
-        (__int64)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids);
+        (__int64)&WPP_4cc55f0eccd63a8558931143e45fab5e_Traceguids);
     }
     if ( !Handle || (unsigned int)SetHandleFlag(Handle, 1LL, 1LL) )
       break;
-    v29 = -1073741801;
+    v27 = -1073741801;
   }
-  if ( v29 >= 0 )
-    *((_DWORD *)v17 + 12) |= 0x10u;
-  ObfDereferenceObject(v17);
+  if ( v27 >= 0 )
+    *((_DWORD *)v66 + 12) |= 0x10u;
+  ObfDereferenceObject(v66);
   *a5 = Handle;
-  return (unsigned int)v29;
+  return (unsigned int)v27;
 }

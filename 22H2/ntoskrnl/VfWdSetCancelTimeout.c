@@ -1,10 +1,10 @@
 /*
- * XREFs of VfWdSetCancelTimeout @ 0x140ADF17C
+ * XREFs of VfWdSetCancelTimeout @ 0x1409E0D00
  * Callers:
- *     VfSetVerifierInformationEx @ 0x140ADE920 (VfSetVerifierInformationEx.c)
- *     VfWdInit @ 0x140ADF0B8 (VfWdInit.c)
+ *     VfWdInit @ 0x1409E0C38 (VfWdInit.c)
+ *     VfSetVerifierInformationEx @ 0x1409ECD04 (VfSetVerifierInformationEx.c)
  * Callees:
- *     VfWdCheckForSettingsChange @ 0x140ADF034 (VfWdCheckForSettingsChange.c)
+ *     VfWdCheckForSettingsChange @ 0x1409E0BB4 (VfWdCheckForSettingsChange.c)
  */
 
 __int64 __fastcall VfWdSetCancelTimeout(unsigned int a1)
@@ -24,7 +24,7 @@ __int64 __fastcall VfWdSetCancelTimeout(unsigned int a1)
     v2 = 0;
   }
   VfWdCancelTimeoutTicks = v2;
-  if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
+  if ( ViVerifierDriverAddedThunkListHead )
     VfWdCheckForSettingsChange(MmVerifierData);
   return v1;
 }

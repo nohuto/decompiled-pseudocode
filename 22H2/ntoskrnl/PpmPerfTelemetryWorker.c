@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfTelemetryWorker @ 0x140885130
+ * XREFs of PpmPerfTelemetryWorker @ 0x1406A36D0
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PpmPerfUpdateQosDisableReasons @ 0x14032AF34 (PpmPerfUpdateQosDisableReasons.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     PopOkayToQueueNextWorkItem @ 0x14032ED60 (PopOkayToQueueNextWorkItem.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14032B274 (PopOkayToQueueNextWorkItem.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x14032B284 (PpmPerfUpdateQosDisableReasons.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 PpmPerfTelemetryWorker()
@@ -37,14 +37,14 @@ __int64 PpmPerfTelemetryWorker()
 
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   PpmPerfUpdateQosDisableReasons(0LL);
-  v0 = &unk_140D1F5B0;
+  v0 = &unk_140CFCD80;
   v1 = v20;
-  v2 = qword_140D1F548 - qword_140D1F550;
-  qword_140D1F550 = qword_140D1F548;
+  v2 = qword_140CFCD18 - qword_140CFCD20;
+  qword_140CFCD20 = qword_140CFCD18;
   v3 = 9LL;
   v4 = v2 / 0x989680;
-  v5 = qword_140D1F558 - qword_140D1F560;
-  qword_140D1F560 = qword_140D1F558;
+  v5 = qword_140CFCD28 - qword_140CFCD30;
+  qword_140CFCD30 = qword_140CFCD28;
   do
   {
     v6 = (unsigned __int64)(*(v0 - 9) - *v0) * (unsigned __int128)0xD6BF94D5E57A42BDuLL;
@@ -55,7 +55,7 @@ __int64 PpmPerfTelemetryWorker()
   }
   while ( v3 );
   PpmReleaseLock(&PpmPerfPolicyLock);
-  if ( (unsigned int)dword_140C03950 > 5 && tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C02228 > 5 && tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
   {
     v8 = v4;
     v12 = &v8;
@@ -68,7 +68,7 @@ __int64 PpmPerfTelemetryWorker()
     v17 = 36LL;
     v10 = 0x1000000LL;
     v19 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)byte_14002DB85, 0LL, 0LL, 6u, &v11);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)word_140026FBA, 0LL, 0LL, 6u, &v11);
   }
-  return PopOkayToQueueNextWorkItem((__int64)&unk_140C3EB48);
+  return PopOkayToQueueNextWorkItem((__int64)&unk_140C24728);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpCountSetRangesInVector @ 0x14079878C
+ * XREFs of HvpCountSetRangesInVector @ 0x1406463C4
  * Callers:
- *     HvpGenerateLogEntryDirtyData @ 0x14020A620 (HvpGenerateLogEntryDirtyData.c)
- *     HvpGenerateLogMetadata @ 0x1406881CC (HvpGenerateLogMetadata.c)
- *     HvStoreModifiedData @ 0x140689424 (HvStoreModifiedData.c)
- *     HvGetHiveLogFileStatus @ 0x14068A5A8 (HvGetHiveLogFileStatus.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x140268570 (HvpGenerateLogEntryDirtyData.c)
+ *     HvpGenerateLogMetadata @ 0x1406464B8 (HvpGenerateLogMetadata.c)
+ *     HvStoreModifiedData @ 0x140721060 (HvStoreModifiedData.c)
+ *     HvGetHiveLogFileStatus @ 0x140724678 (HvGetHiveLogFileStatus.c)
  * Callees:
- *     RtlFindNextForwardRunClear @ 0x1402E1F90 (RtlFindNextForwardRunClear.c)
+ *     RtlFindNextForwardRunClear @ 0x140267B70 (RtlFindNextForwardRunClear.c)
  */
 
 __int64 __fastcall HvpCountSetRangesInVector(PRTL_BITMAP BitMapHeader)

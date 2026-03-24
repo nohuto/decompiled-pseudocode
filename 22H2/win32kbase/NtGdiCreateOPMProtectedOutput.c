@@ -1,47 +1,42 @@
 /*
- * XREFs of NtGdiCreateOPMProtectedOutput @ 0x1C015C420
+ * XREFs of NtGdiCreateOPMProtectedOutput @ 0x1C0140490
  * Callers:
  *     <none>
  * Callees:
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00BF7E0 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?OPMCreateProtectedOutput@@YAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z @ 0x1C015C03C (-OPMCreateProtectedOutput@@YAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00B49C0 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
+ *     ?OPMCreateProtectedOutput@@YAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z @ 0x1C00C00B8 (-OPMCreateProtectedOutput@@YAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 __fastcall NtGdiCreateOPMProtectedOutput(_OWORD *a1, void **a2)
 {
   __int64 result; // rax
   unsigned int v5; // ebx
-  __int64 v6; // rdx
-  int v7; // edi
-  __int64 v8; // r8
-  __int64 v9; // r9
-  unsigned __int64 v10; // rcx
-  int v11; // [rsp+30h] [rbp-38h] BYREF
-  void *v12; // [rsp+38h] [rbp-30h] BYREF
-  struct _LUID v13[2]; // [rsp+40h] [rbp-28h] BYREF
+  int v6; // edi
+  int v7; // [rsp+30h] [rbp-38h] BYREF
+  void *v8; // [rsp+38h] [rbp-30h] BYREF
+  struct _LUID v9[2]; // [rsp+40h] [rbp-28h] BYREF
 
   result = AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList();
   v5 = 0;
   if ( (int)result >= 0 )
   {
-    *(_OWORD *)&v13[0].LowPart = 0LL;
+    *(_OWORD *)&v9[0].LowPart = 0LL;
     if ( a1 + 1 < a1 || (unsigned __int64)(a1 + 1) > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    *(_OWORD *)&v13[0].LowPart = *a1;
-    v11 = 0;
-    v12 = (void *)-1LL;
-    v7 = OPMCreateProtectedOutput((unsigned int)v13[1].HighPart, v13, v13[1].LowPart, &v12, &v11);
-    if ( v11 && v7 >= 0 )
-      v7 = -1073741198;
-    v10 = (unsigned __int64)(a2 + 1);
-    if ( (unsigned __int64)(a2 + 1) > MmUserProbeAddress || v10 <= (unsigned __int64)a2 )
+    *(_OWORD *)&v9[0].LowPart = *a1;
+    v7 = 0;
+    v8 = (void *)-1LL;
+    v6 = OPMCreateProtectedOutput((COPM *)(unsigned int)v9[1].HighPart, v9, v9[1].LowPart, &v8, &v7);
+    if ( v7 && v6 >= 0 )
+      v6 = -1073741198;
+    if ( (unsigned __int64)(a2 + 1) > MmUserProbeAddress || a2 + 1 <= a2 )
       *(_BYTE *)MmUserProbeAddress = 0;
-    *a2 = v12;
-    UserSessionSwitchLeaveCrit(v10, v6, v8, v9);
-    if ( v7 < 0 )
-      return (unsigned int)v7;
+    *a2 = v8;
+    UserSessionSwitchLeaveCrit();
+    if ( v6 < 0 )
+      return (unsigned int)v6;
     return v5;
   }
   return result;

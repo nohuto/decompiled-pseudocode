@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CleanupEntry@FxCollectionInternal@@QEAAXPEAVFxCollectionEntry@@@Z @ 0x1C0014AF8
+ * XREFs of ?CleanupEntry@FxCollectionInternal@@QEAAXPEAVFxCollectionEntry@@@Z @ 0x1C00618E4
  * Callers:
- *     imp_WdfCollectionRemoveItem @ 0x1C0014890 (imp_WdfCollectionRemoveItem.c)
- *     ?RemoveEntry@FxCollectionInternal@@QEAAJPEAVFxCollectionEntry@@@Z @ 0x1C0021CB4 (-RemoveEntry@FxCollectionInternal@@QEAAJPEAVFxCollectionEntry@@@Z.c)
- *     imp_WdfCollectionRemove @ 0x1C0070E10 (imp_WdfCollectionRemove.c)
+ *     imp_WdfCollectionRemove @ 0x1C005F240 (imp_WdfCollectionRemove.c)
+ *     imp_WdfCollectionRemoveItem @ 0x1C005F380 (imp_WdfCollectionRemoveItem.c)
+ *     ?RemoveEntry@FxCollectionInternal@@QEAAJPEAVFxCollectionEntry@@@Z @ 0x1C00619C4 (-RemoveEntry@FxCollectionInternal@@QEAAJPEAVFxCollectionEntry@@@Z.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
  */
 
 void __fastcall FxCollectionInternal::CleanupEntry(FxCollectionInternal *this, FX_POOL_TRACKER *Entry)

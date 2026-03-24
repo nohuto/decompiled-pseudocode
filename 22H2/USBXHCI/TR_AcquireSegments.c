@@ -1,9 +1,9 @@
 /*
- * XREFs of TR_AcquireSegments @ 0x1C00224C8
+ * XREFs of TR_AcquireSegments @ 0x1C003EC30
  * Callers:
- *     Bulk_PrepareStage @ 0x1C00123CC (Bulk_PrepareStage.c)
+ *     Bulk_PrepareStage @ 0x1C000D984 (Bulk_PrepareStage.c)
  * Callees:
- *     TR_EnsureSegments @ 0x1C000B270 (TR_EnsureSegments.c)
+ *     TR_EnsureSegments @ 0x1C00098D0 (TR_EnsureSegments.c)
  */
 
 __int64 __fastcall TR_AcquireSegments(__int64 a1, unsigned int a2, __int64 *a3)

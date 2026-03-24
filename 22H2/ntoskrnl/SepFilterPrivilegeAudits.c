@@ -1,8 +1,9 @@
 /*
- * XREFs of SepFilterPrivilegeAudits @ 0x1407C1558
+ * XREFs of SepFilterPrivilegeAudits @ 0x1406808F8
  * Callers:
- *     SepAdtAuditPrivilegeUseWithContext @ 0x1406C34DC (SepAdtAuditPrivilegeUseWithContext.c)
- *     SePrivilegedServiceAuditAlarm @ 0x1406C38CC (SePrivilegedServiceAuditAlarm.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x140627B3C (SePrivilegedServiceAuditAlarm.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x140627E10 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     PfQuerySuperfetchInformation @ 0x1406CD5D0 (PfQuerySuperfetchInformation.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +13,7 @@ bool __fastcall SepFilterPrivilegeAudits(char a1, unsigned int *a2)
   int v2; // r9d
   unsigned int v4; // r8d
   _DWORD *v5; // rcx
-  __int64 v6; // r11
+  __int64 v6; // rbx
   __int64 **v7; // r10
   _DWORD *v8; // rax
   _DWORD *v9; // rcx
@@ -44,9 +45,9 @@ LABEL_10:
     --v6;
   }
   while ( v6 );
-  v9 = a2 + 2;
-  if ( (a1 & 1) != 0 )
+  if ( (a1 & 1) != 0 && v4 )
   {
+    v9 = a2 + 2;
     v10 = *a2;
     do
     {
@@ -56,10 +57,10 @@ LABEL_10:
       {
         v12 = *++v11;
         if ( !*v11 )
-          goto LABEL_16;
+          goto LABEL_17;
       }
       ++v2;
-LABEL_16:
+LABEL_17:
       v9 += 3;
       --v10;
     }

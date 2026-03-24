@@ -1,219 +1,217 @@
 /*
- * XREFs of ?VmBusOpenResource@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C03823E0
+ * XREFs of ?VmBusOpenResource@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0244A20
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0007894 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B864 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_RELEASEKEY.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     DxgkOpenResourceFromNtHandleInternal @ 0x1C01A3FC0 (DxgkOpenResourceFromNtHandleInternal.c)
- *     DxgkOpenResource @ 0x1C01E0A10 (DxgkOpenResource.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0008F14 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0040684 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_RELEASEKEY.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     DxgkOpenResourceFromNtHandle @ 0x1C012A160 (DxgkOpenResourceFromNtHandle.c)
+ *     DxgkOpenResource @ 0x1C015C5D0 (DxgkOpenResource.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusOpenResource(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // r15
-  unsigned int v4; // edi
-  void *v6; // rsi
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // r14
+  unsigned int v6; // ebx
   __int64 v7; // rax
-  __int64 v8; // rbx
-  unsigned int v9; // eax
-  _DWORD *v10; // r14
-  unsigned __int64 v11; // rax
-  void *v12; // r12
-  __int64 v13; // rsi
-  unsigned int v14; // eax
-  __int64 v15; // rcx
-  unsigned int v16; // eax
-  __int64 v17; // r9
-  int v18; // ecx
-  __int64 v19; // rax
-  __int64 v20; // r8
-  int v21; // eax
-  const wchar_t *v22; // r9
-  __int64 v23; // rcx
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  int v26; // eax
-  __int64 v27; // rcx
-  _QWORD v28[14]; // [rsp+50h] [rbp-79h] BYREF
-  _BYTE v29[8]; // [rsp+C0h] [rbp-9h] BYREF
-  DXGPUSHLOCK *v30; // [rsp+C8h] [rbp-1h]
-  int v31; // [rsp+D0h] [rbp+7h]
-  _BYTE v32[72]; // [rsp+D8h] [rbp+Fh] BYREF
-  unsigned int v33; // [rsp+130h] [rbp+67h]
-  void *v34; // [rsp+138h] [rbp+6Fh]
+  PVOID v9; // rsi
+  __int64 v10; // rax
+  __int64 v11; // rdi
+  unsigned int v12; // eax
+  _DWORD *v13; // r15
+  SIZE_T v14; // rax
+  PVOID v15; // r12
+  __int64 v16; // rsi
+  unsigned int v17; // eax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  __int64 v21; // r9
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  __int64 v26; // r8
+  int v27; // eax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // rcx
+  __int64 v31; // rdx
+  __int64 v32; // r8
+  int v33; // eax
+  __int64 v34; // rax
+  __int64 v35; // rcx
+  _QWORD v36[14]; // [rsp+20h] [rbp-79h] BYREF
+  _BYTE v37[8]; // [rsp+90h] [rbp-9h] BYREF
+  DXGPUSHLOCK *v38; // [rsp+98h] [rbp-1h]
+  int v39; // [rsp+A0h] [rbp+7h]
+  _BYTE v40[72]; // [rsp+A8h] [rbp+Fh] BYREF
+  unsigned int v41; // [rsp+100h] [rbp+67h]
+  PVOID v42; // [rsp+108h] [rbp+6Fh]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v29, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v30);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 1;
-  v4 = 0;
-  v31 = 1;
-  if ( *(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v37, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v38);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 1;
+  v6 = 0;
+  v39 = 1;
+  if ( *(_BYTE *)(v4 + 165) )
   {
-    v34 = 0LL;
-    v6 = 0LL;
-    v7 = CastToVmBusCommand<DXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC>((__int64)a1);
-    v8 = v7;
-    if ( !v7 )
-      goto LABEL_3;
-    v9 = *(_DWORD *)(v7 + 36);
-    if ( v9 > 0x8000 )
-      goto LABEL_3;
-    v33 = 4 * v9 + 8;
-    v10 = (_DWORD *)operator new[](v33, 0x4B677844u, 64LL);
+    v42 = 0LL;
+    v9 = 0LL;
+    v10 = CastToVmBusCommand<DXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC>((__int64)a1);
+    v11 = v10;
     if ( !v10 )
       goto LABEL_3;
-    v11 = 80LL * *(unsigned int *)(v8 + 36);
-    if ( !is_mul_ok(*(unsigned int *)(v8 + 36), 0x50uLL) )
-      v11 = -1LL;
-    v12 = (void *)operator new[](v11, 0x4B677844u, 256LL);
-    if ( !v12 )
+    v12 = *(_DWORD *)(v10 + 36);
+    if ( v12 > 0x8000 )
+      goto LABEL_3;
+    v41 = 4 * v12 + 8;
+    v13 = operator new(v41, 0x4B677844u, 1, (POOL_TYPE)512);
+    if ( !v13 )
+      goto LABEL_3;
+    v14 = 80LL * *(unsigned int *)(v11 + 36);
+    if ( !is_mul_ok(*(unsigned int *)(v11 + 36), 0x50uLL) )
+      v14 = -1LL;
+    v15 = operator new(v14, 0x4B677844u, 1, PagedPool);
+    if ( !v15 )
       goto LABEL_11;
-    v14 = *(_DWORD *)(v8 + 40);
-    if ( v14 )
+    v17 = *(_DWORD *)(v11 + 40);
+    if ( v17 )
     {
-      if ( v14 > 0x20000 )
+      if ( v17 > 0x20000 )
       {
-        LODWORD(v13) = -1073741811;
-        goto LABEL_37;
+        LODWORD(v16) = -1073741811;
+        goto LABEL_35;
       }
-      v34 = (void *)operator new[](*(unsigned int *)(v8 + 40), 0x4B677844u, 256LL);
-      v6 = v34;
-      if ( !v34 )
+      v42 = operator new(*(unsigned int *)(v11 + 40), 0x4B677844u, 1, PagedPool);
+      v9 = v42;
+      if ( !v42 )
       {
 LABEL_11:
-        LODWORD(v13) = -1073741801;
-LABEL_37:
-        v10[1] = v13;
-        VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), v10, v33);
-        operator delete(v10);
-        operator delete(v12);
-        operator delete(v34);
+        LODWORD(v16) = -1073741801;
+LABEL_35:
+        v13[1] = v16;
+        VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), v13, v41);
+        operator delete[](v13);
+        operator delete[](v15);
+        operator delete[](v42);
         goto LABEL_4;
       }
     }
-    if ( *(_BYTE *)(v8 + 28) )
+    if ( *(_BYTE *)(v11 + 28) )
     {
-      memset(v28, 0, 0x68uLL);
+      memset(v36, 0, 0x68uLL);
       DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED(
-        (DXGHANDLETABLELOCKSHARED *)v32,
-        *((struct DXGPROCESS **)a1 + 12));
-      v15 = *((_QWORD *)a1 + 12);
-      v16 = (*(_DWORD *)(v8 + 32) >> 6) & 0xFFFFFF;
-      if ( v16 >= *(_DWORD *)(v15 + 296) )
+        (DXGHANDLETABLELOCKSHARED *)v40,
+        *((struct _KTHREAD ***)a1 + 7));
+      v19 = *((_QWORD *)a1 + 7);
+      v20 = (*(_DWORD *)(v11 + 32) >> 6) & 0xFFFFFF;
+      if ( (unsigned int)v20 >= *(_DWORD *)(v19 + 256) )
         goto LABEL_23;
-      v17 = *(_QWORD *)(v15 + 280);
-      if ( ((*(_DWORD *)(v8 + 32) >> 25) & 0x60) != (*(_BYTE *)(v17 + 16LL * v16 + 8) & 0x60) )
-        goto LABEL_23;
-      if ( (*(_DWORD *)(v17 + 16LL * v16 + 8) & 0x2000) != 0 )
-        goto LABEL_23;
-      v18 = *(_DWORD *)(v17 + 16LL * v16 + 8) & 0x1F;
-      if ( !v18 )
-        goto LABEL_23;
-      if ( v18 != 13 )
+      v21 = *(_QWORD *)(v19 + 240);
+      v18 = (unsigned int)v20;
+      v19 = *(unsigned int *)(v21 + 16 * v20 + 8);
+      if ( ((*(_DWORD *)(v11 + 32) >> 25) & 0x60) != (*(_BYTE *)(v21 + 16 * v20 + 8) & 0x60)
+        || (v19 & 0x2000) != 0
+        || (v19 & 0x1F) == 0 )
       {
-        WdLogSingleEntry1(2LL, 316LL);
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
-LABEL_23:
-        WdLogSingleEntry1(2LL, *(unsigned int *)(v8 + 32));
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Invalid shared object handle: 0x%I64x",
-          *(unsigned int *)(v8 + 32),
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        LODWORD(v13) = -1073741811;
-        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v32);
-        goto LABEL_37;
+        goto LABEL_23;
       }
-      v19 = *(_QWORD *)(v17 + 16LL * v16);
-      if ( !v19 || *(_DWORD *)v19 != 4 || !*(_QWORD *)(v19 + 16) )
-        goto LABEL_23;
-      v28[1] = *(_QWORD *)(v19 + 16);
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v32);
-      LODWORD(v28[0]) = *(_DWORD *)(v8 + 24);
-      LODWORD(v28[2]) = *(_DWORD *)(v8 + 36);
-      LODWORD(v28[8]) = *(_DWORD *)(v8 + 40);
-      v28[3] = v12;
-      v28[9] = v6;
-      v21 = DxgkOpenResourceFromNtHandleInternal((ULONG64)v28, 0LL, v20);
-      v13 = v21;
-      if ( v21 >= 0 )
+      v18 = 2LL * (unsigned int)v20;
+      v19 &= 0x1Fu;
+      if ( (_BYTE)v19 != 13 )
       {
-        *v10 = v28[10];
-        if ( *(_DWORD *)(v8 + 36) )
+        v22 = WdLogNewEntry5_WdError(v19, v18);
+        *(_QWORD *)(v22 + 24) = 316LL;
+        WdLogEvent5_WdError(v22);
+LABEL_23:
+        v23 = WdLogNewEntry5_WdError(v19, v18);
+        *(_QWORD *)(v23 + 24) = *(unsigned int *)(v11 + 32);
+        WdLogEvent5_WdError(v23);
+        LODWORD(v16) = -1073741811;
+        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v40);
+        goto LABEL_35;
+      }
+      v24 = *(_QWORD *)(v21 + 16LL * (unsigned int)v20);
+      if ( !v24 )
+        goto LABEL_23;
+      if ( *(_DWORD *)v24 != 4 )
+        goto LABEL_23;
+      v19 = *(_QWORD *)(v24 + 16);
+      if ( !v19 )
+        goto LABEL_23;
+      v36[1] = *(_QWORD *)(v24 + 16);
+      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v40);
+      LODWORD(v36[0]) = *(_DWORD *)(v11 + 24);
+      LODWORD(v36[2]) = *(_DWORD *)(v11 + 36);
+      LODWORD(v36[8]) = *(_DWORD *)(v11 + 40);
+      v36[3] = v15;
+      v36[9] = v9;
+      v27 = DxgkOpenResourceFromNtHandle((ULONG64)v36, v25, v26);
+      v16 = v27;
+      if ( v27 >= 0 )
+      {
+        *v13 = v36[10];
+        if ( *(_DWORD *)(v11 + 36) )
         {
           do
           {
-            v23 = v4++;
-            v10[v23 + 2] = *((_DWORD *)v12 + 20 * v23);
+            v30 = v6++;
+            v13[v30 + 2] = *((_DWORD *)v15 + 20 * v30);
           }
-          while ( v4 < *(_DWORD *)(v8 + 36) );
+          while ( v6 < *(_DWORD *)(v11 + 36) );
         }
-        goto LABEL_37;
+        goto LABEL_35;
       }
-      WdLogSingleEntry1(2LL, v21);
-      v22 = L"DxgkOpenResourceFromNtHandle failed: 0x%I64x";
     }
     else
     {
-      memset(v28, 0, 0x48uLL);
-      LODWORD(v28[0]) = *(_DWORD *)(v8 + 24);
-      HIDWORD(v28[0]) = *(_DWORD *)(v8 + 32);
-      LODWORD(v28[1]) = *(_DWORD *)(v8 + 36);
-      LODWORD(v28[8]) = *(_DWORD *)(v8 + 40);
-      v28[2] = v12;
-      v28[7] = v6;
-      v26 = DxgkOpenResource((ULONG64)v28, v24, v25);
-      v13 = v26;
-      if ( v26 >= 0 )
+      memset(v36, 0, 0x48uLL);
+      LODWORD(v36[0]) = *(_DWORD *)(v11 + 24);
+      HIDWORD(v36[0]) = *(_DWORD *)(v11 + 32);
+      LODWORD(v36[1]) = *(_DWORD *)(v11 + 36);
+      LODWORD(v36[8]) = *(_DWORD *)(v11 + 40);
+      v36[2] = v15;
+      v36[7] = v9;
+      v33 = DxgkOpenResource((ULONG64)v36, v31, v32);
+      v16 = v33;
+      if ( v33 >= 0 )
       {
-        *v10 = HIDWORD(v28[8]);
-        if ( *(_DWORD *)(v8 + 36) )
+        *v13 = HIDWORD(v36[8]);
+        if ( *(_DWORD *)(v11 + 36) )
         {
           do
           {
-            v27 = v4++;
-            v10[v27 + 2] = *((_DWORD *)v12 + 20 * v27);
+            v35 = v6++;
+            v13[v35 + 2] = *((_DWORD *)v15 + 20 * v35);
           }
-          while ( v4 < *(_DWORD *)(v8 + 36) );
+          while ( v6 < *(_DWORD *)(v11 + 36) );
         }
-        goto LABEL_37;
+        goto LABEL_35;
       }
-      WdLogSingleEntry1(2LL, v26);
-      v22 = L"DxgkOpenResource failed: 0x%I64x";
     }
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v22, v13, 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_37;
+    v34 = WdLogNewEntry5_WdError(v29, v28);
+    *(_QWORD *)(v34 + 24) = v16;
+    WdLogEvent5_WdError(v34);
+    goto LABEL_35;
   }
-  WdLogSingleEntry1(2LL, 1801LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"The adapter is already closed by the guest",
-    1801LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v7 = WdLogNewEntry5_WdError(v3, v2);
+  *(_QWORD *)(v7 + 24) = 1449LL;
+  WdLogEvent5_WdError(v7);
 LABEL_3:
-  v3 = 0;
+  v5 = 0;
 LABEL_4:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v29);
-  return v3;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v37);
+  return v5;
 }

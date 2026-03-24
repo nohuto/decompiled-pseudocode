@@ -1,33 +1,33 @@
 /*
- * XREFs of BiTranslateBootOrder @ 0x140805F1C
+ * XREFs of BiTranslateBootOrder @ 0x140972C6C
  * Callers:
- *     BiBindEfiBootManager @ 0x140805090 (BiBindEfiBootManager.c)
+ *     BiBindEfiBootManager @ 0x14097043C (BiBindEfiBootManager.c)
  * Callees:
- *     BiTranslateBootEntryId @ 0x140808178 (BiTranslateBootEntryId.c)
+ *     BiTranslateBootEntryId @ 0x140972C04 (BiTranslateBootEntryId.c)
  */
 
-__int64 __fastcall BiTranslateBootOrder(__int64 a1, unsigned int *a2, __int64 a3, unsigned int *a4)
+__int64 __fastcall BiTranslateBootOrder(__int64 **a1, int *a2, __int64 a3, _DWORD *a4)
 {
-  unsigned int v4; // r11d
+  int v4; // r11d
   unsigned int v5; // edi
-  __int64 v10; // rsi
+  __int64 v9; // rsi
   __int64 result; // rax
 
   v4 = 0;
   v5 = 0;
   if ( *a4 )
   {
-    v10 = *a4;
+    v9 = (unsigned int)*a4;
     do
     {
-      if ( (int)BiTranslateBootEntryId(a1, *a2, a3 + 16LL * v4) < 0 )
-        v5 = -2147483635;
-      else
+      if ( (int)BiTranslateBootEntryId(a1, *a2) >= 0 )
         ++v4;
+      else
+        v5 = -2147483635;
       ++a2;
-      --v10;
+      --v9;
     }
-    while ( v10 );
+    while ( v9 );
   }
   result = v5;
   *a4 = v4;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Free@TokenQueueTableEntry@CTokenManager@@SAXPEAU_RTL_GENERIC_TABLE@@PEAX@Z @ 0x1C0077AC0
+ * XREFs of ?Free@TokenQueueTableEntry@CTokenManager@@SAXPEAU_RTL_GENERIC_TABLE@@PEAX@Z @ 0x1C001E310
  * Callers:
  *     <none>
  * Callees:

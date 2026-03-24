@@ -1,10 +1,10 @@
 /*
- * XREFs of EditionFreeIMEKeyboardLayouts @ 0x1C00B21C0
+ * XREFs of EditionFreeIMEKeyboardLayouts @ 0x1C012A1A0
  * Callers:
  *     <none>
  * Callees:
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0024460 (PopAndFreeAlwaysW32ThreadLock.c)
- *     ?xxxImmUnloadThreadsLayout@@YAXPEAPEAUtagTHREADINFO@@IPEAUtagTLBLOCK@@K@Z @ 0x1C00B2228 (-xxxImmUnloadThreadsLayout@@YAXPEAPEAUtagTHREADINFO@@IPEAUtagTLBLOCK@@K@Z.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     xxxImmUnloadThreadsLayout @ 0x1C012A208 (xxxImmUnloadThreadsLayout.c)
  */
 
 unsigned int __fastcall EditionFreeIMEKeyboardLayouts(__int64 a1)
@@ -23,7 +23,7 @@ unsigned int __fastcall EditionFreeIMEKeyboardLayouts(__int64 a1)
     result = GetThreadsWithPKL(&v4, (struct _TL *)&v2, 0LL);
     if ( result )
     {
-      xxxImmUnloadThreadsLayout(v4, result, 0LL, 2u);
+      xxxImmUnloadThreadsLayout(v4, result, 0LL, 2LL, v2, *((_QWORD *)&v2 + 1), v3);
       return PopAndFreeAlwaysW32ThreadLock((__int64)&v2);
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Cleanup@UMPDSURFOBJ@@SAXPEAX@Z @ 0x1C015F730
+ * XREFs of ?Cleanup@UMPDSURFOBJ@@SAXPEAX@Z @ 0x1C016D7B0
  * Callers:
- *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C0123F3C (--1UMPDSURFOBJ@@QEAA@XZ.c)
- *     NtGdiEngCheckAbort @ 0x1C02B1210 (NtGdiEngCheckAbort.c)
- *     NtGdiPATHOBJ_vEnumStartClipLines @ 0x1C02B3A90 (NtGdiPATHOBJ_vEnumStartClipLines.c)
+ *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C0137DCC (--1UMPDSURFOBJ@@QEAA@XZ.c)
+ *     NtGdiEngCheckAbort @ 0x1C02B28E0 (NtGdiEngCheckAbort.c)
+ *     NtGdiPATHOBJ_vEnumStartClipLines @ 0x1C02B56D0 (NtGdiPATHOBJ_vEnumStartClipLines.c)
  * Callees:
  *     <none>
  */

@@ -1,57 +1,51 @@
 /*
- * XREFs of HalpCopyDebugDescriptor @ 0x140AF70C8
+ * XREFs of HalpCopyDebugDescriptor @ 0x140A6DD5C
  * Callers:
- *     HalpDbgInitSystem @ 0x140A54B30 (HalpDbgInitSystem.c)
+ *     HalpDbgInitSystem @ 0x1409A1610 (HalpDbgInitSystem.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall HalpCopyDebugDescriptor(__int64 a1)
 {
-  unsigned int v2; // ecx
-  size_t v3; // rsi
-  char *v4; // rax
-  char *v5; // rdi
-  __int64 v6; // rdx
-  _OWORD *v7; // rax
-  _OWORD *v8; // rcx
-  __int128 v9; // xmm1
+  unsigned int v3; // ecx
+  size_t v4; // rsi
+  char *v5; // rax
+  char *v6; // rdi
 
   if ( !a1 )
     return 0LL;
-  v2 = *(_DWORD *)(a1 + 216) + *(_DWORD *)(a1 + 232) + 272;
-  v3 = v2;
-  v4 = (char *)(HalpMmLoaderBlock ? HalpMmAllocateMemoryInternal(v2, 1u) : ExAllocatePool2(256LL, v2, 0x646C6148u));
-  v5 = v4;
-  if ( !v4 )
+  v3 = *(_DWORD *)(a1 + 216) + *(_DWORD *)(a1 + 232) + 248;
+  v4 = v3;
+  v5 = HalpMmLoaderBlock
+     ? (char *)HalpMmAllocateMemoryInternal(v3, 1u)
+     : (char *)ExAllocatePoolWithTag(PagedPool, v3, 0x206C6148u);
+  v6 = v5;
+  if ( !v5 )
     return 0LL;
-  memset(v4, 0, v3);
-  v6 = 2LL;
-  v7 = v5;
-  v8 = (_OWORD *)a1;
-  do
-  {
-    *v7 = *v8;
-    v7[1] = v8[1];
-    v7[2] = v8[2];
-    v7[3] = v8[3];
-    v7[4] = v8[4];
-    v7[5] = v8[5];
-    v7[6] = v8[6];
-    v7 += 8;
-    v9 = v8[7];
-    v8 += 8;
-    *(v7 - 1) = v9;
-    --v6;
-  }
-  while ( v6 );
-  *v7 = *v8;
-  *((_QWORD *)v5 + 26) = v5 + 272;
-  *((_QWORD *)v5 + 28) = &v5[*(unsigned int *)(a1 + 216) + 272];
-  memmove(v5 + 272, *(const void **)(a1 + 208), *(unsigned int *)(a1 + 216));
-  memmove(*((void **)v5 + 28), *(const void **)(a1 + 224), *(unsigned int *)(a1 + 232));
-  return v5;
+  memset(v5, 0, v4);
+  *(_OWORD *)v6 = *(_OWORD *)a1;
+  *((_OWORD *)v6 + 1) = *(_OWORD *)(a1 + 16);
+  *((_OWORD *)v6 + 2) = *(_OWORD *)(a1 + 32);
+  *((_OWORD *)v6 + 3) = *(_OWORD *)(a1 + 48);
+  *((_OWORD *)v6 + 4) = *(_OWORD *)(a1 + 64);
+  *((_OWORD *)v6 + 5) = *(_OWORD *)(a1 + 80);
+  *((_OWORD *)v6 + 6) = *(_OWORD *)(a1 + 96);
+  *((_OWORD *)v6 + 7) = *(_OWORD *)(a1 + 112);
+  *((_OWORD *)v6 + 8) = *(_OWORD *)(a1 + 128);
+  *((_OWORD *)v6 + 9) = *(_OWORD *)(a1 + 144);
+  *((_OWORD *)v6 + 10) = *(_OWORD *)(a1 + 160);
+  *((_OWORD *)v6 + 11) = *(_OWORD *)(a1 + 176);
+  *((_OWORD *)v6 + 12) = *(_OWORD *)(a1 + 192);
+  *((_OWORD *)v6 + 13) = *(_OWORD *)(a1 + 208);
+  *((_OWORD *)v6 + 14) = *(_OWORD *)(a1 + 224);
+  *((_QWORD *)v6 + 30) = *(_QWORD *)(a1 + 240);
+  *((_QWORD *)v6 + 26) = v6 + 248;
+  *((_QWORD *)v6 + 28) = &v6[*(unsigned int *)(a1 + 216) + 248];
+  memmove(v6 + 248, *(const void **)(a1 + 208), *(unsigned int *)(a1 + 216));
+  memmove(*((void **)v6 + 28), *(const void **)(a1 + 224), *(unsigned int *)(a1 + 232));
+  return v6;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDecrementControlAreaCount @ 0x140270204
+ * XREFs of MiDecrementControlAreaCount @ 0x1402F7BE8
  * Callers:
- *     MiCheckForControlAreaDeletion @ 0x140220944 (MiCheckForControlAreaDeletion.c)
- *     MiDeleteControlArea @ 0x1402700FC (MiDeleteControlArea.c)
- *     MiDrainCrossPartitionUsage @ 0x1405BE340 (MiDrainCrossPartitionUsage.c)
+ *     MiCheckForControlAreaDeletion @ 0x140263BF8 (MiCheckForControlAreaDeletion.c)
+ *     MiDeleteControlArea @ 0x1402F7AE4 (MiDeleteControlArea.c)
+ *     MiDrainCrossPartitionUsage @ 0x14056209C (MiDrainCrossPartitionUsage.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
  */
 
 int __fastcall MiDecrementControlAreaCount(__int64 a1, volatile signed __int64 *a2)
@@ -18,7 +18,7 @@ int __fastcall MiDecrementControlAreaCount(__int64 a1, volatile signed __int64 *
   {
     v2 = *(_QWORD *)(a1 + 1360);
     if ( !v2 )
-      LODWORD(v2) = KeSetEvent(*(PRKEVENT *)(a1 + 2352), 0, 0);
+      LODWORD(v2) = KeSetEvent(*(PRKEVENT *)(a1 + 2128), 0, 0);
   }
   return v2;
 }

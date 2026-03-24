@@ -1,9 +1,9 @@
 /*
- * XREFs of ?s_HitTestRequest@CGlobalMit@@SAHPEAU_InputHitTestRequest@@PEAU_InputHitTestResult@@@Z @ 0x1800F41B0
+ * XREFs of ?s_HitTestRequest@CGlobalMit@@SAHPEAU_InputHitTestRequest@@PEAU_InputHitTestResult@@@Z @ 0x1800D0230
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 _BOOL8 __fastcall CGlobalMit::s_HitTestRequest(struct _InputHitTestRequest *a1, struct _InputHitTestResult *a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpApplyGenericRetpolineFixup @ 0x1402F745C
+ * XREFs of RtlpApplyGenericRetpolineFixup @ 0x1402F755C
  * Callers:
- *     RtlApplyImportRelocationToImage @ 0x1402F6A44 (RtlApplyImportRelocationToImage.c)
- *     RtlApplyImportRelocationToPage @ 0x1402F6AE8 (RtlApplyImportRelocationToPage.c)
- *     RtlApplyIndirectRelocationToPage @ 0x1402F6B90 (RtlApplyIndirectRelocationToPage.c)
- *     RtlApplySwitchJumpRelocationToPage @ 0x1402F6C2C (RtlApplySwitchJumpRelocationToPage.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F6FA4 (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     RtlApplyImportRelocationToImage @ 0x1402F6B44 (RtlApplyImportRelocationToImage.c)
+ *     RtlApplyImportRelocationToPage @ 0x1402F6BE8 (RtlApplyImportRelocationToPage.c)
+ *     RtlApplyIndirectRelocationToPage @ 0x1402F6C90 (RtlApplyIndirectRelocationToPage.c)
+ *     RtlApplySwitchJumpRelocationToPage @ 0x1402F6D2C (RtlApplySwitchJumpRelocationToPage.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F70A4 (RtlPerformRetpolineRelocationsOnImageEx.c)
  * Callees:
  *     <none>
  */

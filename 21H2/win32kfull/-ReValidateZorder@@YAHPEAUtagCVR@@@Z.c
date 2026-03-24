@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ReValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C00FED40
+ * XREFs of ?ReValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C0113C7C
  * Callers:
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C006E60C (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068330 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
  * Callees:
  *     <none>
  */

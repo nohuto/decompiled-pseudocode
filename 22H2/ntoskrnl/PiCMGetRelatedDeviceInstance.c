@@ -1,140 +1,142 @@
 /*
- * XREFs of PiCMGetRelatedDeviceInstance @ 0x14079A200
+ * XREFs of PiCMGetRelatedDeviceInstance @ 0x140767E04
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0810 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406AD630 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCbCopyExW @ 0x14034E1C0 (RtlStringCbCopyExW.c)
- *     PiGetRelatedDevice @ 0x1406C9298 (PiGetRelatedDevice.c)
- *     _CmValidateDeviceName @ 0x1406CE870 (_CmValidateDeviceName.c)
- *     PiCMReturnBufferResultData @ 0x1406D06BC (PiCMReturnBufferResultData.c)
- *     PiCMReleaseObjectInputData @ 0x14079A5E8 (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x14079A694 (PiCMCaptureObjectInputData.c)
- *     _CmGetDeviceParent @ 0x14079A844 (_CmGetDeviceParent.c)
- *     _CmIsRootDevice @ 0x14079A9A8 (_CmIsRootDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCbCopyExW @ 0x14031BC50 (RtlStringCbCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     PiGetRelatedDevice @ 0x140691104 (PiGetRelatedDevice.c)
+ *     _CmGetDeviceParent @ 0x140693B94 (_CmGetDeviceParent.c)
+ *     _CmIsRootDevice @ 0x140693D04 (_CmIsRootDevice.c)
+ *     PiCMReturnBufferResultData @ 0x1406B0564 (PiCMReturnBufferResultData.c)
+ *     PiCMReleaseObjectInputData @ 0x1406B1920 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x1406B1954 (PiCMCaptureObjectInputData.c)
+ *     _CmValidateDeviceName @ 0x1406BB050 (_CmValidateDeviceName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetRelatedDeviceInstance(
-        __int64 a1,
-        __int64 a2,
+        unsigned __int64 a1,
+        unsigned int a2,
         _DWORD *a3,
         unsigned int a4,
-        unsigned int a5,
+        int a5,
         _DWORD *a6)
 {
   unsigned int v6; // esi
-  wchar_t *Pool2; // rdi
-  int v8; // r12d
-  wchar_t *v9; // r15
-  __int64 v10; // rcx
+  _DWORD *v7; // r12
+  wchar_t *PoolWithTag; // rdi
+  unsigned int v9; // r13d
+  wchar_t *v10; // r15
+  __int64 v11; // rcx
   signed int inited; // ebx
-  int v12; // r13d
-  unsigned int v13; // esi
-  signed int DeviceParent; // eax
-  signed int v15; // eax
-  char *v17; // rax
-  unsigned int v18; // [rsp+58h] [rbp-19h] BYREF
+  unsigned int v13; // eax
+  unsigned int v14; // esi
+  int v15; // r12d
+  int DeviceParent; // eax
+  signed int v17; // eax
+  char *v19; // rax
+  unsigned int v20; // [rsp+58h] [rbp-19h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-11h] BYREF
-  __int128 v20; // [rsp+70h] [rbp-1h] BYREF
+  __int128 v22; // [rsp+70h] [rbp-1h] BYREF
   PCWSTR SourceString[2]; // [rsp+80h] [rbp+Fh]
-  __int64 v22; // [rsp+90h] [rbp+1Fh]
+  __int64 v24; // [rsp+90h] [rbp+1Fh]
 
+  v24 = 0LL;
   v6 = a4;
+  v7 = a3;
+  PoolWithTag = 0LL;
+  v9 = 0;
   v22 = 0LL;
-  Pool2 = 0LL;
-  v20 = 0LL;
-  v8 = 0;
-  v9 = 0LL;
-  *(_OWORD *)SourceString = 0LL;
   *a6 = 0;
+  v10 = 0LL;
+  *(_OWORD *)SourceString = 0LL;
   DestinationString = 0LL;
-  inited = PiCMCaptureObjectInputData(a1, a2, a5, &v20);
-  if ( inited < 0 )
-    goto LABEL_21;
-  if ( !SourceString[0] || *(_QWORD *)((char *)&v20 + 4) != 0x100000000LL || !a3 )
-    goto LABEL_38;
-  if ( a4 < 0x14 )
-  {
-    v6 = a4;
-LABEL_38:
-    inited = -1073741811;
-    goto LABEL_23;
-  }
-  v12 = 2;
-  v13 = 0;
-  if ( a4 - 20 >= 2 )
-    v13 = a4 - 20;
-  if ( v13 )
-  {
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, v13, 879783504LL);
-    if ( !Pool2 )
-      inited = -1073741670;
-    if ( inited < 0 )
-      goto LABEL_22;
-  }
-  inited = CmValidateDeviceName(v10, SourceString[0]);
+  inited = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v22);
   if ( inited < 0 )
     goto LABEL_22;
-  if ( HIDWORD(SourceString[1]) == 1 )
+  if ( SourceString[0] && *(_QWORD *)((char *)&v22 + 4) == 0x100000000LL )
   {
-    v18 = v13 >> 1;
-    DeviceParent = CmGetDeviceParent(*(_QWORD *)&PiPnpRtlCtx, SourceString[0], Pool2, &v18);
-    v8 = v18;
-    inited = DeviceParent;
-  }
-  else
-  {
-    if ( HIDWORD(SourceString[1]) != 2 )
+    if ( v7 && v6 >= 0x14 )
     {
-      if ( HIDWORD(SourceString[1]) != 3 )
+      v13 = v6 - 20;
+      v14 = 0;
+      v15 = 2;
+      if ( v13 >= 2 )
+        v14 = v13;
+      if ( v14 )
       {
-        inited = -1073741811;
-        goto LABEL_22;
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v14, 0x34706E50u);
+        if ( !PoolWithTag )
+          inited = -1073741670;
       }
-      if ( (unsigned __int8)CmIsRootDevice(SourceString[0]) )
+      if ( inited < 0 )
+        goto LABEL_34;
+      inited = CmValidateDeviceName(v11, SourceString[0]);
+      if ( inited < 0 )
+        goto LABEL_34;
+      switch ( HIDWORD(SourceString[1]) )
       {
-        inited = -1073741810;
-        goto LABEL_22;
+        case 1:
+          v20 = v14 >> 1;
+          DeviceParent = CmGetDeviceParent(PiPnpRtlCtx, SourceString[0], PoolWithTag, &v20);
+          v9 = v20;
+          inited = DeviceParent;
+LABEL_15:
+          v6 = a4;
+          v7 = a3;
+          goto LABEL_16;
+        case 2:
+LABEL_24:
+          inited = RtlInitUnicodeStringEx(&DestinationString, SourceString[0]);
+          if ( inited < 0 )
+            goto LABEL_34;
+          v20 = 400;
+          v19 = (char *)ExAllocatePoolWithTag(PagedPool, 0x190uLL, 0x34706E50u);
+          v10 = (wchar_t *)v19;
+          if ( !v19 )
+          {
+            inited = -1073741670;
+            goto LABEL_34;
+          }
+          inited = PiGetRelatedDevice((__int64)&DestinationString, v19, &v20, v15);
+          if ( inited < 0 )
+          {
+LABEL_34:
+            v17 = PiCMReturnBufferResultData(inited, 2 * v9, 0, 0LL, 0, v24, a3, a4, a6);
+            goto LABEL_18;
+          }
+          inited = RtlStringCbCopyExW(PoolWithTag, v14, v10, 0LL, 0LL, 0x800u);
+          if ( inited == -2147483643 )
+            inited = -1073741789;
+          v9 = (v20 >> 1) + 1;
+          goto LABEL_15;
+        case 3:
+          if ( CmIsRootDevice(SourceString[0]) )
+          {
+            inited = -1073741810;
+            goto LABEL_34;
+          }
+          v15 = 3;
+          goto LABEL_24;
       }
-      v12 = 3;
     }
-    inited = RtlInitUnicodeStringEx(&DestinationString, SourceString[0]);
-    if ( inited < 0 )
-      goto LABEL_22;
-    v18 = 400;
-    v17 = (char *)ExAllocatePool2(256LL, 400LL, 879783504LL);
-    v9 = (wchar_t *)v17;
-    if ( !v17 )
-    {
-      inited = -1073741670;
-      goto LABEL_22;
-    }
-    inited = PiGetRelatedDevice((__int64)&DestinationString, v17, &v18, v12);
-    if ( inited < 0 )
-      goto LABEL_22;
-    inited = RtlStringCbCopyExW(Pool2, v13, v9, 0LL, 0LL, 0x800u);
-    if ( inited == -2147483643 )
-      inited = -1073741789;
-    v8 = (v18 >> 1) + 1;
+    inited = -1073741811;
+    goto LABEL_34;
   }
+  inited = -1073741811;
+LABEL_16:
   if ( inited < 0 )
-  {
+    goto LABEL_34;
+  v17 = PiCMReturnBufferResultData(inited, 2 * v9, 0, PoolWithTag, 2 * v9, v24, v7, v6, a6);
+LABEL_18:
+  inited = v17;
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x34706E50u);
+  if ( v10 )
+    ExFreePoolWithTag(v10, 0x34706E50u);
 LABEL_22:
-    v6 = a4;
-LABEL_23:
-    v15 = PiCMReturnBufferResultData(inited, 2 * v8, 0, 0LL, 0, v22, a3, v6, a6);
-    goto LABEL_17;
-  }
-  v15 = PiCMReturnBufferResultData(inited, 2 * v8, 0, Pool2, 2 * v8, v22, a3, a4, a6);
-LABEL_17:
-  inited = v15;
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x34706E50u);
-  if ( v9 )
-    ExFreePoolWithTag(v9, 0x34706E50u);
-LABEL_21:
-  PiCMReleaseObjectInputData(&v20);
+  PiCMReleaseObjectInputData((__int64)&v22);
   return (unsigned int)inited;
 }

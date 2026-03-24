@@ -1,13 +1,13 @@
 /*
- * XREFs of SmHpBufferUpdateFullness @ 0x1405CA480
+ * XREFs of SmHpBufferUpdateFullness @ 0x140264DB8
  * Callers:
- *     SmHpBufferAlloc @ 0x1405CA1A4 (SmHpBufferAlloc.c)
- *     SmHpBufferCleanup @ 0x1405CA2E8 (SmHpBufferCleanup.c)
- *     SmHpChunkAlloc @ 0x1405CA5CC (SmHpChunkAlloc.c)
- *     SmHpChunkFree @ 0x1405CA658 (SmHpChunkFree.c)
+ *     SmHpChunkFree @ 0x14026301C (SmHpChunkFree.c)
+ *     SmHpChunkAlloc @ 0x140264D2C (SmHpChunkAlloc.c)
+ *     SmHpBufferAlloc @ 0x14031B5A4 (SmHpBufferAlloc.c)
+ *     SmHpBufferCleanup @ 0x14036CBD0 (SmHpBufferCleanup.c)
  * Callees:
- *     SmHpBufferProtectEx @ 0x1405CA344 (SmHpBufferProtectEx.c)
- *     SmHpUnprotectListNeighbors @ 0x1405CA720 (SmHpUnprotectListNeighbors.c)
+ *     SmHpBufferProtectEx @ 0x140253760 (SmHpBufferProtectEx.c)
+ *     SmHpUnprotectListNeighbors @ 0x1403287A4 (SmHpUnprotectListNeighbors.c)
  */
 
 __int64 __fastcall SmHpBufferUpdateFullness(__int64 a1, __int64 a2, __int16 a3)
@@ -15,76 +15,82 @@ __int64 __fastcall SmHpBufferUpdateFullness(__int64 a1, __int64 a2, __int16 a3)
   unsigned int v3; // eax
   signed int v4; // ebp
   __int64 v6; // rsi
-  _BYTE *v7; // rdx
-  int v8; // ebx
+  int v7; // edi
   __int64 result; // rax
-  _QWORD *v10; // rdi
-  __int64 v11; // rcx
-  _QWORD *v12; // rbx
+  _QWORD *v9; // rbx
+  __int64 v10; // rcx
+  _QWORD *v11; // rdi
+  __int64 v12; // r9
+  __int64 v13; // rcx
 
   v3 = *(unsigned __int16 *)(a2 + 10);
   v4 = -1;
   v6 = a1;
-  v7 = (_BYTE *)(a1 + 552);
   if ( (_WORD)v3 )
   {
-    LOBYTE(a1) = *v7;
-    v8 = v3 >> *v7;
+    LOBYTE(a1) = *(_BYTE *)(a1 + 552);
+    v7 = v3 >> a1;
   }
   else
   {
-    v8 = -1;
+    v7 = -1;
   }
   *(_WORD *)(a2 + 10) = a3 + v3;
   *(_DWORD *)(v6 + 560) += a3;
   result = *(unsigned __int16 *)(a2 + 10);
   if ( (_WORD)result )
   {
-    LOBYTE(a1) = *v7;
-    v4 = (unsigned int)result >> *v7;
+    LOBYTE(a1) = *(_BYTE *)(v6 + 552);
+    v4 = (unsigned int)result >> a1;
   }
-  if ( v8 != v4 )
+  if ( v7 != v4 )
   {
-    result = SmHpBufferProtectEx(a1, a2, 1, 0LL);
-    v10 = *(_QWORD **)a2;
-    if ( v8 >= 0 )
+    result = SmHpBufferProtectEx(a1, (_QWORD *)a2, 1, 0LL);
+    v9 = *(_QWORD **)a2;
+    if ( v7 >= 0 )
     {
-      SmHpUnprotectListNeighbors(v6, v6 + 16 * (v8 + 18LL), v10);
-      v11 = *v10;
-      if ( *(_QWORD **)(*v10 + 8LL) != v10 )
-        goto LABEL_17;
-      result = v10[1];
-      if ( *(_QWORD **)result != v10 )
-        goto LABEL_17;
-      *(_QWORD *)result = v11;
-      *(_QWORD *)(v11 + 8) = result;
-      if ( *(_QWORD *)(v6 + 16 * (v8 + 18LL)) == v6 + 16 * (v8 + 18LL) )
+      SmHpUnprotectListNeighbors(v6, v6 + 16 * (v7 + 18LL), v9);
+      v10 = *v9;
+      if ( *(_QWORD **)(*v9 + 8LL) != v9 )
+        goto FatalListEntryError_4;
+      result = v9[1];
+      if ( *(_QWORD **)result != v9 )
+        goto FatalListEntryError_4;
+      *(_QWORD *)result = v10;
+      *(_QWORD *)(v10 + 8) = result;
+      if ( *(_QWORD *)(v6 + 16 * (v7 + 18LL)) == v6 + 16 * (v7 + 18LL) )
       {
-        result = (unsigned int)(1 << v8);
+        result = (unsigned int)(1 << v7);
         *(_DWORD *)(v6 + 284) ^= result;
       }
     }
-    if ( v4 < 0 )
+    if ( v4 >= 0 )
     {
-      v10[1] = v10;
-      *v10 = v10;
-    }
-    else
-    {
-      v12 = (_QWORD *)(v6 + 16 * (v4 + 18LL));
-      if ( (_QWORD *)*v12 == v12 )
+      v11 = (_QWORD *)(v6 + 16 * (v4 + 18LL));
+      if ( (_QWORD *)*v11 == v11 )
+      {
         *(_DWORD *)(v6 + 284) ^= 1 << v4;
+      }
       else
-        SmHpUnprotectListNeighbors(v6, v6 + 16 * (v4 + 18LL), 0LL);
-      result = v12[1];
-      if ( *(_QWORD **)result != v12 )
-LABEL_17:
-        __fastfail(3u);
-      *v10 = v12;
-      v10[1] = result;
-      *(_QWORD *)result = v10;
-      v12[1] = v10;
+      {
+        v12 = *(unsigned int *)(v11[1] + 16LL);
+        _BitScanReverse((unsigned int *)&v13, v12);
+        SmHpBufferProtectEx(v13, (_QWORD *)(*(_QWORD *)(v6 + 8 * v13) + 16 * (v12 ^ (unsigned int)(1 << v13))), 1, 0LL);
+      }
+      result = v11[1];
+      if ( *(_QWORD **)result == v11 )
+      {
+        *v9 = v11;
+        v9[1] = result;
+        *(_QWORD *)result = v9;
+        v11[1] = v9;
+        return result;
+      }
+FatalListEntryError_4:
+      __fastfail(3u);
     }
+    v9[1] = v9;
+    *v9 = v9;
   }
   return result;
 }

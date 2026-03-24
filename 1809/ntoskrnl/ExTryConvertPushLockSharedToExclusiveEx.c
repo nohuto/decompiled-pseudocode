@@ -1,9 +1,9 @@
 /*
- * XREFs of ExTryConvertPushLockSharedToExclusiveEx @ 0x140127DD0
+ * XREFs of ExTryConvertPushLockSharedToExclusiveEx @ 0x140127DF0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 bool __fastcall ExTryConvertPushLockSharedToExclusiveEx(

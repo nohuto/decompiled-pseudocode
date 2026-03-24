@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C0100530
+ * XREFs of ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C00C92A4
  * Callers:
- *     ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@W4_D3DKMT_MEMORY_SEGMENT_GROUP@@@Z @ 0x1C0100670 (-AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@W4_D3DKMT_MEMORY_SEGMENT_GROUP@@@Z.c)
+ *     ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@W4_D3DKMT_MEMORY_SEGMENT_GROUP@@@Z @ 0x1C00C93EC (-AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@W4_D3DKMT_MEMORY_SEGMENT_GROUP@@@Z.c)
  * Callees:
- *     ?AssignBudgetsWithinBand@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@W4VIDMM_BUDGET_PRIORITY_BAND@@_K@Z @ 0x1C010077C (-AssignBudgetsWithinBand@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STAT.c)
- *     ?AssignMaximumBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C0100ACC (-AssignMaximumBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@.c)
+ *     ?AssignBudgetsWithinBand@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@W4VIDMM_BUDGET_PRIORITY_BAND@@_K@Z @ 0x1C00C94F8 (-AssignBudgetsWithinBand@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STAT.c)
+ *     ?AssignMaximumBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C00C9860 (-AssignMaximumBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@.c)
  */
 
 void __fastcall VIDMM_GLOBAL::AssignBudgets(
@@ -27,14 +27,15 @@ void __fastcall VIDMM_GLOBAL::AssignBudgets(
   unsigned __int64 v18; // rax
   int v19; // r8d
   char *v20; // rdx
-  __int64 *v21; // rcx
+  struct VIDMM_SEGMENT_GROUP_STATE *v21; // rcx
   __int64 v22; // rax
+  __int64 v23; // rax
 
-  if ( *((_BYTE *)a3 + 136) )
+  if ( *((_BYTE *)a3 + 128) )
   {
     v6 = 0LL;
-    v7 = (unsigned __int64 *)((char *)a3 + 240);
-    v8 = (unsigned __int64 *)((char *)a3 + 240);
+    v7 = (unsigned __int64 *)((char *)a3 + 232);
+    v8 = (unsigned __int64 *)((char *)a3 + 232);
     v9 = 3LL;
     do
     {
@@ -75,29 +76,30 @@ void __fastcall VIDMM_GLOBAL::AssignBudgets(
     VIDMM_GLOBAL::AssignMaximumBudgets(this, a2, a3);
   }
   v19 = 0;
-  v20 = (char *)a3 + 192;
+  v20 = (char *)a3 + 184;
   do
   {
-    v21 = *(__int64 **)v20;
-    if ( *(char **)(*(_QWORD *)v20 + 8LL) != v20 || (v22 = *v21, *(__int64 **)(*v21 + 8) != v21) )
-LABEL_25:
-      __fastfail(3u);
-    while ( 1 )
+    v21 = *(struct VIDMM_SEGMENT_GROUP_STATE **)v20;
+    if ( *(char **)(*(_QWORD *)v20 + 8LL) != v20
+      || (v22 = *(_QWORD *)v21, *(struct VIDMM_SEGMENT_GROUP_STATE **)(*(_QWORD *)v21 + 8LL) != v21) )
     {
-      *(_QWORD *)v20 = v22;
-      *(_QWORD *)(v22 + 8) = v20;
-      if ( v21 == (__int64 *)((char *)a3 + 16 * v19 + 192) )
-        break;
-      *v21 = 0LL;
-      v21[1] = 0LL;
-      v21 = *(__int64 **)v20;
-      if ( *(char **)(*(_QWORD *)v20 + 8LL) == v20 )
-      {
-        v22 = *v21;
-        if ( *(__int64 **)(*v21 + 8) == v21 )
-          continue;
-      }
-      goto LABEL_25;
+LABEL_26:
+      __fastfail(3u);
+    }
+    *(_QWORD *)v20 = v22;
+    *(_QWORD *)(v22 + 8) = v20;
+    while ( v21 != (struct VIDMM_SEGMENT_GROUP_STATE *)((char *)a3 + 16 * v19 + 184) )
+    {
+      *(_QWORD *)v21 = 0LL;
+      *((_QWORD *)v21 + 1) = 0LL;
+      v21 = *(struct VIDMM_SEGMENT_GROUP_STATE **)v20;
+      if ( *(char **)(*(_QWORD *)v20 + 8LL) != v20 )
+        goto LABEL_26;
+      v23 = *(_QWORD *)v21;
+      if ( *(struct VIDMM_SEGMENT_GROUP_STATE **)(*(_QWORD *)v21 + 8LL) != v21 )
+        goto LABEL_26;
+      *(_QWORD *)v20 = v23;
+      *(_QWORD *)(v23 + 8) = v20;
     }
     ++v19;
     v20 += 16;

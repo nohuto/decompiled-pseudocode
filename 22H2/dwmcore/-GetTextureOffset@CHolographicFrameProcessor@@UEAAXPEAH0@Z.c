@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetTextureOffset@CHolographicFrameProcessor@@UEAAXPEAH0@Z @ 0x180108B40
+ * XREFs of ?GetTextureOffset@CHolographicFrameProcessor@@UEAAXPEAH0@Z @ 0x1800E3700
  * Callers:
  *     <none>
  * Callees:

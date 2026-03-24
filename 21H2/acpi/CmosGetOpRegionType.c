@@ -1,11 +1,11 @@
 /*
- * XREFs of CmosGetOpRegionType @ 0x1C004E2D8
+ * XREFs of CmosGetOpRegionType @ 0x1C004F490
  * Callers:
- *     CmosConfigSpaceHandler @ 0x1C004E110 (CmosConfigSpaceHandler.c)
+ *     CmosConfigSpaceHandler @ 0x1C004F2A0 (CmosConfigSpaceHandler.c)
  * Callees:
- *     AMLIIsNamedChildPresent @ 0x1C000A410 (AMLIIsNamedChildPresent.c)
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
- *     CmosTranslatePNPIDToEnum @ 0x1C004E370 (CmosTranslatePNPIDToEnum.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
+ *     CmosTranslatePNPIDToEnum @ 0x1C004F530 (CmosTranslatePNPIDToEnum.c)
  */
 
 __int64 __fastcall CmosGetOpRegionType(__int64 a1, __int64 a2, __int64 a3)
@@ -14,7 +14,7 @@ __int64 __fastcall CmosGetOpRegionType(__int64 a1, __int64 a2, __int64 a3)
 
   AMLIIsNamedChildPresent(*(__int64 **)(a3 + 56), 1145653343);
   result = ACPIGet(
-             *(_QWORD *)(**(_QWORD **)(a3 + 56) + 104LL),
+             *(__int64 **)(**(_QWORD **)(a3 + 56) + 104LL),
              1145653343,
              671613446,
              0LL,

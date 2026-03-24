@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaDequeueAdapter @ 0x14045BD30
+ * XREFs of HalpDmaDequeueAdapter @ 0x1404C7338
  * Callers:
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045D18E (HalpDmaProcessMapRegisterQueueV2.c)
- *     HalpDmaProcessMapRegisterQueueV3 @ 0x14050FF38 (HalpDmaProcessMapRegisterQueueV3.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x1404C6298 (HalpDmaProcessMapRegisterQueueV3.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404CCC28 (HalpDmaProcessMapRegisterQueueV2.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 *__fastcall HalpDmaDequeueAdapter(__int64 a1, char a2)
@@ -30,27 +30,30 @@ __int64 *__fastcall HalpDmaDequeueAdapter(__int64 a1, char a2)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 128), &LockHandle);
-  v4 = (__int64 **)(a1 + 176);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 120), &LockHandle);
+  v4 = (__int64 **)(a1 + 168);
   if ( !a2 )
-    v4 = (__int64 **)(a1 + 160);
+    v4 = (__int64 **)(a1 + 152);
   v5 = *v4;
   if ( *v4 == (__int64 *)v4 )
   {
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v10 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v11 = (v10 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v10;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v10 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v11 = (v10 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v10;
+          if ( v11 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     result = 0LL;
@@ -62,22 +65,25 @@ __int64 *__fastcall HalpDmaDequeueAdapter(__int64 a1, char a2)
     if ( (__int64 **)v5[1] != v4 || *(__int64 **)(v13 + 8) != v5 )
       __fastfail(3u);
     *v4 = (__int64 *)v13;
-    v14 = v5 - 21;
+    v14 = v5 - 20;
     *(_QWORD *)(v13 + 8) = v4;
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     v15 = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v17 = KeGetCurrentPrcb();
-        v18 = v17->SchedulerAssist;
-        v19 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v11 = (v19 & v18[5]) == 0;
-        v18[5] &= v19;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick(v17);
+        v16 = KeGetCurrentIrql();
+        if ( v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
+        {
+          v17 = KeGetCurrentPrcb();
+          v18 = v17->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v11 = (v19 & v18[5]) == 0;
+          v18[5] &= v19;
+          if ( v11 )
+            KiRemoveSystemWorkPriorityKick((__int64)v17);
+        }
       }
     }
     __writecr8(v15);

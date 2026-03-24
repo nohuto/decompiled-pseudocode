@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpOpenDevicesControlSet @ 0x140731CD4
+ * XREFs of CmpOpenDevicesControlSet @ 0x140731CB4
  * Callers:
- *     CmpMarkCurrentProfileDirty @ 0x140730DA4 (CmpMarkCurrentProfileDirty.c)
- *     CmSetAcpiHwProfile @ 0x140730EF0 (CmSetAcpiHwProfile.c)
- *     CmpMoveBiosAliasTable @ 0x1407FC020 (CmpMoveBiosAliasTable.c)
+ *     CmpMarkCurrentProfileDirty @ 0x140730D84 (CmpMarkCurrentProfileDirty.c)
+ *     CmSetAcpiHwProfile @ 0x140730ED0 (CmSetAcpiHwProfile.c)
+ *     CmpMoveBiosAliasTable @ 0x1407FC000 (CmpMoveBiosAliasTable.c)
  *     CmpCreateHardwareProfiles @ 0x1409C172C (CmpCreateHardwareProfiles.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x14015D6FC (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
+ *     RtlUnicodeStringPrintf @ 0x14015D71C (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
  */
 
 __int64 __fastcall CmpOpenDevicesControlSet(__int64 a1, HANDLE *a2, UNICODE_STRING *a3)

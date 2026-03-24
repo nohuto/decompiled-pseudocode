@@ -1,5 +1,5 @@
 /*
- * XREFs of ?VidMmRangeCurationDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C0017160
+ * XREFs of ?VidMmRangeCurationDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C0015580
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,10 @@
 
 void __fastcall VidMmRangeCurationDpc(
         struct _KDPC *Dpc,
-        PVOID DeferredContext,
+        char *DeferredContext,
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
-  if ( !_InterlockedExchange((volatile __int32 *)DeferredContext + 385, 1) )
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)DeferredContext + 47, DelayedWorkQueue);
+  if ( !_InterlockedExchange((volatile __int32 *)DeferredContext + 383, 1) )
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)(DeferredContext + 1496), DelayedWorkQueue);
 }

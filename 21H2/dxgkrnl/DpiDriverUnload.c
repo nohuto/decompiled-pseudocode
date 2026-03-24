@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiDriverUnload @ 0x1C0388420
+ * XREFs of DpiDriverUnload @ 0x1C02C7BE0
  * Callers:
  *     <none>
  * Callees:
- *     DpiCleanup @ 0x1C03880E0 (DpiCleanup.c)
+ *     DpiCleanup @ 0x1C02C7890 (DpiCleanup.c)
  */
 
 void __fastcall DpiDriverUnload(struct _DRIVER_OBJECT *a1, __int64 a2, __int64 a3)

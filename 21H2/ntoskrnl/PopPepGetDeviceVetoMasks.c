@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPepGetDeviceVetoMasks @ 0x1405D504C
+ * XREFs of PopPepGetDeviceVetoMasks @ 0x1405746A8
  * Callers:
- *     PopFxTraceDeviceRegistration @ 0x14082473C (PopFxTraceDeviceRegistration.c)
+ *     PopFxTraceDeviceRegistration @ 0x14067E618 (PopFxTraceDeviceRegistration.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PopPepGetDeviceVetoMasks(__int64 a1, __int64 a2)

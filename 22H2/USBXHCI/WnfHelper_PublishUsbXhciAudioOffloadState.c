@@ -1,7 +1,7 @@
 /*
- * XREFs of WnfHelper_PublishUsbXhciAudioOffloadState @ 0x1C007B968
+ * XREFs of WnfHelper_PublishUsbXhciAudioOffloadState @ 0x1C0078194
  * Callers:
- *     Controller_AudioOffloadWnfStateUpdateWorker @ 0x1C0032550 (Controller_AudioOffloadWnfStateUpdateWorker.c)
+ *     Controller_AudioOffloadWnfStateUpdateWorker @ 0x1C00309F0 (Controller_AudioOffloadWnfStateUpdateWorker.c)
  * Callees:
  *     <none>
  */

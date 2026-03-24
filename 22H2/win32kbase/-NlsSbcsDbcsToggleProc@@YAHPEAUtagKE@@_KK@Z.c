@@ -1,35 +1,31 @@
 /*
- * XREFs of ?NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EC630
+ * XREFs of ?NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01ABD10
  * Callers:
  *     <none>
  * Callees:
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
- *     ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01EBE44 (-NlsClearKeyStateToggle@@YAXE@Z.c)
- *     ?NlsGetCurrentInputMode@@YAEPEBE@Z @ 0x1C01EC010 (-NlsGetCurrentInputMode@@YAEPEBE@Z.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
+ *     ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01AB4E8 (-NlsClearKeyStateToggle@@YAXE@Z.c)
+ *     ?NlsGetCurrentInputMode@@YAEPEAE@Z @ 0x1C01AB6A4 (-NlsGetCurrentInputMode@@YAEPEAE@Z.c)
  */
 
 __int64 __fastcall NlsSbcsDbcsToggleProc(struct tagKE *a1, __int64 a2)
 {
-  unsigned __int8 CurrentInputMode; // al
-  int v5; // ebx
-  __int64 v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
+  __int16 v2; // di
+  char CurrentInputMode; // al
+  int v6; // r11d
 
-  if ( *((__int16 *)a1 + 1) < 0 )
+  v2 = *((_WORD *)a1 + 1);
+  if ( v2 < 0 )
     return 0LL;
-  CurrentInputMode = NlsGetCurrentInputMode((unsigned __int8 *)&byte_1C0266890);
-  v5 = CurrentInputMode;
-  *((_WORD *)a1 + 1) &= 0x8F00u;
-  LOBYTE(v6) = CurrentInputMode;
-  NlsClearKeyStateToggle(v6, v7, v8, v9);
-  if ( v5 == 243 )
+  CurrentInputMode = NlsGetCurrentInputMode(&NlsSbcsDbcsMode);
+  *((_WORD *)a1 + 1) = v2 & 0x8F00;
+  NlsClearKeyStateToggle(CurrentInputMode);
+  if ( v6 == 243 )
   {
     xxxKeyEventEx(
-      *((_WORD *)a1 + 1) | 0x80F3u,
+      *((_WORD *)a1 + 1) | 0x80F3,
       *(unsigned __int8 *)a1,
-      *((unsigned int *)a1 + 1),
+      *((_DWORD *)a1 + 1),
       a2,
       *((void **)a1 + 1),
       (unsigned __int16 *)a1 + 8,
@@ -39,12 +35,12 @@ __int64 __fastcall NlsSbcsDbcsToggleProc(struct tagKE *a1, __int64 a2)
       0LL);
     *((_WORD *)a1 + 1) |= 0xF4u;
   }
-  else if ( v5 == 244 )
+  else if ( v6 == 244 )
   {
     xxxKeyEventEx(
-      *((_WORD *)a1 + 1) | 0x80F4u,
+      *((_WORD *)a1 + 1) | 0x80F4,
       *(unsigned __int8 *)a1,
-      *((unsigned int *)a1 + 1),
+      *((_DWORD *)a1 + 1),
       a2,
       *((void **)a1 + 1),
       (unsigned __int16 *)a1 + 8,

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetRequestedDeltaPosition@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0228CCC
+ * XREFs of ?EmitSetRequestedDeltaPosition@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EFE18
  * Callers:
- *     ?EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0228D90 (-EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EFEDC (-EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetRequestedDeltaPosition(
@@ -25,8 +25,8 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetRequeste
       *(_OWORD *)(v4 + 4) = 0LL;
       *(_QWORD *)(v4 + 20) = 0LL;
       *((_DWORD *)v4 + 7) = 0;
-      *((_DWORD *)v4 + 1) = 214;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v4 + 1) = 223;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
       *((_DWORD *)v4 + 3) = *((_DWORD *)this + 33);
       *((_DWORD *)v4 + 4) = *((_DWORD *)this + 34);
       *((_DWORD *)v4 + 5) = *((_DWORD *)this + 52);

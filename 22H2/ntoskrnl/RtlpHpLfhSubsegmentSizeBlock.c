@@ -1,45 +1,49 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSizeBlock @ 0x1405B6E88
+ * XREFs of RtlpHpLfhSubsegmentSizeBlock @ 0x140595098
  * Callers:
- *     RtlpHpSegSizeInternal @ 0x1405B6C58 (RtlpHpSegSizeInternal.c)
+ *     RtlpHpSegSizeInternal @ 0x140595008 (RtlpHpSegSizeInternal.c)
  * Callees:
- *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1405B6F48 (RtlpHpLfhSubsegmentSizeBlockInternal.c)
+ *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x140595154 (RtlpHpLfhSubsegmentSizeBlockInternal.c)
  */
 
-__int64 __fastcall RtlpHpLfhSubsegmentSizeBlock(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpHpLfhSubsegmentSizeBlock(__int64 a1, __int64 a2, __int64 a3)
 {
-  int v7; // r9d
-  __int64 v8; // rcx
-  unsigned int v9; // edx
-  unsigned int v10; // eax
-  char v11; // cl
-  unsigned __int64 v12; // r8
-  int v13; // edx
+  unsigned int v5; // eax
+  int v6; // r11d
+  __int64 v7; // rcx
+  unsigned int v8; // edx
+  unsigned int v9; // eax
+  char v10; // cl
+  unsigned __int64 v11; // r8
+  int v12; // edx
 
-  v7 = (unsigned __int16)(qword_140C6B388 ^ *(_WORD *)(a2 + 40) ^ ((unsigned int)a2 >> 12));
-  v8 = *(_QWORD *)(a1
-                 + 8LL * *((unsigned __int8 *)RtlpLfhBucketIndexMap + ((unsigned __int64)(unsigned int)(v7 + 15) >> 4))
+  v5 = DWORD2(RtlpHpHeapGlobals) ^ *(_DWORD *)(a2 + 40) ^ ((unsigned int)a2 >> 12);
+  v6 = (unsigned __int16)v5;
+  v7 = *(_QWORD *)(a1
+                 + 8LL
+                 * *((unsigned __int8 *)RtlpLfhBucketIndexMap
+                   + ((unsigned __int64)((unsigned int)(unsigned __int16)v5 + 15) >> 4))
                  + 128);
-  v9 = a3 - (((unsigned int)qword_140C6B388 ^ *(_DWORD *)(a2 + 40) ^ ((unsigned int)a2 >> 12)) >> 16) - a2;
-  v10 = *(_DWORD *)(v8 + 72);
-  v11 = *(_BYTE *)(v8 + 76);
-  if ( v10 )
+  v8 = a3 - HIWORD(v5) - a2;
+  v9 = *(_DWORD *)(v7 + 72);
+  v10 = *(_BYTE *)(v7 + 76);
+  if ( v9 )
   {
-    v12 = (v9 * (unsigned __int64)v10) >> v11;
-    v13 = v9 - v12 * v7;
+    v11 = (v8 * (unsigned __int64)v9) >> v10;
+    v12 = v8 - v11 * v6;
   }
   else
   {
-    v12 = v9 >> v11;
-    v13 = ((1 << v11) - 1) & v9;
+    LODWORD(v11) = v8 >> v10;
+    v12 = ((1 << v10) - 1) & v8;
   }
-  if ( v13
-    || ((*(_QWORD *)(a2 + 8 * ((unsigned __int64)(unsigned int)(2 * v12) >> 6) + 48) >> ((2 * v12) & 0x3F)) & 1) == 0 )
+  if ( v12
+    || ((*(_QWORD *)(a2 + 8 * ((unsigned __int64)(unsigned int)(2 * v11) >> 6) + 48) >> ((2 * v11) & 0x3F)) & 1) == 0 )
   {
     return -1LL;
   }
   else
   {
-    return (unsigned int)RtlpHpLfhSubsegmentSizeBlockInternal(a2, a3, v12, a4);
+    return (unsigned int)RtlpHpLfhSubsegmentSizeBlockInternal(a2, a3);
   }
 }

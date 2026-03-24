@@ -1,5 +1,5 @@
 /*
- * XREFs of ?OnChanged@CSceneMesh@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800FB740
+ * XREFs of ?OnChanged@CSceneMesh@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800E2F10
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 __int64 __fastcall CSceneMesh::OnChanged(__int64 a1)
 {
-  *(_BYTE *)(a1 + 168) = 1;
+  *(_BYTE *)(a1 + 160) = 1;
   return 1LL;
 }

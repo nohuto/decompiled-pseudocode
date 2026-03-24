@@ -1,43 +1,41 @@
 /*
- * XREFs of CmFcpMapSection @ 0x140832C70
+ * XREFs of CmFcpMapSection @ 0x1407D24AC
  * Callers:
- *     CmFcpManagerCreateSectionFromBuffer @ 0x140832B54 (CmFcpManagerCreateSectionFromBuffer.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140922DB4 (CmFcManagerUpdateFeatureConfigurations.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14092317C (CmFcManagerUpdateFeatureUsageSubscriptions.c)
- *     CmFcManagerStartRuntimePhase @ 0x140B156F8 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E060 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcpManagerCreateSectionFromBuffer @ 0x14087E664 (CmFcpManagerCreateSectionFromBuffer.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     MiMapViewInSystemSpace @ 0x1406F3FDC (MiMapViewInSystemSpace.c)
+ *     MmMapViewInSystemSpace @ 0x1406BF880 (MmMapViewInSystemSpace.c)
  */
 
-__int64 __fastcall CmFcpMapSection(_QWORD *a1, _QWORD *a2)
+NTSTATUS __fastcall CmFcpMapSection(_QWORD *a1, _QWORD *a2)
 {
-  __int64 v3; // rcx
-  __int64 result; // rax
-  __int64 v6; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v7; // [rsp+50h] [rbp+18h] BYREF
-  unsigned __int64 v8; // [rsp+58h] [rbp+20h] BYREF
+  void *v3; // rcx
+  NTSTATUS result; // eax
+  PVOID MappedBase; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR ViewSize; // [rsp+40h] [rbp+18h] BYREF
 
-  v6 = 0LL;
-  v3 = a1[1];
-  if ( v3 )
-  {
-    v8 = 0LL;
-    v7 = 0LL;
-    result = MiMapViewInSystemSpace(v3, &v6, &v8, &v7, 0LL, 0LL);
-    if ( (int)result < 0 )
-      return result;
-    *a2 = 0LL;
-    a2[2] = 0LL;
-    a2[1] = v6;
-    a2[2] = a1[2];
-    *a2 = *a1;
-  }
-  else
+  MappedBase = 0LL;
+  v3 = (void *)a1[1];
+  if ( !v3 )
   {
     *a2 = 0LL;
     a2[1] = 0LL;
     a2[2] = 0LL;
     *a2 = *a1;
+    return 0;
   }
-  return 0LL;
+  ViewSize = 0LL;
+  result = MmMapViewInSystemSpace(v3, &MappedBase, &ViewSize);
+  if ( result >= 0 )
+  {
+    *a2 = 0LL;
+    a2[2] = 0LL;
+    a2[1] = MappedBase;
+    a2[2] = a1[2];
+    *a2 = *a1;
+    return 0;
+  }
+  return result;
 }

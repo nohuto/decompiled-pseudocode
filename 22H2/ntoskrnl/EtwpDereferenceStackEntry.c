@@ -1,14 +1,11 @@
 /*
- * XREFs of EtwpDereferenceStackEntry @ 0x140468C12
+ * XREFs of EtwpDereferenceStackEntry @ 0x1405AD9F8
  * Callers:
- *     EtwpEventWriteFull @ 0x140258450 (EtwpEventWriteFull.c)
- *     EtwpStackRundown @ 0x140468C80 (EtwpStackRundown.c)
- *     EtwpTraceStackKey @ 0x140468F10 (EtwpTraceStackKey.c)
- *     EtwpGetCrimsonStackKey @ 0x140601C7C (EtwpGetCrimsonStackKey.c)
- *     EtwpWriteUserEvent @ 0x1406F41F0 (EtwpWriteUserEvent.c)
+ *     EtwpStackRundown @ 0x1405ADA68 (EtwpStackRundown.c)
+ *     EtwpTraceStackKey @ 0x1405ADCEC (EtwpTraceStackKey.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     EtwpTraceCachedStack @ 0x140468E38 (EtwpTraceCachedStack.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpTraceCachedStack @ 0x1405ADC14 (EtwpTraceCachedStack.c)
  */
 
 PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, unsigned int **a2)
@@ -24,7 +21,7 @@ PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, unsign
                                          0xFFFFFFFF);
   if ( (_DWORD)result == 1 )
   {
-    EtwpTraceCachedStack(*((_QWORD *)*a2 + 137), **a2, 6179LL, ListEntry);
+    EtwpTraceCachedStack(*((_QWORD *)*a2 + 135), **a2, 6179LL, ListEntry);
     v5 = (union _SLIST_HEADER *)(a2 + 2);
     do
     {

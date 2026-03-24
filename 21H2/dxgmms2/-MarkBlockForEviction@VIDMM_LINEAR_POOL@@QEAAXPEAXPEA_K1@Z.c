@@ -1,10 +1,9 @@
 /*
- * XREFs of ?MarkBlockForEviction@VIDMM_LINEAR_POOL@@QEAAXPEAXPEA_K1@Z @ 0x1C00A101C
+ * XREFs of ?MarkBlockForEviction@VIDMM_LINEAR_POOL@@QEAAXPEAXPEA_K1@Z @ 0x1C00744DC
  * Callers:
- *     ?MarkResourcesForEviction@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z @ 0x1C00A0E24 (-MarkResourcesForEviction@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z.c)
+ *     ?MarkResourcesForEviction@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z @ 0x1C0073BAC (-MarkResourcesForEviction@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K1@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?FindAdjacentBlocksOnFreeList@VIDMM_LINEAR_POOL@@IEAAXPEAU_VIDMM_POOL_BLOCK@@PEAPEAU2@1@Z @ 0x1C00A10FC (-FindAdjacentBlocksOnFreeList@VIDMM_LINEAR_POOL@@IEAAXPEAU_VIDMM_POOL_BLOCK@@PEAPEAU2@1@Z.c)
+ *     ?FindAdjacentBlocksOnFreeList@VIDMM_LINEAR_POOL@@IEAAXPEAU_VIDMM_POOL_BLOCK@@PEAPEAU2@1@Z @ 0x1C00745B8 (-FindAdjacentBlocksOnFreeList@VIDMM_LINEAR_POOL@@IEAAXPEAU_VIDMM_POOL_BLOCK@@PEAPEAU2@1@Z.c)
  */
 
 void __fastcall VIDMM_LINEAR_POOL::MarkBlockForEviction(
@@ -13,13 +12,13 @@ void __fastcall VIDMM_LINEAR_POOL::MarkBlockForEviction(
         unsigned __int64 *a3,
         unsigned __int64 *a4)
 {
-  unsigned int v6; // ecx
+  __int64 v6; // rcx
   char **v9; // rbx
   __int64 v10; // rcx
   char ***v11; // rax
   struct _VIDMM_POOL_BLOCK *v12; // rax
   __int64 v13; // rcx
-  __int64 v14; // rcx
+  __int64 v14; // rax
   unsigned __int64 v15; // r8
   char *v16; // r9
   char *v17; // r10
@@ -28,26 +27,27 @@ void __fastcall VIDMM_LINEAR_POOL::MarkBlockForEviction(
   __int64 v20; // rcx
   char *v21; // rcx
   char *v22; // rax
-  struct _VIDMM_POOL_BLOCK *v23; // [rsp+70h] [rbp+8h] BYREF
-  struct _VIDMM_POOL_BLOCK *v24; // [rsp+78h] [rbp+10h] BYREF
+  struct _VIDMM_POOL_BLOCK *v23; // [rsp+40h] [rbp+8h] BYREF
+  struct _VIDMM_POOL_BLOCK *v24; // [rsp+48h] [rbp+10h] BYREF
 
   v23 = 0LL;
   *((_BYTE *)a2 + 56) = 4;
-  v6 = *((_DWORD *)this + 4);
-  if ( v6 >= v6 + 1 )
+  v6 = *((unsigned int *)this + 4);
+  if ( (unsigned int)v6 >= (int)v6 + 1 )
   {
-    WdLogSingleEntry1(1LL, 2196LL);
-    DxgkLogInternalTriageEvent(v14, 0x40000LL);
-    v6 = *((_DWORD *)this + 4);
+    v14 = WdLogNewEntry5_WdAssertion(v6, a2, a3);
+    *(_QWORD *)(v14 + 24) = 2196LL;
+    WdLogEvent5_WdAssertion(v14);
+    LODWORD(v6) = *((_DWORD *)this + 4);
   }
   v9 = (char **)((char *)a2 + 24);
   *((_DWORD *)this + 4) = v6 + 1;
   v10 = *((_QWORD *)a2 + 3);
   if ( *(struct _VIDMM_POOL_BLOCK **)(v10 + 8) != (struct _VIDMM_POOL_BLOCK *)((char *)a2 + 24) )
-    goto LABEL_21;
+    goto LABEL_12;
   v11 = (char ***)*((_QWORD *)a2 + 4);
   if ( *v11 != v9 )
-    goto LABEL_21;
+    goto LABEL_12;
   *v11 = (char **)v10;
   *(_QWORD *)(v10 + 8) = v11;
   *v9 = 0LL;
@@ -56,7 +56,7 @@ void __fastcall VIDMM_LINEAR_POOL::MarkBlockForEviction(
   v12 = v23 ? (struct _VIDMM_POOL_BLOCK *)((char *)v23 + 24) : (VIDMM_LINEAR_POOL *)((char *)this + 40);
   v13 = *(_QWORD *)v12;
   if ( *(struct _VIDMM_POOL_BLOCK **)(*(_QWORD *)v12 + 8LL) != v12 )
-LABEL_21:
+LABEL_12:
     __fastfail(3u);
   *v9 = (char *)v13;
   *((_QWORD *)a2 + 4) = v12;

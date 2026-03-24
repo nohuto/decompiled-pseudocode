@@ -1,101 +1,99 @@
 /*
- * XREFs of EtwpCovSampEnumerateProcess @ 0x1409F2460
+ * XREFs of EtwpCovSampEnumerateProcess @ 0x140944AD0
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A5200 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     EtwpCovSampImageNotify @ 0x1408A9D00 (EtwpCovSampImageNotify.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x14061E9B0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     EtwpCovSampImageNotify @ 0x1409450A0 (EtwpCovSampImageNotify.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpCovSampEnumerateProcess(__int64 BugCheckParameter1)
+__int64 __fastcall EtwpCovSampEnumerateProcess(__int64 BugCheckParameter1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  int v1; // r14d
-  void *v2; // rdi
-  _QWORD *v4; // rax
-  unsigned __int64 *v5; // rsi
-  unsigned __int64 v6; // r10
-  __int64 v7; // rcx
-  unsigned __int64 v8; // r10
-  _QWORD v10[7]; // [rsp+30h] [rbp-49h] BYREF
-  unsigned __int64 v11; // [rsp+68h] [rbp-11h]
+  int v4; // r14d
+  void *v5; // rdi
+  _DWORD *v7; // r9
+  _QWORD *v8; // rax
+  unsigned __int64 *v9; // rsi
+  unsigned __int64 v10; // r10
+  __int64 v11; // rcx
+  unsigned __int64 v12; // r10
+  _BYTE v14[56]; // [rsp+30h] [rbp-49h] BYREF
+  unsigned __int64 v15; // [rsp+68h] [rbp-11h]
   UNICODE_STRING FullImageName; // [rsp+70h] [rbp-9h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v13; // [rsp+80h] [rbp+7h] BYREF
+  _OWORD v17[3]; // [rsp+80h] [rbp+7h] BYREF
 
-  v1 = 0;
-  memset(v10, 0, sizeof(v10));
-  v2 = 0LL;
-  memset(&v13, 0, sizeof(v13));
-  v11 = 0LL;
+  v4 = 0;
+  memset(v14, 0, sizeof(v14));
+  v5 = 0LL;
+  memset(v17, 0, sizeof(v17));
+  v15 = 0LL;
   FullImageName = 0LL;
   if ( (PEPROCESS)BugCheckParameter1 == PsInitialSystemProcess )
     return 0LL;
   if ( (_KPROCESS *)BugCheckParameter1 == KeGetCurrentThread()->ApcState.Process )
     goto LABEL_5;
-  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
+  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
   {
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v13);
-    v1 = 1;
+    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v17, v7);
+    v4 = 1;
 LABEL_5:
-    v4 = MmEnumerateAddressSpaceAndReferenceImages(BugCheckParameter1, 1);
-    v2 = v4;
-    if ( v4 )
+    v8 = MmEnumerateAddressSpaceAndReferenceImages(BugCheckParameter1, 1, a3, a4);
+    v5 = v8;
+    if ( v8 )
     {
-      LODWORD(v10[2]) |= 0x400u;
-      v5 = v4;
-      v10[1] = 56LL;
-      v6 = *v4;
-      if ( *v4 )
+      *(_DWORD *)&v14[16] |= 0x400u;
+      v9 = v8;
+      *(_QWORD *)&v14[8] = 56LL;
+      v10 = *v8;
+      if ( *v8 )
       {
-        v7 = v10[0];
+        v11 = *(_QWORD *)v14;
         do
         {
-          if ( (v6 & 3) == 0 )
+          if ( (v10 & 3) == 0 )
           {
-            v8 = v6 & 0xFFFFFFFFFFFFFFFCuLL;
-            *v5 = v8;
-            v11 = v8;
-            v10[3] = v5[1] & 0xFFFFFFFFFFFF0000uLL;
-            v10[5] = v5[3];
+            v12 = v10 & 0xFFFFFFFFFFFFFFFCuLL;
+            *v9 = v12;
+            v15 = v12;
+            *(_QWORD *)&v14[24] = v9[1] & 0xFFFFFFFFFFFF0000uLL;
+            *(_QWORD *)&v14[40] = v9[3];
             if ( FltMgrCallbacks
-              && (*(int (__fastcall **)(unsigned __int64, __int64, UNICODE_STRING *, _QWORD *))(FltMgrCallbacks + 24))(
-                   v8,
+              && (*(int (__fastcall **)(unsigned __int64, __int64, UNICODE_STRING *, _BYTE *))(FltMgrCallbacks + 24))(
+                   v12,
                    1024LL,
                    &FullImageName,
-                   v10) >= 0 )
+                   v14) >= 0 )
             {
-              EtwpCovSampImageNotify(
-                &FullImageName,
-                *(struct _LIST_ENTRY **)(BugCheckParameter1 + 1088),
-                (char *)&v10[2]);
+              EtwpCovSampImageNotify(&FullImageName, *(HANDLE *)(BugCheckParameter1 + 1088), (PIMAGE_INFO)&v14[16]);
             }
-            v7 = v10[0];
+            v11 = *(_QWORD *)v14;
           }
-          if ( v7 )
+          if ( v11 )
           {
             (*(void (**)(void))(FltMgrCallbacks + 32))();
-            v7 = 0LL;
-            v10[0] = 0LL;
+            v11 = 0LL;
+            *(_QWORD *)v14 = 0LL;
           }
-          v5 += 6;
-          v6 = *v5;
+          v9 += 6;
+          v10 = *v9;
         }
-        while ( *v5 );
+        while ( *v9 );
       }
     }
   }
-  if ( v2 )
-    ExFreePoolWithTag(v2, 0);
-  if ( v1 )
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0);
+  if ( v4 )
   {
-    KiUnstackDetachProcess(&v13);
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
+    KiUnstackDetachProcess((__int64)v17, 0);
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
   }
   return 0LL;
 }

@@ -1,59 +1,57 @@
 /*
- * XREFs of RawCreate @ 0x14074BC84
+ * XREFs of RawCreate @ 0x14071AE04
  * Callers:
- *     RawDispatch @ 0x14074B9B0 (RawDispatch.c)
+ *     RawDispatch @ 0x14071AB40 (RawDispatch.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     RawInitiateDeleteVolume @ 0x1402D2BD8 (RawInitiateDeleteVolume.c)
- *     IoCheckLinkShareAccess @ 0x14074B530 (IoCheckLinkShareAccess.c)
- *     IoSetLinkShareAccess @ 0x14074BFF0 (IoSetLinkShareAccess.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     RawInitiateDeleteVolume @ 0x140360A2C (RawInitiateDeleteVolume.c)
+ *     IoCheckLinkShareAccess @ 0x14064F220 (IoCheckLinkShareAccess.c)
+ *     IoSetLinkShareAccess @ 0x14071B170 (IoSetLinkShareAccess.c)
  */
 
 __int64 __fastcall RawCreate(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, PIRP Irp, __int64 a3)
 {
-  struct _FAST_MUTEX *p_Resource; // r15
+  struct _FAST_MUTEX *p_PagingIoResource; // r13
   __int64 v7; // r8
   int v8; // ecx
   int v9; // eax
-  unsigned __int16 v10; // cx
-  int v11; // r14d
-  int v12; // r12d
-  int v13; // eax
-  NTSTATUS v14; // esi
+  int v10; // r14d
+  int v11; // r15d
+  int v12; // eax
+  NTSTATUS v13; // esi
 
-  p_Resource = (struct _FAST_MUTEX *)&AdvancedHeader[2].Resource;
-  ExAcquireFastMutex((PFAST_MUTEX)&AdvancedHeader[2].Resource);
+  p_PagingIoResource = (struct _FAST_MUTEX *)&AdvancedHeader[2].PagingIoResource;
+  ExAcquireFastMutex((PFAST_MUTEX)&AdvancedHeader[2].PagingIoResource);
   v7 = *(_QWORD *)(a3 + 48);
   if ( v7 && (*(_WORD *)(v7 + 88) || *(_QWORD *)(v7 + 64))
     || (v8 = *(_DWORD *)(a3 + 16), (v8 & 0xFF000000) != 0x1000000)
     || (v8 & 1) != 0 )
   {
-    v14 = -1073741811;
+    v13 = -1073741811;
     goto LABEL_15;
   }
   v9 = *(_DWORD *)&AdvancedHeader[1].NodeTypeCode;
   if ( (v9 & 1) != 0 )
   {
-    v14 = -1073741790;
+    v13 = -1073741790;
     goto LABEL_15;
   }
   if ( (v9 & 2) != 0 )
   {
-    v14 = -1073741202;
+    v13 = -1073741202;
     goto LABEL_15;
   }
-  v10 = *(_WORD *)(a3 + 26);
-  v11 = v10;
-  v12 = *(_DWORD *)(*(_QWORD *)(a3 + 8) + 16LL);
+  v10 = *(unsigned __int16 *)(a3 + 26);
+  v11 = *(_DWORD *)(*(_QWORD *)(a3 + 8) + 16LL);
   if ( *(_DWORD *)&AdvancedHeader[1].Flags )
   {
-    v14 = IoCheckLinkShareAccess(v12, v10, v7, (_DWORD *)&AdvancedHeader[1].Resource + 1, 0LL, 1);
-    if ( v14 >= 0 )
+    v13 = IoCheckLinkShareAccess(v11, v10, v7, (_DWORD *)&AdvancedHeader[1].Resource + 1, 0LL, 1);
+    if ( v13 >= 0 )
     {
-      v13 = *(_DWORD *)&AdvancedHeader[1].Flags;
-      if ( v13 )
+      v12 = *(_DWORD *)&AdvancedHeader[1].Flags;
+      if ( v12 )
         goto LABEL_10;
       goto LABEL_9;
     }
@@ -62,20 +60,20 @@ LABEL_15:
     goto LABEL_11;
   }
 LABEL_9:
-  IoSetLinkShareAccess(v12, v11, *(_QWORD *)(a3 + 48), (_DWORD)AdvancedHeader + 124, 0LL, 0);
-  v13 = *(_DWORD *)&AdvancedHeader[1].Flags;
+  IoSetLinkShareAccess(v11, v10, *(_QWORD *)(a3 + 48), (_DWORD)AdvancedHeader + 116, 0LL, 0);
+  v12 = *(_DWORD *)&AdvancedHeader[1].Flags;
 LABEL_10:
   ++LODWORD(AdvancedHeader[1].Resource);
-  *(_DWORD *)&AdvancedHeader[1].Flags = v13 + 1;
-  v14 = 0;
+  *(_DWORD *)&AdvancedHeader[1].Flags = v12 + 1;
+  v13 = 0;
   *(_QWORD *)(*(_QWORD *)(a3 + 48) + 16LL) = AdvancedHeader[1].FileContextSupportPointer;
   Irp->IoStatus.Information = 1LL;
   *(_DWORD *)(*(_QWORD *)(a3 + 48) + 80LL) |= 8u;
   *(_QWORD *)(*(_QWORD *)(a3 + 48) + 24LL) = AdvancedHeader;
 LABEL_11:
   if ( *(_DWORD *)&AdvancedHeader[1].Flags || !RawInitiateDeleteVolume(AdvancedHeader, 0, 1) )
-    KeReleaseGuardedMutex(p_Resource);
-  Irp->IoStatus.Status = v14;
+    KeReleaseGuardedMutex(p_PagingIoResource);
+  Irp->IoStatus.Status = v13;
   IofCompleteRequest(Irp, 1);
-  return (unsigned int)v14;
+  return (unsigned int)v13;
 }

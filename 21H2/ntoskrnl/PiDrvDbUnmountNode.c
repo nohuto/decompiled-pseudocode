@@ -1,31 +1,30 @@
 /*
- * XREFs of PiDrvDbUnmountNode @ 0x14095DFB0
+ * XREFs of PiDrvDbUnmountNode @ 0x1408B8278
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x14077AA70 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlObjectActionCallback @ 0x140636410 (PiPnpRtlObjectActionCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     PiDrvDbFindNode @ 0x140564D60 (PiDrvDbFindNode.c)
- *     PiDrvDbUnregisterNode @ 0x14095E00C (PiDrvDbUnregisterNode.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PiDrvDbFindNode @ 0x14051017C (PiDrvDbFindNode.c)
  */
 
 __int64 __fastcall PiDrvDbUnmountNode(PCWSTR SourceString)
 {
-  __int64 result; // rax
-  int v2; // eax
+  int Node; // ecx
+  int v2; // ecx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
-  PVOID P; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v5; // [rsp+48h] [rbp+10h] BYREF
 
-  P = 0LL;
+  v5 = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  result = PiDrvDbFindNode(&DestinationString, (__int64 *)&P);
-  if ( (int)result >= 0 )
+  Node = PiDrvDbFindNode(&DestinationString, &v5);
+  if ( Node >= 0 )
   {
-    v2 = *((_DWORD *)P + 16);
-    if ( (v2 & 1) != 0 || (v2 & 0x10) == 0 )
-      return 3221225506LL;
+    v2 = *(_DWORD *)(v5 + 64);
+    if ( (v2 & 1) != 0 )
+      return (unsigned int)-1073741790;
     else
-      return PiDrvDbUnregisterNode(P);
+      return (unsigned int)((v2 & 0x10) != 0 ? -1073741637 : -1073741790);
   }
-  return result;
+  return (unsigned int)Node;
 }

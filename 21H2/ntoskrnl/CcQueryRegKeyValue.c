@@ -1,13 +1,13 @@
 /*
- * XREFs of CcQueryRegKeyValue @ 0x1403A60FC
+ * XREFs of CcQueryRegKeyValue @ 0x14039A520
  * Callers:
- *     CcUpdateDynamicRegistrySettings @ 0x1403A5C60 (CcUpdateDynamicRegistrySettings.c)
+ *     CcUpdateDynamicRegistrySettings @ 0x14039A210 (CcUpdateDynamicRegistrySettings.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CcQueryRegKeyValue(UNICODE_STRING *a1, UNICODE_STRING *a2, ULONG *a3, PVOID *a4, _BYTE *a5)
@@ -24,10 +24,11 @@ NTSTATUS __fastcall CcQueryRegKeyValue(UNICODE_STRING *a1, UNICODE_STRING *a2, U
 
   KeyHandle = 0LL;
   ResultLength = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = a1;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( result >= 0 )

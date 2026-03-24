@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ECLegacySurfaceManager@@UEAAPEAXI@Z @ 0x1801B7490
+ * XREFs of ??_ECLegacySurfaceManager@@UEAAPEAXI@Z @ 0x1801641A0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ??1CLegacySurfaceManager@@UEAA@XZ @ 0x1801B72A4 (--1CLegacySurfaceManager@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??1CLegacySurfaceManager@@UEAA@XZ @ 0x180163FA8 (--1CLegacySurfaceManager@@UEAA@XZ.c)
  */
 
 CLegacySurfaceManager *__fastcall CLegacySurfaceManager::`vector deleting destructor'(

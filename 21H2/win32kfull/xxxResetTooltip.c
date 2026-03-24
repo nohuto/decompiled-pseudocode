@@ -1,16 +1,16 @@
 /*
- * XREFs of xxxResetTooltip @ 0x1C0118B6C
+ * XREFs of xxxResetTooltip @ 0x1C002B3FC
  * Callers:
- *     xxxProcessEventMessage @ 0x1C005C220 (xxxProcessEventMessage.c)
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     xxxTrackMouseMove @ 0x1C007E59C (xxxTrackMouseMove.c)
- *     xxxCancelMouseMoveTracking @ 0x1C00A184C (xxxCancelMouseMoveTracking.c)
- *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C023EA24 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
+ *     xxxTrackMouseMove @ 0x1C002D5C0 (xxxTrackMouseMove.c)
+ *     xxxCancelMouseMoveTracking @ 0x1C002D9FC (xxxCancelMouseMoveTracking.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     xxxProcessEventMessage @ 0x1C00C1918 (xxxProcessEventMessage.c)
+ *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0242F50 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     xxxSetWindowPosAndBand @ 0x1C0048AFC (xxxSetWindowPosAndBand.c)
- *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C009C270 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
- *     ?KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C0118BBC (-KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00134E8 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     ?KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C002B44C (-KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z.c)
+ *     xxxSetWindowPosAndBand @ 0x1C006BDD0 (xxxSetWindowPosAndBand.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
  */
 
 struct tagWND *__fastcall xxxResetTooltip(struct tagTOOLTIPWND *a1)
@@ -20,28 +20,26 @@ struct tagWND *__fastcall xxxResetTooltip(struct tagTOOLTIPWND *a1)
   struct tagWND *v4; // rdi
   __int64 v5; // rcx
   __int64 ThreadWin32Thread; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  _QWORD v10[5]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v7; // rcx
+  _QWORD v8[5]; // [rsp+40h] [rbp-28h] BYREF
 
   KillTooltipTimer(a1);
   v2 = *(struct tagWND **)a1;
   if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)a1 + 40LL) + 31LL) & 0x10) != 0 )
   {
     v4 = 0LL;
-    v10[2] = 0LL;
-    xxxSetWindowPosAndBand(v2, 0LL, 0, 0, 0, 0, 151, 1);
+    v8[2] = 0LL;
+    xxxSetWindowPosAndBand(v2, 0, 0, 151, 1);
     v5 = *(_QWORD *)(*(_QWORD *)a1 + 24LL);
     if ( v5 )
       v4 = *(struct tagWND **)(v5 + 104);
-    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-    v10[0] = *(_QWORD *)(ThreadWin32Thread + 416);
-    *(_QWORD *)(ThreadWin32Thread + 416) = v10;
-    v10[1] = v4;
+    ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+    v8[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = v8;
+    v8[1] = v4;
     HMLockObject(v4);
     xxxSetParentWorker(*(struct tagWND **)a1, v4, 0LL, 0);
-    ThreadUnlock1(v8, v7, v9);
+    ThreadUnlock1(v7);
   }
   *((_OWORD *)a1 + 2) = 0LL;
   *((_QWORD *)a1 + 6) = 0LL;

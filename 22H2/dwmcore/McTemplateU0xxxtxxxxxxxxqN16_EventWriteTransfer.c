@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer @ 0x1801F303C
+ * XREFs of McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer @ 0x180162D9C
  * Callers:
- *     ?TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z @ 0x1800E7810 (-TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z.c)
+ *     ?TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z @ 0x1800D12A8 (-TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer(
@@ -97,7 +97,7 @@ ULONG McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer(
   v41 = 4LL;
   v43 = 128LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_SCHEDULE_GLITCH,
            a3,
            0xFu,

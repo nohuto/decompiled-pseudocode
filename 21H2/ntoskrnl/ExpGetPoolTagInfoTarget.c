@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetPoolTagInfoTarget @ 0x140383780
+ * XREFs of ExpGetPoolTagInfoTarget @ 0x14029C080
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, __int64 a3, volatile signed __int32 *a4)
@@ -23,6 +23,7 @@ __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, __int64 a3, v
   int v15; // [rsp+58h] [rbp+10h] BYREF
   int j; // [rsp+68h] [rbp+20h] BYREF
 
+  v15 = 0;
   v4 = a4;
   v5 = (volatile signed __int32 *)a3;
   v6 = a2;
@@ -30,23 +31,22 @@ __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, __int64 a3, v
   v8 = ~v7 & 0x80000000;
   if ( (v7 & 0x7FFFFFFF) != 0 )
   {
-    v15 = 0;
     while ( (*v4 & 0x80000000) != v8 )
       KeYieldProcessorEx(&v15, a2, a3, (__int64)a4);
   }
   else
   {
     *a4 = v8 | *((_DWORD *)a4 + 1);
-    memmove(*(void **)a2, ExPoolTagTables, 80LL * *(_QWORD *)(a2 + 8));
-    a4 = (volatile signed __int32 *)&unk_140C117A8;
-    v9 = 2047LL;
-    a3 = *(_QWORD *)v6 + 80LL * *(_QWORD *)(v6 + 8);
+    memmove(*(void **)a2, ExPoolTagTables, 56LL * *(_QWORD *)(a2 + 8));
+    a4 = (volatile signed __int32 *)&unk_140C16B88;
+    v9 = 1279LL;
+    a3 = *(_QWORD *)v6 + 56LL * *(_QWORD *)(v6 + 8);
     do
     {
       a2 = *(_QWORD *)a4;
       if ( *(_QWORD *)a4 )
       {
-        for ( i = *(_QWORD **)v6; i != (_QWORD *)a3; a2 += 80LL )
+        for ( i = *(_QWORD **)v6; i != (_QWORD *)a3; a2 += 56LL )
         {
           if ( *(_DWORD *)a2 )
           {
@@ -57,7 +57,7 @@ __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, __int64 a3, v
             i[6] += *(_QWORD *)(a2 + 48);
             i[4] += *(_QWORD *)(a2 + 32);
           }
-          i += 10;
+          i += 7;
         }
       }
       a4 += 2;
@@ -66,7 +66,7 @@ __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, __int64 a3, v
     while ( v9 );
     v10 = *(_QWORD *)(v6 + 24);
     if ( v10 )
-      memmove(*(void **)(v6 + 16), PoolTrackTableExpansion, 80 * v10);
+      memmove(*(void **)(v6 + 16), PoolTrackTableExpansion, 56 * v10);
   }
   v11 = _InterlockedDecrement(v4);
   v12 = ~v11 & 0x80000000;

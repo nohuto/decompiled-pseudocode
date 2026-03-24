@@ -1,24 +1,25 @@
 /*
- * XREFs of IopAllocatePassiveInterruptBlock @ 0x1409466AC
+ * XREFs of IopAllocatePassiveInterruptBlock @ 0x1408A1540
  * Callers:
- *     IopConnectInterrupt @ 0x140817258 (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
  * Callees:
- *     KeInitializeDpc @ 0x1402940D0 (KeInitializeDpc.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IopFindPassiveInterruptBlock @ 0x1405609F8 (IopFindPassiveInterruptBlock.c)
- *     IopInsertPassiveInterruptBlock @ 0x140560AAC (IopInsertPassiveInterruptBlock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopFindPassiveInterruptBlock @ 0x14050D3A8 (IopFindPassiveInterruptBlock.c)
+ *     IopInsertPassiveInterruptBlock @ 0x14050D494 (IopInsertPassiveInterruptBlock.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocatePassiveInterruptBlock(_DWORD *a1, _OWORD *a2)
 {
   bool v2; // zf
   int v5; // eax
-  int v6; // esi
+  unsigned int v6; // esi
   int inserted; // edi
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   __int64 v9; // rbx
   int v10; // eax
   char v12; // [rsp+30h] [rbp+8h] BYREF
@@ -34,16 +35,17 @@ __int64 __fastcall IopAllocatePassiveInterruptBlock(_DWORD *a1, _OWORD *a2)
     }
     else
     {
-      Pool2 = ExAllocatePool2(64LL, 200LL, 1651077195LL);
-      v9 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xC8uLL, 0x6269704Bu);
+      v9 = (__int64)PoolWithTag;
+      if ( PoolWithTag )
       {
-        *(_QWORD *)(Pool2 + 8) = Pool2;
-        *(_QWORD *)Pool2 = Pool2;
-        *(_DWORD *)(Pool2 + 16) = a1[2];
-        *(_DWORD *)(Pool2 + 20) = v6;
-        *(_DWORD *)(Pool2 + 32) = a1[6];
-        *(_OWORD *)(Pool2 + 40) = *a2;
+        memset(PoolWithTag + 16, 0, 0xB8uLL);
+        *(_QWORD *)(v9 + 8) = v9;
+        *(_QWORD *)v9 = v9;
+        *(_DWORD *)(v9 + 16) = a1[2];
+        *(_DWORD *)(v9 + 20) = v6;
+        *(_DWORD *)(v9 + 32) = a1[6];
+        *(_OWORD *)(v9 + 40) = *a2;
         v10 = a1[2];
         if ( v10 )
         {
@@ -53,7 +55,7 @@ __int64 __fastcall IopAllocatePassiveInterruptBlock(_DWORD *a1, _OWORD *a2)
         else
         {
           *(_DWORD *)(v9 + 24) = a1[16];
-          *(_BYTE *)(v9 + 28) = ((__int64 (__fastcall *)(_QWORD))off_140C01DD0[0])(0LL);
+          *(_BYTE *)(v9 + 28) = ((__int64 (__fastcall *)(_QWORD))off_140C00780[0])(0LL);
         }
         KeInitializeEvent((PRKEVENT)(v9 + 168), SynchronizationEvent, 1u);
         KeInitializeDpc((PRKDPC)(v9 + 104), (PKDEFERRED_ROUTINE)IopPassiveInterruptDpc, (PVOID)v9);

@@ -1,31 +1,35 @@
 /*
- * XREFs of EditionUpdateSASModifiers @ 0x1C00424E0
+ * XREFs of EditionUpdateSASModifiers @ 0x1C011EFF0
  * Callers:
  *     <none>
  * Callees:
- *     ?VKTOMODIFIERS@@YAIE@Z @ 0x1C0155B34 (-VKTOMODIFIERS@@YAIE@Z.c)
+ *     ?VKTOMODIFIERS@@YAIE@Z @ 0x1C0206FAC (-VKTOMODIFIERS@@YAIE@Z.c)
  */
 
-void __fastcall EditionUpdateSASModifiers(int a1, unsigned __int8 a2, __int16 a3)
+// write access to const memory has been detected, the output may be wrong!
+unsigned int __fastcall EditionUpdateSASModifiers(int a1, unsigned __int8 a2, __int16 a3)
 {
-  __int64 v3; // rcx
-  unsigned int v4; // ebx
+  unsigned int result; // eax
+  unsigned int v4; // r8d
   int v5; // r9d
-  __int64 v6; // rax
-  __int64 v7; // rax
 
-  if ( (!a1 || gProtocolType && gptiCurrent == gptiRit) && (a3 & 0x200) == 0 )
+  if ( !a1 || (result = gProtocolType, gProtocolType) && (result = gptiCurrent, gptiCurrent == gptiRit) )
   {
-    v4 = VKTOMODIFIERS(a2);
-    if ( v5 )
+    result = 512;
+    if ( (a3 & 0x200) == 0 )
     {
-      v6 = SGDGetUserSessionState(v3);
-      *(_DWORD *)(v6 + 13796) &= ~v4;
-    }
-    else
-    {
-      v7 = SGDGetUserSessionState(v3);
-      *(_DWORD *)(v7 + 13796) |= v4;
+      result = VKTOMODIFIERS(a2);
+      v4 = result;
+      if ( v5 )
+      {
+        gfsSASModifiersDown &= ~result;
+      }
+      else
+      {
+        result = gfsSASModifiersDown;
+        gfsSASModifiersDown |= v4;
+      }
     }
   }
+  return result;
 }

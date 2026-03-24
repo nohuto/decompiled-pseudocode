@@ -1,63 +1,71 @@
 /*
- * XREFs of ?SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z @ 0x1C009F698
+ * XREFs of ?SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z @ 0x1C010833C
  * Callers:
- *     DestroyThreadHidObjects @ 0x1C009EFD0 (DestroyThreadHidObjects.c)
- *     _RegisterRawInputDevices @ 0x1C009F368 (_RegisterRawInputDevices.c)
+ *     DestroyThreadHidObjects @ 0x1C01075E0 (DestroyThreadHidObjects.c)
+ *     _RegisterRawInputDevices @ 0x1C0107FD0 (_RegisterRawInputDevices.c)
  * Callees:
- *     ?SearchProcessHidRequestInclusion@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z @ 0x1C009F6F8 (-SearchProcessHidRequestInclusion@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z.c)
+ *     <none>
  */
 
 struct tagPROCESS_HID_REQUEST *__fastcall SearchProcessHidRequest(
         struct tagPROCESSINFO *a1,
-        unsigned __int16 a2,
-        unsigned __int16 a3,
+        __int16 a2,
+        __int16 a3,
         unsigned int *a4)
 {
+  __int64 v4; // r10
   struct tagPROCESS_HID_REQUEST *result; // rax
-  __int16 v5; // dx
-  __int16 v6; // r8
-  _DWORD *v7; // r9
-  __int64 v8; // r10
-  int v9; // r11d
 
-  if ( !*((_QWORD *)a1 + 106) )
+  v4 = *((_QWORD *)a1 + 104);
+  if ( !v4 )
     return 0LL;
-  result = SearchProcessHidRequestInclusion(*((struct tagPROCESS_HID_TABLE **)a1 + 106), a2, a3);
+  for ( result = *(struct tagPROCESS_HID_REQUEST **)(v4 + 16);
+        result != (struct tagPROCESS_HID_REQUEST *)(v4 + 16);
+        result = *(struct tagPROCESS_HID_REQUEST **)result )
+  {
+    if ( *((_WORD *)result + 8) == a2 && *((_WORD *)result + 9) == a3 )
+      goto LABEL_8;
+  }
+  result = 0LL;
+LABEL_8:
   if ( result )
   {
-    *v7 = 1;
+    *a4 = 1;
   }
   else
   {
-    if ( !v6 )
+    if ( !a3 )
     {
-      for ( result = *(struct tagPROCESS_HID_REQUEST **)(v8 + 32);
-            result != (struct tagPROCESS_HID_REQUEST *)(v8 + 32);
+      for ( result = *(struct tagPROCESS_HID_REQUEST **)(v4 + 32);
+            result != (struct tagPROCESS_HID_REQUEST *)(v4 + 32);
             result = *(struct tagPROCESS_HID_REQUEST **)result )
       {
-        if ( *((_WORD *)result + 8) == v5 )
-        {
-          if ( !result )
-            break;
-          *v7 = 2;
-          return result;
-        }
+        if ( *((_WORD *)result + 8) == a2 )
+          goto LABEL_19;
+      }
+      result = 0LL;
+LABEL_19:
+      if ( result )
+      {
+        *a4 = 2;
+        return result;
       }
     }
-    for ( result = *(struct tagPROCESS_HID_REQUEST **)(v8 + 48); ; result = *(struct tagPROCESS_HID_REQUEST **)result )
+    for ( result = *(struct tagPROCESS_HID_REQUEST **)(v4 + 48);
+          result != (struct tagPROCESS_HID_REQUEST *)(v4 + 48);
+          result = *(struct tagPROCESS_HID_REQUEST **)result )
     {
-      if ( result == (struct tagPROCESS_HID_REQUEST *)(v8 + 48) )
-        goto LABEL_6;
-      if ( *((_WORD *)result + 8) == v5 && *((_WORD *)result + 9) == v6 )
-        break;
+      if ( *((_WORD *)result + 8) == a2 && *((_WORD *)result + 9) == a3 )
+        goto LABEL_13;
     }
+    result = 0LL;
+LABEL_13:
     if ( !result )
     {
-LABEL_6:
-      *v7 = v9;
+      *a4 = 0;
       return 0LL;
     }
-    *v7 = 3;
+    *a4 = 3;
   }
   return result;
 }

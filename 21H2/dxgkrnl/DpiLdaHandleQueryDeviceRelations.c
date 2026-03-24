@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiLdaHandleQueryDeviceRelations @ 0x1C0396180
+ * XREFs of DpiLdaHandleQueryDeviceRelations @ 0x1C02D7AE0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
  */
 
 __int64 __fastcall DpiLdaHandleQueryDeviceRelations(__int64 a1, IRP *a2)
@@ -17,7 +17,12 @@ __int64 __fastcall DpiLdaHandleQueryDeviceRelations(__int64 a1, IRP *a2)
   unsigned int *Information; // rdi
   __int64 v8; // r15
   _DWORD *PoolWithTag; // rax
-  _DWORD *v10; // r14
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  _DWORD *v14; // r14
+  __int64 v15; // rax
 
   v2 = 0;
   v3 = *(_QWORD *)(a1 + 64);
@@ -26,7 +31,7 @@ __int64 __fastcall DpiLdaHandleQueryDeviceRelations(__int64 a1, IRP *a2)
     goto LABEL_20;
   KeEnterCriticalRegion();
   if ( *(_BYTE *)(v3 + 484) )
-    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(v3 + 24) + 64LL) + 4088LL));
+    _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(v3 + 24) + 64LL) + 4080LL));
   ExAcquireResourceSharedLite(*(PERESOURCE *)(v3 + 168), 1u);
   v6 = *(_QWORD *)(v3 + 2728);
   if ( v6 )
@@ -36,24 +41,26 @@ __int64 __fastcall DpiLdaHandleQueryDeviceRelations(__int64 a1, IRP *a2)
     if ( Information )
       v2 = *Information;
     PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8 * v2 + 16, 0x74727044u);
-    v10 = PoolWithTag;
+    v14 = PoolWithTag;
     if ( PoolWithTag )
     {
       memset(PoolWithTag, 0, 8 * v2 + 16);
-      *v10 = v2 + 1;
+      *v14 = v2 + 1;
       if ( v2 )
-        memmove(v10 + 2, Information + 2, 8LL * v2);
-      *(_QWORD *)&v10[2 * v2 + 2] = *(_QWORD *)(v8 + 152);
+        memmove(v14 + 2, Information + 2, 8LL * v2);
+      *(_QWORD *)&v14[2 * v2 + 2] = *(_QWORD *)(v8 + 152);
       ObfReferenceObject(*(PVOID *)(v8 + 152));
       if ( Information )
         ExFreePoolWithTag(Information, 0);
-      a2->IoStatus.Information = (ULONG_PTR)v10;
+      a2->IoStatus.Information = (ULONG_PTR)v14;
       v5 = 0;
     }
     else
     {
       v5 = -1073741801;
-      WdLogSingleEntry1(6LL, -1073741801LL);
+      v15 = WdLogNewEntry5_WdLowResource(v11, v10, v12, v13);
+      *(_QWORD *)(v15 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v15);
     }
   }
   if ( *(_BYTE *)(v3 + 484) )

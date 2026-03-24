@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpAllocateKeyNameEntry @ 0x14018C130
+ * XREFs of EtwpAllocateKeyNameEntry @ 0x14018C150
  * Callers:
  *     <none>
  * Callees:

@@ -1,41 +1,23 @@
 /*
- * XREFs of PsQuerySectionSignatureInformation @ 0x1407C6950
+ * XREFs of PsQuerySectionSignatureInformation @ 0x140683970
  * Callers:
- *     PsConvertToGuiThread @ 0x1407C6820 (PsConvertToGuiThread.c)
- *     PsCheckProcessFileSigningLevel @ 0x1409B08C0 (PsCheckProcessFileSigningLevel.c)
+ *     PsConvertToGuiThread @ 0x140683840 (PsConvertToGuiThread.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
  */
 
-__int64 __fastcall PsQuerySectionSignatureInformation(_KPROCESS *a1, _BYTE *a2)
+__int64 __fastcall PsQuerySectionSignatureInformation(_KPROCESS *a1)
 {
-  struct _EX_RUNDOWN_REF *p_Blink; // rdi
-  BOOLEAN v3; // r8
-  __int64 v6; // rcx
-  unsigned int v7; // ebx
+  __int64 v1; // rcx
+  unsigned __int64 v2; // rax
+  _BYTE *v3; // r8
 
-  p_Blink = (struct _EX_RUNDOWN_REF *)&a1[1].ProfileListHead.Blink;
-  v3 = 0;
-  if ( a1 == KeGetCurrentThread()->Process || (v3 = ExAcquireRundownProtection_0(p_Blink)) != 0 )
-  {
-    v6 = a1[1].Affinity.StaticBitmap[17];
-    if ( v6 )
-    {
-      *a2 = *(_BYTE *)(*(_QWORD *)MiSectionControlArea(v6) + 15LL) >> 4;
-      v7 = 0;
-    }
-    else
-    {
-      v7 = -1073741823;
-    }
-    if ( v3 )
-      ExReleaseRundownProtection_0(p_Blink);
-  }
-  else
-  {
-    return (unsigned int)-1073741558;
-  }
-  return v7;
+  if ( a1 != KeGetCurrentThread()->Process )
+    return 3221225659LL;
+  v1 = a1[1].Affinity.Bitmap[17];
+  if ( !v1 )
+    return 3221225473LL;
+  v2 = MiSectionControlArea(v1);
+  *v3 = *(_BYTE *)(*(_QWORD *)v2 + 15LL) >> 4;
+  return 0LL;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FillLanczosUpBuffer@@YAJPEAVCSurfaceShaderComposer@@IIII@Z @ 0x1801DD410
+ * XREFs of ?FillLanczosUpBuffer@@YAJPEAVCSurfaceShaderComposer@@IIII@Z @ 0x180192608
  * Callers:
- *     ?RenderLanczos@CResampleLayer@@AEAAJPEAVCSurfaceShaderComposer@@PEAUID3D11RenderTargetView@@_NAEBUD3D11_VIEWPORT@@@Z @ 0x1801DD848 (-RenderLanczos@CResampleLayer@@AEAAJPEAVCSurfaceShaderComposer@@PEAUID3D11RenderTargetView@@_NAE.c)
+ *     ?RenderLanczos@CResampleLayer@@AEAAJPEAVCSurfaceShaderComposer@@PEAUID3D11RenderTargetView@@_NAEBUD3D11_VIEWPORT@@@Z @ 0x180192A38 (-RenderLanczos@CResampleLayer@@AEAAJPEAVCSurfaceShaderComposer@@PEAUID3D11RenderTargetView@@_NAE.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV?$span@$$CBE$0?0@gsl@@I@Z @ 0x18028A70C (-SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV-$span@$$CBE$0-0@gsl@@I@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV?$span@$$CBE$0?0@gsl@@I@Z @ 0x180248B3C (-SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV-$span@$$CBE$0-0@gsl@@I@Z.c)
  */
 
 __int64 __fastcall FillLanczosUpBuffer(struct CSurfaceShaderComposer *a1, int a2, int a3, int a4, signed int a5)
@@ -13,13 +13,13 @@ __int64 __fastcall FillLanczosUpBuffer(struct CSurfaceShaderComposer *a1, int a2
   int v5; // eax
   __int64 v6; // rcx
   unsigned int v7; // ebx
-  _QWORD v9[2]; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v10; // [rsp+40h] [rbp-38h] BYREF
-  float v11; // [rsp+48h] [rbp-30h]
-  float v12; // [rsp+4Ch] [rbp-2Ch]
-  float v13; // [rsp+50h] [rbp-28h]
-  float v14; // [rsp+54h] [rbp-24h]
-  __int64 v15; // [rsp+58h] [rbp-20h]
+  _QWORD v9[2]; // [rsp+30h] [rbp-40h] BYREF
+  __int64 v10; // [rsp+40h] [rbp-30h] BYREF
+  float v11; // [rsp+48h] [rbp-28h]
+  float v12; // [rsp+4Ch] [rbp-24h]
+  float v13; // [rsp+50h] [rbp-20h]
+  float v14; // [rsp+54h] [rbp-1Ch]
+  __int64 v15; // [rsp+58h] [rbp-18h]
 
   v10 = 0LL;
   v15 = 0LL;
@@ -32,6 +32,6 @@ __int64 __fastcall FillLanczosUpBuffer(struct CSurfaceShaderComposer *a1, int a2
   v5 = CSurfaceShaderComposer::SetScratchConstantBuffer(a1, v9, 0LL);
   v7 = v5;
   if ( v5 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x1Fu);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x1Fu, 0LL);
   return v7;
 }

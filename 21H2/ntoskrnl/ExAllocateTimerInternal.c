@@ -1,9 +1,9 @@
 /*
- * XREFs of ExAllocateTimerInternal @ 0x14063D9B0
+ * XREFs of ExAllocateTimerInternal @ 0x1405B6040
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocateTimerInternal2 @ 0x1402D5B80 (ExAllocateTimerInternal2.c)
+ *     ExAllocateTimerInternal2 @ 0x140280440 (ExAllocateTimerInternal2.c)
  */
 
 unsigned __int64 __fastcall ExAllocateTimerInternal(__int64 a1, __int64 a2, unsigned int a3)

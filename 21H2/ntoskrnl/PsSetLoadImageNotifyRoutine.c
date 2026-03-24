@@ -1,9 +1,9 @@
 /*
- * XREFs of PsSetLoadImageNotifyRoutine @ 0x140832600
+ * XREFs of PsSetLoadImageNotifyRoutine @ 0x14078FC40
  * Callers:
- *     DifPsSetLoadImageNotifyRoutineWrapper @ 0x14061A990 (DifPsSetLoadImageNotifyRoutineWrapper.c)
+ *     EtwpCoverageSamplerStart @ 0x14094718C (EtwpCoverageSamplerStart.c)
  * Callees:
- *     PsSetLoadImageNotifyRoutineEx @ 0x140832640 (PsSetLoadImageNotifyRoutineEx.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x14078FC90 (PsSetLoadImageNotifyRoutineEx.c)
  */
 
 NTSTATUS __stdcall PsSetLoadImageNotifyRoutine(PLOAD_IMAGE_NOTIFY_ROUTINE NotifyRoutine)

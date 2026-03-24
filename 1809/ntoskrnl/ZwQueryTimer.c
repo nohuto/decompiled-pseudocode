@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryTimer @ 0x1401B8870
+ * XREFs of ZwQueryTimer @ 0x1401B8890
  * Callers:
  *     <none>
  * Callees:

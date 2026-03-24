@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkpQueryHostDriverStoreAvailability@@YA_NXZ @ 0x1C03551A4
+ * XREFs of ?DxgkpQueryHostDriverStoreAvailability@@YA_NXZ @ 0x1C029F134
  * Callers:
- *     DxgkNotifySessionStateChange @ 0x1C01EAD20 (DxgkNotifySessionStateChange.c)
+ *     DxgkNotifySessionStateChange @ 0x1C016D980 (DxgkNotifySessionStateChange.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 char DxgkpQueryHostDriverStoreAvailability(void)

@@ -1,1 +1,14 @@
-/*\n * XREFs of GsDriverEntry @ 0x1C000F010\n * Callers:\n *     <none>\n * Callees:\n *     __security_init_cookie @ 0x1C000F044 (__security_init_cookie.c)\n *     DriverEntry @ 0x1C000F2D0 (DriverEntry.c)\n */\n\nNTSTATUS __stdcall GsDriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)\n{\n  _security_init_cookie();\n  return DriverEntry(DriverObject, RegistryPath);\n}\n
+/*
+ * XREFs of GsDriverEntry @ 0x1C000F010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_init_cookie @ 0x1C000F044 (__security_init_cookie.c)
+ *     DriverEntry @ 0x1C000F2D0 (DriverEntry.c)
+ */
+
+NTSTATUS __stdcall GsDriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)
+{
+  _security_init_cookie();
+  return DriverEntry(DriverObject, RegistryPath);
+}

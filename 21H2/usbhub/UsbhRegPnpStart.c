@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhRegPnpStart @ 0x1C0045F70
+ * XREFs of UsbhRegPnpStart @ 0x1C00472E0
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhGetPdoRegistryParameter @ 0x1C0044750 (UsbhGetPdoRegistryParameter.c)
- *     UsbhGetGlobalUxdSettings @ 0x1C00595D4 (UsbhGetGlobalUxdSettings.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhGetPdoRegistryParameter @ 0x1C0045A10 (UsbhGetPdoRegistryParameter.c)
+ *     UsbhGetGlobalUxdSettings @ 0x1C005ACF0 (UsbhGetGlobalUxdSettings.c)
  */
 
 __int64 __fastcall UsbhRegPnpStart(__int64 a1)

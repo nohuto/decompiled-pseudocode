@@ -1,8 +1,8 @@
 /*
- * XREFs of GreRemoveDisplayDriverRealizations @ 0x1C0097498
+ * XREFs of GreRemoveDisplayDriverRealizations @ 0x1C00EB0D4
  * Callers:
- *     zzzDecomposeDesktop @ 0x1C0097998 (zzzDecomposeDesktop.c)
- *     zzzComposeDesktop @ 0x1C00B2FD8 (zzzComposeDesktop.c)
+ *     zzzDecomposeDesktop @ 0x1C00EAD8C (zzzDecomposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
  * Callees:
  *     <none>
  */
@@ -24,8 +24,8 @@ __int64 __fastcall GreRemoveDisplayDriverRealizations(__int64 a1)
     EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemGreLock", ghsemGreLock, 2LL);
     GreAcquireSemaphore(ghsemDCVisRgn);
     EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDCVisRgn", ghsemDCVisRgn, 3LL);
-    GreAcquireSemaphore(*(_QWORD *)(a1 + 56));
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemPointer()", *(_QWORD *)(a1 + 56), 4LL);
+    GreAcquireSemaphore(*(_QWORD *)(a1 + 64));
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemPointer()", *(_QWORD *)(a1 + 64), 4LL);
     GreAcquireSemaphore(ghsemSprite);
     EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemSprite", ghsemSprite, 5LL);
     GreAcquireSemaphore(ghsemHT);
@@ -57,8 +57,8 @@ __int64 __fastcall GreRemoveDisplayDriverRealizations(__int64 a1)
     GreReleaseSemaphoreInternal(ghsemHT);
     EtwTraceGreLockReleaseSemaphore(L"ghsemSprite", ghsemSprite);
     GreReleaseSemaphoreInternal(ghsemSprite);
-    EtwTraceGreLockReleaseSemaphore(L"po.hsemPointer()", *(_QWORD *)(a1 + 56));
-    GreReleaseSemaphoreInternal(*(_QWORD *)(a1 + 56));
+    EtwTraceGreLockReleaseSemaphore(L"po.hsemPointer()", *(_QWORD *)(a1 + 64));
+    GreReleaseSemaphoreInternal(*(_QWORD *)(a1 + 64));
     EtwTraceGreLockReleaseSemaphore(L"ghsemDCVisRgn", ghsemDCVisRgn);
     GreReleaseSemaphoreInternal(ghsemDCVisRgn);
     EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);

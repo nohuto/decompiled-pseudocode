@@ -1,26 +1,26 @@
 /*
- * XREFs of ?IsEmpty@CRectanglesShape@@UEBA_NXZ @ 0x1800CA010
+ * XREFs of ?IsEmpty@CRectanglesShape@@UEBA_NXZ @ 0x1800BBFC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall CRectanglesShape::IsEmpty(CRectanglesShape *this)
+bool __fastcall CRectanglesShape::IsEmpty(CRectanglesShape *this)
 {
-  int v1; // r8d
-  char v2; // dl
-  float *v3; // rax
+  int v1; // edx
+  float *v2; // rax
+  bool result; // al
 
   v1 = *((_DWORD *)this + 10);
-  v2 = 1;
+  result = 1;
   if ( v1 )
   {
     if ( v1 != 1 )
       return 0;
-    v3 = (float *)*((_QWORD *)this + 2);
-    if ( v3[2] > *v3 && v3[3] > v3[1] )
+    v2 = (float *)*((_QWORD *)this + 2);
+    if ( v2[2] > *v2 && v2[3] > v2[1] )
       return 0;
   }
-  return v2;
+  return result;
 }

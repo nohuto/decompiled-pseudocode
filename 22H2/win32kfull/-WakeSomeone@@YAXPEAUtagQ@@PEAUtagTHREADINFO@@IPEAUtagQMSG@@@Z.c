@@ -1,228 +1,215 @@
 /*
- * XREFs of ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C01180A8
+ * XREFs of ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C0051568
  * Callers:
- *     xxxCapture @ 0x1C00117FC (xxxCapture.c)
- *     EditionWakeSomeone @ 0x1C0017B90 (EditionWakeSomeone.c)
- *     EditionHandleAndPostKeyEvent @ 0x1C0060630 (EditionHandleAndPostKeyEvent.c)
- *     EditionWakeThreadForInput @ 0x1C0116BB0 (EditionWakeThreadForInput.c)
- *     PostInputMessage @ 0x1C0117268 (PostInputMessage.c)
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01B56F8 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
- *     ?_ShellHandwritingDelegationReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01B64C4 (-_ShellHandwritingDelegationReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
- *     ?JournalTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01C0550 (-JournalTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     EditionWakeSomeone @ 0x1C0008C70 (EditionWakeSomeone.c)
+ *     EditionWakeThreadForInput @ 0x1C0050450 (EditionWakeThreadForInput.c)
+ *     PostInputMessage @ 0x1C00507E0 (PostInputMessage.c)
+ *     xxxCapture @ 0x1C00C02CC (xxxCapture.c)
+ *     EditionHandleAndPostKeyEvent @ 0x1C0109DE0 (EditionHandleAndPostKeyEvent.c)
+ *     ?xxxGetNextSysMsg@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@1PEAVCMultiPerObjectLockExclusivePpiPtiQ@@@Z @ 0x1C0166FE8 (-xxxGetNextSysMsg@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@1PEAVCMultiPerObjectLockExclusivePpiP.c)
+ *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01E0760 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ *     ?JournalTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01EAAF0 (-JournalTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
  * Callees:
- *     ?CancelForegroundActivate@@YAXXZ @ 0x1C0017BCC (-CancelForegroundActivate@@YAXXZ.c)
- *     IsProcessedByInputService @ 0x1C005CE80 (IsProcessedByInputService.c)
- *     PtiMouseFromQ @ 0x1C005E080 (PtiMouseFromQ.c)
- *     PtiKbdFromQ @ 0x1C0060CFC (PtiKbdFromQ.c)
- *     IsMiPActive @ 0x1C00A1F08 (IsMiPActive.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     SetWakeBit @ 0x1C0118350 (SetWakeBit.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?ShouldAddPointerWakeFlag@@YAHPEBUtagTHREADINFO@@PEBUtagQMSG@@@Z @ 0x1C0150A18 (-ShouldAddPointerWakeFlag@@YAHPEBUtagTHREADINFO@@PEBUtagQMSG@@@Z.c)
+ *     IsProcessedByInputService @ 0x1C00128BC (IsProcessedByInputService.c)
+ *     CancelForegroundActivate @ 0x1C004F750 (CancelForegroundActivate.c)
+ *     PtiKbdFromQ @ 0x1C004FB88 (PtiKbdFromQ.c)
+ *     SetWakeBit @ 0x1C0051880 (SetWakeBit.c)
+ *     PtiMouseFromQ @ 0x1C005256C (PtiMouseFromQ.c)
+ *     ?ShouldAddPointerWakeFlag@@YAHPEBUtagTHREADINFO@@PEBUtagQMSG@@@Z @ 0x1C00525BC (-ShouldAddPointerWakeFlag@@YAHPEBUtagTHREADINFO@@PEBUtagQMSG@@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall WakeSomeone(__int64 a1, __int64 a2, unsigned int a3, struct tagQMSG *a4)
+void __fastcall WakeSomeone(struct tagQ *a1, struct tagTHREADINFO *a2, unsigned int a3, struct tagQMSG *a4)
 {
-  unsigned __int64 v5; // r8
-  struct tagTHREADINFO *v7; // rbx
-  struct tagQ *v8; // r13
-  unsigned int v9; // ebp
-  int v10; // r15d
-  unsigned int v11; // edi
-  __int64 v12; // rbx
-  int v13; // eax
-  __int64 v14; // rcx
-  __int64 v15; // rax
+  struct tagTHREADINFO *v6; // rdi
+  struct tagQ *v7; // r13
+  unsigned int v8; // r14d
+  int v9; // r15d
+  unsigned int v10; // esi
+  __int64 v11; // rdi
+  __int64 v12; // rax
+  int v13; // edx
+  struct tagTHREADINFO *v14; // rdx
+  __int64 v15; // rcx
   __int64 v16; // rax
-  struct tagTHREADINFO *v17; // rdx
+  __int64 v17; // rdi
   int v18; // eax
-  __int64 v19; // rbx
 
-  v5 = 0LL;
-  v7 = (struct tagTHREADINFO *)a2;
-  v8 = (struct tagQ *)a1;
+  v6 = a2;
+  v7 = a1;
+  v8 = 0;
   v9 = 0;
-  v10 = 0;
-  v11 = 1;
-  if ( a3 > 0x208 )
+  v10 = 1;
+  if ( a3 > 0x207 )
   {
-    if ( a3 > 0x245 )
+    if ( a3 <= 0x20E )
     {
-      if ( a3 != 582 && a3 != 583 && a3 != 585 && a3 != 586 && a3 != 593 && a3 - 594 >= 2 )
-        goto LABEL_92;
-    }
-    else if ( a3 != 581 )
-    {
-      if ( a3 != 521 )
+      if ( a3 != 526 )
       {
-        if ( a3 == 522 )
-          goto LABEL_80;
-        if ( a3 != 523 )
+        if ( a3 == 520 )
+          goto LABEL_51;
+        if ( a3 == 521 )
+          goto LABEL_48;
+        if ( a3 != 522 )
         {
           if ( a3 == 524 )
-            goto LABEL_93;
-          if ( a3 != 525 )
-          {
-            if ( a3 != 526 )
-            {
-              if ( a3 == 568 )
-              {
-                v10 = 4096;
-                goto LABEL_28;
-              }
-              if ( a3 != 576 )
-                goto LABEL_92;
-LABEL_97:
-              if ( !PtiCurrentShared(a1, a2, 0LL, (__int64)a4) )
-                MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 5223LL);
-              if ( !v10 )
-                v10 = 2048;
-              goto LABEL_28;
-            }
-LABEL_80:
-            if ( (*(_DWORD *)(a1 + 396) & 0x2000000) != 0 )
-            {
-              v16 = PtiMouseFromQ(a1);
-LABEL_37:
-              v7 = (struct tagTHREADINFO *)v16;
-              if ( ((a3 - 522) & 0xFFFFFFFB) != 0 )
-                goto LABEL_11;
-              goto LABEL_83;
-            }
-LABEL_36:
-            v16 = PtiKbdFromQ((__int64)v8);
-            goto LABEL_37;
-          }
+            goto LABEL_51;
+          goto LABEL_48;
         }
       }
-LABEL_66:
-      if ( a4 )
-        v9 = (~*((_DWORD *)a4 + 25) & 0x20000u) >> 17;
-      else
-        v9 = 1;
-      goto LABEL_92;
+      goto LABEL_23;
     }
-    v10 = 4096;
-    goto LABEL_97;
+    if ( a3 != 568 )
+    {
+      if ( a3 != 576 )
+      {
+        if ( a3 <= 0x244 || a3 > 0x247 && (a3 <= 0x248 || a3 > 0x24A && a3 - 593 > 2) )
+          goto LABEL_50;
+        v9 = 4096;
+      }
+LABEL_88:
+      if ( !W32GetThreadWin32Thread(KeGetCurrentThread()) )
+        return;
+      if ( !v9 )
+        v9 = 2048;
+      goto LABEL_40;
+    }
+    v9 = 4096;
+LABEL_40:
+    if ( !v6 )
+    {
+      v15 = *((_QWORD *)a4 + 2);
+      if ( !v15 || (v16 = ValidateHwnd(v15)) == 0 || (v6 = *(struct tagTHREADINFO **)(v16 + 16)) == 0LL )
+        v6 = (struct tagTHREADINFO *)PtiKbdFromQ((__int64)v7);
+    }
+    v10 = v9;
+    if ( !v9 )
+      v10 = 1024;
+    goto LABEL_10;
   }
-  if ( a3 == 520 )
-    goto LABEL_93;
-  if ( a3 > 0x11B )
+  if ( a3 >= 0x206 )
+  {
+LABEL_48:
+    if ( a4 )
+      v8 = (~*((_DWORD *)a4 + 25) & 0x100000u) >> 20;
+    else
+      v8 = 1;
+    goto LABEL_50;
+  }
+  if ( a3 > 0x106 )
   {
     if ( a3 == 512 )
     {
       if ( !a2 )
       {
-        v12 = *(_QWORD *)(a1 + 112);
-        if ( v12 )
-          v7 = *(struct tagTHREADINFO **)(v12 + 16);
+        v11 = *((_QWORD *)a1 + 13);
+        if ( v11 )
+          v6 = *(struct tagTHREADINFO **)(v11 + 16);
         else
-          v7 = *(struct tagTHREADINFO **)(a1 + 96);
+          v6 = (struct tagTHREADINFO *)*((_QWORD *)a1 + 11);
       }
-      if ( a4 && (unsigned int)IsGenuineMouseInput((char *)a4 + 120) )
-        v13 = IsMiPActive((__int64)v7, (__int64)a4);
-      else
-        v13 = 0;
-      v11 = v13 != 0 ? 4098 : 2;
-      goto LABEL_11;
+      v10 = 2;
+      if ( (unsigned int)ShouldAddPointerWakeFlag(v6, a4) )
+        v10 = 4098;
+      goto LABEL_10;
     }
     if ( a3 == 513 )
-      goto LABEL_66;
-    if ( a3 != 514 )
+      goto LABEL_48;
+    if ( a3 != 283 )
     {
-      if ( a3 == 515 || a3 == 516 )
-        goto LABEL_66;
-      if ( a3 != 517 )
+      if ( a3 == 514 )
+        goto LABEL_51;
+      if ( a3 > 0x202 )
       {
-        if ( a3 - 518 <= 1 )
-          goto LABEL_66;
-LABEL_92:
-        CancelForegroundActivate(a1, a2, 0LL, (int)a4);
+        if ( a3 > 0x204 )
+          goto LABEL_51;
+        goto LABEL_48;
       }
+LABEL_50:
+      CancelForegroundActivate((int)a1);
+LABEL_51:
+      v17 = *((_QWORD *)v7 + 13);
+      if ( v17 && a3 - 512 <= 0xE )
+        v6 = *(struct tagTHREADINFO **)(v17 + 16);
+      else
+        v6 = (struct tagTHREADINFO *)*((_QWORD *)v7 + 11);
+      goto LABEL_53;
     }
-LABEL_93:
-    v19 = *((_QWORD *)v8 + 14);
-    if ( v19 && a3 - 512 <= 0xE )
-      v7 = *(struct tagTHREADINFO **)(v19 + 16);
-    else
-      v7 = (struct tagTHREADINFO *)*((_QWORD *)v8 + 12);
-LABEL_83:
-    v11 = 4;
-    if ( (unsigned int)ShouldAddPointerWakeFlag(v7, a4) )
-      v11 = 4100;
-    goto LABEL_11;
+    goto LABEL_88;
   }
-  if ( a3 == 283 )
-    goto LABEL_97;
-  if ( a3 != 254 && a3 != 255 )
+  if ( a3 == 262 )
+    goto LABEL_35;
+  if ( a3 < 0xFE )
+    goto LABEL_50;
+  if ( a3 <= 0xFF )
+    goto LABEL_40;
+  switch ( a3 )
   {
-    if ( a3 != 256 )
-    {
-      if ( a3 == 257 )
-        goto LABEL_36;
-      if ( a3 == 258 )
-        goto LABEL_43;
-      if ( a3 != 260 )
+    case 0x101u:
+      goto LABEL_23;
+    case 0x100u:
+      goto LABEL_32;
+    case 0x102u:
+LABEL_35:
+      CancelForegroundActivate((int)a1);
+      goto LABEL_23;
+    case 0x104u:
+LABEL_32:
+      if ( a4 )
       {
-        if ( a3 == 261 )
-          goto LABEL_36;
-        if ( a3 != 262 )
-          goto LABEL_92;
-        goto LABEL_43;
+        if ( (unsigned __int64)(*((_QWORD *)a4 + 4) - 16LL) > 2
+          || (v18 = *((_BYTE *)a4 + 32) & 3,
+              LODWORD(a1) = 2 * v18,
+              ((unsigned __int8)(1 << (2 * v18)) & *((_BYTE *)v7
+                                                   + ((unsigned __int64)*((unsigned __int8 *)a4 + 32) >> 2)
+                                                   + 228)) == 0) )
+        {
+          v8 = ((*((_DWORD *)a4 + 25) >> 20) & 1) == 0;
+        }
       }
-    }
+      else
+      {
+        v8 = 1;
+      }
+      goto LABEL_35;
+  }
+  if ( a3 != 261 )
+    goto LABEL_50;
+LABEL_23:
+  if ( ((a3 - 522) & 0xFFFFFFFB) != 0 || (*((_DWORD *)v7 + 97) & 0x2000000) == 0 )
+    v12 = PtiKbdFromQ((__int64)v7);
+  else
+    v12 = PtiMouseFromQ(v7, 4294967291LL);
+  v6 = (struct tagTHREADINFO *)v12;
+  if ( ((a3 - 522) & v13) == 0 )
+  {
+LABEL_53:
+    v10 = 4;
+    if ( (unsigned int)ShouldAddPointerWakeFlag(v6, a4) )
+      v10 = 4100;
+  }
+LABEL_10:
+  if ( v6 )
+  {
+    if ( a4 && *((_QWORD *)a4 + 13) && (IsProcessedByInputService((__int64)a4) || (*((_DWORD *)a4 + 25) & 0x80000) != 0) )
+      v6 = v14;
+    if ( v10 )
+      SetWakeBit(v6, v10);
+    *((_QWORD *)v6 + 154) |= 0x100000000uLL;
+    EtwTraceProcessWindowInfo(v6);
     if ( a4 )
-    {
-      if ( *((_QWORD *)a4 + 4) != 16LL && (unsigned __int64)(*((_QWORD *)a4 + 4) - 17LL) >= 2
-        || (v5 = (unsigned __int64)*((unsigned __int8 *)a4 + 32) >> 2,
-            v18 = *((_BYTE *)a4 + 32) & 3,
-            a1 = (unsigned int)(2 * v18),
-            a2 = (unsigned int)(1 << (2 * v18)),
-            ((unsigned __int8)a2 & *((_BYTE *)v8 + v5 + 236)) == 0) )
-      {
-        v9 = ((*((_DWORD *)a4 + 25) >> 17) & 1) == 0;
-      }
-    }
-    else
-    {
-      v9 = 1;
-    }
-LABEL_43:
-    CancelForegroundActivate(a1, a2, v5, (int)a4);
-    goto LABEL_36;
-  }
-LABEL_28:
-  if ( !v7 )
-  {
-    v14 = *((_QWORD *)a4 + 2);
-    if ( !v14 || (v15 = ValidateHwnd(v14)) == 0 || (v7 = *(struct tagTHREADINFO **)(v15 + 16)) == 0LL )
-      v7 = (struct tagTHREADINFO *)PtiKbdFromQ((__int64)v8);
-  }
-  v11 = v10;
-  if ( !v10 )
-    v11 = 1024;
-LABEL_11:
-  if ( v7 )
-  {
-    if ( a4 && *((_QWORD *)a4 + 13) && (IsProcessedByInputService((__int64)a4) || (*((_DWORD *)a4 + 25) & 0x10000) != 0) )
-      v7 = v17;
-    if ( v11 )
-      SetWakeBit(v7, v11);
-    *((_QWORD *)v7 + 159) |= 0x80000000uLL;
-    EtwTraceProcessWindowInfo(v7);
-    if ( a4 )
-      *((_QWORD *)a4 + 13) = v7;
-    if ( v9 )
+      *((_QWORD *)a4 + 13) = v6;
+    if ( v8 )
     {
       if ( a4 )
       {
-        if ( (*((_DWORD *)a4 + 25) & 0x20000) != 0 )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 5293LL);
+        if ( (*((_DWORD *)a4 + 25) & 0x100000) != 0 )
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 5672LL);
       }
-      CInputGlobals::SetPtiLastWoken(gpInputGlobals, v7, 0);
-      *((_QWORD *)v7 + 159) |= 0x200000000uLL;
-      EtwTraceProcessWindowInfo(v7);
+      CInputGlobals::SetPtiLastWoken(gpInputGlobals, v6, 0);
+      *((_QWORD *)v6 + 154) |= 0x400000000uLL;
+      EtwTraceProcessWindowInfo(v6);
     }
   }
 }

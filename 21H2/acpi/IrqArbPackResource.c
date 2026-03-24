@@ -1,9 +1,9 @@
 /*
- * XREFs of IrqArbPackResource @ 0x1C009FD20
+ * XREFs of IrqArbPackResource @ 0x1C00A0DC0
  * Callers:
  *     <none>
  * Callees:
- *     IrqArbpGetRangeData @ 0x1C009FDC8 (IrqArbpGetRangeData.c)
+ *     IrqArbpGetRangeData @ 0x1C00A0E68 (IrqArbpGetRangeData.c)
  */
 
 __int64 __fastcall IrqArbPackResource(__int64 a1, unsigned __int64 a2, __int64 a3)

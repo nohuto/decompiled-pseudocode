@@ -1,64 +1,107 @@
 /*
- * XREFs of ?CreateRadialGradientEffect@CRadialGradientBrush@@QEAAJPEAPEAVCRadialGradientEffect@@@Z @ 0x18023A7F0
+ * XREFs of ?CreateRadialGradientEffect@CRadialGradientBrush@@QEAAJPEAPEAVCRadialGradientEffect@@@Z @ 0x1801E7A90
  * Callers:
- *     ?AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18025E4A8 (-AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRe.c)
+ *     ?AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18020DE60 (-AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRe.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIEffectInstance@Composition@UI@Windows@@@@IEAAKXZ @ 0x1800F38DC (-InternalRelease@-$CMILRefCountBaseT@UIEffectInstance@Composition@UI@Windows@@@@IEAAKXZ.c)
- *     ?IsCenteredGradient@CRadialGradientBrush@@AEBA_NXZ @ 0x18023B06C (-IsCenteredGradient@CRadialGradientBrush@@AEBA_NXZ.c)
- *     ?reset@?$com_ptr_t@VCRadialGradientEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18023B2FC (-reset@-$com_ptr_t@VCRadialGradientEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?Create@CRadialGradientEffect@@SAJ_NPEAPEAV1@@Z @ 0x1802ABCF8 (-Create@CRadialGradientEffect@@SAJ_NPEAPEAV1@@Z.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800520D0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?IsCenteredGradient@CRadialGradientBrush@@AEBA_NXZ @ 0x1801E836C (-IsCenteredGradient@CRadialGradientBrush@@AEBA_NXZ.c)
+ *     ?reset@?$com_ptr_t@VCComputeScribbleFramebuffer@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1801E8618 (-reset@-$com_ptr_t@VCComputeScribbleFramebuffer@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CRadialGradientBrush::CreateRadialGradientEffect(
         CRadialGradientBrush *this,
         struct CRadialGradientEffect **a2)
 {
-  struct CRadialGradientEffect *v3; // rbx
-  bool IsCenteredGradient; // al
-  int v6; // eax
-  unsigned int v7; // ebx
-  struct CRadialGradientEffect *v8; // rcx
-  volatile signed __int32 *v9; // rsi
-  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
-  struct CRadialGradientEffect *v12; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v3; // rax
+  bool IsCenteredGradient; // di
+  char *v6; // rax
+  __int64 v7; // rcx
+  volatile signed __int32 *v8; // rbx
+  int v9; // esi
+  CDrawListEntry *v10; // rcx
+  struct CRadialGradientEffect *v11; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  volatile signed __int32 *v14; // [rsp+50h] [rbp+8h] BYREF
+  volatile signed __int32 *v15; // [rsp+60h] [rbp+18h]
 
-  v12 = 0LL;
-  v3 = (struct CRadialGradientEffect *)*((_QWORD *)this + 29);
+  v14 = 0LL;
+  v3 = *((_QWORD *)this + 23);
   if ( v3 )
   {
-    CMILRefCountImpl::AddReference((struct CRadialGradientEffect *)((char *)v3 + 8));
+    v14 = (volatile signed __int32 *)*((_QWORD *)this + 23);
+    _InterlockedIncrement((volatile signed __int32 *)(v3 + 8));
+    v8 = v14;
   }
   else
   {
-    wil::com_ptr_t<CRadialGradientEffect,wil::err_returncode_policy>::reset(&v12);
+    wil::com_ptr_t<CComputeScribbleFramebuffer,wil::err_returncode_policy>::reset(&v14);
     IsCenteredGradient = CRadialGradientBrush::IsCenteredGradient(this);
-    v6 = CRadialGradientEffect::Create(IsCenteredGradient, &v12);
-    v7 = v6;
-    if ( v6 < 0 )
+    v6 = (char *)DefaultHeap::Alloc(0x48uLL);
+    v8 = (volatile signed __int32 *)v6;
+    if ( v6 )
+    {
+      *((_DWORD *)v6 + 8) = 0;
+      *((_DWORD *)v6 + 2) = 0;
+      *(_QWORD *)v6 = &CRadialGradientEffect::`vftable'{for `CMILRefCountBase'};
+      *((_QWORD *)v6 + 2) = &CRadialGradientEffect::`vftable'{for `Windows::UI::Composition::IEffectInstance'};
+      *((_QWORD *)v6 + 3) = &CRadialGradientEffect::`vftable'{for `Windows::UI::Composition::ICompiledEffect'};
+      v6[68] = IsCenteredGradient;
+      if ( IsCenteredGradient )
+      {
+        *(_QWORD *)(v6 + 36) = 0LL;
+      }
+      else
+      {
+        *(_OWORD *)(v6 + 36) = 0LL;
+        *(_OWORD *)(v6 + 52) = 0LL;
+      }
+    }
+    else
+    {
+      v8 = 0LL;
+    }
+    v15 = v8;
+    if ( v8 )
+    {
+      _InterlockedIncrement(v8 + 2);
+      v14 = v8;
+      v15 = 0LL;
+      v9 = 0;
+    }
+    else
+    {
+      v9 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024882, 0x14u, 0LL);
+      v8 = v14;
+    }
+    if ( v9 < 0 )
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0x120,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\radialgradientbrush.cpp",
-        (const char *)(unsigned int)v6);
-      v8 = v12;
-      goto LABEL_10;
+        (void *)0x121,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\radialgradientbrush.cpp",
+        (const char *)(unsigned int)v9);
+      goto LABEL_18;
     }
-    v3 = v12;
-    v9 = (volatile signed __int32 *)*((_QWORD *)this + 29);
-    *((_QWORD *)this + 29) = v12;
-    if ( v3 )
-      CMILRefCountImpl::AddReference((struct CRadialGradientEffect *)((char *)v3 + 8));
-    if ( v9 )
-      CMILRefCountBaseT<Windows::UI::Composition::IEffectInstance>::InternalRelease(v9);
+    v10 = (CDrawListEntry *)*((_QWORD *)this + 23);
+    *((_QWORD *)this + 23) = v8;
+    if ( v8 )
+    {
+      _InterlockedIncrement(v8 + 2);
+      v8 = v14;
+    }
+    if ( v10 )
+      CDrawListEntry::Release(v10);
   }
+  v11 = (struct CRadialGradientEffect *)v8;
   v8 = 0LL;
-  *a2 = v3;
-  v7 = 0;
-LABEL_10:
+  v9 = 0;
+  *a2 = v11;
+LABEL_18:
   if ( v8 )
-    CMILRefCountBaseT<Windows::UI::Composition::IEffectInstance>::InternalRelease((volatile signed __int32 *)v8);
-  return v7;
+    CDrawListEntry::Release((CDrawListEntry *)v8);
+  return (unsigned int)v9;
 }

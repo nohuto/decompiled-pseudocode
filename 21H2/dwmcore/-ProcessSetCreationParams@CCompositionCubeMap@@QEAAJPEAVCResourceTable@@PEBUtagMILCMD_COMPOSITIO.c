@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessSetCreationParams@CCompositionCubeMap@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONCUBEMAP_SETCREATIONPARAMS@@@Z @ 0x18020C14C
+ * XREFs of ?ProcessSetCreationParams@CCompositionCubeMap@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONCUBEMAP_SETCREATIONPARAMS@@@Z @ 0x1801B9640
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?Grow@?$DynArrayImpl@$00@@IEAAJIIHPEAPEBX@Z @ 0x1800432E8 (-Grow@-$DynArrayImpl@$00@@IEAAJIIHPEAPEBX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Grow@?$DynArrayImpl@$00@@IEAAJIIHPEAPEBX@Z @ 0x180036AA0 (-Grow@-$DynArrayImpl@$00@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionCubeMap::ProcessSetCreationParams(
@@ -18,23 +18,25 @@ __int64 __fastcall CCompositionCubeMap::ProcessSetCreationParams(
   int v6; // eax
   __int64 v7; // rcx
   unsigned int v8; // edi
+  __int64 v9; // rax
 
-  if ( *((_QWORD *)this + 20) != *((_QWORD *)a3 + 1) )
+  if ( *((_QWORD *)this + 19) != *((_QWORD *)a3 + 1) )
   {
-    *((_DWORD *)this + 40) = *((_DWORD *)a3 + 2);
+    *((_DWORD *)this + 38) = *((_DWORD *)a3 + 2);
     v4 = *((_DWORD *)a3 + 3);
-    *((_DWORD *)this + 41) = v4;
-    *((_BYTE *)this + 168) = *((_BYTE *)a3 + 16);
+    *((_DWORD *)this + 39) = v4;
+    *((_BYTE *)this + 160) = *((_BYTE *)a3 + 16);
     v5 = 6 * v4;
-    v6 = DynArrayImpl<1>::Grow((unsigned __int64)this + 88, 0x20u, 6 * v4, 1, 0LL);
+    v6 = DynArrayImpl<1>::Grow((__int64)this + 80, 0x20u, 6 * v4, 1, 0LL);
     v8 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x81u);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x81u, 0LL);
       return v8;
     }
-    *((_DWORD *)this + 28) = v5;
-    (*(void (__fastcall **)(CCompositionCubeMap *, _QWORD, _QWORD))(*(_QWORD *)this + 72LL))(this, 0LL, 0LL);
+    v9 = *(_QWORD *)this;
+    *((_DWORD *)this + 26) = v5;
+    (*(void (__fastcall **)(CCompositionCubeMap *, _QWORD, _QWORD))(v9 + 72))(this, 0LL, 0LL);
   }
   return 0;
 }

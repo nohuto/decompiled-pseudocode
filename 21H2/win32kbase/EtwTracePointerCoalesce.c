@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTracePointerCoalesce @ 0x1C014E150
+ * XREFs of EtwTracePointerCoalesce @ 0x1C0123530
  * Callers:
- *     ?CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@KH@Z @ 0x1C01C0B70 (-CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@.c)
+ *     ?CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@KH@Z @ 0x1C018A128 (-CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@.c)
  * Callees:
- *     McTemplateK0hhq_EtwWriteTransfer @ 0x1C014FD3C (McTemplateK0hhq_EtwWriteTransfer.c)
+ *     McTemplateK0hhq_EtwWriteTransfer @ 0x1C0125554 (McTemplateK0hhq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePointerCoalesce(int a1, char a2, int a3)

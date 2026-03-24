@@ -1,42 +1,39 @@
 /*
- * XREFs of EditionUpdateCursorOnMouseMove @ 0x1C00A0760
+ * XREFs of EditionUpdateCursorOnMouseMove @ 0x1C004DC20
  * Callers:
  *     <none>
  * Callees:
- *     PtInRect @ 0x1C00D0A58 (PtInRect.c)
- *     IsToplevelWindowDesktopComposed @ 0x1C00D3B08 (IsToplevelWindowDesktopComposed.c)
- *     DwmAsyncTopLevelMouseLeave @ 0x1C026DC30 (DwmAsyncTopLevelMouseLeave.c)
+ *     PtInRect @ 0x1C004DE1C (PtInRect.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C006BE7C (IsToplevelWindowDesktopComposed.c)
+ *     DwmAsyncTopLevelMouseLeave @ 0x1C01360C0 (DwmAsyncTopLevelMouseLeave.c)
  */
 
-__int64 __fastcall EditionUpdateCursorOnMouseMove(__int64 a1, __int64 a2)
+__int64 __fastcall EditionUpdateCursorOnMouseMove(__int64 a1)
 {
-  _DWORD *v4; // rax
-  __int64 v6; // rcx
-  void *v7; // rax
-  __int64 *v8; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v9; // [rsp+28h] [rbp-10h]
-  int v10; // [rsp+4Ch] [rbp+14h]
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  void *v5; // rax
+  __int64 *v6; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v7; // [rsp+28h] [rbp-10h]
 
-  v10 = HIDWORD(a2);
   if ( gspwndCursorNC
     && (unsigned int)IsToplevelWindowDesktopComposed(gspwndCursorNC)
-    && (a1 != gspwndCursorNC || (unsigned int)PtInRect(*(_QWORD *)(a1 + 40) + 104LL, a2)) )
+    && (a1 != gspwndCursorNC || (unsigned int)PtInRect(*(_QWORD *)(a1 + 40) + 104LL)) )
   {
-    v7 = (void *)ReferenceDwmApiPort(v6);
-    DwmAsyncTopLevelMouseLeave(v7);
+    v5 = (void *)ReferenceDwmApiPort(v4, v3);
+    DwmAsyncTopLevelMouseLeave(v5);
   }
-  v4 = *(_DWORD **)(a1 + 40);
-  if ( (int)a2 < v4[26] || (int)a2 >= v4[28] || v10 < v4[27] || v10 >= v4[29] )
-  {
-    v9 = a1;
-    v8 = &gspwndCursorNC;
-    HMAssignmentLock(&v8, 1LL);
-  }
-  else
+  if ( (unsigned int)PtInRect(*(_QWORD *)(a1 + 40) + 104LL) )
   {
     HMAssignmentUnlock(&gspwndCursorNC);
   }
-  v9 = a1;
-  v8 = &gspwndCursor;
-  return HMAssignmentLock(&v8, 1LL);
+  else
+  {
+    v6 = &gspwndCursorNC;
+    v7 = a1;
+    HMAssignmentLock(&v6);
+  }
+  v7 = a1;
+  v6 = &gspwndCursor;
+  return HMAssignmentLock(&v6);
 }

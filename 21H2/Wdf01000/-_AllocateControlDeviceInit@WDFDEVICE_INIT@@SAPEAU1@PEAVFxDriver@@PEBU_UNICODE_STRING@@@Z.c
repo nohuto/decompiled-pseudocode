@@ -1,16 +1,16 @@
 /*
- * XREFs of ?_AllocateControlDeviceInit@WDFDEVICE_INIT@@SAPEAU1@PEAVFxDriver@@PEBU_UNICODE_STRING@@@Z @ 0x1C001F4E4
+ * XREFs of ?_AllocateControlDeviceInit@WDFDEVICE_INIT@@SAPEAU1@PEAVFxDriver@@PEBU_UNICODE_STRING@@@Z @ 0x1C004FE54
  * Callers:
- *     imp_WdfControlDeviceInitAllocate @ 0x1C001F460 (imp_WdfControlDeviceInitAllocate.c)
+ *     imp_WdfControlDeviceInitAllocate @ 0x1C0044210 (imp_WdfControlDeviceInitAllocate.c)
  * Callees:
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ??_GWDFDEVICE_INIT@@QEAAPEAXI@Z @ 0x1C001F62C (--_GWDFDEVICE_INIT@@QEAAPEAXI@Z.c)
- *     ??0WDFDEVICE_INIT@@QEAA@PEAVFxDriver@@@Z @ 0x1C001FA58 (--0WDFDEVICE_INIT@@QEAA@PEAVFxDriver@@@Z.c)
- *     ?FxDuplicateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAU2@@Z @ 0x1C00273A8 (-FxDuplicateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAU2@@Z.c)
- *     ??0FxString@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0027568 (--0FxString@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ??_GWDFDEVICE_INIT@@QEAAPEAXI@Z @ 0x1C00441D8 (--_GWDFDEVICE_INIT@@QEAAPEAXI@Z.c)
+ *     ??0WDFDEVICE_INIT@@QEAA@PEAVFxDriver@@@Z @ 0x1C004F934 (--0WDFDEVICE_INIT@@QEAA@PEAVFxDriver@@@Z.c)
+ *     ??0FxString@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0061A14 (--0FxString@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?FxDuplicateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAU2@@Z @ 0x1C0061C1C (-FxDuplicateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAU2@@Z.c)
  */
 
 WDFDEVICE_INIT *__fastcall WDFDEVICE_INIT::_AllocateControlDeviceInit(
@@ -18,59 +18,62 @@ WDFDEVICE_INIT *__fastcall WDFDEVICE_INIT::_AllocateControlDeviceInit(
         const _UNICODE_STRING *SDDLString)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rdi
-  void *v3; // rax
-  FX_POOL **v6; // rax
-  __int64 v7; // rax
-  WDFDEVICE_INIT *v8; // rbx
-  FxString *v9; // rax
+  FX_POOL **v5; // rax
+  __int64 v6; // rax
+  __int64 v7; // rbx
+  _POOL_TYPE v9; // edx
   FxString *v10; // rax
-  unsigned int v11; // edx
-  __m128i v13; // [rsp+40h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+58h] [rbp+0h]
+  __int64 v11; // rax
+  int v12; // esi
+  void *retaddr; // [rsp+48h] [rbp+0h]
 
   m_Globals = Driver->m_Globals;
-  v13.m128i_i64[0] = 0LL;
-  v13.m128i_i64[1] = 64LL;
-  v3 = retaddr;
-  if ( !m_Globals->FxPoolTrackingOn )
-    v3 = 0LL;
-  v6 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v13, 0x3B0uLL, m_Globals->Tag, v3);
-  if ( v6 )
+  v5 = FxPoolAllocator(
+         m_Globals,
+         &m_Globals->FxPoolFrameworks,
+         ExDefaultNonPagedPoolType,
+         0x3B0uLL,
+         m_Globals->Tag,
+         retaddr);
+  if ( v5 )
   {
-    WDFDEVICE_INIT::WDFDEVICE_INIT((WDFDEVICE_INIT *)v6, Driver);
-    v8 = (WDFDEVICE_INIT *)v7;
-    if ( v7 )
+    WDFDEVICE_INIT::WDFDEVICE_INIT((WDFDEVICE_INIT *)v5, Driver);
+    v7 = v6;
+  }
+  else
+  {
+    v7 = 0LL;
+  }
+  if ( v7 )
+  {
+    v9 = ExDefaultNonPagedPoolType;
+    *(_DWORD *)(v7 + 56) |= 0x80u;
+    *(_DWORD *)(v7 + 36) = 2;
+    v10 = (FxString *)FxObjectHandleAlloc(m_Globals, v9, 0x78uLL, 0, 0LL, 0, FxObjectTypeExternal);
+    if ( v10 )
+      FxString::FxString(v10, m_Globals);
+    else
+      v11 = 0LL;
+    *(_QWORD *)(v7 + 176) = v11;
+    if ( v11 )
     {
-      *(_DWORD *)(v7 + 56) |= 0x80u;
-      v13.m128i_i64[0] = 0LL;
-      v13.m128i_i64[1] = 64LL;
-      *(_DWORD *)(v7 + 36) = 2;
-      v9 = (FxString *)FxObjectHandleAllocCommon(
-                         m_Globals,
-                         (FxPoolTypeOrPoolFlags *)&v13,
-                         0x78uLL,
-                         0,
-                         0LL,
-                         0,
-                         FxObjectTypeExternal);
-      if ( v9 )
-        FxString::FxString(v9, m_Globals);
-      else
-        v10 = 0LL;
-      v8->Security.Sddl = v10;
-      if ( v10 )
-      {
-        if ( FxDuplicateUnicodeString(v10->m_Globals, SDDLString, &v10->m_UnicodeString) >= 0 )
-          return v8;
-      }
-      else
-      {
-        WPP_IFR_SF_qL(m_Globals, 2u, 0x12u, 0xCu, WPP_FxDeviceInit_cpp_Traceguids, Driver, 0xC000009A);
-      }
-      WDFDEVICE_INIT::`scalar deleting destructor'(v8, v11);
+      v12 = FxDuplicateUnicodeString(*(_FX_DRIVER_GLOBALS **)(v11 + 16), SDDLString, (_UNICODE_STRING *)(v11 + 104));
+    }
+    else
+    {
+      v12 = -1073741670;
+      WPP_IFR_SF_qL(m_Globals, 2u, 0x12u, 0xCu, WPP_FxDeviceInit_cpp_Traceguids, Driver, 0xC000009A);
+    }
+    if ( v12 < 0 )
+    {
+      WDFDEVICE_INIT::`scalar deleting destructor'((WDFDEVICE_INIT *)v7);
       return 0LL;
     }
+    return (WDFDEVICE_INIT *)v7;
   }
-  WPP_IFR_SF_q(m_Globals, 2u, 0x12u, 0xBu, WPP_FxDeviceInit_cpp_Traceguids, Driver);
-  return 0LL;
+  else
+  {
+    WPP_IFR_SF_q(m_Globals, 2u, 0x12u, 0xBu, WPP_FxDeviceInit_cpp_Traceguids, Driver);
+    return 0LL;
+  }
 }

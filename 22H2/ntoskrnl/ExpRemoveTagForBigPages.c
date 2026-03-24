@@ -1,17 +1,13 @@
 /*
- * XREFs of ExpRemoveTagForBigPages @ 0x140323630
+ * XREFs of ExpRemoveTagForBigPages @ 0x1405B3B28
  * Callers:
- *     ExFreeHeapPool @ 0x140322ED0 (ExFreeHeapPool.c)
- *     ExQueryPoolBlockSize @ 0x1406079F0 (ExQueryPoolBlockSize.c)
- *     ExpCleanupBigTag @ 0x140607B18 (ExpCleanupBigTag.c)
- *     ExpSizeHeapPool @ 0x14060F510 (ExpSizeHeapPool.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExpSizeHeapPool @ 0x1405BA270 (ExpSizeHeapPool.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140316B90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046AE92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B15C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpRemoveTagForBigPages(
@@ -21,123 +17,113 @@ __int64 __fastcall ExpRemoveTagForBigPages(
         _DWORD *a4,
         int *a5,
         _QWORD *a6,
-        ULONG_PTR *a7)
+        _WORD *a7,
+        _BYTE *a8)
 {
-  ULONG_PTR v9; // r12
-  unsigned __int8 CurrentIrql; // di
-  int v12; // r10d
-  unsigned int v13; // edx
-  char *v14; // rax
-  int v15; // r8d
-  ULONG_PTR v16; // rdx
+  ULONG_PTR v11; // rbx
+  unsigned __int64 v12; // rdi
+  __int64 v13; // r9
+  volatile signed __int32 *v14; // r10
+  unsigned __int64 v15; // r8
+  int v16; // r11d
+  unsigned int v17; // edx
+  __int64 v18; // rdx
+  unsigned int v19; // r8d
+  int v20; // r11d
+  bool v21; // zf
+  char v22; // al
+  unsigned int v23; // r8d
   __int64 result; // rax
-  _DWORD *SchedulerAssist; // r9
-  __int64 v19; // rdx
-  unsigned __int8 v20; // cl
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v22; // r8
-  int v23; // eax
-  bool v24; // zf
-  signed __int32 v25; // [rsp+30h] [rbp-38h]
-  void *retaddr; // [rsp+68h] [rbp+0h]
-  int v27; // [rsp+70h] [rbp+8h]
-  signed __int32 v28; // [rsp+70h] [rbp+8h]
+  _DWORD *SchedulerAssist; // r8
 
-  v9 = a2;
-  CurrentIrql = KeGetCurrentIrql();
-  __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  v11 = a2;
+  v12 = ExAcquireSpinLockShared(&ExpLargePoolTableLock);
+  if ( (v11 & 0x20) != 0 )
   {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v19) = 4;
-    else
-      v19 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v19;
-  }
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-  {
-    ExpAcquireSpinLockSharedAtDpcLevelInstrumented(&ExpLargePoolTableLock, CurrentIrql);
+    v13 = *(_QWORD *)(qword_140C4DDE0 + 992);
+    v14 = (volatile signed __int32 *)(qword_140C4DDE0 + 864);
+    v15 = *(_QWORD *)(qword_140C4DDE0 + 1000);
   }
   else
   {
-    _m_prefetchw(&ExpLargePoolTableLock);
-    v27 = ExpLargePoolTableLock & 0x7FFFFFFF;
-    v25 = _InterlockedCompareExchange(
-            &ExpLargePoolTableLock,
-            (ExpLargePoolTableLock & 0x7FFFFFFF) + 1,
-            ExpLargePoolTableLock & 0x7FFFFFFF);
-    if ( v25 != v27 )
-    {
-      while ( v25 >= 0 )
-      {
-        v28 = v25;
-        v25 = _InterlockedCompareExchange(&ExpLargePoolTableLock, v25 + 1, v25);
-        if ( v25 == v28 )
-          goto LABEL_4;
-      }
-      ExpWaitForSpinLockSharedAndAcquire((unsigned __int64)&ExpLargePoolTableLock, CurrentIrql);
-    }
+    v13 = PoolBigPageTable;
+    v14 = &ExpPoolBigEntriesInUse;
+    v15 = PoolBigPageTableSize;
   }
 LABEL_4:
-  v12 = 1;
-  v13 = (((40543 * (unsigned __int64)(unsigned int)(BugCheckParameter2 >> 12)) >> 32) ^ (40543
-                                                                                       * (BugCheckParameter2 >> 12))) & (PoolBigPageTableSize - 1);
-  while ( 1 )
+  v16 = 1;
+  v17 = (((40543 * (unsigned __int64)(unsigned int)(BugCheckParameter2 >> 12)) >> 32) ^ (40543
+                                                                                       * (BugCheckParameter2 >> 12))) & (v15 - 1);
+  while ( *(_QWORD *)(v13 + 24LL * v17) != BugCheckParameter2 )
   {
-    v14 = (char *)PoolBigPageTable + 32 * v13;
-    if ( *(_QWORD *)v14 == BugCheckParameter2 )
-      break;
-    if ( ++v13 >= (unsigned __int64)PoolBigPageTableSize )
+    if ( ++v17 >= v15 )
     {
-      if ( !v12 )
-        goto LABEL_30;
-      v13 = 0;
-      v12 = 0;
+      if ( !v16 )
+      {
+LABEL_10:
+        if ( (v11 & 0x21) != 0
+          || v13 != PoolBigPageTable
+          || (unsigned int)MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process) == -1
+          || (v13 = *(_QWORD *)(qword_140C4DDE0 + 992),
+              v14 = (volatile signed __int32 *)(qword_140C4DDE0 + 864),
+              v15 = *(_QWORD *)(qword_140C4DDE0 + 1000),
+              !v13)
+          || !v15 )
+        {
+          KeBugCheckEx(0x19u, 0x22uLL, BugCheckParameter2, v11, 0LL);
+        }
+        goto LABEL_4;
+      }
+      v17 = 0;
+      v16 = 0;
     }
   }
-  if ( !v14 )
-LABEL_30:
-    KeBugCheckEx(0x19u, 0x22uLL, BugCheckParameter2, v9, 0LL);
-  v15 = *((_DWORD *)v14 + 3) >> 8;
-  *a4 = *((_DWORD *)v14 + 2);
-  *a5 = v15 & 0xFFF;
-  *a6 = *((_QWORD *)v14 + 2);
-  if ( (v15 & 8) != 0 )
-    v16 = BugCheckParameter2 ^ ExpPoolQuotaCookie ^ *((_QWORD *)v14 + 3);
+  v18 = v13 + 24LL * v17;
+  if ( !v18 )
+    goto LABEL_10;
+  v19 = *(_DWORD *)(v18 + 12);
+  v20 = *(_DWORD *)(v18 + 8);
+  *a4 = v20;
+  v21 = v13 == PoolBigPageTable;
+  *a5 = (v19 >> 8) & 0xFFF;
+  *a6 = *(_QWORD *)(v18 + 16);
+  if ( !v21 || v20 == 1819242320 )
+  {
+    LOWORD(v23) = 0;
+    v22 = 0;
+  }
   else
-    v16 = -1LL;
-  *a7 = v16;
+  {
+    v22 = *(_BYTE *)(v18 + 12);
+    v23 = v19 >> 20;
+  }
+  *a8 = v22;
+  *a7 = v23;
   if ( a3 )
   {
-    _InterlockedDecrement(&ExpPoolBigEntriesInUse);
-    *((_QWORD *)v14 + 3) = 0LL;
-    _InterlockedIncrement64((volatile signed __int64 *)v14);
+    _InterlockedAdd(v14, 0xFFFFFFFF);
+    _InterlockedIncrement64((volatile signed __int64 *)v18);
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-  {
-    ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&ExpLargePoolTableLock, retaddr);
-  }
-  else
-  {
-    _InterlockedAnd(&ExpLargePoolTableLock, 0xBFFFFFFF);
-    _InterlockedDecrement(&ExpLargePoolTableLock);
-  }
+  ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v22 = CurrentPrcb->SchedulerAssist;
-      v23 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v24 = (v23 & v22[5]) == 0;
-      v22[5] &= v23;
-      if ( v24 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v12 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v21 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v21 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  result = CurrentIrql;
-  __writecr8(CurrentIrql);
+  __writecr8(v12);
   return result;
 }

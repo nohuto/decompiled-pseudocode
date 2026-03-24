@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpAcquireCrossVmMutant @ 0x140A05A6C
+ * XREFs of ExpAcquireCrossVmMutant @ 0x14095C3EC
  * Callers:
- *     NtAcquireCrossVmMutant @ 0x140A05740 (NtAcquireCrossVmMutant.c)
+ *     NtAcquireCrossVmMutant @ 0x140956E20 (NtAcquireCrossVmMutant.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExpGetExtensionHostForCrossVmObject @ 0x140A05D78 (ExpGetExtensionHostForCrossVmObject.c)
+ *     ExReleaseExtensionTable @ 0x1402F75FC (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExpGetExtensionHostForCrossVmObject @ 0x14095C740 (ExpGetExtensionHostForCrossVmObject.c)
  */
 
 __int64 __fastcall ExpAcquireCrossVmMutant(__int64 a1, __int64 a2, char a3)

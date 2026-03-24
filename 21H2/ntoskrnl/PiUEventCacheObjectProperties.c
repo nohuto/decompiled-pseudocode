@@ -1,11 +1,11 @@
 /*
- * XREFs of PiUEventCacheObjectProperties @ 0x14078B5D8
+ * XREFs of PiUEventCacheObjectProperties @ 0x1406E6A9C
  * Callers:
- *     PiUEventNotifyUserMode @ 0x14078B2D4 (PiUEventNotifyUserMode.c)
+ *     PiUEventNotifyUserMode @ 0x1406E675C (PiUEventNotifyUserMode.c)
  * Callees:
- *     PnpGetObjectProperty @ 0x14077D91C (PnpGetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PnpGetObjectProperty @ 0x140637A3C (PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiUEventCacheObjectProperties(__int64 a1)
@@ -65,7 +65,7 @@ LABEL_4:
   }
   ObjectProperty = PnpGetObjectProperty(
                      0x59706E50u,
-                     0xC8u,
+                     0xC8uLL,
                      (int)a1 + 136,
                      3,
                      0LL,
@@ -73,7 +73,7 @@ LABEL_4:
                      (__int64)&DEVPKEY_Device_InstanceId,
                      (__int64)&v16,
                      (PVOID *)&v18,
-                     (unsigned int *)&v17,
+                     &v17,
                      0);
   v4 = (void *)v18;
   v10 = ObjectProperty;
@@ -83,15 +83,15 @@ LABEL_4:
 LABEL_5:
   v9 = PnpGetObjectProperty(
          0x59706E50u,
-         0x200u,
+         0x200uLL,
          v8,
          1,
          0LL,
          0LL,
-         (__int64)&DEVPKEY_Device_EffectiveRestrictedSD,
+         (__int64)&DEVPKEY_Device_RestrictedSD,
          (__int64)&v16,
          v3,
-         (unsigned int *)&v17,
+         &v17,
          0);
   v10 = v9;
   if ( v9 >= 0 )

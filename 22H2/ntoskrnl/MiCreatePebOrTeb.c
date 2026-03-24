@@ -1,43 +1,54 @@
 /*
- * XREFs of MiCreatePebOrTeb @ 0x1406AB22C
+ * XREFs of MiCreatePebOrTeb @ 0x1406C4EC4
  * Callers:
- *     MmCreateTeb @ 0x1406AAF44 (MmCreateTeb.c)
- *     MmCreatePeb @ 0x1407A1DAC (MmCreatePeb.c)
- *     MiInitializeWowPeb @ 0x1407A59AC (MiInitializeWowPeb.c)
+ *     MmCreatePeb @ 0x1406121F8 (MmCreatePeb.c)
+ *     MiInitializeWowPeb @ 0x140670754 (MiInitializeWowPeb.c)
+ *     MmCreateTeb @ 0x1406C4BCC (MmCreateTeb.c)
  * Callees:
- *     MiAllocateFromSubAllocatedRegion @ 0x1406AB290 (MiAllocateFromSubAllocatedRegion.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x1406C4F40 (MiAllocateFromSubAllocatedRegion.c)
  */
 
-__int64 __fastcall MiCreatePebOrTeb(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall MiCreatePebOrTeb(int a1, __int64 a2, _QWORD *a3)
 {
-  __int64 v3; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
 
+  v5 = 0LL;
   *a3 = 0LL;
-  if ( (_DWORD)a1 )
+  if ( !a1 )
   {
-    v3 = 6224LL;
-    if ( (_DWORD)a1 != 4 )
-    {
-      switch ( (_DWORD)a1 )
-      {
-        case 5:
-          v3 = 12312LL;
-          break;
-        case 6:
-          v3 = 14416LL;
-          break;
-        case 1:
-          v3 = 1200LL;
-          break;
-        case 2:
-          v3 = 2040LL;
-          break;
-      }
-    }
+    v6 = 1992LL;
+    return MiAllocateFromSubAllocatedRegion(v5, (v6 + 4095) & 0xFFFFF000LL, a3, a2);
+  }
+  v6 = 6200LL;
+  if ( a1 == 3 )
+  {
+LABEL_3:
+    if ( (unsigned int)(a1 - 3) > 2 )
+      return MiAllocateFromSubAllocatedRegion(v5, (v6 + 4095) & 0xFFFFF000LL, a3, a2);
+    goto LABEL_4;
+  }
+  if ( a1 == 4 )
+  {
+    v6 = 12288LL;
   }
   else
   {
-    v3 = 2000LL;
+    if ( a1 != 5 )
+    {
+      if ( a1 == 1 )
+      {
+        v6 = 1192LL;
+        return MiAllocateFromSubAllocatedRegion(v5, (v6 + 4095) & 0xFFFFF000LL, a3, a2);
+      }
+      if ( a1 == 2 )
+        v6 = 2032LL;
+      goto LABEL_3;
+    }
+    v6 = 14392LL;
   }
-  return MiAllocateFromSubAllocatedRegion(a1, (v3 + 4095) & 0xFFFFF000LL);
+LABEL_4:
+  if ( a2 )
+    v5 = 1LL;
+  return MiAllocateFromSubAllocatedRegion(v5, (v6 + 4095) & 0xFFFFF000LL, a3, a2);
 }

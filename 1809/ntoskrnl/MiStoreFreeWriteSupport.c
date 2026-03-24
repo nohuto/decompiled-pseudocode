@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStoreFreeWriteSupport @ 0x14014CAC8
+ * XREFs of MiStoreFreeWriteSupport @ 0x14014CAE8
  * Callers:
- *     SmIoRequestComplete @ 0x14014C97C (SmIoRequestComplete.c)
- *     MiStoreWriteModifiedPages @ 0x14014CB80 (MiStoreWriteModifiedPages.c)
+ *     SmIoRequestComplete @ 0x14014C99C (SmIoRequestComplete.c)
+ *     MiStoreWriteModifiedPages @ 0x14014CBA0 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

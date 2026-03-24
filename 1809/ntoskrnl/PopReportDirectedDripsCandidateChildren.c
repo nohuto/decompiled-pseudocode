@@ -1,10 +1,10 @@
 /*
- * XREFs of PopReportDirectedDripsCandidateChildren @ 0x14087CEA4
+ * XREFs of PopReportDirectedDripsCandidateChildren @ 0x14087CE84
  * Callers:
- *     PopDripsWatchdogReportDirectedDripsDevice @ 0x14087975C (PopDripsWatchdogReportDirectedDripsDevice.c)
+ *     PopDripsWatchdogReportDirectedDripsDevice @ 0x14087973C (PopDripsWatchdogReportDirectedDripsDevice.c)
  * Callees:
- *     PopReportDirectedDripsCandidateDevice @ 0x140868950 (PopReportDirectedDripsCandidateDevice.c)
- *     PopMarkDirectedDripsCandidateDevice @ 0x14087CE04 (PopMarkDirectedDripsCandidateDevice.c)
+ *     PopReportDirectedDripsCandidateDevice @ 0x140868930 (PopReportDirectedDripsCandidateDevice.c)
+ *     PopMarkDirectedDripsCandidateDevice @ 0x14087CDE4 (PopMarkDirectedDripsCandidateDevice.c)
  */
 
 __int64 __fastcall PopReportDirectedDripsCandidateChildren(__int64 a1, char a2)

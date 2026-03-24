@@ -1,44 +1,32 @@
 /*
- * XREFs of VirtualizeFullKeyboardStates @ 0x1C01E9410
+ * XREFs of VirtualizeFullKeyboardStates @ 0x1C01AF550
  * Callers:
  *     <none>
  * Callees:
- *     isRootPartition @ 0x1C004FEE8 (isRootPartition.c)
- *     PpiFromProcessId @ 0x1C012D4D0 (PpiFromProcessId.c)
- *     ?SendFullKeyboardStates@Detail@Keyboard@IVRootDeliver@@YAJAEBUCONTAINER_ID@@@Z @ 0x1C01F2D70 (-SendFullKeyboardStates@Detail@Keyboard@IVRootDeliver@@YAJAEBUCONTAINER_ID@@@Z.c)
- *     ?ContainerConnected@CIVChannel@@SA_NK@Z @ 0x1C01F38C4 (-ContainerConnected@CIVChannel@@SA_NK@Z.c)
+ *     isRootPartition @ 0x1C0042A98 (isRootPartition.c)
+ *     GetContainerIdFromProcessId @ 0x1C00CDAD8 (GetContainerIdFromProcessId.c)
+ *     Feature_KeyboardInputVirtualization__private_ReportDeviceUsage @ 0x1C00CDB38 (Feature_KeyboardInputVirtualization__private_ReportDeviceUsage.c)
+ *     ?SendFullKeyboardStates@Detail@Keyboard@IVRootDeliver@@YAJAEBUCONTAINER_ID@@@Z @ 0x1C01BB400 (-SendFullKeyboardStates@Detail@Keyboard@IVRootDeliver@@YAJAEBUCONTAINER_ID@@@Z.c)
  */
 
 char __fastcall VirtualizeFullKeyboardStates(int a1)
 {
   unsigned int v2; // eax
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rax
-  __int64 v8; // rax
-  const struct CONTAINER_ID *v9; // rdx
-  unsigned int v10; // eax
-  unsigned int v12; // [rsp+38h] [rbp+10h] BYREF
+  unsigned int ContainerIdFromProcessId; // eax
+  const struct CONTAINER_ID *v4; // rdx
+  unsigned int v6; // [rsp+38h] [rbp+10h] BYREF
 
+  Feature_KeyboardInputVirtualization__private_ReportDeviceUsage();
   LOBYTE(v2) = isRootPartition();
   if ( (_BYTE)v2 )
   {
-    v7 = SGDGetUserSessionState(v4, v3, v5, v6);
-    LOBYTE(v2) = CIVChannel::ContainerConnected(*(_DWORD *)(*(_QWORD *)(v7 + 12672) + 1296LL));
-    if ( (_BYTE)v2 )
+    LOBYTE(v2) = (_BYTE)gpKeyboardSensor;
+    if ( *((_DWORD *)gpKeyboardSensor + 314) )
     {
-      v8 = PpiFromProcessId(a1);
-      if ( v8 )
-        v10 = *(_DWORD *)(v8 + 1096);
-      else
-        v10 = 0;
-      v12 = v10;
-      if ( (_WORD)v10 || (v2 = HIWORD(v10), (_WORD)v2) )
-        LOBYTE(v2) = IVRootDeliver::Keyboard::Detail::SendFullKeyboardStates(
-                       (IVRootDeliver::Keyboard::Detail *)&v12,
-                       v9);
+      ContainerIdFromProcessId = GetContainerIdFromProcessId(a1);
+      v6 = ContainerIdFromProcessId;
+      if ( (_WORD)ContainerIdFromProcessId || (v2 = HIWORD(ContainerIdFromProcessId), (_WORD)v2) )
+        LOBYTE(v2) = IVRootDeliver::Keyboard::Detail::SendFullKeyboardStates((IVRootDeliver::Keyboard::Detail *)&v6, v4);
     }
   }
   return v2;

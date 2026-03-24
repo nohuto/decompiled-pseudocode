@@ -1,67 +1,50 @@
 /*
- * XREFs of ExpWnfGetCurrentScopeInstance @ 0x14066A68C
+ * XREFs of ExpWnfGetCurrentScopeInstance @ 0x14060FC5C
  * Callers:
- *     ExpWnfResolveScopeInstance @ 0x140798334 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x14060F4B4 (ExpWnfResolveScopeInstance.c)
  * Callees:
- *     PsGetProcessSessionId @ 0x14028AF60 (PsGetProcessSessionId.c)
- *     ExpWnfQueryCurrentUserSID @ 0x14066A57C (ExpWnfQueryCurrentUserSID.c)
+ *     PsGetProcessSessionId @ 0x140252EB0 (PsGetProcessSessionId.c)
+ *     ExpWnfQueryCurrentUserSID @ 0x140610354 (ExpWnfQueryCurrentUserSID.c)
  */
 
-__int64 __fastcall ExpWnfGetCurrentScopeInstance(
-        __int64 Process,
-        __int64 a2,
-        int a3,
-        __int64 *a4,
-        ULONG *a5,
-        _DWORD *a6)
+__int64 __fastcall ExpWnfGetCurrentScopeInstance(_KPROCESS *a1, int a2, int a3, _KPROCESS **a4, _DWORD *a5, _DWORD *a6)
 {
   unsigned int v6; // ebx
-  int v7; // r8d
+  _KPROCESS *Process; // r10
   int v8; // r8d
-  struct _KTHREAD *CurrentThread; // rax
-  struct _KTHREAD *v11; // rax
+  int v9; // r8d
+  bool v11; // zf
 
   v6 = 0;
+  Process = a1;
   if ( !a3 )
     goto LABEL_13;
-  v7 = a3 - 1;
-  if ( v7 )
+  v8 = a3 - 1;
+  if ( v8 )
   {
-    v8 = v7 - 1;
-    if ( !v8 )
-      return (unsigned int)ExpWnfQueryCurrentUserSID(Process, a2, a4, a5, a6);
-    if ( v8 == 1 )
+    v9 = v8 - 1;
+    if ( !v9 )
+      return (unsigned int)ExpWnfQueryCurrentUserSID((_DWORD)a1, a2, (_DWORD)a4, (_DWORD)a5, (__int64)a6);
+    if ( v9 == 1 )
     {
-      if ( KeGetCurrentThread()->ApcStateIndex == 1 )
-      {
-        CurrentThread = KeGetCurrentThread();
-        *a6 = 0;
-        Process = (__int64)CurrentThread->ApcState.Process;
-      }
-      else
-      {
-        *a6 = 1;
-      }
+      v11 = KeGetCurrentThread()->ApcStateIndex == 1;
+      *a6 = !v11;
+      if ( v11 )
+        Process = KeGetCurrentThread()->ApcState.Process;
       *a4 = Process;
       *a5 = 8;
       return v6;
     }
 LABEL_13:
-    *a6 = 1;
     *a5 = 0;
+    *a6 = 1;
     return v6;
   }
-  if ( KeGetCurrentThread()->ApcStateIndex == 1 )
-  {
-    v11 = KeGetCurrentThread();
-    *a6 = 0;
-    Process = (__int64)v11->ApcState.Process;
-  }
-  else
-  {
-    *a6 = 1;
-  }
-  *(_DWORD *)a4 = PsGetProcessSessionId(Process);
+  v11 = KeGetCurrentThread()->ApcStateIndex == 1;
+  *a6 = !v11;
+  if ( v11 )
+    Process = KeGetCurrentThread()->ApcState.Process;
+  *(_DWORD *)a4 = PsGetProcessSessionId((__int64)Process);
   *a5 = 4;
   return v6;
 }

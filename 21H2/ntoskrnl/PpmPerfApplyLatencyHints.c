@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfApplyLatencyHints @ 0x140225440
+ * XREFs of PpmPerfApplyLatencyHints @ 0x1402B7BE0
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfApplyLatencyHint @ 0x1402254C0 (PpmPerfApplyLatencyHint.c)
+ *     PpmPerfApplyLatencyHint @ 0x14037C594 (PpmPerfApplyLatencyHint.c)
  */
 
 char PpmPerfApplyLatencyHints()
@@ -15,9 +15,9 @@ char PpmPerfApplyLatencyHints()
   {
     for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
     {
-      for ( j = 0; j < *(_DWORD *)(i + 296); ++j )
+      for ( j = 0; j < *(_DWORD *)(i + 200); ++j )
       {
-        if ( *(_QWORD *)(136LL * j + *(_QWORD *)(i + 312)) )
+        if ( *(_QWORD *)(136LL * j + *(_QWORD *)(i + 216)) )
           PpmPerfApplyLatencyHint();
       }
     }

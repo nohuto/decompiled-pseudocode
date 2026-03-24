@@ -3,14 +3,14 @@
  * Callers:
  *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x14013B9C0 (VfIsVerifierEnabled.c)
- *     PoSetHiberRange @ 0x1401447B0 (PoSetHiberRange.c)
- *     FirstEntrySList @ 0x1401C53A0 (FirstEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     HvlMarkHiberPhase @ 0x140276AD4 (HvlMarkHiberPhase.c)
- *     MmIsAddressValid @ 0x1402AB8B0 (MmIsAddressValid.c)
- *     RtlMarkHiberPhase @ 0x1402FAC40 (RtlMarkHiberPhase.c)
- *     VfIsVerifierExtensionEnabled @ 0x14030993C (VfIsVerifierExtensionEnabled.c)
+ *     VfIsVerifierEnabled @ 0x14013B9E0 (VfIsVerifierEnabled.c)
+ *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     FirstEntrySList @ 0x1401C53C0 (FirstEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     HvlMarkHiberPhase @ 0x140276BD4 (HvlMarkHiberPhase.c)
+ *     MmIsAddressValid @ 0x1402AB9B0 (MmIsAddressValid.c)
+ *     RtlMarkHiberPhase @ 0x1402FAD40 (RtlMarkHiberPhase.c)
+ *     VfIsVerifierExtensionEnabled @ 0x140309A3C (VfIsVerifierExtensionEnabled.c)
  *     BgkResumePrepare @ 0x14056B58C (BgkResumePrepare.c)
  *     MiConvertHiberPhasePages @ 0x14056DF80 (MiConvertHiberPhasePages.c)
  *     KdMarkHiberPhase @ 0x14057AE38 (KdMarkHiberPhase.c)
@@ -27,7 +27,7 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
   _QWORD *v5; // rbx
   PVOID *m; // rbx
 
-  if ( !byte_140417A61 )
+  if ( !byte_140417861 )
   {
     PoSetHiberRange(0LL, 0x10000u, PopSaveHiberContext, 0LL, 0x6E72654Bu);
     PoSetHiberRange(0LL, 0x10000u, HalAllocateCrashDumpRegisters, 0LL, 0x6348616Cu);

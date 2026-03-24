@@ -1,86 +1,81 @@
 /*
- * XREFs of ?bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C005C000
+ * XREFs of ?bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C0039740
  * Callers:
- *     ?bCompute@DC@@QEAAHXZ @ 0x1C003A080 (-bCompute@DC@@QEAAHXZ.c)
- *     GreOffsetRgn @ 0x1C005BF60 (GreOffsetRgn.c)
- *     ?vOffset@EPATHOBJ@@QEAAXAEAVEPOINTL@@@Z @ 0x1C0153F90 (-vOffset@EPATHOBJ@@QEAAXAEAVEPOINTL@@@Z.c)
- *     EngUpdateDeviceSurface @ 0x1C015F100 (EngUpdateDeviceSurface.c)
+ *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C0037720 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
+ *     GreOffsetRgn @ 0x1C003A600 (GreOffsetRgn.c)
+ *     ?bCompute@DC@@QEAAHXZ @ 0x1C003BFE0 (-bCompute@DC@@QEAAHXZ.c)
+ *     ?vOffset@EPATHOBJ@@QEAAXAEAVEPOINTL@@@Z @ 0x1C00BDC20 (-vOffset@EPATHOBJ@@QEAAXAEAVEPOINTL@@@Z.c)
+ *     EngUpdateDeviceSurface @ 0x1C0142300 (EngUpdateDeviceSurface.c)
  * Callees:
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RGNOBJ::bOffset(int **this, struct _POINTL *a2)
 {
-  int *v2; // r11
-  unsigned int v3; // r8d
-  __int64 x; // r15
-  __int64 y; // rbp
-  __int64 v7; // rax
-  __int64 v8; // r9
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r9
-  __int64 v12; // rdx
-  int v14; // r10d
-  unsigned int *v15; // rdx
-  __int64 v16; // rcx
-  unsigned int *v17; // r9
-  __int128 v18; // [rsp+20h] [rbp-48h]
+  int *v2; // r8
+  __int64 x; // rsi
+  __int64 y; // r9
+  __int64 v6; // rax
+  __int64 v7; // r10
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r10
+  __int64 v11; // rdx
+  int v13; // r8d
+  unsigned int *i; // rax
+  __int64 v15; // rdx
+  unsigned int *v16; // r10
+  __int128 v17; // [rsp+20h] [rbp-48h]
 
   v2 = *this;
-  v3 = 1;
   x = a2->x;
   y = a2->y;
-  if ( (*this)[13] != 1 )
+  if ( (*this)[21] == 1 )
+    return 1LL;
+  v6 = v2[24];
+  v7 = v2[26];
+  v8 = v2[25];
+  v9 = v2[27];
+  if ( (int)v6 < (int)v7 && (int)v8 < (int)v9 )
   {
-    v7 = v2[14];
-    v8 = v2[16];
-    v9 = v2[15];
-    v10 = v2[17];
-    if ( (int)v7 < (int)v8 && (int)v9 < (int)v10 )
+    if ( (unsigned __int64)(x + v6 + 0x80000000LL) > 0xFFFFFFFF
+      || (unsigned __int64)(y + v9 + 0x80000000LL) > 0xFFFFFFFF
+      || (v10 = x + v7, (unsigned __int64)(v10 + 0x80000000LL) > 0xFFFFFFFF)
+      || (v11 = y + v8, DWORD2(v17) = v10, (unsigned __int64)(v11 + 0x80000000LL) > 0xFFFFFFFF)
+      || (DWORD1(v17) = v11,
+          (((_DWORD)x + (_DWORD)v6) & 0xF8000000) != 0 && (((_DWORD)x + (_DWORD)v6) & 0xF8000000) != -134217728)
+      || (((((_DWORD)y + (_DWORD)v9) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
+      || (((v10 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
+      || (((v11 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0 )
     {
-      if ( (unsigned __int64)(x + v7 + 0x80000000LL) > 0xFFFFFFFF
-        || (unsigned __int64)(v10 + y + 0x80000000LL) > 0xFFFFFFFF
-        || (v11 = x + v8, (unsigned __int64)(v11 + 0x80000000LL) > 0xFFFFFFFF)
-        || (v12 = y + v9, DWORD2(v18) = v11, (unsigned __int64)(v12 + 0x80000000LL) > 0xFFFFFFFF)
-        || (DWORD1(v18) = v12,
-            (((_DWORD)x + (_DWORD)v7) & 0xF8000000) != 0 && (((_DWORD)x + (_DWORD)v7) & 0xF8000000) != -134217728)
-        || (((((_DWORD)v10 + (_DWORD)y) & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
-        || (((v11 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0
-        || (((v12 & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) != 0 )
+      EngSetLastError(0x216u);
+      return 0LL;
+    }
+    LODWORD(v17) = x + v6;
+    HIDWORD(v17) = y + v9;
+    *((_OWORD *)v2 + 6) = v17;
+    v13 = (*this)[21];
+    for ( i = (unsigned int *)*((_QWORD *)*this + 11); v13; i = (unsigned int *)((char *)i + (unsigned int)(4 * v15 + 16)) )
+    {
+      i[1] += y;
+      --v13;
+      i[2] += y;
+      v15 = *i;
+      if ( (_DWORD)v15 )
       {
-        EngSetLastError(0x216u);
-        return 0;
-      }
-      else
-      {
-        LODWORD(v18) = x + v7;
-        HIDWORD(v18) = v10 + y;
-        *(_OWORD *)(v2 + 14) = v18;
-        v14 = (*this)[13];
-        v15 = (unsigned int *)*((_QWORD *)*this + 4);
-        while ( v14 )
+        v16 = &i[v15 + 3];
+        do
         {
-          v15[1] += y;
-          --v14;
-          v15[2] += y;
-          v16 = *v15;
-          if ( (_DWORD)v16 )
-          {
-            v17 = &v15[v16 + 3];
-            do
-            {
-              *--v17 += x;
-              LODWORD(v16) = v16 - 1;
-            }
-            while ( (_DWORD)v16 );
-          }
-          v15 += *v15 + 4;
+          *--v16 += x;
+          LODWORD(v15) = v15 - 1;
         }
-        v15[-*(v15 - 1) - 2] = 0x7FFFFFFF;
-        *(_DWORD *)(*((_QWORD *)*this + 4) + 4LL) = 0x80000000;
+        while ( (_DWORD)v15 );
+        LODWORD(v15) = *i;
       }
     }
+    i[-*(i - 1) - 2] = 0x7FFFFFFF;
+    *(_DWORD *)(*((_QWORD *)*this + 11) + 4LL) = 0x80000000;
   }
-  return v3;
+  return 1LL;
 }

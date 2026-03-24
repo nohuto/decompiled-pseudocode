@@ -1,78 +1,83 @@
 /*
- * XREFs of ?StLazyWorkMgrSetSchedule@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@_K@Z @ 0x1405C89E0
+ * XREFs of ?StLazyWorkMgrSetSchedule@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@_K@Z @ 0x140253614
  * Callers:
- *     ?StLazyWorkMgrQueueWork@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@W4_ST_LAZY_WORK_TYPE@1@KK@Z @ 0x1405C8800 (-StLazyWorkMgrQueueWork@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@W4_ST_LAZY_WORK_TYPE.c)
- *     ?StLazyWorkMgrResetIdle@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@@Z @ 0x1405C888C (-StLazyWorkMgrResetIdle@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@@Z.c)
- *     ?StLazyWorkMgrRunExpiredWork@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@_K@Z @ 0x1405C88E8 (-StLazyWorkMgrRunExpiredWork@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@_K@Z.c)
+ *     ?StLazyWorkMgrQueueWork@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@W4_ST_LAZY_WORK_TYPE@1@KK@Z @ 0x1402538A4 (-StLazyWorkMgrQueueWork@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@W4_ST_LAZY_WORK_TYPE.c)
+ *     ?StLazyWorkMgrResetIdle@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@@Z @ 0x1402685A4 (-StLazyWorkMgrResetIdle@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@@Z.c)
+ *     ?StLazyWorkMgrRunExpiredWork@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@_K@Z @ 0x14032939C (-StLazyWorkMgrRunExpiredWork@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@_K@Z.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StLazyWorkMgrSetSchedule(_QWORD *a1, unsigned __int64 UnbiasedInterruptTime)
 {
   __int64 v2; // r11
+  _QWORD *v3; // rbx
   unsigned __int64 v4; // r9
-  unsigned __int64 *v5; // rsi
-  unsigned __int64 v6; // rdi
+  unsigned __int64 *v5; // rdi
+  unsigned __int64 v6; // rsi
   _QWORD *i; // r8
   unsigned __int64 v8; // r10
-  unsigned __int64 v9; // rcx
-  unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // r10
-  unsigned __int64 v12; // r8
-  __int64 v13; // rcx
+  unsigned __int64 v9; // r10
+  unsigned __int64 v10; // r8
+  __int64 v11; // rcx
   __int64 result; // rax
+  unsigned __int64 v13; // rcx
+  unsigned __int64 v14; // rcx
 
   v2 = 0LL;
+  v3 = a1;
   if ( !UnbiasedInterruptTime )
-    UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
+  {
+    LOBYTE(a1) = 1;
+    UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(a1);
+  }
   v4 = -1LL;
-  v5 = a1 + 21;
+  v5 = v3 + 21;
   v6 = -1LL;
-  for ( i = a1; i < v5; i += 3 )
+  for ( i = v3; i < v5; i += 3 )
   {
     v8 = i[1];
     if ( v8 != -1LL )
     {
-      v9 = i[2];
-      if ( v9 < UnbiasedInterruptTime - a1[23] )
-        v9 = UnbiasedInterruptTime - a1[23];
-      v10 = *i + v9;
-      if ( v10 >= v4 )
-        v10 = v4;
-      v4 = v10;
+      v13 = i[2];
+      if ( v13 < UnbiasedInterruptTime - v3[23] )
+        v13 = UnbiasedInterruptTime - v3[23];
+      v14 = *i + v13;
+      if ( v14 >= v4 )
+        v14 = v4;
+      v4 = v14;
       if ( v8 < v6 )
         v6 = i[1];
     }
   }
-  v11 = UnbiasedInterruptTime;
-  v12 = UnbiasedInterruptTime;
+  v9 = UnbiasedInterruptTime;
+  v10 = UnbiasedInterruptTime;
   if ( v4 >= UnbiasedInterruptTime )
-    v11 = v4;
+    v9 = v4;
   if ( v6 >= UnbiasedInterruptTime )
-    v12 = v6;
-  *v5 = v12;
-  if ( v12 == -1LL )
+    v10 = v6;
+  *v5 = v10;
+  if ( v10 == -1LL )
   {
-    a1[22] = v2;
+    v3[22] = v2;
   }
   else
   {
-    v13 = v12 - UnbiasedInterruptTime;
-    if ( v12 >= v11 )
-      v13 = v11 - UnbiasedInterruptTime;
-    a1[22] = v13;
-    if ( v13 )
+    v11 = v10 - UnbiasedInterruptTime;
+    if ( v10 >= v9 )
+      v11 = v9 - UnbiasedInterruptTime;
+    v3[22] = v11;
+    if ( v11 )
     {
-      v2 = v13;
+      v2 = v11;
     }
     else
     {
-      a1[22] = 1LL;
+      v3[22] = 1LL;
       v2 = 1LL;
     }
   }
-  result = *(a1 - 715);
+  result = *(v3 - 715);
   *(_QWORD *)(result + 6600) = -v2;
   return result;
 }

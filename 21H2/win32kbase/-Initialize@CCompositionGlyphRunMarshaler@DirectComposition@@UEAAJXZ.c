@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0225800
+ * XREFs of ?Initialize@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01DBEE0
  * Callers:
  *     <none>
  * Callees:
@@ -12,9 +12,9 @@ __int64 __fastcall DirectComposition::CCompositionGlyphRunMarshaler::Initialize(
   __int64 result; // rax
 
   result = 0LL;
+  *((_QWORD *)this + 8) = 0LL;
   *((_QWORD *)this + 9) = 0LL;
   *((_QWORD *)this + 10) = 0LL;
   *((_QWORD *)this + 11) = 0LL;
-  *((_QWORD *)this + 12) = 0LL;
   return result;
 }

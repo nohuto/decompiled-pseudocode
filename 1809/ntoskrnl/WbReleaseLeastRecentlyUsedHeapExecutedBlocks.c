@@ -1,5 +1,5 @@
 /*
- * XREFs of WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1406B0CE0
+ * XREFs of WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1406B0CC0
  * Callers:
  *     WbGetHeapExecutedBlock @ 0x14062490C (WbGetHeapExecutedBlock.c)
  * Callees:
@@ -9,7 +9,7 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     sub_140624A54 @ 0x140624A54 (sub_140624A54.c)
- *     sub_1406B0E5C @ 0x1406B0E5C (sub_1406B0E5C.c)
+ *     sub_1406B0E3C @ 0x1406B0E3C (sub_1406B0E3C.c)
  */
 
 void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(__int64 a1, int a2)
@@ -80,7 +80,7 @@ void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(__int64 a1, int a2)
       {
         v16 = *(_QWORD *)(v14 + 48);
         v18 = 0LL;
-        if ( (int)sub_1406B0E5C((int)a1 + 8, v16, 8, -1, (__int64)&v18) >= 0 )
+        if ( (int)sub_1406B0E3C((int)a1 + 8, v16, 8, -1, (__int64)&v18) >= 0 )
           sub_140624A54(a1, v18);
       }
       v17 = _InterlockedExchangeAdd64((volatile signed __int64 *)v6, 0xFFFFFFFFFFFFFFFFuLL);

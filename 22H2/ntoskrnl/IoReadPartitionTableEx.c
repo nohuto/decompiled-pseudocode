@@ -1,13 +1,13 @@
 /*
- * XREFs of IoReadPartitionTableEx @ 0x1409409F0
+ * XREFs of IoReadPartitionTableEx @ 0x14088DE60
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ??0SC_DISK@@QEAA@XZ @ 0x1406753D8 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x140675500 (--1SC_DISK@@UEAA@XZ.c)
- *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140675B6C (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1409404E8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x1405C6914 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1405C6A24 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C6EE8 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088D958 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  */
 
 NTSTATUS __stdcall IoReadPartitionTableEx(
@@ -16,10 +16,10 @@ NTSTATUS __stdcall IoReadPartitionTableEx(
 {
   struct _DEVICE_OBJECT *v3; // r8
   NTSTATUS PartitionTable; // ebx
-  _QWORD v6[50]; // [rsp+20h] [rbp-1A8h] BYREF
+  _QWORD v6[46]; // [rsp+20h] [rbp-188h] BYREF
 
   SC_DISK::SC_DISK((SC_DISK *)v6);
-  v6[49] = 0LL;
+  v6[44] = 0LL;
   v6[0] = &NT_DISK::`vftable';
   PartitionTable = NT_DISK::Initialize((NT_DISK *)v6, v3);
   if ( PartitionTable >= 0 )

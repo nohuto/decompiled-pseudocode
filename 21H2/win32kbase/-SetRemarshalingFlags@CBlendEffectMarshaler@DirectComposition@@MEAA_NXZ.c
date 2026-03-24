@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CBlendEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0218500
+ * XREFs of ?SetRemarshalingFlags@CBlendEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E2290
  * Callers:
  *     <none>
  * Callees:
@@ -12,8 +12,8 @@ char __fastcall DirectComposition::CBlendEffectMarshaler::SetRemarshalingFlags(
   char result; // al
 
   result = 0;
-  *((_DWORD *)this + 28) = 0;
-  if ( *((_DWORD *)this + 20) || *((_DWORD *)this + 30) )
+  *((_DWORD *)this + 26) = 0;
+  if ( *((_DWORD *)this + 18) || *((_DWORD *)this + 28) )
     return 1;
   return result;
 }

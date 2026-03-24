@@ -1,22 +1,22 @@
 /*
- * XREFs of PopDripsWatchdogStopWatchdog @ 0x1409969C4
+ * XREFs of PopDripsWatchdogStopWatchdog @ 0x1408EF6C4
  * Callers:
- *     PopPdcIdleResiliencyCallback @ 0x1409971BC (PopPdcIdleResiliencyCallback.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F004C (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
  */
 
-char PopDripsWatchdogStopWatchdog()
+_QWORD *PopDripsWatchdogStopWatchdog()
 {
   struct _KTHREAD *CurrentThread; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PopDripsWatchdogContext, 1u);
-  if ( (dword_140C20808 & 4) != 0 )
-    dword_140C20808 &= ~4u;
+  if ( (dword_140C21428 & 4) != 0 )
+    dword_140C21428 &= ~4u;
   ExReleaseResourceLite(&PopDripsWatchdogContext);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

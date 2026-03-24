@@ -1,14 +1,13 @@
 /*
- * XREFs of VmFlushTb @ 0x14045F6DE
+ * XREFs of VmFlushTb @ 0x1405A274C
  * Callers:
- *     KeFlushSingleTb @ 0x1402EA644 (KeFlushSingleTb.c)
- *     KeFlushTb @ 0x1402F391C (KeFlushTb.c)
- *     KeFlushMultipleRangeTb @ 0x1402F3C40 (KeFlushMultipleRangeTb.c)
- *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
- *     KeFlushSingleCurrentTb @ 0x1403AD304 (KeFlushSingleCurrentTb.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x1403AD40C (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
+ *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
+ *     KeFlushMultipleRangeTb @ 0x14033B620 (KeFlushMultipleRangeTb.c)
+ *     KeFlushSingleCurrentTb @ 0x140389ED8 (KeFlushSingleCurrentTb.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x1403C951C (KeFlushMultipleRangeCurrentTb.c)
  * Callees:
- *     VmpFlushTb @ 0x140629B70 (VmpFlushTb.c)
+ *     VmpFlushTb @ 0x1405A3614 (VmpFlushTb.c)
  */
 
 struct _KTHREAD *__fastcall VmFlushTb(__int64 a1, __int64 a2, int a3)
@@ -19,7 +18,7 @@ struct _KTHREAD *__fastcall VmFlushTb(__int64 a1, __int64 a2, int a3)
   if ( a3 == 1 )
   {
     result = KeGetCurrentThread();
-    v4 = (volatile LONG *)result->ApcState.Process[2].Affinity.StaticBitmap[5];
+    v4 = (volatile LONG *)result->ApcState.Process[2].Affinity.Bitmap[5];
     if ( v4 )
       return (struct _KTHREAD *)VmpFlushTb(v4);
   }

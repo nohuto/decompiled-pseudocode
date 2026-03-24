@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCTableTransferEffectMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0214690
+ * XREFs of ??_GCTableTransferEffectMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D46F0
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??1CTableTransferEffectMarshaler@DirectComposition@@UEAA@XZ @ 0x1C0217CA8 (--1CTableTransferEffectMarshaler@DirectComposition@@UEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ??1CTableTransferEffectMarshaler@DirectComposition@@UEAA@XZ @ 0x1C01E1A94 (--1CTableTransferEffectMarshaler@DirectComposition@@UEAA@XZ.c)
  */
 
 DirectComposition::CTableTransferEffectMarshaler *__fastcall DirectComposition::CTableTransferEffectMarshaler::`scalar deleting destructor'(
@@ -12,9 +12,7 @@ DirectComposition::CTableTransferEffectMarshaler *__fastcall DirectComposition::
         char a2)
 {
   DirectComposition::CTableTransferEffectMarshaler::~CTableTransferEffectMarshaler(this);
-  if ( (a2 & 1) != 0 && this )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)this);
+  if ( (a2 & 1) != 0 )
+    Win32FreePool((__int64)this);
   return this;
 }

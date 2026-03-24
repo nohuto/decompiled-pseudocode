@@ -1,27 +1,23 @@
 /*
- * XREFs of IvtInvalidateContextEntry @ 0x14052D434
+ * XREFs of IvtInvalidateContextEntry @ 0x1404E05E0
  * Callers:
- *     IvtUpdateContextEntry @ 0x14052DA34 (IvtUpdateContextEntry.c)
- *     IvtUpdateScalableModeContextEntry @ 0x14052DD14 (IvtUpdateScalableModeContextEntry.c)
+ *     IvtInvalidateExtendedContextEntry @ 0x1404E063C (IvtInvalidateExtendedContextEntry.c)
+ *     IvtUpdateContextEntry @ 0x1404E0AFC (IvtUpdateContextEntry.c)
  * Callees:
- *     IvtIommuWaitCommand @ 0x14035FC64 (IvtIommuWaitCommand.c)
- *     IvtIommuSendCommand @ 0x14035FD94 (IvtIommuSendCommand.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     IvtIommuSendCommand @ 0x1404E0770 (IvtIommuSendCommand.c)
+ *     IvtIommuWaitCommand @ 0x1404E0970 (IvtIommuWaitCommand.c)
  */
 
-__int64 __fastcall IvtInvalidateContextEntry(__int64 a1, int *a2, unsigned __int16 a3, __int64 a4, char a5)
+__int64 __fastcall IvtInvalidateContextEntry(__int64 a1, unsigned __int16 a2, unsigned __int16 a3, __int64 a4, char a5)
 {
-  int v6; // eax
-  __int64 v7; // r9
   __int64 result; // rax
-  _QWORD v9[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v7; // rdx
+  _QWORD v8[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v6 = *a2;
-  v7 = a2[1] & 3;
-  v9[1] = 0LL;
-  v9[0] = ((a3 | (((unsigned __int16)v6 | (unsigned __int64)(v7 << 16)) << 16)) << 16) | 0x31;
-  result = IvtIommuSendCommand(a1, (unsigned __int64)v9, 1);
+  v8[1] = 0LL;
+  v8[0] = ((a3 | ((unsigned __int64)a2 << 16)) << 16) | 0x31;
+  result = IvtIommuSendCommand(a1, v8, 1LL);
   if ( a5 )
-    return IvtIommuWaitCommand(a1, 0, 1);
+    return IvtIommuWaitCommand(a1, v7, 1LL);
   return result;
 }

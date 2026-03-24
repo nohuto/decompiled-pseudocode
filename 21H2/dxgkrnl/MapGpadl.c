@@ -1,49 +1,52 @@
 /*
- * XREFs of MapGpadl @ 0x1C0383ED0
+ * XREFs of MapGpadl @ 0x1C0251300
  * Callers:
- *     ?SetSharedPage@DXGVIRTUALMACHINE@@QEAAJI@Z @ 0x1C0337554 (-SetSharedPage@DXGVIRTUALMACHINE@@QEAAJI@Z.c)
- *     ?VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0373350 (-VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0245840 (-VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?SetSharedPage@DXGVIRTUALMACHINE@@QEAAXI@Z @ 0x1C02861DC (-SetSharedPage@DXGVIRTUALMACHINE@@QEAAXI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall MapGpadl(__int64 a1, unsigned int a2, unsigned __int64 a3)
 {
-  int v3; // eax
+  char v3; // al
   __int64 v5; // rbx
   __int64 v6; // rbx
   int v7; // eax
-  __int64 v8; // rsi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rsi
+  __int64 v11; // rax
 
-  v3 = *(_DWORD *)(a1 + 424);
-  if ( (v3 & 0x100) != 0 )
+  v3 = *(_BYTE *)(a1 + 347);
+  if ( (v3 & 0x20) != 0 )
   {
-    v5 = *(_QWORD *)(*(_QWORD *)(a1 + 608) + 608LL);
+    v5 = *(_QWORD *)(*(_QWORD *)(a1 + 496) + 496LL);
 LABEL_3:
-    v6 = v5 + 160;
+    v6 = v5 + 128;
     goto LABEL_7;
   }
-  if ( (v3 & 0x80u) != 0 )
+  if ( (v3 & 0x10) != 0 )
   {
-    v5 = *(_QWORD *)(a1 + 608);
+    v5 = *(_QWORD *)(a1 + 496);
     goto LABEL_3;
   }
   v6 = 0LL;
 LABEL_7:
-  v7 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_1C0131DC0)(*(_QWORD *)v6, 0LL, a2);
-  v8 = v7;
+  v7 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_1C00B44B0)(*(_QWORD *)v6, 0LL, a2);
+  v10 = v7;
   if ( v7 >= 0 )
   {
     _InterlockedIncrement(&g_VgpuNumGpadlMappings);
     _InterlockedExchangeAdd64(&g_VgpuSizeGpadlMappings, a3);
-    _InterlockedIncrement((volatile signed __int32 *)(v6 + 72));
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 80), a3);
+    _InterlockedIncrement((volatile signed __int32 *)(v6 + 64));
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 72), a3);
   }
   else
   {
-    WdLogSingleEntry1(2LL, v7);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"VmbChannelMapGpadl failed: 0x%I64x", v8, 0LL, 0LL, 0LL, 0LL);
+    v11 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v11 + 24) = v10;
+    WdLogEvent5_WdError(v11);
   }
-  return (unsigned int)v8;
+  return (unsigned int)v10;
 }

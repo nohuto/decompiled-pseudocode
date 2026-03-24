@@ -1,10 +1,10 @@
 /*
- * XREFs of PopInternalAddToDumpFile @ 0x1402D3224
+ * XREFs of PopInternalAddToDumpFile @ 0x1402D3324
  * Callers:
- *     PopSetRange @ 0x14014494C (PopSetRange.c)
- *     IopUpdateMinidumpContext @ 0x140281B68 (IopUpdateMinidumpContext.c)
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
- *     PopIrpWatchdogBugcheck @ 0x1402D346C (PopIrpWatchdogBugcheck.c)
+ *     PopSetRange @ 0x14014496C (PopSetRange.c)
+ *     IopUpdateMinidumpContext @ 0x140281C68 (IopUpdateMinidumpContext.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
+ *     PopIrpWatchdogBugcheck @ 0x1402D356C (PopIrpWatchdogBugcheck.c)
  *     PopRestoreHiberContext @ 0x140569770 (PopRestoreHiberContext.c)
  *     PopDecompressHiberBlocks @ 0x140569E60 (PopDecompressHiberBlocks.c)
  *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
@@ -12,13 +12,13 @@
  *     PopRequestWrite @ 0x14056A5F4 (PopRequestWrite.c)
  *     PopHiberReadChecksums @ 0x14057CDB8 (PopHiberReadChecksums.c)
  *     PopRequestRead @ 0x14057D27C (PopRequestRead.c)
- *     PopAllocateHiberContext @ 0x1406DF554 (PopAllocateHiberContext.c)
- *     PopFreeHiberContext @ 0x1406DFFC0 (PopFreeHiberContext.c)
- *     PopThermalWorker @ 0x140750F80 (PopThermalWorker.c)
- *     PoShutdownBugCheck @ 0x14086BEE0 (PoShutdownBugCheck.c)
+ *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
+ *     PopFreeHiberContext @ 0x1406DFFA0 (PopFreeHiberContext.c)
+ *     PopThermalWorker @ 0x140750F60 (PopThermalWorker.c)
+ *     PoShutdownBugCheck @ 0x14086BEC0 (PoShutdownBugCheck.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
- *     PopInternalSaveStackToDumpFile @ 0x1402D32E0 (PopInternalSaveStackToDumpFile.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
+ *     PopInternalSaveStackToDumpFile @ 0x1402D33E0 (PopInternalSaveStackToDumpFile.c)
  */
 
 __int64 __fastcall PopInternalAddToDumpFile(__int64 a1, unsigned int a2, __int64 a3)

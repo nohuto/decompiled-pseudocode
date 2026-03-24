@@ -1,8 +1,8 @@
 /*
- * XREFs of strncmp @ 0x1C00D6310
+ * XREFs of strncmp @ 0x1C00C55D0
  * Callers:
- *     rimFindImageProcAddress @ 0x1C0056C20 (rimFindImageProcAddress.c)
- *     ivrFindImageProcAddress @ 0x1C01F0F78 (ivrFindImageProcAddress.c)
+ *     rimFindImageProcAddress @ 0x1C006C8EC (rimFindImageProcAddress.c)
+ *     ivrFindImageProcAddress @ 0x1C01BA924 (ivrFindImageProcAddress.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTimerDelayStatistics @ 0x1C013B150
+ * XREFs of EtwTraceTimerDelayStatistics @ 0x1C0123D50
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qqNR1qNR3_EtwWriteTransfer @ 0x1C013D5D0 (McTemplateK0qqNR1qNR3_EtwWriteTransfer.c)
+ *     McTemplateK0qqNR1qNR3_EtwWriteTransfer @ 0x1C01267C0 (McTemplateK0qqNR1qNR3_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTimerDelayStatistics(int a1, int a2, int a3, __int64 a4, int a5, int a6, __int64 a7)

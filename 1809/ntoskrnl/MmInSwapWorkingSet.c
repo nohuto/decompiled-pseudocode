@@ -1,23 +1,23 @@
 /*
- * XREFs of MmInSwapWorkingSet @ 0x1400E4E64
+ * XREFs of MmInSwapWorkingSet @ 0x1400E4E84
  * Callers:
  *     PspChangeProcessExecutionState @ 0x1406035AC (PspChangeProcessExecutionState.c)
  * Callees:
  *     MiGetWorkingSetSwapSupport @ 0x14001290C (MiGetWorkingSetSwapSupport.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2ECC (ExQueueWorkItemToPartition.c)
- *     MiProcessWsInSwapSupport @ 0x1400E5A74 (MiProcessWsInSwapSupport.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     SmStoreSetProcessVaRanges @ 0x14066B6FC (SmStoreSetProcessVaRanges.c)
- *     MiContractWsSwapPageFile @ 0x14066B7A4 (MiContractWsSwapPageFile.c)
- *     EtwTraceWorkingSetSwap @ 0x14066B7E8 (EtwTraceWorkingSetSwap.c)
- *     MiFreeWorkingSetSwapContext @ 0x1406B8E04 (MiFreeWorkingSetSwapContext.c)
- *     MiInSwapStore @ 0x1406D0DEC (MiInSwapStore.c)
- *     VmPrefetchVirtualAddresses @ 0x1408AFD6C (VmPrefetchVirtualAddresses.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
+ *     MiProcessWsInSwapSupport @ 0x1400E5A94 (MiProcessWsInSwapSupport.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     SmStoreSetProcessVaRanges @ 0x14066B6DC (SmStoreSetProcessVaRanges.c)
+ *     MiContractWsSwapPageFile @ 0x14066B784 (MiContractWsSwapPageFile.c)
+ *     EtwTraceWorkingSetSwap @ 0x14066B7C8 (EtwTraceWorkingSetSwap.c)
+ *     MiFreeWorkingSetSwapContext @ 0x1406B8DE4 (MiFreeWorkingSetSwapContext.c)
+ *     MiInSwapStore @ 0x1406D0DCC (MiInSwapStore.c)
+ *     VmPrefetchVirtualAddresses @ 0x1408AFD4C (VmPrefetchVirtualAddresses.c)
  */
 
 __int64 __fastcall MmInSwapWorkingSet(PEPROCESS Process)

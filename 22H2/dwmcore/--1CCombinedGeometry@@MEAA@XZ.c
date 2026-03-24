@@ -1,32 +1,27 @@
 /*
- * XREFs of ??1CCombinedGeometry@@MEAA@XZ @ 0x18000C008
+ * XREFs of ??1CCombinedGeometry@@MEAA@XZ @ 0x1801B8410
  * Callers:
- *     ??_ECCombinedGeometry@@MEAAPEAXI@Z @ 0x18000BF40 (--_ECCombinedGeometry@@MEAAPEAXI@Z.c)
+ *     ??_ECCombinedGeometry@@MEAAPEAXI@Z @ 0x18016CA40 (--_ECCombinedGeometry@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?UnRegisterNotifiers@CCombinedGeometry@@UEAAXXZ @ 0x18000C2E0 (-UnRegisterNotifiers@CCombinedGeometry@@UEAAXXZ.c)
+ *     ?UnRegisterNotifiers@CCombinedGeometry@@UEAAXXZ @ 0x1801B4360 (-UnRegisterNotifiers@CCombinedGeometry@@UEAAXXZ.c)
  */
 
 void __fastcall CCombinedGeometry::~CCombinedGeometry(CCombinedGeometry *this)
 {
-  __int64 v2; // rbx
-  unsigned __int64 v3; // rax
-  __int64 v4; // rbx
-  __int64 v5; // rcx
-  __int64 v6; // rdx
-  _QWORD *v7; // rax
+  CCombinedGeometry **v2; // rdx
+  CCombinedGeometry **v3; // rax
 
   *(_QWORD *)this = &CCombinedGeometry::`vftable'{for `CGeometry'};
-  v2 = (__int64)this + 144;
-  *((_QWORD *)this + 18) = &CCombinedGeometry::`vftable'{for `CCyclicResourceListEntry'};
-  CCombinedGeometry::UnRegisterNotifiers(this);
-  *(_QWORD *)v2 = &CCyclicResourceListEntry::`vftable';
-  v3 = v2 + 8;
-  v4 = -v2;
-  v5 = v3 & -(__int64)(v4 != 0);
-  v6 = *(_QWORD *)v5;
-  if ( *(_QWORD *)(*(_QWORD *)v5 + 8LL) != v5 || (v7 = *(_QWORD **)((v3 & -(__int64)(v4 != 0)) + 8), *v7 != v5) )
+  *((_QWORD *)this + 17) = &CCombinedGeometry::`vftable'{for `CCyclicResourceListEntry'};
+  CCombinedGeometry::UnRegisterNotifiers((struct CResource **)this);
+  *((_QWORD *)this + 17) = &CCyclicResourceListEntry::`vftable';
+  v2 = (CCombinedGeometry **)*((_QWORD *)this + 18);
+  if ( v2[1] != (CCombinedGeometry *)((char *)this + 144)
+    || (v3 = (CCombinedGeometry **)*((_QWORD *)this + 19), *v3 != (CCombinedGeometry *)((char *)this + 144)) )
+  {
     __fastfail(3u);
-  *v7 = v6;
-  *(_QWORD *)(v6 + 8) = v7;
-  CGeometry::~CGeometry(this);
+  }
+  *v3 = (CCombinedGeometry *)v2;
+  v2[1] = (CCombinedGeometry *)v3;
+  CGeometry::~CGeometry((struct CResource **)this);
 }

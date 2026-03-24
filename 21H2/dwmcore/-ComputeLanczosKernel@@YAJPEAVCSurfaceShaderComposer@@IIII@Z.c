@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z @ 0x1801DCF5C
+ * XREFs of ?ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z @ 0x1801921A4
  * Callers:
- *     ?RenderLanczos@CResampleLayer@@AEAAJPEAVCSurfaceShaderComposer@@PEAUID3D11RenderTargetView@@_NAEBUD3D11_VIEWPORT@@@Z @ 0x1801DD848 (-RenderLanczos@CResampleLayer@@AEAAJPEAVCSurfaceShaderComposer@@PEAUID3D11RenderTargetView@@_NAE.c)
+ *     ?RenderLanczos@CResampleLayer@@AEAAJPEAVCSurfaceShaderComposer@@PEAUID3D11RenderTargetView@@_NAEBUD3D11_VIEWPORT@@@Z @ 0x180192A38 (-RenderLanczos@CResampleLayer@@AEAAJPEAVCSurfaceShaderComposer@@PEAUID3D11RenderTargetView@@_NAE.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ?ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z @ 0x1801E6FB8 (-ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z.c)
- *     ?ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z @ 0x1801E70D0 (-ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z.c)
- *     ?SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV?$span@$$CBE$0?0@gsl@@I@Z @ 0x18028A70C (-SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV-$span@$$CBE$0-0@gsl@@I@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ?ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z @ 0x18019F5B0 (-ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z.c)
+ *     ?ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z @ 0x18019F6C8 (-ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z.c)
+ *     ?SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV?$span@$$CBE$0?0@gsl@@I@Z @ 0x180248B3C (-SetScratchConstantBuffer@CSurfaceShaderComposer@@QEAAJV-$span@$$CBE$0-0@gsl@@I@Z.c)
  */
 
 __int64 __fastcall ComputeLanczosKernel(
@@ -79,6 +79,6 @@ __int64 __fastcall ComputeLanczosKernel(
   v17 = CSurfaceShaderComposer::SetScratchConstantBuffer(a1, v21, 0LL);
   v19 = v17;
   if ( v17 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0LL, v17, 0x59u);
+    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x59u, 0LL);
   return v19;
 }

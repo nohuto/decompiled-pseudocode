@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDevCfgBuildIndirectString @ 0x14087BCA4
+ * XREFs of PiDevCfgBuildIndirectString @ 0x14073964C
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x14087AC04 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x14073F2C0 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintf @ 0x1403C448C (RtlUnicodeStringPrintf.c)
- *     PnpDuplicateUnicodeString @ 0x1403CD820 (PnpDuplicateUnicodeString.c)
- *     RtlUnicodeStringPrintfEx @ 0x1403CDA68 (RtlUnicodeStringPrintfEx.c)
- *     PnpValidateRegistryString @ 0x1403CDBD4 (PnpValidateRegistryString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     PnpRegSzToString @ 0x1407C274C (PnpRegSzToString.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PnpDuplicateUnicodeString @ 0x14036E360 (PnpDuplicateUnicodeString.c)
+ *     PnpValidateRegistryString @ 0x14036E3FC (PnpValidateRegistryString.c)
+ *     RtlUnicodeStringPrintf @ 0x14036E45C (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14036E520 (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
+ *     PnpRegSzToString @ 0x14073C4CC (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgBuildIndirectString(__int64 a1, unsigned __int16 *a2, __int64 a3, UNICODE_STRING *a4)
@@ -27,10 +27,10 @@ __int64 __fastcall PiDevCfgBuildIndirectString(__int64 a1, unsigned __int16 *a2,
   unsigned __int16 v12; // ax
   unsigned __int64 v13; // rbx
   wchar_t *StringRoutine; // rax
-  const WCHAR *v15; // rsi
-  NTSTATUS RegistryValue; // ebx
-  unsigned int v17; // edx
-  _WORD *v18; // rcx
+  wchar_t *v15; // rsi
+  int RegistryValue; // ebx
+  __int64 v17; // rdx
+  char *v18; // rcx
   unsigned int v19; // edx
   unsigned __int16 Length; // r15
   int v21; // esi
@@ -84,17 +84,17 @@ __int64 __fastcall PiDevCfgBuildIndirectString(__int64 a1, unsigned __int16 *a2,
       goto LABEL_24;
     memmove(StringRoutine, (const void *)(*((_QWORD *)a2 + 1) + 2LL), (unsigned int)v13);
     v15[v13 >> 1] = 0;
-    RegistryValue = IopGetRegistryValue(KeyHandle, v15, 0, &P);
-    RtlFreeUnicodeString(&UnicodeString);
+    RegistryValue = IopGetRegistryValue(KeyHandle);
+    RtlFreeAnsiString(&UnicodeString);
     if ( RegistryValue >= 0 )
     {
       v10 = (unsigned int *)P;
       if ( PnpValidateRegistryString(P) )
       {
         v17 = v10[3];
-        v18 = (_WORD *)((char *)v10 + v10[2]);
+        v18 = (char *)v10 + v10[2];
         LODWORD(P) = 0;
-        PnpRegSzToString(v18, v17, (int *)&P);
+        PnpRegSzToString(v18, v17, &P);
         LOWORD(v27) = (_WORD)P;
         WORD1(v27) = *((_WORD *)v10 + 6);
         *((_QWORD *)&v27 + 1) = (char *)v10 + v10[2];
@@ -106,7 +106,7 @@ __int64 __fastcall PiDevCfgBuildIndirectString(__int64 a1, unsigned __int16 *a2,
       }
     }
   }
-  v19 = *a2 + 4 + *(unsigned __int16 *)(a1 + 40);
+  v19 = *(unsigned __int16 *)(a1 + 40) + *a2 + 4;
   if ( *((_QWORD *)&v27 + 1) )
     v19 += (unsigned __int16)v27 + 2;
   if ( (unsigned __int64)v19 + 2 > 0xFFFE )
@@ -146,7 +146,7 @@ LABEL_24:
   if ( a4 )
     RtlInitUnicodeString(a4, (PCWSTR)(*(_QWORD *)(a3 + 8) + 2 * v22));
 LABEL_19:
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   if ( v10 )
     ExFreePoolWithTag(v10, 0);
   if ( KeyHandle )

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CViewBoxMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C00C9F50
+ * XREFs of ?SetRemarshalingFlags@CViewBoxMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C00BC2B0
  * Callers:
  *     <none>
  * Callees:

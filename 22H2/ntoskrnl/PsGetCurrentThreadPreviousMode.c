@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetCurrentThreadPreviousMode @ 0x140350880
+ * XREFs of PsGetCurrentThreadPreviousMode @ 0x1403070F0
  * Callers:
  *     <none>
  * Callees:

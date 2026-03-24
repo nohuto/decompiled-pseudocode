@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUpdateSystemTime @ 0x14016AD08
+ * XREFs of KiUpdateSystemTime @ 0x14016AD28
  * Callers:
- *     KeSetTimeAdjustment @ 0x1401681FC (KeSetTimeAdjustment.c)
- *     KiSetSystemTimeDpc @ 0x14016F9E0 (KiSetSystemTimeDpc.c)
+ *     KeSetTimeAdjustment @ 0x14016821C (KeSetTimeAdjustment.c)
+ *     KiSetSystemTimeDpc @ 0x14016FA00 (KiSetSystemTimeDpc.c)
  *     KiCalibrateTimeAdjustment @ 0x14056B040 (KiCalibrateTimeAdjustment.c)
  * Callees:
- *     KiComputeNewSystemTime @ 0x1401179DC (KiComputeNewSystemTime.c)
- *     RtlWriteAcquireTickLock @ 0x140117A50 (RtlWriteAcquireTickLock.c)
+ *     KiComputeNewSystemTime @ 0x1401179FC (KiComputeNewSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x140117A70 (RtlWriteAcquireTickLock.c)
  */
 
 __int64 __fastcall KiUpdateSystemTime(__int64 a1, __int64 a2, char a3)

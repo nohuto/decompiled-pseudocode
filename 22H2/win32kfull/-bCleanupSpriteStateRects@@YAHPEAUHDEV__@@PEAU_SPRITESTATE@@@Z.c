@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bCleanupSpriteStateRects@@YAHPEAUHDEV__@@PEAU_SPRITESTATE@@@Z @ 0x1C006EC20
+ * XREFs of ?bCleanupSpriteStateRects@@YAHPEAUHDEV__@@PEAU_SPRITESTATE@@@Z @ 0x1C00295AC
  * Callers:
- *     bSetDevDragRect @ 0x1C006EAD0 (bSetDevDragRect.c)
- *     bSetDevPreviewRect @ 0x1C0284260 (bSetDevPreviewRect.c)
+ *     bSetDevDragRect @ 0x1C0029460 (bSetDevDragRect.c)
+ *     bSetDevPreviewRect @ 0x1C0285B2C (bSetDevPreviewRect.c)
  * Callees:
- *     GreDeleteSprite @ 0x1C00C8F74 (GreDeleteSprite.c)
+ *     GreDeleteSprite @ 0x1C00EF0D8 (GreDeleteSprite.c)
  */
 
 __int64 __fastcall bCleanupSpriteStateRects(HDEV a1, struct _SPRITESTATE *a2)

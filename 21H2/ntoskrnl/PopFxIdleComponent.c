@@ -1,23 +1,16 @@
 /*
- * XREFs of PopFxIdleComponent @ 0x140355830
+ * XREFs of PopFxIdleComponent @ 0x1402611F0
  * Callers:
- *     PopFxCompleteComponentActivation @ 0x140355774 (PopFxCompleteComponentActivation.c)
- *     PoFxIdleComponent @ 0x1403557F0 (PoFxIdleComponent.c)
- *     PopFxDeactivateComponentDependencies @ 0x140355D70 (PopFxDeactivateComponentDependencies.c)
- *     PopFxResidentTimeoutRoutine @ 0x140357EE0 (PopFxResidentTimeoutRoutine.c)
- *     PopFxComponentRelationsCleanup @ 0x1403B9594 (PopFxComponentRelationsCleanup.c)
- *     PoFxRemoveDeviceRelation @ 0x140419580 (PoFxRemoveDeviceRelation.c)
- *     PopFxDeviceRelationsCleanup @ 0x140419798 (PopFxDeviceRelationsCleanup.c)
- *     PopFxNotifyPostDIrpCompletion @ 0x140419AAC (PopFxNotifyPostDIrpCompletion.c)
- *     PoFxAddComponentRelation @ 0x1405CA2E0 (PoFxAddComponentRelation.c)
- *     PoFxRemoveComponentRelation @ 0x1405CA8F0 (PoFxRemoveComponentRelation.c)
+ *     PopFxCompleteComponentActivation @ 0x140261104 (PopFxCompleteComponentActivation.c)
+ *     PoFxIdleComponent @ 0x1402611A0 (PoFxIdleComponent.c)
+ *     PopFxResidentTimeoutRoutine @ 0x140262990 (PopFxResidentTimeoutRoutine.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     PopFxIdleWorker @ 0x140355424 (PopFxIdleWorker.c)
- *     PpmInterlockedUpdateTimeNoFence @ 0x1403559B0 (PpmInterlockedUpdateTimeNoFence.c)
- *     PopFxArmResidentTimer @ 0x14035800C (PopFxArmResidentTimer.c)
- *     PopFxQueueWorkOrder @ 0x1403B1998 (PopFxQueueWorkOrder.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
+ *     PopFxIdleWorker @ 0x140260DA4 (PopFxIdleWorker.c)
+ *     PpmInterlockedUpdateTimeNoFence @ 0x140261370 (PpmInterlockedUpdateTimeNoFence.c)
+ *     PopFxArmResidentTimer @ 0x140262ABC (PopFxArmResidentTimer.c)
+ *     PopFxQueueWorkOrder @ 0x140381658 (PopFxQueueWorkOrder.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, char a3)

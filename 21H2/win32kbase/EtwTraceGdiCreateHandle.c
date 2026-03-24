@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceGdiCreateHandle @ 0x1C001E804
+ * XREFs of EtwTraceGdiCreateHandle @ 0x1C0001540
  * Callers:
- *     HmgAlloc @ 0x1C001E6F0 (HmgAlloc.c)
- *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0028DD0 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
+ *     HmgAlloc @ 0x1C0001410 (HmgAlloc.c)
+ *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0034A90 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
  * Callees:
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0150614 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0125FD8 (McTemplateK0pqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceGdiCreateHandle(int a1, char a2, int a3)

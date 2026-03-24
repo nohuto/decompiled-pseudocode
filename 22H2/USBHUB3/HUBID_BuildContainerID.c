@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBID_BuildContainerID @ 0x1C001E980
+ * XREFs of HUBID_BuildContainerID @ 0x1C001BF74
  * Callers:
- *     HUBPDO_AssignPDOIds @ 0x1C007DBAC (HUBPDO_AssignPDOIds.c)
+ *     HUBPDO_AssignPDOIds @ 0x1C007945C (HUBPDO_AssignPDOIds.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
- *     RtlUnicodeStringCbCatStringN @ 0x1C001D8C4 (RtlUnicodeStringCbCatStringN.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000BBF4 (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringCbCatStringN @ 0x1C001AFF4 (RtlUnicodeStringCbCatStringN.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
@@ -16,16 +16,17 @@ void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
   NTSTATUS Property; // ebx
   UCHAR *v6; // r14
   UCHAR *v7; // rsi
-  unsigned int v8; // ebx
-  int v9; // eax
-  __int64 v10; // r9
-  unsigned __int16 v11; // cx
-  char v12; // al
-  NTSTATUS v13; // eax
-  const wchar_t *v14; // rdx
-  size_t v15; // r8
-  UCHAR *Pool2; // rax
-  UCHAR *v17; // rax
+  int v8; // ecx
+  unsigned int v9; // ebx
+  int v10; // eax
+  __int64 v11; // r9
+  unsigned __int16 v12; // cx
+  char v13; // al
+  NTSTATUS v14; // eax
+  const wchar_t *v15; // rdx
+  size_t v16; // r8
+  UCHAR *PoolWithTag; // rax
+  UCHAR *v18; // rax
   __int64 dwFlags; // [rsp+28h] [rbp-41h]
   UCHAR pbOutput[4]; // [rsp+40h] [rbp-29h] BYREF
   ULONG pcbResult; // [rsp+44h] [rbp-25h] BYREF
@@ -33,7 +34,7 @@ void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
   BCRYPT_HASH_HANDLE phHash; // [rsp+50h] [rbp-19h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-11h] BYREF
   struct _UNICODE_STRING GuidString; // [rsp+68h] [rbp-1h] BYREF
-  _BYTE v25[8]; // [rsp+78h] [rbp+Fh] BYREF
+  _BYTE v26[8]; // [rsp+78h] [rbp+Fh] BYREF
 
   v2 = *(_DWORD *)(a1 + 1632);
   phHash = 0LL;
@@ -47,43 +48,44 @@ void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
   GuidString = 0LL;
   if ( (v2 & 0x20) != 0 )
     goto LABEL_42;
+  LOBYTE(v8) = v2;
   if ( (v2 & 0x10) != 0 || (v2 & 8) != 0 || (v2 & 0x40) == 0 )
     goto LABEL_33;
-  v8 = *(_DWORD *)(a1 + 2148) + 28;
-  DestinationString.Buffer = (wchar_t *)ExAllocatePool2(64LL, v8, 1681082453LL);
+  v9 = *(_DWORD *)(a1 + 2148) + 28;
+  DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v9, 0x64334855u);
   if ( DestinationString.Buffer )
   {
-    v9 = *(unsigned __int16 *)(a1 + 1990);
-    v10 = *(unsigned __int16 *)(a1 + 1998);
-    DestinationString.MaximumLength = v8;
+    v10 = *(unsigned __int16 *)(a1 + 1990);
+    v11 = *(unsigned __int16 *)(a1 + 1998);
+    DestinationString.MaximumLength = v9;
     DestinationString.Length = 0;
-    if ( (unsigned __int16)v9 > 0x200u )
+    if ( (unsigned __int16)v10 > 0x200u )
     {
-      v13 = RtlUnicodeStringPrintf(&DestinationString, L"%.4X%.4X.%4X", *(unsigned __int16 *)(a1 + 1996), v10, v9);
+      v14 = RtlUnicodeStringPrintf(&DestinationString, L"%.4X%.4X.%4X", *(unsigned __int16 *)(a1 + 1996), v11, v10);
     }
     else
     {
-      v11 = *(_WORD *)(a1 + 2000);
-      v25[4] = 0;
-      v25[0] = (v11 >> 12) + 48;
-      v25[1] = (HIBYTE(v11) & 0xF) + 48;
-      v12 = *(_BYTE *)(a1 + 2000) & 0xF;
-      v25[2] = ((unsigned __int8)v11 >> 4) + 48;
-      v25[3] = v12 + 48;
-      v13 = RtlUnicodeStringPrintf(&DestinationString, L"%.4X%.4X%S", *(unsigned __int16 *)(a1 + 1996), v10, v25);
+      v12 = *(_WORD *)(a1 + 2000);
+      v26[4] = 0;
+      v26[0] = (v12 >> 12) + 48;
+      v26[1] = (HIBYTE(v12) & 0xF) + 48;
+      v13 = *(_BYTE *)(a1 + 2000) & 0xF;
+      v26[2] = ((unsigned __int8)v12 >> 4) + 48;
+      v26[3] = v13 + 48;
+      v14 = RtlUnicodeStringPrintf(&DestinationString, L"%.4X%.4X%S", *(unsigned __int16 *)(a1 + 1996), v11, v26);
     }
-    Property = v13;
-    if ( v13 < 0 )
+    Property = v14;
+    if ( v14 < 0 )
       goto LABEL_36;
-    v14 = *(const wchar_t **)(a1 + 2152);
-    if ( v14 )
+    v15 = *(const wchar_t **)(a1 + 2152);
+    if ( v15 )
     {
       if ( (*(_DWORD *)(a1 + 1636) & 0x800) != 0 )
-        v14 += 6;
-      v15 = *(unsigned int *)(a1 + 2148) - 14LL;
+        v15 += 6;
+      v16 = *(unsigned int *)(a1 + 2148) - 14LL;
       if ( (*(_DWORD *)(a1 + 1636) & 0x800) == 0 )
-        v15 = *(unsigned int *)(a1 + 2148);
-      Property = RtlUnicodeStringCbCatStringN(&DestinationString, v14, v15);
+        v16 = *(unsigned int *)(a1 + 2148);
+      Property = RtlUnicodeStringCbCatStringN(&DestinationString, v15, v16);
       if ( Property < 0 )
         goto LABEL_36;
     }
@@ -101,11 +103,11 @@ void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
       Property = -1073741306;
       goto LABEL_36;
     }
-    Pool2 = (UCHAR *)ExAllocatePool2(64LL, *(unsigned int *)pbOutput, 1681082453LL);
-    v6 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (UCHAR *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, *(unsigned int *)pbOutput, 0x64334855u);
+    v6 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      Property = BCryptCreateHash(phAlgorithm, &phHash, Pool2, *(ULONG *)pbOutput, 0LL, 0, 0);
+      Property = BCryptCreateHash(phAlgorithm, &phHash, PoolWithTag, *(ULONG *)pbOutput, 0LL, 0, 0);
       if ( Property < 0 )
         goto LABEL_36;
       Property = BCryptHashData(phHash, (PUCHAR)&pbInput, 0x10u, 0);
@@ -122,19 +124,20 @@ void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
         Property = -1073741811;
         goto LABEL_36;
       }
-      v17 = (UCHAR *)ExAllocatePool2(64LL, *(unsigned int *)pbOutput, 1681082453LL);
-      v7 = v17;
-      if ( v17 )
+      v18 = (UCHAR *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, *(unsigned int *)pbOutput, 0x64334855u);
+      v7 = v18;
+      if ( v18 )
       {
-        Property = BCryptFinishHash(phHash, v17, *(ULONG *)pbOutput, 0);
+        Property = BCryptFinishHash(phHash, v18, *(ULONG *)pbOutput, 0);
         if ( Property < 0 )
           goto LABEL_36;
         *(_OWORD *)(a1 + 2064) = *(_OWORD *)v7;
         *(_WORD *)(a1 + 2070) = *(_WORD *)(a1 + 2070) & 0xFFF | 0x5000;
         *(_BYTE *)(a1 + 2072) = *(_BYTE *)(a1 + 2072) & 0x3F | 0x80;
         _InterlockedOr((volatile signed __int32 *)(a1 + 1632), 8u);
+        v8 = *(_DWORD *)(a1 + 1632);
 LABEL_33:
-        if ( (*(_DWORD *)(a1 + 1632) & 0x18) != 0 )
+        if ( (v8 & 0x18) != 0 )
         {
           Property = RtlStringFromGUID((const GUID *const)(a1 + 2064), &GuidString);
           if ( Property >= 0 )
@@ -170,7 +173,7 @@ LABEL_42:
       2u,
       5u,
       0xCu,
-      (__int64)&WPP_bdf3ab4397113be5813bb2cc4e6ee38f_Traceguids,
+      (__int64)&WPP_7fec0416b3b03b46e271cc8e8691f9a7_Traceguids,
       dwFlags);
   }
 }

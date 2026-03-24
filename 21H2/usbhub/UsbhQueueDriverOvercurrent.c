@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhQueueDriverOvercurrent @ 0x1C002F5A0
+ * XREFs of UsbhQueueDriverOvercurrent @ 0x1C0030970
  * Callers:
  *     <none>
  * Callees:
- *     UsbhQueueWorkItemEx @ 0x1C0002868 (UsbhQueueWorkItemEx.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhDispatch_HardResetEvent @ 0x1C001C920 (UsbhDispatch_HardResetEvent.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     Usbh_OvercurrentDerefHubBusy @ 0x1C002F890 (Usbh_OvercurrentDerefHubBusy.c)
- *     UsbhPCE_Disable @ 0x1C0033B7C (UsbhPCE_Disable.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhQueueWorkItemEx @ 0x1C0017B0C (UsbhQueueWorkItemEx.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001A550 (UsbhDispatch_HardResetEvent.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     Usbh_OvercurrentDerefHubBusy @ 0x1C0030C60 (Usbh_OvercurrentDerefHubBusy.c)
+ *     UsbhPCE_Disable @ 0x1C0034EE0 (UsbhPCE_Disable.c)
  */
 
 __int64 __fastcall UsbhQueueDriverOvercurrent(__int64 a1, __int64 a2)
@@ -34,7 +34,7 @@ __int64 __fastcall UsbhQueueDriverOvercurrent(__int64 a1, __int64 a2)
   if ( !*((_BYTE *)v4 + 3010) )
   {
     *((_BYTE *)v4 + 3010) = 1;
-    UsbhQueueWorkItemEx(a1, 1u, (int)UsbhSetHubOvercurrentDetectedKey, 0LL, 0, 1666340431, 0LL);
+    UsbhQueueWorkItemEx(a1, 1u, (int)UsbhSetHubOvercurrentDetectedKey, 0LL, 0, 0x6352564Fu, 0LL);
   }
   PortData = UsbhGetPortData(a1, *(_WORD *)(a2 + 20));
   v6 = PortData;
@@ -48,7 +48,7 @@ __int64 __fastcall UsbhQueueDriverOvercurrent(__int64 a1, __int64 a2)
              (int)UsbhDriverOvercurrentResetWorker,
              v7,
              *(unsigned __int16 *)(v6 + 4),
-             1666340431,
+             0x6352564Fu,
              0LL) & 0xC0000000LL;
   if ( (_DWORD)result == -1073741824 )
   {

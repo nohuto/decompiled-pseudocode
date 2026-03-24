@@ -1,100 +1,80 @@
 /*
- * XREFs of CmSaveKey @ 0x140A0BA40
+ * XREFs of CmSaveKey @ 0x140729A8C
  * Callers:
- *     CmDumpKeyToFile @ 0x140A0AB54 (CmDumpKeyToFile.c)
- *     NtSaveKeyEx @ 0x140A0EC80 (NtSaveKeyEx.c)
+ *     NtSaveKeyEx @ 0x140729810 (NtSaveKeyEx.c)
+ *     CmDumpKey @ 0x14087BD68 (CmDumpKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpLockKcbStackFlusherLocksExclusive @ 0x14061633C (CmpLockKcbStackFlusherLocksExclusive.c)
- *     CmpUnlockKcbStackFlusherLocksExclusive @ 0x1406163C4 (CmpUnlockKcbStackFlusherLocksExclusive.c)
- *     CmpUuidCreate @ 0x140685EA8 (CmpUuidCreate.c)
- *     CmpUnlockKcbStack @ 0x1406D5418 (CmpUnlockKcbStack.c)
- *     CmpLockKcbStackShared @ 0x1406D56E8 (CmpLockKcbStackShared.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7C1C (CmpStartKcbStackForTopLayerKcb.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     CmpInitializeKeyNodeStack @ 0x1407D21DC (CmpInitializeKeyNodeStack.c)
- *     CmpCleanupKeyNodeStack @ 0x1407D2230 (CmpCleanupKeyNodeStack.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D2290 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpCreateTemporaryHive @ 0x140A0C320 (CmpCreateTemporaryHive.c)
- *     CmpSaveKeyByFileCopy @ 0x140A0CF30 (CmpSaveKeyByFileCopy.c)
- *     CmpTraceHiveSaveFileCopied @ 0x140A12EB0 (CmpTraceHiveSaveFileCopied.c)
- *     CmpTraceHiveSaveStart @ 0x140A12F20 (CmpTraceHiveSaveStart.c)
- *     CmpTraceHiveSaveStop @ 0x140A12FF8 (CmpTraceHiveSaveStop.c)
- *     CmpTraceHiveSaveTreeCopied @ 0x140A13088 (CmpTraceHiveSaveTreeCopied.c)
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x140A1B788 (CmpDoAccessCheckOnLayeredSubtree.c)
- *     CmpDestroyHive @ 0x140A1CD50 (CmpDestroyHive.c)
- *     CmpLogUnsupportedOperation @ 0x140A1FEA0 (CmpLogUnsupportedOperation.c)
- *     CmpPopulateKeyNodeStackFromKcbStack @ 0x140A1FF4C (CmpPopulateKeyNodeStackFromKcbStack.c)
- *     CmpStartKeyNodeStack @ 0x140A20348 (CmpStartKeyNodeStack.c)
- *     HvWriteExternal @ 0x140A20BF4 (HvWriteExternal.c)
- *     CmpCopyMergeOfLayeredKeyNode @ 0x140A21188 (CmpCopyMergeOfLayeredKeyNode.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A25E84 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpPromoteSubtree @ 0x140A26C60 (CmpPromoteSubtree.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AF6160 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     CmpUnlockKcbStackFlusherLocksExclusive @ 0x14036B664 (CmpUnlockKcbStackFlusherLocksExclusive.c)
+ *     CmpLockKcbStackFlusherLocksExclusive @ 0x14036B7F8 (CmpLockKcbStackFlusherLocksExclusive.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpCleanupKcbStack @ 0x140648A80 (CmpCleanupKcbStack.c)
+ *     CmpLockKcbStackShared @ 0x140648B00 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x140648B60 (CmpUnlockKcbStack.c)
+ *     CmpCleanupKeyNodeStack @ 0x14067E048 (CmpCleanupKeyNodeStack.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14067E0B8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpInitializeKeyNodeStack @ 0x14067E190 (CmpInitializeKeyNodeStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406DEB20 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpUuidCreate @ 0x14070D95C (CmpUuidCreate.c)
+ *     CmpTraceHiveSaveStop @ 0x140729D9C (CmpTraceHiveSaveStop.c)
+ *     CmpDestroyHive @ 0x140729DF8 (CmpDestroyHive.c)
+ *     HvWriteExternal @ 0x140729E60 (HvWriteExternal.c)
+ *     CmpTraceHiveSaveTreeCopied @ 0x14072A050 (CmpTraceHiveSaveTreeCopied.c)
+ *     CmpPromoteSubtree @ 0x14072A0A8 (CmpPromoteSubtree.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x14072A360 (CmpCopyMergeOfLayeredKeyNode.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x14072A620 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpStartKeyNodeStack @ 0x14072B0A8 (CmpStartKeyNodeStack.c)
+ *     CmpPopulateKeyNodeStackFromKcbStack @ 0x14072B180 (CmpPopulateKeyNodeStackFromKcbStack.c)
+ *     CmpTraceHiveSaveStart @ 0x14072B248 (CmpTraceHiveSaveStart.c)
+ *     CmpCreateTemporaryHive @ 0x14072B2BC (CmpCreateTemporaryHive.c)
+ *     CmpTraceHiveSaveFileCopied @ 0x14086AF04 (CmpTraceHiveSaveFileCopied.c)
+ *     CmpKeyNodeStackEntryPopulate @ 0x140876360 (CmpKeyNodeStackEntryPopulate.c)
+ *     CmpLogUnsupportedOperation @ 0x14087639C (CmpLogUnsupportedOperation.c)
+ *     CmpSaveKeyByFileCopy @ 0x14087D8F0 (CmpSaveKeyByFileCopy.c)
+ *     CmpFullPromoteHiveRootFromKeyNodeStack @ 0x14087FF68 (CmpFullPromoteHiveRootFromKeyNodeStack.c)
  */
 
 __int64 __fastcall CmSaveKey(__int64 a1, __int64 a2, int a3, char a4)
 {
-  char v5; // si
+  char v5; // r14
   char v6; // r12
   BOOLEAN v7; // r13
-  __int64 v8; // r15
+  __int64 v8; // rsi
   ULONG_PTR v9; // rdi
   int started; // ebx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // r14
-  int v16; // r9d
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // r9
-  int v26; // ecx
-  __int64 EntryAtLayerHeight; // rbx
-  unsigned int v28; // r9d
-  unsigned int *v29; // r8
-  __int64 v30; // rax
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // r8
-  __int64 v34; // r9
-  char v35; // [rsp+30h] [rbp-99h]
-  int v37; // [rsp+34h] [rbp-95h] BYREF
-  int v38; // [rsp+38h] [rbp-91h]
-  __int128 v39; // [rsp+40h] [rbp-89h] BYREF
-  PPRIVILEGE_SET Privileges[2]; // [rsp+50h] [rbp-79h]
-  __int64 v41; // [rsp+60h] [rbp-69h]
-  __int64 v42; // [rsp+68h] [rbp-61h]
-  _QWORD v43[10]; // [rsp+70h] [rbp-59h] BYREF
-  UUID v44; // [rsp+C0h] [rbp-9h] BYREF
+  __int64 v11; // r15
+  __int64 v12; // r8
+  struct _LOOKASIDE_LIST_EX *v13; // r9
+  int v14; // r9d
+  int v15; // ecx
+  __int64 EntryAtLayerHeight; // rax
+  char v18; // [rsp+30h] [rbp-99h]
+  int v20; // [rsp+34h] [rbp-95h] BYREF
+  int v21; // [rsp+38h] [rbp-91h]
+  _OWORD v22[2]; // [rsp+40h] [rbp-89h] BYREF
+  __int64 v23; // [rsp+60h] [rbp-69h]
+  __int64 v24; // [rsp+68h] [rbp-61h]
+  __int16 v25[40]; // [rsp+70h] [rbp-59h] BYREF
+  UUID v26; // [rsp+C0h] [rbp-9h] BYREF
   UUID Uuid; // [rsp+D0h] [rbp+7h] BYREF
 
-  v41 = a2;
-  v38 = a3;
-  v42 = a1;
+  v23 = a2;
+  v21 = a3;
+  v24 = a1;
   Uuid = 0LL;
-  v44 = 0LL;
-  memset(v43, 0, 0x4AuLL);
-  v39 = 0LL;
-  WORD1(v39) = -1;
-  *(_OWORD *)Privileges = 0LL;
-  CmpInitializeKeyNodeStack(v43);
-  v37 = -1;
+  v26 = 0LL;
+  memset(v25, 0, sizeof(v25));
+  memset(v22, 0, sizeof(v22));
+  WORD1(v22[0]) = -1;
+  CmpInitializeKeyNodeStack((char *)v25);
+  v20 = -1;
   v5 = 0;
-  v35 = 0;
+  v18 = 0;
   v6 = 0;
   v7 = 0;
   v8 = 0LL;
@@ -102,125 +82,119 @@ __int64 __fastcall CmSaveKey(__int64 a1, __int64 a2, int a3, char a4)
   started = CmpUuidCreate(&Uuid);
   if ( started >= 0 )
   {
-    started = CmpUuidCreate(&v44);
+    started = CmpUuidCreate(&v26);
     if ( started >= 0 )
     {
-      v9 = CmpCreateTemporaryHive(&Uuid, &v44);
+      v9 = CmpCreateTemporaryHive(&Uuid, &v26);
       if ( !v9 )
       {
         started = -1073741670;
-        goto LABEL_17;
+        goto LABEL_15;
       }
-      CmpLockRegistry(v12, v11, v13, v14);
-      v15 = *(_QWORD *)(a1 + 8);
+      CmpLockRegistry();
+      v11 = *(_QWORD *)(a1 + 8);
       v5 = 1;
-      started = CmpStartKcbStackForTopLayerKcb((__int64)&v39, v15);
+      started = CmpStartKcbStackForTopLayerKcb((__int64)v22, v11, v12, v13);
+      if ( started < 0 )
+        goto LABEL_15;
+      CmpLockKcbStackShared((__int64)v22);
+      v6 = 1;
+      if ( *(_QWORD *)(v11 + 32) == CmpMasterHive )
+      {
+        started = -1073741790;
+        goto LABEL_15;
+      }
+      CmpTraceHiveSaveStart(v11);
+      v18 = 1;
+      started = CmpPerformKeyBodyDeletionCheck(v24, 0LL);
       if ( started >= 0 )
       {
-        CmpLockKcbStackShared((__int64)&v39);
-        v6 = 1;
-        if ( *(_QWORD *)(v15 + 32) == CmpMasterHive )
-        {
-          started = -1073741790;
-          goto LABEL_17;
-        }
-        CmpTraceHiveSaveStart(v15);
-        v35 = 1;
-        started = CmpPerformKeyBodyDeletionCheck(v42, 0LL);
+        started = CmpStartKeyNodeStack(v25, (unsigned __int16)(*(_WORD *)(v11 + 66) + 1));
         if ( started >= 0 )
         {
-          started = CmpStartKeyNodeStack(v43, (unsigned __int16)(*(_WORD *)(v15 + 66) + 1));
-          if ( started >= 0 )
+          CmpLockKcbStackFlusherLocksExclusive((__int64)v22);
+          CmpPopulateKeyNodeStackFromKcbStack(v25, v22, 0LL);
+          LOBYTE(v14) = a4;
+          started = CmpDoAccessCheckOnLayeredSubtree(0, 0, (unsigned int)v25, v14, 131097, 3);
+          if ( started < 0 )
           {
-            CmpLockKcbStackFlusherLocksExclusive((__int64)&v39);
-            CmpPopulateKeyNodeStackFromKcbStack(v43, &v39, 0LL);
-            LOBYTE(v16) = a4;
-            started = CmpDoAccessCheckOnLayeredSubtree(0, 0, (unsigned int)v43, v16, 131097, 3);
+LABEL_32:
+            CmpUnlockKcbStackFlusherLocksExclusive((__int64)v22);
+            goto LABEL_15;
+          }
+          v8 = *(_QWORD *)(v11 + 32);
+          if ( (*(_DWORD *)(v8 + 160) & 2) != 0 && *(_DWORD *)(v8 + 104) && *(_QWORD *)(v8 + 1536) )
+          {
+            if ( *(_WORD *)(v11 + 66) )
+            {
+              CmpLogUnsupportedOperation(25LL);
+              started = -1073741822;
+              goto LABEL_32;
+            }
+            v7 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v8 + 1632));
+            if ( !v7 )
+            {
+              started = -1073741444;
+              goto LABEL_32;
+            }
+            CmpUnlockKcbStackFlusherLocksExclusive((__int64)v22);
+            CmpUnlockKcbStack((__int64)v22);
+            v6 = 0;
+            CmpUnlockRegistry();
+            v5 = 0;
+            started = CmpSaveKeyByFileCopy(v8);
+            if ( started >= 0 )
+              CmpTraceHiveSaveFileCopied();
+          }
+          else
+          {
+            v15 = v21;
+            *(_DWORD *)(*(_QWORD *)(v9 + 64) + 24LL) = v21;
+            *(_DWORD *)(v9 + 212) = v15;
+            started = CmpCopyMergeOfLayeredKeyNode(v25, v9, 0xFFFFFFFFLL, 1LL, 0, &v20);
             if ( started < 0 )
-            {
-LABEL_16:
-              CmpUnlockKcbStackFlusherLocksExclusive((__int64)&v39);
-              goto LABEL_17;
-            }
-            v8 = *(_QWORD *)(v15 + 32);
-            if ( (*(_DWORD *)(v8 + 160) & 2) != 0 && *(_DWORD *)(v8 + 104) && *(_QWORD *)(v8 + 1544) )
-            {
-              if ( *(_WORD *)(v15 + 66) )
-              {
-                CmpLogUnsupportedOperation(25LL);
-                started = -1073741822;
-                goto LABEL_16;
-              }
-              v7 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v8 + 1640));
-              if ( !v7 )
-              {
-                started = -1073741444;
-                goto LABEL_16;
-              }
-              CmpUnlockKcbStackFlusherLocksExclusive((__int64)&v39);
-              CmpUnlockKcbStack((__int64)&v39);
-              v6 = 0;
-              CmpUnlockRegistry(v23, v22, v24, v25);
-              v5 = 0;
-              started = CmpSaveKeyByFileCopy(v8);
-              if ( started >= 0 )
-                CmpTraceHiveSaveFileCopied();
-            }
-            else
-            {
-              v26 = v38;
-              *(_DWORD *)(*(_QWORD *)(v9 + 64) + 24LL) = v38;
-              *(_DWORD *)(v9 + 220) = v26;
-              started = CmpCopyMergeOfLayeredKeyNode(v43, v9, 0xFFFFFFFFLL, 1LL, 0, &v37);
-              if ( started < 0 )
-                goto LABEL_16;
-              CmpTraceHiveSaveTreeCopied();
-              *(_DWORD *)(*(_QWORD *)(v9 + 64) + 36LL) = v37;
-              EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight((__int64)v43, v43[0]);
-              *(_QWORD *)EntryAtLayerHeight = v9;
-              v29 = (unsigned int *)(EntryAtLayerHeight + 24);
-              *(_DWORD *)(EntryAtLayerHeight + 8) = v28;
-              v30 = (*(_BYTE *)(v9 + 140) & 1) != 0 ? HvpGetCellFlat(v9, v28, v29) : HvpGetCellPaged(v9, v28, v29);
-              *(_QWORD *)(EntryAtLayerHeight + 16) = v30;
-              started = CmpFullPromoteSingleKeyFromKeyNodeStacks(0LL, v43);
-              if ( started < 0 )
-                goto LABEL_16;
-              started = CmpPromoteSubtree(0LL, v43);
-              if ( started < 0 )
-                goto LABEL_16;
-              CmpUnlockKcbStackFlusherLocksExclusive((__int64)&v39);
-              CmpCleanupKeyNodeStack((__int64)v43);
-              CmpInitializeKeyNodeStack(v43);
-              CmpUnlockKcbStack((__int64)&v39);
-              v6 = 0;
-              CmpUnlockRegistry(v32, v31, v33, v34);
-              *(_QWORD *)(v9 + 1560) = v41;
-              v5 = 0;
-              started = HvWriteExternal(v9);
-              if ( started >= 0 )
-                started = 0;
-            }
+              goto LABEL_32;
+            CmpTraceHiveSaveTreeCopied();
+            *(_DWORD *)(*(_QWORD *)(v9 + 64) + 36LL) = v20;
+            EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight((__int64)v25, v25[0]);
+            CmpKeyNodeStackEntryPopulate(EntryAtLayerHeight, v9);
+            started = CmpFullPromoteHiveRootFromKeyNodeStack(v25);
+            if ( started < 0 )
+              goto LABEL_32;
+            started = CmpPromoteSubtree(0LL, v25);
+            if ( started < 0 )
+              goto LABEL_32;
+            CmpUnlockKcbStackFlusherLocksExclusive((__int64)v22);
+            CmpCleanupKeyNodeStack((__int64)v25);
+            CmpInitializeKeyNodeStack((char *)v25);
+            CmpUnlockKcbStack((__int64)v22);
+            v6 = 0;
+            CmpUnlockRegistry();
+            *(_QWORD *)(v9 + 1552) = v23;
+            v5 = 0;
+            started = HvWriteExternal(v9);
+            if ( started >= 0 )
+              started = 0;
           }
         }
       }
     }
   }
-LABEL_17:
-  CmpCleanupKeyNodeStack((__int64)v43);
+LABEL_15:
+  CmpCleanupKeyNodeStack((__int64)v25);
   if ( v6 )
-    CmpUnlockKcbStack((__int64)&v39);
+    CmpUnlockKcbStack((__int64)v22);
   if ( v5 )
-    CmpUnlockRegistry(v18, v17, v19, v20);
+    CmpUnlockRegistry();
   if ( v7 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v8 + 1640));
-  if ( Privileges[1] )
-    CmSiFreeMemory(Privileges[1]);
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v8 + 1632));
+  CmpCleanupKcbStack((__int64)v22);
   if ( v9 )
   {
-    *(_QWORD *)(v9 + 1560) = 0LL;
+    *(_QWORD *)(v9 + 1552) = 0LL;
     CmpDestroyHive((PVOID)v9);
   }
-  if ( v35 )
+  if ( v18 )
     CmpTraceHiveSaveStop((unsigned int)started);
   return (unsigned int)started;
 }

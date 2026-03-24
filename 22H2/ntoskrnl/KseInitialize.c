@@ -1,231 +1,142 @@
 /*
- * XREFs of KseInitialize @ 0x140B4CCCC
+ * XREFs of KseInitialize @ 0x140A3BCCC
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KsepLogError @ 0x14020A5CC (KsepLogError.c)
- *     KsepLogInfo @ 0x140374700 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x140580D64 (KsepDebugPrint.c)
- *     KseShimDatabaseOpen @ 0x140694C20 (KseShimDatabaseOpen.c)
- *     KseShimDatabaseClose @ 0x140694D78 (KseShimDatabaseClose.c)
- *     EtwRegister @ 0x14078DD90 (EtwRegister.c)
- *     KseRegisterShim @ 0x14080AC90 (KseRegisterShim.c)
- *     KsepCacheUninitialize @ 0x140977840 (KsepCacheUninitialize.c)
- *     KseVersionLieInitialize @ 0x140B3970C (KseVersionLieInitialize.c)
- *     KsepEngineInitialize @ 0x140B64D18 (KsepEngineInitialize.c)
- *     KsepMatchInitMachineInfo @ 0x140B64EEC (KsepMatchInitMachineInfo.c)
- *     KseShimDatabaseBootInitialize @ 0x140B74000 (KseShimDatabaseBootInitialize.c)
- *     KseDriverScopeInitialize @ 0x140B761B8 (KseDriverScopeInitialize.c)
+ *     KsepLogInfo @ 0x140371F88 (KsepLogInfo.c)
+ *     KsepLogError @ 0x140372754 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140526E28 (KsepDebugPrint.c)
+ *     KseShimDatabaseClose @ 0x140758578 (KseShimDatabaseClose.c)
+ *     KseShimDatabaseOpen @ 0x14075A8D0 (KseShimDatabaseOpen.c)
+ *     EtwRegister @ 0x1407622D0 (EtwRegister.c)
+ *     KseKernelPadSectionsOverrideInitialize @ 0x140A38BB0 (KseKernelPadSectionsOverrideInitialize.c)
+ *     KseUserCetInitialize @ 0x140A38C28 (KseUserCetInitialize.c)
+ *     KseZeroPoolInitialize @ 0x140A686BC (KseZeroPoolInitialize.c)
+ *     KseDriverScopeInitialize @ 0x140A686E8 (KseDriverScopeInitialize.c)
+ *     KseClearPCIDBitsInitialize @ 0x140A68758 (KseClearPCIDBitsInitialize.c)
+ *     KseMemcpyInitialize @ 0x140A68784 (KseMemcpyInitialize.c)
+ *     KseKasperskyInitialize @ 0x140A687B0 (KseKasperskyInitialize.c)
+ *     KseSkipDriverUnloadInitialize @ 0x140A687DC (KseSkipDriverUnloadInitialize.c)
+ *     KseVersionLieInitialize @ 0x140A68808 (KseVersionLieInitialize.c)
+ *     KsepEngineInitialize @ 0x140A6A168 (KsepEngineInitialize.c)
+ *     KseShimDatabaseBootInitialize @ 0x140A72134 (KseShimDatabaseBootInitialize.c)
+ *     KsepEngineUninitialize @ 0x140A921C8 (KsepEngineUninitialize.c)
+ *     KsepMatchInitialize @ 0x140A9224C (KsepMatchInitialize.c)
  */
 
 __int64 __fastcall KseInitialize(__int64 a1, int a2)
 {
-  int matched; // edi
-  int v5; // eax
-  int v6; // eax
-  int v7; // eax
-  int v8; // eax
-  int v9; // eax
-  int v10; // eax
-  int v11; // eax
-  __int64 v12; // rax
-  signed __int32 v14; // eax
-  __int64 v15; // rax
-  __int64 v16; // rax
-  char v17; // al
-  __int64 v18; // rcx
-  __int64 v19; // rcx
-  char v20; // al
-  __int64 v21; // rcx
-  char v22; // al
-  __int64 v23; // rcx
-  char v24; // al
-  __int64 v25; // rcx
-  char v26; // al
-  __int64 v27; // rcx
-  char v28; // al
-  __int64 v29; // rcx
-  char v30; // al
-  __int64 v31; // rdx
-  char v32; // al
-  __int64 v33; // [rsp+50h] [rbp+18h] BYREF
+  int matched; // ebx
+  signed __int32 v5; // eax
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v9; // rax
+  char v10; // al
+  __int64 v11; // rcx
+  __int64 v12; // [rsp+50h] [rbp+18h] BYREF
 
   matched = 0;
   if ( a2 )
   {
     if ( a2 == 1 )
     {
-      v33 = 0LL;
+      v12 = 0LL;
       EtwRegister(&KernelShimEngineProvider, 0LL, 0LL, &KseEtwHandle);
-      matched = KseShimDatabaseOpen(&v33);
-      if ( matched >= 0 && v33 )
+      matched = KseShimDatabaseOpen(&v12);
+      if ( matched >= 0 && v12 )
       {
-        KseShimDatabaseClose(v33);
-        KseVersionLieInitialize();
-        v5 = KseRegisterShim((__int64)&KseSkipDriverUnloadShim, 0LL, 0LL);
-        if ( v5 < 0 )
-        {
-          v19 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C40844[2 * v19] = v5;
-          v20 = KsepDebugFlag;
-          KsepHistoryErrors[2 * v19] = 852115;
-          if ( (v20 & 2) != 0 )
-            KsepDebugPrint(12LL, "Built-in SkipDriverUnload shims: failed to register.\n");
-          KsepLogError(12LL, (__int64)"Built-in SkipDriverUnload shims: failed to register.\n");
-        }
-        v6 = KseRegisterShim((__int64)&KseZeroPoolShim, 0LL, 0LL);
-        if ( v6 < 0 )
-        {
-          v21 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C40844[2 * v21] = v6;
-          v22 = KsepDebugFlag;
-          KsepHistoryErrors[2 * v21] = 1048692;
-          if ( (v22 & 2) != 0 )
-            KsepDebugPrint(12LL, "ZeroPool shim: failed to register.\n");
-          KsepLogError(12LL, (__int64)"ZeroPool shim: failed to register.\n");
-        }
-        v7 = KseRegisterShim((__int64)&KseClearPCIDBitsShim, 0LL, 0LL);
-        if ( v7 < 0 )
-        {
-          v23 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C40844[2 * v23] = v7;
-          v24 = KsepDebugFlag;
-          KsepHistoryErrors[2 * v23] = 917629;
-          if ( (v24 & 2) != 0 )
-            KsepDebugPrint(12LL, "ClearPCIDBits shim: failed to register.\n");
-          KsepLogError(12LL, (__int64)"ClearPCIDBits shim: failed to register.\n");
-        }
-        v8 = KseRegisterShim((__int64)&KseKasperskyShim, 0LL, 0LL);
-        if ( v8 < 0 )
-        {
-          v25 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C40844[2 * v25] = v8;
-          v26 = KsepDebugFlag;
-          KsepHistoryErrors[2 * v25] = 983165;
-          if ( (v26 & 2) != 0 )
-            KsepDebugPrint(12LL, "Kaspersky shim: failed to register.\n");
-          KsepLogError(12LL, (__int64)"Kaspersky shim: failed to register.\n");
-        }
-        v9 = KseRegisterShim((__int64)&KseMemcpyShim, 0LL, 0LL);
-        if ( v9 < 0 )
-        {
-          v27 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C40844[2 * v27] = v9;
-          v28 = KsepDebugFlag;
-          KsepHistoryErrors[2 * v27] = 1114208;
-          if ( (v28 & 2) != 0 )
-            KsepDebugPrint(12LL, "Memcpy shim: failed to register.\n");
-          KsepLogError(12LL, (__int64)"Memcpy shim: failed to register.\n");
-        }
-        v10 = KseRegisterShim((__int64)&KseKernelPadSectionsOverrideShim, 0LL, 0LL);
-        if ( v10 < 0 )
-        {
-          v29 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C40844[2 * v29] = v10;
-          v30 = KsepDebugFlag;
-          KsepHistoryErrors[2 * v29] = 1179753;
-          if ( (v30 & 2) != 0 )
-            KsepDebugPrint(12LL, "KernelPadSectionsOverride shim: failed to register.\n");
-          KsepLogError(12LL, (__int64)"KernelPadSectionsOverride shim: failed to register.\n");
-        }
-        v11 = KseRegisterShim((__int64)&KseUserCetBasicModeAllowRetTargetNotCetCompatShim, 0LL, 0LL);
-        if ( v11 < 0 )
-        {
-          v31 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C40844[2 * v31] = v11;
-          v32 = KsepDebugFlag;
-          KsepHistoryErrors[2 * v31] = 1245275;
-          if ( (v32 & 2) != 0 )
-            KsepDebugPrint(12LL, "UserCetBasicModeAllowRetTargetNotCetCompat shim: failed to register.\n");
-          KsepLogError(12LL, (__int64)"UserCetBasicModeAllowRetTargetNotCetCompat shim: failed to register.\n");
-        }
+        KseShimDatabaseClose(v12);
       }
       else
       {
-        dword_140C64E38 |= 0x80u;
+        dword_140C505E8 |= 0x80u;
         matched = -1073741637;
       }
+      if ( matched >= 0 )
+      {
+        KseVersionLieInitialize();
+        KseSkipDriverUnloadInitialize();
+        KseZeroPoolInitialize();
+        KseClearPCIDBitsInitialize();
+        KseKasperskyInitialize();
+        KseMemcpyInitialize();
+        KseKernelPadSectionsOverrideInitialize();
+        KseUserCetInitialize();
+      }
     }
-LABEL_12:
-    v12 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F;
-    HIDWORD(KsepHistoryMessages[v12]) = 0;
-    LODWORD(KsepHistoryMessages[v12]) = 327934;
+LABEL_29:
+    v9 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F;
+    HIDWORD(KsepHistoryMessages[v9]) = 0;
+    LODWORD(KsepHistoryMessages[v9]) = 327940;
     if ( (KsepDebugFlag & 1) != 0 )
       KsepDebugPrint(1LL, "KSE: Initialized phase 0x%x\n", a2);
-    KsepLogInfo(1, "KSE: Initialized phase 0x%x\n", a2);
+    KsepLogInfo(1LL, (__int64)"KSE: Initialized phase 0x%x\n", a2);
     if ( InitIsWinPEMode )
       KseEngine |= 1u;
     if ( matched >= 0 )
       return (unsigned int)matched;
-    goto LABEL_35;
+    goto LABEL_34;
   }
-  v14 = _InterlockedCompareExchange(&dword_140C64E34, 1, 0);
-  if ( v14 == 2 )
+  v5 = _InterlockedCompareExchange(&dword_140C505E4, 1, 0);
+  if ( v5 == 2 )
     return 0LL;
-  if ( v14 == 1 )
+  if ( v5 == 1 )
     return 259LL;
   if ( (int)KseShimDatabaseBootInitialize(
               *(void **)(*(_QWORD *)(a1 + 240) + 64LL),
               *(unsigned int *)(*(_QWORD *)(a1 + 240) + 72LL),
               *(void **)(*(_QWORD *)(a1 + 240) + 80LL),
-              *(unsigned int *)(*(_QWORD *)(a1 + 240) + 88LL)) >= 0 )
+              *(unsigned int *)(*(_QWORD *)(a1 + 240) + 88LL)) < 0 )
+    return 3221225473LL;
+  if ( !(_DWORD)InitSafeBootMode && (v7 = *(_QWORD *)(a1 + 240), *(_QWORD *)(v7 + 64)) && *(_DWORD *)(v7 + 72) )
   {
-    v15 = *(_QWORD *)(a1 + 240);
-    if ( *(_QWORD *)(v15 + 64) && *(_DWORD *)(v15 + 72) )
+    matched = KsepEngineInitialize(&KseEngine);
+    if ( matched >= 0 )
     {
-      matched = KsepEngineInitialize(&KseEngine);
+      matched = KsepMatchInitialize(a1);
       if ( matched >= 0 )
       {
-        matched = KsepMatchInitMachineInfo(a1);
-        if ( matched >= 0 )
-        {
-          dword_140C64E34 = 2;
-          KseDriverScopeInitialize();
-          goto LABEL_12;
-        }
+        dword_140C505E4 = 2;
+        KseDriverScopeInitialize();
+        goto LABEL_29;
       }
     }
-    else
-    {
-      if ( ViVerifierEnabled )
-        dword_140C64E38 |= 0x40u;
-      v16 = *(_QWORD *)(a1 + 240);
-      if ( !*(_QWORD *)(v16 + 64) || !*(_DWORD *)(v16 + 72) )
-        dword_140C64E38 |= 0x80u;
-      matched = -1073741637;
-    }
-LABEL_35:
-    dword_140C64E34 = 0;
-    if ( qword_140C64E78 )
-    {
-      KsepCacheUninitialize(qword_140C64E78);
-      qword_140C64E78 = 0LL;
-    }
-    KseEngine |= 3u;
-    dword_140C64E38 |= 0x400u;
-    v17 = KsepDebugFlag;
-    v18 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    if ( matched == -1073741637 )
-    {
-      dword_140C40844[2 * v18] = -1073741637;
-      KsepHistoryErrors[2 * v18] = 327962;
-      if ( (v17 & 2) != 0 )
-        KsepDebugPrint(
-          1LL,
-          "KSE: Engine not initialized (disabled explicitly, safe boot on, verifier on, WinPE mode or loader issue)\n");
-      KsepLogError(
-        1LL,
-        (__int64)"KSE: Engine not initialized (disabled explicitly, safe boot on, verifier on, WinPE mode or loader issue)\n");
-    }
-    else
-    {
-      dword_140C40844[2 * v18] = matched;
-      KsepHistoryErrors[2 * v18] = 327966;
-      if ( (v17 & 2) != 0 )
-        KsepDebugPrint(1LL, "KSE: Initialization failed: 0x%x\n", matched);
-      KsepLogError(1LL, (__int64)"KSE: Initialization failed: 0x%x\n", matched);
-    }
-    return (unsigned int)matched;
   }
-  return 3221225473LL;
+  else
+  {
+    if ( ViVerifierEnabled )
+      dword_140C505E8 |= 0x40u;
+    if ( (_DWORD)InitSafeBootMode )
+      dword_140C505E8 |= 0x100u;
+    v8 = *(_QWORD *)(a1 + 240);
+    if ( !*(_QWORD *)(v8 + 64) || !*(_DWORD *)(v8 + 72) )
+      dword_140C505E8 |= 0x80u;
+    matched = -1073741637;
+  }
+LABEL_34:
+  dword_140C505E4 = 0;
+  KsepEngineUninitialize(&KseEngine);
+  v10 = KsepDebugFlag;
+  v11 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+  if ( matched == -1073741637 )
+  {
+    dword_140C2AB04[2 * v11] = -1073741637;
+    KsepHistoryErrors[2 * v11] = 327968;
+    if ( (v10 & 2) != 0 )
+      KsepDebugPrint(
+        1LL,
+        "KSE: Engine not initialized (disabled explicitly, safe boot on, verifier on, WinPE mode or loader issue)\n");
+    KsepLogError(
+      1,
+      "KSE: Engine not initialized (disabled explicitly, safe boot on, verifier on, WinPE mode or loader issue)\n");
+  }
+  else
+  {
+    dword_140C2AB04[2 * v11] = matched;
+    KsepHistoryErrors[2 * v11] = 327972;
+    if ( (v10 & 2) != 0 )
+      KsepDebugPrint(1LL, "KSE: Initialization failed: 0x%x\n", matched);
+    KsepLogError(1, "KSE: Initialization failed: 0x%x\n", matched);
+  }
+  return (unsigned int)matched;
 }

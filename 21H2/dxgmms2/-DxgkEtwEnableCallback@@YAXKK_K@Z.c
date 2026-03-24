@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C00B867C
+ * XREFs of ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C008ABE4
  * Callers:
- *     McGenControlCallbackV2 @ 0x1C001CB10 (McGenControlCallbackV2.c)
+ *     McGenControlCallbackV2 @ 0x1C0015AE0 (McGenControlCallbackV2.c)
  * Callees:
  *     <none>
  */
@@ -10,6 +10,6 @@ void __fastcall DxgkEtwEnableCallback()
 {
   bool v0; // al
 
-  v0 = (qword_1C006E010 & 0x461C8ED7) != 0 && (qword_1C006E018 & 0xFFFFFFFFB9E37128uLL) == 0;
+  v0 = (qword_1C0050010 & 0x61C8ED7) != 0 && (qword_1C0050018 & 0xFFFFFFFFF9E37128uLL) == 0;
   bTracingEnabled = v0;
 }

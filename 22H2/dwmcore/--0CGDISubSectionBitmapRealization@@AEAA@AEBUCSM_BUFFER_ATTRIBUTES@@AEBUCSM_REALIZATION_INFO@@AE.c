@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CGDISubSectionBitmapRealization@@AEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@PEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x1802B0A7C
+ * XREFs of ??0CGDISubSectionBitmapRealization@@AEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@PEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x18026299C
  * Callers:
- *     ?Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAVIGDIBitmapRealization@@@Z @ 0x1802B0D04 (-Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeed.c)
+ *     ?Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1IW4DXGI_FORMAT@@W4DXGI_ALPHA_MODE@@PEAPEAVIGDIBitmapRealization@@@Z @ 0x180262C20 (-Create@CGDISubSectionBitmapRealization@@SAJPEAEAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeed.c)
  * Callees:
- *     ??0CGDISectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@_N@Z @ 0x1800F5BC8 (--0CGDISectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUC.c)
+ *     ??0CGDISectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUCSM_SYSMEM_SECTION_INFO@@_N@Z @ 0x1800317B0 (--0CGDISectionBitmapRealization@@IEAA@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@AEBUC.c)
  */
 
 __int64 __fastcall CGDISubSectionBitmapRealization::CGDISubSectionBitmapRealization(
@@ -24,31 +24,31 @@ __int64 __fastcall CGDISubSectionBitmapRealization::CGDISubSectionBitmapRealizat
   bool v14; // [rsp+20h] [rbp-18h]
 
   *(_QWORD *)(a1 + 16) = &CGDISubSectionBitmapRealization::`vbtable'{for `CSectionBitmapRealization'};
-  *(_QWORD *)(a1 + 328) = &CGDISubSectionBitmapRealization::`vbtable'{for `ID2DBitmapCacheSource'};
-  *(_QWORD *)(a1 + 400) = &CGDISubSectionBitmapRealization::`vbtable'{for `IGDIBitmapRealization'};
-  *(_QWORD *)(a1 + 504) = &CInk::`vbtable'{for `IContent'};
-  *(_QWORD *)(a1 + 528) = &CDxHandleYUVBitmapRealization::`vbtable'{for `IBitmapRealization'};
+  *(_QWORD *)(a1 + 296) = &CGDISubSectionBitmapRealization::`vbtable'{for `ID2DBitmapCacheSource'};
+  *(_QWORD *)(a1 + 368) = &CHolographicInteropTarget::`vbtable'{for `IMonitorTarget'};
+  *(_QWORD *)(a1 + 472) = &CInk::`vbtable'{for `IContent'};
+  *(_QWORD *)(a1 + 496) = &CDxHandleYUVBitmapRealization::`vbtable'{for `IBitmapRealization'};
   CGDISectionBitmapRealization::CGDISectionBitmapRealization((CGDISectionBitmapRealization *)a1, a2, a3, a4, v14, 0);
-  *(_QWORD *)a1 = &CGDISubSectionBitmapRealization::`vftable'{for `CMILCOMBaseT<IUnknown>'};
-  *(_QWORD *)(a1 + 320) = &CGDISubSectionBitmapRealization::`vftable'{for `ID2DBitmapCacheSource'};
-  *(_QWORD *)(a1 + 336) = &CGDISubSectionBitmapRealization::`vftable'{for `IPixelColor'};
-  *(_QWORD *)(a1 + 392) = &CGDISubSectionBitmapRealization::`vftable'{for `IGDIBitmapRealization'};
+  *(_QWORD *)a1 = &CGDISubSectionBitmapRealization::`vftable'{for `CMILCOMBase'};
+  *(_QWORD *)(a1 + 288) = &CGDISubSectionBitmapRealization::`vftable'{for `ID2DBitmapCacheSource'};
+  *(_QWORD *)(a1 + 304) = &CGDISubSectionBitmapRealization::`vftable'{for `IPixelColor'};
+  *(_QWORD *)(a1 + 360) = &CGDISubSectionBitmapRealization::`vftable'{for `IGDIBitmapRealization'};
   *(_QWORD *)(*(int *)(*(_QWORD *)(a1 + 16) + 4LL) + a1 + 16) = &CGDISubSectionBitmapRealization::`vftable'{for `IDeviceResourceNotify'};
-  *(_QWORD *)(*(int *)(*(_QWORD *)(a1 + 16) + 8LL) + a1 + 16) = &CGDISubSectionBitmapRealization::`vftable'{for `IUnknown'};
+  *(_QWORD *)(*(int *)(*(_QWORD *)(a1 + 16) + 8LL) + a1 + 16) = &CDDisplaySwapChain::`vftable'{for `IUnknown'};
   *(_QWORD *)(*(int *)(*(_QWORD *)(a1 + 16) + 12LL) + a1 + 16) = &CGDISubSectionBitmapRealization::`vftable'{for `IPixelFormat'};
   *(_QWORD *)(*(int *)(*(_QWORD *)(a1 + 16) + 16LL) + a1 + 16) = &CGDISubSectionBitmapRealization::`vftable'{for `CBitmapRealization'};
   v8 = *(int *)(*(_QWORD *)(a1 + 16) + 4LL);
-  *(_DWORD *)(v8 + a1 + 12) = v8 - 448;
+  *(_DWORD *)(v8 + a1 + 12) = v8 - 416;
   v9 = *(int *)(*(_QWORD *)(a1 + 16) + 8LL);
-  *(_DWORD *)(v9 + a1 + 12) = v9 - 464;
+  *(_DWORD *)(v9 + a1 + 12) = v9 - 432;
   v10 = *(int *)(*(_QWORD *)(a1 + 16) + 12LL);
-  *(_DWORD *)(v10 + a1 + 12) = v10 - 480;
+  *(_DWORD *)(v10 + a1 + 12) = v10 - 448;
   v11 = *(int *)(*(_QWORD *)(a1 + 16) + 16LL);
-  *(_DWORD *)(v11 + a1 + 12) = v11 - 504;
-  *(_OWORD *)(a1 + 424) = *a7;
+  *(_DWORD *)(v11 + a1 + 12) = v11 - 472;
+  *(_OWORD *)(a1 + 392) = *a7;
   v12 = *a6;
-  *(_QWORD *)(a1 + 376) = a5;
+  *(_QWORD *)(a1 + 344) = a5;
   result = a1;
-  *(_OWORD *)(a1 + 440) = v12;
+  *(_OWORD *)(a1 + 408) = v12;
   return result;
 }

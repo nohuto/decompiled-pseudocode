@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Reset@CInputSpace@@QEAAXPEAU1@@Z @ 0x1C00A09B0
+ * XREFs of ?Reset@CInputSpace@@QEAAXPEAU1@@Z @ 0x1C00715A4
  * Callers:
- *     ?_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z @ 0x1C009FE3C (-_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z.c)
+ *     ?_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z @ 0x1C006DCF4 (-_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z.c)
  * Callees:
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 void __fastcall CInputSpace::Reset(CInputSpace *this, struct CInputSpace ***a2)
@@ -14,19 +14,19 @@ void __fastcall CInputSpace::Reset(CInputSpace *this, struct CInputSpace ***a2)
   struct CInputSpace **v7; // rdx
   struct CInputSpace **v8; // rdx
 
-  memmove(this, a2, 0x5C0uLL);
-  v4 = (CInputSpace *)((char *)this + 1456);
-  v5 = (struct CInputSpace *)(a2 + 182);
+  memmove(this, a2, 0x5A0uLL);
+  v4 = (CInputSpace *)((char *)this + 1424);
+  v5 = (struct CInputSpace *)(a2 + 178);
   *((_QWORD *)v4 + 1) = v4;
   *(_QWORD *)v4 = v4;
-  v6 = (struct CInputSpace *)a2[182];
-  if ( v6 != (struct CInputSpace *)(a2 + 182) )
+  v6 = (struct CInputSpace *)a2[178];
+  if ( v6 != (struct CInputSpace *)(a2 + 178) )
   {
     if ( *((struct CInputSpace **)v6 + 1) != v5
-      || (v7 = a2[183], *v7 != v5)
+      || (v7 = a2[179], *v7 != v5)
       || (*v7 = v6,
           *((_QWORD *)v6 + 1) = v7,
-          a2[183] = (struct CInputSpace **)(a2 + 182),
+          a2[179] = (struct CInputSpace **)(a2 + 178),
           *(_QWORD *)v5 = v5,
           v8 = (struct CInputSpace **)*((_QWORD *)v4 + 1),
           *(struct CInputSpace **)(*(_QWORD *)v4 + 8LL) != v4)
@@ -40,6 +40,6 @@ void __fastcall CInputSpace::Reset(CInputSpace *this, struct CInputSpace ***a2)
     *((_QWORD *)v4 + 1) = *((_QWORD *)v6 + 1);
     **((_QWORD **)v6 + 1) = v4;
     *((_QWORD *)v6 + 1) = v8;
-    *((_DWORD *)a2 + 363) = 0;
+    *((_DWORD *)a2 + 355) = 0;
   }
 }

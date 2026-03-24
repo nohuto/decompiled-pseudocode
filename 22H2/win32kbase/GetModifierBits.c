@@ -1,10 +1,10 @@
 /*
- * XREFs of GetModifierBits @ 0x1C00039B0
+ * XREFs of GetModifierBits @ 0x1C000B560
  * Callers:
- *     xxxInternalToUnicode @ 0x1C006BCF0 (xxxInternalToUnicode.c)
- *     VKFromVSC @ 0x1C01EB390 (VKFromVSC.c)
- *     ?KbdNlsFuncTypeAlt@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z @ 0x1C01EBBB0 (-KbdNlsFuncTypeAlt@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z.c)
- *     ?KbdNlsFuncTypeNormal@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z @ 0x1C01EBCA0 (-KbdNlsFuncTypeNormal@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z.c)
+ *     xxxInternalToUnicode @ 0x1C000B170 (xxxInternalToUnicode.c)
+ *     ?KbdNlsFuncTypeAlt@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z @ 0x1C01AB270 (-KbdNlsFuncTypeAlt@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z.c)
+ *     ?KbdNlsFuncTypeNormal@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z @ 0x1C01AB350 (-KbdNlsFuncTypeNormal@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z.c)
+ *     VKFromVSC @ 0x1C01B16A0 (VKFromVSC.c)
  * Callees:
  *     <none>
  */

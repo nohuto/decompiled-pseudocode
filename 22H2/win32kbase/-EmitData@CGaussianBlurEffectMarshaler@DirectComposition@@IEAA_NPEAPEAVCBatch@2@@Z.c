@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitData@CGaussianBlurEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C020E7D0
+ * XREFs of ?EmitData@CGaussianBlurEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DFB24
  * Callers:
- *     ?EmitUpdateCommands@CGaussianBlurEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C020E850 (-EmitUpdateCommands@CGaussianBlurEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CGaussianBlurEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DFBA0 (-EmitUpdateCommands@CGaussianBlurEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CGaussianBlurEffectMarshaler::EmitData(
@@ -20,8 +20,8 @@ char __fastcall DirectComposition::CGaussianBlurEffectMarshaler::EmitData(
   *(_DWORD *)v5 = 24;
   *(_OWORD *)(v3 + 4) = 0LL;
   *((_DWORD *)v3 + 5) = 0;
-  *((_DWORD *)v3 + 1) = 463;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v3 + 1) = 483;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
   *((_DWORD *)v3 + 3) = *((_DWORD *)this + 28);
   *((_DWORD *)v3 + 4) = *((_DWORD *)this + 29);
   *((_DWORD *)v3 + 5) = *((_DWORD *)this + 30);

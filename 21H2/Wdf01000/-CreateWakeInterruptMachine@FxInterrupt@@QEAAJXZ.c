@@ -1,79 +1,77 @@
 /*
- * XREFs of ?CreateWakeInterruptMachine@FxInterrupt@@QEAAJXZ @ 0x1C008CE60
+ * XREFs of ?CreateWakeInterruptMachine@FxInterrupt@@QEAAJXZ @ 0x1C00892D0
  * Callers:
- *     ?_CreateAndInit@FxInterrupt@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@PEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_INTERRUPT_CONFIG@@PEAPEAV1@@Z @ 0x1C001EB1C (-_CreateAndInit@FxInterrupt@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@PEAVFxObject@@PEAU_WDF_OBJ.c)
+ *     ?_CreateAndInit@FxInterrupt@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@PEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_INTERRUPT_CONFIG@@PEAPEAV1@@Z @ 0x1C0089D38 (-_CreateAndInit@FxInterrupt@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@PEAVFxObject@@PEAU_WDF_OBJ.c)
  * Callees:
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?Initialize@FxEventQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0022D70 (-Initialize@FxEventQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?Init@FxThreadedEventQueue@@QEAAJPEAVFxPkgPnp@@P6AX0PEAUFxPostProcessInfo@@PEAX@Z2@Z @ 0x1C00291B8 (-Init@FxThreadedEventQueue@@QEAAJPEAVFxPkgPnp@@P6AX0PEAUFxPostProcessInfo@@PEAX@Z2@Z.c)
- *     ??_GFxWakeInterruptMachine@@QEAAPEAXI@Z @ 0x1C008CE30 (--_GFxWakeInterruptMachine@@QEAAPEAXI@Z.c)
- *     ??0FxWakeInterruptMachine@@QEAA@PEAVFxInterrupt@@@Z @ 0x1C008E240 (--0FxWakeInterruptMachine@@QEAA@PEAVFxInterrupt@@@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ??_GFxWakeInterruptMachine@@QEAAPEAXI@Z @ 0x1C00890E0 (--_GFxWakeInterruptMachine@@QEAAPEAXI@Z.c)
+ *     ?Init@FxThreadedEventQueue@@QEAAJPEAVFxPkgPnp@@P6AX0PEAUFxPostProcessInfo@@PEAX@Z2@Z @ 0x1C008AE6C (-Init@FxThreadedEventQueue@@QEAAJPEAVFxPkgPnp@@P6AX0PEAUFxPostProcessInfo@@PEAX@Z2@Z.c)
+ *     ?Initialize@FxEventQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C008AEA8 (-Initialize@FxEventQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ??0FxWakeInterruptMachine@@QEAA@PEAVFxInterrupt@@@Z @ 0x1C008B840 (--0FxWakeInterruptMachine@@QEAA@PEAVFxInterrupt@@@Z.c)
  */
 
 __int64 __fastcall FxInterrupt::CreateWakeInterruptMachine(FxInterrupt *this)
 {
-  FxDeviceBase *m_DeviceBase; // rax
-  _FX_DRIVER_GLOBALS *v3; // rcx
-  void *v4; // rax
-  FX_POOL **v5; // rax
-  FxEventQueue *v6; // rax
-  _FX_DRIVER_GLOBALS *v7; // rdx
-  FxEventQueue *v8; // rbx
-  int v9; // eax
-  FxPkgPnp **_a1; // rcx
-  unsigned int v11; // esi
-  unsigned __int16 v12; // r11
-  unsigned int _a2; // r9d
+  _FX_DRIVER_GLOBALS *v2; // rcx
+  FX_POOL **v3; // rax
+  _FX_DRIVER_GLOBALS *v4; // rdx
+  FxWakeInterruptMachine *v5; // rax
+  FxWakeInterruptMachine *v6; // rsi
+  int v7; // edi
+  signed int _a2; // eax
+  FxPkgPnp **_a1; // rdx
+  signed int v10; // eax
   _FX_DRIVER_GLOBALS *m_Globals; // rcx
-  __m128i v16; // [rsp+40h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+58h] [rbp+0h]
+  void *retaddr; // [rsp+48h] [rbp+0h]
 
-  m_DeviceBase = this->m_DeviceBase;
-  v16.m128i_i64[0] = 0LL;
-  v16.m128i_i64[1] = 64LL;
-  v3 = *(_FX_DRIVER_GLOBALS **)(*(_QWORD *)&m_DeviceBase[3].m_SpinLock.m_DbgFlagIsInitialized + 16LL);
-  if ( v3->FxPoolTrackingOn )
-    v4 = retaddr;
+  v2 = *(_FX_DRIVER_GLOBALS **)(*(_QWORD *)&this->m_DeviceBase[3].m_SpinLock.m_DbgFlagIsInitialized + 16LL);
+  v3 = FxPoolAllocator(v2, &v2->FxPoolFrameworks, ExDefaultNonPagedPoolType, 0xF0uLL, v2->Tag, retaddr);
+  if ( v3 )
+  {
+    FxWakeInterruptMachine::FxWakeInterruptMachine((FxWakeInterruptMachine *)v3, this);
+    v6 = v5;
+  }
   else
-    v4 = 0LL;
-  v5 = FxPoolAllocator(v3, &v3->FxPoolFrameworks, &v16, 0xF0uLL, v3->Tag, v4);
-  if ( !v5 || (FxWakeInterruptMachine::FxWakeInterruptMachine((FxWakeInterruptMachine *)v5, this), (v8 = v6) == 0LL) )
   {
-    v11 = -1073741670;
-    WPP_IFR_SF_qL(this->m_Globals, 2u, 0xCu, 0xCu, WPP_InterruptObject_cpp_Traceguids, this->m_DeviceBase, 0xC000009A);
-    return v11;
+    v6 = 0LL;
   }
-  v9 = FxEventQueue::Initialize(v6, v7);
-  _a1 = (FxPkgPnp **)this->m_DeviceBase;
-  v11 = v9;
-  if ( v9 < 0 )
+  if ( v6 )
   {
-    v12 = 13;
-    _a2 = v9;
-LABEL_10:
-    WPP_IFR_SF_qL(this->m_Globals, 2u, 0xCu, v12, WPP_InterruptObject_cpp_Traceguids, _a1, _a2);
-    FxWakeInterruptMachine::`scalar deleting destructor'((FxDevicePwrRequirementMachine *)v8);
-    return v11;
-  }
-  v11 = FxThreadedEventQueue::Init((FxThreadedEventQueue *)v8, _a1[81], FxWakeInterruptMachine::_ProcessEventInner, v8);
-  _a2 = v11;
-  if ( (v11 & 0x80000000) != 0 )
-  {
+    _a2 = FxEventQueue::Initialize(v6, v4);
     _a1 = (FxPkgPnp **)this->m_DeviceBase;
-    v12 = 14;
-    goto LABEL_10;
+    v7 = _a2;
+    if ( _a2 >= 0 )
+    {
+      v10 = FxThreadedEventQueue::Init(v6, _a1[81], FxWakeInterruptMachine::_ProcessEventInner, v6);
+      v7 = v10;
+      if ( v10 >= 0 )
+      {
+        this->m_WakeInterruptMachine = v6;
+        KeInitializeEvent(&v6->m_IsrEvent.m_Event, SynchronizationEvent, 0);
+        v6->m_IsrEvent.m_DbgFlagIsInitialized = 1;
+        ++*(_DWORD *)(*(_QWORD *)&this->m_DeviceBase[3].m_SpinLock.m_DbgFlagIsInitialized + 1208LL);
+        m_Globals = this->m_Globals;
+        if ( m_Globals->FxVerboseOn )
+          WPP_IFR_SF_q(m_Globals, 5u, 0xCu, 0xFu, WPP_InterruptObject_cpp_Traceguids, this->m_DeviceBase);
+      }
+      else
+      {
+        WPP_IFR_SF_qL(this->m_Globals, 2u, 0xCu, 0xEu, WPP_InterruptObject_cpp_Traceguids, this->m_DeviceBase, v10);
+      }
+    }
+    else
+    {
+      WPP_IFR_SF_qL(this->m_Globals, 2u, 0xCu, 0xDu, WPP_InterruptObject_cpp_Traceguids, _a1, _a2);
+    }
+    if ( v7 < 0 )
+      FxWakeInterruptMachine::`scalar deleting destructor'((FxDevicePwrRequirementMachine *)v6);
   }
-  this->m_WakeInterruptMachine = (FxWakeInterruptMachine *)v8;
-  KeInitializeEvent(
-    (PRKEVENT)&v8[1].m_StateMachineLock.m_Event.m_Event.Header.WaitListHead.Blink,
-    SynchronizationEvent,
-    0);
-  LOBYTE(v8[1].m_EventWorker) = 1;
-  ++*(_DWORD *)(*(_QWORD *)&this->m_DeviceBase[3].m_SpinLock.m_DbgFlagIsInitialized + 1208LL);
-  m_Globals = this->m_Globals;
-  if ( m_Globals->FxVerboseOn )
-    WPP_IFR_SF_q(m_Globals, 5u, 0xCu, 0xFu, WPP_InterruptObject_cpp_Traceguids, this->m_DeviceBase);
-  return v11;
+  else
+  {
+    v7 = -1073741670;
+    WPP_IFR_SF_qL(this->m_Globals, 2u, 0xCu, 0xCu, WPP_InterruptObject_cpp_Traceguids, this->m_DeviceBase, 0xC000009A);
+  }
+  return (unsigned int)v7;
 }

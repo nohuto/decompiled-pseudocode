@@ -1,31 +1,19 @@
 /*
- * XREFs of MiAllocateKernelCfgBitmapPageTables @ 0x140A43EBC
+ * XREFs of MiAllocateKernelCfgBitmapPageTables @ 0x1408D77E0
  * Callers:
- *     MiMarkKernelImageCfgBits @ 0x1406970A4 (MiMarkKernelImageCfgBits.c)
- *     MiApplyDriverHotPatch @ 0x140A348E8 (MiApplyDriverHotPatch.c)
- *     MiInitializeDriverImages @ 0x140B497A0 (MiInitializeDriverImages.c)
+ *     MiMarkKernelImageCfgBits @ 0x140772E64 (MiMarkKernelImageCfgBits.c)
  * Callees:
- *     MiMakeZeroedPageTables @ 0x14020B2A0 (MiMakeZeroedPageTables.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiAcquireKernelCfgLock @ 0x140A43E58 (MiAcquireKernelCfgLock.c)
- *     MiReleaseKernelCfgLock @ 0x140A44124 (MiReleaseKernelCfgLock.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MiMakeZeroedPageTables @ 0x14039D740 (MiMakeZeroedPageTables.c)
  */
 
-__int64 __fastcall MiAllocateKernelCfgBitmapPageTables(__int64 a1, int a2, int a3)
+__int64 __fastcall MiAllocateKernelCfgBitmapPageTables(__int64 a1, unsigned int a2)
 {
-  unsigned __int64 v6; // r9
-  int PteAddress; // eax
-  int v8; // edx
-  unsigned int v9; // edi
+  unsigned __int64 v2; // r9
+  __int64 PteAddress; // rax
+  __int64 v4; // rdx
 
-  if ( !a3 )
-    MiAcquireKernelCfgLock();
-  MiGetPteAddress(qword_140C65930 + ((2 * ((a1 + (unsigned __int64)(unsigned int)(a2 - 1) + 0x800000000000LL) >> 4)) >> 3));
-  PteAddress = MiGetPteAddress(v6);
-  v9 = 0;
-  if ( !(unsigned int)MiMakeZeroedPageTables(PteAddress, v8, 1, 9) )
-    v9 = -1073741670;
-  if ( !a3 )
-    MiReleaseKernelCfgLock();
-  return v9;
+  MiGetPteAddress(qword_140C4CC38 + ((2 * (((unsigned __int64)a2 + 0x7FFFFFFFFFFFLL + a1) >> 4)) >> 3));
+  PteAddress = MiGetPteAddress(v2);
+  return (unsigned int)MiMakeZeroedPageTables(PteAddress, v4, 1u, 9) == 0 ? 0xC000009A : 0;
 }

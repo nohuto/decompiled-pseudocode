@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateMailslotFile @ 0x140661A80
+ * XREFs of NtCreateMailslotFile @ 0x1405D8A00
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IoCreateFile @ 0x1406CAD00 (IoCreateFile.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IoCreateFile @ 0x14060B1D0 (IoCreateFile.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall NtCreateMailslotFile(

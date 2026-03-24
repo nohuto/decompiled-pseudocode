@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetAlphaMode@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAXW4DXGI_ALPHA_MODE@@@Z @ 0x18010A190
+ * XREFs of ?SetAlphaMode@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAXW4DXGI_ALPHA_MODE@@@Z @ 0x1800F7B40
  * Callers:
  *     <none>
  * Callees:

@@ -1,55 +1,56 @@
 /*
- * XREFs of VmpProcessAccessedBatch @ 0x14062B464
+ * XREFs of VmpProcessAccessedBatch @ 0x1405A4840
  * Callers:
- *     VmpQueryAccessedState @ 0x14062B7FC (VmpQueryAccessedState.c)
+ *     VmpQueryAccessedState @ 0x1405A4BEC (VmpQueryAccessedState.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HvlGetSparseGpaPagesAccessState @ 0x140653D68 (HvlGetSparseGpaPagesAccessState.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvlGetSparseGpaPagesAccessState @ 0x1405C98FC (HvlGetSparseGpaPagesAccessState.c)
  */
 
 unsigned __int64 __fastcall VmpProcessAccessedBatch(__int64 a1, __int64 a2, int a3, unsigned __int64 *a4, int a5)
 {
   __int64 v6; // rbp
-  __int64 v9; // rdx
+  __int64 v10; // rdx
   int SparseGpaPagesAccessState; // eax
-  int v11; // r10d
+  int v12; // r10d
   unsigned __int64 result; // rax
   _BYTE *i; // r8
-  unsigned __int64 v14; // rcx
-  __int64 v15; // [rsp+30h] [rbp-48h] BYREF
-  _BYTE v16[32]; // [rsp+38h] [rbp-40h] BYREF
+  unsigned __int64 v15; // rcx
+  __int64 v16; // [rsp+30h] [rbp-58h] BYREF
+  _BYTE v17[32]; // [rsp+38h] [rbp-50h] BYREF
 
-  v15 = 0LL;
+  v16 = 0LL;
   v6 = *(_QWORD *)(a1 + 72);
   while ( 1 )
   {
-    v9 = 0LL;
+    v10 = 0LL;
     if ( v6 == -1 )
     {
-      v11 = -1073741823;
-      v15 = 0LL;
+      v12 = -1073741823;
+      v16 = 0LL;
     }
     else
     {
-      LOBYTE(v9) = a5 != 0;
-      SparseGpaPagesAccessState = HvlGetSparseGpaPagesAccessState(v6, v9, a3, a2, (__int64)&v15, (__int64)v16);
-      v9 = v15;
-      v11 = SparseGpaPagesAccessState;
+      if ( a5 && (*(_BYTE *)(a1 + 88) & 1) == 0 )
+        LODWORD(v10) = 1;
+      SparseGpaPagesAccessState = HvlGetSparseGpaPagesAccessState(v6, v10, a3, a2, (__int64)&v16, (__int64)v17);
+      v10 = v16;
+      v12 = SparseGpaPagesAccessState;
     }
-    result = (unsigned __int64)v16;
-    for ( i = v16; i < &v16[v9]; ++a4 )
+    result = (unsigned __int64)v17;
+    for ( i = v17; i < &v17[v10]; ++a4 )
     {
-      v14 = *a4;
+      v15 = *a4;
       if ( (*i & 1) != 0 )
-        v14 |= 1uLL;
+        v15 |= 1uLL;
       ++i;
-      *a4 = v14 & 0xFFFFFFFFFFFFFFF9uLL | 4;
+      *a4 = v15 & 0xFFFFFFFFFFFFFFF9uLL | 4;
     }
-    a2 += 8 * v9;
-    a3 -= v9;
+    a2 += 8 * v10;
+    a3 -= v10;
     if ( !a3 )
       break;
-    if ( v11 < 0 )
+    if ( v12 < 0 )
     {
       result = *a4;
       if ( (*a4 & 4) == 0 )

@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpTryConfigureInterface @ 0x1403BF6EC
+ * XREFs of HvlpTryConfigureInterface @ 0x1403AE640
  * Callers:
- *     HvlRestoreEnlightenment @ 0x1405437A4 (HvlRestoreEnlightenment.c)
- *     HvlPhase0Initialize @ 0x140824AA0 (HvlPhase0Initialize.c)
- *     HvlEnableVsmCalls @ 0x140B315C0 (HvlEnableVsmCalls.c)
+ *     HvlRestoreEnlightenment @ 0x1404F1E60 (HvlRestoreEnlightenment.c)
+ *     HvlPhase0Initialize @ 0x140796CFC (HvlPhase0Initialize.c)
+ *     HvlEnableVsmCalls @ 0x140A74220 (HvlEnableVsmCalls.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     HviGetHypervisorFeatures @ 0x1403BF8B0 (HviGetHypervisorFeatures.c)
- *     HviIsHypervisorMicrosoftCompatible @ 0x1403C0314 (HviIsHypervisorMicrosoftCompatible.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     HviGetHypervisorFeatures @ 0x1403AE200 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x1403AE240 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvlpTryConfigureInterface(__int64 a1)
@@ -29,8 +29,7 @@ __int64 __fastcall HvlpTryConfigureInterface(__int64 a1)
   v10 = 0LL;
   HviGetHypervisorFeatures(&v10);
   v2 = ((unsigned __int64)v10 >> 44) & 1;
-  if ( !(unsigned __int8)HviIsHypervisorMicrosoftCompatible()
-    || (v11 = 0LL, HviGetHypervisorFeatures(&v11), (v11 & 0x20) == 0) )
+  if ( !HviIsHypervisorMicrosoftCompatible() || (v11 = 0LL, HviGetHypervisorFeatures(&v11), (v11 & 0x20) == 0) )
   {
     HvlpHypercallCodeVa = 0LL;
     return 3224702976LL;
@@ -38,22 +37,23 @@ __int64 __fastcall HvlpTryConfigureInterface(__int64 a1)
   if ( a1 )
   {
     v5 = *(_QWORD *)(a1 + 240);
-    v6 = *(__int64 (**)())(v5 + 2952);
+    v6 = *(__int64 (**)())(v5 + 2920);
     v4 = *(_DWORD *)(v5 + 132) >> 9;
     LOBYTE(v4) = (*(_DWORD *)(v5 + 132) & 0x200) != 0;
-    if ( v6 )
-      goto LABEL_16;
   }
   else
   {
+    v6 = 0LL;
     LOBYTE(v4) = 0;
   }
+  if ( v6 )
+    goto LABEL_16;
   __writemsr(0x40000000u, (unsigned __int16)NtBuildNumber | ((BYTE1(CmNtCSDVersion) | 0x1040A0000LL) << 16));
   v7 = __readmsr(0x40000001u) | 1;
   if ( (_BYTE)v2 || (_BYTE)v4 )
   {
     QuadPart = v7 & 0xFFFFFFFFFFFFF000uLL;
-    v6 = (__int64 (*)())((__int64 (__fastcall *)(unsigned __int64, __int64, __int64, __int64))qword_140C01D70)(
+    v6 = (__int64 (*)())((__int64 (__fastcall *)(unsigned __int64, __int64, __int64, __int64))qword_140C00720)(
                           v7 & 0xFFFFFFFFFFFFF000uLL,
                           1LL,
                           32LL,
@@ -70,7 +70,7 @@ __int64 __fastcall HvlpTryConfigureInterface(__int64 a1)
       QuadPart = PhysicalAddress.QuadPart;
       goto LABEL_14;
     }
-    v6 = (__int64 (*)())((__int64 (__fastcall *)(__int64, __int64, unsigned __int64 *, __int64))qword_140C01D68)(
+    v6 = (__int64 (*)())((__int64 (__fastcall *)(__int64, __int64, unsigned __int64 *, __int64))qword_140C00718)(
                           a1,
                           1LL,
                           &QuadPart,

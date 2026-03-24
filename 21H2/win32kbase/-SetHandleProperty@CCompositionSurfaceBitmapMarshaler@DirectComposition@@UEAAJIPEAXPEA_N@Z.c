@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetHandleProperty@CCompositionSurfaceBitmapMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C00AF160
+ * XREFs of ?SetHandleProperty@CCompositionSurfaceBitmapMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C009AE60
  * Callers:
  *     <none>
  * Callees:
@@ -32,7 +32,7 @@ __int64 __fastcall DirectComposition::CCompositionSurfaceBitmapMarshaler::SetHan
       return (unsigned int)v4;
     v7 = v10;
   }
-  v8 = (void *)*((_QWORD *)this + 8);
+  v8 = (void *)*((_QWORD *)this + 7);
   if ( v7 == v8 )
   {
     if ( v7 )
@@ -42,10 +42,10 @@ __int64 __fastcall DirectComposition::CCompositionSurfaceBitmapMarshaler::SetHan
   {
     if ( v8 )
     {
-      DxgkReleaseCompositionObjectReference(*((void **)this + 8));
+      DxgkReleaseCompositionObjectReference(*((void **)this + 7));
       v7 = v10;
     }
-    *((_QWORD *)this + 8) = v7;
+    *((_QWORD *)this + 7) = v7;
     *v5 = 1;
   }
   return (unsigned int)v4;

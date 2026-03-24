@@ -1,17 +1,17 @@
 /*
- * XREFs of PspReferenceTokenForNewProcess @ 0x14066F864
+ * XREFs of PspReferenceTokenForNewProcess @ 0x14060D2C4
  * Callers:
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x14085DACC (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x1407CE460 (PspCreateProcess.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
  */
 
-NTSTATUS __fastcall PspReferenceTokenForNewProcess(__int64 a1, void *a2, KPROCESSOR_MODE a3, _QWORD *a4)
+NTSTATUS __fastcall PspReferenceTokenForNewProcess(struct _KPROCESS *a1, void *a2, KPROCESSOR_MODE a3, _QWORD *a4)
 {
-  PVOID v5; // rbx
+  PACCESS_TOKEN v5; // rbx
   NTSTATUS result; // eax
   PVOID Object; // [rsp+48h] [rbp+10h] BYREF
 
@@ -19,7 +19,7 @@ NTSTATUS __fastcall PspReferenceTokenForNewProcess(__int64 a1, void *a2, KPROCES
   {
     if ( a1 )
     {
-      v5 = (PVOID)PsReferencePrimaryTokenWithTag(a1, 0x746C6644u);
+      v5 = PsReferencePrimaryToken(a1);
     }
     else
     {

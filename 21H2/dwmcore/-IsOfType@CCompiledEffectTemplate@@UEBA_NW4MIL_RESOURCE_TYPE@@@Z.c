@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CCompiledEffectTemplate@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E9CE0
+ * XREFs of ?IsOfType@CCompiledEffectTemplate@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D9C30
  * Callers:
  *     <none>
  * Callees:

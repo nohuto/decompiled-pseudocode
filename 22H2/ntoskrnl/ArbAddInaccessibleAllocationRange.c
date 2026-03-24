@@ -1,53 +1,52 @@
 /*
- * XREFs of ArbAddInaccessibleAllocationRange @ 0x140815AD4
+ * XREFs of ArbAddInaccessibleAllocationRange @ 0x1407A249C
  * Callers:
- *     IopMemInitialize @ 0x140816A54 (IopMemInitialize.c)
+ *     IopMemInitialize @ 0x1407A2064 (IopMemInitialize.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ArbpGetRegistryValue @ 0x1408165A8 (ArbpGetRegistryValue.c)
- *     RtlAddRange @ 0x140816E70 (RtlAddRange.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     RtlAddRange @ 0x140763A30 (RtlAddRange.c)
+ *     ArbpGetRegistryValue @ 0x1407A2F60 (ArbpGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall ArbAddInaccessibleAllocationRange(__int64 a1, int a2)
+NTSTATUS __fastcall ArbAddInaccessibleAllocationRange(__int64 a1, __int64 a2)
 {
   NTSTATUS result; // eax
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   int RegistryValue; // eax
-  int v7; // r9d
-  _DWORD *v8; // rdi
-  char *v9; // r14
+  _DWORD *v7; // rdi
+  char *v8; // r14
   char *i; // rsi
-  int v11; // eax
-  int v12; // ecx
+  int v10; // eax
+  int v11; // ecx
   HANDLE KeyHandle; // [rsp+40h] [rbp-39h] BYREF
-  _DWORD *v14; // [rsp+48h] [rbp-31h]
-  _QWORD v15[2]; // [rsp+50h] [rbp-29h] BYREF
-  _DWORD v16[2]; // [rsp+60h] [rbp-19h] BYREF
-  const wchar_t *v17; // [rsp+68h] [rbp-11h]
+  _DWORD *v13; // [rsp+48h] [rbp-31h]
+  _QWORD v14[2]; // [rsp+50h] [rbp-29h] BYREF
+  _DWORD v15[2]; // [rsp+60h] [rbp-19h] BYREF
+  const wchar_t *v16; // [rsp+68h] [rbp-11h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-9h] BYREF
   HANDLE Handle; // [rsp+F8h] [rbp+7Fh] BYREF
 
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   KeyHandle = 0LL;
-  v15[1] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Arbiters";
+  v14[1] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Arbiters";
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)v15;
-  v15[0] = 7733366LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v14;
+  v14[0] = 7733366LL;
   Handle = 0LL;
-  v16[1] = 0;
-  v14 = 0LL;
+  v15[1] = 0;
+  v13 = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    v16[0] = 2228258;
-    v17 = L"InaccessibleRange";
+    v15[0] = 2228258;
+    v16 = L"InaccessibleRange";
     ObjectAttributes.RootDirectory = KeyHandle;
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)v16;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)v15;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v5 = ZwOpenKey(&Handle, 0x2001Fu, &ObjectAttributes);
@@ -58,7 +57,7 @@ LABEL_17:
       return v5;
     }
     RegistryValue = ArbpGetRegistryValue(Handle);
-    v8 = 0LL;
+    v7 = 0LL;
     v5 = RegistryValue;
     if ( RegistryValue >= 0 )
     {
@@ -71,19 +70,18 @@ LABEL_17:
       if ( RegistryValue >= 0 )
       {
         ExFreePoolWithTag(0LL, 0);
-        v8 = v14;
+        v7 = v13;
 LABEL_8:
-        if ( v8[1] == 10 )
+        if ( v7[1] == 10 )
         {
-          v9 = (char *)v8 + (unsigned int)v8[2] + 32;
-          for ( i = v9 + 8; i < &v9[32 * *((unsigned int *)v9 + 1) + 8]; i += 32 )
+          v8 = (char *)v7 + (unsigned int)v7[2] + 32;
+          for ( i = v8 + 8; i < &v8[32 * *((unsigned int *)v8 + 1) + 8]; i += 32 )
           {
-            v11 = (unsigned __int8)i[1];
-            v12 = *(_DWORD *)(a1 + 32);
-            if ( v11 == v12 || (_BYTE)v11 == 7 && v12 == 3 )
+            v10 = (unsigned __int8)i[1];
+            v11 = *(_DWORD *)(a1 + 32);
+            if ( v10 == v11 || (_BYTE)v10 == 7 && v11 == 3 )
             {
-              LOBYTE(v7) = 64;
-              v5 = RtlAddRange(a2, *((_QWORD *)i + 2), *((_QWORD *)i + 3), v7, 1, 0LL, 0LL);
+              v5 = RtlAddRange(a2, *((_QWORD *)i + 2), *((_QWORD *)i + 3), 64, 1, 0LL, 0LL);
               if ( v5 < 0 )
                 break;
             }
@@ -93,8 +91,8 @@ LABEL_8:
 LABEL_21:
         v5 = -1073741811;
 LABEL_14:
-        if ( v8 )
-          ExFreePoolWithTag(v8, 0);
+        if ( v7 )
+          ExFreePoolWithTag(v7, 0);
         ZwClose(Handle);
         goto LABEL_17;
       }

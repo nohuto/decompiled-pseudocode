@@ -1,27 +1,26 @@
 /*
- * XREFs of ?FindInputSpace@CMouseConfig@CInputConfig@@QEAAXXZ @ 0x1C00A0690
+ * XREFs of ?FindInputSpace@CMouseConfig@CInputConfig@@QEAAXXZ @ 0x1C006E978
  * Callers:
- *     ?_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z @ 0x1C009FE3C (-_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z.c)
- *     ?BindMouse@CInputConfig@@QEAAJU_LUID@@@Z @ 0x1C01E37B0 (-BindMouse@CInputConfig@@QEAAJU_LUID@@@Z.c)
+ *     ?_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z @ 0x1C006DCF4 (-_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z.c)
+ *     ?BindMouse@CInputConfig@@QEAAJU_LUID@@@Z @ 0x1C01B3054 (-BindMouse@CInputConfig@@QEAAJU_LUID@@@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CInputConfig::CMouseConfig::FindInputSpace(CInputConfig::CMouseConfig *this)
 {
-  bool v2; // si
+  char v2; // si
   CInputConfig *v3; // r14
   _QWORD **v4; // rdi
   CInputConfig *v5; // rdx
   CInputConfig *i; // r8
   _QWORD **v7; // rax
   _QWORD **v8; // rcx
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
+  char v9; // al
 
   *((_QWORD *)this + 1) = 0LL;
-  v2 = !*(_DWORD *)this && !*((_DWORD *)this + 1);
+  if ( *(_DWORD *)this || (v2 = 1, *((_DWORD *)this + 1)) )
+    v2 = 0;
   v3 = gpInputConfig;
   v4 = 0LL;
   KeEnterCriticalRegion();
@@ -39,15 +38,20 @@ void __fastcall CInputConfig::CMouseConfig::FindInputSpace(CInputConfig::CMouseC
       v8 = (_QWORD **)((char *)v5 + 16);
     if ( v2 )
     {
-      if ( ((_BYTE)v8[1] & 1) != 0 )
-        goto LABEL_12;
+      v9 = (_BYTE)v8[1] & 1;
     }
-    else if ( *(_DWORD *)this == *(_DWORD *)v8 && *((_DWORD *)this + 1) == *((_DWORD *)v8 + 1) )
+    else
     {
+      if ( *(_DWORD *)this == *(_DWORD *)v8 && *((_DWORD *)this + 1) == *((_DWORD *)v8 + 1) )
+      {
 LABEL_12:
-      *((_QWORD *)this + 1) = v8;
-      break;
+        *((_QWORD *)this + 1) = v8;
+        break;
+      }
+      v9 = 0;
     }
+    if ( v9 )
+      goto LABEL_12;
     if ( ((_DWORD)v8[1] & 1) != 0 || !v4 )
       v4 = v8;
     v5 = i;
@@ -58,6 +62,10 @@ LABEL_12:
   {
     *((_QWORD *)this + 1) = v4;
     if ( !v4 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
+    {
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 828LL);
+      if ( !*((_QWORD *)this + 1) )
+        *((_QWORD *)this + 1) = (char *)this + 16;
+    }
   }
 }

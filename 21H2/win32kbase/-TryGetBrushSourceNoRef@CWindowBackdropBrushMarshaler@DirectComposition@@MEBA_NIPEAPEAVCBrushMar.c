@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TryGetBrushSourceNoRef@CWindowBackdropBrushMarshaler@DirectComposition@@MEBA_NIPEAPEAVCBrushMarshaler@2@@Z @ 0x1C00CB210
+ * XREFs of ?TryGetBrushSourceNoRef@CWindowBackdropBrushMarshaler@DirectComposition@@MEBA_NIPEAPEAVCBrushMarshaler@2@@Z @ 0x1C00BC030
  * Callers:
  *     <none>
  * Callees:

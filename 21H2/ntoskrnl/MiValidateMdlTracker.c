@@ -1,11 +1,11 @@
 /*
- * XREFs of MiValidateMdlTracker @ 0x140584C78
+ * XREFs of MiValidateMdlTracker @ 0x140530FD8
  * Callers:
- *     MiFreeMdlTracker @ 0x140584374 (MiFreeMdlTracker.c)
- *     MmUpdateMdlTrackerForMdlSwitch @ 0x14058503C (MmUpdateMdlTrackerForMdlSwitch.c)
+ *     MiFreeMdlTracker @ 0x140530B30 (MiFreeMdlTracker.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x140531398 (MmUpdateMdlTrackerForMdlSwitch.c)
  * Callees:
- *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1402210C0 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1402A7A34 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiValidateMdlTracker(ULONG_PTR BugCheckParameter3, int a2)
@@ -29,7 +29,7 @@ __int64 __fastcall MiValidateMdlTracker(ULONG_PTR BugCheckParameter3, int a2)
   if ( a2 )
   {
     v9 = 0LL;
-    MetroHash64::Hash((const unsigned __int8 *)(v2 + 48), 8 * v6, (unsigned __int8 *const)&v9, 0LL);
+    MetroHash64::Hash((const unsigned __int8 *)(v2 + 48), 8 * v6, (unsigned __int8 *const)&v9);
     result = v9;
     if ( *(_DWORD *)(BugCheckParameter3 + 60) != (_DWORD)v9 )
       KeBugCheckEx(0x76u, 7uLL, v2, BugCheckParameter3, (unsigned int)v9 | (unsigned __int64)(v7 << 32));

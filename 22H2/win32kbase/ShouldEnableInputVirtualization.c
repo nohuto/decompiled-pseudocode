@@ -1,53 +1,119 @@
 /*
- * XREFs of ShouldEnableInputVirtualization @ 0x1C00837F0
+ * XREFs of ShouldEnableInputVirtualization @ 0x1C008AEB8
  * Callers:
- *     InputInitialize @ 0x1C00814D4 (InputInitialize.c)
+ *     InputInitialize @ 0x1C008B0FC (InputInitialize.c)
  * Callees:
- *     RIMIsRunningOnDesktop @ 0x1C004FEC0 (RIMIsRunningOnDesktop.c)
- *     RIMRegQueryDWord @ 0x1C006DA64 (RIMRegQueryDWord.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     HviGetHypervisorFeatures @ 0x1C0235964 (HviGetHypervisorFeatures.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     RIMIsRunningOnDesktop @ 0x1C00429EC (RIMIsRunningOnDesktop.c)
+ *     RIMRegQueryDWord @ 0x1C006D048 (RIMRegQueryDWord.c)
+ *     RIMRegOpenKey @ 0x1C006D0C0 (RIMRegOpenKey.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     Feature_InputVirtualizationDesktopSpecific__private_ReportDeviceUsage @ 0x1C00CD4D8 (Feature_InputVirtualizationDesktopSpecific__private_ReportDeviceUsage.c)
+ *     Feature_InputVirtualization__private_ReportDeviceUsage @ 0x1C00CD53C (Feature_InputVirtualization__private_ReportDeviceUsage.c)
+ *     WPP_RECORDER_SF_ccccc @ 0x1C01BA6F4 (WPP_RECORDER_SF_ccccc.c)
  */
 
-char __fastcall ShouldEnableInputVirtualization(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char ShouldEnableInputVirtualization()
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  int v9; // [rsp+20h] [rbp-28h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+28h] [rbp-20h] BYREF
+  int v0; // edx
+  int v1; // r9d
+  void *v2; // rax
+  int v3; // edx
+  int v4; // eax
+  int v6; // [rsp+50h] [rbp-30h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-28h] BYREF
+  __int128 v8; // [rsp+68h] [rbp-18h] BYREF
 
-  if ( RIMIsRunningOnDesktop(a1, a2, a3, a4) )
+  if ( RIMIsRunningOnDesktop() )
   {
-    if ( *(_DWORD *)SGDGetUserSessionState(v5, v4, v6, v7) == 1 )
+    if ( gSessionId != 1 )
     {
-      DestinationString = 0LL;
-      RtlInitUnicodeString(
-        &DestinationString,
-        L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows");
-      v9 = 0;
-      RIMRegQueryDWord((__int64)&DestinationString, L"IsVailContainer", 0, &v9);
-      if ( (v9 & 0x1F) != 0 )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        byte_1C02908A8 = v9 & 1;
-        byte_1C02908A7 = (v9 & 2) != 0;
-        byte_1C02908A5 = (v9 & 4) != 0;
-        byte_1C02908A4 = (v9 & 8) != 0;
-        byte_1C02908A6 = (v9 & 0x10) != 0;
-        return 1;
+        v1 = 14;
+        goto LABEL_19;
       }
+      return 0;
     }
+    Feature_InputVirtualizationDesktopSpecific__private_ReportDeviceUsage();
+    DestinationString = 0LL;
+    RtlInitUnicodeString(
+      &DestinationString,
+      L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows");
+    v6 = 0;
+    v4 = RIMRegQueryDWord((__int64)&DestinationString, (__int64)L"IsVailContainer", 0, &v6);
+    if ( (v6 & 0x1F) == 0 )
+    {
+      if ( v4 )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          v1 = 16;
+          LOBYTE(v0) = 3;
+LABEL_20:
+          WPP_RECORDER_SF_(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            v0,
+            12,
+            v1,
+            (__int64)&WPP_2ccd359dbff93ea23c150f58e4d81fa3_Traceguids);
+          return 0;
+        }
+      }
+      else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v1 = 17;
+        goto LABEL_19;
+      }
+      return 0;
+    }
+    byte_1C02585D8 = v6 & 1;
+    byte_1C02585D9 = (v6 & 2) != 0;
+    byte_1C02585DA = (v6 & 4) != 0;
+    byte_1C02585DB = (v6 & 8) != 0;
+    byte_1C02585C0 = (v6 & 0x10) != 0;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_ccccc();
   }
   else
   {
-    DestinationString = 0LL;
-    HviGetHypervisorFeatures(&DestinationString);
-    if ( (*(_QWORD *)&DestinationString.Length & 0x100000000000LL) != 0
-      && (int)RtlIsApiSetImplemented("SchemaExt-Composable-Vail") >= 0 )
+    Feature_InputVirtualization__private_ReportDeviceUsage();
+    v8 = 0LL;
+    HviGetHypervisorFeatures(&v8);
+    if ( (v8 & 0x100000000000LL) == 0 )
     {
-      return 1;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v1 = 11;
+LABEL_19:
+        LOBYTE(v0) = 4;
+        goto LABEL_20;
+      }
+      return 0;
+    }
+    DestinationString = 0LL;
+    RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\CmService");
+    v2 = RIMRegOpenKey(&DestinationString);
+    if ( !v2 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v1 = 12;
+        goto LABEL_19;
+      }
+      return 0;
+    }
+    ZwClose(v2);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v3) = 4;
+      WPP_RECORDER_SF_(
+        WPP_MAIN_CB.Queue.ListEntry.Flink,
+        v3,
+        12,
+        13,
+        (__int64)&WPP_2ccd359dbff93ea23c150f58e4d81fa3_Traceguids);
     }
   }
-  return 0;
+  return 1;
 }

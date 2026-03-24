@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmEtwAppendProductName @ 0x140307238
+ * XREFs of SmKmEtwAppendProductName @ 0x140307338
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x140307650 (SmKmStoreTerminateWorker.c)
+ *     SmKmStoreTerminateWorker @ 0x140307750 (SmKmStoreTerminateWorker.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     SmUniqueIdParseProductName @ 0x140306704 (SmUniqueIdParseProductName.c)
- *     SmKmStoreFileOpenVolume @ 0x1408AE300 (SmKmStoreFileOpenVolume.c)
- *     SmKmVolumeQueryUniqueId @ 0x1408AE684 (SmKmVolumeQueryUniqueId.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     SmUniqueIdParseProductName @ 0x140306804 (SmUniqueIdParseProductName.c)
+ *     SmKmStoreFileOpenVolume @ 0x1408AE2E0 (SmKmStoreFileOpenVolume.c)
+ *     SmKmVolumeQueryUniqueId @ 0x1408AE664 (SmKmVolumeQueryUniqueId.c)
  */
 
 LONG_PTR __fastcall SmKmEtwAppendProductName(__int64 a1, __int64 a2)

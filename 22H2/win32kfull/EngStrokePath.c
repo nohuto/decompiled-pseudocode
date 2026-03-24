@@ -1,23 +1,24 @@
 /*
- * XREFs of EngStrokePath @ 0x1C000D350
+ * XREFs of EngStrokePath @ 0x1C0148F20
  * Callers:
- *     W32kCddStrokePath @ 0x1C02703D0 (W32kCddStrokePath.c)
- *     ?bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEBU_LINEATTRS@@K@Z @ 0x1C02852AC (-bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSH.c)
- *     EngStrokeAndFillPath @ 0x1C0289760 (EngStrokeAndFillPath.c)
- *     ?PanStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C029CA10 (-PanStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_.c)
- *     ?BmpDevStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C02A28B0 (-BmpDevStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PE.c)
- *     ?RedirStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C02A5F80 (-RedirStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEA.c)
- *     ?MulStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C02B1350 (-MulStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_.c)
- *     NtGdiEngStrokePath @ 0x1C02CBBC0 (NtGdiEngStrokePath.c)
- *     OffStrokePath @ 0x1C02E9090 (OffStrokePath.c)
+ *     OffStrokePath @ 0x1C0145C54 (OffStrokePath.c)
+ *     ?bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C0145D8C (-bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSH.c)
+ *     W32kCddStrokePath @ 0x1C0148EB0 (W32kCddStrokePath.c)
+ *     EngStrokeAndFillPath @ 0x1C014BD00 (EngStrokeAndFillPath.c)
+ *     ?PanStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C0295980 (-PanStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_.c)
+ *     ?BmpDevStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C029A2B0 (-BmpDevStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PE.c)
+ *     ?RedirStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C029CF10 (-RedirStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEA.c)
+ *     ?MulStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C02A4880 (-MulStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_.c)
+ *     NtGdiEngStrokePath @ 0x1C02B3980 (NtGdiEngStrokePath.c)
  * Callees:
- *     ??0BOUNDCLIPRGNTOSURFACE@@QEAA@PEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C000D4B0 (--0BOUNDCLIPRGNTOSURFACE@@QEAA@PEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@@Z.c)
- *     ?bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z @ 0x1C000D5A8 (-bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEBU_LINEATTRS@@@Z @ 0x1C015DC06 (-bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEBU_LINEATTRS@@@Z.c)
- *     EngFillPath @ 0x1C0289380 (EngFillPath.c)
- *     ?vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z @ 0x1C02FD3B8 (-vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z.c)
+ *     ??1BOUNDCLIPRGNTOSURFACE@@QEAA@XZ @ 0x1C012AD90 (--1BOUNDCLIPRGNTOSURFACE@@QEAA@XZ.c)
+ *     ?bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C013F1FC (-bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z.c)
+ *     EngFillPath @ 0x1C01472B0 (EngFillPath.c)
+ *     ??0BOUNDCLIPRGNTOSURFACE@@QEAA@PEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C0149140 (--0BOUNDCLIPRGNTOSURFACE@@QEAA@PEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@@Z.c)
+ *     ?vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z @ 0x1C0149360 (-vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z.c)
+ *     ?bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z @ 0x1C0149D1C (-bStrokeCosmetic@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@K@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 BOOL __stdcall EngStrokePath(
@@ -30,76 +31,74 @@ BOOL __stdcall EngStrokePath(
         LINEATTRS *plineattrs,
         MIX mix)
 {
-  __int64 v9; // rsi
-  __int64 v11; // rbx
+  BOOL v11; // ebx
+  unsigned __int64 v12; // rdi
   FLONG fl; // eax
-  int v13; // eax
-  CLIPOBJ **p_pcoa; // rcx
-  BOOL v15; // ebx
-  __int64 (__fastcall *v17)(__int64, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, POINTL *, LINEATTRS *, MIX); // rax
+  int v14; // eax
+  __int64 (__fastcall *v15)(unsigned __int64, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, POINTL *, LINEATTRS *, MIX); // rax
   CLIPOBJ *pcoa; // [rsp+50h] [rbp-B0h] BYREF
-  CLIPOBJ *v19; // [rsp+58h] [rbp-A8h] BYREF
-  _BYTE v20[152]; // [rsp+60h] [rbp-A0h] BYREF
-  CLIPOBJ *v21; // [rsp+F8h] [rbp-8h]
-  int v22; // [rsp+100h] [rbp+0h]
+  POINTL *v18; // [rsp+58h] [rbp-A8h] BYREF
+  _BYTE v19[160]; // [rsp+60h] [rbp-A0h] BYREF
+  int v20; // [rsp+100h] [rbp+0h]
 
-  v9 = (__int64)pso;
   pcoa = pco;
-  BOUNDCLIPRGNTOSURFACE::BOUNDCLIPRGNTOSURFACE((BOUNDCLIPRGNTOSURFACE *)v20, pso, &pcoa);
-  if ( !v22 )
-    goto LABEL_14;
-  v11 = (v9 - 24) & -(__int64)(v9 != 0);
-  fl = ppo->fl;
-  if ( (plineattrs->fl & 1) != 0 )
+  v18 = pptlBrushOrg;
+  BOUNDCLIPRGNTOSURFACE::BOUNDCLIPRGNTOSURFACE((BOUNDCLIPRGNTOSURFACE *)v19, pso, &pcoa);
+  v11 = 0;
+  if ( v20 )
   {
-    if ( (fl & 0x10) != 0 || (unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)ppo, (struct EPATHOBJ *)ppo, pxo, plineattrs) )
+    v12 = (unsigned __int64)&pso[-1].pvScan0 & -(__int64)(pso != 0LL);
+    fl = ppo->fl;
+    if ( (plineattrs->fl & 1) != 0 )
     {
-      if ( !v9 )
-        v9 = 24LL;
-      v13 = EngFillPath((SURFOBJ *)(v9 & -(__int64)(v11 != 0)), ppo, pcoa, pbo, pptlBrushOrg, mix, 2u);
-      goto LABEL_23;
+      if ( (fl & 0x10) != 0 || (unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)ppo, (struct EPATHOBJ *)ppo, pxo, plineattrs) )
+      {
+        v14 = EngFillPath((SURFOBJ *)((v12 + 24) & -(__int64)(v12 != 0)), ppo, pcoa, pbo, v18, mix, 2u);
+LABEL_20:
+        v11 = v14;
+      }
     }
-LABEL_14:
-    pcoa = v21;
-    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&pcoa);
-    return 0;
-  }
-  if ( (fl & 1) != 0 && !EPATHOBJ::bFlatten((EPATHOBJ *)ppo) )
-    goto LABEL_14;
-  if ( *(_WORD *)(((v9 - 24) & -(__int64)(v9 != 0)) + 0x64) )
-  {
-    v17 = *(__int64 (__fastcall **)(__int64, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, POINTL *, LINEATTRS *, MIX))(*(_QWORD *)(((v9 - 24) & -(__int64)(v9 != 0)) + 0x30) + 2776LL);
-    if ( v17 )
+    else if ( (fl & 1) == 0 || EPATHOBJ::bFlatten((EPATHOBJ *)ppo) )
     {
-      if ( !v9 )
-        v9 = 24LL;
-      v13 = v17(v9 & -(__int64)(v11 != 0), ppo, pcoa, pxo, pbo, pptlBrushOrg, plineattrs, mix);
-LABEL_23:
-      pcoa = v21;
-      p_pcoa = &pcoa;
-      goto LABEL_13;
+      if ( *(_WORD *)(((unsigned __int64)&pso[-1].pvScan0 & -(__int64)(pso != 0LL)) + 0x64) )
+      {
+        v15 = *(__int64 (__fastcall **)(unsigned __int64, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, POINTL *, LINEATTRS *, MIX))(*(_QWORD *)(((unsigned __int64)&pso[-1].pvScan0 & -(__int64)(pso != 0LL)) + 0x30) + 2800LL);
+        if ( v15 )
+        {
+          v14 = v15((v12 + 24) & -(__int64)(v12 != 0), ppo, pcoa, pxo, pbo, v18, plineattrs, mix);
+          goto LABEL_20;
+        }
+      }
+      else
+      {
+        v18 = *(POINTL **)(((unsigned __int64)&pso[-1].pvScan0 & -(__int64)(pso != 0LL)) + 0x30);
+        PDEVOBJ::vSync((PDEVOBJ *)&v18, pso, 0LL, 0);
+        if ( (_BYTE)mix != 13
+          || pcoa && pcoa->iDComplexity == 3
+          || plineattrs->pstyle
+          || (plineattrs->fl & 2) != 0
+          || (*(_DWORD *)(((unsigned __int64)&pso[-1].pvScan0 & -(__int64)(pso != 0LL)) + 0x70) & 0x200) != 0
+          && (*(_DWORD *)(*(_QWORD *)(((unsigned __int64)&pso[-1].pvScan0 & -(__int64)(pso != 0LL)) + 0x30) + 40LL) & 0x8000) == 0 )
+        {
+          v14 = bStrokeCosmetic(
+                  (struct SURFACE *)((unsigned __int64)&pso[-1].pvScan0 & -(__int64)(pso != 0LL)),
+                  ppo,
+                  pcoa,
+                  pbo,
+                  plineattrs,
+                  mix);
+          goto LABEL_20;
+        }
+        vSolidLine(
+          (struct SURFACE *)((unsigned __int64)&pso[-1].pvScan0 & -(__int64)(pso != 0LL)),
+          ppo,
+          0LL,
+          pcoa,
+          pbo->iSolidColor);
+        v11 = 1;
+      }
     }
-    goto LABEL_14;
   }
-  v19 = *(CLIPOBJ **)(((v9 - 24) & -(__int64)(v9 != 0)) + 0x30);
-  PDEVOBJ::vSync((PDEVOBJ *)&v19, (struct _SURFOBJ *)v9, 0LL, 0);
-  if ( (_BYTE)mix != 13
-    || pcoa && pcoa->iDComplexity == 3
-    || plineattrs->pstyle
-    || (plineattrs->fl & 2) != 0
-    || (*(_DWORD *)(((v9 - 24) & -(__int64)(v9 != 0)) + 0x70) & 0x200) != 0
-    && (*(_DWORD *)(*(_QWORD *)(((v9 - 24) & -(__int64)(v9 != 0)) + 0x30) + 40LL) & 0x8000) == 0 )
-  {
-    v13 = bStrokeCosmetic((struct SURFACE *)((v9 - 24) & -(__int64)(v9 != 0)), ppo, pcoa, pbo, plineattrs, mix);
-    v19 = v21;
-    p_pcoa = &v19;
-LABEL_13:
-    v15 = v13;
-    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)p_pcoa);
-    return v15;
-  }
-  vSolidLine((struct SURFACE *)((v9 - 24) & -(__int64)(v9 != 0)), ppo, 0LL, pcoa, pbo->iSolidColor);
-  v19 = v21;
-  RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v19);
-  return 1;
+  BOUNDCLIPRGNTOSURFACE::~BOUNDCLIPRGNTOSURFACE((BOUNDCLIPRGNTOSURFACE *)v19);
+  return v11;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of UserGetHDEV @ 0x1C008B150
+ * XREFs of UserGetHDEV @ 0x1C007F4B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 UserGetHDEV()
 {
-  return *((_QWORD *)gpDispInfo + 5);
+  return *(_QWORD *)(gpDispInfo + 40);
 }

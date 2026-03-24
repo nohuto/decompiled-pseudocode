@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_sSLSs @ 0x1C0066220
+ * XREFs of WPP_IFR_SF_sSLSs @ 0x1C004BB84
  * Callers:
- *     imp_WdfDriverErrorReportApiMissing @ 0x1C0066540 (imp_WdfDriverErrorReportApiMissing.c)
+ *     imp_WdfDriverErrorReportApiMissing @ 0x1C004C310 (imp_WdfDriverErrorReportApiMissing.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_sSLSs(
@@ -26,23 +26,23 @@ void __fastcall WPP_IFR_SF_sSLSs(
   const char *v14; // r15
   _FX_DRIVER_GLOBALS *v15; // r10
   __int64 v16; // r12
-  __int64 v17; // rdx
-  __int64 v18; // rdx
+  __int64 v17; // r8
+  __int64 v18; // r8
   const char *v19; // r14
-  __int64 v20; // r8
+  __int64 v20; // r11
   __int64 v21; // rax
-  const wchar_t *v22; // r11
-  __int64 v23; // r10
+  const wchar_t *v22; // r10
+  __int64 v23; // r9
   __int64 v24; // rax
-  const wchar_t *v25; // r9
+  const wchar_t *v25; // rdx
   __int64 v26; // rcx
   __int64 v27; // rcx
   const char *v28; // rax
   __int64 v29; // rcx
   __int64 v30; // rcx
-  __int64 v31; // rdx
+  __int64 v31; // r8
   __int64 v32; // rax
-  const wchar_t *v33; // r8
+  const wchar_t *v33; // rdx
   __int64 v34; // rax
   __int64 v35; // rbx
 
@@ -84,13 +84,19 @@ void __fastcall WPP_IFR_SF_sSLSs(
       {
         v20 = 14LL;
       }
+    }
+    else
+    {
+      v20 = 10LL;
+    }
+    if ( flags )
+    {
       v22 = L"<NULL>";
       if ( *flags )
         v22 = flags;
     }
     else
     {
-      v20 = 10LL;
       v22 = L"NULL";
     }
     if ( globals_0 )
@@ -107,13 +113,19 @@ void __fastcall WPP_IFR_SF_sSLSs(
       {
         v23 = 14LL;
       }
+    }
+    else
+    {
+      v23 = 10LL;
+    }
+    if ( globals_0 )
+    {
       v25 = L"<NULL>";
       if ( *globals_0 )
         v25 = globals_0;
     }
     else
     {
-      v23 = 10LL;
       v25 = L"NULL";
     }
     if ( _a5 )
@@ -177,13 +189,19 @@ void __fastcall WPP_IFR_SF_sSLSs(
     {
       v31 = 14LL;
     }
+  }
+  else
+  {
+    v31 = 10LL;
+  }
+  if ( v12 )
+  {
     v33 = L"<NULL>";
     if ( *v12 )
       v33 = v12;
   }
   else
   {
-    v31 = 10LL;
     v33 = L"NULL";
   }
   if ( globals_0 )
@@ -196,12 +214,18 @@ void __fastcall WPP_IFR_SF_sSLSs(
       while ( globals_0[v34] );
       v16 = 2 * v34 + 2;
     }
+  }
+  else
+  {
+    v16 = 10LL;
+  }
+  if ( globals_0 )
+  {
     if ( *globals_0 )
       v11 = globals_0;
   }
   else
   {
-    v16 = 10LL;
     v11 = L"NULL";
   }
   if ( _a5 )

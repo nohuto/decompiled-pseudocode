@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhFdoPnp_PassOnSuccess @ 0x1C0042410
+ * XREFs of UsbhFdoPnp_PassOnSuccess @ 0x1C00436C0
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 NTSTATUS __fastcall UsbhFdoPnp_PassOnSuccess(__int64 a1, IRP *a2)

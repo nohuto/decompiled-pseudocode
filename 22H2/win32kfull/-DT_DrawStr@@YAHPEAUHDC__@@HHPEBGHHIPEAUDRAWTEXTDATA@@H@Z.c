@@ -1,18 +1,18 @@
 /*
- * XREFs of ?DT_DrawStr@@YAHPEAUHDC__@@HHPEBGHHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C024CBD0
+ * XREFs of ?DT_DrawStr@@YAHPEAUHDC__@@HHPEBGHHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C025DFD8
  * Callers:
- *     ?DT_DrawJustifiedLine@@YAXPEAUHDC__@@HPEBGHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C024CB0C (-DT_DrawJustifiedLine@@YAXPEAUHDC__@@HPEBGHIPEAUDRAWTEXTDATA@@H@Z.c)
+ *     ?DT_DrawJustifiedLine@@YAXPEAUHDC__@@HPEBGHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C025DF14 (-DT_DrawJustifiedLine@@YAXPEAUHDC__@@HPEBGHIPEAUDRAWTEXTDATA@@H@Z.c)
  * Callees:
- *     GreGetLayout @ 0x1C0024844 (GreGetLayout.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     xxxClientLpkDrawTextEx @ 0x1C0212EB8 (xxxClientLpkDrawTextEx.c)
- *     CALL_LPK @ 0x1C0225FD4 (CALL_LPK.c)
- *     ?DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z @ 0x1C024CCF8 (-DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z.c)
+ *     GreGetLayout @ 0x1C0045F14 (GreGetLayout.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     CALL_LPK @ 0x1C0158EEC (CALL_LPK.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     xxxClientLpkDrawTextEx @ 0x1C02329DC (xxxClientLpkDrawTextEx.c)
+ *     ?DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z @ 0x1C025E108 (-DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z.c)
  */
 
 __int64 __fastcall DT_DrawStr(
-        Gre::Base *a1,
+        HDC a1,
         unsigned int a2,
         unsigned int a3,
         const unsigned __int16 *a4,
@@ -22,33 +22,29 @@ __int64 __fastcall DT_DrawStr(
         struct DRAWTEXTDATA *a8,
         int a9)
 {
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  unsigned int v17; // r15d
-  struct tagTHREADINFO *v18; // rax
+  unsigned int v13; // r15d
+  __int64 ThreadWin32Thread; // rax
   __int64 result; // rax
-  int v20; // [rsp+20h] [rbp-48h]
+  int v16; // [rsp+20h] [rbp-48h]
 
-  v17 = a2 - 1;
-  if ( (GreGetLayout((HDC)a1) & 1) == 0 )
-    v17 = a2;
+  v13 = a2 - 1;
+  if ( (GreGetLayout(a1) & 1) == 0 )
+    v13 = a2;
   if ( *((_DWORD *)a8 + 15) )
   {
-    v18 = PtiCurrentShared(v14, v13, v15, v16);
-    result = CALL_LPK((__int64)v18);
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    result = CALL_LPK(ThreadWin32Thread);
     if ( (_DWORD)result )
-      return xxxClientLpkDrawTextEx(a1, v17, a3, a4, a5, a6, a7, (__int64)a8, 1, a9);
+      return xxxClientLpkDrawTextEx(a1, v13, a3, a4, a5, a6, a7, (__int64)a8, 1, a9);
   }
   else
   {
     if ( a6 )
     {
-      v20 = a5;
-      (*((void (__fastcall **)(Gre::Base *, _QWORD, _QWORD, const unsigned __int16 *))a8 + 6))(a1, v17, a3, a4);
+      v16 = a5;
+      (*((void (__fastcall **)(HDC, _QWORD, _QWORD, const unsigned __int16 *))a8 + 6))(a1, v13, a3, a4);
     }
-    return (unsigned int)DT_GetExtentMinusPrefixes((HDC)a1, a4, a5, a7, v20, a8, a9) - *((_DWORD *)a8 + 14);
+    return (unsigned int)DT_GetExtentMinusPrefixes(a1, a4, a5, a7, v16, a8, a9) - *((_DWORD *)a8 + 14);
   }
   return result;
 }

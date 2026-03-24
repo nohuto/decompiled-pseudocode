@@ -1,14 +1,16 @@
 /*
- * XREFs of HalAllocateHardwareCounters @ 0x140933290
+ * XREFs of HalAllocateHardwareCounters @ 0x1408642D0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpGetFullPmuOwnership @ 0x140501D5C (HalpGetFullPmuOwnership.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpAllocateHalCounters @ 0x1404B9004 (HalpAllocateHalCounters.c)
+ *     HalpGetFullPmuOwnership @ 0x1404B9034 (HalpGetFullPmuOwnership.c)
+ *     HalpReleaseHalCounters @ 0x1404B9080 (HalpReleaseHalCounters.c)
  */
 
 NTSTATUS __stdcall HalAllocateHardwareCounters(
@@ -17,66 +19,77 @@ NTSTATUS __stdcall HalAllocateHardwareCounters(
         PPHYSICAL_COUNTER_RESOURCE_LIST ResourceList,
         PHANDLE CounterSetHandle)
 {
-  __int64 v5; // rdi
-  __int64 v9; // rdx
+  __int64 v5; // rsi
+  char v8; // di
+  NTSTATUS HalCounters; // ecx
+  int FullPmuOwnership; // eax
+  __int64 v11; // rdx
   __int64 Group; // rcx
   unsigned __int64 Mask; // r8
-  unsigned int v12; // ebx
-  ULONG ActiveProcessorCount; // edi
-  __int64 (__fastcall *v14)(); // rax
-  _DWORD v15[68]; // [rsp+20h] [rbp-148h] BYREF
+  unsigned int v14; // ebx
+  ULONG ActiveProcessorCount; // esi
+  __int64 (__fastcall *v16)(_QWORD *, PPHYSICAL_COUNTER_RESOURCE_LIST, PHANDLE); // rax
+  _QWORD v18[22]; // [rsp+20h] [rbp-E8h] BYREF
 
   v5 = GroupCount;
-  memset(&v15[2], 0, 0x100uLL);
+  memset(v18, 0, 0xA8uLL);
+  v8 = 0;
   if ( !CounterSetHandle )
     return -1073741811;
   *CounterSetHandle = 0LL;
-  if ( !GroupAffinty && !ResourceList )
-    return HalpGetFullPmuOwnership((__int64 *)CounterSetHandle);
-  v15[0] = 2097153;
-  memset(&v15[1], 0, 0x104uLL);
-  if ( GroupAffinty )
+  if ( GroupAffinty || ResourceList )
   {
-    if ( (_DWORD)v5 )
+    HalCounters = HalpAllocateHalCounters();
+    if ( HalCounters < 0 )
+      return HalCounters;
+    LODWORD(v18[0]) = 1310721;
+    v8 = 1;
+    memset((char *)v18 + 4, 0, 0xA4uLL);
+    if ( GroupAffinty )
     {
-      v9 = v5;
-      while ( 1 )
+      if ( (_DWORD)v5 )
       {
-        Group = GroupAffinty->Group;
-        Mask = GroupAffinty->Mask;
-        if ( LOWORD(v15[0]) > (unsigned __int16)Group )
-          goto LABEL_11;
-        if ( HIWORD(v15[0]) > (unsigned __int16)Group )
-          break;
-LABEL_12:
-        ++GroupAffinty;
-        if ( !--v9 )
-          goto LABEL_16;
+        v11 = v5;
+        do
+        {
+          Group = GroupAffinty->Group;
+          Mask = GroupAffinty->Mask;
+          if ( LOWORD(v18[0]) <= (unsigned __int16)Group )
+            LOWORD(v18[0]) = Group + 1;
+          v18[Group + 1] |= Mask;
+          ++GroupAffinty;
+          --v11;
+        }
+        while ( v11 );
       }
-      LOWORD(v15[0]) = Group + 1;
-LABEL_11:
-      *(_QWORD *)&v15[2 * Group + 2] |= Mask;
-      goto LABEL_12;
     }
+    else
+    {
+      v14 = 0;
+      ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
+      if ( ActiveProcessorCount )
+      {
+        do
+          KeAddProcessorAffinityEx(v18, v14++);
+        while ( v14 < ActiveProcessorCount );
+      }
+    }
+    v16 = (__int64 (__fastcall *)(_QWORD *, PPHYSICAL_COUNTER_RESOURCE_LIST, PHANDLE))*((_QWORD *)HalpProfileInterface[0]
+                                                                                      + 13);
+    if ( !v16 )
+    {
+LABEL_20:
+      HalpReleaseHalCounters();
+      return HalCounters;
+    }
+    FullPmuOwnership = v16(v18, ResourceList, CounterSetHandle);
   }
   else
   {
-    v12 = 0;
-    ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-    if ( ActiveProcessorCount )
-    {
-      do
-        KeAddProcessorAffinityEx((unsigned __int16 *)v15, v12++);
-      while ( v12 < ActiveProcessorCount );
-    }
+    FullPmuOwnership = HalpGetFullPmuOwnership((__int64 *)CounterSetHandle);
   }
-LABEL_16:
-  v14 = HalpProfileInterface[14];
-  if ( v14 )
-    return ((__int64 (__fastcall *)(_DWORD *, PPHYSICAL_COUNTER_RESOURCE_LIST, PHANDLE))v14)(
-             v15,
-             ResourceList,
-             CounterSetHandle);
-  else
-    return -1073741670;
+  HalCounters = FullPmuOwnership;
+  if ( FullPmuOwnership < 0 && v8 )
+    goto LABEL_20;
+  return HalCounters;
 }

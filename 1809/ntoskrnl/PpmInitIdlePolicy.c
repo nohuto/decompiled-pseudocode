@@ -3,9 +3,9 @@
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     PpmConvertTime @ 0x1400A7CF4 (PpmConvertTime.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwQueryLicenseValue @ 0x1401BAAF0 (ZwQueryLicenseValue.c)
+ *     PpmConvertTime @ 0x1400A7D14 (PpmConvertTime.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwQueryLicenseValue @ 0x1401BAB10 (ZwQueryLicenseValue.c)
  */
 
 __int64 PpmInitIdlePolicy()
@@ -20,16 +20,16 @@ __int64 PpmInitIdlePolicy()
   int v7; // [rsp+58h] [rbp+10h] BYREF
   int v8; // [rsp+60h] [rbp+18h] BYREF
 
-  word_14040E858 = 0;
-  word_14040F300 = 0;
-  dword_14040E85C = 50000;
-  dword_14040F304 = 50000;
+  word_14040E878 = 0;
+  word_14040F320 = 0;
+  dword_14040E87C = 50000;
+  dword_14040F324 = 50000;
   v0 = 2 * PopQpcFrequency;
   PopIdleTransitionTimeout = 2 * PopQpcFrequency;
-  word_14040E861 = 60;
-  word_14040F309 = 60;
-  byte_14040E860 = 40;
-  byte_14040F308 = 40;
+  word_14040E881 = 60;
+  word_14040F329 = 60;
+  byte_14040E880 = 40;
+  byte_14040F328 = 40;
   if ( !KdPitchDebugger )
     v0 = 90 * PopQpcFrequency;
   PopCoordinatedIdleExitTimeout = v0;

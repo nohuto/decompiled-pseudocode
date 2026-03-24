@@ -1,62 +1,59 @@
 /*
- * XREFs of CmpFindSubKeyInLeafWithStatus @ 0x1407CD270
+ * XREFs of CmpFindSubKeyInLeafWithStatus @ 0x1405EDFE0
  * Callers:
- *     CmpMarkIndexDirtyInStorageType @ 0x140715BA0 (CmpMarkIndexDirtyInStorageType.c)
- *     CmpAddToLeaf @ 0x1407187D4 (CmpAddToLeaf.c)
- *     CmpWalkOneLevel @ 0x1407C8AE0 (CmpWalkOneLevel.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x14082F12C (CmpFindSubKeyByNameWithStatus.c)
- *     CmpFindSubKeyInLeaf @ 0x140920C6C (CmpFindSubKeyInLeaf.c)
+ *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
+ *     CmpMarkIndexDirty @ 0x14066C5EC (CmpMarkIndexDirty.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407AC8F8 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpFindSubKeyInLeaf @ 0x14087A5A0 (CmpFindSubKeyInLeaf.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     CmpCompareInIndex @ 0x1407C4180 (CmpCompareInIndex.c)
- *     CmpDoCompareKeyName @ 0x1407C4460 (CmpDoCompareKeyName.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     CmpCompareInIndex @ 0x1405EDCF0 (CmpCompareInIndex.c)
+ *     CmpDoCompareKeyName @ 0x1405EE600 (CmpDoCompareKeyName.c)
  */
 
 __int64 __fastcall CmpFindSubKeyInLeafWithStatus(
-        ULONG_PTR a1,
+        __int64 a1,
         __int64 a2,
-        const UNICODE_STRING *a3,
+        unsigned __int16 *a3,
         unsigned __int16 *a4,
         _DWORD *a5,
         int *a6)
 {
   int v6; // eax
-  int v7; // r13d
-  ULONG_PTR v11; // r10
-  int v12; // ebx
-  __int64 v13; // rbp
+  __int64 v10; // r10
+  __int64 v11; // rbp
   __int64 result; // rax
-  __int16 v15; // cx
-  _DWORD *v16; // rdi
-  int v17; // eax
-  int v18; // edx
-  _DWORD *v19; // rbx
-  unsigned int v20; // edx
-  _BYTE *v21; // rcx
-  unsigned int v22; // eax
-  unsigned int v23; // edi
-  __int64 v24; // r11
-  __int64 v25; // rbx
-  unsigned __int16 v26; // dx
-  unsigned int v27; // r9d
-  int v28; // r8d
-  unsigned __int16 v29; // dx
-  unsigned __int16 v30; // r8
-  __int64 v31; // r10
-  unsigned int v32; // eax
-  unsigned int v33; // r9d
-  unsigned __int16 *v34; // r10
-  int v35; // r8d
-  int v36; // eax
-  int v37; // eax
-  int v38; // eax
-  int v40; // [rsp+88h] [rbp+10h]
+  __int16 v13; // cx
+  _DWORD *v14; // rdi
+  int v15; // eax
+  int v16; // edx
+  __int64 v17; // r12
+  unsigned int v18; // edx
+  _BYTE *v19; // rcx
+  unsigned int v20; // eax
+  unsigned int v21; // edi
+  __int64 v22; // r11
+  __int64 v23; // rbx
+  unsigned __int16 v24; // ax
+  unsigned int v25; // r10d
+  int v26; // r9d
+  int v27; // eax
+  int v28; // r9d
+  int v29; // eax
+  int v30; // r14d
+  int v31; // r12d
+  unsigned int v32; // ebp
+  _DWORD *v33; // rbx
+  int v34; // eax
+  int v35; // eax
+  int v36; // [rsp+30h] [rbp-48h]
+  int v38; // [rsp+88h] [rbp+10h]
 
   v6 = *(unsigned __int16 *)(a2 + 2);
-  v7 = 0;
-  v11 = a1;
-  v12 = v6 - 1;
-  v13 = (unsigned int)(v6 - 1) >> 1;
+  v38 = 0;
+  v10 = a1;
+  v36 = v6 - 1;
+  v11 = (unsigned int)(v6 - 1) >> 1;
   if ( !(_WORD)v6 )
   {
     *a5 = -1;
@@ -65,169 +62,137 @@ __int64 __fastcall CmpFindSubKeyInLeafWithStatus(
   }
   while ( 1 )
   {
-    v15 = *(_WORD *)a2;
-    v16 = a5;
-    v40 = v12;
+    v13 = *(_WORD *)a2;
+    v14 = a5;
     *a5 = -1;
-    if ( ((v15 - 26220) & 0xFDFF) != 0 )
+    if ( ((v13 - 26220) & 0xFDFF) != 0 )
     {
-      v17 = CmpDoCompareKeyName(v11, a3, a4, *(unsigned int *)(a2 + 4 * v13 + 4));
-      v18 = v17;
-      if ( v17 == 2 )
-        goto LABEL_64;
-      if ( !v17 )
-        *a5 = *(_DWORD *)(a2 + 4 * v13 + 4);
+      v15 = CmpDoCompareKeyName(v10, a3, a4, *(unsigned int *)(a2 + 4 * v11 + 4));
+      v16 = v15;
+      if ( v15 == 2 )
+      {
+        v33 = a5;
+        goto LABEL_59;
+      }
+      if ( !v15 )
+        *a5 = *(_DWORD *)(a2 + 4 * v11 + 4);
     }
     else
     {
-      v19 = (_DWORD *)(8 * v13 + a2 + 4);
-      if ( v15 != 26220 )
-        goto LABEL_43;
-      v20 = 4;
-      v21 = v19 + 1;
-      v22 = 0;
-      while ( *v21 )
+      v17 = 8 * v11 + a2;
+      if ( v13 != 26220 )
+        goto LABEL_37;
+      v18 = 4;
+      v19 = (_BYTE *)(v17 + 8);
+      v20 = 0;
+      while ( *v19 )
       {
-        ++v22;
-        ++v21;
-        if ( v22 >= 4 )
+        ++v20;
+        ++v19;
+        if ( v20 >= 4 )
           goto LABEL_13;
       }
-      v20 = v22;
+      v18 = v20;
 LABEL_13:
       if ( a4 )
-        v23 = *a4;
+        v21 = *a4;
       else
-        v23 = a3->Length >> 1;
-      if ( v23 >= v20 )
-        v23 = v20;
-      v24 = 0LL;
-      if ( !v23 )
+        v21 = *a3 >> 1;
+      if ( v21 >= v18 )
+        v21 = v18;
+      v22 = 0LL;
+      if ( !v21 )
       {
-LABEL_42:
-        v16 = a5;
-LABEL_43:
-        v36 = CmpDoCompareKeyName(v11, a3, a4, (unsigned int)*v19);
-        v18 = v36;
-        if ( v36 == 2 )
-          goto LABEL_63;
-        if ( !v36 )
-          *v16 = *v19;
-        goto LABEL_46;
+LABEL_36:
+        v14 = a5;
+LABEL_37:
+        v29 = CmpDoCompareKeyName(v10, a3, a4, *(unsigned int *)(v17 + 4));
+        v16 = v29;
+        if ( v29 == 2 )
+          goto LABEL_57;
+        if ( !v29 )
+          *v14 = *(_DWORD *)(v17 + 4);
+        goto LABEL_40;
       }
-      v25 = 0LL;
+      v23 = 0LL;
       while ( 1 )
       {
-        v26 = a4 ? *(unsigned __int8 *)(*((_QWORD *)a4 + 1) + v24) : a3->Buffer[v25];
-        v27 = *(unsigned __int8 *)(8 * v13 + v24 + a2 + 8);
-        if ( v26 >= 0x61u )
-        {
-          if ( v26 <= 0x7Au )
-          {
-            v28 = v26 - 32;
-          }
-          else
-          {
-            v31 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 154);
-            if ( v31 && v29 >= v30 )
-              v28 = (unsigned __int16)(v29
-                                     + *(_WORD *)(v31
-                                                + 2LL
-                                                * ((v29 & 0xF)
-                                                 + (unsigned int)*(unsigned __int16 *)(v31
-                                                                                     + 2LL
-                                                                                     * (((v29 >> 4) & 0xF)
-                                                                                      + (unsigned int)*(unsigned __int16 *)(v31 + 2 * ((unsigned __int64)v29 >> 8)))))));
-            else
-              v28 = v29;
-          }
-        }
+        v24 = a4 ? *(unsigned __int8 *)(*((_QWORD *)a4 + 1) + v22) : *(_WORD *)(v23 + *((_QWORD *)a3 + 1));
+        v25 = *(unsigned __int8 *)(8 * v11 + (unsigned int)v22 + a2 + 8);
+        if ( v24 >= 0x61u )
+          v26 = v24 <= 0x7Au ? v24 - 32 : NLS_UPCASE(v24);
         else
-        {
-          v28 = v26;
-        }
-        if ( v27 >= 0x61 )
-        {
-          if ( v27 <= 0x7A )
-          {
-            v32 = v27 - 32;
-          }
-          else
-          {
-            v34 = (unsigned __int16 *)*((_QWORD *)PsGetCurrentServerSiloGlobals() + 154);
-            if ( v34 && (unsigned __int16)v33 >= 0xC0u )
-              v32 = (unsigned __int16)(v33 + v34[(v33 & 0xF) + v34[*v34 + (v33 >> 4)]]);
-            else
-              v32 = (unsigned __int16)v33;
-          }
-        }
+          v26 = v24;
+        if ( v25 >= 0x61 )
+          v27 = v25 <= 0x7A ? v25 - 32 : NLS_UPCASE(v25);
         else
-        {
-          v32 = v27;
-        }
-        v35 = v28 - v32;
-        if ( v35 )
+          v27 = v25;
+        v28 = v26 - v27;
+        if ( v28 )
           break;
-        v24 = (unsigned int)(v24 + 1);
-        ++v25;
-        if ( (unsigned int)v24 >= v23 )
+        v22 = (unsigned int)(v22 + 1);
+        v23 += 2LL;
+        if ( (unsigned int)v22 >= v21 )
         {
-          v19 = (_DWORD *)(8 * v13 + a2 + 4);
-          v11 = a1;
-          goto LABEL_42;
+          v10 = a1;
+          goto LABEL_36;
         }
       }
-      v18 = 1;
-      if ( v35 <= 0 )
-        v18 = -1;
+      v16 = 1;
+      if ( v28 <= 0 )
+        v16 = -1;
     }
-LABEL_46:
-    if ( v18 == 2 )
+LABEL_40:
+    if ( v16 == 2 )
     {
-LABEL_63:
-      v16 = a5;
-      goto LABEL_64;
+LABEL_57:
+      v33 = a5;
+      goto LABEL_59;
     }
-    if ( !v18 )
+    if ( !v16 )
     {
-      *a6 = v13;
+      *a6 = v11;
       return 0LL;
     }
-    v12 = v13;
-    if ( v18 >= 0 )
+    v30 = v38;
+    if ( v16 >= 0 )
     {
-      v7 = v13;
-      v12 = v40;
+      v30 = v11;
+      LODWORD(v11) = v36;
     }
-    if ( (unsigned int)(v12 - v7) <= 1 )
+    v31 = v11;
+    v36 = v11;
+    v32 = v11 - v30;
+    v38 = v30;
+    if ( v32 <= 1 )
       break;
-    v11 = a1;
-    v13 = v7 + ((unsigned int)(v12 - v7) >> 1);
+    v10 = a1;
+    v11 = v30 + (v32 >> 1);
   }
-  v16 = a5;
-  v37 = CmpCompareInIndex(a1, a3, (unsigned __int8 **)a4, v7, (__int16 *)a2, (__int64)a5);
-  if ( v37 != 2 )
+  v33 = a5;
+  v34 = CmpCompareInIndex(a1, a3, a4, v30, (__int16 *)a2, a5);
+  if ( v34 != 2 )
   {
-    if ( !v37 )
+    if ( !v34 )
     {
-      *a6 = v7;
+      *a6 = v30;
       return 0LL;
     }
-    if ( v37 < 0 )
+    if ( v34 < 0 )
     {
-      *a6 = v7;
+      *a6 = v30;
       return 3221225524LL;
     }
-    v38 = CmpCompareInIndex(a1, a3, (unsigned __int8 **)a4, v12, (__int16 *)a2, (__int64)a5);
-    if ( v38 != 2 )
+    v35 = CmpCompareInIndex(a1, a3, a4, v31, (__int16 *)a2, a5);
+    if ( v35 != 2 )
     {
-      result = v38 != 0 ? 0xC0000034 : 0;
-      *a6 = v12;
+      result = v35 != 0 ? 0xC0000034 : 0;
+      *a6 = v31;
       return result;
     }
   }
-LABEL_64:
-  *v16 = -1;
+LABEL_59:
+  *v33 = -1;
   *a6 = 0x80000000;
   return 3221225626LL;
 }

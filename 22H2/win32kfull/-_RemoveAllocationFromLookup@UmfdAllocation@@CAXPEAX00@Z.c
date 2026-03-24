@@ -1,18 +1,19 @@
 /*
- * XREFs of ?_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z @ 0x1C00A3270
+ * XREFs of ?_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z @ 0x1C01250B0
  * Callers:
- *     ?Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C00A602C (-Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z.c)
+ *     <none>
  * Callees:
- *     ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C00A32C0 (-Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z.c)
+ *     ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C009F5D8 (-Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z.c)
  */
 
-void __fastcall UmfdAllocation::_RemoveAllocationFromLookup(void *a1, char *a2, void *a3)
+void __fastcall UmfdAllocation::_RemoveAllocationFromLookup(unsigned __int64 a1, char *a2, void *a3)
 {
-  __int64 v5; // rax
-  void *v6; // [rsp+38h] [rbp+10h] BYREF
+  void *v4; // [rsp+38h] [rbp+10h] BYREF
 
-  v6 = 0LL;
-  v5 = SGDGetSessionState(a1);
-  NSInstrumentation::CPointerHashTable::Remove(**(NSInstrumentation::CPointerHashTable ***)(v5 + 40), a1, &v6);
+  v4 = 0LL;
+  NSInstrumentation::CPointerHashTable::Remove(
+    (NSInstrumentation::CPointerHashTable *)UmfdAllocation::s_allocationLookup,
+    a1,
+    &v4);
   *(_QWORD *)(a2 - 12) = 0LL;
 }

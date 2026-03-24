@@ -1,5 +1,5 @@
 /*
- * XREFs of ?MapInvalidRect@CMesh2DEffect@@UEBAJIUtagRECT@@PEAU2@@Z @ 0x1802BF2E0
+ * XREFs of ?MapInvalidRect@CMesh2DEffect@@UEBAJIUtagRECT@@PEAU2@@Z @ 0x18026CCA0
  * Callers:
  *     <none>
  * Callees:

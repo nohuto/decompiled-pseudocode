@@ -1,15 +1,15 @@
 /*
- * XREFs of PopInitializePowerPolicySimulate @ 0x14081C69C
+ * XREFs of PopInitializePowerPolicySimulate @ 0x14078DFE8
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
  */
 
 NTSTATUS PopInitializePowerPolicySimulate()
@@ -30,15 +30,16 @@ NTSTATUS PopInitializePowerPolicySimulate()
   Disposition = 0;
   Handle = 0LL;
   ResultLength = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   ObjectAttributes.RootDirectory = 0LL;
   v10 = 0;
   PopSimulate = PopSimulateManual;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = &CmRegistryMachineSystemCurrentControlSet;
   DestinationString = 0LL;
-  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.Length = 48;
   KeyValueInformation = 0LL;
+  ObjectAttributes.Attributes = 576;
   result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( result >= 0 )
   {

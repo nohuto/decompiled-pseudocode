@@ -10,11 +10,11 @@
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     MiFindEmptyAddressRangeDownTree @ 0x140698E90 (MiFindEmptyAddressRangeDownTree.c)
- *     ObCheckActiveHandles @ 0x1406C4408 (ObCheckActiveHandles.c)
- *     MiDereferencePerSessionProtos @ 0x1406C8FD0 (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1406C90E8 (MiCreatePerSessionProtos.c)
- *     MiDereferenceFailedControlArea @ 0x1406D0344 (MiDereferenceFailedControlArea.c)
+ *     MiFindEmptyAddressRangeDownTree @ 0x140698E70 (MiFindEmptyAddressRangeDownTree.c)
+ *     ObCheckActiveHandles @ 0x1406C43E8 (ObCheckActiveHandles.c)
+ *     MiDereferencePerSessionProtos @ 0x1406C8FB0 (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1406C90C8 (MiCreatePerSessionProtos.c)
+ *     MiDereferenceFailedControlArea @ 0x1406D0324 (MiDereferenceFailedControlArea.c)
  */
 
 __int64 __fastcall MiFinishCreateSection(int *a1)

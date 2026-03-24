@@ -1,22 +1,23 @@
 /*
- * XREFs of ?DxgkPowerRuntimeDevicePowerNotRequiredCallback@@YAXPEAX@Z @ 0x1C0023DF0
+ * XREFs of ?DxgkPowerRuntimeDevicePowerNotRequiredCallback@@YAXPEAX@Z @ 0x1C003EBC0
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C0023F5C (-PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C0044D64 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     ?PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C0038894 (-PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003A358 (McTemplateK0pqq_EtwWriteTransfer.c)
  */
 
-void __fastcall DxgkPowerRuntimeDevicePowerNotRequiredCallback(DXGADAPTER *this, __int64 a2, int a3)
+void __fastcall DxgkPowerRuntimeDevicePowerNotRequiredCallback(DXGADAPTER *this, __int64 a2, __int64 a3)
 {
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
-    McTemplateK0pqq_EtwWriteTransfer(
-      0,
-      (unsigned int)&Dxgk_PowerRuntimeDevicePowerRequiredCallback,
-      a3,
-      (_DWORD)this,
-      0,
-      0);
-  DXGADAPTER::PowerRuntimeDevicePowerRequiredCallback(this, 0);
-  PoFxCompleteDevicePowerNotRequired(*((_QWORD *)this + 363));
+  int v4; // [rsp+20h] [rbp-18h]
+  int v5; // [rsp+28h] [rbp-10h]
+
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
+  {
+    v5 = 0;
+    v4 = 0;
+    McTemplateK0pqq_EtwWriteTransfer(0LL, &Dxgk_PowerRuntimeDevicePowerRequiredCallback, a3, this, v4, v5);
+  }
+  DXGADAPTER::PowerRuntimeDevicePowerRequiredCallback(this, 0LL);
+  PoFxCompleteDevicePowerNotRequired(*((_QWORD *)this + 351));
 }

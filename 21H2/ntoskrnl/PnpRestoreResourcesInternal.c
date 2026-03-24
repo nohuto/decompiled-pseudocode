@@ -1,24 +1,24 @@
 /*
- * XREFs of PnpRestoreResourcesInternal @ 0x140958F84
+ * XREFs of PnpRestoreResourcesInternal @ 0x1408B3348
  * Callers:
- *     PnpReallocateResources @ 0x140958D9C (PnpReallocateResources.c)
+ *     PnpReallocateResources @ 0x1408B3160 (PnpReallocateResources.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     PnpDetermineResourceListSize @ 0x140748D08 (PnpDetermineResourceListSize.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x14081FDD8 (IopWriteAllocatedResourcesToRegistry.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x14081FECC (PnpFreeResourceRequirementsForAssignTable.c)
- *     PnpFindBestConfiguration @ 0x14081FF24 (PnpFindBestConfiguration.c)
- *     IopResourceRequirementsListToReqList @ 0x140820DCC (IopResourceRequirementsListToReqList.c)
- *     PnpCmResourcesToIoResources @ 0x140821D18 (PnpCmResourcesToIoResources.c)
- *     IopCommitConfiguration @ 0x140854DB4 (IopCommitConfiguration.c)
- *     IopRearrangeReqList @ 0x140858F98 (IopRearrangeReqList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x14074F64C (IopWriteAllocatedResourcesToRegistry.c)
+ *     PnpDetermineResourceListSize @ 0x140750A1C (PnpDetermineResourceListSize.c)
+ *     IopRearrangeReqList @ 0x140750EFC (IopRearrangeReqList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140751854 (IopResourceRequirementsListToReqList.c)
+ *     IopCommitConfiguration @ 0x140752640 (IopCommitConfiguration.c)
+ *     PnpFindBestConfiguration @ 0x1407526E4 (PnpFindBestConfiguration.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140753010 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpCmResourcesToIoResources @ 0x1407B48F0 (PnpCmResourcesToIoResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRestoreResourcesInternal(__int64 a1)
 {
   _DWORD *v1; // rdx
-  _DWORD *v4; // rbx
+  char *v4; // rbx
   int BestConfiguration; // esi
   __int64 v6; // rbx
   _DWORD *v7; // rbx

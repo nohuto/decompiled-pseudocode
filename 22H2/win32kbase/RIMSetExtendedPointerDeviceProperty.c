@@ -1,11 +1,10 @@
 /*
- * XREFs of RIMSetExtendedPointerDeviceProperty @ 0x1C0199950
+ * XREFs of RIMSetExtendedPointerDeviceProperty @ 0x1C016BF3C
  * Callers:
- *     NtRIMSetExtendedDeviceProperty @ 0x1C0175570 (NtRIMSetExtendedDeviceProperty.c)
- *     ?CreateRimDevice@VirtualTouchpadProcessor@@AEAAJPEAVVPTPTouchpad@@@Z @ 0x1C01F0D18 (-CreateRimDevice@VirtualTouchpadProcessor@@AEAAJPEAVVPTPTouchpad@@@Z.c)
+ *     NtRIMSetExtendedDeviceProperty @ 0x1C0154080 (NtRIMSetExtendedDeviceProperty.c)
  * Callees:
- *     ?EnvironmentChanged@CPTPProcessor@@SAXXZ @ 0x1C006ED20 (-EnvironmentChanged@CPTPProcessor@@SAXXZ.c)
- *     ?ValidateProperty@@YAJPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagPOINTER_DEVICE_EXTENDED_PROPERTY@@@Z @ 0x1C01995AC (-ValidateProperty@@YAJPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagPOINTER_DEVICE_EXTENDED_PROPERTY@@@.c)
+ *     ?EnvironmentChanged@CPTPProcessor@@SAXXZ @ 0x1C000C8E0 (-EnvironmentChanged@CPTPProcessor@@SAXXZ.c)
+ *     ?ValidateProperty@@YAJPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagPOINTER_DEVICE_EXTENDED_PROPERTY@@@Z @ 0x1C016BC3C (-ValidateProperty@@YAJPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagPOINTER_DEVICE_EXTENDED_PROPERTY@@@.c)
  */
 
 __int64 __fastcall RIMSetExtendedPointerDeviceProperty(
@@ -14,7 +13,7 @@ __int64 __fastcall RIMSetExtendedPointerDeviceProperty(
 {
   int v2; // eax
   _DWORD *v3; // rdx
-  __int64 v4; // rcx
+  _DWORD *v4; // rcx
   int v5; // r10d
   unsigned int v6; // ebx
 
@@ -28,39 +27,30 @@ __int64 __fastcall RIMSetExtendedPointerDeviceProperty(
       switch ( *v3 )
       {
         case 1:
-          *(_DWORD *)(v4 + 288) = v3[1];
-          *(_DWORD *)(v4 + 292) = v3[2];
-          *(_DWORD *)(v4 + 296) = v3[3];
-          *(_DWORD *)(v4 + 300) = v3[4];
+          v4[72] = v3[1];
+          v4[73] = v3[2];
+          v4[74] = v3[3];
+          v4[75] = v3[4];
           break;
         case 2:
-          *(_DWORD *)(v4 + 304) = v3[1];
-          *(_DWORD *)(v4 + 308) = v3[2];
+          v4[76] = v3[1];
+          v4[77] = v3[2];
           break;
         case 3:
           LOBYTE(v5) = v3[1] != 0;
-          *(_DWORD *)(v4 + 268) = v5;
-          break;
-        case 4:
-          *(_OWORD *)(v4 + 312) = *(_OWORD *)(v3 + 1);
-          break;
-        case 5:
-          *(_OWORD *)(v4 + 328) = *(_OWORD *)(v3 + 1);
-          break;
-        case 6:
-          *(_OWORD *)(v4 + 344) = *(_OWORD *)(v3 + 1);
+          v4[67] = v5;
           break;
       }
     }
     else
     {
-      *(_DWORD *)(v4 + 272) = v3[1];
-      *(_DWORD *)(v4 + 276) = v3[2];
-      *(_DWORD *)(v4 + 280) = v3[3];
-      *(_DWORD *)(v4 + 284) = v3[4];
+      v4[68] = v3[1];
+      v4[69] = v3[2];
+      v4[70] = v3[3];
+      v4[71] = v3[4];
     }
-    if ( *(_DWORD *)(v4 + 24) == 7 )
-      CPTPProcessor::EnvironmentChanged(v4);
+    if ( v4[6] == 7 )
+      CPTPProcessor::EnvironmentChanged();
   }
   return v6;
 }

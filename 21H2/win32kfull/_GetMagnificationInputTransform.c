@@ -1,7 +1,7 @@
 /*
- * XREFs of _GetMagnificationInputTransform @ 0x1C0212888
+ * XREFs of _GetMagnificationInputTransform @ 0x1C02140B8
  * Callers:
- *     MagGetLensContextInformation @ 0x1C01C9964 (MagGetLensContextInformation.c)
+ *     MagGetLensContextInformation @ 0x1C01CCB00 (MagGetLensContextInformation.c)
  * Callees:
  *     <none>
  */

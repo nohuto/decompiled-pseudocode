@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_Dddd @ 0x1C0032D94
+ * XREFs of WPP_RECORDER_SF_Dddd @ 0x1C003252C
  * Callers:
- *     HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor @ 0x1C0035714 (HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor.c)
+ *     HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor @ 0x1C0034EA8 (HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_Dddd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -24,7 +24,7 @@ __int64 WPP_RECORDER_SF_Dddd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
     pfnWppTraceMessage(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_4c38247a76be3626caea66f1aba69131_Traceguids,
+      &WPP_aa79356b1e693837079f99291824f69e_Traceguids,
       102LL,
       (__int64 *)va,
       4LL,
@@ -36,5 +36,5 @@ __int64 WPP_RECORDER_SF_Dddd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
       4LL,
       0LL);
   LOWORD(v7) = 102;
-  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v7, (__int64 *)va);
+  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_aa79356b1e693837079f99291824f69e_Traceguids, v7, (__int64 *)va);
 }

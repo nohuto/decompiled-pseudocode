@@ -1,12 +1,12 @@
 /*
- * XREFs of rimHandleAnyPnpRemovePendingDevices @ 0x1C0048DA8
+ * XREFs of rimHandleAnyPnpRemovePendingDevices @ 0x1C0055E04
  * Callers:
- *     RIMReadInput @ 0x1C0043300 (RIMReadInput.c)
+ *     RIMReadInput @ 0x1C00532C0 (RIMReadInput.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C0033A6C (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     rimDoRimDevChange @ 0x1C00A1F28 (rimDoRimDevChange.c)
- *     RIMFreeDev @ 0x1C017C8C0 (RIMFreeDev.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0047360 (WPP_RECORDER_SF_q.c)
+ *     rimDoRimDevChange @ 0x1C00523E4 (rimDoRimDevChange.c)
+ *     RIMFreeDev @ 0x1C014FCC0 (RIMFreeDev.c)
  */
 
 void __fastcall rimHandleAnyPnpRemovePendingDevices(__int64 a1)
@@ -15,12 +15,11 @@ void __fastcall rimHandleAnyPnpRemovePendingDevices(__int64 a1)
   BOOL v3; // ebp
   int v4; // r14d
   int v5; // edx
-  int v6; // r8d
   __int64 i; // rbx
-  int v8; // eax
-  unsigned int v9; // edx
+  int v7; // eax
+  int v8; // ecx
 
-  v2 = a1 + 792;
+  v2 = a1 + 568;
   v3 = 0;
   while ( 2 )
   {
@@ -28,57 +27,40 @@ void __fastcall rimHandleAnyPnpRemovePendingDevices(__int64 a1)
     RIMLockExclusive(v2);
     for ( i = *(_QWORD *)(a1 + 424); i; i = *(_QWORD *)(i + 40) )
     {
-      if ( (*(_DWORD *)(i + 184) & 0x40) == 0 )
+      v7 = *(_DWORD *)(i + 184);
+      if ( (v7 & 0x40) == 0 )
       {
-        v8 = *(_DWORD *)(i + 188);
-        if ( (v8 & 4) != 0 )
+        if ( v7 < 0 )
         {
-          *(_DWORD *)(i + 188) = v8 & 0xFFFFFFFB;
-          LOBYTE(v5) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          if ( (_BYTE)v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          *(_DWORD *)(i + 184) = v7 & 0x7FFFFFFF;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LOBYTE(v6) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_q(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v5,
-              v6,
-              (_DWORD)gRimLog,
-              4,
-              1,
-              35,
-              (__int64)&WPP_3100a0ce65ca3ababb0b99fd70935186_Traceguids,
-              i);
+            LOBYTE(v5) = 4;
+            WPP_RECORDER_SF_q((_DWORD)gRimLog, v5, 1, 35, (__int64)&WPP_a75f261dfb463415346bb11edf387329_Traceguids, i);
           }
         }
-        v5 = *(_DWORD *)(i + 200);
-        if ( ((v5 & 1) != 0 || (*(_DWORD *)(i + 200) & 2) != 0)
-          && (*(_DWORD *)(i + 188) & 8) == 0
-          && !*(_QWORD *)(i + 192) )
+        v8 = *(_DWORD *)(i + 200);
+        if ( (v8 & 1) != 0 || (*(_DWORD *)(i + 200) & 2) != 0 )
         {
-          v4 = 1;
-          v3 = (*(_DWORD *)(i + 200) & 2) != 0;
-          v9 = v5 & 0xFFFFFFFC;
-          *(_DWORD *)(i + 200) = v9;
-          LOBYTE(v9) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          if ( (_BYTE)v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          v5 = *(_DWORD *)(i + 188);
+          if ( (v5 & 1) == 0 && (v5 & 2) == 0 && !*(_QWORD *)(i + 192) )
           {
-            LOBYTE(v6) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_q(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v9,
-              v6,
-              (_DWORD)gRimLog,
-              4,
-              1,
-              36,
-              (__int64)&WPP_3100a0ce65ca3ababb0b99fd70935186_Traceguids,
-              i);
+            v4 = 1;
+            v3 = (*(_DWORD *)(i + 200) & 2) != 0;
+            *(_DWORD *)(i + 200) = v8 & 0xFFFFFFFC;
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v5) = 4;
+              WPP_RECORDER_SF_q(
+                (_DWORD)gRimLog,
+                v5,
+                1,
+                36,
+                (__int64)&WPP_a75f261dfb463415346bb11edf387329_Traceguids,
+                i);
+            }
+            break;
           }
-          break;
         }
       }
     }
@@ -90,13 +72,13 @@ void __fastcall rimHandleAnyPnpRemovePendingDevices(__int64 a1)
       if ( v3 )
       {
         RIMLockExclusive(v2);
-        *(_DWORD *)(a1 + 1108) |= 2u;
+        *(_DWORD *)(a1 + 884) |= 2u;
       }
-      rimDoRimDevChange(a1, i, 3LL);
+      rimDoRimDevChange(a1, i, 3u);
       RIMFreeDev(a1, i);
       if ( v3 )
       {
-        *(_DWORD *)(a1 + 1108) &= ~2u;
+        *(_DWORD *)(a1 + 884) &= ~2u;
         *(_QWORD *)(v2 + 8) = 0LL;
         ExReleasePushLockExclusiveEx(v2, 0LL);
         KeLeaveCriticalRegion();

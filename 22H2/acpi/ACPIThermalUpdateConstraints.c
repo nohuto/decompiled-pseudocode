@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIThermalUpdateConstraints @ 0x1C004223C
+ * XREFs of ACPIThermalUpdateConstraints @ 0x1C0014B28
  * Callers:
- *     ACPIThermalWorker @ 0x1C00962F0 (ACPIThermalWorker.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
  * Callees:
- *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0007500 (AcpiDiagTraceActiveCoolingConstraint.c)
- *     AcpiDiagTraceActiveCoolingDevicePower @ 0x1C0007584 (AcpiDiagTraceActiveCoolingDevicePower.c)
- *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0008720 (AcpiDiagTracePassiveCoolingConstraint.c)
- *     ACPIThermalReevaluateConstraints @ 0x1C0041A94 (ACPIThermalReevaluateConstraints.c)
+ *     ACPIThermalReevaluateConstraints @ 0x1C000E1B0 (ACPIThermalReevaluateConstraints.c)
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0030454 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTraceActiveCoolingDevicePower @ 0x1C0030EB8 (AcpiDiagTraceActiveCoolingDevicePower.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0049FBC (AcpiDiagTracePassiveCoolingConstraint.c)
  */
 
 void __fastcall ACPIThermalUpdateConstraints(__int64 a1)
@@ -15,13 +15,12 @@ void __fastcall ACPIThermalUpdateConstraints(__int64 a1)
   KIRQL v2; // r15
   __int64 *i; // rbx
   char v4; // bp
-  __int64 v5; // rdx
-  char v6; // r9
-  unsigned int v7; // eax
-  unsigned int v8; // ecx
-  char v9; // r14
+  unsigned int v5; // eax
+  unsigned int v6; // ecx
+  char v7; // r14
+  __int64 v8; // rcx
+  __int64 v9; // rdx
   __int64 v10; // rdx
-  __int64 v11; // rcx
 
   v1 = *(_QWORD *)(a1 + 200);
   v2 = KeAcquireSpinLockRaiseToDpc(&AcpiThermalConstraintLock);
@@ -32,41 +31,43 @@ void __fastcall ACPIThermalUpdateConstraints(__int64 a1)
     {
       if ( *((unsigned __int8 *)i + 53) != *(_DWORD *)(v1 + 96) )
       {
-        v5 = i[5];
+        v10 = i[5];
         v4 = 1;
-        v6 = *(_BYTE *)(v1 + 96);
-        *((_BYTE *)i + 53) = v6;
-        if ( v5 )
-          AcpiDiagTracePassiveCoolingConstraint(i[4], v5, 0, v6);
+        *((_BYTE *)i + 53) = *(_BYTE *)(v1 + 96);
+        if ( v10 )
+          AcpiDiagTracePassiveCoolingConstraint(i[4], v10, 0LL);
       }
     }
     else
     {
-      v7 = *((unsigned __int8 *)i + 54);
-      v8 = *(_DWORD *)(v1 + 92);
-      v9 = v7 >= v8;
+      v5 = *((unsigned __int8 *)i + 54);
+      v6 = *(_DWORD *)(v1 + 92);
+      v7 = v5 >= v6;
       if ( *((_BYTE *)i + 55) )
       {
-        if ( v7 >= v8 )
-          goto LABEL_12;
+        if ( v5 >= v6 )
+          goto LABEL_6;
       }
-      else if ( v7 < v8 )
+      else if ( v5 < v6 )
       {
-        goto LABEL_12;
+        goto LABEL_6;
       }
-      v10 = i[5];
+      v9 = i[5];
       v4 = 1;
-      *((_BYTE *)i + 55) = v9;
-      if ( v10 )
+      *((_BYTE *)i + 55) = v7;
+      if ( v9 )
       {
-        AcpiDiagTraceActiveCoolingConstraint(i[4], v10, 0, v9);
-        AcpiDiagTraceActiveCoolingDevicePower(i[4], i[5], *((unsigned __int8 *)i + 54), *((_DWORD *)i + 12), v9);
+        AcpiDiagTraceActiveCoolingConstraint(i[4], v9, 0LL);
+        AcpiDiagTraceActiveCoolingDevicePower(i[4], i[5], *((unsigned __int8 *)i + 54), *((_DWORD *)i + 12), v7);
       }
     }
-LABEL_12:
-    v11 = i[5];
-    if ( v11 && v4 )
-      ACPIThermalReevaluateConstraints(*(PVOID *)(v11 + 656));
+LABEL_6:
+    v8 = i[5];
+    if ( v8 )
+    {
+      if ( v4 )
+        ACPIThermalReevaluateConstraints(*(PVOID *)(v8 + 616));
+    }
   }
   KeReleaseSpinLock(&AcpiThermalConstraintLock, v2);
 }

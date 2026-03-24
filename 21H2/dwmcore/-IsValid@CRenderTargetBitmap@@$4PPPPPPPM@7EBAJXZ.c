@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsValid@CRenderTargetBitmap@@$4PPPPPPPM@7EBAJXZ @ 0x18010CAB0
+ * XREFs of ?IsValid@CRenderTargetBitmap@@$4PPPPPPPM@7EBAJXZ @ 0x1800F9400
  * Callers:
  *     <none>
  * Callees:

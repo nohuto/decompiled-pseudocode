@@ -1,11 +1,11 @@
 /*
- * XREFs of GreSetRegionOwner @ 0x1C00285E0
+ * XREFs of GreSetRegionOwner @ 0x1C0035410
  * Callers:
- *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C002C464 (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
- *     ?DestroyRegion@@YAXPEAPEAUHRGN__@@@Z @ 0x1C0051858 (-DestroyRegion@@YAXPEAPEAUHRGN__@@@Z.c)
- *     EngCreateRectRgn @ 0x1C008E2D0 (EngCreateRectRgn.c)
+ *     ?DestroyRegion@@YAXPEAPEAUHRGN__@@@Z @ 0x1C00079E4 (-DestroyRegion@@YAXPEAPEAUHRGN__@@@Z.c)
+ *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C003809C (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
+ *     EngCreateRectRgn @ 0x1C014B730 (EngCreateRectRgn.c)
  * Callees:
- *     HmgSetOwner @ 0x1C0028640 (HmgSetOwner.c)
+ *     HmgSetOwner @ 0x1C0035470 (HmgSetOwner.c)
  */
 
 __int64 __fastcall GreSetRegionOwner(__int64 a1, unsigned int a2)

@@ -1,21 +1,16 @@
 /*
- * XREFs of PnpDelayedRemoveWorker @ 0x140881B60
+ * XREFs of PnpDelayedRemoveWorker @ 0x14074CB70
  * Callers:
- *     PnpChainDereferenceComplete @ 0x140881878 (PnpChainDereferenceComplete.c)
+ *     PnpChainDereferenceComplete @ 0x14074C614 (PnpChainDereferenceComplete.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PnpWatchdogEtwWrite @ 0x140560B10 (PnpWatchdogEtwWrite.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     PnpRecordBlackbox @ 0x140785ADC (PnpRecordBlackbox.c)
- *     PnpWatchdogTimerPause @ 0x140785B50 (PnpWatchdogTimerPause.c)
- *     WdtpCancelTimer @ 0x140785BDC (WdtpCancelTimer.c)
- *     PnpEnableWatchdog @ 0x14078652C (PnpEnableWatchdog.c)
- *     PipRemoveDevicesInRelationList @ 0x140881CBC (PipRemoveDevicesInRelationList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     PnpDisableWatchdog @ 0x1406F02D0 (PnpDisableWatchdog.c)
+ *     PnpEnableWatchdog @ 0x1406F0344 (PnpEnableWatchdog.c)
+ *     PipRemoveDevicesInRelationList @ 0x14074CDB8 (PipRemoveDevicesInRelationList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDelayedRemoveWorker(_QWORD *P)
@@ -24,22 +19,18 @@ void __fastcall PnpDelayedRemoveWorker(_QWORD *P)
   PVOID *v3; // r8
   PVOID *v4; // rax
   PVOID *v5; // rax
-  _QWORD *v6; // rbx
+  _QWORD *v6; // rdi
   __int64 v7; // rax
   __int64 v8; // rax
   __int64 v9; // rcx
-  __int64 v10; // rax
-  void *v11; // rcx
-  __int64 v12; // rbx
-  void *v13; // rbx
-  void *v14; // rcx
+  __int64 v10; // rcx
   PVOID Pa; // [rsp+20h] [rbp-10h] BYREF
   PVOID *p_Pa; // [rsp+28h] [rbp-8h]
 
   p_Pa = &Pa;
   Pa = &Pa;
   PpDevNodeLockTree(1);
-  *(_QWORD *)&PnpDelayedRemoveWorkerThread = KeGetCurrentThread();
+  PnpDelayedRemoveWorkerThread = (__int64)KeGetCurrentThread();
   ExAcquireResourceExclusiveLite(&IopSurpriseRemoveListLock, 1u);
   v2 = (PVOID **)IopPendingSurpriseRemovals;
   if ( IopPendingSurpriseRemovals != &IopPendingSurpriseRemovals )
@@ -87,42 +78,25 @@ LABEL_19:
       P[2] = v6;
       P[1] = v6[7];
       v8 = v6[7];
-      v9 = v8 ? *(_QWORD *)(*(_QWORD *)(v8 + 312) + 40LL) : 0LL;
+      if ( v8 )
+        v9 = *(_QWORD *)(*(_QWORD *)(v8 + 312) + 40LL);
+      else
+        v9 = 0LL;
       *P = v9;
-      v10 = PnpEnableWatchdog(3, (__int64)P, (const UNICODE_STRING *)((v9 + 56) & -(__int64)(v9 != 0)));
-      P[3] = v10;
-      if ( v10 )
-      {
-        v11 = (void *)P[1];
-        if ( v11 )
-          ObfReferenceObjectWithTag(v11, 0x56706E50u);
-      }
+      P[3] = PnpEnableWatchdog(3, (__int64)P);
     }
     PipRemoveDevicesInRelationList(v6);
     if ( P )
     {
-      v12 = P[3];
-      if ( v12 )
+      v10 = P[3];
+      if ( v10 )
       {
-        PnpWatchdogTimerPause(*(_QWORD *)(v12 + 8));
-        PnpRecordBlackbox(0LL, *(_DWORD *)(v12 + 16));
-        if ( *(_BYTE *)(v12 + 32) )
-        {
-          PnpWatchdogEtwWrite(v12, 1);
-          if ( !*(_BYTE *)(v12 + 33) )
-            PnpWatchdogEtwWrite(v12, 3);
-        }
-        v13 = *(void **)(v12 + 8);
-        WdtpCancelTimer((__int64)v13, 1);
-        ExFreePoolWithTag(v13, 0x54645750u);
-        v14 = (void *)P[1];
+        PnpDisableWatchdog(v10);
         P[3] = 0LL;
-        if ( v14 )
-          ObfDereferenceObjectWithTag(v14, 0x56706E50u);
       }
     }
   }
-  *(_QWORD *)&PnpDelayedRemoveWorkerThread = 0LL;
+  PnpDelayedRemoveWorkerThread = 0LL;
   if ( P )
     ExFreePoolWithTag(P, 0x54706E50u);
   PpDevNodeUnlockTree(1);

@@ -1,14 +1,13 @@
 /*
- * XREFs of RtlUpcaseUnicodeStringToCountedOemString @ 0x1407596C0
+ * XREFs of RtlUpcaseUnicodeStringToCountedOemString @ 0x140694A90
  * Callers:
- *     DifRtlUpcaseUnicodeStringToCountedOemStringWrapper @ 0x14061C0F0 (DifRtlUpcaseUnicodeStringToCountedOemStringWrapper.c)
- *     RtlIsNameLegalDOS8Dot3 @ 0x1407594E0 (RtlIsNameLegalDOS8Dot3.c)
+ *     RtlIsNameLegalDOS8Dot3 @ 0x1406948E0 (RtlIsNameLegalDOS8Dot3.c)
  * Callees:
- *     AllocateOrValidateCharStringBuffer @ 0x1402D7DE0 (AllocateOrValidateCharStringBuffer.c)
- *     RtlpDidUnicodeToOemWork @ 0x140759798 (RtlpDidUnicodeToOemWork.c)
- *     RtlUpcaseUnicodeToOemN @ 0x1407598D0 (RtlUpcaseUnicodeToOemN.c)
- *     RtlxUnicodeStringToOemSize @ 0x140759A50 (RtlxUnicodeStringToOemSize.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlpDidUnicodeToOemWork @ 0x140694B58 (RtlpDidUnicodeToOemWork.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x140694BE0 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlxUnicodeStringToOemSize @ 0x140694C80 (RtlxUnicodeStringToOemSize.c)
+ *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeStringToCountedOemString(
@@ -17,62 +16,51 @@ NTSTATUS __stdcall RtlUpcaseUnicodeStringToCountedOemString(
         BOOLEAN AllocateDestinationString)
 {
   ULONG v6; // eax
-  unsigned __int16 *p_MaximumLength; // r13
-  char **p_Buffer; // r14
-  NTSTATUS result; // eax
-  ULONG v10; // edx
-  int v11; // esi
-  ULONG BytesInOemString; // [rsp+98h] [rbp+20h] BYREF
+  ULONG v7; // edx
+  int v8; // edi
+  char *StringRoutine; // rax
+  ULONG BytesInOemString; // [rsp+88h] [rbp+20h] BYREF
 
+  BytesInOemString = 0;
   v6 = RtlxUnicodeStringToOemSize(SourceString) - 1;
-  BytesInOemString = v6;
-  if ( v6 )
-  {
-    if ( v6 > 0xFFFF )
-    {
-      return -1073741584;
-    }
-    else
-    {
-      p_MaximumLength = &DestinationString->MaximumLength;
-      p_Buffer = &DestinationString->Buffer;
-      result = AllocateOrValidateCharStringBuffer(
-                 AllocateDestinationString,
-                 v6,
-                 (__int64 *)&DestinationString->Buffer,
-                 &DestinationString->MaximumLength);
-      if ( result >= 0 )
-      {
-        v11 = RtlUpcaseUnicodeToOemN(
-                *p_Buffer,
-                *p_MaximumLength,
-                &BytesInOemString,
-                SourceString->Buffer,
-                SourceString->Length);
-        if ( v11 >= 0 )
-        {
-          DestinationString->Length = BytesInOemString;
-          if ( !(unsigned __int8)RtlpDidUnicodeToOemWork(DestinationString, SourceString) )
-            v11 = -1073741470;
-        }
-        if ( v11 < 0 )
-        {
-          if ( AllocateDestinationString )
-          {
-            ExFreePoolWithTag(*p_Buffer, v10);
-            *p_Buffer = 0LL;
-            *p_MaximumLength = 0;
-          }
-        }
-        return v11;
-      }
-    }
-  }
-  else
+  if ( !v6 )
   {
     *(_DWORD *)&DestinationString->Length = 0;
     DestinationString->Buffer = 0LL;
     return 0;
   }
-  return result;
+  if ( v6 > 0xFFFF )
+    return -1073741584;
+  DestinationString->Length = v6;
+  if ( AllocateDestinationString )
+  {
+    DestinationString->MaximumLength = v6;
+    StringRoutine = (char *)ExpAllocateStringRoutine(v6);
+    DestinationString->Buffer = StringRoutine;
+    if ( !StringRoutine )
+      return -1073741801;
+  }
+  else if ( (unsigned __int16)v6 > DestinationString->MaximumLength )
+  {
+    return -2147483643;
+  }
+  v8 = RtlUpcaseUnicodeToOemN(
+         DestinationString->Buffer,
+         DestinationString->Length,
+         &BytesInOemString,
+         SourceString->Buffer,
+         SourceString->Length);
+  if ( v8 >= 0 && !(unsigned __int8)RtlpDidUnicodeToOemWork(DestinationString, SourceString) )
+    v8 = -1073741470;
+  if ( v8 >= 0 )
+    v8 = 0;
+  if ( v8 < 0 )
+  {
+    if ( AllocateDestinationString )
+    {
+      ExFreePoolWithTag(DestinationString->Buffer, v7);
+      DestinationString->Buffer = 0LL;
+    }
+  }
+  return v8;
 }

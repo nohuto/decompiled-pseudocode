@@ -1,11 +1,12 @@
 /*
- * XREFs of HmgMarkDeletable @ 0x1C0099BD0
+ * XREFs of HmgMarkDeletable @ 0x1C0086450
  * Callers:
- *     GreMarkDeletableBitmap @ 0x1C0099B80 (GreMarkDeletableBitmap.c)
- *     GreMarkDeletableRgn @ 0x1C0099BA0 (GreMarkDeletableRgn.c)
+ *     DestroyCacheDC @ 0x1C00074F0 (DestroyCacheDC.c)
+ *     GreMarkDeletableBitmap @ 0x1C0086400 (GreMarkDeletableBitmap.c)
+ *     GreMarkDeletableRgn @ 0x1C0086420 (GreMarkDeletableRgn.c)
  * Callees:
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0022260 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C002F590 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
  */
 
 __int64 __fastcall HmgMarkDeletable(unsigned int a1, char a2)
@@ -19,7 +20,7 @@ __int64 __fastcall HmgMarkDeletable(unsigned int a1, char a2)
   v6 = 0LL;
   v7 = 0;
   v4 = HIWORD(a1);
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v6, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 0LL, 0, 0);
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v6, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 0, 0, 0);
   if ( v7 )
   {
     if ( *(_BYTE *)(v6 + 14) == a2 && *(_WORD *)(v6 + 12) == v4 )

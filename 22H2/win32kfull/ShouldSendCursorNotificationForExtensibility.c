@@ -1,5 +1,5 @@
 /*
- * XREFs of ShouldSendCursorNotificationForExtensibility @ 0x1C01A90C0
+ * XREFs of ShouldSendCursorNotificationForExtensibility @ 0x1C01D3DB0
  * Callers:
  *     <none>
  * Callees:

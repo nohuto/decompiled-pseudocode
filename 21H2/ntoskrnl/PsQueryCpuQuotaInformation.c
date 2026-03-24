@@ -1,24 +1,28 @@
 /*
- * XREFs of PsQueryCpuQuotaInformation @ 0x1403DF48C
+ * XREFs of PsQueryCpuQuotaInformation @ 0x1403CFFB4
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     MiGetNextSession @ 0x1402A1788 (MiGetNextSession.c)
- *     MmGetSessionSchedulingGroupByProcess @ 0x14070F320 (MmGetSessionSchedulingGroupByProcess.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     MmQuitNextSession @ 0x1407FCA70 (MmQuitNextSession.c)
+ *     MiGetNextSession @ 0x1402D5FA8 (MiGetNextSession.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     MmQuitNextSession @ 0x1406C3770 (MmQuitNextSession.c)
+ *     MmGetSessionSchedulingGroupByProcess @ 0x1406D6290 (MmGetSessionSchedulingGroupByProcess.c)
  */
 
-__int64 __fastcall PsQueryCpuQuotaInformation(_DWORD *Address, SIZE_T Length, KPROCESSOR_MODE PreviousMode, _DWORD *a4)
+__int64 __fastcall PsQueryCpuQuotaInformation(
+        _DWORD *Address,
+        __int64 Length,
+        KPROCESSOR_MODE PreviousMode,
+        _DWORD *a4)
 {
   SIZE_T v6; // rbx
   unsigned int v9; // r14d
   __int64 v10; // rdi
-  _QWORD *i; // rcx
-  _QWORD *NextSession; // rax
-  _QWORD *v13; // rsi
+  struct _DMA_ADAPTER *i; // rcx
+  struct _DMA_ADAPTER *NextSession; // rax
+  struct _DMA_ADAPTER *v13; // rsi
   __int64 v14; // rcx
   unsigned __int16 *SessionSchedulingGroupByProcess; // r12
 
@@ -43,7 +47,7 @@ __int64 __fastcall PsQueryCpuQuotaInformation(_DWORD *Address, SIZE_T Length, KP
   v10 = 0LL;
   for ( i = 0LL; ; i = v13 )
   {
-    NextSession = MiGetNextSession(i);
+    NextSession = MiGetNextSession(i, Length);
     v13 = NextSession;
     if ( !NextSession )
       break;

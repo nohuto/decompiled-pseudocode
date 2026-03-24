@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessUpdate@?$TValueResource@UD2D_MATRIX_3X2_F@@UtagMILCMD_MATRIXRESOURCE@@$0GK@@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MATRIXRESOURCE@@@Z @ 0x1801A1C7C
+ * XREFs of ?ProcessUpdate@?$TValueResource@UD2D_MATRIX_3X2_F@@UtagMILCMD_MATRIXRESOURCE@@$0GK@@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MATRIXRESOURCE@@@Z @ 0x18017004C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TValueResource<D2D_MATRIX_3X2_F,tagMILCMD_MATRIXRESOURCE,106>::ProcessUpdate(
@@ -12,10 +12,12 @@ __int64 __fastcall TValueResource<D2D_MATRIX_3X2_F,tagMILCMD_MATRIXRESOURCE,106>
         __int64 a3)
 {
   __int64 v3; // rax
+  void (__fastcall *v4)(__int64 *, _QWORD, _QWORD); // rax
 
   v3 = *a1;
-  *((_OWORD *)a1 + 4) = *(_OWORD *)(a3 + 8);
-  a1[10] = *(_QWORD *)(a3 + 24);
-  (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v3 + 72))(a1, 0LL, 0LL);
+  *(_OWORD *)(a1 + 7) = *(_OWORD *)(a3 + 8);
+  v4 = *(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v3 + 72);
+  a1[9] = *(_QWORD *)(a3 + 24);
+  v4(a1, 0LL, 0LL);
   return 0LL;
 }

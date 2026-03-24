@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SupportsPointerType@CInteraction@@UEBAHW4InputType@@W4SupportedTypeOption@@@Z @ 0x1800DFF00
+ * XREFs of ?SupportsPointerType@CInteraction@@UEBAHW4InputType@@W4SupportedTypeOption@@@Z @ 0x1800C9A70
  * Callers:
  *     <none>
  * Callees:
- *     ?GetInputQueueType@CInputSinkStruct@@QEBA?AW4CompositionInputQueueType@@W4InputType@@@Z @ 0x180017E10 (-GetInputQueueType@CInputSinkStruct@@QEBA-AW4CompositionInputQueueType@@W4InputType@@@Z.c)
- *     ?SupportsPointerType@CInteractionProcessor@@QEBAHW4InputType@@W4SupportedTypeOption@@@Z @ 0x1800DFF30 (-SupportsPointerType@CInteractionProcessor@@QEBAHW4InputType@@W4SupportedTypeOption@@@Z.c)
+ *     ?GetInputQueueType@CInputSinkStruct@@QEBA?AW4CompositionInputQueueType@@W4InputType@@@Z @ 0x180018860 (-GetInputQueueType@CInputSinkStruct@@QEBA-AW4CompositionInputQueueType@@W4InputType@@@Z.c)
+ *     ?SupportsPointerType@CInteractionProcessor@@QEBAHW4InputType@@W4SupportedTypeOption@@@Z @ 0x1800C9AA0 (-SupportsPointerType@CInteractionProcessor@@QEBAHW4InputType@@W4SupportedTypeOption@@@Z.c)
  */
 
 __int64 __fastcall CInteraction::SupportsPointerType(__int64 a1, int a2)
@@ -15,13 +15,13 @@ __int64 __fastcall CInteraction::SupportsPointerType(__int64 a1, int a2)
   v2 = 0;
   if ( a2 == 7 )
   {
-    v4 = *(_QWORD *)(a1 + 40);
+    v4 = *(_QWORD *)(a1 + 96);
     if ( v4 )
       LOBYTE(v2) = (unsigned int)CInputSinkStruct::GetInputQueueType(v4, 7) != 0;
   }
   else
   {
-    return (unsigned int)CInteractionProcessor::SupportsPointerType(a1 + 288);
+    return (unsigned int)CInteractionProcessor::SupportsPointerType(a1 + 344);
   }
   return v2;
 }

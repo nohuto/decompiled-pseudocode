@@ -1,23 +1,21 @@
 /*
- * XREFs of DxgkGetContextInProcessSchedulingPriority @ 0x1C02E9D40
+ * XREFs of DxgkGetContextInProcessSchedulingPriority @ 0x1C02594C0
  * Callers:
- *     ?VmBusGetContextSchedulingPriority@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036DD40 (-VmBusGetContextSchedulingPriority@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusGetContextSchedulingPriority@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02417E0 (-VmBusGetContextSchedulingPriority@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N2@Z @ 0x1C0008FF0 (--0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N2@Z.c)
- *     ??1DXGCONTEXTBYHANDLE@@QEAA@XZ @ 0x1C0009178 (--1DXGCONTEXTBYHANDLE@@QEAA@XZ.c)
- *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C000955C (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
- *     ??1DXGDEVICEACCESSLOCKSHARED@@QEAA@XZ @ 0x1C0009824 (--1DXGDEVICEACCESSLOCKSHARED@@QEAA@XZ.c)
- *     ??0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0009864 (--0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C000BC60 (--1COREDEVICEACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C000C040 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?GetInProcessSchedulingPriority@DXGCONTEXT@@QEAAHXZ @ 0x1C02E214C (-GetInProcessSchedulingPriority@DXGCONTEXT@@QEAAHXZ.c)
- *     ?VmBusSendGetContextSchedulingPriority@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAHE@Z @ 0x1C0377CB4 (-VmBusSendGetContextSchedulingPriority@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGC.c)
+ *     ??0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N@Z @ 0x1C0001E14 (--0DXGCONTEXTBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGCONTEXT@@_N@Z.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C00022BC (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C0004090 (--1COREDEVICEACCESS@@QEAA@XZ.c)
+ *     ??1DXGCONTEXTBYHANDLE@@QEAA@XZ @ 0x1C0004200 (--1DXGCONTEXTBYHANDLE@@QEAA@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C0006CE0 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C00072B0 (--0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetInProcessSchedulingPriority@DXGCONTEXT@@QEAAHXZ @ 0x1C022E9B0 (-GetInProcessSchedulingPriority@DXGCONTEXT@@QEAAHXZ.c)
+ *     ?VmBusSendGetContextSchedulingPriority@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEAHE@Z @ 0x1C02486F4 (-VmBusSendGetContextSchedulingPriority@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGC.c)
  */
 
 __int64 __fastcall DxgkGetContextInProcessSchedulingPriority(__int64 a1, __int64 a2, __int64 a3)
@@ -25,158 +23,172 @@ __int64 __fastcall DxgkGetContextInProcessSchedulingPriority(__int64 a1, __int64
   _QWORD *v3; // rdi
   __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  struct DXGPROCESS *Current; // r12
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  bool v11; // sf
-  char v12; // r14
-  _QWORD *v13; // rax
-  DXGCONTEXT *v14; // rsi
-  __int64 v16; // r9
-  int v17; // r15d
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  struct DXGPROCESS *Current; // r15
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  char v11; // r14
+  _QWORD *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  DXGCONTEXT *v16; // rsi
+  __int64 v17; // rax
   __int64 v18; // rcx
   __int64 v19; // r8
-  int ContextSchedulingPriority; // eax
-  unsigned int v21; // esi
-  __int64 v22; // rcx
-  __int64 v23; // r8
+  __int64 v21; // r9
+  int v22; // r12d
+  __int64 v23; // rdx
   __int64 v24; // rcx
   __int64 v25; // r8
-  int v26; // [rsp+50h] [rbp-108h] BYREF
-  __int64 v27; // [rsp+58h] [rbp-100h]
-  char v28; // [rsp+60h] [rbp-F8h]
-  unsigned int v29[2]; // [rsp+68h] [rbp-F0h] BYREF
-  DXGCONTEXT *v30[2]; // [rsp+70h] [rbp-E8h] BYREF
-  _BYTE v31[16]; // [rsp+80h] [rbp-D8h] BYREF
-  _BYTE v32[160]; // [rsp+90h] [rbp-C8h] BYREF
+  int ContextSchedulingPriority; // eax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // r8
+  __int64 v30; // rsi
+  __int64 v31; // rax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // r8
+  int v38; // [rsp+30h] [rbp-108h] BYREF
+  __int64 v39; // [rsp+38h] [rbp-100h]
+  char v40; // [rsp+40h] [rbp-F8h]
+  unsigned int v41[2]; // [rsp+48h] [rbp-F0h] BYREF
+  DXGCONTEXT *v42; // [rsp+50h] [rbp-E8h] BYREF
+  char v43; // [rsp+58h] [rbp-E0h]
+  _BYTE v44[16]; // [rsp+60h] [rbp-D8h] BYREF
+  _BYTE v45[160]; // [rsp+70h] [rbp-C8h] BYREF
 
   v3 = (_QWORD *)a1;
-  v26 = -1;
-  v27 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v38 = -1;
+  v39 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v28 = 1;
-    v26 = 2085;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v40 = 1;
+    v38 = 2085;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2085);
   }
   else
   {
-    v28 = 0;
+    v40 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v26, 2085);
-  Current = DXGPROCESS::GetCurrent(v5, v4, v6, v7);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v38, 2085LL);
+  Current = DXGPROCESS::GetCurrent(v5, v4);
   if ( !Current )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v26);
-    if ( v28 )
+    v9 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v9 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v9);
+LABEL_14:
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38, v10);
+    if ( v40 )
     {
-      v11 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-      goto LABEL_16;
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v18, &EventProfilerExit, v19, v38);
     }
     return 3221225485LL;
   }
   if ( (unsigned __int8)PsGetCurrentThreadPreviousMode() == 1 )
   {
-    v12 = 1;
-    v13 = v3;
+    v11 = 1;
+    v12 = v3;
     if ( (unsigned __int64)v3 >= MmUserProbeAddress )
-      v13 = (_QWORD *)MmUserProbeAddress;
-    *(_QWORD *)v29 = *v13;
+      v12 = (_QWORD *)MmUserProbeAddress;
+    *(_QWORD *)v41 = *v12;
   }
   else
   {
-    v12 = 0;
-    *(_QWORD *)v29 = *v3;
+    v11 = 0;
+    *(_QWORD *)v41 = *v3;
   }
-  v30[0] = 0LL;
-  DXGCONTEXTBYHANDLE::DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v31, v29[0], Current, v30, 0, 1);
-  v14 = v30[0];
-  if ( !v30[0] )
+  v42 = 0LL;
+  DXGCONTEXTBYHANDLE::DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v44, v41[0], Current, &v42, 0);
+  v16 = v42;
+  if ( !v42 )
   {
-    WdLogSingleEntry2(3LL, v29[0], -1073741811LL);
-    DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v31);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v26);
-    if ( v28 )
-    {
-      LOBYTE(v9) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-      v11 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
-LABEL_16:
-      if ( v11 )
-        McTemplateK0q_EtwWriteTransfer(v9, &EventProfilerExit, v10, v26);
-    }
-    return 3221225485LL;
+    v17 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+    *(_QWORD *)(v17 + 24) = v41[0];
+    *(_QWORD *)(v17 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v17);
+    DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v44);
+    goto LABEL_14;
   }
   DXGDEVICEACCESSLOCKSHARED::DXGDEVICEACCESSLOCKSHARED(
-    (DXGDEVICEACCESSLOCKSHARED *)v30,
-    *((struct DXGDEVICE **)v30[0] + 2));
-  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v32, *((_QWORD *)v14 + 2), 0, v16, 0);
-  v17 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v32, 0LL);
-  if ( v17 < 0 )
+    (DXGDEVICEACCESSLOCKSHARED *)&v42,
+    *((struct DXGDEVICE **)v42 + 2));
+  COREDEVICEACCESS::COREDEVICEACCESS((__int64)v45, *((_QWORD *)v16 + 2), 0, v21, 0);
+  v22 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v45, 0LL);
+  if ( v22 < 0 )
   {
-    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v32);
-    DXGDEVICEACCESSLOCKSHARED::~DXGDEVICEACCESSLOCKSHARED((DXGDEVICEACCESSLOCKSHARED *)v30);
-    DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v31);
-    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v26);
-    if ( v28 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v18, &EventProfilerExit, v19, v26);
-    return (unsigned int)v17;
+    COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v45);
+    if ( v42 && v43 )
+    {
+      ExReleaseResourceLite(*((PERESOURCE *)v42 + 17));
+      KeLeaveCriticalRegion();
+    }
+    DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v44);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38, v23);
+    if ( v40 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v24, &EventProfilerExit, v25, v38);
+    return (unsigned int)v22;
   }
-  if ( *((_BYTE *)v14 + 441) )
+  if ( *((_BYTE *)v16 + 457) )
   {
     ContextSchedulingPriority = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetContextSchedulingPriority(
-                                  (DXG_GUEST_VIRTUALGPU_VMBUS *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v14 + 2) + 16LL)
+                                  (DXG_GUEST_VIRTUALGPU_VMBUS *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v16 + 2) + 16LL)
                                                                            + 16LL)
-                                                               + 4344LL),
+                                                               + 4240LL),
                                   Current,
-                                  v14,
-                                  (int *)&v29[1],
+                                  v16,
+                                  (int *)&v41[1],
                                   1u);
-    v21 = ContextSchedulingPriority;
+    v30 = ContextSchedulingPriority;
     if ( ContextSchedulingPriority < 0 )
     {
-      WdLogSingleEntry1(3LL, ContextSchedulingPriority);
-      COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v32);
-      DXGDEVICEACCESSLOCKSHARED::~DXGDEVICEACCESSLOCKSHARED((DXGDEVICEACCESSLOCKSHARED *)v30);
-      DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v31);
-      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v26);
-      if ( v28 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v22, &EventProfilerExit, v23, v26);
-      return v21;
+      v31 = WdLogNewEntry5_WdWarning(v28, v27, v29);
+      *(_QWORD *)(v31 + 24) = v30;
+      WdLogEvent5_WdWarning(v31);
+      COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v45);
+      if ( v42 && v43 )
+      {
+        ExReleaseResourceLite(*((PERESOURCE *)v42 + 17));
+        KeLeaveCriticalRegion();
+      }
+      DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v44);
+      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38, v32);
+      if ( v40 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v33, &EventProfilerExit, v34, v38);
+      return (unsigned int)v30;
     }
   }
   else
   {
-    v29[1] = DXGCONTEXT::GetInProcessSchedulingPriority(v14);
+    v41[1] = DXGCONTEXT::GetInProcessSchedulingPriority(v16);
   }
-  if ( v12 )
+  if ( v11 )
   {
     if ( (unsigned __int64)v3 >= MmUserProbeAddress )
       v3 = (_QWORD *)MmUserProbeAddress;
-    *v3 = *(_QWORD *)v29;
+    *v3 = *(_QWORD *)v41;
   }
   else
   {
-    *v3 = *(_QWORD *)v29;
+    *v3 = *(_QWORD *)v41;
   }
-  COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v32);
-  DXGDEVICEACCESSLOCKSHARED::~DXGDEVICEACCESSLOCKSHARED((DXGDEVICEACCESSLOCKSHARED *)v30);
-  DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v31);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v26);
-  if ( v28 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v24, &EventProfilerExit, v25, v26);
+  COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v45);
+  if ( v42 && v43 )
+  {
+    ExReleaseResourceLite(*((PERESOURCE *)v42 + 17));
+    KeLeaveCriticalRegion();
+  }
+  DXGCONTEXTBYHANDLE::~DXGCONTEXTBYHANDLE((DXGCONTEXTBYHANDLE *)v44);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38, v35);
+  if ( v40 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v36, &EventProfilerExit, v37, v38);
   return 0LL;
 }

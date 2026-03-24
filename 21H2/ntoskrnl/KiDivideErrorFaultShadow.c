@@ -1,5 +1,5 @@
 /*
- * XREFs of KiDivideErrorFaultShadow @ 0x140AB5100
+ * XREFs of KiDivideErrorFaultShadow @ 0x140A14100
  * Callers:
  *     <none>
  * Callees:
@@ -19,7 +19,7 @@ __int64 __fastcall KiDivideErrorFaultShadow()
   {
     __asm { swapgs }
     _mm_lfence();
-    if ( !_bittest(MK_FP(__GS__, 40984LL), 1u) )
+    if ( !_bittest(MK_FP(__GS__, 36888LL), 1u) )
       __writecr3((unsigned __int64)&v5);
     __writegsqword(0x10u, v0);
     v3 = KeGetPcr()->IdtBase + 1056;

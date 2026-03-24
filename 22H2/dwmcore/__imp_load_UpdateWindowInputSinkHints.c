@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_UpdateWindowInputSinkHints @ 0x1801108D1
+ * XREFs of __imp_load_UpdateWindowInputSinkHints @ 0x1800E8559
  * Callers:
  *     <none>
  * Callees:

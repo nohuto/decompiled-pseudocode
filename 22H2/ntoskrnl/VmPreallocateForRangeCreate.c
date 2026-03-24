@@ -1,32 +1,30 @@
 /*
- * XREFs of VmPreallocateForRangeCreate @ 0x1409DCAB0
+ * XREFs of VmPreallocateForRangeCreate @ 0x14092F160
  * Callers:
  *     <none>
  * Callees:
- *     VmpAllocateMemoryRanges @ 0x1409DD064 (VmpAllocateMemoryRanges.c)
- *     VmpProcessContextSetup @ 0x1409DD7D0 (VmpProcessContextSetup.c)
+ *     VmpAllocateMemoryRanges @ 0x14092F59C (VmpAllocateMemoryRanges.c)
  */
 
-__int64 __fastcall VmPreallocateForRangeCreate(__int64 *a1, __int64 a2)
+__int64 __fastcall VmPreallocateForRangeCreate(unsigned __int64 *a1)
 {
-  _KPROCESS *Process; // rdi
-  unsigned __int64 v4; // rbx
-  __int64 result; // rax
+  unsigned int v1; // ebx
+  unsigned __int64 v3; // rdi
   __int64 MemoryRanges; // rax
 
-  Process = KeGetCurrentThread()->ApcState.Process;
-  v4 = Process[2].Affinity.StaticBitmap[5];
-  if ( !v4 )
-  {
-    result = VmpProcessContextSetup(a2);
-    if ( (int)result < 0 )
-      return result;
-    v4 = Process[2].Affinity.StaticBitmap[5];
-  }
+  v1 = 0;
+  v3 = KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[5];
+  if ( !v3 )
+    NT_ASSERT("0");
   MemoryRanges = VmpAllocateMemoryRanges(1LL);
-  if ( !MemoryRanges )
-    return 3221225626LL;
-  _InterlockedIncrement64((volatile signed __int64 *)(v4 + 80));
-  *a1 = v4 ^ MemoryRanges;
-  return 0LL;
+  if ( MemoryRanges )
+  {
+    _InterlockedIncrement64((volatile signed __int64 *)(v3 + 80));
+    *a1 = v3 ^ MemoryRanges;
+  }
+  else
+  {
+    return (unsigned int)-1073741670;
+  }
+  return v1;
 }

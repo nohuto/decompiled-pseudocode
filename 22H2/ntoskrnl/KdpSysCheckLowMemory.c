@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpSysCheckLowMemory @ 0x140AB5C64
+ * XREFs of KdpSysCheckLowMemory @ 0x1409B8E48
  * Callers:
- *     KdSystemDebugControl @ 0x1409721A0 (KdSystemDebugControl.c)
+ *     KdSystemDebugControl @ 0x1408B9BB0 (KdSystemDebugControl.c)
  * Callees:
- *     KdpSearchPhysicalPageRange @ 0x140AB5A68 (KdpSearchPhysicalPageRange.c)
+ *     KdpSearchPhysicalPageRange @ 0x1409B8450 (KdpSearchPhysicalPageRange.c)
  */
 
 __int64 __fastcall KdpSysCheckLowMemory(int a1)

@@ -1,16 +1,15 @@
 /*
- * XREFs of MiFreeMdlTracker @ 0x140584374
+ * XREFs of MiFreeMdlTracker @ 0x140530B30
  * Callers:
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     MiValidateMdlTracker @ 0x140584C78 (MiValidateMdlTracker.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiValidateMdlTracker @ 0x140530FD8 (MiValidateMdlTracker.c)
  */
 
 __int64 __fastcall MiFreeMdlTracker(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -31,7 +30,7 @@ __int64 __fastcall MiFreeMdlTracker(ULONG_PTR BugCheckParameter2, __int64 a2)
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( v2 || (v2 = PsInitialSystemProcess) != 0LL )
   {
-    v5 = v2[1].ActiveProcessors.StaticBitmap[11];
+    v5 = v2[1].ActiveProcessors.Bitmap[11];
     if ( v5 )
     {
       v6 = 0LL;
@@ -39,7 +38,11 @@ __int64 __fastcall MiFreeMdlTracker(ULONG_PTR BugCheckParameter2, __int64 a2)
       v7 = *(unsigned __int64 **)v5;
       while ( v7 )
       {
-        if ( BugCheckParameter2 >= v7[3] )
+        if ( BugCheckParameter2 < v7[3] )
+        {
+          v7 = (unsigned __int64 *)*v7;
+        }
+        else
         {
           if ( BugCheckParameter2 <= v7[3] )
           {
@@ -50,10 +53,6 @@ __int64 __fastcall MiFreeMdlTracker(ULONG_PTR BugCheckParameter2, __int64 a2)
             break;
           }
           v7 = (unsigned __int64 *)v7[1];
-        }
-        else
-        {
-          v7 = (unsigned __int64 *)*v7;
         }
       }
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -78,16 +77,11 @@ __int64 __fastcall MiFreeMdlTracker(ULONG_PTR BugCheckParameter2, __int64 a2)
       __writecr8(OldIrql);
       if ( v6 )
       {
-        ExFreeToNPagedLookasideList(&stru_140C52E80, v6);
+        ExFreeToNPagedLookasideList(&stru_140C4EA40, v6);
       }
       else if ( *(_DWORD *)(v5 + 32) )
       {
-        KeBugCheckEx(
-          0x76u,
-          1uLL,
-          BugCheckParameter2,
-          v2[1].Affinity.StaticBitmap[14],
-          v2[1].ActiveProcessors.StaticBitmap[11]);
+        KeBugCheckEx(0x76u, 1uLL, BugCheckParameter2, v2[1].Affinity.Bitmap[14], v2[1].ActiveProcessors.Bitmap[11]);
       }
     }
   }

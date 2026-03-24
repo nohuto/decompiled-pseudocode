@@ -6,7 +6,7 @@
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
- *     KeRemoveQueueDpcEx @ 0x1401329E0 (KeRemoveQueueDpcEx.c)
+ *     KeRemoveQueueDpcEx @ 0x140132A00 (KeRemoveQueueDpcEx.c)
  */
 
 __int64 __fastcall VfWdCheckForSettingsChange(char a1)

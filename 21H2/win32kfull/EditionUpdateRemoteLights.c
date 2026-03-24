@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionUpdateRemoteLights @ 0x1C0119E80
+ * XREFs of EditionUpdateRemoteLights @ 0x1C0136AC0
  * Callers:
  *     <none>
  * Callees:

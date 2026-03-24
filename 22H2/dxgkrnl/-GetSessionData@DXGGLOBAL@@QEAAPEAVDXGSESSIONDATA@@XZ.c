@@ -1,60 +1,77 @@
 /*
- * XREFs of ?GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ @ 0x1C01C0434
+ * XREFs of ?GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ @ 0x1C00F9304
  * Callers:
- *     ?DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z @ 0x1C0005520 (-DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z.c)
- *     ?IsTokenManagerReady@@YAHXZ @ 0x1C000AEEC (-IsTokenManagerReady@@YAHXZ.c)
- *     ??0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C000B2C0 (--0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z.c)
- *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C000B474 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
- *     DxgSetPowerComponentActiveNoWaitForceAsyncCB @ 0x1C000B530 (DxgSetPowerComponentActiveNoWaitForceAsyncCB.c)
- *     DxgNotifyVSyncCB @ 0x1C000BD40 (DxgNotifyVSyncCB.c)
- *     ?DdiSetVidPnSourceAddressWithMultiPlaneOverlay3@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3@@@Z @ 0x1C000D470 (-DdiSetVidPnSourceAddressWithMultiPlaneOverlay3@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETVIDPNSOURC.c)
- *     DxgkGetSessionTokenManager @ 0x1C00108B0 (DxgkGetSessionTokenManager.c)
- *     ?PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z @ 0x1C0011E24 (-PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z.c)
+ *     ??0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C0004DC0 (--0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z.c)
+ *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C0005848 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
+ *     ?DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z @ 0x1C0007EC8 (-DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z.c)
+ *     DxgkGetSessionTokenManager @ 0x1C000ED40 (DxgkGetSessionTokenManager.c)
+ *     ?NotifyPendingCompositionBuffersPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0014324 (-NotifyPendingCompositionBuffersPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ *     ?NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0014950 (-NotifyPendingFlipPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ *     ?DdiSetVidPnSourceAddress@ADAPTER_DISPLAY@@QEAAJPEBU_DXGKARG_SETVIDPNSOURCEADDRESS@@@Z @ 0x1C00155A0 (-DdiSetVidPnSourceAddress@ADAPTER_DISPLAY@@QEAAJPEBU_DXGKARG_SETVIDPNSOURCEADDRESS@@@Z.c)
+ *     ?DdiSubmitCommand@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SUBMITCOMMAND@@@Z @ 0x1C00159C0 (-DdiSubmitCommand@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SUBMITCOMMAND@@@Z.c)
+ *     ?SignalGpuFence@CFlipExBuffer@@UEAAJ_K_N@Z @ 0x1C0017D80 (-SignalGpuFence@CFlipExBuffer@@UEAAJ_K_N@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??1DXGSYNCOBJECTMUTEX@@QEAA@XZ @ 0x1C0015690 (--1DXGSYNCOBJECTMUTEX@@QEAA@XZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003700 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C00038D4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
  */
 
 struct DXGSESSIONDATA *__fastcall DXGGLOBAL::GetSessionData(DXGGLOBAL *this)
 {
   __int64 v1; // rbx
   __int64 v2; // rdi
+  __int64 v3; // rdx
   __int64 CurrentProcessSessionId; // rsi
-  __int64 v4; // rbx
-  DXGFASTMUTEX *v6; // [rsp+50h] [rbp-18h] BYREF
-  char v7; // [rsp+58h] [rbp-10h]
+  struct _KTHREAD *CurrentThread; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rbx
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rax
+  DXGFASTMUTEX *v12; // [rsp+20h] [rbp-18h] BYREF
+  char v13; // [rsp+28h] [rbp-10h]
 
-  v1 = *((_QWORD *)this + 118);
+  v1 = *((_QWORD *)this + 102);
   v2 = 0LL;
   if ( v1 )
   {
-    v7 = 0;
-    CurrentProcessSessionId = (unsigned int)PsGetCurrentProcessSessionId(this);
-    v6 = (DXGFASTMUTEX *)(v1 + 88);
-    if ( v1 == -88 )
+    v13 = 0;
+    CurrentProcessSessionId = (unsigned int)PsGetCurrentProcessSessionId();
+    v12 = (DXGFASTMUTEX *)(v1 + 80);
+    if ( v1 == -80 )
     {
-      WdLogSingleEntry1(1LL, 592LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_pMutex != NULL", 592LL, 0LL, 0LL, 0LL, 0LL);
+      v9 = WdLogNewEntry5_WdAssertion(0LL, v3);
+      *(_QWORD *)(v9 + 24) = 762LL;
+      WdLogEvent5_WdAssertion(v9);
     }
-    if ( *((struct _KTHREAD **)v6 + 3) == KeGetCurrentThread() )
+    CurrentThread = KeGetCurrentThread();
+    if ( *((struct _KTHREAD **)v12 + 2) == CurrentThread )
     {
-      WdLogSingleEntry1(1LL, 599LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"!m_pMutex->IsOwner()", 599LL, 0LL, 0LL, 0LL, 0LL);
+      v10 = WdLogNewEntry5_WdAssertion(CurrentThread, v3);
+      *(_QWORD *)(v10 + 24) = 769LL;
+      WdLogEvent5_WdAssertion(v10);
     }
-    DXGFASTMUTEX::Acquire(v6);
-    v7 = 1;
-    if ( (unsigned int)CurrentProcessSessionId >= *(_DWORD *)(v1 + 80) )
+    if ( v13 )
     {
-      DXGSYNCOBJECTMUTEX::~DXGSYNCOBJECTMUTEX((DXGSYNCOBJECTMUTEX *)&v6);
+      v11 = WdLogNewEntry5_WdCriticalError(CurrentThread, v3);
+      *(_QWORD *)(v11 + 40) = &v12;
+      *(_QWORD *)(v11 + 24) = 275LL;
+      *(_QWORD *)(v11 + 32) = 4LL;
+      *(_OWORD *)(v11 + 48) = 0LL;
+      WdLogEvent5_WdCriticalError(v11);
+    }
+    DXGFASTMUTEX::Acquire(v12);
+    v13 = 1;
+    if ( (unsigned int)CurrentProcessSessionId >= *(_DWORD *)(v1 + 72) )
+    {
+      DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)&v12);
     }
     else
     {
-      v4 = *(_QWORD *)(*(_QWORD *)(v1 + 48) + 8 * CurrentProcessSessionId);
-      v7 = 0;
-      DXGFASTMUTEX::Release((struct _KTHREAD **)v6);
-      return (struct DXGSESSIONDATA *)v4;
+      v7 = *(_QWORD *)(*(_QWORD *)(v1 + 40) + 8 * CurrentProcessSessionId);
+      v13 = 0;
+      DXGFASTMUTEX::Release((struct _KTHREAD **)v12, v6);
+      return (struct DXGSESSIONDATA *)v7;
     }
   }
   return (struct DXGSESSIONDATA *)v2;

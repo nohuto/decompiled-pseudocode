@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDirtyRects@CHolographicFrameProcessor@@UEAAXIIPEAIPEAUtagRECT@@PEA_N@Z @ 0x180108AD0
+ * XREFs of ?GetDirtyRects@CHolographicFrameProcessor@@UEAAXIIPEAIPEAUtagRECT@@PEA_N@Z @ 0x1800E36B0
  * Callers:
  *     <none>
  * Callees:

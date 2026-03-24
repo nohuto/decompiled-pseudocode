@@ -1,5 +1,5 @@
 /*
- * XREFs of ?AcquireLock@FxSpinLockTransactionedList@@MEAAXPEAU_FX_DRIVER_GLOBALS@@PEAE@Z @ 0x1C0014160
+ * XREFs of ?AcquireLock@FxSpinLockTransactionedList@@MEAAXPEAU_FX_DRIVER_GLOBALS@@PEAE@Z @ 0x1C001A1D0
  * Callers:
  *     <none>
  * Callees:

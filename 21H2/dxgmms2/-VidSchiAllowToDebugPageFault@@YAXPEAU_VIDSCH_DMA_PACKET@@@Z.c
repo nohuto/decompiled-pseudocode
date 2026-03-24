@@ -1,7 +1,7 @@
 /*
- * XREFs of ?VidSchiAllowToDebugPageFault@@YAXPEAU_VIDSCH_DMA_PACKET@@@Z @ 0x1C00345EC
+ * XREFs of ?VidSchiAllowToDebugPageFault@@YAXPEAU_VIDSCH_DMA_PACKET@@@Z @ 0x1C002A50C
  * Callers:
- *     VidSchiProcessDpcCompletedPacket @ 0x1C0007C30 (VidSchiProcessDpcCompletedPacket.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C00095B0 (VidSchiProcessDpcCompletedPacket.c)
  * Callees:
  *     <none>
  */
@@ -52,7 +52,7 @@ void __fastcall VidSchiAllowToDebugPageFault(struct _VIDSCH_DMA_PACKET *a1)
         "\n",
         v6,
         *(unsigned __int16 *)(v4 + 6),
-        *(const void **)(v5 + 2656),
+        *(const void **)(v5 + 2648),
         v7,
         v6,
         &g_PageFaultDebugMode);

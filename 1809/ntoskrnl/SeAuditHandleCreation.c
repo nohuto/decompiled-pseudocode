@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAuditHandleCreation @ 0x1406BCD90
+ * XREFs of SeAuditHandleCreation @ 0x1406BCD70
  * Callers:
  *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
  * Callees:
  *     PsGetCurrentThreadProcessId @ 0x14004D240 (PsGetCurrentThreadProcessId.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwDuplicateObject @ 0x1401B88F0 (ZwDuplicateObject.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1401B8910 (ZwDuplicateObject.c)
  *     SepAdtPrivilegeObjectAuditAlarm @ 0x1405BB8D8 (SepAdtPrivilegeObjectAuditAlarm.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14089E6FC (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x14089F488 (SepAdtStagingEvent.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x14089FBF4 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14089E6DC (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x14089F468 (SepAdtStagingEvent.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x14089FBD4 (SepAdtClassifyObjectIntoSubCategory.c)
  */
 
 char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)

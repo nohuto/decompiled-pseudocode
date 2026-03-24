@@ -1,43 +1,47 @@
 /*
- * XREFs of ?_RetrieveMonitorConfigurationFromDriverInf@DXGMONITOR@@AEAAJXZ @ 0x1C020CAD8
+ * XREFs of ?_RetrieveMonitorConfigurationFromDriverInf@DXGMONITOR@@AEAAJXZ @ 0x1C0180200
  * Callers:
- *     ?_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJAEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020B438 (-_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJAEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXG.c)
- *     ?_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@AEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020B538 (-_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@AEAVIMonitorDeferredEvent.c)
+ *     ?_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C017EF60 (-_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@PEAU_DXGK_DISPLAY_SCENARI.c)
+ *     ?_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0180460 (-_OnMonitorDeviceNodeReady@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     ?OpenMonitorPnpKey@MonitorPnpState@DxgMonitor@@QEBAJ_NW4MonitorPnpKeyType@2@PEAPEAX@Z @ 0x1C01E0B5C (-OpenMonitorPnpKey@MonitorPnpState@DxgMonitor@@QEBAJ_NW4MonitorPnpKeyType@2@PEAPEAX@Z.c)
- *     ?_RetrieveMonitorOrientationFromAcpi@DXGMONITOR@@AEAAJXZ @ 0x1C020CB68 (-_RetrieveMonitorOrientationFromAcpi@DXGMONITOR@@AEAAJXZ.c)
- *     ?_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z @ 0x1C020CC2C (-_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z.c)
+ *     ?_RetrieveMonitorOrientationFromAcpi@DXGMONITOR@@AEAAJXZ @ 0x1C018029C (-_RetrieveMonitorOrientationFromAcpi@DXGMONITOR@@AEAAJXZ.c)
+ *     ?_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z @ 0x1C0180340 (-_RetrieveMonitorConfigurationFromRegistry@DXGMONITOR@@AEAAJPEAXE@Z.c)
  */
 
 __int64 __fastcall DXGMONITOR::_RetrieveMonitorConfigurationFromDriverInf(DXGMONITOR *this)
 {
-  __int64 v2; // rcx
+  struct _DEVICE_OBJECT *v2; // rcx
   NTSTATUS v3; // eax
-  int MonitorConfigurationFromRegistry; // ebx
-  HANDLE Handle; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  __int64 v8; // rax
+  void *DeviceRegKey; // [rsp+30h] [rbp+8h] BYREF
 
-  Handle = 0LL;
-  v2 = *((_QWORD *)this + 25);
-  if ( *(_BYTE *)(v2 + 16) )
+  DeviceRegKey = 0LL;
+  v2 = (struct _DEVICE_OBJECT *)*((_QWORD *)this + 7);
+  if ( v2 && (*((_DWORD *)this + 10) & 0x10) != 0 )
   {
-    v3 = DxgMonitor::MonitorPnpState::OpenMonitorPnpKey(v2, 1, 2, &Handle);
-    MonitorConfigurationFromRegistry = v3;
+    v3 = IoOpenDeviceRegistryKey(v2, 2u, 0x20019u, &DeviceRegKey);
+    v6 = v3;
     if ( v3 < 0 )
     {
-      WdLogSingleEntry1(2LL, v3);
+      v8 = WdLogNewEntry5_WdError(v5, v4);
+      *(_QWORD *)(v8 + 24) = v6;
+      WdLogEvent5_WdError(v8);
     }
     else
     {
-      MonitorConfigurationFromRegistry = DXGMONITOR::_RetrieveMonitorConfigurationFromRegistry(this, Handle, 1u);
-      if ( MonitorConfigurationFromRegistry >= 0 )
-        MonitorConfigurationFromRegistry = DXGMONITOR::_RetrieveMonitorOrientationFromAcpi(this);
+      LODWORD(v6) = DXGMONITOR::_RetrieveMonitorConfigurationFromRegistry(this, DeviceRegKey, 1u);
+      if ( (int)v6 >= 0 )
+        LODWORD(v6) = DXGMONITOR::_RetrieveMonitorOrientationFromAcpi(this);
     }
   }
   else
   {
-    MonitorConfigurationFromRegistry = -1073741275;
+    LODWORD(v6) = -1073741275;
   }
-  if ( Handle )
-    ZwClose(Handle);
-  return (unsigned int)MonitorConfigurationFromRegistry;
+  if ( DeviceRegKey )
+    ZwClose(DeviceRegKey);
+  return (unsigned int)v6;
 }

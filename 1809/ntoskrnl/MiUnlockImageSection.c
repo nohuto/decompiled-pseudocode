@@ -5,8 +5,8 @@
  * Callees:
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     MiUnlockCodePage @ 0x14009C770 (MiUnlockCodePage.c)
- *     ExpUnblockPushLock @ 0x140111B60 (ExpUnblockPushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExpUnblockPushLock @ 0x140111B80 (ExpUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockImageSection(volatile signed __int32 *a1, __int64 a2, __int64 a3, ULONG_PTR a4)

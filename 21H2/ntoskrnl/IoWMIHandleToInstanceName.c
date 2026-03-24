@@ -1,18 +1,18 @@
 /*
- * XREFs of IoWMIHandleToInstanceName @ 0x1406C1900
+ * XREFs of IoWMIHandleToInstanceName @ 0x14078D130
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     IoWMIDeviceObjectToInstanceName @ 0x1406C1980 (IoWMIDeviceObjectToInstanceName.c)
- *     WmipGetFilePDO @ 0x1406C1BD4 (WmipGetFilePDO.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IoWMIDeviceObjectToInstanceName @ 0x14078D1B0 (IoWMIDeviceObjectToInstanceName.c)
+ *     WmipGetFilePDO @ 0x14078D404 (WmipGetFilePDO.c)
  */
 
 NTSTATUS __stdcall IoWMIHandleToInstanceName(PVOID DataBlockObject, HANDLE FileHandle, PUNICODE_STRING InstanceName)
 {
   int FilePDO; // ebx
   UNICODE_STRING *v6; // r8
-  PDEVICE_OBJECT v7; // rdi
+  struct _DMA_ADAPTER *v7; // rdi
   PDEVICE_OBJECT DeviceObject; // [rsp+48h] [rbp+20h] BYREF
 
   DeviceObject = 0LL;
@@ -20,12 +20,12 @@ NTSTATUS __stdcall IoWMIHandleToInstanceName(PVOID DataBlockObject, HANDLE FileH
   if ( FilePDO >= 0 )
   {
     v6 = InstanceName;
-    v7 = DeviceObject;
+    v7 = (struct _DMA_ADAPTER *)DeviceObject;
     FilePDO = IoWMIDeviceObjectToInstanceName(DataBlockObject, DeviceObject, v6);
     if ( FilePDO >= 0 )
       FilePDO = 0;
     if ( v7 )
-      ObfDereferenceObject(v7);
+      HalPutDmaAdapter(v7);
   }
   return FilePDO;
 }

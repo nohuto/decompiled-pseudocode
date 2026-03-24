@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_StartingOverCurrentTimer @ 0x1C0011540
+ * XREFs of HUBPSM20_StartingOverCurrentTimer @ 0x1C0011130
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_StartOverCurrentTimer @ 0x1C002F830 (HUBMISC_StartOverCurrentTimer.c)
+ *     HUBMISC_StartOverCurrentTimer @ 0x1C002F190 (HUBMISC_StartOverCurrentTimer.c)
  */
 
 __int64 __fastcall HUBPSM20_StartingOverCurrentTimer(__int64 a1)

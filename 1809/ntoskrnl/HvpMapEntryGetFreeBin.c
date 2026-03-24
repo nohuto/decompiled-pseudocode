@@ -7,7 +7,7 @@
  *     HvCheckHive @ 0x1405F991C (HvCheckHive.c)
  *     HvHiveCleanup @ 0x1405FB440 (HvHiveCleanup.c)
  *     HvpSetRangeProtection @ 0x1405FBD30 (HvpSetRangeProtection.c)
- *     HvpDropPagedBins @ 0x1407365B4 (HvpDropPagedBins.c)
+ *     HvpDropPagedBins @ 0x140736594 (HvpDropPagedBins.c)
  * Callees:
  *     <none>
  */

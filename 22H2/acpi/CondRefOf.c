@@ -1,31 +1,31 @@
 /*
- * XREFs of CondRefOf @ 0x1C00564B0
+ * XREFs of CondRefOf @ 0x1C002BED0
  * Callers:
  *     <none>
  * Callees:
- *     IsCompatableDSDTRevision @ 0x1C004BE48 (IsCompatableDSDTRevision.c)
- *     ValidateTarget @ 0x1C004D510 (ValidateTarget.c)
- *     WriteObject @ 0x1C00532C0 (WriteObject.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
  */
 
-__int64 __fastcall CondRefOf(__int64 a1, __int64 a2)
+__int64 __fastcall CondRefOf(struct _SLIST_ENTRY *a1, __int64 a2)
 {
   unsigned int v4; // r8d
-  bool v5; // al
-  __int64 v6; // rdx
+  bool v6; // al
+  __int64 v7; // rdx
   __int64 v8; // [rsp+38h] [rbp+10h] BYREF
 
   v8 = 0LL;
-  v4 = ValidateTarget(a1, *(_QWORD *)(a2 + 80) + 40LL, 135, (__int64)&v8);
+  v4 = ValidateTarget((__int64)a1, *(_QWORD *)(a2 + 80) + 40LL, 0x87u, (__int64)&v8);
   if ( !v4 )
   {
     *(_WORD *)(*(_QWORD *)(a2 + 88) + 2LL) = 1;
     if ( (unsigned __int16)(*(_WORD *)(*(_QWORD *)(a2 + 80) + 2LL) - 128) <= 1u )
     {
-      v5 = IsCompatableDSDTRevision();
-      v6 = v8;
-      *(_QWORD *)(*(_QWORD *)(a2 + 88) + 16LL) = (-(__int64)v5 & 0xFFFFFFFF00000000uLL) + 0xFFFFFFFF;
-      return (unsigned int)WriteObject(a1, v6, *(_QWORD *)(a2 + 80));
+      v6 = IsCompatableDSDTRevision();
+      v7 = v8;
+      *(_QWORD *)(*(_QWORD *)(a2 + 88) + 16LL) = (-(__int64)v6 & 0xFFFFFFFF00000000uLL) + 0xFFFFFFFF;
+      return (unsigned int)WriteObject(a1, v7, *(_QWORD *)(a2 + 80));
     }
     else
     {

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     DECREMENT_SCATTER_GATHER_LISTS @ 0x1409293B8 (DECREMENT_SCATTER_GATHER_LISTS.c)
  *     VERIFY_BUFFER_LOCKED @ 0x140929614 (VERIFY_BUFFER_LOCKED.c)
  *     VF_ASSERT_IRQL @ 0x1409296A0 (VF_ASSERT_IRQL.c)
@@ -53,13 +53,13 @@ __int64 __fastcall VfBuildScatterGatherListEx(
     {
       v22 = v21;
       ViHalPreprocessOptions(
-        byte_140405450,
+        byte_140405444,
         "The provided MDL is not sufficient to satisfy the requested length",
         36LL,
         v21,
         0LL,
         0LL);
-      VfReportIssueWithOptions(0xE6u, 0x24uLL, v22, 0LL, 0LL, byte_140405450);
+      VfReportIssueWithOptions(0xE6u, 0x24uLL, v22, 0LL, 0LL, byte_140405444);
     }
   }
   v23 = RealDmaOperation(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15);

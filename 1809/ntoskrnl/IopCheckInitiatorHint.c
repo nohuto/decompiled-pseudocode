@@ -6,9 +6,9 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     IopSetFileObjectExtensionFlag @ 0x14008BD58 (IopSetFileObjectExtensionFlag.c)
  *     IopGetSetSpecificExtension @ 0x14008D07C (IopGetSetSpecificExtension.c)
- *     IoGetInitiatorProcess @ 0x14013B390 (IoGetInitiatorProcess.c)
+ *     IoGetInitiatorProcess @ 0x14013B3B0 (IoGetInitiatorProcess.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     RtlIsSandboxedToken @ 0x14064A350 (RtlIsSandboxedToken.c)
+ *     RtlIsSandboxedToken @ 0x14064A330 (RtlIsSandboxedToken.c)
  */
 
 __int64 __fastcall IopCheckInitiatorHint(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ApplyAppClip@CCursorClip@@AEAA_NUtagPOINT@@PEAU2@@Z @ 0x1C006D550
+ * XREFs of ?ApplyAppClip@CCursorClip@@AEAA_NUtagPOINT@@PEAU2@@Z @ 0x1C006FD34
  * Callers:
- *     ?BoundPoint@CCursorClip@@QEAA?AW4ClipResult@@UtagPOINT@@W4BoundPointOptions@@W4InputTracing_MouseUpdatePositionReason@@PEAU3@@Z @ 0x1C006D2A0 (-BoundPoint@CCursorClip@@QEAA-AW4ClipResult@@UtagPOINT@@W4BoundPointOptions@@W4InputTracing_Mous.c)
+ *     ?BoundPoint@CCursorClip@@QEAA?AW4ClipResult@@UtagPOINT@@W4BoundPointOptions@@W4InputTracing_MouseUpdatePositionReason@@PEAU3@@Z @ 0x1C006FAD0 (-BoundPoint@CCursorClip@@QEAA-AW4ClipResult@@UtagPOINT@@W4BoundPointOptions@@W4InputTracing_Mous.c)
  * Callees:
- *     ?ClipPointToRect@CCursorClip@@CAXUtagPOINT@@PEBUtagRECT@@PEAU2@@Z @ 0x1C00E87D0 (-ClipPointToRect@CCursorClip@@CAXUtagPOINT@@PEBUtagRECT@@PEAU2@@Z.c)
+ *     ?ClipPointToRect@CCursorClip@@CAXUtagPOINT@@PEBUtagRECT@@PEAU2@@Z @ 0x1C01A2AD0 (-ClipPointToRect@CCursorClip@@CAXUtagPOINT@@PEBUtagRECT@@PEAU2@@Z.c)
  */
 
 char __fastcall CCursorClip::ApplyAppClip(CCursorClip *this, struct tagPOINT a2, struct tagPOINT *a3)
@@ -20,7 +20,7 @@ char __fastcall CCursorClip::ApplyAppClip(CCursorClip *this, struct tagPOINT a2,
   if ( !v4 )
     v4 = *((_QWORD *)this + 3) - *((_QWORD *)this + 1);
   v5 = 0;
-  if ( v4 && !*((_DWORD *)this + 64) )
+  if ( v4 && !*((_DWORD *)this + 18) )
     CCursorClip::ClipPointToRect(v3, (const struct tagRECT *)this + 1, a3);
   if ( *a3 != __PAIR64__(y, v3.x) )
     return 1;

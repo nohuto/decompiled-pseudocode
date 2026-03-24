@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIInitGetEmOverride @ 0x1C00BB4D4
+ * XREFs of ACPIInitGetEmOverride @ 0x1C00BDC24
  * Callers:
- *     DriverEntry @ 0x1C00BBAC8 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00BB98C (DriverEntry.c)
  * Callees:
  *     <none>
  */

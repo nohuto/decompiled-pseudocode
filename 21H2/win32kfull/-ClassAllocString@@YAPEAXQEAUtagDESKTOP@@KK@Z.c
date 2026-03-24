@@ -1,8 +1,7 @@
 /*
- * XREFs of ?ClassAllocString@@YAPEAXQEAUtagDESKTOP@@KK@Z @ 0x1C00610E8
+ * XREFs of ?ClassAllocString@@YAPEAXQEAUtagDESKTOP@@KK@Z @ 0x1C00257FC
  * Callers:
- *     InternalRegisterClassEx @ 0x1C005FF10 (InternalRegisterClassEx.c)
- *     ReferenceClass @ 0x1C00F8130 (ReferenceClass.c)
+ *     ReferenceClass @ 0x1C0025580 (ReferenceClass.c)
  * Callees:
  *     <none>
  */

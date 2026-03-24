@@ -1,55 +1,35 @@
 /*
- * XREFs of PoAllProcessorsDeepIdle @ 0x1402C1AF0
+ * XREFs of PoAllProcessorsDeepIdle @ 0x1402F0EB8
  * Callers:
- *     PpmIdleEvaluateConstraints @ 0x1402C2458 (PpmIdleEvaluateConstraints.c)
- *     KePrepareClockTimerForIdle @ 0x140346E44 (KePrepareClockTimerForIdle.c)
+ *     KePrepareClockTimerForIdle @ 0x1402F0BB0 (KePrepareClockTimerForIdle.c)
  * Callees:
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1BCC (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     MmGetNextNode @ 0x14034E6C0 (MmGetNextNode.c)
+ *     MmGetNextNode @ 0x1402F0F74 (MmGetNextNode.c)
  */
 
 char PoAllProcessorsDeepIdle()
 {
-  struct _KPRCB *CurrentPrcb; // rbx
-  __int64 Number; // rsi
-  unsigned __int16 *v2; // rax
-  unsigned int v3; // edi
-  unsigned __int64 DeepIdleSet; // rcx
-  unsigned __int64 Mask; // rdx
-  int NextNode; // eax
-  unsigned __int16 *v8; // [rsp+20h] [rbp-28h] BYREF
-  int v9; // [rsp+28h] [rbp-20h]
-  int v10; // [rsp+2Ch] [rbp-1Ch]
-  int v11; // [rsp+50h] [rbp+8h] BYREF
-  _KSCHEDULER_SUBNODE *v12; // [rsp+58h] [rbp+10h] BYREF
+  struct _KPRCB *CurrentPrcb; // rcx
+  _KNODE *ParentNode; // r8
+  unsigned int v2; // r9d
+  unsigned int NextNode; // eax
+  __int64 v4; // r10
+  __int64 v6; // rcx
+  int v7; // [rsp+30h] [rbp+8h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v12 = 0LL;
-  v11 = 0;
-  Number = CurrentPrcb->Number;
-  v2 = (unsigned __int16 *)KeNodeBlock[CurrentPrcb->SchedulerSubNode->Affinity.Reserved[0]];
-  v3 = *v2;
+  v7 = 0;
+  ParentNode = CurrentPrcb->ParentNode;
+  v2 = ParentNode->Affinity.Reserved[0];
+  if ( (ParentNode->DeepIdleSet & ~(1LL << CurrentPrcb->GroupIndex)) != (ParentNode->Affinity.Mask & ~(1LL << (KiProcessorIndexToNumberMappingTable[CurrentPrcb->Number] & 0x3F))) )
+    return 0;
   while ( 1 )
   {
-    v10 = 0;
-    v8 = v2;
-    v9 = *((_DWORD *)v2 + 4);
-    while ( !(unsigned int)KeEnumerateNextSchedulerSubNodeInNode(&v8, &v12) )
-    {
-      DeepIdleSet = v12->DeepIdleSet;
-      Mask = v12->Affinity.Mask;
-      if ( v12 == CurrentPrcb->SchedulerSubNode )
-      {
-        DeepIdleSet &= ~(1LL << CurrentPrcb->GroupIndex);
-        Mask &= ~(1LL << (KiProcessorIndexToNumberMappingTable[Number] & 0x3F));
-      }
-      if ( DeepIdleSet != Mask )
-        return 0;
-    }
-    NextNode = MmGetNextNode(v3, &v11);
+    NextNode = MmGetNextNode(v2, &v7);
     if ( NextNode == -1 )
       break;
-    v2 = (unsigned __int16 *)KeNodeBlock[NextNode];
+    v6 = *(_QWORD *)(v4 + 8LL * NextNode + 13775744);
+    if ( *(_QWORD *)(v6 + 64) != *(_QWORD *)(v6 + 136) )
+      return 0;
   }
   return 1;
 }

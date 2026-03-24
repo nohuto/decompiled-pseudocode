@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vUpdateDpiScaling@DWMSPRITE@@QEAAXPEBG@Z @ 0x1C00CCB14
+ * XREFs of ?vUpdateDpiScaling@DWMSPRITE@@QEAAXPEBG@Z @ 0x1C0012D00
  * Callers:
- *     ?GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHHHHPEBG@Z @ 0x1C00CD42C (-GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHH.c)
- *     ?bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@PEAPEAV3@@Z @ 0x1C0134444 (-bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@P.c)
+ *     ?bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@PEAPEAV3@@Z @ 0x1C0016788 (-bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@P.c)
+ *     ?GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHHHHPEBG@Z @ 0x1C00BFB1C (-GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHH.c)
  * Callees:
  *     <none>
  */
@@ -39,18 +39,18 @@ LABEL_5:
 LABEL_6:
   if ( v4 == 96 )
   {
-    if ( (*((_DWORD *)this + 35) & 0x20) != 0 )
+    if ( (*((_DWORD *)this + 41) & 0x20) != 0 )
     {
-      *((_DWORD *)this + 33) = 0;
-      *((_DWORD *)this + 34) = 0;
-      *((_DWORD *)this + 35) &= ~0x20u;
+      *((_DWORD *)this + 39) = 0;
+      *((_DWORD *)this + 40) = 0;
+      *((_DWORD *)this + 41) &= ~0x20u;
     }
   }
   else
   {
     v5 = (float)(unsigned __int16)GreGetScaledLogPixels(v4) / 96.0;
-    *((float *)this + 33) = v5;
-    *((float *)this + 34) = v5;
-    *((_DWORD *)this + 35) |= 0x20u;
+    *((float *)this + 39) = v5;
+    *((float *)this + 40) = v5;
+    *((_DWORD *)this + 41) |= 0x20u;
   }
 }

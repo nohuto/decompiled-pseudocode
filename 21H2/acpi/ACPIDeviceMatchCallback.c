@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIDeviceMatchCallback @ 0x1C00291A0
+ * XREFs of ACPIDeviceMatchCallback @ 0x1C0029890
  * Callers:
  *     <none>
  * Callees:
@@ -17,9 +17,9 @@ __int64 __fastcall ACPIDeviceMatchCallback(__int64 **a1, int a2, _QWORD *a3, int
 
   if ( a2 == 1 && a4 == 1 && *((_DWORD *)*a1 + 2) == 8 && (v4 = **a1, v5 = 0, v4) )
   {
-    if ( !_bittest64((const signed __int64 *)(v4 + 8), 0x2Du) )
+    if ( (*(_QWORD *)(v4 + 8) & 0x200000000000LL) == 0 )
       return 2;
-    v7 = *(unsigned __int8 **)(v4 + 608);
+    v7 = *(unsigned __int8 **)(v4 + 568);
     v8 = *a3 - (_QWORD)v7;
     do
     {

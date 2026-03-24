@@ -1,7 +1,7 @@
 /*
- * XREFs of ?WdfDeleteKmdfVersionFromRegistry@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C0052A84
+ * XREFs of ?WdfDeleteKmdfVersionFromRegistry@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C002D830
  * Callers:
- *     DriverUnload @ 0x1C0052C70 (DriverUnload.c)
+ *     DriverUnload @ 0x1C002E050 (DriverUnload.c)
  * Callees:
  *     <none>
  */

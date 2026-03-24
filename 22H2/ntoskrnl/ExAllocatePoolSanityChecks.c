@@ -1,49 +1,35 @@
 /*
- * XREFs of ExAllocatePoolSanityChecks @ 0x140AE8C7C
+ * XREFs of ExAllocatePoolSanityChecks @ 0x1409ECDF4
  * Callers:
- *     VfHandlePoolAlloc @ 0x140AD1FB0 (VfHandlePoolAlloc.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45E0 (VeAllocatePoolWithTagPriority.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     ExpIsPoolTagPrintable @ 0x1409ED0E8 (ExpIsPoolTagPrintable.c)
  */
 
-__int64 __fastcall ExAllocatePoolSanityChecks(int a1, ULONG_PTR a2, _DWORD *a3, __int64 a4)
+__int64 __fastcall ExAllocatePoolSanityChecks(int a1, ULONG_PTR a2, unsigned int *a3, __int64 a4)
 {
-  __int64 v5; // rbx
-  ULONG_PTR v6; // r8
-  unsigned int v8; // ecx
-  unsigned int v9; // edx
+  unsigned int v4; // r11d
+  __int64 v6; // rbx
+  ULONG_PTR v9; // r11
   __int64 result; // rax
   ULONG_PTR v11; // rdx
 
-  v5 = a1;
-  v6 = (unsigned int)*a3;
-  if ( (_DWORD)v6 )
+  v4 = *a3;
+  v6 = a1;
+  if ( *a3 )
   {
-    if ( (_DWORD)v6 == 541542722 )
+    if ( v4 == 541542722 )
     {
       if ( (MmVerifierData & 1) != 0 )
         VerifierBugCheckIfAppropriate(0xC2u, 0x9CuLL, a1 & 0xFFFFFFFFFFFFFF7FuLL, a2, a4);
       *a3 = 828662082;
     }
-    else
+    else if ( !(unsigned int)ExpIsPoolTagPrintable(v4) )
     {
-      v8 = 0;
-      while ( 1 )
-      {
-        v9 = (unsigned int)v6 >> v8;
-        if ( (unsigned __int8)(((unsigned int)v6 >> v8) - 97) <= 0x19u )
-          LOBYTE(v9) = v9 - 32;
-        if ( (unsigned __int8)(v9 - 48) <= 9u || (unsigned __int8)(v9 - 65) <= 0x19u )
-          break;
-        v8 += 8;
-        if ( v8 >= 0x20 )
-        {
-          if ( (MmVerifierData & 1) != 0 )
-            VerifierBugCheckIfAppropriate(0xC2u, 0x9DuLL, v6, v5 & 0xFFFFFFFFFFFFFF7FuLL, a4);
-          *a3 = 845439298;
-          break;
-        }
-      }
+      if ( (MmVerifierData & 1) != 0 )
+        VerifierBugCheckIfAppropriate(0xC2u, 0x9DuLL, v9, v6 & 0xFFFFFFFFFFFFFF7FuLL, a4);
+      *a3 = 845439298;
     }
   }
   else
@@ -53,9 +39,9 @@ __int64 __fastcall ExAllocatePoolSanityChecks(int a1, ULONG_PTR a2, _DWORD *a3, 
     *a3 = 811884866;
   }
   if ( !a2 && (MmVerifierData & 1) != 0 )
-    VerifierBugCheckIfAppropriate(0xC4u, 0LL, KeGetCurrentIrql(), v5 & 0xFFFFFFFFFFFFFF7FuLL, 0LL);
+    VerifierBugCheckIfAppropriate(0xC4u, 0LL, KeGetCurrentIrql(), v6 & 0xFFFFFFFFFFFFFF7FuLL, 0LL);
   result = KeGetCurrentIrql();
-  if ( (v5 & 1) != 0 )
+  if ( (v6 & 1) != 0 )
   {
     if ( (unsigned __int8)result > 1u )
     {
@@ -63,7 +49,7 @@ __int64 __fastcall ExAllocatePoolSanityChecks(int a1, ULONG_PTR a2, _DWORD *a3, 
       if ( (MmVerifierData & 1) != 0 )
       {
         v11 = 1LL;
-        return VerifierBugCheckIfAppropriate(0xC4u, v11, KeGetCurrentIrql(), v5 & 0xFFFFFFFFFFFFFF7FuLL, a2);
+        return VerifierBugCheckIfAppropriate(0xC4u, v11, KeGetCurrentIrql(), v6 & 0xFFFFFFFFFFFFFF7FuLL, a2);
       }
     }
   }
@@ -74,7 +60,7 @@ __int64 __fastcall ExAllocatePoolSanityChecks(int a1, ULONG_PTR a2, _DWORD *a3, 
     {
       result = (unsigned int)MmVerifierData;
       if ( (MmVerifierData & 1) != 0 )
-        return VerifierBugCheckIfAppropriate(0xC4u, v11, KeGetCurrentIrql(), v5 & 0xFFFFFFFFFFFFFF7FuLL, a2);
+        return VerifierBugCheckIfAppropriate(0xC4u, v11, KeGetCurrentIrql(), v6 & 0xFFFFFFFFFFFFFF7FuLL, a2);
     }
   }
   return result;

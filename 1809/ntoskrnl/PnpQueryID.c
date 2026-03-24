@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpQueryID @ 0x1406EC378
+ * XREFs of PnpQueryID @ 0x1406EC358
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
- *     PipProcessStartPhase3 @ 0x1406EAB38 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x1406EAB18 (PipProcessStartPhase3.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PipSetDevNodeFlags @ 0x1406E50FC (PipSetDevNodeFlags.c)
- *     PnpIrpQueryID @ 0x1406EC470 (PnpIrpQueryID.c)
- *     PnpFixupID @ 0x1406EC4F8 (PnpFixupID.c)
- *     PipSetDevNodeProblem @ 0x1406EF580 (PipSetDevNodeProblem.c)
- *     PnpLogEvent @ 0x140827E0C (PnpLogEvent.c)
- *     PnpSetInvalidIDEvent @ 0x1408334F8 (PnpSetInvalidIDEvent.c)
+ *     PipSetDevNodeFlags @ 0x1406E50DC (PipSetDevNodeFlags.c)
+ *     PnpIrpQueryID @ 0x1406EC450 (PnpIrpQueryID.c)
+ *     PnpFixupID @ 0x1406EC4D8 (PnpFixupID.c)
+ *     PipSetDevNodeProblem @ 0x1406EF560 (PipSetDevNodeProblem.c)
+ *     PnpLogEvent @ 0x140827DEC (PnpLogEvent.c)
+ *     PnpSetInvalidIDEvent @ 0x1408334D8 (PnpSetInvalidIDEvent.c)
  */
 
 __int64 __fastcall PnpQueryID(__int64 a1, __int64 a2, PVOID *a3, _DWORD *a4)

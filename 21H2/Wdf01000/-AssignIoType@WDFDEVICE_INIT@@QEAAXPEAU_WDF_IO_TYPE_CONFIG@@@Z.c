@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AssignIoType@WDFDEVICE_INIT@@QEAAXPEAU_WDF_IO_TYPE_CONFIG@@@Z @ 0x1C0034344
+ * XREFs of ?AssignIoType@WDFDEVICE_INIT@@QEAAXPEAU_WDF_IO_TYPE_CONFIG@@@Z @ 0x1C004FFE4
  * Callers:
- *     imp_WdfDeviceInitSetIoType @ 0x1C0034300 (imp_WdfDeviceInitSetIoType.c)
- *     imp_WdfDeviceInitSetIoTypeEx @ 0x1C00621B0 (imp_WdfDeviceInitSetIoTypeEx.c)
+ *     imp_WdfDeviceInitSetIoType @ 0x1C0044F40 (imp_WdfDeviceInitSetIoType.c)
+ *     imp_WdfDeviceInitSetIoTypeEx @ 0x1C0044FA0 (imp_WdfDeviceInitSetIoTypeEx.c)
  * Callees:
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_dd @ 0x1C0053078 (WPP_IFR_SF_dd.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_dd @ 0x1C002E818 (WPP_IFR_SF_dd.c)
  */
 
 void __fastcall WDFDEVICE_INIT::AssignIoType(WDFDEVICE_INIT *this, _WDF_IO_TYPE_CONFIG *IoTypeConfig)

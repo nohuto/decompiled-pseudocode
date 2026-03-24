@@ -1,56 +1,96 @@
 /*
- * XREFs of ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C0025A8C
+ * XREFs of ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002B038
  * Callers:
- *     ?bCopy@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C00266E0 (-bCopy@RGNOBJ@@QEAAHAEAV1@@Z.c)
- *     ??0RGNMEMOBJTMP@@QEAA@K@Z @ 0x1C00277CC (--0RGNMEMOBJTMP@@QEAA@K@Z.c)
- *     ?bCopy@RGNOBJAPI@@QEAAHAEAVRGNOBJ@@@Z @ 0x1C0027DA0 (-bCopy@RGNOBJAPI@@QEAAHAEAVRGNOBJ@@@Z.c)
- *     ?iCombine@DC@@QEAAJPEAU_RECTL@@J@Z @ 0x1C0027E60 (-iCombine@DC@@QEAAJPEAU_RECTL@@J@Z.c)
- *     GreExtCreateRegion @ 0x1C00311B0 (GreExtCreateRegion.c)
- *     ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C003353C (-bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z.c)
- *     ?AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z @ 0x1C008EE00 (-AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z.c)
- *     ?iCombine@RGNOBJAPI@@QEAAJAEAVRGNOBJ@@0J@Z @ 0x1C00968C0 (-iCombine@RGNOBJAPI@@QEAAJAEAVRGNOBJ@@0J@Z.c)
- *     ?bExpand@RGNOBJ@@QEAAHK@Z @ 0x1C00A8FE0 (-bExpand@RGNOBJ@@QEAAHK@Z.c)
- *     ??0RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00AB334 (--0RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C00CC200 (-bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
- *     ?iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z @ 0x1C00CC88C (-iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z.c)
- *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C016D4E0 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
- *     ?vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z @ 0x1C016D8A0 (-vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z.c)
- *     EngCreateClip @ 0x1C0177EF0 (EngCreateClip.c)
+ *     ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C0022824 (-bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z.c)
+ *     GreExtCreateRegion @ 0x1C0022DA0 (GreExtCreateRegion.c)
+ *     ?InternalCombine@CRegion@@QEAAJAEBV1@W4CombineMode@1@@Z @ 0x1C0025408 (-InternalCombine@CRegion@@QEAAJAEBV1@W4CombineMode@1@@Z.c)
+ *     ?AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z @ 0x1C00255A0 (-AddRect@CRegion@@UEAAJAEBUtagRECT@@@Z.c)
+ *     ?iCombine@RGNOBJAPI@@QEAAJAEAVRGNOBJ@@0J@Z @ 0x1C00273D0 (-iCombine@RGNOBJAPI@@QEAAJAEAVRGNOBJ@@0J@Z.c)
+ *     ?bExpand@RGNOBJ@@QEAAHK@Z @ 0x1C002A750 (-bExpand@RGNOBJ@@QEAAHK@Z.c)
+ *     ??0RGNMEMOBJTMP@@QEAA@K@Z @ 0x1C002AF00 (--0RGNMEMOBJTMP@@QEAA@K@Z.c)
+ *     ??0RGNMEMOBJ@@QEAA@K@Z @ 0x1C002B010 (--0RGNMEMOBJ@@QEAA@K@Z.c)
+ *     ?bCopy@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C0033940 (-bCopy@RGNOBJ@@QEAAHAEAV1@@Z.c)
+ *     ?iCombine@DC@@QEAAJPEAU_RECTL@@J@Z @ 0x1C0033AB0 (-iCombine@DC@@QEAAJPEAU_RECTL@@J@Z.c)
+ *     ?bCopy@RGNOBJAPI@@QEAAHAEAVRGNOBJ@@@Z @ 0x1C0035370 (-bCopy@RGNOBJAPI@@QEAAHAEAVRGNOBJ@@@Z.c)
+ *     ??0RGNMEMOBJTMP@@QEAA@XZ @ 0x1C0096970 (--0RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ??0RGNMEMOBJ@@QEAA@W4DestructorDisposition@0@@Z @ 0x1C0098D80 (--0RGNMEMOBJ@@QEAA@W4DestructorDisposition@0@@Z.c)
+ *     ?bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C00BCD40 (-bCreate@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
+ *     ?iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z @ 0x1C00BDADC (-iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z.c)
+ *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C01405B0 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
+ *     ?vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z @ 0x1C0140988 (-vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z.c)
+ *     EngCreateClip @ 0x1C014BE40 (EngCreateClip.c)
  * Callees:
- *     ?AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z @ 0x1C0025B30 (-AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C002B9F0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?Allocate@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C013E288 (-Allocate@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ.c)
  */
 
-void __fastcall RGNMEMOBJ::vInitialize(RGNMEMOBJ *this, unsigned int a2)
+void __fastcall RGNMEMOBJ::vInitialize(RGNMEMOBJ *this, __int64 a2, __int64 a3)
 {
-  unsigned int v2; // edi
-  struct REGION *Region; // rax
-  struct REGION *v5; // rdx
-  __int64 v6; // rax
-  _QWORD *v7; // rax
+  unsigned int v4; // edi
+  unsigned __int8 *v5; // rcx
+  __int64 v6; // rbx
+  void *v7; // rbp
+  int v8; // eax
+  void *v9; // rax
+  _DWORD *v10; // rax
+  _QWORD *v11; // rax
 
-  v2 = 112;
-  if ( a2 >= 0x70 )
-    v2 = a2;
-  Region = RGNMEMOBJ::AllocateRegion(v2);
-  *(_QWORD *)this = Region;
-  v5 = Region;
-  if ( Region )
+  v4 = 112;
+  if ( (unsigned int)a2 >= 0x70 )
+    v4 = a2;
+  v5 = gpTypeIsolation[7];
+  if ( v5 )
+    v6 = NSInstrumentation::CTypeIsolation<28672,112>::Allocate();
+  else
+    v6 = 0LL;
+  if ( v6 )
   {
-    *((_DWORD *)Region + 20) = 16;
-    *((_DWORD *)Region + 21) = 1;
-    *((_QWORD *)Region + 12) = 0LL;
-    *((_QWORD *)Region + 13) = 0LL;
-    v6 = *((_QWORD *)Region + 11);
-    *(_DWORD *)v6 = 0;
-    *(_DWORD *)(v6 + 4) = 0x80000000;
-    *(_QWORD *)(v6 + 8) = 0x7FFFFFFFLL;
-    *((_QWORD *)v5 + 5) = v6 + 16;
-    *(_DWORD *)(*(_QWORD *)this + 24LL) = v2;
+    if ( v4 == 112 )
+    {
+      v7 = RGNMEMOBJ::s_pSCANLookAsideList;
+      if ( qword_1C0257D50 )
+        v8 = qword_1C0257D50(v5, a2, a3);
+      else
+        v8 = -1073741637;
+      if ( v8 >= 0 && qword_1C0257D58 )
+        v9 = (void *)qword_1C0257D58(v7, a2, a3);
+      else
+        v9 = 0LL;
+    }
+    else
+    {
+      v9 = PALLOCMEM2(v4, 1852011335LL, 0);
+    }
+    *(_QWORD *)(v6 + 88) = v9;
+    if ( !*(_QWORD *)(v6 + 88) )
+    {
+      REGION::vDeleteREGION((REGION *)v6);
+      v6 = 0LL;
+    }
+  }
+  *(_QWORD *)this = v6;
+  if ( v6 )
+  {
+    *(_DWORD *)(v6 + 96) = 0;
+    *(_DWORD *)(v6 + 100) = 0;
+    *(_DWORD *)(v6 + 104) = 0;
+    *(_DWORD *)(v6 + 108) = 0;
+    v10 = *(_DWORD **)(v6 + 88);
+    *(_DWORD *)(v6 + 80) = 16;
+    *(_DWORD *)(v6 + 84) = 1;
+    *v10 = 0;
+    v10[3] = 0;
+    v10[1] = 0x80000000;
+    v10[2] = 0x7FFFFFFF;
+    *(_QWORD *)(v6 + 40) = v10 + 4;
+    *(_DWORD *)(*(_QWORD *)this + 24LL) = v4;
     *(_DWORD *)(*(_QWORD *)this + 32LL) = 0;
     *(_DWORD *)(*(_QWORD *)this + 28LL) = 0;
     *(_DWORD *)(*(_QWORD *)this + 36LL) = 0;
-    v7 = (_QWORD *)(*(_QWORD *)this + 48LL);
-    v7[1] = v7;
-    *v7 = v7;
+    v11 = (_QWORD *)(*(_QWORD *)this + 48LL);
+    v11[1] = v11;
+    *v11 = v11;
   }
 }

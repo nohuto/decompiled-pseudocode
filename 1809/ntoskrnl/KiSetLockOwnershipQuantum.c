@@ -1,8 +1,8 @@
 /*
- * XREFs of KiSetLockOwnershipQuantum @ 0x140117520
+ * XREFs of KiSetLockOwnershipQuantum @ 0x140117540
  * Callers:
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiSetPriorityBoost @ 0x1401174C8 (KiSetPriorityBoost.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiSetPriorityBoost @ 0x1401174E8 (KiSetPriorityBoost.c)
  * Callees:
  *     <none>
  */

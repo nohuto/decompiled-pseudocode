@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlNormalizeString @ 0x140899550
+ * XREFs of RtlNormalizeString @ 0x140899530
  * Callers:
- *     RtlpNameprepAsciiRealWorker @ 0x1402F4658 (RtlpNameprepAsciiRealWorker.c)
+ *     RtlpNameprepAsciiRealWorker @ 0x1402F4758 (RtlpNameprepAsciiRealWorker.c)
  * Callees:
- *     RtlpNormalizeStringWorker @ 0x1408995D0 (RtlpNormalizeStringWorker.c)
- *     RtlpGetNormalization @ 0x14089A524 (RtlpGetNormalization.c)
+ *     RtlpNormalizeStringWorker @ 0x1408995B0 (RtlpNormalizeStringWorker.c)
+ *     RtlpGetNormalization @ 0x14089A504 (RtlpGetNormalization.c)
  */
 
 NTSTATUS __stdcall RtlNormalizeString(

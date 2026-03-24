@@ -1,14 +1,14 @@
 /*
- * XREFs of Isoch_CompleteTransfers @ 0x1C0043D28
+ * XREFs of Isoch_CompleteTransfers @ 0x1C004109C
  * Callers:
- *     Isoch_ProcessTransferCompletion @ 0x1C0044A2C (Isoch_ProcessTransferCompletion.c)
+ *     Isoch_ProcessTransferCompletion @ 0x1C0041DC0 (Isoch_ProcessTransferCompletion.c)
  * Callees:
- *     StageQueue_Release @ 0x1C0011870 (StageQueue_Release.c)
- *     TR_ReleaseSegments @ 0x1C00118AC (TR_ReleaseSegments.c)
- *     StageQueue_ForwardScanGetNextStage @ 0x1C0012F44 (StageQueue_ForwardScanGetNextStage.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Isoch_Stage_FreeScatterGatherList @ 0x1C0045138 (Isoch_Stage_FreeScatterGatherList.c)
- *     Isoch_Transfer_CompleteCancelable @ 0x1C0045490 (Isoch_Transfer_CompleteCancelable.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C000C530 (StageQueue_ForwardScanGetNextStage.c)
+ *     StageQueue_Release @ 0x1C000C574 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C000C5AC (TR_ReleaseSegments.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Isoch_Stage_FreeScatterGatherList @ 0x1C00424A8 (Isoch_Stage_FreeScatterGatherList.c)
+ *     Isoch_Transfer_CompleteCancelable @ 0x1C0042800 (Isoch_Transfer_CompleteCancelable.c)
  */
 
 void __fastcall Isoch_CompleteTransfers(__int64 a1, _QWORD *a2)
@@ -56,8 +56,8 @@ void __fastcall Isoch_CompleteTransfers(__int64 a1, _QWORD *a2)
           *((_QWORD *)v12 + 8) = 0LL;
           v12[56] = 0;
         }
-        TR_ReleaseSegments(a1, (const signed __int64 **)v12 + 1, 1);
-        TR_ReleaseSegments(a1, (const signed __int64 **)v12 + 3, 0);
+        TR_ReleaseSegments(a1, (unsigned __int64 *)v12 + 1, 1);
+        TR_ReleaseSegments(a1, (unsigned __int64 *)v12 + 3, 0);
         StageQueue_Release((unsigned __int8 *)(v11 + 128), v12);
         KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), *(_BYTE *)(a1 + 104));
         ++*((_DWORD *)v4 + 28);

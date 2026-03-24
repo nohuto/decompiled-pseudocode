@@ -1,5 +1,5 @@
 /*
- * XREFs of NtReleaseWorkerFactoryWorker @ 0x1400CDD90
+ * XREFs of NtReleaseWorkerFactoryWorker @ 0x1400CDDB0
  * Callers:
  *     <none>
  * Callees:
@@ -8,18 +8,18 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
  *     ExpLeaveWorkerFactoryAwayMode @ 0x14008DEC8 (ExpLeaveWorkerFactoryAwayMode.c)
- *     KiExitDispatcher @ 0x1400C2F50 (KiExitDispatcher.c)
- *     KiWakeOtherQueueWaiters @ 0x1400CDC40 (KiWakeOtherQueueWaiters.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1400CE200 (ExpWorkerFactoryCheckCreate.c)
- *     KiSignalThread @ 0x1400CE7E0 (KiSignalThread.c)
- *     KeInsertQueueEx @ 0x1400FD680 (KeInsertQueueEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeIsThreadRunning @ 0x14028DCA8 (KeIsThreadRunning.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290900 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1402909B8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     EtwTraceEnqueueWork @ 0x14030FC8C (EtwTraceEnqueueWork.c)
+ *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400CDC60 (KiWakeOtherQueueWaiters.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1400CE220 (ExpWorkerFactoryCheckCreate.c)
+ *     KiSignalThread @ 0x1400CE800 (KiSignalThread.c)
+ *     KeInsertQueueEx @ 0x1400FD6A0 (KeInsertQueueEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeIsThreadRunning @ 0x14028DDA8 (KeIsThreadRunning.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     EtwTraceEnqueueWork @ 0x14030FD8C (EtwTraceEnqueueWork.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     IopAllocateMiniCompletionPacket @ 0x14068A8DC (IopAllocateMiniCompletionPacket.c)
+ *     IopAllocateMiniCompletionPacket @ 0x14068A8BC (IopAllocateMiniCompletionPacket.c)
  */
 
 NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of PiUEventShouldQueueEvent @ 0x1402E069C
+ * XREFs of PiUEventShouldQueueEvent @ 0x1402EE500
  * Callers:
- *     PiUEventNotifyUserMode @ 0x14078B2D4 (PiUEventNotifyUserMode.c)
+ *     PiUEventNotifyUserMode @ 0x1406E675C (PiUEventNotifyUserMode.c)
  * Callees:
  *     <none>
  */
@@ -18,13 +18,13 @@ bool __fastcall PiUEventShouldQueueEvent(__int64 a1)
     v3 = *(_DWORD *)(a1 + 128);
     if ( v3 != 1 )
     {
+      if ( v3 == 4 )
+        goto LABEL_11;
       if ( v3 == 2 )
       {
         v4 = PiUEventDevInterfaceClientCount == 0;
         return !v4;
       }
-      if ( v3 == 4 )
-        goto LABEL_11;
       if ( v3 != 3 )
       {
         if ( v3 == 9 )

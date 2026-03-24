@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCheckIRTimerAccess @ 0x1406CFBCC
+ * XREFs of ExpCheckIRTimerAccess @ 0x1406CFBAC
  * Callers:
- *     NtCreateTimer2 @ 0x14068A570 (NtCreateTimer2.c)
+ *     NtCreateTimer2 @ 0x14068A550 (NtCreateTimer2.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x1400DCAF0 (RtlCheckTokenMembership.c)
- *     ExCheckValidIRTimerId @ 0x14013AF54 (ExCheckValidIRTimerId.c)
- *     ExpCheckWakeTimerAccess @ 0x14071EACC (ExpCheckWakeTimerAccess.c)
+ *     RtlCheckTokenMembership @ 0x1400DCB10 (RtlCheckTokenMembership.c)
+ *     ExCheckValidIRTimerId @ 0x14013AF74 (ExCheckValidIRTimerId.c)
+ *     ExpCheckWakeTimerAccess @ 0x14071EAAC (ExpCheckWakeTimerAccess.c)
  */
 
 __int64 __fastcall ExpCheckIRTimerAccess(int a1, char a2)

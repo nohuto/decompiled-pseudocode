@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CCompositeEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C02184C0
+ * XREFs of ?SetIntegerProperty@CCompositeEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E2250
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0215D90 (-SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
+ *     ?SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01DFF40 (-SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
  */
 
 __int64 __fastcall DirectComposition::CCompositeEffectMarshaler::SetIntegerProperty(
@@ -17,8 +17,8 @@ __int64 __fastcall DirectComposition::CCompositeEffectMarshaler::SetIntegerPrope
 
   if ( a3 )
     return DirectComposition::CFilterEffectMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
-  *a5 = *((_DWORD *)this + 30) != a4;
+  *a5 = *((_DWORD *)this + 28) != a4;
   result = 0LL;
-  *((_DWORD *)this + 30) = a4;
+  *((_DWORD *)this + 28) = a4;
   return result;
 }

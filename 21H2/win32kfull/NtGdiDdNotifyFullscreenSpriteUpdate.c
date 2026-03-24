@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDdNotifyFullscreenSpriteUpdate @ 0x1C0275950
+ * XREFs of NtGdiDdNotifyFullscreenSpriteUpdate @ 0x1C02781D0
  * Callers:
  *     <none>
  * Callees:
- *     ?SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z @ 0x1C026BF68 (-SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z.c)
+ *     ?SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z @ 0x1C026E1F4 (-SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z.c)
  */
 
 __int64 __fastcall NtGdiDdNotifyFullscreenSpriteUpdate(HDC a1, HSPRITE a2)

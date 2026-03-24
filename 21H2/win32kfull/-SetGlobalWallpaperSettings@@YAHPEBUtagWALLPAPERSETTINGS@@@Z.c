@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetGlobalWallpaperSettings@@YAHPEBUtagWALLPAPERSETTINGS@@@Z @ 0x1C011A46C
+ * XREFs of ?SetGlobalWallpaperSettings@@YAHPEBUtagWALLPAPERSETTINGS@@@Z @ 0x1C012EE3C
  * Callers:
- *     xxxSetDeskWallpaper @ 0x1C011A1CC (xxxSetDeskWallpaper.c)
+ *     xxxSetDeskWallpaper @ 0x1C012EB9C (xxxSetDeskWallpaper.c)
  * Callees:
  *     <none>
  */
@@ -48,7 +48,7 @@ __int64 __fastcall SetGlobalWallpaperSettings(const struct tagWALLPAPERSETTINGS 
       Win32FreePool(g_pWallpaperSettings);
     g_pWallpaperSettings = 0LL;
   }
-  v3 = (_OWORD *)Win32AllocPoolZInit(516LL, 1347908437LL);
+  v3 = (_OWORD *)Win32AllocPool(516LL, 1347908437LL);
   g_pWallpaperSettings = v3;
   if ( g_pWallpaperSettings )
   {

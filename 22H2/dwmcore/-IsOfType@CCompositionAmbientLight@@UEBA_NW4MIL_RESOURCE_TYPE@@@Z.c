@@ -1,19 +1,19 @@
 /*
- * XREFs of ?IsOfType@CCompositionAmbientLight@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001C3A0
+ * XREFs of ?IsOfType@CCompositionAmbientLight@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C9060
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E0D30 (-IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C4FA0 (-IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CCompositionAmbientLight::IsOfType(__int64 a1, int a2)
 {
   char v2; // cl
-  char v4; // al
+  bool v4; // al
 
-  if ( ((a2 - 32) & 0xFFFFFFFB) == 0 )
+  if ( ((a2 - 30) & 0xFFFFFFFB) == 0 )
     return 1;
-  v4 = CPropertyChangeResource::IsOfType();
+  v4 = CPropertyChangeResource::IsOfType(a1, a2);
   v2 = 0;
   if ( v4 )
     return 1;

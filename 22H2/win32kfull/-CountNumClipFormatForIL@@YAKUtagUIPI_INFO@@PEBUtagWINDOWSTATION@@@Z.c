@@ -1,38 +1,38 @@
 /*
- * XREFs of ?CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z @ 0x1C00163E4
+ * XREFs of ?CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z @ 0x1C00300BC
  * Callers:
- *     NtUserCountClipboardFormats @ 0x1C0016370 (NtUserCountClipboardFormats.c)
- *     NtUserGetUpdatedClipboardFormats @ 0x1C01D4190 (NtUserGetUpdatedClipboardFormats.c)
- *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FCDAC (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C002D410 (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     NtUserCountClipboardFormats @ 0x1C0030050 (NtUserCountClipboardFormats.c)
+ *     NtUserGetUpdatedClipboardFormats @ 0x1C01FBD90 (NtUserGetUpdatedClipboardFormats.c)
  * Callees:
- *     ?CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z @ 0x1C015644C (-CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z.c)
- *     ?IsFmtBlocked@@YAHI@Z @ 0x1C01FC324 (-IsFmtBlocked@@YAHI@Z.c)
+ *     ?CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z @ 0x1C003013C (-CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z.c)
+ *     ?IsFmtBlocked@@YAHI@Z @ 0x1C021E7E8 (-IsFmtBlocked@@YAHI@Z.c)
  */
 
 __int64 __fastcall CountNumClipFormatForIL(__int64 a1, __int64 a2)
 {
   unsigned int *v2; // rdi
   unsigned int v3; // esi
-  int v6; // ebp
-  _QWORD *v7; // r14
+  int v5; // ebp
+  _QWORD *v6; // r14
 
   v2 = *(unsigned int **)(a2 + 128);
   v3 = 0;
   if ( v2 )
   {
-    v6 = *(_DWORD *)(a2 + 136);
-    if ( v6 )
+    v5 = *(_DWORD *)(a2 + 136);
+    if ( v5 )
     {
-      v7 = v2 + 5;
+      v6 = v2 + 5;
       do
       {
-        --v6;
-        if ( (unsigned int)CheckClipboardAccessForIntegrityLevel(*v7, a1) || !(unsigned int)IsFmtBlocked(*v2) )
+        --v5;
+        if ( (unsigned int)CheckClipboardAccessForIntegrityLevel(*v6, a1) || !(unsigned int)IsFmtBlocked(*v2) )
           ++v3;
         v2 += 8;
-        v7 += 4;
+        v6 += 4;
       }
-      while ( v6 );
+      while ( v5 );
     }
   }
   return v3;

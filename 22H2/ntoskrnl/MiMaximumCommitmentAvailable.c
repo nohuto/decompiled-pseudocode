@@ -1,15 +1,20 @@
 /*
- * XREFs of MiMaximumCommitmentAvailable @ 0x14021DC5C
+ * XREFs of MiMaximumCommitmentAvailable @ 0x14033B46C
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x1406B1F04 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x1406BF5C0 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 MiMaximumCommitmentAvailable()
+unsigned __int64 __fastcall MiMaximumCommitmentAvailable(__int64 a1)
 {
-  if ( qword_140C6F9A8 > (unsigned __int64)qword_140C6F508 )
+  unsigned __int64 v1; // rax
+  unsigned __int64 v2; // rdx
+
+  v1 = *(_QWORD *)(a1 + 6216);
+  v2 = *(_QWORD *)(a1 + 7464);
+  if ( v2 > v1 )
     return 0LL;
   else
-    return qword_140C6F508 - qword_140C6F9A8;
+    return v1 - v2;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?VerifyDDCCIMessageChecksum@CPhysicalMonitorHandle@@CAJEPEBEK@Z @ 0x1C026A0B4
+ * XREFs of ?VerifyDDCCIMessageChecksum@CPhysicalMonitorHandle@@CAJEPEBEK@Z @ 0x1C0271A58
  * Callers:
- *     ?DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C02699C0 (-DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
+ *     ?DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C02712B0 (-DdcciReceiveDataFromMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
  * Callees:
- *     ?ComputeDDCCIMessageChecksum@CPhysicalMonitorHandle@@CAEEPEBEK@Z @ 0x1C0268CF4 (-ComputeDDCCIMessageChecksum@CPhysicalMonitorHandle@@CAEEPEBEK@Z.c)
+ *     ?ComputeDDCCIMessageChecksum@CPhysicalMonitorHandle@@CAEEPEBEK@Z @ 0x1C02705C0 (-ComputeDDCCIMessageChecksum@CPhysicalMonitorHandle@@CAEEPEBEK@Z.c)
  */
 
 __int64 __fastcall CPhysicalMonitorHandle::VerifyDDCCIMessageChecksum(
@@ -11,76 +11,53 @@ __int64 __fastcall CPhysicalMonitorHandle::VerifyDDCCIMessageChecksum(
         const unsigned __int8 *a2,
         unsigned int a3)
 {
-  int v4; // ecx
+  int v4; // eax
   unsigned int v6; // r8d
-  int v7; // ecx
-  int v8; // ecx
-  int v9; // ecx
-  int v10; // ecx
-  int v11; // ecx
-  int v12; // ecx
-  int v13; // ecx
-  bool v14; // zf
-  char v15; // al
-  __int64 v16; // r8
-  __int64 v17; // r10
+  char v7; // al
+  __int64 v8; // r8
+  __int64 v9; // r10
 
   if ( a3 < 3 )
     return 3223192968LL;
   v4 = a2[2];
-  if ( v4 != 1 && v4 != 2 && v4 != 3 && v4 != 7 && v4 != 12 )
+  if ( !(_BYTE)v4 )
+    return 3223192969LL;
+  if ( (unsigned __int8)v4 > 3u && (_BYTE)v4 != 7 && (_BYTE)v4 != 12 )
   {
-    if ( v4 == 78 )
+    if ( (_BYTE)v4 == 78 )
     {
       v6 = 9;
-      goto LABEL_13;
+      goto LABEL_12;
     }
-    if ( v4 != 227 && v4 != 243 )
+    if ( (_BYTE)v4 != 0xE3 && (_BYTE)v4 != 0xF3 )
       return 3223192969LL;
   }
   v6 = (a2[1] & 0x7F) + 3;
   if ( (a2[1] & 0x7F) == 0xFFFFFFFD )
     return 3223192970LL;
-LABEL_13:
+LABEL_12:
   if ( a3 < v6 )
     return 3223192970LL;
-  v7 = v4 - 1;
-  if ( !v7 )
-    goto LABEL_28;
-  v8 = v7 - 1;
-  if ( !v8 )
+  switch ( v4 )
   {
-    v14 = v6 == 11;
-LABEL_27:
-    if ( !v14 )
+    case 1:
+      goto LABEL_27;
+    case 2:
+      if ( v6 == 11 )
+        goto LABEL_27;
       return 3223192970LL;
-    goto LABEL_28;
+    case 3:
+    case 7:
+    case 12:
+      goto LABEL_27;
+    case 78:
+      if ( v6 == 9 )
+        goto LABEL_27;
+      return 3223192970LL;
   }
-  v9 = v8 - 1;
-  if ( !v9 )
-    goto LABEL_28;
-  v10 = v9 - 4;
-  if ( !v10 )
-    goto LABEL_28;
-  v11 = v10 - 5;
-  if ( !v11 )
-    goto LABEL_28;
-  v12 = v11 - 66;
-  if ( !v12 )
-  {
-    v14 = v6 == 9;
-    goto LABEL_27;
-  }
-  v13 = v12 - 149;
-  if ( v13 )
-  {
-    if ( v13 != 16 )
-      return 3223192968LL;
-    goto LABEL_28;
-  }
-  if ( v6 - 6 > 0x20 )
+  if ( v4 == 227 && v6 - 6 > 0x20 )
     return 3223192970LL;
-LABEL_28:
-  v15 = CPhysicalMonitorHandle::ComputeDDCCIMessageChecksum(111, a2, v6 - 1);
-  return v15 != *(_BYTE *)(v16 + v17) ? 0xC01E058B : 0;
+LABEL_27:
+  v7 = CPhysicalMonitorHandle::ComputeDDCCIMessageChecksum(111, a2, v6 - 1);
+  return v7 != *(_BYTE *)(v8 + v9) ? 0xC01E058B : 0;
 }

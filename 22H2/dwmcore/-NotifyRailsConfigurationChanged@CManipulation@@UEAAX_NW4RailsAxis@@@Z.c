@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NotifyRailsConfigurationChanged@CManipulation@@UEAAX_NW4RailsAxis@@@Z @ 0x18020DD50
+ * XREFs of ?NotifyRailsConfigurationChanged@CManipulation@@UEAAX_NW4RailsAxis@@@Z @ 0x1801D4200
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 unsigned __int8 __fastcall CManipulation::NotifyRailsConfigurationChanged(__int64 a1, char a2, int a3)
@@ -28,7 +28,7 @@ unsigned __int8 __fastcall CManipulation::NotifyRailsConfigurationChanged(__int6
       v5 = result & 0xFE;
     }
     *(_BYTE *)(a1 + 372) = a2 | v5;
-    return (*(__int64 (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)(a1 - 72) + 72LL))(a1 - 72, 12LL, a1 - 72);
+    return (*(__int64 (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)(a1 - 64) + 72LL))(a1 - 64, 12LL, a1 - 64);
   }
   return result;
 }

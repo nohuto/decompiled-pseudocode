@@ -1,91 +1,81 @@
 /*
- * XREFs of ?MouseKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01B6240
+ * XREFs of ?MouseKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C0183730
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ApiSetEditionKillAccessibilityTimer @ 0x1C0206BD0 (ApiSetEditionKillAccessibilityTimer.c)
- *     ApiSetEditionPostAccessibilityShortcutNotification @ 0x1C0207294 (ApiSetEditionPostAccessibilityShortcutNotification.c)
- *     ApiSetEditionPostRitSound @ 0x1C0207580 (ApiSetEditionPostRitSound.c)
+ *     PostWinlogonMessage @ 0x1C00763B0 (PostWinlogonMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ApiSetEditionKillAccessibilityTimer @ 0x1C01CC5E0 (ApiSetEditionKillAccessibilityTimer.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD44C (ApiSetEditionPostRitSound.c)
  */
 
-__int64 __fastcall MouseKeys(struct tagKE *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MouseKeys(struct tagKE *a1)
 {
-  __int16 v4; // di
-  int v5; // r15d
-  int v6; // r13d
-  __int64 v7; // rdx
-  __int16 v9; // bp
-  unsigned int v10; // ebx
-  int v11; // r14d
-  __int64 i; // rsi
-  int v13; // eax
+  __int64 v1; // rdx
+  __int16 v2; // bx
+  int v3; // r9d
+  int v4; // r8d
+  int v5; // edi
+  __int16 v6; // dx
+  __int64 i; // rcx
+  int v9; // eax
 
-  v4 = *((unsigned __int8 *)a1 + 2);
-  v5 = (unsigned __int8)gLockBits | (unsigned __int8)gLatchBits | (unsigned __int8)gPhysModifierState;
-  v6 = *((_WORD *)a1 + 1) & 0x8000;
-  if ( (dword_1C02905D4 & 1) == 0 )
+  v1 = *((unsigned __int16 *)a1 + 1);
+  v2 = *((unsigned __int8 *)a1 + 2);
+  v3 = *((_WORD *)a1 + 1) & 0x8000;
+  v4 = (unsigned __int8)gLockBits | (unsigned __int8)gLatchBits | (unsigned __int8)gPhysModifierState;
+  if ( (dword_1C024F94C & 1) == 0 )
   {
-    if ( (dword_1C02905D4 & 4) != 0
-      && v4 == *(_WORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 13768)
-      && !v6
-      && v5 == 17 )
+    if ( (dword_1C024F94C & 4) != 0 && v2 == gNumLockVk && (*((_WORD *)a1 + 1) & 0x8000) == 0 && v4 == 17 )
     {
-      gMKPreviousVk = v4;
-      if ( (dword_1C02905D4 & 0x10) != 0 )
-        ApiSetEditionPostRitSound(0LL, v7, 0LL);
-      ApiSetEditionPostAccessibilityShortcutNotification(3LL);
+      gMKPreviousVk = *((_BYTE *)a1 + 2);
+      if ( (dword_1C024F94C & 0x10) != 0 )
+        ApiSetEditionPostRitSound(0LL, v1, 0LL);
+      PostWinlogonMessage(1026LL, 3u);
       return 0LL;
     }
     return 1LL;
   }
-  v9 = *((unsigned __int8 *)a1 + 2);
-  v10 = 0;
-  v11 = 0;
-  for ( i = 0LL; i < 32; i += 2LL )
+  v5 = 0;
+  v6 = v2 | v1 & 0x100;
+  for ( i = 0LL; i < 16; ++i )
   {
-    a1 = *(struct tagKE **)(SGDGetUserSessionState(a1, a2, a3, a4) + 13872);
-    if ( v9 == *(_WORD *)((char *)a1 + i) )
+    if ( v6 == *(_WORD *)(gpusMouseVKey + 2 * i) )
       break;
-    ++v11;
+    ++v5;
   }
-  if ( v11 == 16 || !gbMKMouseMode && v4 != *(_WORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 13768) )
+  if ( v5 == 16 || !gbMKMouseMode && v2 != gNumLockVk )
     return 1LL;
-  if ( (_BYTE)v4 == 46 )
+  if ( (_BYTE)v2 == 46 )
   {
-    LOBYTE(a1) = (v5 & 0x30) != 0;
-    if ( ((unsigned __int8)a1 & ((v5 & 0xC) != 0)) != 0 )
+    LOBYTE(i) = (v4 & 0x30) != 0;
+    if ( ((unsigned __int8)i & ((v4 & 0xC) != 0)) != 0 )
       return 1LL;
   }
-  if ( v6 )
+  if ( v3 )
   {
-    if ( gMKPreviousVk == (_BYTE)v4 )
+    if ( gMKPreviousVk == (_BYTE)v2 )
     {
-      a2 = gtmridMKMoveCursor;
       if ( gtmridMKMoveCursor )
       {
-        ApiSetEditionKillAccessibilityTimer(a1, gtmridMKMoveCursor);
+        ApiSetEditionKillAccessibilityTimer(i, gtmridMKMoveCursor);
         gtmridMKMoveCursor = 0LL;
       }
       gdwPUDFlags &= ~0x2000u;
       gMKPreviousVk = 0;
     }
-    LOBYTE(v10) = v4 == *(_WORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 13768);
-    return v10;
+    return v2 == gNumLockVk;
   }
+  if ( gMKPreviousVk == (_BYTE)v2 )
+    v9 = gdwPUDFlags | 0x2000;
   else
+    v9 = gdwPUDFlags & 0xFFFFDFFF;
+  gdwPUDFlags = v9;
+  if ( (v9 & 0x2000) == 0 && gtmridMKMoveCursor )
   {
-    if ( gMKPreviousVk == (_BYTE)v4 )
-      v13 = gdwPUDFlags | 0x2000;
-    else
-      v13 = gdwPUDFlags & 0xFFFFDFFF;
-    gdwPUDFlags = v13;
-    if ( (v13 & 0x2000) == 0 && gtmridMKMoveCursor )
-    {
-      ApiSetEditionKillAccessibilityTimer(0x2000LL, gtmridMKMoveCursor);
-      gtmridMKMoveCursor = 0LL;
-    }
-    gMKPreviousVk = v4;
-    return off_1C0243030[v11](word_1C0265EB0[v11]);
+    ApiSetEditionKillAccessibilityTimer(0x2000LL, gtmridMKMoveCursor);
+    gtmridMKMoveCursor = 0LL;
   }
+  gMKPreviousVk = v2;
+  return off_1C020A5A0[v5](word_1C02261B0[v5]);
 }

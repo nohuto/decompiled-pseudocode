@@ -1,25 +1,25 @@
 /*
- * XREFs of MmAllocateSecurePoolMemory @ 0x14059A86C
+ * XREFs of MmAllocateSecurePoolMemory @ 0x140544DC0
  * Callers:
- *     PspIumAllocateSecurePool @ 0x1405E2410 (PspIumAllocateSecurePool.c)
+ *     PspIumAllocateSecurePool @ 0x14058397C (PspIumAllocateSecurePool.c)
  * Callees:
- *     MiReservePoolMemory @ 0x14024D0D4 (MiReservePoolMemory.c)
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MiInitializePoolCommitPacket @ 0x1403523C0 (MiInitializePoolCommitPacket.c)
- *     MiCommitPoolMemory @ 0x1403525F0 (MiCommitPoolMemory.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiIsSystemVaAllocated @ 0x140598CA4 (MiIsSystemVaAllocated.c)
- *     MmFreeSecurePoolMemory @ 0x14059A9B4 (MmFreeSecurePoolMemory.c)
+ *     MiReservePoolMemory @ 0x1402B2E74 (MiReservePoolMemory.c)
+ *     MiCommitPoolMemory @ 0x14030B22C (MiCommitPoolMemory.c)
+ *     MiInitializePoolCommitPacket @ 0x14030BBD8 (MiInitializePoolCommitPacket.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiIsSystemVaAllocated @ 0x14053D914 (MiIsSystemVaAllocated.c)
+ *     MmFreeSecurePoolMemory @ 0x140544F08 (MmFreeSecurePoolMemory.c)
  */
 
 __int64 __fastcall MmAllocateSecurePoolMemory(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,
-        int a3,
+        unsigned int a3,
         __int64 a4)
 {
-  ULONG_PTR v8; // rsi
+  ULONG_PTR v8; // rdi
   int v9; // ebx
   int SystemRegionType; // eax
   _QWORD v12[10]; // [rsp+40h] [rbp-68h] BYREF
@@ -33,23 +33,22 @@ __int64 __fastcall MmAllocateSecurePoolMemory(
   if ( (a3 & 0x2000) == 0 || (v8 = MiReservePoolMemory(BugCheckParameter2, 15, BugCheckParameter3, 0)) != 0 )
   {
     if ( (a3 & 0x1000) == 0 )
-      return 0;
+      goto LABEL_10;
     SystemRegionType = MiGetSystemRegionType(BugCheckParameter2);
     if ( SystemRegionType != 15 )
       KeBugCheckEx(0x1Au, 0x5400uLL, BugCheckParameter2, BugCheckParameter3, SystemRegionType);
     if ( !(unsigned int)MiIsSystemVaAllocated() )
       KeBugCheckEx(0x1Au, 0x5401uLL, BugCheckParameter2, BugCheckParameter3, 0LL);
-    MiInitializePoolCommitPacket((__int64 *)&v13, (__int64)&v14, a3, 2u, 0, 0, a4, (__int64)v12);
+    MiInitializePoolCommitPacket((__int64 *)&v13, &v14, a3, 2u, 0, 0, a4, (__int64)v12);
     v9 = MiCommitPoolMemory(v12);
-    if ( v9 < 0 )
+    if ( v9 >= 0 )
     {
-      if ( v8 )
-        MmFreeSecurePoolMemory(v8, BugCheckParameter3);
+LABEL_10:
+      v8 = 0LL;
+      v9 = 0;
     }
-    else
-    {
-      return 0;
-    }
+    if ( v8 )
+      MmFreeSecurePoolMemory(v8, BugCheckParameter3);
   }
   else
   {

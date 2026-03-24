@@ -1,31 +1,55 @@
 /*
- * XREFs of SepReconcileTrustSidWithProcessProtection @ 0x1402B32E4
+ * XREFs of SepReconcileTrustSidWithProcessProtection @ 0x140346E70
  * Callers:
- *     SeCreateClientSecurityEx @ 0x14071D220 (SeCreateClientSecurityEx.c)
- *     SeCreateClientSecurity @ 0x14071D3C0 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurity @ 0x1406D6B30 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurityEx @ 0x1406D6D20 (SeCreateClientSecurityEx.c)
  * Callees:
- *     SepSidFromProcessProtection @ 0x1402B3340 (SepSidFromProcessProtection.c)
- *     RtlSidDominatesForTrust @ 0x1402B33C0 (RtlSidDominatesForTrust.c)
+ *     SepSidFromProcessProtection @ 0x140346EF0 (SepSidFromProcessProtection.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x140347780 (RtlIsValidProcessTrustLabelSid.c)
  */
 
 __int64 __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, __int64 a2, _BYTE *a3, _QWORD *a4)
 {
-  __int64 v5; // rdi
-  __int64 v6; // r9
-  __int64 v7; // r10
   __int64 result; // rax
-  __int64 *v9; // r11
-  char v10; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  _QWORD *v8; // r9
+  __int64 v9; // r10
+  __int64 v10; // r11
+  __int64 v11; // r10
 
   *a3 = 0;
   *a4 = 0LL;
-  v10 = 0;
-  v5 = SepSidFromProcessProtection(a2);
-  result = RtlSidDominatesForTrust(v5, v7, &v10, v6);
-  if ( !v10 )
+  result = SepSidFromProcessProtection(a2);
+  if ( result )
   {
+    result = RtlIsValidProcessTrustLabelSid(result, v6, v7, v8);
+    if ( !(_BYTE)result )
+      goto LABEL_12;
+  }
+  if ( v9 )
+  {
+    result = RtlIsValidProcessTrustLabelSid(v9, v6, v7, v8);
+    if ( (_BYTE)result )
+    {
+      if ( v10 )
+      {
+        result = *(unsigned int *)(v11 + 8);
+        if ( *(_DWORD *)(v10 + 8) >= (unsigned int)result )
+        {
+          result = *(unsigned int *)(v11 + 12);
+          if ( *(_DWORD *)(v10 + 12) >= (unsigned int)result )
+            return result;
+        }
+      }
+      else if ( !*(_DWORD *)(v11 + 8) )
+      {
+        return result;
+      }
+    }
+LABEL_12:
     *a3 = 1;
-    *v9 = v5;
+    *v8 = v10;
   }
   return result;
 }

@@ -1,19 +1,33 @@
 /*
- * XREFs of ?AcquireBufferSafe@?$COPMSimpleBufferPool@U_DXGKMDT_OPM_REQUESTED_INFORMATION@@@@QEAA?AVCAutoUnlockBuffer@1@XZ @ 0x1C015B1E8
+ * XREFs of ?AcquireBufferSafe@?$COPMSimpleBufferPool@U_DXGKMDT_OPM_REQUESTED_INFORMATION@@@@QEAA?AVCAutoUnlockBuffer@1@XZ @ 0x1C00BFB4C
  * Callers:
- *     NtGdiGetCOPPCompatibleOPMInformation @ 0x1C015C610 (NtGdiGetCOPPCompatibleOPMInformation.c)
- *     NtGdiGetOPMInformation @ 0x1C015CAD0 (NtGdiGetOPMInformation.c)
+ *     NtGdiGetOPMInformation @ 0x1C00BF700 (NtGdiGetOPMInformation.c)
+ *     NtGdiGetCOPPCompatibleOPMInformation @ 0x1C0140600 (NtGdiGetCOPPCompatibleOPMInformation.c)
  * Callees:
- *     <none>
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-PVOID *__fastcall COPMSimpleBufferPool<_DXGKMDT_OPM_REQUESTED_INFORMATION>::AcquireBufferSafe(
-        PLOOKASIDE_LIST_EX *a1,
-        PVOID *a2)
+PSLIST_ENTRY *__fastcall COPMSimpleBufferPool<_DXGKMDT_OPM_REQUESTED_INFORMATION>::AcquireBufferSafe(
+        struct _SLIST_ENTRY *a1,
+        PSLIST_ENTRY *a2)
 {
-  PVOID *result; // rax
+  struct _SLIST_ENTRY *Next; // rbx
+  PSLIST_ENTRY v5; // rax
+  PSLIST_ENTRY *result; // rax
 
-  *a2 = ExAllocateFromLookasideListEx(*a1);
+  Next = a1->Next;
+  ++HIDWORD(Next[1].Next);
+  v5 = ExpInterlockedPopEntrySList((PSLIST_HEADER)Next);
+  if ( !v5 )
+  {
+    ++*((_DWORD *)&Next[1].Next + 2);
+    v5 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, struct _SLIST_ENTRY *))Next[3].Next)(
+                         HIDWORD(Next[2].Next),
+                         *((unsigned int *)&Next[2].Next + 3),
+                         *((unsigned int *)&Next[2].Next + 2),
+                         Next);
+  }
+  *a2 = v5;
   result = a2;
   a2[1] = a1;
   return result;

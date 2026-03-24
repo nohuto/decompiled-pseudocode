@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CColorMatrixEffectMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C020F5F0
+ * XREFs of ?SetFloatProperty@CColorMatrixEffectMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E0810
  * Callers:
  *     <none>
  * Callees:
@@ -13,23 +13,23 @@ __int64 __fastcall DirectComposition::CColorMatrixEffectMarshaler::SetFloatPrope
         bool *a4)
 {
   unsigned int v4; // r8d
-  unsigned __int64 v5; // rdx
-  bool v6; // al
+  char v7; // al
+  unsigned __int64 v8; // rcx
+  bool v9; // dl
+  __int64 v10; // r9
 
   v4 = 0;
   if ( (unsigned int)(a2 - 3) <= 0x13 )
   {
-    v5 = (((_BYTE)a2 + 1) & 3) + 4 * ((unsigned __int64)(unsigned int)(a2 - 3) >> 2);
-    if ( *((float *)this + v5 + 28) == a3 )
-    {
-      v6 = 0;
-    }
+    v7 = a2;
+    v8 = (unsigned __int64)(unsigned int)(a2 - 3) >> 2;
+    v9 = 1;
+    v10 = ((v7 + 1) & 3) + 4 * v8;
+    if ( *((float *)this + v10 + 28) == a3 )
+      v9 = 0;
     else
-    {
-      *((float *)this + v5 + 28) = a3;
-      v6 = 1;
-    }
-    *a4 = v6;
+      *((float *)this + v10 + 28) = a3;
+    *a4 = v9;
   }
   else
   {

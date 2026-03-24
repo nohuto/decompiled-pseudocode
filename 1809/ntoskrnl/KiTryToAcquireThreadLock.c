@@ -1,14 +1,14 @@
 /*
- * XREFs of KiTryToAcquireThreadLock @ 0x140115160
+ * XREFs of KiTryToAcquireThreadLock @ 0x140115180
  * Callers:
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140114D84 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiTryToUpdateVPBackingThreadPriority @ 0x140129C60 (KiTryToUpdateVPBackingThreadPriority.c)
- *     KeTryToInsertQueueApc @ 0x140294B20 (KeTryToInsertQueueApc.c)
- *     KiMonitorCacheErrata @ 0x14029A390 (KiMonitorCacheErrata.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140114DA4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiTryToUpdateVPBackingThreadPriority @ 0x140129C80 (KiTryToUpdateVPBackingThreadPriority.c)
+ *     KeTryToInsertQueueApc @ 0x140294C20 (KeTryToInsertQueueApc.c)
+ *     KiMonitorCacheErrata @ 0x14029A490 (KiMonitorCacheErrata.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KiTryToAcquireThreadLock(__int64 a1, _BYTE *a2)

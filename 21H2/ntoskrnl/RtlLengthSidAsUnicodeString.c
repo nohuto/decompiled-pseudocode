@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlLengthSidAsUnicodeString @ 0x14066B6D8
+ * XREFs of RtlLengthSidAsUnicodeString @ 0x140676DD8
  * Callers:
- *     RtlFormatCurrentUserKeyPath @ 0x14066B5D0 (RtlFormatCurrentUserKeyPath.c)
- *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x140A084FC (ExpWnfGetPermanentPerUserDataStoreHandle.c)
- *     AdtpBuildSidListString @ 0x140A1B9F0 (AdtpBuildSidListString.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x140676CD0 (RtlFormatCurrentUserKeyPath.c)
+ *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x14095CD2C (ExpWnfGetPermanentPerUserDataStoreHandle.c)
+ *     AdtpBuildSidListString @ 0x14096DB54 (AdtpBuildSidListString.c)
  * Callees:
- *     RtlValidSid @ 0x1407B4660 (RtlValidSid.c)
+ *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
  */
 
 __int64 __fastcall RtlLengthSidAsUnicodeString(unsigned __int8 *a1, _DWORD *a2)

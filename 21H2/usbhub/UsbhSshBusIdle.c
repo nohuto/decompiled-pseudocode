@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhSshBusIdle @ 0x1C0030DDC
+ * XREFs of UsbhSshBusIdle @ 0x1C0032184
  * Callers:
- *     UsbhHubSSH_PnpStop @ 0x1C0058680 (UsbhHubSSH_PnpStop.c)
+ *     UsbhHubSSH_PnpStop @ 0x1C0059D50 (UsbhHubSSH_PnpStop.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 LONG __fastcall UsbhSshBusIdle(__int64 a1)

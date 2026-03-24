@@ -1,7 +1,7 @@
 /*
  * XREFs of VfRemoveVerifierEntry @ 0x14094A9F8
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
  *     VfSuspectDriversRemove @ 0x140937B30 (VfSuspectDriversRemove.c)
  */

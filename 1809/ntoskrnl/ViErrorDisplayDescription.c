@@ -1,10 +1,10 @@
 /*
  * XREFs of ViErrorDisplayDescription @ 0x140936124
  * Callers:
- *     ViErrorReport1 @ 0x14030AE3C (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x14030AEC0 (ViErrorReport10.c)
- *     ViErrorReport4 @ 0x14030AF54 (ViErrorReport4.c)
- *     ViErrorReport6 @ 0x14030AFF8 (ViErrorReport6.c)
+ *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x14030AFC0 (ViErrorReport10.c)
+ *     ViErrorReport4 @ 0x14030B054 (ViErrorReport4.c)
+ *     ViErrorReport6 @ 0x14030B0F8 (ViErrorReport6.c)
  *     ViGenericVerifyIrpStackDownward @ 0x140926DB0 (ViGenericVerifyIrpStackDownward.c)
  *     ViGenericVerifyNewIrp @ 0x140927080 (ViGenericVerifyNewIrp.c)
  *     VfIoDeleteDevice @ 0x140934128 (VfIoDeleteDevice.c)
@@ -15,7 +15,7 @@
  *     VerifierNtReadFile @ 0x1409456E0 (VerifierNtReadFile.c)
  *     VerifierNtWriteFile @ 0x140945830 (VerifierNtWriteFile.c)
  * Callees:
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
  */
 
 __int64 __fastcall ViErrorDisplayDescription(int a1)

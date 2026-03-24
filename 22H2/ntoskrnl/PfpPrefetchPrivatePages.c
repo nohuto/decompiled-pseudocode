@@ -1,139 +1,144 @@
 /*
- * XREFs of PfpPrefetchPrivatePages @ 0x14097E318
+ * XREFs of PfpPrefetchPrivatePages @ 0x14070C958
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406846E8 (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x14070AFA4 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     PfpCheckPrefetchAbort @ 0x1402F88F8 (PfpCheckPrefetchAbort.c)
- *     MmQueryMemoryListInformation @ 0x1402F8958 (MmQueryMemoryListInformation.c)
- *     MmPrefetchVirtualMemory @ 0x140681A70 (MmPrefetchVirtualMemory.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x14075DCF0 (PfpUpdateRepurposedByPrefetch.c)
- *     PfpGetPageListCount @ 0x14075DE0C (PfpGetPageListCount.c)
- *     PfpSourceBuildVaArray @ 0x14097EE08 (PfpSourceBuildVaArray.c)
- *     PfpSourceGetPrefetchSupport @ 0x14097EEF0 (PfpSourceGetPrefetchSupport.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PfpCheckPrefetchAbort @ 0x14026E9CC (PfpCheckPrefetchAbort.c)
+ *     MmQueryMemoryListInformation @ 0x14026EA10 (MmQueryMemoryListInformation.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x140633FAC (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpGetPageListCount @ 0x1406340C8 (PfpGetPageListCount.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     MmPrefetchVirtualMemory @ 0x1406FB498 (MmPrefetchVirtualMemory.c)
+ *     PfpSourceGetPrefetchSupport @ 0x14070CBB0 (PfpSourceGetPrefetchSupport.c)
+ *     PfpSourceBuildVaArray @ 0x14070CD70 (PfpSourceBuildVaArray.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PfpPrefetchPrivatePages(_QWORD *a1)
+__int64 __fastcall PfpPrefetchPrivatePages(__int64 *a1)
 {
   __int64 v1; // rbx
-  _QWORD *v2; // r15
-  int v3; // esi
-  int v4; // eax
+  __int64 *v2; // r15
+  int v3; // r13d
+  int v4; // edx
   int v5; // r8d
   int v6; // edx
-  int v7; // r14d
-  __int64 v8; // r13
-  unsigned int v9; // ebx
-  __int64 result; // rax
-  char *v11; // rdi
-  __int64 v12; // rdi
-  __int64 v13; // r9
-  unsigned int v14; // eax
+  int v7; // ecx
+  int v8; // edx
+  int v9; // r14d
+  __int64 v10; // rsi
+  __int64 v11; // rdi
+  __int64 v12; // r9
+  HANDLE v13; // rdi
+  __int64 *v14; // r14
   unsigned int v15; // r12d
-  unsigned int v16; // r14d
-  unsigned int v17; // [rsp+30h] [rbp-38h]
+  unsigned int v16; // r15d
+  unsigned int v17; // ebx
+  __int64 result; // rax
+  unsigned int v19; // eax
+  unsigned int v20; // [rsp+30h] [rbp-38h]
   HANDLE Handle[2]; // [rsp+38h] [rbp-30h] BYREF
-  __int64 v19; // [rsp+48h] [rbp-20h]
+  __int64 v22; // [rsp+48h] [rbp-20h]
   PVOID P[2]; // [rsp+50h] [rbp-18h] BYREF
-  int v22; // [rsp+B8h] [rbp+50h]
-  int v23; // [rsp+C0h] [rbp+58h]
-  __int64 v24; // [rsp+C8h] [rbp+60h] BYREF
+  int v25; // [rsp+B8h] [rbp+50h]
+  int v26; // [rsp+C0h] [rbp+58h]
+  __int64 v27; // [rsp+C8h] [rbp+60h] BYREF
 
   v1 = *a1;
   v2 = a1;
-  LODWORD(v24) = 0;
+  LODWORD(v27) = 0;
   v3 = 0;
-  v22 = 0;
   *(_OWORD *)P = 0LL;
-  v17 = *(unsigned __int16 *)(*a1 + 30LL);
-  v4 = (8 * (v17 & 7)) | *(_DWORD *)(*a1 + 28LL) & 7;
-  v19 = ((MEMORY[0xFFFFF78000000004] * MEMORY[0xFFFFF78000000324]) << 8)
+  v20 = *(unsigned __int16 *)(*a1 + 30);
+  v4 = *(_DWORD *)(*a1 + 28);
+  v22 = ((MEMORY[0xFFFFF78000000004] * MEMORY[0xFFFFF78000000324]) << 8)
       + (unsigned int)((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
   v5 = *(_DWORD *)(v1 + 80);
-  if ( (v5 & 0x10) == 0 )
-    v4 |= 0x100u;
-  v6 = v4 | 0x200;
-  if ( (v5 & 8) == 0 )
-    v6 = v4;
-  v7 = v6 | 0x800;
-  if ( (*(_BYTE *)(v1 + 80) & 0x20) == 0 )
+  v6 = (8 * (v20 & 7)) | v4 & 7;
+  v7 = v6 | 0x100;
+  if ( (v5 & 0x10) != 0 )
     v7 = v6;
-  v8 = 0LL;
-  v23 = v7;
+  v8 = v7 | 0x200;
+  if ( (v5 & 8) == 0 )
+    v8 = v7;
+  v9 = v8 | 0x800;
+  if ( (v5 & 0x20) == 0 )
+    v9 = v8;
+  v10 = 0LL;
+  v26 = v9;
+  v25 = 0;
   if ( !*(_DWORD *)(v1 + 20) )
   {
-LABEL_8:
-    v9 = 0;
-    goto LABEL_9;
+LABEL_26:
+    v17 = 0;
+    goto LABEL_27;
   }
   while ( 1 )
   {
     *(_OWORD *)Handle = 0LL;
-    if ( (unsigned int)PfpCheckPrefetchAbort(v2) )
+    if ( PfpCheckPrefetchAbort(v2) )
     {
       v3 = 1;
-      v22 = 1;
-LABEL_15:
-      v11 = (char *)Handle[1];
-      goto LABEL_16;
+LABEL_31:
+      v13 = Handle[1];
+      goto LABEL_22;
     }
-    v12 = *(_QWORD *)(v1 + 56) + 40 * v8;
-    if ( (int)PfpSourceBuildVaArray(v12, P) < 0 || (int)PfpSourceGetPrefetchSupport(v12, Handle) < 0 )
-      goto LABEL_15;
-    v11 = (char *)Handle[1];
+    v11 = *(_QWORD *)(v1 + 56) + 40 * v10;
+    if ( (int)PfpSourceBuildVaArray(v11, P) < 0 || (int)PfpSourceGetPrefetchSupport(v11, Handle) < 0 )
+      goto LABEL_31;
+    v13 = Handle[1];
     if ( (*(_DWORD *)(v1 + 80) & 4) == 0 )
     {
-      v14 = (unsigned int)P[0];
+      v19 = (unsigned int)P[0];
       *(_DWORD *)(v1 + 104) += LODWORD(P[0]);
-      MmPrefetchVirtualMemory(v11, v14, (__int64)P[1], v7);
-LABEL_34:
+      MmPrefetchVirtualMemory((ULONG_PTR)v13, v19, (__int64)P[1], v9);
+LABEL_21:
       ++*(_DWORD *)(v1 + 92);
-      goto LABEL_16;
+      goto LABEL_22;
     }
+    v14 = v2 + 6;
     v15 = (unsigned int)P[0];
     Handle[0] = P[1];
-    MmQueryMemoryListInformation(0xFFFFFFFFFFFFFFFFuLL, (_OWORD *)v2 + 3, 0xB0u, v13, &v24);
+    MmQueryMemoryListInformation((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, (_OWORD *)v2 + 3, 0xB0u, v12, &v27);
     if ( !v15 )
-      goto LABEL_34;
-    while ( !(unsigned int)PfpCheckPrefetchAbort(a1)
-         && (unsigned __int64)(v2[6] + v2[7] + PfpGetPageListCount((__int64)(v2 + 11), 0, v17)) >= 0x80 )
+      goto LABEL_21;
+    while ( !PfpCheckPrefetchAbort(v2)
+         && (unsigned __int64)(*v14 + v14[1] + PfpGetPageListCount((__int64)(v14 + 5), 0, v20)) >= 0x80 )
     {
       v16 = v15;
       if ( v15 > 0x10 )
         v16 = 16;
-      if ( MmPrefetchVirtualMemory(v11, v16, (__int64)Handle[0], v23) >= 0 )
+      if ( MmPrefetchVirtualMemory((ULONG_PTR)v13, v16, (__int64)Handle[0], v26) >= 0 )
         *(_DWORD *)(v1 + 104) += v16;
-      PfpUpdateRepurposedByPrefetch((_OWORD *)v2 + 3, v16);
+      PfpUpdateRepurposedByPrefetch(v14, v16);
       Handle[0] = (char *)Handle[0] + 16 * v16;
       v15 -= v16;
+      v2 = a1;
       if ( !v15 )
       {
-        v3 = v22;
-        v7 = v23;
-        goto LABEL_34;
+        LODWORD(v10) = v25;
+        goto LABEL_21;
       }
     }
-    v7 = v23;
+    LODWORD(v10) = v25;
     v3 = 1;
-    v22 = 1;
-LABEL_16:
-    if ( v11 )
-      NtClose(v11);
+LABEL_22:
+    if ( v13 )
+      NtClose(v13);
     if ( v3 )
       break;
-    v8 = (unsigned int)(v8 + 1);
-    if ( (unsigned int)v8 >= *(_DWORD *)(v1 + 20) )
-      goto LABEL_8;
-    v2 = a1;
+    v9 = v26;
+    v10 = (unsigned int)(v10 + 1);
+    v25 = v10;
+    if ( (unsigned int)v10 >= *(_DWORD *)(v1 + 20) )
+      goto LABEL_26;
   }
-  v9 = -1073741248;
-LABEL_9:
+  v17 = -1073741248;
+LABEL_27:
   if ( P[1] )
     ExFreePoolWithTag(P[1], 0);
-  result = v9;
-  *(_DWORD *)(*a1 + 120LL) += ((MEMORY[0xFFFFF78000000004] * MEMORY[0xFFFFF78000000324]) << 8)
-                            + ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)
-                            - v19;
+  result = v17;
+  *(_DWORD *)(*v2 + 120) += ((MEMORY[0xFFFFF78000000004] * MEMORY[0xFFFFF78000000324]) << 8)
+                          + ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)
+                          - v22;
   return result;
 }

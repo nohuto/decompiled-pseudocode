@@ -1,43 +1,25 @@
 /*
- * XREFs of DxgkQueryRemoteVidPnSourceFromGdiDisplayName @ 0x1C004E3F0
+ * XREFs of DxgkQueryRemoteVidPnSourceFromGdiDisplayName @ 0x1C0044910
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall DxgkQueryRemoteVidPnSourceFromGdiDisplayName(__int64 a1)
 {
   struct DXGPROCESS *Current; // rax
-  __int64 CurrentProcess; // rax
-  __int64 v4; // rax
-  int v5; // edx
-  int v6; // r8d
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rbx
 
   Current = DXGPROCESS::GetCurrent();
   if ( Current )
     return (*(__int64 (__fastcall **)(__int64))(*((_QWORD *)Current + 11) + 440LL))(a1);
-  CurrentProcess = PsGetCurrentProcess();
-  WdLogSingleEntry2(2LL, -1073741811LL, CurrentProcess);
-  v4 = PsGetCurrentProcess();
-  if ( bTracingEnabled )
-  {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        (unsigned int)L"0x%I64x 0x%I64x encountered exception",
-        v5,
-        v6,
-        0LL,
-        0,
-        -1,
-        L"0x%I64x 0x%I64x encountered exception",
-        -1073741811LL,
-        v4,
-        0LL,
-        0LL,
-        0LL);
-  }
+  v5 = WdLogNewEntry5_WdError(v4, v3);
+  *(_QWORD *)(v5 + 24) = -1073741811LL;
+  *(_QWORD *)(v5 + 32) = PsGetCurrentProcess();
+  WdLogEvent5_WdError(v5);
   return 3221225485LL;
 }

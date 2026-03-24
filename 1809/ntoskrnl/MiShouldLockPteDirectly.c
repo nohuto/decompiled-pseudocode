@@ -3,7 +3,7 @@
  * Callers:
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
  *     MiUnlockNestedPageTableWritePte @ 0x1400984D4 (MiUnlockNestedPageTableWritePte.c)
- *     MiIsPageTableLocked @ 0x14012D9FC (MiIsPageTableLocked.c)
+ *     MiIsPageTableLocked @ 0x14012DA1C (MiIsPageTableLocked.c)
  * Callees:
  *     <none>
  */

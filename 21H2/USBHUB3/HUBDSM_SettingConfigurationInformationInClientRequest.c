@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDSM_SettingConfigurationInformationInClientRequest @ 0x1C001DBB0
+ * XREFs of HUBDSM_SettingConfigurationInformationInClientRequest @ 0x1C001D670
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_SettingConfigurationInformationInClientRequest(__int64 a1)
@@ -55,7 +55,7 @@ __int64 __fastcall HUBDSM_SettingConfigurationInformationInClientRequest(__int64
             2u,
             5u,
             0x2Cu,
-            (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+            (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
         v7 = (*(__int64 (__fastcall **)(_QWORD))(v11 + 480))(v9[9 * v6 + 5]);
         v8 = 3 * v6;
         v9[9 * v6 + 7] = v12;

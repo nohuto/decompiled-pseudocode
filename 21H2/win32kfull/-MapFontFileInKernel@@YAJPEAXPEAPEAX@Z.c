@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MapFontFileInKernel@@YAJPEAXPEAPEAX@Z @ 0x1C02A612C
+ * XREFs of ?MapFontFileInKernel@@YAJPEAXPEAPEAX@Z @ 0x1C02A7F38
  * Callers:
- *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02A6D40 (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
- *     NtGdiGetFontFileData @ 0x1C02BA5F0 (NtGdiGetFontFileData.c)
+ *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02A85AC (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
+ *     NtGdiGetFontFileData @ 0x1C02BC020 (NtGdiGetFontFileData.c)
  * Callees:
- *     ?vClosePrintKView@@YAXXZ @ 0x1C02A71D0 (-vClosePrintKView@@YAXXZ.c)
+ *     ?vClosePrintKView@@YAXXZ @ 0x1C02A8A3C (-vClosePrintKView@@YAXXZ.c)
  */
 
 int __fastcall MapFontFileInKernel(PVOID Section, PVOID *MappedBase)

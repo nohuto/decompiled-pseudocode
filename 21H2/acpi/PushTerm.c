@@ -1,26 +1,25 @@
 /*
- * XREFs of PushTerm @ 0x1C0016BE8
+ * XREFs of PushTerm @ 0x1C0028F14
  * Callers:
- *     ParseArg @ 0x1C000B10C (ParseArg.c)
- *     ParseOpcode @ 0x1C000B180 (ParseOpcode.c)
- *     ParseTerm @ 0x1C0013680 (ParseTerm.c)
- *     ParseSuperName @ 0x1C0015500 (ParseSuperName.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseSuperName @ 0x1C0009350 (ParseSuperName.c)
+ *     ParseArg @ 0x1C0022094 (ParseArg.c)
  * Callees:
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall PushTerm(struct _SLIST_ENTRY *a1, _SLIST_ENTRY *a2, _SLIST_ENTRY *a3, __int64 a4, __int64 a5)
+__int64 __fastcall PushTerm(struct _SLIST_ENTRY *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  _SLIST_ENTRY *v9; // rax
+  __int64 v9; // rax
   unsigned int v10; // ebx
-  _SLIST_ENTRY *v11; // rdi
+  __int64 v11; // rdi
   __int64 v12; // rcx
   __int64 v13; // rax
-  _SLIST_ENTRY *v14; // rax
+  void *v14; // rax
   unsigned int v16; // edi
   int v17; // ecx
 
@@ -35,14 +34,14 @@ __int64 __fastcall PushTerm(struct _SLIST_ENTRY *a1, _SLIST_ENTRY *a2, _SLIST_EN
     v17 = 153;
     goto LABEL_12;
   }
-  *((_QWORD *)&v9->Next + 1) = a1[26].Next;
-  a1[26].Next = v9;
-  LODWORD(v9->Next) = 1297237332;
-  *((_QWORD *)&v9[1].Next + 1) = ParseTerm;
-  v9[2].Next = a2;
-  v9[3].Next = a3;
-  *((_QWORD *)&v9[3].Next + 1) = a4;
-  *((_QWORD *)&v9[5].Next + 1) = a5;
+  *(_QWORD *)(v9 + 8) = a1[26].Next;
+  a1[26].Next = (_SLIST_ENTRY *)v9;
+  *(_DWORD *)v9 = 1297237332;
+  *(_QWORD *)(v9 + 24) = ParseTerm;
+  *(_QWORD *)(v9 + 32) = a2;
+  *(_QWORD *)(v9 + 48) = a3;
+  *(_QWORD *)(v9 + 56) = a4;
+  *(_QWORD *)(v9 + 88) = a5;
   v12 = *(_QWORD *)(a4 + 16);
   if ( v12 )
   {
@@ -55,14 +54,14 @@ __int64 __fastcall PushTerm(struct _SLIST_ENTRY *a1, _SLIST_ENTRY *a2, _SLIST_EN
   {
     LODWORD(v13) = 0;
   }
-  *((_DWORD *)&v11[4].Next + 3) = v13;
+  *(_DWORD *)(v11 + 76) = v13;
   if ( (_DWORD)v13 )
   {
-    v14 = HeapAlloc(a1[20].Next, 1413563464, 40 * (int)v13);
-    v11[5].Next = v14;
+    v14 = (void *)HeapAlloc(a1[20].Next, 1413563464, 40 * (int)v13);
+    *(_QWORD *)(v11 + 80) = v14;
     if ( v14 )
     {
-      memset(v14, 0, 40LL * *((unsigned int *)&v11[4].Next + 3));
+      memset(v14, 0, 40LL * *(unsigned int *)(v11 + 76));
       return v10;
     }
     v16 = -1073741670;

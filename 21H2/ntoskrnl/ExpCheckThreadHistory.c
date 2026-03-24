@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpCheckThreadHistory @ 0x140240E44
+ * XREFs of ExpCheckThreadHistory @ 0x1402BA4A0
  * Callers:
- *     ExpWorkerFactoryCheckCreate @ 0x1402F8420 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x140242EF0 (ExpWorkerFactoryCheckCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall ExpCheckThreadHistory(__int64 a1)
@@ -25,7 +25,7 @@ char __fastcall ExpCheckThreadHistory(__int64 a1)
   char v17; // di
   _OWORD v18[2]; // [rsp+0h] [rbp-38h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 408);
+  v1 = *(_DWORD *)(a1 + 312);
   memset(v18, 0, sizeof(v18));
   if ( (v1 & 7) == 4 )
     return 0;
@@ -34,7 +34,7 @@ char __fastcall ExpCheckThreadHistory(__int64 a1)
   v5 = 0;
   for ( i = 0; i < 4; ++i )
   {
-    v7 = *(struct _KTHREAD **)(a1 + 8LL * (unsigned __int8)i + 72);
+    v7 = *(struct _KTHREAD **)(a1 + 8LL * i + 72);
     if ( v7 )
     {
       if ( v7 != CurrentThread && v7->WaitBlockFill6[68] == 5 )

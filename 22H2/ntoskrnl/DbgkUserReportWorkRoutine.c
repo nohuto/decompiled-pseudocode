@@ -1,54 +1,56 @@
 /*
- * XREFs of DbgkUserReportWorkRoutine @ 0x140939CF0
+ * XREFs of DbgkUserReportWorkRoutine @ 0x140886DA0
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoThreadToProcess @ 0x140289E60 (IoThreadToProcess.c)
- *     PsMultiResumeThread @ 0x140309C58 (PsMultiResumeThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwSetInformationThread @ 0x14041A840 (ZwSetInformationThread.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwAllocateVirtualMemory @ 0x14041A9A0 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x14041AA60 (ZwFreeVirtualMemory.c)
- *     ZwResumeThread @ 0x14041B0E0 (ZwResumeThread.c)
- *     ZwCreateThreadEx @ 0x14041BF80 (ZwCreateThreadEx.c)
- *     ObOpenObjectByPointer @ 0x1407379D0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     IoThreadToProcess @ 0x1402056C0 (IoThreadToProcess.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwSetInformationThread @ 0x1403F9BC0 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwAllocateVirtualMemory @ 0x1403F9D20 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1403F9DE0 (ZwFreeVirtualMemory.c)
+ *     ZwResumeThread @ 0x1403FA460 (ZwResumeThread.c)
+ *     ZwCreateThreadEx @ 0x1403FB260 (ZwCreateThreadEx.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     ObOpenObjectByPointer @ 0x140653F10 (ObOpenObjectByPointer.c)
+ *     PsResumeThread @ 0x1406C5AA0 (PsResumeThread.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-LONG_PTR __fastcall DbgkUserReportWorkRoutine(char *P)
+void __fastcall DbgkUserReportWorkRoutine(char *P)
 {
   __int64 v2; // rdi
   _KPROCESS *v3; // rax
+  _DWORD *v4; // r9
   int Thread; // edx
-  char *v5; // rcx
+  __int64 v6; // r8
+  _DWORD *v7; // r9
+  char *v8; // rcx
   PVOID BaseAddress; // [rsp+60h] [rbp-A8h] BYREF
   HANDLE ThreadHandle; // [rsp+68h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+70h] [rbp-98h] BYREF
   ULONG_PTR RegionSize[3]; // [rsp+78h] [rbp-90h] BYREF
-  __int128 v11; // [rsp+90h] [rbp-78h]
-  __int128 v12; // [rsp+A0h] [rbp-68h]
-  __int128 v13; // [rsp+B0h] [rbp-58h]
-  $115DCDF994C6370D29323EAB0E0C9502 v14; // [rsp+C0h] [rbp-48h] BYREF
+  __int128 v13; // [rsp+90h] [rbp-78h]
+  __int128 v14; // [rsp+A0h] [rbp-68h]
+  __int128 v15; // [rsp+B0h] [rbp-58h]
+  _BYTE v16[48]; // [rsp+C0h] [rbp-48h] BYREF
 
   RegionSize[2] = (ULONG_PTR)P;
   Handle = 0LL;
   ThreadHandle = 0LL;
   BaseAddress = 0LL;
   RegionSize[0] = 168LL;
-  memset(&v14, 0, sizeof(v14));
-  v11 = 0LL;
-  v12 = 0LL;
-  *(_QWORD *)&v13 = 0LL;
-  DWORD2(v13) = 0;
+  memset(v16, 0, sizeof(v16));
+  v13 = 0LL;
+  v14 = 0LL;
+  v15 = 0LL;
   v2 = *(_QWORD *)P;
   RegionSize[1] = v2;
   v3 = IoThreadToProcess((PETHREAD)v2);
-  KiStackAttachProcess(v3, 0, (__int64)&v14);
+  KiStackAttachProcess(v3, 0LL, (__int64)v16, v4);
   Thread = ObOpenObjectByPointer((PVOID)v2, 0, 0LL, 0x72u, (POBJECT_TYPE)PsThreadType, 1, &Handle);
   if ( Thread >= 0 )
   {
@@ -59,23 +61,23 @@ LONG_PTR __fastcall DbgkUserReportWorkRoutine(char *P)
       *(_QWORD *)BaseAddress = Handle;
       if ( P[16] )
       {
-        v5 = (char *)BaseAddress + 16;
+        v8 = (char *)BaseAddress + 16;
         *((_OWORD *)BaseAddress + 1) = *(_OWORD *)(P + 24);
-        *((_OWORD *)v5 + 1) = *(_OWORD *)(P + 40);
-        *((_OWORD *)v5 + 2) = *(_OWORD *)(P + 56);
-        *((_OWORD *)v5 + 3) = *(_OWORD *)(P + 72);
-        *((_OWORD *)v5 + 4) = *(_OWORD *)(P + 88);
-        *((_OWORD *)v5 + 5) = *(_OWORD *)(P + 104);
-        *((_OWORD *)v5 + 6) = *(_OWORD *)(P + 120);
-        *((_OWORD *)v5 + 7) = *(_OWORD *)(P + 136);
-        *((_OWORD *)v5 + 8) = *(_OWORD *)(P + 152);
-        *((_QWORD *)v5 + 18) = *((_QWORD *)P + 21);
+        *((_OWORD *)v8 + 1) = *(_OWORD *)(P + 40);
+        *((_OWORD *)v8 + 2) = *(_OWORD *)(P + 56);
+        *((_OWORD *)v8 + 3) = *(_OWORD *)(P + 72);
+        *((_OWORD *)v8 + 4) = *(_OWORD *)(P + 88);
+        *((_OWORD *)v8 + 5) = *(_OWORD *)(P + 104);
+        *((_OWORD *)v8 + 6) = *(_OWORD *)(P + 120);
+        *((_OWORD *)v8 + 7) = *(_OWORD *)(P + 136);
+        *((_OWORD *)v8 + 8) = *(_OWORD *)(P + 152);
+        *((_QWORD *)v8 + 18) = *((_QWORD *)P + 21);
       }
-      LODWORD(v11) = 48;
-      *((_QWORD *)&v11 + 1) = 0LL;
-      DWORD2(v12) = 512;
-      *(_QWORD *)&v12 = 0LL;
-      v13 = 0LL;
+      LODWORD(v13) = 48;
+      *((_QWORD *)&v13 + 1) = 0LL;
+      DWORD2(v14) = 512;
+      *(_QWORD *)&v14 = 0LL;
+      v15 = 0LL;
       Thread = ZwCreateThreadEx((__int64)&ThreadHandle, 0x1FFFFFLL);
     }
     else
@@ -85,21 +87,21 @@ LONG_PTR __fastcall DbgkUserReportWorkRoutine(char *P)
   }
   if ( Thread < 0 )
   {
-    _InterlockedAnd((volatile signed __int32 *)(v2 + 1376), 0xFFDFFFFF);
+    _InterlockedAnd((volatile signed __int32 *)(v2 + 1296), 0xFFDFFFFF);
     if ( Handle )
       ObCloseHandle(Handle, 1);
-    PsMultiResumeThread(v2, 0LL, 1u);
+    PsResumeThread(v2, 0LL, v6, v7);
     if ( BaseAddress )
       ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, 0x8000u);
   }
   else
   {
-    ZwSetInformationThread(ThreadHandle, ThreadDynamicCodePolicyInfo|ThreadAffinityMask, &qword_14003EE20, 4u);
+    ZwSetInformationThread(ThreadHandle, ThreadDynamicCodePolicyInfo|ThreadAffinityMask, &qword_1400344E0, 4u);
     ZwResumeThread((__int64)ThreadHandle, 0LL);
     ZwClose(ThreadHandle);
     ThreadHandle = 0LL;
   }
-  KiUnstackDetachProcess(&v14);
+  KiUnstackDetachProcess((__int64)v16, 0);
   ExFreePoolWithTag(P, 0x4B474244u);
-  return ObfDereferenceObject((PVOID)v2);
+  HalPutDmaAdapter((PADAPTER_OBJECT)v2);
 }

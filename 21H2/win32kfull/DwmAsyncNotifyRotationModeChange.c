@@ -1,7 +1,7 @@
 /*
- * XREFs of DwmAsyncNotifyRotationModeChange @ 0x1C0272938
+ * XREFs of DwmAsyncNotifyRotationModeChange @ 0x1C0274FC4
  * Callers:
- *     ?xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01CE29C (-xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK.c)
+ *     ?xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01D1F14 (-xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ __int64 __fastcall DwmAsyncNotifyRotationModeChange(PVOID Object, int a2)
     v6 = 0LL;
     v8 = a2;
     LOWORD(v5[1]) = 0x8000;
-    v7 = 1073741880;
+    v7 = 1073741879;
     v3 = LpcRequestPort(Object, v5);
     ObfDereferenceObject(Object);
   }

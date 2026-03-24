@@ -2,12 +2,12 @@
  * XREFs of sub_1400076D0 @ 0x1400076D0
  * Callers:
  *     ExQueryLicenseValueInternal @ 0x1405A0260 (ExQueryLicenseValueInternal.c)
- *     ExpConsumeAddonPolicySetCacheProvider @ 0x1408CEFF0 (ExpConsumeAddonPolicySetCacheProvider.c)
+ *     ExpConsumeAddonPolicySetCacheProvider @ 0x1408CEFD0 (ExpConsumeAddonPolicySetCacheProvider.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     sub_1405A07B0 @ 0x1405A07B0 (sub_1405A07B0.c)
  */
 

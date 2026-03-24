@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlStackOverflowRead @ 0x140542F50
+ * XREFs of FsRtlStackOverflowRead @ 0x1404F1660
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 struct _KTHREAD *__fastcall FsRtlStackOverflowRead(PVOID P)

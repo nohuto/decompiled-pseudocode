@@ -1,21 +1,20 @@
 /*
- * XREFs of ExRundownCompleted @ 0x140208880
+ * XREFs of ExRundownCompleted @ 0x1402517A0
  * Callers:
- *     PfFileInfoNotify @ 0x1402DF520 (PfFileInfoNotify.c)
- *     BgkNotifyDisplayOwnershipChange @ 0x1403AD4F0 (BgkNotifyDisplayOwnershipChange.c)
- *     IommuDeleteAtsDevice @ 0x140521F60 (IommuDeleteAtsDevice.c)
- *     IommuDevicePowerChange @ 0x140521FE0 (IommuDevicePowerChange.c)
- *     IommupMapDeviceInternal @ 0x140523C28 (IommupMapDeviceInternal.c)
- *     IommupUnmapDeviceInternal @ 0x140523FE8 (IommupUnmapDeviceInternal.c)
- *     BgkpDisableConsole @ 0x14054F04C (BgkpDisableConsole.c)
- *     PspIoRateEntryInitialize @ 0x140688AF8 (PspIoRateEntryInitialize.c)
- *     PspRundownSingleProcess @ 0x14068AD74 (PspRundownSingleProcess.c)
- *     HalpIommuCreateDevice @ 0x14082AB98 (HalpIommuCreateDevice.c)
- *     PsUnregisterSyscallProvider @ 0x1409B4900 (PsUnregisterSyscallProvider.c)
- *     SmcStoreDelete @ 0x1409DB568 (SmcStoreDelete.c)
- *     EtwpCoverageSamplerStop @ 0x1409F3774 (EtwpCoverageSamplerStop.c)
- *     PfInitializeSuperfetch @ 0x140B65330 (PfInitializeSuperfetch.c)
- *     EtwpInitializeCoverageSampler @ 0x140B74D28 (EtwpInitializeCoverageSampler.c)
+ *     PfFileInfoNotify @ 0x14029DC90 (PfFileInfoNotify.c)
+ *     CmpTryToRundownHive @ 0x140360C44 (CmpTryToRundownHive.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14039B440 (BgkNotifyDisplayOwnershipChange.c)
+ *     IommuDevicePowerChange @ 0x1404D7D90 (IommuDevicePowerChange.c)
+ *     BgkpDisableConsole @ 0x1404FF62C (BgkpDisableConsole.c)
+ *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
+ *     CmpPerformUnloadKey @ 0x14066CBFC (CmpPerformUnloadKey.c)
+ *     PspIoRateEntryInitialize @ 0x14071FC24 (PspIoRateEntryInitialize.c)
+ *     CmpWaitForShutdownRundownRelease @ 0x140875C58 (CmpWaitForShutdownRundownRelease.c)
+ *     CmFcManagerUnregisterFeatureConfigurationChangeNotification @ 0x14087DC84 (CmFcManagerUnregisterFeatureConfigurationChangeNotification.c)
+ *     SmcStoreDelete @ 0x14092DE00 (SmcStoreDelete.c)
+ *     EtwpCoverageSamplerStop @ 0x1409474A8 (EtwpCoverageSamplerStop.c)
+ *     EtwpInitializeCoverageSampler @ 0x140A41F18 (EtwpInitializeCoverageSampler.c)
+ *     PfInitializeSuperfetch @ 0x140A6A76C (PfInitializeSuperfetch.c)
  * Callees:
  *     <none>
  */

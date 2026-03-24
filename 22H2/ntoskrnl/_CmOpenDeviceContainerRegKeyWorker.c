@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmOpenDeviceContainerRegKeyWorker @ 0x14079B290
+ * XREFs of _CmOpenDeviceContainerRegKeyWorker @ 0x14068D1F4
  * Callers:
- *     _CmOpenDeviceContainerRegKey @ 0x14079B17C (_CmOpenDeviceContainerRegKey.c)
+ *     _CmOpenDeviceContainerRegKey @ 0x14068D0E0 (_CmOpenDeviceContainerRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxRegCreateTree @ 0x140797E74 (_PnpCtxRegCreateTree.c)
- *     _CmGetDeviceContainerRegKeyPath @ 0x14079B4C0 (_CmGetDeviceContainerRegKeyPath.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A6A42C (_SysCtxRegOpenCurrentUserKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     _CmGetDeviceContainerRegKeyPath @ 0x14068D41C (_CmGetDeviceContainerRegKeyPath.c)
+ *     _PnpCtxRegCreateTree @ 0x1406B7058 (_PnpCtxRegCreateTree.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072E318 (_SysCtxRegOpenCurrentUserKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmOpenDeviceContainerRegKeyWorker(
@@ -20,159 +20,139 @@ __int64 __fastcall CmOpenDeviceContainerRegKeyWorker(
         int a2,
         int a3,
         __int64 a4,
-        unsigned int a5,
+        int a5,
         char a6,
         __int64 a7,
         _DWORD *a8)
 {
-  wchar_t *v8; // rdi
-  int v10; // ebx
-  int v12; // r13d
-  unsigned int v13; // r12d
-  wchar_t *pszDest; // rax
-  int v15; // r9d
-  wchar_t *v16; // rsi
-  int DeviceContainerRegKeyPath; // eax
-  int inited; // ebx
+  wchar_t *pszDest; // rdi
+  unsigned __int64 v12; // rsi
+  SIZE_T i; // rdx
+  int v14; // r9d
+  NTSTATUS DeviceContainerRegKeyPath; // ebx
   unsigned __int16 Length; // bx
-  __int64 v20; // r15
-  HANDLE v21; // rdx
-  __int64 v22; // rcx
-  int Tree; // eax
-  unsigned __int64 v25; // rax
-  __int64 v26; // rcx
-  int v27; // [rsp+20h] [rbp-40h]
+  int v17; // esi
+  BOOLEAN v18; // r15
+  int v19; // edx
+  int v20; // esi
+  __int64 v21; // rcx
+  int Tree; // ecx
+  __int64 v24; // rcx
+  int v25; // [rsp+20h] [rbp-40h]
   size_t cchDest; // [rsp+30h] [rbp-30h]
   HANDLE Handle; // [rsp+40h] [rbp-20h] BYREF
-  void *v30; // [rsp+48h] [rbp-18h] BYREF
+  __int64 v28; // [rsp+48h] [rbp-18h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
-  __int64 v33; // [rsp+B8h] [rbp+58h] BYREF
+  __int64 v30; // [rsp+A8h] [rbp+48h] BYREF
 
-  v8 = 0LL;
-  LODWORD(v33) = 0;
-  v30 = 0LL;
-  v10 = a2;
+  pszDest = 0LL;
+  LODWORD(v30) = 0;
+  v28 = 0LL;
   Handle = 0LL;
-  v12 = 4;
   DestinationString = 0LL;
   if ( !a3 || (a3 & 0xFFFFFEAF) != 0 )
+    goto LABEL_41;
+  LODWORD(v12) = 260;
+  for ( i = 260LL; ; i = (unsigned int)v12 )
   {
-LABEL_35:
-    inited = -1073741811;
-    goto LABEL_25;
-  }
-  v13 = 260;
-  pszDest = (wchar_t *)ExAllocatePool2(256LL, 260LL, 1380994640LL);
-  while ( 1 )
-  {
-    v8 = pszDest;
+    pszDest = (wchar_t *)ExAllocatePoolWithTag(PagedPool, i, 0x52504E50u);
     if ( !pszDest )
-    {
-      inited = -1073741801;
-      goto LABEL_25;
-    }
-    v16 = pszDest;
-    LODWORD(cchDest) = v13 >> 1;
+      break;
+    LODWORD(cchDest) = (unsigned int)v12 >> 1;
     DeviceContainerRegKeyPath = CmGetDeviceContainerRegKeyPath(
-                                  v13 >> 1,
-                                  v10,
+                                  (unsigned int)v12 >> 1,
+                                  a2,
                                   a3,
-                                  v15,
-                                  v27,
+                                  v14,
+                                  v25,
                                   pszDest,
                                   cchDest,
-                                  (__int64)&v33);
-    inited = DeviceContainerRegKeyPath;
+                                  (__int64)&v30);
     if ( DeviceContainerRegKeyPath != -1073741789 )
-      break;
-    ExFreePoolWithTag(v8, 0);
-    v8 = 0LL;
-    v25 = 2LL * (unsigned int)v33;
-    if ( v25 > 0xFFFFFFFF )
+      goto LABEL_6;
+    ExFreePoolWithTag(pszDest, 0);
+    pszDest = 0LL;
+    v12 = 2LL * (unsigned int)v30;
+    if ( v12 > 0xFFFFFFFF )
     {
-      inited = -1073741675;
-      goto LABEL_25;
+      DeviceContainerRegKeyPath = -1073741675;
+      goto LABEL_24;
     }
-    v13 = 2 * v33;
-    pszDest = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)v25, 1380994640LL);
-    v10 = a2;
   }
+  DeviceContainerRegKeyPath = -1073741801;
+LABEL_6:
   if ( DeviceContainerRegKeyPath < 0 )
-    goto LABEL_25;
-  if ( (a3 & 0x100) != 0 )
+    goto LABEL_24;
+  if ( (a3 & 0x100) == 0 )
   {
-    v20 = (__int64)v16;
-    if ( a1 )
-      v26 = *(_QWORD *)(a1 + 224);
-    else
-      v26 = 0LL;
-    inited = SysCtxRegOpenCurrentUserKey(v26, 0LL, 0x2000000LL, &Handle);
-    if ( inited < 0 )
-      goto LABEL_25;
-    v21 = Handle;
-    goto LABEL_16;
+    DeviceContainerRegKeyPath = RtlInitUnicodeStringEx(&DestinationString, pszDest);
+    if ( DeviceContainerRegKeyPath < 0 )
+      goto LABEL_24;
+    Length = DestinationString.Length;
+    if ( DestinationString.Length < (unsigned int)v12
+      && DestinationString.Length > 0x32u
+      && RtlPrefixUnicodeString(
+           &`_CmDeleteDeviceContainerRegKeyWorker'::`2'::ObjectPathRootPrefix,
+           &DestinationString,
+           1u) )
+    {
+      v17 = (_DWORD)pszDest + 50;
+      DestinationString.MaximumLength -= 50;
+      DestinationString.Buffer = pszDest + 25;
+      DestinationString.Length = Length - 50;
+      v18 = RtlPrefixUnicodeString(
+              &`_CmDeleteDeviceContainerRegKeyWorker'::`2'::DeviceContainersKeyPrefix,
+              &DestinationString,
+              1u);
+      DeviceContainerRegKeyPath = PnpCtxGetCachedContextBaseKey(a1, v18 != 0 ? 10 : 4, &v28);
+      if ( DeviceContainerRegKeyPath < 0 )
+        goto LABEL_24;
+      v19 = v28;
+      if ( !v18 )
+        v17 = (int)pszDest;
+      v20 = v17 + 50;
+      goto LABEL_16;
+    }
+LABEL_41:
+    DeviceContainerRegKeyPath = -1073741811;
+    goto LABEL_24;
   }
-  inited = RtlInitUnicodeStringEx(&DestinationString, v16);
-  if ( inited < 0 )
-    goto LABEL_25;
-  Length = DestinationString.Length;
-  if ( DestinationString.Length >= v13
-    || DestinationString.Length <= 0x32u
-    || !RtlPrefixUnicodeString(&`_CmOpenDeviceInterfaceRegKeyWorker'::`2'::ObjectPathRootPrefix, &DestinationString, 1u) )
-  {
-    v8 = v16;
-    goto LABEL_35;
-  }
-  v20 = (__int64)(v16 + 25);
-  DestinationString.MaximumLength -= 50;
-  DestinationString.Buffer = v16 + 25;
-  DestinationString.Length = Length - 50;
-  if ( RtlPrefixUnicodeString(
-         &`_CmOpenDeviceContainerRegKeyWorker'::`2'::DeviceContainersKeyPrefix,
-         &DestinationString,
-         1u) )
-  {
-    v12 = 10;
-    v20 = (__int64)(v16 + 50);
-  }
-  inited = PnpCtxGetCachedContextBaseKey(a1, v12, (__int64)&v30);
-  v8 = v16;
-  if ( inited >= 0 )
-  {
-    v21 = v30;
+  v20 = (int)pszDest;
+  if ( a1 )
+    v24 = *(_QWORD *)(a1 + 224);
+  else
+    v24 = 0LL;
+  DeviceContainerRegKeyPath = SysCtxRegOpenCurrentUserKey(v24, 0LL, 0x2000000LL, &Handle);
+  if ( DeviceContainerRegKeyPath < 0 )
+    goto LABEL_24;
+  v19 = (int)Handle;
 LABEL_16:
-    if ( a6 )
-    {
-      Tree = PnpCtxRegCreateTree(a1, (__int64)v21, v20, 0LL, a5, 0LL);
-    }
-    else
-    {
-      if ( a1 )
-        v22 = *(_QWORD *)(a1 + 224);
-      else
-        v22 = 0LL;
-      Tree = SysCtxRegOpenKey(v22, (__int64)v21, v20, 0, a5, a7);
-      if ( Tree >= 0 )
-      {
-        v8 = v16;
-        *a8 = 2;
-        goto LABEL_25;
-      }
-    }
-    v8 = v16;
-    if ( Tree == -1073741444 )
-    {
-      inited = -1073741595;
-    }
-    else if ( Tree < 0 )
-    {
-      inited = Tree;
-    }
+  if ( a6 )
+  {
+    Tree = PnpCtxRegCreateTree(a1, v19, v20, 0, a5, 0LL, a7, (__int64)a8);
   }
-LABEL_25:
+  else
+  {
+    if ( a1 )
+      v21 = *(_QWORD *)(a1 + 224);
+    else
+      LODWORD(v21) = 0;
+    Tree = SysCtxRegOpenKey(v21, v19, v20, 0, a5, a7);
+    if ( Tree >= 0 )
+      *a8 = 2;
+  }
+  if ( Tree == -1073741444 )
+  {
+    DeviceContainerRegKeyPath = -1073741595;
+  }
+  else if ( Tree < 0 )
+  {
+    DeviceContainerRegKeyPath = Tree;
+  }
+LABEL_24:
   if ( Handle )
     ZwClose(Handle);
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0);
-  return (unsigned int)inited;
+  if ( pszDest )
+    ExFreePoolWithTag(pszDest, 0);
+  return (unsigned int)DeviceContainerRegKeyPath;
 }

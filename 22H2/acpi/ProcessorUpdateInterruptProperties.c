@@ -1,7 +1,7 @@
 /*
- * XREFs of ProcessorUpdateInterruptProperties @ 0x1C009AFDC
+ * XREFs of ProcessorUpdateInterruptProperties @ 0x1C00B6D88
  * Callers:
- *     AcpiUpdateInterruptProperties @ 0x1C0084170 (AcpiUpdateInterruptProperties.c)
+ *     AcpiUpdateInterruptProperties @ 0x1C00AF560 (AcpiUpdateInterruptProperties.c)
  * Callees:
  *     <none>
  */

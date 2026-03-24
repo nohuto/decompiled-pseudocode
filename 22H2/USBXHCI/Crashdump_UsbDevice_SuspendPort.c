@@ -1,11 +1,11 @@
 /*
- * XREFs of Crashdump_UsbDevice_SuspendPort @ 0x1C0050FF8
+ * XREFs of Crashdump_UsbDevice_SuspendPort @ 0x1C004E528
  * Callers:
- *     Crashdump_Cleanup @ 0x1C004BD10 (Crashdump_Cleanup.c)
+ *     Crashdump_Cleanup @ 0x1C0049210 (Crashdump_Cleanup.c)
  * Callees:
- *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004F424 (Crashdump_Endpoint_SendControlTransfer.c)
- *     Crashdump_UsbDevice_ChangePortFeature @ 0x1C004F968 (Crashdump_UsbDevice_ChangePortFeature.c)
- *     Crashdump_UsbDevice_GetPortType @ 0x1C0050484 (Crashdump_UsbDevice_GetPortType.c)
+ *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004C954 (Crashdump_Endpoint_SendControlTransfer.c)
+ *     Crashdump_UsbDevice_ChangePortFeature @ 0x1C004CE90 (Crashdump_UsbDevice_ChangePortFeature.c)
+ *     Crashdump_UsbDevice_GetPortType @ 0x1C004D9AC (Crashdump_UsbDevice_GetPortType.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_SuspendPort(_QWORD *a1, int a2)

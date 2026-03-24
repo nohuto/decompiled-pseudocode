@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRemoveThreadFromSharedReadyQueue @ 0x1401177B8
+ * XREFs of KiRemoveThreadFromSharedReadyQueue @ 0x1401177D8
  * Callers:
- *     KiQuantumEnd @ 0x1400D0000 (KiQuantumEnd.c)
- *     KiSetThreadSchedulingGroup @ 0x1400F3A78 (KiSetThreadSchedulingGroup.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x140117760 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
+ *     KiSetThreadSchedulingGroup @ 0x1400F3A98 (KiSetThreadSchedulingGroup.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x140117780 (KiRemoveThreadFromAnyReadyQueue.c)
  * Callees:
  *     <none>
  */

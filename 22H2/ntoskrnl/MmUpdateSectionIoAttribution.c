@@ -1,18 +1,18 @@
 /*
- * XREFs of MmUpdateSectionIoAttribution @ 0x14020EB08
+ * XREFs of MmUpdateSectionIoAttribution @ 0x1402E00D8
  * Callers:
- *     CcMapAndCopyInToCache @ 0x1402CC8F0 (CcMapAndCopyInToCache.c)
+ *     CcMapAndCopyInToCache @ 0x1402B2300 (CcMapAndCopyInToCache.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14020C898 (IoDiskIoAttributionDereference.c)
- *     MiLockSectionControlArea @ 0x1402100E8 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     IoDiskIoAttributionDereference @ 0x1402E06F4 (IoDiskIoAttributionDereference.c)
+ *     MiLockSectionControlArea @ 0x14033D954 (MiLockSectionControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MmUpdateSectionIoAttribution(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall MmUpdateSectionIoAttribution(__int64 a1, unsigned __int64 a2)
 {
   __int64 v3; // rdi
-  __int64 v4; // rax
+  __int64 result; // rax
   __int64 v5; // rdx
   unsigned __int8 v6; // bl
   __int64 v7; // rax
@@ -25,20 +25,20 @@ void __fastcall MmUpdateSectionIoAttribution(__int64 a1, unsigned __int64 a2)
 
   v13 = 0;
   v3 = 0LL;
-  v4 = MiLockSectionControlArea(a1, 1LL, &v13);
-  v5 = v4;
-  if ( v4 )
+  result = MiLockSectionControlArea(a1, 1LL, &v13);
+  v5 = result;
+  if ( result )
   {
-    if ( a2 != 8LL * *(_QWORD *)(v4 + 120) )
+    if ( a2 != 8LL * *(_QWORD *)(result + 120) )
     {
       if ( _InterlockedIncrement64((volatile signed __int64 *)(a2 + 32)) <= 1 )
         __fastfail(0xEu);
-      v7 = *(_QWORD *)(v4 + 120);
+      v7 = *(_QWORD *)(result + 120);
       v3 = 8 * v7;
       *(_QWORD *)(v5 + 120) = (a2 >> 3) | v7 & 0xE000000000000000uLL;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v5 + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
     {
       v6 = v13;
       if ( v13 <= 0xFu && CurrentIrql >= 2u )
@@ -57,8 +57,10 @@ void __fastcall MmUpdateSectionIoAttribution(__int64 a1, unsigned __int64 a2)
     {
       v6 = v13;
     }
+    result = v6;
     __writecr8(v6);
     if ( v3 )
-      IoDiskIoAttributionDereference(v3);
+      return IoDiskIoAttributionDereference(v3);
   }
+  return result;
 }

@@ -1,13 +1,14 @@
 /*
- * XREFs of VerifierMmMapLockedPages @ 0x140AA0000
+ * XREFs of VerifierMmMapLockedPages @ 0x1409E6B10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViTargetAddToCounter @ 0x140A8B064 (ViTargetAddToCounter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsIsSystemSufficientlyBooted @ 0x140A96C48 (VfFaultsIsSystemSufficientlyBooted.c)
- *     ViMmMapLockedPagesSanityChecks @ 0x140AA08D8 (ViMmMapLockedPagesSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x1409D72B0 (ViTargetAddToCounter.c)
+ *     VfFaultsIsSystemSufficientlyBooted @ 0x1409DC968 (VfFaultsIsSystemSufficientlyBooted.c)
+ *     VfAllocPoolNotification @ 0x1409DFFB4 (VfAllocPoolNotification.c)
+ *     ViMmMapLockedPagesSanityChecks @ 0x1409E7588 (ViMmMapLockedPagesSanityChecks.c)
  */
 
 __int64 __fastcall VerifierMmMapLockedPages(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -19,7 +20,7 @@ __int64 __fastcall VerifierMmMapLockedPages(ULONG_PTR BugCheckParameter2, __int6
   v2 = a2;
   if ( (MmVerifierData & 1) != 0 )
     ViMmMapLockedPagesSanityChecks(BugCheckParameter2);
-  if ( !_bittest16((const signed __int16 *)(BugCheckParameter2 + 10), 0xDu)
+  if ( (*(_WORD *)(BugCheckParameter2 + 10) & 0x2000) == 0
     && (unsigned int)VfFaultsIsSystemSufficientlyBooted()
     && (MmVerifierData & 1) != 0 )
   {
@@ -30,7 +31,8 @@ __int64 __fastcall VerifierMmMapLockedPages(ULONG_PTR BugCheckParameter2, __int6
          BugCheckParameter2,
          a2,
          1LL);
+  VfAllocPoolNotification();
   if ( v4 && (MmVerifierData & 0x1000) != 0 )
-    ViTargetAddToCounter(retaddr, 200LL, 0xD0u, *(unsigned int *)(BugCheckParameter2 + 40));
+    ViTargetAddToCounter(retaddr, 192LL, 0xC8u, *(unsigned int *)(BugCheckParameter2 + 40));
   return v4;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of XmInt1aFindPciDevice @ 0x140537D4C
+ * XREFs of XmInt1aFindPciDevice @ 0x1404E809C
  * Callers:
- *     XmExecuteInt1a @ 0x140537B84 (XmExecuteInt1a.c)
+ *     XmExecuteInt1a @ 0x1404E7ED4 (XmExecuteInt1a.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall XmInt1aFindPciDevice(__int64 a1)

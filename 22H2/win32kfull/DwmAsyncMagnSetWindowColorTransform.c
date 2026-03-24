@@ -1,11 +1,11 @@
 /*
- * XREFs of DwmAsyncMagnSetWindowColorTransform @ 0x1C026CE6C
+ * XREFs of DwmAsyncMagnSetWindowColorTransform @ 0x1C0274524
  * Callers:
- *     MagpComposeDesktop @ 0x1C005A938 (MagpComposeDesktop.c)
- *     MagSetLensContextInformation @ 0x1C01A3870 (MagSetLensContextInformation.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
+ *     MagSetLensContextInformation @ 0x1C01CCC94 (MagSetLensContextInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncMagnSetWindowColorTransform(PVOID Object, __int64 a2, __int64 a3, __int128 *a4)
@@ -18,44 +18,35 @@ __int64 __fastcall DwmAsyncMagnSetWindowColorTransform(PVOID Object, __int64 a2,
   __int128 v13; // xmm1
   __int128 v14; // xmm0
   __int128 v15; // xmm1
-  int v17; // [rsp+20h] [rbp-89h] BYREF
-  __int16 v18; // [rsp+24h] [rbp-85h]
-  int v19; // [rsp+48h] [rbp-61h]
-  __int64 v20; // [rsp+4Ch] [rbp-5Dh]
-  __int64 v21; // [rsp+54h] [rbp-55h]
-  __int128 v22; // [rsp+5Ch] [rbp-4Dh]
-  __int128 v23; // [rsp+6Ch] [rbp-3Dh]
-  __int128 v24; // [rsp+7Ch] [rbp-2Dh]
-  __int128 v25; // [rsp+8Ch] [rbp-1Dh]
-  __int128 v26; // [rsp+9Ch] [rbp-Dh]
-  __int128 v27; // [rsp+ACh] [rbp+3h]
-  int v28; // [rsp+BCh] [rbp+13h]
+  __int64 v16; // r8
+  __int64 v17; // r9
+  _DWORD v19[40]; // [rsp+20h] [rbp-89h] BYREF
 
   v8 = -1073741823;
   if ( Object )
   {
-    memset_0(&v17, 0, 0xA0uLL);
+    memset(v19, 0, sizeof(v19));
     v9 = *a4;
     v10 = a4[1];
-    v18 = 0x8000;
+    LOWORD(v19[1]) = 0x8000;
     v11 = *((_DWORD *)a4 + 24);
-    v22 = v9;
-    v17 = 10485880;
+    *(_OWORD *)&v19[15] = v9;
+    v19[0] = 10485880;
     v12 = a4[2];
-    v19 = 1073741925;
-    v23 = v10;
-    v20 = a2;
+    v19[10] = 1073741921;
+    *(_OWORD *)&v19[19] = v10;
+    *(_QWORD *)&v19[11] = a2;
     v13 = a4[3];
-    v21 = a3;
-    v24 = v12;
-    v28 = v11;
+    *(_QWORD *)&v19[13] = a3;
+    *(_OWORD *)&v19[23] = v12;
+    v19[39] = v11;
     v14 = a4[4];
-    v25 = v13;
+    *(_OWORD *)&v19[27] = v13;
     v15 = a4[5];
-    v26 = v14;
-    v27 = v15;
-    EtwUpdateEvent(a2, 1073741925LL);
-    v8 = LpcRequestPort(Object, &v17);
+    *(_OWORD *)&v19[31] = v14;
+    *(_OWORD *)&v19[35] = v15;
+    EtwUpdateEvent(a2, 1073741921LL, v16, v17);
+    v8 = LpcRequestPort(Object, v19);
     ObfDereferenceObject(Object);
   }
   return v8;

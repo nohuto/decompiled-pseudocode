@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpGetMcaLog @ 0x1409088B4
+ * XREFs of HalpGetMcaLog @ 0x140864674
  * Callers:
- *     HaliQuerySystemInformation @ 0x140A47990 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

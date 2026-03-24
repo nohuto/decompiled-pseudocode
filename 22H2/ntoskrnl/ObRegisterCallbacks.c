@@ -1,45 +1,43 @@
 /*
- * XREFs of ObRegisterCallbacks @ 0x140858CD0
+ * XREFs of ObRegisterCallbacks @ 0x1407CA730
  * Callers:
  *     <none>
  * Callees:
- *     ExInitializePushLock @ 0x1402235B0 (ExInitializePushLock.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x14039FC2C (MmVerifyCallbackFunctionCheckFlags.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ObpInsertCallbackByAltitude @ 0x140858E9C (ObpInsertCallbackByAltitude.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ExInitializePushLock @ 0x140341EF0 (ExInitializePushLock.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1403AF0C0 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObpInsertCallbackByAltitude @ 0x1407CA904 (ObpInsertCallbackByAltitude.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall ObRegisterCallbacks(POB_CALLBACK_REGISTRATION CallbackRegistration, PVOID *RegistrationHandle)
 {
-  unsigned int v2; // edi
+  unsigned int v3; // edi
   NTSTATUS inserted; // ebx
   int OperationRegistrationCount; // eax
   unsigned int v7; // ebp
-  __int64 Pool2; // rax
-  _WORD *v9; // rsi
-  unsigned int Length; // edx
-  void *v11; // rcx
-  unsigned int v12; // r12d
+  unsigned __int16 *PoolWithTag; // rax
+  unsigned __int16 *v9; // rsi
+  size_t Length; // r8
+  char *v11; // rcx
+  unsigned int v12; // ebp
   OB_OPERATION_REGISTRATION *v13; // r14
   unsigned __int64 PreOperation; // rcx
-  unsigned __int64 *p_PostOperation; // rbp
-  struct _EX_RUNDOWN_REF *v16; // rbx
+  unsigned __int64 PostOperation; // rcx
+  unsigned __int16 *v16; // rbx
   POBJECT_TYPE v17; // rcx
-  __int16 v18; // ax
-  __int64 v19; // rax
-  _QWORD *v21; // r14
+  __int64 v18; // rax
+  unsigned __int16 *v20; // r14
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v23; // rcx
-  _QWORD *v24; // rax
-  struct _KTHREAD *v25; // rax
-  bool v26; // zf
+  __int64 v22; // rcx
+  unsigned __int16 **v23; // rax
 
-  v2 = 0;
+  v3 = 0;
   inserted = 0;
   if ( (CallbackRegistration->Version & 0xFF00) != 0x100 )
     return -1073741811;
@@ -47,17 +45,18 @@ NTSTATUS __stdcall ObRegisterCallbacks(POB_CALLBACK_REGISTRATION CallbackRegistr
   if ( !(_WORD)OperationRegistrationCount )
     return -1073741811;
   v7 = (OperationRegistrationCount << 6) + CallbackRegistration->Altitude.Length + 32;
-  Pool2 = ExAllocatePool2(256LL, v7, 1816552015LL);
-  v9 = (_WORD *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, v7, 0x6C46624Fu);
+  v9 = PoolWithTag;
+  if ( !PoolWithTag )
     return -1073741670;
-  *(_WORD *)Pool2 = 256;
-  *(_QWORD *)(Pool2 + 8) = CallbackRegistration->RegistrationContext;
+  memset(PoolWithTag, 0, v7);
+  *v9 = 256;
+  *((_QWORD *)v9 + 1) = CallbackRegistration->RegistrationContext;
   Length = CallbackRegistration->Altitude.Length;
-  *(_WORD *)(Pool2 + 18) = Length;
-  *(_WORD *)(Pool2 + 16) = Length;
-  v11 = (void *)(Pool2 + v7 - Length);
-  *(_QWORD *)(Pool2 + 24) = v11;
+  v9[9] = Length;
+  v9[8] = Length;
+  v11 = (char *)v9 + v7 - (unsigned int)Length;
+  *((_QWORD *)v9 + 3) = v11;
   memmove(v11, CallbackRegistration->Altitude.Buffer, Length);
   v12 = 0;
   if ( CallbackRegistration->OperationRegistrationCount )
@@ -66,34 +65,34 @@ NTSTATUS __stdcall ObRegisterCallbacks(POB_CALLBACK_REGISTRATION CallbackRegistr
     {
       v13 = &CallbackRegistration->OperationRegistration[v12];
       if ( !v13->Operations || ((*v13->ObjectType)->TypeInfo.ObjectTypeFlags & 0x40) == 0 )
-      {
-LABEL_19:
-        inserted = -1073741811;
-        goto LABEL_12;
-      }
+        break;
       PreOperation = (unsigned __int64)v13->PreOperation;
-      p_PostOperation = (unsigned __int64 *)&v13->PostOperation;
       if ( PreOperation )
       {
         if ( !(unsigned int)MmVerifyCallbackFunctionCheckFlags(PreOperation, 32) )
-          break;
+          goto LABEL_21;
       }
-      else if ( !*p_PostOperation )
+      else if ( !v13->PostOperation )
       {
-        goto LABEL_19;
-      }
-      if ( *p_PostOperation && !(unsigned int)MmVerifyCallbackFunctionCheckFlags(*p_PostOperation, 32) )
         break;
-      v16 = (struct _EX_RUNDOWN_REF *)&v9[32 * (unsigned __int64)v12 + 16];
-      v16[1].Count = (unsigned __int64)v16;
-      v16->Count = (unsigned __int64)v16;
-      ExInitializePushLock(v16 + 7);
-      LODWORD(v16[2].Count) = v13->Operations;
-      v16[3].Count = (unsigned __int64)v9;
+      }
+      PostOperation = (unsigned __int64)v13->PostOperation;
+      if ( PostOperation && !(unsigned int)MmVerifyCallbackFunctionCheckFlags(PostOperation, 32) )
+      {
+LABEL_21:
+        inserted = -1073741790;
+        goto LABEL_22;
+      }
+      v16 = &v9[32 * (unsigned __int64)v12 + 16];
+      *((_QWORD *)v16 + 1) = v16;
+      *(_QWORD *)v16 = v16;
+      ExInitializePushLock((PKSPIN_LOCK)v16 + 7);
+      *((_DWORD *)v16 + 4) = v13->Operations;
+      *((_QWORD *)v16 + 3) = v9;
       v17 = *v13->ObjectType;
-      v16[4].Count = (unsigned __int64)v17;
-      v16[5].Count = (unsigned __int64)v13->PreOperation;
-      v16[6].Count = *p_PostOperation;
+      *((_QWORD *)v16 + 4) = v17;
+      *((_QWORD *)v16 + 5) = v13->PreOperation;
+      *((_QWORD *)v16 + 6) = v13->PostOperation;
       inserted = ObpInsertCallbackByAltitude(v17, v16);
       if ( inserted >= 0 )
       {
@@ -103,46 +102,46 @@ LABEL_19:
       }
       goto LABEL_12;
     }
-    inserted = -1073741790;
+    inserted = -1073741811;
   }
 LABEL_12:
-  v18 = v9[1];
   if ( inserted < 0 )
   {
-    if ( v18 )
+LABEL_22:
+    if ( v9[1] )
     {
       do
       {
-        v21 = &v9[32 * (unsigned __int64)v2 + 16];
+        v20 = &v9[32 * (unsigned __int64)v3 + 16];
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->SpecialApcDisable;
-        ExAcquirePushLockExclusiveEx(v21[4] + 184LL, 0LL);
-        v23 = *v21;
-        if ( *(_QWORD **)(*v21 + 8LL) != v21 || (v24 = (_QWORD *)v21[1], (_QWORD *)*v24 != v21) )
+        ExAcquirePushLockExclusiveEx(*((_QWORD *)v20 + 4) + 184LL, 0LL);
+        v22 = *(_QWORD *)v20;
+        if ( *(unsigned __int16 **)(*(_QWORD *)v20 + 8LL) != v20
+          || (v23 = (unsigned __int16 **)*((_QWORD *)v20 + 1), *v23 != v20) )
+        {
           __fastfail(3u);
-        *v24 = v23;
-        *(_QWORD *)(v23 + 8) = v24;
-        ExReleasePushLockEx((__int64 *)(v21[4] + 184LL), 0LL);
-        v25 = KeGetCurrentThread();
-        v26 = v25->SpecialApcDisable++ == -1;
-        if ( v26 && ($C71981A45BEB2B45F82C232A7085991E *)v25->ApcState.ApcListHead[0].Flink != &v25->152 )
-          KiCheckForKernelApcDelivery();
-        ++v2;
+        }
+        *v23 = (unsigned __int16 *)v22;
+        *(_QWORD *)(v22 + 8) = v23;
+        ExReleasePushLockEx(*((_QWORD *)v20 + 4) + 184LL, 0LL);
+        KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+        ++v3;
       }
-      while ( v2 < (unsigned __int16)v9[1] );
+      while ( v3 < v9[1] );
     }
     ExFreePoolWithTag(v9, 0x6C46624Fu);
   }
   else
   {
-    if ( v18 )
+    if ( v9[1] )
     {
       do
       {
-        v19 = v2++;
-        *(_DWORD *)&v9[32 * v19 + 26] |= 1u;
+        v18 = v3++;
+        *(_DWORD *)&v9[32 * v18 + 26] |= 1u;
       }
-      while ( v2 < (unsigned __int16)v9[1] );
+      while ( v3 < v9[1] );
     }
     *RegistrationHandle = v9;
   }

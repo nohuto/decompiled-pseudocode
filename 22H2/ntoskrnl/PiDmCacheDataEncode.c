@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDmCacheDataEncode @ 0x14078D9F0
+ * XREFs of PiDmCacheDataEncode @ 0x140746D70
  * Callers:
- *     PiDmObjectProcessPropertyChange @ 0x140789C4C (PiDmObjectProcessPropertyChange.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x14078D7DC (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiDmObjectCreate @ 0x14086BC2C (PiDmObjectCreate.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1406AFE2C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmObjectCreate @ 0x1407461B0 (PiDmObjectCreate.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1407468F4 (PiDmObjectProcessPropertyChange.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PiDmGetObject @ 0x1406D81D0 (PiDmGetObject.c)
- *     _PnpStringFromGuid @ 0x140788364 (_PnpStringFromGuid.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PiDmGetObject @ 0x1406AF84C (PiDmGetObject.c)
+ *     _PnpStringFromGuid @ 0x1406B1200 (_PnpStringFromGuid.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDmCacheDataEncode(int a1, int *a2, unsigned int a3, int a4, unsigned int a5, __int64 a6)
 {
-  size_t v6; // r15
+  SIZE_T v6; // r15
   int *v7; // rbp
   unsigned int v9; // edi
   int Object; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int128 v13; // xmm0
   wchar_t v14[40]; // [rsp+20h] [rbp-98h] BYREF
 
@@ -31,7 +31,7 @@ __int64 __fastcall PiDmCacheDataEncode(int a1, int *a2, unsigned int a3, int a4,
     return v9;
   }
   if ( !a5 || a1 != a4 )
-    goto LABEL_13;
+    goto LABEL_3;
   if ( a1 == 13 )
   {
     v9 = PnpStringFromGuid(a2, v14);
@@ -41,16 +41,23 @@ __int64 __fastcall PiDmCacheDataEncode(int a1, int *a2, unsigned int a3, int a4,
   }
   else
   {
-    if ( a1 != 18 || !a2 )
+    if ( a1 != 18 )
     {
-LABEL_14:
+LABEL_3:
+      if ( a1 == 13 )
+      {
+        v13 = *(_OWORD *)v7;
+        *(_DWORD *)a6 = 4;
+        *(_OWORD *)(a6 + 8) = v13;
+        return v9;
+      }
       if ( (unsigned int)v6 > 8 )
       {
-        Pool2 = (void *)ExAllocatePool2(256LL, v6, 1517317712LL);
-        *(_QWORD *)(a6 + 16) = Pool2;
-        if ( !Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x5A706E50u);
+        *(_QWORD *)(a6 + 16) = PoolWithTag;
+        if ( !PoolWithTag )
           return (unsigned int)-1073741670;
-        memmove(Pool2, v7, v6);
+        memmove(PoolWithTag, v7, v6);
         *(_DWORD *)a6 = 5;
       }
       else
@@ -59,30 +66,24 @@ LABEL_14:
         *(_DWORD *)a6 = 3;
       }
       *(_DWORD *)(a6 + 12) = v6;
-      goto LABEL_11;
+      goto LABEL_7;
     }
-    *((_WORD *)a2 + ((unsigned __int64)a3 >> 1) - 1) = 0;
+    if ( a2 )
+      *((_WORD *)a2 + ((unsigned __int64)a3 >> 1) - 1) = 0;
   }
-  Object = PiDmGetObject(a5, (__int64)a2, (_QWORD *)(a6 + 16));
+  if ( !a2 )
+    goto LABEL_3;
+  Object = PiDmGetObject(a5, (__int64)a2, (__int64 *)(a6 + 16));
   v9 = Object;
   if ( Object == -1073741772 )
   {
     v9 = 0;
-LABEL_13:
-    if ( a1 == 13 )
-    {
-      v13 = *(_OWORD *)v7;
-      *(_DWORD *)a6 = 4;
-      *(_OWORD *)(a6 + 8) = v13;
-      return v9;
-    }
-    goto LABEL_14;
+    goto LABEL_3;
   }
-  if ( Object >= 0 )
-  {
-    *(_DWORD *)a6 = 6;
-LABEL_11:
-    *(_DWORD *)(a6 + 8) = a1;
-  }
+  if ( Object < 0 )
+    return v9;
+  *(_DWORD *)a6 = 6;
+LABEL_7:
+  *(_DWORD *)(a6 + 8) = a1;
   return v9;
 }

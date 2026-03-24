@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetIoSessionState @ 0x140A32600
+ * XREFs of MmGetIoSessionState @ 0x1408C8C40
  * Callers:
- *     IoGetContainerInformation @ 0x140948200 (IoGetContainerInformation.c)
+ *     IoGetContainerInformation @ 0x140894A10 (IoGetContainerInformation.c)
  * Callees:
  *     <none>
  */
@@ -13,5 +13,5 @@ __int64 __fastcall MmGetIoSessionState(__int64 a1, _DWORD *a2)
   v2 = *(_QWORD *)(a1 + 24);
   if ( a2 )
     *a2 = *(_DWORD *)(v2 + 8);
-  return *(unsigned int *)(v2 + 752);
+  return *(unsigned int *)(v2 + 1016);
 }

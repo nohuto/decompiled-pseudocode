@@ -1,11 +1,11 @@
 /*
- * XREFs of ExInitializeFastResource @ 0x14016BBA0
+ * XREFs of ExInitializeFastResource @ 0x14016BBC0
  * Callers:
  *     <none>
  * Callees:
- *     ExpAddResourceToSystemResourceList @ 0x14016BC18 (ExpAddResourceToSystemResourceList.c)
- *     ExpInitializeResource @ 0x14016BC90 (ExpInitializeResource.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExpAddResourceToSystemResourceList @ 0x14016BC38 (ExpAddResourceToSystemResourceList.c)
+ *     ExpInitializeResource @ 0x14016BCB0 (ExpInitializeResource.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExInitializeFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

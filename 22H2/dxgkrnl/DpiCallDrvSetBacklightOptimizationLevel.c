@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiCallDrvSetBacklightOptimizationLevel @ 0x1C03A2494
+ * XREFs of DpiCallDrvSetBacklightOptimizationLevel @ 0x1C02D1F50
  * Callers:
- *     ?DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z @ 0x1C03A0CA0 (-DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z.c)
- *     ?DpiBrightnessIfSetBacklightOptimization@@YAJPEAXW4DXGK_BACKLIGHT_OPTIMIZATION_LEVEL@@@Z @ 0x1C03A1DA0 (-DpiBrightnessIfSetBacklightOptimization@@YAJPEAXW4DXGK_BACKLIGHT_OPTIMIZATION_LEVEL@@@Z.c)
+ *     ?DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z @ 0x1C02D05E4 (-DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z.c)
+ *     ?DpiBrightnessSetBacklightOptimizationHelper@@YAJPEAU_DEVICE_OBJECT@@W4DXGK_BACKLIGHT_OPTIMIZATION_LEVEL@@@Z @ 0x1C02D1B9C (-DpiBrightnessSetBacklightOptimizationHelper@@YAJPEAU_DEVICE_OBJECT@@W4DXGK_BACKLIGHT_OPTIMIZATI.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C004105C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C003A478 (McTemplateK0pqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DpiCallDrvSetBacklightOptimizationLevel(__int64 a1, __int64 a2, unsigned int a3)
@@ -19,10 +19,10 @@ __int64 __fastcall DpiCallDrvSetBacklightOptimizationLevel(__int64 a1, __int64 a
   int v12; // [rsp+28h] [rbp-20h]
   int v13; // [rsp+30h] [rbp-18h]
 
-  v5 = *(_DWORD *)(*(_QWORD *)(a1 + 64) + 4396LL);
+  v5 = *(_DWORD *)(*(_QWORD *)(a1 + 64) + 4364LL);
   v6 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(a2 + 72))(*(_QWORD *)(a2 + 8), a3);
   v9 = v6;
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
   {
     v13 = v6;
     v12 = a3;

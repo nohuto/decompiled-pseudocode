@@ -1,21 +1,21 @@
 /*
- * XREFs of UsbhIoctlGetPortConnectorProperties @ 0x1C00401D8
+ * XREFs of UsbhIoctlGetPortConnectorProperties @ 0x1C00413E4
  * Callers:
- *     UsbhFdoDeviceControl @ 0x1C0029C60 (UsbhFdoDeviceControl.c)
+ *     UsbhFdoDeviceControl @ 0x1C002AFB0 (UsbhFdoDeviceControl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C001F800 (memset.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhAcquireApiLock @ 0x1C003D610 (UsbhAcquireApiLock.c)
- *     UsbhIoctlTraceOutput @ 0x1C0040730 (UsbhIoctlTraceOutput.c)
- *     UsbhIoctlValidateParameters @ 0x1C0040958 (UsbhIoctlValidateParameters.c)
- *     UsbhReleaseApiLock @ 0x1C0040CE8 (UsbhReleaseApiLock.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhAcquireApiLock @ 0x1C003E7F0 (UsbhAcquireApiLock.c)
+ *     UsbhIoctlTraceOutput @ 0x1C004193C (UsbhIoctlTraceOutput.c)
+ *     UsbhIoctlValidateParameters @ 0x1C0041B64 (UsbhIoctlValidateParameters.c)
+ *     UsbhReleaseApiLock @ 0x1C0041F04 (UsbhReleaseApiLock.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhIoctlGetPortConnectorProperties(__int64 a1, PIRP Irp, __int64 a3)
@@ -33,10 +33,11 @@ __int64 __fastcall UsbhIoctlGetPortConnectorProperties(__int64 a1, PIRP Irp, __i
   __int16 v16; // ax
   __int64 (__fastcall *v17)(_QWORD); // rax
   __int64 v19; // [rsp+28h] [rbp-60h]
-  char v20; // [rsp+98h] [rbp+10h] BYREF
-  int v21; // [rsp+A0h] [rbp+18h] BYREF
+  int v20; // [rsp+48h] [rbp-40h]
+  char v21; // [rsp+98h] [rbp+10h] BYREF
+  int v22; // [rsp+A0h] [rbp+18h] BYREF
 
-  v20 = 0;
+  v21 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
@@ -44,7 +45,7 @@ __int64 __fastcall UsbhIoctlGetPortConnectorProperties(__int64 a1, PIRP Irp, __i
       2u,
       0x1Bu,
       (__int64)&WPP_1cc12751aa963e921be10b52612de601_Traceguids);
-  v21 = 278;
+  v22 = 278;
   v6 = FdoExt(a1);
   MasterIrp = Irp->AssociatedIrp.MasterIrp;
   v8 = *(unsigned int *)(a3 + 8);
@@ -57,7 +58,7 @@ __int64 __fastcall UsbhIoctlGetPortConnectorProperties(__int64 a1, PIRP Irp, __i
       2u,
       0x1Cu,
       (__int64)&WPP_1cc12751aa963e921be10b52612de601_Traceguids);
-  v10 = UsbhAcquireApiLock(a1, 0xF00D0014, &v20);
+  v10 = UsbhAcquireApiLock(a1, 0xF00D0014, &v21);
   v11 = v10 >> 30;
   if ( v10 >> 30 != 3 )
   {
@@ -106,8 +107,11 @@ __int64 __fastcall UsbhIoctlGetPortConnectorProperties(__int64 a1, PIRP Irp, __i
       v19);
   }
   if ( v11 == 3 && !Usb_Disconnected(v10) )
-    UsbhException(a1, 0, 91, (int)&v21, 4, v10, 0, usbfile_ioctl_c, 913, 0);
-  if ( v20 )
+  {
+    LOBYTE(v20) = 0;
+    UsbhException(a1, 0, 91, (int)&v22, 4, v10, 0, usbfile_ioctl_c, 913, v20);
+  }
+  if ( v21 )
     UsbhReleaseApiLock(a1, 4027383828LL);
   UsbhIoctlTraceOutput(a1, Irp);
   Irp->IoStatus.Status = v10;

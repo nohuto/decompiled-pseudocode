@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PrepMegaRectData@CMegaRectCollection@@AEAAJXZ @ 0x18004A164
+ * XREFs of ?PrepMegaRectData@CMegaRectCollection@@AEAAJXZ @ 0x180067550
  * Callers:
- *     ?ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ @ 0x1800902DC (-ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ.c)
+ *     ?ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ @ 0x180066F8C (-ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ.c)
  * Callees:
- *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x18004A1EC (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800F05D8 (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x1800676A4 (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
+ *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800D42BC (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CMegaRectCollection::PrepMegaRectData(CMegaRectCollection *this)
@@ -14,7 +14,7 @@ __int64 __fastcall CMegaRectCollection::PrepMegaRectData(CMegaRectCollection *th
   unsigned int v2; // edi
   __int64 v4; // rbp
   int v5; // eax
-  unsigned int v6; // ecx
+  __int64 v6; // rcx
   __int128 v8; // [rsp+30h] [rbp-28h] BYREF
   __int64 v9; // [rsp+40h] [rbp-18h]
 
@@ -29,7 +29,7 @@ __int64 __fastcall CMegaRectCollection::PrepMegaRectData(CMegaRectCollection *th
     v2 = v5;
     if ( v5 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x1E6u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x1FBu, 0LL);
       break;
     }
     ++v1;

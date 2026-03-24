@@ -1,24 +1,25 @@
 /*
- * XREFs of SbpAddTransportToInstance @ 0x140B9C95C
+ * XREFs of SbpAddTransportToInstance @ 0x140A955E8
  * Callers:
- *     IopInitializeBootDrivers @ 0x140B405B4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IopBuildDeviceIoControlRequest @ 0x1402510F0 (IopBuildDeviceIoControlRequest.c)
- *     IoGetDeviceObjectPointer @ 0x14075B770 (IoGetDeviceObjectPointer.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopBuildDeviceIoControlRequest @ 0x14022B300 (IopBuildDeviceIoControlRequest.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IoGetDeviceObjectPointer @ 0x140621240 (IoGetDeviceObjectPointer.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 SbpAddTransportToInstance()
 {
-  void *v0; // rdi
+  char *v0; // rdi
   NTSTATUS DeviceObjectPointer; // eax
   PFILE_OBJECT v2; // rsi
   unsigned int Status; // ebx
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   PDEVICE_OBJECT v5; // rdx
   IRP *v6; // rax
   IRP *v7; // rdx
@@ -26,6 +27,7 @@ __int64 SbpAddTransportToInstance()
   struct _DEVICE_OBJECT *v9; // rcx
   struct _IO_STATUS_BLOCK v11; // [rsp+50h] [rbp-30h] BYREF
   struct _KEVENT Object; // [rsp+60h] [rbp-20h] BYREF
+  __int64 retaddr; // [rsp+98h] [rbp+18h]
   PDEVICE_OBJECT DeviceObject; // [rsp+A0h] [rbp+20h] BYREF
   PFILE_OBJECT FileObject; // [rsp+A8h] [rbp+28h] BYREF
 
@@ -43,33 +45,34 @@ __int64 SbpAddTransportToInstance()
   Status = DeviceObjectPointer;
   if ( DeviceObjectPointer >= 0 )
   {
-    Pool2 = (char *)ExAllocatePool2(64LL, 0xD0uLL, 0x42626D53u);
-    v0 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xD0uLL, 0x42626D53u);
+    v0 = PoolWithTag;
+    if ( !PoolWithTag )
       goto LABEL_3;
-    *(_DWORD *)Pool2 = 16;
-    *((_DWORD *)Pool2 + 1) = 2;
-    *((_DWORD *)Pool2 + 2) = 192;
-    *(_OWORD *)(Pool2 + 12) = *(_OWORD *)L"\\Device\\VMBus\\{4d12e519-17a0-4ae4-8eaa-5270fc6abdb7}-{dcc079ae-60ba-4d07-847"
-                                          "c-3493609c0870}-0000";
-    *(_OWORD *)(Pool2 + 28) = *(_OWORD *)L"VMBus\\{4d12e519-17a0-4ae4-8eaa-5270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
-    *(_OWORD *)(Pool2 + 44) = *(_OWORD *)L"d12e519-17a0-4ae4-8eaa-5270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
-    *(_OWORD *)(Pool2 + 60) = *(_OWORD *)L"17a0-4ae4-8eaa-5270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
-    *(_OWORD *)(Pool2 + 76) = *(_OWORD *)L"4-8eaa-5270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
-    *(_OWORD *)(Pool2 + 92) = *(_OWORD *)L"270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
-    *(_OWORD *)(Pool2 + 108) = *(_OWORD *)L"db7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
+    memset(PoolWithTag + 12, 0, 0xC4uLL);
+    *(_DWORD *)v0 = 16;
+    *((_DWORD *)v0 + 1) = 2;
+    *((_DWORD *)v0 + 2) = 192;
+    *(_OWORD *)(v0 + 12) = *(_OWORD *)L"\\Device\\VMBus\\{4d12e519-17a0-4ae4-8eaa-5270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3"
+                                       "493609c0870}-0000";
+    *(_OWORD *)(v0 + 28) = *(_OWORD *)L"VMBus\\{4d12e519-17a0-4ae4-8eaa-5270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
+    *(_OWORD *)(v0 + 44) = *(_OWORD *)L"d12e519-17a0-4ae4-8eaa-5270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
+    *(_OWORD *)(v0 + 60) = *(_OWORD *)L"17a0-4ae4-8eaa-5270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
+    *(_OWORD *)(v0 + 76) = *(_OWORD *)L"4-8eaa-5270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
+    *(_OWORD *)(v0 + 92) = *(_OWORD *)L"270fc6abdb7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
+    *(_OWORD *)(v0 + 108) = *(_OWORD *)L"db7}-{dcc079ae-60ba-4d07-847c-3493609c0870}-0000";
     v5 = DeviceObject;
-    *(_OWORD *)(Pool2 + 124) = *(_OWORD *)L"c079ae-60ba-4d07-847c-3493609c0870}-0000";
-    *(_OWORD *)(Pool2 + 140) = *(_OWORD *)L"0ba-4d07-847c-3493609c0870}-0000";
-    *(_OWORD *)(Pool2 + 156) = *(_OWORD *)L"-847c-3493609c0870}-0000";
-    *(_OWORD *)(Pool2 + 172) = *(_OWORD *)L"93609c0870}-0000";
-    *(_OWORD *)(Pool2 + 188) = *(_OWORD *)L"70}-0000";
+    *(_OWORD *)(v0 + 124) = *(_OWORD *)L"c079ae-60ba-4d07-847c-3493609c0870}-0000";
+    *(_OWORD *)(v0 + 140) = *(_OWORD *)L"0ba-4d07-847c-3493609c0870}-0000";
+    *(_OWORD *)(v0 + 156) = *(_OWORD *)L"-847c-3493609c0870}-0000";
+    *(_OWORD *)(v0 + 172) = *(_OWORD *)L"93609c0870}-0000";
+    *(_OWORD *)(v0 + 188) = *(_OWORD *)L"70}-0000";
     Object.Header.WaitListHead.Blink = &Object.Header.WaitListHead;
     LOWORD(Object.Header.Lock) = 1;
     Object.Header.WaitListHead.Flink = &Object.Header.WaitListHead;
     Object.Header.Size = 6;
     Object.Header.SignalState = 0;
-    v6 = IopBuildDeviceIoControlRequest(1311152, (__int64)v5, Pool2, 0xD0u, 0LL, 0, 0, &Object, &v11);
+    v6 = IopBuildDeviceIoControlRequest(1311152, (__int64)v5, v0, 0xD0u, 0LL, 0, 0, &Object, &v11, retaddr);
     v7 = v6;
     if ( v6 )
     {
@@ -93,6 +96,6 @@ LABEL_3:
   if ( v2 )
     ObfDereferenceObjectWithTag(v2, 0x746C6644u);
   if ( v0 )
-    ExFreePoolWithTag(v0, 0x42626D53u);
+    ExFreeHeapPool((ULONG_PTR)v0);
   return Status;
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of IoWMIWriteEvent @ 0x1403A7D50
+ * XREFs of IoWMIWriteEvent @ 0x14037E0A0
  * Callers:
- *     PpmFireWmiEvent @ 0x140598E28 (PpmFireWmiEvent.c)
- *     PpmWmiFireIdleAccountingEvent @ 0x140598EB0 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmFireWmiEvent @ 0x140578438 (PpmFireWmiEvent.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x1405784C0 (PpmWmiFireIdleAccountingEvent.c)
  * Callees:
- *     WmipDoFindRegEntryByProviderId @ 0x14022AAA0 (WmipDoFindRegEntryByProviderId.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExInterlockedInsertTailList @ 0x14028C180 (ExInterlockedInsertTailList.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     EtwTraceEvent @ 0x140467D22 (EtwTraceEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExInterlockedInsertTailList @ 0x1402F86D0 (ExInterlockedInsertTailList.c)
+ *     WmipDoFindRegEntryByProviderId @ 0x14032E210 (WmipDoFindRegEntryByProviderId.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceEvent @ 0x1405A5FE0 (EtwTraceEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
 {
   NTSTATUS v1; // edi
   int v3; // ebx
-  struct _LIST_ENTRY *Pool2; // rbp
+  struct _LIST_ENTRY *PoolWithTag; // rbp
   int v5; // ebx
   unsigned __int64 v6; // r14
   _DWORD *RegEntryByProviderId; // rax
@@ -60,8 +60,8 @@ LABEL_16:
     return -2147483643;
   }
 LABEL_3:
-  Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(64LL, 32LL, 2003397975LL);
-  if ( !Pool2 )
+  PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x77696D57u);
+  if ( !PoolWithTag )
     return -1073741670;
   v5 = *((_DWORD *)WnodeEventItem + 1);
   v6 = KeAcquireSpinLockRaiseToDpc(&WmipRegistrationSpinLock);
@@ -69,26 +69,29 @@ LABEL_3:
   v8 = (struct _LIST_ENTRY *)RegEntryByProviderId;
   if ( RegEntryByProviderId )
     _InterlockedIncrement(RegEntryByProviderId + 12);
-  KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
+  KxReleaseSpinLock(&WmipRegistrationSpinLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v17 = (v16 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v16;
-      if ( v17 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v17 = (v16 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v16;
+        if ( v17 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v6);
   *((_DWORD *)WnodeEventItem + 10) = *((_DWORD *)WnodeEventItem + 2);
-  Pool2[1].Flink = v8;
-  Pool2[1].Blink = (struct _LIST_ENTRY *)WnodeEventItem;
-  ExInterlockedInsertTailList(&WmipNPEvent, Pool2, &WmipNPNotificationSpinlock);
+  PoolWithTag[1].Flink = v8;
+  PoolWithTag[1].Blink = (struct _LIST_ENTRY *)WnodeEventItem;
+  ExInterlockedInsertTailList(&WmipNPEvent, PoolWithTag, &WmipNPNotificationSpinlock);
   if ( _InterlockedIncrement(&WmipEventWorkItems) == 1 )
     ExQueueWorkItem(&WmipEventWorkQueueItem, DelayedWorkQueue);
   return v1;

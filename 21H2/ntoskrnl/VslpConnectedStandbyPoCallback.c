@@ -1,14 +1,18 @@
 /*
- * XREFs of VslpConnectedStandbyPoCallback @ 0x1409331A0
+ * XREFs of VslpConnectedStandbyPoCallback @ 0x140890620
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall VslpConnectedStandbyPoCallback(LPCGUID SettingGuid, _DWORD *Value, ULONG ValueLength, PVOID Context)
+NTSTATUS __fastcall VslpConnectedStandbyPoCallback(
+        LPCGUID SettingGuid,
+        _DWORD *Value,
+        ULONG ValueLength,
+        PVOID Context)
 {
   __int64 v6; // rax
   __int64 v7; // r8
@@ -27,7 +31,7 @@ __int64 __fastcall VslpConnectedStandbyPoCallback(LPCGUID SettingGuid, _DWORD *V
     if ( *(_QWORD *)&GUID_PDC_IDLE_RESILIENCY_ENGAGED.Data1 == v6 )
       v8 = *(_QWORD *)GUID_PDC_IDLE_RESILIENCY_ENGAGED.Data4 - *(_QWORD *)SettingGuid->Data4;
     if ( v8 )
-      return 3221225659LL;
+      return -1073741637;
     v11[6] = 2;
   }
   else
@@ -38,5 +42,5 @@ __int64 __fastcall VslpConnectedStandbyPoCallback(LPCGUID SettingGuid, _DWORD *V
   if ( *Value )
     v9 = 1;
   LOBYTE(v11[2]) = v9;
-  return VslpEnterIumSecureMode(2u, 62, 0, (__int64)v11);
+  return VslpEnterIumSecureMode(2u, 60, 0, (__int64)v11);
 }

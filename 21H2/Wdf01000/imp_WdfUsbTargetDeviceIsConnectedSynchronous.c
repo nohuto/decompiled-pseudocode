@@ -1,11 +1,11 @@
 /*
- * XREFs of imp_WdfUsbTargetDeviceIsConnectedSynchronous @ 0x1C0077170
+ * XREFs of imp_WdfUsbTargetDeviceIsConnectedSynchronous @ 0x1C0069C80
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?IsConnected@FxUsbDevice@@QEAAJXZ @ 0x1C007D10C (-IsConnected@FxUsbDevice@@QEAAJXZ.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?IsConnected@FxUsbDevice@@QEAAJXZ @ 0x1C0070970 (-IsConnected@FxUsbDevice@@QEAAJXZ.c)
  */
 
 int __fastcall imp_WdfUsbTargetDeviceIsConnectedSynchronous(
@@ -17,7 +17,7 @@ int __fastcall imp_WdfUsbTargetDeviceIsConnectedSynchronous(
 
   pUsbDevice = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)UsbDevice,
     0x1202u,
     (void **)&pUsbDevice);

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpiBiosDmaToIoDescriptor @ 0x1C009169C
+ * XREFs of PnpiBiosDmaToIoDescriptor @ 0x1C00A3360
  * Callers:
- *     PnpBiosResourcesToNtResources @ 0x1C008EFEC (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  * Callees:
- *     PnpiUpdateResourceList @ 0x1C0092338 (PnpiUpdateResourceList.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
  */
 
 __int64 __fastcall PnpiBiosDmaToIoDescriptor(__int64 a1, unsigned __int8 a2, __int64 a3, unsigned int a4, __int16 a5)
@@ -12,18 +12,19 @@ __int64 __fastcall PnpiBiosDmaToIoDescriptor(__int64 a1, unsigned __int8 a2, __i
   int updated; // r8d
   _BYTE *v8; // rcx
   bool v9; // cf
-  int v10; // eax
-  _BYTE *v12; // [rsp+30h] [rbp+8h] BYREF
+  char v10; // al
+  int v11; // eax
+  _BYTE *v13; // [rsp+30h] [rbp+8h] BYREF
 
-  v12 = 0LL;
+  v13 = 0LL;
   v6 = a2;
-  updated = PnpiUpdateResourceList(a3 + 8LL * a4, &v12);
+  updated = PnpiUpdateResourceList((const void **)(a3 + 8LL * a4), &v13);
   if ( updated >= 0 )
   {
-    v8 = v12;
+    v8 = v13;
     v9 = a5 != 0;
     a5 = -a5;
-    *v12 = v9 ? 8 : 0;
+    *v13 = v9 ? 8 : 0;
     *(_WORD *)(v8 + 1) = 260;
     *((_DWORD *)v8 + 2) = v6;
     *((_DWORD *)v8 + 3) = v6;
@@ -42,10 +43,14 @@ __int64 __fastcall PnpiBiosDmaToIoDescriptor(__int64 a1, unsigned __int8 a2, __i
         *((_WORD *)v8 + 2) |= 2u;
       }
     }
-    if ( (*(_BYTE *)(a1 + 2) & 4) != 0 )
+    v10 = *(_BYTE *)(a1 + 2);
+    if ( (v10 & 4) != 0 )
+    {
       *((_WORD *)v8 + 2) |= 8u;
-    v10 = *(_BYTE *)(a1 + 2) & 0x60;
-    switch ( v10 )
+      v10 = *(_BYTE *)(a1 + 2);
+    }
+    v11 = v10 & 0x60;
+    switch ( v11 )
     {
       case ' ':
         *((_WORD *)v8 + 2) |= 0x10u;

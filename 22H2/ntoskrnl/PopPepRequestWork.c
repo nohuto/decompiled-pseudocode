@@ -1,39 +1,37 @@
 /*
- * XREFs of PopPepRequestWork @ 0x1403138C0
+ * XREFs of PopPepRequestWork @ 0x1402614FC
  * Callers:
- *     PopPepUpdateConstraints @ 0x14028D114 (PopPepUpdateConstraints.c)
- *     PopPepTryPowerDownDevice @ 0x140310AF0 (PopPepTryPowerDownDevice.c)
- *     PopPepProcessEvent @ 0x140313720 (PopPepProcessEvent.c)
- *     PopPepIdleTimeoutRoutine @ 0x140354CF0 (PopPepIdleTimeoutRoutine.c)
- *     PopPepComponentSetLatency @ 0x14035AF20 (PopPepComponentSetLatency.c)
- *     PopPepComponentSetResidency @ 0x1403B36B4 (PopPepComponentSetResidency.c)
- *     PopPepCompleteComponentIdleState @ 0x14059EC34 (PopPepCompleteComponentIdleState.c)
- *     PopPepComponentSetWakeHint @ 0x14059ED40 (PopPepComponentSetWakeHint.c)
- *     PopPepSurprisePowerOn @ 0x14059FE50 (PopPepSurprisePowerOn.c)
+ *     PopPepTryPowerDownDevice @ 0x140260C70 (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x1402612E4 (PopPepProcessEvent.c)
+ *     PopPepSurprisePowerOn @ 0x14038B498 (PopPepSurprisePowerOn.c)
+ *     PopPepUpdateConstraints @ 0x14039FE6C (PopPepUpdateConstraints.c)
+ *     PopPepCompleteComponentIdleState @ 0x1405740D4 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetLatency @ 0x1405741DC (PopPepComponentSetLatency.c)
+ *     PopPepComponentSetResidency @ 0x1405742C8 (PopPepComponentSetResidency.c)
+ *     PopPepComponentSetWakeHint @ 0x1405743C0 (PopPepComponentSetWakeHint.c)
+ *     PopPepIdleTimeoutRoutine @ 0x140574930 (PopPepIdleTimeoutRoutine.c)
  * Callees:
- *     PopFxRequestWorkerInternal @ 0x140314D94 (PopFxRequestWorkerInternal.c)
+ *     PopFxRequestWorker @ 0x140262450 (PopFxRequestWorker.c)
  */
 
-__int64 __fastcall PopPepRequestWork(__int64 a1, unsigned int a2, unsigned int a3)
+__int64 __fastcall PopPepRequestWork(unsigned int a1, unsigned int a2)
 {
-  unsigned int v3; // edi
-  unsigned int v4; // r8d
-  __int64 v5; // rbx
+  unsigned int v2; // edx
+  __int64 v3; // rbx
   __int64 result; // rax
 
-  if ( a3 > a2 )
+  if ( a2 > a1 )
   {
-    v3 = (*(_DWORD *)(a1 + 24) >> 5) & 1;
-    v4 = a3 - a2;
-    if ( v4 )
+    v2 = a2 - a1;
+    if ( v2 )
     {
-      v5 = v4;
+      v3 = v2;
       do
       {
-        result = PopFxRequestWorkerInternal(0LL, v3);
-        --v5;
+        result = PopFxRequestWorker(0LL);
+        --v3;
       }
-      while ( v5 );
+      while ( v3 );
     }
   }
   return result;

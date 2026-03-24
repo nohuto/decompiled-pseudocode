@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetBoundedEndpoint@CScrollAnimation@@QEBAMXZ @ 0x180264FA0
+ * XREFs of ?GetBoundedEndpoint@CScrollAnimation@@QEBAMXZ @ 0x180203908
  * Callers:
- *     ?StartInertiaWorker@CInteractionTrackerPositionAnimation@@MEAAXM_N@Z @ 0x180266F20 (-StartInertiaWorker@CInteractionTrackerPositionAnimation@@MEAAXM_N@Z.c)
+ *     ?StartInertiaWorker@CInteractionTrackerPositionAnimation@@MEAAXM_N@Z @ 0x180205920 (-StartInertiaWorker@CInteractionTrackerPositionAnimation@@MEAAXM_N@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 float __fastcall CScrollAnimation::GetBoundedEndpoint(CScrollAnimation *this)

@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_UsbDevice_PrepareForHibernate @ 0x1C00505E0
+ * XREFs of Crashdump_UsbDevice_PrepareForHibernate @ 0x1C004DB10
  * Callers:
- *     Crashdump_InitializeWithoutControllerReset @ 0x1C004C98C (Crashdump_InitializeWithoutControllerReset.c)
+ *     Crashdump_InitializeWithoutControllerReset @ 0x1C0049EB4 (Crashdump_InitializeWithoutControllerReset.c)
  * Callees:
- *     memset @ 0x1C0020600 (memset.c)
- *     Crashdump_Endpoint_PrepareForHibernate @ 0x1C004F050 (Crashdump_Endpoint_PrepareForHibernate.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Crashdump_Endpoint_PrepareForHibernate @ 0x1C004C580 (Crashdump_Endpoint_PrepareForHibernate.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_PrepareForHibernate(__int64 a1)

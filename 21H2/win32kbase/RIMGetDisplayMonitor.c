@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMGetDisplayMonitor @ 0x1C0198218
+ * XREFs of RIMGetDisplayMonitor @ 0x1C0164748
  * Callers:
- *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01990C8 (rimFindMonitorForDigitizerWithQDCData.c)
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C0165650 (rimFindMonitorForDigitizerWithQDCData.c)
  * Callees:
- *     DrvGetWDDMAdapterInfo @ 0x1C0071FB0 (DrvGetWDDMAdapterInfo.c)
+ *     DrvGetWDDMAdapterInfo @ 0x1C0010C20 (DrvGetWDDMAdapterInfo.c)
  */
 
 __int64 __fastcall RIMGetDisplayMonitor(__int64 a1, unsigned int *a2, _QWORD *a3)
@@ -32,24 +32,24 @@ __int64 __fastcall RIMGetDisplayMonitor(__int64 a1, unsigned int *a2, _QWORD *a3
     v9 = *((_QWORD *)a2 + 1);
     while ( 1 )
     {
-      v10 = 216LL * v8;
+      v10 = 200LL * v8;
       if ( *(_DWORD *)(v10 + v9 + 116) == *(_DWORD *)(a1 + 116) && *(_DWORD *)(v10 + v9 + 120) == *(_DWORD *)(a1 + 120) )
         break;
       if ( ++v8 >= v5 )
         goto LABEL_8;
     }
-    v3 = *(_QWORD *)(216LL * v8 + v9 + 16);
-    v7 = *(_DWORD *)(216LL * v8 + v9 + 24);
+    v3 = *(_QWORD *)(200LL * v8 + v9 + 16);
+    v7 = *(_DWORD *)(200LL * v8 + v9 + 24);
     v15 = v3;
   }
 LABEL_8:
-  v11 = *((_QWORD *)gpDispInfo + 13);
+  v11 = *(_QWORD *)(gpDispInfo + 104);
   if ( v11 )
   {
     v12 = HIDWORD(v15);
     while ( 1 )
     {
-      v13 = *(_QWORD *)(v11 + 88);
+      v13 = *(_QWORD *)(v11 + 240);
       v16 = 0LL;
       LODWORD(v15) = 0;
       if ( (unsigned int)DrvGetWDDMAdapterInfo(v13, 1, &v16, &v15) )

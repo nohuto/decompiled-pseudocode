@@ -1,11 +1,11 @@
 /*
- * XREFs of Usbh_HubRemoveUsbDevice @ 0x1C003A78C
+ * XREFs of Usbh_HubRemoveUsbDevice @ 0x1C003BA9C
  * Callers:
- *     UsbhUnlinkPdoDeviceHandle @ 0x1C00015D0 (UsbhUnlinkPdoDeviceHandle.c)
- *     UsbhCreateDevice @ 0x1C001BC70 (UsbhCreateDevice.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C0018990 (UsbhUnlinkPdoDeviceHandle.c)
+ *     UsbhCreateDevice @ 0x1C0019118 (UsbhCreateDevice.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 _DWORD *__fastcall Usbh_HubRemoveUsbDevice(__int64 a1, __int64 a2)

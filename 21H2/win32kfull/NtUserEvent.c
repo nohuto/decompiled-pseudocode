@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserEvent @ 0x1C01F3210
+ * XREFs of NtUserEvent @ 0x1C01F8910
  * Callers:
  *     <none>
  * Callees:
- *     xxxCsEvent @ 0x1C0003004 (xxxCsEvent.c)
+ *     xxxCsEvent @ 0x1C0246DA8 (xxxCsEvent.c)
  */
 
 __int64 __fastcall NtUserEvent(unsigned __int64 Src)
@@ -16,7 +16,7 @@ __int64 __fastcall NtUserEvent(unsigned __int64 Src)
   unsigned int v7; // ebx
   __int64 v8; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v2);
   v4 = 0LL;
   if ( !CurrentProcessWow64Process )
@@ -26,7 +26,7 @@ __int64 __fastcall NtUserEvent(unsigned __int64 Src)
   v5 = *(unsigned __int16 *)(Src + 6);
   v6 = PsGetCurrentProcessWow64Process(MmUserProbeAddress);
   ProbeForRead((volatile void *)(Src + 8), v5, v6 != 0 ? 1 : 4);
-  v7 = xxxCsEvent((void *)Src, v5);
+  v7 = xxxCsEvent((void *)Src);
   UserSessionSwitchLeaveCrit(v8);
   return v7;
 }

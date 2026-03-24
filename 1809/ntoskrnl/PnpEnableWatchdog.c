@@ -2,12 +2,12 @@
  * XREFs of PnpEnableWatchdog @ 0x140005C04
  * Callers:
  *     PnpEnablePnpEventWorkerWatchdog @ 0x140005BDC (PnpEnablePnpEventWorkerWatchdog.c)
- *     PnpEnableDeviceCompletionQueueWatchdog @ 0x14015A340 (PnpEnableDeviceCompletionQueueWatchdog.c)
- *     PnpEnableDelayedRemoveWorkerWatchdog @ 0x140289A1C (PnpEnableDelayedRemoveWorkerWatchdog.c)
+ *     PnpEnableDeviceCompletionQueueWatchdog @ 0x14015A360 (PnpEnableDeviceCompletionQueueWatchdog.c)
+ *     PnpEnableDelayedRemoveWorkerWatchdog @ 0x140289B1C (PnpEnableDelayedRemoveWorkerWatchdog.c)
  * Callees:
  *     PnpWatchdogInitializeTimer @ 0x140005C9C (PnpWatchdogInitializeTimer.c)
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
  */
 
 __int64 __fastcall PnpEnableWatchdog(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

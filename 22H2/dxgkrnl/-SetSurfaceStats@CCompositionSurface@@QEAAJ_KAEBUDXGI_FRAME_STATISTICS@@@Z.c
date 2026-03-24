@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetSurfaceStats@CCompositionSurface@@QEAAJ_KAEBUDXGI_FRAME_STATISTICS@@@Z @ 0x1C007D188
+ * XREFs of ?SetSurfaceStats@CCompositionSurface@@QEAAJ_KAEBUDXGI_FRAME_STATISTICS@@@Z @ 0x1C00665CC
  * Callers:
- *     NtSetCompositionSurfaceStatistics @ 0x1C007BFA0 (NtSetCompositionSurfaceStatistics.c)
+ *     NtSetCompositionSurfaceStatistics @ 0x1C0065C80 (NtSetCompositionSurfaceStatistics.c)
  * Callees:
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00103F0 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0011B50 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
  */
 
 __int64 __fastcall CCompositionSurface::SetSurfaceStats(
@@ -22,12 +22,12 @@ __int64 __fastcall CCompositionSurface::SetSurfaceStats(
   if ( (int)result >= 0 )
   {
     v5 = v7;
-    *(_OWORD *)((char *)v7 + 216) = *v4;
+    *(_OWORD *)((char *)v7 + 184) = *v4;
     v6 = v4[1];
-    *((_DWORD *)v5 + 52) = 0;
-    *((_DWORD *)v5 + 62) = 0;
-    *(_OWORD *)((char *)v5 + 232) = v6;
-    *((_BYTE *)v5 + 42) = 1;
+    *((_DWORD *)v5 + 45) = 0;
+    *((_DWORD *)v5 + 54) = 0;
+    *(_OWORD *)((char *)v5 + 200) = v6;
+    *((_BYTE *)v5 + 41) = 1;
   }
   return result;
 }

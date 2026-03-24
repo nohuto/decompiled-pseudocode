@@ -1,47 +1,40 @@
 /*
- * XREFs of MiChangePageHeatImmediate @ 0x1405B766C
+ * XREFs of MiChangePageHeatImmediate @ 0x1403F7CB0
  * Callers:
- *     MiFreeLargePageMemory @ 0x14028CA70 (MiFreeLargePageMemory.c)
- *     MiZeroPage @ 0x1402C4E50 (MiZeroPage.c)
- *     MiCoalesceFreePages @ 0x1402C7DF0 (MiCoalesceFreePages.c)
- *     MiCoalesceFreeLargePages @ 0x140358400 (MiCoalesceFreeLargePages.c)
- *     MiLargeFreePageToMdl @ 0x1403D5CF4 (MiLargeFreePageToMdl.c)
- *     MiZeroPageMakeHot @ 0x1405B2968 (MiZeroPageMakeHot.c)
+ *     MiZeroPage @ 0x140233310 (MiZeroPage.c)
+ *     MiCoalesceFreePages @ 0x140235CA0 (MiCoalesceFreePages.c)
+ *     MiLargeFreePageToMdl @ 0x14029167C (MiLargeFreePageToMdl.c)
+ *     MiFreeLargePageMemory @ 0x1402FE654 (MiFreeLargePageMemory.c)
+ *     MiCoalesceFreeLargePages @ 0x1403031A0 (MiCoalesceFreeLargePages.c)
  * Callees:
- *     MiColdPageSizeSupported @ 0x14023073C (MiColdPageSizeSupported.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiAddPageToHeatRanges @ 0x1405B7574 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x1405B7E7C (MiNotifyPageHeat.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiAddPageToHeatList @ 0x1403F7C88 (MiAddPageToHeatList.c)
+ *     MiColdPageSizeSupported @ 0x1403F7D58 (MiColdPageSizeSupported.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall MiChangePageHeatImmediate(__int64 a1, unsigned int a2, int a3)
+void *__fastcall MiChangePageHeatImmediate(__int64 a1, unsigned int a2, int a3)
 {
-  __int64 result; // rax
-  bool v7; // zf
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  _DWORD v11[36]; // [rsp+20h] [rbp-A8h] BYREF
+  void *result; // rax
+  bool v6; // zf
+  _DWORD v7[36]; // [rsp+20h] [rbp-A8h] BYREF
 
-  result = (__int64)memset(&v11[3], 0, 0x80uLL);
+  result = memset(&v7[3], 0, 0x84uLL);
   if ( a3 )
   {
-    v7 = (HvlEnlightenments & 0x200000) == 0;
+    v6 = (HvlEnlightenments & 0x200000) == 0;
   }
   else
   {
-    result = MiColdPageSizeSupported(a2);
-    v7 = (_DWORD)result == 0;
+    result = (void *)MiColdPageSizeSupported(a2);
+    v6 = (_DWORD)result == 0;
   }
-  if ( !v7 )
+  if ( !v6 )
   {
-    v11[1] = 0;
-    v11[0] = a3;
-    v11[2] = 1;
-    result = MiAddPageToHeatRanges((__int64)v11, a1, a2);
-    if ( (_DWORD)result )
-      return MiNotifyPageHeat(v11, v8, v9, v10);
+    v7[1] = 0;
+    v7[0] = a3;
+    v7[2] = 1;
+    return (void *)MiAddPageToHeatList((__int64)v7);
   }
   return result;
 }

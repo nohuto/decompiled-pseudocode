@@ -1,111 +1,115 @@
 /*
- * XREFs of MiFreeVadRange @ 0x1402ECEB0
+ * XREFs of MiFreeVadRange @ 0x1403185C4
  * Callers:
- *     MmFreeVirtualMemory @ 0x1407B99C0 (MmFreeVirtualMemory.c)
- *     MmStoreAllocateVirtualMemory @ 0x1407FABA0 (MmStoreAllocateVirtualMemory.c)
- *     MmStoreFreeVirtualMemory @ 0x1408042A4 (MmStoreFreeVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406B61EC (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x1406BEF90 (MmStoreFreeVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
  * Callees:
- *     MiDeletePartialVad @ 0x1402ECFD8 (MiDeletePartialVad.c)
- *     MiLocateLockedVadEvent @ 0x1402EE0E0 (MiLocateLockedVadEvent.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x14030B700 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403107C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiCanDeleteEnclave @ 0x1405A862C (MiCanDeleteEnclave.c)
- *     MiAllocateVad @ 0x1406C3FB4 (MiAllocateVad.c)
- *     MiPrepareVadDelete @ 0x14079D5B4 (MiPrepareVadDelete.c)
- *     MiDeleteVad @ 0x1407BC0B0 (MiDeleteVad.c)
- *     MiLockNestedVad @ 0x14097EE0C (MiLockNestedVad.c)
- *     MiUnlockNestedVad @ 0x14097EE28 (MiUnlockNestedVad.c)
- *     PerfInfoLogVirtualFree @ 0x1409E4084 (PerfInfoLogVirtualFree.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
+ *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
+ *     MiLocateLockedVadEvent @ 0x1402FE3CC (MiLocateLockedVadEvent.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1403169C0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403183E0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiCanDeleteEnclave @ 0x140549668 (MiCanDeleteEnclave.c)
+ *     MiPrepareVadDelete @ 0x1406EE878 (MiPrepareVadDelete.c)
+ *     MiAllocateVad @ 0x140711E88 (MiAllocateVad.c)
+ *     MiLockNestedVad @ 0x1408D9A78 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x1408D9A94 (MiUnlockNestedVad.c)
+ *     PerfInfoLogVirtualFree @ 0x140937C94 (PerfInfoLogVirtualFree.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiFreeVadRange(ULONG_PTR BugCheckParameter3, int a2, __int64 a3, __int64 a4, __int64 a5, int a6)
+__int64 __fastcall MiFreeVadRange(ULONG_PTR BugCheckParameter4, int a2, __int64 a3, __int64 a4, __int64 a5, int a6)
 {
   int v6; // eax
-  unsigned __int64 v7; // rbp
-  unsigned __int64 v8; // r15
-  int v9; // ebx
-  int v10; // esi
+  int v7; // ebx
+  unsigned __int64 v8; // rsi
+  unsigned __int64 v9; // r14
+  int v10; // ebp
   __int64 result; // rax
-  void *v14; // rsi
-  __int64 v15; // r14
-  int v16; // ebx
-  __int64 LockedVadEvent; // rax
-  __int64 v18; // rsi
+  int v14; // r15d
+  __int64 v15; // rbx
+  struct _KPROCESS *v16; // rbp
+  int v17; // edx
+  __int64 v18; // r13
+  int v19; // edi
+  __int64 **LockedVadEvent; // rax
   __int64 Vad; // rax
-  int v20; // [rsp+50h] [rbp+8h] BYREF
+  int v22; // [rsp+60h] [rbp+8h] BYREF
 
-  v6 = *(_DWORD *)(BugCheckParameter3 + 48);
-  v7 = (a4 << 12) | 0xFFF;
-  v8 = a3 << 12;
-  v20 = 0;
-  v9 = a4;
+  v22 = 0;
+  v6 = *(_DWORD *)(BugCheckParameter4 + 48);
+  v7 = a4;
+  v8 = (a4 << 12) | 0xFFF;
+  v9 = a3 << 12;
   v10 = a3;
-  if ( (v6 & 0x200000) == 0 || (v6 & 0x2000000) != 0 || (v6 & 0x4000000) == 0 )
+  if ( (v6 & 0x100000) == 0 || (v6 & 0x1000000) != 0 || (v6 & 0x2000000) == 0 )
     goto LABEL_34;
-  if ( a3 != (*(unsigned int *)(BugCheckParameter3 + 24) | ((unsigned __int64)*(unsigned __int8 *)(BugCheckParameter3
+  if ( a3 != (*(unsigned int *)(BugCheckParameter4 + 24) | ((unsigned __int64)*(unsigned __int8 *)(BugCheckParameter4
                                                                                                  + 32) << 32))
-    || a4 != (*(unsigned int *)(BugCheckParameter3 + 28) | ((unsigned __int64)*(unsigned __int8 *)(BugCheckParameter3
+    || a4 != (*(unsigned int *)(BugCheckParameter4 + 28) | ((unsigned __int64)*(unsigned __int8 *)(BugCheckParameter4
                                                                                                  + 33) << 32)) )
   {
     return 3221225496LL;
   }
-  result = MiCanDeleteEnclave(BugCheckParameter3);
+  result = MiCanDeleteEnclave(BugCheckParameter4);
   if ( (int)result >= 0 )
   {
 LABEL_34:
-    result = MiPrepareVadDelete(BugCheckParameter3, a2, v10, v9, (__int64)&v20);
+    result = MiPrepareVadDelete(BugCheckParameter4, a2, v10, v7, (__int64)&v22);
     if ( (int)result >= 0 )
     {
-      v14 = 0LL;
-      v15 = a5;
-      if ( !v20 )
+      v14 = v22;
+      v15 = 0LL;
+      v16 = (struct _KPROCESS *)a5;
+      if ( !v22 )
       {
         if ( a6 )
         {
-          LockedVadEvent = MiLocateLockedVadEvent(BugCheckParameter3, 128LL);
-          v18 = *(_QWORD *)(LockedVadEvent + 8);
-          *(_QWORD *)(LockedVadEvent + 8) = 0LL;
-          MiLockNestedVad(v18);
-          *(_DWORD *)(v18 + 24) = v8 >> 12;
-          *(_BYTE *)(v18 + 32) = v8 >> 44;
-          *(_DWORD *)(v18 + 28) = v7 >> 12;
-          *(_BYTE *)(v18 + 33) = v7 >> 44;
+          LockedVadEvent = MiLocateLockedVadEvent(BugCheckParameter4, 128);
+          v15 = (__int64)LockedVadEvent[1];
+          LockedVadEvent[1] = 0LL;
+          MiLockNestedVad(v15);
+          *(_DWORD *)(v15 + 24) = v9 >> 12;
+          *(_BYTE *)(v15 + 32) = v9 >> 44;
+          *(_DWORD *)(v15 + 28) = v8 >> 12;
+          *(_BYTE *)(v15 + 33) = v8 >> 44;
         }
-        MiDeleteVad((PVOID)BugCheckParameter3);
+        MiDeleteVad((_DWORD *)BugCheckParameter4, v15, 0);
 LABEL_9:
         if ( (WORD2(PerfGlobalGroupMask) & 0x8000) != 0 )
-          PerfInfoLogVirtualFree(v8, v7 - v8 + 1, v15, 0x8000LL);
+          PerfInfoLogVirtualFree(v9, v8 - v9 + 1, v16);
         return 0LL;
       }
       if ( (*(_DWORD *)(a5 + 1124) & 0x20) != 0 )
         return 3221225738LL;
-      if ( MiLocateLockedVadEvent(BugCheckParameter3, 2LL) )
+      if ( MiLocateLockedVadEvent(BugCheckParameter4, 2) )
         return 3221225541LL;
+      v18 = (unsigned int)(v17 + 62);
       if ( a6 )
       {
-        result = PsChargeProcessNonPagedPoolQuota(v15, 64LL);
+        result = PsChargeProcessNonPagedPoolQuota(v16, (unsigned int)(v17 + 62));
         if ( (int)result < 0 )
           return result;
-        Vad = MiAllocateVad(v8, v7, 2LL);
-        v14 = (void *)Vad;
+        Vad = MiAllocateVad(v9, v8, 2LL);
+        v15 = Vad;
         if ( !Vad )
         {
-          PsReturnProcessNonPagedPoolQuota(v15, 64LL);
+          PsReturnProcessNonPagedPoolQuota(v16, v18);
           return 3221225626LL;
         }
         MiLockNestedVad(Vad);
       }
-      v16 = MiDeletePartialVad((PVOID)BugCheckParameter3, (__int64)v14);
-      if ( v16 >= 0 )
+      v19 = MiDeletePartialVad((_QWORD *)BugCheckParameter4, v9, v8, v14, v15);
+      if ( v19 >= 0 )
         goto LABEL_9;
-      if ( v14 )
+      if ( v15 )
       {
-        MiUnlockNestedVad(v14);
-        ExFreePoolWithTag(v14, 0);
-        PsReturnProcessNonPagedPoolQuota(v15, 64LL);
+        MiUnlockNestedVad(v15);
+        ExFreePoolWithTag((PVOID)v15, 0);
+        PsReturnProcessNonPagedPoolQuota(v16, v18);
       }
-      return (unsigned int)v16;
+      return (unsigned int)v19;
     }
   }
   return result;

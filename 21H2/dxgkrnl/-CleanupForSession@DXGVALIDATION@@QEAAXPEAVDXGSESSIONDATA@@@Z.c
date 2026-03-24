@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CleanupForSession@DXGVALIDATION@@QEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C00026D8
+ * XREFs of ?CleanupForSession@DXGVALIDATION@@QEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C0019B20
  * Callers:
- *     ??1DXGSESSIONDATA@@QEAA@XZ @ 0x1C015FE30 (--1DXGSESSIONDATA@@QEAA@XZ.c)
+ *     ??1DXGSESSIONDATA@@QEAA@XZ @ 0x1C01641B4 (--1DXGSESSIONDATA@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -12,11 +12,11 @@ void __fastcall DXGVALIDATION::CleanupForSession(DXGVALIDATION *this, struct DXG
 
   if ( *(_DWORD *)this )
   {
-    v3 = (void *)*((_QWORD *)a2 + 2340);
+    v3 = (void *)*((_QWORD *)a2 + 2337);
     if ( v3 )
     {
       ObfDereferenceObject(v3);
-      *((_QWORD *)a2 + 2340) = 0LL;
+      *((_QWORD *)a2 + 2337) = 0LL;
     }
   }
 }

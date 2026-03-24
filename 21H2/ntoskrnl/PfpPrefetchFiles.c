@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpPrefetchFiles @ 0x1409870AC
+ * XREFs of PfpPrefetchFiles @ 0x1408DF860
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406AE11C (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x1406C5978 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     PfpCheckPrefetchAbort @ 0x140360A84 (PfpCheckPrefetchAbort.c)
- *     PfpReadSupportInitialize @ 0x140360E0C (PfpReadSupportInitialize.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MmPrefetchPagesEx @ 0x1406FA730 (MmPrefetchPagesEx.c)
- *     PfpFileBuildReadSupport @ 0x1407DEE78 (PfpFileBuildReadSupport.c)
- *     PfpReadSupportCleanup @ 0x1407E08A0 (PfpReadSupportCleanup.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PfpCheckPrefetchAbort @ 0x1402D4204 (PfpCheckPrefetchAbort.c)
+ *     PfpReadSupportInitialize @ 0x1402D45F8 (PfpReadSupportInitialize.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MmPrefetchPagesEx @ 0x14061C354 (MmPrefetchPagesEx.c)
+ *     PfpFileBuildReadSupport @ 0x1406C85E0 (PfpFileBuildReadSupport.c)
+ *     PfpReadSupportCleanup @ 0x1406C9DB4 (PfpReadSupportCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpPrefetchFiles(__int64 *a1, char a2)
@@ -27,7 +27,7 @@ __int64 __fastcall PfpPrefetchFiles(__int64 *a1, char a2)
   __int64 v11; // r10
   __int64 v12; // r8
   _DWORD *v13; // rcx
-  void *Pool2; // rbp
+  PVOID PoolWithTag; // rbp
   unsigned int v15; // ebx
   __int64 v16; // r15
   __int64 v17; // rcx
@@ -60,7 +60,7 @@ __int64 __fastcall PfpPrefetchFiles(__int64 *a1, char a2)
   v31 = v8;
   v35 = *(_DWORD *)(*a1 + 28) & 7 | (8 * (*(_WORD *)(*a1 + 30) & 7));
   if ( !v7 )
-    goto LABEL_50;
+    goto LABEL_49;
   v9 = 0LL;
   v10 = *(_QWORD *)(v2 + 32) + 12LL;
   v11 = v7;
@@ -99,14 +99,14 @@ LABEL_12:
   while ( v11 );
   if ( v4 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, v4 << 6, 1095984720LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v4 << 6, 0x41536650u);
+    if ( PoolWithTag )
     {
-      v30 = (__int64)Pool2 + 56 * v4;
-      memset(Pool2, 0, v4 << 6);
+      v30 = (__int64)PoolWithTag + 56 * v4;
+      memset(PoolWithTag, 0, v4 << 6);
       v16 = 0LL;
       if ( !*(_DWORD *)(v2 + 8) )
-        goto LABEL_48;
+        goto LABEL_44;
       do
       {
         if ( (*(_QWORD *)(((unsigned __int64)(unsigned int)v16 << 6) + v6[2] + 24) & 0x400000000LL) != 0 )
@@ -121,7 +121,7 @@ LABEL_12:
               v19 = (_DWORD *)(*(_QWORD *)(v17 + 40 * v16 + 16) + 48 * v18);
               if ( (*v19 & 0xA) == 0 && v19[4] && (!v5 || (*v19 & 1) != 0) )
               {
-                v20 = (__int64)Pool2 + 56 * v3;
+                v20 = (__int64)PoolWithTag + 56 * v3;
                 PfpReadSupportInitialize(v20);
                 if ( (int)PfpFileBuildReadSupport(a1, v19, v16, a2, v20) < 0 )
                 {
@@ -157,7 +157,7 @@ LABEL_12:
           if ( v3 > 0 )
           {
             v22 = 0LL;
-            v23 = Pool2;
+            v23 = PoolWithTag;
             do
             {
               *(_QWORD *)*v23 = v23[2];
@@ -177,25 +177,25 @@ LABEL_12:
             *(_DWORD *)(v2 + 96) += v21;
           v15 = MmPrefetchPagesEx(v3, v30, 0LL);
         }
-        if ( v3 > 0 )
-        {
-          v25 = (__int64)Pool2;
-          v26 = (unsigned int)v3;
-          do
-          {
-            PfpReadSupportCleanup(v6[5], v25);
-            v25 += 56LL;
-            --v26;
-          }
-          while ( v26 );
-        }
       }
       else
       {
-LABEL_48:
+LABEL_44:
         v15 = -1073741275;
       }
-      ExFreePoolWithTag(Pool2, 0);
+      if ( v3 > 0 )
+      {
+        v25 = (__int64)PoolWithTag;
+        v26 = (unsigned int)v3;
+        do
+        {
+          PfpReadSupportCleanup(v6[5], v25);
+          v25 += 56LL;
+          --v26;
+        }
+        while ( v26 );
+      }
+      ExFreePoolWithTag(PoolWithTag, 0);
     }
     else
     {
@@ -205,7 +205,7 @@ LABEL_48:
   }
   else
   {
-LABEL_50:
+LABEL_49:
     v15 = -1073741275;
   }
   v27 = *v6;

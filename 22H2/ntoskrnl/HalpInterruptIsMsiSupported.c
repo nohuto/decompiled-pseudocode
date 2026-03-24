@@ -1,25 +1,26 @@
 /*
- * XREFs of HalpInterruptIsMsiSupported @ 0x140380F6C
+ * XREFs of HalpInterruptIsMsiSupported @ 0x1403C94D8
  * Callers:
- *     HalpTimerConfigureInterrupt @ 0x14037D5E4 (HalpTimerConfigureInterrupt.c)
- *     HalGetInterruptTargetInformation @ 0x140380E30 (HalGetInterruptTargetInformation.c)
- *     HalpIommuConfigureInterrupt @ 0x1403A9778 (HalpIommuConfigureInterrupt.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A1E84 (HalpTimerConfigureInterrupt.c)
+ *     HalGetInterruptTargetInformation @ 0x1403C9390 (HalGetInterruptTargetInformation.c)
+ *     HalpIommuConfigureInterrupt @ 0x1404CBBC0 (HalpIommuConfigureInterrupt.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x140380C80 (HalpGetCpuInfo.c)
- *     EmClientQueryRuleState @ 0x140A87C40 (EmClientQueryRuleState.c)
+ *     HalpGetCpuInfo @ 0x1403A0870 (HalpGetCpuInfo.c)
+ *     EmClientQueryRuleState @ 0x1409900E0 (EmClientQueryRuleState.c)
  */
 
 char __fastcall HalpInterruptIsMsiSupported(char a1)
 {
   char result; // al
   char CpuInfo; // al
-  char v4; // cl
+  unsigned __int8 v4; // cl
   struct _KPRCB *CurrentPrcb; // rcx
   char CpuType; // dl
   bool v7; // cc
-  int v8; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int8 v8; // [rsp+30h] [rbp+8h] BYREF
+  int v9; // [rsp+38h] [rbp+10h] BYREF
 
-  v8 = 0;
+  v9 = 0;
   if ( HalpInterruptMsiSupportDetermined )
   {
     result = HalpInterruptMsiSupported;
@@ -30,10 +31,10 @@ char __fastcall HalpInterruptIsMsiSupported(char a1)
     result = 0;
     goto LABEL_3;
   }
-  if ( a1 || (int)EmClientQueryRuleState(&GUID_EM_DISABLE_MSI_RULE, &v8) >= 0 && v8 != 2 )
+  if ( a1 || (int)EmClientQueryRuleState(&GUID_EM_DISABLE_MSI_RULE, &v9) >= 0 && v9 != 2 )
   {
-    LOBYTE(v8) = 0;
-    CpuInfo = HalpGetCpuInfo(0LL, 0LL, 0LL, (unsigned __int8 *)&v8);
+    v8 = 0;
+    CpuInfo = HalpGetCpuInfo(0LL, 0LL, 0LL, &v8);
     v4 = CpuInfo != 0 ? v8 : 0;
     if ( v4 != 2 && v4 != 1 )
     {

@@ -6,7 +6,7 @@
  *     AlpcpProcessSynchronousRequest @ 0x140633A30 (AlpcpProcessSynchronousRequest.c)
  *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
  *     AlpcpReferenceBlob @ 0x140618428 (AlpcpReferenceBlob.c)
  *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
@@ -14,8 +14,8 @@
  *     AlpcpExposeTokenAttribute @ 0x1406336E0 (AlpcpExposeTokenAttribute.c)
  *     AlpcpExposeHandleAttribute @ 0x140633868 (AlpcpExposeHandleAttribute.c)
  *     AlpcpUnlockBlob @ 0x140637040 (AlpcpUnlockBlob.c)
- *     AlpcpExposeViewAttribute @ 0x1406A557C (AlpcpExposeViewAttribute.c)
- *     AlpcpExposeContextAttribute32 @ 0x1406A9D24 (AlpcpExposeContextAttribute32.c)
+ *     AlpcpExposeViewAttribute @ 0x1406A555C (AlpcpExposeViewAttribute.c)
+ *     AlpcpExposeContextAttribute32 @ 0x1406A9D04 (AlpcpExposeContextAttribute32.c)
  */
 
 __int64 __fastcall AlpcpExposeAttributes(__int64 a1, int a2, __int64 a3, int a4, __int64 a5)

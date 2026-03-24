@@ -1,42 +1,40 @@
 /*
- * XREFs of SiBootEntryGetNtFilePath @ 0x140A5F924
+ * XREFs of SiBootEntryGetNtFilePath @ 0x140973A94
  * Callers:
- *     SiGetEspFromFirmware @ 0x140A5FEA4 (SiGetEspFromFirmware.c)
+ *     SiGetEspFromFirmware @ 0x140973FF8 (SiGetEspFromFirmware.c)
  * Callees:
- *     ZwTranslateFilePath @ 0x14041E120 (ZwTranslateFilePath.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwTranslateFilePath @ 0x1403FD2E0 (ZwTranslateFilePath.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SiBootEntryGetNtFilePath(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rax
-  void *Pool2; // rdi
-  int v5; // ebx
+  PVOID PoolWithTag; // rbx
+  int v5; // edi
   __int64 v6; // rsi
 
   v2 = *(unsigned int *)(a1 + 20);
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   if ( (_DWORD)v2 )
   {
     v6 = a1 + v2;
     v5 = ZwTranslateFilePath(a1 + v2, 3LL);
     if ( v5 == -1073741789 )
     {
-      Pool2 = (void *)ExAllocatePool2(256LL, 0LL, 1263556947LL);
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0LL, 0x4B505953u);
+      if ( !PoolWithTag )
         return (unsigned int)-1073741801;
       v5 = ZwTranslateFilePath(v6, 3LL);
     }
-    if ( v5 < 0 )
+    if ( v5 >= 0 )
     {
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0);
+      *a2 = PoolWithTag;
+      PoolWithTag = 0LL;
     }
-    else
-    {
-      *a2 = Pool2;
-    }
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
   }
   else
   {

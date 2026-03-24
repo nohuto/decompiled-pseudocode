@@ -1,20 +1,22 @@
 /*
- * XREFs of RtlGetNtSystemRoot @ 0x140695E40
+ * XREFs of RtlGetNtSystemRoot @ 0x14069F2A0
  * Callers:
- *     ObpUseSystemDeviceMap @ 0x14067EA7C (ObpUseSystemDeviceMap.c)
- *     MiDriverLoadSucceeded @ 0x140695BC4 (MiDriverLoadSucceeded.c)
- *     SdbpGetManifestedMergeStubAlloc @ 0x140A4EB78 (SdbpGetManifestedMergeStubAlloc.c)
- *     SdbpGetProcessHistory @ 0x140A51E98 (SdbpGetProcessHistory.c)
- *     AslEnvVarQuery @ 0x140A575BC (AslEnvVarQuery.c)
+ *     ObpUseSystemDeviceMap @ 0x1405CF1CC (ObpUseSystemDeviceMap.c)
+ *     AslEnvVarQuery @ 0x14075396C (AslEnvVarQuery.c)
+ *     MiDriverLoadSucceeded @ 0x14075BE34 (MiDriverLoadSucceeded.c)
+ *     SdbpGetProcessHistory @ 0x14096630C (SdbpGetProcessHistory.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 RtlGetNtSystemRoot()
+__int64 __fastcall RtlGetNtSystemRoot(__int64 a1, __int64 a2)
 {
-  if ( PsIsCurrentThreadInServerSilo() )
-    return *((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 30LL;
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+
+  if ( PsIsCurrentThreadInServerSilo(a1, a2) )
+    return *((_QWORD *)PsGetCurrentServerSiloGlobals(v3, v2) + 141) + 30LL;
   else
     return 0xFFFFF78000000030uLL;
 }

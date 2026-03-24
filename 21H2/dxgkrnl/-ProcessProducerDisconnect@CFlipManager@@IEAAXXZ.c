@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessProducerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C007E6C4
+ * XREFs of ?ProcessProducerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C006BBC4
  * Callers:
- *     ?DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z @ 0x1C0079E0C (-DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z.c)
- *     ?Close@CFlipManager@@MEAAJPEAU_EPROCESS@@PEAX_K2@Z @ 0x1C007C660 (-Close@CFlipManager@@MEAAJPEAU_EPROCESS@@PEAX_K2@Z.c)
+ *     ?DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z @ 0x1C0068758 (-DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z.c)
+ *     ?Close@CFlipManager@@MEAAJPEAU_EPROCESS@@PEAX_K2@Z @ 0x1C006AC10 (-Close@CFlipManager@@MEAAJPEAU_EPROCESS@@PEAX_K2@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z @ 0x1C0080B64 (-RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z.c)
- *     ?Clear@CBackchannelManager@@QEAAXXZ @ 0x1C0080E58 (-Clear@CBackchannelManager@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z @ 0x1C006D520 (-RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z.c)
+ *     ?Clear@CBackchannelManager@@QEAAXXZ @ 0x1C006D8C4 (-Clear@CBackchannelManager@@QEAAXXZ.c)
  */
 
 void __fastcall CFlipManager::ProcessProducerDisconnect(CFlipManager *this)
@@ -42,6 +42,6 @@ void __fastcall CFlipManager::ProcessProducerDisconnect(CFlipManager *this)
     }
     while ( v7 != v1 );
   }
-  CBackchannelManager::Clear(*((CBackchannelManager **)this + 28));
+  CBackchannelManager::Clear(*((CBackchannelManager **)this + 21));
   *((_QWORD *)this + 5) = 0LL;
 }

@@ -6,13 +6,13 @@
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  *     KeSetTimerEx @ 0x14001DF70 (KeSetTimerEx.c)
- *     KiSuspendThread @ 0x1400F2388 (KiSuspendThread.c)
- *     KeCancelTimerInternal @ 0x140132124 (KeCancelTimerInternal.c)
+ *     KiSuspendThread @ 0x1400F23A8 (KiSuspendThread.c)
+ *     KeCancelTimerInternal @ 0x140132144 (KeCancelTimerInternal.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiCancelTimer(__int64 a1, _DWORD *a2)

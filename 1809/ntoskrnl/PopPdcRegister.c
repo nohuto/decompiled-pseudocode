@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPdcRegister @ 0x140760924
+ * XREFs of PopPdcRegister @ 0x140760904
  * Callers:
- *     PopPdcInvocation @ 0x1406DC0A0 (PopPdcInvocation.c)
+ *     PopPdcInvocation @ 0x1406DC080 (PopPdcInvocation.c)
  * Callees:
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)

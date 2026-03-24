@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qqLdqqq @ 0x1C002C8DC
+ * XREFs of WPP_IFR_SF_qqLdqqq @ 0x1C00678CC
  * Callers:
- *     ?ClearTargetPointers@FxIoTargetRemote@@MEAAXXZ @ 0x1C002C800 (-ClearTargetPointers@FxIoTargetRemote@@MEAAXXZ.c)
+ *     ?ClearTargetPointers@FxIoTargetRemote@@MEAAXXZ @ 0x1C0066B50 (-ClearTargetPointers@FxIoTargetRemote@@MEAAXXZ.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qqLdqqq(
@@ -24,7 +24,7 @@ void __fastcall WPP_IFR_SF_qqLdqqq(
   if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x2000) != 0 && BYTE1(WPP_GLOBAL_WDF_Control.Flags) >= 4u )
     FxWmiTraceMessage(
       (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
-      0x2Bu,
+      43LL,
       WPP_FxIoTargetRemote_cpp_Traceguids,
       0x21u,
       &_a5,

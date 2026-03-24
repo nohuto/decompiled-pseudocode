@@ -1,7 +1,7 @@
 /*
- * XREFs of FxpIsAddressKnownToWdf @ 0x1C00913C8
+ * XREFs of FxpIsAddressKnownToWdf @ 0x1C0090D3C
  * Callers:
- *     FxpBugCheckCallbackFilter @ 0x1C0091340 (FxpBugCheckCallbackFilter.c)
+ *     FxpBugCheckCallbackFilter @ 0x1C0090B70 (FxpBugCheckCallbackFilter.c)
  * Callees:
  *     <none>
  */

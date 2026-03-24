@@ -1,5 +1,5 @@
 /*
- * XREFs of IsDwmApiPortRegistered @ 0x1C00C5B40
+ * XREFs of IsDwmApiPortRegistered @ 0x1C00B8000
  * Callers:
  *     <none>
  * Callees:

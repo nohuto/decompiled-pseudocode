@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwAlpcCreateSecurityContext @ 0x14041C740
+ * XREFs of ZwAlpcCreateSecurityContext @ 0x1403FB380
  * Callers:
- *     DifZwAlpcCreateSecurityContextWrapper @ 0x14061D5A0 (DifZwAlpcCreateSecurityContextWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

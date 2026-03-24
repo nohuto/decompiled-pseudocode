@@ -1,85 +1,99 @@
 /*
- * XREFs of RIMDoOnPnpNotification @ 0x1C0199BF8
+ * XREFs of RIMDoOnPnpNotification @ 0x1C00B3D38
  * Callers:
- *     RIMOnPnpNotification @ 0x1C0073820 (RIMOnPnpNotification.c)
- *     RIMDeviceClassNotifyAsyncWorkItem @ 0x1C00757A4 (RIMDeviceClassNotifyAsyncWorkItem.c)
- *     RIMDeviceNotifyAsyncWorkItem @ 0x1C01A1D2C (RIMDeviceNotifyAsyncWorkItem.c)
- *     RIMVirtDeviceClassNotifyAsyncWorkItem @ 0x1C01A2238 (RIMVirtDeviceClassNotifyAsyncWorkItem.c)
- *     RIMVirtDeviceNotifyAsyncWorkItem @ 0x1C01A28E4 (RIMVirtDeviceNotifyAsyncWorkItem.c)
- *     RIMVirtDeviceRootPnpEndSyncAsyncWorkItem @ 0x1C01A2C8C (RIMVirtDeviceRootPnpEndSyncAsyncWorkItem.c)
- *     RIMDiscoverSpecificDevice @ 0x1C01A3610 (RIMDiscoverSpecificDevice.c)
+ *     RIMDeviceClassNotify @ 0x1C0053EC0 (RIMDeviceClassNotify.c)
+ *     RIMOnPnpNotification @ 0x1C00549C0 (RIMOnPnpNotification.c)
+ *     RIMVirtDeviceClassNotify @ 0x1C016C954 (RIMVirtDeviceClassNotify.c)
+ *     RIMDiscoverSpecificDevice @ 0x1C0172F8C (RIMDiscoverSpecificDevice.c)
  * Callees:
- *     rimDoRimDevChange @ 0x1C0003BFC (rimDoRimDevChange.c)
- *     rimOnPnpArrived @ 0x1C0076A78 (rimOnPnpArrived.c)
- *     rimQueueRimDevChangeAsyncWorkItem @ 0x1C0076D60 (rimQueueRimDevChangeAsyncWorkItem.c)
- *     rimOnPnpRemoveComplete @ 0x1C0078518 (rimOnPnpRemoveComplete.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMFreeDev @ 0x1C0170F70 (RIMFreeDev.c)
- *     rimOnPnpQueryRemove @ 0x1C019A980 (rimOnPnpQueryRemove.c)
- *     rimOnPnpRemoveCancelled @ 0x1C019AB98 (rimOnPnpRemoveCancelled.c)
- *     rimOnPnpRemoveCompleteInUserCrit @ 0x1C019ADD8 (rimOnPnpRemoveCompleteInUserCrit.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00487D0 (WPP_RECORDER_SF_q.c)
+ *     rimOnPnpRemoveComplete @ 0x1C0052D38 (rimOnPnpRemoveComplete.c)
+ *     rimDoRimDevChange @ 0x1C00533E4 (rimDoRimDevChange.c)
+ *     rimOnPnpArrived @ 0x1C0056904 (rimOnPnpArrived.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMFreeDev @ 0x1C014FBF0 (RIMFreeDev.c)
+ *     RIMEndAllActiveContacts @ 0x1C015D000 (RIMEndAllActiveContacts.c)
+ *     rimOnPnpQueryRemove @ 0x1C016DBA8 (rimOnPnpQueryRemove.c)
+ *     rimOnPnpRemoveCancelled @ 0x1C016DD00 (rimOnPnpRemoveCancelled.c)
  */
 
-__int64 __fastcall RIMDoOnPnpNotification(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RIMDoOnPnpNotification(_QWORD *a1, __int64 a2)
 {
-  int v5; // eax
-  int v6; // esi
-  int v7; // r8d
-  __int64 v8; // rdx
-  _QWORD *v9; // rcx
+  int v4; // eax
+  int v5; // esi
+  int v6; // ebp
+  int v7; // esi
+  int v9; // edx
+  int v10; // eax
+  int v11; // eax
 
   if ( (*(_DWORD *)(a2 + 184) & 0x2000) != 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1061);
-  if ( *(_QWORD *)(a1 + 32) != PsGetCurrentProcess(a1, a2, a3) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1062);
-  v5 = *(_DWORD *)(a2 + 184);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 805LL);
+  if ( a1[4] != PsGetCurrentProcess(a1, a2) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 806LL);
+  v4 = *(_DWORD *)(a2 + 184);
+  v5 = 1;
   v6 = 0;
-  if ( (v5 & 1) != 0 )
+  if ( (v4 & 1) != 0 )
   {
-    v6 = rimOnPnpArrived(a1, a2, -1LL);
-    if ( v6 >= 0 )
-    {
-      v7 = 2;
-      v8 = a2;
-      v9 = (_QWORD *)a1;
-      if ( (*(_DWORD *)(a2 + 184) & 0x40) != 0 )
-      {
-        rimDoRimDevChange(a1, a2, 2u);
-        return (unsigned int)v6;
-      }
-LABEL_17:
-      rimQueueRimDevChangeAsyncWorkItem(v9, v8, v7);
-    }
+    v7 = rimOnPnpArrived(a1, a2, (void *)0xFFFFFFFFFFFFFFFFLL);
+    if ( v7 >= 0 )
+      rimDoRimDevChange((__int64)a1, a2, 2u);
+    return (unsigned int)v7;
   }
   else
   {
-    if ( (v5 & 2) != 0 )
+    if ( (v4 & 2) != 0 )
+    {
       rimOnPnpQueryRemove(a1, a2);
-    if ( (*(_DWORD *)(a2 + 184) & 4) != 0 )
+      v4 = *(_DWORD *)(a2 + 184);
+    }
+    if ( (v4 & 4) != 0 )
     {
       rimOnPnpRemoveCancelled(a1, a2);
       *(_DWORD *)(a2 + 184) |= 1u;
-      rimOnPnpArrived(a1, a2, -1LL);
+      rimOnPnpArrived(a1, a2, (void *)0xFFFFFFFFFFFFFFFFLL);
+      v4 = *(_DWORD *)(a2 + 184);
     }
-    if ( (*(_DWORD *)(a2 + 184) & 8) != 0 )
+    if ( (v4 & 8) != 0 )
     {
-      v6 = rimOnPnpRemoveComplete(a1, a2);
+      v6 = rimOnPnpRemoveComplete((char)a1, a2);
       if ( v6 >= 0 )
       {
-        v8 = a2;
-        v9 = (_QWORD *)a1;
-        if ( (*(_DWORD *)(a2 + 184) & 0x40) == 0 )
+        RIMLockExclusive((__int64)(a1 + 71));
+        if ( (*(_DWORD *)(a2 + 200) & 0x80u) != 0 )
+          RIMEndAllActiveContacts(a1, *(_QWORD *)(a2 + 480), 0LL);
+        v10 = *(_DWORD *)(a2 + 184);
+        if ( (v10 & 0x2000) == 0 && (v10 & 0x20) == 0 && *(_BYTE *)(a2 + 48) != 3 )
         {
-          v7 = 3;
-          goto LABEL_17;
+          if ( v10 < 0 || *(_QWORD *)(a2 + 192) || (v11 = *(_DWORD *)(a2 + 188), (v11 & 1) != 0) || (v11 & 2) != 0 )
+          {
+            *(_DWORD *)(a2 + 200) |= 1u;
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v9) = 4;
+              WPP_RECORDER_SF_q(
+                (_DWORD)gRimLog,
+                v9,
+                1,
+                38,
+                (__int64)&WPP_a75f261dfb463415346bb11edf387329_Traceguids,
+                a2);
+            }
+            v5 = 0;
+          }
         }
-        if ( (unsigned int)rimOnPnpRemoveCompleteInUserCrit(a1, a2) )
+        a1[72] = 0LL;
+        ExReleasePushLockExclusiveEx(a1 + 71, 0LL);
+        KeLeaveCriticalRegion();
+        if ( v5 )
         {
-          rimDoRimDevChange(a1, a2, 3u);
+          rimDoRimDevChange((__int64)a1, a2, 3u);
           RIMFreeDev(a1, a2);
         }
       }
     }
+    return (unsigned int)v6;
   }
-  return (unsigned int)v6;
 }

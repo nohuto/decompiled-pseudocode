@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpExecuteHandlerForException @ 0x1401C6310
+ * XREFs of RtlpExecuteHandlerForException @ 0x1401C6330
  * Callers:
  *     RtlDispatchException @ 0x1400A0F40 (RtlDispatchException.c)
  * Callees:

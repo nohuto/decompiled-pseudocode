@@ -1,13 +1,13 @@
 /*
- * XREFs of PopWnfFullscreenVideoCallback @ 0x140868F50
+ * XREFs of PopWnfFullscreenVideoCallback @ 0x140868F30
  * Callers:
  *     <none>
  * Callees:
  *     PoFxSendSystemLatencyUpdate @ 0x140005DA8 (PoFxSendSystemLatencyUpdate.c)
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
  *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1406C82A0 (ExQueryWnfStateData.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x1406C8280 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfFullscreenVideoCallback(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall PopWnfFullscreenVideoCallback(__int64 a1)
     if ( v4 < 8 )
       return 0;
     PpmAcquireLock(&PopFxSystemLatencyLock);
-    if ( byte_14041814E )
+    if ( byte_14041810E )
     {
       v2 = v6 & 2;
       if ( (v6 & 2) != 0 )
@@ -41,7 +41,7 @@ LABEL_9:
       if ( (v6 & 2) == 0 )
         goto LABEL_9;
     }
-    byte_14041814E = v2 != 0;
+    byte_14041810E = v2 != 0;
     PoFxSendSystemLatencyUpdate();
     goto LABEL_9;
   }

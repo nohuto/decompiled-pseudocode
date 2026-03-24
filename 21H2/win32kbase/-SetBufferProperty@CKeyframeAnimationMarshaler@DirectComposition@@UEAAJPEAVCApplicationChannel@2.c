@@ -1,132 +1,110 @@
 /*
- * XREFs of ?SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00A8E90
+ * XREFs of ?SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00947A0
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0030874 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00A8F60 (-SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IP.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
+ *     ?SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0094870 (-SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IP.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CKeyframeAnimationMarshaler::SetBufferProperty(
         LARGE_INTEGER *this,
         struct DirectComposition::CApplicationChannel *a2,
         unsigned int a3,
-        char *a4,
-        NSInstrumentation::CLeakTrackingAllocator *a5,
+        LARGE_INTEGER *a4,
+        unsigned __int64 a5,
         bool *a6)
 {
   unsigned int v6; // ebx
-  LARGE_INTEGER v10; // rax
-  _OWORD *v12; // rax
-  unsigned __int64 v13; // rsi
-  __int64 Quota; // rax
-  __int64 v15; // r13
-  int *v16; // r12
-  int v17; // ecx
-  unsigned __int64 v18; // rdx
-  __int64 v19; // rax
-  __int64 v20; // rcx
-  DirectComposition::CResourceMarshaler *v21; // r15
-  int v22; // eax
-  unsigned int v23; // [rsp+70h] [rbp+18h]
+  LARGE_INTEGER v11; // rax
+  unsigned __int64 v12; // rsi
+  __int64 v13; // rax
+  __int64 v14; // r13
+  LARGE_INTEGER *v15; // r12
+  DWORD LowPart; // ecx
+  unsigned __int64 v17; // rdx
+  DirectComposition::CResourceMarshaler *v18; // r14
+  DWORD v19; // eax
+  unsigned int v20; // [rsp+70h] [rbp+18h]
 
   v6 = 0;
   *a6 = 0;
-  if ( a3 != 23 )
+  if ( a3 == 23 )
   {
-    if ( a3 == 32 )
+    if ( a5 == 8 )
     {
-      if ( !a5 )
-        return (unsigned int)-1073741811;
-      v13 = (unsigned __int64)a5 / 0xC;
-      if ( a5 != (NSInstrumentation::CLeakTrackingAllocator *)(12 * ((unsigned __int64)a5 / 0xC))
-        || this[20].QuadPart
-        || this[32].HighPart )
-      {
-        return (unsigned int)-1073741811;
-      }
-      Quota = NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(a5, 260LL, 16LL * (unsigned int)v13, 1718305604);
-      if ( !Quota )
-        return (unsigned int)-1073741801;
-      this[20].QuadPart = Quota;
-      v23 = 0;
-      if ( !(_DWORD)v13 )
-      {
-LABEL_26:
-        *a6 = 1;
-        this[2].LowPart &= ~0x20000u;
-        return v6;
-      }
-      v15 = 0LL;
-      v16 = (int *)(a4 + 8);
-      while ( 1 )
-      {
-        v17 = *(v16 - 2);
-        v18 = (unsigned int)(v17 - 1);
-        if ( !v17 )
-          break;
-        if ( v18 >= *((_QWORD *)a2 + 10) )
-          break;
-        _mm_lfence();
-        v19 = *((_QWORD *)a2 + 7);
-        v20 = v18 * *((_QWORD *)a2 + 11);
-        v21 = *(DirectComposition::CResourceMarshaler **)(v20 + v19);
-        if ( !v21 || (*(unsigned int (__fastcall **)(_QWORD))(*(_QWORD *)v21 + 8LL))(*(_QWORD *)(v20 + v19)) != 168 )
-          break;
-        DirectComposition::CResourceMarshaler::AddRef(v21);
-        ++v23;
-        *(_QWORD *)(this[20].QuadPart + v15) = v21;
-        *(_DWORD *)(this[20].QuadPart + v15 + 8) = *(v16 - 1);
-        v22 = *v16;
-        v16 += 3;
-        *(_DWORD *)(this[20].QuadPart + v15 + 12) = v22;
-        v15 += 16LL;
-        ++this[32].HighPart;
-        if ( v23 >= (unsigned int)v13 )
-          goto LABEL_26;
-      }
+      this[35] = KeQueryPerformanceCounter(0LL);
+      v11 = *a4;
+      LOBYTE(this[37].LowPart) &= ~2u;
+      this[36] = v11;
+      *a6 = 1;
+      this[2].LowPart &= ~0x1000u;
+      return v6;
     }
-    else
+    return (unsigned int)-1073741811;
+  }
+  if ( a3 == 32 )
+  {
+    if ( a5 )
     {
-      if ( a3 != 35 )
-        return (unsigned int)DirectComposition::CBaseExpressionMarshaler::SetBufferProperty(
-                               (DirectComposition::CBaseExpressionMarshaler *)this,
-                               a2,
-                               a3,
-                               a4,
-                               (unsigned __int64)a5,
-                               a6);
-      if ( a5 == (NSInstrumentation::CLeakTrackingAllocator *)16 )
+      v12 = a5 / 0xC;
+      if ( a5 == 12 * (a5 / 0xC) && !this[26].QuadPart && !this[27].LowPart )
       {
-        if ( this[22].QuadPart )
-          return (unsigned int)-1073741790;
-        v12 = (_OWORD *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(
-                          (NSInstrumentation::CLeakTrackingAllocator *)this,
-                          260LL,
-                          16LL,
-                          1936409412);
-        this[22].QuadPart = (LONGLONG)v12;
-        if ( v12 )
+        v13 = Win32AllocPoolWithQuota(16LL * (unsigned int)v12, 0x666B4344u);
+        if ( !v13 )
+          return (unsigned int)-1073741801;
+        this[26].QuadPart = v13;
+        v20 = 0;
+        if ( !(_DWORD)v12 )
         {
-          *v12 = *(_OWORD *)a4;
+LABEL_23:
           *a6 = 1;
-          this[2].LowPart &= ~0x40000u;
+          this[2].LowPart &= ~0x10000u;
           return v6;
         }
-        return (unsigned int)-1073741801;
+        v14 = 0LL;
+        v15 = a4 + 1;
+        while ( 1 )
+        {
+          LowPart = v15[-1].LowPart;
+          v17 = LowPart - 1;
+          if ( LowPart && v17 < *((_QWORD *)a2 + 10) )
+          {
+            _mm_lfence();
+            v18 = *(DirectComposition::CResourceMarshaler **)(v17 * *((_QWORD *)a2 + 11) + *((_QWORD *)a2 + 7));
+          }
+          else
+          {
+            v18 = 0LL;
+          }
+          if ( !v18
+            || (*(unsigned int (__fastcall **)(DirectComposition::CResourceMarshaler *))(*(_QWORD *)v18 + 8LL))(v18) != 169 )
+          {
+            break;
+          }
+          DirectComposition::CResourceMarshaler::AddRef(v18);
+          ++v20;
+          *(_QWORD *)(this[26].QuadPart + v14) = v18;
+          *(_DWORD *)(this[26].QuadPart + v14 + 8) = v15[-1].HighPart;
+          v19 = v15->LowPart;
+          v15 = (LARGE_INTEGER *)((char *)v15 + 12);
+          *(_DWORD *)(this[26].QuadPart + v14 + 12) = v19;
+          v14 += 16LL;
+          ++this[27].LowPart;
+          if ( v20 >= (unsigned int)v12 )
+            goto LABEL_23;
+        }
       }
     }
     return (unsigned int)-1073741811;
   }
-  if ( a5 != (NSInstrumentation::CLeakTrackingAllocator *)8 )
-    return (unsigned int)-1073741811;
-  this[25] = KeQueryPerformanceCounter(0LL);
-  v10 = *(LARGE_INTEGER *)a4;
-  BYTE4(this[39].QuadPart) &= ~4u;
-  this[26] = v10;
-  *a6 = 1;
-  this[2].LowPart &= ~0x2000u;
-  return v6;
+  return (unsigned int)DirectComposition::CBaseExpressionMarshaler::SetBufferProperty(
+                         (DirectComposition::CBaseExpressionMarshaler *)this,
+                         a2,
+                         a3,
+                         a4,
+                         a5,
+                         a6);
 }

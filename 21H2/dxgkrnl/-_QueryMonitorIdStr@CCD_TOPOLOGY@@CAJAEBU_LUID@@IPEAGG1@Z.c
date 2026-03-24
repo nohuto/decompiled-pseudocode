@@ -1,146 +1,179 @@
 /*
- * XREFs of ?_QueryMonitorIdStr@CCD_TOPOLOGY@@CAJAEBU_LUID@@IPEAGG1@Z @ 0x1C01D7150
+ * XREFs of ?_QueryMonitorIdStr@CCD_TOPOLOGY@@CAJAEBU_LUID@@IPEAGG1@Z @ 0x1C0148014
  * Callers:
- *     ?GetMonitorHashsForPath@CCD_TOPOLOGY@@QEAAJU_LUID@@IPEAIPEAUD3DKMT_HASH@@@Z @ 0x1C01D4550 (-GetMonitorHashsForPath@CCD_TOPOLOGY@@QEAAJU_LUID@@IPEAIPEAUD3DKMT_HASH@@@Z.c)
- *     ?_QueryTopologySetIdStr@CCD_TOPOLOGY@@AEBAJPEAGG@Z @ 0x1C01D7008 (-_QueryTopologySetIdStr@CCD_TOPOLOGY@@AEBAJPEAGG@Z.c)
+ *     ?_QueryTopologySetIdStr@CCD_TOPOLOGY@@AEBAJPEAGG@Z @ 0x1C0147ECC (-_QueryTopologySetIdStr@CCD_TOPOLOGY@@AEBAJPEAGG@Z.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?RtlStringCchLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C0011C8C (-RtlStringCchLengthW@@YAJPEBG_KPEA_K@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01A442C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
- *     MonitorGetCCDMonitorID @ 0x1C01B0200 (MonitorGetCCDMonitorID.c)
- *     ?ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z @ 0x1C01D730C (-ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z.c)
- *     MonitorGetUsageClass @ 0x1C01D7358 (MonitorGetUsageClass.c)
- *     ?GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z @ 0x1C01D73F8 (-GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?RtlStringCchLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C0009670 (-RtlStringCchLengthW@@YAJPEBG_KPEA_K@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C011F70C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ *     MonitorGetCCDMonitorID @ 0x1C012A0BC (MonitorGetCCDMonitorID.c)
+ *     ?ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z @ 0x1C01481CC (-ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z.c)
+ *     MonitorGetUsageClass @ 0x1C0148218 (MonitorGetUsageClass.c)
+ *     ?GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z @ 0x1C01482E4 (-GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z.c)
  */
 
 __int64 __fastcall CCD_TOPOLOGY::_QueryMonitorIdStr(
         const struct _LUID *a1,
-        unsigned int a2,
+        __int64 a2,
         unsigned __int16 *a3,
         unsigned __int16 a4,
         unsigned __int16 *a5)
 {
-  unsigned __int16 *v6; // r12
+  __int64 v6; // r12
   DXGGLOBAL *Global; // rax
   struct DXGADAPTER *v8; // rax
-  DXGADAPTER *v9; // r14
-  int v10; // eax
-  __int64 v11; // rbx
-  VIDPN_MGR *v12; // r15
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  DXGADAPTER *v12; // rsi
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rbx
+  VIDPN_MGR *v17; // r15
   int ConnectedMonitorHandle; // eax
-  DXGMONITOR **v14; // rsi
-  __int64 v15; // r15
-  unsigned __int16 v16; // ax
-  unsigned __int16 *v17; // rsi
-  int v18; // eax
-  DXGADAPTER *v19; // r11
-  unsigned __int16 *v21; // r8
-  DXGADAPTER *v22; // r9
-  __int64 v23; // rcx
-  __int64 HighPart; // [rsp+20h] [rbp-C1h]
-  __int64 LowPart; // [rsp+28h] [rbp-B9h]
-  char v26[2]; // [rsp+30h] [rbp-B1h] BYREF
-  unsigned __int16 v27; // [rsp+32h] [rbp-AFh]
-  int v28; // [rsp+34h] [rbp-ADh] BYREF
-  struct HDXGMONITOR__ *v29; // [rsp+38h] [rbp-A9h] BYREF
-  unsigned __int16 *v30; // [rsp+40h] [rbp-A1h]
-  unsigned __int16 *v31; // [rsp+48h] [rbp-99h]
-  __int64 v32; // [rsp+50h] [rbp-91h] BYREF
-  unsigned __int64 v33; // [rsp+58h] [rbp-89h] BYREF
-  _BYTE v34[144]; // [rsp+60h] [rbp-81h] BYREF
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  struct HDXGMONITOR__ *v21; // r14
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r15
+  __int64 v26; // r14
+  unsigned __int16 *v27; // r15
+  int v28; // eax
+  __int64 v29; // rcx
+  __int64 v30; // rdx
+  __int64 v32; // rax
+  _QWORD *v33; // rax
+  _QWORD *v34; // rax
+  _QWORD *v35; // rax
+  _QWORD *v36; // rax
+  _BYTE v37[2]; // [rsp+20h] [rbp-B1h] BYREF
+  unsigned __int16 v38; // [rsp+22h] [rbp-AFh]
+  int v39; // [rsp+24h] [rbp-ADh] BYREF
+  struct HDXGMONITOR__ *v40; // [rsp+28h] [rbp-A9h] BYREF
+  unsigned __int16 *v41; // [rsp+30h] [rbp-A1h]
+  unsigned __int16 *v42; // [rsp+38h] [rbp-99h]
+  __int64 v43; // [rsp+40h] [rbp-91h] BYREF
+  unsigned __int64 v44; // [rsp+48h] [rbp-89h] BYREF
+  _BYTE v45[144]; // [rsp+50h] [rbp-81h] BYREF
 
-  v31 = a5;
-  v27 = a4;
-  v30 = a3;
-  v6 = (unsigned __int16 *)a2;
-  Global = DXGGLOBAL_GetGlobal();
-  v8 = DXGGLOBAL::ReferenceAdapterByLuid(Global, *a1, &v33);
-  v9 = v8;
+  v42 = a5;
+  v38 = a4;
+  v41 = a3;
+  v6 = (unsigned int)a2;
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, a2);
+  v8 = DXGGLOBAL::ReferenceAdapterByLuid(Global, *a1, &v44);
+  v12 = v8;
   if ( !v8 )
   {
-    WdLogSingleEntry2(3LL, a1->HighPart, a1->LowPart);
-    LODWORD(v11) = -1073741810;
-    return (unsigned int)v11;
+    v32 = WdLogNewEntry5_WdWarning(v10, v9, v11);
+    *(_QWORD *)(v32 + 24) = a1->HighPart;
+    *(_QWORD *)(v32 + 32) = a1->LowPart;
+    WdLogEvent5_WdWarning(v32);
+    LODWORD(v16) = -1073741810;
+    return (unsigned int)v16;
   }
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v34, v8, 0LL);
-  v10 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v34, 0LL);
-  LODWORD(v11) = v10;
-  if ( v10 < 0 )
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v45, v8, 0LL);
+  v13 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v45, 0LL);
+  v16 = v13;
+  if ( v13 < 0 )
   {
-    WdLogSingleEntry4(2LL, v10, v9, a1->HighPart, a1->LowPart);
-    goto LABEL_14;
+    v33 = (_QWORD *)WdLogNewEntry5_WdError(v15, v14);
+    v33[3] = v16;
+    v33[4] = v12;
+    v33[5] = a1->HighPart;
+    v33[6] = a1->LowPart;
+    WdLogEvent5_WdError(v33);
+    goto LABEL_13;
   }
-  v12 = *(VIDPN_MGR **)(*((_QWORD *)v9 + 349) + 104LL);
-  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v32, (__int64)v12);
-  v29 = 0LL;
-  ConnectedMonitorHandle = VIDPN_MGR::GetConnectedMonitorHandle(v12, (unsigned int)v6, &v29);
-  v11 = ConnectedMonitorHandle;
+  v17 = *(VIDPN_MGR **)(*((_QWORD *)v12 + 337) + 88LL);
+  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v43, (__int64)v17);
+  v40 = 0LL;
+  ConnectedMonitorHandle = VIDPN_MGR::GetConnectedMonitorHandle(v17, v6, &v40);
+  v16 = ConnectedMonitorHandle;
   if ( ConnectedMonitorHandle < 0 )
   {
-    v21 = v6;
-    v22 = v9;
-    LowPart = a1->LowPart;
-    HighPart = a1->HighPart;
-    v23 = 2LL;
-LABEL_23:
-    WdLogSingleEntry5(v23, v11, v21, v22, HighPart, LowPart);
-    goto LABEL_13;
-  }
-  v28 = 0;
-  v26[0] = 0;
-  v14 = (DXGMONITOR **)v29;
-  MonitorGetUsageClass(v29, &v28, v26);
-  if ( !v28 )
-  {
-    LODWORD(v11) = MonitorGetCCDMonitorID(v14, v27, v30);
-    if ( (_DWORD)v11 == -2147483643 )
-      LODWORD(v11) = -1073741789;
-  }
-  v15 = (int)VIDPN_MGR::ReleaseMonitorHandle(v12, (struct HDXGMONITOR__ *)v14);
-  v16 = 0;
-  if ( (int)v15 < 0 )
-  {
-    WdLogSingleEntry5(1LL, v15, v6, v14, a1->HighPart, a1->LowPart);
-    LODWORD(v11) = v15;
-    goto LABEL_13;
-  }
-  if ( v28 )
-  {
-    LODWORD(v11) = 0;
+    v34 = (_QWORD *)WdLogNewEntry5_WdError(v20, v19);
+    v34[3] = v16;
+    v34[5] = v12;
+LABEL_21:
+    v34[4] = v6;
+    v34[6] = a1->HighPart;
+    v34[7] = a1->LowPart;
+    WdLogEvent5_WdError(v34);
     goto LABEL_12;
   }
-  if ( (int)v11 < 0 )
+  v39 = 0;
+  v37[0] = 0;
+  v21 = v40;
+  MonitorGetUsageClass(v40, &v39, v37);
+  if ( !v39 )
   {
-    WdLogSingleEntry5(2LL, (int)v11, v6, v14, a1->HighPart, a1->LowPart);
-    goto LABEL_13;
+    LODWORD(v16) = MonitorGetCCDMonitorID(v21, v38, v41);
+    if ( (_DWORD)v16 == -2147483643 )
+      LODWORD(v16) = -1073741789;
   }
-  v17 = v30;
-  v29 = 0LL;
-  v18 = RtlStringCchLengthW(v30, v27, (unsigned __int64 *)&v29);
-  v11 = v18;
-  if ( v18 < 0 )
+  v22 = VIDPN_MGR::ReleaseMonitorHandle(v17, v21);
+  v25 = v22;
+  if ( v22 < 0 )
   {
-    v22 = v19;
-    v21 = v17;
-    LowPart = a1->LowPart;
-    HighPart = a1->HighPart;
-    v23 = 1LL;
-    goto LABEL_23;
+    v35 = (_QWORD *)WdLogNewEntry5_WdAssertion(v24, v23);
+    v35[3] = v25;
+    v35[4] = v6;
+    v35[5] = v21;
+    v35[6] = a1->HighPart;
+    v35[7] = a1->LowPart;
+    WdLogEvent5_WdAssertion(v35);
+    LODWORD(v16) = v25;
   }
-  v16 = (unsigned __int16)v29;
+  else
+  {
+    if ( !v39 )
+    {
+      if ( (int)v16 >= 0 )
+      {
+        v26 = v38;
+        v27 = v41;
+        v40 = 0LL;
+        v28 = RtlStringCchLengthW(v41, v38, (unsigned __int64 *)&v40);
+        v16 = v28;
+        if ( v28 < 0 )
+        {
+          v36 = (_QWORD *)WdLogNewEntry5_WdAssertion(v29, v23);
+          v36[3] = v16;
+          v36[4] = v27;
+          v36[5] = v26;
+          v36[6] = a1->HighPart;
+          v36[7] = a1->LowPart;
+          WdLogEvent5_WdAssertion(v36);
+        }
+        else
+        {
+          *v42 = (unsigned __int16)v40;
+        }
+        goto LABEL_12;
+      }
+      v34 = (_QWORD *)WdLogNewEntry5_WdError(v24, v23);
+      v34[3] = (int)v16;
+      v34[5] = v21;
+      goto LABEL_21;
+    }
+    LODWORD(v16) = 0;
+    *v42 = 0;
+  }
 LABEL_12:
-  *v31 = v16;
+  DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v43 + 40), v23);
 LABEL_13:
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v32 + 40));
-LABEL_14:
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v34);
-  DXGADAPTER::ReleaseReference(v9);
-  return (unsigned int)v11;
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v45, v30);
+  DXGADAPTER::ReleaseReference(v12);
+  return (unsigned int)v16;
 }

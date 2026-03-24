@@ -1,10 +1,10 @@
 /*
- * XREFs of KdpWriteFileCallback @ 0x140AB4E50
+ * XREFs of KdpWriteFileCallback @ 0x1409B6FA0
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     ZwWriteFile @ 0x14041A7A0 (ZwWriteFile.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     ZwWriteFile @ 0x1403F9B20 (ZwWriteFile.c)
  */
 
 __int64 __fastcall KdpWriteFileCallback(__int64 a1, LARGE_INTEGER a2, void *a3, ULONG Length)

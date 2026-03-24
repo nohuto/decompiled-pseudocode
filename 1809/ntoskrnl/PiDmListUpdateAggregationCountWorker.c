@@ -1,8 +1,8 @@
 /*
- * XREFs of PiDmListUpdateAggregationCountWorker @ 0x140702A58
+ * XREFs of PiDmListUpdateAggregationCountWorker @ 0x140702A38
  * Callers:
- *     PiDmListAddObjectWorker @ 0x140702978 (PiDmListAddObjectWorker.c)
- *     PiDmListRemoveObjectWorker @ 0x1408297C8 (PiDmListRemoveObjectWorker.c)
+ *     PiDmListAddObjectWorker @ 0x140702958 (PiDmListAddObjectWorker.c)
+ *     PiDmListRemoveObjectWorker @ 0x1408297A8 (PiDmListRemoveObjectWorker.c)
  * Callees:
  *     PiDmGetCacheKeys @ 0x140598E7C (PiDmGetCacheKeys.c)
  *     PiDmGetCachedKeyIndex @ 0x140598ECC (PiDmGetCachedKeyIndex.c)

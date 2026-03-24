@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCmEncodeMemIoResource @ 0x1401809C0
+ * XREFs of RtlCmEncodeMemIoResource @ 0x1401809E0
  * Callers:
  *     IopInitializeResourceMap @ 0x1409C0C58 (IopInitializeResourceMap.c)
  * Callees:

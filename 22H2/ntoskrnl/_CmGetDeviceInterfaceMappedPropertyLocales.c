@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmGetDeviceInterfaceMappedPropertyLocales @ 0x140A68684
+ * XREFs of _CmGetDeviceInterfaceMappedPropertyLocales @ 0x14097A5F0
  * Callers:
- *     _PnpDispatchDeviceInterface @ 0x1406CCF40 (_PnpDispatchDeviceInterface.c)
+ *     _PnpDispatchDeviceInterface @ 0x1406B5060 (_PnpDispatchDeviceInterface.c)
  * Callees:
  *     <none>
  */
@@ -15,51 +15,51 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyLocales(
         int a6,
         _DWORD *a7)
 {
+  DEVPROPKEY **v7; // r10
   unsigned int v8; // edx
   unsigned int v9; // r11d
-  DEVPROPKEY **v10; // r9
-  DEVPROPKEY *v11; // r8
-  __int64 v12; // rcx
-  DEVPROPKEY **v13; // r8
-  unsigned int v14; // r9d
-  DEVPROPKEY *v15; // r11
-  __int64 v16; // rcx
+  DEVPROPKEY *v10; // r8
+  __int64 v11; // rcx
+  DEVPROPKEY **v12; // r8
+  unsigned int v13; // r10d
+  DEVPROPKEY *v14; // r11
+  __int64 v15; // rcx
 
+  v7 = &off_140983A08;
   v8 = -1073741802;
   v9 = 0;
-  v10 = &off_140A77E78;
   *a7 = 0;
   while ( 1 )
   {
-    v11 = *v10;
-    if ( *v10 && *(_DWORD *)(a4 + 16) == v11->pid )
+    v10 = *v7;
+    if ( *v7 && *(_DWORD *)(a4 + 16) == v10->pid )
     {
-      v12 = *(_QWORD *)a4 - *(_QWORD *)&v11->fmtid.Data1;
-      if ( *(_QWORD *)a4 == *(_QWORD *)&v11->fmtid.Data1 )
-        v12 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v11->fmtid.Data4;
-      if ( !v12 )
+      v11 = *(_QWORD *)a4 - *(_QWORD *)&v10->fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&v10->fmtid.Data1 )
+        v11 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v10->fmtid.Data4;
+      if ( !v11 )
         break;
     }
     ++v9;
-    v10 += 2;
+    v7 += 2;
     if ( v9 >= 3 )
     {
-      v13 = &off_140A78620;
-      v14 = 0;
+      v12 = &off_140983F00;
+      v13 = 0;
       while ( 1 )
       {
-        v15 = *v13;
-        if ( *(_DWORD *)(a4 + 16) == (*v13)->pid )
+        v14 = *v12;
+        if ( *(_DWORD *)(a4 + 16) == (*v12)->pid )
         {
-          v16 = *(_QWORD *)a4 - *(_QWORD *)&v15->fmtid.Data1;
-          if ( *(_QWORD *)a4 == *(_QWORD *)&v15->fmtid.Data1 )
-            v16 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v15->fmtid.Data4;
-          if ( !v16 )
+          v15 = *(_QWORD *)a4 - *(_QWORD *)&v14->fmtid.Data1;
+          if ( *(_QWORD *)a4 == *(_QWORD *)&v14->fmtid.Data1 )
+            v15 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v14->fmtid.Data4;
+          if ( !v15 )
             break;
         }
-        ++v14;
-        v13 += 2;
-        if ( v14 >= 4 )
+        ++v13;
+        v12 += 2;
+        if ( v13 >= 4 )
           return v8;
       }
       break;

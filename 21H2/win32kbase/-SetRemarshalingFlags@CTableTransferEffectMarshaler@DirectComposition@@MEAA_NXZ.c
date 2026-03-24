@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0218390
+ * XREFs of ?SetRemarshalingFlags@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E2120
  * Callers:
  *     <none>
  * Callees:
@@ -16,7 +16,7 @@ char __fastcall DirectComposition::CTableTransferEffectMarshaler::SetRemarshalin
   bool v5; // zf
 
   v1 = 0;
-  v2 = (_DWORD *)((char *)this + 128);
+  v2 = (_DWORD *)((char *)this + 120);
   v3 = 0;
   v4 = 4LL;
   do
@@ -28,8 +28,8 @@ char __fastcall DirectComposition::CTableTransferEffectMarshaler::SetRemarshalin
     --v4;
   }
   while ( v4 );
-  *((_DWORD *)this + 28) = 0;
-  if ( *((_DWORD *)this + 20) || v3 || (*((_BYTE *)this + 184) & 0x10) != 0 )
+  *((_DWORD *)this + 26) = 0;
+  if ( *((_DWORD *)this + 18) || v3 || (*((_BYTE *)this + 176) & 0x10) != 0 )
     return 1;
   return v1;
 }

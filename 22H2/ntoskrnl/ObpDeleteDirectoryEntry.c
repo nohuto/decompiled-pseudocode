@@ -1,28 +1,28 @@
 /*
- * XREFs of ObpDeleteDirectoryEntry @ 0x140697854
+ * XREFs of ObpDeleteDirectoryEntry @ 0x1406F82C0
  * Callers:
- *     ObpInsertOrLocateNamedObject @ 0x1406C0B0C (ObpInsertOrLocateNamedObject.c)
- *     ObpCloseHandle @ 0x1406E7730 (ObpCloseHandle.c)
- *     ObpDeleteNameCheck @ 0x140740650 (ObpDeleteNameCheck.c)
+ *     ObCloseHandleTableEntry @ 0x140642D80 (ObCloseHandleTableEntry.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1406DB6F0 (ObpInsertOrLocateNamedObject.c)
+ *     ObpDeleteNameCheck @ 0x1406F6EB0 (ObpDeleteNameCheck.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObpDeleteDirectoryName @ 0x1406978D4 (ObpDeleteDirectoryName.c)
- *     ObpUnlockDirectory @ 0x1406C32F8 (ObpUnlockDirectory.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-LONG_PTR __fastcall ObpDeleteDirectoryEntry(_QWORD *P, void **a2)
+char __fastcall ObpDeleteDirectoryEntry(__int64 a1)
 {
-  char *v2; // rsi
-  void *v4; // rdi
+  _QWORD **v1; // rdx
+  struct _DMA_ADAPTER *v2; // rdi
+  _QWORD *v3; // rbx
 
-  v2 = (char *)P[1];
-  v4 = *a2;
-  ObpUnlockDirectory(a2);
-  ExFreePoolWithTag(P, 0);
-  ObfDereferenceObjectWithTag(v4, 0x6944624Fu);
-  if ( ((unsigned __int8)ObHeaderCookie ^ (unsigned __int8)(*(v2 - 24) ^ ((unsigned __int16)((_WORD)v2 - 48) >> 8))) == ObpDirectoryObjectType->Index )
-    return ObpDeleteDirectoryName(v2);
-  else
-    return ObfDereferenceObjectWithTag(v2, 0x6944624Fu);
+  v1 = *(_QWORD ***)(a1 + 16);
+  v2 = *(struct _DMA_ADAPTER **)a1;
+  v3 = *v1;
+  *v1 = (_QWORD *)**v1;
+  *v3 = 0LL;
+  *(_QWORD *)(v3[1] - 48LL - ObpInfoMaskToOffset[*(_BYTE *)(v3[1] - 48LL + 26) & 3]) = 0LL;
+  HalPutDmaAdapter((PADAPTER_OBJECT)v3[1]);
+  ExFreePoolWithTag(v3, 0);
+  HalPutDmaAdapter(v2);
+  return 1;
 }

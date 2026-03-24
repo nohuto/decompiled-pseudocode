@@ -1,7 +1,7 @@
 /*
- * XREFs of RegisterPerUserKeyboardIndicators @ 0x1C011D258
+ * XREFs of RegisterPerUserKeyboardIndicators @ 0x1C0132B3C
  * Callers:
- *     PrepareForLogoff @ 0x1C011D19C (PrepareForLogoff.c)
+ *     PrepareForLogoff @ 0x1C0132A80 (PrepareForLogoff.c)
  * Callees:
  *     <none>
  */

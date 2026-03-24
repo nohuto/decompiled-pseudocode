@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryFullAttributesFile @ 0x14041E100
+ * XREFs of ZwQueryFullAttributesFile @ 0x1403FCC80
  * Callers:
- *     DifZwQueryFullAttributesFileWrapper @ 0x140624540 (DifZwQueryFullAttributesFileWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

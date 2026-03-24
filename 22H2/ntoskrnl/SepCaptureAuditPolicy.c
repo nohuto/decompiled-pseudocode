@@ -1,11 +1,11 @@
 /*
- * XREFs of SepCaptureAuditPolicy @ 0x1409CD770
+ * XREFs of SepCaptureAuditPolicy @ 0x140920B44
  * Callers:
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureAuditPolicy(
@@ -26,7 +26,7 @@ __int64 __fastcall SepCaptureAuditPolicy(
     if ( a1 + 31 > 0x7FFFFFFF0000LL || a1 + 31 < a1 )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)1025, 0x1FuLL, 0x61506553u);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1FuLL, 0x61506553u);
   *a7 = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225626LL;

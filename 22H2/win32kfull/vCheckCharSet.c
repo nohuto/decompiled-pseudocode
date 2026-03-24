@@ -1,7 +1,7 @@
 /*
- * XREFs of vCheckCharSet @ 0x1C00A297C
+ * XREFs of vCheckCharSet @ 0x1C011912C
  * Callers:
- *     vProcessEntry @ 0x1C00A28A8 (vProcessEntry.c)
+ *     vProcessEntry @ 0x1C0119058 (vProcessEntry.c)
  * Callees:
  *     <none>
  */

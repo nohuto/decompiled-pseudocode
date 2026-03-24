@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlUninitializeFileLock @ 0x1401111D0
+ * XREFs of FsRtlUninitializeFileLock @ 0x1401111F0
  * Callers:
- *     FsRtlFreeFileLock @ 0x140110330 (FsRtlFreeFileLock.c)
+ *     FsRtlFreeFileLock @ 0x140110350 (FsRtlFreeFileLock.c)
  * Callees:
  *     RtlDeleteNoSplay @ 0x140014470 (RtlDeleteNoSplay.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
@@ -9,10 +9,10 @@
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)

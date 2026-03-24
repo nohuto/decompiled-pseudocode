@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBDTX_LogBillboardEvent @ 0x1C002CF10
+ * XREFs of HUBDTX_LogBillboardEvent @ 0x1C0029E78
  * Callers:
- *     HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried @ 0x1C00222D0 (HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried.c)
- *     HUBDSM_ValidatingAndLoggingBillboardStringDescriptor @ 0x1C0022BB0 (HUBDSM_ValidatingAndLoggingBillboardStringDescriptor.c)
+ *     HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried @ 0x1C001FCD0 (HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried.c)
+ *     HUBDSM_ValidatingAndLoggingBillboardStringDescriptor @ 0x1C00205B0 (HUBDSM_ValidatingAndLoggingBillboardStringDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_dD @ 0x1C0002668 (WPP_RECORDER_SF_dD.c)
- *     McTemplateK0puuhz_EtwWriteTransfer @ 0x1C00295A0 (McTemplateK0puuhz_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     memmove @ 0x1C0044BC0 (memmove.c)
- *     memset @ 0x1C0044EC0 (memset.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     McTemplateK0puuhz_EtwWriteTransfer @ 0x1C002698C (McTemplateK0puuhz_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 int __fastcall HUBDTX_LogBillboardEvent(__int64 a1, _BYTE *a2)
@@ -23,7 +23,7 @@ int __fastcall HUBDTX_LogBillboardEvent(__int64 a1, _BYTE *a2)
   int v12; // [rsp+30h] [rbp-138h]
   _BYTE v13[256]; // [rsp+40h] [rbp-128h] BYREF
 
-  v4 = **(_QWORD **)(a1 + 2648);
+  v4 = **(_QWORD **)(a1 + 2640);
   if ( a2 )
   {
     v5 = (unsigned __int8)(*a2 - 2);
@@ -39,12 +39,12 @@ int __fastcall HUBDTX_LogBillboardEvent(__int64 a1, _BYTE *a2)
                     *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
                     4u,
                     5u,
-                    0x59u,
-                    (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+                    0x57u,
+                    (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
                     v10,
                     v12);
   }
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x100) != 0 )
+  if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
   {
     LOWORD(v11) = *(_WORD *)(v4 + 6);
     LOBYTE(v9) = *(_BYTE *)(v4 + 5);

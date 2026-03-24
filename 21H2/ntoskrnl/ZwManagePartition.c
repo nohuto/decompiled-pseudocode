@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwManagePartition @ 0x14041DA60
+ * XREFs of ZwManagePartition @ 0x1403FC5E0
  * Callers:
- *     ExpAddNonMirroredRanges @ 0x140B5439C (ExpAddNonMirroredRanges.c)
+ *     <none>
  * Callees:
  *     <none>
  */

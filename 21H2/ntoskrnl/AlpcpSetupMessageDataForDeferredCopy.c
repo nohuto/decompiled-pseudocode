@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpSetupMessageDataForDeferredCopy @ 0x140666C9C
+ * XREFs of AlpcpSetupMessageDataForDeferredCopy @ 0x1405E0F88
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x140665B68 (AlpcpAcceptConnectPort.c)
- *     AlpcpFormatConnectionRequest @ 0x140668084 (AlpcpFormatConnectionRequest.c)
+ *     AlpcpFormatConnectionRequest @ 0x1405E033C (AlpcpFormatConnectionRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
  * Callees:
- *     AlpcpCaptureMessageData @ 0x1407A7B98 (AlpcpCaptureMessageData.c)
- *     AlpcpAvailableBufferSize @ 0x1407A7C84 (AlpcpAvailableBufferSize.c)
+ *     AlpcpAvailableBufferSize @ 0x1405CF054 (AlpcpAvailableBufferSize.c)
+ *     AlpcpCaptureMessageData @ 0x1405E3D7C (AlpcpCaptureMessageData.c)
  */
 
 __int64 __fastcall AlpcpSetupMessageDataForDeferredCopy(
@@ -16,10 +16,10 @@ __int64 __fastcall AlpcpSetupMessageDataForDeferredCopy(
         char a5,
         char a6)
 {
-  unsigned __int64 v6; // rax
-  __int64 v7; // rcx
-  unsigned __int64 v8; // r9
-  unsigned int v9; // r10d
+  unsigned __int64 v7; // rax
+  __int64 v8; // rcx
+  unsigned __int64 v9; // r9
+  unsigned int v10; // r10d
 
   if ( !a5 )
   {
@@ -31,8 +31,8 @@ __int64 __fastcall AlpcpSetupMessageDataForDeferredCopy(
   if ( a6 && (unsigned __int64)a4 + a2 > 0x7FFFFFFF0000LL )
     return 3221225477LL;
   *(_QWORD *)(a1 + 176) = a2;
-  v6 = AlpcpAvailableBufferSize(a1, a2);
-  if ( v8 > v6 )
-    return (unsigned int)AlpcpCaptureMessageData(v7, v8, 0LL);
-  return v9;
+  v7 = AlpcpAvailableBufferSize(a1);
+  if ( v9 > v7 )
+    return (unsigned int)AlpcpCaptureMessageData(v8, v9, 0LL);
+  return v10;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of SepCheckAndCopySelfRelativeSD @ 0x1402FF9C4
+ * XREFs of SepCheckAndCopySelfRelativeSD @ 0x1402FFAC4
  * Callers:
- *     SeOperationAuditAlarm @ 0x14089DA54 (SeOperationAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14089E6FC (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x14089F488 (SepAdtStagingEvent.c)
+ *     SeOperationAuditAlarm @ 0x14089DA34 (SeOperationAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14089E6DC (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x14089F468 (SepAdtStagingEvent.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x1406AFA30 (RtlAbsoluteToSelfRelativeSD.c)
- *     SepSecurityDescriptorStrictLength @ 0x1408A3CC4 (SepSecurityDescriptorStrictLength.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1406AFA10 (RtlAbsoluteToSelfRelativeSD.c)
+ *     SepSecurityDescriptorStrictLength @ 0x1408A3CA4 (SepSecurityDescriptorStrictLength.c)
  */
 
 __int64 __fastcall SepCheckAndCopySelfRelativeSD(__int16 *a1, PVOID *a2, ULONG *a3, _BYTE *a4)

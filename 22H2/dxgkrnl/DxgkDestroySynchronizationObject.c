@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkDestroySynchronizationObject @ 0x1C01EA3D0
+ * XREFs of DxgkDestroySynchronizationObject @ 0x1C0163B70
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkDestroySynchronizationObjectImpl@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@H@Z @ 0x1C01A3814 (-DxgkDestroySynchronizationObjectImpl@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@H@Z.c)
+ *     ?DxgkDestroySynchronizationObjectImpl@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@H@Z @ 0x1C01174F4 (-DxgkDestroySynchronizationObjectImpl@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@H@Z.c)
  */
 
 __int64 __fastcall DxgkDestroySynchronizationObject(

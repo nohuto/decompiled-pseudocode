@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmSetAllocationPriority @ 0x1C002D510
+ * XREFs of VidMmSetAllocationPriority @ 0x1C00230D0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetAllocationPriority@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C00D9A1C (-SetAllocationPriority@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@I@Z.c)
+ *     ?SetAllocationPriority@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C00B3948 (-SetAllocationPriority@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@I@Z.c)
  */
 
 void __fastcall VidMmSetAllocationPriority(VIDMM_GLOBAL *a1, struct _VIDMM_MULTI_ALLOC *a2, unsigned int a3)

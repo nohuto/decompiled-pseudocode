@@ -1,52 +1,47 @@
 /*
- * XREFs of NestAsyncEvalObject @ 0x1C006982C
+ * XREFs of NestAsyncEvalObject @ 0x1C00683FC
  * Callers:
- *     SyncEvalObject @ 0x1C000B990 (SyncEvalObject.c)
+ *     SyncEvalObject @ 0x1C0004490 (SyncEvalObject.c)
  * Callees:
- *     ReadObject @ 0x1C000A950 (ReadObject.c)
- *     DupObjData @ 0x1C00169A0 (DupObjData.c)
- *     PushCall @ 0x1C0016ABC (PushCall.c)
- *     PushFrame @ 0x1C0018660 (PushFrame.c)
- *     GetObjectPath @ 0x1C00282F8 (GetObjectPath.c)
- *     ConPrintf @ 0x1C00290CC (ConPrintf.c)
- *     LogSchedEvent @ 0x1C00297A4 (LogSchedEvent.c)
- *     PushPost @ 0x1C002A7B8 (PushPost.c)
- *     GetThreadCurrentContext @ 0x1C002DCD0 (GetThreadCurrentContext.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintObject @ 0x1C0067C8C (PrintObject.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     DupObjData @ 0x1C000A400 (DupObjData.c)
+ *     ReadObject @ 0x1C000B4C0 (ReadObject.c)
+ *     PushCall @ 0x1C00219CC (PushCall.c)
+ *     PushFrame @ 0x1C0022DD8 (PushFrame.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     GetThreadCurrentContext @ 0x1C0023FAC (GetThreadCurrentContext.c)
+ *     LogSchedEvent @ 0x1C002A1C0 (LogSchedEvent.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     PrintObject @ 0x1C0066934 (PrintObject.c)
+ *     PushPost @ 0x1C0068278 (PushPost.c)
  */
 
 __int64 __fastcall NestAsyncEvalObject(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5, __int64 a6)
 {
   unsigned __int64 v7; // rbp
-  __int64 ThreadCurrentContext; // rsi
+  __int64 ThreadCurrentContext; // rdi
   KIRQL v11; // r10
-  unsigned int v12; // edi
+  unsigned int v12; // ebx
   __int64 v13; // rcx
   __int64 v14; // rax
-  __int64 v15; // rdi
-  _BYTE *ObjectPath; // rax
-  void *v17; // rdx
-  void *v18; // rbx
+  __int64 v15; // rbx
+  _QWORD *ObjectPath; // rax
+  char *v17; // rdx
+  void *v18; // rsi
   __int64 v19; // rax
-  __int64 v20; // rdi
+  __int64 v20; // rbx
 
   v7 = a3;
-  NewIrql = KeAcquireSpinLockRaiseToDpc(&SpinLock);
+  byte_1C00827B0 = KeAcquireSpinLockRaiseToDpc(&SpinLock);
   ThreadCurrentContext = GetThreadCurrentContext();
   KeReleaseSpinLock(&SpinLock, v11);
   LogSchedEvent(1312904025, ThreadCurrentContext, a1, (__int64)EvalMethodComplete, ThreadCurrentContext);
   if ( ThreadCurrentContext )
   {
     a5 = 0LL;
-    v12 = PushFrame(
-            (struct _SLIST_ENTRY *)ThreadCurrentContext,
-            1481917262,
-            0x80u,
-            (__int64)ParseNestedContext,
-            (_SLIST_ENTRY **)&a5);
+    v12 = PushFrame((struct _SLIST_ENTRY *)ThreadCurrentContext, 1481917262, 0x80u, (__int64)ParseNestedContext, &a5);
     if ( !v12 )
     {
       v13 = a5;
@@ -81,10 +76,10 @@ __int64 __fastcall NestAsyncEvalObject(__int64 a1, __int64 a2, unsigned int a3, 
             if ( (gDebugger & 0xD0) != 0 )
             {
               ObjectPath = GetObjectPath(a1);
-              v17 = &unk_1C006FB8B;
+              v17 = byte_1C00701BA;
               v18 = ObjectPath;
               if ( ObjectPath )
-                v17 = ObjectPath;
+                v17 = (char *)ObjectPath;
               ConPrintf("\nAMLI: %s(", v17);
               if ( v18 )
                 ExFreePoolWithTag(v18, 0);
@@ -132,9 +127,9 @@ LABEL_23:
         if ( !(unsigned int)PushPost(
                               (struct _SLIST_ENTRY *)ThreadCurrentContext,
                               (__int64)ProcessEvalObj,
-                              (_SLIST_ENTRY *)a1,
+                              a1,
                               0LL,
-                              (_SLIST_ENTRY *)(v13 + 48)) )
+                              v13 + 48) )
           ReadObject(ThreadCurrentContext, a1 + 64, v20);
       }
       return 32772;

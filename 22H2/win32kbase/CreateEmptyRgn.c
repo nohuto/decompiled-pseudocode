@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateEmptyRgn @ 0x1C005CB10
+ * XREFs of CreateEmptyRgn @ 0x1C006B890
  * Callers:
  *     <none>
  * Callees:
- *     GreCreateRectRgnIndirect @ 0x1C003F2F0 (GreCreateRectRgnIndirect.c)
+ *     GreCreateRectRgnIndirect @ 0x1C00357D0 (GreCreateRectRgnIndirect.c)
  */
 
 struct HOBJ__ *CreateEmptyRgn()

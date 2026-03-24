@@ -1,23 +1,23 @@
 /*
- * XREFs of ViTargetTrackContiguousMemory @ 0x140A8B450
+ * XREFs of ViTargetTrackContiguousMemory @ 0x1409D76B0
  * Callers:
- *     VerifierMmAllocateContiguousMemory @ 0x140A9F2C0 (VerifierMmAllocateContiguousMemory.c)
- *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x140A9F440 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
- *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x140A9F580 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
- *     VerifierMmAllocateContiguousNodeMemory @ 0x140A9F6A0 (VerifierMmAllocateContiguousNodeMemory.c)
- *     VerifierMmAllocateNonCachedMemory @ 0x140A9F900 (VerifierMmAllocateNonCachedMemory.c)
+ *     VerifierMmAllocateContiguousMemory @ 0x1409E5DE0 (VerifierMmAllocateContiguousMemory.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x1409E5ED0 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x1409E5FF0 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     VerifierMmAllocateContiguousNodeMemory @ 0x1409E6110 (VerifierMmAllocateContiguousNodeMemory.c)
+ *     VerifierMmAllocateNonCachedMemory @ 0x1409E6390 (VerifierMmAllocateNonCachedMemory.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1402D81DC (VfAvlCleanupLockContext.c)
- *     VfAvlLookupTreeNode @ 0x1402D8518 (VfAvlLookupTreeNode.c)
- *     VfUtilFreePoolCheckIRQL @ 0x1402DB870 (VfUtilFreePoolCheckIRQL.c)
- *     VfAvlInitializeLockContext @ 0x14045F6C8 (VfAvlInitializeLockContext.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     ViTargetUpdateTreeAllowed @ 0x140A8B564 (ViTargetUpdateTreeAllowed.c)
+ *     VfAvlCleanupLockContext @ 0x140371B24 (VfAvlCleanupLockContext.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14037EAD0 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlLookupTreeNode @ 0x14037EBF4 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x1405A25D4 (VfAvlInitializeLockContext.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ViTargetUpdateTreeAllowed @ 0x1409D77C8 (ViTargetUpdateTreeAllowed.c)
  */
 
 char __fastcall ViTargetTrackContiguousMemory(unsigned __int64 a1, _SLIST_ENTRY *a2, __int64 a3)
 {
-  struct _SLIST_ENTRY *Pool2; // rax
+  struct _SLIST_ENTRY *PoolWithTag; // rax
   struct _SLIST_ENTRY *v7; // rbx
   int v8; // esi
   _QWORD *v9; // rax
@@ -28,17 +28,17 @@ char __fastcall ViTargetTrackContiguousMemory(unsigned __int64 a1, _SLIST_ENTRY 
   __int128 v15; // [rsp+20h] [rbp-18h] BYREF
 
   v15 = 0LL;
-  LODWORD(Pool2) = ViTargetUpdateTreeAllowed(a1, a2, a3);
-  if ( (_DWORD)Pool2 )
+  LODWORD(PoolWithTag) = ViTargetUpdateTreeAllowed(a1, a2, a3);
+  if ( (_DWORD)PoolWithTag )
   {
-    Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(64LL, 0x28uLL, 0x61436656u);
-    v7 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x61436656u);
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      Pool2[1].Next = a2;
-      *((_QWORD *)&Pool2[1].Next + 1) = a3;
+      PoolWithTag[1].Next = a2;
+      *((_QWORD *)&PoolWithTag[1].Next + 1) = a3;
       v8 = 0;
-      Pool2[2].Next = (_SLIST_ENTRY *)a1;
+      PoolWithTag[2].Next = (_SLIST_ENTRY *)a1;
       VfAvlInitializeLockContext((__int64)&v15, 0);
       v9 = VfAvlLookupTreeNode((__int64 *)&ViTargetDriversAvl, (__int64)&v15, a1, 1LL);
       if ( v9 )
@@ -46,12 +46,12 @@ char __fastcall ViTargetTrackContiguousMemory(unsigned __int64 a1, _SLIST_ENTRY 
         v10 = v9[7];
         if ( v10 )
         {
-          qword_140C1B250 += a3;
-          v11 = a3 + *(_QWORD *)(v10 + 248);
-          *(_QWORD *)(v10 + 248) = v11;
-          if ( *(_QWORD *)(v10 + 256) < v11 )
-            *(_QWORD *)(v10 + 256) = v11;
-          v12 = v10 + 264;
+          qword_140C1D0B0 += a3;
+          v11 = a3 + *(_QWORD *)(v10 + 240);
+          *(_QWORD *)(v10 + 240) = v11;
+          if ( *(_QWORD *)(v10 + 248) < v11 )
+            *(_QWORD *)(v10 + 248) = v11;
+          v12 = v10 + 256;
           v13 = *(struct _SLIST_ENTRY ***)(v12 + 8);
           if ( *v13 != (struct _SLIST_ENTRY *)v12 )
             __fastfail(3u);
@@ -62,10 +62,10 @@ char __fastcall ViTargetTrackContiguousMemory(unsigned __int64 a1, _SLIST_ENTRY 
           *(_QWORD *)(v12 + 8) = v7;
         }
       }
-      LOBYTE(Pool2) = VfAvlCleanupLockContext((__int64)&v15);
+      LOBYTE(PoolWithTag) = VfAvlCleanupLockContext((__int64)&v15);
       if ( !v8 )
-        LOBYTE(Pool2) = VfUtilFreePoolCheckIRQL(v7);
+        LOBYTE(PoolWithTag) = VfUtilFreePoolCheckIRQL(v7);
     }
   }
-  return (char)Pool2;
+  return (char)PoolWithTag;
 }

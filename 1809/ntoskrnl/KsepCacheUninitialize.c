@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepCacheUninitialize @ 0x140848F1C
+ * XREFs of KsepCacheUninitialize @ 0x140848EFC
  * Callers:
  *     KseInitialize @ 0x1409AF930 (KseInitialize.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1400F4C94 (KsepPoolFreePaged.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall KsepCacheUninitialize(__int64 a1)

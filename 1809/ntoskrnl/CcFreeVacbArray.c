@@ -1,9 +1,9 @@
 /*
- * XREFs of CcFreeVacbArray @ 0x1407E87D4
+ * XREFs of CcFreeVacbArray @ 0x1407E87B4
  * Callers:
- *     CcDereferenceVacbArray @ 0x14026A52C (CcDereferenceVacbArray.c)
+ *     CcDereferenceVacbArray @ 0x14026A62C (CcDereferenceVacbArray.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

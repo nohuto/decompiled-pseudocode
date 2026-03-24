@@ -1,47 +1,49 @@
 /*
- * XREFs of RtlpCopyRetpolineRelocationBlockEntryArray @ 0x14020CE30
+ * XREFs of RtlpCopyRetpolineRelocationBlockEntryArray @ 0x1402F3D10
  * Callers:
- *     RtlCreateRetpolineRelocationInformation @ 0x14020CB94 (RtlCreateRetpolineRelocationInformation.c)
+ *     RtlCreateRetpolineRelocationInformation @ 0x1402F3A94 (RtlCreateRetpolineRelocationInformation.c)
  * Callees:
- *     RtlSizeOfRetpolineRelocationEntry @ 0x14020CEDC (RtlSizeOfRetpolineRelocationEntry.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     RtlSizeOfRetpolineRelocationEntry @ 0x1402F3DB8 (RtlSizeOfRetpolineRelocationEntry.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 _DWORD *__fastcall RtlpCopyRetpolineRelocationBlockEntryArray(
         char *a1,
         unsigned int a2,
         _WORD *a3,
-        unsigned int a4,
+        __int64 a4,
         _DWORD *a5)
 {
-  unsigned __int64 v6; // r14
-  __int64 v7; // r12
-  int v8; // r15d
-  _WORD *v9; // rbx
-  char *v10; // rdi
-  size_t v11; // rsi
+  __int64 v6; // r12
+  unsigned int v8; // eax
+  unsigned int v9; // r9d
+  _WORD *v10; // r8
+  _WORD *v11; // rdi
+  unsigned __int64 v12; // r14
+  char *v13; // rbx
+  size_t v14; // rsi
   _DWORD *result; // rax
 
-  v6 = (unsigned __int64)a3 + a4;
-  v7 = a2;
-  v8 = (int)a1;
-  v9 = a3;
-  v10 = a1;
-  if ( (unsigned __int64)a3 < v6 )
+  v6 = a2;
+  v8 = RtlSizeOfRetpolineRelocationEntry(a2);
+  v11 = v10;
+  v12 = (unsigned __int64)v10 + v9;
+  v13 = a1;
+  if ( (unsigned __int64)v10 < v12 )
   {
-    v11 = (unsigned int)RtlSizeOfRetpolineRelocationEntry(a2);
+    v14 = v8;
     do
     {
-      if ( v7 != 3 && v7 != 4 && v7 != 5 || (*v9 & 0xFFF) != 0 || v9 == a3 )
+      if ( v6 != 3 && v6 != 4 && v6 != 5 || (*v11 & 0xFFF) != 0 || v11 == a3 )
       {
-        memmove(v10, v9, v11);
-        v10 += v11;
+        memmove(v13, v11, v14);
+        v13 += v14;
       }
-      v9 = (_WORD *)((char *)v9 + v11);
+      v11 = (_WORD *)((char *)v11 + v14);
     }
-    while ( (unsigned __int64)v9 < v6 );
+    while ( (unsigned __int64)v11 < v12 );
   }
   result = a5;
-  *a5 = (_DWORD)v10 - v8;
+  *a5 = (_DWORD)v13 - (_DWORD)a1;
   return result;
 }

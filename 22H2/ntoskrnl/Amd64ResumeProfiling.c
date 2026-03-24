@@ -1,44 +1,35 @@
 /*
- * XREFs of Amd64ResumeProfiling @ 0x14052A0D0
+ * XREFs of Amd64ResumeProfiling @ 0x1404DE0E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned __int64 Amd64ResumeProfiling()
+int Amd64ResumeProfiling()
 {
-  __int64 v0; // r8
-  unsigned __int64 result; // rax
-  unsigned int *v2; // r9
+  unsigned __int64 v0; // rax
+  int *v1; // r8
+  int v2; // r9d
   __int64 v3; // r10
-  unsigned int v4; // ecx
-  unsigned __int64 v5; // rax
+  unsigned __int64 v4; // rax
 
-  if ( HalpProfileInterface == &DefaultProfileInterface )
-    v0 = HalpCounterStatus;
-  else
-    v0 = HalpCounterStatus + 8LL * HalpNumberOfCounters * KeGetPcr()->Prcb.Number;
-  result = (unsigned int)Amd64NumberCounters;
-  if ( Amd64NumberCounters )
+  LODWORD(v0) = KeGetPcr()->Prcb.Number;
+  v1 = (int *)(Amd64CounterStatus + ((unsigned __int64)(unsigned int)v0 << 6));
+  v2 = 0;
+  v3 = 4LL;
+  do
   {
-    v2 = (unsigned int *)&Amd64EventSelectRegisters;
-    v3 = (unsigned int)Amd64NumberCounters;
-    do
+    if ( *v1 < 2 )
     {
-      result = *(_QWORD *)v0;
-      if ( *(int *)(*(_QWORD *)v0 + 24LL) < 2 )
-      {
-        v4 = *v2;
-        v5 = __readmsr(*v2);
-        result = (unsigned int)v5 | 0x400000LL;
-        __writemsr(v4, result);
-      }
-      v0 += 8LL;
-      ++v2;
-      --v3;
+      v4 = __readmsr(v2 - 1073676288);
+      v0 = (unsigned int)v4 | 0x400000LL;
+      __writemsr(v2 - 1073676288, v0);
     }
-    while ( v3 );
+    ++v2;
+    v1 += 4;
+    --v3;
   }
-  return result;
+  while ( v3 );
+  return v0;
 }

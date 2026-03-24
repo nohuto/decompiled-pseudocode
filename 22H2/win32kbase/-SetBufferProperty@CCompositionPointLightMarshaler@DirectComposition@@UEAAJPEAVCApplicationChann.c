@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CCompositionPointLightMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022B4D0
+ * XREFs of ?SetBufferProperty@CCompositionPointLightMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F25E0
  * Callers:
  *     <none>
  * Callees:

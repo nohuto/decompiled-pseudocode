@@ -3,11 +3,11 @@
  * Callers:
  *     KiDispatchException @ 0x1400A2F50 (KiDispatchException.c)
  *     RtlpReadExtendedContext @ 0x140620F80 (RtlpReadExtendedContext.c)
- *     RtlpWriteExtendedContext @ 0x1406A8568 (RtlpWriteExtendedContext.c)
+ *     RtlpWriteExtendedContext @ 0x1406A8548 (RtlpWriteExtendedContext.c)
  * Callees:
  *     RtlpValidateContextFlags @ 0x1400A2070 (RtlpValidateContextFlags.c)
  *     RtlpCopyLegacyContext @ 0x1400A21D4 (RtlpCopyLegacyContext.c)
- *     RtlpCopyXStateChunk @ 0x140141814 (RtlpCopyXStateChunk.c)
+ *     RtlpCopyXStateChunk @ 0x140141834 (RtlpCopyXStateChunk.c)
  */
 
 __int64 __fastcall RtlpCopyExtendedContext(char a1, __int64 a2, __int64 a3, int a4, __int64 a5, __int64 a6)

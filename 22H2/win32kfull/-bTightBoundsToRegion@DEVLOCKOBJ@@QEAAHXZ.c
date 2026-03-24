@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bTightBoundsToRegion@DEVLOCKOBJ@@QEAAHXZ @ 0x1C013EBD0
+ * XREFs of ?bTightBoundsToRegion@DEVLOCKOBJ@@QEAAHXZ @ 0x1C016A77C
  * Callers:
- *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C002C4E0 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
+ *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C00B30B0 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00D5ED4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B94F8 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DEVLOCKOBJ::bTightBoundsToRegion(DEVLOCKOBJ *this)
@@ -15,13 +15,12 @@ __int64 __fastcall DEVLOCKOBJ::bTightBoundsToRegion(DEVLOCKOBJ *this)
   int v4; // ecx
   __int64 v5; // rsi
   _DWORD *v6; // rax
-  __int64 v7; // rbx
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  __int64 v11; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v12; // [rsp+28h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+30h] [rbp-20h] BYREF
-  struct _RECTL v14; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v7; // rcx
+  __int64 v9; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v10; // [rsp+28h] [rbp-38h] BYREF
+  int v11; // [rsp+30h] [rbp-30h]
+  _QWORD v12[2]; // [rsp+38h] [rbp-28h] BYREF
+  struct _RECTL v13; // [rsp+48h] [rbp-18h] BYREF
 
   v1 = *((_QWORD *)this + 4);
   v3 = 1;
@@ -36,16 +35,15 @@ __int64 __fastcall DEVLOCKOBJ::bTightBoundsToRegion(DEVLOCKOBJ *this)
         {
           if ( *(_DWORD *)(v1 + 488) )
           {
-            v5 = *(_QWORD *)(v1 + 1184);
-            v14 = *(struct _RECTL *)(v1 + 1080);
-            if ( !ERECTL::bEmpty((ERECTL *)&v14) )
+            v5 = *(_QWORD *)(v1 + 1192);
+            v13 = *(struct _RECTL *)(v1 + 1080);
+            if ( !ERECTL::bEmpty((ERECTL *)&v13) )
             {
               v3 = 0;
-              RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v11);
-              RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v11);
-              if ( v11 )
+              RGNMEMOBJ::RGNMEMOBJ(&v10, 1LL);
+              if ( v10 )
               {
-                RGNOBJ::vSet((RGNOBJ *)&v11, &v14);
+                RGNOBJ::vSet((RGNOBJ *)&v10, &v13);
                 v6 = (_DWORD *)(*((_QWORD *)this + 4) + 1080LL);
                 *v6 = 0;
                 v6[1] = 0;
@@ -53,29 +51,27 @@ __int64 __fastcall DEVLOCKOBJ::bTightBoundsToRegion(DEVLOCKOBJ *this)
                 v6[3] = 0;
                 if ( v5 )
                 {
-                  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v12);
-                  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v12);
-                  v9 = *(_QWORD *)(*((_QWORD *)this + 4) + 1184LL);
-                  v13 = v9;
-                  if ( v12 && v9 && RGNOBJ::bMerge((RGNOBJ *)&v12, (struct RGNOBJ *)&v13, (struct RGNOBJ *)&v11, 0xEu) )
+                  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v12);
+                  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v12);
+                  v7 = *(_QWORD *)(*((_QWORD *)this + 4) + 1192LL);
+                  v9 = v7;
+                  if ( v12[0] && v7 && RGNOBJ::bMerge((RGNOBJ *)v12, (struct RGNOBJ *)&v9, (struct RGNOBJ *)&v10, 0xEu) )
                   {
-                    RGNOBJ::vSwap((RGNOBJ *)&v12, (struct RGNOBJ *)&v13);
+                    RGNOBJ::vSwap((RGNOBJ *)v12, (struct RGNOBJ *)&v9);
                     v3 = 1;
-                    *(_QWORD *)(*((_QWORD *)this + 4) + 1184LL) = v13;
+                    *(_QWORD *)(*((_QWORD *)this + 4) + 1192LL) = v9;
                   }
-                  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v12);
+                  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v12);
                 }
                 else
                 {
-                  v7 = *((_QWORD *)this + 4);
-                  RGNMEMOBJ::vPopThreadGuardedObject((RGNMEMOBJ *)&v11);
-                  v8 = v11;
-                  v11 = 0LL;
+                  *(_QWORD *)(*((_QWORD *)this + 4) + 1192LL) = v10;
+                  v10 = 0LL;
                   v3 = 1;
-                  *(_QWORD *)(v7 + 1184) = v8;
                 }
               }
-              RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v11);
+              if ( v11 == 1 )
+                RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v10);
             }
           }
         }

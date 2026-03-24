@@ -1,11 +1,11 @@
 /*
- * XREFs of UpdateExternalMonitorConnectedStatus @ 0x1C00BCA40
+ * XREFs of UpdateExternalMonitorConnectedStatus @ 0x1C009A254
  * Callers:
- *     InitVideo @ 0x1C0068398 (InitVideo.c)
- *     VideoPortCalloutThread @ 0x1C00D24E0 (VideoPortCalloutThread.c)
+ *     InitVideo @ 0x1C0099A18 (InitVideo.c)
+ *     VideoPortCalloutThread @ 0x1C011ADB4 (VideoPortCalloutThread.c)
  * Callees:
- *     DrvIsExternalMonitorActive @ 0x1C00BCAD4 (DrvIsExternalMonitorActive.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     DrvIsExternalMonitorActive @ 0x1C009A2E8 (DrvIsExternalMonitorActive.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall UpdateExternalMonitorConnectedStatus(char a1)

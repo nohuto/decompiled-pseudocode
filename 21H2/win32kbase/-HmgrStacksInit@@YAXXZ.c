@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HmgrStacksInit@@YAXXZ @ 0x1C00558B4
+ * XREFs of ?HmgrStacksInit@@YAXXZ @ 0x1C006B7E0
  * Callers:
- *     HmgCreate @ 0x1C0055348 (HmgCreate.c)
+ *     HmgCreate @ 0x1C006B24C (HmgCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 void HmgrStacksInit(void)

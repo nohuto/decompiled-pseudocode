@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIDeviceIrpWaitWakeRequestPending @ 0x1C001E2C0
+ * XREFs of ACPIDeviceIrpWaitWakeRequestPending @ 0x1C00255F0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
- *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
- *     ACPIDeviceCancelWaitWakeIrp @ 0x1C001C170 (ACPIDeviceCancelWaitWakeIrp.c)
- *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C001E0D8 (ACPIDeviceIrpWaitWakeRequestComplete.c)
- *     ACPIDereferenceWaitWakePowerRequest @ 0x1C00447E0 (ACPIDereferenceWaitWakePowerRequest.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C001E3E0 (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIDereferenceWaitWakePowerRequest @ 0x1C0025774 (ACPIDereferenceWaitWakePowerRequest.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIDeviceCancelWaitWakeIrp @ 0x1C00502C0 (ACPIDeviceCancelWaitWakeIrp.c)
+ *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C0050B7C (ACPIDeviceIrpWaitWakeRequestComplete.c)
  */
 
-__int64 __fastcall ACPIDeviceIrpWaitWakeRequestPending(__int64 a1, int a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall ACPIDeviceIrpWaitWakeRequestPending(__int64 a1, int a2, __int64 a3, _QWORD *a4)
 {
   _QWORD *v4; // rdi
   const char *v5; // rcx
@@ -21,21 +21,21 @@ __int64 __fastcall ACPIDeviceIrpWaitWakeRequestPending(__int64 a1, int a2, __int
   _QWORD *v12; // rax
   KIRQL Irql; // [rsp+68h] [rbp+10h] BYREF
 
-  v4 = (_QWORD *)*((_QWORD *)a4 + 5);
-  v5 = (const char *)&unk_1C00622D0;
-  v6 = *((_QWORD *)a4 + 25);
+  v4 = (_QWORD *)a4[5];
+  v5 = (const char *)&unk_1C00701BA;
+  v6 = a4[25];
   v7 = 0;
   Irql = 0;
-  v10 = (const char *)&unk_1C00622D0;
+  v10 = (const char *)&unk_1C00701BA;
   if ( v4 )
   {
     v11 = v4[1];
     v7 = (char)v4;
     if ( (v11 & 0x200000000000LL) != 0 )
     {
-      v5 = (const char *)v4[76];
+      v5 = (const char *)v4[71];
       if ( (v11 & 0x400000000000LL) != 0 )
-        v10 = (const char *)v4[77];
+        v10 = (const char *)v4[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -44,7 +44,7 @@ __int64 __fastcall ACPIDeviceIrpWaitWakeRequestPending(__int64 a1, int a2, __int
       4u,
       0x11u,
       0x23u,
-      (__int64)&WPP_afb93ce9a898342faba18bc7242ff62e_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       (char)a4,
       a2,
       v7,
@@ -52,36 +52,35 @@ __int64 __fastcall ACPIDeviceIrpWaitWakeRequestPending(__int64 a1, int a2, __int
       v10);
   IoAcquireCancelSpinLock(&Irql);
   KeAcquireSpinLockAtDpcLevel(&AcpiPowerLock);
-  ++a4[28];
-  if ( a2 >= 0 )
+  ++*((_DWORD *)a4 + 28);
+  if ( a2 < 0 )
   {
-    v12 = (_QWORD *)qword_1C006F238;
-    if ( *(__int64 **)qword_1C006F238 != &AcpiPowerWaitWakeList )
-      __fastfail(3u);
-    *(_QWORD *)a4 = &AcpiPowerWaitWakeList;
-    *((_QWORD *)a4 + 1) = v12;
-    *v12 = a4;
-    qword_1C006F238 = (__int64)a4;
-    if ( *(_BYTE *)(v6 + 68) )
-    {
-      KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
-      ACPIDeviceCancelWaitWakeIrp(v4[96], v6);
-      ACPIDereferenceWaitWakePowerRequest(a4);
-      return 3221225760LL;
-    }
-    a4[14] |= 0x40u;
+    KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
+    IoReleaseCancelSpinLock(Irql);
+    *((_DWORD *)a4 + 64) = a2;
+    ACPIDeviceIrpWaitWakeRequestComplete(a4);
+    goto LABEL_11;
+  }
+  v12 = (_QWORD *)qword_1C0082198;
+  if ( *(__int64 **)qword_1C0082198 != &AcpiPowerWaitWakeList )
+    __fastfail(3u);
+  *a4 = &AcpiPowerWaitWakeList;
+  a4[1] = v12;
+  *v12 = a4;
+  qword_1C0082198 = (__int64)a4;
+  if ( !*(_BYTE *)(v6 + 68) )
+  {
+    *((_DWORD *)a4 + 14) |= 0x40u;
     ACPIWakeRemoveDevicesAndUpdate(0LL, 0LL);
     _InterlockedExchange64((volatile __int64 *)(v6 + 104), (__int64)ACPIDeviceCancelWaitWakeIrp);
     KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
     IoReleaseCancelSpinLock(Irql);
+LABEL_11:
+    ACPIDereferenceWaitWakePowerRequest(a4);
+    return 259LL;
   }
-  else
-  {
-    KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
-    IoReleaseCancelSpinLock(Irql);
-    a4[64] = a2;
-    ACPIDeviceIrpWaitWakeRequestComplete((__int64)a4);
-  }
+  KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
+  ACPIDeviceCancelWaitWakeIrp(v4[91], v6);
   ACPIDereferenceWaitWakePowerRequest(a4);
-  return 259LL;
+  return 3221225760LL;
 }

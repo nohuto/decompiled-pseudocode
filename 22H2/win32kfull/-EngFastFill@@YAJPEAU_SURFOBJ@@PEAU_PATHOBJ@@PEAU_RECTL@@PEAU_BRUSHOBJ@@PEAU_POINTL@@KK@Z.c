@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02F4858
+ * XREFs of ?EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C01476A0
  * Callers:
- *     EngFillPath @ 0x1C0289380 (EngFillPath.c)
+ *     EngFillPath @ 0x1C01472B0 (EngFillPath.c)
  * Callees:
- *     ?pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C0086D7C (-pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z.c)
- *     ?bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02F4CEC (-bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
- *     ?bBrushPathN_8x8@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02F4E44 (-bBrushPathN_8x8@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
- *     ?bPaintPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@KHK@Z @ 0x1C02F6420 (-bPaintPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@KHK@Z.c)
+ *     ?pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C00CECC8 (-pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z.c)
+ *     ?bPaintPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@KHK@Z @ 0x1C0147A4C (-bPaintPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@KHK@Z.c)
+ *     ?bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02CF584 (-bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?bBrushPathN_8x8@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02CF700 (-bBrushPathN_8x8@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
  */
 
 __int64 __fastcall EngFastFill(
@@ -20,29 +20,49 @@ __int64 __fastcall EngFastFill(
 {
   unsigned int v10; // esi
   unsigned int *v11; // rdi
-  int v12; // edx
-  unsigned int v13; // r9d
-  unsigned int v14; // ecx
+  int v13; // edx
+  unsigned int iSolidColor; // r9d
+  unsigned int v16; // ecx
   _DWORD *pvRbrush; // rax
-  ULONG v17; // r9d
-  ULONG iSolidColor; // r9d
+  ULONG v18; // r9d
+  ULONG v19; // r9d
 
   v10 = -1;
   v11 = (unsigned int *)((unsigned __int64)&a1[-1].pvScan0 & -(__int64)(a1 != 0LL));
   if ( a1->iType )
     return v10;
-  v12 = gaMix[a6 & 0xF] | (gaMix[(a6 >> 8) & 0xF] << 8);
-  switch ( v12 )
+  v13 = gaMix[a6 & 0xF] | (gaMix[(a6 >> 8) & 0xF] << 8);
+  switch ( v13 )
   {
     case 0:
-      v13 = 0;
-      return (unsigned int)bPaintPath((struct SURFACE *)v11, a2, a3, v13, 0, a7);
-    case 0xF0F:
+      iSolidColor = 0;
+      return (unsigned int)bPaintPath((struct SURFACE *)v11, a2, a3, iSolidColor, 0, a7);
+    case 0xF0F0:
       iSolidColor = a4->iSolidColor;
       if ( iSolidColor != -1 )
+        return (unsigned int)bPaintPath((struct SURFACE *)v11, a2, a3, iSolidColor, 0, a7);
+      v16 = *(_DWORD *)(((unsigned __int64)&a1[-1].pvScan0 & -(__int64)(a1 != 0LL)) + 0x60);
+      if ( v16 - 2 <= 1 )
       {
-        v13 = ~iSolidColor;
-        return (unsigned int)bPaintPath((struct SURFACE *)v11, a2, a3, v13, 0, a7);
+        if ( !pvGetEngRbrush(a4) )
+          return v10;
+        pvRbrush = a4[1].pvRbrush;
+        if ( pvRbrush[5] != 8 || pvRbrush[6] != 8 )
+          return v10;
+        return (unsigned int)bBrushPathN_8x8((struct SURFACE *)v11, a2, a3, a4, a5, v11[24], a7);
+      }
+      else
+      {
+        if ( v16 < 3 || !pvGetEngRbrush(a4) || *((_DWORD *)a4[1].pvRbrush + 5) < 4u )
+          return v10;
+        return (unsigned int)bBrushPath((struct SURFACE *)v11, a2, a3, a4, a5, 0, a7);
+      }
+    case 0xF0F:
+      v19 = a4->iSolidColor;
+      if ( v19 != -1 )
+      {
+        iSolidColor = ~v19;
+        return (unsigned int)bPaintPath((struct SURFACE *)v11, a2, a3, iSolidColor, 0, a7);
       }
       if ( *(_DWORD *)(((unsigned __int64)&a1[-1].pvScan0 & -(__int64)(a1 != 0LL)) + 0x60) < 3u
         || !pvGetEngRbrush(a4)
@@ -54,8 +74,8 @@ __int64 __fastcall EngFastFill(
     case 0x5555:
       return (unsigned int)bPaintPath((struct SURFACE *)v11, a2, a3, 0xFFFFFFFF, 1, a7);
     case 0x5A5A:
-      v17 = a4->iSolidColor;
-      if ( v17 == -1 )
+      v18 = a4->iSolidColor;
+      if ( v18 == -1 )
       {
         if ( *(_DWORD *)(((unsigned __int64)&a1[-1].pvScan0 & -(__int64)(a1 != 0LL)) + 0x60) < 3u
           || !pvGetEngRbrush(a4)
@@ -67,30 +87,13 @@ __int64 __fastcall EngFastFill(
       }
       else
       {
-        return (unsigned int)bPaintPath((struct SURFACE *)v11, a2, a3, v17, 1, a7);
+        return (unsigned int)bPaintPath((struct SURFACE *)v11, a2, a3, v18, 1, a7);
       }
     case 0xAAAA:
       return 1;
-    case 0xF0F0:
-      v13 = a4->iSolidColor;
-      if ( v13 != -1 )
-        return (unsigned int)bPaintPath((struct SURFACE *)v11, a2, a3, v13, 0, a7);
-      v14 = *(_DWORD *)(((unsigned __int64)&a1[-1].pvScan0 & -(__int64)(a1 != 0LL)) + 0x60);
-      if ( v14 - 2 > 1 )
-      {
-        if ( v14 >= 3 && pvGetEngRbrush(a4) && *((_DWORD *)a4[1].pvRbrush + 5) >= 4u )
-          return (unsigned int)bBrushPath((struct SURFACE *)v11, a2, a3, a4, a5, 0, a7);
-        return v10;
-      }
-      if ( !pvGetEngRbrush(a4) )
-        return v10;
-      pvRbrush = a4[1].pvRbrush;
-      if ( pvRbrush[5] != 8 || pvRbrush[6] != 8 )
-        return v10;
-      return (unsigned int)bBrushPathN_8x8((struct SURFACE *)v11, a2, a3, a4, a5, v11[24], a7);
     case 0xFFFF:
-      v13 = -1;
-      return (unsigned int)bPaintPath((struct SURFACE *)v11, a2, a3, v13, 0, a7);
+      iSolidColor = -1;
+      return (unsigned int)bPaintPath((struct SURFACE *)v11, a2, a3, iSolidColor, 0, a7);
   }
   return v10;
 }

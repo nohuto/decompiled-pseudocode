@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSessionIds @ 0x140B08D58
+ * XREFs of MiInitializeSessionIds @ 0x140A54D74
  * Callers:
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObCreateObjectType @ 0x140824B10 (ObCreateObjectType.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
  */
 
 __int64 MiInitializeSessionIds()
@@ -17,18 +17,23 @@ __int64 MiInitializeSessionIds()
   UNICODE_STRING v2; // [rsp+30h] [rbp-49h] BYREF
   ULONG_PTR BugCheckParameter3[16]; // [rsp+40h] [rbp-39h] BYREF
 
-  qword_140C50618 = 0LL;
+  qword_140C4DDB8 = 0LL;
   v2.Buffer = L"Session";
   *(_QWORD *)&v2.Length = 1048590LL;
   Pool = (RTL_BITMAP *)MiAllocatePool(256, 0x20uLL, 0x20206D4Du);
-  qword_140C53490 = Pool;
-  if ( !Pool || (Pool->SizeOfBitMap = 128, Pool->Buffer = &Pool[1].SizeOfBitMap, !qword_140C53490) )
-    KeBugCheckEx(0x7Du, qword_140C590D0, qword_140C590C0, qword_140C590C8, 0x200uLL);
+  qword_140C4EF10 = Pool;
+  if ( !Pool || (Pool->SizeOfBitMap = 128, Pool->Buffer = &Pool[1].SizeOfBitMap, !qword_140C4EF10) )
+    KeBugCheckEx(0x7Du, qword_140C52890, qword_140C52880, ::BugCheckParameter3, 0x200uLL);
   memset(
-    qword_140C53490->Buffer,
+    qword_140C4EF10->Buffer,
     0,
-    4 * ((qword_140C53490->SizeOfBitMap >> 5) + ((qword_140C53490->SizeOfBitMap & 0x1F) != 0)));
-  qword_140C50638 = 0LL;
+    4 * ((qword_140C4EF10->SizeOfBitMap >> 5) + ((qword_140C4EF10->SizeOfBitMap & 0x1F) != 0)));
+  qword_140C4DDE8 = 0LL;
+  LOWORD(stru_140C4DDF0.Header.Lock) = 0;
+  stru_140C4DDF0.Header.SignalState = 0;
+  stru_140C4DDF0.Header.WaitListHead.Blink = &stru_140C4DDF0.Header.WaitListHead;
+  stru_140C4DDF0.Header.WaitListHead.Flink = &stru_140C4DDF0.Header.WaitListHead;
+  stru_140C4DDF0.Header.Size = 6;
   memset(BugCheckParameter3, 0, 0x78uLL);
   LODWORD(BugCheckParameter3[1]) = 0;
   BYTE2(BugCheckParameter3[0]) |= 0xCu;

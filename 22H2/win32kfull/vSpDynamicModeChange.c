@@ -1,20 +1,20 @@
 /*
- * XREFs of vSpDynamicModeChange @ 0x1C001B8E0
+ * XREFs of vSpDynamicModeChange @ 0x1C00EDCB0
  * Callers:
  *     <none>
  * Callees:
- *     ?vSpCorrectHdevReferences@@YAXPEAU_SPRITESTATE@@PEAUHDEV__@@@Z @ 0x1C001B854 (-vSpCorrectHdevReferences@@YAXPEAU_SPRITESTATE@@PEAUHDEV__@@@Z.c)
- *     ??0MULTISPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C001BAF8 (--0MULTISPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
- *     ??1MULTISPRITEDDIACCESS@@QEAA@XZ @ 0x1C001BB98 (--1MULTISPRITEDDIACCESS@@QEAA@XZ.c)
- *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C001C318 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
- *     ?vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z @ 0x1C001D98C (-vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z @ 0x1C027F054 (-pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z.c)
- *     ?pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z @ 0x1C027F21C (-pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z.c)
- *     ?pSpMoveSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@K@Z @ 0x1C027F5EC (-pSpMoveSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@K@Z.c)
- *     ?pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C027F728 (-pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z.c)
- *     ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C027FB40 (-pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z.c)
- *     ?vFixupMetaSpriteList@@YAXAEAVPDEVOBJ@@@Z @ 0x1C027FE10 (-vFixupMetaSpriteList@@YAXAEAVPDEVOBJ@@@Z.c)
+ *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00ED604 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ??0MULTISPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C00EDED0 (--0MULTISPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ??1MULTISPRITEDDIACCESS@@QEAA@XZ @ 0x1C00EDF70 (--1MULTISPRITEDDIACCESS@@QEAA@XZ.c)
+ *     ?vSpCorrectHdevReferences@@YAXPEAU_SPRITESTATE@@PEAUHDEV__@@@Z @ 0x1C00EE268 (-vSpCorrectHdevReferences@@YAXPEAU_SPRITESTATE@@PEAUHDEV__@@@Z.c)
+ *     ?vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z @ 0x1C00F02A4 (-vSpRemoveAllSpriteOverlapPresents@@YAXPEAUHDEV__@@@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z @ 0x1C02812D8 (-pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z.c)
+ *     ?pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z @ 0x1C02814A0 (-pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z.c)
+ *     ?pSpMoveSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@K@Z @ 0x1C028180C (-pSpMoveSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@K@Z.c)
+ *     ?pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C02818E8 (-pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z.c)
+ *     ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C0281CD0 (-pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z.c)
+ *     ?vFixupMetaSpriteList@@YAXAEAVPDEVOBJ@@@Z @ 0x1C0281E40 (-vFixupMetaSpriteList@@YAXAEAVPDEVOBJ@@@Z.c)
  */
 
 void __fastcall vSpDynamicModeChange(HDEV a1, HDEV a2)
@@ -25,55 +25,56 @@ void __fastcall vSpDynamicModeChange(HDEV a1, HDEV a2)
   HDEV v6; // r14
   int v7; // ecx
   __int64 v8; // rcx
-  HDEV v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // rax
-  __int64 v12; // rdi
-  HDEV v13; // rdi
-  __int64 v14; // r8
-  __int64 v15; // rdi
-  struct _METASPRITE *v16; // rax
-  __int64 v17; // rax
-  int v18; // ecx
-  __int64 v19; // rdi
+  __int64 v9; // rcx
+  int v10; // edx
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  __int64 v13; // rdi
+  __int64 v14; // rdi
+  __int64 v15; // r8
+  __int64 v16; // rdi
+  struct _METASPRITE *v17; // rax
+  __int64 v18; // rax
+  int v19; // ecx
   __int64 v20; // rdi
-  struct SPRITE *v21; // rax
-  __int64 v22; // rbx
-  HDEV v23; // rdi
-  __int64 v24; // rsi
-  unsigned int v25; // edx
-  __int64 v26; // rax
-  __int64 v27; // r8
-  __int64 v28; // rsi
-  struct _METASPRITE *v29; // rax
-  __int64 v30; // rax
-  int v31; // ecx
-  __int64 v32; // rsi
-  __int64 v33; // r8
-  __int64 v34; // rbx
+  __int64 v21; // rdi
+  struct SPRITE *v22; // rax
+  __int64 v23; // rbx
+  HDEV v24; // rdi
+  __int64 v25; // rsi
+  unsigned int v26; // edx
+  HDEV v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // rsi
+  struct _METASPRITE *v30; // rax
+  __int64 v31; // rax
+  int v32; // ecx
+  __int64 v33; // rsi
+  __int64 v34; // r8
+  __int64 v35; // rbx
   _BYTE Src[1392]; // [rsp+20h] [rbp-E0h] BYREF
-  HDEV v36; // [rsp+5A0h] [rbp+4A0h] BYREF
-  HDEV v37; // [rsp+5A8h] [rbp+4A8h] BYREF
-  char v38; // [rsp+5B0h] [rbp+4B0h] BYREF
-  char v39; // [rsp+5B8h] [rbp+4B8h] BYREF
+  HDEV v37; // [rsp+5A0h] [rbp+4A0h] BYREF
+  HDEV v38; // [rsp+5A8h] [rbp+4A8h] BYREF
+  char v39; // [rsp+5B0h] [rbp+4B0h] BYREF
+  char v40; // [rsp+5B8h] [rbp+4B8h] BYREF
 
-  v37 = a1;
-  v36 = a2;
+  v38 = a1;
+  v37 = a2;
   v2 = a2;
   v4 = a2;
   if ( ((_DWORD)a1[10] & 0x20000) == 0 )
   {
     vSpRemoveAllSpriteOverlapPresents(a1);
-    v4 = v36;
+    v4 = v37;
   }
   if ( ((_DWORD)v4[10] & 0x20000) == 0 )
   {
     vSpRemoveAllSpriteOverlapPresents(v4);
-    v4 = v36;
+    v4 = v37;
   }
-  v5 = v37 + 20;
-  v6 = v4 + 20;
-  memmove(Src, v37 + 20, 0x540uLL);
+  v5 = v38 + 22;
+  v6 = v4 + 22;
+  memmove(Src, v38 + 22, 0x540uLL);
   memmove(v5, v6, 0x540uLL);
   memmove(v6, Src, 0x540uLL);
   v7 = *((_DWORD *)v5 + 292);
@@ -83,8 +84,8 @@ void __fastcall vSpDynamicModeChange(HDEV a1, HDEV a2)
   RtlInitializeBitMap((PRTL_BITMAP)(v6 + 166), (PULONG)v6 + 170, 0x40u);
   vSpCorrectHdevReferences((struct _SPRITESTATE *)v5, a1);
   vSpCorrectHdevReferences((struct _SPRITESTATE *)v6, v2);
+  MULTISPRITEDDIACCESS::MULTISPRITEDDIACCESS((MULTISPRITEDDIACCESS *)&v40, (struct PDEVOBJ *)&v38);
   MULTISPRITEDDIACCESS::MULTISPRITEDDIACCESS((MULTISPRITEDDIACCESS *)&v39, (struct PDEVOBJ *)&v37);
-  MULTISPRITEDDIACCESS::MULTISPRITEDDIACCESS((MULTISPRITEDDIACCESS *)&v38, (struct PDEVOBJ *)&v36);
   v8 = *((_QWORD *)v5 + 140);
   *((_QWORD *)v5 + 140) = 0LL;
   *((_QWORD *)v5 + 139) = 0LL;
@@ -93,13 +94,13 @@ void __fastcall vSpDynamicModeChange(HDEV a1, HDEV a2)
   {
     do
     {
-      v12 = *(_QWORD *)(v8 + 24);
+      v13 = *(_QWORD *)(v8 + 24);
       vSpDeleteSprite((struct SPRITE *)v8);
-      v8 = v12;
+      v8 = v13;
     }
-    while ( v12 );
+    while ( v13 );
   }
-  v9 = (HDEV)*((_QWORD *)v6 + 140);
+  v9 = *((_QWORD *)v6 + 140);
   *((_QWORD *)v6 + 140) = 0LL;
   *((_QWORD *)v6 + 139) = 0LL;
   *((_DWORD *)v6 + 271) = 0;
@@ -107,144 +108,142 @@ void __fastcall vSpDynamicModeChange(HDEV a1, HDEV a2)
   {
     do
     {
-      v13 = (HDEV)*((_QWORD *)v9 + 3);
+      v14 = *(_QWORD *)(v9 + 24);
       vSpDeleteSprite((struct SPRITE *)v9);
-      v9 = v13;
+      v9 = v14;
     }
-    while ( v13 );
+    while ( v14 );
   }
-  if ( ((_DWORD)v37[10] & 0x20000) != 0 )
+  v10 = (_DWORD)v38[10] & 0x20000;
+  if ( v10 && ((_DWORD)v37[10] & 0x20000) != 0 )
   {
-    if ( ((_DWORD)v36[10] & 0x20000) != 0 )
-    {
-      v14 = *((_QWORD *)v5 + 9);
-      if ( v14 )
-      {
-        do
-        {
-          v15 = *(_QWORD *)(v14 + 8);
-          v16 = pSpTransferMetaSprite(v2, a1, (struct _METASPRITE *)v14);
-          if ( v16 )
-            *((_DWORD *)v16 + 4) |= 2u;
-          v14 = v15;
-        }
-        while ( v15 );
-      }
-      v17 = *((_QWORD *)v6 + 9);
-      if ( v17 )
-      {
-        do
-        {
-          v18 = *(_DWORD *)(v17 + 16);
-          v19 = *(_QWORD *)(v17 + 8);
-          if ( (v18 & 2) != 0 )
-            *(_DWORD *)(v17 + 16) = v18 & 0xFFFFFFFD;
-          else
-            pSpTransferMetaSprite(a1, v2, (struct _METASPRITE *)v17);
-          v17 = v19;
-        }
-        while ( v19 );
-      }
-      goto LABEL_11;
-    }
-  }
-  else if ( ((_DWORD)v36[10] & 0x20000) == 0 )
-  {
-    v10 = *((_QWORD *)v5 + 1);
-    if ( v10 )
+    v15 = *((_QWORD *)v5 + 9);
+    if ( v15 )
     {
       do
       {
-        v20 = *(_QWORD *)(v10 + 24);
-        v21 = pSpTransferSprite(v2, (struct SPRITE *)v10);
-        if ( v21 )
-          *(_DWORD *)v21 |= 2u;
-        v10 = v20;
+        v16 = *(_QWORD *)(v15 + 8);
+        v17 = pSpTransferMetaSprite(v2, a1, (struct _METASPRITE *)v15);
+        if ( v17 )
+          *((_DWORD *)v17 + 4) |= 2u;
+        v15 = v16;
+      }
+      while ( v16 );
+    }
+    v18 = *((_QWORD *)v6 + 9);
+    if ( v18 )
+    {
+      do
+      {
+        v19 = *(_DWORD *)(v18 + 16);
+        v20 = *(_QWORD *)(v18 + 8);
+        if ( (v19 & 2) != 0 )
+          *(_DWORD *)(v18 + 16) = v19 & 0xFFFFFFFD;
+        else
+          pSpTransferMetaSprite(a1, v2, (struct _METASPRITE *)v18);
+        v18 = v20;
       }
       while ( v20 );
     }
-    v11 = *((_QWORD *)v6 + 1);
+LABEL_12:
+    if ( ((_DWORD)v38[10] & 0x20000) != 0 )
+      vFixupMetaSpriteList((struct PDEVOBJ *)&v38);
+    if ( ((_DWORD)v37[10] & 0x20000) != 0 )
+      vFixupMetaSpriteList((struct PDEVOBJ *)&v37);
+    goto LABEL_16;
+  }
+  if ( !v10 && ((_DWORD)v37[10] & 0x20000) == 0 )
+  {
+    v11 = *((_QWORD *)v5 + 1);
     if ( v11 )
     {
       do
       {
-        v22 = *(_QWORD *)(v11 + 24);
-        if ( (*(_DWORD *)v11 & 2) != 0 )
-          *(_DWORD *)v11 &= ~2u;
-        else
-          pSpTransferSprite(a1, (struct SPRITE *)v11);
-        v11 = v22;
+        v21 = *(_QWORD *)(v11 + 24);
+        v22 = pSpTransferSprite(v2, (struct SPRITE *)v11);
+        if ( v22 )
+          *(_DWORD *)v22 |= 2u;
+        v11 = v21;
       }
-      while ( v22 );
+      while ( v21 );
     }
-LABEL_11:
-    if ( ((_DWORD)v37[10] & 0x20000) != 0 )
-      vFixupMetaSpriteList((struct PDEVOBJ *)&v37);
-    if ( ((_DWORD)v36[10] & 0x20000) != 0 )
-      vFixupMetaSpriteList((struct PDEVOBJ *)&v36);
-    goto LABEL_15;
+    v12 = *((_QWORD *)v6 + 1);
+    if ( v12 )
+    {
+      do
+      {
+        v23 = *(_QWORD *)(v12 + 24);
+        if ( (*(_DWORD *)v12 & 2) != 0 )
+          *(_DWORD *)v12 &= ~2u;
+        else
+          pSpTransferSprite(a1, (struct SPRITE *)v12);
+        v12 = v23;
+      }
+      while ( v23 );
+    }
+    goto LABEL_12;
   }
-  v23 = a1;
-  if ( ((_DWORD)v37[10] & 0x20000) == 0 )
+  v24 = a1;
+  if ( !v10 )
   {
-    v23 = v2;
+    v24 = v2;
     v2 = a1;
   }
-  v24 = 0LL;
-  v25 = *((_DWORD *)v23 + 35);
-  if ( !v25 )
+  v25 = 0LL;
+  v26 = *((_DWORD *)v24 + 37);
+  if ( !v26 )
   {
-LABEL_46:
-    v27 = *((_QWORD *)v2 + 11);
-    if ( v27 )
+LABEL_47:
+    v28 = *((_QWORD *)v2 + 12);
+    if ( v28 )
     {
       do
       {
-        v28 = *(_QWORD *)(v27 + 24);
-        v29 = pSpConvertSpriteToMeta(v23, v2, (struct SPRITE *)v27);
-        if ( v29 )
-          *((_DWORD *)v29 + 4) |= 2u;
-        v27 = v28;
+        v29 = *(_QWORD *)(v28 + 24);
+        v30 = pSpConvertSpriteToMeta(v24, v2, (struct SPRITE *)v28);
+        if ( v30 )
+          *((_DWORD *)v30 + 4) |= 2u;
+        v28 = v29;
       }
-      while ( v28 );
+      while ( v29 );
     }
-    v30 = *((_QWORD *)v23 + 19);
-    if ( v30 )
+    v31 = *((_QWORD *)v24 + 20);
+    if ( v31 )
     {
       do
       {
-        v31 = *(_DWORD *)(v30 + 16);
-        v32 = *(_QWORD *)(v30 + 8);
-        if ( (v31 & 2) != 0 )
-          *(_DWORD *)(v30 + 16) = v31 & 0xFFFFFFFD;
+        v32 = *(_DWORD *)(v31 + 16);
+        v33 = *(_QWORD *)(v31 + 8);
+        if ( (v32 & 2) != 0 )
+          *(_DWORD *)(v31 + 16) = v32 & 0xFFFFFFFD;
         else
-          pSpConvertSpriteFromMeta(v2, v23, (struct _METASPRITE *)v30);
-        v30 = v32;
+          pSpConvertSpriteFromMeta(v2, v24, (struct _METASPRITE *)v31);
+        v31 = v33;
       }
-      while ( v32 );
+      while ( v33 );
     }
-    goto LABEL_11;
+    goto LABEL_12;
   }
-  v26 = *((_QWORD *)v23 + 18);
-  while ( *(HDEV *)(v26 + 8 * v24) != v23 )
+  v27 = (HDEV)*((_QWORD *)v24 + 19);
+  while ( *((HDEV *)v27 + v25) != v24 )
   {
-    v24 = (unsigned int)(v24 + 1);
-    if ( (unsigned int)v24 >= v25 )
-      goto LABEL_46;
+    v25 = (unsigned int)(v25 + 1);
+    if ( (unsigned int)v25 >= v26 )
+      goto LABEL_47;
   }
-  *(_QWORD *)(v26 + 8 * v24) = v2;
-  v33 = *((_QWORD *)v23 + 19);
-  if ( v33 )
+  *((_QWORD *)v27 + v25) = v2;
+  v34 = *((_QWORD *)v24 + 20);
+  if ( v34 )
   {
     do
     {
-      v34 = *(_QWORD *)(v33 + 8);
-      pSpMoveSpriteFromMeta(v9, v23, (struct _METASPRITE *)v33, v24);
-      v33 = v34;
+      v35 = *(_QWORD *)(v34 + 8);
+      pSpMoveSpriteFromMeta(v27, v24, (struct _METASPRITE *)v34, v25);
+      v34 = v35;
     }
-    while ( v34 );
+    while ( v35 );
   }
-LABEL_15:
-  MULTISPRITEDDIACCESS::~MULTISPRITEDDIACCESS((MULTISPRITEDDIACCESS *)&v38);
+LABEL_16:
   MULTISPRITEDDIACCESS::~MULTISPRITEDDIACCESS((MULTISPRITEDDIACCESS *)&v39);
+  MULTISPRITEDDIACCESS::~MULTISPRITEDDIACCESS((MULTISPRITEDDIACCESS *)&v40);
 }

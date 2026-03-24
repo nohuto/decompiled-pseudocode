@@ -1,17 +1,16 @@
 /*
- * XREFs of ?CreateVBlankFence@CDDisplayManager@@QEAAJPEAVCD3DDevice@@AEBUDDisplayTargetResources@@PEAUDDisplayVBlankFenceResources@@@Z @ 0x180284B20
+ * XREFs of ?CreateVBlankFence@CDDisplayManager@@QEAAJPEAVCD3DDevice@@AEBUDDisplayTargetResources@@PEAUDDisplayVBlankFenceResources@@@Z @ 0x1800F18AC
  * Callers:
- *     ?ExecutePresent@CDDisplaySwapChain@@IEAAJPEAUIDisplayScanout@Core@Display@Devices@Windows@@@Z @ 0x18027AA80 (-ExecutePresent@CDDisplaySwapChain@@IEAAJPEAUIDisplayScanout@Core@Display@Devices@Windows@@@Z.c)
- *     ?CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@IPEAXPEAPEAVCDDisplaySwapChain@@@Z @ 0x180283F0C (-CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatI.c)
+ *     ?ExecutePresent@CDDisplaySwapChain@@IEAAJPEAUIDisplayScanout@Core@Display@Devices@Windows@@@Z @ 0x180239954 (-ExecutePresent@CDDisplaySwapChain@@IEAAJPEAUIDisplayScanout@Core@Display@Devices@Windows@@@Z.c)
+ *     ?CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@IPEAXPEAPEAVCDDisplaySwapChain@@@Z @ 0x180243824 (-CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatI.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EBC0 (--1-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@IEAA@XZ @ 0x18002D294 (--1-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@wil@.c)
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x18003DB7C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800FFDD8 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??4DDisplayVBlankFenceResources@@QEAAAEAU0@$$QEAU0@@Z @ 0x180282FB4 (--4DDisplayVBlankFenceResources@@QEAAAEAU0@$$QEAU0@@Z.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180030F44 (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5FE0 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??1?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@QEAA@XZ @ 0x18014F4C0 (--1-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH.c)
+ *     ??1DDisplayVBlankFenceResources@@QEAA@XZ @ 0x1802429D8 (--1DDisplayVBlankFenceResources@@QEAA@XZ.c)
+ *     ??4DDisplayVBlankFenceResources@@QEAAAEAU0@$$QEAU0@@Z @ 0x180242D9C (--4DDisplayVBlankFenceResources@@QEAAAEAU0@$$QEAU0@@Z.c)
  */
 
 __int64 __fastcall CDDisplayManager::CreateVBlankFence(
@@ -44,15 +43,15 @@ __int64 __fastcall CDDisplayManager::CreateVBlankFence(
   v23 = 0LL;
   v8 = *(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, __int128 *))(*(_QWORD *)v4 + 72LL);
   wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v23);
-  v9 = v8(v4, *((_QWORD *)a3 + 5), 0LL, &v23);
+  v9 = v8(v4, *((_QWORD *)a3 + 4), 0LL, &v23);
   v11 = v9;
   if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x23Fu);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x1C5u, 0LL);
   }
   else
   {
-    v12 = *((_QWORD *)a3 + 3);
+    v12 = *((_QWORD *)a3 + 2);
     v13 = *(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, __int64, _QWORD, void **))(*(_QWORD *)v12 + 24LL);
     wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
       &v24,
@@ -61,12 +60,12 @@ __int64 __fastcall CDDisplayManager::CreateVBlankFence(
     v11 = v14;
     if ( v14 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0x247u);
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x1CDu, 0LL);
     }
     else
     {
       v16 = *((_QWORD *)&v23 + 1);
-      v17 = (__int64 *)*((_QWORD *)a2 + 69);
+      v17 = (__int64 *)*((_QWORD *)a2 + 74);
       v18 = *v17;
       *((_QWORD *)&v23 + 1) = 0LL;
       v19 = *(__int64 (__fastcall **)(__int64 *, void *, GUID *, char *))(v18 + 536);
@@ -75,13 +74,12 @@ __int64 __fastcall CDDisplayManager::CreateVBlankFence(
       v20 = v19(v17, v24, &GUID_affde9d1_1df7_4bb7_8a34_0f46251dab80, (char *)&v23 + 8);
       v11 = v20;
       if ( v20 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0LL, v20, 0x24Cu);
+        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x1D2u, 0LL);
       else
-        DDisplayVBlankFenceResources::operator=((__int64 *)a4, (__int64 *)&v23);
+        DDisplayVBlankFenceResources::operator=(a4, &v23);
     }
   }
-  wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::~unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>(&v24);
-  wil::com_ptr_t<CVisual,wil::err_returncode_policy>::~com_ptr_t<CVisual,wil::err_returncode_policy>((__int64 *)&v23 + 1);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v23);
+  wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>::~unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>(&v24);
+  DDisplayVBlankFenceResources::~DDisplayVBlankFenceResources((DDisplayVBlankFenceResources *)&v23);
   return v11;
 }

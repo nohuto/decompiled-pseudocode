@@ -1,8 +1,8 @@
 /*
- * XREFs of AuthzBasepGetOperandStringCaseForEvaluation @ 0x14030C1D0
+ * XREFs of AuthzBasepGetOperandStringCaseForEvaluation @ 0x14024F780
  * Callers:
- *     AuthzBasepCompareUnicodeStringOperands @ 0x14030C028 (AuthzBasepCompareUnicodeStringOperands.c)
- *     AuthzBasepCompareFQBNOperands @ 0x14066F2D0 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x14024EE90 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x1405C17D0 (AuthzBasepCompareFQBNOperands.c)
  * Callees:
  *     <none>
  */

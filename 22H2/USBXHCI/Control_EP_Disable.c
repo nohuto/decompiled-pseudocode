@@ -1,27 +1,26 @@
 /*
- * XREFs of Control_EP_Disable @ 0x1C000FAE0
+ * XREFs of Control_EP_Disable @ 0x1C000A7B0
  * Callers:
  *     <none>
  * Callees:
- *     Controller_IsControllerAccessible @ 0x1C000A914 (Controller_IsControllerAccessible.c)
+ *     <none>
  */
 
 void __fastcall Control_EP_Disable(__int64 a1)
 {
-  int v2; // esi
+  int v2; // edi
   KIRQL v3; // al
 
-  while ( Controller_IsControllerAccessible(*(_QWORD *)(a1 + 40)) )
+  do
   {
-    v2 = *(_DWORD *)(a1 + 108);
-    if ( ((v2 - 1) & 0xFFFFFFFD) != 0 )
-    {
-      v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
-      *(_BYTE *)(a1 + 104) = v3;
-      if ( v2 )
-        *(_DWORD *)(a1 + 108) = 0;
-      KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), v3);
-      return;
-    }
+    do
+      v2 = *(_DWORD *)(a1 + 108);
+    while ( v2 == 3 );
   }
+  while ( v2 == 1 );
+  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
+  *(_BYTE *)(a1 + 104) = v3;
+  if ( v2 )
+    *(_DWORD *)(a1 + 108) = 0;
+  KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), v3);
 }

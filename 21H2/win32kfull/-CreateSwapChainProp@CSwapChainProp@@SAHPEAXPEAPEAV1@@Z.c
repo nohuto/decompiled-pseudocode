@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CreateSwapChainProp@CSwapChainProp@@SAHPEAXPEAPEAV1@@Z @ 0x1C014F508
+ * XREFs of ?CreateSwapChainProp@CSwapChainProp@@SAHPEAXPEAPEAV1@@Z @ 0x1C015EF08
  * Callers:
- *     UserSetWindowedSwapChain @ 0x1C014F1C8 (UserSetWindowedSwapChain.c)
+ *     UserSetWindowedSwapChain @ 0x1C015EBB8 (UserSetWindowedSwapChain.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall CSwapChainProp::CreateSwapChainProp(void *a1, struct CSwapChainProp **a2)
@@ -14,20 +14,19 @@ __int64 __fastcall CSwapChainProp::CreateSwapChainProp(void *a1, struct CSwapCha
 
   v2 = 0;
   *a2 = 0LL;
-  v5 = (_QWORD *)Win32AllocPoolZInit(40LL, 1668772693LL);
+  v5 = (_QWORD *)Win32AllocPoolZInit(32LL, 1668772693LL);
   v6 = v5;
   if ( v5 )
   {
     v5[1] = 0LL;
     v5[2] = 0LL;
     v5[3] = 0LL;
-    v5[4] = 0LL;
     *v5 = &CSwapChainProp::`vftable';
-    if ( v5[3] )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM();
-    *((_DWORD *)v6 + 8) = 0;
+    if ( v5[2] )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 81LL);
+    *((_DWORD *)v6 + 6) = 0;
     v2 = 1;
-    v6[3] = a1;
+    v6[2] = a1;
     *a2 = (struct CSwapChainProp *)v6;
   }
   return v2;

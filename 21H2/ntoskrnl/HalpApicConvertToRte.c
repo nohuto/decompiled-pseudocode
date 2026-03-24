@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpApicConvertToRte @ 0x140258B28
+ * XREFs of HalpApicConvertToRte @ 0x14037D378
  * Callers:
- *     HalpApicSetLineState @ 0x140258A60 (HalpApicSetLineState.c)
+ *     HalpApicSetLineState @ 0x14037D2B0 (HalpApicSetLineState.c)
  * Callees:
- *     HalpApicConvertId @ 0x14052A9D0 (HalpApicConvertId.c)
+ *     HalpApicConvertId @ 0x1404DCCE0 (HalpApicConvertId.c)
  */
 
 __int64 __fastcall HalpApicConvertToRte(_DWORD *a1, int *a2, int *a3)
@@ -18,13 +18,12 @@ __int64 __fastcall HalpApicConvertToRte(_DWORD *a1, int *a2, int *a3)
   int v13; // ecx
   int v14; // ecx
   int v15; // ecx
-  int v16; // r9d
-  int v17; // edx
+  int v16; // edx
   __int64 result; // rax
-  int v19; // ecx
-  int v20; // [rsp+30h] [rbp+8h] BYREF
+  int v18; // ecx
+  int v19; // [rsp+30h] [rbp+8h] BYREF
 
-  v20 = 0;
+  v19 = 0;
   v3 = 0;
   v4 = a1[3];
   v5 = 0;
@@ -44,15 +43,15 @@ __int64 __fastcall HalpApicConvertToRte(_DWORD *a1, int *a2, int *a3)
       v11 = a1[6];
       if ( v11 == 7 )
       {
-        v19 = a1[8];
+        v18 = a1[8];
         if ( KeGetCurrentPrcb()->CpuVendor == 1 )
         {
           v5 = a1[8] & 0x1FF;
         }
         else
         {
-          v3 = (v19 << 17) | 0x10000;
-          if ( (v19 & 0x8000) == 0 )
+          v3 = (v18 << 17) | 0x10000;
+          if ( (v18 & 0x8000) == 0 )
             goto LABEL_18;
         }
       }
@@ -100,13 +99,13 @@ __int64 __fastcall HalpApicConvertToRte(_DWORD *a1, int *a2, int *a3)
         if ( !v13 )
         {
 LABEL_18:
-          v17 = v5 | 0x8000;
+          v16 = v5 | 0x8000;
           if ( a1[2] )
-            v17 = v5;
+            v16 = v5;
           v9 = 0;
-          v5 = v17 | 0x2000;
+          v5 = v16 | 0x2000;
           if ( *a1 != 2 )
-            v5 = v17;
+            v5 = v16;
           goto LABEL_22;
         }
         v14 = v13 - 1;
@@ -114,10 +113,10 @@ LABEL_18:
         {
           if ( HalpApicX2Mode )
           {
-            v3 = a1[8] << 24;
+            v3 = a1[8];
             if ( KeGetCurrentPrcb()->CpuVendor != 1 )
-              v3 = a1[8];
-            goto LABEL_18;
+              goto LABEL_18;
+            goto LABEL_17;
           }
           goto LABEL_16;
         }
@@ -126,9 +125,9 @@ LABEL_18:
         {
           v5 |= 0x800u;
 LABEL_16:
-          v16 = a1[8];
+          v3 = a1[8];
 LABEL_17:
-          v3 = v16 << 24;
+          v3 <<= 24;
           goto LABEL_18;
         }
         if ( v15 != 1 )
@@ -140,8 +139,8 @@ LABEL_17:
         {
           if ( KeGetCurrentPrcb()->CpuVendor == 1 )
           {
-            HalpApicConvertId(0LL, &v20);
-            v16 = v20;
+            HalpApicConvertId(0LL, &v19);
+            v3 = v19;
             goto LABEL_17;
           }
           v3 = a1[9] | (a1[8] << 16);

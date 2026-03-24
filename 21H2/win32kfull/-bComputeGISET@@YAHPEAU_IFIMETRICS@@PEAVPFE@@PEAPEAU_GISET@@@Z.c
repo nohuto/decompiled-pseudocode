@@ -1,82 +1,80 @@
 /*
- * XREFs of ?bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z @ 0x1C000E018
+ * XREFs of ?bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z @ 0x1C00A2E84
  * Callers:
- *     ?bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C000DBEC (-bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@.c)
+ *     ?bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00A3434 (-bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@.c)
  * Callees:
- *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C000B238 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
- *     ?pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ @ 0x1C000B310 (-pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ.c)
- *     ?cComputeGISET@@YAKPEBGKPEAU_GISET@@K@Z @ 0x1C000BA28 (-cComputeGISET@@YAKPEBGKPEAU_GISET@@K@Z.c)
- *     EngUnmapFontFileFD @ 0x1C0011220 (EngUnmapFontFileFD.c)
- *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029532C (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
+ *     ?pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ @ 0x1C009ED10 (-pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ.c)
+ *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C009EE30 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?cComputeGISET@@YAKPEBGKPEAU_GISET@@K@Z @ 0x1C00A3E38 (-cComputeGISET@@YAKPEBGKPEAU_GISET@@K@Z.c)
+ *     EngUnmapFontFileFD @ 0x1C011DA70 (EngUnmapFontFileFD.c)
+ *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029794C (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
  */
 
 __int64 __fastcall bComputeGISET(struct _IFIMETRICS *a1, struct PFE *a2, struct _GISET **a3)
 {
   unsigned int v3; // ebx
-  struct _GISET **v4; // r12
+  struct _GISET **v4; // r14
   unsigned int v6; // ebp
   struct _FD_GLYPHSET *v7; // rdi
-  char v8; // r14
+  char v8; // r12
   PTRDIFF dpwszFamilyName; // esi
-  __int64 v10; // rax
-  _WORD *v12; // rcx
-  HGLYPH *phg; // rdx
-  ULONG v14; // r8d
-  int v15; // r15d
-  struct _GISET *v16; // rax
-  struct _GISET *v17; // rsi
-  unsigned __int64 v18; // rax
-  __int64 v19; // rax
-  void *j; // r14
-  __int64 cGlyphs; // r9
-  HGLYPH *v22; // r9
-  __int64 v23; // r15
-  unsigned int v24; // r12d
+  _DWORD *v10; // rax
+  unsigned __int64 v12; // rax
+  void *v13; // rax
+  void *v14; // rsi
+  _WORD *v15; // r8
+  ULONG j; // edx
+  HGLYPH *phg; // rcx
+  USHORT cGlyphs; // r9
+  unsigned __int64 v19; // r10
+  unsigned __int64 v20; // r9
+  unsigned int v21; // r15d
+  struct _GISET *v22; // rax
+  struct _GISET *v23; // r14
+  __int64 v24; // r14
+  unsigned int v25; // r15d
   unsigned int i; // esi
   WCHAR wcLow; // ax
-  WCHAR v27; // dx
-  __int64 v28; // [rsp+20h] [rbp-68h] BYREF
-  __int64 v29; // [rsp+30h] [rbp-58h] BYREF
-  unsigned int v30; // [rsp+40h] [rbp-48h]
-  __int64 *v31; // [rsp+98h] [rbp+10h] BYREF
-  struct _GISET **v32; // [rsp+A0h] [rbp+18h]
+  WCHAR v28; // cx
+  __int64 v29; // [rsp+20h] [rbp-68h] BYREF
+  __int64 v30; // [rsp+30h] [rbp-58h] BYREF
+  unsigned int v31; // [rsp+40h] [rbp-48h]
+  __int64 *v32; // [rsp+98h] [rbp+10h] BYREF
+  struct _GISET **v33; // [rsp+A0h] [rbp+18h]
 
-  v32 = a3;
+  v33 = a3;
   v3 = 0;
-  v31 = (__int64 *)a2;
+  v32 = (__int64 *)a2;
   *a3 = 0LL;
   v4 = a3;
-  v28 = *(_QWORD *)a2;
+  v29 = *(_QWORD *)a2;
   v6 = 1;
   v7 = 0LL;
-  if ( *(_QWORD *)(v28 + 88) != qword_1C033BDF8 || *(_DWORD *)(*(_QWORD *)(v28 + 80) + 8LL) )
+  if ( *(struct PDEV **)(v29 + 88) != qword_1C0341AF0 || *(_DWORD *)(*(_QWORD *)(v29 + 80) + 8LL) )
   {
     v8 = 0;
-    v7 = PFEOBJ::pfdg(&v31);
+    v7 = PFEOBJ::pfdg(&v32);
     if ( !v7 )
     {
       UmfdClientSideFileViewMapper::UmfdClientSideFileViewMapper(
-        (UmfdClientSideFileViewMapper *)&v29,
-        (struct PFFOBJ *)&v28);
-      v23 = v29;
+        (UmfdClientSideFileViewMapper *)&v30,
+        (struct PFFOBJ *)&v29);
       v24 = v30;
-      if ( v30 == *(_DWORD *)(v29 + 36) )
-        v7 = PFEOBJ::pfdg(&v31);
-      for ( i = 0; i < v24; EngUnmapFontFileFD(*(_QWORD *)(*(_QWORD *)(v23 + 200) + 8LL * i++)) )
+      v25 = v31;
+      if ( v31 == *(_DWORD *)(v30 + 36) )
+        v7 = PFEOBJ::pfdg(&v32);
+      for ( i = 0; i < v25; EngUnmapFontFileFD(*(_QWORD *)(*(_QWORD *)(v24 + 200) + 8LL * i++)) )
       {
-        if ( i >= *(_DWORD *)(v23 + 36) )
+        if ( i >= *(_DWORD *)(v24 + 36) )
           break;
       }
       if ( !v7 )
         return v3;
-      v4 = v32;
+      v4 = v33;
     }
     if ( (v7->flAccel & 6) == 0 )
-    {
-LABEL_20:
-      PFEOBJ::vFreepfdg(&v31);
-      return v6;
-    }
+      goto LABEL_28;
   }
   else
   {
@@ -87,72 +85,86 @@ LABEL_20:
     dpwszFamilyName = a1[1].dpwszFamilyName;
   if ( !v8 )
   {
-    if ( dpwszFamilyName )
+    if ( !dpwszFamilyName )
     {
-LABEL_8:
-      v10 = Win32AllocPoolZInit(12LL, 1936484167LL);
-      if ( v10 )
+      v12 = 2LL * v7->cGlyphsSupported;
+      if ( v12 <= 0xFFFFFFFF )
       {
-        *(_DWORD *)v10 = dpwszFamilyName;
-        *(_DWORD *)(v10 + 4) = 1;
-        *(_WORD *)(v10 + 8) = 0;
-        *(_WORD *)(v10 + 10) = dpwszFamilyName;
-        *v4 = (struct _GISET *)v10;
-      }
-      else
-      {
-        v6 = 0;
-      }
-      if ( v8 )
-        return v6;
-      goto LABEL_20;
-    }
-    v18 = 2LL * v7->cGlyphsSupported;
-    if ( v18 <= 0xFFFFFFFF
-      && (v6 = 1, (_DWORD)v18)
-      && (v19 = Win32AllocPoolZInit((unsigned int)v18, 1936484167LL), (v12 = (_WORD *)v19) != 0LL) )
-    {
-      v14 = 0;
-      for ( j = (void *)v19; v14 < v7->cRuns; ++v14 )
-      {
-        phg = v7->awcrun[v14].phg;
-        cGlyphs = v7->awcrun[v14].cGlyphs;
-        if ( phg )
+        v6 = 1;
+        v13 = PALLOCMEM2((unsigned int)v12, 1936484167LL, 1);
+        v14 = v13;
+        if ( v13 )
         {
-          v22 = &phg[cGlyphs];
-          while ( phg < v22 )
-            *v12++ = *(_WORD *)phg++;
+          v15 = v13;
+          for ( j = 0; j < v7->cRuns; ++j )
+          {
+            phg = v7->awcrun[j].phg;
+            cGlyphs = v7->awcrun[j].cGlyphs;
+            if ( phg )
+            {
+              v19 = v7->awcrun[j].cGlyphs;
+              v20 = 0LL;
+              if ( phg > &phg[v19] )
+                v19 = 0LL;
+              if ( v19 )
+              {
+                do
+                {
+                  ++v20;
+                  *v15++ = *(_WORD *)phg++;
+                }
+                while ( v20 < v19 );
+              }
+            }
+            else
+            {
+              if ( !cGlyphs )
+                goto LABEL_29;
+              wcLow = v7->awcrun[j].wcLow;
+              v28 = cGlyphs + wcLow - 1;
+              while ( wcLow <= v28 )
+                *v15 = wcLow++;
+            }
+          }
+          qsort(v14, v7->cGlyphsSupported, 2uLL, CompareRoutine);
+          v21 = cComputeGISET((const unsigned __int16 *)v14, v7->cGlyphsSupported, 0LL, 0);
+          v22 = (struct _GISET *)PALLOCMEM2(4 * v21 + 8, 1936484167LL, 1);
+          v23 = v22;
+          if ( v22 )
+          {
+            cComputeGISET((const unsigned __int16 *)v14, v7->cGlyphsSupported, v22, v21);
+            *v33 = v23;
+          }
+          else
+          {
+LABEL_29:
+            v6 = 0;
+          }
+          Win32FreePool(v14);
+LABEL_10:
+          if ( v8 )
+            return v6;
+LABEL_28:
+          PFEOBJ::vFreepfdg(&v32);
+          return v6;
         }
-        else
-        {
-          if ( !(_WORD)cGlyphs )
-            goto LABEL_45;
-          wcLow = v7->awcrun[v14].wcLow;
-          v27 = cGlyphs + wcLow - 1;
-          while ( wcLow <= v27 )
-            *v12 = wcLow++;
-        }
       }
-      qsort(j, v7->cGlyphsSupported, 2uLL, CompareRoutine);
-      v15 = cComputeGISET((const unsigned __int16 *)j, v7->cGlyphsSupported, 0LL, 0);
-      if ( 4 * v15 == -8
-        || (v16 = (struct _GISET *)Win32AllocPoolZInit((unsigned int)(4 * v15 + 8), 1936484167LL), (v17 = v16) == 0LL) )
-      {
-LABEL_45:
-        v6 = 0;
-      }
-      else
-      {
-        cComputeGISET((const unsigned __int16 *)j, v7->cGlyphsSupported, v16, v15);
-        *v4 = v17;
-      }
-      Win32FreePool(j);
-    }
-    else
-    {
+LABEL_42:
       v6 = 0;
+      goto LABEL_10;
     }
-    goto LABEL_20;
+LABEL_8:
+    v10 = PALLOCMEM2(0xCuLL, 1936484167LL, 1);
+    if ( v10 )
+    {
+      *v10 = dpwszFamilyName;
+      v10[1] = 1;
+      *((_WORD *)v10 + 4) = 0;
+      *((_WORD *)v10 + 5) = dpwszFamilyName;
+      *v4 = (struct _GISET *)v10;
+      goto LABEL_10;
+    }
+    goto LABEL_42;
   }
   if ( dpwszFamilyName )
     goto LABEL_8;

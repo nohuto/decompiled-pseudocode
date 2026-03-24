@@ -1,13 +1,12 @@
 /*
- * XREFs of NtUserfnOUTLPTITLEBARINFOEX @ 0x1C0109810
+ * XREFs of NtUserfnOUTLPTITLEBARINFOEX @ 0x1C011E780
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall NtUserfnOUTLPTITLEBARINFOEX(
@@ -18,17 +17,24 @@ __int64 __fastcall NtUserfnOUTLPTITLEBARINFOEX(
         __int64 a5,
         char a6)
 {
-  _BYTE *v10; // rdx
+  __int64 v10; // r8
   __int64 v11; // rdi
   _OWORD v13[9]; // [rsp+50h] [rbp-D8h] BYREF
 
   memset(v13, 0, 0x8CuLL);
-  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v10 = (_BYTE *)a4;
+  v11 = 0LL;
   if ( a4 >= MmUserProbeAddress )
-    v10 = (_BYTE *)MmUserProbeAddress;
-  *v10 = *v10;
-  v10[139] = v10[139];
+    *(_DWORD *)MmUserProbeAddress = 0;
+  *(_OWORD *)a4 = *(_OWORD *)a4;
+  *(_OWORD *)(a4 + 16) = *(_OWORD *)(a4 + 16);
+  *(_OWORD *)(a4 + 32) = *(_OWORD *)(a4 + 32);
+  *(_OWORD *)(a4 + 48) = *(_OWORD *)(a4 + 48);
+  *(_OWORD *)(a4 + 64) = *(_OWORD *)(a4 + 64);
+  *(_OWORD *)(a4 + 80) = *(_OWORD *)(a4 + 80);
+  *(_OWORD *)(a4 + 96) = *(_OWORD *)(a4 + 96);
+  *(_OWORD *)(a4 + 112) = *(_OWORD *)(a4 + 112);
+  *(_QWORD *)(a4 + 128) = *(_QWORD *)(a4 + 128);
+  *(_DWORD *)(a4 + 136) = *(_DWORD *)(a4 + 136);
   v13[0] = *(_OWORD *)a4;
   v13[1] = *(_OWORD *)(a4 + 16);
   v13[2] = *(_OWORD *)(a4 + 32);
@@ -60,8 +66,7 @@ __int64 __fastcall NtUserfnOUTLPTITLEBARINFOEX(
   }
   else
   {
-    v11 = 0LL;
-    UserSetLastError(87LL, (__int64)v13);
+    UserSetLastError(87LL, (__int64)v13, v10);
   }
   return v11;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpAllocateMultiSZ @ 0x14081BC0C
+ * XREFs of PnpAllocateMultiSZ @ 0x14074D52C
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x14081B050 (PiSwPdoPnPDispatch.c)
- *     PiSwPnPInfoInit @ 0x14081BB50 (PiSwPnPInfoInit.c)
+ *     PiSwPnPInfoInit @ 0x14074D45C (PiSwPnPInfoInit.c)
+ *     PiSwPdoPnPDispatch @ 0x14074E8B0 (PiSwPdoPnPDispatch.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PnpGetMultiSzLength @ 0x14081BCD8 (PnpGetMultiSzLength.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PnpGetMultiSzLength @ 0x14074D5F0 (PnpGetMultiSzLength.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpAllocateMultiSZ(void *Src, __int64 a2, __int64 a3, _QWORD *a4)
 {
   NTSTATUS MultiSzLength; // ebx
   ULONGLONG v7; // rdi
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v9; // rdi
   __int64 v10; // rcx
   ULONGLONG pullResult; // [rsp+40h] [rbp+8h] BYREF
@@ -35,11 +35,11 @@ __int64 __fastcall PnpAllocateMultiSZ(void *Src, __int64 a2, __int64 a3, _QWORD 
         MultiSzLength = RtlULongLongMult(ullMultiplicand, 2uLL, &pullResult);
         if ( MultiSzLength >= 0 )
         {
-          Pool2 = (void *)ExAllocatePool2(256LL, pullResult, 1466986064LL);
-          *a4 = Pool2;
-          if ( Pool2 )
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, pullResult, 0x57706E50u);
+          *a4 = PoolWithTag;
+          if ( PoolWithTag )
           {
-            memmove(Pool2, Src, pullResult);
+            memmove(PoolWithTag, Src, pullResult);
             v9 = 2 * v7;
             v10 = 2LL;
             do

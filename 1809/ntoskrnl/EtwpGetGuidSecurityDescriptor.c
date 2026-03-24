@@ -4,11 +4,11 @@
  *     EtwpGetSecurityDescriptorByGuid @ 0x1405C6050 (EtwpGetSecurityDescriptorByGuid.c)
  *     EtwpInitializeSecurity @ 0x1409D008C (EtwpInitializeSecurity.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlQueryRegistryValueWithFallback @ 0x1405C6290 (RtlQueryRegistryValueWithFallback.c)
- *     SeValidSecurityDescriptor @ 0x14069D770 (SeValidSecurityDescriptor.c)
+ *     SeValidSecurityDescriptor @ 0x14069D750 (SeValidSecurityDescriptor.c)
  */
 
 __int64 __fastcall EtwpGetGuidSecurityDescriptor(PUNICODE_STRING ValueName, _QWORD *a2)

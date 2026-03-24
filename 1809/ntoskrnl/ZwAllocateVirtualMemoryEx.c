@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAllocateVirtualMemoryEx @ 0x1401B8FF0
+ * XREFs of ZwAllocateVirtualMemoryEx @ 0x1401B9010
  * Callers:
  *     <none>
  * Callees:

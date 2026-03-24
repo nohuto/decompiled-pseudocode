@@ -1,15 +1,15 @@
 /*
- * XREFs of hfontInitDefaultGuiFont @ 0x1C03909E0
+ * XREFs of hfontInitDefaultGuiFont @ 0x1C03939F0
  * Callers:
- *     FinishStockFontReinit @ 0x1C00C8A00 (FinishStockFontReinit.c)
- *     GreEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C0291380 (GreEnsureDpiDepDefaultGuiFontForPlateau.c)
- *     bInitStockFontsInternal @ 0x1C0390308 (bInitStockFontsInternal.c)
+ *     FinishStockFontReinit @ 0x1C00E5160 (FinishStockFontReinit.c)
+ *     GreEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C0293830 (GreEnsureDpiDepDefaultGuiFontForPlateau.c)
+ *     bInitStockFontsInternal @ 0x1C0393344 (bInitStockFontsInternal.c)
  * Callees:
- *     hfontCreate @ 0x1C0013DE0 (hfontCreate.c)
- *     ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00C87D4 (-bOpenKey@@YAHPEBGPEAPEAX@Z.c)
- *     ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C00C8968 (-bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     hfontCreate @ 0x1C00BBF00 (hfontCreate.c)
+ *     ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00E4F30 (-bOpenKey@@YAHPEBGPEAPEAX@Z.c)
+ *     ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C00E50C8 (-bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 struct HOBJ__ *__fastcall hfontInitDefaultGuiFont(int a1)
@@ -64,5 +64,5 @@ struct HOBJ__ *__fastcall hfontInitDefaultGuiFont(int a1)
     gbFinishDefGUIFontInit = 1;
   else
     v12[0] = (v12[0] * a1 + 36) / -72;
-  return hfontCreate(v12, 7, 2, 0LL, 0x48u);
+  return hfontCreate((WCHAR *)v12, 7, 2, 0LL, 0x48u);
 }

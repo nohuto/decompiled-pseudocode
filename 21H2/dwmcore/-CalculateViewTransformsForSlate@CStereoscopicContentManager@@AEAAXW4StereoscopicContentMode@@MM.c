@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CalculateViewTransformsForSlate@CStereoscopicContentManager@@AEAAXW4StereoscopicContentMode@@MMAEBUStereoscopicSlateData@@PEAUStereoscopicViewData@@@Z @ 0x18029770C
+ * XREFs of ?CalculateViewTransformsForSlate@CStereoscopicContentManager@@AEAAXW4StereoscopicContentMode@@MMAEBUStereoscopicSlateData@@PEAUStereoscopicViewData@@@Z @ 0x1802556B0
  * Callers:
- *     ?CalculateViewTransformForVisualTree@CStereoscopicContentManager@@QEAA?BVCMILMatrix@@PEBVCVisualTree@@IIHH@Z @ 0x180297470 (-CalculateViewTransformForVisualTree@CStereoscopicContentManager@@QEAA-BVCMILMatrix@@PEBVCVisual.c)
+ *     ?CalculateViewTransformForVisualTree@CStereoscopicContentManager@@QEAA?BVCMILMatrix@@PEBVCVisualTree@@IIHH@Z @ 0x180255444 (-CalculateViewTransformForVisualTree@CStereoscopicContentManager@@QEAA-BVCMILMatrix@@PEBVCVisual.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?XMMatrixInverse@DirectX@@YQ?AUXMMATRIX@1@PEAT__m128@@U21@@Z @ 0x1801FACE0 (-XMMatrixInverse@DirectX@@YQ-AUXMMATRIX@1@PEAT__m128@@U21@@Z.c)
- *     ?XMMatrixMultiply@DirectX@@YQ?AUXMMATRIX@1@U21@AEBU21@@Z @ 0x180261368 (-XMMatrixMultiply@DirectX@@YQ-AUXMMATRIX@1@U21@AEBU21@@Z.c)
+ *     ?XMMatrixMultiply@DirectX@@YQ?AUXMMATRIX@1@U21@AEBU21@@Z @ 0x180015A9C (-XMMatrixMultiply@DirectX@@YQ-AUXMMATRIX@1@U21@AEBU21@@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?XMMatrixInverse@DirectX@@YQ?AUXMMATRIX@1@PEAT__m128@@U21@@Z @ 0x1801F80E0 (-XMMatrixInverse@DirectX@@YQ-AUXMMATRIX@1@PEAT__m128@@U21@@Z.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -33,14 +33,14 @@ __int64 __fastcall CStereoscopicContentManager::CalculateViewTransformsForSlate(
   __m128 v20; // xmm1
   int v21; // esi
   __m128 v22; // xmm8
-  __m128 v23; // xmm2
+  __m128 v23; // xmm3
   __m128 v24; // xmm0
   __m128 v25; // xmm1
   __m128 v26; // xmm0
   __m128 v27; // xmm1
-  __m128 v28; // xmm11
+  __m128 v28; // xmm10
   __int64 v29; // rbx
-  __m128 v30; // xmm12
+  __m128 v30; // xmm11
   __int64 v31; // rdi
   __m128 *v32; // rax
   __m128 v33; // xmm1
@@ -49,7 +49,7 @@ __int64 __fastcall CStereoscopicContentManager::CalculateViewTransformsForSlate(
   double v36; // xmm0_8
   double v37; // xmm0_8
   __m128 v38; // xmm0
-  __m128 v39; // xmm10
+  __m128 v39; // xmm5
   __m128 v40; // xmm6
   __m128 v41; // xmm0
   __m128 v42; // xmm2
@@ -114,29 +114,29 @@ __int64 __fastcall CStereoscopicContentManager::CalculateViewTransformsForSlate(
   v67[1] = DirectX::g_XMIdentityR1;
   v68[0] = v65;
   v68[1] = v66;
-  v68[2] = v67;
-  v67[2] = DirectX::g_XMIdentityR2;
-  v23 = _mm_xor_ps(*(__m128 *)&a4, (__m128)_xmm);
-  v69[0] = a6 + 64;
   v67[0] = DirectX::g_XMIdentityR0;
-  v69[1] = a6 + 128;
+  v68[2] = v67;
+  v69[0] = a6 + 64;
   v67[3] = DirectX::g_XMIdentityR3;
-  v23.m128_f32[0] = v23.m128_f32[0] * 0.5;
+  v23 = *(__m128 *)&a3;
+  v23.m128_f32[0] = *(float *)&a3 * -0.5;
+  v69[1] = a6 + 128;
+  v8.m128_f32[0] = *(float *)&a3 * 0.5;
   v69[2] = a6;
+  v67[2] = DirectX::g_XMIdentityR2;
   v24 = *a5;
   v60[1] = a5[1];
   v25 = a5[3];
   v60[0] = v24;
   v26 = a5[2];
   v60[3] = v25;
-  v7.m128_f32[0] = *(float *)&a4 * 0.5;
-  v27 = _mm_xor_ps(v8, (__m128)_xmm);
-  v27.m128_f32[0] = v27.m128_f32[0] * 0.5;
-  v8.m128_f32[0] = v8.m128_f32[0] * 0.5;
-  v28 = _mm_movelh_ps(_mm_unpacklo_ps(v27, v23), (__m128)_xmm);
+  v27 = v7;
+  v7.m128_f32[0] = v7.m128_f32[0] * 0.5;
+  v27.m128_f32[0] = v27.m128_f32[0] * -0.5;
   v60[2] = v26;
+  v28 = _mm_unpacklo_ps(_mm_unpacklo_ps(v23, (__m128)0LL), _mm_unpacklo_ps(v27, (__m128)(unsigned int)FLOAT_1_0));
   v29 = 0LL;
-  v30 = _mm_movelh_ps(_mm_unpacklo_ps(v8, v7), (__m128)_xmm);
+  v30 = _mm_unpacklo_ps(_mm_unpacklo_ps(v8, (__m128)0LL), _mm_unpacklo_ps(v7, (__m128)(unsigned int)FLOAT_1_0));
   v31 = 3LL;
   do
   {
@@ -156,10 +156,12 @@ __int64 __fastcall CStereoscopicContentManager::CalculateViewTransformsForSlate(
     v61[2] = (__m128)DirectX::g_XMIdentityR2;
     v39 = _mm_mul_ps(
             _mm_add_ps(
-              _mm_add_ps(_mm_add_ps(_mm_mul_ps((__m128)0LL, v34), _mm_mul_ps(v22, v35)), _mm_mul_ps((__m128)0LL, v33)),
-              _mm_mul_ps((__m128)0LL, v38)),
+              _mm_add_ps(_mm_mul_ps((__m128)0LL, v34), _mm_mul_ps(v22, v35)),
+              _mm_add_ps(_mm_mul_ps((__m128)0LL, v38), _mm_mul_ps((__m128)0LL, v33))),
             (__m128)_xmm);
-    v40 = _mm_movelh_ps(_mm_unpacklo_ps(v39, _mm_shuffle_ps(v39, v39, 85)), (__m128)_xmm);
+    v40 = _mm_unpacklo_ps(
+            _mm_unpacklo_ps(v39, (__m128)0LL),
+            _mm_unpacklo_ps(_mm_shuffle_ps(v39, v39, 85), (__m128)(unsigned int)FLOAT_1_0));
     v41 = (__m128)LODWORD(FLOAT_N1_0);
     v61[3] = v40;
     v41.m128_f32[0] = (float)(-1.0 / _mm_shuffle_ps(v39, v39, 170).m128_f32[0]) * 4.0;

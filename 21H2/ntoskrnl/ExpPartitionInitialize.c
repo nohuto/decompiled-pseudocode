@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpPartitionInitialize @ 0x140851EBC
+ * XREFs of ExpPartitionInitialize @ 0x1407C23AC
  * Callers:
- *     PspAllocatePartition @ 0x14085BD34 (PspAllocatePartition.c)
- *     ExpWorkerInitialization @ 0x140B240EC (ExpWorkerInitialization.c)
+ *     PspAllocatePartition @ 0x1407CC2B4 (PspAllocatePartition.c)
+ *     ExpWorkerInitialization @ 0x140A6AE74 (ExpWorkerInitialization.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExpPartitionCreatePoolInternal @ 0x1408520BC (ExpPartitionCreatePoolInternal.c)
- *     ExpWorkQueueManagerInitialize @ 0x140852250 (ExpWorkQueueManagerInitialize.c)
- *     ExpPartitionDestroy @ 0x140A01F78 (ExpPartitionDestroy.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExpPartitionCreatePoolInternal @ 0x1407C25B0 (ExpPartitionCreatePoolInternal.c)
+ *     ExpWorkQueueManagerInitialize @ 0x1407C2798 (ExpWorkQueueManagerInitialize.c)
+ *     ExpPartitionDestroy @ 0x140955E74 (ExpPartitionDestroy.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpPartitionInitialize(__int64 a1)
@@ -57,7 +57,7 @@ LABEL_12:
         while ( 1 )
         {
           v9 = 0LL;
-          if ( (_UNKNOWN *)KeNodeBlock[v8] != (_UNKNOWN *)((char *)&KiNodeInit + 280 * v8) )
+          if ( (_UNKNOWN *)KeNodeBlock[v8] != (_UNKNOWN *)((char *)&KiNodeInit + 384 * v8) )
             v9 = KeNodeBlock[v8];
           *(_QWORD *)(v3[2] + 8LL * v8) = ExAllocatePoolWithTag(NonPagedPoolNx, 0x118uLL, 0x6C577845u);
           v10 = *(_QWORD *)(v3[2] + 8LL * v8);

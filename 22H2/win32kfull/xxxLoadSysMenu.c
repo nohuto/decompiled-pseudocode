@@ -1,87 +1,87 @@
 /*
- * XREFs of xxxLoadSysMenu @ 0x1C006272C
+ * XREFs of xxxLoadSysMenu @ 0x1C0042D94
  * Callers:
- *     xxxGetSystemMenu @ 0x1C0067088 (xxxGetSystemMenu.c)
- *     xxxLoadSysDesktopMenu @ 0x1C00AF9D4 (xxxLoadSysDesktopMenu.c)
+ *     xxxGetSystemMenu @ 0x1C00DC574 (xxxGetSystemMenu.c)
+ *     xxxLoadSysDesktopMenu @ 0x1C01291D4 (xxxLoadSysDesktopMenu.c)
  * Callees:
- *     xxxClientLoadMenu @ 0x1C001F60C (xxxClientLoadMenu.c)
- *     RtlInitUnicodeStringOrId @ 0x1C001FB94 (RtlInitUnicodeStringOrId.c)
- *     xxxSetMenuItemInfo @ 0x1C0062998 (xxxSetMenuItemInfo.c)
- *     xxxSetMenuInfo @ 0x1C0062B7C (xxxSetMenuInfo.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C009E5C0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     xxxClientLoadMenu @ 0x1C0023740 (xxxClientLoadMenu.c)
+ *     RtlInitUnicodeStringOrId @ 0x1C00254A4 (RtlInitUnicodeStringOrId.c)
+ *     xxxSetMenuItemInfo @ 0x1C00457B8 (xxxSetMenuItemInfo.c)
+ *     xxxSetMenuInfo @ 0x1C0046A14 (xxxSetMenuInfo.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 unsigned __int8 *__fastcall xxxLoadSysMenu(int a1)
 {
-  __int64 v1; // rbx
-  unsigned __int8 *Menu; // rax
-  unsigned __int8 *v4; // rdi
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  _BYTE v9[16]; // [rsp+38h] [rbp-69h] BYREF
-  __int64 v10; // [rsp+48h] [rbp-59h]
-  struct _UNICODE_STRING v11; // [rsp+50h] [rbp-51h] BYREF
-  _DWORD v12[3]; // [rsp+60h] [rbp-41h] BYREF
-  __int128 v13; // [rsp+6Ch] [rbp-35h]
-  __int64 v14; // [rsp+7Ch] [rbp-25h]
-  int v15; // [rsp+84h] [rbp-1Dh]
-  _DWORD v16[18]; // [rsp+88h] [rbp-19h] BYREF
-  __int64 v17; // [rsp+D0h] [rbp+2Fh]
-  __int128 v18; // [rsp+D8h] [rbp+37h] BYREF
-  __int64 v19; // [rsp+E8h] [rbp+47h]
+  unsigned __int8 *Menu; // rbx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v4; // rcx
+  _QWORD v6[3]; // [rsp+30h] [rbp-D8h] BYREF
+  int v7; // [rsp+48h] [rbp-C0h] BYREF
+  __m256i v8; // [rsp+4Ch] [rbp-BCh] BYREF
+  int v9; // [rsp+6Ch] [rbp-9Ch]
+  _QWORD v10[3]; // [rsp+70h] [rbp-98h] BYREF
+  _BYTE v11[16]; // [rsp+88h] [rbp-80h] BYREF
+  __int64 v12; // [rsp+98h] [rbp-70h]
+  _BYTE v13[16]; // [rsp+A0h] [rbp-68h] BYREF
+  __int64 v14; // [rsp+B0h] [rbp-58h]
+  _BYTE v15[16]; // [rsp+B8h] [rbp-50h] BYREF
+  __int64 v16; // [rsp+C8h] [rbp-40h]
+  _BYTE v17[16]; // [rsp+D0h] [rbp-38h] BYREF
+  __int64 v18; // [rsp+E0h] [rbp-28h]
+  _BYTE v19[16]; // [rsp+E8h] [rbp-20h] BYREF
+  __int64 v20; // [rsp+F8h] [rbp-10h]
+  _QWORD v21[10]; // [rsp+108h] [rbp+0h] BYREF
 
-  v1 = 0LL;
-  v14 = 0LL;
-  v15 = 0;
-  v13 = 0LL;
-  memset_0(v16, 0, 0x50uLL);
-  v18 = 0LL;
-  v19 = 0LL;
-  v11 = 0LL;
-  RtlInitUnicodeStringOrId(&v11, (WCHAR *)(unsigned __int16)a1);
-  Menu = xxxClientLoadMenu(0LL, (void **)&v11);
-  v4 = Menu;
+  v9 = 0;
+  memset(&v8.m256i_u64[1], 0, 24);
+  memset(v21, 0, sizeof(v21));
+  v10[2] = 0LL;
+  *(_OWORD *)&v6[1] = 0LL;
+  RtlInitUnicodeStringOrId((struct _UNICODE_STRING *)&v6[1], (WCHAR *)(unsigned __int16)a1);
+  Menu = xxxClientLoadMenu(0LL, (unsigned __int16 *)&v6[1]);
   if ( !Menu )
     return 0LL;
-  ThreadLockAlways(Menu, &v18);
-  v12[0] = 40;
-  v12[1] = -2147483632;
-  v12[2] = 0x4000000;
-  SmartObjStackRefBase<tagMENU>::Init(v9, v4);
-  v10 = 0LL;
-  xxxSetMenuInfo(v9, v12);
-  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v9);
-  v16[0] = 80;
-  v16[1] = 128;
-  v17 = 8LL;
-  SmartObjStackRefBase<tagMENU>::Init(v9, v4);
-  v10 = 0LL;
-  xxxSetMenuItemInfo((unsigned int)v9, 61536, 0, (unsigned int)v16, 0LL);
-  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v9);
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v10[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v10;
+  v10[1] = Menu;
+  HMLockObject(Menu);
+  v7 = 40;
+  v8.m256i_i64[0] = 0x400000080000010LL;
+  SmartObjStackRefBase<tagMENU>::Init(v11, Menu);
+  v12 = 0LL;
+  xxxSetMenuInfo(v11, &v7);
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v11);
+  v21[0] = 0x8000000050LL;
+  v21[9] = 8LL;
+  SmartObjStackRefBase<tagMENU>::Init(v13, Menu);
+  v14 = 0LL;
+  xxxSetMenuItemInfo((unsigned int)v13, 61536, 0, (unsigned int)v21, 0LL);
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v13);
   if ( a1 != 48 )
   {
-    v17 = 11LL;
-    SmartObjStackRefBase<tagMENU>::Init(v9, v4);
-    v10 = 0LL;
-    xxxSetMenuItemInfo((unsigned int)v9, 61472, 0, (unsigned int)v16, 0LL);
-    SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v9);
-    v17 = 10LL;
-    SmartObjStackRefBase<tagMENU>::Init(v9, v4);
-    v10 = 0LL;
-    xxxSetMenuItemInfo((unsigned int)v9, 61488, 0, (unsigned int)v16, 0LL);
-    SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v9);
-    v17 = 9LL;
-    SmartObjStackRefBase<tagMENU>::Init(v9, v4);
-    v10 = 0LL;
-    xxxSetMenuItemInfo((unsigned int)v9, 61728, 0, (unsigned int)v16, 0LL);
-    SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v9);
+    v21[9] = 11LL;
+    SmartObjStackRefBase<tagMENU>::Init(v15, Menu);
+    v16 = 0LL;
+    xxxSetMenuItemInfo((unsigned int)v15, 61472, 0, (unsigned int)v21, 0LL);
+    SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v15);
+    v21[9] = 10LL;
+    SmartObjStackRefBase<tagMENU>::Init(v17, Menu);
+    v18 = 0LL;
+    xxxSetMenuItemInfo((unsigned int)v17, 61488, 0, (unsigned int)v21, 0LL);
+    SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v17);
+    v21[9] = 9LL;
+    SmartObjStackRefBase<tagMENU>::Init(v19, Menu);
+    v20 = 0LL;
+    xxxSetMenuItemInfo((unsigned int)v19, 61728, 0, (unsigned int)v21, 0LL);
+    SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v19);
   }
-  if ( !ThreadUnlock1(v6, v5, v7) )
+  if ( ThreadUnlock1(v4) && (*(_BYTE *)(_HMPheFromObject(Menu) + 25) & 1) == 0 )
+    return Menu;
+  else
     return 0LL;
-  if ( (*(_BYTE *)(_HMPheFromObject(v4) + 25) & 1) == 0 )
-    return v4;
-  return (unsigned __int8 *)v1;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStringCbPrintfExW @ 0x1C0017B4C
+ * XREFs of RtlStringCbPrintfExW @ 0x1C0002788
  * Callers:
- *     ACPIBusIrpQueryCompatibleId @ 0x1C007EE94 (ACPIBusIrpQueryCompatibleId.c)
- *     ACPIBusIrpQueryDeviceId @ 0x1C007F584 (ACPIBusIrpQueryDeviceId.c)
- *     ACPIBusIrpQueryHardwareId @ 0x1C007FC4C (ACPIBusIrpQueryHardwareId.c)
+ *     ACPIBusIrpQueryHardwareId @ 0x1C008F720 (ACPIBusIrpQueryHardwareId.c)
+ *     ACPIBusIrpQueryDeviceId @ 0x1C0096300 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryCompatibleId @ 0x1C009670C (ACPIBusIrpQueryCompatibleId.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     RtlStringExHandleOtherFlagsW @ 0x1C000B94C (RtlStringExHandleOtherFlagsW.c)
- *     RtlStringVPrintfWorkerW @ 0x1C000BA0C (RtlStringVPrintfWorkerW.c)
+ *     RtlStringVPrintfWorkerW @ 0x1C0002898 (RtlStringVPrintfWorkerW.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x1C004B068 (RtlStringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS RtlStringCbPrintfExW(
@@ -21,18 +21,19 @@ NTSTATUS RtlStringCbPrintfExW(
 {
   size_t v7; // rdi
   NTSTATUS v10; // ebx
-  NTSTRSAFE_PWSTR v11; // r13
-  const wchar_t *v12; // r9
-  NTSTATUS v13; // eax
-  size_t v14; // rcx
-  size_t v15; // r8
+  size_t v11; // r8
+  NTSTRSAFE_PWSTR v12; // r13
+  NTSTRSAFE_PCWSTR v13; // r9
+  NTSTATUS v14; // eax
+  size_t v15; // rcx
   NTSTRSAFE_PWSTR ppszDestEnda; // [rsp+30h] [rbp-18h] BYREF
   size_t pcchNewDestLength[2]; // [rsp+38h] [rbp-10h] BYREF
-  va_list argList; // [rsp+C0h] [rbp+78h] BYREF
+  va_list va; // [rsp+C0h] [rbp+78h] BYREF
 
-  va_start(argList, pszFormat);
+  va_start(va, pszFormat);
   v7 = cbDest >> 1;
   v10 = 0;
+  v11 = 3221225485LL;
   if ( (dwFlags & 0x100) != 0 )
   {
     if ( !pszDest && v7 || v7 > 0x7FFFFFFF )
@@ -46,71 +47,74 @@ NTSTATUS RtlStringCbPrintfExW(
   {
     if ( v7 )
       *pszDest = 0;
+    return v10;
+  }
+  ppszDestEnda = pszDest;
+  v12 = pszDest;
+  pcchNewDestLength[0] = cbDest >> 1;
+  if ( (dwFlags & 0x100) != 0 )
+  {
+    v13 = &word_1C006F7EC;
+    if ( pszFormat )
+      v13 = pszFormat;
   }
   else
   {
-    ppszDestEnda = pszDest;
-    v11 = pszDest;
-    pcchNewDestLength[0] = cbDest >> 1;
-    if ( (dwFlags & 0x100) != 0 )
+    v13 = pszFormat;
+  }
+  v10 = 0;
+  if ( (dwFlags & 0xFFFFE000) != 0 )
+  {
+    v10 = -1073741811;
+    if ( v7 )
+      *pszDest = 0;
+  }
+  else
+  {
+    if ( !v7 )
     {
-      v12 = &word_1C0063064;
-      if ( pszFormat )
-        v12 = pszFormat;
-    }
-    else
-    {
-      v12 = pszFormat;
-    }
-    v10 = 0;
-    if ( (dwFlags & 0xFFFFE000) != 0 )
-    {
-      v10 = -1073741811;
-      if ( v7 )
-        *pszDest = 0;
-    }
-    else if ( v7 )
-    {
-      pcchNewDestLength[0] = 0LL;
-      v13 = RtlStringVPrintfWorkerW(pszDest, v7, pcchNewDestLength, v12, argList);
-      v14 = pcchNewDestLength[0];
-      v10 = v13;
-      v7 -= pcchNewDestLength[0];
-      pcchNewDestLength[0] = v7;
-      v11 = &pszDest[v14];
-      ppszDestEnda = v11;
-      if ( v13 >= 0 )
+      if ( !*v13 )
+        goto LABEL_12;
+      v10 = pszDest != 0LL ? -2147483643 : -1073741811;
+LABEL_11:
+      if ( v10 >= 0 )
       {
-        if ( (dwFlags & 0x200) != 0 )
-        {
-          v15 = (cbDest & 1) + 2 * v7;
-          if ( v15 > 2 )
-            memset(v11 + 1, (unsigned __int8)dwFlags, v15 - 2);
-        }
-        goto LABEL_22;
-      }
-    }
-    else
-    {
-      if ( !*v12 )
-      {
-LABEL_22:
+LABEL_12:
         if ( ppszDestEnd )
-          *ppszDestEnd = v11;
+          *ppszDestEnd = v12;
         if ( pcbRemaining )
           *pcbRemaining = (cbDest & 1) + 2 * v7;
         return v10;
       }
-      v10 = pszDest != 0LL ? -2147483643 : -1073741811;
+      goto LABEL_26;
     }
-    if ( (dwFlags & 0x1C00) != 0 && cbDest )
+    pcchNewDestLength[0] = 0LL;
+    v14 = RtlStringVPrintfWorkerW(pszDest, v7, pcchNewDestLength, v13, va);
+    v15 = pcchNewDestLength[0];
+    v10 = v14;
+    v7 -= pcchNewDestLength[0];
+    pcchNewDestLength[0] = v7;
+    v12 = &pszDest[v15];
+    ppszDestEnda = v12;
+    if ( v14 >= 0 )
     {
-      RtlStringExHandleOtherFlagsW(pszDest, cbDest, (size_t)ppszDestEnd, &ppszDestEnda, pcchNewDestLength, dwFlags);
-      v11 = ppszDestEnda;
-      v7 = pcchNewDestLength[0];
+      if ( (dwFlags & 0x200) != 0 )
+      {
+        v11 = (cbDest & 1) + 2 * v7;
+        if ( v11 > 2 )
+          memset(v12 + 1, (unsigned __int8)dwFlags, v11 - 2);
+      }
+      goto LABEL_11;
     }
-    if ( (int)(v10 + 0x80000000) < 0 || v10 == -2147483643 )
-      goto LABEL_22;
   }
+LABEL_26:
+  if ( (dwFlags & 0x1C00) != 0 && cbDest )
+  {
+    RtlStringExHandleOtherFlagsW(pszDest, cbDest, v11, &ppszDestEnda, pcchNewDestLength, dwFlags);
+    v12 = ppszDestEnda;
+    v7 = pcchNewDestLength[0];
+  }
+  if ( (int)(v10 + 0x80000000) < 0 || v10 == -2147483643 )
+    goto LABEL_12;
   return v10;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of TemperatureFromKelvinToCelsius @ 0x1C0021560
+ * XREFs of TemperatureFromKelvinToCelsius @ 0x1C001773C
  * Callers:
- *     LogSenseTemperature @ 0x1C001C8D4 (LogSenseTemperature.c)
- *     NVMeGetLogPageHealthInfoCompletion @ 0x1C001D490 (NVMeGetLogPageHealthInfoCompletion.c)
+ *     LogSenseTemperature @ 0x1C001404C (LogSenseTemperature.c)
+ *     NVMeGetLogPageHealthInfoCompletion @ 0x1C0014B90 (NVMeGetLogPageHealthInfoCompletion.c)
  * Callees:
  *     <none>
  */

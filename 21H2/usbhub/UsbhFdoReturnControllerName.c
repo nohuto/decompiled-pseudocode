@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhFdoReturnControllerName @ 0x1C003036C
+ * XREFs of UsbhFdoReturnControllerName @ 0x1C0031710
  * Callers:
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
  * Callees:
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhGetControllerName @ 0x1C002AE68 (UsbhGetControllerName.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhGetControllerName @ 0x1C002C234 (UsbhGetControllerName.c)
  */
 
 __int64 __fastcall UsbhFdoReturnControllerName(__int64 a1, ULONG_PTR a2, IRP *a3)

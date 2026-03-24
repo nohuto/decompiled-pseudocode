@@ -1,13 +1,13 @@
 /*
- * XREFs of Interrupter_InitializeForOffload @ 0x1C003C1CC
+ * XREFs of Interrupter_InitializeForOffload @ 0x1C003BC78
  * Callers:
- *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0031D50 (Controller_IncrementNumberOfEndpointsOffloaded.c)
+ *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0031E60 (Controller_IncrementNumberOfEndpointsOffloaded.c)
  * Callees:
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0013B7C (XilRegister_WriteUlong.c)
- *     Interrupter_UpdateERDP @ 0x1C0014370 (Interrupter_UpdateERDP.c)
- *     XilRegister_WriteUlong64 @ 0x1C0014420 (XilRegister_WriteUlong64.c)
- *     memset @ 0x1C0019CC0 (memset.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     Interrupter_UpdateERDP @ 0x1C0014228 (Interrupter_UpdateERDP.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall Interrupter_InitializeForOffload(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall Interrupter_InitializeForOffload(__int64 a1)
   memset(*(void **)(*(_QWORD *)(a1 + 144) + 16LL), 0, *(unsigned int *)(*(_QWORD *)(a1 + 144) + 44LL));
   v3 = (int *)(*(_QWORD *)(a1 + 24) + 8LL);
   v4 = (unsigned __int16)*(_DWORD *)(a1 + 108);
-  if ( *(_BYTE *)(v2 + 129) )
+  if ( *(_BYTE *)(v2 + 137) )
   {
     *v3 = v4;
     _InterlockedOr(v12, 0);
@@ -41,7 +41,7 @@ __int64 __fastcall Interrupter_InitializeForOffload(__int64 a1)
   v5 = *(_QWORD *)(a1 + 24);
   v6 = *(_QWORD *)(*(_QWORD *)(a1 + 152) + 24LL);
   v7 = (_DWORD *)(v5 + 16);
-  if ( *(_BYTE *)(v2 + 129) )
+  if ( *(_BYTE *)(v2 + 137) )
   {
     if ( (*(_QWORD *)(*(_QWORD *)(v2 + 8) + 336LL) & 1) != 0 )
     {
@@ -60,13 +60,13 @@ __int64 __fastcall Interrupter_InitializeForOffload(__int64 a1)
     XilRegister_WriteUlong64(v2, v7, v6);
   }
   v8 = *(unsigned int **)(a1 + 24);
-  if ( *(_BYTE *)(v2 + 129) )
+  if ( *(_BYTE *)(v2 + 137) )
     Ulong = *v8;
   else
     Ulong = XilRegister_ReadUlong(v2, v8);
   v10 = *(_DWORD **)(a1 + 24);
   result = Ulong | 2;
-  if ( !*(_BYTE *)(v2 + 129) )
+  if ( !*(_BYTE *)(v2 + 137) )
     return XilRegister_WriteUlong(v2, v10, result);
   *v10 = result;
   _InterlockedOr(v12, 0);

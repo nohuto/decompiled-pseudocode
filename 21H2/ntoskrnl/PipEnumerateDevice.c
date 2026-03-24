@@ -1,19 +1,19 @@
 /*
- * XREFs of PipEnumerateDevice @ 0x14074B420
+ * XREFs of PipEnumerateDevice @ 0x140746E28
  * Callers:
- *     PipProcessDevNodeTree @ 0x140777578 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
  * Callees:
- *     PoFxIdleDevice @ 0x1402D25CC (PoFxIdleDevice.c)
- *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x1402D26E0 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
- *     PnpDiagnosticTraceObject @ 0x1402D2774 (PnpDiagnosticTraceObject.c)
- *     PoFxActivateDevice @ 0x1402D2848 (PoFxActivateDevice.c)
- *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x1402D2A14 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
- *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x1402DE734 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
- *     PipSetDevNodeState @ 0x1402DE844 (PipSetDevNodeState.c)
- *     PnpQueryDeviceRelations @ 0x14074C534 (PnpQueryDeviceRelations.c)
- *     PnpDeviceCompletionRequestCreate @ 0x14074D338 (PnpDeviceCompletionRequestCreate.c)
- *     PipClearDevNodeFlags @ 0x14076FBEC (PipClearDevNodeFlags.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1407730FC (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpDiagnosticTraceObject @ 0x140364C6C (PnpDiagnosticTraceObject.c)
+ *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x14036F938 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
+ *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
+ *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
+ *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x14036FC28 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
+ *     PoFxActivateDevice @ 0x14036FCB4 (PoFxActivateDevice.c)
+ *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x14036FE8C (PnpDeviceCompletionQueueAddDispatchedRequest.c)
+ *     PipClearDevNodeFlags @ 0x140746A74 (PipClearDevNodeFlags.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x140746AF0 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpQueryDeviceRelations @ 0x140746F38 (PnpQueryDeviceRelations.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x140746FAC (PnpDeviceCompletionRequestCreate.c)
  */
 
 __int64 __fastcall PipEnumerateDevice(__int64 a1, int a2, int a3)
@@ -30,14 +30,14 @@ __int64 __fastcall PipEnumerateDevice(__int64 a1, int a2, int a3)
 
   if ( a2
     || (PnpAsyncOptions & 2) == 0
-    || _bittest((const signed __int32 *)(a1 + 396), 0x17u)
+    || (*(_DWORD *)(a1 + 396) & 0x800000) != 0
     || (_DWORD)InitSafeBootMode
-    || (v5 = PnpDeviceCompletionRequestCreate(a1, 783LL, 0LL)) == 0 )
+    || (v5 = PnpDeviceCompletionRequestCreate(a1, 781LL)) == 0 )
   {
-    if ( a3 && _bittest((const signed __int32 *)(a1 + 396), 0x17u) )
+    if ( a3 && (*(_DWORD *)(a1 + 396) & 0x800000) != 0 )
       return (unsigned int)-1073741267;
     PnpDiagnosticTraceObject(&KMPnPEvt_DeviceEnum_Start, (unsigned __int16 *)(a1 + 40));
-    PipClearDevNodeFlags(a1, 8LL);
+    PipClearDevNodeFlags(a1, 8);
     PoFxActivateDevice(*(_QWORD *)(a1 + 32));
     v13 = *(_QWORD *)(a1 + 32);
     *(_DWORD *)(a1 + 704) |= 0x80u;
@@ -45,16 +45,16 @@ __int64 __fastcall PipEnumerateDevice(__int64 a1, int a2, int a3)
     PoFxIdleDevice(*(_QWORD *)(a1 + 32));
     *(_DWORD *)(a1 + 704) &= ~0x80u;
     *(_DWORD *)(a1 + 392) = DeviceRelations;
-    PipSetDevNodeState(a1, 783);
+    PipSetDevNodeState(a1, 781);
     PnpDiagnosticTraceObject(&KMPnPEvt_DeviceEnum_Stop, (unsigned __int16 *)(a1 + 40));
   }
   else
   {
-    PipSetDevNodeState(a1, 782);
+    PipSetDevNodeState(a1, 780);
     *(_DWORD *)(a1 + 392) = 259;
     PnpDeviceCompletionQueueAddDispatchedRequest(v6, (_QWORD *)v5);
     PnpDiagnosticTraceObject(&KMPnPEvt_DeviceEnum_Start, (unsigned __int16 *)(a1 + 40));
-    PipClearDevNodeFlags(a1, 8LL);
+    PipClearDevNodeFlags(a1, 8);
     PoFxActivateDevice(*(_QWORD *)(a1 + 32));
     v7 = *(_QWORD *)(a1 + 32);
     *(_DWORD *)(a1 + 704) |= 0x80u;

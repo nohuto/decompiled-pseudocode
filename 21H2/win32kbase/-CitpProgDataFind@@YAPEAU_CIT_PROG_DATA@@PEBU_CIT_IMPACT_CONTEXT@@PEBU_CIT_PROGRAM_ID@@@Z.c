@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CitpProgDataFind@@YAPEAU_CIT_PROG_DATA@@PEBU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C0240198
+ * XREFs of ?CitpProgDataFind@@YAPEAU_CIT_PROG_DATA@@PEBU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C01FE510
  * Callers:
- *     ?CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C023FEBC (-CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z.c)
+ *     ?CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C01FE234 (-CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z.c)
  * Callees:
- *     ?CitpProgramIdIsEqual@@YAEPEBU_CIT_PROGRAM_ID@@0@Z @ 0x1C024056C (-CitpProgramIdIsEqual@@YAEPEBU_CIT_PROGRAM_ID@@0@Z.c)
+ *     ?CitpProgramIdIsEqual@@YAEPEBU_CIT_PROGRAM_ID@@0@Z @ 0x1C01FE918 (-CitpProgramIdIsEqual@@YAEPEBU_CIT_PROGRAM_ID@@0@Z.c)
  */
 
 struct _CIT_PROG_DATA *__fastcall CitpProgDataFind(
@@ -21,11 +21,12 @@ struct _CIT_PROG_DATA *__fastcall CitpProgDataFind(
   v6 = -1LL << (*((_BYTE *)a1 + 76) & 0x1F);
   v7 = 0LL;
   v8 = v6 & *((_QWORD *)a2 + 2);
-LABEL_2:
-  if ( v7 )
-    goto LABEL_5;
-  if ( v2 >> 5 )
+  while ( 1 )
   {
+    if ( v7 )
+      goto LABEL_5;
+    if ( !(v2 >> 5) )
+      return (struct _CIT_PROG_DATA *)v4;
     v7 = *((_QWORD *)a1 + 10)
        + 8LL
        * ((37
@@ -42,14 +43,13 @@ LABEL_5:
       if ( (v7 & 1) != 0 )
         break;
       if ( v8 == (v6 & *(_QWORD *)(v7 + 8)) )
-      {
-        if ( !v7 )
-          return (struct _CIT_PROG_DATA *)v4;
-        if ( CitpProgramIdIsEqual((const struct _CIT_PROGRAM_ID *)(v7 + 40), a2) )
-          return (struct _CIT_PROG_DATA *)v7;
-        goto LABEL_2;
-      }
+        goto LABEL_9;
     }
+    v7 = 0LL;
+LABEL_9:
+    if ( !v7 )
+      return (struct _CIT_PROG_DATA *)v4;
+    if ( CitpProgramIdIsEqual((const struct _CIT_PROGRAM_ID *)(v7 + 40), a2) )
+      return (struct _CIT_PROG_DATA *)v7;
   }
-  return (struct _CIT_PROG_DATA *)v4;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_VfWdfRequestChangeTarget @ 0x1C00C3730
+ * XREFs of imp_VfWdfRequestChangeTarget @ 0x1C00C2730
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall imp_VfWdfRequestChangeTarget(

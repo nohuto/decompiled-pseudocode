@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCreateKeyedEvent @ 0x14041CDE0
+ * XREFs of ZwCreateKeyedEvent @ 0x1403FB9C0
  * Callers:
- *     ExpKeyedEventInitialization @ 0x140B2A324 (ExpKeyedEventInitialization.c)
+ *     ExpKeyedEventInitialization @ 0x140A6F2EC (ExpKeyedEventInitialization.c)
  * Callees:
  *     <none>
  */

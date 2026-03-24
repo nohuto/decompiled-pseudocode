@@ -1,9 +1,10 @@
 /*
- * XREFs of PopSetBootPhaseRange @ 0x140AA5394
+ * XREFs of PopSetBootPhaseRange @ 0x1409969A8
  * Callers:
- *     PopSetRange @ 0x14058EFAC (PopSetRange.c)
+ *     PopSetRange @ 0x140387B00 (PopSetRange.c)
+ *     RtlMarkHiberPhase @ 0x140592C24 (RtlMarkHiberPhase.c)
  * Callees:
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
  */
 
 void __fastcall PopSetBootPhaseRange(__int64 a1, ULONG a2, ULONG a3)
@@ -18,7 +19,7 @@ void __fastcall PopSetBootPhaseRange(__int64 a1, ULONG a2, ULONG a3)
     do
     {
       if ( !_bittest64(*(const signed __int64 **)(a1 + 40), v4) )
-        *(_BYTE *)(*(_QWORD *)(a1 + 56) + (v4 >> 3)) &= ~(1 << (v3 & 7));
+        _bittestandreset(*(signed __int32 **)(a1 + 56), v3);
       ++v3;
       ++v4;
     }

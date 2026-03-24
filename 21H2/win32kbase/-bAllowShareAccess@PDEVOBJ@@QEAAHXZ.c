@@ -1,11 +1,12 @@
 /*
- * XREFs of ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C0030540
+ * XREFs of ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C0039100
  * Callers:
- *     GreLockVisRgnSharedOrExclusive @ 0x1C00302D0 (GreLockVisRgnSharedOrExclusive.c)
- *     ??0SPRITELOCK@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C0030400 (--0SPRITELOCK@@QEAA@AEAVPDEVOBJ@@@Z.c)
- *     ?vLock@NEEDGRELOCK@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00304B0 (-vLock@NEEDGRELOCK@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00A6910 (-vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z.c)
- *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C016E490 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
+ *     ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C000FBA0 (-vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z.c)
+ *     GreLockVisRgnSharedOrExclusive @ 0x1C0038E80 (GreLockVisRgnSharedOrExclusive.c)
+ *     ?vLock@NEEDGRELOCK@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C0038FB0 (-vLock@NEEDGRELOCK@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ??0SPRITELOCK@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C0039040 (--0SPRITELOCK@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ?vLockGammaRamp@DEVLOCKOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00A6E60 (-vLockGammaRamp@DEVLOCKOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C01415E0 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
  * Callees:
  *     <none>
  */
@@ -21,13 +22,13 @@ _BOOL8 __fastcall PDEVOBJ::bAllowShareAccess(PDEVOBJ *this)
   v2 = *(_DWORD *)(*(_QWORD *)this + 40LL);
   result = (v2 & 1) != 0
         && (v2 & 0x1000000) == 0
-        && (*(_DWORD *)(v1 + 2588) == 5
+        && (*(_DWORD *)(v1 + 2612) == 5
          || (v2 & 0x20000) != 0
-         || (v3 = *(_QWORD *)(v1 + 2552), ((v3 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0)
+         || (v3 = *(_QWORD *)(v1 + 2576), ((v3 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0)
          && (*(_DWORD *)(v3 + 160) & 0x800000) != 0)
-        && (*(_DWORD *)(v1 + 2096) & 0x400) == 0
+        && (*(_DWORD *)(v1 + 2128) & 0x400) == 0
         && (v2 & 0x48000000) == 0
-        && (*(_DWORD *)(v1 + 1792) & 0x8000000) == 0
+        && (*(_DWORD *)(v1 + 1824) & 0x8000000) == 0
         && (*(_DWORD *)(*(_QWORD *)(v1 + 24) + 40LL) & 0x1000000) == 0;
   return result;
 }

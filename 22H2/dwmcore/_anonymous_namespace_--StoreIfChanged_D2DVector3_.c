@@ -1,7 +1,7 @@
 /*
- * XREFs of _anonymous_namespace_::StoreIfChanged_D2DVector3_ @ 0x18020D014
+ * XREFs of _anonymous_namespace_::StoreIfChanged_D2DVector3_ @ 0x1801D3514
  * Callers:
- *     ?UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@AEBUManipulationThreadTelemetryData@@PEAVIDCompositionInteractionStats@@@Z @ 0x18020E9A0 (-UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@AEBUManipula.c)
+ *     ?UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@PEAUIManipulationTelemetryData@@@Z @ 0x1801D4E10 (-UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@PEAUIManipul.c)
  * Callees:
  *     <none>
  */

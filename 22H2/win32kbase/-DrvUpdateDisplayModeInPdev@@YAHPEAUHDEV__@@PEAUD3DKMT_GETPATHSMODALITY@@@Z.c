@@ -1,109 +1,118 @@
 /*
- * XREFs of ?DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C01623D4
+ * XREFs of ?DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0145058
  * Callers:
- *     ?DrvUpdateDisplayModeInMdev@@YAHPEAU_MDEV@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0161F78 (-DrvUpdateDisplayModeInMdev@@YAHPEAU_MDEV@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ?DrvUpdateDisplayModeInMdev@@YAHPEAU_MDEV@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0144BCC (-DrvUpdateDisplayModeInMdev@@YAHPEAU_MDEV@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
  * Callees:
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C0155C9C (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
- *     ?DevmodeAutoRotateCompatible@@YA_NPEBU_devicemodeW@@0@Z @ 0x1C01607D4 (-DevmodeAutoRotateCompatible@@YA_NPEBU_devicemodeW@@0@Z.c)
- *     ?DrvCheckGraphicsDeviceForSmoothRotation@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0160DC4 (-DrvCheckGraphicsDeviceForSmoothRotation@@YAHPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C013DEC4 (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
+ *     ?DevmodeAutoRotateCompatible@@YA_NPEBU_devicemodeW@@0@Z @ 0x1C01439A0 (-DevmodeAutoRotateCompatible@@YA_NPEBU_devicemodeW@@0@Z.c)
+ *     ?DrvCheckGraphicsDeviceForSmoothRotation@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0143F38 (-DrvCheckGraphicsDeviceForSmoothRotation@@YAHPEAUtagGRAPHICS_DEVICE@@@Z.c)
  */
 
-__int64 __fastcall DrvUpdateDisplayModeInPdev(HDEV a1, struct D3DKMT_GETPATHSMODALITY *a2)
+__int64 __fastcall DrvUpdateDisplayModeInPdev(HSEMAPHORE *a1, struct D3DKMT_GETPATHSMODALITY *a2)
 {
-  HDEV v3; // rbx
+  HSEMAPHORE *v2; // rbx
   unsigned int updated; // esi
-  _DWORD *v5; // rdx
-  unsigned int v6; // r8d
-  __int64 v7; // rcx
-  struct _devicemodeW *v8; // rdi
-  __int64 v9; // rcx
-  struct _ERESOURCE *v10; // rcx
-  __int64 v11; // rcx
-  struct _ERESOURCE *v12; // rcx
+  __int64 v5; // rcx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  _DWORD *v8; // r8
+  int v9; // eax
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  struct _devicemodeW *v12; // rdi
   __int64 v13; // rcx
-  HDEV v15; // [rsp+30h] [rbp+8h] BYREF
+  int v14; // r8d
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  int v17; // r8d
+  struct _ERESOURCE *v18; // rcx
+  __int64 v19; // rcx
+  struct _ERESOURCE *v20; // rcx
+  __int64 v21; // rcx
+  HSEMAPHORE *v23; // [rsp+30h] [rbp+8h] BYREF
 
-  v15 = a1;
-  v3 = a1;
+  v2 = a1;
+  v23 = a1;
   updated = 0;
-  SGDGetSessionState(a1);
-  EngAcquireSemaphore(*((HSEMAPHORE *)v3 + 7));
-  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"po.hsemPointer()", *((_QWORD *)v3 + 7), 4);
-  EngAcquireSemaphore(*((HSEMAPHORE *)v3 + 6));
-  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"po.hsemDevLock()", *((_QWORD *)v3 + 6), 11);
-  if ( *((_QWORD *)v3 + 321) )
+  EngAcquireSemaphore(a1[8]);
+  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"po.hsemPointer()", (int)v2[8], 4);
+  EngAcquireSemaphore(v2[6]);
+  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"po.hsemDevLock()", (int)v2[6], 11);
+  if ( !v2[324] )
   {
-    if ( !(unsigned int)DrvCheckGraphicsDeviceForSmoothRotation(*((struct tagGRAPHICS_DEVICE **)v3 + 319))
-      || (v5 = (_DWORD *)*((_QWORD *)v3 + 319), (v5[40] & 0x6000008) != 0) )
+    v7 = WdLogNewEntry5_WdEvent(v5);
+    *(_QWORD *)(v7 + 24) = 1LL;
+    goto LABEL_21;
+  }
+  if ( !(unsigned int)DrvCheckGraphicsDeviceForSmoothRotation((struct tagGRAPHICS_DEVICE *)v2[322])
+    || (v8 = v2[322], v9 = v8[40], (v9 & 0x4000000) != 0)
+    || (v9 & 0x2000000) != 0
+    || (v9 & 8) != 0 )
+  {
+    v7 = WdLogNewEntry5_WdEvent(v6);
+    *(_QWORD *)(v7 + 24) = 2LL;
+LABEL_21:
+    WdLogEvent5_WdEvent(v7);
+    goto LABEL_22;
+  }
+  v10 = 0LL;
+  if ( !*((_WORD *)a2 + 10) )
+    goto LABEL_13;
+  while ( 1 )
+  {
+    v11 = 272LL * (unsigned int)v10;
+    if ( v8[64] == *(_DWORD *)((char *)a2 + v11 + 72)
+      && v8[62] == *(_DWORD *)((char *)a2 + v11 + 64)
+      && v8[63] == *(_DWORD *)((char *)a2 + v11 + 68)
+      && (*(_QWORD *)((_BYTE *)a2 + v11 + 48) & 0x1000000000LL) == 0 )
     {
-      WdLogSingleEntry1(4LL, 2LL);
+      break;
     }
-    else
-    {
-      v6 = 0;
-      if ( !*((_WORD *)a2 + 10) )
-        goto LABEL_11;
-      while ( 1 )
-      {
-        v7 = 296LL * v6;
-        if ( v5[62] == *(_DWORD *)((char *)a2 + v7 + 80)
-          && v5[60] == *(_DWORD *)((char *)a2 + v7 + 72)
-          && v5[61] == *(_DWORD *)((char *)a2 + v7 + 76)
-          && !_bittest64((const signed __int64 *)((char *)a2 + v7 + 56), 0x24u) )
-        {
-          break;
-        }
-        if ( ++v6 >= *((unsigned __int16 *)a2 + 10) )
-          goto LABEL_11;
-      }
-      v8 = *(struct _devicemodeW **)((char *)a2 + v7 + 304);
-      if ( v8 )
-      {
-        if ( DevmodeAutoRotateCompatible(v8, *((const struct _devicemodeW **)v3 + 321)) )
-        {
-          updated = PDEVOBJ::UpdateDisplayMode((PDEVOBJ *)&v15, v8);
-          if ( updated )
-          {
-            _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(SGDGetSessionState(v9) + 24)
-                                                                        + 1928LL)
-                                                            + 1573008LL));
-            DisplayScenarioJournalDisplayUniquenessIncremented();
-            WdLogSingleEntry1(4LL, 4LL);
-          }
-          v3 = v15;
-        }
-        else
-        {
-          WdLogSingleEntry0(4LL);
-        }
-      }
-      else
-      {
-LABEL_11:
-        WdLogSingleEntry1(4LL, 27962LL);
-      }
-    }
+    v10 = (unsigned int)(v10 + 1);
+    if ( (unsigned int)v10 >= *((unsigned __int16 *)a2 + 10) )
+      goto LABEL_13;
   }
-  else
+  v10 = 272 * (v10 + 1);
+  v12 = *(struct _devicemodeW **)((char *)a2 + v10);
+  if ( !v12 )
   {
-    WdLogSingleEntry1(4LL, 1LL);
+LABEL_13:
+    v7 = WdLogNewEntry5_WdEvent(v10);
+    *(_QWORD *)(v7 + 24) = 27848LL;
+    goto LABEL_21;
   }
-  EtwTraceGreLockReleaseSemaphore((__int64)L"po.hsemDevLock()", *((_QWORD *)v3 + 6));
-  v10 = (struct _ERESOURCE *)*((_QWORD *)v3 + 6);
-  if ( v10 )
+  if ( !DevmodeAutoRotateCompatible(v12, (const struct _devicemodeW *)v2[324]) )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(v10);
-    PsLeavePriorityRegion(v11);
+    v7 = WdLogNewEntry5_WdEvent(v13);
+    goto LABEL_21;
   }
-  EtwTraceGreLockReleaseSemaphore((__int64)L"po.hsemPointer()", *((_QWORD *)v3 + 7));
-  v12 = (struct _ERESOURCE *)*((_QWORD *)v3 + 7);
-  if ( v12 )
+  updated = PDEVOBJ::UpdateDisplayMode((PDEVOBJ *)&v23, v12);
+  if ( updated )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(v12);
-    PsLeavePriorityRegion(v13);
+    _InterlockedIncrement((volatile signed __int32 *)gpGdiSharedMemory + 393252);
+    DisplayScenarioJournalDisplayUniquenessIncremented();
+    v16 = WdLogNewEntry5_WdEvent(v15);
+    *(_QWORD *)(v16 + 24) = 4LL;
+    WdLogEvent5_WdEvent(v16);
+  }
+  v2 = v23;
+LABEL_22:
+  EtwTraceGreLockReleaseSemaphore((__int64)L"po.hsemDevLock()", (int)v2[6], v14);
+  v18 = (struct _ERESOURCE *)v2[6];
+  if ( v18 )
+  {
+    ExReleaseResourceAndLeaveCriticalRegion(v18);
+    PsLeavePriorityRegion(v19);
+  }
+  EtwTraceGreLockReleaseSemaphore((__int64)L"po.hsemPointer()", (int)v2[8], v17);
+  v20 = (struct _ERESOURCE *)v2[8];
+  if ( v20 )
+  {
+    ExReleaseResourceAndLeaveCriticalRegion(v20);
+    PsLeavePriorityRegion(v21);
   }
   return updated;
 }

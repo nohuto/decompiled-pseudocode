@@ -1,11 +1,11 @@
 /*
- * XREFs of PopShutdownHandler @ 0x140AA8FA0
+ * XREFs of PopShutdownHandler @ 0x1409B2730
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     InbvAcquireDisplayOwnership @ 0x14054E570 (InbvAcquireDisplayOwnership.c)
- *     BgDisplaySafeToPowerOffScreen @ 0x140671AB0 (BgDisplaySafeToPowerOffScreen.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     InbvAcquireDisplayOwnership @ 0x1404FEB50 (InbvAcquireDisplayOwnership.c)
+ *     BgDisplaySafeToPowerOffScreen @ 0x1405C417C (BgDisplaySafeToPowerOffScreen.c)
  */
 
 void __noreturn PopShutdownHandler()
@@ -17,5 +17,5 @@ void __noreturn PopShutdownHandler()
     BgDisplaySafeToPowerOffScreen();
   }
   while ( 1 )
-    off_140C019E8();
+    off_140C005D8();
 }

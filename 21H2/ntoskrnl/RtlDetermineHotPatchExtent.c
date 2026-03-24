@@ -1,31 +1,30 @@
 /*
- * XREFs of RtlDetermineHotPatchExtent @ 0x1409C03F8
+ * XREFs of RtlDetermineHotPatchExtent @ 0x14091ADEC
  * Callers:
- *     MiCheckPatchPagesCallback @ 0x140972980 (MiCheckPatchPagesCallback.c)
- *     MiLockHotPatchPages @ 0x1409745FC (MiLockHotPatchPages.c)
- *     MiPrepareToHotPatchImagePatchCallback @ 0x140976D80 (MiPrepareToHotPatchImagePatchCallback.c)
- *     RtlValidateHotPatchBase @ 0x1409C0794 (RtlValidateHotPatchBase.c)
+ *     MiLockHotPatchPages @ 0x1408CB184 (MiLockHotPatchPages.c)
+ *     MiPrepareToHotPatchImagePatchCallback @ 0x1408CDB00 (MiPrepareToHotPatchImagePatchCallback.c)
+ *     RtlValidateHotPatchBase @ 0x14091B1E4 (RtlValidateHotPatchBase.c)
  * Callees:
- *     RtlpDetermineHotPatchExtent @ 0x140A6C408 (RtlpDetermineHotPatchExtent.c)
+ *     RtlpDetermineHotPatchExtent @ 0x14091B31C (RtlpDetermineHotPatchExtent.c)
  */
 
-char __fastcall RtlDetermineHotPatchExtent(
-        __int64 a1,
-        unsigned int a2,
-        unsigned __int16 a3,
-        unsigned int *a4,
-        unsigned int *a5)
+char __fastcall RtlDetermineHotPatchExtent(__int64 a1)
 {
-  int v7; // ecx
-  int v9; // [rsp+20h] [rbp-18h] BYREF
-  _DWORD v10[5]; // [rsp+24h] [rbp-14h] BYREF
+  unsigned int *v1; // r9
+  unsigned int v2; // r10d
+  unsigned int *v3; // r11
+  unsigned int v4; // ecx
+  char result; // al
+  int v6; // [rsp+20h] [rbp-18h] BYREF
+  int v7[5]; // [rsp+24h] [rbp-14h] BYREF
 
-  v10[0] = 0;
-  v9 = 0;
-  if ( !(unsigned __int8)RtlpDetermineHotPatchExtent(a1, a3, &v9, v10) || v9 < 0 && -v9 > a2 )
+  v7[0] = 0;
+  v6 = 0;
+  if ( !(unsigned __int8)RtlpDetermineHotPatchExtent(a1, &v6, v7) || v6 < 0 && -v6 > v2 )
     return 0;
-  v7 = v10[0] - 1;
-  *a4 = (v9 + a2) >> 12;
-  *a5 = (a2 + v7) >> 12;
-  return 1;
+  v4 = v2 + v7[0] - 1;
+  *v3 = (v6 + v2) >> 12;
+  result = 1;
+  *v1 = v4 >> 12;
+  return result;
 }

@@ -1,51 +1,63 @@
 /*
- * XREFs of ?HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x18002B000
+ * XREFs of ?HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x18004E204
  * Callers:
- *     ?CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ @ 0x180029F54 (-CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ.c)
+ *     ?CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ @ 0x18004B4E4 (-CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ.c)
  * Callees:
- *     ??$emplace_back@UFragmentStackEntry@CFragmentIterator@@@?$vector@UFragmentStackEntry@CFragmentIterator@@V?$allocator@UFragmentStackEntry@CFragmentIterator@@@std@@@std@@QEAA?A_T$$QEAUFragmentStackEntry@CFragmentIterator@@@Z @ 0x18002B0B4 (--$emplace_back@UFragmentStackEntry@CFragmentIterator@@@-$vector@UFragmentStackEntry@CFragmentIt.c)
- *     ?FindFirst@CFragmentIterator@@AEAAXXZ @ 0x18002D320 (-FindFirst@CFragmentIterator@@AEAAXXZ.c)
- *     ?MoveNext@CFragmentIterator@@QEAAXXZ @ 0x18002D4EC (-MoveNext@CFragmentIterator@@QEAAXXZ.c)
- *     ?HasWindowBackdropInput@CRenderingTechniqueFragment@@QEBA_NPEBVCBrushRenderingGraph@@@Z @ 0x18002D704 (-HasWindowBackdropInput@CRenderingTechniqueFragment@@QEBA_NPEBVCBrushRenderingGraph@@@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?HasWindowBackdropInput@CRenderingTechniqueFragment@@QEBA_NPEBVCBrushRenderingGraph@@@Z @ 0x18004D6BC (-HasWindowBackdropInput@CRenderingTechniqueFragment@@QEBA_NPEBVCBrushRenderingGraph@@@Z.c)
+ *     ?MoveNext@CFragmentIterator@@QEAAXXZ @ 0x18004F084 (-MoveNext@CFragmentIterator@@QEAAXXZ.c)
+ *     ?FindFirst@CFragmentIterator@@AEAAXXZ @ 0x180050B04 (-FindFirst@CFragmentIterator@@AEAAXXZ.c)
+ *     ??$emplace_back@UFragmentStackEntry@CFragmentIterator@@@?$vector@UFragmentStackEntry@CFragmentIterator@@V?$allocator@UFragmentStackEntry@CFragmentIterator@@@std@@@std@@QEAAAEAUFragmentStackEntry@CFragmentIterator@@$$QEAU23@@Z @ 0x180050C28 (--$emplace_back@UFragmentStackEntry@CFragmentIterator@@@-$vector@UFragmentStackEntry@CFragmentIt.c)
+ *     ?_Adjust_manually_vector_aligned@std@@YAXAEAPEAXAEA_K@Z @ 0x1800C8CE0 (-_Adjust_manually_vector_aligned@std@@YAXAEAPEAXAEA_K@Z.c)
  */
 
 bool __fastcall CRenderingTechnique::HasWindowBackdropInput(CRenderingTechnique *this)
 {
   __int64 v1; // rax
-  __int64 v3; // rcx
-  __int64 v4; // r8
+  _BYTE *v3; // rcx
+  _BYTE *v4; // r8
   bool v5; // bl
   __int64 v7; // [rsp+20h] [rbp-30h] BYREF
   int v8; // [rsp+28h] [rbp-28h]
-  __int128 v9; // [rsp+30h] [rbp-20h] BYREF
+  void *v9[2]; // [rsp+30h] [rbp-20h] BYREF
   __int64 v10; // [rsp+40h] [rbp-10h]
+  unsigned __int64 v11; // [rsp+60h] [rbp+10h] BYREF
+  void *v12; // [rsp+68h] [rbp+18h] BYREF
 
   v1 = *((_QWORD *)this + 1);
   v10 = 0LL;
   v8 = 0;
   v7 = v1;
-  v9 = 0LL;
-  std::vector<CFragmentIterator::FragmentStackEntry>::emplace_back<CFragmentIterator::FragmentStackEntry>(&v9, &v7);
-  CFragmentIterator::FindFirst((CFragmentIterator *)&v9);
+  *(_OWORD *)v9 = 0LL;
+  std::vector<CFragmentIterator::FragmentStackEntry>::emplace_back<CFragmentIterator::FragmentStackEntry>(v9, &v7);
+  CFragmentIterator::FindFirst((CFragmentIterator *)v9);
   while ( 1 )
   {
-    v3 = *((_QWORD *)&v9 + 1);
-    v4 = v9;
-    if ( !((__int64)(*((_QWORD *)&v9 + 1) - v9) >> 4) )
+    v3 = v9[1];
+    v4 = v9[0];
+    if ( !(((char *)v9[1] - (char *)v9[0]) >> 4) )
       break;
     if ( CRenderingTechniqueFragment::HasWindowBackdropInput(
-           *(CRenderingTechniqueFragment **)(*((_QWORD *)&v9 + 1) - 16LL),
+           *((CRenderingTechniqueFragment **)v9[1] - 2),
            *(const struct CBrushRenderingGraph **)this) )
     {
-      v3 = *((_QWORD *)&v9 + 1);
-      v4 = v9;
+      v3 = v9[1];
+      v4 = v9[0];
       break;
     }
-    CFragmentIterator::MoveNext((CFragmentIterator *)&v9);
+    CFragmentIterator::MoveNext((CFragmentIterator *)v9);
   }
   v5 = (v3 - v4) >> 4 != 0;
   if ( v4 )
-    std::_Deallocate<16,0>(v4, (v10 - v4) & 0xFFFFFFFFFFFFFFF0uLL);
+  {
+    v12 = v4;
+    v11 = (v10 - (_QWORD)v4) & 0xFFFFFFFFFFFFFFF0uLL;
+    if ( v11 >= 0x1000 )
+    {
+      std::_Adjust_manually_vector_aligned(&v12, &v11);
+      v4 = v12;
+    }
+    operator delete(v4);
+  }
   return v5;
 }

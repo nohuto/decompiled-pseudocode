@@ -1,10 +1,10 @@
 /*
- * XREFs of ?LoadReflectorServiceAndOpenInterfaceLocked@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0060958
+ * XREFs of ?LoadReflectorServiceAndOpenInterfaceLocked@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0042EDC
  * Callers:
- *     ?OpenCompanionLibraryInterface@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0060C6C (-OpenCompanionLibraryInterface@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?OpenCompanionLibraryInterface@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00431E4 (-OpenCompanionLibraryInterface@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  * Callees:
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FxCompanionLibrary::LoadReflectorServiceAndOpenInterfaceLocked(
@@ -22,12 +22,11 @@ __int64 __fastcall FxCompanionLibrary::LoadReflectorServiceAndOpenInterfaceLocke
   _FILE_OBJECT *rdNonPnPFile; // [rsp+58h] [rbp-A8h] BYREF
   _UNICODE_STRING wudfRdNonPnPSvcName; // [rsp+60h] [rbp-A0h] BYREF
   _UNICODE_STRING unicodeDeviceName; // [rsp+70h] [rbp-90h] BYREF
-  _KEVENT event; // [rsp+80h] [rbp-80h] BYREF
-  _IO_STATUS_BLOCK iosb; // [rsp+98h] [rbp-68h] BYREF
+  _IO_STATUS_BLOCK iosb; // [rsp+80h] [rbp-80h] BYREF
+  _KEVENT event; // [rsp+90h] [rbp-70h] BYREF
   wchar_t wudfRdNonPnPSvcName_buffer[64]; // [rsp+B0h] [rbp-50h] BYREF
   wchar_t unicodeDeviceName_buffer[64]; // [rsp+130h] [rbp+30h] BYREF
 
-  memset(&event, 0, sizeof(event));
   iosb = 0LL;
   v3 = 0LL;
   wcscpy(wudfRdNonPnPSvcName_buffer, L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\WudfPf");
@@ -42,58 +41,58 @@ __int64 __fastcall FxCompanionLibrary::LoadReflectorServiceAndOpenInterfaceLocke
   if ( (int)(Status + 0x80000000) >= 0 && Status != -1073741554 )
   {
     v6 = 10;
-LABEL_8:
+LABEL_10:
     WPP_IFR_SF_d(DriverGlobals, 2u, 0xCu, v6, WPP_FxCompanionLibrary_cpp_Traceguids, Status);
-    goto LABEL_13;
+    goto $exit_4;
   }
   DeviceObjectPointer = IoGetDeviceObjectPointer(&unicodeDeviceName, 0x1F01FFu, &rdNonPnPFile, &rdNonPnPDevice);
   Status = DeviceObjectPointer;
-  if ( DeviceObjectPointer >= 0 )
-  {
-    ObfReferenceObject(rdNonPnPDevice);
-    KeInitializeEvent(&event, NotificationEvent, 0);
-    v8 = IoBuildDeviceIoControlRequest(
-           0x80028400,
-           rdNonPnPDevice,
-           0LL,
-           0,
-           &this->m_RdCompanionLibrary,
-           8u,
-           1u,
-           &event,
-           &iosb);
-    if ( !v8 )
-    {
-      Status = -1073741670;
-      v6 = 12;
-      goto LABEL_8;
-    }
-    Status = IofCallDriver(rdNonPnPDevice, v8);
-    if ( Status == 259 )
-    {
-      KeWaitForSingleObject(&event, Executive, 0, 0, 0LL);
-      Status = iosb.Status;
-      WPP_IFR_SF_d(DriverGlobals, 2u, 0xCu, 0xDu, WPP_FxCompanionLibrary_cpp_Traceguids, iosb.Status);
-    }
-    if ( Status >= 0 )
-    {
-      v3 = rdNonPnPFile;
-      v9 = rdNonPnPDevice;
-      goto LABEL_19;
-    }
-  }
-  else
+  if ( DeviceObjectPointer < 0 )
   {
     WPP_IFR_SF_d(DriverGlobals, 2u, 0xCu, 0xBu, WPP_FxCompanionLibrary_cpp_Traceguids, DeviceObjectPointer);
+    goto $exit_4;
   }
-LABEL_13:
+  ObfReferenceObject(rdNonPnPDevice);
+  KeInitializeEvent(&event, NotificationEvent, 0);
+  v8 = IoBuildDeviceIoControlRequest(
+         0x80028400,
+         rdNonPnPDevice,
+         0LL,
+         0,
+         &this->m_RdCompanionLibrary,
+         8u,
+         1u,
+         &event,
+         &iosb);
+  if ( !v8 )
+  {
+    Status = -1073741670;
+    WPP_IFR_SF_d(DriverGlobals, 2u, 0xCu, 0xCu, WPP_FxCompanionLibrary_cpp_Traceguids, -1073741670);
+    goto LABEL_12;
+  }
+  Status = IofCallDriver(rdNonPnPDevice, v8);
+  if ( Status == 259 )
+  {
+    KeWaitForSingleObject(&event, Executive, 0, 0, 0LL);
+    Status = iosb.Status;
+    v6 = 13;
+    goto LABEL_10;
+  }
+$exit_4:
+  if ( Status >= 0 )
+  {
+    v3 = rdNonPnPFile;
+    v9 = rdNonPnPDevice;
+    goto LABEL_18;
+  }
+LABEL_12:
   if ( rdNonPnPFile )
     ObfDereferenceObject(rdNonPnPFile);
   if ( rdNonPnPDevice )
     ObfDereferenceObject(rdNonPnPDevice);
   v9 = 0LL;
   this->m_RdCompanionLibrary = 0LL;
-LABEL_19:
+LABEL_18:
   this->m_RdNonPnPDevice = v9;
   result = (unsigned int)Status;
   this->m_RdNonPnPFile = v3;

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsSuperWetInkStartDataSupported@@YA_NW4InkFeedbackCapabilities@@PEBUIFC_SUPERWET_INK_START_DATA@@@Z @ 0x1C024239C
+ * XREFs of ?IsSuperWetInkStartDataSupported@@YA_NW4InkFeedbackCapabilities@@PEBUIFC_SUPERWET_INK_START_DATA@@@Z @ 0x1C025377C
  * Callers:
- *     ?ProcessInkFeedbackCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXI@Z @ 0x1C0244190 (-ProcessInkFeedbackCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXI@Z.c)
+ *     ?ProcessInkFeedbackCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXI@Z @ 0x1C0255700 (-ProcessInkFeedbackCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXI@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,7 @@ bool __fastcall IsSuperWetInkStartDataSupported(char a1, __int64 a2)
   int v2; // r8d
   int v3; // r8d
   bool v4; // zf
-  int v5; // r8d
-  bool v6; // zf
+  int v6; // r8d
 
   if ( *(_BYTE *)(a2 + 8) != 0xFF && (a1 & 0x40) == 0 )
     return 0;
@@ -30,27 +29,23 @@ bool __fastcall IsSuperWetInkStartDataSupported(char a1, __int64 a2)
     {
       v4 = (a1 & 4) == 0;
     }
+    if ( v4 )
+      return 0;
   }
-  else
+  else if ( (a1 & 1) == 0 )
   {
-    v4 = (a1 & 1) == 0;
-  }
-  if ( v4 )
-    return 0;
-  v5 = *(_DWORD *)(a2 + 16);
-  if ( v5 )
-  {
-    if ( v5 == 1 )
-    {
-      v6 = (a1 & 0x10) == 0;
-      goto LABEL_14;
-    }
     return 0;
   }
-  v6 = (a1 & 8) == 0;
-LABEL_14:
+  v6 = *(_DWORD *)(a2 + 16);
   if ( v6 )
+  {
+    if ( v6 != 1 || (a1 & 0x10) == 0 )
+      return 0;
+  }
+  else if ( (a1 & 8) == 0 )
+  {
     return 0;
+  }
   return *(float *)(a2 + 20) == 1.0
       && *(float *)(a2 + 24) == 0.0
       && *(float *)(a2 + 28) == 0.0

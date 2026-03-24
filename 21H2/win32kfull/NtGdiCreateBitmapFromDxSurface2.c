@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiCreateBitmapFromDxSurface2 @ 0x1C02ACAD0
+ * XREFs of NtGdiCreateBitmapFromDxSurface2 @ 0x1C02AE360
  * Callers:
  *     <none>
  * Callees:
- *     GreCreateBitmapFromDxSurface @ 0x1C029F870 (GreCreateBitmapFromDxSurface.c)
+ *     GreCreateBitmapFromDxSurface @ 0x1C02A0D70 (GreCreateBitmapFromDxSurface.c)
  */
 
 __int64 __fastcall NtGdiCreateBitmapFromDxSurface2(

@@ -1,9 +1,9 @@
 /*
- * XREFs of WppLoadTracingSupport @ 0x1C000BA80
+ * XREFs of WppLoadTracingSupport @ 0x1C000BDB0
  * Callers:
- *     CsInitialize @ 0x1C000D320 (CsInitialize.c)
+ *     CsInitialize @ 0x1C000D2D0 (CsInitialize.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00033D0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00031A0 (_guard_dispatch_icall_nop.c)
  */
 
 PVOID WppLoadTracingSupport()

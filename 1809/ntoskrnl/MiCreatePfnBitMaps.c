@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreatePfnBitMaps @ 0x14072A8E0
+ * XREFs of MiCreatePfnBitMaps @ 0x14072A8C0
  * Callers:
- *     MmCreatePartition @ 0x140190950 (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x140190970 (MmCreatePartition.c)
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiInitializeDynamicBitmap @ 0x140715740 (MiInitializeDynamicBitmap.c)
- *     MiSplitPfnBitMaps @ 0x14072AA40 (MiSplitPfnBitMaps.c)
- *     MiDeletePfnBitMaps @ 0x14085F530 (MiDeletePfnBitMaps.c)
+ *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
+ *     MiSplitPfnBitMaps @ 0x14072AA20 (MiSplitPfnBitMaps.c)
+ *     MiDeletePfnBitMaps @ 0x14085F510 (MiDeletePfnBitMaps.c)
  */
 
 __int64 __fastcall MiCreatePfnBitMaps(__int64 a1, _DWORD *a2)

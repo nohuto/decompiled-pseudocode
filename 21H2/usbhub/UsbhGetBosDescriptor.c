@@ -1,70 +1,79 @@
 /*
- * XREFs of UsbhGetBosDescriptor @ 0x1C0053C48
+ * XREFs of UsbhGetBosDescriptor @ 0x1C00552A8
  * Callers:
- *     UsbhGetAlternateUsbDescriptors @ 0x1C00372AC (UsbhGetAlternateUsbDescriptors.c)
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
+ *     UsbhGetAlternateUsbDescriptors @ 0x1C0038560 (UsbhGetAlternateUsbDescriptors.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
  * Callees:
- *     UsbhSyncSendCommandToDevice @ 0x1C0002110 (UsbhSyncSendCommandToDevice.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C00177A8 (UsbhSyncSendCommandToDevice.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 __int64 __fastcall UsbhGetBosDescriptor(__int64 a1, __int64 a2, _WORD *a3)
 {
   _DWORD *v6; // rax
-  _DWORD *v7; // rdi
-  unsigned __int16 *Pool2; // rsi
-  int v9; // ebx
-  __int64 v10; // rax
-  void *v11; // rcx
-  __int16 v13; // [rsp+98h] [rbp+20h] BYREF
-  int v14; // [rsp+9Ah] [rbp+22h]
-  unsigned __int16 v15; // [rsp+9Eh] [rbp+26h]
+  POOL_TYPE ProcessorHistory_high; // ecx
+  _DWORD *v8; // rdi
+  unsigned __int16 *PoolWithTag; // rax
+  unsigned __int16 *v10; // rsi
+  int v11; // ebx
+  PVOID v12; // rax
+  __int64 v13; // r9
+  void *v14; // rcx
+  __int16 v16; // [rsp+98h] [rbp+20h] BYREF
+  int v17; // [rsp+9Ah] [rbp+22h]
+  unsigned __int16 v18; // [rsp+9Eh] [rbp+26h]
 
   v6 = PdoExt(a2);
-  v13 = 1664;
-  v14 = 3840;
-  v7 = v6;
-  v15 = 5;
+  ProcessorHistory_high = HIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory);
+  v16 = 1664;
+  v8 = v6;
+  v17 = 3840;
+  v18 = 5;
   *(_DWORD *)a3 = 5;
-  Pool2 = (unsigned __int16 *)ExAllocatePool2(64LL, 5LL, 1112885333LL);
-  if ( !Pool2 )
+  PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(ProcessorHistory_high, 5uLL, 0x42554855u);
+  v10 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v9 = -1073741670;
-LABEL_9:
-    v11 = (void *)*((_QWORD *)v7 + 300);
-    v7[705] = 1073807371;
-    if ( v11 )
+    *(_DWORD *)PoolWithTag = 0;
+    *((_BYTE *)PoolWithTag + 4) = 0;
+    v11 = UsbhSyncSendCommandToDevice(a1, a2, &v16, (__int64)PoolWithTag, a3);
+    if ( (v11 & 0xC0000000) == 0xC0000000 )
     {
-      ExFreePoolWithTag(v11, 0);
-      *((_QWORD *)v7 + 300) = 0LL;
-    }
-    goto LABEL_11;
-  }
-  v9 = UsbhSyncSendCommandToDevice(a1, a2, &v13, (__int64)Pool2, a3);
-  if ( (v9 & 0xC0000000) == 0xC0000000 )
-  {
-    v7[705] = 1073807371;
-  }
-  else
-  {
-    v10 = ExAllocatePool2(64LL, Pool2[1], 1112885333LL);
-    *((_QWORD *)v7 + 300) = v10;
-    if ( v10 )
-    {
-      v15 = Pool2[1];
-      *(_DWORD *)a3 = v15;
-      v9 = UsbhSyncSendCommandToDevice(a1, a2, &v13, v10, a3);
+      v8[705] = 1073807371;
     }
     else
     {
-      v9 = -1073741670;
+      v12 = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), v10[1], 0x42554855u);
+      *((_QWORD *)v8 + 300) = v12;
+      if ( v12 && (memset(v12, 0, v10[1]), (v13 = *((_QWORD *)v8 + 300)) != 0) )
+      {
+        v18 = v10[1];
+        *(_DWORD *)a3 = v18;
+        v11 = UsbhSyncSendCommandToDevice(a1, a2, &v16, v13, a3);
+      }
+      else
+      {
+        v11 = -1073741670;
+      }
+    }
+    ExFreePoolWithTag(v10, 0);
+  }
+  else
+  {
+    v11 = -1073741670;
+  }
+  if ( (v11 & 0xC0000000) == 0xC0000000 )
+  {
+    v14 = (void *)*((_QWORD *)v8 + 300);
+    v8[705] = 1073807371;
+    if ( v14 )
+    {
+      ExFreePoolWithTag(v14, 0);
+      *((_QWORD *)v8 + 300) = 0LL;
     }
   }
-  ExFreePoolWithTag(Pool2, 0);
-  if ( (v9 & 0xC0000000) == 0xC0000000 )
-    goto LABEL_9;
-LABEL_11:
-  Log(a1, 256, 1195528019, v9, 0LL);
-  return (unsigned int)v9;
+  Log(a1, 256, 1195528019, v11, 0LL);
+  return (unsigned int)v11;
 }

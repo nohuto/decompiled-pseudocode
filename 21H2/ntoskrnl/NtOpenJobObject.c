@@ -1,10 +1,10 @@
 /*
- * XREFs of NtOpenJobObject @ 0x14067AE50
+ * XREFs of NtOpenJobObject @ 0x1405D8F10
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14067C970 (ObOpenObjectByName.c)
- *     EtwTraceJob @ 0x1409E21EC (EtwTraceJob.c)
+ *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
+ *     EtwTraceJob @ 0x140935D48 (EtwTraceJob.c)
  */
 
 __int64 __fastcall NtOpenJobObject(_QWORD *a1, int a2, int a3)

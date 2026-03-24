@@ -1,127 +1,181 @@
 /*
- * XREFs of _UnregisterClass @ 0x1C0071084
+ * XREFs of _UnregisterClass @ 0x1C0069828
  * Callers:
- *     NtUserUnregisterClass @ 0x1C0070F40 (NtUserUnregisterClass.c)
+ *     NtUserUnregisterClass @ 0x1C00696D0 (NtUserUnregisterClass.c)
  * Callees:
- *     DestroyClass @ 0x1C0060880 (DestroyClass.c)
- *     ?EnforceConsistency@AtomicExecutionCheck@@AEAAXXZ @ 0x1C0071408 (-EnforceConsistency@AtomicExecutionCheck@@AEAAXXZ.c)
- *     _InnerGetClassPtr @ 0x1C00714A8 (_InnerGetClassPtr.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     DestroyClass @ 0x1C0079040 (DestroyClass.c)
  */
 
-__int64 __fastcall UnregisterClass(AtomicExecutionCheck *a1, __int64 a2, _QWORD *a3)
+// write access to const memory has been detected, the output may be wrong!
+__int64 __fastcall UnregisterClass(unsigned __int16 *a1, __int64 a2, _QWORD *a3)
 {
-  AtomicExecutionCheck *v5; // rsi
-  int v6; // r15d
-  char v7; // bl
+  unsigned __int16 *v5; // rdi
+  int v6; // r12d
+  __int64 v7; // r8
   __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  _DWORD *Data; // rax
-  __int64 v12; // rdx
+  unsigned __int16 *v9; // rax
+  int v10; // r10d
+  __int64 v11; // r10
+  _QWORD *v12; // rdx
   __int64 v13; // rcx
-  __int64 v14; // r8
-  unsigned __int16 *v15; // rax
-  int v16; // r10d
-  unsigned __int16 v17; // r9
-  _DWORD *v18; // rax
-  __int64 v19; // rbx
-  struct _CALLPROCDATA ***ClassPtr; // r8
-  __int64 v21; // rcx
-  struct _CALLPROCDATA **v23; // rcx
-  struct _CALLPROCDATA *v24; // rax
+  _QWORD *v15; // r8
+  __int64 v16; // r9
+  _QWORD *v17; // rcx
+  __int64 v18; // rax
+  unsigned __int64 v19; // rsi
+  unsigned int v20; // edx
+  int v21; // [rsp+B8h] [rbp+20h]
 
   v5 = a1;
   v6 = 0;
-  v7 = 0;
-  AtomicExecutionCheck::EnforceConsistency(a1);
-  Data = (_DWORD *)GetData(v9, v8, v10);
-  if ( Data )
+  if ( gpresUser )
   {
-    ++*Data;
-    v7 = 1;
+    if ( (unsigned int)((__int64 (*)(void))UserIsUserCritSecInExclusive)() )
+    {
+      ++gdwInAtomicOperation;
+      if ( gpAtomickCheckStacks )
+      {
+        v21 = ++gdwAtomicCheckSerial;
+        a1 = 0LL;
+        if ( gdwAtomicCheckLogSize )
+        {
+          while ( *(_DWORD *)(((unsigned __int64)(unsigned int)a1 << 6) + gpAtomickCheckStacks) )
+          {
+            a1 = (unsigned __int16 *)(unsigned int)((_DWORD)a1 + 1);
+            if ( (unsigned int)a1 >= gdwAtomicCheckLogSize )
+              goto LABEL_4;
+          }
+          v19 = (unsigned __int64)(unsigned int)a1 << 6;
+          *(_DWORD *)(v19 + gpAtomickCheckStacks) = gdwAtomicCheckSerial;
+          *(_DWORD *)(v19 + gpAtomickCheckStacks + 4) = (unsigned int)PsGetCurrentThreadId();
+          *(_DWORD *)(v19 + gpAtomickCheckStacks + 8) = (MEMORY[0xFFFFF78000000320]
+                                                       * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+          RtlWalkFrameChain((PVOID *)(v19 + gpAtomickCheckStacks + 16LL), 6u, 0x200u);
+        }
+      }
+    }
   }
+LABEL_4:
   if ( ((unsigned __int64)v5 & 0xFFFFFFFFFFFF0000uLL) != 0 )
   {
-    v14 = 2147483646LL;
-    v12 = 256LL;
-    v15 = gawchAtomScratch;
-    v16 = 0;
-    v13 = 0LL;
-    while ( v12 )
+    v7 = 2147483646LL;
+    v8 = 256LL;
+    v9 = gawchAtomScratch;
+    v10 = 0;
+    a1 = 0LL;
+    while ( v8 )
     {
-      if ( !v14 )
-        goto LABEL_9;
-      v17 = *(_WORD *)v5;
-      if ( !*(_WORD *)v5 )
-        goto LABEL_9;
-      v5 = (AtomicExecutionCheck *)((char *)v5 + 2);
-      *v15++ = v17;
-      --v12;
-      --v14;
-      ++v13;
+      if ( !v7 || !*v5 )
+        goto LABEL_10;
+      *v9++ = *v5++;
+      --v8;
+      --v7;
+      a1 = (unsigned __int16 *)((char *)a1 + 1);
     }
-    --v15;
-    --v13;
-    v16 = -2147483643;
-LABEL_9:
-    *v15 = 0;
-    if ( v16 < 0 )
+    --v9;
+    a1 = (unsigned __int16 *)((char *)a1 - 1);
+    v10 = -2147483643;
+LABEL_10:
+    *v9 = 0;
+    if ( v10 < 0 )
       LOWORD(v5) = 0;
     else
       LOWORD(v5) = UserFindAtom(gawchAtomScratch);
   }
-  if ( v7 )
+  if ( gpresUser )
   {
-    v18 = (_DWORD *)GetData(v13, v12, v14);
-    --*v18;
+    if ( (unsigned int)UserIsUserCritSecInExclusive(a1) )
+    {
+      --gdwInAtomicOperation;
+      if ( gpAtomickCheckStacks )
+      {
+        v20 = 0;
+        if ( gdwAtomicCheckLogSize )
+        {
+          while ( *(_DWORD *)(((unsigned __int64)v20 << 6) + gpAtomickCheckStacks) != v21 )
+          {
+            if ( ++v20 >= gdwAtomicCheckLogSize )
+              goto LABEL_18;
+          }
+          *(_DWORD *)(((unsigned __int64)v20 << 6) + gpAtomickCheckStacks) = 0;
+        }
+      }
+    }
   }
-  v19 = *(_QWORD *)(gptiCurrent + 424LL);
-  ClassPtr = (struct _CALLPROCDATA ***)InnerGetClassPtr((unsigned __int16)v5, v19 + 344, a2);
-  if ( !ClassPtr )
+LABEL_18:
+  v11 = *(_QWORD *)(gptiCurrent + 424LL);
+  v12 = (_QWORD *)(v11 + 344);
+  if ( !(_WORD)v5 )
+    goto LABEL_19;
+  v15 = (_QWORD *)*v12;
+  if ( *v12 )
   {
-    ClassPtr = (struct _CALLPROCDATA ***)(v19 + 352);
+    while ( 1 )
+    {
+      v16 = v15[1];
+      if ( *(_WORD *)v16 == (_WORD)v5
+        && (!a2 || HIWORD(*(_DWORD *)(v16 + 64)) == WORD1(a2))
+        && (*(_BYTE *)(v16 + 6) & 4) == 0 )
+      {
+        break;
+      }
+      v12 = v15;
+      v15 = (_QWORD *)*v15;
+      if ( !v15 )
+        goto LABEL_25;
+    }
+  }
+  else
+  {
+LABEL_25:
+    v12 = 0LL;
+  }
+  if ( !v12 )
+  {
+LABEL_19:
+    v12 = (_QWORD *)(v11 + 352);
     if ( !(_WORD)v5 )
-      goto LABEL_18;
-    v23 = *ClassPtr;
-    if ( *ClassPtr )
+      goto LABEL_20;
+    v17 = (_QWORD *)*v12;
+    if ( *v12 )
     {
       while ( 1 )
       {
-        v24 = v23[1];
-        if ( *(_WORD *)v24 == (_WORD)v5 && (*((_BYTE *)v24 + 6) & 4) == 0 )
+        v18 = v17[1];
+        if ( *(_WORD *)v18 == (_WORD)v5 && (*(_BYTE *)(v18 + 6) & 4) == 0 )
           break;
-        ClassPtr = (struct _CALLPROCDATA ***)v23;
-        v23 = (struct _CALLPROCDATA **)*v23;
-        if ( !v23 )
-          goto LABEL_30;
+        v12 = v17;
+        v17 = (_QWORD *)*v17;
+        if ( !v17 )
+          goto LABEL_37;
       }
     }
     else
     {
-LABEL_30:
-      ClassPtr = 0LL;
+LABEL_37:
+      v12 = 0LL;
     }
-    if ( !ClassPtr )
+    if ( !v12 )
     {
-LABEL_18:
-      v21 = 1411LL;
-LABEL_19:
-      UserSetLastError(v21);
+LABEL_20:
+      v13 = 1411LL;
+LABEL_21:
+      UserSetLastError(v13);
       return 0LL;
     }
     v6 = 1;
   }
-  if ( *((_DWORD *)*ClassPtr + 18) )
+  if ( *(_DWORD *)(*v12 + 72LL) )
   {
-    v21 = 1412LL;
-    goto LABEL_19;
+    v13 = 1412LL;
+    goto LABEL_21;
   }
-  *a3 = *((_QWORD *)(*ClassPtr)[1] + 2);
-  a3[1] = *((_QWORD *)(*ClassPtr)[1] + 3);
+  *a3 = *(_QWORD *)(*(_QWORD *)(*v12 + 8LL) + 16LL);
+  a3[1] = *(_QWORD *)(*(_QWORD *)(*v12 + 8LL) + 24LL);
   a3[2] = 0LL;
   if ( v6 )
     *(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 12LL) &= ~0x2000u;
-  DestroyClass(*(struct tagPROCESSINFO **)(gptiCurrent + 424LL), ClassPtr);
+  DestroyClass(*(struct tagPROCESSINFO **)(gptiCurrent + 424LL));
   return 1LL;
 }

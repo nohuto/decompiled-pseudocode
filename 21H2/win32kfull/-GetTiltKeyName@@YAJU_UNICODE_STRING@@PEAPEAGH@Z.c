@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetTiltKeyName@@YAJU_UNICODE_STRING@@PEAPEAGH@Z @ 0x1C01CAE8C
+ * XREFs of ?GetTiltKeyName@@YAJU_UNICODE_STRING@@PEAPEAGH@Z @ 0x1C01CE568
  * Callers:
- *     ReadTiltCalibrationData @ 0x1C01CBCFC (ReadTiltCalibrationData.c)
- *     WriteTiltCalibrationData @ 0x1C01CC254 (WriteTiltCalibrationData.c)
+ *     ReadTiltCalibrationData @ 0x1C01CF3DC (ReadTiltCalibrationData.c)
+ *     WriteTiltCalibrationData @ 0x1C01CF9CC (WriteTiltCalibrationData.c)
  * Callees:
- *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00D28E0 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     ?GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01CAD5C (-GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z.c)
- *     ?GetInstanceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01CADE4 (-GetInstanceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z.c)
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C000CCB4 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01CE438 (-GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z.c)
+ *     ?GetInstanceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01CE4C0 (-GetInstanceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z.c)
  */
 
 __int64 __fastcall GetTiltKeyName(struct _UNICODE_STRING *a1, unsigned __int16 **a2)
@@ -36,7 +36,7 @@ __int64 __fastcall GetTiltKeyName(struct _UNICODE_STRING *a1, unsigned __int16 *
   if ( DeviceId < 0 )
     goto LABEL_11;
   v6 = v12 - v11;
-  v7 = (unsigned __int16 *)Win32AllocPoolZInit(2 * v6 + 2, 2020635477LL);
+  v7 = (unsigned __int16 *)Win32AllocPool(2 * v6 + 2, 2020635477LL);
   *a2 = v7;
   if ( !v7 )
     return 3221225628LL;

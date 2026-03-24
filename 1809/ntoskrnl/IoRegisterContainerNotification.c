@@ -1,5 +1,5 @@
 /*
- * XREFs of IoRegisterContainerNotification @ 0x140760000
+ * XREFs of IoRegisterContainerNotification @ 0x14075FFE0
  * Callers:
  *     <none>
  * Callees:
@@ -10,12 +10,12 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     IopAllocateFileObjectExtension @ 0x140062920 (IopAllocateFileObjectExtension.c)
  *     MmGetSessionObjectById @ 0x14007F244 (MmGetSessionObjectById.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExRegisterCallback @ 0x14016C660 (ExRegisterCallback.c)
- *     ExUnregisterCallback @ 0x14016CED0 (ExUnregisterCallback.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExRegisterCallback @ 0x14016C680 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x14016CEF0 (ExUnregisterCallback.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetSessionIdFromPDO @ 0x1406EBC54 (IopGetSessionIdFromPDO.c)
+ *     IopGetSessionIdFromPDO @ 0x1406EBC34 (IopGetSessionIdFromPDO.c)
  */
 
 NTSTATUS __stdcall IoRegisterContainerNotification(

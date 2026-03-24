@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIEjectPartitionUnitInterface @ 0x1C0088FD8
+ * XREFs of ACPIEjectPartitionUnitInterface @ 0x1C00B0278
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
  */
 
 __int64 __fastcall ACPIEjectPartitionUnitInterface(ULONG_PTR a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall ACPIEjectPartitionUnitInterface(ULONG_PTR a1, __int64 a2)
   v4 = *(_QWORD *)(a2 + 184);
   if ( *(_WORD *)(v4 + 16) < 0x38u
     || *(_WORD *)(v4 + 18) != 1
-    || !_bittest64((const signed __int64 *)(DeviceExtension + 8), 0x25u) )
+    || (*(_QWORD *)(DeviceExtension + 8) & 0x2000000000LL) == 0 )
   {
     return 3221225485LL;
   }

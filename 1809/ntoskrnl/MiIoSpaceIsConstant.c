@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIoSpaceIsConstant @ 0x1400E6390
+ * XREFs of MiIoSpaceIsConstant @ 0x1400E63B0
  * Callers:
- *     MiIoSpaceRunIsConstant @ 0x1400E5C70 (MiIoSpaceRunIsConstant.c)
- *     MiReferenceIoPages @ 0x1400E5F8C (MiReferenceIoPages.c)
- *     MiMapContiguousMemoryLarge @ 0x1401831C4 (MiMapContiguousMemoryLarge.c)
- *     MmProtectMdlSystemAddress @ 0x1402A9B70 (MmProtectMdlSystemAddress.c)
+ *     MiIoSpaceRunIsConstant @ 0x1400E5C90 (MiIoSpaceRunIsConstant.c)
+ *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
+ *     MiMapContiguousMemoryLarge @ 0x1401831E4 (MiMapContiguousMemoryLarge.c)
+ *     MmProtectMdlSystemAddress @ 0x1402A9C70 (MmProtectMdlSystemAddress.c)
  * Callees:
  *     <none>
  */

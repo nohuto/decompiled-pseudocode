@@ -1,8 +1,8 @@
 /*
- * XREFs of GetBandOrdinal @ 0x1C006FFD8
+ * XREFs of GetBandOrdinal @ 0x1C007024C
  * Callers:
- *     LinkWindow @ 0x1C006F9A0 (LinkWindow.c)
- *     SetWindowGroupBand @ 0x1C00810A4 (SetWindowGroupBand.c)
+ *     SetWindowGroupBand @ 0x1C00366E8 (SetWindowGroupBand.c)
+ *     LinkWindow @ 0x1C006FD00 (LinkWindow.c)
  * Callees:
  *     <none>
  */

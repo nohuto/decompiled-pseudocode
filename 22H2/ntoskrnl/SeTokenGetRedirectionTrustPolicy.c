@@ -1,15 +1,15 @@
 /*
- * XREFs of SeTokenGetRedirectionTrustPolicy @ 0x140364E6C
+ * XREFs of SeTokenGetRedirectionTrustPolicy @ 0x1403F8600
  * Callers:
- *     IoCheckRedirectionTrustLevel @ 0x1403D09D0 (IoCheckRedirectionTrustLevel.c)
- *     PspGetRedirectionTrustPolicy @ 0x1407DE628 (PspGetRedirectionTrustPolicy.c)
+ *     IoCheckRedirectionTrustLevel @ 0x1403F09C0 (IoCheckRedirectionTrustLevel.c)
+ *     PspGetRedirectionTrustPolicy @ 0x1405CF638 (PspGetRedirectionTrustPolicy.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
  */
 
-bool __fastcall SeTokenGetRedirectionTrustPolicy(__int64 a1, bool *a2, bool *a3)
+bool __fastcall SeTokenGetRedirectionTrustPolicy(__int64 a1, bool *a2, _BYTE *a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   int v7; // edi
@@ -20,9 +20,9 @@ bool __fastcall SeTokenGetRedirectionTrustPolicy(__int64 a1, bool *a2, bool *a3)
   ExAcquireResourceSharedLite(*(PERESOURCE *)(a1 + 48), 1u);
   v7 = *(_DWORD *)(a1 + 200);
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  result = (v7 & 0x400000) != 0;
+  KeLeaveCriticalRegion();
+  result = (v7 & 0x800000) != 0;
   *a2 = result;
-  *a3 = (v7 & 0x800000) != 0;
+  *a3 = HIBYTE(v7) & 1;
   return result;
 }

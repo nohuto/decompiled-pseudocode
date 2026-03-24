@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpKeyEnumStackAdvanceInternal @ 0x1407FEF60
+ * XREFs of CmpKeyEnumStackAdvanceInternal @ 0x1407FEF40
  * Callers:
- *     CmpKeyEnumStackAdvance @ 0x1407FEECC (CmpKeyEnumStackAdvance.c)
+ *     CmpKeyEnumStackAdvance @ 0x1407FEEAC (CmpKeyEnumStackAdvance.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     CmpCompareKeysByName @ 0x1407F9704 (CmpCompareKeysByName.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA038 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpKeyEnumStackEntryAdvance @ 0x1407FF3A0 (CmpKeyEnumStackEntryAdvance.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x1407FF888 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     CmpCompareKeysByName @ 0x1407F96E4 (CmpCompareKeysByName.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA018 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x1407FF380 (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x1407FF868 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackAdvanceInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

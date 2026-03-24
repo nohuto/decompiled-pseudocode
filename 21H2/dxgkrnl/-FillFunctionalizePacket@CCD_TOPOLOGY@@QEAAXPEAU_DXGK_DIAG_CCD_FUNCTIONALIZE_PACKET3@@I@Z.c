@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FillFunctionalizePacket@CCD_TOPOLOGY@@QEAAXPEAU_DXGK_DIAG_CCD_FUNCTIONALIZE_PACKET3@@I@Z @ 0x1C01B5014
+ * XREFs of ?FillFunctionalizePacket@CCD_TOPOLOGY@@QEAAXPEAU_DXGK_DIAG_CCD_FUNCTIONALIZE_PACKET3@@I@Z @ 0x1C013ADE4
  * Callers:
- *     ?LogFunctionalizePacket@CCD_TOPOLOGY@@QEAAJH@Z @ 0x1C01B4F70 (-LogFunctionalizePacket@CCD_TOPOLOGY@@QEAAJH@Z.c)
+ *     ?LogFunctionalizePacket@CCD_TOPOLOGY@@QEAAJH@Z @ 0x1C013AD40 (-LogFunctionalizePacket@CCD_TOPOLOGY@@QEAAJH@Z.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 void __fastcall CCD_TOPOLOGY::FillFunctionalizePacket(
@@ -30,19 +30,19 @@ void __fastcall CCD_TOPOLOGY::FillFunctionalizePacket(
   {
     do
     {
-      v8 = 296LL * v6;
+      v8 = 272LL * v6;
       v9 = v6++;
       v9 <<= 6;
-      *(_DWORD *)((char *)a2 + v9 + 56) = *(_DWORD *)(v8 + v7 + 80);
-      *(_DWORD *)((char *)a2 + v9 + 60) = *(_DWORD *)(v8 + v7 + 84);
-      *(_QWORD *)((char *)a2 + v9 + 72) = *(_QWORD *)(v8 + v7 + 56);
-      *(_QWORD *)((char *)a2 + v9 + 64) = *(_QWORD *)(v8 + v7 + 72);
-      *(_DWORD *)((char *)a2 + v9 + 104) = *(_DWORD *)(v8 + v7 + 196);
-      *(_QWORD *)((char *)a2 + v9 + 80) = *(_QWORD *)(v8 + v7 + 208);
-      *(_OWORD *)((char *)a2 + v9 + 88) = *(_OWORD *)(v8 + v7 + 224);
-      *(_DWORD *)((char *)a2 + v9 + 108) = *(_DWORD *)(v8 + v7 + 316);
-      *(_DWORD *)((char *)a2 + v9 + 112) = *(_DWORD *)(v8 + v7 + 260);
-      *(_DWORD *)((char *)a2 + v9 + 116) = *(_DWORD *)(v8 + v7 + 264);
+      *(_DWORD *)((char *)a2 + v9 + 56) = *(_DWORD *)(v8 + v7 + 72);
+      *(_DWORD *)((char *)a2 + v9 + 60) = *(_DWORD *)(v8 + v7 + 76);
+      *(_QWORD *)((char *)a2 + v9 + 72) = *(_QWORD *)(v8 + v7 + 48);
+      *(_QWORD *)((char *)a2 + v9 + 64) = *(_QWORD *)(v8 + v7 + 64);
+      *(_DWORD *)((char *)a2 + v9 + 104) = *(_DWORD *)(v8 + v7 + 188);
+      *(_QWORD *)((char *)a2 + v9 + 80) = *(_QWORD *)(v8 + v7 + 200);
+      *(_OWORD *)((char *)a2 + v9 + 88) = *(_OWORD *)(v8 + v7 + 216);
+      *(_DWORD *)((char *)a2 + v9 + 108) = *(_DWORD *)(v8 + v7 + 284);
+      *(_DWORD *)((char *)a2 + v9 + 112) = *(_DWORD *)(v8 + v7 + 252);
+      *(_DWORD *)((char *)a2 + v9 + 116) = *(_DWORD *)(v8 + v7 + 256);
       v7 = *((_QWORD *)this + 8);
     }
     while ( v6 < *(unsigned __int16 *)(v7 + 20) );

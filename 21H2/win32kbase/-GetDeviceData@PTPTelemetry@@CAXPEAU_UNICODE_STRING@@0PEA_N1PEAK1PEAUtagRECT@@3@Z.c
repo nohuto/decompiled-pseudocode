@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetDeviceData@PTPTelemetry@@CAXPEAU_UNICODE_STRING@@0PEA_N1PEAK1PEAUtagRECT@@3@Z @ 0x1C01DE154
+ * XREFs of ?GetDeviceData@PTPTelemetry@@CAXPEAU_UNICODE_STRING@@0PEA_N1PEAK1PEAUtagRECT@@3@Z @ 0x1C01A5D44
  * Callers:
- *     ?PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z @ 0x1C01DEE38 (-PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z.c)
+ *     ?PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z @ 0x1C01A6B68 (-PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z.c)
  * Callees:
- *     IsLegacyTouchPad @ 0x1C00C48A8 (IsLegacyTouchPad.c)
- *     ?GetHidVidPidStrings@RimTelemetry@@SAXQEAURIMDEV@@PEAU_UNICODE_STRING@@1@Z @ 0x1C017C210 (-GetHidVidPidStrings@RimTelemetry@@SAXQEAURIMDEV@@PEAU_UNICODE_STRING@@1@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     IsLegacyTouchPad @ 0x1C000B3D8 (IsLegacyTouchPad.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?GetHidVidPidStrings@RimTelemetry@@SAXQEAURIMDEV@@PEAU_UNICODE_STRING@@1@Z @ 0x1C014F5B0 (-GetHidVidPidStrings@RimTelemetry@@SAXQEAURIMDEV@@PEAU_UNICODE_STRING@@1@Z.c)
  */
 
 void __fastcall PTPTelemetry::GetDeviceData(
@@ -19,12 +19,12 @@ void __fastcall PTPTelemetry::GetDeviceData(
         struct tagRECT *a8)
 {
   char v10; // bp
-  __int64 v11; // r8
-  struct DEVICEINFO *v12; // rbx
-  _BOOL8 v13; // rdx
+  struct DEVICEINFO *v11; // rbx
+  __int16 v12; // dx
+  unsigned int v13; // r8d
   __int64 v14; // rax
   int v15; // ecx
-  __int64 v16; // rcx
+  int v16; // ecx
   struct tagRECT v17; // xmm1
 
   *a5 = 0;
@@ -36,21 +36,22 @@ void __fastcall PTPTelemetry::GetDeviceData(
   *a4 = 0;
   KeEnterCriticalRegion();
   ExAcquirePushLockSharedEx(&CBaseInput::_sLock, 0LL);
-  v12 = CBaseInput::_spDevList;
-  v13 = 0LL;
+  v11 = CBaseInput::_spDevList;
+  v12 = 0;
   if ( CBaseInput::_spDevList )
   {
+    v13 = 2;
     do
     {
-      if ( (*((_DWORD *)v12 + 50) & 0x80u) == 0 )
+      if ( (*((_DWORD *)v11 + 50) & 0x80u) == 0 )
       {
-        if ( *((_BYTE *)v12 + 48) == v13 )
+        if ( *((_BYTE *)v11 + 48) == (_BYTE)v12 )
         {
-          if ( *((_WORD *)v12 + 440) == v13 )
+          if ( *((_WORD *)v11 + 444) == v12 )
           {
             *a3 = 1;
           }
-          else if ( (unsigned int)IsLegacyTouchPad((__int64)v12) )
+          else if ( (unsigned int)IsLegacyTouchPad((__int64)v11) )
           {
             *a6 = 1;
             PTPTelemetry::s_HasTpDevice = 1;
@@ -59,45 +60,47 @@ void __fastcall PTPTelemetry::GetDeviceData(
       }
       else
       {
-        v14 = *((_QWORD *)v12 + 59);
+        v14 = *((_QWORD *)v11 + 60);
         v15 = *(_DWORD *)(v14 + 24);
         if ( v15 == 7 )
         {
-          v16 = *(unsigned int *)(v14 + 952);
+          v16 = *(_DWORD *)(v14 + 904);
           v10 = 1;
           PTPTelemetry::s_HasTpDevice = 1;
-          switch ( (_DWORD)v16 )
+          if ( v16 == 1 )
           {
-            case 1:
-              *a5 = 1;
-              break;
-            case 2:
-              *a5 = 2;
-              break;
-            case 3:
-              *a5 = 3;
-              break;
-            case 0:
-              MicrosoftTelemetryAssertTriggeredNoArgsKM(v16, v13, v11);
-              v14 = *((_QWORD *)v12 + 59);
-              break;
+            *a5 = 1;
+          }
+          else if ( v16 == v13 )
+          {
+            *a5 = v13;
+          }
+          else if ( v16 == 3 )
+          {
+            *a5 = 3;
+          }
+          else if ( !v16 )
+          {
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1561);
+            v14 = *((_QWORD *)v11 + 60);
           }
           v17 = *(struct tagRECT *)(v14 + 140);
           *a7 = *(struct tagRECT *)(v14 + 124);
           *a8 = v17;
-          RimTelemetry::GetHidVidPidStrings(v12, a1, a2);
-          v13 = 0LL;
+          RimTelemetry::GetHidVidPidStrings(v11, a1, a2);
+          v12 = 0;
+          v13 = 2;
         }
         else if ( (unsigned int)(v15 - 1) <= 3 )
         {
           *a4 = 1;
         }
       }
-      v12 = (struct DEVICEINFO *)*((_QWORD *)v12 + 7);
+      v11 = (struct DEVICEINFO *)*((_QWORD *)v11 + 7);
     }
-    while ( v12 );
-    if ( v10 && *a6 != v13 )
-      *a6 = v13;
+    while ( v11 );
+    if ( v10 && *a6 != (_BYTE)v12 )
+      *a6 = v12;
   }
   ExReleasePushLockSharedEx(&CBaseInput::_sLock, 0LL);
   KeLeaveCriticalRegion();

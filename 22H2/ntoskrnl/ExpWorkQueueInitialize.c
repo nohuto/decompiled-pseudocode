@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWorkQueueInitialize @ 0x14084AB08
+ * XREFs of ExpWorkQueueInitialize @ 0x1407C2EA8
  * Callers:
- *     ExpPartitionCreatePoolInternal @ 0x14084AA20 (ExpPartitionCreatePoolInternal.c)
+ *     ExpWorkQueueInitializeWithMinimumThreads @ 0x1407C2E3C (ExpWorkQueueInitializeWithMinimumThreads.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140305880 (KeQueryNodeActiveAffinity.c)
- *     KeInitializePriQueue @ 0x1403A4DE0 (KeInitializePriQueue.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeQueryNodeActiveAffinity @ 0x1403544E0 (KeQueryNodeActiveAffinity.c)
+ *     KeInitializePriQueue @ 0x1403C6724 (KeInitializePriQueue.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall ExpWorkQueueInitialize(__int64 a1, int a2, int a3, __int64 a4, USHORT *a5, unsigned int a6)
+__int64 __fastcall ExpWorkQueueInitialize(__int64 a1, int a2, int a3, __int64 a4, __int64 a5, unsigned int a6)
 {
-  USHORT *v10; // rbx
+  __int64 v10; // rbx
   __int64 result; // rax
   struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-28h] BYREF
   USHORT Count; // [rsp+58h] [rbp+10h] BYREF
@@ -19,7 +19,7 @@ __int64 __fastcall ExpWorkQueueInitialize(__int64 a1, int a2, int a3, __int64 a4
   Affinity = 0LL;
   memset((void *)a1, 0, 0x2E0uLL);
   v10 = a5;
-  KeQueryNodeActiveAffinity(*a5, &Affinity, &Count);
+  KeQueryNodeActiveAffinity(*(_WORD *)(a5 + 146), &Affinity, &Count);
   KeInitializePriQueue(a1, Count);
   result = a6;
   *(_DWORD *)(a1 + 716) ^= (*(_DWORD *)(a1 + 716) ^ a2) & 0x7FFFFFFF;

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?OrderRects@@YAXPEAUtagRECT@@H@Z @ 0x1C01E3074
+ * XREFs of ?OrderRects@@YAXPEAUtagRECT@@H@Z @ 0x1C01E89A4
  * Callers:
- *     MirrorRegion @ 0x1C00F9228 (MirrorRegion.c)
+ *     MirrorRegion @ 0x1C010E31C (MirrorRegion.c)
  * Callees:
  *     <none>
  */

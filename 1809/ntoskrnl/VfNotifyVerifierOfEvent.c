@@ -1,15 +1,15 @@
 /*
  * XREFs of VfNotifyVerifierOfEvent @ 0x140925D20
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
  *     IoShutdownSystem @ 0x140577C68 (IoShutdownSystem.c)
  *     KdEnterDebugger @ 0x140915D40 (KdEnterDebugger.c)
  *     KdExitDebugger @ 0x140915E88 (KdExitDebugger.c)
  *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
  *     IoInitSystem @ 0x1409D2354 (IoInitSystem.c)
  * Callees:
- *     VfClearVerifierSettings @ 0x1403096A8 (VfClearVerifierSettings.c)
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
+ *     VfClearVerifierSettings @ 0x1403097A8 (VfClearVerifierSettings.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
  *     VfNotifyVerifierExtensions @ 0x14092820C (VfNotifyVerifierExtensions.c)
  *     VfInitializeBranchTracing @ 0x1409362B0 (VfInitializeBranchTracing.c)
  *     VfStartBranchTracing @ 0x140936448 (VfStartBranchTracing.c)
@@ -34,7 +34,7 @@ void __fastcall VfNotifyVerifierOfEvent(int a1)
       v2 = v1 - 1;
       if ( !v2 )
       {
-        _InterlockedAdd(&dword_14040D788, 1u);
+        _InterlockedAdd(&dword_14040D748, 1u);
         _InterlockedExchange(&ViKeTrackIrqlDisabled, 1);
         VfStopBranchTracing();
         _InterlockedExchange(&ViFaultsDisabled, v6);
@@ -48,7 +48,7 @@ void __fastcall VfNotifyVerifierOfEvent(int a1)
         {
           if ( v4 == 1 )
           {
-            _InterlockedAdd(&dword_14040D794, 1u);
+            _InterlockedAdd(&dword_14040D754, 1u);
             started = VfStartBranchTracing();
             if ( started < 0 && (MmVerifierData & 0x8000000) != 0 )
               VfUtilDbgPrint("Failed to start branch tracing. <Status == 0x%08X>\n", started);
@@ -62,16 +62,16 @@ void __fastcall VfNotifyVerifierOfEvent(int a1)
         }
         else
         {
-          _InterlockedAdd(&dword_14040D790, 1u);
+          _InterlockedAdd(&dword_14040D750, 1u);
           VfStartBranchTracing();
         }
         return;
       }
-      _InterlockedAdd(&dword_14040D78C, 1u);
+      _InterlockedAdd(&dword_14040D74C, 1u);
     }
     else
     {
-      _InterlockedAdd(&dword_14040D784, 1u);
+      _InterlockedAdd(&dword_14040D744, 1u);
     }
     VfStopBranchTracing();
     return;

@@ -1,27 +1,25 @@
 /*
- * XREFs of MiMarkNonPagedHiberPhasePages @ 0x140A4FA24
+ * XREFs of MiMarkNonPagedHiberPhasePages @ 0x1409B0474
  * Callers:
- *     MmMarkHiberPhase @ 0x140A4EEAC (MmMarkHiberPhase.c)
- *     MmMarkImageForHiberPhase @ 0x140A4F9F4 (MmMarkImageForHiberPhase.c)
+ *     MmMarkHiberPhase @ 0x1409B061C (MmMarkHiberPhase.c)
+ *     MmMarkImageForHiberPhase @ 0x1409B08B4 (MmMarkImageForHiberPhase.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiWalkPageTables @ 0x14030CF90 (MiWalkPageTables.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall MiMarkNonPagedHiberPhasePages(__int64 a1, __int64 a2, unsigned __int16 a3)
+__int64 __fastcall MiMarkNonPagedHiberPhasePages(__int64 a1, __int64 a2, __int16 a3)
 {
-  __m128i v4; // rdi
-  __m128i v6[11]; // [rsp+20h] [rbp-D8h] BYREF
+  _QWORD v7[22]; // [rsp+20h] [rbp-D8h] BYREF
 
-  v4.m128i_i64[1] = a2;
-  v4.m128i_i64[0] = a1;
-  memset(v6, 0, sizeof(v6));
-  v6[0].m128i_i32[0] = a3 | 0x901;
-  v6[9].m128i_i64[1] = (__int64)MiMarkNonPagedHiberPhasePte;
-  v6[1].m128i_i64[1] = (__int64)MiGetAnyMultiplexedVm(3);
-  v6[0].m128i_i8[7] = 17;
-  v6[2] = v4;
-  return MiWalkPageTables(v6);
+  memset(v7, 0, sizeof(v7));
+  v7[19] = MiMarkNonPagedHiberPhasePte;
+  LOWORD(v7[0]) = a3 | 0x901;
+  v7[3] = MiGetAnyMultiplexedVm(3);
+  BYTE6(v7[0]) = 17;
+  v7[4] = a1;
+  v7[5] = a2;
+  return MiWalkPageTables((__int64)v7);
 }

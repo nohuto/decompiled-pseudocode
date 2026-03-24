@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIProcessorContainerStartDeviceCompletion @ 0x1C005E3D0
+ * XREFs of ACPIProcessorContainerStartDeviceCompletion @ 0x1C005D6F0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
  */
 
 void __fastcall ACPIProcessorContainerStartDeviceCompletion(__int64 a1, IRP *a2, int a3)
@@ -26,28 +26,28 @@ void __fastcall ACPIProcessorContainerStartDeviceCompletion(__int64 a1, IRP *a2,
   a2->IoStatus.Status = a3;
   if ( a3 >= 0 )
   {
-    *(_DWORD *)(a1 + 368) = 2;
+    *(_DWORD *)(a1 + 328) = 2;
     v4->WorkerRoutine = (void (__fastcall *)(void *))ACPIProcessorContainerStartDeviceWorker;
     v4->Parameter = v4;
     v4->List.Flink = 0LL;
-    v4[1].List.Flink = *(_LIST_ENTRY **)(a1 + 768);
+    v4[1].List.Flink = *(_LIST_ENTRY **)(a1 + 728);
     v4[1].List.Blink = (_LIST_ENTRY *)a2;
     ExQueueWorkItem(v4, DelayedWorkQueue);
   }
   else
   {
     IofCompleteRequest(a2, 0);
-    v9 = (const char *)&unk_1C006FB8B;
-    v10 = (const char *)&unk_1C006FB8B;
+    v9 = (const char *)&unk_1C00701BA;
+    v10 = (const char *)&unk_1C00701BA;
     if ( a1 )
     {
       v11 = *(_QWORD *)(a1 + 8);
       v5 = a1;
       if ( (v11 & 0x200000000000LL) != 0 )
       {
-        v9 = *(const char **)(a1 + 608);
+        v9 = *(const char **)(a1 + 568);
         if ( (v11 & 0x400000000000LL) != 0 )
-          v10 = *(const char **)(a1 + 616);
+          v10 = *(const char **)(a1 + 576);
       }
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

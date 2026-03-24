@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReplacePageTablePage @ 0x14011BE6C
+ * XREFs of MiReplacePageTablePage @ 0x14011BE8C
  * Callers:
- *     MiStealPage @ 0x1400EBF24 (MiStealPage.c)
- *     MmStealTopLevelPage @ 0x14015DE64 (MmStealTopLevelPage.c)
+ *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
+ *     MmStealTopLevelPage @ 0x14015DE84 (MmStealTopLevelPage.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
@@ -12,9 +12,9 @@
  *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
  *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall MiReplacePageTablePage(unsigned __int64 a1)

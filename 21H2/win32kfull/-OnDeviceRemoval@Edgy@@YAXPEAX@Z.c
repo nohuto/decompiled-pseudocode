@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OnDeviceRemoval@Edgy@@YAXPEAX@Z @ 0x1C0207D08
+ * XREFs of ?OnDeviceRemoval@Edgy@@YAXPEAX@Z @ 0x1C02077E8
  * Callers:
- *     PostDeviceNotification @ 0x1C0102FA4 (PostDeviceNotification.c)
+ *     PostDeviceNotification @ 0x1C0108AA0 (PostDeviceNotification.c)
  * Callees:
- *     ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C0208D68 (-_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z.c)
+ *     ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C0208958 (-_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z.c)
  */
 
 void __fastcall Edgy::OnDeviceRemoval(Edgy *this, void *a2, struct tagEDGY_LISTENER *a3)

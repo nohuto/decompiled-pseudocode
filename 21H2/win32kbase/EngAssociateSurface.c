@@ -1,13 +1,13 @@
 /*
- * XREFs of EngAssociateSurface @ 0x1C00B3FE0
+ * XREFs of EngAssociateSurface @ 0x1C00A2570
  * Callers:
- *     ?StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C00B3F80 (-StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ *     ?StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C00A2510 (-StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     HmgShareLockCheckIgnoreStockBit @ 0x1C001FE90 (HmgShareLockCheckIgnoreStockBit.c)
- *     ?Feature_Servicing_GdiTelemetry_37785925__private_IsEnabled@@YAHXZ @ 0x1C00DA7F4 (-Feature_Servicing_GdiTelemetry_37785925__private_IsEnabled@@YAHXZ.c)
- *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C00DA864 (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C016C500 (--0SURFREF@@QEAA@XZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
+ *     HmgShareLockCheckIgnoreStockBit @ 0x1C00319D0 (HmgShareLockCheckIgnoreStockBit.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C00C9B94 (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
+ *     Feature_Servicing_GdiTelemetry_37785927__private_IsEnabledDeviceUsage @ 0x1C00CB688 (Feature_Servicing_GdiTelemetry_37785927__private_IsEnabledDeviceUsage.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C013F6E4 (--0SURFREF@@QEAA@XZ.c)
  */
 
 BOOL __stdcall EngAssociateSurface(HSURF hsurf, HDEV hdev, FLONG flHooks)
@@ -34,12 +34,12 @@ BOOL __stdcall EngAssociateSurface(HSURF hsurf, HDEV hdev, FLONG flHooks)
         *(_QWORD *)(v7 + 136) = 0LL;
         v3 = 1;
         *(_QWORD *)(v10 + 48) = hdev;
-        *(_QWORD *)(v10 + 40) = *((_QWORD *)hdev + 221);
+        *(_QWORD *)(v10 + 40) = *((_QWORD *)hdev + 225);
         *(_DWORD *)(v10 + 112) |= v4;
       }
-      else if ( (unsigned int)Feature_Servicing_GdiTelemetry_37785925__private_IsEnabled() )
+      else if ( (unsigned int)Feature_Servicing_GdiTelemetry_37785927__private_IsEnabledDeviceUsage() )
       {
-        TraceLoggingWriteUnsupportedGdiUsage(3LL, *(unsigned int *)(v10 + 112), 0LL, 0LL, 0LL);
+        TraceLoggingWriteUnsupportedGdiUsage(3LL, *(unsigned int *)(v10 + 112), 0LL);
       }
     }
     SURFREF::~SURFREF((SURFREF *)v9);

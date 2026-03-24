@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpCompareInterruptInformation @ 0x14078F61C
+ * XREFs of PnpCompareInterruptInformation @ 0x14077288C
  * Callers:
- *     PnpGetDevicePropertyData @ 0x140791588 (PnpGetDevicePropertyData.c)
+ *     PnpGetDevicePropertyData @ 0x1406B2EF8 (PnpGetDevicePropertyData.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
  */
 
 char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsigned int a3)
@@ -45,9 +45,9 @@ char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsig
     if ( *v5 == a3 )
     {
       v3 = RtlCompareMemory(v5 + 1, a2, a3);
-      if ( v3 != v4 && (unsigned int)dword_140C03918 > 5 )
+      if ( v3 != v4 && (unsigned int)dword_140C02DC8 > 5 )
       {
-        LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C03918, 0x400000000000LL);
+        LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C02DC8, 0x400000000000LL);
         if ( (_BYTE)v3 )
         {
           v14 = -1LL;
@@ -60,7 +60,7 @@ char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsig
           v12 = v18;
           v18[0] = v13;
           v17 = v4;
-          v8 = byte_14002C845;
+          v8 = byte_140025145;
 LABEL_20:
           v23 = v12;
           v26[1] = v27;
@@ -75,7 +75,7 @@ LABEL_20:
 LABEL_21:
           v22 = 0;
           LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                         (__int64)&dword_140C03918,
+                         (__int64)&dword_140C02DC8,
                          (unsigned __int8 *)v8,
                          0LL,
                          0LL,
@@ -84,9 +84,9 @@ LABEL_21:
         }
       }
     }
-    else if ( (unsigned int)dword_140C03918 > 5 )
+    else if ( (unsigned int)dword_140C02DC8 > 5 )
     {
-      LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C03918, 0x400000000000LL);
+      LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C02DC8, 0x400000000000LL);
       if ( (_BYTE)v3 )
       {
         v10 = -1LL;
@@ -99,14 +99,14 @@ LABEL_21:
         v12 = &v17;
         v17 = v9;
         v18[0] = v4;
-        v8 = (char *)&dword_14002C89C;
+        v8 = (char *)&word_1400250EE;
         goto LABEL_20;
       }
     }
   }
-  else if ( (unsigned int)dword_140C03918 > 5 )
+  else if ( (unsigned int)dword_140C02DC8 > 5 )
   {
-    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C03918, 0x400000000000LL);
+    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C02DC8, 0x400000000000LL);
     if ( (_BYTE)v3 )
     {
       v7 = -1LL;
@@ -115,7 +115,7 @@ LABEL_21:
       while ( aNotFound_0[v7] );
       v20 = "Not Found";
       v21 = v7 + 1;
-      v8 = byte_14002C8F3;
+      v8 = byte_1400250A5;
       v24 = 2LL;
       v23 = (int *)v26;
       v25 = *(int **)(v6 + 48);

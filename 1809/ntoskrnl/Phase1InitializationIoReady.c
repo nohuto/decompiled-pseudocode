@@ -1,16 +1,16 @@
 /*
  * XREFs of Phase1InitializationIoReady @ 0x1409C4788
  * Callers:
- *     Phase1Initialization @ 0x14074B5D0 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x14074B5B0 (Phase1Initialization.c)
  * Callees:
  *     ExNotifyCallback @ 0x14008E560 (ExNotifyCallback.c)
- *     InbvSetProgressBarSubset @ 0x140187310 (InbvSetProgressBarSubset.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
- *     KeBugCheck @ 0x1401BBB80 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     VfClearVerifierSettings @ 0x1403096A8 (VfClearVerifierSettings.c)
- *     ExQueryBootEntropyInformation @ 0x140736934 (ExQueryBootEntropyInformation.c)
+ *     InbvSetProgressBarSubset @ 0x140187330 (InbvSetProgressBarSubset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
+ *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     VfClearVerifierSettings @ 0x1403097A8 (VfClearVerifierSettings.c)
+ *     ExQueryBootEntropyInformation @ 0x140736914 (ExQueryBootEntropyInformation.c)
  *     VfNotifyVerifierOfEvent @ 0x140925D20 (VfNotifyVerifierOfEvent.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  *     MmInitSystem @ 0x1409BC4E4 (MmInitSystem.c)
@@ -26,7 +26,7 @@
  *     KeInitializeClock @ 0x1409D8C58 (KeInitializeClock.c)
  *     SaveNodeDistanceInformation @ 0x1409DE6C4 (SaveNodeDistanceInformation.c)
  *     PspInitPhase3 @ 0x1409DF584 (PspInitPhase3.c)
- *     InitSafeBoot @ 0x1409F3340 (InitSafeBoot.c)
+ *     InitSafeBoot @ 0x1409F3348 (InitSafeBoot.c)
  */
 
 __int64 __fastcall Phase1InitializationIoReady(ULONG_PTR a1, char a2)

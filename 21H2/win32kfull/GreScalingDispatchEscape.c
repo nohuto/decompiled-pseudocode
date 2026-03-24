@@ -1,9 +1,9 @@
 /*
- * XREFs of GreScalingDispatchEscape @ 0x1C029DA54
+ * XREFs of GreScalingDispatchEscape @ 0x1C029F150
  * Callers:
- *     NtGdiExtEscape @ 0x1C00108F0 (NtGdiExtEscape.c)
+ *     NtGdiExtEscape @ 0x1C00A75A0 (NtGdiExtEscape.c)
  * Callees:
- *     GreEscCreateScaledCompatibleBitmap @ 0x1C029D5EC (GreEscCreateScaledCompatibleBitmap.c)
+ *     GreEscCreateScaledCompatibleBitmap @ 0x1C029ECE8 (GreEscCreateScaledCompatibleBitmap.c)
  */
 
 __int64 __fastcall GreScalingDispatchEscape(_OWORD *a1)

@@ -1,92 +1,94 @@
 /*
- * XREFs of ?CitpSetAudioInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C009D1C4
+ * XREFs of ?CitpSetAudioInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C00A8130
  * Callers:
- *     CitSetInfo @ 0x1C009D150 (CitSetInfo.c)
+ *     CitSetInfo @ 0x1C0046F70 (CitSetInfo.c)
  * Callees:
- *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C0017428 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
- *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C0017574 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
- *     ?CitpAudioStatDecrementStreams@@YAXPEAU_CIT_AUDIO_STATS@@E@Z @ 0x1C009D46C (-CitpAudioStatDecrementStreams@@YAXPEAU_CIT_AUDIO_STATS@@E@Z.c)
+ *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C00463E0 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C00464E8 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
+ *     ?CitpAudioStatDecrementStreams@@YAXPEAU_CIT_AUDIO_STATS@@E@Z @ 0x1C00C0398 (-CitpAudioStatDecrementStreams@@YAXPEAU_CIT_AUDIO_STATS@@E@Z.c)
  */
 
-__int64 __fastcall CitpSetAudioInfo(union _CIT_SI_INFOFLAGS *a1, union _CIT_SI_INFO *a2, __int64 a3, __int64 a4)
+__int64 __fastcall CitpSetAudioInfo(union _CIT_SI_INFOFLAGS *a1, union _CIT_SI_INFO *a2)
 {
-  struct _CIT_IMPACT_CONTEXT *v4; // rbx
-  __int16 v5; // bp
-  __int64 v6; // r15
+  struct _CIT_IMPACT_CONTEXT *v2; // rbx
+  __int64 v3; // r15
+  __int64 v4; // rbp
   struct _CIT_PROCESS **CurrentProcessWin32Process; // r14
-  struct tagPROCESSINFO **v8; // rax
-  struct tagPROCESSINFO **v9; // rsi
+  struct tagPROCESSINFO **v6; // rax
+  struct tagPROCESSINFO **v7; // rsi
+  struct _CIT_INTERACTION_SUMMARY *v8; // rax
+  char *v9; // rbx
   struct _CIT_INTERACTION_SUMMARY *v10; // rdi
-  char *v11; // rbx
-  char *v12; // rcx
-  __int64 v13; // rdx
+  char *v11; // rcx
+  __int64 v12; // rdx
+  char v13; // al
   char v14; // al
   char v15; // al
   char v16; // al
-  char v17; // al
-  char v19; // al
+  char v18; // al
 
-  v4 = xmmword_1C029A230;
-  v5 = *((_WORD *)a1 + 1);
-  v6 = (unsigned __int16)*(_DWORD *)a1;
-  CurrentProcessWin32Process = (struct _CIT_PROCESS **)PsGetCurrentProcessWin32Process(a1, a2, a3, a4);
-  v8 = (struct tagPROCESSINFO **)CitpProcessEnsureContext(CurrentProcessWin32Process);
-  v9 = v8;
-  if ( !v8 )
+  v2 = xmmword_1C0255560;
+  v3 = (unsigned __int16)*(_QWORD *)a1;
+  v4 = (unsigned __int16)(*(_QWORD *)a1 >> 24);
+  CurrentProcessWin32Process = (struct _CIT_PROCESS **)PsGetCurrentProcessWin32Process(a1);
+  v6 = (struct tagPROCESSINFO **)CitpProcessEnsureContext(CurrentProcessWin32Process);
+  v7 = v6;
+  if ( !v6 )
     return 3221225473LL;
-  v10 = CitpInteractionSummaryEnsure(v4, v8, 16);
-  v11 = 0LL;
-  if ( v5 )
+  v8 = CitpInteractionSummaryEnsure(v2, v6, 16);
+  v9 = 0LL;
+  v10 = v8;
+  if ( v4 )
   {
-    if ( (unsigned int)dword_1C028F034 < MEMORY[0xFFFFF7800000037C] )
-      EtwTelemetryCoverageReport(&off_1C028F028);
-    v12 = (char *)(v9 + 14);
-    v13 = 10LL;
+    if ( (unsigned int)dword_1C024BB2C < MEMORY[0xFFFFF7800000037C] )
+      EtwTelemetryCoverageReport(&off_1C024BB20);
+    v11 = (char *)(v7 + 11);
+    v12 = 10LL;
     if ( v10 )
-      v11 = (char *)v10 + 116;
+      v9 = (char *)v10 + 116;
   }
   else
   {
-    if ( (unsigned int)dword_1C028D7BC < MEMORY[0xFFFFF7800000037C] )
-      EtwTelemetryCoverageReport(&off_1C028D7B0);
-    v12 = (char *)v9 + 113;
-    v13 = 11LL;
+    if ( (unsigned int)dword_1C024A31C < MEMORY[0xFFFFF7800000037C] )
+      EtwTelemetryCoverageReport(&off_1C024A310);
+    v11 = (char *)v7 + 89;
+    v12 = 11LL;
     if ( v10 )
-      v11 = (char *)v10 + 124;
+      v9 = (char *)v10 + 124;
   }
-  v14 = *v12;
-  if ( v6 == 3 )
+  v13 = *v11;
+  if ( v3 == 3 )
   {
-    if ( v14 != -1 )
+    if ( v13 != -1 )
     {
-      v15 = v14 + 1;
-      *v12 = v15;
-      if ( v15 == 1 )
-        PsUpdateComponentPower(*CurrentProcessWin32Process, v13);
+      v14 = v13 + 1;
+      *v11 = v14;
+      if ( v14 == 1 )
+        PsUpdateComponentPower(*CurrentProcessWin32Process, v12);
     }
-    if ( v11 )
+    if ( v9 )
     {
-      v16 = v11[3];
-      if ( v16 != -1 )
+      v15 = v9[3];
+      if ( v15 != -1 )
       {
-        v17 = v16 + 1;
-        v11[3] = v17;
-        if ( v17 == 1 )
-          *((_DWORD *)v11 + 1) = (MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0]) / 0x2710uLL;
+        v16 = v15 + 1;
+        v9[3] = v16;
+        if ( v16 == 1 )
+          *((_DWORD *)v9 + 1) = (MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0]) / 0x2710uLL;
       }
     }
   }
   else
   {
-    if ( v14 )
+    if ( v13 )
     {
-      v19 = v14 - 1;
-      *v12 = v19;
-      if ( !v19 )
-        PsUpdateComponentPower(*CurrentProcessWin32Process, v13);
+      v18 = v13 - 1;
+      *v11 = v18;
+      if ( !v18 )
+        PsUpdateComponentPower(*CurrentProcessWin32Process, v12);
     }
-    if ( v11 )
-      CitpAudioStatDecrementStreams((struct _CIT_AUDIO_STATS *)v11, 1u);
+    if ( v9 )
+      CitpAudioStatDecrementStreams((struct _CIT_AUDIO_STATS *)v9, 1u);
   }
   return 0LL;
 }

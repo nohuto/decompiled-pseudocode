@@ -1,47 +1,45 @@
 /*
- * XREFs of AlpcpReleaseAttributes @ 0x1407A6660
+ * XREFs of AlpcpReleaseAttributes @ 0x1405E39F0
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x140665B68 (AlpcpAcceptConnectPort.c)
- *     AlpcpSendMessage @ 0x1407A9ED0 (AlpcpSendMessage.c)
- *     AlpcpCaptureAttributes @ 0x1407AB790 (AlpcpCaptureAttributes.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
+ *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
+ *     AlpcpCaptureAttributes @ 0x1405E6290 (AlpcpCaptureAttributes.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     AlpcpReleaseViewAttribute @ 0x1406D7014 (AlpcpReleaseViewAttribute.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReleaseViewAttribute @ 0x1406B4784 (AlpcpReleaseViewAttribute.c)
  */
 
-__int64 __fastcall AlpcpReleaseAttributes(_QWORD *a1)
+void __fastcall AlpcpReleaseAttributes(_QWORD *a1)
 {
   ULONG_PTR v2; // rcx
   ULONG_PTR v3; // rcx
   ULONG_PTR v4; // rcx
   unsigned __int64 v5; // rcx
-  __int64 result; // rax
 
   v2 = a1[4];
   if ( v2 )
   {
-    result = AlpcpDereferenceBlobEx(v2, 1);
+    AlpcpDereferenceBlobEx(v2);
     a1[4] = 0LL;
   }
   v3 = a1[5];
   if ( v3 )
   {
-    result = AlpcpReleaseViewAttribute(v3);
+    AlpcpReleaseViewAttribute(v3);
     a1[5] = 0LL;
   }
   v4 = a1[6];
   if ( v4 )
   {
-    result = AlpcpDereferenceBlobEx(v4, 1);
+    AlpcpDereferenceBlobEx(v4);
     a1[6] = 0LL;
   }
   v5 = a1[7];
   if ( (v5 & 1) != 0 )
   {
     if ( v5 >= 4 && (v5 & 2) != 0 )
-      result = ObfDereferenceObject((PVOID)(v5 & 0xFFFFFFFFFFFFFFFCuLL));
+      HalPutDmaAdapter((PADAPTER_OBJECT)(v5 & 0xFFFFFFFFFFFFFFFCuLL));
     a1[7] = 0LL;
   }
-  return result;
 }

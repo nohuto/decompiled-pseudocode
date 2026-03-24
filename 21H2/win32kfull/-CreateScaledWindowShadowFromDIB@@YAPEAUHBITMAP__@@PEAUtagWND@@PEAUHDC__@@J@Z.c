@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CreateScaledWindowShadowFromDIB@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@J@Z @ 0x1C0239218
+ * XREFs of ?CreateScaledWindowShadowFromDIB@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@J@Z @ 0x1C023DEF0
  * Callers:
- *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C012E518 (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C013E53C (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
  * Callees:
- *     GreStretchBltInternal @ 0x1C002AF84 (GreStretchBltInternal.c)
- *     GreCreateCompatibleBitmapInternal @ 0x1C0090C1C (GreCreateCompatibleBitmapInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AAFE8 (GreCreateCompatibleBitmapInternal.c)
+ *     GreStretchBltInternal @ 0x1C00B4D10 (GreStretchBltInternal.c)
  */
 
 __int64 __fastcall CreateScaledWindowShadowFromDIB(struct tagWND *a1, HDC a2, int a3)
@@ -16,13 +16,10 @@ __int64 __fastcall CreateScaledWindowShadowFromDIB(struct tagWND *a1, HDC a2, in
   unsigned int v10; // r12d
   int v11; // r13d
   __int64 CompatibleBitmapInternal; // rsi
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
   __int64 CompatibleDC; // rax
-  HDC v17; // rbp
-  __int64 v18; // rdi
-  int v19; // ebx
+  HDC v14; // rbp
+  __int64 v15; // rdi
+  int v16; // ebx
 
   DCEx = (HDC)_GetDCEx(a1, 0LL, 3LL);
   v7 = DCEx;
@@ -36,14 +33,14 @@ __int64 __fastcall CreateScaledWindowShadowFromDIB(struct tagWND *a1, HDC a2, in
   _ReleaseDC(v7);
   if ( !CompatibleBitmapInternal )
     return 0LL;
-  CompatibleDC = GreCreateCompatibleDC(a2, v13, v14, v15);
-  v17 = (HDC)CompatibleDC;
+  CompatibleDC = GreCreateCompatibleDC(a2);
+  v14 = (HDC)CompatibleDC;
   if ( !CompatibleDC
-    || (v18 = GreSelectBitmap(CompatibleDC, CompatibleBitmapInternal),
-        v19 = GreStretchBltInternal(v17, 0, 0, v10, v11, a2, 0, 0, a3 * v10, a3 * v11, 13369376, 0, 0),
-        GreSelectBitmap(v17, v18),
-        GreDeleteDC(v17),
-        !v19) )
+    || (v15 = GreSelectBitmap(CompatibleDC, CompatibleBitmapInternal),
+        v16 = GreStretchBltInternal(v14, 0, 0, v10, v11, a2, 0, 0, a3 * v10, a3 * v11, 13369376, 0, 0),
+        GreSelectBitmap(v14, v15),
+        GreDeleteDC(v14),
+        !v16) )
   {
     GreDeleteObject(CompatibleBitmapInternal);
     return 0LL;

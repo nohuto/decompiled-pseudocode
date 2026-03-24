@@ -1,5 +1,5 @@
 /*
- * XREFs of IopDmaPackResource @ 0x140763ED0
+ * XREFs of IopDmaPackResource @ 0x140763EB0
  * Callers:
  *     <none>
  * Callees:

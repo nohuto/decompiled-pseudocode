@@ -6,10 +6,10 @@
  * Callees:
  *     MiIncludeSharedCommit @ 0x140076780 (MiIncludeSharedCommit.c)
  *     MiAweControlArea @ 0x140077E6C (MiAweControlArea.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x1402C48BC (MiComputeCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x1402C49BC (MiComputeCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiReleaseControlAreaCharges(__int64 a1)

@@ -1,31 +1,28 @@
 /*
- * XREFs of ?OverrideClip@CCursorClip@@QEAAX_N@Z @ 0x1C01DBA00
+ * XREFs of ?OverrideClip@CCursorClip@@QEAAX_N@Z @ 0x1C01A2C3C
  * Callers:
- *     SetInputDelegationModeImpl @ 0x1C009DE40 (SetInputDelegationModeImpl.c)
- *     DisableDelegation @ 0x1C00BB460 (DisableDelegation.c)
+ *     SetInputDelegationModeImpl @ 0x1C009612C (SetInputDelegationModeImpl.c)
+ *     DisableDelegation @ 0x1C00AA0D0 (DisableDelegation.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0096098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0096160 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C005A5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005CD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CCursorClip::OverrideClip(CCursorClip *this, unsigned __int8 a2)
 {
   CCursorClip *v2; // rdi
   int v3; // esi
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  int v7; // eax
-  bool v8; // sf
+  int v4; // eax
+  bool v5; // sf
 
   v2 = gpCursorClip;
   v3 = a2;
   CPushLock::AcquireLockExclusive((CCursorClip *)((char *)gpCursorClip + 32));
-  v7 = 2 * v3 - 1;
-  v8 = v7 + *((_DWORD *)v2 + 64) < 0;
-  *((_DWORD *)v2 + 64) += v7;
-  if ( v8 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v5, v4, v6);
+  v4 = 2 * v3 - 1;
+  v5 = v4 + *((_DWORD *)v2 + 18) < 0;
+  *((_DWORD *)v2 + 18) += v4;
+  if ( v5 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 99);
   CPushLock::ReleaseLock((CCursorClip *)((char *)v2 + 32));
 }

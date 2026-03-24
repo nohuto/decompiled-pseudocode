@@ -1,18 +1,18 @@
 /*
- * XREFs of PpDevCfgProcessDeviceOperations @ 0x1407D94D0
+ * XREFs of PpDevCfgProcessDeviceOperations @ 0x140736760
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     IopInitializeDeviceInstanceKey @ 0x140814744 (IopInitializeDeviceInstanceKey.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074E544 (IopInitializeDeviceInstanceKey.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     PiDevCfgFreeDeviceContext @ 0x1407D95B0 (PiDevCfgFreeDeviceContext.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B738 (_RegRtlDeleteTreeInternal.c)
- *     PiDevCfgSetDeviceRegProp @ 0x14087C2AC (PiDevCfgSetDeviceRegProp.c)
- *     PiDevCfgInitDeviceContext @ 0x14087CCD8 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CF74 (PiDevCfgConfigureDeviceKeys.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x1407360F8 (PiDevCfgSetDeviceRegProp.c)
+ *     PiDevCfgFreeDeviceContext @ 0x14073683C (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgInitDeviceContext @ 0x140737ED8 (PiDevCfgInitDeviceContext.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140765F94 (_RegRtlDeleteTreeInternal.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140766C04 (PiDevCfgConfigureDeviceKeys.c)
  */
 
 __int64 __fastcall PpDevCfgProcessDeviceOperations(__int64 a1, void *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall PpDevCfgProcessDeviceOperations(__int64 a1, void *a2)
   __int64 v8; // r8
   int v9; // r14d
   __int64 v10; // rdx
-  int v11; // ecx
+  __int64 v11; // rcx
   int v12; // eax
   int v13; // [rsp+40h] [rbp-69h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-61h] BYREF
@@ -43,11 +43,12 @@ __int64 __fastcall PpDevCfgProcessDeviceOperations(__int64 a1, void *a2)
   v19 = 0;
   if ( *(_QWORD *)(a1 + 48) )
   {
+    *(&ObjectAttributes.Length + 1) = 0;
     memset(&ObjectAttributes.Attributes + 1, 0, 20);
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
     *((_QWORD *)&v15 + 1) = L"PendingConfiguration";
     ObjectAttributes.ObjectName = (PUNICODE_STRING)&v15;
     LODWORD(v15) = 2752552;
+    ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = a2;
     ObjectAttributes.Attributes = 576;
     v4 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
@@ -93,7 +94,7 @@ __int64 __fastcall PpDevCfgProcessDeviceOperations(__int64 a1, void *a2)
               v12 = 0;
             }
             v18 = v9 | v12;
-            PiDevCfgSetDeviceRegProp(v11, (unsigned int)v17, 11, 4, (__int64)&v18, 4);
+            PiDevCfgSetDeviceRegProp(v11, (__int64)v17, 0xBu, 4, (__int64)&v18, 4);
           }
         }
       }

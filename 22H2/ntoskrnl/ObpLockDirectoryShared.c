@@ -1,19 +1,27 @@
 /*
- * XREFs of ObpLockDirectoryShared @ 0x1406C2B78
+ * XREFs of ObpLockDirectoryShared @ 0x1402065CC
  * Callers:
- *     NtQueryDirectoryObject @ 0x1406C2680 (NtQueryDirectoryObject.c)
- *     ObpCreateSymbolicLinkName @ 0x1407B6FA0 (ObpCreateSymbolicLinkName.c)
+ *     ObpLookupDirectoryEntryEx @ 0x140601DF4 (ObpLookupDirectoryEntryEx.c)
+ *     ObpLookupDirectoryUsingHash @ 0x140601F48 (ObpLookupDirectoryUsingHash.c)
+ *     ObpLookupObjectName @ 0x140641640 (ObpLookupObjectName.c)
+ *     NtQueryDirectoryObject @ 0x1406DA180 (NtQueryDirectoryObject.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
  */
 
-__int64 __fastcall ObpLockDirectoryShared(__int64 a1, __int64 a2)
+LONG_PTR __fastcall ObpLockDirectoryShared(__int64 a1, void *a2)
 {
   struct _KTHREAD *CurrentThread; // rax
+  LONG_PTR result; // rax
 
-  *(_QWORD *)a1 = a2;
-  *(_BYTE *)(a1 + 21) = 0;
+  *(_DWORD *)(a1 + 32) = -1145368012;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  return ExAcquirePushLockSharedEx(a2 + 296, 0LL);
+  ExAcquirePushLockSharedEx((ULONG_PTR)a2 + 296, 0LL);
+  *(_DWORD *)(a1 + 32) = -572714444;
+  result = ObfReferenceObjectWithTag(a2, 0x746C6644u);
+  *(_QWORD *)a1 = a2;
+  *(_WORD *)(a1 + 30) = 1;
+  return result;
 }

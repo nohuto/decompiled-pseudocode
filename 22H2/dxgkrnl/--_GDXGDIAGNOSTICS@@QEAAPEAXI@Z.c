@@ -1,17 +1,27 @@
 /*
- * XREFs of ??_GDXGDIAGNOSTICS@@QEAAPEAXI@Z @ 0x1C0051BA8
+ * XREFs of ??_GDXGDIAGNOSTICS@@QEAAPEAXI@Z @ 0x1C00464C0
  * Callers:
- *     ??1VIDPN_MGR@@UEAA@XZ @ 0x1C0067F38 (--1VIDPN_MGR@@UEAA@XZ.c)
- *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C0311CA0 (--1DXGGLOBAL@@EEAA@XZ.c)
- *     ??1OUTPUTDUPL_MGR@@QEAA@XZ @ 0x1C032A108 (--1OUTPUTDUPL_MGR@@QEAA@XZ.c)
+ *     ??1VIDPN_MGR@@UEAA@XZ @ 0x1C005B120 (--1VIDPN_MGR@@UEAA@XZ.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268910 (--1DXGGLOBAL@@AEAA@XZ.c)
+ *     ??1OUTPUTDUPL_MGR@@QEAA@XZ @ 0x1C0298B58 (--1OUTPUTDUPL_MGR@@QEAA@XZ.c)
  * Callees:
- *     ??1DXGDIAGNOSTICS@@QEAA@XZ @ 0x1C0051B08 (--1DXGDIAGNOSTICS@@QEAA@XZ.c)
+ *     ??_GDXGFASTMUTEX@@QEAAPEAXI@Z @ 0x1C000B66C (--_GDXGFASTMUTEX@@QEAAPEAXI@Z.c)
  */
 
-DXGDIAGNOSTICS *__fastcall DXGDIAGNOSTICS::`scalar deleting destructor'(DXGDIAGNOSTICS *P)
+_QWORD *__fastcall DXGDIAGNOSTICS::`scalar deleting destructor'(_QWORD *P, __int64 a2)
 {
-  DXGDIAGNOSTICS::~DXGDIAGNOSTICS(P);
-  if ( P )
-    ExFreePoolWithTag(P, 0);
+  void *v3; // rcx
+  DXGFASTMUTEX *v4; // rcx
+
+  v3 = (void *)P[6];
+  if ( v3 )
+    ExFreePoolWithTag(v3, 0);
+  v4 = (DXGFASTMUTEX *)P[7];
+  if ( v4 )
+  {
+    DXGFASTMUTEX::`scalar deleting destructor'(v4, a2);
+    P[7] = 0LL;
+  }
+  ExFreePoolWithTag(P, 0);
   return P;
 }

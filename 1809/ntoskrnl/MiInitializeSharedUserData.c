@@ -9,11 +9,11 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     HvlGetSharedPageVa @ 0x1406CA864 (HvlGetSharedPageVa.c)
+ *     HvlGetSharedPageVa @ 0x1406CA844 (HvlGetSharedPageVa.c)
  */
 
 __int64 MiInitializeSharedUserData()

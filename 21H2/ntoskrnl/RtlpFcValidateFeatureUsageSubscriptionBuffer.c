@@ -1,45 +1,38 @@
 /*
- * XREFs of RtlpFcValidateFeatureUsageSubscriptionBuffer @ 0x1409BFC00
+ * XREFs of RtlpFcValidateFeatureUsageSubscriptionBuffer @ 0x1405CFCFC
  * Callers:
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14092317C (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E060 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
  * Callees:
- *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1405EE7A0 (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1403F8848 (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
  */
 
-__int64 __fastcall RtlpFcValidateFeatureUsageSubscriptionBuffer(unsigned int *a1, unsigned __int64 a2)
+__int64 __fastcall RtlpFcValidateFeatureUsageSubscriptionBuffer(unsigned int *a1, ULONGLONG a2)
 {
-  unsigned int v2; // r8d
-  unsigned int *v3; // r10
-  unsigned int v4; // r11d
-  unsigned __int64 v5; // kr00_8
-  unsigned __int64 v6; // rax
-  int v7; // r9d
+  unsigned int v3; // r10d
+  unsigned int *v4; // r11
+  unsigned int v5; // r9d
+  unsigned int v6; // r8d
+  ULONGLONG pullResult; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = 0;
-  v3 = a1;
+  pullResult = 0LL;
   if ( a1 )
   {
-    if ( a2 >= 4 && ((unsigned __int8)a1 & 3) == 0 )
+    if ( a2 >= 4
+      && ((unsigned __int8)a1 & 3) == 0
+      && RtlULongLongMult(*a1, 0x10uLL, &pullResult) >= 0
+      && pullResult + 4 >= pullResult
+      && pullResult + 4 <= a2 )
     {
-      v4 = *a1;
-      v5 = *a1;
-      if ( is_mul_ok(v5, 0x10uLL) )
+      v5 = *v4;
+      v6 = v3;
+      if ( !*v4 )
+        return v3;
+      while ( !v6
+           || (int)RtlpFcCompareUsageSubscriptionToUsageSubscription((__int64)&v4[4 * v6 - 3], (__int64)&v4[4 * v6 + 1]) < 0 )
       {
-        v6 = 16 * v5 + 4;
-        if ( v6 >= 16 * v5 && v6 <= a2 )
-        {
-          v7 = 0;
-          if ( !v4 )
-            return v2;
-          while ( !v7
-               || (int)RtlpFcCompareUsageSubscriptionToUsageSubscription(
-                         (__int64)&v3[4 * (v7 - 1) + 1],
-                         (__int64)&v3[4 * v7 + 1]) < 0 )
-          {
-            if ( ++v7 >= v4 )
-              return v2;
-          }
-        }
+        if ( ++v6 >= v5 )
+          return v3;
       }
     }
     return (unsigned int)-1073741811;

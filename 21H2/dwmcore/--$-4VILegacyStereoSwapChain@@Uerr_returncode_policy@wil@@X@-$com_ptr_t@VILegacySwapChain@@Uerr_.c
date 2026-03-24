@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$?4VILegacyStereoSwapChain@@Uerr_returncode_policy@wil@@X@?$com_ptr_t@VILegacySwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@AEBV?$com_ptr_t@VILegacyStereoSwapChain@@Uerr_returncode_policy@wil@@@1@@Z @ 0x1801C9FA0
+ * XREFs of ??$?4VILegacyStereoSwapChain@@Uerr_returncode_policy@wil@@X@?$com_ptr_t@VILegacySwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@AEBV?$com_ptr_t@VILegacyStereoSwapChain@@Uerr_returncode_policy@wil@@@1@@Z @ 0x18018DDB8
  * Callers:
- *     ?EnsureSwapChain@CLegacyStereoRenderTarget@@MEAAJPEA_N@Z @ 0x1801CA040 (-EnsureSwapChain@CLegacyStereoRenderTarget@@MEAAJPEA_N@Z.c)
+ *     ?EnsureSwapChain@CLegacyStereoRenderTarget@@MEAAJPEA_N@Z @ 0x18018DE40 (-EnsureSwapChain@CLegacyStereoRenderTarget@@MEAAJPEA_N@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 *__fastcall wil::com_ptr_t<ILegacySwapChain,wil::err_returncode_policy>::operator=<ILegacyStereoSwapChain,wil::err_returncode_policy,void>(

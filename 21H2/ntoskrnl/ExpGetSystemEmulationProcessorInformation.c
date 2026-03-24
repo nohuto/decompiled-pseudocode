@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpGetSystemEmulationProcessorInformation @ 0x1402630FC
+ * XREFs of ExpGetSystemEmulationProcessorInformation @ 0x1402CEB1C
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402631C0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14027B730 (KeQueryMaximumProcessorCountEx.c)
  */
 
 __int64 __fastcall ExpGetSystemEmulationProcessorInformation(__int64 a1)

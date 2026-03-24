@@ -1,17 +1,17 @@
 /*
- * XREFs of ?AddAndSet@?$DynArray@PEAVCChannelContext@@$00@@QEAAJIAEBQEAVCChannelContext@@@Z @ 0x1800AC1A4
+ * XREFs of ?AddAndSet@?$DynArray@PEAVCChannelContext@@$00@@QEAAJIAEBQEAVCChannelContext@@@Z @ 0x180032AE4
  * Callers:
- *     ?OpenChannel@CComposition@@IEAAJIK_K@Z @ 0x1800AAF10 (-OpenChannel@CComposition@@IEAAJIK_K@Z.c)
+ *     ?OpenChannel@CComposition@@IEAAJIK_K@Z @ 0x180034B28 (-OpenChannel@CComposition@@IEAAJIK_K@Z.c)
  * Callees:
- *     ?AddMultiple@?$DynArrayImpl@$00@@IEAAJIIPEAPEAX@Z @ 0x1800272E4 (-AddMultiple@-$DynArrayImpl@$00@@IEAAJIIPEAPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultiple@?$DynArrayImpl@$00@@IEAAJIIPEAPEAX@Z @ 0x1800D9908 (-AddMultiple@-$DynArrayImpl@$00@@IEAAJIIPEAPEAX@Z.c)
  */
 
 __int64 __fastcall DynArray<CChannelContext *,1>::AddAndSet(__int64 a1, unsigned int a2, unsigned __int64 *a3)
 {
   int v5; // eax
   unsigned int v6; // ecx
-  unsigned int v7; // edi
+  unsigned int v7; // r9d
   unsigned int v8; // ebp
   unsigned __int64 *v9; // rdx
   unsigned __int64 v10; // rcx
@@ -19,7 +19,7 @@ __int64 __fastcall DynArray<CChannelContext *,1>::AddAndSet(__int64 a1, unsigned
   __int64 v12; // rdx
   unsigned __int64 *v14; // [rsp+58h] [rbp+20h] BYREF
 
-  v5 = DynArrayImpl<1>::AddMultiple(a1, 8, a2, &v14);
+  v5 = DynArrayImpl<1>::AddMultiple(a1, 8LL, a2, &v14);
   v7 = 0;
   v8 = v5;
   if ( v5 < 0 )
@@ -29,16 +29,16 @@ __int64 __fastcall DynArray<CChannelContext *,1>::AddAndSet(__int64 a1, unsigned
   else if ( a2 )
   {
     v9 = v14;
-    if ( a2 < 2 || v14 <= a3 && &v14[a2 - 1] >= a3 )
-      goto LABEL_9;
-    v10 = a2 & 0xFFFFFFFE;
-    do
-      v7 += 2;
-    while ( v7 < (unsigned int)v10 );
-    memset64(v14, *a3, (2 * (v10 >> 1)) & 0x1FFFFFFFFFFFFFFFLL);
+    if ( a2 >= 2 && (v14 > a3 || &v14[a2 - 1] < a3) )
+    {
+      v10 = a2 & 0xFFFFFFFE;
+      do
+        v7 += 2;
+      while ( v7 < (unsigned int)v10 );
+      memset64(v14, *a3, (2 * (v10 >> 1)) & 0x1FFFFFFFFFFFFFFFLL);
+    }
     if ( v7 < a2 )
     {
-LABEL_9:
       v11 = &v9[v7];
       v12 = a2 - v7;
       do

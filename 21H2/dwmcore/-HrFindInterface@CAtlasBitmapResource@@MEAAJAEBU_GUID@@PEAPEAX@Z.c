@@ -1,25 +1,31 @@
 /*
- * XREFs of ?HrFindInterface@CAtlasBitmapResource@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18025B1D0
+ * XREFs of ?HrFindInterface@CAtlasBitmapResource@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18020A8B0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006BFF0 (-HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CAtlasBitmapResource::HrFindInterface(CAtlasBitmapResource *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax
+  __int64 v4; // rax
 
   result = 2147942487LL;
   if ( a3 )
   {
-    result = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_b35f2031_4b76_4d4e_b98c_6771dfcc753c.Data1;
+    v4 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_b35f2031_4b76_4d4e_b98c_6771dfcc753c.Data1;
     if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_b35f2031_4b76_4d4e_b98c_6771dfcc753c.Data1 )
-      result = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_b35f2031_4b76_4d4e_b98c_6771dfcc753c.Data4;
-    if ( result )
-      return 2147500034LL;
+      v4 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_b35f2031_4b76_4d4e_b98c_6771dfcc753c.Data4;
+    if ( v4 )
+    {
+      return CMILCOMBase::HrFindInterface(this, a2, a3);
+    }
     else
-      *a3 = this;
+    {
+      *a3 = (void *)(((unsigned __int64)this + 16) & -(__int64)(this != 0LL));
+      return 0LL;
+    }
   }
   return result;
 }

@@ -1,49 +1,53 @@
 /*
- * XREFs of SepInitSingletonEntry @ 0x140226514
+ * XREFs of SepInitSingletonEntry @ 0x140250D60
  * Callers:
- *     SepAddLuidToIndexEntry @ 0x1406B781C (SepAddLuidToIndexEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x140603C6C (SepAddLuidToIndexEntry.c)
  * Callees:
- *     SepGetSingletonEntryFromIndexNumber @ 0x140226578 (SepGetSingletonEntryFromIndexNumber.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x140250DC4 (SepGetSingletonEntryFromIndexNumber.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall SepInitSingletonEntry(__int64 a1, __int64 a2)
+__int64 __fastcall SepInitSingletonEntry(__int64 a1, __int64 a2)
 {
-  volatile LONG *SingletonEntryFromIndexNumber; // rax
-  volatile LONG *v4; // rbx
+  __int64 result; // rax
+  __int64 v4; // rbx
   KIRQL v5; // al
   unsigned __int64 v6; // rdi
-  unsigned __int8 CurrentIrql; // al
+  unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v10; // eax
-  bool v11; // zf
+  bool v10; // zf
 
-  SingletonEntryFromIndexNumber = (volatile LONG *)SepGetSingletonEntryFromIndexNumber();
-  v4 = SingletonEntryFromIndexNumber;
-  if ( SingletonEntryFromIndexNumber )
+  result = SepGetSingletonEntryFromIndexNumber(a1);
+  v4 = result;
+  if ( result )
   {
-    v5 = ExAcquireSpinLockExclusive(SingletonEntryFromIndexNumber);
-    *((_QWORD *)v4 + 2) = 0LL;
+    v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)result);
+    *(_QWORD *)(v4 + 16) = 0LL;
     v6 = v5;
-    *((_QWORD *)v4 + 1) = a2;
-    ExReleaseSpinLockExclusiveFromDpcLevel(v4);
+    *(_QWORD *)(v4 + 8) = a2;
+    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v4);
+    result = (unsigned int)KiIrqlFlags;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-        v11 = (v10 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v10;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+          v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= result;
+          if ( v10 )
+            result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v6);
   }
+  return result;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of _MapCmDevicePropertyToRegType @ 0x1402DE400
+ * XREFs of _MapCmDevicePropertyToRegType @ 0x1402D0450
  * Callers:
- *     _CmSetDeviceRegPropWorker @ 0x14076FF88 (_CmSetDeviceRegPropWorker.c)
- *     _CmGetDeviceRegPropWorker @ 0x14077CF10 (_CmGetDeviceRegPropWorker.c)
+ *     _CmGetDeviceRegPropWorker @ 0x1406415EC (_CmGetDeviceRegPropWorker.c)
+ *     _CmSetDeviceRegPropWorker @ 0x140744178 (_CmSetDeviceRegPropWorker.c)
  * Callees:
  *     <none>
  */

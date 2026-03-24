@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetMaxParticleInstancesCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02185D8
+ * XREFs of ?EmitSetMaxParticleInstancesCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D82E0
  * Callers:
- *     ?EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021BC50 (-EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DAE80 (-EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitSetMaxParticleInstancesCommand(
@@ -13,7 +13,7 @@ char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitSetMaxPa
   char *v3; // rcx
   void *v5; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (*((_DWORD *)this + 137) & 0x8000) == 0 )
+  if ( (*((_DWORD *)this + 136) & 0x8000) == 0 )
     return 1;
   v5 = 0LL;
   if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x10uLL, &v5) )
@@ -22,10 +22,10 @@ char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitSetMaxPa
     *(_DWORD *)v5 = 16;
     *(_QWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 3) = 0;
-    *((_DWORD *)v3 + 1) = 579;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 112);
-    *((_DWORD *)this + 137) &= ~0x8000u;
+    *((_DWORD *)v3 + 1) = 555;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *((_DWORD *)v3 + 3) = *((_DWORD *)this + 110);
+    *((_DWORD *)this + 136) &= ~0x8000u;
     return 1;
   }
   return 0;

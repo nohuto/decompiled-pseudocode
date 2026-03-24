@@ -1,9 +1,9 @@
 /*
- * XREFs of __tailMerge_ext_ms_win_rtcore_gdi_object_l1_1_0_dll @ 0x1801023C1
+ * XREFs of __tailMerge_ext_ms_win_rtcore_gdi_object_l1_1_0_dll @ 0x1800E894D
  * Callers:
- *     __imp_load_DeleteObject @ 0x1801023B5 (__imp_load_DeleteObject.c)
+ *     __imp_load_DeleteObject @ 0x1800E8941 (__imp_load_DeleteObject.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_ext_ms_win_rtcore_gdi_object_l1_1_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

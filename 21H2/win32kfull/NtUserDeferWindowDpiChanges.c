@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserDeferWindowDpiChanges @ 0x1C00994A0
+ * XREFs of NtUserDeferWindowDpiChanges @ 0x1C012FD50
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C009C90C (_SetDeferredDpiStateForWindowAndChildren.c)
+ *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C0013BBC (_SetDeferredDpiStateForWindowAndChildren.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserDeferWindowDpiChanges(__int64 a1)
@@ -16,13 +16,13 @@ __int64 __fastcall NtUserDeferWindowDpiChanges(__int64 a1)
   __int64 v7; // rdx
   __int64 v8; // r8
   __int64 v9; // rcx
-  __int64 v10; // rcx
+  _BOOL8 v10; // rcx
   __int128 v11; // [rsp+20h] [rbp-28h] BYREF
   __int64 v12; // [rsp+30h] [rbp-18h]
 
   v12 = 0LL;
   v11 = 0LL;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v2 = ValidateHwnd(a1);
   v4 = 0;
   v5 = v2;
@@ -40,20 +40,20 @@ __int64 __fastcall NtUserDeferWindowDpiChanges(__int64 a1)
       {
         if ( *(_WORD *)(v9 + 286) )
         {
-          v10 = (*(_DWORD *)(v5 + 320) >> 6) & 1;
-          *(_DWORD *)(v5 + 320) |= 0x40u;
+          v10 = (*(_DWORD *)(v5 + 304) & 1) == 0;
+          *(_DWORD *)(v5 + 304) |= 1u;
           v4 = v10;
         }
         else
         {
-          v4 = SetDeferredDpiStateForWindowAndChildren((ShellWindowManagement *)v5);
+          v4 = SetDeferredDpiStateForWindowAndChildren((struct tagWND *)v5, 1, 1);
         }
       }
       else
       {
-        UserSetLastError(87LL, v7);
+        UserSetLastError(87LL, v7, v8);
       }
-      ThreadUnlock1(v10, v7, v8);
+      ThreadUnlock1(v10);
     }
   }
   UserSessionSwitchLeaveCrit(v3);

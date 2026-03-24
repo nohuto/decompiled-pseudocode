@@ -1,72 +1,74 @@
 /*
- * XREFs of DpiKsrDoKsrSave @ 0x1C03A5FB4
+ * XREFs of DpiKsrDoKsrSave @ 0x1C02D3034
  * Callers:
- *     DpiSriovDetach @ 0x1C039E3D0 (DpiSriovDetach.c)
+ *     DpiSriovDetach @ 0x1C02CD9C0 (DpiSriovDetach.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z @ 0x1C03A5100 (-DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z.c)
- *     DpSaveMemoryForHotUpdateCB @ 0x1C03A5C40 (DpSaveMemoryForHotUpdateCB.c)
+ *     ?DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z @ 0x1C02D231C (-DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z.c)
+ *     DpSaveMemoryForHotUpdateCB @ 0x1C02D2D00 (DpSaveMemoryForHotUpdateCB.c)
  */
 
-char DpiKsrDoKsrSave()
+void DpiKsrDoKsrSave()
 {
-  int v0; // r14d
-  struct _MDL *v1; // rdi
-  int v2; // eax
+  struct _MDL *v0; // rdi
+  int v1; // eax
   PMDL PagesForMdl; // rax
-  __int64 v4; // rdx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rax
   _DWORD *MappedSystemVa; // rsi
   int updated; // eax
-  __int128 v8; // [rsp+58h] [rbp-9h] BYREF
-  PVOID BaseAddress[2]; // [rsp+68h] [rbp+7h]
-  __int64 v10; // [rsp+78h] [rbp+17h]
-  _OWORD v11[3]; // [rsp+80h] [rbp+1Fh] BYREF
-  __int64 v12; // [rsp+B0h] [rbp+4Fh]
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rsi
+  __int128 v11; // [rsp+30h] [rbp-9h] BYREF
+  PVOID BaseAddress[2]; // [rsp+40h] [rbp+7h]
+  __int64 v13; // [rsp+50h] [rbp+17h]
+  _OWORD v14[3]; // [rsp+58h] [rbp+1Fh] BYREF
+  __int64 v15; // [rsp+88h] [rbp+4Fh]
 
-  v8 = 0LL;
-  v10 = 0LL;
-  v0 = 0;
+  v11 = 0LL;
+  v13 = 0LL;
+  v0 = 0LL;
   *(_OWORD *)BaseAddress = 0LL;
-  v1 = 0LL;
-  DpIterateFdoContexts((__int64 (__fastcall *)(__int64 *, void *))DpiKsrSaveMemoryCallback, &v8);
-  if ( (int)v10 >= 0 )
+  DpIterateFdoContexts((__int64 (__fastcall *)(__int64 *, void *))DpiKsrSaveMemoryCallback, &v11);
+  if ( (int)v13 >= 0 )
   {
-    v2 = DWORD2(v8);
-    if ( DWORD2(v8) )
+    v1 = DWORD2(v11);
+    if ( DWORD2(v11) )
     {
-      DWORD2(v8) += 29;
-      PagesForMdl = MmAllocatePagesForMdlEx(0LL, (PHYSICAL_ADDRESS)-1LL, 0LL, (v2 + 4124) & 0xFFFFF000, MmCached, 0x24u);
-      v1 = PagesForMdl;
+      DWORD2(v11) += 29;
+      PagesForMdl = MmAllocatePagesForMdlEx(0LL, (PHYSICAL_ADDRESS)-1LL, 0LL, (v1 + 4124) & 0xFFFFF000, MmCached, 0x24u);
+      v0 = PagesForMdl;
       if ( !PagesForMdl
         || ((PagesForMdl->MdlFlags & 5) == 0
           ? (MappedSystemVa = MmMapLockedPagesSpecifyCache(PagesForMdl, 0, MmCached, 0LL, 0, 0x40000020u))
           : (MappedSystemVa = PagesForMdl->MappedSystemVa),
             (BaseAddress[0] = MappedSystemVa) == 0LL) )
       {
-        v4 = -1073741670LL;
-        v0 = -1073741670;
+        v5 = WdLogNewEntry5_WdError(v4, v3);
+        *(_QWORD *)(v5 + 24) = -1073741670LL;
 LABEL_12:
-        WdLogSingleEntry1(2LL, v4);
+        WdLogEvent5_WdError(v5);
         goto LABEL_13;
       }
-      MappedSystemVa[1] = DWORD1(v8);
-      *MappedSystemVa = DWORD2(v8);
-      DWORD1(v8) = 0;
+      MappedSystemVa[1] = DWORD1(v11);
+      *MappedSystemVa = DWORD2(v11);
+      DWORD1(v11) = 0;
       BaseAddress[1] = (char *)MappedSystemVa + 29;
       BaseAddress[0] = (char *)MappedSystemVa + 29;
-      DpIterateFdoContexts((__int64 (__fastcall *)(__int64 *, void *))DpiKsrSaveMemoryCallback, &v8);
-      if ( __PAIR64__(DWORD1(v8), DWORD2(v8)) == *(_QWORD *)MappedSystemVa )
+      DpIterateFdoContexts((__int64 (__fastcall *)(__int64 *, void *))DpiKsrSaveMemoryCallback, &v11);
+      if ( __PAIR64__(DWORD1(v11), DWORD2(v11)) == *(_QWORD *)MappedSystemVa )
       {
-        v11[1] = (unsigned __int64)v1;
-        v11[0] = 0LL;
-        v12 = 0LL;
-        v11[2] = 0LL;
-        updated = DpSaveMemoryForHotUpdateCB(0LL, (int *)v11);
-        v0 = updated;
+        v14[1] = (unsigned __int64)v0;
+        v14[0] = 0LL;
+        v15 = 0LL;
+        v14[2] = 0LL;
+        updated = DpSaveMemoryForHotUpdateCB(0LL, (int *)v14);
+        v10 = updated;
         if ( updated < 0 )
         {
-          v4 = updated;
+          v5 = WdLogNewEntry5_WdError(v9, v8);
+          *(_QWORD *)(v5 + 24) = v10;
           goto LABEL_12;
         }
       }
@@ -74,36 +76,14 @@ LABEL_12:
   }
 LABEL_13:
   if ( BaseAddress[0] )
-    MmUnmapLockedPages(BaseAddress[0], v1);
-  if ( (int)v10 >= 0 )
+    MmUnmapLockedPages(BaseAddress[0], v0);
+  if ( (int)v13 >= 0 )
   {
-    if ( v0 >= 0 )
-    {
-      LOBYTE(word_1C0140998) = 1;
-      *((_BYTE *)DXGGLOBAL::GetGlobal() + 305188) = 1;
-    }
-    else
-    {
-      if ( v1 )
-      {
-        MmFreePagesFromMdl(v1);
-        ExFreePoolWithTag(v1, 0);
-      }
-      dword_1C01409AC = v0;
-    }
+    LOBYTE(word_1C00B3010) = 1;
   }
   else
   {
-    dword_1C01409AC = v10;
+    MmFreePagesFromMdl(v0);
+    ExFreePoolWithTag(v0, 0);
   }
-  return DxgkLogInternalTriageEvent(
-           0LL,
-           65538,
-           -1,
-           (__int64)L"KSR Save routine has completed with status %1",
-           (int)v10,
-           0LL,
-           0LL,
-           0LL,
-           0LL);
 }

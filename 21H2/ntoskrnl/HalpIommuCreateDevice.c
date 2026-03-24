@@ -1,186 +1,168 @@
 /*
- * XREFs of HalpIommuCreateDevice @ 0x140846E20
+ * XREFs of HalpIommuCreateDevice @ 0x1408649C4
  * Callers:
- *     HalpIommuUnblockDevice @ 0x14051BA00 (HalpIommuUnblockDevice.c)
- *     IommuDomainAttachDevice @ 0x140527CF0 (IommuDomainAttachDevice.c)
- *     IommuDeviceCreate @ 0x1408459C0 (IommuDeviceCreate.c)
+ *     HalpIommuUnblockDevice @ 0x1404C9E80 (HalpIommuUnblockDevice.c)
+ *     IommuDomainAttachDevice @ 0x1404DA3E0 (IommuDomainAttachDevice.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C36A8 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     HalpIommuCreateDeviceInternal @ 0x1403CD768 (HalpIommuCreateDeviceInternal.c)
- *     HalpIommuCloneDeviceId @ 0x1403CD7E0 (HalpIommuCloneDeviceId.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpIommuCheckDpptException @ 0x14051A654 (HalpIommuCheckDpptException.c)
- *     HalpIommuQueryAcpiDeviceMapping @ 0x14051B7E4 (HalpIommuQueryAcpiDeviceMapping.c)
- *     IommupHvRegisterDeviceId @ 0x140527B18 (IommupHvRegisterDeviceId.c)
- *     IidAreIdsStrictlyEqual @ 0x14064F634 (IidAreIdsStrictlyEqual.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     HalpIommuCloneDeviceId @ 0x1403EFF58 (HalpIommuCloneDeviceId.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpIommuCreateDeviceInternal @ 0x1404C5484 (HalpIommuCreateDeviceInternal.c)
+ *     HalpIommuCheckDpptException @ 0x1404C90F0 (HalpIommuCheckDpptException.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1404C9C64 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     IommupHvRegisterDeviceId @ 0x1404DA2E8 (IommupHvRegisterDeviceId.c)
+ *     IidAreIdsStrictlyEqual @ 0x1405C638C (IidAreIdsStrictlyEqual.c)
  */
 
-__int64 __fastcall HalpIommuCreateDevice(_DWORD *Src, void *a2, __int64 *a3)
+__int64 __fastcall HalpIommuCreateDevice(_DWORD *Src, int a2, __int64 *a3, _BYTE *a4)
 {
-  _DWORD *v3; // r14
-  __int64 v4; // r15
-  __int64 *v5; // r13
-  __int64 v6; // r12
-  __int64 v8; // rcx
+  __int64 v4; // rdi
+  __int64 v5; // r13
+  _DWORD *v8; // rsi
+  __int64 v9; // rcx
   __int64 i; // r11
-  __int64 v10; // rax
-  __int64 v11; // rdi
-  __int64 v12; // rcx
+  __int64 v11; // r11
+  __int64 v12; // rax
+  __int64 v13; // r14
   int AcpiDeviceMapping; // ebx
-  void *v14; // rax
-  __int64 v15; // rsi
-  void *v16; // rcx
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  char v19; // al
-  __int64 v21; // r11
-  __int64 v22; // rax
-  int v23; // eax
-  PVOID v24; // r12
-  PVOID v25; // rcx
-  __int64 *v26; // rax
-  __int64 *v27; // rax
-  __int64 v28; // [rsp+20h] [rbp-38h] BYREF
-  __int64 *v29; // [rsp+28h] [rbp-30h] BYREF
-  __int64 v30; // [rsp+30h] [rbp-28h] BYREF
-  __int128 Srca; // [rsp+38h] [rbp-20h] BYREF
-  __int64 v32; // [rsp+48h] [rbp-10h]
-  _DWORD *v33; // [rsp+A0h] [rbp+48h] BYREF
-  PVOID Object; // [rsp+A8h] [rbp+50h]
-  __int64 *v35; // [rsp+B0h] [rbp+58h]
-  __int64 v36; // [rsp+B8h] [rbp+60h] BYREF
+  __int64 v15; // rcx
+  void *v16; // rax
+  __int64 v17; // r15
+  __int64 *v18; // rcx
+  int v19; // eax
+  __int64 *v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v24; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v25; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v26; // [rsp+40h] [rbp-28h] BYREF
+  __int128 Srca; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v28; // [rsp+58h] [rbp-10h]
+  _DWORD *v29; // [rsp+B0h] [rbp+48h] BYREF
+  int v30; // [rsp+B8h] [rbp+50h]
+  __int64 *v31; // [rsp+C0h] [rbp+58h]
+  __int64 v32; // [rsp+C8h] [rbp+60h] BYREF
 
-  v35 = a3;
-  Object = a2;
-  v33 = Src;
-  v3 = Src;
-  v30 = 0LL;
-  v32 = 0LL;
+  v31 = a3;
+  v30 = a2;
+  v29 = Src;
   v4 = 0LL;
+  v26 = 0LL;
   v5 = 0LL;
-  v6 = 0LL;
-  v36 = 0LL;
-  v29 = 0LL;
+  v25 = 0LL;
   v28 = 0LL;
+  v32 = 0LL;
+  v24 = 0LL;
+  v8 = Src;
   Srca = 0LL;
+  if ( a4 )
+    *a4 = 0;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&HalpIommuDeviceCreatedListPushLock, 0LL);
-  for ( i = HalpIommuDeviceCreatedList; (__int64 *)i != &HalpIommuDeviceCreatedList; i = *(_QWORD *)v21 )
+  for ( i = HalpIommuDeviceCreatedList; (__int64 *)i != &HalpIommuDeviceCreatedList; i = *(_QWORD *)v11 )
   {
-    if ( IidAreIdsStrictlyEqual(*(int **)(i + 16), (__int64)v3) )
+    if ( IidAreIdsStrictlyEqual(*(int **)(i + 16), (__int64)v8) )
     {
-      v22 = *(_QWORD *)(v21 + 24);
-      ++*(_DWORD *)(v21 + 32);
-      *a3 = v22;
+      ++*(_DWORD *)(v11 + 32);
+      *a3 = *(_QWORD *)(v11 + 24);
       AcpiDeviceMapping = 0;
-      goto LABEL_15;
+      goto LABEL_34;
     }
   }
-  v10 = HalpMmAllocCtxAlloc(v8, 40LL);
-  v11 = v10;
-  if ( !v10 )
+  v12 = HalpMmAllocCtxAlloc(v9, 40LL);
+  v13 = v12;
+  if ( !v12 )
   {
     AcpiDeviceMapping = -1073741670;
-    goto LABEL_15;
+    goto LABEL_34;
   }
-  *(_OWORD *)v10 = 0LL;
-  *(_OWORD *)(v10 + 16) = 0LL;
-  *(_QWORD *)(v10 + 32) = 0LL;
-  AcpiDeviceMapping = HalpIommuCloneDeviceId(v3, (__int64 *)(v10 + 16));
+  *(_OWORD *)v12 = 0LL;
+  *(_OWORD *)(v12 + 16) = 0LL;
+  *(_QWORD *)(v12 + 32) = 0LL;
+  AcpiDeviceMapping = HalpIommuCloneDeviceId(v8, (__int64 *)(v12 + 16));
   if ( AcpiDeviceMapping < 0 )
-    goto LABEL_11;
-  v14 = (void *)HalpMmAllocCtxAlloc(v12, 232LL);
-  v15 = (__int64)v14;
-  if ( !v14 )
+    goto LABEL_30;
+  v16 = (void *)HalpMmAllocCtxAlloc(v15, 216LL);
+  v17 = (__int64)v16;
+  if ( !v16 )
   {
     AcpiDeviceMapping = -1073741670;
-LABEL_11:
-    v17 = *(_QWORD *)(v11 + 16);
-    if ( v17 )
-      HalpMmAllocCtxFree(v12, v17);
-    HalpMmAllocCtxFree(v12, v11);
+LABEL_30:
+    v21 = *(_QWORD *)(v13 + 16);
+    if ( v21 )
+      HalpMmAllocCtxFree(v15, v21);
+    HalpMmAllocCtxFree(v15, v13);
     if ( v4 )
-      HalpMmAllocCtxFree(v18, v4);
-    goto LABEL_15;
+      HalpMmAllocCtxFree(v22, v4);
+    goto LABEL_34;
   }
-  *(_QWORD *)(v11 + 24) = v14;
-  memset(v14, 0, 0xE8uLL);
+  *(_QWORD *)(v13 + 24) = v16;
+  memset(v16, 0, 0xD8uLL);
+  if ( !HalpHvIommu )
+  {
+    AcpiDeviceMapping = HalpIommuCreateDeviceInternal((__int64)v8, v30, &v25, &v26, a4);
+    if ( AcpiDeviceMapping >= 0 )
+      goto LABEL_21;
+    goto LABEL_29;
+  }
+  if ( *v8 == 2 )
+  {
+    AcpiDeviceMapping = HalpIommuQueryAcpiDeviceMapping((__int64)v8, (__int64)&Srca);
+    if ( AcpiDeviceMapping < 0 )
+      goto LABEL_29;
+    AcpiDeviceMapping = HalpIommuCloneDeviceId(&Srca, (__int64 *)&v29);
+    if ( AcpiDeviceMapping < 0 )
+      goto LABEL_29;
+    v8 = v29;
+    v4 = (__int64)v29;
+    v32 = (__int64)v29;
+  }
+  AcpiDeviceMapping = IommupHvRegisterDeviceId((__int64)v8, &v24);
+  if ( AcpiDeviceMapping < 0 )
+  {
+LABEL_29:
+    HalpMmAllocCtxFree((__int64)v18, v17);
+    goto LABEL_30;
+  }
+  v5 = v24;
+LABEL_21:
   if ( HalpHvIommu )
   {
-    if ( *v3 == 2 )
-    {
-      AcpiDeviceMapping = HalpIommuQueryAcpiDeviceMapping((__int64)v3, (__int64)&Srca);
-      if ( AcpiDeviceMapping < 0 )
-        goto LABEL_8;
-      AcpiDeviceMapping = HalpIommuCloneDeviceId(&Srca, (__int64 *)&v33);
-      if ( AcpiDeviceMapping < 0 )
-        goto LABEL_8;
-      v3 = v33;
-      v4 = (__int64)v33;
-      v36 = (__int64)v33;
-    }
-    AcpiDeviceMapping = IommupHvRegisterDeviceId((__int64)v3, &v28);
-    if ( AcpiDeviceMapping < 0 )
-    {
-LABEL_8:
-      v16 = *(void **)(v15 + 8);
-      if ( v16 )
-        ObfDereferenceObjectWithTag(v16, 0x446C6148u);
-      HalpMmAllocCtxFree((__int64)v16, v15);
-      goto LABEL_11;
-    }
-    v6 = v28;
+    *(_QWORD *)(v17 + 24) = v5;
   }
   else
   {
-    AcpiDeviceMapping = HalpIommuCreateDeviceInternal((__int64)v3, &v30, &v29);
-    if ( AcpiDeviceMapping < 0 )
-      goto LABEL_8;
-    v5 = v29;
-  }
-  if ( HalpHvIommu )
-  {
-    *(_QWORD *)(v15 + 32) = v6;
-  }
-  else
-  {
-    *(_QWORD *)(v15 + 40) = v30;
-    *(_QWORD *)(v15 + 32) = v5;
+    *(_QWORD *)v17 = v25;
+    *(_QWORD *)(v17 + 8) = v26;
   }
   if ( !v4 )
   {
-    v23 = HalpIommuCloneDeviceId(v3, &v36);
-    v4 = v36;
-    AcpiDeviceMapping = v23;
-    if ( v23 < 0 )
-      goto LABEL_8;
+    v19 = HalpIommuCloneDeviceId(v8, &v32);
+    v4 = v32;
+    AcpiDeviceMapping = v19;
+    if ( v19 < 0 )
+      goto LABEL_29;
   }
-  v24 = Object;
-  v25 = Object;
-  *(_QWORD *)v15 = v4;
-  ObfReferenceObjectWithTag(v25, 0x446C6148u);
-  *(_QWORD *)(v15 + 8) = v24;
-  *(_BYTE *)(v15 + 56) = HalpIommuCheckDpptException(v3);
-  v26 = v35;
-  *(_DWORD *)(v11 + 32) = 1;
-  *v26 = v15;
-  v27 = (__int64 *)qword_140C4BE38;
-  if ( *(__int64 **)qword_140C4BE38 != &HalpIommuDeviceCreatedList )
+  *(_QWORD *)(v17 + 32) = v4;
+  *(_BYTE *)(v17 + 16) = HalpIommuCheckDpptException(v8);
+  v18 = &HalpIommuDeviceCreatedList;
+  *v31 = v17;
+  *(_DWORD *)(v13 + 32) = 1;
+  v20 = (__int64 *)qword_140C49E18;
+  if ( *(__int64 **)qword_140C49E18 != &HalpIommuDeviceCreatedList )
     __fastfail(3u);
-  *(_QWORD *)v11 = &HalpIommuDeviceCreatedList;
-  *(_QWORD *)(v11 + 8) = v27;
-  *v27 = v11;
-  qword_140C4BE38 = v11;
+  *(_QWORD *)v13 = &HalpIommuDeviceCreatedList;
+  *(_QWORD *)(v13 + 8) = v20;
+  *v20 = v13;
+  qword_140C49E18 = v13;
   if ( AcpiDeviceMapping < 0 )
-    goto LABEL_8;
-LABEL_15:
-  v19 = _InterlockedExchangeAdd64((volatile signed __int64 *)&HalpIommuDeviceCreatedListPushLock, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v19 & 2) != 0 && (v19 & 4) == 0 )
+    goto LABEL_29;
+LABEL_34:
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&HalpIommuDeviceCreatedListPushLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&HalpIommuDeviceCreatedListPushLock);
   KeAbPostRelease((ULONG_PTR)&HalpIommuDeviceCreatedListPushLock);
   return (unsigned int)AcpiDeviceMapping;

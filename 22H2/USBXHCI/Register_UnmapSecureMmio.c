@@ -1,10 +1,10 @@
 /*
- * XREFs of Register_UnmapSecureMmio @ 0x1C003F020
+ * XREFs of Register_UnmapSecureMmio @ 0x1C003CDD8
  * Callers:
- *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C00794C0 (Controller_WdfEvtDeviceReleaseHardware.c)
+ *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0075D30 (Controller_WdfEvtDeviceReleaseHardware.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall Register_UnmapSecureMmio(__int64 a1)

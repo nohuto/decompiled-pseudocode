@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventAutonomousModeChange @ 0x140599C30
+ * XREFs of PpmEventAutonomousModeChange @ 0x1405791E0
  * Callers:
- *     PpmUpdateTargetProcessorPolicy @ 0x14039069C (PpmUpdateTargetProcessorPolicy.c)
+ *     PpmUpdateTargetProcessorPolicy @ 0x1403A480C (PpmUpdateTargetProcessorPolicy.c)
  * Callees:
- *     PpmEventGetEventDescriptorAndProcessorId @ 0x1402575B0 (PpmEventGetEventDescriptorAndProcessorId.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x1403988CC (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventAutonomousModeChange(__int64 a1, int a2)
@@ -14,12 +14,12 @@ char __fastcall PpmEventAutonomousModeChange(__int64 a1, int a2)
   const EVENT_DESCRIPTOR *EventDescriptorAndProcessorId; // rax
   const EVENT_DESCRIPTOR *v3; // rdi
   REGHANDLE v4; // rbx
-  int v6; // [rsp+30h] [rbp-38h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-30h] BYREF
-  int *v8; // [rsp+48h] [rbp-20h]
-  int v9; // [rsp+50h] [rbp-18h]
-  int v10; // [rsp+54h] [rbp-14h]
-  int v11; // [rsp+78h] [rbp+10h] BYREF
+  int v6; // [rsp+40h] [rbp-38h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-30h] BYREF
+  int *v8; // [rsp+58h] [rbp-20h]
+  int v9; // [rsp+60h] [rbp-18h]
+  int v10; // [rsp+64h] [rbp-14h]
+  int v11; // [rsp+88h] [rbp+10h] BYREF
 
   v11 = a2;
   v6 = 0;
@@ -39,7 +39,7 @@ char __fastcall PpmEventAutonomousModeChange(__int64 a1, int a2)
       v10 = 0;
       v8 = &v11;
       v9 = 4;
-      LOBYTE(EventDescriptorAndProcessorId) = EtwWrite(v4, v3, 0LL, 2u, &UserData);
+      LOBYTE(EventDescriptorAndProcessorId) = EtwWriteEx(v4, v3, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
   return (char)EventDescriptorAndProcessorId;

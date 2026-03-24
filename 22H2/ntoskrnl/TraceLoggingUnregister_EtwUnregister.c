@@ -1,9 +1,10 @@
 /*
- * XREFs of TraceLoggingUnregister_EtwUnregister @ 0x1409417E8
+ * XREFs of TraceLoggingUnregister_EtwUnregister @ 0x140882780
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     VrpRegistryUnload @ 0x140882860 (VrpRegistryUnload.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     EtwUnregister @ 0x1407C1390 (EtwUnregister.c)
+ *     EtwUnregister @ 0x14075F9C0 (EtwUnregister.c)
  */
 
 NTSTATUS __fastcall TraceLoggingUnregister_EtwUnregister(__int64 a1)

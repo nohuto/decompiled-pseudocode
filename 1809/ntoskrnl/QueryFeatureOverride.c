@@ -1,14 +1,14 @@
 /*
- * XREFs of QueryFeatureOverride @ 0x1401B3794
+ * XREFs of QueryFeatureOverride @ 0x1401B37B4
  * Callers:
- *     EvaluateCurrentStateFromRegistry @ 0x1401B369C (EvaluateCurrentStateFromRegistry.c)
+ *     EvaluateCurrentStateFromRegistry @ 0x1401B36BC (EvaluateCurrentStateFromRegistry.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlIntegerToUnicodeString @ 0x1405A8E00 (RtlIntegerToUnicodeString.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7660 (RtlQueryRegistryValuesEx.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7640 (RtlQueryRegistryValuesEx.c)
  */
 
 __int64 __fastcall QueryFeatureOverride(ULONG a1, int a2, _DWORD *a3, unsigned int *a4)

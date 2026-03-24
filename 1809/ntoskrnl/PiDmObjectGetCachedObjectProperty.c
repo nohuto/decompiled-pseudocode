@@ -7,7 +7,7 @@
  *     PiDmGetObject @ 0x1405989C8 (PiDmGetObject.c)
  *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
  *     PiDmObjectGetCachedObjectPropertyData @ 0x140598D6C (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1406F2AA4 (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x1406F2A84 (PiDmObjectGetCachedObjectReference.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedObjectProperty(

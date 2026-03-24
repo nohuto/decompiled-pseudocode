@@ -1,164 +1,266 @@
 /*
- * XREFs of MiCompleteRestrictedImageFault @ 0x1402E2E50
+ * XREFs of MiCompleteRestrictedImageFault @ 0x14029D730
  * Callers:
- *     MiSoftFaultMappedView @ 0x140217EB0 (MiSoftFaultMappedView.c)
+ *     MiSoftFaultMappedView @ 0x1402E3540 (MiSoftFaultMappedView.c)
  * Callees:
- *     MiLockAndDecrementShareCount @ 0x140211BCC (MiLockAndDecrementShareCount.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiAllocateWsle @ 0x14026B6B0 (MiAllocateWsle.c)
- *     MiGetSessionIdForVa @ 0x1402A15B0 (MiGetSessionIdForVa.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402A22D0 (MiReferenceControlAreaFileWithTag.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A23E0 (ObFastDereferenceObjectDeferDelete.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     PfSnLogPageFault @ 0x1402E2510 (PfSnLogPageFault.c)
- *     MiQueueCoreWorkingSetEntries @ 0x1402E3190 (MiQueueCoreWorkingSetEntries.c)
- *     MiGetUsedPtesHandle @ 0x1402E5A70 (MiGetUsedPtesHandle.c)
- *     MiIncreaseUsedPtesCount @ 0x1402F18D4 (MiIncreaseUsedPtesCount.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140339B30 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiAllocateWsle @ 0x140211C80 (MiAllocateWsle.c)
+ *     MiGetContainingPageTable @ 0x14023DDC0 (MiGetContainingPageTable.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiLockAndDecrementShareCount @ 0x140263D30 (MiLockAndDecrementShareCount.c)
+ *     MiIncreaseUsedPtesCount @ 0x140289E54 (MiIncreaseUsedPtesCount.c)
+ *     MiGetUsedPtesHandle @ 0x14028D0E0 (MiGetUsedPtesHandle.c)
+ *     PfSnLogPageFaultCommon @ 0x14029B6DC (PfSnLogPageFaultCommon.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x14029C084 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     PfSnReferenceProcessTrace @ 0x14029E950 (PfSnReferenceProcessTrace.c)
+ *     MiStartingOffset @ 0x14029EAA0 (MiStartingOffset.c)
+ *     MiGetSessionIdForVa @ 0x14029EB40 (MiGetSessionIdForVa.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiDereferenceControlAreaFile @ 0x1402D7994 (MiDereferenceControlAreaFile.c)
+ *     PfSnCheckLoggingForThread @ 0x1402F3958 (PfSnCheckLoggingForThread.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
  */
 
-__int64 __fastcall MiCompleteRestrictedImageFault(__int64 a1, unsigned __int64 a2, __int64 *a3, unsigned int a4)
+__int64 __fastcall MiCompleteRestrictedImageFault(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
 {
-  __int64 *v4; // r15
-  unsigned int v5; // ebx
+  unsigned int v4; // r15d
+  _QWORD *v5; // r12
   unsigned __int64 v6; // r13
-  __int64 v7; // rdi
-  unsigned int v8; // esi
-  unsigned __int64 v9; // rdx
-  __int64 v10; // rax
-  unsigned int v11; // ebp
-  __int64 v12; // r12
-  __int64 v13; // rcx
-  __int64 v14; // r12
-  _QWORD *v15; // rsi
-  unsigned __int64 v16; // rbx
-  __int64 v17; // rdi
-  unsigned __int64 v18; // r14
-  unsigned __int64 v19; // r13
+  unsigned int v8; // edi
+  __int64 v9; // r10
+  unsigned __int64 v10; // rdx
+  __int64 v11; // rax
+  __int64 v12; // rax
+  ULONG_PTR v13; // rax
+  __int64 v14; // rcx
+  unsigned int v15; // ebp
+  __int64 v16; // r9
+  _QWORD *v17; // r15
+  unsigned __int64 v18; // rbx
+  __int64 v19; // rdi
   unsigned __int64 v20; // r14
-  unsigned __int64 v21; // rbx
-  int Wsle; // eax
-  unsigned __int64 v23; // rdi
-  __int64 UsedPtesHandle; // rax
+  unsigned __int64 v21; // r13
   unsigned int SessionIdForVa; // eax
-  int v27; // eax
-  unsigned __int64 v28; // rax
-  __int64 v29; // [rsp+40h] [rbp-68h]
-  unsigned __int64 v30; // [rsp+48h] [rbp-60h]
-  __int64 v31; // [rsp+50h] [rbp-58h]
-  __int64 v32; // [rsp+58h] [rbp-50h]
-  unsigned int v36; // [rsp+C8h] [rbp+20h] BYREF
+  __int64 v23; // rax
+  struct _KTHREAD *CurrentThread; // r14
+  unsigned __int64 v25; // r12
+  __int64 v26; // rax
+  struct _EX_RUNDOWN_REF *v27; // rdi
+  int v28; // eax
+  char v29; // r8
+  __int64 v30; // r14
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v32; // rax
+  __int64 v33; // rdx
+  __int64 ValidPte; // rax
+  char v35; // dl
+  unsigned __int64 v36; // rbx
+  int v37; // eax
+  __int16 v38; // r8
+  char v39; // dl
+  __int16 v40; // ax
+  int v41; // edx
+  char v42; // r8
+  char v43; // cl
+  int Wsle; // eax
+  __int64 v45; // rdx
+  __int64 v46; // rbx
+  __int64 v47; // r8
+  __int64 v48; // r9
+  __int64 UsedPtesHandle; // rax
+  __int64 v50; // r8
+  __int64 v51; // r9
+  __int64 v53; // [rsp+40h] [rbp-88h]
+  unsigned __int64 v54; // [rsp+48h] [rbp-80h] BYREF
+  _QWORD *v55; // [rsp+50h] [rbp-78h]
+  __int64 v56; // [rsp+58h] [rbp-70h]
+  unsigned __int64 v57; // [rsp+60h] [rbp-68h]
+  __int64 v58; // [rsp+68h] [rbp-60h]
+  __int64 v59; // [rsp+70h] [rbp-58h]
+  int v60; // [rsp+D0h] [rbp+8h] BYREF
+  unsigned __int64 v61; // [rsp+D8h] [rbp+10h]
+  _QWORD *v62; // [rsp+E0h] [rbp+18h]
+  unsigned int v63; // [rsp+E8h] [rbp+20h]
 
-  v36 = a4;
-  v4 = a3;
-  v32 = *(_QWORD *)a1;
-  v5 = a4;
+  v63 = a4;
+  v62 = (_QWORD *)a3;
+  v61 = a2;
+  v4 = a4;
+  v58 = *(_QWORD *)a1;
+  v5 = (_QWORD *)a3;
   v6 = a2;
-  v7 = a1;
   v8 = 1;
-  v9 = *(_QWORD *)(48 * *a3 - 0x220000000000LL + 8) | 0x8000000000000000uLL;
-  v10 = *(_QWORD *)(48 * *a3 - 0x220000000000LL + 16);
-  v30 = v9;
-  if ( qword_140C65C40 && (v10 & 0x10) == 0 )
-    v10 &= ~qword_140C65C40;
-  v11 = 0;
-  v12 = *(_QWORD *)(v10 >> 16);
-  v31 = v12;
+  v9 = 48LL * *(_QWORD *)a3 - 0x58000000000LL;
+  v10 = *(_QWORD *)(v9 + 8) | 0x8000000000000000uLL;
+  v11 = *(_QWORD *)(v9 + 16);
+  v57 = v10;
+  if ( qword_140C4DF40 && (v11 & 0x10) == 0 )
+    v11 &= ~qword_140C4DF40;
+  v12 = *(_QWORD *)(v11 >> 16);
+  v59 = v12;
   if ( PfSnNumActiveTraces )
   {
-    v28 = MiReferenceControlAreaFileWithTag(v12, 0x63536D4Du);
-    v9 = v30;
-    v13 = v28;
+    v13 = MiReferenceControlAreaFile(v12);
+    v10 = v57;
+    v14 = v13;
   }
   else
   {
-    v13 = 0LL;
+    v14 = 0LL;
   }
-  v29 = v13;
-  if ( v5 )
+  v53 = v14;
+  v15 = 0;
+  if ( v4 )
   {
+    v55 = v5;
     while ( 1 )
     {
-      v14 = *v4;
-      v15 = (_QWORD *)(48 * *v4 - 0x220000000000LL);
-      v16 = v15[2];
-      v17 = v16;
-      if ( qword_140C65C40 && (v16 & 0x10) == 0 )
-        v17 = v16 & ~qword_140C65C40;
-      v18 = v15[1] | 0x8000000000000000uLL;
-      v19 = v6 + 8 * ((__int64)(v18 - v9) >> 3);
-      if ( v13 )
+      v16 = *v5;
+      v56 = v16;
+      v17 = (_QWORD *)(48 * v16 - 0x58000000000LL);
+      v18 = v17[2];
+      v54 = v18;
+      v19 = v18;
+      if ( qword_140C4DF40 && (v18 & 0x10) == 0 )
+        v19 = v18 & ~qword_140C4DF40;
+      v20 = v17[1] | 0x8000000000000000uLL;
+      v21 = v6 + 8 * ((__int64)(v20 - v10) >> 3);
+      if ( !v14 )
+        goto LABEL_19;
+      SessionIdForVa = MiGetSessionIdForVa((__int64)(v21 << 25) >> 16);
+      v23 = MiStartingOffset(v19 >> 16, v20, SessionIdForVa);
+      CurrentThread = KeGetCurrentThread();
+      v25 = v23;
+      v26 = PfSnReferenceProcessTrace(CurrentThread->ApcState.Process);
+      v27 = (struct _EX_RUNDOWN_REF *)v26;
+      if ( !v26 )
+        break;
+      v28 = PfSnCheckLoggingForThread(CurrentThread, v26, 1LL);
+      v30 = v53;
+      if ( v28 )
+        PfSnLogPageFaultCommon((__int64)v27, v53, *(_QWORD *)(v53 + 24), v25, v29);
+      ExReleaseRundownProtection(v27 + 45);
+      v16 = v56;
+      v5 = v55;
+LABEL_20:
+      if ( (unsigned __int64)&v54 >= 0xFFFFF6FB7DBED000uLL
+        && (unsigned __int64)&v54 <= 0xFFFFF6FB7DBED7F8uLL
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (v18 & 1) != 0
+        && ((v18 & 0x20) == 0 || (v18 & 0x42) == 0) )
       {
-        SessionIdForVa = MiGetSessionIdForVa(v13, (__int64)(v19 << 25) >> 16);
-        v27 = MiStartingOffset((__int64 *)(v17 >> 16), v18, SessionIdForVa);
-        v20 = v29;
-        PfSnLogPageFault(v29, v27, 1u);
+        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
+        {
+          v32 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v54 >> 3) & 0x1FF));
+          v33 = v18 | 0x20;
+          if ( (v32 & 0x20) == 0 )
+            v33 = v18;
+          v18 = v33;
+          if ( (v32 & 0x42) != 0 )
+            v18 = v33 | 0x42;
+        }
+      }
+      ValidPte = MiMakeValidPte(v21, v16, (v18 >> 5) & 0x1F);
+      v35 = *(_BYTE *)(a1 + 13);
+      v36 = ValidPte & 0xFFFFFFFFFFFFFFDFuLL;
+      if ( (v35 & 5) != 4 || (v35 & 2) != 0 )
+      {
+        v8 = 1;
+        goto LABEL_47;
+      }
+      v37 = *(unsigned __int16 *)(a1 + 10);
+      v38 = 511;
+      if ( (_WORD)v37 )
+      {
+        if ( v37 + *(unsigned __int16 *)(a1 + 8) == (((unsigned int)v21 >> 3) & 0x1FF) )
+        {
+          if ( (unsigned int)MI_PFN_IS_PROTO(v17) )
+          {
+            if ( !v39 )
+              goto LABEL_41;
+          }
+          else if ( v39 )
+          {
+            goto LABEL_41;
+          }
+        }
+        MiEmptyDeferredWorkingSetEntries(a1);
+        v38 = 511;
+      }
+LABEL_41:
+      v40 = *(_WORD *)(a1 + 10);
+      v8 = 1;
+      if ( v40 )
+      {
+        *(_WORD *)(a1 + 10) = v40 + 1;
       }
       else
       {
-        v20 = v29;
+        *(_WORD *)(a1 + 10) = 1;
+        *(_WORD *)(a1 + 8) = v38 & ((unsigned int)v21 >> 3);
+        v41 = MI_PFN_IS_PROTO(v17);
+        v43 = v42 & 0xEF;
+        if ( !v41 )
+          v43 = v42 | 0x10;
+        *(_BYTE *)(a1 + 13) = v43;
       }
-      v7 = a1;
-      v21 = MiMakeValidPte(v19, v14, (v16 >> 5) & 0x1F) & 0xFFFFFFFFFFFFFFDFuLL;
-      MiQueueCoreWorkingSetEntries(a1, v19, v15);
-      Wsle = MiAllocateWsle(v32, (unsigned __int64 *)v19, v15, 0, v21, 12, 0LL);
-      v5 = v36;
-      v6 = a2;
+LABEL_47:
+      Wsle = MiAllocateWsle(v58, v21, v17, 0, v36, 12, 0LL);
+      v4 = v63;
+      v6 = v61;
       if ( !Wsle )
-        break;
-      v9 = v30;
-      ++v11;
-      ++v4;
-      if ( v11 >= v36 )
       {
-        v4 = a3;
-        v8 = 1;
-        v12 = v31;
-        goto LABEL_17;
+        v5 = v62;
+        v8 = 0;
+        goto LABEL_52;
       }
-      v13 = v29;
+      v10 = v57;
+      ++v5;
+      ++v15;
+      v55 = v5;
+      a3 = 511LL;
+      if ( v15 >= v63 )
+      {
+        v5 = v62;
+        goto LABEL_52;
+      }
+      v14 = v53;
     }
-    v4 = a3;
-    --*(_WORD *)(a1 + 10);
-    v12 = v31;
-    v8 = 0;
+    v16 = v56;
+    v5 = v55;
+LABEL_19:
+    v30 = v53;
+    goto LABEL_20;
   }
-  else
+  v30 = v14;
+LABEL_52:
+  if ( v15 )
   {
-    v20 = v13;
-  }
-LABEL_17:
-  if ( v11 )
-  {
-    if ( *(_WORD *)(v7 + 10) )
-      MiEmptyDeferredWorkingSetEntries(v7);
-    v23 = 48 * MiGetContainingPageTable(v6) - 0x220000000000LL;
-    v36 = 0;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v23 + 24), 0x3FuLL) )
+    if ( *(_WORD *)(a1 + 10) )
+      MiEmptyDeferredWorkingSetEntries(a1);
+    v46 = 48 * MiGetContainingPageTable(v6) - 0x58000000000LL;
+    v60 = 0;
+    while ( _interlockedbittestandset64((volatile signed __int32 *)(v46 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v36);
-      while ( *(__int64 *)(v23 + 24) < 0 );
+        KeYieldProcessorEx(&v60, v45, v47, v48);
+      while ( *(__int64 *)(v46 + 24) < 0 );
     }
-    *(_QWORD *)(v23 + 24) ^= (*(_QWORD *)(v23 + 24) ^ (*(_QWORD *)(v23 + 24) + v11)) & 0x3FFFFFFFFFFFFFFFLL;
-    _InterlockedAnd64((volatile signed __int64 *)(v23 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    UsedPtesHandle = MiGetUsedPtesHandle((__int64)(v6 << 25) >> 16);
-    MiIncreaseUsedPtesCount(UsedPtesHandle, v11);
+    *(_QWORD *)(v46 + 24) ^= (*(_QWORD *)(v46 + 24) ^ (*(_QWORD *)(v46 + 24) + v15)) & 0x3FFFFFFFFFFFFFFFLL;
+    _InterlockedAnd64((volatile signed __int64 *)(v46 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    UsedPtesHandle = MiGetUsedPtesHandle((__int64)(v6 << 25) >> 16, 0x3FFFFFFFFFFFFFFFLL);
+    MiIncreaseUsedPtesCount(UsedPtesHandle, v15, v50, v51);
   }
   else
   {
-    *(_WORD *)(v7 + 10) = 0;
+    *(_WORD *)(a1 + 10) = 0;
   }
-  if ( v11 != v5 )
-  {
-    do
-      MiLockAndDecrementShareCount(48 * v4[v11++] - 0x220000000000LL, 0);
-    while ( v11 != v5 );
-    v20 = v29;
-  }
-  if ( v20 )
-    ObFastDereferenceObjectDeferDelete((signed __int64 *)(v12 + 64), v20, 0x63536D4Du);
+  for ( ; v15 != v4; ++v15 )
+    MiLockAndDecrementShareCount(48LL * v5[v15] - 0x58000000000LL, 0LL, a3);
+  if ( v30 )
+    MiDereferenceControlAreaFile(v59, v30);
   return v8;
 }

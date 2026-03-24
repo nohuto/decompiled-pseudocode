@@ -1,26 +1,26 @@
 /*
- * XREFs of PiPnpRtlInterfaceFilterCallback @ 0x140781DE0
+ * XREFs of PiPnpRtlInterfaceFilterCallback @ 0x140641240
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     _CmIsDeviceInterfaceEnabled @ 0x140781748 (_CmIsDeviceInterfaceEnabled.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     _CmIsDeviceInterfaceEnabled @ 0x1406413A0 (_CmIsDeviceInterfaceEnabled.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-char __fastcall PiPnpRtlInterfaceFilterCallback(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4)
+char __fastcall PiPnpRtlInterfaceFilterCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // r12d
-  void *v8; // rdi
+  wchar_t *v8; // rdi
   char v9; // si
   _WORD *v10; // rax
-  __int64 (__fastcall *v11)(__int64, const WCHAR *, _QWORD, _QWORD); // rax
+  __int64 (__fastcall *v12)(__int64, __int64, _QWORD, _QWORD); // rax
   __int64 v13; // rax
-  __int64 Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   _BYTE v15[4]; // [rsp+60h] [rbp-19h] BYREF
   int v16; // [rsp+64h] [rbp-15h] BYREF
   unsigned int v17; // [rsp+68h] [rbp-11h] BYREF
@@ -37,7 +37,7 @@ char __fastcall PiPnpRtlInterfaceFilterCallback(__int64 a1, const WCHAR *a2, __i
     goto LABEL_2;
   if ( (int)PnpGetObjectProperty(
               *(__int64 *)&PiPnpRtlCtx,
-              (__int64)a2,
+              a2,
               3LL,
               0LL,
               0LL,
@@ -57,41 +57,38 @@ char __fastcall PiPnpRtlInterfaceFilterCallback(__int64 a1, const WCHAR *a2, __i
     {
 LABEL_2:
       v10 = *(_WORD **)(a4 + 8);
-      if ( v10 && *v10 )
+      if ( !v10 || !*v10 )
+        goto LABEL_26;
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x190uLL, 0x47706E50u);
+      v8 = PoolWithTag;
+      if ( !PoolWithTag )
+        return v9;
+      if ( (int)PnpGetObjectProperty(
+                  *(__int64 *)&PiPnpRtlCtx,
+                  a2,
+                  3LL,
+                  0LL,
+                  0LL,
+                  (__int64)&DEVPKEY_Device_InstanceId,
+                  (__int64)&v16,
+                  (__int64)PoolWithTag,
+                  400,
+                  (__int64)&v17,
+                  0) >= 0
+        && v16 == 18
+        && !wcsicmp(*(const wchar_t **)(a4 + 8), v8) )
       {
-        Pool2 = ExAllocatePool2(256LL, 400LL, 1198550608LL);
-        v8 = (void *)Pool2;
-        if ( !Pool2 )
-          return v9;
-        if ( (int)PnpGetObjectProperty(
-                    *(__int64 *)&PiPnpRtlCtx,
-                    (__int64)a2,
-                    3LL,
-                    0LL,
-                    0LL,
-                    (__int64)&DEVPKEY_Device_InstanceId,
-                    (__int64)&v16,
-                    Pool2,
-                    400,
-                    (__int64)&v17,
-                    0) < 0
-          || v16 != 18
-          || wcsicmp(*(const wchar_t **)(a4 + 8), (const wchar_t *)v8) )
+LABEL_26:
+        if ( !*(_BYTE *)(a4 + 16) || (int)CmIsDeviceInterfaceEnabled(a1, a2, a3, v15) >= 0 && v15[0] )
         {
-LABEL_23:
-          ExFreePoolWithTag(v8, 0x47706E50u);
-          return v9;
+          v9 = 1;
+          v12 = *(__int64 (__fastcall **)(__int64, __int64, _QWORD, _QWORD))(a4 + 24);
+          if ( v12 )
+            v9 = v12(a1, a2, v5, *(_QWORD *)(a4 + 32));
         }
       }
-      if ( !*(_BYTE *)(a4 + 16) || CmIsDeviceInterfaceEnabled(a1, a2, a3, (__int64)v15) >= 0 && v15[0] )
-      {
-        v9 = 1;
-        v11 = *(__int64 (__fastcall **)(__int64, const WCHAR *, _QWORD, _QWORD))(a4 + 24);
-        if ( v11 )
-          v9 = v11(a1, a2, v5, *(_QWORD *)(a4 + 32));
-      }
       if ( v8 )
-        goto LABEL_23;
+        ExFreePoolWithTag(v8, 0x47706E50u);
     }
   }
   return v9;

@@ -1,137 +1,123 @@
 /*
- * XREFs of ?CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z @ 0x1C0158840
+ * XREFs of ?CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z @ 0x1C007A620
  * Callers:
- *     NtGdiOpenDCW @ 0x1C005A5E0 (NtGdiOpenDCW.c)
+ *     NtGdiOpenDCW @ 0x1C0022E50 (NtGdiOpenDCW.c)
  * Callees:
- *     PopThreadGuardedObject @ 0x1C003CB00 (PopThreadGuardedObject.c)
- *     AllocThreadBufferWithTag @ 0x1C005ABE0 (AllocThreadBufferWithTag.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ULongLongMult @ 0x1C0152AC0 (ULongLongMult.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PopThreadGuardedObject @ 0x1C002D4F0 (PopThreadGuardedObject.c)
+ *     AllocThreadBufferWithTag @ 0x1C007A930 (AllocThreadBufferWithTag.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 struct _DRIVER_INFO_2W *__fastcall CaptureDriverInfo2W(struct _DRIVER_INFO_2W *a1)
 {
-  unsigned __int64 v2; // r15
-  unsigned __int64 v3; // rsi
-  unsigned __int64 v4; // r14
-  ULONGLONG v5; // rbx
-  unsigned __int64 v6; // r10
-  unsigned __int64 v7; // r11
-  ULONGLONG v8; // rdi
-  __int64 v9; // r10
-  __int64 v10; // r11
-  unsigned __int64 v11; // rax
-  unsigned __int64 v12; // r10
-  __int64 v13; // r10
-  unsigned __int64 v14; // r11
-  size_t v15; // r13
-  unsigned __int64 v16; // rdi
-  _QWORD *v17; // rbx
-  _QWORD *v18; // rax
-  size_t v19; // r8
-  void *v20; // rcx
-  size_t v21; // rdi
-  void *v22; // rcx
-  ULONGLONG pullResult; // [rsp+60h] [rbp+8h] BYREF
-  void *v25; // [rsp+68h] [rbp+10h]
-  size_t Size; // [rsp+70h] [rbp+18h]
-  size_t v27; // [rsp+78h] [rbp+20h]
+  unsigned __int64 v2; // r14
+  _QWORD *v3; // rbx
+  unsigned __int64 v4; // rsi
+  unsigned __int64 v5; // r15
+  unsigned __int64 *v6; // r10
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // r9
+  unsigned __int64 v9; // r8
+  size_t v10; // r9
+  unsigned __int64 v11; // r8
+  size_t v12; // r13
+  unsigned __int64 v13; // rdi
+  _QWORD *v14; // rax
+  void *v15; // rcx
+  void *v16; // rcx
+  __int64 Size; // [rsp+28h] [rbp-50h]
+  size_t v19; // [rsp+80h] [rbp+8h]
 
   v2 = *((_QWORD *)a1 + 1);
+  v3 = 0LL;
   if ( !v2 )
     return 0LL;
-  v3 = *((_QWORD *)a1 + 3);
-  if ( !v3 )
-    return 0LL;
-  v4 = *((_QWORD *)a1 + 4);
+  v4 = *((_QWORD *)a1 + 3);
   if ( !v4 )
     return 0LL;
+  v5 = *((_QWORD *)a1 + 4);
+  if ( !v5 )
+    return 0LL;
   if ( (v2 & 1) != 0 )
-    goto LABEL_49;
+    goto LABEL_48;
+  v6 = (unsigned __int64 *)MmUserProbeAddress;
   if ( v2 + 2 > MmUserProbeAddress || v2 + 2 < v2 )
     *(_BYTE *)MmUserProbeAddress = 0;
-  if ( (v3 & 1) != 0 )
-    goto LABEL_49;
-  if ( v3 + 2 > MmUserProbeAddress || v3 + 2 < v3 )
-    *(_BYTE *)MmUserProbeAddress = 0;
-  v5 = -1LL;
-  v6 = -1LL;
-  do
-    ++v6;
-  while ( *(_WORD *)(v2 + 2 * v6) );
-  v7 = -1LL;
-  do
-    ++v7;
-  while ( *(_WORD *)(v3 + 2 * v7) );
-  if ( v6 + 1 < v6 )
-    return 0LL;
-  v8 = v7 + 1;
-  if ( v7 + 1 < v7 )
-    return 0LL;
-  if ( ULongLongMult(v6 + 1, 2uLL, &pullResult) < 0 )
-    return 0LL;
-  if ( ULongLongMult(v8, 2uLL, &pullResult) < 0 )
-    return 0LL;
-  Size = 2 * v9;
-  v11 = 2 * v9 + 50;
-  if ( v11 < 0x30 )
-    return 0LL;
-  v27 = 2 * v10;
-  if ( v11 + 2 * v10 + 2 < 2 * v9 + 50 )
-    return 0LL;
   if ( (v4 & 1) != 0 )
-LABEL_49:
-    ExRaiseDatatypeMisalignment();
+    goto LABEL_48;
   if ( v4 + 2 > MmUserProbeAddress || v4 + 2 < v4 )
     *(_BYTE *)MmUserProbeAddress = 0;
-  v12 = -1LL;
+  v7 = -1LL;
+  v8 = -1LL;
   do
-    ++v12;
-  while ( *(_WORD *)(v4 + 2 * v12) );
-  if ( v12 + 1 >= v12 )
-    v5 = v12 + 1;
-  pullResult = v5;
-  if ( v12 + 1 < v12 )
+    ++v8;
+  while ( *(_WORD *)(v2 + 2 * v8) );
+  v9 = -1LL;
+  do
+    ++v9;
+  while ( *(_WORD *)(v4 + 2 * v9) );
+  if ( v8 + 1 < v8 )
     return 0LL;
-  if ( ULongLongMult(v12 + 1, 2uLL, &pullResult) < 0 )
+  if ( v9 + 1 < v9 )
     return 0LL;
-  v15 = 2 * v13;
-  v16 = v14 + 2 * v13 + 2;
-  if ( v16 < v14 || v16 - 48 > 0x270FFD0 )
+  if ( !is_mul_ok(v8 + 1, 2uLL) )
     return 0LL;
-  v17 = 0LL;
-  v25 = 0LL;
-  if ( (_DWORD)v16 )
+  if ( !is_mul_ok(v9 + 1, 2uLL) )
+    return 0LL;
+  v10 = 2 * v8;
+  v19 = v10;
+  if ( v10 + 50 < 0x30 )
+    return 0LL;
+  Size = 2 * v9;
+  v11 = 2 * v9 + v10 + 52;
+  if ( v11 < v10 + 50 )
+    return 0LL;
+  if ( (v5 & 1) != 0 )
+LABEL_48:
+    ExRaiseDatatypeMisalignment();
+  if ( v5 + 2 > MmUserProbeAddress || v5 + 2 < v5 )
+    *(_BYTE *)MmUserProbeAddress = 0;
+  do
+    ++v7;
+  while ( *(_WORD *)(v5 + 2 * v7) );
+  if ( v7 + 1 < v7 )
+    return 0LL;
+  if ( !is_mul_ok(v7 + 1, 2uLL) )
+    return 0LL;
+  v12 = 2 * v7;
+  v13 = v11 + 2 * v7 + 2;
+  if ( v13 < v11 || v13 - 48 > 0x270FFD0 )
+    return 0LL;
+  if ( (_DWORD)v13 )
   {
-    v18 = (_QWORD *)AllocThreadBufferWithTag(v16, 0x706D7447u, 0);
-    v17 = v18;
-    v25 = v18;
-    if ( v18 )
-      memset(v18, 0, (unsigned int)v16);
+    v14 = (_QWORD *)AllocThreadBufferWithTag((unsigned int)v13, 1886221383LL, 0LL);
+    v3 = v14;
+    if ( v14 )
+      memset(v14, 0, (unsigned int)v13);
+    v10 = v19;
+    v6 = (unsigned __int64 *)MmUserProbeAddress;
   }
-  if ( v17 )
+  if ( v3 )
   {
-    *(_DWORD *)v17 = *(_DWORD *)a1;
-    v17[5] = 0LL;
-    v17[2] = 0LL;
-    v17[1] = v17 + 6;
-    v19 = Size;
-    v17[3] = (char *)v17 + Size + 50;
-    if ( v19 + v2 < v2 || v19 + v2 > MmUserProbeAddress )
+    *(_DWORD *)v3 = *(_DWORD *)a1;
+    v3[5] = 0LL;
+    v3[2] = 0LL;
+    v3[1] = v3 + 6;
+    v3[3] = (char *)v3 + v10 + 50;
+    if ( v10 + v2 < v2 || v10 + v2 > *v6 )
+      *(_BYTE *)*v6 = 0;
+    memmove(v3 + 6, (const void *)v2, v10);
+    v15 = (void *)v3[3];
+    if ( Size + v4 < v4 || Size + v4 > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(v17 + 6, (const void *)v2, v19);
-    v20 = (void *)v17[3];
-    v21 = v27;
-    if ( v27 + v3 < v3 || v27 + v3 > MmUserProbeAddress )
+    memmove(v15, (const void *)v4, Size);
+    v16 = (void *)(Size + v3[3] + 2LL);
+    v3[4] = v16;
+    if ( v5 + v12 < v5 || v5 + v12 > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(v20, (const void *)v3, v21);
-    v22 = (void *)(v21 + v17[3] + 2LL);
-    v17[4] = v22;
-    if ( v4 + v15 < v4 || v4 + v15 > MmUserProbeAddress )
-      *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(v22, (const void *)v4, v15);
+    memmove(v16, (const void *)v5, v12);
   }
-  return (struct _DRIVER_INFO_2W *)v17;
+  return (struct _DRIVER_INFO_2W *)v3;
 }

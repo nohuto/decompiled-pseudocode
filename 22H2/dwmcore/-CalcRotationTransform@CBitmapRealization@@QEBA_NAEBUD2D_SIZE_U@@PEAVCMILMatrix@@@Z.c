@@ -1,12 +1,11 @@
 /*
- * XREFs of ?CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z @ 0x18000E11C
+ * XREFs of ?CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z @ 0x180014B10
  * Callers:
- *     ?GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18000DFF0 (-GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@UMil.c)
- *     ?GetTransform@CDxHandleYUVBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801361D6 (-GetTransform@CDxHandleYUVBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@U.c)
+ *     ?GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180014904 (-GetTransform@CDxHandleBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@UMil.c)
+ *     ?GetTransform@CDxHandleYUVBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180265DF0 (-GetTransform@CDxHandleYUVBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@U.c)
  * Callees:
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?SetToRotation@CMILMatrix@@QEAAXMMW4DXGI_MODE_ROTATION@@@Z @ 0x180270A74 (-SetToRotation@CMILMatrix@@QEAAXMMW4DXGI_MODE_ROTATION@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?SetToRotation@CMILMatrix@@QEAAXMMW4DXGI_MODE_ROTATION@@@Z @ 0x1802117EC (-SetToRotation@CMILMatrix@@QEAAXMMW4DXGI_MODE_ROTATION@@@Z.c)
  */
 
 char __fastcall CBitmapRealization::CalcRotationTransform(
@@ -14,20 +13,29 @@ char __fastcall CBitmapRealization::CalcRotationTransform(
         const struct D2D_SIZE_U *a2,
         struct CMILMatrix *a3)
 {
-  char v5; // bl
-  _BYTE *v6; // r9
-  enum DXGI_MODE_ROTATION v7; // r9d
+  char v3; // di
+  enum DXGI_MODE_ROTATION v6; // r9d
 
-  v5 = 0;
-  CMILMatrix::SetToIdentity(a3);
-  if ( v6[313] )
+  v3 = 0;
+  *(_QWORD *)a3 = 1065353216LL;
+  *((_QWORD *)a3 + 1) = 0LL;
+  *((_DWORD *)a3 + 4) = 0;
+  *(_QWORD *)((char *)a3 + 20) = 1065353216LL;
+  *(_QWORD *)((char *)a3 + 28) = 0LL;
+  *((_DWORD *)a3 + 9) = 0;
+  *((_QWORD *)a3 + 5) = 1065353216LL;
+  *((_QWORD *)a3 + 6) = 0LL;
+  *((_DWORD *)a3 + 14) = 0;
+  *((_DWORD *)a3 + 15) = 1065353216;
+  *((_WORD *)a3 + 32) = 32085;
+  if ( *((_BYTE *)this + 281) )
   {
-    v7 = (*(unsigned int (__fastcall **)(_BYTE *))(*(_QWORD *)v6 + 48LL))(v6);
-    if ( v7 != DXGI_MODE_ROTATION_IDENTITY )
+    v6 = (*(unsigned int (__fastcall **)(CBitmapRealization *))(*(_QWORD *)this + 48LL))(this);
+    if ( v6 != DXGI_MODE_ROTATION_IDENTITY )
     {
-      CMILMatrix::SetToRotation(a3, (float)(int)a2->width, (float)(int)a2->height, v7);
+      CMILMatrix::SetToRotation(a3, (float)(int)a2->width, (float)(int)a2->height, v6);
       return 1;
     }
   }
-  return v5;
+  return v3;
 }

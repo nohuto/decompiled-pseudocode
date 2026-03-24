@@ -1,21 +1,20 @@
 /*
- * XREFs of SmKmStoreDelete @ 0x1407B7898
+ * XREFs of SmKmStoreDelete @ 0x1406A0870
  * Callers:
- *     SmKmStoreDeleteWhenEmptyWorker @ 0x140342D90 (SmKmStoreDeleteWhenEmptyWorker.c)
- *     SmProcessCreateRequest @ 0x1407B7C2C (SmProcessCreateRequest.c)
- *     SmProcessDeleteRequest @ 0x1409D6DDC (SmProcessDeleteRequest.c)
- *     SmKmCleanup @ 0x1409D8798 (SmKmCleanup.c)
+ *     SmKmStoreDeleteWhenEmptyWorker @ 0x1403294D0 (SmKmStoreDeleteWhenEmptyWorker.c)
+ *     SmProcessCreateRequest @ 0x1406FD1F0 (SmProcessCreateRequest.c)
+ *     SmProcessDeleteRequest @ 0x140929B68 (SmProcessDeleteRequest.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     SmEtwEnabled @ 0x140342DF4 (SmEtwEnabled.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     SmKmEtwLogStoreChange @ 0x1409D8824 (SmKmEtwLogStoreChange.c)
- *     SmKmEtwLogStoreStats @ 0x1409D8934 (SmKmEtwLogStoreStats.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
+ *     SmEtwEnabled @ 0x140268C58 (SmEtwEnabled.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     SmKmEtwLogStoreChange @ 0x14092B0BC (SmKmEtwLogStoreChange.c)
+ *     SmKmEtwLogStoreStats @ 0x14092B1CC (SmKmEtwLogStoreStats.c)
  */
 
 __int64 __fastcall SmKmStoreDelete(__int64 a1, unsigned int a2, char a3)
@@ -27,8 +26,8 @@ __int64 __fastcall SmKmStoreDelete(__int64 a1, unsigned int a2, char a3)
   volatile signed __int64 *v10; // rbp
   __int16 v11; // cx
   __int64 v12; // r15
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // r13
+  ULONGLONG *v13; // rax
+  ULONGLONG *v14; // r13
   struct _KTHREAD *v15; // rax
 
   v4 = a2 & 0x3FF;
@@ -37,14 +36,14 @@ __int64 __fastcall SmKmStoreDelete(__int64 a1, unsigned int a2, char a3)
   if ( !v8 )
     return (unsigned int)-1073741735;
   CurrentThread = KeGetCurrentThread();
-  v10 = v8 + 2;
   --CurrentThread->KernelApcDisable;
+  v10 = v8 + 2;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(v8 + 2), 0LL);
   v11 = *((_WORD *)v8 + 16);
   if ( a2 >> 10 != (v11 & 0x3F) )
     goto LABEL_21;
   v12 = *v8;
-  if ( !*v8 )
+  if ( (unsigned __int64)(*v8 - 1LL) > 0xFFFFFFFFFFFFFFFDuLL )
     goto LABEL_21;
   if ( !a3 )
   {
@@ -78,16 +77,16 @@ LABEL_5:
     (*(void (__fastcall **)(__int64, __int64, __int64))(a1 + 256))(a1, v12, 1LL);
     return v7;
   }
-  if ( (v11 & 0x40) == 0 )
+  if ( (v11 & 0x40) != 0 )
+  {
+LABEL_21:
+    v7 = -1073741735;
+  }
+  else
   {
     if ( (v11 & 0x80u) == 0 )
       goto LABEL_5;
     v7 = -1073741790;
-  }
-  else
-  {
-LABEL_21:
-    v7 = -1073741735;
   }
   if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v8 + 2);

@@ -1,61 +1,54 @@
 /*
- * XREFs of PopFxQueryBiosDeviceName @ 0x140321914
+ * XREFs of PopFxQueryBiosDeviceName @ 0x14036E964
  * Callers:
- *     PopFxFindDeviceAndAllocateUniqueId @ 0x14079131C (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x14073A4F8 (PopFxFindDeviceAndAllocateUniqueId.c)
  * Callees:
- *     IoGetDevicePropertyData @ 0x1407914F0 (IoGetDevicePropertyData.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IoGetDevicePropertyData @ 0x1406B2E60 (IoGetDevicePropertyData.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall PopFxQueryBiosDeviceName(__int64 a1, __int64 a2)
 {
-  NTSTATUS result; // eax
-  void *Data; // rdi
+  struct _DEVICE_OBJECT *v4; // rcx
+  PVOID Data; // rdi
   unsigned __int16 v6; // bx
-  ULONG RequiredSize; // [rsp+60h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  SIZE_T NumberOfBytes; // [rsp+60h] [rbp+8h] BYREF
   ULONG Type; // [rsp+70h] [rbp+18h] BYREF
 
-  RequiredSize = 0;
+  LODWORD(NumberOfBytes) = 0;
+  v4 = *(struct _DEVICE_OBJECT **)(a1 + 32);
   Type = 0;
-  result = IoGetDevicePropertyData(
-             *(PDEVICE_OBJECT *)(a1 + 32),
-             &DEVPKEY_Device_BiosDeviceName,
-             0,
-             0,
-             0,
-             0LL,
-             &RequiredSize,
-             &Type);
+  Data = 0LL;
+  v6 = 0;
+  result = IoGetDevicePropertyData(v4, &DEVPKEY_Device_BiosDeviceName, 0, 0, 0, 0LL, (PULONG)&NumberOfBytes, &Type);
   if ( result == -1073741789 )
   {
-    if ( RequiredSize >= 0xFFFE )
+    if ( (unsigned int)NumberOfBytes >= 0xFFFE )
       return result;
-    Data = (void *)ExAllocatePool2(64LL, RequiredSize, 1297630800LL);
+    Data = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x4D584650u);
     if ( !Data )
       return -1073741670;
-    v6 = RequiredSize;
+    v6 = NumberOfBytes;
+    result = 0;
   }
-  else
-  {
-    Data = 0LL;
-    v6 = 0;
-    if ( result < 0 )
-      return result;
-  }
-  result = IoGetDevicePropertyData(
-             *(PDEVICE_OBJECT *)(a1 + 32),
-             &DEVPKEY_Device_BiosDeviceName,
-             0,
-             0,
-             v6,
-             Data,
-             &RequiredSize,
-             &Type);
   if ( result >= 0 )
   {
-    *(_WORD *)(a2 + 2) = v6;
-    *(_WORD *)a2 = v6 - 2;
-    *(_QWORD *)(a2 + 8) = Data;
+    result = IoGetDevicePropertyData(
+               *(PDEVICE_OBJECT *)(a1 + 32),
+               &DEVPKEY_Device_BiosDeviceName,
+               0,
+               0,
+               v6,
+               Data,
+               (PULONG)&NumberOfBytes,
+               &Type);
+    if ( result >= 0 )
+    {
+      *(_WORD *)(a2 + 2) = v6;
+      *(_WORD *)a2 = v6 - 2;
+      *(_QWORD *)(a2 + 8) = Data;
+    }
   }
   return result;
 }

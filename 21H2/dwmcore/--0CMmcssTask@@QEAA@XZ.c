@@ -1,11 +1,10 @@
 /*
- * XREFs of ??0CMmcssTask@@QEAA@XZ @ 0x18002BBE0
+ * XREFs of ??0CMmcssTask@@QEAA@XZ @ 0x1800B5DB8
  * Callers:
- *     ?InitializeMmcssTask@CKst@@AEAAJXZ @ 0x18002A558 (-InitializeMmcssTask@CKst@@AEAAJXZ.c)
- *     ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x18002BCB4 (--0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z.c)
- *     ??0CGlobalSurfaceManager@@IEAA@XZ @ 0x18002CA0C (--0CGlobalSurfaceManager@@IEAA@XZ.c)
- *     ??0CGlobalMit@@IEAA@PEAVCComposition@@@Z @ 0x18002DCA8 (--0CGlobalMit@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CComposition@@IEAA@PEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrameCounter@@@Z @ 0x1800F22B0 (--0CComposition@@IEAA@PEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrame.c)
+ *     ??0CGlobalMit@@IEAA@PEAVCComposition@@@Z @ 0x1800B52DC (--0CGlobalMit@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CGlobalSurfaceManager@@IEAA@XZ @ 0x1800B5624 (--0CGlobalSurfaceManager@@IEAA@XZ.c)
+ *     ??0CComposition@@IEAA@PEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrameCounter@@@Z @ 0x1800B570C (--0CComposition@@IEAA@PEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrame.c)
+ *     ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x1800B5D58 (--0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,11 @@
 /*
- * XREFs of RtlULongLongAdd @ 0x140354360
+ * XREFs of RtlULongLongAdd @ 0x14024D620
  * Callers:
- *     LdrpResGetResourceDirectory @ 0x14067368C (LdrpResGetResourceDirectory.c)
- *     CmpCaptureKeyValueArray @ 0x14071F740 (CmpCaptureKeyValueArray.c)
- *     sub_1407D0090 @ 0x1407D0090 (sub_1407D0090.c)
- *     LdrpResSearchResourceInsideDirectory @ 0x1407D38A8 (LdrpResSearchResourceInsideDirectory.c)
+ *     sub_1405FE2AC @ 0x1405FE2AC (sub_1405FE2AC.c)
+ *     CmpCaptureKeyValueArray @ 0x140667100 (CmpCaptureKeyValueArray.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x14068C6A4 (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResGetResourceDirectory @ 0x14068D314 (LdrpResGetResourceDirectory.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
  * Callees:
  *     <none>
  */

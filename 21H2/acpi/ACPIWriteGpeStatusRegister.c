@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIWriteGpeStatusRegister @ 0x1C001FE48
+ * XREFs of ACPIWriteGpeStatusRegister @ 0x1C0026890
  * Callers:
- *     ACPIGpeClearRegisters @ 0x1C001FDEC (ACPIGpeClearRegisters.c)
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C001FF34 (ACPIWakeRemoveDevicesAndUpdate.c)
- *     ACPIInterruptDispatchEventDpc @ 0x1C0057880 (ACPIInterruptDispatchEventDpc.c)
- *     ACPIInterruptDispatchEvents @ 0x1C0057CF8 (ACPIInterruptDispatchEvents.c)
- *     ACPIVectorClear @ 0x1C0061880 (ACPIVectorClear.c)
+ *     ACPIInterruptDispatchEventDpc @ 0x1C0026060 (ACPIInterruptDispatchEventDpc.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIInterruptDispatchEvents @ 0x1C00266A8 (ACPIInterruptDispatchEvents.c)
+ *     ACPIGpeClearRegisters @ 0x1C0026834 (ACPIGpeClearRegisters.c)
+ *     ACPIVectorClear @ 0x1C0060AC0 (ACPIVectorClear.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIWriteGpeStatusRegister(unsigned int a1, char a2)

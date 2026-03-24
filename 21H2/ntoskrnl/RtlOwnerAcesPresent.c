@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlOwnerAcesPresent @ 0x14022A360
+ * XREFs of RtlOwnerAcesPresent @ 0x14029C4B0
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     RtlpOwnerAcesPresent @ 0x14022A380 (RtlpOwnerAcesPresent.c)
+ *     RtlpOwnerAcesPresent @ 0x14029C4D0 (RtlpOwnerAcesPresent.c)
  */
 
 __int64 __fastcall RtlOwnerAcesPresent(__int64 a1)

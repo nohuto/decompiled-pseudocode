@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReadLinearityDataImp@@YAHPEAXU_UNICODE_STRING@@W4tagCALIBRATION_TYPE@@PEAKPEAPEAE@Z @ 0x1C01CB4F4
+ * XREFs of ?ReadLinearityDataImp@@YAHPEAXU_UNICODE_STRING@@W4tagCALIBRATION_TYPE@@PEAKPEAPEAE@Z @ 0x1C01CEBCC
  * Callers:
- *     ?ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z @ 0x1C01CB0FC (-ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z.c)
+ *     ?ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z @ 0x1C01CE7D8 (-ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ValidateCalibrationData @ 0x1C01CC108 (ValidateCalibrationData.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ValidateCalibrationData @ 0x1C01CF888 (ValidateCalibrationData.c)
  */
 
 __int64 __fastcall ReadLinearityDataImp(
@@ -12,7 +12,7 @@ __int64 __fastcall ReadLinearityDataImp(
         struct _UNICODE_STRING *a2,
         unsigned int a3,
         ULONG *ResultLength,
-        _QWORD *a5)
+        void **a5)
 {
   unsigned int v5; // ebx
   ULONG v10; // edx
@@ -20,7 +20,7 @@ __int64 __fastcall ReadLinearityDataImp(
   _DWORD *v12; // rdi
   void *v13; // rax
   __int64 v14; // rcx
-  __int64 v15; // rbp
+  void *v15; // rbp
 
   v5 = 0;
   if ( ZwQueryValueKey(a1, a2, KeyValuePartialInformation, 0LL, 0, ResultLength) != -1073741772 )
@@ -34,7 +34,7 @@ __int64 __fastcall ReadLinearityDataImp(
         *a5 = 0LL;
         v10 = *ResultLength;
       }
-      v11 = (_DWORD *)Win32AllocPoolZInit(v10, 2020635477LL);
+      v11 = (_DWORD *)Win32AllocPool(v10, 2020635477LL);
       v12 = v11;
       if ( v11 )
       {
@@ -42,7 +42,7 @@ __int64 __fastcall ReadLinearityDataImp(
           && v12[1] == 3
           && (v12[3] == v12[2] || v12[4] == 2) )
         {
-          v13 = (void *)Win32AllocPoolZInit((unsigned int)v12[2], 2020635477LL);
+          v13 = (void *)Win32AllocPool((unsigned int)v12[2], 2020635477LL);
           *a5 = v13;
           if ( v13 )
           {

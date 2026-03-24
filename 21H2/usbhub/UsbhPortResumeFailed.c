@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhPortResumeFailed @ 0x1C004D050
+ * XREFs of UsbhPortResumeFailed @ 0x1C004E460
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhSignalResumeEvent @ 0x1C001B0E8 (UsbhSignalResumeEvent.c)
- *     UsbhSS_SignalPdoWake @ 0x1C001B37C (UsbhSS_SignalPdoWake.c)
- *     UsbhWait @ 0x1C002D834 (UsbhWait.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhSignalResumeEvent @ 0x1C00015A0 (UsbhSignalResumeEvent.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSS_SignalPdoWake @ 0x1C00183BC (UsbhSS_SignalPdoWake.c)
+ *     UsbhWait @ 0x1C001853C (UsbhWait.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
-__int64 __fastcall UsbhPortResumeFailed(_LIST_ENTRY *a1, __int64 a2, _LIST_ENTRY *a3)
+__int64 __fastcall UsbhPortResumeFailed(__int64 a1, __int64 a2, __int64 a3)
 {
   int v7; // [rsp+28h] [rbp-30h]
 
@@ -26,10 +26,10 @@ __int64 __fastcall UsbhPortResumeFailed(_LIST_ENTRY *a1, __int64 a2, _LIST_ENTRY
       (__int64)&WPP_8026ecaf353e33c620bb7ebcf688be2f_Traceguids,
       v7);
   }
-  Log((__int64)a1, 1024, 1884443425, a2, 0LL);
-  UsbhException((__int64)a1, *(_WORD *)(a2 + 4), 0x81u, 0LL, 0, 0, 0, usbfile_busfunc_c, 2448, 0);
-  UsbhWait((__int64)a1, 0xAu);
-  UsbhSignalResumeEvent((__int64)a1, a2);
+  Log(a1, 1024, 1884443425, a2, 0LL);
+  UsbhException(a1, *(_WORD *)(a2 + 4), 0x81u, 0LL, 0, 0, 0, usbfile_busfunc_c, 2448, 0);
+  UsbhWait(a1, 0xAu);
+  UsbhSignalResumeEvent(a1, a2);
   UsbhSS_SignalPdoWake(a1, a3);
   return 0LL;
 }

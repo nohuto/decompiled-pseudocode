@@ -1,138 +1,124 @@
 /*
- * XREFs of SepCreateClaimAttributes @ 0x1407CF994
+ * XREFs of SepCreateClaimAttributes @ 0x1405DC724
  * Callers:
- *     SepSetTokenClaims @ 0x1407CF918 (SepSetTokenClaims.c)
+ *     SepSetTokenClaims @ 0x1405DC6A8 (SepSetTokenClaims.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224D10 (AuthzBasepSetSecurityAttributesToken.c)
- *     RtlSidHashInitialize @ 0x140228430 (RtlSidHashInitialize.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8C20 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x14036A93C (AuthzBasepAllocateSecurityAttributesList.c)
- *     SeCaptureSidAndAttributesArray @ 0x1406BCC50 (SeCaptureSidAndAttributesArray.c)
- *     SepLengthSidAndAttributesArray @ 0x1406BD564 (SepLengthSidAndAttributesArray.c)
- *     AuthzBasepAllocateClaimCollectionNoLists @ 0x140A59DD4 (AuthzBasepAllocateClaimCollectionNoLists.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402506CC (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x140275910 (AuthzBasepFreeSecurityAttributesList.c)
+ *     RtlSidHashInitialize @ 0x1402D6590 (RtlSidHashInitialize.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x14030A32C (AuthzBasepAllocateSecurityAttributesList.c)
+ *     SepLengthSidAndAttributesArray @ 0x1405DD4AC (SepLengthSidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1405DD560 (SeCaptureSidAndAttributesArray.c)
+ *     AuthzBasepAllocateClaimCollectionNoLists @ 0x14096C778 (AuthzBasepAllocateClaimCollectionNoLists.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepCreateClaimAttributes(_QWORD *a1, __int64 a2, __int64 a3, unsigned int a4, char *Src)
+__int64 __fastcall SepCreateClaimAttributes(_QWORD *a1, __int64 a2, __int64 a3, unsigned int a4, void *Src)
 {
-  __int64 result; // rax
   int v8; // ebx
-  _DWORD *v9; // r14
+  _DWORD *v9; // rbp
   _DWORD *v10; // rsi
-  char v11; // r12
-  char *v12; // rbp
-  __int64 v13; // rdx
-  __int64 v14; // rcx
+  PVOID PoolWithTag; // r14
   _QWORD *ClaimCollectionNoLists; // rdi
   _QWORD *SecurityAttributesList; // rax
-  _QWORD *v17; // rax
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  unsigned int v21; // ebx
-  char *Pool2; // rax
-  int v23; // [rsp+28h] [rbp-80h]
-  int v24; // [rsp+30h] [rbp-78h]
-  int v25; // [rsp+54h] [rbp-54h] BYREF
-  __int64 v26; // [rsp+58h] [rbp-50h] BYREF
-  __int64 v27; // [rsp+60h] [rbp-48h] BYREF
-  char v28; // [rsp+B0h] [rbp+8h]
+  _QWORD *v15; // rax
+  int v16; // ebx
+  int v17; // [rsp+28h] [rbp-70h]
+  int v18; // [rsp+30h] [rbp-68h]
+  char v19; // [rsp+50h] [rbp-48h]
+  char v20; // [rsp+51h] [rbp-47h]
+  int v21; // [rsp+54h] [rbp-44h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+58h] [rbp-40h] BYREF
+  __int64 v23; // [rsp+60h] [rbp-38h] BYREF
 
-  v25 = 1;
-  v28 = 0;
-  result = a2;
-  LODWORD(v26) = 0;
+  v21 = 1;
+  v19 = 0;
+  v20 = 0;
+  LODWORD(NumberOfBytes) = 0;
   v8 = 0;
-  v27 = 0LL;
+  v23 = 0LL;
   v9 = 0LL;
   v10 = 0LL;
-  v11 = 0;
-  v12 = 0LL;
+  PoolWithTag = 0LL;
   if ( !a1 )
     return 3221225485LL;
   *a1 = 0LL;
-  if ( a2 || a3 || a4 )
+  if ( !a2 && !a3 && !a4 )
+    return 0LL;
+  ClaimCollectionNoLists = (_QWORD *)AuthzBasepAllocateClaimCollectionNoLists();
+  if ( ClaimCollectionNoLists )
   {
-    ClaimCollectionNoLists = (_QWORD *)AuthzBasepAllocateClaimCollectionNoLists();
-    if ( !ClaimCollectionNoLists )
-      return (unsigned int)-1073741670;
     if ( a2 )
     {
-      SecurityAttributesList = AuthzBasepAllocateSecurityAttributesList(v14, v13);
+      SecurityAttributesList = AuthzBasepAllocateSecurityAttributesList();
       v9 = SecurityAttributesList;
       if ( !SecurityAttributesList )
       {
         v8 = -1073741670;
-LABEL_37:
+LABEL_35:
         ExFreePoolWithTag(ClaimCollectionNoLists, 0);
         return (unsigned int)v8;
       }
-      v8 = AuthzBasepSetSecurityAttributesToken((__int64)SecurityAttributesList, &v25, a2);
+      v8 = AuthzBasepSetSecurityAttributesToken((__int64)SecurityAttributesList, &v21, a2);
       if ( v8 < 0 )
-        goto LABEL_30;
-      v28 = 1;
+        goto LABEL_25;
+      v19 = 1;
       ClaimCollectionNoLists[72] = v9;
     }
     if ( a3 )
     {
-      v17 = AuthzBasepAllocateSecurityAttributesList(v14, v13);
-      v10 = v17;
-      if ( !v17 )
-      {
-LABEL_26:
-        v8 = -1073741670;
-        goto LABEL_27;
-      }
-      v8 = AuthzBasepSetSecurityAttributesToken((__int64)v17, &v25, a3);
+      v15 = AuthzBasepAllocateSecurityAttributesList();
+      v10 = v15;
+      if ( !v15 )
+        goto LABEL_37;
+      v8 = AuthzBasepSetSecurityAttributesToken((__int64)v15, &v21, a3);
       if ( v8 < 0 )
-      {
-LABEL_27:
-        if ( !v9 )
-        {
-LABEL_31:
-          if ( v10 )
-          {
-            if ( v11 )
-              AuthzBasepFreeSecurityAttributesList(v10, v18, v19, v20);
-            ExFreePoolWithTag(v10, 0);
-          }
-          if ( v12 )
-            ExFreePoolWithTag(v12, 0);
-          goto LABEL_37;
-        }
-        if ( v28 )
-          AuthzBasepFreeSecurityAttributesList(v9, v18, v19, v20);
-LABEL_30:
-        ExFreePoolWithTag(v9, 0);
-        goto LABEL_31;
-      }
-      v11 = 1;
+        goto LABEL_25;
+      v20 = 1;
       ClaimCollectionNoLists[73] = v10;
     }
     if ( !Src || !a4 )
       goto LABEL_24;
-    v8 = SepLengthSidAndAttributesArray(Src, a4, &v26);
+    v8 = SepLengthSidAndAttributesArray(Src);
     if ( v8 < 0 )
-      goto LABEL_27;
-    v21 = v26;
-    Pool2 = (char *)ExAllocatePool2(256LL, (unsigned int)v26, 1683252563LL);
-    v12 = Pool2;
-    if ( Pool2 )
     {
-      v8 = SeCaptureSidAndAttributesArray(Src, a4, 0, Pool2, v21, v23, v24, (PVOID *)&v27, (unsigned int *)&v26);
+LABEL_25:
+      if ( v9 )
+      {
+        if ( v19 )
+          AuthzBasepFreeSecurityAttributesList(v9);
+        ExFreePoolWithTag(v9, 0);
+      }
+      if ( v10 )
+      {
+        if ( v20 )
+          AuthzBasepFreeSecurityAttributesList(v10);
+        ExFreePoolWithTag(v10, 0);
+      }
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0);
+      goto LABEL_35;
+    }
+    v16 = NumberOfBytes;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64546553u);
+    if ( PoolWithTag )
+    {
+      v8 = SeCaptureSidAndAttributesArray(Src, v16, v17, v18, (__int64)&v23, (__int64)&NumberOfBytes);
       if ( v8 >= 0 )
       {
         *(_DWORD *)ClaimCollectionNoLists = a4;
-        ClaimCollectionNoLists[1] = v12;
-        RtlSidHashInitialize((__int64 *)v12, a4, ClaimCollectionNoLists + 4);
+        ClaimCollectionNoLists[1] = PoolWithTag;
+        RtlSidHashInitialize((__int64 *)PoolWithTag, a4, ClaimCollectionNoLists + 4);
 LABEL_24:
         *a1 = ClaimCollectionNoLists;
         return (unsigned int)v8;
       }
-      goto LABEL_27;
+      goto LABEL_25;
     }
-    goto LABEL_26;
+LABEL_37:
+    v8 = -1073741670;
+    goto LABEL_25;
   }
-  return result;
+  return (unsigned int)-1073741670;
 }

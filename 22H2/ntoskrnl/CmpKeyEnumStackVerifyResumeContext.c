@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpKeyEnumStackVerifyResumeContext @ 0x140A24498
+ * XREFs of CmpKeyEnumStackVerifyResumeContext @ 0x14087ADC4
  * Callers:
- *     CmpEnumerateLayeredKey @ 0x140A164C4 (CmpEnumerateLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackVerifyResumeContext(__int64 a1)

@@ -3,10 +3,10 @@
  * Callers:
  *     IopLiveDumpGetCapturePagesNoLock @ 0x140578C58 (IopLiveDumpGetCapturePagesNoLock.c)
  *     IopLiveDumpPopulateBitmapForDump @ 0x1405793C4 (IopLiveDumpPopulateBitmapForDump.c)
- *     MiDeleteLeakedSessionPool @ 0x1406E0920 (MiDeleteLeakedSessionPool.c)
- *     MiDeleteAweInfoPages @ 0x14084FD58 (MiDeleteAweInfoPages.c)
- *     MiScrubProcessPhysicalPages @ 0x140850370 (MiScrubProcessPhysicalPages.c)
- *     MiUnlockHotPatchPages @ 0x1408583BC (MiUnlockHotPatchPages.c)
+ *     MiDeleteLeakedSessionPool @ 0x1406E0900 (MiDeleteLeakedSessionPool.c)
+ *     MiDeleteAweInfoPages @ 0x14084FD38 (MiDeleteAweInfoPages.c)
+ *     MiScrubProcessPhysicalPages @ 0x140850350 (MiScrubProcessPhysicalPages.c)
+ *     MiUnlockHotPatchPages @ 0x14085839C (MiUnlockHotPatchPages.c)
  * Callees:
  *     <none>
  */

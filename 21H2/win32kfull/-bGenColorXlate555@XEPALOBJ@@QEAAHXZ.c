@@ -1,10 +1,11 @@
 /*
- * XREFs of ?bGenColorXlate555@XEPALOBJ@@QEAAHXZ @ 0x1C0141B40
+ * XREFs of ?bGenColorXlate555@XEPALOBJ@@QEAAHXZ @ 0x1C0154364
  * Callers:
- *     ?pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ @ 0x1C0141AF0 (-pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ.c)
+ *     ?pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ @ 0x1C0154314 (-pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ.c)
  * Callees:
- *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C00DAB40 (-ulTime@XEPALOBJ@@QEAAKXZ.c)
- *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C00DABB8 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C00D43FC (-ulTime@XEPALOBJ@@QEAAKXZ.c)
+ *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C00D4474 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
  */
 
 __int64 __fastcall XEPALOBJ::bGenColorXlate555(XEPALOBJ *this)
@@ -19,7 +20,7 @@ __int64 __fastcall XEPALOBJ::bGenColorXlate555(XEPALOBJ *this)
   v4 = *(unsigned __int8 **)(*(_QWORD *)this + 104LL);
   if ( !v4 || v4 == gpRGBXlate )
   {
-    *(_QWORD *)(*(_QWORD *)this + 104LL) = Win32AllocPool(0x8000LL, 1650946631LL);
+    *(_QWORD *)(*(_QWORD *)this + 104LL) = PALLOCMEM2(0x8000uLL, 1650946631LL, 0);
     v1 = *(_QWORD *)this;
   }
   v5 = *(unsigned __int8 **)(v1 + 104);

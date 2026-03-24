@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpInterruptRemapUpdateDeliveryMode @ 0x1403D5A7C
+ * XREFs of HalpInterruptRemapUpdateDeliveryMode @ 0x1403CE0BC
  * Callers:
- *     HalpInterruptRemap @ 0x1403D57DC (HalpInterruptRemap.c)
- *     HalpInterruptSetRemappedDestination @ 0x140508270 (HalpInterruptSetRemappedDestination.c)
+ *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
+ *     HalpInterruptSetRemappedDestination @ 0x1404BB7C8 (HalpInterruptSetRemappedDestination.c)
  * Callees:
  *     <none>
  */

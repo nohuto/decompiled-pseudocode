@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfDeviceSetDeviceInterfaceState @ 0x1C0034380
+ * XREFs of imp_WdfDeviceSetDeviceInterfaceState @ 0x1C005D590
  * Callers:
  *     <none>
  * Callees:
- *     WdfDeviceSetDeviceInterfaceStateWorker @ 0x1C00343A8 (WdfDeviceSetDeviceInterfaceStateWorker.c)
+ *     WdfDeviceSetDeviceInterfaceStateWorker @ 0x1C001B960 (WdfDeviceSetDeviceInterfaceStateWorker.c)
  */
 
 void __fastcall imp_WdfDeviceSetDeviceInterfaceState(

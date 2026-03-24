@@ -1,19 +1,20 @@
 /*
- * XREFs of ?QueryInterface@CMesh2DEffect@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802BF390
+ * XREFs of ?QueryInterface@CMesh2DEffect@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18026CD30
  * Callers:
- *     ?QueryInterface@CMesh2DEffect@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801240A0 (-QueryInterface@CMesh2DEffect@@W7EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@CMesh2DEffect@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F8DF0 (-QueryInterface@CMesh2DEffect@@W7EAAJAEBU_GUID@@PEAPEAX@Z.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     <none>
  */
 
-__int64 __fastcall CMesh2DEffect::QueryInterface(CMesh2DEffect *this, const struct _GUID *a2, void **a3)
+__int64 __fastcall CMesh2DEffect::QueryInterface(CMesh2DEffect *this, const struct _GUID *a2, CMesh2DEffect **a3)
 {
-  unsigned int v3; // ebx
+  unsigned int v3; // r10d
   __int64 v4; // rax
   __int64 v5; // rax
   __int64 v6; // rax
   __int64 v7; // rax
-  __int64 v8; // rax
+  CMesh2DEffect *v8; // rax
+  __int64 v9; // rax
 
   *a3 = 0LL;
   v3 = 0;
@@ -38,19 +39,26 @@ __int64 __fastcall CMesh2DEffect::QueryInterface(CMesh2DEffect *this, const stru
   if ( !v7 )
   {
 LABEL_13:
-    *a3 = (void *)(((unsigned __int64)this + 8) & -(__int64)(this != 0LL));
+    v8 = (CMesh2DEffect *)(((unsigned __int64)this + 8) & -(__int64)(this != 0LL));
+    *a3 = v8;
     goto LABEL_19;
   }
-  v8 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1;
+  v9 = *(_QWORD *)&a2->Data1 - *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1;
   if ( *(_QWORD *)&a2->Data1 == *(_QWORD *)&GUID_00000000_0000_0000_c000_000000000046.Data1 )
-    v8 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_00000000_0000_0000_c000_000000000046.Data4;
-  if ( v8 )
+    v9 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_00000000_0000_0000_c000_000000000046.Data4;
+  if ( v9 )
+  {
+    v8 = 0LL;
     v3 = -2147467262;
+  }
   else
+  {
 LABEL_17:
     *a3 = this;
+    v8 = this;
+  }
 LABEL_19:
-  if ( *a3 )
-    CMILRefCountImpl::AddReference((CMesh2DEffect *)((char *)this + 24));
+  if ( v8 )
+    _InterlockedIncrement((volatile signed __int32 *)this + 6);
   return v3;
 }

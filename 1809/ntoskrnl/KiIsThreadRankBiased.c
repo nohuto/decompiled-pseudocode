@@ -1,8 +1,8 @@
 /*
- * XREFs of KiIsThreadRankBiased @ 0x14029B5B0
+ * XREFs of KiIsThreadRankBiased @ 0x14029B6B0
  * Callers:
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiConvertDynamicHeteroPolicy @ 0x1402982B0 (KiConvertDynamicHeteroPolicy.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x1402983B0 (KiConvertDynamicHeteroPolicy.c)
  * Callees:
  *     <none>
  */

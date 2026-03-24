@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpInitializeHvCrashdump @ 0x140277D5C
+ * XREFs of HvlpInitializeHvCrashdump @ 0x140277E5C
  * Callers:
- *     HvlPhase1Initialize @ 0x1401939D4 (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x1401939F4 (HvlPhase1Initialize.c)
  * Callees:
  *     MmFreeIndependentPages @ 0x140001010 (MmFreeIndependentPages.c)
- *     MmMapIoSpaceEx @ 0x1400E5D40 (MmMapIoSpaceEx.c)
- *     MmAllocateIndependentPagesEx @ 0x140108F9C (MmAllocateIndependentPagesEx.c)
- *     KeRegisterBugCheckReasonCallback @ 0x140173240 (KeRegisterBugCheckReasonCallback.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KiRegisterNmiSxCallback @ 0x14028F454 (KiRegisterNmiSxCallback.c)
- *     MmAllocateMappingAddress @ 0x1406F9300 (MmAllocateMappingAddress.c)
+ *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
+ *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x140173260 (KeRegisterBugCheckReasonCallback.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KiRegisterNmiSxCallback @ 0x14028F554 (KiRegisterNmiSxCallback.c)
+ *     MmAllocateMappingAddress @ 0x1406F92E0 (MmAllocateMappingAddress.c)
  */
 
 __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)

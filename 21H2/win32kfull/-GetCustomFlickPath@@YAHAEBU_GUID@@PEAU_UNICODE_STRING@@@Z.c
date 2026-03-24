@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C0210BFC
+ * XREFs of ?GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C0209610
  * Callers:
- *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0210AC8 (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
- *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0210CC4 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C02094DC (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C02096D8 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ _BOOL8 __fastcall GetCustomFlickPath(GUID *Guid, PUNICODE_STRING Destination)
   *(_DWORD *)&Destination->Length = 14548992;
   GuidString = 0LL;
   v4 = 0;
-  v5 = (WCHAR *)Win32AllocPoolZInit(222LL, 2020635477LL);
+  v5 = (WCHAR *)Win32AllocPool(222LL, 2020635477LL);
   if ( v5 )
   {
     Destination->Buffer = v5;

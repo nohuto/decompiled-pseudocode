@@ -1,16 +1,16 @@
 /*
- * XREFs of MiObtainDynamicVa @ 0x14026B354
+ * XREFs of MiObtainDynamicVa @ 0x1402B3808
  * Callers:
- *     MiReservePoolMemory @ 0x14024D0D4 (MiReservePoolMemory.c)
- *     MiObtainSystemVa @ 0x14026B32C (MiObtainSystemVa.c)
+ *     MiReservePoolMemory @ 0x1402B2E74 (MiReservePoolMemory.c)
+ *     MiObtainSystemVa @ 0x1402B37E0 (MiObtainSystemVa.c)
  * Callees:
- *     MiReclaimSystemVa @ 0x140256F0C (MiReclaimSystemVa.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlSetBitsEx @ 0x14030B740 (RtlSetBitsEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     MiExtendDynamicBitMap @ 0x1403D8D00 (MiExtendDynamicBitMap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiFindNextAlignedForwardRunClearEx @ 0x140598BFC (MiFindNextAlignedForwardRunClearEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiReclaimSystemVa @ 0x1402B4188 (MiReclaimSystemVa.c)
+ *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
+ *     MiFindNextAlignedForwardRunClearEx @ 0x1403C5A24 (MiFindNextAlignedForwardRunClearEx.c)
+ *     MiExtendDynamicBitMap @ 0x1403C984C (MiExtendDynamicBitMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiObtainDynamicVa(__int64 *a1, unsigned int a2, int a3)
@@ -28,7 +28,7 @@ unsigned __int64 __fastcall MiObtainDynamicVa(__int64 *a1, unsigned int a2, int 
   unsigned __int64 v13; // r10
   unsigned __int64 v14; // rsi
   unsigned __int64 *v15; // r8
-  signed __int64 v16; // r9
+  __int64 v16; // r9
   unsigned __int64 v17; // rbx
   unsigned __int64 v18; // rax
   unsigned __int64 NextAlignedForwardRunClear; // rdx
@@ -49,48 +49,48 @@ unsigned __int64 __fastcall MiObtainDynamicVa(__int64 *a1, unsigned int a2, int 
   __int64 v35; // rdx
   __int64 v36; // rax
   __int64 v37; // rcx
-  unsigned __int64 v38; // r10
-  __int64 v39; // rdx
-  unsigned __int64 *v40; // r11
-  bool v41; // zf
-  __int64 v42; // rax
-  unsigned int v43; // r10d
-  unsigned __int64 v44; // rdx
-  unsigned __int64 v45; // rax
+  __int64 v38; // rdx
+  unsigned __int64 *v39; // r11
+  bool v40; // zf
+  __int64 v41; // rax
+  unsigned int v42; // r10d
+  unsigned __int64 v43; // rdx
+  unsigned __int64 v44; // rax
+  __int64 v45; // rdx
   __int64 v46; // rdx
-  __int64 v47; // rdx
-  unsigned __int64 *v48; // r11
-  __int64 v49; // rax
-  unsigned int v50; // r10d
-  unsigned __int64 v51; // rdx
-  unsigned __int64 v52; // rax
-  __int64 v53; // rdx
+  unsigned __int64 *v47; // r11
+  __int64 v48; // rax
+  unsigned int v49; // r10d
+  unsigned __int64 v50; // rdx
+  unsigned __int64 v51; // rax
+  __int64 v52; // rdx
+  __int64 v53; // rax
   __int64 v54; // rax
-  __int64 v55; // rax
-  unsigned __int64 v56; // r10
-  __int64 v57; // rdx
-  unsigned int v58; // ecx
-  unsigned __int64 *v59; // r9
-  unsigned __int64 v60; // r10
-  __int64 v61; // rax
-  unsigned int v62; // ecx
-  unsigned int v63; // r9d
-  __int64 v64; // rcx
+  unsigned __int64 v55; // r10
+  __int64 v56; // rax
+  unsigned int v57; // ecx
+  unsigned __int64 v58; // r10
+  __int64 v59; // rax
+  unsigned int v60; // ecx
+  unsigned int v61; // r9d
+  __int64 v62; // rcx
+  __int64 v63; // rdx
+  unsigned __int64 *v64; // r9
   __int64 v65; // rdx
   unsigned __int64 *v66; // r9
   unsigned int v67; // r9d
   __int64 v68; // rcx
-  __int64 v69; // rax
-  bool v70; // sf
-  __int64 v71; // rcx
-  unsigned int v72; // eax
-  unsigned __int64 v73; // rcx
-  unsigned __int64 v74; // rax
-  bool v75; // sf
-  __int64 v76; // rcx
-  unsigned int v77; // eax
-  unsigned __int64 v78; // rcx
-  unsigned __int64 v79; // rax
+  bool v69; // sf
+  __int64 v70; // rcx
+  unsigned int v71; // eax
+  unsigned __int64 v72; // rcx
+  unsigned __int64 v73; // rax
+  bool v74; // sf
+  __int64 v75; // rcx
+  unsigned int v76; // eax
+  unsigned __int64 v77; // rcx
+  unsigned __int64 v78; // rax
+  unsigned __int64 v79; // r10
   unsigned __int64 v80; // r10
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
@@ -131,13 +131,13 @@ unsigned __int64 __fastcall MiObtainDynamicVa(__int64 *a1, unsigned int a2, int 
       *((_QWORD *)&v95[0] + 1) = v35 + 8 * v36;
       if ( v4 >= 0x200 )
       {
-        if ( MiFlags < 0 )
+        if ( (MiFlags & 0x20000000) != 0 )
           v6 = 512LL;
         v93 = v6;
       }
     }
     if ( !*v8 )
-      goto LABEL_127;
+      goto LABEL_86;
     v9 = v4;
     if ( v6 == 1 )
     {
@@ -151,97 +151,149 @@ unsigned __int64 __fastcall MiObtainDynamicVa(__int64 *a1, unsigned int a2, int 
         while ( 1 )
         {
           if ( v13 - v12 + 1 < v9 )
-            goto LABEL_45;
+            goto LABEL_67;
           v14 = v13 - v9 + 1;
           v15 = (unsigned __int64 *)(v11 + 8 * (v12 >> 6));
           v16 = ((1LL << (v12 & 0x3F)) - 1) | *v15;
           v17 = v11 + 8 * (v14 >> 6);
           if ( v9 > 0x7F )
-            break;
-          if ( v9 >= 0x40 )
+          {
+            v55 = v17 + 8;
+            if ( (v14 & 0x3F) == 0 )
+              v55 = v11 + 8 * (v14 >> 6);
+            if ( v16 )
+            {
+              if ( *++v15 )
+                goto LABEL_104;
+              v40 = !_BitScanReverse64((unsigned __int64 *)&v56, v16);
+              if ( v40 )
+                v57 = 64;
+              else
+                v57 = 63 - v56;
+            }
+            else
+            {
+              v57 = 0;
+            }
+LABEL_108:
+            NextAlignedForwardRunClear = (((__int64)v15 - v11) >> 3 << 6) - v57;
+            if ( NextAlignedForwardRunClear > v14 )
+              goto LABEL_67;
+            v64 = &v15[(v9 - v57) >> 6];
+            while ( ++v15 != v64 )
+            {
+              if ( *v15 )
+                goto LABEL_104;
+            }
+            v61 = ((_BYTE)v4 - (_BYTE)v57) & 0x3F;
+            if ( (((_BYTE)v4 - (_BYTE)v57) & 0x3F) != 0 )
+            {
+              v40 = !_BitScanForward64((unsigned __int64 *)&v62, *v15);
+              if ( v40 )
+                LODWORD(v62) = 64;
+              if ( (unsigned int)v62 < v61 )
+              {
+LABEL_104:
+                while ( (unsigned __int64)v15 <= v55 )
+                {
+                  if ( !*++v15 )
+                  {
+                    v40 = !_BitScanReverse64((unsigned __int64 *)&v63, *(v15 - 1));
+                    if ( v40 )
+                      v57 = 64;
+                    else
+                      v57 = 63 - v63;
+                    goto LABEL_108;
+                  }
+                }
+                goto LABEL_67;
+              }
+            }
+          }
+          else if ( v9 >= 0x40 )
           {
             do
             {
-LABEL_134:
-              v70 = v16 < 0;
+LABEL_133:
+              v69 = v16 < 0;
               do
               {
-                if ( v70 )
+                if ( v69 )
                 {
                   if ( (unsigned __int64)++v15 > v17 )
-                    goto LABEL_45;
+                    goto LABEL_67;
                   v16 = *v15;
-                  goto LABEL_134;
+                  goto LABEL_133;
                 }
-                v41 = !_BitScanReverse64((unsigned __int64 *)&v71, v16);
-                if ( v41 )
-                  v72 = 64;
+                v40 = !_BitScanReverse64((unsigned __int64 *)&v70, v16);
+                if ( v40 )
+                  v71 = 64;
                 else
-                  v72 = 63 - v71;
-                NextAlignedForwardRunClear = (((((__int64)v15 - v11) >> 3) + 1) << 6) - v72;
+                  v71 = 63 - v70;
+                NextAlignedForwardRunClear = (((((__int64)v15 - v11) >> 3) + 1) << 6) - v71;
                 if ( NextAlignedForwardRunClear > v14 )
-                  goto LABEL_45;
-                v73 = v9 - v72;
-                if ( v9 == v72 )
+                  goto LABEL_67;
+                v72 = v9 - v71;
+                if ( v9 == v71 )
                   goto LABEL_15;
                 v16 = *++v15;
-                if ( v73 < 0x40 )
-                  goto LABEL_143;
-                v70 = v16 < 0;
+                if ( v72 < 0x40 )
+                  goto LABEL_142;
+                v69 = v16 < 0;
               }
               while ( v16 );
-              v73 -= 64LL;
-              if ( !v73 )
+              v72 -= 64LL;
+              if ( !v72 )
                 break;
               v16 = *++v15;
-LABEL_143:
-              v41 = !_BitScanForward64(&v74, v16);
-              if ( v41 )
-                v74 = 64LL;
+LABEL_142:
+              v40 = !_BitScanForward64(&v73, v16);
+              if ( v40 )
+                v73 = 64LL;
             }
-            while ( v74 < v73 );
+            while ( v73 < v72 );
           }
           else
           {
             if ( v9 > 1 )
             {
-              v39 = 0LL;
-              v40 = (unsigned __int64 *)(v11 + 8 * (v13 >> 6));
+              v38 = 0LL;
+              v39 = (unsigned __int64 *)(v11 + 8 * (v13 >> 6));
               while ( v16 != -1 )
               {
-LABEL_52:
-                v41 = !_BitScanForward64((unsigned __int64 *)&v42, v16);
-                if ( v41 )
-                  LODWORD(v42) = 64;
-                if ( (unsigned int)(v39 + v42) >= v9 )
+LABEL_49:
+                v40 = !_BitScanForward64((unsigned __int64 *)&v41, v16);
+                if ( v40 )
+                  LODWORD(v41) = 64;
+                if ( (unsigned int)(v38 + v41) >= v9 )
                 {
-                  v46 = -v39;
-LABEL_59:
-                  NextAlignedForwardRunClear = (((__int64)v15 - v11) >> 3 << 6) + v46;
+                  v45 = -v38;
+LABEL_56:
+                  NextAlignedForwardRunClear = (((__int64)v15 - v11) >> 3 << 6) + v45;
                   goto LABEL_14;
                 }
-                v43 = a2;
-                v44 = ~v16;
+                v42 = a2;
+                v43 = ~v16;
                 while ( 1 )
                 {
-                  v44 &= v44 >> (v43 >> 1);
-                  if ( !v44 )
+                  v43 &= v43 >> (v42 >> 1);
+                  if ( !v43 )
                     break;
-                  v43 -= v43 >> 1;
-                  if ( v43 <= 1 )
+                  v42 -= v42 >> 1;
+                  if ( v42 <= 1 )
                   {
-                    _BitScanForward64(&v45, v44);
-                    v46 = (unsigned int)v45;
-                    goto LABEL_59;
+                    _BitScanForward64(&v44, v43);
+                    v45 = (unsigned int)v44;
+                    goto LABEL_56;
                   }
                 }
-                if ( v15 == v40 )
-                  goto LABEL_45;
-                v41 = !_BitScanReverse64((unsigned __int64 *)&v54, v16);
-                if ( v41 )
-                  v39 = 64LL;
+                if ( v15 == v39 )
+                  goto LABEL_67;
+                v40 = !_BitScanReverse64((unsigned __int64 *)&v53, v16);
+                if ( v40 )
+                  v38 = 64LL;
                 else
-                  v39 = (unsigned int)(63 - v54);
+                  v38 = (unsigned int)(63 - v53);
                 v16 = *++v15;
               }
               while ( (unsigned __int64)++v15 <= v17 )
@@ -249,30 +301,30 @@ LABEL_59:
                 v16 = *v15;
                 if ( *v15 != -1LL )
                 {
-                  v39 = 0LL;
-                  goto LABEL_52;
+                  v38 = 0LL;
+                  goto LABEL_49;
                 }
               }
-LABEL_45:
+LABEL_67:
               NextAlignedForwardRunClear = -1LL;
-              goto LABEL_46;
+              goto LABEL_170;
             }
             while ( v16 == -1 )
             {
               if ( (unsigned __int64)++v15 > v17 )
-                goto LABEL_45;
+                goto LABEL_67;
               v16 = *v15;
             }
             _BitScanForward64(&v18, ~v16);
             NextAlignedForwardRunClear = v18 + (((__int64)v15 - v11) >> 3 << 6);
 LABEL_14:
             if ( NextAlignedForwardRunClear > v14 )
-              goto LABEL_45;
+              goto LABEL_67;
           }
 LABEL_15:
           if ( NextAlignedForwardRunClear != -1LL )
             goto LABEL_16;
-LABEL_46:
+LABEL_170:
           if ( !v90 )
           {
 LABEL_16:
@@ -281,66 +333,13 @@ LABEL_16:
             goto LABEL_17;
           }
           LOBYTE(v4) = a2;
-          v38 = v9 + v7;
+          v79 = v9 + v7;
           if ( v9 + v7 > v10 )
-            v38 = v10;
-          v13 = v38 - 1;
+            v79 = v10;
+          v13 = v79 - 1;
           v12 = 0LL;
           v90 = 0LL;
         }
-        v56 = v17 + 8;
-        if ( (v14 & 0x3F) == 0 )
-          v56 = v11 + 8 * (v14 >> 6);
-        if ( v16 )
-        {
-          if ( !*++v15 )
-          {
-            v41 = !_BitScanReverse64((unsigned __int64 *)&v69, v16);
-            if ( v41 )
-              v58 = 64;
-            else
-              v58 = 63 - v69;
-            goto LABEL_96;
-          }
-          while ( 1 )
-          {
-            do
-            {
-LABEL_92:
-              if ( (unsigned __int64)v15 > v56 )
-                goto LABEL_45;
-              ++v15;
-            }
-            while ( *v15 );
-            v41 = !_BitScanReverse64((unsigned __int64 *)&v57, *(v15 - 1));
-            if ( v41 )
-              v58 = 64;
-            else
-              v58 = 63 - v57;
-LABEL_96:
-            NextAlignedForwardRunClear = (((__int64)v15 - v11) >> 3 << 6) - v58;
-            if ( NextAlignedForwardRunClear > v14 )
-              goto LABEL_45;
-            v59 = &v15[(v9 - v58) >> 6];
-            while ( ++v15 != v59 )
-            {
-              if ( *v15 )
-                goto LABEL_92;
-            }
-            v63 = ((_BYTE)v4 - (_BYTE)v58) & 0x3F;
-            if ( (((_BYTE)v4 - (_BYTE)v58) & 0x3F) != 0 )
-            {
-              v41 = !_BitScanForward64((unsigned __int64 *)&v64, *v15);
-              if ( v41 )
-                LODWORD(v64) = 64;
-              if ( (unsigned int)v64 < v63 )
-                continue;
-            }
-            goto LABEL_15;
-          }
-        }
-        v58 = 0;
-        goto LABEL_96;
       }
       NextAlignedForwardRunClear = v12 & 0xFFFFFFFFFFFFFFF8uLL;
 LABEL_17:
@@ -355,10 +354,10 @@ LABEL_17:
     }
     if ( NextAlignedForwardRunClear == -1LL )
     {
-LABEL_127:
+LABEL_86:
       if ( !(unsigned int)MiExtendDynamicBitMap((_DWORD)v5, (_DWORD)v8, 0, v3, 0) )
         return 0LL;
-      goto LABEL_128;
+      goto LABEL_87;
     }
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)v5 + 8, &LockHandle);
     if ( v6 == 1 )
@@ -373,7 +372,7 @@ LABEL_127:
         while ( v23 - v24 + 1 < v9 )
         {
           v30 = -1LL;
-LABEL_177:
+LABEL_176:
           if ( !v24 )
           {
 LABEL_31:
@@ -394,55 +393,55 @@ LABEL_31:
         v28 = v22 + 8 * (v25 >> 6);
         if ( v9 > 0x7F )
         {
-          v60 = v28 + 8;
+          v58 = v28 + 8;
           if ( (v25 & 0x3F) == 0 )
-            v60 = v22 + 8 * (v25 >> 6);
+            v58 = v22 + 8 * (v25 >> 6);
           if ( v27 )
           {
             if ( *++v26 )
-              goto LABEL_112;
-            v41 = !_BitScanReverse64((unsigned __int64 *)&v61, v27);
-            if ( v41 )
-              v62 = 64;
+              goto LABEL_113;
+            v40 = !_BitScanReverse64((unsigned __int64 *)&v59, v27);
+            if ( v40 )
+              v60 = 64;
             else
-              v62 = 63 - v61;
+              v60 = 63 - v59;
           }
           else
           {
-            v62 = 0;
+            v60 = 0;
           }
-LABEL_117:
-          v30 = (((__int64)v26 - v22) >> 3 << 6) - v62;
+LABEL_118:
+          v30 = (((__int64)v26 - v22) >> 3 << 6) - v60;
           if ( v30 > v25 )
-            goto LABEL_74;
-          v66 = &v26[(v9 - v62) >> 6];
+            goto LABEL_68;
+          v66 = &v26[(v9 - v60) >> 6];
           while ( ++v26 != v66 )
           {
             if ( *v26 )
-              goto LABEL_112;
+              goto LABEL_113;
           }
-          v67 = ((_BYTE)a2 - (_BYTE)v62) & 0x3F;
-          if ( (((_BYTE)a2 - (_BYTE)v62) & 0x3F) != 0 )
+          v67 = ((_BYTE)a2 - (_BYTE)v60) & 0x3F;
+          if ( (((_BYTE)a2 - (_BYTE)v60) & 0x3F) != 0 )
           {
-            v41 = !_BitScanForward64((unsigned __int64 *)&v68, *v26);
-            if ( v41 )
+            v40 = !_BitScanForward64((unsigned __int64 *)&v68, *v26);
+            if ( v40 )
               LODWORD(v68) = 64;
             if ( (unsigned int)v68 < v67 )
             {
-LABEL_112:
-              while ( (unsigned __int64)v26 <= v60 )
+LABEL_113:
+              while ( (unsigned __int64)v26 <= v58 )
               {
                 if ( !*++v26 )
                 {
-                  v41 = !_BitScanReverse64((unsigned __int64 *)&v65, *(v26 - 1));
-                  if ( v41 )
-                    v62 = 64;
+                  v40 = !_BitScanReverse64((unsigned __int64 *)&v65, *(v26 - 1));
+                  if ( v40 )
+                    v60 = 64;
                   else
-                    v62 = 63 - v65;
-                  goto LABEL_117;
+                    v60 = 63 - v65;
+                  goto LABEL_118;
                 }
               }
-              goto LABEL_74;
+              goto LABEL_68;
             }
           }
         }
@@ -452,43 +451,43 @@ LABEL_112:
           {
             if ( v9 > 1 )
             {
-              v47 = 0LL;
-              v48 = (unsigned __int64 *)(v22 + 8 * (v23 >> 6));
+              v46 = 0LL;
+              v47 = (unsigned __int64 *)(v22 + 8 * (v23 >> 6));
               while ( v27 != -1 )
               {
-LABEL_62:
-                v41 = !_BitScanForward64((unsigned __int64 *)&v49, v27);
-                if ( v41 )
-                  LODWORD(v49) = 64;
-                if ( (unsigned int)(v47 + v49) >= v9 )
+LABEL_59:
+                v40 = !_BitScanForward64((unsigned __int64 *)&v48, v27);
+                if ( v40 )
+                  LODWORD(v48) = 64;
+                if ( (unsigned int)(v46 + v48) >= v9 )
                 {
-                  v53 = -v47;
-LABEL_69:
-                  v30 = (((__int64)v26 - v22) >> 3 << 6) + v53;
+                  v52 = -v46;
+LABEL_66:
+                  v30 = (((__int64)v26 - v22) >> 3 << 6) + v52;
                   goto LABEL_29;
                 }
-                v50 = a2;
-                v51 = ~v27;
+                v49 = a2;
+                v50 = ~v27;
                 while ( 1 )
                 {
-                  v51 &= v51 >> (v50 >> 1);
-                  if ( !v51 )
+                  v50 &= v50 >> (v49 >> 1);
+                  if ( !v50 )
                     break;
-                  v50 -= v50 >> 1;
-                  if ( v50 <= 1 )
+                  v49 -= v49 >> 1;
+                  if ( v49 <= 1 )
                   {
-                    _BitScanForward64(&v52, v51);
-                    v53 = (unsigned int)v52;
-                    goto LABEL_69;
+                    _BitScanForward64(&v51, v50);
+                    v52 = (unsigned int)v51;
+                    goto LABEL_66;
                   }
                 }
-                if ( v26 == v48 )
-                  goto LABEL_74;
-                v41 = !_BitScanReverse64((unsigned __int64 *)&v55, v27);
-                if ( v41 )
-                  v47 = 64LL;
+                if ( v26 == v47 )
+                  goto LABEL_68;
+                v40 = !_BitScanReverse64((unsigned __int64 *)&v54, v27);
+                if ( v40 )
+                  v46 = 64LL;
                 else
-                  v47 = (unsigned int)(63 - v55);
+                  v46 = (unsigned int)(63 - v54);
                 v27 = *++v26;
               }
               while ( (unsigned __int64)++v26 <= v28 )
@@ -496,8 +495,8 @@ LABEL_69:
                 v27 = *v26;
                 if ( *v26 != -1LL )
                 {
-                  v47 = 0LL;
-                  goto LABEL_62;
+                  v46 = 0LL;
+                  goto LABEL_59;
                 }
               }
             }
@@ -506,7 +505,7 @@ LABEL_69:
               while ( v27 == -1 )
               {
                 if ( (unsigned __int64)++v26 > v28 )
-                  goto LABEL_74;
+                  goto LABEL_68;
                 v27 = *v26;
               }
               _BitScanForward64(&v29, ~v27);
@@ -515,57 +514,57 @@ LABEL_29:
               if ( v30 <= v25 )
                 goto LABEL_30;
             }
-LABEL_74:
+LABEL_68:
             v30 = -1LL;
-LABEL_75:
+LABEL_69:
             v21 = v91;
-            goto LABEL_177;
+            goto LABEL_176;
           }
           do
           {
-LABEL_150:
-            v75 = v27 < 0;
+LABEL_149:
+            v74 = v27 < 0;
             do
             {
-              if ( v75 )
+              if ( v74 )
               {
                 if ( (unsigned __int64)++v26 > v28 )
-                  goto LABEL_74;
+                  goto LABEL_68;
                 v27 = *v26;
-                goto LABEL_150;
+                goto LABEL_149;
               }
-              v41 = !_BitScanReverse64((unsigned __int64 *)&v76, v27);
-              if ( v41 )
-                v77 = 64;
+              v40 = !_BitScanReverse64((unsigned __int64 *)&v75, v27);
+              if ( v40 )
+                v76 = 64;
               else
-                v77 = 63 - v76;
-              v30 = (((((__int64)v26 - v22) >> 3) + 1) << 6) - v77;
+                v76 = 63 - v75;
+              v30 = (((((__int64)v26 - v22) >> 3) + 1) << 6) - v76;
               if ( v30 > v25 )
-                goto LABEL_74;
-              v78 = v9 - v77;
-              if ( v9 == v77 )
+                goto LABEL_68;
+              v77 = v9 - v76;
+              if ( v9 == v76 )
                 goto LABEL_30;
               v27 = *++v26;
-              if ( v78 < 0x40 )
-                goto LABEL_159;
-              v75 = v27 < 0;
+              if ( v77 < 0x40 )
+                goto LABEL_158;
+              v74 = v27 < 0;
             }
             while ( v27 );
-            v78 -= 64LL;
-            if ( !v78 )
+            v77 -= 64LL;
+            if ( !v77 )
               break;
             v27 = *++v26;
-LABEL_159:
-            v41 = !_BitScanForward64(&v79, v27);
-            if ( v41 )
-              v79 = 64LL;
+LABEL_158:
+            v40 = !_BitScanForward64(&v78, v27);
+            if ( v40 )
+              v78 = 64LL;
           }
-          while ( v79 < v78 );
+          while ( v78 < v77 );
         }
 LABEL_30:
         if ( v30 != -1LL )
           goto LABEL_31;
-        goto LABEL_75;
+        goto LABEL_69;
       }
       v31 = v24 & 0xFFFFFFFFFFFFFFF8uLL;
     }
@@ -588,9 +587,9 @@ LABEL_32:
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
           v85 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v41 = (v85 & SchedulerAssist[5]) == 0;
+          v40 = (v85 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v85;
-          if ( v41 )
+          if ( v40 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
@@ -600,7 +599,7 @@ LABEL_32:
     if ( !(unsigned int)MiExtendDynamicBitMap((_DWORD)v5, (_DWORD)v8, 0, a3, 0) )
       return 0LL;
     v6 = v93;
-LABEL_128:
+LABEL_87:
     v4 = a2;
   }
   RtlSetBitsEx(v8, v31, v9);
@@ -617,12 +616,12 @@ LABEL_128:
   {
     v5[3] = v31 + 1;
   }
-  if ( v5 == &qword_140C51A40 )
+  if ( v5 == &qword_140C4E1B8 )
   {
-    qword_140C51888 -= v9 << 21;
-    MiReclaimSystemVa(0);
+    qword_140C4E048 -= v9 << 21;
+    MiReclaimSystemVa(0LL);
   }
-  _InterlockedExchangeAdd64(&qword_140C53EC8[v32], v9);
+  _InterlockedExchangeAdd64(&qword_140C4F948[v32], v9);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   v33 = LockHandle.OldIrql;
   if ( KiIrqlFlags )
@@ -635,9 +634,9 @@ LABEL_128:
         v87 = KeGetCurrentPrcb();
         v88 = v87->SchedulerAssist;
         v89 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v41 = (v89 & v88[5]) == 0;
+        v40 = (v89 & v88[5]) == 0;
         v88[5] &= v89;
-        if ( v41 )
+        if ( v40 )
           KiRemoveSystemWorkPriorityKick(v87);
       }
     }

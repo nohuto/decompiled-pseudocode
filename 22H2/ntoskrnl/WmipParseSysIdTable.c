@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipParseSysIdTable @ 0x1409DFF40
+ * XREFs of WmipParseSysIdTable @ 0x140931F3C
  * Callers:
- *     WmipGetSysIds @ 0x1409DFC78 (WmipGetSysIds.c)
+ *     WmipGetSysIds @ 0x140931C78 (WmipGetSysIds.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140335810 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335B30 (MmUnmapIoSpace.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
+ *     MmMapIoSpaceEx @ 0x1402E7FA0 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x1402EA680 (MmUnmapIoSpace.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall WmipParseSysIdTable(
@@ -23,7 +23,7 @@ __int64 __fastcall WmipParseSysIdTable(
   unsigned int v13; // ebx
   unsigned int v14; // r15d
   char *v16; // rbp
-  unsigned int v17; // edx
+  unsigned int v17; // ecx
   __int64 v18; // rsi
   int v19; // r8d
   char v20; // cl
@@ -47,9 +47,9 @@ __int64 __fastcall WmipParseSysIdTable(
     v26 = 0;
     v14 = 0;
     v16 = v10;
-    v25 = v11;
+    v24 = v11;
     v17 = *a6;
-    v24 = *a6;
+    v25 = *a6;
     if ( a2 )
     {
       while ( v6 >= 0xA )
@@ -64,9 +64,7 @@ __int64 __fastcall WmipParseSysIdTable(
           if ( RtlCompareMemory(v16, "_1394_", 6uLL) != 6 || (_DWORD)v18 != 17 )
           {
 LABEL_25:
-            v17 = v24;
-LABEL_26:
-            v11 = v25;
+            v11 = v24;
             break;
           }
           v19 = 2;
@@ -86,32 +84,31 @@ LABEL_26:
           goto LABEL_25;
         if ( v19 == 1 )
         {
-          v11 = v25;
-          v17 = v24;
+          v11 = v24;
           if ( v6 < 0x19 )
             break;
           ++v12;
-          if ( a3 && v25 >= v12 )
+          if ( a3 && v24 >= v12 )
             *a3++ = *(_OWORD *)(v16 + 9);
         }
         else
         {
-          v17 = v24;
           if ( v6 < 0x11 )
-            goto LABEL_26;
-          v11 = v25;
+            goto LABEL_25;
+          v11 = v24;
           ++v14;
-          if ( a5 && v24 >= v14 )
+          if ( a5 && v25 >= v14 )
             *a5++ = *(_QWORD *)(v16 + 9);
         }
         v16 += v18;
         v6 -= v18;
         if ( ++v26 >= a2 )
-          goto LABEL_28;
+          goto LABEL_27;
       }
       v13 = -1073741823;
-LABEL_28:
+LABEL_27:
       v10 = v27;
+      v17 = v25;
     }
     *a4 = v12;
     *a6 = v14;

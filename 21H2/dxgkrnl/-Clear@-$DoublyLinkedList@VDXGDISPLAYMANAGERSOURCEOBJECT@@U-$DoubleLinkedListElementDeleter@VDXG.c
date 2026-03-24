@@ -1,60 +1,42 @@
 /*
- * XREFs of ?Clear@?$DoublyLinkedList@VDXGDISPLAYMANAGERSOURCEOBJECT@@U?$DoubleLinkedListElementDeleter@VDXGDISPLAYMANAGERSOURCEOBJECT@@@@@@QEAAXXZ @ 0x1C001D434
+ * XREFs of ?Clear@?$DoublyLinkedList@VDXGDISPLAYMANAGERSOURCEOBJECT@@U?$DoubleLinkedListElementDeleter@VDXGDISPLAYMANAGERSOURCEOBJECT@@@@@@QEAAXXZ @ 0x1C001A1D0
  * Callers:
- *     ??_E?$DoublyLinkedList@VDXGDISPLAYMANAGERSOURCEOBJECT@@U?$DoubleLinkedListElementDeleter@VDXGDISPLAYMANAGERSOURCEOBJECT@@@@@@UEAAPEAXI@Z @ 0x1C004ED40 (--_E-$DoublyLinkedList@VDXGDISPLAYMANAGERSOURCEOBJECT@@U-$DoubleLinkedListElementDeleter@VDXGDIS.c)
- *     ??1DXGDISPLAYMANAGEROBJECT@@UEAA@XZ @ 0x1C0161518 (--1DXGDISPLAYMANAGEROBJECT@@UEAA@XZ.c)
- *     ?Invalidate@DXGDISPLAYMANAGEROBJECT@@QEAAXXZ @ 0x1C01DE65C (-Invalidate@DXGDISPLAYMANAGEROBJECT@@QEAAXXZ.c)
+ *     ??_E?$DoublyLinkedList@VDXGDISPLAYMANAGERSOURCEOBJECT@@U?$DoubleLinkedListElementDeleter@VDXGDISPLAYMANAGERSOURCEOBJECT@@@@@@UEAAPEAXI@Z @ 0x1C004D450 (--_E-$DoublyLinkedList@VDXGDISPLAYMANAGERSOURCEOBJECT@@U-$DoubleLinkedListElementDeleter@VDXGDIS.c)
+ *     ??1DXGDISPLAYMANAGEROBJECT@@UEAA@XZ @ 0x1C0155DB4 (--1DXGDISPLAYMANAGEROBJECT@@UEAA@XZ.c)
+ *     ?Invalidate@DXGDISPLAYMANAGEROBJECT@@QEAAXXZ @ 0x1C01672AC (-Invalidate@DXGDISPLAYMANAGEROBJECT@@QEAAXXZ.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ??R?$DoubleLinkedListElementDeleter@VDXGDISPLAYMANAGERSOURCEOBJECT@@@@QEAAXPEAVDXGDISPLAYMANAGERSOURCEOBJECT@@@Z @ 0x1C02F37A0 (--R-$DoubleLinkedListElementDeleter@VDXGDISPLAYMANAGERSOURCEOBJECT@@@@QEAAXPEAVDXGDISPLAYMANAGER.c)
+ *     ??R?$DoubleLinkedListElementDeleter@VDXGDISPLAYMANAGERSOURCEOBJECT@@@@QEAAXPEAVDXGDISPLAYMANAGERSOURCEOBJECT@@@Z @ 0x1C02B0EF0 (--R-$DoubleLinkedListElementDeleter@VDXGDISPLAYMANAGERSOURCEOBJECT@@@@QEAAXPEAVDXGDISPLAYMANAGER.c)
  */
 
-char __fastcall DoublyLinkedList<DXGDISPLAYMANAGERSOURCEOBJECT,DoubleLinkedListElementDeleter<DXGDISPLAYMANAGERSOURCEOBJECT>>::Clear(
-        __int64 a1)
+_QWORD *__fastcall DoublyLinkedList<DXGDISPLAYMANAGERSOURCEOBJECT,DoubleLinkedListElementDeleter<DXGDISPLAYMANAGERSOURCEOBJECT>>::Clear(
+        __int64 a1,
+        __int64 a2)
 {
-  _QWORD **v2; // rbx
-  _QWORD *v3; // rax
-  _QWORD *v4; // rcx
-  int v5; // edx
-  int v6; // ecx
-  int v7; // r8d
+  _QWORD **v3; // rbx
+  _QWORD *result; // rax
+  _QWORD *v5; // rcx
+  __int64 v6; // rax
 
-  v2 = (_QWORD **)(a1 + 16);
+  v3 = (_QWORD **)(a1 + 16);
   while ( 1 )
   {
-    v3 = *v2;
-    if ( *v2 == v2 )
+    result = *v3;
+    if ( *v3 == v3 )
       break;
-    if ( (_QWORD **)v3[1] != v2 || (v4 = (_QWORD *)*v3, *(_QWORD **)(*v3 + 8LL) != v3) )
+    if ( (_QWORD **)result[1] != v3 || (v5 = (_QWORD *)*result, *(_QWORD **)(*result + 8LL) != result) )
       __fastfail(3u);
-    *v2 = v4;
-    v4[1] = v2;
+    *v3 = v5;
+    v5[1] = v3;
     --*(_QWORD *)(a1 + 32);
-    *v3 = 0LL;
-    v3[1] = 0LL;
+    *result = 0LL;
+    result[1] = 0LL;
     DoubleLinkedListElementDeleter<DXGDISPLAYMANAGERSOURCEOBJECT>::operator()();
   }
   if ( *(_QWORD *)(a1 + 32) )
   {
-    LOBYTE(v3) = WdLogSingleEntry1(1LL, 394LL);
-    if ( bTracingEnabled )
-    {
-      LOBYTE(v3) = BYTE3(Microsoft_Windows_DxgKrnlEnableBits);
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        LOBYTE(v3) = McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                       v6,
-                       v5,
-                       v7,
-                       0,
-                       2,
-                       -1,
-                       (__int64)L"this->GetNumElements() == 0",
-                       394LL,
-                       0LL,
-                       0LL,
-                       0LL,
-                       0LL);
-    }
+    v6 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v6 + 24) = 394LL;
+    return (_QWORD *)WdLogEvent5_WdAssertion(v6);
   }
-  return (char)v3;
+  return result;
 }

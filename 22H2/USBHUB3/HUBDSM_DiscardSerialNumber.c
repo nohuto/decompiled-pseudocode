@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_DiscardSerialNumber @ 0x1C0023270
+ * XREFs of HUBDSM_DiscardSerialNumber @ 0x1C0020C70
  * Callers:
  *     <none>
  * Callees:

@@ -1,18 +1,12 @@
 /*
- * XREFs of ?NtUserfnHkINLPCBTACTIVATESTRUCT@@YA_JK_KPEAUtagCBTACTIVATESTRUCT@@@Z @ 0x1C01CC1B0
+ * XREFs of ?NtUserfnHkINLPCBTACTIVATESTRUCT@@YA_JK_KPEAUtagCBTACTIVATESTRUCT@@@Z @ 0x1C01F5CB0
  * Callers:
- *     NtUserCallNextHookEx @ 0x1C0154060 (NtUserCallNextHookEx.c)
+ *     NtUserCallNextHookEx @ 0x1C0150DB0 (NtUserCallNextHookEx.c)
  * Callees:
- *     xxxCallNextHookEx @ 0x1C000A1E4 (xxxCallNextHookEx.c)
+ *     xxxCallNextHookEx @ 0x1C0020274 (xxxCallNextHookEx.c)
  */
 
-__int64 __fastcall NtUserfnHkINLPCBTACTIVATESTRUCT(int a1, unsigned __int64 a2, struct tagCBTACTIVATESTRUCT *a3)
+__int64 __fastcall NtUserfnHkINLPCBTACTIVATESTRUCT(__int64 a1, __int64 a2, struct tagCBTACTIVATESTRUCT *a3)
 {
-  __int128 v4; // [rsp+28h] [rbp-20h] BYREF
-
-  v4 = 0LL;
-  if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-    a3 = (struct tagCBTACTIVATESTRUCT *)MmUserProbeAddress;
-  v4 = *(_OWORD *)a3;
-  return xxxCallNextHookEx(a1, a2, (__int64)&v4);
+  return xxxCallNextHookEx();
 }

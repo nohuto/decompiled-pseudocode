@@ -1,402 +1,440 @@
 /*
- * XREFs of KiInitializeKernel @ 0x140A8C770
+ * XREFs of KiInitializeKernel @ 0x14099CCF0
  * Callers:
- *     KiSystemStartup @ 0x140A87010 (KiSystemStartup.c)
+ *     KiSystemStartup @ 0x14098F010 (KiSystemStartup.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KeCompactServiceTable @ 0x14034B874 (KeCompactServiceTable.c)
- *     KeGetXSaveFeatureFlags @ 0x140381860 (KeGetXSaveFeatureFlags.c)
- *     KiSetHardwareSpeculationControlFeatures @ 0x1403818AC (KiSetHardwareSpeculationControlFeatures.c)
- *     KiStartPrcbThreads @ 0x140382F00 (KiStartPrcbThreads.c)
- *     HvlEnlightenProcessor @ 0x140382F20 (HvlEnlightenProcessor.c)
- *     KiStartIdleThread @ 0x140382F64 (KiStartIdleThread.c)
- *     HviGetHypervisorFeatures @ 0x140383390 (HviGetHypervisorFeatures.c)
- *     KiConfigureInitialNodes @ 0x1403A8410 (KiConfigureInitialNodes.c)
- *     KiInitializeAndStartInitialThread @ 0x1403B32BC (KiInitializeAndStartInitialThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheck @ 0x14041E370 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiSetUserTbFlushPending @ 0x14041FAA0 (KiSetUserTbFlushPending.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiFatalFilter @ 0x14056CCF0 (KiFatalFilter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KeGetTopologyIdForProcessor @ 0x140570828 (KeGetTopologyIdForProcessor.c)
- *     HvlPhase0Initialize @ 0x1408273D8 (HvlPhase0Initialize.c)
- *     KiDetectFpuLeakage @ 0x140A872D0 (KiDetectFpuLeakage.c)
- *     KiConfigureProcessorBlock @ 0x140A89404 (KiConfigureProcessorBlock.c)
- *     HalpInitSystemPhase1 @ 0x140A8C31C (HalpInitSystemPhase1.c)
- *     KiEnableXSave @ 0x140A8CE10 (KiEnableXSave.c)
- *     KiSetCacheInformation @ 0x140A8CEC0 (KiSetCacheInformation.c)
- *     KiSetPageAttributesTable @ 0x140A8D010 (KiSetPageAttributesTable.c)
- *     KiCheckMicrocode @ 0x140A8D114 (KiCheckMicrocode.c)
- *     PoInitializePrcb @ 0x140A8D210 (PoInitializePrcb.c)
- *     KiCompleteKernelInit @ 0x140A8D340 (KiCompleteKernelInit.c)
- *     KiInitializeTopologyStructures @ 0x140A8D958 (KiInitializeTopologyStructures.c)
- *     KeInitializeClockOtherProcessors @ 0x140A9195C (KeInitializeClockOtherProcessors.c)
- *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
- *     KiInitSystem @ 0x140B622D4 (KiInitSystem.c)
- *     KiIsKernelCfgActive @ 0x140B76EA8 (KiIsKernelCfgActive.c)
- *     RtlInitKernelModeSpecialMachineFrameEntries @ 0x140B97BDC (RtlInitKernelModeSpecialMachineFrameEntries.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x140344490 (KeCountSetBitsAffinityEx.c)
+ *     KeCompactServiceTable @ 0x14039EA34 (KeCompactServiceTable.c)
+ *     HvlEnlightenProcessor @ 0x1403A7298 (HvlEnlightenProcessor.c)
+ *     KiSetHardwareSpeculationControlFeatures @ 0x1403A89F0 (KiSetHardwareSpeculationControlFeatures.c)
+ *     HviGetHypervisorFeatures @ 0x1403A9020 (HviGetHypervisorFeatures.c)
+ *     KeGetXSaveFeatureFlags @ 0x1403A9140 (KeGetXSaveFeatureFlags.c)
+ *     KiConfigureInitialNodes @ 0x1403B53DC (KiConfigureInitialNodes.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheck @ 0x1403FD550 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KiSetUserTbFlushPending @ 0x1403FEB70 (KiSetUserTbFlushPending.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KiFatalFilter @ 0x140514A70 (KiFatalFilter.c)
+ *     KeInitializeProcess @ 0x140703B8C (KeInitializeProcess.c)
+ *     HvlPhase0Initialize @ 0x140791B8C (HvlPhase0Initialize.c)
+ *     KiDetectFpuLeakage @ 0x14098F2A0 (KiDetectFpuLeakage.c)
+ *     KiSetPageAttributesTable @ 0x14099965C (KiSetPageAttributesTable.c)
+ *     KiCheckMicrocode @ 0x14099B0F0 (KiCheckMicrocode.c)
+ *     KiEnableXSave @ 0x14099B1F4 (KiEnableXSave.c)
+ *     HalpInitSystemPhase1 @ 0x14099B94C (HalpInitSystemPhase1.c)
+ *     KiCompleteKernelInit @ 0x14099D610 (KiCompleteKernelInit.c)
+ *     KiInitializeIdleThread @ 0x14099D954 (KiInitializeIdleThread.c)
+ *     KiSetControlEnforcement @ 0x14099DB00 (KiSetControlEnforcement.c)
+ *     PoInitializePrcb @ 0x14099DBB0 (PoInitializePrcb.c)
+ *     KiSetCacheInformation @ 0x14099DC6C (KiSetCacheInformation.c)
+ *     KiConfigureProcessorBlock @ 0x14099F28C (KiConfigureProcessorBlock.c)
+ *     InitBootProcessor @ 0x140A39F24 (InitBootProcessor.c)
+ *     KiInitSystem @ 0x140A679D0 (KiInitSystem.c)
  */
 
-__int64 __fastcall KiInitializeKernel(__int64 a1, __int64 a2, __int64 a3, ULONG_PTR a4, unsigned int a5, __int64 a6)
+__int64 __fastcall KiInitializeKernel(__int64 a1, __int64 a2, __int64 a3, ULONG_PTR a4, int a5, __int64 a6)
 {
-  ULONG_PTR v7; // rdi
-  char v8; // al
-  int v9; // r13d
+  unsigned int v7; // r13d
+  ULONG_PTR v8; // rbx
+  ULONG_PTR v9; // r11
+  unsigned int *v10; // r12
+  int v11; // eax
+  unsigned int v12; // ebx
+  int v13; // r9d
+  int v14; // ecx
+  int v15; // r10d
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  int v18; // r8d
+  ULONG_PTR v19; // r15
+  char v20; // al
+  ULONG_PTR v21; // rax
+  unsigned int v22; // eax
+  unsigned int v23; // eax
+  int v24; // r15d
+  ULONG_PTR v25; // rbx
   char XSaveFeatureFlags; // al
-  char v16; // cl
-  ULONG_PTR v22; // r8
-  __int64 v23; // rdx
-  __int64 v24; // rdx
-  __int64 v25; // rbx
+  ULONG_PTR v27; // rbx
+  ULONG_PTR v28; // r8
+  __int64 v29; // r15
+  __int64 v30; // rdi
+  __int64 v31; // rbx
   __int64 result; // rax
-  int v27; // eax
-  unsigned __int64 v28; // rax
-  unsigned __int64 v29; // rax
-  unsigned __int64 v30; // rax
-  int v31; // eax
-  unsigned __int64 v32; // rax
-  unsigned __int64 v33; // rax
-  unsigned __int64 v34; // rcx
-  unsigned __int64 v35; // rax
-  unsigned __int64 v36; // rcx
+  int v33; // eax
+  unsigned __int64 v34; // rax
+  ULONG_PTR v35; // rbx
+  unsigned __int64 v36; // rax
   unsigned __int64 v37; // rax
-  unsigned __int64 v38; // rax
-  unsigned __int8 v39; // al
-  struct _KPRCB *v40; // rcx
-  _DWORD *v41; // rdx
-  bool v42; // zf
-  __int64 v43; // r9
-  __int64 v44; // rbx
-  unsigned __int64 v45; // r11
-  int TopologyIdForProcessor; // eax
-  __int64 v47; // rcx
-  int v48; // r10d
-  unsigned __int8 CurrentIrql; // al
+  int v38; // eax
+  unsigned __int64 v39; // rax
+  unsigned __int64 v40; // rax
+  unsigned __int64 v41; // rcx
+  unsigned __int64 v42; // rax
+  unsigned __int64 v43; // rcx
+  unsigned __int64 v44; // rax
+  struct _KPRCB *v45; // rcx
+  _DWORD *v46; // rdx
+  bool v47; // zf
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *SchedulerAssist; // rdx
-  __int64 v52; // [rsp+30h] [rbp-2A8h] BYREF
-  __int64 v53; // [rsp+38h] [rbp-2A0h]
-  __int64 v54; // [rsp+40h] [rbp-298h]
-  __int64 v55; // [rsp+48h] [rbp-290h]
-  __int64 v56; // [rsp+50h] [rbp-288h]
-  ULONG_PTR v57; // [rsp+58h] [rbp-280h]
-  __int64 v58; // [rsp+60h] [rbp-278h]
-  int v59; // [rsp+68h] [rbp-270h]
-  int v60; // [rsp+6Ch] [rbp-26Ch]
-  int v61; // [rsp+70h] [rbp-268h]
-  int v62; // [rsp+74h] [rbp-264h]
-  __int128 v63; // [rsp+78h] [rbp-260h] BYREF
-  _DWORD v64[128]; // [rsp+90h] [rbp-248h] BYREF
+  char v50; // [rsp+30h] [rbp-2D8h]
+  char v51; // [rsp+31h] [rbp-2D7h]
+  ULONG_PTR BugCheckParameter1; // [rsp+38h] [rbp-2D0h] BYREF
+  int v53; // [rsp+40h] [rbp-2C8h]
+  int v54; // [rsp+44h] [rbp-2C4h]
+  ULONG_PTR v55; // [rsp+48h] [rbp-2C0h]
+  unsigned int v56; // [rsp+50h] [rbp-2B8h]
+  int v57; // [rsp+54h] [rbp-2B4h]
+  int v58; // [rsp+58h] [rbp-2B0h]
+  int v59; // [rsp+5Ch] [rbp-2ACh]
+  __int64 v60; // [rsp+60h] [rbp-2A8h]
+  __int64 v61; // [rsp+68h] [rbp-2A0h]
+  __int64 v62; // [rsp+70h] [rbp-298h]
+  __int128 v63; // [rsp+78h] [rbp-290h] BYREF
+  ULONG_PTR v64; // [rsp+88h] [rbp-280h]
+  __int64 v65; // [rsp+90h] [rbp-278h]
+  __int64 v66; // [rsp+98h] [rbp-270h]
+  __int64 v67; // [rsp+A0h] [rbp-268h]
+  ULONG_PTR v68; // [rsp+A8h] [rbp-260h]
+  __int64 v69; // [rsp+B0h] [rbp-258h]
+  __int128 v70; // [rsp+B8h] [rbp-250h] BYREF
+  _DWORD v71[128]; // [rsp+D0h] [rbp-238h] BYREF
 
-  v52 = a3;
-  v53 = a2;
-  v55 = a1;
-  v56 = a2;
-  v57 = a4;
-  v54 = a6;
-  v58 = a6;
+  v65 = a3;
+  v66 = a2;
+  v61 = a1;
+  v67 = a2;
+  v68 = a4;
+  v62 = a6;
+  v69 = a6;
   v63 = 0LL;
+  v70 = 0LL;
+  v7 = a5;
   if ( !a5 )
   {
     HvlPhase0Initialize(a6);
     if ( KiSystemCallSelector == 1 && (HvlEnlightenments & 0x80000) != 0 )
-      *(_DWORD *)(MmWriteableSharedUserData + 776) = 1;
+      MEMORY[0xFFFFF78000000308] = 1;
   }
-  v7 = *(_QWORD *)(a4 + 35232);
-  v8 = *(_BYTE *)(a4 + 141);
-  if ( v8 == 2 || ((v8 - 1) & 0xFD) == 0 )
-    KiSetHardwareSpeculationControlFeatures(a4, *(_QWORD *)(a4 + 35232));
-  KiCheckMicrocode(a4, a2);
-  memset(v64, 0, sizeof(v64));
-  _fxsave(v64);
+  v8 = *(_QWORD *)(a4 + 34208);
+  BugCheckParameter1 = v8;
+  if ( (unsigned __int8)(*(_BYTE *)(a4 + 141) - 1) <= 2u )
+    KiSetHardwareSpeculationControlFeatures(a4, v8);
+  KiCheckMicrocode(a4);
+  memset(v71, 0, sizeof(v71));
+  _fxsave(v71);
   if ( a5 )
   {
     if ( KiFpuLeakage )
-      v7 |= 0x20000000000uLL;
+      BugCheckParameter1 = v8 | 0x20000000000LL;
     KiSetPageAttributesTable();
-    KiInitializeTopologyStructures(a4);
-    v9 = 65471;
+    *(_DWORD *)(a4 + 33680) = 1310721;
+    *(_DWORD *)(a4 + 33684) = 0;
+    memset((void *)(a4 + 33688), 0, 0xA0uLL);
+    KeAddProcessorAffinityEx((_WORD *)(a4 + 33680), a5);
+    v9 = a4;
+    v55 = a4;
+    v10 = (unsigned int *)(a4 + 156);
+    if ( *(_QWORD *)(a4 + 152) == 0x100000001LL )
+    {
+      *(_QWORD *)(a4 + 33880) = *(_QWORD *)(a4 + 200);
+      *(_DWORD *)(a4 + 33848) = *(_DWORD *)(a4 + 212);
+    }
+    else
+    {
+      v11 = *v10;
+      v12 = *v10 * *(_DWORD *)(a4 + 152);
+      v56 = v12;
+      v13 = ~(v12 - 1);
+      v57 = v13;
+      v14 = *(_DWORD *)(a4 + 212);
+      v15 = v13 & v14;
+      v58 = v13 & v14;
+      *(_DWORD *)(a4 + 33848) = v13 & v14;
+      v59 = ~(v11 - 1);
+      v53 = v59 & v14;
+      v16 = *(_QWORD *)(a4 + 200);
+      v60 = v16;
+      v50 = 0;
+      v17 = 0LL;
+      v54 = 0;
+      if ( (_DWORD)KeNumberProcessors_0 )
+      {
+        v18 = v53;
+        do
+        {
+          v64 = v9;
+          v51 = v50;
+          v19 = KiProcessorBlock[v17];
+          if ( (*(_DWORD *)(v19 + 212) & v13) == v15 )
+          {
+            KeAddProcessorAffinityEx((_WORD *)(a4 + 33680), v17);
+            KeAddProcessorAffinityEx((_WORD *)(v19 + 33680), a5);
+            v20 = v50;
+            if ( !v50 )
+              v20 = 1;
+            v50 = v20;
+            v21 = v19;
+            if ( v51 )
+              v21 = v64;
+            v55 = v21;
+            v22 = KeCountSetBitsAffinityEx((unsigned __int16 *)(v19 + 33680));
+            v12 = v56;
+            if ( v22 > v56 )
+              KeBugCheckEx(0x3Eu, v19, v22, *(unsigned int *)(v19 + 152), *(unsigned int *)(v19 + 156));
+            LODWORD(v17) = v54;
+            v16 = v60;
+            v18 = v53;
+            v13 = v57;
+            v15 = v58;
+            v9 = v55;
+          }
+          if ( (*(_DWORD *)(v19 + 212) & v59) == v18 && *(_QWORD *)(v19 + 192) == *(_QWORD *)(a4 + 192) )
+          {
+            v16 |= *(_QWORD *)(v19 + 200);
+            v60 = v16;
+            *(_QWORD *)(v19 + 33880) |= v16;
+          }
+          v17 = (unsigned int)(v17 + 1);
+          v54 = v17;
+        }
+        while ( (unsigned int)v17 < (unsigned int)KeNumberProcessors_0 );
+      }
+      v23 = KeCountSetBitsAffinityEx((unsigned __int16 *)(a4 + 33680));
+      if ( v23 > v12 )
+        KeBugCheckEx(0x3Eu, a4, v23, *(unsigned int *)(a4 + 152), *v10);
+      *(_QWORD *)(a4 + 33880) = v60;
+    }
+    v7 = a5;
+    v24 = 65471;
   }
   else
   {
     KiDetectFpuLeakage();
-    KiFpuLeakage = v27;
-    if ( v27 )
-      v7 |= 0x20000000000uLL;
+    KiFpuLeakage = v33;
+    if ( v33 )
+      v8 |= 0x20000000000uLL;
     if ( KiFlushPcid )
     {
-      v28 = __readcr3();
-      __writecr3(v28);
+      v34 = __readcr3();
+      __writecr3(v34);
       if ( !KeGetCurrentThread()->ApcState.Process->AddressPolicy )
         KiSetUserTbFlushPending();
     }
     else
     {
-      v34 = __readcr4();
-      if ( (v34 & 0x20080) != 0 )
+      v41 = __readcr4();
+      if ( (v41 & 0x20080) != 0 )
       {
-        __writecr4(v34 ^ 0x80);
-        __writecr4(v34);
+        __writecr4(v41 ^ 0x80);
+        __writecr4(v41);
       }
       else
       {
-        v35 = __readcr3();
-        __writecr3(v35);
+        v42 = __readcr3();
+        __writecr3(v42);
       }
     }
     KiSetPageAttributesTable();
     if ( MEMORY[0xFFFFF78000000280] )
-      v7 |= 0x80000000uLL;
+      v35 = v8 | 0x80000000;
     else
-      v7 = v7 & 0xFFFFFFFF3FFFFFFFuLL | 0x40000000;
-    v29 = __readcr4();
-    __writecr4(v29 | 0x18);
+      v35 = v8 & 0xFFFFFFFF3FFFFFFFuLL | 0x40000000;
+    BugCheckParameter1 = v35;
+    v36 = __readcr4();
+    __writecr4(v36 | 0x18);
     if ( KiFlushPcid )
     {
-      v30 = __readcr3();
-      __writecr3(v30);
+      v37 = __readcr3();
+      __writecr3(v37);
       if ( !KeGetCurrentThread()->ApcState.Process->AddressPolicy )
         KiSetUserTbFlushPending();
     }
     else
     {
-      v36 = __readcr4();
-      if ( (v36 & 0x20080) != 0 )
+      v43 = __readcr4();
+      if ( (v43 & 0x20080) != 0 )
       {
-        __writecr4(v36 ^ 0x80);
-        __writecr4(v36);
+        __writecr4(v43 ^ 0x80);
+        __writecr4(v43);
       }
       else
       {
-        v37 = __readcr3();
-        __writecr3(v37);
+        v44 = __readcr3();
+        __writecr3(v44);
       }
     }
     KiConfigureInitialNodes(a4);
     KiConfigureProcessorBlock(a4);
-    KiInitializeTopologyStructures(a4);
-    v9 = 65471;
-    v31 = 65471;
-    if ( v64[7] )
-      v31 = v64[7];
-    KiMxCsrMask = v31;
+    v10 = (unsigned int *)(a4 + 156);
+    *(_DWORD *)(a4 + 33848) = -(*(_DWORD *)(a4 + 152) * *(_DWORD *)(a4 + 156)) & *(_DWORD *)(a4 + 212);
+    *(_DWORD *)(a4 + 33680) = 1310721;
+    *(_DWORD *)(a4 + 33684) = 0;
+    memset((void *)(a4 + 33688), 0, 0xA0uLL);
+    KeAddProcessorAffinityEx((_WORD *)(a4 + 33680), 0);
+    *(_QWORD *)(a4 + 33880) = *(_QWORD *)(a4 + 200);
+    v55 = a4;
+    v24 = 65471;
+    v38 = 65471;
+    if ( v71[7] )
+      v38 = v71[7];
+    KiMxCsrMask = v38;
     KeCompactServiceTable(
       (ULONG_PTR)KiServiceTable,
-      (unsigned __int8 *)&KiArgumentTable,
+      (unsigned __int8 *)KiArgumentTable,
       KiServiceLimit,
       0LL,
       0x40000000);
   }
   KiSetCacheInformation();
   PoInitializePrcb((PVOID)a4);
-  *(_QWORD *)(a4 + 34968) = 0LL;
-  *(_QWORD *)(a4 + 34976) = a4 + 34976;
+  *(_QWORD *)(a4 + 33944) = 0LL;
+  *(_QWORD *)(a4 + 33952) = a4 + 33952;
   if ( MEMORY[0xFFFFF780000003D8] )
   {
+    v25 = BugCheckParameter1 | 0x800000;
+    BugCheckParameter1 |= 0x800000uLL;
     XSaveFeatureFlags = KeGetXSaveFeatureFlags();
-    v7 |= (XSaveFeatureFlags & 8 | 0x800LL) << 12;
-    if ( (XSaveFeatureFlags & 0x10) != 0 )
-      v7 |= 0x4000000000uLL;
-    if ( (XSaveFeatureFlags & 0x40) != 0 )
-      v7 |= 0x80000000000000uLL;
-  }
-  _RAX = 0LL;
-  __asm { cpuid }
-  v59 = _RAX;
-  v60 = _RBX;
-  v61 = _RCX;
-  v62 = _RDX;
-  v16 = *(_BYTE *)(a4 + 141);
-  if ( (v16 == 2 || v16 == 1) && (unsigned int)_RAX >= 7 )
-  {
-    _RAX = 7LL;
-    __asm { cpuid }
-    v59 = _RAX;
-    v60 = _RBX;
-    v61 = _RCX;
-    v62 = _RDX;
-    if ( (_RCX & 0x80u) != 0LL )
-      KiCetCapable = 1;
-  }
-  if ( KiCetCapable )
-  {
-    if ( (_bittest64(&KeEnabledSupervisorXStateFeatures, 0xBu) & ((v7 & 0x800000) != 0)) != 0 )
+    if ( (XSaveFeatureFlags & 8) != 0 )
     {
-      v7 |= 0x400000000000uLL;
-      *(_QWORD *)(a4 + 35232) |= 0x400000000000uLL;
-      v38 = __readcr4();
-      __writecr4(v38 | 0x800000);
-      KiUserCetAllowed = 1;
-      if ( !*(_DWORD *)(a4 + 36) && *(_BYTE *)(a4 + 141) == 1 && *(_BYTE *)(a4 + 64) == 25 )
-        KiUserCetPl3SspCanonicalizeUpperMask = 0x7FFF;
+      v25 |= 0x8000uLL;
+      BugCheckParameter1 = v25;
     }
+    if ( (XSaveFeatureFlags & 0x10) != 0 )
+      BugCheckParameter1 = v25 | 0x4000000000LL;
   }
-  if ( a5 )
+  KiSetControlEnforcement(a4, &BugCheckParameter1);
+  v27 = BugCheckParameter1;
+  if ( v7 )
   {
-    if ( v64[7] )
-      v9 = v64[7];
-    v22 = KeFeatureBits & 0xFFFFFFFF37FFFFFFuLL | 0x8000000;
-    if ( (v7 & 0x8000000) == 0 )
-      v22 = KeFeatureBits & 0xFFFFFFFF37FFFFFFuLL;
+    if ( v71[7] )
+      v24 = v71[7];
+    v28 = KeFeatureBits & 0xFFFFFFFF37FFFFFFuLL | 0x8000000;
+    if ( (BugCheckParameter1 & 0x8000000) == 0 )
+      v28 = KeFeatureBits & 0xFFFFFFFF37FFFFFFuLL;
     if ( *(_BYTE *)(a4 + 141) == 2 && *(_BYTE *)(a4 + 64) == 6 && *(_BYTE *)(a4 + 67) == 23 && *(_BYTE *)(a4 + 66) == 10 )
     {
-      KeGetTopologyIdForProcessor(a4, 4);
-      v44 = 0LL;
-      if ( (_DWORD)KeNumberProcessors_0 )
+      v27 = BugCheckParameter1 & 0xFFFFFFFFFFEFFFFFuLL;
+      BugCheckParameter1 &= ~0x100000uLL;
+      if ( (*(_DWORD *)(v55 + 34208) & 0x100000) != 0 )
       {
-        v45 = 0x140000000uLL;
-        while ( 1 )
-        {
-          TopologyIdForProcessor = KeGetTopologyIdForProcessor(*(_QWORD *)(v45 + 8 * v44 + 13764992), 4);
-          if ( v48 == TopologyIdForProcessor )
-            break;
-          v44 = (unsigned int)(v44 + 1);
-          if ( (unsigned int)v44 >= (unsigned int)KeNumberProcessors_0 )
-            goto LABEL_127;
-        }
-        v43 = v47;
+        v27 |= 0x100000uLL;
+        BugCheckParameter1 = v27;
       }
-LABEL_127:
-      v7 &= ~0x100000uLL;
-      if ( (*(_DWORD *)(v43 + 35232) & 0x100000) != 0 )
-        v7 |= 0x100000uLL;
     }
-    if ( v7 != v22
-      || v9 != KiMxCsrMask
+    if ( v27 != v28
+      || v24 != KiMxCsrMask
       || *(_DWORD *)(KiProcessorBlock[0] + 232) != *(_DWORD *)(a4 + 232)
-      || *(_DWORD *)(KiProcessorBlock[0] + 160) != *(_DWORD *)(a4 + 160)
-      || *(_DWORD *)(KiProcessorBlock[0] + 164) != *(_DWORD *)(a4 + 164) )
+      || *(_DWORD *)(KiProcessorBlock[0] + 152) != *(_DWORD *)(a4 + 152)
+      || *(_DWORD *)(KiProcessorBlock[0] + 156) != *v10 )
     {
-      KeBugCheckEx(0x3Eu, v7, v22, 0LL, 0LL);
+      KeBugCheckEx(0x3Eu, v27, v28, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
-      {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v42 = (SchedulerAssist[5] & 0xFFFF0007) == 0;
-        SchedulerAssist[5] &= 0xFFFF0007;
-        if ( v42 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-      }
+      CurrentPrcb = KeGetCurrentPrcb();
+      SchedulerAssist = CurrentPrcb->SchedulerAssist;
+      v47 = (SchedulerAssist[5] & 0xFFFF0007) == 0;
+      SchedulerAssist[5] &= 0xFFFF0007;
+      if ( v47 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v27 = BugCheckParameter1;
     }
     __writecr8(2uLL);
     HvlEnlightenProcessor(0);
+    v29 = v61;
   }
   else
   {
     KeProcessorArchitecture = 9;
     KeProcessorLevel = *(char *)(a4 + 64);
     KeProcessorRevision = *(_WORD *)(a4 + 66);
-    KeFeatureBits = v7;
-    if ( KiIrqlFlags )
+    KeFeatureBits = BugCheckParameter1;
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
     {
-      v39 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v39 - 2) <= 0xDu )
-      {
-        v40 = KeGetCurrentPrcb();
-        v41 = v40->SchedulerAssist;
-        v42 = (v41[5] & 0xFFFF0003) == 0;
-        v41[5] &= 0xFFFF0003;
-        if ( v42 )
-          KiRemoveSystemWorkPriorityKick((__int64)v40);
-      }
+      v45 = KeGetCurrentPrcb();
+      v46 = v45->SchedulerAssist;
+      v47 = (v46[5] & 0xFFFF0003) == 0;
+      v46[5] &= 0xFFFF0003;
+      if ( v47 )
+        KiRemoveSystemWorkPriorityKick((__int64)v45);
+      v27 = BugCheckParameter1;
     }
     __writecr8(1uLL);
     KiFreezeExecutionLock = 0LL;
-    KiInitSystem(v55);
-    v32 = __rdtsc();
-    KiWaitNever = __ROR8__(v32 ^ __ROL8__(v32, 43), v32 & 0xF);
-    v33 = __rdtsc();
-    KiWaitAlways = __ROL8__(__ROR8__(v33, 47) ^ v33, v33 & 0xF);
-    HviGetHypervisorFeatures(&v63);
-    if ( (WORD6(v63) & 0x1000) != 0 )
+    KiInitSystem();
+    qword_140C31C78 = (__int64)&KiProcessListHead;
+    KiProcessListHead = (__int64)&KiProcessListHead;
+    *((_QWORD *)&v63 + 1) = (unsigned __int16)((unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6);
+    *(_QWORD *)&v63 = 1LL << (KiProcessorIndexToNumberMappingTable[0] & 0x3F);
+    v29 = v61;
+    KeInitializeProcess(v61, 0, (__int64 *)&v63, 0LL, 0LL, 1);
+    *(_BYTE *)(v29 + 641) = 127;
+    v39 = __rdtsc();
+    KiWaitNever = __ROR8__(v39 ^ __ROL8__(v39, 43), v39 & 0xF);
+    v40 = __rdtsc();
+    KiWaitAlways = __ROL8__(__ROR8__(v40, 47) ^ v40, v40 & 0xF);
+    HviGetHypervisorFeatures(&v70);
+    if ( (WORD6(v70) & 0x1000) != 0 )
       KiNPIEPEnabled = 1;
-    if ( (unsigned int)KiIsKernelCfgActive() )
-      RtlInitKernelModeSpecialMachineFrameEntries();
   }
   if ( KiNPIEPEnabled )
-  {
-    v23 = 0LL;
     __writemsr(0x40000040u, 0xFuLL);
-  }
-  KiEnableXSave(0LL, v23);
-  v24 = MmWriteableSharedUserData;
-  *(_QWORD *)(MmWriteableSharedUserData + 760) = 195LL;
-  *(_WORD *)(v24 + 630) = 257;
-  *(_BYTE *)(v24 + 634) = 1;
-  *(_WORD *)(v24 + 636) = 257;
-  *(_BYTE *)(v24 + 638) = 1;
-  *(_BYTE *)(v24 + 642) = 1;
-  if ( (v7 & 0x80000) != 0 )
-    *(_BYTE *)(v24 + 641) = 1;
-  if ( (v7 & 0x4000) != 0 )
-    *(_BYTE *)(v24 + 635) = 1;
-  if ( (v7 & 0x800000) != 0 )
-    *(_BYTE *)(v24 + 645) = 1;
-  if ( (v7 & 0x10000000) != 0 )
-    *(_BYTE *)(v24 + 650) = 1;
-  if ( (v7 & 0x4000000) != 0 )
-    *(_BYTE *)(v24 + 648) = 1;
-  if ( (v7 & 0x8000000) != 0 )
-    *(_BYTE *)(v24 + 649) = 1;
-  if ( (v7 & 0x100000000LL) != 0 )
-    *(_BYTE *)(v24 + 656) = 1;
-  if ( (v7 & 0x400000000LL) != 0 )
-    *(_BYTE *)(v24 + 660) = 1;
-  if ( (v7 & 0x800000000000LL) != 0 )
-    *(_BYTE *)(v24 + 664) = 1;
-  if ( (v7 & 0x1000000000000LL) != 0 )
-    *(_BYTE *)(v24 + 665) = 1;
-  if ( (v7 & 0x2000000000000LL) != 0 )
-    *(_BYTE *)(v24 + 666) = 1;
-  if ( (MEMORY[0xFFFFF780000003D8] & 4) != 0 && (v7 & 0x4000000000000LL) != 0 )
-    *(_BYTE *)(v24 + 667) = 1;
-  if ( (MEMORY[0xFFFFF780000003D8] & 4) != 0 && (v7 & 0x8000000000000LL) != 0 )
-    *(_BYTE *)(v24 + 668) = 1;
-  if ( (v7 & 0x10000000000000LL) != 0 && (MEMORY[0xFFFFF780000003D8] & 0xE0) != 0 )
-    *(_BYTE *)(v24 + 669) = 1;
-  if ( (v7 & 0x40000000000000LL) != 0 )
-    *(_BYTE *)(v24 + 670) = 1;
-  *(_BYTE *)(v24 + 749) = KiVirtFlags;
-  if ( a5 )
+  KiEnableXSave();
+  MEMORY[0xFFFFF780000002F8] = 195LL;
+  MEMORY[0xFFFFF78000000276] = 1;
+  MEMORY[0xFFFFF78000000277] = 1;
+  MEMORY[0xFFFFF7800000027A] = 1;
+  MEMORY[0xFFFFF7800000027C] = 1;
+  MEMORY[0xFFFFF7800000027D] = 1;
+  MEMORY[0xFFFFF7800000027E] = 1;
+  MEMORY[0xFFFFF78000000282] = 1;
+  if ( (v27 & 0x80000) != 0 )
+    MEMORY[0xFFFFF78000000281] = 1;
+  if ( (v27 & 0x4000) != 0 )
+    MEMORY[0xFFFFF7800000027B] = 1;
+  if ( (v27 & 0x800000) != 0 )
+    MEMORY[0xFFFFF78000000285] = 1;
+  if ( (v27 & 0x10000000) != 0 )
+    MEMORY[0xFFFFF7800000028A] = 1;
+  if ( (v27 & 0x4000000) != 0 )
+    MEMORY[0xFFFFF78000000288] = 1;
+  if ( (v27 & 0x8000000) != 0 )
+    MEMORY[0xFFFFF78000000289] = 1;
+  if ( (v27 & 0x100000000LL) != 0 )
+    MEMORY[0xFFFFF78000000290] = 1;
+  if ( (v27 & 0x400000000LL) != 0 )
+    MEMORY[0xFFFFF78000000294] = 1;
+  if ( (v27 & 0x800000000000LL) != 0 )
+    MEMORY[0xFFFFF78000000298] = 1;
+  if ( (v27 & 0x1000000000000LL) != 0 )
+    MEMORY[0xFFFFF78000000299] = 1;
+  if ( (v27 & 0x2000000000000LL) != 0 )
+    MEMORY[0xFFFFF7800000029A] = 1;
+  if ( (MEMORY[0xFFFFF780000003D8] & 4) != 0 && (v27 & 0x4000000000000LL) != 0 )
+    MEMORY[0xFFFFF7800000029B] = 1;
+  if ( (MEMORY[0xFFFFF780000003D8] & 4) != 0 && (v27 & 0x8000000000000LL) != 0 )
+    MEMORY[0xFFFFF7800000029C] = 1;
+  if ( (v27 & 0x10000000000000LL) != 0 && (MEMORY[0xFFFFF780000003D8] & 0xE0) != 0 )
+    MEMORY[0xFFFFF7800000029D] = 1;
+  MEMORY[0xFFFFF780000002ED] = KiVirtFlags;
+  v30 = v66;
+  KiInitializeIdleThread(v66, v65, v29, a4);
+  if ( v7 )
   {
-    KiStartIdleThread(v53, a4, v52);
-    v25 = v54;
-  }
-  else
-  {
-    v25 = v54;
-    KiInitializeAndStartInitialThread(v53, v52, a4, v54);
-  }
-  if ( a5 )
-  {
-    KiStartPrcbThreads(a4);
-    if ( !HalpInitSystemPhase1(0LL) )
+    if ( !HalpInitSystemPhase1() )
       KeBugCheck(0x5Cu);
+    v31 = v62;
   }
   else
   {
-    InitBootProcessor(v25);
+    v31 = v62;
+    InitBootProcessor(v62);
   }
-  KiCompleteKernelInit(a4, v53, a5);
-  *(_QWORD *)(v25 + 136) = 0LL;
-  LODWORD(v52) = 0;
-  while ( 1 )
-  {
-    result = (unsigned int)KiBarrierWait;
-    if ( !KiBarrierWait )
-      break;
-    KeYieldProcessorEx(&v52);
-  }
-  if ( KiClockTimerPerCpuTickScheduling )
-  {
-    if ( a5 )
-      return KeInitializeClockOtherProcessors(a4);
-  }
+  result = KiCompleteKernelInit(a4, v30, v7);
+  *(_QWORD *)(v31 + 136) = 0LL;
   return result;
 }

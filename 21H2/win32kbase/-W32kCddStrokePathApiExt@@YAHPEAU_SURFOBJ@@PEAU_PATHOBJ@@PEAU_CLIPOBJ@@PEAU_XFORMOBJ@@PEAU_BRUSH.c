@@ -1,10 +1,10 @@
 /*
- * XREFs of ?W32kCddStrokePathApiExt@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z @ 0x1C00CF0C0
+ * XREFs of ?W32kCddStrokePathApiExt@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z @ 0x1C00BE7F0
  * Callers:
  *     <none>
  * Callees:
- *     W32kCddStrokePath @ 0x1C00CF174 (W32kCddStrokePath.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     W32kCddStrokePath @ 0x1C00BE8AC (W32kCddStrokePath.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall W32kCddStrokePathApiExt(
@@ -23,13 +23,18 @@ __int64 __fastcall W32kCddStrokePathApiExt(
   int v11; // esi
   int v12; // ebp
   int v13; // r14d
+  int v14; // eax
 
   v9 = 0;
   v10 = (int)a4;
   v11 = (int)a3;
   v12 = (int)a2;
   v13 = (int)a1;
-  if ( qword_1C029AFA0 && (int)qword_1C029AFA0() >= 0 )
+  if ( qword_1C0256220 )
+    v14 = qword_1C0256220();
+  else
+    v14 = -1073741637;
+  if ( v14 >= 0 )
     return (unsigned int)W32kCddStrokePath(v13, v12, v11, v10, (__int64)a5, (__int64)a6, (__int64)a7, a8, (__int64)a9);
   return v9;
 }

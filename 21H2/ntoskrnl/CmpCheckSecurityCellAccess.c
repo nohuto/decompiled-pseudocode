@@ -1,42 +1,29 @@
 /*
- * XREFs of CmpCheckSecurityCellAccess @ 0x1406B50AC
+ * XREFs of CmpCheckSecurityCellAccess @ 0x1406A5C2C
  * Callers:
- *     CmpValidateHiveSecurityDescriptors @ 0x140715FA8 (CmpValidateHiveSecurityDescriptors.c)
- *     CmpCheckKeyAccess @ 0x140918174 (CmpCheckKeyAccess.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x14066D478 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCheckKeyAccess @ 0x140871724 (CmpCheckKeyAccess.c)
  * Callees:
- *     CmpCheckKeySecurityDescriptorAccess @ 0x1406B5158 (CmpCheckKeySecurityDescriptorAccess.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x1406A5CB0 (CmpCheckKeySecurityDescriptorAccess.c)
  */
 
-__int64 __fastcall CmpCheckSecurityCellAccess(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
+__int64 __fastcall CmpCheckSecurityCellAccess(__int64 a1, __int64 a2)
 {
-  unsigned int v3; // edi
-  __int64 CellFlat; // rax
-  unsigned int v5; // edi
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v3; // rax
+  unsigned int v4; // ebx
+  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
 
-  v7 = 0LL;
-  v3 = BugCheckParameter4;
-  HvpGetCellContextReinitialize(&v7);
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(BugCheckParameter3, v3);
-  else
-    CellFlat = HvpGetCellPaged(BugCheckParameter3);
-  if ( CellFlat )
+  v6 = 0xFFFFFFFFLL;
+  v3 = (*(__int64 (__fastcall **)(__int64, __int64, __int64 *))(a1 + 8))(a1, a2, &v6);
+  if ( v3 )
   {
-    v5 = CmpCheckKeySecurityDescriptorAccess((PSECURITY_DESCRIPTOR)(CellFlat + 20));
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, &v7);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, &v7);
+    v4 = CmpCheckKeySecurityDescriptorAccess((PSECURITY_DESCRIPTOR)(v3 + 20));
+    (*(void (__fastcall **)(__int64, __int64 *))(a1 + 16))(a1, &v6);
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v5;
+  return v4;
 }

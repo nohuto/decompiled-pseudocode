@@ -1,32 +1,33 @@
 /*
- * XREFs of FsRtlTruncateBaseMcb @ 0x14022BCB0
+ * XREFs of FsRtlTruncateBaseMcb @ 0x14029D0A0
  * Callers:
- *     FsRtlTruncateLargeMcb @ 0x14022BC70 (FsRtlTruncateLargeMcb.c)
+ *     FsRtlTruncateLargeMcb @ 0x14029D060 (FsRtlTruncateLargeMcb.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
- *     FsRtlFindLargeIndex @ 0x14022C700 (FsRtlFindLargeIndex.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
+ *     FsRtlFindLargeIndex @ 0x14029DC7C (FsRtlFindLargeIndex.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __stdcall FsRtlTruncateBaseMcb(PBASE_MCB Mcb, LONGLONG Vbn)
 {
-  ULONG PairCount; // esi
-  unsigned int v4; // r11d
-  __int64 v5; // rax
+  unsigned int v2; // edi
+  __int64 v4; // rax
   _DWORD *Mapping; // r8
+  ULONG PairCount; // esi
   ULONG v7; // esi
   PVOID PoolWithTag; // rax
   void *v9; // rdi
   ULONG v10; // [rsp+30h] [rbp+8h] BYREF
 
   v10 = 0;
+  v2 = Vbn;
   if ( (_DWORD)Vbn )
   {
     if ( Mcb->PairCount && (unsigned __int8)FsRtlFindLargeIndex(Mcb, (unsigned int)(Vbn - 1), &v10) )
     {
-      v5 = v10;
+      v4 = v10;
       Mapping = Mcb->Mapping;
       if ( Mapping[2 * v10 + 1] == -1 )
       {
@@ -35,8 +36,8 @@ void __stdcall FsRtlTruncateBaseMcb(PBASE_MCB Mcb, LONGLONG Vbn)
       else
       {
         Mcb->PairCount = v10 + 1;
-        if ( (unsigned int)v5 < (int)v5 + 1 && (_DWORD)v5 != -1 && Mapping[2 * v5] > v4 )
-          Mapping[2 * v5] = v4;
+        if ( (unsigned int)v4 < (int)v4 + 1 && (_DWORD)v4 != -1 && Mapping[2 * v4] > v2 )
+          Mapping[2 * v4] = v2;
       }
     }
   }

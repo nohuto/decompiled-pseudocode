@@ -1,30 +1,30 @@
 /*
- * XREFs of MiPreparePhysicalPagesMdlForFree @ 0x1405ABA64
+ * XREFs of MiPreparePhysicalPagesMdlForFree @ 0x14054D0AC
  * Callers:
- *     NtFreeUserPhysicalPages @ 0x14097D9E0 (NtFreeUserPhysicalPages.c)
+ *     NtFreeUserPhysicalPages @ 0x1408D6800 (NtFreeUserPhysicalPages.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x140222100 (KeShouldYieldProcessor.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPreparePhysicalPagesMdlForFree(
         __int64 a1,
         unsigned __int64 a2,
-        __int64 SchedulerAssist,
-        unsigned __int64 a4)
+        __int64 a3,
+        unsigned __int64 SchedulerAssist)
 {
-  _QWORD *v4; // r14
+  _QWORD *v4; // rsi
   _QWORD *v5; // r10
   unsigned int v6; // eax
   __int64 v7; // r15
-  unsigned __int64 v8; // rsi
+  unsigned __int64 v8; // rbp
   unsigned __int8 CurrentIrql; // di
   __int64 v10; // rbx
   unsigned __int8 v11; // al
   struct _KPRCB *CurrentPrcb; // r10
-  bool v13; // zf
-  unsigned __int8 v14; // cl
+  int v13; // eax
+  bool v14; // zf
   unsigned __int8 v15; // al
   struct _KPRCB *v16; // r9
   _DWORD *v17; // r8
@@ -40,17 +40,17 @@ __int64 __fastcall MiPreparePhysicalPagesMdlForFree(
   }
   else
   {
-    SchedulerAssist = (unsigned __int64)*(unsigned int *)(a1 + 40) >> 12;
-    v5 = &v4[a2 * SchedulerAssist];
+    a3 = (unsigned __int64)*(unsigned int *)(a1 + 40) >> 12;
+    v5 = &v4[a2 * a3];
     do
     {
-      --SchedulerAssist;
+      --a3;
       v5 -= a2;
-      a4 = 1LL;
-      for ( *v5 = v4[SchedulerAssist]; a4 < a2; ++a4 )
-        v5[a4] = v5[a4 - 1] + 1LL;
+      SchedulerAssist = 1LL;
+      for ( *v5 = v4[a3]; SchedulerAssist < a2; ++SchedulerAssist )
+        v5[SchedulerAssist] = v5[SchedulerAssist - 1] + 1LL;
     }
-    while ( SchedulerAssist );
+    while ( a3 );
     v6 = a2 * *(_DWORD *)(a1 + 40);
     *(_DWORD *)(a1 + 40) = v6;
   }
@@ -60,18 +60,19 @@ __int64 __fastcall MiPreparePhysicalPagesMdlForFree(
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
-    SchedulerAssist = (__int64)KeGetCurrentPrcb()->SchedulerAssist;
-    a2 = (-1 << (CurrentIrql + 1)) & 4u | *(_DWORD *)(SchedulerAssist + 20);
-    *(_DWORD *)(SchedulerAssist + 20) = a2;
+    SchedulerAssist = (unsigned __int64)KeGetCurrentPrcb()->SchedulerAssist;
+    a2 = (-1LL << (CurrentIrql + 1)) & 4;
+    a3 = (unsigned int)a2 | *(_DWORD *)(SchedulerAssist + 20);
+    *(_DWORD *)(SchedulerAssist + 20) = a3;
   }
   for ( ; v8; --v8 )
   {
-    v10 = 48LL * *v4 - 0x220000000000LL;
+    v10 = 48LL * *v4 - 0x58000000000LL;
     v20 = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(v10 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v20, a2, SchedulerAssist, a4);
+        KeYieldProcessorEx(&v20, a2, a3, SchedulerAssist);
       while ( *(__int64 *)(v10 + 24) < 0 );
     }
     *(_QWORD *)(v10 + 24) = *(_QWORD *)(v10 + 24) & 0x8000000000000000uLL | 1;
@@ -86,25 +87,26 @@ __int64 __fastcall MiPreparePhysicalPagesMdlForFree(
           if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
-            a4 = (unsigned __int64)CurrentPrcb->SchedulerAssist;
-            a2 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-            v13 = ((unsigned int)a2 & *(_DWORD *)(a4 + 20)) == 0;
-            SchedulerAssist = (unsigned int)a2 & *(_DWORD *)(a4 + 20);
-            *(_DWORD *)(a4 + 20) = SchedulerAssist;
-            if ( v13 )
+            a2 = -1LL << (CurrentIrql + 1);
+            SchedulerAssist = (unsigned __int64)CurrentPrcb->SchedulerAssist;
+            v13 = ~(unsigned __int16)a2;
+            v14 = (v13 & *(_DWORD *)(SchedulerAssist + 20)) == 0;
+            a3 = (unsigned int)v13 & *(_DWORD *)(SchedulerAssist + 20);
+            *(_DWORD *)(SchedulerAssist + 20) = a3;
+            if ( v14 )
               KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
       }
       __writecr8(CurrentIrql);
-      v14 = KeGetCurrentIrql();
+      CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
+      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
-        a4 = (unsigned __int64)KeGetCurrentPrcb()->SchedulerAssist;
-        a2 = (-1LL << (v14 + 1)) & 4;
-        SchedulerAssist = (unsigned int)a2 | *(_DWORD *)(a4 + 20);
-        *(_DWORD *)(a4 + 20) = SchedulerAssist;
+        SchedulerAssist = (unsigned __int64)KeGetCurrentPrcb()->SchedulerAssist;
+        a2 = (-1LL << (CurrentIrql + 1)) & 4;
+        a3 = (unsigned int)a2 | *(_DWORD *)(SchedulerAssist + 20);
+        *(_DWORD *)(SchedulerAssist + 20) = a3;
       }
     }
     ++v4;
@@ -119,9 +121,9 @@ __int64 __fastcall MiPreparePhysicalPagesMdlForFree(
         v16 = KeGetCurrentPrcb();
         v17 = v16->SchedulerAssist;
         v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v13 = (v18 & v17[5]) == 0;
+        v14 = (v18 & v17[5]) == 0;
         v17[5] &= v18;
-        if ( v13 )
+        if ( v14 )
           KiRemoveSystemWorkPriorityKick((__int64)v16);
       }
     }

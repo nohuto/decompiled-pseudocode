@@ -1,5 +1,5 @@
 /*
- * XREFs of ?EnablePresentStatisticsType@CBackchannelManager@@UEAAJW4KernelPresentStatisticsType@@_N@Z @ 0x1C0020800
+ * XREFs of ?EnablePresentStatisticsType@CBackchannelManager@@UEAAJW4KernelPresentStatisticsType@@_N@Z @ 0x1C001BBE0
  * Callers:
  *     <none>
  * Callees:

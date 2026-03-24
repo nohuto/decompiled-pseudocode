@@ -1,209 +1,198 @@
 /*
- * XREFs of ?SetupPresentParameters@BLTENTRY@@QEAAJPEAVBLTQUEUE@@PEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@E@Z @ 0x1C03BEAB0
+ * XREFs of ?SetupPresentParameters@BLTENTRY@@QEAAJPEAVBLTQUEUE@@PEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@E@Z @ 0x1C02FFA0C
  * Callers:
- *     ?Present@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C03BD184 (-Present@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVIC.c)
+ *     ?Present@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C02FE454 (-Present@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVIC.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?GetAllocationSafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C000B970 (-GetAllocationSafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z @ 0x1C0179F48 (-MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C017EAE0 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
- *     ?AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ @ 0x1C02D5A8C (-AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ.c)
- *     ?DxgkpGetDodPrimaryInfo@@YAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@PEAU_D3DKMT_KMDOD_ESCAPE@@@Z @ 0x1C03BC258 (-DxgkpGetDodPrimaryInfo@@YAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@PEAU_D3DKMT_KMDOD_ESCAPE@@@Z.c)
- *     ?SetPresentDodArg@PRESENTDODARG@@QEAAJPEAVDXGCONTEXT@@IPEAVDXGALLOCATION@@KEPEBUtagRECT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C03BE3B8 (-SetPresentDodArg@PRESENTDODARG@@QEAAJPEAVDXGCONTEXT@@IPEAVDXGALLOCATION@@KEPEBUtagRECT@@PEBU_D3.c)
+ *     ?GetAllocationSafe@DXGPROCESS@@QEAA?AVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C0014AB0 (-GetAllocationSafe@DXGPROCESS@@QEAA-AVDXGALLOCATIONREFERENCE@@I@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C00FDE00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ?MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z @ 0x1C015352C (-MoveAssign@DXGALLOCATIONREFERENCE@@QEAAAEAV1@$$QEAV1@@Z.c)
+ *     ?AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ @ 0x1C0227540 (-AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ.c)
+ *     ?DxgkpGetDodPrimaryInfo@@YAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@PEAU_D3DKMT_KMDOD_ESCAPE@@@Z @ 0x1C02FD65C (-DxgkpGetDodPrimaryInfo@@YAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@PEAU_D3DKMT_KMDOD_ESCAPE@@@Z.c)
+ *     ?SetPresentDodArg@PRESENTDODARG@@QEAAJPEAVDXGCONTEXT@@IPEAVDXGALLOCATION@@KEPEBUtagRECT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C02FF450 (-SetPresentDodArg@PRESENTDODARG@@QEAAJPEAVDXGCONTEXT@@IPEAVDXGALLOCATION@@KEPEBUtagRECT@@PEBU_D3.c)
  */
 
 __int64 __fastcall BLTENTRY::SetupPresentParameters(
-        LARGE_INTEGER *this,
+        BLTENTRY *this,
         struct BLTQUEUE *a2,
-        struct DXGCONTEXT *a3,
+        struct DXGDEVICE **a3,
         const struct _D3DKMT_PRESENT *a4,
         const struct _DXGKARG_PRESENT *a5,
         struct COREDEVICEACCESS *a6,
         unsigned __int8 a7)
 {
-  struct _EX_RUNDOWN_REF **v10; // r15
-  __int64 v11; // rcx
   D3DKMT_HANDLE hSource; // r8d
+  struct DXGALLOCATION **v11; // r15
   struct _EX_RUNDOWN_REF **AllocationSafe; // rax
-  struct _EX_RUNDOWN_REF *v14; // rbx
-  const wchar_t *v15; // r9
-  __int64 v17; // rdx
-  int v18; // ebx
-  __int64 v19; // rbx
-  const struct tagRECT *v20; // r12
-  void *v21; // rcx
-  NTSTATUS v22; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  struct DXGALLOCATION *v15; // rsi
+  _QWORD *v16; // rax
+  struct DXGALLOCATION *v17; // rcx
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rcx
+  int v22; // ebx
   void *v23; // rcx
-  NTSTATUS v24; // eax
-  __int64 v25; // rbx
-  struct _EX_RUNDOWN_REF *HandleInformation; // [rsp+28h] [rbp-100h]
-  PVOID v27; // [rsp+50h] [rbp-D8h] BYREF
-  PVOID Object; // [rsp+58h] [rbp-D0h] BYREF
-  struct COREDEVICEACCESS *v29; // [rsp+60h] [rbp-C8h]
-  LARGE_INTEGER *v30; // [rsp+68h] [rbp-C0h]
-  struct DXGCONTEXT *v31; // [rsp+70h] [rbp-B8h]
-  __int128 *v32; // [rsp+78h] [rbp-B0h]
-  unsigned int v33[20]; // [rsp+80h] [rbp-A8h] BYREF
-  __int128 v34; // [rsp+D0h] [rbp-58h] BYREF
+  struct DXGDEVICE *v24; // rsi
+  const struct tagRECT *v25; // r12
+  NTSTATUS v26; // eax
+  void *v27; // rcx
+  NTSTATUS v28; // eax
+  __int64 v29; // rbx
+  __int64 v30; // rax
+  PVOID Object; // [rsp+50h] [rbp-E8h] BYREF
+  PVOID v32; // [rsp+58h] [rbp-E0h] BYREF
+  struct _EX_RUNDOWN_REF *v33; // [rsp+60h] [rbp-D8h] BYREF
+  struct COREDEVICEACCESS *v34; // [rsp+68h] [rbp-D0h]
+  struct DXGCONTEXT *v35; // [rsp+70h] [rbp-C8h]
+  BLTENTRY *v36; // [rsp+78h] [rbp-C0h]
+  __int128 *v37; // [rsp+80h] [rbp-B8h]
+  unsigned int v38[20]; // [rsp+90h] [rbp-A8h] BYREF
+  __int128 v39; // [rsp+E0h] [rbp-58h] BYREF
 
-  v30 = this;
-  v31 = a3;
-  v29 = a6;
-  this[3].QuadPart = (LONGLONG)a2;
-  this[5].QuadPart = 0LL;
-  this[6].QuadPart = 0LL;
-  v10 = (struct _EX_RUNDOWN_REF **)&this[4];
-  v11 = *(_QWORD *)(*((_QWORD *)a3 + 2) + 40LL);
+  v36 = this;
+  v35 = (struct DXGCONTEXT *)a3;
+  v34 = a6;
+  *((_QWORD *)this + 3) = a2;
+  *((_QWORD *)this + 5) = 0LL;
+  *((_QWORD *)this + 6) = 0LL;
   if ( (a4->Flags.Value & 4) != 0 )
     hSource = a4->hSource;
   else
     hSource = a4->hDestination;
+  v11 = (struct DXGALLOCATION **)((char *)this + 32);
   AllocationSafe = (struct _EX_RUNDOWN_REF **)DXGPROCESS::GetAllocationSafe(
-                                                v11,
-                                                (DXGALLOCATIONREFERENCE *)&v27,
+                                                *((_QWORD *)a3[2] + 5),
+                                                (DXGALLOCATIONREFERENCE *)&v33,
                                                 hSource);
-  DXGALLOCATIONREFERENCE::MoveAssign(v10, AllocationSafe);
-  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v27);
-  v14 = *v10;
-  if ( !*v10 )
+  DXGALLOCATIONREFERENCE::MoveAssign((struct _EX_RUNDOWN_REF **)this + 4, AllocationSafe);
+  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v33, v13);
+  v15 = (struct DXGALLOCATION *)*((_QWORD *)this + 4);
+  if ( !v15 )
   {
-    WdLogSingleEntry3(2LL, a3, a4->hSource, -1073741811LL);
-    HandleInformation = (struct _EX_RUNDOWN_REF *)a4->hSource;
-    v15 = L"Context 0x%I64x: Invalid hAllocation specified: 0x%I64x, returning 0x%I64x";
+    v16 = (_QWORD *)WdLogNewEntry5_WdError(v14, 0LL);
+    v16[3] = a3;
+    v17 = (struct DXGALLOCATION *)a4->hSource;
 LABEL_6:
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)v15,
-      (__int64)a3,
-      (__int64)HandleInformation,
-      -1073741811LL,
-      0LL,
-      0LL);
+    v16[4] = v17;
+    v16[5] = -1073741811LL;
+LABEL_7:
+    WdLogEvent5_WdError(v16);
     return 3221225485LL;
   }
   if ( !a7 )
   {
-    v17 = *((_QWORD *)a3 + 2);
-    if ( *(_QWORD *)(*(_QWORD *)(v14[1].Count + 16) + 16LL) != *(_QWORD *)(*(_QWORD *)(v17 + 16) + 16LL) )
+    v19 = *(_QWORD *)(*((_QWORD *)v15 + 1) + 16LL);
+    v20 = *(_QWORD *)(*((_QWORD *)a3[2] + 2) + 16LL);
+    if ( *(_QWORD *)(v19 + 16) != v20 )
     {
-      WdLogSingleEntry3(2LL, v17, *v10, -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Device 0x%p does not match allocation 0x%p owner, returning 0x%I64x",
-        *((_QWORD *)a3 + 2),
-        (__int64)*v10,
-        -1073741811LL,
-        0LL,
-        0LL);
-      return 3221225485LL;
+      v16 = (_QWORD *)WdLogNewEntry5_WdError(v20, v19);
+      v16[3] = a3[2];
+LABEL_11:
+      v17 = *v11;
+      goto LABEL_6;
     }
   }
-  if ( (*(_DWORD *)(v14[6].Count + 4) & 4) == 0 && !a7 )
+  v21 = *(unsigned int *)(*((_QWORD *)v15 + 6) + 4LL);
+  if ( (v21 & 4) == 0 && !a7 )
   {
-    WdLogSingleEntry3(2LL, a3, *v10, -1073741811LL);
-    HandleInformation = *v10;
-    v15 = L"Context 0x%I64x: Source allocation: 0x%I64x for Present is not DOD primary, returning 0x%I64x";
-    goto LABEL_6;
+    v16 = (_QWORD *)WdLogNewEntry5_WdError(v21, 0LL);
+    v16[3] = a3;
+    goto LABEL_11;
   }
-  this[65].QuadPart = 0LL;
+  *((_QWORD *)this + 65) = 0LL;
   if ( a7 )
   {
-    this[65].LowPart = 1;
-LABEL_33:
-    this[8].LowPart = a4->Flags.Value;
-    this[7].LowPart = a4->FlipInterval;
-    this[7].HighPart = a4->PresentCount;
-    *(_OWORD *)&this[66].LowPart = 0LL;
-    *(_OWORD *)&this[68].LowPart = 0LL;
-    this[67] = KeQueryPerformanceCounter(0LL);
-    v25 = MEMORY[0xFFFFF78000000320];
-    this[66].QuadPart = v25 * KeQueryTimeIncrement();
+    *((_DWORD *)this + 130) = 1;
+LABEL_34:
+    *((_DWORD *)this + 16) = a4->Flags.0;
+    *((_DWORD *)this + 14) = a4->FlipInterval;
+    *((_DWORD *)this + 15) = a4->PresentCount;
+    *((_OWORD *)this + 33) = 0LL;
+    *((_OWORD *)this + 34) = 0LL;
+    *((LARGE_INTEGER *)this + 67) = KeQueryPerformanceCounter(0LL);
+    v29 = MEMORY[0xFFFFF78000000320];
+    *((_QWORD *)this + 66) = v29 * KeQueryTimeIncrement();
     return 0LL;
   }
-  if ( *((_BYTE *)a3 + 441) )
+  if ( *((_BYTE *)a3 + 457) )
   {
-    v18 = PRESENTDODARG::SetPresentDodArg(
-            (PRESENTDODARG *)&this[9],
-            a3,
-            *(unsigned int *)(this[3].QuadPart + 256),
-            (__int64)v14,
+    v22 = PRESENTDODARG::SetPresentDodArg(
+            (BLTENTRY *)((char *)this + 72),
+            (struct DXGCONTEXT *)a3,
+            *(_DWORD *)(*((_QWORD *)this + 3) + 248LL),
+            v15,
             0,
             0,
             0LL,
             a4,
             a5,
             a6);
-    if ( v18 >= 0 )
+    if ( v22 >= 0 )
     {
-      this[65].LowPart |= 1u;
-      goto LABEL_33;
+      *((_DWORD *)this + 130) |= 1u;
+      goto LABEL_34;
     }
-LABEL_18:
-    DXGALLOCATIONREFERENCE::AssignNull(v10);
-    return (unsigned int)v18;
+LABEL_19:
+    DXGALLOCATIONREFERENCE::AssignNull((struct _EX_RUNDOWN_REF **)this + 4);
+    return (unsigned int)v22;
   }
-  memset(v33, 0, sizeof(v33));
-  DxgkpGetDodPrimaryInfo(
-    *((struct DXGDEVICE **)a3 + 2),
-    (struct DXGALLOCATION *)v14,
-    (struct _D3DKMT_KMDOD_ESCAPE *)v33);
-  if ( !v33[8] )
+  memset(v38, 0, sizeof(v38));
+  DxgkpGetDodPrimaryInfo(a3[2], v15, (struct _D3DKMT_KMDOD_ESCAPE *)v38);
+  if ( !v38[8] )
   {
-    WdLogSingleEntry1(2LL, 131LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Primary pitch invalid", 131LL, 0LL, 0LL, 0LL, 0LL);
-    return 3221225485LL;
+    v16 = (_QWORD *)WdLogNewEntry5_WdError(v23, 0LL);
+    v16[3] = 131LL;
+    goto LABEL_7;
   }
-  v19 = *((_QWORD *)a3 + 7);
-  v34 = 0LL;
-  v20 = 0LL;
-  if ( *(_DWORD *)v19 == -791674878 )
+  v24 = a3[7];
+  v39 = 0LL;
+  v25 = 0LL;
+  if ( *(_DWORD *)v24 == -791674878 )
   {
-    v21 = *(void **)(v19 + 16);
-    if ( v21 )
+    v23 = (void *)*((_QWORD *)v24 + 2);
+    if ( v23 )
     {
-      if ( *(_QWORD *)(v19 + 24) )
+      if ( *((_QWORD *)v24 + 3) )
       {
         Object = 0LL;
-        v22 = ObReferenceObjectByHandle(v21, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
-        this[5].QuadPart = (LONGLONG)Object;
-        if ( v22 < 0 )
+        v26 = ObReferenceObjectByHandle(v23, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
+        *((_QWORD *)this + 5) = Object;
+        if ( v26 < 0 )
           return 3221225485LL;
-        v23 = *(void **)(v19 + 24);
-        v27 = 0LL;
-        v24 = ObReferenceObjectByHandle(v23, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &v27, 0LL);
-        this[6].QuadPart = (LONGLONG)v27;
-        if ( v24 < 0 )
+        v27 = (void *)*((_QWORD *)v24 + 3);
+        v32 = 0LL;
+        v28 = ObReferenceObjectByHandle(v27, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &v32, 0LL);
+        *((_QWORD *)this + 6) = v32;
+        if ( v28 < 0 )
           return 3221225485LL;
-        if ( *(_QWORD *)(v19 + 32) == v19 + 32 && *(int *)(v19 + 40) < 0 )
+        if ( *((struct DXGDEVICE **)v24 + 4) == (struct DXGDEVICE *)((char *)v24 + 32) && *((int *)v24 + 10) < 0 )
         {
-          v34 = *(_OWORD *)(v19 + 44);
-          v20 = (const struct tagRECT *)&v34;
-          v32 = &v34;
+          v39 = *(_OWORD *)((char *)v24 + 44);
+          v25 = (const struct tagRECT *)&v39;
+          v37 = &v39;
         }
-        v18 = PRESENTDODARG::SetPresentDodArg(
-                (PRESENTDODARG *)&this[9],
-                a3,
-                *(unsigned int *)(this[3].QuadPart + 256),
-                (__int64)*v10,
-                v33[8],
-                v33[10],
-                v20,
+        v22 = PRESENTDODARG::SetPresentDodArg(
+                (BLTENTRY *)((char *)this + 72),
+                (struct DXGCONTEXT *)a3,
+                *(_DWORD *)(*((_QWORD *)this + 3) + 248LL),
+                *v11,
+                v38[8],
+                v38[10],
+                v25,
                 a4,
                 a5,
-                v29);
-        if ( v18 >= 0 )
-          goto LABEL_33;
-        goto LABEL_18;
+                v34);
+        if ( v22 >= 0 )
+          goto LABEL_34;
+        goto LABEL_19;
       }
     }
   }
-  WdLogSingleEntry1(2LL, 145LL);
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid Dod esacpe", 145LL, 0LL, 0LL, 0LL, 0LL);
+  v30 = WdLogNewEntry5_WdError(v23, 0LL);
+  *(_QWORD *)(v30 + 24) = 145LL;
+  WdLogEvent5_WdError(v30);
   return 3221225485LL;
 }

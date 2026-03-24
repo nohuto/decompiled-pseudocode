@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReduceMdl @ 0x14011A914
+ * XREFs of MiReduceMdl @ 0x14011A934
  * Callers:
  *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MiResolvePageFileFault @ 0x140154B24 (MiResolvePageFileFault.c)
+ *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
  * Callees:
  *     <none>
  */

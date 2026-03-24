@@ -6,7 +6,7 @@
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
  *     MiLocateSubsectionNode @ 0x140077B40 (MiLocateSubsectionNode.c)
  *     MiComputeContiguousSubsectionPte @ 0x140077E94 (MiComputeContiguousSubsectionPte.c)
- *     MiLocatePagefileSubsection @ 0x140119D28 (MiLocatePagefileSubsection.c)
+ *     MiLocatePagefileSubsection @ 0x140119D48 (MiLocatePagefileSubsection.c)
  */
 
 __int64 __fastcall MiAdvanceVadView(__int64 a1, __int64 a2)

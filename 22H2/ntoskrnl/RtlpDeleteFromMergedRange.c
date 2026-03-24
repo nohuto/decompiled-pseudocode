@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlpDeleteFromMergedRange @ 0x140816B64
+ * XREFs of RtlpDeleteFromMergedRange @ 0x1407C5BE4
  * Callers:
- *     RtlDeleteRange @ 0x1408179D0 (RtlDeleteRange.c)
- *     RtlDeleteOwnersRanges @ 0x140817AA0 (RtlDeleteOwnersRanges.c)
+ *     RtlDeleteRange @ 0x140760A20 (RtlDeleteRange.c)
+ *     RtlDeleteOwnersRanges @ 0x140760AD0 (RtlDeleteOwnersRanges.c)
  * Callees:
- *     RtlpAddRange @ 0x140816F84 (RtlpAddRange.c)
- *     RtlpAddToMergedRange @ 0x140817114 (RtlpAddToMergedRange.c)
- *     RtlpFreeRangeListEntry @ 0x140817C48 (RtlpFreeRangeListEntry.c)
+ *     RtlpFreeRangeListEntry @ 0x140760C88 (RtlpFreeRangeListEntry.c)
+ *     RtlpAddRange @ 0x140763AD4 (RtlpAddRange.c)
+ *     RtlpAddToMergedRange @ 0x1407BD260 (RtlpAddToMergedRange.c)
  */
 
-__int64 __fastcall RtlpDeleteFromMergedRange(_QWORD *Entry, _QWORD *a2)
+__int64 __fastcall RtlpDeleteFromMergedRange(unsigned __int64 *Entry, _QWORD *a2)
 {
-  int v2; // ebx
+  int v2; // r14d
   _QWORD **v3; // r8
   PVOID *v6; // rdx
   _QWORD *v7; // rax
-  _QWORD *v8; // rdx
-  __int64 v9; // rsi
+  _QWORD *v8; // rcx
+  __int64 v9; // rdi
   __int64 v10; // r8
-  _QWORD *v11; // rcx
+  _QWORD *v11; // rdx
   _QWORD *v12; // rcx
   __int64 v13; // rdx
-  _QWORD *v15; // rdx
+  unsigned __int64 *v15; // rdx
   _QWORD *v16; // rax
-  __int64 v17; // rbx
-  _QWORD **v18; // r8
-  PVOID *v19; // rdx
+  __int64 v17; // rdi
+  _QWORD **v18; // rdx
+  PVOID *v19; // rcx
   _QWORD *v20; // [rsp+20h] [rbp-10h] BYREF
   _QWORD *v21; // [rsp+28h] [rbp-8h]
 
@@ -56,7 +56,7 @@ __int64 __fastcall RtlpDeleteFromMergedRange(_QWORD *Entry, _QWORD *a2)
     *v11 = v10;
     *(_QWORD *)(v10 + 8) = v11;
     *((_BYTE *)v8 + 33) &= ~2u;
-    v2 = RtlpAddRange(&v20, v8, 1LL);
+    v2 = RtlpAddRange(&v20, v8, 1u);
     if ( v2 < 0 )
     {
       v15 = v20 - 5;
@@ -66,17 +66,17 @@ __int64 __fastcall RtlpDeleteFromMergedRange(_QWORD *Entry, _QWORD *a2)
         v17 = *v16 - 40LL;
         if ( &v20 == v16 )
           break;
-        RtlpAddToMergedRange(a2, v15, 1LL);
+        RtlpAddToMergedRange((__int64)a2, v15, 1);
         v16 = (_QWORD *)(v17 + 40);
-        v15 = (_QWORD *)v17;
+        v15 = (unsigned __int64 *)v17;
       }
-      return RtlpAddToMergedRange(a2, Entry, 1LL);
+      return RtlpAddToMergedRange((__int64)a2, Entry, 1);
     }
-    v7 = (_QWORD *)(v9 + 40);
     v8 = (_QWORD *)v9;
     v9 = *(_QWORD *)(v9 + 40) - 40LL;
+    v7 = v8 + 5;
   }
-  while ( a2 + 2 != v7 );
+  while ( a2 + 2 != v8 + 5 );
   if ( v20 != &v20 )
   {
     v12 = (_QWORD *)a2[6];

@@ -1,273 +1,246 @@
 /*
- * XREFs of ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C017664C
+ * XREFs of ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C00E09A4
  * Callers:
- *     ?DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z @ 0x1C0186B84 (-DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z.c)
- *     ?ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C0195BF4 (-ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
- *     ?DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEAPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEBIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01B8EF0 (-DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEA.c)
- *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C02BC360 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
+ *     ?ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C00E0464 (-ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ *     ?DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z @ 0x1C00E0664 (-DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z.c)
+ *     ?DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEAPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEBIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0112FB0 (-DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEA.c)
+ *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C0212318 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
  * Callees:
- *     ?DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C00017D8 (-DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
- *     ?IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C0001838 (-IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
- *     ?IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0002AE8 (-IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?GetNumDifferentPhysicalAdapters@DXGADAPTER@@QEBAIXZ @ 0x1C00165B0 (-GetNumDifferentPhysicalAdapters@DXGADAPTER@@QEBAIXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?RemovePending@DXGADAPTER@@QEBAHXZ @ 0x1C0041D28 (-RemovePending@DXGADAPTER@@QEBAHXZ.c)
- *     ?WaitForVerticalBlankEvent@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C016BF90 (-WaitForVerticalBlankEvent@ADAPTER_DISPLAY@@QEAAJI@Z.c)
- *     ?DisableOverlays@ADAPTER_RENDER@@AEAAXXZ @ 0x1C0194440 (-DisableOverlays@ADAPTER_RENDER@@AEAAXXZ.c)
- *     ?Flush@DXGDODPRESENT@@QEAAXXZ @ 0x1C0194BE8 (-Flush@DXGDODPRESENT@@QEAAXXZ.c)
- *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C0194C28 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
- *     ?UnpinPrimaryAllocations@DXGDEVICE@@QEAAXI@Z @ 0x1C0195D58 (-UnpinPrimaryAllocations@DXGDEVICE@@QEAAXI@Z.c)
- *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C0197D5C (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
- *     ?InvalidatePrimaryAllocations@DXGDEVICE@@QEAAXI@Z @ 0x1C02EB5F8 (-InvalidatePrimaryAllocations@DXGDEVICE@@QEAAXI@Z.c)
- *     ?UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z @ 0x1C02ED764 (-UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C000195C (-DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
+ *     ?IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C00019A8 (-IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?GetNumDifferentPhysicalAdapters@DXGADAPTER@@QEBAIXZ @ 0x1C000907C (-GetNumDifferentPhysicalAdapters@DXGADAPTER@@QEBAIXZ.c)
+ *     ?IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C000A4B4 (-IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?DisableOverlays@ADAPTER_RENDER@@AEAAXXZ @ 0x1C00E0C68 (-DisableOverlays@ADAPTER_RENDER@@AEAAXXZ.c)
+ *     ?UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z @ 0x1C00E0CEC (-UnpinAllDirectFlipAllocations@DXGDEVICE@@QEAAJIHPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?UnpinPrimaryAllocations@DXGDEVICE@@QEAAXI@Z @ 0x1C00E0E78 (-UnpinPrimaryAllocations@DXGDEVICE@@QEAAXI@Z.c)
+ *     ?WaitForVerticalBlankEvent@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C00E1020 (-WaitForVerticalBlankEvent@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C00EA8F4 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
+ *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C00EAD78 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
+ *     ?Flush@DXGDODPRESENT@@QEAAXXZ @ 0x1C0164490 (-Flush@DXGDODPRESENT@@QEAAXXZ.c)
+ *     ?InvalidatePrimaryAllocations@DXGDEVICE@@QEAAXI@Z @ 0x1C02559F4 (-InvalidatePrimaryAllocations@DXGDEVICE@@QEAAXI@Z.c)
  */
 
 void __fastcall ADAPTER_DISPLAY::DisableAllPrimaries(PERESOURCE **this, PERESOURCE **a2)
 {
-  unsigned int v4; // ebp
-  bool v5; // r15
-  unsigned int v6; // edi
-  unsigned int v7; // eax
-  unsigned int v8; // ebx
-  __int64 v9; // rbp
-  struct ADAPTER_RENDER **v10; // rdi
-  int v11; // r8d
-  struct COREDEVICEACCESS *v12; // r9
-  int v13; // r8d
-  int v14; // eax
-  DXGDODPRESENT *v15; // rcx
-  __int64 v16; // rdi
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  PERESOURCE v8; // rcx
+  unsigned int v9; // edi
+  unsigned int v10; // eax
+  bool v11; // bp
+  unsigned int i; // ebp
+  unsigned int v13; // edi
+  __int64 v14; // r14
+  PERESOURCE *v15; // rax
+  struct ADAPTER_RENDER **v16; // rbp
   unsigned int NumDifferentPhysicalAdapters; // eax
-  __int64 v18; // rdx
+  __int64 v18; // r14
   __int64 v19; // r15
-  __int64 v20; // rbp
-  __int64 v21; // rbx
-  __int64 v22; // rbx
+  __int64 v20; // rdi
+  __int64 v21; // rdi
+  unsigned int v22; // eax
+  int v23; // r8d
+  struct COREDEVICEACCESS *v24; // r9
+  int v25; // eax
+  __int64 v26; // r14
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rcx
+  __int64 v31; // rax
+  DXGDODPRESENT *v32; // rcx
+  _QWORD *v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  __int64 v38; // rcx
+  __int64 v39; // rax
+  __int64 v40; // rax
 
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 3851LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pRenderCore != NULL", 3851LL, 0LL, 0LL, 0LL, 0LL);
+    v27 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    *(_QWORD *)(v27 + 24) = 3656LL;
+    WdLogEvent5_WdAssertion(v27);
   }
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(a2[2]) )
   {
-    WdLogSingleEntry1(1LL, 3852LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pRenderCore->IsCoreResourceExclusiveOwner()",
-      3852LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v28 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v28 + 24) = 3657LL;
+    WdLogEvent5_WdAssertion(v28);
   }
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 3853LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceExclusiveOwner()", 3853LL, 0LL, 0LL, 0LL, 0LL);
+    v29 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v29 + 24) = 3658LL;
+    WdLogEvent5_WdAssertion(v29);
   }
-  if ( this[2][366] )
+  if ( this[2][338] )
   {
-    if ( *((_DWORD *)a2[2] + 50) != 1 && !DXGADAPTER::RemovePending((DXGADAPTER *)a2[2]) )
+    if ( *((_DWORD *)a2[2] + 50) != 1 )
     {
-      WdLogSingleEntry1(1LL, 3863LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pRenderCore->GetAdapter()->IsActive() || pRenderCore->GetAdapter()->RemovePending()",
-        3863LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v30 = *((unsigned int *)a2[2] + 50);
+      if ( (_DWORD)v30 != 5 )
+      {
+        v31 = WdLogNewEntry5_WdAssertion(v30, v6);
+        *(_QWORD *)(v31 + 24) = 3668LL;
+        WdLogEvent5_WdAssertion(v31);
+      }
     }
     ADAPTER_RENDER::DisableOverlays((ADAPTER_RENDER *)a2);
   }
   else
   {
-    v15 = (DXGDODPRESENT *)this[56];
-    if ( v15 )
-      DXGDODPRESENT::Flush(v15);
+    v32 = (DXGDODPRESENT *)this[48];
+    if ( v32 )
+      DXGDODPRESENT::Flush(v32);
   }
   if ( *((_DWORD *)a2[2] + 50) == 1 )
-    ADAPTER_RENDER::FlushScheduler(a2, 8LL, 0xFFFFFFFFLL);
-  if ( *((_DWORD *)this[2] + 50) == 1 )
+    ADAPTER_RENDER::FlushScheduler(a2, 8LL, 0xFFFFFFFFLL, 0LL);
+  v8 = (PERESOURCE)*((unsigned int *)this[2] + 50);
+  if ( (_DWORD)v8 == 1 )
   {
-    v4 = 0;
-    if ( *((_DWORD *)this + 24) )
+    v9 = 0;
+    v8 = this[2][338];
+    v10 = *((_DWORD *)this + 20);
+    if ( v10 )
     {
-      v5 = this[2][366] == 0LL;
+      v11 = v8 == 0LL;
       do
       {
-        if ( ADAPTER_DISPLAY::IsVidPnSourceActive((ADAPTER_DISPLAY *)this, v4) )
+        if ( ADAPTER_DISPLAY::IsVidPnSourceActive((ADAPTER_DISPLAY *)this, v9) )
         {
-          if ( !v5 )
+          if ( !v11 )
           {
-            DXGADAPTER::IncrementVSyncWaiter((DXGADAPTER *)a2[2], v4);
-            if ( (*(unsigned __int8 (__fastcall **)(PERESOURCE *, _QWORD))&a2[92][1][5].ActiveCount)(a2[93], v4) )
-              ADAPTER_DISPLAY::WaitForVerticalBlankEvent((DXGADAPTER **)this);
-            DXGADAPTER::DecrementVSyncWaiter((DXGADAPTER *)a2[2], v4, v13);
-            v5 = 1;
+            DXGADAPTER::IncrementVSyncWaiter((DXGADAPTER *)a2[2], v9);
+            if ( (*(unsigned __int8 (__fastcall **)(PERESOURCE *, _QWORD))&a2[77][1][5].ActiveCount)(a2[78], v9) )
+              ADAPTER_DISPLAY::WaitForVerticalBlankEvent((ADAPTER_DISPLAY *)this, v9);
+            DXGADAPTER::DecrementVSyncWaiter((DXGADAPTER *)a2[2], v9);
+            v11 = 1;
           }
-          v14 = ADAPTER_DISPLAY::SetVidPnSourceVisibility((ADAPTER_DISPLAY *)this, v4, 0, 4u, 0);
-          if ( v14 < 0 )
+          v25 = ADAPTER_DISPLAY::SetVidPnSourceVisibility((ADAPTER_DISPLAY *)this, v9, 0, 4u, 0);
+          v26 = v25;
+          if ( v25 < 0 )
           {
-            v16 = v14;
-            WdLogSingleEntry3(2LL, v14, this[2], v4);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"NTSTATUS:0x%I64x ADAPTER_DISPLAY:0x%I64x SetVidPnSourceVisibility failed disabling VidPnSourceId 0x%I64x",
-              v16,
-              (__int64)this[2],
-              v4,
-              0LL,
-              0LL);
+            v33 = (_QWORD *)WdLogNewEntry5_WdError(v8, v6);
+            v33[3] = v26;
+            v33[4] = this[2];
+            v33[5] = v9;
+            WdLogEvent5_WdError(v33);
           }
         }
-        ++v4;
+        v10 = *((_DWORD *)this + 20);
+        ++v9;
       }
-      while ( v4 < *((_DWORD *)this + 24) );
+      while ( v9 < v10 );
     }
   }
-  v6 = 0;
-  if ( *((_DWORD *)this + 24) )
+  else
+  {
+    v10 = *((_DWORD *)this + 20);
+  }
+  for ( i = 0; i < v10; ++i )
+  {
+    v6 = 3968LL * i;
+    if ( this[14][(unsigned __int64)v6 / 8 + 11] )
+    {
+      NumDifferentPhysicalAdapters = DXGADAPTER::GetNumDifferentPhysicalAdapters((DXGADAPTER *)this[2]);
+      if ( NumDifferentPhysicalAdapters )
+      {
+        v18 = v6 + 88;
+        v19 = NumDifferentPhysicalAdapters;
+        do
+        {
+          v20 = *(__int64 *)((char *)this[14] + v18);
+          if ( v20 )
+          {
+            v21 = *(_QWORD *)(v20 + 48);
+            if ( !v21 )
+            {
+              v34 = WdLogNewEntry5_WdAssertion(v8, v6);
+              *(_QWORD *)(v34 + 24) = 3744LL;
+              WdLogEvent5_WdAssertion(v34);
+            }
+            v22 = *(_DWORD *)(v21 + 4);
+            if ( (v22 & 2) == 0 )
+            {
+              v35 = WdLogNewEntry5_WdAssertion(v8, v6);
+              *(_QWORD *)(v35 + 24) = 3745LL;
+              WdLogEvent5_WdAssertion(v35);
+              v22 = *(_DWORD *)(v21 + 4);
+            }
+            if ( ((v22 >> 6) & 0xF) != i )
+            {
+              v36 = WdLogNewEntry5_WdAssertion(v8, v6);
+              *(_QWORD *)(v36 + 24) = 3746LL;
+              WdLogEvent5_WdAssertion(v36);
+            }
+            if ( !*(_QWORD *)(v21 + 8) )
+            {
+              v37 = WdLogNewEntry5_WdAssertion(v8, v6);
+              *(_QWORD *)(v37 + 24) = 3747LL;
+              WdLogEvent5_WdAssertion(v37);
+            }
+            if ( (*(_DWORD *)(v21 + 4) & 0x10) == 0 )
+            {
+              if ( *((_DWORD *)a2[2] + 50) != 1 )
+              {
+                v38 = *((unsigned int *)a2[2] + 50);
+                if ( (_DWORD)v38 != 5 )
+                {
+                  v39 = WdLogNewEntry5_WdAssertion(v38, v6);
+                  *(_QWORD *)(v39 + 24) = 3758LL;
+                  WdLogEvent5_WdAssertion(v39);
+                }
+              }
+              ((void (__fastcall *)(PERESOURCE *, _QWORD))a2[80][1][1].SpinLock)(a2[81], *(_QWORD *)(v21 + 8));
+              *(_DWORD *)(v21 + 4) |= 0x10u;
+            }
+          }
+          v18 += 8LL;
+          --v19;
+        }
+        while ( v19 );
+      }
+    }
+    v10 = *((_DWORD *)this + 20);
+  }
+  v13 = 0;
+  if ( v10 )
   {
     do
     {
-      if ( this[16][500 * v6 + 11] )
+      v14 = 496LL * v13;
+      v15 = this[14];
+      v16 = (struct ADAPTER_RENDER **)v15[v14 + 86];
+      if ( v16 )
       {
-        NumDifferentPhysicalAdapters = DXGADAPTER::GetNumDifferentPhysicalAdapters((DXGADAPTER *)this[2]);
-        if ( NumDifferentPhysicalAdapters )
+        if ( a2 != (PERESOURCE **)v16[2] )
         {
-          v19 = v18 + 88;
-          v20 = NumDifferentPhysicalAdapters;
-          do
-          {
-            v21 = *(__int64 *)((char *)this[16] + v19);
-            if ( v21 )
-            {
-              v22 = *(_QWORD *)(v21 + 48);
-              if ( !v22 )
-              {
-                WdLogSingleEntry1(1LL, 3939LL);
-                DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pAllocation != NULL", 3939LL, 0LL, 0LL, 0LL, 0LL);
-              }
-              if ( (*(_DWORD *)(v22 + 4) & 2) == 0 )
-              {
-                WdLogSingleEntry1(1LL, 3940LL);
-                DxgkLogInternalTriageEvent(
-                  0LL,
-                  262146,
-                  -1,
-                  (__int64)L"pAllocation->m_CddPrimary",
-                  3940LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-              }
-              if ( ((*(_DWORD *)(v22 + 4) >> 6) & 0xF) != v6 )
-              {
-                WdLogSingleEntry1(1LL, 3941LL);
-                DxgkLogInternalTriageEvent(
-                  0LL,
-                  262146,
-                  -1,
-                  (__int64)L"pAllocation->m_VidPnSourceId == VidPnSourceId",
-                  3941LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-              }
-              if ( !*(_QWORD *)(v22 + 8) )
-              {
-                WdLogSingleEntry1(1LL, 3942LL);
-                DxgkLogInternalTriageEvent(
-                  0LL,
-                  262146,
-                  -1,
-                  (__int64)L"pAllocation->m_hVidMmAllocation != NULL",
-                  3942LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-              }
-              if ( (*(_DWORD *)(v22 + 4) & 0x10) == 0 )
-              {
-                if ( *((_DWORD *)a2[2] + 50) != 1 && !DXGADAPTER::RemovePending((DXGADAPTER *)a2[2]) )
-                {
-                  WdLogSingleEntry1(1LL, 3953LL);
-                  DxgkLogInternalTriageEvent(
-                    0LL,
-                    262146,
-                    -1,
-                    (__int64)L"pRenderCore->GetAdapter()->IsActive() || pRenderCore->GetAdapter()->RemovePending()",
-                    3953LL,
-                    0LL,
-                    0LL,
-                    0LL,
-                    0LL);
-                }
-                ((void (__fastcall *)(PERESOURCE *, _QWORD))a2[95][1][1].Reserved2)(a2[96], *(_QWORD *)(v22 + 8));
-                *(_DWORD *)(v22 + 4) |= 0x10u;
-              }
-            }
-            v19 += 8LL;
-            --v20;
-          }
-          while ( v20 );
+          v40 = WdLogNewEntry5_WdAssertion(v8, v6);
+          *(_QWORD *)(v40 + 24) = 3778LL;
+          WdLogEvent5_WdAssertion(v40);
+          v15 = this[14];
+        }
+        if ( LODWORD(v15[v14 + 86][4].OwnerTable) )
+        {
+          DXGDEVICE::UnpinPrimaryAllocations((DXGDEVICE *)v16, v13);
+          v8 = (PERESOURCE)*((_QWORD *)v16[2] + 2);
+          if ( SHIDWORD(v8[24].SpinLock) < 2200 )
+            DXGDEVICE::UnpinAllDirectFlipAllocations((DXGDEVICE *)v16, v13, v23, v24);
+        }
+        else
+        {
+          DXGDEVICE::InvalidatePrimaryAllocations((DXGDEVICE *)v16, v13);
         }
       }
-      v7 = *((_DWORD *)this + 24);
-      ++v6;
+      ++v13;
     }
-    while ( v6 < v7 );
-    v8 = 0;
-    if ( v7 )
-    {
-      do
-      {
-        v9 = 500LL * v8;
-        v10 = (struct ADAPTER_RENDER **)this[16][v9 + 91];
-        if ( v10 )
-        {
-          if ( a2 != (PERESOURCE **)v10[2] )
-          {
-            WdLogSingleEntry1(1LL, 3973LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"pRenderCore == pDevice->GetRenderCore()",
-              3973LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-          }
-          if ( LODWORD(this[16][v9 + 91][4].OwnerEntry.OwnerThread) )
-          {
-            DXGDEVICE::UnpinPrimaryAllocations((DXGDEVICE *)v10, v8);
-            if ( *(int *)(*((_QWORD *)v10[2] + 2) + 2820LL) < 2200 )
-              DXGDEVICE::UnpinAllDirectFlipAllocations((DXGDEVICE *)v10, v8, v11, v12);
-          }
-          else
-          {
-            DXGDEVICE::InvalidatePrimaryAllocations((DXGDEVICE *)v10, v8);
-          }
-        }
-        ++v8;
-      }
-      while ( v8 < *((_DWORD *)this + 24) );
-    }
+    while ( v13 < *((_DWORD *)this + 20) );
   }
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of _stricmp_0 @ 0x1C002F267
+ * XREFs of _stricmp_0 @ 0x1C0031DA7
  * Callers:
- *     OSInterface @ 0x1C0022310 (OSInterface.c)
- *     Debugger @ 0x1C00680E0 (Debugger.c)
+ *     OSInterface @ 0x1C0024EB0 (OSInterface.c)
+ *     Debugger @ 0x1C0066C38 (Debugger.c)
  * Callees:
  *     <none>
  */

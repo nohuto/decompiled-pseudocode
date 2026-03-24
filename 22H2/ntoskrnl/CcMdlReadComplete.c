@@ -1,26 +1,28 @@
 /*
- * XREFs of CcMdlReadComplete @ 0x1407E0040
+ * XREFs of CcMdlReadComplete @ 0x14069F2D0
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     CcMdlReadComplete2 @ 0x1407C3DFC (CcMdlReadComplete2.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CcMdlReadComplete2 @ 0x1407028C8 (CcMdlReadComplete2.c)
  */
 
 void __stdcall CcMdlReadComplete(PFILE_OBJECT FileObject, PMDL MdlChain)
 {
   PDEVICE_OBJECT RelatedDeviceObject; // rcx
+  struct _DRIVER_OBJECT *DriverObject; // r8
   PFAST_IO_DISPATCH FastIoDispatch; // r9
   unsigned __int8 (__fastcall *MdlReadComplete)(PFILE_OBJECT, PMDL, PDEVICE_OBJECT); // rax
 
   RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
-  FastIoDispatch = RelatedDeviceObject->DriverObject->FastIoDispatch;
+  DriverObject = RelatedDeviceObject->DriverObject;
+  FastIoDispatch = DriverObject->FastIoDispatch;
   if ( !FastIoDispatch
     || FastIoDispatch->SizeOfFastIoDispatch <= 0x98
     || (MdlReadComplete = (unsigned __int8 (__fastcall *)(PFILE_OBJECT, PMDL, PDEVICE_OBJECT))FastIoDispatch->MdlReadComplete) == 0LL
     || !MdlReadComplete(FileObject, MdlChain, RelatedDeviceObject) )
   {
-    CcMdlReadComplete2((__int64)RelatedDeviceObject, MdlChain);
+    CcMdlReadComplete2(RelatedDeviceObject, MdlChain, DriverObject);
   }
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipRegisterDevice @ 0x14070B24C
+ * XREFs of WmipRegisterDevice @ 0x14070B22C
  * Callers:
- *     IoWMIRegistrationControl @ 0x1406B8F20 (IoWMIRegistrationControl.c)
+ *     IoWMIRegistrationControl @ 0x1406B8F00 (IoWMIRegistrationControl.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     ObReferenceObjectByPointer @ 0x140013530 (ObReferenceObjectByPointer.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     WmipUnreferenceRegEntry @ 0x14008DB30 (WmipUnreferenceRegEntry.c)
- *     IoGetAttachedDeviceReference @ 0x1400ACE20 (IoGetAttachedDeviceReference.c)
- *     WmipFindRegEntryByDevice @ 0x14012E928 (WmipFindRegEntryByDevice.c)
- *     WmipDeregisterRegEntry @ 0x14016A878 (WmipDeregisterRegEntry.c)
- *     WmipAllocRegEntry @ 0x14016B5A8 (WmipAllocRegEntry.c)
- *     WmipQueueRegWork @ 0x1406B9040 (WmipQueueRegWork.c)
- *     WmipRegisterOrUpdateDS @ 0x1406C9988 (WmipRegisterOrUpdateDS.c)
- *     WmipUpdateDeviceStackSize @ 0x14070B3B4 (WmipUpdateDeviceStackSize.c)
+ *     IoGetAttachedDeviceReference @ 0x1400ACE40 (IoGetAttachedDeviceReference.c)
+ *     WmipFindRegEntryByDevice @ 0x14012E948 (WmipFindRegEntryByDevice.c)
+ *     WmipDeregisterRegEntry @ 0x14016A898 (WmipDeregisterRegEntry.c)
+ *     WmipAllocRegEntry @ 0x14016B5C8 (WmipAllocRegEntry.c)
+ *     WmipQueueRegWork @ 0x1406B9020 (WmipQueueRegWork.c)
+ *     WmipRegisterOrUpdateDS @ 0x1406C9968 (WmipRegisterOrUpdateDS.c)
+ *     WmipUpdateDeviceStackSize @ 0x14070B394 (WmipUpdateDeviceStackSize.c)
  */
 
 __int64 __fastcall WmipRegisterDevice(struct _DEVICE_OBJECT *Object, int a2)

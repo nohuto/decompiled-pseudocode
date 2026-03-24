@@ -1,14 +1,14 @@
 /*
- * XREFs of HmgCheckDCForPrivateReferences @ 0x1C016BF28
+ * XREFs of HmgCheckDCForPrivateReferences @ 0x1C013EF18
  * Callers:
- *     ?vCleanupDCs@@YAXK@Z @ 0x1C001783C (-vCleanupDCs@@YAXK@Z.c)
+ *     ?vCleanupDCs@@YAXK@Z @ 0x1C000AAF0 (-vCleanupDCs@@YAXK@Z.c)
  * Callees:
  *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@33@Z @ 0x1C00010E4 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
- *     ?prgnRao@DC@@QEBAPEAVREGION@@XZ @ 0x1C001BE28 (-prgnRao@DC@@QEBAPEAVREGION@@XZ.c)
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     HmgIsObjectOwnedByW32Pid @ 0x1C0093110 (HmgIsObjectOwnedByW32Pid.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C00CB874 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C00CB8C8 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
+ *     ?prgnRao@DC@@QEBAPEAVREGION@@XZ @ 0x1C003A2D8 (-prgnRao@DC@@QEBAPEAVREGION@@XZ.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     HmgIsObjectOwnedByW32Pid @ 0x1C0079A68 (HmgIsObjectOwnedByW32Pid.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C00BCBF4 (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C00BCC50 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
  */
 
 __int64 __fastcall HmgCheckDCForPrivateReferences(struct OBJECT **this, unsigned int a2)
@@ -36,26 +36,26 @@ __int64 __fastcall HmgCheckDCForPrivateReferences(struct OBJECT **this, unsigned
     return 1LL;
   if ( (unsigned int)HmgIsObjectOwnedByW32Pid(this[11], a2) )
     return 1LL;
-  if ( (unsigned int)HmgIsObjectOwnedByW32Pid(this[141], a2) )
+  if ( (unsigned int)HmgIsObjectOwnedByW32Pid(this[142], a2) )
     return 1LL;
-  if ( (unsigned int)HmgIsObjectOwnedByW32Pid(this[148], a2) )
+  if ( (unsigned int)HmgIsObjectOwnedByW32Pid(this[149], a2) )
     return 1LL;
   if ( (unsigned int)HmgIsObjectOwnedByW32Pid(this[20], a2) )
     return 1LL;
-  if ( (unsigned int)HmgIsObjectOwnedByW32Pid(this[147], a2) )
+  if ( (unsigned int)HmgIsObjectOwnedByW32Pid(this[148], a2) )
     return 1LL;
   if ( (unsigned int)HmgIsObjectOwnedByW32Pid(this[21], a2) )
     return 1LL;
   v4 = DC::prgnRao((DC *)this);
   if ( (unsigned int)HmgIsObjectOwnedByW32Pid(v4, a2)
     || (unsigned int)HmgIsObjectOwnedByW32Pid(this[62], a2)
-    || (unsigned int)HmgIsObjectOwnedByW32Pid(this[262], a2) )
+    || (unsigned int)HmgIsObjectOwnedByW32Pid(this[263], a2) )
   {
     return 1LL;
   }
   if ( (unsigned int)HmgIsObjectOwnedByW32Pid(this[12], a2) )
   {
-    if ( (unsigned int)dword_1C028D6F0 > 5 && tlgKeywordOn((__int64)&dword_1C028D6F0, 0x400000000000LL) )
+    if ( (unsigned int)dword_1C024A250 > 5 && tlgKeywordOn((__int64)&dword_1C024A250, 0x400000000000LL) )
     {
       v16 = 0;
       v17 = 1;
@@ -63,7 +63,7 @@ __int64 __fastcall HmgCheckDCForPrivateReferences(struct OBJECT **this, unsigned
       v18 = 83417;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
         v5,
-        (int)&unk_1C025C02A,
+        (int)&unk_1C021A285,
         v6,
         v7,
         (__int64)&v18,
@@ -79,7 +79,7 @@ __int64 __fastcall HmgCheckDCForPrivateReferences(struct OBJECT **this, unsigned
     XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)v14, v9);
     if ( (unsigned int)HmgIsObjectOwnedByW32Pid(v15, a2) )
     {
-      if ( (unsigned int)dword_1C028D6F0 > 5 && tlgKeywordOn((__int64)&dword_1C028D6F0, 0x400000000000LL) )
+      if ( (unsigned int)dword_1C024A250 > 5 && tlgKeywordOn((__int64)&dword_1C024A250, 0x400000000000LL) )
       {
         v16 = 1;
         v17 = 1;
@@ -87,7 +87,7 @@ __int64 __fastcall HmgCheckDCForPrivateReferences(struct OBJECT **this, unsigned
         v18 = 86327;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
           v10,
-          (int)&unk_1C025C02A,
+          (int)&unk_1C021A285,
           v11,
           v12,
           (__int64)&v18,

@@ -1,22 +1,22 @@
 /*
- * XREFs of ?GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z @ 0x1C00E073A
+ * XREFs of ?GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z @ 0x1C014C084
  * Callers:
- *     EtwTraceLifetimeAccum @ 0x1C009BC90 (EtwTraceLifetimeAccum.c)
- *     EtwTraceDWMGetDirtyRegion @ 0x1C00C40B0 (EtwTraceDWMGetDirtyRegion.c)
- *     EtwTraceMoveRegion @ 0x1C016B6A0 (EtwTraceMoveRegion.c)
+ *     EtwTraceLifetimeAccum @ 0x1C0080640 (EtwTraceLifetimeAccum.c)
+ *     EtwTraceDWMGetDirtyRegion @ 0x1C009DAE0 (EtwTraceDWMGetDirtyRegion.c)
+ *     EtwTraceMoveRegion @ 0x1C014C740 (EtwTraceMoveRegion.c)
  * Callees:
- *     ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C005AAF0 (-vDownload@RGNOBJ@@QEAAXPEAX@Z.c)
- *     ?sizeSave@RGNOBJ@@QEAAKXZ @ 0x1C01574F0 (-sizeSave@RGNOBJ@@QEAAKXZ.c)
+ *     ?sizeSave@RGNOBJ@@QEAAKXZ @ 0x1C0020BB0 (-sizeSave@RGNOBJ@@QEAAKXZ.c)
+ *     ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C0020BF0 (-vDownload@RGNOBJ@@QEAAXPEAX@Z.c)
  */
 
-__int64 __fastcall GrepGetRegionPtrData(struct REGION *a1, DWORD a2, struct _RGNDATA *a3)
+__int64 __fastcall GrepGetRegionPtrData(RECT *a1, DWORD a2, struct _RGNDATA *a3)
 {
   DWORD v6; // ecx
   DWORD v7; // edi
   unsigned __int64 v8; // rax
   struct REGION *v10; // [rsp+30h] [rbp+8h] BYREF
 
-  v10 = a1;
+  v10 = (struct REGION *)a1;
   if ( !a1 )
     return 0;
   v6 = RGNOBJ::sizeSave((RGNOBJ *)&v10);
@@ -32,7 +32,7 @@ __int64 __fastcall GrepGetRegionPtrData(struct REGION *a1, DWORD a2, struct _RGN
   a3->rdh.nRgnSize = v6;
   if ( (_DWORD)v8 )
   {
-    a3->rdh.rcBound = *(RECT *)((char *)a1 + 56);
+    a3->rdh.rcBound = a1[6];
   }
   else
   {

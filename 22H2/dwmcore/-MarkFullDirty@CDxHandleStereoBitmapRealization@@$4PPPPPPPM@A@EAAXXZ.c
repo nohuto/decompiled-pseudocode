@@ -1,5 +1,5 @@
 /*
- * XREFs of ?MarkFullDirty@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAXXZ @ 0x180122E20
+ * XREFs of ?MarkFullDirty@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAXXZ @ 0x1800F8880
  * Callers:
  *     <none>
  * Callees:

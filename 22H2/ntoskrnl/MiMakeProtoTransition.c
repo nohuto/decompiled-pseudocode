@@ -1,102 +1,80 @@
 /*
- * XREFs of MiMakeProtoTransition @ 0x1402D8D90
+ * XREFs of MiMakeProtoTransition @ 0x14055C6A8
  * Callers:
- *     MiDeletePteList @ 0x1402D2450 (MiDeletePteList.c)
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
+ *     MiDeletePteList @ 0x140231190 (MiDeletePteList.c)
  * Callees:
- *     MiUnmapPageInHyperSpaceWorker @ 0x14021AEA4 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeTransitionPte @ 0x1402AF040 (MiMakeTransitionPte.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x1402B2140 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x1402C8FA0 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
-__int64 __fastcall MiMakeProtoTransition(_QWORD *a1, unsigned __int64 a2)
+__int64 __fastcall MiMakeProtoTransition(__int64 a1)
 {
-  unsigned __int64 UltraMapping; // r9
-  __int64 v3; // rdi
-  __int64 v4; // r12
-  unsigned __int64 v5; // r15
-  _QWORD *v7; // r14
-  _QWORD *v8; // rbx
-  __int64 v9; // rbp
-  __int64 v10; // rcx
-  __int64 v11; // rax
-  __int64 result; // rax
-  int v13; // r8d
-  int v14; // eax
-  unsigned __int64 ValidPte; // rbx
-  unsigned __int64 *MmInternal; // rsi
-  unsigned __int64 *v17; // rcx
+  unsigned __int64 v2; // rax
+  unsigned __int64 v3; // rdi
+  __int64 v4; // rbp
+  __int64 v5; // r9
+  __int64 *v6; // rsi
+  unsigned __int64 v7; // rbx
+  struct _LIST_ENTRY *Flink; // rdx
+  char v9; // di
+  int v10; // ebp
+  __int64 v11; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  bool v14; // zf
+  __int64 TransitionPte; // [rsp+40h] [rbp+8h] BYREF
 
-  UltraMapping = 0LL;
-  v3 = a1[2] >> 5;
-  v4 = a1[5] & 0xFFFFFFFFFFLL;
-  v5 = 0LL;
-  v7 = a1;
-  if ( a2 )
+  v2 = MI_READ_PTE_LOCK_FREE(a1 + 16);
+  v3 = *(_QWORD *)(a1 + 8);
+  v4 = (v2 >> 5) & 0x1F;
+  v6 = (__int64 *)(MiMapPageInHyperSpaceWorker(*(_QWORD *)(a1 + 40) & 0xFFFFFFFFFLL, 0LL, 0x80000000, v5)
+                 + 8 * ((v3 >> 3) & 0x1FF));
+  TransitionPte = MI_READ_PTE_LOCK_FREE((unsigned __int64)v6);
+  v7 = TransitionPte;
+  if ( MiPteInShadowRange((unsigned __int64)&TransitionPte)
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v7 & 1) != 0
+    && ((v7 & 0x20) == 0 || (v7 & 0x42) == 0) )
   {
-    while ( 1 )
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
     {
-      v8 = v7 + 5;
-      v9 = ((unsigned int)v7[1] >> 3) & 0x1FF;
-      if ( v5 )
-      {
-        if ( (*v8 & 0xFFFFFFFFFFLL) != v4 )
-          break;
-      }
-      if ( !UltraMapping )
-        goto LABEL_13;
-LABEL_5:
-      v10 = (*(_QWORD *)(UltraMapping + 8 * v9) >> 12) & 0xFFFFFFFFFFLL;
-      if ( (_QWORD *)(48 * v10 - 0x220000000000LL) != v7 )
-        KeBugCheckEx(
-          0x4Eu,
-          6uLL,
-          0xAAAAAAAAAAAAAAABuLL * ((__int64)(v7 + 0x44000000000LL) >> 4),
-          (unsigned int)v9 + UltraMapping,
-          *(_QWORD *)(UltraMapping + 8 * v9));
-      v11 = 32 * ((v10 << 7) | v3 & 0x1F | 0x40);
-      if ( qword_140C65C40 )
-      {
-        if ( (v11 & qword_140C65C40) != 0 )
-          v11 |= 0x10uLL;
-        else
-          v11 |= qword_140C65C40;
-      }
-      *(_QWORD *)(UltraMapping + 8 * v9) = v11;
-      if ( ++v5 != a2 )
-      {
-        v7 = (_QWORD *)(48 * (*v7 & 0xFFFFFFFFFFLL) - 0x220000000000LL);
-        if ( v5 < a2 )
-          continue;
-      }
-      goto LABEL_11;
+      if ( ((__int64)*(&Flink->Flink + (((unsigned __int64)&TransitionPte >> 3) & 0x1FF)) & 0x20) != 0 )
+        v7 |= 0x20uLL;
     }
-    MiUnmapPageInHyperSpaceWorker(UltraMapping, 0x11u);
-LABEL_13:
-    v13 = 4;
-    v4 = *v8 & 0xFFFFFFFFFFLL;
-    v14 = *(unsigned __int8 *)(48 * v4 - 0x220000000000LL + 34) >> 6;
-    if ( !v14 || v14 == 3 )
-    {
-      v13 = 12;
-    }
-    else if ( v14 == 2 )
-    {
-      v13 = 28;
-    }
-    ValidPte = MiMakeValidPte(0LL, *v8 & 0xFFFFFFFFFFLL, v13 | 0xA0000000);
-    MmInternal = (unsigned __int64 *)KeGetCurrentPrcb()->MmInternal;
-    UltraMapping = MiGetUltraMapping(MmInternal + 1556, 3u, 1LL, 0);
-    v17 = (unsigned __int64 *)(((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-    MmInternal[1543] = (unsigned __int64)v17;
-    *v17 = ValidPte;
-    goto LABEL_5;
   }
-LABEL_11:
-  result = ZeroPte;
-  *((_QWORD *)KeGetCurrentPrcb()->MmInternal + 1543) = 0LL;
-  *(_QWORD *)(((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = ZeroPte;
-  return result;
+  TransitionPte = MiMakeTransitionPte((v7 >> 12) & 0xFFFFFFFFFLL, v4);
+  v9 = TransitionPte;
+  v10 = 0;
+  v11 = TransitionPte;
+  if ( MiPteInShadowRange((unsigned __int64)v6) )
+  {
+    if ( (unsigned int)MiPteHasShadow() )
+    {
+      v10 = 1;
+      if ( HIBYTE(word_140C4E008) )
+        goto LABEL_18;
+      v14 = (v9 & 1) == 0;
+    }
+    else
+    {
+      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
+        goto LABEL_18;
+      v14 = (v9 & 1) == 0;
+    }
+    if ( !v14 )
+      v11 |= 0x8000000000000000uLL;
+  }
+LABEL_18:
+  *v6 = v11;
+  if ( v10 )
+    MiWritePteShadow((__int64)v6, v11, v13);
+  LOBYTE(v12) = 17;
+  return MiUnmapPageInHyperSpaceWorker((unsigned __int64)v6, v12, 0x80000000LL);
 }

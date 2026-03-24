@@ -1,18 +1,18 @@
 /*
- * XREFs of IopBuildFullDriverPath @ 0x14068063C
+ * XREFs of IopBuildFullDriverPath @ 0x14068061C
  * Callers:
- *     PpCheckInDriverDatabase @ 0x14067F0FC (PpCheckInDriverDatabase.c)
- *     IopLoadDriver @ 0x14067FA54 (IopLoadDriver.c)
- *     PiNormalizeDeviceText @ 0x1406FDD60 (PiNormalizeDeviceText.c)
+ *     PpCheckInDriverDatabase @ 0x14067F0DC (PpCheckInDriverDatabase.c)
+ *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
+ *     PiNormalizeDeviceText @ 0x1406FDD40 (PiNormalizeDeviceText.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     IopVerifierExAllocatePool_0 @ 0x1400DD83C (IopVerifierExAllocatePool_0.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     IopQueryRegistryKeySystemPath @ 0x140680164 (IopQueryRegistryKeySystemPath.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
+ *     IopQueryRegistryKeySystemPath @ 0x140680144 (IopQueryRegistryKeySystemPath.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
  */
 
 __int64 __fastcall IopBuildFullDriverPath(UNICODE_STRING *a1, void *a2, UNICODE_STRING *a3)

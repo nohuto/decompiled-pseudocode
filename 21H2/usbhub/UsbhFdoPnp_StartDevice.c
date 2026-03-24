@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhFdoPnp_StartDevice @ 0x1C0042970
+ * XREFs of UsbhFdoPnp_StartDevice @ 0x1C0043C20
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     Usbh_FDO_Pnp_State @ 0x1C0043A98 (Usbh_FDO_Pnp_State.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     Usbh_FDO_Pnp_State @ 0x1C0044D48 (Usbh_FDO_Pnp_State.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhFdoPnp_StartDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
@@ -17,6 +17,7 @@ __int64 __fastcall UsbhFdoPnp_StartDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
   _IO_STACK_LOCATION *v6; // rax
   int Status; // edi
   _DWORD *v8; // rax
+  int v10; // [rsp+48h] [rbp-30h]
   struct _KEVENT Event; // [rsp+50h] [rbp-28h] BYREF
 
   memset(&Event, 0, sizeof(Event));
@@ -27,7 +28,7 @@ __int64 __fastcall UsbhFdoPnp_StartDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
       0,
       1u,
       0x15u,
-      (__int64)&WPP_70750b4e52e537afa0d3aa3795e637f0_Traceguids);
+      (__int64)&WPP_bd192adfbaab37968b6512a601d84f30_Traceguids);
   KeInitializeEvent(&Event, NotificationEvent, 0);
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&CurrentStackLocation->MajorFunction;
@@ -49,7 +50,8 @@ __int64 __fastcall UsbhFdoPnp_StartDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
   Status = Irp->IoStatus.Status;
   if ( (Status & 0xC0000000) == 0xC0000000 )
   {
-    UsbhException((int)DeviceObject, 0, 57, 0, 0, Status, 0, usbfile_pnp_c, 3070, 0);
+    LOBYTE(v10) = 0;
+    UsbhException((int)DeviceObject, 0, 57, 0, 0, Status, 0, usbfile_pnp_c, 3081, v10);
   }
   else
   {

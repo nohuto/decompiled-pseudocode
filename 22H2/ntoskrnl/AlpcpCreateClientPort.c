@@ -1,239 +1,245 @@
 /*
- * XREFs of AlpcpCreateClientPort @ 0x1407177B4
+ * XREFs of AlpcpCreateClientPort @ 0x1405E054C
  * Callers:
- *     AlpcpConnectPort @ 0x1407173E0 (AlpcpConnectPort.c)
- *     NtSecureConnectPort @ 0x1407C43C0 (NtSecureConnectPort.c)
+ *     NtSecureConnectPort @ 0x1405DDC90 (NtSecureConnectPort.c)
+ *     AlpcpConnectPort @ 0x1405DF5BC (AlpcpConnectPort.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ObReferenceObjectByName @ 0x1406C2D00 (ObReferenceObjectByName.c)
- *     ObReferenceObjectByNameEx @ 0x1407153CC (ObReferenceObjectByNameEx.c)
- *     AlpcpCheckConnectionSecurity @ 0x140715A70 (AlpcpCheckConnectionSecurity.c)
- *     AlpcpSetOwnerProcessPort @ 0x1407164DC (AlpcpSetOwnerProcessPort.c)
- *     AlpcpValidateAndSetPortAttributes @ 0x140716534 (AlpcpValidateAndSetPortAttributes.c)
- *     AlpcpInitializePort @ 0x140716798 (AlpcpInitializePort.c)
- *     AlpcpAllocateMessage @ 0x140716914 (AlpcpAllocateMessage.c)
- *     AlpcInitializeHandleTable @ 0x140717C10 (AlpcInitializeHandleTable.c)
- *     AlpcpCreatePort @ 0x140717C64 (AlpcpCreatePort.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     SeCreateClientSecurity @ 0x14071D3C0 (SeCreateClientSecurity.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     AlpcpAllocateBlob @ 0x14073A150 (AlpcpAllocateBlob.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
+ *     AlpcpCheckConnectionSecurity @ 0x1405DEB24 (AlpcpCheckConnectionSecurity.c)
+ *     AlpcpSetOwnerProcessPort @ 0x1405E098C (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpAllocateMessage @ 0x1405E09E4 (AlpcpAllocateMessage.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x1405E0B04 (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcInitializeHandleTable @ 0x1405E0D44 (AlpcInitializeHandleTable.c)
+ *     AlpcpInitializePort @ 0x1405E0D98 (AlpcpInitializePort.c)
+ *     AlpcpCreatePort @ 0x1405E0F24 (AlpcpCreatePort.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     SeCreateClientSecurity @ 0x1406D6B30 (SeCreateClientSecurity.c)
+ *     AlpcpAllocateBlob @ 0x1406D984C (AlpcpAllocateBlob.c)
+ *     ObReferenceObjectByName @ 0x1406D9EC0 (ObReferenceObjectByName.c)
  */
 
 __int64 __fastcall AlpcpCreateClientPort(
         __int64 *a1,
         _QWORD *a2,
         int a3,
-        __int64 a4,
+        int a4,
         __int64 a5,
         __int64 a6,
-        _QWORD *a7,
+        _DWORD *a7,
         void *a8,
         void *a9,
         __int64 a10,
         char a11)
 {
-  struct _KPROCESS *v11; // rsi
+  struct _KPROCESS *DmaOperations; // rsi
   char PreviousMode; // r12
   __int64 result; // rax
-  char *v14; // r14
+  PADAPTER_OBJECT v14; // r14
   __int64 v15; // rcx
   signed __int64 *v16; // rdi
   int v17; // edi
-  char v18; // al
-  _DWORD *v19; // rdi
-  int v20; // esi
-  _DWORD *v21; // rsi
-  _QWORD *Blob; // rax
-  ULONG_PTR *v23; // r13
-  __int64 v24; // rcx
-  __int64 *v25; // rax
-  __int64 **v26; // rdx
-  __int64 v27; // rdi
-  int Message; // eax
-  _QWORD *v29; // rbx
+  __int64 v18; // r8
+  char v19; // al
+  _DWORD *v20; // rdi
+  int v21; // esi
+  _DWORD *v22; // rsi
+  PADAPTER_OBJECT *Blob; // rax
+  ULONG_PTR *v24; // r13
+  __int64 v25; // rax
+  __int64 *v26; // rcx
+  __int64 **v27; // rdx
+  __int64 v28; // rdi
+  NTSTATUS Message; // eax
+  PADAPTER_OBJECT v30; // rbx
   int inserted; // ecx
-  __int64 v31; // rax
-  volatile signed __int64 *v32; // rdi
-  PVOID v33; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v32; // rax
+  volatile signed __int64 *v33; // rdi
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp-20h] BYREF
   PVOID Object; // [rsp+48h] [rbp-18h] BYREF
-  _QWORD *v35; // [rsp+50h] [rbp-10h]
-  __int64 v36; // [rsp+58h] [rbp-8h] BYREF
-  char v40; // [rsp+C0h] [rbp+60h]
+  PADAPTER_OBJECT *v36; // [rsp+50h] [rbp-10h]
+  __int64 v37; // [rsp+58h] [rbp-8h] BYREF
+  char v41; // [rsp+C0h] [rbp+60h]
 
-  v11 = 0LL;
+  DmaOperations = 0LL;
   Object = 0LL;
-  v33 = 0LL;
+  DmaAdapter = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v36 = 0LL;
+  v37 = 0LL;
   if ( a5 )
-    result = ObReferenceObjectByNameEx(a5, 0LL, 1, (__int64)AlpcPortObjectType, PreviousMode, 0LL, (__int64 *)&v33);
+    result = ObReferenceObjectByNameEx(a5, 0LL, 1u, (__int64)AlpcPortObjectType, PreviousMode, 0LL, &DmaAdapter);
   else
-    result = ObReferenceObjectByName(a4, 0LL, 0LL, 1u, (__int64)AlpcPortObjectType, PreviousMode, 0, (__int64 *)&v33);
+    result = ObReferenceObjectByName(a4, 0, 0, 1, (__int64)AlpcPortObjectType, PreviousMode, 0LL, (__int64)&DmaAdapter);
   if ( (int)result >= 0 )
   {
-    v14 = (char *)v33;
-    v15 = *((unsigned int *)v33 + 104);
-    if ( (*((_DWORD *)v33 + 104) & 6) != 2 )
+    v14 = DmaAdapter;
+    v15 = *(unsigned int *)&DmaAdapter[26].Version;
+    if ( (*(_DWORD *)&DmaAdapter[26].Version & 6) == 2 )
     {
-      v17 = -1073741758;
-      goto LABEL_58;
-    }
-    if ( !a11 && (v15 & 0x1000) != 0 )
-    {
-      v32 = (volatile signed __int64 *)((char *)v33 + 352);
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)v33 + 352, 0LL);
-      *((_DWORD *)v14 + 104) &= ~0x2000u;
-      if ( (_InterlockedExchangeAdd64(v32, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)v14 + 44);
-      KeAbPostRelease((ULONG_PTR)(v14 + 352));
-      v14 = (char *)v33;
-    }
-    if ( a9 || a8 )
-    {
-      v16 = (signed __int64 *)(v14 + 352);
-      ExAcquirePushLockSharedEx((ULONG_PTR)(v14 + 352), 0LL);
-      if ( (*((_QWORD *)v14 + 3) & 1) == 0 )
-        v11 = (struct _KPROCESS *)*((_QWORD *)v14 + 3);
-      if ( v11 )
-        ObfReferenceObjectWithTag(v11, 0x63706C41u);
+      if ( !a11 && (v15 & 0x1000) != 0 )
+      {
+        v33 = (volatile signed __int64 *)&DmaAdapter[22];
+        ExAcquirePushLockExclusiveEx((ULONG_PTR)&DmaAdapter[22], 0LL);
+        *(_DWORD *)&v14[26].Version &= ~0x2000u;
+        if ( (_InterlockedExchangeAdd64(v33, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&v14[22]);
+        KeAbPostRelease((ULONG_PTR)&v14[22]);
+        v14 = DmaAdapter;
+      }
+      if ( !a9 && !a8 )
+        goto LABEL_60;
+      v16 = (signed __int64 *)&v14[22];
+      ExAcquirePushLockSharedEx((ULONG_PTR)&v14[22], 0LL);
+      if ( ((__int64)v14[1].DmaOperations & 1) == 0 )
+        DmaOperations = (struct _KPROCESS *)v14[1].DmaOperations;
+      if ( DmaOperations )
+        ObfReferenceObjectWithTag(DmaOperations, 0x63706C41u);
       if ( _InterlockedCompareExchange64(v16, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared(v16);
       KeAbPostRelease((ULONG_PTR)v16);
-      if ( v11 )
+      if ( DmaOperations )
       {
-        v17 = AlpcpCheckConnectionSecurity(v11, PreviousMode, a9, a8);
-        ObfDereferenceObjectWithTag(v11, 0x63706C41u);
-        if ( v17 >= 0 )
-        {
-          v14 = (char *)v33;
-          goto LABEL_18;
-        }
+        v17 = AlpcpCheckConnectionSecurity(DmaOperations, PreviousMode, a9, a8);
+        ObfDereferenceObjectWithTag(DmaOperations, 0x63706C41u);
       }
       else
       {
         v17 = -1073741152;
       }
-      v14 = (char *)v33;
-      goto LABEL_58;
-    }
-LABEL_18:
-    LOBYTE(v15) = PreviousMode;
-    v17 = AlpcpCreatePort(v15, a6, &Object);
-    if ( v17 >= 0 )
-    {
-      if ( !a7 || (v18 = 1, (*(_DWORD *)a7 & 0x40000) == 0) )
-        v18 = 0;
-      v19 = Object;
-      v40 = v18;
-      v20 = AlpcpInitializePort((__int64)Object, 2, v18);
-      if ( v20 >= 0 )
+      v14 = DmaAdapter;
+      if ( v17 >= 0 )
       {
-        v21 = v19 + 104;
-        v19[104] |= 8u;
-        Blob = (_QWORD *)AlpcpAllocateBlob(AlpcConnectionType, 80LL);
-        v35 = Blob;
-        if ( Blob )
+LABEL_60:
+        LOBYTE(v15) = PreviousMode;
+        v17 = AlpcpCreatePort(v15, a6, &Object);
+        if ( v17 >= 0 )
         {
-          *((_QWORD *)v19 + 2) = Blob;
-          v23 = Blob + 9;
-          Blob[9] = 0LL;
-          Blob[1] = 0LL;
-          *Blob = v14;
-          Blob[2] = v19;
-          ExAcquirePushLockExclusiveEx(*((_QWORD *)v14 + 2) - 16LL, 0LL);
-          ExAcquirePushLockExclusiveEx((ULONG_PTR)(v14 + 352), 0LL);
-          v24 = *((_QWORD *)v14 + 2) + 24LL;
-          v25 = v35 + 3;
-          v26 = *(__int64 ***)(*((_QWORD *)v14 + 2) + 32LL);
-          if ( *v26 != (__int64 *)v24 )
-            __fastfail(3u);
-          *v25 = v24;
-          v25[1] = (__int64)v26;
-          *v26 = v25;
-          *(_QWORD *)(v24 + 8) = v25;
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v14 + 44, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)v14 + 44);
-          KeAbPostRelease((ULONG_PTR)(v14 + 352));
-          v27 = *((_QWORD *)v14 + 2);
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v27 - 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)(v27 - 16));
-          KeAbPostRelease(v27 - 16);
-          Message = AlpcInitializeHandleTable(v35 + 5);
-          v19 = Object;
-          if ( Message >= 0 )
+          if ( !a7 || (v19 = 1, (*a7 & 0x40000) == 0) )
+            v19 = 0;
+          v20 = Object;
+          LOBYTE(v18) = v19;
+          v41 = v19;
+          v21 = AlpcpInitializePort(Object, 2LL, v18);
+          if ( v21 >= 0 )
           {
-            v29 = v33;
-            Message = AlpcpValidateAndSetPortAttributes((__int64)Object, a7, (__int64)v33, a10, 0, v40, a11);
-            if ( Message >= 0 )
+            v22 = v20 + 104;
+            v20[104] |= 8u;
+            Blob = (PADAPTER_OBJECT *)AlpcpAllocateBlob(AlpcConnectionType, 80LL, 1LL);
+            v36 = Blob;
+            if ( Blob )
             {
-              Message = AlpcpAllocateMessage(v23, 0x30uLL);
+              *((_QWORD *)v20 + 2) = Blob;
+              v24 = (ULONG_PTR *)(Blob + 9);
+              Blob[9] = 0LL;
+              Blob[1] = 0LL;
+              *Blob = v14;
+              Blob[2] = (PADAPTER_OBJECT)v20;
+              ExAcquirePushLockExclusiveEx(*(_QWORD *)&v14[1].Version - 16LL, 0LL);
+              ExAcquirePushLockExclusiveEx((ULONG_PTR)&v14[22], 0LL);
+              v25 = *(_QWORD *)&v14[1].Version + 24LL;
+              v26 = (__int64 *)(v36 + 3);
+              v27 = *(__int64 ***)(*(_QWORD *)&v14[1].Version + 32LL);
+              if ( *v27 != (__int64 *)v25 )
+                __fastfail(3u);
+              *v26 = v25;
+              v26[1] = (__int64)v27;
+              *v27 = v26;
+              *(_QWORD *)(v25 + 8) = v26;
+              if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&v14[22], 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+                ExfTryToWakePushLock((volatile signed __int64 *)&v14[22]);
+              KeAbPostRelease((ULONG_PTR)&v14[22]);
+              v28 = *(_QWORD *)&v14[1].Version;
+              if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v28 - 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+                ExfTryToWakePushLock((volatile signed __int64 *)(v28 - 16));
+              KeAbPostRelease(v28 - 16);
+              Message = AlpcInitializeHandleTable(v36 + 5);
+              v20 = Object;
               if ( Message >= 0 )
               {
-                ++*(_WORD *)(*v23 - 30);
-                *(_DWORD *)(*v23 + 264) |= 0x80000000;
-                AlpcpUnlockMessage(*v23);
-                if ( a11 )
-                  *v21 |= 0x1000u;
-                if ( (a3 & 0x80000) != 0 )
-                  *v21 |= 0x100u;
-                if ( *((_BYTE *)v19 + 268) == 1 )
-                {
-                  *v21 |= 0x400u;
-LABEL_38:
-                  AlpcpSetOwnerProcessPort((__int64)v19, a7);
-                  if ( (v29[32] & 0x1000000) != 0 )
-                  {
-                    v19[64] |= 0x1000000u;
-                    *((_QWORD *)v19 + 34) = v29[34];
-                  }
-                  ObfReferenceObject(v19);
-                  inserted = ObInsertObjectEx(v19, 0LL, 0, 0LL, (__int64)&v36);
-                  if ( inserted >= 0 )
-                  {
-                    v31 = v36;
-                    *((_QWORD *)v19 + 7) = v36;
-                    *a1 = v31;
-                    *a2 = v19;
-                    return (unsigned int)inserted;
-                  }
-                  v20 = inserted;
-LABEL_48:
-                  ObfDereferenceObject(v19);
-                  return (unsigned int)v20;
-                }
-                v19 = Object;
-                Message = SeCreateClientSecurity(
-                            KeGetCurrentThread(),
-                            (PSECURITY_QUALITY_OF_SERVICE)((char *)Object + 260),
+                v30 = DmaAdapter;
+                Message = AlpcpValidateAndSetPortAttributes(
+                            (_DWORD)Object,
+                            (_DWORD)a7,
+                            (_DWORD)DmaAdapter,
+                            a10,
                             0,
-                            (PSECURITY_CLIENT_CONTEXT)((char *)Object + 64));
+                            v41,
+                            a11);
                 if ( Message >= 0 )
                 {
-                  v29 = v33;
-                  goto LABEL_38;
+                  Message = AlpcpAllocateMessage(v24, 48LL, 1LL);
+                  if ( Message >= 0 )
+                  {
+                    ++*(_WORD *)(*v24 - 30);
+                    *(_DWORD *)(*v24 + 264) |= 0x80000000;
+                    AlpcpUnlockMessage(*v24);
+                    if ( a11 )
+                      *v22 |= 0x1000u;
+                    if ( (a3 & 0x80000) != 0 )
+                      *v22 |= 0x100u;
+                    if ( *((_BYTE *)v20 + 268) == 1 )
+                    {
+                      *v22 |= 0x400u;
+LABEL_38:
+                      AlpcpSetOwnerProcessPort(v20, a7);
+                      if ( (*(_DWORD *)&v30[16].Version & 0x1000000) != 0 )
+                      {
+                        v20[64] |= 0x1000000u;
+                        *((_QWORD *)v20 + 34) = *(_QWORD *)&v30[17].Version;
+                      }
+                      ObfReferenceObject(v20);
+                      inserted = ObInsertObjectEx((PADAPTER_OBJECT)v20, 0, 0LL, (__int64)&v37);
+                      if ( inserted >= 0 )
+                      {
+                        v32 = v37;
+                        *((_QWORD *)v20 + 7) = v37;
+                        *a1 = v32;
+                        *a2 = v20;
+                        return (unsigned int)inserted;
+                      }
+                      v21 = inserted;
+LABEL_57:
+                      HalPutDmaAdapter((PADAPTER_OBJECT)v20);
+                      return (unsigned int)v21;
+                    }
+                    v20 = Object;
+                    Message = SeCreateClientSecurity(
+                                KeGetCurrentThread(),
+                                (PSECURITY_QUALITY_OF_SERVICE)((char *)Object + 260),
+                                0,
+                                (PSECURITY_CLIENT_CONTEXT)((char *)Object + 64));
+                    if ( Message >= 0 )
+                    {
+                      v30 = DmaAdapter;
+                      goto LABEL_38;
+                    }
+                  }
                 }
               }
+              v21 = Message;
+              goto LABEL_57;
             }
+            v21 = -1073741801;
           }
-          v20 = Message;
-          goto LABEL_48;
+          HalPutDmaAdapter(v14);
+          goto LABEL_57;
         }
-        v20 = -1073741801;
       }
-      ObfDereferenceObject(v14);
-      goto LABEL_48;
     }
-LABEL_58:
-    ObfDereferenceObject(v14);
+    else
+    {
+      v17 = -1073741758;
+    }
+    HalPutDmaAdapter(v14);
     return (unsigned int)v17;
   }
   return result;

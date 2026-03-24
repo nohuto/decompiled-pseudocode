@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrWicPfToMil@@YAJAEBU_GUID@@PEAW4Enum@MilPixelFormat@@@Z @ 0x1800A6898
+ * XREFs of ?HrWicPfToMil@@YAJAEBU_GUID@@PEAW4Enum@MilPixelFormat@@@Z @ 0x18003D17C
  * Callers:
- *     ?HrInit@CWICBitmapWrapper@@IEAAJPEAUIWICBitmapSource@@@Z @ 0x1800A671C (-HrInit@CWICBitmapWrapper@@IEAAJPEAUIWICBitmapSource@@@Z.c)
+ *     ?HrInit@CWICBitmapWrapper@@IEAAJPEAUIWICBitmapSource@@@Z @ 0x18003CF94 (-HrInit@CWICBitmapWrapper@@IEAAJPEAUIWICBitmapSource@@@Z.c)
  * Callees:
- *     memcmp_0 @ 0x18011B98C (memcmp_0.c)
+ *     memcmp_0 @ 0x1800F3FFF (memcmp_0.c)
  */
 
 __int64 __fastcall HrWicPfToMil(const struct _GUID *a1, enum MilPixelFormat::Enum *a2)

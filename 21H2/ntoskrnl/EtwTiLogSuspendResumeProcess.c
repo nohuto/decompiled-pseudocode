@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwTiLogSuspendResumeProcess @ 0x1409E6524
+ * XREFs of EtwTiLogSuspendResumeProcess @ 0x14093BAAC
  * Callers:
- *     PsThawMultiProcess @ 0x140257280 (PsThawMultiProcess.c)
- *     PsMultiResumeProcess @ 0x140259668 (PsMultiResumeProcess.c)
- *     PsFreezeProcess @ 0x1406C03F0 (PsFreezeProcess.c)
- *     PsSuspendProcess @ 0x1409B2EF0 (PsSuspendProcess.c)
+ *     PsFreezeProcess @ 0x14067CC1C (PsFreezeProcess.c)
+ *     PsThawProcess @ 0x14067D0F8 (PsThawProcess.c)
+ *     PsResumeProcess @ 0x1406BF460 (PsResumeProcess.c)
+ *     PsSuspendProcess @ 0x14090C820 (PsSuspendProcess.c)
  * Callees:
- *     EtwProviderEnabled @ 0x1402EDE50 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x1402EDEB4 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x1402EDFB0 (EtwpTiFillThreadIdentity.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025F604 (EtwpTiFillProcessIdentity.c)
+ *     EtwProviderEnabled @ 0x14025F840 (EtwProviderEnabled.c)
+ *     EtwpTiFillThreadIdentity @ 0x14025F884 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTiLogSuspendResumeProcess(int a1, __int64 a2, __int64 a3, int a4)

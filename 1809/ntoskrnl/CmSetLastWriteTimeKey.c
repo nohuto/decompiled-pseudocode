@@ -1,7 +1,7 @@
 /*
- * XREFs of CmSetLastWriteTimeKey @ 0x1407EF8CC
+ * XREFs of CmSetLastWriteTimeKey @ 0x1407EF8AC
  * Callers:
- *     NtSetInformationKey @ 0x140697000 (NtSetInformationKey.c)
+ *     NtSetInformationKey @ 0x140696FE0 (NtSetInformationKey.c)
  * Callees:
  *     CmpTransEnlistUowInCmTrans @ 0x14000FB08 (CmpTransEnlistUowInCmTrans.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
@@ -9,10 +9,10 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     CmpTransEnlistUowInKcb @ 0x14010EE88 (CmpTransEnlistUowInKcb.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     CmpTransEnlistUowInKcb @ 0x14010EEA8 (CmpTransEnlistUowInKcb.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpLockIXLockExclusive @ 0x1405A8E88 (CmpLockIXLockExclusive.c)
  *     CmpLockIXLockIntent @ 0x1405A8EE8 (CmpLockIXLockIntent.c)
@@ -24,17 +24,17 @@
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpUnlockKcbStack @ 0x1406440E0 (CmpUnlockKcbStack.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140693E70 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmAddLogForAction @ 0x1406BCEFC (CmAddLogForAction.c)
- *     CmpAllocateUnitOfWork @ 0x1406C76BC (CmpAllocateUnitOfWork.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1406CF688 (CmpLogTransactionAbortedWithChildName.c)
- *     CmpAbortRollbackPacket @ 0x1407027EC (CmpAbortRollbackPacket.c)
- *     CmpTryAcquireKcbIXLocks @ 0x14071C0FC (CmpTryAcquireKcbIXLocks.c)
- *     CmpRetryBackOff @ 0x1407F8AC4 (CmpRetryBackOff.c)
- *     CmpPromoteKey @ 0x140805600 (CmpPromoteKey.c)
+ *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x140693E50 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmAddLogForAction @ 0x1406BCEDC (CmAddLogForAction.c)
+ *     CmpAllocateUnitOfWork @ 0x1406C769C (CmpAllocateUnitOfWork.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406CF668 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpAbortRollbackPacket @ 0x1407027CC (CmpAbortRollbackPacket.c)
+ *     CmpTryAcquireKcbIXLocks @ 0x14071C0DC (CmpTryAcquireKcbIXLocks.c)
+ *     CmpRetryBackOff @ 0x1407F8AA4 (CmpRetryBackOff.c)
+ *     CmpPromoteKey @ 0x1408055E0 (CmpPromoteKey.c)
  */
 
 __int64 __fastcall CmSetLastWriteTimeKey(_QWORD *a1, _QWORD *a2)

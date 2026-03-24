@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetSeek@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AEE0C
+ * XREFs of ?EmitSetSeek@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094DEC
  * Callers:
- *     ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AEC20 (-EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0094C00 (-EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CAnimationMarshaler::EmitSetSeek(
@@ -23,9 +23,9 @@ char __fastcall DirectComposition::CAnimationMarshaler::EmitSetSeek(
     *(_OWORD *)(v3 + 4) = 0LL;
     *(_QWORD *)(v3 + 20) = 0LL;
     *((_DWORD *)v3 + 1) = 10;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 12);
-    *(_QWORD *)(v3 + 12) = *(_QWORD *)(*((_QWORD *)this + 11) + 32LL);
-    *(_QWORD *)(v3 + 20) = *(_QWORD *)(*((_QWORD *)this + 11) + 40LL);
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 10);
+    *(_QWORD *)(v3 + 12) = *(_QWORD *)(*((_QWORD *)this + 10) + 32LL);
+    *(_QWORD *)(v3 + 20) = *(_QWORD *)(*((_QWORD *)this + 10) + 40LL);
     *((_DWORD *)this + 8) &= ~0x8000u;
     return 1;
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpScanSystemLookasideList @ 0x1402227C8
+ * XREFs of ExpScanSystemLookasideList @ 0x140290FA0
  * Callers:
- *     KeBalanceSetManager @ 0x1403C81D0 (KeBalanceSetManager.c)
+ *     KeBalanceSetManager @ 0x1403B90E0 (KeBalanceSetManager.c)
  * Callees:
- *     ExpComputeLookasideDepth @ 0x14022298C (ExpComputeLookasideDepth.c)
- *     RtlpDynamicLookasideRebalance @ 0x140222A20 (RtlpDynamicLookasideRebalance.c)
+ *     ExpComputeLookasideDepth @ 0x140291164 (ExpComputeLookasideDepth.c)
+ *     RtlpDynamicLookasideRebalance @ 0x1402911F0 (RtlpDynamicLookasideRebalance.c)
  */
 
 __int64 ExpScanSystemLookasideList()
@@ -82,10 +82,10 @@ __int64 ExpScanSystemLookasideList()
     }
     while ( v7 );
   }
-  for ( i = 0; i < dword_140C5EA20; ++i )
+  for ( i = 0; i < dword_140C58090; ++i )
   {
     v12 = 2LL;
-    v13 = (char *)&unk_140C5EA80 + 8384 * i;
+    v13 = (char *)&unk_140C58100 + 8384 * i;
     do
     {
       RtlpDynamicLookasideRebalance(v13);

@@ -1,16 +1,16 @@
 /*
- * XREFs of PspUserApcReserveKernelRoutine @ 0x1406EAA90
+ * XREFs of PspUserApcReserveKernelRoutine @ 0x1405D89E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
  */
 
-LONG_PTR __fastcall PspUserApcReserveKernelRoutine(__int64 a1)
+void __fastcall PspUserApcReserveKernelRoutine(__int64 a1)
 {
-  _DWORD *v1; // rcx
+  struct _DMA_ADAPTER *v1; // rcx
 
-  v1 = (_DWORD *)(a1 - 8);
-  *v1 = 0;
-  return ObfDereferenceObject(v1);
+  v1 = (struct _DMA_ADAPTER *)(a1 - 8);
+  *(_DWORD *)&v1->Version = 0;
+  HalPutDmaAdapter(v1);
 }

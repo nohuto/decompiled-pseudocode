@@ -1,115 +1,37 @@
 /*
- * XREFs of ?ReportAllocationState@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z @ 0x1C02E6E80
+ * XREFs of ?ReportAllocationState@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z @ 0x1C0256334
  * Callers:
- *     ?ReportDeviceResources@DXGDEVICE@@QEAAXXZ @ 0x1C02E708C (-ReportDeviceResources@DXGDEVICE@@QEAAXXZ.c)
- *     ?ReportState@DXGDEVICE@@QEAAXXZ @ 0x1C02E71E8 (-ReportState@DXGDEVICE@@QEAAXXZ.c)
+ *     ?ReportDeviceResources@DXGDEVICE@@QEAAXXZ @ 0x1C02563BC (-ReportDeviceResources@DXGDEVICE@@QEAAXXZ.c)
+ *     ?ReportState@DXGDEVICE@@QEAAXXZ @ 0x1C02564B8 (-ReportState@DXGDEVICE@@QEAAXXZ.c)
  * Callees:
- *     McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer @ 0x1C002BC60 (McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0ppppppppppppq_EtwWriteTransfer @ 0x1C004AD54 (McTemplateK0ppppppppppppq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DXGDEVICE::ReportAllocationState(DXGDEVICE *this, struct DXGALLOCATION *a2, int a3)
 {
-  __int64 v3; // rbx
-  __int64 v6; // rax
-  __int64 v7; // r8
-  int v8; // r10d
-  __int64 v9; // r11
-  char v10; // dl
-  __int64 v11; // rcx
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  int v14; // [rsp+40h] [rbp-C8h]
-  int v15; // [rsp+48h] [rbp-C0h]
-  int v16; // [rsp+50h] [rbp-B8h]
-  int v17; // [rsp+60h] [rbp-A8h]
-  int v18; // [rsp+68h] [rbp-A0h]
-  int v19; // [rsp+70h] [rbp-98h]
-  int v20; // [rsp+78h] [rbp-90h]
-  int v21; // [rsp+88h] [rbp-80h]
-  int v22; // [rsp+E0h] [rbp-28h]
-  int v23; // [rsp+E8h] [rbp-20h]
+  __int64 v6; // r8
+  __int64 v7; // rax
 
-  v3 = 0LL;
-  if ( (*((_BYTE *)this + 1869) & 1) != 0 )
+  if ( (*((_BYTE *)this + 1869) & 1) == 0 )
   {
+    v6 = 0LL;
     if ( a3 )
     {
-      if ( !bTracingEnabled )
-        return;
-      v7 = *((_QWORD *)a2 + 6);
-      v8 = *((_DWORD *)a2 + 30);
-      v9 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
-      v10 = (*((_DWORD *)a2 + 18) >> 12) & 0x3F;
-      v11 = *(_QWORD *)(*((_QWORD *)this + 5) + 64LL);
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x800) != 0 )
-        McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer(
-          v11,
-          &EventReportAdapterAllocation,
-          v7,
-          *(_QWORD *)(v11 + 80),
-          (char)this,
-          v9,
-          0,
-          v8,
-          v14,
-          v15,
-          v16,
-          0,
-          v17,
-          v18,
-          v19,
-          v20,
-          v7,
-          v21,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          v22,
-          v23,
-          v10,
-          0);
-    }
-    if ( bTracingEnabled )
-    {
-      v12 = *((_QWORD *)a2 + 5);
-      v13 = v12 ? *(_QWORD *)(v12 + 48) : 0LL;
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x800) != 0 )
-        McTemplateK0ppppppppppppq_EtwWriteTransfer(
-          *(_QWORD *)(*((_QWORD *)this + 5) + 64LL),
-          &EventReportDeviceAllocation,
-          v13,
-          *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 5) + 64LL) + 80LL),
-          this,
-          *(_QWORD *)(*((_QWORD *)this + 2) + 16LL),
-          a2);
-    }
-  }
-  else
-  {
-    if ( a3 )
-    {
-      v6 = *((_QWORD *)a2 + 5);
-      if ( v6 )
-        v3 = *(_QWORD *)(v6 + 56);
-      (*(void (__fastcall **)(DXGDEVICE *, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 648LL) + 8LL)
-                                                           + 600LL))(
+      v7 = *((_QWORD *)a2 + 5);
+      if ( v7 )
+        v6 = *(_QWORD *)(v7 + 56);
+      (*(void (__fastcall **)(DXGDEVICE *, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL)
+                                                           + 592LL))(
         this,
         *((_QWORD *)a2 + 6),
-        v3);
+        v6);
     }
-    (*(void (__fastcall **)(DXGDEVICE *, struct DXGALLOCATION *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 648LL)
-                                                                            + 8LL)
-                                                                + 608LL))(
+    (*(void (__fastcall **)(DXGDEVICE *, struct DXGALLOCATION *, __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2)
+                                                                                                 + 640LL)
+                                                                                     + 8LL)
+                                                                         + 600LL))(
       this,
-      a2);
+      a2,
+      v6);
   }
 }

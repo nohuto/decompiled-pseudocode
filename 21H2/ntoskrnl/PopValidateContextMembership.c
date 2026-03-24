@@ -1,9 +1,9 @@
 /*
- * XREFs of PopValidateContextMembership @ 0x1406EB3FC
+ * XREFs of PopValidateContextMembership @ 0x14078E220
  * Callers:
- *     PopGetSettingNotificationName @ 0x140751120 (PopGetSettingNotificationName.c)
+ *     PopGetSettingNotificationName @ 0x140679824 (PopGetSettingNotificationName.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x1402E0C80 (RtlCheckTokenMembership.c)
+ *     RtlCheckTokenMembership @ 0x14027F430 (RtlCheckTokenMembership.c)
  */
 
 __int64 __fastcall PopValidateContextMembership(void *a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateU0qqxx_EventWriteTransfer @ 0x180193E88
+ * XREFs of McTemplateU0qqxx_EventWriteTransfer @ 0x180163648
  * Callers:
- *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x18007DDA4 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
- *     ?AddLatencyData@CTelemetryComputeScribbleAggregator@@SAXAEBUComputeScribbleLatencyData@@@Z @ 0x1801D7DE8 (-AddLatencyData@CTelemetryComputeScribbleAggregator@@SAXAEBUComputeScribbleLatencyData@@@Z.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180077330 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ *     ?AddLatencyData@CTelemetryComputeScribbleAggregator@@SAXAEBV?$vector@UComputeScribbleLatencyData@@V?$allocator@UComputeScribbleLatencyData@@@std@@@std@@@Z @ 0x1801633F0 (-AddLatencyData@CTelemetryComputeScribbleAggregator@@SAXAEBV-$vector@UComputeScribbleLatencyData.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0qqxx_EventWriteTransfer(

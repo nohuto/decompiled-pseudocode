@@ -1,15 +1,14 @@
 /*
- * XREFs of RtlSectionTableFromVirtualAddress @ 0x1402D6F40
+ * XREFs of RtlSectionTableFromVirtualAddress @ 0x1402A8F10
  * Callers:
- *     RtlAddressInSectionTable @ 0x1402D6EE8 (RtlAddressInSectionTable.c)
- *     KeQueryKvaShadowRegion @ 0x1403851F0 (KeQueryKvaShadowRegion.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x140757C9C (LdrpAccessResourceDataNoMultipleLanguage.c)
- *     EtwpIsValidImageAddress @ 0x140758BF0 (EtwpIsValidImageAddress.c)
- *     KiTpIsSupportedKernelTracepointLocation @ 0x140962AC8 (KiTpIsSupportedKernelTracepointLocation.c)
- *     KiShadowProcessorAllocation @ 0x140A5A148 (KiShadowProcessorAllocation.c)
- *     KiVerifyXcpt15 @ 0x140AD6320 (KiVerifyXcpt15.c)
- *     CcInitializeBcbProfiler @ 0x140AD6354 (CcInitializeBcbProfiler.c)
- *     sub_140AD7DE4 @ 0x140AD7DE4 (sub_140AD7DE4.c)
+ *     KeQueryKvaShadowRegion @ 0x1402A8530 (KeQueryKvaShadowRegion.c)
+ *     RtlAddressInSectionTable @ 0x1402A8EBC (RtlAddressInSectionTable.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14068DA98 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     KiTpIsSupportedKernelTracepointLocation @ 0x1408BCB0C (KiTpIsSupportedKernelTracepointLocation.c)
+ *     KiShadowProcessorAllocation @ 0x14099F9F4 (KiShadowProcessorAllocation.c)
+ *     KiVerifyXcpt15 @ 0x140A1B320 (KiVerifyXcpt15.c)
+ *     CcInitializeBcbProfiler @ 0x140A1B354 (CcInitializeBcbProfiler.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
  * Callees:
  *     <none>
  */

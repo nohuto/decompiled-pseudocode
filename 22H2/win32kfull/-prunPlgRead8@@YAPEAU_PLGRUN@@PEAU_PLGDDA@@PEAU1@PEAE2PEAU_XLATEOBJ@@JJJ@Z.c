@@ -1,10 +1,10 @@
 /*
- * XREFs of ?prunPlgRead8@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C0300A00
+ * XREFs of ?prunPlgRead8@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D7FA0
  * Callers:
  *     <none>
  * Callees:
- *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C015EEA0 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
- *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C0300B5C (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
+ *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C02D8114 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
+ *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C02D82E8 (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
  */
 
 struct _PLGRUN *__fastcall prunPlgRead8(
@@ -22,50 +22,57 @@ struct _PLGRUN *__fastcall prunPlgRead8(
   unsigned int v11; // r10d
   __int64 v12; // rsi
   __int64 v13; // rbp
-  unsigned __int8 *v14; // r14
-  int v15; // r12d
-  __int64 v16; // r8
-  __int64 v17; // r15
-  unsigned __int8 *v18; // rax
+  int v14; // ecx
+  unsigned __int8 *v15; // r14
+  int v16; // r12d
+  __int64 v17; // r8
+  __int64 v18; // r15
   __int64 v19; // rbp
-  ULONG v20; // eax
+  unsigned __int8 *v20; // rax
+  int v21; // r13d
+  ULONG v22; // eax
 
   v8 = a2;
   v10 = &a3[a6];
   if ( a4 )
   {
-    v14 = &a4[4 * ((__int64)a8 >> 5)];
-    v15 = *(_DWORD *)v14;
+    v14 = a8 & 0x1F;
+    v15 = &a4[4 * ((__int64)a8 >> 5)];
+    v16 = *(_DWORD *)v15;
     if ( a6 != a7 )
     {
-      v16 = a8 & 0x1F;
-      v17 = (unsigned int)(a7 - a6);
+      v17 = a8 & 0x1F;
+      v18 = (unsigned int)(a7 - a6);
       do
       {
-        v18 = v14 + 4;
-        if ( v16 >= 32 )
-          v15 = *(_DWORD *)v18;
+        if ( v17 >= 32 )
+          v16 = *((_DWORD *)v15 + 1);
         v19 = 0LL;
-        if ( v16 < 32 )
+        v20 = v15 + 4;
+        if ( v17 < 32 )
+          v19 = v17;
+        v21 = 0;
+        if ( v17 < 32 )
         {
-          v18 = v14;
-          v19 = v16;
+          v20 = v15;
+          v21 = v14;
         }
-        v14 = v18;
-        if ( (v15 & dword_1C0329F30[v19]) != 0 )
+        v15 = v20;
+        if ( (dword_1C02FB720[v19] & v16) != 0 )
         {
-          v20 = *v10;
+          v22 = *v10;
           if ( a5 )
-            v20 = a5->pulXlate[*v10];
-          *(_DWORD *)v8 = v20;
+            v22 = a5->pulXlate[*v10];
+          *(_DWORD *)v8 = v22;
           prunPumpDDA(a1, v8);
         }
         vAdvXDDA(a1);
         ++v10;
-        v16 = v19 + 1;
-        --v17;
+        v14 = v21 + 1;
+        v17 = v19 + 1;
+        --v18;
       }
-      while ( v17 );
+      while ( v18 );
     }
   }
   else if ( a6 != a7 )

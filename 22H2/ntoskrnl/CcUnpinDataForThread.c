@@ -1,25 +1,26 @@
 /*
- * XREFs of CcUnpinDataForThread @ 0x140936CC0
+ * XREFs of CcUnpinDataForThread @ 0x1408678D0
  * Callers:
  *     <none>
  * Callees:
- *     CcUnpinFileDataEx @ 0x14025D6F0 (CcUnpinFileDataEx.c)
- *     ExReleaseResourceForThreadLite @ 0x14025FC40 (ExReleaseResourceForThreadLite.c)
- *     CcUnpinData @ 0x1406F58F0 (CcUnpinData.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     CcUnpinFileDataEx @ 0x140274CB0 (CcUnpinFileDataEx.c)
+ *     ExReleaseResourceForThreadLite @ 0x1402F1ED0 (ExReleaseResourceForThreadLite.c)
+ *     CcUnpinData @ 0x140635390 (CcUnpinData.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __stdcall CcUnpinDataForThread(PVOID Bcb, ERESOURCE_THREAD ResourceThreadId)
 {
-  char *v2; // rbx
+  _DWORD *v2; // r9
+  char *v3; // rbx
   PVOID *i; // rdi
 
-  v2 = (char *)Bcb;
+  v3 = (char *)Bcb;
   if ( ((unsigned __int8)Bcb & 1) != 0 )
   {
-    v2 = (char *)((unsigned __int64)Bcb & 0xFFFFFFFFFFFFFFFEuLL);
+    v3 = (char *)((unsigned __int64)Bcb & 0xFFFFFFFFFFFFFFFEuLL);
 LABEL_9:
-    CcUnpinFileDataEx(v2, 1, 0);
+    CcUnpinFileDataEx(v3, 1, 0, v2);
     return;
   }
   if ( *(_WORD *)Bcb != 762 )
@@ -29,5 +30,5 @@ LABEL_9:
   }
   for ( i = (PVOID *)((char *)Bcb + 16); *i; ++i )
     CcUnpinData(*i);
-  ExFreePoolWithTag(v2, 0);
+  ExFreePoolWithTag(v3, 0);
 }

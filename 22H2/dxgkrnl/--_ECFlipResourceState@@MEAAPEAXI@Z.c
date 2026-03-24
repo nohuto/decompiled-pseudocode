@@ -1,12 +1,12 @@
 /*
- * XREFs of ??_ECFlipResourceState@@MEAAPEAXI@Z @ 0x1C0085800
+ * XREFs of ??_ECFlipResourceState@@MEAAPEAXI@Z @ 0x1C006C0A0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CFlipResourceState@@MEAA@XZ @ 0x1C00856DC (--1CFlipResourceState@@MEAA@XZ.c)
+ *     ??1CFlipResourceState@@MEAA@XZ @ 0x1C006BFAC (--1CFlipResourceState@@MEAA@XZ.c)
  */
 
-CFlipResource **__fastcall CFlipResourceState::`vector deleting destructor'(CFlipResource **P, char a2)
+CFlipResourceState *__fastcall CFlipResourceState::`vector deleting destructor'(CFlipResourceState *P, char a2)
 {
   CFlipResourceState::~CFlipResourceState(P);
   if ( (a2 & 1) != 0 && P )

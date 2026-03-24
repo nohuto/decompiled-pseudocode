@@ -1,62 +1,64 @@
 /*
- * XREFs of ??$_Emplace_reallocate@AEBULayoutData@CContent@@@?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@QEAAPEAULayoutData@CContent@@QEAU23@AEBU23@@Z @ 0x180248038
+ * XREFs of ??$_Emplace_reallocate@AEBULayoutData@CContent@@@?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@QEAAPEAULayoutData@CContent@@QEAU23@AEBU23@@Z @ 0x1801E2DCC
  * Callers:
- *     ?GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x180248570 (-GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV-$vector@ULayoutData@CCont.c)
- *     ?GetTextureMemoryLayoutData@CGradientBrush@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x18024D700 (-GetTextureMemoryLayoutData@CGradientBrush@@UEBAJAEBUD2D_SIZE_F@@AEAV-$vector@ULayoutData@CConte.c)
- *     ?GetTextureMemoryLayoutData@CBitmapRenderStrategy@@UEBAJPEBVCSurfaceBrush@@AEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x180252810 (-GetTextureMemoryLayoutData@CBitmapRenderStrategy@@UEBAJPEBVCSurfaceBrush@@AEBUD2D_SIZE_F@@AEAV-.c)
+ *     ?GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x1801E3270 (-GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV-$vector@ULayoutData@CCont.c)
+ *     ?GetTextureMemoryLayoutData@CGradientBrush@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x1801E6E50 (-GetTextureMemoryLayoutData@CGradientBrush@@UEBAJAEBUD2D_SIZE_F@@AEAV-$vector@ULayoutData@CConte.c)
+ *     ?GetTextureMemoryLayoutData@CSurfaceBrush@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x1801EE6E0 (-GetTextureMemoryLayoutData@CSurfaceBrush@@UEBAJAEBUD2D_SIZE_F@@AEAV-$vector@ULayoutData@CConten.c)
  * Callees:
- *     ??$_Get_size_of_n@$0CI@@std@@YA_K_K@Z @ 0x180036A74 (--$_Get_size_of_n@$0CI@@std@@YA_K_K@Z.c)
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     ?_Xlength@?$vector@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@@2@@std@@CAXXZ @ 0x1801B29D8 (-_Xlength@-$vector@V-$unique_ptr@UICheckMPOCache@@U-$default_delete@UICheckMPOCache@@@std@@@std@.c)
- *     ?_Calculate_growth@?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@AEBA_K_K@Z @ 0x180221880 (-_Calculate_growth@-$vector@ULayoutData@CContent@@V-$allocator@ULayoutData@CContent@@@std@@@std@.c)
- *     ?_Change_array@?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@AEAAXQEAULayoutData@CContent@@_K1@Z @ 0x1802218C8 (-_Change_array@-$vector@ULayoutData@CContent@@V-$allocator@ULayoutData@CContent@@@std@@@std@@AEA.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ?_Xlength@?$vector@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@2@@std@@CAXXZ @ 0x1800EB0A0 (-_Xlength@-$vector@V-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std@@@std@.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
+ *     ?_Calculate_growth@?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@AEBA_K_K@Z @ 0x1801B8058 (-_Calculate_growth@-$vector@ULayoutData@CContent@@V-$allocator@ULayoutData@CContent@@@std@@@std@.c)
+ *     ?_Change_array@?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@AEAAXQEAULayoutData@CContent@@_K1@Z @ 0x1801B80AC (-_Change_array@-$vector@ULayoutData@CContent@@V-$allocator@ULayoutData@CContent@@@std@@@std@@AEA.c)
  */
 
-char *__fastcall std::vector<CContent::LayoutData>::_Emplace_reallocate<CContent::LayoutData const &>(
-        _QWORD *a1,
+__int64 __fastcall std::vector<CContent::LayoutData>::_Emplace_reallocate<CContent::LayoutData const &>(
+        const void **a1,
         _BYTE *a2,
         __int64 a3)
 {
-  _BYTE *v3; // rbp
-  unsigned __int64 v7; // rax
-  __int64 v8; // r15
-  unsigned __int64 v9; // r12
-  SIZE_T size_of; // rax
-  char *v11; // rsi
-  char *v12; // rbp
-  void *v13; // rcx
-  _BYTE *v14; // r8
-  _BYTE *v15; // rdx
-  size_t v16; // r8
+  __int64 v6; // r14
+  __int64 v7; // rdx
+  __int64 v8; // r12
+  unsigned __int64 v9; // r15
+  SIZE_T v10; // rcx
+  unsigned __int64 v11; // r10
+  __int64 v12; // rbp
+  char *v13; // rdi
+  char *v14; // rcx
+  _BYTE *v15; // r8
+  _BYTE *v16; // rdx
+  size_t v17; // r8
 
-  v3 = (_BYTE *)*a1;
-  v7 = 0xCCCCCCCCCCCCCCCDuLL * ((__int64)(a1[1] - *a1) >> 3);
+  v6 = (a2 - (_BYTE *)*a1) / 40;
+  v7 = ((_BYTE *)a1[1] - (_BYTE *)*a1) / 40;
   if ( v7 == 0x666666666666666LL )
-    std::vector<std::unique_ptr<ICheckMPOCache>>::_Xlength();
+    std::vector<std::unique_ptr<CCheckMPOCache>>::_Xlength();
   v8 = v7 + 1;
   v9 = std::vector<CContent::LayoutData>::_Calculate_growth(a1, v7 + 1);
-  size_of = std::_Get_size_of_n<40>(v9);
-  v11 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  v12 = &v11[40 * ((a2 - v3) / 40)];
-  v13 = v11;
-  *(_OWORD *)v12 = *(_OWORD *)a3;
-  *((_OWORD *)v12 + 1) = *(_OWORD *)(a3 + 16);
-  *((_QWORD *)v12 + 4) = *(_QWORD *)(a3 + 32);
-  v14 = (_BYTE *)a1[1];
-  v15 = (_BYTE *)*a1;
-  if ( a2 == v14 )
+  v10 = 40 * v9;
+  if ( v9 > v11 )
+    v10 = -1LL;
+  v12 = 5 * v6;
+  v13 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(v10);
+  v14 = v13;
+  *(_OWORD *)&v13[8 * v12] = *(_OWORD *)a3;
+  *(_OWORD *)&v13[8 * v12 + 16] = *(_OWORD *)(a3 + 16);
+  *(_QWORD *)&v13[8 * v12 + 32] = *(_QWORD *)(a3 + 32);
+  v15 = a1[1];
+  v16 = *a1;
+  if ( a2 == v15 )
   {
-    v16 = v14 - v15;
+    v17 = v15 - v16;
   }
   else
   {
-    memmove_0(v11, v15, (size_t)&a2[-*a1]);
-    v13 = v12 + 40;
-    v16 = a1[1] - (_QWORD)a2;
-    v15 = a2;
+    memmove_0(v13, v16, a2 - (_BYTE *)*a1);
+    v17 = (_BYTE *)a1[1] - a2;
+    v14 = &v13[8 * v12 + 40];
+    v16 = a2;
   }
-  memmove_0(v13, v15, v16);
-  std::vector<CContent::LayoutData>::_Change_array((__int64)a1, (__int64)v11, v8, v9);
-  return v12;
+  memmove_0(v14, v16, v17);
+  std::vector<CContent::LayoutData>::_Change_array((__int64)a1, (__int64)v13, v8, v9);
+  return (__int64)*a1 + 40 * v6;
 }

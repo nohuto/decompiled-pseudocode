@@ -1,39 +1,40 @@
 /*
- * XREFs of SdbGetTagFromTagID @ 0x140758190
+ * XREFs of SdbGetTagFromTagID @ 0x140759BE4
  * Callers:
- *     SdbpCheckApplicationTypeAttributes @ 0x14066DE54 (SdbpCheckApplicationTypeAttributes.c)
- *     SdbReadBinaryTag @ 0x140695430 (SdbReadBinaryTag.c)
- *     SdbReadDWORDTag @ 0x140755968 (SdbReadDWORDTag.c)
- *     SdbFindNextTag @ 0x1407560F8 (SdbFindNextTag.c)
- *     SdbReadWORDTag @ 0x14075617C (SdbReadWORDTag.c)
- *     InitOnceScanIndexes @ 0x140757010 (InitOnceScanIndexes.c)
- *     SdbpGetIndex @ 0x140757728 (SdbpGetIndex.c)
- *     SdbGetStringTagPtr @ 0x140757878 (SdbGetStringTagPtr.c)
- *     SdbpReadStringRef @ 0x140757948 (SdbpReadStringRef.c)
- *     SdbpFindMatcher @ 0x140757B70 (SdbpFindMatcher.c)
- *     SdbGetFirstChild @ 0x140757E54 (SdbGetFirstChild.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     SdbGetNextChild @ 0x140757F28 (SdbGetNextChild.c)
- *     SdbpGetStringTableItemFromStringRef @ 0x1407581C4 (SdbpGetStringTableItemFromStringRef.c)
- *     SdbpGetFirstIndexedRecord @ 0x1407CBAE8 (SdbpGetFirstIndexedRecord.c)
- *     SdbReadQWORDTag @ 0x14080B234 (SdbReadQWORDTag.c)
- *     SdbpGetNextIndexedRecord @ 0x14084B234 (SdbpGetNextIndexedRecord.c)
- *     SdbpCheckPackageAttributes @ 0x140A50910 (SdbpCheckPackageAttributes.c)
- *     SdbpFindFirstNamedTagHelper @ 0x140A51BB0 (SdbpFindFirstNamedTagHelper.c)
- *     SdbpFindNextNamedTagHelper @ 0x140A51C90 (SdbpFindNextNamedTagHelper.c)
- *     SdbGetBinaryTagData @ 0x140A51E24 (SdbGetBinaryTagData.c)
- *     SdbpIsEntryIdAvailableInOtherDb @ 0x140A5227C (SdbpIsEntryIdAvailableInOtherDb.c)
- *     SdbMergeIsEntryUpdated @ 0x140A5374C (SdbMergeIsEntryUpdated.c)
- *     SdbpMergeAreTagValuesEqual @ 0x140A53B34 (SdbpMergeAreTagValuesEqual.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x1403F8D90 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpFindMatcher @ 0x14075426C (SdbpFindMatcher.c)
+ *     SdbReadBinaryTag @ 0x140755BB8 (SdbReadBinaryTag.c)
+ *     SdbGetStringTagPtr @ 0x140755D70 (SdbGetStringTagPtr.c)
+ *     SdbpGetStringTableItemFromStringRef @ 0x140755E40 (SdbpGetStringTableItemFromStringRef.c)
+ *     SdbpReadStringRef @ 0x140755F18 (SdbpReadStringRef.c)
+ *     SdbpGetIndex @ 0x140759384 (SdbpGetIndex.c)
+ *     SdbpGetFirstIndexedRecord @ 0x14075949C (SdbpGetFirstIndexedRecord.c)
+ *     SdbReadDWORDTag @ 0x140759584 (SdbReadDWORDTag.c)
+ *     SdbFindNextTag @ 0x140759638 (SdbFindNextTag.c)
+ *     SdbReadWORDTag @ 0x1407596BC (SdbReadWORDTag.c)
+ *     InitOnceScanIndexes @ 0x1407597B0 (InitOnceScanIndexes.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     SdbGetNextChild @ 0x1407599E8 (SdbGetNextChild.c)
+ *     SdbpGetNextTagId @ 0x140759AA8 (SdbpGetNextTagId.c)
+ *     SdbGetTagDataSize @ 0x140759B30 (SdbGetTagDataSize.c)
+ *     SdbGetFirstChild @ 0x140759C60 (SdbGetFirstChild.c)
+ *     SdbReadQWORDTag @ 0x1407B3E60 (SdbReadQWORDTag.c)
+ *     SdbpGetNextIndexedRecord @ 0x1407C15CC (SdbpGetNextIndexedRecord.c)
+ *     SdbFindFirstNamedTag @ 0x1407C214C (SdbFindFirstNamedTag.c)
+ *     SdbpFindNextNamedTag @ 0x140966120 (SdbpFindNextNamedTag.c)
+ *     SdbGetBinaryTagData @ 0x14096622C (SdbGetBinaryTagData.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbpReadMappedData @ 0x140759C1C (SdbpReadMappedData.c)
  */
 
-__int64 __fastcall SdbGetTagFromTagID(__int64 a1, unsigned int a2)
+__int64 __fastcall SdbGetTagFromTagID(__int64 a1, __int64 a2)
 {
-  if ( a2 < 0xFFFFFFFE && *(_DWORD *)(a1 + 20) >= a2 + 2 )
-    return *(unsigned __int16 *)(a2 + *(_QWORD *)(a1 + 8));
-  AslLogCallPrintf(1LL);
+  unsigned __int16 v3; // [rsp+40h] [rbp+18h] BYREF
+
+  v3 = 0;
+  if ( (unsigned int)SdbpReadMappedData(a1, a2, &v3, 2LL) )
+    return v3;
   AslLogCallPrintf(1LL);
   return 0LL;
 }

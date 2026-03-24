@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqQueryLock @ 0x14094A6B8
+ * XREFs of PiDqQueryLock @ 0x1408A4B70
  * Callers:
- *     PiDqIrpCancel @ 0x1405616A0 (PiDqIrpCancel.c)
+ *     PiDqIrpCancel @ 0x14050DEC0 (PiDqIrpCancel.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void __fastcall PiDqQueryLock(__int64 a1)

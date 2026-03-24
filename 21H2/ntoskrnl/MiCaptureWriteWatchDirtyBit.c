@@ -1,57 +1,54 @@
 /*
- * XREFs of MiCaptureWriteWatchDirtyBit @ 0x1402358D4
+ * XREFs of MiCaptureWriteWatchDirtyBit @ 0x14025B15C
  * Callers:
- *     MiMakeVaRangeNoAccess @ 0x14024D7F4 (MiMakeVaRangeNoAccess.c)
- *     MiWsleFlush @ 0x1402C1F50 (MiWsleFlush.c)
- *     MiRevertValidPte @ 0x14032E130 (MiRevertValidPte.c)
- *     MiMakeCombineCandidateClean @ 0x14033A5B0 (MiMakeCombineCandidateClean.c)
- *     MiProtectAweRegion @ 0x1405ABD20 (MiProtectAweRegion.c)
- *     MiBuildForkPte @ 0x1405B88D8 (MiBuildForkPte.c)
+ *     MiMakeVaRangeNoAccess @ 0x1402C8854 (MiMakeVaRangeNoAccess.c)
+ *     MiWsleFlush @ 0x1403274F0 (MiWsleFlush.c)
+ *     MiRevertValidPte @ 0x140334300 (MiRevertValidPte.c)
+ *     MiMakeCombineCandidateClean @ 0x140369D8C (MiMakeCombineCandidateClean.c)
+ *     MiProtectAweRegion @ 0x14054D364 (MiProtectAweRegion.c)
+ *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
  * Callees:
- *     MiGetVadMandatoryPageSize @ 0x14028ECC8 (MiGetVadMandatoryPageSize.c)
- *     MiLocateLockedVadEvent @ 0x1402EE0E0 (MiLocateLockedVadEvent.c)
- *     MiUnlockVadCore @ 0x1403106A4 (MiUnlockVadCore.c)
- *     MiLockVadCore @ 0x1403106E0 (MiLockVadCore.c)
- *     MiLocateAddress @ 0x1403126F0 (MiLocateAddress.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1403127E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
+ *     MiLockVadCore @ 0x1402AF9B8 (MiLockVadCore.c)
+ *     MiUnlockVadCore @ 0x1402B2DA0 (MiUnlockVadCore.c)
+ *     MiLocateLockedVadEvent @ 0x1402FE3CC (MiLocateLockedVadEvent.c)
+ *     MiGetVadMandatoryPageSize @ 0x140317F80 (MiGetVadMandatoryPageSize.c)
  */
 
-void __fastcall MiCaptureWriteWatchDirtyBit(__int64 a1, unsigned __int64 a2, __int64 a3)
+__int64 __fastcall MiCaptureWriteWatchDirtyBit(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 Address; // rsi
+  __int64 result; // rax
+  __int64 v4; // rsi
   __int64 LockedVadEvent; // rdi
   unsigned __int64 VadMandatoryPageSize; // rax
-  unsigned __int64 v7; // rt2
-  unsigned __int64 v8; // rbx
-  __int64 v9; // rdx
+  unsigned __int64 v7; // r10
+  unsigned __int64 v8; // r10
+  unsigned __int64 v9; // rbx
+  __int64 v10; // rdx
 
-  Address = a3;
-  if ( (*(_DWORD *)(a1 + 1124) & 0x20) == 0 )
+  result = *(unsigned int *)(a1 + 1124);
+  v4 = a3;
+  if ( (result & 0x20) == 0 )
   {
-    if ( a3
-      || (ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28]
-                                                          + 284)),
-          Address = MiLocateAddress(a2),
-          ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28]
-                                                            + 284)),
-          Address) )
+    if ( a3 || (result = MiLocateAddress(a2), (v4 = result) != 0) )
     {
-      if ( (*(_DWORD *)(Address + 48) & 0x600000) == 0x600000 )
+      result = *(unsigned int *)(v4 + 48);
+      if ( (result & 4) == 0 )
       {
-        LockedVadEvent = MiLocateLockedVadEvent(Address, 4LL);
-        VadMandatoryPageSize = MiGetVadMandatoryPageSize();
-        v7 = ((a2 >> 12)
-            - (*(unsigned int *)(Address + 24) | ((unsigned __int64)*(unsigned __int8 *)(Address + 32) << 32)))
-           % VadMandatoryPageSize;
-        v8 = ((a2 >> 12)
-            - (*(unsigned int *)(Address + 24) | ((unsigned __int64)*(unsigned __int8 *)(Address + 32) << 32)))
-           / VadMandatoryPageSize;
-        MiLockVadCore(Address, v7);
-        LOBYTE(v9) = 2;
-        _bittestandset64(*(signed __int64 **)(LockedVadEvent + 16), v8);
-        MiUnlockVadCore(Address, v9);
+        result &= 0x300000u;
+        if ( (_DWORD)result == 3145728 )
+        {
+          LockedVadEvent = MiLocateLockedVadEvent(v4, 4LL);
+          VadMandatoryPageSize = MiGetVadMandatoryPageSize();
+          v8 = (v7 >> 12) - (*(unsigned int *)(v4 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v4 + 32) << 32));
+          v9 = v8 / VadMandatoryPageSize;
+          MiLockVadCore(v4, v8 % VadMandatoryPageSize);
+          LOBYTE(v10) = 2;
+          _bittestandset64(*(signed __int64 **)(LockedVadEvent + 16), v9);
+          return MiUnlockVadCore(v4, v10);
+        }
       }
     }
   }
+  return result;
 }

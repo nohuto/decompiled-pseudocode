@@ -1,74 +1,73 @@
 /*
- * XREFs of ?NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z @ 0x1800422CC
+ * XREFs of ?NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z @ 0x1800AA170
  * Callers:
- *     ?SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMaskType@@E_K@Z @ 0x180049EFC (-SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMa.c)
- *     ?FlushQueuedStateChanges@CExpressionManager@@AEAAXXZ @ 0x1800508CC (-FlushQueuedStateChanges@CExpressionManager@@AEAAXXZ.c)
+ *     ?SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMaskType@@E_K@Z @ 0x180064714 (-SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMa.c)
+ *     ?UpdateExpressions@CExpressionManager@@QEAAJ_K0@Z @ 0x1800732C0 (-UpdateExpressions@CExpressionManager@@QEAAJ_K0@Z.c)
  * Callees:
- *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180042824 (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
- *     ?TryGetTargetValue@CBaseExpression@@IEAA_NPEAVCExpressionValue@@@Z @ 0x1800429A4 (-TryGetTargetValue@CBaseExpression@@IEAA_NPEAVCExpressionValue@@@Z.c)
- *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x18004F220 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z @ 0x18011456C (-MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z.c)
- *     ?LogAnimationEnded@CAnimationLoggingManager@@QEAAX_KPEAVCResource@@IIW4AnimationEndedReasonType@@@Z @ 0x1801FC3C0 (-LogAnimationEnded@CAnimationLoggingManager@@QEAAX_KPEAVCResource@@IIW4AnimationEndedReasonType@.c)
- *     ?GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ @ 0x1802289B0 (-GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ.c)
- *     ?GetPathData@CPathData@@QEBA?AV?$span@$$CBE$0?0@gsl@@XZ @ 0x1802289CC (-GetPathData@CPathData@@QEBA-AV-$span@$$CBE$0-0@gsl@@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180065F4C (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
+ *     ?MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z @ 0x1800A8D60 (-MergeValueWithMask@CBaseExpression@@CAJPEBVCExpressionValue@@0PEBVSubchannelMaskInfo@@PEAV2@@Z.c)
+ *     ?TryGetTargetValue@CBaseExpression@@IEAA_NPEAVCExpressionValue@@@Z @ 0x1800AA5F0 (-TryGetTargetValue@CBaseExpression@@IEAA_NPEAVCExpressionValue@@@Z.c)
+ *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x1800ABEB8 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?LogAnimationEnded@CAnimationLoggingManager@@QEAAX_KPEAVCResource@@IIW4AnimationEndedReasonType@@@Z @ 0x1801B0528 (-LogAnimationEnded@CAnimationLoggingManager@@QEAAX_KPEAVCResource@@IIW4AnimationEndedReasonType@.c)
+ *     ?GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ @ 0x1801D9EAC (-GetAnimationLoggingManagerNoRef@CBaseExpression@@IEAAPEAVCAnimationLoggingManager@@XZ.c)
+ *     ?GetPathData@CPathData@@QEBA?AV?$span@$$CBE$0?0@gsl@@XZ @ 0x1801D9EC8 (-GetPathData@CPathData@@QEBA-AV-$span@$$CBE$0-0@gsl@@XZ.c)
  */
 
 __int64 __fastcall CBaseExpression::NotifyAnimationStateChanged(__int64 a1, int a2)
 {
   unsigned int v4; // esi
   int v5; // edi
-  const struct SubchannelMaskInfo *v6; // r8
-  unsigned int v7; // xmm0_4
-  __int64 v8; // rcx
-  __int64 v9; // rsi
-  int v10; // edi
+  __int64 v6; // r14
+  const struct SubchannelMaskInfo *v7; // r8
+  unsigned int v8; // xmm0_4
+  __int64 v9; // rcx
+  __int64 v10; // rsi
   int v11; // edi
   int v12; // edi
   int v13; // edi
   __int64 v14; // rax
   unsigned int v15; // ecx
-  __int64 v16; // rax
-  __int16 v17; // cx
-  void *v18; // rax
-  unsigned int v19; // eax
-  __int64 v21; // rax
-  unsigned int v22; // ecx
-  int v23; // edi
-  int v24; // edi
-  int v25; // edi
-  __int64 v26; // rax
-  unsigned int v27; // ecx
-  __int16 v28; // ax
-  __int64 v29; // rax
-  unsigned int v30; // ecx
-  __int64 v31; // rax
+  int v16; // eax
+  __int64 v17; // rcx
+  int v19; // edi
+  int v20; // edi
+  int v21; // edi
+  __int64 v22; // rax
+  unsigned int v23; // ecx
+  __int64 v24; // rax
+  __int16 v25; // cx
+  void *v26; // rax
+  __int128 *v27; // rdx
+  __int64 v28; // rax
+  unsigned int v29; // ecx
+  __int64 v30; // rax
+  unsigned int v31; // ecx
   __int64 v32; // rax
-  unsigned int v33; // ecx
+  int v33; // edi
   __int64 v34; // rax
+  unsigned int v35; // ecx
+  __int64 v36; // rax
+  unsigned int v37; // ecx
+  __int64 v38; // rax
   struct CAnimationLoggingManager *AnimationLoggingManagerNoRef; // rax
-  __int64 v36; // r8
-  int v37; // eax
-  unsigned int v38; // ecx
-  __int64 v39; // rax
-  unsigned int v40; // ecx
-  __int64 v41; // rax
-  unsigned int v42; // ecx
-  __int64 v43; // rax
-  unsigned int v44; // ecx
-  __int64 v45; // rax
-  __int128 v46; // xmm0
+  __int64 v40; // r8
+  int v41; // eax
+  __int64 v42; // rcx
+  void (*v43)(void); // rax
+  __int64 v44; // rax
+  unsigned int v45; // ecx
+  __int64 v46; // rax
   unsigned int v47; // ecx
-  unsigned int v48; // ecx
-  __int64 v49; // rax
-  unsigned int v50; // [rsp+20h] [rbp-E0h]
-  void *v51; // [rsp+28h] [rbp-D8h]
-  __int64 v52; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v53; // [rsp+58h] [rbp-A8h]
+  __int64 v48; // rax
+  unsigned int v49; // ecx
+  __int64 v50; // rax
+  __int64 v51; // rax
+  unsigned int v52; // ecx
+  __int128 v53; // [rsp+50h] [rbp-B0h] BYREF
   __int128 v54; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v55; // [rsp+70h] [rbp-90h]
   __int128 v56; // [rsp+80h] [rbp-80h]
@@ -79,11 +78,11 @@ __int64 __fastcall CBaseExpression::NotifyAnimationStateChanged(__int64 a1, int 
   __int128 v61; // [rsp+D0h] [rbp-30h]
   __int128 v62; // [rsp+E0h] [rbp-20h]
   __int128 v63; // [rsp+F0h] [rbp-10h]
-  __int64 v64; // [rsp+100h] [rbp+0h] BYREF
+  __int64 v64; // [rsp+100h] [rbp+0h]
   int v65; // [rsp+108h] [rbp+8h]
   char v66; // [rsp+10Ch] [rbp+Ch]
   _DWORD v67[16]; // [rsp+110h] [rbp+10h] BYREF
-  __int64 v68; // [rsp+150h] [rbp+50h] BYREF
+  __int64 v68; // [rsp+150h] [rbp+50h]
   int v69; // [rsp+158h] [rbp+58h]
   char v70; // [rsp+15Ch] [rbp+5Ch]
 
@@ -96,15 +95,15 @@ __int64 __fastcall CBaseExpression::NotifyAnimationStateChanged(__int64 a1, int 
   if ( a2 == 1 )
   {
     (*(void (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)a1 + 72LL))(a1, 8LL, a1);
-    if ( (*(_BYTE *)(a1 + 232) & 4) != 0 )
+    if ( (*(_BYTE *)(a1 + 208) & 0x40) != 0 )
     {
       AnimationLoggingManagerNoRef = CBaseExpression::GetAnimationLoggingManagerNoRef((CBaseExpression *)a1);
       CAnimationLoggingManager::LogAnimationEnded(
         AnimationLoggingManagerNoRef,
-        *(_QWORD *)(a1 + 168),
-        v36,
-        *(unsigned int *)(a1 + 208),
-        *(_DWORD *)(a1 + 192),
+        *(_QWORD *)(a1 + 160),
+        v40,
+        *(unsigned int *)(a1 + 200),
+        *(_DWORD *)(a1 + 184),
         0);
     }
   }
@@ -117,230 +116,246 @@ __int64 __fastcall CBaseExpression::NotifyAnimationStateChanged(__int64 a1, int 
     memset_0(&v60, 0, 0x40uLL);
     v64 = 0LL;
     v65 = 18;
+    v6 = 0LL;
     v66 = 0;
-    if ( (a2 != 8 || (*(_BYTE *)(a1 + 216) & 2) != 0 && *(_BYTE *)(a1 + 148))
-      && a2 != 16
-      && CBaseExpression::TryGetTargetValue((CBaseExpression *)a1, (struct CExpressionValue *)v67) )
+    if ( a2 == 8 && ((*(_BYTE *)(a1 + 208) & 2) == 0 || !*(_BYTE *)(a1 + 140)) || a2 == 16 )
+      goto LABEL_47;
+    if ( CBaseExpression::TryGetTargetValue((CBaseExpression *)a1, (struct CExpressionValue *)v67) )
     {
-      v6 = *(const struct SubchannelMaskInfo **)(a1 + 200);
-      if ( v6 )
+      v7 = *(const struct SubchannelMaskInfo **)(a1 + 192);
+      if ( v7 )
       {
-        v37 = CBaseExpression::MergeValueWithMask(
-                (const struct CExpressionValue *)v67,
-                (const struct CExpressionValue *)(a1 + 72),
-                v6,
+        v41 = CBaseExpression::MergeValueWithMask(
+                (__int64)v67,
+                (const struct CExpressionValue *)(a1 + 64),
+                v7,
                 (struct CExpressionValue *)&v60);
-        v4 = v37;
-        if ( v37 < 0 )
+        v4 = v41;
+        if ( v41 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v38, 0LL, 0, v37, 0x680u, 0LL);
-          goto LABEL_25;
+          MilInstrumentationCheckHR_MaybeFailFast(v42, 0LL, 0, v41, 0x596u, 0LL);
+          if ( !v64 )
+            goto LABEL_28;
+          v43 = *(void (**)(void))(*(_QWORD *)v64 + 16LL);
+          goto LABEL_88;
         }
       }
-      else if ( *(_DWORD *)(a1 + 152) != 11 )
+      else
       {
-        CExpressionValue::CopyFrom((CExpressionValue *)&v60, (const struct CExpressionValue *)(a1 + 72));
+        if ( *(_DWORD *)(a1 + 144) == 11 )
+          goto LABEL_14;
+        CExpressionValue::CopyFrom((CExpressionValue *)&v60, (const struct CExpressionValue *)(a1 + 64));
       }
-      v5 = v69;
-      v7 = v60;
+      v6 = v64;
     }
     else
     {
-      v67[0] = 0;
-      v7 = 0;
-      LODWORD(v60) = 0;
-      v69 = 18;
-      v70 = 1;
-      v65 = 18;
-      v66 = 1;
+      a2 = 16;
     }
-    v8 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 1240LL);
-    v9 = *(_QWORD *)(v8 + 40);
+LABEL_14:
+    if ( a2 != 16 )
+    {
+      v5 = v69;
+      v8 = v60;
+      goto LABEL_16;
+    }
+LABEL_47:
+    v67[0] = 0;
+    v8 = 0;
+    LODWORD(v60) = 0;
+    v69 = 18;
+    v70 = 1;
+LABEL_16:
+    v9 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 1080LL);
+    v10 = *(_QWORD *)(v9 + 48);
     if ( v5 > 69 )
     {
-      v23 = v5 - 70;
-      if ( !v23 )
+      v19 = v5 - 70;
+      if ( v19 )
       {
-        v29 = *(_QWORD *)(a1 + 48);
-        if ( v29 )
-          v30 = *(_DWORD *)(v29 + 76);
-        else
-          v30 = 0;
-        v31 = v30;
-        v17 = 5;
-        v52 = v31;
-        v53 = *(unsigned int *)(a1 + 64);
-        v18 = &unk_18032C39A;
-        v54 = v60;
-        goto LABEL_22;
-      }
-      v24 = v23 - 1;
-      if ( v24 )
-      {
-        v25 = v24 - 33;
-        if ( !v25 )
+        v20 = v19 - 1;
+        if ( !v20 )
         {
-          v32 = *(_QWORD *)(a1 + 48);
-          if ( v32 )
-            v33 = *(_DWORD *)(v32 + 76);
+          v53 = v60;
+          v51 = *(_QWORD *)(a1 + 48);
+          if ( v51 )
+            v52 = *(_DWORD *)(v51 + 68);
           else
-            v33 = 0;
-          v34 = v33;
-          v17 = 7;
-          v52 = v34;
-          v53 = *(unsigned int *)(a1 + 64);
-          v18 = &unk_18032C3A6;
-          v54 = v60;
-          v55 = v61;
-          goto LABEL_22;
-        }
-        if ( v25 != 161 )
-        {
-LABEL_54:
-          v4 = -2147024809;
-          v50 = 1804;
-          goto LABEL_55;
-        }
-        v26 = *(_QWORD *)(a1 + 48);
-        if ( v26 )
-          v27 = *(_DWORD *)(v26 + 76);
-        else
-          v27 = 0;
-        v52 = v27;
-        v53 = *(unsigned int *)(a1 + 64);
-        v56 = v60;
-        v57 = v61;
-        v51 = &unk_18032C3AC;
-        v28 = 8;
-        v58 = v62;
-        v59 = v63;
-LABEL_44:
-        v19 = CoreUICallSend(v9, &v52, 2LL, 0LL, v28, v51);
-LABEL_23:
-        LODWORD(v8) = 0x80000000;
-        v4 = v19;
-        if ( (int)(v19 + 0x80000000) >= 0 && v19 != -2018375675 )
-        {
-          v50 = 1811;
-LABEL_55:
-          MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v4, v50, 0LL);
+            v52 = 0;
+          *(_QWORD *)&v54 = v52;
+          *((_QWORD *)&v54 + 1) = *(unsigned int *)(a1 + 56);
+          v16 = CoreUICallSend(v10, &v54, 2LL, 0LL, 6, &unk_1802CE710);
           goto LABEL_25;
         }
-        v4 = 0;
-LABEL_25:
-        Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v64);
-        goto LABEL_26;
+        v21 = v20 - 33;
+        if ( !v21 )
+        {
+          v22 = *(_QWORD *)(a1 + 48);
+          v54 = v60;
+          v55 = v61;
+          if ( v22 )
+            v23 = *(_DWORD *)(v22 + 68);
+          else
+            v23 = 0;
+          v24 = v23;
+          v25 = 7;
+          *(_QWORD *)&v53 = v24;
+          *((_QWORD *)&v53 + 1) = *(unsigned int *)(a1 + 56);
+          v26 = &unk_1802CE716;
+          goto LABEL_39;
+        }
+        if ( v21 == 161 )
+        {
+          v28 = *(_QWORD *)(a1 + 48);
+          v56 = v60;
+          v57 = v61;
+          v58 = v62;
+          v59 = v63;
+          if ( v28 )
+            v29 = *(_DWORD *)(v28 + 68);
+          else
+            v29 = 0;
+          *(_QWORD *)&v53 = v29;
+          *((_QWORD *)&v53 + 1) = *(unsigned int *)(a1 + 56);
+          v16 = CoreUICallSend(v10, &v53, 2LL, 0LL, 8, &unk_1802CE71C);
+          goto LABEL_25;
+        }
+LABEL_79:
+        v4 = -2147024809;
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024809, 0x622u, 0LL);
+LABEL_27:
+        if ( !v6 )
+          goto LABEL_28;
+        v43 = *(void (**)(void))(*(_QWORD *)v6 + 16LL);
+LABEL_88:
+        v43();
+        goto LABEL_28;
       }
-      v49 = *(_QWORD *)(a1 + 48);
-      v46 = v60;
-      if ( v49 )
-        v48 = *(_DWORD *)(v49 + 76);
+      v53 = v60;
+      v30 = *(_QWORD *)(a1 + 48);
+      if ( v30 )
+        v31 = *(_DWORD *)(v30 + 68);
       else
-        v48 = 0;
-      v52 = v48;
-      v53 = *(unsigned int *)(a1 + 64);
-      v28 = 6;
-      v51 = &unk_18032C3A0;
+        v31 = 0;
+      v32 = v31;
+      v25 = 5;
+      *(_QWORD *)&v54 = v32;
+      *((_QWORD *)&v54 + 1) = *(unsigned int *)(a1 + 56);
+      v26 = &unk_1802CE70A;
     }
     else
     {
       if ( v5 != 69 )
       {
-        v10 = v5 - 11;
-        if ( !v10 )
-        {
-          CPathData::GetPathData(*(_QWORD *)(a1 + 136), &v52);
-          v43 = *(_QWORD *)(a1 + 48);
-          if ( v43 )
-            v44 = *(_DWORD *)(v43 + 76);
-          else
-            v44 = 0;
-          *(_QWORD *)&v54 = v44;
-          *((_QWORD *)&v54 + 1) = *(unsigned int *)(a1 + 64);
-          v19 = CoreUICallSend(v9, &v54, 2LL, 0LL, 9, &unk_18032C3B2);
-          goto LABEL_23;
-        }
-        v11 = v10 - 6;
+        v11 = v5 - 11;
         if ( !v11 )
         {
-          v41 = *(_QWORD *)(a1 + 48);
-          if ( v41 )
-            v42 = *(_DWORD *)(v41 + 76);
+          CPathData::GetPathData(*(_QWORD *)(a1 + 128), &v53);
+          v46 = *(_QWORD *)(a1 + 48);
+          if ( v46 )
+            v47 = *(_DWORD *)(v46 + 68);
           else
-            v42 = 0;
-          v52 = v42;
-          v53 = *(unsigned int *)(a1 + 64);
-          v19 = CoreUICallSend(
-                  v9,
-                  &v52,
+            v47 = 0;
+          *(_QWORD *)&v54 = v47;
+          *((_QWORD *)&v54 + 1) = *(unsigned int *)(a1 + 56);
+          v16 = CoreUICallSend(v10, &v54, 2LL, 0LL, 9, &unk_1802CE722);
+          goto LABEL_25;
+        }
+        v12 = v11 - 6;
+        if ( !v12 )
+        {
+          v44 = *(_QWORD *)(a1 + 48);
+          if ( v44 )
+            v45 = *(_DWORD *)(v44 + 68);
+          else
+            v45 = 0;
+          *(_QWORD *)&v53 = v45;
+          *((_QWORD *)&v53 + 1) = *(unsigned int *)(a1 + 56);
+          v16 = CoreUICallSend(
+                  v10,
+                  &v53,
                   2LL,
                   0LL,
                   0,
-                  &Microsoft::CoreUI::MessageCall::DWMCoreCallbacks_g_parameters_xfzN1g4V75qd4Cs8kloSCpvtObo);
-          goto LABEL_23;
+                  &Microsoft::CoreUI::MessageCall::DWMCoreCallbacks_g_parameters_7Gt_wATPZFc_PkcSd78VpZYfR44);
+          goto LABEL_25;
         }
-        v12 = v11 - 1;
-        if ( !v12 )
-        {
-          v21 = *(_QWORD *)(a1 + 48);
-          if ( v21 )
-            v22 = *(_DWORD *)(v21 + 76);
-          else
-            v22 = 0;
-          v52 = v22;
-          v53 = *(unsigned int *)(a1 + 64);
-          v19 = CoreUICallSend(v9, &v52, 2LL, 0LL, 1, &unk_18032C384);
-          goto LABEL_23;
-        }
-        v13 = v12 - 17;
+        v13 = v12 - 1;
         if ( !v13 )
-        {
-          v39 = *(_QWORD *)(a1 + 48);
-          *(_QWORD *)&v54 = __PAIR64__(DWORD1(v60), v7);
-          if ( v39 )
-            v40 = *(_DWORD *)(v39 + 76);
-          else
-            v40 = 0;
-          v52 = v40;
-          v53 = *(unsigned int *)(a1 + 64);
-          v19 = CoreUICallSend(v9, &v52, 2LL, 0LL, 2, &unk_18032C388);
-          goto LABEL_23;
-        }
-        if ( v13 == 17 )
         {
           v14 = *(_QWORD *)(a1 + 48);
           if ( v14 )
-            v15 = *(_DWORD *)(v14 + 76);
+            v15 = *(_DWORD *)(v14 + 68);
           else
             v15 = 0;
-          DWORD2(v54) = DWORD2(v60);
-          v16 = v15;
-          v17 = 3;
-          v52 = v16;
-          v53 = *(unsigned int *)(a1 + 64);
-          v18 = &unk_18032C38E;
-          *(_QWORD *)&v54 = v60;
-LABEL_22:
-          v19 = CoreUICallSend(v9, &v52, 2LL, 0LL, v17, v18);
-          goto LABEL_23;
+          *(_QWORD *)&v53 = v15;
+          *((_QWORD *)&v53 + 1) = *(unsigned int *)(a1 + 56);
+          v16 = CoreUICallSend(v10, &v53, 2LL, 0LL, 1, &unk_1802CE6F4);
+          goto LABEL_25;
         }
-        goto LABEL_54;
+        v33 = v13 - 17;
+        if ( !v33 )
+        {
+          v34 = *(_QWORD *)(a1 + 48);
+          *(_QWORD *)&v54 = __PAIR64__(DWORD1(v60), v8);
+          if ( v34 )
+            v35 = *(_DWORD *)(v34 + 68);
+          else
+            v35 = 0;
+          *(_QWORD *)&v53 = v35;
+          *((_QWORD *)&v53 + 1) = *(unsigned int *)(a1 + 56);
+          v16 = CoreUICallSend(v10, &v53, 2LL, 0LL, 2, &unk_1802CE6F8);
+          goto LABEL_25;
+        }
+        if ( v33 == 17 )
+        {
+          DWORD2(v54) = DWORD2(v60);
+          v36 = *(_QWORD *)(a1 + 48);
+          *(_QWORD *)&v54 = v60;
+          if ( v36 )
+            v37 = *(_DWORD *)(v36 + 68);
+          else
+            v37 = 0;
+          v38 = v37;
+          v25 = 3;
+          *(_QWORD *)&v53 = v38;
+          *((_QWORD *)&v53 + 1) = *(unsigned int *)(a1 + 56);
+          v26 = &unk_1802CE6FE;
+LABEL_39:
+          v27 = &v53;
+LABEL_40:
+          v16 = CoreUICallSend(v10, v27, 2LL, 0LL, v25, v26);
+LABEL_25:
+          v4 = v16;
+          if ( (int)(v16 + 0x80000000) < 0 || v16 == -2018375675 )
+            v4 = 0;
+          else
+            MilInstrumentationCheckHR_MaybeFailFast(0x80000000LL, 0LL, 0, v16, 0x629u, 0LL);
+          goto LABEL_27;
+        }
+        goto LABEL_79;
       }
-      v45 = *(_QWORD *)(a1 + 48);
-      v46 = v60;
-      if ( v45 )
-        v47 = *(_DWORD *)(v45 + 76);
+      v53 = v60;
+      v48 = *(_QWORD *)(a1 + 48);
+      if ( v48 )
+        v49 = *(_DWORD *)(v48 + 68);
       else
-        v47 = 0;
-      v52 = v47;
-      v53 = *(unsigned int *)(a1 + 64);
-      v51 = &unk_18032C394;
-      v28 = 4;
+        v49 = 0;
+      v50 = v49;
+      v25 = 4;
+      *(_QWORD *)&v54 = v50;
+      *((_QWORD *)&v54 + 1) = *(unsigned int *)(a1 + 56);
+      v26 = &unk_1802CE704;
     }
-    v54 = v46;
-    goto LABEL_44;
+    v27 = &v54;
+    goto LABEL_40;
   }
-LABEL_26:
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v68);
+LABEL_28:
+  v17 = v68;
+  if ( v68 )
+  {
+    v68 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v17 + 16LL))(v17);
+  }
   return v4;
 }

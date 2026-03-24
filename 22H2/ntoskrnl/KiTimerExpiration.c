@@ -1,24 +1,24 @@
 /*
- * XREFs of KiTimerExpiration @ 0x14057C864
+ * XREFs of KiTimerExpiration @ 0x140388BF0
  * Callers:
- *     KiTimerExpirationDpc @ 0x14057CA70 (KiTimerExpirationDpc.c)
+ *     KiTimerExpirationDpc @ 0x140388AD0 (KiTimerExpirationDpc.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     KiSelectActiveTimerTable @ 0x14033BC80 (KiSelectActiveTimerTable.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiExpireTimerTable @ 0x14057C664 (KiExpireTimerTable.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     KiSelectActiveTimerTable @ 0x1402473D0 (KiSelectActiveTimerTable.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     KiExpireTimerTable @ 0x140388DB0 (KiExpireTimerTable.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall KiTimerExpiration(__int64 a1, int a2, unsigned __int64 a3, char a4, int *a5)
+__int64 __fastcall KiTimerExpiration(__int64 a1, int a2, unsigned __int64 a3, char a4, __int64 a5)
 {
   __int64 result; // rax
   __int64 v9; // rcx
   __int64 v10; // r8
-  __int64 v11; // r13
+  int v11; // r13d
   unsigned int v12; // ecx
   unsigned __int64 v13; // rbp
-  unsigned __int64 v14; // rsi
+  __int64 v14; // rsi
   unsigned int v15; // ebx
   int v16; // r14d
   int v17; // ebp
@@ -32,10 +32,10 @@ __int64 __fastcall KiTimerExpiration(__int64 a1, int a2, unsigned __int64 a3, ch
   v11 = result;
   if ( result )
   {
-    v12 = *(_DWORD *)(v9 + 36032);
-    *(_DWORD *)(a1 + 36032) = ((_BYTE)v12 + 1) & 0xF;
-    *(_QWORD *)(a1 + 16LL * v12 + 36040) = v10;
-    *(LARGE_INTEGER *)(a1 + 16LL * v12 + 36048) = KeQueryPerformanceCounter(0LL);
+    v12 = *(_DWORD *)(v9 + 35584);
+    *(_DWORD *)(a1 + 35584) = ((_BYTE)v12 + 1) & 0xF;
+    *(_QWORD *)(a1 + 16LL * v12 + 35592) = v10;
+    *(LARGE_INTEGER *)(a1 + 16LL * v12 + 35600) = KeQueryPerformanceCounter(0LL);
     v13 = a3 >> 18;
     if ( (DWORD2(PerfGlobalGroupMask) & 0x20000) != 0 )
     {
@@ -44,7 +44,7 @@ __int64 __fastcall KiTimerExpiration(__int64 a1, int a2, unsigned __int64 a3, ch
       *(_QWORD *)&v19 = a3;
       BYTE8(v19) = 0;
       v21 = 16;
-      EtwTraceKernelEvent((int)&v20, 1, 0x40020000u, 3920, 1538);
+      EtwTraceKernelEvent((__int64)&v20, 1u, 0x40020000u, 0xF50u, 0x602u);
     }
     v14 = 0LL;
     v15 = v13 - a2 + 1;
@@ -68,24 +68,24 @@ __int64 __fastcall KiTimerExpiration(__int64 a1, int a2, unsigned __int64 a3, ch
       }
       KiExpireTimerTable(a1, v11, a2, v16, v17, v14, 0, a5);
       if ( a4 )
-        KiExpireTimerTable(a1, v11, a2, v16, v17, v14, 1u, a5);
+        KiExpireTimerTable(a1, v11, a2, v16, v17, v14, 1, a5);
       a2 += v16;
       result = 24LL;
       v15 -= v16;
     }
     while ( v15 );
-    if ( (*(_BYTE *)(a1 + 13244) & 8) == 0 )
+    if ( (*(_BYTE *)(a1 + 12588) & 8) == 0 )
     {
-      *(_DWORD *)(a1 + 33124) = 0;
-      result = *(unsigned int *)(a1 + 33128);
-      if ( (unsigned int)result < KeTimeIncrement )
+      *(_DWORD *)(a1 + 32420) = 0;
+      result = *(unsigned int *)(a1 + 32424);
+      if ( (unsigned int)result >= KeTimeIncrement )
       {
-        *(_DWORD *)(a1 + 33128) = 0;
+        result = (unsigned int)(result - KeTimeIncrement);
+        *(_DWORD *)(a1 + 32424) = result;
       }
       else
       {
-        result = (unsigned int)(result - KeTimeIncrement);
-        *(_DWORD *)(a1 + 33128) = result;
+        *(_DWORD *)(a1 + 32424) = 0;
       }
     }
   }

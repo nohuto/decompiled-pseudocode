@@ -1,24 +1,24 @@
 /*
- * XREFs of ?ReserveTemporaryResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00F8550
+ * XREFs of ?ReserveTemporaryResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00C2470
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z @ 0x1C00B01E4 (-Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     ?Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z @ 0x1C00652F0 (-Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VIDMM_APERTURE_SEGMENT::ReserveTemporaryResource(
         VIDMM_LINEAR_POOL **this,
         struct _VIDMM_GLOBAL_ALLOC *a2)
 {
   __int64 v4; // rcx
   __int64 v5; // rax
-  __int64 v7; // r9
-  int v8; // eax
-  __int64 v9; // rcx
-  unsigned int v10; // esi
-  _QWORD *v11; // rax
+  _QWORD *v7; // rax
+  __int64 v8; // r9
+  int v9; // eax
+  __int64 v10; // rcx
+  unsigned int v11; // esi
+  _QWORD *v12; // rax
 
   if ( g_IsInternalReleaseOrDbg )
   {
@@ -31,39 +31,44 @@ __int64 __fastcall VIDMM_APERTURE_SEGMENT::ReserveTemporaryResource(
     return 3223191808LL;
   if ( ((_DWORD)this[10] & 0x20) != 0 )
   {
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 270LL, 13LL, 0LL, 0LL, 0LL);
+    v7 = (_QWORD *)WdLogNewEntry5_WdCriticalError(this, a2);
+    v7[5] = 0LL;
+    v7[6] = 0LL;
+    v7[7] = 0LL;
+    v7[3] = 270LL;
+    v7[4] = 13LL;
+    WdLogEvent5_WdCriticalError(v7);
   }
   (*((void (__fastcall **)(VIDMM_LINEAR_POOL **, struct _VIDMM_GLOBAL_ALLOC *))*this + 7))(this, a2);
-  LOBYTE(v7) = 1;
-  v8 = VIDMM_LINEAR_POOL::Allocate(
+  LOBYTE(v8) = 1;
+  v9 = VIDMM_LINEAR_POOL::Allocate(
          this[19],
          *((_QWORD *)a2 + 2),
          *((unsigned int *)a2 + 8),
-         v7,
+         v8,
          0LL,
          0LL,
          0,
          0,
          a2,
-         (union _LARGE_INTEGER *)a2 + 29,
-         (void **)a2 + 28);
-  v10 = v8;
-  if ( v8 < 0 )
+         (union _LARGE_INTEGER *)a2 + 31,
+         (void **)a2 + 30);
+  v11 = v9;
+  if ( v9 < 0 )
   {
     if ( g_IsInternalReleaseOrDbg )
-      *(_QWORD *)(WdLogNewEntry5_WdTrace(v9) + 24) = v8;
+      *(_QWORD *)(WdLogNewEntry5_WdTrace(v10) + 24) = v9;
   }
   else
   {
-    *((_QWORD *)a2 + 30) = this;
+    *((_QWORD *)a2 + 32) = this;
     if ( g_IsInternalReleaseOrDbg )
     {
-      v11 = (_QWORD *)WdLogNewEntry5_WdTrace(*(_QWORD *)&g_IsInternalReleaseOrDbg);
-      v11[3] = *((_QWORD *)a2 + 28);
-      v11[4] = *((int *)a2 + 59);
-      v11[5] = *((unsigned int *)a2 + 58);
+      v12 = (_QWORD *)WdLogNewEntry5_WdTrace(*(_QWORD *)&g_IsInternalReleaseOrDbg);
+      v12[3] = *((_QWORD *)a2 + 30);
+      v12[4] = *((int *)a2 + 63);
+      v12[5] = *((unsigned int *)a2 + 62);
     }
   }
-  return v10;
+  return v11;
 }

@@ -1,185 +1,187 @@
 /*
- * XREFs of ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C015EEA0
+ * XREFs of ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C02D8114
  * Callers:
- *     ?prunPlgRead32@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C015ED40 (-prunPlgRead32@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
- *     ?prunPlgRead16@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C0300260 (-prunPlgRead16@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
- *     ?prunPlgRead1@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C03003D0 (-prunPlgRead1@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
- *     ?prunPlgRead24@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C0300610 (-prunPlgRead24@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
- *     ?prunPlgRead4@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C03007C0 (-prunPlgRead4@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
- *     ?prunPlgRead8@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C0300A00 (-prunPlgRead8@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
+ *     ?prunPlgRead16@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D7660 (-prunPlgRead16@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
+ *     ?prunPlgRead1@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D77E0 (-prunPlgRead1@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
+ *     ?prunPlgRead24@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D7A00 (-prunPlgRead24@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
+ *     ?prunPlgRead32@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D7BC0 (-prunPlgRead32@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
+ *     ?prunPlgRead4@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D7D40 (-prunPlgRead4@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
+ *     ?prunPlgRead8@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D7FA0 (-prunPlgRead8@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z.c)
  * Callees:
  *     <none>
  */
 
 struct _PLGRUN *__fastcall prunPumpDDA(struct _PLGDDA *a1, struct _PLGRUN *a2)
 {
-  _DWORD *v2; // r8
-  int v3; // r10d
-  unsigned int v6; // ebx
+  int v2; // r10d
+  _DWORD *v3; // r8
+  unsigned int v6; // r11d
   __int64 v7; // rax
-  int v8; // edx
-  unsigned int v9; // r11d
-  int v10; // ecx
-  int v11; // eax
-  unsigned int v12; // eax
+  bool v8; // cc
+  int v9; // ecx
+  unsigned int v10; // ebx
+  int v11; // edx
+  int v12; // eax
   unsigned int v13; // eax
-  unsigned int v14; // r11d
-  int v15; // ecx
-  int v16; // eax
-  unsigned int v17; // eax
+  unsigned int v14; // eax
+  unsigned int v15; // ebx
+  int v16; // edx
+  int v17; // eax
   unsigned int v18; // eax
-  unsigned int v19; // edi
-  int v20; // ebx
-  int v21; // eax
-  unsigned int v22; // eax
+  unsigned int v19; // eax
+  unsigned int v20; // esi
+  int v21; // r11d
+  int v22; // eax
   unsigned int v23; // eax
-  int v24; // r10d
-  int v25; // edx
-  __int64 v27; // [rsp+20h] [rbp+8h]
-  __int64 v28; // [rsp+28h] [rbp+10h]
-  __int64 v29; // [rsp+30h] [rbp+18h]
-  __int64 v30; // [rsp+38h] [rbp+20h]
+  unsigned int v24; // eax
+  int v25; // r10d
+  int v26; // ecx
+  __int64 v28; // [rsp+28h] [rbp+28h]
+  __int64 v29; // [rsp+30h] [rbp+30h]
+  __int64 v30; // [rsp+38h] [rbp+38h]
+  __int64 v31; // [rsp+40h] [rbp+40h]
 
-  v2 = (_DWORD *)((char *)a2 + 12);
-  v3 = *((_DWORD *)a1 + 17);
-  v29 = *(_QWORD *)((char *)a1 + 100);
-  v27 = *(_QWORD *)((char *)a1 + 108);
-  v6 = HIDWORD(v27);
-  v28 = *(_QWORD *)((char *)a1 + 116);
+  v2 = *((_DWORD *)a1 + 17);
+  v3 = (_DWORD *)((char *)a2 + 12);
+  v30 = *(_QWORD *)((char *)a1 + 100);
+  v28 = *(_QWORD *)((char *)a1 + 108);
+  v6 = HIDWORD(v28);
+  v29 = *(_QWORD *)((char *)a1 + 116);
   v7 = *(_QWORD *)((char *)a1 + 124);
-  *((_DWORD *)a2 + 1) = v3;
-  v8 = v27;
-  v30 = v7;
-  if ( v3 < *((_DWORD *)a1 + 19) )
+  *((_DWORD *)a2 + 1) = v2;
+  v8 = v2 < *((_DWORD *)a1 + 19);
+  v9 = v28;
+  v31 = v7;
+  if ( v8 )
   {
-    v9 = HIDWORD(v29);
-    v10 = v29;
+    v10 = HIDWORD(v30);
+    v11 = v30;
     do
     {
-      if ( v10 >= v8 )
+      if ( v11 >= v9 )
       {
-        *v2 = v8;
-        v11 = v10 - v8;
+        *v3 = v9;
+        v12 = v11 - v9;
       }
       else
       {
-        *v2 = v10;
-        v11 = v8 - v10;
+        *v3 = v11;
+        v12 = v9 - v11;
       }
-      v2[1] = v11;
+      v3[1] = v12;
       ++*((_DWORD *)a2 + 2);
-      v10 += *((_DWORD *)a1 + 81);
-      v9 += *((_DWORD *)a1 + 82);
-      v12 = *((_DWORD *)a1 + 83);
-      if ( v9 >= v12 )
+      v11 += *((_DWORD *)a1 + 81);
+      v10 += *((_DWORD *)a1 + 82);
+      v13 = *((_DWORD *)a1 + 83);
+      if ( v10 >= v13 )
       {
-        ++v10;
-        v9 -= v12;
+        ++v11;
+        v10 -= v13;
       }
-      v8 += *((_DWORD *)a1 + 84);
+      v9 += *((_DWORD *)a1 + 84);
       v6 += *((_DWORD *)a1 + 85);
-      v13 = *((_DWORD *)a1 + 86);
-      if ( v6 >= v13 )
+      v14 = *((_DWORD *)a1 + 86);
+      if ( v6 >= v14 )
       {
-        ++v8;
-        v6 -= v13;
+        ++v9;
+        v6 -= v14;
       }
-      v2 += 2;
-      ++v3;
+      v3 += 2;
+      ++v2;
     }
-    while ( v3 < *((_DWORD *)a1 + 19) );
+    while ( v2 < *((_DWORD *)a1 + 19) );
   }
-  v14 = HIDWORD(v28);
-  v15 = v28;
-  while ( v3 < *((_DWORD *)a1 + 21) )
+  v15 = HIDWORD(v29);
+  v16 = v29;
+  while ( v2 < *((_DWORD *)a1 + 21) )
   {
-    if ( v15 >= v8 )
+    if ( v16 >= v9 )
     {
-      *v2 = v8;
-      v16 = v15 - v8;
+      *v3 = v9;
+      v17 = v16 - v9;
     }
     else
     {
-      *v2 = v15;
-      v16 = v8 - v15;
+      *v3 = v16;
+      v17 = v9 - v16;
     }
-    v2[1] = v16;
+    v3[1] = v17;
     ++*((_DWORD *)a2 + 2);
-    v15 += *((_DWORD *)a1 + 87);
-    v14 += *((_DWORD *)a1 + 88);
-    v17 = *((_DWORD *)a1 + 89);
-    if ( v14 >= v17 )
+    v16 += *((_DWORD *)a1 + 87);
+    v15 += *((_DWORD *)a1 + 88);
+    v18 = *((_DWORD *)a1 + 89);
+    if ( v15 >= v18 )
     {
-      ++v15;
-      v14 -= v17;
+      ++v16;
+      v15 -= v18;
     }
-    v8 += *((_DWORD *)a1 + 84);
+    v9 += *((_DWORD *)a1 + 84);
     v6 += *((_DWORD *)a1 + 85);
-    v18 = *((_DWORD *)a1 + 86);
-    if ( v6 >= v18 )
+    v19 = *((_DWORD *)a1 + 86);
+    if ( v6 >= v19 )
     {
-      ++v8;
-      v6 -= v18;
+      ++v9;
+      v6 -= v19;
     }
-    v2 += 2;
-    ++v3;
+    v3 += 2;
+    ++v2;
   }
-  if ( v3 < *((_DWORD *)a1 + 23) )
+  if ( v2 < *((_DWORD *)a1 + 23) )
   {
-    v19 = HIDWORD(v30);
-    v20 = v30;
+    v20 = HIDWORD(v31);
+    v21 = v31;
     do
     {
-      if ( v15 >= v20 )
+      if ( v16 >= v21 )
       {
-        *v2 = v20;
-        v21 = v15 - v20;
+        *v3 = v21;
+        v22 = v16 - v21;
       }
       else
       {
-        *v2 = v15;
-        v21 = v20 - v15;
+        *v3 = v16;
+        v22 = v21 - v16;
       }
-      v2[1] = v21;
+      v3[1] = v22;
       ++*((_DWORD *)a2 + 2);
-      v15 += *((_DWORD *)a1 + 87);
-      v14 += *((_DWORD *)a1 + 88);
-      v22 = *((_DWORD *)a1 + 89);
-      if ( v14 >= v22 )
+      v16 += *((_DWORD *)a1 + 87);
+      v15 += *((_DWORD *)a1 + 88);
+      v23 = *((_DWORD *)a1 + 89);
+      if ( v15 >= v23 )
       {
-        ++v15;
-        v14 -= v22;
+        ++v16;
+        v15 -= v23;
       }
-      v20 += *((_DWORD *)a1 + 90);
-      v19 += *((_DWORD *)a1 + 91);
-      v23 = *((_DWORD *)a1 + 92);
-      if ( v19 >= v23 )
+      v21 += *((_DWORD *)a1 + 90);
+      v20 += *((_DWORD *)a1 + 91);
+      v24 = *((_DWORD *)a1 + 92);
+      if ( v20 >= v24 )
       {
-        ++v20;
-        v19 -= v23;
+        ++v21;
+        v20 -= v24;
       }
-      v2 += 2;
-      ++v3;
+      v3 += 2;
+      ++v2;
     }
-    while ( v3 < *((_DWORD *)a1 + 23) );
+    while ( v2 < *((_DWORD *)a1 + 23) );
   }
-  v24 = v3 - *((_DWORD *)a2 + 1);
-  *((_DWORD *)a2 + 2) = v24;
-  if ( *(_DWORD *)a1 && !v24 )
+  v25 = v2 - *((_DWORD *)a2 + 1);
+  *((_DWORD *)a2 + 2) = v25;
+  if ( *(_DWORD *)a1 && !v25 )
   {
-    if ( v15 >= v8 )
+    if ( v16 >= v9 )
     {
-      *v2 = v8;
-      v25 = v15 - v8;
+      *v3 = v9;
+      v26 = v16 - v9;
     }
     else
     {
-      *v2 = v15;
-      v25 = v8 - v15;
+      *v3 = v16;
+      v26 = v9 - v16;
     }
-    v2[1] = v25;
-    v2 += 2;
+    v3[1] = v26;
+    v3 += 2;
     *((_DWORD *)a2 + 2) = 1;
   }
-  return (struct _PLGRUN *)v2;
+  return (struct _PLGRUN *)v3;
 }

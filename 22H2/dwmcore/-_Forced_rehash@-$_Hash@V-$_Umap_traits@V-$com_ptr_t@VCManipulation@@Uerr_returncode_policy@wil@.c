@@ -1,117 +1,61 @@
 /*
- * XREFs of ?_Forced_rehash@?$_Hash@V?$_Umap_traits@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@V?$_Uhash_compare@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@U?$hash@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@U?$equal_to@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@4@@4@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@4@$0A@@std@@@std@@IEAAX_K@Z @ 0x180275848
+ * XREFs of ?_Forced_rehash@?$_Hash@V?$_Umap_traits@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@V?$_Uhash_compare@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@U?$hash@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@U?$equal_to@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@4@@4@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@4@$0A@@std@@@std@@IEAAX_K@Z @ 0x1802140CC
  * Callers:
- *     ??$emplace@AEAV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@?$_Hash@V?$_Umap_traits@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@V?$_Uhash_compare@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@U?$hash@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@U?$equal_to@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@4@@4@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@4@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@std@@@std@@@std@@_N@1@AEAV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@$$QEAV?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@1@@Z @ 0x180273CE0 (--$emplace@AEAV-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V-$unique_ptr@VCCha.c)
+ *     ?_Check_size@?$_Hash@V?$_Umap_traits@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@V?$_Uhash_compare@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@U?$hash@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@U?$equal_to@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@4@@4@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@4@$0A@@std@@@std@@IEAAXXZ @ 0x180214048 (-_Check_size@-$_Hash@V-$_Umap_traits@V-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@w.c)
  * Callees:
- *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800D9B98 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
- *     ?_Assign_grow@?$_Hash_vec@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCInteractionTracker@@V?$unordered_map@PEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@U?$hash@PEAVCInteractionTracker@@@std@@U?$equal_to@PEAVCInteractionTracker@@@4@V?$allocator@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@4@@std@@@std@@@std@@@std@@@std@@@std@@@std@@QEAAX_KV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCInteractionTracker@@V?$unordered_map@PEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@U?$hash@PEAVCInteractionTracker@@@std@@U?$equal_to@PEAVCInteractionTracker@@@4@V?$allocator@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@4@@std@@@std@@@std@@@std@@@2@@Z @ 0x1801E3C28 (-_Assign_grow@-$_Hash_vec@V-$allocator@V-$_List_unchecked_iterator@V-$_List_val@U-$_ea_1801E3C28.c)
+ *     ?_Reallocate_exactly@?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCChannelContext@@M@std@@@std@@@std@@@std@@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCChannelContext@@M@std@@@std@@@std@@@std@@@2@@std@@AEAAX_K@Z @ 0x18001ACEC (-_Reallocate_exactly@-$vector@V-$_List_unchecked_iterator@V-$_List_val@U-$_List_simple_types@U-$.c)
+ *     ?_Xlength@?$vector@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@2@@std@@CAXXZ @ 0x1800EB0A0 (-_Xlength@-$vector@V-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std@@@std@.c)
+ *     ?assign@?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBII@std@@@std@@@std@@@std@@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBII@std@@@std@@@std@@@std@@@2@@std@@QEAAX_KAEBV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBII@std@@@std@@@std@@@2@@Z @ 0x180164F20 (-assign@-$vector@V-$_List_unchecked_iterator@V-$_List_val@U-$_List_simple_types@U-$pair@$$CBII@s.c)
+ *     ??$_Insert_unverified@AEAU?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@std@@@std@@@2@@?$_Hash@V?$_Umap_traits@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@V?$_Uhash_compare@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@U?$hash@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@U?$equal_to@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@4@@4@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@4@$0A@@std@@@std@@IEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@std@@@std@@@std@@_N@1@AEAU?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@1@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@std@@@std@@@1@@Z @ 0x18021255C (--$_Insert_unverified@AEAU-$pair@$$CBV-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@w.c)
  */
 
-__int64 __fastcall std::_Hash<std::_Umap_traits<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::unique_ptr<CChainingHelper>,std::_Uhash_compare<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::hash<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>,std::equal_to<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>>,std::allocator<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>>>,0>>::_Forced_rehash(
+_QWORD *__fastcall std::_Hash<std::_Umap_traits<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::unique_ptr<CChainingHelper>,std::_Uhash_compare<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::hash<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>,std::equal_to<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>>,std::allocator<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>>>,0>>::_Forced_rehash(
         _QWORD *a1,
         unsigned __int64 a2)
 {
   unsigned __int64 v3; // rcx
-  unsigned __int64 v4; // rdi
-  unsigned __int64 v5; // rcx
-  __int64 v6; // rbx
-  __int64 *v7; // rcx
-  __int64 result; // rax
-  _QWORD *v9; // r11
-  _QWORD *v10; // rbx
-  __int64 v11; // rsi
-  __int64 v12; // r11
-  __int64 v13; // r9
-  __int64 v14; // r8
-  __int64 v15; // r10
-  _QWORD *v16; // rdx
-  __int64 *v17; // r10
-  __int64 v18; // r8
-  _QWORD *v19; // rdx
-  _QWORD *v20; // rdx
-  __int64 v21; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 v4; // rcx
+  __int64 v5; // rbx
+  _QWORD *result; // rax
+  __int64 *v7; // rsi
+  __int64 *v8; // rbx
+  _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned __int64 v10; // [rsp+48h] [rbp+10h] BYREF
 
   _BitScanReverse64(&v3, 0xFFFFFFFFFFFFFFFuLL);
   if ( a2 > 1LL << v3 )
     std::_Xlength_error("invalid hash bucket count");
-  v4 = a1[1];
-  _BitScanReverse64(&v5, (a2 - 1) | 1);
-  v6 = 1LL << ((unsigned __int8)v5 + 1);
-  std::_Hash_vec<std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<CInteractionTracker * const,std::unordered_map<CInteractionTracker *,enum InteractionTrackerBindingModeFlags>>>>>>>::_Assign_grow(
-    (__int64)(a1 + 3),
-    2 * v6,
-    v4);
-  a1[7] = v6;
-  result = v6 - 1;
-  a1[6] = v6 - 1;
-  v9 = *(_QWORD **)a1[1];
-  v10 = v9;
-  while ( v9 != (_QWORD *)v4 )
+  _BitScanReverse64(&v4, (a2 - 1) | 1);
+  v5 = 1LL << ((unsigned __int8)v4 + 1);
+  if ( 2 * v5 > (unsigned __int64)((__int64)(a1[5] - a1[3]) >> 3) )
   {
-    v11 = v9[2];
-    v10 = (_QWORD *)*v10;
-    v21 = v11;
-    result = std::_Fnv1a_append_bytes((__int64)v7, (const unsigned __int8 *const)&v21, 8uLL);
-    v13 = a1[3];
-    v14 = 2 * (a1[6] & result);
-    if ( *(_QWORD *)(v13 + 16 * (a1[6] & result)) == v4 )
+    if ( (unsigned __int64)(2 * v5) > 0x1FFFFFFFFFFFFFFFLL )
+      std::vector<std::unique_ptr<CCheckMPOCache>>::_Xlength();
+    std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<CChannelContext * const,float>>>>>::_Reallocate_exactly(
+      a1 + 3,
+      2 * v5);
+  }
+  v10 = a1[1];
+  std::vector<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<unsigned int const,unsigned int>>>>>::assign(
+    a1 + 3,
+    2 * v5,
+    &v10);
+  a1[7] = v5;
+  a1[6] = v5 - 1;
+  result = (_QWORD *)a1[1];
+  if ( (_QWORD *)*result != result )
+  {
+    v7 = (__int64 *)result[1];
+    do
     {
-      *(_QWORD *)(v13 + 16 * (a1[6] & result)) = v12;
-LABEL_7:
-      *(_QWORD *)(v13 + 8 * v14 + 8) = v12;
-      goto LABEL_15;
+      v8 = *(__int64 **)a1[1];
+      result = (_QWORD *)std::_Hash<std::_Umap_traits<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::unique_ptr<CChainingHelper>,std::_Uhash_compare<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::hash<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>,std::equal_to<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>>,std::allocator<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>>>,0>>::_Insert_unverified<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>> &,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>>>>>>(
+                           a1,
+                           (__int64)v9,
+                           v8 + 2,
+                           v8);
     }
-    result = *(_QWORD *)(v13 + 16 * (a1[6] & result) + 8);
-    if ( v11 == *(_QWORD *)(result + 16) )
-    {
-      v15 = *(_QWORD *)result;
-      if ( *(_QWORD *)result != v12 )
-      {
-        v16 = *(_QWORD **)(v12 + 8);
-        *v16 = v10;
-        v7 = (__int64 *)v10[1];
-        *v7 = v15;
-        result = *(_QWORD *)(v15 + 8);
-        *(_QWORD *)result = v12;
-        *(_QWORD *)(v15 + 8) = v7;
-        v10[1] = v16;
-        *(_QWORD *)(v12 + 8) = result;
-      }
-      goto LABEL_7;
-    }
-    while ( 1 )
-    {
-      v17 = (__int64 *)(result + 8);
-      if ( *(_QWORD *)(v13 + 8 * v14) == result )
-        break;
-      result = *v17;
-      if ( v11 == *(_QWORD *)(*v17 + 16) )
-      {
-        v18 = *(_QWORD *)result;
-        v19 = *(_QWORD **)(v12 + 8);
-        *v19 = v10;
-        v7 = (__int64 *)v10[1];
-        *v7 = v18;
-        result = *(_QWORD *)(v18 + 8);
-        *(_QWORD *)result = v12;
-        *(_QWORD *)(v18 + 8) = v7;
-        v10[1] = v19;
-        *(_QWORD *)(v12 + 8) = result;
-        goto LABEL_15;
-      }
-    }
-    v20 = *(_QWORD **)(v12 + 8);
-    *v20 = v10;
-    v7 = (__int64 *)v10[1];
-    *v7 = result;
-    result = *v17;
-    *(_QWORD *)result = v12;
-    *v17 = (__int64)v7;
-    v10[1] = v20;
-    *(_QWORD *)(v12 + 8) = result;
-    *(_QWORD *)(v13 + 8 * v14) = v12;
-LABEL_15:
-    v9 = v10;
+    while ( v8 != v7 );
   }
   return result;
 }

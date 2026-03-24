@@ -1,61 +1,85 @@
 /*
- * XREFs of HalpInterruptBuildStartupStub @ 0x1403A8AD8
+ * XREFs of HalpInterruptBuildStartupStub @ 0x1403A0E80
  * Callers:
- *     HalpInterruptBuildGlobalStartupStub @ 0x1403A89F0 (HalpInterruptBuildGlobalStartupStub.c)
+ *     HalpSetupRealModeResume @ 0x1403F97A0 (HalpSetupRealModeResume.c)
+ *     HalpInterruptStartProcessor @ 0x140999F64 (HalpInterruptStartProcessor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     HalpInterruptCreateGdtEntry32 @ 0x1403A8CDC (HalpInterruptCreateGdtEntry32.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     HalpInterruptCreateGdtEntry32 @ 0x1403A10C8 (HalpInterruptCreateGdtEntry32.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     KeForceEnableNx @ 0x14099A130 (KeForceEnableNx.c)
  */
 
-PVOID HalpInterruptBuildStartupStub()
+_QWORD *__fastcall HalpInterruptBuildStartupStub(PVOID *a1, PHYSICAL_ADDRESS *a2, const void *a3, __int64 a4)
 {
   PHYSICAL_ADDRESS PhysicalAddress; // rax
-  _OWORD *v1; // rdi
-  PHYSICAL_ADDRESS v2; // rbx
-  int v3; // ecx
-  int v4; // r8d
-  int v5; // r8d
-  int v6; // r10d
-  int v7; // r8d
-  int v8; // r11d
-  unsigned __int64 v9; // rax
-  PVOID result; // rax
+  char *v9; // rdi
+  PHYSICAL_ADDRESS v10; // rbx
+  char *v11; // rdi
+  char v12; // al
+  char v13; // r15
+  int v14; // ecx
+  int v15; // ecx
+  void *v16; // rdi
+  int v17; // r8d
+  int v18; // r8d
+  int v19; // r11d
+  int v20; // r8d
+  _QWORD *result; // rax
+  __int64 v22; // rcx
 
-  PhysicalAddress = MmGetPhysicalAddress(HalpInterruptGlobalStartupBlock);
-  v1 = HalpInterruptGlobalStartupBlock;
-  v2 = PhysicalAddress;
-  memmove(HalpInterruptGlobalStartupBlock, HalpRMStub, 0x67CuLL);
-  v1 = (_OWORD *)((char *)v1 + 1660);
-  v3 = (int)v1;
-  *v1 = HalpPMStub;
-  v1[1] = xmmword_140020AB0;
-  v1[2] = xmmword_140020AC0;
-  v1[3] = xmmword_140020AD0;
-  v1[4] = xmmword_140020AE0;
-  *((_QWORD *)v1 + 10) = 0x90878B300FLL;
-  *((_DWORD *)v1 + 22) = -4185585;
-  *((_WORD *)v1 + 46) = 26223;
-  v1 = (_OWORD *)((char *)v1 + 94);
-  *((_WORD *)HalpInterruptGlobalStartupBlock + 50) = 48;
-  *((_DWORD *)HalpInterruptGlobalStartupBlock + 24) = v2.LowPart + v3 - (_DWORD)HalpInterruptGlobalStartupBlock;
-  memmove(v1, HalpLMIdentityStub, HalpLMIdentityStubEnd - (_BYTE *)HalpLMIdentityStub);
-  *((_WORD *)HalpInterruptGlobalStartupBlock + 53) = 16;
-  *(_DWORD *)((char *)HalpInterruptGlobalStartupBlock + 102) = v2.LowPart
-                                                             + (_DWORD)v1
-                                                             - (_DWORD)HalpInterruptGlobalStartupBlock;
-  *((_QWORD *)HalpInterruptGlobalStartupBlock + 15) = HalpInterruptGlobalStartupBlock;
-  *((_QWORD *)HalpInterruptGlobalStartupBlock + 14) = HalpLMStub;
-  HalpInterruptCreateGdtEntry32((_DWORD)HalpInterruptGlobalStartupBlock + 24, 48, v4, -1, 27, 0);
-  HalpInterruptCreateGdtEntry32((_DWORD)HalpInterruptGlobalStartupBlock + 24, 32, v5, v6, 19, 0);
-  HalpInterruptCreateGdtEntry32((_DWORD)HalpInterruptGlobalStartupBlock + 24, 16, v7, 0, v8, 1);
-  *((_WORD *)HalpInterruptGlobalStartupBlock + 6) = 63;
-  *(_DWORD *)((char *)HalpInterruptGlobalStartupBlock + 14) = v2.LowPart + 24;
-  *((_QWORD *)HalpInterruptGlobalStartupBlock + 16) = __readmsr(0x277u);
-  v9 = __readmsr(0xC0000080);
-  *((_QWORD *)HalpInterruptGlobalStartupBlock + 17) = ((unsigned __int64)HIDWORD(v9) << 32) | (unsigned int)v9;
-  result = HalpInterruptGlobalStartupBlock;
-  *((_QWORD *)HalpInterruptGlobalStartupBlock + 17) &= ~0x400uLL;
-  HalpInterruptGlobalStartupCodePhysical = v2.QuadPart;
+  PhysicalAddress = MmGetPhysicalAddress(*a1);
+  v9 = (char *)*a1;
+  v10 = PhysicalAddress;
+  memmove(*a1, HalpRMStub, 0x67CuLL);
+  v11 = v9 + 1660;
+  *(_OWORD *)v11 = HalpPMStub;
+  *((_OWORD *)v11 + 1) = xmmword_14001FA40;
+  *((_OWORD *)v11 + 2) = xmmword_14001FA50;
+  *((_OWORD *)v11 + 3) = xmmword_14001FA60;
+  *((_OWORD *)v11 + 4) = xmmword_14001FA70;
+  *((_QWORD *)v11 + 10) = 0x90878B300FLL;
+  *((_DWORD *)v11 + 22) = -4185585;
+  *((_WORD *)v11 + 46) = 26223;
+  v12 = KeForceEnableNx();
+  v13 = HalpInterruptProcessorHidden;
+  v14 = v12 != 0;
+  if ( HalpInterruptProcessorHidden )
+    v14 |= 4u;
+  *((_DWORD *)*a1 + 2) = v14;
+  *((_WORD *)*a1 + 50) = 48;
+  v15 = (_DWORD)v11 - *(_DWORD *)a1;
+  v16 = v11 + 94;
+  *((_DWORD *)*a1 + 24) = v10.LowPart + v15;
+  memmove(v16, HalpLMIdentityStub, HalpLMIdentityStubEnd - (_BYTE *)HalpLMIdentityStub);
+  *((_WORD *)*a1 + 53) = 16;
+  *(_DWORD *)((char *)*a1 + 102) = v10.LowPart + (_DWORD)v16 - *(_DWORD *)a1;
+  *((_QWORD *)*a1 + 15) = *a1;
+  *((_QWORD *)*a1 + 14) = HalpLMStub;
+  HalpInterruptCreateGdtEntry32(*(_DWORD *)a1 + 24, 48, v17, -1, 27, 0);
+  HalpInterruptCreateGdtEntry32(*(_DWORD *)a1 + 24, 32, v18, v19, 19, 0);
+  HalpInterruptCreateGdtEntry32(*(_DWORD *)a1 + 24, 16, v20, 0, 27, 1);
+  *((_WORD *)*a1 + 6) = 63;
+  *(_DWORD *)((char *)*a1 + 14) = v10.LowPart + 24;
+  *((_QWORD *)*a1 + 16) = __readmsr(0x277u);
+  *((_QWORD *)*a1 + 17) = __readmsr(0xC0000080);
+  *((_QWORD *)*a1 + 17) &= ~0x400uLL;
+  memmove((char *)*a1 + 144, a3, 0x5C0uLL);
+  *((_DWORD *)*a1 + 1) = 0;
+  if ( v13 )
+  {
+    result = (_QWORD *)HalpBlkTiledMemoryMapPa;
+    *((_QWORD *)*a1 + 11) = HalpBlkTiledMemoryMapPa;
+  }
+  else
+  {
+    result = *a1;
+    v22 = (unsigned int)CurTiledCr3LowPart;
+    if ( !HalpInterruptProcessorRestarting )
+      v22 = *(unsigned int *)(a4 + 4);
+    result[11] = v22;
+  }
+  if ( a2 )
+    *a2 = v10;
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of IoCheckRedirectionTrustLevel @ 0x140252BD0
+ * XREFs of IoCheckRedirectionTrustLevel @ 0x1403F13B0
  * Callers:
  *     <none>
  * Callees:
- *     SeTokenGetRedirectionTrustPolicy @ 0x140255CD4 (SeTokenGetRedirectionTrustPolicy.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1409E7AD4 (EtwTimLogRedirectionTrustPolicy.c)
+ *     SeTokenGetRedirectionTrustPolicy @ 0x1403F8F80 (SeTokenGetRedirectionTrustPolicy.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1405D09D0 (EtwTimLogRedirectionTrustPolicy.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall IoCheckRedirectionTrustLevel(
@@ -20,9 +20,9 @@ __int64 __fastcall IoCheckRedirectionTrustLevel(
   int v6; // r12d
   char v7; // r14
   char v8; // r15
-  struct _SECURITY_SUBJECT_CONTEXT *p_SubjectContext; // rdi
-  bool v13; // di
-  bool v14; // al
+  struct _SECURITY_SUBJECT_CONTEXT *p_SubjectContext; // rsi
+  bool v12; // di
+  bool v13; // al
   char v15; // [rsp+30h] [rbp-30h] BYREF
   char v16; // [rsp+31h] [rbp-2Fh] BYREF
   _BYTE v17[6]; // [rsp+32h] [rbp-2Eh] BYREF
@@ -40,15 +40,11 @@ __int64 __fastcall IoCheckRedirectionTrustLevel(
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   if ( !a2 || (a4 & 0xFFFFFFFD) == 0 )
     return 0LL;
-  if ( a3 )
-  {
-    p_SubjectContext = a3;
-  }
-  else
-  {
+  if ( !a3 )
     SeCaptureSubjectContext(&SubjectContext);
-    p_SubjectContext = &SubjectContext;
-  }
+  p_SubjectContext = &SubjectContext;
+  if ( a3 )
+    p_SubjectContext = a3;
   SeTokenGetRedirectionTrustPolicy(p_SubjectContext->PrimaryToken, &v16, v17);
   if ( p_SubjectContext->ClientToken && p_SubjectContext->ImpersonationLevel >= SecurityImpersonation )
   {
@@ -59,18 +55,18 @@ __int64 __fastcall IoCheckRedirectionTrustLevel(
   }
   if ( !a3 )
     SeReleaseSubjectContext(&SubjectContext);
-  v13 = v16 && v7;
-  v14 = v17[0] && v8;
-  if ( v13 )
+  v12 = v16 && v7;
+  v13 = v17[0] && v8;
+  if ( v12 )
   {
     v5 = 2;
   }
-  else if ( !v14 )
+  else if ( !v13 )
   {
     return 0LL;
   }
   EtwTimLogRedirectionTrustPolicy(v5, KeGetCurrentThread()->ApcState.Process, a1, a5, v6 == 2);
-  if ( !v13 )
+  if ( !v12 )
     return 0LL;
   return 3221226684LL;
 }

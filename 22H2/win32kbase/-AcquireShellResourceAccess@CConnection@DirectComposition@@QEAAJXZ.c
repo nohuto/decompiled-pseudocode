@@ -1,40 +1,34 @@
 /*
- * XREFs of ?AcquireShellResourceAccess@CConnection@DirectComposition@@QEAAJXZ @ 0x1C00871C0
+ * XREFs of ?AcquireShellResourceAccess@CConnection@DirectComposition@@QEAAJXZ @ 0x1C00B50A0
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C002D930 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
- *     ?InitializeAndRegisterInternalResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z @ 0x1C00315DC (-InitializeAndRegisterInternalResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResource.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C0029A24 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
+ *     ?CheckForShellResourceAccess@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z @ 0x1C004C3DC (-CheckForShellResourceAccess@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@.c)
  * Callees:
- *     ?Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ @ 0x1C0087334 (-Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ.c)
+ *     <none>
  */
 
-__int64 __fastcall DirectComposition::CConnection::AcquireShellResourceAccess(
-        DirectComposition::CConnection *this,
-        __int64 a2,
-        __int64 a3)
+__int64 __fastcall DirectComposition::CConnection::AcquireShellResourceAccess(struct _ERESOURCE **this, __int64 a2)
 {
-  unsigned int v4; // esi
+  unsigned int v3; // esi
   __int64 CurrentProcess; // rax
-  struct _ERESOURCE *v6; // rbx
-  __int64 v7; // rbp
-  __int64 v8; // rax
+  struct _ERESOURCE *v5; // rbx
+  __int64 v6; // rbp
+  struct _ERESOURCE *v7; // rax
 
-  v4 = -1073741790;
-  CurrentProcess = PsGetCurrentProcess(this, a2, a3);
-  v6 = (struct _ERESOURCE *)*((_QWORD *)this + 1);
-  v7 = CurrentProcess;
+  v3 = -1073741790;
+  CurrentProcess = PsGetCurrentProcess(this, a2);
+  v5 = this[30];
+  v6 = CurrentProcess;
   KeEnterCriticalRegion();
-  ExAcquireResourceSharedLite(v6, 1u);
-  ExAcquirePushLockExclusiveEx((char *)this + 224, 0LL);
-  *((_BYTE *)this + 232) = 1;
-  v8 = *((_QWORD *)this + 32);
-  if ( v8 == v7 || !v8 )
+  ExAcquireResourceExclusiveLite(v5, 1u);
+  v7 = this[29];
+  if ( v7 == (struct _ERESOURCE *)v6 || !v7 )
   {
-    ++*((_DWORD *)this + 63);
-    v4 = 0;
-    *((_QWORD *)this + 32) = v7;
+    ++*((_DWORD *)this + 57);
+    v3 = 0;
+    this[29] = (struct _ERESOURCE *)v6;
   }
-  DirectComposition::CPushLockCriticalSection::Release((DirectComposition::CConnection *)((char *)this + 224));
-  ExReleaseResourceLite(*((PERESOURCE *)this + 1));
+  ExReleaseResourceLite(this[30]);
   KeLeaveCriticalRegion();
-  return v4;
+  return v3;
 }

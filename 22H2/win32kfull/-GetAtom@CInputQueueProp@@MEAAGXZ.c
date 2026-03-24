@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAtom@CInputQueueProp@@MEAAGXZ @ 0x1C01311E0
+ * XREFs of ?GetAtom@CInputQueueProp@@MEAAGXZ @ 0x1C01377C0
  * Callers:
  *     <none>
  * Callees:

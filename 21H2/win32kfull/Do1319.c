@@ -1,7 +1,7 @@
 /*
- * XREFs of Do1319 @ 0x1C02648B0
+ * XREFs of Do1319 @ 0x1C0267300
  * Callers:
- *     FastExpAA_CY @ 0x1C0266D60 (FastExpAA_CY.c)
+ *     FastExpAA_CY @ 0x1C02697C0 (FastExpAA_CY.c)
  * Callees:
  *     <none>
  */

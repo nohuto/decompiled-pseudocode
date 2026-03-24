@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBREG_QueryValuesInDeviceHardwareKey @ 0x1C0080CF0
+ * XREFs of HUBREG_QueryValuesInDeviceHardwareKey @ 0x1C007F780
  * Callers:
- *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0079110 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0077CC0 (HUBPDO_EvtDevicePrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBREG_ValidateAndPopulateEndpointPriorities @ 0x1C0032190 (HUBREG_ValidateAndPopulateEndpointPriorities.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0043840 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBREG_ValidateAndPopulateEndpointPriorities @ 0x1C0031948 (HUBREG_ValidateAndPopulateEndpointPriorities.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall HUBREG_QueryValuesInDeviceHardwareKey(__int64 a1)
@@ -17,8 +17,8 @@ __int64 __fastcall HUBREG_QueryValuesInDeviceHardwareKey(__int64 a1)
   int v4; // eax
   unsigned int v5; // ebx
   unsigned __int16 v6; // r9
-  void *Pool2; // rax
-  void *v8; // rdi
+  PVOID PoolWithTag; // rax
+  PVOID v8; // rdi
   __int64 v10; // [rsp+28h] [rbp-38h]
   __int64 v11; // [rsp+40h] [rbp-20h] BYREF
   void *Src[2]; // [rsp+48h] [rbp-18h] BYREF
@@ -107,9 +107,9 @@ __int64 __fastcall HUBREG_QueryValuesInDeviceHardwareKey(__int64 a1)
         WdfDriverGlobals,
         v16,
         Src);
-      Pool2 = (void *)ExAllocatePool2(64LL, LOWORD(Src[0]), 1681082453LL);
-      v8 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, LOWORD(Src[0]), 0x64334855u);
+      v8 = PoolWithTag;
+      if ( !PoolWithTag )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_(
@@ -117,10 +117,10 @@ __int64 __fastcall HUBREG_QueryValuesInDeviceHardwareKey(__int64 a1)
             2u,
             5u,
             0x58u,
-            (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids);
+            (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids);
         goto LABEL_50;
       }
-      memmove(Pool2, Src[1], LOWORD(Src[0]));
+      memmove(PoolWithTag, Src[1], LOWORD(Src[0]));
       *(_DWORD *)(a1 + 2164) = LOWORD(Src[0]);
       *(_QWORD *)(a1 + 2168) = v8;
     }
@@ -165,7 +165,7 @@ __int64 __fastcall HUBREG_QueryValuesInDeviceHardwareKey(__int64 a1)
             4u,
             5u,
             0x5Bu,
-            (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids);
+            (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids);
       }
     }
     else if ( v4 != -1073741772 )
@@ -264,7 +264,7 @@ LABEL_4:
       2u,
       5u,
       v6,
-      (__int64)&WPP_ec435a79b99d323019775391632c21d3_Traceguids,
+      (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
       v10);
   }
 LABEL_50:

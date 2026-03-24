@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenKeyEx @ 0x1401BA4B0
+ * XREFs of ZwOpenKeyEx @ 0x1401BA4D0
  * Callers:
  *     MfgInitSystem @ 0x1409DF10C (MfgInitSystem.c)
  * Callees:

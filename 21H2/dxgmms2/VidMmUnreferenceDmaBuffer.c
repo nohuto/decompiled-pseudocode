@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmUnreferenceDmaBuffer @ 0x1C002D610
+ * XREFs of VidMmUnreferenceDmaBuffer @ 0x1C00231F0
  * Callers:
  *     <none>
  * Callees:
- *     ?UnreferenceDmaBuffer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C002E080 (-UnreferenceDmaBuffer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
+ *     ?UnreferenceDmaBuffer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C0023E98 (-UnreferenceDmaBuffer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
  */
 
 void __fastcall VidMmUnreferenceDmaBuffer(VIDMM_GLOBAL ***a1, unsigned __int8 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdate@CSnapshotMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0223CA0
+ * XREFs of ?EmitUpdate@CSnapshotMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E9CC0
  * Callers:
- *     ?EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0223D60 (-EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E9D80 (-EmitUpdateCommands@CSnapshotMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C002FD60 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CSnapshotMarshaler::EmitUpdate(
@@ -24,11 +24,11 @@ char __fastcall DirectComposition::CSnapshotMarshaler::EmitUpdate(
   *(_DWORD *)v9 = 28;
   *(_OWORD *)(v4 + 4) = 0LL;
   *(_QWORD *)(v4 + 20) = 0LL;
-  *((_DWORD *)v4 + 1) = 356;
-  *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v4 + 1) = 371;
+  *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
   v5 = *((_QWORD *)this + 7);
   if ( v5 )
-    LODWORD(v5) = *(_DWORD *)(v5 + 32);
+    LODWORD(v5) = *(_DWORD *)(v5 + 24);
   *((_DWORD *)v4 + 3) = v5;
   *((_DWORD *)v4 + 4) = *((_DWORD *)this + 16);
   *((_DWORD *)v4 + 5) = *((_DWORD *)this + 17);

@@ -1,14 +1,14 @@
 /*
- * XREFs of GetCaptionHeight @ 0x1C00BBE0C
+ * XREFs of GetCaptionHeight @ 0x1C00472F4
  * Callers:
- *     xxxDrawWindowFrame @ 0x1C00638D4 (xxxDrawWindowFrame.c)
- *     xxxCalcClientRect @ 0x1C0066538 (xxxCalcClientRect.c)
- *     ?xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z @ 0x1C020D6AC (-xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z.c)
- *     xxxMenuBarDraw @ 0x1C02488F8 (xxxMenuBarDraw.c)
- *     xxxMNRecomputeBarIfNeeded @ 0x1C024A058 (xxxMNRecomputeBarIfNeeded.c)
+ *     xxxCalcClientRect @ 0x1C004A8A0 (xxxCalcClientRect.c)
+ *     xxxDrawWindowFrame @ 0x1C004BB1C (xxxDrawWindowFrame.c)
+ *     xxxInitializeMoveSizeData @ 0x1C0211E0C (xxxInitializeMoveSizeData.c)
+ *     xxxMenuBarDraw @ 0x1C024D514 (xxxMenuBarDraw.c)
+ *     xxxMNRecomputeBarIfNeeded @ 0x1C024ED74 (xxxMNRecomputeBarIfNeeded.c)
  * Callees:
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     GetWindowDpiLastNotify @ 0x1C00BBEF0 (GetWindowDpiLastNotify.c)
+ *     GetWindowDpiLastNotify @ 0x1C004C6B8 (GetWindowDpiLastNotify.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
  */
 
 __int64 __fastcall GetCaptionHeight(__int64 a1)
@@ -32,7 +32,7 @@ __int64 __fastcall GetCaptionHeight(__int64 a1)
     {
       WindowDpiLastNotify = (v3 >> 8) & 0x1FF;
     }
-    else if ( (*(_DWORD *)(v2 + 232) & 0x400) != 0 )
+    else if ( (*(_DWORD *)(v2 + 232) & 0x8000000) != 0 )
     {
       WindowDpiLastNotify = GetWindowDpiLastNotify(a1);
     }
@@ -54,7 +54,7 @@ __int64 __fastcall GetCaptionHeight(__int64 a1)
     {
       WindowDpiLastNotify = (v3 >> 8) & 0x1FF;
     }
-    else if ( (*(_DWORD *)(v2 + 232) & 0x400) != 0 )
+    else if ( (*(_DWORD *)(v2 + 232) & 0x8000000) != 0 )
     {
       WindowDpiLastNotify = GetWindowDpiLastNotify(a1);
     }

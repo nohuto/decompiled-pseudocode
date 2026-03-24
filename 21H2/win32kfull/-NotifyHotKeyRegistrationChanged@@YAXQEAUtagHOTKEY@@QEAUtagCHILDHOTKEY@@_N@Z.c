@@ -1,14 +1,14 @@
 /*
- * XREFs of ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C009E5D8
+ * XREFs of ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C003313C
  * Callers:
- *     ?HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C009DF10 (-HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z.c)
- *     _RegisterHotKey @ 0x1C009E114 (_RegisterHotKey.c)
- *     ?HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z @ 0x1C009E4F8 (-HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z.c)
- *     ?HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HG@Z @ 0x1C011D800 (-HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HG@Z.c)
- *     _lambda_ee96b6502effcc67d9cd908cd78240cc_::_lambda_invoker_cdecl_ @ 0x1C0122EF0 (_lambda_ee96b6502effcc67d9cd908cd78240cc_--_lambda_invoker_cdecl_.c)
- *     ?HKRemoveMatchingChildHotkeys@@YA_NPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C01E5844 (-HKRemoveMatchingChildHotkeys@@YA_NPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryT.c)
+ *     ?HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C0032A80 (-HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z.c)
+ *     _RegisterHotKey @ 0x1C0032C74 (_RegisterHotKey.c)
+ *     ?HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z @ 0x1C0033058 (-HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z.c)
+ *     ?HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HG@Z @ 0x1C013296C (-HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HG@Z.c)
+ *     _lambda_ee96b6502effcc67d9cd908cd78240cc_::_lambda_invoker_cdecl_ @ 0x1C01377B0 (_lambda_ee96b6502effcc67d9cd908cd78240cc_--_lambda_invoker_cdecl_.c)
+ *     ?HKRemoveMatchingChildHotkeys@@YA_NPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C01EABD4 (-HKRemoveMatchingChildHotkeys@@YA_NPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryT.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall NotifyHotKeyRegistrationChanged(
@@ -18,7 +18,7 @@ void __fastcall NotifyHotKeyRegistrationChanged(
 {
   unsigned int ThreadId; // r9d
   int v4; // edi
-  unsigned __int64 v6; // rax
+  __int64 v6; // rcx
   __int16 v7; // ax
   __int64 v8; // rdx
   char v9; // al
@@ -32,7 +32,7 @@ void __fastcall NotifyHotKeyRegistrationChanged(
   if ( !*((_QWORD *)a1 + 1) )
   {
     v6 = *((_QWORD *)a1 + 2);
-    if ( v6 != 1 && v6 < 0xFFFFFFFFFFFFFFFEuLL )
+    if ( (unsigned __int64)(v6 - 2) <= 0xFFFFFFFFFFFFFFFBuLL || !v6 )
     {
       v7 = *((_WORD *)a1 + 13);
       if ( (v7 & 0x9C00) == 0 )

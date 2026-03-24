@@ -1,9 +1,9 @@
 /*
- * XREFs of Endpoint_Stream_IsTransferEventLikelyDuplicate @ 0x1C003C290
+ * XREFs of Endpoint_Stream_IsTransferEventLikelyDuplicate @ 0x1C003A2A4
  * Callers:
- *     Endpoint_TransferEventHandler @ 0x1C0009BD0 (Endpoint_TransferEventHandler.c)
+ *     Endpoint_TransferEventHandler @ 0x1C0006860 (Endpoint_TransferEventHandler.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall Endpoint_Stream_IsTransferEventLikelyDuplicate(_QWORD *a1, __int64 a2, _BYTE *a3)

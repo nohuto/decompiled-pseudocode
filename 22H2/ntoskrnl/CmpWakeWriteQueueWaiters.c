@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpWakeWriteQueueWaiters @ 0x14075268C
+ * XREFs of CmpWakeWriteQueueWaiters @ 0x14069ECA8
  * Callers:
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140828D7C (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14079F9E4 (CmpFinishBeingActiveFlusherAndReconciler.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
  */
 
-signed __int32 __fastcall CmpWakeWriteQueueWaiters(ULONG_PTR BugCheckParameter2, PRKEVENT Event, LONG a3)
+char __fastcall CmpWakeWriteQueueWaiters(ULONG_PTR BugCheckParameter2, PRKEVENT Event, LONG a3)
 {
   PRKEVENT v4; // rax
-  struct _LIST_ENTRY *Flink; // rbx
+  struct _KEVENT *Flink; // rbx
 
   v4 = Event;
   if ( Event )
   {
     do
     {
-      Flink = v4[1].Header.WaitListHead.Flink;
+      Flink = (struct _KEVENT *)v4[1].Header.WaitListHead.Flink;
       v4[1].Header.LockNV = a3;
       KeSetEvent(v4, 0, 0);
-      v4 = (PRKEVENT)Flink;
+      v4 = Flink;
     }
     while ( Flink );
   }

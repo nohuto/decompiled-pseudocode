@@ -1,86 +1,79 @@
 /*
- * XREFs of InitializeInteractionStateInfo @ 0x1800E0698
+ * XREFs of InitializeInteractionStateInfo @ 0x18004D590
  * Callers:
- *     ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E04DC (--0CInteractionProcessor@@QEAA@XZ.c)
+ *     ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E0D94 (--0CInteractionProcessor@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall InitializeInteractionStateInfo(__int64 a1)
+__int64 __fastcall InitializeInteractionStateInfo(__int64 a1)
 {
-  _OWORD *v1; // rdx
-  _OWORD *v2; // rax
-  __int64 v3; // r8
-  __int128 v4; // xmm1
-  __int128 v5; // xmm0
-  __int128 v6; // xmm1
-  __int128 v7; // xmm0
-  __int128 v8; // xmm1
-  __int128 v9; // xmm0
-  __int128 v10; // xmm1
+  __int64 v2; // r8
+  _OWORD *v3; // rax
+  _OWORD *v4; // rcx
+  __int128 v5; // xmm1
+  __int128 v6; // xmm0
+  __int128 v7; // xmm1
+  __int128 v8; // xmm0
+  __int128 v9; // xmm1
+  __int128 v10; // xmm0
   __int128 v11; // xmm1
-  __int128 v12; // xmm0
+  __int128 v12; // xmm1
   __int128 v13; // xmm1
   __int128 v14; // xmm0
-  char v15; // al
-  char v16; // al
-  char v17; // al
-  char v18; // al
-  char v19; // al
-  char v20; // al
-  char result; // al
-  _OWORD v22[3]; // [rsp+0h] [rbp-1D8h] BYREF
-  __int64 v23; // [rsp+30h] [rbp-1A8h]
-  int v24; // [rsp+78h] [rbp-160h]
-  int v25; // [rsp+BCh] [rbp-11Ch]
-  int v26; // [rsp+100h] [rbp-D8h]
-  int v27; // [rsp+144h] [rbp-94h]
-  int v28; // [rsp+188h] [rbp-50h]
-  int v29; // [rsp+1CCh] [rbp-Ch]
+  __int64 result; // rax
+  _OWORD v16[3]; // [rsp+0h] [rbp-1D8h] BYREF
+  __int64 v17; // [rsp+30h] [rbp-1A8h]
+  int v18; // [rsp+78h] [rbp-160h]
+  int v19; // [rsp+BCh] [rbp-11Ch]
+  int v20; // [rsp+100h] [rbp-D8h]
+  int v21; // [rsp+144h] [rbp-94h]
+  int v22; // [rsp+188h] [rbp-50h]
+  int v23; // [rsp+1CCh] [rbp-Ch]
 
-  v1 = v22;
-  v23 = 0LL;
-  v24 = 0;
-  memset(v22, 0, sizeof(v22));
-  v2 = (_OWORD *)a1;
-  v3 = 3LL;
-  v25 = 0;
-  v26 = 0;
-  v27 = 0;
-  v28 = 0;
-  v29 = 0;
+  v17 = 0LL;
+  memset(v16, 0, sizeof(v16));
+  v18 = 0;
+  v2 = 3LL;
+  v3 = (_OWORD *)a1;
+  v19 = 0;
+  v20 = 0;
+  v4 = v16;
+  v21 = 0;
+  v22 = 0;
+  v23 = 0;
   do
   {
-    v4 = v1[1];
-    *v2 = *v1;
-    v5 = v1[2];
-    v2[1] = v4;
-    v6 = v1[3];
-    v2[2] = v5;
-    v7 = v1[4];
-    v2[3] = v6;
-    v8 = v1[5];
-    v2[4] = v7;
-    v9 = v1[6];
-    v2[5] = v8;
-    v10 = v1[7];
-    v1 += 8;
-    v2[6] = v9;
-    v2 += 8;
-    *(v2 - 1) = v10;
-    --v3;
+    v5 = v4[1];
+    *v3 = *v4;
+    v6 = v4[2];
+    v3[1] = v5;
+    v7 = v4[3];
+    v3[2] = v6;
+    v8 = v4[4];
+    v3[3] = v7;
+    v9 = v4[5];
+    v3[4] = v8;
+    v10 = v4[6];
+    v3[5] = v9;
+    v11 = v4[7];
+    v4 += 8;
+    v3[6] = v10;
+    v3 += 8;
+    *(v3 - 1) = v11;
+    --v2;
   }
-  while ( v3 );
-  v11 = v1[1];
-  *v2 = *v1;
-  v12 = v1[2];
-  v2[1] = v11;
-  v13 = v1[3];
-  v2[2] = v12;
-  v14 = v1[4];
-  v2[3] = v13;
-  v2[4] = v14;
+  while ( v2 );
+  v12 = v4[1];
+  *v3 = *v4;
+  v3[1] = v12;
+  v13 = v4[3];
+  v3[2] = v4[2];
+  v14 = v4[4];
+  v3[3] = v13;
+  v3[4] = v14;
   *(_BYTE *)(a1 + 24) &= 0xC0u;
+  result = 1065353216LL;
   *(_QWORD *)a1 = 0LL;
   *(_DWORD *)(a1 + 8) = 0;
   *(_QWORD *)(a1 + 16) = 0LL;
@@ -97,9 +90,7 @@ char __fastcall InitializeInteractionStateInfo(__int64 a1)
   *(_QWORD *)(a1 + 104) = 0LL;
   *(_DWORD *)(a1 + 112) = 0;
   *(_DWORD *)(a1 + 116) = 1065353216;
-  v15 = *(_BYTE *)(a1 + 121);
-  *(_BYTE *)(a1 + 120) = 85;
-  *(_BYTE *)(a1 + 121) = v15 & 0xC0 | 0x17;
+  *(_WORD *)(a1 + 120) = 32085;
   *(_QWORD *)(a1 + 124) = 1065353216LL;
   *(_QWORD *)(a1 + 132) = 0LL;
   *(_DWORD *)(a1 + 140) = 0;
@@ -110,61 +101,26 @@ char __fastcall InitializeInteractionStateInfo(__int64 a1)
   *(_QWORD *)(a1 + 172) = 0LL;
   *(_DWORD *)(a1 + 180) = 0;
   *(_DWORD *)(a1 + 184) = 1065353216;
-  v16 = *(_BYTE *)(a1 + 189);
-  *(_BYTE *)(a1 + 188) = 85;
-  *(_BYTE *)(a1 + 189) = v16 & 0xC0 | 0x17;
-  *(_QWORD *)(a1 + 192) = 1065353216LL;
-  *(_QWORD *)(a1 + 200) = 0LL;
-  *(_DWORD *)(a1 + 208) = 0;
-  *(_QWORD *)(a1 + 212) = 1065353216LL;
-  *(_QWORD *)(a1 + 220) = 0LL;
-  *(_DWORD *)(a1 + 228) = 0;
-  *(_QWORD *)(a1 + 232) = 1065353216LL;
-  *(_QWORD *)(a1 + 240) = 0LL;
-  *(_DWORD *)(a1 + 248) = 0;
-  *(_DWORD *)(a1 + 252) = 1065353216;
-  v17 = *(_BYTE *)(a1 + 257);
-  *(_BYTE *)(a1 + 256) = 85;
-  *(_BYTE *)(a1 + 257) = v17 & 0xC0 | 0x17;
-  *(_QWORD *)(a1 + 260) = 1065353216LL;
-  *(_QWORD *)(a1 + 268) = 0LL;
-  *(_DWORD *)(a1 + 276) = 0;
-  *(_QWORD *)(a1 + 280) = 1065353216LL;
-  *(_QWORD *)(a1 + 288) = 0LL;
-  *(_DWORD *)(a1 + 296) = 0;
-  *(_QWORD *)(a1 + 300) = 1065353216LL;
-  *(_QWORD *)(a1 + 308) = 0LL;
-  *(_DWORD *)(a1 + 316) = 0;
-  *(_DWORD *)(a1 + 320) = 1065353216;
-  v18 = *(_BYTE *)(a1 + 325) & 0xD7;
-  *(_BYTE *)(a1 + 324) = 85;
-  *(_BYTE *)(a1 + 325) = v18 | 0x17;
-  *(_QWORD *)(a1 + 328) = 1065353216LL;
-  *(_QWORD *)(a1 + 336) = 0LL;
-  *(_DWORD *)(a1 + 344) = 0;
-  *(_QWORD *)(a1 + 348) = 1065353216LL;
-  *(_QWORD *)(a1 + 356) = 0LL;
-  *(_DWORD *)(a1 + 364) = 0;
-  *(_QWORD *)(a1 + 368) = 1065353216LL;
-  *(_QWORD *)(a1 + 376) = 0LL;
-  *(_DWORD *)(a1 + 384) = 0;
-  *(_DWORD *)(a1 + 388) = 1065353216;
-  v19 = *(_BYTE *)(a1 + 393);
-  *(_BYTE *)(a1 + 392) = 85;
-  *(_BYTE *)(a1 + 393) = v19 & 0xC0 | 0x17;
-  *(_QWORD *)(a1 + 396) = 1065353216LL;
-  *(_QWORD *)(a1 + 404) = 0LL;
-  *(_DWORD *)(a1 + 412) = 0;
-  *(_QWORD *)(a1 + 416) = 1065353216LL;
-  *(_QWORD *)(a1 + 424) = 0LL;
-  *(_DWORD *)(a1 + 432) = 0;
-  *(_QWORD *)(a1 + 436) = 1065353216LL;
-  *(_QWORD *)(a1 + 444) = 0LL;
-  *(_DWORD *)(a1 + 452) = 0;
-  *(_DWORD *)(a1 + 456) = 1065353216;
-  v20 = *(_BYTE *)(a1 + 461) & 0xD7;
-  *(_BYTE *)(a1 + 460) = 85;
-  result = v20 | 0x17;
-  *(_BYTE *)(a1 + 461) = result;
+  *(_WORD *)(a1 + 188) = 32085;
+  *(_OWORD *)(a1 + 192) = _xmm;
+  *(_WORD *)(a1 + 256) = 32085;
+  *(_OWORD *)(a1 + 208) = _xmm;
+  *(_OWORD *)(a1 + 224) = _xmm;
+  *(_OWORD *)(a1 + 240) = _xmm;
+  *(_WORD *)(a1 + 324) = 32085;
+  *(_OWORD *)(a1 + 260) = _xmm;
+  *(_OWORD *)(a1 + 276) = _xmm;
+  *(_OWORD *)(a1 + 292) = _xmm;
+  *(_OWORD *)(a1 + 308) = _xmm;
+  *(_WORD *)(a1 + 392) = 32085;
+  *(_OWORD *)(a1 + 328) = _xmm;
+  *(_OWORD *)(a1 + 344) = _xmm;
+  *(_OWORD *)(a1 + 360) = _xmm;
+  *(_OWORD *)(a1 + 376) = _xmm;
+  *(_WORD *)(a1 + 460) = 32085;
+  *(_OWORD *)(a1 + 396) = _xmm;
+  *(_OWORD *)(a1 + 412) = _xmm;
+  *(_OWORD *)(a1 + 428) = _xmm;
+  *(_OWORD *)(a1 + 444) = _xmm;
   return result;
 }

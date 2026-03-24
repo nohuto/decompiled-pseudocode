@@ -1,10 +1,10 @@
 /*
- * XREFs of SepSddlAddAceToAcl @ 0x1C00BE278
+ * XREFs of SepSddlAddAceToAcl @ 0x1C00BCAF8
  * Callers:
- *     SepSddlGetAclForString @ 0x1C00BE464 (SepSddlGetAclForString.c)
+ *     SepSddlGetAclForString @ 0x1C00BCCE4 (SepSddlGetAclForString.c)
  * Callees:
- *     memset @ 0x1C0036C00 (memset.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
  */
 
 NTSTATUS __fastcall SepSddlAddAceToAcl(

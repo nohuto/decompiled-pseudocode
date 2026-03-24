@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceInternalSetTimer @ 0x1C009D890
+ * XREFs of EtwTraceInternalSetTimer @ 0x1C0082B60
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C00DFB64 (McTemplateK0pqqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C0126348 (McTemplateK0pqqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceInternalSetTimer(__int64 a1, __int64 a2, int a3)

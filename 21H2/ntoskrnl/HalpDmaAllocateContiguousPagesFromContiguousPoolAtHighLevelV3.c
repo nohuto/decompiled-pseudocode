@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3 @ 0x140503590
+ * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3 @ 0x1404B6E30
  * Callers:
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x140505534 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x1404B8B48 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1402054C0 (RtlFindClearBitsAndSet.c)
- *     HalpDmaLinkContiguousTranslations @ 0x140457684 (HalpDmaLinkContiguousTranslations.c)
+ *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
+ *     HalpDmaLinkContiguousTranslations @ 0x1404C7CD4 (HalpDmaLinkContiguousTranslations.c)
  */
 
 __int64 __fastcall HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3(__int64 a1, __int64 a2, ULONG a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpApplyStackWalkIdFilter @ 0x140604318
+ * XREFs of EtwpApplyStackWalkIdFilter @ 0x1405ABFE4
  * Callers:
- *     EtwpEventWriteFull @ 0x140258450 (EtwpEventWriteFull.c)
- *     EtwpApplyStackWalkFilterOnUserEvent @ 0x1409F51A0 (EtwpApplyStackWalkFilterOnUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14025D7C0 (EtwpEventWriteFull.c)
+ *     EtwpApplyStackWalkFilterOnUserEvent @ 0x140940AAC (EtwpApplyStackWalkFilterOnUserEvent.c)
  * Callees:
- *     EtwpPerfectHashFunctionSearch @ 0x140257730 (EtwpPerfectHashFunctionSearch.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpPerfectHashFunctionSearch @ 0x14025ECAC (EtwpPerfectHashFunctionSearch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall EtwpApplyStackWalkIdFilter(__int16 a1, __int64 a2, unsigned int a3, char a4)
@@ -14,18 +14,17 @@ bool __fastcall EtwpApplyStackWalkIdFilter(__int16 a1, __int64 a2, unsigned int 
   unsigned __int8 CurrentIrql; // bl
   __int64 v6; // r10
   _DWORD *SchedulerAssist; // r9
-  int v8; // eax
-  __int64 v9; // rdx
-  char v10; // al
-  _BYTE *v11; // rdx
-  unsigned __int8 v12; // al
+  __int64 v8; // rdx
+  char v9; // al
+  _BYTE *v10; // rdx
+  unsigned __int8 v11; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v14; // r8
-  int v15; // eax
-  bool v16; // zf
-  __int64 v17; // rdx
-  char v18; // al
-  _BYTE *v19; // rdx
+  _DWORD *v13; // r8
+  int v14; // eax
+  bool v15; // zf
+  __int64 v16; // rdx
+  char v17; // al
+  _BYTE *v18; // rdx
 
   v4 = 1;
   if ( a4 )
@@ -36,40 +35,40 @@ bool __fastcall EtwpApplyStackWalkIdFilter(__int16 a1, __int64 a2, unsigned int 
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      v8 = 4;
-      if ( CurrentIrql != 2 )
-        v8 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v8;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
-    v9 = *(_QWORD *)(104LL * a3 + *(_QWORD *)(a2 + 384) + 48);
-    if ( v9 )
+    v8 = *(_QWORD *)(104LL * a3 + *(_QWORD *)(a2 + 384) + 48);
+    if ( v8 )
     {
-      v10 = EtwpPerfectHashFunctionSearch(a1, v9);
-      v4 = *v11 == (unsigned __int8)v10;
+      v9 = EtwpPerfectHashFunctionSearch(a1, v8);
+      v4 = *v10 == (unsigned __int8)v9;
     }
     if ( KiIrqlFlags )
     {
-      v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v14 = CurrentPrcb->SchedulerAssist;
-        v15 = ~(unsigned __int16)(v6 << (CurrentIrql + 1));
-        v16 = (v15 & v14[5]) == 0;
-        v14[5] &= v15;
-        if ( v16 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v11 = KeGetCurrentIrql();
+        if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v13 = CurrentPrcb->SchedulerAssist;
+          v14 = ~(unsigned __int16)(v6 << (CurrentIrql + 1));
+          v15 = (v14 & v13[5]) == 0;
+          v13[5] &= v14;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(CurrentIrql);
   }
   else
   {
-    v17 = *(_QWORD *)(104LL * a3 + *(_QWORD *)(a2 + 384) + 48);
-    if ( v17 )
+    v16 = *(_QWORD *)(104LL * a3 + *(_QWORD *)(a2 + 384) + 48);
+    if ( v16 )
     {
-      v18 = EtwpPerfectHashFunctionSearch(a1, v17);
-      return *v19 == (unsigned __int8)v18;
+      v17 = EtwpPerfectHashFunctionSearch(a1, v16);
+      return *v18 == (unsigned __int8)v17;
     }
   }
   return v4;

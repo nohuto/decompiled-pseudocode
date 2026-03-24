@@ -1,16 +1,16 @@
 /*
- * XREFs of KiOpPatchCode @ 0x14057F490
+ * XREFs of KiOpPatchCode @ 0x140524674
  * Callers:
- *     KiOp_MOVAPS @ 0x14057FAC0 (KiOp_MOVAPS.c)
- *     KiOp_MOVDQA @ 0x14057FB40 (KiOp_MOVDQA.c)
+ *     KiOp_MOVAPS @ 0x140524890 (KiOp_MOVAPS.c)
+ *     KiOp_MOVDQA @ 0x140524910 (KiOp_MOVDQA.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwProtectVirtualMemory @ 0x14041B0A0 (ZwProtectVirtualMemory.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwProtectVirtualMemory @ 0x1403FA420 (ZwProtectVirtualMemory.c)
  */
 
 __int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
@@ -42,7 +42,7 @@ __int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
     *(_QWORD *)MemoryDescriptorList_44 = a2 & 0xFFF;
     MemoryDescriptorList_40 = 1;
     v5 = 0;
-    MiProbeAndLockPages((__int64)&MemoryDescriptorList, 1, 1);
+    MiProbeAndLockPages((__int64)&MemoryDescriptorList, 1, 1u);
     if ( (MemoryDescriptorList_10 & 5) != 0 )
       v6 = *(_BYTE **)&MemoryDescriptorList_12[3];
     else
@@ -54,6 +54,6 @@ __int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
     MmUnlockPages((PMDL)&MemoryDescriptorList);
     ZwProtectVirtualMemory(-1LL, (__int64)&v8);
   }
-  ExReleaseFastMutex(&KiUserCodePatchMutex);
+  KeReleaseGuardedMutex(&KiUserCodePatchMutex);
   return (unsigned int)v5;
 }

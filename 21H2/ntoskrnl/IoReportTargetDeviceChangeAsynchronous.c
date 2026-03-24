@@ -1,17 +1,17 @@
 /*
- * XREFs of IoReportTargetDeviceChangeAsynchronous @ 0x1402E0740
+ * XREFs of IoReportTargetDeviceChangeAsynchronous @ 0x1402EE5E0
  * Callers:
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
- *     FsRtlNotifyVolumeEventEx @ 0x14074C800 (FsRtlNotifyVolumeEventEx.c)
+ *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x14071C400 (FsRtlNotifyVolumeEventEx.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     PnpSetCustomTargetEvent @ 0x14078AB30 (PnpSetCustomTargetEvent.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     PnpSetCustomTargetEvent @ 0x1406E5EEC (PnpSetCustomTargetEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(
@@ -22,9 +22,9 @@ NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(
 {
   _DWORD *DeviceNode; // rcx
   GUID *v9; // rdi
-  int v10; // ecx
+  __int64 v10; // rcx
   int v11; // edx
-  struct _WORK_QUEUE_ITEM *Pool2; // rdi
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rdi
   struct _DRIVER_OBJECT *DriverObject; // rcx
   UNICODE_STRING *p_DriverName; // rcx
   char *v16; // rcx
@@ -106,25 +106,22 @@ LABEL_31:
   if ( (unsigned __int16)v10 < 0x24u )
     return -1073741808;
   v11 = *((_DWORD *)NotificationStructure + 8);
-  if ( v11 != -1 && v11 > v10 - 36 )
+  if ( v11 != -1 && v11 > (int)v10 - 36 )
     return -1073741808;
   if ( KeGetCurrentIrql() != 2 )
     return PnpSetCustomTargetEvent(PhysicalDeviceObject, (__int64)Context, NotificationStructure);
-  Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(
-                                       64LL,
-                                       *((unsigned __int16 *)NotificationStructure + 1) + 64LL,
-                                       946892368LL);
-  if ( !Pool2 )
+  PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, v10 + 64, 0x38706E50u);
+  if ( !PoolWithTag )
     return -1073741670;
   ObfReferenceObjectWithTag(PhysicalDeviceObject, 0x4E706E50u);
-  Pool2[1].List.Flink = (struct _LIST_ENTRY *)PhysicalDeviceObject;
-  Pool2[1].Parameter = &Pool2[2];
-  memmove(&Pool2[2], NotificationStructure, *((unsigned __int16 *)NotificationStructure + 1));
-  Pool2[1].List.Blink = (struct _LIST_ENTRY *)Callback;
-  Pool2[1].WorkerRoutine = (void (__fastcall *)(void *))Context;
-  Pool2->WorkerRoutine = (void (__fastcall *)(void *))PnpReportTargetDeviceChangeAsyncWorker;
-  Pool2->Parameter = Pool2;
-  Pool2->List.Flink = 0LL;
-  ExQueueWorkItem(Pool2, DelayedWorkQueue);
+  PoolWithTag[1].List.Flink = (struct _LIST_ENTRY *)PhysicalDeviceObject;
+  PoolWithTag[1].Parameter = &PoolWithTag[2];
+  memmove(&PoolWithTag[2], NotificationStructure, *((unsigned __int16 *)NotificationStructure + 1));
+  PoolWithTag[1].List.Blink = (struct _LIST_ENTRY *)Callback;
+  PoolWithTag[1].WorkerRoutine = (void (__fastcall *)(void *))Context;
+  PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))PnpReportTargetDeviceChangeAsyncWorker;
+  PoolWithTag->Parameter = PoolWithTag;
+  PoolWithTag->List.Flink = 0LL;
+  ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);
   return 259;
 }

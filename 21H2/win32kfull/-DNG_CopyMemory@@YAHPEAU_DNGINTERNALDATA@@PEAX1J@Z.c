@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z @ 0x1C00D936C
+ * XREFs of ?DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z @ 0x1C00CA8E0
  * Callers:
- *     DNG_StretchCol @ 0x1C00D7834 (DNG_StretchCol.c)
- *     RenderNineGridInternal @ 0x1C00D8290 (RenderNineGridInternal.c)
+ *     DNG_StretchCol @ 0x1C00C8E70 (DNG_StretchCol.c)
+ *     RenderNineGridInternal @ 0x1C00C9840 (RenderNineGridInternal.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall DNG_CopyMemory(struct _DNGINTERNALDATA *a1, char *a2, char *a3, int a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0228790
+ * XREFs of ?SetRemarshalingFlags@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DF370
  * Callers:
  *     <none>
  * Callees:
@@ -16,34 +16,34 @@ bool __fastcall DirectComposition::CParticleGeneratorMarshaler::SetRemarshalingF
 
   result = 1;
   v2 = *((_DWORD *)this + 4) | 0x60;
-  if ( *((_BYTE *)this + 88) != 1 )
+  if ( *((_BYTE *)this + 80) != 1 )
     v2 = *((_DWORD *)this + 4) | 0xE0;
-  if ( *((float *)this + 23) != 0.0 )
+  if ( *((float *)this + 21) != 0.0 )
     v2 |= 0x100u;
-  if ( *((float *)this + 24) != 1.0 )
+  if ( *((float *)this + 22) != 1.0 )
     v2 |= 0x200u;
-  if ( *((float *)this + 25) != 0.0 )
+  if ( *((float *)this + 23) != 0.0 )
     v2 |= 0x400u;
-  if ( *((float *)this + 26) != 0.0 )
+  if ( *((float *)this + 24) != 0.0 )
     v2 |= 0x800u;
   v3 = v2 | 0xF000;
-  if ( *((float *)this + 43) != 0.0 )
+  if ( *((float *)this + 41) != 0.0 )
     v3 |= 0x10000u;
-  if ( *((float *)this + 44) != 1.0 )
+  if ( *((float *)this + 42) != 1.0 )
     v3 |= 0x20000u;
   v4 = v3 | 0xC0000;
   *((_DWORD *)this + 4) = v4;
-  if ( *((_BYTE *)this + 204) != 1 )
+  if ( *((_BYTE *)this + 196) != 1 )
   {
     v4 |= 0x100000u;
     *((_DWORD *)this + 4) = v4;
   }
-  if ( *((float *)this + 52) != 1.0 )
+  if ( *((float *)this + 50) != 1.0 )
   {
     v4 |= 0x200000u;
     *((_DWORD *)this + 4) = v4;
   }
-  if ( *((float *)this + 53) != 1.0 )
+  if ( *((float *)this + 51) != 1.0 )
     *((_DWORD *)this + 4) = v4 | 0x400000;
   return result;
 }

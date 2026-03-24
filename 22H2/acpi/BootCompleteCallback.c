@@ -1,5 +1,5 @@
 /*
- * XREFs of BootCompleteCallback @ 0x1C007A520
+ * XREFs of BootCompleteCallback @ 0x1C00903F0
  * Callers:
  *     <none>
  * Callees:

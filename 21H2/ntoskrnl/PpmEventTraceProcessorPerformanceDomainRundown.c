@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmEventTraceProcessorPerformanceDomainRundown @ 0x14099B3D8
+ * XREFs of PpmEventTraceProcessorPerformanceDomainRundown @ 0x1408F3B68
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140864680 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D53F0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     KeAndGroupAffinityEx @ 0x140263350 (KeAndGroupAffinityEx.c)
- *     KeQueryGroupAffinity @ 0x1402D75B0 (KeQueryGroupAffinity.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     KeQueryGroupAffinity @ 0x1402C95F0 (KeQueryGroupAffinity.c)
+ *     KeAndGroupAffinityEx @ 0x1403746A0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
 {
-  _DWORD *Pool2; // r14
+  _DWORD *PoolWithTag; // rsi
   unsigned __int16 v3; // ax
   USHORT i; // di
   _OWORD *v5; // rbx
@@ -28,7 +28,7 @@ void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
   unsigned __int16 v13; // r8
   __int64 v14; // rax
   __int64 v15; // rdx
-  unsigned int v16; // ebx
+  ULONG v16; // ebx
   __int64 v17; // r10
   unsigned int v18; // r8d
   unsigned __int16 j; // dx
@@ -37,34 +37,33 @@ void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
   __int64 v22; // rcx
   __int64 v23; // rcx
   ULONG v24; // eax
-  __int64 v25; // rcx
-  unsigned __int16 v26; // [rsp+38h] [rbp-D0h] BYREF
-  int v27; // [rsp+3Ch] [rbp-CCh] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData[68]; // [rsp+48h] [rbp-C0h] BYREF
-  _OWORD v29[32]; // [rsp+488h] [rbp+380h] BYREF
+  unsigned __int16 v25; // [rsp+38h] [rbp-D0h] BYREF
+  int v26; // [rsp+3Ch] [rbp-CCh] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData[42]; // [rsp+48h] [rbp-C0h] BYREF
+  _OWORD v28[20]; // [rsp+2E8h] [rbp+1E0h] BYREF
 
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PERF_DOMAIN_RUNDOWN) )
   {
     v3 = 0;
-    v26 = 0;
-    for ( i = 0; i < 0x20u; ++i )
+    v25 = 0;
+    for ( i = 0; i < 0x14u; ++i )
     {
-      v5 = &v29[v3];
+      v5 = &v28[v3];
       *v5 = 0LL;
       *((_WORD *)v5 + 4) = i;
       *(_QWORD *)v5 = KeQueryGroupAffinity(i);
       v6 = (unsigned int)KeAndGroupAffinityEx((_WORD *)(a1 + 24), (__int64)v5, (char *)v5) == 0;
-      v3 = v26;
+      v3 = v25;
       if ( !v6 )
-        v3 = ++v26;
+        v3 = ++v25;
     }
-    UserData[0].Ptr = (ULONGLONG)&v26;
+    UserData[0].Ptr = (ULONGLONG)&v25;
     v7 = 1;
     *(_QWORD *)&UserData[0].Size = 2LL;
     if ( v3 )
     {
-      v8 = v29;
+      v8 = v28;
       v9 = v3;
       do
       {
@@ -79,56 +78,53 @@ void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
       }
       while ( v9 );
     }
-    v12 = *(_DWORD *)(a1 + 296);
+    v12 = *(_DWORD *)(a1 + 200);
     v13 = 0;
     v14 = v7;
     v15 = 0LL;
     v16 = v7 + 1;
-    v27 = 0;
-    UserData[v14].Ptr = (ULONGLONG)&v27;
+    v26 = 0;
+    UserData[v14].Ptr = (ULONGLONG)&v26;
     *(_QWORD *)&UserData[v14].Size = 4LL;
     if ( v12 )
     {
-      v17 = *(_QWORD *)(a1 + 312);
+      v17 = *(_QWORD *)(a1 + 216);
       do
       {
         if ( *(_DWORD *)(136LL * v13 + v17 + 16) == 1 )
         {
           v15 = (unsigned int)(v15 + 1);
-          v27 = v15;
+          v26 = v15;
         }
         ++v13;
       }
       while ( v13 < v12 );
       if ( (_DWORD)v15 )
       {
-        Pool2 = (_DWORD *)ExAllocatePool2(256LL, 4 * v15, 1699565648LL);
-        if ( !Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4 * v15, 0x654D5050u);
+        if ( !PoolWithTag )
           return;
         v18 = 0;
-        for ( j = 0; (unsigned int)j < *(_DWORD *)(a1 + 296); ++j )
+        for ( j = 0; (unsigned int)j < *(_DWORD *)(a1 + 200); ++j )
         {
-          v20 = *(_QWORD *)(a1 + 312);
+          v20 = *(_QWORD *)(a1 + 216);
           v21 = 136LL * j;
           if ( *(_DWORD *)(v21 + v20 + 16) == 1 )
           {
             v22 = v18++;
-            Pool2[v22] = *(_DWORD *)(v21 + v20 + 20);
+            PoolWithTag[v22] = *(_DWORD *)(v21 + v20 + 20);
           }
         }
         v23 = v16;
-        v24 = 4 * v27;
+        v24 = 4 * v26;
         ++v16;
-        UserData[v23].Ptr = (ULONGLONG)Pool2;
+        UserData[v23].Ptr = (ULONGLONG)PoolWithTag;
         UserData[v23].Size = v24;
         *(&UserData[0].Reserved + 1 * v23) = 0;
       }
     }
-    v25 = v16;
-    UserData[v25].Ptr = a1 + 432;
-    *(_QWORD *)&UserData[v25].Size = 4LL;
-    EtwWrite(PpmEtwHandle, &PPM_ETW_PERF_DOMAIN_RUNDOWN, 0LL, v16 + 1, UserData);
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0x654D5050u);
+    EtwWrite(PpmEtwHandle, &PPM_ETW_PERF_DOMAIN_RUNDOWN, 0LL, v16, UserData);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x654D5050u);
   }
 }

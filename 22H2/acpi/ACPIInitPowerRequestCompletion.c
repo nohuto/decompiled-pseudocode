@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIInitPowerRequestCompletion @ 0x1C000DC60
+ * XREFs of ACPIInitPowerRequestCompletion @ 0x1C002D330
  * Callers:
  *     <none>
  * Callees:

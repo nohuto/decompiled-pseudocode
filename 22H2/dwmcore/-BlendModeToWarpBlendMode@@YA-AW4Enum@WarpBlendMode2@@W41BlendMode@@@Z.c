@@ -1,61 +1,40 @@
 /*
- * XREFs of ?BlendModeToWarpBlendMode@@YA?AW4Enum@WarpBlendMode2@@W41BlendMode@@@Z @ 0x1801FFED4
+ * XREFs of ?BlendModeToWarpBlendMode@@YA?AW4Enum@WarpBlendMode2@@W41BlendMode@@@Z @ 0x1801A19A8
  * Callers:
- *     ?EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@@Z @ 0x1801FFFF0 (-EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand.c)
+ *     ?EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCBaseDrawListEntry@@@Z @ 0x1801A1AB0 (-EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCBaseDrawListEntry@@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall BlendModeToWarpBlendMode(int a1)
 {
-  int v1; // ecx
-  int v3; // ecx
-  int v4; // ecx
-  int v5; // ecx
-  int v6; // ecx
+  __int64 result; // rax
 
   if ( a1 > 17 )
   {
-    v3 = a1 - 19;
-    if ( v3 && (v4 = v3 - 1) != 0 )
+    if ( a1 >= 19 )
     {
-      v5 = v4 - 1;
-      if ( v5 )
+      if ( a1 <= 20 )
+        return 2LL;
+      switch ( a1 )
       {
-        v6 = v5 - 1;
-        if ( v6 )
-        {
-          if ( v6 != 1 )
-            return 0LL;
-          return 10LL;
-        }
-        else
-        {
+        case 21:
+          return 8LL;
+        case 22:
           return 9LL;
-        }
-      }
-      else
-      {
-        return 8LL;
+        case 23:
+          return 10LL;
       }
     }
-    else
-    {
-      return 2LL;
-    }
+    return 0LL;
   }
-  else
+  result = 4LL;
+  if ( a1 != 17 )
   {
-    if ( a1 != 17 )
-    {
-      if ( !a1 )
-        return 1LL;
-      v1 = a1 - 4;
-      if ( !v1 )
-        return 1LL;
-      if ( v1 != 11 )
-        return 0LL;
-    }
-    return 4LL;
+    if ( !a1 || a1 == 4 )
+      return 1LL;
+    if ( a1 != 15 )
+      return 0LL;
   }
+  return result;
 }

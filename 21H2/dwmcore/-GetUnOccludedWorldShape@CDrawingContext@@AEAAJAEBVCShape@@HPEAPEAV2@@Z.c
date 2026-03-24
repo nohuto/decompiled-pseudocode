@@ -1,18 +1,20 @@
 /*
- * XREFs of ?GetUnOccludedWorldShape@CDrawingContext@@AEAAJAEBVCShape@@HPEAPEAV2@@Z @ 0x1800B1268
+ * XREFs of ?GetUnOccludedWorldShape@CDrawingContext@@AEAAJAEBVCShape@@HPEAPEAV2@@Z @ 0x18008D868
  * Callers:
- *     ?FillShapeWithBitmap@CDrawingContext@@QEAAJPEAVIBitmapResource@@AEBVCMILMatrix@@AEBVCShape@@_NH@Z @ 0x1800B0C64 (-FillShapeWithBitmap@CDrawingContext@@QEAAJPEAVIBitmapResource@@AEBVCMILMatrix@@AEBVCShape@@_NH@.c)
- *     ?DrawBitmapRealization@CDrawingContext@@QEAAJPEAVIBitmapRealization@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVMILMatrix3x2@@_NHM@Z @ 0x1801AFCE0 (-DrawBitmapRealization@CDrawingContext@@QEAAJPEAVIBitmapRealization@@AEBV-$TMilRect_ea_1801AFCE0.c)
- *     ?DrawSolidRectangle@CDrawingContext@@UEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DCOLORVALUE@@@Z @ 0x1801B1BD0 (-DrawSolidRectangle@CDrawingContext@@UEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ?FillShapeWithBitmap@CDrawingContext@@QEAAJPEAVIBitmapResource@@AEBVCMILMatrix@@AEBVCShape@@_NH@Z @ 0x1800533DC (-FillShapeWithBitmap@CDrawingContext@@QEAAJPEAVIBitmapResource@@AEBVCMILMatrix@@AEBVCShape@@_NH@.c)
+ *     ?DrawBitmapRealization@CDrawingContext@@IEAAJPEAVIBitmapRealization@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@1_NH@Z @ 0x180174DBC (-DrawBitmapRealization@CDrawingContext@@IEAAJPEAVIBitmapRealization@@AEBV-$TMilRect_@MUMilRectF@.c)
+ *     ?DrawSolidRectangle@CDrawingContext@@UEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DCOLORVALUE@@@Z @ 0x180176D50 (-DrawSolidRectangle@CDrawingContext@@UEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Top@CBaseClipStack@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18008A238 (-Top@CBaseClipStack@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded.c)
- *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800AE2E0 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ??$IsTranslateAndScaleIgnoreZ@$00@CMILMatrix@@AEBA_NXZ @ 0x1800AE6D8 (--$IsTranslateAndScaleIgnoreZ@$00@CMILMatrix@@AEBA_NXZ.c)
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800B3CA0 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ??$Is90Or270RotationWithTranslateAndScaleIgnoreZ@$00@CMILMatrix@@AEBA_NXZ @ 0x1800D1D9C (--$Is90Or270RotationWithTranslateAndScaleIgnoreZ@$00@CMILMatrix@@AEBA_NXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058390 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?DoesIntersectUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18006BB30 (-DoesIntersectUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV.c)
+ *     ?GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ @ 0x18008D82C (-GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ.c)
+ *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800A7AB0 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ??$Is2DAxisAlignedPreserving@$00@CMILMatrix@@AEBA_N_N@Z @ 0x1800C208C (--$Is2DAxisAlignedPreserving@$00@CMILMatrix@@AEBA_N_N@Z.c)
+ *     ?IsInfinite@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800C5704 (-IsInfinite@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?ComputeCpuClipBoundsInScope@CScopedClipStack@@AEAAXXZ @ 0x18018E978 (-ComputeCpuClipBoundsInScope@CScopedClipStack@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CDrawingContext::GetUnOccludedWorldShape(
@@ -21,245 +23,291 @@ __int64 __fastcall CDrawingContext::GetUnOccludedWorldShape(
         int a3,
         struct CShape **a4)
 {
-  __int64 v5; // r14
-  unsigned int v9; // r15d
+  char v4; // r14
+  __int64 v6; // rsi
+  const struct CShape *v7; // r12
+  unsigned int v9; // r13d
   int v10; // eax
-  void *v11; // rdi
-  void *v12; // r11
-  __int64 v13; // r11
-  __int64 v14; // rax
-  __int64 v15; // r9
+  CMatrixStack *v11; // r15
+  int v12; // eax
+  void *v13; // rdi
+  void *v14; // rcx
+  __int64 v15; // rax
   int v16; // eax
-  void *v17; // rcx
-  void (__fastcall ***v18)(_QWORD, _DWORD *); // rcx
+  void (__fastcall ***v17)(_QWORD, _DWORD *); // rcx
+  char *v18; // rbx
   int v19; // r8d
-  int v20; // eax
-  float v21; // xmm3_4
-  float v22; // xmm1_4
-  float v23; // xmm2_4
-  float v24; // xmm4_4
-  float v25; // xmm5_4
-  float v26; // xmm3_4
-  float v27; // xmm7_4
+  float v20; // xmm8_4
+  float v21; // xmm9_4
+  int v22; // eax
+  float v23; // xmm7_4
+  float v24; // xmm6_4
+  float v25; // xmm10_4
+  float v26; // xmm7_4
+  float v27; // xmm2_4
   float v28; // xmm6_4
   float v29; // xmm1_4
-  float v30; // xmm2_4
+  float v30; // xmm8_4
   float v31; // xmm0_4
-  int v32; // r8d
-  __int64 v33; // rdx
-  float v34; // xmm8_4
-  __int64 v35; // r9
-  __int64 v36; // rcx
-  int v38; // edx
-  float *v39; // rcx
-  unsigned int v40; // r8d
-  float v41; // xmm5_4
-  float v42; // xmm4_4
-  float v43; // xmm7_4
-  float v44; // xmm1_4
-  float v45; // xmm10_4
-  float v46; // xmm9_4
-  float v47; // xmm0_4
-  float v48; // xmm1_4
-  __int64 (__fastcall *v49)(const struct CShape *, __int128 *, void *, struct CShape **); // r11
-  int v50; // eax
-  int v51; // eax
+  int v32; // r9d
+  int v33; // edi
+  __int64 v34; // r8
+  float v35; // xmm9_4
+  __int64 v36; // rdx
+  __int64 v37; // r9
+  __int64 v38; // rcx
+  int v40; // edx
+  float *v41; // rcx
+  unsigned int v42; // r8d
+  float v43; // xmm2_4
+  float v44; // xmm3_4
+  float v45; // xmm1_4
+  float v46; // xmm5_4
+  float v47; // xmm4_4
+  float v48; // xmm0_4
+  float v49; // xmm1_4
+  __int64 v50; // r11
+  int v51; // ebx
   __int64 v52; // rcx
-  float v53; // xmm7_4
-  float v54; // xmm6_4
-  float v55; // xmm0_4
-  _DWORD v56[2]; // [rsp+38h] [rbp-89h] BYREF
-  __int128 v57; // [rsp+40h] [rbp-81h] BYREF
-  float v58[6]; // [rsp+50h] [rbp-71h] BYREF
-  __int128 v59; // [rsp+68h] [rbp-59h] BYREF
-  __int128 v60; // [rsp+78h] [rbp-49h] BYREF
+  bool DoesIntersectUnsafe; // al
+  int v54; // r8d
+  unsigned int v55; // r9d
+  int v56; // r10d
+  __int128 v57; // xmm0
+  const struct CMILMatrix *TopByReference; // rax
+  __int64 (__fastcall *v59)(const struct CShape *, __int128 *, const struct CMILMatrix *, struct CShape **); // r10
+  int v60; // eax
+  __int64 v61; // rcx
+  int v62; // r8d
+  __int64 v63; // rax
+  __int64 v64; // rcx
+  float v65; // xmm3_4
+  float v66; // xmm2_4
+  float v67; // xmm1_4
+  _DWORD v69[2]; // [rsp+40h] [rbp-91h] BYREF
+  CMatrixStack *v70; // [rsp+48h] [rbp-89h]
+  const struct CShape *v71; // [rsp+50h] [rbp-81h]
+  struct CShape **v72; // [rsp+58h] [rbp-79h]
+  float v73[6]; // [rsp+60h] [rbp-71h] BYREF
+  __int128 v74; // [rsp+78h] [rbp-59h] BYREF
+  __int128 v75; // [rsp+88h] [rbp-49h] BYREF
 
+  v4 = 0;
+  v72 = a4;
   *a4 = 0LL;
-  v5 = *((_QWORD *)this + 993);
+  v6 = *((_QWORD *)this + 742);
+  v7 = a2;
+  v71 = a2;
   v9 = -2003304309;
-  if ( !v5
-    || !(*(unsigned __int8 (__fastcall **)(const struct CShape *, _QWORD))(*(_QWORD *)a2 + 64LL))(a2, 0LL)
-    || !a3
-    || (**((unsigned __int8 (__fastcall ***)(char *))this + 3))((char *)this + 24) )
+  if ( !v6 )
+    return v9;
+  if ( !(*(unsigned __int8 (__fastcall **)(const struct CShape *, _QWORD))(*(_QWORD *)a2 + 40LL))(a2, 0LL) )
+    return v9;
+  if ( !a3 )
+    return v9;
+  v10 = *((_DWORD *)this + 110);
+  if ( v10 )
   {
-    return v9;
+    if ( *(_BYTE *)((unsigned int)(v10 - 1) + *((_QWORD *)this + 57)) )
+      return v9;
   }
-  v10 = *((_DWORD *)this + 92);
-  v11 = &CMILMatrix::Identity;
-  v12 = v10 ? (void *)(*((_QWORD *)this + 48) + 68LL * (unsigned int)(v10 - 1)) : &CMILMatrix::Identity;
-  if ( !CMILMatrix::IsTranslateAndScaleIgnoreZ<1>((__int64)v12)
-    && !(unsigned __int8)CMILMatrix::Is90Or270RotationWithTranslateAndScaleIgnoreZ<1>(v13) )
-  {
+  v11 = (CDrawingContext *)((char *)this + 408);
+  v12 = *((_DWORD *)this + 102);
+  v13 = &CMILMatrix::Identity;
+  v70 = (CDrawingContext *)((char *)this + 408);
+  v14 = v12 ? (void *)(*((_QWORD *)this + 53) + 68LL * (unsigned int)(v12 - 1)) : &CMILMatrix::Identity;
+  if ( !(unsigned __int8)CMILMatrix::Is2DAxisAlignedPreserving<1>(v14) )
     return v9;
-  }
-  v14 = *(_QWORD *)a2;
-  v60 = 0LL;
-  if ( (*(int (__fastcall **)(const struct CShape *, __int128 *, _QWORD))(v14 + 48))(a2, &v60, 0LL) < 0 )
+  v15 = *(_QWORD *)v7;
+  v75 = 0LL;
+  if ( (*(int (__fastcall **)(const struct CShape *, __int128 *, _QWORD))(v15 + 32))(v7, &v75, 0LL) < 0 )
     return v9;
-  v16 = *((_DWORD *)this + 92);
-  *(_OWORD *)v58 = 0LL;
-  v57 = 0LL;
+  v16 = *(_DWORD *)v11;
+  v74 = 0LL;
+  *(_OWORD *)v73 = 0LL;
   if ( v16 )
-    v17 = (void *)(*((_QWORD *)this + 48) + 68LL * (unsigned int)(v16 - 1));
-  else
-    v17 = &CMILMatrix::Identity;
-  CMILMatrix::Transform2DBoundsHelper<1>((__int64)v17, (__int64)&v60, v58, v15);
-  v18 = (void (__fastcall ***)(_QWORD, _DWORD *))(*((_QWORD *)this + 4)
+    v13 = (void *)(*((_QWORD *)this + 53) + 68LL * (unsigned int)(v16 - 1));
+  CMILMatrix::Transform2DBoundsHelper<1>(v13, &v75, &v74);
+  v17 = (void (__fastcall ***)(_QWORD, _DWORD *))(*((_QWORD *)this + 4)
                                                 + 8LL
                                                 + *(int *)(*(_QWORD *)(*((_QWORD *)this + 4) + 8LL) + 16LL));
-  (**v18)(v18, v56);
-  *(_QWORD *)&v59 = 0LL;
-  v19 = *((_DWORD *)this + 222);
-  *((float *)&v59 + 2) = (float)v56[0];
-  *((float *)&v59 + 3) = (float)v56[1];
-  if ( v19 && *(_DWORD *)(88LL * (unsigned int)(v19 - 1) + *((_QWORD *)this + 108)) )
-  {
-    v20 = *((_DWORD *)this + 732);
-    if ( !v20 )
-    {
-      v21 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
-      v22 = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 1);
-      v23 = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 2);
-      v24 = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 3);
-LABEL_16:
-      if ( *(_DWORD *)(88LL * (unsigned int)(v19 - 1) + *((_QWORD *)this + 108) + 8) )
-      {
-        v57 = 0LL;
-        CBaseClipStack::Top((unsigned int *)this + 740, &v57);
-        if ( *(float *)&v57 > v21 )
-          v21 = *(float *)&v57;
-        v53 = v22;
-        if ( *((float *)&v57 + 1) > v22 )
-        {
-          v22 = *((float *)&v57 + 1);
-          v53 = *((float *)&v57 + 1);
-        }
-        v54 = v23;
-        if ( v23 > *((float *)&v57 + 2) )
-        {
-          v23 = *((float *)&v57 + 2);
-          v54 = *((float *)&v57 + 2);
-        }
-        v55 = v24;
-        if ( v24 > *((float *)&v57 + 3) )
-        {
-          v24 = *((float *)&v57 + 3);
-          v55 = *((float *)&v57 + 3);
-        }
-        if ( v54 <= v21 || v55 <= v53 )
-        {
-          v24 = 0.0;
-          v23 = 0.0;
-          v22 = 0.0;
-          v21 = 0.0;
-        }
-      }
-      goto LABEL_17;
-    }
-    v57 = *(_OWORD *)(*((_QWORD *)this + 368) + 16LL * (unsigned int)(v20 - 1));
-LABEL_15:
-    v21 = *(float *)&v57;
-    v22 = *((float *)&v57 + 1);
-    v23 = *((float *)&v57 + 2);
-    v24 = *((float *)&v57 + 3);
+  (**v17)(v17, v69);
+  v18 = (char *)this + 936;
+  v19 = *((_DWORD *)v18 + 6);
+  v20 = (float)v69[0];
+  v21 = (float)v69[1];
+  if ( !v19 || !*(_DWORD *)(84LL * (unsigned int)(v19 - 1) + *(_QWORD *)v18) )
     goto LABEL_16;
+  v22 = *((_DWORD *)v18 + 566);
+  if ( v22 )
+  {
+    *(_OWORD *)v73 = *(_OWORD *)(*((_QWORD *)v18 + 285) + 16LL * (unsigned int)(v22 - 1));
+    v21 = v73[3];
+    v20 = v73[2];
+LABEL_16:
+    v23 = v73[0];
+    v24 = v73[1];
+    goto LABEL_17;
   }
-  v57 = v59;
-  if ( v19 )
-    goto LABEL_15;
-  v24 = *((float *)&v57 + 3);
-  v23 = *((float *)&v57 + 2);
-  v22 = *((float *)&v57 + 1);
-  v21 = *(float *)&v57;
+  v23 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
+  v24 = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 1);
+  v20 = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 2);
+  v21 = *(&TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite + 3);
 LABEL_17:
-  v25 = v58[0];
-  if ( v21 > v58[0] )
-    v25 = v21;
-  v26 = v58[1];
-  v27 = v58[1];
-  if ( v22 > v58[1] )
+  if ( v19 && *(_DWORD *)(84LL * (unsigned int)(v19 - 1) + *(_QWORD *)v18 + 4) )
   {
-    v26 = v22;
-    v27 = v22;
+    if ( (unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsInfinite(136LL * (unsigned int)(*((_DWORD *)v18 + 224) - 1) + *((_QWORD *)v18 + 109) + 112LL) )
+    {
+      CScopedClipStack::ComputeCpuClipBoundsInScope((CScopedClipStack *)v18);
+      v62 = *((_DWORD *)v18 + 224);
+    }
+    v63 = 136LL * (unsigned int)(v62 - 1);
+    v64 = *((_QWORD *)v18 + 109);
+    if ( *(float *)(v63 + v64 + 112) > v23 )
+      v23 = *(float *)(v63 + v64 + 112);
+    v65 = v24;
+    if ( *(float *)(v63 + v64 + 116) > v24 )
+    {
+      v24 = *(float *)(v63 + v64 + 116);
+      v65 = v24;
+    }
+    v66 = v20;
+    if ( v20 > *(float *)(v63 + v64 + 120) )
+    {
+      v20 = *(float *)(v63 + v64 + 120);
+      v66 = v20;
+    }
+    v67 = v21;
+    if ( v21 > *(float *)(v63 + v64 + 124) )
+    {
+      v21 = *(float *)(v63 + v64 + 124);
+      v67 = v21;
+    }
+    if ( v66 <= v23 || v67 <= v65 )
+    {
+      v21 = 0.0;
+      v20 = 0.0;
+      v24 = 0.0;
+      v23 = 0.0;
+    }
   }
-  v28 = v58[2];
-  v29 = v58[2];
-  if ( v58[2] > v23 )
+  LODWORD(v25) = v74;
+  if ( v23 > *(float *)&v74 )
+    v25 = v23;
+  v26 = *((float *)&v74 + 1);
+  v27 = *((float *)&v74 + 1);
+  if ( v24 > *((float *)&v74 + 1) )
   {
-    v28 = v23;
-    v29 = v23;
+    v26 = v24;
+    v27 = v24;
   }
-  v30 = v58[3];
-  v31 = v58[3];
-  if ( v58[3] > v24 )
+  v28 = *((float *)&v74 + 2);
+  v29 = *((float *)&v74 + 2);
+  if ( *((float *)&v74 + 2) > v20 )
   {
-    v30 = v24;
-    v31 = v24;
+    v28 = v20;
+    v29 = v20;
+  }
+  v30 = *((float *)&v74 + 3);
+  v31 = *((float *)&v74 + 3);
+  if ( *((float *)&v74 + 3) > v21 )
+  {
+    v30 = v21;
+    v31 = v21;
   }
   if ( v29 <= v25 || v31 <= v27 )
   {
     v30 = 0.0;
     v28 = 0.0;
     v26 = 0.0;
+    v25 = 0.0;
   }
-  v32 = *(_DWORD *)(v5 + 472);
-  v33 = 0LL;
-  v34 = 0.0;
-  *(_OWORD *)v58 = 0LL;
+  v32 = *(_DWORD *)(v6 + 824);
+  v33 = 0;
+  v34 = 0LL;
+  *(_QWORD *)v73 = __PAIR64__(LODWORD(v26), LODWORD(v25));
+  *(_QWORD *)&v73[2] = __PAIR64__(LODWORD(v30), LODWORD(v28));
+  v35 = 0.0;
+  v74 = 0LL;
   if ( v32 )
   {
-    v35 = *(_QWORD *)(v5 + 448);
+    v50 = *(_QWORD *)(v6 + 800);
     do
     {
-      v36 = v35 + 36 * v33;
-      if ( *(_DWORD *)(v36 + 16) >= a3 )
+      v51 = v33;
+      v52 = v50 + 36 * v34;
+      if ( *(_DWORD *)(v52 + 16) > a3 )
         break;
-      if ( !(unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(v36) )
+      DoesIntersectUnsafe = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::DoesIntersectUnsafe(
+                              (float *)v52,
+                              v73);
+      v33 = v56;
+      if ( DoesIntersectUnsafe )
+        v4 = 1;
+      v34 = (unsigned int)(v54 + 1);
+      if ( !DoesIntersectUnsafe )
+        v33 = v51;
+    }
+    while ( (unsigned int)v34 < v55 );
+    v11 = v70;
+    v7 = v71;
+  }
+  v36 = 0LL;
+  if ( *(_DWORD *)(v6 + 432) )
+  {
+    v37 = *(_QWORD *)(v6 + 408);
+    do
+    {
+      v38 = v37 + 36 * v36;
+      if ( *(_DWORD *)(v38 + 16) >= a3 )
+        break;
+      if ( !TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)v38)
+        && (!v4 || *((_DWORD *)v41 + 4) > v33) )
       {
-        v42 = v41;
-        v43 = v26;
-        v44 = v28;
-        if ( *v39 > v41 )
-          v42 = *v39;
-        v45 = v26;
-        if ( v39[1] > v26 )
+        v43 = v25;
+        v44 = v26;
+        v45 = v28;
+        if ( *v41 > v25 )
+          v43 = *v41;
+        v46 = v26;
+        if ( v41[1] > v26 )
         {
-          v43 = v39[1];
-          v45 = v43;
-        }
-        v46 = v28;
-        if ( v28 > v39[2] )
-        {
-          v44 = v39[2];
+          v44 = v41[1];
           v46 = v44;
         }
-        v47 = v30;
-        if ( v30 > v39[3] )
-          v47 = v39[3];
-        if ( v46 > v42 && v47 > v45 )
+        v47 = v28;
+        if ( v28 > v41[2] )
         {
-          v48 = (float)(v44 - v42) * (float)(v47 - v43);
-          if ( v48 > v34 )
+          v45 = v41[2];
+          v47 = v45;
+        }
+        v48 = v30;
+        if ( v30 > v41[3] )
+          v48 = v41[3];
+        if ( v47 > v43 && v48 > v46 )
+        {
+          v49 = (float)(v45 - v43) * (float)(v48 - v44);
+          if ( v49 > v35 )
           {
-            v34 = v48;
-            *(_OWORD *)v58 = *(_OWORD *)v39;
+            v35 = v49;
+            v74 = *(_OWORD *)v41;
           }
         }
       }
-      v33 = (unsigned int)(v38 + 1);
+      v36 = (unsigned int)(v40 + 1);
     }
-    while ( (unsigned int)v33 < v40 );
-    if ( v34 > 0.0 )
+    while ( (unsigned int)v36 < v42 );
+    v9 = -2003304309;
+    if ( v35 > 0.0 )
     {
-      v49 = *(__int64 (__fastcall **)(const struct CShape *, __int128 *, void *, struct CShape **))(*(_QWORD *)a2 + 96LL);
-      v50 = *((_DWORD *)this + 92);
-      v59 = *(_OWORD *)v58;
-      if ( v50 )
-        v11 = (void *)(*((_QWORD *)this + 48) + 68LL * (unsigned int)(v50 - 1));
-      v51 = v49(a2, &v59, v11, a4);
-      v9 = v51;
-      if ( v51 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v52, 0LL, 0LL, v51, 0x140Fu);
+      v57 = v74;
+      *(_OWORD *)v73 = v74;
+      TopByReference = CMatrixStack::GetTopByReference(v11);
+      v74 = v57;
+      v60 = v59(v7, &v74, TopByReference, v72);
+      v9 = v60;
+      if ( v60 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v61, 0LL, 0, v60, 0x13E5u, 0LL);
     }
   }
   return v9;

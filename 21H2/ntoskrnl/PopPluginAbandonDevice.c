@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginAbandonDevice @ 0x1405CE8F8
+ * XREFs of PopPluginAbandonDevice @ 0x14056D908
  * Callers:
- *     PoFxAbandonDevice @ 0x140766E4C (PoFxAbandonDevice.c)
+ *     PoFxAbandonDevice @ 0x140738B04 (PoFxAbandonDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
  */
 
 char __fastcall PopPluginAbandonDevice(ULONG_PTR BugCheckParameter3, __int64 a2)

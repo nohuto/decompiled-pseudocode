@@ -1,9 +1,10 @@
 /*
- * XREFs of ??$move_backward@V?$move_iterator@PEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@std@@V?$checked_array_iterator@PEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@stdext@@V?$move_iterator@PEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@0@0V12@@Z @ 0x18027FE1C
+ * XREFs of ??$move_backward@V?$move_iterator@PEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@std@@V?$checked_array_iterator@PEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@stdext@@V?$move_iterator@PEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@0@0V12@@Z @ 0x1800F1C94
  * Callers:
- *     ?reserve_region@?$vector_facade@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@V?$buffer_impl@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@_K0@Z @ 0x180012734 (-reserve_region@-$vector_facade@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@V-$buffer_impl@.c)
+ *     ?reserve_region@?$vector_facade@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@V?$buffer_impl@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@_K0@Z @ 0x1800F2304 (-reserve_region@-$vector_facade@UDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@V-$buffer_impl@.c)
  * Callees:
- *     memmove_0 @ 0x18010518B (memmove_0.c)
+ *     ??$_Get_unwrapped_n@V?$checked_array_iterator@PEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@stdext@@_J$0A@@std@@YAPEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@AEBV?$checked_array_iterator@PEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@@stdext@@_J@Z @ 0x1800F14A8 (--$_Get_unwrapped_n@V-$checked_array_iterator@PEAUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
  */
 
 __int64 __fastcall std::move_backward<std::move_iterator<DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *>,stdext::checked_array_iterator<DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *>>(
@@ -12,34 +13,23 @@ __int64 __fastcall std::move_backward<std::move_iterator<DXGI_CHECK_MULTIPLANEOV
         __int64 a3,
         _QWORD *a4)
 {
-  size_t v6; // r9
-  __int64 v7; // r8
-  bool v8; // cf
+  size_t v5; // rdi
+  unsigned __int64 v8; // rdx
+  __int64 v9; // rax
+  __int64 v10; // rcx
   __int64 result; // rax
-  __int64 v10; // xmm1_8
+  __int64 v12; // xmm1_8
 
-  v6 = a3 - (_QWORD)a2;
-  v7 = 0x71C71C71C71C71C7LL * ((a3 - (__int64)a2) >> 4);
-  if ( v7 >= 0 )
-  {
-    if ( v7 <= 0 )
-      goto LABEL_7;
-    v8 = a4[1] - a4[2] < (unsigned __int64)v7;
-  }
-  else
-  {
-    v8 = a4[2] < (unsigned __int64)-v7;
-  }
-  if ( v8 )
-  {
-    _o__invalid_parameter_noinfo_noreturn(a1);
-    __debugbreak();
-  }
-LABEL_7:
-  a4[2] = 0x8E38E38E38E38E39uLL * (((__int64)memmove_0((void *)(*a4 + 144LL * a4[2] - v6), a2, v6) - *a4) >> 4);
+  v5 = a3 - (_QWORD)a2;
+  v8 = (__int64)((unsigned __int128)((a3 - (__int64)a2) * (__int128)(__int64)0xF1C71C71C71C71C7uLL) >> 64) >> 3;
+  v9 = std::_Get_unwrapped_n<stdext::checked_array_iterator<DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *>,__int64,0>(
+         a4,
+         (v8 >> 63) + v8);
+  v10 = (__int64)memmove_0((void *)(v9 - v5), a2, v5) - *a4;
   result = a1;
-  v10 = a4[2];
+  a4[2] = v10 / 144;
+  v12 = a4[2];
   *(_OWORD *)a1 = *(_OWORD *)a4;
-  *(_QWORD *)(a1 + 16) = v10;
+  *(_QWORD *)(a1 + 16) = v12;
   return result;
 }

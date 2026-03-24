@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionOverrideUserTouchGestureSettings @ 0x1C011C620
+ * XREFs of EditionOverrideUserTouchGestureSettings @ 0x1C00E1D90
  * Callers:
  *     <none>
  * Callees:
- *     GetLocalMachineRegistryDWORDValues @ 0x1C00A0DF8 (GetLocalMachineRegistryDWORDValues.c)
+ *     GetLocalMachineRegistryDWORDValues @ 0x1C00E1724 (GetLocalMachineRegistryDWORDValues.c)
  */
 
 __int64 __fastcall EditionOverrideUserTouchGestureSettings(__int128 *a1, __int128 *a2)

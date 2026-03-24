@@ -1,9 +1,9 @@
 /*
- * XREFs of LeaveEditionCrit @ 0x1C011DF80
+ * XREFs of LeaveEditionCrit @ 0x1C0132930
  * Callers:
- *     NtUserFindWindowEx @ 0x1C00706A0 (NtUserFindWindowEx.c)
- *     NtUserGetRawInputBuffer @ 0x1C01F6020 (NtUserGetRawInputBuffer.c)
- *     NtUserShellSetWindowPos @ 0x1C01FEFF0 (NtUserShellSetWindowPos.c)
+ *     NtUserSetCursorIconData @ 0x1C0065A40 (NtUserSetCursorIconData.c)
+ *     NtUserFindWindowEx @ 0x1C00F7E80 (NtUserFindWindowEx.c)
+ *     NtUserGetRawInputBuffer @ 0x1C01FB5C0 (NtUserGetRawInputBuffer.c)
  * Callees:
  *     <none>
  */

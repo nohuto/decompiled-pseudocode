@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProcessKernelCfgImageLoadConfig @ 0x14085BDA4
+ * XREFs of MiProcessKernelCfgImageLoadConfig @ 0x14085BD84
  * Callers:
- *     MiProcessKernelCfgImage @ 0x1400F5544 (MiProcessKernelCfgImage.c)
+ *     MiProcessKernelCfgImage @ 0x1400F5564 (MiProcessKernelCfgImage.c)
  * Callees:
- *     MiSetImageProtection @ 0x1400DA504 (MiSetImageProtection.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     MiCheckForDiscardableLongJumpTable @ 0x1402C3240 (MiCheckForDiscardableLongJumpTable.c)
- *     MiLogStrongCodeDriverLoadFailure @ 0x14084EBAC (MiLogStrongCodeDriverLoadFailure.c)
+ *     MiSetImageProtection @ 0x1400DA524 (MiSetImageProtection.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     MiCheckForDiscardableLongJumpTable @ 0x1402C3340 (MiCheckForDiscardableLongJumpTable.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x14084EB8C (MiLogStrongCodeDriverLoadFailure.c)
  */
 
 __int64 __fastcall MiProcessKernelCfgImageLoadConfig(__int64 a1, __int64 a2)

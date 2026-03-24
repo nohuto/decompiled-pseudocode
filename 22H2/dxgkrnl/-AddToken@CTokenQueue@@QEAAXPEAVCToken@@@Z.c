@@ -1,9 +1,10 @@
 /*
- * XREFs of ?AddToken@CTokenQueue@@QEAAXPEAVCToken@@@Z @ 0x1C00782B8
+ * XREFs of ?AddToken@CTokenQueue@@QEAAXPEAVCToken@@@Z @ 0x1C001BDD0
  * Callers:
- *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C007703C (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
+ *     ?ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z @ 0x1C0003CB0 (-ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z.c)
+ *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C001BD50 (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CTokenQueue::AddToken(CTokenQueue *this, struct CToken *a2)
@@ -24,7 +25,8 @@ void __fastcall CTokenQueue::AddToken(CTokenQueue *this, struct CToken *a2)
   {
     if ( (*(unsigned __int8 (__fastcall **)(struct CToken *))(*(_QWORD *)a2 + 104LL))(a2) )
       *((_QWORD *)this + 2) = a2;
-    if ( (*(unsigned __int8 (__fastcall **)(struct CToken *))(*(_QWORD *)a2 + 96LL))(a2)
+    if ( !(*(unsigned int (__fastcall **)(struct CToken *))(*(_QWORD *)a2 + 120LL))(a2)
+      && (*(unsigned __int8 (__fastcall **)(struct CToken *))(*(_QWORD *)a2 + 96LL))(a2)
       && (*v2 == this || (*(unsigned __int8 (__fastcall **)(__int64))(*((_QWORD *)*v2 - 1) + 88LL))((__int64)*v2 - 8)) )
     {
       (*(void (__fastcall **)(struct CToken *))(*(_QWORD *)a2 + 80LL))(a2);

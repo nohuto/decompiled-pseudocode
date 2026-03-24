@@ -1,10 +1,10 @@
 /*
- * XREFs of McGenControlCallbackV2 @ 0x1C0001560
+ * XREFs of McGenControlCallbackV2 @ 0x1C0001130
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C0044EC0 (memset.c)
- *     HUBDRIVER_EtwEnableCallback @ 0x1C0076368 (HUBDRIVER_EtwEnableCallback.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     HUBDRIVER_EtwEnableCallback @ 0x1C0072FA8 (HUBDRIVER_EtwEnableCallback.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -19,9 +19,11 @@ void __stdcall McGenControlCallbackV2(
 {
   unsigned __int8 v8; // cl
   __int64 v9; // rdx
-  int v10; // edx
-  unsigned int v11; // edx
-  int v12; // eax
+  bool v10; // r11
+  int v11; // edx
+  unsigned int Data1; // eax
+  unsigned int v13; // edx
+  int v14; // eax
 
   if ( CallbackContext )
   {
@@ -39,18 +41,26 @@ void __stdcall McGenControlCallbackV2(
           do
           {
             v8 = *((_BYTE *)CallbackContext + 40);
-            v9 = *(_QWORD *)(*((_QWORD *)CallbackContext + 7) + 8LL * Level);
-            LOBYTE(MatchAnyKeyword) = (*(_BYTE *)(Level + *((_QWORD *)CallbackContext + 8)) <= v8 || !v8)
-                                   && (!v9
-                                    || (v9 & *((_QWORD *)CallbackContext + 2)) != 0
-                                    && (v9 & *((_QWORD *)CallbackContext + 3)) == *((_QWORD *)CallbackContext + 3));
-            v10 = 1 << (Level & 0x1F);
-            SourceId = (LPCGUID)(*((_QWORD *)CallbackContext + 6) + 4 * ((unsigned __int64)Level >> 5));
-            if ( (_BYTE)MatchAnyKeyword )
-              v11 = SourceId->Data1 | v10;
+            v10 = 0;
+            if ( *(_BYTE *)(Level + *((_QWORD *)CallbackContext + 8)) <= v8 || !v8 )
+            {
+              v9 = *(_QWORD *)(*((_QWORD *)CallbackContext + 7) + 8LL * Level);
+              if ( !v9
+                || (v9 & *((_QWORD *)CallbackContext + 2)) != 0
+                && (v9 & *((_QWORD *)CallbackContext + 3)) == *((_QWORD *)CallbackContext + 3) )
+              {
+                v10 = 1;
+              }
+            }
+            MatchAnyKeyword = (unsigned __int64)Level >> 5;
+            v11 = 1 << (Level & 0x1F);
+            SourceId = (LPCGUID)(*((_QWORD *)CallbackContext + 6) + 4 * MatchAnyKeyword);
+            Data1 = SourceId->Data1;
+            if ( v10 )
+              v13 = Data1 | v11;
             else
-              v11 = SourceId->Data1 & ~v10;
-            SourceId->Data1 = v11;
+              v13 = Data1 & ~v11;
+            SourceId->Data1 = v13;
             *(_QWORD *)&Level = (unsigned int)(Level + 1);
           }
           while ( Level < (unsigned int)*((unsigned __int16 *)CallbackContext + 21) );
@@ -59,13 +69,13 @@ void __stdcall McGenControlCallbackV2(
     }
     else
     {
-      v12 = *((unsigned __int16 *)CallbackContext + 21);
+      v14 = *((unsigned __int16 *)CallbackContext + 21);
       *((_DWORD *)CallbackContext + 9) = 0;
       *((_BYTE *)CallbackContext + 40) = 0;
       *((_QWORD *)CallbackContext + 2) = 0LL;
       *((_QWORD *)CallbackContext + 3) = 0LL;
-      if ( (_WORD)v12 )
-        memset(*((void **)CallbackContext + 6), 0, 4LL * ((v12 - 1) / 32 + 1));
+      if ( (_WORD)v14 )
+        memset(*((void **)CallbackContext + 6), 0, 4LL * ((v14 - 1) / 32 + 1));
     }
     HUBDRIVER_EtwEnableCallback(SourceId, ControlCode, Level, MatchAnyKeyword);
   }

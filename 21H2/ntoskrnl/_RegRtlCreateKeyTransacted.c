@@ -1,16 +1,16 @@
 /*
- * XREFs of _RegRtlCreateKeyTransacted @ 0x140772D80
+ * XREFs of _RegRtlCreateKeyTransacted @ 0x14063E55C
  * Callers:
- *     _PnpCtxRegCreateKey @ 0x140772A24 (_PnpCtxRegCreateKey.c)
- *     _RegRtlCreateTreeTransacted @ 0x140772B6C (_RegRtlCreateTreeTransacted.c)
- *     _SysCtxOpenControlSet @ 0x140827DE0 (_SysCtxOpenControlSet.c)
- *     _RegRtlCopyTreeInternal @ 0x140A2D248 (_RegRtlCopyTreeInternal.c)
+ *     _PnpCtxRegCreateKey @ 0x14063B560 (_PnpCtxRegCreateKey.c)
+ *     _RegRtlCreateTreeTransacted @ 0x14063E344 (_RegRtlCreateTreeTransacted.c)
+ *     _SysCtxOpenControlSet @ 0x1407A4B24 (_SysCtxOpenControlSet.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C460 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     _RegRtlOpenPredefinedKey @ 0x14085D278 (_RegRtlOpenPredefinedKey.c)
- *     NtCreateKeyTransacted_Stub @ 0x140A2D938 (NtCreateKeyTransacted_Stub.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x1407CDA94 (_RegRtlOpenPredefinedKey.c)
+ *     NtCreateKeyTransacted_Stub @ 0x14097CB70 (NtCreateKeyTransacted_Stub.c)
  */
 
 __int64 __fastcall RegRtlCreateKeyTransacted(
@@ -24,9 +24,9 @@ __int64 __fastcall RegRtlCreateKeyTransacted(
         PULONG Disposition,
         __int64 a9)
 {
-  void *v9; // rdi
+  void *v9; // rbx
   void *v13; // rsi
-  int inited; // ebx
+  int inited; // edi
   int v15; // r9d
   int v16; // ecx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
@@ -36,7 +36,7 @@ __int64 __fastcall RegRtlCreateKeyTransacted(
   v9 = 0LL;
   v20 = 0LL;
   v13 = a1;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   if ( (unsigned __int64)(a1 + 0x80000000) <= 7 )
   {

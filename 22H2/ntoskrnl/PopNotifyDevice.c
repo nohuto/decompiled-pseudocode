@@ -1,60 +1,64 @@
 /*
- * XREFs of PopNotifyDevice @ 0x140AA738C
+ * XREFs of PopNotifyDevice @ 0x1409930F0
  * Callers:
- *     PopSleepDeviceList @ 0x140590AA8 (PopSleepDeviceList.c)
- *     PopWakeDeviceList @ 0x140590D4C (PopWakeDeviceList.c)
+ *     PopWakeDeviceList @ 0x1403830C4 (PopWakeDeviceList.c)
+ *     PopSleepDeviceList @ 0x1403832A4 (PopSleepDeviceList.c)
  * Callees:
- *     PopQueueQuerySetIrp @ 0x14028E8AC (PopQueueQuerySetIrp.c)
- *     PopAllocateIrp @ 0x14028F314 (PopAllocateIrp.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PopLogNotifyDevice @ 0x1404629CA (PopLogNotifyDevice.c)
- *     PopMapInternalActionToIrpAction @ 0x140587284 (PopMapInternalActionToIrpAction.c)
- *     PoFxActivateDeviceForSystemTransition @ 0x1405876E4 (PoFxActivateDeviceForSystemTransition.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14034C53C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopAllocateIrp @ 0x1403707A0 (PopAllocateIrp.c)
+ *     PopMapInternalActionToIrpAction @ 0x1403834DC (PopMapInternalActionToIrpAction.c)
+ *     PoFxActivateDeviceForSystemTransition @ 0x140383500 (PoFxActivateDeviceForSystemTransition.c)
+ *     PopQueueQuerySetIrp @ 0x140397C44 (PopQueueQuerySetIrp.c)
+ *     PopLogNotifyDevice @ 0x140576A0C (PopLogNotifyDevice.c)
  */
 
 NTSTATUS __fastcall PopNotifyDevice(__int64 a1, __int64 a2)
 {
   char v4; // r8
   __int64 v5; // rdx
-  _QWORD *v6; // r10
+  _QWORD *v6; // r9
   ULONG v7; // r15d
-  int v8; // ebx
-  __int64 v9; // r14
-  PIRP v10; // rbp
+  int v8; // r10d
+  int v9; // esi
+  __int64 v10; // r14
+  PIRP v11; // rbp
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  struct _IO_STACK_LOCATION *v12; // rax
+  struct _IO_STACK_LOCATION *v13; // rax
   void *DeviceAttachmentBaseRefWithTag; // rax
-  __int64 v15; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v16; // [rsp+90h] [rbp+8h] BYREF
   PIRP Irp; // [rsp+98h] [rbp+10h] BYREF
 
   Irp = 0LL;
-  v15 = 0LL;
+  v16 = 0LL;
   v4 = *(_BYTE *)(a1 + 464) || **(_QWORD **)(a1 + 56) != *(_QWORD *)(a2 + 64);
   v7 = PopMapInternalActionToIrpAction(DWORD2(PopCurrentBroadcast), *(_DWORD *)(a1 + 4), v4);
+  v9 = v8;
   if ( v7 == 7 && *v6 == *(_QWORD *)(a2 + 64) && *(_BYTE *)a1 == 2 )
+  {
     *v6 = 0LL;
-  v8 = *(_DWORD *)(a1 + 4);
-  PopAllocateIrp(*(void **)(a2 + 48), v5, *(_BYTE *)a1, 0, v8, 1, 0, 0LL, 0LL, &Irp, &v15);
-  v9 = v15;
-  v10 = Irp;
-  *(_QWORD *)(v15 + 216) = a2;
-  *(_BYTE *)(v9 + 224) = 0;
-  CurrentStackLocation = v10->Tail.Overlay.CurrentStackLocation;
+    v9 = *(_DWORD *)(a1 + 4);
+  }
+  PopAllocateIrp(*(struct _DEVICE_OBJECT **)(a2 + 48), v5, *(_BYTE *)a1, 0, v9, 1, 0, 0LL, 0LL, &Irp, &v16);
+  v10 = v16;
+  v11 = Irp;
+  *(_QWORD *)(v16 + 216) = a2;
+  *(_BYTE *)(v10 + 224) = 0;
+  CurrentStackLocation = v11->Tail.Overlay.CurrentStackLocation;
   CurrentStackLocation[-1].Parameters.Create.Options = 0;
-  CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart = v8;
+  CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart = v9;
   CurrentStackLocation[-1].Parameters.Create.EaLength = v7;
   CurrentStackLocation[-1].Parameters.Read.Length = DWORD1(PopCurrentBroadcast);
-  v12 = v10->Tail.Overlay.CurrentStackLocation;
-  v12[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)PopSystemIrpCompletion;
-  v12[-1].Context = (PVOID)v9;
-  v12[-1].Control = -32;
-  if ( (xmmword_140D1EAD0 & 0x8000) != 0 )
-    PopLogNotifyDevice(*(_QWORD *)(a2 + 48), a2, (__int64)v10);
-  if ( (unsigned __int8)(*(_BYTE *)a1 - 2) <= 1u && v8 > 1 )
+  v13 = v11->Tail.Overlay.CurrentStackLocation;
+  v13[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)PopSystemIrpCompletion;
+  v13[-1].Context = (PVOID)v10;
+  v13[-1].Control = -32;
+  if ( (xmmword_140CFC490 & 0x8000) != 0 )
+    PopLogNotifyDevice(*(_QWORD *)(a2 + 48), a2, (__int64)v11);
+  if ( v9 > 1 && (unsigned __int8)(*(_BYTE *)a1 - 2) <= 1u )
   {
     DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(*(_QWORD *)(a2 + 48), 0x72496F50u);
     PoFxActivateDeviceForSystemTransition((__int64)DeviceAttachmentBaseRefWithTag, *(_BYTE *)a1 == 2);
-    *(_BYTE *)(v9 + 224) = 1;
+    *(_BYTE *)(v10 + 224) = 1;
   }
-  return PopQueueQuerySetIrp(v10);
+  return PopQueueQuerySetIrp(v11);
 }

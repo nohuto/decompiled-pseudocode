@@ -1,35 +1,20 @@
 /*
- * XREFs of PopInitializeAdpm @ 0x140B7454C
+ * XREFs of PopInitializeAdpm @ 0x140A725E8
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
- *     PopExtendConnectionState @ 0x1408623E4 (PopExtendConnectionState.c)
- *     PopAdaptiveInitializeBootContext @ 0x140B3963C (PopAdaptiveInitializeBootContext.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     PopExtendConnectionState @ 0x1407D2414 (PopExtendConnectionState.c)
  */
 
-__int64 PopInitializeAdpm()
+PVOID PopInitializeAdpm()
 {
-  __int64 result; // rax
-  char v1; // [rsp+40h] [rbp+8h] BYREF
-
   ExInitializeResourceLite(&PopAdpmLock);
-  memset(&PopAdaptiveContext, 0, 0x50uLL);
-  dword_140C39CD8 = -1;
   PopMaximumConnectionSessions = 0;
   PopConnectionState = 0LL;
-  dword_140C39CDC = 3;
-  PopExtendConnectionState(0);
-  result = ExSubscribeWnfStateChange(
-             (__int64)&v1,
-             (__int64)&WNF_HPM_GLOBAL_HUMAN_PRESENCE_STATE,
-             1,
-             0,
-             (__int64)PopAdaptiveWnfCallback,
-             0LL);
-  if ( !CmNtSkipRegistryInit )
-    return PopAdaptiveInitializeBootContext();
-  return result;
+  PopConsoleContext = 0LL;
+  LODWORD(PopConsoleContext) = -1;
+  qword_140C20580 = 3LL;
+  xmmword_140C20570 = 0LL;
+  return PopExtendConnectionState(0);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPerformSafePdeWrite @ 0x1403C5E38
+ * XREFs of MiPerformSafePdeWrite @ 0x1403810DC
  * Callers:
- *     MiLockLowestValidPageTable @ 0x14025A170 (MiLockLowestValidPageTable.c)
- *     MiWalkPageTables @ 0x14025BBE0 (MiWalkPageTables.c)
- *     MiGetWsAndMakePageTablesNx @ 0x1403B0EB4 (MiGetWsAndMakePageTablesNx.c)
- *     MiValidVirtualizationFault @ 0x14046C2C2 (MiValidVirtualizationFault.c)
+ *     MiWalkPageTables @ 0x140209280 (MiWalkPageTables.c)
+ *     MiLockLowestValidPageTable @ 0x140285C40 (MiLockLowestValidPageTable.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x1403CC4D0 (MiGetWsAndMakePageTablesNx.c)
+ *     MiValidVirtualizationFault @ 0x140548E9C (MiValidVirtualizationFault.c)
  * Callees:
- *     MiWriteValidPteNewProtection @ 0x1402846E0 (MiWriteValidPteNewProtection.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiWriteValidPteNewProtection @ 0x140290080 (MiWriteValidPteNewProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 struct _KTHREAD *__fastcall MiPerformSafePdeWrite(__int64 a1, unsigned __int64 a2, signed __int64 a3, char a4)
@@ -59,8 +59,6 @@ struct _KTHREAD *__fastcall MiPerformSafePdeWrite(__int64 a1, unsigned __int64 a
       v14 = v13 | 4;
       if ( !v10 )
         v14 = v13;
-      if ( (MiFlags & 0x2000000) != 0 )
-        _mm_lfence();
       result = (struct _KTHREAD *)_InterlockedCompareExchange64((volatile signed __int64 *)a2, v14, a3);
       a3 = (signed __int64)result;
     }

@@ -4,15 +4,15 @@
  *     NtCreateTokenEx @ 0x1405BC550 (NtCreateTokenEx.c)
  *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x1405BEF50 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
  *     SepCaptureUnicodeStringArray @ 0x140625B10 (SepCaptureUnicodeStringArray.c)
- *     SepCaptureInt64Array @ 0x1406C3EF4 (SepCaptureInt64Array.c)
- *     SepCaptureFqbnArray @ 0x14089FE20 (SepCaptureFqbnArray.c)
- *     SepCaptureOctetStringArray @ 0x1408A0078 (SepCaptureOctetStringArray.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     SepCaptureInt64Array @ 0x1406C3ED4 (SepCaptureInt64Array.c)
+ *     SepCaptureFqbnArray @ 0x14089FE00 (SepCaptureFqbnArray.c)
+ *     SepCaptureOctetStringArray @ 0x1408A0058 (SepCaptureOctetStringArray.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SepCaptureTokenSecurityAttributesInformation(

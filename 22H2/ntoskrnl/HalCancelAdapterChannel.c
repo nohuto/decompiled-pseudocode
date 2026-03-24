@@ -1,17 +1,17 @@
 /*
- * XREFs of HalCancelAdapterChannel @ 0x14050EF60
+ * XREFs of HalCancelAdapterChannel @ 0x1404C5E00
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaRemoveAdapterFromMasterQueue @ 0x140500660 (HalpDmaRemoveAdapterFromMasterQueue.c)
- *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x140500784 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
- *     HalpDmaRemoveWcb @ 0x140500888 (HalpDmaRemoveWcb.c)
- *     IoFreeAdapterChannelV3 @ 0x1405102C0 (IoFreeAdapterChannelV3.c)
- *     HalpDmaRemoveAdapterFromChannelQueue @ 0x140517004 (HalpDmaRemoveAdapterFromChannelQueue.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalpDmaRemoveAdapterFromMasterQueue @ 0x1404B7F90 (HalpDmaRemoveAdapterFromMasterQueue.c)
+ *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x1404B80B0 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
+ *     HalpDmaRemoveWcb @ 0x1404B81B4 (HalpDmaRemoveWcb.c)
+ *     IoFreeAdapterChannel @ 0x1404B8C60 (IoFreeAdapterChannel.c)
+ *     HalpDmaRemoveAdapterFromChannelQueue @ 0x1404CEE44 (HalpDmaRemoveAdapterFromChannelQueue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-char __fastcall HalCancelAdapterChannel(__int64 a1, __int64 a2, volatile signed __int32 *a3)
+char __fastcall HalCancelAdapterChannel(PDMA_ADAPTER DmaAdapter, __int64 a2, volatile signed __int32 *a3)
 {
   char v5; // al
   __int64 v6; // rcx
@@ -20,14 +20,14 @@ char __fastcall HalCancelAdapterChannel(__int64 a1, __int64 a2, volatile signed 
   v5 = _InterlockedOr(a3 + 2, 2u);
   if ( (v5 & 1) == 0 && (v5 & 4) != 0 )
   {
-    if ( HalpDmaRemoveWcb(a1, (_QWORD *)a3 + 2) )
+    if ( HalpDmaRemoveWcb((__int64)DmaAdapter, (_QWORD *)a3 + 2) )
       return 1;
-    if ( HalpDmaRemoveFromEmergencyLogicalAddressQueue(a1, (_QWORD *)(a1 + 600))
-      || HalpDmaRemoveAdapterFromMasterQueue(a1)
-      || !*(_BYTE *)(a1 + 441) && (unsigned __int8)HalpDmaRemoveAdapterFromChannelQueue(a1) )
+    if ( HalpDmaRemoveFromEmergencyLogicalAddressQueue((__int64)DmaAdapter, &DmaAdapter[37].Version)
+      || HalpDmaRemoveAdapterFromMasterQueue((__int64)DmaAdapter)
+      || !HIBYTE(DmaAdapter[27].Version) && (unsigned __int8)HalpDmaRemoveAdapterFromChannelQueue(DmaAdapter) )
     {
-      *(_DWORD *)(a1 + 248) = 0;
-      IoFreeAdapterChannelV3(a1);
+      *(_DWORD *)&DmaAdapter[15].Version = 0;
+      IoFreeAdapterChannel(DmaAdapter);
       v6 = *((_QWORD *)a3 + 11);
       if ( v6 )
       {

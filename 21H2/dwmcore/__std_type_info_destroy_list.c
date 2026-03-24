@@ -1,7 +1,7 @@
 /*
- * XREFs of __std_type_info_destroy_list @ 0x1801017AE
+ * XREFs of __std_type_info_destroy_list @ 0x1800E80AE
  * Callers:
- *     ?__scrt_uninitialize_type_info@@YAXXZ @ 0x1801016B4 (-__scrt_uninitialize_type_info@@YAXXZ.c)
+ *     ?__scrt_uninitialize_type_info@@YAXXZ @ 0x1800E7F34 (-__scrt_uninitialize_type_info@@YAXXZ.c)
  * Callees:
  *     <none>
  */

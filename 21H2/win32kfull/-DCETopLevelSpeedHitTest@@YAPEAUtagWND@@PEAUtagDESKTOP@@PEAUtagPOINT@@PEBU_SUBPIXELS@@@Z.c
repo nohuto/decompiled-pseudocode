@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DCETopLevelSpeedHitTest@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C0078B68
+ * XREFs of ?DCETopLevelSpeedHitTest@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C004C878
  * Callers:
- *     ?TopLevelSpeedHitTest@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C010B030 (-TopLevelSpeedHitTest@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
+ *     ?TopLevelSpeedHitTest@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C0126760 (-TopLevelSpeedHitTest@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
  * Callees:
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     ?DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C0077660 (-DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ?DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C004DB1C (-DCEIsWindowHit@@YAHPEAUtagWND@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
  */
 
 struct tagWND *__fastcall DCETopLevelSpeedHitTest(
@@ -13,24 +13,22 @@ struct tagWND *__fastcall DCETopLevelSpeedHitTest(
         struct tagPOINT *a2,
         const struct _SUBPIXELS *a3)
 {
-  struct tagWND *v4; // rdi
-  struct tagWND *i; // rbx
+  __int64 v4; // rdi
+  __int64 i; // rbx
   char v9; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = 0LL;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v9);
-  for ( i = *(struct tagWND **)(*(_QWORD *)(*((_QWORD *)a1 + 1) + 24LL) + 112LL);
-        i;
-        i = (struct tagWND *)*((_QWORD *)i + 11) )
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v9);
+  for ( i = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 1) + 24LL) + 112LL); i; i = *(_QWORD *)(i + 88) )
   {
-    if ( (unsigned int)DCEIsWindowHit(i, a2, a3) )
+    if ( (unsigned int)DCEIsWindowHit((struct tagWND *)i, a2, a3) )
     {
       v4 = i;
-      if ( *(char *)(*((_QWORD *)i + 5) + 19LL) < 0 )
+      if ( *(char *)(*(_QWORD *)(i + 40) + 19LL) < 0 )
         v4 = 0LL;
       break;
     }
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v9);
-  return v4;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v9);
+  return (struct tagWND *)v4;
 }

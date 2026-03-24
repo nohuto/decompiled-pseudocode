@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpNameFromAttributes @ 0x140691F04
+ * XREFs of CmpNameFromAttributes @ 0x1406E80BC
  * Callers:
- *     CmLoadDifferencingKey @ 0x14069108C (CmLoadDifferencingKey.c)
- *     NtReplaceKey @ 0x140A0E560 (NtReplaceKey.c)
+ *     CmLoadDifferencingKey @ 0x1406E737C (CmLoadDifferencingKey.c)
+ *     NtReplaceKey @ 0x140869190 (NtReplaceKey.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryObject @ 0x14041A8A0 (ZwQueryObject.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140947050 (IoConvertFileHandleToKernelHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryObject @ 0x1403F9C20 (ZwQueryObject.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14072B380 (IoConvertFileHandleToKernelHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpNameFromAttributes(_OWORD *a1, char a2, UNICODE_STRING *a3, __int64 a4)
@@ -20,12 +20,12 @@ __int64 __fastcall CmpNameFromAttributes(_OWORD *a1, char a2, UNICODE_STRING *a3
   unsigned int v6; // ebx
   __int64 v7; // rdx
   unsigned __int16 v8; // si
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithQuotaTag; // rax
   __int64 result; // rax
   NTSTATUS v11; // r15d
   __m128i v12; // xmm0
   unsigned int v13; // edx
-  __int64 v14; // rax
+  wchar_t *v14; // rax
   __int64 Length; // rax
   wchar_t *Buffer; // rcx
   ULONG ReturnLength; // [rsp+34h] [rbp-294h] BYREF
@@ -81,10 +81,10 @@ __int64 __fastcall CmpNameFromAttributes(_OWORD *a1, char a2, UNICODE_STRING *a3
       return 3221225531LL;
     a3->Length = v8;
     a3->MaximumLength = v8;
-    Pool2 = (wchar_t *)ExAllocatePool2(257LL, v8, 1852198211LL);
-    a3->Buffer = Pool2;
-    if ( Pool2 )
-      memmove(Pool2, Src[1], v8);
+    PoolWithQuotaTag = (wchar_t *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v8, 0x6E664D43u);
+    a3->Buffer = PoolWithQuotaTag;
+    if ( PoolWithQuotaTag )
+      memmove(PoolWithQuotaTag, Src[1], v8);
     else
       return (unsigned int)-1073741670;
     return v6;
@@ -110,8 +110,8 @@ __int64 __fastcall CmpNameFromAttributes(_OWORD *a1, char a2, UNICODE_STRING *a3
     if ( v13 > 0xFFFF )
       return 3221225529LL;
     a3->MaximumLength = v13;
-    v14 = ExAllocatePool2(257LL, (unsigned __int16)v13, 1852198211LL);
-    a3->Buffer = (wchar_t *)v14;
+    v14 = (wchar_t *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, (unsigned __int16)v13, 0x6E664D43u);
+    a3->Buffer = v14;
     if ( !v14 )
       return 3221225626LL;
     RtlAppendUnicodeStringToString(a3, &Source);

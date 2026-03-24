@@ -1,16 +1,16 @@
 /*
- * XREFs of WmipGenerateBinaryMofNotification @ 0x140760B88
+ * XREFs of WmipGenerateBinaryMofNotification @ 0x140760B68
  * Callers:
- *     WmipAddDataSource @ 0x1407075F0 (WmipAddDataSource.c)
- *     WmipDSCleanup @ 0x14070D590 (WmipDSCleanup.c)
- *     WmipUpdateDataSource @ 0x1408B4868 (WmipUpdateDataSource.c)
+ *     WmipAddDataSource @ 0x1407075D0 (WmipAddDataSource.c)
+ *     WmipDSCleanup @ 0x14070D570 (WmipDSCleanup.c)
+ *     WmipUpdateDataSource @ 0x1408B4848 (WmipUpdateDataSource.c)
  * Callees:
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)
- *     RtlStringCbPrintfExW @ 0x140128C98 (RtlStringCbPrintfExW.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlStringCbPrintfExW @ 0x140128CB8 (RtlStringCbPrintfExW.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WmipProcessEvent @ 0x14068F1CC (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x14068F1AC (WmipProcessEvent.c)
  */
 
 void __fastcall WmipGenerateBinaryMofNotification(__int64 a1, _OWORD *a2)

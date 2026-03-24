@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0IOverlayMonitorTarget@@QEAA@XZ @ 0x18001D384
+ * XREFs of ??0IOverlayMonitorTarget@@QEAA@XZ @ 0x1800263B4
  * Callers:
- *     ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18001C6B8 (--0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18019C760 (--0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x180025F2C (--0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18016A710 (--0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
  * Callees:
  *     <none>
  */

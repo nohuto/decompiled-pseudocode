@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProperties@CD2DBitmap@@UEBAXPEAUD2D1_BITMAP_PROPERTIES1@@@Z @ 0x180108610
+ * XREFs of ?GetProperties@CD2DBitmap@@UEBAXPEAUD2D1_BITMAP_PROPERTIES1@@@Z @ 0x1800E24B0
  * Callers:
  *     <none>
  * Callees:

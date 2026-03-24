@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetProductInfo @ 0x14018D600
+ * XREFs of RtlGetProductInfo @ 0x14018D620
  * Callers:
- *     ExGetSuiteMask @ 0x1407550F0 (ExGetSuiteMask.c)
+ *     ExGetSuiteMask @ 0x1407550D0 (ExGetSuiteMask.c)
  *     ExpInitSystemPhase1 @ 0x1409B0434 (ExpInitSystemPhase1.c)
  * Callees:
- *     CompareVersions @ 0x14018D740 (CompareVersions.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryLicenseValue @ 0x1401BAAF0 (ZwQueryLicenseValue.c)
+ *     CompareVersions @ 0x14018D760 (CompareVersions.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x1401BAB10 (ZwQueryLicenseValue.c)
  */
 
 BOOLEAN __stdcall RtlGetProductInfo(
@@ -43,7 +43,7 @@ BOOLEAN __stdcall RtlGetProductInfo(
     return 0;
   *ReturnedProductType = 0;
   v7 = v16;
-  v17 = xmmword_140369548;
+  v17 = xmmword_140369658;
   if ( (int)CompareVersions(&v16, &v17) < 0 )
     return 0;
   if ( (int)ZwQueryLicenseValue(L"$&", &v14, &v15, 4LL, &v13) < 0 || v14 != 4 || v13 != 4 )

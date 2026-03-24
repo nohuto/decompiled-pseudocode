@@ -1,14 +1,14 @@
 /*
- * XREFs of _PostMessageExtended @ 0x1C00A5EEC
+ * XREFs of _PostMessageExtended @ 0x1C0054330
  * Callers:
- *     _PostMessage @ 0x1C00A5270 (_PostMessage.c)
- *     ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C00A5D18 (-xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATIO.c)
- *     xxxTranslateMessage @ 0x1C010081C (xxxTranslateMessage.c)
+ *     _PostMessage @ 0x1C002DC40 (_PostMessage.c)
+ *     ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C0054100 (-xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATIO.c)
+ *     xxxTranslateMessage @ 0x1C01107D0 (xxxTranslateMessage.c)
  * Callees:
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0054A60 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0054A40 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
  */
 
-unsigned __int64 __fastcall PostMessageExtended(
+struct tagQMSG *__fastcall PostMessageExtended(
         struct tagWND *a1,
         unsigned int a2,
         unsigned __int64 a3,

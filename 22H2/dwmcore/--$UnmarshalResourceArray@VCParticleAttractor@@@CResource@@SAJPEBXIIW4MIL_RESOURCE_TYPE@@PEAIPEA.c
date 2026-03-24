@@ -1,13 +1,13 @@
 /*
- * XREFs of ??$UnmarshalResourceArray@VCParticleAttractor@@@CResource@@SAJPEBXIIW4MIL_RESOURCE_TYPE@@PEAIPEAPEAPEAVCParticleAttractor@@PEAVCResourceTable@@_N@Z @ 0x1801BE130
+ * XREFs of ??$UnmarshalResourceArray@VCParticleAttractor@@@CResource@@SAJPEBXIIW4MIL_RESOURCE_TYPE@@PEAIPEAPEAPEAVCParticleAttractor@@PEAVCResourceTable@@_N@Z @ 0x180168BD0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?UnmarshalResourceArray@CResource@@SAJPEBXIIW4MIL_RESOURCE_TYPE@@PEAIPEAPEAPEAV1@PEAVCResourceTable@@_N@Z @ 0x1800E803C (-UnmarshalResourceArray@CResource@@SAJPEBXIIW4MIL_RESOURCE_TYPE@@PEAIPEAPEAPEAV1@PEAVCResourceTa.c)
+ *     ?UnmarshalResourceArray@CResource@@SAJPEBXIIW4MIL_RESOURCE_TYPE@@PEAIPEAPEAPEAV1@PEAVCResourceTable@@_N@Z @ 0x18003EF9C (-UnmarshalResourceArray@CResource@@SAJPEBXIIW4MIL_RESOURCE_TYPE@@PEAIPEAPEAPEAV1@PEAVCResourceTa.c)
  */
 
 __int64 __fastcall CResource::UnmarshalResourceArray<CParticleAttractor>(
-        __int64 a1,
+        unsigned int *a1,
         unsigned int a2,
         unsigned int a3,
         __int64 a4,
@@ -18,7 +18,7 @@ __int64 __fastcall CResource::UnmarshalResourceArray<CParticleAttractor>(
   __int64 result; // rax
   void *v8; // [rsp+40h] [rbp-18h] BYREF
 
-  result = CResource::UnmarshalResourceArray(a1, a2, a3, 0x73u, a5, &v8, a7, 0);
+  result = CResource::UnmarshalResourceArray(a1, a2, a3, 0x71u, a5, &v8, a7, 0);
   *a6 = v8;
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopHiberChecksumHiberFileData @ 0x140A4DA40
+ * XREFs of PopHiberChecksumHiberFileData @ 0x140994200
  * Callers:
- *     PopRequestWrite @ 0x140A4C5B4 (PopRequestWrite.c)
- *     PopRequestRead @ 0x140A4D4A4 (PopRequestRead.c)
+ *     PopRequestWrite @ 0x140993DB4 (PopRequestWrite.c)
+ *     PopRequestRead @ 0x1409B1854 (PopRequestRead.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     tcpxsum @ 0x1404294D0 (tcpxsum.c)
- *     PopCheckpointSystemSleep @ 0x140A4B974 (PopCheckpointSystemSleep.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x1404075F0 (tcpxsum.c)
+ *     PopCheckpointSystemSleep @ 0x140993484 (PopCheckpointSystemSleep.c)
  */
 
 unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
@@ -21,7 +21,7 @@ unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
   unsigned __int64 v9; // rcx
   unsigned __int64 v10; // rbx
   unsigned __int64 v11; // rax
-  unsigned __int64 v12; // rbp
+  unsigned __int64 v12; // r15
   __int64 v13; // r12
   __int64 v14; // r14
   unsigned int v15; // r8d
@@ -70,17 +70,14 @@ unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
         *(_WORD *)(a1 + 424) = v16;
         ++v10;
       }
+      if ( a2 )
+        *(_QWORD *)(a1 + 416) = v10;
       v17 = __rdtsc();
       result = (((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) - v8;
       if ( a2 )
-      {
-        *(_QWORD *)(a1 + 416) = v10;
-        qword_140C22D48 += result;
-      }
+        qword_140C239C8 += result;
       else
-      {
-        qword_140C22E88 += result;
-      }
+        qword_140C23B08 += result;
     }
   }
   return result;

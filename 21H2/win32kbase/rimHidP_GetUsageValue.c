@@ -1,16 +1,16 @@
 /*
- * XREFs of rimHidP_GetUsageValue @ 0x1C00E63A2
+ * XREFs of rimHidP_GetUsageValue @ 0x1C016366C
  * Callers:
- *     RIMExtractPointerPropertyValues @ 0x1C01918C0 (RIMExtractPointerPropertyValues.c)
- *     RIMGetMaxCountFeatureDetails @ 0x1C0192AA4 (RIMGetMaxCountFeatureDetails.c)
- *     RIMIDE_CreateGenericHidDevice @ 0x1C019FC14 (RIMIDE_CreateGenericHidDevice.c)
- *     rimExtractTransducerUsages @ 0x1C01AD584 (rimExtractTransducerUsages.c)
- *     rimExtractParallelFrameInfoAndAbandonIncompleteFrame @ 0x1C01AFB08 (rimExtractParallelFrameInfoAndAbandonIncompleteFrame.c)
- *     rimExtractPointerDeviceUsages @ 0x1C01B00C4 (rimExtractPointerDeviceUsages.c)
- *     rimExtractScantime @ 0x1C01B0738 (rimExtractScantime.c)
- *     rimFindOrCreateActiveContact @ 0x1C01B0D78 (rimFindOrCreateActiveContact.c)
+ *     RIMExtractPointerPropertyValues @ 0x1C015D2D0 (RIMExtractPointerPropertyValues.c)
+ *     RIMGetMaxCountFeatureDetails @ 0x1C015DE78 (RIMGetMaxCountFeatureDetails.c)
+ *     RIMIDE_CreateGenericHidDevice @ 0x1C016B4B8 (RIMIDE_CreateGenericHidDevice.c)
+ *     rimExtractTransducerUsages @ 0x1C0177F3C (rimExtractTransducerUsages.c)
+ *     rimExtractParallelFrameInfoAndAbandonIncompleteFrame @ 0x1C017A544 (rimExtractParallelFrameInfoAndAbandonIncompleteFrame.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C017AA10 (rimExtractPointerDeviceUsages.c)
+ *     rimExtractScantime @ 0x1C017AF5C (rimExtractScantime.c)
+ *     rimFindOrCreateActiveContact @ 0x1C017B6C0 (rimFindOrCreateActiveContact.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall rimHidP_GetUsageValue(

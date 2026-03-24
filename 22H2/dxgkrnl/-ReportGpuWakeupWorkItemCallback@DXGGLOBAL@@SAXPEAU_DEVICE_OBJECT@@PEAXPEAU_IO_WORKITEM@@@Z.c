@@ -1,11 +1,10 @@
 /*
- * XREFs of ?ReportGpuWakeupWorkItemCallback@DXGGLOBAL@@SAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C02E6700
+ * XREFs of ?ReportGpuWakeupWorkItemCallback@DXGGLOBAL@@SAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C02BFB10
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?AddWakeUpCoreDripsBlockerTracking@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@@Z @ 0x1C01F165C (-AddWakeUpCoreDripsBlockerTracking@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?AddWakeUpCoreDripsBlockerTracking@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@@Z @ 0x1C02BF5A8 (-AddWakeUpCoreDripsBlockerTracking@DXGGLOBAL@@QEAAX_KPEAU_EPROCESS@@@Z.c)
  */
 
 void __fastcall DXGGLOBAL::ReportGpuWakeupWorkItemCallback(
@@ -13,16 +12,20 @@ void __fastcall DXGGLOBAL::ReportGpuWakeupWorkItemCallback(
         PVOID Context,
         PIO_WORKITEM IoWorkItem)
 {
+  __int64 v5; // rax
   PDEVICE_OBJECT DeviceAttachmentBaseRef; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   DXGGLOBAL *Global; // rax
 
   if ( Context )
   {
-    WdLogSingleEntry1(1LL, 454LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"Context == NULL", 454LL, 0LL, 0LL, 0LL, 0LL);
+    v5 = WdLogNewEntry5_WdAssertion(IoObject, Context);
+    *(_QWORD *)(v5 + 24) = 454LL;
+    WdLogEvent5_WdAssertion(v5);
   }
   DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(IoObject);
-  Global = DXGGLOBAL::GetGlobal();
+  Global = DXGGLOBAL::GetGlobal(v8, v7);
   DXGGLOBAL::AddWakeUpCoreDripsBlockerTracking(Global, (__int64)DeviceAttachmentBaseRef, 0LL);
   ObfDereferenceObject(DeviceAttachmentBaseRef);
   if ( IoWorkItem )

@@ -1,20 +1,20 @@
 /*
- * XREFs of PfTAllocateBuffers @ 0x1409881B4
+ * XREFs of PfTAllocateBuffers @ 0x1407BFCD8
  * Callers:
- *     PfTStart @ 0x1409884F4 (PfTStart.c)
+ *     PfTStart @ 0x1407BFA40 (PfTStart.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     PfTGetFreeBuffer @ 0x1407DA8F4 (PfTGetFreeBuffer.c)
- *     PfTLbInitialize @ 0x1407DB4C8 (PfTLbInitialize.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PfTGetFreeBuffer @ 0x1406CB1D4 (PfTGetFreeBuffer.c)
+ *     PfTLbInitialize @ 0x1406CD328 (PfTLbInitialize.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PfTAllocateBuffers(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall PfTAllocateBuffers(__int64 a1, unsigned int a2, unsigned int a3, ULONG a4)
 {
   unsigned int v4; // esi
-  size_t v5; // rbp
+  SIZE_T v5; // rbp
   unsigned int v9; // r15d
-  _QWORD *Pool2; // rdi
+  _QWORD *PoolWithTag; // rdi
   _QWORD *v11; // rax
   __int64 v12; // rbx
   __int64 v13; // rcx
@@ -27,32 +27,32 @@ __int64 __fastcall PfTAllocateBuffers(__int64 a1, unsigned int a2, unsigned int 
   {
     while ( 1 )
     {
-      Pool2 = (_QWORD *)ExAllocatePool2(256LL, v5, a4);
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v5, a4);
+      if ( !PoolWithTag )
         return (unsigned int)-1073741670;
       if ( (*(_DWORD *)a1 & 0xF) != 0 )
       {
-        memset(Pool2, 0, v5);
-        Pool2[1] = Pool2;
-        *Pool2 = Pool2;
-        *((_DWORD *)Pool2 + 8) = 2048;
+        memset(PoolWithTag, 0, v5);
+        PoolWithTag[1] = PoolWithTag;
+        *PoolWithTag = PoolWithTag;
+        *((_DWORD *)PoolWithTag + 8) = 2048;
       }
       else
       {
-        PfTLbInitialize(Pool2, v5, 0);
+        PfTLbInitialize(PoolWithTag, v5, 0);
       }
-      *Pool2 = *(_QWORD *)(a1 + 16);
+      *PoolWithTag = *(_QWORD *)(a1 + 16);
       ++*(_WORD *)(a1 + 10);
       ++v9;
       ++*(_DWORD *)(a1 + 4);
-      *(_QWORD *)(a1 + 16) = Pool2;
+      *(_QWORD *)(a1 + 16) = PoolWithTag;
       if ( v9 >= a3 )
-        goto LABEL_7;
+        goto LABEL_6;
     }
   }
   else
   {
-LABEL_7:
+LABEL_6:
     v11 = PfTGetFreeBuffer(a1);
     v12 = a1 + 24;
     v13 = *(_QWORD *)v12;

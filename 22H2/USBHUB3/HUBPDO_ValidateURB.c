@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBPDO_ValidateURB @ 0x1C0017350
+ * XREFs of HUBPDO_ValidateURB @ 0x1C0015E30
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018420 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0016F00 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
  * Callees:
- *     McTemplateK0ppn_EtwWriteTransfer @ 0x1C00141D8 (McTemplateK0ppn_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0014EFC (WPP_RECORDER_SF_dq.c)
- *     WPP_RECORDER_SF_dqd @ 0x1C0014FDC (WPP_RECORDER_SF_dqd.c)
+ *     McTemplateK0ppn_EtwWriteTransfer @ 0x1C0012CAC (McTemplateK0ppn_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0013564 (WPP_RECORDER_SF_dq.c)
+ *     WPP_RECORDER_SF_dqd @ 0x1C0013644 (WPP_RECORDER_SF_dqd.c)
  */
 
 __int64 __fastcall HUBPDO_ValidateURB(__int64 a1, unsigned __int16 *a2, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall HUBPDO_ValidateURB(__int64 a1, unsigned __int16 *a2, __int64 
 
   if ( *a2 < 0x18u )
   {
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x800) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 8) != 0 )
       McTemplateK0ppn_EtwWriteTransfer(
         a1,
         &USBHUB3_ETW_EVENT_DISPATCH_URB_INVALID_HEADER_LENGTH_WARNING,
@@ -42,8 +42,8 @@ __int64 __fastcall HUBPDO_ValidateURB(__int64 a1, unsigned __int16 *a2, __int64 
         *((_DWORD *)a2 + 1) = -2147483136;
         v6 = -1073741811;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_dqd(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL) + 1432LL), v7, 40LL, 0x2Fu, v9);
-        if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x800) != 0 )
+          WPP_RECORDER_SF_dqd(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL) + 1432LL), 40LL, v7, 0x2Fu, v9);
+        if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 8) != 0 )
           McTemplateK0ppn_EtwWriteTransfer(
             a1,
             &USBHUB3_ETW_EVENT_DISPATCH_URB_INVALID_HEADER_LENGTH_WARNING,
@@ -57,7 +57,7 @@ __int64 __fastcall HUBPDO_ValidateURB(__int64 a1, unsigned __int16 *a2, __int64 
   {
     *((_DWORD *)a2 + 1) = -2147483136;
     v6 = -1073741811;
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x1000) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 0x10) != 0 )
       McTemplateK0ppn_EtwWriteTransfer(
         a1,
         &USBHUB3_ETW_EVENT_DISPATCH_URB_INVALID_FUNCTION,
@@ -72,7 +72,7 @@ __int64 __fastcall HUBPDO_ValidateURB(__int64 a1, unsigned __int16 *a2, __int64 
         3u,
         a3,
         0x2Eu,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v10,
         a2);
     }

@@ -1,7 +1,7 @@
 /*
- * XREFs of AcpiArblibUnpackRequirement @ 0x1C007D330
+ * XREFs of AcpiArblibUnpackRequirement @ 0x1C00AD5C0
  * Callers:
- *     AcpiArblibScoreRequirement @ 0x1C007D290 (AcpiArblibScoreRequirement.c)
+ *     AcpiArblibScoreRequirement @ 0x1C00AD520 (AcpiArblibScoreRequirement.c)
  * Callees:
  *     <none>
  */

@@ -1,43 +1,54 @@
 /*
- * XREFs of ?HandleDDAArrivalOrDeparture@CRenderTargetManager@@IEAAJXZ @ 0x18019A380
+ * XREFs of ?HandleDDAArrivalOrDeparture@CRenderTargetManager@@IEAAJXZ @ 0x180163BD4
  * Callers:
- *     ?Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_FORCERENDER@@@Z @ 0x1800EE5B0 (-Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD.c)
+ *     ?Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_FORCERENDER@@@Z @ 0x1800DB90C (-Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?EndTargetEnumeration@CRenderTargetManager@@AEAAXXZ @ 0x180081138 (-EndTargetEnumeration@CRenderTargetManager@@AEAAXXZ.c)
- *     ?InternalQueryInterface@?$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800B3118 (-InternalQueryInterface@-$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EndTargetEnumeration@CRenderTargetManager@@AEAAXXZ @ 0x18006C2C0 (-EndTargetEnumeration@CRenderTargetManager@@AEAAXXZ.c)
+ *     ?InternalQueryInterface@CMILCOMBase@@QEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006EAC0 (-InternalQueryInterface@CMILCOMBase@@QEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRenderTargetManager::HandleDDAArrivalOrDeparture(CRenderTargetManager *this)
 {
-  volatile signed __int32 **v2; // r14
-  int v3; // edi
-  volatile signed __int32 **i; // rbx
-  volatile signed __int32 *v5; // rcx
-  int v6; // eax
-  __int64 v7; // rcx
-  int v8; // ebp
-  volatile signed __int32 *v10; // [rsp+50h] [rbp+8h] BYREF
+  CMILCOMBase **v1; // r14
+  int v3; // ebx
+  __int64 v4; // rbp
+  unsigned __int64 v5; // rsi
+  CMILCOMBase *v6; // rcx
+  int v7; // eax
+  __int64 v8; // rcx
+  int v9; // edi
+  void *v11; // [rsp+60h] [rbp+8h] BYREF
 
-  *((_BYTE *)this + 576) = 1;
-  v2 = (volatile signed __int32 **)*((_QWORD *)this + 2);
+  *((_BYTE *)this + 128) = 1;
+  v1 = (CMILCOMBase **)*((_QWORD *)this + 1);
   v3 = 0;
-  for ( i = (volatile signed __int32 **)*((_QWORD *)this + 1); i != v2; ++i )
+  v4 = 0LL;
+  v5 = (unsigned __int64)(*((_QWORD *)this + 2) - (_QWORD)v1 + 7LL) >> 3;
+  if ( (unsigned __int64)v1 > *((_QWORD *)this + 2) )
+    v5 = 0LL;
+  if ( v5 )
   {
-    v5 = *i;
-    v10 = 0LL;
-    if ( (int)CMILCOMBaseT<IUnknown>::InternalQueryInterface(v5, &GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9, &v10) >= 0 )
+    do
     {
-      v6 = (*(__int64 (__fastcall **)(volatile signed __int32 *))(*(_QWORD *)v10 + 56LL))(v10);
-      v8 = v6;
-      if ( v6 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x1E5u);
-      if ( !v3 || v3 >= 0 && v8 < 0 )
-        v3 = v8;
+      v6 = *v1;
+      v11 = 0LL;
+      if ( (int)CMILCOMBase::InternalQueryInterface(v6, &GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9, &v11) >= 0 )
+      {
+        v7 = (*(__int64 (__fastcall **)(void *))(*(_QWORD *)v11 + 40LL))(v11);
+        v9 = v7;
+        if ( v7 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1CBu, 0LL);
+        if ( !v3 || v3 >= 0 && v9 < 0 )
+          v3 = v9;
+      }
+      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v11);
+      ++v1;
+      ++v4;
     }
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v10);
+    while ( v4 != v5 );
   }
   CRenderTargetManager::EndTargetEnumeration(this);
   return (unsigned int)v3;

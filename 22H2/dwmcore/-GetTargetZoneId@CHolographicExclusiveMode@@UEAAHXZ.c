@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetTargetZoneId@CHolographicExclusiveMode@@UEAAHXZ @ 0x1802A81B0
+ * XREFs of ?GetTargetZoneId@CHolographicExclusiveMode@@UEAAHXZ @ 0x1802567D0
  * Callers:
  *     <none>
  * Callees:

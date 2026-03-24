@@ -1,14 +1,14 @@
 /*
- * XREFs of PsQueryProcessExceptionFlags @ 0x1409AD320
+ * XREFs of PsQueryProcessExceptionFlags @ 0x1409074C0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PsQueryProcessExceptionFlags(ULONG_PTR BugCheckParameter1, int a2, int *a3, _DWORD *a4)
@@ -48,9 +48,9 @@ __int64 __fastcall PsQueryProcessExceptionFlags(ULONG_PTR BugCheckParameter1, in
     v9 = 3;
   }
   --CurrentThread->KernelApcDisable;
-  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
+  if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
   {
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
     return 3221225738LL;
   }
 LABEL_13:
@@ -63,7 +63,7 @@ LABEL_13:
   if ( v7 )
   {
     v11 = *(__int64 **)(BugCheckParameter1 + 1408);
-    if ( !v11 || *(_WORD *)(BugCheckParameter1 + 2412) != 0x8664 )
+    if ( !v11 || *((_WORD *)v11 + 4) != 0x8664 )
     {
       v13 = 0LL;
       if ( v11 )
@@ -81,11 +81,11 @@ LABEL_13:
 LABEL_24:
   v15 = *v14;
   if ( v10 )
-    KiUnstackDetachProcess((__int64)v17, 0LL);
+    KiUnstackDetachProcess((__int64)v17, 0);
   if ( v9 >= 2 )
   {
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
   *a3 = 0;
   if ( (v15 & 4) != 0 )

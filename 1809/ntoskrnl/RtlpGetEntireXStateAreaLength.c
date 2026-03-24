@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpGetEntireXStateAreaLength @ 0x140141ACC
+ * XREFs of RtlpGetEntireXStateAreaLength @ 0x140141AEC
  * Callers:
  *     RtlGetExtendedContextLength2 @ 0x1400A1E3C (RtlGetExtendedContextLength2.c)
  *     RtlInitializeExtendedContext2 @ 0x1400A1F20 (RtlInitializeExtendedContext2.c)

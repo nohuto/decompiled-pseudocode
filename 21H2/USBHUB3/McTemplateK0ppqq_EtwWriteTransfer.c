@@ -1,17 +1,17 @@
 /*
- * XREFs of McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0013230
+ * XREFs of McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0012D2C
  * Callers:
- *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0031650 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
- *     HUBMISC_LogDescriptorValidationWarningForDevice @ 0x1C00316F0 (HUBMISC_LogDescriptorValidationWarningForDevice.c)
- *     HUBMISC_LogDescriptorValidationErrorForHub @ 0x1C0031790 (HUBMISC_LogDescriptorValidationErrorForHub.c)
- *     HUBMISC_LogDescriptorValidationWarningForHub @ 0x1C00317E0 (HUBMISC_LogDescriptorValidationWarningForHub.c)
- *     FWUPDATE_EvtDeviceD0Entry @ 0x1C003DEF0 (FWUPDATE_EvtDeviceD0Entry.c)
- *     FWUPDATE_EvtDeviceD0Exit @ 0x1C003DFA0 (FWUPDATE_EvtDeviceD0Exit.c)
- *     FWUPDATE_EvtIoInternalDeviceControl @ 0x1C003E270 (FWUPDATE_EvtIoInternalDeviceControl.c)
- *     HUBPDO_CreatePdoInternal @ 0x1C007ABD4 (HUBPDO_CreatePdoInternal.c)
+ *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0030F70 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
+ *     HUBMISC_LogDescriptorValidationWarningForDevice @ 0x1C0031010 (HUBMISC_LogDescriptorValidationWarningForDevice.c)
+ *     HUBMISC_LogDescriptorValidationErrorForHub @ 0x1C00310B0 (HUBMISC_LogDescriptorValidationErrorForHub.c)
+ *     HUBMISC_LogDescriptorValidationWarningForHub @ 0x1C0031100 (HUBMISC_LogDescriptorValidationWarningForHub.c)
+ *     FWUPDATE_EvtDeviceD0Entry @ 0x1C003D870 (FWUPDATE_EvtDeviceD0Entry.c)
+ *     FWUPDATE_EvtDeviceD0Exit @ 0x1C003D920 (FWUPDATE_EvtDeviceD0Exit.c)
+ *     FWUPDATE_EvtIoInternalDeviceControl @ 0x1C003DBF0 (FWUPDATE_EvtIoInternalDeviceControl.c)
+ *     HUBPDO_CreatePdoInternal @ 0x1C00796D4 (HUBPDO_CreatePdoInternal.c)
  * Callees:
  *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0ppqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

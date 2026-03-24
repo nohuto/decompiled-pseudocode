@@ -1,113 +1,112 @@
 /*
- * XREFs of DpiLdaStartAdapterInChain @ 0x1C0396848
+ * XREFs of DpiLdaStartAdapterInChain @ 0x1C02D81F8
  * Callers:
- *     DpiFdoStartAdapterThreadImpl @ 0x1C01F5298 (DpiFdoStartAdapterThreadImpl.c)
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0199C54 (DpiFdoStartAdapterThreadImpl.c)
  * Callees:
- *     DpiLdaPreStartChain @ 0x1C0066474 (DpiLdaPreStartChain.c)
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
  */
 
 __int64 __fastcall DpiLdaStartAdapterInChain(
         __int64 a1,
-        char a2,
-        void *a3,
+        __int64 a2,
+        unsigned __int64 a3,
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a4,
         unsigned int a5,
         __int64 a6,
         _QWORD *a7)
 {
-  PVOID DeviceExtension; // rdi
-  struct _DEVICE_OBJECT *v10; // rsi
+  __int64 v7; // rdi
+  void *v9; // r13
+  char v10; // r11
+  __int64 v11; // rsi
+  __int64 v12; // rdi
   int started; // ebx
-  unsigned int v12; // r9d
-  __int64 v13; // r11
-  __int64 v14; // rbx
-  char v15; // r8
-  __int64 v16; // rdx
-  __int64 v17; // r10
+  __int64 v14; // rax
+  __int64 v15; // r10
+  __int64 v16; // rbp
+  __int64 v17; // r9
   unsigned int v18; // esi
   __int64 v19; // rbp
   struct _DEVICE_OBJECT *v20; // rcx
+  char v22; // [rsp+78h] [rbp+10h]
 
-  DeviceExtension = *(PVOID *)(a1 + 64);
-  if ( *((_BYTE *)DeviceExtension + 508) == 1 )
+  v22 = a2;
+  v7 = *(_QWORD *)(a1 + 64);
+  v9 = (void *)a3;
+  v10 = a2;
+  v11 = a1;
+  if ( *(_BYTE *)(v7 + 508) != 1 )
   {
-    v10 = (struct _DEVICE_OBJECT *)*((_QWORD *)DeviceExtension + 3);
-  }
-  else
-  {
-    v10 = (struct _DEVICE_OBJECT *)*((_QWORD *)DeviceExtension + 341);
-    if ( !v10 )
+    v12 = *(_QWORD *)(v7 + 2728);
+    if ( !v12 )
     {
-LABEL_4:
+LABEL_3:
       started = 1075708986;
-      WdLogSingleEntry1(3LL, a1);
-      return (unsigned int)started;
+      v14 = WdLogNewEntry5_WdWarning(a1, a2, a3);
+      *(_QWORD *)(v14 + 24) = v11;
+      goto LABEL_4;
     }
-    DeviceExtension = v10->DeviceExtension;
+    v7 = *(_QWORD *)(v12 + 64);
   }
-  v12 = *((_DWORD *)DeviceExtension + 684);
-  if ( v12 != *((_DWORD *)DeviceExtension + 126) )
-    goto LABEL_4;
-  v13 = 0LL;
-  *((_BYTE *)DeviceExtension + 2740) = 0;
-  if ( v12 )
+  a1 = *(unsigned int *)(v7 + 2736);
+  if ( (_DWORD)a1 != *(_DWORD *)(v7 + 504) )
+    goto LABEL_3;
+  a3 = 0LL;
+  *(_BYTE *)(v7 + 2740) = 0;
+  if ( (_DWORD)a1 )
   {
-    v14 = *((_QWORD *)DeviceExtension + 341);
-    v15 = 0;
+    v15 = *(_QWORD *)(v7 + 2728);
+    LOBYTE(a2) = 0;
     while ( 1 )
     {
-      v16 = *(_QWORD *)(v14 + 8 * v13);
+      v16 = *(_QWORD *)(v15 + 8 * a3);
       v17 = *(_QWORD *)(v16 + 64);
       if ( *(_BYTE *)(v17 + 232) == 1 )
         break;
       if ( (unsigned int)(*(_DWORD *)(v17 + 236) - 1) > 1 )
-        goto LABEL_4;
-      if ( v15 || *((_DWORD *)DeviceExtension + 281) != *(_DWORD *)(v17 + 1124) )
-        v15 = 1;
-      v13 = (unsigned int)(v13 + 1);
-      *((_BYTE *)DeviceExtension + 2740) = v15;
-      if ( (unsigned int)v13 >= v12 )
+        goto LABEL_3;
+      if ( (_BYTE)a2 || *(_DWORD *)(v7 + 1124) != *(_DWORD *)(v17 + 1124) )
+        LOBYTE(a2) = 1;
+      a3 = (unsigned int)(a3 + 1);
+      *(_BYTE *)(v7 + 2740) = a2;
+      if ( (unsigned int)a3 >= (unsigned int)a1 )
         goto LABEL_15;
     }
     started = -1071774669;
-    WdLogSingleEntry1(3LL, v16);
+    v14 = WdLogNewEntry5_WdWarning(a1, a2, a3);
+    *(_QWORD *)(v14 + 24) = v16;
+LABEL_4:
+    WdLogEvent5_WdWarning(v14);
+    return (unsigned int)started;
   }
-  else
-  {
 LABEL_15:
-    started = DpiLdaPreStartChain(v10);
-    if ( started >= 0 )
+  v18 = 1;
+  if ( (unsigned int)a1 > 1 )
+  {
+    do
     {
-      v18 = 1;
-      if ( *((_DWORD *)DeviceExtension + 684) <= 1u )
+      v19 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 2728) + 8LL * v18) + 64LL);
+      if ( *(_DWORD *)(v19 + 236) == 1 )
       {
-LABEL_23:
-        started = DpiFdoStartAdapter(*((struct _DEVICE_OBJECT **)DeviceExtension + 3), a2, a3, a4, a5, a6, a7);
-        if ( started >= 0 )
-          return (unsigned int)started;
-        v20 = (struct _DEVICE_OBJECT *)*((_QWORD *)DeviceExtension + 19);
-      }
-      else
-      {
-        while ( 1 )
+        started = DpiFdoStartAdapter(*(struct _DEVICE_OBJECT **)(v19 + 24), v10, v9, a4, a5, a6, 0LL);
+        if ( started < 0 )
         {
-          v19 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)DeviceExtension + 341) + 8LL * v18) + 64LL);
-          if ( *(_DWORD *)(v19 + 236) == 1 )
-          {
-            started = DpiFdoStartAdapter(*(struct _DEVICE_OBJECT **)(v19 + 24), a2, a3, a4, a5, a6, 0LL);
-            if ( started < 0 )
-              break;
-          }
-          if ( ++v18 >= *((_DWORD *)DeviceExtension + 684) )
-            goto LABEL_23;
+          v20 = *(struct _DEVICE_OBJECT **)(v19 + 152);
+LABEL_22:
+          IoInvalidateDeviceState(v20);
+          return (unsigned int)started;
         }
-        v20 = *(struct _DEVICE_OBJECT **)(v19 + 152);
+        v10 = v22;
       }
-      IoInvalidateDeviceState(v20);
-      return (unsigned int)started;
+      ++v18;
     }
-    WdLogSingleEntry1(3LL, v10);
+    while ( v18 < *(_DWORD *)(v7 + 2736) );
+  }
+  started = DpiFdoStartAdapter(*(struct _DEVICE_OBJECT **)(v7 + 24), v10, v9, a4, a5, a6, a7);
+  if ( started < 0 )
+  {
+    v20 = *(struct _DEVICE_OBJECT **)(v7 + 152);
+    goto LABEL_22;
   }
   return (unsigned int)started;
 }

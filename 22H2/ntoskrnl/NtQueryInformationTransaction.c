@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryInformationTransaction @ 0x1403D7BD0
+ * XREFs of NtQueryInformationTransaction @ 0x1403D02C0
  * Callers:
  *     <none>
  * Callees:

@@ -1,61 +1,54 @@
 /*
- * XREFs of GreDrvConnect @ 0x1C016C570
+ * XREFs of GreDrvConnect @ 0x1C013F280
  * Callers:
- *     xxxRemoteConnect @ 0x1C007EDC0 (xxxRemoteConnect.c)
+ *     xxxRemoteConnect @ 0x1C01177E0 (xxxRemoteConnect.c)
  * Callees:
- *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C00D4AB4 (--1SEMOBJEX@@QEAA@XZ.c)
- *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C00D4C28 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C00C2E3C (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C00C2FB0 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall GreDrvConnect(_QWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall GreDrvConnect(_QWORD *a1, HSEMAPHORE a2, __int64 a3, HSEMAPHORE a4)
 {
-  __int64 v4; // rdx
-  int v5; // r8d
-  struct _LDEV *v6; // rbx
-  unsigned int v7; // edi
-  unsigned int (__fastcall *v8)(_QWORD, _QWORD, _QWORD, _QWORD); // rax
-  unsigned int v10; // [rsp+20h] [rbp-D8h]
-  unsigned int v11; // [rsp+30h] [rbp-C8h]
-  _BYTE v12[96]; // [rsp+90h] [rbp-68h] BYREF
+  int v5; // edi
+  __int64 v6; // rdx
+  int v7; // r8d
+  struct _LDEV *v8; // rbx
+  unsigned int (__fastcall *v9)(_QWORD, _QWORD, _QWORD, _QWORD); // rax
+  unsigned int v11; // [rsp+20h] [rbp-D8h]
+  HSEMAPHORE v12; // [rsp+28h] [rbp-D0h]
+  unsigned int v13; // [rsp+30h] [rbp-C8h]
+  _BYTE v14[96]; // [rsp+90h] [rbp-68h] BYREF
 
-  SEMOBJEX::SEMOBJEX(
-    (SEMOBJEX *)v12,
-    (HSEMAPHORE)ghsemDynamicModeChange,
-    a3,
-    (HSEMAPHORE)ghsemGreLock,
-    v10,
-    (HSEMAPHORE)ghsemDCVisRgn,
-    v11,
-    (HSEMAPHORE)ghsemSprite,
-    5u,
-    ghsemHT,
-    6u,
-    ghsemDriverMgmt,
-    0xDu);
-  v6 = gpldevDrivers;
-  v7 = 0;
-  while ( v6 )
+  v5 = 0;
+  SEMOBJEX::SEMOBJEX((SEMOBJEX *)v14, a2, a3, a4, v11, v12, v13, ghsemSprite, 5u, ghsemHT, 6u, ghsemDriverMgmt, 0xDu);
+  v8 = gpldevDrivers;
+  do
   {
-    if ( *((_QWORD *)v6 + 2) )
+    if ( !v8 )
+      break;
+    if ( *((_QWORD *)v8 + 2) )
     {
-      if ( *((_DWORD *)v6 + 6) == 1 )
+      if ( *((_DWORD *)v8 + 6) == 1 )
       {
-        v8 = *(unsigned int (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(*((_QWORD *)v6 + 112) + 616LL);
-        if ( v8 )
+        v9 = *(unsigned int (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(*((_QWORD *)v8 + 112) + 616LL);
+        if ( v9 )
         {
-          if ( !v8(a1[3], a1[2], a1[1], a1[4]) )
+          if ( v9(a1[3], a1[2], a1[1], a1[4]) )
           {
-            *((_DWORD *)v6 + 15) = 4;
-            v7 = -2143354875;
-            break;
+            *((_DWORD *)v8 + 15) = 1;
           }
-          *((_DWORD *)v6 + 15) = 1;
+          else
+          {
+            *((_DWORD *)v8 + 15) = 4;
+            v5 = -2143354875;
+          }
         }
       }
     }
-    v6 = *(struct _LDEV **)v6;
+    v8 = *(struct _LDEV **)v8;
   }
-  SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v12, v4, v5);
-  return v7;
+  while ( v5 >= 0 );
+  SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v14, v6, v7);
+  return (unsigned int)v5;
 }

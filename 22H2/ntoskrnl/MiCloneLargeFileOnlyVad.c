@@ -1,45 +1,43 @@
 /*
- * XREFs of MiCloneLargeFileOnlyVad @ 0x140A336F4
+ * XREFs of MiCloneLargeFileOnlyVad @ 0x1408CFD00
  * Callers:
- *     MiAllocateChildVads @ 0x140A483EC (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x1408D8AE0 (MiAllocateChildVads.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x140272D70 (MiGetProtoPteAddress.c)
- *     MiDecrementLargeSubsections @ 0x14063C764 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x14063D9C8 (MiIncrementLargeSubsections.c)
+ *     MiGetProtoPteAddress @ 0x1402B11D0 (MiGetProtoPteAddress.c)
+ *     MiDecrementLargeSubsections @ 0x140540350 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1405413C0 (MiIncrementLargeSubsections.c)
  */
 
 __int64 __fastcall MiCloneLargeFileOnlyVad(__int64 a1)
 {
   __int64 v1; // rdx
   __int64 v2; // rax
-  __int64 *v4; // rbx
-  __int64 *v5; // rdi
-  __int64 *v7; // [rsp+30h] [rbp+8h] BYREF
-  __int64 *v8; // [rsp+38h] [rbp+10h] BYREF
+  __int64 *v4; // rsi
+  __int64 *v5; // rbx
+  __int64 *v6; // rdi
+  __int64 *v8; // [rsp+30h] [rbp+8h] BYREF
+  __int64 *v9; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = *(unsigned __int8 *)(a1 + 32);
   v2 = *(unsigned int *)(a1 + 24);
-  v7 = 0LL;
   v8 = 0LL;
-  MiGetProtoPteAddress(a1, v2 | (v1 << 32), 0, (__int64 *)&v7);
-  MiGetProtoPteAddress(
-    a1,
-    *(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32),
-    0,
-    (__int64 *)&v8);
-  v4 = v7;
-  if ( (unsigned int)MiIncrementLargeSubsections(v7, *((unsigned int *)v7 + 11)) != -1 )
+  v9 = 0LL;
+  MiGetProtoPteAddress(a1, v2 | (v1 << 32), 0, &v8);
+  MiGetProtoPteAddress(a1, *(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32), 0, &v9);
+  v4 = v8;
+  v5 = v8;
+  if ( (unsigned int)MiIncrementLargeSubsections(v8, *((unsigned int *)v8 + 11)) != -1 )
   {
     do
     {
-      if ( v4 == v8 )
+      if ( v5 == v9 )
         return 0LL;
-      v5 = v4;
-      v4 = (__int64 *)v4[2];
+      v6 = v5;
+      v5 = (__int64 *)v5[2];
     }
-    while ( (unsigned int)MiIncrementLargeSubsections(v4, *((unsigned int *)v4 + 11)) != -1 );
-    if ( v5 )
-      MiDecrementLargeSubsections(v7, v5);
+    while ( (unsigned int)MiIncrementLargeSubsections(v5, *((unsigned int *)v5 + 11)) != -1 );
+    if ( v6 )
+      MiDecrementLargeSubsections(v4, v6);
   }
   return 3221225626LL;
 }

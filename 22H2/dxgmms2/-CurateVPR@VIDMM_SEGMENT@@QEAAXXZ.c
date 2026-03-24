@@ -1,14 +1,14 @@
 /*
- * XREFs of ?CurateVPR@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00FC760
+ * XREFs of ?CurateVPR@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00C5194
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B5730 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008C500 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
  * Callees:
- *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0004EE4 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
- *     McTemplateK0phhhqqx_EtwWriteTransfer @ 0x1C0032880 (McTemplateK0phhhqqx_EtwWriteTransfer.c)
- *     McTemplateK0phhhxxqqx_EtwWriteTransfer @ 0x1C003294C (McTemplateK0phhhxxqqx_EtwWriteTransfer.c)
- *     ?PrepareMoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW4VIDMM_MOVE_RESOURCES_DEFRAG_STAGE@@22W4VIDMM_DEFRAGMENT_DIRECTION@@PEA_NPEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E6630 (-PrepareMoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW.c)
- *     Percentagex100 @ 0x1C00FE0E4 (Percentagex100.c)
- *     ?CalculateCapacity@VIDMM_LINEAR_POOL@@QEAA_KXZ @ 0x1C0101648 (-CalculateCapacity@VIDMM_LINEAR_POOL@@QEAA_KXZ.c)
+ *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0001224 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
+ *     McTemplateK0phhhqqx_EtwWriteTransfer @ 0x1C00285E0 (McTemplateK0phhhqqx_EtwWriteTransfer.c)
+ *     McTemplateK0phhhxxqqx_EtwWriteTransfer @ 0x1C00286AC (McTemplateK0phhhxxqqx_EtwWriteTransfer.c)
+ *     ?PrepareMoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW4VIDMM_MOVE_RESOURCES_DEFRAG_STAGE@@22W4VIDMM_DEFRAGMENT_DIRECTION@@PEA_NPEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B0E70 (-PrepareMoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW.c)
+ *     Percentagex100 @ 0x1C00C6764 (Percentagex100.c)
+ *     ?CalculateCapacity@VIDMM_LINEAR_POOL@@QEAA_KXZ @ 0x1C00CCE0C (-CalculateCapacity@VIDMM_LINEAR_POOL@@QEAA_KXZ.c)
  */
 
 void __fastcall VIDMM_SEGMENT::CurateVPR(VIDMM_SEGMENT *this)
@@ -34,11 +34,15 @@ void __fastcall VIDMM_SEGMENT::CurateVPR(VIDMM_SEGMENT *this)
   __int64 v20; // rcx
   __int64 v21; // r8
   int v22; // eax
-  __int64 v23; // [rsp+20h] [rbp-58h]
-  __int64 v24; // [rsp+28h] [rbp-50h]
-  __int64 v25; // [rsp+40h] [rbp-38h]
-  unsigned __int8 v26; // [rsp+80h] [rbp+8h] BYREF
-  __int64 v27; // [rsp+88h] [rbp+10h] BYREF
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rbx
+  _QWORD *v26; // rax
+  __int64 v27; // [rsp+20h] [rbp-58h]
+  __int64 v28; // [rsp+28h] [rbp-50h]
+  __int64 v29; // [rsp+40h] [rbp-38h]
+  unsigned __int8 v30; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v31; // [rsp+88h] [rbp+10h] BYREF
 
   if ( !*((_BYTE *)this + 448) )
   {
@@ -48,38 +52,38 @@ void __fastcall VIDMM_SEGMENT::CurateVPR(VIDMM_SEGMENT *this)
     {
       VIDMM_LINEAR_POOL::CalculateCapacity(*((VIDMM_LINEAR_POOL **)this + 19));
       v3 = VIDMM_SEGMENT::DriverId(this);
-      if ( (byte_1C0076981 & 0x10) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
       {
         Percentagex100(*((_QWORD *)this + 55), *((_QWORD *)this + 54));
-        Percentagex100((unsigned int)dword_1C0076578, (unsigned int)dword_1C007657C);
-        v25 = v4;
-        LOWORD(v24) = v3;
-        LOWORD(v23) = *((_WORD *)this + 190);
+        Percentagex100((unsigned int)dword_1C00504C8, (unsigned int)dword_1C00504CC);
+        v29 = v4;
+        LOWORD(v28) = v3;
+        LOWORD(v27) = *((_WORD *)this + 190);
         McTemplateK0phhhxxqqx_EtwWriteTransfer(v6, v5, v7, *(_QWORD *)(*((_QWORD *)this + 1) + 24LL));
       }
     }
     v8 = *((_QWORD *)this + 54);
     v9 = *((_QWORD *)this + 55);
-    if ( v9 < v8 * (unsigned __int64)(unsigned int)dword_1C0076578 / (unsigned int)dword_1C007657C )
+    if ( v9 < v8 * (unsigned __int64)(unsigned int)dword_1C00504C8 / (unsigned int)dword_1C00504CC )
     {
       v10 = VIDMM_LINEAR_POOL::CalculateCapacity(*((VIDMM_LINEAR_POOL **)this + 19));
-      v12 = dword_1C0076584;
+      v12 = dword_1C00504D4;
       v13 = v8 - v9;
-      v14 = (unsigned __int64)(unsigned int)dword_1C0076580 * v13 % (unsigned int)dword_1C0076584;
-      if ( v10 < (unsigned __int64)(unsigned int)dword_1C0076580 * v13 / (unsigned int)dword_1C0076584 )
+      v14 = (unsigned __int64)(unsigned int)dword_1C00504D0 * v13 % (unsigned int)dword_1C00504D4;
+      if ( v10 < (unsigned __int64)(unsigned int)dword_1C00504D0 * v13 / (unsigned int)dword_1C00504D4 )
       {
-        v27 = 0LL;
-        v26 = 0;
+        v31 = 0LL;
+        v30 = 0;
         if ( bTracingEnabled )
         {
           v15 = VIDMM_SEGMENT::DriverId(this);
-          if ( (byte_1C0076981 & 0x10) != 0 )
+          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400) != 0 )
           {
             Percentagex100(v16, v13);
             Percentagex100(v17, v12);
-            LODWORD(v25) = v18;
-            LOWORD(v24) = v15;
-            LOWORD(v23) = *((_WORD *)this + 190);
+            LODWORD(v29) = v18;
+            LOWORD(v28) = v15;
+            LOWORD(v27) = *((_WORD *)this + 190);
             McTemplateK0phhhqqx_EtwWriteTransfer(v20, v19, v21, *(_QWORD *)(*((_QWORD *)this + 1) + 24LL));
           }
         }
@@ -88,15 +92,22 @@ void __fastcall VIDMM_SEGMENT::CurateVPR(VIDMM_SEGMENT *this)
                 v14,
                 v11,
                 *((_DWORD *)this + 4),
-                v23,
-                v24,
+                v27,
+                v28,
                 *((_QWORD *)this + 52),
                 *((_QWORD *)this + 53),
-                v25,
-                &v26,
-                (__int64)&v27);
+                v29,
+                &v30,
+                (__int64)&v31);
+        v25 = v22;
         if ( v22 < 0 )
-          WdLogSingleEntry3(3LL, v22, v27, v26);
+        {
+          v26 = (_QWORD *)WdLogNewEntry5_WdWarning(v24, v23);
+          v26[4] = v31;
+          v26[3] = v25;
+          v26[5] = v30;
+          WdLogEvent5_WdWarning(v26);
+        }
       }
     }
   }

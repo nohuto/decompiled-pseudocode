@@ -1,23 +1,24 @@
 /*
- * XREFs of ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C012451C
+ * XREFs of ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C00E7468
  * Callers:
- *     ?vCharPos_H3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z @ 0x1C001A108 (-vCharPos_H3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z.c)
- *     ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C001A8BC (-bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
- *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C00359A0 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
- *     ?vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z @ 0x1C00379E0 (-vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z.c)
- *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C013C010 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
+ *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C0095270 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
+ *     ?vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z @ 0x1C0095DA0 (-vCharPos_H1@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEBJVEFLOAT@@@Z.c)
+ *     ?vCharPos_H3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z @ 0x1C0097F90 (-vCharPos_H3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z.c)
+ *     ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0098AC0 (-bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
+ *     ?bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z @ 0x1C0098FC0 (-bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z.c)
+ *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C01197E0 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ @ 0x1C01247EC (-pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ.c)
- *     ?bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z @ 0x1C0124858 (-bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z.c)
- *     ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C0150B6C (-FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z.c)
- *     ?vLockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXH@Z @ 0x1C0150C24 (-vLockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXH@Z.c)
- *     ?vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ @ 0x1C0150CC8 (-vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ.c)
- *     ?bPartitionInit@ESTROBJ@@QEAAHKIH@Z @ 0x1C0151214 (-bPartitionInit@ESTROBJ@@QEAAHKIH@Z.c)
- *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C015154C (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C0151CF0 (-pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
- *     ?bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C02A583C (-bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
- *     ?pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C02A59A4 (-pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
+ *     ?bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z @ 0x1C0063548 (-bIsLinkedGlyph@RFONTOBJ@@QEAAHG@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C00E7758 (-FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z.c)
+ *     ?pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C00E7B58 (-pgdGetEudcMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
+ *     ?vLockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXH@Z @ 0x1C00E7CE4 (-vLockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXH@Z.c)
+ *     ?vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ @ 0x1C00E7DD0 (-vLockSystemTTGlyphCache@RFONTOBJ@@AEAAXXZ.c)
+ *     ?vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00E7DFC (-vInitEUDC@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?bPartitionInit@ESTROBJ@@QEAAHKIH@Z @ 0x1C00E941C (-bPartitionInit@ESTROBJ@@QEAAHKIH@Z.c)
+ *     ?pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ @ 0x1C0152D9C (-pgdDefault@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@XZ.c)
+ *     ?pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z @ 0x1C0158C60 (-pgdGetEudcMetrics@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@GPEAV1@@Z.c)
+ *     ?bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C02A7794 (-bInitSystemTT@RFONTOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
  */
 
 struct _GLYPHDATA *__fastcall RFONTOBJ::wpgdGetLinkMetricsPlus(
@@ -31,10 +32,10 @@ struct _GLYPHDATA *__fastcall RFONTOBJ::wpgdGetLinkMetricsPlus(
         int a8)
 {
   unsigned int v8; // r13d
-  const unsigned __int16 *v10; // r12
+  const unsigned __int16 *v9; // r12
   unsigned __int16 *v14; // rcx
-  const unsigned __int16 *v15; // rdx
-  __int64 v16; // rax
+  const unsigned __int16 *v15; // r8
+  __int64 v16; // rdx
   __int64 v17; // r11
   int v18; // r10d
   struct _GLYPHDATA *result; // rax
@@ -50,32 +51,26 @@ struct _GLYPHDATA *__fastcall RFONTOBJ::wpgdGetLinkMetricsPlus(
   __int64 v29; // rax
 
   v8 = a6;
-  v10 = a5;
+  v9 = a5;
   v14 = a4;
   v15 = &a5[a6];
   if ( !a2 )
     return RFONTOBJ::pgdDefault(this);
   v16 = *(_QWORD *)a2;
-  if ( *(_DWORD *)(*(_QWORD *)a2 + 308LL)
-    || !gbAnyLinkedFonts && *(_OWORD *)&gappfeSysEUDC == 0LL && !*(_DWORD *)(v16 + 304) )
-  {
+  if ( *(_DWORD *)(v16 + 308) || !gbAnyLinkedFonts && *(_OWORD *)&gappfeSysEUDC == 0LL && !*(_DWORD *)(v16 + 304) )
     return RFONTOBJ::pgdDefault(this);
-  }
-  if ( a4 >= v15 )
+  if ( a4 < v15 )
   {
-LABEL_8:
-    if ( v14 == v15 )
-      return RFONTOBJ::pgdDefault(this);
-  }
-  else
-  {
-    while ( *v14 >= 0x80u )
+    do
     {
-      if ( *v14 <= 0x9Fu && ++v14 < v15 )
-        continue;
-      goto LABEL_8;
+      if ( (unsigned __int16)(*v14 - 128) > 0x1Fu )
+        break;
+      ++v14;
     }
+    while ( v14 < v15 );
   }
+  if ( v14 == v15 )
+    return RFONTOBJ::pgdDefault(this);
   if ( !*(_DWORD *)(v16 + 304) && *(_DWORD *)(*(_QWORD *)this + 708LL) && !*(_QWORD *)(*(_QWORD *)this + 720LL) )
     RFONTOBJ::bInitSystemTT(this, a2);
   v17 = *(_QWORD *)this;
@@ -86,8 +81,8 @@ LABEL_8:
     v18 = *a4;
     if ( *(_DWORD *)(v17 + 708)
       && (unsigned __int16)v18 >= gqlTTSystem
-      && (unsigned __int16)v18 <= (unsigned __int16)word_1C0337C8A
-      && ((0x80000000 >> ((v18 - gqlTTSystem) % 32)) & *(_DWORD *)(qword_1C0337C90 + 4LL * ((v18 - gqlTTSystem) / 32))) != 0 )
+      && (unsigned __int16)v18 <= (unsigned __int16)word_1C033D5CA
+      && ((0x80000000 >> ((v18 - gqlTTSystem) % 32)) & *(_DWORD *)(qword_1C033D5D0 + 4LL * ((v18 - gqlTTSystem) / 32))) != 0 )
     {
       if ( *(_QWORD *)(v17 + 720) )
       {
@@ -108,7 +103,7 @@ LABEL_8:
           {
             v29 = *((_QWORD *)a3 + 26);
             ++*((_DWORD *)a3 + 62);
-            *(_DWORD *)(v29 + 4 * (a4 - v10)) = 1;
+            *(_DWORD *)(v29 + 4 * (a4 - v9)) = 1;
             *a7 = 0;
           }
         }
@@ -155,7 +150,7 @@ LABEL_8:
   {
     return RFONTOBJ::pgdDefault(this);
   }
-  v21 = (char *)a4 - (char *)v10;
+  v21 = (char *)a4 - (char *)v9;
   v22 = a8;
   v23 = v21 >> 1;
   result = RFONTOBJ::FindLinkedGlyphDataPlus(this, a2, a3, *a4, v23, v8, a7, 0, a8);

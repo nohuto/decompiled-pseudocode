@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenKeyedEvent @ 0x14041CC20
+ * XREFs of ZwOpenKeyedEvent @ 0x1403FBEA0
  * Callers:
  *     <none>
  * Callees:

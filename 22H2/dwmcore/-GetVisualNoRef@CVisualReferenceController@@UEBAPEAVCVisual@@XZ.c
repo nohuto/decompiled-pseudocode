@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetVisualNoRef@CVisualReferenceController@@UEBAPEAVCVisual@@XZ @ 0x1800DCD30
+ * XREFs of ?GetVisualNoRef@CVisualReferenceController@@UEBAPEAVCVisual@@XZ @ 0x1800C2620
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ struct CVisual *__fastcall CVisualReferenceController::GetVisualNoRef(CVisualRef
 {
   struct CVisual *result; // rax
 
-  result = (struct CVisual *)*((_QWORD *)this + 9);
+  result = (struct CVisual *)*((_QWORD *)this + 8);
   if ( result )
     return (struct CVisual *)*((_QWORD *)result + 2);
   return result;

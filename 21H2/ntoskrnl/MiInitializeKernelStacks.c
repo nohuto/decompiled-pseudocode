@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeKernelStacks @ 0x140B04910
+ * XREFs of MiInitializeKernelStacks @ 0x140A4D410
  * Callers:
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
  * Callees:
- *     MiSystemVaToDynamicBitmap @ 0x14026CF08 (MiSystemVaToDynamicBitmap.c)
- *     MiBuildDynamicRegion @ 0x1403C289C (MiBuildDynamicRegion.c)
- *     MiMarkBootGuardPage @ 0x140829B50 (MiMarkBootGuardPage.c)
- *     MiInitializePteInfo @ 0x140B04AE0 (MiInitializePteInfo.c)
- *     MiMarkBootKernelStack @ 0x140B05B1C (MiMarkBootKernelStack.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1402B407C (MiSystemVaToDynamicBitmap.c)
+ *     MiBuildDynamicRegion @ 0x1403B5F84 (MiBuildDynamicRegion.c)
+ *     MiMarkBootGuardPage @ 0x14079F9BC (MiMarkBootGuardPage.c)
+ *     MiMarkBootKernelStack @ 0x140A4DC44 (MiMarkBootKernelStack.c)
+ *     MiInitializePteInfo @ 0x140A4E918 (MiInitializePteInfo.c)
  */
 
 __int64 MiInitializeKernelStacks()
@@ -18,8 +18,6 @@ __int64 MiInitializeKernelStacks()
   __int64 v3; // rbx
   __int64 v4; // rbx
   __int64 *v5; // rax
-  __int64 v6; // rbx
-  __int64 *v7; // rax
   __int64 result; // rax
 
   CurrentThread = KeGetCurrentThread();
@@ -30,24 +28,16 @@ __int64 MiInitializeKernelStacks()
   MiMarkBootKernelStack(v3, (((unsigned __int64)CurrentThread->StackBase >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   MiMarkBootGuardPage(v3 - 8);
   MiMarkBootGuardPage(v2 - 8);
-  v4 = qword_140C540D0;
-  byte_140C5304C = (unsigned int)KeKernelStackSize >> 12;
+  v4 = qword_140C4FB48;
+  byte_140C4EBBC = (unsigned int)KeKernelStackSize >> 12;
   v5 = MiSystemVaToDynamicBitmap(14);
-  if ( !(unsigned int)MiBuildDynamicRegion(v5, v4, 0x10000000000uLL) )
-    return 0LL;
-  if ( !(unsigned int)MiInitializePteInfo((unsigned int)&unk_140C52F98, 14, 0, 11, v4, 0x10000000000LL, 1) )
-    return 0LL;
-  dword_140C52FB0 |= 1u;
-  v6 = qword_140C54110;
-  qword_140C52FE0 = qword_140C52F30;
-  v7 = MiSystemVaToDynamicBitmap(16);
-  if ( !(unsigned int)MiBuildDynamicRegion(v7, v6, 0x8000000000uLL)
-    || !(unsigned int)MiInitializePteInfo((unsigned int)&unk_140C52FF0, 16, 0, 11, v6, 0x8000000000LL, 1) )
+  if ( !(unsigned int)MiBuildDynamicRegion(v5, v4, 0x10000000000uLL)
+    || !(unsigned int)MiInitializePteInfo((unsigned int)&unk_140C4EB58, 14, 0, 11, v4, 0x10000000000LL, 1) )
   {
     return 0LL;
   }
   result = 1LL;
-  dword_140C53008 |= 1u;
-  qword_140C53038 = qword_140C52F38;
+  dword_140C4EB70 |= 1u;
+  qword_140C4EBA8 = qword_140C4EAF0;
   return result;
 }

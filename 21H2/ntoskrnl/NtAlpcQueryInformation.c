@@ -1,18 +1,18 @@
 /*
- * XREFs of NtAlpcQueryInformation @ 0x14069B200
+ * XREFs of NtAlpcQueryInformation @ 0x140681F90
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x14069B030 (AlpcpPortQueryConnectedSidInfo.c)
- *     AlpcpPortQueryBasicInfo @ 0x14069B430 (AlpcpPortQueryBasicInfo.c)
- *     AlpcpPortQueryServerSessionInfo @ 0x14069B48C (AlpcpPortQueryServerSessionInfo.c)
- *     AlpcpWaitForPortReferences @ 0x14069B63C (AlpcpWaitForPortReferences.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     AlpcpPortQueryServerInfo @ 0x140966F60 (AlpcpPortQueryServerInfo.c)
- *     ExRaiseAccessViolation @ 0x140A021F0 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     AlpcpPortQueryBasicInfo @ 0x1406821C0 (AlpcpPortQueryBasicInfo.c)
+ *     AlpcpPortQueryServerSessionInfo @ 0x14068221C (AlpcpPortQueryServerSessionInfo.c)
+ *     AlpcpWaitForPortReferences @ 0x14068231C (AlpcpWaitForPortReferences.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x1406823B8 (AlpcpPortQueryConnectedSidInfo.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpPortQueryServerInfo @ 0x1408C3100 (AlpcpPortQueryServerInfo.c)
+ *     ExRaiseAccessViolation @ 0x1409560F0 (ExRaiseAccessViolation.c)
  */
 
 __int64 __fastcall NtAlpcQueryInformation(
@@ -22,15 +22,15 @@ __int64 __fastcall NtAlpcQueryInformation(
         unsigned int a4,
         unsigned __int64 a5)
 {
-  void *v6; // rbx
+  unsigned __int64 v6; // rbx
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r13
   unsigned __int64 v11; // rdx
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // rax
-  _DWORD *v14; // r14
+  unsigned __int64 v14; // r14
   __int64 v15; // rcx
-  PVOID v16; // rdi
+  struct _DMA_ADAPTER *v16; // rdi
   NTSTATUS v17; // esi
   NTSTATUS ServerSessionInfo; // eax
   struct _KTHREAD *v19; // rcx
@@ -38,9 +38,10 @@ __int64 __fastcall NtAlpcQueryInformation(
   int v22; // r15d
   int v23; // r15d
   int v24; // r15d
-  PVOID Object; // [rsp+70h] [rbp+18h] BYREF
+  int Object; // [rsp+20h] [rbp-38h]
+  PVOID v26; // [rsp+70h] [rbp+18h] BYREF
 
-  v6 = (void *)a3;
+  v6 = a3;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( !a3 )
@@ -71,7 +72,7 @@ __int64 __fastcall NtAlpcQueryInformation(
     {
       a3 = 0x7FFFFFFF0000LL;
     }
-    v14 = (_DWORD *)a5;
+    v14 = a5;
     if ( a5 )
     {
       v15 = a5;
@@ -82,13 +83,13 @@ __int64 __fastcall NtAlpcQueryInformation(
   }
   else
   {
-    v14 = (_DWORD *)a5;
+    v14 = a5;
   }
   v16 = 0LL;
   if ( !Handle
-    || (Object = 0LL,
-        v17 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL),
-        v16 = Object,
+    || (v26 = 0LL,
+        v17 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &v26, 0LL),
+        v16 = (struct _DMA_ADAPTER *)v26,
         v17 >= 0) )
   {
     if ( a2 )
@@ -107,24 +108,25 @@ __int64 __fastcall NtAlpcQueryInformation(
               v17 = -1073741811;
 LABEL_22:
               if ( v16 )
-                ObfDereferenceObject(v16);
+                HalPutDmaAdapter(v16);
               goto LABEL_24;
             }
             ServerSessionInfo = AlpcpPortQueryServerSessionInfo(v16, v6, a4, v14);
           }
           else
           {
-            ServerSessionInfo = AlpcpWaitForPortReferences((_DWORD)v16, (_DWORD)v6, a4, (_DWORD)v14, PreviousMode);
+            ServerSessionInfo = AlpcpWaitForPortReferences((_DWORD)v16, v6, a4, v14, PreviousMode);
           }
         }
         else
         {
-          ServerSessionInfo = AlpcpPortQueryServerInfo((int)v16, (int)v6, a4, (int)v14, PreviousMode);
+          ServerSessionInfo = AlpcpPortQueryServerInfo((int)v16, v6, a4, v14, PreviousMode);
         }
       }
       else
       {
-        ServerSessionInfo = AlpcpPortQueryConnectedSidInfo((__int64)v16, v6, a3, v14, PreviousMode);
+        LOBYTE(Object) = PreviousMode;
+        ServerSessionInfo = AlpcpPortQueryConnectedSidInfo(v16, v6, a3, v14, Object);
       }
     }
     else
@@ -138,10 +140,10 @@ LABEL_24:
   v19 = KeGetCurrentThread();
   v20 = v19->KernelApcDisable++ == -1;
   if ( v20
-    && ($CEA84C04E3712D858E5667A507841A2A *)v19->ApcState.ApcListHead[0].Flink != &v19->152
+    && ($C459BD0D405E8E46662177FB3D0A143F *)v19->ApcState.ApcListHead[0].Flink != &v19->152
     && !v19->SpecialApcDisable )
   {
-    KiCheckForKernelApcDelivery();
+    KiCheckForKernelApcDelivery((__int64)v19);
   }
   return (unsigned int)v17;
 }

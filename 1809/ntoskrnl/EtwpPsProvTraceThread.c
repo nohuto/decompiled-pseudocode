@@ -5,8 +5,8 @@
  * Callees:
  *     PsQueryThreadStartAddress @ 0x1400A3970 (PsQueryThreadStartAddress.c)
  *     PsGetCurrentThreadTeb @ 0x1400A39C0 (PsGetCurrentThreadTeb.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpPsProvTraceThread(__int64 a1, __int64 a2, char a3)

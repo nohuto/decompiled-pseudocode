@@ -1,39 +1,38 @@
 /*
- * XREFs of ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x1800AB428
+ * XREFs of ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x180035A2C
  * Callers:
- *     ?Create@CChannelContext@@SAJIK_KPEAVCConnection@@PEAPEAV1@@Z @ 0x1800AAFFC (-Create@CChannelContext@@SAJIK_KPEAVCConnection@@PEAPEAV1@@Z.c)
- *     ?ProcessCreate@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_CREATE@@@Z @ 0x1800AB3C0 (-ProcessCreate@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_CREATE@@@Z.c)
+ *     ?Create@CChannelContext@@SAJIK_KPEAVCConnection@@PEAPEAV1@@Z @ 0x180034C18 (-Create@CChannelContext@@SAJIK_KPEAVCConnection@@PEAPEAV1@@Z.c)
+ *     ?ProcessCreate@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_CREATE@@@Z @ 0x180035910 (-ProcessCreate@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_CREATE@@@Z.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??$lower_bound@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAURecord@CProcessAttributionManager@@@std@@@std@@@std@@_KP6A_NPEBUProcessAttributionRecord@CProcessAttributionManager@@_J@Z@std@@YA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAURecord@CProcessAttributionManager@@@std@@@std@@@0@V10@V10@AEB_KP6A_NPEBUProcessAttributionRecord@CProcessAttributionManager@@_J@Z@Z @ 0x1800AB584 (--$lower_bound@V-$_Vector_iterator@V-$_Vector_val@U-$_Simple_types@PEAURecord@CProcessAttributio.c)
- *     ??0Record@CProcessAttributionManager@@QEAA@K_KH@Z @ 0x1800AC260 (--0Record@CProcessAttributionManager@@QEAA@K_KH@Z.c)
- *     ?CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEAPEAVCProcessAttribution@@@Z @ 0x1800AC308 (-CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEA.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$_Emplace_reallocate@AEBQEAURecord@CProcessAttributionManager@@@?$vector@PEAURecord@CProcessAttributionManager@@V?$allocator@PEAURecord@CProcessAttributionManager@@@std@@@std@@QEAAPEAPEAURecord@CProcessAttributionManager@@QEAPEAU23@AEBQEAU23@@Z @ 0x1800FA2BC (--$_Emplace_reallocate@AEBQEAURecord@CProcessAttributionManager@@@-$vector@PEAURecord@CProcessAt.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
+ *     ??0Record@CProcessAttributionManager@@QEAA@K_KH@Z @ 0x180033E40 (--0Record@CProcessAttributionManager@@QEAA@K_KH@Z.c)
+ *     ?CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEAPEAVCProcessAttribution@@@Z @ 0x18003425C (-CreateProcessAttribution@CProcessAttributionManager@@AEAAJKPEBUProcessAttributionRecord@1@_NPEA.c)
+ *     ??$lower_bound@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAURecord@CProcessAttributionManager@@@std@@@std@@@std@@_KP6A_NPEBUProcessAttributionRecord@CProcessAttributionManager@@_J@Z@std@@YA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAURecord@CProcessAttributionManager@@@std@@@std@@@0@V10@V10@AEB_KP6A_NPEBUProcessAttributionRecord@CProcessAttributionManager@@_J@Z@Z @ 0x180035B84 (--$lower_bound@V-$_Vector_iterator@V-$_Vector_val@U-$_Simple_types@PEAURecord@CProcessAttributio.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$_Emplace_reallocate@AEBQEAUProcessAttributionRecord@CProcessAttributionManager@@@?$vector@PEAUProcessAttributionRecord@CProcessAttributionManager@@V?$allocator@PEAUProcessAttributionRecord@CProcessAttributionManager@@@std@@@std@@QEAAPEAPEAUProcessAttributionRecord@CProcessAttributionManager@@QEAPEAU23@AEBQEAU23@@Z @ 0x1800D1194 (--$_Emplace_reallocate@AEBQEAUProcessAttributionRecord@CProcessAttributionManager@@@-$vector@PEA.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
 __int64 __fastcall CProcessAttributionManager::GetProcessAttribution(
         CProcessAttributionManager *this,
-        unsigned int a2,
-        unsigned __int64 a3,
+        int a2,
+        __int64 a3,
         struct CProcessAttribution **a4)
 {
   unsigned int v8; // esi
   char *v9; // rbx
   __int64 v10; // rbp
-  __int64 v11; // rcx
+  volatile signed __int32 *v11; // rax
   CProcessAttributionManager::Record *v13; // rax
   unsigned int v14; // ecx
-  void *v15; // rax
-  const struct CProcessAttributionManager::ProcessAttributionRecord *v16; // rbp
-  char *v17; // rcx
+  CProcessAttributionManager::Record *v15; // rbp
+  char *v16; // rcx
   int ProcessAttribution; // eax
-  int v19; // r9d
-  unsigned int v20; // [rsp+20h] [rbp-38h]
-  void *Src; // [rsp+60h] [rbp+8h] BYREF
-  unsigned __int64 v22; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v18; // ecx
+  unsigned int v19; // [rsp+20h] [rbp-48h]
+  void *Src; // [rsp+30h] [rbp-38h] BYREF
+  CProcessAttributionManager::Record *v21; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v22; // [rsp+80h] [rbp+18h] BYREF
 
   v22 = a3;
   v8 = 0;
@@ -46,57 +45,56 @@ __int64 __fastcall CProcessAttributionManager::GetProcessAttribution(
   if ( Src == *((void **)this + 1) || (v10 = *(_QWORD *)Src, **(_QWORD **)Src != a3) )
   {
     v13 = (CProcessAttributionManager::Record *)DefaultHeap::Alloc(0xA8uLL);
-    if ( !v13
-      || (v15 = (void *)CProcessAttributionManager::Record::Record(
-                          v13,
-                          a2,
-                          a3,
-                          (__int64)(*((_QWORD *)this + 4) - *((_QWORD *)this + 3)) >> 3),
-          Src = v15,
-          (v16 = (const struct CProcessAttributionManager::ProcessAttributionRecord *)v15) == 0LL) )
+    if ( v13 )
+      v15 = CProcessAttributionManager::Record::Record(
+              v13,
+              a2,
+              a3,
+              (__int64)(*((_QWORD *)this + 4) - *((_QWORD *)this + 3)) >> 3);
+    else
+      v15 = 0LL;
+    v21 = v15;
+    if ( !v15 )
     {
       v8 = -2147024882;
-      v19 = -2147024882;
-      v20 = 229;
-      goto LABEL_21;
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024882, 0xE5u, 0LL);
+      return v8;
     }
-    v17 = (char *)*((_QWORD *)this + 1);
-    if ( v17 == *((char **)this + 2) )
+    v16 = (char *)*((_QWORD *)this + 1);
+    if ( *((char **)this + 2) == v16 )
     {
-      std::vector<CProcessAttributionManager::Record *>::_Emplace_reallocate<CProcessAttributionManager::Record * const &>(
+      std::vector<CProcessAttributionManager::ProcessAttributionRecord *>::_Emplace_reallocate<CProcessAttributionManager::ProcessAttributionRecord * const &>(
         this,
         v9,
-        &Src);
-      v16 = (const struct CProcessAttributionManager::ProcessAttributionRecord *)Src;
+        &v21);
+      v15 = v21;
     }
-    else if ( v9 == v17 )
+    else if ( v9 == v16 )
     {
-      *(_QWORD *)v17 = v15;
+      *(_QWORD *)v16 = v15;
       *((_QWORD *)this + 1) += 8LL;
     }
     else
     {
-      *(_QWORD *)v17 = *((_QWORD *)v17 - 1);
+      *(_QWORD *)v16 = *((_QWORD *)v16 - 1);
       *((_QWORD *)this + 1) += 8LL;
-      memmove_0(v9 + 8, v9, v17 - v9 - 8);
-      *(_QWORD *)v9 = v16;
+      memmove_0(v9 + 8, v9, v16 - v9 - 8);
+      *(_QWORD *)v9 = v15;
     }
-    ProcessAttribution = CProcessAttributionManager::CreateProcessAttribution(this, a2, v16, 1, a4);
+    ProcessAttribution = CProcessAttributionManager::CreateProcessAttribution(this, a2, v15, 1, a4);
     v8 = ProcessAttribution;
     if ( ProcessAttribution >= 0 )
     {
-      *((_QWORD *)v16 + 14) = *a4;
-      *((_DWORD *)v16 + 40) = (__int64)(*((_QWORD *)this + 4) - *((_QWORD *)this + 3)) >> 3;
+      *((_QWORD *)v15 + 14) = *a4;
+      *((_DWORD *)v15 + 40) = (__int64)(*((_QWORD *)this + 4) - *((_QWORD *)this + 3)) >> 3;
       return v8;
     }
-    v20 = 236;
-LABEL_19:
-    v19 = ProcessAttribution;
-LABEL_21:
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v19, v20, 0LL);
+    v19 = 236;
+LABEL_22:
+    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, ProcessAttribution, v19, 0LL);
     return v8;
   }
-  v11 = *(_QWORD *)(v10 + 112);
+  v11 = *(volatile signed __int32 **)(v10 + 112);
   if ( !v11 )
   {
     ProcessAttribution = CProcessAttributionManager::CreateProcessAttribution(
@@ -112,10 +110,10 @@ LABEL_21:
       *(_DWORD *)(v10 + 160) = (__int64)(*((_QWORD *)this + 4) - *((_QWORD *)this + 3)) >> 3;
       return v8;
     }
-    v20 = 217;
-    goto LABEL_19;
+    v19 = 217;
+    goto LABEL_22;
   }
   *a4 = (struct CProcessAttribution *)v11;
-  CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v11 + 8));
+  _InterlockedIncrement(v11 + 2);
   return v8;
 }

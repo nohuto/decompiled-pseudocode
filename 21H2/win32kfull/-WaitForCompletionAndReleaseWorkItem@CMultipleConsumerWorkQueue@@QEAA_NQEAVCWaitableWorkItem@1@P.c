@@ -1,9 +1,10 @@
 /*
- * XREFs of ?WaitForCompletionAndReleaseWorkItem@CMultipleConsumerWorkQueue@@QEAA_NQEAVCWaitableWorkItem@1@PEBIPEA_N@Z @ 0x1C02DC9D0
+ * XREFs of ?WaitForCompletionAndReleaseWorkItem@CMultipleConsumerWorkQueue@@QEAA_NQEAVCWaitableWorkItem@1@PEBIPEA_N@Z @ 0x1C00F3D30
  * Callers:
- *     ?UmfdClientWaitForCompletion@@YAJPEAX0PEBI@Z @ 0x1C02DBF38 (-UmfdClientWaitForCompletion@@YAJPEAX0PEBI@Z.c)
+ *     UmfdQueryFontData @ 0x1C00F3A10 (UmfdQueryFontData.c)
+ *     ?UmfdClientWaitForCompletion@@YAJPEAX0PEBI@Z @ 0x1C02DF128 (-UmfdClientWaitForCompletion@@YAJPEAX0PEBI@Z.c)
  * Callees:
- *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C011AC00 (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
+ *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C012E714 (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
  */
 
 bool __fastcall CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem(
@@ -22,6 +23,11 @@ bool __fastcall CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem(
   if ( !a3 )
   {
     KeWaitForSingleObject(v7, Executive, 0, 0, 0LL);
+    goto LABEL_3;
+  }
+  Timeout.QuadPart = -10000LL * *a3;
+  if ( KeWaitForSingleObject(v7, Executive, 0, 0, &Timeout) != 258 )
+  {
 LABEL_3:
     if ( a4 )
       *a4 = 0;
@@ -32,7 +38,7 @@ LABEL_3:
     if ( (unsigned int)_InterlockedIncrement((volatile signed __int32 *)v8) > 8 )
     {
       _InterlockedDecrement((volatile signed __int32 *)v8);
-      CEventPool::CEventPoolEntry::Destroy((_QWORD *)v9);
+      CEventPool::CEventPoolEntry::Destroy((PVOID)v9);
     }
     else
     {
@@ -41,9 +47,6 @@ LABEL_3:
     }
     return v10;
   }
-  Timeout.QuadPart = -10000LL * *a3;
-  if ( KeWaitForSingleObject(v7, Executive, 0, 0, &Timeout) != 258 )
-    goto LABEL_3;
   if ( a4 )
     *a4 = 1;
   return 0;

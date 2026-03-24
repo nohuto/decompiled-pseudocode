@@ -1,11 +1,11 @@
 /*
- * XREFs of PspQuitNextJobProcess @ 0x1409B288C
+ * XREFs of PspQuitNextJobProcess @ 0x14090924C
  * Callers:
- *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x14071E800 (PspAssignProcessToJob.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockJob @ 0x1406A3BFC (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x1406A3DF8 (PspLockJobExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockJob @ 0x140618B90 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x140618BD4 (PspLockJobExclusive.c)
  */
 
 void __fastcall PspQuitNextJobProcess(__int64 a1, __int64 a2, _QWORD *a3, void *a4)

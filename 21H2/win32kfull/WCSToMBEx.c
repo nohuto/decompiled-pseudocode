@@ -1,11 +1,12 @@
 /*
- * XREFs of WCSToMBEx @ 0x1C014E8DC
+ * XREFs of WCSToMBEx @ 0x1C00D3558
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
- *     ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C00D4FCC (-CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z.c)
- *     SfnIMECONTROL @ 0x1C0223470 (SfnIMECONTROL.c)
+ *     ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C00245CC (-CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
+ *     SfnOUTSTRING @ 0x1C00D2940 (SfnOUTSTRING.c)
+ *     SfnIMECONTROL @ 0x1C02295E0 (SfnIMECONTROL.c)
  * Callees:
- *     ConvertToAndFromWideChar @ 0x1C00E7F50 (ConvertToAndFromWideChar.c)
+ *     ConvertToAndFromWideChar @ 0x1C00A4AF4 (ConvertToAndFromWideChar.c)
  */
 
 __int64 __fastcall WCSToMBEx(

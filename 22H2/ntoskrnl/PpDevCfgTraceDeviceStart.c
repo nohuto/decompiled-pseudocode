@@ -1,37 +1,35 @@
 /*
- * XREFs of PpDevCfgTraceDeviceStart @ 0x140879680
+ * XREFs of PpDevCfgTraceDeviceStart @ 0x14073CCB4
  * Callers:
- *     PipSetDevNodeState @ 0x14022AEA4 (PipSetDevNodeState.c)
+ *     PipProcessDevNodeTree @ 0x14073D6A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     PiDevCfgLogDeviceStarted @ 0x140879E9C (PiDevCfgLogDeviceStarted.c)
+ *     PiDevCfgLogDeviceStarted @ 0x14073727C (PiDevCfgLogDeviceStarted.c)
  */
 
-__int64 __fastcall PpDevCfgTraceDeviceStart(_DWORD *a1)
+void __fastcall PpDevCfgTraceDeviceStart(_DWORD *a1)
 {
-  bool v1; // zf
-  __int64 result; // rax
+  int v1; // eax
+  bool v2; // al
 
-  if ( a1[75] == 771
-    || a1[75] == 772
-    || a1[75] == 773
-    || a1[75] == 774
-    || a1[75] == 775
-    || a1[75] == 776
-    || a1[75] == 777 )
+  v1 = a1[75];
+  if ( v1 >= 770 )
   {
-    v1 = (a1[99] & 0x6000) == 0;
+    if ( v1 <= 775 )
+    {
+      v2 = (a1[99] & 0x6000) != 0;
+      goto LABEL_4;
+    }
+    if ( v1 == 776 )
+      goto LABEL_7;
   }
-  else
+  if ( (a1[99] & 0x2000) == 0 || a1[101] != 56 )
   {
-    if ( a1[75] == 778 || (a1[99] & 0x2000) == 0 )
-      goto LABEL_12;
-    v1 = a1[101] == 56;
-  }
-  if ( !v1 )
-  {
-LABEL_12:
+    v2 = 1;
+LABEL_4:
+    if ( !v2 )
+      return;
+LABEL_7:
     a1[176] &= ~1u;
-    return PiDevCfgLogDeviceStarted();
+    PiDevCfgLogDeviceStarted((__int64)a1);
   }
-  return result;
 }

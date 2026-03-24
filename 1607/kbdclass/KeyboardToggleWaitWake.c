@@ -1,1 +1,47 @@
-/*\n * XREFs of KeyboardToggleWaitWake @ 0x1C00050DC\n * Callers:\n *     KeyboardClassWaitWakeComplete @ 0x1C0004F20 (KeyboardClassWaitWakeComplete.c)\n *     KeyboardClassSetWmiDataBlock @ 0x1C000E7C0 (KeyboardClassSetWmiDataBlock.c)\n *     KeyboardClassSetWmiDataItem @ 0x1C000E850 (KeyboardClassSetWmiDataItem.c)\n * Callees:\n *     KeyboardToggleWaitWakeWorker @ 0x1C00051F0 (KeyboardToggleWaitWakeWorker.c)\n */\n\nNTSTATUS __fastcall KeyboardToggleWaitWake(__int64 a1, char a2)\n{\n  struct _IO_REMOVE_LOCK *v2; // rsi\n  NTSTATUS result; // eax\n  _QWORD *PoolWithTag; // rbx\n  struct _IO_WORKITEM *WorkItem; // rax\n\n  v2 = (struct _IO_REMOVE_LOCK *)(a1 + 32);\n  result = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(a1 + 32), KeyboardToggleWaitWakeWorker, &File, 1u, 0x20u);\n  if ( result >= 0 )\n  {\n    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x20uLL, 0x4364624Bu);\n    if ( PoolWithTag )\n    {\n      WorkItem = IoAllocateWorkItem(*(PDEVICE_OBJECT *)a1);\n      PoolWithTag[2] = WorkItem;\n      if ( !WorkItem )\n      {\n        IoReleaseRemoveLockEx(v2, KeyboardToggleWaitWakeWorker, 0x20u);\n        ExFreePoolWithTag(PoolWithTag, 0);\n        return -1073741670;\n      }\n      PoolWithTag[1] = a1;\n      *((_BYTE *)PoolWithTag + 24) = a2;\n      if ( KeGetCurrentIrql() )\n        IoQueueWorkItem(WorkItem, KeyboardToggleWaitWakeWorker, DelayedWorkQueue, PoolWithTag);\n      else\n        KeyboardToggleWaitWakeWorker(*(PDEVICE_OBJECT *)a1, PoolWithTag);\n    }\n    else\n    {\n      IoReleaseRemoveLockEx(v2, KeyboardToggleWaitWakeWorker, 0x20u);\n    }\n    return 0;\n  }\n  return result;\n}\n
+/*
+ * XREFs of KeyboardToggleWaitWake @ 0x1C00050DC
+ * Callers:
+ *     KeyboardClassWaitWakeComplete @ 0x1C0004F20 (KeyboardClassWaitWakeComplete.c)
+ *     KeyboardClassSetWmiDataBlock @ 0x1C000E7C0 (KeyboardClassSetWmiDataBlock.c)
+ *     KeyboardClassSetWmiDataItem @ 0x1C000E850 (KeyboardClassSetWmiDataItem.c)
+ * Callees:
+ *     KeyboardToggleWaitWakeWorker @ 0x1C00051F0 (KeyboardToggleWaitWakeWorker.c)
+ */
+
+NTSTATUS __fastcall KeyboardToggleWaitWake(__int64 a1, char a2)
+{
+  struct _IO_REMOVE_LOCK *v2; // rsi
+  NTSTATUS result; // eax
+  _QWORD *PoolWithTag; // rbx
+  struct _IO_WORKITEM *WorkItem; // rax
+
+  v2 = (struct _IO_REMOVE_LOCK *)(a1 + 32);
+  result = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(a1 + 32), KeyboardToggleWaitWakeWorker, &File, 1u, 0x20u);
+  if ( result >= 0 )
+  {
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x20uLL, 0x4364624Bu);
+    if ( PoolWithTag )
+    {
+      WorkItem = IoAllocateWorkItem(*(PDEVICE_OBJECT *)a1);
+      PoolWithTag[2] = WorkItem;
+      if ( !WorkItem )
+      {
+        IoReleaseRemoveLockEx(v2, KeyboardToggleWaitWakeWorker, 0x20u);
+        ExFreePoolWithTag(PoolWithTag, 0);
+        return -1073741670;
+      }
+      PoolWithTag[1] = a1;
+      *((_BYTE *)PoolWithTag + 24) = a2;
+      if ( KeGetCurrentIrql() )
+        IoQueueWorkItem(WorkItem, KeyboardToggleWaitWakeWorker, DelayedWorkQueue, PoolWithTag);
+      else
+        KeyboardToggleWaitWakeWorker(*(PDEVICE_OBJECT *)a1, PoolWithTag);
+    }
+    else
+    {
+      IoReleaseRemoveLockEx(v2, KeyboardToggleWaitWakeWorker, 0x20u);
+    }
+    return 0;
+  }
+  return result;
+}

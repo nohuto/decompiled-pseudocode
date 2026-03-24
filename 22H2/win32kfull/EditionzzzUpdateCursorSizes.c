@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionzzzUpdateCursorSizes @ 0x1C00BDF10
+ * XREFs of EditionzzzUpdateCursorSizes @ 0x1C0166CD0
  * Callers:
  *     <none>
  * Callees:
- *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C0024A88 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
+ *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C01668D8 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
  */
 
 void EditionzzzUpdateCursorSizes()

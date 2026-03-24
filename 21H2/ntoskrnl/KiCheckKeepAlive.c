@@ -1,29 +1,34 @@
 /*
- * XREFs of KiCheckKeepAlive @ 0x1402F36BC
+ * XREFs of KiCheckKeepAlive @ 0x1402B9650
  * Callers:
- *     KeAccumulateTicks @ 0x1403078A0 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x140224410 (KeAccumulateTicks.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402F4410 (KeRemoveProcessorAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x140345D30 (KeCheckProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x14033B4A0 (KeRemoveProcessorAffinityEx.c)
  */
 
 char __fastcall KiCheckKeepAlive(unsigned int a1)
 {
   char v2; // di
+  unsigned __int64 v3; // r8
+  char v4; // dl
+  unsigned __int64 v5; // r8
 
   v2 = 0;
-  if ( (unsigned int)KeCheckProcessorAffinityEx(KiClockCheckPending, a1) )
+  v3 = (unsigned int)KiProcessorIndexToNumberMappingTable[a1];
+  v4 = v3 & 0x3F;
+  v5 = v3 >> 6;
+  if ( ((*(_QWORD *)&KiClockCheckPending[4 * v5 + 4] >> v4) & 1) != 0 )
   {
-    if ( (unsigned int)KeCheckProcessorAffinityEx(KiClockCheckReady, a1) )
+    if ( ((*((_QWORD *)&KiClockCheckReady + v5 + 1) >> v4) & 1) != 0 )
     {
-      KeRemoveProcessorAffinityEx(KiClockCheckReady, a1);
+      KeRemoveProcessorAffinityEx(&KiClockCheckReady, a1);
       KeRemoveProcessorAffinityEx(KiClockCheckPending, a1);
       return 1;
     }
     else
     {
-      KeAddProcessorAffinityEx(KiClockCheckReady, a1);
+      KeAddProcessorAffinityEx(&KiClockCheckReady, a1);
     }
   }
   return v2;

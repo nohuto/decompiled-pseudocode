@@ -1,5 +1,5 @@
 /*
- * XREFs of IoSetFileOrigin @ 0x140385F80
+ * XREFs of IoSetFileOrigin @ 0x1403795F0
  * Callers:
  *     <none>
  * Callees:
@@ -10,23 +10,25 @@ NTSTATUS __stdcall IoSetFileOrigin(PFILE_OBJECT FileObject, BOOLEAN Remote)
 {
   ULONG Flags; // eax
   NTSTATUS v3; // r8d
-  ULONG v4; // eax
+  int v4; // r9d
+  ULONG v5; // eax
 
   Flags = FileObject->Flags;
   v3 = -1073741776;
+  v4 = Flags & 0x1000000;
   if ( !Remote )
   {
-    if ( (Flags & 0x1000000) == 0 )
+    if ( !v4 )
       return v3;
-    v4 = Flags & 0xFEFFFFFF;
+    v5 = Flags & 0xFEFFFFFF;
     goto LABEL_4;
   }
-  if ( (Flags & 0x1000000) == 0 )
+  if ( !v4 )
   {
-    v4 = Flags | 0x1000000;
+    v5 = Flags | 0x1000000;
 LABEL_4:
     v3 = 0;
-    FileObject->Flags = v4;
+    FileObject->Flags = v5;
   }
   return v3;
 }

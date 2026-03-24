@@ -1,112 +1,188 @@
 /*
- * XREFs of NtTokenManagerCreateCompositionTokenHandle @ 0x1C001AC70
+ * XREFs of NtTokenManagerCreateCompositionTokenHandle @ 0x1C0016040
  * Callers:
  *     <none>
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJPEAV1@PEAXPEAPEAVIDxgkCompositionObject@@@Z3PEAPEAX@Z @ 0x1C001BC68 (-Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJP.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
+ *     ?ObjectInit@CompositionTokenObject@@KAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C00155B4 (-ObjectInit@CompositionTokenObject@@KAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObj.c)
+ *     DxgkGetWin32kImportTable @ 0x1C0016488 (DxgkGetWin32kImportTable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
  */
 
 __int64 __fastcall NtTokenManagerCreateCompositionTokenHandle(
-        char *Src,
+        void *a1,
         unsigned int a2,
-        int a3,
-        __int64 a4,
+        unsigned int a3,
+        __int64 *a4,
         unsigned __int64 a5)
 {
-  int v7; // edi
-  void *v8; // rsi
-  __int64 v9; // r9
-  unsigned __int64 v10; // rax
-  struct DXGGLOBAL *Global; // rax
-  _QWORD *v12; // rdx
-  struct DXGGLOBAL *v13; // rax
-  __int64 Size; // [rsp+68h] [rbp-90h]
-  _DWORD v16[2]; // [rsp+98h] [rbp-60h] BYREF
-  __int64 v17; // [rsp+A0h] [rbp-58h]
-  __int64 v18; // [rsp+A8h] [rbp-50h]
-  int v19; // [rsp+B0h] [rbp-48h]
-  int v20; // [rsp+B4h] [rbp-44h]
-  __int64 v21; // [rsp+B8h] [rbp-40h]
-  __int64 v22; // [rsp+C0h] [rbp-38h]
-  __int64 v23; // [rsp+100h] [rbp+8h] BYREF
-  unsigned int v24; // [rsp+108h] [rbp+10h]
-  int v25; // [rsp+110h] [rbp+18h]
+  unsigned __int64 v6; // r15
+  int LocallyUniqueId; // edi
+  PVOID PoolWithTag; // rsi
+  __int64 v9; // r14
+  char *v10; // r9
+  unsigned __int64 v11; // rcx
+  __int64 v12; // rax
+  unsigned __int64 v13; // kr00_8
+  size_t v14; // r15
+  SIZE_T v15; // rax
+  __int64 Win32kImportTable; // rax
+  __int64 v17; // r9
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // eax
+  void *v20; // rcx
+  _QWORD *v21; // rdx
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v25; // [rsp+58h] [rbp-B0h] BYREF
+  PVOID v26; // [rsp+60h] [rbp-A8h]
+  __int64 v27; // [rsp+68h] [rbp-A0h]
+  HANDLE Handle; // [rsp+70h] [rbp-98h] BYREF
+  __int128 v29; // [rsp+78h] [rbp-90h] BYREF
+  __int64 v30; // [rsp+88h] [rbp-80h]
+  __int64 v31; // [rsp+90h] [rbp-78h]
+  __int64 v32; // [rsp+98h] [rbp-70h]
+  _QWORD v33[13]; // [rsp+A0h] [rbp-68h] BYREF
+  void *Src; // [rsp+110h] [rbp+8h] BYREF
+  unsigned int v35; // [rsp+118h] [rbp+10h]
+  unsigned int v36; // [rsp+120h] [rbp+18h]
 
-  v25 = a3;
-  v24 = a2;
-  v7 = 0;
-  v8 = 0LL;
-  v23 = 0LL;
+  v36 = a3;
+  v35 = a2;
+  Src = a1;
+  v6 = a2;
+  LocallyUniqueId = 0;
+  Handle = (HANDLE)-1LL;
+  PoolWithTag = 0LL;
+  v26 = 0LL;
+  v25 = 0LL;
+  v29 = 0LL;
+  v30 = 0LL;
+  v9 = 0LL;
+  v27 = 0LL;
   KeEnterCriticalRegion();
-  if ( !Src || !v24 || !v25 || !a4 )
-    v7 = -1073741811;
-  if ( v7 >= 0 )
+  v10 = (char *)Src;
+  if ( !Src || !(_DWORD)v6 || !v36 || !a4 )
+    LocallyUniqueId = -1073741811;
+  if ( LocallyUniqueId >= 0 )
   {
-    Size = 24LL * v24;
-    if ( is_mul_ok(v24, 0x18uLL) )
+    v11 = v6;
+    v13 = v6;
+    v12 = 24 * v6;
+    v31 = (v6 * (unsigned __int128)0x18uLL) >> 64;
+    v14 = 24 * v6;
+    if ( is_mul_ok(v13, 0x18uLL) )
     {
-      v7 = 0;
+      v32 = v12;
+      LocallyUniqueId = 0;
     }
     else
     {
-      Size = -1LL;
-      v7 = -1073741675;
+      v14 = -1LL;
+      v32 = -1LL;
+      LocallyUniqueId = -1073741675;
     }
-    if ( v7 >= 0 )
+    if ( LocallyUniqueId >= 0 )
     {
-      v10 = 24LL * v24;
-      if ( !is_mul_ok(v24, 0x18uLL) )
-        v10 = -1LL;
-      v8 = (void *)operator new[](v10, 0x62634D54u, 256LL, v9);
-      if ( !v8 )
-        v7 = -1073741801;
-      if ( v7 >= 0 )
+      v15 = 24 * v11;
+      if ( !is_mul_ok(v11, 0x18uLL) )
+        v15 = -1LL;
+      if ( !v15 )
+        v15 = 1LL;
+      if ( v15 <= 0x7FFFFFFF )
       {
-        if ( &Src[Size] < Src || (unsigned __int64)&Src[Size] > MmUserProbeAddress )
-          *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(v8, Src, Size);
-        Global = DXGGLOBAL_GetGlobal();
-        v7 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*((_QWORD *)Global + 38073) + 424LL))(0x80000000LL, &v23);
-        if ( v7 >= 0 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v15, 0x62634D54u);
+        v10 = (char *)Src;
+      }
+      v26 = PoolWithTag;
+      if ( !PoolWithTag )
+        LocallyUniqueId = -1073741801;
+    }
+    if ( LocallyUniqueId < 0 )
+    {
+      LODWORD(v6) = v35;
+    }
+    else
+    {
+      if ( &v10[v14] < v10 || (unsigned __int64)&v10[v14] > MmUserProbeAddress )
+        *(_BYTE *)MmUserProbeAddress = 0;
+      memmove(PoolWithTag, v10, v14);
+      if ( a4 + 1 < a4 || (unsigned __int64)(a4 + 1) > MmUserProbeAddress )
+        a4 = (__int64 *)MmUserProbeAddress;
+      v9 = *a4;
+      v27 = *a4;
+      LocallyUniqueId = 0;
+      LODWORD(v6) = v35;
+    }
+  }
+  if ( LocallyUniqueId >= 0 )
+  {
+    Win32kImportTable = DxgkGetWin32kImportTable();
+    LocallyUniqueId = (*(__int64 (__fastcall **)(__int64, __int64 *))(Win32kImportTable + 192))(0x80000000LL, &v25);
+    if ( LocallyUniqueId >= 0 )
+    {
+      v33[0] = 48LL;
+      memset(&v33[1], 0, 24);
+      v33[4] = v25;
+      v33[5] = 0LL;
+      *(_QWORD *)&v29 = PoolWithTag;
+      *((_QWORD *)&v29 + 1) = __PAIR64__(v36, v6);
+      v30 = v9;
+      Src = 0LL;
+      LOBYTE(v17) = 1;
+      LocallyUniqueId = ObCreateObject(0LL, g_pDxgkCompositionObjectType, v33, v17, 0LL, 136, 0, 0, &Src);
+      if ( LocallyUniqueId >= 0 )
+      {
+        CurrentProcess = PsGetCurrentProcess();
+        ProcessSessionId = PsGetProcessSessionId(CurrentProcess);
+        *((_DWORD *)Src + 2) = ProcessSessionId;
+        LocallyUniqueId = ZwAllocateLocallyUniqueId((PLUID)Src + 3);
+        v20 = Src;
+        if ( LocallyUniqueId < 0
+          || (LocallyUniqueId = CompositionTokenObject::ObjectInit(
+                                  (struct DxgkCompositionObject *)Src,
+                                  (const struct CompositionTokenInitInfo *)&v29,
+                                  (struct IDxgkCompositionObject **)Src + 2),
+              v20 = Src,
+              LocallyUniqueId < 0) )
         {
-          v16[1] = 0;
-          v20 = 0;
-          v16[0] = 48;
-          v17 = 0LL;
-          v19 = 0;
-          v18 = 0LL;
-          v21 = v23;
-          v22 = 0LL;
-          v7 = DxgkCompositionObject::Create(0LL, v16, 3LL);
-          if ( v7 >= 0 )
-          {
-            v12 = (_QWORD *)a5;
-            if ( a5 )
-            {
-              if ( a5 + 8 < a5 || a5 + 8 > MmUserProbeAddress )
-                *(_BYTE *)MmUserProbeAddress = 0;
-              *v12 = -1LL;
-            }
-            else
-            {
-              v7 = -1073741811;
-            }
-          }
+          ObfDereferenceObject(v20);
+        }
+        else
+        {
+          LocallyUniqueId = ObInsertObject(Src, 0LL, 3u, 0, 0LL, &Handle);
+        }
+      }
+      if ( LocallyUniqueId >= 0 )
+      {
+        v21 = (_QWORD *)a5;
+        if ( a5 )
+        {
+          if ( a5 + 8 < a5 || a5 + 8 > MmUserProbeAddress )
+            *(_BYTE *)MmUserProbeAddress = 0;
+          *v21 = Handle;
+        }
+        else
+        {
+          LocallyUniqueId = -1073741811;
+        }
+        if ( LocallyUniqueId >= 0 && v9 )
+        {
+          v22 = DxgkGetWin32kImportTable();
+          (*(void (__fastcall **)(__int64, _QWORD))(v22 + 32))(v9, 0LL);
         }
       }
     }
   }
-  if ( v23 )
+  if ( v25 )
   {
-    v13 = DXGGLOBAL_GetGlobal();
-    (*(void (__fastcall **)(__int64))(*((_QWORD *)v13 + 38073) + 544LL))(v23);
+    v23 = DxgkGetWin32kImportTable();
+    (*(void (__fastcall **)(__int64))(v23 + 312))(v25);
   }
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0);
+  if ( LocallyUniqueId < 0 && Handle != (HANDLE)-1LL )
+    NtClose(Handle);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   KeLeaveCriticalRegion();
-  return (unsigned int)v7;
+  return (unsigned int)LocallyUniqueId;
 }

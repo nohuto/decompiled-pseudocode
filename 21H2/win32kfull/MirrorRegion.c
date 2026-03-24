@@ -1,14 +1,14 @@
 /*
- * XREFs of MirrorRegion @ 0x1C00F9228
+ * XREFs of MirrorRegion @ 0x1C010E31C
  * Callers:
- *     xxxRedrawWindow @ 0x1C004A1EC (xxxRedrawWindow.c)
- *     xxxScrollWindowEx @ 0x1C00BFE8C (xxxScrollWindowEx.c)
- *     xxxSetWindowRgn @ 0x1C00F914C (xxxSetWindowRgn.c)
- *     xxxGetUpdateRgn @ 0x1C0149BA0 (xxxGetUpdateRgn.c)
- *     NtUserGetWindowRgnEx @ 0x1C01F7560 (NtUserGetWindowRgnEx.c)
- *     NtUserSetWindowRgnEx @ 0x1C01FE640 (NtUserSetWindowRgnEx.c)
+ *     xxxScrollWindowEx @ 0x1C006788C (xxxScrollWindowEx.c)
+ *     xxxRedrawWindow @ 0x1C0072354 (xxxRedrawWindow.c)
+ *     xxxGetUpdateRgn @ 0x1C010DFB4 (xxxGetUpdateRgn.c)
+ *     xxxSetWindowRgn @ 0x1C010E240 (xxxSetWindowRgn.c)
+ *     NtUserGetWindowRgnEx @ 0x1C01FCB60 (NtUserGetWindowRgnEx.c)
+ *     NtUserSetWindowRgnEx @ 0x1C02031A0 (NtUserSetWindowRgnEx.c)
  * Callees:
- *     ?OrderRects@@YAXPEAUtagRECT@@H@Z @ 0x1C01E3074 (-OrderRects@@YAXPEAUtagRECT@@H@Z.c)
+ *     ?OrderRects@@YAXPEAUtagRECT@@H@Z @ 0x1C01E89A4 (-OrderRects@@YAXPEAUtagRECT@@H@Z.c)
  */
 
 __int64 __fastcall MirrorRegion(__int64 a1, unsigned __int64 a2, int a3)
@@ -35,7 +35,7 @@ __int64 __fastcall MirrorRegion(__int64 a1, unsigned __int64 a2, int a3)
     v9 = RegionData;
     if ( RegionData > 0 )
     {
-      v10 = Win32AllocPoolZInit(RegionData, 1768780629LL);
+      v10 = Win32AllocPool(RegionData, 1768780629LL);
       v11 = (struct tagRECT *)v10;
       if ( v10 )
       {

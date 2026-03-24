@@ -1,12 +1,12 @@
 /*
- * XREFs of ExtEnvInitializeSpinLock @ 0x140522804
+ * XREFs of ExtEnvInitializeSpinLock @ 0x1404D5534
  * Callers:
- *     HalpVpptTimerRegister @ 0x14050D760 (HalpVpptTimerRegister.c)
- *     HsaInitializeInterruptRemapping @ 0x140A64868 (HsaInitializeInterruptRemapping.c)
+ *     HalpVpptTimerRegister @ 0x1404C0C98 (HalpVpptTimerRegister.c)
+ *     HsaInitializeInterruptRemapping @ 0x1409AA448 (HsaInitializeInterruptRemapping.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExtEnvInitializeSpinLock(_QWORD *a1)
@@ -19,13 +19,13 @@ __int64 __fastcall ExtEnvInitializeSpinLock(_QWORD *a1)
   bool v7; // zf
 
   v2 = KeAcquireSpinLockRaiseToDpc(&ExtEnvAllocationLock);
-  v3 = (_QWORD *)qword_140C4A258;
-  if ( *(__int64 **)qword_140C4A258 != &ExtEnvLockList )
+  v3 = (_QWORD *)qword_140C48E38;
+  if ( *(__int64 **)qword_140C48E38 != &ExtEnvLockList )
     __fastfail(3u);
   *a1 = &ExtEnvLockList;
   a1[1] = v3;
   *v3 = a1;
-  qword_140C4A258 = (__int64)a1;
+  qword_140C48E38 = (__int64)a1;
   KxReleaseSpinLock(&ExtEnvAllocationLock);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

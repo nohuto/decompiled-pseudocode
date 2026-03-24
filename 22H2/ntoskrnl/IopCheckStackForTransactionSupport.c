@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCheckStackForTransactionSupport @ 0x1403D5F80
+ * XREFs of IopCheckStackForTransactionSupport @ 0x140394634
  * Callers:
- *     IopRetrieveTransactionParameters @ 0x1407306C0 (IopRetrieveTransactionParameters.c)
- *     IopAllocateFoExtensionsOnCreate @ 0x140767E50 (IopAllocateFoExtensionsOnCreate.c)
+ *     IopRetrieveTransactionParameters @ 0x1406511B0 (IopRetrieveTransactionParameters.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x14071F81C (IopAllocateFoExtensionsOnCreate.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
  */
 
 __int64 __fastcall IopCheckStackForTransactionSupport(__int64 a1)
@@ -22,9 +22,8 @@ __int64 __fastcall IopCheckStackForTransactionSupport(__int64 a1)
       if ( (*(_DWORD *)(v1 + 48) & 0x40000) != 0 )
         break;
       v1 = *(_QWORD *)(v1 + 312);
-      if ( !v1 )
-        break;
-      v1 = *(_QWORD *)(v1 + 48);
+      if ( v1 )
+        v1 = *(_QWORD *)(v1 + 48);
     }
     while ( v1 );
     KeReleaseQueuedSpinLock(0xAuLL, v3);

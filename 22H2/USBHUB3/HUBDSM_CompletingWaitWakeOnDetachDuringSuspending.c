@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CompletingWaitWakeOnDetachDuringSuspending @ 0x1C00242A0
+ * XREFs of HUBDSM_CompletingWaitWakeOnDetachDuringSuspending @ 0x1C0021AC0
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_CompleteWaitWake @ 0x1C001C2E0 (HUBPDO_CompleteWaitWake.c)
+ *     HUBPDO_CompleteWaitWake @ 0x1C0019A74 (HUBPDO_CompleteWaitWake.c)
  */
 
 __int64 __fastcall HUBDSM_CompletingWaitWakeOnDetachDuringSuspending(__int64 a1)

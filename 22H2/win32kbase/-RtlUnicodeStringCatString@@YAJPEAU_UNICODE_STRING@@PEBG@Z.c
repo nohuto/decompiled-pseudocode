@@ -1,11 +1,11 @@
 /*
- * XREFs of ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C006D6B4
+ * XREFs of ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0181D94
  * Callers:
- *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C006D7B8 (RIMPopulateExtendedMouseDeviceProperties.c)
- *     RIMPopulateExtendedPointerDeviceProperties @ 0x1C01997AC (RIMPopulateExtendedPointerDeviceProperties.c)
+ *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C00CC988 (RIMPopulateExtendedMouseDeviceProperties.c)
+ *     RIMPopulateExtendedPointerDeviceProperties @ 0x1C016BD98 (RIMPopulateExtendedPointerDeviceProperties.c)
  * Callees:
- *     RtlUnicodeStringValidateDestWorker @ 0x1C006D630 (RtlUnicodeStringValidateDestWorker.c)
- *     RtlWideCharArrayCopyStringWorker @ 0x1C006D730 (RtlWideCharArrayCopyStringWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C0181E10 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x1C0181E90 (RtlWideCharArrayCopyStringWorker.c)
  */
 
 NTSTATUS __fastcall RtlUnicodeStringCatString(struct _UNICODE_STRING *a1, const unsigned __int16 *a2)

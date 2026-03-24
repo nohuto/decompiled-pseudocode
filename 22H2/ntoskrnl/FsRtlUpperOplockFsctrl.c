@@ -1,22 +1,23 @@
 /*
- * XREFs of FsRtlUpperOplockFsctrl @ 0x14093E1D0
+ * XREFs of FsRtlUpperOplockFsctrl @ 0x14088BD10
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     FsRtlpOplockFsctrlInternal @ 0x140766820 (FsRtlpOplockFsctrlInternal.c)
- *     FsRtlpOplockUpperLowerCompatible @ 0x140766CA8 (FsRtlpOplockUpperLowerCompatible.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x1405EA118 (FsRtlpOplockUpperLowerCompatible.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
  */
 
-__int64 __fastcall FsRtlUpperOplockFsctrl(__int64 *Oplock, PIRP Irp, int a3, char a4, int a5)
+__int64 __fastcall FsRtlUpperOplockFsctrl(__int64 *Oplock, PIRP Irp, unsigned int a3, char a4, int a5)
 {
-  unsigned int v5; // ebx
+  int v5; // edi
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r8
   int v9; // ecx
   PIRP v10; // r11
-  UCHAR MajorFunction; // di
+  UCHAR MajorFunction; // si
   int v12; // r10d
   ULONG Options; // edx
+  unsigned int v14; // ebx
   struct _IRP *MasterIrp; // rdx
 
   v5 = 0;
@@ -25,63 +26,61 @@ __int64 __fastcall FsRtlUpperOplockFsctrl(__int64 *Oplock, PIRP Irp, int a3, cha
   v10 = Irp;
   MajorFunction = CurrentStackLocation->MajorFunction;
   v12 = ((a4 & 6) << 12) | ((a4 & 1) << 12);
-  if ( !CurrentStackLocation->MajorFunction )
+  if ( CurrentStackLocation->MajorFunction )
   {
-    Options = CurrentStackLocation->Parameters.Create.Options;
-    if ( (Options & 0x100000) != 0 && (v12 & 0x4000) == 0 || (Options & 0x10000) != 0 && (v12 & 0x2000) == 0 )
-      return (unsigned int)-1073741598;
-    return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
-  }
-  switch ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart )
-  {
-    case 0x90000u:
-      v9 = 2;
-      break;
-    case 0x90004u:
-      v9 = 16;
-      break;
-    case 0x90008u:
-      v9 = 4;
-      break;
-    case 0x9005Cu:
-      v9 = 8;
-      break;
-    case 0x90240u:
-      MasterIrp = Irp->AssociatedIrp.MasterIrp;
-      if ( CurrentStackLocation->Parameters.Create.Options >= 0xC )
-      {
-        if ( MasterIrp->Type <= 1u )
+    switch ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart )
+    {
+      case 0x90000u:
+        v9 = 2;
+        break;
+      case 0x90004u:
+        v9 = 16;
+        break;
+      case 0x90008u:
+        v9 = 4;
+        break;
+      case 0x9005Cu:
+        v9 = 8;
+        break;
+      case 0x90240u:
+        if ( CurrentStackLocation->Parameters.Create.Options >= 0xC )
         {
-          if ( ((__int64)MasterIrp->MdlAddress & 2) != 0 )
-            return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
-          v9 = ((*(_DWORD *)(&MasterIrp->Size + 1) & 6) << 12) | ((*(_DWORD *)(&MasterIrp->Size + 1) & 1) << 12);
+          MasterIrp = Irp->AssociatedIrp.MasterIrp;
+          if ( MasterIrp->Type <= 1u )
+          {
+            if ( ((__int64)MasterIrp->MdlAddress & 2) != 0 )
+              return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
+            v9 = ((*(_DWORD *)(&MasterIrp->Size + 1) & 6) << 12) | ((*(_DWORD *)(&MasterIrp->Size + 1) & 1) << 12);
+          }
+          else
+          {
+            v5 = -1073741811;
+          }
         }
         else
         {
-          v5 = -1073741811;
+          v5 = -1073741789;
         }
-      }
-      else
-      {
-        v5 = -1073741789;
-      }
-      break;
-    default:
-      return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
+        break;
+      default:
+        return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
+    }
+    if ( !FsRtlpOplockUpperLowerCompatible(v9, v12) )
+      v5 = -1073741598;
+    v14 = v5;
+    if ( v5 )
+      goto LABEL_4;
+    return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
   }
-  if ( FsRtlpOplockUpperLowerCompatible(v9, v12) )
-  {
-    if ( !v5 )
-      return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
-  }
-  else
-  {
-    v5 = -1073741598;
-  }
+  Options = CurrentStackLocation->Parameters.Create.Options;
+  if ( ((Options & 0x100000) == 0 || (v12 & 0x4000) != 0) && ((Options & 0x10000) == 0 || (v12 & 0x2000) != 0) )
+    return (unsigned int)FsRtlpOplockFsctrlInternal(Oplock, v10, a3, a5, v12);
+  v14 = -1073741598;
+LABEL_4:
   if ( MajorFunction == 13 )
   {
-    v10->IoStatus.Status = v5;
+    v10->IoStatus.Status = v14;
     IofCompleteRequest(v10, 1);
   }
-  return v5;
+  return v14;
 }

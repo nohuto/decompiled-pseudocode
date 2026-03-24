@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpGxConvertRectangleEx @ 0x14016F3A8
+ * XREFs of BgpGxConvertRectangleEx @ 0x14016F3C8
  * Callers:
- *     BgpGxDrawRectangle @ 0x14016EE10 (BgpGxDrawRectangle.c)
- *     GxpWriteFrameBufferPixels @ 0x14016EE98 (GxpWriteFrameBufferPixels.c)
- *     BgpTxtDisplayCharacter @ 0x140179EF4 (BgpTxtDisplayCharacter.c)
- *     BgpGxConvertRectangle @ 0x140192C78 (BgpGxConvertRectangle.c)
+ *     BgpGxDrawRectangle @ 0x14016EE30 (BgpGxDrawRectangle.c)
+ *     GxpWriteFrameBufferPixels @ 0x14016EEB8 (GxpWriteFrameBufferPixels.c)
+ *     BgpTxtDisplayCharacter @ 0x140179F14 (BgpTxtDisplayCharacter.c)
+ *     BgpGxConvertRectangle @ 0x140192C98 (BgpGxConvertRectangle.c)
  *     AnFwDisplayFade @ 0x14094EBA8 (AnFwDisplayFade.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     BgpGxRectangleCreate @ 0x14095021C (BgpGxRectangleCreate.c)
  */
 

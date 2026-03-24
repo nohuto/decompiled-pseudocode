@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0VIDMM_SEGMENT@@QEAA@PEAVVIDMM_GLOBAL@@IKKPEBUDXGK_SEGMENTDESCRIPTOR_INTERNAL@@@Z @ 0x1C00BCD7C
+ * XREFs of ??0VIDMM_SEGMENT@@QEAA@PEAVVIDMM_GLOBAL@@IKKPEBUDXGK_SEGMENTDESCRIPTOR_INTERNAL@@@Z @ 0x1C00959A8
  * Callers:
- *     ?InitSegments@VIDMM_GLOBAL@@QEAAJIPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUDXGK_SEGMENTDESCRIPTOR_INTERNAL@@@Z @ 0x1C00BC400 (-InitSegments@VIDMM_GLOBAL@@QEAAJIPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUDXGK_SEGMENTDESCRIPTOR_INTERNA.c)
+ *     ?InitSegments@VIDMM_GLOBAL@@QEAAJIPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUDXGK_SEGMENTDESCRIPTOR_INTERNAL@@PEA_K@Z @ 0x1C00954F8 (-InitSegments@VIDMM_GLOBAL@@QEAAJIPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUDXGK_SEGMENTDESCRIPTOR_INTERNA.c)
  * Callees:
  *     <none>
  */
@@ -14,9 +14,10 @@ VIDMM_SEGMENT *__fastcall VIDMM_SEGMENT::VIDMM_SEGMENT(
         unsigned int a5,
         const struct DXGK_SEGMENTDESCRIPTOR_INTERNAL *a6)
 {
-  __int64 v7; // rax
-  unsigned __int64 v8; // rcx
-  unsigned __int64 v9; // rdx
+  __int64 v6; // rax
+  unsigned __int64 v7; // r8
+  unsigned __int64 v8; // rdx
+  int v9; // eax
   __int64 v10; // rax
   bool v11; // zf
   VIDMM_SEGMENT *result; // rax
@@ -38,11 +39,10 @@ VIDMM_SEGMENT *__fastcall VIDMM_SEGMENT::VIDMM_SEGMENT(
   *((_QWORD *)this + 14) = 0LL;
   *((_QWORD *)this + 16) = *((_QWORD *)a6 + 4);
   *((_QWORD *)this + 19) = 0LL;
-  v7 = *((_QWORD *)a6 + 3);
-  *((_DWORD *)this + 92) = -1;
+  v6 = *((_QWORD *)a6 + 3);
   *((_DWORD *)this + 94) = 0;
   *((_DWORD *)this + 119) = 2;
-  *((_QWORD *)this + 26) = v7;
+  *((_QWORD *)this + 26) = v6;
   *((_QWORD *)this + 18) = (char *)this + 136;
   *((_QWORD *)this + 17) = (char *)this + 136;
   *((_QWORD *)this + 21) = (char *)this + 160;
@@ -63,6 +63,7 @@ VIDMM_SEGMENT *__fastcall VIDMM_SEGMENT::VIDMM_SEGMENT(
   *((_QWORD *)this + 32) = 0LL;
   *((_QWORD *)this + 33) = 0LL;
   *((_QWORD *)this + 34) = 0LL;
+  *((_DWORD *)this + 92) = -1;
   *((_BYTE *)this + 372) = 1;
   *((_DWORD *)this + 95) = a3;
   *((_QWORD *)this + 48) = 0LL;
@@ -74,7 +75,7 @@ VIDMM_SEGMENT *__fastcall VIDMM_SEGMENT::VIDMM_SEGMENT(
   *((_QWORD *)this + 58) = 0LL;
   *((_WORD *)this + 236) = 0;
   *((_BYTE *)this + 474) = 1;
-  *((_QWORD *)this + 62) = 0LL;
+  *((_QWORD *)this + 60) = 0LL;
   *((_QWORD *)this + 15) = 0LL;
   *(_OWORD *)((char *)this + 312) = 0LL;
   *(_OWORD *)((char *)this + 328) = 0LL;
@@ -82,20 +83,22 @@ VIDMM_SEGMENT *__fastcall VIDMM_SEGMENT::VIDMM_SEGMENT(
   *((_QWORD *)this + 45) = 0LL;
   *((_OWORD *)this + 26) = 0LL;
   *((_OWORD *)this + 27) = 0LL;
-  v8 = *((_QWORD *)a6 + 2);
-  v9 = dword_1C00762B8[a5];
-  if ( (_DWORD)v9 && v8 >= v9 )
-    v8 = dword_1C00762B8[a5];
-  *((_QWORD *)this + 8) = v8;
-  *((_QWORD *)this + 7) = v8;
+  v7 = *((_QWORD *)a6 + 2);
+  v8 = dword_1C0050208[a5];
+  if ( (_DWORD)v8 && v7 >= v8 )
+    v7 = dword_1C0050208[a5];
+  *((_QWORD *)this + 8) = v7;
+  *((_QWORD *)this + 7) = v7;
+  v9 = *(_DWORD *)a6;
   if ( (*(_DWORD *)a6 & 0x10000) == 0 )
   {
     v10 = 0x10000000LL;
-    if ( v8 < 0x10000000 )
-      v10 = v8;
+    if ( v7 < 0x10000000 )
+      v10 = v7;
     *((_QWORD *)this + 7) = v10;
+    v9 = *(_DWORD *)a6;
   }
-  *((_DWORD *)this + 94) = (*(_DWORD *)a6 & 0x800) != 0 ? 0x10000 : 4096;
+  *((_DWORD *)this + 94) = (v9 & 0x800) != 0 ? 0x10000 : 4096;
   if ( (*(_DWORD *)a6 & 0x80000) != 0 )
   {
     *((_DWORD *)this + 119) = 0;
@@ -111,8 +114,8 @@ VIDMM_SEGMENT *__fastcall VIDMM_SEGMENT::VIDMM_SEGMENT(
   *((_QWORD *)this + 4) = *((_QWORD *)a6 + 5);
   if ( !v11 )
     *((_DWORD *)this + 10) = *((_DWORD *)a6 + 12);
-  *((_DWORD *)this + 23) = -1;
   result = this;
+  *((_DWORD *)this + 23) = -1;
   *((_DWORD *)this + 24) = -1;
   return result;
 }

@@ -1,37 +1,34 @@
 /*
- * XREFs of CmpRecordUnloadEventForHive @ 0x140875698
+ * XREFs of CmpRecordUnloadEventForHive @ 0x14066D498
  * Callers:
- *     CmpLinkHiveToMaster @ 0x14068F84C (CmpLinkHiveToMaster.c)
- *     CmpFreezeHive @ 0x1408755AC (CmpFreezeHive.c)
- *     CmpResolveHiveLoadConflict @ 0x140A16AC8 (CmpResolveHiveLoadConflict.c)
+ *     CmpFreezeHive @ 0x14066C5D0 (CmpFreezeHive.c)
+ *     CmpLinkHiveToMaster @ 0x14071D600 (CmpLinkHiveToMaster.c)
+ *     CmpResolveHiveLoadConflict @ 0x14086E774 (CmpResolveHiveLoadConflict.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpRecordUnloadEventForHive(__int64 a1, void *a2)
 {
-  void *Pool2; // rsi
+  PVOID PoolWithTag; // rdi
   __int64 v5; // rax
-  const void **v6; // rdi
-  __int64 v7; // rax
 
-  Pool2 = (void *)ExAllocatePool2(256LL, 8LL * (unsigned int)(*(_DWORD *)(a1 + 2920) + 1), 1984261443LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * (unsigned int)(*(_DWORD *)(a1 + 2912) + 1), 0x76456D43u);
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v5 = *(unsigned int *)(a1 + 2920);
-  v6 = (const void **)(a1 + 2928);
+  v5 = *(unsigned int *)(a1 + 2912);
   if ( (_DWORD)v5 )
   {
-    memmove(Pool2, *v6, 8 * v5);
-    ExFreePoolWithTag((PVOID)*v6, 0);
+    memmove(PoolWithTag, *(const void **)(a1 + 2920), 8 * v5);
+    ExFreePoolWithTag(*(PVOID *)(a1 + 2920), 0);
+    v5 = *(unsigned int *)(a1 + 2912);
   }
-  v7 = *(unsigned int *)(a1 + 2920);
-  *v6 = Pool2;
-  *((_QWORD *)Pool2 + v7) = a2;
-  ++*(_DWORD *)(a1 + 2920);
+  *(_QWORD *)(a1 + 2920) = PoolWithTag;
+  *((_QWORD *)PoolWithTag + v5) = a2;
+  ++*(_DWORD *)(a1 + 2912);
   ObfReferenceObject(a2);
   return 0LL;
 }

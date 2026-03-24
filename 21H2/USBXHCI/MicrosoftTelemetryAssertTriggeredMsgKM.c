@@ -1,12 +1,10 @@
 /*
- * XREFs of MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C005118C
+ * XREFs of MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C0050588
  * Callers:
- *     Controller_WdfEvtWatchdogTimerFunc @ 0x1C000A120 (Controller_WdfEvtWatchdogTimerFunc.c)
- *     RootHub_WaitForResumeCompletion @ 0x1C000D648 (RootHub_WaitForResumeCompletion.c)
- *     UsbDevice_UcxEvtEnable @ 0x1C000FC10 (UsbDevice_UcxEvtEnable.c)
- *     Command_Initialize @ 0x1C001471C (Command_Initialize.c)
+ *     RootHub_WaitForResumeCompletion @ 0x1C000AF28 (RootHub_WaitForResumeCompletion.c)
+ *     RootHub_DetectPortInComplianceMode @ 0x1C001A3A8 (RootHub_DetectPortInComplianceMode.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00511BC (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00505B8 (MicrosoftTelemetryAssertTriggeredWorker.c)
  */
 
 __int64 MicrosoftTelemetryAssertTriggeredMsgKM(const char *a1, ...)

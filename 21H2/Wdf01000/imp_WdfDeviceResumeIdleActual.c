@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfDeviceResumeIdleActual @ 0x1C0011740
+ * XREFs of imp_WdfDeviceResumeIdleActual @ 0x1C0016DA0
  * Callers:
  *     <none>
  * Callees:
- *     ResumeIdleWorker @ 0x1C0011760 (ResumeIdleWorker.c)
+ *     ResumeIdleWorker @ 0x1C0016DC0 (ResumeIdleWorker.c)
  */
 
 void __fastcall imp_WdfDeviceResumeIdleActual(

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDoesControlAreaRequireRetpolineFixups @ 0x140324B44
+ * XREFs of MiDoesControlAreaRequireRetpolineFixups @ 0x1403725EC
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x14079DAF8 (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x14075C368 (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
  *     <none>
  */
 
 _BOOL8 __fastcall MiDoesControlAreaRequireRetpolineFixups(__int64 a1)
 {
-  return *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 96) + 32LL) + 88LL) != 0LL;
+  return *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 96) + 32LL) + 96LL) != 0LL;
 }

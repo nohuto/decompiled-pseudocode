@@ -1,11 +1,11 @@
 /*
- * XREFs of NtUserRegisterBSDRWindow @ 0x1C011EE00
+ * XREFs of NtUserRegisterBSDRWindow @ 0x1C0133C70
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     IsPrivileged @ 0x1C00A2D80 (IsPrivileged.c)
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00AC3EC (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FC70 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     IsPrivileged @ 0x1C011D5EC (IsPrivileged.c)
  */
 
 __int64 __fastcall NtUserRegisterBSDRWindow(__int64 a1, unsigned int a2)
@@ -15,10 +15,11 @@ __int64 __fastcall NtUserRegisterBSDRWindow(__int64 a1, unsigned int a2)
   __int64 v5; // rcx
   __int64 v6; // rdi
   __int64 v7; // rdx
-  _QWORD v9[3]; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v8; // r8
+  _QWORD v10[3]; // [rsp+40h] [rbp-18h] BYREF
 
   v2 = a2;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v4 = 0LL;
   if ( a1 )
   {
@@ -34,9 +35,9 @@ __int64 __fastcall NtUserRegisterBSDRWindow(__int64 a1, unsigned int a2)
   {
     if ( v6 )
     {
-      v9[1] = v6;
-      v9[0] = &gspwndBSDR;
-      HMAssignmentLock(v9, 0LL);
+      v10[1] = v6;
+      v10[0] = &gspwndBSDR;
+      HMAssignmentLock(v10);
     }
     if ( (_DWORD)v2 )
     {
@@ -56,7 +57,7 @@ __int64 __fastcall NtUserRegisterBSDRWindow(__int64 a1, unsigned int a2)
   }
   else
   {
-    UserSetLastError(5LL, v7);
+    UserSetLastError(5LL, v7, v8);
   }
 LABEL_8:
   UserSessionSwitchLeaveCrit(v5);

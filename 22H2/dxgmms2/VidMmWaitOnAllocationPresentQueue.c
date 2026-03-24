@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmWaitOnAllocationPresentQueue @ 0x1C002D520
+ * XREFs of VidMmWaitOnAllocationPresentQueue @ 0x1C0023210
  * Callers:
  *     <none>
  * Callees:
- *     ?WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C00EB854 (-WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z.c)
+ *     ?WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C00B62B8 (-WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z.c)
  */
 
 __int64 __fastcall VidMmWaitOnAllocationPresentQueue(VIDMM_GLOBAL *a1, struct _VIDMM_MULTI_ALLOC *a2, unsigned int a3)

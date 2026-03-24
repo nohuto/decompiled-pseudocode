@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMarkKernelImageRetpolineBits @ 0x140970C20
+ * XREFs of MiMarkKernelImageRetpolineBits @ 0x1408D0C68
  * Callers:
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
+ *     MiFinalizeImageRetpolineState @ 0x14075CC88 (MiFinalizeImageRetpolineState.c)
  * Callees:
- *     MiIsRetpolineEnabled @ 0x14029C6C4 (MiIsRetpolineEnabled.c)
- *     MiIsImageFullyRetpolined @ 0x140970A74 (MiIsImageFullyRetpolined.c)
- *     MiMarkRetpolineBits @ 0x140970C6C (MiMarkRetpolineBits.c)
+ *     MiIsRetpolineEnabled @ 0x14035E904 (MiIsRetpolineEnabled.c)
+ *     MiIsImageFullyRetpolined @ 0x1408D0AB4 (MiIsImageFullyRetpolined.c)
+ *     MiMarkRetpolineBits @ 0x1408D0CB4 (MiMarkRetpolineBits.c)
  */
 
 __int64 __fastcall MiMarkKernelImageRetpolineBits(__int64 a1, unsigned int a2)

@@ -1,138 +1,120 @@
 /*
- * XREFs of HalpIommuGetHardwareDomain @ 0x1403A8F5C
+ * XREFs of HalpIommuGetHardwareDomain @ 0x1404C9534
  * Callers:
- *     HalpIommuInitializeDmar @ 0x1403A8EAC (HalpIommuInitializeDmar.c)
- *     IommupDomainAttachPasidDevice @ 0x14050DE00 (IommupDomainAttachPasidDevice.c)
- *     IommupDomainDetachPasidDevice @ 0x14050E128 (IommupDomainDetachPasidDevice.c)
- *     HalpIommuJoinDmaDomain @ 0x140518404 (HalpIommuJoinDmaDomain.c)
- *     HalpIommuLeaveDmaDomain @ 0x140518574 (HalpIommuLeaveDmaDomain.c)
+ *     HalpIommuInitializeDmar @ 0x1403B37B8 (HalpIommuInitializeDmar.c)
+ *     HalpIommuJoinDmaDomain @ 0x1404C97FC (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1404C98D4 (HalpIommuLeaveDmaDomain.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpIommuGetDmarptRootAddress @ 0x140380460 (HalpIommuGetDmarptRootAddress.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     HalpIommuAcquireNewDomain @ 0x1403A90A4 (HalpIommuAcquireNewDomain.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpIommuAcquireNewDomain @ 0x1404CBA84 (HalpIommuAcquireNewDomain.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x1404DBB78 (HalpIommuGetDmarptRootAddress.c)
  */
 
-__int64 __fastcall HalpIommuGetHardwareDomain(__int64 a1, __int64 a2, char a3, char a4, char a5, __int64 *a6)
+__int64 __fastcall HalpIommuGetHardwareDomain(__int64 a1, __int64 a2, char a3, char a4, __int64 *a5)
 {
-  __int64 *v6; // r15
-  __int64 v7; // rbx
-  int DmarptRootAddress; // ebp
-  _QWORD *v12; // r14
-  __int64 v13; // rcx
-  unsigned __int64 v14; // r12
-  _QWORD *i; // rax
-  void *v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rcx
-  __int64 *v19; // rax
-  char v21; // cl
-  char v22; // al
+  __int64 v9; // rbx
+  int DmarptRootAddress; // esi
+  __int64 v11; // rcx
+  unsigned __int64 v12; // r14
+  _QWORD *v13; // rax
+  void *v14; // rax
+  __int64 v15; // rcx
+  __int64 v16; // rcx
+  __int64 *v17; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v26; // eax
-  bool v27; // zf
-  __int64 v28; // [rsp+20h] [rbp-48h]
-  volatile signed __int64 *v29; // [rsp+28h] [rbp-40h]
-  PHYSICAL_ADDRESS v30; // [rsp+70h] [rbp+8h] BYREF
-  char v31; // [rsp+80h] [rbp+18h]
+  int v21; // eax
+  bool v22; // zf
+  __int64 v24; // [rsp+50h] [rbp+8h] BYREF
 
-  v31 = a3;
-  v30.QuadPart = 0LL;
-  v6 = a6;
-  v7 = 0LL;
-  v28 = 0LL;
-  v29 = (volatile signed __int64 *)(a1 + 32);
+  v24 = 0LL;
+  v9 = 0LL;
   DmarptRootAddress = 0;
-  v12 = (_QWORD *)(a1 + 16);
-  v14 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 32));
-  for ( i = (_QWORD *)*v12; i != v12; i = (_QWORD *)*i )
+  v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 16));
+  v13 = *(_QWORD **)a1;
+  if ( *(_QWORD *)a1 != a1 )
   {
-    v7 = (__int64)i;
-    if ( i[3] == a2 )
-      break;
+    do
+    {
+      v9 = (__int64)v13;
+      if ( v13[3] == a2 )
+        break;
+      v13 = (_QWORD *)*v13;
+    }
+    while ( v13 != (_QWORD *)a1 );
+    if ( v13 != (_QWORD *)a1 )
+    {
+      if ( a1 != HalpIommuBypassDomain && a4 )
+        ++*(_QWORD *)(v9 + 16);
+      goto LABEL_18;
+    }
   }
-  if ( i != v12 )
+  if ( !a3 )
   {
-    if ( a1 != HalpIommuBypassDomain && a4 )
-      ++*(_QWORD *)(v7 + 16);
-    goto LABEL_11;
+LABEL_18:
+    *a5 = v9;
+    goto LABEL_21;
   }
-  if ( v31 )
+  v14 = (void *)HalpMmAllocCtxAlloc(v11, 112LL);
+  v9 = (__int64)v14;
+  if ( !v14 )
   {
-    v16 = (void *)HalpMmAllocCtxAlloc(v13, 144LL);
-    v7 = (__int64)v16;
-    if ( !v16 )
-    {
-      DmarptRootAddress = -1073741670;
-      goto LABEL_12;
-    }
-    memset(v16, 0, 0x90uLL);
-    *(_QWORD *)(v7 + 16) = 1LL;
-    *(_QWORD *)(v7 + 24) = a2;
-    *(_DWORD *)(v7 + 32) = 1;
-    if ( *(_BYTE *)(a1 + 52) )
-    {
-      v21 = a5;
-      v22 = a5;
-      *(_DWORD *)(v7 + 32) = 0;
-      *(_BYTE *)(v7 + 48) ^= (*(_BYTE *)(v7 + 48) ^ (4 * v22)) & 4;
-      if ( v21 )
-        v28 = a1 + 48;
-    }
-    v17 = *(_QWORD *)(a1 + 40);
-    if ( v17 && !*(_BYTE *)(a1 + 52) )
-    {
-      DmarptRootAddress = HalpIommuGetDmarptRootAddress(
-                            v17,
-                            (unsigned int)((unsigned __int8)HIBYTE(*(_WORD *)(a2 + 488)) >> 5) + 1,
-                            &v30);
-      if ( DmarptRootAddress < 0 )
-        goto LABEL_23;
-      *(PHYSICAL_ADDRESS *)(v7 + 72) = v30;
-      *(_BYTE *)(v7 + 64) = 3;
-    }
-    *(_DWORD *)(v7 + 36) = *(_DWORD *)(a1 + 12);
-    DmarptRootAddress = HalpIommuAcquireNewDomain(a2, v7 + 32, v28);
+    DmarptRootAddress = -1073741670;
+    goto LABEL_21;
+  }
+  memset(v14, 0, 0x70uLL);
+  *(_QWORD *)(v9 + 24) = a2;
+  *(_QWORD *)(v9 + 16) = 1LL;
+  *(_DWORD *)(v9 + 32) = 1;
+  v15 = *(_QWORD *)(a1 + 24);
+  if ( !v15 )
+    goto LABEL_14;
+  DmarptRootAddress = HalpIommuGetDmarptRootAddress(v15, ((*(_DWORD *)(a2 + 456) >> 12) & 7u) + 1, &v24);
+  if ( DmarptRootAddress >= 0 )
+  {
+    *(_QWORD *)(v9 + 48) = v24;
+LABEL_14:
+    *(_DWORD *)(v9 + 36) = *(_DWORD *)(a1 + 36);
+    DmarptRootAddress = HalpIommuAcquireNewDomain(a2, v9 + 32);
     if ( DmarptRootAddress >= 0 )
     {
-      *(_DWORD *)(a1 + 48) = *(_DWORD *)(v7 + 80);
-      v19 = *(__int64 **)(a1 + 24);
-      if ( (_QWORD *)*v19 != v12 )
+      v17 = *(__int64 **)(a1 + 8);
+      if ( *v17 != a1 )
         __fastfail(3u);
-      *(_QWORD *)v7 = v12;
-      *(_QWORD *)(v7 + 8) = v19;
-      *v19 = v7;
-      *(_QWORD *)(a1 + 24) = v7;
-      goto LABEL_11;
+      *(_QWORD *)v9 = a1;
+      *(_QWORD *)(v9 + 8) = v17;
+      *v17 = v9;
+      *(_QWORD *)(a1 + 8) = v9;
+      goto LABEL_18;
     }
-LABEL_23:
-    HalpMmAllocCtxFree(v18, v7);
-    goto LABEL_12;
   }
-LABEL_11:
-  *v6 = v7;
-LABEL_12:
-  KxReleaseSpinLock(v29);
+  if ( v9 )
+    HalpMmAllocCtxFree(v16, v9);
+LABEL_21:
+  KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 16));
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-      v27 = (v26 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v26;
-      if ( v27 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+        v22 = (v21 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v21;
+        if ( v22 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v14);
+  __writecr8(v12);
   return (unsigned int)DmarptRootAddress;
 }

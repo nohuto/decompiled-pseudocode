@@ -1,19 +1,19 @@
 /*
- * XREFs of KeBalanceSetManager @ 0x1403C81D0
+ * XREFs of KeBalanceSetManager @ 0x1403B90E0
  * Callers:
  *     <none>
  * Callees:
- *     ExpScanGeneralLookasideList @ 0x1402226C0 (ExpScanGeneralLookasideList.c)
- *     ExpScanSystemLookasideList @ 0x1402227C8 (ExpScanSystemLookasideList.c)
- *     MiWorkingSetManager @ 0x140267320 (MiWorkingSetManager.c)
- *     KePulseEvent @ 0x14026A0D0 (KePulseEvent.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     KeSetPriorityThread @ 0x140344340 (KeSetPriorityThread.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     KeSetPriorityThread @ 0x140257AE0 (KeSetPriorityThread.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     KePulseEvent @ 0x140271AC0 (KePulseEvent.c)
+ *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     ExpScanGeneralLookasideList @ 0x140290EA0 (ExpScanGeneralLookasideList.c)
+ *     ExpScanSystemLookasideList @ 0x140290FA0 (ExpScanSystemLookasideList.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void __noreturn KeBalanceSetManager()
@@ -39,10 +39,10 @@ void __noreturn KeBalanceSetManager()
 
   KeSetPriorityThread(KeGetCurrentThread(), 17);
   v0 = 8;
-  v1 = KeNumberProcessorsGroup0[1];
+  v1 = KeNumberProcessorsGroup0[3];
   Object[0] = &KiBalanceSetManagerPeriodicEvent;
   KiStackProtectTime = (unsigned __int64)((0x8F0D180 * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v1;
-  Object[1] = (PVOID)(qword_140C59058 + 96);
+  Object[1] = (PVOID)(qword_140C52840 + 96);
   while ( 1 )
   {
     while ( 1 )
@@ -102,11 +102,14 @@ void __noreturn KeBalanceSetManager()
 LABEL_10:
     if ( ++ExpScanCount == 3 )
       ExpScanCount = 0;
-    if ( (unsigned __int8)EtwpBootPhase > 1u && !--EtwpBufferAdjustmentCount )
+    if ( EtwpInitialized )
     {
-      EtwpBufferAdjustmentCount = 8;
-      if ( !_InterlockedCompareExchange(&EtwpBufferAdjustmentActive, 1, 0) )
-        ExQueueWorkItem(&EtwpAdjustBuffersWorkItem, DelayedWorkQueue);
+      if ( !--EtwpBufferAdjustmentCount )
+      {
+        EtwpBufferAdjustmentCount = 8;
+        if ( !_InterlockedCompareExchange(&EtwpBufferAdjustmentActive, 1, 0) )
+          ExQueueWorkItem(&EtwpAdjustBuffersWorkItem, DelayedWorkQueue);
+      }
     }
     MiWorkingSetManager((__int64)&MiSystemPartition, 0);
     if ( PspJobTimeLimitsRequest )

@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepRegistryQueryKeyInformation @ 0x1408492A8
+ * XREFs of KsepRegistryQueryKeyInformation @ 0x140849288
  * Callers:
- *     KsepDbQueryRegistryDeviceDataList @ 0x140847AA4 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x140847A84 (KsepDbQueryRegistryDeviceDataList.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1400F4C94 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x1400F4CBC (KsepPoolAllocatePaged.c)
- *     ZwQueryKey @ 0x1401B8430 (ZwQueryKey.c)
+ *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
+ *     ZwQueryKey @ 0x1401B8450 (ZwQueryKey.c)
  */
 
 NTSTATUS __fastcall KsepRegistryQueryKeyInformation(HANDLE KeyHandle, _QWORD *a2, _QWORD *a3)

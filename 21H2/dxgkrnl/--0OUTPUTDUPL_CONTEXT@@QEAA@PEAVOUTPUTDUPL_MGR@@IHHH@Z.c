@@ -1,27 +1,24 @@
 /*
- * XREFs of ??0OUTPUTDUPL_CONTEXT@@QEAA@PEAVOUTPUTDUPL_MGR@@IHHH@Z @ 0x1C0325A2C
+ * XREFs of ??0OUTPUTDUPL_CONTEXT@@QEAA@PEAVOUTPUTDUPL_MGR@@IHHH@Z @ 0x1C02A0288
  * Callers:
- *     ?CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C031FEB8 (-CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_.c)
+ *     ?CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C029906C (-CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 OUTPUTDUPL_CONTEXT *__fastcall OUTPUTDUPL_CONTEXT::OUTPUTDUPL_CONTEXT(
         OUTPUTDUPL_CONTEXT *this,
         struct OUTPUTDUPL_MGR *a2,
-        __int64 a3,
-        __int64 a4,
+        int a3,
+        int a4,
         int a5,
         int a6)
 {
-  int v6; // esi
-  int v7; // ebx
   HANDLE CurrentProcessId; // rax
+  OUTPUTDUPL_CONTEXT *result; // rax
 
   *((_DWORD *)this + 4) = -1;
-  v6 = a4;
-  v7 = a3;
-  *((_QWORD *)this + 3) = PsGetCurrentProcess(this, a2, a3, a4);
+  *((_QWORD *)this + 3) = PsGetCurrentProcess(this, a2);
   CurrentProcessId = PsGetCurrentProcessId();
   *((_QWORD *)this + 35) = 1LL;
   *((_QWORD *)this + 4) = CurrentProcessId;
@@ -31,16 +28,16 @@ OUTPUTDUPL_CONTEXT *__fastcall OUTPUTDUPL_CONTEXT::OUTPUTDUPL_CONTEXT(
   *((_DWORD *)this + 82) = a6;
   *((_QWORD *)this + 33) = (char *)this + 72;
   *((_DWORD *)this + 72) = 0;
-  *((_DWORD *)this + 73) = v7;
+  *((_DWORD *)this + 73) = a3;
   *((_QWORD *)this + 37) = a2;
   *((_QWORD *)this + 38) = 0LL;
   *((_QWORD *)this + 39) = 0LL;
-  *((_DWORD *)this + 81) = v6;
+  *((_DWORD *)this + 81) = a4;
   memset((char *)this + 72, 0, 0xC0uLL);
   *((_OWORD *)this + 3) = 0LL;
   *((_QWORD *)this + 8) = 0LL;
+  result = this;
   *((_QWORD *)this + 1) = this;
   *(_QWORD *)this = this;
-  _InterlockedIncrement(&g_DbgGlobalContextCount);
-  return this;
+  return result;
 }

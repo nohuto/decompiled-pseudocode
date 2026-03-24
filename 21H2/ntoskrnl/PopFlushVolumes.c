@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFlushVolumes @ 0x140A51CA4
+ * XREFs of PopFlushVolumes @ 0x140997CEC
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x140256CA0 (PopDiagTraceEventNoPayload.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwFlushKey @ 0x14041D540 (ZwFlushKey.c)
- *     PsCreateSystemThread @ 0x1406F0310 (PsCreateSystemThread.c)
- *     PopFlushVolumeWorker @ 0x140A51F50 (PopFlushVolumeWorker.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PopDiagTraceEventNoPayload @ 0x1402CD1D4 (PopDiagTraceEventNoPayload.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwFlushKey @ 0x1403FC0E0 (ZwFlushKey.c)
+ *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
+ *     PopFlushVolumeWorker @ 0x140997FA0 (PopFlushVolumeWorker.c)
  */
 
 void __fastcall PopFlushVolumes(int a1)
@@ -49,7 +49,7 @@ void __fastcall PopFlushVolumes(int a1)
 
   ThreadHandle = 0LL;
   KeyHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   PopDiagTraceEventNoPayload(&POP_ETW_EVENT_FLUSHVOLUMES_START);
   v27 = 0LL;
@@ -64,7 +64,7 @@ void __fastcall PopFlushVolumes(int a1)
   else
   {
     v2 = PopFlushPolicy;
-    if ( byte_140C22C00 )
+    if ( byte_140C23880 )
       v2 = 3;
   }
   v3 = v2 | 0x10;
@@ -148,14 +148,14 @@ LABEL_34:
               goto LABEL_34;
             *v20 = v14;
             v14[1] = v20;
-            v21 = (_QWORD *)qword_140C231A8;
-            if ( *(__int64 **)qword_140C231A8 != &PopVolumeDevices )
+            v21 = (_QWORD *)qword_140C23F08;
+            if ( *(__int64 **)qword_140C23F08 != &PopVolumeDevices )
               goto LABEL_34;
             *v16 = &PopVolumeDevices;
             --v6;
             v16[1] = v21;
             *v21 = v16;
-            qword_140C231A8 = (__int64)v16;
+            qword_140C23F08 = (__int64)v16;
           }
         }
       }

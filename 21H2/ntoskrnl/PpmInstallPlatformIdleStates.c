@@ -1,413 +1,395 @@
 /*
- * XREFs of PpmInstallPlatformIdleStates @ 0x14098AAF0
+ * XREFs of PpmInstallPlatformIdleStates @ 0x1408E22A0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     KeQueryActiveProcessorAffinity2 @ 0x1403CF350 (KeQueryActiveProcessorAffinity2.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PpmResetPlatformIdleAccounting @ 0x1405C8A68 (PpmResetPlatformIdleAccounting.c)
- *     PpmEnableCoordinatedIdleStates @ 0x14098A28C (PpmEnableCoordinatedIdleStates.c)
- *     PpmIdleUpdatePlatformDependencies @ 0x14099E088 (PpmIdleUpdatePlatformDependencies.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     KeQueryActiveProcessorAffinity @ 0x1403C2430 (KeQueryActiveProcessorAffinity.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PpmResetPlatformIdleAccounting @ 0x140567630 (PpmResetPlatformIdleAccounting.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x1408E1CBC (PpmEnableCoordinatedIdleStates.c)
+ *     PpmIdleUpdatePlatformDependencies @ 0x1408F6898 (PpmIdleUpdatePlatformDependencies.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmInstallPlatformIdleStates(__int64 a1)
 {
-  __int64 v1; // r15
-  unsigned int v2; // esi
-  void *v3; // rdi
-  char v4; // bp
-  __int64 v5; // rbx
-  unsigned int v6; // r12d
-  unsigned int v7; // edx
-  unsigned int v8; // eax
-  _DWORD *v9; // rcx
-  int v10; // r14d
-  __int64 v11; // rcx
-  int v12; // ecx
-  __int64 v13; // r14
-  unsigned int v14; // r13d
-  __int64 v15; // rax
-  __int64 v16; // rax
-  unsigned int v17; // r12d
-  __int64 v18; // rdi
-  _QWORD *v19; // rax
-  unsigned int v20; // edi
-  __int64 v21; // r13
-  __int64 v22; // rcx
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int128 v25; // xmm0
-  __int64 v26; // r15
+  __int64 v1; // r14
+  char v2; // bp
+  unsigned int v3; // ebx
+  unsigned int v4; // edi
+  unsigned int v5; // r15d
+  unsigned int v6; // edx
+  unsigned int v7; // eax
+  _DWORD *v8; // rcx
+  int v9; // ebx
+  int v10; // ecx
+  unsigned int v11; // esi
+  __int64 v12; // rcx
+  __int64 v13; // rsi
+  unsigned int v14; // r12d
+  unsigned int v15; // ecx
+  size_t v16; // rbx
+  PVOID PoolWithTag; // rax
+  int *v18; // rax
+  __int64 v19; // r13
+  __int64 v20; // rdi
+  __int64 v21; // rbx
+  _QWORD *v22; // rax
+  _DWORD *v23; // rcx
+  __int64 v24; // r13
+  __int64 v25; // r12
+  __int64 v26; // rcx
   __int64 v27; // rdi
-  unsigned int v28; // r13d
-  __int64 v29; // rsi
-  __int64 v30; // rbx
-  __int64 v31; // rcx
-  int v32; // eax
-  unsigned int v33; // ebx
-  __int64 v34; // rdi
-  __int64 Prcb; // rax
-  unsigned int v36; // r9d
-  __int64 v37; // r10
-  __int64 v38; // r8
-  __int64 v39; // rdx
-  unsigned int v40; // r12d
-  unsigned int v41; // edx
-  __int64 v42; // rbx
-  __int64 v43; // r13
-  __int64 v44; // r11
-  unsigned int v45; // ecx
-  __int64 v46; // r15
-  __int64 v47; // rdi
-  unsigned int v48; // eax
-  __int64 v49; // r9
-  __int64 v50; // r8
-  ULONG ProcessorIndexFromNumber; // eax
-  __int64 v52; // rbx
-  __int64 v53; // rdi
-  int v54; // edx
-  __int64 v55; // rcx
-  __int64 v56; // rax
+  __int64 v28; // rdx
+  __int64 v29; // rdi
+  __int128 v30; // xmm0
+  __int64 v31; // r14
+  __int64 v32; // r13
+  unsigned int v33; // r12d
+  __int64 v34; // rbx
+  __int64 v35; // rcx
+  int v36; // eax
   unsigned int i; // ebx
-  unsigned int v58; // edi
-  __int64 v59; // r13
-  unsigned int v60; // eax
-  __int64 v61; // rcx
-  bool v62; // zf
-  char v63; // al
-  unsigned int v65; // [rsp+20h] [rbp-78h]
-  __int64 v66; // [rsp+20h] [rbp-78h]
-  int v67; // [rsp+28h] [rbp-70h]
-  int v68; // [rsp+2Ch] [rbp-6Ch]
-  __int64 Pool2; // [rsp+30h] [rbp-68h]
-  __int64 v70; // [rsp+30h] [rbp-68h]
-  unsigned int v72; // [rsp+A8h] [rbp+10h]
-  unsigned int v73; // [rsp+A8h] [rbp+10h]
-  __int64 v74; // [rsp+A8h] [rbp+10h]
-  unsigned int v75; // [rsp+B0h] [rbp+18h]
-  __int64 v76; // [rsp+B0h] [rbp+18h]
-  unsigned int v77; // [rsp+B8h] [rbp+20h]
+  __int64 Prcb; // rax
+  __int64 v39; // r9
+  __int64 v40; // r10
+  __int64 v41; // r8
+  __int64 v42; // rdx
+  __int64 v43; // r12
+  __int64 v44; // rdx
+  __int64 v45; // r13
+  __int64 v46; // rbx
+  __int64 v47; // r11
+  unsigned int v48; // ecx
+  __int64 v49; // r15
+  __int64 v50; // rdi
+  unsigned int v51; // eax
+  __int64 v52; // r9
+  __int64 v53; // r8
+  ULONG ProcessorIndexFromNumber; // eax
+  __int64 v55; // rbx
+  __int64 v56; // rdi
+  int v57; // edx
+  __int64 v58; // rcx
+  __int64 v59; // rax
+  unsigned int j; // ebx
+  __int64 v61; // rdi
+  __int64 v62; // r13
+  unsigned int v63; // eax
+  __int64 v64; // rcx
+  __int64 v65; // r12
+  bool v66; // al
+  unsigned int v68; // [rsp+20h] [rbp-68h]
+  unsigned int v69; // [rsp+24h] [rbp-64h]
+  __int64 v70; // [rsp+28h] [rbp-60h]
+  __int64 v71; // [rsp+30h] [rbp-58h]
+  unsigned int v73; // [rsp+98h] [rbp+10h]
+  int v74; // [rsp+98h] [rbp+10h]
+  __int64 v75; // [rsp+98h] [rbp+10h]
+  unsigned int v76; // [rsp+A0h] [rbp+18h]
+  unsigned int v77; // [rsp+A8h] [rbp+20h]
 
   v1 = a1;
-  v2 = 0;
-  Pool2 = 0LL;
-  v3 = 0LL;
   PopAcquireRwLockExclusive((ULONG_PTR)&PpmIdlePolicyLock);
-  v4 = 1;
+  v2 = 1;
   if ( PpmPlatformStates && !*(_BYTE *)(v1 + 48) )
   {
-    v2 = -1073741431;
-LABEL_79:
+    v3 = -1073741431;
+LABEL_75:
     PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
-    return v2;
+    return v3;
   }
-  v5 = *(unsigned int *)(v1 + 4);
-  if ( !(_DWORD)v5 || *(_DWORD *)(v1 + 8) > (unsigned int)v5 )
-    goto LABEL_78;
-  PpmIdleUpdatePlatformDependencies(v1);
-  v6 = KeNumberProcessors_0;
-  v7 = 0;
-  v8 = *(_DWORD *)(v1 + 8);
-  v75 = KeNumberProcessors_0;
-  if ( v8 )
+  v4 = *(_DWORD *)(v1 + 4);
+  if ( !v4 || *(_DWORD *)(v1 + 8) > v4 )
   {
-    v9 = (_DWORD *)(v1 + 72);
-    while ( *v9 <= (unsigned int)KeNumberProcessors_0 )
+LABEL_5:
+    v3 = -1073741811;
+    goto LABEL_75;
+  }
+  PpmIdleUpdatePlatformDependencies(v1);
+  v5 = KeNumberProcessors_0;
+  v6 = 0;
+  v7 = *(_DWORD *)(v1 + 8);
+  v76 = KeNumberProcessors_0;
+  if ( v7 )
+  {
+    v8 = (_DWORD *)(v1 + 72);
+    while ( *v8 <= (unsigned int)KeNumberProcessors_0 )
     {
-      ++v7;
-      v9 += 12;
-      if ( v7 >= v8 )
+      ++v6;
+      v8 += 12;
+      if ( v6 >= v7 )
+        goto LABEL_11;
+    }
+    goto LABEL_5;
+  }
+LABEL_11:
+  v9 = 0;
+  v10 = 0;
+  if ( v7 )
+  {
+    v11 = 0;
+    if ( (_DWORD)KeNumberProcessors_0 )
+    {
+      while ( 1 )
       {
-        v10 = 0;
-        if ( !(_DWORD)KeNumberProcessors_0 )
+        v12 = *(_QWORD *)(KeGetPrcb(v11) + 0x8000);
+        if ( !v12 )
+          goto LABEL_5;
+        v9 += *(_DWORD *)(v12 + 32);
+        if ( ++v11 >= v5 )
         {
-LABEL_14:
-          v12 = v8 * (v6 + v10);
-          v3 = 0LL;
-          v7 = v6 * v8;
-          goto LABEL_16;
-        }
-        while ( 1 )
-        {
-          v11 = *(_QWORD *)(KeGetPrcb((unsigned int)v3) + 33600);
-          if ( !v11 )
-            goto LABEL_78;
-          v10 += *(_DWORD *)(v11 + 32);
-          LODWORD(v3) = (_DWORD)v3 + 1;
-          if ( (unsigned int)v3 >= v6 )
-          {
-            v8 = *(_DWORD *)(v1 + 8);
-            goto LABEL_14;
-          }
+          v7 = *(_DWORD *)(v1 + 8);
+          break;
         }
       }
     }
-    goto LABEL_78;
+    v9 = v7 * (v5 + v9);
+    v10 = v5 * v7;
   }
-  v12 = 0;
-LABEL_16:
   v13 = PpmPlatformStates;
   if ( PpmPlatformStates )
   {
-    if ( *(_DWORD *)(PpmPlatformStates + 8) == v6 && *(_DWORD *)PpmPlatformStates == (_DWORD)v5 )
+    if ( *(_DWORD *)(PpmPlatformStates + 8) != v5
+      || *(_DWORD *)PpmPlatformStates != v4
+      || (LODWORD(v26) = v7, *(_DWORD *)(PpmPlatformStates + 4) != 1) )
     {
-      LODWORD(v22) = v8;
-      if ( *(_DWORD *)(PpmPlatformStates + 4) == 1 )
-        goto LABEL_50;
-    }
-LABEL_78:
-    v2 = -1073741811;
-    goto LABEL_79;
-  }
-  v77 = (448 * v5 + 71) & 0xFFFFFFF8;
-  v65 = v77 + 24 * v7;
-  v72 = v65 + 24 * v12;
-  v67 = (v72 + 1008 * v5 + 31) & 0xFFFFFFF8;
-  v68 = (4 * v5 + 15) & 0xFFFFFFF8;
-  if ( PpmIdleVetoList )
-  {
-    v14 = *((_DWORD *)PpmIdleVetoList + 1);
-    if ( v14 )
-    {
-      Pool2 = ExAllocatePool2(64LL, (v5 * v14) << 6, 1766674512LL);
-      v3 = (void *)Pool2;
-      if ( !Pool2 )
-        goto LABEL_23;
+      v3 = -1073741811;
+      goto LABEL_74;
     }
   }
   else
   {
-    v14 = 0;
-  }
-  v15 = ExAllocatePool2(72LL, v67 + v6 * ((4 * (_DWORD)v5 + 15) & 0xFFFFFFF8), 1766674512LL);
-  v13 = v15;
-  if ( !v15 )
-  {
-    ExFreePoolWithTag(v3, 0x694D5050u);
-LABEL_23:
-    v2 = -1073741670;
-    goto LABEL_79;
-  }
-  *(_DWORD *)v15 = v5;
-  *(_DWORD *)(v15 + 4) = *(_DWORD *)(v1 + 8) != 0;
-  *(_DWORD *)(v15 + 8) = v6;
-  *(_QWORD *)(v15 + 16) = *(_QWORD *)(v1 + 16);
-  *(_QWORD *)(v15 + 24) = *(_QWORD *)(v1 + 24);
-  *(_QWORD *)(v15 + 32) = *(_QWORD *)(v1 + 32);
-  *(_QWORD *)(v15 + 40) = *(_QWORD *)(v1 + 40);
-  v16 = v15 + v72;
-  *(_QWORD *)(v13 + 48) = v16;
-  *(_DWORD *)(v16 + 4) = v5;
-  PpmResetPlatformIdleAccounting((int *)(v13 + v72));
-  if ( *(_DWORD *)(v1 + 4) )
-  {
-    v17 = 0;
-    do
+    v73 = (384 * v4 + 71) & 0xFFFFFFF8;
+    v77 = v73 + 24 * v10;
+    v14 = v77 + 24 * v9;
+    v69 = (4 * v4 + 15) & 0xFFFFFFF8;
+    v68 = (v14 + 1008 * v4 + 31) & 0xFFFFFFF8;
+    v15 = v68 + v5 * v69;
+    if ( PpmIdleVetoList )
+      v15 += (v4 * *(_DWORD *)PpmIdleVetoList) << 6;
+    v16 = v15;
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNxCacheAligned, v15, 0x694D5050u);
+    v13 = (__int64)PoolWithTag;
+    if ( !PoolWithTag )
     {
-      v18 = 448LL * v17;
-      *(_BYTE *)(v18 + v13 + 121) = 1;
-      *(_QWORD *)(v18 + v13 + 128) = 2097153LL;
-      memset((void *)(v18 + v13 + 136), 0, 0x100uLL);
-      KeQueryActiveProcessorAffinity2(v18 + v13 + 128);
-      *(_BYTE *)(v18 + v13 + 104) = 7;
-      v19 = (_QWORD *)(v18 + v13 + 88);
-      v19[1] = v19;
-      *v19 = v19;
-      if ( PpmIdleDisableStatesAtBoot )
-        *(_DWORD *)(v18 + v13 + 80) = 0x80000000;
-      if ( v14 )
-      {
-        if ( v17 == *(_DWORD *)(v1 + 4) - 1 )
-          *(_BYTE *)(v18 + v13 + 105) = 1;
-        *(_QWORD *)(v18 + v13 + 112) = Pool2;
-        *(_DWORD *)(v18 + v13 + 108) = v14;
-        Pool2 += (unsigned __int64)v14 << 6;
-        *(_QWORD *)(1008LL * v17 + v13 + v72 + 192) = v18 + v13 + 80;
-      }
-      ++v17;
+      v3 = -1073741670;
+      goto LABEL_75;
     }
-    while ( v17 < *(_DWORD *)(v1 + 4) );
-    v6 = v75;
-  }
-  v20 = 0;
-  v21 = v13 + v77;
-  LODWORD(v22) = *(_DWORD *)(v1 + 8);
-  v70 = v13 + v65;
-  v73 = 0;
-  if ( (_DWORD)v22 )
-  {
-    v23 = 24LL * v6;
-    do
-    {
-      v24 = 448LL * v20;
-      v25 = *(_OWORD *)(v1 + 48LL * v20 + 80);
-      *(_QWORD *)(v24 + v13 + 408) = v21;
-      v21 += v23;
-      *(_DWORD *)(v24 + v13 + 124) = v6;
-      v66 = v21;
-      *(_OWORD *)(v24 + v13 + 392) = v25;
-      if ( v6 )
-      {
-        v26 = v70;
-        v27 = 0LL;
-        v28 = 0;
-        v29 = v24;
-        do
-        {
-          v30 = *(_QWORD *)(v29 + v13 + 408);
-          v31 = *(_QWORD *)(KeGetPrcb(v28) + 33600);
-          *(_DWORD *)(v27 + v30) = v28++;
-          v27 += 24LL;
-          v32 = *(_DWORD *)(v31 + 32);
-          *(_QWORD *)(v27 + v30 - 8) = v26;
-          *(_DWORD *)(v27 + v30 - 16) = v32;
-          v26 += 24LL * *(unsigned int *)(v31 + 32);
-        }
-        while ( v28 < v6 );
-        v20 = v73;
-        v2 = 0;
-        v21 = v66;
-        v23 = 24LL * v6;
-        v70 = v26;
-        v1 = a1;
-      }
-      LODWORD(v22) = *(_DWORD *)(v1 + 8);
-      v73 = ++v20;
-    }
-    while ( v20 < (unsigned int)v22 );
-  }
-  v33 = 0;
-  if ( v6 )
-  {
-    v34 = v70;
-    do
-    {
-      Prcb = KeGetPrcb(v33);
-      v36 = 0;
-      v37 = *(_QWORD *)(Prcb + 33600);
-      *(_QWORD *)(v37 + 1040) = v13 + v67 + v33 * v68;
-      *(_DWORD *)(v37 + 1064) = *(_DWORD *)(v1 + 8);
-      *(_QWORD *)(v37 + 1072) = v34;
-      v22 = *(unsigned int *)(v1 + 8);
-      v34 += 24 * v22;
-      if ( (_DWORD)v22 )
-      {
-        do
-        {
-          v38 = 448LL * v36;
-          v39 = 3LL * ((unsigned int)v22 - v36 - 1);
-          v22 = *(_QWORD *)(v37 + 1072);
-          *(_DWORD *)(v22 + 8 * v39 + 4) = v36++;
-          *(_DWORD *)(v22 + 8 * v39 + 8) = *(_DWORD *)(v38 + v13 + 124);
-          *(_QWORD *)(v22 + 8 * v39 + 16) = *(_QWORD *)(v38 + v13 + 408);
-          LODWORD(v22) = *(_DWORD *)(v1 + 8);
-        }
-        while ( v36 < (unsigned int)v22 );
-      }
-      ++v33;
-    }
-    while ( v33 < v6 );
-  }
-LABEL_50:
-  if ( (_DWORD)v22 )
-  {
-    v40 = 0;
-    do
-    {
-      v41 = 0;
-      v42 = 448LL * v40;
-      v43 = v1 + 48LL * v40;
-      *(_DWORD *)(v42 + v13 + 72) = *(_DWORD *)(v43 + 64);
-      *(_DWORD *)(v42 + v13 + 76) = *(_DWORD *)(v43 + 68);
-      if ( *(_DWORD *)(v43 + 72) )
-      {
-        do
-        {
-          v44 = *(_QWORD *)(v43 + 96);
-          v45 = 0;
-          v46 = *(_QWORD *)(v42 + v13 + 408);
-          v47 = 3LL * *(unsigned int *)(v44 + 8LL * v41);
-          v48 = *(_DWORD *)(v46 + 24LL * *(unsigned int *)(v44 + 8LL * v41) + 8);
-          if ( v48 )
-          {
-            do
-            {
-              v49 = *(_QWORD *)(v46 + 8 * v47 + 16);
-              v50 = 3LL * (v48 - v45 - 1);
-              *(_OWORD *)(v49 + 8 * v50) = 0LL;
-              *(_QWORD *)(v49 + 8 * v50 + 16) = 0LL;
-              *(_DWORD *)(v49 + 8 * v50 + 4) = v45;
-              if ( !*(_BYTE *)(v43 + 60) && v45 == *(unsigned __int8 *)(v43 + 61) )
-                *(_BYTE *)(v49 + 24LL * (v48 - v45 - 1) + 1) = 1;
-              if ( v45 >= *(unsigned __int8 *)(v44 + 8LL * v41 + 4) )
-              {
-                *(_BYTE *)(v49 + 24LL * (v48 - v45 - 1) + 2) = 1;
-                if ( !*(_BYTE *)(v44 + 8LL * v41 + 6) )
-                  *(_BYTE *)(v49 + 24LL * (v48 - v45 - 1)) = 1;
-              }
-              v48 = *(_DWORD *)(v46 + 8 * v47 + 8);
-              ++v45;
-            }
-            while ( v45 < v48 );
-          }
-          ++v41;
-        }
-        while ( v41 < *(_DWORD *)(v43 + 72) );
-        v1 = a1;
-      }
-      if ( *(_BYTE *)(v43 + 60) )
-      {
-        ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)(v43 + 56));
-        v52 = *(_QWORD *)(v42 + v13 + 408);
-        v53 = 3LL * ProcessorIndexFromNumber;
-        memset(
-          *(void **)(v52 + 24LL * ProcessorIndexFromNumber + 16),
-          0,
-          24LL * *(unsigned int *)(v52 + 24LL * ProcessorIndexFromNumber + 8));
-        v54 = *(unsigned __int8 *)(v43 + 61);
-        v55 = 3LL * (unsigned int)(*(_DWORD *)(v52 + 8 * v53 + 8) - v54 - 1);
-        v56 = *(_QWORD *)(v52 + 8 * v53 + 16);
-        *(_DWORD *)(v56 + 8 * v55 + 4) = v54;
-        *(_BYTE *)(v56 + 8 * v55 + 1) = 1;
-      }
-      ++v40;
-    }
-    while ( v40 < *(_DWORD *)(v1 + 8) );
-    v6 = v75;
-  }
-  for ( i = 0; i < v6; ++i )
-  {
-    v58 = 0;
-    v59 = *(_QWORD *)(KeGetPrcb(i) + 33600);
-    v60 = *(_DWORD *)(v59 + 1064);
-    if ( v60 )
+    memset(PoolWithTag, 0, v16);
+    *(_DWORD *)v13 = v4;
+    *(_DWORD *)(v13 + 4) = *(_DWORD *)(v1 + 8) != 0;
+    *(_DWORD *)(v13 + 8) = v5;
+    *(_QWORD *)(v13 + 16) = *(_QWORD *)(v1 + 16);
+    *(_QWORD *)(v13 + 24) = *(_QWORD *)(v1 + 24);
+    *(_QWORD *)(v13 + 32) = *(_QWORD *)(v1 + 32);
+    *(_QWORD *)(v13 + 40) = *(_QWORD *)(v1 + 40);
+    v18 = (int *)(v13 + v14);
+    *(_QWORD *)(v13 + 48) = v18;
+    v18[1] = v4;
+    PpmResetPlatformIdleAccounting(v18);
+    v19 = v13 + v68 + v5 * v69;
+    v20 = 0LL;
+    if ( *(_DWORD *)(v1 + 4) )
     {
       do
       {
-        v74 = 3LL * (v60 - v58 - 1);
-        v76 = *(_QWORD *)(v59 + 1072);
-        v61 = v1 + 48LL * v58 + 56;
-        if ( !*(_BYTE *)(v61 + 4) || (v62 = KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)v61) == i, v63 = 0, v62) )
-          v63 = 1;
-        ++v58;
-        *(_BYTE *)(v76 + 8 * v74 + 1) = v63;
-        v60 = *(_DWORD *)(v59 + 1064);
+        v21 = 384 * v20;
+        *(_BYTE *)(384 * v20 + v13 + 121) = 1;
+        KeQueryActiveProcessorAffinity(384 * v20 + v13 + 128);
+        *(_BYTE *)(384 * v20 + v13 + 104) = 7;
+        v22 = (_QWORD *)(384 * v20 + v13 + 88);
+        v22[1] = v22;
+        *v22 = v22;
+        if ( PpmIdleDisableStatesAtBoot )
+          *(_DWORD *)(v21 + v13 + 80) = 0x80000000;
+        v23 = (_DWORD *)PpmIdleVetoList;
+        if ( PpmIdleVetoList )
+        {
+          if ( (_DWORD)v20 == *(_DWORD *)(v1 + 4) - 1 )
+            *(_BYTE *)(v21 + v13 + 105) = 1;
+          *(_DWORD *)(v21 + v13 + 108) = *v23;
+          *(_QWORD *)(v21 + v13 + 112) = v19;
+          v19 += (unsigned __int64)(unsigned int)*v23 << 6;
+          *(_QWORD *)(1008LL * (unsigned int)v20 + v13 + v14 + 192) = v21 + v13 + 80;
+        }
+        v20 = (unsigned int)(v20 + 1);
       }
-      while ( v58 < v60 );
+      while ( (unsigned int)v20 < *(_DWORD *)(v1 + 4) );
+      v5 = v76;
+    }
+    v24 = 0LL;
+    v25 = v13 + v73;
+    LODWORD(v26) = *(_DWORD *)(v1 + 8);
+    v27 = v13 + v77;
+    v70 = v27;
+    v74 = 0;
+    if ( (_DWORD)v26 )
+    {
+      v28 = 24LL * v5;
+      do
+      {
+        v29 = 384 * v24;
+        v30 = *(_OWORD *)(v1 + 48 * v24 + 80);
+        *(_QWORD *)(v29 + v13 + 312) = v25;
+        v25 += v28;
+        *(_DWORD *)(v29 + v13 + 124) = v5;
+        v71 = v25;
+        *(_OWORD *)(v29 + v13 + 296) = v30;
+        if ( v5 )
+        {
+          v31 = v70;
+          v32 = 0LL;
+          v33 = 0;
+          do
+          {
+            v34 = *(_QWORD *)(v29 + v13 + 312);
+            v35 = *(_QWORD *)(KeGetPrcb(v33) + 0x8000);
+            *(_DWORD *)(v34 + v32) = v33++;
+            v32 += 24LL;
+            v36 = *(_DWORD *)(v35 + 32);
+            *(_QWORD *)(v34 + v32 - 8) = v31;
+            *(_DWORD *)(v34 + v32 - 16) = v36;
+            v31 += 24LL * *(unsigned int *)(v35 + 32);
+          }
+          while ( v33 < v5 );
+          v25 = v71;
+          LODWORD(v24) = v74;
+          v28 = 24LL * v5;
+          v70 = v31;
+          v1 = a1;
+        }
+        LODWORD(v26) = *(_DWORD *)(v1 + 8);
+        v24 = (unsigned int)(v24 + 1);
+        v74 = v24;
+      }
+      while ( (unsigned int)v24 < (unsigned int)v26 );
+      v27 = v70;
+    }
+    for ( i = 0; i < v5; ++i )
+    {
+      Prcb = KeGetPrcb(i);
+      v39 = 0LL;
+      v40 = *(_QWORD *)(Prcb + 0x8000);
+      *(_QWORD *)(v40 + 752) = v13 + v68 + i * v69;
+      *(_DWORD *)(v40 + 776) = *(_DWORD *)(v1 + 8);
+      *(_QWORD *)(v40 + 784) = v27;
+      v26 = *(unsigned int *)(v1 + 8);
+      v27 += 24 * v26;
+      if ( (_DWORD)v26 )
+      {
+        do
+        {
+          v41 = 384 * v39;
+          v42 = 3LL * (unsigned int)(v26 - v39 - 1);
+          v26 = *(_QWORD *)(v40 + 784);
+          *(_DWORD *)(v26 + 8 * v42 + 4) = v39;
+          v39 = (unsigned int)(v39 + 1);
+          *(_DWORD *)(v26 + 8 * v42 + 8) = *(_DWORD *)(v41 + v13 + 124);
+          *(_QWORD *)(v26 + 8 * v42 + 16) = *(_QWORD *)(v41 + v13 + 312);
+          LODWORD(v26) = *(_DWORD *)(v1 + 8);
+        }
+        while ( (unsigned int)v39 < (unsigned int)v26 );
+      }
+    }
+  }
+  v43 = 0LL;
+  if ( (_DWORD)v26 )
+  {
+    do
+    {
+      v44 = 0LL;
+      v45 = v1 + 48 * v43;
+      v46 = 384 * v43;
+      *(_DWORD *)(v46 + v13 + 72) = *(_DWORD *)(v45 + 64);
+      *(_DWORD *)(v46 + v13 + 76) = *(_DWORD *)(v45 + 68);
+      if ( *(_DWORD *)(v45 + 72) )
+      {
+        do
+        {
+          v47 = *(_QWORD *)(v45 + 96);
+          v48 = 0;
+          v49 = *(_QWORD *)(v46 + v13 + 312);
+          v50 = 3LL * *(unsigned int *)(v47 + 8 * v44);
+          v51 = *(_DWORD *)(v49 + 24LL * *(unsigned int *)(v47 + 8 * v44) + 8);
+          if ( v51 )
+          {
+            do
+            {
+              v52 = *(_QWORD *)(v49 + 8 * v50 + 16);
+              v53 = 3LL * (v51 - v48 - 1);
+              *(_OWORD *)(v52 + 8 * v53) = 0LL;
+              *(_QWORD *)(v52 + 8 * v53 + 16) = 0LL;
+              *(_DWORD *)(v52 + 8 * v53 + 4) = v48;
+              if ( !*(_BYTE *)(v45 + 60) && v48 == *(unsigned __int8 *)(v45 + 61) )
+                *(_BYTE *)(v52 + 24LL * (v51 - v48 - 1) + 1) = 1;
+              if ( v48 >= *(unsigned __int8 *)(v47 + 8 * v44 + 4) )
+              {
+                *(_BYTE *)(v52 + 24LL * (v51 - v48 - 1) + 2) = 1;
+                if ( !*(_BYTE *)(v47 + 8 * v44 + 6) )
+                  *(_BYTE *)(v52 + 24LL * (v51 - v48 - 1)) = 1;
+              }
+              v51 = *(_DWORD *)(v49 + 8 * v50 + 8);
+              ++v48;
+            }
+            while ( v48 < v51 );
+          }
+          v44 = (unsigned int)(v44 + 1);
+        }
+        while ( (unsigned int)v44 < *(_DWORD *)(v45 + 72) );
+      }
+      if ( *(_BYTE *)(v45 + 60) )
+      {
+        ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)(v45 + 56));
+        v55 = *(_QWORD *)(v46 + v13 + 312);
+        v56 = 3LL * ProcessorIndexFromNumber;
+        memset(
+          *(void **)(v55 + 24LL * ProcessorIndexFromNumber + 16),
+          0,
+          24LL * *(unsigned int *)(v55 + 24LL * ProcessorIndexFromNumber + 8));
+        v57 = *(unsigned __int8 *)(v45 + 61);
+        v58 = 3LL * (unsigned int)(*(_DWORD *)(v55 + 8 * v56 + 8) - v57 - 1);
+        v59 = *(_QWORD *)(v55 + 8 * v56 + 16);
+        *(_DWORD *)(v59 + 8 * v58 + 4) = v57;
+        *(_BYTE *)(v59 + 8 * v58 + 1) = 1;
+      }
+      v43 = (unsigned int)(v43 + 1);
+    }
+    while ( (unsigned int)v43 < *(_DWORD *)(v1 + 8) );
+    v5 = v76;
+  }
+  for ( j = 0; j < v5; ++j )
+  {
+    v61 = 0LL;
+    v62 = *(_QWORD *)(KeGetPrcb(j) + 0x8000);
+    v63 = *(_DWORD *)(v62 + 776);
+    if ( v63 )
+    {
+      do
+      {
+        v64 = v1 + 48 * v61 + 56;
+        v65 = 3LL * (v63 - (unsigned int)v61 - 1);
+        v75 = *(_QWORD *)(v62 + 784);
+        v66 = !*(_BYTE *)(v64 + 4) || KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)v64) == j;
+        v61 = (unsigned int)(v61 + 1);
+        *(_BYTE *)(v75 + 8 * v65 + 1) = v66;
+        v63 = *(_DWORD *)(v62 + 776);
+      }
+      while ( (unsigned int)v61 < v63 );
     }
   }
   if ( !PpmPlatformStates )
   {
     PpmEnableCoordinatedIdleStates((int *)v13, 0);
-    v4 = 0;
+    v2 = 0;
   }
-  if ( v4 )
-    goto LABEL_79;
-  return v2;
+  v3 = 0;
+LABEL_74:
+  if ( v2 )
+    goto LABEL_75;
+  return v3;
 }

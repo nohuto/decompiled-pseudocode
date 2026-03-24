@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z @ 0x180076E08
+ * XREFs of ?GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z @ 0x1800B1E34
  * Callers:
- *     ?GetScenarioDetails@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z @ 0x180076D34 (-GetScenarioDetails@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z.c)
- *     ?GetScenarioName@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z @ 0x180076D84 (-GetScenarioName@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z.c)
- *     ?SendLongtermStatistics@CAnimationTracking@@AEAAXXZ @ 0x1801CAF80 (-SendLongtermStatistics@CAnimationTracking@@AEAAXXZ.c)
+ *     ?GetScenarioName@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z @ 0x1800B1C08 (-GetScenarioName@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z.c)
+ *     ?GetScenarioDetails@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z @ 0x1800B1DC4 (-GetScenarioDetails@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z.c)
+ *     ?SendLongtermStatistics@CAnimationTracking@@AEAAXXZ @ 0x180156F98 (-SendLongtermStatistics@CAnimationTracking@@AEAAXXZ.c)
  * Callees:
- *     ?StringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x180076EB8 (-StringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?StringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800B1EE4 (-StringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
  */
 
 void __fastcall CAnimationTracking::GuidToString(const struct _GUID *a1, unsigned __int16 *a2)

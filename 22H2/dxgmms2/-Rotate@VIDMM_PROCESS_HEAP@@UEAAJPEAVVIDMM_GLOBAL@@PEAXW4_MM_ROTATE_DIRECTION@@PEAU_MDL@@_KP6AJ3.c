@@ -1,17 +1,15 @@
 /*
- * XREFs of ?Rotate@VIDMM_PROCESS_HEAP@@UEAAJPEAVVIDMM_GLOBAL@@PEAXW4_MM_ROTATE_DIRECTION@@PEAU_MDL@@_KP6AJ331@Z1TVIDMM_ROTATE_FLAGS@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0105210
+ * XREFs of ?Rotate@VIDMM_PROCESS_HEAP@@UEAAJPEAVVIDMM_GLOBAL@@PEAXW4_MM_ROTATE_DIRECTION@@PEAU_MDL@@_KP6AJ331@Z1TVIDMM_ROTATE_FLAGS@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00CC500
  * Callers:
  *     <none>
  * Callees:
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0005D98 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0019988 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?RecordRotation@VIDMM_GLOBAL@@SAXPEAU_EPROCESS@@PEAX_KPEAU_MDL@@W4_MM_ROTATE_DIRECTION@@J@Z @ 0x1C00F5200 (-RecordRotation@VIDMM_GLOBAL@@SAXPEAU_EPROCESS@@PEAX_KPEAU_MDL@@W4_MM_ROTATE_DIRECTION@@J@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0005710 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0017928 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?RecordRotation@VIDMM_GLOBAL@@SAXPEAU_EPROCESS@@PEAX_KPEAU_MDL@@W4_MM_ROTATE_DIRECTION@@J@Z @ 0x1C00BF2F8 (-RecordRotation@VIDMM_GLOBAL@@SAXPEAU_EPROCESS@@PEAX_KPEAU_MDL@@W4_MM_ROTATE_DIRECTION@@J@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VIDMM_PROCESS_HEAP::Rotate(
         __int64 a1,
         __int64 a2,
@@ -23,250 +21,274 @@ __int64 __fastcall VIDMM_PROCESS_HEAP::Rotate(
         PVOID a8,
         char a9)
 {
-  ULONG_PTR v9; // rbx
-  __int64 v10; // r15
-  __int64 v11; // r14
-  char v13; // di
-  NTSTATUS v14; // esi
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 CurrentProcess; // rcx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  __int64 v24; // rdx
-  bool v25; // zf
+  ULONG_PTR v9; // rdi
+  __int64 v12; // r15
+  char v13; // si
+  NTSTATUS v14; // r14d
+  __int64 v15; // rbx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  _QWORD *v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rcx
+  __int64 v25; // rdx
   char *v26; // r12
-  SIZE_T v27; // r13
-  HANDLE v28; // rax
-  __int64 v29; // rcx
+  int v27; // eax
+  __int64 v28; // rbx
+  __int64 v29; // rdx
   __int64 v30; // rcx
-  __int64 v31; // r8
-  struct _MDL *v33; // r15
-  ULONG_PTR v34; // rbx
-  NTSTATUS (__stdcall *CopyFunction)(PMDL, PMDL, PVOID); // r13
-  PVOID Context; // r14
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // r9
-  __int64 v40; // rcx
-  __int64 v41; // r8
-  __int64 v42; // rdx
-  struct _MDL *v43; // r14
-  PVOID v44; // r13
-  int v45; // r14d
-  NTSTATUS v46; // eax
-  __int64 v47; // rcx
-  __int64 v48; // r8
-  NTSTATUS (__stdcall *v49)(PMDL, PMDL, PVOID); // r15
-  struct _EPROCESS *v50; // rax
-  __int64 v51; // rcx
-  __int64 v52; // rax
-  __int64 v53; // rcx
-  __int64 v54; // r8
-  ULONG_PTR NumberOfBytes; // [rsp+58h] [rbp-31h] BYREF
-  unsigned __int64 v56; // [rsp+60h] [rbp-29h]
-  union _LARGE_INTEGER Interval; // [rsp+68h] [rbp-21h] BYREF
-  int v58; // [rsp+70h] [rbp-19h] BYREF
-  __int64 v59; // [rsp+78h] [rbp-11h]
-  char v60; // [rsp+80h] [rbp-9h]
-  int v61; // [rsp+D8h] [rbp+4Fh]
-  ULONG_PTR v63; // [rsp+E8h] [rbp+5Fh] BYREF
-  enum _MM_ROTATE_DIRECTION v64; // [rsp+F0h] [rbp+67h]
+  _QWORD *v31; // rax
+  SIZE_T v32; // r14
+  HANDLE v33; // rax
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  char v36; // bl
+  struct _MDL *v37; // rbx
+  ULONG_PTR v38; // rdi
+  PVOID Context; // rsi
+  NTSTATUS (__stdcall *CopyFunction)(PMDL, PMDL, PVOID); // r15
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // r8
+  __int64 v44; // rax
+  __int64 v45; // rcx
+  __int64 v46; // r8
+  __int64 v47; // rdx
+  int i; // r15d
+  NTSTATUS v49; // eax
+  __int64 v50; // rdx
+  __int64 v51; // rax
+  __int64 v52; // rcx
+  __int64 v53; // r8
+  PVOID v54; // rbx
+  NTSTATUS (__stdcall *v55)(PMDL, PMDL, PVOID); // r15
+  __int64 v56; // rbx
+  struct _MDL *v57; // r13
+  struct _EPROCESS *CurrentProcess; // rax
+  __int64 v59; // rcx
+  __int64 v60; // r8
+  SIZE_T v62; // [rsp+30h] [rbp-40h]
+  ULONG_PTR NumberOfBytes; // [rsp+38h] [rbp-38h] BYREF
+  ULONG_PTR v64; // [rsp+40h] [rbp-30h] BYREF
+  union _LARGE_INTEGER v65; // [rsp+48h] [rbp-28h] BYREF
+  union _LARGE_INTEGER Interval; // [rsp+50h] [rbp-20h] BYREF
+  int v67; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v68; // [rsp+60h] [rbp-10h]
+  char v69; // [rsp+68h] [rbp-8h]
+  int v70; // [rsp+B0h] [rbp+40h]
+  ULONG_PTR v71; // [rsp+C0h] [rbp+50h] BYREF
+  enum _MM_ROTATE_DIRECTION v72; // [rsp+C8h] [rbp+58h]
 
-  v64 = a4;
-  v63 = a3;
-  v58 = -1;
+  v72 = a4;
+  v71 = a3;
+  v67 = -1;
   v9 = a3;
-  v10 = a4;
-  v11 = a2;
-  v59 = 0LL;
+  v68 = 0LL;
+  v12 = a4;
   v13 = 1;
-  if ( (qword_1C0076010 & 2) != 0 )
+  if ( (qword_1C0050010 & 2) != 0 )
   {
-    v60 = 1;
-    v58 = 8005;
-    if ( byte_1C0076981 < 0 )
-      McTemplateK0q_EtwWriteTransfer(a1, (__int64)&EventProfilerEnter, a3, 8005);
+    v69 = 1;
+    v67 = 8005;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 8005);
   }
   else
   {
-    v60 = 0;
+    v69 = 0;
   }
   DXGETWPROFILER_BASE::PushProfilerEntry();
   v14 = 0;
-  CurrentProcess = PsGetCurrentProcess(v16, v15, v17, v18);
-  if ( CurrentProcess != **(_QWORD **)(a1 + 8) )
+  v15 = **(_QWORD **)(a1 + 8);
+  if ( PsGetCurrentProcess(v17, v16, v18) != v15 )
   {
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 270LL, 30LL, 0LL, 0LL, 0LL);
+    v22 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v20, v19);
+    v22[5] = 0LL;
+    v22[6] = 0LL;
+    v22[7] = 0LL;
+    v22[3] = 270LL;
+    v22[4] = 30LL;
+    WdLogEvent5_WdCriticalError(v22);
   }
   if ( g_IsInternalReleaseOrDbg )
   {
-    v22 = WdLogNewEntry5_WdTrace(CurrentProcess);
-    *(_QWORD *)(v22 + 24) = v9;
-    *(_QWORD *)(v22 + 32) = v10;
+    v23 = WdLogNewEntry5_WdTrace(v20);
+    *(_QWORD *)(v23 + 24) = v9;
+    *(_QWORD *)(v23 + 32) = v12;
   }
-  v23 = *(_QWORD *)(v9 + 8);
-  v24 = *(_DWORD *)v9 & 1;
+  v24 = *(_QWORD *)(v9 + 8);
+  v25 = *(_DWORD *)v9 & 1;
   if ( (*(_DWORD *)v9 & 1) != 0 )
   {
-    v25 = (*(_DWORD *)(v9 + 20) & 0x800000) == 0;
     v26 = *(char **)(v9 + 8);
+    v27 = (*(_DWORD *)(v9 + 20) >> 23) & 1;
   }
   else
   {
-    v26 = (char *)(*(_QWORD *)(v9 + 16) + *(_QWORD *)(v23 + 32));
-    v25 = (*(_DWORD *)(v23 + 64) & 1) == 0;
+    v26 = (char *)(*(_QWORD *)(v9 + 16) + *(_QWORD *)(v24 + 32));
+    if ( (*(_DWORD *)(v24 + 64) & 1) != 0 )
+      goto LABEL_19;
+    v27 = 0;
   }
-  if ( v25 )
+  if ( v27 )
   {
-    if ( (unsigned int)v10 < 2 )
+LABEL_19:
+    v70 = 0;
+    if ( (unsigned int)v12 <= 1 )
     {
-      v14 = -1073741823;
+      v32 = Size;
+      v62 = Size;
+      if ( !(_DWORD)v25 && !*(_QWORD *)(v24 + 56) && !*(_QWORD *)(v9 + 32) )
+      {
+        v33 = MmSecureVirtualMemory(v26, Size, 4u);
+        *(_QWORD *)(v9 + 32) = v33;
+        if ( !v33 )
+        {
+          _InterlockedAdd(&dword_1C0050750, 1u);
+          v35 = WdLogNewEntry5_WdLowResource(v34);
+          *(_QWORD *)(v35 + 24) = 1553LL;
+          WdLogEvent5_WdLowResource(v35);
+          v14 = -1073741801;
+          goto LABEL_59;
+        }
+      }
+      if ( *(_DWORD *)(a2 + 40176) != -1 )
+        (*(void (__fastcall **)(_QWORD))(a2 + 40080))(*(_QWORD *)(a2 + 40144));
+      v70 = 1;
     }
     else
     {
-      v51 = (unsigned int)(v10 - 2);
-      if ( (unsigned int)v51 <= 1 )
-      {
-        v52 = PsGetCurrentProcess(v51, v24, v20, v21);
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 1LL, v52, v9, v10);
-      }
+      v32 = *(_QWORD *)(v9 + 64);
+      v62 = v32;
     }
-    goto LABEL_66;
-  }
-  v61 = 0;
-  if ( (unsigned int)v10 > 1 )
-  {
-    v27 = *(_QWORD *)(v9 + 64);
-    v56 = v27;
-    goto LABEL_26;
-  }
-  v27 = Size;
-  v56 = Size;
-  if ( (_DWORD)v24
-    || *(_QWORD *)(v23 + 56)
-    || *(_QWORD *)(v9 + 32)
-    || (v28 = MmSecureVirtualMemory(v26, Size, 4u), (*(_QWORD *)(v9 + 32) = v28) != 0LL) )
-  {
-    if ( *(_DWORD *)(v11 + 40184) != -1 )
-      (*(void (__fastcall **)(_QWORD))(v11 + 40088))(*(_QWORD *)(v11 + 40152));
-    v61 = 1;
-LABEL_26:
-    if ( (_DWORD)v10 == 2 )
+    v36 = a9;
+    if ( (_DWORD)v12 == 2 )
     {
-      v33 = NewMdl;
-      v34 = v27;
-      CopyFunction = a7;
+      v37 = NewMdl;
+      v38 = v32;
       Context = a8;
+      CopyFunction = a7;
       Interval.QuadPart = -10000LL;
       while ( 1 )
       {
-        NumberOfBytes = v34;
-        v14 = MmRotatePhysicalView(v26, &NumberOfBytes, v33, MmToRegularMemory, CopyFunction, Context);
+        NumberOfBytes = v38;
+        v14 = MmRotatePhysicalView(v26, &NumberOfBytes, v37, MmToRegularMemory, CopyFunction, Context);
         if ( v14 != 1073741849 )
           break;
-        WdLogSingleEntry0(3LL);
-        if ( bTracingEnabled )
-        {
-          if ( (byte_1C0076981 & 1) != 0 )
-            McTemplateK0q_EtwWriteTransfer(v40, (__int64)&EventPerformanceWarning, v41, 12);
-        }
+        v44 = WdLogNewEntry5_WdWarning(v42, v41);
+        WdLogEvent5_WdWarning(v44);
+        if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0q_EtwWriteTransfer(v45, &EventPerformanceWarning, v46, 12);
         v26 += NumberOfBytes;
-        v34 -= NumberOfBytes;
+        v38 -= NumberOfBytes;
         KeDelayExecutionThread(0, 0, &Interval);
       }
-      v9 = v63;
+      v9 = v71;
+      v13 = 1;
     }
     else
     {
-      if ( (_DWORD)v10 != 3 )
+      if ( (_DWORD)v12 != 3 )
       {
-        v63 = v27;
-        v14 = MmRotatePhysicalView(v26, &v63, NewMdl, (MM_ROTATE_DIRECTION)v10, a7, a8);
+        v71 = v32;
+        v14 = MmRotatePhysicalView(v26, &v71, NewMdl, (MM_ROTATE_DIRECTION)v12, a7, a8);
         if ( v14 >= 0 )
-        {
-LABEL_37:
-          if ( (unsigned int)v10 <= 1 )
-          {
-            v43 = NewMdl;
-            *(_QWORD *)(v9 + 80) = NewMdl;
-            *(_QWORD *)(v9 + 64) = v27;
-          }
-          else
-          {
-            if ( (a9 & 2) == 0 )
-            {
-              ExFreePoolWithTag(*(PVOID *)(v9 + 80), 0);
-              *(_QWORD *)(v9 + 80) = 0LL;
-            }
-            v43 = NewMdl;
-            v13 = 0;
-          }
-          *(_BYTE *)(v9 + 72) = v13;
-LABEL_59:
-          v50 = (struct _EPROCESS *)PsGetCurrentProcess(v37, v42, v38, v39);
-          VIDMM_GLOBAL::RecordRotation(v50, v26, v27, v43, (enum _MM_ROTATE_DIRECTION)v10, v14);
-LABEL_66:
-          DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v58);
-          if ( v60 && byte_1C0076981 < 0 )
-            McTemplateK0q_EtwWriteTransfer(v53, (__int64)&EventProfilerExit, v54, v58);
-          return (unsigned int)v14;
-        }
-        if ( (a9 & 2) != 0 )
+          goto LABEL_63;
+        if ( (v36 & 2) != 0 )
         {
           ExFreePoolWithTag(*(PVOID *)(v9 + 80), 0);
           *(_QWORD *)(v9 + 80) = 0LL;
         }
-LABEL_55:
-        if ( v61 )
+LABEL_53:
+        if ( v14 < 0 )
         {
-          v42 = *(unsigned int *)(v11 + 40184);
-          if ( (_DWORD)v42 != -1 )
-            (*(void (__fastcall **)(_QWORD))(v11 + 40104))(*(_QWORD *)(v11 + 40152));
+          if ( v70 )
+          {
+            v47 = *(unsigned int *)(a2 + 40176);
+            if ( (_DWORD)v47 != -1 )
+              (*(void (__fastcall **)(_QWORD))(a2 + 40096))(*(_QWORD *)(a2 + 40144));
+          }
+          v56 = v62;
+          v57 = NewMdl;
+LABEL_58:
+          CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v42, v47, v43);
+          VIDMM_GLOBAL::RecordRotation(CurrentProcess, v26, v56, v57, (enum _MM_ROTATE_DIRECTION)v12, v14);
+          goto LABEL_59;
         }
-        v43 = NewMdl;
-        goto LABEL_59;
+LABEL_63:
+        if ( (unsigned int)v12 <= 1 )
+        {
+          v56 = v62;
+          v57 = NewMdl;
+          *(_QWORD *)(v9 + 64) = v62;
+          *(_QWORD *)(v9 + 80) = v57;
+        }
+        else
+        {
+          if ( (v36 & 2) == 0 )
+          {
+            ExFreePoolWithTag(*(PVOID *)(v9 + 80), 0);
+            *(_QWORD *)(v9 + 80) = 0LL;
+          }
+          v56 = v62;
+          v13 = 0;
+          v57 = NewMdl;
+        }
+        *(_BYTE *)(v9 + 72) = v13;
+        goto LABEL_58;
       }
-      NumberOfBytes = v27;
-      v44 = a8;
-      v45 = a9 & 1;
-      Interval.QuadPart = -10000LL;
-      while ( 1 )
+      v65.QuadPart = -10000LL;
+      v64 = v32;
+      LODWORD(v71) = a9 & 1;
+      for ( i = v71; ; i = v71 )
       {
-        v46 = MmRotatePhysicalView(v26, &NumberOfBytes, NewMdl, MmToRegularMemoryNoCopy, a7, v44);
-        v14 = v46;
-        if ( !v45 || v46 != 1073741849 )
+        v49 = MmRotatePhysicalView(v26, &v64, NewMdl, MmToRegularMemoryNoCopy, a7, a8);
+        v14 = v49;
+        if ( !i || v49 != 1073741849 )
           break;
-        WdLogSingleEntry0(3LL);
-        if ( bTracingEnabled && (byte_1C0076981 & 1) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v47, (__int64)&EventPerformanceWarning, v48, 12);
-        v49 = a7;
-        while ( MmRotatePhysicalView(v26, &NumberOfBytes, *(PMDL *)(v9 + 80), MmToFrameBufferNoCopy, v49, v44) < 0 )
-          KeDelayExecutionThread(0, 0, &Interval);
-        KeDelayExecutionThread(0, 0, &Interval);
+        v51 = WdLogNewEntry5_WdWarning(v42, v50);
+        WdLogEvent5_WdWarning(v51);
+        if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0q_EtwWriteTransfer(v52, &EventPerformanceWarning, v53, 12);
+        v54 = a8;
+        v55 = a7;
+        while ( MmRotatePhysicalView(v26, &v64, *(PMDL *)(v9 + 80), MmToFrameBufferNoCopy, v55, v54) < 0 )
+          KeDelayExecutionThread(0, 0, &v65);
+        KeDelayExecutionThread(0, 0, &v65);
       }
     }
-    v11 = a2;
-    v27 = v56;
-    LODWORD(v10) = v64;
-    v42 = *(unsigned int *)(a2 + 40184);
-    if ( (_DWORD)v42 != -1 )
-      (*(void (__fastcall **)(_QWORD))(a2 + 40104))(*(_QWORD *)(a2 + 40152));
-    if ( v14 >= 0 )
-      goto LABEL_37;
-    goto LABEL_55;
+    v47 = *(unsigned int *)(a2 + 40176);
+    v36 = a9;
+    LODWORD(v12) = v72;
+    if ( (_DWORD)v47 != -1 )
+      (*(void (__fastcall **)(_QWORD))(a2 + 40096))(*(_QWORD *)(a2 + 40144));
+    goto LABEL_53;
   }
-  _InterlockedAdd(&dword_1C0076860, 1u);
-  WdLogSingleEntry1(6LL, 1530LL);
-  DxgkLogInternalTriageEvent(v29, 262145LL);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v58);
-  if ( v60 && byte_1C0076981 < 0 )
-    McTemplateK0q_EtwWriteTransfer(v30, (__int64)&EventProfilerExit, v31, v58);
-  return 3221225495LL;
+  if ( (int)v12 >= 0 )
+  {
+    if ( (int)v12 <= 1 )
+    {
+      v14 = -1073741823;
+    }
+    else if ( (int)v12 <= 3 )
+    {
+      v28 = PsGetCurrentProcess(v24, v25, v21);
+      v31 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v30, v29);
+      v31[3] = 270LL;
+      v31[4] = 1LL;
+      v31[5] = v28;
+      v31[6] = v9;
+      v31[7] = v12;
+      WdLogEvent5_WdCriticalError(v31);
+    }
+  }
+LABEL_59:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v67);
+  if ( v69 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v59, &EventProfilerExit, v60, v67);
+  return (unsigned int)v14;
 }

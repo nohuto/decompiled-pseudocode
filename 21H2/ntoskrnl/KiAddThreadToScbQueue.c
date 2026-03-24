@@ -1,69 +1,66 @@
 /*
- * XREFs of KiAddThreadToScbQueue @ 0x140210988
+ * XREFs of KiAddThreadToScbQueue @ 0x1402EBCF4
  * Callers:
- *     KiGroupSchedulingQuantumEnd @ 0x140290B9C (KiGroupSchedulingQuantumEnd.c)
- *     KiDeferGroupSchedulingPreemption @ 0x140291C10 (KiDeferGroupSchedulingPreemption.c)
- *     KiSelectReadyThread @ 0x1402B4AE0 (KiSelectReadyThread.c)
- *     KiQueueReadyThread @ 0x1402B9970 (KiQueueReadyThread.c)
- *     KiDeferredReadySingleThread @ 0x1403405E0 (KiDeferredReadySingleThread.c)
- *     KiAddThreadToReadyQueue @ 0x1405737B4 (KiAddThreadToReadyQueue.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1402587E0 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1402593B0 (KiQueueReadyThread.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x14025A110 (KiDeferGroupSchedulingPreemption.c)
+ *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
+ *     KiSelectReadyThread @ 0x140347900 (KiSelectReadyThread.c)
+ *     KiAddThreadToReadyQueue @ 0x14051EEF4 (KiAddThreadToReadyQueue.c)
  * Callees:
- *     KiInsertNonMaxOverQuotaScb @ 0x140210A70 (KiInsertNonMaxOverQuotaScb.c)
- *     KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion @ 0x140210BE8 (KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x1402EBD9C (KiInsertNonMaxOverQuotaScb.c)
  */
 
 __int64 __fastcall KiAddThreadToScbQueue(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  unsigned int v5; // ebp
-  __int64 v9; // r8
-  _QWORD *v10; // rcx
-  _QWORD *v11; // rdx
+  __int64 v4; // r10
+  unsigned int v5; // r11d
+  _QWORD *v7; // rcx
+  _QWORD *v8; // rdx
+  __int64 v9; // rax
+  _QWORD *v11; // rax
   __int64 v12; // rax
-  _QWORD *v14; // rax
-  __int64 v15; // rax
 
+  v4 = a2;
   v5 = *(char *)(a3 + 195);
-  if ( (*(_DWORD *)(a3 + 120) & 0x400000) != 0 )
-    _InterlockedOr(*(volatile signed __int32 **)(a3 + 968), 0x40000u);
-  KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion(a3);
   if ( !*(_DWORD *)(a2 + 116) )
   {
     do
     {
-      v15 = *(_QWORD *)(a2 + 408);
-      if ( !v15 )
+      v12 = *(_QWORD *)(v4 + 408);
+      if ( !v12 )
         break;
-      a2 = *(_QWORD *)(a2 + 408);
+      v4 = *(_QWORD *)(v4 + 408);
     }
-    while ( !*(_DWORD *)(v15 + 116) );
+    while ( !*(_DWORD *)(v12 + 116) );
   }
-  v10 = (_QWORD *)(a3 + 216);
-  v11 = (_QWORD *)(a2 + 16LL * v5 + 136);
+  v7 = (_QWORD *)(a3 + 216);
+  v8 = (_QWORD *)(v4 + 16LL * v5 + 136);
   if ( !a4 )
   {
-    v14 = (_QWORD *)v11[1];
-    if ( (_QWORD *)*v14 == v11 )
+    v11 = (_QWORD *)v8[1];
+    if ( (_QWORD *)*v11 == v8 )
     {
-      *v10 = v11;
-      *(_QWORD *)(a3 + 224) = v14;
-      *v14 = v10;
-      v11[1] = v10;
-      goto LABEL_7;
+      *v7 = v8;
+      *(_QWORD *)(a3 + 224) = v11;
+      *v11 = v7;
+      v8[1] = v7;
+      goto LABEL_5;
     }
-LABEL_10:
+LABEL_8:
     __fastfail(3u);
   }
-  v12 = *v11;
-  if ( *(_QWORD **)(*v11 + 8LL) != v11 )
-    goto LABEL_10;
-  *v10 = v12;
-  *(_QWORD *)(a3 + 224) = v11;
-  *(_QWORD *)(v12 + 8) = v10;
-  *v11 = v10;
-LABEL_7:
+  v9 = *v8;
+  if ( *(_QWORD **)(*v8 + 8LL) != v8 )
+    goto LABEL_8;
+  *v7 = v9;
+  *(_QWORD *)(a3 + 224) = v8;
+  *(_QWORD *)(v9 + 8) = v7;
+  *v8 = v7;
+LABEL_5:
   *(_DWORD *)(a3 + 116) |= 0x2000u;
-  LOBYTE(v9) = 1;
-  *(_QWORD *)(a3 + 944) = a2;
-  *(_WORD *)(a2 + 114) |= 1 << v5;
-  return KiInsertNonMaxOverQuotaScb(a2, a1, v9);
+  *(_QWORD *)(a3 + 944) = v4;
+  LOBYTE(a3) = 1;
+  *(_WORD *)(v4 + 114) |= 1 << v5;
+  return KiInsertNonMaxOverQuotaScb(v4, a1, a3);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0REMOTE_VSYNC@@QEAA@XZ @ 0x1C020FC14
+ * XREFs of ??0REMOTE_VSYNC@@QEAA@XZ @ 0x1C0195A2C
  * Callers:
- *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C020F33C (--0DXGGLOBAL@@AEAA@XZ.c)
+ *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C0195384 (--0DXGGLOBAL@@AEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ REMOTE_VSYNC *__fastcall REMOTE_VSYNC::REMOTE_VSYNC(REMOTE_VSYNC *this)
   *((_QWORD *)this + 5) = 0LL;
   *((_QWORD *)this + 6) = 0LL;
   *((_DWORD *)this + 14) = 0;
-  *((_DWORD *)this + 15) = 64;
+  *((_DWORD *)this + 15) = 53;
   KeInitializeEvent((PRKEVENT)((char *)this + 16), NotificationEvent, 0);
   return this;
 }

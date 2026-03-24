@@ -1,31 +1,33 @@
 /*
- * XREFs of ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C02B05CC
+ * XREFs of ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C02B1A30
  * Callers:
- *     NtGdiSTROBJ_bEnum @ 0x1C02B3D20 (NtGdiSTROBJ_bEnum.c)
- *     NtGdiSTROBJ_bEnumPositionsOnly @ 0x1C02B3D40 (NtGdiSTROBJ_bEnumPositionsOnly.c)
+ *     NtGdiSTROBJ_bEnum @ 0x1C02B5980 (NtGdiSTROBJ_bEnum.c)
+ *     NtGdiSTROBJ_bEnumPositionsOnly @ 0x1C02B59A0 (NtGdiSTROBJ_bEnumPositionsOnly.c)
  * Callees:
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0009B28 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C01267F4 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
- *     ??$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z @ 0x1C012AE8C (--$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z.c)
- *     STROBJ_bEnum @ 0x1C013A2C0 (STROBJ_bEnum.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     STROBJ_bEnumPositionsOnly @ 0x1C02BDEB0 (STROBJ_bEnumPositionsOnly.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DF14 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     STROBJ_bEnum @ 0x1C00CD0F0 (STROBJ_bEnum.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CFBDC (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z @ 0x1C013DC08 (--$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z.c)
+ *     Feature_1508323640__private_IsEnabledDeviceUsage @ 0x1C016A12C (Feature_1508323640__private_IsEnabledDeviceUsage.c)
+ *     ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016D8BC (-bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ @ 0x1C02B2070 (-vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ.c)
+ *     STROBJ_bEnumPositionsOnly @ 0x1C02BF530 (STROBJ_bEnumPositionsOnly.c)
  */
 
 __int64 __fastcall NtGdiSTROBJ_bEnumInternal(struct _STROBJ *a1, unsigned int *a2, struct _GLYPHPOS **a3, int a4)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
-  UMPDOBJ *v10; // rbx
-  STROBJ *v11; // rax
-  unsigned int v12; // eax
-  unsigned int v13; // r14d
-  __int64 v14; // rsi
-  struct _GLYPHPOS *v15; // rax
-  struct _GLYPHPOS *v16; // r15
+  struct UMPDOBJ *ThreadCurrentObj; // rbx
+  STROBJ *v10; // rax
+  unsigned int v11; // eax
+  unsigned int v12; // esi
+  __int64 v13; // rdi
+  struct _GLYPHPOS *v14; // rax
+  struct _GLYPHPOS *v15; // r14
   GLYPHDEF **p_pgdf; // rax
-  __int64 v18; // rcx
+  __int64 v17; // rcx
   ULONG pc; // [rsp+20h] [rbp-38h] BYREF
   PGLYPHPOS ppgpos[6]; // [rsp+28h] [rbp-30h] BYREF
 
@@ -33,40 +35,52 @@ __int64 __fastcall NtGdiSTROBJ_bEnumInternal(struct _STROBJ *a1, unsigned int *a
   pc = 0;
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v10 = ThreadCurrentObj;
   ppgpos[2] = (PGLYPHPOS)ThreadCurrentObj;
+  if ( ThreadCurrentObj )
+  {
+    if ( (unsigned int)Feature_1508323640__private_IsEnabledDeviceUsage() )
+    {
+      if ( !UMPDOBJ::bIncrementEngCallRecursionCount(ThreadCurrentObj) )
+        return 0xFFFFFFFFLL;
+    }
+    else
+    {
+      ++*((_DWORD *)ThreadCurrentObj + 105);
+    }
+  }
   if ( !ThreadCurrentObj )
     return 0xFFFFFFFFLL;
-  ++*((_DWORD *)ThreadCurrentObj + 105);
-  v11 = (STROBJ *)UMPDOBJ::GetDDIOBJ<_STROBJ>((__int64)ThreadCurrentObj, (__int64)a1);
-  if ( !v11
-    || (!a4 ? (v12 = STROBJ_bEnum(v11, &pc, ppgpos)) : (v12 = STROBJ_bEnumPositionsOnly(v11, &pc, ppgpos)),
-        (v13 = v12, v12 == -1)
-     || (v14 = pc, pc > 0x1A0AAA)
-     || (v15 = (struct _GLYPHPOS *)UMPDOBJ::_AllocUserMem(v10, 24 * pc, 0), v16 = v15, (ppgpos[1] = v15) == 0LL)) )
+  v10 = (STROBJ *)UMPDOBJ::GetDDIOBJ<_STROBJ>((__int64)ThreadCurrentObj, (__int64)a1);
+  if ( !v10
+    || (!a4 ? (v11 = STROBJ_bEnum(v10, &pc, ppgpos)) : (v11 = STROBJ_bEnumPositionsOnly(v10, &pc, ppgpos)),
+        (v12 = v11, v11 == -1)
+     || (v13 = pc, pc > 0x1A0AAA)
+     || (v14 = (struct _GLYPHPOS *)UMPDOBJ::_AllocUserMem(ThreadCurrentObj, 24 * pc, 0),
+         v15 = v14,
+         (ppgpos[1] = v14) == 0LL)) )
   {
-    --*((_DWORD *)v10 + 105);
+    UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
     return 0xFFFFFFFFLL;
   }
-  memmove(v15, ppgpos[0], 24 * v14);
+  memmove(v14, ppgpos[0], 24 * v13);
   if ( (unsigned __int64)a3 >= MmUserProbeAddress )
     a3 = (struct _GLYPHPOS **)MmUserProbeAddress;
-  *a3 = v16;
+  *a3 = v15;
   if ( (unsigned __int64)a2 >= MmUserProbeAddress )
     a2 = (unsigned int *)MmUserProbeAddress;
-  *a2 = v14;
-  if ( (_DWORD)v14 )
+  *a2 = v13;
+  if ( (_DWORD)v13 )
   {
-    p_pgdf = &v16->pgdf;
-    v18 = (unsigned int)v14;
+    p_pgdf = &v15->pgdf;
+    v17 = (unsigned int)v13;
     do
     {
       *p_pgdf = 0LL;
       p_pgdf += 3;
-      --v18;
+      --v17;
     }
-    while ( v18 );
+    while ( v17 );
   }
-  --*((_DWORD *)v10 + 105);
-  return v13;
+  UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
+  return v12;
 }

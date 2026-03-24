@@ -1,5 +1,5 @@
 /*
- * XREFs of KiWaitForReboot @ 0x14028D950
+ * XREFs of KiWaitForReboot @ 0x14028DA50
  * Callers:
  *     <none>
  * Callees:

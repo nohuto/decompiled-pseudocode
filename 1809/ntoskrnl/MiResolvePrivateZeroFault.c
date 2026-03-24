@@ -10,8 +10,8 @@
  *     MiCompletePrivateZeroFault @ 0x140047940 (MiCompletePrivateZeroFault.c)
  *     MiGetPageChain @ 0x140049670 (MiGetPageChain.c)
  *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400947A4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiComputeZeroClusterMaximum @ 0x14010FA64 (MiComputeZeroClusterMaximum.c)
- *     MiGetClusterPage @ 0x1402C66BC (MiGetClusterPage.c)
+ *     MiComputeZeroClusterMaximum @ 0x14010FA84 (MiComputeZeroClusterMaximum.c)
+ *     MiGetClusterPage @ 0x1402C67BC (MiGetClusterPage.c)
  */
 
 __int64 __fastcall MiResolvePrivateZeroFault(int *a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CProcessResourceAttributionReporter@@AEAA@XZ @ 0x1800D6D40
+ * XREFs of ??0CProcessResourceAttributionReporter@@AEAA@XZ @ 0x1800291B8
  * Callers:
- *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800D667C (-RunCompositionThread@CConnection@@AEAAJXZ.c)
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800267EC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
  * Callees:
- *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x1800D6DB8 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x180029330 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 ULONGLONG *__fastcall CProcessResourceAttributionReporter::CProcessResourceAttributionReporter(ULONGLONG *pv)
@@ -16,13 +16,12 @@ ULONGLONG *__fastcall CProcessResourceAttributionReporter::CProcessResourceAttri
 
   TickCount64 = GetTickCount64();
   pv[1] = 0LL;
-  v3 = qword_1803E5C98;
+  v3 = lpMem;
   pv[4] = 0LL;
   pv[5] = 0LL;
   pv[6] = 0LL;
   *pv = TickCount64;
   pv[7] = (ULONGLONG)CProcessAttributionManager::CreateObserver(v3);
-  *((_DWORD *)pv + 16) = 0;
   ThreadpoolWork = CreateThreadpoolWork(CProcessResourceAttributionReporter::ReportHighResourceUsageWorker, pv, 0LL);
   pv[1] = (ULONGLONG)ThreadpoolWork;
   if ( !ThreadpoolWork )

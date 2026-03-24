@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetInteractionNumContacts@CManipulationContext@@UEBAIPEBUIInteractionResource@@W4InputType@@@Z @ 0x18012D880
+ * XREFs of ?GetInteractionNumContacts@CManipulationContext@@UEBAIPEBUIInteractionResource@@W4InputType@@@Z @ 0x180234290
  * Callers:
  *     <none>
  * Callees:

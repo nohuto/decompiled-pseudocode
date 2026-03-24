@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CaptureUsermodeParameters@GetTrueTypeFileRequest@@UEAAXPEAX@Z @ 0x1C0306870
+ * XREFs of ?CaptureUsermodeParameters@GetTrueTypeFileRequest@@UEAAXPEAX@Z @ 0x1C02DE780
  * Callers:
  *     <none>
  * Callees:
- *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C008D92C (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
+ *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C00D233C (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
  */
 
 void __fastcall GetTrueTypeFileRequest::CaptureUsermodeParameters(GetTrueTypeFileRequest *this, _QWORD *a2)

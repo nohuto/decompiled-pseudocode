@@ -1,48 +1,60 @@
 /*
- * XREFs of ??1DXGSYNCOBJECT@@IEAA@XZ @ 0x1C019A4D4
+ * XREFs of ??1DXGSYNCOBJECT@@IEAA@XZ @ 0x1C01148C4
  * Callers:
- *     ?Destroy@DXGSYNCOBJECT@@QEAAXXZ @ 0x1C019A330 (-Destroy@DXGSYNCOBJECT@@QEAAXXZ.c)
+ *     ?Destroy@DXGSYNCOBJECT@@QEAAXXZ @ 0x1C01147F0 (-Destroy@DXGSYNCOBJECT@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall DXGSYNCOBJECT::~DXGSYNCOBJECT(DXGSYNCOBJECT *this)
+void __fastcall DXGSYNCOBJECT::~DXGSYNCOBJECT(DXGSYNCOBJECT *this, __int64 a2)
 {
-  void *v2; // rcx
-  __int64 v3; // rdx
-  __int64 v4; // rcx
+  bool v2; // di
+  void *v4; // rcx
+  struct DXGGLOBAL *Global; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
 
-  if ( (unsigned int)(*((_DWORD *)this + 50) - 5) <= 1 )
+  v2 = 1;
+  if ( (unsigned int)(*((_DWORD *)this + 48) - 5) <= 1 )
   {
-    v4 = *((_QWORD *)DXGGLOBAL_GetGlobal() + 33);
-    if ( (*((_BYTE *)this + 204) & 1) != 0 || (LOBYTE(v3) = 0, (*((_DWORD *)this + 71) & 0x20) != 0) )
-      LOBYTE(v3) = 1;
-    (*(void (__fastcall **)(char *, __int64))(*(_QWORD *)(v4 + 8) + 936LL))((char *)this + 128, v3);
+    if ( (*((_BYTE *)this + 196) & 1) == 0 )
+      v2 = *((_BYTE *)this + 280) != 0;
+    Global = DXGGLOBAL::GetGlobal((__int64)this, a2);
+    LOBYTE(v6) = v2;
+    (*(void (__fastcall **)(char *, __int64))(*(_QWORD *)(*((_QWORD *)Global + 28) + 8LL) + 928LL))(
+      (char *)this + 120,
+      v6);
   }
-  v2 = (void *)*((_QWORD *)this + 11);
-  if ( v2 )
-    ObfDereferenceObject(v2);
-  if ( *((_DWORD *)this + 20) )
+  v4 = (void *)*((_QWORD *)this + 10);
+  if ( v4 )
+    ObfDereferenceObject(v4);
+  if ( *((_DWORD *)this + 18) )
   {
-    WdLogSingleEntry1(1LL, 1584LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_hSyncObjHandle == NULL", 1584LL, 0LL, 0LL, 0LL, 0LL);
+    v7 = WdLogNewEntry5_WdAssertion(v4, a2);
+    *(_QWORD *)(v7 + 24) = 1593LL;
+    WdLogEvent5_WdAssertion(v7);
   }
   if ( *((_DWORD *)this + 6) )
   {
-    WdLogSingleEntry1(1LL, 1585LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_cReference == 0", 1585LL, 0LL, 0LL, 0LL, 0LL);
+    v8 = WdLogNewEntry5_WdAssertion(v4, a2);
+    *(_QWORD *)(v8 + 24) = 1594LL;
+    WdLogEvent5_WdAssertion(v8);
   }
-  if ( *((_QWORD *)this + 7) )
+  if ( *((_QWORD *)this + 6) )
   {
-    WdLogSingleEntry1(1LL, 452LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NULL == m_OwningThread", 452LL, 0LL, 0LL, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdAssertion(v4, a2);
+    *(_QWORD *)(v9 + 24) = 641LL;
+    WdLogEvent5_WdAssertion(v9);
   }
-  if ( *((_DWORD *)this + 16) )
+  if ( *((_DWORD *)this + 14) )
   {
-    WdLogSingleEntry1(1LL, 453LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"0 == m_OwnerAcquireCount", 453LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdAssertion(v4, a2);
+    *(_QWORD *)(v10 + 24) = 642LL;
+    WdLogEvent5_WdAssertion(v10);
   }
   *((_QWORD *)this + 2) = 0LL;
 }

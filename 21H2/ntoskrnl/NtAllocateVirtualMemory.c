@@ -1,14 +1,14 @@
 /*
- * XREFs of NtAllocateVirtualMemory @ 0x1407E69E0
+ * XREFs of NtAllocateVirtualMemory @ 0x1405FA740
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiAllocateVirtualMemory @ 0x1407BE3C0 (MiAllocateVirtualMemory.c)
- *     PsReferencePartitionByHandle @ 0x1407DE8D0 (PsReferencePartitionByHandle.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1407E6C40 (MiAllocateVirtualMemoryPrepare.c)
+ *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1405F99F0 (MiAllocateVirtualMemoryPrepare.c)
+ *     PsReferencePartitionByHandle @ 0x140692204 (PsReferencePartitionByHandle.c)
  */
 
 NTSTATUS __stdcall NtAllocateVirtualMemory(
@@ -25,20 +25,16 @@ NTSTATUS __stdcall NtAllocateVirtualMemory(
   __int64 v11; // rcx
   PVOID v12; // rdi
   ULONG_PTR v13; // rsi
-  NTSTATUS VirtualMemoryPrepare; // ebx
-  char v16; // [rsp+70h] [rbp-138h]
+  NTSTATUS v14; // ebx
+  unsigned __int8 v16; // [rsp+70h] [rbp-138h]
   __int64 v17; // [rsp+78h] [rbp-130h] BYREF
   void *v18; // [rsp+80h] [rbp-128h] BYREF
   PVOID v19; // [rsp+88h] [rbp-120h]
   ULONG_PTR v20; // [rsp+90h] [rbp-118h]
-  PVOID Object[3]; // [rsp+98h] [rbp-110h] BYREF
-  ULONG_PTR v22[10]; // [rsp+B0h] [rbp-F8h] BYREF
+  PVOID Object; // [rsp+98h] [rbp-110h] BYREF
+  _QWORD v22[10]; // [rsp+B0h] [rbp-F8h] BYREF
   _QWORD v23[16]; // [rsp+100h] [rbp-A8h] BYREF
-  int v24; // [rsp+1B0h] [rbp+8h]
-  int v25; // [rsp+1C0h] [rbp+18h]
 
-  v25 = ZeroBits;
-  v24 = (int)ProcessHandle;
   v8 = 0LL;
   v19 = 0LL;
   v20 = 0LL;
@@ -65,23 +61,23 @@ NTSTATUS __stdcall NtAllocateVirtualMemory(
     return -1073741811;
   memset(v23, 0, sizeof(v23));
   v18 = 0LL;
-  Object[0] = 0LL;
+  Object = 0LL;
   v17 = 0LL;
-  VirtualMemoryPrepare = MiAllocateVirtualMemoryPrepare(
-                           v24,
-                           (_DWORD)v12,
-                           v25,
-                           v13,
-                           AllocationType & 0xFFFFFF80,
-                           Protect,
-                           (__int64)v22,
-                           PreviousMode,
-                           0,
-                           0,
-                           0LL,
-                           (__int64)v23,
-                           (__int64)Object);
-  if ( VirtualMemoryPrepare >= 0 )
+  v14 = MiAllocateVirtualMemoryPrepare(
+          (ULONG_PTR)ProcessHandle,
+          (unsigned __int64)v12,
+          ZeroBits,
+          v13,
+          AllocationType & 0xFFFFFF80,
+          Protect,
+          (__int64)v22,
+          PreviousMode,
+          0,
+          0,
+          0LL,
+          (__int64)v23,
+          &Object);
+  if ( v14 >= 0 )
   {
     if ( v22[3] )
     {
@@ -92,24 +88,24 @@ NTSTATUS __stdcall NtAllocateVirtualMemory(
       }
       else
       {
-        VirtualMemoryPrepare = PsReferencePartitionByHandle(v22[3], 2, v16, 0x61566D4Du, &v17);
+        v14 = PsReferencePartitionByHandle(v22[3], 2LL, v16, 1633054029LL, &v17);
         v8 = v17;
-        if ( VirtualMemoryPrepare < 0 )
+        if ( v14 < 0 )
           goto LABEL_13;
       }
     }
-    if ( LOBYTE(v22[6]) && (AllocationType & 0x20400000) != 0x400000 )
+    if ( LOBYTE(v22[6]) == 1 && (AllocationType & 0x20400000) != 0x400000 )
     {
-      VirtualMemoryPrepare = -1073741811;
+      v14 = -1073741811;
 LABEL_21:
       if ( v23[0] )
-        ++dword_140C52B24;
+        ++dword_140C4E7EC;
       else
-        ++dword_140C52B20;
+        ++dword_140C4E7E8;
       goto LABEL_14;
     }
-    VirtualMemoryPrepare = MiAllocateVirtualMemory((__int64)v23, (LARGE_INTEGER)v8, (__int64 *)&v18);
-    if ( VirtualMemoryPrepare >= 0 )
+    v14 = MiAllocateVirtualMemory((__int64)v23, (_QWORD *)v8, &v18);
+    if ( v14 >= 0 )
     {
       v12 = v18;
       v19 = v18;
@@ -118,17 +114,17 @@ LABEL_21:
     }
   }
 LABEL_13:
-  if ( VirtualMemoryPrepare < 0 )
+  if ( v14 < 0 )
     goto LABEL_21;
 LABEL_14:
   if ( v8 >= 2 )
     PsDereferencePartition(v8);
-  if ( Object[0] )
-    ObfDereferenceObjectWithTag(Object[0], 0x6D566D4Du);
-  if ( VirtualMemoryPrepare >= 0 )
+  if ( Object )
+    ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
+  if ( v14 >= 0 )
   {
     *BaseAddress = v12;
     *RegionSize = v13;
   }
-  return VirtualMemoryPrepare;
+  return v14;
 }

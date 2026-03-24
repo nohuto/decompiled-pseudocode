@@ -1,278 +1,291 @@
 /*
- * XREFs of Endpoint_TransferEventHandler @ 0x1C0009BD0
+ * XREFs of Endpoint_TransferEventHandler @ 0x1C0006860
  * Callers:
- *     Interrupter_DeferredWorkProcessor @ 0x1C0008C10 (Interrupter_DeferredWorkProcessor.c)
+ *     Interrupter_DeferredWorkProcessor @ 0x1C0006130 (Interrupter_DeferredWorkProcessor.c)
  * Callees:
- *     Control_ProcessTransferEventWithED1 @ 0x1C0006870 (Control_ProcessTransferEventWithED1.c)
- *     Endpoint_HaltedCompletionCode @ 0x1C0006DC8 (Endpoint_HaltedCompletionCode.c)
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DAF4 (Bulk_ProcessTransferEventWithED0.c)
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011354 (Bulk_ProcessTransferEventWithED1.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
- *     Controller_ReportFatalErrorEx @ 0x1C001EBDC (Controller_ReportFatalErrorEx.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033674 (Controller_HwVerifierBreakIfEnabled.c)
- *     Endpoint_Stream_IsTransferEventLikelyDuplicate @ 0x1C003C290 (Endpoint_Stream_IsTransferEventLikelyDuplicate.c)
- *     WPP_RECORDER_SF_ddi @ 0x1C003D5C4 (WPP_RECORDER_SF_ddi.c)
- *     WPP_RECORDER_SF_ddqL @ 0x1C003D6C8 (WPP_RECORDER_SF_ddqL.c)
- *     TR_TransferEventHandler @ 0x1C0041BD4 (TR_TransferEventHandler.c)
- *     Control_ProcessTransferEventWithED0 @ 0x1C0042874 (Control_ProcessTransferEventWithED0.c)
+ *     Control_ProcessTransferEventWithED1 @ 0x1C0004BB0 (Control_ProcessTransferEventWithED1.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DBF8 (Bulk_ProcessTransferEventWithED0.c)
+ *     Endpoint_HaltedCompletionCode @ 0x1C000DE20 (Endpoint_HaltedCompletionCode.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     Control_ProcessTransferEventWithED0 @ 0x1C0019120 (Control_ProcessTransferEventWithED0.c)
+ *     WPP_RECORDER_SF_ddi @ 0x1C0019704 (WPP_RECORDER_SF_ddi.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     Endpoint_Stream_IsTransferEventLikelyDuplicate @ 0x1C003A2A4 (Endpoint_Stream_IsTransferEventLikelyDuplicate.c)
+ *     WPP_RECORDER_SF_ddqL @ 0x1C003B394 (WPP_RECORDER_SF_ddqL.c)
+ *     TR_TransferEventHandler @ 0x1C003F6C0 (TR_TransferEventHandler.c)
  */
 
-char __fastcall Endpoint_TransferEventHandler(__int64 a1, __m128i **a2, int a3)
+char __fastcall Endpoint_TransferEventHandler(__int64 a1, __int64 a2, signed __int64 a3)
 {
-  __m128i *v4; // rcx
-  unsigned __int64 v6; // rax
-  int v7; // r8d
-  __m128i *v8; // rdx
-  signed __int64 v9; // rcx
-  __m128i *v10; // rbp
-  __int64 v11; // rax
-  signed __int64 v12; // rdx
+  __m128i *v3; // r10
+  char v6; // al
+  __int64 v7; // rdx
+  unsigned __int64 v8; // rax
+  signed __int64 v9; // rdx
+  __int64 v10; // rbp
+  int v11; // r9d
+  __int64 v12; // rcx
   int v13; // esi
-  int v14; // edx
+  int v14; // r8d
   int v15; // edx
-  int v16; // r8d
-  int v17; // r9d
-  __int32 v18; // edx
-  const char *v19; // rax
-  int v20; // ett
-  int v21; // edx
-  char v23; // [rsp+28h] [rbp-30h]
-  char v24; // [rsp+68h] [rbp+10h] BYREF
+  int v16; // edx
+  int v17; // r8d
+  __m128i *v18; // r10
+  int v19; // r9d
+  int v20; // edx
+  const char *v21; // rax
+  int v22; // edx
+  __int64 v24; // [rsp+20h] [rbp-38h]
+  __int64 v25; // [rsp+28h] [rbp-30h]
+  char v26; // [rsp+68h] [rbp+10h] BYREF
 
-  v24 = 0;
-  v4 = *a2;
-  if ( (_mm_srli_si128((*a2)[21], 8).m128i_u8[0] & 4) != 0
-    && *(_BYTE *)(a1 + 11) == 2
-    && (*(_DWORD *)(a1 + 12) & 4) == 0 )
+  v3 = *(__m128i **)a2;
+  v26 = 0;
+  if ( (_mm_srli_si128(v3[21], 8).m128i_u8[0] & 4) != 0 && *(_BYTE *)(a1 + 11) == 2 )
   {
-    v6 = (unsigned __int64)&WPP_RECORDER_INITIALIZED;
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      LOBYTE(v6) = WPP_RECORDER_SF_ddqL((unsigned int)a2[10], (_DWORD)a2, a3, 87);
-    return v6;
+    LODWORD(v8) = *(_DWORD *)(a1 + 12);
+    if ( (v8 & 4) == 0 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        LOBYTE(v8) = WPP_RECORDER_SF_ddqL(*(_QWORD *)(a2 + 80), a2, a3, 87);
+      return v8;
+    }
   }
-  v7 = *(unsigned __int8 *)(a1 + 11);
-  if ( (!_bittest64(v4[21].m128i_i64, 0x3Eu) || (_BYTE)v7 != 0xC7)
-    && ((_mm_srli_si128(v4[21], 8).m128i_u8[0] & 0x20) == 0 || (_BYTE)v7 != 0xC6)
-    && ((_BYTE)v7 == 5 || (_BYTE)v7 == 33 || (unsigned __int8)(v7 + 64) <= 0x1Fu) )
+  v6 = *(_BYTE *)(a1 + 11);
+  if ( ((v3[21].m128i_i64[0] & 0x4000000000000000LL) == 0 || v6 != -57)
+    && ((_mm_srli_si128(v3[21], 8).m128i_u8[0] & 0x20) == 0 || v6 != -58)
+    && ((unsigned __int8)(v6 + 64) <= 0x1Fu || v6 == 5 || v6 == 33) )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v21 = a2[2][8].m128i_u8[7];
-      v23 = v21;
-      LOBYTE(v21) = 2;
+      v22 = *(unsigned __int8 *)(*(_QWORD *)(a2 + 16) + 135LL);
+      LOBYTE(v22) = 2;
       WPP_RECORDER_SF_ddd(
-        v4[4].m128i_i64[1],
-        v21,
+        v3[4].m128i_i64[1],
+        v22,
         13,
         88,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
-        v23,
-        *((_DWORD *)a2 + 36),
-        v7);
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+        *(_BYTE *)(*(_QWORD *)(a2 + 16) + 135LL),
+        *(_DWORD *)(a2 + 144),
+        v6);
+      v3 = *(__m128i **)a2;
     }
     Controller_HwVerifierBreakIfEnabled(
-      (unsigned int)*a2,
-      (unsigned int)a2[1],
-      (unsigned int)a2[3],
+      (_DWORD)v3,
+      *(_QWORD *)(a2 + 8),
+      *(_QWORD *)(a2 + 24),
       2048,
       (__int64)"Unrecognized completion code in Transfer Event TRB",
       0LL,
-      (__int64)(a2 + 23));
-    LOBYTE(v6) = Controller_ReportFatalErrorEx(
-                   (unsigned int)*a2,
+      a2 + 184);
+    LOBYTE(v8) = Controller_ReportFatalError(
+                   *(_QWORD *)a2,
                    2,
                    4112,
                    *(unsigned __int8 *)(a1 + 11),
-                   0LL,
-                   (__int64)a2[2],
-                   (__int64)a2,
+                   *(_QWORD *)(a2 + 16),
+                   a2,
                    0LL);
-    return v6;
+    return v8;
   }
-  if ( !*((_BYTE *)a2 + 37) )
+  if ( !*(_BYTE *)(a2 + 37) )
   {
-    v8 = a2[11];
-    if ( v8 )
+    v7 = *(_QWORD *)(a2 + 88);
+    if ( v7 )
     {
-      LOBYTE(v6) = (*(__int64 (__fastcall **)(__int64))(v8[2].m128i_i64[0] + 88))(a1);
+      LOBYTE(v8) = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(v7 + 32) + 88LL))(a1);
     }
-    else if ( (*(_DWORD *)a1 & 3) != 0 )
+    else
     {
-      LODWORD(v6) = (*(_DWORD *)a1 & 3) - 1;
-      if ( (*(_DWORD *)a1 & 3) != 1LL )
+      v8 = *(_DWORD *)a1 & 3;
+      if ( (*(_DWORD *)a1 & 3) != 0 )
       {
-        v6 = (*(_DWORD *)a1 & 3) - 2LL;
-        if ( v6 <= 1 )
+        if ( v8 > 1 )
         {
           if ( (*(_DWORD *)(a1 + 12) & 4) != 0 )
-            LOBYTE(v6) = Bulk_ProcessTransferEventWithED1(a1, 0LL);
+            LOBYTE(v8) = Bulk_ProcessTransferEventWithED1(a1, 0LL);
           else
-            LOBYTE(v6) = Bulk_ProcessTransferEventWithED0(a1, 0LL);
+            LOBYTE(v8) = Bulk_ProcessTransferEventWithED0(a1, 0LL);
         }
       }
+      else if ( (*(_DWORD *)(a1 + 12) & 4) != 0 )
+      {
+        LOBYTE(v8) = Control_ProcessTransferEventWithED1((__int64 *)a1, 0LL);
+      }
+      else
+      {
+        LOBYTE(v8) = Control_ProcessTransferEventWithED0(a1, 0LL);
+      }
     }
-    else if ( (*(_DWORD *)(a1 + 12) & 4) != 0 )
-    {
-      LOBYTE(v6) = Control_ProcessTransferEventWithED1((__int64 *)a1, 0LL);
-    }
-    else
-    {
-      LOBYTE(v6) = Control_ProcessTransferEventWithED0(a1, 0LL);
-    }
-    return v6;
+    return v8;
   }
   v9 = *(_QWORD *)a1;
-  v10 = a2[17];
-  if ( !*(_QWORD *)a1 )
+  v10 = *(_QWORD *)(a2 + 136);
+  if ( *(_QWORD *)a1 )
   {
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_ddqL((unsigned int)a2[10], (_DWORD)a2, v7, 89);
-LABEL_61:
-    LOBYTE(v6) = Endpoint_HaltedCompletionCode(a2, *(unsigned __int8 *)(a1 + 11));
-    if ( (_BYTE)v6 )
+    v12 = *(_QWORD *)(v10 + 32);
+    a3 = *(_QWORD *)(v12 + 24);
+    if ( v9 < a3 || v9 >= a3 + *(unsigned int *)(v12 + 44) )
     {
-      _m_prefetchw(a2 + 4);
-      if ( (_InterlockedOr((volatile signed __int32 *)a2 + 8, 0x20u) & 0x20) == 0 )
+      v13 = 1;
+      if ( *(_DWORD *)(v10 + 8) )
       {
-        a2[17][1].m128i_i32[2] = v18;
-        _InterlockedOr((volatile signed __int32 *)a2 + 8, 4u);
-        LOBYTE(v6) = ESM_AddEvent(a2 + 37);
-        return v6;
+        while ( 1 )
+        {
+          LOBYTE(v8) = TR_TransferEventHandler(
+                         a1,
+                         *(_QWORD *)(104LL * (unsigned int)(v13 - 1) + *(_QWORD *)(a2 + 136) + 48));
+          if ( (_BYTE)v8 )
+            break;
+          if ( (unsigned int)++v13 > *(_DWORD *)(v10 + 8) )
+            goto LABEL_36;
+        }
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v8) = (_BYTE)WPP_GLOBAL_Control;
+          if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+          {
+            v15 = *(unsigned __int8 *)(*(_QWORD *)(a2 + 16) + 135LL);
+            LOBYTE(v15) = 5;
+            LOBYTE(v8) = WPP_RECORDER_SF_ddd(
+                           *(_QWORD *)(a2 + 80),
+                           v15,
+                           13,
+                           91,
+                           (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+                           *(_BYTE *)(*(_QWORD *)(a2 + 16) + 135LL),
+                           *(_DWORD *)(a2 + 144),
+                           (unsigned __int8)v13 + 1);
+          }
+        }
+        return v8;
       }
-      v19 = "Received duplicate Transfer Event TRB with Halted Completion Code";
-LABEL_68:
-      LOBYTE(v6) = Controller_HwVerifierBreakIfEnabled(
-                     (unsigned int)*a2,
-                     (unsigned int)a2[1],
-                     (unsigned int)a2[3],
-                     0x2000000,
-                     (__int64)v19,
-                     0LL,
-                     0LL);
-      return v6;
-    }
-    if ( (unsigned __int8)(v18 - 26) > 2u )
-      return v6;
-    _m_prefetchw(a2 + 4);
-    if ( (_InterlockedOr((volatile signed __int32 *)a2 + 8, 0x10u) & 0x10) != 0 )
-    {
-      v19 = "Received duplicate Stopped Transfer Events";
-      goto LABEL_68;
-    }
-    _m_prefetchw(a2 + 4);
-    LODWORD(v6) = *((_DWORD *)a2 + 8);
-    do
-    {
-      v20 = v6;
-      LODWORD(v6) = _InterlockedCompareExchange((volatile signed __int32 *)a2 + 8, v6 ^ 8, v6);
-    }
-    while ( v20 != (_DWORD)v6 );
-    if ( (v6 & 8) != 0 )
-      LOBYTE(v6) = ESM_AddEvent(a2 + 37);
-    return v6;
-  }
-  v11 = v10[2].m128i_i64[0];
-  v12 = *(_QWORD *)(v11 + 24);
-  if ( v9 >= v12 && v9 < v12 + *(unsigned int *)(v11 + 44) )
-  {
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_ddqL((unsigned int)a2[10], v12, v7, 90);
-    goto LABEL_61;
-  }
-  v13 = 1;
-  if ( v10->m128i_i32[2] )
-  {
-    while ( !(unsigned __int8)TR_TransferEventHandler(a1, a2[17][3].m128i_i64[13 * (unsigned int)(v13 - 1)]) )
-    {
-      if ( (unsigned int)++v13 > v10->m128i_i32[2] )
-        goto LABEL_35;
-    }
-    v6 = (unsigned __int64)&WPP_RECORDER_INITIALIZED;
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v6) = (_BYTE)WPP_GLOBAL_Control;
-      if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
-      {
-        v14 = a2[2][8].m128i_u8[7];
-        LOBYTE(v14) = 5;
-        LOBYTE(v6) = WPP_RECORDER_SF_ddd(
-                       (unsigned int)a2[10],
-                       v14,
-                       13,
-                       91,
-                       (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
-                       a2[2][8].m128i_i8[7],
-                       *((_DWORD *)a2 + 36),
-                       (unsigned __int8)v13 + 1);
-      }
-    }
-    return v6;
-  }
-LABEL_35:
-  if ( (*(_DWORD *)(a1 + 12) & 4) != 0 )
-  {
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v12) = 2;
-      WPP_RECORDER_SF_ddi((unsigned int)a2[10], v12, v7, 92);
-    }
-    LOBYTE(v6) = Controller_ReportFatalErrorEx((unsigned int)*a2, 2, 4126, 0, 0LL, (__int64)a2[2], (__int64)a2, 0LL);
-    return v6;
-  }
-  if ( (unsigned __int8)(*(_BYTE *)(a1 + 11) - 26) <= 2u )
-  {
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v12) = 2;
-      WPP_RECORDER_SF_dd(
-        (unsigned int)a2[10],
-        v12,
-        13,
-        93,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
-        a2[2][8].m128i_i8[7],
-        *((_DWORD *)a2 + 36));
-    }
-    goto LABEL_61;
-  }
-  if ( (unsigned __int8)Endpoint_Stream_IsTransferEventLikelyDuplicate(a1, a2, &v24) )
-  {
-    if ( _bittest64((*a2)[21].m128i_i64, 0x26u) )
-    {
-      v6 = (unsigned __int64)&WPP_RECORDER_INITIALIZED;
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        return v6;
-      v17 = 94;
-    }
-    else
-    {
-      if ( !v24 || (unsigned __int8)(*(_BYTE *)(a1 + 11) - 26) > 2u )
+LABEL_36:
+      if ( (*(_DWORD *)(a1 + 12) & 4) != 0 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          LOBYTE(v15) = 2;
-          WPP_RECORDER_SF_ddi((unsigned int)a2[10], v15, v16, 96);
+          LOBYTE(v9) = 2;
+          WPP_RECORDER_SF_ddi(*(_QWORD *)(a2 + 80), v9, a3, 92);
         }
-        LOBYTE(v6) = Controller_ReportFatalErrorEx((unsigned int)*a2, 2, 4128, 0, 0LL, (__int64)a2[2], (__int64)a2, 0LL);
-        return v6;
+        v25 = a2;
+        v14 = 4126;
+        v24 = *(_QWORD *)(a2 + 16);
       }
-      v6 = (unsigned __int64)&WPP_RECORDER_INITIALIZED;
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        return v6;
-      v17 = 95;
+      else
+      {
+        if ( (unsigned __int8)(*(_BYTE *)(a1 + 11) - 26) <= 2u )
+        {
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v9) = 2;
+            WPP_RECORDER_SF_dd(
+              *(_QWORD *)(a2 + 80),
+              v9,
+              13,
+              93,
+              (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+              *(_BYTE *)(*(_QWORD *)(a2 + 16) + 135LL),
+              *(_DWORD *)(a2 + 144));
+          }
+          goto LABEL_63;
+        }
+        LOBYTE(v8) = Endpoint_Stream_IsTransferEventLikelyDuplicate(a1, a2, &v26);
+        if ( (_BYTE)v8 )
+        {
+          v18 = *(__m128i **)a2;
+          if ( (*(_QWORD *)(*(_QWORD *)a2 + 336LL) & 0x4000000000LL) != 0 )
+          {
+            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              return v8;
+            v19 = 94;
+          }
+          else
+          {
+            if ( !v26 || (LOBYTE(v8) = *(_BYTE *)(a1 + 11) - 26, (unsigned __int8)v8 > 2u) )
+            {
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              {
+                LOBYTE(v16) = 2;
+                WPP_RECORDER_SF_ddi(*(_QWORD *)(a2 + 80), v16, v17, 96);
+                v18 = *(__m128i **)a2;
+              }
+              LOBYTE(v8) = Controller_ReportFatalError((_DWORD)v18, 2, 4128, 0, *(_QWORD *)(a2 + 16), a2, 0LL);
+              return v8;
+            }
+            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              return v8;
+            v19 = 95;
+          }
+          LOBYTE(v16) = 3;
+          LOBYTE(v8) = WPP_RECORDER_SF_ddi(*(_QWORD *)(a2 + 80), v16, v17, v19);
+          return v8;
+        }
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v16) = 2;
+          WPP_RECORDER_SF_ddi(*(_QWORD *)(a2 + 80), v16, v17, 97);
+        }
+        v25 = a2;
+        v14 = 4127;
+        v24 = *(_QWORD *)(a2 + 16);
+      }
+      LOBYTE(v8) = Controller_ReportFatalError(*(_QWORD *)a2, 2, v14, 0, v24, v25, 0LL);
+      return v8;
     }
-    LOBYTE(v15) = 3;
-    LOBYTE(v6) = WPP_RECORDER_SF_ddi((unsigned int)a2[10], v15, v16, v17);
-    return v6;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v11 = 90;
+      goto LABEL_32;
+    }
   }
-  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v15) = 2;
-    WPP_RECORDER_SF_ddi((unsigned int)a2[10], v15, v16, 97);
+    v11 = 89;
+LABEL_32:
+    WPP_RECORDER_SF_ddqL(*(_QWORD *)(a2 + 80), *(unsigned __int8 *)(*(_QWORD *)(a2 + 16) + 135LL), a3, v11);
   }
-  LOBYTE(v6) = Controller_ReportFatalErrorEx((unsigned int)*a2, 2, 4127, 0, 0LL, (__int64)a2[2], (__int64)a2, 0LL);
-  return v6;
+LABEL_63:
+  LOBYTE(v8) = Endpoint_HaltedCompletionCode(a2, *(unsigned __int8 *)(a1 + 11));
+  if ( (_BYTE)v8 )
+  {
+    _m_prefetchw((const void *)(a2 + 32));
+    if ( (_InterlockedOr((volatile signed __int32 *)(a2 + 32), 0x20u) & 0x20) == 0 )
+    {
+      *(_DWORD *)(*(_QWORD *)(a2 + 136) + 24LL) = v20;
+      _InterlockedOr((volatile signed __int32 *)(a2 + 32), 4u);
+      LOBYTE(v8) = ESM_AddEvent((PVOID)(a2 + 288));
+      return v8;
+    }
+    v21 = "Received duplicate Transfer Event TRB with Halted Completion Code";
+    goto LABEL_67;
+  }
+  if ( (unsigned __int8)(v20 - 26) > 2u )
+    return v8;
+  _m_prefetchw((const void *)(a2 + 32));
+  if ( (_InterlockedOr((volatile signed __int32 *)(a2 + 32), 0x10u) & 0x10) != 0 )
+  {
+    v21 = "Received duplicate Stopped Transfer Events";
+LABEL_67:
+    LOBYTE(v8) = Controller_HwVerifierBreakIfEnabled(
+                   *(_QWORD *)a2,
+                   *(_QWORD *)(a2 + 8),
+                   *(_QWORD *)(a2 + 24),
+                   0x2000000,
+                   (__int64)v21,
+                   0LL,
+                   0LL);
+    return v8;
+  }
+  _m_prefetchw((const void *)(a2 + 32));
+  LOBYTE(v8) = _InterlockedXor((volatile signed __int32 *)(a2 + 32), 8u);
+  if ( (v8 & 8) != 0 )
+    LOBYTE(v8) = ESM_AddEvent((PVOID)(a2 + 288));
+  return v8;
 }

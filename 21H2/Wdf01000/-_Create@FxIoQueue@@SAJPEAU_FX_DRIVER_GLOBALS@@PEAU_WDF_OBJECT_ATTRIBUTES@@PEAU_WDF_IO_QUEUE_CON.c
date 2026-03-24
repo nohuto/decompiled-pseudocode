@@ -1,14 +1,14 @@
 /*
- * XREFs of ?_Create@FxIoQueue@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_IO_QUEUE_CONFIG@@PEAVFxDriver@@PEAVFxPkgIo@@EPEAPEAV1@@Z @ 0x1C0024E8C
+ * XREFs of ?_Create@FxIoQueue@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_IO_QUEUE_CONFIG@@PEAVFxDriver@@PEAVFxPkgIo@@EPEAPEAV1@@Z @ 0x1C0077274
  * Callers:
- *     ?CreateQueue@FxPkgIo@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@PEAPEAVFxIoQueue@@@Z @ 0x1C0024C4C (-CreateQueue@FxPkgIo@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@P.c)
+ *     ?CreateQueue@FxPkgIo@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@PEAPEAVFxIoQueue@@@Z @ 0x1C0074DA8 (-CreateQueue@FxPkgIo@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@P.c)
  * Callees:
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?Initialize@FxIoQueue@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@E@Z @ 0x1C0024F78 (-Initialize@FxIoQueue@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@.c)
- *     ??0FxIoQueue@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxPkgIo@@@Z @ 0x1C0025464 (--0FxIoQueue@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxPkgIo@@@Z.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
+ *     ??0FxIoQueue@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxPkgIo@@@Z @ 0x1C0075580 (--0FxIoQueue@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxPkgIo@@@Z.c)
+ *     ?Initialize@FxIoQueue@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@E@Z @ 0x1C0076304 (-Initialize@FxIoQueue@@QEAAJPEAU_WDF_IO_QUEUE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@.c)
  */
 
 __int64 __fastcall FxIoQueue::_Create(
@@ -20,32 +20,40 @@ __int64 __fastcall FxIoQueue::_Create(
         unsigned __int8 InitialPowerStateOn,
         FxIoQueue **Object)
 {
-  FxIoQueue *v11; // rax
+  _POOL_TYPE v10; // edx
   FxIoQueue *v12; // rax
-  FxIoQueue *v13; // rbx
+  FxIoQueue *v13; // rax
+  FxIoQueue *v14; // rbx
   int _a1; // eax
-  unsigned int v15; // edi
-  FxPoolTypeOrPoolFlags v17; // [rsp+40h] [rbp-28h] BYREF
+  unsigned int v17; // edi
 
-  *(_QWORD *)&v17.UsePoolType = 0LL;
-  v17.u.PoolFlags = 64LL;
+  v10 = ExDefaultNonPagedPoolType;
   *Object = 0LL;
-  v11 = (FxIoQueue *)FxObjectHandleAllocCommon(DriverGlobals, &v17, 0x3A8uLL, 0, Attributes, 0, FxObjectTypeExternal);
-  if ( v11 && (FxIoQueue::FxIoQueue(v11, DriverGlobals, PkgIo), (v13 = v12) != 0LL) )
+  v12 = (FxIoQueue *)FxObjectHandleAlloc(DriverGlobals, v10, 0x3A8uLL, 0, Attributes, 0, FxObjectTypeExternal);
+  if ( v12 )
   {
-    _a1 = FxIoQueue::Initialize(v12, Config, Attributes, Caller, InitialPowerStateOn);
-    v15 = _a1;
-    if ( _a1 < 0 )
+    FxIoQueue::FxIoQueue(v12, DriverGlobals, PkgIo);
+    v14 = v13;
+  }
+  else
+  {
+    v14 = 0LL;
+  }
+  if ( v14 )
+  {
+    _a1 = FxIoQueue::Initialize(v14, Config, Attributes, Caller, InitialPowerStateOn);
+    v17 = _a1;
+    if ( _a1 >= 0 )
     {
-      WPP_IFR_SF_d(DriverGlobals, 2u, 0xDu, 0xBu, WPP_FxIoQueue_cpp_Traceguids, _a1);
-      FxObject::ClearEvtCallbacks(v13);
-      v13->DeleteObject(v13);
+      *Object = v14;
     }
     else
     {
-      *Object = v13;
+      WPP_IFR_SF_d(DriverGlobals, 2u, 0xDu, 0xBu, WPP_FxIoQueue_cpp_Traceguids, _a1);
+      FxObject::ClearEvtCallbacks(v14);
+      v14->DeleteObject(v14);
     }
-    return v15;
+    return v17;
   }
   else
   {

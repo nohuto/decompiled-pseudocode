@@ -1,5 +1,5 @@
 /*
- * XREFs of ?rpwnd@CHMRefHwndByHandle@@QEBAPEAUtagWND@@XZ @ 0x1C0093DB0
+ * XREFs of ?rpwnd@CHMRefHwndByHandle@@QEBAPEAUtagWND@@XZ @ 0x1C0081620
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Pending@CTokenBase@@UEAAXXZ @ 0x1C001A090
+ * XREFs of ?Pending@CTokenBase@@UEAAXXZ @ 0x1C001B870
  * Callers:
  *     <none>
  * Callees:

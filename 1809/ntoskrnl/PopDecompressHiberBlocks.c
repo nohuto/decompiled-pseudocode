@@ -3,12 +3,12 @@
  * Callers:
  *     PopRestoreHiberContext @ 0x140569770 (PopRestoreHiberContext.c)
  * Callees:
- *     MmMapMemoryDumpMdlEx @ 0x140144400 (MmMapMemoryDumpMdlEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopInternalAddToDumpFile @ 0x1402D3224 (PopInternalAddToDumpFile.c)
- *     RtlDecompressBufferProgress @ 0x1402F9E90 (RtlDecompressBufferProgress.c)
+ *     MmMapMemoryDumpMdlEx @ 0x140144420 (MmMapMemoryDumpMdlEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
+ *     RtlDecompressBufferProgress @ 0x1402F9F90 (RtlDecompressBufferProgress.c)
  *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
  *     ConsumerPeekAndConsumeBuffer @ 0x140569F90 (ConsumerPeekAndConsumeBuffer.c)
  *     ProducerConsumerBufferComplete @ 0x14056AED8 (ProducerConsumerBufferComplete.c)
@@ -76,20 +76,20 @@ __int64 __fastcall PopDecompressHiberBlocks(
   char v58; // [rsp+150h] [rbp+50h] BYREF
 
   v5 = 0;
-  LODWORD(v6) = (_DWORD)qword_140417AB8;
+  LODWORD(v6) = (_DWORD)qword_1404178B8;
   v43 = a5;
   v46 = 0LL;
-  v44 = (char *)qword_140417AB8;
+  v44 = (char *)qword_1404178B8;
   v41 = 0;
   while ( 1 )
   {
     PopHiberCheckForDebugBreak();
-    if ( !qword_140417D18 && BugCheckParameter3[48] == KeGetCurrentPrcb()->Number && byte_140417A60 )
+    if ( !qword_140417D18 && BugCheckParameter3[48] == KeGetCurrentPrcb()->Number && byte_140417860 )
       qword_140417D18 = KeQueryPerformanceCounter(0LL).QuadPart;
     Number = KeGetCurrentPrcb()->Number;
     if ( BugCheckParameter3[48] == (_DWORD)Number
-      && !byte_140417A61
-      && (!byte_140417A60 || (unsigned int)dword_140417A44 > 0x640) )
+      && !byte_140417861
+      && (!byte_140417860 || (unsigned int)dword_140417844 > 0x640) )
     {
       v15 = __rdtsc();
       if ( byte_14043C508 )

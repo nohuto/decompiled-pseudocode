@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00F78BC
+ * XREFs of ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00F46FC
  * Callers:
- *     ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F77E8 (-UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ.c)
- *     ?Create@UmfdTls@@CAPEAV1@XZ @ 0x1C011C498 (-Create@UmfdTls@@CAPEAV1@XZ.c)
+ *     ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F4628 (-UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?Create@UmfdTls@@CAPEAV1@XZ @ 0x1C01317CC (-Create@UmfdTls@@CAPEAV1@XZ.c)
  * Callees:
- *     ?Destroy@UmfdUMBuffer@@SAXPEAV1@@Z @ 0x1C00F78F0 (-Destroy@UmfdUMBuffer@@SAXPEAV1@@Z.c)
+ *     ?Destroy@UmfdUMBuffer@@SAXPEAV1@@Z @ 0x1C00F4730 (-Destroy@UmfdUMBuffer@@SAXPEAV1@@Z.c)
  */
 
 void __fastcall UmfdTls::Destroy(void **pv)

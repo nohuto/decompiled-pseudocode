@@ -1,114 +1,116 @@
 /*
- * XREFs of wil_details_FeatureReporting_RecordUsageInCache @ 0x180118158
+ * XREFs of wil_details_FeatureReporting_RecordUsageInCache @ 0x1800EB50C
  * Callers:
- *     ?ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_KE@Z @ 0x180039454 (-ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_deta.c)
+ *     ?ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1800EB200 (-ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_deta.c)
  * Callees:
- *     wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x180117F68 (wil_details_FeatureReporting_IncrementOpportunityInCache.c)
- *     wil_details_FeatureReporting_IncrementUsageInCache @ 0x18011805C (wil_details_FeatureReporting_IncrementUsageInCache.c)
+ *     wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x1800EB338 (wil_details_FeatureReporting_IncrementOpportunityInCache.c)
+ *     wil_details_FeatureReporting_IncrementUsageInCache @ 0x1800EB420 (wil_details_FeatureReporting_IncrementUsageInCache.c)
  */
 
-__int64 __fastcall wil_details_FeatureReporting_RecordUsageInCache(__int64 a1, volatile signed __int32 *a2, __int64 a3)
+int *__fastcall wil_details_FeatureReporting_RecordUsageInCache(__int64 a1, volatile signed __int32 *a2, __int64 a3)
 {
-  int v5; // r11d
-  unsigned __int32 v6; // eax
-  BOOL v7; // ecx
-  unsigned __int32 v8; // ett
-  int v9; // edx
-  int v10; // r8d
-  int v11; // r8d
-  int v12; // r8d
-  signed __int32 v13; // eax
-  int v14; // r9d
-  char v15; // r11
-  signed __int32 v16; // r8d
-  signed __int32 v17; // ett
+  int *v4; // r9
+  int v5; // r10d
+  int v6; // edx
+  int v7; // r8d
+  int v8; // r8d
+  int v9; // r8d
+  signed __int32 i; // ecx
+  signed __int32 v11; // ebx
+  signed __int32 v12; // eax
+  int v13; // ebx
+  unsigned __int32 v14; // eax
+  BOOL v15; // ecx
+  unsigned __int32 v16; // ett
 
+  v4 = (int *)a1;
   *(_OWORD *)a1 = 0LL;
   *(_QWORD *)(a1 + 16) = 0LL;
-  switch ( (_DWORD)a3 )
+  if ( !(_DWORD)a3 )
+    goto LABEL_35;
+  v5 = 1;
+  if ( (_DWORD)a3 == 1 )
   {
-    case 0:
-      goto LABEL_34;
-    case 1:
-LABEL_33:
-      wil_details_FeatureReporting_IncrementOpportunityInCache(a2, a3, a3, (_DWORD *)a1);
-      return a1;
-    case 2:
-    case 3:
-      goto LABEL_17;
-    case 4:
 LABEL_34:
-      wil_details_FeatureReporting_IncrementUsageInCache(a2, a3, a3, (_DWORD *)a1);
-      return a1;
-    case 5:
-      goto LABEL_33;
+    wil_details_FeatureReporting_IncrementOpportunityInCache(a2, a3, a3, (_DWORD *)a1);
+    return v4;
   }
-  if ( (unsigned int)(a3 - 6) >= 2 )
+  if ( (int)a3 <= 1 )
+    goto LABEL_25;
+  if ( (int)a3 <= 3 )
   {
-    v5 = a3 - 320;
-    if ( (unsigned int)(a3 - 320) >= 0x40 )
-      goto LABEL_16;
-    v6 = *((_DWORD *)a2 + 1);
-    do
+LABEL_8:
+    v6 = 0;
+    v7 = a3 - 2;
+    if ( v7 )
     {
-      v7 = (v6 & 0x10) != 0 && ((v6 >> 5) & 0x3F) == v5;
-      *(_DWORD *)(a1 + 16) = v7;
-      v8 = v6;
-      v6 = _InterlockedCompareExchange(a2 + 1, (32 * (v5 & 0x3F)) | v6 & 0xFFFFF81F | 0x10, v6);
-    }
-    while ( v8 != v6 );
-    if ( !*(_DWORD *)(a1 + 16) )
-    {
-LABEL_16:
-      *(_DWORD *)(a1 + 12) = 0;
-      *(_DWORD *)(a1 + 8) = a3;
-      *(_DWORD *)(a1 + 4) = 1;
-    }
-    return a1;
-  }
-LABEL_17:
-  v9 = 0;
-  v10 = a3 - 2;
-  if ( v10 )
-  {
-    v11 = v10 - 1;
-    if ( v11 )
-    {
-      v12 = v11 - 3;
-      if ( v12 )
+      v8 = v7 - 1;
+      if ( v8 )
       {
-        if ( v12 == 1 )
-          v9 = 16;
+        v9 = v8 - 3;
+        if ( v9 )
+        {
+          if ( v9 == 1 )
+            v6 = 16;
+        }
+        else
+        {
+          v6 = 4;
+        }
       }
       else
       {
-        v9 = 4;
+        v6 = 8;
       }
     }
     else
     {
-      v9 = 8;
+      v6 = 2;
     }
+    for ( i = *a2; ; i = v12 )
+    {
+      v11 = i | v6 | 1;
+      v4[4] = (i | v6) == i;
+      if ( (i | v6) == i )
+        v11 = i | v6;
+      v12 = _InterlockedCompareExchange(a2, v11, i);
+      if ( i == v12 )
+        break;
+    }
+    if ( (v11 & 1) == 0 || (i & 1) != 0 )
+      v5 = 0;
+    *v4 = v5;
+    return v4;
   }
-  else
+  if ( (_DWORD)a3 == 4 )
   {
-    v9 = 2;
+LABEL_35:
+    wil_details_FeatureReporting_IncrementUsageInCache(a2, a3, a3, (_DWORD *)a1);
+    return v4;
   }
-  v13 = *a2;
-  v14 = 1;
+  if ( (_DWORD)a3 == 5 )
+    goto LABEL_34;
+  if ( (unsigned int)(a3 - 6) <= 1 )
+    goto LABEL_8;
+LABEL_25:
+  v13 = a3 - 320;
+  if ( (unsigned int)(a3 - 320) >= 0x40 )
+    goto LABEL_33;
+  v14 = *((_DWORD *)a2 + 1);
   do
   {
-    v15 = v13;
-    *(_DWORD *)(a1 + 16) = (v13 | v9) == v13;
-    v16 = v13 | v9 | 1;
-    if ( (v13 | v9) == v13 )
-      v16 = v13 | v9;
-    v17 = v13;
-    v13 = _InterlockedCompareExchange(a2, v16, v13);
+    v15 = (v14 & 0x10) != 0 && ((v14 >> 5) & 0x3F) == v13;
+    v4[4] = v15;
+    v16 = v14;
+    v14 = _InterlockedCompareExchange(a2 + 1, (32 * (v13 & 0x3F)) | v14 & 0xFFFFF81F | 0x10, v14);
   }
-  while ( v17 != v13 );
-  if ( (v16 & 1) == 0 || (v15 & 1) != 0 )
-    v14 = 0;
-  *(_DWORD *)a1 = v14;
-  return a1;
+  while ( v16 != v14 );
+  if ( !v4[4] )
+  {
+LABEL_33:
+    v4[3] = 0;
+    v4[2] = a3;
+    v4[1] = 1;
+  }
+  return v4;
 }

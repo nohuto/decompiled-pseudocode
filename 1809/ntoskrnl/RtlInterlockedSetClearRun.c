@@ -1,8 +1,8 @@
 /*
  * XREFs of RtlInterlockedSetClearRun @ 0x140014CE0
  * Callers:
- *     MiDecommitHardwareEnclavePages @ 0x1402BD0D4 (MiDecommitHardwareEnclavePages.c)
- *     MiGetPageFromSlabEntry @ 0x1402C2748 (MiGetPageFromSlabEntry.c)
+ *     MiDecommitHardwareEnclavePages @ 0x1402BD1D4 (MiDecommitHardwareEnclavePages.c)
+ *     MiGetPageFromSlabEntry @ 0x1402C2848 (MiGetPageFromSlabEntry.c)
  *     EtwpFindUserBufferSpace @ 0x1405C1B98 (EtwpFindUserBufferSpace.c)
  * Callees:
  *     <none>

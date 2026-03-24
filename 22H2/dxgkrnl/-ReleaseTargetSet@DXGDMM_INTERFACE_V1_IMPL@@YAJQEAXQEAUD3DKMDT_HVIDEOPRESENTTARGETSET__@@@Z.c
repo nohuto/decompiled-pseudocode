@@ -1,15 +1,14 @@
 /*
- * XREFs of ?ReleaseTargetSet@DXGDMM_INTERFACE_V1_IMPL@@YAJQEAXQEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@Z @ 0x1C03B5FC0
+ * XREFs of ?ReleaseTargetSet@DXGDMM_INTERFACE_V1_IMPL@@YAJQEAXQEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@Z @ 0x1C02E4640
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000A4DC (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@@SAPEAVDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@Z @ 0x1C0020114 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET_.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0006454 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@@SAPEAVDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@Z @ 0x1C0023570 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET_.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DXGDMM_INTERFACE_V1_IMPL::ReleaseTargetSet(
@@ -17,70 +16,74 @@ __int64 __fastcall DXGDMM_INTERFACE_V1_IMPL::ReleaseTargetSet(
         __int64 a2,
         struct D3DKMDT_HVIDEOPRESENTTARGETSET__ *const a3)
 {
-  unsigned int v5; // ebx
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  int v10; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v11; // [rsp+58h] [rbp-20h]
-  char v12; // [rsp+60h] [rbp-18h]
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  unsigned int v12; // ebx
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  int v20; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v21; // [rsp+28h] [rbp-20h]
+  char v22; // [rsp+30h] [rbp-18h]
 
-  v10 = -1;
-  v11 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
+  v20 = -1;
+  v21 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v12 = 1;
-    v10 = 6051;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v22 = 1;
+    v20 = 6051;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, (__int64)a3, 6051);
   }
   else
   {
-    v12 = 0;
+    v22 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v10, 6051);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v20, 6051LL);
   if ( !this )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v7 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v7 + 24) = 0LL;
 LABEL_11:
-    v5 = -1071775742;
+    WdLogEvent5_WdError(v7);
+    v12 = -1071775742;
     goto LABEL_15;
   }
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this) )
-    WdLogSingleEntry0(1LL);
-  if ( !*((_QWORD *)this + 365) )
   {
-    WdLogSingleEntry1(2LL, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)this,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+    WdLogEvent5_WdAssertion(v10);
+  }
+  if ( !*((_QWORD *)this + 337) )
+  {
+    v7 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v7 + 24) = this;
     goto LABEL_11;
   }
-  v6 = ExposedViaHandle<DMMVIDEOPRESENTTARGETSET,D3DKMDT_HVIDEOPRESENTTARGETSET__ *>::GetFromHandle(a2);
-  if ( v6 )
+  v13 = ExposedViaHandle<DMMVIDEOPRESENTTARGETSET,D3DKMDT_HVIDEOPRESENTTARGETSET__ *>::GetFromHandle(a2);
+  if ( v13 )
   {
-    ReferenceCounted::Release((ReferenceCounted *)(v6 + 64));
-    v5 = 0;
+    ReferenceCounted::Release((ReferenceCounted *)(v13 + 64), v14);
+    v12 = 0;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a2);
-    v5 = -1071774954;
+    v16 = WdLogNewEntry5_WdError(v15, v14);
+    *(_QWORD *)(v16 + 24) = a2;
+    WdLogEvent5_WdError(v16);
+    v12 = -1071774954;
   }
 LABEL_15:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v10);
-  if ( v12 )
-  {
-    LOBYTE(v7) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v7, &EventProfilerExit, v8, v10);
-  }
-  return v5;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v20, v11);
+  if ( v22 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v17, &EventProfilerExit, v18, v20);
+  return v12;
 }

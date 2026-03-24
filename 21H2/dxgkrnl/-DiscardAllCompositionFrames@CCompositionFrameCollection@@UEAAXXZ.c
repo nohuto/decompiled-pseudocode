@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ @ 0x1C0008D60
+ * XREFs of ?DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ @ 0x1C000E510
  * Callers:
- *     ??_GCCompositionFrameCollection@@IEAAPEAXI@Z @ 0x1C001F4FC (--_GCCompositionFrameCollection@@IEAAPEAXI@Z.c)
+ *     ??_GCCompositionFrameCollection@@IEAAPEAXI@Z @ 0x1C000DA4C (--_GCCompositionFrameCollection@@IEAAPEAXI@Z.c)
  * Callees:
- *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C000837C (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C00120C0 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CCompositionFrameCollection::DiscardAllCompositionFrames(CCompositionFrameCollection *this)

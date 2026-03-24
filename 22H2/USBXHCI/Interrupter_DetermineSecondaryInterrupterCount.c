@@ -1,10 +1,10 @@
 /*
- * XREFs of Interrupter_DetermineSecondaryInterrupterCount @ 0x1C0079D1C
+ * XREFs of Interrupter_DetermineSecondaryInterrupterCount @ 0x1C00764E0
  * Callers:
- *     Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006EB30 (Controller_WdfEvtDeviceFilterRemoveResourceRequirements.c)
+ *     Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006E660 (Controller_WdfEvtDeviceFilterRemoveResourceRequirements.c)
  * Callees:
- *     Interrupter_SetSecondaryInterrupterCount @ 0x1C0008258 (Interrupter_SetSecondaryInterrupterCount.c)
- *     WPP_RECORDER_SF_DDD @ 0x1C001E0A4 (WPP_RECORDER_SF_DDD.c)
+ *     Interrupter_SetSecondaryInterrupterCount @ 0x1C00058AC (Interrupter_SetSecondaryInterrupterCount.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
  */
 
 void __fastcall Interrupter_DetermineSecondaryInterrupterCount(__int64 a1, int a2)
@@ -22,7 +22,7 @@ void __fastcall Interrupter_DetermineSecondaryInterrupterCount(__int64 a1, int a
   v8 = ActiveProcessorCount;
   if ( (*(_QWORD *)(v6 + 336) & 0x1000LL) == 0 )
   {
-    v9 = (*(_DWORD *)(*(_QWORD *)(a1 + 8) + 636LL) == 1) + 1;
+    v9 = (*(_DWORD *)(*(_QWORD *)(a1 + 8) + 588LL) == 1) + 1;
     if ( a2 != v9 )
     {
       v7 = a2 - v9;
@@ -35,12 +35,12 @@ void __fastcall Interrupter_DetermineSecondaryInterrupterCount(__int64 a1, int a
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v5) = 4;
-    WPP_RECORDER_SF_DDD(
+    WPP_RECORDER_SF_ddL(
       *(_QWORD *)(v6 + 72),
       v5,
       9,
-      55,
-      (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids,
+      54,
+      (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
       v8,
       a2,
       v7);

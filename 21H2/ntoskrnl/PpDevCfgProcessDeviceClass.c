@@ -1,23 +1,23 @@
 /*
- * XREFs of PpDevCfgProcessDeviceClass @ 0x14094EA0C
+ * XREFs of PpDevCfgProcessDeviceClass @ 0x14072FE5C
  * Callers:
- *     PiConfigureDevice @ 0x1409477A4 (PiConfigureDevice.c)
+ *     PiConfigureDevice @ 0x14072FDD8 (PiConfigureDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x140697824 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgSetDeviceRegProp @ 0x1406E5528 (PiDevCfgSetDeviceRegProp.c)
- *     PiDevCfgConfigureDeviceLocation @ 0x1406E6424 (PiDevCfgConfigureDeviceLocation.c)
- *     PiDevCfgGetDeviceClassConfigFlags @ 0x1406E66F4 (PiDevCfgGetDeviceClassConfigFlags.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     PiDevCfgInitDeviceContext @ 0x1407448BC (PiDevCfgInitDeviceContext.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     PiDevCfgQueryObjectProperties @ 0x140746CCC (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgFreeDeviceContext @ 0x1407476FC (PiDevCfgFreeDeviceContext.c)
- *     _PnpOpenObjectRegKey @ 0x14077C924 (_PnpOpenObjectRegKey.c)
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x140739C50 (PiDevCfgSetDeviceRegProp.c)
+ *     PiDevCfgFreeDeviceContext @ 0x14073A394 (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgInitDeviceContext @ 0x14073BA30 (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14073CE44 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1407675E4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x140770D0C (PiDevCfgConfigureDeviceLocation.c)
+ *     PiDevCfgGetDeviceClassConfigFlags @ 0x140770EF0 (PiDevCfgGetDeviceClassConfigFlags.c)
  */
 
 __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
@@ -25,15 +25,15 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
   wchar_t *Buffer; // r14
   int v3; // edi
   unsigned __int8 v4; // si
+  __int64 v5; // rcx
   int inited; // ebx
-  __int64 v6; // rcx
   __int64 v7; // r12
   __int64 v8; // rdx
   int v9; // eax
   NTSTATUS v10; // eax
   int v11; // edi
   __int64 v12; // rdx
-  __int64 v13; // rcx
+  int v13; // ecx
   int v14; // eax
   int v16; // [rsp+48h] [rbp-C0h] BYREF
   int v17; // [rsp+4Ch] [rbp-BCh] BYREF
@@ -43,7 +43,7 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
   UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-A0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-90h] BYREF
   __int128 v23; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v24[10]; // [rsp+B8h] [rbp-50h] BYREF
+  _QWORD v24[10]; // [rsp+B8h] [rbp-50h] BYREF
   __int128 v25; // [rsp+108h] [rbp+0h] BYREF
 
   memset(v24, 0, 0x48uLL);
@@ -62,105 +62,120 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
   if ( !PiDevCfgMode )
   {
     inited = 0;
-    goto LABEL_29;
+    goto LABEL_25;
   }
-  v6 = *(_QWORD *)(a1 + 48);
-  if ( !v6 )
+  v5 = *(_QWORD *)(a1 + 48);
+  if ( !v5 )
   {
     inited = -1073741808;
-    goto LABEL_29;
+    goto LABEL_25;
   }
-  inited = PiDevCfgInitDeviceContext(v6, 0LL, v24);
-  if ( inited < 0 )
-    goto LABEL_29;
-  v7 = v24[2];
-  v8 = *(_QWORD *)(a1 + 48);
-  *(_QWORD *)&ObjectAttributes.Length = &DEVPKEY_Device_ClassGuid;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v25;
-  ObjectAttributes.RootDirectory = (HANDLE)13;
-  *(_QWORD *)(&ObjectAttributes.Attributes + 1) = 0LL;
-  HIDWORD(ObjectAttributes.SecurityDescriptor) = 0;
-  ObjectAttributes.Attributes = 16;
-  inited = PiDevCfgQueryObjectProperties(1LL, v8, 1, v24[2], (__int64)&ObjectAttributes, 1u);
-  if ( inited < 0 )
-    goto LABEL_29;
-  if ( SLODWORD(ObjectAttributes.SecurityDescriptor) < 0 )
-    goto LABEL_12;
-  inited = RtlStringFromGUIDEx((unsigned int *)&v25, (__int64)&UnicodeString, 1);
-  if ( inited < 0 )
-    goto LABEL_29;
-  Buffer = UnicodeString.Buffer;
-  v9 = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)UnicodeString.Buffer, 2u, 131097, 0, (__int64)&Handle);
-  inited = v9;
-  if ( v9 != -1073741772 )
+  inited = PiDevCfgInitDeviceContext(v5, 0LL, v24);
+  if ( inited >= 0 )
   {
-    if ( v9 < 0 )
-      goto LABEL_29;
-LABEL_12:
-    if ( Handle )
+    v7 = v24[2];
+    v8 = *(_QWORD *)(a1 + 48);
+    *(_QWORD *)&ObjectAttributes.Length = &DEVPKEY_Device_ClassGuid;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v25;
+    ObjectAttributes.RootDirectory = (HANDLE)13;
+    *(_QWORD *)(&ObjectAttributes.Attributes + 1) = 0LL;
+    HIDWORD(ObjectAttributes.SecurityDescriptor) = 0;
+    ObjectAttributes.Attributes = 16;
+    inited = PiDevCfgQueryObjectProperties(1, v8, 1, v24[2], (__int64)&ObjectAttributes, 1);
+    if ( inited >= 0 )
     {
-      ObjectAttributes.RootDirectory = Handle;
-      *((_QWORD *)&v23 + 1) = L"Configuration";
-      LODWORD(v23) = 1835034;
-      *(_QWORD *)&ObjectAttributes.Length = 48LL;
-      *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-      ObjectAttributes.ObjectName = (PUNICODE_STRING)&v23;
-      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      v10 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-      inited = v10;
-      if ( v10 != -1073741772 )
+      if ( SLODWORD(ObjectAttributes.SecurityDescriptor) >= 0 )
       {
-        if ( v10 < 0 )
-          goto LABEL_29;
-        inited = PiDevCfgConfigureDeviceKeys(a1, (__int64)v24, KeyHandle, -1, &v16, &v17);
+        inited = RtlStringFromGUIDEx((unsigned int *)&v25, (__int64)&UnicodeString, 1);
         if ( inited < 0 )
-          goto LABEL_29;
-        v3 = v16;
-        v4 = v17;
+          goto LABEL_25;
+        Buffer = UnicodeString.Buffer;
+        v9 = PnpOpenObjectRegKey(
+               *(__int64 *)&PiPnpRtlCtx,
+               (__int64)UnicodeString.Buffer,
+               2u,
+               131097,
+               0,
+               (__int64)&Handle);
+        inited = v9;
+        if ( v9 == -1073741772 )
+        {
+          Handle = 0LL;
+LABEL_14:
+          inited = PiDevCfgConfigureDeviceLocation(a1, v24, &v16, &v17);
+          if ( inited < 0 )
+            goto LABEL_25;
+          v11 = v16 | v3;
+          if ( (((unsigned __int8)v17 | v4) & 2) == 0 && Buffer && Handle )
+          {
+            inited = PiDevCfgGetDeviceClassConfigFlags(Buffer, Handle, &v16);
+            if ( inited < 0 )
+              goto LABEL_25;
+            v11 |= v16;
+          }
+          if ( v11 )
+          {
+            v12 = *(_QWORD *)(a1 + 48);
+            LODWORD(v18) = 4;
+            if ( (int)CmGetDeviceRegProp(
+                        *(__int64 *)&PiPnpRtlCtx,
+                        v12,
+                        v7,
+                        11,
+                        (__int64)&v18 + 4,
+                        (__int64)&v16,
+                        (__int64)&v18,
+                        0) < 0
+              || HIDWORD(v18) != 4
+              || (v14 = v16, (_DWORD)v18 != 4) )
+            {
+              v14 = 0;
+            }
+            v16 = v11 | v14;
+            PiDevCfgSetDeviceRegProp(v13, (unsigned int)v24, 11, 4, (__int64)&v16, 4);
+          }
+          goto LABEL_25;
+        }
+        if ( v9 < 0 )
+          goto LABEL_25;
       }
+      if ( Handle )
+      {
+        ObjectAttributes.RootDirectory = Handle;
+        *((_QWORD *)&v23 + 1) = L"Configuration";
+        LODWORD(v23) = 1835034;
+        *(_QWORD *)&ObjectAttributes.Length = 48LL;
+        *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+        ObjectAttributes.ObjectName = (PUNICODE_STRING)&v23;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        v10 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+        inited = v10;
+        if ( v10 != -1073741772 )
+        {
+          if ( v10 < 0 )
+            goto LABEL_25;
+          inited = PiDevCfgConfigureDeviceKeys(
+                     a1,
+                     (unsigned int)v24,
+                     (_DWORD)KeyHandle,
+                     -1,
+                     (__int64)&v16,
+                     (__int64)&v17);
+          if ( inited < 0 )
+            goto LABEL_25;
+          v3 = v16;
+          v4 = v17;
+        }
+      }
+      goto LABEL_14;
     }
-    goto LABEL_17;
   }
-  Handle = 0LL;
-LABEL_17:
-  inited = PiDevCfgConfigureDeviceLocation(a1, (__int64)v24, &v16, &v17);
-  if ( inited < 0 )
-    goto LABEL_29;
-  v11 = v16 | v3;
-  if ( (((unsigned __int8)v17 | v4) & 2) == 0 && Buffer && Handle )
-  {
-    inited = PiDevCfgGetDeviceClassConfigFlags((int)Buffer, (int)Handle, &v16);
-    if ( inited < 0 )
-      goto LABEL_29;
-    v11 |= v16;
-  }
-  if ( v11 )
-  {
-    v12 = *(_QWORD *)(a1 + 48);
-    LODWORD(v18) = 4;
-    if ( (int)CmGetDeviceRegProp(
-                *(__int64 *)&PiPnpRtlCtx,
-                v12,
-                v7,
-                11,
-                (__int64)&v18 + 4,
-                (__int64)&v16,
-                (__int64)&v18,
-                0) < 0
-      || HIDWORD(v18) != 4
-      || (v14 = v16, (_DWORD)v18 != 4) )
-    {
-      v14 = 0;
-    }
-    v16 = v11 | v14;
-    PiDevCfgSetDeviceRegProp(v13, (__int64)v24, 0xBu, 4, (__int64)&v16, 4);
-  }
-LABEL_29:
-  RtlFreeUnicodeString(&UnicodeString);
+LABEL_25:
+  RtlFreeAnsiString(&UnicodeString);
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( Handle )
     ZwClose(Handle);
-  PiDevCfgFreeDeviceContext((__int64)v24);
+  PiDevCfgFreeDeviceContext(v24);
   return (unsigned int)inited;
 }

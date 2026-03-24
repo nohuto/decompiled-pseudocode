@@ -1,74 +1,47 @@
 /*
- * XREFs of ApiSetEditionPostRawMouseInputMessage @ 0x1C0041EEC
+ * XREFs of ApiSetEditionPostRawMouseInputMessage @ 0x1C009B490
  * Callers:
- *     ?PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z @ 0x1C0041E98 (-PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z.c)
+ *     ?PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z @ 0x1C009B424 (-PostRawMouse@CMouseRawInput@CMouseProcessor@@QEAAXPEBUtagINPUTDEST@@W4RawInputPrerequisite@@@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     IsEditionPostRawMouseInputMessageSupported @ 0x1C0042018 (IsEditionPostRawMouseInputMessageSupported.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     IsEditionPostRawMouseInputMessageSupported @ 0x1C009B560 (IsEditionPostRawMouseInputMessageSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall ApiSetEditionPostRawMouseInputMessage(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall ApiSetEditionPostRawMouseInputMessage(
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        __int64 a4,
+        __int64 a5)
 {
-  unsigned int v6; // ebp
-  __int64 v7; // r14
-  PDEVICE_OBJECT v9; // rcx
-  char v10; // bl
-  void *v11; // r9
-  unsigned int v12; // edi
-  int v13; // edx
-  void *v15; // r8
+  __int64 v7; // rbp
+  unsigned int v9; // ebx
+  int v10; // edx
 
-  v6 = a3;
   v7 = a2;
-  v9 = WPP_GLOBAL_Control;
-  v10 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  v11 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
       a2,
-      a3,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
       10,
-      334,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  v12 = 0;
-  if ( (int)IsEditionPostRawMouseInputMessageSupported(v9, a2, a3, v11) >= 0 && qword_1C029D5B8 )
-    v12 = qword_1C029D5B8(a1, v7, v6, a4, a5);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    LOBYTE(v13) = 0;
+      320,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v10 = 0;
-  if ( (_BYTE)v13 || v10 )
+  v9 = 0;
+  if ( (int)IsEditionPostRawMouseInputMessageSupported() >= 0 && qword_1C0258940 )
+    v9 = qword_1C0258940(a1, v7, a3, a4, a5);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    v15 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-    LOBYTE(v15) = v10;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v13,
-      (_DWORD)v15,
+    LOBYTE(v10) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      v10,
       10,
-      335,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+      321,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  return v12;
+  return v9;
 }

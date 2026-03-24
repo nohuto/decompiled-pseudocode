@@ -1,24 +1,27 @@
 /*
- * XREFs of ??_ECCompositionPointLight@@UEAAPEAXI@Z @ 0x180224A60
+ * XREFs of ??_ECCompositionPointLight@@UEAAPEAXI@Z @ 0x1801BAAE0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1CCompositionLight@@UEAA@XZ @ 0x180012758 (--1CCompositionLight@@UEAA@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1CCompositionLight@@UEAA@XZ @ 0x180029854 (--1CCompositionLight@@UEAA@XZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 CCompositionPointLight *__fastcall CCompositionPointLight::`vector deleting destructor'(
         CCompositionPointLight *this,
         char a2)
 {
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 32);
+  *(_QWORD *)this = &CCompositionPointLight::`vftable'{for `CPropertyChangeResource'};
+  *((_QWORD *)this + 9) = &CCompositionEnvironmentLight::`vftable'{for `ISceneNotificationListener'};
+  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 31));
+  *((_QWORD *)this + 31) = 0LL;
   CCompositionLight::~CCompositionLight(this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x138);
     else
       operator delete(this);
   }

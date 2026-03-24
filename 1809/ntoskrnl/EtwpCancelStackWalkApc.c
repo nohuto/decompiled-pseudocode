@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCancelStackWalkApc @ 0x14030F0B0
+ * XREFs of EtwpCancelStackWalkApc @ 0x14030F1B0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpFinalizePendingApc @ 0x14030F0CC (EtwpFinalizePendingApc.c)
+ *     EtwpFinalizePendingApc @ 0x14030F1CC (EtwpFinalizePendingApc.c)
  */
 
 __int64 __fastcall EtwpCancelStackWalkApc(__int64 a1)

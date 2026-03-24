@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSetContextState @ 0x14088F720
+ * XREFs of PspSetContextState @ 0x14088F700
  * Callers:
  *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
  * Callees:
  *     RtlGetExtendedContextLength @ 0x1400A1D44 (RtlGetExtendedContextLength.c)
  *     RtlInitializeExtendedContext @ 0x1400A1D9C (RtlInitializeExtendedContext.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlCopyContext @ 0x140620E78 (RtlCopyContext.c)
  */
 

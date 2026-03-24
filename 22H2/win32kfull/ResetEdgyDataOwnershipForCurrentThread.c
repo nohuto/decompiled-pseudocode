@@ -1,5 +1,5 @@
 /*
- * XREFs of ResetEdgyDataOwnershipForCurrentThread @ 0x1C00A2CD0
+ * XREFs of ResetEdgyDataOwnershipForCurrentThread @ 0x1C01114F0
  * Callers:
  *     <none>
  * Callees:
@@ -14,14 +14,14 @@ __int64 ResetEdgyDataOwnershipForCurrentThread()
   result = grpdeskRitInput;
   if ( grpdeskRitInput )
   {
-    v1 = *(_QWORD *)(grpdeskRitInput + 248LL);
+    v1 = *(_QWORD *)(grpdeskRitInput + 240LL);
     if ( v1 )
     {
       result = gptiCurrent;
       if ( *(_QWORD *)(v1 + 288) == gptiCurrent )
       {
         *(_QWORD *)(v1 + 288) = 0LL;
-        result = *(_QWORD *)(grpdeskRitInput + 248LL);
+        result = *(_QWORD *)(grpdeskRitInput + 240LL);
         *(_DWORD *)(result + 16) = 0;
       }
     }

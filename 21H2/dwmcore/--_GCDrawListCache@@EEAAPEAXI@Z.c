@@ -1,19 +1,16 @@
 /*
- * XREFs of ??_GCDrawListCache@@EEAAPEAXI@Z @ 0x1800AF280
+ * XREFs of ??_GCDrawListCache@@EEAAPEAXI@Z @ 0x180093E80
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?clear_region@?$vector_facade@PEAVIDeviceResource@@V?$pointer_buffer_impl@PEAVIDeviceResource@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800AF17C (-clear_region@-$vector_facade@PEAVIDeviceResource@@V-$pointer_buffer_impl@PEAVIDeviceResource@@@.c)
- *     ?clear_region@?$vector_facade@PEAVCDrawListEntry@@V?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800AF1F8 (-clear_region@-$vector_facade@PEAVCDrawListEntry@@V-$pointer_buffer_impl@PEAVCDrawListEntry@@@de.c)
- *     ?first@?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@QEBAPEAPEAVCDrawListEntry@@XZ @ 0x1800AF3A8 (-first@-$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@QEBAPEAPEAVCDrawListEntry@@XZ.c)
- *     ?size@?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@AEBA_KXZ @ 0x1800AF3E0 (-size@-$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@AEBA_KXZ.c)
- *     ?first@?$pointer_buffer_impl@PEAVIDeviceResource@@@detail@@QEBAPEAPEAVIDeviceResource@@XZ @ 0x1800AF41C (-first@-$pointer_buffer_impl@PEAVIDeviceResource@@@detail@@QEBAPEAPEAVIDeviceResource@@XZ.c)
- *     ?size@?$pointer_buffer_impl@PEAVIDeviceResource@@@detail@@AEBA_KXZ @ 0x1800AF454 (-size@-$pointer_buffer_impl@PEAVIDeviceResource@@@detail@@AEBA_KXZ.c)
- *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800AF6DC (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
- *     ?ReleaseDrawListEntries@CDrawListCache@@AEAAXXZ @ 0x1800AFDD8 (-ReleaseDrawListEntries@CDrawListCache@@AEAAXXZ.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x180055FE8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ?clear_region@?$vector_facade@PEAVCDrawListEntry@@V?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@@detail@@IEAAX_K0@Z @ 0x180093F5C (-clear_region@-$vector_facade@PEAVCDrawListEntry@@V-$pointer_buffer_impl@PEAVCDrawListEntry@@@de.c)
+ *     ?ReleaseDrawListEntries@CDrawListCache@@AEAAXXZ @ 0x180093FD8 (-ReleaseDrawListEntries@CDrawListCache@@AEAAXXZ.c)
+ *     ?first@?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@QEBAPEAPEAVCDrawListEntry@@XZ @ 0x1800940BC (-first@-$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@QEBAPEAPEAVCDrawListEntry@@XZ.c)
+ *     ?size@?$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@AEBA_KXZ @ 0x1800940F4 (-size@-$pointer_buffer_impl@PEAVCDrawListEntry@@@detail@@AEBA_KXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 CDrawListCache *__fastcall CDrawListCache::`scalar deleting destructor'(CDrawListCache *this, char a2)
@@ -21,68 +18,50 @@ CDrawListCache *__fastcall CDrawListCache::`scalar deleting destructor'(CDrawLis
   __int64 v4; // rbx
   __int64 v5; // rbx
   __int64 v6; // rdx
-  unsigned __int64 v7; // rbx
-  __int64 v8; // rbx
-  __int64 v9; // rbx
-  __int64 v10; // rdx
-  unsigned __int64 v11; // rbx
+  __int64 v7; // rbx
+  unsigned int v8; // r8d
   int Current; // eax
-  struct CThreadContext *v13; // rcx
-  __int64 v15; // rax
-  __int64 v16; // rax
+  struct CThreadContext *v10; // rcx
+  __int64 v12; // rax
   void *retaddr; // [rsp+28h] [rbp+0h]
-  struct CThreadContext *v18; // [rsp+30h] [rbp+8h] BYREF
+  struct CThreadContext *v14; // [rsp+30h] [rbp+8h] BYREF
 
-  *(_QWORD *)this = &CDrawListCache::`vftable'{for `CMILRefCountBaseT<IMILRefCount>'};
-  *((_QWORD *)this + 2) = &CDrawListCache::`vftable'{for `IDeviceResourceNotify'};
+  *(_QWORD *)this = &CDrawListCache::`vftable';
   CDrawListCache::ReleaseDrawListEntries(this);
-  v4 = detail::pointer_buffer_impl<IDeviceResource *>::size((char *)this + 56);
-  v5 = detail::pointer_buffer_impl<IDeviceResource *>::first((char *)this + 56) + 8 * v4;
-  v7 = (v5 - detail::pointer_buffer_impl<IDeviceResource *>::first((char *)this + 56)) >> 3;
+  v4 = detail::pointer_buffer_impl<CDrawListEntry *>::size((char *)this + 32);
+  v5 = detail::pointer_buffer_impl<CDrawListEntry *>::first((char *)this + 32) + 8 * v4;
+  v7 = (v5 - detail::pointer_buffer_impl<CDrawListEntry *>::first((char *)this + 32)) >> 3;
   if ( v7 )
-    detail::vector_facade<IDeviceResource *,detail::pointer_buffer_impl<IDeviceResource *>>::clear_region(
-      (__int64)this + 56,
+    detail::vector_facade<CDrawListEntry *,detail::pointer_buffer_impl<CDrawListEntry *>>::clear_region(
+      (char *)this + 32,
       v6,
       v7);
-  if ( (*((_BYTE *)this + 56) & 3) == 1 )
+  if ( (*((_BYTE *)this + 32) & 3) == 1 )
   {
-    v16 = detail::pointer_buffer_impl<IDeviceResource *>::first((char *)this + 56);
-    DefaultHeap::Free((void *)(v16 - 16));
-  }
-  v8 = detail::pointer_buffer_impl<CDrawListEntry *>::size((char *)this + 48);
-  v9 = detail::pointer_buffer_impl<CDrawListEntry *>::first((char *)this + 48) + 8 * v8;
-  v11 = (v9 - detail::pointer_buffer_impl<CDrawListEntry *>::first((char *)this + 48)) >> 3;
-  if ( v11 )
-    detail::vector_facade<CDrawListEntry *,detail::pointer_buffer_impl<CDrawListEntry *>>::clear_region(
-      (__int64)this + 48,
-      v10,
-      v11);
-  if ( (*((_BYTE *)this + 48) & 3) == 1 )
-  {
-    v15 = detail::pointer_buffer_impl<CDrawListEntry *>::first((char *)this + 48);
-    DefaultHeap::Free((void *)(v15 - 16));
+    v12 = detail::pointer_buffer_impl<CDrawListEntry *>::first((char *)this + 32);
+    operator delete((void *)(v12 - 16));
   }
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
     {
-      __global_delete(this, 0x68uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x68, v8);
     }
     else
     {
-      Current = CThreadContext::GetCurrent(&v18);
+      Current = CThreadContext::GetCurrent(&v14);
       if ( Current < 0 )
         ModuleFailFastForHRESULT((unsigned int)Current, retaddr);
-      v13 = v18;
-      if ( *((_DWORD *)v18 + 29) >= *((_DWORD *)v18 + 28) )
+      v10 = v14;
+      if ( *((_DWORD *)v14 + 15) >= *((_DWORD *)v14 + 14) )
       {
-        DefaultHeap::Free(this);
+        operator delete(this);
       }
       else
       {
-        *(_QWORD *)this = *((_QWORD *)v18 + 15);
-        ++*((_DWORD *)v13 + 29);
-        *((_QWORD *)v13 + 15) = this;
+        *(_QWORD *)this = *((_QWORD *)v14 + 8);
+        ++*((_DWORD *)v10 + 15);
+        *((_QWORD *)v10 + 8) = this;
       }
     }
   }

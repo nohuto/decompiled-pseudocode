@@ -3,9 +3,9 @@
  * Callers:
  *     BgFreeContext @ 0x14094E1D4 (BgFreeContext.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x1401373B0 (MmFreePagesFromMdl.c)
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MmFreePagesFromMdl @ 0x1401373D0 (MmFreePagesFromMdl.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     BgpFwReservePoolSwap @ 0x14094E340 (BgpFwReservePoolSwap.c)
  *     LogFwReport @ 0x14094E514 (LogFwReport.c)

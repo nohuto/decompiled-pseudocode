@@ -1,5 +1,5 @@
 /*
- * XREFs of imp_WdfGetTriageInfo @ 0x1C000BB80
+ * XREFs of imp_WdfGetTriageInfo @ 0x1C000DAC0
  * Callers:
  *     <none>
  * Callees:

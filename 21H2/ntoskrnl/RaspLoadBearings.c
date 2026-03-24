@@ -1,17 +1,17 @@
 /*
- * XREFs of RaspLoadBearings @ 0x1403A985C
+ * XREFs of RaspLoadBearings @ 0x1403B300C
  * Callers:
- *     RaspGetUnscaledGlyphData @ 0x1403A8D68 (RaspGetUnscaledGlyphData.c)
+ *     RaspGetUnscaledGlyphData @ 0x1403B2524 (RaspGetUnscaledGlyphData.c)
  * Callees:
- *     FioFwReadUshortAtOffset @ 0x1403A9A4C (FioFwReadUshortAtOffset.c)
- *     FioFwReadBytesAtOffset @ 0x1403A9E4C (FioFwReadBytesAtOffset.c)
+ *     FioFwReadUshortAtOffset @ 0x1403B31FC (FioFwReadUshortAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x1403B35FC (FioFwReadBytesAtOffset.c)
  */
 
 __int64 __fastcall RaspLoadBearings(__int64 a1, unsigned int a2, __int64 a3, int *a4)
 {
   unsigned int v4; // ebp
-  int v5; // eax
-  __int64 v7; // rcx
+  __int64 v5; // rax
+  int v7; // edx
   __int64 v11; // rcx
   __int64 result; // rax
   unsigned __int16 v13; // ax
@@ -29,14 +29,14 @@ __int64 __fastcall RaspLoadBearings(__int64 a1, unsigned int a2, __int64 a3, int
   __int16 v25; // [rsp+68h] [rbp+10h] BYREF
 
   v4 = *(unsigned __int16 *)(a1 + 88);
-  v5 = *(_DWORD *)(a1 + 68);
-  v7 = *(_QWORD *)(a1 + 16);
+  v5 = *(_QWORD *)(a1 + 16);
+  v7 = *(_DWORD *)(a1 + 68);
   v24 = 0;
   v25 = 0;
-  v11 = *(_QWORD *)(v7 + 16);
+  v11 = *(_QWORD *)(v5 + 16);
   if ( a2 >= v4 )
   {
-    v23 = v5 + 4 * v4;
+    v23 = v7 + 4 * v4;
     result = FioFwReadBytesAtOffset(v11, (unsigned int)(v23 - 4), 4LL, &v24);
     if ( (int)result < 0 )
       return result;
@@ -48,7 +48,7 @@ __int64 __fastcall RaspLoadBearings(__int64 a1, unsigned int a2, __int64 a3, int
   }
   else
   {
-    result = FioFwReadBytesAtOffset(v11, v5 + 4 * a2, 4LL, &v24);
+    result = FioFwReadBytesAtOffset(v11, v7 + 4 * a2, 4LL, &v24);
     if ( (int)result < 0 )
       return result;
     v13 = __ROR2__(v24, 8);

@@ -1,67 +1,46 @@
 /*
- * XREFs of CmpVolumeContextSendDeviceUsageNotification @ 0x1408550BC
+ * XREFs of CmpVolumeContextSendDeviceUsageNotification @ 0x1407C8D94
  * Callers:
- *     CmpHandlePageFileOpenNotification @ 0x140854EE0 (CmpHandlePageFileOpenNotification.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407C8C58 (CmpHandlePageFileOpenNotification.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     PiPagePathSetState @ 0x140854B58 (PiPagePathSetState.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpVolumeContextUnlockShared @ 0x1407C8E24 (CmpVolumeContextUnlockShared.c)
+ *     CmpVolumeContextLockShared @ 0x1407C8E58 (CmpVolumeContextLockShared.c)
+ *     CmpVolumeContextUnlockExclusive @ 0x1407C8F40 (CmpVolumeContextUnlockExclusive.c)
+ *     PpPagePathAssign @ 0x1408A0FF0 (PpPagePathAssign.c)
+ *     PpPagePathRelease @ 0x1408A1008 (PpPagePathRelease.c)
  */
 
 __int64 __fastcall CmpVolumeContextSendDeviceUsageNotification(__int64 a1)
 {
-  signed __int64 *v2; // rbx
-  unsigned __int64 v3; // rbp
+  int v2; // edi
   char v4; // si
-  int v5; // ebp
-  __int64 v7; // rax
-  __int64 v8; // rbp
 
   if ( *(_QWORD *)(a1 + 48) )
   {
-    v2 = (signed __int64 *)(a1 + 56);
-    v3 = KeAbPreAcquire(a1 + 56, 0LL);
-    if ( _InterlockedCompareExchange64(v2, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx(v2, 0LL, v3, (__int64)v2);
-    v4 = 1;
-    if ( v3 )
-      *(_BYTE *)(v3 + 18) = 1;
+    CmpVolumeContextLockShared();
     if ( *(_BYTE *)(a1 + 64) )
     {
-      v5 = 0;
-      if ( _InterlockedCompareExchange64(v2, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared(v2);
-      KeAbPostRelease((ULONG_PTR)v2);
+      v2 = 0;
+      CmpVolumeContextUnlockShared(a1);
     }
     else
     {
-      if ( _InterlockedCompareExchange64(v2, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared(v2);
-      KeAbPostRelease((ULONG_PTR)v2);
-      v5 = PiPagePathSetState(*(struct _FILE_OBJECT **)(a1 + 48), 1);
-      if ( v5 >= 0 )
+      CmpVolumeContextUnlockShared(a1);
+      v2 = PpPagePathAssign(*(_QWORD *)(a1 + 48));
+      if ( v2 >= 0 )
       {
-        v7 = KeAbPreAcquire((__int64)v2, 0LL);
-        v8 = v7;
-        if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v2, v7, (__int64)v2);
-        if ( v8 )
-          *(_BYTE *)(v8 + 18) = 1;
+        v4 = 1;
+        ExAcquirePushLockExclusiveEx(a1 + 56, 0LL);
         if ( !*(_BYTE *)(a1 + 64) )
         {
           *(_BYTE *)(a1 + 64) = 1;
           v4 = 0;
         }
-        if ( (_InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock(v2);
-        KeAbPostRelease((ULONG_PTR)v2);
-        v5 = 0;
+        CmpVolumeContextUnlockExclusive(a1);
+        v2 = 0;
         if ( v4 )
-          PiPagePathSetState(*(struct _FILE_OBJECT **)(a1 + 48), 0);
+          PpPagePathRelease(*(_QWORD *)(a1 + 48));
       }
     }
   }
@@ -69,5 +48,5 @@ __int64 __fastcall CmpVolumeContextSendDeviceUsageNotification(__int64 a1)
   {
     return (unsigned int)-1073741637;
   }
-  return (unsigned int)v5;
+  return (unsigned int)v2;
 }

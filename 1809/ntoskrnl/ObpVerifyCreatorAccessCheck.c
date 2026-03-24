@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpVerifyCreatorAccessCheck @ 0x140654724
+ * XREFs of ObpVerifyCreatorAccessCheck @ 0x140654704
  * Callers:
- *     NtCreatePrivateNamespace @ 0x140654380 (NtCreatePrivateNamespace.c)
- *     NtDeletePrivateNamespace @ 0x140706D70 (NtDeletePrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x140654360 (NtCreatePrivateNamespace.c)
+ *     NtDeletePrivateNamespace @ 0x140706D50 (NtDeletePrivateNamespace.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeCaptureSubjectContextEx @ 0x1405E07F0 (SeCaptureSubjectContextEx.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeUnlockSubjectContext @ 0x1405E62C0 (SeUnlockSubjectContext.c)
  *     SeLockSubjectContext @ 0x1405E6300 (SeLockSubjectContext.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x140654CE4 (RtlEnumerateBoundaryDescriptorEntries.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x140654CC4 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
  */
 
 __int64 __fastcall ObpVerifyCreatorAccessCheck(__int64 a1)

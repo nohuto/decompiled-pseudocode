@@ -1,9 +1,9 @@
 /*
- * XREFs of PopHiberPeekRangeTable @ 0x140AA33A0
+ * XREFs of PopHiberPeekRangeTable @ 0x1409B146C
  * Callers:
- *     ConsumerPeekAndConsumeBuffer @ 0x140AA1834 (ConsumerPeekAndConsumeBuffer.c)
+ *     ConsumerPeekAndConsumeBuffer @ 0x14099518C (ConsumerPeekAndConsumeBuffer.c)
  * Callees:
- *     PopReadProducerConsumerBuffer @ 0x140AA3ADC (PopReadProducerConsumerBuffer.c)
+ *     PopReadProducerConsumerBuffer @ 0x1409B1830 (PopReadProducerConsumerBuffer.c)
  */
 
 __int64 __fastcall PopHiberPeekRangeTable(int a1, int a2, __int64 a3)
@@ -16,7 +16,7 @@ __int64 __fastcall PopHiberPeekRangeTable(int a1, int a2, __int64 a3)
                                        a1,
                                        a2,
                                        (unsigned int)&v5,
-                                       (_DWORD)qword_140C3D098,
+                                       (_DWORD)qword_140C23ED8,
                                        a3,
                                        0);
   return ((*ProducerConsumerBuffer >> 8) & 0x3FFFFF) + 8 * (unsigned int)(unsigned __int8)*ProducerConsumerBuffer + 4;

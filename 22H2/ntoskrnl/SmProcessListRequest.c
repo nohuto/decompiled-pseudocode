@@ -1,119 +1,93 @@
 /*
- * XREFs of SmProcessListRequest @ 0x1409D6E5C
+ * XREFs of SmProcessListRequest @ 0x140929BD4
  * Callers:
- *     SmQueryStoreInformation @ 0x140842DDC (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x1406A5798 (SmQueryStoreInformation.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D1C0 (SSHSupportAllocateNonPaged.c)
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     PsReferencePartitionByHandle @ 0x14076054C (PsReferencePartitionByHandle.c)
- *     SmProcessListRequestExtended @ 0x1409D70A8 (SmProcessListRequestExtended.c)
- *     SmKmGetStoreList @ 0x1409D8D50 (SmKmGetStoreList.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SSHSupportAllocateNonPaged @ 0x140322FE4 (SSHSupportAllocateNonPaged.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmProcessListRequestExtended @ 0x140929DA4 (SmProcessListRequestExtended.c)
+ *     SmKmGetStoreList @ 0x14092B5E8 (SmKmGetStoreList.c)
  */
 
-__int64 __fastcall SmProcessListRequest(_OWORD *a1, unsigned int a2, unsigned int *a3, char a4)
+__int64 __fastcall SmProcessListRequest(__int64 a1, unsigned __int64 a2, unsigned int a3, unsigned int *a4, char a5)
 {
-  int v8; // ebx
-  void *NonPaged; // rax
-  void *v10; // rdi
+  unsigned int v9; // esi
+  struct _PRIVILEGE_SET *NonPaged; // rax
+  struct _PRIVILEGE_SET *v11; // rdi
   int StoreList; // ebx
-  __int64 v12; // rcx
-  ULONG_PTR v13; // rcx
-  __int64 ProcessPartition; // rsi
-  unsigned int Size; // [rsp+30h] [rbp-38h]
-  __int64 v17[3]; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v13; // rcx
 
-  v17[0] = 0LL;
-  v8 = 4240;
-  NonPaged = (void *)SSHSupportAllocateNonPaged(4240LL, 0x524C6D73u);
-  v10 = NonPaged;
-  v17[1] = (__int64)NonPaged;
-  if ( !NonPaged )
+  v9 = 4228;
+  NonPaged = (struct _PRIVILEGE_SET *)SSHSupportAllocateNonPaged(0x1084uLL, 0x524C6D73u);
+  v11 = NonPaged;
+  if ( NonPaged )
   {
-    StoreList = -1073740716;
-    goto LABEL_28;
-  }
-  memset(NonPaged, 0, 0x1090uLL);
-  if ( a2 < 0x90 )
-    goto LABEL_4;
-  if ( a4 )
-  {
-    if ( ((unsigned __int8)a1 & 7) != 0 )
-      ExRaiseDatatypeMisalignment();
-    v12 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v12 = (__int64)a1;
-    *(_BYTE *)v12 = *(_BYTE *)v12;
-    *(_BYTE *)(v12 + 143) = *(_BYTE *)(v12 + 143);
-  }
-  *(_OWORD *)v10 = *a1;
-  *((_OWORD *)v10 + 1) = a1[1];
-  *((_OWORD *)v10 + 2) = a1[2];
-  *((_OWORD *)v10 + 3) = a1[3];
-  *((_OWORD *)v10 + 4) = a1[4];
-  *((_OWORD *)v10 + 5) = a1[5];
-  *((_OWORD *)v10 + 6) = a1[6];
-  *((_OWORD *)v10 + 7) = a1[7];
-  *((_OWORD *)v10 + 8) = a1[8];
-  if ( (*(_DWORD *)v10 & 0x10000) != 0 )
-  {
-    if ( a4 )
-      ProbeForWrite(a1, 0x1090uLL, 8u);
-  }
-  else
-  {
-    v8 = 144;
-  }
-  Size = v8;
-  if ( a2 != v8 )
-  {
-LABEL_4:
-    StoreList = -1073741306;
-    goto LABEL_28;
-  }
-  if ( __PAIR16__(*((_BYTE *)v10 + 1), *(_DWORD *)v10) == 3 && *(_DWORD *)v10 < 0x20000u )
-  {
-    v13 = *((_QWORD *)v10 + 1);
-    if ( v13 )
+    memset(NonPaged, 0, 0x1084uLL);
+    if ( a3 < 0x84 )
+      goto LABEL_4;
+    if ( a5 )
     {
-      StoreList = PsReferencePartitionByHandle(v13, 1, a4, 0x4C516D53u, v17);
-      if ( StoreList < 0 )
-        goto LABEL_28;
-      ProcessPartition = *(_QWORD *)(v17[0] + 24);
-      if ( !ProcessPartition )
+      if ( (a2 & 3) != 0 )
+        ExRaiseDatatypeMisalignment();
+      v13 = 0x7FFFFFFF0000LL;
+      if ( a2 < 0x7FFFFFFF0000LL )
+        v13 = a2;
+      *(_BYTE *)v13 = *(_BYTE *)v13;
+      *(_BYTE *)(v13 + 131) = *(_BYTE *)(v13 + 131);
+    }
+    *(_OWORD *)&v11->PrivilegeCount = *(_OWORD *)a2;
+    *(_OWORD *)&v11->Privilege[0].Attributes = *(_OWORD *)(a2 + 16);
+    *(_OWORD *)&v11[1].Privilege[0].Luid.HighPart = *(_OWORD *)(a2 + 32);
+    *(_OWORD *)&v11[2].Privilege[0].Luid.LowPart = *(_OWORD *)(a2 + 48);
+    *(_OWORD *)&v11[3].Control = *(_OWORD *)(a2 + 64);
+    *(_OWORD *)&v11[4].PrivilegeCount = *(_OWORD *)(a2 + 80);
+    *(_OWORD *)&v11[4].Privilege[0].Attributes = *(_OWORD *)(a2 + 96);
+    *(_OWORD *)&v11[5].Privilege[0].Luid.HighPart = *(_OWORD *)(a2 + 112);
+    v11[6].Privilege[0].Luid.LowPart = *(_DWORD *)(a2 + 128);
+    if ( (v11->PrivilegeCount & 0x10000) != 0 )
+    {
+      if ( a5 )
+        ProbeForWrite((volatile void *)a2, 0x1084uLL, 4u);
+    }
+    else
+    {
+      v9 = 132;
+    }
+    if ( a3 == v9 )
+    {
+      if ( __PAIR16__(BYTE1(v11->PrivilegeCount), v11->PrivilegeCount) == 2 && v11->PrivilegeCount < 0x20000 )
       {
-        StoreList = -1073741399;
-        goto LABEL_28;
+        StoreList = SmKmGetStoreList(a1, v11);
+        if ( StoreList >= 0 )
+        {
+          if ( (v11->PrivilegeCount & 0x10000) == 0
+            || (StoreList = SmProcessListRequestExtended(a1, v11), StoreList >= 0) )
+          {
+            memmove((void *)a2, v11, v9);
+            *a4 = v9;
+          }
+        }
+      }
+      else
+      {
+        StoreList = -1073741811;
       }
     }
     else
     {
-      ProcessPartition = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
-    }
-    StoreList = SmKmGetStoreList(ProcessPartition, v10);
-    if ( StoreList >= 0 )
-    {
-      if ( (*(_DWORD *)v10 & 0x10000) == 0
-        || (StoreList = SmProcessListRequestExtended(ProcessPartition, v10), StoreList >= 0) )
-      {
-        memmove(a1, v10, Size);
-        *a3 = Size;
-      }
+LABEL_4:
+      StoreList = -1073741306;
     }
   }
   else
   {
-    StoreList = -1073741811;
+    StoreList = -1073740716;
   }
-LABEL_28:
-  if ( v10 )
-    CmSiFreeMemory((PPRIVILEGE_SET)v10);
-  if ( v17[0] )
-    PsDereferencePartition(v17[0]);
+  if ( v11 )
+    CmSiFreeMemory(v11);
   return (unsigned int)StoreList;
 }

@@ -1,45 +1,40 @@
 /*
- * XREFs of IsMiniportDriverCCDSupport @ 0x1C01D3E20
+ * XREFs of IsMiniportDriverCCDSupport @ 0x1C0149B10
  * Callers:
- *     DxgkConvertDisplayConfigCScalingToDdiScaling @ 0x1C01D3DA0 (DxgkConvertDisplayConfigCScalingToDdiScaling.c)
+ *     DxgkConvertDisplayConfigCScalingToDdiScaling @ 0x1C0149A80 (DxgkConvertDisplayConfigCScalingToDdiScaling.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01A442C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C011F70C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
  */
 
-_BOOL8 __fastcall IsMiniportDriverCCDSupport(struct _LUID *a1)
+_BOOL8 __fastcall IsMiniportDriverCCDSupport(struct _LUID *a1, __int64 a2)
 {
   DXGGLOBAL *Global; // rax
-  struct DXGADAPTER *v3; // rax
-  BOOL v4; // ebx
-  __int64 v5; // rcx
-  unsigned __int64 v7; // [rsp+60h] [rbp+8h] BYREF
+  struct DXGADAPTER *v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  BOOL v7; // ebx
+  __int64 v8; // rcx
+  __int64 v10; // rax
+  unsigned __int64 v11; // [rsp+38h] [rbp+10h] BYREF
 
-  Global = DXGGLOBAL_GetGlobal();
-  v3 = DXGGLOBAL::ReferenceAdapterByLuid(Global, *a1, &v7);
-  v4 = 0;
-  if ( v3 )
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, a2);
+  v4 = DXGGLOBAL::ReferenceAdapterByLuid(Global, *a1, &v11);
+  v7 = 0;
+  if ( v4 )
   {
-    v5 = *((_QWORD *)v3 + 349);
-    if ( v5 )
-      v4 = *(_DWORD *)(*(_QWORD *)(v5 + 16) + 2692LL) >= 1105;
-    DXGADAPTER::ReleaseReference(v3);
+    v8 = *((_QWORD *)v4 + 337);
+    if ( v8 )
+      v7 = *(_DWORD *)(*(_QWORD *)(v8 + 16) + 2596LL) >= 1105;
+    DXGADAPTER::ReleaseReference(v4);
   }
   else
   {
-    WdLogSingleEntry2(2LL, a1->HighPart, a1->LowPart);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed in adapter ptr to query driver Ccd support, returnign on support (0x%I64x::0x%I64x).",
-      a1->HighPart,
-      a1->LowPart,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v10 + 24) = a1->HighPart;
+    *(_QWORD *)(v10 + 32) = a1->LowPart;
+    WdLogEvent5_WdError(v10);
   }
-  return v4;
+  return v7;
 }

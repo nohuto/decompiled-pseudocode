@@ -1,20 +1,24 @@
 /*
- * XREFs of _DrvFunctionalizeDisplayConfig_::_2_::_AUTO::_scalar_deleting_destructor_ @ 0x1C015FD70
+ * XREFs of _DrvFunctionalizeDisplayConfig_::_2_::_AUTO::_scalar_deleting_destructor_ @ 0x1C0142F10
  * Callers:
  *     <none>
  * Callees:
- *     _DrvFunctionalizeDisplayConfig_::_2_::_AUTO::__AUTO @ 0x1C015FC44 (_DrvFunctionalizeDisplayConfig_--_2_--_AUTO--__AUTO.c)
+ *     _DrvFunctionalizeDisplayConfig_::_2_::_AUTO::__AUTO @ 0x1C0142DC8 (_DrvFunctionalizeDisplayConfig_--_2_--_AUTO--__AUTO.c)
  */
 
 struct D3DKMT_GETPATHSMODALITY **__fastcall DrvFunctionalizeDisplayConfig_::_2_::_AUTO::_scalar_deleting_destructor_(
         struct D3DKMT_GETPATHSMODALITY **a1,
-        __int64 a2)
+        char a2)
 {
-  char v2; // bl
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rax
 
-  v2 = a2;
-  DrvFunctionalizeDisplayConfig_::_2_::_AUTO::__AUTO(a1, a2);
-  if ( (v2 & 1) != 0 )
-    WdLogSingleEntry0(1LL);
+  DrvFunctionalizeDisplayConfig_::_2_::_AUTO::__AUTO(a1);
+  if ( (a2 & 1) != 0 )
+  {
+    v6 = WdLogNewEntry5_WdAssertion(v5, v4);
+    WdLogEvent5_WdAssertion(v6);
+  }
   return a1;
 }

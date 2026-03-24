@@ -3,8 +3,8 @@
  * Callers:
  *     SepGetTokenAccessInformationBufferSize @ 0x1405BF4A0 (SepGetTokenAccessInformationBufferSize.c)
  *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     SepRemoveDisabledGroupsAndPrivileges @ 0x14065B668 (SepRemoveDisabledGroupsAndPrivileges.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x14065B648 (SepRemoveDisabledGroupsAndPrivileges.c)
  * Callees:
  *     <none>
  */

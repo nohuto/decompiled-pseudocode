@@ -1,46 +1,31 @@
 /*
- * XREFs of ?DeferNotifyDelegateCapture@@YAHPEAUtagTHREADINPUTPOINTERLIST@@GKPEAUtagWND@@@Z @ 0x1C01C57F8
+ * XREFs of ?DeferNotifyDelegateCapture@@YAHPEAUtagTHREADINPUTPOINTERLIST@@GKPEAUtagWND@@@Z @ 0x1C01F07C8
  * Callers:
- *     _DelegateCapturePointers @ 0x1C01C4B28 (_DelegateCapturePointers.c)
+ *     _DelegateCapturePointers @ 0x1C01EFCC4 (_DelegateCapturePointers.c)
  * Callees:
- *     ?FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z @ 0x1C01532CC (-FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z.c)
+ *     ?FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z @ 0x1C01F09D4 (-FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z.c)
  */
 
-__int64 __fastcall DeferNotifyDelegateCapture(struct _LIST_ENTRY *a1, __int16 a2, int a3, struct tagWND *a4)
+__int64 __fastcall DeferNotifyDelegateCapture(struct _LIST_ENTRY *a1, unsigned __int16 a2, int a3, struct tagWND *a4)
 {
-  __int64 v7; // rcx
-  struct _LIST_ENTRY *ThreadPointerData; // rbx
-  __int64 v9; // rax
-  __int64 v10; // rcx
-  struct tagWND *v11; // rax
-  __int64 v12; // rax
+  struct tagTHREADPOINTERDATA *ThreadPointerData; // rax
+  struct tagTHREADPOINTERDATA *v8; // rbx
+  struct tagWND *v9; // rax
   __int64 result; // rax
-  _QWORD *v14; // [rsp+40h] [rbp+8h] BYREF
+  struct tagWND *v11; // [rsp+40h] [rbp+8h] BYREF
 
   ThreadPointerData = FindThreadPointerData(a1, a2);
+  v8 = ThreadPointerData;
   if ( !ThreadPointerData )
     return 0LL;
-  v14 = 0LL;
-  v9 = SGDGetUserSessionState(v7);
-  CTouchProcessor::GetPointerCapture(
-    *(CTouchProcessor **)(v9 + 3424),
-    (unsigned __int64)ThreadPointerData[1].Blink,
-    0,
-    (void **)&v14,
-    0LL);
-  if ( !v14 )
+  v11 = 0LL;
+  CTouchProcessor::GetPointerCapture(gpTouchProcessor, *((_QWORD *)ThreadPointerData + 3), 0, (void **)&v11, 0LL);
+  v9 = v11;
+  if ( v11 )
+    v9 = (struct tagWND *)*((_QWORD *)v11 + 10);
+  if ( !v9 || v9 != a4 || a3 != CTouchProcessor::GetPointerDownFrame(gpTouchProcessor, *((_QWORD *)v8 + 3)) )
     return 0LL;
-  v11 = (struct tagWND *)v14[10];
-  if ( !v11 )
-    return 0LL;
-  if ( v11 != a4 )
-    return 0LL;
-  v12 = SGDGetUserSessionState(v10);
-  if ( a3 != CTouchProcessor::GetPointerDownFrame(
-               *(CTouchProcessor **)(v12 + 3424),
-               (unsigned __int64)ThreadPointerData[1].Blink) )
-    return 0LL;
-  LODWORD(ThreadPointerData[3].Flink) |= 4u;
+  *((_DWORD *)v8 + 12) |= 4u;
   result = 1LL;
   HIDWORD(a1[2].Flink) = 1;
   return result;

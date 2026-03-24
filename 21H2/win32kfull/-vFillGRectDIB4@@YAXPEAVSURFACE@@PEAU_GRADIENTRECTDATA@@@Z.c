@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vFillGRectDIB4@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02D0540
+ * XREFs of ?vFillGRectDIB4@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02D2110
  * Callers:
  *     <none>
  * Callees:
- *     ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C0141AA0 (-XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z.c)
+ *     ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C01542C4 (-XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z.c)
  */
 
 void __fastcall vFillGRectDIB4(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
@@ -78,7 +78,7 @@ void __fastcall vFillGRectDIB4(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
     v9 = *(_QWORD *)(v6 + 56);
     if ( (struct PALETTE *)v9 == ppalDefault )
     {
-      v10 = &unk_1C03311A4;
+      v10 = &unk_1C0335E54;
     }
     else
     {

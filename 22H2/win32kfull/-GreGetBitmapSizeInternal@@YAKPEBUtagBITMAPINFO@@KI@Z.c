@@ -1,93 +1,101 @@
 /*
- * XREFs of ?GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z @ 0x1C0097424
+ * XREFs of ?GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z @ 0x1C0080254
  * Callers:
- *     NtGdiCreateDIBitmapInternal @ 0x1C002A210 (NtGdiCreateDIBitmapInternal.c)
- *     NtGdiSetDIBitsToDeviceInternal @ 0x1C00DD070 (NtGdiSetDIBitsToDeviceInternal.c)
- *     ?bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z @ 0x1C00DF5A8 (-bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z.c)
- *     ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C01FCAD4 (-xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z.c)
+ *     NtGdiGetDIBitsInternal @ 0x1C007FD60 (NtGdiGetDIBitsInternal.c)
+ *     ?bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z @ 0x1C00ABD84 (-bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z.c)
+ *     NtGdiStretchDIBitsInternal @ 0x1C00ADAB0 (NtGdiStretchDIBitsInternal.c)
+ *     ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C021E8F8 (-xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall GreGetBitmapSizeInternal(const struct tagBITMAPINFO *a1, int a2, unsigned int a3)
 {
-  int v4; // edi
-  int biBitCount; // esi
+  unsigned int v3; // r11d
+  int v5; // r9d
   DWORD biCompression; // eax
-  int biHeight_high; // edx
-  DWORD biClrUsed; // ecx
-  int v9; // r11d
-  int v10; // eax
-  unsigned int v11; // eax
+  int v7; // edi
+  WORD biBitCount; // bx
+  DWORD biClrUsed; // edx
+  int biHeight_high; // ecx
+  int v11; // eax
+  unsigned int v12; // eax
   __int64 result; // rax
-  int v13; // eax
+  int v14; // eax
 
+  v3 = a3;
   if ( !a1 )
     return 0LL;
-  v4 = 2;
+  v5 = 2;
   if ( a3 == 12 )
   {
     biHeight_high = HIWORD(a1->bmiHeader.biHeight);
-    a3 = 12;
+    v7 = 3;
     biClrUsed = 0;
-    v9 = 3;
+    v3 = 12;
     goto LABEL_6;
   }
   if ( a3 < 0x28 )
     return 0LL;
-  biBitCount = a1->bmiHeader.biBitCount;
   biCompression = a1->bmiHeader.biCompression;
-  biHeight_high = biBitCount;
+  v7 = 4;
+  biBitCount = a1->bmiHeader.biBitCount;
   biClrUsed = a1->bmiHeader.biClrUsed;
+  biHeight_high = biBitCount;
   if ( biCompression == 3 )
   {
-    v13 = 0;
+    v14 = 0;
     if ( a2 != 1 )
-      v13 = a2;
-    a2 = v13;
-    if ( (_WORD)biBitCount != 16 && (_WORD)biBitCount != 32 )
+      v14 = a2;
+    a2 = v14;
+    if ( biBitCount != 16 && biBitCount != 32 )
       return 0LL;
     biClrUsed = 3;
-    v9 = 4;
     if ( a3 > 0x28 )
       biClrUsed = 0;
-    v11 = biClrUsed;
+    v12 = biClrUsed;
     goto LABEL_14;
   }
-  v9 = 4;
   if ( biCompression )
   {
-    switch ( biCompression )
+    if ( biCompression == 10 )
     {
-      case 0xAu:
-        switch ( biBitCount )
+      switch ( biBitCount )
+      {
+        case 1u:
+          goto LABEL_37;
+        case 4u:
+          goto LABEL_39;
+        case 8u:
+          goto LABEL_29;
+        case 0x20u:
+          goto LABEL_50;
+      }
+    }
+    else
+    {
+      if ( biCompression != 2 )
+      {
+        if ( biCompression == 1 )
+          goto LABEL_28;
+        if ( biCompression != 12 )
         {
-          case 1:
-            goto LABEL_25;
-          case 4:
-            goto LABEL_33;
-          case 8:
-            goto LABEL_34;
-          case 32:
-LABEL_48:
-            v11 = 0;
-            goto LABEL_14;
+          if ( biCompression == 11 )
+          {
+LABEL_28:
+            if ( biBitCount == 8 )
+              goto LABEL_29;
+            return 0LL;
+          }
+          if ( biCompression - 4 > 1 )
+            return 0LL;
+LABEL_50:
+          v12 = 0;
+          goto LABEL_14;
         }
-        break;
-      case 2u:
-      case 0xCu:
-        if ( (_WORD)biBitCount == 4 )
-          goto LABEL_33;
-        break;
-      case 1u:
-      case 0xBu:
-        if ( biBitCount == 8 )
-          goto LABEL_34;
-        break;
-      default:
-        if ( biCompression - 4 <= 1 )
-          goto LABEL_48;
-        break;
+      }
+      if ( biBitCount == 4 )
+        goto LABEL_39;
     }
     return 0LL;
   }
@@ -95,43 +103,43 @@ LABEL_6:
   switch ( biHeight_high )
   {
     case 1:
-LABEL_25:
-      v11 = 2;
+LABEL_37:
+      v12 = 2;
       goto LABEL_14;
     case 4:
-LABEL_33:
-      v11 = 16;
+LABEL_39:
+      v12 = 16;
       goto LABEL_14;
     case 8:
-LABEL_34:
-      v11 = 256;
+LABEL_29:
+      v12 = 256;
       goto LABEL_14;
   }
-  v10 = 0;
-  if ( a2 != 1 )
-    v10 = a2;
-  a2 = v10;
   v11 = 0;
+  if ( a2 != 1 )
+    v11 = a2;
+  a2 = v11;
+  v12 = 0;
   if ( biHeight_high != 24 && biHeight_high != 16 && biHeight_high != 32 )
     return 0LL;
 LABEL_14:
   if ( biClrUsed )
   {
-    if ( biClrUsed > v11 )
-      biClrUsed = v11;
+    if ( biClrUsed > v12 )
+      biClrUsed = v12;
   }
   else
   {
-    biClrUsed = v11;
+    biClrUsed = v12;
   }
   if ( a2 != 1 )
   {
     if ( a2 == 2 )
-      v9 = 0;
-    v4 = v9;
+      v7 = 0;
+    v5 = v7;
   }
-  result = (v4 * biClrUsed + a3 + 3) & 0xFFFFFFFC;
-  if ( (unsigned int)result < a3 )
+  result = (v5 * biClrUsed + v3 + 3) & 0xFFFFFFFC;
+  if ( (unsigned int)result < v3 )
     return 0LL;
   return result;
 }

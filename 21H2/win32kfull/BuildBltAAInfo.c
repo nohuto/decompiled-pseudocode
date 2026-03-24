@@ -1,9 +1,9 @@
 /*
- * XREFs of BuildBltAAInfo @ 0x1C00EE230
+ * XREFs of BuildBltAAInfo @ 0x1C01032B0
  * Callers:
  *     <none>
  * Callees:
- *     _ALIGN_MEM @ 0x1C006E4F4 (_ALIGN_MEM.c)
+ *     _ALIGN_MEM @ 0x1C001D71C (_ALIGN_MEM.c)
  */
 
 _DWORD *BuildBltAAInfo(__int64 a1, __int64 a2, int *a3, int *a4, int a5, int a6, int a7, int *a8, int *a9, ...)
@@ -54,7 +54,7 @@ _DWORD *BuildBltAAInfo(__int64 a1, __int64 a2, int *a3, int *a4, int a5, int a6,
     v17 = -1;
     v30 = *a8;
     v27 = *a9;
-    if ( *a8 < *a9 && v14 == v15 && (int)ALIGN_MEM((unsigned int *)va, v32) >= 0 && (unsigned int)v32 < 0xFFFFFF10 )
+    if ( *a8 < *a9 && v14 == v15 && (int)ALIGN_MEM((__int64 *)va, v32) >= 0 && (unsigned int)v32 < 0xFFFFFF10 )
     {
       v18 = EngAllocMem(1u, (int)v32 + 240, 0x33355448u);
       v19 = v18;

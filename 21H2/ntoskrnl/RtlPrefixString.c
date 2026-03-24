@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlPrefixString @ 0x1406B0020
+ * XREFs of RtlPrefixString @ 0x140695210
  * Callers:
- *     IopCheckDiskName @ 0x1403C4550 (IopCheckDiskName.c)
- *     MiSnapThunk @ 0x1407584B4 (MiSnapThunk.c)
+ *     IopCheckDiskName @ 0x1403B4128 (IopCheckDiskName.c)
+ *     MiSnapThunk @ 0x14075D660 (MiSnapThunk.c)
  * Callees:
- *     RtlUpperChar @ 0x1406B00C0 (RtlUpperChar.c)
+ *     RtlUpperChar @ 0x1405ED5E0 (RtlUpperChar.c)
  */
 
 BOOLEAN __stdcall RtlPrefixString(const STRING *String1, const STRING *String2, BOOLEAN CaseInSensitive)

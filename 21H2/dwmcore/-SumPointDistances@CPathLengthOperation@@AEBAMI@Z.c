@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SumPointDistances@CPathLengthOperation@@AEBAMI@Z @ 0x1802A0C14
+ * XREFs of ?SumPointDistances@CPathLengthOperation@@AEBAMI@Z @ 0x18025F154
  * Callers:
- *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x1802A00F4 (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
+ *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x18025E67C (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
  * Callees:
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
  */
 
 float __fastcall CPathLengthOperation::SumPointDistances(CPathLengthOperation *this, unsigned int a2)
@@ -22,8 +22,8 @@ float __fastcall CPathLengthOperation::SumPointDistances(CPathLengthOperation *t
     v5 = (float *)((char *)this + 100);
     do
     {
-      v6 = o_sqrtf_0((float)((float)(*v3 - *v5) * (float)(*v3 - *v5)) + (float)((float)(v3[1] - v5[1])
-                                                                              * (float)(v3[1] - v5[1])));
+      v6 = sqrtf_0((float)((float)(*v3 - *v5) * (float)(*v3 - *v5)) + (float)((float)(v3[1] - v5[1])
+                                                                            * (float)(v3[1] - v5[1])));
       v5 += 2;
       v2 = v2 + v6;
       v3 += 2;

@@ -1,90 +1,100 @@
 /*
- * XREFs of ?nCalcJustInArray@@YAKPEAPEAIGPEAXHI@Z @ 0x1C02D7AD8
+ * XREFs of ?nCalcJustInArray@@YAKPEAPEAIGPEAXHI@Z @ 0x1C02BB6F4
  * Callers:
- *     ?GreGetCharacterPlacementW@@YAKPEAUHDC__@@PEAGKKPEAUtagGCP_RESULTSW@@KW4EntryPoint@RFONTOBJ@@@Z @ 0x1C02D72B0 (-GreGetCharacterPlacementW@@YAKPEAUHDC__@@PEAGKKPEAUtagGCP_RESULTSW@@KW4EntryPoint@RFONTOBJ@@@Z.c)
+ *     GreGetCharacterPlacementW @ 0x1C02BB890 (GreGetCharacterPlacementW.c)
  * Callees:
- *     <none>
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
  */
 
 __int64 __fastcall nCalcJustInArray(unsigned int **a1, unsigned __int16 a2, char *a3, int a4, unsigned int a5)
 {
-  char *v5; // rbp
-  char *v6; // rsi
-  int v7; // r12d
-  int v8; // r15d
-  unsigned int v9; // edi
-  _DWORD *v13; // rdx
-  unsigned int v14; // ecx
-  unsigned int v15; // ecx
-  unsigned int *v16; // rax
-  unsigned int *v17; // rdx
+  int v5; // r12d
+  bool v7; // zf
+  unsigned __int64 v8; // r8
+  unsigned __int64 v10; // r9
+  char *v12; // rbp
+  char *v13; // rsi
+  int v14; // r15d
+  unsigned int v15; // edi
+  char *v16; // rdx
+  unsigned int v17; // ecx
+  unsigned int v18; // ecx
+  unsigned int *v19; // rax
+  unsigned int *v20; // r8
   char *i; // rcx
-  char *j; // r8
+  char *j; // rdx
 
-  v5 = 0LL;
-  v6 = 0LL;
-  v7 = a2;
-  v8 = 0;
-  v9 = 0;
-  v13 = a3;
-  if ( a4 )
+  v5 = a2;
+  v7 = a4 == 0;
+  v8 = a5;
+  v10 = 0LL;
+  v12 = 0LL;
+  v13 = 0LL;
+  v14 = 0;
+  v15 = 0;
+  v16 = a3;
+  if ( v7 )
   {
-    v6 = &a3[4 * a5];
-    v8 = v7;
-    if ( a3 < v6 )
+    v12 = &a3[2 * a5];
+    if ( a3 > v12 )
+      v8 = 0LL;
+    if ( !v8 )
+      goto LABEL_28;
+    do
     {
-      do
-      {
-        v14 = v9 + 1;
-        if ( *v13 != v7 )
-          v14 = v9;
-        ++v13;
-        v9 = v14;
-      }
-      while ( v13 < (_DWORD *)v6 );
-      goto LABEL_11;
+      v7 = *(_WORD *)v16 == (unsigned __int16)v5;
+      v18 = v15 + 1;
+      v16 += 2;
+      if ( !v7 )
+        v18 = v15;
+      ++v10;
+      v15 = v18;
     }
-LABEL_25:
+    while ( v10 < v8 );
+  }
+  else
+  {
+    v13 = &a3[4 * a5];
+    v14 = v5;
+    if ( a3 > v13 )
+      v8 = 0LL;
+    if ( !v8 )
+      goto LABEL_28;
+    do
+    {
+      v7 = *(_DWORD *)v16 == v5;
+      v17 = v15 + 1;
+      v16 += 4;
+      if ( !v7 )
+        v17 = v15;
+      ++v10;
+      v15 = v17;
+    }
+    while ( v10 < v8 );
+  }
+  if ( !v15 || (v19 = (unsigned int *)PALLOCMEM2(4 * v15, 2037147463LL, 1)) == 0LL )
+  {
+LABEL_28:
     *a1 = 0LL;
     return 0LL;
   }
-  v5 = &a3[2 * a5];
-  if ( a3 >= v5 )
-    goto LABEL_25;
-  do
-  {
-    v15 = v9 + 1;
-    if ( *(_WORD *)v13 != (_WORD)v7 )
-      v15 = v9;
-    v13 = (_DWORD *)((char *)v13 + 2);
-    v9 = v15;
-  }
-  while ( v13 < (_DWORD *)v5 );
-LABEL_11:
-  if ( !v9 )
-    goto LABEL_25;
-  if ( !(4 * v9) )
-    goto LABEL_25;
-  v16 = (unsigned int *)Win32AllocPoolZInit(4 * v9, 2037147463LL);
-  v17 = v16;
-  if ( !v16 )
-    goto LABEL_25;
+  v20 = v19;
   if ( a4 )
   {
-    for ( i = a3; i < v6; i += 4 )
+    for ( i = a3; i < v13; i += 4 )
     {
-      if ( *(_DWORD *)i == v8 )
-        *v17++ = (i - a3) >> 2;
+      if ( *(_DWORD *)i == v14 )
+        *v20++ = (i - a3) >> 2;
     }
   }
   else
   {
-    for ( j = a3; j < v5; j += 2 )
+    for ( j = a3; j < v12; j += 2 )
     {
-      if ( *(_WORD *)j == (_WORD)v7 )
-        *v17++ = (j - a3) >> 1;
+      if ( *(_WORD *)j == (_WORD)v5 )
+        *v20++ = (j - a3) >> 1;
     }
   }
-  *a1 = v16;
-  return v9;
+  *a1 = v19;
+  return v15;
 }

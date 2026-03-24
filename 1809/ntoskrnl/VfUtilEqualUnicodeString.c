@@ -4,7 +4,7 @@
  *     VfXdvDriverCaptureIoCallbacks @ 0x140921338 (VfXdvDriverCaptureIoCallbacks.c)
  *     ViFaultsIsAppTarget @ 0x140938CC8 (ViFaultsIsAppTarget.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  */
 
 _BOOL8 __fastcall VfUtilEqualUnicodeString(const void **a1, __int64 a2)

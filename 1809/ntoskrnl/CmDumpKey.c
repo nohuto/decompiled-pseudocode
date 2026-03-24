@@ -1,7 +1,7 @@
 /*
- * XREFs of CmDumpKey @ 0x1408011B8
+ * XREFs of CmDumpKey @ 0x140801198
  * Callers:
- *     NtSaveKeyEx @ 0x1407EA6D0 (NtSaveKeyEx.c)
+ *     NtSaveKeyEx @ 0x1407EA6B0 (NtSaveKeyEx.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
@@ -10,13 +10,13 @@
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpFreeOffsetArray @ 0x1407F43F0 (CmpFreeOffsetArray.c)
- *     CmpWriteOffsetArrayToFile @ 0x1407F4754 (CmpWriteOffsetArrayToFile.c)
- *     CmpDoAccessCheckOnSubtree @ 0x1407F4F8C (CmpDoAccessCheckOnSubtree.c)
- *     CmSaveKey @ 0x140801F50 (CmSaveKey.c)
- *     HvSnapshotHiveToOffsetArray @ 0x140805D00 (HvSnapshotHiveToOffsetArray.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpFreeOffsetArray @ 0x1407F43D0 (CmpFreeOffsetArray.c)
+ *     CmpWriteOffsetArrayToFile @ 0x1407F4734 (CmpWriteOffsetArrayToFile.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x1407F4F6C (CmpDoAccessCheckOnSubtree.c)
+ *     CmSaveKey @ 0x140801F30 (CmSaveKey.c)
+ *     HvSnapshotHiveToOffsetArray @ 0x140805CE0 (HvSnapshotHiveToOffsetArray.c)
  */
 
 __int64 __fastcall CmDumpKey(__int64 a1, void *a2, char a3)

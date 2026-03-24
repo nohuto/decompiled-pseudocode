@@ -1,31 +1,56 @@
 /*
- * XREFs of _pGetAdditionalTiming @ 0x1C01DC484
+ * XREFs of _pGetAdditionalTiming @ 0x1C019AC9C
  * Callers:
- *     ?_GetAdditionalTiming@MonitorModes@DxgMonitor@@QEAAJPEAIPEAPEAU_DXGK_TARGETMODE_DETAIL_TIMING@@@Z @ 0x1C01DC380 (-_GetAdditionalTiming@MonitorModes@DxgMonitor@@QEAAJPEAIPEAPEAU_DXGK_TARGETMODE_DETAIL_TIMING@@@.c)
+ *     ?_GetAdditionalTiming@DXGMONITOR@@QEAAJPEAIPEAPEAU_DXGK_TARGETMODE_DETAIL_TIMING@@@Z @ 0x1C019ABB0 (-_GetAdditionalTiming@DXGMONITOR@@QEAAJPEAIPEAPEAU_DXGK_TARGETMODE_DETAIL_TIMING@@@Z.c)
  * Callees:
- *     _pGetAdditionalModeEntry @ 0x1C01DC5CC (_pGetAdditionalModeEntry.c)
- *     _pLoadAdditinalMode @ 0x1C01DC608 (_pLoadAdditinalMode.c)
+ *     _pGetAdditionalModeEntry @ 0x1C019ADF8 (_pGetAdditionalModeEntry.c)
+ *     _pLoadAdditinalMode @ 0x1C019AE40 (_pLoadAdditinalMode.c)
  */
 
-__int64 __fastcall pGetAdditionalTiming(int a1, char a2, _DWORD *a3, _QWORD *a4)
+__int64 __fastcall pGetAdditionalTiming(__int64 a1, __int64 a2, _DWORD *a3, _QWORD *a4)
 {
-  int v4; // edi
-  __int64 v5; // rsi
+  __int64 v4; // rsi
+  __int64 v5; // rdi
+  char v8; // bp
   __int64 v9; // rdx
   __int64 AdditionalModeEntry; // rbx
   __int64 v11; // rdx
   int AdditinalMode; // eax
   __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
 
-  v4 = 0;
-  v5 = a1;
-  if ( a1 == -2 )
-    WdLogSingleEntry0(1LL);
+  v4 = (int)a1;
+  LODWORD(v5) = 0;
+  v8 = a2;
+  if ( (_DWORD)a1 == -2 )
+  {
+    v21 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v21);
+  }
   if ( !a3 )
-    WdLogSingleEntry0(1LL);
+  {
+    v22 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v22);
+  }
   if ( !a4 )
-    WdLogSingleEntry0(1LL);
-  if ( (_DWORD)v5 == 15 )
+  {
+    v23 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v23);
+  }
+  if ( (_DWORD)v4 == 15 )
   {
     *a3 = 0;
     *a4 = 0LL;
@@ -34,52 +59,66 @@ __int64 __fastcall pGetAdditionalTiming(int a1, char a2, _DWORD *a3, _QWORD *a4)
   else
   {
     KeEnterCriticalRegion();
-    ExAcquirePushLockSharedEx(&qword_1C0130EE8, 0LL);
-    LOBYTE(v9) = a2;
-    AdditionalModeEntry = pGetAdditionalModeEntry((unsigned int)v5, v9);
+    ExAcquirePushLockSharedEx(&qword_1C00B3F78, 0LL);
+    LOBYTE(v9) = v8;
+    AdditionalModeEntry = pGetAdditionalModeEntry((unsigned int)v4, v9);
     if ( !AdditionalModeEntry )
     {
-      ExReleasePushLockEx(&qword_1C0130EE8, 0LL);
-      ExAcquirePushLockExclusiveEx(&qword_1C0130EE8, 0LL);
-      LOBYTE(v11) = a2;
-      AdditionalModeEntry = pGetAdditionalModeEntry((unsigned int)v5, v11);
+      ExReleasePushLockEx(&qword_1C00B3F78, 0LL);
+      ExAcquirePushLockExclusiveEx(&qword_1C00B3F78, 0LL);
+      LOBYTE(v11) = v8;
+      AdditionalModeEntry = pGetAdditionalModeEntry((unsigned int)v4, v11);
       if ( !AdditionalModeEntry )
       {
-        AdditinalMode = pLoadAdditinalMode((unsigned int)v5);
-        v4 = AdditinalMode;
-        if ( AdditinalMode == -1073741772 || AdditinalMode == -1073741275 )
+        AdditinalMode = pLoadAdditinalMode((unsigned int)v4);
+        v5 = AdditinalMode;
+        if ( AdditinalMode == -1073741275 || AdditinalMode == -1073741772 )
         {
-          WdLogSingleEntry1(7LL, v5);
+          v26 = WdLogNewEntry5_WdDmmEvent(v14, v13);
+          *(_QWORD *)(v26 + 24) = v4;
+          WdLogEvent5_WdDmmEvent(v26);
         }
-        else if ( AdditinalMode >= 0 )
+        else if ( AdditinalMode < 0 )
         {
-          LOBYTE(v13) = a2;
-          AdditionalModeEntry = pGetAdditionalModeEntry((unsigned int)v5, v13);
-          if ( !AdditionalModeEntry )
-          {
-            WdLogSingleEntry1(7LL, v5);
-            v4 = -1073741275;
-          }
+          v24 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+          *(_QWORD *)(v24 + 24) = v4;
+          *(_QWORD *)(v24 + 32) = v5;
+          WdLogEvent5_WdWarning(v24);
         }
         else
         {
-          WdLogSingleEntry2(3LL, v5, AdditinalMode);
+          LOBYTE(v13) = v8;
+          AdditionalModeEntry = pGetAdditionalModeEntry((unsigned int)v4, v13);
+          if ( !AdditionalModeEntry )
+          {
+            v25 = WdLogNewEntry5_WdDmmEvent(v17, v16);
+            *(_QWORD *)(v25 + 24) = v4;
+            WdLogEvent5_WdDmmEvent(v25);
+            LODWORD(v5) = -1073741275;
+          }
         }
       }
     }
-    ExReleasePushLockEx(&qword_1C0130EE8, 0LL);
+    ExReleasePushLockEx(&qword_1C00B3F78, 0LL);
     KeLeaveCriticalRegion();
-    if ( v4 >= 0 )
+    if ( (int)v5 < 0 )
+    {
+      if ( AdditionalModeEntry )
+      {
+        v28 = WdLogNewEntry5_WdAssertion(v19, v18);
+        WdLogEvent5_WdAssertion(v28);
+      }
+    }
+    else
     {
       if ( !AdditionalModeEntry )
-        WdLogSingleEntry0(1LL);
+      {
+        v27 = WdLogNewEntry5_WdAssertion(v19, v18);
+        WdLogEvent5_WdAssertion(v27);
+      }
       *a3 = *(_DWORD *)(AdditionalModeEntry + 16);
       *a4 = AdditionalModeEntry + 20;
     }
-    else if ( AdditionalModeEntry )
-    {
-      WdLogSingleEntry0(1LL);
-    }
-    return (unsigned int)v4;
+    return (unsigned int)v5;
   }
 }

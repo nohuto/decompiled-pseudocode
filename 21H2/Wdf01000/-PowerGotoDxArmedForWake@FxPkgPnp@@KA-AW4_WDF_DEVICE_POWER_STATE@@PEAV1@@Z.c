@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerGotoDxArmedForWake@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C000F550
+ * XREFs of ?PowerGotoDxArmedForWake@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C000E090
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerGotoDx@FxPkgPnp@@IEAAXXZ @ 0x1C000F798 (-PowerGotoDx@FxPkgPnp@@IEAAXXZ.c)
+ *     ?PowerGotoDx@FxPkgPnp@@IEAAXXZ @ 0x1C0011284 (-PowerGotoDx@FxPkgPnp@@IEAAXXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerGotoDxArmedForWake(FxPkgPnp *This)

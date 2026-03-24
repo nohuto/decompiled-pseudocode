@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CitpDPPerturbHistogram@@YAIPEBU_CIT_DP_CALC_CONTEXT@@I@Z @ 0x1C023FADC
+ * XREFs of ?CitpDPPerturbHistogram@@YAIPEBU_CIT_DP_CALC_CONTEXT@@I@Z @ 0x1C01FDE48
  * Callers:
- *     ?CitpDPProcessDuration@@YAIPEBU_CIT_DP_MEMOIZATION_CONTEXT@@PEBU_CIT_DP_CALC_CONTEXT@@II@Z @ 0x1C023FB3C (-CitpDPProcessDuration@@YAIPEBU_CIT_DP_MEMOIZATION_CONTEXT@@PEBU_CIT_DP_CALC_CONTEXT@@II@Z.c)
+ *     ?CitpDPProcessDuration@@YAIPEBU_CIT_DP_MEMOIZATION_CONTEXT@@PEBU_CIT_DP_CALC_CONTEXT@@II@Z @ 0x1C01FDEA8 (-CitpDPProcessDuration@@YAIPEBU_CIT_DP_MEMOIZATION_CONTEXT@@PEBU_CIT_DP_CALC_CONTEXT@@II@Z.c)
  * Callees:
- *     ?CitpDPSampleBitWithProbability@@YAEN@Z @ 0x1C023FC00 (-CitpDPSampleBitWithProbability@@YAEN@Z.c)
+ *     ?CitpDPSampleBitWithProbability@@YAEN@Z @ 0x1C01FDF6C (-CitpDPSampleBitWithProbability@@YAEN@Z.c)
  */
 
 __int64 __fastcall CitpDPPerturbHistogram(const struct _CIT_DP_CALC_CONTEXT *a1, unsigned int a2)

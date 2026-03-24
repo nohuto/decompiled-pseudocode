@@ -1,13 +1,12 @@
 /*
- * XREFs of ?CanUseWarpExtension@CPrimitiveGroupDrawListGenerator@@QEBA_NXZ @ 0x1802ABA58
+ * XREFs of ?CanUseWarpExtension@CPrimitiveGroupDrawListGenerator@@QEBA_NXZ @ 0x180269554
  * Callers:
- *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@@Z @ 0x18000B8E4 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache.c)
+ *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2_F@@PEAVCDrawListCache@@@Z @ 0x1800B9930 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2.c)
  * Callees:
- *     ?Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ @ 0x18000C284 (-Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ.c)
- *     ?GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA?AVIterator@CPrimitiveBuffer@@I@Z @ 0x18000C2A8 (-GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA-AVIterator@CPrimitiveBuffer@@I@Z.c)
- *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x180057724 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
- *     ??$IsPure2DUniformZ@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180260228 (--$IsPure2DUniformZ@$0A@@CMILMatrix@@AEBA_NXZ.c)
- *     ??$IsTranslateAndScaleIgnoreZ@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180260278 (--$IsTranslateAndScaleIgnoreZ@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     ?Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ @ 0x1800BA164 (-Step@Iterator@CPrimitiveBuffer@@QEAA_NXZ.c)
+ *     ?GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA?AVIterator@CPrimitiveBuffer@@I@Z @ 0x1800BA2C8 (-GetIteratorForState@CPrimitiveGroupDrawListGenerator@@QEBA-AVIterator@CPrimitiveBuffer@@I@Z.c)
+ *     ??0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800C4638 (--0CMILMatrix@@QEAA@AEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ??$IsTranslateAndScale@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180210E80 (--$IsTranslateAndScale@$0A@@CMILMatrix@@AEBA_NXZ.c)
  */
 
 char __fastcall CPrimitiveGroupDrawListGenerator::CanUseWarpExtension(CPrimitiveGroupDrawListGenerator *this)
@@ -32,7 +31,7 @@ LABEL_2:
     while ( 1 )
     {
       CMILMatrix::CMILMatrix((CMILMatrix *)v9, (const struct D2D_MATRIX_3X2_F *)(v8 + 16));
-      if ( !CMILMatrix::IsPure2DUniformZ<0>((__int64)v9) || !CMILMatrix::IsTranslateAndScaleIgnoreZ<0>((__int64)v9) )
+      if ( !CMILMatrix::IsTranslateAndScale<0>((__int64)v9) )
         break;
       if ( !CPrimitiveBuffer::Iterator::Step((CPrimitiveBuffer::Iterator *)v7) )
       {

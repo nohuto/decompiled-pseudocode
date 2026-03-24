@@ -1,17 +1,17 @@
 /*
- * XREFs of ExDeletePoolTagTable @ 0x14063A6C0
+ * XREFs of ExDeletePoolTagTable @ 0x1405B364C
  * Callers:
- *     KiStartDynamicProcessor @ 0x14096029C (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140B03C68 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MmFreeIndependentPages @ 0x14096ED20 (MmFreeIndependentPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmFreeIndependentPages @ 0x1407645D0 (MmFreeIndependentPages.c)
  */
 
 __int64 __fastcall ExDeletePoolTagTable(unsigned int a1)
 {
-  __int64 v1; // rsi
-  __int64 v2; // rdi
+  __int64 v1; // rdi
+  __int64 v2; // rsi
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
   unsigned __int8 v5; // al
@@ -20,8 +20,8 @@ __int64 __fastcall ExDeletePoolTagTable(unsigned int a1)
   int v8; // eax
   bool v9; // zf
 
-  v1 = (__int64)*(&ExPoolTagTables + a1);
-  v2 = 80 * (PoolTrackTableSize + 1);
+  v1 = 56 * (PoolTrackTableSize + 1);
+  v2 = (__int64)*(&ExPoolTagTables + a1);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -48,5 +48,5 @@ __int64 __fastcall ExDeletePoolTagTable(unsigned int a1)
     }
   }
   __writecr8(CurrentIrql);
-  return MmFreeIndependentPages(v1, v2);
+  return MmFreeIndependentPages(v2, v1);
 }

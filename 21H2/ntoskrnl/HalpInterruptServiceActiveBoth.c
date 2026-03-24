@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptServiceActiveBoth @ 0x14050A60C
+ * XREFs of HalpInterruptServiceActiveBoth @ 0x1404BDB9C
  * Callers:
- *     HalPerformEndOfInterrupt @ 0x140222670 (HalPerformEndOfInterrupt.c)
+ *     HalPerformEndOfInterrupt @ 0x1402914D0 (HalPerformEndOfInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpInterruptSetLineStateInternal @ 0x140251FD8 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptLookupController @ 0x140252134 (HalpInterruptLookupController.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x1402523CC (HalpInterruptFindLinesForGsiRange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x140378BAC (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptLookupController @ 0x140378D00 (HalpInterruptLookupController.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140378FA8 (HalpInterruptFindLinesForGsiRange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpInterruptServiceActiveBoth(__int64 a1)
@@ -44,7 +44,7 @@ __int64 __fastcall HalpInterruptServiceActiveBoth(__int64 a1)
     *v4 = 1;
   }
   if ( (int)HalpInterruptSetLineStateInternal((__int64)v5, (__int64)&v11, (__int64)v4) < 0 )
-    KeBugCheckEx(0x5Cu, 0x205uLL, *((int *)v5 + 56), (ULONG_PTR)v5, SHIDWORD(v11));
+    KeBugCheckEx(0x5Cu, 0x205uLL, *((int *)v5 + 54), (ULONG_PTR)v5, SHIDWORD(v11));
   KxReleaseSpinLock(&HalpInterruptLock);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )

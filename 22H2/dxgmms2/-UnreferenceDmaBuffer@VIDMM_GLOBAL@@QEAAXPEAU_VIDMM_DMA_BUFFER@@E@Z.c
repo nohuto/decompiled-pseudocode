@@ -1,13 +1,13 @@
 /*
- * XREFs of ?UnreferenceDmaBuffer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C002E160
+ * XREFs of ?UnreferenceDmaBuffer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C0023DF8
  * Callers:
- *     VidMmUnreferenceDmaBuffer @ 0x1C002D460 (VidMmUnreferenceDmaBuffer.c)
- *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z @ 0x1C00416F4 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z.c)
- *     VidSchiDiscardQueuePacket @ 0x1C0105C98 (VidSchiDiscardQueuePacket.c)
- *     VidSchUnreferenceDmaBuffer @ 0x1C0108D7C (VidSchUnreferenceDmaBuffer.c)
+ *     VidMmUnreferenceDmaBuffer @ 0x1C0023150 (VidMmUnreferenceDmaBuffer.c)
+ *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0036548 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     VidSchiDiscardQueuePacket @ 0x1C00CE4DC (VidSchiDiscardQueuePacket.c)
+ *     VidSchUnreferenceDmaBuffer @ 0x1C00D1B60 (VidSchUnreferenceDmaBuffer.c)
  * Callees:
- *     ?RemoveDMAReferences@VIDMM_GLOBAL@@SAXPEAUVIDMM_ALLOC@@J@Z @ 0x1C001BCBE (-RemoveDMAReferences@VIDMM_GLOBAL@@SAXPEAUVIDMM_ALLOC@@J@Z.c)
- *     VidSchUnreferenceDmaBuffer @ 0x1C0108D7C (VidSchUnreferenceDmaBuffer.c)
+ *     ?RemoveDMAReferences@VIDMM_GLOBAL@@SAXPEAUVIDMM_ALLOC@@J@Z @ 0x1C0023D78 (-RemoveDMAReferences@VIDMM_GLOBAL@@SAXPEAUVIDMM_ALLOC@@J@Z.c)
+ *     VidSchUnreferenceDmaBuffer @ 0x1C00D1B60 (VidSchUnreferenceDmaBuffer.c)
  */
 
 void __fastcall VIDMM_GLOBAL::UnreferenceDmaBuffer(VIDMM_GLOBAL *this, struct _VIDMM_DMA_BUFFER *a2, char a3)
@@ -19,7 +19,7 @@ void __fastcall VIDMM_GLOBAL::UnreferenceDmaBuffer(VIDMM_GLOBAL *this, struct _V
 
   if ( a3 )
   {
-    VidSchUnreferenceDmaBuffer(*(_QWORD *)(*((_QWORD *)this + 2) + 744LL));
+    VidSchUnreferenceDmaBuffer(*(_QWORD *)(*((_QWORD *)this + 2) + 624LL));
   }
   else
   {
@@ -30,11 +30,11 @@ void __fastcall VIDMM_GLOBAL::UnreferenceDmaBuffer(VIDMM_GLOBAL *this, struct _V
     {
       v6 = *(struct VIDMM_ALLOC **)(v4 + 8 * i);
       if ( v6 )
-        VIDMM_GLOBAL::RemoveDMAReferences(v6, 1);
+        VIDMM_GLOBAL::RemoveDMAReferences(v6, 1LL);
     }
     v7 = (struct VIDMM_ALLOC *)*((_QWORD *)a2 + 8);
     if ( v7 )
-      VIDMM_GLOBAL::RemoveDMAReferences(v7, 1);
+      VIDMM_GLOBAL::RemoveDMAReferences(v7, 1LL);
     ++*((_DWORD *)a2 + 5);
   }
 }

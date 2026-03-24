@@ -1,13 +1,13 @@
 /*
- * XREFs of VfIsVerifierExtensionEnabled @ 0x1405FDEEC
+ * XREFs of VfIsVerifierExtensionEnabled @ 0x1405A06E4
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x140A4F19C (PopMarkComponentsBootPhase.c)
- *     VfNotifyOfHibernate @ 0x140A8682C (VfNotifyOfHibernate.c)
+ *     PopMarkComponentsBootPhase @ 0x1409991F0 (PopMarkComponentsBootPhase.c)
+ *     VfNotifyOfHibernate @ 0x1409CCB8C (VfNotifyOfHibernate.c)
  * Callees:
  *     <none>
  */
 
 __int64 VfIsVerifierExtensionEnabled()
 {
-  return (unsigned int)VfXdvEnabled;
+  return (unsigned int)XdvEnabled;
 }

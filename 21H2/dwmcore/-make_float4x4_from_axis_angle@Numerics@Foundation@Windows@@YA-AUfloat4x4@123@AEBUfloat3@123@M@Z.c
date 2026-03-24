@@ -1,10 +1,10 @@
 /*
- * XREFs of ?make_float4x4_from_axis_angle@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@M@Z @ 0x1802615C0
+ * XREFs of ?make_float4x4_from_axis_angle@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@M@Z @ 0x180211DDC
  * Callers:
- *     ?SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z @ 0x180260E04 (-SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z.c)
+ *     ?SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z @ 0x1802119EC (-SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z.c)
  * Callees:
- *     cosf @ 0x1801018C8 (cosf.c)
- *     _o_sinf_0 @ 0x180101964 (_o_sinf_0.c)
+ *     cosf_0 @ 0x1800F4763 (cosf_0.c)
+ *     sinf_0 @ 0x1800F479F (sinf_0.c)
  */
 
 __int64 __fastcall Windows::Foundation::Numerics::make_float4x4_from_axis_angle(__int64 a1, float *a2, float a3)
@@ -25,8 +25,8 @@ __int64 __fastcall Windows::Foundation::Numerics::make_float4x4_from_axis_angle(
   float v18; // xmm4_4
   float v19; // xmm9_4
 
-  v5 = o_sinf_0(a3);
-  v6 = cosf(a3);
+  v5 = sinf_0(a3);
+  v6 = cosf_0(a3);
   v7 = a2[2] * *a2;
   *(_DWORD *)(a1 + 60) = 1065353216;
   v8 = *a2;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetInformationToken @ 0x14041DBE0
+ * XREFs of ZwSetInformationToken @ 0x1403FCDC0
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdSnapGlobals @ 0x1405402EC
+ * XREFs of DbgkpLkmdSnapGlobals @ 0x1404EE1AC
  * Callers:
- *     DbgkCaptureLiveDump @ 0x14092AC5C (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x140887D1C (DbgkCaptureLiveDump.c)
  * Callees:
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     KeEnumerateProcessorDpcs @ 0x14056F81C (KeEnumerateProcessorDpcs.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeEnumerateProcessorDpcs @ 0x140519C0C (KeEnumerateProcessorDpcs.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapGlobals(__int64 a1)
@@ -21,8 +21,8 @@ __int64 __fastcall DbgkpLkmdSnapGlobals(__int64 a1)
 
   v8 = 0LL;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-  result = (*(__int64 (__fastcall **)(__int64, __int64 *, _QWORD, _QWORD, _QWORD, _QWORD))(a1 + 16448))(
-             a1 + 0x4000,
+  result = (*(__int64 (__fastcall **)(__int64, __int64 *, _QWORD, _QWORD, _QWORD, _QWORD))(a1 + 10304))(
+             a1 + 10240,
              KiProcessorBlock,
              8 * ActiveProcessorCount,
              0LL,
@@ -35,10 +35,10 @@ __int64 __fastcall DbgkpLkmdSnapGlobals(__int64 a1)
     do
     {
       Prcb = KeGetPrcb(v4);
-      if ( (*(int (__fastcall **)(__int64, __int64, __int64, __int64, _QWORD, __int64 *))(a1 + 16448))(
-             a1 + 0x4000,
+      if ( (*(int (__fastcall **)(__int64, __int64, __int64, __int64, _QWORD, __int64 *))(a1 + 10304))(
+             a1 + 10240,
              Prcb,
-             48896LL,
+             44800LL,
              2LL,
              0LL,
              &v8) >= 0 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwInitializeRegistry @ 0x1401BA0B0
+ * XREFs of ZwInitializeRegistry @ 0x1401BA0D0
  * Callers:
- *     NtInitializeRegistry @ 0x14071DCF0 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x14071DCD0 (NtInitializeRegistry.c)
  * Callees:
  *     <none>
  */

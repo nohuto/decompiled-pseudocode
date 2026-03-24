@@ -1,9 +1,9 @@
 /*
- * XREFs of SleepQueueDpc @ 0x1C0068840
+ * XREFs of SleepQueueDpc @ 0x1C0067470
  * Callers:
  *     <none>
  * Callees:
- *     RestartContext @ 0x1C000DCC0 (RestartContext.c)
+ *     RestartContext @ 0x1C0023DF0 (RestartContext.c)
  */
 
 __int64 **SleepQueueDpc()
@@ -21,7 +21,7 @@ __int64 **SleepQueueDpc()
 
   v9 = &v8;
   v8 = (__int64 *)&v8;
-  byte_1C0082878 = KeAcquireSpinLockRaiseToDpc(&gmutSleep);
+  byte_1C00831E8 = KeAcquireSpinLockRaiseToDpc(&gmutSleep);
   v0 = MEMORY[0xFFFFF78000000008];
   while ( 1 )
   {
@@ -46,7 +46,7 @@ LABEL_14:
     *v4 = v1;
     v9 = (__int64 **)v1;
   }
-  KeReleaseSpinLock(&gmutSleep, byte_1C0082878);
+  KeReleaseSpinLock(&gmutSleep, byte_1C00831E8);
   while ( 1 )
   {
     v5 = v8;
@@ -60,6 +60,6 @@ LABEL_14:
       goto LABEL_14;
     v8 = (__int64 *)*v8;
     v7[1] = (__int64)&v8;
-    RestartContext(v5[3]);
+    RestartContext(v5[3], (*(_DWORD *)(v5[3] + 64) & 0x100) == 0);
   }
 }

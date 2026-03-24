@@ -1,27 +1,27 @@
 /*
- * XREFs of MiLockControlAreaSectionExtend @ 0x140293024
+ * XREFs of MiLockControlAreaSectionExtend @ 0x1402F963C
  * Callers:
- *     MmExtendSection @ 0x1407065B4 (MmExtendSection.c)
+ *     MmExtendSection @ 0x14066933C (MmExtendSection.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeAbPostReleaseEx @ 0x1402BD4C0 (KeAbPostReleaseEx.c)
- *     KeAbPreWait @ 0x1402FD270 (KeAbPreWait.c)
- *     KeWaitForGate @ 0x14034A780 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreWait @ 0x140273740 (KeAbPreWait.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     KeAbPostReleaseEx @ 0x1402E3DB0 (KeAbPostReleaseEx.c)
+ *     KeWaitForGate @ 0x1402ED0C4 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, __int64 a2)
+__int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   volatile LONG *v5; // r13
-  __int64 v6; // rbp
+  unsigned __int64 v6; // r15
   KIRQL v7; // al
-  __int64 *v8; // rcx
-  unsigned __int64 v9; // rsi
+  __int64 **v8; // rdi
+  unsigned __int64 v9; // rbp
   __int64 v10; // rax
-  __int64 *v11; // r12
+  __int64 result; // rax
   __int64 v12; // rax
   __int64 v13; // rdx
   __int64 v14; // r8
@@ -30,10 +30,8 @@ void __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, __i
   _DWORD *SchedulerAssist; // r9
   int v18; // eax
   bool v19; // zf
-  unsigned __int8 v20; // al
-  struct _KPRCB *v21; // r9
-  int v22; // eax
-  _DWORD *v23; // r8
+  struct _KPRCB *v20; // r9
+  _DWORD *v21; // r8
 
   CurrentThread = KeGetCurrentThread();
   if ( *(_DWORD *)(a2 + 8) == 16 )
@@ -45,29 +43,25 @@ void __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, __i
   {
     v6 = 0LL;
     v7 = ExAcquireSpinLockExclusive(v5);
-    v8 = *(__int64 **)(BugCheckParameter2 + 80);
+    v8 = *(__int64 ***)(BugCheckParameter2 + 80);
     v9 = v7;
     if ( v8 )
     {
-      while ( 1 )
+      do
       {
-        v11 = v8;
         if ( (*(_DWORD *)(a2 + 8) & (_DWORD)v8[1]) != 0 )
           break;
-        v8 = (__int64 *)*v8;
-        if ( !v8 )
-          goto LABEL_5;
+        v8 = (__int64 **)*v8;
       }
-      v12 = KeAbPreAcquire(BugCheckParameter2, 0LL);
-      v6 = v12;
-      v8 = v11;
-      if ( v12 )
+      while ( v8 );
+      if ( v8 )
       {
-        KeAbPreWait(v12, v13, v14);
-        v8 = v11;
+        v12 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
+        v6 = v12;
+        if ( v12 )
+          KeAbPreWait(v12, v13, v14);
       }
     }
-LABEL_5:
     *(_DWORD *)(a2 + 20) = 0;
     *(_QWORD *)(a2 + 32) = a2 + 24;
     *(_QWORD *)(a2 + 24) = a2 + 24;
@@ -80,43 +74,51 @@ LABEL_5:
     ExReleaseSpinLockExclusiveFromDpcLevel(v5);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v19 = (v18 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v18;
-        if ( v19 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v19 = (v18 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v18;
+          if ( v19 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v9);
-    KeWaitForGate(a2 + 16, 18LL);
+    KeWaitForGate(a2 + 16, 18);
     if ( v6 )
     {
-      KeAbPreAcquire(BugCheckParameter2, v6);
-      KeAbPostReleaseEx(BugCheckParameter2);
+      KeAbPreAcquire(BugCheckParameter2, v6, 0LL);
+      KeAbPostReleaseEx(BugCheckParameter2, v6);
     }
   }
-  v10 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+  v10 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
   if ( v10 )
-    *(_BYTE *)(v10 + 18) = 1;
+    *(_BYTE *)(v10 + 26) |= 1u;
   ExReleaseSpinLockExclusiveFromDpcLevel(v5);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v20 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v21 = KeGetCurrentPrcb();
-      v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-      v23 = v21->SchedulerAssist;
-      v19 = (v22 & v23[5]) == 0;
-      v23[5] &= v22;
-      if ( v19 )
-        KiRemoveSystemWorkPriorityKick(v21);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v9 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        v20 = KeGetCurrentPrcb();
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+        v21 = v20->SchedulerAssist;
+        v19 = ((unsigned int)result & v21[5]) == 0;
+        v21[5] &= result;
+        if ( v19 )
+          result = KiRemoveSystemWorkPriorityKick(v20);
+      }
     }
   }
   __writecr8(v9);
+  return result;
 }

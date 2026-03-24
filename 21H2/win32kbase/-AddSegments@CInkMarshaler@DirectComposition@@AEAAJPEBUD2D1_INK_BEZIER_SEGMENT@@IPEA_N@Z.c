@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C021854C
+ * XREFs of ?AddSegments@CInkMarshaler@DirectComposition@@AEAAJPEBUD2D1_INK_BEZIER_SEGMENT@@IPEA_N@Z @ 0x1C01E22AC
  * Callers:
- *     ?SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0218A00 (-SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@.c)
+ *     ?SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E2780 (-SetBufferProperty@CInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@.c)
  * Callees:
- *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C0016048 (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C0029644 (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CInkMarshaler::AddSegments(
@@ -18,11 +18,11 @@ __int64 __fastcall DirectComposition::CInkMarshaler::AddSegments(
   unsigned __int64 v9; // rdi
   int v10; // ebp
 
-  v4 = *((_QWORD *)this + 18);
+  v4 = *((_QWORD *)this + 17);
   v6 = a3;
   v9 = 0LL;
   v10 = DirectComposition::CDCompDynamicArrayBase::Grow(
-          (DirectComposition::CInkMarshaler *)((char *)this + 120),
+          (DirectComposition::CInkMarshaler *)((char *)this + 112),
           a3,
           0x6B694344u);
   if ( v10 >= 0 )
@@ -31,7 +31,7 @@ __int64 __fastcall DirectComposition::CInkMarshaler::AddSegments(
     {
       do
       {
-        memmove((void *)(*((_QWORD *)this + 15) + *((_QWORD *)this + 19) * (v9 + v4)), a2, *((_QWORD *)this + 19));
+        memmove((void *)(*((_QWORD *)this + 14) + *((_QWORD *)this + 18) * (v9 + v4)), a2, *((_QWORD *)this + 18));
         ++v9;
         a2 = (const struct D2D1_INK_BEZIER_SEGMENT *)((char *)a2 + 36);
       }

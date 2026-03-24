@@ -1,30 +1,31 @@
 /*
- * XREFs of PiDmaGuardProcessNewDeviceNode @ 0x1407FD160
+ * XREFs of PiDmaGuardProcessNewDeviceNode @ 0x140764C00
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     PiIommuGetInterface @ 0x1407FD204 (PiIommuGetInterface.c)
- *     PipDmgDestroyIommuExtension @ 0x1407FDACC (PipDmgDestroyIommuExtension.c)
- *     PiIommuAllocateExtension @ 0x14084359C (PiIommuAllocateExtension.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PiIommuGetInterface @ 0x140764C98 (PiIommuGetInterface.c)
+ *     PipDmgDestroyIommuExtension @ 0x1407654E4 (PipDmgDestroyIommuExtension.c)
+ *     PiIommuPutInterface @ 0x140765518 (PiIommuPutInterface.c)
+ *     PiIommuAllocateExtension @ 0x14076553C (PiIommuAllocateExtension.c)
  */
 
 __int64 __fastcall PiDmaGuardProcessNewDeviceNode(ULONG_PTR MaxDataSize)
 {
-  unsigned int Extension; // ebx
+  unsigned int Extension; // edi
   __int64 v4; // rax
-  _QWORD v5[10]; // [rsp+30h] [rbp-58h] BYREF
+  _BYTE v5[80]; // [rsp+30h] [rbp-58h] BYREF
 
   memset(v5, 0, sizeof(v5));
   PipDmgDestroyIommuExtension(MaxDataSize);
+  Extension = 0;
   if ( (int)PiIommuGetInterface(*(_QWORD *)(MaxDataSize + 32)) >= 0 )
   {
     if ( *(_QWORD *)(MaxDataSize + 720) )
     {
-      IoAddTriageDumpDataBlock(MaxDataSize, (PVOID)0x388);
+      IoAddTriageDumpDataBlock(MaxDataSize, (PVOID)0x310);
       if ( *(_WORD *)(MaxDataSize + 40) )
       {
         IoAddTriageDumpDataBlock(MaxDataSize + 40, (PVOID)2);
@@ -46,12 +47,7 @@ __int64 __fastcall PiDmaGuardProcessNewDeviceNode(ULONG_PTR MaxDataSize)
       KeBugCheckEx(0xCAu, 0x11uLL, MaxDataSize, *(_QWORD *)(MaxDataSize + 720), *(unsigned int *)(MaxDataSize + 704));
     }
     Extension = PiIommuAllocateExtension(MaxDataSize, v5, MaxDataSize + 720);
-    if ( v5[3] )
-      ((void (__fastcall *)(_QWORD))v5[3])(v5[1]);
-  }
-  else
-  {
-    return 0;
+    PiIommuPutInterface(v5);
   }
   return Extension;
 }

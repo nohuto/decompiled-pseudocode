@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipInsertStaticNames @ 0x1406C8104
+ * XREFs of WmipInsertStaticNames @ 0x1406B1C50
  * Callers:
- *     WmipQueryAllData @ 0x1406C7B2C (WmipQueryAllData.c)
- *     WmipIncludeStaticNames @ 0x1409E0A34 (WmipIncludeStaticNames.c)
+ *     WmipQueryAllData @ 0x1406B1EB4 (WmipQueryAllData.c)
+ *     WmipIncludeStaticNames @ 0x14093282C (WmipIncludeStaticNames.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     WmipAlign @ 0x14022AE50 (WmipAlign.c)
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
- *     RtlStringCbCatW @ 0x140370FC4 (RtlStringCbCatW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     WmipStaticInstanceNameSize @ 0x1406C8078 (WmipStaticInstanceNameSize.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
+ *     WmipAlign @ 0x14032E0C0 (WmipAlign.c)
+ *     RtlStringCbCatW @ 0x14032E278 (RtlStringCbCatW.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     WmipStaticInstanceNameSize @ 0x1406B1E2C (WmipStaticInstanceNameSize.c)
  */
 
 char __fastcall WmipInsertStaticNames(int *a1, unsigned int a2, __int64 a3)
@@ -17,37 +17,38 @@ char __fastcall WmipInsertStaticNames(int *a1, unsigned int a2, __int64 a3)
   unsigned int v3; // eax
   __int64 v7; // r12
   __int64 v8; // rbx
-  unsigned int v9; // esi
+  unsigned int v9; // r14d
   _DWORD *v10; // r15
   int v11; // eax
-  _WORD *v12; // r14
+  wchar_t *v12; // rdi
   __int64 v13; // r13
   unsigned int i; // r13d
-  unsigned int v15; // esi
+  unsigned int v15; // r14d
   __int64 v16; // rax
   __int64 v17; // r12
   const wchar_t *v18; // r8
   __int64 v19; // rax
-  unsigned int v20; // esi
-  unsigned int v21; // r11d
-  unsigned int v23; // [rsp+20h] [rbp-58h] BYREF
+  unsigned int v20; // ebx
+  unsigned int v21; // r14d
+  wchar_t *v22; // rdi
+  unsigned int v24; // [rsp+20h] [rbp-58h] BYREF
   wchar_t pszDest[8]; // [rsp+28h] [rbp-50h] BYREF
 
   v3 = *(_DWORD *)(a3 + 16);
   if ( (v3 & 3) != 0 )
   {
     v7 = *(unsigned int *)(a3 + 72);
-    v23 = *a1;
-    LOBYTE(v3) = WmipAlign(4, (int *)&v23);
+    v24 = *a1;
+    LOBYTE(v3) = WmipAlign(4, (int *)&v24);
     if ( (_BYTE)v3 )
     {
-      v8 = v23;
+      v8 = v24;
       v3 = WmipStaticInstanceNameSize(a3);
       v9 = v3;
       if ( v3 <= ~(_DWORD)v8 )
       {
         v3 += v8;
-        v23 = v3;
+        v24 = v3;
         if ( v3 > a2 )
         {
           *a1 = 56;
@@ -59,7 +60,7 @@ char __fastcall WmipInsertStaticNames(int *a1, unsigned int a2, __int64 a3)
           a1[14] = v8;
           v10 = (int *)((char *)a1 + v8);
           v11 = *(_DWORD *)(a3 + 16);
-          v12 = (_WORD *)((char *)&a1[v7] + v8);
+          v12 = (wchar_t *)((char *)&a1[v7] + v8);
           v13 = (unsigned int)v7;
           if ( (v11 & 1) != 0 )
           {
@@ -92,18 +93,20 @@ char __fastcall WmipInsertStaticNames(int *a1, unsigned int a2, __int64 a3)
               do
                 ++v19;
               while ( v18[v19] );
-              v20 = v9 - 2;
+              v20 = 2 * v19 + 2;
+              v21 = v9 - 2;
               *v12 = 2 * v19 + 2;
-              RtlStringCbCopyW(v12 + 1, v20, v18);
-              v9 = v20 - v21;
+              v22 = v12 + 1;
+              RtlStringCbCopyW(v22, v21, v18);
+              v9 = v21 - v20;
               v17 += 8LL;
-              v12 += ((unsigned __int64)v21 >> 1) + 1;
+              v12 = &v22[(unsigned __int64)v20 >> 1];
               --v13;
             }
             while ( v13 );
           }
-          LOBYTE(v3) = v23;
-          *a1 = v23;
+          LOBYTE(v3) = v24;
+          *a1 = v24;
         }
       }
     }

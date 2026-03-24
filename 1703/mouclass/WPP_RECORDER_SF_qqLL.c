@@ -1,1 +1,58 @@
-/*\n * XREFs of WPP_RECORDER_SF_qqLL @ 0x1C000573C\n * Callers:\n *     MouseClassReadCopyData @ 0x1C0004774 (MouseClassReadCopyData.c)\n * Callees:\n *     _guard_dispatch_icall_nop @ 0x1C0002BA0 (_guard_dispatch_icall_nop.c)\n */\n\n__int64 WPP_RECORDER_SF_qqLL(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, ...)\n{\n  int v7; // [rsp+20h] [rbp-58h]\n  __int64 v8; // [rsp+A8h] [rbp+30h] BYREF\n  va_list va; // [rsp+A8h] [rbp+30h]\n  __int64 v10; // [rsp+B0h] [rbp+38h] BYREF\n  va_list va1; // [rsp+B0h] [rbp+38h]\n  __int64 v12; // [rsp+B8h] [rbp+40h] BYREF\n  va_list va2; // [rsp+B8h] [rbp+40h]\n  va_list va3; // [rsp+C0h] [rbp+48h] BYREF\n\n  va_start(va3, a5);\n  va_start(va2, a5);\n  va_start(va1, a5);\n  va_start(va, a5);\n  v8 = va_arg(va1, _QWORD);\n  va_copy(va2, va1);\n  v10 = va_arg(va2, _QWORD);\n  va_copy(va3, va2);\n  v12 = va_arg(va3, _QWORD);\n  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 5u )\n    pfnWppTraceMessage(\n      WPP_GLOBAL_Control->AttachedDevice,\n      43LL,\n      &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,\n      38LL,\n      (__int64 *)va,\n      8LL,\n      (__int64 *)va1,\n      8LL,\n      (__int64 *)va2,\n      4LL,\n      va3,\n      4LL,\n      0LL);\n  LOWORD(v7) = 38;\n  return WppAutoLogTrace(\n           a1,\n           5LL,\n           3LL,\n           &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,\n           v7,\n           (__int64 *)va,\n           8LL,\n           (__int64 *)va1,\n           8LL,\n           (__int64 *)va2,\n           4LL,\n           va3);\n}\n
+/*
+ * XREFs of WPP_RECORDER_SF_qqLL @ 0x1C000573C
+ * Callers:
+ *     MouseClassReadCopyData @ 0x1C0004774 (MouseClassReadCopyData.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0002BA0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 WPP_RECORDER_SF_qqLL(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, ...)
+{
+  int v7; // [rsp+20h] [rbp-58h]
+  __int64 v8; // [rsp+A8h] [rbp+30h] BYREF
+  va_list va; // [rsp+A8h] [rbp+30h]
+  __int64 v10; // [rsp+B0h] [rbp+38h] BYREF
+  va_list va1; // [rsp+B0h] [rbp+38h]
+  __int64 v12; // [rsp+B8h] [rbp+40h] BYREF
+  va_list va2; // [rsp+B8h] [rbp+40h]
+  va_list va3; // [rsp+C0h] [rbp+48h] BYREF
+
+  va_start(va3, a5);
+  va_start(va2, a5);
+  va_start(va1, a5);
+  va_start(va, a5);
+  v8 = va_arg(va1, _QWORD);
+  va_copy(va2, va1);
+  v10 = va_arg(va2, _QWORD);
+  va_copy(va3, va2);
+  v12 = va_arg(va3, _QWORD);
+  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 5u )
+    pfnWppTraceMessage(
+      WPP_GLOBAL_Control->AttachedDevice,
+      43LL,
+      &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,
+      38LL,
+      (__int64 *)va,
+      8LL,
+      (__int64 *)va1,
+      8LL,
+      (__int64 *)va2,
+      4LL,
+      va3,
+      4LL,
+      0LL);
+  LOWORD(v7) = 38;
+  return WppAutoLogTrace(
+           a1,
+           5LL,
+           3LL,
+           &WPP_9c17a35c4601387fb5a429f49b57a538_Traceguids,
+           v7,
+           (__int64 *)va,
+           8LL,
+           (__int64 *)va1,
+           8LL,
+           (__int64 *)va2,
+           4LL,
+           va3);
+}

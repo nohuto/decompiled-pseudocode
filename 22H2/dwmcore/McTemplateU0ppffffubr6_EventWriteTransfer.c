@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateU0ppffffubr6_EventWriteTransfer @ 0x18012EFD2
+ * XREFs of McTemplateU0ppffffubr6_EventWriteTransfer @ 0x1801787F0
  * Callers:
- *     ?BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOverlayContext@@@Z @ 0x18008CC54 (-BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOv.c)
+ *     ?BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOverlayContext@@@Z @ 0x18007A778 (-BeginFrame@CDrawingContext@@QEAAJPEAVIDeviceTarget@@PEBVCMILMatrix@@PEBU_D3DCOLORVALUE@@PEAVCOv.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 McTemplateU0ppffffubr6_EventWriteTransfer(__int64 a1, __int64 a2, ...)
+ULONG McTemplateU0ppffffubr6_EventWriteTransfer(__int64 a1, __int64 a2, ...)
 {
-  _BYTE v3[16]; // [rsp+30h] [rbp-79h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+30h] [rbp-79h] BYREF
   va_list v4; // [rsp+40h] [rbp-69h]
   __int64 v5; // [rsp+48h] [rbp-61h]
   va_list v6; // [rsp+50h] [rbp-59h]
@@ -84,9 +84,9 @@ __int64 McTemplateU0ppffffubr6_EventWriteTransfer(__int64 a1, __int64 a2, ...)
   v15 = 4LL;
   v17 = 1LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_ETWGUID_DRAWING_CONTEXT_FRAME_Start,
            v22,
-           9LL,
-           v3);
+           9u,
+           &v3);
 }

@@ -1,63 +1,33 @@
 /*
- * XREFs of ?Clear@CDrawingContext@@UEAAJAEBU_D3DCOLORVALUE@@@Z @ 0x18007E580
+ * XREFs of ?Clear@CDrawingContext@@UEAAJAEBU_D3DCOLORVALUE@@@Z @ 0x180041590
  * Callers:
- *     <none>
+ *     ?GenerateMaskIntermediate@ShadowIntermediates@CDropShadow@@CAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCBrush@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18001F730 (-GenerateMaskIntermediate@ShadowIntermediates@CDropShadow@@CAJPEAVCDrawingContext@@AEBUD2D_SIZE_.c)
+ *     ?ApplyRenderTarget@CExternalLayer@@IEAAJPEAVCDrawingContext@@@Z @ 0x1800412C4 (-ApplyRenderTarget@CExternalLayer@@IEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@PEBVCOcclusionContext@@W4Enum@ClearMode@@_N@Z @ 0x180075020 (-DrawVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF.c)
+ *     ?RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCComposeTop@@@Z @ 0x180092098 (-RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCCompose.c)
+ *     ?RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCComposeTop@@@Z @ 0x18018CE0C (-RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCCompo.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18007FAC8 (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
- *     ?EnsureBeginDraw@CD2DContext@@AEAAXXZ @ 0x180080698 (-EnsureBeginDraw@CD2DContext@@AEAAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0ffff_EventWriteTransfer @ 0x180194AE0 (McTemplateU0ffff_EventWriteTransfer.c)
+ *     ?Clear@CD2DContext@@UEAAXPEBVID2DContextOwner@@AEBU_D3DCOLORVALUE@@@Z @ 0x180041600 (-Clear@CD2DContext@@UEAAXPEBVID2DContextOwner@@AEBU_D3DCOLORVALUE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ApplyRenderStateInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18007FF00 (-ApplyRenderStateInternal@CDrawingContext@@AEAAJ_N@Z.c)
  */
 
 __int64 __fastcall CDrawingContext::Clear(CDrawingContext *this, const struct _D3DCOLORVALUE *a2)
 {
-  int v4; // eax
-  __int64 v5; // rcx
-  __int64 v6; // rbx
-  unsigned int v7; // esi
-  __int64 v8; // rdi
-  int v9; // eax
-  int v10; // r8d
-  int v11; // r9d
-  __int64 v12; // r8
-  struct _EVENT_DATA_DESCRIPTOR v14; // [rsp+30h] [rbp-38h] BYREF
+  char *v2; // rsi
+  int v5; // eax
+  unsigned int v6; // ecx
+  unsigned int v7; // ebx
 
-  v4 = (*(__int64 (__fastcall **)(CDrawingContext *))(*(_QWORD *)this + 112LL))(this);
-  v6 = 0LL;
-  v7 = v4;
-  if ( v4 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0x246u);
-  }
+  v2 = (char *)this - 16;
+  v5 = CDrawingContext::ApplyRenderStateInternal((CDrawingContext *)((char *)this - 16), 0);
+  v7 = v5;
+  if ( v5 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x231u, 0LL);
   else
-  {
-    v8 = *((_QWORD *)this + 3);
-    CD2DContext::FlushDrawList((CD2DContext *)(v8 + 16));
-    v9 = *(_DWORD *)(v8 + 368);
-    if ( v9 )
-      v6 = *(_QWORD *)(*(_QWORD *)(v8 + 344) + 8LL * (unsigned int)(v9 - 1));
-    CD2DContext::EnsureBeginDraw((CD2DContext *)(v8 + 16));
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
-      McTemplateU0ffff_EventWriteTransfer(
-        (unsigned int)Microsoft_Windows_Dwm_Core_Provider_Context,
-        (unsigned int)&EVTDESC_ETWGUID_CLEAREVENT_Start,
-        v10,
-        v11,
-        *(_DWORD *)(v6 + 60),
-        *(_DWORD *)(v6 + 64));
-    (*(void (__fastcall **)(_QWORD, const struct _D3DCOLORVALUE *))(**(_QWORD **)(*(_QWORD *)(v6 + 16) + 200LL) + 376LL))(
-      *(_QWORD *)(*(_QWORD *)(v6 + 16) + 200LL),
+    CD2DContext::Clear(
+      (CD2DContext *)(*((_QWORD *)this + 3) + 16LL),
+      (const struct ID2DContextOwner *)(((unsigned __int64)this + 8) & -(__int64)(v2 != 0LL)),
       a2);
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
-      McGenEventWrite_EventWriteTransfer(
-        Microsoft_Windows_Dwm_Core_Provider_Context,
-        &EVTDESC_ETWGUID_CLEAREVENT_Stop,
-        v12,
-        1u,
-        &v14);
-  }
   return v7;
 }

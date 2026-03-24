@@ -1,226 +1,223 @@
 /*
- * XREFs of RtlIpv6StringToAddressA @ 0x1405EBA00
+ * XREFs of RtlIpv6StringToAddressA @ 0x14058C3F0
  * Callers:
- *     RtlIpv6StringToAddressExA @ 0x1405EBE60 (RtlIpv6StringToAddressExA.c)
+ *     RtlIpv6StringToAddressExA @ 0x14058C810 (RtlIpv6StringToAddressExA.c)
  * Callees:
- *     strtol @ 0x1403E0868 (strtol.c)
- *     __isascii @ 0x1403E1A70 (__isascii.c)
- *     isdigit @ 0x1403E1A90 (isdigit.c)
- *     isxdigit @ 0x1403E1B80 (isxdigit.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     strtol @ 0x1403D14A0 (strtol.c)
+ *     __isascii @ 0x1403D26B0 (__isascii.c)
+ *     isdigit @ 0x1403D26D0 (isdigit.c)
+ *     isxdigit @ 0x1403D27C0 (isxdigit.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 NTSTATUS __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in6_addr *Addr)
 {
-  CHAR v3; // bl
-  char v4; // r9
-  int v5; // edx
-  PCSTR v6; // rsi
-  int v7; // r12d
-  unsigned int v8; // ebp
-  unsigned int v9; // r14d
-  unsigned int v10; // r13d
-  unsigned int v11; // r15d
-  __int16 v12; // ax
-  int v13; // eax
-  unsigned int v14; // eax
-  struct in6_addr *v15; // rcx
-  unsigned int v16; // eax
-  char *v17; // rbx
-  char v19; // [rsp+20h] [rbp-58h]
-  char *Str; // [rsp+28h] [rbp-50h]
-  char v21; // [rsp+80h] [rbp+8h]
-  struct in6_addr *v23; // [rsp+90h] [rbp+18h]
-  int v24; // [rsp+98h] [rbp+20h]
+  struct in6_addr *v4; // rbp
+  int v5; // r15d
+  const char *v6; // rax
+  unsigned int v7; // esi
+  unsigned int v8; // edi
+  unsigned int v9; // r12d
+  unsigned int v10; // r14d
+  int v11; // edx
+  int v12; // eax
+  unsigned int v13; // eax
+  CHAR v14; // bl
+  unsigned int v15; // eax
+  char *Str; // [rsp+20h] [rbp-58h]
+  char v18; // [rsp+80h] [rbp+8h]
+  int v21; // [rsp+98h] [rbp+20h]
 
-  v23 = Addr;
-  v3 = *S;
-  Str = 0LL;
-  v4 = 0;
-  v21 = 0;
+  v4 = Addr;
   v5 = 0;
-  v19 = 0;
-  v6 = S;
-  v24 = 0;
+  Str = 0LL;
+  v6 = 0LL;
+  v18 = 0;
   v7 = 0;
+  v21 = 0;
   v8 = 0;
   v9 = 0;
   v10 = 0;
   v11 = 0;
-  if ( *S )
+  while ( 1 )
   {
-    while ( 1 )
+    v14 = *S;
+    if ( !*S )
+      break;
+    if ( v5 != 1 )
     {
-      if ( v7 == 1 )
+      if ( v14 == 58 )
       {
-        if ( _isascii(v3) && isdigit(v3) )
-        {
-          ++v10;
-LABEL_52:
-          Addr = v23;
-LABEL_53:
-          v5 = v24;
-          goto LABEL_54;
-        }
-        if ( _isascii(v3) && isxdigit(v3) )
-        {
-          ++v10;
-          if ( v9 )
-            goto LABEL_20;
+        if ( v8 || v7 || S[1] != 58 )
+          goto LABEL_53;
+        v7 = 2;
+        v10 = 1;
+        v5 = 2;
+        v21 = v11 + 1;
+        ++S;
+        v4->u.Word[v11] = 0;
+        v6 = Str;
+        goto LABEL_38;
+      }
+      if ( v7 > 7 )
+        goto LABEL_53;
+      if ( !_isascii(v14) || !isdigit(v14) )
+      {
+        if ( !_isascii(v14) || !isxdigit(v14) || v8 )
+          goto LABEL_52;
+        v6 = S;
+        v18 = 1;
+        v5 = 1;
+        Str = (char *)S;
+        v9 = 1;
+        goto LABEL_37;
+      }
+      v6 = S;
+      v18 = 0;
+      v5 = 1;
+      Str = (char *)S;
+      v9 = 1;
+LABEL_47:
+      v11 = v21;
+      goto LABEL_48;
+    }
+    if ( _isascii(v14) && isdigit(v14) )
+    {
+      v4 = Addr;
+      ++v9;
+      goto LABEL_6;
+    }
+    if ( !_isascii(v14) || !isxdigit(v14) )
+    {
+      if ( v14 == 58 )
+      {
+        if ( v8 || v7 > 6 )
           goto LABEL_51;
-        }
-        if ( v3 == 58 )
+        if ( S[1] == 58 )
         {
-          if ( v9 )
-            goto LABEL_56;
-          if ( v8 > 6 && !v19 || v8 > 7 )
-            break;
-          if ( v6[1] == 58 )
-          {
-            if ( v11 )
-              break;
-            v13 = 2;
-            v11 = v8 + 1;
-            v7 = 2;
-            ++v6;
-          }
-          else
-          {
-            v7 = 0;
-            v13 = 1;
-          }
-          v8 += v13;
+          if ( v10 )
+            goto LABEL_51;
+          v12 = 2;
+          ++S;
+          v5 = 2;
+          v10 = v7 + 1;
         }
         else
         {
-          if ( v3 != 46 || v21 )
-            break;
-          if ( v9 > 2 )
-          {
-LABEL_56:
-            *Terminator = v6;
-            goto LABEL_58;
-          }
-          if ( v8 > 6 && !v19 || v8 > 7 )
-            break;
-          ++v9;
-          v7 = 0;
+          v5 = 0;
+          v12 = 1;
         }
+        v4 = Addr;
+        v7 += v12;
+        v6 = Str;
+LABEL_37:
+        v11 = v21;
+        if ( v5 == 1 )
+          goto LABEL_48;
       }
       else
       {
-        if ( v3 != 58 )
+        if ( v14 != 46 || v18 || v8 > 2 )
         {
-          if ( v8 > 7 && (v8 > 8 || !v4) )
-            break;
-          if ( _isascii(v3) && isdigit(v3) )
-          {
-            v21 = 0;
-            v7 = 1;
-            Str = (char *)v6;
-            v10 = 1;
-            goto LABEL_52;
-          }
-          if ( !_isascii(v3) || !isxdigit(v3) )
-            break;
-          if ( v9 )
-          {
-LABEL_20:
-            *Terminator = v6;
-            goto LABEL_58;
-          }
-          Str = (char *)v6;
-          v7 = 1;
-          v10 = 1;
 LABEL_51:
-          v21 = 1;
-          goto LABEL_52;
-        }
-        if ( v9 )
-          goto LABEL_56;
-        if ( v8 || v6[1] != 58 )
+          v4 = Addr;
+LABEL_52:
+          v11 = v21;
+LABEL_53:
+          v6 = Str;
           break;
-        v11 = 1;
-        v8 = 2;
-        if ( !v5 )
-          v4 = 1;
-        v19 = v4;
-        v24 = v5 + 1;
-        ++v6;
-        Addr->u.Word[v5] = 0;
-        v7 = 2;
+        }
+        v6 = Str;
+        if ( v7 > 6 )
+        {
+          v4 = Addr;
+          v11 = v21;
+          break;
+        }
+        ++v8;
+        v5 = 0;
       }
-      if ( !Str )
-        goto LABEL_52;
-      if ( v9 )
+LABEL_38:
+      if ( v6 )
       {
-        if ( v10 > 3 )
-          return -1073741811;
-        v14 = strtol(Str, 0LL, 10);
-        if ( v14 > 0xFF )
-          return -1073741811;
-        Addr = v23;
-        v23->u.Byte[2 * v24 - 1 + v9] = v14;
-        goto LABEL_53;
+        if ( v8 )
+        {
+          if ( v9 > 3 )
+            return -1073741811;
+          v13 = strtol(v6, 0LL, 10);
+          if ( v13 > 0xFF )
+            return -1073741811;
+          v4 = Addr;
+          Addr->u.Byte[2 * v21 - 1 + v8] = v13;
+LABEL_6:
+          v11 = v21;
+        }
+        else
+        {
+          if ( v9 > 4 )
+            return -1073741811;
+          v4 = Addr;
+          Addr->u.Word[v21] = __ROR2__(strtol(v6, 0LL, 16), 8);
+          v11 = ++v21;
+        }
+        v6 = Str;
+        goto LABEL_48;
       }
-      if ( v10 > 4 )
+      v4 = Addr;
+      goto LABEL_47;
+    }
+    v4 = Addr;
+    ++v9;
+    v11 = v21;
+    v6 = Str;
+    if ( v8 )
+      break;
+    v18 = 1;
+LABEL_48:
+    ++S;
+  }
+  *Terminator = S;
+  if ( v8 )
+  {
+    if ( v8 == 3 )
+    {
+      ++v7;
+      goto LABEL_57;
+    }
+    return -1073741811;
+  }
+LABEL_57:
+  if ( !v10 && v7 != 7 )
+    return -1073741811;
+  if ( v5 == 1 )
+  {
+    if ( v8 )
+    {
+      if ( v9 > 3 )
         return -1073741811;
-      v12 = strtol(Str, 0LL, 16);
-      Addr = v23;
-      v23->u.Word[v24] = __ROR2__(v12, 8);
-      v5 = ++v24;
-LABEL_54:
-      v3 = *++v6;
-      if ( !*v6 )
-        break;
-      v4 = v19;
+      v15 = strtol(v6, 0LL, 10);
+      if ( v15 > 0xFF )
+        return -1073741811;
+      v4->u.Byte[2 * v21 + v8] = v15;
+    }
+    else
+    {
+      if ( v9 > 4 )
+        return -1073741811;
+      v4->u.Word[v21] = __ROR2__(strtol(v6, 0LL, 16), 8);
     }
   }
-  *Terminator = v6;
-  if ( v9 )
+  else
   {
-LABEL_58:
-    if ( v9 != 3 )
+    if ( v5 != 2 )
       return -1073741811;
-    ++v8;
+    v4->u.Word[v11] = 0;
   }
-  if ( !v11 && v8 != 7 )
-    return -1073741811;
-  if ( v7 != 1 )
+  if ( v10 )
   {
-    if ( v7 == 2 )
-    {
-      v15 = v23;
-      v23->u.Word[v24] = 0;
-      goto LABEL_71;
-    }
-    return -1073741811;
-  }
-  if ( v9 )
-  {
-    if ( v10 <= 3 )
-    {
-      v16 = strtol(Str, 0LL, 10);
-      if ( v16 <= 0xFF )
-      {
-        v15 = v23;
-        v23->u.Byte[2 * v24 + v9] = v16;
-        goto LABEL_71;
-      }
-    }
-    return -1073741811;
-  }
-  if ( v10 > 4 )
-    return -1073741811;
-  v23->u.Word[v24] = __ROR2__(strtol(Str, 0LL, 16), 8);
-  v15 = v23;
-LABEL_71:
-  if ( v11 )
-  {
-    v17 = (char *)v15 + 2 * v11;
-    memmove((char *)&v15[1] + 2 * (v11 - v8), v17, 2LL * (v8 - v11));
-    memset(v17, 0, 2LL * (8 - v8));
+    memmove((char *)&v4[1] + 2 * (v10 - v7), (char *)v4 + 2 * v10, 2LL * (v7 - v10));
+    memset((char *)v4 + 2 * v10, 0, 2LL * (8 - v7));
   }
   return 0;
 }

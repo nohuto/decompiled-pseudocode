@@ -1,30 +1,35 @@
 /*
- * XREFs of WheaAddErrorSourceDeviceDriverV1 @ 0x1403B49C0
+ * XREFs of WheaAddErrorSourceDeviceDriverV1 @ 0x1403BA670
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     WheaAddErrorSourceDeviceDriver @ 0x140820ED0 (WheaAddErrorSourceDeviceDriver.c)
+ *     WheaAddErrorSourceDeviceDriver @ 0x1407AF530 (WheaAddErrorSourceDeviceDriver.c)
  */
 
-__int64 __fastcall WheaAddErrorSourceDeviceDriverV1(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall WheaAddErrorSourceDeviceDriverV1(__int64 a1, __int128 *a2, __int64 a3, int a4)
 {
-  unsigned int v8; // eax
-  __int128 v9; // xmm1
-  _OWORD v11[6]; // [rsp+20h] [rbp-68h] BYREF
+  __int128 v4; // xmm0
+  __int128 v5; // xmm1
+  _OWORD v7[2]; // [rsp+20h] [rbp-68h] BYREF
+  __int64 v8; // [rsp+40h] [rbp-48h]
+  int v9; // [rsp+48h] [rbp-40h]
+  int v10; // [rsp+4Ch] [rbp-3Ch]
+  int v11; // [rsp+50h] [rbp-38h]
+  __int128 v12; // [rsp+54h] [rbp-34h]
+  __int128 v13; // [rsp+64h] [rbp-24h]
 
-  memset(v11, 0, 0x54uLL);
   if ( *(_DWORD *)a2 != 1 )
     return 3221225712LL;
-  v8 = *(_DWORD *)(a2 + 40);
-  v9 = *(_OWORD *)(a2 + 16);
-  v11[0] = *(_OWORD *)a2;
-  *(_QWORD *)&v11[2] = *(_QWORD *)(a2 + 32);
-  *((_QWORD *)&v11[2] + 1) = __PAIR64__(a4, v8);
-  v11[1] = v9;
-  *(_OWORD *)((char *)&v11[3] + 4) = DEFAULT_DEVICE_DRIVER_CREATOR_GUID;
-  LODWORD(v11[3]) = 1;
-  *(_OWORD *)((char *)&v11[4] + 4) = CPER_EMPTY_GUID;
-  LODWORD(v11[0]) = 2;
-  return WheaAddErrorSourceDeviceDriver(a1, v11, a3);
+  v4 = *a2;
+  v5 = a2[1];
+  v9 = *((_DWORD *)a2 + 10);
+  v7[0] = v4;
+  v8 = *((_QWORD *)a2 + 4);
+  v10 = a4;
+  v7[1] = v5;
+  v11 = 1;
+  v12 = DEFAULT_DEVICE_DRIVER_CREATOR_GUID;
+  LODWORD(v7[0]) = 2;
+  v13 = CPER_EMPTY_GUID;
+  return WheaAddErrorSourceDeviceDriver(a1, v7);
 }

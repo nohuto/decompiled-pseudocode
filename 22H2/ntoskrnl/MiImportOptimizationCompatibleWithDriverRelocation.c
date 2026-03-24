@@ -1,21 +1,17 @@
 /*
- * XREFs of MiImportOptimizationCompatibleWithDriverRelocation @ 0x140B4AA08
+ * XREFs of MiImportOptimizationCompatibleWithDriverRelocation @ 0x140A503EC
  * Callers:
- *     MiHandleBootImage @ 0x140B4A1A8 (MiHandleBootImage.c)
+ *     MiHandleBootImage @ 0x140A4FB14 (MiHandleBootImage.c)
  * Callees:
- *     RtlIsImageFullyRetpolined @ 0x14035F928 (RtlIsImageFullyRetpolined.c)
- *     MiDoesDriverProvideBaseImageImports @ 0x140B4AA60 (MiDoesDriverProvideBaseImageImports.c)
+ *     RtlIsImageFullyRetpolined @ 0x140372608 (RtlIsImageFullyRetpolined.c)
+ *     MiDoesDriverProvideImportsForDriver @ 0x140A50464 (MiDoesDriverProvideImportsForDriver.c)
  */
 
-__int64 __fastcall MiImportOptimizationCompatibleWithDriverRelocation(__int64 a1)
+_BOOL8 __fastcall MiImportOptimizationCompatibleWithDriverRelocation(__int64 a1)
 {
-  unsigned int v2; // ebx
-
-  if ( (KiSpeculationFeatures & 0x40000000000LL) == 0 )
-    return 1LL;
-  v2 = 0;
-  if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 && !(unsigned int)RtlIsImageFullyRetpolined(*(_QWORD *)(a1 + 48)) )
-    return 1LL;
-  LOBYTE(v2) = (unsigned int)MiDoesDriverProvideBaseImageImports(a1) == 0;
-  return v2;
+  return (KiSpeculationFeatures & 0x40000000000LL) == 0
+      || (KiSpeculationFeatures & 0x20000000000LL) != 0
+      && !(unsigned int)RtlIsImageFullyRetpolined(*(_QWORD *)(a1 + 48))
+      || !(unsigned int)MiDoesDriverProvideImportsForDriver(a1, qword_140D58720)
+      && !(unsigned int)MiDoesDriverProvideImportsForDriver(a1, MxHalDataTableEntry);
 }

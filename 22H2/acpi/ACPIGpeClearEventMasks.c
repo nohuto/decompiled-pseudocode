@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIGpeClearEventMasks @ 0x1C002C0F8
+ * XREFs of ACPIGpeClearEventMasks @ 0x1C0025C40
  * Callers:
- *     ACPITableLoad @ 0x1C003F190 (ACPITableLoad.c)
- *     ACPITableUnload @ 0x1C003F810 (ACPITableUnload.c)
+ *     ACPITableLoad @ 0x1C00258B0 (ACPITableLoad.c)
+ *     ACPITableUnload @ 0x1C005FA70 (ACPITableUnload.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIGpeClearRegisters @ 0x1C002C260 (ACPIGpeClearRegisters.c)
- *     ACPIGpeEnableDisableEvents @ 0x1C002C2BC (ACPIGpeEnableDisableEvents.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C00265D0 (ACPIGpeEnableDisableEvents.c)
+ *     ACPIGpeClearRegisters @ 0x1C0026834 (ACPIGpeClearRegisters.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 void ACPIGpeClearEventMasks()

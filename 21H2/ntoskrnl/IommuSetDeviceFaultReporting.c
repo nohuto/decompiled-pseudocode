@@ -1,11 +1,11 @@
 /*
- * XREFs of IommuSetDeviceFaultReporting @ 0x140528C60
+ * XREFs of IommuSetDeviceFaultReporting @ 0x1404DAAC0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IommuSetDeviceFaultReporting(__int64 a1, int a2, char a3, _QWORD *a4)
@@ -65,9 +65,9 @@ __int64 __fastcall IommuSetDeviceFaultReporting(__int64 a1, int a2, char a3, _QW
   if ( !v4 )
     return 3221225485LL;
   if ( a3 )
-    *(_QWORD *)(v9 + 64) = *a4;
-  *(_QWORD *)(v9 + 64) = 0LL;
+    *(_QWORD *)(v9 + 40) = *a4;
+  *(_QWORD *)(v9 + 40) = 0LL;
   result = 3221225474LL;
-  *(_QWORD *)(v9 + 72) = 0LL;
+  *(_QWORD *)(v9 + 48) = 0LL;
   return result;
 }

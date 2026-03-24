@@ -1,39 +1,64 @@
 /*
- * XREFs of imp_WdfRequestWdmFormatUsingStackLocation @ 0x1C001B1A0
+ * XREFs of imp_WdfRequestWdmFormatUsingStackLocation @ 0x1C0016850
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?VerifierSetFormatted@FxRequestBase@@QEAAXXZ @ 0x1C001B250 (-VerifierSetFormatted@FxRequestBase@@QEAAXXZ.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0003F34 (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
+ *     ?SetVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0049D8C (-SetVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 void __fastcall imp_WdfRequestWdmFormatUsingStackLocation(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
-        WDFREQUEST__ *Request,
+        unsigned __int64 Request,
         _IO_STACK_LOCATION *Stack)
 {
-  FxIrp *p_m_Irp; // rcx
+  __int64 Offset; // rdx
+  FxRequest *v6; // rcx
+  FxIrp *p_m_Irp; // rdx
   _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  void *retaddr; // [rsp+28h] [rbp+0h]
-  FxRequest *pRequest; // [rsp+30h] [rbp+8h] BYREF
+  _FX_DRIVER_GLOBALS *m_Globals; // rax
+  void *retaddr; // [rsp+38h] [rbp+0h]
+  FxRequest *pRequest; // [rsp+48h] [rbp+10h] BYREF
 
   pRequest = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Request, 0x1008u, (void **)&pRequest);
+  if ( !Request )
+    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, WDF_INVALID_HANDLE, 0LL, 0x1008uLL);
+  LOWORD(Offset) = 0;
+  v6 = (FxRequest *)(~Request & 0xFFFFFFFFFFFFFFF8uLL);
+  if ( (Request & 1) != 0 )
+  {
+    Offset = LOWORD(v6->__vftable);
+    v6 = (FxRequest *)((char *)v6 - Offset);
+  }
+  if ( v6->m_Type == 4104 )
+  {
+    pRequest = v6;
+  }
+  else
+  {
+    FxObjectHandleGetPtrQI(v6, (void **)&pRequest, (void *)Request, 0x1008u, Offset);
+    v6 = pRequest;
+  }
   if ( !Stack )
-    FxVerifierNullBugCheck(pRequest->m_Globals, retaddr);
-  p_m_Irp = &pRequest->m_Irp;
-  if ( pRequest == (FxRequest *)-152LL )
-    FxVerifierBugCheckWorker(MEMORY[0xFFFFFFFFFFFFFF78], WDF_REQUEST_FATAL_ERROR, 2uLL, (unsigned __int64)Request);
+    FxVerifierNullBugCheck(v6->m_Globals, retaddr);
+  p_m_Irp = &v6->m_Irp;
+  if ( v6 == (FxRequest *)-152LL )
+    FxVerifierBugCheckWorker(MEMORY[0xFFFFFFFFFFFFFF78], WDF_REQUEST_FATAL_ERROR, 2uLL, Request);
   if ( p_m_Irp->m_Irp->CurrentLocation < 2 )
-    FxVerifierBugCheckWorker(pRequest->m_Globals, WDF_REQUEST_FATAL_ERROR, 1uLL, (unsigned __int64)&pRequest->m_Irp);
-  pRequest->m_NextStackLocationFormatted = 1;
+    FxVerifierBugCheckWorker(v6->m_Globals, WDF_REQUEST_FATAL_ERROR, 1uLL, (unsigned __int64)&v6->m_Irp);
+  v6->m_NextStackLocationFormatted = 1;
   CurrentStackLocation = p_m_Irp->m_Irp->Tail.Overlay.CurrentStackLocation;
   *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&Stack->MajorFunction;
   *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&Stack->Parameters.NotifyDirectoryEx.CompletionFilter;
   *(_OWORD *)(&CurrentStackLocation[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&Stack->Parameters.SetQuota + 6);
   CurrentStackLocation[-1].FileObject = Stack->FileObject;
   CurrentStackLocation[-1].Control = 0;
-  FxRequestBase::VerifierSetFormatted(pRequest);
+  m_Globals = pRequest->m_Globals;
+  if ( m_Globals->FxVerifierOn )
+  {
+    if ( m_Globals->FxVerifierIO )
+      FxRequestBase::SetVerifierFlags(pRequest, 128);
+  }
 }

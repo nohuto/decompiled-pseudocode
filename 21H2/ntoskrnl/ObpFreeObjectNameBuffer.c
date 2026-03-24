@@ -1,16 +1,15 @@
 /*
- * XREFs of ObpFreeObjectNameBuffer @ 0x14071F0D0
+ * XREFs of ObpFreeObjectNameBuffer @ 0x140661348
  * Callers:
- *     ObReferenceObjectByNameEx @ 0x1406686C8 (ObReferenceObjectByNameEx.c)
- *     ObReferenceObjectByName @ 0x14071EEC0 (ObReferenceObjectByName.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
- *     IopAllocRealFileObject @ 0x14072DDC0 (IopAllocRealFileObject.c)
- *     CmpCreateKeyBody @ 0x14072E210 (CmpCreateKeyBody.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
+ *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
+ *     ObReferenceObjectByName @ 0x140661100 (ObReferenceObjectByName.c)
+ *     CmpCreateKeyBody @ 0x1406FC690 (CmpCreateKeyBody.c)
+ *     IopAllocRealFileObject @ 0x1407030E0 (IopAllocRealFileObject.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObpFreeObjectNameBuffer(__int64 a1)

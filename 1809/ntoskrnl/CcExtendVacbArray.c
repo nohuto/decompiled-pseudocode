@@ -1,20 +1,20 @@
 /*
- * XREFs of CcExtendVacbArray @ 0x14012C9A4
+ * XREFs of CcExtendVacbArray @ 0x14012C9C4
  * Callers:
  *     CcSetFileSizesEx @ 0x14007CFC0 (CcSetFileSizesEx.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     VacbLevelReference @ 0x140022BAC (VacbLevelReference.c)
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     CcFreeUnusedVacbLevels @ 0x14012CE5C (CcFreeUnusedVacbLevels.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x14012CEB4 (CcReleaseBcbLockAndVacbLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x14012CEF4 (CcAcquireBcbLockAndVacbLock.c)
- *     CcAllocateVacbLevels @ 0x14012CF28 (CcAllocateVacbLevels.c)
- *     CcAllocateVacbLevel @ 0x14012CFCC (CcAllocateVacbLevel.c)
- *     CcCalculateVacbLevelLockCount @ 0x14015FB4C (CcCalculateVacbLevelLockCount.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     CcFreeUnusedVacbLevels @ 0x14012CE7C (CcFreeUnusedVacbLevels.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14012CED4 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x14012CF14 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcAllocateVacbLevels @ 0x14012CF48 (CcAllocateVacbLevels.c)
+ *     CcAllocateVacbLevel @ 0x14012CFEC (CcAllocateVacbLevel.c)
+ *     CcCalculateVacbLevelLockCount @ 0x14015FB6C (CcCalculateVacbLevelLockCount.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of ?LockForRead@CColorKeyBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x1802B7830
+ * XREFs of ?LockForRead@CColorKeyBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x1802683C0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CF54 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?DoesContain@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800A8890 (-DoesContain@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HrCreateDestBitmap@@YAJIIAEBUPixelFormatInfo@@PEAPEAVIBitmapDest@@@Z @ 0x18029F950 (-HrCreateDestBitmap@@YAJIIAEBUPixelFormatInfo@@PEAPEAVIBitmapDest@@@Z.c)
- *     ?ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z @ 0x1802B68FC (-ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?DoesContain@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18003A95C (-DoesContain@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D0818 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?HrCreateDestBitmap@@YAJIIAEBUPixelFormatInfo@@PEAPEAVIBitmapDest@@@Z @ 0x180248F6C (-HrCreateDestBitmap@@YAJIIAEBUPixelFormatInfo@@PEAPEAVIBitmapDest@@@Z.c)
+ *     ?ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z @ 0x1802675A4 (-ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z.c)
  */
 
-__int64 __fastcall CColorKeyBitmap::LockForRead(CColorKeyBitmap *this, _DWORD *a2, __int64 a3)
+__int64 __fastcall CColorKeyBitmap::LockForRead(__int64 a1, _DWORD *a2, __int64 a3)
 {
   __int64 v6; // rcx
-  char *v7; // rcx
+  __int64 (__fastcall ***v7)(_QWORD, _BYTE *); // rcx
   const struct PixelFormatInfo *v8; // rax
   int v9; // eax
   __int64 v10; // rcx
@@ -47,16 +47,16 @@ __int64 __fastcall CColorKeyBitmap::LockForRead(CColorKeyBitmap *this, _DWORD *a
   struct WICRect v35; // [rsp+58h] [rbp-28h] BYREF
   _BYTE v36[16]; // [rsp+68h] [rbp-18h] BYREF
 
-  (**(void (__fastcall ***)(CColorKeyBitmap *, _DWORD *))this)(this, v33);
+  (**(void (__fastcall ***)(__int64, _DWORD *))a1)(a1, v33);
   v35.Width = v33[0];
   v35.Height = v33[1];
   *(_QWORD *)&v35.X = 0LL;
   if ( TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::DoesContain((__int64)&v35, (__int64)a2) )
   {
     v30 = 0LL;
-    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v30);
-    v7 = (char *)this + *(int *)(*((_QWORD *)this + 1) + 8LL) + 8;
-    v8 = (const struct PixelFormatInfo *)(**(__int64 (__fastcall ***)(char *, _BYTE *))v7)(v7, v36);
+    wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((__int64 *)&v30);
+    v7 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(a1 + *(int *)(*(_QWORD *)(a1 + 8) + 8LL) + 8LL);
+    v8 = (const struct PixelFormatInfo *)(**v7)(v7, v36);
     v9 = HrCreateDestBitmap(a2[2] - *a2, a2[3] - a2[1], v8, &v30);
     v11 = v9;
     if ( v9 < 0 )
@@ -101,9 +101,9 @@ __int64 __fastcall CColorKeyBitmap::LockForRead(CColorKeyBitmap *this, _DWORD *a
           }
           else
           {
-            v19 = (*(__int64 (__fastcall **)(_QWORD, _DWORD *, _QWORD, _QWORD, unsigned __int8 *))(**((_QWORD **)this + 5)
+            v19 = (*(__int64 (__fastcall **)(_QWORD, _DWORD *, _QWORD, _QWORD, unsigned __int8 *))(**(_QWORD **)(a1 + 32)
                                                                                                  + 24LL))(
-                    *((_QWORD *)this + 5),
+                    *(_QWORD *)(a1 + 32),
                     a2,
                     v31,
                     v32,
@@ -115,7 +115,7 @@ __int64 __fastcall CColorKeyBitmap::LockForRead(CColorKeyBitmap *this, _DWORD *a
             }
             else
             {
-              v22 = CColorKeyBitmap::ApplyColorKeyToBuffer(this, &v35, v31, v21, v34);
+              v22 = CColorKeyBitmap::ApplyColorKeyToBuffer((CColorKeyBitmap *)(a1 - 16), &v35, v31, v21, v34);
               v11 = v22;
               if ( v22 < 0 )
               {
@@ -145,7 +145,7 @@ __int64 __fastcall CColorKeyBitmap::LockForRead(CColorKeyBitmap *this, _DWORD *a
       }
       wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v29);
     }
-    wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)&v30);
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v30);
   }
   else
   {

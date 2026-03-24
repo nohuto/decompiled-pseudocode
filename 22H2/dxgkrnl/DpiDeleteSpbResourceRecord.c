@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiDeleteSpbResourceRecord @ 0x1C03A7F9C
+ * XREFs of DpiDeleteSpbResourceRecord @ 0x1C02D7D8C
  * Callers:
- *     DpiCheckSpbResourceLeakage @ 0x1C0066430 (DpiCheckSpbResourceLeakage.c)
- *     DpCloseSpbResource @ 0x1C03A7680 (DpCloseSpbResource.c)
+ *     DpiCheckSpbResourceLeakage @ 0x1C0059674 (DpiCheckSpbResourceLeakage.c)
+ *     DpCloseSpbResource @ 0x1C02D7340 (DpCloseSpbResource.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 __int64 __fastcall DpiDeleteSpbResourceRecord(__int64 a1, void ***a2)

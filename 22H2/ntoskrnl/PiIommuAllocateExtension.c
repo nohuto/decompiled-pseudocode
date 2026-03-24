@@ -1,80 +1,61 @@
 /*
- * XREFs of PiIommuAllocateExtension @ 0x14084359C
+ * XREFs of PiIommuAllocateExtension @ 0x14076553C
  * Callers:
- *     PiDmaGuardProcessNewDeviceNode @ 0x1407FD160 (PiDmaGuardProcessNewDeviceNode.c)
+ *     PiDmaGuardProcessNewDeviceNode @ 0x140764C00 (PiDmaGuardProcessNewDeviceNode.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PipIommuRetrieveDeviceId @ 0x1408436C4 (PipIommuRetrieveDeviceId.c)
- *     PiIommuFreeExtension @ 0x14086596C (PiIommuFreeExtension.c)
- *     PnpTraceIommuDeviceProperties @ 0x14096BF1C (PnpTraceIommuDeviceProperties.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PipIommuRetrieveDeviceId @ 0x140765640 (PipIommuRetrieveDeviceId.c)
+ *     PiIommuFreeExtension @ 0x1407657AC (PiIommuFreeExtension.c)
+ *     PnpTraceIommuDeviceProperties @ 0x1408B1D50 (PnpTraceIommuDeviceProperties.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiIommuAllocateExtension(__int64 a1, __int64 a2, ULONG_PTR *a3)
+__int64 __fastcall PiIommuAllocateExtension(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  __int64 Pool2; // rax
-  ULONG_PTR v7; // rbx
+  _OWORD *PoolWithTag; // rbx
   int DeviceId; // edi
-  __int64 (__fastcall *v9)(_QWORD, unsigned int *); // rax
-  char v10; // al
-  char v11; // cl
-  char v12; // dl
-  char v13; // al
+  __int64 (__fastcall *v8)(_QWORD, unsigned int *); // rax
+  char v9; // cl
+  char v10; // dl
+  char v11; // al
   __int64 result; // rax
-  char v15; // cl
-  char v16; // [rsp+50h] [rbp+18h] BYREF
-  unsigned int v17; // [rsp+58h] [rbp+20h] BYREF
+  unsigned int v13; // [rsp+50h] [rbp+18h] BYREF
 
-  v17 = 0;
-  v16 = 0;
-  Pool2 = ExAllocatePool2(256LL, 24LL, 1685089872LL);
-  v7 = Pool2;
-  if ( !Pool2 )
+  v13 = 0;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x64706E50u);
+  if ( PoolWithTag )
   {
-    DeviceId = -1073741670;
-    goto LABEL_10;
-  }
-  DeviceId = PipIommuRetrieveDeviceId(a2, Pool2);
-  if ( DeviceId < 0 )
-    goto LABEL_14;
-  v9 = *(__int64 (__fastcall **)(_QWORD, unsigned int *))(a2 + 56);
-  if ( !v9 )
-  {
-    DeviceId = -1073741637;
-    goto LABEL_14;
-  }
-  DeviceId = v9(*(_QWORD *)(a2 + 8), &v17);
-  if ( DeviceId < 0 )
-  {
-LABEL_14:
-    PiIommuFreeExtension(v7);
-    v7 = 0LL;
-    goto LABEL_10;
-  }
-  v10 = *(_BYTE *)(v7 + 16) ^ (*(_BYTE *)(v7 + 16) ^ (8 * (v17 >> 1))) & 8;
-  *(_BYTE *)(v7 + 16) = v10;
-  v11 = v10 ^ (v10 ^ (4 * v17)) & 4;
-  *(_BYTE *)(v7 + 16) = v11;
-  v12 = v11 ^ (v11 ^ (32 * (v17 >> 3))) & 0x20;
-  *(_BYTE *)(v7 + 16) = v12;
-  v13 = v12 ^ (v12 ^ (16 * (v17 >> 2))) & 0x10;
-  *(_BYTE *)(v7 + 16) = v13;
-  if ( (v13 & 0x24) != 0 )
-    PnpTraceIommuDeviceProperties(a1, v17);
-  DeviceId = (*(__int64 (__fastcall **)(_QWORD, char *))(HalIommuDispatch + 152))(*(_QWORD *)v7, &v16);
-  if ( DeviceId >= 0 )
-  {
-    v15 = *(_BYTE *)(v7 + 16) ^ (*(_BYTE *)(v7 + 16) ^ (32 * v16)) & 0x40;
-    *(_BYTE *)(v7 + 16) = v15;
-    *(_BYTE *)(v7 + 16) = (v16 << 7) | v15 & 0x7F;
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    *((_QWORD *)PoolWithTag + 4) = 0LL;
+    DeviceId = PipIommuRetrieveDeviceId(a2, PoolWithTag);
+    if ( DeviceId < 0
+      || ((v8 = *(__int64 (__fastcall **)(_QWORD, unsigned int *))(a2 + 56)) == 0LL
+        ? (DeviceId = -1073741637)
+        : (DeviceId = v8(*(_QWORD *)(a2 + 8), &v13)),
+          DeviceId < 0) )
+    {
+      PiIommuFreeExtension((ULONG_PTR)PoolWithTag);
+      PoolWithTag = 0LL;
+    }
+    else
+    {
+      *((_BYTE *)PoolWithTag + 16) ^= (*((_BYTE *)PoolWithTag + 16) ^ (8 * (v13 >> 1))) & 8;
+      v9 = *((_BYTE *)PoolWithTag + 16) ^ (*((_BYTE *)PoolWithTag + 16) ^ (4 * v13)) & 4;
+      *((_BYTE *)PoolWithTag + 16) = v9;
+      v10 = v9 ^ (v9 ^ (32 * (v13 >> 3))) & 0x20;
+      *((_BYTE *)PoolWithTag + 16) = v10;
+      v11 = v10 ^ (v10 ^ (16 * (v13 >> 2))) & 0x10;
+      *((_BYTE *)PoolWithTag + 16) = v11;
+      if ( (v11 & 0x24) != 0 )
+        PnpTraceIommuDeviceProperties(a1, v13);
+    }
   }
   else
   {
-    DeviceId = 0;
+    DeviceId = -1073741670;
   }
-  *(_DWORD *)(v7 + 20) = 2;
-LABEL_10:
   result = (unsigned int)DeviceId;
-  *a3 = v7;
+  *a3 = PoolWithTag;
   return result;
 }

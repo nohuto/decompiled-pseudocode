@@ -1,8 +1,8 @@
 /*
- * XREFs of DpiCopyUnicodeString @ 0x1C0213FF8
+ * XREFs of DpiCopyUnicodeString @ 0x1C0185B8C
  * Callers:
- *     DpiGetDeviceRegistryPaths @ 0x1C001D298 (DpiGetDeviceRegistryPaths.c)
- *     DpiGdoSetupGdiParameters @ 0x1C02134D0 (DpiGdoSetupGdiParameters.c)
+ *     DpiGetDeviceRegistryPaths @ 0x1C002260C (DpiGetDeviceRegistryPaths.c)
+ *     DpiGdoSetupGdiParameters @ 0x1C018736C (DpiGdoSetupGdiParameters.c)
  * Callees:
  *     <none>
  */
@@ -10,30 +10,38 @@
 __int64 __fastcall DpiCopyUnicodeString(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
   unsigned int v2; // ebx
-  wchar_t *Pool2; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
+  wchar_t *PoolWithTag; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v11; // rax
+  __int64 v12; // rax
 
   v2 = 0;
-  if ( !DestinationString || !SourceString || !SourceString->MaximumLength || !SourceString->Buffer )
+  if ( DestinationString && SourceString && SourceString->MaximumLength && SourceString->Buffer )
   {
-    v7 = -1073741811LL;
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, SourceString->MaximumLength, 0x74727044u);
+    DestinationString->Buffer = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      DestinationString->MaximumLength = SourceString->MaximumLength;
+      RtlCopyUnicodeString(DestinationString, SourceString);
+    }
+    else
+    {
+      v2 = -1073741801;
+      v11 = WdLogNewEntry5_WdLowResource(v7, v6, v8, v9);
+      *(_QWORD *)(v11 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v11);
+    }
+  }
+  else
+  {
     v2 = -1073741811;
-    v8 = 2LL;
-    goto LABEL_10;
+    v12 = WdLogNewEntry5_WdError(DestinationString, SourceString);
+    *(_QWORD *)(v12 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v12);
   }
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, SourceString->MaximumLength, 1953656900LL);
-  DestinationString->Buffer = Pool2;
-  if ( !Pool2 )
-  {
-    v7 = -1073741801LL;
-    v2 = -1073741801;
-    v8 = 6LL;
-LABEL_10:
-    WdLogSingleEntry1(v8, v7);
-    return v2;
-  }
-  DestinationString->MaximumLength = SourceString->MaximumLength;
-  RtlCopyUnicodeString(DestinationString, SourceString);
   return v2;
 }

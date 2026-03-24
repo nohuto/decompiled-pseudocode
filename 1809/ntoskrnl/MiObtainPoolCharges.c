@@ -1,10 +1,10 @@
 /*
- * XREFs of MiObtainPoolCharges @ 0x1401097C4
+ * XREFs of MiObtainPoolCharges @ 0x1401097E4
  * Callers:
  *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiGetPoolPages @ 0x1400CB1A0 (MiGetPoolPages.c)
- *     MmAllocateIndependentPagesEx @ 0x140108F9C (MmAllocateIndependentPagesEx.c)
- *     MiExpandNonPagedPool @ 0x1401626C8 (MiExpandNonPagedPool.c)
+ *     MiGetPoolPages @ 0x1400CB1C0 (MiGetPoolPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
+ *     MiExpandNonPagedPool @ 0x1401626E8 (MiExpandNonPagedPool.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)

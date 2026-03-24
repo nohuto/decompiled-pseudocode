@@ -1,11 +1,11 @@
 /*
- * XREFs of InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_38c6dc7437b728cc1d00ec4d9055c622__&DrvSampleDisplayState_ @ 0x1C012F1AC
+ * XREFs of InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_38c6dc7437b728cc1d00ec4d9055c622__&DrvSampleDisplayState_ @ 0x1C0115948
  * Callers:
- *     ?xxxDispBrokerSetDisplayConfig@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@II_N@Z @ 0x1C012F6E4 (-xxxDispBrokerSetDisplayConfig@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@II_N@Z.c)
+ *     ?xxxDispBrokerSetDisplayConfig@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@II_N@Z @ 0x1C01162AC (-xxxDispBrokerSetDisplayConfig@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@II_N@Z.c)
  * Callees:
- *     DrvSampleDisplayState @ 0x1C001F260 (DrvSampleDisplayState.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     DrvSampleDisplayState @ 0x1C001CCD0 (DrvSampleDisplayState.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_38c6dc7437b728cc1d00ec4d9055c622___DrvSampleDisplayState_(
@@ -33,7 +33,7 @@ __int64 __fastcall InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_3
     *((_DWORD *)a1 + 18) = *a2[2];
     LOBYTE(v7) = *(_BYTE *)a2[3] != 0;
     *((_DWORD *)a1 + 19) = v7;
-    memmove(a1 + 40, *(const void **)a2[4], 216LL * **a2);
+    memmove(a1 + 40, *(const void **)a2[4], 200LL * **a2);
     return 0LL;
   }
   return result;

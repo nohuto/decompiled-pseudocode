@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpCompareInstancePath @ 0x1406BBFA0
+ * XREFs of PnpCompareInstancePath @ 0x1406A7EE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall PnpCompareInstancePath(

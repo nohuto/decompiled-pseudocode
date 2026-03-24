@@ -1,41 +1,34 @@
 /*
- * XREFs of ?IsEmpty@CDirtyRegion@@QEBA_NXZ @ 0x1800C282C
+ * XREFs of ?IsEmpty@CDirtyRegion@@QEBA_NXZ @ 0x18008F49C
  * Callers:
- *     ?AddInvalidRects@CLegacyRenderTarget@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z @ 0x180049720 (-AddInvalidRects@CLegacyRenderTarget@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z.c)
- *     ?CalcOcclusion@CDirtyRegion@@QEBAJXZ @ 0x1800C2690 (-CalcOcclusion@CDirtyRegion@@QEBAJXZ.c)
- *     ?Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18010A2F8 (-Render@CRemoteRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?Render@CRemoteAppRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801EB650 (-Render@CRemoteAppRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801F9888 (-Render@CDDARenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x1802A9CE4 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
+ *     ?PreCompute@CVisualTree@@IEAAJXZ @ 0x18008E8A8 (-PreCompute@CVisualTree@@IEAAJXZ.c)
+ *     ?GetDirtyRegion@CDesktopTree@@QEBAPEBVCDirtyRegion@@XZ @ 0x18008F460 (-GetDirtyRegion@CDesktopTree@@QEBAPEBVCDirtyRegion@@XZ.c)
+ *     ?AddInvalidRects@CLegacyRenderTarget@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z @ 0x1800911E0 (-AddInvalidRects@CLegacyRenderTarget@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z.c)
+ *     ?CalcOcclusion@CDirtyRegion@@QEBAJXZ @ 0x1800D77D8 (-CalcOcclusion@CDirtyRegion@@QEBAJXZ.c)
+ *     ?Render@CRemoteAppRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800ED25C (-Render@CRemoteAppRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CLocalAppRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EDD88 (-Render@CLocalAppRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x180257E24 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
  * Callees:
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x18004B124 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     <none>
  */
 
 bool __fastcall CDirtyRegion::IsEmpty(CDirtyRegion *this)
 {
-  char v1; // r10
-  CDirtyRegion *v2; // r8
-  int v3; // edx
-  unsigned int v5; // r9d
-  int v6; // r9d
+  bool result; // al
+  int v2; // edx
+  float *i; // rcx
 
-  v1 = 0;
-  v2 = this;
-  if ( !*((_BYTE *)this + 4420) )
+  result = 1;
+  if ( !*((_BYTE *)this + 4456) )
   {
-    if ( *((_BYTE *)this + 4422) )
+    if ( *((_BYTE *)this + 4458) )
+      return *((_DWORD *)this + 713) == 0;
+    v2 = 0;
+    for ( i = (float *)((char *)this + 1612); *(i - 1) <= *(i - 3) || *i <= *(i - 2); i += 4 )
     {
-      LOBYTE(v3) = *((_DWORD *)this + 705) == 0;
-      return v3;
-    }
-    v5 = 0;
-    while ( TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)v2 + 4 * v5 + 392) )
-    {
-      v5 = v3 + v6;
-      if ( v5 >= 8 )
-        return v3;
+      if ( (unsigned int)++v2 >= 8 )
+        return result;
     }
   }
-  LOBYTE(v3) = v1;
-  return v3;
+  return 0;
 }

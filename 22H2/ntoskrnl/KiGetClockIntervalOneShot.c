@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetClockIntervalOneShot @ 0x1403406D0
+ * XREFs of KiGetClockIntervalOneShot @ 0x1402F10CC
  * Callers:
- *     KiSetClockIntervalOneShot @ 0x140340658 (KiSetClockIntervalOneShot.c)
- *     KiRestoreClockTickRate @ 0x140340810 (KiRestoreClockTickRate.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1405700EC (KiSetClockIntervalToMinimumRequested.c)
+ *     KiCheckForTimerExpiration @ 0x1402247B0 (KiCheckForTimerExpiration.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1402F0984 (KiSetClockIntervalToMinimumRequested.c)
+ *     KiRestoreClockTickRate @ 0x1402F1058 (KiRestoreClockTickRate.c)
  * Callees:
  *     <none>
  */

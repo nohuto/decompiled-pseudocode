@@ -1,9 +1,9 @@
 /*
- * XREFs of EngDeleteSurface @ 0x1C0062910
+ * XREFs of EngDeleteSurface @ 0x1C001CE50
  * Callers:
  *     <none>
  * Callees:
- *     bDeleteSurface @ 0x1C0062930 (bDeleteSurface.c)
+ *     bDeleteSurface @ 0x1C001CE70 (bDeleteSurface.c)
  */
 
 BOOL __stdcall EngDeleteSurface(HSURF hsurf)

@@ -1,5 +1,5 @@
 /*
- * XREFs of PfSnQueryPrefetcherInformation @ 0x1406BA85C
+ * XREFs of PfSnQueryPrefetcherInformation @ 0x1406BA83C
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
@@ -8,8 +8,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     PfSnGetCompletedTrace @ 0x1406BAA9C (PfSnGetCompletedTrace.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     PfSnGetCompletedTrace @ 0x1406BAA7C (PfSnGetCompletedTrace.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfSnQueryPrefetcherInformation(__int64 a1, __int128 *a2, int a3, KPROCESSOR_MODE a4, _DWORD *a5)

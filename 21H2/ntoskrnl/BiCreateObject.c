@@ -1,20 +1,20 @@
 /*
- * XREFs of BiCreateObject @ 0x140A1CF34
+ * XREFs of BiCreateObject @ 0x14096EFC8
  * Callers:
- *     BcdCreateObject @ 0x140A1CB84 (BcdCreateObject.c)
- *     BiBindEfiEntryToBcdObject @ 0x140A1E6EC (BiBindEfiEntryToBcdObject.c)
+ *     BcdCreateObject @ 0x14096EC18 (BcdCreateObject.c)
+ *     BiBindEfiEntryToBcdObject @ 0x140970784 (BiBindEfiEntryToBcdObject.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExUuidCreate @ 0x140681B30 (ExUuidCreate.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     BiCreateKey @ 0x1408036C8 (BiCreateKey.c)
- *     BiOpenKey @ 0x140813164 (BiOpenKey.c)
- *     BiCloseKey @ 0x1408132F0 (BiCloseKey.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiIsObjectAliased @ 0x140813904 (BiIsObjectAliased.c)
- *     BiIsValidObject @ 0x140A1D274 (BiIsValidObject.c)
- *     BiSetObjectDescription @ 0x140A1D308 (BiSetObjectDescription.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     ExUuidCreate @ 0x1407208B0 (ExUuidCreate.c)
+ *     BiCreateKey @ 0x140783C10 (BiCreateKey.c)
+ *     BiOpenKey @ 0x140784404 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078458C (BiCloseKey.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiIsObjectAliased @ 0x140784F9C (BiIsObjectAliased.c)
+ *     BiIsValidObject @ 0x14096F308 (BiIsValidObject.c)
+ *     BiSetObjectDescription @ 0x14096F39C (BiSetObjectDescription.c)
  */
 
 NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __int64 a4, _QWORD *a5)
@@ -97,7 +97,7 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __i
     }
   }
   if ( UnicodeString.Buffer )
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeAnsiString(&UnicodeString);
   if ( v14 < 0 && v10 )
     BiCloseKey(v10);
   if ( v9 )

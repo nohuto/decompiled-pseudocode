@@ -1,11 +1,11 @@
 /*
- * XREFs of _anonymous_namespace_::SeverWindowManagementConnectionToShell @ 0x1C0236B90
+ * XREFs of _anonymous_namespace_::SeverWindowManagementConnectionToShell @ 0x1C023D698
  * Callers:
- *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C00A9418 (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
- *     _anonymous_namespace_::xxxCallIAMWindowManagementHandler @ 0x1C01090A8 (_anonymous_namespace_--xxxCallIAMWindowManagementHandler.c)
+ *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C003E22C (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
+ *     _anonymous_namespace_::xxxCallIAMWindowManagementHandler @ 0x1C00DABB0 (_anonymous_namespace_--xxxCallIAMWindowManagementHandler.c)
  * Callees:
- *     _PostMessage @ 0x1C00A5270 (_PostMessage.c)
- *     ?SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z @ 0x1C00F1A30 (-SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z.c)
+ *     _PostMessage @ 0x1C002DC40 (_PostMessage.c)
+ *     ?SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z @ 0x1C00D7884 (-SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z.c)
  */
 
 struct tagWND *__fastcall anonymous_namespace_::SeverWindowManagementConnectionToShell(

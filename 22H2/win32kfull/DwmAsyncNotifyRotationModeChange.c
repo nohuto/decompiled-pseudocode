@@ -1,31 +1,31 @@
 /*
- * XREFs of DwmAsyncNotifyRotationModeChange @ 0x1C026D278
+ * XREFs of DwmAsyncNotifyRotationModeChange @ 0x1C02749E4
  * Callers:
- *     ?xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01A7B94 (-xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK.c)
+ *     ?xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01D1954 (-xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK.c)
  * Callees:
- *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C00CD030 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ *     <none>
  */
 
 __int64 __fastcall DwmAsyncNotifyRotationModeChange(PVOID Object, int a2)
 {
-  unsigned int v4; // edi
-  _OWORD v6[2]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-18h]
-  int v8; // [rsp+48h] [rbp-10h]
-  int v9; // [rsp+4Ch] [rbp-Ch]
+  unsigned int v3; // edi
+  _DWORD v5[8]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v6; // [rsp+40h] [rbp-18h]
+  int v7; // [rsp+48h] [rbp-10h]
+  int v8; // [rsp+4Ch] [rbp-Ch]
 
-  v4 = -1073741823;
-  IncrementDWMWindowUniqueness((__int64)Object);
+  v3 = -1073741823;
+  _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    memset(v6, 0, sizeof(v6));
-    v7 = 0LL;
-    LODWORD(v6[0]) = 3145736;
-    WORD2(v6[0]) = 0x8000;
-    v8 = 1073741880;
-    v9 = a2;
-    v4 = LpcRequestPort(Object, v6);
+    memset(v5, 0, sizeof(v5));
+    v5[0] = 3145736;
+    v6 = 0LL;
+    v8 = a2;
+    LOWORD(v5[1]) = 0x8000;
+    v7 = 1073741879;
+    v3 = LpcRequestPort(Object, v5);
     ObfDereferenceObject(Object);
   }
-  return v4;
+  return v3;
 }

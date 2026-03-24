@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateDirectInkFactory@CD2DGenericInk@@SAJPEAUID2D1DeviceContext@@PEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x18028D8D0
+ * XREFs of ?CreateDirectInkFactory@CD2DGenericInk@@SAJPEAUID2D1DeviceContext@@PEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x18024D25C
  * Callers:
- *     ?LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ @ 0x1802792BC (-LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ.c)
+ *     ?LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ @ 0x18023CFAC (-LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     GetLPCreateDCompositionDirectInkFactoryPartner @ 0x18028D95C (GetLPCreateDCompositionDirectInkFactoryPartner.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     GetLPCreateDCompositionDirectInkFactoryPartner @ 0x18024D2DC (GetLPCreateDCompositionDirectInkFactoryPartner.c)
  */
 
 __int64 __fastcall CD2DGenericInk::CreateDirectInkFactory(
@@ -23,14 +23,14 @@ __int64 __fastcall CD2DGenericInk::CreateDirectInkFactory(
   v6 = LPCreateDCompositionDirectInkFactoryPartner;
   if ( LPCreateDCompositionDirectInkFactoryPartner < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, LPCreateDCompositionDirectInkFactoryPartner, 0x36u);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, LPCreateDCompositionDirectInkFactoryPartner, 0x36u, 0LL);
   }
   else
   {
     v7 = v10(a1, a2);
     v6 = v7;
     if ( v7 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x37u);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x37u, 0LL);
   }
   return v6;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?EndFigure@CPathEmitterEdge@EmitterShapes@@EEAAXW4D2D1_FIGURE_END@@@Z @ 0x180269F40
+ * XREFs of ?EndFigure@CPathEmitterEdge@EmitterShapes@@EEAAXW4D2D1_FIGURE_END@@@Z @ 0x180208DB0
  * Callers:
  *     <none>
  * Callees:
@@ -11,6 +11,6 @@ void __fastcall EmitterShapes::CPathEmitterEdge::EndFigure(
         enum D2D1_FIGURE_END a2)
 {
   EmitterShapes::CPathEmitterEdge::Figure::CalculateFigureLength(
-    (EmitterShapes::CPathEmitterEdge::Figure *)(*((_QWORD *)this + 4) - 56LL),
+    (EmitterShapes::CPathEmitterEdge::Figure *)(*((_QWORD *)this + 3) - 56LL),
     a2 == D2D1_FIGURE_END_CLOSED);
 }

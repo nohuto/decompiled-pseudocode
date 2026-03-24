@@ -1,47 +1,57 @@
 /*
- * XREFs of ?RebuildMonitorModeListCacheHelper@@YAJPEAVDXGADAPTER@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C3848
+ * XREFs of ?RebuildMonitorModeListCacheHelper@@YAJPEAVDXGADAPTER@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F1F44
  * Callers:
- *     MonitorRebuildMonitorModeListCache @ 0x1C03C47AC (MonitorRebuildMonitorModeListCache.c)
+ *     MonitorRebuildMonitorModeListCache @ 0x1C02F475C (MonitorRebuildMonitorModeListCache.c)
  * Callees:
- *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z @ 0x1C0014DEC (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?FlushEventsWithContext@MonitorEventDeferral@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0207408 (-FlushEventsWithContext@MonitorEventDeferral@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ??1MonitorEventDeferral@@UEAA@XZ @ 0x1C020AB18 (--1MonitorEventDeferral@@UEAA@XZ.c)
- *     ?OnDescriptorUpdated@DXGMONITOR@@QEAAJAEAVIMonitorDeferredEventSource@DxgMonitor@@_N@Z @ 0x1C020B9D4 (-OnDescriptorUpdated@DXGMONITOR@@QEAAJAEAVIMonitorDeferredEventSource@DxgMonitor@@_N@Z.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0133648 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_UpdateEDIDBaseBlock@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C018156C (-_UpdateEDIDBaseBlock@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
  */
 
 __int64 __fastcall RebuildMonitorModeListCacheHelper(
         struct DXGADAPTER *a1,
-        unsigned int a2,
+        __int64 a2,
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a3)
 {
-  DXGMONITOR *v6; // rbx
-  unsigned int v7; // edi
-  DXGMONITOR *v9; // [rsp+20h] [rbp-A8h] BYREF
-  _QWORD v10[14]; // [rsp+30h] [rbp-98h] BYREF
-  int v11; // [rsp+A0h] [rbp-28h]
+  __int64 v3; // rax
+  __int64 v6; // rdi
+  int MonitorInstance; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  DXGMONITOR *v10; // rbx
+  _QWORD *v11; // rax
+  __int64 v12; // rax
+  int updated; // eax
+  struct _ERESOURCE *v14; // rcx
+  DXGMONITOR *v16; // [rsp+30h] [rbp+8h] BYREF
 
-  v10[0] = &MonitorEventDeferral::`vftable';
-  memset(&v10[1], 0, 0x68uLL);
-  v11 = 0;
-  MONITOR_MGR::AcquireMonitorExclusive(&v9, (__int64)a1, a2, 0);
-  v6 = v9;
-  if ( v9 )
+  v3 = *((_QWORD *)a1 + 337);
+  v16 = 0LL;
+  v6 = (unsigned int)a2;
+  MonitorInstance = MONITOR_MGR::_GetMonitorInstance(*(struct _FAST_MUTEX **)(v3 + 96), a2, 0, &v16);
+  v10 = (DXGMONITOR *)MonitorInstance;
+  if ( MonitorInstance >= 0 )
   {
-    v10[1] = (*((_QWORD *)v9 + 21) + 8LL) & -(__int64)(*((_QWORD *)v9 + 21) != 0LL);
-    v7 = DXGMONITOR::OnDescriptorUpdated(
-           (DxgMonitor::MonitorColorState **)v9,
-           (struct DxgMonitor::IMonitorDeferredEventSource *)v10);
-    ExReleaseResourceLite((PERESOURCE)((char *)v6 + 24));
+    v10 = v16;
+    if ( !v16 )
+    {
+      v12 = WdLogNewEntry5_WdAssertion(v9, v8);
+      WdLogEvent5_WdAssertion(v12);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceExclusiveLite((PERESOURCE)((char *)v10 + 296), 1u);
+    updated = DXGMONITOR::_UpdateEDIDBaseBlock(v10, a3, 1);
+    v14 = (struct _ERESOURCE *)((char *)v10 + 296);
+    LODWORD(v10) = updated;
+    ExReleaseResourceLite(v14);
     KeLeaveCriticalRegion();
-    MonitorEventDeferral::FlushEventsWithContext((MonitorEventDeferral *)v10, a3);
   }
   else
   {
-    v7 = -1073741275;
-    WdLogSingleEntry1(2LL, -1073741275LL);
+    v11 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v9);
+    v11[3] = a1;
+    v11[4] = v6;
+    v11[5] = v10;
+    WdLogEvent5_WdDmmEvent(v11);
   }
-  MonitorEventDeferral::~MonitorEventDeferral((MonitorEventDeferral *)v10);
-  return v7;
+  return (unsigned int)v10;
 }

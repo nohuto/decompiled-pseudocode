@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwEnumerateDriverEntries @ 0x14041D400
+ * XREFs of ZwEnumerateDriverEntries @ 0x1403FBFA0
  * Callers:
- *     DifZwEnumerateDriverEntriesWrapper @ 0x140620030 (DifZwEnumerateDriverEntriesWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

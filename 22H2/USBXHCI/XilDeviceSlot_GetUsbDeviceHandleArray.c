@@ -1,10 +1,8 @@
 /*
- * XREFs of XilDeviceSlot_GetUsbDeviceHandleArray @ 0x1C0038110
+ * XREFs of XilDeviceSlot_GetUsbDeviceHandleArray @ 0x1C0036650
  * Callers:
- *     UsbDevice_SetDeviceDisabled @ 0x1C000FD7C (UsbDevice_SetDeviceDisabled.c)
- *     Controller_InitiateRecovery @ 0x1C0033890 (Controller_InitiateRecovery.c)
- *     DeviceSlot_LocateDeviceByPortPath @ 0x1C0037BFC (DeviceSlot_LocateDeviceByPortPath.c)
- *     Controller_TelemetryAddControllerData @ 0x1C0078B30 (Controller_TelemetryAddControllerData.c)
+ *     DeviceSlot_LocateDeviceByPortPath @ 0x1C003613C (DeviceSlot_LocateDeviceByPortPath.c)
+ *     Controller_TelemetryAddControllerData @ 0x1C0075284 (Controller_TelemetryAddControllerData.c)
  * Callees:
  *     <none>
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of OpRegion @ 0x1C0025430
+ * XREFs of OpRegion @ 0x1C0029EA0
  * Callers:
  *     <none>
  * Callees:
- *     CreateNameSpaceObject @ 0x1C0013250 (CreateNameSpaceObject.c)
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     MapUnmapPhysMem @ 0x1C0025584 (MapUnmapPhysMem.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     MapUnmapPhysMem @ 0x1C0029FF0 (MapUnmapPhysMem.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall OpRegion(__int64 a1, __int64 a2)
 {
   __int64 v2; // r14
   unsigned int NameSpaceObject; // edi
-  _SLIST_ENTRY *v6; // rax
+  __int64 v6; // rax
   unsigned int *v7; // rbx
   char v8; // al
 
@@ -27,7 +27,7 @@ __int64 __fastcall OpRegion(__int64 a1, __int64 a2)
                       *(unsigned __int8 **)(*(_QWORD *)(a2 + 80) + 32LL),
                       *(_QWORD *)(a1 + 80),
                       *(struct _EX_RUNDOWN_REF **)(a1 + 88),
-                      (__int64 *)(a2 + 64),
+                      (_QWORD *)(a2 + 64),
                       0);
   if ( !NameSpaceObject )
   {

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpSelectLpSet @ 0x140272350
+ * XREFs of HvlpSelectLpSet @ 0x140272450
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x14017EA70 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x14017EA90 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     HvlpComputeLpComparisonMetrics @ 0x14027191C (HvlpComputeLpComparisonMetrics.c)
- *     HvlpLpComparison @ 0x1402720C8 (HvlpLpComparison.c)
- *     HvlpQueryApicIdAndNumaNode @ 0x140272228 (HvlpQueryApicIdAndNumaNode.c)
- *     HviGetImplementationLimits @ 0x140322360 (HviGetImplementationLimits.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     HvlpComputeLpComparisonMetrics @ 0x140271A1C (HvlpComputeLpComparisonMetrics.c)
+ *     HvlpLpComparison @ 0x1402721C8 (HvlpLpComparison.c)
+ *     HvlpQueryApicIdAndNumaNode @ 0x140272328 (HvlpQueryApicIdAndNumaNode.c)
+ *     HviGetImplementationLimits @ 0x140322460 (HviGetImplementationLimits.c)
  */
 
 __int64 __fastcall HvlpSelectLpSet(unsigned int a1, __int64 a2)

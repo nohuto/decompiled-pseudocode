@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UnlockPopupMenuWindow@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@@Z @ 0x1C022F2F0
+ * XREFs of ?UnlockPopupMenuWindow@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@@Z @ 0x1C0235B0C
  * Callers:
- *     LockPopupMenu @ 0x1C02300E8 (LockPopupMenu.c)
- *     UnlockPopupMenu @ 0x1C0230354 (UnlockPopupMenu.c)
+ *     LockPopupMenu @ 0x1C0236ADC (LockPopupMenu.c)
+ *     UnlockPopupMenu @ 0x1C0236FDC (UnlockPopupMenu.c)
  * Callees:
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0067394 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078B40 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
  */
 
 char __fastcall UnlockPopupMenuWindow(__int64 a1)

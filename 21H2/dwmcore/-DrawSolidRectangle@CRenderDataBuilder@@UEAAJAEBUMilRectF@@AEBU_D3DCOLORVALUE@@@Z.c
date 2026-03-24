@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DrawSolidRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@AEBU_D3DCOLORVALUE@@@Z @ 0x1800F8510
+ * XREFs of ?DrawSolidRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@AEBU_D3DCOLORVALUE@@@Z @ 0x18001BA50
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800894E4 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8BD4 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
  */
 
 __int64 __fastcall CRenderDataBuilder::DrawSolidRectangle(
@@ -13,16 +13,16 @@ __int64 __fastcall CRenderDataBuilder::DrawSolidRectangle(
         const struct _D3DCOLORVALUE *a3)
 {
   int v6; // eax
-  __int64 v7; // rcx
+  unsigned int v7; // ecx
   unsigned int v8; // ebx
   __int64 v9; // rdx
   __int64 v10; // rcx
 
-  v6 = DynArrayImpl<0>::Grow((unsigned __int64)this + 16, 1u, 40, 0, 0LL);
+  v6 = DynArrayImpl<0>::Grow((int)this + 16, 1, 40, 0, 0LL);
   v8 = v6;
   if ( v6 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x12Bu);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x12Bu, 0LL);
   }
   else
   {
@@ -33,7 +33,7 @@ __int64 __fastcall CRenderDataBuilder::DrawSolidRectangle(
     *(_QWORD *)(v9 + v10 + 16) = 0LL;
     *(_QWORD *)(v9 + v10 + 24) = 0LL;
     *(_QWORD *)(v9 + v10 + 32) = 0LL;
-    *(_DWORD *)(v9 + v10 + 4) = 461;
+    *(_DWORD *)(v9 + v10 + 4) = 466;
     *(_OWORD *)(v9 + v10 + 8) = *(_OWORD *)a2;
     *(struct _D3DCOLORVALUE *)(v9 + v10 + 24) = *(const struct _D3DCOLORVALUE *)&a3->r;
     *((_DWORD *)this + 10) += 40;

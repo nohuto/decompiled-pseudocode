@@ -1,11 +1,11 @@
 /*
- * XREFs of ?RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x180246074
+ * XREFs of ?RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x1801E0AC4
  * Callers:
- *     ?UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z @ 0x180246E0C (-UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z.c)
+ *     ?UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z @ 0x1801E1798 (-UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??$_Emplace_reallocate@H@?$vector@HV?$allocator@H@std@@@std@@QEAAPEAHQEAH$$QEAH@Z @ 0x1802420D0 (--$_Emplace_reallocate@H@-$vector@HV-$allocator@H@std@@@std@@QEAAPEAHQEAH$$QEAH@Z.c)
- *     ?EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV?$vector@HV?$allocator@H@std@@@std@@@Z @ 0x1802455F4 (-EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV-$vector@HV-$allocator@H@std.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Emplace_reallocate@H@?$vector@HV?$allocator@H@std@@@std@@QEAAPEAHQEAH$$QEAH@Z @ 0x180152AE8 (--$_Emplace_reallocate@H@-$vector@HV-$allocator@H@std@@@std@@QEAAPEAHQEAH$$QEAH@Z.c)
+ *     ?EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV?$vector@HV?$allocator@H@std@@@std@@@Z @ 0x1801DFFCC (-EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV-$vector@HV-$allocator@H@std.c)
  */
 
 void __fastcall CParticleEmitterVisual::RemoveDeadParticles(CParticleEmitterVisual *this, float a2)
@@ -23,23 +23,23 @@ void __fastcall CParticleEmitterVisual::RemoveDeadParticles(CParticleEmitterVisu
   v3 = 0LL;
   v11 = 0LL;
   v10 = 0LL;
-  v5 = (__int64)(*((_QWORD *)this + 134) - *((_QWORD *)this + 133)) >> 2;
+  v5 = (__int64)(*((_QWORD *)this + 123) - *((_QWORD *)this + 122)) >> 2;
   if ( v5 )
   {
     v6 = (_BYTE *)*((_QWORD *)&v10 + 1);
     do
     {
-      v7 = *((_QWORD *)this + 136);
+      v7 = *((_QWORD *)this + 125);
       --v5;
-      v8 = *((_QWORD *)this + 133);
+      v8 = *((_QWORD *)this + 122);
       v9 = (float)(a2 / *(float *)(v7 + 4 * v5)) + *(float *)(v8 + 4 * v5);
       *(float *)(v8 + 4 * v5) = v9;
       if ( v9 >= 1.0 && (float)((float)(a2 / *(float *)(v7 + 4 * v5)) + v9) >= 1.0 )
       {
         v12 = v5;
-        if ( v6 == v3 )
+        if ( v3 == v6 )
         {
-          std::vector<int>::_Emplace_reallocate<int>(&v10, v6, &v12);
+          std::vector<int>::_Emplace_reallocate<int>((const void **)&v10, v6, &v12);
           v3 = v11;
           v6 = (_BYTE *)*((_QWORD *)&v10 + 1);
         }
@@ -53,7 +53,7 @@ void __fastcall CParticleEmitterVisual::RemoveDeadParticles(CParticleEmitterVisu
     }
     while ( v5 );
   }
-  CParticleEmitterVisual::ParticleCollection::EraseIndexList((__int64)this + 872, (__int64)&v10);
+  CParticleEmitterVisual::ParticleCollection::EraseIndexList((__int64)this + 784, (__int64)&v10);
   if ( (_QWORD)v10 )
     std::_Deallocate<16,0>((void *)v10, (unsigned __int64)&v11[-v10] & 0xFFFFFFFFFFFFFFFCuLL);
 }

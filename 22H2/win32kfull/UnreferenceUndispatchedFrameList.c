@@ -1,29 +1,27 @@
 /*
- * XREFs of UnreferenceUndispatchedFrameList @ 0x1C00A1C00
+ * XREFs of UnreferenceUndispatchedFrameList @ 0x1C010FC00
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall UnreferenceUndispatchedFrameList(__int64 a1)
+void UnreferenceUndispatchedFrameList()
 {
-  struct _LIST_ENTRY *v1; // rbx
-  struct _LIST_ENTRY *v2; // rdi
+  struct _LIST_ENTRY *v0; // rbx
+  struct _LIST_ENTRY *v1; // rdx
   struct _LIST_ENTRY *Blink; // rax
-  __int64 v4; // rax
 
-  v1 = (struct _LIST_ENTRY *)(gptiCurrent + 1184LL);
-  while ( v1->Flink != v1 )
+  v0 = (struct _LIST_ENTRY *)(gptiCurrent + 1144LL);
+  while ( v0->Flink != v0 )
   {
-    v2 = *(struct _LIST_ENTRY **)(gptiCurrent + 1192LL);
-    if ( v2->Flink != v1 || (Blink = v2->Blink, Blink->Flink != v2) )
+    v1 = *(struct _LIST_ENTRY **)(gptiCurrent + 1152LL);
+    if ( v1->Flink != v0 || (Blink = v1->Blink, Blink->Flink != v1) )
       __fastfail(3u);
-    *(_QWORD *)(gptiCurrent + 1192LL) = Blink;
-    Blink->Flink = v1;
-    v2->Blink = v2;
-    v2->Flink = v2;
-    v4 = SGDGetUserSessionState(a1);
-    CTouchProcessor::UnreferenceUndispatchedFrame(*(CTouchProcessor **)(v4 + 3424), v2);
+    *(_QWORD *)(gptiCurrent + 1152LL) = Blink;
+    Blink->Flink = v0;
+    v1->Blink = v1;
+    v1->Flink = v1;
+    CTouchProcessor::UnreferenceUndispatchedFrame(gpTouchProcessor, v1);
   }
 }

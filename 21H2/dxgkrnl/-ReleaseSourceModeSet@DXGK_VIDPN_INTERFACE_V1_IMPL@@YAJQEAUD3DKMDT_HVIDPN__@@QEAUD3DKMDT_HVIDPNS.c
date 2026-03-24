@@ -1,16 +1,15 @@
 /*
- * XREFs of ?ReleaseSourceModeSet@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPN__@@QEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@Z @ 0x1C01D1A10
+ * XREFs of ?ReleaseSourceModeSet@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPN__@@QEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@Z @ 0x1C015A650
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000FD8C (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?GetContainer@?$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ @ 0x1C001CC0C (-GetContainer@-$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ.c)
- *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODESET@@@@@@QEAAEQEBVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C001D700 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U-$DoubleLinkedListElementDelete.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C00084B8 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     ?GetContainer@?$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ @ 0x1C0018798 (-GetContainer@-$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ.c)
+ *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODESET@@@@@@QEAAEQEBVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C0019718 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U-$DoubleLinkedListElementDelete.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGK_VIDPN_INTERFACE_V1_IMPL::ReleaseSourceModeSet(
@@ -20,152 +19,184 @@ __int64 __fastcall DXGK_VIDPN_INTERFACE_V1_IMPL::ReleaseSourceModeSet(
 {
   __int64 v5; // rdx
   __int64 v6; // rcx
-  __int64 v7; // rax
-  __int64 v8; // rdi
-  __int64 v9; // rbp
-  DXGK_VIDPN_INTERFACE_V1_IMPL *v10; // rax
-  __int64 v11; // rdx
-  int v12; // eax
-  unsigned int v13; // ebx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v17; // rcx
-  __int64 Container; // rax
-  __int64 v19; // r11
-  struct D3DKMDT_HVIDPN__ *v20; // rax
-  struct D3DKMDT_HVIDPN__ *v21; // rcx
-  struct D3DKMDT_HVIDPN__ **v22; // rdx
-  __int64 v23; // rbx
-  int v24; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v25; // [rsp+58h] [rbp-30h]
-  char v26; // [rsp+60h] [rbp-28h]
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rax
+  _QWORD *v10; // rdx
+  __int64 v11; // rcx
+  DXGK_VIDPN_INTERFACE_V1_IMPL *v12; // rbp
+  struct D3DKMDT_HVIDPN__ *v13; // rbx
+  __int64 v14; // rdi
+  __int64 v15; // rsi
+  DXGK_VIDPN_INTERFACE_V1_IMPL *v16; // rax
+  void (__fastcall ***v17)(_QWORD, __int64); // rcx
+  int v18; // ebx
+  unsigned int v19; // ebx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  _QWORD *v31; // rsi
+  __int64 v32; // rax
+  _QWORD *v33; // rax
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  __int64 v36; // rcx
+  __int64 v37; // rax
+  __int64 v38; // r11
+  _QWORD *v39; // rax
+  __int64 v40; // rcx
+  int v41; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v42; // [rsp+28h] [rbp-20h]
+  char v43; // [rsp+30h] [rbp-18h]
 
-  v24 = -1;
-  v25 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v41 = -1;
+  v42 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v26 = 1;
-    v24 = 7044;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v43 = 1;
+    v41 = 7044;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, (__int64)a3, 7044);
   }
   else
   {
-    v26 = 0;
+    v43 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v24, 7044);
-  v7 = WdLogNewEntry5_WdTrace(v6, v5);
-  *(_QWORD *)(v7 + 24) = a2;
-  *(_QWORD *)(v7 + 32) = this;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v41, 7044LL);
+  v9 = WdLogNewEntry5_WdTrace(v6, v5, v7, v8);
+  *(_QWORD *)(v9 + 24) = a2;
+  *(_QWORD *)(v9 + 32) = this;
   if ( this && *((_DWORD *)this + 16) == 1833172997 )
+    v12 = this;
+  else
+    v12 = 0LL;
+  if ( !v12 )
   {
-    if ( a2 && *((_DWORD *)a2 + 32) == 1833173004 )
+    v23 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v23 + 24) = this;
+    WdLogEvent5_WdError(v23);
+    v19 = -1071774973;
+    goto LABEL_24;
+  }
+  if ( a2 && *((_DWORD *)a2 + 32) == 1833173004 )
+    v13 = a2;
+  else
+    v13 = 0LL;
+  if ( !v13 )
+  {
+    v24 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v24 + 24) = a2;
+    WdLogEvent5_WdError(v24);
+    v19 = -1071774968;
+    goto LABEL_24;
+  }
+  v14 = *((_QWORD *)v13 + 14);
+  if ( !v14 )
+  {
+    v25 = WdLogNewEntry5_WdAssertion(v11, v10);
+    WdLogEvent5_WdAssertion(v25);
+  }
+  v15 = *(_QWORD *)(v14 + 40);
+  if ( !v15 )
+  {
+    v26 = WdLogNewEntry5_WdAssertion(v11, v10);
+    WdLogEvent5_WdAssertion(v26);
+    v15 = *(_QWORD *)(v14 + 40);
+  }
+  v16 = *(DXGK_VIDPN_INTERFACE_V1_IMPL **)(v15 + 72);
+  if ( !v16 )
+  {
+    v27 = WdLogNewEntry5_WdAssertion(v11, v10);
+    WdLogEvent5_WdAssertion(v27);
+    v16 = *(DXGK_VIDPN_INTERFACE_V1_IMPL **)(v15 + 72);
+  }
+  if ( v16 == v12 )
+  {
+    if ( *((_QWORD *)v13 + 14) == v14 )
     {
-      v8 = *((_QWORD *)a2 + 14);
-      if ( !v8 )
-        WdLogSingleEntry0(1LL);
-      v9 = *(_QWORD *)(v8 + 40);
-      if ( !v9 )
+      if ( v13 == *(struct D3DKMDT_HVIDPN__ **)(v14 + 120) )
       {
-        WdLogSingleEntry0(1LL);
-        v9 = *(_QWORD *)(v8 + 40);
-      }
-      v10 = *(DXGK_VIDPN_INTERFACE_V1_IMPL **)(v9 + 72);
-      if ( !v10 )
-      {
-        WdLogSingleEntry0(1LL);
-        v10 = *(DXGK_VIDPN_INTERFACE_V1_IMPL **)(v9 + 72);
-      }
-      if ( v10 == this )
-      {
-        v11 = *((_QWORD *)a2 + 14);
-        if ( v11 == v8 )
+        v35 = WdLogNewEntry5_WdDmmEvent(v11, v10);
+        *(_QWORD *)(v35 + 24) = v13;
+        *(_QWORD *)(v35 + 32) = *(unsigned int *)(v14 + 24);
+        WdLogEvent5_WdDmmEvent(v35);
+        auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)(v14 + 120), 0LL);
+        if ( *((_DWORD *)v13 + 24) != 1 )
         {
-          if ( a2 == *(struct D3DKMDT_HVIDPN__ *const *)(v8 + 120) )
-          {
-            WdLogSingleEntry2(7LL, a2, *(unsigned int *)(v8 + 24));
-            auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)(v8 + 120), 0LL);
-            if ( *((_DWORD *)a2 + 24) != 1 )
-              WdLogSingleEntry0(1LL);
-          }
-          if ( *((_DWORD *)a2 + 24) == 1
-            && DoublyLinkedList<DMMVIDPNSOURCEMODESET,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODESET>>::ContainsByReference(
-                 *(_QWORD *)(v8 + 112),
-                 (__int64)a2) )
-          {
-            v20 = a2 + 2;
-            v21 = (struct D3DKMDT_HVIDPN__ *)*((_QWORD *)a2 + 1);
-            if ( *((struct D3DKMDT_HVIDPN__ *const *)v21 + 1) != a2 + 2
-              || (v22 = (struct D3DKMDT_HVIDPN__ **)*((_QWORD *)a2 + 2), *v22 != v20) )
-            {
-              __fastfail(3u);
-            }
-            *v22 = v21;
-            *((_QWORD *)v21 + 1) = v22;
-            *(_QWORD *)v20 = 0LL;
-            *((_QWORD *)a2 + 2) = 0LL;
-            --*(_QWORD *)(v19 + 32);
-          }
-          v12 = _InterlockedDecrement((volatile signed __int32 *)a2 + 24);
-          if ( v12 )
-          {
-            if ( v12 < 0 )
-            {
-              v23 = v12;
-              WdLogSingleEntry1(2LL, v12);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                0x40000,
-                -1,
-                (__int64)L"Client is trying to release a destroyed object (ref count = %I64d)!",
-                v23,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-            }
-          }
-          else if ( a2 != (struct D3DKMDT_HVIDPN__ *const)-88LL )
-          {
-            (**((void (__fastcall ***)(struct D3DKMDT_HVIDPN__ *const, __int64))a2 + 11))(a2 + 22, 1LL);
-          }
+          v37 = WdLogNewEntry5_WdAssertion(v36, v10);
+          WdLogEvent5_WdAssertion(v37);
         }
-        else
-        {
-          WdLogSingleEntry3(2LL, v11, a2, v8);
-        }
-        v13 = 0;
       }
-      else
+      if ( *((_DWORD *)v13 + 24) == 1
+        && DoublyLinkedList<DMMVIDPNSOURCEMODESET,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODESET>>::ContainsByReference(
+             *(_QWORD *)(v14 + 112),
+             (__int64)v13) )
       {
-        v17 = *(_QWORD *)(v8 + 40);
-        if ( !v17 )
+        v39 = v13 + 2;
+        v40 = *((_QWORD *)v13 + 1);
+        if ( *(struct D3DKMDT_HVIDPN__ **)(v40 + 8) != v13 + 2
+          || (v10 = (_QWORD *)*((_QWORD *)v13 + 2), (_QWORD *)*v10 != v39) )
         {
-          WdLogSingleEntry0(1LL);
-          v17 = *(_QWORD *)(v8 + 40);
+          __fastfail(3u);
         }
-        Container = ContainedBy<DMMVIDPN>::GetContainer(v17 + 64);
-        WdLogSingleEntry3(2LL, Container, a2, this);
-        v13 = -1071774928;
+        *v10 = v40;
+        *(_QWORD *)(v40 + 8) = v10;
+        *v39 = 0LL;
+        *((_QWORD *)v13 + 2) = 0LL;
+        --*(_QWORD *)(v38 + 32);
       }
+      v17 = (void (__fastcall ***)(_QWORD, __int64))(v13 + 22);
+      v18 = _InterlockedDecrement((volatile signed __int32 *)v13 + 24);
+      if ( !v18 )
+      {
+        if ( v17 )
+          (**v17)(v17, 1LL);
+        goto LABEL_23;
+      }
+      if ( v18 >= 0 )
+      {
+LABEL_23:
+        v19 = 0;
+        goto LABEL_24;
+      }
+      v33 = (_QWORD *)WdLogNewEntry5_WdError(v17, v10);
+      v34 = v18;
     }
     else
     {
-      WdLogSingleEntry1(2LL, a2);
-      v13 = -1071774968;
+      v33 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+      v34 = *((_QWORD *)v13 + 14);
+      v33[4] = v13;
+      v33[5] = v14;
     }
+    v33[3] = v34;
+    WdLogEvent5_WdError(v33);
+    goto LABEL_23;
   }
-  else
+  v28 = WdLogNewEntry5_WdError(v11, v10);
+  v30 = *(_QWORD *)(v14 + 40);
+  v31 = (_QWORD *)v28;
+  if ( !v30 )
   {
-    WdLogSingleEntry1(2LL, this);
-    v13 = -1071774973;
+    v32 = WdLogNewEntry5_WdAssertion(0LL, v29);
+    WdLogEvent5_WdAssertion(v32);
+    v30 = *(_QWORD *)(v14 + 40);
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v24);
-  if ( v26 )
-  {
-    LOBYTE(v14) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v14, &EventProfilerExit, v15, v24);
-  }
-  return v13;
+  v31[3] = ContainedBy<DMMVIDPN>::GetContainer(v30 + 64, v29);
+  v31[4] = v13;
+  v31[5] = v12;
+  WdLogEvent5_WdError(v31);
+  v19 = -1071774928;
+LABEL_24:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v41, (__int64)v10);
+  if ( v43 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v20, &EventProfilerExit, v21, v41);
+  return v19;
 }

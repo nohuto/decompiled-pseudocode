@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV3 @ 0x1404FF5B8
+ * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV3 @ 0x1404B72C8
  * Callers:
- *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x140501174 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x1404B8B74 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV3(
 {
   unsigned int v4; // esi
   __int64 v6; // rcx
-  unsigned int v7; // r8d
+  unsigned int v7; // r9d
   __int64 v8; // rbx
   __int64 v9; // r10
   __int64 v10; // rdi
@@ -22,8 +22,8 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV3(
   __int64 v12; // rax
   __int64 result; // rax
 
-  v4 = *(_DWORD *)(a2 + 40);
-  v6 = *(_QWORD *)(a2 + 32);
+  v4 = *(_DWORD *)(a2 + 32);
+  v6 = *(_QWORD *)(a2 + 24);
   v7 = 0;
   v8 = 0LL;
   v9 = 0LL;
@@ -50,7 +50,7 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV3(
       if ( v9 )
         *(_QWORD *)(v9 + 8) = v6;
       else
-        *(_QWORD *)(a2 + 32) = v6;
+        *(_QWORD *)(a2 + 24) = v6;
       v9 = v6;
     }
     ++v7;
@@ -64,8 +64,8 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV3(
     *(_QWORD *)(v9 + 8) = v6;
   else
 LABEL_17:
-    *(_QWORD *)(a2 + 32) = v6;
-  *(_DWORD *)(a2 + 40) -= v11;
+    *(_QWORD *)(a2 + 24) = v6;
+  *(_DWORD *)(a2 + 32) -= v11;
   result = v8;
   *a4 = v11;
   return result;

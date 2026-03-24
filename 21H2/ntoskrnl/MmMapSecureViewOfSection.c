@@ -1,46 +1,46 @@
 /*
- * XREFs of MmMapSecureViewOfSection @ 0x1407A6574
+ * XREFs of MmMapSecureViewOfSection @ 0x140660E50
  * Callers:
- *     AlpcpCreateView @ 0x1407A66CC (AlpcpCreateView.c)
+ *     AlpcpCreateView @ 0x140660B40 (AlpcpCreateView.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     MiMapParametersInitialize @ 0x1406FC8B0 (MiMapParametersInitialize.c)
- *     MiMapViewOfSection @ 0x1406FCA10 (MiMapViewOfSection.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiMapViewOfSection @ 0x1406EBA30 (MiMapViewOfSection.c)
+ *     MiMapParametersInitialize @ 0x1406EBFB0 (MiMapParametersInitialize.c)
  */
 
 __int64 __fastcall MmMapSecureViewOfSection(
-        __int64 a1,
+        int a1,
         __int64 a2,
-        __int64 *a3,
+        _QWORD *a3,
         __int64 a4,
-        int a5,
-        unsigned int *a6,
+        __int64 a5,
+        __int64 a6,
         __int64 *a7,
-        int a8,
-        int a9,
-        int a10,
-        int a11,
+        __int64 a8,
+        __int64 a9,
+        __int64 a10,
+        __int64 a11,
         __int64 a12)
 {
   __int64 result; // rax
-  _QWORD v16[16]; // [rsp+40h] [rbp-88h] BYREF
+  _QWORD v15[16]; // [rsp+40h] [rbp-88h] BYREF
 
-  memset(v16, 0, sizeof(v16));
-  result = MiMapParametersInitialize(v16, a1, a2, *a3, *a7, 0, 4, 0LL);
+  memset(v15, 0, sizeof(v15));
+  result = MiMapParametersInitialize(v15, *a7, 0, 4, 0LL);
   if ( (int)result < 0
-    || (v16[9] = a12,
-        HIDWORD(v16[8]) = 2,
-        result = MiMapViewOfSection(a1, (__int64)v16, (void **)a3, 0LL, a6, 2, 1),
+    || (v15[10] = a12,
+        HIDWORD(v15[9]) = 2,
+        result = MiMapViewOfSection(a1, (unsigned int)v15, (_DWORD)a3, 0, a6, 2, 1),
         (int)result < 0) )
   {
     if ( *a3 )
-      ++dword_140C52B1C;
+      ++dword_140C4E7E4;
     else
-      ++dword_140C52B18;
+      ++dword_140C4E7E0;
   }
   else
   {
-    *a7 = v16[3];
+    *a7 = v15[3];
     return (unsigned int)result;
   }
   return result;

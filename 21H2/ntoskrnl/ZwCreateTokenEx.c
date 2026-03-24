@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateTokenEx @ 0x14041D0C0
+ * XREFs of ZwCreateTokenEx @ 0x1403FBC60
  * Callers:
  *     <none>
  * Callees:

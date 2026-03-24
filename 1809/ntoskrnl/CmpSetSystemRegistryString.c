@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpSetSystemRegistryString @ 0x140180E34
+ * XREFs of CmpSetSystemRegistryString @ 0x140180E54
  * Callers:
  *     CmpSetSystemValues @ 0x1409C2DC0 (CmpSetSystemValues.c)
  * Callees:
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x14073253C (RtlCreateUnicodeStringFromAsciiz.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14073251C (RtlCreateUnicodeStringFromAsciiz.c)
  */
 
 __int64 __fastcall CmpSetSystemRegistryString(HANDLE KeyHandle, PUNICODE_STRING ValueName, PCSZ Source)

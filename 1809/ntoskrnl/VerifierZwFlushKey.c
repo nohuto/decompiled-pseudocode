@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwFlushKey @ 0x14030AA20
+ * XREFs of VerifierZwFlushKey @ 0x14030AB20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierZwFlushKey()

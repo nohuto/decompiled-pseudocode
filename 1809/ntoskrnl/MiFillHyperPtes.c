@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFillHyperPtes @ 0x14011AE64
+ * XREFs of MiFillHyperPtes @ 0x14011AE84
  * Callers:
  *     MiMakeHyperRangeAccessible @ 0x14006E3D0 (MiMakeHyperRangeAccessible.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     MiMakeHyperPteDemandZero @ 0x14011AF7C (MiMakeHyperPteDemandZero.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiMakeHyperPteDemandZero @ 0x14011AF9C (MiMakeHyperPteDemandZero.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFillHyperPtes(unsigned __int64 a1, unsigned __int64 a2, char a3, __int64 a4)

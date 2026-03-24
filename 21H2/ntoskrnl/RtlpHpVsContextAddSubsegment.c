@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsContextAddSubsegment @ 0x1402406C8
+ * XREFs of RtlpHpVsContextAddSubsegment @ 0x1402BBD5C
  * Callers:
- *     RtlpHpVsContextAllocateInternal @ 0x14034BBF0 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x14033EDC0 (RtlpHpVsContextAllocateInternal.c)
  * Callees:
- *     RtlpHpVsChunkAlignSplit @ 0x14034ED40 (RtlpHpVsChunkAlignSplit.c)
- *     RtlpHpVsFreeChunkInsert @ 0x14034F9E0 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsChunkAlignSplit @ 0x14033E930 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x140340240 (RtlpHpVsFreeChunkInsert.c)
  */
 
 __int64 __fastcall RtlpHpVsContextAddSubsegment(__int64 a1, unsigned __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall RtlpHpVsContextAddSubsegment(__int64 a1, unsigned __int64 a2)
   v4 = a1 + 32;
   v5 = (unsigned __int64 *)(a1 + 40);
   v6 = v4 ^ *v5;
-  if ( (v6 ^ *(_QWORD *)v6) != v4 )
+  if ( (*(_QWORD *)v6 ^ v6) != v4 )
     __fastfail(3u);
   v7 = a2 ^ v4;
   *(_QWORD *)a2 = v7;

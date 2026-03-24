@@ -1,142 +1,118 @@
 /*
- * XREFs of RamdiskStart @ 0x140B9C590
+ * XREFs of RamdiskStart @ 0x140A95268
  * Callers:
- *     IopInitializeBootDrivers @ 0x140B405B4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     RtlStringCbPrintfA @ 0x140383768 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _strupr @ 0x1403D8300 (_strupr.c)
- *     strstr @ 0x1403D8B70 (strstr.c)
- *     _atoi64 @ 0x1403D8BD0 (_atoi64.c)
- *     atol @ 0x1403D8C20 (atol.c)
- *     ZwDeviceIoControlFile @ 0x14041A780 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlStringFromGUID @ 0x140685290 (RtlStringFromGUID.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     IoCreateSymbolicLink @ 0x140870130 (IoCreateSymbolicLink.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     RtlStringCbPrintfA @ 0x1403A83E4 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _strupr @ 0x1403D0920 (_strupr.c)
+ *     strstr @ 0x1403D1180 (strstr.c)
+ *     _atoi64 @ 0x1403D11DC (_atoi64.c)
+ *     atol @ 0x1403D1220 (atol.c)
+ *     ZwDeviceIoControlFile @ 0x1403F9B00 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUID @ 0x1406F35B0 (RtlStringFromGUID.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     IoCreateSymbolicLink @ 0x14076D2F0 (IoCreateSymbolicLink.c)
  */
 
 __int64 __fastcall RamdiskStart(__int64 a1)
 {
-  unsigned __int64 v2; // rax
-  unsigned __int64 i; // rcx
-  _QWORD **v4; // rax
-  unsigned __int64 v5; // rdx
-  _QWORD *v6; // rdx
+  __int64 *v2; // rbx
+  __int64 *v3; // rcx
+  __int64 *v4; // rax
   NTSTATUS Status; // ebx
-  ULONG_PTR v8; // rdi
-  char *v9; // rbx
+  ULONG_PTR v6; // rdi
+  __int64 v7; // rax
+  char *v8; // rbx
+  char *v9; // rax
   char *v10; // rax
-  char *v11; // rax
-  unsigned int v12; // eax
+  unsigned int v11; // eax
+  char *v12; // rax
   char *v13; // rax
-  char *v14; // rax
   HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v17; // [rsp+58h] [rbp-A8h] BYREF
+  __int128 v16; // [rsp+58h] [rbp-A8h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING GuidString; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+88h] [rbp-78h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
-  STRING DestinationString; // [rsp+C8h] [rbp-38h] BYREF
-  UNICODE_STRING DeviceName; // [rsp+D8h] [rbp-28h] BYREF
+  STRING DestinationString; // [rsp+98h] [rbp-68h] BYREF
+  UNICODE_STRING DeviceName; // [rsp+A8h] [rbp-58h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp-48h] BYREF
   _QWORD InputBuffer[8]; // [rsp+F0h] [rbp-10h] BYREF
   char pszDest[32]; // [rsp+130h] [rbp+30h] BYREF
   wchar_t SourceString[56]; // [rsp+150h] [rbp+50h] BYREF
 
   GuidString = 0LL;
+  v2 = 0LL;
   DestinationString = 0LL;
   SymbolicLinkName = 0LL;
   DeviceName = 0LL;
-  v17 = 0LL;
+  v16 = 0LL;
   memset(InputBuffer, 0, sizeof(InputBuffer));
-  v2 = *(_QWORD *)(a1 + 360);
   FileHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  v3 = (__int64 *)(a1 + 32);
+  v4 = *(__int64 **)(a1 + 32);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   IoStatusBlock = 0LL;
-  if ( (v2 & 1) != 0 )
+  while ( v4 != v3 )
   {
-    if ( v2 != 1 )
-    {
-      i = v2 ^ ((a1 + 352) | 1);
-      goto LABEL_13;
-    }
-LABEL_14:
-    Status = -1073741811;
-    v8 = 1LL;
-    goto LABEL_15;
-  }
-  i = v2;
-  while ( 1 )
-  {
-LABEL_13:
-    if ( !i )
-      goto LABEL_14;
-    if ( *(_DWORD *)(i + 24) == 25 )
+    v2 = v4;
+    if ( *((_DWORD *)v4 + 4) == 25 )
       break;
-    v4 = *(_QWORD ***)(i + 8);
-    v5 = i;
-    if ( v4 )
-    {
-      v6 = *v4;
-      for ( i = *(_QWORD *)(i + 8); v6; v6 = (_QWORD *)*v6 )
-        i = (unsigned __int64)v6;
-    }
-    else
-    {
-      while ( 1 )
-      {
-        i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !i || *(_QWORD *)i == v5 )
-          break;
-        v5 = i;
-      }
-    }
+    v4 = (__int64 *)*v4;
   }
-  v9 = *(char **)(a1 + 216);
-  v8 = 3LL;
+  if ( v4 == v3 )
+  {
+    Status = -1073741811;
+    v6 = 1LL;
+    goto LABEL_28;
+  }
   InputBuffer[3] = 0LL;
+  v6 = 3LL;
   HIDWORD(InputBuffer[2]) = 3;
   *(_DWORD *)((char *)&InputBuffer[7] + 2) = 0;
   HIWORD(InputBuffer[7]) = 0;
   LODWORD(InputBuffer[0]) = 64;
-  InputBuffer[6] = *(_QWORD *)(i + 32);
+  InputBuffer[6] = v2[3];
   LOWORD(InputBuffer[7]) = 0;
   InputBuffer[5] = 0LL;
   InputBuffer[3] = 2LL;
   *(GUID *)((char *)InputBuffer + 4) = RamdiskBootDiskGuid;
-  InputBuffer[4] = *(_QWORD *)(i + 40) << 12;
-  if ( v9 )
+  v7 = v2[4];
+  v8 = *(char **)(a1 + 216);
+  InputBuffer[4] = v7 << 12;
+  if ( v8 )
   {
-    strupr(v9);
-    v10 = strstr(v9, "RDIMAGEOFFSET");
-    if ( v10 && (v11 = strstr(v10, "=")) != 0LL )
+    strupr(v8);
+    v9 = strstr(v8, "RDIMAGEOFFSET");
+    if ( v9 && (v10 = strstr(v9, "=")) != 0LL )
     {
-      v12 = atol(v11 + 1);
-      LODWORD(InputBuffer[5]) = v12;
+      v11 = atol(v10 + 1);
+      LODWORD(InputBuffer[5]) = v11;
     }
     else
     {
-      v12 = InputBuffer[5];
+      v11 = InputBuffer[5];
     }
-    InputBuffer[4] -= v12;
-    v13 = strstr(v9, "RDIMAGELENGTH");
-    if ( v13 )
+    InputBuffer[4] -= v11;
+    v12 = strstr(v8, "RDIMAGELENGTH");
+    if ( v12 )
     {
-      v14 = strstr(v13, "=");
-      if ( v14 )
-        InputBuffer[4] = atoi64(v14 + 1);
+      v13 = strstr(v12, "=");
+      if ( v13 )
+        InputBuffer[4] = atoi64(v13 + 1);
     }
   }
-  LODWORD(v17) = 2097182;
-  *((_QWORD *)&v17 + 1) = L"\\Device\\Ramdisk";
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v17;
+  LODWORD(v16) = 2097182;
+  *((_QWORD *)&v16 + 1) = L"\\Device\\Ramdisk";
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v16;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
@@ -144,39 +120,39 @@ LABEL_13:
   Status = ZwOpenFile(&FileHandle, 0xC0000000, &ObjectAttributes, &IoStatusBlock, 3u, 0x20u);
   if ( Status < 0 || (Status = IoStatusBlock.Status, IoStatusBlock.Status < 0) )
   {
-    v8 = 2LL;
-    goto LABEL_15;
+    v6 = 2LL;
+    goto LABEL_28;
   }
   Status = ZwDeviceIoControlFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, 0x240000u, InputBuffer, 0x40u, 0LL, 0);
   ZwClose(FileHandle);
   if ( Status < 0 || (Status = IoStatusBlock.Status, IoStatusBlock.Status < 0) )
-LABEL_15:
-    KeBugCheckEx(0xF8u, v8, Status, 0LL, 0LL);
+LABEL_28:
+    KeBugCheckEx(0xF8u, v6, Status, 0LL, 0LL);
   if ( !strstr(*(const char **)(a1 + 184), "vdisk(") )
   {
     Status = RtlStringFromGUID((const GUID *const)((char *)InputBuffer + 4), &GuidString);
     if ( Status < 0 )
     {
-      v8 = 4LL;
-      goto LABEL_15;
+      v6 = 4LL;
+      goto LABEL_28;
     }
     RtlStringCbPrintfA(pszDest, 0x14uLL, "\\ArcName\\%s", *(const char **)(a1 + 184));
     RtlInitAnsiString(&DestinationString, pszDest);
     Status = RtlAnsiStringToUnicodeString(&SymbolicLinkName, &DestinationString, 1u);
     if ( Status < 0 )
     {
-      v8 = 5LL;
-      goto LABEL_15;
+      v6 = 5LL;
+      goto LABEL_28;
     }
     RtlStringCbPrintfW(SourceString, 0x6CuLL, L"\\Device\\Ramdisk%wZ", &GuidString);
     RtlInitUnicodeString(&DeviceName, SourceString);
     Status = IoCreateSymbolicLink(&SymbolicLinkName, &DeviceName);
-    RtlFreeUnicodeString(&GuidString);
-    RtlFreeUnicodeString(&SymbolicLinkName);
+    RtlFreeAnsiString(&GuidString);
+    RtlFreeAnsiString(&SymbolicLinkName);
     if ( Status < 0 )
     {
-      v8 = 6LL;
-      goto LABEL_15;
+      v6 = 6LL;
+      goto LABEL_28;
     }
   }
   return 0LL;

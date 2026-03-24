@@ -1,35 +1,84 @@
 /*
- * XREFs of ?SetWinlogonHotKeys@@YAXXZ @ 0x1C00413EC
+ * XREFs of ?SetWinlogonHotKeys@@YAXXZ @ 0x1C00306D8
  * Callers:
- *     RawInputThread @ 0x1C003F070 (RawInputThread.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
  * Callees:
- *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C0043264 (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
+ *     _RegisterHotKey @ 0x1C0032BD4 (_RegisterHotKey.c)
  */
 
 void SetWinlogonHotKeys(void)
 {
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 0, 0x8003u, 0x2Eu, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 4, 6u, 0x1Bu, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 5, 0x8008u, 0x4Cu, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 6, 0x2008u, 0x55u, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 13, 0x600Au, 0xDu, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 14, 0x6008u, 0xDu, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 12, 0x6008u, 0xBBu, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 12, 0x6008u, 0x6Bu, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 15, 0x200Eu, 0x4Cu, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 10, 0x600Au, 0x7Du, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 7, 0x2008u, 0x50u, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 8, 0x200Au, 0x50u, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 9, 0x200Cu, 0x50u, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))RotationLockCallback, -12, 0x2008u, 0x4Fu, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonWinSpaceCallback, -8, 0x2008u, 0x20u, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonWinSpaceCallback, -9, 0x200Au, 0x20u, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonWinSpaceCallback, -10, 0x200Cu, 0x20u, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonWinSpaceCallback, -11, 0x200Eu, 0x20u, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 7, 0x2008u, 0x85u, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 8, 0x200Au, 0x85u, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 9, 0x200Cu, 0x85u, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))RotationLockCallback, -13, 0x6008u, 0x7Du, 0LL);
-  _RegisterHotKey(0LL, (void (*)(unsigned __int64, __int64))WinlogonHotkeyCallback, 11, 0x6808u, 0x7Fu, 0LL);
-  _RegisterHotKey(0LL, PTPEnableHotkeyCallback, -14, 0x480Au, 0x87u, 0LL);
+  ULONG_PTR BugCheckParameter2; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2a; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2b; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2c; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2d; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2e; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2f; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2g; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2h; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2i; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2j; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2k; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2l; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2m; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2n; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2o; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2p; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2q; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2r; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2s; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2t; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2u; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2v; // [rsp+20h] [rbp-18h]
+  ULONG_PTR BugCheckParameter2w; // [rsp+20h] [rbp-18h]
+
+  LODWORD(BugCheckParameter2) = 46;
+  RegisterHotKey(0LL, BugCheckParameter2);
+  LODWORD(BugCheckParameter2a) = 27;
+  RegisterHotKey(0LL, BugCheckParameter2a);
+  LODWORD(BugCheckParameter2b) = 76;
+  RegisterHotKey(0LL, BugCheckParameter2b);
+  LODWORD(BugCheckParameter2c) = 85;
+  RegisterHotKey(0LL, BugCheckParameter2c);
+  LODWORD(BugCheckParameter2d) = 13;
+  RegisterHotKey(0LL, BugCheckParameter2d);
+  LODWORD(BugCheckParameter2e) = 13;
+  RegisterHotKey(0LL, BugCheckParameter2e);
+  LODWORD(BugCheckParameter2f) = 187;
+  RegisterHotKey(0LL, BugCheckParameter2f);
+  LODWORD(BugCheckParameter2g) = 107;
+  RegisterHotKey(0LL, BugCheckParameter2g);
+  LODWORD(BugCheckParameter2h) = 76;
+  RegisterHotKey(0LL, BugCheckParameter2h);
+  LODWORD(BugCheckParameter2i) = 125;
+  RegisterHotKey(0LL, BugCheckParameter2i);
+  LODWORD(BugCheckParameter2j) = 80;
+  RegisterHotKey(0LL, BugCheckParameter2j);
+  LODWORD(BugCheckParameter2k) = 80;
+  RegisterHotKey(0LL, BugCheckParameter2k);
+  LODWORD(BugCheckParameter2l) = 80;
+  RegisterHotKey(0LL, BugCheckParameter2l);
+  LODWORD(BugCheckParameter2m) = 79;
+  RegisterHotKey(0LL, BugCheckParameter2m);
+  LODWORD(BugCheckParameter2n) = 32;
+  RegisterHotKey(0LL, BugCheckParameter2n);
+  LODWORD(BugCheckParameter2o) = 32;
+  RegisterHotKey(0LL, BugCheckParameter2o);
+  LODWORD(BugCheckParameter2p) = 32;
+  RegisterHotKey(0LL, BugCheckParameter2p);
+  LODWORD(BugCheckParameter2q) = 32;
+  RegisterHotKey(0LL, BugCheckParameter2q);
+  LODWORD(BugCheckParameter2r) = 133;
+  RegisterHotKey(0LL, BugCheckParameter2r);
+  LODWORD(BugCheckParameter2s) = 133;
+  RegisterHotKey(0LL, BugCheckParameter2s);
+  LODWORD(BugCheckParameter2t) = 133;
+  RegisterHotKey(0LL, BugCheckParameter2t);
+  LODWORD(BugCheckParameter2u) = 125;
+  RegisterHotKey(0LL, BugCheckParameter2u);
+  LODWORD(BugCheckParameter2v) = 127;
+  RegisterHotKey(0LL, BugCheckParameter2v);
+  LODWORD(BugCheckParameter2w) = 135;
+  RegisterHotKey(0LL, BugCheckParameter2w);
 }

@@ -1,28 +1,26 @@
 /*
- * XREFs of WbSetWowTrapFrame @ 0x140A4DCB0
+ * XREFs of WbSetWowTrapFrame @ 0x140963C2C
  * Callers:
- *     WbSetTrapFrame @ 0x140763558 (WbSetTrapFrame.c)
+ *     WbSetTrapFrame @ 0x1406C65CC (WbSetTrapFrame.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     PspWow64GetContextThread @ 0x1407A069C (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x1407A0968 (PspWow64SetContextThread.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     PspWow64SetContextThread @ 0x14067A140 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x14067A4EC (PspWow64GetContextThread.c)
  */
 
-__int64 __fastcall WbSetWowTrapFrame(int *a1, int *a2)
+__int64 __fastcall WbSetWowTrapFrame(unsigned int *a1, unsigned int *a2)
 {
-  _KPROCESS *Process; // rcx
-  __int16 v5; // si
+  unsigned __int64 v4; // rax
+  __int16 v5; // di
   int v6; // ebp
   struct _KTHREAD *CurrentThread; // rax
-  int v8; // ecx
+  int v8; // eax
   int ContextThread; // ebx
-  struct _KTHREAD *v10; // rax
-  bool v11; // zf
 
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( !Process[1].Affinity.StaticBitmap[30] )
+  v4 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  if ( !v4 )
     return (unsigned int)-1073741637;
-  v5 = WORD2(Process[2].Affinity.StaticBitmap[20]);
+  v5 = *(_WORD *)(v4 + 8);
   if ( !v5 )
     return (unsigned int)-1073741637;
   if ( v5 != 332 )
@@ -43,7 +41,7 @@ LABEL_7:
   else
     v8 = 2097153;
   a1[12] = v8;
-  ContextThread = PspWow64GetContextThread(KeGetCurrentThread(), a1 + 12, v6, 0);
+  ContextThread = PspWow64GetContextThread((__int64)KeGetCurrentThread(), a1 + 12, v6, 0);
   if ( ContextThread >= 0 )
   {
     if ( v5 == 332 )
@@ -58,11 +56,8 @@ LABEL_7:
       a1[26] = *a2;
       a1[29] = a2[4];
     }
-    ContextThread = PspWow64SetContextThread(KeGetCurrentThread(), (unsigned int *)a1 + 12, v6, 0);
+    ContextThread = PspWow64SetContextThread(KeGetCurrentThread(), a1 + 12, v6, 0);
   }
-  v10 = KeGetCurrentThread();
-  v11 = v10->SpecialApcDisable++ == -1;
-  if ( v11 && ($C71981A45BEB2B45F82C232A7085991E *)v10->ApcState.ApcListHead[0].Flink != &v10->152 )
-    KiCheckForKernelApcDelivery();
+  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   return (unsigned int)ContextThread;
 }

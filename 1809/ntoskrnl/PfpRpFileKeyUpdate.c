@@ -1,7 +1,7 @@
 /*
  * XREFs of PfpRpFileKeyUpdate @ 0x1405D56D0
  * Callers:
- *     PfFileInfoNotify @ 0x1400D3DC0 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x1400D3DE0 (PfFileInfoNotify.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
@@ -12,7 +12,7 @@
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
- *     PfpRpRehashIfNeeded @ 0x14069FB78 (PfpRpRehashIfNeeded.c)
+ *     PfpRpRehashIfNeeded @ 0x14069FB58 (PfpRpRehashIfNeeded.c)
  */
 
 __int64 __fastcall PfpRpFileKeyUpdate(__int64 a1, __int64 a2, int a3)

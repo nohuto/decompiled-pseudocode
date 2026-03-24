@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z @ 0x1802B29C0
+ * XREFs of ?SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z @ 0x18026D128
  * Callers:
- *     ??$BlobSetter@P8CMesh2DEffect@@EAAJPEBEI@Z$H?SetVertices@1@QEAAJ0I@ZA@UID2D1EffectImpl@@@@YAJPEAUIUnknown@@PEBEI@Z @ 0x1802B1D90 (--$BlobSetter@P8CMesh2DEffect@@EAAJPEBEI@Z$H-SetVertices@1@QEAAJ0I@ZA@UID2D1EffectImpl@@@@YAJPEA.c)
+ *     ??$BlobSetter@P8CMesh2DEffect@@EAAJPEBEI@Z$H?SetVertices@1@QEAAJ0I@ZA@UID2D1EffectImpl@@@@YAJPEAUIUnknown@@PEBEI@Z @ 0x18026C650 (--$BlobSetter@P8CMesh2DEffect@@EAAJPEBEI@Z$H-SetVertices@1@QEAAJ0I@ZA@UID2D1EffectImpl@@@@YAJPEA.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
- *     ?EnsureVertexBuffer@CMesh2DEffect@@IEAAJPEBVCD3DVertexXYZDUV2@@I@Z @ 0x1802B21B0 (-EnsureVertexBuffer@CMesh2DEffect@@IEAAJPEBVCD3DVertexXYZDUV2@@I@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
+ *     ?EnsureVertexBuffer@CMesh2DEffect@@IEAAJPEBVCD3DVertexXYZDUV2@@I@Z @ 0x18026CA14 (-EnsureVertexBuffer@CMesh2DEffect@@IEAAJPEBVCD3DVertexXYZDUV2@@I@Z.c)
  */
 
 __int64 __fastcall CMesh2DEffect::SetVertices(CMesh2DEffect *this, const unsigned __int8 *Src, size_t Size)
@@ -28,8 +28,8 @@ __int64 __fastcall CMesh2DEffect::SetVertices(CMesh2DEffect *this, const unsigne
 LABEL_3:
     v7 = v6;
 LABEL_10:
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, v7, v12);
-    DefaultHeap::Free(*((void **)this + 21));
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v7, v12, 0LL);
+    operator delete(*((void **)this + 21));
     *((_QWORD *)this + 21) = 0LL;
     *((_DWORD *)this + 41) = 0;
     return v6;
@@ -37,7 +37,7 @@ LABEL_10:
   v8 = (void *)*((_QWORD *)this + 21);
   if ( v8 )
   {
-    DefaultHeap::Free(v8);
+    operator delete(v8);
     *((_QWORD *)this + 21) = 0LL;
   }
   *((_DWORD *)this + 41) = (unsigned int)v3 >> 5;

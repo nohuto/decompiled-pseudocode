@@ -1,1 +1,27 @@
-/*\n * XREFs of __security_check_cookie @ 0x1C0002910\n * Callers:\n *     sub_1C00023F0 @ 0x1C00023F0 (sub_1C00023F0.c)\n *     __GSHandlerCheckCommon @ 0x1C0002970 (__GSHandlerCheckCommon.c)\n *     DriverReinitializationRoutine @ 0x1C000C000 (DriverReinitializationRoutine.c)\n *     sub_1C000C9D0 @ 0x1C000C9D0 (sub_1C000C9D0.c)\n *     sub_1C000CFD0 @ 0x1C000CFD0 (sub_1C000CFD0.c)\n *     sub_1C000F020 @ 0x1C000F020 (sub_1C000F020.c)\n * Callees:\n *     <none>\n */\n\nvoid __cdecl _security_check_cookie(uintptr_t StackCookie)\n{\n  __int64 v1; // rcx\n\n  if ( StackCookie != _security_cookie )\nReportFailure:\n    _report_gsfailure(StackCookie);\n  v1 = __ROL8__(StackCookie, 16);\n  if ( (_WORD)v1 )\n  {\n    StackCookie = __ROR8__(v1, 16);\n    goto ReportFailure;\n  }\n}\n
+/*
+ * XREFs of __security_check_cookie @ 0x1C0002910
+ * Callers:
+ *     KeyboardStart @ 0x1C00023F0 (KeyboardStart.c)
+ *     __GSHandlerCheckCommon @ 0x1C0002970 (__GSHandlerCheckCommon.c)
+ *     KeyboardClassFindMorePorts @ 0x1C000C000 (KeyboardClassFindMorePorts.c)
+ *     KbdCreateClassObject @ 0x1C000C9D0 (KbdCreateClassObject.c)
+ *     KeyboardClassGetWaitWakeEnableState @ 0x1C000CFD0 (KeyboardClassGetWaitWakeEnableState.c)
+ *     DriverEntry @ 0x1C000F020 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
+void __cdecl _security_check_cookie(uintptr_t StackCookie)
+{
+  __int64 v1; // rcx
+
+  if ( StackCookie != _security_cookie )
+ReportFailure:
+    _report_gsfailure(StackCookie);
+  v1 = __ROL8__(StackCookie, 16);
+  if ( (_WORD)v1 )
+  {
+    StackCookie = __ROR8__(v1, 16);
+    goto ReportFailure;
+  }
+}

@@ -1,84 +1,54 @@
 /*
- * XREFs of MiWakeZeroingThreads @ 0x1402224F4
+ * XREFs of MiWakeZeroingThreads @ 0x14027FA50
  * Callers:
- *     MiWakePageZeroing @ 0x14021E7C4 (MiWakePageZeroing.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiZeroNodeExiting @ 0x1406557A8 (MiZeroNodeExiting.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234880 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiWakePageZeroing @ 0x14027F7A8 (MiWakePageZeroing.c)
+ *     MiZeroNodePages @ 0x1403AB040 (MiZeroNodePages.c)
+ *     MiZeroLargePageThread @ 0x1403AEB30 (MiZeroLargePageThread.c)
  * Callees:
- *     MiUnparkedCoreCount @ 0x140220E8C (MiUnparkedCoreCount.c)
- *     MiAddZeroingThreads @ 0x140222594 (MiAddZeroingThreads.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9630 (KeSetActualBasePriorityThread.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3620 (ObReferenceObjectSafeWithTag.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
  */
 
-int __fastcall MiWakeZeroingThreads(__int64 a1, char a2)
+unsigned int __fastcall MiWakeZeroingThreads(__int64 a1, char a2)
 {
-  __int64 v2; // rax
-  __int64 v3; // rdi
-  __int64 v5; // r14
-  int v6; // r15d
-  unsigned int v7; // ebx
-  struct _KEVENT *i; // rbx
-  struct _LIST_ENTRY *Flink; // rbp
+  unsigned int result; // eax
+  int v4; // r14d
+  unsigned int v5; // ecx
+  int v6; // ebp
+  unsigned __int8 *v7; // rbx
+  __int64 v8; // rdi
 
-  v2 = *(_QWORD *)(a1 + 48);
-  v3 = a1 + 108;
-  v5 = 3LL;
-  v6 = *(_DWORD *)(v2 + 108);
-  do
+  result = *(_DWORD *)(a1 + 156);
+  v4 = a2 & 1;
+  if ( (a2 & 1) == 0 )
   {
-    if ( *(_BYTE *)(v3 + 15) )
+    v5 = *(_DWORD *)(a1 + 160);
+    if ( v5 )
+      result = v5;
+  }
+  if ( result )
+  {
+    v6 = a2 & 4;
+    v7 = (unsigned __int8 *)(*(_QWORD *)(a1 + 144) + 4LL);
+    v8 = result;
+    do
     {
       if ( v6 )
+        *v7 |= 2u;
+      if ( v4 || (result = *v7, (result & 4) != 0) )
       {
-        for ( i = *(struct _KEVENT **)(v3 + 172); i != (struct _KEVENT *)(v3 + 172); i = *(struct _KEVENT **)&i->Header.Lock )
+        result = *v7;
+        if ( (result & 1) != 0 )
         {
-          LODWORD(v2) = i[-2].Header.WaitListHead.Blink;
-          if ( (v2 & 1) != 0 )
-          {
-            if ( ((__int64)i[-2].Header.WaitListHead.Blink & 4) == 0 )
-            {
-              Flink = i[-4].Header.WaitListHead.Flink;
-              if ( (unsigned __int8)ObReferenceObjectSafeWithTag(Flink, 1953261124LL) )
-              {
-                LODWORD(i[-2].Header.WaitListHead.Blink) |= 8u;
-                KeSetActualBasePriorityThread((ULONG_PTR)Flink);
-                ObfDereferenceObject(Flink);
-              }
-            }
-            LODWORD(v2) = i[-2].Header.WaitListHead.Blink;
-            if ( (v2 & 2) != 0 )
-            {
-              LODWORD(i[-2].Header.WaitListHead.Blink) &= ~2u;
-              ++*(_DWORD *)v3;
-              LODWORD(v2) = KeSetEvent(i - 1, 0, 0);
-            }
-          }
+          *v7 &= ~1u;
+          ++*(_DWORD *)(a1 + 164);
+          result = KeSetEvent((PRKEVENT)(v7 + 12), 0, 0);
         }
       }
-      else
-      {
-        v7 = *(_DWORD *)(v3 - 4);
-        if ( (a2 & 2) != 0 )
-        {
-          LODWORD(v2) = MiUnparkedCoreCount(v3 - 12, v7);
-          v7 = v2;
-        }
-        do
-        {
-          if ( *(_DWORD *)v3 >= v7 )
-            break;
-          LODWORD(v2) = MiAddZeroingThreads(v3 - 12);
-        }
-        while ( !(_DWORD)v2 );
-      }
+      v7 += 40;
+      --v8;
     }
-    v3 += 296LL;
-    --v5;
+    while ( v8 );
   }
-  while ( v5 );
-  return v2;
+  return result;
 }

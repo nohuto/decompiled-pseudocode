@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0RGNMEMOBJTMPIFNEEDED@@QEAA@AEAVEPATHOBJ@@W4PRECOMPUTETYPE@@KPEAU_RECTL@@@Z @ 0x1C0135128
+ * XREFs of ??0RGNMEMOBJTMPIFNEEDED@@QEAA@AEAVEPATHOBJ@@W4PRECOMPUTETYPE@@KPEAU_RECTL@@@Z @ 0x1C0147D64
  * Callers:
- *     EngFillPath @ 0x1C0134C30 (EngFillPath.c)
- *     EngStrokeAndFillPath @ 0x1C02856C0 (EngStrokeAndFillPath.c)
+ *     EngFillPath @ 0x1C0147860 (EngFillPath.c)
+ *     EngStrokeAndFillPath @ 0x1C014C2B0 (EngStrokeAndFillPath.c)
  * Callees:
  *     <none>
  */
@@ -20,14 +20,15 @@ RGNMEMOBJ *__fastcall RGNMEMOBJTMPIFNEEDED::RGNMEMOBJTMPIFNEEDED(
 
   RGNMEMOBJ::RGNMEMOBJ(a1, 0, 0);
   *((_DWORD *)a1 + 4) = 0;
-  if ( !a3 )
+  if ( a3 )
+  {
+    v9 = *(_QWORD *)a1;
+  }
+  else
   {
     v9 = *((_QWORD *)a2 + 5);
-LABEL_5:
     *(_QWORD *)a1 = v9;
-    goto LABEL_6;
   }
-  v9 = *(_QWORD *)a1;
   if ( a3 == 1 )
   {
     if ( (*(_DWORD *)a2 & 0x10) != 0 )
@@ -41,11 +42,11 @@ LABEL_5:
     {
       v9 = *((_QWORD *)a2 + 2);
     }
-    goto LABEL_5;
+    *(_QWORD *)a1 = v9;
   }
-LABEL_6:
   if ( !v9 )
   {
+    v11 = 0LL;
     v12 = 0;
     *((_DWORD *)a1 + 4) = 1;
     RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v11, a2, a4, a5);

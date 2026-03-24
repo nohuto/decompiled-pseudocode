@@ -1,65 +1,72 @@
 /*
- * XREFs of ?_GhostWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F4044
+ * XREFs of ?_GhostWindow@@YAHPEAUtagWND@@@Z @ 0x1C0003880
  * Callers:
- *     ?_GhostOwnerWindowAndOwnees@@YAXPEAUtagWND@@@Z @ 0x1C01F3FCC (-_GhostOwnerWindowAndOwnees@@YAXPEAUtagWND@@@Z.c)
+ *     ?_GhostOwnerWindowAndOwnees@@YAHPEAUtagWND@@@Z @ 0x1C00037FC (-_GhostOwnerWindowAndOwnees@@YAHPEAUtagWND@@@Z.c)
  * Callees:
- *     InternalRemoveProp @ 0x1C00C94BC (InternalRemoveProp.c)
- *     IsNonImmersiveBand @ 0x1C00CEFB4 (IsNonImmersiveBand.c)
- *     PostShellHookMessagesEx @ 0x1C00D3370 (PostShellHookMessagesEx.c)
- *     ?SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z @ 0x1C01F3CCC (-SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z.c)
- *     ?SetGhostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z @ 0x1C01F3DB8 (-SetGhostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z.c)
+ *     ?SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z @ 0x1C0003960 (-SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z.c)
+ *     ?SetGhostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z @ 0x1C0003CA0 (-SetGhostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z.c)
+ *     IsNonImmersiveBand @ 0x1C00372D4 (IsNonImmersiveBand.c)
+ *     PostShellHookMessagesEx @ 0x1C0043558 (PostShellHookMessagesEx.c)
  */
 
-_BOOL8 __fastcall _GhostWindow(struct tagWND *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall _GhostWindow(struct tagWND *a1)
 {
-  BOOL v5; // edi
-  __int64 v6; // rsi
-  __int64 v7; // rdx
-  struct _KTHREAD *v8; // rcx
+  unsigned int v2; // esi
+  __int64 v3; // rdi
+  __int64 v4; // rdx
+  struct _KTHREAD *v5; // rcx
   unsigned int ThreadProcessId; // eax
-  struct _KTHREAD *v10; // rcx
-  _QWORD *v11; // rcx
-  int v13; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v14; // [rsp+24h] [rbp-34h]
-  unsigned int v15; // [rsp+2Ch] [rbp-2Ch]
+  struct _KTHREAD *v7; // rcx
+  _QWORD *v8; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  int v12; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v13; // [rsp+24h] [rbp-34h]
+  unsigned int v14; // [rsp+2Ch] [rbp-2Ch]
   unsigned int ThreadId; // [rsp+30h] [rbp-28h]
-  __int128 v17; // [rsp+34h] [rbp-24h]
-  __int64 v18; // [rsp+68h] [rbp+10h] BYREF
+  __int128 v16; // [rsp+34h] [rbp-24h]
+  __int64 v17; // [rsp+68h] [rbp+10h] BYREF
 
-  v5 = 0;
-  if ( (unsigned int)SetGhostProp(a1, (HWND)0xFFFFFFFFFFFFFFFFLL, a3, a4) )
+  v2 = 0;
+  if ( (unsigned int)SetGhostProp(a1, (HWND)0xFFFFFFFFFFFFFFFFLL) )
   {
-    v6 = *((_QWORD *)a1 + 2);
-    if ( IsNonImmersiveBand((__int64)a1) )
+    v3 = *((_QWORD *)a1 + 2);
+    if ( (unsigned int)IsNonImmersiveBand(a1) )
     {
-      v8 = *(struct _KTHREAD **)v6;
-      v17 = 0LL;
-      v13 = 1;
-      v14 = v7;
-      ThreadProcessId = (unsigned int)PsGetThreadProcessId(v8);
-      v10 = *(struct _KTHREAD **)v6;
-      v15 = ThreadProcessId;
-      ThreadId = (unsigned int)PsGetThreadId(v10);
-      v5 = SendAsyncSGHOSTINFO((struct _GHOSTINFO *const)&v13);
-      if ( !v5 )
+      v5 = *(struct _KTHREAD **)v3;
+      v16 = 0LL;
+      v12 = 1;
+      v13 = v4;
+      ThreadProcessId = (unsigned int)PsGetThreadProcessId(v5);
+      v7 = *(struct _KTHREAD **)v3;
+      v14 = ThreadProcessId;
+      ThreadId = (unsigned int)PsGetThreadId(v7);
+      v2 = SendAsyncSGHOSTINFO((struct _GHOSTINFO *const)&v12);
+    }
+    else
+    {
+      PostShellHookMessagesEx(0x33uLL, v4, 0LL);
+      v2 = 1;
+    }
+    if ( v2 )
+    {
+      if ( *(int *)(v3 + 488) >= 0 )
       {
-        InternalRemoveProp((__int64)a1, *(unsigned __int16 *)(gpsi + 900LL), 1u);
-        return v5;
+        v17 = 0LL;
+        v8 = *(_QWORD **)(v3 + 424);
+        LODWORD(v17) = 4;
+        PsSetProcessFaultInformation(*v8, &v17);
+        *(_DWORD *)(v3 + 488) |= 0x80000000;
       }
     }
     else
     {
-      PostShellHookMessagesEx(0x33u, v7, 0LL);
-      v5 = 1;
-    }
-    if ( *(int *)(v6 + 488) >= 0 )
-    {
-      v18 = 0LL;
-      v11 = *(_QWORD **)(v6 + 424);
-      LODWORD(v18) = 4;
-      PsSetProcessFaultInformation(*v11, &v18);
-      *(_DWORD *)(v6 + 488) |= 0x80000000;
+      v10 = *(unsigned __int16 *)(gpsi + 900LL);
+      v11 = *((_QWORD *)a1 + 18);
+      if ( (_WORD)v10 == word_1C0339F44 )
+        *(_QWORD *)(*((_QWORD *)a1 + 5) + 312LL) = 0LL;
+      RealInternalRemoveProp(v11, v10, 1LL);
     }
   }
-  return v5;
+  return v2;
 }

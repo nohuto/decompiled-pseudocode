@@ -1,32 +1,40 @@
 /*
- * XREFs of CmpSetAccessStateForBackupRestore @ 0x140880B18
+ * XREFs of CmpSetAccessStateForBackupRestore @ 0x14076EBB4
  * Callers:
- *     CmpCheckKeySecurityDescriptorAccess @ 0x14069A1C8 (CmpCheckKeySecurityDescriptorAccess.c)
- *     CmpCheckCreateAccessOnKcbStack @ 0x1406C0780 (CmpCheckCreateAccessOnKcbStack.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmpCheckCreateAccessOnKcbStack @ 0x140681F40 (CmpCheckCreateAccessOnKcbStack.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x140688794 (CmpCheckKeySecurityDescriptorAccess.c)
  * Callees:
- *     SeSinglePrivilegeCheckEx @ 0x14070FCDC (SeSinglePrivilegeCheckEx.c)
- *     SepAdjustAccessStateForConstraints @ 0x1407AB890 (SepAdjustAccessStateForConstraints.c)
+ *     SeSinglePrivilegeCheckEx @ 0x140627AB8 (SeSinglePrivilegeCheckEx.c)
+ *     SepAdjustAccessStateForConstraints @ 0x14076EC80 (SepAdjustAccessStateForConstraints.c)
  */
 
 __int64 __fastcall CmpSetAccessStateForBackupRestore(__int64 a1, KPROCESSOR_MODE a2, __int64 a3, char a4)
 {
+  BOOLEAN v8; // al
+  __int64 v9; // r8
+  int v10; // ecx
+
   *(_DWORD *)(a1 + 20) = 0;
   if ( SeSinglePrivilegeCheckEx(SeBackupPrivilege, (struct _SECURITY_SUBJECT_CONTEXT *)(a1 + 32), a2) )
   {
     *(_DWORD *)(a1 + 12) |= 2u;
     *(_DWORD *)(a1 + 20) |= 0x1020019u;
   }
-  if ( SeSinglePrivilegeCheckEx(SeRestorePrivilege, (struct _SECURITY_SUBJECT_CONTEXT *)(a1 + 32), a2) )
+  v8 = SeSinglePrivilegeCheckEx(SeRestorePrivilege, (struct _SECURITY_SUBJECT_CONTEXT *)(a1 + 32), a2);
+  v10 = *(_DWORD *)(a1 + 20);
+  if ( v8 )
   {
     *(_DWORD *)(a1 + 12) |= 4u;
-    *(_DWORD *)(a1 + 20) |= 0x10F0006u;
+    v10 |= 0x10F0006u;
+    *(_DWORD *)(a1 + 20) = v10;
   }
   if ( a4 )
-    *(_DWORD *)(a1 + 24) = *(_DWORD *)(a1 + 20);
-  if ( !*(_DWORD *)(a1 + 20) )
+    *(_DWORD *)(a1 + 24) = v10;
+  if ( !v10 )
     return 3221225506LL;
-  SepAdjustAccessStateForConstraints((__int64)CmKeyObjectType, a3, 1, a1);
-  *(_DWORD *)(a1 + 16) = *(_DWORD *)(a1 + 24) & ~*(_DWORD *)(a1 + 20);
+  LOBYTE(v9) = 1;
+  SepAdjustAccessStateForConstraints(CmKeyObjectType, a3, v9, a1);
+  *(_DWORD *)(a1 + 16) = ~*(_DWORD *)(a1 + 20) & *(_DWORD *)(a1 + 24);
   return 0LL;
 }

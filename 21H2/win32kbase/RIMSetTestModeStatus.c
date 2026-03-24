@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMSetTestModeStatus @ 0x1C017F320
+ * XREFs of RIMSetTestModeStatus @ 0x1C0152270
  * Callers:
- *     NtRIMSetTestModeStatus @ 0x1C01810B0 (NtRIMSetTestModeStatus.c)
+ *     NtRIMSetTestModeStatus @ 0x1C0154230 (NtRIMSetTestModeStatus.c)
  * Callees:
- *     RIMSyncWalkRimObjList @ 0x1C00B4890 (RIMSyncWalkRimObjList.c)
+ *     RIMSyncWalkRimObjList @ 0x1C00A40BC (RIMSyncWalkRimObjList.c)
  */
 
 __int64 __fastcall RIMSetTestModeStatus(int a1)

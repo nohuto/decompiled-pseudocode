@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhBusAdd @ 0x1C0035DB0
+ * XREFs of UsbhBusAdd @ 0x1C0037070
  * Callers:
  *     <none>
  * Callees:
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
  */
 
 __int64 __fastcall UsbhBusAdd(struct _DEVICE_OBJECT *a1, __int64 a2)

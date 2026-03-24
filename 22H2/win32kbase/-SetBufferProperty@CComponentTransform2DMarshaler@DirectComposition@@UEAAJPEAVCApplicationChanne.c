@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CComponentTransform2DMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C009E1A0
+ * XREFs of ?SetBufferProperty@CComponentTransform2DMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00956E0
  * Callers:
  *     <none>
  * Callees:
@@ -10,70 +10,71 @@ __int64 __fastcall DirectComposition::CComponentTransform2DMarshaler::SetBufferP
         DirectComposition::CComponentTransform2DMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        _QWORD *a4,
+        _DWORD *a4,
         unsigned __int64 a5,
         bool *a6)
 {
-  unsigned int v6; // edx
-  int v7; // r8d
-  int v8; // r8d
-  __int64 v10; // r8
+  unsigned int v6; // r10d
+  __int64 v7; // rdx
+  int v9; // r8d
+  int v10; // r8d
 
   v6 = 0;
   *a6 = 0;
-  if ( a3 == 6 && a5 == 24 )
+  if ( a3 != 6 || a5 != 24 )
   {
-    v10 = *(_QWORD *)((char *)this + 108) - *a4;
-    if ( !v10 )
+    if ( a5 == 8 )
     {
-      v10 = *(_QWORD *)((char *)this + 116) - a4[1];
+      if ( !a3 )
+      {
+        *((_DWORD *)this + 18) = *a4;
+        *((_DWORD *)this + 19) = a4[1];
+        *a6 = 1;
+        *((_DWORD *)this + 4) &= ~0x100u;
+        return v6;
+      }
+      v9 = a3 - 1;
+      if ( !v9 )
+      {
+        *((_DWORD *)this + 20) = *a4;
+        *((_DWORD *)this + 21) = a4[1];
+        *a6 = 1;
+        *((_DWORD *)this + 4) &= ~0x80u;
+        return v6;
+      }
+      v10 = v9 - 1;
       if ( !v10 )
-        v10 = *(_QWORD *)((char *)this + 124) - a4[2];
+      {
+        *((_DWORD *)this + 22) = *a4;
+        *((_DWORD *)this + 23) = a4[1];
+        *a6 = 1;
+        *((_DWORD *)this + 4) &= ~0x200u;
+        return v6;
+      }
+      if ( v10 == 3 )
+      {
+        *((_DWORD *)this + 25) = *a4;
+        *((_DWORD *)this + 26) = a4[1];
+        *a6 = 1;
+        *((_DWORD *)this + 4) &= ~0x800u;
+        return v6;
+      }
     }
-    if ( v10 )
-    {
-      *(_OWORD *)((char *)this + 108) = *(_OWORD *)a4;
-      *(_QWORD *)((char *)this + 124) = a4[2];
-    }
-    *a6 = 1;
-    *((_DWORD *)this + 4) &= ~0x1000u;
+    return (unsigned int)-1073741811;
   }
-  else
+  v7 = *(_QWORD *)((char *)this + 108) - *(_QWORD *)a4;
+  if ( !v7 )
   {
-    if ( a5 != 8 )
-      return (unsigned int)-1073741811;
-    if ( !a3 )
-    {
-      *((_DWORD *)this + 18) = *(_DWORD *)a4;
-      *((_DWORD *)this + 19) = *((_DWORD *)a4 + 1);
-      *a6 = 1;
-      *((_DWORD *)this + 4) &= ~0x100u;
-      return v6;
-    }
-    v7 = a3 - 1;
+    v7 = *(_QWORD *)((char *)this + 116) - *((_QWORD *)a4 + 1);
     if ( !v7 )
-    {
-      *((_DWORD *)this + 20) = *(_DWORD *)a4;
-      *((_DWORD *)this + 21) = *((_DWORD *)a4 + 1);
-      *a6 = 1;
-      *((_DWORD *)this + 4) &= ~0x80u;
-      return v6;
-    }
-    v8 = v7 - 1;
-    if ( !v8 )
-    {
-      *((_DWORD *)this + 22) = *(_DWORD *)a4;
-      *((_DWORD *)this + 23) = *((_DWORD *)a4 + 1);
-      *a6 = 1;
-      *((_DWORD *)this + 4) &= ~0x200u;
-      return v6;
-    }
-    if ( v8 != 3 )
-      return (unsigned int)-1073741811;
-    *((_DWORD *)this + 25) = *(_DWORD *)a4;
-    *((_DWORD *)this + 26) = *((_DWORD *)a4 + 1);
-    *a6 = 1;
-    *((_DWORD *)this + 4) &= ~0x800u;
+      v7 = *(_QWORD *)((char *)this + 124) - *((_QWORD *)a4 + 2);
   }
+  if ( v7 )
+  {
+    *(_OWORD *)((char *)this + 108) = *(_OWORD *)a4;
+    *(_QWORD *)((char *)this + 124) = *((_QWORD *)a4 + 2);
+  }
+  *a6 = 1;
+  *((_DWORD *)this + 4) &= ~0x1000u;
   return v6;
 }

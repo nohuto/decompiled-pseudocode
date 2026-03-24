@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpAllocateBuffer @ 0x1407DC040
+ * XREFs of AlpcpAllocateBuffer @ 0x14069D920
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall AlpcpAllocateBuffer(__int64 a1, __int64 a2, __int64 a3)
+PVOID __fastcall AlpcpAllocateBuffer(POOL_TYPE PoolType, SIZE_T NumberOfBytes, ULONG Tag)
 {
-  return ExAllocatePool2(256LL, a2, a3);
+  return ExAllocatePoolWithTag(PoolType, NumberOfBytes, Tag);
 }

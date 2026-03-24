@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhEtwLogDeviceDescription @ 0x1C005ACEC
+ * XREFs of UsbhEtwLogDeviceDescription @ 0x1C005C39C
  * Callers:
- *     UsbhPdoPnp_StartDevice @ 0x1C0055CA0 (UsbhPdoPnp_StartDevice.c)
- *     UsbhEtwRundown @ 0x1C005B5E4 (UsbhEtwRundown.c)
+ *     UsbhPdoPnp_StartDevice @ 0x1C0057340 (UsbhPdoPnp_StartDevice.c)
+ *     UsbhEtwRundown @ 0x1C005CC90 (UsbhEtwRundown.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhEtwWrite @ 0x1C000CB00 (UsbhEtwWrite.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     UsbhEtwGetDeviceInfo @ 0x1C005AC7C (UsbhEtwGetDeviceInfo.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhEtwWrite @ 0x1C00125E0 (UsbhEtwWrite.c)
+ *     UsbhEtwGetDeviceInfo @ 0x1C0013F08 (UsbhEtwGetDeviceInfo.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall UsbhEtwLogDeviceDescription(__int64 a1, const EVENT_DESCRIPTOR *a2)
@@ -27,7 +27,7 @@ NTSTATUS __fastcall UsbhEtwLogDeviceDescription(__int64 a1, const EVENT_DESCRIPT
   v12 = 0LL;
   memset(v11, 0, sizeof(v11));
   v13 = 0;
-  if ( dword_1C006A690 && *(_QWORD *)(a1 + 2240) )
+  if ( dword_1C006C5F0 && *(_QWORD *)(a1 + 2240) )
   {
     if ( *(_DWORD *)(a1 + 2248) )
     {

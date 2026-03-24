@@ -1,18 +1,18 @@
 /*
- * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0150614
+ * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0125FD8
  * Callers:
- *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C001CA20 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
- *     EtwTraceGdiCreateHandle @ 0x1C001E804 (EtwTraceGdiCreateHandle.c)
- *     ?Pid@HANDLELOCK@@QEAAXK@Z @ 0x1C001F14C (-Pid@HANDLELOCK@@QEAAXK@Z.c)
- *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C001F9F0 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
- *     ??1SURFMEM@@QEAA@XZ @ 0x1C0025050 (--1SURFMEM@@QEAA@XZ.c)
- *     HMAllocObjectEx @ 0x1C002D20C (HMAllocObjectEx.c)
- *     EtwTraceUserCreateHandle @ 0x1C004DFE0 (EtwTraceUserCreateHandle.c)
- *     EtwTraceUserDestroyHandle @ 0x1C0050604 (EtwTraceUserDestroyHandle.c)
- *     EtwTraceUserUpdateHandleOwner @ 0x1C00AC6E8 (EtwTraceUserUpdateHandleOwner.c)
+ *     EtwTraceGdiCreateHandle @ 0x1C0001540 (EtwTraceGdiCreateHandle.c)
+ *     EtwTraceUserDestroyHandle @ 0x1C000850C (EtwTraceUserDestroyHandle.c)
+ *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C002C350 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C00306C0 (--1SURFMEM@@QEAA@XZ.c)
+ *     ?vUnlockAndRelease@HANDLELOCK@@QEAAXXZ @ 0x1C0031DB0 (-vUnlockAndRelease@HANDLELOCK@@QEAAXXZ.c)
+ *     ?Pid@HANDLELOCK@@QEAAXK@Z @ 0x1C003209C (-Pid@HANDLELOCK@@QEAAXK@Z.c)
+ *     HMAllocObject @ 0x1C0032C10 (HMAllocObject.c)
+ *     EtwTraceUserCreateHandle @ 0x1C006A76C (EtwTraceUserCreateHandle.c)
+ *     EtwTraceUserUpdateHandleOwner @ 0x1C009AA28 (EtwTraceUserUpdateHandleOwner.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, _DWORD a3, __int64 a4, ...)

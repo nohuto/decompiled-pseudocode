@@ -1,12 +1,12 @@
 /*
- * XREFs of PipCallbackHasDeviceOverrides @ 0x140822ABC
+ * XREFs of PipCallbackHasDeviceOverrides @ 0x140822A9C
  * Callers:
- *     PipFindDeviceOverrideEntry @ 0x1406D91B4 (PipFindDeviceOverrideEntry.c)
+ *     PipFindDeviceOverrideEntry @ 0x1406D9194 (PipFindDeviceOverrideEntry.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x1401B8430 (ZwQueryKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1401B8450 (ZwQueryKey.c)
  */
 
 bool __fastcall PipCallbackHasDeviceOverrides(void *a1, __int64 a2)

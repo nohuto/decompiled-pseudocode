@@ -1,8 +1,8 @@
 /*
- * XREFs of DpiDetermineResourceListSize @ 0x1C0220DA8
+ * XREFs of DpiDetermineResourceListSize @ 0x1C0198B1C
  * Callers:
- *     DpiFdoHandleStartDevice @ 0x1C0205110 (DpiFdoHandleStartDevice.c)
- *     DpiFilterOutVgaResources @ 0x1C0220BA0 (DpiFilterOutVgaResources.c)
+ *     DpiFdoHandleStartDevice @ 0x1C01984F0 (DpiFdoHandleStartDevice.c)
+ *     DpiFilterOutVgaResources @ 0x1C0198928 (DpiFilterOutVgaResources.c)
  * Callees:
  *     <none>
  */

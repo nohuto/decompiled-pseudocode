@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpTimLogMitigationForProcess @ 0x1409EB81C
+ * XREFs of EtwpTimLogMitigationForProcess @ 0x14093C694
  * Callers:
- *     MiAllowImageMap @ 0x1406AF6A4 (MiAllowImageMap.c)
- *     IopXxxControlFile @ 0x1406E5590 (IopXxxControlFile.c)
- *     EtwTimLogProhibitDynamicCode @ 0x1409E9FF4 (EtwTimLogProhibitDynamicCode.c)
- *     EtwTimLogProhibitWin32kSystemCalls @ 0x1409EA6E4 (EtwTimLogProhibitWin32kSystemCalls.c)
+ *     EtwTimLogProhibitFsctlSystemCalls @ 0x1405D0984 (EtwTimLogProhibitFsctlSystemCalls.c)
+ *     MiAllowImageMap @ 0x14061DE10 (MiAllowImageMap.c)
+ *     EtwTimLogProhibitDynamicCode @ 0x14093BDC8 (EtwTimLogProhibitDynamicCode.c)
+ *     EtwTimLogProhibitWin32kSystemCalls @ 0x14093C480 (EtwTimLogProhibitWin32kSystemCalls.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x1403041F8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x1407550F8 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025EE64 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillThreadIdentity @ 0x14025F0E4 (EtwpTiFillThreadIdentity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpTimLogMitigationForProcess(int a1, int a2, const EVENT_DESCRIPTOR *a3, __int64 a4)
@@ -111,7 +111,7 @@ void __fastcall EtwpTimLogMitigationForProcess(int a1, int a2, const EVENT_DESCR
   v17 = EtwpTiFillThreadIdentity((__int64)(&UserData + (unsigned int)(v16 + 4)), (__int64)KeGetCurrentThread());
   EtwWrite(EtwSecurityMitigationsRegHandle, a3, 0LL, v17 + v18, &UserData);
   v19 = P[1];
-  if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x200000000000LL) )
+  if ( (unsigned int)dword_140C02BF0 > 5 && tlgKeywordOn((__int64)&dword_140C02BF0, 0x200000000000LL) )
   {
     v22 = a1;
     v28 = &v22;
@@ -132,7 +132,7 @@ void __fastcall EtwpTimLogMitigationForProcess(int a1, int a2, const EVENT_DESCR
     v38 = v19;
     v39[1] = 0;
     v41 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C066C0, (unsigned __int8 *)byte_140035671, 0LL, 0LL, 9u, &v27);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02BF0, (unsigned __int8 *)word_14002D6BA, 0LL, 0LL, 9u, &v27);
   }
   if ( v19 )
     ExFreePoolWithTag(v19, 0);

@@ -1,5 +1,5 @@
 /*
- * XREFs of IsMiPMouseMessage @ 0x1C00AA090
+ * XREFs of IsMiPMouseMessage @ 0x1C0096B10
  * Callers:
  *     <none>
  * Callees:

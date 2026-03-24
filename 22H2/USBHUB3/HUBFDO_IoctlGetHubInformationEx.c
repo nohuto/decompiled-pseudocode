@@ -1,16 +1,16 @@
 /*
- * XREFs of HUBFDO_IoctlGetHubInformationEx @ 0x1C0079EC4
+ * XREFs of HUBFDO_IoctlGetHubInformationEx @ 0x1C0076240
  * Callers:
- *     HUBFDO_EvtIoDeviceControl @ 0x1C007B550 (HUBFDO_EvtIoDeviceControl.c)
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C0077390 (HUBFDO_EvtIoDeviceControl.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CD5C (McTemplateK0pqq_EtwWriteTransfer.c)
- *     HUBMISC_GetActivityIdIrp @ 0x1C0033648 (HUBMISC_GetActivityIdIrp.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0044EC0 (memset.c)
- *     HUBFDO_IoctlValidateParameters @ 0x1C00786AC (HUBFDO_IoctlValidateParameters.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     HUBMISC_GetActivityIdIrp @ 0x1C0030470 (HUBMISC_GetActivityIdIrp.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     HUBFDO_IoctlValidateParameters @ 0x1C00749E4 (HUBFDO_IoctlValidateParameters.c)
  */
 
 __int64 __fastcall HUBFDO_IoctlGetHubInformationEx(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
@@ -34,7 +34,7 @@ __int64 __fastcall HUBFDO_IoctlGetHubInformationEx(__int64 a1, __int64 a2, unsig
   v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v7,
-         off_1C0069198);
+         off_1C0066170);
   v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, unsigned __int64, void **, _QWORD))(WdfFunctions_01015
                                                                                                   + 2160))(
          WdfDriverGlobals,
@@ -77,8 +77,8 @@ __int64 __fastcall HUBFDO_IoctlGetHubInformationEx(__int64 a1, __int64 a2, unsig
               *(_QWORD *)(v8 + 2520),
               2u,
               4u,
-              0x42u,
-              (__int64)&WPP_440221f57c503424f19abf9386554ba7_Traceguids);
+              0x31u,
+              (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids);
           break;
       }
     }
@@ -90,16 +90,16 @@ __int64 __fastcall HUBFDO_IoctlGetHubInformationEx(__int64 a1, __int64 a2, unsig
       *(_QWORD *)(v8 + 2520),
       2u,
       3u,
-      0x41u,
-      (__int64)&WPP_440221f57c503424f19abf9386554ba7_Traceguids,
+      0x30u,
+      (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
       v18);
   }
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
+  if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
   {
     v20 = 0LL;
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 2280))(WdfDriverGlobals, a2);
     ActivityIdIrp = HUBMISC_GetActivityIdIrp();
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )
     {
       v14 = (const GUID *)&v20;
       LODWORD(v17) = v9;

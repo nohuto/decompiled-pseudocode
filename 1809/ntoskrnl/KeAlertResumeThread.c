@@ -1,11 +1,11 @@
 /*
- * XREFs of KeAlertResumeThread @ 0x14028DBF0
+ * XREFs of KeAlertResumeThread @ 0x14028DCF0
  * Callers:
- *     NtAlertResumeThread @ 0x14088CA70 (NtAlertResumeThread.c)
+ *     NtAlertResumeThread @ 0x14088CA50 (NtAlertResumeThread.c)
  * Callees:
- *     KeAlertThread @ 0x1400F2210 (KeAlertThread.c)
- *     KeResumeThread @ 0x1400F2708 (KeResumeThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAlertThread @ 0x1400F2230 (KeAlertThread.c)
+ *     KeResumeThread @ 0x1400F2728 (KeResumeThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeAlertResumeThread(__int64 a1, __int64 a2, __int64 a3)

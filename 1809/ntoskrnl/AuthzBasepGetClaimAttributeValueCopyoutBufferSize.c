@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepGetClaimAttributeValueCopyoutBufferSize @ 0x1408EE838
+ * XREFs of AuthzBasepGetClaimAttributeValueCopyoutBufferSize @ 0x1408EE818
  * Callers:
- *     AuthzBasepGetClaimAttributesCopyoutBufferSize @ 0x1408EE9DC (AuthzBasepGetClaimAttributesCopyoutBufferSize.c)
+ *     AuthzBasepGetClaimAttributesCopyoutBufferSize @ 0x1408EE9BC (AuthzBasepGetClaimAttributesCopyoutBufferSize.c)
  * Callees:
  *     <none>
  */

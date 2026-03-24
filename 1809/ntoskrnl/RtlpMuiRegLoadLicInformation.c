@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpMuiRegLoadLicInformation @ 0x140182AC0
+ * XREFs of RtlpMuiRegLoadLicInformation @ 0x140182AE0
  * Callers:
- *     RtlpMuiRegLoadRegistryInfo @ 0x14073D994 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x14073D974 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     wcspbrk @ 0x1401980B0 (wcspbrk.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     wcspbrk @ 0x1401980D0 (wcspbrk.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCultureNameToLCID @ 0x14073EF20 (RtlCultureNameToLCID.c)
- *     RtlpGetWindowsPolicy @ 0x14073EFE4 (RtlpGetWindowsPolicy.c)
+ *     RtlCultureNameToLCID @ 0x14073EF00 (RtlCultureNameToLCID.c)
+ *     RtlpGetWindowsPolicy @ 0x14073EFC4 (RtlpGetWindowsPolicy.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadLicInformation(__int64 a1)

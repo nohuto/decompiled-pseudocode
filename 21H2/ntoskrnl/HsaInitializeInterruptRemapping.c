@@ -1,33 +1,34 @@
 /*
- * XREFs of HsaInitializeInterruptRemapping @ 0x140A64868
+ * XREFs of HsaInitializeInterruptRemapping @ 0x1409AA448
  * Callers:
- *     HsaInitializeIommu @ 0x140A64A00 (HsaInitializeIommu.c)
+ *     HsaInitializeIommu @ 0x1409AA5F0 (HsaInitializeIommu.c)
  * Callees:
- *     RtlInitializeBitMap @ 0x14023C660 (RtlInitializeBitMap.c)
- *     HalMapIoSpace @ 0x1403BE7F0 (HalMapIoSpace.c)
- *     ExtEnvAllocateMemory @ 0x1403CE24C (ExtEnvAllocateMemory.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpGetIrtEntryCount @ 0x14051DB18 (HalpGetIrtEntryCount.c)
- *     ExtEnvClearBits @ 0x140522654 (ExtEnvClearBits.c)
- *     ExtEnvInitializeSpinLock @ 0x140522804 (ExtEnvInitializeSpinLock.c)
+ *     RtlInitializeBitMap @ 0x1402B2D90 (RtlInitializeBitMap.c)
+ *     ExtEnvZeroMemory @ 0x14036D6F0 (ExtEnvZeroMemory.c)
+ *     HalMapIoSpace @ 0x1403AC2D0 (HalMapIoSpace.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpGetIrtEntryCount @ 0x1404D1568 (HalpGetIrtEntryCount.c)
+ *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
+ *     ExtEnvClearBits @ 0x1404D5384 (ExtEnvClearBits.c)
+ *     ExtEnvInitializeSpinLock @ 0x1404D5534 (ExtEnvInitializeSpinLock.c)
  */
 
 __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
 {
-  int v1; // ebx
+  int Memory; // edi
   int v3; // eax
   LARGE_INTEGER v4; // rax
   PVOID v5; // rax
   __int64 v6; // rcx
   RTL_BITMAP *v7; // rcx
   __int64 v8; // rcx
-  __int64 v9; // rax
+  char *v9; // rbx
   PULONG BitMapBuffer; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+48h] [rbp+20h] BYREF
+  void *v12; // [rsp+48h] [rbp+20h] BYREF
 
   v12 = 0LL;
-  v1 = 0;
+  Memory = 0;
   BitMapBuffer = 0LL;
   v3 = *(_DWORD *)(a1 + 176);
   if ( v3 )
@@ -47,24 +48,30 @@ __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
               (*((_QWORD *)&HsaSharedRemappingTable + 1) = v5) != 0LL) )
         {
           memset(v5, 0, (unsigned int)NumberOfBytes);
-          v1 = ExtEnvAllocateMemory(v6, 4 * ((unsigned int)(*(_DWORD *)(a1 + 180) + 31) >> 5), &BitMapBuffer);
-          if ( v1 >= 0 )
+          Memory = ExtEnvAllocateMemory(
+                     v6,
+                     4 * ((unsigned int)(*(_DWORD *)(a1 + 180) + 31) >> 5),
+                     (__int64 *)&BitMapBuffer);
+          if ( Memory >= 0 )
           {
             RtlInitializeBitMap((PRTL_BITMAP)(&NumberOfBytes + 1), BitMapBuffer, *(_DWORD *)(a1 + 180));
             ExtEnvClearBits(v7, 0, *(_DWORD *)(a1 + 180));
             HsaTotalDeviceApertures = (unsigned int)HalpGetIrtEntryCount() >> 9;
-            v1 = ExtEnvAllocateMemory(v8, 0x1C00u, &v12);
-            if ( v1 >= 0 )
+            Memory = ExtEnvAllocateMemory(v8, 0x2400u, (__int64 *)&v12);
+            if ( Memory >= 0 )
             {
+              v9 = (char *)v12;
+              ExtEnvZeroMemory(v12, 0x2400uLL);
               ExtEnvInitializeSpinLock(HsaDeviceApertureLock);
-              v9 = v12;
               HsaAllocatedDeviceApertures = 128;
-              HsaDeviceApertureRanges[0] = v12;
-              *(_OWORD *)(v12 + 8) = HsaSharedRemappingTable;
+              HsaDeviceApertureRanges[0] = (__int64)v9;
+              *(_OWORD *)(v9 + 8) = HsaSharedRemappingTable;
               *(_OWORD *)(v9 + 24) = *(_OWORD *)&NumberOfBytes;
-              *(_QWORD *)(v9 + 40) = qword_140C49C60;
-              *(_DWORD *)(v9 + 48) = 1;
-              *(_DWORD *)(v9 + 52) = -1;
+              *((_QWORD *)v9 + 5) = qword_140C48960;
+              *((_DWORD *)v9 + 12) = 1;
+              *((_DWORD *)v9 + 13) = -1;
+              *((_DWORD *)v9 + 14) = 0;
+              *((_DWORD *)v9 + 15) = 0;
             }
           }
         }
@@ -79,5 +86,5 @@ __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
       return (unsigned int)-1073741637;
     }
   }
-  return (unsigned int)v1;
+  return (unsigned int)Memory;
 }

@@ -1,98 +1,102 @@
 /*
- * XREFs of PopProcessWakeSourceWork @ 0x140A6B1E0
+ * XREFs of PopProcessWakeSourceWork @ 0x1408E6B64
  * Callers:
- *     PopProcessDeviceWakeSource @ 0x140A51700 (PopProcessDeviceWakeSource.c)
+ *     PopUpdateWakeSourceWorker @ 0x14056F1E0 (PopUpdateWakeSourceWorker.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
- *     PopFreeWakeSource @ 0x14098F2F8 (PopFreeWakeSource.c)
- *     PopNewWakeSource @ 0x14098F388 (PopNewWakeSource.c)
- *     PopWakeSourceGetDeviceProperty @ 0x14098F40C (PopWakeSourceGetDeviceProperty.c)
- *     PopWakeSourceIsChild @ 0x14098F4D4 (PopWakeSourceIsChild.c)
- *     PopWakeSourceIsParent @ 0x14098F540 (PopWakeSourceIsParent.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     wcsncmp @ 0x1403D4040 (wcsncmp.c)
+ *     PopFreeWakeSource @ 0x1408E6A98 (PopFreeWakeSource.c)
+ *     PopNewWakeSource @ 0x1408E6B14 (PopNewWakeSource.c)
+ *     PopWakeSourceGetDeviceProperty @ 0x1408E6D2C (PopWakeSourceGetDeviceProperty.c)
+ *     PopWakeSourceIsParent @ 0x1408E6DF8 (PopWakeSourceIsParent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopProcessWakeSourceWork(struct _DEVICE_OBJECT *a1, __int64 *a2, _QWORD *a3)
+__int64 __fastcall PopProcessWakeSourceWork(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
-  _QWORD *v3; // rbp
-  __int64 DeviceNode; // rsi
-  unsigned int v8; // r15d
-  __int64 v9; // rax
-  _QWORD *v10; // rdi
-  _QWORD *v11; // rbx
-  unsigned int v12; // edi
-  __int64 v13; // rax
-  __int64 v14; // rbx
-  __int64 Pool2; // rax
-  wchar_t *Buffer; // rcx
-  UNICODE_STRING GuidString; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v3; // r13
+  _QWORD *v4; // r14
+  __int64 v5; // rbp
+  unsigned int v6; // r12d
+  _QWORD **v7; // r15
+  _QWORD *v8; // rsi
+  _QWORD *v9; // rdi
+  unsigned int v10; // edi
+  unsigned __int16 *i; // rax
+  unsigned __int16 *v12; // rbx
+  _DWORD *v13; // rax
+  _DWORD *v14; // rbx
+  PVOID PoolWithTag; // rax
 
-  v3 = 0LL;
-  GuidString = 0LL;
-  if ( a1 )
-    DeviceNode = (__int64)a1->DeviceObjectExtension->DeviceNode;
+  v3 = *(_QWORD *)(a1 + 16);
+  v4 = 0LL;
+  if ( v3 )
+    v5 = *(_QWORD *)(*(_QWORD *)(v3 + 312) + 40LL);
   else
-    DeviceNode = 0LL;
-  v8 = *(_DWORD *)(DeviceNode + 152);
-  v9 = PopCurrentWakeInfo + 24;
-  v10 = *(_QWORD **)(PopCurrentWakeInfo + 24);
-  while ( 1 )
+    v5 = 0LL;
+  v6 = *(_DWORD *)(v5 + 152);
+  v7 = (_QWORD **)(*(_QWORD *)(a1 + 24) + 24LL);
+  v8 = *v7;
+  while ( v8 != v7 )
   {
-    if ( v10 == (_QWORD *)v9 )
-      goto LABEL_15;
-    v11 = v10;
-    v10 = (_QWORD *)*v10;
-    if ( *((_DWORD *)v11 + 4) )
-      goto LABEL_11;
-    if ( *((_DWORD *)v11 + 18) <= v8 )
-      break;
-    if ( PopWakeSourceIsParent((unsigned __int16 *)DeviceNode, (__int64)(v11 + 3)) )
+    v9 = v8;
+    v8 = (_QWORD *)*v8;
+    if ( !*((_DWORD *)v9 + 4) )
     {
-      v12 = -1073741823;
-LABEL_19:
-      v14 = 0LL;
-      goto LABEL_20;
+      if ( *((_DWORD *)v9 + 18) <= v6 )
+      {
+        if ( *((_DWORD *)v9 + 18) < v6 )
+        {
+          for ( i = *(unsigned __int16 **)(v5 + 16); ; i = (unsigned __int16 *)*((_QWORD *)v12 + 2) )
+          {
+            v12 = 0LL;
+            if ( i != IopRootDeviceNode )
+              v12 = i;
+            if ( !v12 )
+              break;
+            if ( v12[20] == *((_WORD *)v9 + 12)
+              && !wcsncmp(*((const wchar_t **)v12 + 6), (const wchar_t *)v9[4], (unsigned __int64)v12[20] >> 1) )
+            {
+              v4 = v9;
+              goto LABEL_20;
+            }
+          }
+        }
+      }
+      else if ( (unsigned __int8)PopWakeSourceIsParent(v5, v9 + 3) )
+      {
+        v10 = -1073741823;
+LABEL_24:
+        v4 = 0LL;
+        v14 = 0LL;
+        goto LABEL_26;
+      }
     }
-LABEL_11:
-    v9 = PopCurrentWakeInfo + 24;
   }
-  if ( *((_DWORD *)v11 + 18) >= v8 || !PopWakeSourceIsChild(DeviceNode, (__int64)(v11 + 3)) )
-    goto LABEL_11;
-  v3 = v11;
-LABEL_15:
+LABEL_20:
   v13 = PopNewWakeSource(0);
   v14 = v13;
   if ( !v13 )
   {
-    v12 = -1073741670;
-LABEL_20:
-    v3 = 0LL;
-    goto LABEL_22;
+    v10 = -1073741670;
+    goto LABEL_24;
   }
-  *(_DWORD *)(v13 + 72) = v8;
-  Pool2 = ExAllocatePool2(256LL, *(unsigned __int16 *)(DeviceNode + 40), 544040269LL);
-  *(_QWORD *)(v14 + 32) = Pool2;
-  if ( !Pool2 )
+  v13[18] = v6;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, *(unsigned __int16 *)(v5 + 40), 0x206D654Du);
+  *((_QWORD *)v14 + 4) = PoolWithTag;
+  if ( !PoolWithTag )
   {
-    v12 = -1073741670;
-    PopFreeWakeSource((_DWORD *)v14);
-    goto LABEL_19;
+    v10 = -1073741670;
+    PopFreeWakeSource(v14);
+    goto LABEL_24;
   }
-  *(_WORD *)(v14 + 26) = *(_WORD *)(DeviceNode + 40);
-  RtlCopyUnicodeString((PUNICODE_STRING)(v14 + 24), (PCUNICODE_STRING)(DeviceNode + 40));
-  PopWakeSourceGetDeviceProperty(v14 + 40, DevicePropertyFriendlyName, a1);
-  PopWakeSourceGetDeviceProperty(v14 + 56, DevicePropertyDeviceDescription, a1);
-  PopWakeSourceGetDeviceProperty(v14 + 96, DevicePropertyClassName, a1);
-  PopWakeSourceGetDeviceProperty((__int64)&GuidString, DevicePropertyClassGuid, a1);
-  RtlGUIDFromString(&GuidString, (GUID *)(v14 + 76));
-  v12 = 0;
-LABEL_22:
-  Buffer = GuidString.Buffer;
+  *((_WORD *)v14 + 13) = *(_WORD *)(v5 + 40);
+  RtlCopyUnicodeString((PUNICODE_STRING)(v14 + 6), (PCUNICODE_STRING)(v5 + 40));
+  PopWakeSourceGetDeviceProperty(v14 + 10, 9LL, v3);
+  PopWakeSourceGetDeviceProperty(v14 + 14, 0LL, v3);
+  v10 = 0;
+LABEL_26:
   *a2 = v14;
-  *a3 = v3;
-  if ( Buffer )
-    ExFreePoolWithTag(Buffer, 0x206D654Du);
-  return v12;
+  *a3 = v4;
+  return v10;
 }

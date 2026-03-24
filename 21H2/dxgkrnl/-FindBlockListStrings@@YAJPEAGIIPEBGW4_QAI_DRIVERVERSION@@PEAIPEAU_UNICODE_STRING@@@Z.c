@@ -1,18 +1,18 @@
 /*
- * XREFs of ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C02027A8
+ * XREFs of ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C01872CC
  * Callers:
- *     ?CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C020271C (-CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
- *     ?CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C0202E20 (-CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
+ *     ?CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C0187240 (-CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
+ *     ?CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C0187948 (-CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     _tlgKeywordOn @ 0x1C0012AB4 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     wcscmp_0 @ 0x1C002CBF8 (wcscmp_0.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U1@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@34@Z @ 0x1C005FBA8 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U1@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgP.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U1@U2@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@343@Z @ 0x1C005FCB4 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U1@U2@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_t.c)
- *     DxgkRetrieveStringFromRegistry @ 0x1C01FE9D0 (DxgkRetrieveStringFromRegistry.c)
- *     ?ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z @ 0x1C0202BC4 (-ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     _tlgKeywordOn @ 0x1C000B1A8 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     wcscmp_0 @ 0x1C0028BD8 (wcscmp_0.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U1@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@34@Z @ 0x1C0052220 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U1@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgP.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U1@U2@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@343@Z @ 0x1C005232C (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U1@U2@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_t.c)
+ *     ?ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z @ 0x1C01876E8 (-ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z.c)
+ *     DxgkRetrieveStringFromRegistry @ 0x1C01892D0 (DxgkRetrieveStringFromRegistry.c)
  */
 
 __int64 __fastcall FindBlockListStrings(
@@ -28,85 +28,84 @@ __int64 __fastcall FindBlockListStrings(
   unsigned int v8; // r15d
   struct _UNICODE_STRING *v9; // rsi
   unsigned int v10; // r14d
-  __int64 v11; // r9
-  NTSTATUS v12; // r12d
-  int v13; // ebx
-  __int64 v14; // r13
-  ULONG v15; // eax
-  ULONG v16; // ecx
-  unsigned __int16 *v17; // r9
-  unsigned __int64 v18; // rax
-  NTSTATUS v20; // eax
-  int v21; // r10d
-  __int64 v22; // r15
-  unsigned int v23; // edi
-  __int64 v24; // r15
-  unsigned __int16 v25; // ax
-  unsigned __int64 v26; // r14
+  NTSTATUS v11; // r12d
+  int v12; // ebx
+  unsigned __int16 *v13; // r13
+  ULONG v14; // eax
+  ULONG v15; // ecx
+  unsigned __int16 *v16; // r9
+  unsigned __int64 v17; // rax
+  int v19; // eax
+  int v20; // r10d
+  __int64 v21; // r15
+  unsigned int v22; // edi
+  __int64 v23; // r15
+  unsigned __int16 v24; // ax
+  unsigned __int64 v25; // r14
   wchar_t *Buffer; // rsi
-  unsigned __int64 v28; // rax
-  const wchar_t *v29; // rcx
-  __int64 v30; // rbx
-  int v31; // eax
-  unsigned int v32; // edi
-  unsigned __int16 v33; // ax
-  unsigned __int64 v34; // rsi
-  wchar_t *v35; // r14
-  unsigned __int64 v36; // rax
-  const wchar_t *v37; // rcx
-  __int64 v38; // rbx
-  int v39; // eax
-  char v40; // si
-  unsigned int v41; // edi
-  unsigned __int16 v42; // ax
-  unsigned __int64 v43; // r14
-  wchar_t *v44; // r15
-  unsigned __int64 v45; // rax
-  const wchar_t *v46; // rcx
-  __int64 v47; // rbx
-  int v48; // eax
-  char v49; // r9
-  unsigned int v50; // edi
-  __int64 v51; // rbx
-  enum _QAI_DRIVERVERSION v52; // esi
-  __int64 v53; // rcx
-  __int64 v54; // r8
-  __int64 v55; // r9
-  int v56; // eax
-  __int64 v57; // rcx
-  __int64 v58; // r8
-  __int64 v59; // r9
-  unsigned __int8 v60[4]; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v61; // [rsp+54h] [rbp-ACh]
-  unsigned __int32 v62; // [rsp+58h] [rbp-A8h]
-  enum _QAI_DRIVERVERSION v63; // [rsp+5Ch] [rbp-A4h] BYREF
-  unsigned int v64; // [rsp+60h] [rbp-A0h] BYREF
-  enum _QAI_DRIVERVERSION v65; // [rsp+64h] [rbp-9Ch] BYREF
+  unsigned __int64 v27; // rax
+  const wchar_t *v28; // rcx
+  __int64 v29; // rbx
+  int v30; // eax
+  unsigned int v31; // edi
+  unsigned __int16 v32; // ax
+  unsigned __int64 v33; // rsi
+  wchar_t *v34; // r14
+  unsigned __int64 v35; // rax
+  const wchar_t *v36; // rcx
+  __int64 v37; // rbx
+  int v38; // eax
+  char v39; // si
+  unsigned int v40; // edi
+  unsigned __int16 v41; // ax
+  unsigned __int64 v42; // r14
+  wchar_t *v43; // r15
+  unsigned __int64 v44; // rax
+  const wchar_t *v45; // rcx
+  __int64 v46; // rbx
+  int v47; // eax
+  char v48; // r9
+  unsigned int v49; // edi
+  char *v50; // rbx
+  enum _QAI_DRIVERVERSION v51; // esi
+  __int64 v52; // rcx
+  __int64 v53; // r8
+  __int64 v54; // r9
+  int v55; // eax
+  __int64 v56; // rcx
+  __int64 v57; // r8
+  __int64 v58; // r9
+  unsigned __int8 v59[4]; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v60; // [rsp+54h] [rbp-ACh]
+  unsigned __int32 v61; // [rsp+58h] [rbp-A8h]
+  enum _QAI_DRIVERVERSION v62; // [rsp+5Ch] [rbp-A4h] BYREF
+  unsigned int v63; // [rsp+60h] [rbp-A0h] BYREF
+  enum _QAI_DRIVERVERSION v64; // [rsp+64h] [rbp-9Ch] BYREF
   ULONG ResultLength; // [rsp+68h] [rbp-98h] BYREF
-  ULONG v67; // [rsp+6Ch] [rbp-94h]
+  ULONG v66; // [rsp+6Ch] [rbp-94h]
   void *KeyHandle; // [rsp+70h] [rbp-90h] BYREF
-  struct _UNICODE_STRING v69; // [rsp+80h] [rbp-80h] BYREF
-  int v70; // [rsp+90h] [rbp-70h] BYREF
-  ULONG v71; // [rsp+94h] [rbp-6Ch]
-  unsigned __int16 *v72; // [rsp+98h] [rbp-68h]
-  struct _UNICODE_STRING *v73; // [rsp+A0h] [rbp-60h]
-  unsigned __int16 *v74; // [rsp+A8h] [rbp-58h] BYREF
-  unsigned int *v75; // [rsp+B0h] [rbp-50h]
+  struct _UNICODE_STRING v68; // [rsp+80h] [rbp-80h] BYREF
+  int v69; // [rsp+90h] [rbp-70h] BYREF
+  ULONG v70; // [rsp+94h] [rbp-6Ch]
+  unsigned __int16 *v71; // [rsp+98h] [rbp-68h]
+  struct _UNICODE_STRING *v72; // [rsp+A0h] [rbp-60h]
+  unsigned __int16 *v73; // [rsp+A8h] [rbp-58h] BYREF
+  unsigned int *v74; // [rsp+B0h] [rbp-50h]
   struct _UNICODE_STRING DestinationString; // [rsp+B8h] [rbp-48h] BYREF
   struct _UNICODE_STRING ValueName; // [rsp+C8h] [rbp-38h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D8h] [rbp-28h] BYREF
   _OWORD KeyInformation[2]; // [rsp+108h] [rbp+8h] BYREF
-  __int128 v80; // [rsp+128h] [rbp+28h]
+  __int128 v79; // [rsp+128h] [rbp+28h]
 
   v7 = a6;
   v8 = a2;
   v9 = a7;
-  v62 = a2;
+  v61 = a2;
   v10 = a3;
-  v72 = a4;
-  v61 = a3;
-  v75 = a6;
-  v73 = a7;
+  v71 = a4;
+  v60 = a3;
+  v74 = a6;
+  v72 = a7;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
@@ -119,216 +118,216 @@ __int64 __fastcall FindBlockListStrings(
     return 0LL;
   ResultLength = 0;
   memset(KeyInformation, 0, sizeof(KeyInformation));
-  v80 = 0LL;
-  v12 = ZwQueryKey(KeyHandle, KeyFullInformation, KeyInformation, 0x30u, &ResultLength);
-  if ( v12 >= 0 )
+  v79 = 0LL;
+  v11 = ZwQueryKey(KeyHandle, KeyFullInformation, KeyInformation, 0x30u, &ResultLength);
+  if ( v11 >= 0 )
   {
-    if ( (_DWORD)v80 )
+    if ( (_DWORD)v79 )
     {
-      v13 = DWORD1(v80) + 18;
-      v14 = operator new[]((unsigned int)(DWORD1(v80) + 18), 0x4B677844u, 256LL, v11);
-      if ( v14 )
+      v12 = DWORD1(v79) + 18;
+      v13 = (unsigned __int16 *)operator new[]((unsigned int)(DWORD1(v79) + 18), 0x4B677844u, PagedPool);
+      if ( v13 )
       {
-        v15 = 0;
-        v67 = 0;
-        if ( (_DWORD)v80 )
+        v14 = 0;
+        v66 = 0;
+        if ( (_DWORD)v79 )
         {
-          v16 = v13 - 2;
-          v71 = v13 - 2;
+          v15 = v12 - 2;
+          v70 = v12 - 2;
           do
           {
-            v12 = ZwEnumerateValueKey(KeyHandle, v15, KeyValueBasicInformation, (PVOID)v14, v16, &ResultLength);
-            if ( v12 >= 0 && *(_DWORD *)(v14 + 4) == 7 )
+            v11 = ZwEnumerateValueKey(KeyHandle, v14, KeyValueBasicInformation, v13, v15, &ResultLength);
+            if ( v11 >= 0 && *((_DWORD *)v13 + 1) == 7 )
             {
-              v17 = v72;
-              v18 = (unsigned __int64)*(unsigned int *)(v14 + 8) >> 1;
-              v60[0] = 0;
-              *(_WORD *)(v14 + 2 * v18 + 12) = 0;
-              v12 = ParseAndCompareBlockListCondition((const unsigned __int16 *)(v14 + 12), v8, v10, v17, a5, v60);
-              if ( v12 >= 0 )
+              v16 = v71;
+              v17 = (unsigned __int64)*((unsigned int *)v13 + 2) >> 1;
+              v59[0] = 0;
+              v13[v17 + 6] = 0;
+              v11 = ParseAndCompareBlockListCondition(v13 + 6, v8, v10, v16, a5, v59);
+              if ( v11 >= 0 )
               {
-                if ( v60[0] )
+                if ( v59[0] )
                 {
                   ValueName = 0LL;
-                  RtlInitUnicodeString(&ValueName, (PCWSTR)(v14 + 12));
+                  RtlInitUnicodeString(&ValueName, v13 + 6);
                   if ( *v7 < 0x14 )
                   {
-                    v20 = DxgkRetrieveStringFromRegistry(KeyHandle, &ValueName, (__int64)&v9[*v7]);
-                    LOBYTE(v21) = 0;
-                    v12 = v20;
-                    if ( v20 >= 0 )
+                    v19 = DxgkRetrieveStringFromRegistry(KeyHandle, &ValueName);
+                    LOBYTE(v20) = 0;
+                    v11 = v19;
+                    if ( v19 >= 0 )
                     {
                       v9[*v7].Buffer[((unsigned __int64)v9[*v7].Length >> 1) - 1] = 0;
-                      v22 = *v7;
-                      v23 = 0;
-                      v24 = v22;
-                      v25 = _mm_cvtsi128_si32((__m128i)v9[v24]);
-                      v69 = v9[v24];
-                      v26 = v25;
-                      if ( v25 )
+                      v21 = *v7;
+                      v22 = 0;
+                      v23 = v21;
+                      v24 = _mm_cvtsi128_si32((__m128i)v9[v23]);
+                      v68 = v9[v23];
+                      v25 = v24;
+                      if ( v24 )
                       {
-                        Buffer = v69.Buffer;
-                        v28 = 0LL;
+                        Buffer = v68.Buffer;
+                        v27 = 0LL;
                         do
                         {
-                          v29 = &Buffer[v28 / 2];
-                          v30 = -1LL;
+                          v28 = &Buffer[v27 / 2];
+                          v29 = -1LL;
                           do
-                            ++v30;
-                          while ( v29[v30] );
-                          if ( !(_DWORD)v30 )
+                            ++v29;
+                          while ( v28[v29] );
+                          if ( !(_DWORD)v29 )
                             break;
-                          v31 = wcscmp_0(v29, L"GPU_P_ALL");
-                          LOBYTE(v21) = 0;
-                          if ( !v31 )
+                          v30 = wcscmp_0(v28, L"GPU_P_ALL");
+                          LOBYTE(v20) = 0;
+                          if ( !v30 )
                           {
-                            v60[0] = 1;
+                            v59[0] = 1;
                             goto LABEL_24;
                           }
-                          v23 += v30 + 1;
-                          v28 = 2LL * v23;
+                          v22 += v29 + 1;
+                          v27 = 2LL * v22;
                         }
-                        while ( v28 < v26 );
+                        while ( v27 < v25 );
                       }
-                      v60[0] = 0;
+                      v59[0] = 0;
 LABEL_24:
-                      v32 = 0;
-                      v33 = _mm_cvtsi128_si32((__m128i)v73[v24]);
-                      v69 = v73[v24];
-                      v34 = v33;
-                      if ( v33 )
+                      v31 = 0;
+                      v32 = _mm_cvtsi128_si32((__m128i)v72[v23]);
+                      v68 = v72[v23];
+                      v33 = v32;
+                      if ( v32 )
                       {
-                        v35 = v69.Buffer;
-                        v36 = 0LL;
+                        v34 = v68.Buffer;
+                        v35 = 0LL;
                         do
                         {
-                          v37 = &v35[v36 / 2];
-                          v38 = -1LL;
+                          v36 = &v34[v35 / 2];
+                          v37 = -1LL;
                           do
-                            ++v38;
-                          while ( v37[v38] );
-                          if ( !(_DWORD)v38 )
+                            ++v37;
+                          while ( v36[v37] );
+                          if ( !(_DWORD)v37 )
                             break;
-                          v39 = wcscmp_0(v37, L"GPU_PV_ALL");
-                          LOBYTE(v21) = 0;
-                          if ( !v39 )
+                          v38 = wcscmp_0(v36, L"GPU_PV_ALL");
+                          LOBYTE(v20) = 0;
+                          if ( !v38 )
                           {
-                            v40 = 1;
+                            v39 = 1;
                             goto LABEL_31;
                           }
-                          v32 += v38 + 1;
-                          v36 = 2LL * v32;
+                          v31 += v37 + 1;
+                          v35 = 2LL * v31;
                         }
-                        while ( v36 < v34 );
+                        while ( v35 < v33 );
                       }
-                      v40 = 0;
+                      v39 = 0;
 LABEL_31:
-                      v41 = 0;
-                      v42 = _mm_cvtsi128_si32((__m128i)v73[v24]);
-                      v69 = v73[v24];
-                      v43 = v42;
-                      if ( v42 )
+                      v40 = 0;
+                      v41 = _mm_cvtsi128_si32((__m128i)v72[v23]);
+                      v68 = v72[v23];
+                      v42 = v41;
+                      if ( v41 )
                       {
-                        v44 = v69.Buffer;
-                        v45 = 0LL;
+                        v43 = v68.Buffer;
+                        v44 = 0LL;
                         do
                         {
-                          v46 = &v44[v45 / 2];
-                          v47 = -1LL;
+                          v45 = &v43[v44 / 2];
+                          v46 = -1LL;
                           do
-                            ++v47;
-                          while ( v46[v47] );
-                          if ( !(_DWORD)v47 )
+                            ++v46;
+                          while ( v45[v46] );
+                          if ( !(_DWORD)v46 )
                             break;
-                          v48 = wcscmp_0(v46, L"GPU_PV_HIGH_SECURITY");
-                          LOBYTE(v21) = 0;
-                          if ( !v48 )
+                          v47 = wcscmp_0(v45, L"GPU_PV_HIGH_SECURITY");
+                          LOBYTE(v20) = 0;
+                          if ( !v47 )
                           {
-                            v49 = 1;
+                            v48 = 1;
                             goto LABEL_44;
                           }
-                          v41 += v47 + 1;
-                          v45 = 2LL * v41;
+                          v40 += v46 + 1;
+                          v44 = 2LL * v40;
                         }
-                        while ( v45 < v43 );
+                        while ( v44 < v42 );
                       }
-                      v49 = 0;
+                      v48 = 0;
 LABEL_44:
-                      if ( (v40 || v49)
-                        && (unsigned int)dword_1C012F918 > 5
-                        && tlgKeywordOn((__int64)&dword_1C012F918, 0x400000000200LL) )
+                      if ( (v39 || v48)
+                        && (unsigned int)dword_1C00B1A90 > 5
+                        && tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000000200LL) )
                       {
-                        if ( !(_BYTE)v55 || (v56 = 1, v40) )
-                          v56 = v21;
-                        v50 = v61;
-                        v51 = v14 + 12;
-                        v52 = v62;
-                        v70 = v56;
-                        v63 = a5;
-                        *(_QWORD *)&v69.Length = v72;
-                        v74 = (unsigned __int16 *)(v14 + 12);
+                        if ( !(_BYTE)v54 || (v55 = 1, v39) )
+                          v55 = v20;
+                        v49 = v60;
+                        v50 = (char *)(v13 + 6);
+                        v51 = v61;
+                        v69 = v55;
+                        v62 = a5;
+                        *(_QWORD *)&v68.Length = v71;
+                        v73 = v13 + 6;
+                        v63 = v60;
                         v64 = v61;
-                        v65 = v62;
                         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>>(
+                          v52,
+                          byte_1C008096A,
                           v53,
-                          byte_1C0099BE3,
                           v54,
-                          v55,
-                          (__int64)&v65,
                           (__int64)&v64,
-                          (void **)&v69,
                           (__int64)&v63,
-                          (void **)&v74,
-                          (__int64)&v70);
-                        LOBYTE(v21) = 0;
+                          (void **)&v68,
+                          (__int64)&v62,
+                          (void **)&v73,
+                          (__int64)&v69);
+                        LOBYTE(v20) = 0;
                       }
                       else
                       {
-                        v50 = v61;
-                        v51 = v14 + 12;
-                        v52 = v62;
+                        v49 = v60;
+                        v50 = (char *)(v13 + 6);
+                        v51 = v61;
                       }
-                      if ( v60[0] != (_BYTE)v21 && (unsigned int)dword_1C012F918 > 5 )
+                      if ( v59[0] != (_BYTE)v20 && (unsigned int)dword_1C00B1A90 > 5 )
                       {
-                        if ( tlgKeywordOn((__int64)&dword_1C012F918, 0x400000001000LL) )
+                        if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000001000LL) )
                         {
-                          v65 = a5;
-                          v74 = v72;
-                          *(_QWORD *)&v69.Length = v51;
-                          v64 = v50;
-                          v63 = v52;
+                          v64 = a5;
+                          v73 = v71;
+                          *(_QWORD *)&v68.Length = v50;
+                          v63 = v49;
+                          v62 = v51;
                           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
+                            v56,
+                            byte_1C00809EB,
                             v57,
-                            byte_1C0099B7F,
                             v58,
-                            v59,
+                            (__int64)&v62,
                             (__int64)&v63,
+                            (void **)&v73,
                             (__int64)&v64,
-                            (void **)&v74,
-                            (__int64)&v65,
-                            (void **)&v69);
+                            (void **)&v68);
                         }
                       }
-                      v7 = v75;
-                      v9 = v73;
-                      v10 = v61;
-                      v8 = v62;
-                      ++*v75;
+                      v7 = v74;
+                      v9 = v72;
+                      v10 = v60;
+                      v8 = v61;
+                      ++*v74;
                     }
                   }
                 }
               }
             }
-            v16 = v71;
-            v15 = v67 + 1;
-            v67 = v15;
+            v15 = v70;
+            v14 = v66 + 1;
+            v66 = v14;
           }
-          while ( v15 < (unsigned int)v80 );
+          while ( v14 < (unsigned int)v79 );
         }
-        operator delete[]((void *)v14);
+        operator delete[](v13);
       }
     }
   }
   ZwClose(KeyHandle);
-  return (unsigned int)v12;
+  return (unsigned int)v11;
 }

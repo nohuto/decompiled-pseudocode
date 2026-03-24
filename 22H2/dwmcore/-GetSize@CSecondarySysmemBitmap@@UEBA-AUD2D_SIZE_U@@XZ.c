@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSize@CSecondarySysmemBitmap@@UEBA?AUD2D_SIZE_U@@XZ @ 0x180108E90
+ * XREFs of ?GetSize@CSecondarySysmemBitmap@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800E2550
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 struct D2D_SIZE_U __fastcall CSecondarySysmemBitmap::GetSize(CSecondarySysmemBitmap *this, _QWORD *a2)
 {
-  *a2 = *((_QWORD *)this + 15);
+  *a2 = *((_QWORD *)this + 14);
   return (struct D2D_SIZE_U)a2;
 }

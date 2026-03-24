@@ -1,10 +1,10 @@
 /*
- * XREFs of UserCreateHeap @ 0x1C007C650
+ * XREFs of UserCreateHeap @ 0x1C006C640
  * Callers:
- *     InitCreateSharedSection @ 0x1C02DCE04 (InitCreateSharedSection.c)
+ *     InitCreateSharedSection @ 0x1C0298F28 (InitCreateSharedSection.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 PVOID __fastcall UserCreateHeap(
@@ -26,7 +26,7 @@ PVOID __fastcall UserCreateHeap(
   v7 = a2;
   v13 = 0LL;
   v11[1] = 0;
-  CurrentProcess = PsGetCurrentProcess(a1, a2, a3);
+  CurrentProcess = PsGetCurrentProcess(a1, a2);
   v12 = 0LL;
   v11[0] = v7;
   if ( (int)((__int64 (__fastcall *)(__int64, __int64, __int64 *, _QWORD, __int64, _DWORD *, __int64 *, int, int, int))MmMapViewOfSection)(

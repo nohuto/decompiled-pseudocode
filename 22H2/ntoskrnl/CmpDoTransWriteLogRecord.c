@@ -1,73 +1,77 @@
 /*
- * XREFs of CmpDoTransWriteLogRecord @ 0x14070821C
+ * XREFs of CmpDoTransWriteLogRecord @ 0x140763404
  * Callers:
- *     CmpTransWriteLog @ 0x140708120 (CmpTransWriteLog.c)
+ *     CmpTransWriteLog @ 0x1407631B8 (CmpTransWriteLog.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmpDoTransWriteLogRecord(__int64 a1, char *a2, ULONG a3, ULONG fFlags, PCLFS_LSN plsn)
 {
-  char *v5; // r14
+  char *v5; // rbp
   void *v6; // rcx
   NTSTATUS result; // eax
   NTSTATUS appended; // esi
-  _DWORD *Pool2; // rbx
-  unsigned int v10; // ebp
-  unsigned int v11; // edi
-  unsigned int v12; // ecx
-  int v13; // eax
-  __int128 v14; // xmm0
-  int v15; // r12d
-  unsigned int v16; // eax
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v10; // rbx
+  unsigned int v11; // r14d
+  unsigned int v12; // edi
+  unsigned int v13; // ecx
+  int v14; // eax
+  __int128 v15; // xmm0
+  int v16; // r12d
+  unsigned int v17; // eax
   CLFS_WRITE_ENTRY rgWriteEntries; // [rsp+50h] [rbp-48h] BYREF
   CLFS_LSN plsnUndoNext; // [rsp+A8h] [rbp+10h] BYREF
-  ULONG v20; // [rsp+B8h] [rbp+20h]
+  ULONG v21; // [rsp+B8h] [rbp+20h]
 
-  v20 = fFlags;
+  v21 = fFlags;
   v5 = a2;
   v6 = *(void **)(a1 + 96);
-  plsnUndoNext = (CLFS_LSN)CLFS_LSN_NULL_EXT[0];
+  plsnUndoNext.ullOffset = CLFS_LSN_NULL_EXT;
   rgWriteEntries.Buffer = a2;
   rgWriteEntries.ByteLength = a3;
   result = ClfsReserveAndAppendLog(v6, &rgWriteEntries, 1u, &plsnUndoNext, &plsnUndoNext, 0, 0LL, fFlags, plsn);
   appended = result;
   if ( result == -1073741789 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, 3072LL, 538987843LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xC00uLL, 0x20204D43u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v10 = *((_DWORD *)v5 + 1);
-      v11 = 3008;
-      v12 = v10;
-      if ( v10 >= 0xBC0 )
+      memset(PoolWithTag, 0, 0xC00uLL);
+      v11 = *((_DWORD *)v5 + 1);
+      v12 = 3008;
+      v13 = v11;
+      if ( v11 >= 0xBC0 )
       {
-        v13 = 0;
+        v14 = 0;
         do
         {
-          ++v13;
-          if ( v12 < 0xBC0 )
+          ++v14;
+          if ( v13 < 0xBC0 )
             break;
-          v12 -= 3008;
+          v13 -= 3008;
         }
-        while ( v12 );
-        *(_OWORD *)Pool2 = *(_OWORD *)v5;
-        *((_OWORD *)Pool2 + 1) = *((_OWORD *)v5 + 1);
-        v14 = *((_OWORD *)v5 + 2);
-        Pool2[12] = v13;
-        *((_OWORD *)Pool2 + 2) = v14;
-        Pool2[3] |= 0x80000000;
-        v15 = 0;
-        rgWriteEntries.Buffer = Pool2;
+        while ( v13 );
+        *(_OWORD *)v10 = *(_OWORD *)v5;
+        *((_OWORD *)v10 + 1) = *((_OWORD *)v5 + 1);
+        v15 = *((_OWORD *)v5 + 2);
+        v10[12] = v14;
+        *((_OWORD *)v10 + 2) = v15;
+        v10[3] |= 0x80000000;
+        v16 = 0;
+        rgWriteEntries.Buffer = v10;
         do
         {
-          memmove(Pool2 + 16, v5, v11);
-          Pool2[13] = v15;
-          Pool2[14] = v11;
-          rgWriteEntries.ByteLength = v11 + 64;
-          ++v15;
+          memmove(v10 + 16, v5, v12);
+          v10[13] = v16;
+          v10[14] = v12;
+          rgWriteEntries.ByteLength = v12 + 64;
+          ++v16;
           appended = ClfsReserveAndAppendLog(
                        *(PVOID *)(a1 + 96),
                        &rgWriteEntries,
@@ -76,20 +80,20 @@ NTSTATUS __fastcall CmpDoTransWriteLogRecord(__int64 a1, char *a2, ULONG a3, ULO
                        &plsnUndoNext,
                        0,
                        0LL,
-                       v20,
+                       v21,
                        plsn);
           if ( appended < 0 )
             break;
-          v10 -= v11;
-          v5 += v11;
-          v16 = v10;
-          if ( v10 >= v11 )
-            v16 = v11;
-          v11 = v16;
+          v11 -= v12;
+          v5 += v12;
+          v17 = v11;
+          if ( v11 >= v12 )
+            v17 = v12;
+          v12 = v17;
         }
-        while ( v10 );
+        while ( v11 );
       }
-      ExFreePoolWithTag(Pool2, 0);
+      ExFreePoolWithTag(v10, 0);
       return appended;
     }
     else

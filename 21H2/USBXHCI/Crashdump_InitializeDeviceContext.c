@@ -1,12 +1,13 @@
 /*
- * XREFs of Crashdump_InitializeDeviceContext @ 0x1C004A540
+ * XREFs of Crashdump_InitializeDeviceContext @ 0x1C0049A70
  * Callers:
- *     Crashdump_UcxEvtGetDumpData @ 0x1C004B0C0 (Crashdump_UcxEvtGetDumpData.c)
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004A630 (Crashdump_UcxEvtGetDumpData.c)
  * Callees:
- *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C000154C (XilUsbDevice_GetDeviceContextBufferVA.c)
- *     DeviceSlot_LocateDeviceByPortPath @ 0x1C003637C (DeviceSlot_LocateDeviceByPortPath.c)
- *     Crashdump_Endpoint_Initialize @ 0x1C004CEC4 (Crashdump_Endpoint_Initialize.c)
- *     Crashdump_UsbDevice_Initialize @ 0x1C004E4E0 (Crashdump_UsbDevice_Initialize.c)
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C00057C4 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     DeviceSlot_LocateDeviceByPortPath @ 0x1C003613C (DeviceSlot_LocateDeviceByPortPath.c)
+ *     Crashdump_Endpoint_Initialize @ 0x1C004C444 (Crashdump_Endpoint_Initialize.c)
+ *     Crashdump_UsbDevice_Initialize @ 0x1C004DA5C (Crashdump_UsbDevice_Initialize.c)
  */
 
 __int64 __fastcall Crashdump_InitializeDeviceContext(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5)
@@ -15,80 +16,84 @@ __int64 __fastcall Crashdump_InitializeDeviceContext(__int64 a1, int a2, __int64
   __int64 v9; // r15
   __int64 DeviceContextBufferVA; // rax
   int v11; // r9d
-  __int64 v12; // r13
-  void *Pool2; // rdi
-  __int64 v14; // r14
-  bool v15; // zf
+  __int64 v12; // r14
+  PVOID PoolWithTag; // rax
+  void *v14; // rdi
+  __int64 v15; // r14
   __int64 v16; // rax
-  __int64 v18; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v19; // [rsp+48h] [rbp-30h]
+  bool v17; // zf
+  __int64 v18; // r12
+  PVOID v19; // rax
+  int v21; // [rsp+30h] [rbp-58h]
+  __int64 v22; // [rsp+40h] [rbp-48h] BYREF
+  __int64 v23; // [rsp+48h] [rbp-40h]
+  __int64 v24; // [rsp+50h] [rbp-38h]
 
-  v18 = 0LL;
-  v8 = DeviceSlot_LocateDeviceByPortPath(a1, a4, &v18);
-  if ( v8 >= 0 )
+  v22 = 0LL;
+  v8 = DeviceSlot_LocateDeviceByPortPath(a1, a4, &v22);
+  if ( v8 < 0 )
+    return (unsigned int)v8;
+  v9 = v22;
+  DeviceContextBufferVA = XilUsbDevice_GetDeviceContextBufferVA(v22);
+  LOBYTE(v11) = *(_BYTE *)(v9 + 135);
+  v12 = DeviceContextBufferVA;
+  v21 = *(_DWORD *)(a4 + 4);
+  v23 = DeviceContextBufferVA;
+  v8 = Crashdump_UsbDevice_Initialize(a5, a2, a3, v11, DeviceContextBufferVA, v9, v21);
+  if ( v8 < 0 )
+    return (unsigned int)v8;
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState, 0xC8uLL, 0x43434858u);
+  v14 = PoolWithTag;
+  if ( !PoolWithTag )
+    return (unsigned int)-1073741670;
+  memset(PoolWithTag, 0, 0xC8uLL);
+  v8 = Crashdump_Endpoint_Initialize((_DWORD)v14, a2, a5, 1, 0, v12, *(_QWORD *)(a5 + 64));
+  if ( v8 < 0 )
+    goto LABEL_13;
+  *(_QWORD *)(a5 + 120) = v14;
+  v14 = 0LL;
+  if ( !a3 || (v15 = 0LL, !*(_DWORD *)a3) )
   {
-    v9 = v18;
-    DeviceContextBufferVA = XilUsbDevice_GetDeviceContextBufferVA(v18);
-    LOBYTE(v11) = *(_BYTE *)(v9 + 135);
-    v12 = DeviceContextBufferVA;
-    v8 = Crashdump_UsbDevice_Initialize(a5, a2, a3, v11, DeviceContextBufferVA, v9, *(_DWORD *)(a4 + 4));
+LABEL_12:
     if ( v8 >= 0 )
-    {
-      Pool2 = (void *)ExAllocatePool2(64LL, 200LL, 1128482904LL);
-      if ( Pool2 )
-      {
-        v8 = Crashdump_Endpoint_Initialize((_DWORD)Pool2, a2, a5, 1, 0, v12, *(_QWORD *)(a5 + 64));
-        if ( v8 < 0 )
-        {
-LABEL_14:
-          ExFreePoolWithTag(Pool2, 0x43434858u);
-        }
-        else
-        {
-          *(_QWORD *)(a5 + 120) = Pool2;
-          if ( a3 )
-          {
-            v14 = 0LL;
-            if ( *(_DWORD *)a3 )
-            {
-              while ( 1 )
-              {
-                v19 = *(_QWORD *)(a3 + 8);
-                v15 = *(_QWORD *)(v9
-                                + 8LL
-                                * ((*(unsigned __int8 *)(v19 + 8 * v14) >> 7) + 2 * (*(_BYTE *)(v19 + 8 * v14) & 0x7Fu))
-                                + 168) == 0LL;
-                LODWORD(v18) = (*(unsigned __int8 *)(v19 + 8 * v14) >> 7) + 2 * (*(_BYTE *)(v19 + 8 * v14) & 0x7F);
-                if ( v15 )
-                  return (unsigned int)-1073741811;
-                v16 = ExAllocatePool2(64LL, 200LL, 1128482904LL);
-                Pool2 = (void *)v16;
-                if ( !v16 )
-                  return (unsigned int)-1073741670;
-                v8 = Crashdump_Endpoint_Initialize(
-                       v16,
-                       a2,
-                       a5,
-                       v18,
-                       *(_DWORD *)(v19 + 8 * v14 + 4),
-                       v12,
-                       *(_QWORD *)(a5 + 64));
-                if ( v8 < 0 )
-                  goto LABEL_14;
-                v14 = (unsigned int)(v14 + 1);
-                *(_QWORD *)(a5 + 8LL * (unsigned int)v18 + 112) = Pool2;
-                if ( (unsigned int)v14 >= *(_DWORD *)a3 )
-                  return (unsigned int)v8;
-              }
-            }
-          }
-        }
-      }
-      else
-      {
-        return (unsigned int)-1073741670;
-      }
-    }
+      return (unsigned int)v8;
+LABEL_13:
+    if ( v14 )
+      ExFreePoolWithTag(v14, 0x43434858u);
+    return (unsigned int)v8;
   }
-  return (unsigned int)v8;
+  while ( 1 )
+  {
+    v24 = *(_QWORD *)(a3 + 8);
+    v16 = (*(unsigned __int8 *)(v24 + 8 * v15) >> 7) + 2 * (*(_BYTE *)(v24 + 8 * v15) & 0x7Fu);
+    v17 = *(_QWORD *)(v9 + 8 * v16 + 168) == 0LL;
+    LODWORD(v22) = (*(unsigned __int8 *)(v24 + 8 * v15) >> 7) + 2 * (*(_BYTE *)(v24 + 8 * v15) & 0x7F);
+    v18 = (unsigned int)v16;
+    if ( v17 )
+      break;
+    v19 = ExAllocatePoolWithTag((POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState, 0xC8uLL, 0x43434858u);
+    v14 = v19;
+    if ( !v19 )
+    {
+      v8 = -1073741670;
+      goto LABEL_12;
+    }
+    memset(v19, 0, 0xC8uLL);
+    v8 = Crashdump_Endpoint_Initialize(
+           (_DWORD)v14,
+           a2,
+           a5,
+           v22,
+           *(_DWORD *)(v24 + 8 * v15 + 4),
+           v23,
+           *(_QWORD *)(a5 + 64));
+    if ( v8 < 0 )
+      goto LABEL_13;
+    *(_QWORD *)(a5 + 8 * v18 + 112) = v14;
+    v15 = (unsigned int)(v15 + 1);
+    v14 = 0LL;
+    if ( (unsigned int)v15 >= *(_DWORD *)a3 )
+      goto LABEL_12;
+  }
+  return (unsigned int)-1073741811;
 }

@@ -1,13 +1,12 @@
 /*
- * XREFs of ?GetDataSourceProxy@DataProviderManager@@QEAAPEAVBamoDataSourceProxy@@_K0@Z @ 0x1801B7B6C
+ * XREFs of ?GetDataSourceProxy@DataProviderManager@@QEAAPEAVBamoDataSourceProxy@@_K0@Z @ 0x18016491C
  * Callers:
- *     ?RegisterDataProvider@DataProviderManager@@QEAAJPEAVBamoDataProviderRegistrarStub@@PEAVBamoDataProviderProxy@@@Z @ 0x18010036C (-RegisterDataProvider@DataProviderManager@@QEAAJPEAVBamoDataProviderRegistrarStub@@PEAVBamoDataP.c)
- *     ?TryNotify@DataProviderManager@@QEAAXPEAVCResource@@_K1W4DataProviderNotificationEventArg@@@Z @ 0x1801B7E20 (-TryNotify@DataProviderManager@@QEAAXPEAVCResource@@_K1W4DataProviderNotificationEventArg@@@Z.c)
- *     ?UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z @ 0x1801B7EB8 (-UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z.c)
- *     ?ProcessSetLookupId@CDataSourceReader@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DATASOURCEREADER_SETLOOKUPID@@@Z @ 0x1802291B0 (-ProcessSetLookupId@CDataSourceReader@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DATASOURCEREADER_S.c)
+ *     ?RegisterDataProvider@DataProviderManager@@QEAAJPEAVBamoDataProviderRegistrarStub@@PEAVBamoDataProviderProxy@@@Z @ 0x1800DBD2C (-RegisterDataProvider@DataProviderManager@@QEAAJPEAVBamoDataProviderRegistrarStub@@PEAVBamoDataP.c)
+ *     ?UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z @ 0x180164CA0 (-UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z.c)
+ *     ?ProcessSetLookupId@CDataSourceReader@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DATASOURCEREADER_SETLOOKUPID@@@Z @ 0x1801BEA30 (-ProcessSetLookupId@CDataSourceReader@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DATASOURCEREADER_S.c)
  * Callees:
- *     ??$find@X@?$_Hash@V?$_Umap_traits@_KV?$ComPtr@VDataProviderProxy@@@WRL@Microsoft@@V?$_Uhash_compare@_KU?$hash@_K@std@@U?$equal_to@_K@2@@std@@V?$allocator@U?$pair@$$CB_KV?$ComPtr@VDataProviderProxy@@@WRL@Microsoft@@@std@@@5@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KV?$ComPtr@VDataProviderProxy@@@WRL@Microsoft@@@std@@@std@@@std@@@1@AEB_K@Z @ 0x1801B78D8 (--$find@X@-$_Hash@V-$_Umap_traits@_KV-$ComPtr@VDataProviderProxy@@@WRL@Microsoft@@V-$_Uhash_comp.c)
- *     ?GetDataSource@DataProviderProxy@@QEAAPEAVBamoDataSourceProxy@@_K@Z @ 0x1801E44C8 (-GetDataSource@DataProviderProxy@@QEAAPEAVBamoDataSourceProxy@@_K@Z.c)
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800C3864 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     ?GetDataSource@DataProviderProxy@@QEAAPEAVBamoDataSourceProxy@@_K@Z @ 0x18018140C (-GetDataSource@DataProviderProxy@@QEAAPEAVBamoDataSourceProxy@@_K@Z.c)
  */
 
 struct BamoDataSourceProxy *__fastcall DataProviderManager::GetDataSourceProxy(
@@ -15,16 +14,32 @@ struct BamoDataSourceProxy *__fastcall DataProviderManager::GetDataSourceProxy(
         __int64 a2,
         unsigned __int64 a3)
 {
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
+  __int64 appended; // rax
+  _QWORD *v6; // r11
+  __int64 v7; // r10
+  __int64 *v8; // rdx
+  __int64 v9; // r9
+  __int64 *i; // rcx
+  __int64 *v11; // rax
+  __int64 v13; // [rsp+38h] [rbp+10h] BYREF
 
-  v7 = a2;
-  std::_Hash<std::_Umap_traits<unsigned __int64,Microsoft::WRL::ComPtr<DataProviderProxy>,std::_Uhash_compare<unsigned __int64,std::hash<unsigned __int64>,std::equal_to<unsigned __int64>>,std::allocator<std::pair<unsigned __int64 const,Microsoft::WRL::ComPtr<DataProviderProxy>>>,0>>::find<void>(
-    (_QWORD *)this + 5,
-    &v6,
-    (const unsigned __int8 *)&v7);
-  if ( v6 == *((_QWORD *)this + 6) )
+  v13 = a2;
+  appended = std::_Fnv1a_append_bytes((__int64)this, (const unsigned __int8 *const)&v13, 8uLL);
+  v7 = v6[8];
+  v8 = (__int64 *)v6[6];
+  v9 = 2 * (v6[11] & appended);
+  for ( i = *(__int64 **)(v7 + 16 * (v6[11] & appended)); ; i = (__int64 *)*i )
+  {
+    v11 = *(__int64 **)(v7 + 8 * v9) == v8 ? (__int64 *)v6[6] : **(__int64 ***)(v7 + 8 * v9 + 8);
+    if ( i == v11 )
+      break;
+    if ( i[2] == a2 )
+      goto LABEL_9;
+  }
+  i = (__int64 *)v6[6];
+LABEL_9:
+  if ( i == v8 )
     return 0LL;
   else
-    return DataProviderProxy::GetDataSource(*(DataProviderProxy **)(v6 + 24), a3);
+    return DataProviderProxy::GetDataSource((DataProviderProxy *)i[3], a3);
 }

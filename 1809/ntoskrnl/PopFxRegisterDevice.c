@@ -1,21 +1,21 @@
 /*
- * XREFs of PopFxRegisterDevice @ 0x1407251B0
+ * XREFs of PopFxRegisterDevice @ 0x140725190
  * Callers:
- *     PoFxRegisterDevice @ 0x140725580 (PoFxRegisterDevice.c)
- *     PoFxEnableDStateReporting @ 0x140869050 (PoFxEnableDStateReporting.c)
- *     PoFxRegisterInternalDevice @ 0x1408691E0 (PoFxRegisterInternalDevice.c)
- *     PoFxRegisterPrimaryDevice @ 0x140869370 (PoFxRegisterPrimaryDevice.c)
+ *     PoFxRegisterDevice @ 0x140725560 (PoFxRegisterDevice.c)
+ *     PoFxEnableDStateReporting @ 0x140869030 (PoFxEnableDStateReporting.c)
+ *     PoFxRegisterInternalDevice @ 0x1408691C0 (PoFxRegisterInternalDevice.c)
+ *     PoFxRegisterPrimaryDevice @ 0x140869350 (PoFxRegisterPrimaryDevice.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     IoGetAttachedDeviceReferenceWithTag @ 0x14000EAE8 (IoGetAttachedDeviceReferenceWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     PopFxInsertDevice @ 0x140179C48 (PopFxInsertDevice.c)
- *     PopFxAssignDeviceToDevNode @ 0x140179CDC (PopFxAssignDeviceToDevNode.c)
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
- *     PopFxTraceDeviceRegistration @ 0x1406DA374 (PopFxTraceDeviceRegistration.c)
- *     PopFxRegisterDeviceWorker @ 0x1407249D8 (PopFxRegisterDeviceWorker.c)
- *     PopFxGenerateFriendlyName @ 0x140725320 (PopFxGenerateFriendlyName.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     PopFxInsertDevice @ 0x140179C68 (PopFxInsertDevice.c)
+ *     PopFxAssignDeviceToDevNode @ 0x140179CFC (PopFxAssignDeviceToDevNode.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
+ *     PopFxTraceDeviceRegistration @ 0x1406DA354 (PopFxTraceDeviceRegistration.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407249B8 (PopFxRegisterDeviceWorker.c)
+ *     PopFxGenerateFriendlyName @ 0x140725300 (PopFxGenerateFriendlyName.c)
  */
 
 __int64 __fastcall PopFxRegisterDevice(

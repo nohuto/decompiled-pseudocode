@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetRedrawRects@CDirtyRegion@@AEAAXXZ @ 0x1801B648C
+ * XREFs of ?SetRedrawRects@CDirtyRegion@@AEAAXXZ @ 0x180189384
  * Callers:
- *     ?Optimize@CDirtyRegion@@QEAAXXZ @ 0x1800A5BA0 (-Optimize@CDirtyRegion@@QEAAXXZ.c)
+ *     ?Optimize@CDirtyRegion@@QEAAXXZ @ 0x18008F6B0 (-Optimize@CDirtyRegion@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -16,26 +16,26 @@ void __fastcall CDirtyRegion::SetRedrawRects(CDirtyRegion *this)
   __int64 v7; // rax
 
   v1 = 0LL;
-  if ( !*((_BYTE *)this + 4427) )
+  if ( !*((_BYTE *)this + 4459) )
   {
-    v3 = *((_DWORD *)this + 705);
+    v3 = *((_DWORD *)this + 713);
     if ( v3 )
     {
       do
       {
-        v4 = *((unsigned int *)this + v1 + 697);
-        *((_DWORD *)this + v1 + 625) = v4;
+        v4 = *((unsigned int *)this + v1 + 705);
+        *((_DWORD *)this + v1 + 633) = v4;
         v5 = 2LL * (unsigned int)v1;
-        v6 = *((_OWORD *)this + v4 + 106);
-        v7 = v1 + 148;
+        v6 = *((_OWORD *)this + v4 + 108);
+        v7 = v1 + 150;
         v1 = (unsigned int)(v1 + 1);
-        *(_OWORD *)((char *)this + 8 * v5 + 2532) = v6;
-        *((_OWORD *)this + v7) = *(_OWORD *)((char *)this + 8 * v5 + 2660);
-        v3 = *((_DWORD *)this + 705);
+        *(_OWORD *)((char *)this + 8 * v5 + 2564) = v6;
+        *((_OWORD *)this + v7) = *(_OWORD *)((char *)this + 8 * v5 + 2692);
+        v3 = *((_DWORD *)this + 713);
       }
       while ( (unsigned int)v1 < v3 );
     }
-    *((_DWORD *)this + 624) = v3;
-    *((_BYTE *)this + 4427) = 1;
+    *((_DWORD *)this + 632) = v3;
+    *((_BYTE *)this + 4459) = 1;
   }
 }

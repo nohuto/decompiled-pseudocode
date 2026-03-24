@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocatePoolPages @ 0x140162AF0
+ * XREFs of MiAllocatePoolPages @ 0x140162B10
  * Callers:
- *     ExAllocateHeapPages @ 0x14015C870 (ExAllocateHeapPages.c)
+ *     ExAllocateHeapPages @ 0x14015C890 (ExAllocateHeapPages.c)
  * Callees:
  *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     MiReturnNonPagedPoolVa @ 0x140161614 (MiReturnNonPagedPoolVa.c)
- *     MiAllocatePagedPoolPages @ 0x140162C50 (MiAllocatePagedPoolPages.c)
- *     MiFindNonPagedPoolVa @ 0x14016349C (MiFindNonPagedPoolVa.c)
- *     MiFreeExcessSegments @ 0x1401643B4 (MiFreeExcessSegments.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
+ *     MiReturnNonPagedPoolVa @ 0x140161634 (MiReturnNonPagedPoolVa.c)
+ *     MiAllocatePagedPoolPages @ 0x140162C70 (MiAllocatePagedPoolPages.c)
+ *     MiFindNonPagedPoolVa @ 0x1401634BC (MiFindNonPagedPoolVa.c)
+ *     MiFreeExcessSegments @ 0x1401643D4 (MiFreeExcessSegments.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
  */
 
 ULONG_PTR __fastcall MiAllocatePoolPages(unsigned int a1, unsigned __int64 a2)

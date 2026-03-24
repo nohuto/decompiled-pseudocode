@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrResGetRCConfig @ 0x14071B1A4
+ * XREFs of LdrResGetRCConfig @ 0x14071B184
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1400FD9EC (LdrpResSearchResourceMappedFile.c)
- *     LdrpVerifyAlternateResourceModuleEx @ 0x140177BD8 (LdrpVerifyAlternateResourceModuleEx.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400FDA0C (LdrpResSearchResourceMappedFile.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x140177BF8 (LdrpVerifyAlternateResourceModuleEx.c)
  * Callees:
- *     LdrpGetFromMUIMemCache @ 0x1400F4260 (LdrpGetFromMUIMemCache.c)
- *     LdrpResSearchResourceMappedFile @ 0x1400FD9EC (LdrpResSearchResourceMappedFile.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x140174B20 (LdrpSetAlternateResourceModuleHandle.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CheckOneBitValidFlag @ 0x1402ED868 (CheckOneBitValidFlag.c)
- *     LdrpResGetMappingSize @ 0x14068B08C (LdrpResGetMappingSize.c)
+ *     LdrpGetFromMUIMemCache @ 0x1400F4280 (LdrpGetFromMUIMemCache.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400FDA0C (LdrpResSearchResourceMappedFile.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x140174B40 (LdrpSetAlternateResourceModuleHandle.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CheckOneBitValidFlag @ 0x1402ED968 (CheckOneBitValidFlag.c)
+ *     LdrpResGetMappingSize @ 0x14068B06C (LdrpResGetMappingSize.c)
  */
 
 NTSTATUS __fastcall LdrResGetRCConfig(void *a1, ULONGLONG a2, unsigned int **a3, int a4, char a5)

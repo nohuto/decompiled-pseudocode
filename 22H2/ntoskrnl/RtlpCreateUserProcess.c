@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpCreateUserProcess @ 0x140B69E18
+ * XREFs of RtlpCreateUserProcess @ 0x140A4BDD4
  * Callers:
- *     RtlCreateUserProcessEx @ 0x140B69D9C (RtlCreateUserProcessEx.c)
+ *     RtlCreateUserProcessEx @ 0x140A4BD54 (RtlCreateUserProcessEx.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwCreateUserProcess @ 0x14041C080 (ZwCreateUserProcess.c)
- *     memset @ 0x140435400 (memset.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwCreateUserProcess @ 0x1403FB340 (ZwCreateUserProcess.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall RtlpCreateUserProcess(unsigned __int16 *a1, __int64 a2, char a3, __int64 a4, __int64 a5, _DWORD *a6)
@@ -14,21 +14,21 @@ __int64 __fastcall RtlpCreateUserProcess(unsigned __int16 *a1, __int64 a2, char 
   __int64 v10; // rax
   int v11; // eax
   __int64 v13; // rax
-  __int64 v14; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD v15[5]; // [rsp+68h] [rbp-98h] BYREF
-  __int128 v16; // [rsp+90h] [rbp-70h]
-  __int64 v17; // [rsp+A0h] [rbp-60h]
-  __int64 v18; // [rsp+A8h] [rbp-58h]
-  __int64 v19; // [rsp+B0h] [rbp-50h]
-  __int64 v20; // [rsp+B8h] [rbp-48h]
-  __int128 v21; // [rsp+C0h] [rbp-40h]
-  __int64 v22; // [rsp+D0h] [rbp-30h]
-  _BYTE v23[80]; // [rsp+D8h] [rbp-28h] BYREF
-  __int64 v24; // [rsp+130h] [rbp+30h]
-  __int64 v25; // [rsp+138h] [rbp+38h]
-  __int64 v26; // [rsp+140h] [rbp+40h]
-  _DWORD *v27; // [rsp+148h] [rbp+48h]
-  _QWORD v28[42]; // [rsp+150h] [rbp+50h] BYREF
+  __int64 v14; // [rsp+68h] [rbp-98h] BYREF
+  _QWORD v15[5]; // [rsp+70h] [rbp-90h] BYREF
+  __int128 v16; // [rsp+98h] [rbp-68h]
+  __int64 v17; // [rsp+A8h] [rbp-58h]
+  __int64 v18; // [rsp+B0h] [rbp-50h]
+  __int64 v19; // [rsp+B8h] [rbp-48h]
+  __int64 v20; // [rsp+C0h] [rbp-40h]
+  __int128 v21; // [rsp+C8h] [rbp-38h]
+  __int64 v22; // [rsp+E0h] [rbp-20h]
+  _BYTE v23[80]; // [rsp+E8h] [rbp-18h] BYREF
+  __int64 v24; // [rsp+140h] [rbp+40h]
+  __int64 v25; // [rsp+148h] [rbp+48h]
+  __int64 v26; // [rsp+150h] [rbp+50h]
+  _DWORD *v27; // [rsp+158h] [rbp+58h]
+  _QWORD v28[42]; // [rsp+160h] [rbp+60h] BYREF
 
   memset(&v28[5], 0, 0x120uLL);
   v17 = 48LL;

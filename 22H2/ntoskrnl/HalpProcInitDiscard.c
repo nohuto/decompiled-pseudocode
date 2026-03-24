@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpProcInitDiscard @ 0x140B768D0
+ * XREFs of HalpProcInitDiscard @ 0x140A449E0
  * Callers:
- *     HalpProcInitSystem @ 0x140A8AEE0 (HalpProcInitSystem.c)
+ *     HalpProcInitSystem @ 0x14099E630 (HalpProcInitSystem.c)
  * Callees:
- *     HalpProcGetFeatureBits @ 0x140380604 (HalpProcGetFeatureBits.c)
- *     HalpMcUpdateInitialize @ 0x140820694 (HalpMcUpdateInitialize.c)
+ *     HalpProcGetFeatureBits @ 0x1403AF1CC (HalpProcGetFeatureBits.c)
+ *     HalpMcUpdateInitialize @ 0x14079B080 (HalpMcUpdateInitialize.c)
  */
 
 __int64 __fastcall HalpProcInitDiscard(__int64 a1)
 {
-  off_140C01A60[0] = (__int64 (__fastcall *)())HalpLoadMicrocode;
-  off_140C01A68[0] = HalpUnloadMicrocode;
-  off_140C01A70[0] = HalpMcUpdatePostUpdate;
+  off_140C00650[0] = (__int64 (__fastcall *)())HalpLoadMicrocode;
+  off_140C00658[0] = HalpUnloadMicrocode;
+  off_140C00660[0] = HalpMcUpdatePostUpdate;
   HalpMcUpdateInitialize(a1, 0LL);
-  off_140C01B50[0] = HalpProcessorPrepareForIdle;
-  off_140C01B60 = (__int64 (__fastcall *)())HalpProcessorResumeFromIdle;
+  off_140C00740[0] = HalpProcessorPrepareForIdle;
+  off_140C00750 = (__int64 (__fastcall *)())HalpProcessorResumeFromIdle;
   HalpFeatureBits = HalpProcGetFeatureBits();
   return 0LL;
 }

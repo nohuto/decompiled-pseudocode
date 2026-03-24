@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindEmptyAddressRangeDown @ 0x1406AC670
+ * XREFs of MiFindEmptyAddressRangeDown @ 0x14068B294
  * Callers:
- *     MiSelectUserAddress @ 0x1407B83C0 (MiSelectUserAddress.c)
+ *     MiSelectUserAddress @ 0x1405FA9A0 (MiSelectUserAddress.c)
  * Callees:
- *     MiFindEmptyAddressRangeDownTree @ 0x1406AC778 (MiFindEmptyAddressRangeDownTree.c)
+ *     MiFindEmptyAddressRangeDownTree @ 0x14068B3A8 (MiFindEmptyAddressRangeDownTree.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRangeDown(
@@ -22,10 +22,11 @@ __int64 __fastcall MiFindEmptyAddressRangeDown(
   _KPROCESS *Process; // rdx
   int v16; // eax
   __int64 v17; // r8
-  __int64 result; // rax
-  unsigned __int64 v19; // rcx
-  __int64 v20; // [rsp+78h] [rbp+10h]
-  int v21; // [rsp+98h] [rbp+30h]
+  int EmptyAddressRangeDownTree; // eax
+  int v19; // ecx
+  unsigned __int64 v21; // rax
+  __int64 v22; // [rsp+78h] [rbp+10h]
+  int v23; // [rsp+98h] [rbp+30h]
 
   if ( a6 - a5 + 1 < a2 )
     return 3221225495LL;
@@ -33,45 +34,47 @@ __int64 __fastcall MiFindEmptyAddressRangeDown(
   v13 = *(_QWORD *)(a1 + 56);
   v14 = a6 + 1;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v21 = (int)Process;
+  v23 = (int)Process;
   if ( a6 + 1 > *(_QWORD *)(a1 + 48) )
     v14 = *(_QWORD *)(a1 + 48);
   v16 = *(_DWORD *)(a1 + 64);
   v17 = (unsigned __int8)v16;
   if ( !(_BYTE)v16 )
     v17 = 1LL;
-  v20 = v17;
+  v22 = v17;
   if ( v13 < a5 )
     v13 = a5;
   while ( 1 )
   {
-    while ( 1 )
+    if ( v13 >= a6 || a6 - v13 + 1 < a2 )
     {
-      if ( v13 >= a6 || a6 - v13 + 1 < a2 )
-      {
-        result = 3221225495LL;
-      }
-      else
-      {
-        result = MiFindEmptyAddressRangeDownTree((int)Process + 2008, a2, a3, a4, v13, v14, a8);
-        if ( (int)result >= 0 )
-          return result;
-        v17 = v20;
-      }
-      if ( v14 == v12 || (a7 & 2) != 0 )
-        break;
-      LODWORD(Process) = v21;
+      v19 = -1073741801;
+    }
+    else
+    {
+      EmptyAddressRangeDownTree = MiFindEmptyAddressRangeDownTree((int)Process + 2008, a2, a3, a4, v13, v14, a8);
+      v17 = v22;
+      v19 = EmptyAddressRangeDownTree;
+    }
+    if ( v19 >= 0 )
+      break;
+    if ( v14 == v12 || (a7 & 2) != 0 )
+    {
+      v21 = v17 << 16;
+      if ( (a7 & 2) == 0 )
+        v21 = 0x10000LL;
+      if ( v21 < a5 )
+        v21 = a5;
+      if ( v21 >= v13 )
+        return (unsigned int)v19;
+      LODWORD(Process) = v23;
+      v13 = v21;
+    }
+    else
+    {
+      LODWORD(Process) = v23;
       v14 = a6 + 1;
     }
-    v19 = v17 << 16;
-    if ( (a7 & 2) == 0 )
-      v19 = 0x10000LL;
-    if ( v19 < a5 )
-      v19 = a5;
-    if ( v19 >= v13 )
-      break;
-    LODWORD(Process) = v21;
-    v13 = v19;
   }
-  return result;
+  return (unsigned int)v19;
 }

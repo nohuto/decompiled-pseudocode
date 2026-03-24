@@ -1,184 +1,161 @@
 /*
- * XREFs of ?CombineFreedScanFromRange@VIDMM_RECYCLE_BLOCK@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C009EF24
+ * XREFs of ?CombineFreedScanFromRange@VIDMM_RECYCLE_BLOCK@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00797F8
  * Callers:
- *     ?IntegrateMultirangeIntoTrees@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C00853FC (-IntegrateMultirangeIntoTrees@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z.c)
- *     ?FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z @ 0x1C009E7EC (-FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z.c)
- *     ?DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z @ 0x1C009EDBC (-DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z.c)
- *     ?Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C00A17C0 (-Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SE.c)
- *     ?DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z @ 0x1C00A2CB0 (-DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z.c)
- *     ?MergeSubrangesWherePossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAEE@Z @ 0x1C00A3620 (-MergeSubrangesWherePossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAEE@Z.c)
- *     ?Allocate@VIDMM_RECYCLE_HEAP_MGR@@UEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX22PEAEEE@Z @ 0x1C00A5850 (-Allocate@VIDMM_RECYCLE_HEAP_MGR@@UEAAJ_KIW4_VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAX22PEAEEE@Z.c)
+ *     ?IntegrateMultirangeIntoTrees@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C005F0EC (-IntegrateMultirangeIntoTrees@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z.c)
+ *     ?FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z @ 0x1C005F674 (-FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z.c)
+ *     ?MergeSubrangesWherePossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAEE@Z @ 0x1C0074B40 (-MergeSubrangesWherePossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAEE@Z.c)
+ *     ?DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z @ 0x1C0077B3C (-DebouncedUnlock@VIDMM_RECYCLE_RANGE@@QEAAJAEA_N@Z.c)
+ *     ?DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z @ 0x1C0079550 (-DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z.c)
+ *     ?Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z @ 0x1C007B500 (-Allocate@VIDMM_RECYCLE_HEAP@@QEAAJ_KIPEAPEAX11PEAEE@Z.c)
  * Callees:
- *     ?CombineFreedRanges@VIDMM_RECYCLE_BLOCK@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@00@Z @ 0x1C00F57F0 (-CombineFreedRanges@VIDMM_RECYCLE_BLOCK@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@00@Z.c)
+ *     ?NotifyRangeEvent@VIDMM_RECYCLE_BLOCK@@QEAAXW4RangeOp@1@PEAX@Z @ 0x1C00027D8 (-NotifyRangeEvent@VIDMM_RECYCLE_BLOCK@@QEAAXW4RangeOp@1@PEAX@Z.c)
+ *     ?GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ @ 0x1C0074C60 (-GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ.c)
+ *     ?GetPreviousRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ @ 0x1C007990C (-GetPreviousRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ.c)
+ *     ?CombineFreedRanges@VIDMM_RECYCLE_BLOCK@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@00@Z @ 0x1C00BF90C (-CombineFreedRanges@VIDMM_RECYCLE_BLOCK@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@00@Z.c)
  */
 
 void __fastcall VIDMM_RECYCLE_BLOCK::CombineFreedScanFromRange(
         VIDMM_RECYCLE_BLOCK *this,
         struct VIDMM_RECYCLE_RANGE *a2)
 {
-  _QWORD *v3; // rcx
-  __int64 v5; // rcx
-  struct VIDMM_RECYCLE_RANGE *v6; // rdi
-  struct VIDMM_RECYCLE_RANGE *v7; // rsi
-  char v8; // r15
-  char v9; // r14
-  __int64 v10; // rdx
-  __int64 v11; // rbx
-  __int64 v12; // rdx
-  __int64 v13; // rbx
-  __int64 v14; // r8
-  __int64 v15; // rcx
-  _QWORD *v16; // rax
-  __int64 v17; // rax
-  _QWORD *v18; // rax
-  __int64 v19; // rax
+  VIDMM_RECYCLE_BLOCK *v3; // rcx
+  struct VIDMM_RECYCLE_RANGE *v4; // rsi
+  struct VIDMM_RECYCLE_RANGE *v5; // rbp
+  char v6; // r15
+  char v7; // r14
+  struct VIDMM_RECYCLE_RANGE *PreviousRange; // rax
+  struct VIDMM_RECYCLE_RANGE *v9; // rbx
+  struct VIDMM_RECYCLE_RANGE *NextRange; // rax
+  struct VIDMM_RECYCLE_RANGE *v11; // rbx
+  __int64 v12; // rax
+  _QWORD *v13; // rax
+  __int64 v14; // rax
+  _QWORD *v15; // rax
 
-  v3 = (_QWORD *)*((_QWORD *)this + 17);
-  if ( v3 )
+  VIDMM_RECYCLE_BLOCK::NotifyRangeEvent((__int64)this, 3, (__int64)a2);
+  v3 = (VIDMM_RECYCLE_BLOCK *)*((_QWORD *)a2 + 17);
+  if ( !v3 || *((_QWORD *)v3 + 8) == *((_QWORD *)v3 + 9) )
   {
-    v14 = *v3 + 144LL * v3[1];
-    *(_DWORD *)v14 = 3;
-    *(_QWORD *)(v14 + 8) = a2;
-    RtlCaptureStackBackTrace(1u, 0x10u, (PVOID *)(v14 + 16), 0LL);
-    ++*(_QWORD *)(*((_QWORD *)this + 17) + 8LL);
-    v15 = *((_QWORD *)this + 17);
-    if ( *(_QWORD *)(v15 + 8) == *(_QWORD *)(v15 + 48) )
-    {
-      *(_QWORD *)(v15 + 8) = 0LL;
-      *(_BYTE *)(*((_QWORD *)this + 17) + 16LL) = 1;
-    }
-  }
-  v5 = *((_QWORD *)a2 + 17);
-  if ( !v5 || *(_QWORD *)(v5 + 64) == *(_QWORD *)(v5 + 72) )
-  {
-    v6 = a2;
-    v7 = a2;
-    v8 = 0;
-    v9 = 0;
+    v4 = a2;
+    v5 = a2;
+    v6 = 0;
+    v7 = 0;
     while ( 1 )
     {
-      while ( v8 )
+      while ( v6 )
       {
-        if ( v9 )
+        if ( v7 )
         {
-          if ( v6 != v7 )
-            VIDMM_RECYCLE_BLOCK::CombineFreedRanges((VIDMM_RECYCLE_BLOCK *)v5, v6, v7, a2);
+          if ( v4 != v5 )
+            VIDMM_RECYCLE_BLOCK::CombineFreedRanges(v3, v4, v5, a2);
           return;
         }
-LABEL_16:
-        v12 = *((_QWORD *)v7 + 15);
-        v13 = 0LL;
-        v5 = *((_QWORD *)v7 + 9) + 72LL;
-        if ( v12 != v5 )
-          v13 = v12 - 120;
-        if ( !v13 )
+LABEL_13:
+        NextRange = VIDMM_RECYCLE_RANGE::GetNextRange(v5);
+        v11 = NextRange;
+        if ( !NextRange )
         {
           if ( g_IsInternalReleaseOrDbg )
-            *(_QWORD *)(WdLogNewEntry5_WdTrace(v5) + 24) = 0LL;
-          goto LABEL_21;
+            *(_QWORD *)(WdLogNewEntry5_WdTrace(v3) + 24) = 0LL;
+          goto LABEL_16;
         }
-        if ( *(_DWORD *)(v13 + 64) )
+        if ( *((_DWORD *)NextRange + 16) )
         {
           if ( !g_IsInternalReleaseOrDbg )
-            goto LABEL_21;
-          v19 = WdLogNewEntry5_WdTrace(v5);
-          *(_QWORD *)(v19 + 24) = v13;
-          v5 = *(int *)(v13 + 64);
-LABEL_49:
-          *(_QWORD *)(v19 + 32) = v5;
-          goto LABEL_21;
+            goto LABEL_16;
+          v14 = WdLogNewEntry5_WdTrace(v3);
+          *(_QWORD *)(v14 + 24) = v11;
+          v3 = (VIDMM_RECYCLE_BLOCK *)*((int *)v11 + 16);
+LABEL_40:
+          *(_QWORD *)(v14 + 32) = v3;
+          goto LABEL_16;
         }
-        if ( *(_QWORD *)(v13 + 160) )
-          goto LABEL_46;
-        v5 = *(_QWORD *)(v13 + 136);
-        if ( !v5 || *(_QWORD *)(v5 + 64) == *(_QWORD *)(v5 + 72) )
+        if ( *((_QWORD *)NextRange + 20)
+          || (v3 = (VIDMM_RECYCLE_BLOCK *)*((_QWORD *)NextRange + 17)) != 0LL
+          && *((_QWORD *)v3 + 8) != *((_QWORD *)v3 + 9) )
         {
-          v7 = (struct VIDMM_RECYCLE_RANGE *)v13;
+          if ( *((_QWORD *)NextRange + 20) )
+          {
+            if ( !g_IsInternalReleaseOrDbg )
+              goto LABEL_16;
+            v14 = WdLogNewEntry5_WdTrace(v3);
+            *(_QWORD *)(v14 + 24) = v11;
+            v3 = (VIDMM_RECYCLE_BLOCK *)*((_QWORD *)v11 + 20);
+            goto LABEL_40;
+          }
+          if ( g_IsInternalReleaseOrDbg )
+          {
+            v15 = (_QWORD *)WdLogNewEntry5_WdTrace(v3);
+            v15[3] = v11;
+            v15[4] = *((_QWORD *)v11 + 17);
+            v15[5] = *(_QWORD *)(*((_QWORD *)v11 + 17) + 64LL);
+            v3 = (VIDMM_RECYCLE_BLOCK *)*((_QWORD *)v11 + 17);
+            v15[6] = *((_QWORD *)v3 + 9);
+          }
+LABEL_16:
+          v7 = 1;
         }
         else
         {
-          if ( *(_QWORD *)(v13 + 160) )
-          {
-LABEL_46:
-            if ( !g_IsInternalReleaseOrDbg )
-              goto LABEL_21;
-            v19 = WdLogNewEntry5_WdTrace(v5);
-            *(_QWORD *)(v19 + 24) = v13;
-            v5 = *(_QWORD *)(v13 + 160);
-            goto LABEL_49;
-          }
-          if ( g_IsInternalReleaseOrDbg )
-          {
-            v18 = (_QWORD *)WdLogNewEntry5_WdTrace(v5);
-            v18[3] = v13;
-            v18[4] = *(_QWORD *)(v13 + 136);
-            v18[5] = *(_QWORD *)(*(_QWORD *)(v13 + 136) + 64LL);
-            v5 = *(_QWORD *)(v13 + 136);
-            v18[6] = *(_QWORD *)(v5 + 72);
-          }
-LABEL_21:
-          v9 = 1;
+          v5 = NextRange;
         }
       }
-      v10 = *((_QWORD *)v6 + 16);
-      v11 = 0LL;
-      v5 = *((_QWORD *)v6 + 9) + 72LL;
-      if ( v10 != v5 )
-        v11 = v10 - 120;
-      if ( !v11 )
+      PreviousRange = VIDMM_RECYCLE_RANGE::GetPreviousRange(v4);
+      v9 = PreviousRange;
+      if ( !PreviousRange )
       {
         if ( g_IsInternalReleaseOrDbg )
-          *(_QWORD *)(WdLogNewEntry5_WdTrace(v5) + 24) = 0LL;
-        goto LABEL_14;
+          *(_QWORD *)(WdLogNewEntry5_WdTrace(v3) + 24) = 0LL;
+        goto LABEL_11;
       }
-      if ( *(_DWORD *)(v11 + 64) )
+      if ( *((_DWORD *)PreviousRange + 16) )
       {
         if ( g_IsInternalReleaseOrDbg )
         {
-          v17 = WdLogNewEntry5_WdTrace(v5);
-          *(_QWORD *)(v17 + 24) = v11;
-          v5 = *(int *)(v11 + 64);
-          goto LABEL_38;
+          v12 = WdLogNewEntry5_WdTrace(v3);
+          *(_QWORD *)(v12 + 24) = v9;
+          v3 = (VIDMM_RECYCLE_BLOCK *)*((int *)v9 + 16);
+          goto LABEL_29;
         }
       }
       else
       {
-        if ( !*(_QWORD *)(v11 + 160) )
+        if ( !*((_QWORD *)PreviousRange + 20) )
         {
-          v5 = *(_QWORD *)(v11 + 136);
-          if ( !v5 || *(_QWORD *)(v5 + 64) == *(_QWORD *)(v5 + 72) )
+          v3 = (VIDMM_RECYCLE_BLOCK *)*((_QWORD *)PreviousRange + 17);
+          if ( !v3 || *((_QWORD *)v3 + 8) == *((_QWORD *)v3 + 9) )
           {
-            v6 = (struct VIDMM_RECYCLE_RANGE *)v11;
-            goto LABEL_15;
+            v4 = PreviousRange;
+            goto LABEL_12;
           }
-          if ( !*(_QWORD *)(v11 + 160) )
+        }
+        if ( !*((_QWORD *)PreviousRange + 20) )
+        {
+          if ( g_IsInternalReleaseOrDbg )
           {
-            if ( g_IsInternalReleaseOrDbg )
-            {
-              v16 = (_QWORD *)WdLogNewEntry5_WdTrace(v5);
-              v16[3] = v11;
-              v16[4] = *(_QWORD *)(v11 + 136);
-              v16[5] = *(_QWORD *)(*(_QWORD *)(v11 + 136) + 64LL);
-              v5 = *(_QWORD *)(v11 + 136);
-              v16[6] = *(_QWORD *)(v5 + 72);
-            }
-            goto LABEL_14;
+            v13 = (_QWORD *)WdLogNewEntry5_WdTrace(v3);
+            v13[3] = v9;
+            v13[4] = *((_QWORD *)v9 + 17);
+            v13[5] = *(_QWORD *)(*((_QWORD *)v9 + 17) + 64LL);
+            v3 = (VIDMM_RECYCLE_BLOCK *)*((_QWORD *)v9 + 17);
+            v13[6] = *((_QWORD *)v3 + 9);
           }
+          goto LABEL_11;
         }
         if ( g_IsInternalReleaseOrDbg )
         {
-          v17 = WdLogNewEntry5_WdTrace(v5);
-          *(_QWORD *)(v17 + 24) = v11;
-          v5 = *(_QWORD *)(v11 + 160);
-LABEL_38:
-          *(_QWORD *)(v17 + 32) = v5;
+          v12 = WdLogNewEntry5_WdTrace(v3);
+          *(_QWORD *)(v12 + 24) = v9;
+          v3 = (VIDMM_RECYCLE_BLOCK *)*((_QWORD *)v9 + 20);
+LABEL_29:
+          *(_QWORD *)(v12 + 32) = v3;
         }
       }
-LABEL_14:
-      v8 = 1;
-LABEL_15:
-      if ( !v9 )
-        goto LABEL_16;
+LABEL_11:
+      v6 = 1;
+LABEL_12:
+      if ( !v7 )
+        goto LABEL_13;
     }
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of DEVLOCKOBJ_bDisposeTrgDcoWrap @ 0x1C003FC60
+ * XREFs of DEVLOCKOBJ_bDisposeTrgDcoWrap @ 0x1C008E8A0
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00E9D00 (-bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
- *     ?vClearRenderState@DEVLOCKOBJ@@QEAAXXZ @ 0x1C00F4784 (-vClearRenderState@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C0113C20 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?vClearRenderState@DEVLOCKOBJ@@QEAAXXZ @ 0x1C00B3CBC (-vClearRenderState@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00FF1AC (-bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C01256A0 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
  */
 
 __int64 __fastcall DEVLOCKOBJ_bDisposeTrgDcoWrap(DEVLOCKOBJ *this)
@@ -28,7 +28,7 @@ __int64 __fastcall DEVLOCKOBJ_bDisposeTrgDcoWrap(DEVLOCKOBJ *this)
       if ( (*((_DWORD *)this + 6) & 0x10) != 0 )
       {
         *((_DWORD *)*v1 + 9) &= ~0x4000u;
-        DC::pSurface(*v1, *(struct SURFACE **)(v6 + 2528));
+        DC::pSurface(*v1, *(struct SURFACE **)(v6 + 2552));
       }
       DEVLOCKOBJ::vClearRenderState(this);
     }

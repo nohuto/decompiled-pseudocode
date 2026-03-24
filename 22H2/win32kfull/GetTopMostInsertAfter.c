@@ -1,10 +1,10 @@
 /*
- * XREFs of GetTopMostInsertAfter @ 0x1C01A633C
+ * XREFs of GetTopMostInsertAfter @ 0x1C01D051C
  * Callers:
- *     ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C002600C (-CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z.c)
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
+ *     ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C00369BC (-CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
  * Callees:
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
  */
 
 _QWORD *__fastcall GetTopMostInsertAfter(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiWaitSatisfyMutant @ 0x1400F9C44
+ * XREFs of KiWaitSatisfyMutant @ 0x1400F9C64
  * Callers:
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     KiTryUnwaitThread @ 0x1400C4DB0 (KiTryUnwaitThread.c)
- *     KiWaitForAllObjects @ 0x1400FA408 (KiWaitForAllObjects.c)
+ *     KiTryUnwaitThread @ 0x1400C4DD0 (KiTryUnwaitThread.c)
+ *     KiWaitForAllObjects @ 0x1400FA428 (KiWaitForAllObjects.c)
  * Callees:
  *     <none>
  */

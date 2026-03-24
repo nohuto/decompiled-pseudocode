@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsReadyToDraw@CCompositionSkyBoxBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x180225F10
+ * XREFs of ?IsReadyToDraw@CCompositionSkyBoxBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x1801BBF50
  * Callers:
  *     <none>
  * Callees:
@@ -16,8 +16,8 @@ char __fastcall CCompositionSkyBoxBrush::IsReadyToDraw(
 
   result = 0;
   *a3 = 0;
-  v4 = *((_QWORD *)this + 11);
-  if ( v4 && *(int *)(v4 + 120) >= 0 && (!*(_BYTE *)(v4 + 168) || *(int *)(v4 + 120) < 6) )
+  v4 = *((_QWORD *)this + 10);
+  if ( v4 && *(int *)(v4 + 112) >= 0 && (!*(_BYTE *)(v4 + 160) || *(int *)(v4 + 112) < 6) )
     return 1;
   return result;
 }

@@ -6,16 +6,16 @@
  *     MmGetImageFileSignatureInformation @ 0x140023A40 (MmGetImageFileSignatureInformation.c)
  *     MiComputeDataFlushRange @ 0x140076E30 (MiComputeDataFlushRange.c)
  *     MiPrepareSegmentForDeletion @ 0x1400958BC (MiPrepareSegmentForDeletion.c)
- *     MiPreventControlAreaDeletion @ 0x1400E94D8 (MiPreventControlAreaDeletion.c)
- *     MiCheckForControlAreaDeletion @ 0x140119F1C (MiCheckForControlAreaDeletion.c)
- *     MiAttemptSectionDelete @ 0x140122150 (MiAttemptSectionDelete.c)
- *     MiReferencePfBackedSection @ 0x140130400 (MiReferencePfBackedSection.c)
- *     MiDeleteCachedSubsection @ 0x1402A1918 (MiDeleteCachedSubsection.c)
- *     MiSetDeleteOnClose @ 0x1402A320C (MiSetDeleteOnClose.c)
+ *     MiPreventControlAreaDeletion @ 0x1400E94F8 (MiPreventControlAreaDeletion.c)
+ *     MiCheckForControlAreaDeletion @ 0x140119F3C (MiCheckForControlAreaDeletion.c)
+ *     MiAttemptSectionDelete @ 0x140122170 (MiAttemptSectionDelete.c)
+ *     MiReferencePfBackedSection @ 0x140130420 (MiReferencePfBackedSection.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
+ *     MiSetDeleteOnClose @ 0x1402A330C (MiSetDeleteOnClose.c)
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  *     MiUnlinkUnusedControlArea @ 0x14007BAD0 (MiUnlinkUnusedControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiRemoveUnusedSegment(__int64 a1)

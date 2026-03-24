@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJXZ @ 0x1C021CAB0
+ * XREFs of ?Initialize@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01DBE10
  * Callers:
  *     <none>
  * Callees:

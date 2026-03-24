@@ -1,14 +1,14 @@
 /*
- * XREFs of ?WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z @ 0x1C00E1224
+ * XREFs of ?WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z @ 0x1C00BB7AC
  * Callers:
- *     ?LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z @ 0x1C00D80BC (-LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z.c)
+ *     ?LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z @ 0x1C00B11D8 (-LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z.c)
  * Callees:
- *     memset @ 0x1C001DC40 (memset.c)
- *     ?LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z @ 0x1C009E81C (-LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z.c)
- *     ?CheckIfDmaInformationPresent@VIDMM_DMA_POOL@@QEAAHPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K_JKKKKKKK@Z @ 0x1C00E04A4 (-CheckIfDmaInformationPresent@VIDMM_DMA_POOL@@QEAAHPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K_JKKKKKKK@Z.c)
- *     ?SearchDmaBufferInAllPool@VIDMM_DMA_POOL@@QEAAPEAU_VIDMM_DMA_BUFFER@@_J@Z @ 0x1C00E0CD8 (-SearchDmaBufferInAllPool@VIDMM_DMA_POOL@@QEAAPEAU_VIDMM_DMA_BUFFER@@_J@Z.c)
- *     ?WriteDmaBufferToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_DMA_BUFFER@@PEAE_KHKH2_JKKKKKKK@Z @ 0x1C00E0E00 (-WriteDmaBufferToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_DMA_BUFFER@@PEAE_KHKH2_JKKKKKKK@Z.c)
- *     VidSchQueryDmaData @ 0x1C00F6C1C (VidSchQueryDmaData.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z @ 0x1C008E994 (-LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z.c)
+ *     ?CheckIfDmaInformationPresent@VIDMM_DMA_POOL@@QEAAHPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K_JKKKKKKK@Z @ 0x1C00BAA68 (-CheckIfDmaInformationPresent@VIDMM_DMA_POOL@@QEAAHPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K_JKKKKKKK@Z.c)
+ *     ?SearchDmaBufferInAllPool@VIDMM_DMA_POOL@@QEAAPEAU_VIDMM_DMA_BUFFER@@_J@Z @ 0x1C00BB244 (-SearchDmaBufferInAllPool@VIDMM_DMA_POOL@@QEAAPEAU_VIDMM_DMA_BUFFER@@_J@Z.c)
+ *     ?WriteDmaBufferToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_DMA_BUFFER@@PEAE_KHKH2_JKKKKKKK@Z @ 0x1C00BB388 (-WriteDmaBufferToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_DMA_BUFFER@@PEAE_KHKH2_JKKKKKKK@Z.c)
+ *     VidSchQueryDmaData @ 0x1C00D43AC (VidSchQueryDmaData.c)
  */
 
 unsigned __int64 __fastcall VIDMM_DMA_POOL::WriteDmaHistoryToMinidump(
@@ -20,137 +20,145 @@ unsigned __int64 __fastcall VIDMM_DMA_POOL::WriteDmaHistoryToMinidump(
         unsigned __int64 a6,
         unsigned int a7)
 {
-  unsigned __int64 v7; // rsi
+  unsigned __int64 v7; // rdi
   unsigned __int64 v10; // r12
-  BOOL v11; // r14d
-  unsigned __int64 v12; // r15
-  unsigned __int64 v13; // rdi
-  int v14; // r13d
-  int v15; // ebx
-  __int64 v16; // r9
-  struct _LIST_ENTRY *v17; // rdx
-  __int64 v18; // rax
-  int v20; // [rsp+28h] [rbp-D1h]
-  unsigned int v21; // [rsp+30h] [rbp-C9h]
-  int v22; // [rsp+38h] [rbp-C1h]
-  unsigned int v23[2]; // [rsp+88h] [rbp-71h]
-  unsigned int v24; // [rsp+88h] [rbp-71h]
-  unsigned __int8 *v25; // [rsp+90h] [rbp-69h]
-  __int64 v26[20]; // [rsp+98h] [rbp-61h] BYREF
-  int v31; // [rsp+170h] [rbp+77h]
+  BOOL v11; // r15d
+  unsigned __int64 v12; // r14
+  unsigned __int64 v13; // rbx
+  VIDMM_DMA_POOL *v14; // r12
+  int v15; // r13d
+  int v16; // esi
+  __int64 v17; // r9
+  struct _LIST_ENTRY *v18; // rdx
+  __int64 v19; // rax
+  unsigned __int64 v20; // rdx
+  int v22; // [rsp+28h] [rbp-E0h]
+  unsigned int v23; // [rsp+30h] [rbp-D8h]
+  int v24; // [rsp+38h] [rbp-D0h]
+  unsigned __int64 v25; // [rsp+88h] [rbp-80h]
+  unsigned __int8 *v26; // [rsp+90h] [rbp-78h]
+  __int64 v27[12]; // [rsp+98h] [rbp-70h] BYREF
+  unsigned __int64 v28; // [rsp+F8h] [rbp-10h]
+  unsigned int v30; // [rsp+158h] [rbp+50h]
+  int v34; // [rsp+180h] [rbp+78h]
 
   v7 = a6;
-  v25 = a3;
-  *(_QWORD *)v23 = a4;
+  v26 = a3;
+  v25 = a4;
   v10 = a4;
-  memset(v26, 0, 0x58uLL);
-  *((_DWORD *)a2 + 330) = 0;
+  memset(v27, 0, 0x58uLL);
+  *((_DWORD *)a2 + 321) = 0;
   VIDMM_DMA_POOL::LockAllPoolForAddRemove(1);
-  if ( (int)VidSchQueryDmaData(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 16LL) + 632LL), a5, a6, v26) >= 0
-    && v26[1]
-    && v26[0] )
+  if ( (int)VidSchQueryDmaData(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 16LL) + 624LL), a5, a6, v27) >= 0
+    && v27[1]
+    && v27[0] )
   {
-    v11 = VIDMM_DMA_POOL::SearchDmaBufferInAllPool(this, (struct _LIST_ENTRY *)v26[0])
+    v11 = VIDMM_DMA_POOL::SearchDmaBufferInAllPool(this, (struct _LIST_ENTRY *)v27[0])
        && a7
-       && a7 >= LODWORD(v26[4])
-       && a7 < HIDWORD(v26[4]);
+       && a7 >= LODWORD(v27[4])
+       && a7 < HIDWORD(v27[4]);
     v12 = a6;
     v13 = a6;
     if ( v10 >= 0x48 )
     {
-      v14 = 0;
+      v14 = this;
       v15 = 0;
+      v16 = 0;
       while ( 1 )
       {
-        if ( v15 && v11 )
+        v28 = v13;
+        if ( v16 && v11 )
         {
-LABEL_34:
-          *(_QWORD *)v23 = v10;
+LABEL_37:
           v10 = a4;
-          break;
+          goto LABEL_38;
         }
-        if ( (int)VidSchQueryDmaData(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 16LL) + 632LL), a5, v7, v26) < 0 )
+        if ( (int)VidSchQueryDmaData(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v14 + 16LL) + 624LL), a5, v7, v27) < 0 )
         {
-          if ( v14 )
-          {
-            v15 = 1;
-LABEL_22:
-            if ( v11 )
-            {
-              if ( v13 )
-                v7 = --v13;
-              else
-                v15 = 1;
-              goto LABEL_33;
-            }
-            v14 = 0;
-LABEL_32:
-            v7 = ++v12;
-            goto LABEL_33;
-          }
-          v11 = 1;
+          v20 = v25;
+          if ( v15 )
+            v16 = 1;
+          else
+            v11 = 1;
         }
         else
         {
-          v31 = HIDWORD(v26[5]) - LODWORD(v26[5]);
-          v24 = HIDWORD(v26[4]) - LODWORD(v26[4]);
-          if ( !(unsigned int)VIDMM_DMA_POOL::CheckIfDmaInformationPresent(
-                                (VIDMM_DMA_POOL *)LODWORD(v26[7]),
-                                a2,
-                                a3,
-                                v16,
-                                v26[0],
-                                v26[4],
-                                HIDWORD(v26[4]) - LODWORD(v26[4]),
-                                v26[7],
-                                HIDWORD(v26[7]),
-                                v26[6],
-                                HIDWORD(v26[6]),
-                                HIDWORD(v26[5]) - LODWORD(v26[5])) )
+          v30 = HIDWORD(v27[5]) - LODWORD(v27[5]);
+          v34 = HIDWORD(v27[4]) - LODWORD(v27[4]);
+          if ( (unsigned int)VIDMM_DMA_POOL::CheckIfDmaInformationPresent(
+                               (VIDMM_DMA_POOL *)LODWORD(v27[7]),
+                               a2,
+                               a3,
+                               v17,
+                               v27[0],
+                               v27[4],
+                               HIDWORD(v27[4]) - LODWORD(v27[4]),
+                               v27[7],
+                               HIDWORD(v27[7]),
+                               v27[6],
+                               HIDWORD(v27[6]),
+                               HIDWORD(v27[5]) - LODWORD(v27[5]))
+            || (v18 = VIDMM_DMA_POOL::SearchDmaBufferInAllPool(v14, (struct _LIST_ENTRY *)v27[0])) == 0LL )
           {
-            v17 = VIDMM_DMA_POOL::SearchDmaBufferInAllPool(this, (struct _LIST_ENTRY *)v26[0]);
-            if ( v17 )
-            {
-              v18 = VIDMM_DMA_POOL::WriteDmaBufferToMinidump(
-                      this,
-                      (struct _VIDMM_DMA_BUFFER *)v17,
-                      v25,
-                      v10,
-                      v20,
-                      v21,
-                      v22,
-                      v7,
-                      v26[0],
-                      v26[4],
-                      v24,
-                      v26[7],
-                      HIDWORD(v26[7]),
-                      v26[6],
-                      HIDWORD(v26[6]),
-                      v31);
-              v25 += v18;
-              v10 -= v18;
-              ++*((_DWORD *)a2 + 330);
-            }
+            v20 = v25;
           }
-          if ( v14 )
-            goto LABEL_22;
+          else
+          {
+            v19 = VIDMM_DMA_POOL::WriteDmaBufferToMinidump(
+                    v14,
+                    (struct _VIDMM_DMA_BUFFER *)v18,
+                    v26,
+                    v25,
+                    v22,
+                    v23,
+                    v24,
+                    v7,
+                    v27[0],
+                    v27[4],
+                    v34,
+                    v27[7],
+                    HIDWORD(v27[7]),
+                    v27[6],
+                    HIDWORD(v27[6]),
+                    v30);
+            v26 += v19;
+            v20 = v25 - v19;
+            v25 -= v19;
+            ++*((_DWORD *)a2 + 321);
+          }
         }
-        if ( v15 || !v13 )
+        if ( v15 )
+          break;
+        if ( v16 || !v13 )
         {
-          v15 = 1;
-          goto LABEL_32;
+          v16 = 1;
+LABEL_35:
+          v7 = ++v12;
+          goto LABEL_36;
         }
         --v13;
-        v14 = 1;
+        v15 = 1;
         v7 = v13;
-LABEL_33:
-        if ( v10 < 0x48 )
-          goto LABEL_34;
+LABEL_36:
+        if ( v20 < 0x48 )
+          goto LABEL_37;
       }
+      if ( v11 )
+      {
+        if ( v13 )
+          --v13;
+        else
+          v16 = 1;
+        if ( v28 )
+          v7 = v28 - 1;
+        goto LABEL_36;
+      }
+      v15 = 0;
+      goto LABEL_35;
     }
+LABEL_38:
     ExReleaseResourceLite(VIDMM_DMA_POOL::_DmaPoolsAddRemoveLock);
-    return v10 - *(_QWORD *)v23;
+    return v10 - v25;
   }
   else
   {

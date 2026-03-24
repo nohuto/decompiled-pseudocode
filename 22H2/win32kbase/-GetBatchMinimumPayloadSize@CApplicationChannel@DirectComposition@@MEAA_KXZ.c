@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBatchMinimumPayloadSize@CApplicationChannel@DirectComposition@@MEAA_KXZ @ 0x1C00C9DE0
+ * XREFs of ?GetBatchMinimumPayloadSize@CApplicationChannel@DirectComposition@@MEAA_KXZ @ 0x1C00BC180
  * Callers:
  *     <none>
  * Callees:

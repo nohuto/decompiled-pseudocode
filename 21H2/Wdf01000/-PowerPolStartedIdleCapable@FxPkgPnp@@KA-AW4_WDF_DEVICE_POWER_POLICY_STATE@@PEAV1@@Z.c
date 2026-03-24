@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerPolStartedIdleCapable@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C00146B0
+ * XREFs of ?PowerPolStartedIdleCapable@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0019CD0
  * Callers:
  *     <none>
  * Callees:
- *     ?EnableTimer@FxPowerIdleMachine@@QEAAXXZ @ 0x1C0016F14 (-EnableTimer@FxPowerIdleMachine@@QEAAXXZ.c)
+ *     ?EnableTimer@FxPowerIdleMachine@@QEAAXXZ @ 0x1C0019CF4 (-EnableTimer@FxPowerIdleMachine@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolStartedIdleCapable(FxPkgPnp *This)

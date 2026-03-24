@@ -1,223 +1,295 @@
 /*
- * XREFs of DpMapMemory @ 0x1C02206C0
+ * XREFs of DpMapMemory @ 0x1C0198E30
  * Callers:
  *     <none>
  * Callees:
- *     DpiVerifyResources @ 0x1C0220948 (DpiVerifyResources.c)
+ *     DpiVerifyResources @ 0x1C01990B4 (DpiVerifyResources.c)
  */
 
 __int64 __fastcall DpMapMemory(
         __int64 a1,
         union _LARGE_INTEGER a2,
-        unsigned int a3,
+        __int64 a3,
         char a4,
         PLARGE_INTEGER a5,
         int a6,
         PVOID *BaseAddress)
 {
-  ULONG_PTR v7; // r12
-  int v9; // ebx
-  PVOID *v10; // r15
-  __int64 v11; // r13
-  int v12; // r9d
-  __int64 v13; // rdi
-  unsigned int v14; // ebx
-  __int64 v15; // r8
-  union _LARGE_INTEGER v16; // rbx
-  __int64 v17; // rcx
-  char v18; // r14
-  __int64 Pool2; // rax
+  PVOID *v7; // r13
+  __int64 v8; // r15
+  char v9; // r12
+  SIZE_T v10; // rbx
+  union _LARGE_INTEGER *v11; // rdi
+  int v12; // esi
+  char v13; // r9
+  __int64 v14; // rdx
+  __int64 v15; // rsi
+  unsigned int v16; // r12d
+  SIZE_T v17; // rdx
+  union _LARGE_INTEGER v18; // rbx
+  __int64 v19; // rdx
   __int64 v20; // rcx
-  __int64 v21; // rsi
-  __int64 *v22; // rax
+  __int64 v21; // rdi
+  union _LARGE_INTEGER *PoolWithTag; // rax
   __int64 v23; // rdx
-  NTSTATUS v25; // eax
-  int v26; // eax
-  __int64 v27; // rdx
-  PVOID v28; // rcx
-  int v29; // [rsp+58h] [rbp-51h]
-  void *SectionHandle; // [rsp+60h] [rbp-49h] BYREF
-  union _LARGE_INTEGER SectionOffset; // [rsp+68h] [rbp-41h] BYREF
-  ULONG_PTR ViewSize; // [rsp+70h] [rbp-39h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+78h] [rbp-31h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-21h] BYREF
-  unsigned int v35; // [rsp+F8h] [rbp+4Fh]
-  union _LARGE_INTEGER v36; // [rsp+100h] [rbp+57h] BYREF
-  char v37; // [rsp+110h] [rbp+67h]
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  union _LARGE_INTEGER **v27; // rax
+  LONGLONG v28; // rdx
+  char v29; // bl
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  __int64 v34; // rax
+  NTSTATUS v35; // eax
+  __int64 v36; // rcx
+  __int64 v37; // rax
+  _QWORD *v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rcx
+  __int64 v41; // rax
+  __int64 v42; // rax
+  _QWORD *QuadPart; // rdx
+  void **v44; // rax
+  SIZE_T v45; // r8
+  PVOID v46; // rcx
+  int v47; // [rsp+5Ch] [rbp-5Dh]
+  void *SectionHandle; // [rsp+60h] [rbp-59h] BYREF
+  union _LARGE_INTEGER SectionOffset; // [rsp+68h] [rbp-51h] BYREF
+  ULONG_PTR ViewSize; // [rsp+70h] [rbp-49h] BYREF
+  SIZE_T CommitSize; // [rsp+78h] [rbp-41h]
+  struct _UNICODE_STRING DestinationString; // [rsp+80h] [rbp-39h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-29h] BYREF
+  union _LARGE_INTEGER v54; // [rsp+110h] [rbp+57h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+118h] [rbp+5Fh]
+  char v56; // [rsp+120h] [rbp+67h]
 
-  v37 = a4;
-  v36 = a2;
-  v7 = a3;
-  v9 = a1;
-  if ( !a1
-    || (v10 = BaseAddress) == 0LL
-    || !a3
-    || (v11 = *(_QWORD *)(a1 + 64)) == 0
-    || *(_DWORD *)(v11 + 16) != 1953656900
-    || (unsigned int)(*(_DWORD *)(v11 + 20) - 2) > 1 )
+  v56 = a4;
+  LODWORD(NumberOfBytes) = a3;
+  v54 = a2;
+  v7 = BaseAddress;
+  v8 = 0LL;
+  v9 = 0;
+  v10 = (unsigned int)a3;
+  v11 = 0LL;
+  v12 = a1;
+  if ( !a1 || !BaseAddress || !(_DWORD)a3 )
   {
-    LODWORD(v13) = -1073741811;
-    v27 = -1073741811LL;
-    goto LABEL_49;
+    LODWORD(v15) = -1073741811;
+    v42 = ((__int64 (__fastcall *)(_QWORD, _QWORD))WdLogNewEntry5_WdError)(a1, (union _LARGE_INTEGER)a2.QuadPart);
+    *(_QWORD *)(v42 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v42);
+    goto LABEL_27;
+  }
+  v8 = *(_QWORD *)(a1 + 64);
+  if ( !v8 || *(_DWORD *)(v8 + 16) != 1953656900 || (unsigned int)(*(_DWORD *)(v8 + 20) - 2) > 1 )
+  {
+    LODWORD(v15) = -1073741811;
+    v40 = ((__int64 (__fastcall *)(_QWORD, _QWORD))WdLogNewEntry5_WdError)(a1, (union _LARGE_INTEGER)a2.QuadPart);
+    *(_QWORD *)(v40 + 24) = -1073741811LL;
+    goto LABEL_43;
   }
   if ( KeGetCurrentIrql() )
-    WdLogSingleEntry1(3LL, -1073741811LL);
-  *v10 = 0LL;
-  LOBYTE(v12) = a4;
-  LODWORD(v13) = DpiVerifyResources(v9, (unsigned int)&v36, v7, v12, (char)a5, (__int64)&a6, (__int64)v10);
-  if ( (int)v13 >= 0 && !*v10 )
   {
-    v29 = a6;
-    if ( v37 == 1 )
+    v34 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))WdLogNewEntry5_WdWarning)(
+            a1,
+            (union _LARGE_INTEGER)a2.QuadPart,
+            a3);
+    *(_QWORD *)(v34 + 24) = -1073741811LL;
+    WdLogEvent5_WdWarning(v34);
+  }
+  v13 = v56;
+  *v7 = 0LL;
+  LODWORD(v15) = DpiVerifyResources(v12, (unsigned int)&v54, v10, v13, (char)a5, (__int64)&a6, (__int64)v7);
+  if ( (int)v15 >= 0 )
+  {
+    if ( !*v7 )
     {
-      v16 = v36;
-      v18 = 0;
-      *v10 = (PVOID)v36.QuadPart;
-LABEL_19:
-      Pool2 = ExAllocatePool2(256LL, 80LL, 1953656900LL);
-      v21 = Pool2;
-      if ( Pool2 )
+      v47 = a6;
+      if ( v56 == 1 )
       {
-        *(_DWORD *)(Pool2 + 16) = 1953656900;
-        *(_DWORD *)(Pool2 + 20) = 8;
-        *(_DWORD *)(Pool2 + 24) = 1;
-        *(union _LARGE_INTEGER *)(Pool2 + 32) = v16;
-        *(_DWORD *)(Pool2 + 40) = v7;
-        *(_BYTE *)(Pool2 + 44) = v37;
-        *(_BYTE *)(Pool2 + 45) = (_BYTE)a5;
-        *(_QWORD *)(Pool2 + 48) = PsGetCurrentProcess(v20);
-        *(_DWORD *)(v21 + 56) = v29;
-        *(_QWORD *)(v21 + 64) = *v10;
-        *(_BYTE *)(v21 + 72) = v18;
-        KeWaitForSingleObject((PVOID)(v11 + 2520), Executive, 0, 0, 0LL);
-        v22 = (__int64 *)(v11 + 2504);
-        v23 = *(_QWORD *)(v11 + 2504);
-        if ( *(_QWORD *)(v23 + 8) != v11 + 2504 )
-          __fastfail(3u);
-        *(_QWORD *)(v23 + 8) = v21;
-        *(_QWORD *)v21 = v23;
-        *(_QWORD *)(v21 + 8) = v22;
-        *v22 = v21;
-        KeReleaseMutex((PRKMUTEX)(v11 + 2520), 0);
-        WdLogSingleEntry1(4LL, v21);
+        v18 = v54;
+        *v7 = (PVOID)v54.QuadPart;
+        goto LABEL_18;
       }
-      else
+      v16 = 0;
+      if ( (_BYTE)a5 != 1 )
       {
-        LODWORD(v13) = -1073741801;
-        WdLogSingleEntry1(6LL, -1073741801LL);
-        if ( v18 == 1 )
+        v16 = 4;
+        if ( !a6 || byte_1C00B2B10 )
         {
-          *(_DWORD *)(v11 + 2576) -= ((unsigned int)v7 + (unsigned __int64)(*(_DWORD *)v10 & 0xFFF) + 4095) >> 12;
-          v28 = *v10;
-          if ( (_BYTE)a5 == 1 )
-            ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v28);
+          v16 = 516;
+        }
+        else if ( a6 != 1 )
+        {
+          if ( a6 == 2 )
+          {
+            v16 = 1028;
+          }
           else
-            MmUnmapIoSpace(v28, (unsigned int)v7);
+          {
+            v39 = WdLogNewEntry5_WdError((unsigned int)(a6 - 1), v14);
+            *(_QWORD *)(v39 + 24) = v47;
+            *(_QWORD *)(v39 + 32) = v8;
+            WdLogEvent5_WdError(v39);
+          }
         }
-      }
-      return (unsigned int)v13;
-    }
-    v35 = 0;
-    if ( (_BYTE)a5 != 1 )
-    {
-      v14 = 4;
-      v35 = 4;
-      if ( !a6 || byte_1C0140490 )
-      {
-        v14 = 516;
-      }
-      else
-      {
-        if ( a6 == 1 )
-          goto LABEL_16;
-        if ( a6 != 2 )
-        {
-          WdLogSingleEntry2(2LL, a6, v11);
-          goto LABEL_16;
-        }
-        v14 = 1028;
-      }
-      v35 = v14;
+        v17 = v10;
+        v18 = v54;
+        v20 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))MmMapIoSpaceEx)(
+                (union _LARGE_INTEGER)v54.QuadPart,
+                v17,
+                v16);
 LABEL_16:
-      v15 = v14;
-      v16 = v36;
-      v17 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))MmMapIoSpaceEx)(
-              (union _LARGE_INTEGER)v36.QuadPart,
-              v7,
-              v15);
-LABEL_17:
-      *v10 = (PVOID)v17;
-      if ( !v17 )
-      {
-        LODWORD(v13) = -1073741811;
-        WdLogSingleEntry2(2LL, (unsigned int)v7, v35);
-        return (unsigned int)v13;
+        *v7 = (PVOID)v20;
+        v21 = (unsigned int)NumberOfBytes;
+        if ( v20 )
+        {
+          v9 = 1;
+          *(_DWORD *)(v8 + 2576) += ((v20 & 0xFFF) + (unsigned __int64)(unsigned int)NumberOfBytes + 4095) >> 12;
+LABEL_18:
+          PoolWithTag = (union _LARGE_INTEGER *)ExAllocatePoolWithTag(PagedPool, 0x50uLL, 0x74727044u);
+          v11 = PoolWithTag;
+          if ( !PoolWithTag )
+          {
+            LODWORD(v15) = -1073741801;
+            v41 = WdLogNewEntry5_WdLowResource(v24, v23, v25, v26);
+            *(_QWORD *)(v41 + 24) = -1073741801LL;
+            WdLogEvent5_WdLowResource(v41);
+LABEL_52:
+            if ( v9 == 1 )
+            {
+              v45 = (unsigned int)NumberOfBytes;
+              *(_DWORD *)(v8 + 2576) -= ((*(_DWORD *)v7 & 0xFFF) + (unsigned __int64)(unsigned int)NumberOfBytes + 4095) >> 12;
+              v46 = *v7;
+              if ( (_BYTE)a5 == 1 )
+                ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v46);
+              else
+                MmUnmapIoSpace(v46, v45);
+            }
+            return (unsigned int)v15;
+          }
+          PoolWithTag[2].LowPart = 1953656900;
+          PoolWithTag[2].HighPart = 8;
+          PoolWithTag[3].LowPart = 1;
+          PoolWithTag[4] = v18;
+          PoolWithTag[5].LowPart = NumberOfBytes;
+          BYTE4(PoolWithTag[5].QuadPart) = v56;
+          BYTE5(PoolWithTag[5].QuadPart) = (_BYTE)a5;
+          PoolWithTag[6].QuadPart = PsGetCurrentProcess(v24, v23, v25, v26);
+          v11[7].LowPart = v47;
+          v11[8].QuadPart = (LONGLONG)*v7;
+          LOBYTE(v11[9].LowPart) = v9;
+          KeWaitForSingleObject((PVOID)(v8 + 2520), Executive, 0, 0, 0LL);
+          v27 = (union _LARGE_INTEGER **)(v8 + 2504);
+          v28 = *(_QWORD *)(v8 + 2504);
+          if ( *(_QWORD *)(v28 + 8) != v8 + 2504 )
+            goto LABEL_55;
+          v11->QuadPart = v28;
+          v11[1].QuadPart = (LONGLONG)v27;
+          *(_QWORD *)(v28 + 8) = v11;
+          *v27 = v11;
+          KeReleaseMutex((PRKMUTEX)(v8 + 2520), 0);
+          v29 = 1;
+          v32 = WdLogNewEntry5_WdEvent(v31, v30);
+          *(_QWORD *)(v32 + 24) = v11;
+          WdLogEvent5_WdEvent(v32);
+LABEL_21:
+          if ( (int)v15 >= 0 )
+            return (unsigned int)v15;
+          if ( v29 != 1 )
+            goto LABEL_50;
+          KeWaitForSingleObject((PVOID)(v8 + 2520), Executive, 0, 0, 0LL);
+          QuadPart = (_QWORD *)v11->QuadPart;
+          if ( *(union _LARGE_INTEGER **)(v11->QuadPart + 8) == v11 )
+          {
+            v44 = (void **)v11[1].QuadPart;
+            if ( *v44 == v11 )
+            {
+              *v44 = QuadPart;
+              QuadPart[1] = v44;
+              KeReleaseMutex((PRKMUTEX)(v8 + 2520), 0);
+LABEL_50:
+              if ( v11 )
+                ExFreePoolWithTag(v11, 0x74727044u);
+              goto LABEL_52;
+            }
+          }
+LABEL_55:
+          __fastfail(3u);
+        }
+        LODWORD(v15) = -1073741811;
+        v40 = WdLogNewEntry5_WdError(0LL, v19);
+        *(_QWORD *)(v40 + 24) = v21;
+        *(_QWORD *)(v40 + 32) = v16;
+LABEL_43:
+        WdLogEvent5_WdError(v40);
+        return (unsigned int)v15;
       }
-      v18 = 1;
-      *(_DWORD *)(v11 + 2576) += ((unsigned int)v7 + (unsigned __int64)(v17 & 0xFFF) + 4095) >> 12;
-      goto LABEL_19;
-    }
-    *(&ObjectAttributes.Length + 1) = 0;
-    *(&ObjectAttributes.Attributes + 1) = 0;
-    SectionHandle = 0LL;
-    DestinationString = 0LL;
-    ViewSize = v7;
-    RtlInitUnicodeString(&DestinationString, L"\\Device\\PhysicalMemory");
-    ObjectAttributes.RootDirectory = 0LL;
-    ObjectAttributes.ObjectName = &DestinationString;
-    ObjectAttributes.Length = 48;
-    ObjectAttributes.Attributes = 576;
-    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v25 = ZwOpenSection(&SectionHandle, 0xF001Fu, &ObjectAttributes);
-    v13 = v25;
-    if ( v25 < 0 )
-      goto LABEL_33;
-    v16 = v36;
-    SectionOffset = v36;
-    if ( byte_1C0140490 == 1 || !v29 )
-    {
-      v26 = 512;
-    }
-    else
-    {
-      if ( v29 != 2 )
+      *(&ObjectAttributes.Length + 1) = 0;
+      *(&ObjectAttributes.Attributes + 1) = 0;
+      SectionHandle = 0LL;
+      DestinationString = 0LL;
+      CommitSize = v10;
+      ViewSize = v10;
+      RtlInitUnicodeString(&DestinationString, L"\\Device\\PhysicalMemory");
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.Attributes = 576;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v35 = ZwOpenSection(&SectionHandle, 0xF001Fu, &ObjectAttributes);
+      v15 = v35;
+      if ( v35 >= 0 )
       {
-        v26 = 0;
-LABEL_37:
-        v13 = ZwMapViewOfSection(
+        v18 = v54;
+        SectionOffset = v54;
+        if ( byte_1C00B2B10 == 1 || !v47 )
+        {
+          v16 = 512;
+        }
+        else if ( v47 == 2 )
+        {
+          v16 = 1024;
+        }
+        v15 = ZwMapViewOfSection(
                 SectionHandle,
                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-                v10,
-                0LL,
                 v7,
+                0LL,
+                CommitSize,
                 &SectionOffset,
                 &ViewSize,
                 ViewUnmap,
                 0,
-                v26 | 4);
+                v16 | 4);
         ZwClose(SectionHandle);
-        if ( (int)v13 >= 0 )
+        if ( (int)v15 >= 0 )
         {
-          if ( v16.LowPart < SectionOffset.LowPart )
+          if ( v18.LowPart < SectionOffset.LowPart )
           {
-            LODWORD(v13) = -1073741823;
-            WdLogSingleEntry3(0LL, 275LL, 21LL, -1073741823LL);
-            return (unsigned int)v13;
+            LODWORD(v15) = -1073741823;
+            v38 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v36, v19);
+            v38[3] = 275LL;
+            v38[4] = 21LL;
+            v38[5] = -1073741823LL;
+            WdLogEvent5_WdCriticalError(v38);
+            return (unsigned int)v15;
           }
-          LODWORD(v7) = SectionOffset.LowPart + ViewSize - v16.LowPart;
-          v17 = (__int64)*v10 + v16.QuadPart - SectionOffset.QuadPart;
-          goto LABEL_17;
+          LODWORD(NumberOfBytes) = SectionOffset.LowPart + ViewSize - v18.LowPart;
+          v20 = (__int64)*v7 + v18.QuadPart - SectionOffset.QuadPart;
+          goto LABEL_16;
         }
-LABEL_33:
-        v27 = v13;
-LABEL_49:
-        WdLogSingleEntry1(2LL, v27);
-        return (unsigned int)v13;
       }
-      v26 = 1024;
+      v37 = WdLogNewEntry5_WdError(v36, v19);
+      *(_QWORD *)(v37 + 24) = v15;
+      WdLogEvent5_WdError(v37);
+      v9 = 0;
     }
-    v35 = v26;
-    goto LABEL_37;
+LABEL_27:
+    v29 = 0;
+    goto LABEL_21;
   }
-  return (unsigned int)v13;
+  return (unsigned int)v15;
 }

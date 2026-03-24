@@ -1,7 +1,7 @@
 /*
- * XREFs of VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified @ 0x1C001F8EC
+ * XREFs of VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified @ 0x1C003DA7C
  * Callers:
- *     ?VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001EC80 (-VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0037A90 (-VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,6 @@ _QWORD *__fastcall VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified(K
   _QWORD *v7; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   v5 = 0LL;
   KeAcquireInStackQueuedSpinLock(a1, &LockHandle);
   v6 = *a2;

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPeiInterruptHandler @ 0x140518C80
+ * XREFs of HalpPeiInterruptHandler @ 0x1404CFA10
  * Callers:
  *     <none>
  * Callees:
- *     HalpCheckAndReportGhes @ 0x14033532C (HalpCheckAndReportGhes.c)
+ *     HalpCheckAndReportGhes @ 0x1404CF888 (HalpCheckAndReportGhes.c)
  */
 
 char __fastcall HalpPeiInterruptHandler(__int64 a1, __int64 a2)

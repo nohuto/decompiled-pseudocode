@@ -1,12 +1,12 @@
 /*
- * XREFs of CcScheduleReadAhead @ 0x14053A6A0
+ * XREFs of CcScheduleReadAhead @ 0x1404EA6F0
  * Callers:
  *     <none>
  * Callees:
- *     CcScheduleReadAheadNuma @ 0x14029CC2C (CcScheduleReadAheadNuma.c)
+ *     CcScheduleReadAheadEx @ 0x1402F8E00 (CcScheduleReadAheadEx.c)
  */
 
 void __stdcall CcScheduleReadAhead(PFILE_OBJECT FileObject, PLARGE_INTEGER FileOffset, ULONG Length)
 {
-  CcScheduleReadAheadNuma((_SLIST_ENTRY *)FileObject, FileOffset, Length, 0LL, 0LL);
+  CcScheduleReadAheadEx((_SLIST_ENTRY *)FileObject, FileOffset, Length, 0LL);
 }

@@ -1,31 +1,35 @@
 /*
- * XREFs of CmpAppendLine @ 0x140B5E758
+ * XREFs of CmpAppendLine @ 0x140A626B4
  * Callers:
- *     CmpParseInfBuffer @ 0x140B5E10C (CmpParseInfBuffer.c)
+ *     CmpParseInfBuffer @ 0x140A6206C (CmpParseInfBuffer.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CmpAppendLine(_QWORD *a1, __int64 a2, char a3)
 {
-  __int64 Pool2; // rax
-  __int64 *v7; // rcx
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v7; // r9
+  _QWORD *v8; // rax
+  char result; // al
 
   if ( !a1[1] )
     return 0;
-  Pool2 = ExAllocatePool2(256LL, 0x20uLL, 0x69704D43u);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x69704D43u);
+  v7 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0;
-  *(_QWORD *)Pool2 = 0LL;
-  *(_QWORD *)(Pool2 + 16) = 0LL;
-  *(_QWORD *)(Pool2 + 8) = a2;
-  *(_BYTE *)(Pool2 + 24) = a3;
-  v7 = (__int64 *)a1[2];
-  if ( v7 )
-    *v7 = Pool2;
+  *PoolWithTag = 0LL;
+  PoolWithTag[2] = 0LL;
+  PoolWithTag[1] = a2;
+  *((_BYTE *)PoolWithTag + 24) = a3;
+  v8 = (_QWORD *)a1[2];
+  if ( v8 )
+    *v8 = v7;
   else
-    *(_QWORD *)(a1[1] + 16LL) = Pool2;
+    *(_QWORD *)(a1[1] + 16LL) = v7;
   a1[3] = 0LL;
-  a1[2] = Pool2;
-  return 1;
+  result = 1;
+  a1[2] = v7;
+  return result;
 }

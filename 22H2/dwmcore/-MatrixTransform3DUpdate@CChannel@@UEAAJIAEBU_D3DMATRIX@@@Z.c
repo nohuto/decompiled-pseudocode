@@ -1,13 +1,12 @@
 /*
- * XREFs of ?MatrixTransform3DUpdate@CChannel@@UEAAJIAEBU_D3DMATRIX@@@Z @ 0x1801CFFA0
+ * XREFs of ?MatrixTransform3DUpdate@CChannel@@UEAAJIAEBU_D3DMATRIX@@@Z @ 0x1801504B0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180044038 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005E108 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E530 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 __int64 __fastcall CChannel::MatrixTransform3DUpdate(CChannel *this, unsigned int a2, const struct _D3DMATRIX *a3)
@@ -17,28 +16,29 @@ __int64 __fastcall CChannel::MatrixTransform3DUpdate(CChannel *this, unsigned in
   __int128 v8; // xmm0
   __int128 v9; // xmm1
   unsigned int v10; // ebx
-  _BYTE v12[16]; // [rsp+20h] [rbp-68h] BYREF
-  int v13; // [rsp+30h] [rbp-58h] BYREF
-  unsigned int v14; // [rsp+34h] [rbp-54h] BYREF
-  __int128 v15; // [rsp+38h] [rbp-50h]
-  __int128 v16; // [rsp+48h] [rbp-40h]
-  __int128 v17; // [rsp+58h] [rbp-30h]
-  __int128 v18; // [rsp+68h] [rbp-20h]
+  int v12; // [rsp+20h] [rbp-58h] BYREF
+  unsigned int v13; // [rsp+24h] [rbp-54h] BYREF
+  __int128 v14; // [rsp+28h] [rbp-50h]
+  __int128 v15; // [rsp+38h] [rbp-40h]
+  __int128 v16; // [rsp+48h] [rbp-30h]
+  __int128 v17; // [rsp+58h] [rbp-20h]
+  struct _RTL_CRITICAL_SECTION *v18; // [rsp+80h] [rbp+8h] BYREF
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v12, this);
-  CChannel::CheckHandle((__int64)this, a2, 110);
-  v13 = 469;
-  memset_0(&v14, 0, 0x44uLL);
+  v18 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  CChannel::CheckHandle((__int64)this, a2, 108);
+  v12 = 492;
+  memset_0(&v13, 0, 0x44uLL);
   v6 = *(_OWORD *)&a3->_11;
   v7 = *(_OWORD *)&a3->_21;
-  v14 = a2;
-  v15 = v6;
+  v13 = a2;
+  v14 = v6;
   v8 = *(_OWORD *)&a3->_31;
-  v16 = v7;
+  v15 = v7;
   v9 = *(_OWORD *)&a3->_41;
-  v17 = v8;
-  v18 = v9;
-  v10 = CChannel::SendCommand(this, &v13, 0x48u);
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v12);
+  v16 = v8;
+  v17 = v9;
+  v10 = CChannel::SendCommand(this, &v12, 0x48u);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v18);
   return v10;
 }

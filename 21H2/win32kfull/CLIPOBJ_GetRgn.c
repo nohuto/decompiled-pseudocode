@@ -1,9 +1,9 @@
 /*
- * XREFs of CLIPOBJ_GetRgn @ 0x1C026B340
+ * XREFs of CLIPOBJ_GetRgn @ 0x1C026D5C0
  * Callers:
  *     <none>
  * Callees:
- *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C0022804 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C00BCF24 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
  */
 
 HANDLE __stdcall CLIPOBJ_GetRgn(CLIPOBJ *pco)

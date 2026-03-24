@@ -1,20 +1,18 @@
 /*
- * XREFs of VfReadDmaCounter @ 0x140AC8810
+ * XREFs of VfReadDmaCounter @ 0x1409CD180
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VF_ASSERT_MAX_IRQL @ 0x140AC572C (VF_ASSERT_MAX_IRQL.c)
- *     ViGetAdapterInformationInternal @ 0x140AC9E44 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140ACA158 (ViGetRealDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x1409CA17C (VF_ASSERT_MAX_IRQL.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA60 (ViGetRealDmaOperation.c)
  */
 
-__int64 __fastcall VfReadDmaCounter(int a1)
+__int64 __fastcall VfReadDmaCounter(__int64 a1)
 {
-  __int64 RealDmaAdapter; // rax
+  __int64 (__fastcall *RealDmaOperation)(__int64); // rax
 
-  if ( ViGetAdapterInformationInternal(a1) )
-    VF_ASSERT_MAX_IRQL();
-  RealDmaAdapter = ViGetRealDmaAdapter(a1);
-  return (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)(RealDmaAdapter + 8) + 80LL))(RealDmaAdapter);
+  VF_ASSERT_MAX_IRQL();
+  RealDmaOperation = (__int64 (__fastcall *)(__int64))ViGetRealDmaOperation(a1);
+  return RealDmaOperation(a1);
 }

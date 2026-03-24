@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$ValueGetter@P8CMesh2DEffect@@EBA?AUD2D_MATRIX_4X4_F@@XZ$H?GetWorldToProjection@1@QEBA?AU2@XZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x1802BE980
+ * XREFs of ??$ValueGetter@P8CMesh2DEffect@@EBA?AUD2D_MATRIX_4X4_F@@XZ$H?GetWorldToProjection@1@QEBA?AU2@XZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x18026C480
  * Callers:
  *     <none>
  * Callees:
- *     ??$DeducingValueGetter@VCMesh2DEffect@@UD2D_MATRIX_4X4_F@@UID2D1EffectImpl@@@@YAJP8CMesh2DEffect@@EBA?AUD2D_MATRIX_4X4_F@@XZPEBUID2D1EffectImpl@@PEAEIPEAI@Z @ 0x1802BE850 (--$DeducingValueGetter@VCMesh2DEffect@@UD2D_MATRIX_4X4_F@@UID2D1EffectImpl@@@@YAJP8CMesh2DEffect.c)
+ *     ??$DeducingValueGetter@VCMesh2DEffect@@UD2D_MATRIX_4X4_F@@UID2D1EffectImpl@@@@YAJP8CMesh2DEffect@@EBA?AUD2D_MATRIX_4X4_F@@XZPEBUID2D1EffectImpl@@PEAEIPEAI@Z @ 0x18026C36C (--$DeducingValueGetter@VCMesh2DEffect@@UD2D_MATRIX_4X4_F@@UID2D1EffectImpl@@@@YAJP8CMesh2DEffect.c)
  */
 
 __int64 __fastcall ValueGetter<D2D_MATRIX_4X4_F (CMesh2DEffect::*)(void)const,{public: D2D_MATRIX_4X4_F CMesh2DEffect::GetWorldToProjection(void)const,0},ID2D1EffectImpl>(

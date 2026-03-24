@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpHeapHandleError @ 0x1405F1F7C
+ * XREFs of RtlpHpHeapHandleError @ 0x14059392C
  * Callers:
- *     RtlpLogHeapFailure @ 0x1405F1BBC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140295EF0 (RtlCaptureStackBackTrace.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpHeapExceptionFilter @ 0x1405F1AA4 (RtlpHeapExceptionFilter.c)
- *     RtlpHeapHandleError @ 0x1405F1F34 (RtlpHeapHandleError.c)
- *     RtlpLocateRelatedBlocks @ 0x1405F200C (RtlpLocateRelatedBlocks.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CE20 (RtlCaptureStackBackTrace.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpHeapExceptionFilter @ 0x140593454 (RtlpHeapExceptionFilter.c)
+ *     RtlpHeapHandleError @ 0x1405938E4 (RtlpHeapHandleError.c)
+ *     RtlpLocateRelatedBlocks @ 0x1405939BC (RtlpLocateRelatedBlocks.c)
  */
 
 void __fastcall __noreturn RtlpHpHeapHandleError(int a1, __int64 a2, __int64 a3)

@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkCaptureLiveKernelDump @ 0x140540798
+ * XREFs of DbgkCaptureLiveKernelDump @ 0x1404EE658
  * Callers:
- *     NtSystemDebugControl @ 0x1406DC120 (NtSystemDebugControl.c)
+ *     NtSystemDebugControl @ 0x1407CFC00 (NtSystemDebugControl.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041B980 (ZwQueryInformationFile.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140732CC0 (ObReferenceObjectByHandleWithTag.c)
- *     DbgkpWerIsFullLiveDumpDisabled @ 0x14080B840 (DbgkpWerIsFullLiveDumpDisabled.c)
- *     DbgkpWerAllocatePool @ 0x14092BA34 (DbgkpWerAllocatePool.c)
- *     DbgkpWerFreePool @ 0x14092BED8 (DbgkpWerFreePool.c)
- *     IoCaptureLiveDump @ 0x14093A0B8 (IoCaptureLiveDump.c)
- *     ObOpenObjectByPointerWithTag @ 0x140985170 (ObOpenObjectByPointerWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
+ *     DbgkpWerAllocatePool @ 0x140888D5C (DbgkpWerAllocatePool.c)
+ *     DbgkpWerFreePool @ 0x140889388 (DbgkpWerFreePool.c)
+ *     DbgkpWerIsFullLiveDumpDisabled @ 0x1408895C8 (DbgkpWerIsFullLiveDumpDisabled.c)
+ *     IoCaptureLiveDump @ 0x140896298 (IoCaptureLiveDump.c)
+ *     ObOpenObjectByPointerWithTag @ 0x1408DCA90 (ObOpenObjectByPointerWithTag.c)
  */
 
 __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
@@ -32,13 +32,12 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
   NTSTATUS v14; // eax
   int v15; // eax
   int v16; // eax
-  int v17; // eax
   ULONG Tag[2]; // [rsp+20h] [rbp-30h]
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-10h] BYREF
   int FileInformation; // [rsp+90h] [rbp+40h] BYREF
   HANDLE FileHandle; // [rsp+98h] [rbp+48h] BYREF
   PVOID Object; // [rsp+A0h] [rbp+50h] BYREF
-  PVOID v23; // [rsp+A8h] [rbp+58h] BYREF
+  PVOID v22; // [rsp+A8h] [rbp+58h] BYREF
 
   FileInformation = 0;
   IoStatusBlock = 0LL;
@@ -55,7 +54,7 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
   FileHandle = 0LL;
   CurrentThread = KeGetCurrentThread();
   Object = 0LL;
-  v23 = 0LL;
+  v22 = 0LL;
   --CurrentThread->KernelApcDisable;
   if ( _InterlockedExchange(&DbgkpBusy, 1) != 1 )
   {
@@ -90,7 +89,7 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
         if ( !v12 )
         {
           Status = -1073741811;
-          goto LABEL_41;
+          goto LABEL_39;
         }
         v9 = ObReferenceObjectByHandleWithTag(
                v12,
@@ -98,14 +97,14 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
                (POBJECT_TYPE)IoFileObjectType,
                PreviousMode,
                0x57676244u,
-               &v23,
+               &v22,
                0LL);
         Status = v9;
         if ( v9 >= 0 )
         {
-          v13 = v23;
+          v13 = v22;
           v9 = ObOpenObjectByPointerWithTag(
-                 v23,
+                 v22,
                  0x200u,
                  0LL,
                  2u,
@@ -135,16 +134,10 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
                   }
                   if ( (v15 & 8) != 0 )
                     *(_DWORD *)(v7 + 24) |= 0x10u;
-                  v16 = *(_DWORD *)(a1 + 60);
-                  if ( (v16 & 1) != 0 )
-                  {
+                  if ( (*(_DWORD *)(a1 + 60) & 1) != 0 )
                     *(_DWORD *)(v7 + 28) |= 1u;
-                    v16 = *(_DWORD *)(a1 + 60);
-                  }
-                  if ( (v16 & 2) != 0 )
-                    *(_DWORD *)(v7 + 28) |= 2u;
                   DbgPrintEx(5u, 3u, "DBGK: Calling IoCaptureLiveDump\n");
-                  v17 = IoCaptureLiveDump(
+                  v16 = IoCaptureLiveDump(
                           *(_DWORD *)(a1 + 4),
                           *(_QWORD *)(a1 + 8),
                           *(_QWORD *)(a1 + 16),
@@ -152,9 +145,9 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
                           *(_QWORD *)(a1 + 32),
                           v7,
                           0LL);
-                  Status = v17;
-                  if ( v17 < 0 )
-                    DbgPrintEx(5u, 0, "DBGK: IoCaptureLiveDump failed, status 0x%X\n", v17);
+                  Status = v16;
+                  if ( v16 < 0 )
+                    DbgPrintEx(5u, 0, "DBGK: IoCaptureLiveDump failed, status 0x%X\n", v16);
                 }
                 else
                 {
@@ -175,7 +168,7 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
             {
               DbgPrintEx(5u, 1u, "DBGK: ZwQueryInformationFile failed for dump file, status 0x%X\n", (unsigned int)v14);
             }
-            goto LABEL_41;
+            goto LABEL_39;
           }
           v10 = v13;
           v11 = "DBGK: ObOpenObjectByPointerWithTag failed for file %p, status 0x%X\n";
@@ -194,20 +187,20 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
       DbgPrintEx(5u, 0, "DBGK: Could not allocate IoLivedumpControl\n");
       Status = -1073741801;
     }
-LABEL_41:
+LABEL_39:
     if ( FileHandle )
       ZwClose(FileHandle);
     if ( Object )
       ObfDereferenceObjectWithTag(Object, 0x57676244u);
-    if ( v23 )
-      ObfDereferenceObjectWithTag(v23, 0x57676244u);
+    if ( v22 )
+      ObfDereferenceObjectWithTag(v22, 0x57676244u);
     if ( v7 )
       DbgkpWerFreePool(v7);
     _InterlockedExchange(&DbgkpBusy, 0);
-    goto LABEL_50;
+    goto LABEL_48;
   }
   Status = -1073741267;
-LABEL_50:
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+LABEL_48:
+  KeLeaveCriticalRegion();
   return Status;
 }

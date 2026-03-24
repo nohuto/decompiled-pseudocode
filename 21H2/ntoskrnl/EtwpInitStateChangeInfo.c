@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpInitStateChangeInfo @ 0x140711E3C
+ * XREFs of EtwpInitStateChangeInfo @ 0x1406134BC
  * Callers:
- *     EtwTraceProcess @ 0x14070AC28 (EtwTraceProcess.c)
- *     EtwTraceAppStateChange @ 0x140712868 (EtwTraceAppStateChange.c)
+ *     EtwTraceProcess @ 0x14060330C (EtwTraceProcess.c)
+ *     EtwTraceAppStateChange @ 0x1406CDBB8 (EtwTraceAppStateChange.c)
  * Callees:
- *     PsGetProcessStartKey @ 0x14023FCD0 (PsGetProcessStartKey.c)
- *     PsGetProcessSessionId @ 0x14028AF60 (PsGetProcessSessionId.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     PsGetProcessSessionId @ 0x140252EB0 (PsGetProcessSessionId.c)
+ *     PsGetProcessStartKey @ 0x14025F4F0 (PsGetProcessStartKey.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall EtwpInitStateChangeInfo(__int64 a1, __int64 a2)

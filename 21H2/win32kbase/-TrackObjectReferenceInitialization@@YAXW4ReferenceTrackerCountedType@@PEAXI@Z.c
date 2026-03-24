@@ -1,10 +1,10 @@
 /*
- * XREFs of ?TrackObjectReferenceInitialization@@YAXW4ReferenceTrackerCountedType@@PEAXI@Z @ 0x1C008F798
+ * XREFs of ?TrackObjectReferenceInitialization@@YAXW4ReferenceTrackerCountedType@@PEAXI@Z @ 0x1C0080B64
  * Callers:
- *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0028DD0 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
- *     ?InitializeClientReferenceCount@PDEV@@QEAAXXZ @ 0x1C0090D20 (-InitializeClientReferenceCount@PDEV@@QEAAXXZ.c)
+ *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0034A90 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
+ *     ?InitializeClientReferenceCount@PDEV@@QEAAXXZ @ 0x1C007D6A0 (-InitializeClientReferenceCount@PDEV@@QEAAXXZ.c)
  * Callees:
- *     ?ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAUSCircularBuffer@123@_N@Z @ 0x1C017A888 (-ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAU.c)
+ *     ?ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAUSCircularBuffer@123@_N@Z @ 0x1C014DD34 (-ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAU.c)
  */
 
 void __fastcall TrackObjectReferenceInitialization(
@@ -17,7 +17,7 @@ void __fastcall TrackObjectReferenceInitialization(
 
   if ( a2 )
   {
-    v4 = *(&qword_1C028F9B8 + 2 * a1);
+    v4 = *(&qword_1C024C3F8 + 2 * a1);
     if ( v4 )
     {
       if ( a3 )

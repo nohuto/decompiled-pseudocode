@@ -1,43 +1,43 @@
 /*
- * XREFs of xxxSetInformationThread @ 0x1C00699B0
+ * XREFs of xxxSetInformationThread @ 0x1C00D8CE0
  * Callers:
- *     NtUserSetInformationThread @ 0x1C0069890 (NtUserSetInformationThread.c)
- *     xxxSetInformationThread @ 0x1C00699B0 (xxxSetInformationThread.c)
+ *     NtUserSetInformationThread @ 0x1C00D8BC0 (NtUserSetInformationThread.c)
+ *     xxxSetInformationThread @ 0x1C00D8CE0 (xxxSetInformationThread.c)
  * Callees:
- *     xxxBroadcastMessageEx @ 0x1C004C8D0 (xxxBroadcastMessageEx.c)
- *     RtlInitLargeUnicodeString @ 0x1C0065A48 (RtlInitLargeUnicodeString.c)
- *     xxxSetCsrssThreadDesktop @ 0x1C00697C0 (xxxSetCsrssThreadDesktop.c)
- *     xxxSetInformationThread @ 0x1C00699B0 (xxxSetInformationThread.c)
- *     xxxRestoreCsrssThreadDesktop @ 0x1C0069B30 (xxxRestoreCsrssThreadDesktop.c)
- *     ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C00B81DC (-InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z.c)
- *     ?EndShutdown@@YAXJ@Z @ 0x1C00B83C0 (-EndShutdown@@YAXJ@Z.c)
- *     PostShellHookMessagesEx @ 0x1C00D3370 (PostShellHookMessagesEx.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     QueueShutdownData @ 0x1C01B3328 (QueueShutdownData.c)
- *     ?TraceLoggingBSDRRaceConditionEvent@@YAXHH@Z @ 0x1C020194C (-TraceLoggingBSDRRaceConditionEvent@@YAXHH@Z.c)
+ *     RtlInitLargeUnicodeString @ 0x1C0033F1C (RtlInitLargeUnicodeString.c)
+ *     xxxBroadcastMessageEx @ 0x1C003FDE8 (xxxBroadcastMessageEx.c)
+ *     PostShellHookMessagesEx @ 0x1C0043558 (PostShellHookMessagesEx.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?EndShutdown@@YAXJ@Z @ 0x1C00D76E0 (-EndShutdown@@YAXJ@Z.c)
+ *     ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C00D77D4 (-InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z.c)
+ *     xxxSetInformationThread @ 0x1C00D8CE0 (xxxSetInformationThread.c)
+ *     xxxRestoreCsrssThreadDesktop @ 0x1C00D8E60 (xxxRestoreCsrssThreadDesktop.c)
+ *     xxxSetCsrssThreadDesktop @ 0x1C00D90F0 (xxxSetCsrssThreadDesktop.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     QueueShutdownData @ 0x1C01D2C28 (QueueShutdownData.c)
+ *     ?TraceLoggingBSDRRaceConditionEvent@@YAXHH@Z @ 0x1C022468C (-TraceLoggingBSDRRaceConditionEvent@@YAXHH@Z.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-NTSTATUS __fastcall xxxSetInformationThread(void *a1, int a2, _QWORD *a3, int a4)
+NTSTATUS __fastcall xxxSetInformationThread(void *a1, int a2, __int64 *a3, int a4)
 {
   unsigned __int64 v7; // r14
   NTSTATUS result; // eax
   struct _KTHREAD *v9; // r12
-  NTSTATUS v10; // ebx
+  int v10; // ebx
   __int64 ThreadWin32Thread; // rax
   __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
+  __int64 v13; // rcx
+  __int64 v14; // r8
   int v15; // edi
   int v16; // edi
   int v17; // edi
   int v18; // edi
   int v19; // edi
-  unsigned int v20; // r8d
-  __int64 v21; // r9
-  NTSTATUS v22; // eax
+  unsigned int v20; // r9d
+  __int64 v21; // r8
+  int v22; // eax
   __int64 v23; // rdx
   __int64 v24; // rcx
   __int64 i; // rax
@@ -45,20 +45,21 @@ NTSTATUS __fastcall xxxSetInformationThread(void *a1, int a2, _QWORD *a3, int a4
   NTSTATUS v27; // eax
   PVOID v28; // rdi
   __int64 v29; // rax
-  _DWORD *v30; // rcx
-  __int64 v31; // rcx
-  int v32; // eax
-  unsigned __int64 v33; // r8
-  int v34; // edi
-  __int64 v35; // rax
-  __int64 v36; // rbx
-  __int64 v37; // rcx
-  union _LARGE_INTEGER Interval; // [rsp+40h] [rbp-79h] BYREF
-  PVOID v39[2]; // [rsp+48h] [rbp-71h] BYREF
-  PVOID Object; // [rsp+58h] [rbp-61h] BYREF
-  unsigned int v41[4]; // [rsp+60h] [rbp-59h] BYREF
-  __int64 v42; // [rsp+70h] [rbp-49h]
-  _BYTE v43[80]; // [rsp+80h] [rbp-39h] BYREF
+  void *v30; // rcx
+  unsigned int v31; // eax
+  int v32; // ecx
+  int v33; // eax
+  unsigned __int64 v34; // r8
+  int v35; // edi
+  __int64 v36; // rax
+  __int64 v37; // rbx
+  __int64 v38; // rcx
+  PVOID v39; // [rsp+40h] [rbp-79h] BYREF
+  PVOID Object; // [rsp+48h] [rbp-71h] BYREF
+  unsigned int v41[4]; // [rsp+50h] [rbp-69h] BYREF
+  __int64 v42; // [rsp+60h] [rbp-59h]
+  __int128 v43; // [rsp+68h] [rbp-51h] BYREF
+  _BYTE v44[80]; // [rsp+80h] [rbp-39h] BYREF
 
   Object = 0LL;
   v7 = 1LL;
@@ -67,106 +68,112 @@ NTSTATUS __fastcall xxxSetInformationThread(void *a1, int a2, _QWORD *a3, int a4
   v10 = result;
   if ( result >= 0 )
   {
-    ThreadWin32Thread = W32GetThreadWin32Thread(Object);
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)Object);
+    v14 = ThreadWin32Thread;
     if ( a2 == 10 )
     {
-      v22 = SetCsrApiPortHandle(*a3);
+      v22 = SetCsrApiPortHandle(*a3, v12, ThreadWin32Thread);
       goto LABEL_14;
     }
     if ( a2 > 10 )
     {
-      if ( a2 == 12 )
+      switch ( a2 )
       {
-        v35 = ValidateHwnd(*a3);
-        if ( !v35 )
-          goto LABEL_35;
-        v36 = *(_QWORD *)(v35 + 16);
-        if ( !v36 || !*(_QWORD *)(v36 + 456) )
-          goto LABEL_35;
-        ghwndBlocking = *a3;
-        PostWinlogonMessage(1031LL, 0LL);
-        v37 = *(_QWORD *)(v36 + 456);
-        if ( !*(_QWORD *)(*(_QWORD *)(v37 + 8) + 168LL) )
-          v7 = *(_QWORD *)(v37 + 288) != 0LL;
-        QueueShutdownData(0xFFFFLL, v7);
-      }
-      else
-      {
-        v31 = (unsigned int)(a2 - 13);
-        switch ( a2 )
-        {
-          case 13:
-            v10 = -1073741790;
-            Interval.QuadPart = 0LL;
-            v34 = 0;
-            while ( !gspwndBSDR )
+        case 12:
+          v36 = ValidateHwnd(*a3);
+          if ( !v36 )
+            goto LABEL_35;
+          v37 = *(_QWORD *)(v36 + 16);
+          if ( !v37 || !*(_QWORD *)(v37 + 456) )
+            goto LABEL_35;
+          ghwndBlocking = *a3;
+          PostWinlogonMessage(1031LL, 0LL);
+          v38 = *(_QWORD *)(v37 + 456);
+          if ( !*(_QWORD *)(*(_QWORD *)(v38 + 8) + 168LL) )
+            v7 = *(_QWORD *)(v38 + 288) != 0LL;
+          QueueShutdownData(0xFFFFLL, v7);
+          break;
+        case 13:
+          v10 = -1073741790;
+          v39 = 0LL;
+          v35 = 0;
+          while ( !gspwndBSDR )
+          {
+            if ( gdwInAtomicOperation )
             {
-              UserSessionSwitchLeaveCrit(v31, v12, v13, v14);
-              Interval.QuadPart = -1000000LL;
-              KeDelayExecutionThread(0, 0, &Interval);
-              EnterCrit(1LL, 0LL);
-              v34 += 100;
-              if ( v34 >= 10000 )
-                goto LABEL_74;
+              v13 = gdwExtraInstrumentations;
+              if ( (gdwExtraInstrumentations & 1) != 0 )
+                KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
             }
-            gptiShutdownWaiter = gptiCurrent;
-            QueueShutdownData(*a3, 1uLL);
-            v10 = 0;
-            if ( v34 <= 0 )
-              goto LABEL_15;
-LABEL_74:
-            TraceLoggingBSDRRaceConditionEvent(*(_DWORD *)*gpDispInfo, v34);
-            goto LABEL_15;
-          case 14:
-            QueueShutdownData(*a3, 0LL);
-            ghwndBlocking = 0LL;
-            gptiShutdownWaiter = 0LL;
-            break;
-          case 15:
-          case 16:
-            v32 = *(_DWORD *)a3;
-            Interval.QuadPart = 0LL;
-            v42 = 0LL;
-            *(_OWORD *)v39 = 0LL;
-            if ( a2 == 15 )
+            UserSessionSwitchLeaveCrit(v13);
+            v39 = (PVOID)-1000000LL;
+            KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&v39);
+            EnterCrit(0LL, 1LL);
+            v35 += 100;
+            if ( v35 >= 10000 )
+              goto LABEL_77;
+          }
+          gptiShutdownWaiter = gptiCurrent;
+          QueueShutdownData(*a3, 1uLL);
+          v10 = 0;
+LABEL_77:
+          if ( v35 > 0 )
+            TraceLoggingBSDRRaceConditionEvent(*(_DWORD *)*gpDispInfo, v35);
+          goto LABEL_15;
+        case 14:
+          QueueShutdownData(*a3, 0LL);
+          ghwndBlocking = 0LL;
+          gptiShutdownWaiter = 0LL;
+          break;
+        default:
+          if ( a2 <= 14 )
+            goto LABEL_67;
+          if ( a2 > 16 )
+          {
+            if ( a2 == 17 )
             {
-              if ( v32 )
-                *(_DWORD *)(gpsi + 2236LL) |= 8u;
-              else
-                *(_DWORD *)(gpsi + 2236LL) &= ~8u;
-              RtlLoadStringOrError(629LL, v43);
-              (*(void (__fastcall **)(PVOID))(*(_QWORD *)P + 8LL))(P);
-              EtwTraceConvertibleState(*(unsigned int *)a3);
+              v42 = 0LL;
+              *(_OWORD *)v41 = 0LL;
+              v10 = xxxSetInformationThread(-2LL, 7LL, v41, 24LL);
+              if ( v10 < 0 )
+                goto LABEL_15;
+              PostShellHookMessagesEx(0x37u, 0LL, 0LL);
+              v22 = xxxSetInformationThread(-2LL, 9LL, v41, 24LL);
+              goto LABEL_14;
             }
+            goto LABEL_67;
+          }
+          v33 = *(_DWORD *)a3;
+          v39 = 0LL;
+          v42 = 0LL;
+          v43 = 0LL;
+          if ( a2 == 15 )
+          {
+            if ( v33 )
+              *(_DWORD *)(gpsi + 2236LL) |= 8u;
             else
-            {
-              if ( v32 )
-                *(_DWORD *)(gpsi + 2236LL) |= 0x10u;
-              else
-                *(_DWORD *)(gpsi + 2236LL) &= ~0x10u;
-              RtlLoadStringOrError(630LL, v43);
-              (*(void (__fastcall **)(PVOID))(*(_QWORD *)P + 8LL))(P);
-              EtwTraceDockState(*(unsigned int *)a3);
-            }
-            RtlInitLargeUnicodeString((__int64)v39, (__int64)v43);
-            v33 = *(unsigned int *)a3;
-            *(_QWORD *)&v41[2] = &Interval;
-            v41[0] = 0;
-            v41[1] = 100;
-            xxxBroadcastMessageEx(0LL, 0x1Au, v33, (__int128 *)v39, 6u, (union tagBROADCASTMSG *)v41, 1, 0);
-            break;
-          case 17:
-            v42 = 0LL;
-            *(_OWORD *)v41 = 0LL;
-            v10 = xxxSetInformationThread(-2LL, 7LL, v41, 24LL);
-            if ( v10 < 0 )
-              goto LABEL_15;
-            PostShellHookMessagesEx(0x37uLL, 0LL, 0LL);
-            v22 = xxxSetInformationThread(-2LL, 9LL, v41, 24LL);
-            goto LABEL_14;
-          default:
-            goto LABEL_57;
-        }
+              *(_DWORD *)(gpsi + 2236LL) &= ~8u;
+            RtlLoadStringOrError(629LL, v44, 40LL);
+            (*(void (__fastcall **)(PVOID))(*(_QWORD *)P + 8LL))(P);
+            EtwTraceConvertibleState(*(unsigned int *)a3);
+          }
+          else
+          {
+            if ( v33 )
+              *(_DWORD *)(gpsi + 2236LL) |= 0x10u;
+            else
+              *(_DWORD *)(gpsi + 2236LL) &= ~0x10u;
+            RtlLoadStringOrError(630LL, v44, 40LL);
+            (*(void (__fastcall **)(PVOID))(*(_QWORD *)P + 8LL))(P);
+            EtwTraceDockState(*(unsigned int *)a3);
+          }
+          RtlInitLargeUnicodeString((__int64)&v43, (__int64)v44);
+          v34 = *(unsigned int *)a3;
+          *(_QWORD *)&v41[2] = &v39;
+          v41[0] = 0;
+          v41[1] = 100;
+          xxxBroadcastMessageEx(0LL, 0x1Au, v34, (struct _LARGE_STRING *)&v43, 6u, (union tagBROADCASTMSG *)v41, 1, 0);
+          break;
       }
     }
     else
@@ -178,10 +185,11 @@ LABEL_74:
         {
           if ( a4 == 8 && (*(_DWORD *)a3 & 0x20000) == *(_DWORD *)a3 )
           {
-            if ( *(_DWORD *)a3 )
-              *(_DWORD *)(ThreadWin32Thread + 488) |= 0x20000u;
-            else
-              *(_DWORD *)(ThreadWin32Thread + 488) &= ~0x20000u;
+            v31 = *(_DWORD *)(ThreadWin32Thread + 488) & 0xFFFDFFFF;
+            v32 = *(_DWORD *)(v14 + 488) | 0x20000;
+            if ( !*(_DWORD *)a3 )
+              v32 = v31;
+            *(_DWORD *)(v14 + 488) = v32;
           }
           else
           {
@@ -207,15 +215,15 @@ LABEL_74:
           if ( !v19 )
           {
             v26 = (void *)*a3;
-            v39[0] = 0LL;
-            v27 = ObReferenceObjectByHandle(v26, 0x40u, (POBJECT_TYPE)PsThreadType, 1, v39, 0LL);
-            v28 = v39[0];
+            v39 = 0LL;
+            v27 = ObReferenceObjectByHandle(v26, 0x40u, (POBJECT_TYPE)PsThreadType, 1, &v39, 0LL);
+            v28 = v39;
             v10 = v27;
             if ( v27 >= 0 )
             {
-              v29 = W32GetThreadWin32Thread(v39[0]);
-              if ( v29 && (v30 = *(_DWORD **)(v29 + 456)) != 0LL )
-                v10 = xxxSetCsrssThreadDesktop(v30, (PVOID *)a3 + 1);
+              v29 = W32GetThreadWin32Thread((__int64)v39);
+              if ( v29 && (v30 = *(void **)(v29 + 456)) != 0LL )
+                v10 = xxxSetCsrssThreadDesktop(v30);
               else
                 v10 = -1073741816;
               ObfDereferenceObject(v28);
@@ -267,13 +275,13 @@ LABEL_35:
             v10 = -1073741823;
             goto LABEL_15;
           }
-LABEL_57:
+LABEL_67:
           v10 = -1073741821;
           goto LABEL_15;
         }
         if ( grpdeskRitInput )
         {
-          v22 = xxxSetCsrssThreadDesktop(grpdeskRitInput, (PVOID *)a3 + 1);
+          v22 = xxxSetCsrssThreadDesktop(grpdeskRitInput);
           goto LABEL_14;
         }
 LABEL_21:

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiPnpRtlFreeInterfaceDeleteInfo @ 0x14095A418
+ * XREFs of PiPnpRtlFreeInterfaceDeleteInfo @ 0x140734CE0
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140789030 (PiPnpRtlCmActionCallback.c)
- *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x14095A65C (PiPnpRtlGatherInterfaceDeleteInfo.c)
+ *     PiPnpRtlCmActionCallback @ 0x1406AE700 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x140733234 (PiPnpRtlGatherInterfaceDeleteInfo.c)
  * Callees:
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PiPnpRtlFreeInterfaceDeleteInfo(char **P)
+void __fastcall PiPnpRtlFreeInterfaceDeleteInfo(unsigned int **P)
 {
-  char *v2; // rcx
-  char *v3; // rcx
-  char *v4; // rcx
-  char *v5; // rcx
+  unsigned int *v2; // rcx
+  unsigned int *v3; // rcx
+  unsigned int *v4; // rcx
+  unsigned int *v5; // rcx
 
   if ( P )
   {

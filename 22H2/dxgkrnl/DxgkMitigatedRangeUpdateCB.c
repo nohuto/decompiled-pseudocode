@@ -1,11 +1,11 @@
 /*
- * XREFs of DxgkMitigatedRangeUpdateCB @ 0x1C00494C0
+ * XREFs of DxgkMitigatedRangeUpdateCB @ 0x1C00430F0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C000B474 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     DpiMitigatedRangeUpdate @ 0x1C0399454 (DpiMitigatedRangeUpdate.c)
+ *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C0005848 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     DpiMitigatedRangeUpdate @ 0x1C02C7050 (DpiMitigatedRangeUpdate.c)
  */
 
 void __fastcall DxgkMitigatedRangeUpdateCB(void *a1)

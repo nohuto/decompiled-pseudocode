@@ -1,9 +1,9 @@
 /*
- * XREFs of IopInvalidDeviceRequest @ 0x140354410
+ * XREFs of IopInvalidDeviceRequest @ 0x140310770
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
  */
 
 __int64 __fastcall IopInvalidDeviceRequest(__int64 a1, IRP *a2)

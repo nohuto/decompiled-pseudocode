@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetDXGIOutputDWM@CLegacySwapChain@@QEBAJPEAPEAUIDXGIOutputDWM@@@Z @ 0x18028B410
+ * XREFs of ?GetDXGIOutputDWM@CLegacySwapChain@@QEBAJPEAPEAUIDXGIOutputDWM@@@Z @ 0x180249C64
  * Callers:
- *     ?Initialize@CComputeScribbleRenderer@@AEAAJXZ @ 0x1801E4460 (-Initialize@CComputeScribbleRenderer@@AEAAJXZ.c)
+ *     ?Initialize@CComputeScribbleRenderer@@AEAAJXZ @ 0x18019FB30 (-Initialize@CComputeScribbleRenderer@@AEAAJXZ.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLegacySwapChain::GetDXGIOutputDWM(CLegacySwapChain *this, struct IDXGIOutputDWM **a2)
@@ -32,14 +32,14 @@ __int64 __fastcall CLegacySwapChain::GetDXGIOutputDWM(CLegacySwapChain *this, st
     v4 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x561u);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x437u, 0LL);
     }
     else
     {
       v8 = (**v11)(v11, &GUID_6f66a9a0_bece_4ee8_b11b_990eb38ed976, a2);
       v4 = v8;
       if ( v8 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x563u);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x439u, 0LL);
     }
     wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v11);
   }

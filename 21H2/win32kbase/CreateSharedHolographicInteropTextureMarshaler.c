@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedHolographicInteropTextureMarshaler @ 0x1C023AA80
+ * XREFs of CreateSharedHolographicInteropTextureMarshaler @ 0x1C01F94E0
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedHolographicInteropTextureMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C023A6D0 (-Create@CSharedHolographicInteropTextureMarshaler@DirectComposition@@SAJPEBVCSharedSystemResourc.c)
+ *     ?Create@CSharedHolographicInteropTextureMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01F9350 (-Create@CSharedHolographicInteropTextureMarshaler@DirectComposition@@SAJPEBVCSharedSystemResourc.c)
  */
 
 __int64 __fastcall CreateSharedHolographicInteropTextureMarshaler(

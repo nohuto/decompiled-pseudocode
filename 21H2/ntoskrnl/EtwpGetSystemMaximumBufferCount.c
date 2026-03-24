@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetSystemMaximumBufferCount @ 0x1406EFA84
+ * XREFs of EtwpGetSystemMaximumBufferCount @ 0x1406DF408
  * Callers:
- *     EtwpUpdateTrace @ 0x1406ECE0C (EtwpUpdateTrace.c)
- *     EtwpAllocateTraceBufferPool @ 0x1406EF910 (EtwpAllocateTraceBufferPool.c)
+ *     EtwpAllocateTraceBufferPool @ 0x1406DF4A0 (EtwpAllocateTraceBufferPool.c)
+ *     EtwpUpdateTrace @ 0x140796D68 (EtwpUpdateTrace.c)
  * Callees:
- *     MmGetMaximumNonPagedPoolInBytes @ 0x1402624B8 (MmGetMaximumNonPagedPoolInBytes.c)
+ *     MmGetMaximumNonPagedPoolInBytes @ 0x1402D3C7C (MmGetMaximumNonPagedPoolInBytes.c)
  */
 
 unsigned __int64 __fastcall EtwpGetSystemMaximumBufferCount(unsigned int *a1)
@@ -16,7 +16,7 @@ unsigned __int64 __fastcall EtwpGetSystemMaximumBufferCount(unsigned int *a1)
   unsigned int v6; // eax
 
   v1 = a1;
-  if ( a1[75] == 1 )
+  if ( a1[79] == 1 )
   {
     v3 = MmSizeOfPagedPoolInBytes;
   }
@@ -26,7 +26,7 @@ unsigned __int64 __fastcall EtwpGetSystemMaximumBufferCount(unsigned int *a1)
     if ( v3 >= MaximumNonPagedPoolInBytes )
       v3 = MaximumNonPagedPoolInBytes;
   }
-  if ( (v1[204] & 2) != 0 && (v6 = v1[3], (v6 & 0x2000000) != 0) && (v6 & 0x400) != 0 )
+  if ( (v1[208] & 2) != 0 && (v6 = v1[3], (v6 & 0x2000000) != 0) && (v6 & 0x400) != 0 )
     v4 = 50 * v3;
   else
     v4 = v3 * (unsigned int)EtwpMaxNonPagedPoolUsage;

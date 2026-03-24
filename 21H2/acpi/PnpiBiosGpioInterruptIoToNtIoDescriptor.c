@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpiBiosGpioInterruptIoToNtIoDescriptor @ 0x1C00B3428
+ * XREFs of PnpiBiosGpioInterruptIoToNtIoDescriptor @ 0x1C00B4020
  * Callers:
- *     PnpiBiosInterruptCombineToIoDescriptor @ 0x1C005F36C (PnpiBiosInterruptCombineToIoDescriptor.c)
- *     PnpBiosResourcesToNtResources @ 0x1C009832C (PnpBiosResourcesToNtResources.c)
+ *     PnpiBiosInterruptCombineToIoDescriptor @ 0x1C005E6AC (PnpiBiosInterruptCombineToIoDescriptor.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  * Callees:
- *     PnpiUpdateResourceList @ 0x1C0098B40 (PnpiUpdateResourceList.c)
- *     AcpiExternalTranslateBiosToNtResources @ 0x1C00ADE20 (AcpiExternalTranslateBiosToNtResources.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
+ *     AcpiExternalTranslateBiosToNtResources @ 0x1C00AF1D0 (AcpiExternalTranslateBiosToNtResources.c)
  */
 
 __int64 __fastcall PnpiBiosGpioInterruptIoToNtIoDescriptor(
@@ -20,7 +20,7 @@ __int64 __fastcall PnpiBiosGpioInterruptIoToNtIoDescriptor(
   _OWORD *v9; // [rsp+58h] [rbp+20h] BYREF
 
   v9 = 0LL;
-  result = PnpiUpdateResourceList(a4 + 8LL * a5, &v9);
+  result = PnpiUpdateResourceList((const void **)(a4 + 8LL * a5), &v9);
   if ( (int)result >= 0 )
     return AcpiExternalTranslateBiosToNtResources(a1, a2, (unsigned int)*(unsigned __int16 *)(a2 + 1) + 3, a6, v9);
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?chpfeIncrPFF@PFTOBJ@@QEAAKPEAVPFF@@PEAHKPEAU_EUDCLOAD@@@Z @ 0x1C0011E94
+ * XREFs of ?chpfeIncrPFF@PFTOBJ@@QEAAKPEAVPFF@@PEAHKPEAU_EUDCLOAD@@@Z @ 0x1C00A20D8
  * Callers:
- *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C00134A0 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C00BAFC4 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
  * Callees:
- *     ?vGetEUDC@PFFOBJ@@QEAAXPEAU_EUDCLOAD@@@Z @ 0x1C0011790 (-vGetEUDC@PFFOBJ@@QEAAXPEAU_EUDCLOAD@@@Z.c)
- *     ?bAddPvtData@PFFOBJ@@QEAAHK@Z @ 0x1C02B9C28 (-bAddPvtData@PFFOBJ@@QEAAHK@Z.c)
+ *     ?vGetEUDC@PFFOBJ@@QEAAXPEAU_EUDCLOAD@@@Z @ 0x1C00A2C20 (-vGetEUDC@PFFOBJ@@QEAAXPEAU_EUDCLOAD@@@Z.c)
+ *     ?bAddPvtData@PFFOBJ@@QEAAHK@Z @ 0x1C02BB8CC (-bAddPvtData@PFFOBJ@@QEAAHK@Z.c)
  */
 
 __int64 __fastcall PFTOBJ::chpfeIncrPFF(
@@ -18,15 +18,18 @@ __int64 __fastcall PFTOBJ::chpfeIncrPFF(
   struct PFF *v8; // rdi
   int v10; // eax
   unsigned int v11; // esi
-  _DWORD *v12; // rcx
-  int v13; // eax
-  unsigned int v14; // eax
-  unsigned int v16; // ecx
-  __int64 v17; // rax
-  _QWORD v18[5]; // [rsp+20h] [rbp-28h] BYREF
+  int v12; // eax
+  _DWORD *v13; // rcx
+  int v14; // eax
+  unsigned int v15; // eax
+  int v17; // eax
+  bool v18; // zf
+  unsigned int v19; // ecx
+  __int64 v20; // rax
+  _QWORD v21[5]; // [rsp+20h] [rbp-28h] BYREF
 
   v5 = 0;
-  v18[0] = a2;
+  v21[0] = a2;
   v8 = a2;
   if ( !a2 )
     return v5;
@@ -36,57 +39,55 @@ __int64 __fastcall PFTOBJ::chpfeIncrPFF(
     if ( v10 )
       return v5;
 LABEL_4:
-    if ( *this == gpPFTPrivate )
-    {
-      if ( !(unsigned int)PFFOBJ::bAddPvtData((PFFOBJ *)v18, a4) )
-      {
-        *a3 = 0;
-        return (unsigned int)-1;
-      }
-      v8 = (struct PFF *)v18[0];
-    }
     v11 = 1;
-    *a3 = 1;
+    if ( *this != gpPFTPrivate
+      || (v17 = PFFOBJ::bAddPvtData((PFFOBJ *)v21, a4), v8 = (struct PFF *)v21[0], v18 = v17 == 0, v12 = 0, !v18) )
+    {
+      v12 = 1;
+    }
+    *a3 = v12;
+    if ( !v12 )
+      return (unsigned int)-1;
     if ( a5 )
     {
       if ( !*((_QWORD *)a5 + 1) && *((_DWORD *)v8 + 52) > 2u )
-        goto LABEL_21;
-      PFFOBJ::vGetEUDC((PFFOBJ *)v18, (const wchar_t **)a5);
+        goto LABEL_23;
+      PFFOBJ::vGetEUDC((PFFOBJ *)v21, a5);
     }
     if ( *this == gpPFTPrivate )
       return *((unsigned int *)v8 + 52);
-    v12 = (_DWORD *)((char *)v8 + 60);
+    v13 = (_DWORD *)((char *)v8 + 60);
     if ( (a4 & 0x20) == 0 )
-      v12 = (_DWORD *)((char *)v8 + 56);
-    if ( *v12 != -1 )
+      v13 = (_DWORD *)((char *)v8 + 56);
+    if ( *v13 != -1 )
     {
       if ( (a4 & 0x40) == 0 )
       {
-        v13 = *((_DWORD *)v8 + 13);
-        if ( (v13 & 0x80u) != 0 )
+        v14 = *((_DWORD *)v8 + 13);
+        if ( (v14 & 0x80u) != 0 )
         {
-          v14 = v13 & 0xFFFFFF7F;
-          *((_DWORD *)v8 + 13) = v14;
+          v15 = v14 & 0xFFFFFF7F;
+          *((_DWORD *)v8 + 13) = v15;
         }
         else
         {
-          ++*v12;
-          v14 = *((_DWORD *)v8 + 13);
+          ++*v13;
+          v15 = *((_DWORD *)v8 + 13);
         }
-        if ( (v14 & 1) != 0 )
+        if ( (v15 & 1) != 0 )
         {
-          v16 = 0;
-          for ( *((_DWORD *)v8 + 13) = v14 & 0xFFFFFFFE; v16 < *((_DWORD *)v8 + 52); ++v16 )
+          v19 = 0;
+          for ( *((_DWORD *)v8 + 13) = v15 & 0xFFFFFFFE; v19 < *((_DWORD *)v8 + 52); ++v19 )
           {
-            v17 = *((_QWORD *)v8 + v16 + 27);
-            if ( v17 )
-              *(_DWORD *)(v17 + 12) &= ~2u;
+            v20 = *((_QWORD *)v8 + v19 + 27);
+            if ( v20 )
+              *(_DWORD *)(v20 + 12) &= ~2u;
           }
         }
       }
       return *((unsigned int *)v8 + 52);
     }
-LABEL_21:
+LABEL_23:
     *a3 = 0;
     return v11;
   }

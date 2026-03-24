@@ -1,8 +1,8 @@
 /*
- * XREFs of SleepstudyHelperGetBlockerGuid @ 0x1406E7220
+ * XREFs of SleepstudyHelperGetBlockerGuid @ 0x1406C1B40
  * Callers:
- *     SleepstudyHelper_GenerateGuid @ 0x1403DBB20 (SleepstudyHelper_GenerateGuid.c)
- *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1409A14A0 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ *     SleepstudyHelper_GenerateGuid @ 0x140580910 (SleepstudyHelper_GenerateGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1408FB5F0 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall SleepstudyHelperGetBlockerGuid(__int64 a1, _OWORD *a2)
     if ( a2 )
     {
       result = 0LL;
-      *a2 = *(_OWORD *)(*(_QWORD *)(a1 + 296) + 64LL);
+      *a2 = *(_OWORD *)(*(_QWORD *)(a1 + 288) + 64LL);
     }
   }
   return result;

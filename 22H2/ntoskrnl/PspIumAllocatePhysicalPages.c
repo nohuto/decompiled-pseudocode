@@ -1,49 +1,49 @@
 /*
- * XREFs of PspIumAllocatePhysicalPages @ 0x1405A5B90
+ * XREFs of PspIumAllocatePhysicalPages @ 0x140583794
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     MmAllocateSecureKernelPages @ 0x14065781C (MmAllocateSecureKernelPages.c)
- *     MmFreeSecureKernelPages @ 0x140657F1C (MmFreeSecureKernelPages.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     MmAllocateSecureKernelPages @ 0x140553314 (MmAllocateSecureKernelPages.c)
+ *     MmFreeSecureKernelPages @ 0x140553644 (MmFreeSecureKernelPages.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PspIumAllocatePhysicalPages(int a1, ULONG_PTR a2, __int64 a3, _QWORD *a4, __int64 a5)
+__int64 __fastcall PspIumAllocatePhysicalPages(int a1, ULONG_PTR **a2, unsigned int a3, ULONG_PTR *a4, _DWORD *a5)
 {
-  __int64 SecureKernelPages; // rax
+  ULONG_PTR *SecureKernelPages; // rax
   unsigned int v8; // ebx
-  void *v9; // rdi
-  __int64 v11; // rax
+  struct _MDL *v9; // rdi
+  ULONG_PTR v11; // rax
   unsigned int v12; // r14d
   unsigned int v13; // r14d
   _DWORD *v14; // rax
   _DWORD *v15; // rsi
   struct _MDL MemoryDescriptorList; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v17; // [rsp+60h] [rbp-10h]
+  ULONG_PTR v17; // [rsp+60h] [rbp-10h]
 
   v17 = 0LL;
   memset(&MemoryDescriptorList, 0, sizeof(MemoryDescriptorList));
-  SecureKernelPages = MmAllocateSecureKernelPages(a2, a5);
+  SecureKernelPages = MmAllocateSecureKernelPages(a2, (unsigned int)(a1 + 1), a3, 0, a5);
   v8 = 0;
-  v9 = (void *)SecureKernelPages;
+  v9 = (struct _MDL *)SecureKernelPages;
   if ( !SecureKernelPages )
     return 3221225495LL;
   if ( a1 )
   {
-    v12 = *(_DWORD *)(SecureKernelPages + 40);
+    v12 = *((_DWORD *)SecureKernelPages + 10);
     *(_DWORD *)&MemoryDescriptorList.Size = 131128;
     MemoryDescriptorList.StartVa = 0LL;
     *(_QWORD *)&MemoryDescriptorList.ByteCount = 4096LL;
     v13 = v12 >> 12;
-    v17 = *(_QWORD *)(SecureKernelPages + 8LL * (v13 - 1) + 48);
+    v17 = SecureKernelPages[v13 + 5];
     v14 = MmMapLockedPagesSpecifyCache(&MemoryDescriptorList, 0, MmCached, 0LL, 0, 0x40000010u);
     v15 = v14;
     if ( !v14 )
     {
-      MmFreeSecureKernelPages(v9, 0LL);
+      MmFreeSecureKernelPages(v9, 0);
       v8 = -1073741670;
       goto LABEL_9;
     }
@@ -54,7 +54,7 @@ __int64 __fastcall PspIumAllocatePhysicalPages(int a1, ULONG_PTR a2, __int64 a3,
   }
   else
   {
-    v11 = *(_QWORD *)(SecureKernelPages + 48);
+    v11 = SecureKernelPages[6];
   }
   *a4 = v11;
 LABEL_9:

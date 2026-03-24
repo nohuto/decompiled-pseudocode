@@ -9,10 +9,10 @@
  *     KiIntSteerDistributeInterrupts @ 0x1400631A0 (KiIntSteerDistributeInterrupts.c)
  *     KiIntSteerCalculateDistribution @ 0x1400632F0 (KiIntSteerCalculateDistribution.c)
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     KiIntSteerLogState @ 0x14016E20C (KiIntSteerLogState.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     KiIntSteerLogState @ 0x14016E22C (KiIntSteerLogState.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeIntSteerPeriodic(int *a1, unsigned int a2)

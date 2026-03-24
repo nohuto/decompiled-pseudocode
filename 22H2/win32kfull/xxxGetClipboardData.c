@@ -1,49 +1,39 @@
 /*
- * XREFs of xxxGetClipboardData @ 0x1C01FDE64
+ * XREFs of xxxGetClipboardData @ 0x1C002D328
  * Callers:
- *     NtUserGetClipboardData @ 0x1C01D0350 (NtUserGetClipboardData.c)
- *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FCE8C (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD018 (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD1B0 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD360 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD43C (-xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z.c)
+ *     NtUserGetClipboardData @ 0x1C002CAD0 (NtUserGetClipboardData.c)
+ *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C015C61C (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EA7C (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EC24 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EDD4 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z @ 0x1C021EEB0 (-xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z.c)
  * Callees:
- *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C00131A8 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FCE8C (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD018 (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD1B0 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD360 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD43C (-xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z.c)
- *     ?xxxGetRenderData@@YAPEAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C01FD548 (-xxxGetRenderData@@YAPEAXPEAUtagWINDOWSTATION@@I@Z.c)
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C002F970 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C015C61C (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EA7C (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EC24 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EDD4 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z @ 0x1C021EEB0 (-xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetRenderData@@YAPEAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C021EFBC (-xxxGetRenderData@@YAPEAXPEAUtagWINDOWSTATION@@I@Z.c)
  */
 
-void *__fastcall xxxGetClipboardData(struct tagWINDOWSTATION *a1, unsigned int a2, struct tagGETCLIPBDATA *a3)
+void *__fastcall xxxGetClipboardData(struct tagWINDOWSTATION *a1, unsigned int a2, __int64 a3)
 {
   unsigned int v4; // edi
-  int v6; // ecx
   struct tagCLIP *ClipFormat; // rax
-  struct tagCLIP *v9; // rcx
-  void *v10; // rbx
+  void *v7; // rbx
   void *RenderData; // rax
-  int v12; // eax
-  struct tagCLIP *v13; // rax
 
   v4 = a2;
   if ( *((_QWORD *)a1 + 10) != gptiCurrent )
   {
-    v6 = 1418;
-LABEL_3:
-    UserSetLastError(v6);
+    UserSetLastError(1418LL);
     return 0LL;
   }
-  ClipFormat = FindClipFormat(a1, a2, 1);
-  v9 = ClipFormat;
+  ClipFormat = FindClipFormat(a1, a2, 1u);
   if ( !ClipFormat )
-  {
-    v6 = 1168;
-    goto LABEL_3;
-  }
+    return 0LL;
   if ( (unsigned __int64)(*((_QWORD *)ClipFormat + 1) - 3LL) <= 1 )
   {
     if ( v4 == 14 )
@@ -54,58 +44,50 @@ LABEL_3:
     {
       v4 = 14;
     }
-    v9 = FindClipFormat(a1, v4, 1);
-    if ( !v9 )
+    ClipFormat = FindClipFormat(a1, v4, 1u);
+    if ( !ClipFormat )
       return 0LL;
   }
-  v10 = (void *)*((_QWORD *)v9 + 1);
-  if ( !v10 || v10 == (void *)3 )
+  v7 = (void *)*((_QWORD *)ClipFormat + 1);
+  if ( !v7 || v7 == (void *)3 )
   {
     RenderData = xxxGetRenderData(a1, v4);
-    goto LABEL_29;
+    goto LABEL_16;
   }
-  if ( v10 == (void *)2 )
+  if ( v7 == (void *)2 )
   {
     switch ( v4 )
     {
       case 2u:
-        RenderData = xxxGetDummyBitmap(a1, a3);
+        RenderData = xxxGetDummyBitmap(a1, (struct tagGETCLIPBDATA *)a3);
         break;
       case 8u:
-        RenderData = xxxGetDummyDib(a1, a3);
+        RenderData = xxxGetDummyDib(a1, (struct tagGETCLIPBDATA *)a3);
         break;
       case 9u:
-        RenderData = (void *)xxxGetDummyPalette(a1, a3);
+        RenderData = xxxGetDummyPalette(a1, (struct tagGETCLIPBDATA *)a3);
         break;
       case 0x11u:
-        RenderData = xxxGetDummyDibV5(a1, a3);
+        RenderData = xxxGetDummyDibV5(a1, (struct tagGETCLIPBDATA *)a3);
         break;
       default:
-        goto LABEL_30;
+LABEL_17:
+        ClipFormat = FindClipFormat(a1, v4, 1u);
+        if ( ClipFormat )
+          goto LABEL_8;
+        return 0LL;
     }
-LABEL_29:
-    v10 = RenderData;
-LABEL_30:
-    v13 = FindClipFormat(a1, v4, 1);
-    if ( !v13 )
-      return 0LL;
-    if ( a3 )
-    {
-      v12 = *((_DWORD *)v13 + 4);
-      goto LABEL_33;
-    }
-    return v10;
+LABEL_16:
+    v7 = RenderData;
+    goto LABEL_17;
   }
-  if ( v10 == (void *)1 )
+  if ( v7 == (void *)1 )
   {
-    RenderData = (void *)xxxGetDummyText(a1, v4, a3);
-    goto LABEL_29;
+    RenderData = xxxGetDummyText(a1, v4, (struct tagGETCLIPBDATA *)a3);
+    goto LABEL_16;
   }
+LABEL_8:
   if ( a3 )
-  {
-    v12 = *((_DWORD *)v9 + 4);
-LABEL_33:
-    *((_DWORD *)a3 + 1) = v12;
-  }
-  return v10;
+    *(_DWORD *)(a3 + 4) = *((_DWORD *)ClipFormat + 4);
+  return v7;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPageRead @ 0x1400DE6EC
+ * XREFs of MiPageRead @ 0x1400DE70C
  * Callers:
  *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
- *     MiPfExecuteReadList @ 0x1406627BC (MiPfExecuteReadList.c)
+ *     MiPfExecuteReadList @ 0x14066279C (MiPfExecuteReadList.c)
  * Callees:
- *     IoPageReadEx @ 0x1400DE720 (IoPageReadEx.c)
+ *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
  */
 
 __int64 __fastcall MiPageRead(int a1, int a2, int a3, int a4, __int64 a5, int a6, __int64 a7)

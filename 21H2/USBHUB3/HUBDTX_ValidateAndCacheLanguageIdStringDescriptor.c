@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBDTX_ValidateAndCacheLanguageIdStringDescriptor @ 0x1C0029AE4
+ * XREFs of HUBDTX_ValidateAndCacheLanguageIdStringDescriptor @ 0x1C0029610
  * Callers:
- *     HUBDSM_ValidatingLanguageIdStringDescriptor @ 0x1C001F200 (HUBDSM_ValidatingLanguageIdStringDescriptor.c)
+ *     HUBDSM_ValidatingLanguageIdStringDescriptor @ 0x1C001ECC0 (HUBDSM_ValidatingLanguageIdStringDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBDESC_InternalValidateStringDescriptor @ 0x1C00399FC (HUBDESC_InternalValidateStringDescriptor.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0043840 (memmove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDESC_InternalValidateStringDescriptor @ 0x1C003917C (HUBDESC_InternalValidateStringDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall HUBDTX_ValidateAndCacheLanguageIdStringDescriptor(__int64 a1)
@@ -21,8 +21,8 @@ __int64 __fastcall HUBDTX_ValidateAndCacheLanguageIdStringDescriptor(__int64 a1)
   bool v8; // zf
   int v9; // r9d
   __int64 v10; // rcx
-  size_t v11; // rbx
-  void *Pool2; // rax
+  SIZE_T v11; // rbx
+  PVOID PoolWithTag; // rax
   _WORD v14[2]; // [rsp+30h] [rbp-40h] BYREF
   int v15; // [rsp+34h] [rbp-3Ch]
   __int64 v16; // [rsp+38h] [rbp-38h]
@@ -40,7 +40,7 @@ __int64 __fastcall HUBDTX_ValidateAndCacheLanguageIdStringDescriptor(__int64 a1)
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   v6 = *(_QWORD *)(a1 + 8);
   v21 = a1;
   v16 = 0LL;
@@ -68,11 +68,11 @@ __int64 __fastcall HUBDTX_ValidateAndCacheLanguageIdStringDescriptor(__int64 a1)
                           (__int64)v14) )
   {
     v11 = *v2;
-    Pool2 = (void *)ExAllocatePool2(64LL, v11, 1681082453LL);
-    *(_QWORD *)(a1 + 2024) = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v11, 0x64334855u);
+    *(_QWORD *)(a1 + 2024) = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memmove(Pool2, v2, v11);
+      memmove(PoolWithTag, v2, v11);
       return v4;
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -80,8 +80,8 @@ __int64 __fastcall HUBDTX_ValidateAndCacheLanguageIdStringDescriptor(__int64 a1)
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
         2u,
         5u,
-        0x52u,
-        (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids);
+        0x51u,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids);
   }
   else
   {

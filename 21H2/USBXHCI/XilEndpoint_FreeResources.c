@@ -1,8 +1,8 @@
 /*
- * XREFs of XilEndpoint_FreeResources @ 0x1C000192C
+ * XREFs of XilEndpoint_FreeResources @ 0x1C00375A8
  * Callers:
- *     Endpoint_EvtEndpointCleanupCallback @ 0x1C0001A30 (Endpoint_EvtEndpointCleanupCallback.c)
- *     XilEndpoint_Create @ 0x1C0001DEC (XilEndpoint_Create.c)
+ *     XilEndpoint_Create @ 0x1C00095C8 (XilEndpoint_Create.c)
+ *     Endpoint_EvtEndpointCleanupCallback @ 0x1C0038520 (Endpoint_EvtEndpointCleanupCallback.c)
  * Callees:
  *     <none>
  */

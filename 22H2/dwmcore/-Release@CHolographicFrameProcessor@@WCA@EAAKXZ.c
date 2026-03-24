@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@CHolographicFrameProcessor@@WCA@EAAKXZ @ 0x1801219C0
+ * XREFs of ?Release@CHolographicFrameProcessor@@WCA@EAAKXZ @ 0x1800F7E10
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpEfiBugCheckAddPagesCallback @ 0x14050D390
+ * XREFs of HalpEfiBugCheckAddPagesCallback @ 0x1404C3F40
  * Callers:
  *     <none>
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14037FEF0 (HalQueryMaximumProcessorCount.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AD70 (HalQueryMaximumProcessorCount.c)
  */
 
 void __fastcall HalpEfiBugCheckAddPagesCallback(
-        KBUGCHECK_CALLBACK_REASON Reason,
+        __int64 Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,
-        unsigned int **ReasonSpecificData,
+        _QWORD *ReasonSpecificData,
         ULONG ReasonSpecificDataLength)
 {
   unsigned int *v5; // rsi
@@ -26,16 +26,17 @@ void __fastcall HalpEfiBugCheckAddPagesCallback(
   *((_DWORD *)ReasonSpecificData + 2) = 0;
   if ( HalFirmwareTypeEfi && HalpInterruptProcessorPcr )
   {
+    v5 = (unsigned int *)*ReasonSpecificData;
     if ( !*ReasonSpecificData )
     {
-      *ReasonSpecificData = (unsigned int *)&HalpEfiBugcheckCallbackNextRuntimeServiceIndex;
+      *ReasonSpecificData = &HalpEfiBugcheckCallbackNextRuntimeServiceIndex;
       HalpEfiBugcheckCallbackNextRuntimeServiceIndex = 0;
+      v5 = (unsigned int *)*ReasonSpecificData;
     }
-    v5 = *ReasonSpecificData;
-    for ( i = **ReasonSpecificData; i < 9; ++i )
+    for ( i = *v5; i < 9; ++i )
     {
       ++*v5;
-      MaximumProcessorCount = HalQueryMaximumProcessorCount();
+      MaximumProcessorCount = HalQueryMaximumProcessorCount(Reason);
       v8 = 0;
       v9 = MaximumProcessorCount;
       if ( MaximumProcessorCount )
@@ -43,6 +44,7 @@ void __fastcall HalpEfiBugCheckAddPagesCallback(
         v10 = 0LL;
         while ( 1 )
         {
+          Reason = HalpInterruptProcessorPcr;
           v11 = *(_QWORD *)(v10 + HalpInterruptProcessorPcr);
           if ( v11 )
           {
@@ -63,8 +65,8 @@ void __fastcall HalpEfiBugCheckAddPagesCallback(
             goto LABEL_13;
         }
         *((_DWORD *)ReasonSpecificData + 2) = -2147483647;
-        ReasonSpecificData[2] = (unsigned int *)HalEfiRuntimeServicesBlock[i];
-        ReasonSpecificData[3] = (unsigned int *)1;
+        ReasonSpecificData[2] = HalEfiRuntimeServicesBlock[i];
+        ReasonSpecificData[3] = 1LL;
         return;
       }
 LABEL_13:

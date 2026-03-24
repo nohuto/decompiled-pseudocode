@@ -1,12 +1,12 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryRemoveAll @ 0x140207478
+ * XREFs of PspJobIoRateVolumeEntryRemoveAll @ 0x140287874
  * Callers:
- *     PspJobIoRateControlDisable @ 0x140678A28 (PspJobIoRateControlDisable.c)
+ *     PspJobIoRateControlDisable @ 0x14067F400 (PspJobIoRateControlDisable.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PspIoRateEntryVolumeDelete @ 0x1405E0DEC (PspIoRateEntryVolumeDelete.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PspIoRateEntryVolumeDelete @ 0x1405820C0 (PspIoRateEntryVolumeDelete.c)
  */
 
 __int64 __fastcall PspJobIoRateVolumeEntryRemoveAll(__int64 a1, __int64 a2)
@@ -27,9 +27,9 @@ __int64 __fastcall PspJobIoRateVolumeEntryRemoveAll(__int64 a1, __int64 a2)
   _DWORD *SchedulerAssist; // r9
   bool v17; // zf
 
-  v2 = (volatile LONG *)(a1 + 1648);
-  v4 = a1 + 1656;
-  v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1648));
+  v2 = (volatile LONG *)(a1 + 1456);
+  v4 = a1 + 1464;
+  v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1456));
   v6 = *(_QWORD *)v4;
   v7 = v5;
   if ( (*(_BYTE *)(v4 + 8) & 1) != 0 && v6 )

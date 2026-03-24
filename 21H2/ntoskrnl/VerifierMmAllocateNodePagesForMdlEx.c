@@ -1,14 +1,15 @@
 /*
- * XREFs of VerifierMmAllocateNodePagesForMdlEx @ 0x140A9F7F0
+ * XREFs of VerifierMmAllocateNodePagesForMdlEx @ 0x1409E6270
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViTargetAddToCounter @ 0x140A8B064 (ViTargetAddToCounter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsInjectResourceFailure @ 0x140A96B0C (VfFaultsInjectResourceFailure.c)
- *     VfFillAllocatePagesForMdl @ 0x140AA0838 (VfFillAllocatePagesForMdl.c)
- *     ViMmValidateIrql @ 0x140AA09D0 (ViMmValidateIrql.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x1409D72B0 (ViTargetAddToCounter.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC82C (VfFaultsInjectResourceFailure.c)
+ *     VfAllocPoolNotification @ 0x1409DFFB4 (VfAllocPoolNotification.c)
+ *     VfFillAllocatePagesForMdl @ 0x1409E74E8 (VfFillAllocatePagesForMdl.c)
+ *     ViMmValidateIrql @ 0x1409E7680 (ViMmValidateIrql.c)
  */
 
 struct _MDL *__fastcall VerifierMmAllocateNodePagesForMdlEx(
@@ -42,7 +43,8 @@ struct _MDL *__fastcall VerifierMmAllocateNodePagesForMdlEx(
   {
     VfFillAllocatePagesForMdl(v12);
     if ( (MmVerifierData & 0x1000) != 0 )
-      ViTargetAddToCounter(retaddr, 232LL, 0xF0u, v13->ByteCount);
+      ViTargetAddToCounter(retaddr, 224LL, 0xE8u, v13->ByteCount);
   }
+  VfAllocPoolNotification();
   return v13;
 }

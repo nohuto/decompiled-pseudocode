@@ -1,78 +1,54 @@
 /*
- * XREFs of ??1CDesktopTree@@UEAA@XZ @ 0x18020FBC4
+ * XREFs of ??1CDesktopTree@@UEAA@XZ @ 0x1801B1D04
  * Callers:
- *     ??_GCDesktopTree@@UEAAPEAXI@Z @ 0x1801C2E70 (--_GCDesktopTree@@UEAAPEAXI@Z.c)
+ *     ??_GCDesktopTree@@UEAAPEAXI@Z @ 0x18016CCE0 (--_GCDesktopTree@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1CComposeTop@@QEAA@XZ @ 0x18001FFB0 (--1CComposeTop@@QEAA@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?clear@?$vector_facade@VCVIRenderList@@V?$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x1800C2800 (-clear@-$vector_facade@VCVIRenderList@@V-$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_expansion.c)
- *     ?clear@?$vector_facade@PEAVCVisual@@V?$buffer_impl@PEAVCVisual@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x1800C6F90 (-clear@-$vector_facade@PEAVCVisual@@V-$buffer_impl@PEAVCVisual@@$0BA@$00Vliberal_expansion_polic.c)
- *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800E27B0 (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
- *     ?SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z @ 0x180103F34 (-SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??R?$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z @ 0x180007454 (--R-$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180056574 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?clear@?$vector_facade@PEAVCOverlayContext@@V?$buffer_impl@PEAVCOverlayContext@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x1800C620C (-clear@-$vector_facade@PEAVCOverlayContext@@V-$buffer_impl@PEAVCOverlayContext@@$03$00Vliberal_e.c)
+ *     ?clear@?$vector_facade@VCVIRenderList@@V?$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x1800CDFC8 (-clear@-$vector_facade@VCVIRenderList@@V-$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_expansion.c)
+ *     ?SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z @ 0x1800DFA54 (-SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z.c)
  */
 
-void __fastcall CDesktopTree::~CDesktopTree(CDesktopTree *this)
+void __fastcall CDesktopTree::~CDesktopTree(CComposition ***this)
 {
-  __int64 *v2; // rsi
-  _DWORD *v3; // r10
-  __int64 v4; // rcx
-  unsigned int Slot; // eax
-  __int64 v6; // r10
-  __int64 v7; // rcx
-  void **v8; // rcx
-  void *v9; // r8
-  bool v10; // zf
-  CDesktopTree *v11; // rcx
-  void **v12; // rcx
-  void *v13; // r8
-  void *v14; // rbx
+  CDesktopTree *v2; // rcx
+  void **v3; // rcx
+  void *v4; // r8
+  bool v5; // zf
+  __int64 v6; // rcx
+  CComposition **v7; // rbx
+  CComposition *v8; // rdx
+  CComposition *v9; // rdx
 
-  *(_QWORD *)this = &CDesktopTree::`vftable';
-  CDesktopTree::SetRootVisual((CComposition ***)this, 0LL);
-  v2 = (__int64 *)((char *)this + 4720);
-  v3 = *(_DWORD **)(*((_QWORD *)this + 590) + 232LL);
-  if ( (*v3 & 0x4000000) != 0 )
-  {
-    v4 = *(_QWORD *)(*((_QWORD *)this + 590) + 232LL);
-    *v3 &= ~0x4000000u;
-    Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v4, 6);
-    if ( Slot < *(_DWORD *)(v6 + 4) )
-      *(_BYTE *)(Slot + v6 + 8) = 0;
-  }
-  v7 = *v2;
-  *v2 = 0LL;
+  *this = (CComposition **)&CDesktopTree::`vftable';
+  CDesktopTree::SetRootVisual(this, 0LL);
+  detail::vector_facade<CVIRenderList,detail::buffer_impl<CVIRenderList,16,1,detail::liberal_expansion_policy>>::clear(this + 747);
+  v2 = (CDesktopTree *)this[747];
+  this[747] = 0LL;
+  if ( v2 == (CDesktopTree *)(this + 750) )
+    v2 = 0LL;
+  operator delete(v2);
+  detail::vector_facade<COverlayContext *,detail::buffer_impl<COverlayContext *,4,1,detail::liberal_expansion_policy>>::clear(this + 740);
+  v4 = *v3;
+  v5 = *v3 == v3 + 3;
+  *v3 = 0LL;
+  if ( v5 )
+    v4 = 0LL;
+  operator delete(v4);
+  v7 = this[739];
   if ( v7 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
-  *((_QWORD *)this + 8) = 0LL;
-  detail::vector_facade<CVisual *,detail::buffer_impl<CVisual *,16,1,detail::liberal_expansion_policy>>::clear((_QWORD *)this + 685);
-  v9 = *v8;
-  v10 = *v8 == v8 + 3;
-  *v8 = 0LL;
-  if ( v10 )
-    v9 = 0LL;
-  operator delete(v9);
-  detail::vector_facade<CVIRenderList,detail::buffer_impl<CVIRenderList,16,1,detail::liberal_expansion_policy>>::clear((_QWORD *)this + 602);
-  v11 = (CDesktopTree *)*((_QWORD *)this + 602);
-  *((_QWORD *)this + 602) = 0LL;
-  if ( v11 == (CDesktopTree *)((char *)this + 4840) )
-    v11 = 0LL;
-  operator delete(v11);
-  detail::vector_facade<CVisual *,detail::buffer_impl<CVisual *,16,1,detail::liberal_expansion_policy>>::clear((_QWORD *)this + 594);
-  v13 = *v12;
-  v10 = *v12 == v12 + 3;
-  *v12 = 0LL;
-  if ( v10 )
-    v13 = 0LL;
-  operator delete(v13);
-  v14 = (void *)*((_QWORD *)this + 593);
-  if ( v14 )
   {
-    CComposeTop::~CComposeTop(*((CComposeTop **)this + 593));
-    operator delete(v14);
+    v8 = v7[20];
+    if ( v8 )
+      std::default_delete<CShape>::operator()(v6, (__int64 (__fastcall ***)(_QWORD, __int64))v8);
+    v9 = v7[2];
+    if ( v9 )
+      std::default_delete<CShape>::operator()(v6, (__int64 (__fastcall ***)(_QWORD, __int64))v9);
+    wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)(v7 + 1));
+    operator delete(v7);
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 590);
-  CVisualTree::~CVisualTree(this);
+  CVisualTree::~CVisualTree((CVisualTree *)this);
 }

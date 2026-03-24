@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CitpContextCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00A2D54
+ * XREFs of ?CitpContextCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008BEEC
  * Callers:
- *     ?CitpCleanupGlobalImpactContext@@YAXPEAPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00A2D08 (-CitpCleanupGlobalImpactContext@@YAXPEAPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
- *     ?CitpStart@@YAJXZ @ 0x1C00A3AFC (-CitpStart@@YAJXZ.c)
+ *     ?CitpStart@@YAJXZ @ 0x1C008BB2C (-CitpStart@@YAJXZ.c)
+ *     ?CitpCleanupGlobalImpactContext@@YAXPEAPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008BEA8 (-CitpCleanupGlobalImpactContext@@YAXPEAPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
  * Callees:
- *     ?CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z @ 0x1C004BAB4 (-CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?CitpContextTrackingDataCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00A2EAC (-CitpContextTrackingDataCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
- *     ?CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z @ 0x1C00A3364 (-CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?CitpContextTrackingDataCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008C03C (-CitpContextTrackingDataCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z @ 0x1C008C210 (-CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z.c)
+ *     ?CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z @ 0x1C008E2EC (-CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z.c)
  */
 
 void __fastcall CitpContextCleanup(struct _CIT_IMPACT_CONTEXT *a1)
@@ -20,7 +20,7 @@ void __fastcall CitpContextCleanup(struct _CIT_IMPACT_CONTEXT *a1)
   unsigned __int64 v7; // r10
   __int64 v8; // rcx
   __int64 v9; // rax
-  char *v10; // rdx
+  __int64 v10; // rcx
   void *v11; // rcx
   int v12; // r8d
   int v13; // r8d
@@ -108,12 +108,10 @@ LABEL_24:
 LABEL_10:
   CitpUpdateActiveBootId(v2, 0, 0LL, 0LL, v18);
   CitpContextTrackingDataCleanup(a1);
-  v10 = (char *)*((_QWORD *)a1 + 12);
+  v10 = *((_QWORD *)a1 + 12);
   if ( v10 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      v10);
+    Win32FreePool(v10);
     *((_QWORD *)a1 + 12) = 0LL;
   }
   v11 = (void *)*((_QWORD *)a1 + 73);

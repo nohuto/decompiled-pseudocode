@@ -1,14 +1,14 @@
 /*
- * XREFs of VfIrpLogDeleteDeviceLogs @ 0x140ADD750
+ * XREFs of VfIrpLogDeleteDeviceLogs @ 0x1409E3700
  * Callers:
- *     VfIoDeleteDevice @ 0x140AD3214 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x1409D6154 (VfIoDeleteDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ViIrpLogDatabaseFindPointer @ 0x140ADDF58 (ViIrpLogDatabaseFindPointer.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ViIrpLogDatabaseFindPointer @ 0x1409E3F08 (ViIrpLogDatabaseFindPointer.c)
  */
 
 __int64 __fastcall VfIrpLogDeleteDeviceLogs(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall VfIrpLogDeleteDeviceLogs(__int64 a1)
     }
     else
     {
-      ObfDereferenceObject(*(PVOID *)Pointer);
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)Pointer);
       v5 = v4[1];
       v6 = (_QWORD *)v4[2];
       if ( *(_QWORD **)(v5 + 8) != v4 + 1 || (_QWORD *)*v6 != v4 + 1 )
@@ -46,22 +46,23 @@ __int64 __fastcall VfIrpLogDeleteDeviceLogs(__int64 a1)
       ExFreePoolWithTag(v4, 0);
     }
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&ViIrpLogDatabaseLock);
+  KxReleaseSpinLock(&ViIrpLogDatabaseLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v2 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v10 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v2 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v10 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);

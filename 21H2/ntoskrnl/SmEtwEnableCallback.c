@@ -1,29 +1,30 @@
 /*
- * XREFs of SmEtwEnableCallback @ 0x140847F40
+ * XREFs of SmEtwEnableCallback @ 0x1407BCBB0
  * Callers:
  *     <none>
  * Callees:
- *     SmEtwEnabled @ 0x140261818 (SmEtwEnabled.c)
- *     SmKmStoreReferenceEx @ 0x14035F5AC (SmKmStoreReferenceEx.c)
- *     ?SmStoreContentsRundown@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@@Z @ 0x1405FCF84 (-SmStoreContentsRundown@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@@.c)
- *     SmKmEtwLogStoreRundown @ 0x140847F98 (SmKmEtwLogStoreRundown.c)
+ *     SmKmStoreReferenceEx @ 0x1402D959C (SmKmStoreReferenceEx.c)
+ *     SmEtwEnabled @ 0x1402DAE08 (SmEtwEnabled.c)
+ *     ?SmStoreContentsRundown@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@@Z @ 0x14059F764 (-SmStoreContentsRundown@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@@.c)
+ *     SmKmEtwLogStoreRundown @ 0x1407BCC08 (SmKmEtwLogStoreRundown.c)
  */
 
 void __fastcall SmEtwEnableCallback(LPCGUID SourceId, ULONG ControlCode, __int64 Level, ULONGLONG MatchAnyKeyword)
 {
+  __int64 v4; // r8
   unsigned int i; // ebx
-  unsigned __int64 v5; // rax
+  unsigned __int64 v6; // rax
 
-  if ( ControlCode <= 1 && (dword_140D3253C = MatchAnyKeyword | 0x40, ControlCode == 1) || ControlCode == 2 )
+  if ( ControlCode <= 1 && (dword_140D244FC = MatchAnyKeyword | 0x40, ControlCode == 1) || ControlCode == 2 )
   {
-    SmKmEtwLogStoreRundown(&qword_140D32530, &SmGlobals, Level);
+    SmKmEtwLogStoreRundown(&qword_140D244F0, &SmGlobals, Level);
     if ( SmEtwEnabled(3) )
     {
       for ( i = 0; i < 0x400; ++i )
       {
-        v5 = SmKmStoreReferenceEx((__int64)&SmGlobals, i);
-        if ( v5 )
-          SMKM_STORE_MGR<SM_TRAITS>::SmStoreContentsRundown((__int64)&SmGlobals, v5);
+        v6 = SmKmStoreReferenceEx((__int64)&SmGlobals, i, v4);
+        if ( v6 )
+          SMKM_STORE_MGR<SM_TRAITS>::SmStoreContentsRundown((__int64)&SmGlobals, v6);
       }
     }
   }

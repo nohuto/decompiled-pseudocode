@@ -1,18 +1,18 @@
 /*
- * XREFs of PopFxPluginWork @ 0x140100650
+ * XREFs of PopFxPluginWork @ 0x140100670
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     PopFxProcessWork @ 0x1400FE370 (PopFxProcessWork.c)
- *     PopPepWork @ 0x1400FEFE4 (PopPepWork.c)
- *     PopFxDisableWorkOrderWatchdog @ 0x140100730 (PopFxDisableWorkOrderWatchdog.c)
- *     PopFxEnableWorkOrderWatchdog @ 0x1401007BC (PopFxEnableWorkOrderWatchdog.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
+ *     PopFxProcessWork @ 0x1400FE390 (PopFxProcessWork.c)
+ *     PopPepWork @ 0x1400FF004 (PopPepWork.c)
+ *     PopFxDisableWorkOrderWatchdog @ 0x140100750 (PopFxDisableWorkOrderWatchdog.c)
+ *     PopFxEnableWorkOrderWatchdog @ 0x1401007DC (PopFxEnableWorkOrderWatchdog.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopFxPluginWork(__int64 a1)

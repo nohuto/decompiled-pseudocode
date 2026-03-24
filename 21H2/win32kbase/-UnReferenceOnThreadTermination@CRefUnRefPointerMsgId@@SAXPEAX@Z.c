@@ -1,12 +1,12 @@
 /*
- * XREFs of ?UnReferenceOnThreadTermination@CRefUnRefPointerMsgId@@SAXPEAX@Z @ 0x1C01E4B00
+ * XREFs of ?UnReferenceOnThreadTermination@CRefUnRefPointerMsgId@@SAXPEAX@Z @ 0x1C00CD950
  * Callers:
  *     <none>
  * Callees:
- *     ?UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C01D8A20 (-UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
+ *     ?UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C019FC40 (-UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
  */
 
-void __fastcall CRefUnRefPointerMsgId::UnReferenceOnThreadTermination(__int64 a1)
+void __fastcall CRefUnRefPointerMsgId::UnReferenceOnThreadTermination(void *a1)
 {
-  CTouchProcessor::UnreferenceMsgDataExternal((struct _DEVICE_OBJECT *)gpTouchProcessor, a1, 8u);
+  CTouchProcessor::UnreferenceMsgDataExternal(gpTouchProcessor, a1, 8LL);
 }

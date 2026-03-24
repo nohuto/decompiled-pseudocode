@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetHardwareProtection@CLegacySwapChain@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x1801091F0
+ * XREFs of ?SetHardwareProtection@CLegacySwapChain@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x1800F76F0
  * Callers:
  *     <none>
  * Callees:

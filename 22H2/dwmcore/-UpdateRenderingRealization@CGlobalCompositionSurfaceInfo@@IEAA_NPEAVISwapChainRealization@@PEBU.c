@@ -1,19 +1,16 @@
 /*
- * XREFs of ?UpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_NPEAVISwapChainRealization@@PEBUCSM_BUFFER_ATTRIBUTES@@PEAUHRGN__@@PEBUScrollOptimization@@@Z @ 0x180040C88
+ * XREFs of ?UpdateRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_NPEAVISwapChainRealization@@PEBUCSM_BUFFER_ATTRIBUTES@@PEAUHRGN__@@PEBUScrollOptimization@@@Z @ 0x18009CD94
  * Callers:
- *     ?ProcessSurfaceUpdateInternal@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_SURFACE_UPDATE_@@@Z @ 0x180040B74 (-ProcessSurfaceUpdateInternal@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_SURFACE_UPDATE_@@@Z.c)
+ *     ?ProcessSurfaceUpdateInternal@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_SURFACE_UPDATE@@@Z @ 0x18009CCCC (-ProcessSurfaceUpdateInternal@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_SURFACE_UPDATE@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?EnsureHDRMetaData@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ @ 0x18001ED54 (-EnsureHDRMetaData@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ.c)
- *     ??$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z @ 0x180031760 (--$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z.c)
- *     ?IsSwapChain@CGlobalCompositionSurfaceInfo@@UEBA_NXZ @ 0x180041290 (-IsSwapChain@CGlobalCompositionSurfaceInfo@@UEBA_NXZ.c)
- *     ?DirtyRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_N_NPEAUHRGN__@@PEBUScrollOptimization@@PEAVCRegion@@@Z @ 0x18004140C (-DirtyRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_N_NPEAUHRGN__@@PEBUScrollOptimiza.c)
- *     ?GetRectangles@CRegion@@QEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x180042648 (-GetRectangles@CRegion@@QEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ??9@YA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x1800D454C (--9@YA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?EnsureHDRMetaData@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ @ 0x18001FB84 (-EnsureHDRMetaData@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ.c)
+ *     ??$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z @ 0x18008D638 (--$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?IsSwapChain@CGlobalCompositionSurfaceInfo@@UEBA_NXZ @ 0x18009D320 (-IsSwapChain@CGlobalCompositionSurfaceInfo@@UEBA_NXZ.c)
+ *     ?DirtyRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_N_NPEAUHRGN__@@PEBUScrollOptimization@@PEAVCRegion@@@Z @ 0x18009D350 (-DirtyRenderingRealization@CGlobalCompositionSurfaceInfo@@IEAA_N_NPEAUHRGN__@@PEBUScrollOptimiza.c)
+ *     ??9@YA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x1800C9630 (--9@YA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall CGlobalCompositionSurfaceInfo::UpdateRenderingRealization(
@@ -24,7 +21,7 @@ bool __fastcall CGlobalCompositionSurfaceInfo::UpdateRenderingRealization(
         const struct ScrollOptimization *a5)
 {
   bool v8; // r15
-  char v9; // si
+  char v9; // r14
   char v10; // r12
   bool v11; // r13
   bool v12; // zf
@@ -32,178 +29,161 @@ bool __fastcall CGlobalCompositionSurfaceInfo::UpdateRenderingRealization(
   __int64 v14; // r8
   __int64 v15; // r9
   char v16; // dl
-  __int64 v17; // rax
-  __int64 v18; // r8
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int128 *v21; // rax
-  __int64 v22; // rdx
-  __int128 v23; // xmm0
-  __int64 v24; // rax
-  __int64 (__fastcall ***v25)(_QWORD, _BYTE *); // rcx
-  __int64 v26; // rax
-  __int64 *v27; // rcx
-  __int64 v28; // rax
-  char *v29; // rcx
-  int v30; // r14d
-  __int128 v31; // xmm0
-  __int64 v32; // rax
-  char *v33; // rcx
-  __int64 v34; // rax
+  struct ISwapChainRealization *v17; // rsi
+  __int64 v18; // rsi
+  unsigned __int64 v19; // r13
+  __int64 v20; // rbx
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int128 *v26; // rax
+  __int64 v27; // rdx
+  __int128 v28; // xmm0
+  __int64 v29; // rax
+  __int64 (__fastcall ***v30)(_QWORD, _BYTE *); // rcx
+  __int64 v31; // rax
+  char *v32; // rcx
+  unsigned int v33; // esi
+  __int128 v34; // xmm0
   __int64 v35; // rax
-  __int64 v36; // r14
-  unsigned __int64 v37; // r13
-  HRGN v38; // rbx
-  char v40; // [rsp+30h] [rbp-D0h]
-  bool v41; // [rsp+31h] [rbp-CFh]
-  int v42; // [rsp+34h] [rbp-CCh]
-  int v43; // [rsp+38h] [rbp-C8h]
-  int v44; // [rsp+3Ch] [rbp-C4h]
-  int v45; // [rsp+40h] [rbp-C0h]
-  HRGN v46; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v47; // [rsp+58h] [rbp-A8h]
-  struct ScrollOptimization *v48; // [rsp+68h] [rbp-98h]
-  float v49[20]; // [rsp+70h] [rbp-90h] BYREF
-  float v50[20]; // [rsp+C0h] [rbp-40h] BYREF
-  __int128 v51; // [rsp+110h] [rbp+10h] BYREF
-  __int128 v52; // [rsp+120h] [rbp+20h] BYREF
-  __int128 v53; // [rsp+130h] [rbp+30h] BYREF
-  __int128 v54; // [rsp+140h] [rbp+40h] BYREF
-  __int128 v55; // [rsp+150h] [rbp+50h] BYREF
-  __int128 v56; // [rsp+160h] [rbp+60h] BYREF
-  _BYTE v57[16]; // [rsp+170h] [rbp+70h] BYREF
-  int *v58; // [rsp+180h] [rbp+80h] BYREF
-  int v59; // [rsp+188h] [rbp+88h] BYREF
+  char *v36; // rcx
+  char v37; // [rsp+30h] [rbp-D0h]
+  __int64 v38; // [rsp+34h] [rbp-CCh]
+  int v39; // [rsp+3Ch] [rbp-C4h]
+  __int64 v40; // [rsp+48h] [rbp-B8h]
+  _OWORD v42[4]; // [rsp+80h] [rbp-80h] BYREF
+  __int16 v43; // [rsp+C0h] [rbp-40h]
+  _OWORD v44[4]; // [rsp+D0h] [rbp-30h] BYREF
+  __int16 v45; // [rsp+110h] [rbp+10h]
+  __int128 v46; // [rsp+120h] [rbp+20h] BYREF
+  __int128 v47; // [rsp+130h] [rbp+30h] BYREF
+  __int128 v48; // [rsp+140h] [rbp+40h] BYREF
+  __int128 v49; // [rsp+150h] [rbp+50h] BYREF
+  _BYTE v50[16]; // [rsp+160h] [rbp+60h] BYREF
+  int *v51; // [rsp+170h] [rbp+70h] BYREF
+  int v52; // [rsp+178h] [rbp+78h] BYREF
 
-  v46 = a4;
-  v48 = a5;
-  v41 = 0;
   v8 = 0;
   v9 = 0;
   v10 = 0;
   v11 = 0;
-  if ( !a3 || (v40 = 1, (*((_DWORD *)a3 + 34) & 0x400) == 0) )
-    v40 = 0;
-  v12 = *((_BYTE *)this + 96) == 0;
-  v59 = 0;
-  v58 = &v59;
+  if ( !a3 || (v37 = 1, (*((_DWORD *)a3 + 29) & 0x400) == 0) )
+    v37 = 0;
+  v12 = *((_BYTE *)this + 80) == 0;
+  v52 = 0;
+  v51 = &v52;
   if ( !v12 )
   {
     v8 = 1;
     v9 = 1;
     v10 = 1;
     if ( CGlobalCompositionSurfaceInfo::IsSwapChain(this) && a2 && a3 )
-      (*(void (__fastcall **)(struct ISwapChainRealization *, const struct CSM_BUFFER_ATTRIBUTES *))(*(_QWORD *)a2 + 136LL))(
+      (*(void (__fastcall **)(struct ISwapChainRealization *, const struct CSM_BUFFER_ATTRIBUTES *))(*(_QWORD *)a2 + 120LL))(
         a2,
         a3);
-    goto LABEL_9;
+    goto LABEL_6;
   }
   if ( !CGlobalCompositionSurfaceInfo::IsSwapChain(this) )
   {
-LABEL_9:
-    v16 = v40;
-    goto LABEL_10;
+LABEL_6:
+    v16 = v37;
+    goto LABEL_7;
   }
-  v51 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
-  v55 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
-  CMILMatrix::SetToIdentity((CMILMatrix *)v50);
-  CMILMatrix::SetToIdentity((CMILMatrix *)v49);
-  v43 = 0;
-  v18 = 0LL;
-  v45 = 0;
-  v42 = 0;
-  v44 = 0;
-  v19 = *((_QWORD *)this + 26);
-  v53 = 0LL;
-  v54 = 0LL;
-  v56 = 0LL;
-  v52 = 0LL;
-  if ( v19 )
+  v38 = 0LL;
+  v39 = 0;
+  HIDWORD(v40) = 0;
+  v24 = *((_QWORD *)this + 23);
+  v49 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
+  v48 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
+  v44[0] = _xmm;
+  v44[1] = _xmm;
+  v44[2] = _xmm;
+  v44[3] = _xmm;
+  v42[0] = _xmm;
+  v42[1] = _xmm;
+  v42[2] = _xmm;
+  v42[3] = _xmm;
+  v45 = 32085;
+  v43 = 32085;
+  v46 = 0LL;
+  v47 = 0LL;
+  if ( v24 )
   {
-    v20 = v19 + 8 + *(int *)(*(_QWORD *)(v19 + 8) + 16LL);
-    (*(void (__fastcall **)(__int64, float *, __int128 *))(*(_QWORD *)v20 + 8LL))(v20, v50, &v51);
-    v43 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 26) + 16LL))(*((_QWORD *)this + 26));
-    v21 = (__int128 *)(*(__int64 (__fastcall **)(_QWORD, __int128 *))(**((_QWORD **)this + 26) + 24LL))(
-                        *((_QWORD *)this + 26),
-                        &v53);
-    v22 = *((_QWORD *)this + 26);
-    v23 = *v21;
-    v24 = *(_QWORD *)(v22 + 8);
-    v53 = v23;
-    v25 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(v22 + 8 + *(int *)(v24 + 12));
-    v26 = (**v25)(v25, v57);
-    v27 = (__int64 *)*((_QWORD *)this + 26);
-    *(_QWORD *)&v23 = *(_QWORD *)v26;
-    v44 = *(_DWORD *)(v26 + 8);
-    v28 = *v27;
-    v47 = v23;
-    (*(void (__fastcall **)(__int64 *, __int128 *))(v28 + 160))(v27, &v56);
-    v18 = 0LL;
-    v42 = DWORD1(v23);
+    v25 = v24 + 8 + *(int *)(*(_QWORD *)(v24 + 8) + 16LL);
+    (*(void (__fastcall **)(__int64, _OWORD *, __int128 *))(*(_QWORD *)v25 + 8LL))(v25, v44, &v49);
+    HIDWORD(v38) = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 23) + 8LL))(*((_QWORD *)this + 23));
+    v26 = (__int128 *)(*(__int64 (__fastcall **)(_QWORD, __int128 *))(**((_QWORD **)this + 23) + 16LL))(
+                        *((_QWORD *)this + 23),
+                        &v46);
+    v27 = *((_QWORD *)this + 23);
+    v28 = *v26;
+    v29 = *(_QWORD *)(v27 + 8);
+    v46 = v28;
+    v30 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(v27 + 8 + *(int *)(v29 + 12));
+    v31 = (**v30)(v30, v50);
+    v39 = *(_DWORD *)(v31 + 8);
+    LODWORD(v38) = HIDWORD(*(_QWORD *)v31);
   }
   if ( a2 )
   {
     if ( a3 )
-      (*(void (__fastcall **)(struct ISwapChainRealization *, const struct CSM_BUFFER_ATTRIBUTES *))(*(_QWORD *)a2 + 136LL))(
+      (*(void (__fastcall **)(struct ISwapChainRealization *, const struct CSM_BUFFER_ATTRIBUTES *))(*(_QWORD *)a2 + 120LL))(
         a2,
         a3);
-    v29 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 16LL) + 8;
-    (*(void (__fastcall **)(char *, float *, __int128 *))(*(_QWORD *)v29 + 8LL))(v29, v49, &v55);
-    v30 = (*(__int64 (__fastcall **)(struct ISwapChainRealization *))(*(_QWORD *)a2 + 16LL))(a2);
-    v31 = *(_OWORD *)(*(__int64 (__fastcall **)(struct ISwapChainRealization *, __int128 *))(*(_QWORD *)a2 + 24LL))(
+    v32 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 16LL) + 8;
+    (*(void (__fastcall **)(char *, _OWORD *, __int128 *))(*(_QWORD *)v32 + 8LL))(v32, v42, &v48);
+    v33 = (*(__int64 (__fastcall **)(struct ISwapChainRealization *))(*(_QWORD *)a2 + 8LL))(a2);
+    v34 = *(_OWORD *)(*(__int64 (__fastcall **)(struct ISwapChainRealization *, __int128 *))(*(_QWORD *)a2 + 16LL))(
                        a2,
-                       &v54);
-    v32 = *((_QWORD *)a2 + 1);
-    v54 = v31;
-    v33 = (char *)a2 + *(int *)(v32 + 12) + 8;
-    v34 = (**(__int64 (__fastcall ***)(char *, _BYTE *))v33)(v33, v57);
-    *(_QWORD *)&v31 = *(_QWORD *)v34;
-    v45 = *(_DWORD *)(v34 + 8);
-    v35 = *(_QWORD *)a2;
-    v47 = v31;
-    (*(void (__fastcall **)(struct ISwapChainRealization *, __int128 *))(v35 + 160))(a2, &v52);
-    v18 = DWORD1(v31);
+                       &v47);
+    v35 = *((_QWORD *)a2 + 1);
+    v47 = v34;
+    v36 = (char *)a2 + *(int *)(v35 + 12) + 8;
+    v40 = *(_QWORD *)(**(__int64 (__fastcall ***)(char *, _BYTE *))v36)(v36, v50);
   }
   else
   {
-    v30 = 0;
+    v33 = 0;
   }
-  if ( (unsigned __int8)operator!=(&v51, &v55, v18)
-    || !CMILMatrix::IsEqualTo<0>(v50, v49)
-    || (v51 = v52, v52 = v56, (unsigned __int8)operator!=(&v52, &v51, v14)) )
-  {
+  if ( (unsigned __int8)operator!=(&v49, &v48) || !CMILMatrix::IsEqualTo<0>((float *)v44, (float *)v42) )
     v9 = 1;
-  }
-  v16 = v40;
-  if ( v40
-    || v42 != (_DWORD)v14
-    || v43 != v30
-    || COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)&v53 - *(float *)&v54) & _xmm) > 0.0000011920929
-    || COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)&v53 + 1) - *((float *)&v54 + 1)) & _xmm) > 0.0000011920929
-    || COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)&v53 + 2) - *((float *)&v54 + 2)) & _xmm) > 0.0000011920929
-    || COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)&v53 + 3) - *((float *)&v54 + 3)) & _xmm) > 0.0000011920929
-    || v44 != v45 )
+  v16 = v37;
+  if ( v37
+    || v38 != __PAIR64__(v33, HIDWORD(v40))
+    || COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)&v46 - *(float *)&v47) & _xmm) > 0.0000011920929
+    || COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)&v46 + 1) - *((float *)&v47 + 1)) & _xmm) > 0.0000011920929
+    || COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)&v46 + 2) - *((float *)&v47 + 2)) & _xmm) > 0.0000011920929
+    || COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)&v46 + 3) - *((float *)&v47 + 3)) & _xmm) > 0.0000011920929
+    || v39 != (_DWORD)v14 )
   {
     v10 = 1;
   }
-LABEL_10:
-  if ( *((struct ISwapChainRealization **)this + 26) != a2 )
+LABEL_7:
+  v17 = (struct ISwapChainRealization *)*((_QWORD *)this + 23);
+  if ( v17 != a2 )
   {
-    v17 = *((_QWORD *)this + 14);
-    if ( v17 )
-      *(_BYTE *)(v17 + 152) = 0;
-    v12 = *((_QWORD *)this + 26) == 0LL;
+    v23 = *((_QWORD *)this + 15);
+    if ( v23 )
+    {
+      *(_BYTE *)(v23 + 152) = 0;
+      v17 = (struct ISwapChainRealization *)*((_QWORD *)this + 23);
+    }
+    *((_QWORD *)this + 23) = a2;
+    v12 = v17 == 0LL;
+    v17 = a2;
     v8 = 1;
-    *((_QWORD *)this + 26) = a2;
     if ( !v12 != (a2 != 0LL) )
       v9 = 1;
   }
   if ( v16 && CGlobalCompositionSurfaceInfo::IsSwapChain(this) )
-    CGlobalCompositionSurfaceInfo::CBindInfo::EnsureHDRMetaData((CGlobalCompositionSurfaceInfo *)((char *)this + 104));
-  if ( *((_QWORD *)this + 26) )
   {
-    v11 = CGlobalCompositionSurfaceInfo::DirtyRenderingRealization(this, v8, v46, v48, (struct CRegion *)&v58);
-    v41 = v11;
+    CGlobalCompositionSurfaceInfo::CBindInfo::EnsureHDRMetaData((CGlobalCompositionSurfaceInfo *)((char *)this + 112));
+    v17 = (struct ISwapChainRealization *)*((_QWORD *)this + 23);
+  }
+  if ( v17 )
+  {
+    v11 = CGlobalCompositionSurfaceInfo::DirtyRenderingRealization(this, v8, a4, a5, (struct CRegion *)&v51);
   }
   else
   {
@@ -211,41 +191,43 @@ LABEL_10:
     v9 = 1;
     v10 = 1;
   }
-  if ( !*((_BYTE *)this + 96) )
+  if ( !*((_BYTE *)this + 80) )
   {
-    *((_BYTE *)this + 96) = 1;
+    *((_BYTE *)this + 80) = 1;
     if ( v8 || v9 || v10 || v11 )
     {
-      v36 = (__int64)(*((_QWORD *)this + 9) - *((_QWORD *)this + 8)) >> 3;
-      if ( v36 )
+      v18 = (__int64)(*((_QWORD *)this + 7) - *((_QWORD *)this + 6)) >> 3;
+      if ( v18 )
       {
-        v37 = (unsigned __int64)&v58 & -(__int64)v11;
+        v19 = (unsigned __int64)&v51 & -(__int64)v11;
         do
         {
-          v38 = *(HRGN *)(*((_QWORD *)this + 8) + 8 * v36 - 8);
-          v46 = v38;
-          if ( v38 )
-            (*(void (__fastcall **)(HRGN))(*(_QWORD *)v38 + 8LL))(v38);
+          v20 = *(_QWORD *)(*((_QWORD *)this + 6) + 8 * v18 - 8);
+          if ( v20 )
+            (*(void (__fastcall **)(_QWORD))(*(_QWORD *)v20 + 8LL))(*(_QWORD *)(*((_QWORD *)this + 6) + 8 * v18 - 8));
           LOBYTE(v15) = v10;
           LOBYTE(v14) = v9;
           LOBYTE(v13) = v8;
-          (*(void (__fastcall **)(HRGN, __int64, __int64, __int64, unsigned __int64))(*(_QWORD *)v38 + 24LL))(
-            v38,
+          (*(void (__fastcall **)(__int64, __int64, __int64, __int64, unsigned __int64))(*(_QWORD *)v20 + 24LL))(
+            v20,
             v13,
             v14,
             v15,
-            v37);
-          wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v46);
-          --v36;
+            v19);
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 16LL))(v20);
+          --v18;
         }
-        while ( v36 );
+        while ( v18 );
       }
     }
-    *((_QWORD *)this + 20) = *((_QWORD *)this + 19);
-    *((_BYTE *)this + 96) = 0;
-    if ( v41 )
-      CRegion::GetRectangles(&v58);
+    *((_BYTE *)this + 80) = 0;
   }
-  FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v58);
+  if ( v8 )
+  {
+    v22 = *((_QWORD *)this + 16);
+    if ( v22 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v22 + 24LL))(v22);
+  }
+  FastRegion::CRegion::FreeMemory((void **)&v51);
   return v8;
 }

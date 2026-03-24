@@ -1,16 +1,16 @@
 /*
- * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C000242C
+ * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0001DEC
  * Callers:
- *     HUBHTX_HubControlTransferComplete @ 0x1C0003330 (HUBHTX_HubControlTransferComplete.c)
- *     HUBHTX_SendInterruptTransferComplete @ 0x1C0003CC0 (HUBHTX_SendInterruptTransferComplete.c)
- *     HUBHTX_PortControlTransferComplete @ 0x1C0003E90 (HUBHTX_PortControlTransferComplete.c)
- *     HUBHTX_ClearTtBufferControlTransferComplete @ 0x1C0006A80 (HUBHTX_ClearTtBufferControlTransferComplete.c)
- *     HUBPARENT_ResetInterruptPipeComplete @ 0x1C0007900 (HUBPARENT_ResetInterruptPipeComplete.c)
- *     HUBDTX_ControlTransferComplete @ 0x1C00297F0 (HUBDTX_ControlTransferComplete.c)
- *     FWUPDATE_HubVendorControlTransferComplete @ 0x1C00408C0 (FWUPDATE_HubVendorControlTransferComplete.c)
+ *     HUBHTX_HubControlTransferComplete @ 0x1C0002D00 (HUBHTX_HubControlTransferComplete.c)
+ *     HUBHTX_SendInterruptTransferComplete @ 0x1C0003690 (HUBHTX_SendInterruptTransferComplete.c)
+ *     HUBHTX_PortControlTransferComplete @ 0x1C0003860 (HUBHTX_PortControlTransferComplete.c)
+ *     HUBHTX_ClearTtBufferControlTransferComplete @ 0x1C0006370 (HUBHTX_ClearTtBufferControlTransferComplete.c)
+ *     HUBPARENT_ResetInterruptPipeComplete @ 0x1C0007190 (HUBPARENT_ResetInterruptPipeComplete.c)
+ *     HUBDTX_ControlTransferComplete @ 0x1C0026B60 (HUBDTX_ControlTransferComplete.c)
+ *     FWUPDATE_HubVendorControlTransferComplete @ 0x1C003E5F0 (FWUPDATE_HubVendorControlTransferComplete.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

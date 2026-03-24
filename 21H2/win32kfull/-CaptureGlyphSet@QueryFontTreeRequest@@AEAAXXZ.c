@@ -1,110 +1,114 @@
 /*
- * XREFs of ?CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ @ 0x1C00DD778
+ * XREFs of ?CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ @ 0x1C00D1F60
  * Callers:
- *     ?CaptureUsermodeParameters@QueryFontTreeRequest@@UEAAXPEAX@Z @ 0x1C00DD710 (-CaptureUsermodeParameters@QueryFontTreeRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureUsermodeParameters@QueryFontTreeRequest@@UEAAXPEAX@Z @ 0x1C00D1EF0 (-CaptureUsermodeParameters@QueryFontTreeRequest@@UEAAXPEAX@Z.c)
  * Callees:
- *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C000B670 (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
- *     ?TryProbeAndReadUserModeGlyphSet@QueryFontTreeRequest@@AEAA_NPEAK0@Z @ 0x1C00DD8E4 (-TryProbeAndReadUserModeGlyphSet@QueryFontTreeRequest@@AEAA_NPEAK0@Z.c)
- *     ?ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z @ 0x1C00DDA68 (-ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C009F5AC (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
+ *     ?ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z @ 0x1C00D20EC (-ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z.c)
+ *     ?TryProbeAndReadUserModeGlyphSet@QueryFontTreeRequest@@AEAA_NPEAK0@Z @ 0x1C00D2638 (-TryProbeAndReadUserModeGlyphSet@QueryFontTreeRequest@@AEAA_NPEAK0@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall QueryFontTreeRequest::CaptureGlyphSet(QueryFontTreeRequest *this)
 {
-  __int64 v1; // rsi
-  unsigned int v3; // ebp
-  unsigned __int64 v4; // rdi
-  __int64 v5; // r15
-  __int64 *v6; // rax
-  __int64 v7; // rbx
-  unsigned int v8; // eax
-  _DWORD *v9; // rax
-  char *v10; // rdx
-  unsigned __int64 v11; // rbx
-  unsigned int v12; // r10d
-  unsigned int v13; // r11d
-  unsigned __int16 *v14; // r8
-  unsigned __int64 v15; // rcx
-  int v16; // r9d
-  unsigned __int64 v17; // rax
-  unsigned int v18; // [rsp+70h] [rbp+8h] BYREF
-  unsigned int v19; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v1; // r14
+  __int64 v2; // r15
+  __int64 v3; // r13
+  unsigned int v5; // edi
+  unsigned int v6; // esi
+  unsigned __int64 v7; // rbp
+  __int64 v8; // r14
+  __int64 (__fastcall **v9)(QueryFontTreeRequest *); // rax
+  _QWORD *v10; // rbx
+  unsigned int v11; // eax
+  __int64 v12; // rax
+  unsigned __int64 v13; // rbx
+  unsigned int v14; // r10d
+  unsigned __int16 *v15; // r8
+  unsigned __int64 v16; // rcx
+  int v17; // r9d
+  unsigned __int64 v18; // r11
+  __int64 v19; // [rsp+38h] [rbp-30h]
+  unsigned int v20; // [rsp+70h] [rbp+8h] BYREF
+  unsigned int v21; // [rsp+78h] [rbp+10h] BYREF
 
-  v1 = *((_QWORD *)this + 11);
-  if ( v1 )
+  v3 = *((_QWORD *)this + 11);
+  if ( v3 )
   {
-    v19 = 0;
-    v18 = 0;
-    if ( QueryFontTreeRequest::TryProbeAndReadUserModeGlyphSet(this, &v19, &v18) )
+    v5 = 0;
+    v21 = 0;
+    v20 = 0;
+    if ( QueryFontTreeRequest::TryProbeAndReadUserModeGlyphSet(this, &v21, &v20) )
     {
-      v3 = v18;
-      v4 = v1 + 16 * (v18 + 1LL);
-      if ( v4 >= v1 + 16 )
+      v6 = v20;
+      v7 = v3 + 16 * (v20 + 1LL);
+      if ( v7 >= v3 + 16 )
       {
-        v5 = v19;
-        if ( v19 >= 16 * ((unsigned __int64)v18 + 1) )
+        v19 = v1;
+        v8 = v21;
+        if ( v21 >= 16 * ((unsigned __int64)v20 + 1) )
         {
-          v6 = (__int64 *)*((_QWORD *)this + 8);
-          LOBYTE(v18) = 0;
-          v7 = *v6;
-          v8 = (**(__int64 (__fastcall ***)(QueryFontTreeRequest *))this)(this);
-          v9 = (_DWORD *)UmfdAllocation::ObtainKernelmodeAllocation(
-                           v8,
-                           v7,
-                           v1,
-                           (unsigned int)v5,
-                           &v18,
-                           QueryFontTreeRequest::TryGlyphSetHasSameContent);
-          v10 = (char *)v9;
-          if ( v9 )
+          v9 = *(__int64 (__fastcall ***)(QueryFontTreeRequest *))this;
+          v10 = (_QWORD *)*((_QWORD *)this + 8);
+          LOBYTE(v20) = 0;
+          v11 = (*v9)(this);
+          v12 = UmfdAllocation::ObtainKernelmodeAllocation(
+                  v11,
+                  *v10,
+                  v3,
+                  (unsigned int)v8,
+                  &v20,
+                  QueryFontTreeRequest::TryGlyphSetHasSameContent,
+                  v2,
+                  v19);
+          if ( v12 )
           {
-            if ( !(_BYTE)v18 )
+            if ( !(_BYTE)v20 )
               goto LABEL_19;
-            *v9 = v5;
-            v11 = v5 + v1;
-            v9[3] = v3;
-            v12 = 0;
-            v13 = 0;
-            if ( v3 )
+            *(_DWORD *)v12 = v8;
+            v13 = v8 + v3;
+            *(_DWORD *)(v12 + 12) = v6;
+            v14 = 0;
+            if ( v6 )
             {
-              v14 = (unsigned __int16 *)v9 + 9;
+              v15 = (unsigned __int16 *)(v12 + 18);
               do
               {
-                v15 = *(_QWORD *)(v14 + 3);
-                v16 = *v14;
-                if ( v15 )
+                v16 = *(_QWORD *)(v15 + 3);
+                v17 = *v15;
+                if ( v16 )
                 {
-                  if ( !(_WORD)v16 )
+                  if ( !(_WORD)v17 )
                     goto LABEL_21;
-                  if ( v15 < v4 )
+                  if ( v16 < v7 )
                     goto LABEL_21;
-                  if ( v15 >= v11 )
+                  if ( v16 >= v13 )
                     goto LABEL_21;
-                  v17 = v15 + 4LL * *v14;
-                  if ( v17 < v15 )
+                  v18 = v16 + 4LL * *v15;
+                  if ( v18 < v16 )
                     goto LABEL_21;
-                  if ( v17 > v11 )
+                  if ( v18 > v13 )
                     goto LABEL_21;
-                  *(_QWORD *)(v14 + 3) = &v10[v15 - v1];
-                  if ( v12 + v16 < v12 )
+                  *(_QWORD *)(v15 + 3) = v12 + v16 - v3;
+                  if ( v5 + v17 < v5 )
                     goto LABEL_21;
-                  v12 += v16;
+                  v5 += v17;
                 }
-                else if ( (_WORD)v16 )
+                else if ( (_WORD)v17 )
                 {
                   goto LABEL_21;
                 }
-                ++v13;
-                v14 += 8;
+                ++v14;
+                v15 += 8;
               }
-              while ( v13 < v3 );
+              while ( v14 < v6 );
             }
-            if ( v12 != *((_DWORD *)v10 + 2) )
+            if ( v5 != *(_DWORD *)(v12 + 8) )
 LABEL_21:
-              UmfdAllocation::ReleaseKernelmodeAllocation(v10);
+              UmfdAllocation::ReleaseKernelmodeAllocation((char *)v12);
             else
 LABEL_19:
-              *((_QWORD *)this + 9) = v10;
+              *((_QWORD *)this + 9) = v12;
           }
         }
       }

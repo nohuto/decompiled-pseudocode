@@ -1,42 +1,40 @@
 /*
- * XREFs of NtCreateMutant @ 0x1407B3DC0
+ * XREFs of NtCreateMutant @ 0x1407114E0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeMutantEx @ 0x14033ABD0 (KeInitializeMutantEx.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
+ *     KeInitializeMutantEx @ 0x14035FC00 (KeInitializeMutantEx.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateMutant(__int64 *a1, int a2, __int64 a3, char a4)
+__int64 __fastcall NtCreateMutant(__int64 *a1, ACCESS_MASK a2, int a3)
 {
   char PreviousMode; // di
-  __int64 v8; // rcx
-  __int64 v9; // rdx
+  __int64 v6; // rcx
   int inserted; // ecx
-  __int64 v12; // [rsp+20h] [rbp-48h]
-  PVOID Object; // [rsp+50h] [rbp-18h] BYREF
-  __int64 v14; // [rsp+58h] [rbp-10h] BYREF
+  char *v9; // [rsp+20h] [rbp-48h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v11; // [rsp+58h] [rbp-10h] BYREF
 
-  v14 = 0LL;
-  Object = 0LL;
+  v11 = 0LL;
+  DmaAdapter = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v8 = 0x7FFFFFFF0000LL;
+    v6 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a1;
-    *(_QWORD *)v8 = *(_QWORD *)v8;
+      v6 = (__int64)a1;
+    *(_QWORD *)v6 = *(_QWORD *)v6;
   }
-  inserted = ObCreateObjectEx(PreviousMode, ExMutantObjectType, a3, PreviousMode, v12, 56, 0, 0, &Object, 0LL);
+  inserted = ObCreateObjectEx(PreviousMode, ExMutantObjectType, a3, PreviousMode, v9, 56, 0, 0, &DmaAdapter, 0LL);
   if ( inserted >= 0 )
   {
-    LOBYTE(v9) = a4;
-    KeInitializeMutantEx((__int64)Object, v9, ExpForceEnableMutantAutoboost != 0);
-    inserted = ObInsertObjectEx((char *)Object, 0LL, a2, 0, 0, 0LL, &v14);
-    LODWORD(Object) = inserted;
+    KeInitializeMutantEx((ULONG_PTR)DmaAdapter);
+    inserted = ObInsertObjectEx(DmaAdapter, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&v11);
+    LODWORD(DmaAdapter) = inserted;
     if ( inserted >= 0 )
-      *a1 = v14;
+      *a1 = v11;
   }
   return (unsigned int)inserted;
 }

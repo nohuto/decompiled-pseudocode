@@ -1,19 +1,19 @@
 /*
- * XREFs of ?GetPointOnEdge@Figure@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x180269FB8
+ * XREFs of ?GetPointOnEdge@Figure@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x180208E28
  * Callers:
- *     ?GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x180269F5C (-GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA-AUfloat2@Numerics@Foundation@Windows@@MM@Z.c)
+ *     ?GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x180208DCC (-GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA-AUfloat2@Numerics@Foundation@Windows@@MM@Z.c)
  * Callees:
- *     EmitterShapes::GetPointOnLine @ 0x18026A080 (EmitterShapes--GetPointOnLine.c)
+ *     EmitterShapes::GetPointOnLine @ 0x180208EF4 (EmitterShapes--GetPointOnLine.c)
  */
 
 _DWORD *__fastcall EmitterShapes::CPathEmitterEdge::Figure::GetPointOnEdge(char **a1, _DWORD *a2, float a3, float a4)
 {
   float v5; // xmm4_4
-  unsigned int v6; // eax
-  unsigned int *v7; // r10
-  unsigned __int64 v8; // r8
-  unsigned __int64 v9; // rdx
-  char *v11; // r8
+  unsigned int v6; // r9d
+  unsigned int *v7; // r11
+  unsigned __int64 v8; // rax
+  __int64 v9; // r8
+  char *v11; // rdx
 
   v5 = 0.0;
   v6 = 1;
@@ -37,13 +37,13 @@ LABEL_5:
         goto LABEL_5;
     }
     v11 = *a1;
-    if ( v9 <= (a1[1] - *a1) >> 3 )
+    if ( v6 <= (unsigned __int64)((a1[1] - *a1) >> 3) )
       v11 += 8 * v9;
     EmitterShapes::GetPointOnLine(
       (_DWORD)a2,
       *(_QWORD *)&(*a1)[8 * v6 - 8],
       _mm_unpacklo_ps((__m128)*(unsigned int *)v11, (__m128)*((unsigned int *)v11 + 1)).m128_u32[0],
-      (_DWORD)a1,
+      v6,
       LODWORD(a4));
   }
   return a2;

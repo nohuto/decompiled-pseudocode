@@ -1,12 +1,12 @@
 /*
- * XREFs of ??1CD2DContext@@UEAA@XZ @ 0x1800EEE88
+ * XREFs of ??1CD2DContext@@UEAA@XZ @ 0x18002A8F8
  * Callers:
- *     ??1CD3DDevice@@MEAA@XZ @ 0x1800EE8E4 (--1CD3DDevice@@MEAA@XZ.c)
- *     ??_GCD2DContext@@UEAAPEAXI@Z @ 0x18028C860 (--_GCD2DContext@@UEAAPEAXI@Z.c)
+ *     ??1CD3DDevice@@MEAA@XZ @ 0x18002A350 (--1CD3DDevice@@MEAA@XZ.c)
+ *     ??_GCD2DContext@@UEAAPEAXI@Z @ 0x18023D5D0 (--_GCD2DContext@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097870 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
- *     ?DestroyDeviceResources@CD2DContext@@IEAAJXZ @ 0x1800D1920 (-DestroyDeviceResources@CD2DContext@@IEAAJXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?DestroyDeviceResources@CD2DContext@@IEAAJXZ @ 0x18002CC20 (-DestroyDeviceResources@CD2DContext@@IEAAJXZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180065C00 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CD2DContext::~CD2DContext(CD2DContext *this)
@@ -15,13 +15,13 @@ void __fastcall CD2DContext::~CD2DContext(CD2DContext *this)
 
   *(_QWORD *)this = &CD2DContext::`vftable';
   CD2DContext::DestroyDeviceResources(this);
-  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 328);
-  v2 = *((_QWORD *)this + 40);
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 376);
+  v2 = *((_QWORD *)this + 46);
   if ( v2 )
   {
-    *((_QWORD *)this + 40) = 0LL;
+    *((_QWORD *)this + 46) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 16LL))(v2);
   }
-  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 280);
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 320);
   CDrawListBatchManager::~CDrawListBatchManager((CD2DContext *)((char *)this + 8));
 }

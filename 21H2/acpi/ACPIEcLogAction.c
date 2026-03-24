@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIEcLogAction @ 0x1C0053808
+ * XREFs of ACPIEcLogAction @ 0x1C0054134
  * Callers:
- *     ACPIEcQueueEcIrp @ 0x1C0052CB0 (ACPIEcQueueEcIrp.c)
- *     AcpiEcCommonDpcHandler @ 0x1C0052E34 (AcpiEcCommonDpcHandler.c)
- *     ACPIEcServiceDevice @ 0x1C0053A64 (ACPIEcServiceDevice.c)
- *     ACPIEcServiceIoLoop @ 0x1C0053B78 (ACPIEcServiceIoLoop.c)
- *     ACPIEcWatchdogDpc @ 0x1C00541E0 (ACPIEcWatchdogDpc.c)
+ *     ACPIEcQueueEcIrp @ 0x1C00535D0 (ACPIEcQueueEcIrp.c)
+ *     AcpiEcCommonDpcHandler @ 0x1C0053754 (AcpiEcCommonDpcHandler.c)
+ *     ACPIEcServiceDevice @ 0x1C0054390 (ACPIEcServiceDevice.c)
+ *     ACPIEcServiceIoLoop @ 0x1C00544A4 (ACPIEcServiceIoLoop.c)
+ *     ACPIEcWatchdogDpc @ 0x1C0054AB0 (ACPIEcWatchdogDpc.c)
  * Callees:
  *     <none>
  */

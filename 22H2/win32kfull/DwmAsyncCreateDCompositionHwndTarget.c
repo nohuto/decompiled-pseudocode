@@ -1,33 +1,28 @@
 /*
- * XREFs of DwmAsyncCreateDCompositionHwndTarget @ 0x1C00ADA18
+ * XREFs of DwmAsyncCreateDCompositionHwndTarget @ 0x1C0122654
  * Callers:
- *     ?ReNotifyDwm@CHwndTargetProp@@SAXPEAUtagWND@@@Z @ 0x1C005911C (-ReNotifyDwm@CHwndTargetProp@@SAXPEAUtagWND@@@Z.c)
- *     EditionNotifyDwmForSystemVisualCreation @ 0x1C00AD980 (EditionNotifyDwmForSystemVisualCreation.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
+ *     EditionNotifyDwmForSystemVisualCreation @ 0x1C01225C0 (EditionNotifyDwmForSystemVisualCreation.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncCreateDCompositionHwndTarget(PVOID Object, __int64 a2, int a3, __int64 a4)
 {
   unsigned int v8; // ebx
-  int v10; // [rsp+20h] [rbp-48h] BYREF
-  __int16 v11; // [rsp+24h] [rbp-44h]
-  int v12; // [rsp+48h] [rbp-20h]
-  __int64 v13; // [rsp+4Ch] [rbp-1Ch]
-  int v14; // [rsp+54h] [rbp-14h]
-  __int64 v15; // [rsp+58h] [rbp-10h]
+  _QWORD v10[8]; // [rsp+20h] [rbp-48h] BYREF
 
   v8 = -1073741823;
   if ( Object )
   {
-    memset_0(&v10, 0, 0x40uLL);
-    v10 = 4194328;
-    v11 = 0x8000;
-    v12 = 1073741893;
-    v13 = a2;
-    v14 = a3;
-    v15 = a4;
-    v8 = LpcRequestPort(Object, &v10);
+    memset(v10, 0, sizeof(v10));
+    LODWORD(v10[0]) = 4194328;
+    WORD2(v10[0]) = 0x8000;
+    LODWORD(v10[5]) = 1073741892;
+    *(_QWORD *)((char *)&v10[5] + 4) = a2;
+    HIDWORD(v10[6]) = a3;
+    v10[7] = a4;
+    v8 = LpcRequestPort(Object, v10);
     ObfDereferenceObject(Object);
   }
   return v8;

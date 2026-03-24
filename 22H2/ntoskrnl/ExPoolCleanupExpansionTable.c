@@ -1,61 +1,61 @@
 /*
- * XREFs of ExPoolCleanupExpansionTable @ 0x140607318
+ * XREFs of ExPoolCleanupExpansionTable @ 0x140389090
  * Callers:
- *     ExpInsertPoolTrackerExpansion @ 0x140607BA8 (ExpInsertPoolTrackerExpansion.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x1402E7388 (ExpInsertPoolTrackerExpansion.c)
+ *     MiCheckSessionPoolAllocations @ 0x1407783F0 (MiCheckSessionPoolAllocations.c)
  * Callees:
- *     ExpPoolTrackerReturnLimit @ 0x1402AC320 (ExpPoolTrackerReturnLimit.c)
- *     ExGetHeapFromVA @ 0x1402AC3C0 (ExGetHeapFromVA.c)
- *     RtlpHpFreeHeap @ 0x1402AC490 (RtlpHpFreeHeap.c)
- *     ExpRemovePoolTrackerExpansion @ 0x14046AB3A (ExpRemovePoolTrackerExpansion.c)
- *     EtwTracePool @ 0x1405FD220 (EtwTracePool.c)
+ *     ExGetHeapFromVA @ 0x14027B2FC (ExGetHeapFromVA.c)
+ *     RtlpHpFreeHeap @ 0x1402C2790 (RtlpHpFreeHeap.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x14030F6D0 (ExpRemovePoolTrackerExpansion.c)
+ *     EtwTracePool @ 0x1405A7C04 (EtwTracePool.c)
  */
 
-__int64 __fastcall ExPoolCleanupExpansionTable(ULONG_PTR BugCheckParameter3, unsigned __int64 a2)
+__int64 __fastcall ExPoolCleanupExpansionTable(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
-  __int64 v4; // rax
-  int v5; // r10d
-  __int64 v6; // rcx
-  int v7; // r11d
-  __int64 v8; // rsi
-  __int64 v9; // r8
-  int v10; // r9d
-  __int64 v11; // r9
-  _DWORD *HeapFromVA; // rax
+  __int64 v4; // rcx
+  int v5; // eax
+  __int128 *HeapFromVA; // rax
+  __int64 v8; // rax
+  int v9; // r10d
+  unsigned int v10; // r8d
+  __int64 v11; // rdx
+  int v12; // r11d
+  int v13; // r9d
 
   if ( PoolHitTag == 1819242320 )
     __debugbreak();
-  v4 = DWORD1(PerfGlobalGroupMask);
+  v8 = DWORD1(PerfGlobalGroupMask);
   if ( (BYTE4(PerfGlobalGroupMask) & 0x41) != 0 )
-    EtwTracePool(0xE22u, 512, 1819242320, BugCheckParameter3, a2);
-  LODWORD(v4) = KeGetPcr()->Prcb.Number;
-  v5 = PoolTrackTableMask;
-  v6 = PoolTrackTableMask & 0x40DEDA5;
-  v7 = PoolTrackTableMask & 0x40DEDA5;
-  v8 = (__int64)*(&ExPoolTagTables + v4);
-  while ( 1 )
+    v8 = EtwTracePool(3618, 512, 1819242320, BugCheckParameter3, a2);
+  LODWORD(v8) = KeGetPcr()->Prcb.Number;
+  v9 = PoolTrackTableMask;
+  v10 = PoolTrackTableMask & 0x40DEDA5;
+  v11 = (__int64)*(&ExPoolTagTables + v8);
+  v12 = PoolTrackTableMask & 0x40DEDA5;
+  do
   {
-    v9 = v8 + 80 * v6;
-    if ( *(_DWORD *)v9 == 1819242320 )
-      break;
-    if ( *(_DWORD *)v9 || (v10 = *(_DWORD *)(PoolTrackTable + 80 * v6)) == 0 )
+    while ( 1 )
     {
-      v6 = v5 & (unsigned int)(v6 + 1);
-      if ( (_DWORD)v6 == v7 )
+      v4 = 56LL * v10;
+      v5 = *(_DWORD *)(v4 + v11);
+      if ( v5 == 1819242320 )
       {
-        ExpRemovePoolTrackerExpansion(1819242320, a2, 0);
-        goto LABEL_14;
+        _InterlockedIncrement64((volatile signed __int64 *)(v4 + v11 + 24));
+        _InterlockedExchangeAdd64((volatile signed __int64 *)(v4 + v11 + 8), -a2);
+        goto LABEL_5;
       }
+      if ( v5 )
+        break;
+      v13 = *(_DWORD *)(v4 + PoolTrackTable);
+      if ( !v13 )
+        break;
+      *(_DWORD *)(v4 + v11) = v13;
     }
-    else
-    {
-      *(_DWORD *)v9 = v10;
-      v11 = *(_QWORD *)(PoolTrackTable + 80 * v6 + 72);
-      if ( v11 )
-        *(_QWORD *)(v9 + 72) = v11;
-    }
+    v10 = v9 & (v10 + 1);
   }
-  ExpPoolTrackerReturnLimit(1, a2, v9);
-LABEL_14:
-  HeapFromVA = (_DWORD *)ExGetHeapFromVA(BugCheckParameter3);
-  return RtlpHpFreeHeap(HeapFromVA, BugCheckParameter3, 0, 0LL, 0LL);
+  while ( v10 != v12 );
+  ExpRemovePoolTrackerExpansion(1819242320, a2, 0);
+LABEL_5:
+  HeapFromVA = (__int128 *)ExGetHeapFromVA(BugCheckParameter3);
+  return RtlpHpFreeHeap(HeapFromVA, BugCheckParameter3, 0);
 }

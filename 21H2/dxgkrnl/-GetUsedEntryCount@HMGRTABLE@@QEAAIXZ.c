@@ -1,37 +1,27 @@
 /*
- * XREFs of ?GetUsedEntryCount@HMGRTABLE@@QEAAIXZ @ 0x1C005BD70
+ * XREFs of ?GetUsedEntryCount@HMGRTABLE@@QEAAIXZ @ 0x1C004D734
  * Callers:
- *     ??1DXGCHANNELENDPOINTPROXY@@UEAA@XZ @ 0x1C0354E78 (--1DXGCHANNELENDPOINTPROXY@@UEAA@XZ.c)
- *     ?NotifyChannelClosed@DXGCHANNELENDPOINTPROXY@@QEAAXXZ @ 0x1C0355E88 (-NotifyChannelClosed@DXGCHANNELENDPOINTPROXY@@QEAAXXZ.c)
+ *     ??1DXGCHANNELENDPOINTPROXY@@UEAA@XZ @ 0x1C02B2684 (--1DXGCHANNELENDPOINTPROXY@@UEAA@XZ.c)
+ *     ?NotifyChannelClosed@DXGCHANNELENDPOINTPROXY@@QEAAXXZ @ 0x1C02B340C (-NotifyChannelClosed@DXGCHANNELENDPOINTPROXY@@QEAAXXZ.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-__int64 __fastcall HMGRTABLE::GetUsedEntryCount(HMGRTABLE *this)
+__int64 __fastcall HMGRTABLE::GetUsedEntryCount(HMGRTABLE *this, __int64 a2)
 {
-  int v2; // edx
-  int v3; // r8d
+  unsigned int v2; // eax
+  __int64 v4; // rcx
+  __int64 v5; // rax
 
-  if ( *((_DWORD *)this + 4) < *((_DWORD *)this + 5) )
+  v2 = *((_DWORD *)this + 4);
+  v4 = *((unsigned int *)this + 5);
+  if ( v2 < (unsigned int)v4 )
   {
-    WdLogSingleEntry1(1LL, 152LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          0,
-          v2,
-          v3,
-          0LL,
-          2,
-          -1,
-          L"m_TableSize >= m_FreeCount",
-          152LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v5 = WdLogNewEntry5_WdAssertion(v4, a2);
+    *(_QWORD *)(v5 + 24) = 157LL;
+    WdLogEvent5_WdAssertion(v5);
+    v2 = *((_DWORD *)this + 4);
+    LODWORD(v4) = *((_DWORD *)this + 5);
   }
-  return (unsigned int)(*((_DWORD *)this + 4) - *((_DWORD *)this + 5));
+  return v2 - (unsigned int)v4;
 }

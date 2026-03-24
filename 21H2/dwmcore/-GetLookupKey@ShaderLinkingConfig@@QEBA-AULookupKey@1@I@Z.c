@@ -1,157 +1,102 @@
 /*
- * XREFs of ?GetLookupKey@ShaderLinkingConfig@@QEBA?AULookupKey@1@I@Z @ 0x180039A40
+ * XREFs of ?GetLookupKey@ShaderLinkingConfig@@QEBA?AULookupKey@1@I@Z @ 0x180051250
  * Callers:
- *     ?SetStateOnDevice@CBrushRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEAI@Z @ 0x1800388E0 (-SetStateOnDevice@CBrushRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEAI@Z.c)
- *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x180039660 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
- *     ?CreateLinkedShader@CCompiledEffectCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAPEAVCLinkedShader@@@Z @ 0x18003C310 (-CreateLinkedShader@CCompiledEffectCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@.c)
- *     ?LookupShader@CCompiledEffectCache@@QEBAPEAVCLinkedShader@@IAEBUShaderLinkingConfig@@@Z @ 0x180249728 (-LookupShader@CCompiledEffectCache@@QEBAPEAVCLinkedShader@@IAEBUShaderLinkingConfig@@@Z.c)
+ *     ?CreateLinkedShader@CCompiledEffectCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAPEAVCLinkedShader@@@Z @ 0x180045790 (-CreateLinkedShader@CCompiledEffectCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@.c)
+ *     ?GetShaders@CRenderingTechnique@@QEAAJPEAVCD3DDevice@@AEBUShaderLinkingConfig@@PEAIPEAPEAUID3D11PixelShader@@@Z @ 0x180050C08 (-GetShaders@CRenderingTechnique@@QEAAJPEAVCD3DDevice@@AEBUShaderLinkingConfig@@PEAIPEAPEAUID3D11.c)
+ *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x180050ED0 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
+ *     ?LookupShader@CCompiledEffectCache@@QEBAPEAVCLinkedShader@@IAEBUShaderLinkingConfig@@@Z @ 0x1801F959C (-LookupShader@CCompiledEffectCache@@QEBAPEAVCLinkedShader@@IAEBUShaderLinkingConfig@@@Z.c)
  * Callees:
  *     <none>
  */
 
 _OWORD *__fastcall ShaderLinkingConfig::GetLookupKey(__int64 a1, _OWORD *a2, int a3)
 {
-  unsigned int v5; // r10d
-  int v6; // r8d
+  int v3; // r10d
+  BOOL v5; // eax
+  BOOL v6; // r9d
   int v7; // eax
-  unsigned int v8; // r10d
-  unsigned int v9; // eax
-  unsigned int v10; // r10d
-  int v11; // r10d
-  int v12; // eax
-  unsigned int v13; // r10d
-  int v14; // eax
+  unsigned int v8; // r9d
+  int v9; // eax
+  unsigned int v10; // r9d
+  int v11; // r11d
+  unsigned int v12; // r8d
+  unsigned int v13; // r9d
+  unsigned int v14; // r8d
+  unsigned int v15; // r9d
+  int v16; // eax
+  unsigned int v17; // r9d
+  unsigned int v18; // eax
+  unsigned int v19; // r9d
+  int v20; // r9d
+  int v21; // eax
+  unsigned int v22; // r9d
+  int v23; // eax
+  int v24; // r8d
+  int v25; // eax
+  unsigned int v26; // r8d
   _OWORD *result; // rax
-  int v16; // edx
-  unsigned int v17; // edx
-  unsigned int v18; // edx
-  unsigned int v19; // edx
-  __int128 v20; // [rsp+0h] [rbp-18h]
+  __int128 v28; // [rsp+0h] [rbp-18h]
 
-  v20 = 0LL;
-  if ( *(_BYTE *)(a1 + 18) )
-  {
-    if ( *(_BYTE *)(a1 + 20) )
-    {
-      v16 = 5;
-    }
-    else if ( *(_BYTE *)(a1 + 21) )
-    {
-      v16 = 4;
-    }
-    else
-    {
-      v16 = 3;
-    }
-    v5 = v16 & 0xFFCFCFFF | ((*(_BYTE *)(a1 + 16) & 3 | ((*(_BYTE *)(a1 + 17) & 3) << 8)) << 12);
-  }
+  v28 = 0LL;
+  v3 = 0;
+  v5 = *(_BYTE *)(a1 + 21) || *(_BYTE *)(a1 + 20);
+  v6 = v5;
+  if ( *(_BYTE *)(a1 + 53) || *(_BYTE *)(a1 + 52) )
+    v7 = 2;
   else
-  {
-    v5 = 0;
-    if ( *(_BYTE *)(a1 + 21) )
-    {
-      v5 = 1;
-    }
-    else if ( *(_BYTE *)(a1 + 23) )
-    {
-      v5 = 2;
-    }
-  }
+    v7 = 0;
+  v8 = v7 | v6 & 0xFFFFFFFD;
+  if ( *(_BYTE *)(a1 + 85) || *(_BYTE *)(a1 + 84) )
+    v9 = 4;
+  else
+    v9 = 0;
+  v10 = v9 | v8 & 0xFFFFFFFB;
+  if ( *(_BYTE *)(a1 + 117) || *(_BYTE *)(a1 + 116) )
+    v11 = 8;
+  else
+    v11 = 0;
+  v12 = v11 | v10 & 0xF0FFFFE7 | (16
+                                * (*(_BYTE *)(a1 + 18) & 1 | ((*(_BYTE *)(a1 + 24) & 1 | (2
+                                                                                        * (*(_BYTE *)(a1 + 56) & 1 | (2 * (*(_BYTE *)(a1 + 88) & 1 | (2 * (*(_BYTE *)(a1 + 120) & 1))))))) << 20)));
+  if ( *(_BYTE *)(a1 + 18) )
+    v12 = v11 & 0xFFFCFCFF | v10 & 0xF0FCFCE7 | (16
+                                               * (*(_BYTE *)(a1 + 18) & 1 | ((*(_BYTE *)(a1 + 24) & 1 | (2 * (*(_BYTE *)(a1 + 56) & 1 | (2 * (*(_BYTE *)(a1 + 88) & 1 | (2 * (*(_BYTE *)(a1 + 120) & 1))))))) << 20))) & 0xFFFCFCFF | ((*(_BYTE *)(a1 + 16) & 3 | ((*(_BYTE *)(a1 + 17) & 3) << 8)) << 8);
+  v13 = v12 ^ ((unsigned __int8)v12 ^ (unsigned __int8)(32 * *(_BYTE *)(a1 + 50))) & 0x20;
   if ( *(_BYTE *)(a1 + 50) )
-  {
-    if ( *(_BYTE *)(a1 + 52) )
-    {
-      v17 = v5 & 0xFFFFFFC7 | 0x28;
-    }
-    else if ( *(_BYTE *)(a1 + 53) )
-    {
-      v17 = v5 & 0xFFFFFFC7 | 0x20;
-    }
-    else
-    {
-      v17 = v5 & 0xFFFFFFC7 | 0x18;
-    }
-    v5 = v17 & 0xFF3F3FFF | ((*(_BYTE *)(a1 + 48) & 3 | ((*(_BYTE *)(a1 + 49) & 3) << 8)) << 14);
-  }
-  else if ( *(_BYTE *)(a1 + 53) )
-  {
-    v5 = v5 & 0xFFFFFFC7 | 8;
-  }
-  else if ( *(_BYTE *)(a1 + 55) )
-  {
-    v5 = v5 & 0xFFFFFFC7 | 0x10;
-  }
+    v13 = v13 & 0xFFF3F3FF | ((*(_BYTE *)(a1 + 48) & 3 | ((*(_BYTE *)(a1 + 49) & 3) << 8)) << 10);
+  v14 = v13 ^ ((unsigned __int8)v13 ^ (unsigned __int8)(*(_BYTE *)(a1 + 82) << 6)) & 0x40;
   if ( *(_BYTE *)(a1 + 82) )
-  {
-    if ( *(_BYTE *)(a1 + 84) )
-    {
-      v18 = v5 & 0xFFFFFE3F | 0x140;
-    }
-    else if ( *(_BYTE *)(a1 + 85) )
-    {
-      v18 = v5 & 0xFFFFFE3F | 0x100;
-    }
-    else
-    {
-      v18 = v5 & 0xFFFFFE3F | 0xC0;
-    }
-    v5 = v18 & 0xFCFCFFFF | ((*(_BYTE *)(a1 + 80) & 3 | ((*(_BYTE *)(a1 + 81) & 3) << 8)) << 16);
-  }
-  else if ( *(_BYTE *)(a1 + 85) )
-  {
-    v5 = v5 & 0xFFFFFE3F | 0x40;
-  }
-  else if ( *(_BYTE *)(a1 + 87) )
-  {
-    v5 = v5 & 0xFFFFFE3F | 0x80;
-  }
+    v14 = v14 & 0xFFCFCFFF | ((*(_BYTE *)(a1 + 80) & 3 | ((*(_BYTE *)(a1 + 81) & 3) << 8)) << 12);
+  v15 = v14 ^ ((unsigned __int8)v14 ^ (unsigned __int8)(*(_BYTE *)(a1 + 114) << 7)) & 0x80;
   if ( *(_BYTE *)(a1 + 114) )
-  {
-    if ( *(_BYTE *)(a1 + 116) )
-    {
-      v19 = v5 & 0xFFFFF1FF | 0xA00;
-    }
-    else if ( *(_BYTE *)(a1 + 117) )
-    {
-      v19 = v5 & 0xFFFFF1FF | 0x800;
-    }
-    else
-    {
-      v19 = v5 & 0xFFFFF1FF | 0x600;
-    }
-    v5 = v19 & 0xF3F3FFFF | ((*(_BYTE *)(a1 + 112) & 3 | ((*(_BYTE *)(a1 + 113) & 3) << 8)) << 18);
-  }
-  else if ( *(_BYTE *)(a1 + 117) )
-  {
-    v5 = v5 & 0xFFFFF1FF | 0x200;
-  }
-  else if ( *(_BYTE *)(a1 + 119) )
-  {
-    v5 = v5 & 0xFFFFF1FF | 0x400;
-  }
-  v6 = 0;
-  v7 = 0;
+    v15 = v15 & 0xFF3F3FFF | ((*(_BYTE *)(a1 + 112) & 3 | ((*(_BYTE *)(a1 + 113) & 3) << 8)) << 14);
+  v16 = 0;
   if ( *(_BYTE *)(a1 + 153) )
-    v7 = 0x10000000;
-  v8 = v7 | v5 & 0xEFFFFFFF;
-  v9 = 0;
-  v10 = (*(_BYTE *)(a1 + 155) != 0 ? 0x20000000 : 0) | v8 & 0xDFFFFFFF;
+    v16 = 0x10000000;
+  v17 = v16 | v15 & 0xEFFFFFFF;
+  v18 = 0;
+  v19 = (*(_BYTE *)(a1 + 155) != 0 ? 0x20000000 : 0) | v17 & 0xDFFFFFFF;
   if ( *(_BYTE *)(a1 + 156) )
-    v9 = 0x80000000;
-  v11 = v9 | v10 & 0x7FFFFFFF;
-  v12 = 0;
+    v18 = 0x80000000;
+  v20 = v18 | v19 & 0x7FFFFFFF;
+  v21 = 0;
   if ( *(_BYTE *)(a1 + 152) )
-    v12 = 0x40000000;
-  v13 = v12 | v11 & 0xBFFFFFFF;
-  v14 = 0;
-  DWORD1(v20) = v13;
+    v21 = 0x40000000;
+  v22 = v21 | v20 & 0xBFFFFFFF;
+  v23 = 0;
+  DWORD1(v28) = v22;
   if ( *(_BYTE *)(a1 + 158) )
-    v14 = 0x10000;
+    v23 = 0x10000;
+  v24 = v23 | (*(_DWORD *)(a1 + 144) << 18) & 0xFC0000;
+  v25 = 0;
   if ( *(_BYTE *)(a1 + 159) )
-    v6 = 0x20000;
-  DWORD2(v20) = v6 | (a3 << 24) | v14 & 0xFD0000 | ((DWORD2(v20) ^ (*(_DWORD *)(a1 + 144) << 18)) & 0xFC0000 ^ DWORD2(v20)) & 0xFC0000 | *(unsigned __int16 *)(a1 + 128);
+    v25 = 0x20000;
+  v26 = v25 | v24 & 0xFFFDFFFF;
+  if ( *(_BYTE *)(a1 + 160) )
+    v3 = 0x1000000;
+  DWORD2(v28) = v3 | (a3 << 25) | v26 & 0xFF0000 | *(unsigned __int16 *)(a1 + 128);
   result = a2;
-  LODWORD(v20) = *(_DWORD *)(a1 + 8) & 0x3F | ((*(_DWORD *)(a1 + 40) & 0x3F | ((*(_DWORD *)(a1 + 72) & 0x3F | ((*(_DWORD *)(a1 + 104) & 0x3F | ((*(_BYTE *)(a1 + 25) & 1 | (2 * (*(_BYTE *)(a1 + 57) & 1 | (2 * (*(_BYTE *)(a1 + 89) & 1 | (2 * (*(_BYTE *)(a1 + 121) & 1 | (2 * (*(_BYTE *)(a1 + 24) & 1 | (2 * (*(_BYTE *)(a1 + 56) & 1 | (2 * (*(_BYTE *)(a1 + 88) & 1 | (2 * *(unsigned __int8 *)(a1 + 120))))))))))))))) << 6)) << 6)) << 6)) << 6);
-  *a2 = v20;
+  LODWORD(v28) = *(_DWORD *)(a1 + 8) & 0x3F | ((*(_DWORD *)(a1 + 40) & 0x3F | ((*(_DWORD *)(a1 + 72) & 0x3F | ((*(_DWORD *)(a1 + 104) & 0x3F | ((*(_BYTE *)(a1 + 22) & 1 | (2 * (*(_BYTE *)(a1 + 54) & 1 | (2 * (*(_BYTE *)(a1 + 86) & 1 | (2 * (*(_BYTE *)(a1 + 118) & 1 | (2 * (*(_BYTE *)(a1 + 23) & 1 | (2 * (*(_BYTE *)(a1 + 55) & 1 | (2 * (*(_BYTE *)(a1 + 87) & 1 | (2 * *(unsigned __int8 *)(a1 + 119))))))))))))))) << 6)) << 6)) << 6)) << 6);
+  *a2 = v28;
   return result;
 }

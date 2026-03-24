@@ -1,11 +1,11 @@
 /*
- * XREFs of Alias @ 0x1C002C5D0
+ * XREFs of Alias @ 0x1C0023220
  * Callers:
  *     <none>
  * Callees:
- *     CreateNameSpaceObject @ 0x1C0013250 (CreateNameSpaceObject.c)
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     GetNameSpaceObject @ 0x1C0019AC8 (GetNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
  */
 
 __int64 __fastcall Alias(__int64 a1, __int64 a2)
@@ -30,7 +30,7 @@ __int64 __fastcall Alias(__int64 a1, __int64 a2)
            *(unsigned __int8 **)(*(_QWORD *)(a2 + 80) + 72LL),
            *(_QWORD *)(a1 + 80),
            *(struct _EX_RUNDOWN_REF **)(a1 + 88),
-           (__int64 *)(a2 + 64),
+           (_QWORD *)(a2 + 64),
            0);
     v7 = v9;
     NameSpaceObject = v6;

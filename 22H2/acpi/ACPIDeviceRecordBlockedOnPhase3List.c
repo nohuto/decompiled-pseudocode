@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIDeviceRecordBlockedOnPhase3List @ 0x1C0021B90
+ * XREFs of ACPIDeviceRecordBlockedOnPhase3List @ 0x1C0031938
  * Callers:
- *     ACPIDevicePowerDpc @ 0x1C001E5E0 (ACPIDevicePowerDpc.c)
+ *     ACPIDevicePowerDpc @ 0x1C0020030 (ACPIDevicePowerDpc.c)
  * Callees:
- *     ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C001E9A0 (ACPIDevicePowerEnumerateAssociatedPowerNodes.c)
+ *     ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C001C214 (ACPIDevicePowerEnumerateAssociatedPowerNodes.c)
  */
 
 void __fastcall ACPIDeviceRecordBlockedOnPhase3List(_QWORD **a1)
@@ -33,15 +33,15 @@ void __fastcall ACPIDeviceRecordBlockedOnPhase3List(_QWORD **a1)
           || (v5 = *(_QWORD **)(v3 + 8), *v5 != v3)
           || (*v5 = v4,
               *(_QWORD *)(v4 + 8) = v5,
-              v6 = (__int64 *)qword_1C006F1C8,
-              *(__int64 **)qword_1C006F1C8 != &AcpiPowerBlockedOnPhase3List) )
+              v6 = (__int64 *)qword_1C0082128,
+              *(__int64 **)qword_1C0082128 != &AcpiPowerBlockedOnPhase3List) )
         {
           __fastfail(3u);
         }
         *(_QWORD *)v3 = &AcpiPowerBlockedOnPhase3List;
         *(_QWORD *)(v3 + 8) = v6;
         *v6 = v3;
-        qword_1C006F1C8 = v3;
+        qword_1C0082128 = v3;
         *(_DWORD *)(v3 + 56) &= ~0x8000000u;
       }
     }

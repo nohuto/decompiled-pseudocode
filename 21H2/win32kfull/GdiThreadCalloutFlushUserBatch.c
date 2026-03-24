@@ -1,19 +1,19 @@
 /*
- * XREFs of GdiThreadCalloutFlushUserBatch @ 0x1C00F9A90
+ * XREFs of GdiThreadCalloutFlushUserBatch @ 0x1C010D9C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall GdiThreadCalloutFlushUserBatch(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+unsigned __int64 GdiThreadCalloutFlushUserBatch()
 {
   struct _NT_TIB *Self; // rax
   int StackLimit; // edi
   PVOID *p_ArbitraryUserPointer; // rbx
   unsigned __int64 p_Self; // rsi
   unsigned __int64 result; // rax
-  __int64 v9; // r14
+  __int64 v5; // r14
 
   Self = KeGetPcr()->NtTib.Self;
   StackLimit = (int)Self[106].StackLimit;
@@ -26,14 +26,14 @@ unsigned __int64 __fastcall GdiThreadCalloutFlushUserBatch(__int64 a1, __int64 a
   {
     do
     {
-      v9 = *(unsigned __int16 *)p_ArbitraryUserPointer;
-      result = (unsigned __int64)p_ArbitraryUserPointer + v9;
-      if ( (unsigned __int64)p_ArbitraryUserPointer + v9 > p_Self )
+      v5 = *(unsigned __int16 *)p_ArbitraryUserPointer;
+      result = (unsigned __int64)p_ArbitraryUserPointer + v5;
+      if ( (unsigned __int64)p_ArbitraryUserPointer + v5 > p_Self )
         break;
       if ( *((_WORD *)p_ArbitraryUserPointer + 1) == 8 )
-        NtGdiDeleteObjectApp(p_ArbitraryUserPointer[1], 1LL, a3, a4);
+        NtGdiDeleteObjectApp(p_ArbitraryUserPointer[1], 1LL);
       --StackLimit;
-      result = ((_DWORD)v9 + 7) & 0xFFFFFFF8;
+      result = ((_DWORD)v5 + 7) & 0xFFFFFFF8;
       p_ArbitraryUserPointer = (PVOID *)((char *)p_ArbitraryUserPointer + result);
       if ( !StackLimit )
         break;

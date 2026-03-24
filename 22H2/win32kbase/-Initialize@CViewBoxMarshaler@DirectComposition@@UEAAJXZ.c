@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CViewBoxMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0215670
+ * XREFs of ?Initialize@CViewBoxMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01E74A0
  * Callers:
  *     <none>
  * Callees:

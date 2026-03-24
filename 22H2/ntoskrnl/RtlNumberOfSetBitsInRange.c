@@ -1,8 +1,7 @@
 /*
- * XREFs of RtlNumberOfSetBitsInRange @ 0x1405A8DA0
+ * XREFs of RtlNumberOfSetBitsInRange @ 0x140587F90
  * Callers:
- *     RtlNumberOfClearBitsInRange @ 0x1405A8BD0 (RtlNumberOfClearBitsInRange.c)
- *     KiTpIsExcludedKernelTracepointLocation @ 0x1409765F0 (KiTpIsExcludedKernelTracepointLocation.c)
+ *     RtlNumberOfClearBitsInRange @ 0x140587DC0 (RtlNumberOfClearBitsInRange.c)
  * Callees:
  *     <none>
  */
@@ -39,14 +38,14 @@ __int64 __fastcall RtlNumberOfSetBitsInRange(__int64 a1, unsigned int a2, unsign
   v9 = (a3 + a2 - 1) & 7;
   if ( a2 >> 3 == v7 )
     return *((unsigned __int8 *)RtlpBitsClearTotal
-           + (unsigned __int8)~(*v6 & byte_140016E48[v8] & byte_140018F40[v9 + 1]));
+           + (unsigned __int8)~(*v6 & byte_14001B528[v8] & byte_14001E790[v9 + 1]));
   if ( (((unsigned __int8)a3 | (unsigned __int8)a2) & 0x3F) != 0 )
   {
     if ( (a2 & 7) != 0 )
     {
       v13 = *v6++;
       ++v5;
-      v4 = *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(v13 & byte_140016E48[v8]));
+      v4 = *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(v13 & byte_14001B528[v8]));
     }
     v14 = 8 - (v5 & 7);
     if ( (v14 & 0xFFFFFFF7) != 0 )
@@ -86,7 +85,7 @@ __int64 __fastcall RtlNumberOfSetBitsInRange(__int64 a1, unsigned int a2, unsign
       }
       while ( v18 );
     }
-    return v4 + *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(*v6 & byte_140018F40[v9 + 1]));
+    return v4 + *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(*v6 & byte_14001E790[v9 + 1]));
   }
   else
   {

@@ -1,19 +1,19 @@
 /*
- * XREFs of BiUpdateObjectReferenceInEfiEntry @ 0x140A212A0
+ * XREFs of BiUpdateObjectReferenceInEfiEntry @ 0x140973334
  * Callers:
- *     BiCreateEfiEntry @ 0x140A1F234 (BiCreateEfiEntry.c)
+ *     BiCreateEfiEntry @ 0x1409712D0 (BiCreateEfiEntry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wcsupr @ 0x1403E17B0 (_wcsupr.c)
- *     wcsstr @ 0x1403E3540 (wcsstr.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     BcdQueryObject @ 0x140800A38 (BcdQueryObject.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x140A202A4 (BiGetObjectReferenceFromEfiEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wcsupr @ 0x1403D23F0 (_wcsupr.c)
+ *     wcsstr @ 0x1403D4190 (wcsstr.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     BcdQueryObject @ 0x140783304 (BcdQueryObject.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x140972338 (BiGetObjectReferenceFromEfiEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
@@ -60,7 +60,7 @@ __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
                 (void *)(a1 + 68 + 2 * ((unsigned __int64)(v9 - v8) >> 1)),
                 DestinationString.Buffer,
                 DestinationString.Length);
-              RtlFreeUnicodeString(&DestinationString);
+              RtlFreeAnsiString(&DestinationString);
             }
           }
           else

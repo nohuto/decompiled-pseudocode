@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_sl @ 0x1C0063D90
+ * XREFs of WPP_IFR_SF_sl @ 0x1C0049684
  * Callers:
- *     imp_WdfVerifierDbgBreakPoint @ 0x1C0063F50 (imp_WdfVerifierDbgBreakPoint.c)
+ *     imp_WdfVerifierDbgBreakPoint @ 0x1C0049840 (imp_WdfVerifierDbgBreakPoint.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_sl(

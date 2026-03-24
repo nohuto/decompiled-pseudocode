@@ -1,11 +1,11 @@
 /*
- * XREFs of ?MouseReportRateLimitingTimerFired@Mouse@InputTraceLogging@@SAXPEAUDEVICEINFO@@@Z @ 0x1C01EC1C8
+ * XREFs of ?MouseReportRateLimitingTimerFired@Mouse@InputTraceLogging@@SAXPEAUDEVICEINFO@@@Z @ 0x1C01B2550
  * Callers:
- *     ?OnMouseReportRateLimitingTimerNotification@CMouseSensor@@EEAAJXZ @ 0x1C01EC260 (-OnMouseReportRateLimitingTimerNotification@CMouseSensor@@EEAAJXZ.c)
+ *     ?OnMouseReportRateLimitingTimerNotification@CMouseSensor@@EEAAJXZ @ 0x1C01B25F0 (-OnMouseReportRateLimitingTimerNotification@CMouseSensor@@EEAAJXZ.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004DAC0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C008F428 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 void __fastcall InputTraceLogging::Mouse::MouseReportRateLimitingTimerFired(struct DEVICEINFO *a1)
@@ -17,12 +17,12 @@ void __fastcall InputTraceLogging::Mouse::MouseReportRateLimitingTimerFired(stru
   int v5; // [rsp+60h] [rbp-18h]
   int v6; // [rsp+64h] [rbp-14h]
 
-  if ( (unsigned int)dword_1C028EE70 > 4 && tlgKeywordOn((__int64)&dword_1C028EE70, 64LL) )
+  if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 64LL) )
   {
     v6 = 0;
     v4 = &v2;
     v2 = v1;
     v5 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C028EE70, (unsigned __int8 *)dword_1C026356D, 0LL, 0LL, 3u, &v3);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C024BA90, (unsigned __int8 *)dword_1C02201B9, 0LL, 0LL, 3u, &v3);
   }
 }

@@ -1,59 +1,57 @@
 /*
- * XREFs of RtlpHpVaMgrCtxStart @ 0x140397528
+ * XREFs of RtlpHpVaMgrCtxStart @ 0x14039D158
  * Callers:
- *     RtlHpHeapManagerStart @ 0x140396ECC (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerStart @ 0x14039D088 (RtlHpHeapManagerStart.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x140397ED4 (RtlpHpVaMgrCtxAllocatorReference.c)
- *     RtlCSparseBitmapStart @ 0x140398284 (RtlCSparseBitmapStart.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x14037B680 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlCSparseBitmapStart @ 0x14039D250 (RtlCSparseBitmapStart.c)
  */
 
-NTSTATUS __fastcall RtlpHpVaMgrCtxStart(__int64 a1, int a2, __int64 a3, __int64 a4, unsigned __int64 a5)
+int __fastcall RtlpHpVaMgrCtxStart(__int64 a1, unsigned int a2, __int64 a3, unsigned __int64 a4)
 {
-  unsigned int v6; // eax
-  unsigned __int64 v7; // r10
-  bool v9; // zf
-  ULONGLONG v11; // rcx
-  NTSTATUS result; // eax
-  unsigned int v13; // r11d
-  int v14; // ebx
-  __int64 v15; // r8
-  _DWORD v16[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v17; // [rsp+28h] [rbp-20h]
+  unsigned int v7; // eax
+  ULONGLONG v8; // rcx
+  int result; // eax
+  unsigned int v10; // r11d
+  int v11; // ebx
+  unsigned int v12; // r8d
+  _DWORD v13[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v14; // [rsp+28h] [rbp-20h]
   ULONGLONG pullResult; // [rsp+50h] [rbp+8h] BYREF
 
   pullResult = 0LL;
-  _BitScanForward(&v6, 0x20u);
-  v7 = a5 >> 20;
-  v9 = (a5 & 0xFFFFF) == 0;
-  *(_DWORD *)(a1 + 24) = v6;
-  v11 = v7 + 1;
-  if ( v9 )
-    v11 = v7;
-  result = RtlULongLongMult(v11, 8uLL, &pullResult);
+  _BitScanForward(&v7, 0x20u);
+  *(_DWORD *)(a1 + 24) = v7;
+  v8 = (a4 >> 20) + 1;
+  if ( (a4 & 0xFFFFF) == 0 )
+    v8 = a4 >> 20;
+  result = RtlULongLongMult(v8, 8uLL, &pullResult);
   if ( result >= 0 )
   {
-    result = RtlULongLongMult(pullResult, 0x20uLL, &pullResult);
+    result = RtlULongLongMult(pullResult, v10, &pullResult);
     if ( result >= 0 )
     {
-      result = RtlCSparseBitmapStart(a1 + 32, pullResult, v13);
+      result = RtlCSparseBitmapStart(a1 + 32, pullResult, a2, 1LL);
+      if ( result >= 0 )
+        result = 0;
       if ( result >= 0 )
       {
-        v16[0] = -1;
+        v13[0] = -1;
         *(_DWORD *)a1 = a2;
-        *(_QWORD *)(a1 + 8) = a4;
-        v14 = 0;
-        v17 = 0LL;
+        v11 = 0;
+        *(_QWORD *)(a1 + 8) = a3;
+        v14 = 0LL;
         while ( 1 )
         {
-          v16[1] = v14;
-          v15 = 0x200000LL;
-          if ( (unsigned int)(v14 - 2) > 1 && v14 == 4 )
-            v15 = 0x40000000LL;
-          result = RtlpHpVaMgrCtxAllocatorReference(a1, v16, v15);
+          v13[1] = v11;
+          v12 = 0x200000;
+          if ( v11 == 3 )
+            v12 = 0x40000000;
+          result = RtlpHpVaMgrCtxAllocatorReference(a1, (__int64)v13, v12);
           if ( result < 0 )
             break;
-          if ( ++v14 >= 6 )
+          if ( ++v11 >= 4 )
             return 0;
         }
       }

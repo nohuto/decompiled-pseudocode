@@ -1,18 +1,18 @@
 /*
- * XREFs of PopRecordSleepCheckpoint @ 0x1409814C0
+ * XREFs of PopRecordSleepCheckpoint @ 0x1407773E8
  * Callers:
- *     PopCheckpointSystemSleep @ 0x140AAA5A8 (PopCheckpointSystemSleep.c)
- *     PopCheckShutdownMarker @ 0x140B37D6C (PopCheckShutdownMarker.c)
+ *     PopCheckpointSystemSleep @ 0x140993C64 (PopCheckpointSystemSleep.c)
+ *     PopCheckShutdownMarker @ 0x140A447E0 (PopCheckShutdownMarker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x14032D1F4 (PopBsdHandleRequest.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1403F76F4 (PopBsdHandleRequest.c)
  */
 
 void __fastcall PopRecordSleepCheckpoint(char a1)
 {
   PopAcquireRwLockExclusive((ULONG_PTR)&PopBsdUpdateLock);
   BYTE2(PopBsdPowerTransitionExtension) = a1;
-  PopBsdHandleRequest(0xAu);
-  PopReleaseRwLock(&PopBsdUpdateLock);
+  PopBsdHandleRequest(8);
+  PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
 }

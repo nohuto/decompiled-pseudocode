@@ -1,12 +1,12 @@
 /*
- * XREFs of PspCreatePartitionSystemProcess @ 0x1409B3358
+ * XREFs of PspCreatePartitionSystemProcess @ 0x14090CF58
  * Callers:
- *     PspAllocatePartition @ 0x14085BD34 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x1407CC2B4 (PspAllocatePartition.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     PsCreateMinimalProcess @ 0x140831810 (PsCreateMinimalProcess.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
  */
 
 __int64 __fastcall PspCreatePartitionSystemProcess(PVOID *a1, _QWORD *a2)
@@ -38,7 +38,7 @@ __int64 __fastcall PspCreatePartitionSystemProcess(PVOID *a1, _QWORD *a2)
       return result;
     }
     if ( Handle )
-      ObfDereferenceObject(Handle);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Handle);
   }
   if ( v6 )
     ObCloseHandle(v6, 0);

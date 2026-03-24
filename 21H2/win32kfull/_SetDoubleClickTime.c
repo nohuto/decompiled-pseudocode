@@ -1,12 +1,11 @@
 /*
- * XREFs of _SetDoubleClickTime @ 0x1C010D2A8
+ * XREFs of _SetDoubleClickTime @ 0x1C00DB5F0
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
- *     NtUserSetDoubleClickTime @ 0x1C01FD1C0 (NtUserSetDoubleClickTime.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     CheckWinstaAttributeAccess @ 0x1C009EAE0 (CheckWinstaAttributeAccess.c)
- *     InitTooltipDelay @ 0x1C010D360 (InitTooltipDelay.c)
- *     safe_cast_fnid_to_PTOOLTIPWND @ 0x1C010D388 (safe_cast_fnid_to_PTOOLTIPWND.c)
+ *     safe_cast_fnid_to_PTOOLTIPWND @ 0x1C0030A88 (safe_cast_fnid_to_PTOOLTIPWND.c)
+ *     CheckWinstaAttributeAccess @ 0x1C00333F0 (CheckWinstaAttributeAccess.c)
+ *     InitTooltipDelay @ 0x1C00DB6A4 (InitTooltipDelay.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!

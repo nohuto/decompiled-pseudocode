@@ -1,19 +1,20 @@
 /*
- * XREFs of GreEudcUnloadLinkW @ 0x1C0295B94
+ * XREFs of GreEudcUnloadLinkW @ 0x1C02980C0
  * Callers:
- *     NtGdiEudcLoadUnloadLink @ 0x1C0297690 (NtGdiEudcLoadUnloadLink.c)
+ *     NtGdiEudcLoadUnloadLink @ 0x1C0298E10 (NtGdiEudcLoadUnloadLink.c)
  * Callees:
- *     bUnloadEudcFont @ 0x1C00119A4 (bUnloadEudcFont.c)
- *     ?GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C001C660 (-GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ.c)
- *     vUnlinkAllEudcRFONTsAndPFEs @ 0x1C015EC88 (vUnlinkAllEudcRFONTsAndPFEs.c)
- *     bDeleteFlEntry @ 0x1C02961A8 (bDeleteFlEntry.c)
- *     bWriteUserSystemEUDCRegistry @ 0x1C0296CB4 (bWriteUserSystemEUDCRegistry.c)
+ *     ?GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B948 (-GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     bUnloadEudcFont @ 0x1C00A1EB0 (bUnloadEudcFont.c)
+ *     vUnlinkAllEudcRFONTsAndPFEs @ 0x1C011E990 (vUnlinkAllEudcRFONTsAndPFEs.c)
+ *     bDeleteFlEntry @ 0x1C0298670 (bDeleteFlEntry.c)
+ *     bWriteUserSystemEUDCRegistry @ 0x1C029888C (bWriteUserSystemEUDCRegistry.c)
  */
 
 __int64 __fastcall GreEudcUnloadLinkW(wchar_t *Str1, __int64 a2, unsigned __int16 *a3)
 {
   int v5; // edi
   unsigned int v6; // ebx
+  __int64 v8; // rcx
 
   v5 = 1;
   v6 = 0;
@@ -30,12 +31,12 @@ __int64 __fastcall GreEudcUnloadLinkW(wchar_t *Str1, __int64 a2, unsigned __int1
     }
     else if ( *(_OWORD *)&gappfeSysEUDC != 0LL )
     {
-      vUnlinkAllEudcRFONTsAndPFEs(0);
+      vUnlinkAllEudcRFONTsAndPFEs(v8, 0);
       bUnloadEudcFont((__int64)&gappfeSysEUDC);
-      ++dword_1C0336378;
+      ++dword_1C033B0B8;
       Dst[0] = 0;
       *(_OWORD *)&gappfeSysEUDC = 0LL;
-      bWriteUserSystemEUDCRegistry(&unk_1C02F8FA4);
+      bWriteUserSystemEUDCRegistry(&unk_1C02FB888);
     }
     v6 = v5;
   }

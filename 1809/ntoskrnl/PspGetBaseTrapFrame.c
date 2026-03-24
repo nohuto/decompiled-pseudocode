@@ -2,7 +2,7 @@
  * XREFs of PspGetBaseTrapFrame @ 0x1400A0F18
  * Callers:
  *     RtlpWalkFrameChain @ 0x14009EB90 (RtlpWalkFrameChain.c)
- *     PsGetBaseTrapFrame @ 0x1402E996C (PsGetBaseTrapFrame.c)
+ *     PsGetBaseTrapFrame @ 0x1402E9A6C (PsGetBaseTrapFrame.c)
  *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
  *     PspInitializeThunkContext @ 0x1406207DC (PspInitializeThunkContext.c)
  * Callees:

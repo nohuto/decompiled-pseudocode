@@ -8,8 +8,8 @@
  *     MiGetPageChain @ 0x140049670 (MiGetPageChain.c)
  *     MiUseSlabAllocator @ 0x140065C90 (MiUseSlabAllocator.c)
  *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     MiRetainSubsection @ 0x140131E68 (MiRetainSubsection.c)
- *     MiGetSlabPage @ 0x1402C28DC (MiGetSlabPage.c)
+ *     MiRetainSubsection @ 0x140131E88 (MiRetainSubsection.c)
+ *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
  */
 
 unsigned __int64 __fastcall MiGetHardFaultPages(

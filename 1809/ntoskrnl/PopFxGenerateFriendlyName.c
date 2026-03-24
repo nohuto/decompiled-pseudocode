@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxGenerateFriendlyName @ 0x140725320
+ * XREFs of PopFxGenerateFriendlyName @ 0x140725300
  * Callers:
- *     PopFxRegisterDevice @ 0x1407251B0 (PopFxRegisterDevice.c)
+ *     PopFxRegisterDevice @ 0x140725190 (PopFxRegisterDevice.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     RtlUnicodeStringCat @ 0x14012B4AC (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x140179D84 (RtlUnicodeStringCatString.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlUnicodeStringCat @ 0x14012B4CC (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCatString @ 0x140179DA4 (RtlUnicodeStringCatString.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)

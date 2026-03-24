@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeMessageAttributes@RegistrarClient@CoreMessagingK@@CAXPEAU_ALPC_MESSAGE_ATTRIBUTES@@_K@Z @ 0x1C00B1A74
+ * XREFs of ?InitializeMessageAttributes@RegistrarClient@CoreMessagingK@@CAXPEAU_ALPC_MESSAGE_ATTRIBUTES@@_K@Z @ 0x1C0075698
  * Callers:
- *     ?Connect@RegistrarClient@CoreMessagingK@@CAJXZ @ 0x1C00B15D8 (-Connect@RegistrarClient@CoreMessagingK@@CAJXZ.c)
+ *     ?Connect@RegistrarClient@CoreMessagingK@@CAJXZ @ 0x1C007548C (-Connect@RegistrarClient@CoreMessagingK@@CAJXZ.c)
  * Callees:
- *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C0235054 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
+ *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C01FF124 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
  */
 
 void __fastcall CoreMessagingK::RegistrarClient::InitializeMessageAttributes(struct _ALPC_MESSAGE_ATTRIBUTES *a1)

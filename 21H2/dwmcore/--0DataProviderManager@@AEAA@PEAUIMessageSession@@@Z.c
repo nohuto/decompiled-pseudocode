@@ -1,19 +1,18 @@
 /*
- * XREFs of ??0DataProviderManager@@AEAA@PEAUIMessageSession@@@Z @ 0x1800304A0
+ * XREFs of ??0DataProviderManager@@AEAA@PEAUIMessageSession@@@Z @ 0x1800B477C
  * Callers:
- *     ?Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x18002EF3C (-Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ *     ?Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B46E4 (-Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?_Assign_grow@?$_Hash_vec@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KV?$ComPtr@VDataProviderProxy@@@WRL@Microsoft@@@std@@@std@@@std@@@std@@@std@@@std@@QEAAX_KV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KV?$ComPtr@VDataProviderProxy@@@WRL@Microsoft@@@std@@@std@@@std@@@2@@Z @ 0x18003055C (-_Assign_grow@-$_Hash_vec@V-$allocator@V-$_List_unchecked_iterator@V-$_List_val@U-$_List_simple_.c)
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0?$_Hash@V?$_Umap_traits@PEAVCChannelContext@@MV?$_Uhash_compare@PEAVCChannelContext@@U?$hash@PEAVCChannelContext@@@std@@U?$equal_to@PEAVCChannelContext@@@3@@std@@V?$allocator@U?$pair@QEAVCChannelContext@@M@std@@@3@$0A@@std@@@std@@QEAA@AEBV?$_Uhash_compare@PEAVCChannelContext@@U?$hash@PEAVCChannelContext@@@std@@U?$equal_to@PEAVCChannelContext@@@3@@1@AEBV?$allocator@U?$pair@QEAVCChannelContext@@M@std@@@1@@Z @ 0x1800B47EC (--0-$_Hash@V-$_Umap_traits@PEAVCChannelContext@@MV-$_Uhash_compare@PEAVCChannelContext@@U-$hash@.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 DataProviderManager *__fastcall DataProviderManager::DataProviderManager(
         DataProviderManager *this,
         struct IMessageSession *a2)
 {
-  _QWORD *v3; // rax
   DataProviderManager *result; // rax
+  int v4; // [rsp+30h] [rbp+8h] BYREF
 
   *((_DWORD *)this + 2) = 0;
   *(_QWORD *)this = &DataProviderManager::`vftable';
@@ -22,25 +21,12 @@ DataProviderManager *__fastcall DataProviderManager::DataProviderManager(
     (*(void (__fastcall **)(struct IMessageSession *))(*(_QWORD *)a2 + 8LL))(a2);
   *((_QWORD *)this + 3) = 0LL;
   *((_QWORD *)this + 4) = 0LL;
-  *((_DWORD *)this + 10) = 0;
-  *((_QWORD *)this + 6) = 0LL;
-  *((_QWORD *)this + 7) = 0LL;
-  v3 = (_QWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(0x20uLL);
-  *v3 = v3;
-  v3[1] = v3;
-  *((_QWORD *)this + 6) = v3;
-  *((_QWORD *)this + 8) = 0LL;
-  *((_QWORD *)this + 9) = 0LL;
-  *((_QWORD *)this + 10) = 0LL;
-  *((_QWORD *)this + 11) = 7LL;
-  *((_QWORD *)this + 12) = 8LL;
-  *((_DWORD *)this + 10) = 1065353216;
-  std::_Hash_vec<std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<unsigned __int64 const,Microsoft::WRL::ComPtr<DataProviderProxy>>>>>>>::_Assign_grow(
-    (char *)this + 64,
-    16LL,
-    *((_QWORD *)this + 6));
-  result = this;
+  v4 = 0;
+  std::_Hash<std::_Umap_traits<CChannelContext *,float,std::_Uhash_compare<CChannelContext *,std::hash<CChannelContext *>,std::equal_to<CChannelContext *>>,std::allocator<std::pair<CChannelContext * const,float>>,0>>::_Hash<std::_Umap_traits<CChannelContext *,float,std::_Uhash_compare<CChannelContext *,std::hash<CChannelContext *>,std::equal_to<CChannelContext *>>,std::allocator<std::pair<CChannelContext * const,float>>,0>>(
+    (char *)this + 40,
+    &v4);
   *((_QWORD *)this + 13) = 0LL;
+  result = this;
   *((_QWORD *)this + 14) = 0LL;
   *((_QWORD *)this + 15) = 0LL;
   return result;

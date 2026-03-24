@@ -1,9 +1,9 @@
 /*
- * XREFs of PopClearHibernateDiagnosticInfo @ 0x1406EBBF0
+ * XREFs of PopClearHibernateDiagnosticInfo @ 0x1406C3F6C
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x140A4E3A0 (PopUnlockAfterSleepWorker.c)
+ *     PopUnlockAfterSleepWorker @ 0x140994FE0 (PopUnlockAfterSleepWorker.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void *PopClearHibernateDiagnosticInfo()

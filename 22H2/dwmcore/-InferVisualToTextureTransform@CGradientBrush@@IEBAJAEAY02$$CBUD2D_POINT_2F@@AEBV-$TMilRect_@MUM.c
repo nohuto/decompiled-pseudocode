@@ -1,13 +1,12 @@
 /*
- * XREFs of ?InferVisualToTextureTransform@CGradientBrush@@IEBAJAEAY02$$CBUD2D_POINT_2F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1800B6C30
+ * XREFs of ?InferVisualToTextureTransform@CGradientBrush@@IEBAJAEAY02$$CBUD2D_POINT_2F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1801E6FA8
  * Callers:
- *     ?GetBrushParameters@CLinearGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x1800B6800 (-GetBrushParameters@CLinearGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z.c)
- *     ?GetBrushParameters@CRadialGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x18024DB40 (-GetBrushParameters@CRadialGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z.c)
+ *     ?GetBrushParameters@CLinearGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x1801D2530 (-GetBrushParameters@CLinearGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z.c)
+ *     ?GetBrushParameters@CRadialGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x1801E7A20 (-GetBrushParameters@CRadialGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z.c)
  * Callees:
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?InferAffineMatrix@CMILMatrix@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBUMilPoint2F@@@Z @ 0x1800B7114 (-InferAffineMatrix@CMILMatrix@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?InferAffineMatrix@CMILMatrix@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBUMilPoint2F@@@Z @ 0x180210D58 (-InferAffineMatrix@CMILMatrix@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPo_ea_180210D58.c)
  */
 
 __int64 __fastcall CGradientBrush::InferVisualToTextureTransform(__int64 a1, __int64 a2, __int64 a3)
@@ -15,62 +14,53 @@ __int64 __fastcall CGradientBrush::InferVisualToTextureTransform(__int64 a1, __i
   float v3; // xmm0_4
   char v4; // al
   float v5; // xmm2_4
-  __int64 v6; // rdx
-  int v7; // xmm1_4
-  int v8; // xmm2_4
-  int v9; // xmm3_4
-  int v10; // xmm4_4
-  int v11; // xmm5_4
-  __int64 v12; // r9
-  unsigned int v13; // ecx
-  unsigned int v14; // ebx
-  _DWORD v16[20]; // [rsp+30h] [rbp-19h] BYREF
-  _DWORD v17[4]; // [rsp+80h] [rbp+37h] BYREF
+  unsigned __int64 v6; // xmm1_8
+  D2D1_MATRIX_3X2_F *v7; // r9
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
+  __int128 v11; // [rsp+30h] [rbp-19h] BYREF
+  __int128 v12; // [rsp+40h] [rbp-9h]
+  __int128 v13; // [rsp+50h] [rbp+7h]
+  __int128 v14; // [rsp+60h] [rbp+17h]
+  __int16 v15; // [rsp+70h] [rbp+27h]
+  __int128 v16; // [rsp+80h] [rbp+37h] BYREF
 
-  v3 = *(float *)&FLOAT_1_0;
-  v4 = *(_BYTE *)(a1 + 152);
-  if ( v4 == 1 && *(_BYTE *)(a1 + 226) )
+  LODWORD(v3) = (_DWORD)FLOAT_1_0;
+  v4 = *(_BYTE *)(a1 + 104);
+  if ( v4 == 1 && *(_BYTE *)(a1 + 178) )
   {
     v5 = 1.0 / *(float *)(a3 + 8);
-LABEL_4:
-    v3 = 1.0 - (float)(1.0 / *(float *)(a3 + 8));
-    goto LABEL_5;
   }
-  v5 = 0.0;
-  if ( v4 == 1 )
-    goto LABEL_4;
-LABEL_5:
-  *(float *)v17 = v5;
-  *(float *)&v17[1] = v5;
-  *(float *)&v17[2] = v3;
-  *(float *)&v17[3] = v3;
-  CMILMatrix::SetToIdentity((CMILMatrix *)v16);
-  CMILMatrix::InferAffineMatrix(v16, v17, v6);
-  v7 = v16[1];
-  v8 = v16[4];
-  v9 = v16[5];
-  v10 = v16[12];
-  v11 = v16[13];
-  *(_DWORD *)v12 = v16[0];
-  *(_DWORD *)(v12 + 4) = v7;
-  *(_DWORD *)(v12 + 8) = v8;
-  *(_DWORD *)(v12 + 12) = v9;
-  *(_DWORD *)(v12 + 16) = v10;
-  *(_DWORD *)(v12 + 20) = v11;
-  if ( D2D1InvertMatrix((D2D1_MATRIX_3X2_F *)v12) )
+  else
+  {
+    v5 = 0.0;
+    if ( v4 != 1 )
+      goto LABEL_6;
+  }
+  v3 = 1.0 - (float)(1.0 / *(float *)(a3 + 8));
+LABEL_6:
+  *((float *)&v16 + 3) = v3;
+  v11 = _xmm;
+  v12 = _xmm;
+  v13 = _xmm;
+  *(float *)&v16 = v5;
+  *(_QWORD *)((char *)&v16 + 4) = __PAIR64__(LODWORD(v3), LODWORD(v5));
+  v14 = _xmm;
+  v15 = 32085;
+  CMILMatrix::InferAffineMatrix(&v11, &v16, a2);
+  *(_QWORD *)&v16 = v11;
+  *((_QWORD *)&v16 + 1) = v12;
+  v6 = _mm_unpacklo_ps((__m128)(unsigned int)v14, (__m128)DWORD1(v14)).m128_u64[0];
+  *(_OWORD *)&v7->m11 = v16;
+  *(_QWORD *)&v7->m[2][0] = v6;
+  if ( D2D1InvertMatrix(v7) )
   {
     return 0;
   }
   else
   {
-    v14 = -2003304441;
-    MilInstrumentationCheckHR_MaybeFailFast(
-      v13,
-      &`CBitmapRenderStrategy::GetLayoutParameters'::`2'::MILINSTRUMENTATIONHRESULTLIST,
-      2u,
-      -2003304441,
-      0x1ADu,
-      0LL);
+    v9 = -2003304441;
+    MilInstrumentationCheckHR_MaybeFailFast(v8, &dword_180304EE0, 2u, -2003304441, 0x1B2u, 0LL);
   }
-  return v14;
+  return v9;
 }

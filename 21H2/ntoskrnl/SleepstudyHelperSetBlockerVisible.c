@@ -1,5 +1,5 @@
 /*
- * XREFs of SleepstudyHelperSetBlockerVisible @ 0x1409A13C0
+ * XREFs of SleepstudyHelperSetBlockerVisible @ 0x1406C2910
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 __fastcall SleepstudyHelperSetBlockerVisible(__int64 a1, char a2)
   result = 3221225485LL;
   if ( a1 )
   {
-    *(_BYTE *)(a1 + 88) = a2;
+    *(_BYTE *)(a1 + 72) = a2;
     return 0LL;
   }
   return result;

@@ -1,11 +1,11 @@
 /*
- * XREFs of VfIsVerificationEnabledForImage @ 0x1405FDEC0
+ * XREFs of VfIsVerificationEnabledForImage @ 0x1405A06B8
  * Callers:
- *     KsepPatchDriverImportsTable @ 0x1409644D8 (KsepPatchDriverImportsTable.c)
+ *     KsepPatchDriverImportsTable @ 0x1408C0458 (KsepPatchDriverImportsTable.c)
  * Callees:
- *     ViIsDriverSuspectForVerifier @ 0x140A821E0 (ViIsDriverSuspectForVerifier.c)
- *     VfDriverLock @ 0x140A89D58 (VfDriverLock.c)
- *     VfDriverUnlock @ 0x140A89E7C (VfDriverUnlock.c)
+ *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
+ *     ViIsDriverSuspectForVerifier @ 0x1409C6CE0 (ViIsDriverSuspectForVerifier.c)
+ *     VfDriverUnlock @ 0x1409C88EC (VfDriverUnlock.c)
  */
 
 __int64 __fastcall VfIsVerificationEnabledForImage(__int64 a1)

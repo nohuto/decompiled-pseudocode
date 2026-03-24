@@ -1,55 +1,59 @@
 /*
- * XREFs of DpiMitigatedRangeUpdate @ 0x1C0387534
+ * XREFs of DpiMitigatedRangeUpdate @ 0x1C02C6AC0
  * Callers:
- *     DxgkMitigatedRangeUpdateCB @ 0x1C004BF50 (DxgkMitigatedRangeUpdateCB.c)
+ *     DxgkMitigatedRangeUpdateCB @ 0x1C0043090 (DxgkMitigatedRangeUpdateCB.c)
  * Callees:
- *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005F2C8 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
- *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005F440 (--1CInterfaceCallContext@@QEAA@XZ.c)
- *     DxgkDdiQueryVirtualFunctionLuid @ 0x1C035A0E0 (DxgkDdiQueryVirtualFunctionLuid.c)
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z @ 0x1C0050FFC (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C0051124 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     DxgkDdiQueryVirtualFunctionLuid @ 0x1C023177C (DxgkDdiQueryVirtualFunctionLuid.c)
  */
 
-void __fastcall DpiMitigatedRangeUpdate(_QWORD *a1, int a2)
+void __fastcall DpiMitigatedRangeUpdate(_QWORD *a1, unsigned int a2)
 {
   __int64 v2; // rbx
-  void *v4; // rdx
-  PIRP v5; // rsi
+  __int64 v4; // rcx
+  void *v5; // rdx
+  PIRP v6; // rsi
   struct _IRP *MasterIrp; // rcx
-  _BYTE v7[16]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v8; // rax
+  _BYTE v9[16]; // [rsp+30h] [rbp-28h] BYREF
   int VirtualFunctionLuid; // [rsp+40h] [rbp-18h]
   struct _LUID SourceLuid; // [rsp+60h] [rbp+8h] BYREF
 
   v2 = a1[8];
   SourceLuid = 0LL;
-  CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v7, a1, 0LL, 1, 0);
+  CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v9, a1, 0LL, 1);
   if ( VirtualFunctionLuid < 0
-    || (VirtualFunctionLuid = DxgkDdiQueryVirtualFunctionLuid(*(_QWORD **)(v2 + 3896), 0, a2, (__int64)&SourceLuid),
+    || (VirtualFunctionLuid = DxgkDdiQueryVirtualFunctionLuid(*(_QWORD **)(v2 + 3896), 0LL, a2, (__int64)&SourceLuid),
         VirtualFunctionLuid < 0) )
   {
-    CInterfaceCallContext::~CInterfaceCallContext((CInterfaceCallContext *)v7);
+    CInterfaceCallContext::~CInterfaceCallContext((CInterfaceCallContext *)v9);
   }
   else
   {
-    CInterfaceCallContext::~CInterfaceCallContext((CInterfaceCallContext *)v7);
-    ExAcquirePushLockExclusiveEx(v2 + 5416, 0LL);
-    v4 = *(void **)(v2 + 5360);
-    if ( v4 && (v5 = IoCsqRemoveNextIrp((PIO_CSQ)(v2 + 5256), v4)) != 0LL )
+    CInterfaceCallContext::~CInterfaceCallContext((CInterfaceCallContext *)v9);
+    ExAcquirePushLockExclusiveEx(v2 + 5488, 0LL);
+    v5 = *(void **)(v2 + 5432);
+    if ( v5 && (v6 = IoCsqRemoveNextIrp((PIO_CSQ)(v2 + 5328), v5)) != 0LL )
     {
-      KeClearEvent((PRKEVENT)(v2 + 5424));
-      MasterIrp = v5->AssociatedIrp.MasterIrp;
+      KeClearEvent((PRKEVENT)(v2 + 5496));
+      MasterIrp = v6->AssociatedIrp.MasterIrp;
       *(_OWORD *)&MasterIrp->Type = 0LL;
       *(_OWORD *)&MasterIrp->Flags = 0LL;
       MasterIrp->ThreadListEntry.Flink = 0LL;
       LODWORD(MasterIrp->ThreadListEntry.Blink) = 0;
       RtlCopyLuid((PLUID)MasterIrp, &SourceLuid);
-      v5->IoStatus.Status = 0;
-      v5->IoStatus.Information = 44LL;
-      IofCompleteRequest(v5, 1);
-      KeWaitForSingleObject((PVOID)(v2 + 5424), Executive, 0, 0, 0LL);
+      v6->IoStatus.Status = 0;
+      v6->IoStatus.Information = 44LL;
+      IofCompleteRequest(v6, 1);
+      KeWaitForSingleObject((PVOID)(v2 + 5496), Executive, 0, 0, 0LL);
     }
     else
     {
-      WdLogSingleEntry1(2LL, -1073741811LL);
+      v8 = WdLogNewEntry5_WdError(v4, v5);
+      *(_QWORD *)(v8 + 24) = -1073741811LL;
+      WdLogEvent5_WdError(v8);
     }
-    ExReleasePushLockExclusiveEx(v2 + 5416, 0LL);
+    ExReleasePushLockExclusiveEx(v2 + 5488, 0LL);
   }
 }

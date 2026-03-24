@@ -1,27 +1,27 @@
 /*
- * XREFs of WdipSemAddContextEventToScenario @ 0x1408317FC
+ * XREFs of WdipSemAddContextEventToScenario @ 0x1407957FC
  * Callers:
- *     WdipSemMergeScenarios @ 0x14083176C (WdipSemMergeScenarios.c)
+ *     WdipSemMergeScenarios @ 0x14079576C (WdipSemMergeScenarios.c)
  * Callees:
- *     WdipSemFastAllocate @ 0x1408332DC (WdipSemFastAllocate.c)
- *     WdipSemMergeEvents @ 0x140834468 (WdipSemMergeEvents.c)
+ *     WdipSemFastAllocate @ 0x1407888C0 (WdipSemFastAllocate.c)
+ *     WdipSemMergeEvents @ 0x140795950 (WdipSemMergeEvents.c)
  */
 
 __int64 __fastcall WdipSemAddContextEventToScenario(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx
-  __int64 v5; // r8
+  unsigned int v5; // edx
   unsigned int v6; // ecx
   _QWORD *v7; // r9
-  __int64 v8; // rdx
-  _OWORD *v9; // rax
+  __int64 v8; // r8
+  PSLIST_ENTRY v9; // rax
 
   v2 = 0;
   if ( a1 && a2 )
   {
-    v5 = *(unsigned int *)(a1 + 48);
+    v5 = *(_DWORD *)(a1 + 48);
     v6 = 0;
-    if ( (_DWORD)v5 )
+    if ( v5 )
     {
       while ( 1 )
       {
@@ -31,26 +31,26 @@ __int64 __fastcall WdipSemAddContextEventToScenario(__int64 a1, __int64 a2)
           v8 = *(_QWORD *)(a2 + 8) - v7[1];
         if ( !v8 )
           break;
-        if ( ++v6 >= (unsigned int)v5 )
+        if ( ++v6 >= v5 )
           goto LABEL_8;
       }
-      WdipSemMergeEvents(*(_QWORD *)(a1 + 8LL * v6 + 56), a2, v5, v7);
+      WdipSemMergeEvents(*(_QWORD *)(a1 + 8LL * v6 + 56), a2, 0LL, v7);
     }
     else
     {
 LABEL_8:
-      if ( (unsigned int)v5 >= 0x7C )
+      if ( v5 >= 0x7C )
       {
         return (unsigned int)-1073741823;
       }
       else
       {
-        v9 = (_OWORD *)WdipSemFastAllocate(0LL, 48LL);
+        v9 = WdipSemFastAllocate(0, 0x30u);
         if ( v9 )
         {
-          *v9 = *(_OWORD *)a2;
-          v9[1] = *(_OWORD *)(a2 + 16);
-          v9[2] = *(_OWORD *)(a2 + 32);
+          *v9 = *(PSLIST_ENTRY)a2;
+          v9[1] = *(PSLIST_ENTRY)(a2 + 16);
+          v9[2] = *(PSLIST_ENTRY)(a2 + 32);
           *(_QWORD *)(a1 + 8LL * (unsigned int)(*(_DWORD *)(a1 + 48))++ + 56) = v9;
         }
         else

@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionProcessPointerInputAsMouse @ 0x1C0214810
+ * XREFs of EditionProcessPointerInputAsMouse @ 0x1C0219BF0
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C021424C (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219628 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
  */
 
 void __fastcall EditionProcessPointerInputAsMouse(__m128i *a1, const struct tagPOINTER_INFO *a2, __int16 a3)

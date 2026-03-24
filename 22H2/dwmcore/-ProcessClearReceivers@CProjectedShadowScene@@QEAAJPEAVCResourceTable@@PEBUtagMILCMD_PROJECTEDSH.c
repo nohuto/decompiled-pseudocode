@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessClearReceivers@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_CLEARRECEIVERS@@@Z @ 0x18024BE5C
+ * XREFs of ?ProcessClearReceivers@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_CLEARRECEIVERS@@@Z @ 0x1801E4A98
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?ClearReceivers@CProjectedShadowScene@@AEAAXXZ @ 0x180004940 (-ClearReceivers@CProjectedShadowScene@@AEAAXXZ.c)
+ *     ?ClearReceivers@CProjectedShadowScene@@AEAAXXZ @ 0x18000D070 (-ClearReceivers@CProjectedShadowScene@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CProjectedShadowScene::ProcessClearReceivers(

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CreateUsermodeParameters@QueryFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C0075450
+ * XREFs of ?CreateUsermodeParameters@QueryFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C00A5DF0
  * Callers:
  *     <none>
  * Callees:
- *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C0075888 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C00A658C (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
  */
 
 __int64 __fastcall QueryFontFileRequest::CreateUsermodeParameters(
@@ -11,29 +11,25 @@ __int64 __fastcall QueryFontFileRequest::CreateUsermodeParameters(
         struct UmfdTls *a2,
         void **a3)
 {
-  unsigned int v5; // r10d
-  int v6; // eax
-  unsigned int v7; // eax
-  _DWORD *v8; // rax
+  unsigned int v5; // eax
+  unsigned int v6; // ecx
+  _DWORD *v7; // rax
 
   v5 = *((_DWORD *)this + 13);
-  v6 = -1;
-  if ( v5 + 7 >= v5 )
-    v6 = v5 + 7;
-  v7 = v6 & 0xFFFFFFF8;
   if ( v5 + 7 < v5 )
     return 3221225495LL;
-  if ( v7 + 32 < 0x20 )
+  v6 = (v5 + 7) & 0xFFFFFFF8;
+  if ( v6 >= 0xFFFFFFE0 )
     return 3221225495LL;
-  v8 = UmfdTls::CommitUMBuffer(a2, v7 + 32, 1);
-  if ( !v8 )
+  v7 = UmfdTls::CommitUMBuffer(a2, v6 + 32, 1);
+  if ( !v7 )
     return 3221225495LL;
   if ( *((_QWORD *)this + 7) )
-    *((_QWORD *)this + 9) = v8 + 8;
-  *(_QWORD *)v8 = **((_QWORD **)this + 5);
-  v8[2] = *((_DWORD *)this + 12);
-  v8[3] = *((_DWORD *)this + 13);
-  *((_QWORD *)v8 + 2) = *((_QWORD *)this + 9);
-  *a3 = v8;
+    *((_QWORD *)this + 9) = v7 + 8;
+  *(_QWORD *)v7 = **((_QWORD **)this + 5);
+  v7[2] = *((_DWORD *)this + 12);
+  v7[3] = *((_DWORD *)this + 13);
+  *((_QWORD *)v7 + 2) = *((_QWORD *)this + 9);
+  *a3 = v7;
   return 0LL;
 }

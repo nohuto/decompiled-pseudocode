@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpMuiRegResizeStringPool @ 0x140A75114
+ * XREFs of RtlpMuiRegResizeStringPool @ 0x140981AD0
  * Callers:
- *     RtlpMuiRegGrowStringPool @ 0x140A74DD0 (RtlpMuiRegGrowStringPool.c)
+ *     RtlpMuiRegGrowStringPool @ 0x140981788 (RtlpMuiRegGrowStringPool.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlpMuiRegCreateStringPool @ 0x14084744C (RtlpMuiRegCreateStringPool.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlpMuiRegCreateStringPool @ 0x14078FEC8 (RtlpMuiRegCreateStringPool.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlpMuiRegResizeStringPool(const void **P, __int16 a2, __int16 a3, char a4)
+_QWORD *__fastcall RtlpMuiRegResizeStringPool(const void **P, __int16 a2, __int16 a3, char a4)
 {
-  __int64 v4; // rdi
+  _QWORD *v4; // rdi
   __int16 v7; // ax
   __int16 v8; // dx
   size_t v9; // rsi
   size_t v10; // rbp
-  __int64 StringPool; // rax
+  _QWORD *StringPool; // rax
 
   v4 = 0LL;
   v7 = 4;
@@ -34,10 +34,10 @@ __int64 __fastcall RtlpMuiRegResizeStringPool(const void **P, __int16 a2, __int1
       v4 = StringPool;
       if ( StringPool )
       {
-        memmove(*(void **)(StringPool + 16), P[2], v9);
-        memmove(*(void **)(v4 + 24), P[3], v10);
-        *(_WORD *)(v4 + 6) = *((_WORD *)P + 3);
-        *(_WORD *)(v4 + 10) = *((_WORD *)P + 5);
+        memmove((void *)StringPool[2], P[2], v9);
+        memmove((void *)v4[3], P[3], v10);
+        *((_WORD *)v4 + 3) = *((_WORD *)P + 3);
+        *((_WORD *)v4 + 5) = *((_WORD *)P + 5);
         if ( !a4 )
           ExFreePoolWithTag(P, 0);
       }

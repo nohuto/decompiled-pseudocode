@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwQueryDefaultLocale @ 0x14041A940
+ * XREFs of ZwQueryDefaultLocale @ 0x1403F9CC0
  * Callers:
- *     DifZwQueryDefaultLocaleWrapper @ 0x1405F3980 (DifZwQueryDefaultLocaleWrapper.c)
- *     NtInitializeNlsFiles @ 0x1407A1630 (NtInitializeNlsFiles.c)
+ *     NtInitializeNlsFiles @ 0x140612F00 (NtInitializeNlsFiles.c)
  * Callees:
  *     <none>
  */

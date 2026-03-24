@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CFloodEffect@@MEBAAEBU_GUID@@XZ @ 0x180105C60
+ * XREFs of ?GetEffectGuid@CFloodEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E1EC0
  * Callers:
  *     <none>
  * Callees:

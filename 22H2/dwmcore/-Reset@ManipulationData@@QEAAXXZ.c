@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Reset@ManipulationData@@QEAAXXZ @ 0x18020E1E8
+ * XREFs of ?Reset@ManipulationData@@QEAAXXZ @ 0x1801D4698
  * Callers:
- *     ??0ManipulationData@@QEAA@XZ @ 0x18020D7DC (--0ManipulationData@@QEAA@XZ.c)
- *     ?_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z @ 0x18020F154 (-_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z.c)
+ *     ??0ManipulationData@@QEAA@XZ @ 0x1801D3CDC (--0ManipulationData@@QEAA@XZ.c)
+ *     ?_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z @ 0x1801D54C8 (-_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z.c)
  * Callees:
  *     <none>
  */

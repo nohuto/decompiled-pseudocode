@@ -1,22 +1,22 @@
 /*
- * XREFs of ?_SurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C002CDE8
+ * XREFs of ?_SurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C00B4A34
  * Callers:
- *     GreStretchBltInternal @ 0x1C002AF84 (GreStretchBltInternal.c)
- *     ?DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C002C7C4 (-DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
- *     ?ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@@Z @ 0x1C002CA18 (-ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@@Z.c)
- *     ?SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C008A13C (-SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
+ *     ?ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@@Z @ 0x1C00B4620 (-ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@@Z.c)
+ *     ?DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C00B4C9C (-DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
+ *     GreStretchBltInternal @ 0x1C00B4D10 (GreStretchBltInternal.c)
+ *     ?SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C010A0D0 (-SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall _SurfaceAccessCheck(struct SURFACE *a1)
+__int64 __fastcall _SurfaceAccessCheck(struct SURFACE *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int v1; // eax
+  int v4; // eax
 
-  v1 = *((_DWORD *)a1 + 28);
-  if ( (v1 & 0x800) != 0 )
-    return UserSurfaceAccessCheck(*((_QWORD *)a1 + 81));
-  if ( (v1 & 0x10000000) != 0 )
-    return UserScreenAccessCheck();
+  v4 = *((_DWORD *)a1 + 28);
+  if ( (v4 & 0x800) != 0 )
+    return UserSurfaceAccessCheck(*((_QWORD *)a1 + 81), a2, a3, a4);
+  if ( (v4 & 0x10000000) != 0 )
+    return UserScreenAccessCheck(a1, a2, a3, a4);
   return 1LL;
 }

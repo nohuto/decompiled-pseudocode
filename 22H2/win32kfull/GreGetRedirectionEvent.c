@@ -1,19 +1,18 @@
 /*
- * XREFs of GreGetRedirectionEvent @ 0x1C00BCE08
+ * XREFs of GreGetRedirectionEvent @ 0x1C0135AC8
  * Callers:
- *     NtUserSignalRedirectionStartComplete @ 0x1C00BCD90 (NtUserSignalRedirectionStartComplete.c)
- *     NtUserWaitForRedirectionStartComplete @ 0x1C01E0220 (NtUserWaitForRedirectionStartComplete.c)
+ *     NtUserSignalRedirectionStartComplete @ 0x1C0135A50 (NtUserSignalRedirectionStartComplete.c)
+ *     NtUserWaitForRedirectionStartComplete @ 0x1C0204360 (NtUserWaitForRedirectionStartComplete.c)
  * Callees:
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
+ *     <none>
  */
 
-__int64 __fastcall GreGetRedirectionEvent(Gre::Base *a1)
+struct DwmState *GreGetRedirectionEvent()
 {
-  struct Gre::Base::SESSION_GLOBALS *v1; // rbx
+  struct DwmState *result; // rax
 
-  v1 = Gre::Base::Globals(a1);
-  if ( (unsigned int)IsDwmActive() )
-    return *(_QWORD *)(*((_QWORD *)v1 + 38) + 336LL);
-  else
-    return 0LL;
+  result = g_pDwmState;
+  if ( g_pDwmState )
+    return (struct DwmState *)*((_QWORD *)g_pDwmState + 42);
+  return result;
 }

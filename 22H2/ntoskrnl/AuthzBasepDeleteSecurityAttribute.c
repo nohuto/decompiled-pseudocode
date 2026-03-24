@@ -1,61 +1,63 @@
 /*
- * XREFs of AuthzBasepDeleteSecurityAttribute @ 0x140225B30
+ * XREFs of AuthzBasepDeleteSecurityAttribute @ 0x14024FC5C
  * Callers:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224D10 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepReplaceSecurityAttribute @ 0x140225AC4 (AuthzBasepReplaceSecurityAttribute.c)
+ *     AuthzBasepReplaceSecurityAttribute @ 0x140250214 (AuthzBasepReplaceSecurityAttribute.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402506CC (AuthzBasepSetSecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepAddSecurityAttributeToLists @ 0x140225A78 (AuthzBasepAddSecurityAttributeToLists.c)
- *     AuthzBasepFindSecurityAttribute @ 0x14022D0E0 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepFreeSecurityAttributeValues @ 0x1402A8AF0 (AuthzBasepFreeSecurityAttributeValues.c)
- *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x14066EB54 (AuthzBasepDeleteAllSecurityAttributeValues.c)
- *     AuthzBasepDeleteSecurityAttributeValues @ 0x14066EBFC (AuthzBasepDeleteSecurityAttributeValues.c)
- *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x14066EEDC (AuthzBasepRemoveSecurityAttributeFromLists.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x14024E560 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttributeToLists @ 0x140250680 (AuthzBasepAddSecurityAttributeToLists.c)
+ *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x140322C84 (AuthzBasepDeleteAllSecurityAttributeValues.c)
+ *     AuthzBasepFreeSecurityAttributeValues @ 0x140322CD4 (AuthzBasepFreeSecurityAttributeValues.c)
+ *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x140329DAC (AuthzBasepRemoveSecurityAttributeFromLists.c)
+ *     AuthzBasepDeleteSecurityAttributeValues @ 0x1405C11D4 (AuthzBasepDeleteSecurityAttributeValues.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepDeleteSecurityAttribute(__int64 a1, __int64 a2)
 {
   int v3; // edi
-  __int64 SecurityAttribute; // rax
-  _DWORD *v6; // rbx
-  __int64 v8; // r9
-  __int128 v9; // [rsp+20h] [rbp-18h] BYREF
-  char v10; // [rsp+48h] [rbp+10h] BYREF
+  const UNICODE_STRING *SecurityAttribute; // rax
+  __int64 v6; // r9
+  UNICODE_STRING *v7; // rbx
+  __int64 v9; // r9
+  UNICODE_STRING v10; // [rsp+20h] [rbp-18h] BYREF
+  char v11; // [rsp+48h] [rbp+10h] BYREF
 
-  v9 = 0LL;
+  v10 = 0LL;
   v3 = 0;
-  v10 = 0;
-  LOWORD(v9) = *(_WORD *)a2;
-  WORD1(v9) = v9;
-  *((_QWORD *)&v9 + 1) = *(_QWORD *)(a2 + 8);
-  SecurityAttribute = AuthzBasepFindSecurityAttribute(a1, &v9);
-  v6 = (_DWORD *)SecurityAttribute;
-  if ( !SecurityAttribute || (*(_DWORD *)(SecurityAttribute + 56) & 4) != 0 )
+  v11 = 0;
+  v10.Length = *(_WORD *)a2;
+  v10.MaximumLength = v10.Length;
+  v10.Buffer = *(wchar_t **)(a2 + 8);
+  SecurityAttribute = AuthzBasepFindSecurityAttribute(a1, &v10);
+  v7 = (UNICODE_STRING *)SecurityAttribute;
+  if ( !SecurityAttribute || ((__int64)SecurityAttribute[3].Buffer & 4) != 0 )
   {
     return (unsigned int)-1073741275;
   }
   else
   {
-    AuthzBasepAddSecurityAttributeToLists(a1, SecurityAttribute, 0, 1);
+    LOBYTE(v6) = 1;
+    AuthzBasepAddSecurityAttributeToLists(a1, SecurityAttribute, 0LL, v6);
     if ( *(_DWORD *)(a2 + 24) )
     {
-      v3 = AuthzBasepDeleteSecurityAttributeValues(v6, a2, &v10);
+      v3 = AuthzBasepDeleteSecurityAttributeValues(v7, a2, &v11);
       if ( v3 < 0 )
         return (unsigned int)v3;
-      if ( v10 )
-        v6[14] |= 4u;
+      if ( v11 )
+        LODWORD(v7[3].Buffer) |= 4u;
     }
     else
     {
-      v6[14] |= 4u;
-      AuthzBasepDeleteAllSecurityAttributeValues(v6);
+      LODWORD(v7[3].Buffer) |= 4u;
+      AuthzBasepDeleteAllSecurityAttributeValues(v7);
     }
-    if ( (v6[14] & 5) == 4 )
+    if ( ((__int64)v7[3].Buffer & 5) == 4 )
     {
-      LOBYTE(v8) = 1;
-      AuthzBasepRemoveSecurityAttributeFromLists(a1, v6, 0LL, v8);
-      AuthzBasepFreeSecurityAttributeValues(v6, 0LL);
-      ExFreePoolWithTag(v6, 0);
+      LOBYTE(v9) = 1;
+      AuthzBasepRemoveSecurityAttributeFromLists(a1, v7, 0LL, v9);
+      AuthzBasepFreeSecurityAttributeValues(v7, 0LL);
+      ExFreePoolWithTag(v7, 0);
     }
   }
   return (unsigned int)v3;

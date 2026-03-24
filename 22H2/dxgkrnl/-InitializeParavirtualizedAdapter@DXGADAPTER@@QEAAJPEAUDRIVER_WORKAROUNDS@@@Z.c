@@ -1,314 +1,218 @@
 /*
- * XREFs of ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C02B7EE4
+ * XREFs of ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C020E2FC
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FC874 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C018F684 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     DpReadDeviceSpace @ 0x1C001C7F0 (DpReadDeviceSpace.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     McTemplateK0pqqqqxx_EtwWriteTransfer @ 0x1C00412D4 (McTemplateK0pqqqqxx_EtwWriteTransfer.c)
- *     DpWriteDeviceSpace @ 0x1C005E220 (DpWriteDeviceSpace.c)
- *     DpiGetAdapterInfo @ 0x1C01FB478 (DpiGetAdapterInfo.c)
- *     ?CopyRegistryKeys@DXGADAPTER@@QEAAJXZ @ 0x1C02B5E20 (-CopyRegistryKeys@DXGADAPTER@@QEAAJXZ.c)
- *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C030AD78 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
- *     ?EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ @ 0x1C0312BAC (-EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ.c)
- *     ?HandleVirtualMachineReset@DXGGLOBAL@@QEAAXXZ @ 0x1C0313500 (-HandleVirtualMachineReset@DXGGLOBAL@@QEAAXXZ.c)
- *     ?CreateVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C0372C34 (-CreateVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGADAPTER@@@Z.c)
- *     ?GetMmioSpaceInfo@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEA_K0@Z @ 0x1C0375908 (-GetMmioSpaceInfo@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEA_K0@Z.c)
- *     ?VmBusSendGetInternalAdapterInfo19h1@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN1@@@Z @ 0x1C03899B8 (-VmBusSendGetInternalAdapterInfo19h1@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_GETINT.c)
- *     ?VmBusSendGetInternalAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z @ 0x1C0389B08 (-VmBusSendGetInternalAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_GETINTERNA.c)
- *     ?VmBusSendLogEvent@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXJW4DXGKVMB_EVENT_SCENARIO@@I_K1@Z @ 0x1C038AE04 (-VmBusSendLogEvent@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXJW4DXGKVMB_EVENT_SCENARIO@@I_K1@Z.c)
- *     ?VmBusSendOpenAdapter@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAIPEBU_LUID@@@Z @ 0x1C038BAA0 (-VmBusSendOpenAdapter@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAIPEBU_LUID@@@Z.c)
- *     ?VmBusSendQueryAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYADAPTERINFO@@I@Z @ 0x1C038C5BC (-VmBusSendQueryAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYADA.c)
- *     ?VmBusSendSetIoSpaceRegion@DXG_GUEST_GLOBAL_VMBUS@@QEAAJ_K0I@Z @ 0x1C038DE24 (-VmBusSendSetIoSpaceRegion@DXG_GUEST_GLOBAL_VMBUS@@QEAAJ_K0I@Z.c)
- *     DpiSetDriverVersion @ 0x1C03999E4 (DpiSetDriverVersion.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     McTemplateK0pqqqqxx_EtwWriteTransfer @ 0x1C003A6F0 (McTemplateK0pqqqqxx_EtwWriteTransfer.c)
+ *     ?VmBusSendAsyncMessage@@YAJPEAUVMBCHANNEL__@@PEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C004195C (-VmBusSendAsyncMessage@@YAJPEAUVMBCHANNEL__@@PEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z.c)
+ *     DpiGetAdapterInfo @ 0x1C0192E7C (DpiGetAdapterInfo.c)
+ *     ?CopyRegistryKeys@DXGADAPTER@@QEAAJXZ @ 0x1C020C224 (-CopyRegistryKeys@DXGADAPTER@@QEAAJXZ.c)
+ *     ?CreateVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C0238B94 (-CreateVmBusChannel@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGADAPTER@@@Z.c)
+ *     ?GetMmioSpaceInfo@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEA_K0@Z @ 0x1C023AF30 (-GetMmioSpaceInfo@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEA_K0@Z.c)
+ *     ?VmBusSendGetInternalAdapterInfo19h1@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN1@@@Z @ 0x1C0249530 (-VmBusSendGetInternalAdapterInfo19h1@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_GETINT.c)
+ *     ?VmBusSendGetInternalAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z @ 0x1C02495F8 (-VmBusSendGetInternalAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_GETINTERNA.c)
+ *     ?VmBusSendOpenAdapter@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAIPEBU_LUID@@@Z @ 0x1C024A9E0 (-VmBusSendOpenAdapter@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAIPEBU_LUID@@@Z.c)
+ *     ?VmBusSendSetIoSpaceRegion@DXG_GUEST_GLOBAL_VMBUS@@QEAAJ_K0I@Z @ 0x1C024C428 (-VmBusSendSetIoSpaceRegion@DXG_GUEST_GLOBAL_VMBUS@@QEAAJ_K0I@Z.c)
+ *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C02622D0 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
+ *     ?EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ @ 0x1C0269BA8 (-EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ.c)
+ *     ?HandleVirtualMachineReset@DXGGLOBAL@@QEAAXXZ @ 0x1C026A494 (-HandleVirtualMachineReset@DXGGLOBAL@@QEAAXXZ.c)
+ *     DpiSetDriverVersion @ 0x1C02C76AC (DpiSetDriverVersion.c)
  */
 
 __int64 __fastcall DXGADAPTER::InitializeParavirtualizedAdapter(DXGADAPTER *this, struct DRIVER_WORKAROUNDS *a2)
 {
-  __int64 v4; // rcx
+  DXG_GUEST_VIRTUALGPU_VMBUS *v3; // r14
   char v5; // r13
-  int v6; // eax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  int VmBusChannel; // ebx
   __int64 v9; // r8
-  __int64 v10; // r9
-  int v11; // eax
-  struct DXGGLOBAL *Global; // rax
-  int v13; // eax
+  unsigned int v10; // edi
+  unsigned int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
   __int64 v14; // rdx
   __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // rdi
-  unsigned int v19; // ebx
-  unsigned int v20; // eax
+  bool v16; // cf
+  int v17; // eax
+  DXGGLOBAL *Global; // rax
+  DXGGLOBAL *v19; // rax
+  DXG_GUEST_GLOBAL_VMBUS *v20; // r15
   struct DXGGLOBAL *v21; // rax
-  DXG_GUEST_VIRTUALGPU_VMBUS *v22; // rcx
-  struct DXGGLOBAL *v23; // rax
-  int v24; // edx
-  unsigned int v25; // eax
-  unsigned int v26; // ecx
-  char v27; // cl
-  bool v28; // cf
-  int v29; // eax
-  DXGGLOBAL *v30; // rax
-  DXGGLOBAL *v31; // rax
-  unsigned int v32; // r9d
-  int v33; // eax
-  DXG_GUEST_GLOBAL_VMBUS *v34; // rbx
-  struct DXGGLOBAL *v35; // rax
-  __int64 v36; // r8
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // r8
-  __int64 v41; // [rsp+20h] [rbp-E0h]
-  __int64 v42; // [rsp+20h] [rbp-E0h]
-  __int64 v43; // [rsp+28h] [rbp-D8h]
-  __int64 v44; // [rsp+28h] [rbp-D8h]
-  __int64 v45; // [rsp+30h] [rbp-D0h]
-  __int64 v46; // [rsp+30h] [rbp-D0h]
-  __int64 v47; // [rsp+38h] [rbp-C8h]
-  __int64 v48; // [rsp+38h] [rbp-C8h]
-  ULONG v49; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v50; // [rsp+54h] [rbp-ACh] BYREF
-  int v51; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned __int64 v52; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int64 v53; // [rsp+68h] [rbp-98h] BYREF
-  struct _D3DKMT_QUERYADAPTERINFO v54; // [rsp+70h] [rbp-90h] BYREF
-  _QWORD v55[89]; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  const EVENT_DESCRIPTOR *v26; // rdx
+  __int64 v27; // rax
+  struct _MDL *v28; // r9
+  struct VMBCHANNEL__ *v29; // rcx
+  int v31; // [rsp+28h] [rbp-D8h]
+  unsigned int v32; // [rsp+38h] [rbp-C8h]
+  unsigned __int64 v33; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned __int64 v34; // [rsp+58h] [rbp-A8h] BYREF
+  _QWORD v35[2]; // [rsp+60h] [rbp-A0h] BYREF
+  int v36; // [rsp+70h] [rbp-90h]
+  int v37; // [rsp+78h] [rbp-88h]
+  unsigned int v38; // [rsp+7Ch] [rbp-84h]
+  int v39; // [rsp+80h] [rbp-80h]
+  __int64 v40; // [rsp+88h] [rbp-78h]
+  __int64 v41; // [rsp+90h] [rbp-70h]
+  _QWORD v42[88]; // [rsp+98h] [rbp-68h] BYREF
 
   *((_BYTE *)this + 209) = 1;
-  v50 = 0;
-  v4 = *((_QWORD *)this + 27);
-  v49 = 0;
+  v3 = (DXGADAPTER *)((char *)this + 4240);
   v5 = 0;
-  v6 = DpReadDeviceSpace(v4, 0LL, &v50, 0xD0u, 4u, &v49);
-  if ( v6 < 0 || v49 != 4 )
-    goto LABEL_8;
-  if ( v50 >= 0x28 )
+  VmBusChannel = DXG_GUEST_VIRTUALGPU_VMBUS::CreateVmBusChannel((struct VMBCHANNEL__ **)this + 530, this);
+  if ( VmBusChannel < 0 )
   {
-    v11 = 42;
-    if ( v50 < 0x2A )
-      v11 = v50;
-    v51 = v11;
-    *((_DWORD *)DXGGLOBAL::GetGlobal() + 442) = v11;
-    v6 = DpWriteDeviceSpace(*((_QWORD *)this + 27), 0LL, &v51, 0xD0u, 4u, &v49);
-    if ( v6 < 0 || v49 != 4 )
+    v10 = 1;
+    goto LABEL_24;
+  }
+  v11 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendOpenAdapter(
+          v3,
+          (const struct _LUID *)(*(_QWORD *)(*((_QWORD *)this + 27) + 64LL) + 2672LL));
+  *((_DWORD *)this + 1078) = v11;
+  if ( !v11 )
+  {
+    v10 = 2;
+    VmBusChannel = -1073741823;
+    goto LABEL_24;
+  }
+  memset(v42, 0, sizeof(v42));
+  if ( *((_DWORD *)DXGGLOBAL::GetGlobal(v13, v12) + 408) <= 0x10u )
+  {
+    VmBusChannel = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetInternalAdapterInfo19h1(
+                     v3,
+                     (struct DXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN1 *)v42);
+    if ( VmBusChannel < 0 )
     {
-LABEL_8:
-      *(_QWORD *)(WdLogNewEntry5_WdTrace(v8, v7, v9, v10) + 24) = v6;
-      v50 = 0;
+      v10 = 4;
+      goto LABEL_24;
     }
   }
-  *((_DWORD *)DXGGLOBAL::GetGlobal() + 443) = v50;
-  Global = DXGGLOBAL::GetGlobal();
-  v13 = DpReadDeviceSpace(*((_QWORD *)this + 27), 0LL, (char *)Global + 1776, 0xDCu, 4u, &v49);
-  if ( v13 < 0 || v49 != 4 )
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v15, v14, v16, v17) + 24) = v13;
-  LODWORD(v18) = DXG_GUEST_VIRTUALGPU_VMBUS::CreateVmBusChannel((struct VMBCHANNEL__ **)this + 559, this);
-  v19 = 2;
-  if ( (int)v18 >= 0 )
+  else
   {
-    v20 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendOpenAdapter(
-            (DXGADAPTER *)((char *)this + 4472),
-            (const struct _LUID *)(*(_QWORD *)(*((_QWORD *)this + 27) + 64LL) + 2672LL));
-    *((_DWORD *)this + 1140) = v20;
-    if ( v20 )
+    VmBusChannel = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetInternalAdapterInfo(
+                     v3,
+                     (struct DXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN *)v42);
+    if ( VmBusChannel < 0 )
     {
-      memset(v55, 0, sizeof(v55));
-      v21 = DXGGLOBAL::GetGlobal();
-      v22 = (DXGADAPTER *)((char *)this + 4472);
-      if ( *((_DWORD *)v21 + 442) <= 0x10u )
+      v10 = 3;
+      goto LABEL_24;
+    }
+  }
+  v14 = LODWORD(v42[1]);
+  v10 = 8;
+  *(_DWORD *)a2 = *(_DWORD *)a2 & 0xFFFE7FFF | ((BYTE4(v42[1]) & 0x10 | (4 * (BYTE4(v42[1]) & 8))) << 11);
+  DpiSetDriverVersion(*((_QWORD *)this + 27), v14, &v42[3], &v42[23]);
+  VmBusChannel = DpiGetAdapterInfo(
+                   *((_QWORD *)this + 27),
+                   (_DWORD *)this + 348,
+                   (_QWORD *)this + 34,
+                   (DXGADAPTER *)((char *)this + 1880));
+  if ( VmBusChannel < 0 )
+    goto LABEL_11;
+  v15 = HIDWORD(v42[1]);
+  *((_DWORD *)this + 87) ^= (*((_DWORD *)this + 87) ^ LODWORD(v42[0])) & 0x18;
+  *((_BYTE *)this + 210) = v15 & 1;
+  v16 = HIDWORD(v42[0]) < 2;
+  *((_BYTE *)this + 211) = (v15 & 4) != 0;
+  v17 = 2;
+  if ( v16 )
+    v17 = HIDWORD(v42[0]);
+  *((_DWORD *)this + 665) = v17;
+  *(_QWORD *)((char *)this + 4324) = v42[2];
+  if ( (v15 & 2) != 0 )
+  {
+    Global = DXGGLOBAL::GetGlobal(v15, v6);
+    DXGGLOBAL::HandleVirtualMachineReset(Global);
+  }
+  v34 = 0LL;
+  v33 = 0LL;
+  v19 = DXGGLOBAL::GetGlobal(v15, v6);
+  VmBusChannel = DXGGLOBAL::EnsureVmBusInterface(v19);
+  if ( VmBusChannel < 0 )
+  {
+LABEL_11:
+    v10 = 5;
+  }
+  else
+  {
+    v20 = (DXG_GUEST_GLOBAL_VMBUS *)*((_QWORD *)DXGGLOBAL::GetGlobal(v7, v6) + 197);
+    VmBusChannel = DXG_GUEST_GLOBAL_VMBUS::GetMmioSpaceInfo(v20, &v34, &v33);
+    if ( VmBusChannel >= 0 )
+    {
+      v21 = DXGGLOBAL::GetGlobal(v7, v6);
+      VmBusChannel = DXG_GUEST_GLOBAL_VMBUS::VmBusSendSetIoSpaceRegion(v20, v34, v33, *((_DWORD *)v21 + 401));
+      if ( VmBusChannel >= 0 )
       {
-        LODWORD(v18) = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetInternalAdapterInfo19h1(
-                         v22,
-                         (struct DXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN1 *)v55);
-        if ( (int)v18 < 0 )
+        VmBusChannel = DXGADAPTER::CopyDriverStore(this);
+        if ( VmBusChannel >= 0 )
         {
-          v19 = 4;
-          goto LABEL_56;
+          VmBusChannel = DXGADAPTER::CopyRegistryKeys(this, v6);
+          if ( VmBusChannel >= 0 )
+            return (unsigned int)VmBusChannel;
+          v10 = 9;
+          v5 = 1;
         }
       }
       else
       {
-        LODWORD(v18) = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendGetInternalAdapterInfo(
-                         v22,
-                         (struct DXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN *)v55);
-        if ( (int)v18 < 0 )
-        {
-          v19 = 3;
-          goto LABEL_56;
-        }
-      }
-      *(_DWORD *)a2 ^= (*(_DWORD *)a2 ^ (HIDWORD(v55[1]) << 14)) & 0x20000;
-      v23 = DXGGLOBAL::GetGlobal();
-      v24 = *(_DWORD *)a2;
-      if ( *((_DWORD *)v23 + 442) < 0x26u )
-      {
-        if ( (v55[1] & 0x1000000000LL) != 0 )
-          v25 = v24 & 0xFFFE7FFF | 0x10000;
-        else
-          v25 = v24 & 0xFFFE7FFF;
-      }
-      else
-      {
-        v25 = v24 ^ (v24 ^ (HIDWORD(v55[1]) << 8)) & 0x18000;
-      }
-      *(_DWORD *)a2 = v25;
-      if ( *((_DWORD *)DXGGLOBAL::GetGlobal() + 442) < 0x29u )
-        v26 = *(_DWORD *)a2 & 0xFFE3FFFF;
-      else
-        v26 = (*(_DWORD *)a2 & 0xFFF3FFFF ^ (HIDWORD(v55[1]) << 11)) & 0x100000 ^ (*(_DWORD *)a2 & 0xFFF3FFFF | ((WORD2(v55[1]) & 0xC00) << 8));
-      *(_DWORD *)a2 = v26;
-      if ( *((_DWORD *)DXGGLOBAL::GetGlobal() + 442) >= 0x22u )
-        *(_QWORD *)((char *)this + 4580) = v55[88];
-      if ( *((_DWORD *)DXGGLOBAL::GetGlobal() + 442) >= 0x28u && (v55[1] & 0x4000000000LL) != 0 )
-        *((_BYTE *)DXGGLOBAL::GetGlobal() + 1780) = 1;
-      if ( *((_DWORD *)DXGGLOBAL::GetGlobal() + 442) >= 0x10u )
-        DpiSetDriverVersion(*((_QWORD *)this + 27), LODWORD(v55[1]), &v55[3], &v55[23]);
-      LODWORD(v18) = DpiGetAdapterInfo(
-                       *((_QWORD *)this + 27),
-                       (char *)this + 1568,
-                       (_QWORD *)this + 35,
-                       (DXGADAPTER *)((char *)this + 2104));
-      if ( (int)v18 < 0 )
-        goto LABEL_37;
-      v27 = BYTE4(v55[1]);
-      *((_DWORD *)this + 109) ^= (*((_DWORD *)this + 109) ^ LODWORD(v55[0])) & 0x18;
-      *((_BYTE *)this + 210) = v27 & 1;
-      v28 = HIDWORD(v55[0]) < 2;
-      *((_BYTE *)this + 211) = (v27 & 4) != 0;
-      v29 = 2;
-      if ( v28 )
-        v29 = HIDWORD(v55[0]);
-      *((_DWORD *)this + 721) = v29;
-      *(_QWORD *)((char *)this + 4572) = v55[2];
-      if ( (v27 & 2) != 0 )
-      {
-        v30 = DXGGLOBAL::GetGlobal();
-        DXGGLOBAL::HandleVirtualMachineReset(v30);
-      }
-      v31 = DXGGLOBAL::GetGlobal();
-      LODWORD(v18) = DXGGLOBAL::EnsureVmBusInterface(v31);
-      if ( (int)v18 < 0 )
-      {
-LABEL_37:
-        v19 = 5;
-      }
-      else
-      {
-        if ( *((_BYTE *)DXGGLOBAL::GetGlobal() + 1780) )
-          *((_QWORD *)this + 560) = **((_QWORD **)DXGGLOBAL::GetGlobal() + 214);
-        v51 = 0;
-        v54.pPrivateDriverData = &v51;
-        v54.hAdapter = 0;
-        *(_QWORD *)&v54.PrivateDriverDataSize = 4LL;
-        v54.Type = KMTQAITYPE_PHYSICALADAPTERCOUNT;
-        v33 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendQueryAdapterInfo((DXGADAPTER *)((char *)this + 4472), 0LL, &v54, v32);
-        v18 = v33;
-        if ( v33 >= 0 )
-        {
-          *((_DWORD *)this + 72) = v51;
-          v53 = 0LL;
-          v52 = 0LL;
-          v34 = (DXG_GUEST_GLOBAL_VMBUS *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 214);
-          LODWORD(v18) = DXG_GUEST_GLOBAL_VMBUS::GetMmioSpaceInfo(v34, &v53, &v52);
-          if ( (int)v18 >= 0 )
-          {
-            v35 = DXGGLOBAL::GetGlobal();
-            LODWORD(v18) = DXG_GUEST_GLOBAL_VMBUS::VmBusSendSetIoSpaceRegion(v34, v53, v52, *((_DWORD *)v35 + 435));
-            if ( (int)v18 >= 0 )
-            {
-              if ( (*((_DWORD *)this + 109) & 8) != 0
-                || (LODWORD(v18) = DXGADAPTER::CopyDriverStore(this), (int)v18 >= 0) )
-              {
-                LODWORD(v18) = DXGADAPTER::CopyRegistryKeys(this);
-                if ( (int)v18 >= 0 )
-                  return (unsigned int)v18;
-                v19 = 9;
-                v5 = 1;
-              }
-              else
-              {
-                v19 = 8;
-              }
-            }
-            else
-            {
-              v19 = 7;
-            }
-          }
-          else
-          {
-            v19 = 6;
-          }
-        }
-        else
-        {
-          WdLogSingleEntry1(2LL, v33);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"KMTQAITYPE_PHYSICALADAPTERCOUNT failed: 0x%I64x",
-            v18,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          v19 = 11;
-        }
+        v10 = 7;
       }
     }
     else
     {
-      LODWORD(v18) = -1073741823;
+      v10 = 6;
     }
   }
-  else
-  {
-    v19 = 1;
-  }
-LABEL_56:
+LABEL_24:
   if ( v5 )
   {
-    WdLogSingleEntry2(3LL, (int)v18, v19);
-    LODWORD(v18) = 0;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000000) != 0 )
+    v22 = WdLogNewEntry5_WdWarning(v7, v6, v9);
+    *(_QWORD *)(v22 + 24) = VmBusChannel;
+    *(_QWORD *)(v22 + 32) = v10;
+    WdLogEvent5_WdWarning(v22);
+    VmBusChannel = 0;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000000) != 0 )
     {
-      LODWORD(v47) = v19;
-      LODWORD(v45) = 0;
-      LODWORD(v43) = 0;
-      LODWORD(v41) = 0;
-      McTemplateK0pqqqqxx_EtwWriteTransfer(0LL, &VirtualGpuGuestEvent, v36, this, v41, v43, v45, v47, 0LL, 0LL);
+      v26 = (const EVENT_DESCRIPTOR *)&VirtualGpuGuestEvent;
+      v32 = v10;
+      v31 = 0;
+LABEL_29:
+      McTemplateK0pqqqqxx_EtwWriteTransfer(v24, v26, v25, this, 0, v31, 0, v32, 0LL, 0LL);
     }
   }
   else
   {
-    WdLogSingleEntry2(2LL, (int)v18, v19);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Status:0x%I64x Reason: 0x%I64x ",
-      (int)v18,
-      v19,
-      0LL,
-      0LL,
-      0LL);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000000) != 0 )
+    v27 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v27 + 24) = VmBusChannel;
+    *(_QWORD *)(v27 + 32) = v10;
+    WdLogEvent5_WdError(v27);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000000) != 0 )
     {
-      LODWORD(v48) = v19;
-      LODWORD(v46) = 0;
-      LODWORD(v44) = v18;
-      LODWORD(v42) = 0;
-      McTemplateK0pqqqqxx_EtwWriteTransfer(v37, &VirtualGpuGuestEventFailure, v38, this, v42, v44, v46, v48, 0LL, 0LL);
+      v26 = (const EVENT_DESCRIPTOR *)&VirtualGpuGuestEventFailure;
+      v32 = v10;
+      v31 = VmBusChannel;
+      goto LABEL_29;
     }
   }
-  if ( v19 != 1 && *((_DWORD *)DXGGLOBAL::GetGlobal() + 442) >= 0x1Au )
-    DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendLogEvent((char *)this + 4472, (unsigned int)v18, v39, v19);
-  return (unsigned int)v18;
+  if ( v10 != 1 && *((_DWORD *)DXGGLOBAL::GetGlobal(v24, v23) + 408) >= 0x1Au )
+  {
+    v35[1] = 0LL;
+    v29 = *(struct VMBCHANNEL__ **)v3;
+    v35[0] = 0LL;
+    v36 = 65;
+    v37 = 0;
+    v38 = v10;
+    v39 = VmBusChannel;
+    v40 = 0LL;
+    v41 = 0LL;
+    VmBusSendAsyncMessage(v29, (struct DXGKVMB_COMMAND_BASE *)v35, 56LL, v28);
+  }
+  return (unsigned int)VmBusChannel;
 }

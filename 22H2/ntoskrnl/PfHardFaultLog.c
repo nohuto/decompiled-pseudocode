@@ -1,67 +1,64 @@
 /*
- * XREFs of PfHardFaultLog @ 0x1402A2F88
+ * XREFs of PfHardFaultLog @ 0x14026DE20
  * Callers:
- *     MiWaitForInPageComplete @ 0x1402A1680 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x14029B880 (MiWaitForInPageComplete.c)
  * Callees:
- *     PfLogEvent @ 0x14028BF68 (PfLogEvent.c)
- *     EtwTraceSiloTimedEvent @ 0x140466F3A (EtwTraceSiloTimedEvent.c)
+ *     PfLogEvent @ 0x14026E544 (PfLogEvent.c)
+ *     EtwTraceSiloTimedEvent @ 0x1405A8108 (EtwTraceSiloTimedEvent.c)
  */
 
 struct _KTHREAD *__fastcall PfHardFaultLog(_QWORD *a1, int a2, int a3)
 {
   struct _KTHREAD *result; // rax
-  _KPROCESS *Process; // rbp
-  _QWORD *v7; // rsi
-  unsigned __int16 v8; // ax
-  int v9; // eax
-  __int64 v10; // rcx
-  __int64 v11; // rdx
-  _DWORD v12[2]; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v13; // [rsp+48h] [rbp-30h]
-  __int64 v14; // [rsp+50h] [rbp-28h]
-  __int64 v15; // [rsp+58h] [rbp-20h]
-  __int64 v16; // [rsp+60h] [rbp-18h]
+  _KPROCESS *Process; // rsi
+  unsigned int v7; // eax
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  unsigned __int16 v10; // ax
+  _DWORD v11[2]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v12; // [rsp+48h] [rbp-30h]
+  __int64 v13; // [rsp+50h] [rbp-28h]
+  __int64 v14; // [rsp+58h] [rbp-20h]
+  __int64 v15; // [rsp+60h] [rbp-18h]
 
   result = KeGetCurrentThread();
   Process = result->Process;
-  if ( !*a1 && !a1[1] )
+  if ( *a1 || a1[1] )
   {
-    v7 = a1 + 4;
-    goto LABEL_4;
+    if ( a2 )
+    {
+      if ( a2 == 1 )
+      {
+        v10 = 626;
+        goto LABEL_13;
+      }
+      if ( a2 == 2 )
+      {
+        v10 = 627;
+LABEL_13:
+        result = (struct _KTHREAD *)EtwTraceSiloTimedEvent(*(_QWORD *)&Process[2].Header.Lock, v10, a3, (int)a1 + 32);
+        goto LABEL_3;
+      }
+    }
+    v10 = 544;
+    goto LABEL_13;
   }
-  if ( !a2 )
-    goto LABEL_11;
-  if ( a2 == 1 )
-  {
-    v8 = 626;
-    goto LABEL_12;
-  }
-  if ( a2 != 2 )
-  {
-LABEL_11:
-    v8 = 544;
-    goto LABEL_12;
-  }
-  v8 = 627;
-LABEL_12:
-  v7 = a1 + 4;
-  result = (struct _KTHREAD *)EtwTraceSiloTimedEvent(*(_QWORD *)&Process[2].Header.Lock, v8, a3, (int)a1 + 32);
-LABEL_4:
+LABEL_3:
   if ( a1[8] )
   {
     if ( a2 != 2 )
     {
-      v9 = MEMORY[0xFFFFF78000000320];
-      v10 = MEMORY[0xFFFFF78000000320] - a1[8];
-      a1[8] = v10;
-      v11 = (__int64)Process[1].Header.WaitListHead.Flink ^ (__int64)Process[1].ThreadListHead.Flink;
-      v12[0] = 2 * v10;
-      v12[1] = dword_140D0C250;
-      v15 = a1[6];
-      v13 = (unsigned int)(*v7 >> 9);
-      v14 = a1[5];
-      v16 = v11 & 0x1FFFFFFFFFFFFFFFLL;
-      return (struct _KTHREAD *)PfLogEvent(29, v9, v12, 0x28u);
+      v7 = MEMORY[0xFFFFF78000000320];
+      v8 = MEMORY[0xFFFFF78000000320] - a1[8];
+      a1[8] = v8;
+      v9 = (__int64)Process[1].Header.WaitListHead.Flink ^ (__int64)Process[1].ThreadListHead.Flink;
+      v11[0] = 2 * v8;
+      v11[1] = dword_140CEC350;
+      v14 = a1[6];
+      v12 = (unsigned int)(a1[4] >> 9);
+      v13 = a1[5];
+      v15 = v9 & 0x1FFFFFFFFFFFFFFFLL;
+      return (struct _KTHREAD *)PfLogEvent(29LL, v7, v11);
     }
   }
   return result;

@@ -1,16 +1,15 @@
 /*
- * XREFs of IoRegisterDeviceInterface @ 0x140867290
+ * XREFs of IoRegisterDeviceInterface @ 0x140745370
  * Callers:
- *     DifIoRegisterDeviceInterfaceWrapper @ 0x1405E0A90 (DifIoRegisterDeviceInterfaceWrapper.c)
- *     PiSwCompleteCreate @ 0x14081BD64 (PiSwCompleteCreate.c)
+ *     PiSwCompleteCreate @ 0x14074DC58 (PiSwCompleteCreate.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     wcspbrk @ 0x1403DB9E0 (wcspbrk.c)
- *     PnpUnicodeStringToWstrFree @ 0x1406D3FF4 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x1406D4364 (PnpUnicodeStringToWstr.c)
- *     ObQueryNameStringMode @ 0x14075BD04 (ObQueryNameStringMode.c)
- *     IopRegisterDeviceInterface @ 0x140866CCC (IopRegisterDeviceInterface.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     wcspbrk @ 0x1403D3F50 (wcspbrk.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406AE574 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1406B033C (PnpUnicodeStringToWstr.c)
+ *     ObQueryNameStringMode @ 0x14070FFB0 (ObQueryNameStringMode.c)
+ *     IopRegisterDeviceInterface @ 0x140744910 (IopRegisterDeviceInterface.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterDeviceInterface(
@@ -21,8 +20,8 @@ NTSTATUS __stdcall IoRegisterDeviceInterface(
 {
   WCHAR *v4; // rdi
   wchar_t *v5; // rsi
-  PVOID DeviceNode; // r15
-  wchar_t *v10; // rcx
+  PVOID DeviceNode; // r14
+  __int64 v10; // rcx
   int v11; // eax
   int inited; // ebx
   const WCHAR *v13; // rdx
@@ -56,7 +55,7 @@ LABEL_15:
     goto LABEL_13;
   if ( ReferenceString && ReferenceString->Length >= 2u )
   {
-    v15 = PnpUnicodeStringToWstr(&Str, 0LL, &ReferenceString->Length);
+    v15 = PnpUnicodeStringToWstr((__int16 **)&Str, 0LL, &ReferenceString->Length);
     v5 = Str;
     inited = v15;
     if ( v15 < 0 )
@@ -68,9 +67,9 @@ LABEL_13:
       goto LABEL_9;
     }
   }
-  v10 = (wchar_t *)*((_QWORD *)DeviceNode + 6);
+  v10 = *((_QWORD *)DeviceNode + 6);
   LODWORD(Str) = 0;
-  v11 = IopRegisterDeviceInterface(v10, (int *)v19, v5, 0, (PVOID *)&SourceString, (__int64)&Str);
+  v11 = IopRegisterDeviceInterface(v10, (int *)v19, (__int64)v5, 0, (PVOID *)&SourceString, &Str);
   v4 = (WCHAR *)SourceString;
   inited = v11;
   if ( v11 < 0 )

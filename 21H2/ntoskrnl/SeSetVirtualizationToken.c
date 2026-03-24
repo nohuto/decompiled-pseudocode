@@ -1,15 +1,15 @@
 /*
- * XREFs of SeSetVirtualizationToken @ 0x1406E6FE8
+ * XREFs of SeSetVirtualizationToken @ 0x1406BEC14
  * Callers:
- *     NtSetInformationToken @ 0x140754810 (NtSetInformationToken.c)
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
  */
 
-char __fastcall SeSetVirtualizationToken(__int64 a1, int a2)
+_QWORD *__fastcall SeSetVirtualizationToken(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   int v5; // eax
@@ -35,5 +35,5 @@ LABEL_5:
   *(_QWORD *)(a1 + 56) = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
   _InterlockedOr(v8, 0);
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

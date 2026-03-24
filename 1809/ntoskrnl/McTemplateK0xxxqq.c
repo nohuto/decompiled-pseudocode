@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0xxxqq @ 0x140270548
+ * XREFs of McTemplateK0xxxqq @ 0x140270648
  * Callers:
- *     FsRtlHeatLogIo @ 0x140816400 (FsRtlHeatLogIo.c)
+ *     FsRtlHeatLogIo @ 0x1408163E0 (FsRtlHeatLogIo.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6A0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 ULONG McTemplateK0xxxqq(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

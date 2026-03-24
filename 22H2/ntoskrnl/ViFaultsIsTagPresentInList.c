@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFaultsIsTagPresentInList @ 0x140AD7B50
+ * XREFs of ViFaultsIsTagPresentInList @ 0x1409DD380
  * Callers:
- *     ViFaultsAddTagNoDuplicates @ 0x140AD7600 (ViFaultsAddTagNoDuplicates.c)
- *     ViFaultsIsTagTarget @ 0x140AD7B9C (ViFaultsIsTagTarget.c)
+ *     ViFaultsAddTagNoDuplicates @ 0x1409DCE38 (ViFaultsAddTagNoDuplicates.c)
+ *     ViFaultsIsTagTarget @ 0x1409DD3CC (ViFaultsIsTagTarget.c)
  * Callees:
- *     ExCheckSingleFilter @ 0x14046AAFE (ExCheckSingleFilter.c)
+ *     ExCheckSingleFilter @ 0x1405B353C (ExCheckSingleFilter.c)
  */
 
 __int64 __fastcall ViFaultsIsTagPresentInList(int a1)

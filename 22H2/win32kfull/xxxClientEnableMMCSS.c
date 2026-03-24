@@ -1,8 +1,8 @@
 /*
- * XREFs of xxxClientEnableMMCSS @ 0x1C0212068
+ * XREFs of xxxClientEnableMMCSS @ 0x1C000A59C
  * Callers:
- *     RawInputThread @ 0x1C003F070 (RawInputThread.c)
- *     _lambda_e277e00ef720cdd7e05078d97cf7089b_::operator() @ 0x1C013A878 (_lambda_e277e00ef720cdd7e05078d97cf7089b_--operator().c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
+ *     _lambda_59a4e3142c84351a80394e9d40be16cb_::operator() @ 0x1C0167E08 (_lambda_59a4e3142c84351a80394e9d40be16cb_--operator().c)
  * Callees:
  *     <none>
  */

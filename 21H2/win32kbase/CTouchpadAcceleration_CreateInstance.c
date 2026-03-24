@@ -1,21 +1,27 @@
 /*
- * XREFs of CTouchpadAcceleration_CreateInstance @ 0x1C00C3250
+ * XREFs of CTouchpadAcceleration_CreateInstance @ 0x1C00B6860
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateInstance@CTouchpadAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z @ 0x1C00C3290 (-CreateInstance@CTouchpadAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32AllocPool @ 0x1C002AE60 (Win32AllocPool.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
-struct CDeviceAcceleration *__fastcall CTouchpadAcceleration_CreateInstance(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall CTouchpadAcceleration_CreateInstance(int a1)
 {
-  unsigned int v3; // ebx
-  struct CDeviceAcceleration *v5; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v2; // rax
+  __int64 v3; // rbx
 
-  v3 = a1;
-  if ( qword_1C02880B0 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  v5 = 0LL;
-  CTouchpadAcceleration::CreateInstance(&v5, v3);
-  return v5;
+  if ( qword_1C02460B0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 715LL);
+  v2 = Win32AllocPool(104LL, 0x64416363u);
+  v3 = v2;
+  if ( !v2 )
+    return 0LL;
+  *(_BYTE *)(v2 + 8) = 0;
+  memset((void *)(v2 + 16), 0, 0x50uLL);
+  *(_DWORD *)(v3 + 96) = a1;
+  *(_QWORD *)v3 = &CTouchpadAcceleration::`vftable';
+  return v3;
 }

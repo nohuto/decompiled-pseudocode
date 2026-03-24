@@ -1,39 +1,39 @@
 /*
- * XREFs of PiHotSwapGetDefaultBusRemovalPolicy @ 0x1408571A4
+ * XREFs of PiHotSwapGetDefaultBusRemovalPolicy @ 0x14076D154
  * Callers:
- *     PpHotSwapUpdateRemovalPolicy @ 0x1407DE4F4 (PpHotSwapUpdateRemovalPolicy.c)
+ *     PpHotSwapUpdateRemovalPolicy @ 0x14076D020 (PpHotSwapUpdateRemovalPolicy.c)
  * Callees:
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
  */
 
-int __fastcall PiHotSwapGetDefaultBusRemovalPolicy(__int64 a1, int *a2)
+char __fastcall PiHotSwapGetDefaultBusRemovalPolicy(__int64 a1, int *a2)
 {
-  const wchar_t **v2; // rsi
-  __int64 v5; // rax
-  int v6; // ebx
-  __int64 v7; // rcx
+  __int64 v4; // rax
+  int v5; // ebx
+  __int64 v6; // rcx
 
-  v2 = (const wchar_t **)(a1 + 48);
-  if ( *(_WORD *)(a1 + 40) <= 8u || (LODWORD(v5) = wcsnicmp(*v2, L"USB\\", 4uLL), (_DWORD)v5) )
+  if ( *(_WORD *)(a1 + 40) <= 8u || (LODWORD(v4) = wcsnicmp(*(const wchar_t **)(a1 + 48), L"USB\\", 4uLL), (_DWORD)v4) )
   {
-    v6 = 5;
+    v5 = 5;
     if ( *(_WORD *)(a1 + 40) <= 0xAu
-      || (LODWORD(v5) = wcsnicmp(*v2, L"1394\\", 5uLL), (_DWORD)v5)
-      && (*(_WORD *)(a1 + 40) <= 0xAu || (LODWORD(v5) = wcsnicmp(*v2, L"SBP2\\", 5uLL), (_DWORD)v5)) )
+      || (LODWORD(v4) = wcsnicmp(*(const wchar_t **)(a1 + 48), L"1394\\", 5uLL), (_DWORD)v4)
+      && (*(_WORD *)(a1 + 40) <= 0xAu
+       || (LODWORD(v4) = wcsnicmp(*(const wchar_t **)(a1 + 48), L"SBP2\\", 5uLL), (_DWORD)v4)) )
     {
-      if ( *(_WORD *)(a1 + 40) <= 0xEu || (LODWORD(v5) = wcsnicmp(*v2, L"PCMCIA\\", 7uLL), (_DWORD)v5) )
+      if ( *(_WORD *)(a1 + 40) <= 0xEu
+        || (LODWORD(v4) = wcsnicmp(*(const wchar_t **)(a1 + 48), L"PCMCIA\\", 7uLL), (_DWORD)v4) )
       {
         if ( *(_WORD *)(a1 + 40) <= 8u
-          || wcsnicmp(*v2, L"PCI\\", 4uLL)
-          || (v7 = *(_QWORD *)(a1 + 16), *(_WORD *)(v7 + 56) != 12)
-          || (LODWORD(v5) = wcsicmp(*(const wchar_t **)(v7 + 64), L"PCMCIA"), (_DWORD)v5) )
+          || wcsnicmp(*(const wchar_t **)(a1 + 48), L"PCI\\", 4uLL)
+          || (v6 = *(_QWORD *)(a1 + 16), *(_WORD *)(v6 + 56) != 12)
+          || (LODWORD(v4) = wcsicmp(*(const wchar_t **)(v6 + 64), L"PCMCIA"), (_DWORD)v4) )
         {
-          v5 = *(_QWORD *)(a1 + 720);
-          if ( !v5 || (*(_BYTE *)(v5 + 16) & 4) == 0 )
+          v4 = *(_QWORD *)(a1 + 720);
+          if ( !v4 || (LOBYTE(v4) = *(_BYTE *)(v4 + 16), (v4 & 4) == 0) )
           {
-            LODWORD(v5) = -(*(_BYTE *)(*(_QWORD *)(a1 + 16) + 466LL) != 5);
-            v6 = 5 - (*(_BYTE *)(*(_QWORD *)(a1 + 16) + 466LL) != 5);
+            LODWORD(v4) = -(*(_BYTE *)(*(_QWORD *)(a1 + 16) + 466LL) != 5);
+            v5 = 5 - (*(_BYTE *)(*(_QWORD *)(a1 + 16) + 466LL) != 5);
           }
         }
       }
@@ -41,8 +41,8 @@ int __fastcall PiHotSwapGetDefaultBusRemovalPolicy(__int64 a1, int *a2)
   }
   else
   {
-    v6 = 5;
+    v5 = 5;
   }
-  *a2 = v6;
-  return v5;
+  *a2 = v5;
+  return v4;
 }

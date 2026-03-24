@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCreateRegistryKey @ 0x140760450
+ * XREFs of RtlCreateRegistryKey @ 0x140760430
  * Callers:
- *     WheapCommitPolicy @ 0x1408DC1FC (WheapCommitPolicy.c)
+ *     WheapCommitPolicy @ 0x1408DC1DC (WheapCommitPolicy.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     RtlpGetRegistryHandle @ 0x1405C7774 (RtlpGetRegistryHandle.c)
  */
 

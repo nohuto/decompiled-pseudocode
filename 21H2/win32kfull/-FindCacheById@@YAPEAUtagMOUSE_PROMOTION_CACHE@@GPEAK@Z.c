@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z @ 0x1C02136F8
+ * XREFs of ?FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z @ 0x1C02188F0
  * Callers:
- *     ?OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z @ 0x1C02138A8 (-OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z.c)
- *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0213BC0 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
- *     ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0213F58 (-ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
+ *     ?OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z @ 0x1C0218AB0 (-OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z.c)
+ *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218DC8 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0219240 (-ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,12 +14,12 @@ struct tagMOUSE_PROMOTION_CACHE *__fastcall FindCacheById(__int16 a1, unsigned i
   __int16 *i; // r8
 
   v2 = 0LL;
-  for ( i = word_1C0335C98; *i != a1; i += 12 )
+  for ( i = word_1C033AAD8; *i != a1; i += 12 )
   {
     v2 = (unsigned int)(v2 + 1);
     if ( (unsigned int)v2 >= 5 )
       return 0LL;
   }
   *a2 = v2;
-  return (struct tagMOUSE_PROMOTION_CACHE *)&word_1C0335C98[12 * v2];
+  return (struct tagMOUSE_PROMOTION_CACHE *)&word_1C033AAD8[12 * v2];
 }

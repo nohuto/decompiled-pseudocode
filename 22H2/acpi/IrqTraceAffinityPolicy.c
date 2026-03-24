@@ -1,12 +1,12 @@
 /*
- * XREFs of IrqTraceAffinityPolicy @ 0x1C009FFD0
+ * XREFs of IrqTraceAffinityPolicy @ 0x1C0096174
  * Callers:
- *     IrqPolicyGetDevicePolicy @ 0x1C009F8B4 (IrqPolicyGetDevicePolicy.c)
+ *     IrqPolicyGetDevicePolicy @ 0x1C0094A38 (IrqPolicyGetDevicePolicy.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _tlgKeywordOn @ 0x1C0009240 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0009270 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     IrqpAllocateInstancePath @ 0x1C00A015C (IrqpAllocateInstancePath.c)
+ *     _tlgKeywordOn @ 0x1C000FB50 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C000FB80 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     IrqpAllocateInstancePath @ 0x1C00964E4 (IrqpAllocateInstancePath.c)
  */
 
 void __fastcall IrqTraceAffinityPolicy(PDEVICE_OBJECT Pdo, unsigned __int16 a2, __int16 a3, __int64 a4)
@@ -40,7 +40,7 @@ void __fastcall IrqTraceAffinityPolicy(PDEVICE_OBJECT Pdo, unsigned __int16 a2, 
 
   v14[0] = 0LL;
   v6 = a2;
-  if ( dword_1C006C110 && tlgKeywordOn((__int64)&dword_1C006C110) )
+  if ( dword_1C007F130 && tlgKeywordOn((__int64)&dword_1C007F130) )
   {
     if ( (_WORD)v6 == 4 )
       v9 = RtlNumberOfSetBitsUlongPtr(v8);
@@ -48,7 +48,7 @@ void __fastcall IrqTraceAffinityPolicy(PDEVICE_OBJECT Pdo, unsigned __int16 a2, 
       v9 = 0;
     v14[1] = 0LL;
     IrqpAllocateInstancePath(Pdo);
-    if ( (unsigned int)dword_1C006C110 > 5 && tlgKeywordOn((__int64)&dword_1C006C110) )
+    if ( (unsigned int)dword_1C007F130 > 5 && tlgKeywordOn((__int64)&dword_1C007F130) )
     {
       v18 = 0;
       v20[1] = 0;
@@ -73,14 +73,14 @@ void __fastcall IrqTraceAffinityPolicy(PDEVICE_OBJECT Pdo, unsigned __int16 a2, 
       v13 = v9;
       v31 = 4;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C006C110,
-        (unsigned __int8 *)dword_1C00629F2,
+        (__int64)&dword_1C007F130,
+        (unsigned __int8 *)dword_1C00726E2,
         4LL,
         v10,
         8u,
         &v15);
     }
-    if ( &word_1C0063064 )
+    if ( &word_1C006F7EC )
       ExFreePoolWithTag(0LL, 0);
   }
 }

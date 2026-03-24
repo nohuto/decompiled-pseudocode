@@ -1,17 +1,17 @@
 /*
- * XREFs of NtOpenSymbolicLinkObject @ 0x1406A0F30
+ * XREFs of NtOpenSymbolicLinkObject @ 0x140686360
  * Callers:
- *     AdtpInitializeDriveLetters @ 0x14084D204 (AdtpInitializeDriveLetters.c)
- *     IopReassignSystemRoot @ 0x140B2BC5C (IopReassignSystemRoot.c)
+ *     AdtpInitializeDriveLetters @ 0x14079E9B8 (AdtpInitializeDriveLetters.c)
+ *     IopReassignSystemRoot @ 0x140A700D8 (IopReassignSystemRoot.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x140347D50 (PsGetCurrentSilo.c)
- *     ObOpenObjectByNameEx @ 0x1407CAF90 (ObOpenObjectByNameEx.c)
+ *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
+ *     ObOpenObjectByNameEx @ 0x140655CD0 (ObOpenObjectByNameEx.c)
  */
 
-__int64 __fastcall NtOpenSymbolicLinkObject(unsigned __int64 a1, int a2, __int64 a3)
+__int64 __fastcall NtOpenSymbolicLinkObject(unsigned __int64 a1, ACCESS_MASK a2, __int64 a3)
 {
   _QWORD *v5; // rbx
-  unsigned __int8 PreviousMode; // si
+  char PreviousMode; // si
   POBJECT_TYPE v7; // rdi
   struct _LIST_ENTRY *CurrentSilo; // rax
   __int64 result; // rax
@@ -28,7 +28,7 @@ __int64 __fastcall NtOpenSymbolicLinkObject(unsigned __int64 a1, int a2, __int64
   }
   v7 = ObpSymbolicLinkObjectType;
   CurrentSilo = PsGetCurrentSilo();
-  result = ObOpenObjectByNameEx(a3, v7, PreviousMode, 0LL, a2, 0LL, CurrentSilo, v10);
+  result = ObOpenObjectByNameEx(a3, (__int64)v7, PreviousMode, 0LL, a2, 0LL, (__int64)CurrentSilo, v10);
   *v5 = v10[0];
   return result;
 }

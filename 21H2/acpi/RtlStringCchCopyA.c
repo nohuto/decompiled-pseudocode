@@ -1,49 +1,54 @@
 /*
- * XREFs of RtlStringCchCopyA @ 0x1C0027100
+ * XREFs of RtlStringCchCopyA @ 0x1C0022F50
  * Callers:
- *     ParseName @ 0x1C000BE54 (ParseName.c)
- *     ParseTerm @ 0x1C0013680 (ParseTerm.c)
- *     ParseSuperName @ 0x1C0015500 (ParseSuperName.c)
- *     ACPIDispatchAddDevice @ 0x1C0026D30 (ACPIDispatchAddDevice.c)
- *     Debugger @ 0x1C00680E0 (Debugger.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseSuperName @ 0x1C0009350 (ParseSuperName.c)
+ *     ParseName @ 0x1C00214C4 (ParseName.c)
+ *     ACPIDispatchAddDevice @ 0x1C0025260 (ACPIDispatchAddDevice.c)
+ *     Debugger @ 0x1C0066C38 (Debugger.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall RtlStringCchCopyA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszSrc)
 {
-  size_t v3; // r9
-  signed __int64 v4; // r8
-  char v5; // al
-  NTSTRSAFE_PSTR v6; // rax
-  NTSTATUS result; // eax
+  NTSTATUS v3; // r9d
+  size_t v4; // r10
+  signed __int64 v5; // r8
+  char v6; // al
+  NTSTRSAFE_PSTR v7; // rax
 
+  v3 = 0;
   if ( cchDest - 1 > 0x7FFFFFFE )
+    v3 = -1073741811;
+  if ( v3 < 0 )
   {
-    result = -1073741811;
     if ( cchDest )
       *pszDest = 0;
   }
   else
   {
-    v3 = 2147483646 - cchDest;
-    v4 = pszSrc - pszDest;
-    do
-    {
-      if ( !(v3 + cchDest) )
-        break;
-      v5 = pszDest[v4];
-      if ( !v5 )
-        break;
-      *pszDest++ = v5;
-      --cchDest;
-    }
-    while ( cchDest );
-    v6 = pszDest - 1;
     if ( cchDest )
-      v6 = pszDest;
-    *v6 = 0;
-    return cchDest == 0 ? 0x80000005 : 0;
+    {
+      v4 = 2147483646 - cchDest;
+      v5 = pszSrc - pszDest;
+      do
+      {
+        if ( !(v4 + cchDest) )
+          break;
+        v6 = pszDest[v5];
+        if ( !v6 )
+          break;
+        *pszDest++ = v6;
+        --cchDest;
+      }
+      while ( cchDest );
+    }
+    v7 = pszDest - 1;
+    if ( cchDest )
+      v7 = pszDest;
+    v3 = cchDest == 0 ? 0x80000005 : 0;
+    *v7 = 0;
   }
-  return result;
+  return v3;
 }

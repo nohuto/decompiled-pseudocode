@@ -1,11 +1,11 @@
 /*
- * XREFs of AMLIFinalizeObject @ 0x1C0048054
+ * XREFs of AMLIFinalizeObject @ 0x1C006344C
  * Callers:
- *     ACPIInitDeleteDeviceExtension @ 0x1C002CD28 (ACPIInitDeleteDeviceExtension.c)
- *     ACPITableNotifyFreeObject @ 0x1C003F560 (ACPITableNotifyFreeObject.c)
+ *     ACPIInitDeleteDeviceExtension @ 0x1C0056438 (ACPIInitDeleteDeviceExtension.c)
+ *     ACPITableNotifyFreeObject @ 0x1C005F7C0 (ACPITableNotifyFreeObject.c)
  * Callees:
- *     AMLIRestartContext @ 0x1C0048D2C (AMLIRestartContext.c)
- *     SetObjectsFlag @ 0x1C004FE80 (SetObjectsFlag.c)
+ *     AMLIRestartContext @ 0x1C0063670 (AMLIRestartContext.c)
+ *     SetObjectsFlag @ 0x1C0066F80 (SetObjectsFlag.c)
  */
 
 void __fastcall AMLIFinalizeObject(_QWORD *a1, char a2)
@@ -14,13 +14,10 @@ void __fastcall AMLIFinalizeObject(_QWORD *a1, char a2)
   __int64 v4; // r8
   __int64 v5; // rcx
   __int64 v6; // rbx
-  KSPIN_LOCK *v7; // rsi
-  KIRQL v8; // al
-  signed __int32 v9; // ecx
-  _QWORD *v10; // rbx
-  bool v11; // di
+  KIRQL v7; // al
+  bool v8; // di
 
-  dword_1C006F938 = 0;
+  dword_1C0082908 = 0;
   pszDest = 0;
   if ( a2 )
   {
@@ -34,13 +31,10 @@ void __fastcall AMLIFinalizeObject(_QWORD *a1, char a2)
   v6 = *(_QWORD *)(*a1 + 48LL);
   if ( v6 )
   {
-    v7 = (KSPIN_LOCK *)(v6 + 40);
-    v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v6 + 40));
-    v9 = _InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 48), 0xFFFFFFFF);
-    v10 = (_QWORD *)(v6 + 56);
-    v11 = v9 == 1 && *v10;
-    KeReleaseSpinLock(v7, v8);
-    if ( v11 )
-      AMLIRestartContext(*v10);
+    v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v6 + 40));
+    v8 = _InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 48), 0xFFFFFFFF) == 1 && *(_QWORD *)(v6 + 56);
+    KeReleaseSpinLock((PKSPIN_LOCK)(v6 + 40), v7);
+    if ( v8 )
+      AMLIRestartContext(*(_QWORD *)(v6 + 56));
   }
 }

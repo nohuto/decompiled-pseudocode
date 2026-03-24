@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessCreate@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICEXCLUSIVEVIEW_CREATE@@@Z @ 0x1802A8A6C
+ * XREFs of ?ProcessCreate@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICEXCLUSIVEVIEW_CREATE@@@Z @ 0x180256FFC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?AddExclusiveView@CHolographicManager@@QEAA_NPEAVCHolographicExclusiveView@@@Z @ 0x1802A4884 (-AddExclusiveView@CHolographicManager@@QEAA_NPEAVCHolographicExclusiveView@@@Z.c)
+ *     ?AddExclusiveView@CHolographicManager@@QEAA_NPEAVCHolographicExclusiveView@@@Z @ 0x180252704 (-AddExclusiveView@CHolographicManager@@QEAA_NPEAVCHolographicExclusiveView@@@Z.c)
  */
 
 __int64 __fastcall CHolographicExclusiveView::ProcessCreate(
@@ -13,11 +13,11 @@ __int64 __fastcall CHolographicExclusiveView::ProcessCreate(
 {
   bool v3; // zf
 
-  v3 = *((_QWORD *)this + 8) == 0LL;
-  *((_DWORD *)this + 19) = *((_DWORD *)a3 + 4);
-  *((_DWORD *)this + 18) = *((_DWORD *)a3 + 5);
-  *((_QWORD *)this + 13) = *((_QWORD *)a3 + 1);
+  v3 = *((_QWORD *)this + 7) == 0LL;
+  *((_DWORD *)this + 17) = *((_DWORD *)a3 + 4);
+  *((_DWORD *)this + 16) = *((_DWORD *)a3 + 5);
+  *((_QWORD *)this + 12) = *((_QWORD *)a3 + 1);
   if ( !v3 )
-    CHolographicManager::AddExclusiveView(*((RTL_SRWLOCK **)this + 8), (struct IUnknown *)this);
+    CHolographicManager::AddExclusiveView(*((RTL_SRWLOCK **)this + 7), (struct IUnknown *)this);
   return 0LL;
 }

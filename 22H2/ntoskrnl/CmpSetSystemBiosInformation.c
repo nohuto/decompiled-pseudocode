@@ -1,62 +1,64 @@
 /*
- * XREFs of CmpSetSystemBiosInformation @ 0x140B9986C
+ * XREFs of CmpSetSystemBiosInformation @ 0x140A594A0
  * Callers:
- *     CmpInitializeMachineDependentConfiguration @ 0x140B3A520 (CmpInitializeMachineDependentConfiguration.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x140A58C04 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwMapViewOfSection @ 0x14041ABA0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14041ABE0 (ZwUnmapViewOfSection.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlCompareUnicodeString @ 0x1406DA1F0 (RtlCompareUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     CmpGetAcpiBiosVersion @ 0x140B993F0 (CmpGetAcpiBiosVersion.c)
- *     CmpGetBiosDate @ 0x140B9947C (CmpGetBiosDate.c)
- *     CmpGetBiosVersion @ 0x140B996AC (CmpGetBiosVersion.c)
- *     CmpGetRegistryValue @ 0x140B9A2CC (CmpGetRegistryValue.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwMapViewOfSection @ 0x1403F9F20 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403F9F60 (ZwUnmapViewOfSection.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpGetBiosVersion @ 0x140A597C0 (CmpGetBiosVersion.c)
+ *     CmpGetBiosDate @ 0x140A59980 (CmpGetBiosDate.c)
+ *     CmpGetAcpiBiosVersion @ 0x140A59B9C (CmpGetAcpiBiosVersion.c)
+ *     CmpGetRegistryValue @ 0x140A59C2C (CmpGetRegistryValue.c)
  */
 
 void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
 {
   unsigned int v4; // r13d
-  _WORD *v5; // rsi
-  char *v6; // rbx
-  unsigned __int16 v7; // di
+  __int64 v5; // r9
+  _WORD *v6; // rsi
+  __int64 v7; // r9
   _WORD *v8; // r14
   __int64 v9; // r12
   int i; // edi
-  unsigned int v11; // edx
+  __int64 v11; // rdx
   PVOID v12; // rcx
-  unsigned int v13; // ebx
-  HANDLE v14; // r12
+  HANDLE v13; // r12
+  unsigned int v14; // ebx
+  char *v15; // rbx
+  unsigned __int16 v16; // di
   PVOID BaseAddress; // [rsp+50h] [rbp-B0h] BYREF
-  UNICODE_STRING String1; // [rsp+58h] [rbp-A8h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING ValueName; // [rsp+68h] [rbp-98h] BYREF
   STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
   LARGE_INTEGER SectionOffset; // [rsp+88h] [rbp-78h] BYREF
   PVOID P; // [rsp+90h] [rbp-70h]
   UNICODE_STRING String2; // [rsp+98h] [rbp-68h] BYREF
   ULONG_PTR ViewSize; // [rsp+A8h] [rbp-58h] BYREF
-  __int64 v23; // [rsp+B0h] [rbp-50h]
+  __int64 v25; // [rsp+B0h] [rbp-50h]
   PVOID Data; // [rsp+B8h] [rbp-48h]
   HANDLE KeyHandle; // [rsp+C0h] [rbp-40h]
   char SourceString[128]; // [rsp+D0h] [rbp-30h] BYREF
 
-  v23 = a1;
+  v25 = a1;
   KeyHandle = a3;
   P = 0LL;
+  *(_DWORD *)(&String2.MaximumLength + 1) = 0;
   BaseAddress = 0LL;
   ViewSize = 0x10000LL;
   SectionOffset.QuadPart = 983040LL;
   DestinationString = 0LL;
   v4 = 0;
-  String2 = 0LL;
-  String1 = 0LL;
+  UnicodeString = 0LL;
   ValueName = 0LL;
   if ( ZwMapViewOfSection(
          a2,
@@ -70,91 +72,93 @@ void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
          0,
          4u) >= 0 )
   {
-    Data = (PVOID)ExAllocatePool2(256LL, 0x1000uLL, 0x20204D43u);
-    v5 = Data;
-    if ( CmpGetBiosDate((__int64)BaseAddress + 65525, 8u, (__int64)SourceString, 1) )
+    Data = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x20204D43u);
+    LOBYTE(v5) = 1;
+    v6 = Data;
+    if ( (unsigned __int8)CmpGetBiosDate((char *)BaseAddress + 65525, 8LL, SourceString, v5) )
     {
       RtlInitAnsiString(&DestinationString, SourceString);
-      if ( RtlAnsiStringToUnicodeString(&String1, &DestinationString, 1u) >= 0 )
+      if ( RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u) >= 0 )
       {
         RtlInitUnicodeString(&ValueName, L"SystemBiosDate");
         if ( (int)CmpGetRegistryValue(a3) >= 0 )
         {
-          v6 = (char *)P;
+          v15 = (char *)P;
           if ( P )
           {
             String2.MaximumLength = *((_WORD *)P + 4);
-            v7 = String2.MaximumLength - 2;
+            v16 = String2.MaximumLength - 2;
             String2.Buffer = (wchar_t *)((char *)P + 12);
             String2.Length = String2.MaximumLength - 2;
-            if ( RtlCompareUnicodeString(&String1, &String2, 1u) )
+            if ( RtlCompareUnicodeString(&UnicodeString, &String2, 1u) )
             {
               RtlInitUnicodeString(&ValueName, L"OldSystemBiosDate");
-              ZwSetValueKey(a3, &ValueName, 0, 1u, v6 + 12, v7 + 2);
+              ZwSetValueKey(a3, &ValueName, 0, 1u, v15 + 12, v16 + 2);
             }
-            ExFreePoolWithTag(v6, 0);
+            ExFreePoolWithTag(v15, 0);
           }
         }
-        RtlFreeUnicodeString(&String1);
+        RtlFreeAnsiString(&UnicodeString);
       }
     }
-    if ( CmpGetBiosDate((__int64)BaseAddress, 0x10000u, (__int64)SourceString, 1) )
+    LOBYTE(v7) = 1;
+    if ( (unsigned __int8)CmpGetBiosDate(BaseAddress, 0x10000LL, SourceString, v7) )
     {
       RtlInitUnicodeString(&ValueName, L"SystemBiosDate");
       RtlInitAnsiString(&DestinationString, SourceString);
-      if ( RtlAnsiStringToUnicodeString(&String1, &DestinationString, 1u) >= 0 )
+      if ( RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u) >= 0 )
       {
-        ZwSetValueKey(a3, &ValueName, 0, 1u, String1.Buffer, String1.Length + 2);
-        RtlFreeUnicodeString(&String1);
+        ZwSetValueKey(a3, &ValueName, 0, 1u, UnicodeString.Buffer, UnicodeString.Length + 2);
+        RtlFreeAnsiString(&UnicodeString);
       }
     }
-    v8 = v5;
-    if ( v5 )
+    v8 = v6;
+    if ( v6 )
     {
-      v9 = v23;
+      v9 = v25;
       for ( i = 0; ; ++i )
       {
         if ( i )
         {
-          v11 = 0x10000;
+          v11 = 0x10000LL;
           v12 = 0LL;
           if ( i == 1 )
             v12 = BaseAddress;
           else
-            v11 = 0;
-          if ( !CmpGetBiosVersion((__int64)v12, v11, (__int64)SourceString) )
+            v11 = 0LL;
+          if ( !(unsigned __int8)CmpGetBiosVersion(v12, v11, SourceString) )
           {
-LABEL_26:
-            v5 = Data;
-            v14 = KeyHandle;
+LABEL_16:
+            v6 = Data;
+            v13 = KeyHandle;
             if ( v4 )
             {
               *v8 = 0;
               RtlInitUnicodeString(&ValueName, L"SystemBiosVersion");
-              ZwSetValueKey(v14, &ValueName, 0, 7u, v5, v4 + 2);
+              ZwSetValueKey(v13, &ValueName, 0, 7u, v6, v4 + 2);
             }
             break;
           }
         }
-        else if ( !CmpGetAcpiBiosVersion(v9, SourceString) )
+        else if ( !(unsigned __int8)CmpGetAcpiBiosVersion(v9, SourceString) )
         {
           continue;
         }
         RtlInitAnsiString(&DestinationString, SourceString);
-        if ( RtlAnsiStringToUnicodeString(&String1, &DestinationString, 1u) >= 0 )
+        if ( RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u) >= 0 )
         {
-          v13 = String1.Length + 2;
-          memmove(v8, String1.Buffer, v13);
-          v4 += v13;
-          RtlFreeUnicodeString(&String1);
+          v14 = UnicodeString.Length + 2;
+          memmove(v8, UnicodeString.Buffer, v14);
+          v4 += v14;
+          RtlFreeAnsiString(&UnicodeString);
           if ( (unsigned __int64)v4 + 260 > 0x1000 )
-            goto LABEL_26;
-          v8 = (_WORD *)((char *)v8 + v13);
+            goto LABEL_16;
+          v8 = (_WORD *)((char *)v8 + v14);
         }
       }
     }
     ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
-    if ( v5 )
-      ExFreePoolWithTag(v5, 0);
+    if ( v6 )
+      ExFreePoolWithTag(v6, 0);
   }
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KeCleanupImageTracepoints @ 0x1406973DC
+ * XREFs of KeCleanupImageTracepoints @ 0x14077343C
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KeCleanupImageTracepoints(__int64 a1)
@@ -17,14 +17,14 @@ void __fastcall KeCleanupImageTracepoints(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 v4; // r15
   void **v5; // rdi
-  void **v6; // r14
+  unsigned __int64 v6; // r14
   void **v7; // rcx
   void **v8; // rsi
   void *v9; // rax
   signed __int32 v10[14]; // [rsp+0h] [rbp-38h] BYREF
 
-  if ( qword_140D1F2A0 )
-    qword_140D1F2A0();
+  if ( qword_140CFCBD0 )
+    qword_140CFCBD0();
   if ( KiTpHashTable )
   {
     v2 = *(_QWORD *)(a1 + 48);
@@ -32,9 +32,9 @@ void __fastcall KeCleanupImageTracepoints(__int64 a1)
     v4 = v2 + *(unsigned int *)(a1 + 64) - 1LL;
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&KiTpStateLock, 0LL);
-    v5 = (void **)((char *)KiTpHashTable + 8 * ((v2 >> 4) & 0x3FFF));
-    v6 = (void **)((char *)KiTpHashTable + 8 * ((v4 >> 4) & 0x3FFF));
-    while ( v5 <= v6 )
+    v5 = (void **)(KiTpHashTable + 8 * ((v2 >> 4) & 0x3FFF));
+    v6 = KiTpHashTable + 8 * ((v4 >> 4) & 0x3FFF);
+    while ( (unsigned __int64)v5 <= v6 )
     {
       v7 = (void **)*v5;
       v8 = v5;
@@ -48,7 +48,10 @@ void __fastcall KeCleanupImageTracepoints(__int64 a1)
         else
         {
           if ( *((_BYTE *)v7 + 48) )
-            --KiTpEnabledCount;
+          {
+            if ( !--KiTpEnabledCount )
+              _InterlockedAnd(&KiDynamicTraceMask, 0xFFFFFFFD);
+          }
           *v8 = *v7;
           _InterlockedOr(v10, 0);
           --KiTpRegisteredCount;

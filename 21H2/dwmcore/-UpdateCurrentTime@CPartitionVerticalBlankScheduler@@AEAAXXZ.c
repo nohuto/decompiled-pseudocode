@@ -1,13 +1,13 @@
 /*
- * XREFs of ?UpdateCurrentTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18007BD78
+ * XREFs of ?UpdateCurrentTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006DB08
  * Callers:
- *     ?WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x18007A840 (-WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
- *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18007ADD0 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
- *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18007AFD4 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
- *     ?Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x1800DD978 (-Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x180026EF0 (-Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18006D720 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
+ *     ?WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x18006F5A0 (-WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18006FCF0 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 void __fastcall CPartitionVerticalBlankScheduler::UpdateCurrentTime(CPartitionVerticalBlankScheduler *this)
@@ -22,12 +22,12 @@ void __fastcall CPartitionVerticalBlankScheduler::UpdateCurrentTime(CPartitionVe
   unsigned __int64 v9; // rbx
   struct _EXCEPTION_RECORD pExceptionRecord; // [rsp+20h] [rbp-79h] BYREF
 
-  v1 = (unsigned __int64 *)((char *)this + 17192);
-  v3 = (LARGE_INTEGER *)((char *)this + 17176);
-  v4 = *((_QWORD *)this + 2147);
-  v5 = ((_QWORD)this + 17192) << 32;
-  v6 = ((unsigned __int64)this + 17192) | v5;
-  if ( (v4 ^ v6) != *((_QWORD *)this + 2149) )
+  v1 = (unsigned __int64 *)((char *)this + 15936);
+  v3 = (LARGE_INTEGER *)((char *)this + 15920);
+  v4 = *((_QWORD *)this + 1990);
+  v5 = ((_QWORD)this + 15936) << 32;
+  v6 = ((unsigned __int64)this + 15936) | v5;
+  if ( (v4 ^ v6) != *((_QWORD *)this + 1992) )
   {
     memset_0(&pExceptionRecord, 0, sizeof(pExceptionRecord));
     pExceptionRecord.ExceptionCode = -2003304320;
@@ -38,12 +38,12 @@ void __fastcall CPartitionVerticalBlankScheduler::UpdateCurrentTime(CPartitionVe
     pExceptionRecord.ExceptionInformation[2] = SHIDWORD(v9);
     pExceptionRecord.ExceptionInformation[3] = (unsigned int)v9;
     RaiseFailFastException(&pExceptionRecord, 0LL, 0);
-    v4 = *((_QWORD *)this + 2147);
+    v4 = *((_QWORD *)this + 1990);
   }
-  *((_QWORD *)this + 2148) = v4;
+  *((_QWORD *)this + 1991) = v4;
   QueryPerformanceCounter(v3);
   v7 = *v3;
-  v8 = *((_QWORD *)this + 2148);
+  v8 = *((_QWORD *)this + 1991);
   if ( v3->QuadPart < v8 )
   {
     memset_0(&pExceptionRecord, 0, sizeof(pExceptionRecord));
@@ -58,7 +58,7 @@ void __fastcall CPartitionVerticalBlankScheduler::UpdateCurrentTime(CPartitionVe
     pExceptionRecord.ExceptionInformation[6] = (int)((1000 * (v8 - v7.QuadPart) / g_qpcFrequency.QuadPart) >> 32);
     pExceptionRecord.ExceptionInformation[7] = (unsigned int)(1000 * (v8 - v7.QuadPart) / g_qpcFrequency.QuadPart);
     RaiseFailFastException(&pExceptionRecord, 0LL, 0);
-    v7 = *(LARGE_INTEGER *)((char *)this + 17176);
+    v7 = *(LARGE_INTEGER *)((char *)this + 15920);
   }
   *v1 = v7.QuadPart ^ v6;
 }

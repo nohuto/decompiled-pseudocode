@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPepRegisterComponentPerfStates @ 0x1405D6478
+ * XREFs of PopPepRegisterComponentPerfStates @ 0x140575DA4
  * Callers:
- *     PopFxRegisterComponentPerfStates @ 0x14098DCC4 (PopFxRegisterComponentPerfStates.c)
+ *     PopFxRegisterComponentPerfStates @ 0x1408E5384 (PopFxRegisterComponentPerfStates.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopPepRegisterComponentPerfStates(__int64 a1, unsigned int a2, __int64 a3)
@@ -17,10 +17,10 @@ __int64 __fastcall PopPepRegisterComponentPerfStates(__int64 a1, unsigned int a2
   _DWORD *SchedulerAssist; // r9
   bool v10; // zf
 
-  v5 = 208LL * a2;
+  v5 = 200LL * a2;
   v6 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 64));
-  *(_BYTE *)(v5 + a1 + 376) = 1;
-  *(_QWORD *)(v5 + a1 + 216) = a3;
+  *(_BYTE *)(v5 + a1 + 368) = 1;
+  *(_QWORD *)(v5 + a1 + 208) = a3;
   if ( (a3 & 2) != 0 )
     *(_BYTE *)(a1 + 176) = 1;
   if ( (a3 & 4) != 0 )

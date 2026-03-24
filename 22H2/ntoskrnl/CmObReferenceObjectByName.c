@@ -1,36 +1,36 @@
 /*
- * XREFs of CmObReferenceObjectByName @ 0x140AF66D4
+ * XREFs of CmObReferenceObjectByName @ 0x1405CD0F0
  * Callers:
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1406E23B0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     NtNotifyChangeMultipleKeys @ 0x140767040 (NtNotifyChangeMultipleKeys.c)
- *     CmKeyBodyRemapToVirtual @ 0x140A18024 (CmKeyBodyRemapToVirtual.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140A182E8 (CmKeyBodyReplicateToVirtual.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406852C0 (CmKeyBodyReplicateToVirtual.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1406CE470 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1406DC020 (NtNotifyChangeMultipleKeys.c)
+ *     CmKeyBodyRemapToVirtual @ 0x14086F870 (CmKeyBodyRemapToVirtual.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByNameEx @ 0x1407153CC (ObReferenceObjectByNameEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
  */
 
 __int64 __fastcall CmObReferenceObjectByName(
-        __int64 a1,
-        struct _SECURITY_SUBJECT_CONTEXT *a2,
+        int a1,
+        int a2,
         int a3,
         __int64 a4,
         char a5,
         __int64 a6,
-        _QWORD *a7)
+        struct _DMA_ADAPTER **a7)
 {
   int v7; // eax
-  void *v8; // rcx
+  struct _DMA_ADAPTER *v8; // rcx
   unsigned int v9; // ebx
-  _DWORD *v11; // [rsp+68h] [rbp+20h] BYREF
+  struct _DMA_ADAPTER *v11; // [rsp+68h] [rbp+20h] BYREF
 
   v11 = 0LL;
-  v7 = ObReferenceObjectByNameEx(a1, a2, a3, (__int64)CmKeyObjectType, a5, a6, (__int64 *)&v11);
+  v7 = ObReferenceObjectByNameEx(a1, a2, a3, (_DWORD)CmKeyObjectType, a5, a6, (__int64)&v11);
   v8 = v11;
   v9 = v7;
   if ( v7 >= 0 )
   {
-    if ( *v11 == 1803104306 )
+    if ( *(_DWORD *)&v11->Version == 1803104306 )
     {
       *a7 = v11;
       v8 = 0LL;
@@ -42,6 +42,6 @@ __int64 __fastcall CmObReferenceObjectByName(
     }
   }
   if ( v8 )
-    ObfDereferenceObject(v8);
+    HalPutDmaAdapter(v8);
   return v9;
 }

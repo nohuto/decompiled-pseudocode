@@ -1,30 +1,27 @@
 /*
- * XREFs of ClientNoMemoryPopup @ 0x1C0222ACC
+ * XREFs of ClientNoMemoryPopup @ 0x1C0228B2C
  * Callers:
- *     xxxSnapWindow @ 0x1C023F848 (xxxSnapWindow.c)
+ *     xxxSnapWindow @ 0x1C0160BBC (xxxSnapWindow.c)
  * Callees:
- *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C00EF5D4 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ *     <none>
  */
 
-__int64 __fastcall ClientNoMemoryPopup(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall ClientNoMemoryPopup(__int64 a1)
 {
-  unsigned int Count; // eax
-  __int64 v4; // rcx
-  int v6; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v7; // [rsp+68h] [rbp+10h] BYREF
+  int v2; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v3; // [rsp+48h] [rbp+10h] BYREF
 
-  v7 = 0LL;
-  v6 = 0;
-  Count = AtomicExecutionCheck::GetCount(a1, a2, a3);
-  if ( Count )
+  v3 = 0LL;
+  v2 = 0;
+  if ( gdwInAtomicOperation )
   {
+    a1 = gdwExtraInstrumentations;
     if ( (gdwExtraInstrumentations & 1) != 0 )
-      KeBugCheckEx(0x160u, Count, 0LL, 0LL, 0LL);
-    DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 37LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
+      KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
   }
-  UserSessionSwitchLeaveCrit(v4);
+  UserSessionSwitchLeaveCrit(a1);
   EtwTraceBeginCallback(86LL);
-  KeUserModeCallback(86LL, 0LL, 0LL, &v7, &v6);
+  KeUserModeCallback(86LL, 0LL, 0LL, &v3, &v2);
   EtwTraceEndCallback(86LL);
-  return EnterCrit(1LL, 0LL);
+  return EnterCrit(0LL, 1LL);
 }

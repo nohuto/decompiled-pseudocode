@@ -1,12 +1,12 @@
 /*
- * XREFs of IrqLibpGetVectorInput @ 0x1C002C8B0
+ * XREFs of IrqLibpGetVectorInput @ 0x1C002DD90
  * Callers:
  *     <none>
  * Callees:
- *     IrqLibAcquireArbiterLock @ 0x1C0023884 (IrqLibAcquireArbiterLock.c)
- *     IcGetInputState @ 0x1C002C990 (IcGetInputState.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     ProcessorIdtEntryToGsiv @ 0x1C00A0E6C (ProcessorIdtEntryToGsiv.c)
+ *     IrqLibAcquireArbiterLock @ 0x1C000F38C (IrqLibAcquireArbiterLock.c)
+ *     IcGetInputState @ 0x1C002DE70 (IcGetInputState.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ProcessorIdtEntryToGsiv @ 0x1C00A237C (ProcessorIdtEntryToGsiv.c)
  */
 
 __int64 __fastcall IrqLibpGetVectorInput(unsigned int a1, __int64 a2, _DWORD *a3, _DWORD *a4, _OWORD *a5)

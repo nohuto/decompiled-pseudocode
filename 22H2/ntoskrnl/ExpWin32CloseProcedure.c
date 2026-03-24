@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWin32CloseProcedure @ 0x1407CDC90
+ * XREFs of ExpWin32CloseProcedure @ 0x1406871E0
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
  */
 
 POBJECT_TYPE *__fastcall ExpWin32CloseProcedure(__int64 a1, int *a2, int a3, int a4)
@@ -26,32 +26,28 @@ POBJECT_TYPE *__fastcall ExpWin32CloseProcedure(__int64 a1, int *a2, int a3, int
   if ( result == (POBJECT_TYPE *)ExActivationObjectType )
   {
     v6 = 39;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v6, (__int64)v7, 1, (__int64)&v10);
   }
-  if ( result == (POBJECT_TYPE *)ExCoreMessagingObjectType )
+  else if ( result == (POBJECT_TYPE *)ExCoreMessagingObjectType )
   {
     v6 = 35;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v6, (__int64)v7, 1, (__int64)&v10);
   }
-  if ( result == (POBJECT_TYPE *)ExRawInputManagerObjectType )
+  else if ( result == (POBJECT_TYPE *)ExRawInputManagerObjectType )
   {
     v6 = 29;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v6, (__int64)v7, 1, (__int64)&v10);
   }
-  if ( result == (POBJECT_TYPE *)ExCompositionObjectType )
+  else if ( result == (POBJECT_TYPE *)ExCompositionObjectType )
   {
     v6 = 20;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v6, (__int64)v7, 1, (__int64)&v10);
   }
-  if ( result == ExDesktopObjectType )
+  else if ( result == ExDesktopObjectType )
   {
     v6 = 10;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v6, (__int64)v7, 1, (__int64)&v10);
   }
-  if ( result == (POBJECT_TYPE *)ExWindowStationObjectType )
+  else
   {
+    if ( result != (POBJECT_TYPE *)ExWindowStationObjectType )
+      return result;
     v6 = 13;
-    return (POBJECT_TYPE *)PsInvokeWin32Callout(v6, (__int64)v7, 1, (__int64)&v10);
   }
-  return result;
+  return (POBJECT_TYPE *)PsInvokeWin32Callout(v6, (__int64)v7, 1, (__int64)&v10);
 }

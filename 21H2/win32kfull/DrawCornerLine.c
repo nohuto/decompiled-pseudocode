@@ -1,9 +1,9 @@
 /*
- * XREFs of DrawCornerLine @ 0x1C013D414
+ * XREFs of DrawCornerLine @ 0x1C0153A28
  * Callers:
- *     CreateStandardMonoPattern @ 0x1C013C9D8 (CreateStandardMonoPattern.c)
+ *     CreateStandardMonoPattern @ 0x1C01535F4 (CreateStandardMonoPattern.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void __fastcall DrawCornerLine(char *a1, unsigned __int16 a2, unsigned __int16 a3, int a4, unsigned __int16 a5, int a6)

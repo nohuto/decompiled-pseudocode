@@ -1,5 +1,5 @@
 /*
- * XREFs of DpiFdoPowerCompletionRoutine @ 0x1C001BC30
+ * XREFs of DpiFdoPowerCompletionRoutine @ 0x1C00201D0
  * Callers:
  *     <none>
  * Callees:

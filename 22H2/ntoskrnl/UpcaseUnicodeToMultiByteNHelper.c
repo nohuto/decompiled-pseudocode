@@ -1,79 +1,65 @@
 /*
- * XREFs of UpcaseUnicodeToMultiByteNHelper @ 0x140463564
+ * XREFs of UpcaseUnicodeToMultiByteNHelper @ 0x140585904
  * Callers:
- *     RtlUpcaseUnicodeToMultiByteN @ 0x1406D9E30 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlUpcaseUnicodeToOemN @ 0x140755F60 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1405EDF40 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x140679000 (RtlUpcaseUnicodeToOemN.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall UpcaseUnicodeToMultiByteNHelper(
-        _BYTE *a1,
+        int a1,
         unsigned int a2,
         _DWORD *a3,
         unsigned __int16 *a4,
         unsigned int a5)
 {
-  _DWORD *v6; // rsi
-  _BYTE *v8; // rbx
-  int v9; // r15d
-  __int64 CurrentServerSilo; // rax
-  _QWORD *v11; // r10
-  unsigned int v12; // r11d
-  __int64 v13; // r12
-  __int64 v14; // r14
-  __int64 v15; // r13
-  __int64 v16; // rsi
-  __int64 v17; // rax
-  unsigned __int16 v18; // dx
-  __int64 v19; // rcx
-  unsigned __int16 v20; // dx
-  __int16 v21; // dx
-  unsigned int v22; // eax
+  unsigned int v5; // ebx
+  unsigned int v8; // r11d
+  _BYTE *v9; // r10
+  __int64 v11; // rax
+  __int64 v12; // r14
+  unsigned __int16 v13; // dx
+  __int64 v14; // rcx
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int16 v17; // dx
+  unsigned int v18; // eax
 
-  v6 = a3;
-  v8 = a1;
-  v9 = (int)a1;
-  CurrentServerSilo = PsGetCurrentServerSilo();
-  v11 = &PspHostSiloGlobals;
-  if ( CurrentServerSilo )
-    v11 = *(_QWORD **)(CurrentServerSilo + 1488);
-  v12 = a5;
-  v13 = v11[137];
-  v14 = v11[138];
-  v15 = v11[151];
-  if ( a5 )
+  v5 = a5;
+  v8 = a2;
+  for ( LODWORD(v9) = a1; v5; --v5 )
   {
-    v16 = v11[154];
-    do
+    if ( !v8 )
+      break;
+    v11 = *a4;
+    v12 = NlsUnicodeToMbAnsiData;
+    ++a4;
+    v13 = *(_WORD *)(NlsUnicodeToMbAnsiData + 2 * v11);
+    v14 = NlsLeadByteInfoTable[(unsigned __int64)v13 >> 8];
+    if ( (_WORD)v14 )
     {
-      if ( !a2 )
-        break;
-      v17 = *a4++;
-      v18 = *(_WORD *)(v14 + 2 * v17);
-      v19 = *(unsigned __int16 *)(v15 + 2 * ((unsigned __int64)v18 >> 8));
-      if ( (_WORD)v19 )
-        v20 = *(_WORD *)(v11[140] + 2 * ((unsigned __int8)v18 + v19));
-      else
-        v20 = *(_WORD *)(v13 + 2LL * (unsigned __int8)v18);
-      v21 = *(_WORD *)(v14 + 2LL * NLS_UPCASE(v16, v20));
-      if ( HIBYTE(v21) )
-      {
-        v22 = a2--;
-        if ( v22 < 2 )
-          break;
-        *v8++ = HIBYTE(v21);
-      }
-      *v8 = v21;
-      --a2;
-      ++v8;
-      --v12;
+      v15 = (unsigned __int8)v13 + v14;
+      v16 = NlsMbAnsiCodePageTables;
     }
-    while ( v12 );
-    v6 = a3;
+    else
+    {
+      v16 = NlsAnsiToUnicodeData;
+      v15 = (unsigned __int8)v13;
+    }
+    v17 = *(_WORD *)(v12 + 2LL * NLS_UPCASE(*(_WORD *)(v16 + 2 * v15)));
+    if ( HIBYTE(v17) )
+    {
+      v18 = v8--;
+      if ( v18 < 2 )
+        break;
+      *v9++ = HIBYTE(v17);
+    }
+    *v9 = v17;
+    --v8;
+    LODWORD(v9) = (_DWORD)v9 + 1;
   }
-  if ( v6 )
-    *v6 = (_DWORD)v8 - v9;
-  return a2 < v12 ? 0x80000005 : 0;
+  if ( a3 )
+    *a3 = (_DWORD)v9 - a1;
+  return v8 < v5 ? 0x80000005 : 0;
 }

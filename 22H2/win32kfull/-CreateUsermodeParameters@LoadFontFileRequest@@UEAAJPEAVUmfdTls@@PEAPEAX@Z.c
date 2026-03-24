@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C0075190
+ * XREFs of ?CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C00A5BE0
  * Callers:
  *     <none>
  * Callees:
- *     EngFntCacheLookUp @ 0x1C00753A0 (EngFntCacheLookUp.c)
- *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C0075888 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C00A658C (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     EngFntCacheLookUp @ 0x1C00A6920 (EngFntCacheLookUp.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall LoadFontFileRequest::CreateUsermodeParameters(
@@ -16,21 +16,20 @@ __int64 __fastcall LoadFontFileRequest::CreateUsermodeParameters(
 {
   _DWORD *v6; // r15
   ULONG v7; // esi
-  unsigned int v8; // edx
+  unsigned int v8; // ecx
   ULONG v9; // edi
-  int v10; // eax
-  unsigned int v11; // eax
-  _DWORD *v12; // rbx
-  unsigned int i; // r9d
+  unsigned int v10; // eax
+  _DWORD *v11; // rbx
+  unsigned int i; // r8d
+  ULONG v13; // eax
   ULONG v14; // eax
-  ULONG v15; // eax
-  __int64 v16; // rax
-  ULONG v18[10]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v15; // rax
+  ULONG v17[10]; // [rsp+30h] [rbp-28h] BYREF
 
   if ( (unsigned int)(*((_DWORD *)this + 10) - 1) > 2 )
     return 3221225495LL;
-  v6 = EngFntCacheLookUp(*((_DWORD *)this + 34), v18);
-  v7 = v6 != 0LL ? v18[0] : 0;
+  v6 = EngFntCacheLookUp(*((_DWORD *)this + 34), v17);
+  v7 = v6 != 0LL ? v17[0] : 0;
   if ( v7 <= 0x10 )
   {
     v9 = 0;
@@ -41,58 +40,56 @@ __int64 __fastcall LoadFontFileRequest::CreateUsermodeParameters(
     v8 = v7 - 16;
     v9 = 0;
   }
-  v10 = -1;
-  if ( v8 + 7 >= v8 )
-    v10 = v8 + 7;
-  v11 = v10 & 0xFFFFFFF8;
   if ( v8 + 7 < v8 )
     return 3221225495LL;
-  v12 = v11 >= 0xFFFFFF30 ? 0LL : UmfdTls::CommitUMBuffer(a2, v11 + 208, 0);
-  if ( !v12 )
+  v10 = (v8 + 7) & 0xFFFFFFF8;
+  v11 = v10 >= 0xFFFFFF30 ? 0LL : UmfdTls::CommitUMBuffer(a2, v10 + 208, 0);
+  if ( !v11 )
     return 3221225495LL;
-  memset_0(v12, 0, 0xD0uLL);
-  *((_QWORD *)v12 + 25) = v12 + 52;
-  *((_QWORD *)v12 + 1) = v12 + 4;
-  *((_QWORD *)v12 + 5) = v12 + 12;
-  *((_QWORD *)v12 + 9) = v12 + 20;
-  *v12 = *((_DWORD *)this + 10);
+  *((_QWORD *)v11 + 25) = v11 + 52;
+  memset(v11, 0, 0xD0uLL);
+  *((_QWORD *)v11 + 1) = v11 + 4;
+  *((_QWORD *)v11 + 5) = v11 + 12;
+  *((_QWORD *)v11 + 9) = v11 + 20;
+  *v11 = *((_DWORD *)this + 10);
   for ( i = 0; i < *((_DWORD *)this + 10); ++i )
   {
-    *(_QWORD *)(*((_QWORD *)v12 + 1) + 8LL * i) = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)this + 6) + 8LL * i) + 64LL);
-    *(_QWORD *)(*((_QWORD *)v12 + 5) + 8LL * i) = *(_QWORD *)(*((_QWORD *)this + 10) + 8LL * i);
-    *(_DWORD *)(*((_QWORD *)v12 + 9) + 4LL * i) = *(_DWORD *)(*((_QWORD *)this + 14) + 4LL * i);
+    *(_QWORD *)(*((_QWORD *)v11 + 1) + 8LL * i) = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)this + 6) + 8LL * i) + 64LL);
+    *(_QWORD *)(*((_QWORD *)v11 + 5) + 8LL * i) = *(_QWORD *)(*((_QWORD *)this + 10) + 8LL * i);
+    *(_DWORD *)(*((_QWORD *)v11 + 9) + 4LL * i) = *(_DWORD *)(*((_QWORD *)this + 14) + 4LL * i);
   }
   if ( *((_QWORD *)this + 19) )
   {
-    *((_QWORD *)v12 + 14) = v12 + 30;
-    v16 = *((_QWORD *)this + 19);
-    *(_OWORD *)(v12 + 30) = *(_OWORD *)v16;
-    *(_OWORD *)(v12 + 34) = *(_OWORD *)(v16 + 16);
-    *(_OWORD *)(v12 + 38) = *(_OWORD *)(v16 + 32);
-    *(_OWORD *)(v12 + 42) = *(_OWORD *)(v16 + 48);
-    *((_QWORD *)v12 + 23) = *(_QWORD *)(v16 + 64);
+    *((_QWORD *)v11 + 14) = v11 + 30;
+    v15 = *((_QWORD *)this + 19);
+    *(_OWORD *)(v11 + 30) = *(_OWORD *)v15;
+    *(_OWORD *)(v11 + 34) = *(_OWORD *)(v15 + 16);
+    *(_OWORD *)(v11 + 38) = *(_OWORD *)(v15 + 32);
+    *(_OWORD *)(v11 + 42) = *(_OWORD *)(v15 + 48);
+    *((_QWORD *)v11 + 23) = *(_QWORD *)(v15 + 64);
   }
-  v12[23] = *((_DWORD *)this + 33);
-  v12[24] = *((_DWORD *)this + 34);
+  v11[23] = *((_DWORD *)this + 33);
+  v11[24] = *((_DWORD *)this + 34);
   if ( v7 <= 0x10 )
-    v14 = 0;
+    v13 = 0;
   else
-    v14 = v7 - 16;
-  if ( v14 )
+    v13 = v7 - 16;
+  if ( v13 )
   {
-    v12[25] = *v6;
-    v15 = v7 - 16;
+    v11[25] = *v6;
     if ( v7 <= 0x10 )
-      v15 = 0;
-    v12[48] = v15;
+      v14 = 0;
+    else
+      v14 = v7 - 16;
+    v11[48] = v14;
     if ( v7 > 0x10 )
       v9 = v7 - 16;
-    memmove(*((void **)v12 + 25), v6 + 4, v9);
+    memmove(v11 + 50, v6 + 4, v9);
   }
   else
   {
-    v12[25] = -1;
+    v11[25] = -1;
   }
-  *a3 = v12;
+  *a3 = v11;
   return 0LL;
 }

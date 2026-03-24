@@ -1,10 +1,10 @@
 /*
- * XREFs of PfTFreeBufferList @ 0x1407DB3F4
+ * XREFs of PfTFreeBufferList @ 0x1406CD254
  * Callers:
- *     PfTCreateTraceDump @ 0x1407DABF0 (PfTCreateTraceDump.c)
+ *     PfTCreateTraceDump @ 0x1406CCA50 (PfTCreateTraceDump.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     PfTLbInitialize @ 0x1407DB4C8 (PfTLbInitialize.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PfTLbInitialize @ 0x1406CD328 (PfTLbInitialize.c)
  */
 
 __int64 __fastcall PfTFreeBufferList(unsigned int *a1)

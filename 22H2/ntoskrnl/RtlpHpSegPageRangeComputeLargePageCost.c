@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegPageRangeComputeLargePageCost @ 0x14024FE70
+ * XREFs of RtlpHpSegPageRangeComputeLargePageCost @ 0x14028B0E0
  * Callers:
- *     RtlpHpSegAlloc @ 0x14024DB20 (RtlpHpSegAlloc.c)
- *     RtlpHpSegFreeRangeInsert @ 0x14024F8D0 (RtlpHpSegFreeRangeInsert.c)
- *     RtlpHpSegSubAllocate @ 0x14034F60C (RtlpHpSegSubAllocate.c)
+ *     RtlpHpSegAlloc @ 0x140289ED0 (RtlpHpSegAlloc.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x14028AFE0 (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpSegSubAllocate @ 0x140314B1C (RtlpHpSegSubAllocate.c)
  * Callees:
  *     <none>
  */

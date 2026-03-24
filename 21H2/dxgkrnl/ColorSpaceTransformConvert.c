@@ -1,17 +1,17 @@
 /*
- * XREFs of ColorSpaceTransformConvert @ 0x1C0012F1C
+ * XREFs of ColorSpaceTransformConvert @ 0x1C000B888
  * Callers:
- *     ?_CombineDXGIGammaRamp@MonitorGammaState@DxgMonitor@@AEAAJPEBUDXGK_GAMMA_RAMP@@PEAPEAU3@@Z @ 0x1C01B4978 (-_CombineDXGIGammaRamp@MonitorGammaState@DxgMonitor@@AEAAJPEBUDXGK_GAMMA_RAMP@@PEAPEAU3@@Z.c)
- *     ?_SetColorSpaceTransform@MonitorGammaState@DxgMonitor@@AEAAJKPEAX@Z @ 0x1C01B4B34 (-_SetColorSpaceTransform@MonitorGammaState@DxgMonitor@@AEAAJKPEAX@Z.c)
+ *     ?_CombineDXGIGammaRamp@DXGMONITOR@@AEAAJPEAUDXGK_GAMMA_RAMP@@PEAPEAU2@@Z @ 0x1C0137D5C (-_CombineDXGIGammaRamp@DXGMONITOR@@AEAAJPEAUDXGK_GAMMA_RAMP@@PEAPEAU2@@Z.c)
+ *     ?_SetColorSpaceTransform@DXGMONITOR@@AEAAJKPEAX@Z @ 0x1C013CCAC (-_SetColorSpaceTransform@DXGMONITOR@@AEAAJKPEAX@Z.c)
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?ConvertToDxgi1@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z @ 0x1C0073A4C (-ConvertToDxgi1@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z.c)
- *     ?ConvertToMatrix_3x4@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z @ 0x1C0073C00 (-ConvertToMatrix_3x4@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z.c)
- *     ?ConvertToMatrix_V2@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z @ 0x1C0073D20 (-ConvertToMatrix_V2@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z.c)
- *     ColorSpaceTransformInitIdentityTransform @ 0x1C0074330 (ColorSpaceTransformInitIdentityTransform.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?ConvertToDxgi1@@YAJPEAU_D3DKMDT_GAMMA_RAMP@@0@Z @ 0x1C0061AC4 (-ConvertToDxgi1@@YAJPEAU_D3DKMDT_GAMMA_RAMP@@0@Z.c)
+ *     ?ConvertToMatrix_3x4@@YAJPEAU_D3DKMDT_GAMMA_RAMP@@0@Z @ 0x1C0061C74 (-ConvertToMatrix_3x4@@YAJPEAU_D3DKMDT_GAMMA_RAMP@@0@Z.c)
+ *     ?ConvertToMatrix_V2@@YAJPEAU_D3DKMDT_GAMMA_RAMP@@0@Z @ 0x1C0061D94 (-ConvertToMatrix_V2@@YAJPEAU_D3DKMDT_GAMMA_RAMP@@0@Z.c)
+ *     ColorSpaceTransformInitIdentityTransform @ 0x1C00623A0 (ColorSpaceTransformInitIdentityTransform.c)
  */
 
-__int64 __fastcall ColorSpaceTransformConvert(const struct _D3DKMDT_GAMMA_RAMP *a1, struct _D3DKMDT_GAMMA_RAMP *a2)
+__int64 __fastcall ColorSpaceTransformConvert(struct _D3DKMDT_GAMMA_RAMP *a1, struct _D3DKMDT_GAMMA_RAMP *a2)
 {
   size_t v2; // r9
   __int64 Type; // r8

@@ -1,19 +1,17 @@
 /*
- * XREFs of ZwReadFile @ 0x14041A760
+ * XREFs of ZwReadFile @ 0x1403F9AE0
  * Callers:
- *     CmpDoFileRead @ 0x140207B68 (CmpDoFileRead.c)
- *     RtlInitializeBootStatDataCache @ 0x1403A9534 (RtlInitializeBootStatDataCache.c)
- *     SecureDump_LoadCertAndProvisionKey @ 0x14055E1E0 (SecureDump_LoadCertAndProvisionKey.c)
- *     DifZwReadFileWrapper @ 0x1405F5DB0 (DifZwReadFileWrapper.c)
- *     RtlpGetSetBootStatusData @ 0x1407ECEEC (RtlpGetSetBootStatusData.c)
- *     EtwpFinalizeHeader @ 0x1407F64A8 (EtwpFinalizeHeader.c)
- *     EtwpUpdateFileHeader @ 0x1407F7664 (EtwpUpdateFileHeader.c)
- *     RtlInitializeBootStatusDataBlackBox @ 0x140803260 (RtlInitializeBootStatusDataBlackBox.c)
- *     EtwpRealtimeRestoreBuffer @ 0x140841CA0 (EtwpRealtimeRestoreBuffer.c)
- *     RtlCheckBootStatusIntegrity @ 0x14084E4F0 (RtlCheckBootStatusIntegrity.c)
- *     EtwpRealtimeRestoreState @ 0x140853118 (EtwpRealtimeRestoreState.c)
- *     CMFSystemThreadRoutine @ 0x140A02B70 (CMFSystemThreadRoutine.c)
- *     EmInitSystem @ 0x140B54E68 (EmInitSystem.c)
+ *     CmpDoFileRead @ 0x140320C7C (CmpDoFileRead.c)
+ *     RtlInitializeBootStatDataCache @ 0x1403C7D94 (RtlInitializeBootStatDataCache.c)
+ *     EtwpFinalizeHeader @ 0x140713010 (EtwpFinalizeHeader.c)
+ *     EtwpUpdateFileHeader @ 0x140713648 (EtwpUpdateFileHeader.c)
+ *     RtlpGetSetBootStatusData @ 0x14078A240 (RtlpGetSetBootStatusData.c)
+ *     RtlInitializeBootStatusDataBlackBox @ 0x14079A978 (RtlInitializeBootStatusDataBlackBox.c)
+ *     EtwpRealtimeRestoreBuffer @ 0x1407BEDE0 (EtwpRealtimeRestoreBuffer.c)
+ *     EtwpRealtimeRestoreState @ 0x1407C891C (EtwpRealtimeRestoreState.c)
+ *     RtlCheckBootStatusIntegrity @ 0x140915430 (RtlCheckBootStatusIntegrity.c)
+ *     CMFSystemThreadRoutine @ 0x140959420 (CMFSystemThreadRoutine.c)
+ *     EmInitSystem @ 0x140A4528C (EmInitSystem.c)
  * Callees:
  *     <none>
  */

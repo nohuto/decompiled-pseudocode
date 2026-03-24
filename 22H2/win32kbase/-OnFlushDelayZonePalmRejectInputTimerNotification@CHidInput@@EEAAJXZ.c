@@ -1,29 +1,33 @@
 /*
- * XREFs of ?OnFlushDelayZonePalmRejectInputTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01E2730
+ * XREFs of ?OnFlushDelayZonePalmRejectInputTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01A9640
  * Callers:
- *     ?PreProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C00E5700 (-PreProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ *     <none>
  * Callees:
- *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C0052D0C (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C0052D50 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C0081348 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
- *     ?FlushDelayZonePalmRejectInputTimerProc@DelayZonePalmRejection@@QEAAXXZ @ 0x1C00E5804 (-FlushDelayZonePalmRejectInputTimerProc@DelayZonePalmRejection@@QEAAXXZ.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C006CB48 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
+ *     ?DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01ACADC (-DispatchBufferedInputFrames@DelayZonePalmRejection@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CHidInput::OnFlushDelayZonePalmRejectInputTimerNotification(CHidInput *this)
 {
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  DelayZonePalmRejection *Instance; // rax
-  __int64 *v7; // [rsp+38h] [rbp+10h] BYREF
+  int v1; // edx
+  struct DelayZonePalmRejection *Instance; // rbx
 
-  InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(
-    &v7,
-    "OnFlushDelayZonePalmRejectInputTimerNotification",
-    0LL);
-  Instance = DelayZonePalmRejection::GetInstance(v2, v1, v3, v4);
-  DelayZonePalmRejection::FlushDelayZonePalmRejectInputTimerProc(Instance);
-  InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v7);
+  Instance = DelayZonePalmRejection::GetInstance();
+  if ( *((_BYTE *)Instance + 9) )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v1) = 4;
+      WPP_RECORDER_SF_(
+        WPP_MAIN_CB.Queue.ListEntry.Flink,
+        v1,
+        8,
+        11,
+        (__int64)&WPP_926a34ac5ff436dd04abf80f696c769b_Traceguids);
+    }
+    *((_BYTE *)Instance + 9) = 0;
+    DelayZonePalmRejection::DispatchBufferedInputFrames(Instance);
+  }
   return 0LL;
 }

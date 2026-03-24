@@ -1,11 +1,11 @@
 /*
- * XREFs of ExIsFastResourceHeldExclusive @ 0x1401648B0
+ * XREFs of ExIsFastResourceHeldExclusive @ 0x1401648D0
  * Callers:
- *     ExIsResourceAcquiredExclusiveLite @ 0x140107CA0 (ExIsResourceAcquiredExclusiveLite.c)
+ *     ExIsResourceAcquiredExclusiveLite @ 0x140107CC0 (ExIsResourceAcquiredExclusiveLite.c)
  * Callees:
- *     ExpFindFastOwnerEntryForThread @ 0x140166064 (ExpFindFastOwnerEntryForThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x140166084 (ExpFindFastOwnerEntryForThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 bool __fastcall ExIsFastResourceHeldExclusive(ULONG_PTR BugCheckParameter2)

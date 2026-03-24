@@ -1,16 +1,16 @@
 /*
- * XREFs of IrqArbGetNextAllocationRange @ 0x1C009A780
+ * XREFs of IrqArbGetNextAllocationRange @ 0x1C0093DA0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     LinkNodeCrackPrt @ 0x1C00192F8 (LinkNodeCrackPrt.c)
- *     WPP_RECORDER_SF_ii @ 0x1C0023EFC (WPP_RECORDER_SF_ii.c)
- *     PcisuppIsPciDevice @ 0x1C009A5B0 (PcisuppIsPciDevice.c)
- *     IrqArbpFindBootConfig @ 0x1C009C0B4 (IrqArbpFindBootConfig.c)
- *     IrqArbIrqFromGsiv @ 0x1C00B690C (IrqArbIrqFromGsiv.c)
- *     IrqArbpFindIrqInAlternatives @ 0x1C00B6D4C (IrqArbpFindIrqInAlternatives.c)
- *     ArbGetNextAllocationRange @ 0x1C00B77E0 (ArbGetNextAllocationRange.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
+ *     WPP_RECORDER_SF_ii @ 0x1C000FABC (WPP_RECORDER_SF_ii.c)
+ *     PcisuppIsPciDevice @ 0x1C0093BD0 (PcisuppIsPciDevice.c)
+ *     IrqArbpFindBootConfig @ 0x1C0095214 (IrqArbpFindBootConfig.c)
+ *     ArbGetNextAllocationRange @ 0x1C00A2890 (ArbGetNextAllocationRange.c)
+ *     IrqArbIrqFromGsiv @ 0x1C00B70AC (IrqArbIrqFromGsiv.c)
+ *     IrqArbpFindIrqInAlternatives @ 0x1C00B74EC (IrqArbpFindIrqInAlternatives.c)
  */
 
 char __fastcall IrqArbGetNextAllocationRange(__int64 a1, _QWORD *a2)
@@ -24,7 +24,7 @@ char __fastcall IrqArbGetNextAllocationRange(__int64 a1, _QWORD *a2)
   _DWORD *v9; // rdi
   void *v10; // rdx
   __int64 v11; // rcx
-  _QWORD *v12; // rax
+  _QWORD *v12; // rcx
   __int64 v13; // r8
   char result; // al
   int BootConfig; // eax
@@ -60,12 +60,12 @@ char __fastcall IrqArbGetNextAllocationRange(__int64 a1, _QWORD *a2)
   else
     v7 = *(_WORD *)(*(_QWORD *)(a2[7] + 40LL) + 4LL);
   if ( (v7 & 0x20) != 0 )
-    goto LABEL_49;
+    goto LABEL_31;
   if ( (int)PcisuppIsPciDevice(v5, &v28) < 0 )
     return 0;
   if ( !v28 )
   {
-LABEL_49:
+LABEL_31:
     a2 = v3;
     return ArbGetNextAllocationRange(a1, a2);
   }
@@ -73,7 +73,7 @@ LABEL_49:
   if ( !v3[5] )
     *v9 = 4096;
 LABEL_9:
-  v10 = &WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids;
+  v10 = &WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids;
   do
   {
     while ( 1 )
@@ -90,9 +90,9 @@ LABEL_9:
               4u,
               0x14u,
               0xAu,
-              (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
+              (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
               v25);
-            v10 = &WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids;
+            v10 = &WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids;
           }
           if ( *v9 != 4096 )
             break;
@@ -113,19 +113,19 @@ LABEL_9:
           break;
         *v9 = 4099;
         v17 = LinkNodeCrackPrt(*(_QWORD *)(v3[4] + 32LL), &v27, &v26, 0);
-        v10 = &WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids;
+        v10 = &WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids;
         if ( v17 >= 0 )
         {
-          v10 = &WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids;
+          v10 = &WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids;
           if ( v27 )
           {
             v22 = *(unsigned int *)(v27 + 40);
-            v10 = &WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids;
+            v10 = &WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids;
             if ( (_DWORD)v22 != -1 )
             {
-              v30 = IrqArbIrqFromGsiv(v22, &WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids);
+              v30 = IrqArbIrqFromGsiv(v22, &WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids);
               if ( (int)IrqArbpFindIrqInAlternatives(v23, v3, v30, &v29) >= 0 )
-                goto LABEL_39;
+                goto LABEL_41;
               goto LABEL_9;
             }
           }
@@ -139,7 +139,7 @@ LABEL_9:
         if ( (int)IrqArbpFindIrqInAlternatives(v11, v3, (unsigned int)IrqArbGlobalStackingIrq, &v29) >= 0 )
         {
           v3[2] = v21;
-          goto LABEL_40;
+          goto LABEL_42;
         }
         goto LABEL_9;
       }
@@ -147,16 +147,16 @@ LABEL_9:
         break;
       *v9 = 4100;
       BootConfig = IrqArbpFindBootConfig(a1, v3, &v30);
-      v10 = &WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids;
+      v10 = &WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids;
       if ( BootConfig >= 0 )
       {
         IrqInAlternatives = IrqArbpFindIrqInAlternatives(v16, v3, v30, &v29);
         if ( IrqInAlternatives >= 0 )
         {
           v13 = v30;
-LABEL_39:
+LABEL_41:
           v3[2] = v13;
-LABEL_40:
+LABEL_42:
           v3[5] = v3[7] + ((unsigned __int64)v29 << 6);
           goto LABEL_18;
         }
@@ -187,7 +187,7 @@ LABEL_40:
       4u,
       0x14u,
       0xBu,
-      (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
+      (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids,
       v25);
     v19 = (_QWORD *)v3[5];
   }

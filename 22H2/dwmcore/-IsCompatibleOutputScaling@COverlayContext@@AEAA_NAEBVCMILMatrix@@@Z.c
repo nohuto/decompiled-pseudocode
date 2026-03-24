@@ -1,31 +1,33 @@
 /*
- * XREFs of ?IsCompatibleOutputScaling@COverlayContext@@AEAA_NAEBVCMILMatrix@@@Z @ 0x180087638
+ * XREFs of ?IsCompatibleOutputScaling@COverlayContext@@AEAA_NAEBVCMILMatrix@@@Z @ 0x1800928B4
  * Callers:
- *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x180087434 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z @ 0x1800905F0 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z.c)
  * Callees:
- *     ??$IsTranslateAndScale@$00@CMILMatrix@@AEBA_NXZ @ 0x1800E67B0 (--$IsTranslateAndScale@$00@CMILMatrix@@AEBA_NXZ.c)
+ *     ??$IsTranslateAndScale@$00@CMILMatrix@@AEBA_NXZ @ 0x18001623C (--$IsTranslateAndScale@$00@CMILMatrix@@AEBA_NXZ.c)
  */
 
 char __fastcall COverlayContext::IsCompatibleOutputScaling(COverlayContext *this, const struct CMILMatrix *a2)
 {
-  char v3; // bl
+  char v2; // r10
+  float *v4; // r11
   float v5; // xmm2_4
 
-  v3 = 1;
-  if ( (CCommonRegistryData::m_dwOverlayTestMode == 5 || *((_DWORD *)this + 11) <= 1u) && !*((_DWORD *)this + 17) )
+  if ( (CCommonRegistryData::m_dwOverlayTestMode == 5 || *((_DWORD *)this + 12) <= 1u) && !*((_DWORD *)this + 18) )
     return 0;
-  if ( *((_BYTE *)this + 11297) )
+  if ( CCommonRegistryData::UniformSpaceDpiMode )
     return 0;
-  if ( *((_BYTE *)this + 11300) )
+  if ( *((_BYTE *)this + 11417) )
     return 0;
-  if ( !(unsigned __int8)CMILMatrix::IsTranslateAndScale<1>(a2) )
+  if ( *((_BYTE *)this + 11420) )
     return 0;
-  if ( *((float *)a2 + 10) != 1.0 )
+  if ( !CMILMatrix::IsTranslateAndScale<1>((__int64)a2) )
     return 0;
-  if ( *(float *)a2 < 1.0 )
+  if ( v4[10] != 1.0 )
     return 0;
-  v5 = *((float *)a2 + 5);
-  if ( v5 < 1.0 || *(float *)a2 <= 1.0 && v5 <= 1.0 )
+  if ( *v4 < 1.0 )
     return 0;
-  return v3;
+  v5 = v4[5];
+  if ( v5 < 1.0 || *v4 <= 1.0 && v5 <= 1.0 )
+    return 0;
+  return v2;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpGetPathCustomSdbPreRS3 @ 0x14066E310
+ * XREFs of SdbpGetPathCustomSdbPreRS3 @ 0x1405C0910
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpGetPathAppPatch @ 0x140A52CA0 (SdbpGetPathAppPatch.c)
- *     SdbpGetProcessHostGuestArchitectures @ 0x140A530B0 (SdbpGetProcessHostGuestArchitectures.c)
- *     AslPathCombine @ 0x140A5515C (AslPathCombine.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbpGetPathAppPatch @ 0x140966FB0 (SdbpGetPathAppPatch.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140967390 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslPathCombine @ 0x140968864 (AslPathCombine.c)
  */
 
 __int64 __fastcall SdbpGetPathCustomSdbPreRS3(wchar_t *a1, size_t a2, __int64 a3, __int64 a4)
@@ -41,12 +41,12 @@ __int64 __fastcall SdbpGetPathCustomSdbPreRS3(wchar_t *a1, size_t a2, __int64 a3
     if ( ProcessHostGuestArchitectures >= 0 )
       return (unsigned int)SdbpGetPathAppPatch(a1, a2);
     v9 = "AslPathCombine failed [%x]";
-    v10 = 1174;
+    v10 = 1161;
   }
   else
   {
     v9 = "SdbpGetProcessHostGuestArchitectures failed [%x]";
-    v10 = 1160;
+    v10 = 1147;
   }
   AslLogCallPrintf(1, (unsigned int)"SdbpGetPathCustomSdbPreRS3", v10, (_DWORD)v9);
   return (unsigned int)ProcessHostGuestArchitectures;

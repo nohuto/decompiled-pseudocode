@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpQueryResources @ 0x140844508
+ * XREFs of HalpQueryResources @ 0x1407B9214
  * Callers:
- *     HalpDispatchPnp @ 0x14081A830 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140764F80 (HalpDispatchPnp.c)
  * Callees:
- *     HalConvertDeviceIdtToIrql @ 0x140844630 (HalConvertDeviceIdtToIrql.c)
- *     HalpQueryAcpiResourceRequirements @ 0x140844658 (HalpQueryAcpiResourceRequirements.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     HalConvertDeviceIdtToIrql @ 0x14076F0C0 (HalConvertDeviceIdtToIrql.c)
+ *     HalpQueryAcpiResourceRequirements @ 0x1407B9344 (HalpQueryAcpiResourceRequirements.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpQueryResources(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rax
-  unsigned int v3; // r14d
+  unsigned int v3; // ebp
   int v5; // eax
   __int64 result; // rax
-  _DWORD *v7; // rbp
-  _DWORD *Pool2; // rax
-  _DWORD *v9; // rsi
+  _DWORD *v7; // r14
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v9; // rsi
   __int64 v10; // rdi
   __int64 v11; // rbx
   __int16 v12; // ax
@@ -28,35 +28,38 @@ __int64 __fastcall HalpQueryResources(__int64 a1, _QWORD *a2)
   P = 0LL;
   v5 = *(_DWORD *)(v2 + 32);
   if ( v5 != 129 )
-    return (unsigned int)(v5 - 130) > 2 ? 0xC00000BB : 0;
+    return (unsigned int)(v5 - 130) > 1 ? 0xC00000BB : 0;
   result = HalpQueryAcpiResourceRequirements(&P);
   if ( (int)result >= 0 )
   {
     v7 = P;
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(20 * *((_DWORD *)P + 9) + 39), 1886150984LL);
-    v9 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(20 * *((_DWORD *)P + 9) + 39), 0x206C6148u);
+    v9 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      Pool2[2] = -1;
-      *Pool2 = 1;
-      Pool2[1] = 15;
-      Pool2[3] = 65537;
-      Pool2[4] = v7[9];
+      PoolWithTag[2] = 0LL;
+      PoolWithTag[3] = 0LL;
+      PoolWithTag[4] = 0LL;
+      *((_DWORD *)PoolWithTag + 2) = -1;
+      *(_DWORD *)PoolWithTag = 1;
+      *((_DWORD *)PoolWithTag + 1) = 15;
+      *((_DWORD *)PoolWithTag + 3) = 65537;
+      *((_DWORD *)PoolWithTag + 4) = v7[9];
       if ( v7[9] )
       {
         do
         {
           v10 = 8LL * v3;
           v11 = 5LL * v3;
-          LOBYTE(v9[v11 + 5]) = BYTE1(v7[v10 + 10]);
-          BYTE1(v9[v11 + 5]) = BYTE2(v7[v10 + 10]);
-          HIWORD(v9[v11 + 5]) = v7[v10 + 11];
+          *((_BYTE *)v9 + 4 * v11 + 20) = BYTE1(v7[v10 + 10]);
+          *((_BYTE *)v9 + 4 * v11 + 21) = BYTE2(v7[v10 + 10]);
+          *((_WORD *)v9 + 2 * v11 + 11) = v7[v10 + 11];
           ++v3;
-          LOWORD(v9[v11 + 6]) = (unsigned __int8)HalConvertDeviceIdtToIrql((unsigned int)v7[v10 + 12]);
-          v9[v11 + 7] = v7[v10 + 12];
+          *((_WORD *)v9 + 2 * v11 + 12) = (unsigned __int8)HalConvertDeviceIdtToIrql(v7[v10 + 12]);
+          *((_DWORD *)v9 + v11 + 7) = v7[v10 + 12];
           v12 = HIWORD(v7[v10 + 14]);
-          *(_QWORD *)&v9[v11 + 8] = -1LL;
-          HIWORD(v9[v11 + 6]) = v12;
+          *(_QWORD *)((char *)v9 + 4 * v11 + 32) = -1LL;
+          *((_WORD *)v9 + 2 * v11 + 13) = v12;
         }
         while ( v3 < v7[9] );
       }

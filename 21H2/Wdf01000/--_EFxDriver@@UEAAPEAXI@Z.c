@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_EFxDriver@@UEAAPEAXI@Z @ 0x1C0069DC0
+ * XREFs of ??_EFxDriver@@UEAAPEAXI@Z @ 0x1C0053B20
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxDriver@@UEAA@XZ @ 0x1C0069CE8 (--1FxDriver@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxDriver@@UEAA@XZ @ 0x1C0053A50 (--1FxDriver@@UEAA@XZ.c)
  */
 
 FxDriver *__fastcall FxDriver::`vector deleting destructor'(FxDriver *this, char a2)

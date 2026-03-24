@@ -1,7 +1,8 @@
 /*
- * XREFs of ?SwapRect@@YAXPEAUtagRECT@@0@Z @ 0x1C01EAD3C
+ * XREFs of ?SwapRect@@YAXPEAUtagRECT@@0@Z @ 0x1C020BF30
  * Callers:
- *     ?xxxCommitMoveSize@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@@Z @ 0x1C01EBC7C (-xxxCommitMoveSize@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@@Z.c)
+ *     ?xxxCommitMoveSize@@YAXPEAUtagWND@@PEAU_MOVESIZEDATA@@@Z @ 0x1C020D270 (-xxxCommitMoveSize@@YAXPEAUtagWND@@PEAU_MOVESIZEDATA@@@Z.c)
+ *     ?xxxTM_MoveDragRect@@YAXPEAU_MOVESIZEDATA@@_J@Z @ 0x1C021026C (-xxxTM_MoveDragRect@@YAXPEAU_MOVESIZEDATA@@_J@Z.c)
  * Callees:
  *     <none>
  */

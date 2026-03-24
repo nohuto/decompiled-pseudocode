@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqDeleteUserObject @ 0x14094A3E4
+ * XREFs of PiDqDeleteUserObject @ 0x14072D748
  * Callers:
- *     PiDqDeleteUserObjectFromLoadedHives @ 0x14094A4EC (PiDqDeleteUserObjectFromLoadedHives.c)
+ *     PiDqDeleteUserObjectFromLoadedHives @ 0x14072D604 (PiDqDeleteUserObjectFromLoadedHives.c)
  * Callees:
- *     wcsrchr @ 0x1403E34B0 (wcsrchr.c)
- *     PiDqGetRelativeObjectRegPath @ 0x140699B5C (PiDqGetRelativeObjectRegPath.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140862B44 (_RegRtlDeleteKeyTransacted.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     wcsrchr @ 0x1403D4100 (wcsrchr.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x1406A9B6C (PiDqGetRelativeObjectRegPath.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766D58 (_RegRtlDeleteKeyTransacted.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiDqDeleteUserObject(char *a1, int a2, int a3)
+__int64 __fastcall PiDqDeleteUserObject(__int64 a1, const wchar_t *a2, int a3)
 {
   int RelativeObjectRegPath; // ebp
   __int64 v6; // rcx
@@ -25,34 +25,39 @@ __int64 __fastcall PiDqDeleteUserObject(char *a1, int a2, int a3)
 
   Str = 0LL;
   RelativeObjectRegPath = PiDqGetRelativeObjectRegPath(a2, a3, (PVOID *)&Str);
-  if ( RelativeObjectRegPath >= 0 )
+  if ( RelativeObjectRegPath < 0 )
+    goto LABEL_17;
+  if ( *(_QWORD *)&PiPnpRtlCtx && (v6 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
+    v7 = *(_QWORD *)(v6 + 8);
+  else
+    v7 = 0LL;
+  RelativeObjectRegPath = RegRtlDeleteTreeInternal(a1, Str, v7, 0LL);
+  v8 = 2;
+  v9 = a3 - 1;
+  if ( !v9 )
+    goto LABEL_8;
+  if ( v9 != 2 )
   {
-    if ( *(_QWORD *)&PiPnpRtlCtx && (v6 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
-      v7 = *(_QWORD *)(v6 + 8);
-    else
-      v7 = 0LL;
-    RelativeObjectRegPath = RegRtlDeleteTreeInternal((__int64)a1, (__int64)Str, v7, 0);
-    v8 = 2;
-    v9 = a3 - 1;
-    if ( v9 )
+    v8 = 0;
+LABEL_8:
+    if ( !v8 )
+      goto LABEL_17;
+    goto LABEL_11;
+  }
+  v8 = 1;
+LABEL_11:
+  for ( i = 0; i < v8; ++i )
+  {
+    v11 = wcsrchr(Str, 0x5Cu);
+    if ( v11 )
     {
-      if ( v9 != 2 )
-        goto LABEL_17;
-      v8 = 1;
-    }
-    for ( i = 0; i < v8; ++i )
-    {
-      v11 = wcsrchr(Str, 0x5Cu);
-      if ( v11 )
-      {
-        *v11 = 0;
-        if ( *(_QWORD *)&PiPnpRtlCtx && (v12 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
-          v13 = *(_QWORD *)(v12 + 8);
-        else
-          v13 = 0LL;
-        if ( (int)RegRtlDeleteKeyTransacted(a1, Str, v13) < 0 )
-          break;
-      }
+      *v11 = 0;
+      if ( *(_QWORD *)&PiPnpRtlCtx && (v12 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
+        v13 = *(_QWORD *)(v12 + 8);
+      else
+        v13 = 0LL;
+      if ( (int)RegRtlDeleteKeyTransacted(a1, Str, v13) < 0 )
+        break;
     }
   }
 LABEL_17:

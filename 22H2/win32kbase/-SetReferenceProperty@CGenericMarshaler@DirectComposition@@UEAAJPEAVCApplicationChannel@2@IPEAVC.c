@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetReferenceProperty@CGenericMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0230AE0
+ * XREFs of ?SetReferenceProperty@CGenericMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01F6C90
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C003019C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z @ 0x1C020CFB0 (-push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z.c)
- *     ?FindProperty@CGenericMarshaler@DirectComposition@@IEAA?AVCPropertyIterator@2@I@Z @ 0x1C02308F0 (-FindProperty@CGenericMarshaler@DirectComposition@@IEAA-AVCPropertyIterator@2@I@Z.c)
- *     ?FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0230920 (-FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
+ *     ?push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z @ 0x1C01D566C (-push_back@CGenericPropertyList@DirectComposition@@QEAA_NPEAVCGenericProperty@2@@Z.c)
+ *     ?FindProperty@CGenericMarshaler@DirectComposition@@IEAA?AVCPropertyIterator@2@I@Z @ 0x1C01F6AA0 (-FindProperty@CGenericMarshaler@DirectComposition@@IEAA-AVCPropertyIterator@2@I@Z.c)
+ *     ?FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F6AD0 (-FreeValue@CReferenceProperty@DirectComposition@@QEAAXPEAVCApplicationChannel@2@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CGenericMarshaler::SetReferenceProperty(
@@ -18,46 +18,50 @@ __int64 __fastcall DirectComposition::CGenericMarshaler::SetReferenceProperty(
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
-  unsigned __int64 v9; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v10; // rcx
-  __int64 QuotaZInit; // rax
-  __int64 v12; // rbx
-  bool *v14; // rax
-  __int64 *v15; // [rsp+40h] [rbp+8h] BYREF
+  _WORD *v9; // rax
+  __int64 v10; // rbx
+  bool *v12; // rax
+  __int64 *v13; // [rsp+40h] [rbp+8h] BYREF
 
-  DirectComposition::CGenericMarshaler::FindProperty((__int64)this, &v15, a3);
-  v10 = (NSInstrumentation::CLeakTrackingAllocator *)*((_QWORD *)this + 8);
-  if ( v15 == (__int64 *)(*((_QWORD *)this + 7) + 8LL * (_QWORD)v10) )
+  DirectComposition::CGenericMarshaler::FindProperty((__int64)this, &v13, a3);
+  if ( v13 == (__int64 *)(*((_QWORD *)this + 8) + 8LL * *((_QWORD *)this + 9)) )
   {
-    QuotaZInit = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v10, v9, 0x10uLL, 0x70674344u);
-    v12 = QuotaZInit;
-    if ( !QuotaZInit )
-      return 3221225495LL;
-    *(_DWORD *)QuotaZInit = a3;
-    *(_WORD *)(QuotaZInit + 4) = 4;
-    *(_QWORD *)(QuotaZInit + 8) = 0LL;
-    if ( !DirectComposition::CGenericPropertyList::push_back(
-            (DirectComposition::CGenericMarshaler *)((char *)this + 56),
-            (struct DirectComposition::CGenericProperty *)QuotaZInit) )
+    v9 = Win32AllocPoolWithQuotaZInit(0x10uLL, 0x70674344u);
+    v10 = (__int64)v9;
+    if ( v9 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)v12);
+      *(_DWORD *)v9 = a3;
+      v9[2] = 4;
+      *((_QWORD *)v9 + 1) = 0LL;
+    }
+    else
+    {
+      v10 = 0LL;
+    }
+    if ( !v10 )
+      return 3221225495LL;
+    if ( !DirectComposition::CGenericPropertyList::push_back(
+            (DirectComposition::CGenericMarshaler *)((char *)this + 64),
+            (struct DirectComposition::CGenericProperty *)v10) )
+    {
+      Win32FreePool(v10);
       return 3221225495LL;
     }
   }
   else
   {
-    v12 = *v15;
-    if ( *(_BYTE *)(*v15 + 4) != 4 )
-      v12 = 0LL;
-    if ( !v12 )
+    v10 = *v13;
+    if ( *(_BYTE *)(*v13 + 4) != 4 )
+      v10 = 0LL;
+    if ( !v10 )
       return 3221225485LL;
   }
   if ( a4 )
     DirectComposition::CResourceMarshaler::AddRef(a4);
-  DirectComposition::CReferenceProperty::FreeValue((DirectComposition::CReferenceProperty *)v12, a2);
-  v14 = a5;
-  *(_QWORD *)(v12 + 8) = a4;
-  *(_BYTE *)(v12 + 5) = 1;
-  *v14 = 1;
+  DirectComposition::CReferenceProperty::FreeValue((DirectComposition::CReferenceProperty *)v10, a2);
+  v12 = a5;
+  *(_QWORD *)(v10 + 8) = a4;
+  *(_BYTE *)(v10 + 5) = 1;
+  *v12 = 1;
   return 0LL;
 }

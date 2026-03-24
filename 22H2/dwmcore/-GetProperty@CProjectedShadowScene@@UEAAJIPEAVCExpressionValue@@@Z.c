@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetProperty@CProjectedShadowScene@@UEAAJIPEAVCExpressionValue@@@Z @ 0x18024BD80
+ * XREFs of ?GetProperty@CProjectedShadowScene@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1801E49F0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CProjectedShadowScene::GetProperty(CProjectedShadowScene *this, int a2, struct CExpressionValue *a3)
@@ -18,36 +18,36 @@ __int64 __fastcall CProjectedShadowScene::GetProperty(CProjectedShadowScene *thi
   v3 = 0;
   if ( !a2 )
   {
-    v8 = *((_DWORD *)this + 30);
+    v8 = *((_DWORD *)this + 28);
     goto LABEL_14;
   }
   v4 = a2 - 3;
   if ( !v4 )
   {
-    v8 = *((_DWORD *)this + 28);
+    v8 = *((_DWORD *)this + 26);
     goto LABEL_14;
   }
   v5 = v4 - 1;
   if ( !v5 )
   {
-    v8 = *((_DWORD *)this + 31);
+    v8 = *((_DWORD *)this + 29);
     goto LABEL_14;
   }
   v6 = v5 - 1;
   if ( !v6 )
   {
-    v8 = *((_DWORD *)this + 29);
+    v8 = *((_DWORD *)this + 27);
     goto LABEL_14;
   }
   v7 = v6 - 1;
   if ( !v7 )
   {
-    v8 = *((_DWORD *)this + 32);
+    v8 = *((_DWORD *)this + 30);
     goto LABEL_14;
   }
   if ( v7 == 1 )
   {
-    v8 = *((_DWORD *)this + 33);
+    v8 = *((_DWORD *)this + 31);
 LABEL_14:
     *((_BYTE *)a3 + 76) = 1;
     *((_DWORD *)a3 + 18) = 18;

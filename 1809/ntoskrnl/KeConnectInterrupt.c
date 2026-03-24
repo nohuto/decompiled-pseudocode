@@ -1,15 +1,15 @@
 /*
- * XREFs of KeConnectInterrupt @ 0x14016DB20
+ * XREFs of KeConnectInterrupt @ 0x14016DB40
  * Callers:
- *     IopConnectInterrupt @ 0x14071076C (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14071074C (IopConnectInterrupt.c)
  * Callees:
- *     KeDisconnectInterrupt @ 0x14016D2A0 (KeDisconnectInterrupt.c)
- *     KiConnectInterrupt @ 0x14016DCA0 (KiConnectInterrupt.c)
- *     KiIntSteerConnect @ 0x14016DE84 (KiIntSteerConnect.c)
- *     KiIsInterruptTypeSecondary @ 0x14016E3F8 (KiIsInterruptTypeSecondary.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KiConnectSecondaryInterrupt @ 0x140293354 (KiConnectSecondaryInterrupt.c)
- *     KiUnmaskSecondaryInterruptInternal @ 0x1402939F8 (KiUnmaskSecondaryInterruptInternal.c)
+ *     KeDisconnectInterrupt @ 0x14016D2C0 (KeDisconnectInterrupt.c)
+ *     KiConnectInterrupt @ 0x14016DCC0 (KiConnectInterrupt.c)
+ *     KiIntSteerConnect @ 0x14016DEA4 (KiIntSteerConnect.c)
+ *     KiIsInterruptTypeSecondary @ 0x14016E418 (KiIsInterruptTypeSecondary.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KiConnectSecondaryInterrupt @ 0x140293454 (KiConnectSecondaryInterrupt.c)
+ *     KiUnmaskSecondaryInterruptInternal @ 0x140293AF8 (KiUnmaskSecondaryInterruptInternal.c)
  */
 
 __int64 __fastcall KeConnectInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetWorkEvent@CHolographicClient@@UEAAPEAXXZ @ 0x180108A30
+ * XREFs of ?GetWorkEvent@CHolographicClient@@UEAAPEAXXZ @ 0x1800E3660
  * Callers:
  *     <none>
  * Callees:

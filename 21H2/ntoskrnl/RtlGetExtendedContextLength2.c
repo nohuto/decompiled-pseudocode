@@ -1,81 +1,48 @@
 /*
- * XREFs of RtlGetExtendedContextLength2 @ 0x1402956D0
+ * XREFs of RtlGetExtendedContextLength2 @ 0x1402765C0
  * Callers:
- *     RtlRaiseException @ 0x140294A60 (RtlRaiseException.c)
- *     RtlGetExtendedContextLength @ 0x140295190 (RtlGetExtendedContextLength.c)
- *     RtlDispatchException @ 0x140295210 (RtlDispatchException.c)
- *     RtlUnwindEx @ 0x1402957A0 (RtlUnwindEx.c)
- *     KiDispatchException @ 0x140299280 (KiDispatchException.c)
- *     RtlUnwind @ 0x140387A90 (RtlUnwind.c)
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
- *     NtCreateThreadEx @ 0x140701F10 (NtCreateThreadEx.c)
- *     PspInitializeThunkContext @ 0x140702CA4 (PspInitializeThunkContext.c)
+ *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
+ *     RtlRaiseException @ 0x140274220 (RtlRaiseException.c)
+ *     RtlDispatchException @ 0x140275570 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x140275A30 (RtlUnwindEx.c)
+ *     RtlGetExtendedContextLength @ 0x140276470 (RtlGetExtendedContextLength.c)
+ *     RtlUnwind @ 0x1402D0AF0 (RtlUnwind.c)
+ *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
+ *     NtCreateThreadEx @ 0x1406487D0 (NtCreateThreadEx.c)
  * Callees:
- *     RtlpGetEntireXStateAreaLength @ 0x14024ED80 (RtlpGetEntireXStateAreaLength.c)
- *     RtlpValidateContextFlags @ 0x140297F80 (RtlpValidateContextFlags.c)
- *     RtlpRemoveArchDisallowedXStateFeatures @ 0x14045F176 (RtlpRemoveArchDisallowedXStateFeatures.c)
+ *     RtlpGetLegacyContextLength @ 0x140276670 (RtlpGetLegacyContextLength.c)
+ *     RtlpValidateContextFlags @ 0x140276D30 (RtlpValidateContextFlags.c)
+ *     RtlpGetEntireXStateAreaLength @ 0x1402C5DF0 (RtlpGetEntireXStateAreaLength.c)
  */
 
 __int64 __fastcall RtlGetExtendedContextLength2(__int64 a1, _DWORD *a2, __int64 a3)
 {
-  int v4; // ebx
-  unsigned int v6; // edi
+  unsigned int v5; // ebx
   __int64 result; // rax
-  int v8; // esi
-  int v9; // eax
-  char v10; // bl
-  int v11; // r15d
-  unsigned __int64 v12; // [rsp+60h] [rbp+18h] BYREF
-  int v13; // [rsp+68h] [rbp+20h] BYREF
+  int v7; // edi
+  int v8; // eax
+  int v9; // [rsp+20h] [rbp-18h] BYREF
+  _DWORD v10[5]; // [rsp+24h] [rbp-14h] BYREF
+  int v11; // [rsp+58h] [rbp+20h] BYREF
 
-  v4 = 0;
-  v13 = 0;
-  v6 = a1;
-  result = RtlpValidateContextFlags(a1, &v13);
-  if ( (int)result < 0 )
-    return result;
-  v8 = 0;
-  if ( (v6 & 0x10000) != 0 )
+  v10[0] = 0;
+  v9 = 0;
+  v11 = 0;
+  v5 = a1;
+  result = RtlpValidateContextFlags(a1, v10);
+  if ( (int)result >= 0 )
   {
-    v4 = 716;
-    v8 = 4;
-  }
-  else
-  {
-    if ( (v6 & 0x100000) != 0 )
+    RtlpGetLegacyContextLength(v5, &v11, &v9);
+    v7 = v9;
+    v8 = v11 + 24;
+    if ( (v10[0] & 2) != 0 )
     {
-      v4 = 1232;
+      if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
+        a3 &= MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708] | 0x8000000000000000uLL;
+      v8 = (~(v7 - 1) & (v8 + v7 - 1)) - v7 - 448 + RtlpGetEntireXStateAreaLength(a3);
     }
-    else
-    {
-      if ( (v6 & 0x200000) != 0 )
-      {
-        v4 = 416;
-        v8 = 8;
-        goto LABEL_6;
-      }
-      if ( (v6 & 0x400000) == 0 )
-        goto LABEL_6;
-      v4 = 912;
-    }
-    v8 = 16;
+    *a2 = v7 + v8 - 1;
+    return 0LL;
   }
-LABEL_6:
-  v9 = v4 + 32;
-  v10 = v13;
-  if ( (v13 & 2) != 0 )
-  {
-    v11 = -v8 & (v8 + v9 - 1);
-    if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
-    {
-      v12 = (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708] | 0x8000000000000000uLL) & a3;
-      RtlpRemoveArchDisallowedXStateFeatures(v6, &v12);
-      a3 = v12;
-    }
-    v9 = v11 - v8 - 448 + RtlpGetEntireXStateAreaLength(a3);
-  }
-  if ( (v10 & 4) != 0 )
-    v9 += 32;
-  *a2 = v8 - 1 + v9;
-  return 0LL;
+  return result;
 }

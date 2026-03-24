@@ -1,14 +1,14 @@
 /*
- * XREFs of McTemplateK0pqqh_EtwWriteTransfer @ 0x1C000C10C
+ * XREFs of McTemplateK0pqqh_EtwWriteTransfer @ 0x1C000BD24
  * Callers:
- *     HUBFDO_EvtDeviceD0Entry @ 0x1C000C530 (HUBFDO_EvtDeviceD0Entry.c)
- *     HUBFDO_EvtDeviceD0Exit @ 0x1C000C900 (HUBFDO_EvtDeviceD0Exit.c)
- *     HUBPDO_EvtDeviceD0Entry @ 0x1C00186C0 (HUBPDO_EvtDeviceD0Entry.c)
- *     HUBPDO_EvtDeviceD0Exit @ 0x1C00188D0 (HUBPDO_EvtDeviceD0Exit.c)
- *     HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability @ 0x1C0027D40 (HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability.c)
+ *     HUBFDO_EvtDeviceD0Entry @ 0x1C000C140 (HUBFDO_EvtDeviceD0Entry.c)
+ *     HUBFDO_EvtDeviceD0Exit @ 0x1C000C510 (HUBFDO_EvtDeviceD0Exit.c)
+ *     HUBPDO_EvtDeviceD0Entry @ 0x1C00181C0 (HUBPDO_EvtDeviceD0Entry.c)
+ *     HUBPDO_EvtDeviceD0Exit @ 0x1C00183B0 (HUBPDO_EvtDeviceD0Exit.c)
+ *     HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability @ 0x1C0027890 (HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability.c)
  * Callees:
  *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqh_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)

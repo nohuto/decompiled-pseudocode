@@ -1,140 +1,134 @@
 /*
- * XREFs of GreGetRandomRgn @ 0x1C0131360
+ * XREFs of GreGetRandomRgn @ 0x1C0042B10
  * Callers:
- *     _ExcludeUpdateRgn @ 0x1C000674C (_ExcludeUpdateRgn.c)
- *     NtGdiGetRandomRgn @ 0x1C011BEF0 (NtGdiGetRandomRgn.c)
- *     ?GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C022DF9C (-GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z.c)
- *     DrawTextExWorker @ 0x1C024D1FC (DrawTextExWorker.c)
+ *     _ExcludeUpdateRgn @ 0x1C0042FD0 (_ExcludeUpdateRgn.c)
+ *     NtGdiGetRandomRgn @ 0x1C00B2800 (NtGdiGetRandomRgn.c)
+ *     ?GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C015D124 (-GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z.c)
+ *     DrawTextExWorker @ 0x1C025E630 (DrawTextExWorker.c)
  * Callees:
- *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C001DEC4 (--0DEVLOCKOBJ@@QEAA@XZ.c)
- *     UserGetRedirectedWindowOrigin @ 0x1C0118F90 (UserGetRedirectedWindowOrigin.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C011BD38 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C011C124 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     ??1?$lambda_call@V_lambda_d4ac050843a32da14874304f2689d2a8_@@@details@wil@@QEAA@XZ @ 0x1C013EB20 (--1-$lambda_call@V_lambda_d4ac050843a32da14874304f2689d2a8_@@@details@wil@@QEAA@XZ.c)
- *     ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C013EB98 (-AcquireDcVisRgnShared@DC@@QEAA@XZ.c)
- *     _lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator() @ 0x1C013FF04 (_lambda_27add1e8d57a913bfbcc33c9b5f13734_--operator().c)
- *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C02651F8 (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
+ *     UserGetRedirectedWindowOrigin @ 0x1C004C3B0 (UserGetRedirectedWindowOrigin.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C008E8E0 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C00A9A2C (--0DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00B2D1C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C0169C4C (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
+ *     ??1?$lambda_call@V_lambda_d4ac050843a32da14874304f2689d2a8_@@@details@wil@@QEAA@XZ @ 0x1C016A628 (--1-$lambda_call@V_lambda_d4ac050843a32da14874304f2689d2a8_@@@details@wil@@QEAA@XZ.c)
+ *     ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C016A654 (-AcquireDcVisRgnShared@DC@@QEAA@XZ.c)
+ *     _lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator() @ 0x1C016C2F4 (_lambda_27add1e8d57a913bfbcc33c9b5f13734_--operator().c)
  */
 
 __int64 __fastcall GreGetRandomRgn(HDC a1, HRGN a2, int a3)
 {
-  DC *v7; // rcx
+  unsigned int v6; // ebx
+  __int64 v7; // rcx
   __int64 v8; // rcx
-  unsigned int v9; // ebx
-  int v10; // ebx
-  int v11; // ebx
-  int v12; // ebx
-  __int64 v13; // rcx
+  int v9; // edi
+  __int64 v10; // rcx
+  struct _POINTL v11; // rax
+  __int64 v12; // rcx
+  bool v13; // zf
   __int64 v14; // r8
-  bool v15; // zf
-  _QWORD v16[2]; // [rsp+30h] [rbp-D0h] BYREF
-  DC *v17[6]; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v18; // [rsp+70h] [rbp-90h] BYREF
-  _QWORD v19[7]; // [rsp+78h] [rbp-88h] BYREF
-  _BYTE v20[112]; // [rsp+B0h] [rbp-50h] BYREF
-  struct _POINTL v21; // [rsp+158h] [rbp+58h] BYREF
+  _QWORD v16[2]; // [rsp+38h] [rbp-D0h] BYREF
+  _QWORD v17[7]; // [rsp+48h] [rbp-C0h] BYREF
+  DC *v18[7]; // [rsp+80h] [rbp-88h] BYREF
+  _BYTE v19[112]; // [rsp+B8h] [rbp-50h] BYREF
+  struct _POINTL v20; // [rsp+160h] [rbp+58h] BYREF
 
-  DCOBJ::DCOBJ((DCOBJ *)v17, a1);
-  if ( !v17[0] )
-    goto LABEL_2;
-  if ( *((_WORD *)v17[0] + 6) != 1 )
+  DCOBJ::DCOBJ((DCOBJ *)v18, a1);
+  v6 = 0;
+  if ( !v18[0] )
+    goto LABEL_4;
+  if ( *((_WORD *)v18[0] + 6) == 1 )
   {
-    TraceLoggingWriteUnsupportedGdiUsage(21LL, 0LL, *((unsigned __int16 *)v17[0] + 6));
-LABEL_2:
-    EngSetLastError(6u);
-LABEL_3:
-    DCOBJ::~DCOBJ((DCOBJ *)v17);
-    return 0xFFFFFFFFLL;
-  }
-  DEVLOCKOBJ::DEVLOCKOBJ((DEVLOCKOBJ *)v20);
-  if ( !DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v20, (struct XDCOBJ *)v17, 1) )
-  {
-    DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v20);
-    goto LABEL_3;
-  }
-  RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v19, a2, 0, 0);
-  if ( !v19[0] )
-    goto LABEL_16;
-  v7 = v17[0];
-  if ( a3 != 4 )
-  {
-    v10 = a3 - 1;
-    if ( v10 )
+    DEVLOCKOBJ::DEVLOCKOBJ((DEVLOCKOBJ *)v19);
+    if ( !DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v19, (struct XDCOBJ *)v18, 1) )
     {
-      v11 = v10 - 1;
-      if ( v11 )
+      v6 = -1;
+LABEL_34:
+      DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v19);
+      goto LABEL_35;
+    }
+    RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v17, a2, 0, 0);
+    if ( !v17[0] )
+    {
+      v6 = -1;
+LABEL_33:
+      RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v17);
+      goto LABEL_34;
+    }
+    if ( a3 == 4 && (*((_DWORD *)v18[0] + 9) & 0x4000) != 0 )
+    {
+      DC::AcquireDcVisRgnShared(v18[0]);
+      v9 = lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator()(v8, v17, *((_QWORD *)v18[0] + 143));
+      if ( v9 == 1 )
       {
-        v12 = v11 - 1;
-        if ( v12 )
-        {
-          if ( (unsigned int)(v12 - 1) >= 2 )
-          {
-            v9 = 0;
-            goto LABEL_33;
-          }
-          goto LABEL_22;
-        }
-        v14 = *((_QWORD *)v17[0] + 21);
-        v7 = (DC *)*((_QWORD *)v17[0] + 20);
-        if ( v14 )
-        {
-          v15 = v7 == 0LL;
-          if ( v7 )
-          {
-            v16[0] = *((_QWORD *)v17[0] + 20);
-            v18 = v14;
-            v9 = RGNOBJAPI::iCombine((RGNOBJAPI *)v19, (struct RGNOBJ *)v16, (struct RGNOBJ *)&v18, 1) != 0 ? 1 : -1;
-            goto LABEL_33;
-          }
-        }
+        wil::details::lambda_call<_lambda_d4ac050843a32da14874304f2689d2a8_>::~lambda_call<_lambda_d4ac050843a32da14874304f2689d2a8_>(v16);
+        v20 = 0LL;
+        if ( (unsigned int)UserGetRedirectedWindowOrigin(a1, &v20) && RGNOBJ::bOffset((RGNOBJ *)v17, &v20) )
+          v9 = 1;
         else
-        {
-          v15 = v7 == 0LL;
-        }
-        if ( !v15 )
-          v14 = *((_QWORD *)v17[0] + 20);
+          v9 = -1;
       }
       else
       {
-        v14 = *((_QWORD *)v17[0] + 21);
+        wil::details::lambda_call<_lambda_d4ac050843a32da14874304f2689d2a8_>::~lambda_call<_lambda_d4ac050843a32da14874304f2689d2a8_>(v16);
       }
     }
     else
     {
-      v14 = *((_QWORD *)v17[0] + 20);
+      switch ( a3 )
+      {
+        case 1:
+          v14 = *((_QWORD *)v18[0] + 20);
+          break;
+        case 2:
+          v14 = *((_QWORD *)v18[0] + 21);
+          break;
+        case 3:
+          v11 = (struct _POINTL)*((_QWORD *)v18[0] + 21);
+          v12 = *((_QWORD *)v18[0] + 20);
+          if ( v11 )
+          {
+            v13 = v12 == 0;
+            if ( v12 )
+            {
+              v16[0] = *((_QWORD *)v18[0] + 20);
+              v20 = v11;
+              v6 = RGNOBJAPI::iCombine((RGNOBJAPI *)v17, (struct RGNOBJ *)v16, (struct RGNOBJ *)&v20, 1) != 0 ? 1 : -1;
+              goto LABEL_33;
+            }
+          }
+          else
+          {
+            v13 = v12 == 0;
+          }
+          if ( !v13 )
+            v11 = (struct _POINTL)*((_QWORD *)v18[0] + 20);
+          v6 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator())(
+                 v12,
+                 v17,
+                 v11);
+          goto LABEL_33;
+        default:
+          if ( (unsigned int)(a3 - 4) <= 1 )
+          {
+            DC::AcquireDcVisRgnShared(v18[0]);
+            v6 = lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator()(v10, v17, *((_QWORD *)v18[0] + 143));
+            wil::details::lambda_call<_lambda_d4ac050843a32da14874304f2689d2a8_>::~lambda_call<_lambda_d4ac050843a32da14874304f2689d2a8_>(v16);
+          }
+          goto LABEL_33;
+      }
+      v9 = lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator()(v7, v17, v14);
     }
-    v9 = lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator()(v7, v19, v14);
+    v6 = v9;
     goto LABEL_33;
   }
-  if ( (*((_DWORD *)v17[0] + 9) & 0x4000) == 0 )
-  {
-LABEL_22:
-    DC::AcquireDcVisRgnShared(v17[0]);
-    v9 = lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator()(v13, v19, *((_QWORD *)v17[0] + 142));
-    goto LABEL_12;
-  }
-  DC::AcquireDcVisRgnShared(v17[0]);
-  v9 = lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator()(v8, v19, *((_QWORD *)v17[0] + 142));
-  if ( v9 == 1 )
-  {
-    wil::details::lambda_call<_lambda_d4ac050843a32da14874304f2689d2a8_>::~lambda_call<_lambda_d4ac050843a32da14874304f2689d2a8_>(v16);
-    v21 = 0LL;
-    if ( (unsigned int)UserGetRedirectedWindowOrigin((__int64)a1, (__int64)&v21) && RGNOBJ::bOffset((RGNOBJ *)v19, &v21) )
-    {
-      v9 = 1;
-      goto LABEL_33;
-    }
-LABEL_16:
-    v9 = -1;
-    goto LABEL_33;
-  }
-LABEL_12:
-  wil::details::lambda_call<_lambda_d4ac050843a32da14874304f2689d2a8_>::~lambda_call<_lambda_d4ac050843a32da14874304f2689d2a8_>(v16);
-LABEL_33:
-  RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v19);
-  DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v20);
-  DCOBJ::~DCOBJ((DCOBJ *)v17);
-  return v9;
+  TraceLoggingWriteUnsupportedGdiUsage(21LL, 0LL, *((unsigned __int16 *)v18[0] + 6), 5LL, 0LL);
+LABEL_4:
+  EngSetLastError(6u);
+  v6 = -1;
+LABEL_35:
+  DCOBJ::~DCOBJ((DCOBJ *)v18);
+  return v6;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetOffset@CDropShadow@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DROPSHADOW_SETOFFSET@@@Z @ 0x18010244C
+ * XREFs of ?ProcessSetOffset@CDropShadow@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DROPSHADOW_SETOFFSET@@@Z @ 0x1800DE7A0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDropShadow::ProcessSetOffset(
@@ -19,8 +19,8 @@ __int64 __fastcall CDropShadow::ProcessSetOffset(
   v5[0] = *((_DWORD *)a3 + 2);
   v5[2] = *((_DWORD *)a3 + 4);
   v5[1] = v3;
-  return ((__int64 (__fastcall *)(char *, void *, _DWORD *))xmmword_1803E48C8)(
-           (char *)this + SDWORD2(xmmword_1803E48C8),
+  return ((__int64 (__fastcall *)(char *, void *, _DWORD *))xmmword_1803460F8)(
+           (char *)this + SDWORD2(xmmword_1803460F8),
            &CDropShadow::sc_Offset,
            v5);
 }

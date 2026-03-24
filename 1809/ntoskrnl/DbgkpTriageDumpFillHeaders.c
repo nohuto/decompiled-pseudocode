@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpTriageDumpFillHeaders @ 0x140813290
+ * XREFs of DbgkpTriageDumpFillHeaders @ 0x140813270
  * Callers:
  *     <none>
  * Callees:
- *     IoFillDumpHeader @ 0x14027F4D4 (IoFillDumpHeader.c)
- *     IoFillTriageDumpBuffer @ 0x14027F794 (IoFillTriageDumpBuffer.c)
+ *     IoFillDumpHeader @ 0x14027F5D4 (IoFillDumpHeader.c)
+ *     IoFillTriageDumpBuffer @ 0x14027F894 (IoFillTriageDumpBuffer.c)
  */
 
 __int64 __fastcall DbgkpTriageDumpFillHeaders(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)

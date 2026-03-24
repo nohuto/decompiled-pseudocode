@@ -1,10 +1,10 @@
 /*
- * XREFs of IoGetDumpHiberRanges @ 0x1401446B8
+ * XREFs of IoGetDumpHiberRanges @ 0x1401446D8
  * Callers:
  *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
  * Callees:
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     PoSetHiberRange @ 0x1401447B0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
  */
 
 void __fastcall IoGetDumpHiberRanges(__int64 a1, __int64 a2)

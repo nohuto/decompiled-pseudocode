@@ -1,11 +1,9 @@
 /*
- * XREFs of ?Update@BulkAnimator@Particles@@SAXPEBVIThreeInputAnimator@2@UParticleStreamInfo@2@111I@Z @ 0x1802412DC
+ * XREFs of ?Update@BulkAnimator@Particles@@SAXPEBVIThreeInputAnimator@2@UParticleStreamInfo@2@111I@Z @ 0x1801DBEE4
  * Callers:
- *     ?ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z @ 0x1802441F4 (-ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z.c)
+ *     ?ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z @ 0x1801DEB14 (-ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z.c)
  * Callees:
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 *__fastcall Particles::BulkAnimator::Update(
@@ -16,59 +14,59 @@ __int64 *__fastcall Particles::BulkAnimator::Update(
         __int64 *a5,
         unsigned int a6)
 {
-  unsigned int v10; // ebx
+  __int64 v10; // rbx
   unsigned int v11; // eax
-  __int64 v12; // r13
-  unsigned int v13; // r15d
+  __int64 v12; // r12
+  unsigned int v13; // r14d
   __int64 v14; // rdi
+  __int64 v15; // rdx
   __int64 *result; // rax
-  __int64 v16; // r12
-  __int64 v17; // rsi
-  __int64 v18; // rbx
-  gsl::details *v19; // rcx
-  unsigned __int64 v20; // rbx
-  __int64 v21; // rbx
-  unsigned int v22; // [rsp+30h] [rbp-50h]
-  _QWORD v23[2]; // [rsp+38h] [rbp-48h] BYREF
-  _QWORD v24[2]; // [rsp+48h] [rbp-38h] BYREF
-  _QWORD v25[2]; // [rsp+58h] [rbp-28h] BYREF
-  _QWORD v26[3]; // [rsp+68h] [rbp-18h] BYREF
+  __int64 v17; // r15
+  __int64 v18; // rax
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  __int64 v21; // rcx
+  __int64 v22; // rax
+  _QWORD v23[2]; // [rsp+30h] [rbp-40h] BYREF
+  _QWORD v24[2]; // [rsp+40h] [rbp-30h] BYREF
+  _QWORD v25[2]; // [rsp+50h] [rbp-20h] BYREF
+  _QWORD v26[2]; // [rsp+60h] [rbp-10h] BYREF
+  unsigned int v29; // [rsp+C8h] [rbp+58h]
 
   v10 = (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)a1 + 24LL))(a1) >> 2;
   v11 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + 16LL))(a1);
   v12 = *a3;
   v13 = 0;
   v14 = *a4;
-  v22 = v11;
+  v15 = v11;
   result = a5;
-  v16 = *a5;
+  v29 = v15;
+  v17 = *a5;
   if ( a6 )
   {
-    v17 = v10;
     while ( 1 )
     {
-      v18 = v16 + 4LL * *((unsigned int *)result + 2);
-      gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)v23, v17);
-      v23[1] = v18;
-      if ( v23[0] == -1LL || !v18 && v23[0] )
-        goto LABEL_17;
-      v20 = *(_QWORD *)a2 + 4 * (*(unsigned int *)(a2 + 8) + (unsigned __int64)(*(_DWORD *)(a2 + 12) * v13));
-      gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)v26, v22);
-      v26[1] = v20;
-      if ( v26[0] == -1LL || !v20 && v26[0] )
-        goto LABEL_17;
-      if ( (v21 = v12 + 4LL * *((unsigned int *)a3 + 2),
-            gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)v25, v17),
-            v25[1] = v21,
-            v25[0] == -1LL)
-        || !v21 && v25[0]
-        || (gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)v24, *((unsigned int *)a4 + 3)),
-            v24[1] = v14,
-            v24[0] == -1LL)
-        || !v14 && v24[0] )
+      v18 = *((unsigned int *)result + 2);
+      v23[0] = v10;
+      v19 = v17 + 4 * v18;
+      v23[1] = v19;
+      if ( !v19 && v10 )
+        goto LABEL_12;
+      v20 = *(unsigned int *)(a2 + 8);
+      v21 = v13 * *(_DWORD *)(a2 + 12);
+      v26[0] = v15;
+      v19 = *(_QWORD *)a2 + 4 * (v20 + v21);
+      v26[1] = v19;
+      if ( !v19 )
       {
-LABEL_17:
-        gsl::details::terminate(v19);
+        if ( v15 )
+          goto LABEL_12;
+      }
+      if ( (v25[0] = v10, v19 = v12 + 4LL * *((unsigned int *)a3 + 2), (v25[1] = v19) == 0LL) && v10
+        || (v22 = *((unsigned int *)a4 + 3), v24[0] = v22, (v24[1] = v14) == 0LL) && v22 )
+      {
+LABEL_12:
+        ((void (__fastcall *)(__int64, __int64))`gsl::details::get_terminate_handler'::`2'::handler)(v19, v15);
         __debugbreak();
       }
       (*(void (__fastcall **)(__int64, _QWORD *, _QWORD *, _QWORD *, _QWORD *))(*(_QWORD *)a1 + 8LL))(
@@ -78,12 +76,13 @@ LABEL_17:
         v24,
         v23);
       ++v13;
-      v16 += 4LL * *((unsigned int *)a5 + 3);
+      v17 += 4LL * *((unsigned int *)a5 + 3);
       v12 += 4LL * *((unsigned int *)a3 + 3);
       result = (__int64 *)*((unsigned int *)a4 + 3);
       v14 += 4LL * (_QWORD)result;
       if ( v13 >= a6 )
         break;
+      v15 = v29;
       result = a5;
     }
   }

@@ -1,38 +1,38 @@
 /*
- * XREFs of ExpCheckWakeTimerAccess @ 0x1407F4160
+ * XREFs of ExpCheckWakeTimerAccess @ 0x14078E5D8
  * Callers:
- *     ExpSetTimerObject @ 0x1402E33D0 (ExpSetTimerObject.c)
- *     ExpCheckIRTimerAccess @ 0x1407F40A8 (ExpCheckIRTimerAccess.c)
+ *     ExpSetTimerObject @ 0x140249420 (ExpSetTimerObject.c)
+ *     ExpCheckIRTimerAccess @ 0x1407728E8 (ExpCheckIRTimerAccess.c)
  * Callees:
- *     SeAccessCheckWithHint @ 0x1402F9CF0 (SeAccessCheckWithHint.c)
- *     SeCaptureSubjectContextEx @ 0x14072A390 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
+ *     SeAccessCheckWithHint @ 0x14034DC70 (SeAccessCheckWithHint.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
  */
 
 __int64 __fastcall ExpCheckWakeTimerAccess(char a1)
 {
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+60h] [rbp-28h] BYREF
-  __int64 v3; // [rsp+90h] [rbp+8h] BYREF
-  __int64 v4; // [rsp+98h] [rbp+10h] BYREF
+  unsigned int v3; // [rsp+90h] [rbp+8h] BYREF
+  int v4; // [rsp+98h] [rbp+10h] BYREF
 
-  LODWORD(v4) = 0;
-  LODWORD(v3) = 0;
+  v4 = 0;
+  v3 = 0;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   if ( !a1 )
     return 3221225506LL;
   SeCaptureSubjectContextEx(0LL, KeGetCurrentThread()->ApcState.Process, &SubjectContext);
   SeAccessCheckWithHint(
-    (__int64)&ExpWakeTimerSecurityDescriptor,
-    7,
-    &SubjectContext,
-    0,
-    1u,
+    (__int64)ExpWakeTimerSecurityDescriptor,
+    7LL,
+    (__int64)&SubjectContext,
+    0LL,
+    1,
     0,
     0LL,
     (__int64)&ExTimerObjectType->TypeInfo.GenericMapping,
     1,
-    (unsigned int *)&v4,
-    (int *)&v3);
+    (__int64)&v4,
+    (__int64)&v3);
   SeReleaseSubjectContext(&SubjectContext);
-  return (unsigned int)v3;
+  return v3;
 }

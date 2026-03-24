@@ -1,7 +1,7 @@
 /*
- * XREFs of WaitOnPseudoEvent @ 0x1C00516A4
+ * XREFs of WaitOnPseudoEvent @ 0x1C012CB74
  * Callers:
- *     xxxWaitForInputIdle @ 0x1C0051524 (xxxWaitForInputIdle.c)
+ *     xxxWaitForInputIdle @ 0x1C012C7C0 (xxxWaitForInputIdle.c)
  * Callees:
  *     <none>
  */
@@ -15,22 +15,29 @@ __int64 __fastcall WaitOnPseudoEvent(PVOID *a1, int a2)
 
   EventHandle = 0LL;
   if ( *a1 )
-    return (char *)*a1 + 1 != 0LL ? 0x80 : 0;
-  memset(&ObjectAttributes.Length + 1, 0, 20);
-  memset(&ObjectAttributes.Attributes + 1, 0, 20);
-  ObjectAttributes.Length = 48;
-  ObjectAttributes.Attributes = 512;
-  if ( ZwCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0) >= 0 )
   {
-    Object = 0LL;
-    v4 = ObReferenceObjectByHandle(EventHandle, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0, &Object, 0LL);
-    *a1 = Object;
-    ZwClose(EventHandle);
-    if ( v4 >= 0 )
+    if ( *a1 != (PVOID)-1LL )
       return 128LL;
-    return 0xFFFFFFFFLL;
+    return 0LL;
   }
-  if ( a2 == -1 )
-    return 0xFFFFFFFFLL;
-  return 258LL;
+  else
+  {
+    memset(&ObjectAttributes.Length + 1, 0, 20);
+    memset(&ObjectAttributes.Attributes + 1, 0, 20);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 512;
+    if ( ZwCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0) >= 0 )
+    {
+      Object = 0LL;
+      v4 = ObReferenceObjectByHandle(EventHandle, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0, &Object, 0LL);
+      *a1 = Object;
+      ZwClose(EventHandle);
+      if ( v4 >= 0 )
+        return 128LL;
+      return 0xFFFFFFFFLL;
+    }
+    if ( a2 == -1 )
+      return 0xFFFFFFFFLL;
+    return 258LL;
+  }
 }

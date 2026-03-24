@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpWalkWowStack @ 0x1404639D8
+ * XREFs of RtlpWalkWowStack @ 0x1403263C4
  * Callers:
- *     RtlpWalkFrameChain @ 0x1402A4180 (RtlpWalkFrameChain.c)
+ *     RtlpWalkFrameChain @ 0x14021D210 (RtlpWalkFrameChain.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 char __fastcall RtlpWalkWowStack(
@@ -20,33 +20,33 @@ char __fastcall RtlpWalkWowStack(
   unsigned int v11; // edx
   unsigned int v12; // r10d
   unsigned int i; // ebx
-  char v15; // al
-  unsigned int j; // edx
-  unsigned int v18; // ebx
-  unsigned __int64 v19; // r9
-  char v21; // [rsp+20h] [rbp-18h]
-  unsigned int v22; // [rsp+50h] [rbp+18h]
+  char j; // al
+  BOOL v16; // eax
+  unsigned int v17; // ebx
+  unsigned __int64 v18; // r9
+  char v20; // [rsp+20h] [rbp-18h]
+  unsigned int v21; // [rsp+50h] [rbp+18h]
 
-  v21 = 1;
+  v20 = 1;
   v10 = *(_DWORD *)(a3 + 8196);
-  v22 = v10;
+  v21 = v10;
   if ( v10 <= a8 )
     return 0;
-  if ( v10 != a8 )
-  {
-    if ( (a8 & 3) != 0 )
-      ExRaiseDatatypeMisalignment();
-    if ( a8 + (unsigned __int64)(v10 - a8) < a8 )
-      MEMORY[0x7FFFFFFF0000] = 0;
-  }
+  if ( (a8 & 3) != 0 )
+    ExRaiseDatatypeMisalignment();
+  if ( a8 + (unsigned __int64)(v10 - a8) < a8 )
+    MEMORY[0x7FFFFFFF0000] = 0;
   v11 = *a4;
   if ( a2 )
   {
     if ( a5 > v11 )
     {
       if ( v11 >= a6 )
+      {
         *(_QWORD *)(a1 + 8LL * (v11 - a6)) = *a2;
-      ++*a4;
+        v11 = *a4;
+      }
+      *a4 = ++v11;
     }
   }
   else
@@ -61,34 +61,40 @@ char __fastcall RtlpWalkWowStack(
     }
     *a4 = v11;
     if ( v11 >= a5 )
-      return v21;
+      return v20;
   }
-  v15 = 1;
-  for ( j = *a4; j < a5 && a7 < v10; ++j )
+  for ( j = 1; v11 < a5 && a7 < v10; j = 0 )
   {
-    if ( v15 ? a7 < a8 : a7 <= a8 )
+    if ( j )
+    {
+      v16 = a7 < a8;
+    }
+    else
+    {
+      if ( a7 <= a8 )
+        break;
+      v16 = 0;
+    }
+    if ( v16 )
       break;
     if ( v10 - a7 < 8 )
       break;
-    v18 = *(_DWORD *)a7;
-    v19 = *(unsigned int *)(a7 + 4LL);
-    if ( a8 <= (unsigned int)v19 && (unsigned int)v19 < v10 )
+    v17 = *(_DWORD *)a7;
+    v18 = *(unsigned int *)(a7 + 4LL);
+    if ( (unsigned int)v18 < v10 && a8 <= (unsigned int)v18 )
       break;
-    if ( v19 >= KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[5]
-      || (unsigned int)v19 < 0x10000 )
+    if ( v18 >= KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[5] || (unsigned int)v18 < 0x10000 )
+      break;
+    if ( v11 >= a6 )
+      *(_QWORD *)(a1 + 8LL * (v11 - a6)) = *(unsigned int *)(a7 + 4LL);
+    if ( a7 >= v17 || (v10 = v21, v17 >= v21) )
     {
+      ++v11;
       break;
     }
-    if ( j >= a6 )
-      *(_QWORD *)(a1 + 8LL * (j - a6)) = *(unsigned int *)(a7 + 4LL);
-    if ( a7 >= v18 || (v10 = v22, v18 >= v22) )
-    {
-      ++j;
-      break;
-    }
-    a7 = v18;
-    v15 = 0;
+    a7 = v17;
+    ++v11;
   }
-  *a4 = j;
-  return v21;
+  *a4 = v11;
+  return v20;
 }

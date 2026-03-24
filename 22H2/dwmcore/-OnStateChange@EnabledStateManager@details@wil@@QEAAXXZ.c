@@ -1,7 +1,7 @@
 /*
- * XREFs of ?OnStateChange@EnabledStateManager@details@wil@@QEAAXXZ @ 0x1801993F8
+ * XREFs of ?OnStateChange@EnabledStateManager@details@wil@@QEAAXXZ @ 0x18014DD60
  * Callers:
- *     ?_lambda_invoker_cdecl_@_lambda_fee8cea507d2413a58be13acfb66740a_@@CA@PEAX@Z @ 0x1801974B0 (-_lambda_invoker_cdecl_@_lambda_fee8cea507d2413a58be13acfb66740a_@@CA@PEAX@Z.c)
+ *     ?_lambda_invoker_cdecl_@_lambda_fee8cea507d2413a58be13acfb66740a_@@CAXPEAX@Z @ 0x18014C9C0 (-_lambda_invoker_cdecl_@_lambda_fee8cea507d2413a58be13acfb66740a_@@CAXPEAX@Z.c)
  * Callees:
  *     <none>
  */

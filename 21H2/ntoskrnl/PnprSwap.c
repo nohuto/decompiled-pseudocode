@@ -1,13 +1,13 @@
 /*
- * XREFs of PnprSwap @ 0x1405633A8
+ * XREFs of PnprSwap @ 0x14050FA68
  * Callers:
- *     PnprEndMirroring @ 0x140A67BA0 (PnprEndMirroring.c)
- *     PnprInitiateReplaceOperation @ 0x140A67C74 (PnprInitiateReplaceOperation.c)
+ *     PnprEndMirroring @ 0x1409AD720 (PnprEndMirroring.c)
+ *     PnprInitiateReplaceOperation @ 0x1409AD7FC (PnprInitiateReplaceOperation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PnprSwapFinalize @ 0x1405635D0 (PnprSwapFinalize.c)
- *     MmUnmapReservedMapping @ 0x1405858A0 (MmUnmapReservedMapping.c)
- *     PnprMirrorMarkedPages @ 0x140A6849C (PnprMirrorMarkedPages.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PnprSwapFinalize @ 0x14050FC90 (PnprSwapFinalize.c)
+ *     MmUnmapReservedMapping @ 0x140531C90 (MmUnmapReservedMapping.c)
+ *     PnprMirrorMarkedPages @ 0x1409AE02C (PnprMirrorMarkedPages.c)
  */
 
 __int64 PnprSwap()
@@ -39,14 +39,14 @@ __int64 PnprSwap()
     if ( v1 < 0 )
     {
       v2 = PnprContext;
-      v3 = *(_DWORD *)(PnprContext + 33272);
+      v3 = *(_DWORD *)(PnprContext + 20984);
       if ( !v3 )
-        v3 = 2826;
-      *(_DWORD *)(PnprContext + 33272) = v3;
-      v4 = *(_DWORD *)(v2 + 33276);
+        v3 = 2818;
+      *(_DWORD *)(PnprContext + 20984) = v3;
+      v4 = *(_DWORD *)(v2 + 20988);
       if ( !v4 )
         v4 = 1;
-      *(_DWORD *)(v2 + 33276) = v4;
+      *(_DWORD *)(v2 + 20988) = v4;
       goto LABEL_34;
     }
     v5 = PnprContext;
@@ -63,18 +63,18 @@ __int64 PnprSwap()
       while ( *(_DWORD *)(PnprContext + 204) < *(_DWORD *)(PnprContext + 176) );
     }
   }
-  v6 = *(__int64 (__fastcall **)(_QWORD))(v0 + 33248);
-  if ( v6 && (v1 = v6(*(_QWORD *)(v0 + 33168)), v1 < 0) )
+  v6 = *(__int64 (__fastcall **)(_QWORD))(v0 + 20960);
+  if ( v6 && (v1 = v6(*(_QWORD *)(v0 + 20880)), v1 < 0) )
   {
     v2 = PnprContext;
-    v7 = *(_DWORD *)(PnprContext + 33272);
+    v7 = *(_DWORD *)(PnprContext + 20984);
     if ( !v7 )
-      v7 = 2846;
-    *(_DWORD *)(PnprContext + 33272) = v7;
-    v8 = *(_DWORD *)(v2 + 33276);
+      v7 = 2838;
+    *(_DWORD *)(PnprContext + 20984) = v7;
+    v8 = *(_DWORD *)(v2 + 20988);
     if ( !v8 )
       v8 = 8;
-    *(_DWORD *)(v2 + 33276) = v8;
+    *(_DWORD *)(v2 + 20988) = v8;
   }
   else
   {

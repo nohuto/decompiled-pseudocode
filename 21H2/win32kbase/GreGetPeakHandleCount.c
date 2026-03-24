@@ -1,5 +1,5 @@
 /*
- * XREFs of GreGetPeakHandleCount @ 0x1C016BED0
+ * XREFs of GreGetPeakHandleCount @ 0x1C013EEC0
  * Callers:
  *     <none>
  * Callees:

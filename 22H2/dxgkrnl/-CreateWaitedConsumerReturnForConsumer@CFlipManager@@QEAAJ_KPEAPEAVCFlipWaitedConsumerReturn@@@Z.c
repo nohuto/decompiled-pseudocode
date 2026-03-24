@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CreateWaitedConsumerReturnForConsumer@CFlipManager@@QEAAJ_KPEAPEAVCFlipWaitedConsumerReturn@@@Z @ 0x1C0083B84
+ * XREFs of ?CreateWaitedConsumerReturnForConsumer@CFlipManager@@QEAAJ_KPEAPEAVCFlipWaitedConsumerReturn@@@Z @ 0x1C006B21C
  * Callers:
- *     ?CreateWaitedConsumerReturnForConsumer@FlipManagerObject@@QEAAJ_KPEAPEAVCFlipWaitedConsumerReturn@@@Z @ 0x1C0081C18 (-CreateWaitedConsumerReturnForConsumer@FlipManagerObject@@QEAAJ_KPEAPEAVCFlipWaitedConsumerRetur.c)
+ *     ?CreateWaitedConsumerReturnForConsumer@FlipManagerObject@@QEAAJ_KPEAPEAVCFlipWaitedConsumerReturn@@@Z @ 0x1C006A344 (-CreateWaitedConsumerReturnForConsumer@FlipManagerObject@@QEAAJ_KPEAPEAVCFlipWaitedConsumerRetur.c)
  * Callees:
  *     <none>
  */
@@ -11,15 +11,15 @@ __int64 __fastcall CFlipManager::CreateWaitedConsumerReturnForConsumer(
         __int64 a2,
         struct CFlipWaitedConsumerReturn **a3)
 {
-  struct CFlipWaitedConsumerReturn *Pool2; // rax
+  struct CFlipWaitedConsumerReturn *PoolWithQuotaTag; // rax
 
-  Pool2 = (struct CFlipWaitedConsumerReturn *)ExAllocatePool2(257LL, 24LL, 1920418630LL);
-  if ( Pool2 )
+  PoolWithQuotaTag = (struct CFlipWaitedConsumerReturn *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x18uLL, 0x72774346u);
+  if ( PoolWithQuotaTag )
   {
-    *((_QWORD *)Pool2 + 1) = 0LL;
-    *(_QWORD *)Pool2 = &CFlipWaitedConsumerReturn::`vftable';
-    *((_QWORD *)Pool2 + 2) = a2;
+    *((_QWORD *)PoolWithQuotaTag + 1) = 0LL;
+    *(_QWORD *)PoolWithQuotaTag = &CFlipWaitedConsumerReturn::`vftable';
+    *((_QWORD *)PoolWithQuotaTag + 2) = a2;
   }
-  *a3 = Pool2;
-  return Pool2 == 0LL ? 0xC0000017 : 0;
+  *a3 = PoolWithQuotaTag;
+  return PoolWithQuotaTag == 0LL ? 0xC0000017 : 0;
 }

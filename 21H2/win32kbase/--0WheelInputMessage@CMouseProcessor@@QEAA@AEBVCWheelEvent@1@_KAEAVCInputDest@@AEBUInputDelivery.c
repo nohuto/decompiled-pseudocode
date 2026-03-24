@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0WheelInputMessage@CMouseProcessor@@QEAA@AEBVCWheelEvent@1@_KAEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01F9020
+ * XREFs of ??0WheelInputMessage@CMouseProcessor@@QEAA@AEBVCWheelEvent@1@_KAEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01BE7AC
  * Callers:
- *     ?CreateInputMessage@CWheelEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@AEBUInputDeliveryContext@2@@Z @ 0x1C01F9CC0 (-CreateInputMessage@CWheelEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@A.c)
+ *     ?CreateInputMessage@CWheelEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@AEBUInputDeliveryContext@2@@Z @ 0x1C01BF440 (-CreateInputMessage@CWheelEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@A.c)
  * Callees:
- *     ??0MouseInputMessage@CMouseProcessor@@QEAA@_KAEBVCMouseEvent@1@AEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01F8E78 (--0MouseInputMessage@CMouseProcessor@@QEAA@_KAEBVCMouseEvent@1@AEAVCInputDest@@AEBUInputDelivery.c)
+ *     ??0MouseInputMessage@CMouseProcessor@@QEAA@_KAEBVCMouseEvent@1@AEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C01BE5E8 (--0MouseInputMessage@CMouseProcessor@@QEAA@_KAEBVCMouseEvent@1@AEAVCInputDest@@AEBUInputDelivery.c)
  */
 
 CMouseProcessor::WheelInputMessage *__fastcall CMouseProcessor::WheelInputMessage::WheelInputMessage(
@@ -14,12 +14,12 @@ CMouseProcessor::WheelInputMessage *__fastcall CMouseProcessor::WheelInputMessag
         const struct CMouseProcessor::InputDeliveryContext *a5)
 {
   CMouseProcessor::MouseInputMessage::MouseInputMessage(this, a3, a2, a4, a5);
-  *((_QWORD *)this + 43) = &CMouseProcessor::CMouseEvent::`vftable';
-  *((_QWORD *)this + 44) = *((_QWORD *)a2 + 1);
-  *((_DWORD *)this + 90) = *((_DWORD *)a2 + 4);
-  *((_QWORD *)this + 43) = &CMouseProcessor::CWheelEvent::`vftable';
-  *((_DWORD *)this + 92) = *((_DWORD *)a2 + 6);
-  *((_DWORD *)this + 93) = *((_DWORD *)a2 + 7);
-  *((_QWORD *)this + 44) = (char *)this + 176;
+  *((_QWORD *)this + 44) = &CMouseProcessor::CMouseEvent::`vftable';
+  *((_QWORD *)this + 45) = *((_QWORD *)a2 + 1);
+  *((_DWORD *)this + 92) = *((_DWORD *)a2 + 4);
+  *((_QWORD *)this + 44) = &CMouseProcessor::CWheelEvent::`vftable';
+  *((_DWORD *)this + 94) = *((_DWORD *)a2 + 6);
+  *((_DWORD *)this + 95) = *((_DWORD *)a2 + 7);
+  *((_QWORD *)this + 45) = (char *)this + 184;
   return this;
 }

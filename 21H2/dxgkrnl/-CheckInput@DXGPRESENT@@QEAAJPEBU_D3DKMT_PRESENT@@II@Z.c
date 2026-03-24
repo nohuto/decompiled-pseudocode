@@ -1,12 +1,11 @@
 /*
- * XREFs of ?CheckInput@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@II@Z @ 0x1C01EBE94
+ * XREFs of ?CheckInput@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@II@Z @ 0x1C01714C0
  * Callers:
- *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C017D520 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C00FDFA0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
  */
 
 __int64 __fastcall DXGPRESENT::CheckInput(DXGPRESENT *this, const struct _D3DKMT_PRESENT *a2, LONG a3, LONG a4)
@@ -14,18 +13,22 @@ __int64 __fastcall DXGPRESENT::CheckInput(DXGPRESENT *this, const struct _D3DKMT
   unsigned int v5; // eax
   struct _D3DKMT_PRESENTFLAGS::$BA08BA2D655121A02C65791D10AFAA35::$9C41924AA1A34A6454565F13D6F625B0 Value; // r10d
   int v10; // ecx
-  __int64 v12; // r9
-  unsigned __int64 v13; // rax
-  __int64 v14; // rax
-  void *v15; // rcx
+  SIZE_T v12; // rax
+  PVOID v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  void *v18; // rcx
   UINT SubRectCnt; // eax
   RECT SrcRect; // xmm1
   LONG right; // edx
   LONG left; // ecx
   LONG bottom; // r9d
   LONG top; // r8d
-  LONG v22; // ecx
-  LONG v23; // edx
+  LONG v25; // ecx
+  LONG v26; // edx
+  __int64 v27; // rax
 
   v5 = *((_DWORD *)this + 1) & 0xFFFFFFFB;
   *((_DWORD *)this + 1) = v5;
@@ -38,10 +41,10 @@ __int64 __fastcall DXGPRESENT::CheckInput(DXGPRESENT *this, const struct _D3DKMT
      || right <= 0
      || bottom <= 0)
     || (*(_BYTE *)&Value & 0x40) != 0
-    && ((v22 = a2->DstRect.right, v22 <= a2->DstRect.left)
-     || (v23 = a2->DstRect.bottom, v23 <= a2->DstRect.top)
-     || v22 <= 0
-     || v23 <= 0) )
+    && ((v25 = a2->DstRect.right, v25 <= a2->DstRect.left)
+     || (v26 = a2->DstRect.bottom, v26 <= a2->DstRect.top)
+     || v25 <= 0
+     || v26 <= 0) )
   {
     *((_DWORD *)this + 1) = v5 | 4;
     return 0LL;
@@ -63,12 +66,12 @@ __int64 __fastcall DXGPRESENT::CheckInput(DXGPRESENT *this, const struct _D3DKMT
   if ( *((_DWORD *)this + 29) >= a2->SubRectCnt )
     goto LABEL_18;
   operator delete[](*((void **)this + 15));
-  v13 = 16LL * a2->SubRectCnt;
+  v12 = 16LL * a2->SubRectCnt;
   if ( !is_mul_ok(a2->SubRectCnt, 0x10uLL) )
-    v13 = -1LL;
-  v14 = operator new[](v13, 0x4B677844u, 256LL, v12);
-  *((_QWORD *)this + 15) = v14;
-  if ( v14 )
+    v12 = -1LL;
+  v13 = operator new[](v12, 0x4B677844u, PagedPool);
+  *((_QWORD *)this + 15) = v13;
+  if ( v13 )
   {
 LABEL_18:
     if ( *((_DWORD *)this + 19) != a3 || *((_DWORD *)this + 20) != a4 )
@@ -77,11 +80,11 @@ LABEL_18:
       *((_DWORD *)this + 19) = a3;
       *((_DWORD *)this + 20) = a4;
     }
-    v15 = (void *)*((_QWORD *)this + 15);
+    v18 = (void *)*((_QWORD *)this + 15);
     *((_DWORD *)this + 18) = a2->Flags.0;
     SubRectCnt = a2->SubRectCnt;
     *((_DWORD *)this + 29) = SubRectCnt;
-    memmove(v15, a2->pSrcSubRects, 16LL * SubRectCnt);
+    memmove(v18, a2->pSrcSubRects, 16LL * SubRectCnt);
     *(RECT *)((char *)this + 84) = a2->DstRect;
     SrcRect = a2->SrcRect;
     *((_DWORD *)this + 1) |= 8u;
@@ -89,16 +92,9 @@ LABEL_18:
     return 0LL;
   }
   *((_DWORD *)this + 29) = 0;
-  WdLogSingleEntry2(6LL, this, a2->SubRectCnt);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262145,
-    -1,
-    (__int64)L"0x%I64x fails to allocate array of 0x%I64d RECTs",
-    (__int64)this,
-    a2->SubRectCnt,
-    0LL,
-    0LL,
-    0LL);
+  v27 = WdLogNewEntry5_WdLowResource(v15, v14, v16, v17);
+  *(_QWORD *)(v27 + 24) = this;
+  *(_QWORD *)(v27 + 32) = a2->SubRectCnt;
+  WdLogEvent5_WdLowResource(v27);
   return 3221225495LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of AcquireDeviceFirmwareLock @ 0x1C004E7AC
+ * XREFs of AcquireDeviceFirmwareLock @ 0x1C004F97C
  * Callers:
- *     AcpiHandleDeviceFirmwareLock @ 0x1C002CD00 (AcpiHandleDeviceFirmwareLock.c)
+ *     AcpiHandleDeviceFirmwareLock @ 0x1C0030E70 (AcpiHandleDeviceFirmwareLock.c)
  * Callees:
- *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C0030C38 (ACPIInternalGetDeviceFromNSOBJ.c)
- *     DereferenceDeviceFirmwareLockHandlerEntry @ 0x1C004EA74 (DereferenceDeviceFirmwareLockHandlerEntry.c)
- *     FindDeviceFirmwareLockHandlerEntry @ 0x1C004ECB8 (FindDeviceFirmwareLockHandlerEntry.c)
- *     PerformHandlerInvocation @ 0x1C004ED78 (PerformHandlerInvocation.c)
+ *     DereferenceDeviceFirmwareLockHandlerEntry @ 0x1C004FC48 (DereferenceDeviceFirmwareLockHandlerEntry.c)
+ *     FindDeviceFirmwareLockHandlerEntry @ 0x1C004FE8C (FindDeviceFirmwareLockHandlerEntry.c)
+ *     PerformHandlerInvocation @ 0x1C004FF48 (PerformHandlerInvocation.c)
+ *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C0056ECC (ACPIInternalGetDeviceFromNSOBJ.c)
  */
 
 __int64 __fastcall AcquireDeviceFirmwareLock(
@@ -79,15 +79,14 @@ __int64 __fastcall AcquireDeviceFirmwareLock(
       v12 = *(_DWORD *)(a1 + 40);
       DeviceFirmwareLockHandlerEntry = *(_QWORD *)(a1 + 16);
       if ( v12 >= 0 )
-      {
         *(_BYTE *)(a1 + 48) = 1;
-LABEL_31:
+      else
+        DereferenceDeviceFirmwareLockHandlerEntry(*(PVOID *)(a1 + 16));
+      if ( v12 != -1073741267 )
+      {
         *(_DWORD *)(a1 + 24) = 0;
         continue;
       }
-      DereferenceDeviceFirmwareLockHandlerEntry(*(PVOID *)(a1 + 16));
-      if ( v12 != -1073741267 )
-        goto LABEL_31;
       *(_DWORD *)(a1 + 24) = 1;
       goto LABEL_16;
     }

@@ -1,19 +1,19 @@
 /*
- * XREFs of MmGetNumberOfPhysicalPages @ 0x1407B9EA0
+ * XREFs of MmGetNumberOfPhysicalPages @ 0x1406C8500
  * Callers:
- *     ExpGetSystemEmulationBasicInformation @ 0x140346AAC (ExpGetSystemEmulationBasicInformation.c)
- *     ExpGetSystemBasicInformation @ 0x140346C48 (ExpGetSystemBasicInformation.c)
- *     ExpInitializePoolTrackerTable @ 0x140398524 (ExpInitializePoolTrackerTable.c)
- *     ExpDetermineLargePagePolicy @ 0x1403986B8 (ExpDetermineLargePagePolicy.c)
- *     PopRequestWrite @ 0x140AA4070 (PopRequestWrite.c)
- *     PopWriteHiberPages @ 0x140AA5AA4 (PopWriteHiberPages.c)
- *     ViPtInitCircularPoolTrace @ 0x140ADFE2C (ViPtInitCircularPoolTrace.c)
- *     CmpInitGlobalQuotaAllowed @ 0x140B746D4 (CmpInitGlobalQuotaAllowed.c)
+ *     ExpGetSystemEmulationBasicInformation @ 0x140316278 (ExpGetSystemEmulationBasicInformation.c)
+ *     ExpGetSystemBasicInformation @ 0x140344ADC (ExpGetSystemBasicInformation.c)
+ *     ExpDetermineLargePagePolicy @ 0x1403C39A8 (ExpDetermineLargePagePolicy.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
+ *     PopWriteHiberPages @ 0x1409916A0 (PopWriteHiberPages.c)
+ *     PopRequestWrite @ 0x140994594 (PopRequestWrite.c)
+ *     ExInitializePoolTracker @ 0x140A68AF4 (ExInitializePoolTracker.c)
+ *     CmpInitGlobalQuotaAllowed @ 0x140A723C4 (CmpInitGlobalQuotaAllowed.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MmGetNumberOfPhysicalPages(unsigned __int16 a1)
 {
-  return *(_QWORD *)(*(_QWORD *)(qword_140C674C8 + 8LL * a1) + 17040LL);
+  return *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * a1) + 6928LL);
 }

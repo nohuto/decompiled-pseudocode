@@ -1,69 +1,76 @@
 /*
- * XREFs of ?CalcWorldSpaceClippedBounds@CDrawingContext@@QEBAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x180008560
+ * XREFs of ?CalcWorldSpaceClippedBounds@CDrawingContext@@QEBAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x18006BC10
  * Callers:
- *     ?CalcDeviceTransformDelta@CTreeEffectLayer@@EEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z @ 0x180007BE0 (-CalcDeviceTransformDelta@CTreeEffectLayer@@EEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z.c)
- *     ?IsOccluded@CDrawingContext@@QEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@H@Z @ 0x1800084D0 (-IsOccluded@CDrawingContext@@QEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
- *     ?GetUnOccludedWorldShape@CDrawingContext@@AEAAJAEBVCShape@@HPEAPEAV2@@Z @ 0x18000F220 (-GetUnOccludedWorldShape@CDrawingContext@@AEAAJAEBVCShape@@HPEAPEAV2@@Z.c)
- *     std::transform_std::_Vector_iterator_std::_Vector_val_std::_Simple_types_tagRECT______std::back_insert_iterator_std::vector_tagRECT_std::allocator_tagRECT_______lambda_6991071fcff892ffb13e08e0d7abc234___ @ 0x1801D2D38 (std--transform_std--_Vector_iterator_std--_Vector_val_std--_Simple_types_tagRECT______std--back_.c)
+ *     ?CalcDeviceTransformDelta@CTreeEffectLayer@@MEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z @ 0x1800050F0 (-CalcDeviceTransformDelta@CTreeEffectLayer@@MEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z.c)
+ *     ?GetBackdropImageFromRenderTarget@CDrawingContext@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEAUEffectInput@@@Z @ 0x18003F620 (-GetBackdropImageFromRenderTarget@CDrawingContext@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@.c)
+ *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x180056BE8 (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
+ *     ?IsDrawListCacheDirty@CBrush@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCMILMatrix@@@Z @ 0x18006AFA0 (-IsDrawListCacheDirty@CBrush@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEB.c)
+ *     ?IsOccluded@CDrawingContext@@QEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@H@Z @ 0x18006B7A8 (-IsOccluded@CDrawingContext@@QEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
  * Callees:
- *     ?GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180090EF8 (-GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
- *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C4040 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ?GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ @ 0x1800DBDB4 (-GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?GetClipBoundsWorld@CScopedClipStack@@QEBAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x18006BDEC (-GetClipBoundsWorld@CScopedClipStack@@QEBAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAnd.c)
+ *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800A7F30 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CDrawingContext::CalcWorldSpaceClippedBounds(__int64 a1, __int64 a2, float *a3)
+__int64 __fastcall CDrawingContext::CalcWorldSpaceClippedBounds(__int64 a1, __int64 a2, __int64 a3)
 {
-  CMILMatrix *TopByReference; // rax
-  struct MilRectF *v6; // r9
+  int v3; // eax
+  void *v6; // rcx
+  void (__fastcall ***v7)(_QWORD, _DWORD *); // rcx
   __int64 result; // rax
-  float v8; // xmm4_4
   float v9; // xmm0_4
   float v10; // xmm1_4
-  float v11; // xmm0_4
+  float v11; // xmm1_4
   float v12; // xmm2_4
-  float v13; // xmm0_4
-  float v14; // xmm0_4
-  float v15; // xmm3_4
-  __int128 v16; // [rsp+20h] [rbp-28h] BYREF
+  _DWORD v13[2]; // [rsp+20h] [rbp-30h] BYREF
+  __int128 v14; // [rsp+28h] [rbp-28h]
+  int v15; // [rsp+38h] [rbp-18h]
+  int v16; // [rsp+3Ch] [rbp-14h]
+  float v17; // [rsp+40h] [rbp-10h]
+  float v18; // [rsp+44h] [rbp-Ch]
 
-  v16 = 0LL;
-  TopByReference = CMatrixStack::GetTopByReference((CMatrixStack *)(a1 + 400));
-  CMILMatrix::Transform2DBoundsHelper<1>(TopByReference, v6);
-  result = CDrawingContext::GetClipBoundsWorld(a1, &v16);
-  v8 = *a3;
-  v9 = *(float *)&v16;
-  if ( *(float *)&v16 > *a3 )
+  v3 = *(_DWORD *)(a1 + 408);
+  v14 = 0LL;
+  if ( v3 )
+    v6 = (void *)(*(_QWORD *)(a1 + 424) + 68LL * (unsigned int)(v3 - 1));
+  else
+    v6 = &CMILMatrix::Identity;
+  CMILMatrix::Transform2DBoundsHelper<1>(v6, a2, a3);
+  v7 = (void (__fastcall ***)(_QWORD, _DWORD *))(*(_QWORD *)(a1 + 32)
+                                               + 8LL
+                                               + *(int *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 16LL));
+  (**v7)(v7, v13);
+  v15 = 0;
+  v16 = 0;
+  v17 = (float)v13[0];
+  v18 = (float)v13[1];
+  result = CScopedClipStack::GetClipBoundsWorld((CScopedClipStack *)(a1 + 936));
+  if ( *(float *)&v14 > *(float *)a3 )
+    *(_DWORD *)a3 = v14;
+  if ( *((float *)&v14 + 1) > *(float *)(a3 + 4) )
+    *(_DWORD *)(a3 + 4) = DWORD1(v14);
+  v9 = *(float *)(a3 + 8);
+  v10 = *((float *)&v14 + 2);
+  if ( v9 > *((float *)&v14 + 2) )
   {
-    *(_DWORD *)a3 = v16;
-    v8 = v9;
+    *(_DWORD *)(a3 + 8) = DWORD2(v14);
+    v9 = v10;
   }
-  v10 = a3[1];
-  v11 = *((float *)&v16 + 1);
-  if ( *((float *)&v16 + 1) > v10 )
+  v11 = *(float *)(a3 + 12);
+  v12 = *((float *)&v14 + 3);
+  if ( v11 > *((float *)&v14 + 3) )
   {
-    a3[1] = *((float *)&v16 + 1);
-    v10 = v11;
+    *(_DWORD *)(a3 + 12) = HIDWORD(v14);
+    v11 = v12;
+    v9 = *(float *)(a3 + 8);
   }
-  v12 = a3[2];
-  v13 = *((float *)&v16 + 2);
-  if ( v12 > *((float *)&v16 + 2) )
+  if ( v9 <= *(float *)a3 || v11 <= *(float *)(a3 + 4) )
   {
-    a3[2] = *((float *)&v16 + 2);
-    v12 = v13;
-  }
-  v14 = a3[3];
-  v15 = *((float *)&v16 + 3);
-  if ( v14 > *((float *)&v16 + 3) )
-  {
-    a3[3] = *((float *)&v16 + 3);
-    v14 = v15;
-  }
-  if ( v12 <= v8 || v14 <= v10 )
-  {
-    result = 0LL;
-    *((_QWORD *)a3 + 1) = 0LL;
-    *(_QWORD *)a3 = 0LL;
+    *(_DWORD *)(a3 + 12) = 0;
+    *(_DWORD *)(a3 + 8) = 0;
+    *(_DWORD *)(a3 + 4) = 0;
+    *(_DWORD *)a3 = 0;
   }
   return result;
 }

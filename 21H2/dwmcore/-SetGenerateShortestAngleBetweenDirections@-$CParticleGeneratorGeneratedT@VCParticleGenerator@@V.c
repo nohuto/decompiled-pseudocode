@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetGenerateShortestAngleBetweenDirections@?$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@@QEAAJ_N@Z @ 0x1801A2E18
+ * XREFs of ?SetGenerateShortestAngleBetweenDirections@?$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@@QEAAJ_N@Z @ 0x180171030
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CParticleGeneratorGeneratedT<CParticleGenerator,CPropertyChangeResource>::SetGenerateShortestAngleBetweenDirections(
@@ -12,10 +12,10 @@ __int64 __fastcall CParticleGeneratorGeneratedT<CParticleGenerator,CPropertyChan
 {
   __int64 v2; // rax
 
-  if ( a2 != *((_BYTE *)a1 + 104) )
+  if ( a2 != *((_BYTE *)a1 + 96) )
   {
     v2 = *a1;
-    *((_BYTE *)a1 + 104) = a2;
+    *((_BYTE *)a1 + 96) = a2;
     (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v2 + 72))(a1, 0LL, 0LL);
   }
   return 0LL;

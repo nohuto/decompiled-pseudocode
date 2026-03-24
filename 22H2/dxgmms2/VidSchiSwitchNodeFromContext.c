@@ -1,14 +1,14 @@
 /*
- * XREFs of VidSchiSwitchNodeFromContext @ 0x1C0087640
+ * XREFs of VidSchiSwitchNodeFromContext @ 0x1C008B130
  * Callers:
- *     ?VidSchiSwitchNodeFromDevice@@YAXPEAX@Z @ 0x1C00016D0 (-VidSchiSwitchNodeFromDevice@@YAXPEAX@Z.c)
- *     VidSchiSwitchFromSuspendedDevices @ 0x1C00046B0 (VidSchiSwitchFromSuspendedDevices.c)
+ *     VidSchiSwitchFromSuspendedDevices @ 0x1C0016990 (VidSchiSwitchFromSuspendedDevices.c)
+ *     ?VidSchiSwitchNodeFromDevice@@YAXPEAX@Z @ 0x1C0033470 (-VidSchiSwitchNodeFromDevice@@YAXPEAX@Z.c)
  * Callees:
- *     VidSchWaitForEvents @ 0x1C0001A80 (VidSchWaitForEvents.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     VidSchGetNewSubmissionFenceId @ 0x1C008741C (VidSchGetNewSubmissionFenceId.c)
- *     VidSchiAllocateDmaPacket @ 0x1C0087530 (VidSchiAllocateDmaPacket.c)
- *     VidSchiSendToExecutionQueueWithWait @ 0x1C00875D4 (VidSchiSendToExecutionQueueWithWait.c)
+ *     VidSchWaitForEvents @ 0x1C0011994 (VidSchWaitForEvents.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiSendToExecutionQueueWithWait @ 0x1C0086DF0 (VidSchiSendToExecutionQueueWithWait.c)
+ *     VidSchiAllocateDmaPacket @ 0x1C0086E5C (VidSchiAllocateDmaPacket.c)
+ *     VidSchGetNewSubmissionFenceId @ 0x1C008B238 (VidSchGetNewSubmissionFenceId.c)
  */
 
 __int64 __fastcall VidSchiSwitchNodeFromContext(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall VidSchiSwitchNodeFromContext(__int64 a1)
   result = *(_QWORD *)(a1 + 96);
   if ( a1 == *(_QWORD *)(result + 224) )
   {
-    result = *(unsigned int *)(result + 2888);
+    result = *(unsigned int *)(result + 2880);
     if ( !(_DWORD)result )
     {
       v2 = *(_QWORD *)(a1 + 96);
@@ -36,16 +36,15 @@ __int64 __fastcall VidSchiSwitchNodeFromContext(__int64 a1)
       *((_DWORD *)DmaPacket + 18) = 7;
       DmaPacket[6] = *(_QWORD *)(v2 + 32);
       VidSchGetNewSubmissionFenceId(v3, 0LL, *(unsigned __int16 *)(v2 + 4), DmaPacket + 13);
-      memset(&Event, 0, sizeof(Event));
       KeInitializeEvent(&Event, SynchronizationEvent, 0);
       *((_DWORD *)DmaPacket + 23) |= 0x1000u;
       DmaPacket[25] = &Event;
       *(_BYTE *)(v3 + 54) = 1;
-      if ( *(_DWORD *)(v2 + 11272) != -1 )
+      if ( *(_DWORD *)(v2 + 11224) != -1 )
       {
-        v5 = *(void (__fastcall **)(_QWORD))(v3 + 3056);
+        v5 = *(void (__fastcall **)(_QWORD))(v3 + 2960);
         if ( v5 )
-          v5(*(_QWORD *)(v3 + 3120));
+          v5(*(_QWORD *)(v3 + 3024));
       }
       *(_BYTE *)(v3 + 54) = 0;
       *((_DWORD *)DmaPacket + 23) |= 0x400u;

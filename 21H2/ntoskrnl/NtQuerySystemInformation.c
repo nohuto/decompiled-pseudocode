@@ -1,23 +1,22 @@
 /*
- * XREFs of NtQuerySystemInformation @ 0x14073D860
+ * XREFs of NtQuerySystemInformation @ 0x140650EF0
  * Callers:
- *     HalpTimerConfigureQpcBypass @ 0x1403BAA84 (HalpTimerConfigureQpcBypass.c)
- *     AlpcpInitSystem @ 0x14085C5A8 (AlpcpInitSystem.c)
+ *     HalpTimerConfigureQpcBypass @ 0x1403CDDAC (HalpTimerConfigureQpcBypass.c)
+ *     AlpcpInitSystem @ 0x1407CE04C (AlpcpInitSystem.c)
  * Callees:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  */
 
-int __fastcall NtQuerySystemInformation(int a1, unsigned __int64 a2, unsigned int a3, ULONG *a4)
+__int64 __fastcall NtQuerySystemInformation(__int64 a1)
 {
   __int16 *p_Group; // r10
-  unsigned int v6; // r8d
   __int16 Group; // [rsp+40h] [rbp+8h] BYREF
 
   p_Group = 0LL;
   Group = 0;
-  if ( (a1 >= 83 || a1 < 74) && (a1 < 181 || a1 >= 210) )
+  if ( (int)a1 < 74 || (int)a1 >= 83 )
   {
-    switch ( a1 )
+    switch ( (int)a1 )
     {
       case 8:
       case 23:
@@ -28,24 +27,20 @@ int __fastcall NtQuerySystemInformation(int a1, unsigned __int64 a2, unsigned in
       case 108:
       case 141:
         Group = KeGetCurrentPrcb()->Group;
-        goto LABEL_10;
+        goto LABEL_7;
       case 73:
-LABEL_10:
+LABEL_7:
         p_Group = &Group;
-        v6 = 2;
-        return ExpQuerySystemInformation(a1, p_Group, v6, a2, a3, a4);
+        return ExpQuerySystemInformation(a1, p_Group);
       case 107:
       case 121:
       case 180:
       case 210:
       case 211:
-      case 222:
-      case 231:
-        return -1073741821;
+        return 3221225475LL;
       default:
-        break;
+        return ExpQuerySystemInformation(a1, p_Group);
     }
   }
-  v6 = 0;
-  return ExpQuerySystemInformation(a1, p_Group, v6, a2, a3, a4);
+  return ExpQuerySystemInformation(a1, p_Group);
 }

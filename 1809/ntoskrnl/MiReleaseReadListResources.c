@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReleaseReadListResources @ 0x1406628F0
+ * XREFs of MiReleaseReadListResources @ 0x1406628D0
  * Callers:
- *     MmWaitForCacheManagerPrefetch @ 0x1400DECD8 (MmWaitForCacheManagerPrefetch.c)
+ *     MmWaitForCacheManagerPrefetch @ 0x1400DECF8 (MmWaitForCacheManagerPrefetch.c)
  *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
- *     MmPrefetchPagesEx @ 0x140662458 (MmPrefetchPagesEx.c)
- *     MmPrefetchForCacheManager @ 0x140662658 (MmPrefetchForCacheManager.c)
- *     MiPrefetchControlArea @ 0x1406C7264 (MiPrefetchControlArea.c)
+ *     MmPrefetchPagesEx @ 0x140662438 (MmPrefetchPagesEx.c)
+ *     MmPrefetchForCacheManager @ 0x140662638 (MmPrefetchForCacheManager.c)
+ *     MiPrefetchControlArea @ 0x1406C7244 (MiPrefetchControlArea.c)
  * Callees:
- *     MiRemoveViewsFromSectionWithPfn @ 0x1400DED64 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x1400DED84 (MiRemoveViewsFromSectionWithPfn.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiFreeReadListPages @ 0x140662980 (MiFreeReadListPages.c)
+ *     MiFreeReadListPages @ 0x140662960 (MiFreeReadListPages.c)
  */
 
 void __fastcall MiReleaseReadListResources(__int64 a1)

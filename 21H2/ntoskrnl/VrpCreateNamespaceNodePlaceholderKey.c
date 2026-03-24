@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpCreateNamespaceNodePlaceholderKey @ 0x140691B00
+ * XREFs of VrpCreateNamespaceNodePlaceholderKey @ 0x1405D2EFC
  * Callers:
- *     VrpPreLoadKey @ 0x14069061C (VrpPreLoadKey.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x140691898 (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1409262FC (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x1405D2C9C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14088289C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpPreLoadKey @ 0x14088338C (VrpPreLoadKey.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
  */
 
 __int64 __fastcall VrpCreateNamespaceNodePlaceholderKey(__int64 a1)

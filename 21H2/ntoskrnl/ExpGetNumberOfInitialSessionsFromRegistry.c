@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetNumberOfInitialSessionsFromRegistry @ 0x1408619F4
+ * XREFs of ExpGetNumberOfInitialSessionsFromRegistry @ 0x1407D1C18
  * Callers:
- *     ExIsMultiSessionSku @ 0x140861984 (ExIsMultiSessionSku.c)
+ *     ExIsMultiSessionSku @ 0x1407D1BA8 (ExIsMultiSessionSku.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall ExpGetNumberOfInitialSessionsFromRegistry(_DWORD *a1)
@@ -19,7 +19,7 @@ __int64 __fastcall ExpGetNumberOfInitialSessionsFromRegistry(_DWORD *a1)
   LODWORD(v3[4]) = 67108868;
   v3[2] = L"NumberOfInitialSessions";
   v3[3] = &v4;
-  result = RtlpQueryRegistryValues(2, L"Session Manager", (__int64)v3, 0LL);
+  result = RtlpQueryRegistryValues(2LL, L"Session Manager", (__int64)v3, 0LL);
   if ( (int)result >= 0 )
     *a1 = v4;
   return result;

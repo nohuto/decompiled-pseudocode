@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpCheckPossibleBootStartDriver @ 0x14084DED0
+ * XREFs of PnpCheckPossibleBootStartDriver @ 0x1407BD8C4
  * Callers:
- *     PipCallDriverAddDeviceQueryRoutine @ 0x14068C35C (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x14073E9B8 (PipCallDriverAddDeviceQueryRoutine.c)
  * Callees:
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall PnpCheckPossibleBootStartDriver(void *a1)

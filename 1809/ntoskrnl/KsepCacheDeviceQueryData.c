@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepCacheDeviceQueryData @ 0x140720F40
+ * XREFs of KsepCacheDeviceQueryData @ 0x140720F20
  * Callers:
- *     KsepDbCacheQueryDeviceData @ 0x140720ECC (KsepDbCacheQueryDeviceData.c)
+ *     KsepDbCacheQueryDeviceData @ 0x140720EAC (KsepDbCacheQueryDeviceData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  */
 

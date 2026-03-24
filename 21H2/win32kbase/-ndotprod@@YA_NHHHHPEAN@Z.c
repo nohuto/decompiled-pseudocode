@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ndotprod@@YA_NHHHHPEAN@Z @ 0x1C0204E74
+ * XREFs of ?ndotprod@@YA_NHHHHPEAN@Z @ 0x1C01C98BC
  * Callers:
- *     ?AreTheseTwoContactsAPan@CPTPEngine@@AEAAHPEBUPTPInput@@PEBUCContactState@@1@Z @ 0x1C01FEE48 (-AreTheseTwoContactsAPan@CPTPEngine@@AEAAHPEBUPTPInput@@PEBUCContactState@@1@Z.c)
- *     ?AreTheseTwoContactsAZoom@CPTPEngine@@AEAAHPEBUPTPInput@@PEBUCContactState@@1@Z @ 0x1C01FEF1C (-AreTheseTwoContactsAZoom@CPTPEngine@@AEAAHPEBUPTPInput@@PEBUCContactState@@1@Z.c)
+ *     ?AreTheseTwoContactsAPan@CPTPEngine@@AEAAHPEBUPTPInput@@PEBUCContactState@@1@Z @ 0x1C01C3750 (-AreTheseTwoContactsAPan@CPTPEngine@@AEAAHPEBUPTPInput@@PEBUCContactState@@1@Z.c)
+ *     ?AreTheseTwoContactsAZoom@CPTPEngine@@AEAAHPEBUPTPInput@@PEBUCContactState@@1@Z @ 0x1C01C3824 (-AreTheseTwoContactsAZoom@CPTPEngine@@AEAAHPEBUPTPInput@@PEBUCContactState@@1@Z.c)
  * Callees:
- *     sqrt_0 @ 0x1C00DD7AD (sqrt_0.c)
+ *     sqrt_0 @ 0x1C00CE87D (sqrt_0.c)
  */
 
 char __fastcall ndotprod(int a1, int a2, int a3, int a4, double *a5)

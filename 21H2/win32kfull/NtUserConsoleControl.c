@@ -1,13 +1,13 @@
 /*
- * XREFs of NtUserConsoleControl @ 0x1C007A5F0
+ * XREFs of NtUserConsoleControl @ 0x1C003BB40
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     xxxConsoleControl @ 0x1C007A708 (xxxConsoleControl.c)
- *     UserSetLastStatus @ 0x1C011A880 (UserSetLastStatus.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     xxxConsoleControl @ 0x1C003BC58 (xxxConsoleControl.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     UserSetLastStatus @ 0x1C00EC7BC (UserSetLastStatus.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtUserConsoleControl(unsigned int a1, volatile void *a2, unsigned int a3)
@@ -20,7 +20,7 @@ __int64 __fastcall NtUserConsoleControl(unsigned int a1, volatile void *a2, unsi
 
   Src = 0LL;
   v11 = 0LL;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( a1 > 6 )
   {
     v8 = -1073741823;

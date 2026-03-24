@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0ppqqtq_EtwWriteTransfer @ 0x1C0066770
+ * XREFs of McTemplateK0ppqqtq_EtwWriteTransfer @ 0x1C0059B0C
  * Callers:
- *     DpiDxgkDdiLinkDevice @ 0x1C00664BC (DpiDxgkDdiLinkDevice.c)
+ *     DpiDxgkDdiLinkDevice @ 0x1C0059684 (DpiDxgkDdiLinkDevice.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0ppqqtq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

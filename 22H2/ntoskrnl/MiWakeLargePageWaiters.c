@@ -1,29 +1,27 @@
 /*
- * XREFs of MiWakeLargePageWaiters @ 0x140650074
+ * XREFs of MiWakeLargePageWaiters @ 0x140557CBC
  * Callers:
- *     MiInsertLargePageChain @ 0x1402D68E0 (MiInsertLargePageChain.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
- *     MiDeleteAcceleratorDescriptor @ 0x140654A6C (MiDeleteAcceleratorDescriptor.c)
- *     MiDeleteHardwareAccelerators @ 0x140654B90 (MiDeleteHardwareAccelerators.c)
+ *     MiInsertLargePageChain @ 0x14027EE04 (MiInsertLargePageChain.c)
+ *     MiInsertLargePageInNodeList @ 0x14027F0D0 (MiInsertLargePageInNodeList.c)
+ *     MiLargePageMovesComplete @ 0x1403F63A0 (MiLargePageMovesComplete.c)
  * Callees:
- *     KeSignalGate @ 0x14035CCEC (KeSignalGate.c)
+ *     KeSignalGate @ 0x14031BEE0 (KeSignalGate.c)
  */
 
-__int64 __fastcall MiWakeLargePageWaiters(_QWORD *a1)
+char __fastcall MiWakeLargePageWaiters(_QWORD *a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  _QWORD *v1; // rbx
-  __int64 result; // rax
+  _QWORD *v4; // rbx
+  char result; // al
 
   if ( a1 )
   {
     do
     {
-      v1 = (_QWORD *)*a1;
-      result = KeSignalGate((__int64)(a1 + 1), 1u);
-      a1 = v1;
+      v4 = (_QWORD *)*a1;
+      result = KeSignalGate((__int64)(a1 + 1), 1LL, a3, a4);
+      a1 = v4;
     }
-    while ( v1 );
+    while ( v4 );
   }
   return result;
 }

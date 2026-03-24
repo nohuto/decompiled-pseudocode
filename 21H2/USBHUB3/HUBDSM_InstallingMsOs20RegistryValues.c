@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_InstallingMsOs20RegistryValues @ 0x1C00225C0
+ * XREFs of HUBDSM_InstallingMsOs20RegistryValues @ 0x1C0022170
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_InstallMsOs20RegistryProperties @ 0x1C002FFBC (HUBMISC_InstallMsOs20RegistryProperties.c)
+ *     HUBMISC_InstallMsOs20RegistryProperties @ 0x1C002F91C (HUBMISC_InstallMsOs20RegistryProperties.c)
  */
 
 __int64 __fastcall HUBDSM_InstallingMsOs20RegistryValues(__int64 a1)

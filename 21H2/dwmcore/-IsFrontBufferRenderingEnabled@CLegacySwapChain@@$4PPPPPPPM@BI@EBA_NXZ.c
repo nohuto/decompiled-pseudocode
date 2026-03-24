@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsFrontBufferRenderingEnabled@CLegacySwapChain@@$4PPPPPPPM@BI@EBA_NXZ @ 0x18010A030
+ * XREFs of ?IsFrontBufferRenderingEnabled@CLegacySwapChain@@$4PPPPPPPM@BI@EBA_NXZ @ 0x1800F7A60
  * Callers:
  *     <none>
  * Callees:

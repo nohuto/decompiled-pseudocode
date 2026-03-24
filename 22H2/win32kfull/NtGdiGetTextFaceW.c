@@ -1,52 +1,50 @@
 /*
- * XREFs of NtGdiGetTextFaceW @ 0x1C01112B0
+ * XREFs of NtGdiGetTextFaceW @ 0x1C0097480
  * Callers:
  *     <none>
  * Callees:
- *     GreGetTextFaceW @ 0x1C0110B2C (GreGetTextFaceW.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     GreGetTextFaceW @ 0x1C0097590 (GreGetTextFaceW.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall NtGdiGetTextFaceW(__int64 a1, int a2, char *a3, int a4)
+__int64 __fastcall NtGdiGetTextFaceW(HDC a1, int a2, char *a3)
 {
-  __int64 v7; // rax
-  int v8; // edi
-  BOOL v9; // r12d
-  void *v10; // rsi
+  HDC v5; // rax
+  int v6; // edi
+  BOOL v7; // r12d
+  const void *v8; // rsi
   int TextFaceW; // eax
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  size_t v14; // r8
+  size_t v10; // r8
 
-  v7 = a1;
-  v8 = 0;
-  v9 = 1;
-  v10 = 0LL;
+  v5 = a1;
+  v6 = 0;
+  v7 = 1;
+  v8 = 0LL;
   if ( a2 > 0 && a3 )
   {
     if ( (unsigned int)a2 <= 0x1388000 )
-      v10 = (void *)AllocFreeTmpBuffer((unsigned int)(2 * a2));
-    v9 = v10 != 0LL;
-    v7 = a1;
+      v8 = (const void *)AllocFreeTmpBuffer((unsigned int)(2 * a2));
+    v7 = v8 != 0LL;
+    v5 = a1;
   }
-  if ( v9 )
+  if ( v7 )
   {
-    TextFaceW = GreGetTextFaceW(v7, a2, v10, a4);
-    v8 = TextFaceW;
+    TextFaceW = GreGetTextFaceW(v5);
+    v6 = TextFaceW;
     if ( TextFaceW > 0 && a3 )
     {
       if ( TextFaceW > a2 )
-        v8 = 0;
-      if ( v8 )
+        v6 = 0;
+      if ( v6 )
       {
-        v14 = 2LL * v8;
-        if ( (unsigned __int64)&a3[v14] > MmUserProbeAddress || &a3[v14] <= a3 )
+        v10 = 2LL * v6;
+        if ( (unsigned __int64)&a3[v10] > MmUserProbeAddress || &a3[v10] <= a3 )
           *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(a3, v10, v14);
+        memmove(a3, v8, v10);
       }
     }
-    if ( v10 )
-      FreeTmpBuffer(v10, v12, v13);
+    if ( v8 )
+      FreeTmpBuffer(v8);
   }
-  return (unsigned int)v8;
+  return (unsigned int)v6;
 }

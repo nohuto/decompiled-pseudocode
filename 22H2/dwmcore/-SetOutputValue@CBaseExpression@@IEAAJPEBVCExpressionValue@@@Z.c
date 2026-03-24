@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z @ 0x1800BD0B0
+ * XREFs of ?SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z @ 0x1801DA470
  * Callers:
- *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180056CD0 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
- *     ?ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x1800BCEC0 (-ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSI.c)
- *     ?ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x18023D720 (-ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSIO.c)
+ *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800ABBA8 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x1800AD3F0 (-ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSI.c)
+ *     ?ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x1801D8630 (-ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSIO.c)
  * Callees:
- *     ?SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z @ 0x180054E50 (-SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z.c)
- *     ??8CExpressionValue@@QEBA_NAEBV0@@Z @ 0x180055770 (--8CExpressionValue@@QEBA_NAEBV0@@Z.c)
- *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x180057F78 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800AE9B8 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetTracingCookie@CBaseExpression@@QEBAIXZ @ 0x1800E254C (-GetTracingCookie@CBaseExpression@@QEBAIXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?LogSetOutputValue@CBaseExpression@@AEAAXXZ @ 0x18023F0C8 (-LogSetOutputValue@CBaseExpression@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z @ 0x180074560 (-SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z.c)
+ *     ??8CExpressionValue@@QEBA_NAEBV0@@Z @ 0x180074D00 (--8CExpressionValue@@QEBA_NAEBV0@@Z.c)
+ *     ?CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z @ 0x1800AC338 (-CopyFrom@CExpressionValue@@QEAAXAEBV1@@Z.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800B2544 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?GetTracingCookie@CBaseExpression@@QEBAIXZ @ 0x1800CC514 (-GetTracingCookie@CBaseExpression@@QEBAIXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?LogSetOutputValue@CBaseExpression@@AEAAXXZ @ 0x1801D9B38 (-LogSetOutputValue@CBaseExpression@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CBaseExpression::SetOutputValue(
@@ -20,61 +20,64 @@ __int64 __fastcall CBaseExpression::SetOutputValue(
         const struct CExpressionValue *a2,
         __int64 a3)
 {
-  bool v3; // bl
-  unsigned int v6; // ecx
-  char v7; // al
-  __int64 v8; // rax
-  struct CResource *v9; // rdx
-  int v10; // eax
-  unsigned int v11; // ebx
+  bool v4; // bl
+  __int64 v6; // rcx
   unsigned int TracingCookie; // eax
-  HRESULT v14; // eax
-  unsigned int v15; // ecx
+  int v8; // eax
+  unsigned int v9; // ebx
   HANDLE EventW; // rbx
-  int v17; // r9d
-  unsigned int v18; // [rsp+20h] [rbp-B8h]
+  char v11; // al
+  struct CResource *v12; // rdx
+  int v13; // r9d
+  int v14; // eax
+  unsigned int v16; // [rsp+20h] [rbp-B8h]
   WCHAR Name[64]; // [rsp+30h] [rbp-A8h] BYREF
 
-  v3 = 0;
-  if ( (*(_DWORD *)(*((_QWORD *)this + 41) + 4LL) & 0x40000000) != 0 )
-    v3 = (unsigned __int8)CExpressionValue::operator==((_DWORD *)this + 18, a2, a3) == 0;
-  CExpressionValue::CopyFrom((CBaseExpression *)((char *)this + 72), a2);
-  if ( v3 )
+  v4 = 0;
+  if ( *(int *)(*((_QWORD *)this + 38) + 4LL) < 0 )
+    v4 = (unsigned __int8)CExpressionValue::operator==((_DWORD *)this + 16, a2, a3) == 0;
+  CExpressionValue::CopyFrom((CBaseExpression *)((char *)this + 64), a2);
+  if ( !v4 )
   {
-    CBaseExpression::LogSetOutputValue(this);
-    TracingCookie = CBaseExpression::GetTracingCookie(this);
-    v14 = StringCchPrintfW(Name, 0x3CuLL, (size_t *)L"DwmExpression_SetValue_%d", TracingCookie);
-    v11 = v14;
-    if ( v14 < 0 )
+LABEL_6:
+    v11 = *((_BYTE *)this + 208);
+    if ( (v11 & 2) != 0 && (v11 & 1) != 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x249u, 0LL);
-      return v11;
+      v12 = (struct CResource *)*((_QWORD *)this + 22);
+      if ( v12 )
+        v12 = (struct CResource *)*((_QWORD *)v12 + 2);
+      if ( !v12 )
+      {
+        v9 = -2147024890;
+        v13 = -2147024890;
+        v16 = 530;
+        goto LABEL_11;
+      }
+      v14 = CBaseExpression::SetOutputValueOnTarget((unsigned __int64)this, v12);
+      v9 = v14;
+      if ( v14 < 0 )
+      {
+        v13 = v14;
+        v16 = 531;
+        goto LABEL_11;
+      }
     }
+    return 0;
+  }
+  CBaseExpression::LogSetOutputValue(this);
+  TracingCookie = CBaseExpression::GetTracingCookie(this);
+  v8 = StringCchPrintfW(Name, 0x3CuLL, (size_t *)L"DwmExpression_SetValue_%d", TracingCookie);
+  v9 = v8;
+  if ( v8 >= 0 )
+  {
     EventW = CreateEventW(0LL, 1, 0, Name);
     SetEvent(EventW);
     CloseHandle(EventW);
+    goto LABEL_6;
   }
-  v7 = *((_BYTE *)this + 216);
-  if ( (v7 & 2) != 0 && (v7 & 1) != 0 )
-  {
-    v8 = *((_QWORD *)this + 23);
-    if ( v8 && (v9 = *(struct CResource **)(v8 + 16)) != 0LL )
-    {
-      v10 = CBaseExpression::SetOutputValueOnTarget(this, v9);
-      v11 = v10;
-      if ( v10 >= 0 )
-        return 0;
-      v17 = v10;
-      v18 = 603;
-    }
-    else
-    {
-      v11 = -2147024890;
-      v17 = -2147024890;
-      v18 = 602;
-    }
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v17, v18, 0LL);
-    return v11;
-  }
-  return 0;
+  v13 = v8;
+  v16 = 513;
+LABEL_11:
+  MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v13, v16, 0LL);
+  return v9;
 }

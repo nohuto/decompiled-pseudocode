@@ -1,5 +1,5 @@
 /*
- * XREFs of NtIsSystemResumeAutomatic @ 0x14098B6B0
+ * XREFs of NtIsSystemResumeAutomatic @ 0x14077A3F0
  * Callers:
  *     <none>
  * Callees:

@@ -1,118 +1,107 @@
 /*
- * XREFs of IopProcessSetInterfaceState @ 0x140793BE4
+ * XREFs of IopProcessSetInterfaceState @ 0x14074557C
  * Callers:
- *     IopDoDeferredSetInterfaceState @ 0x1407916E4 (IopDoDeferredSetInterfaceState.c)
- *     IoSetDeviceInterfaceState @ 0x140793B70 (IoSetDeviceInterfaceState.c)
+ *     IopDoDeferredSetInterfaceState @ 0x14073A250 (IopDoDeferredSetInterfaceState.c)
+ *     IoSetDeviceInterfaceState @ 0x140745500 (IoSetDeviceInterfaceState.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateSymbolicLinkObject @ 0x14041BF60 (ZwCreateSymbolicLinkObject.c)
- *     ZwOpenSymbolicLinkObject @ 0x14041CD60 (ZwOpenSymbolicLinkObject.c)
- *     _CmGetDeviceInterfaceClassGuid @ 0x1406C9F70 (_CmGetDeviceInterfaceClassGuid.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     PnpUnicodeStringToWstrFree @ 0x1406D3FF4 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x1406D4364 (PnpUnicodeStringToWstr.c)
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1406D81D0 (PiDmGetObject.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407885C4 (PiDmAddCacheReferenceForObject.c)
- *     IoGetDeviceProperty @ 0x140792EB0 (IoGetDeviceProperty.c)
- *     IopBuildGlobalSymbolicLinkString @ 0x1407940CC (IopBuildGlobalSymbolicLinkString.c)
- *     PnpSetDeviceClassChange @ 0x140794534 (PnpSetDeviceClassChange.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x140797804 (_PnpObjectRaisePropertyChangeEvent.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1407C2788 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDeferSetInterfaceState @ 0x140872260 (PiDeferSetInterfaceState.c)
- *     PipCanEnableInterfaces @ 0x1408728E0 (PipCanEnableInterfaces.c)
- *     PiRemoveDeferredSetInterfaceState @ 0x1408742C8 (PiRemoveDeferredSetInterfaceState.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1403FB240 (ZwCreateSymbolicLinkObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1403FBFE0 (ZwOpenSymbolicLinkObject.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406AE574 (PnpUnicodeStringToWstrFree.c)
+ *     PiDmGetObject @ 0x1406AF84C (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     PnpUnicodeStringToWstr @ 0x1406B033C (PnpUnicodeStringToWstr.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     _CmGetDeviceInterfaceClassGuid @ 0x1406B6CD4 (_CmGetDeviceInterfaceClassGuid.c)
+ *     IoGetDeviceProperty @ 0x1406B8A70 (IoGetDeviceProperty.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140742554 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x140744D98 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x140744E48 (PiDmAddCacheReferenceForObject.c)
+ *     IopBuildGlobalSymbolicLinkString @ 0x140745A34 (IopBuildGlobalSymbolicLinkString.c)
+ *     PiDmObjectReleaseLock @ 0x140745C88 (PiDmObjectReleaseLock.c)
+ *     KsepCacheLock @ 0x140745CB0 (KsepCacheLock.c)
+ *     PnpSetDeviceClassChange @ 0x140745E0C (PnpSetDeviceClassChange.c)
+ *     PiDeferSetInterfaceState @ 0x140747C20 (PiDeferSetInterfaceState.c)
+ *     PiRemoveDeferredSetInterfaceState @ 0x14078136C (PiRemoveDeferredSetInterfaceState.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IopProcessSetInterfaceState(__int64 a1, char a2, char a3)
+__int64 __fastcall IopProcessSetInterfaceState(__int64 a1, unsigned __int8 a2, char a3)
 {
-  WCHAR *v4; // r12
-  void *v5; // r14
-  ULONG_PTR v6; // rdi
+  PVOID v5; // r12
+  volatile signed __int32 *v6; // rdi
   struct _DEVICE_OBJECT *v7; // r13
-  _WORD *v8; // rsi
-  int v9; // eax
-  __int64 v10; // rcx
+  wchar_t *v8; // r14
+  __int16 v9; // kr00_2
+  int v10; // eax
+  __int64 v11; // rcx
   int DeviceInterfaceClassGuid; // ebx
-  __int64 Pool2; // rax
+  const WCHAR *PoolWithTag; // rax
   int ObjectProperty; // eax
-  struct _DEVICE_OBJECT *v14; // rax
-  __int64 p_DeviceObjectExtension; // r9
-  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rax
-  PVOID DeviceNode; // r8
-  char v18; // dl
-  NTSTATUS DeviceProperty; // eax
-  struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v21; // rcx
-  GUID *v22; // rcx
-  struct _KTHREAD *v24; // rax
-  ULONG_PTR v25; // rcx
-  void *v26; // rcx
-  __int16 v28; // [rsp+69h] [rbp-9Fh]
-  ULONG BufferLength; // [rsp+6Ch] [rbp-9Ch] BYREF
-  __int64 v31; // [rsp+70h] [rbp-98h] BYREF
-  ULONG_PTR BugCheckParameter2; // [rsp+78h] [rbp-90h] BYREF
-  _WORD *v33; // [rsp+80h] [rbp-88h] BYREF
-  int v34; // [rsp+88h] [rbp-80h] BYREF
-  WCHAR *v35; // [rsp+90h] [rbp-78h]
-  struct _DEVICE_OBJECT *v36; // [rsp+98h] [rbp-70h]
-  UNICODE_STRING UnicodeString; // [rsp+A0h] [rbp-68h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B0h] [rbp-58h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+E0h] [rbp-28h] BYREF
-  UNICODE_STRING v40; // [rsp+F0h] [rbp-18h] BYREF
-  GUID v41; // [rsp+100h] [rbp-8h] BYREF
+  struct _DEVICE_OBJECT *v15; // rax
+  _DWORD *DeviceNode; // r8
+  int v17; // eax
+  GUID *v18; // rcx
+  void *v20; // rcx
+  char v21; // [rsp+68h] [rbp-A0h]
+  __int16 v22; // [rsp+69h] [rbp-9Fh]
+  SIZE_T NumberOfBytes; // [rsp+6Ch] [rbp-9Ch] BYREF
+  volatile signed __int32 *v24; // [rsp+78h] [rbp-90h] BYREF
+  int v25; // [rsp+80h] [rbp-88h] BYREF
+  wchar_t *v26; // [rsp+88h] [rbp-80h] BYREF
+  PCWSTR SourceString; // [rsp+90h] [rbp-78h]
+  UNICODE_STRING UnicodeString; // [rsp+98h] [rbp-70h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-60h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+D8h] [rbp-30h] BYREF
+  UNICODE_STRING v31; // [rsp+E8h] [rbp-20h] BYREF
+  GUID v32; // [rsp+F8h] [rbp-10h] BYREF
 
-  BufferLength = 0;
-  BugCheckParameter2 = 0LL;
-  v4 = 0LL;
-  LODWORD(v31) = 0;
+  v22 = a2;
+  SourceString = 0LL;
+  NumberOfBytes = 0LL;
   v5 = 0LL;
-  v34 = 0;
+  v24 = 0LL;
   v6 = 0LL;
-  v33 = 0LL;
   v7 = 0LL;
+  v25 = 0;
   v8 = 0LL;
-  v28 = 0;
-  v40 = 0LL;
+  v26 = 0LL;
+  v21 = 0;
+  v31 = 0LL;
   UnicodeString = 0LL;
-  v41 = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  v32 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
+  v9 = a2;
   if ( !a1 || !*(_QWORD *)(a1 + 8) || !*(_WORD *)a1 )
   {
     DeviceInterfaceClassGuid = -1073741811;
-    goto LABEL_42;
+    goto LABEL_38;
   }
-  v9 = PnpUnicodeStringToWstr(&v33, 0LL, (unsigned __int16 *)a1);
-  v8 = v33;
-  DeviceInterfaceClassGuid = v9;
-  if ( v9 < 0 )
-    goto LABEL_42;
-  DeviceInterfaceClassGuid = CmGetDeviceInterfaceClassGuid(v10, (__int64)v33, &v41);
+  v10 = PnpUnicodeStringToWstr((__int16 **)&v26, 0LL, (unsigned __int16 *)a1);
+  v8 = v26;
+  DeviceInterfaceClassGuid = v10;
+  if ( v10 < 0 )
+    goto LABEL_44;
+  DeviceInterfaceClassGuid = CmGetDeviceInterfaceClassGuid(v11, (__int64)v26, &v32);
   if ( DeviceInterfaceClassGuid < 0 )
-    goto LABEL_42;
+    goto LABEL_44;
   DeviceInterfaceClassGuid = IopBuildGlobalSymbolicLinkString(a1, &UnicodeString);
   if ( DeviceInterfaceClassGuid < 0 )
-    goto LABEL_42;
-  Pool2 = ExAllocatePool2(256LL, 400LL, 538996816LL);
-  v35 = (WCHAR *)Pool2;
-  v4 = (WCHAR *)Pool2;
-  if ( !Pool2 )
+    goto LABEL_44;
+  PoolWithTag = (const WCHAR *)ExAllocatePoolWithTag(PagedPool, 0x190uLL, 0x20207050u);
+  SourceString = PoolWithTag;
+  if ( !PoolWithTag )
   {
-LABEL_59:
     DeviceInterfaceClassGuid = -1073741670;
-    goto LABEL_42;
+    goto LABEL_44;
   }
   ObjectProperty = PnpGetObjectProperty(
                      *(__int64 *)&PiPnpRtlCtx,
@@ -121,158 +110,158 @@ LABEL_59:
                      0LL,
                      0LL,
                      (__int64)&DEVPKEY_Device_InstanceId,
-                     (__int64)&v31,
-                     Pool2,
+                     (__int64)&NumberOfBytes + 4,
+                     (__int64)PoolWithTag,
                      400,
-                     (__int64)&v34,
+                     (__int64)&v25,
                      0);
   DeviceInterfaceClassGuid = ObjectProperty;
   if ( ObjectProperty == -1073741275 )
-    goto LABEL_62;
+    goto LABEL_64;
   if ( ObjectProperty < 0 )
-    goto LABEL_42;
-  if ( (_DWORD)v31 != 18 )
-    goto LABEL_62;
-  DeviceInterfaceClassGuid = RtlInitUnicodeStringEx(&DestinationString, v4);
+    goto LABEL_44;
+  if ( HIDWORD(NumberOfBytes) != 18 )
+    goto LABEL_64;
+  DeviceInterfaceClassGuid = RtlInitUnicodeStringEx(&DestinationString, SourceString);
   if ( DeviceInterfaceClassGuid < 0 )
-    goto LABEL_42;
-  v14 = (struct _DEVICE_OBJECT *)PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&DestinationString, 0x49706E50u);
-  v36 = v14;
-  v7 = v14;
-  if ( v14 )
+    goto LABEL_44;
+  v15 = (struct _DEVICE_OBJECT *)PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&DestinationString, 0x49706E50u);
+  v7 = v15;
+  if ( !v15 )
   {
-    p_DeviceObjectExtension = (__int64)&v14->DeviceObjectExtension;
-    DeviceObjectExtension = v14->DeviceObjectExtension;
-    DeviceNode = DeviceObjectExtension->DeviceNode;
-    if ( !a2 || (unsigned __int8)PipCanEnableInterfaces(DeviceObjectExtension->DeviceNode) )
+    if ( !(_BYTE)v22 )
     {
-      v18 = a2;
-      goto LABEL_16;
+      DeviceNode = 0LL;
+      goto LABEL_14;
     }
-LABEL_62:
+LABEL_64:
     DeviceInterfaceClassGuid = -1073741808;
-    goto LABEL_42;
+    goto LABEL_44;
   }
-  v18 = a2;
-  if ( a2 )
-    goto LABEL_62;
-  DeviceNode = 0LL;
-  p_DeviceObjectExtension = 312LL;
-LABEL_16:
-  if ( a3 && DeviceNode && (*(_DWORD *)(*(_QWORD *)p_DeviceObjectExtension + 32LL) & 0x10) != 0 )
+  DeviceNode = v15->DeviceObjectExtension->DeviceNode;
+LABEL_14:
+  if ( (_BYTE)v22 )
   {
-    if ( v18 )
+    v17 = DeviceNode[75];
+    if ( v17 <= 769 || v17 > 781 && v17 != 784 )
+      goto LABEL_64;
+  }
+  if ( a3 && DeviceNode && (v7->DeviceObjectExtension->ExtensionFlags & 0x10) != 0 )
+  {
+    if ( (_BYTE)v22 )
       DeviceInterfaceClassGuid = PiDeferSetInterfaceState(DeviceNode, a1);
     else
       PiRemoveDeferredSetInterfaceState(DeviceNode, a1);
-    goto LABEL_42;
+    goto LABEL_44;
   }
-  if ( v18 )
+  if ( !(_BYTE)v22 )
   {
-    BufferLength = 512;
-    while ( 1 )
+    DeviceInterfaceClassGuid = PiDmGetObject(3LL, (__int64)v8, (__int64 *)&v24);
+    if ( DeviceInterfaceClassGuid >= 0 )
     {
-      if ( v5 )
-        ExFreePoolWithTag(v5, 0);
-      v5 = (void *)ExAllocatePool2(256LL, BufferLength, 538996816LL);
-      if ( !v5 )
-        goto LABEL_59;
-      DeviceProperty = IoGetDeviceProperty(v7, DevicePropertyPhysicalDeviceObjectName, BufferLength, v5, &BufferLength);
-      DeviceInterfaceClassGuid = DeviceProperty;
-      if ( DeviceProperty != -1073741789 )
+      v6 = v24;
+      KsepCacheLock(v24);
+      v20 = (void *)*((_QWORD *)v6 + 5);
+      if ( !v20 )
       {
-        if ( DeviceProperty < 0 || !BufferLength )
-          goto LABEL_42;
-        RtlInitUnicodeString(&v40, (PCWSTR)v5);
-        DeviceInterfaceClassGuid = PiDmAddCacheReferenceForObject(
-                                     3u,
-                                     v8,
-                                     (volatile signed __int32 **)&BugCheckParameter2);
-        if ( DeviceInterfaceClassGuid < 0 )
-          goto LABEL_58;
-        CurrentThread = KeGetCurrentThread();
-        v6 = BugCheckParameter2;
-        v21 = BugCheckParameter2;
-        --CurrentThread->KernelApcDisable;
-        ExAcquirePushLockExclusiveEx(v21, 0LL);
-        if ( (*(_DWORD *)(v6 + 32) & 1) == 0 )
-        {
-          DeviceInterfaceClassGuid = -1073741772;
-          goto LABEL_55;
-        }
-        if ( *(_QWORD *)(v6 + 40) )
-        {
-          DeviceInterfaceClassGuid = 0x40000000;
-          goto LABEL_55;
-        }
-        ObjectAttributes.Length = 48;
-        ObjectAttributes.ObjectName = &UnicodeString;
-        ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
-        ObjectAttributes.RootDirectory = 0LL;
-        ObjectAttributes.Attributes = 576;
-        ObjectAttributes.SecurityQualityOfService = 0LL;
-        DeviceInterfaceClassGuid = ZwOpenSymbolicLinkObject((PHANDLE)(v6 + 40), 0xF0001u, &ObjectAttributes);
-        if ( DeviceInterfaceClassGuid == -1073741772 )
-          DeviceInterfaceClassGuid = ZwCreateSymbolicLinkObject(v6 + 40, 983041LL);
-        if ( DeviceInterfaceClassGuid >= 0 )
-          HIBYTE(v28) = 1;
-        goto LABEL_36;
+        DeviceInterfaceClassGuid = -1073741772;
+        goto LABEL_37;
       }
+      ZwClose(v20);
+      *((_QWORD *)v6 + 5) = 0LL;
+      HIBYTE(v22) = 1;
+LABEL_57:
+      v21 = 1;
+LABEL_37:
+      PiDmObjectReleaseLock(v6);
+      v9 = v22;
+LABEL_38:
+      if ( HIBYTE(v9) )
+      {
+        v18 = &GUID_DEVICE_INTERFACE_ARRIVAL;
+        if ( !(_BYTE)v9 )
+          v18 = &GUID_DEVICE_INTERFACE_REMOVAL;
+        PnpSetDeviceClassChange(v18, &v32, a1);
+        PnpObjectRaisePropertyChangeEvent(
+          *(__int64 *)&PiPnpRtlCtx,
+          (__int64)v8,
+          3LL,
+          0LL,
+          0LL,
+          (__int64)&DEVPKEY_DeviceInterface_Enabled);
+      }
+      if ( v21 )
+        PiDmRemoveCacheReferenceForObject(3, (__int64)v8, 0LL);
+      goto LABEL_44;
     }
+LABEL_60:
+    v6 = v24;
+    goto LABEL_44;
   }
-  DeviceInterfaceClassGuid = PiDmGetObject(3LL, (__int64)v8, &BugCheckParameter2);
-  if ( DeviceInterfaceClassGuid < 0 )
+  LODWORD(NumberOfBytes) = 512;
+  while ( 1 )
   {
-LABEL_58:
-    v6 = BugCheckParameter2;
+    if ( v5 )
+      ExFreePoolWithTag(v5, 0);
+    v5 = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x20207050u);
+    if ( !v5 )
+      break;
+    DeviceInterfaceClassGuid = IoGetDeviceProperty(
+                                 v7,
+                                 DevicePropertyPhysicalDeviceObjectName,
+                                 NumberOfBytes,
+                                 v5,
+                                 (PULONG)&NumberOfBytes);
+    if ( DeviceInterfaceClassGuid != -1073741789 )
+      goto LABEL_28;
   }
-  else
+  DeviceInterfaceClassGuid = -1073741670;
+LABEL_28:
+  if ( DeviceInterfaceClassGuid >= 0 && (_DWORD)NumberOfBytes )
   {
-    v24 = KeGetCurrentThread();
-    v6 = BugCheckParameter2;
-    v25 = BugCheckParameter2;
-    --v24->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(v25, 0LL);
-    v26 = *(void **)(v6 + 40);
-    if ( v26 )
+    RtlInitUnicodeString(&v31, (PCWSTR)v5);
+    DeviceInterfaceClassGuid = PiDmAddCacheReferenceForObject(3u, v8, &v24);
+    if ( DeviceInterfaceClassGuid >= 0 )
     {
-      ZwClose(v26);
-      *(_QWORD *)(v6 + 40) = 0LL;
-      HIBYTE(v28) = 1;
-LABEL_55:
-      LOBYTE(v28) = 1;
+      v6 = v24;
+      KsepCacheLock(v24);
+      if ( (v6[8] & 1) != 0 )
+      {
+        if ( !*((_QWORD *)v6 + 5) )
+        {
+          ObjectAttributes.RootDirectory = 0LL;
+          ObjectAttributes.ObjectName = &UnicodeString;
+          ObjectAttributes.SecurityQualityOfService = 0LL;
+          ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.Attributes = 576;
+          DeviceInterfaceClassGuid = ZwOpenSymbolicLinkObject((PHANDLE)v6 + 5, 0xF0001u, &ObjectAttributes);
+          if ( DeviceInterfaceClassGuid == -1073741772 )
+            DeviceInterfaceClassGuid = ZwCreateSymbolicLinkObject((__int64)(v6 + 10), 983041LL);
+          if ( DeviceInterfaceClassGuid >= 0 )
+            HIBYTE(v22) = 1;
+          goto LABEL_37;
+        }
+        DeviceInterfaceClassGuid = 0x40000000;
+      }
+      else
+      {
+        DeviceInterfaceClassGuid = -1073741772;
+      }
+      goto LABEL_57;
     }
-    else
-    {
-      DeviceInterfaceClassGuid = -1073741772;
-    }
-LABEL_36:
-    ExReleasePushLockEx((__int64 *)v6, 0LL);
-    KeLeaveCriticalRegion();
-    v4 = v35;
-    v7 = v36;
-    v8 = v33;
-    if ( HIBYTE(v28) )
-    {
-      v22 = &GUID_DEVICE_INTERFACE_ARRIVAL;
-      if ( !a2 )
-        v22 = &GUID_DEVICE_INTERFACE_REMOVAL;
-      PnpSetDeviceClassChange(v22, &v41, a1);
-      PnpObjectRaisePropertyChangeEvent(PiPnpRtlCtx, (_DWORD)v8, 3, 0, 0LL, (__int64)&DEVPKEY_DeviceInterface_Enabled);
-    }
-    if ( (_BYTE)v28 )
-      PiDmRemoveCacheReferenceForObject(3LL, v8);
+    goto LABEL_60;
   }
-LABEL_42:
-  RtlFreeUnicodeString(&UnicodeString);
+LABEL_44:
+  RtlFreeAnsiString(&UnicodeString);
   PnpUnicodeStringToWstrFree(v8, a1);
   if ( v7 )
     ObfDereferenceObjectWithTag(v7, 0x49706E50u);
   if ( v5 )
     ExFreePoolWithTag(v5, 0);
-  if ( v4 )
-    ExFreePoolWithTag(v4, 0);
+  if ( SourceString )
+    ExFreePoolWithTag((PVOID)SourceString, 0);
   if ( v6 )
-    PiDmObjectRelease((char *)v6);
+    PiDmObjectRelease((unsigned int *)v6);
   return (unsigned int)DeviceInterfaceClassGuid;
 }

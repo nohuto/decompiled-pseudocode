@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Dispose@FxSystemWorkItem@@EEAAEXZ @ 0x1C0013AA0
+ * XREFs of ?Dispose@FxSystemWorkItem@@EEAAEXZ @ 0x1C0055F50
  * Callers:
  *     <none>
  * Callees:
- *     ?DecrementWorkItemQueued@FxSystemWorkItem@@QEAAXXZ @ 0x1C0003628 (-DecrementWorkItemQueued@FxSystemWorkItem@@QEAAXXZ.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?DecrementWorkItemQueued@FxSystemWorkItem@@QEAAXXZ @ 0x1C0055F10 (-DecrementWorkItemQueued@FxSystemWorkItem@@QEAAXXZ.c)
  */
 
 unsigned __int8 __fastcall FxSystemWorkItem::Dispose(FxSystemWorkItem *this, __int64 a2, unsigned __int8 a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CheckIfDmaInformationPresent@VIDMM_DMA_POOL@@QEAAHPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K_JKKKKKKK@Z @ 0x1C00E04A4
+ * XREFs of ?CheckIfDmaInformationPresent@VIDMM_DMA_POOL@@QEAAHPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K_JKKKKKKK@Z @ 0x1C00BAA68
  * Callers:
- *     ?WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z @ 0x1C00E1224 (-WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z.c)
+ *     ?WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z @ 0x1C00BB7AC (-WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ __int64 __fastcall VIDMM_DMA_POOL::CheckIfDmaInformationPresent(
 {
   int v12; // r9d
 
-  v12 = *((_DWORD *)a2 + 330);
+  v12 = *((_DWORD *)a2 + 321);
   if ( !v12 )
     return 0LL;
   while ( a5 != *((_QWORD *)a3 + 1)

@@ -1,58 +1,50 @@
 /*
- * XREFs of ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C001FC24
+ * XREFs of ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00128E8
  * Callers:
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C001B5AC (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
- *     hdcOpenDCW @ 0x1C005ADC0 (hdcOpenDCW.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0013A90 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     hdcOpenDCW @ 0x1C0022A00 (hdcOpenDCW.c)
  * Callees:
- *     DrvGetDisplayDriverNames @ 0x1C0017080 (DrvGetDisplayDriverNames.c)
- *     ?DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z @ 0x1C00179AC (-DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z.c)
- *     ?vInit@MULTIDEVLOCKOBJ@@QEAAXPEAU_MDEV@@@Z @ 0x1C0018E08 (-vInit@MULTIDEVLOCKOBJ@@QEAAXPEAU_MDEV@@@Z.c)
- *     ??_GMULTIDEVLOCKOBJ@@QEAAPEAXI@Z @ 0x1C001C0E8 (--_GMULTIDEVLOCKOBJ@@QEAAPEAXI@Z.c)
- *     ?vUnlock@MULTIDEVLOCKOBJ@@QEAAXXZ @ 0x1C001C144 (-vUnlock@MULTIDEVLOCKOBJ@@QEAAXXZ.c)
- *     ?vLock@MULTIDEVLOCKOBJ@@QEAAXXZ @ 0x1C001C26C (-vLock@MULTIDEVLOCKOBJ@@QEAAXXZ.c)
- *     ?DxgkEngQueryWin32Info@@YAJPEAU_DXGK_QUERY_WIN32_INFO@@@Z @ 0x1C001D7F0 (-DxgkEngQueryWin32Info@@YAJPEAU_DXGK_QUERY_WIN32_INFO@@@Z.c)
- *     UserRemoteConnectedSessionUsingXddm @ 0x1C001E410 (UserRemoteConnectedSessionUsingXddm.c)
- *     UserIsWddmConnectedSession @ 0x1C001EFF0 (UserIsWddmConnectedSession.c)
- *     ?GetPrimaryAttachFlags@@YAHPEAUtagGRAPHICS_DEVICE@@GPEAK1@Z @ 0x1C00210F0 (-GetPrimaryAttachFlags@@YAHPEAUtagGRAPHICS_DEVICE@@GPEAK1@Z.c)
- *     ?DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00245E8 (-DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0041CF0 (-TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     DrvGetDeviceFromName @ 0x1C005B090 (DrvGetDeviceFromName.c)
- *     ?DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z @ 0x1C0080338 (-DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     DrvDxgkLogCodePointPacket @ 0x1C00BA8D0 (DrvDxgkLogCodePointPacket.c)
- *     AlignRects @ 0x1C00BD1E8 (AlignRects.c)
- *     ?bUniformSpaceDpiMode@@YAHXZ @ 0x1C00BD400 (-bUniformSpaceDpiMode@@YAHXZ.c)
- *     ?DrvGetDriverAccelerationsLevel@@YAKPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00BD52C (-DrvGetDriverAccelerationsLevel@@YAKPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     ?DrvGetDriverCapableOverRide@@YAKPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00BD79C (-DrvGetDriverCapableOverRide@@YAKPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     ?IsPrimaryPathInCloneGroup@@YAEPEBUD3DKMT_GETPATHSMODALITY@@I@Z @ 0x1C00C41A8 (-IsPrimaryPathInCloneGroup@@YAEPEBUD3DKMT_GETPATHSMODALITY@@I@Z.c)
- *     UserSetScaleFactorsFromRemoteMetric @ 0x1C00C489C (UserSetScaleFactorsFromRemoteMetric.c)
- *     IsGetWin8StyleDpiSettingFromRegistrySupported @ 0x1C00C4A14 (IsGetWin8StyleDpiSettingFromRegistrySupported.c)
- *     GetWin8StyleDpiSettingFromRegistry @ 0x1C00C4A40 (GetWin8StyleDpiSettingFromRegistry.c)
- *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C00C6D84 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
- *     ?GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z @ 0x1C00CA81C (-GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z.c)
- *     ?FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C00CB484 (-FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z.c)
- *     ?DrvEnableDisplay@@YAHPEAUHDEV__@@@Z @ 0x1C00CBA60 (-DrvEnableDisplay@@YAHPEAUHDEV__@@@Z.c)
- *     ?AdjustForOrientation@@YA?AUtagSIZE@@II_N@Z @ 0x1C00CC558 (-AdjustForOrientation@@YA-AUtagSIZE@@II_N@Z.c)
- *     wcsncmp @ 0x1C00CE478 (wcsncmp.c)
- *     memcmp @ 0x1C00D6840 (memcmp.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?DrvBackoutMDEV@@YAXPEAU_MDEV@@K@Z @ 0x1C0160B38 (-DrvBackoutMDEV@@YAXPEAU_MDEV@@K@Z.c)
- *     ?MapMonitorToUnifromSpaceInStripe@@YAXPEAU_MDEV@@KKHK@Z @ 0x1C0163BDC (-MapMonitorToUnifromSpaceInStripe@@YAXPEAU_MDEV@@KKHK@Z.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
- *     IsGetDpiSettingWithNoDefaultSupported @ 0x1C02326C0 (IsGetDpiSettingWithNoDefaultSupported.c)
+ *     IsGetWin8StyleDpiSettingFromRegistrySupported @ 0x1C0005AA8 (IsGetWin8StyleDpiSettingFromRegistrySupported.c)
+ *     GetWin8StyleDpiSettingFromRegistry @ 0x1C0005AD4 (GetWin8StyleDpiSettingFromRegistry.c)
+ *     ?IsPrimaryPathInCloneGroup@@YAEPEBUD3DKMT_GETPATHSMODALITY@@I@Z @ 0x1C001267C (-IsPrimaryPathInCloneGroup@@YAEPEBUD3DKMT_GETPATHSMODALITY@@I@Z.c)
+ *     ?GetPrimaryAttachFlags@@YAHPEAUtagGRAPHICS_DEVICE@@GPEAK1@Z @ 0x1C0013860 (-GetPrimaryAttachFlags@@YAHPEAUtagGRAPHICS_DEVICE@@GPEAK1@Z.c)
+ *     ??_GMULTIDEVLOCKOBJ@@QEAAPEAXI@Z @ 0x1C00145F0 (--_GMULTIDEVLOCKOBJ@@QEAAPEAXI@Z.c)
+ *     ?vUnlock@MULTIDEVLOCKOBJ@@QEAAXXZ @ 0x1C0014620 (-vUnlock@MULTIDEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vLock@MULTIDEVLOCKOBJ@@QEAAXXZ @ 0x1C0014738 (-vLock@MULTIDEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?bUniformSpaceDpiMode@@YAHXZ @ 0x1C0014828 (-bUniformSpaceDpiMode@@YAHXZ.c)
+ *     AlignRects @ 0x1C0014978 (AlignRects.c)
+ *     UserSetScaleFactorsFromRemoteMetric @ 0x1C00149FC (UserSetScaleFactorsFromRemoteMetric.c)
+ *     ?vInit@MULTIDEVLOCKOBJ@@QEAAXPEAU_MDEV@@@Z @ 0x1C0014A20 (-vInit@MULTIDEVLOCKOBJ@@QEAAXPEAU_MDEV@@@Z.c)
+ *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C0014AC8 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ *     ?DrvGetDriverCapableOverRide@@YAKPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0015404 (-DrvGetDriverCapableOverRide@@YAKPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?DrvGetDriverAccelerationsLevel@@YAKPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0015524 (-DrvGetDriverAccelerationsLevel@@YAKPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     DrvGetDisplayDriverNames @ 0x1C00156C0 (DrvGetDisplayDriverNames.c)
+ *     ?DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C001713C (-DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z @ 0x1C0017868 (-DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z.c)
+ *     UserRemoteConnectedSessionUsingXddm @ 0x1C001E600 (UserRemoteConnectedSessionUsingXddm.c)
+ *     UserIsWddmConnectedSession @ 0x1C001F320 (UserIsWddmConnectedSession.c)
+ *     DrvGetDeviceFromName @ 0x1C0022870 (DrvGetDeviceFromName.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     ?TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0031720 (-TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     ?DxgkEngQueryWin32Info@@YAJPEAU_DXGK_QUERY_WIN32_INFO@@@Z @ 0x1C00AC040 (-DxgkEngQueryWin32Info@@YAJPEAU_DXGK_QUERY_WIN32_INFO@@@Z.c)
+ *     ?DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z @ 0x1C00B7694 (-DrvLogDisplayDriverEvent@@YAXW4_DISP_DRIVER_LOG@@@Z.c)
+ *     ?GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z @ 0x1C00C2BA0 (-GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z.c)
+ *     DrvDxgkLogCodePointPacket @ 0x1C00C3ED0 (DrvDxgkLogCodePointPacket.c)
+ *     ?FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C00C3F48 (-FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?DrvEnableDisplay@@YAHPEAUHDEV__@@@Z @ 0x1C00C4698 (-DrvEnableDisplay@@YAHPEAUHDEV__@@@Z.c)
+ *     wcsncmp @ 0x1C00C58BC (wcsncmp.c)
+ *     memcmp @ 0x1C00CE910 (memcmp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ?DrvBackoutMDEV@@YAXPEAU_MDEV@@K@Z @ 0x1C0143C80 (-DrvBackoutMDEV@@YAXPEAU_MDEV@@K@Z.c)
+ *     ?MapMonitorToUnifromSpaceInStripe@@YAXPEAU_MDEV@@KKHK@Z @ 0x1C01458D8 (-MapMonitorToUnifromSpaceInStripe@@YAXPEAU_MDEV@@KKHK@Z.c)
+ *     IsGetDpiSettingWithNoDefaultSupported @ 0x1C01FBC10 (IsGetDpiSettingWithNoDefaultSupported.c)
  */
 
 struct _MDEV *__fastcall DrvCreateMDEV(
@@ -61,1694 +53,1446 @@ struct _MDEV *__fastcall DrvCreateMDEV(
         void *a3,
         unsigned int a4,
         struct _MDEV *a5,
-        unsigned int a6,
+        int a6,
         int a7,
         int a8,
         struct D3DKMT_GETPATHSMODALITY *a9)
 {
-  struct D3DKMT_GETPATHSMODALITY *v9; // r12
-  struct _MDEV *v10; // r13
-  struct tagSIZE v14; // rsi
-  NSInstrumentation::CLeakTrackingAllocator *v15; // rdi
-  int v16; // eax
-  int v17; // r15d
-  HDEV v18; // r13
-  __int64 Pool2; // rbx
-  __int64 UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64; // r14
-  NSInstrumentation::CLeakTrackingAllocator *v21; // rcx
-  unsigned int *v22; // rdx
-  int v23; // eax
-  __int64 v24; // rcx
-  unsigned int v25; // ebx
-  unsigned int v26; // edi
+  __int64 v9; // rbx
+  _QWORD *v12; // rax
+  struct _MDEV *v13; // r14
+  __int64 v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rsi
+  struct _devicemodeW *v18; // rax
+  HDEV v19; // r11
+  unsigned int v20; // r9d
+  struct D3DKMT_GETPATHSMODALITY *v21; // r13
+  int v22; // ebx
+  int v23; // edi
+  wchar_t *v24; // r8
+  unsigned int cx; // r12d
+  unsigned int v26; // r15d
   bool v27; // sf
-  __int64 v28; // rsi
-  int j; // eax
-  unsigned __int16 v30; // ax
-  int *v31; // r15
-  struct _DRV_NAMES *v32; // rbx
-  int v33; // ecx
-  int v34; // edi
-  unsigned int v35; // r12d
-  struct _devicemodeW *v36; // rax
-  int v37; // eax
-  void *v38; // rdi
-  HDEV v39; // rcx
-  struct _devicemodeW *v40; // rax
-  struct _DRV_NAMES *v41; // rdi
-  struct D3DKMT_GETPATHSMODALITY *v42; // r12
-  MULTIDEVLOCKOBJ *v43; // rax
-  MULTIDEVLOCKOBJ *v44; // rbx
-  int v45; // edi
-  unsigned int v46; // eax
-  unsigned int v47; // edx
-  __int64 v48; // rcx
-  int v49; // eax
-  unsigned int v50; // eax
-  unsigned int v51; // edi
-  unsigned int *v52; // rsi
-  void *v53; // rax
-  MULTIDEVLOCKOBJ *v54; // rdi
-  void *v55; // r13
-  unsigned int v56; // r10d
-  unsigned int v57; // r9d
-  __int64 v58; // rdx
-  __int64 v59; // rax
-  _DWORD *v60; // r8
-  __int64 v61; // rcx
-  __int64 v62; // rcx
-  struct tagSIZE v63; // r13
-  unsigned int *v64; // rsi
-  unsigned __int64 v65; // rsi
-  unsigned int *v66; // rdi
-  unsigned int v67; // ebx
-  unsigned int v68; // r13d
-  unsigned int k; // edi
-  __int64 v70; // rbx
-  _DWORD *v71; // rbx
-  unsigned int v72; // edx
-  unsigned int v73; // eax
-  _WORD *v74; // r8
-  unsigned int n; // r9d
-  int v76; // eax
-  __int64 v77; // rcx
-  __int64 v78; // rdx
-  unsigned int v79; // ebx
-  __int64 v80; // rcx
-  unsigned int v81; // r12d
-  _QWORD *v82; // rsi
-  __int64 v83; // r13
-  __int64 v84; // rbx
-  void (__fastcall *v85)(__int64, __int64); // rax
-  __int128 v86; // xmm0
-  __int64 v87; // rbx
-  __int64 v88; // rcx
-  __int64 v89; // r8
-  __int64 v90; // r9
-  void *v91; // rsi
-  __int64 v93; // r10
-  int v94; // r11d
-  unsigned int *DisplayDriverNames; // r15
-  __int64 v96; // rdi
-  __int16 v97; // cx
+  HDEV v28; // rdi
+  wchar_t *DeviceFromName; // r14
+  int i; // eax
+  unsigned __int16 v31; // cx
+  int PrimaryAttachFlags; // eax
+  unsigned int v33; // r12d
+  unsigned int *v34; // r14
+  UNICODE_STRING *v35; // rax
+  MULTIDEVLOCKOBJ *v36; // r15
+  unsigned int v37; // edx
+  unsigned int v38; // ebx
+  unsigned int v39; // edx
+  unsigned int *v40; // r8
+  unsigned int v41; // eax
+  char v42; // r9
+  unsigned int v43; // ecx
+  unsigned int v44; // ebx
+  _DWORD *v45; // rdi
+  struct D3DKMT_GETPATHSMODALITY *v46; // rax
+  struct tagRECT *v47; // r13
+  unsigned int v48; // r10d
+  unsigned int v49; // r9d
+  __int64 v50; // rdx
+  __int64 v51; // rax
+  _DWORD *v52; // r8
+  __int64 v53; // rax
+  unsigned int v54; // r12d
+  __int64 v55; // rdi
+  unsigned int v56; // ebx
+  __int64 v57; // rbx
+  int v58; // ecx
+  __int64 v59; // rdx
+  __int64 v60; // rcx
+  unsigned int v61; // r12d
+  unsigned int v62; // r14d
+  __int64 v63; // r12
+  __int64 v64; // rbx
+  void (__fastcall *v65)(__int64, __int64); // rax
+  struct tagRECT v66; // xmm0
+  __int64 v67; // rax
+  int v69; // eax
+  bool v70; // zf
+  __int64 v71; // rax
+  struct _DRV_NAMES *v72; // r13
+  int v73; // ecx
+  unsigned int v74; // edi
+  unsigned int v75; // r15d
+  unsigned int v76; // r12d
+  struct _devicemodeW *v77; // rbx
+  struct _devicemodeW *v78; // rcx
+  int v79; // eax
+  unsigned int v80; // ebx
+  struct _devicemodeW *v81; // rax
+  __int64 v82; // rbx
+  __int64 v83; // r10
+  __int64 DisplayDriverNames; // rax
+  struct _DRV_NAMES *v85; // r12
+  __int64 v86; // rcx
+  __int64 v87; // rcx
+  __int64 v88; // r15
+  unsigned __int16 v89; // cx
   unsigned int DriverAccelerationsLevel; // ebx
   unsigned int DriverCapableOverRide; // eax
-  int v100; // ecx
-  int v101; // eax
-  unsigned int v102; // eax
-  HDEV v103; // rcx
-  unsigned int v104; // eax
-  HDEV *v105; // rdx
-  __int64 v106; // r8
-  HDEV v107; // rax
-  _DWORD *v108; // r15
-  unsigned int v109; // ecx
-  void *v110; // r12
-  unsigned __int64 v111; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v112; // rbx
-  unsigned __int64 v113; // rdi
-  int v114; // eax
-  int v115; // ecx
-  __int64 v116; // rcx
-  __int64 DxgkWin32kInterface; // rax
-  int v118; // eax
-  unsigned int v119; // eax
-  unsigned int v120; // eax
-  unsigned int v121; // eax
-  unsigned int m; // edx
-  int v123; // ecx
-  __int64 v124; // rax
-  __int64 v125; // rax
-  unsigned int v126; // r12d
-  unsigned int v127; // edi
-  __int64 v128; // rbx
-  unsigned int v129; // kr00_4
-  struct tagSIZE v130; // rax
-  unsigned int v131; // edx
-  unsigned int v132; // ecx
-  bool v133; // r8
-  struct tagSIZE v134; // rax
-  unsigned int v135; // r12d
-  unsigned int v136; // r10d
-  unsigned int v137; // r9d
-  unsigned int v138; // eax
-  unsigned __int64 v139; // rdx
-  int v140; // r10d
-  _QWORD *v141; // rax
-  unsigned int v142; // r10d
-  __int64 v143; // r11
+  __int64 v92; // rax
+  int v93; // eax
+  unsigned int v94; // eax
+  HDEV v95; // rcx
+  unsigned int v96; // eax
+  HDEV *v97; // rdx
+  __int64 v98; // r8
+  HDEV v99; // rax
+  unsigned int v100; // ecx
+  unsigned int *v101; // rbx
+  unsigned __int64 v102; // rax
+  __int64 v103; // rax
+  __int64 v104; // rax
+  __int64 v105; // rax
+  unsigned int v106; // eax
+  unsigned int v107; // edx
+  unsigned int v108; // edx
+  int v109; // ecx
+  __int64 v110; // rax
+  __int64 v111; // rax
+  unsigned int v112; // edx
+  int v113; // eax
+  unsigned int v114; // edx
+  unsigned int v115; // r8d
+  int v116; // eax
+  __int64 v117; // rcx
+  __int64 v118; // rdx
+  unsigned int v119; // r14d
+  __int64 v120; // rbx
+  unsigned int v121; // r14d
+  bool v122; // r8
+  unsigned int v123; // kr00_4
+  unsigned int v124; // ecx
+  unsigned int v125; // eax
+  unsigned int v126; // edx
+  unsigned int v127; // ecx
+  unsigned int v128; // eax
+  __int64 v129; // rdx
+  __int64 v130; // rcx
+  unsigned int v131; // r9d
+  unsigned __int64 v132; // rdx
+  __int64 v133; // rax
+  int v134; // ecx
+  __int64 v135; // rdx
+  struct _ERESOURCE *v136; // rcx
+  unsigned int v137; // eax
+  __int64 v138; // rax
+  __int64 v139; // rax
+  __int64 v140; // rax
+  __int64 v141; // rax
+  __int64 v142; // rcx
+  __int64 v143; // rax
   int v144; // eax
-  __int64 v145; // rdx
-  struct _ERESOURCE *v146; // rcx
-  struct _ERESOURCE *v147; // rcx
-  struct _ERESOURCE *v148; // rcx
-  struct _ERESOURCE *v149; // rcx
-  unsigned int v150; // eax
-  __int64 v151; // rbx
-  int v152; // r11d
-  unsigned __int16 i; // cx
-  __int64 v154; // rdx
-  int v155; // eax
-  bool v156; // zf
-  int v157; // eax
-  bool v158; // zf
-  struct _devicemodeW *v159; // rbx
-  struct _devicemodeW *v160; // rdx
-  struct _devicemodeW *v161; // rbx
-  void *v162; // r9
-  int v163; // ebx
-  HDEV v164; // rcx
-  unsigned int *v165; // rax
-  struct _devicemodeW *v166; // rdx
-  int v167; // eax
-  __int64 v168; // rdx
+  __int64 v145; // rax
+  struct _devicemodeW *v146; // rbx
+  struct _devicemodeW *v147; // rcx
+  struct _devicemodeW *v148; // rcx
+  int v149; // ebx
+  struct _devicemodeW *v150; // rax
+  struct _devicemodeW *v151; // rdx
+  int v152; // eax
+  __int64 v153; // rdx
+  __int64 v154; // rax
+  __int64 v155; // rax
+  __int64 v156; // rax
+  __int64 v157; // rax
+  __int64 v158; // rax
+  int DpiSettingWithNoDefaultSupported; // eax
+  unsigned int v160; // eax
+  _QWORD *v161; // rax
+  int v162; // edx
+  __int64 v163; // rax
+  __int64 v164; // rax
+  __int64 v165; // r14
+  unsigned int v166; // ecx
+  unsigned int v167; // eax
+  int v168; // r8d
   unsigned int v169; // edx
-  char v170; // r10
-  __int64 v171; // r11
-  char v172; // si
-  unsigned int v173; // eax
-  int v174; // edx
-  unsigned int v175; // eax
-  _DWORD *v176; // rsi
-  unsigned int v177; // eax
-  unsigned int ii; // edx
-  int v179; // r8d
-  int v180; // edx
-  unsigned int v181; // ecx
-  __int64 v182; // rdi
-  __int64 v183; // r10
-  __int64 v184; // rbx
-  unsigned int v185; // r10d
-  __int64 v186; // rdi
-  int v187; // edx
-  __int64 v188; // r9
-  __int64 v189; // r8
-  __int64 v190; // rax
-  int v191; // ecx
-  unsigned int *v192; // r12
-  int v193; // r8d
-  __int64 v194; // rbx
-  unsigned int Src; // [rsp+28h] [rbp-E0h]
-  unsigned int Srca; // [rsp+28h] [rbp-E0h]
-  int v197; // [rsp+38h] [rbp-D0h]
-  int v198; // [rsp+38h] [rbp-D0h]
-  struct _DPI_INFORMATION *v199; // [rsp+40h] [rbp-C8h]
-  unsigned int v200; // [rsp+48h] [rbp-C0h]
-  int v201; // [rsp+48h] [rbp-C0h]
-  struct tagSIZE v202; // [rsp+58h] [rbp-B0h] BYREF
-  unsigned int v203; // [rsp+60h] [rbp-A8h]
-  int v204; // [rsp+64h] [rbp-A4h]
-  __int64 v205; // [rsp+68h] [rbp-A0h]
-  void *Buf2; // [rsp+70h] [rbp-98h]
-  HDEV v207; // [rsp+78h] [rbp-90h]
-  int v208; // [rsp+80h] [rbp-88h]
-  struct _devicemodeW *v209; // [rsp+88h] [rbp-80h] BYREF
-  int v210; // [rsp+90h] [rbp-78h]
-  int v211; // [rsp+94h] [rbp-74h] BYREF
-  int PruneFlag; // [rsp+98h] [rbp-70h]
-  unsigned int v213; // [rsp+9Ch] [rbp-6Ch]
-  int v214; // [rsp+A0h] [rbp-68h]
-  unsigned int v215; // [rsp+A4h] [rbp-64h] BYREF
-  void *Buf1; // [rsp+A8h] [rbp-60h]
-  unsigned int v217; // [rsp+B0h] [rbp-58h] BYREF
-  int v218; // [rsp+B4h] [rbp-54h] BYREF
-  int v219; // [rsp+B8h] [rbp-50h]
-  HDEV v220; // [rsp+C0h] [rbp-48h] BYREF
-  struct tagSIZE v221; // [rsp+C8h] [rbp-40h] BYREF
-  unsigned __int64 v222; // [rsp+D0h] [rbp-38h] BYREF
-  unsigned int *DeviceFromName; // [rsp+D8h] [rbp-30h]
-  unsigned int v224; // [rsp+E0h] [rbp-28h] BYREF
-  unsigned int v225; // [rsp+E4h] [rbp-24h]
-  unsigned int v226; // [rsp+E8h] [rbp-20h] BYREF
-  unsigned int v227; // [rsp+F0h] [rbp-18h] BYREF
-  unsigned __int64 v228; // [rsp+F8h] [rbp-10h] BYREF
-  size_t Size; // [rsp+100h] [rbp-8h] BYREF
-  __int64 *v230; // [rsp+108h] [rbp+0h] BYREF
-  struct tagSIZE *v231; // [rsp+110h] [rbp+8h]
-  __int64 v232; // [rsp+118h] [rbp+10h] BYREF
-  __int64 v233; // [rsp+120h] [rbp+18h] BYREF
-  void *v234; // [rsp+128h] [rbp+20h]
-  _QWORD v235[2]; // [rsp+138h] [rbp+30h] BYREF
-  struct tagSIZE v236[2]; // [rsp+148h] [rbp+40h] BYREF
-  __int128 v237; // [rsp+158h] [rbp+50h]
-  PVOID BackTrace[20]; // [rsp+168h] [rbp+60h] BYREF
-  PVOID v239[28]; // [rsp+208h] [rbp+100h] BYREF
-  unsigned int v243; // [rsp+310h] [rbp+208h] BYREF
+  __int64 v170; // rdi
+  __int64 v171; // r10
+  __int64 v172; // rbx
+  unsigned int v173; // r10d
+  __int64 v174; // rdi
+  unsigned int v175; // edx
+  __int64 v176; // r9
+  __int64 v177; // r8
+  __int64 v178; // rax
+  int v179; // ecx
+  unsigned int *v180; // r12
+  unsigned int v181; // r8d
+  __int64 v182; // rbx
+  unsigned int Src; // [rsp+28h] [rbp-D1h]
+  unsigned int Srca; // [rsp+28h] [rbp-D1h]
+  int v185; // [rsp+38h] [rbp-C1h]
+  int v186; // [rsp+38h] [rbp-C1h]
+  struct _DPI_INFORMATION *v187; // [rsp+40h] [rbp-B9h]
+  int v188; // [rsp+40h] [rbp-B9h]
+  int v189; // [rsp+58h] [rbp-A1h]
+  unsigned int v190; // [rsp+5Ch] [rbp-9Dh]
+  struct _devicemodeW *v191; // [rsp+60h] [rbp-99h] BYREF
+  int v192; // [rsp+68h] [rbp-91h]
+  int v193; // [rsp+6Ch] [rbp-8Dh] BYREF
+  int v194; // [rsp+70h] [rbp-89h]
+  int PruneFlag; // [rsp+74h] [rbp-85h]
+  unsigned int v196; // [rsp+78h] [rbp-81h]
+  int v197; // [rsp+7Ch] [rbp-7Dh]
+  struct _devicemodeW *v198; // [rsp+80h] [rbp-79h]
+  unsigned int v199; // [rsp+88h] [rbp-71h] BYREF
+  int v200; // [rsp+8Ch] [rbp-6Dh]
+  HDEV v201; // [rsp+90h] [rbp-69h] BYREF
+  __int64 v202; // [rsp+98h] [rbp-61h]
+  unsigned int v203; // [rsp+A0h] [rbp-59h] BYREF
+  void *Buf2; // [rsp+A8h] [rbp-51h]
+  struct tagSIZE v205; // [rsp+B0h] [rbp-49h] BYREF
+  struct tagSIZE v206; // [rsp+B8h] [rbp-41h] BYREF
+  struct tagSIZE v207; // [rsp+C0h] [rbp-39h]
+  _DWORD v208[2]; // [rsp+C8h] [rbp-31h] BYREF
+  struct tagSIZE *v209; // [rsp+D0h] [rbp-29h]
+  struct tagSIZE v210[2]; // [rsp+D8h] [rbp-21h] BYREF
+  __int128 v211; // [rsp+E8h] [rbp-11h]
+  PCUNICODE_STRING String1a; // [rsp+148h] [rbp+4Fh]
+  unsigned int v216; // [rsp+158h] [rbp+5Fh]
+  unsigned int v218; // [rsp+160h] [rbp+67h]
+  struct _MDEV *v219; // [rsp+168h] [rbp+6Fh]
+  int v220; // [rsp+168h] [rbp+6Fh]
 
-  v243 = a4;
-  v9 = a9;
-  v10 = a5;
-  v211 = a4 & 1;
-  v204 = 0;
-  v208 = 0;
+  v9 = a4;
+  v189 = 0;
+  v192 = 0;
+  v197 = 0;
+  v206.cx = 0;
+  v200 = a4 & 1;
+  v12 = (_QWORD *)WdLogNewEntry5_WdEvent();
+  v13 = a5;
+  v12[3] = a1;
+  v12[4] = a3;
+  v12[5] = v9;
+  v12[6] = a5;
+  WdLogEvent5_WdEvent(v12);
+  v14 = PALLOCMEM2(0x60uLL);
+  v17 = v14;
+  if ( !v14 )
+    goto LABEL_90;
+  *(_DWORD *)(v14 + 20) = 0;
+  *(_QWORD *)(v14 + 24) = a3;
+  v18 = (struct _devicemodeW *)PALLOCMEM2(0xDCuLL);
+  v19 = 0LL;
+  v198 = v18;
+  if ( !v18 )
+    goto LABEL_300;
+  v20 = a6;
+  v21 = a9;
+  v194 = a8;
   PruneFlag = a6 != 0;
-  v214 = 0;
-  v219 = 0;
-  v14 = *(struct tagSIZE *)(SGDGetSessionState(a1) + 24);
-  v202 = v14;
-  WdLogSingleEntry4(4LL, a1, a3, a4, v10);
-  v15 = gpLeakTrackingAllocator;
-  v226 = 1936876615;
-  v16 = *(_DWORD *)gpLeakTrackingAllocator;
-  v232 = 260LL;
-  Size = 96LL;
-  v17 = v9 != 0LL ? 4 : 1;
-  v18 = 0LL;
-  LODWORD(v205) = v17;
-  if ( !v16 )
-  {
-    Pool2 = ExAllocatePool2(260LL, 96LL, 1936876615LL);
-    if ( Pool2 )
-      _InterlockedAdd64((volatile signed __int64 *)v15 + 14, 1uLL);
-    goto LABEL_4;
-  }
-  if ( v16 != 1 )
-  {
-    if ( v16 == 2 )
-    {
-      v221 = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(
-              gpLeakTrackingAllocator,
-              0x73726447u,
-              (unsigned __int64 *)&v221) )
-      {
-        v230 = &v232;
-        v231 = (struct tagSIZE *)&v226;
-        Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                  v15,
-                  &v230,
-                  &Size);
-        goto LABEL_4;
-      }
-      Pool2 = ExAllocatePool2(v143, 112LL, v142);
-      if ( Pool2 )
-      {
-        _InterlockedAdd64((volatile signed __int64 *)v15 + 16, 1uLL);
-        NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-        if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-        {
-          if ( (unsigned __int8)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>)(
-                                  v15,
-                                  Pool2,
-                                  v221,
-                                  BackTrace) )
-          {
-            Pool2 += 16LL;
-            goto LABEL_4;
-          }
-        }
-        else if ( (unsigned __int8)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>)(
-                                     v15,
-                                     Pool2,
-                                     v221,
-                                     BackTrace) )
-        {
-          UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = Pool2;
-          goto LABEL_5;
-        }
-        _InterlockedAdd64((volatile signed __int64 *)v15 + 17, 1uLL);
-        _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-      }
-    }
-LABEL_408:
-    UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = 0LL;
-    goto LABEL_129;
-  }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x73726447u) )
-    goto LABEL_408;
-  v141 = (_QWORD *)ExAllocatePool2(v232 & 0xFFFFFFFFFFFFFFFDuLL, 112LL, v226);
-  Pool2 = (__int64)v141;
-  if ( !v141
-    || (_InterlockedAdd64((volatile signed __int64 *)v15 + 14, 1uLL),
-        *v141 = 1936876615LL,
-        Pool2 = (__int64)(v141 + 2),
-        v141 == (_QWORD *)-16LL) )
-  {
-    NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-      *((NSInstrumentation::CPointerHashTable **)v15 + 1),
-      (const void *)0x73726447);
-  }
-LABEL_4:
-  UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = Pool2;
-  if ( !Pool2 )
-    goto LABEL_129;
-LABEL_5:
-  v21 = gpLeakTrackingAllocator;
-  *(_DWORD *)(Pool2 + 20) = 0;
-  *(_QWORD *)(Pool2 + 24) = a3;
-  Buf2 = NSInstrumentation::CLeakTrackingAllocator::Allocate(v21, 0x104uLL, 0xDCuLL, 0x76656447u);
-  v234 = Buf2;
-  if ( !Buf2 )
-    goto LABEL_352;
-  v210 = a8;
-LABEL_7:
+  v22 = a9 != 0LL ? 4 : 1;
   while ( 2 )
   {
+    LODWORD(v202) = v22;
     while ( 2 )
     {
-      v23 = v204;
-      v24 = 1LL;
-      v22 = 0LL;
-      v203 = 1;
-      v25 = 0;
-      DeviceFromName = 0LL;
-      v225 = 0;
+      v23 = v189;
+      v16 = 1LL;
+      v190 = 1;
+      v15 = 0x1000000000LL;
+      v201 = 0LL;
+      v24 = 0LL;
+      v207 = 0LL;
+      cx = 0;
+      v205.cx = 0;
       v26 = 0;
-      v220 = 0LL;
-      v217 = 0;
-      v224 = 0;
-      v213 = 0;
-      do
+      v199 = 0;
+      v203 = 0;
+      v196 = 0;
+      while ( 1 )
       {
         v27 = v23 < 0;
         if ( v23 )
-          goto LABEL_55;
-        v207 = 0LL;
-        v220 = 0LL;
+          break;
+        v28 = v19;
+        Buf2 = v19;
+        v201 = v19;
         if ( a1 )
         {
-          if ( v22 )
+          if ( !v24 )
           {
-LABEL_225:
-            if ( !a5 )
-              goto LABEL_11;
-            if ( v25 >= *((_DWORD *)a5 + 5) )
-            {
-              v18 = 0LL;
-              goto LABEL_56;
-            }
-            v225 = v25 + 1;
-            v18 = (HDEV)*((_QWORD *)a5 + 7 * v25 + 5);
-            v207 = v18;
-            v28 = *((_QWORD *)v18 + 319);
-            if ( (unsigned int *)v28 == v22 )
-              goto LABEL_341;
-            v144 = v208;
-            if ( (*(_DWORD *)(v28 + 160) & 8) != 0 )
-              v144 = v208 ^ 1;
-            if ( v144 )
-              goto LABEL_341;
-            EngAcquireSemaphore(*(HSEMAPHORE *)(*(_QWORD *)&v202 + 80LL));
-            EtwTraceGreLockAcquireSemaphoreExclusive(
-              L"GreBaseGlobals.hsemDynamicModeChange",
-              *(_QWORD *)(*(_QWORD *)&v202 + 80LL),
-              1LL);
-            EngAcquireSemaphore(*((HSEMAPHORE *)v18 + 6));
-            EtwTraceGreLockAcquireSemaphoreExclusive(L"pdo.hsemDevLock()", *((_QWORD *)v18 + 6), 11LL);
-            EngAcquireSemaphore(*(HSEMAPHORE *)(*(_QWORD *)&v202 + 8LL));
-            EtwTraceGreLockAcquireSemaphoreExclusive(
-              L"GreBaseGlobals.hsemDriverMgmt",
-              *(_QWORD *)(*(_QWORD *)&v202 + 8LL),
-              16LL);
-            v145 = *((_QWORD *)v18 + 440);
-            ++*((_DWORD *)v18 + 3);
-            ++*((_DWORD *)v18 + 2);
-            TrackObjectReferenceIncrement(1LL, v145);
-            if ( ((_DWORD)v18[10] & 0x400) != 0 )
-            {
-              EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(*(_QWORD *)&v202 + 8LL));
-              v146 = *(struct _ERESOURCE **)(*(_QWORD *)&v202 + 8LL);
-              if ( v146 )
-              {
-                ExReleaseResourceAndLeaveCriticalRegion(v146);
-                PsLeavePriorityRegion();
-              }
-              DrvEnableDisplay(v18);
-              EngAcquireSemaphore(*(HSEMAPHORE *)(*(_QWORD *)&v202 + 8LL));
-              EtwTraceGreLockAcquireSemaphoreExclusive(
-                L"GreBaseGlobals.hsemDriverMgmt",
-                *(_QWORD *)(*(_QWORD *)&v202 + 8LL),
-                16LL);
-            }
-            EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(*(_QWORD *)&v202 + 8LL));
-            v147 = *(struct _ERESOURCE **)(*(_QWORD *)&v202 + 8LL);
-            if ( v147 )
-            {
-              ExReleaseResourceAndLeaveCriticalRegion(v147);
-              PsLeavePriorityRegion();
-            }
-            EtwTraceGreLockReleaseSemaphore(L"pdo.hsemDevLock()", *((_QWORD *)v18 + 6));
-            v148 = (struct _ERESOURCE *)*((_QWORD *)v18 + 6);
-            if ( v148 )
-            {
-              ExReleaseResourceAndLeaveCriticalRegion(v148);
-              PsLeavePriorityRegion();
-            }
-            EtwTraceGreLockReleaseSemaphore(
-              L"GreBaseGlobals.hsemDynamicModeChange",
-              *(_QWORD *)(*(_QWORD *)&v202 + 80LL));
-            v149 = *(struct _ERESOURCE **)(*(_QWORD *)&v202 + 80LL);
-            if ( v149 )
-            {
-              ExReleaseResourceAndLeaveCriticalRegion(v149);
-              PsLeavePriorityRegion();
-            }
-            v150 = (*(_DWORD *)(v28 + 160) >> 2) & 1;
-            v217 = 1;
-            v224 = v150;
+            DeviceFromName = (wchar_t *)DrvGetDeviceFromName(a1);
+            v20 = a6;
+            v207 = (struct tagSIZE)DeviceFromName;
+            v15 = a5 != 0LL ? v190 : 0;
+            v19 = 0LL;
+            v190 = v15;
+            v16 = (unsigned int)v15;
+            goto LABEL_15;
           }
-          else
-          {
-            DeviceFromName = (unsigned int *)DrvGetDeviceFromName(a1);
-            v28 = (__int64)DeviceFromName;
-            if ( !a5 )
-            {
-              v24 = 0LL;
-              v203 = 0;
-              goto LABEL_17;
-            }
-          }
-          v24 = v203;
-          goto LABEL_17;
         }
-        if ( v22 )
-          goto LABEL_225;
-LABEL_11:
-        if ( v17 == 4 )
+        else if ( !v24 )
         {
-          if ( v26 >= *((unsigned __int16 *)v9 + 10) )
+          goto LABEL_9;
+        }
+        if ( v13 )
+        {
+          if ( cx >= *((_DWORD *)v13 + 5) )
+            goto LABEL_33;
+          v133 = cx++;
+          v205.cx = cx;
+          v28 = (HDEV)*((_QWORD *)v13 + 7 * v133 + 5);
+          Buf2 = v28;
+          DeviceFromName = (wchar_t *)*((_QWORD *)v28 + 322);
+          if ( DeviceFromName == v24 )
+            goto LABEL_27;
+          v134 = v192 ^ 1;
+          if ( (*((_DWORD *)DeviceFromName + 40) & 8) == 0 )
+            v134 = v192;
+          if ( v134 )
+            goto LABEL_27;
+          EngAcquireSemaphore(ghsemDynamicModeChange);
+          EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDynamicModeChange", ghsemDynamicModeChange, 1LL);
+          EngAcquireSemaphore(*((HSEMAPHORE *)v28 + 6));
+          EtwTraceGreLockAcquireSemaphoreExclusive(L"pdo.hsemDevLock()", *((_QWORD *)v28 + 6), 11LL);
+          EngAcquireSemaphore(ghsemDriverMgmt);
+          EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
+          v135 = *((_QWORD *)v28 + 443);
+          ++*((_DWORD *)v28 + 3);
+          ++*((_DWORD *)v28 + 2);
+          TrackObjectReferenceIncrement(1LL, v135);
+          if ( ((_DWORD)v28[10] & 0x400) != 0 )
           {
-            v18 = 0LL;
-LABEL_175:
-            if ( v214 )
+            EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
+            if ( ghsemDriverMgmt )
             {
-              WdLogSingleEntry0(5LL);
-              v17 = 1;
-              LODWORD(v205) = 1;
-              v208 = 1;
-              goto LABEL_7;
+              ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
+              PsLeavePriorityRegion();
             }
-            WdLogSingleEntry1(2LL, -1073741823LL);
-LABEL_352:
-            if ( UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-            {
-              DrvBackoutMDEV(
-                (struct _MDEV *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-                (unsigned int)v22);
-              NSInstrumentation::CLeakTrackingAllocator::Free(
-                gpLeakTrackingAllocator,
-                (void *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64);
-              UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = 0LL;
-            }
-            goto LABEL_127;
+            DrvEnableDisplay(v28);
+            EngAcquireSemaphore(ghsemDriverMgmt);
+            EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
           }
-          if ( (*((_QWORD *)v9 + 37 * v26 + 7) & 0x1000000000LL) != 0 )
-            goto LABEL_253;
-          if ( !IsPrimaryPathInCloneGroup(v9, v26) || *(_DWORD *)((char *)v9 + v93 + 248) < v94 )
+          EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
+          if ( ghsemDriverMgmt )
           {
-            v24 = v203;
-LABEL_253:
-            v213 = v26 + 1;
-LABEL_343:
-            v18 = 0LL;
-LABEL_51:
-            v23 = v204;
-            goto LABEL_52;
+            ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
+            PsLeavePriorityRegion();
           }
-          v28 = *(_QWORD *)(*(_QWORD *)&v14 + 1264LL);
+          EtwTraceGreLockReleaseSemaphore(L"pdo.hsemDevLock()", *((_QWORD *)v28 + 6));
+          v136 = (struct _ERESOURCE *)*((_QWORD *)v28 + 6);
+          if ( v136 )
+          {
+            ExReleaseResourceAndLeaveCriticalRegion(v136);
+            PsLeavePriorityRegion();
+          }
+          EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+          v19 = 0LL;
+          if ( ghsemDynamicModeChange )
+          {
+            ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
+            PsLeavePriorityRegion();
+            v19 = 0LL;
+          }
+          v16 = v190;
+          v20 = a6;
+          v137 = (*((_DWORD *)DeviceFromName + 40) >> 2) & 1;
+          v199 = 1;
+          v203 = v137;
+          goto LABEL_15;
+        }
+LABEL_9:
+        if ( v22 == 4 )
+        {
+          if ( v26 >= *((unsigned __int16 *)v21 + 10) )
+            goto LABEL_33;
+          v82 = v26;
+          if ( (*((_QWORD *)v21 + 34 * v26 + 6) & 0x1000000000LL) != 0 )
+            goto LABEL_223;
+          if ( !IsPrimaryPathInCloneGroup(v21, v26) || *(_DWORD *)((char *)v21 + v83 + 240) < (int)v19 )
+          {
+            v16 = v190;
+LABEL_223:
+            v196 = ++v26;
+            goto LABEL_29;
+          }
+          DeviceFromName = gpGraphicsDeviceList;
+          if ( gpGraphicsDeviceList )
+          {
+            do
+            {
+              if ( (*((_DWORD *)DeviceFromName + 40) & 0x800000) != 0
+                && *((_DWORD *)DeviceFromName + 62) == *(_DWORD *)((char *)v21 + v83 + 64)
+                && *((_DWORD *)DeviceFromName + 63) == *(_DWORD *)((char *)v21 + v83 + 68)
+                && *((_DWORD *)DeviceFromName + 64) == *(_DWORD *)((char *)v21 + v83 + 72) )
+              {
+                break;
+              }
+              DeviceFromName = (wchar_t *)*((_QWORD *)DeviceFromName + 16);
+            }
+            while ( DeviceFromName );
+            goto LABEL_120;
+          }
+          goto LABEL_232;
+        }
+        DeviceFromName = gpGraphicsDeviceList;
+        for ( i = (int)v19; DeviceFromName && i != cx; ++i )
+          DeviceFromName = (wchar_t *)*((_QWORD *)DeviceFromName + 16);
+        v205.cx = ++cx;
+        if ( gbBaseVideo != (_DWORD)v19 && DeviceFromName && (*((_DWORD *)DeviceFromName + 40) & 0x2800000) == 0 )
+          goto LABEL_28;
+LABEL_15:
+        if ( v22 == 4 )
+        {
           if ( v28 )
           {
-            while ( (*(_DWORD *)(v28 + 160) & 0x800000) == 0
-                 || *(_DWORD *)(v28 + 240) != *(_DWORD *)((char *)v9 + v93 + 72)
-                 || *(_DWORD *)(v28 + 244) != *(_DWORD *)((char *)v9 + v93 + 76)
-                 || *(_DWORD *)(v28 + 248) != *(_DWORD *)((char *)v9 + v93 + 80) )
-            {
-              v28 = *(_QWORD *)(v28 + 128);
-              if ( !v28 )
-                goto LABEL_244;
-            }
+            v138 = WdLogNewEntry5_WdAssertion(v16, v15);
+            WdLogEvent5_WdAssertion(v138);
+            v19 = 0LL;
           }
-LABEL_139:
-          if ( !v28 || (*(_DWORD *)(v28 + 164) & 1) != 0 )
+LABEL_120:
+          if ( DeviceFromName && (*((_DWORD *)DeviceFromName + 41) & 1) == 0 )
           {
-            if ( v18 )
-              goto LABEL_154;
-          }
-          else
-          {
-            DisplayDriverNames = DrvGetDisplayDriverNames(v28);
-            if ( DisplayDriverNames )
+            DisplayDriverNames = DrvGetDisplayDriverNames(DeviceFromName);
+            v19 = 0LL;
+            v85 = (struct _DRV_NAMES *)DisplayDriverNames;
+            if ( !DisplayDriverNames )
+              goto LABEL_132;
+            v86 = *((unsigned __int16 *)v21 + 10);
+            if ( v26 >= (unsigned int)v86 )
             {
-              if ( v26 >= *((unsigned __int16 *)v9 + 10) )
-                WdLogSingleEntry0(1LL);
-              v96 = 296LL * v26;
-              if ( _bittest64((const signed __int64 *)((char *)v9 + v96 + 56), 0x24u) )
-                WdLogSingleEntry0(1LL);
-              if ( !*(_QWORD *)((char *)v9 + v96 + 304) )
-                WdLogSingleEntry0(1LL);
-              v97 = *(_WORD *)(*(_QWORD *)&v202 + 1248LL);
-              if ( !v97 )
-              {
-                v97 = 0;
-                v215 = 0;
-                if ( qword_1C0295CC0 )
-                {
-                  qword_1C0295CC0(1LL, &v215);
-                  v97 = v215;
-                }
-                *(_WORD *)(*(_QWORD *)&v202 + 1248LL) = v97;
-              }
-              *(_WORD *)(*(_QWORD *)((char *)v9 + v96 + 304) + 166LL) = v97;
-              DriverAccelerationsLevel = DrvGetDriverAccelerationsLevel((struct tagGRAPHICS_DEVICE *)v28);
-              DriverCapableOverRide = DrvGetDriverCapableOverRide((struct tagGRAPHICS_DEVICE *)v28);
-              v18 = hCreateHDEV(
-                      (struct tagGRAPHICS_DEVICE *)v28,
-                      (struct _DRV_NAMES *)DisplayDriverNames,
-                      *(struct _devicemodeW **)((char *)v9 + v96 + 304),
-                      a3,
-                      DriverCapableOverRide,
-                      DriverAccelerationsLevel,
-                      v211,
-                      (v243 >> 2) & 1,
-                      1u,
-                      &v220);
-              NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, DisplayDriverNames);
-              if ( v18 )
-              {
-                v100 = *(_DWORD *)((char *)v9 + v96 + 276);
-                v26 = v213;
-                *((_DWORD *)v18 + 630) = v100;
-LABEL_154:
-                v213 = v26 + 1;
-                goto LABEL_155;
-              }
-              v26 = v213;
+              v139 = WdLogNewEntry5_WdAssertion(v86, v15);
+              WdLogEvent5_WdAssertion(v139);
             }
-            else if ( v18 )
+            v87 = 0x1000000000LL;
+            v88 = 272LL * v26;
+            if ( (*(_QWORD *)((_BYTE *)v21 + v88 + 48) & 0x1000000000LL) != 0 )
             {
-              goto LABEL_154;
+              v140 = WdLogNewEntry5_WdAssertion(0x1000000000LL, v15);
+              WdLogEvent5_WdAssertion(v140);
             }
-            *(_QWORD *)(*(_QWORD *)&v202 + 1328LL) = v28;
+            if ( !*(_QWORD *)((char *)v21 + v88 + 272) )
+            {
+              v141 = WdLogNewEntry5_WdAssertion(v87, v15);
+              WdLogEvent5_WdAssertion(v141);
+            }
+            v89 = gdmLogPixels;
+            if ( !gdmLogPixels )
+            {
+              v89 = 0;
+              v193 = 0;
+              if ( qword_1C02568A0 )
+              {
+                qword_1C02568A0(1LL, &v193);
+                v89 = v193;
+              }
+              gdmLogPixels = v89;
+            }
+            *(_WORD *)(*(_QWORD *)((char *)v21 + v88 + 272) + 166LL) = v89;
+            DriverAccelerationsLevel = DrvGetDriverAccelerationsLevel((struct tagGRAPHICS_DEVICE *)DeviceFromName);
+            DriverCapableOverRide = DrvGetDriverCapableOverRide((struct tagGRAPHICS_DEVICE *)DeviceFromName);
+            v28 = hCreateHDEV(
+                    (struct tagGRAPHICS_DEVICE *)DeviceFromName,
+                    v85,
+                    *(struct _devicemodeW **)((char *)v21 + v88 + 272),
+                    a3,
+                    DriverCapableOverRide,
+                    DriverAccelerationsLevel,
+                    v200,
+                    (a4 >> 2) & 1,
+                    1u,
+                    &v201);
+            Win32FreePool(v85);
+            v19 = 0LL;
+            if ( v28 )
+            {
+              v16 = *(unsigned int *)((char *)v21 + v88 + 236);
+              v26 = v196;
+              *((_DWORD *)v28 + 661) = v16;
+LABEL_132:
+              if ( v28 )
+              {
+LABEL_133:
+                v196 = ++v26;
+                goto LABEL_134;
+              }
+            }
+            gpLastFailedPhysDisp = (__int64)DeviceFromName;
             DrvLogDisplayDriverEvent(2LL);
+            v26 = v196;
+            v19 = 0LL;
           }
-LABEL_244:
-          v151 = 296LL * v26;
-          if ( !IsPrimaryPathInCloneGroup(v9, v26) || *(_DWORD *)((char *)v9 + v151 + 248) < v152 )
+          if ( v28 )
+            goto LABEL_133;
+          v82 = v26;
+LABEL_232:
+          if ( !IsPrimaryPathInCloneGroup(v21, v26) || *((_DWORD *)v21 + 68 * v82 + 60) < (int)v19 )
           {
-            WdLogSingleEntry0(1LL);
-            LOWORD(v152) = 0;
+            v143 = WdLogNewEntry5_WdAssertion(v142, v15);
+            WdLogEvent5_WdAssertion(v143);
+            v19 = 0LL;
           }
-          for ( i = v152; i < *((_WORD *)v9 + 10); ++i )
+          v16 = (unsigned __int16)v19;
+          if ( (unsigned __int16)v19 < *((_WORD *)v21 + 10) )
           {
-            v154 = 296LL * i;
-            if ( *(_DWORD *)((char *)v9 + v154 + 240) == *(_DWORD *)((char *)v9 + v151 + 240) )
-              *(_DWORD *)((char *)v9 + v154 + 248) = -1073741823;
+            do
+            {
+              v15 = 272LL * (unsigned __int16)v16;
+              if ( *(_DWORD *)((char *)v21 + v15 + 232) == *((_DWORD *)v21 + 68 * v82 + 58) )
+                *(_DWORD *)((char *)v21 + v15 + 240) = -1073741823;
+              LOWORD(v16) = v16 + 1;
+            }
+            while ( (unsigned __int16)v16 < *((_WORD *)v21 + 10) );
           }
-          goto LABEL_154;
+          goto LABEL_133;
         }
-        v28 = *(_QWORD *)(*(_QWORD *)&v14 + 1264LL);
-        for ( j = 0; v28 && j != v25; ++j )
-          v28 = *(_QWORD *)(v28 + 128);
-        v225 = v25 + 1;
-        if ( *(_DWORD *)(*(_QWORD *)&v202 + 1232LL) && v28 && (*(_DWORD *)(v28 + 160) & 0x2800000) == 0 )
+        if ( !DeviceFromName )
+          goto LABEL_33;
+        if ( (*((_DWORD *)DeviceFromName + 41) & 1) != 0 )
+          goto LABEL_28;
+        if ( v20 == -1 )
         {
-          v14 = v202;
-          goto LABEL_343;
+          PruneFlag = DrvGetPruneFlag((struct tagGRAPHICS_DEVICE *)DeviceFromName);
+          LODWORD(v19) = 0;
         }
-LABEL_17:
-        if ( v17 == 4 )
+        if ( v28 )
         {
-          if ( v18 )
-            WdLogSingleEntry0(1LL);
-          goto LABEL_139;
-        }
-        if ( !v28 )
-        {
-          v18 = 0LL;
-          goto LABEL_57;
-        }
-        if ( (*(_DWORD *)(v28 + 164) & 1) != 0 )
-        {
-          v14 = v202;
-          goto LABEL_343;
-        }
-        if ( a6 == -1 )
-          PruneFlag = DrvGetPruneFlag((struct tagGRAPHICS_DEVICE *)v28);
-        if ( v18 )
-          goto LABEL_156;
-        v222 = *(_QWORD *)(SGDGetSessionState(v24) + 24);
-        if ( *(_DWORD *)(v222 + 1292) || v17 == 3 )
-          v30 = -1;
-        else
-          v30 = gProtocolType;
-        if ( !(unsigned int)GetPrimaryAttachFlags((struct tagGRAPHICS_DEVICE *)v28, v30, &v224, &v217) )
-          goto LABEL_57;
-        if ( v17 != 1 && v17 != 3 )
-        {
-          if ( v17 != 2 )
-          {
-            WdLogSingleEntry0(1LL);
-            v157 = 0;
-            if ( (*(_DWORD *)(v28 + 160) & 8) == 0 )
-              LOBYTE(v157) = v214 == 0;
-            goto LABEL_276;
-          }
-          v155 = *(_DWORD *)(v28 + 160);
-          if ( (v155 & 8) != 0 )
-          {
-            if ( !v217 )
-              goto LABEL_273;
-            v156 = v208 == 0;
-          }
+LABEL_135:
+          v92 = WdLogNewEntry5_WdTrace(v16, v15);
+          WdLogEvent5_WdTrace(v92);
+          v93 = *((_DWORD *)DeviceFromName + 40);
+          v19 = 0LL;
+          v197 = 1;
+          if ( v203 )
+            v94 = v93 | 4;
           else
+            v94 = v93 & 0xFFFFFFFB;
+          *((_DWORD *)DeviceFromName + 40) = v94;
+          v95 = v201;
+          if ( !v201 )
           {
-            if ( (v155 & 0x2000000) != 0 || v214 )
-              goto LABEL_273;
-            v156 = gProtocolType == -1;
-          }
-          v157 = 1;
-          if ( !v156 )
-          {
-LABEL_276:
-            v158 = v157 == 0;
-            v31 = (int *)(v28 + 160);
-            goto LABEL_48;
-          }
-LABEL_273:
-          v157 = 0;
-          goto LABEL_276;
-        }
-        if ( !v217 )
-          goto LABEL_50;
-        v31 = (int *)(v28 + 160);
-        if ( (*(_DWORD *)(v28 + 160) & 8) == 0 )
-        {
-          if ( v208 )
-            goto LABEL_49;
-          goto LABEL_31;
-        }
-        v158 = v208 == 0;
-LABEL_48:
-        if ( v158 )
-          goto LABEL_49;
-LABEL_31:
-        Buf1 = DrvGetDisplayDriverNames(v28);
-        v32 = (struct _DRV_NAMES *)Buf1;
-        if ( !Buf1 )
-          goto LABEL_173;
-        v33 = *v31;
-        v209 = 0LL;
-        v218 = 0;
-        if ( (v33 & 8) != 0 )
-        {
-          v34 = 4;
-          v35 = 0;
-        }
-        else
-        {
-          v34 = 1;
-          v35 = DrvGetDriverCapableOverRide((struct tagGRAPHICS_DEVICE *)v28);
-          LODWORD(v18) = DrvGetDriverAccelerationsLevel((struct tagGRAPHICS_DEVICE *)v28);
-        }
-        v36 = a2;
-        if ( !a2 )
-        {
-          memset(Buf2, 0, 0xDCuLL);
-          v36 = (struct _devicemodeW *)Buf2;
-          *((_WORD *)Buf2 + 34) = 220;
-        }
-        v37 = DrvProbeAndCaptureDevmode(
-                (struct tagGRAPHICS_DEVICE *)v28,
-                &v209,
-                &v218,
-                0LL,
-                v36,
-                0,
-                PruneFlag,
-                a7,
-                v210,
-                0LL);
-        if ( v37 == 1073741839 )
-        {
-          DrvLogDisplayDriverEvent(4LL);
-LABEL_39:
-          v200 = v34;
-          v38 = a3;
-          v207 = hCreateHDEV(
-                   (struct tagGRAPHICS_DEVICE *)v28,
-                   v32,
-                   v209,
-                   a3,
-                   v35,
-                   (unsigned int)v18,
-                   v211,
-                   (v243 >> 2) & 1,
-                   v200,
-                   &v220);
-          v39 = v207;
-          if ( !v207 && (*v31 & 0x2000000) != 0 )
-            *(_DWORD *)(v222 + 1228) = 5;
-          goto LABEL_40;
-        }
-        if ( v37 == -1073741776 )
-        {
-          v159 = *(struct _devicemodeW **)(*(_QWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64
-                                                     + 40)
-                                         + 2568LL);
-          if ( v209 && v209 != Buf2 )
-          {
-            NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v209);
-            v209 = 0LL;
-          }
-          v37 = DrvProbeAndCaptureDevmode(
-                  (struct tagGRAPHICS_DEVICE *)v28,
-                  &v209,
-                  &v218,
-                  0LL,
-                  v159,
-                  0,
-                  PruneFlag,
-                  a7,
-                  v210,
-                  0LL);
-          v32 = (struct _DRV_NAMES *)Buf1;
-        }
-        if ( v37 >= 0 )
-          goto LABEL_39;
-        DrvDxgkLogCodePointPacket(58LL, 2LL, 0LL, 0LL);
-        v39 = v207;
-        v38 = a3;
-        if ( (*v31 & 0x2000000) != 0 )
-          *(_DWORD *)(v222 + 1228) = 4;
-LABEL_40:
-        v40 = a2;
-        if ( (*v31 & 8) != 0 || a2 )
-        {
-          v41 = (struct _DRV_NAMES *)Buf1;
-          goto LABEL_313;
-        }
-        if ( !v39 )
-        {
-          DrvLogDisplayDriverEvent(4LL);
-          v160 = v209;
-          if ( v209 )
-          {
-            if ( v209->dmBitsPerPel == 4 )
+            if ( a5 )
             {
-              DrvLogDisplayDriverEvent(5LL);
-              v160 = v209;
-            }
-            v161 = (struct _devicemodeW *)Buf2;
-            if ( v160 != Buf2 )
-            {
-              if ( v160 )
-                NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v160);
-              v209 = 0LL;
-            }
-          }
-          else
-          {
-            v161 = (struct _devicemodeW *)Buf2;
-          }
-          memset(v161, 0, sizeof(struct _devicemodeW));
-          v161->dmSize = 220;
-          if ( (int)DrvProbeAndCaptureDevmode(
-                      (struct tagGRAPHICS_DEVICE *)v28,
-                      &v209,
-                      &v218,
-                      0LL,
-                      v161,
-                      1,
-                      PruneFlag,
-                      a7,
-                      v210,
-                      0LL) >= 0 )
-          {
-            v162 = v38;
-            v41 = (struct _DRV_NAMES *)Buf1;
-            v163 = (v243 >> 2) & 1;
-            v207 = hCreateHDEV(
-                     (struct tagGRAPHICS_DEVICE *)v28,
-                     (struct _DRV_NAMES *)Buf1,
-                     v209,
-                     v162,
-                     v35,
-                     (unsigned int)v18,
-                     v211,
-                     v163,
-                     1u,
-                     &v220);
-            v164 = v207;
-            if ( v207 )
-              goto LABEL_307;
-            v165 = (unsigned int *)v209;
-            if ( v209->dmPelsWidth != 640 || v209->dmPelsHeight != 480 || v209->dmBitsPerPel != 4 )
-            {
-              if ( v209 != Buf2 )
+              v96 = *((_DWORD *)a5 + 5);
+              if ( v96 )
               {
-                NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v209);
-                v209 = 0LL;
+                v97 = (HDEV *)((char *)a5 + 40);
+                v98 = v96;
+                do
+                {
+                  v99 = *v97;
+                  v97 += 7;
+                  if ( DeviceFromName == *((wchar_t **)v99 + 322) )
+                    v95 = v99;
+                  v201 = v95;
+                  --v98;
+                }
+                while ( v98 );
               }
-              memset(Buf2, 0, 0xDCuLL);
-              v166 = (struct _devicemodeW *)Buf2;
-              *((_WORD *)Buf2 + 34) = 220;
-              v201 = v210;
-              v167 = a7;
-              v166->dmBitsPerPel = (*v31 & 0x800000) != 0 ? 32 : 4;
-              v198 = PruneFlag;
-              v166->dmPelsWidth = 640;
-              v166->dmPelsHeight = 480;
-              v166->dmFields = 1835008;
-              if ( (int)DrvProbeAndCaptureDevmode(
-                          (struct tagGRAPHICS_DEVICE *)v28,
-                          &v209,
-                          &v218,
-                          0LL,
-                          v166,
-                          0,
-                          v198,
-                          v167,
-                          v201,
-                          0LL) >= 0 )
-              {
-                v164 = hCreateHDEV(
-                         (struct tagGRAPHICS_DEVICE *)v28,
-                         v41,
-                         v209,
-                         a3,
-                         v35,
-                         (unsigned int)v18,
-                         v211,
-                         v163,
-                         1u,
-                         &v220);
-                v207 = v164;
-                goto LABEL_307;
-              }
-LABEL_306:
-              v164 = v207;
-LABEL_307:
-              v165 = (unsigned int *)v209;
             }
-            if ( v165 )
+          }
+          *(_QWORD *)(56LL * *(unsigned int *)(v17 + 20) + v17 + 40) = v28;
+          *(_QWORD *)(56LL * *(unsigned int *)(v17 + 20) + v17 + 48) = v201;
+          v100 = *(_DWORD *)(v17 + 20);
+          if ( v100 + 2 >= v100 )
+          {
+            v101 = (unsigned int *)v17;
+            *(_DWORD *)(v17 + 20) = v100 + 1;
+            v102 = 96LL * (v100 + 2);
+            if ( v102 > 0xFFFFFFFF )
             {
-              v168 = v164 != 0LL;
+              v17 = 0LL;
             }
             else
             {
-              v165 = (unsigned int *)Buf2;
-              v168 = 2LL;
+              v103 = PALLOCMEM2((unsigned int)v102);
+              v19 = 0LL;
+              v17 = v103;
             }
-            DrvDxgkLogCodePointPacket(26LL, v168, v165[43], v165[44]);
-            v39 = v207;
-            v40 = 0LL;
-LABEL_313:
-            if ( !v39 && !v40 )
+            if ( !v17 )
             {
-              *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(0LL) + 24) + 1328LL) = v28;
-              DrvLogDisplayDriverEvent(2LL);
+              v13 = a5;
+              v23 = -1073741670;
+              v16 = v190;
+              v17 = (__int64)v101;
+              v189 = -1073741670;
+              goto LABEL_30;
             }
-            goto LABEL_44;
+            memmove((void *)v17, v101, 96LL * v101[5]);
+            Win32FreePool(v101);
+            v19 = 0LL;
           }
-          v41 = (struct _DRV_NAMES *)Buf1;
-          goto LABEL_306;
+          goto LABEL_27;
         }
-        v41 = (struct _DRV_NAMES *)Buf1;
-LABEL_44:
-        if ( v209 && v209 != Buf2 )
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v209);
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v41);
-        v18 = v207;
-LABEL_155:
-        if ( !v18 )
-        {
-          v17 = v205;
-LABEL_341:
-          v14 = v202;
-          v24 = v203;
-          goto LABEL_343;
-        }
-LABEL_156:
-        WdLogSingleEntry0(5LL);
-        v101 = *(_DWORD *)(v28 + 160);
-        v214 = 1;
-        if ( v224 )
-          v102 = v101 | 4;
+        if ( gForceDisconnect != (_DWORD)v19 || v22 == 3 )
+          v31 = -1;
         else
-          v102 = v101 & 0xFFFFFFFB;
-        *(_DWORD *)(v28 + 160) = v102;
-        v103 = v220;
-        if ( !v220 )
+          v31 = gProtocolType;
+        PrimaryAttachFlags = GetPrimaryAttachFlags((struct tagGRAPHICS_DEVICE *)DeviceFromName, v31, &v203, &v199);
+        v19 = 0LL;
+        if ( !PrimaryAttachFlags )
+          goto LABEL_33;
+        if ( v22 == 1 || v22 == 3 )
         {
-          if ( a5 )
+          if ( !v199 )
+            goto LABEL_27;
+          if ( (*((_DWORD *)DeviceFromName + 40) & 8) != 0 )
           {
-            v104 = *((_DWORD *)a5 + 5);
-            if ( v104 )
-            {
-              v105 = (HDEV *)((char *)a5 + 40);
-              v106 = v104;
-              do
-              {
-                v107 = *v105;
-                v105 += 7;
-                if ( v28 == *((_QWORD *)v107 + 319) )
-                  v103 = v107;
-                v220 = v103;
-                --v106;
-              }
-              while ( v106 );
-            }
-          }
-        }
-        v108 = (_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20);
-        *(_QWORD *)(56LL
-                  * *(unsigned int *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20)
-                  + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64
-                  + 40) = v18;
-        v18 = 0LL;
-        *(_QWORD *)(56LL
-                  * *(unsigned int *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20)
-                  + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64
-                  + 48) = v220;
-        v109 = *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20);
-        if ( v109 + 2 < v109 )
-        {
-LABEL_49:
-          v17 = v205;
-LABEL_50:
-          v14 = v202;
-          v24 = v203;
-          goto LABEL_51;
-        }
-        v110 = (void *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64;
-        *v108 = v109 + 1;
-        v111 = 96LL * (v109 + 2);
-        if ( v111 > 0xFFFFFFFF )
-          goto LABEL_339;
-        if ( (_DWORD)v111 )
-        {
-          v112 = gpLeakTrackingAllocator;
-          v113 = (unsigned int)v111;
-          v227 = 1936876615;
-          v233 = 260LL;
-          v114 = *(_DWORD *)gpLeakTrackingAllocator;
-          v222 = v113;
-          if ( v114 )
-          {
-            if ( v114 != 1 )
-            {
-              if ( v114 == 2 )
-              {
-                v228 = 0LL;
-                if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(
-                        gpLeakTrackingAllocator,
-                        0x73726447u,
-                        &v228) )
-                {
-                  v235[0] = &v233;
-                  v235[1] = &v227;
-                  UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                                                                                                     v112,
-                                                                                                     v235,
-                                                                                                     &v222);
-                  goto LABEL_171;
-                }
-                v172 = 0;
-                if ( v113 < 0x1000 || (v113 & 0xFFF) != 0 )
-                {
-                  v113 += 16LL;
-                  v172 = v170;
-                  v222 = v113;
-                }
-                UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = ExAllocatePool2(
-                                                                                                   v171,
-                                                                                                   v113,
-                                                                                                   v169);
-                if ( UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-                {
-                  _InterlockedAdd64((volatile signed __int64 *)v112 + 16, 1uLL);
-                  NSInstrumentation::CBackTrace::CBackTrace(v239);
-                  if ( v172
-                    && (unsigned __int64)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 & 0xFFF)
-                     + 16 < 0x1000 )
-                  {
-                    if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                            v112,
-                                            UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-                                            v228,
-                                            v239) )
-                    {
-                      UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 += 16LL;
-                      goto LABEL_171;
-                    }
-                  }
-                  else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                               v112,
-                                               UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-                                               v228,
-                                               v239) )
-                  {
-                    goto LABEL_171;
-                  }
-                  _InterlockedAdd64((volatile signed __int64 *)v112 + 17, 1uLL);
-                  _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64);
-                }
-              }
-LABEL_337:
-              UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = 0LL;
-              goto LABEL_171;
-            }
-            if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(
-                    gpLeakTrackingAllocator,
-                    0x73726447u)
-              || v113 + 16 < v113 )
-            {
-              goto LABEL_337;
-            }
-            UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = ExAllocatePool2(
-                                                                                               v233 & 0xFFFFFFFFFFFFFFFDuLL,
-                                                                                               v113 + 16,
-                                                                                               v227);
-            if ( !UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64
-              || (_InterlockedAdd64((volatile signed __int64 *)v112 + 14, 1uLL),
-                  *(_QWORD *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = 1936876615LL,
-                  (UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 += 16LL) == 0) )
-            {
-              NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-                *((NSInstrumentation::CPointerHashTable **)v112 + 1),
-                (const void *)0x73726447);
-            }
+            v69 = v192;
           }
           else
           {
-            UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = ExAllocatePool2(
-                                                                                               260LL,
-                                                                                               (unsigned int)v113,
-                                                                                               1936876615LL);
-            if ( UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-              _InterlockedAdd64((volatile signed __int64 *)v112 + 14, 1uLL);
+            if ( !v192 )
+              goto LABEL_96;
+            v69 = 0;
           }
+          v70 = v69 == 0;
         }
         else
         {
-          UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = 0LL;
-        }
-LABEL_171:
-        if ( UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-        {
-          memmove(
-            (void *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-            v110,
-            96LL * (unsigned int)*v108);
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v110);
-LABEL_173:
-          v17 = v205;
-          v14 = v202;
-          v24 = v203;
-          goto LABEL_51;
-        }
-LABEL_339:
-        v17 = v205;
-        v23 = -1073741670;
-        v14 = v202;
-        UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = (__int64)v110;
-        v24 = v203;
-        v204 = -1073741670;
-LABEL_52:
-        v9 = a9;
-        v26 = v213;
-        v25 = v225;
-        v22 = DeviceFromName;
-      }
-      while ( (_DWORD)v24 );
-      v27 = v23 < 0;
-LABEL_55:
-      if ( v27 )
-        goto LABEL_352;
-LABEL_56:
-      if ( v17 == 4 )
-        goto LABEL_175;
-LABEL_57:
-      if ( !v214 )
-      {
-        if ( v17 == 1 )
-        {
-          WdLogSingleEntry0(5LL);
-          v17 = 2;
-          v14 = v202;
-          LODWORD(v205) = 2;
-          if ( v210 )
-            v210 = 0;
-        }
-        else
-        {
-          if ( v17 != 2 || !(unsigned int)UserIsWddmConnectedSession() )
+          if ( v22 != 2 )
           {
-            WdLogSingleEntry0(5LL);
-            goto LABEL_352;
+            v145 = WdLogNewEntry5_WdAssertion(v16, v15);
+            WdLogEvent5_WdAssertion(v145);
+            v19 = 0LL;
+            if ( (*((_DWORD *)DeviceFromName + 40) & 8) != 0 || v197 )
+              goto LABEL_27;
+            goto LABEL_96;
           }
-          WdLogSingleEntry0(5LL);
-          v14 = v202;
-          v17 = 3;
-          LODWORD(v205) = 3;
+          v144 = *((_DWORD *)DeviceFromName + 40);
+          if ( (v144 & 8) == 0 )
+          {
+            if ( (v144 & 0x2000000) != 0 || v197 || gProtocolType == -1 )
+              goto LABEL_27;
+            goto LABEL_96;
+          }
+          if ( !v199 )
+            goto LABEL_27;
+          v70 = v192 == 0;
         }
+        if ( v70 )
+          goto LABEL_27;
+LABEL_96:
+        v71 = DrvGetDisplayDriverNames(DeviceFromName);
+        v19 = 0LL;
+        v72 = (struct _DRV_NAMES *)v71;
+        if ( !v71 )
+          goto LABEL_27;
+        v73 = *((_DWORD *)DeviceFromName + 40);
+        v191 = 0LL;
+        v193 = 0;
+        if ( (v73 & 8) != 0 )
+        {
+          v74 = 4;
+          v75 = 0;
+          v76 = 0;
+        }
+        else
+        {
+          v74 = 1;
+          v75 = DrvGetDriverCapableOverRide((struct tagGRAPHICS_DEVICE *)DeviceFromName);
+          v76 = DrvGetDriverAccelerationsLevel((struct tagGRAPHICS_DEVICE *)DeviceFromName);
+        }
+        if ( a2 )
+        {
+          v78 = a2;
+        }
+        else
+        {
+          v77 = v198;
+          memset(v198, 0, sizeof(struct _devicemodeW));
+          v78 = v77;
+          v77->dmSize = 220;
+        }
+        v79 = DrvProbeAndCaptureDevmode(
+                (struct tagGRAPHICS_DEVICE *)DeviceFromName,
+                &v191,
+                &v193,
+                0LL,
+                v78,
+                0,
+                PruneFlag,
+                a7,
+                v194,
+                0LL);
+        if ( v79 == 1073741839 )
+        {
+          DrvLogDisplayDriverEvent(4LL);
+LABEL_104:
+          v80 = a4;
+          v28 = hCreateHDEV(
+                  (struct tagGRAPHICS_DEVICE *)DeviceFromName,
+                  v72,
+                  v191,
+                  a3,
+                  v75,
+                  v76,
+                  v200,
+                  (a4 >> 2) & 1,
+                  v74,
+                  &v201);
+          if ( !v28 && (*((_DWORD *)DeviceFromName + 40) & 0x2000000) != 0 )
+            gulDriverFailureReason = 5;
+          goto LABEL_105;
+        }
+        if ( v79 == -1073741776 )
+        {
+          v146 = *(struct _devicemodeW **)(*(_QWORD *)(v17 + 40) + 2592LL);
+          if ( v191 && v191 != v198 )
+          {
+            Win32FreePool(v191);
+            v191 = 0LL;
+          }
+          v79 = DrvProbeAndCaptureDevmode(
+                  (struct tagGRAPHICS_DEVICE *)DeviceFromName,
+                  &v191,
+                  &v193,
+                  0LL,
+                  v146,
+                  0,
+                  PruneFlag,
+                  a7,
+                  v194,
+                  0LL);
+        }
+        if ( v79 >= 0 )
+          goto LABEL_104;
+        DrvDxgkLogCodePointPacket(58LL, 2LL, 0LL);
+        v28 = (HDEV)Buf2;
+        v80 = a4;
+        if ( (*((_DWORD *)DeviceFromName + 40) & 0x2000000) != 0 )
+          gulDriverFailureReason = 4;
+LABEL_105:
+        v81 = a2;
+        if ( (*((_DWORD *)DeviceFromName + 40) & 8) != 0 || a2 )
+          goto LABEL_284;
+        if ( !v28 )
+        {
+          DrvLogDisplayDriverEvent(4LL);
+          v147 = v191;
+          if ( v191 )
+          {
+            if ( v191->dmBitsPerPel == 4 )
+            {
+              DrvLogDisplayDriverEvent(5LL);
+              v147 = v191;
+            }
+            if ( v147 != v198 )
+            {
+              Win32FreePool(v147);
+              v191 = 0LL;
+            }
+          }
+          memset(v198, 0, sizeof(struct _devicemodeW));
+          v148 = v198;
+          v198->dmSize = 220;
+          if ( (int)DrvProbeAndCaptureDevmode(
+                      (struct tagGRAPHICS_DEVICE *)DeviceFromName,
+                      &v191,
+                      &v193,
+                      0LL,
+                      v148,
+                      1,
+                      PruneFlag,
+                      a7,
+                      v194,
+                      0LL) < 0
+            || (v149 = (v80 >> 2) & 1,
+                (v28 = hCreateHDEV(
+                         (struct tagGRAPHICS_DEVICE *)DeviceFromName,
+                         v72,
+                         v191,
+                         a3,
+                         v75,
+                         v76,
+                         v200,
+                         v149,
+                         1u,
+                         &v201)) != 0LL) )
+          {
+LABEL_279:
+            v150 = v191;
+          }
+          else
+          {
+            v150 = v191;
+            if ( v191->dmPelsWidth != 640 || v191->dmPelsHeight != 480 || v191->dmBitsPerPel != 4 )
+            {
+              if ( v191 != v198 )
+              {
+                Win32FreePool(v191);
+                v191 = 0LL;
+              }
+              memset(v198, 0, sizeof(struct _devicemodeW));
+              v151 = v198;
+              v198->dmSize = 220;
+              v152 = v194;
+              v151->dmBitsPerPel = (*((_DWORD *)DeviceFromName + 40) & 0x800000) != 0 ? 32 : 4;
+              v188 = a7;
+              v186 = PruneFlag;
+              v151->dmPelsWidth = 640;
+              v151->dmPelsHeight = 480;
+              v151->dmFields = 1835008;
+              if ( (int)DrvProbeAndCaptureDevmode(
+                          (struct tagGRAPHICS_DEVICE *)DeviceFromName,
+                          &v191,
+                          &v193,
+                          0LL,
+                          v151,
+                          0,
+                          v186,
+                          v188,
+                          v152,
+                          0LL) >= 0 )
+                v28 = hCreateHDEV(
+                        (struct tagGRAPHICS_DEVICE *)DeviceFromName,
+                        v72,
+                        v191,
+                        a3,
+                        v75,
+                        v76,
+                        v200,
+                        v149,
+                        1u,
+                        &v201);
+              goto LABEL_279;
+            }
+          }
+          if ( v150 )
+          {
+            v153 = v28 != 0LL;
+          }
+          else
+          {
+            v150 = v198;
+            v153 = 2LL;
+          }
+          DrvDxgkLogCodePointPacket(26LL, v153, v150->dmPelsWidth);
+          v81 = 0LL;
+LABEL_284:
+          if ( !v28 && !v81 )
+          {
+            gpLastFailedPhysDisp = (__int64)DeviceFromName;
+            DrvLogDisplayDriverEvent(2LL);
+          }
+        }
+        if ( v191 && v191 != v198 )
+          Win32FreePool(v191);
+        Win32FreePool(v72);
+        v26 = v196;
+        v19 = 0LL;
+LABEL_134:
+        if ( v28 )
+          goto LABEL_135;
+LABEL_27:
+        v16 = v190;
+LABEL_28:
+        v13 = a5;
+LABEL_29:
+        v23 = v189;
+LABEL_30:
+        v22 = v202;
+        v15 = 0x1000000000LL;
+        v21 = a9;
+        cx = v205.cx;
+        v24 = (wchar_t *)v207;
+        v20 = a6;
+        if ( !(_DWORD)v16 )
+        {
+          v27 = v23 < 0;
+          break;
+        }
+      }
+      if ( v27 )
+        goto LABEL_291;
+LABEL_33:
+      if ( v22 == 4 )
+      {
+        if ( v197 != (_DWORD)v19 )
+        {
+          v104 = WdLogNewEntry5_WdTrace(v16, v15);
+          WdLogEvent5_WdTrace(v104);
+          v22 = 1;
+          LODWORD(v202) = 1;
+          goto LABEL_152;
+        }
+        v156 = WdLogNewEntry5_WdError(v16, v15);
+        *(_QWORD *)(v156 + 24) = -1073741823LL;
+        WdLogEvent5_WdError(v156);
+        goto LABEL_300;
+      }
+      if ( v197 != (_DWORD)v19 )
+      {
+        if ( v192 != (_DWORD)v19 )
+        {
+          v189 = (int)v19;
+          goto LABEL_37;
+        }
+        v105 = WdLogNewEntry5_WdTrace(v16, v15);
+        WdLogEvent5_WdTrace(v105);
+LABEL_152:
+        v13 = a5;
+        v19 = 0LL;
+        v20 = a6;
+        v192 = 1;
         continue;
       }
       break;
     }
-    if ( !v208 )
+    if ( v22 == 1 )
     {
-      WdLogSingleEntry0(5LL);
-      v14 = v202;
-      v208 = 1;
+      v154 = WdLogNewEntry5_WdTrace(v16, v15);
+      WdLogEvent5_WdTrace(v154);
+      v19 = 0LL;
+      v22 = 2;
+      v194 = 0;
+LABEL_298:
+      v20 = a6;
+      v13 = a5;
       continue;
     }
     break;
   }
-  if ( (v243 & 2) != 0 )
-    goto LABEL_127;
-  a6 = 0;
-  a9 = 0LL;
-  v42 = 0LL;
-  v43 = (MULTIDEVLOCKOBJ *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                             gpLeakTrackingAllocator,
-                             0x104uLL,
-                             0x68uLL,
-                             0x6C6D6847u);
-  v44 = v43;
-  if ( !v43 )
-    goto LABEL_352;
-  *(_QWORD *)v43 = 1LL;
-  *((_QWORD *)v43 + 1) = 0LL;
-  *((_QWORD *)v43 + 2) = 0LL;
-  MULTIDEVLOCKOBJ::vInit(
-    v43,
-    (struct _MDEV *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64);
-  v45 = 0;
-  if ( (*(_DWORD *)v44 & 1) == 0 )
-    goto LABEL_125;
-  MULTIDEVLOCKOBJ::vLock(v44);
-  v46 = *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20);
-  v47 = 0;
-  LODWORD(a5) = 0;
-  if ( !v46 )
-    goto LABEL_70;
-  LODWORD(a5) = 0;
-  while ( 2 )
+  if ( v22 == 2 && (unsigned int)UserIsWddmConnectedSession(v16, v15) )
   {
-    v48 = *(_QWORD *)(*(_QWORD *)(56LL * v47
-                                + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64
-                                + 40)
-                    + 2552LL);
-    v49 = *(_DWORD *)(v48 + 160);
-    if ( (v49 & 8) != 0 )
-    {
-      if ( (v49 & 4) != 0 )
-      {
-        v49 &= ~4u;
-        *(_DWORD *)(v48 + 160) = v49;
-        goto LABEL_67;
-      }
-    }
-    else
-    {
-      if ( !v42 )
-        a6 = v47;
-LABEL_67:
-      if ( (v49 & 4) != 0 )
-      {
-        if ( v42 )
-        {
-          LODWORD(a5) = -1073741438;
-          *(_DWORD *)(v48 + 160) = v49 & 0xFFFFFFFB;
-        }
-        else
-        {
-          v42 = (struct D3DKMT_GETPATHSMODALITY *)v48;
-          a6 = v47;
-        }
-      }
-    }
-    v46 = *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20);
-    if ( ++v47 < v46 )
-      continue;
-    break;
+    v155 = WdLogNewEntry5_WdTrace(v16, v15);
+    WdLogEvent5_WdTrace(v155);
+    v19 = 0LL;
+    v22 = 3;
+    goto LABEL_298;
   }
-  a9 = v42;
-LABEL_70:
-  v50 = 16 * v46;
-  v51 = v50;
-  Size = v50;
-  if ( !v50 )
+  if ( !cx )
   {
-    v54 = v44;
-    goto LABEL_122;
+    v158 = WdLogNewEntry5_WdTrace(v16, v15);
+    WdLogEvent5_WdTrace(v158);
+    goto LABEL_300;
   }
-  Buf2 = NSInstrumentation::CLeakTrackingAllocator::Allocate(gpLeakTrackingAllocator, 0x104uLL, v50, 0x73726447u);
-  v52 = (unsigned int *)Buf2;
-  v53 = NSInstrumentation::CLeakTrackingAllocator::Allocate(gpLeakTrackingAllocator, 0x104uLL, v51, 0x73726447u);
-  v54 = v44;
-  v207 = (HDEV)v44;
-  Buf1 = v53;
-  v55 = v53;
-  if ( !Buf2 )
-    goto LABEL_120;
-  if ( !v53 )
-    goto LABEL_119;
-  v56 = 0;
-  v215 = 0;
-  v57 = 0;
-  if ( *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20) )
+  v157 = WdLogNewEntry5_WdTrace(v16, v15);
+  WdLogEvent5_WdTrace(v157);
+  v23 = -1073741204;
+  v19 = 0LL;
+  v189 = -1073741204;
+LABEL_291:
+  if ( v23 )
   {
-    do
-    {
-      v58 = 2LL * v57;
-      v59 = *(_QWORD *)(56LL * v57 + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 40);
-      v60 = *(_DWORD **)(v59 + 2568);
-      v52[2 * v58] = v60[19];
-      v52[2 * v58 + 1] = v60[20];
-      v52[2 * v58 + 2] = v60[19] + v60[43];
-      v52[2 * v58 + 3] = v60[20] + v60[44];
-      v61 = *(_QWORD *)(v59 + 2552);
-      if ( (*(_DWORD *)(v61 + 160) & 8) == 0 )
-      {
-        if ( !v42 && !v60[19] && !v60[20] )
-        {
-          a6 = v57;
-          v42 = (struct D3DKMT_GETPATHSMODALITY *)v61;
-        }
-        ++v56;
-      }
-      ++v57;
-    }
-    while ( v57 < *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20) );
-    v54 = (MULTIDEVLOCKOBJ *)v207;
-    v215 = v56;
-    a9 = v42;
+LABEL_87:
+    if ( v189 < 0 )
+      goto LABEL_300;
+    goto LABEL_88;
   }
-  v228 = (unsigned __int64)v54;
-  DeviceFromName = v52;
-  memmove(v55, v52, Size);
-  v63 = *(struct tagSIZE *)(SGDGetSessionState(v62) + 24);
-  v221 = v63;
-  if ( !*(_DWORD *)(*(_QWORD *)&v63 + 1280LL) )
+LABEL_37:
+  if ( (a4 & 2) != 0 )
+    goto LABEL_87;
+  v218 = (unsigned int)v19;
+  v219 = (struct _MDEV *)v19;
+  v33 = (unsigned int)v19;
+  v34 = (unsigned int *)v19;
+  v35 = (UNICODE_STRING *)Win32AllocPool(104LL, 1819109447LL);
+  String1a = v35;
+  v36 = (MULTIDEVLOCKOBJ *)v35;
+  if ( v35 )
   {
-    v243 = 0;
-    *(_DWORD *)(*(_QWORD *)&v63 + 1288LL) = 0;
-    if ( ((gProtocolType + 1) & 0xFFFE) == 0 )
-    {
-      v64 = DeviceFromName;
-      v207 = (HDEV)v54;
-      Buf2 = DeviceFromName;
-      if ( (int)IsGetWin8StyleDpiSettingFromRegistrySupported() >= 0 )
-      {
-        GetWin8StyleDpiSettingFromRegistry(*(_QWORD *)&v63 + 1288LL);
-        Buf2 = v64;
-        v65 = v228;
-        v207 = (HDEV)v228;
-        if ( *(_DWORD *)(*(_QWORD *)&v63 + 1288LL) )
-        {
-          if ( (int)IsGetDpiSettingWithNoDefaultSupported() >= 0 && qword_1C02947F8 )
-            qword_1C02947F8(0LL, &v243);
-          v173 = v243;
-          v207 = (HDEV)v65;
-          if ( v243 <= 0x60 )
-            v173 = 96;
-          if ( v173 >= 0x1E0 )
-            LOWORD(v173) = 480;
-          *(_WORD *)(*(_QWORD *)&v63 + 1248LL) = v173;
-          Buf2 = DeviceFromName;
-        }
-      }
-    }
-  }
-  v66 = *(unsigned int **)(56LL * a6
-                         + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64
-                         + 40);
-  DeviceFromName = v66;
-  *(_DWORD *)(*((_QWORD *)v66 + 319) + 160LL) |= 4u;
-  v67 = *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20);
-  if ( v67 )
-  {
-    v68 = a6;
-    for ( k = 0; k < v67; ++k )
-    {
-      Size = 56LL * k;
-      v70 = *(_QWORD *)(Size + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 40);
-      if ( (*(_DWORD *)(*(_QWORD *)(v70 + 2552) + 160LL) & 0x800000) != 0 )
-      {
-        v115 = 0;
-        if ( k == v68 )
-          v115 = 32;
-        v116 = *(_DWORD *)(v70 + 2516) & 0xFFFFFFDF | v115;
-        *(_DWORD *)(v70 + 2516) = v116;
-        DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v116, 32LL);
-        Src = v70 + 2424;
-        v118 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(DxgkWin32kInterface + 520))(
-                 *(_QWORD *)(*(_QWORD *)(v70 + 2552) + 232LL),
-                 *(unsigned int *)(*(_QWORD *)(v70 + 2552) + 248LL),
-                 0LL,
-                 v70 + 2104);
-        if ( v118 < 0 )
-          WdLogSingleEntry3(
-            2LL,
-            v118,
-            *(_QWORD *)(*(_QWORD *)(v70 + 2552) + 232LL),
-            *(unsigned int *)(*(_QWORD *)(v70 + 2552) + 248LL));
-        *(_DWORD *)(Size + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 92) = *(_DWORD *)(v70 + 2520);
-      }
-      v67 = *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20);
-    }
-    v66 = DeviceFromName;
-    v63 = v221;
-    v42 = a9;
-  }
-  if ( *(_DWORD *)(*(_QWORD *)&v63 + 1280LL) )
-    goto LABEL_106;
-  v71 = (_DWORD *)(*(_QWORD *)&v63 + 1288LL);
-  v243 = 0;
-  *(_DWORD *)(*(_QWORD *)&v63 + 1288LL) = 0;
-  if ( (unsigned int)UserRemoteConnectedSessionUsingXddm() )
-  {
-    v120 = v66[888];
-    if ( v120 )
-    {
-      *(_WORD *)(*(_QWORD *)&v63 + 1248LL) = (96 * HIWORD(v120) + 50) / 0x64u;
-    }
-    else
-    {
-      if ( wcsncmp(*((const wchar_t **)v42 + 25), L"WORKERDD", *((unsigned int *)v42 + 64))
-        && wcsncmp(*((const wchar_t **)v42 + 25), L"TSDDD", *((unsigned int *)v42 + 64)) )
-      {
-        *v71 = 1;
-      }
-      if ( qword_1C0295CC0 )
-        qword_1C0295CC0(2LL, &v243);
-      v121 = v243;
-      if ( v243 <= 0x60 )
-        v121 = 96;
-      if ( v121 >= 0x1E0 )
-        v121 = 480;
-      v243 = v121;
-      *(_WORD *)(*(_QWORD *)&v63 + 1248LL) = v121;
-    }
-    for ( m = 0;
-          m < *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20);
-          *(_WORD *)(*(_QWORD *)(v125 + 2568) + 166LL) = *(_WORD *)(*(_QWORD *)&v63 + 1248LL) )
-    {
-      v123 = *(unsigned __int16 *)(*(_QWORD *)&v63 + 1248LL);
-      v124 = m++;
-      v125 = *(_QWORD *)(56 * v124 + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 40);
-      *(_DWORD *)(v125 + 2148) = v123;
-      *(_DWORD *)(v125 + 2144) = v123;
-    }
-    goto LABEL_105;
-  }
-  v72 = (96 * v66[609] + 50) / 0x64;
-  if ( (_WORD)v72 && qword_1C0295CE0 )
-    qword_1C0295CE0(1LL, (unsigned __int16)v72);
-  if ( (int)IsGetWin8StyleDpiSettingFromRegistrySupported() >= 0 )
-    GetWin8StyleDpiSettingFromRegistry(*(_QWORD *)&v63 + 1288LL);
-  if ( *v71 )
-  {
-    if ( (int)IsGetDpiSettingWithNoDefaultSupported() >= 0 && qword_1C02947F8 )
-      qword_1C02947F8(0LL, &v243);
-    v119 = v243;
-    v74 = (_WORD *)(*(_QWORD *)&v63 + 1248LL);
-    if ( v243 <= 0x60 )
-      v119 = 96;
-    if ( v119 >= 0x1E0 )
-      v119 = 480;
-    v243 = v119;
-    goto LABEL_184;
-  }
-  v73 = v66[608];
-  v74 = (_WORD *)(*(_QWORD *)&v63 + 1248LL);
-  if ( !v73 )
-  {
-    LOWORD(v119) = 96;
-LABEL_184:
-    *v74 = v119;
-    goto LABEL_101;
-  }
-  *v74 = (96 * v73 + 50) / 0x64;
-LABEL_101:
-  for ( n = 0; n < *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20); ++n )
-  {
-    v76 = (unsigned __int16)*v74;
-    v77 = *(_QWORD *)(56LL * n + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 40);
-    v78 = *(_QWORD *)(v77 + 2568);
-    *(_DWORD *)(v77 + 2148) = v76;
-    *(_DWORD *)(v77 + 2144) = v76;
-    *(_WORD *)(v78 + 166) = *v74;
-    if ( *v71 )
-    {
-      v174 = 100 * (unsigned __int16)*v74;
-      *(_DWORD *)(v77 + 2508) = 1234568;
-      *(_DWORD *)(v77 + 2432) = (v174 + 48) / 0x60u;
-    }
-  }
-LABEL_105:
-  *(_DWORD *)(*(_QWORD *)&v63 + 1280LL) = 1;
-  v67 = *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20);
-LABEL_106:
-  if ( (unsigned int)UserRemoteConnectedSessionUsingXddm() )
-  {
-    LODWORD(a9) = 1;
-    v126 = 1;
-    if ( v67 )
-    {
-      v127 = 0;
-      do
-      {
-        v128 = *(_QWORD *)(56LL * v127
-                         + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64
-                         + 40);
-        v129 = *(_DWORD *)(v128 + 2116);
-        LOBYTE(v243) = ((*(_DWORD *)(*(_QWORD *)(v128 + 2568) + 84LL) - 1) & 0xFFFFFFFD) == 0;
-        v130 = AdjustForOrientation(*(_DWORD *)(v128 + 2112) / 0x3E8u, v129 / 0x3E8, v243);
-        v131 = *(_DWORD *)(v128 + 2124);
-        v132 = *(_DWORD *)(v128 + 2120);
-        v202 = v130;
-        v134 = AdjustForOrientation(v132, v131, v133);
-        v135 = *(_DWORD *)(v128 + 3552);
-        v221 = v134;
-        v230 = (__int64 *)(v136 | 0x2000000000LL);
-        v231 = v236;
-        *(_OWORD *)&v236[0].cx = 0LL;
-        v237 = 0LL;
-        if ( (int)DxgkEngQueryWin32Info((struct _DXGK_QUERY_WIN32_INFO *)&v230) < 0 )
-          WdLogSingleEntry0(1LL);
-        v199 = (struct _DPI_INFORMATION *)(v128 + 2424);
-        if ( v135 )
-        {
-          FillDpiInfo(&v202, &v221, (struct tagSIZE)v236, v137, 0, HIWORD(v135), v197, v199);
-          *(_DWORD *)(v128 + 2516) |= 0x200u;
-          v126 = (unsigned int)a9;
-        }
-        else
-        {
-          *(_DWORD *)(v128 + 2516) &= ~0x200u;
-          v126 = 0;
-          v138 = *(unsigned __int16 *)(*(_QWORD *)&v63 + 1248LL);
-          LODWORD(a9) = 0;
-          FillDpiInfo(&v202, &v221, (struct tagSIZE)v236, v137, v138, 0, v197, v199);
-        }
-        GetRemoteScaleOverrideTestHook(
-          (const unsigned __int16 *)(*(_QWORD *)(v128 + 2552) + 64LL),
-          v139,
-          (struct _DPI_INFORMATION *)(v128 + 2424));
-        ++v127;
-        *(_DWORD *)(v128 + 2516) = *(_DWORD *)(v128 + 2516) & 0xFFFFFF7F | ((unsigned __int8)v243 << 7);
-      }
-      while ( v127 < *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20) );
-      v66 = DeviceFromName;
-    }
-    UserSetScaleFactorsFromRemoteMetric(v126);
-    v219 = v140;
+    *(_QWORD *)&v35->Length = 1LL;
+    v35->Buffer = 0LL;
+    *(_QWORD *)&v35[1].Length = 0LL;
   }
   else
   {
-    *((_DWORD *)gpsi + 559) &= ~0x40u;
+    v36 = 0LL;
+    String1a = 0LL;
   }
-  v79 = v215;
-  *(_WORD *)(*(_QWORD *)&v63 + 1250LL) = (96 * v66[609] + 50) / 0x64;
-  v55 = Buf1;
-  AlignRects((struct tagRECT *)Buf1, v79);
-  v52 = (unsigned int *)Buf2;
-  if ( memcmp(v55, Buf2, 16LL * v79) )
-    WdLogSingleEntry0(3LL);
-  v81 = 0;
-  if ( *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20) )
+  if ( v36 )
   {
-    v82 = v55;
-    v80 = 0LL;
-    do
+    MULTIDEVLOCKOBJ::vInit(v36, (struct _MDEV *)v17);
+    if ( (*(_DWORD *)v36 & 1) != 0 )
     {
-      v83 = 56LL * v81;
-      v84 = *(_QWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + v83 + 40);
-      *(_QWORD *)(v84 + 2560) = v82[2 * v81];
-      v85 = *(void (__fastcall **)(__int64, __int64))(v84 + 3360);
-      if ( v85 )
+      MULTIDEVLOCKOBJ::vLock(v36);
+      v38 = *(_DWORD *)(v17 + 20);
+      v39 = 0;
+      if ( v38 )
       {
-        v85((*(_QWORD *)(v84 + 2528) + 24LL) & -(__int64)(*(_QWORD *)(v84 + 2528) != 0LL), 2LL);
-        v80 = 0LL;
-      }
-      v86 = *(_OWORD *)&v82[2 * v81++];
-      *(_OWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + v83 + 56) = v86;
-      *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + v83 + 72) = *(_DWORD *)(v84 + 2432);
-    }
-    while ( v81 < *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20) );
-    v52 = (unsigned int *)Buf2;
-    v55 = Buf1;
-  }
-  v87 = *(_QWORD *)(SGDGetSessionState(v80) + 24);
-  a9 = (struct D3DKMT_GETPATHSMODALITY *)v87;
-  if ( (unsigned int)bUniformSpaceDpiMode() )
-  {
-    v175 = 4 * *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20);
-    if ( v175 )
-    {
-      v176 = NSInstrumentation::CLeakTrackingAllocator::Allocate(gpLeakTrackingAllocator, 0x104uLL, v175, 0x73726447u);
-      if ( v176 )
-      {
-        v177 = *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20);
-        for ( ii = 0;
-              ii < v177;
-              v177 = *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20) )
-        {
-          v176[ii] = ii;
-          ++ii;
-        }
         do
         {
-          v179 = 0;
-          v180 = 0;
-          v181 = v177;
-          if ( v177 != 1 )
+          v40 = *(unsigned int **)(*(_QWORD *)(56LL * v39 + v17 + 40) + 2576LL);
+          v41 = v40[40];
+          if ( (v41 & 8) != 0 )
+          {
+            if ( (v41 & 4) != 0 )
+            {
+              v41 &= ~4u;
+              v40[40] = v41;
+            }
+            v43 = v41;
+            v42 = v41;
+          }
+          else
+          {
+            v42 = v40[40];
+            v43 = v40[40];
+            if ( !v34 )
+              v33 = v39;
+          }
+          if ( (v42 & 4) != 0 )
+          {
+            if ( v34 )
+            {
+              v189 = -1073741438;
+              v40[40] = v43 & 0xFFFFFFFB;
+            }
+            else
+            {
+              v34 = v40;
+              v33 = v39;
+            }
+          }
+          v38 = *(_DWORD *)(v17 + 20);
+          ++v39;
+        }
+        while ( v39 < v38 );
+        v218 = v33;
+        v219 = (struct _MDEV *)v34;
+      }
+      v44 = 16 * v38;
+      Buf2 = (void *)PALLOCMEM2(v44);
+      v45 = Buf2;
+      v46 = (struct D3DKMT_GETPATHSMODALITY *)PALLOCMEM2(v44);
+      a9 = v46;
+      v47 = (struct tagRECT *)v46;
+      if ( v45 )
+      {
+        if ( v46 )
+        {
+          v48 = 0;
+          v216 = 0;
+          v49 = 0;
+          if ( *(_DWORD *)(v17 + 20) )
           {
             do
             {
-              v182 = (unsigned int)(v180 + 1);
-              v183 = (unsigned int)v176[v182];
-              v184 = (unsigned int)v176[v180];
-              if ( *(_DWORD *)(56 * (v184 + 1)
-                             + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64) > *(_DWORD *)(56 * (v183 + 1) + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64) )
+              v50 = 2LL * v49;
+              v51 = *(_QWORD *)(56LL * v49 + v17 + 40);
+              v52 = *(_DWORD **)(v51 + 2592);
+              v45[2 * v50] = v52[19];
+              v45[2 * v50 + 1] = v52[20];
+              v45[2 * v50 + 2] = v52[19] + v52[43];
+              v45[2 * v50 + 3] = v52[20] + v52[44];
+              if ( (*(_DWORD *)(*(_QWORD *)(v51 + 2576) + 160LL) & 8) == 0 )
               {
-                v176[v180] = v183;
-                v179 = 1;
-                v176[v182] = v184;
+                if ( !v34 && !v52[19] && !v52[20] )
+                {
+                  v33 = v49;
+                  v34 = *(unsigned int **)(v51 + 2576);
+                }
+                ++v48;
               }
-              v181 = *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 20);
-              ++v180;
+              ++v49;
             }
-            while ( (unsigned int)v182 < v181 - 1 );
+            while ( v49 < *(_DWORD *)(v17 + 20) );
+            v36 = (MULTIDEVLOCKOBJ *)String1a;
+            v216 = v48;
+            v218 = v33;
+            v219 = (struct _MDEV *)v34;
           }
-          v177 = v181;
-        }
-        while ( v179 );
-        v185 = v181 - 1;
-        LODWORD(v186) = 0;
-        v187 = 0;
-        if ( v181 == 1 )
-        {
-LABEL_398:
-          v192 = &v176[(unsigned int)v186];
-          MapMonitorToUnifromSpaceInStripe(
-            (struct _MDEV *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-            *v192,
-            0xFFFFFFFF,
-            0,
-            Src);
-          v193 = v186;
-          if ( (unsigned int)v186 < *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64
-                                              + 20)
-                                  - 1 )
+          memmove(v47, v45, v44);
+          if ( !gDrvDpiAdjusted )
+          {
+            gDrvDpiWin8Style = 0;
+            a6 = 0;
+            if ( ((gProtocolType + 1) & 0xFFFE) == 0 && (int)IsGetWin8StyleDpiSettingFromRegistrySupported() >= 0 )
+            {
+              GetWin8StyleDpiSettingFromRegistry();
+              if ( gDrvDpiWin8Style )
+              {
+                DpiSettingWithNoDefaultSupported = IsGetDpiSettingWithNoDefaultSupported();
+                if ( DpiSettingWithNoDefaultSupported >= 0 && qword_1C02553E8 )
+                  qword_1C02553E8(0LL, &a6);
+                v160 = a6;
+                if ( (unsigned int)a6 <= 0x60 )
+                  v160 = 96;
+                if ( v160 >= 0x1E0 )
+                  LOWORD(v160) = 480;
+                gdmLogPixels = v160;
+              }
+            }
+          }
+          v53 = v33;
+          v54 = 0;
+          v55 = *(_QWORD *)(56 * v53 + v17 + 40);
+          v202 = v55;
+          *(_DWORD *)(*(_QWORD *)(v55 + 2576) + 160LL) |= 4u;
+          v56 = *(_DWORD *)(v17 + 20);
+          if ( v56 )
           {
             do
             {
-              v194 = (unsigned int)(v193 + 1);
-              MapMonitorToUnifromSpaceInStripe(
-                (struct _MDEV *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-                v176[v194],
-                v176[v193],
-                1,
-                Srca);
-              v193 = v194;
-            }
-            while ( (unsigned int)v194 < *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64
-                                                   + 20)
-                                       - 1 );
-            v55 = Buf1;
-          }
-          while ( (_DWORD)v186 )
-          {
-            v186 = (unsigned int)(v186 - 1);
-            MapMonitorToUnifromSpaceInStripe(
-              (struct _MDEV *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-              v176[v186],
-              *v192--,
-              0,
-              Srca);
-          }
-          *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 16) |= 2u;
-          *(_DWORD *)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 32) = 96;
-          *((_DWORD *)a9 + 330) = 1;
-        }
-        else
-        {
-          while ( 1 )
-          {
-            v188 = (unsigned int)(v187 + 1);
-            v189 = 56 * ((unsigned int)v176[v187] + 1LL);
-            v190 = 56 * ((unsigned int)v176[v188] + 1LL);
-            v191 = *(_DWORD *)(v190 + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64);
-            if ( *(_DWORD *)(v189 + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 8) != v191 )
-              break;
-            if ( *(_DWORD *)(v189 + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64)
-              || *(_DWORD *)(v189 + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 4) )
-            {
-              if ( !v191
-                && !*(_DWORD *)(v190 + UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 + 4) )
+              v57 = *(_QWORD *)(56LL * v54 + v17 + 40);
+              if ( (*(_DWORD *)(*(_QWORD *)(v57 + 2576) + 160LL) & 0x800000) != 0 )
               {
-                LODWORD(v186) = v187 + 1;
+                v58 = 0;
+                if ( v54 == v218 )
+                  v58 = 32;
+                *(_DWORD *)(v57 + 2548) = *(_DWORD *)(v57 + 2548) & 0xFFFFFFDF | v58;
+                a6 = ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64))qword_1C0250AA0)(
+                       *(_QWORD *)(*(_QWORD *)(v57 + 2576) + 240LL),
+                       *(unsigned int *)(*(_QWORD *)(v57 + 2576) + 256LL),
+                       v57 + 2136);
+                if ( a6 < 0 )
+                {
+                  v161 = (_QWORD *)WdLogNewEntry5_WdError(v60, v59);
+                  v161[3] = a6;
+                  v161[4] = *(_QWORD *)(*(_QWORD *)(v57 + 2576) + 240LL);
+                  v161[5] = *(unsigned int *)(*(_QWORD *)(v57 + 2576) + 256LL);
+                  WdLogEvent5_WdError(v161);
+                }
+              }
+              v56 = *(_DWORD *)(v17 + 20);
+              ++v54;
+            }
+            while ( v54 < v56 );
+            v55 = v202;
+            v34 = (unsigned int *)v219;
+            v36 = (MULTIDEVLOCKOBJ *)String1a;
+            v47 = (struct tagRECT *)a9;
+          }
+          v61 = 0;
+          if ( !gDrvDpiAdjusted )
+          {
+            gDrvDpiWin8Style = 0;
+            a6 = 0;
+            if ( (unsigned int)UserRemoteConnectedSessionUsingXddm() )
+            {
+              v106 = *(_DWORD *)(v55 + 3552);
+              if ( v106 )
+              {
+                v107 = (96 * HIWORD(v106) + 50) / 0x64u;
+              }
+              else
+              {
+                if ( wcsncmp(*((const wchar_t **)v34 + 25), L"WORKERDD", v34[66])
+                  && wcsncmp(*((const wchar_t **)v34 + 25), L"TSDDD", v34[66]) )
+                {
+                  gDrvDpiWin8Style = 1;
+                }
+                if ( qword_1C02568A0 )
+                  qword_1C02568A0(2LL, &a6);
+                v107 = a6;
+                if ( (unsigned int)a6 <= 0x60 )
+                  v107 = 96;
+                if ( v107 >= 0x1E0 )
+                  v107 = 480;
+                a6 = v107;
+              }
+              gdmLogPixels = v107;
+              v108 = 0;
+              v56 = *(_DWORD *)(v17 + 20);
+              if ( v56 )
+              {
+                do
+                {
+                  v109 = gdmLogPixels;
+                  v110 = v108++;
+                  v111 = *(_QWORD *)(56 * v110 + v17 + 40);
+                  *(_DWORD *)(v111 + 2180) = gdmLogPixels;
+                  *(_DWORD *)(v111 + 2176) = v109;
+                  *(_WORD *)(*(_QWORD *)(v111 + 2592) + 166LL) = gdmLogPixels;
+                  v56 = *(_DWORD *)(v17 + 20);
+                }
+                while ( v108 < v56 );
               }
             }
             else
             {
-              LODWORD(v186) = v187;
+              v112 = (96 * *(_DWORD *)(v55 + 2468) + 50) / 0x64u;
+              if ( (_WORD)v112 && qword_1C02568C0 )
+                qword_1C02568C0(1LL, (unsigned __int16)v112);
+              if ( (int)IsGetWin8StyleDpiSettingFromRegistrySupported() >= 0 )
+                GetWin8StyleDpiSettingFromRegistry();
+              if ( gDrvDpiWin8Style )
+              {
+                if ( (int)IsGetDpiSettingWithNoDefaultSupported() >= 0 && qword_1C02553E8 )
+                  qword_1C02553E8(0LL, &a6);
+                v114 = a6;
+                if ( (unsigned int)a6 <= 0x60 )
+                  v114 = 96;
+                if ( v114 >= 0x1E0 )
+                  v114 = 480;
+                a6 = v114;
+              }
+              else
+              {
+                v113 = *(_DWORD *)(v55 + 2464);
+                if ( v113 )
+                  v114 = (96 * v113 + 50) / 0x64u;
+                else
+                  LOWORD(v114) = 96;
+              }
+              gdmLogPixels = v114;
+              v115 = 0;
+              v56 = *(_DWORD *)(v17 + 20);
+              if ( v56 )
+              {
+                do
+                {
+                  v116 = gdmLogPixels;
+                  v117 = *(_QWORD *)(56LL * v115 + v17 + 40);
+                  v118 = *(_QWORD *)(v117 + 2592);
+                  *(_DWORD *)(v117 + 2180) = gdmLogPixels;
+                  *(_DWORD *)(v117 + 2176) = v116;
+                  *(_WORD *)(v118 + 166) = gdmLogPixels;
+                  if ( gDrvDpiWin8Style )
+                  {
+                    v162 = 100 * gdmLogPixels;
+                    *(_DWORD *)(v117 + 2540) = 1234568;
+                    *(_DWORD *)(v117 + 2464) = (v162 + 48) / 0x60u;
+                  }
+                  v56 = *(_DWORD *)(v17 + 20);
+                  ++v115;
+                }
+                while ( v115 < v56 );
+              }
             }
-            ++v187;
-            if ( (unsigned int)v188 >= v185 )
-              goto LABEL_398;
+            gDrvDpiAdjusted = 1;
+          }
+          if ( (unsigned int)UserRemoteConnectedSessionUsingXddm() )
+          {
+            v220 = 1;
+            v119 = 1;
+            if ( v56 )
+            {
+              do
+              {
+                v120 = *(_QWORD *)(56LL * v61 + v17 + 40);
+                v121 = *(_DWORD *)(v120 + 3552);
+                v122 = ((*(_DWORD *)(*(_QWORD *)(v120 + 2592) + 84LL) - 1) & 0xFFFFFFFD) == 0;
+                v123 = *(_DWORD *)(v120 + 2148);
+                LOBYTE(a6) = v122;
+                v124 = v123 / 0x3E8;
+                v125 = *(_DWORD *)(v120 + 2144) / 0x3E8u;
+                if ( v122 )
+                {
+                  v125 = v123 / 0x3E8;
+                  v124 = *(_DWORD *)(v120 + 2144) / 0x3E8u;
+                }
+                v126 = *(_DWORD *)(v120 + 2156);
+                v207 = (struct tagSIZE)__PAIR64__(v124, v125);
+                v127 = *(_DWORD *)(v120 + 2152);
+                v205 = v207;
+                v128 = v127;
+                if ( v122 )
+                  v128 = v126;
+                v208[0] = 1;
+                if ( v122 )
+                  v126 = v127;
+                v191 = (struct _devicemodeW *)__PAIR64__(v126, v128);
+                v206 = (struct tagSIZE)__PAIR64__(v126, v128);
+                v209 = v210;
+                *(_OWORD *)&v210[0].cx = 0LL;
+                v208[1] = 32;
+                v211 = 0LL;
+                if ( (int)DxgkEngQueryWin32Info((struct _DXGK_QUERY_WIN32_INFO *)v208) < 0 )
+                {
+                  v163 = WdLogNewEntry5_WdAssertion(v130, v129);
+                  WdLogEvent5_WdAssertion(v163);
+                }
+                v187 = (struct _DPI_INFORMATION *)(v120 + 2456);
+                if ( v121 )
+                {
+                  FillDpiInfo(&v205, &v206, (struct tagSIZE)v210, v131, 0, HIWORD(v121), v185, v187);
+                  *(_DWORD *)(v120 + 2548) |= 0x200u;
+                  v119 = v220;
+                }
+                else
+                {
+                  *(_DWORD *)(v120 + 2548) &= ~0x200u;
+                  v119 = 0;
+                  v220 = 0;
+                  FillDpiInfo(&v205, &v206, (struct tagSIZE)v210, v131, gdmLogPixels, 0, v185, v187);
+                }
+                GetRemoteScaleOverrideTestHook(
+                  (const unsigned __int16 *)(*(_QWORD *)(v120 + 2576) + 64LL),
+                  v132,
+                  (struct _DPI_INFORMATION *)(v120 + 2456));
+                ++v61;
+                *(_DWORD *)(v120 + 2548) = *(_DWORD *)(v120 + 2548) & 0xFFFFFF7F | ((unsigned __int8)a6 << 7);
+              }
+              while ( v61 < *(_DWORD *)(v17 + 20) );
+              v55 = v202;
+              v47 = (struct tagRECT *)a9;
+            }
+            UserSetScaleFactorsFromRemoteMetric(v119);
+            v206.cx = 1;
+          }
+          else
+          {
+            *((_DWORD *)gpsi + 559) &= ~0x40u;
+          }
+          gdmLogPixelsOfPrimary = (96 * *(_DWORD *)(v55 + 2468) + 50) / 0x64u;
+          AlignRects(v47, v216);
+          v45 = Buf2;
+          if ( memcmp(v47, Buf2, 16LL * v216) )
+          {
+            v164 = WdLogNewEntry5_WdWarning();
+            WdLogEvent5_WdWarning(v164);
+          }
+          v62 = 0;
+          if ( *(_DWORD *)(v17 + 20) )
+          {
+            do
+            {
+              v63 = 56LL * v62;
+              v64 = *(_QWORD *)(v63 + v17 + 40);
+              *(_QWORD *)(v64 + 2584) = *(_QWORD *)&v47[v62].left;
+              v65 = *(void (__fastcall **)(__int64, __int64))(v64 + 3384);
+              if ( v65 )
+                v65((*(_QWORD *)(v64 + 2552) + 24LL) & -(__int64)(*(_QWORD *)(v64 + 2552) != 0LL), 2LL);
+              v66 = v47[v62++];
+              *(struct tagRECT *)(v63 + v17 + 56) = v66;
+              *(_DWORD *)(v63 + v17 + 72) = *(_DWORD *)(v64 + 2464);
+            }
+            while ( v62 < *(_DWORD *)(v17 + 20) );
+            v36 = (MULTIDEVLOCKOBJ *)String1a;
+            v45 = Buf2;
+          }
+          if ( (unsigned int)bUniformSpaceDpiMode() )
+          {
+            v165 = PALLOCMEM2((unsigned int)(4 * *(_DWORD *)(v17 + 20)));
+            if ( v165 )
+            {
+              v166 = *(_DWORD *)(v17 + 20);
+              v167 = 0;
+              if ( v166 )
+              {
+                do
+                {
+                  *(_DWORD *)(v165 + 4LL * v167) = v167;
+                  ++v167;
+                  v166 = *(_DWORD *)(v17 + 20);
+                }
+                while ( v167 < v166 );
+                v36 = (MULTIDEVLOCKOBJ *)String1a;
+              }
+              do
+              {
+                v168 = 0;
+                v169 = 0;
+                if ( v166 == 1 )
+                {
+                  v166 = *(_DWORD *)(v17 + 20);
+                }
+                else
+                {
+                  do
+                  {
+                    v170 = v169 + 1;
+                    v171 = *(unsigned int *)(v165 + 4 * v170);
+                    v172 = *(unsigned int *)(v165 + 4LL * v169);
+                    if ( *(_DWORD *)(56 * (v172 + 1) + v17) > *(_DWORD *)(56 * (v171 + 1) + v17) )
+                    {
+                      *(_DWORD *)(v165 + 4LL * v169) = v171;
+                      v168 = 1;
+                      *(_DWORD *)(v165 + 4 * v170) = v172;
+                    }
+                    v166 = *(_DWORD *)(v17 + 20);
+                    ++v169;
+                  }
+                  while ( (unsigned int)v170 < v166 - 1 );
+                }
+              }
+              while ( v168 );
+              v47 = (struct tagRECT *)a9;
+              v173 = v166 - 1;
+              LODWORD(v174) = 0;
+              v175 = 0;
+              if ( v166 == 1 )
+              {
+LABEL_352:
+                v180 = (unsigned int *)(v165 + 4LL * (unsigned int)v174);
+                MapMonitorToUnifromSpaceInStripe((struct _MDEV *)v17, *v180, 0xFFFFFFFF, 0, Src);
+                v181 = v174;
+                if ( (unsigned int)v174 < *(_DWORD *)(v17 + 20) - 1 )
+                {
+                  do
+                  {
+                    v182 = v181 + 1;
+                    MapMonitorToUnifromSpaceInStripe(
+                      (struct _MDEV *)v17,
+                      *(_DWORD *)(v165 + 4 * v182),
+                      *(_DWORD *)(v165 + 4LL * v181),
+                      1,
+                      Srca);
+                    v181 = v182;
+                  }
+                  while ( (unsigned int)v182 < *(_DWORD *)(v17 + 20) - 1 );
+                  v47 = (struct tagRECT *)a9;
+                }
+                while ( (_DWORD)v174 )
+                {
+                  v174 = (unsigned int)(v174 - 1);
+                  MapMonitorToUnifromSpaceInStripe((struct _MDEV *)v17, *(_DWORD *)(v165 + 4 * v174), *v180--, 0, Srca);
+                }
+                *(_DWORD *)(v17 + 16) |= 2u;
+                *(_DWORD *)(v17 + 32) = 96;
+                gbUniformSpaceDpiMode = 1;
+              }
+              else
+              {
+                while ( 1 )
+                {
+                  v176 = v175 + 1;
+                  v177 = 56 * (*(unsigned int *)(v165 + 4LL * v175) + 1LL);
+                  v178 = 56 * (*(unsigned int *)(v165 + 4 * v176) + 1LL);
+                  v179 = *(_DWORD *)(v178 + v17);
+                  if ( *(_DWORD *)(v177 + v17 + 8) != v179 )
+                    break;
+                  if ( *(_DWORD *)(v177 + v17) || *(_DWORD *)(v177 + v17 + 4) )
+                  {
+                    if ( !v179 && !*(_DWORD *)(v178 + v17 + 4) )
+                      LODWORD(v174) = v175 + 1;
+                  }
+                  else
+                  {
+                    LODWORD(v174) = v175;
+                  }
+                  ++v175;
+                  if ( (unsigned int)v176 >= v173 )
+                    goto LABEL_352;
+                }
+              }
+              Win32FreePool(v165);
+              v45 = Buf2;
+            }
+          }
+          else
+          {
+            gbUniformSpaceDpiMode = 0;
           }
         }
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v176);
+        Win32FreePool(v45);
       }
-      v52 = (unsigned int *)Buf2;
+      if ( v47 )
+        Win32FreePool(v47);
+      MULTIDEVLOCKOBJ::vUnlock(v36);
+      if ( v206.cx )
+        ZwUpdateWnfStateData(&WNF_SPI_LOGICALDPIOVERRIDE, 0LL, 0LL, 0LL, &gSessionId, 0, 0);
     }
+    MULTIDEVLOCKOBJ::`scalar deleting destructor'(v36, v37);
+    goto LABEL_87;
   }
-  else
+LABEL_300:
+  if ( v17 )
   {
-    *(_DWORD *)(v87 + 1320) = 0;
+    DrvBackoutMDEV((struct _MDEV *)v17, v15);
+    Win32FreePool(v17);
+    v17 = 0LL;
   }
-  v54 = (MULTIDEVLOCKOBJ *)v207;
-LABEL_119:
-  NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v52);
-LABEL_120:
-  v44 = v54;
-  if ( v55 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v55);
-LABEL_122:
-  MULTIDEVLOCKOBJ::vUnlock(v54);
-  v91 = v234;
-  Buf2 = v234;
-  if ( v219 )
-  {
-    v211 = *(_DWORD *)SGDGetUserSessionState(v88, v22, v89, v90);
-    ZwUpdateWnfStateData(&WNF_SPI_LOGICALDPIOVERRIDE, 0LL, 0LL, 0LL, &v211);
-    Buf2 = v91;
-  }
-  v45 = (int)a5;
-  if ( v44 )
-LABEL_125:
-    MULTIDEVLOCKOBJ::`scalar deleting destructor'(v44);
-  if ( v45 < 0 )
-    goto LABEL_352;
-LABEL_127:
-  if ( Buf2 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, Buf2);
-LABEL_129:
-  WdLogSingleEntry1(5LL, UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64);
-  return (struct _MDEV *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64;
+LABEL_88:
+  if ( v198 )
+    Win32FreePool(v198);
+LABEL_90:
+  v67 = WdLogNewEntry5_WdTrace(v16, v15);
+  *(_QWORD *)(v67 + 24) = v17;
+  WdLogEvent5_WdTrace(v67);
+  return (struct _MDEV *)v17;
 }

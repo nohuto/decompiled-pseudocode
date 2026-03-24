@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpPrefetchVirtualAddresses @ 0x14030CD30
+ * XREFs of VmpPrefetchVirtualAddresses @ 0x14030CE30
  * Callers:
- *     VmpPrefetchWorker @ 0x1408B0AD0 (VmpPrefetchWorker.c)
+ *     VmpPrefetchWorker @ 0x1408B0AB0 (VmpPrefetchWorker.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExGetExtensionTable @ 0x14010DBE4 (ExGetExtensionTable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     VmpFillGpnRanges @ 0x14030C2E8 (VmpFillGpnRanges.c)
- *     VmpProcessContextLockShared @ 0x14030D104 (VmpProcessContextLockShared.c)
+ *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     VmpFillGpnRanges @ 0x14030C3E8 (VmpFillGpnRanges.c)
+ *     VmpProcessContextLockShared @ 0x14030D204 (VmpProcessContextLockShared.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

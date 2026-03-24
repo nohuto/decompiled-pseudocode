@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCaptureRegistryData @ 0x1408BC1BC
+ * XREFs of EtwpCaptureRegistryData @ 0x1408BC19C
  * Callers:
- *     EtwpRegTraceCallback @ 0x1408BC250 (EtwpRegTraceCallback.c)
+ *     EtwpRegTraceCallback @ 0x1408BC230 (EtwpRegTraceCallback.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

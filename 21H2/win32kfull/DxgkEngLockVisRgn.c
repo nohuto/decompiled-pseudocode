@@ -1,23 +1,28 @@
 /*
- * XREFs of DxgkEngLockVisRgn @ 0x1C0275320
+ * XREFs of DxgkEngLockVisRgn @ 0x1C0277B80
  * Callers:
  *     <none>
  * Callees:
- *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0091AE4 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
- *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00920F0 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0017954 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
  */
 
 __int64 __fastcall DxgkEngLockVisRgn(HDC a1)
 {
   __int64 v1; // rbx
-  __int64 *v3[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v2; // rdi
+  __int64 *v4; // [rsp+20h] [rbp-18h] BYREF
+  int v5; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = 0LL;
-  MDCOBJA::MDCOBJA((MDCOBJA *)v3, a1);
-  if ( v3[0] )
+  MDCOBJA::MDCOBJA((MDCOBJA *)&v4, a1);
+  if ( v4 )
   {
-    v1 = v3[0][6];
-    XDCOBJ::vAltUnlockFast(v3);
+    v5 = 0;
+    v2 = *v4;
+    v1 = v4[6];
+    HmgDecrementShareReferenceCountEx(v4, &v5);
+    if ( v5 )
+      bDeleteDCInternalEx(v2, 0LL);
   }
   return v1;
 }

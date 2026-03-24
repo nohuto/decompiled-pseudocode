@@ -1,20 +1,34 @@
 /*
- * XREFs of ?NtGdiGetDeviceCapsAllInternal@@YAHAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C00CD50C
+ * XREFs of ?NtGdiGetDeviceCapsAllInternal@@YAHAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C00CA6F0
  * Callers:
- *     NtGdiGetDeviceCapsAll @ 0x1C00CD460 (NtGdiGetDeviceCapsAll.c)
+ *     NtGdiGetDeviceCapsAll @ 0x1C0142390 (NtGdiGetDeviceCapsAll.c)
  * Callees:
- *     ?vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C0078DE0 (-vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z.c)
+ *     ?vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C0099BB0 (-vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
-__int64 __fastcall NtGdiGetDeviceCapsAllInternal(struct PDEVOBJ *a1, struct _DEVCAPS *a2)
+__int64 __fastcall NtGdiGetDeviceCapsAllInternal(struct PDEVOBJ *this, struct _DEVCAPS *a2)
 {
-  struct _DEVCAPS *v2; // r9
+  struct _DEVCAPS *v2; // rbx
+  _OWORD v5[9]; // [rsp+20h] [rbp-98h] BYREF
 
   v2 = a2;
   if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+    a2 = (struct _DEVCAPS *)MmUserProbeAddress;
+  *(_BYTE *)a2 = *(_BYTE *)a2;
+  *((_BYTE *)a2 + 143) = *((_BYTE *)a2 + 143);
+  memset(v5, 0, sizeof(v5));
+  vGetDeviceCaps(this, (struct _DEVCAPS *)v5);
+  if ( (unsigned __int64)v2 >= MmUserProbeAddress )
     v2 = (struct _DEVCAPS *)MmUserProbeAddress;
-  *(_BYTE *)v2 = *(_BYTE *)v2;
-  *((_BYTE *)v2 + 143) = *((_BYTE *)v2 + 143);
-  vGetDeviceCaps(a1, a2);
+  *(_OWORD *)v2 = v5[0];
+  *((_OWORD *)v2 + 1) = v5[1];
+  *((_OWORD *)v2 + 2) = v5[2];
+  *((_OWORD *)v2 + 3) = v5[3];
+  *((_OWORD *)v2 + 4) = v5[4];
+  *((_OWORD *)v2 + 5) = v5[5];
+  *((_OWORD *)v2 + 6) = v5[6];
+  *((_OWORD *)v2 + 7) = v5[7];
+  *((_OWORD *)v2 + 8) = v5[8];
   return 1LL;
 }

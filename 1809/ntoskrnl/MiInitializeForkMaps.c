@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeForkMaps @ 0x1402CA778
+ * XREFs of MiInitializeForkMaps @ 0x1402CA878
  * Callers:
- *     MiCloneVads @ 0x1402C8A68 (MiCloneVads.c)
+ *     MiCloneVads @ 0x1402C8B68 (MiCloneVads.c)
  * Callees:
- *     MiMapSinglePage @ 0x14012185C (MiMapSinglePage.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiMapSinglePage @ 0x14012187C (MiMapSinglePage.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 _BOOL8 __fastcall MiInitializeForkMaps(__int64 a1, _QWORD *a2)

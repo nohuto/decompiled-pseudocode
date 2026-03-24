@@ -1,51 +1,52 @@
 /*
- * XREFs of PiDmRemoveCacheReferenceForObject @ 0x14076A0A8
+ * XREFs of PiDmRemoveCacheReferenceForObject @ 0x1407488F8
  * Callers:
- *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x140768E44 (PiPnpRtlFreeInstallerClassChangeInfo.c)
- *     IopProcessSetInterfaceState @ 0x140769170 (IopProcessSetInterfaceState.c)
- *     IopRegisterDeviceInterface @ 0x140769C24 (IopRegisterDeviceInterface.c)
- *     PiPnpRtlObjectEventWorker @ 0x140778830 (PiPnpRtlObjectEventWorker.c)
- *     PiPnpRtlCmActionCallback @ 0x140779F10 (PiPnpRtlCmActionCallback.c)
- *     PiDmListInitEnumCallback @ 0x14083F090 (PiDmListInitEnumCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
+ *     IopRegisterDeviceInterface @ 0x140748470 (IopRegisterDeviceInterface.c)
+ *     IopProcessSetInterfaceState @ 0x1407490DC (IopProcessSetInterfaceState.c)
+ *     PiPnpRtlObjectEventWorker @ 0x14074A010 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x140771E2C (PiPnpRtlFreeInstallerClassChangeInfo.c)
+ *     PiDmListInitEnumCallback @ 0x14078F090 (PiDmListInitEnumCallback.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1402DECF0 (RtlDeleteElementGenericTableAvl.c)
- *     PiDmLookupObject @ 0x14077B12C (PiDmLookupObject.c)
- *     PiDmGetObjectManagerForObjectType @ 0x14077B33C (PiDmGetObjectManagerForObjectType.c)
- *     PiDmObjectRelease @ 0x14077B394 (PiDmObjectRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PiDmLookupObject @ 0x140636AFC (PiDmLookupObject.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x140636D90 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
  */
 
-__int64 __fastcall PiDmRemoveCacheReferenceForObject(__int64 a1, __int64 a2)
+__int64 __fastcall PiDmRemoveCacheReferenceForObject(int a1, __int64 a2, unsigned int *a3)
 {
-  unsigned int v3; // edi
-  __int64 ObjectManagerForObjectType; // rsi
+  unsigned int v4; // edi
+  void *ObjectManagerForObjectType; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _DWORD *v6; // rax
-  PVOID Buffer; // [rsp+48h] [rbp+20h] BYREF
+  unsigned int *v7; // rax
+  unsigned int *Buffer; // [rsp+40h] [rbp+18h] BYREF
 
-  v3 = 0;
+  Buffer = a3;
+  v4 = 0;
   ObjectManagerForObjectType = PiDmGetObjectManagerForObjectType(a1);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite((PERESOURCE)ObjectManagerForObjectType, 1u);
-  v6 = (_DWORD *)PiDmLookupObject(ObjectManagerForObjectType, a2);
-  Buffer = v6;
-  if ( v6 )
+  v7 = (unsigned int *)PiDmLookupObject((__int64)ObjectManagerForObjectType, a2);
+  Buffer = v7;
+  if ( v7 )
   {
-    --v6[3];
-    if ( !*((_DWORD *)Buffer + 3) )
+    --v7[3];
+    if ( !Buffer[3] )
     {
-      RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(ObjectManagerForObjectType + 104), &Buffer);
+      RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)ObjectManagerForObjectType + 1, &Buffer);
       PiDmObjectRelease(Buffer);
     }
   }
   else
   {
-    v3 = -1073741772;
+    v4 = -1073741772;
   }
   ExReleaseResourceLite((PERESOURCE)ObjectManagerForObjectType);
-  KeLeaveCriticalRegion();
-  return v3;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return v4;
 }

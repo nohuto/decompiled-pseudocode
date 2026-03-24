@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z @ 0x1800E2FEC
+ * XREFs of ??0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z @ 0x18002A00C
  * Callers:
- *     ?CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ @ 0x1800D0228 (-CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ.c)
+ *     ?CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ @ 0x18002AF30 (-CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ.c)
  * Callees:
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18003A394 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     ?Reset@CBatchOptimizer@@AEAAXXZ @ 0x1800E3040 (-Reset@CBatchOptimizer@@AEAAXXZ.c)
+ *     ?Reset@CBatchOptimizer@@AEAAXXZ @ 0x180092A30 (-Reset@CBatchOptimizer@@AEAAXXZ.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x180094E70 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 CBatchOptimizer *__fastcall CBatchOptimizer::CBatchOptimizer(CBatchOptimizer *this, struct CDrawListBatchManager *a2)
@@ -15,9 +15,9 @@ CBatchOptimizer *__fastcall CBatchOptimizer::CBatchOptimizer(CBatchOptimizer *th
   *(_QWORD *)this = &CBatchOptimizer::`vftable';
   `vector constructor iterator'(
     (char *)this + 80,
-    520LL,
-    8LL,
-    (void (__fastcall *)(char *))SharedStateLayer::SharedStateLayer);
+    0x208uLL,
+    8uLL,
+    (void *(*)(void *))SharedStateLayer::SharedStateLayer);
   CBatchOptimizer::Reset(this);
   return this;
 }

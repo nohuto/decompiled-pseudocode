@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCalloutStart @ 0x140882890
+ * XREFs of TtmiLogCalloutStart @ 0x140882870
  * Callers:
- *     TtmpStartCallout @ 0x14087E600 (TtmpStartCallout.c)
+ *     TtmpStartCallout @ 0x14087E5E0 (TtmpStartCallout.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogCalloutStart(int a1, __int64 a2, int a3, int a4)
@@ -68,7 +68,7 @@ char __fastcall TtmiLogCalloutStart(int a1, __int64 a2, int a3, int a4)
       v25 = 2;
       v28[0] = 4;
       v30 = 4;
-      LOBYTE(v4) = TlgWrite(&stru_14096D820, &unk_140372531, 0LL, 0LL, 8u, &pData);
+      LOBYTE(v4) = TlgWrite(&stru_14096D820, &unk_140372519, 0LL, 0LL, 8u, &pData);
     }
   }
   return (char)v4;

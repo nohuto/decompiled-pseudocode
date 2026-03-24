@@ -1,32 +1,27 @@
 /*
- * XREFs of ?SetBufferProperty@CRemoteAppRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0225E90
+ * XREFs of ?SetBufferProperty@CRemoteAppRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01ECB50
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CRemoteAppRenderTargetMarshaler::SetBufferProperty(
         DirectComposition::CRemoteAppRenderTargetMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        const void *a4,
-        size_t Size,
+        _OWORD *a4,
+        unsigned __int64 a5,
         bool *a6)
 {
-  unsigned int v6; // ebx
+  __int64 result; // rax
 
-  v6 = 0;
+  result = 0LL;
   *a6 = 0;
-  if ( a3 == 1 && Size == 16 )
-  {
-    memmove((char *)this + 72, a4, 0x10uLL);
-    *((_DWORD *)this + 4) |= 0x80u;
-    *a6 = 1;
-  }
-  else
-  {
-    return (unsigned int)-1073741811;
-  }
-  return v6;
+  if ( a3 != 1 || a5 != 16 )
+    return 3221225485LL;
+  *(_OWORD *)((char *)this + 72) = *a4;
+  *((_DWORD *)this + 4) |= 0x80u;
+  *a6 = 1;
+  return result;
 }

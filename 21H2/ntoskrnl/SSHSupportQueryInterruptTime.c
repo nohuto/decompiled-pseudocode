@@ -1,9 +1,9 @@
 /*
- * XREFs of SSHSupportQueryInterruptTime @ 0x14036C1F4
+ * XREFs of SSHSupportQueryInterruptTime @ 0x140580D2C
  * Callers:
- *     SleepstudyHelperBuildBlocker @ 0x1407F1400 (SleepstudyHelperBuildBlocker.c)
- *     SshpSessionManagerInterruptTimeToSystemTime @ 0x140807E5C (SshpSessionManagerInterruptTimeToSystemTime.c)
- *     SshpWnfCallback @ 0x1408097A0 (SshpWnfCallback.c)
+ *     SleepstudyHelperBuildBlocker @ 0x1406B78F0 (SleepstudyHelperBuildBlocker.c)
+ *     SshpSendSessionData @ 0x1408FACA8 (SshpSendSessionData.c)
+ *     SshpWnfCallback @ 0x1408FBB50 (SshpWnfCallback.c)
  * Callees:
  *     <none>
  */

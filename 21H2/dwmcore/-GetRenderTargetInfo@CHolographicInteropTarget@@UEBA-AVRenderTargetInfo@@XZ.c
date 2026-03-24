@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRenderTargetInfo@CHolographicInteropTarget@@UEBA?AVRenderTargetInfo@@XZ @ 0x1800FC740
+ * XREFs of ?GetRenderTargetInfo@CHolographicInteropTarget@@UEBA?AVRenderTargetInfo@@XZ @ 0x1800E3830
  * Callers:
  *     <none>
  * Callees:

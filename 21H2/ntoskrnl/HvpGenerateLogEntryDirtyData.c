@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpGenerateLogEntryDirtyData @ 0x14020A620
+ * XREFs of HvpGenerateLogEntryDirtyData @ 0x140268570
  * Callers:
- *     HvpGenerateLogEntry @ 0x140688318 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x140721960 (HvpGenerateLogEntry.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140209960 (RtlNumberOfSetBits.c)
- *     HvpCopyDataToOffsetArray @ 0x14020A70C (HvpCopyDataToOffsetArray.c)
- *     CmpLogDirtyVectorUse @ 0x140688290 (CmpLogDirtyVectorUse.c)
- *     HvpCountSetRangesInVector @ 0x14079878C (HvpCountSetRangesInVector.c)
- *     HvpFindNextDirtyBlock @ 0x14079AE04 (HvpFindNextDirtyBlock.c)
+ *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
+ *     HvpCopyDataToOffsetArray @ 0x14026A190 (HvpCopyDataToOffsetArray.c)
+ *     HvpFindNextDirtyBlock @ 0x14064611C (HvpFindNextDirtyBlock.c)
+ *     HvpCountSetRangesInVector @ 0x1406463C4 (HvpCountSetRangesInVector.c)
+ *     CmpLogDirtyVectorUse @ 0x140721BE0 (CmpLogDirtyVectorUse.c)
  */
 
 __int64 __fastcall HvpGenerateLogEntryDirtyData(

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022E730
+ * XREFs of ?SetIntegerProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F5790
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022E260 (-SetIntegerProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChanne.c)
+ *     ?SetIntegerProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F52A0 (-SetIntegerProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChanne.c)
  */
 
 __int64 __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::SetIntegerProperty(
@@ -19,21 +19,21 @@ __int64 __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshale
   *a5 = 0;
   switch ( a3 )
   {
-    case 10:
-      *((_QWORD *)this + 24) = a4;
+    case 9:
+      *((_QWORD *)this + 23) = a4;
       goto LABEL_9;
-    case 12:
-      if ( ((_DWORD)a4 != 0) == *((_BYTE *)this + 204) )
+    case 11:
+      if ( ((_DWORD)a4 != 0) == *((_BYTE *)this + 196) )
         return v5;
-      *((_DWORD *)this + 4) |= 0x4000u;
-      *((_BYTE *)this + 204) = (_DWORD)a4 != 0;
+      *((_DWORD *)this + 4) |= 0x2000u;
+      *((_BYTE *)this + 196) = (_DWORD)a4 != 0;
 LABEL_10:
       *a5 = 1;
       return v5;
-    case 13:
-      *((_DWORD *)this + 50) = a4;
+    case 12:
+      *((_DWORD *)this + 48) = a4;
 LABEL_9:
-      *((_DWORD *)this + 4) |= 0x4000u;
+      *((_DWORD *)this + 4) |= 0x2000u;
       goto LABEL_10;
   }
   return (unsigned int)DirectComposition::CCaptureRenderTargetMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z @ 0x1C0298D50
+ * XREFs of ?DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z @ 0x1C0160818
  * Callers:
- *     UMPDCachedResourceCleanupWrap @ 0x1C00A4000 (UMPDCachedResourceCleanupWrap.c)
- *     ?FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ @ 0x1C0298DC4 (-FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ.c)
- *     ?vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C029A258 (-vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z.c)
+ *     FreeNonCachedUserMemWrap @ 0x1C0100D10 (FreeNonCachedUserMemWrap.c)
+ *     ?vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C0110AF8 (-vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z.c)
+ *     ?FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ @ 0x1C02934DC (-FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

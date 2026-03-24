@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlSizeHeap @ 0x1402ED890
+ * XREFs of RtlSizeHeap @ 0x1402ED990
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSizeHeapInternal @ 0x1402F2CA4 (RtlpSizeHeapInternal.c)
- *     RtlpLogHeapFailure @ 0x1402FB738 (RtlpLogHeapFailure.c)
+ *     RtlpSizeHeapInternal @ 0x1402F2DA4 (RtlpSizeHeapInternal.c)
+ *     RtlpLogHeapFailure @ 0x1402FB838 (RtlpLogHeapFailure.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

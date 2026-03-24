@@ -1,17 +1,17 @@
 /*
- * XREFs of IoInvalidateDeviceRelations @ 0x140358990
+ * XREFs of IoInvalidateDeviceRelations @ 0x14036F560
  * Callers:
- *     PiSwProcessParentStartIrp @ 0x1407E13C8 (PiSwProcessParentStartIrp.c)
- *     IopPnPDispatch @ 0x1407EB5A0 (IopPnPDispatch.c)
- *     PiSwIrpStartCreateWorker @ 0x14081B5CC (PiSwIrpStartCreateWorker.c)
- *     PiSwGetChildPdo @ 0x1408495C0 (PiSwGetChildPdo.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x140963800 (PiProfileUpdateDeviceTreeCallback.c)
- *     PiSwCloseDevice @ 0x140967170 (PiSwCloseDevice.c)
- *     PiSwProcessRemove @ 0x140967780 (PiSwProcessRemove.c)
+ *     PiSwProcessRemove @ 0x140732F28 (PiSwProcessRemove.c)
+ *     PiSwCloseDevice @ 0x140734D40 (PiSwCloseDevice.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074CF08 (PiSwIrpStartCreateWorker.c)
+ *     IopPnPDispatch @ 0x14074EF40 (IopPnPDispatch.c)
+ *     PiSwProcessParentStartIrp @ 0x14076D458 (PiSwProcessParentStartIrp.c)
+ *     PiSwGetChildPdo @ 0x1407705FC (PiSwGetChildPdo.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1408AB0D0 (PiProfileUpdateDeviceTreeCallback.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x140358A44 (PnpRequestDeviceAction.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     PnpRequestDeviceAction @ 0x14036F614 (PnpRequestDeviceAction.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 void __stdcall IoInvalidateDeviceRelations(PDEVICE_OBJECT DeviceObject, DEVICE_RELATION_TYPE Type)
@@ -21,9 +21,11 @@ void __stdcall IoInvalidateDeviceRelations(PDEVICE_OBJECT DeviceObject, DEVICE_R
   UNICODE_STRING *p_DriverName; // rcx
   char *v6; // rcx
   unsigned __int16 *v7; // rdi
-  _WORD *v8; // rcx
-  __int64 v9; // rax
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v9; // rcx
   __int64 v10; // rcx
+  _WORD *v11; // rcx
+  __int64 v12; // rcx
 
   if ( !DeviceObject )
     goto LABEL_21;
@@ -48,26 +50,32 @@ void __stdcall IoInvalidateDeviceRelations(PDEVICE_OBJECT DeviceObject, DEVICE_R
     if ( v6 )
     {
       v7 = (unsigned __int16 *)(v6 + 40);
-      IoAddTriageDumpDataBlock((ULONG)v6, (PVOID)0x388);
+      IoAddTriageDumpDataBlock((ULONG)v6, (PVOID)0x310);
       if ( *v7 )
       {
         IoAddTriageDumpDataBlock((ULONG)v7, (PVOID)2);
         IoAddTriageDumpDataBlock(*((_QWORD *)v7 + 1), (PVOID)*v7);
       }
-      v8 = (char *)DeviceObject->DeviceObjectExtension->DeviceNode + 56;
-      if ( *v8 )
+      DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
+      v9 = (char *)DeviceObjectExtension->DeviceNode + 56;
+      if ( *v9 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v8, (PVOID)2);
+        IoAddTriageDumpDataBlock((ULONG)v9, (PVOID)2);
         IoAddTriageDumpDataBlock(
           *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 8),
           (PVOID)*((unsigned __int16 *)DeviceObject->DeviceObjectExtension->DeviceNode + 28));
+        DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
       }
-      v9 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
-      if ( v9 && *(_WORD *)(v9 + 56) )
+      v10 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+      if ( v10 )
       {
-        IoAddTriageDumpDataBlock(v9 + 56, (PVOID)2);
-        v10 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(v10 + 64), (PVOID)*(unsigned __int16 *)(v10 + 56));
+        v11 = (_WORD *)(v10 + 56);
+        if ( *v11 )
+        {
+          IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)2);
+          v12 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
+          IoAddTriageDumpDataBlock(*(_QWORD *)(v12 + 64), (PVOID)*(unsigned __int16 *)(v12 + 56));
+        }
       }
     }
 LABEL_21:

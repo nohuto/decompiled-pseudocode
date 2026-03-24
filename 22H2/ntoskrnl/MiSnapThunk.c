@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSnapThunk @ 0x1406AE4E0
+ * XREFs of MiSnapThunk @ 0x14075CE50
  * Callers:
- *     MiResolveImageReferences @ 0x1406AE044 (MiResolveImageReferences.c)
- *     MiSnapThunk @ 0x1406AE4E0 (MiSnapThunk.c)
+ *     MiResolveImageReferences @ 0x14075C9FC (MiResolveImageReferences.c)
+ *     MiSnapThunk @ 0x14075CE50 (MiSnapThunk.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x140214A40 (RtlImageDirectoryEntryToData.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     strchr @ 0x1403DAA40 (strchr.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     MiSnapThunk @ 0x1406AE4E0 (MiSnapThunk.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     RtlPrefixString @ 0x1407C39E0 (RtlPrefixString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlImageDirectoryEntryToData @ 0x140252B30 (RtlImageDirectoryEntryToData.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     strchr @ 0x1403D2FF0 (strchr.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlPrefixString @ 0x140679630 (RtlPrefixString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     MiSnapThunk @ 0x14075CE50 (MiSnapThunk.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiSnapThunk(__int64 a1, __int64 a2, __int64 *a3, char **a4, unsigned __int16 *a5)
@@ -21,8 +21,8 @@ __int64 __fastcall MiSnapThunk(__int64 a1, __int64 a2, __int64 *a3, char **a4, u
   unsigned __int64 v9; // r8
   __int64 v10; // rax
   unsigned __int16 *v11; // rcx
-  unsigned __int16 *v12; // r15
-  __int64 v13; // rsi
+  unsigned __int16 *v12; // rsi
+  __int64 v13; // r14
   __int64 v14; // rdx
   __int64 v15; // rbx
   unsigned int v16; // r10d
@@ -34,12 +34,12 @@ __int64 __fastcall MiSnapThunk(__int64 a1, __int64 a2, __int64 *a3, char **a4, u
   unsigned __int16 v22; // dx
   char *v23; // rbx
   int v25; // r9d
-  int v26; // eax
-  unsigned __int16 *v27; // rcx
+  int v26; // ecx
+  unsigned __int16 *v27; // rax
   int v28; // edx
   __int64 v29; // r11
   char v30; // r10
-  int v31; // ecx
+  int v31; // eax
   unsigned __int16 v32; // r14
   PVOID *v33; // rdi
   unsigned int v34; // esi
@@ -62,127 +62,127 @@ __int64 __fastcall MiSnapThunk(__int64 a1, __int64 a2, __int64 *a3, char **a4, u
     return 3221226083LL;
   v10 = *a3;
   v11 = a5;
-  if ( *a3 < 0 )
+  if ( *a3 >= 0 )
   {
     if ( !a5 )
+      v11 = (unsigned __int16 *)(v10 + v7);
+LABEL_5:
+    v12 = v11 + 1;
+    v13 = a1 + *(unsigned int *)(v9 + 32);
+    v14 = *v11;
+    v15 = a1 + *(unsigned int *)(v9 + 36);
+    v16 = *(_DWORD *)(v9 + 24);
+    if ( (unsigned int)v14 < v16 )
     {
-      v22 = v10 - *(_WORD *)(v9 + 16);
-LABEL_11:
-      if ( (unsigned int)v22 >= *(_DWORD *)(v9 + 20) )
-        return 3221226082LL;
-      v23 = (char *)(a1 + *(unsigned int *)(a1 + *(unsigned int *)(v9 + 28) + 4LL * v22));
-      *a4 = v23;
-      if ( (unsigned __int64)v23 <= v9 || (unsigned __int64)v23 >= v9 + (unsigned int)v40 )
-        return 0LL;
-      SourceString.Buffer = v23;
-      v32 = 1 - (_WORD)v23 + (unsigned __int16)strchr(v23, 46);
-      SourceString.Length = v32;
-      SourceString.MaximumLength = v32;
-      if ( RtlAnsiStringToUnicodeString(&DestinationString, &SourceString, 1u) < 0 )
-        return 3221226083LL;
-      v33 = (PVOID *)PsLoadedModuleList;
-      v34 = -1073741213;
-      while ( v33 != &PsLoadedModuleList )
+      v17 = *v11;
+      v18 = (unsigned __int8 *)(v11 + 1);
+      v19 = a1 + *(unsigned int *)(v13 + 4 * v14) - (_QWORD)v12;
+      do
       {
-        if ( RtlPrefixString((const STRING *)&DestinationString, (const STRING *)(v33 + 11), 1u) )
-        {
-          v35 = &v23[v32];
-          v36 = -1LL;
-          do
-            ++v36;
-          while ( v35[v36] );
-          Pool = MiAllocatePool(256, v36 + 5, 0x20206D4Du);
-          v38 = Pool;
-          if ( Pool )
-          {
-            memmove(Pool + 1, v35, v36 + 1);
-            *v38 = 0;
-            v39 = v33[6];
-            v40 = 0LL;
-            v34 = MiSnapThunk((_DWORD)v39, v7, (unsigned int)&v40, (unsigned int)&v40, (__int64)v38);
-            ExFreePoolWithTag(v38, 0);
-            *a4 = v40;
-          }
+        v20 = v18[v19];
+        v21 = *v18 - v20;
+        if ( v21 )
           break;
-        }
-        v33 = (PVOID *)*v33;
+        ++v18;
       }
-      RtlFreeUnicodeString(&DestinationString);
-      return v34;
-    }
-  }
-  else if ( !a5 )
-  {
-    v11 = (unsigned __int16 *)(v10 + v7);
-  }
-  v12 = v11 + 1;
-  v13 = a1 + *(unsigned int *)(v9 + 32);
-  v14 = *v11;
-  v15 = a1 + *(unsigned int *)(v9 + 36);
-  v16 = *(_DWORD *)(v9 + 24);
-  if ( (unsigned int)v14 < v16 )
-  {
-    v17 = *v11;
-    v18 = (unsigned __int8 *)(v11 + 1);
-    v19 = a1 + *(unsigned int *)(v13 + 4 * v14) - (_QWORD)v12;
-    do
-    {
-      v20 = v18[v19];
-      v21 = *v18 - v20;
-      if ( v21 )
-        break;
-      ++v18;
-    }
-    while ( v20 );
-    if ( !v21 )
-    {
-      v22 = *(_WORD *)(v15 + 2 * v17);
-      goto LABEL_11;
-    }
-  }
-  v25 = 0;
-  if ( !v16 )
-    return 3221226083LL;
-  v26 = v16 - 1;
-  if ( (int)(v16 - 1) < 0 )
-    return 3221226083LL;
-  while ( 1 )
-  {
-    v27 = v12;
-    v28 = (v25 + v26) >> 1;
-    v29 = a1 + *(unsigned int *)(v13 + 4LL * v28) - (_QWORD)v12;
-    while ( 1 )
-    {
-      v30 = *(_BYTE *)v27;
-      if ( *(_BYTE *)v27 != *((_BYTE *)v27 + v29) )
-        break;
-      v27 = (unsigned __int16 *)((char *)v27 + 1);
-      if ( !v30 )
+      while ( v20 );
+      if ( !v21 )
       {
-        v31 = 0;
-        goto LABEL_21;
+        v22 = *(_WORD *)(v15 + 2 * v17);
+        goto LABEL_11;
       }
     }
-    v31 = *(_BYTE *)v27 < *((_BYTE *)v27 + v29) ? -1 : 1;
+    v25 = 0;
+    if ( v16 )
+    {
+      v26 = v16 - 1;
+      if ( (int)(v16 - 1) >= 0 )
+      {
+        do
+        {
+          v27 = v12;
+          v28 = (v25 + v26) >> 1;
+          v29 = a1 + *(unsigned int *)(v13 + 4LL * v28) - (_QWORD)v12;
+          while ( 1 )
+          {
+            v30 = *(_BYTE *)v27;
+            if ( *(_BYTE *)v27 != *((_BYTE *)v27 + v29) )
+              break;
+            v27 = (unsigned __int16 *)((char *)v27 + 1);
+            if ( !v30 )
+            {
+              v31 = 0;
+              goto LABEL_21;
+            }
+          }
+          v31 = *(_BYTE *)v27 < *((_BYTE *)v27 + v29) ? -1 : 1;
 LABEL_21:
-    if ( v31 >= 0 )
+          if ( v31 < 0 )
+          {
+            if ( !v28 )
+              return 3221226083LL;
+            v26 = v28 - 1;
+          }
+          else
+          {
+            if ( v31 <= 0 )
+              break;
+            v25 = v28 + 1;
+          }
+        }
+        while ( v26 >= v25 );
+        if ( v26 >= v25 )
+        {
+          v22 = *(_WORD *)(v15 + 2LL * v28);
+          goto LABEL_11;
+        }
+      }
+    }
+    return 3221226083LL;
+  }
+  if ( a5 )
+    goto LABEL_5;
+  v22 = v10 - *(_WORD *)(v9 + 16);
+LABEL_11:
+  if ( (unsigned int)v22 >= *(_DWORD *)(v9 + 20) )
+    return 3221226082LL;
+  v23 = (char *)(a1 + *(unsigned int *)(a1 + *(unsigned int *)(v9 + 28) + 4LL * v22));
+  *a4 = v23;
+  if ( (unsigned __int64)v23 <= v9 || (unsigned __int64)v23 >= v9 + (unsigned int)v40 )
+    return 0LL;
+  SourceString.Buffer = v23;
+  v32 = 1 - (_WORD)v23 + (unsigned __int16)strchr(v23, 46);
+  SourceString.Length = v32;
+  SourceString.MaximumLength = v32;
+  if ( RtlAnsiStringToUnicodeString(&DestinationString, &SourceString, 1u) < 0 )
+    return 3221226083LL;
+  v33 = (PVOID *)PsLoadedModuleList;
+  v34 = -1073741213;
+  while ( v33 != &PsLoadedModuleList )
+  {
+    if ( RtlPrefixString((const STRING *)&DestinationString, (const STRING *)(v33 + 11), 1u) )
+    {
+      v35 = &v23[v32];
+      v36 = -1LL;
+      do
+        ++v36;
+      while ( v35[v36] );
+      Pool = MiAllocatePool(256, v36 + 5, 0x20206D4Du);
+      v38 = Pool;
+      if ( Pool )
+      {
+        memmove(Pool + 1, v35, v36 + 1);
+        *v38 = 0;
+        v39 = v33[6];
+        v40 = 0LL;
+        v34 = MiSnapThunk((_DWORD)v39, v7, (unsigned int)&v40, (unsigned int)&v40, (__int64)v38);
+        ExFreePoolWithTag(v38, 0);
+        *a4 = v40;
+      }
       break;
-    if ( !v28 )
-      return 3221226083LL;
-    v26 = v28 - 1;
-LABEL_24:
-    if ( v26 < v25 )
-      return 3221226083LL;
+    }
+    v33 = (PVOID *)*v33;
   }
-  if ( v31 > 0 )
-  {
-    v25 = v28 + 1;
-    goto LABEL_24;
-  }
-  if ( v26 >= v25 )
-  {
-    v22 = *(_WORD *)(v15 + 2LL * v28);
-    goto LABEL_11;
-  }
-  return 3221226083LL;
+  RtlFreeAnsiString(&DestinationString);
+  return v34;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of MmGetPhysicalMemoryRangesEx2 @ 0x140835F60
+ * XREFs of MmGetPhysicalMemoryRangesEx2 @ 0x14076F3C0
  * Callers:
- *     PfpMemoryRangesQuery @ 0x14039494C (PfpMemoryRangesQuery.c)
- *     MmGetPhysicalMemoryRangesEx @ 0x140835F20 (MmGetPhysicalMemoryRangesEx.c)
- *     MmGetPhysicalMemoryRanges @ 0x140835F40 (MmGetPhysicalMemoryRanges.c)
+ *     PfpMemoryRangesQuery @ 0x14037E7CC (PfpMemoryRangesQuery.c)
+ *     MmGetPhysicalMemoryRanges @ 0x1407CCD10 (MmGetPhysicalMemoryRanges.c)
+ *     MmGetPhysicalMemoryRangesEx @ 0x1407D5690 (MmGetPhysicalMemoryRangesEx.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x1402F8AA4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiGetPhysicalMemoryRanges @ 0x140835FC8 (MiGetPhysicalMemoryRanges.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
+ *     MiPartitionObjectToPartition @ 0x1403574E0 (MiPartitionObjectToPartition.c)
+ *     MiGetPhysicalMemoryRanges @ 0x14076F428 (MiGetPhysicalMemoryRanges.c)
  */
 
-__int64 __fastcall MmGetPhysicalMemoryRangesEx2(void **a1, unsigned int a2)
+__int64 __fastcall MmGetPhysicalMemoryRangesEx2(ULONG_PTR **a1, unsigned int a2)
 {
-  void ***v3; // rax
-  void ***v4; // rdi
+  ULONG_PTR *v3; // rax
+  ULONG_PTR *v4; // rdi
   __int64 PhysicalMemoryRanges; // rbx
   char v7; // [rsp+38h] [rbp+10h] BYREF
 
@@ -26,6 +26,6 @@ __int64 __fastcall MmGetPhysicalMemoryRangesEx2(void **a1, unsigned int a2)
     return 0LL;
   PhysicalMemoryRanges = MiGetPhysicalMemoryRanges(v3, a2);
   if ( v7 )
-    PsDereferencePartition((__int64)v4[25]);
+    PsDereferencePartition(v4[22]);
   return PhysicalMemoryRanges;
 }

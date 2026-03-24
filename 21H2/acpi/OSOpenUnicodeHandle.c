@@ -1,14 +1,15 @@
 /*
- * XREFs of OSOpenUnicodeHandle @ 0x1C008EC0C
+ * XREFs of OSOpenUnicodeHandle @ 0x1C008FC50
  * Callers:
- *     OSOpenHandle @ 0x1C008EB74 (OSOpenHandle.c)
- *     ACPIThermalGetOverrideHandle @ 0x1C0096764 (ACPIThermalGetOverrideHandle.c)
- *     OSOpenLargestSubkey @ 0x1C00B2394 (OSOpenLargestSubkey.c)
- *     OSReadAcpiConfigurationData @ 0x1C00BC964 (OSReadAcpiConfigurationData.c)
- *     IrqPolicyConfigure @ 0x1C00BDD74 (IrqPolicyConfigure.c)
- *     IrqPolicyGetDistributionDisposition @ 0x1C00BDE8C (IrqPolicyGetDistributionDisposition.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
+ *     ACPIThermalGetOverrideHandle @ 0x1C0098A58 (ACPIThermalGetOverrideHandle.c)
+ *     OSOpenLargestSubkey @ 0x1C00B2AB4 (OSOpenLargestSubkey.c)
+ *     IsHypervisorCpcCapable @ 0x1C00B54B0 (IsHypervisorCpcCapable.c)
+ *     OSReadAcpiConfigurationData @ 0x1C00BC3BC (OSReadAcpiConfigurationData.c)
+ *     IrqPolicyConfigure @ 0x1C00BC884 (IrqPolicyConfigure.c)
+ *     IrqPolicyGetDistributionDisposition @ 0x1C00BCAA0 (IrqPolicyGetDistributionDisposition.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
  */
 
 __int64 __fastcall OSOpenUnicodeHandle(struct _UNICODE_STRING *a1, void *a2, void **a3)
@@ -24,12 +25,12 @@ __int64 __fastcall OSOpenUnicodeHandle(struct _UNICODE_STRING *a1, void *a2, voi
   ObjectAttributes.Attributes = 576;
   v3 = ZwOpenKey(a3, 0x20019u, &ObjectAttributes);
   if ( v3 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_D(
+    WPP_RECORDER_SF_L(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       2u,
       0xBu,
       0xDu,
-      (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+      (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
       v3);
   return (unsigned int)v3;
 }

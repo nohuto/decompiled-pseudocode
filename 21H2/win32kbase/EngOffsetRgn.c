@@ -1,11 +1,11 @@
 /*
- * XREFs of EngOffsetRgn @ 0x1C0177C40
+ * XREFs of EngOffsetRgn @ 0x1C014BA60
  * Callers:
  *     <none>
  * Callees:
- *     GreOffsetRgn @ 0x1C001B040 (GreOffsetRgn.c)
- *     GreGetObjectOwner @ 0x1C001F0C0 (GreGetObjectOwner.c)
- *     ??0EngModeState@@QEAA@XZ @ 0x1C008EA90 (--0EngModeState@@QEAA@XZ.c)
+ *     GreGetObjectOwner @ 0x1C0031450 (GreGetObjectOwner.c)
+ *     GreOffsetRgn @ 0x1C0039190 (GreOffsetRgn.c)
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C00CB6DC (--0EngModeState@@QEAA@XZ.c)
  */
 
 INT __stdcall EngOffsetRgn(HANDLE hrgn, INT x, INT y)
@@ -19,6 +19,6 @@ INT __stdcall EngOffsetRgn(HANDLE hrgn, INT x, INT y)
   else
     result = GreOffsetRgn((HRGN)hrgn, x, y);
   if ( v7 )
-    *(_DWORD *)(v7 + 328) &= ~0x10u;
+    *(_DWORD *)(v7 + 328) &= ~0x20u;
   return result;
 }

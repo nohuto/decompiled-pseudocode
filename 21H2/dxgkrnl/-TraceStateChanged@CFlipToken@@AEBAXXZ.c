@@ -1,90 +1,90 @@
 /*
- * XREFs of ?TraceStateChanged@CFlipToken@@AEBAXXZ @ 0x1C0006F44
+ * XREFs of ?TraceStateChanged@CFlipToken@@AEBAXXZ @ 0x1C0010DB0
  * Callers:
- *     ??_ECFlipToken@@MEAAPEAXI@Z @ 0x1C0006830 (--_ECFlipToken@@MEAAPEAXI@Z.c)
- *     ?InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C0006AB0 (-InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z.c)
- *     ?CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z @ 0x1C0076BB0 (-CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z.c)
+ *     ?InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@CTokenBase@@@Z @ 0x1C000E5C0 (-InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@.c)
+ *     ?InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C0010850 (-InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z.c)
+ *     ?CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z @ 0x1C0064C70 (-CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall CFlipToken::TraceStateChanged(CFlipToken *this)
+void __fastcall CFlipToken::TraceStateChanged(CFlipToken *this, __int64 a2)
 {
-  int v1; // r13d
-  __int64 v3; // rdi
-  __int64 v4; // rsi
+  int v2; // ebp
+  int v4; // r14d
   __int64 v5; // rbx
-  _QWORD **v6; // rdi
+  unsigned __int8 v6; // bp
+  __int64 v7; // r14
   _QWORD *i; // rax
-  unsigned __int8 v8; // di
-  __int64 v9; // r15
-  char v10; // bl
-  int v11; // esi
-  __int64 v12; // rax
-  int v13; // ebp
-  __int64 v14; // r14
-  void (__fastcall *v15)(_QWORD, _QWORD, _QWORD, __int64, int, int, int, __int64, __int64, int); // r12
-  __int64 v16; // rdi
-  unsigned int v17; // eax
-  int v18; // edx
-  int v19; // ecx
-  int v20; // r8d
-  int v22; // [rsp+A8h] [rbp+10h]
+  __int64 v9; // rcx
+  __int64 v10; // r13
+  __int64 v11; // r12
+  BOOL v12; // r15d
+  int v13; // ebx
+  void (__fastcall *v14)(__int64, _QWORD, _QWORD, _QWORD, int, int, BOOL, __int64, __int64, int); // rdi
+  unsigned int v15; // eax
+  __int64 v16; // rax
+  unsigned int v17; // [rsp+A0h] [rbp+8h]
+  __int64 v18; // [rsp+A8h] [rbp+10h]
 
-  v1 = 0;
-  v22 = 0;
-  if ( *((_DWORD *)this + 6) == 3 )
+  v2 = *((_DWORD *)this + 6);
+  v4 = 0;
+  if ( v2 == 3 )
   {
-    v3 = *((_QWORD *)this + 4);
-    v4 = *((_QWORD *)this + 5);
-    KeEnterCriticalRegion();
-    v5 = v3 + 48;
-    ExAcquirePushLockSharedEx(v3 + 48, 0LL);
-    if ( *(_DWORD *)(v3 + 128) )
+    v5 = *((_QWORD *)this + 4);
+    v6 = 0;
+    v7 = *((_QWORD *)this + 5);
+    if ( (**(unsigned __int8 (__fastcall ***)(__int64))(v5 + 48))(v5 + 48) )
     {
-      v6 = (_QWORD **)(v3 + 112);
-      for ( i = *v6; i != v6; i = (_QWORD *)*i )
+      KeEnterCriticalRegion();
+      ExAcquirePushLockSharedEx(v5 + 56, 0LL);
+      if ( (**(unsigned __int8 (__fastcall ***)(__int64))(v5 + 48))(v5 + 48) )
       {
-        if ( *(i - 1) == v4 )
+        if ( *(_DWORD *)(v5 + 120) )
         {
-          v8 = (*(__int64 (__fastcall **)(_QWORD *))(*(i - 3) + 32LL))(i - 3);
-          goto LABEL_7;
+          for ( i = *(_QWORD **)(v5 + 104); i != (_QWORD *)(v5 + 104); i = (_QWORD *)*i )
+          {
+            if ( *(i - 1) == v7 )
+            {
+              v6 = (*(__int64 (__fastcall **)(_QWORD *))(*(i - 3) + 32LL))(i - 3);
+              break;
+            }
+          }
         }
+        v9 = v5 + 56;
+        if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v5 + 64) )
+        {
+          *(_QWORD *)(v5 + 64) = 0LL;
+          ExReleasePushLockExclusiveEx(v9, 0LL);
+        }
+        else
+        {
+          ExReleasePushLockSharedEx(v9, 0LL);
+        }
+        KeLeaveCriticalRegion();
+      }
+      else
+      {
+        CPushLock::ReleaseLock((CPushLock *)(v5 + 48));
       }
     }
-    v8 = 0;
-LABEL_7:
-    if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v5 + 8) )
-    {
-      *(_QWORD *)(v5 + 8) = 0LL;
-      ExReleasePushLockExclusiveEx(v5, 0LL);
-    }
-    else
-    {
-      ExReleasePushLockSharedEx(v5, 0LL);
-    }
-    KeLeaveCriticalRegion();
-    v22 = v8;
+    v4 = v6;
+    v2 = *((_DWORD *)this + 6);
   }
+  v10 = *((_QWORD *)this + 4);
+  v11 = *((_QWORD *)this + 5);
+  v12 = *((_BYTE *)this + 559) == 0;
+  v18 = *(_QWORD *)(v10 + 24);
+  v17 = *((_DWORD *)this + 26);
   if ( !DXGGLOBAL::m_pGlobal )
   {
-    WdLogSingleEntry1(1LL, 2373LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(v19, v18, v20, 0, 2, -1, (__int64)L"m_pGlobal != NULL", 69, 0, 0, 0, 0);
-    }
+    v16 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v16 + 24) = 2238LL;
+    WdLogEvent5_WdAssertion(v16);
   }
-  v9 = *((_QWORD *)this + 5);
-  v10 = *((_BYTE *)this + 563);
-  v11 = *((unsigned __int8 *)this + 560);
-  v12 = *((_QWORD *)this + 4);
-  v13 = *((_DWORD *)this + 6);
-  v14 = *((_QWORD *)this + 12);
-  v15 = *(void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, int, int, int, __int64, __int64, int))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38073) + 352LL);
-  v16 = *(_QWORD *)(v12 + 24);
-  v17 = (*(__int64 (__fastcall **)(CFlipToken *))(*(_QWORD *)this + 112LL))(this);
-  LOBYTE(v1) = v10 == 0;
-  v15(*((_QWORD *)this + 4), *((unsigned int *)this + 26), v17, v14, v13, v11, v1, v16, v9, v22);
+  v13 = *((unsigned __int8 *)this + 556);
+  v14 = *(void (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD, int, int, BOOL, __int64, __int64, int))(*((_QWORD *)DXGGLOBAL::m_pGlobal + 38048) + 120LL);
+  v15 = (*(__int64 (__fastcall **)(CFlipToken *))(*(_QWORD *)this + 112LL))(this);
+  v14(v10, v17, v15, *((_QWORD *)this + 12), v2, v13, v12, v18, v11, v4);
 }

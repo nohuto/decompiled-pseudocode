@@ -3,8 +3,8 @@
  * Callers:
  *     AnFwDisplayProgressIndicator @ 0x14095129C (AnFwDisplayProgressIndicator.c)
  * Callees:
- *     BgpFwQueryPerformanceCounter @ 0x14016EDF4 (BgpFwQueryPerformanceCounter.c)
- *     BgpTxtDisplayCharacter @ 0x140179EF4 (BgpTxtDisplayCharacter.c)
+ *     BgpFwQueryPerformanceCounter @ 0x14016EE14 (BgpFwQueryPerformanceCounter.c)
+ *     BgpTxtDisplayCharacter @ 0x140179F14 (BgpTxtDisplayCharacter.c)
  *     LogFwStat @ 0x14094F754 (LogFwStat.c)
  */
 

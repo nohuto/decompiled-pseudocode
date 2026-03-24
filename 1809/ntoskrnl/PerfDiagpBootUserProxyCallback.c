@@ -1,9 +1,9 @@
 /*
- * XREFs of PerfDiagpBootUserProxyCallback @ 0x14075F030
+ * XREFs of PerfDiagpBootUserProxyCallback @ 0x14075F010
  * Callers:
  *     <none>
  * Callees:
- *     PerfDiagpRequestState @ 0x14075F05C (PerfDiagpRequestState.c)
+ *     PerfDiagpRequestState @ 0x14075F03C (PerfDiagpRequestState.c)
  */
 
 void __fastcall PerfDiagpBootUserProxyCallback(

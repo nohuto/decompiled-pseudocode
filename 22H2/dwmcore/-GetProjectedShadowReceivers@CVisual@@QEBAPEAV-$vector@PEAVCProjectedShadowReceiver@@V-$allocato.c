@@ -1,18 +1,16 @@
 /*
- * XREFs of ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x180004EB0
+ * XREFs of ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x18000C25C
  * Callers:
- *     ?AddProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x1800040E0 (-AddProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z.c)
- *     ?RemoveProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x1800041FC (-RemoveProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z.c)
- *     ?RenderProjectedShadows@CVisual@@QEAAXPEAVCDrawingContext@@W4Enum@ProjectedShadowDrawOrder@@@Z @ 0x180004E20 (-RenderProjectedShadows@CVisual@@QEAAXPEAVCDrawingContext@@W4Enum@ProjectedShadowDrawOrder@@@Z.c)
- *     ?OnLayoutChanged@CVisual@@AEAAXXZ @ 0x18004A5D0 (-OnLayoutChanged@CVisual@@AEAAXXZ.c)
- *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180051CD0 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067A20 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006B570 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ??1CVisual@@MEAA@XZ @ 0x18009A7CC (--1CVisual@@MEAA@XZ.c)
- *     ?HasNonEmptyContent@CWindowNode@@UEBA_NXZ @ 0x1800AA7B0 (-HasNonEmptyContent@CWindowNode@@UEBA_NXZ.c)
- *     ?HasNonEmptyContent@CVisual@@UEBA_NXZ @ 0x1800C3720 (-HasNonEmptyContent@CVisual@@UEBA_NXZ.c)
- *     ?HasNonEmptyContent@CSpriteVisual@@UEBA_NXZ @ 0x1800D81A0 (-HasNonEmptyContent@CSpriteVisual@@UEBA_NXZ.c)
- *     ?HasProjectedShadowReceivers@CVisual@@QEBA_NXZ @ 0x1800E642C (-HasProjectedShadowReceivers@CVisual@@QEBA_NXZ.c)
+ *     ?RenderProjectedShadows@CVisual@@QEAAXPEAVCDrawingContext@@W4Enum@ProjectedShadowDrawOrder@@@Z @ 0x180009FA8 (-RenderProjectedShadows@CVisual@@QEAAXPEAVCDrawingContext@@W4Enum@ProjectedShadowDrawOrder@@@Z.c)
+ *     ?RemoveProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x18000DA28 (-RemoveProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z.c)
+ *     ?AddProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z @ 0x18000DAB4 (-AddProjectedShadowReceiver@CVisual@@QEAAXPEAVCProjectedShadowReceiver@@@Z.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007BE10 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?ConvertInnerToOuterBounds@CVisual@@IEAAJPEBVCVisualTree@@@Z @ 0x18008C5A0 (-ConvertInnerToOuterBounds@CVisual@@IEAAJPEBVCVisualTree@@@Z.c)
+ *     ??1CVisual@@MEAA@XZ @ 0x1800A08FC (--1CVisual@@MEAA@XZ.c)
+ *     ?HasNonEmptyContent@CSpriteVisual@@UEAA_NXZ @ 0x1800B8060 (-HasNonEmptyContent@CSpriteVisual@@UEAA_NXZ.c)
+ *     ?HasNonEmptyContent@CVisual@@UEAA_NXZ @ 0x1800B8140 (-HasNonEmptyContent@CVisual@@UEAA_NXZ.c)
+ *     ?HasNonEmptyContent@CWindowNode@@UEAA_NXZ @ 0x1800C1E50 (-HasNonEmptyContent@CWindowNode@@UEAA_NXZ.c)
+ *     ?OnLayoutChanged@CVisual@@AEAAXXZ @ 0x1800CD828 (-OnLayoutChanged@CVisual@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +23,7 @@ __int64 __fastcall CVisual::GetProjectedShadowReceivers(__int64 a1)
   __int64 v4; // rcx
   unsigned int i; // eax
 
-  v1 = *(_DWORD **)(a1 + 232);
+  v1 = *(_DWORD **)(a1 + 224);
   if ( (*v1 & 0x20000) == 0 )
     return 0LL;
   v2 = (unsigned int)v1[1];

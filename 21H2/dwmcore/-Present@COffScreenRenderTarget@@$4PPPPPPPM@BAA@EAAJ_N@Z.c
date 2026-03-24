@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Present@COffScreenRenderTarget@@$4PPPPPPPM@BAA@EAAJ_N@Z @ 0x180107070
+ * XREFs of ?Present@COffScreenRenderTarget@@$4PPPPPPPM@BAA@EAAJ_N@Z @ 0x1800F5BC0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall COffScreenRenderTarget::Present(__int64 a1)
 {
-  return COffScreenRenderTarget::Present((COffScreenRenderTarget *)(a1 - *(int *)(a1 - 4) - 256));
+  return CDDARenderTarget::CheckOcclusionState((CDDARenderTarget *)(a1 - *(int *)(a1 - 4) - 256));
 }

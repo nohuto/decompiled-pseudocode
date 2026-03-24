@@ -1,13 +1,13 @@
 /*
- * XREFs of IopConnectInterruptFullySpecified @ 0x14075CF34
+ * XREFs of IopConnectInterruptFullySpecified @ 0x14075CF14
  * Callers:
- *     IoConnectInterruptEx @ 0x1407104F0 (IoConnectInterruptEx.c)
- *     IoConnectInterrupt @ 0x14075CEC0 (IoConnectInterrupt.c)
+ *     IoConnectInterruptEx @ 0x1407104D0 (IoConnectInterruptEx.c)
+ *     IoConnectInterrupt @ 0x14075CEA0 (IoConnectInterrupt.c)
  * Callees:
- *     KeVerifyGroupAffinity @ 0x14016B70C (KeVerifyGroupAffinity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     IopConnectInterrupt @ 0x14071076C (IopConnectInterrupt.c)
+ *     KeVerifyGroupAffinity @ 0x14016B72C (KeVerifyGroupAffinity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     IopConnectInterrupt @ 0x14071074C (IopConnectInterrupt.c)
  */
 
 __int64 __fastcall IopConnectInterruptFullySpecified(

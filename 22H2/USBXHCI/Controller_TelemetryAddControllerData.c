@@ -1,13 +1,13 @@
 /*
- * XREFs of Controller_TelemetryAddControllerData @ 0x1C0078B30
+ * XREFs of Controller_TelemetryAddControllerData @ 0x1C0075284
  * Callers:
- *     Controller_TelemetryReport @ 0x1C0034A08 (Controller_TelemetryReport.c)
+ *     Controller_TelemetryReport @ 0x1C00330D0 (Controller_TelemetryReport.c)
  * Callees:
- *     Controller_IsSecureDevice @ 0x1C000B128 (Controller_IsSecureDevice.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     XilDeviceSlot_GetNumberOfDeviceSlots @ 0x1C0038104 (XilDeviceSlot_GetNumberOfDeviceSlots.c)
- *     XilDeviceSlot_GetUsbDeviceHandleArray @ 0x1C0038110 (XilDeviceSlot_GetUsbDeviceHandleArray.c)
- *     TelemetryData_InsertTriageDataBlock @ 0x1C00530E8 (TelemetryData_InsertTriageDataBlock.c)
+ *     Controller_IsSecureDevice @ 0x1C0009764 (Controller_IsSecureDevice.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     XilDeviceSlot_GetNumberOfDeviceSlots @ 0x1C0036644 (XilDeviceSlot_GetNumberOfDeviceSlots.c)
+ *     XilDeviceSlot_GetUsbDeviceHandleArray @ 0x1C0036650 (XilDeviceSlot_GetUsbDeviceHandleArray.c)
+ *     TelemetryData_InsertTriageDataBlock @ 0x1C00503BC (TelemetryData_InsertTriageDataBlock.c)
  */
 
 char __fastcall Controller_TelemetryAddControllerData(_QWORD *a1, __int64 *a2)
@@ -33,7 +33,7 @@ char __fastcall Controller_TelemetryAddControllerData(_QWORD *a1, __int64 *a2)
   v18 = 0;
   v20 = 0LL;
   if ( !a1
-    || (LODWORD(UsbDeviceHandleArray) = TelemetryData_InsertTriageDataBlock(a2, a1, 0x370u),
+    || (LODWORD(UsbDeviceHandleArray) = TelemetryData_InsertTriageDataBlock(a2, a1, 0x338u),
         (int)UsbDeviceHandleArray >= 0) )
   {
     LODWORD(UsbDeviceHandleArray) = imp_WppRecorderLogDumpLiveData(WPP_GLOBAL_Control, a1[9], &v19, &v18, &v20);

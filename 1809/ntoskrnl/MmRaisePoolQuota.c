@@ -1,9 +1,9 @@
 /*
- * XREFs of MmRaisePoolQuota @ 0x140130B70
+ * XREFs of MmRaisePoolQuota @ 0x140130B90
  * Callers:
  *     <none>
  * Callees:
- *     MiFreePoolPagesLeft @ 0x1400EF544 (MiFreePoolPagesLeft.c)
+ *     MiFreePoolPagesLeft @ 0x1400EF564 (MiFreePoolPagesLeft.c)
  */
 
 char __fastcall MmRaisePoolQuota(int a1)

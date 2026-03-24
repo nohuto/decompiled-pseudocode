@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfDeviceSetStaticStopRemove @ 0x1C0035790
+ * XREFs of imp_WdfDeviceSetStaticStopRemove @ 0x1C0048AA0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
  */
 
 void __fastcall imp_WdfDeviceSetStaticStopRemove(
@@ -15,7 +15,11 @@ void __fastcall imp_WdfDeviceSetStaticStopRemove(
   FxDevice *pDevice; // [rsp+30h] [rbp+8h] BYREF
 
   pDevice = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Device, 0x1002u, (void **)&pDevice);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Device,
+    0x1002u,
+    (void **)&pDevice);
   m_PkgPnp = pDevice->m_PkgPnp;
   if ( Stoppable )
     _InterlockedDecrement((volatile signed __int32 *)&m_PkgPnp->m_DeviceStopCount);

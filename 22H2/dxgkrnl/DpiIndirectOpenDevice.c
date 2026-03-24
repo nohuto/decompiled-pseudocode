@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiIndirectOpenDevice @ 0x1C03A4AE0
+ * XREFs of DpiIndirectOpenDevice @ 0x1C02D5E3C
  * Callers:
- *     DpiFdoOpenDeviceFileObjectIfNeeded @ 0x1C0201C1C (DpiFdoOpenDeviceFileObjectIfNeeded.c)
+ *     DpiFdoOpenDeviceFileObjectIfNeeded @ 0x1C018ABE0 (DpiFdoOpenDeviceFileObjectIfNeeded.c)
  * Callees:
- *     ?DpiIndirectGetObjectName@@YAJPEAXPEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C03A41FC (-DpiIndirectGetObjectName@@YAJPEAXPEAPEAU_OBJECT_NAME_INFORMATION@@@Z.c)
+ *     ?DpiIndirectGetObjectName@@YAJPEAXPEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C02D54BC (-DpiIndirectGetObjectName@@YAJPEAXPEAPEAU_OBJECT_NAME_INFORMATION@@@Z.c)
  */
 
 __int64 __fastcall DpiIndirectOpenDevice(struct _DEVICE_OBJECT *a1, PVOID *a2)

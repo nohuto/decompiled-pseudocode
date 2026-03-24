@@ -1,15 +1,15 @@
 /*
- * XREFs of SepLogTokenSidManagement @ 0x14089C174
+ * XREFs of SepLogTokenSidManagement @ 0x14089C154
  * Callers:
- *     SepDereferenceSidValuesBlock @ 0x1408A20F4 (SepDereferenceSidValuesBlock.c)
- *     SepSetTokenUserAndGroups @ 0x1408A224C (SepSetTokenUserAndGroups.c)
+ *     SepDereferenceSidValuesBlock @ 0x1408A20D4 (SepDereferenceSidValuesBlock.c)
+ *     SepSetTokenUserAndGroups @ 0x1408A222C (SepSetTokenUserAndGroups.c)
  * Callees:
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlConvertLuidToUlonglong @ 0x1402FF334 (RtlConvertLuidToUlonglong.c)
- *     SepGetSidValuesDump @ 0x1402FF870 (SepGetSidValuesDump.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlConvertLuidToUlonglong @ 0x1402FF434 (RtlConvertLuidToUlonglong.c)
+ *     SepGetSidValuesDump @ 0x1402FF970 (SepGetSidValuesDump.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepGetSidManagementActionName @ 0x14089C0FC (SepGetSidManagementActionName.c)
+ *     SepGetSidManagementActionName @ 0x14089C0DC (SepGetSidManagementActionName.c)
  */
 
 void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -103,7 +103,7 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     UserData.Size = v34;
     UserData.Reserved = 0;
     v11 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[15];
-    v12 = &unk_1404E1510;
+    v12 = &unk_1404E14D0;
     if ( v11 && *(_WORD *)v11 )
     {
       v13 = *(void **)(v11 + 8);
@@ -111,7 +111,7 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     }
     else
     {
-      v13 = &unk_1404E1510;
+      v13 = &unk_1404E14D0;
       v14 = 2;
     }
     v44 = v13;
@@ -124,7 +124,7 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     }
     else
     {
-      v15 = &unk_1404E1510;
+      v15 = &unk_1404E14D0;
       v16 = 2;
     }
     v47 = v15;

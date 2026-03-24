@@ -1,13 +1,13 @@
 /*
- * XREFs of IoCreateDisk @ 0x140816D30
+ * XREFs of IoCreateDisk @ 0x140816D10
  * Callers:
  *     <none>
  * Callees:
- *     ??0SC_DISK@@QEAA@XZ @ 0x140168464 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x1401685A0 (--1SC_DISK@@UEAA@XZ.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x1403299D8 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140704F18 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x140168484 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1401685C0 (--1SC_DISK@@UEAA@XZ.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140329AD8 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140704EF8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  */
 
 NTSTATUS __stdcall IoCreateDisk(PDEVICE_OBJECT DeviceObject, struct _CREATE_DISK *Disk)

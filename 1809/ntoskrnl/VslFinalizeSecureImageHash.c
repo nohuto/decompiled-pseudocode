@@ -1,12 +1,12 @@
 /*
- * XREFs of VslFinalizeSecureImageHash @ 0x14027C910
+ * XREFs of VslFinalizeSecureImageHash @ 0x14027CA10
  * Callers:
  *     <none>
  * Callees:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall VslFinalizeSecureImageHash(__int64 a1, __int64 a2)

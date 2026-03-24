@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddInvalidRects@CHolographicInteropTexture@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z @ 0x1802AA8E0
+ * XREFs of ?AddInvalidRects@CHolographicInteropTexture@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z @ 0x180258850
  * Callers:
  *     <none>
  * Callees:
- *     ?Add@CDirtyRegion@@QEAAJPEAVCVisual@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18004C850 (-Add@CDirtyRegion@@QEAAJPEAVCVisual@@_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSize.c)
- *     ?SetFullDirty@CDirtyRegion@@QEAAXXZ @ 0x1800C4C70 (-SetFullDirty@CDirtyRegion@@QEAAXXZ.c)
+ *     ?Add@CDirtyRegion@@QEAAJPEAVCVisual@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800C54EC (-Add@CDirtyRegion@@QEAAJPEAVCVisual@@_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSize.c)
+ *     ?SetFullDirty@CDirtyRegion@@QEAAXXZ @ 0x1800D5D10 (-SetFullDirty@CDirtyRegion@@QEAAXXZ.c)
  */
 
 void __fastcall CHolographicInteropTexture::AddInvalidRects(
@@ -12,25 +12,23 @@ void __fastcall CHolographicInteropTexture::AddInvalidRects(
         const struct CVisualTree *a2,
         struct CDirtyRegion *a3)
 {
-  __int64 *v3; // rdi
-  __int64 v6; // rbx
-  __int64 v7; // rsi
+  __int64 v5; // rbx
+  __int64 v6; // rbp
 
-  v3 = (__int64 *)((char *)this + 56);
-  if ( *((_BYTE *)this + 176) )
+  if ( *((_BYTE *)this + 168) )
   {
     CDirtyRegion::SetFullDirty(a3);
-    *((_BYTE *)this + 176) = 0;
+    *((_BYTE *)this + 168) = 0;
   }
   else
   {
-    v6 = *v3;
-    v7 = *((_QWORD *)this + 8);
-    while ( v6 != v7 )
+    v5 = *((_QWORD *)this + 6);
+    v6 = *((_QWORD *)this + 7);
+    while ( v5 != v6 )
     {
-      CDirtyRegion::Add((__int64)a3, 0LL, 0LL, v6);
-      v6 += 16LL;
+      CDirtyRegion::Add(a3);
+      v5 += 16LL;
     }
   }
-  detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,4,1,detail::liberal_expansion_policy>>::clear(v3);
+  detail::vector_facade<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,detail::buffer_impl<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,4,1,detail::liberal_expansion_policy>>::clear((char *)this + 48);
 }

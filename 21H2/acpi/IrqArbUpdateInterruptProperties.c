@@ -1,10 +1,10 @@
 /*
- * XREFs of IrqArbUpdateInterruptProperties @ 0x1C00B6A14
+ * XREFs of IrqArbUpdateInterruptProperties @ 0x1C00B71B4
  * Callers:
- *     AcpiUpdateInterruptProperties @ 0x1C00AE1B0 (AcpiUpdateInterruptProperties.c)
+ *     AcpiUpdateInterruptProperties @ 0x1C00AF560 (AcpiUpdateInterruptProperties.c)
  * Callees:
- *     IrqArbpSetDeviceProperties @ 0x1C0099084 (IrqArbpSetDeviceProperties.c)
- *     IrqArbGsivFromIrq @ 0x1C009A2C0 (IrqArbGsivFromIrq.c)
+ *     IrqArbpSetDeviceProperties @ 0x1C0092578 (IrqArbpSetDeviceProperties.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
  */
 
 __int64 __fastcall IrqArbUpdateInterruptProperties(int a1, int a2, int a3)

@@ -1,34 +1,35 @@
 /*
- * XREFs of Device_QueryCapabilities @ 0x1C0015018
+ * XREFs of Device_QueryCapabilities @ 0x1C00150F4
  * Callers:
- *     Controller_CreateWdfDevice @ 0x1C006C580 (Controller_CreateWdfDevice.c)
+ *     Controller_CreateWdfDevice @ 0x1C006D360 (Controller_CreateWdfDevice.c)
  * Callees:
- *     WPP_RECORDER_SF_qd @ 0x1C0014644 (WPP_RECORDER_SF_qd.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0014518 (WPP_RECORDER_SF_qd.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall Device_QueryCapabilities(__int64 a1)
 {
   __int64 v2; // rbx
   __int64 result; // rax
-  char v4; // bl
-  __int128 v5; // xmm1
-  __int128 v6; // xmm0
-  __int128 v7; // xmm1
-  unsigned __int16 v8; // r9
-  __int64 v9; // [rsp+48h] [rbp-C0h] BYREF
-  _QWORD v10[3]; // [rsp+50h] [rbp-B8h] BYREF
-  _QWORD v11[9]; // [rsp+68h] [rbp-A0h] BYREF
-  __int128 v12; // [rsp+B0h] [rbp-58h] BYREF
-  _OWORD v13[4]; // [rsp+C8h] [rbp-40h] BYREF
+  int v4; // edx
+  char v5; // bl
+  __int128 v6; // xmm1
+  __int128 v7; // xmm0
+  __int128 v8; // xmm1
+  int v9; // r9d
+  __int64 v10; // [rsp+48h] [rbp-C0h] BYREF
+  _QWORD v11[3]; // [rsp+50h] [rbp-B8h] BYREF
+  _QWORD v12[9]; // [rsp+68h] [rbp-A0h] BYREF
+  __int128 v13; // [rsp+B0h] [rbp-58h] BYREF
+  _OWORD v14[4]; // [rsp+C8h] [rbp-40h] BYREF
 
-  v12 = 0LL;
-  memset(v10, 0, sizeof(v10));
+  v13 = 0LL;
   memset(v11, 0, sizeof(v11));
-  memset(v13, 0, sizeof(v13));
-  v9 = 0LL;
+  memset(v12, 0, sizeof(v12));
+  memset(v14, 0, sizeof(v14));
+  v10 = 0LL;
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 336))(
          WdfDriverGlobals,
          *(_QWORD *)(a1 + 88));
@@ -36,63 +37,64 @@ __int64 __fastcall Device_QueryCapabilities(__int64 a1)
              WdfDriverGlobals,
              0LL,
              v2,
-             &v9);
+             &v10);
   if ( (int)result < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_5;
-    v8 = 264;
+    v9 = 263;
     goto LABEL_12;
   }
-  *(_QWORD *)((char *)&v10[1] + 4) = 0LL;
-  HIDWORD(v10[2]) = 0;
-  v10[0] = 24LL;
-  LODWORD(v10[1]) = -1073741637;
+  *(_QWORD *)((char *)&v11[1] + 4) = 0LL;
+  HIDWORD(v11[2]) = 0;
+  v11[0] = 24LL;
+  LODWORD(v11[1]) = -1073741637;
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD *))(WdfFunctions_01023 + 1992))(
     WdfDriverGlobals,
-    v9,
-    v10);
-  *((_QWORD *)&v13[0] + 1) = -1LL;
-  v11[1] = v13;
-  LODWORD(v13[0]) = 65600;
-  LOWORD(v11[0]) = 2331;
+    v10,
+    v11);
+  *((_QWORD *)&v14[0] + 1) = -1LL;
+  v12[1] = v14;
+  LODWORD(v14[0]) = 65600;
+  LOWORD(v12[0]) = 2331;
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD *))(WdfFunctions_01023 + 2016))(
     WdfDriverGlobals,
-    v9,
-    v11);
-  v12 = 0x200000010uLL;
-  v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64, __int128 *))(WdfFunctions_01023 + 2024))(
+    v10,
+    v12);
+  v13 = 0x200000010uLL;
+  v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64, __int128 *))(WdfFunctions_01023 + 2024))(
          WdfDriverGlobals,
-         v9,
+         v10,
          v2,
-         &v12);
-  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 2032))(WdfDriverGlobals, v9);
-  if ( v4 && (int)result >= 0 )
+         &v13);
+  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 2032))(WdfDriverGlobals, v10);
+  if ( v5 && (int)result >= 0 )
   {
-    v5 = v13[1];
-    *(_OWORD *)(a1 + 24) = v13[0];
-    v6 = v13[2];
-    *(_OWORD *)(a1 + 40) = v5;
-    v7 = v13[3];
-    *(_OWORD *)(a1 + 56) = v6;
-    *(_OWORD *)(a1 + 72) = v7;
+    v6 = v14[1];
+    *(_OWORD *)(a1 + 24) = v14[0];
+    v7 = v14[2];
+    *(_OWORD *)(a1 + 40) = v6;
+    v8 = v14[3];
+    *(_OWORD *)(a1 + 56) = v7;
+    *(_OWORD *)(a1 + 72) = v8;
     goto LABEL_5;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v8 = 265;
+    v9 = 264;
 LABEL_12:
+    LOBYTE(v4) = 2;
     result = WPP_RECORDER_SF_qd(
                *(_QWORD *)(a1 + 16),
-               2u,
-               4u,
-               v8,
-               (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+               v4,
+               4,
+               v9,
+               (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
                *(_QWORD *)(a1 + 88),
                result);
   }
 LABEL_5:
-  if ( v9 )
+  if ( v10 )
     return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 1664))(WdfDriverGlobals);
   return result;
 }

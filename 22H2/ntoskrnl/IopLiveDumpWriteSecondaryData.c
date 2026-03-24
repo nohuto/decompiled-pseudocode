@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpWriteSecondaryData @ 0x140950268
+ * XREFs of IopLiveDumpWriteSecondaryData @ 0x140899798
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x14094F534 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140898BD0 (IopLiveDumpWriteDumpFile.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopLiveDumpWriteBuffer @ 0x14094F470 (IopLiveDumpWriteBuffer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopLiveDumpWriteBuffer @ 0x140898B0C (IopLiveDumpWriteBuffer.c)
  */
 
 __int64 __fastcall IopLiveDumpWriteSecondaryData(
@@ -30,7 +30,6 @@ __int64 __fastcall IopLiveDumpWriteSecondaryData(
 
   v5 = *(__int128 **)(a2 + 8);
   v6 = 0LL;
-  v18 = 0LL;
   if ( v5 )
   {
     v15 = 16;

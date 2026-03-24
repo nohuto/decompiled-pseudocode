@@ -1,13 +1,21 @@
 /*
- * XREFs of DbgUnLoadImageSymbols @ 0x1405A78A0
+ * XREFs of DbgUnLoadImageSymbols @ 0x140585550
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4A40 (PopSaveHiberContext.c)
- *     PopShutdownSystem @ 0x140AA8FD4 (PopShutdownSystem.c)
+ *     PopSaveHiberContext @ 0x140993F80 (PopSaveHiberContext.c)
+ *     PopShutdownSystem @ 0x1409B2764 (PopShutdownSystem.c)
  * Callees:
- *     DebugService2 @ 0x1404287C0 (DebugService2.c)
+ *     DebugService2 @ 0x140406F80 (DebugService2.c)
  */
 
-__int64 DbgUnLoadImageSymbols()
+__int64 __fastcall DbgUnLoadImageSymbols(__int64 a1, __int64 a2, __int64 a3)
 {
-  return DebugService2();
+  _QWORD v4[2]; // [rsp+20h] [rbp-28h] BYREF
+  int v5; // [rsp+30h] [rbp-18h]
+  int v6; // [rsp+34h] [rbp-14h]
+
+  v5 = 0;
+  v6 = 0;
+  v4[0] = a2;
+  v4[1] = a3;
+  return DebugService2(a1, (__int64)v4, 4u);
 }

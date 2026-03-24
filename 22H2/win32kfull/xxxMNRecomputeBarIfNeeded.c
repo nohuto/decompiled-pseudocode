@@ -1,36 +1,32 @@
 /*
- * XREFs of xxxMNRecomputeBarIfNeeded @ 0x1C0239120
+ * XREFs of xxxMNRecomputeBarIfNeeded @ 0x1C024E7B4
  * Callers:
- *     xxxMNStartMenu @ 0x1C01FFC8C (xxxMNStartMenu.c)
- *     ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C02257F4 (-xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z.c)
- *     xxxHiliteMenuItem @ 0x1C0230534 (xxxHiliteMenuItem.c)
- *     xxxGetMenuItemRect @ 0x1C02386F4 (xxxGetMenuItemRect.c)
- *     xxxMenuItemFromPoint @ 0x1C0239418 (xxxMenuItemFromPoint.c)
+ *     xxxMNStartMenu @ 0x1C0222080 (xxxMNStartMenu.c)
+ *     ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C0242388 (-xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z.c)
+ *     xxxHiliteMenuItem @ 0x1C0248B14 (xxxHiliteMenuItem.c)
+ *     xxxGetMenuItemRect @ 0x1C024E628 (xxxGetMenuItemRect.c)
+ *     xxxMenuItemFromPoint @ 0x1C024E8D4 (xxxMenuItemFromPoint.c)
  * Callees:
- *     GetWindowBordersForDpi @ 0x1C00C6AB0 (GetWindowBordersForDpi.c)
- *     GetCaptionHeight @ 0x1C00ECE00 (GetCaptionHeight.c)
- *     GetWindowDpiLastNotify @ 0x1C00F0740 (GetWindowDpiLastNotify.c)
- *     xxxMenuBarCompute @ 0x1C0239240 (xxxMenuBarCompute.c)
+ *     GetCaptionHeight @ 0x1C0047254 (GetCaptionHeight.c)
+ *     GetWindowDpiLastNotify @ 0x1C004C618 (GetWindowDpiLastNotify.c)
+ *     GetWindowBordersForDpi @ 0x1C00E0E50 (GetWindowBordersForDpi.c)
+ *     xxxMenuBarCompute @ 0x1C0102284 (xxxMenuBarCompute.c)
  */
 
-__int64 __fastcall xxxMNRecomputeBarIfNeeded(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+__int64 **__fastcall xxxMNRecomputeBarIfNeeded(__int64 a1, __int64 ***a2, __int64 a3, __int64 a4)
 {
-  int v4; // esi
-  __int64 result; // rax
+  __int64 **result; // rax
   int *v7; // r8
   int v8; // ecx
-  int WindowDpiLastNotify; // eax
+  unsigned int WindowDpiLastNotify; // eax
   __int64 v10; // rax
   int WindowBordersForDpi; // ebx
   int CaptionHeight; // eax
 
-  v4 = (int)a2;
-  result = *(_QWORD *)(*(_QWORD *)*a2 + 40LL);
-  if ( (*(_DWORD *)(result + 40) & 0x80u) == 0 )
+  result = (__int64 **)(**a2)[5];
+  if ( (*((_DWORD *)result + 10) & 0x80u) == 0 )
   {
-    if ( *(_QWORD *)(*(_QWORD *)*a2 + 80LL) != a1
-      || !*(_DWORD *)(*(_QWORD *)*a2 + 64LL)
-      || (result = *a2, !*(_DWORD *)(*(_QWORD *)*a2 + 68LL)) )
+    if ( (**a2)[10] != a1 || !*((_DWORD *)**a2 + 16) || (result = *a2, !*((_DWORD *)**a2 + 17)) )
     {
       v7 = *(int **)(a1 + 40);
       v8 = v7[72] & 0xF;
@@ -38,7 +34,7 @@ __int64 __fastcall xxxMNRecomputeBarIfNeeded(__int64 a1, __int64 *a2, __int64 a3
       {
         WindowDpiLastNotify = ((unsigned int)v7[72] >> 8) & 0x1FF;
       }
-      else if ( (v7[58] & 0x400) != 0 )
+      else if ( (v7[58] & 0x8000000) != 0 )
       {
         WindowDpiLastNotify = GetWindowDpiLastNotify(a1);
       }
@@ -54,14 +50,14 @@ __int64 __fastcall xxxMNRecomputeBarIfNeeded(__int64 a1, __int64 *a2, __int64 a3
       }
       WindowBordersForDpi = GetWindowBordersForDpi(v7[7], v7[6], (__int64)v7, a4, WindowDpiLastNotify);
       CaptionHeight = GetCaptionHeight(a1);
-      return xxxMenuBarCompute(
-               v4,
-               a1,
-               WindowBordersForDpi + CaptionHeight,
-               WindowBordersForDpi,
-               *(_DWORD *)(*(_QWORD *)(a1 + 40) + 96LL)
-             - *(_DWORD *)(*(_QWORD *)(a1 + 40) + 88LL)
-             - 2 * WindowBordersForDpi);
+      return (__int64 **)xxxMenuBarCompute(
+                           a2,
+                           a1,
+                           WindowBordersForDpi + CaptionHeight,
+                           WindowBordersForDpi,
+                           *(_DWORD *)(*(_QWORD *)(a1 + 40) + 96LL)
+                         - *(_DWORD *)(*(_QWORD *)(a1 + 40) + 88LL)
+                         - 2 * WindowBordersForDpi);
     }
   }
   return result;

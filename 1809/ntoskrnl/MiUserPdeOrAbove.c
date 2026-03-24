@@ -1,5 +1,5 @@
 /*
- * XREFs of MiUserPdeOrAbove @ 0x1400F962C
+ * XREFs of MiUserPdeOrAbove @ 0x1400F964C
  * Callers:
  *     MiMakePageAvoidRead @ 0x1400348E0 (MiMakePageAvoidRead.c)
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
@@ -9,11 +9,11 @@
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     MiRevertValidPte @ 0x1400B2340 (MiRevertValidPte.c)
- *     MiMapPagesToZero @ 0x1400F90C0 (MiMapPagesToZero.c)
- *     MiUnlinkStandbyBatch @ 0x140105CB0 (MiUnlinkStandbyBatch.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     MiRevertValidPte @ 0x1400B2360 (MiRevertValidPte.c)
+ *     MiMapPagesToZero @ 0x1400F90E0 (MiMapPagesToZero.c)
+ *     MiUnlinkStandbyBatch @ 0x140105CD0 (MiUnlinkStandbyBatch.c)
  * Callees:
  *     <none>
  */

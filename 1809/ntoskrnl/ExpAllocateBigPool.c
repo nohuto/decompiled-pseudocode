@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpAllocateBigPool @ 0x1400E69D0
+ * XREFs of ExpAllocateBigPool @ 0x1400E69F0
  * Callers:
- *     ExInsertPoolTag @ 0x1400E6994 (ExInsertPoolTag.c)
+ *     ExInsertPoolTag @ 0x1400E69B4 (ExInsertPoolTag.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     PsBoostThreadIo @ 0x1400BBF50 (PsBoostThreadIo.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     ExpAddTagForBigPages @ 0x1400E70F0 (ExpAddTagForBigPages.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140104290 (ExpInsertPoolTrackerExpansion.c)
- *     ExFreeHeapPages @ 0x14015B254 (ExFreeHeapPages.c)
- *     ExAllocateHeapPages @ 0x14015C870 (ExAllocateHeapPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1401B71C8 (EtwTracePool.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsBoostThreadIo @ 0x1400BBF70 (PsBoostThreadIo.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     ExpAddTagForBigPages @ 0x1400E7110 (ExpAddTagForBigPages.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x1401042B0 (ExpInsertPoolTrackerExpansion.c)
+ *     ExFreeHeapPages @ 0x14015B274 (ExFreeHeapPages.c)
+ *     ExAllocateHeapPages @ 0x14015C890 (ExAllocateHeapPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1401B71E8 (EtwTracePool.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExDeferredFreePool @ 0x14034D7A0 (ExDeferredFreePool.c)
- *     MiSessionPoolVector @ 0x140703DC0 (MiSessionPoolVector.c)
+ *     MiSessionPoolVector @ 0x140703DA0 (MiSessionPoolVector.c)
  */
 
 __int64 __fastcall ExpAllocateBigPool(__int64 a1, int a2, unsigned __int64 a3, unsigned int a4, char a5)

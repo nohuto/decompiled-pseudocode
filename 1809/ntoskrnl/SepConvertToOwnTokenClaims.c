@@ -3,7 +3,7 @@
  * Callers:
  *     SepStopReferencingLogonSession @ 0x1405BD9C8 (SepStopReferencingLogonSession.c)
  * Callees:
- *     SepDuplicateClaimAttributes @ 0x1408A3F40 (SepDuplicateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x1408A3F20 (SepDuplicateClaimAttributes.c)
  */
 
 __int64 __fastcall SepConvertToOwnTokenClaims(__int64 a1)

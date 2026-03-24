@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Draw@CSurfaceBrush@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180107AF0
+ * XREFs of ?Draw@CSurfaceBrush@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F6A40
  * Callers:
  *     <none>
  * Callees:

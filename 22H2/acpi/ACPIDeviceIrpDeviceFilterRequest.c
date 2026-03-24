@@ -1,49 +1,46 @@
 /*
- * XREFs of ACPIDeviceIrpDeviceFilterRequest @ 0x1C001DAB0
+ * XREFs of ACPIDeviceIrpDeviceFilterRequest @ 0x1C0031410
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_qdqss @ 0x1C0009EDC (WPP_RECORDER_SF_qdqss.c)
- *     ACPIDeviceInitializePowerRequest @ 0x1C001CFB8 (ACPIDeviceInitializePowerRequest.c)
- *     ACPIInternalDecrementIrpReferenceCount @ 0x1C002E548 (ACPIInternalDecrementIrpReferenceCount.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C000E778 (ACPIInternalDecrementIrpReferenceCount.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001C9E4 (ACPIDeviceInitializePowerRequest.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C001E11C (WPP_RECORDER_SF_qdqss.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall ACPIDeviceIrpDeviceFilterRequest(
-        ULONG_PTR a1,
-        __int64 a2,
-        void (__fastcall *a3)(__int64, __int64, __int64))
+__int64 __fastcall ACPIDeviceIrpDeviceFilterRequest(ULONG_PTR a1, __int64 a2, _SLIST_ENTRY *a3)
 {
   __int64 DeviceExtension; // rax
   __int64 v6; // rcx
   char v7; // r8
-  __int64 v8; // rbx
+  _QWORD *v8; // rbx
   int v9; // r15d
   int v10; // ebp
   const char *v11; // rcx
   const char *v12; // rdx
   __int64 v13; // rax
   int v14; // esi
-  int v16; // eax
+  int v15; // eax
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v6 = *(_QWORD *)(a2 + 184);
   v7 = 0;
-  v8 = DeviceExtension;
+  v8 = (_QWORD *)DeviceExtension;
   v9 = *(_DWORD *)(v6 + 24);
   v10 = *(_DWORD *)(v6 + 32);
-  v11 = (const char *)&unk_1C00622D0;
-  v12 = (const char *)&unk_1C00622D0;
+  v11 = (const char *)&unk_1C00701BA;
+  v12 = (const char *)&unk_1C00701BA;
   if ( DeviceExtension )
   {
     v7 = DeviceExtension;
     v13 = *(_QWORD *)(DeviceExtension + 8);
     if ( (v13 & 0x200000000000LL) != 0 )
     {
-      v11 = *(const char **)(v8 + 608);
+      v11 = (const char *)v8[71];
       if ( (v13 & 0x400000000000LL) != 0 )
-        v12 = *(const char **)(v8 + 616);
+        v12 = (const char *)v8[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -52,7 +49,7 @@ __int64 __fastcall ACPIDeviceIrpDeviceFilterRequest(
       (__int64)v12,
       0xAu,
       0x1Eu,
-      (__int64)&WPP_afb93ce9a898342faba18bc7242ff62e_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a2,
       v9 - 1,
       v7,
@@ -61,24 +58,21 @@ __int64 __fastcall ACPIDeviceIrpDeviceFilterRequest(
   if ( *(_BYTE *)(a2 + 65) )
     *(_BYTE *)(*(_QWORD *)(a2 + 184) + 3LL) |= 1u;
   v14 = *(_DWORD *)(a2 + 48);
-  if ( v14 >= 0 )
+  if ( v14 < 0 )
   {
-    if ( v9 == 1 || !_bittest64((const signed __int64 *)(v8 + 1008), 0x24u) )
-    {
-      if ( (unsigned int)(v10 - 4) <= 1 || (v16 = 0, v10 == 6) )
-        v16 = 1;
-      return ACPIDeviceInitializePowerRequest(v8, v9, 0LL, a3, a2, v10, 0, 8 * v16);
-    }
-    else
-    {
-      if ( a3 )
-        a3(v8, a2, (unsigned int)v14);
-      return 3221225494LL;
-    }
+    ACPIInternalDecrementIrpReferenceCount((__int64)v8);
+    return (unsigned int)v14;
+  }
+  else if ( v9 != 1 && (v8[120] & 0x1000000000LL) != 0 )
+  {
+    if ( a3 )
+      ((void (__fastcall *)(_QWORD *, __int64, _QWORD))a3)(v8, a2, (unsigned int)v14);
+    return 3221225494LL;
   }
   else
   {
-    ACPIInternalDecrementIrpReferenceCount(v8);
-    return (unsigned int)v14;
+    if ( (unsigned int)(v10 - 4) <= 1 || (v15 = 0, v10 == 6) )
+      v15 = 1;
+    return ACPIDeviceInitializePowerRequest((__int64)v8, v9, a3, a2, v10, 0, 8 * v15);
   }
 }

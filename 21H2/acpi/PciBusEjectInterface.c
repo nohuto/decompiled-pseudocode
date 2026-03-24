@@ -1,10 +1,10 @@
 /*
- * XREFs of PciBusEjectInterface @ 0x1C00A1458
+ * XREFs of PciBusEjectInterface @ 0x1C009895C
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C0005A80 (ACPIBusIrpQueryInterface.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     PciConfigPinToLine @ 0x1C0001EC0 (PciConfigPinToLine.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     PciConfigPinToLine @ 0x1C000CA40 (PciConfigPinToLine.c)
  */
 
 __int64 __fastcall PciBusEjectInterface(ULONG_PTR a1, __int64 a2)

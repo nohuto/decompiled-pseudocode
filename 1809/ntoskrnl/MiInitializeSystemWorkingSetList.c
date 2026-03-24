@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeSystemWorkingSetList @ 0x140715B68
+ * XREFs of MiInitializeSystemWorkingSetList @ 0x140715B48
  * Callers:
- *     MiSessionCreate @ 0x140715028 (MiSessionCreate.c)
- *     MiInitializeSystemCache @ 0x14072A6BC (MiInitializeSystemCache.c)
+ *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
+ *     MiInitializeSystemCache @ 0x14072A69C (MiInitializeSystemCache.c)
  *     MiInitializeSystemPtes @ 0x1409B68BC (MiInitializeSystemPtes.c)
  *     MiBuildPagedPool @ 0x1409B6A44 (MiBuildPagedPool.c)
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  *     MiInitializeNonPagedPool @ 0x1409BD0D4 (MiInitializeNonPagedPool.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
- *     MiTranslateWsType @ 0x1400EF500 (MiTranslateWsType.c)
- *     MiInitializeWorkingSetList @ 0x1400F3190 (MiInitializeWorkingSetList.c)
- *     MiAllowWorkingSetExpansion @ 0x1400F32F4 (MiAllowWorkingSetExpansion.c)
+ *     MiTranslateWsType @ 0x1400EF520 (MiTranslateWsType.c)
+ *     MiInitializeWorkingSetList @ 0x1400F31B0 (MiInitializeWorkingSetList.c)
+ *     MiAllowWorkingSetExpansion @ 0x1400F3314 (MiAllowWorkingSetExpansion.c)
  */
 
 __int64 __fastcall MiInitializeSystemWorkingSetList(ULONG_PTR *a1, __int64 a2, int a3, __int64 a4)

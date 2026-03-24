@@ -1,7 +1,7 @@
 /*
- * XREFs of DbgMatchArg @ 0x1C0059D7C
+ * XREFs of DbgMatchArg @ 0x1C006B6A4
  * Callers:
- *     DbgParseOneArg @ 0x1C0059EE4 (DbgParseOneArg.c)
+ *     DbgParseOneArg @ 0x1C006B810 (DbgParseOneArg.c)
  * Callees:
  *     <none>
  */
@@ -9,41 +9,34 @@
 __int64 __fastcall DbgMatchArg(__int64 a1, const char **a2, _DWORD *a3)
 {
   __int64 v5; // rbx
-  char *v6; // rax
-  const char *v7; // rdx
-  const char *v8; // rcx
-  const char *v9; // r9
-  __int64 v10; // rax
-  size_t v11; // rsi
+  const char *v6; // rcx
+  __int64 v7; // rsi
 
   v5 = a1;
   if ( *(_DWORD *)(a1 + 8) )
   {
     while ( *(_QWORD *)v5 )
     {
-      v6 = strchr("-/", **a2);
-      v7 = *a2;
-      if ( v6 )
-        *a2 = ++v7;
-      v8 = *(const char **)v5;
-      v9 = v7;
-      v10 = -1LL;
+      if ( strchr("-/", **a2) )
+        ++*a2;
+      v6 = *(const char **)v5;
+      v7 = -1LL;
       do
-        ++v10;
-      while ( v8[v10] );
-      v11 = (unsigned int)v10;
-      if ( (*(_DWORD *)(v5 + 12) & 1) != 0 )
+        ++v7;
+      while ( v6[v7] );
+      if ( (*(_DWORD *)(v5 + 12) & 1) == 0 )
+        goto LABEL_10;
+      if ( !strncmp(v6, *a2, (unsigned int)v7) )
+        goto LABEL_13;
+      if ( (*(_DWORD *)(v5 + 12) & 1) == 0 )
       {
-        if ( !strncmp(v8, v7, (unsigned int)v10) )
-          goto LABEL_14;
-        v8 = *(const char **)v5;
-        v9 = *a2;
-      }
-      if ( (*(_DWORD *)(v5 + 12) & 1) == 0 && !_strnicmp(v8, v9, v11) )
-      {
-LABEL_14:
-        *a2 += v11;
-        return v5 & -(__int64)(*(_DWORD *)(v5 + 8) != 0);
+LABEL_10:
+        if ( !_strnicmp(*(const char **)v5, *a2, (unsigned int)v7) )
+        {
+LABEL_13:
+          *a2 += (unsigned int)v7;
+          return v5 & -(__int64)(*(_DWORD *)(v5 + 8) != 0);
+        }
       }
       v5 += 40LL;
       if ( !*(_DWORD *)(v5 + 8) )

@@ -1,5 +1,5 @@
 /*
- * XREFs of DpiIndirectCbNotifyCursorSupportChange @ 0x1C0392930
+ * XREFs of DpiIndirectCbNotifyCursorSupportChange @ 0x1C02D56D0
  * Callers:
  *     <none>
  * Callees:
@@ -14,9 +14,9 @@ __int64 __fastcall DpiIndirectCbNotifyCursorSupportChange(__int64 a1)
   if ( !a1 )
     return 3221225485LL;
   v1 = *(_QWORD *)(a1 + 64);
-  if ( !v1 || *(_DWORD *)(v1 + 16) != 1953656900 || *(_DWORD *)(v1 + 20) != 2 || !*(_BYTE *)(v1 + 1159) )
+  if ( !v1 || *(_DWORD *)(v1 + 16) != 1953656900 || *(_DWORD *)(v1 + 20) != 2 || !*(_BYTE *)(v1 + 1158) )
     return 3221225485LL;
   memset(v3, 0, sizeof(v3));
   LODWORD(v3[0]) = 13;
-  return SMgrGdiCallout(v3, *(_QWORD *)(v1 + 5728), 0LL, 0LL, 0LL, 0LL);
+  return SMgrGdiCallout(v3, *(_QWORD *)(v1 + 5936), 0LL, 0LL, 0LL, 0LL);
 }

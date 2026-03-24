@@ -1,257 +1,242 @@
 /*
- * XREFs of MiCoalescePageFileBitmapsCache @ 0x1402E22B0
+ * XREFs of MiCoalescePageFileBitmapsCache @ 0x140267EB0
  * Callers:
- *     MiReleasePageFileInfo @ 0x1402E20D0 (MiReleasePageFileInfo.c)
- *     MiAttemptPageFileReductionApc @ 0x14059B0B0 (MiAttemptPageFileReductionApc.c)
- *     MiFinishPageFileExtension @ 0x14059C580 (MiFinishPageFileExtension.c)
+ *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
+ *     MiAttemptPageFileReductionApc @ 0x140542AD0 (MiAttemptPageFileReductionApc.c)
+ *     MiFinishPageFileExtension @ 0x1405435F0 (MiFinishPageFileExtension.c)
  * Callees:
- *     MiRescanPageFileBitmapPortion @ 0x14025EDC8 (MiRescanPageFileBitmapPortion.c)
- *     RtlLengthCurrentClearRunBackward @ 0x1402E1DD4 (RtlLengthCurrentClearRunBackward.c)
- *     RtlLengthCurrentClearRunForward @ 0x1402E266C (RtlLengthCurrentClearRunForward.c)
- *     MiBitmapsCachedEntryLengthChanged @ 0x1402E2738 (MiBitmapsCachedEntryLengthChanged.c)
- *     RtlRbRemoveNode @ 0x14034D8D0 (RtlRbRemoveNode.c)
+ *     RtlLengthCurrentClearRunBackward @ 0x1402675F4 (RtlLengthCurrentClearRunBackward.c)
+ *     RtlLengthCurrentClearRunForward @ 0x14026823C (RtlLengthCurrentClearRunForward.c)
+ *     MiBitmapsCachedEntryLengthChanged @ 0x140268308 (MiBitmapsCachedEntryLengthChanged.c)
+ *     MiRescanPageFileBitmapPortion @ 0x1402B81E8 (MiRescanPageFileBitmapPortion.c)
+ *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall MiCoalescePageFileBitmapsCache(__int64 a1, int a2, unsigned int a3)
 {
   __int64 result; // rax
-  __int64 v5; // r8
   __int64 v6; // r9
   __int64 v7; // rax
-  __int64 v8; // rsi
-  __int64 v9; // rsi
-  unsigned __int64 v10; // rbx
-  __int64 v11; // r9
+  __int64 v8; // rcx
+  unsigned __int64 v9; // rbx
+  __int64 v10; // r9
+  __int64 v11; // rsi
   __int64 v12; // rax
-  __int64 v13; // r12
-  __int64 v14; // r13
-  unsigned __int64 v15; // rdx
-  int v16; // ecx
-  unsigned __int64 v17; // rax
-  int v18; // ebp
-  unsigned __int64 v19; // r15
+  __int64 v13; // r13
+  unsigned __int64 v14; // rdx
+  int v15; // ecx
+  unsigned __int64 v16; // rax
+  int v17; // ebp
+  unsigned __int64 v18; // r14
   unsigned __int64 i; // rcx
-  int v21; // r14d
-  unsigned __int64 v22; // rdx
-  int v23; // edx
-  __int64 v24; // rsi
-  int v25; // ecx
-  int v26; // edx
-  int v27; // ebx
-  unsigned int v28; // eax
+  int v20; // r15d
+  unsigned __int64 v21; // rdx
+  int v22; // edx
+  __int64 v23; // rsi
+  int v24; // ecx
+  int v25; // edx
+  int v26; // ebx
+  unsigned int v27; // eax
+  unsigned int v28; // ebp
   int v29; // ebx
-  int v30; // esi
-  unsigned int v31; // ecx
+  unsigned int v30; // ecx
+  int v31; // eax
   int v32; // eax
-  int v33; // eax
-  unsigned int v34; // eax
-  int v35; // eax
-  unsigned __int64 *v36; // rcx
-  __int64 v37; // rax
-  __int64 v38; // [rsp+30h] [rbp-48h]
-  __int64 v39; // [rsp+38h] [rbp-40h] BYREF
+  unsigned int v33; // eax
+  int v34; // eax
+  __int64 v35; // r8
+  __int64 v36; // r9
+  unsigned __int64 *v37; // rcx
+  __int64 v38; // rax
+  __int64 v39; // [rsp+30h] [rbp-48h] BYREF
   _UNKNOWN *retaddr; // [rsp+78h] [rbp+0h] BYREF
+  __int64 v41; // [rsp+80h] [rbp+8h]
   __int64 v42; // [rsp+98h] [rbp+20h]
 
   result = (__int64)&retaddr;
-  v5 = a1;
-  if ( (*(_BYTE *)(a1 + 207) & 1) != 0 )
-    return result;
-  v6 = 24LL;
-  v7 = *(_QWORD *)(a1 + 112);
-  v8 = 8LL;
-  if ( !a2 )
-    v8 = 24LL;
-  v9 = v7 + v8;
-  v42 = v9;
-  if ( !a2 )
-    v6 = 8LL;
-  v10 = *(_QWORD *)(a1 + 160);
-  v11 = v7 + v6;
-  v12 = *(_QWORD *)(a1 + 168);
-  v13 = 0LL;
-  v38 = v11;
-  v14 = 0LL;
-  v39 = a1 + 160;
-  if ( (v12 & 1) != 0 )
+  if ( (*(_BYTE *)(a1 + 207) & 1) == 0 )
   {
-    if ( !v10 )
+    v6 = 24LL;
+    v7 = *(_QWORD *)(a1 + 112);
+    v8 = 8LL;
+    if ( !a2 )
+      v8 = 24LL;
+    v41 = v7 + v8;
+    v9 = *(_QWORD *)(a1 + 160);
+    if ( !a2 )
+      v6 = 8LL;
+    v10 = v7 + v6;
+    v11 = 0LL;
+    v12 = *(_QWORD *)(a1 + 168);
+    v13 = 0LL;
+    v42 = v10;
+    if ( (v12 & 1) != 0 )
     {
-      v15 = 0LL;
-      goto LABEL_16;
+      if ( v9 )
+        v9 ^= a1 + 160;
+      else
+        v9 = 0LL;
     }
-    v10 ^= a1 + 160;
-  }
-  v15 = 0LL;
-  v16 = v12 & 1;
-  while ( v10 )
-  {
-    if ( a3 < *(_DWORD *)(v10 + 24) )
+    v14 = 0LL;
+    v15 = v12 & 1;
+    while ( v9 )
     {
-      v17 = *(_QWORD *)v10;
-      v15 = v10;
-      if ( v16 && v17 )
+      if ( a3 < *(_DWORD *)(v9 + 24) )
       {
-        v10 ^= v17;
-        continue;
-      }
-    }
-    else
-    {
-      if ( a3 <= *(_DWORD *)(v10 + 24) )
-        goto LABEL_17;
-      v17 = *(_QWORD *)(v10 + 8);
-      if ( v16 && v17 )
-      {
-        v10 ^= v17;
-        continue;
-      }
-    }
-    v10 = v17;
-  }
-LABEL_16:
-  v10 = v15;
-LABEL_17:
-  v18 = *(_DWORD *)(v10 + 24);
-  v19 = v10 - 24;
-  if ( v18 == a3 + 1 && v18 != -1 )
-  {
-    ++*(_DWORD *)(v19 + 52);
-    v14 = v10 - 24;
-    *(_DWORD *)(v19 + 48) = a3;
-  }
-  i = *(_QWORD *)v10;
-  v21 = 0;
-  v22 = v10;
-  if ( *(_QWORD *)v10 )
-  {
-    for ( ; *(_QWORD *)(i + 8); i = *(_QWORD *)(i + 8) )
-      ;
-  }
-  else
-  {
-    for ( i = *(_QWORD *)(v10 + 16) & 0xFFFFFFFFFFFFFFFCuLL; i; i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL )
-    {
-      if ( *(_QWORD *)(i + 8) == v22 )
-        break;
-      v22 = i;
-    }
-  }
-  if ( i )
-  {
-    v23 = *(_DWORD *)(i + 28);
-    v24 = i - 24;
-    v25 = v23 + *(_DWORD *)(i + 24);
-    v21 = v25 - 1;
-    if ( v25 == a3 )
-    {
-      if ( *(_DWORD *)(v19 + 48) == a3 )
-      {
-        *(_DWORD *)(v24 + 52) = *(_DWORD *)(v19 + 52) + v23;
-        *(_DWORD *)(v19 + 52) = 0;
-        RtlRbRemoveNode(v5 + 144, v10 - 24);
-        RtlRbRemoveNode(v39, v10);
-        v5 = a1;
-        v36 = *(unsigned __int64 **)(a1 + 184);
-        if ( *v36 != a1 + 176 )
-          __fastfail(3u);
-        v11 = v38;
-        *(_QWORD *)v19 = a1 + 176;
-        v14 = v24 | 1;
-        *(_QWORD *)(v19 + 8) = v36;
-        *v36 = v19;
-        *(_QWORD *)(a1 + 184) = v19;
+        v16 = *(_QWORD *)v9;
+        v14 = v9;
+        if ( v15 && v16 )
+          goto LABEL_27;
       }
       else
       {
-        v14 = v24;
-        *(_DWORD *)(v24 + 52) = v23 + 1;
+        if ( a3 <= *(_DWORD *)(v9 + 24) )
+          goto LABEL_17;
+        v16 = *(_QWORD *)(v9 + 8);
+        if ( v15 && v16 )
+        {
+LABEL_27:
+          v9 ^= v16;
+          continue;
+        }
       }
+      v9 = v16;
     }
-    v9 = v42;
-  }
-  if ( v14 )
-  {
-    if ( (v14 & 1) != 0 )
+    v9 = v14;
+LABEL_17:
+    v17 = *(_DWORD *)(v9 + 24);
+    v18 = v9 - 24;
+    if ( v17 == a3 + 1 && v17 != -1 )
     {
-      v14 &= ~1uLL;
+      ++*(_DWORD *)(v18 + 52);
+      v13 = v9 - 24;
+      *(_DWORD *)(v18 + 48) = a3;
+    }
+    i = *(_QWORD *)v9;
+    v20 = 0;
+    v21 = v9;
+    if ( *(_QWORD *)v9 )
+    {
+      for ( ; *(_QWORD *)(i + 8); i = *(_QWORD *)(i + 8) )
+        ;
     }
     else
     {
-      v26 = *(_DWORD *)(v14 + 48);
-      if ( v26 == a3 )
+      for ( i = *(_QWORD *)(v9 + 16) & 0xFFFFFFFFFFFFFFFCuLL; i; i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL )
       {
-        v34 = RtlLengthCurrentClearRunBackward(v11, a3, 0xFFFFFFFF);
-        if ( v34 > 1 )
+        if ( *(_QWORD *)(i + 8) == v21 )
+          break;
+        v21 = i;
+      }
+    }
+    if ( i )
+    {
+      v22 = *(_DWORD *)(i + 28);
+      v23 = i - 24;
+      v24 = v22 + *(_DWORD *)(i + 24);
+      v20 = v24 - 1;
+      if ( v24 == a3 )
+      {
+        if ( *(_DWORD *)(v18 + 48) == a3 )
         {
-          v35 = RtlLengthCurrentClearRunBackward(v9, a3, v34);
-          *(_DWORD *)(v14 + 52) += v35 - 1;
-          *(_DWORD *)(v14 + 48) = a3 - v35 + 1;
+          *(_DWORD *)(v23 + 52) = *(_DWORD *)(v18 + 52) + v22;
+          *(_DWORD *)(v18 + 52) = 0;
+          RtlRbRemoveNode(a1 + 144, v9 - 24, 8LL, v10);
+          RtlRbRemoveNode(a1 + 160, v9, v35, v36);
+          v37 = *(unsigned __int64 **)(a1 + 184);
+          if ( *v37 != a1 + 176 )
+            __fastfail(3u);
+          v10 = v42;
+          *(_QWORD *)v18 = a1 + 176;
+          v13 = v23 | 1;
+          *(_QWORD *)(v18 + 8) = v37;
+          *v37 = v18;
+          *(_QWORD *)(a1 + 184) = v18;
+        }
+        else
+        {
+          v13 = v23;
+          *(_DWORD *)(v23 + 52) = v22 + 1;
+        }
+      }
+      v11 = 0LL;
+    }
+    if ( v13 )
+    {
+      if ( (v13 & 1) != 0 )
+      {
+        v13 &= ~1uLL;
+      }
+      else
+      {
+        v25 = *(_DWORD *)(v13 + 48);
+        if ( v25 == a3 )
+        {
+          v33 = RtlLengthCurrentClearRunBackward(v10, a3, 0xFFFFFFFF);
+          if ( v33 > 1 )
+          {
+            v34 = RtlLengthCurrentClearRunBackward(v41, a3, v33);
+            *(_DWORD *)(v13 + 52) += v34 - 1;
+            *(_DWORD *)(v13 + 48) = a3 - v34 + 1;
+          }
+        }
+        else
+        {
+          v26 = v25 + *(_DWORD *)(v13 + 52);
+          v27 = RtlLengthCurrentClearRunForward(v10, (unsigned int)(v26 - 1), 0xFFFFFFFFLL);
+          if ( v27 > 1 )
+            *(_DWORD *)(v13 + 52) += RtlLengthCurrentClearRunForward(v41, (unsigned int)(v26 - 1), v27) - 1;
+        }
+      }
+      return MiBitmapsCachedEntryLengthChanged(a1, v13, 1LL);
+    }
+    else
+    {
+      v28 = v17 - ((v17 != -1) + 1) - a3;
+      v29 = a3 - ((v20 != 0) + 1) - v20;
+      if ( *(_QWORD *)(a1 + 176) == a1 + 176 )
+      {
+        v38 = *(_QWORD *)(a1 + 152);
+        if ( (v38 & 1) != 0 )
+        {
+          if ( v38 != 1 )
+            v11 = v38 ^ ((a1 + 144) | 1);
+        }
+        else
+        {
+          v11 = *(_QWORD *)(a1 + 152);
         }
       }
       else
       {
-        v27 = v26 + *(_DWORD *)(v14 + 52);
-        v28 = RtlLengthCurrentClearRunForward(v11, (unsigned int)(v27 - 1), 0xFFFFFFFFLL);
-        if ( v28 > 1 )
-          *(_DWORD *)(v14 + 52) += RtlLengthCurrentClearRunForward(v9, (unsigned int)(v27 - 1), v28) - 1;
+        v11 = *(_QWORD *)(a1 + 176);
       }
-    }
-    return MiBitmapsCachedEntryLengthChanged(a1, v14, 1LL);
-  }
-  else
-  {
-    v29 = v18 - a3 - 1;
-    if ( v18 != -1 )
-      v29 = v18 - a3 - 2;
-    v30 = a3 - ((v21 != 0) + 1) - v21;
-    if ( *(_QWORD *)(v5 + 176) == v5 + 176 )
-    {
-      v37 = *(_QWORD *)(v5 + 152);
-      if ( (v37 & 1) != 0 )
+      v39 = v11;
+      v30 = a3 - (v20 != 0) - v20 + v28;
+      if ( v30 < 0x20
+        || *(_DWORD *)(v11 + 52) >= v30
+        || v28
+        && ((v31 = RtlLengthCurrentClearRunForward(v10, a3, v28 + 1),
+             v28 = v31 - 1,
+             v30 = v29 + v31,
+             (unsigned int)(v29 + v31) < 0x20)
+         || *(_DWORD *)(v11 + 52) >= v30)
+        || v29
+        && ((v32 = RtlLengthCurrentClearRunBackward(v42, a3, a3 - (v20 != 0) - v20),
+             v29 = v32 - 1,
+             v30 = v28 + v32,
+             v28 + v32 < 0x20)
+         || *(_DWORD *)(v11 + 52) >= v30) )
       {
-        if ( v37 != 1 )
-          v13 = v37 ^ ((v5 + 144) | 1);
+        result = *(unsigned int *)(a1 + 140);
+        if ( (unsigned int)result <= v30 )
+          result = v30;
+        *(_DWORD *)(a1 + 140) = result;
       }
       else
       {
-        v13 = *(_QWORD *)(v5 + 152);
+        return MiRescanPageFileBitmapPortion(a1, v41, a3 - v29, v30, (__int64)&v39);
       }
-    }
-    else
-    {
-      v13 = *(_QWORD *)(v5 + 176);
-    }
-    v39 = v13;
-    v31 = a3 - (v21 != 0) - v21 + v29;
-    if ( v31 < 0x20 || *(_DWORD *)(v13 + 52) >= v31 )
-    {
-      result = *(unsigned int *)(v5 + 140);
-      if ( (unsigned int)result > v31 )
-        v31 = *(_DWORD *)(v5 + 140);
-      *(_DWORD *)(v5 + 140) = v31;
-    }
-    else if ( v29
-           && ((v32 = RtlLengthCurrentClearRunForward(v11, a3, (unsigned int)(v29 + 1)),
-                v29 = v32 - 1,
-                v31 = v30 + v32,
-                (unsigned int)(v30 + v32) < 0x20)
-            || *(_DWORD *)(v13 + 52) >= v31)
-           || v30
-           && ((v33 = RtlLengthCurrentClearRunBackward(v38, a3, a3 - (v21 != 0) - v21),
-                v30 = v33 - 1,
-                v31 = v29 + v33,
-                (unsigned int)(v29 + v33) < 0x20)
-            || *(_DWORD *)(v13 + 52) >= v31) )
-    {
-      result = *(unsigned int *)(a1 + 140);
-      if ( (unsigned int)result > v31 )
-        v31 = *(_DWORD *)(a1 + 140);
-      *(_DWORD *)(a1 + 140) = v31;
-    }
-    else
-    {
-      return MiRescanPageFileBitmapPortion(a1, v42, a3 - v30, v31, &v39);
     }
   }
   return result;

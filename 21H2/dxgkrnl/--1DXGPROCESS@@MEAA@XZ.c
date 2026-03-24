@@ -1,60 +1,72 @@
 /*
- * XREFs of ??1DXGPROCESS@@MEAA@XZ @ 0x1C019A588
+ * XREFs of ??1DXGPROCESS@@MEAA@XZ @ 0x1C0114970
  * Callers:
- *     ??_GDXGPROCESS@@MEAAPEAXI@Z @ 0x1C001CDB0 (--_GDXGPROCESS@@MEAAPEAXI@Z.c)
- *     ??1DXGPROCESSVM@@UEAA@XZ @ 0x1C0057740 (--1DXGPROCESSVM@@UEAA@XZ.c)
- *     ??1DXGPROCESSVMWP@@UEAA@XZ @ 0x1C0057784 (--1DXGPROCESSVMWP@@UEAA@XZ.c)
+ *     ??_GDXGPROCESS@@MEAAPEAXI@Z @ 0x1C0006970 (--_GDXGPROCESS@@MEAAPEAXI@Z.c)
+ *     ??1DXGPROCESSVM@@UEAA@XZ @ 0x1C004891C (--1DXGPROCESSVM@@UEAA@XZ.c)
+ *     ??1DXGPROCESSVMWP@@UEAA@XZ @ 0x1C0048960 (--1DXGPROCESSVMWP@@UEAA@XZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C000E608 (--1DXGFASTMUTEX@@QEAA@XZ.c)
- *     ?ReleaseDwmProcessReference@DXGSESSIONDATA@@QEAAXXZ @ 0x1C001F95C (-ReleaseDwmProcessReference@DXGSESSIONDATA@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0186C8C (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00066E0 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ?ReleaseDwmProcessReference@DXGSESSIONDATA@@QEAAXXZ @ 0x1C001B318 (-ReleaseDwmProcessReference@DXGSESSIONDATA@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C011665C (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
  */
 
-void __fastcall DXGPROCESS::~DXGPROCESS(DXGPROCESS *this)
+void __fastcall DXGPROCESS::~DXGPROCESS(DXGPROCESS *this, __int64 a2)
 {
-  int v2; // eax
-  int v3; // eax
+  __int64 v3; // rdx
   __int64 v4; // rcx
-  __int64 v5; // rdi
-  PLIST_ENTRY v6; // rax
-  PLIST_ENTRY v7; // rsi
-  void *v8; // rcx
+  bool v5; // zf
+  int v6; // eax
+  void *v7; // rdi
+  __int64 v8; // rcx
+  __int64 v9; // rdi
+  PLIST_ENTRY v10; // rax
+  PLIST_ENTRY v11; // rsi
+  void *v12; // rdi
+  __int64 v13; // rcx
   unsigned int i; // edi
   struct DXGGLOBAL *Global; // rsi
-  unsigned int v11; // ecx
-  void *v12; // rcx
-  DXGSESSIONMGR *v13; // rdi
+  __int64 v16; // rdx
+  void *v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  DXGSESSIONMGR *v20; // rdi
   unsigned int CurrentProcessSessionId; // eax
   DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  _QWORD v16[10]; // [rsp+50h] [rbp-88h] BYREF
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  _QWORD v29[10]; // [rsp+20h] [rbp-78h] BYREF
 
   *(_QWORD *)this = &DXGPROCESS::`vftable';
-  if ( *((_QWORD *)this + 57) )
+  if ( *((_QWORD *)this + 47) )
   {
-    WdLogSingleEntry1(1LL, 1238LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_DecommittableBytes == 0", 1238LL, 0LL, 0LL, 0LL, 0LL);
+    v23 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v23 + 24) = 1287LL;
+    WdLogEvent5_WdAssertion(v23);
   }
-  memset(v16, 0, 0x48uLL);
-  EtwActivityIdControl(3u, (LPGUID)&v16[1]);
-  v16[8] = MEMORY[0xFFFFF78000000014];
-  v2 = *((_DWORD *)this + 106) & 0x104;
-  LODWORD(v16[3]) = 25;
-  LOBYTE(v16[6]) = -1;
-  if ( v2 == 4 )
+  memset(v29, 0, 0x48uLL);
+  EtwActivityIdControl(3u, (LPGUID)&v29[1]);
+  v5 = *((_BYTE *)this + 346) == 0;
+  v29[8] = MEMORY[0xFFFFF78000000014];
+  LODWORD(v29[3]) = 25;
+  LOBYTE(v29[6]) = -1;
+  if ( !v5 && (*((_BYTE *)this + 347) & 0x20) == 0 )
   {
-    v13 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-    if ( v13 )
+    v20 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v4, v3) + 102);
+    if ( v20 )
     {
-      CurrentProcessSessionId = PsGetCurrentProcessSessionId();
-      SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v13, CurrentProcessSessionId);
+      CurrentProcessSessionId = PsGetCurrentProcessSessionId(v19, v18);
+      SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v20, CurrentProcessSessionId);
     }
     else
     {
@@ -62,97 +74,96 @@ void __fastcall DXGPROCESS::~DXGPROCESS(DXGPROCESS *this)
     }
     DXGSESSIONDATA::ReleaseDwmProcessReference(SessionDataForSpecifiedSession);
   }
-  v3 = *((_DWORD *)this + 10);
-  if ( !v3 )
+  v6 = *((_DWORD *)this + 10);
+  if ( !v6 )
   {
-    DXGPROCESS::Destroy(this, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v16, 0);
-    v3 = *((_DWORD *)this + 10);
+    DXGPROCESS::Destroy(this, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v29, 0);
+    v6 = *((_DWORD *)this + 10);
   }
-  if ( v3 != 2 )
+  if ( v6 != 2 )
   {
-    WdLogSingleEntry1(1LL, 1255LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_ExecutionState == EXECUTION_STOPPED",
-      1255LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v24 = WdLogNewEntry5_WdAssertion(v4, v3);
+    *(_QWORD *)(v24 + 24) = 1304LL;
+    WdLogEvent5_WdAssertion(v24);
   }
-  if ( *((_QWORD *)this + 74) )
+  if ( *((_QWORD *)this + 60) )
   {
-    WdLogSingleEntry1(1LL, 1260LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"nullptr == m_pVailObjectRef", 1260LL, 0LL, 0LL, 0LL, 0LL);
+    v25 = WdLogNewEntry5_WdAssertion(v4, v3);
+    *(_QWORD *)(v25 + 24) = 1309LL;
+    WdLogEvent5_WdAssertion(v25);
   }
-  v4 = *((_QWORD *)this + 8);
-  if ( v4 )
+  v7 = (void *)*((_QWORD *)this + 42);
+  if ( v7 )
   {
-    operator delete[](*(void **)(v4 + 88));
-    v5 = *((_QWORD *)this + 8);
-    if ( v5 )
+    DXGFASTMUTEX::~DXGFASTMUTEX(*((DXGFASTMUTEX **)this + 42), v3);
+    operator delete(v7);
+  }
+  *((_QWORD *)this + 42) = 0LL;
+  v8 = *((_QWORD *)this + 8);
+  if ( v8 )
+  {
+    operator delete[](*(void **)(v8 + 80));
+    v9 = *((_QWORD *)this + 8);
+    if ( v9 )
     {
       while ( 1 )
       {
-        v6 = ExInterlockedRemoveHeadList((PLIST_ENTRY)(v5 + 96), (PKSPIN_LOCK)(v5 + 112));
-        v7 = v6;
-        if ( !v6 )
+        v10 = ExInterlockedRemoveHeadList((PLIST_ENTRY)(v9 + 88), (PKSPIN_LOCK)(v9 + 104));
+        v11 = v10;
+        if ( !v10 )
           break;
-        ((void (__fastcall *)(struct _LIST_ENTRY *))v6[1].Flink)(v6[1].Blink);
-        operator delete(v7);
+        ((void (__fastcall *)(struct _LIST_ENTRY *))v10[1].Flink)(v10[1].Blink);
+        operator delete(v11);
       }
-      operator delete((void *)v5);
+      operator delete((void *)v9);
     }
   }
-  v8 = (void *)*((_QWORD *)this + 6);
-  if ( v8 )
+  v12 = (void *)*((_QWORD *)this + 13);
+  if ( v12 )
+  {
+    DXGFASTMUTEX::~DXGFASTMUTEX(*((DXGFASTMUTEX **)this + 13), v3);
+    operator delete(v12);
+  }
+  *((_QWORD *)this + 13) = 0LL;
+  v13 = *((_QWORD *)this + 6);
+  if ( v13 )
   {
     for ( i = 0; ; ++i )
     {
-      Global = DXGGLOBAL_GetGlobal();
-      v11 = *((_DWORD *)Global + 348);
-      if ( !v11 )
+      Global = DXGGLOBAL::GetGlobal(v13, v3);
+      v13 = *((unsigned int *)Global + 312);
+      if ( !(_DWORD)v13 )
       {
-        WdLogSingleEntry1(1LL, 2690LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"m_MaximumGlobalAdapterCount > 0",
-          2690LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        v11 = *((_DWORD *)Global + 348);
+        v26 = WdLogNewEntry5_WdAssertion(v13, v3);
+        *(_QWORD *)(v26 + 24) = 2553LL;
+        WdLogEvent5_WdAssertion(v26);
+        v13 = *((unsigned int *)Global + 312);
       }
-      if ( i >= v11 )
+      if ( i >= (unsigned int)v13 )
         break;
     }
-    v8 = (void *)*((_QWORD *)this + 6);
+    v13 = *((_QWORD *)this + 6);
   }
-  operator delete[](v8);
+  operator delete[]((void *)v13);
   operator delete[](*((void **)this + 9));
-  v12 = (void *)*((_QWORD *)this + 12);
-  if ( v12 )
+  v17 = (void *)*((_QWORD *)this + 12);
+  if ( v17 )
   {
-    operator delete(v12);
+    operator delete(v17);
     *((_QWORD *)this + 12) = 0LL;
   }
-  DXGFASTMUTEX::~DXGFASTMUTEX((DXGPROCESS *)((char *)this + 376));
-  if ( *((DXGPROCESS **)this + 43) != (DXGPROCESS *)((char *)this + 344) )
+  if ( *((DXGPROCESS **)this + 38) != (DXGPROCESS *)((char *)this + 304) )
   {
-    WdLogSingleEntry1(1LL, 764LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsEmpty()", 764LL, 0LL, 0LL, 0LL, 0LL);
+    v27 = WdLogNewEntry5_WdAssertion(v17, v16);
+    *(_QWORD *)(v27 + 24) = 953LL;
+    WdLogEvent5_WdAssertion(v27);
   }
-  if ( *((DXGPROCESS **)this + 40) != (DXGPROCESS *)((char *)this + 320) )
+  if ( *((DXGPROCESS **)this + 35) != (DXGPROCESS *)((char *)this + 280) )
   {
-    WdLogSingleEntry1(1LL, 764LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsEmpty()", 764LL, 0LL, 0LL, 0LL, 0LL);
+    v28 = WdLogNewEntry5_WdAssertion(v17, v16);
+    *(_QWORD *)(v28 + 24) = 953LL;
+    WdLogEvent5_WdAssertion(v28);
   }
-  operator delete[](*((void **)this + 35));
-  DXGFASTMUTEX::~DXGFASTMUTEX((DXGPROCESS *)((char *)this + 104));
+  operator delete[](*((void **)this + 30));
   *((_QWORD *)this + 3) = 0LL;
 }

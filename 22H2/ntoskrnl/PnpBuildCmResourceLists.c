@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpBuildCmResourceLists @ 0x1408185D4
+ * XREFs of PnpBuildCmResourceLists @ 0x14074ED3C
  * Callers:
- *     PnpAllocateResources @ 0x14078F9D4 (PnpAllocateResources.c)
- *     PnpReallocateResources @ 0x14096D5F8 (PnpReallocateResources.c)
- *     PnpRebalance @ 0x14096E968 (PnpRebalance.c)
+ *     PnpAllocateResources @ 0x14074F4D8 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x1408B31B0 (PnpReallocateResources.c)
+ *     PnpRebalance @ 0x1408B87F4 (PnpRebalance.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PnpDetermineResourceListSize @ 0x1407906DC (PnpDetermineResourceListSize.c)
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
- *     PipClearDevNodeFlags @ 0x14079856C (PipClearDevNodeFlags.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x1408186D4 (IopWriteAllocatedResourcesToRegistry.c)
- *     PnpBuildCmResourceList @ 0x14081993C (PnpBuildCmResourceList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x140742F14 (PipClearDevNodeFlags.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x14074EE3C (IopWriteAllocatedResourcesToRegistry.c)
+ *     PnpDetermineResourceListSize @ 0x14075020C (PnpDetermineResourceListSize.c)
+ *     PnpBuildCmResourceList @ 0x140750970 (PnpBuildCmResourceList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpBuildCmResourceLists(unsigned __int64 a1, unsigned __int64 a2, char a3)
@@ -55,7 +55,7 @@ void __fastcall PnpBuildCmResourceLists(unsigned __int64 a1, unsigned __int64 a2
         ExFreePoolWithTag(v16, 0);
         *(_QWORD *)(v14 + 424) = 0LL;
       }
-      ExReleaseFastMutex(&PiResourceListLock);
+      KeReleaseGuardedMutex(&PiResourceListLock);
     }
   }
   v5 = -1;
@@ -101,7 +101,7 @@ void __fastcall PnpBuildCmResourceLists(unsigned __int64 a1, unsigned __int64 a2
               if ( !v18 )
                 PipSetDevNodeFlags(v17, 256);
               *(_QWORD *)(v17 + 424) = *((_QWORD *)v7 - 1);
-              ExReleaseFastMutex(&PiResourceListLock);
+              KeReleaseGuardedMutex(&PiResourceListLock);
             }
             v10 = *((_QWORD *)v7 - 2);
             if ( v10 )
@@ -110,7 +110,7 @@ void __fastcall PnpBuildCmResourceLists(unsigned __int64 a1, unsigned __int64 a2
                 v11 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v9 + 312LL) + 40LL);
               else
                 v11 = 0LL;
-              v12 = PnpDetermineResourceListSize(*((_DWORD **)v7 - 2));
+              v12 = PnpDetermineResourceListSize(*((_QWORD *)v7 - 2));
               IopWriteAllocatedResourcesToRegistry(v11, v10, v12);
             }
           }

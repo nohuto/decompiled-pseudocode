@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CitpPostUpdateUseInfoGetUpdateKey@@YAJPEAI@Z @ 0x1C00A5660
+ * XREFs of ?CitpPostUpdateUseInfoGetUpdateKey@@YAJPEAI@Z @ 0x1C008F550
  * Callers:
- *     ?CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00A3F18 (-CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008CAD0 (-CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?CitpParameterGetString@@YAJPEAXPEBGPEAPEBG@Z @ 0x1C00A5814 (-CitpParameterGetString@@YAJPEAXPEBGPEAPEBG@Z.c)
- *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C023FD24 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?CitpParameterGetString@@YAJPEAXPEBGPEAPEBG@Z @ 0x1C008F6FC (-CitpParameterGetString@@YAJPEAXPEBGPEAPEBG@Z.c)
+ *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C01FE090 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
  */
 
 __int64 __fastcall CitpPostUpdateUseInfoGetUpdateKey(unsigned int *a1)
@@ -51,7 +51,7 @@ __int64 __fastcall CitpPostUpdateUseInfoGetUpdateKey(unsigned int *a1)
   v5 = v3;
   if ( v3 < 0 )
   {
-    v15 = 4925;
+    v15 = 4947;
     v16 = v3;
 LABEL_20:
     CitpLogFailureWorker(v16, v4, v15);
@@ -128,18 +128,16 @@ LABEL_12:
       goto LABEL_13;
     }
     v5 = -1073739509;
-    v15 = 4940;
+    v15 = 4962;
     v16 = -1073739509;
     goto LABEL_20;
   }
-  CitpLogFailureWorker(String, v4, 0x1344u);
+  CitpLogFailureWorker(String, v4, 0x135Au);
   v2 = v25;
 LABEL_13:
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( v2 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)v2);
+    Win32FreePool((__int64)v2);
   return v5;
 }

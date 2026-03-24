@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnGetSectionObject @ 0x14065FCB8
+ * XREFs of PfSnGetSectionObject @ 0x14065FC98
  * Callers:
- *     PfSnPopulateReadList @ 0x14065F760 (PfSnPopulateReadList.c)
+ *     PfSnPopulateReadList @ 0x14065F740 (PfSnPopulateReadList.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PfpFileCheckAttributesForPrefetch @ 0x1400DDAD4 (PfpFileCheckAttributesForPrefetch.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PfpFileCheckAttributesForPrefetch @ 0x1400DDAF4 (PfpFileCheckAttributesForPrefetch.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     NtCreateSection @ 0x1405DD740 (NtCreateSection.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     PfSnPrefetchFileMetadata @ 0x14065CB04 (PfSnPrefetchFileMetadata.c)
- *     PfSnIsSectionPrefetchedAfterPhase @ 0x1406600EC (PfSnIsSectionPrefetchedAfterPhase.c)
- *     PfpOpenHandleCreate @ 0x140660388 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x1406604EC (PfpOpenHandleClose.c)
- *     IopQueryXxxInformation @ 0x140661740 (IopQueryXxxInformation.c)
+ *     PfSnPrefetchFileMetadata @ 0x14065CAE4 (PfSnPrefetchFileMetadata.c)
+ *     PfSnIsSectionPrefetchedAfterPhase @ 0x1406600CC (PfSnIsSectionPrefetchedAfterPhase.c)
+ *     PfpOpenHandleCreate @ 0x140660368 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406604CC (PfpOpenHandleClose.c)
+ *     IopQueryXxxInformation @ 0x140661720 (IopQueryXxxInformation.c)
  */
 
 __int64 __fastcall PfSnGetSectionObject(

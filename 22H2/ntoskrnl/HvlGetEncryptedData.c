@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlGetEncryptedData @ 0x140547AF0
+ * XREFs of HvlGetEncryptedData @ 0x1404F8AD0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpGetEncryptedDataFromHypervisor @ 0x140547D58 (HvlpGetEncryptedDataFromHypervisor.c)
- *     HvlpGetEncryptedDataFromSecureKernel @ 0x140547F60 (HvlpGetEncryptedDataFromSecureKernel.c)
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x1404F8D18 (HvlpGetEncryptedDataFromHypervisor.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x1404F8F04 (HvlpGetEncryptedDataFromSecureKernel.c)
  */
 
 __int64 __fastcall HvlGetEncryptedData(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)

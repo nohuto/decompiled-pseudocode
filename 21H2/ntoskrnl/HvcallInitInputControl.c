@@ -1,8 +1,9 @@
 /*
- * XREFs of HvcallInitInputControl @ 0x1403731A0
+ * XREFs of HvcallInitInputControl @ 0x140365D70
  * Callers:
- *     HvlpCreateRootVirtualProcessor @ 0x1409311AC (HvlpCreateRootVirtualProcessor.c)
- *     HvlpDynamicUpdateMicrocode @ 0x140931378 (HvlpDynamicUpdateMicrocode.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14088E76C (HvlpCreateRootVirtualProcessor.c)
+ *     HvlpCondenseMicrocode @ 0x14088E938 (HvlpCondenseMicrocode.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x14088E9AC (HvlpDynamicUpdateMicrocode.c)
  * Callees:
  *     <none>
  */

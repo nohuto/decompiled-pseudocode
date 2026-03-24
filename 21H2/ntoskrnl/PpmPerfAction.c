@@ -1,44 +1,47 @@
 /*
- * XREFs of PpmPerfAction @ 0x140343B00
+ * XREFs of PpmPerfAction @ 0x140220770
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfApplyProcessorState @ 0x14023B798 (PpmPerfApplyProcessorState.c)
- *     PpmPerfSnapDeliveredPerformance @ 0x140304CE0 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmCheckContinueExecution @ 0x140343BA0 (PpmCheckContinueExecution.c)
- *     PpmParkReportParkedCore @ 0x1405DD1A8 (PpmParkReportParkedCore.c)
- *     PpmParkReportSoftParkChange @ 0x1405DD260 (PpmParkReportSoftParkChange.c)
- *     PpmParkReportUnparkedCore @ 0x1405DD2E0 (PpmParkReportUnparkedCore.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140220810 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmCheckContinueExecution @ 0x14022B780 (PpmCheckContinueExecution.c)
+ *     PpmPerfApplyProcessorState @ 0x140398B3C (PpmPerfApplyProcessorState.c)
+ *     PpmParkReportParkedCore @ 0x14057D7B4 (PpmParkReportParkedCore.c)
+ *     PpmParkReportSoftParkChange @ 0x14057D8AC (PpmParkReportSoftParkChange.c)
+ *     PpmParkReportUnparkedCore @ 0x14057D960 (PpmParkReportUnparkedCore.c)
  */
 
 void __fastcall PpmPerfAction(
         struct _KDPC *Dpc,
-        struct _KPRCB *DeferredContext,
+        volatile __int32 *DeferredContext,
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
+  volatile __int32 *v4; // rdi
   char v5; // bl
-  _PROC_PERF_CONSTRAINT *Constraint; // rax
+  __int64 v6; // rax
 
-  v5 = _InterlockedExchange(&DeferredContext->PowerState.PerfActionMask, 0);
+  v4 = DeferredContext;
+  v5 = _InterlockedExchange(DeferredContext + 8276, 0);
   if ( (v5 & 1) != 0 )
-    PpmPerfSnapDeliveredPerformance((__int64)&DeferredContext->PowerState.CheckContext, 0, 0);
+    PpmPerfSnapDeliveredPerformance(DeferredContext + 8282, 0LL, 0LL, SystemArgument2);
   if ( (v5 & 2) != 0 )
-    PpmParkReportUnparkedCore(DeferredContext, DeferredContext, SystemArgument1, SystemArgument2);
+    PpmParkReportUnparkedCore(v4, DeferredContext, SystemArgument1, SystemArgument2);
   if ( (v5 & 4) != 0 )
   {
-    Constraint = DeferredContext->PowerState.CheckContext.Constraint;
-    if ( Constraint->Force )
+    v6 = *((_QWORD *)v4 + 4142);
+    if ( *(_BYTE *)(v6 + 124) )
     {
-      Constraint->Force = 0;
-      PpmPerfApplyProcessorState(DeferredContext, 1);
+      LOBYTE(DeferredContext) = 1;
+      *(_BYTE *)(v6 + 124) = 0;
+      PpmPerfApplyProcessorState(v4, DeferredContext, SystemArgument1, SystemArgument2);
     }
-    PpmPerfApplyProcessorState(DeferredContext, 0);
+    PpmPerfApplyProcessorState(v4, 0LL, SystemArgument1, SystemArgument2);
   }
   if ( (v5 & 8) != 0 )
-    PpmParkReportParkedCore(DeferredContext, DeferredContext, SystemArgument1, SystemArgument2);
+    PpmParkReportParkedCore(v4, DeferredContext, SystemArgument1, SystemArgument2);
   if ( (v5 & 0x10) != 0 )
-    PpmParkReportSoftParkChange(DeferredContext, DeferredContext, SystemArgument1, SystemArgument2);
+    PpmParkReportSoftParkChange(v4, DeferredContext, SystemArgument1, SystemArgument2);
   if ( _InterlockedExchangeAdd(&PpmCheckCount, 0xFFFFFFFF) == 1 )
     PpmCheckContinueExecution(Dpc, DeferredContext, SystemArgument1, SystemArgument2);
 }

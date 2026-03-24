@@ -1,8 +1,8 @@
 /*
- * XREFs of ?CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@2@_KPEA_KPEA_NPEA_J2@Z @ 0x1C00B3B80
+ * XREFs of ?CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@2@_KPEA_KPEA_NPEA_J2@Z @ 0x1C009B260
  * Callers:
- *     ?UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z @ 0x1C00B3AF0 (-UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z.c)
- *     ?GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z @ 0x1C02157E4 (-GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z.c)
+ *     ?UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z @ 0x1C009B1D0 (-UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z.c)
+ *     ?GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z @ 0x1C01D5DA8 (-GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z.c)
  * Callees:
  *     <none>
  */
@@ -21,15 +21,16 @@ void __fastcall DirectComposition::CAnimationMarshaler::CalculateAnimationTimeSt
   __int64 v9; // rdi
   unsigned __int64 v10; // r10
   char v11; // bl
+  char v12; // al
 
   v7 = *((_DWORD *)a2 + 6);
-  v8 = *((_QWORD *)this + 15);
-  v9 = *((_QWORD *)this + 28);
-  v10 = *((_QWORD *)this + 29);
-  v11 = (*((_BYTE *)this + 216) & 4) != 0;
+  v8 = *((_QWORD *)this + 14);
+  v9 = *((_QWORD *)this + 27);
+  v10 = *((_QWORD *)this + 28);
+  v11 = (*((_BYTE *)this + 208) & 4) != 0;
   if ( (v7 & 4) != 0 )
   {
-    if ( !v8 && !*((_QWORD *)this + 19) )
+    if ( !v8 && !*((_QWORD *)this + 18) )
       v8 = a3;
     v10 = v8;
   }
@@ -37,12 +38,13 @@ void __fastcall DirectComposition::CAnimationMarshaler::CalculateAnimationTimeSt
   {
     if ( a3 >= v8 )
     {
-      if ( (*((_BYTE *)this + 216) & 4) != 0 )
+      v12 = *((_BYTE *)a2 + 28);
+      if ( (*((_BYTE *)this + 208) & 4) != 0 )
       {
-        if ( !*((_BYTE *)a2 + 28) )
+        if ( !v12 )
           v10 = a3;
       }
-      else if ( *((_BYTE *)a2 + 28) )
+      else if ( v12 )
       {
         v9 += a3 - v10;
       }

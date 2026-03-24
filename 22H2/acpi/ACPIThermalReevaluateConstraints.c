@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIThermalReevaluateConstraints @ 0x1C0041A94
+ * XREFs of ACPIThermalReevaluateConstraints @ 0x1C000E1B0
  * Callers:
- *     ACPIThermalAssocaiteConstraint @ 0x1C003FE44 (ACPIThermalAssocaiteConstraint.c)
- *     ACPIThermalReleaseCoolingInterfaces @ 0x1C0041C50 (ACPIThermalReleaseCoolingInterfaces.c)
- *     ACPIThermalUpdateConstraints @ 0x1C004223C (ACPIThermalUpdateConstraints.c)
- *     AcpiThermalDestroyContraints @ 0x1C0042528 (AcpiThermalDestroyContraints.c)
+ *     ACPIThermalAssocaiteConstraint @ 0x1C000E118 (ACPIThermalAssocaiteConstraint.c)
+ *     ACPIThermalUpdateConstraints @ 0x1C0014B28 (ACPIThermalUpdateConstraints.c)
+ *     ACPIThermalReleaseCoolingInterfaces @ 0x1C0031680 (ACPIThermalReleaseCoolingInterfaces.c)
+ *     AcpiThermalDestroyContraints @ 0x1C00604F0 (AcpiThermalDestroyContraints.c)
  * Callees:
  *     <none>
  */

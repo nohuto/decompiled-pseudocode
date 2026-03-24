@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsEmptyDrawing@CColorBrush@@UEBA_NXZ @ 0x1800EA5A0
+ * XREFs of ?IsEmptyDrawing@CColorBrush@@UEBA_NXZ @ 0x1800C2570
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CColorBrush::IsEmptyDrawing(CColorBrush *this)
 {
-  return COERCE_FLOAT(*((_DWORD *)this + 25) & _xmm) < 0.0000011920929;
+  return COERCE_FLOAT(*((_DWORD *)this + 23) & _xmm) < 0.0000011920929;
 }

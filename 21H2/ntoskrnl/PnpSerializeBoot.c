@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpSerializeBoot @ 0x1403DCD34
+ * XREFs of PnpSerializeBoot @ 0x1403CEA90
  * Callers:
- *     NtSerializeBoot @ 0x140861890 (NtSerializeBoot.c)
- *     IoInitSystem @ 0x140B21B40 (IoInitSystem.c)
+ *     NtSerializeBoot @ 0x1407D2990 (NtSerializeBoot.c)
+ *     IoInitSystem @ 0x140A66E8C (IoInitSystem.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
 NTSTATUS PnpSerializeBoot()

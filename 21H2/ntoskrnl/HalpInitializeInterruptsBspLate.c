@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpInitializeInterruptsBspLate @ 0x1403B91D4
+ * XREFs of HalpInitializeInterruptsBspLate @ 0x1403CDB2C
  * Callers:
- *     HalpInterruptInitSystem @ 0x140A54BA0 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x14099B890 (HalpInterruptInitSystem.c)
  * Callees:
- *     HalpInterruptModel @ 0x14036FA84 (HalpInterruptModel.c)
- *     HalpInterruptRemapFixedLines @ 0x1403B9214 (HalpInterruptRemapFixedLines.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     HalpInitializeInterruptRemappingBspLate @ 0x1409098C0 (HalpInitializeInterruptRemappingBspLate.c)
- *     HalpUpdatePerDeviceMsiLimitInformation @ 0x140AF8610 (HalpUpdatePerDeviceMsiLimitInformation.c)
+ *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
+ *     HalpInterruptRemapFixedLines @ 0x1403CDB6C (HalpInterruptRemapFixedLines.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HalpInitializeInterruptRemappingBspLate @ 0x140865730 (HalpInitializeInterruptRemappingBspLate.c)
+ *     HalpUpdatePerDeviceMsiLimitInformation @ 0x140A72004 (HalpUpdatePerDeviceMsiLimitInformation.c)
  */
 
 __int64 HalpInitializeInterruptsBspLate()
 {
   __int64 result; // rax
 
-  if ( (*(_DWORD *)(HalpInterruptController + 228) & 0x100) != 0 && (int)HalpInitializeInterruptRemappingBspLate() < 0 )
+  if ( (*(_DWORD *)(HalpInterruptController + 220) & 0x100) != 0 && (int)HalpInitializeInterruptRemappingBspLate() < 0 )
     KeBugCheckEx(0x5Cu, 0x7000uLL, 3uLL, 1uLL, 0LL);
   HalpUpdatePerDeviceMsiLimitInformation();
   result = (unsigned int)HalpInterruptModel() - 1;

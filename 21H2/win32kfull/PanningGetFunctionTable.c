@@ -1,5 +1,5 @@
 /*
- * XREFs of PanningGetFunctionTable @ 0x1C0295310
+ * XREFs of PanningGetFunctionTable @ 0x1C0297930
  * Callers:
  *     <none>
  * Callees:

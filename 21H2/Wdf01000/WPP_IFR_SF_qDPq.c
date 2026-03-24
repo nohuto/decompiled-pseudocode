@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qDPq @ 0x1C0059E7C
+ * XREFs of WPP_IFR_SF_qDPq @ 0x1C00372F0
  * Callers:
- *     ?PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ @ 0x1C0059930 (-PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ.c)
+ *     ?PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ @ 0x1C0036CA4 (-PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qDPq(

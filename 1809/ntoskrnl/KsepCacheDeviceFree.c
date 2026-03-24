@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepCacheDeviceFree @ 0x140720E70
+ * XREFs of KsepCacheDeviceFree @ 0x140720E50
  * Callers:
- *     KseQueryDeviceData @ 0x140720950 (KseQueryDeviceData.c)
- *     KsepDbCacheReadDevice @ 0x140720CFC (KsepDbCacheReadDevice.c)
- *     KseQueryDeviceDataList @ 0x1408473D0 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceData @ 0x140720930 (KseQueryDeviceData.c)
+ *     KsepDbCacheReadDevice @ 0x140720CDC (KsepDbCacheReadDevice.c)
+ *     KseQueryDeviceDataList @ 0x1408473B0 (KseQueryDeviceDataList.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1400F4C94 (KsepPoolFreePaged.c)
- *     KsepStringFree @ 0x14067E16C (KsepStringFree.c)
+ *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
+ *     KsepStringFree @ 0x14067E14C (KsepStringFree.c)
  */
 
 void __fastcall KsepCacheDeviceFree(_QWORD *a1)

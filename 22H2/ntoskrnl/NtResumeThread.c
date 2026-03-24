@@ -1,19 +1,19 @@
 /*
- * XREFs of NtResumeThread @ 0x1407C0BB0
+ * XREFs of NtResumeThread @ 0x1406C59E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PsMultiResumeThread @ 0x140309C58 (PsMultiResumeThread.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     PsResumeThread @ 0x1406C5AA0 (PsResumeThread.c)
  */
 
-__int64 __fastcall NtResumeThread(ULONG_PTR BugCheckParameter1, _DWORD *a2)
+NTSTATUS __fastcall NtResumeThread(HANDLE Handle, _DWORD *a2)
 {
-  char PreviousMode; // r9
+  KPROCESSOR_MODE PreviousMode; // r9
   __int64 v5; // rcx
-  __int64 result; // rax
-  unsigned int v7; // [rsp+70h] [rbp+18h] BYREF
+  NTSTATUS result; // eax
+  int v7; // [rsp+70h] [rbp+18h] BYREF
   PVOID Object; // [rsp+78h] [rbp+20h] BYREF
 
   v7 = 0;
@@ -26,22 +26,21 @@ __int64 __fastcall NtResumeThread(ULONG_PTR BugCheckParameter1, _DWORD *a2)
       v5 = (__int64)a2;
     *(_DWORD *)v5 = *(_DWORD *)v5;
   }
-  result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
-             4096,
-             (__int64)PsThreadType,
+  result = ObReferenceObjectByHandleWithTag(
+             Handle,
+             0x1000u,
+             (POBJECT_TYPE)PsThreadType,
              PreviousMode,
              0x75537350u,
              &Object,
-             0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    PsMultiResumeThread((__int64)Object, &v7, 1u);
+    PsResumeThread(Object, &v7);
     ObfDereferenceObjectWithTag(Object, 0x75537350u);
     if ( a2 )
       *a2 = v7;
-    return 0LL;
+    return 0;
   }
   return result;
 }

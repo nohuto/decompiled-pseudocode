@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CRemoteAppRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022C9E0
+ * XREFs of ?SetIntegerProperty@CRemoteAppRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01ECC60
  * Callers:
  *     <none>
  * Callees:
@@ -14,43 +14,29 @@ __int64 __fastcall DirectComposition::CRemoteAppRenderTargetMarshaler::SetIntege
         bool *a5)
 {
   unsigned int v5; // edx
-  int v6; // r8d
 
   v5 = 0;
   if ( !a3 )
   {
-    if ( (_DWORD)a4 == *((_DWORD *)this + 16) )
+    if ( (_DWORD)a4 == *((_DWORD *)this + 14) )
       return v5;
     if ( (((_DWORD)a4 - 1) & 0xFFFFFFFD) == 0 )
     {
       *((_DWORD *)this + 4) |= 0x200u;
-      *((_DWORD *)this + 16) = a4;
+      *((_DWORD *)this + 14) = a4;
       *a5 = 1;
       return v5;
     }
     return (unsigned int)-1073741811;
   }
-  v6 = a3 - 3;
-  if ( v6 )
-  {
-    if ( v6 == 1 )
-    {
-      if ( *((_DWORD *)this + 24) != (_DWORD)a4 )
-      {
-        *((_DWORD *)this + 24) = a4;
-        *a5 = 1;
-        *((_DWORD *)this + 4) |= 0x400u;
-      }
-      return v5;
-    }
+  if ( a3 != 3 )
     return (unsigned int)-1073741811;
-  }
-  if ( *((_QWORD *)this + 9) )
+  if ( *((_QWORD *)this + 8) )
   {
     if ( !a4 )
     {
       *((_DWORD *)this + 4) |= 0x100u;
-      *((_QWORD *)this + 9) = 0LL;
+      *((_QWORD *)this + 8) = 0LL;
       *a5 = 1;
       return v5;
     }
@@ -59,7 +45,7 @@ __int64 __fastcall DirectComposition::CRemoteAppRenderTargetMarshaler::SetIntege
   if ( a4 )
   {
     *((_DWORD *)this + 4) |= 0x20u;
-    *((_QWORD *)this + 9) = a4;
+    *((_QWORD *)this + 8) = a4;
   }
   return v5;
 }

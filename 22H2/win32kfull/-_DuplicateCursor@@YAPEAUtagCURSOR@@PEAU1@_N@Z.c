@@ -1,67 +1,52 @@
 /*
- * XREFs of ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C01C0C04
+ * XREFs of ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C0007F90
  * Callers:
- *     _GetWindowIcon @ 0x1C01E380C (_GetWindowIcon.c)
+ *     _GetWindowIcon @ 0x1C0007F14 (_GetWindowIcon.c)
  * Callees:
- *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C002B6EC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
- *     ?_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z @ 0x1C002BA80 (-_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z.c)
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     ?_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z @ 0x1C002DBDC (-_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?_CreateEmptyCursorObject@@YAPEAUHICON__@@_N@Z @ 0x1C01C0B70 (-_CreateEmptyCursorObject@@YAPEAUHICON__@@_N@Z.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C00486FC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?_CreateEmptyCursorObject@@YAPEAUHICON__@@_N@Z @ 0x1C0048B24 (-_CreateEmptyCursorObject@@YAPEAUHICON__@@_N@Z.c)
+ *     ?_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z @ 0x1C0065454 (-_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z.c)
+ *     ?_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z @ 0x1C0066A58 (-_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 struct tagCURSOR *__fastcall _DuplicateCursor(struct tagCURSOR *a1)
 {
   struct tagCURSOR *v1; // rbx
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 EmptyCursorObject; // rax
-  __int64 v6; // rcx
-  int DpiForSystem; // eax
-  unsigned int DpiDependentMetric; // eax
+  HICON EmptyCursorObject; // rax
+  __int64 v4; // rdx
   size_t Size; // [rsp+28h] [rbp-79h]
-  __int128 v11; // [rsp+38h] [rbp-69h] BYREF
-  __int128 v12; // [rsp+48h] [rbp-59h]
-  struct _UNICODE_STRING v13; // [rsp+58h] [rbp-49h] BYREF
-  _BYTE v14[16]; // [rsp+68h] [rbp-39h] BYREF
-  __int16 v15; // [rsp+78h] [rbp-29h]
-  __int16 v16; // [rsp+84h] [rbp-1Dh]
-  __int16 v17; // [rsp+86h] [rbp-1Bh]
-  __int128 v18; // [rsp+88h] [rbp-19h]
-  int v19; // [rsp+B8h] [rbp+17h]
-  int v20; // [rsp+BCh] [rbp+1Bh]
-  int v21; // [rsp+C0h] [rbp+1Fh]
-  size_t v22; // [rsp+110h] [rbp+6Fh] BYREF
+  __int128 v7; // [rsp+38h] [rbp-69h] BYREF
+  __int128 v8; // [rsp+48h] [rbp-59h]
+  struct _UNICODE_STRING v9; // [rsp+58h] [rbp-49h] BYREF
+  _OWORD v10[9]; // [rsp+68h] [rbp-39h] BYREF
+  size_t v11; // [rsp+110h] [rbp+6Fh] BYREF
 
   v1 = 0LL;
-  LODWORD(v22) = 0;
-  v11 = 0LL;
-  v12 = 0LL;
-  if ( _InternalGetIconInfo(a1, (struct _ICONINFO *)&v11, 0LL, 0LL, (unsigned int *)&v22, 0) )
+  LODWORD(v11) = 0;
+  v7 = 0LL;
+  v8 = 0LL;
+  if ( _InternalGetIconInfo(a1, (struct _ICONINFO *)&v7, 0LL, 0LL, (unsigned int *)&v11, 0) )
   {
-    EmptyCursorObject = _CreateEmptyCursorObject(0, v3, v4);
-    v1 = (struct tagCURSOR *)HMValidateHandle(EmptyCursorObject, 3u);
+    EmptyCursorObject = _CreateEmptyCursorObject(0);
+    LOBYTE(v4) = 3;
+    v1 = (struct tagCURSOR *)HMValidateHandle(EmptyCursorObject, v4);
     if ( v1 )
     {
-      v13 = 0LL;
-      memset_0(v14, 0, 0x88uLL);
-      if ( (_DWORD)v11 )
-        v15 = 3;
+      v9 = 0LL;
+      memset(v10, 0, 0x88uLL);
+      if ( (_DWORD)v7 )
+        LOWORD(v10[1]) = 3;
       else
-        v15 = 1;
-      v19 = v22;
-      v20 = *((_DWORD *)a1 + 35);
-      v21 = *((_DWORD *)a1 + 36);
-      v16 = WORD2(v11);
-      v17 = WORD4(v11);
-      v18 = v12;
-      DpiForSystem = GetDpiForSystem(v6);
-      DpiDependentMetric = GetDpiDependentMetric(7, DpiForSystem);
+        LOWORD(v10[1]) = 1;
       LODWORD(Size) = 0;
-      if ( !_SetCursorIconDataEx(v1, &v13, &v13, (struct tagCURSORDATA *)v14, Size, DpiDependentMetric) )
+      LODWORD(v10[5]) = v11;
+      *(_QWORD *)((char *)&v10[5] + 4) = *(_QWORD *)((char *)a1 + 140);
+      WORD6(v10[1]) = WORD2(v7);
+      HIWORD(v10[1]) = WORD4(v7);
+      v10[2] = v8;
+      if ( !_SetCursorIconData(v1, &v9, &v9, (struct tagCURSORDATA *)v10, Size) )
       {
         _DestroyCursor(v1, 0);
         return 0LL;
@@ -69,8 +54,8 @@ struct tagCURSOR *__fastcall _DuplicateCursor(struct tagCURSOR *a1)
     }
     else
     {
-      GreDeleteObject(v12);
-      GreDeleteObject(*((_QWORD *)&v12 + 1));
+      GreDeleteObject(v8);
+      GreDeleteObject(*((_QWORD *)&v8 + 1));
     }
   }
   return v1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__CManipulationManager::s_InputQueue__ @ 0x1800012D0
+ * XREFs of _dynamic_initializer_for__CManipulationManager::s_InputQueue__ @ 0x180003560
  * Callers:
  *     <none>
  * Callees:
- *     ??0?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@QEAA@XZ @ 0x18010480C (--0-$CQueue@V-$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@QEAA@XZ.c)
+ *     ??0?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@QEAA@XZ @ 0x1800DFC24 (--0-$CQueue@V-$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@QEAA@XZ.c)
  */
 
 int dynamic_initializer_for__CManipulationManager::s_InputQueue__()

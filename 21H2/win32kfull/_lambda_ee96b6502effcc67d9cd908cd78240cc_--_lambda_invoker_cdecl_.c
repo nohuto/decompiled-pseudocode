@@ -1,9 +1,9 @@
 /*
- * XREFs of _lambda_ee96b6502effcc67d9cd908cd78240cc_::_lambda_invoker_cdecl_ @ 0x1C0122EF0
+ * XREFs of _lambda_ee96b6502effcc67d9cd908cd78240cc_::_lambda_invoker_cdecl_ @ 0x1C01377B0
  * Callers:
  *     <none>
  * Callees:
- *     ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C009E5D8 (-NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z.c)
+ *     ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C003313C (-NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z.c)
  */
 
 void lambda_ee96b6502effcc67d9cd908cd78240cc_::_lambda_invoker_cdecl_()

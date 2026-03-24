@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ShareCount@HANDLELOCK@@QEAAKXZ @ 0x1C00CD090
+ * XREFs of ?ShareCount@HANDLELOCK@@QEAAKXZ @ 0x1C00BE100
  * Callers:
- *     bDeleteBrush @ 0x1C00C82E0 (bDeleteBrush.c)
- *     HmgSwapLockedHandleContents @ 0x1C00CCC50 (HmgSwapLockedHandleContents.c)
+ *     bDeleteBrush @ 0x1C001C340 (bDeleteBrush.c)
+ *     HmgSwapLockedHandleContents @ 0x1C00BDCC0 (HmgSwapLockedHandleContents.c)
  * Callees:
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C0022C40 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C002FF80 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
  */
 
 __int64 __fastcall HANDLELOCK::ShareCount(HANDLELOCK *this)

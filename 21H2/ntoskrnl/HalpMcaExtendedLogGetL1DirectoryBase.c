@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMcaExtendedLogGetL1DirectoryBase @ 0x140506CE0
+ * XREFs of HalpMcaExtendedLogGetL1DirectoryBase @ 0x1404BA354
  * Callers:
- *     HalpMcaExtendedLogInitialize @ 0x140506DF0 (HalpMcaExtendedLogInitialize.c)
+ *     HalpMcaExtendedLogInitialize @ 0x1404BA460 (HalpMcaExtendedLogInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
  */
 
 NTSTATUS __fastcall HalpMcaExtendedLogGetL1DirectoryBase(_QWORD *a1)
@@ -23,10 +23,10 @@ NTSTATUS __fastcall HalpMcaExtendedLogGetL1DirectoryBase(_QWORD *a1)
   __int64 v10; // [rsp+9Ch] [rbp+43h]
 
   *a1 = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   ResultLength = 0;
   KeyHandle = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   ValueName = 0LL;
   RtlInitUnicodeString(
@@ -34,6 +34,7 @@ NTSTATUS __fastcall HalpMcaExtendedLogGetL1DirectoryBase(_QWORD *a1)
     L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\ACPI\\Parameters");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);

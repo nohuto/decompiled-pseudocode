@@ -1,19 +1,25 @@
 /*
- * XREFs of ?HandleInertiaTimer@CPTPProcessor@@QEAAXXZ @ 0x1C01DE418
+ * XREFs of ?HandleInertiaTimer@CPTPProcessor@@QEAAXXZ @ 0x1C01A5F1C
  * Callers:
- *     ?OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01E1DE0 (-OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ.c)
+ *     ?OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01A97B0 (-OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ.c)
  * Callees:
- *     ?PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z @ 0x1C01E11D4 (-PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z.c)
+ *     ?GetInstance@CInertiaManager@@SAPEAV1@XZ @ 0x1C0004300 (-GetInstance@CInertiaManager@@SAPEAV1@XZ.c)
+ *     ?PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z @ 0x1C01A8D64 (-PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z.c)
  */
 
-void __fastcall CPTPProcessor::HandleInertiaTimer(struct tagPOINT *this)
+void __fastcall CPTPProcessor::HandleInertiaTimer(CPTPProcessor *this)
 {
-  if ( LOBYTE(this[47].x) && (this[46].y & 1) != 0 )
+  CInertiaManager *v2; // rcx
+
+  if ( *((_BYTE *)this + 392) && (*((_DWORD *)this + 95) & 1) != 0 )
+  {
+    CInertiaManager::GetInstance();
     CInertiaManager::PostInertiaMessage(
-      (CInertiaManager *)this,
+      v2,
       0x23Bu,
-      (const struct INERTIA_INFO_INTERNAL *)&this[20],
-      this[44],
-      this[45]);
-  LOBYTE(this[47].x) = 0;
+      (CPTPProcessor *)((char *)this + 168),
+      *(struct tagPOINT *)((char *)this + 360),
+      *(struct tagPOINT *)((char *)this + 368));
+  }
+  *((_BYTE *)this + 392) = 0;
 }

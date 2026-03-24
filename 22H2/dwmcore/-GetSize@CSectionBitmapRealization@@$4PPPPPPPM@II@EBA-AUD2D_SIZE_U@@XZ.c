@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSize@CSectionBitmapRealization@@$4PPPPPPPM@II@EBA?AUD2D_SIZE_U@@XZ @ 0x180121C60
+ * XREFs of ?GetSize@CSectionBitmapRealization@@$4PPPPPPPM@II@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F7F60
  * Callers:
  *     <none>
  * Callees:

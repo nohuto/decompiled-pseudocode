@@ -1,8 +1,7 @@
 /*
- * XREFs of TmRollbackEnlistment @ 0x1403D80F0
+ * XREFs of TmRollbackEnlistment @ 0x1403D07E0
  * Callers:
- *     CmpAbortRollbackPacket @ 0x140699F88 (CmpAbortRollbackPacket.c)
- *     CmpRollbackTransactionArray @ 0x140A1E7B0 (CmpRollbackTransactionArray.c)
+ *     <none>
  * Callees:
  *     <none>
  */

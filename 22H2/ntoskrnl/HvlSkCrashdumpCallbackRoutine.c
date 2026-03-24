@@ -1,43 +1,35 @@
 /*
- * XREFs of HvlSkCrashdumpCallbackRoutine @ 0x140547C50
+ * XREFs of HvlSkCrashdumpCallbackRoutine @ 0x1404F8C30
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-char HvlSkCrashdumpCallbackRoutine()
+BOOLEAN __fastcall HvlSkCrashdumpCallbackRoutine(PVOID Context, __int64 Handled)
 {
-  void *v0; // rbx
-  struct _KPRCB *CurrentPrcb; // rcx
-  ULONG_PTR v2; // r9
-  ULONG_PTR v3; // r8
-  ULONG_PTR v4; // rdx
-  ULONG v5; // ecx
+  void *v2; // rbx
+  ULONG_PTR v3; // r9
+  ULONG_PTR v4; // r8
+  ULONG_PTR v5; // rdx
+  ULONG v6; // ecx
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-18h]
 
-  v0 = qword_140C5F468;
-  CurrentPrcb = KeGetCurrentPrcb();
-  if ( qword_140C5F468 && (*((_DWORD *)qword_140C5F468 + 1) & 1) != 0 )
+  v2 = qword_140C47608;
+  if ( qword_140C47608 && (*((_DWORD *)qword_140C47608 + 1) & 1) != 0 )
   {
-    if ( *((_DWORD *)qword_140C5F468 + 43) == CurrentPrcb->Number )
-    {
-      LOBYTE(CurrentPrcb) = 1;
-      HvlEnlightenments &= 0x2000u;
-      ((void (__fastcall *)(struct _KPRCB *))off_140C01BB0[0])(CurrentPrcb);
-      ((void (__fastcall *)(__int64))off_140C01AA8[0])(1LL);
-      KiHypervisorInitiatedCrashDump = 1;
-      v2 = *((_QWORD *)v0 + 4);
-      v3 = *((_QWORD *)v0 + 3);
-      v4 = *((_QWORD *)v0 + 2);
-      v5 = *((_DWORD *)v0 + 2);
-      BugCheckParameter4 = *((_QWORD *)v0 + 5);
-      PoAllProcIntrDisabled = 1;
-      KeBugCheckEx(v5, v4, v3, v2, BugCheckParameter4);
-    }
-    while ( 1 )
-      _mm_pause();
+    HvlEnlightenments &= 0x2000u;
+    ((void (__fastcall *)(PVOID, __int64))off_140C007A0[0])(Context, Handled);
+    ((void (__fastcall *)(__int64))off_140C00698[0])(1LL);
+    KiHypervisorInitiatedCrashDump = 1;
+    v3 = *((_QWORD *)v2 + 4);
+    v4 = *((_QWORD *)v2 + 3);
+    v5 = *((_QWORD *)v2 + 2);
+    v6 = *((_DWORD *)v2 + 2);
+    BugCheckParameter4 = *((_QWORD *)v2 + 5);
+    PoAllProcIntrDisabled = 1;
+    KeBugCheckEx(v6, v5, v4, v3, BugCheckParameter4);
   }
   return 0;
 }

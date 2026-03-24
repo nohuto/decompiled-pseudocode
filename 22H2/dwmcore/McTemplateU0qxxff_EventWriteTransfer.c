@@ -1,16 +1,16 @@
 /*
- * XREFs of McTemplateU0qxxff_EventWriteTransfer @ 0x1801314E6
+ * XREFs of McTemplateU0qxxff_EventWriteTransfer @ 0x180162448
  * Callers:
- *     ?CalculateEffectiveRefreshRate@CRateInfo@@QEAAXPEAVCFrameInfo@@0@Z @ 0x18004DBA8 (-CalculateEffectiveRefreshRate@CRateInfo@@QEAAXPEAVCFrameInfo@@0@Z.c)
+ *     ?CalculateEffectiveRefreshRate@CRateInfo@@QEAAXAEBUDXGI_FRAME_STATISTICS_DWM@@0@Z @ 0x18006DA70 (-CalculateEffectiveRefreshRate@CRateInfo@@QEAAXAEBUDXGI_FRAME_STATISTICS_DWM@@0@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 McTemplateU0qxxff_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
+ULONG McTemplateU0qxxff_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   int v4; // [rsp+30h] [rbp-41h] BYREF
-  _BYTE v5[16]; // [rsp+40h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+40h] [rbp-31h] BYREF
   int *v6; // [rsp+50h] [rbp-21h]
   __int64 v7; // [rsp+58h] [rbp-19h]
   va_list v8; // [rsp+60h] [rbp-11h]
@@ -50,9 +50,9 @@ __int64 McTemplateU0qxxff_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3,
   va_copy(v14, va3);
   v15 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_SCHEDULE_NEW_EFFECTIVE_REFRESH_PERIOD_DELTAS,
            0LL,
-           6LL,
-           v5);
+           6u,
+           &v5);
 }

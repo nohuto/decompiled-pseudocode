@@ -1,85 +1,73 @@
 /*
- * XREFs of DxgkNotifySessionStateChange @ 0x1C0160C10
+ * XREFs of DxgkNotifySessionStateChange @ 0x1C01553E0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$unique_storage@U?$resource_policy@PEAU_EJOB@@$$A6AXPEAU1@@Z$1?PsDetachSiloFromCurrentThread@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C0002CA0 (--1-$unique_storage@U-$resource_policy@PEAU_EJOB@@$$A6AXPEAU1@@Z$1-PsDetachSiloFromCurrentThread.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C000BD74 (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C00123E4 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
- *     ?DestroySession@DXGSESSIONMGR@@QEAAXXZ @ 0x1C015FD14 (-DestroySession@DXGSESSIONMGR@@QEAAXXZ.c)
- *     DpiSessionCreateCallback @ 0x1C0160D20 (DpiSessionCreateCallback.c)
- *     ?CreateSession@DXGSESSIONMGR@@QEAAJXZ @ 0x1C0160D94 (-CreateSession@DXGSESSIONMGR@@QEAAJXZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?DxgkpQueryHostDriverStoreAvailability@@YA_NXZ @ 0x1C0347C34 (-DxgkpQueryHostDriverStoreAvailability@@YA_NXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C000A9FC (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
+ *     Feature_NonDXArgonGpuSupport__private_ReportDeviceUsage @ 0x1C0024A48 (Feature_NonDXArgonGpuSupport__private_ReportDeviceUsage.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     DpiSessionCreateCallback @ 0x1C01554F0 (DpiSessionCreateCallback.c)
+ *     ?CreateSession@DXGSESSIONMGR@@QEAAJXZ @ 0x1C0155550 (-CreateSession@DXGSESSIONMGR@@QEAAJXZ.c)
+ *     ?DestroySession@DXGSESSIONMGR@@QEAAXXZ @ 0x1C0164078 (-DestroySession@DXGSESSIONMGR@@QEAAXXZ.c)
+ *     ?DxgkpQueryHostDriverStoreAvailability@@YA_NXZ @ 0x1C029EBB4 (-DxgkpQueryHostDriverStoreAvailability@@YA_NXZ.c)
  */
 
 __int64 __fastcall DxgkNotifySessionStateChange(int a1)
 {
   int Callback; // edi
-  DXGSESSIONMGR *v3; // rsi
   __int64 HostSilo; // rax
-  unsigned int v5; // edx
+  __int64 v4; // rbp
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  struct DXGGLOBAL *Global; // rax
+  DXGSESSIONMGR *v8; // rsi
+  unsigned int v9; // edx
+  int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
   unsigned int CurrentProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rbx
   bool HostDriverStoreAvailability; // al
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // [rsp+60h] [rbp+18h] BYREF
 
   Callback = 0;
-  v3 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
   HostSilo = PsGetHostSilo();
-  v12 = PsAttachSiloToCurrentThread(HostSilo);
+  v4 = PsAttachSiloToCurrentThread(HostSilo);
+  Global = DXGGLOBAL::GetGlobal(v6, v5);
+  v8 = (DXGSESSIONMGR *)*((_QWORD *)Global + 102);
   if ( a1 )
   {
     if ( a1 == 1 )
     {
-      DXGSESSIONMGR::DestroySession(v3);
-      v5 = 2;
+      DXGSESSIONMGR::DestroySession(*((DXGSESSIONMGR **)Global + 102));
+      v9 = 2;
     }
     else
     {
-      v5 = 3;
-      if ( a1 != 2 )
-      {
-        if ( a1 == 3 )
-        {
-          v5 = 7;
-        }
-        else
-        {
-          v5 = 0;
-          if ( a1 == 4 )
-            v5 = 8;
-        }
-      }
+      v10 = 0;
+      if ( a1 == 2 )
+        v10 = 3;
+      v9 = v10;
     }
   }
   else
   {
-    DXGSESSIONMGR::CreateSession(v3);
+    DXGSESSIONMGR::CreateSession(*((DXGSESSIONMGR **)Global + 102));
     Callback = DpiSessionCreateCallback();
-    v5 = 1;
+    v9 = 1;
   }
-  DxgkLogCodePointPacket(0x6Du, v5, 0, 0, 0LL);
-  wil::details::unique_storage<wil::details::resource_policy<_EJOB *,void (_EJOB *),&void PsDetachSiloFromCurrentThread(_EJOB *),wistd::integral_constant<unsigned __int64,0>,_EJOB *,_EJOB *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<_EJOB *,void (_EJOB *),&void PsDetachSiloFromCurrentThread(_EJOB *),wistd::integral_constant<unsigned __int64,0>,_EJOB *,_EJOB *,0,std::nullptr_t>>(&v12);
+  DxgkLogCodePointPacket(0x6Du, v9, 0, 0, 0LL);
+  PsDetachSiloFromCurrentThread(v4);
   if ( Callback >= 0 && !a1 )
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId();
-    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v3, CurrentProcessSessionId);
-    if ( *((_BYTE *)SessionDataForSpecifiedSession + 18502) )
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v12, v11);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v8, CurrentProcessSessionId);
+    if ( *((_BYTE *)SessionDataForSpecifiedSession + 18493) )
     {
       HostDriverStoreAvailability = DxgkpQueryHostDriverStoreAvailability();
-      *((_BYTE *)SessionDataForSpecifiedSession + 18504) = HostDriverStoreAvailability;
+      *((_BYTE *)SessionDataForSpecifiedSession + 18495) = HostDriverStoreAvailability;
       if ( HostDriverStoreAvailability )
-        wil_details_FeatureReporting_ReportUsageToService(
-          (__int64)&Feature_NonDXArgonGpuSupport__private_reporting,
-          0x1429797u,
-          v10,
-          v11,
-          (const struct FEATURE_LOGGED_TRAITS *)&Feature_MockDriverValidation_logged_traits,
-          0);
+        Feature_NonDXArgonGpuSupport__private_ReportDeviceUsage();
     }
   }
   return (unsigned int)Callback;

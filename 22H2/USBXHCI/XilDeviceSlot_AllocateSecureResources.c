@@ -1,12 +1,12 @@
 /*
- * XREFs of XilDeviceSlot_AllocateSecureResources @ 0x1C0037CA4
+ * XREFs of XilDeviceSlot_AllocateSecureResources @ 0x1C00361E4
  * Callers:
- *     XilDeviceSlot_PrepareHardware @ 0x1C001CA00 (XilDeviceSlot_PrepareHardware.c)
+ *     XilDeviceSlot_PrepareHardware @ 0x1C0015BCC (XilDeviceSlot_PrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall XilDeviceSlot_AllocateSecureResources(__int64 *a1)
@@ -55,7 +55,7 @@ __int64 __fastcall XilDeviceSlot_AllocateSecureResources(__int64 *a1)
           v6,
           10,
           14,
-          (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+          (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
           v12);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v8, v9, v10);
@@ -67,7 +67,7 @@ __int64 __fastcall XilDeviceSlot_AllocateSecureResources(__int64 *a1)
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v6) = 2;
-    WPP_RECORDER_SF_d(*(_QWORD *)(v2 + 72), v6, 10, 13, (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids, v5);
+    WPP_RECORDER_SF_d(*(_QWORD *)(v2 + 72), v6, 10, 13, (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids, v5);
   }
   return v7;
 }

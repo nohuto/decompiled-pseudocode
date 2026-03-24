@@ -1,7 +1,7 @@
 /*
- * XREFs of ??8@YA_NAEBU_GUID@@0@Z @ 0x1800DD1F4
+ * XREFs of ??8@YA_NAEBU_GUID@@0@Z @ 0x180068C38
  * Callers:
- *     ?HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800DD140 (-HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180068B70 (-HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  * Callees:
  *     <none>
  */

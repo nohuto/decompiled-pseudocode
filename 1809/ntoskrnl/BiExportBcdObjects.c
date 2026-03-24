@@ -1,14 +1,14 @@
 /*
- * XREFs of BiExportBcdObjects @ 0x1408F3580
+ * XREFs of BiExportBcdObjects @ 0x1408F3560
  * Callers:
- *     BiExportStoreAlterationsToEfi @ 0x1408F39F8 (BiExportStoreAlterationsToEfi.c)
+ *     BiExportStoreAlterationsToEfi @ 0x1408F39D8 (BiExportStoreAlterationsToEfi.c)
  * Callees:
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
- *     BiIsPortableWorkspaceBoot @ 0x1408F1464 (BiIsPortableWorkspaceBoot.c)
- *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x1408F1D5C (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
- *     BiCreateEfiEntry @ 0x1408F2DC0 (BiCreateEfiEntry.c)
- *     BiDeleteBootEntry @ 0x1408F3304 (BiDeleteBootEntry.c)
- *     BiUpdateEfiEntry @ 0x1408F4BE8 (BiUpdateEfiEntry.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     BiIsPortableWorkspaceBoot @ 0x1408F1444 (BiIsPortableWorkspaceBoot.c)
+ *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x1408F1D3C (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
+ *     BiCreateEfiEntry @ 0x1408F2DA0 (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x1408F32E4 (BiDeleteBootEntry.c)
+ *     BiUpdateEfiEntry @ 0x1408F4BC8 (BiUpdateEfiEntry.c)
  */
 
 __int64 __fastcall BiExportBcdObjects(__int64 a1, __int64 *a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiAuAllocateAndInitializeSid @ 0x14084DAD4
+ * XREFs of PiAuAllocateAndInitializeSid @ 0x1407A30C4
  * Callers:
- *     PiAuCreateUserSids @ 0x140B223B4 (PiAuCreateUserSids.c)
- *     PiAuCreateStandardSecurityObject @ 0x140B225D8 (PiAuCreateStandardSecurityObject.c)
+ *     PiAuCreateUserSids @ 0x140A51978 (PiAuCreateUserSids.c)
+ *     PiAuCreateStandardSecurityObject @ 0x140A51B9C (PiAuCreateStandardSecurityObject.c)
  * Callees:
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuAllocateAndInitializeSid(PVOID *a1, struct _SID_IDENTIFIER_AUTHORITY *a2, unsigned int a3)
 {
   UCHAR v3; // bl
   unsigned int v6; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   NTSTATUS v8; // ebx
 
   v3 = a3;
@@ -21,11 +21,11 @@ __int64 __fastcall PiAuAllocateAndInitializeSid(PVOID *a1, struct _SID_IDENTIFIE
     v6 = -1;
   else
     v6 = 4 * a3 + 8;
-  Pool2 = (void *)ExAllocatePool2(256LL, v6, 538996816LL);
-  *a1 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x20207050u);
+  *a1 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v8 = RtlInitializeSid(Pool2, a2, v3);
+    v8 = RtlInitializeSid(PoolWithTag, a2, v3);
     if ( v8 >= 0 )
       return (unsigned int)v8;
   }

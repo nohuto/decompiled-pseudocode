@@ -1,82 +1,49 @@
 /*
- * XREFs of ?CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z @ 0x1C005CC08
+ * XREFs of ?CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z @ 0x1C00B358C
  * Callers:
- *     UserKSTInitialize @ 0x1C0054360 (UserKSTInitialize.c)
- *     UserActivateMITInputProcessing @ 0x1C00B5A44 (UserActivateMITInputProcessing.c)
+ *     UserActivateMITInputProcessing @ 0x1C00879A8 (UserActivateMITInputProcessing.c)
  * Callees:
- *     ??_GIOCPDispatcher@@QEAAPEAXI@Z @ 0x1C005C93C (--_GIOCPDispatcher@@QEAAPEAXI@Z.c)
- *     CreateKernelIocp @ 0x1C005CCB0 (CreateKernelIocp.c)
- *     ??0IOCPDispatcher@@IEAA@XZ @ 0x1C005CD5C (--0IOCPDispatcher@@IEAA@XZ.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
+ *     Win32AllocPool @ 0x1C002AE60 (Win32AllocPool.c)
+ *     ??_GIOCPDispatcher@@QEAAPEAXI@Z @ 0x1C00B3654 (--_GIOCPDispatcher@@QEAAPEAXI@Z.c)
+ *     ?InitializeUserModeHandleDuplicate@IOCPDispatcher@@AEAA_NXZ @ 0x1C00B3688 (-InitializeUserModeHandleDuplicate@IOCPDispatcher@@AEAA_NXZ.c)
+ *     CreateKernelIocp @ 0x1C00B3780 (CreateKernelIocp.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall IOCPDispatcher::CreateInstance(struct IOCPDispatcher **a1)
 {
-  PVOID v1; // rdi
-  __int64 Pool2; // rbx
-  IOCPDispatcher *v4; // rbx
+  __int64 v1; // rbx
   __int64 KernelIocp; // rax
-  __int64 v7; // rax
-  PVOID BackTrace[20]; // [rsp+20h] [rbp-A8h] BYREF
+  unsigned int v3; // edx
 
-  *a1 = 0LL;
-  v1 = gpLeakTrackingAllocator;
-  if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x70694843) == 0x70694843
-    && (v7 = 0LL, *((_DWORD *)gpLeakTrackingAllocator + 11)) )
+  gpIOCPDispatcher = 0LL;
+  v1 = Win32AllocPool(2760LL, 0x70694843u);
+  if ( v1 )
   {
-    while ( *((_DWORD *)gpLeakTrackingAllocator + v7) != 1885947971 )
-    {
-      if ( ++v7 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-        goto LABEL_2;
-    }
-    Pool2 = ExAllocatePool2(260LL, 2936LL);
-    if ( !Pool2 )
-      return 3221225495LL;
-    memset(BackTrace, 0, sizeof(BackTrace));
-    RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-    if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
-    {
-      if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                               v1,
-                               Pool2,
-                               BackTrace) )
-      {
-LABEL_15:
-        ExFreePoolWithTag((PVOID)Pool2, 0);
-        return 3221225495LL;
-      }
-      goto LABEL_4;
-    }
-    if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                             v1,
-                             Pool2,
-                             BackTrace) )
-      goto LABEL_15;
-    Pool2 += 16LL;
+    *(_QWORD *)v1 = &IOCPDispatcher::`vftable';
+    memset((void *)(v1 + 8), 0, 0xA00uLL);
+    *(_DWORD *)(v1 + 2568) = 0;
+    memset((void *)(v1 + 2576), 0, 0xA0uLL);
+    *(_DWORD *)(v1 + 2736) = 0;
+    *(_QWORD *)(v1 + 2744) = 0LL;
+    *(_QWORD *)(v1 + 2752) = 0LL;
   }
   else
   {
-LABEL_2:
-    Pool2 = ExAllocatePool2(260LL, 2920LL);
+    v1 = 0LL;
   }
-  if ( !Pool2 )
-    return 3221225495LL;
-LABEL_4:
-  v4 = IOCPDispatcher::IOCPDispatcher((IOCPDispatcher *)Pool2);
-  if ( !v4 )
+  if ( !v1 )
     return 3221225495LL;
   KernelIocp = CreateKernelIocp(1u);
-  *((_QWORD *)v4 + 363) = KernelIocp;
-  if ( KernelIocp )
+  *(_QWORD *)(v1 + 2744) = KernelIocp;
+  if ( KernelIocp && IOCPDispatcher::InitializeUserModeHandleDuplicate((IOCPDispatcher *)v1) )
   {
-    *a1 = v4;
+    gpIOCPDispatcher = (struct IRegisterInputDispatcherObjects *)v1;
     return 0LL;
   }
   else
   {
-    IOCPDispatcher::`scalar deleting destructor'((HANDLE *)v4);
+    IOCPDispatcher::`scalar deleting destructor'((IOCPDispatcher *)v1, v3);
     return 3221225473LL;
   }
 }

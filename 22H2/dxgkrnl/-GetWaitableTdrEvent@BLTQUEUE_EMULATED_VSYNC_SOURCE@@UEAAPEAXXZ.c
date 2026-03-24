@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetWaitableTdrEvent@BLTQUEUE_EMULATED_VSYNC_SOURCE@@UEAAPEAXXZ @ 0x1C01EF0B0
+ * XREFs of ?GetWaitableTdrEvent@BLTQUEUE_EMULATED_VSYNC_SOURCE@@UEAAPEAXXZ @ 0x1C016E900
  * Callers:
  *     <none>
  * Callees:

@@ -1,27 +1,15 @@
 /*
- * XREFs of MiIsPageInHugePfn @ 0x140336C0C
+ * XREFs of MiIsPageInHugePfn @ 0x1403F2F9C
  * Callers:
- *     MiIsPageInIoHugeRangeTransition @ 0x140336330 (MiIsPageInIoHugeRangeTransition.c)
- *     MiIoSpaceGetBounds @ 0x140336B50 (MiIoSpaceGetBounds.c)
- *     MmGetCacheAttributeEx @ 0x14061ED10 (MmGetCacheAttributeEx.c)
- *     MiGetPageInHugePageBadStatus @ 0x14061FF7C (MiGetPageInHugePageBadStatus.c)
- *     MiMarkHugePfnBad @ 0x140621688 (MiMarkHugePfnBad.c)
- *     MiMarkHugePfnGood @ 0x140621E64 (MiMarkHugePfnGood.c)
- *     MiUnlinkBadPages @ 0x14062AD80 (MiUnlinkBadPages.c)
- *     MiUpdateBadPfnIdentity @ 0x14062B35C (MiUpdateBadPfnIdentity.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14062B620 (MmMarkPhysicalMemoryAsBad.c)
- *     MiDeleteStaleCacheMaps @ 0x14062DA40 (MiDeleteStaleCacheMaps.c)
- *     MiValidateAndLockAweMapCountPage @ 0x14064C1FC (MiValidateAndLockAweMapCountPage.c)
+ *     MiMarkHugePfnBad @ 0x1403F3074 (MiMarkHugePfnBad.c)
+ *     MiMarkHugePfnGood @ 0x1403F3428 (MiMarkHugePfnGood.c)
+ *     MiUnlinkBadPages @ 0x14052F038 (MiUnlinkBadPages.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14052F870 (MmMarkPhysicalMemoryAsBad.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall MiIsPageInHugePfn(unsigned __int64 a1)
+_BOOL8 __fastcall MiIsPageInHugePfn(unsigned __int64 a1)
 {
-  bool result; // al
-
-  result = 0;
-  if ( qword_140C67EE8 )
-    return _bittest64((const signed __int64 *)qword_140C67EE8, (a1 >> 18) & 0x3FFFFF) != 0;
-  return result;
+  return qword_140C4E668 && _bittest64((const signed __int64 *)qword_140C4E668, (a1 >> 18) & 0x3FFFF);
 }

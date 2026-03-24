@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipQueryAllDataMultiple @ 0x1409DD6BC
+ * XREFs of WmipQueryAllDataMultiple @ 0x140932AD8
  * Callers:
- *     WmipIoControl @ 0x1406C3540 (WmipIoControl.c)
- *     IoWMIQueryAllDataMultiple @ 0x1409DBA30 (IoWMIQueryAllDataMultiple.c)
+ *     WmipIoControl @ 0x1406A8220 (WmipIoControl.c)
+ *     IoWMIQueryAllDataMultiple @ 0x140931000 (IoWMIQueryAllDataMultiple.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     WmipQueryAllData @ 0x14078CD70 (WmipQueryAllData.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     WmipQueryAllData @ 0x1406390D4 (WmipQueryAllData.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipQueryAllDataMultiple(
-        int a1,
+        unsigned int a1,
         PVOID *a2,
         IRP *a3,
         KPROCESSOR_MODE a4,
@@ -21,7 +21,6 @@ __int64 __fastcall WmipQueryAllDataMultiple(
         char *a7,
         int *a8)
 {
-  __int64 v8; // rdi
   _DWORD *v9; // r15
   PVOID *v10; // rdx
   int v11; // r13d
@@ -57,7 +56,6 @@ __int64 __fastcall WmipQueryAllDataMultiple(
   int *v44; // [rsp+88h] [rbp-A0h]
   _BYTE v45[80]; // [rsp+90h] [rbp-98h] BYREF
 
-  LODWORD(v8) = a1;
   v9 = a5;
   v37 = a2;
   v42 = a3;
@@ -76,14 +74,14 @@ __int64 __fastcall WmipQueryAllDataMultiple(
   }
   else
   {
-    v8 = *(unsigned int *)a7;
-    v12 = v8;
-    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 8 * v8, 0x70696D57u);
+    a1 = *(_DWORD *)a7;
+    v12 = *(unsigned int *)a7;
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 8 * v12, 0x70696D57u);
     v40 = PoolWithTag;
     v14 = PoolWithTag;
     if ( !PoolWithTag )
       return 3221225626LL;
-    if ( (_DWORD)v8 )
+    if ( a1 )
     {
       v15 = PoolWithTag;
       do
@@ -102,12 +100,12 @@ __int64 __fastcall WmipQueryAllDataMultiple(
   v19 = (char *)a5;
   v35 = (char *)a5;
   v20 = (char *)a5;
-  if ( !(_DWORD)v8 )
+  if ( !a1 )
     goto LABEL_26;
   v22 = v10;
   v41 = (char *)(v14 - (char *)v10);
   v23 = (char *)(v14 - (char *)v10);
-  v39 = (unsigned int)v8;
+  v39 = a1;
   do
   {
     if ( v20 == v45 || a6 < 0x48 )

@@ -1,15 +1,15 @@
 /*
- * XREFs of BiTranslateSymbolicLink @ 0x14080A234
+ * XREFs of BiTranslateSymbolicLink @ 0x140782ABC
  * Callers:
- *     BiGetNtPartitionPath @ 0x140809890 (BiGetNtPartitionPath.c)
- *     BiTranslateSymbolicLinkFile @ 0x140A5D2E8 (BiTranslateSymbolicLinkFile.c)
+ *     BiGetNtPartitionPath @ 0x140782648 (BiGetNtPartitionPath.c)
+ *     BiTranslateSymbolicLinkFile @ 0x14097001C (BiTranslateSymbolicLinkFile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x14041CD60 (ZwOpenSymbolicLinkObject.c)
- *     ZwQuerySymbolicLinkObject @ 0x14041D3C0 (ZwQuerySymbolicLinkObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1403FBFE0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x1403FC600 (ZwQuerySymbolicLinkObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall BiTranslateSymbolicLink(PCWSTR SourceString, wchar_t **a2)
@@ -17,7 +17,7 @@ NTSTATUS __fastcall BiTranslateSymbolicLink(PCWSTR SourceString, wchar_t **a2)
   NTSTATUS result; // eax
   unsigned __int16 v4; // di
   NTSTATUS v5; // ebx
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   UNICODE_STRING LinkTarget; // [rsp+20h] [rbp-50h] BYREF
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
@@ -51,16 +51,16 @@ NTSTATUS __fastcall BiTranslateSymbolicLink(PCWSTR SourceString, wchar_t **a2)
           ExFreePoolWithTag(LinkTarget.Buffer, 0x4B444342u);
         LinkTarget.MaximumLength = ReturnedLength;
         v4 = ReturnedLength + 2;
-        Pool2 = (wchar_t *)ExAllocatePool2(258LL, ReturnedLength + 2, 1262764866LL);
-        LinkTarget.Buffer = Pool2;
-        if ( !Pool2 )
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, ReturnedLength + 2, 0x4B444342u);
+        LinkTarget.Buffer = PoolWithTag;
+        if ( !PoolWithTag )
         {
           v5 = -1073741670;
           goto LABEL_11;
         }
       }
       ZwClose(LinkHandle);
-      Pool2 = LinkTarget.Buffer;
+      PoolWithTag = LinkTarget.Buffer;
       LinkHandle = 0LL;
       if ( v5 < 0 )
         goto LABEL_16;
@@ -73,21 +73,21 @@ NTSTATUS __fastcall BiTranslateSymbolicLink(PCWSTR SourceString, wchar_t **a2)
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     }
     while ( ZwOpenSymbolicLinkObject(&LinkHandle, 1u, &ObjectAttributes) >= 0 );
-    Pool2 = LinkTarget.Buffer;
+    PoolWithTag = LinkTarget.Buffer;
     v5 = 0;
     *a2 = LinkTarget.Buffer;
 LABEL_11:
     if ( LinkHandle )
     {
       ZwClose(LinkHandle);
-      Pool2 = LinkTarget.Buffer;
+      PoolWithTag = LinkTarget.Buffer;
       LinkHandle = 0LL;
     }
     if ( v5 < 0 )
     {
 LABEL_16:
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0x4B444342u);
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0x4B444342u);
     }
     return v5;
   }

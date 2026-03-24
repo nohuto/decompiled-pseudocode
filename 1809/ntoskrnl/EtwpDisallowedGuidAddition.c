@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpDisallowedGuidAddition @ 0x1408B50C4
+ * XREFs of EtwpDisallowedGuidAddition @ 0x1408B50A4
  * Callers:
- *     EtwpUpdateDisallowedGuids @ 0x1408C313C (EtwpUpdateDisallowedGuids.c)
+ *     EtwpUpdateDisallowedGuids @ 0x1408C311C (EtwpUpdateDisallowedGuids.c)
  * Callees:
  *     PsGetCurrentThreadProcessId @ 0x14004D240 (PsGetCurrentThreadProcessId.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     KeEnterCriticalRegion @ 0x1400B9BE0 (KeEnterCriticalRegion.c)
+ *     KeEnterCriticalRegion @ 0x1400B9C00 (KeEnterCriticalRegion.c)
  *     EtwpSendDataBlock @ 0x1405C039C (EtwpSendDataBlock.c)
  *     EtwpUnreferenceDataBlock @ 0x1405C0D74 (EtwpUnreferenceDataBlock.c)
  *     EtwpUnreferenceGuidEntry @ 0x1405C4098 (EtwpUnreferenceGuidEntry.c)
  *     EtwpFindGuidEntryByGuid @ 0x1405C4190 (EtwpFindGuidEntryByGuid.c)
  *     EtwpIsGuidAllowed @ 0x1405C560C (EtwpIsGuidAllowed.c)
- *     EtwpCalculateUpdateNotification @ 0x140657A28 (EtwpCalculateUpdateNotification.c)
- *     EtwpBuildNotificationPacket @ 0x140658C68 (EtwpBuildNotificationPacket.c)
+ *     EtwpCalculateUpdateNotification @ 0x140657A08 (EtwpCalculateUpdateNotification.c)
+ *     EtwpBuildNotificationPacket @ 0x140658C48 (EtwpBuildNotificationPacket.c)
  */
 
 _QWORD *__fastcall EtwpDisallowedGuidAddition(_DWORD *a1, __int64 a2)

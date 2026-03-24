@@ -1,139 +1,122 @@
 /*
- * XREFs of ?VailSendCompositionObjectTestCommand@DXGSESSIONDATA@@QEAAJPEAXI0PEAIH@Z @ 0x1C0362D00
+ * XREFs of ?VailSendCompositionObjectTestCommand@DXGSESSIONDATA@@QEAAJPEAXI0PEAIH@Z @ 0x1C02B7614
  * Callers:
- *     ?DxgkpSendTestVmBusCommand@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_VMBUS_COMMAND@@@Z @ 0x1C0373C78 (-DxgkpSendTestVmBusCommand@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_VMBUS_COMMAND@@@Z.c)
+ *     ?DxgkpSendTestVmBusCommand@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_VMBUS_COMMAND@@@Z @ 0x1C0239990 (-DxgkpSendTestVmBusCommand@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_VMBUS_COMMAND@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?AddReference@DXGVAILGUESTOBJECT@@QEAAXXZ @ 0x1C0360A98 (-AddReference@DXGVAILGUESTOBJECT@@QEAAXXZ.c)
- *     ?ReleaseReference@DXGVAILGUESTOBJECT@@QEAAXXZ @ 0x1C03622E8 (-ReleaseReference@DXGVAILGUESTOBJECT@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?AddReference@DXGVAILGUESTOBJECT@@QEAAXXZ @ 0x1C02B4828 (-AddReference@DXGVAILGUESTOBJECT@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGVAILGUESTOBJECT@@QEAAXXZ @ 0x1C02B6048 (-ReleaseReference@DXGVAILGUESTOBJECT@@QEAAXXZ.c)
  */
 
 __int64 __fastcall DXGSESSIONDATA::VailSendCompositionObjectTestCommand(
         DXGSESSIONDATA *this,
         void *a2,
-        __int64 a3,
+        unsigned int a3,
         void *a4,
         unsigned int *a5,
         int a6)
 {
-  unsigned int v7; // r15d
-  struct DXGFASTMUTEX *v10; // r14
-  unsigned int v11; // edi
-  struct _EX_RUNDOWN_REF *v12; // rbx
+  struct DXGFASTMUTEX *v6; // r15
+  unsigned int v10; // esi
+  __int64 v11; // rdx
+  struct _EX_RUNDOWN_REF *v12; // rdi
   DXGAUTOMUTEX *v13; // rcx
-  __int64 *v14; // rcx
-  __int64 v15; // rax
-  unsigned int v16; // eax
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  _BYTE v20[8]; // [rsp+58h] [rbp-19h] BYREF
-  char v21; // [rsp+60h] [rbp-11h]
-  _BYTE v22[8]; // [rsp+68h] [rbp-9h] BYREF
-  char v23; // [rsp+70h] [rbp-1h]
-  int v24; // [rsp+78h] [rbp+7h] BYREF
-  __int64 v25; // [rsp+80h] [rbp+Fh]
-  char v26; // [rsp+88h] [rbp+17h]
+  __int64 v14; // rdx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v21; // rdx
+  __int64 *v22; // rcx
+  __int64 v23; // rax
+  unsigned int v24; // eax
+  __int64 v25; // rax
+  __int64 v26; // rdx
+  __int64 v27; // rax
+  __int64 v28; // rax
+  _BYTE v30[8]; // [rsp+30h] [rbp-20h] BYREF
+  char v31; // [rsp+38h] [rbp-18h]
+  _BYTE v32[8]; // [rsp+40h] [rbp-10h] BYREF
+  char v33; // [rsp+48h] [rbp-8h]
 
-  v24 = -1;
-  v7 = a3;
-  v25 = 0LL;
-  if ( (qword_1C013F870 & 2) != 0 )
-  {
-    v26 = 1;
-    v24 = 17010;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, a3, 17010);
-  }
-  else
-  {
-    v26 = 0;
-  }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v24, 17010);
-  v10 = (DXGSESSIONDATA *)((char *)this + 18904);
-  v11 = -1073741808;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v20, (DXGSESSIONDATA *)((char *)this + 18904), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v20);
-  v12 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)this + 2370);
+  v6 = (DXGSESSIONDATA *)((char *)this + 18880);
+  v10 = -1073741808;
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v30, (DXGSESSIONDATA *)((char *)this + 18880), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v30);
+  v12 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)this + 2366);
   if ( v12 )
   {
     DXGVAILGUESTOBJECT::AddReference((DXGVAILGUESTOBJECT *)v12);
-    if ( v21 )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v20);
-    if ( ExAcquireRundownProtection(v12 + 8) )
+    if ( v31 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v30, v14);
+    if ( ExAcquireRundownProtection(v12 + 7) )
     {
-      if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v12[9].Count + 64)) )
+      if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v12[8].Count + 64)) )
       {
-        DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v22, (struct DXGFASTMUTEX *const)&v12[2], 0);
-        DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v22);
-        v14 = *(__int64 **)(v12[11].Count + 8);
-        if ( v14 )
+        DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v32, (struct DXGFASTMUTEX *const)&v12[2], 0);
+        DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v32);
+        v22 = *(__int64 **)(v12[10].Count + 8);
+        if ( v22 )
         {
-          v15 = *v14;
+          v23 = *v22;
           if ( a6 )
-            v16 = (*(__int64 (__fastcall **)(__int64 *, void *, _QWORD, void *, unsigned int *))(v15 + 32))(
-                    v14,
+            v24 = (*(__int64 (__fastcall **)(__int64 *, void *, _QWORD, void *, unsigned int *))(v23 + 32))(
+                    v22,
                     a2,
-                    v7,
+                    a3,
                     a4,
                     a5);
           else
-            v16 = (*(__int64 (__fastcall **)(__int64 *, void *, _QWORD))(v15 + 40))(v14, a2, v7);
-          v11 = v16;
+            v24 = (*(__int64 (__fastcall **)(__int64 *, void *, _QWORD))(v23 + 40))(v22, a2, a3);
+          v10 = v24;
         }
         else
         {
-          WdLogSingleEntry1(2LL, 2776LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Unable to get VAIL composition object",
-            2776LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+          v25 = WdLogNewEntry5_WdError(0LL, v21);
+          *(_QWORD *)(v25 + 24) = 2702LL;
+          WdLogEvent5_WdError(v25);
         }
-        ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v12[9].Count + 64));
-        if ( v23 )
-          DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v22);
+        ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v12[8].Count + 64));
+        if ( v33 )
+          DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v32, v26);
       }
       else
       {
-        v11 = -2147483611;
-        WdLogSingleEntry2(3LL, 2LL, -2147483611LL);
+        v10 = -2147483611;
+        v27 = WdLogNewEntry5_WdWarning(v19, v18, v20);
+        *(_QWORD *)(v27 + 24) = 2LL;
+        *(_QWORD *)(v27 + 32) = -2147483611LL;
+        WdLogEvent5_WdWarning(v27);
       }
-      ExReleaseRundownProtection(v12 + 8);
+      ExReleaseRundownProtection(v12 + 7);
     }
     else
     {
-      v11 = -2147483611;
-      WdLogSingleEntry2(3LL, 1LL, -2147483611LL);
+      v10 = -2147483611;
+      v28 = WdLogNewEntry5_WdWarning(v16, v15, v17);
+      *(_QWORD *)(v28 + 24) = 1LL;
+      *(_QWORD *)(v28 + 32) = -2147483611LL;
+      WdLogEvent5_WdWarning(v28);
     }
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v22, v10, 0);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v22);
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v32, v6, 0);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v32);
     DXGVAILGUESTOBJECT::ReleaseReference((DXGVAILGUESTOBJECT *)v12);
-    if ( v23 )
+    if ( v33 )
     {
-      v13 = (DXGAUTOMUTEX *)v22;
-      goto LABEL_25;
+      v13 = (DXGAUTOMUTEX *)v32;
+      goto LABEL_21;
     }
   }
-  else if ( v21 )
+  else if ( v31 )
   {
-    v13 = (DXGAUTOMUTEX *)v20;
-LABEL_25:
-    DXGAUTOMUTEX::Release(v13);
+    v13 = (DXGAUTOMUTEX *)v30;
+LABEL_21:
+    DXGAUTOMUTEX::Release(v13, v11);
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v24);
-  if ( v26 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v17, &EventProfilerExit, v18, v24);
-  return v11;
+  return v10;
 }

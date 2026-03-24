@@ -1,12 +1,12 @@
 /*
- * XREFs of PspVsmEnclaveHashAllocator @ 0x1409B7C6C
+ * XREFs of PspVsmEnclaveHashAllocator @ 0x14090E790
  * Callers:
- *     PsCreateVsmEnclave @ 0x1409B7038 (PsCreateVsmEnclave.c)
+ *     PsCreateVsmEnclave @ 0x14090D938 (PsCreateVsmEnclave.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
  */
 
-__int64 __fastcall PspVsmEnclaveHashAllocator(__int64 a1)
+PVOID __fastcall PspVsmEnclaveHashAllocator(SIZE_T NumberOfBytes)
 {
-  return ExAllocatePool2(257LL, a1, 1212511056LL);
+  return ExAllocatePoolWithQuotaTag((POOL_TYPE)9, NumberOfBytes, 0x48457350u);
 }

@@ -1,29 +1,32 @@
 /*
- * XREFs of GetPixelSizeInBytes @ 0x1C02D6568
+ * XREFs of GetPixelSizeInBytes @ 0x1C0227FF0
  * Callers:
- *     ?CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C01CF87C (-CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACC.c)
+ *     ?CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0113A10 (-CreateStandardAllocation@DXGDEVICE@@QEAAJPEAU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACC.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall GetPixelSizeInBytes(int a1)
+__int64 __fastcall GetPixelSizeInBytes(__int64 a1, __int64 a2)
 {
-  if ( a1 < 21 )
+  __int64 v2; // rax
+
+  if ( (int)a1 < 21 )
     goto LABEL_9;
-  if ( a1 > 22 )
+  if ( (int)a1 > 22 )
   {
-    if ( a1 <= 30 )
+    if ( (int)a1 <= 30 )
     {
 LABEL_9:
-      WdLogSingleEntry1(1LL, 7251LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"Invalid D3D Pixel format!", 7251LL, 0LL, 0LL, 0LL, 0LL);
+      v2 = WdLogNewEntry5_WdAssertion(a1, a2);
+      *(_QWORD *)(v2 + 24) = 7126LL;
+      WdLogEvent5_WdAssertion(v2);
       return 0LL;
     }
-    if ( a1 > 33 && a1 != 35 )
+    if ( (int)a1 > 33 && (_DWORD)a1 != 35 )
     {
-      if ( a1 == 36 || a1 == 113 )
+      if ( (_DWORD)a1 == 36 || (_DWORD)a1 == 113 )
         return 8LL;
-      if ( a1 != 119 )
+      if ( (_DWORD)a1 != 119 )
         goto LABEL_9;
     }
   }

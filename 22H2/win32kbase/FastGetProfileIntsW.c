@@ -1,14 +1,14 @@
 /*
- * XREFs of FastGetProfileIntsW @ 0x1C00618A0
+ * XREFs of FastGetProfileIntsW @ 0x1C000F360
  * Callers:
  *     <none>
  * Callees:
- *     FastGetProfileIntW @ 0x1C0033AC0 (FastGetProfileIntW.c)
- *     RtlLoadStringOrError @ 0x1C0061FA0 (RtlLoadStringOrError.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     FastGetProfileIntW @ 0x1C0010540 (FastGetProfileIntW.c)
+ *     RtlLoadStringOrError @ 0x1C0010F50 (RtlLoadStringOrError.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-__int64 __fastcall FastGetProfileIntsW(__int64 a1, __int64 a2, unsigned int a3, int a4)
+__int64 __fastcall FastGetProfileIntsW(int a1, __int64 a2, unsigned int a3, int a4)
 {
   PULONG *v6; // rbx
   __int64 v7; // rdi
@@ -21,7 +21,7 @@ __int64 __fastcall FastGetProfileIntsW(__int64 a1, __int64 a2, unsigned int a3, 
     do
     {
       RtlLoadStringOrError(*((unsigned __int16 *)v6 - 8), v9);
-      FastGetProfileIntW(a1, *((unsigned int *)v6 - 6), (__int64)v9, *((_DWORD *)v6 - 2), *v6, a4);
+      FastGetProfileIntW(a1, *((_DWORD *)v6 - 6), (int)v9, *((_DWORD *)v6 - 2), *v6, a4);
       v6 += 4;
       --v7;
     }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DxgkOpenHandleForCompositionObjectReference@@YAJKDPEAXPEAPEAX@Z @ 0x1C006D710
+ * XREFs of ?DxgkOpenHandleForCompositionObjectReference@@YAJKDPEAXPEAPEAX@Z @ 0x1C005E900
  * Callers:
  *     <none>
  * Callees:

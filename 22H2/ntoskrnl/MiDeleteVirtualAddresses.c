@@ -1,23 +1,26 @@
 /*
- * XREFs of MiDeleteVirtualAddresses @ 0x1402896EC
+ * XREFs of MiDeleteVirtualAddresses @ 0x14027EC00
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140291494 (MiDeleteFinalPageTables.c)
- *     MiDeleteRotateAndStopFaults @ 0x140632628 (MiDeleteRotateAndStopFaults.c)
- *     MiDeleteVad @ 0x1406FA4D0 (MiDeleteVad.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x1407E66E0 (MiUnmapLockedPagesInUserSpace.c)
+ *     MiDeletePartialVad @ 0x14027DF5C (MiDeletePartialVad.c)
+ *     MiDeleteFinalPageTables @ 0x1402EA0BC (MiDeleteFinalPageTables.c)
+ *     MiDeleteRotateAndStopFaults @ 0x1402EB774 (MiDeleteRotateAndStopFaults.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x14076D36C (MiUnmapLockedPagesInUserSpace.c)
  * Callees:
- *     MiDeletePagablePteRange @ 0x14027A040 (MiDeletePagablePteRange.c)
+ *     MiDeletePagablePteRange @ 0x1402B79F0 (MiDeletePagablePteRange.c)
  */
 
-signed __int64 __fastcall MiDeleteVirtualAddresses(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, _QWORD *a5)
+signed __int64 __fastcall MiDeleteVirtualAddresses(int a1, int a2, int a3, __int64 a4)
 {
+  int v5; // r9d
   _KPROCESS *Process; // rdi
   signed __int64 result; // rax
 
+  v5 = a2;
   Process = KeGetCurrentThread()->ApcState.Process;
-  MiDeletePagablePteRange((__int64)&Process[1].ActiveProcessors.StaticBitmap[26], 0x11u, a1, a2, a3, 0, a4 | 0x80, a5);
-  result = a5[4];
+  LOBYTE(a2) = 17;
+  MiDeletePagablePteRange((_DWORD)Process + 1664, a2, a1, v5, 0, a3 | 0x80, a4);
+  result = *(_QWORD *)(a4 + 24);
   if ( result )
-    return _InterlockedExchangeAdd64((volatile signed __int64 *)&Process[1].Affinity.StaticBitmap[13], -result);
+    return _InterlockedExchangeAdd64((volatile signed __int64 *)&Process[1].Affinity.Bitmap[13], -result);
   return result;
 }

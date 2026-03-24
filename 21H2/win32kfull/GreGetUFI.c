@@ -1,15 +1,15 @@
 /*
- * XREFs of GreGetUFI @ 0x1C013C2B0
+ * XREFs of GreGetUFI @ 0x1C014F860
  * Callers:
- *     NtGdiGetUFI @ 0x1C013C160 (NtGdiGetUFI.c)
- *     NtGdiGetEmbUFI @ 0x1C02AD440 (NtGdiGetEmbUFI.c)
+ *     NtGdiGetUFI @ 0x1C014F710 (NtGdiGetUFI.c)
+ *     NtGdiGetEmbUFI @ 0x1C02AED10 (NtGdiGetEmbUFI.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C00364E0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ComputeFileviewCheckSum @ 0x1C00E2BCC (ComputeFileviewCheckSum.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093AC0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ComputeFileviewCheckSum @ 0x1C00E6098 (ComputeFileviewCheckSum.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall GreGetUFI(HDC a1, _QWORD *a2, void *a3, _DWORD *a4, _DWORD *a5, __int64 a6, _QWORD *a7)

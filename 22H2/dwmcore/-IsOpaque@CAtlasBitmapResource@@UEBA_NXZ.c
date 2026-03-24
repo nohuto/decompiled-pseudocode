@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOpaque@CAtlasBitmapResource@@UEBA_NXZ @ 0x180107C80
+ * XREFs of ?IsOpaque@CAtlasBitmapResource@@UEBA_NXZ @ 0x1800E2EB0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CAtlasBitmapResource::IsOpaque(CAtlasBitmapResource *this)
 {
-  return *((_BYTE *)this + 64);
+  return *((_BYTE *)this + 56);
 }

@@ -1,12 +1,13 @@
 /*
- * XREFs of LdrpOpenKey @ 0x14083071C
+ * XREFs of LdrpOpenKey @ 0x140793BA8
  * Callers:
- *     _RtlpRemovePendingDeleteLanguages @ 0x1403C5F68 (_RtlpRemovePendingDeleteLanguages.c)
- *     _RtlpMuiRegLoadInstalledFromKey @ 0x1403C6028 (_RtlpMuiRegLoadInstalledFromKey.c)
- *     RtlpLoadInstallLanguageFallback @ 0x14082EFE4 (RtlpLoadInstallLanguageFallback.c)
- *     RtlpLoadLanguageConfigList @ 0x140830634 (RtlpLoadLanguageConfigList.c)
+ *     _RtlpRemovePendingDeleteLanguages @ 0x1403ACE1C (_RtlpRemovePendingDeleteLanguages.c)
+ *     _IsMachineLanguageListInMutableLocation @ 0x1403ACEDC (_IsMachineLanguageListInMutableLocation.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x1403ACF3C (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     RtlpLoadLanguageConfigList @ 0x140793AC0 (RtlpLoadLanguageConfigList.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x140794774 (RtlpLoadInstallLanguageFallback.c)
  * Callees:
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall LdrpOpenKey(UNICODE_STRING *a1, void *a2, __int64 a3, HANDLE *a4)

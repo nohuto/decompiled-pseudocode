@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhTrapFatalTimeout_x9f @ 0x1C002D664
+ * XREFs of UsbhTrapFatalTimeout_x9f @ 0x1C002EA74
  * Callers:
- *     UsbhWaitEventWithTimeoutEx @ 0x1C0011440 (UsbhWaitEventWithTimeoutEx.c)
- *     UsbhHubProcessChangeWorker @ 0x1C00134E0 (UsbhHubProcessChangeWorker.c)
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00038F0 (UsbhWaitEventWithTimeoutEx.c)
+ *     UsbhHubProcessChangeWorker @ 0x1C00057E0 (UsbhHubProcessChangeWorker.c)
  * Callees:
- *     USBHUB_TriggerCallBacks @ 0x1C00413B4 (USBHUB_TriggerCallBacks.c)
+ *     USBHUB_TriggerCallBacks @ 0x1C0042660 (USBHUB_TriggerCallBacks.c)
  */
 
 void __fastcall __noreturn UsbhTrapFatalTimeout_x9f(__int64 a1, int a2, ULONG_PTR a3)

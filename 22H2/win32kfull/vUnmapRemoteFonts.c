@@ -1,11 +1,11 @@
 /*
- * XREFs of vUnmapRemoteFonts @ 0x1C028C080
+ * XREFs of vUnmapRemoteFonts @ 0x1C028A6F0
  * Callers:
- *     FreeFileView @ 0x1C007C5A8 (FreeFileView.c)
- *     GreAddFontMemResourceEx @ 0x1C028B7DC (GreAddFontMemResourceEx.c)
- *     NtGdiAddRemoteFontToDC @ 0x1C028B900 (NtGdiAddRemoteFontToDC.c)
+ *     FreeFileView @ 0x1C00A5B30 (FreeFileView.c)
+ *     GreAddFontMemResourceEx @ 0x1C0289E28 (GreAddFontMemResourceEx.c)
+ *     NtGdiAddRemoteFontToDC @ 0x1C0289F40 (NtGdiAddRemoteFontToDC.c)
  * Callees:
- *     ?MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z @ 0x1C00799B0 (-MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z.c)
+ *     ?MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z @ 0x1C00A73BC (-MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z.c)
  */
 
 void __fastcall vUnmapRemoteFonts(__int64 a1)
@@ -20,15 +20,16 @@ void __fastcall vUnmapRemoteFonts(__int64 a1)
     v1 = *(_DWORD *)(a1 + 100);
     if ( !v1 || (v3 = v1 - 1, (*(_DWORD *)(a1 + 100) = v3) == 0) )
     {
-      if ( *(_QWORD *)(a1 + 32) )
+      v4 = *(void **)(a1 + 32);
+      if ( v4 )
       {
-        v4 = *(void **)(a1 + 104);
-        if ( v4 )
+        if ( *(_QWORD *)(a1 + 104) )
         {
-          UmfdHostLifeTimeManager::MmUnmapViewOfSection(v4, *(_QWORD *)(a1 + 72));
+          UmfdHostLifeTimeManager::MmUnmapViewOfSection(*(void **)(a1 + 104), *(_QWORD *)(a1 + 72));
           *(_QWORD *)(a1 + 104) = 0LL;
+          v4 = *(void **)(a1 + 32);
         }
-        ObfDereferenceObject(*(PVOID *)(a1 + 32));
+        ObfDereferenceObject(v4);
         v5 = *(void **)(a1 + 48);
         *(_QWORD *)(a1 + 32) = 0LL;
         if ( v5 )

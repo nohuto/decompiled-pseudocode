@@ -8,12 +8,12 @@
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
  *     MiSplitPrivatePage @ 0x140083B70 (MiSplitPrivatePage.c)
  *     MiCopyToUserVa @ 0x140084410 (MiCopyToUserVa.c)
- *     MiSplitReducedCommitClonePage @ 0x1402A8390 (MiSplitReducedCommitClonePage.c)
- *     MiCommitHotPatchTable @ 0x1402B92A0 (MiCommitHotPatchTable.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1402B9894 (MiPrepareImagePagesForHotPatch.c)
+ *     MiSplitReducedCommitClonePage @ 0x1402A8490 (MiSplitReducedCommitClonePage.c)
+ *     MiCommitHotPatchTable @ 0x1402B93A0 (MiCommitHotPatchTable.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x1402B9994 (MiPrepareImagePagesForHotPatch.c)
  *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
- *     MiComputeProcessUserVa @ 0x14067A11C (MiComputeProcessUserVa.c)
- *     MiCreateLargePageVad @ 0x14085D048 (MiCreateLargePageVad.c)
+ *     MiComputeProcessUserVa @ 0x14067A0FC (MiComputeProcessUserVa.c)
+ *     MiCreateLargePageVad @ 0x14085D028 (MiCreateLargePageVad.c)
  * Callees:
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
@@ -21,8 +21,8 @@
  *     PspChargeQuota @ 0x14004D3A0 (PspChargeQuota.c)
  *     MiReturnProcessCommitment @ 0x140065D24 (MiReturnProcessCommitment.c)
  *     PsReturnProcessPageFileQuota @ 0x1405F29D4 (PsReturnProcessPageFileQuota.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x14068C750 (PspChangeJobMemoryUsageByProcess.c)
- *     MiCommitRequestFailed @ 0x14085B8FC (MiCommitRequestFailed.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x14068C730 (PspChangeJobMemoryUsageByProcess.c)
+ *     MiCommitRequestFailed @ 0x14085B8DC (MiCommitRequestFailed.c)
  */
 
 __int64 __fastcall MiChargeFullProcessCommitment(__int64 a1, unsigned __int64 a2)

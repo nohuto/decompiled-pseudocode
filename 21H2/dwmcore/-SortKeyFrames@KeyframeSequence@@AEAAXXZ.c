@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SortKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x18005052C
+ * XREFs of ?SortKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x1800AC5F8
  * Callers:
- *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x18004F7F8 (-Play@KeyframeSequence@@QEAAXXZ.c)
+ *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800AC518 (-Play@KeyframeSequence@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

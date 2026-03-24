@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegDescriptorValidate @ 0x140365700
+ * XREFs of RtlpHpSegDescriptorValidate @ 0x1403422D0
  * Callers:
- *     RtlpHpSegFree @ 0x140364794 (RtlpHpSegFree.c)
- *     RtlpHpSegLfhVsDecommit @ 0x140365610 (RtlpHpSegLfhVsDecommit.c)
- *     RtlpHpMetadataCommit @ 0x14036F520 (RtlpHpMetadataCommit.c)
- *     RtlpHpSizeHeapInternal @ 0x1405F30C0 (RtlpHpSizeHeapInternal.c)
- *     RtlpHpSegSetExtraPresent @ 0x1405F327C (RtlpHpSegSetExtraPresent.c)
+ *     RtlpHpSegLfhVsDecommit @ 0x140307CE0 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpSegFree @ 0x140342200 (RtlpHpSegFree.c)
+ *     RtlpHpMetadataCommit @ 0x1403CB0F4 (RtlpHpMetadataCommit.c)
+ *     RtlpHpSizeHeapInternal @ 0x140594B2C (RtlpHpSizeHeapInternal.c)
+ *     RtlpHpSegSetExtraPresent @ 0x140595048 (RtlpHpSegSetExtraPresent.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ unsigned __int64 __fastcall RtlpHpSegDescriptorValidate(__int64 a1, unsigned __i
   char v7; // dl
 
   v3 = a2 & *(_QWORD *)a1;
-  if ( (a1 ^ v3 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(v3 + 0x10)) != 0xA2E64EADA2E64EADuLL )
+  if ( (a1 ^ v3 ^ (unsigned __int64)RtlpHpHeapGlobals ^ *(_QWORD *)(v3 + 0x10)) != 0xA2E64EADA2E64EADuLL )
     return 0LL;
   v4 = *(_BYTE *)(a1 + 8);
   result = v3 + 32 * ((unsigned __int64)(unsigned int)(a2 - v3) >> v4);

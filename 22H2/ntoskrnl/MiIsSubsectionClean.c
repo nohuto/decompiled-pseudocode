@@ -1,77 +1,77 @@
 /*
- * XREFs of MiIsSubsectionClean @ 0x140624B04
+ * XREFs of MiIsSubsectionClean @ 0x140529B74
  * Callers:
- *     MiDeleteCachedSubsection @ 0x140623BB8 (MiDeleteCachedSubsection.c)
+ *     MiDeleteCachedSubsection @ 0x140528CEC (MiDeleteCachedSubsection.c)
  * Callees:
- *     MiLockLeafPage @ 0x140218430 (MiLockLeafPage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiCheckProtoPtePageState @ 0x1402DBE30 (MiCheckProtoPtePageState.c)
+ *     MiUnlockProtoPoolPage @ 0x140239160 (MiUnlockProtoPoolPage.c)
+ *     MiCheckProtoPtePageState @ 0x14023ABE0 (MiCheckProtoPtePageState.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockLeafPage @ 0x140332CE0 (MiLockLeafPage.c)
  */
 
-__int64 __fastcall MiIsSubsectionClean(__int64 a1)
+__int64 __fastcall MiIsSubsectionClean(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v1; // edi
-  ULONG_PTR v2; // rbx
-  ULONG_PTR v3; // r14
-  __int64 v4; // rbp
-  __int64 v5; // rsi
-  char v6; // al
-  char v7; // al
-  unsigned __int8 v9; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int v4; // edi
+  ULONG_PTR v5; // rbx
+  ULONG_PTR v6; // r14
+  unsigned __int64 v7; // rbp
+  __int64 v8; // rsi
+  char v9; // al
+  char v10; // al
+  unsigned __int8 v12; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = 0;
+  v4 = 0;
   if ( !*(_DWORD *)(a1 + 104) )
     return 0LL;
-  v2 = *(_QWORD *)(a1 + 8);
-  v3 = v2 + 8LL * *(unsigned int *)(a1 + 44);
+  v5 = *(_QWORD *)(a1 + 8);
+  v6 = v5 + 8LL * *(unsigned int *)(a1 + 44);
   if ( !*(_QWORD *)(*(_QWORD *)a1 + 32LL) )
     return 0LL;
-  v9 = 17;
-  v4 = 0LL;
-  if ( v2 >= v3 )
-    return v1;
-  while ( (v2 & 0xFFF) == 0 || v9 == 17 )
+  v12 = 17;
+  v7 = 0LL;
+  if ( v5 >= v6 )
+    return v4;
+  while ( (v5 & 0xFFF) == 0 || v12 == 17 )
   {
-    if ( v9 != 17 )
-      MiUnlockProtoPoolPage(v4, v9);
-    v4 = MiCheckProtoPtePageState(v2, (__int64)&v9);
-    if ( v4 )
+    if ( v12 != 17 )
+      MiUnlockProtoPoolPage(v7, v12);
+    v7 = MiCheckProtoPtePageState(v5, (__int64)&v12);
+    if ( v7 )
       break;
-    v2 = (v2 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+    v5 = (v5 & 0xFFFFFFFFFFFFF000uLL) + 4096;
 LABEL_15:
-    if ( v2 >= v3 )
+    if ( v5 >= v6 )
       goto LABEL_20;
   }
-  v5 = MiLockLeafPage((unsigned __int64 *)v2, 0LL);
-  if ( !v5 )
+  v8 = MiLockLeafPage((__int64 *)v5, 0, a3, a4);
+  if ( !v8 )
   {
 LABEL_14:
-    v2 += 8LL;
+    v5 += 8LL;
     goto LABEL_15;
   }
-  if ( (MI_READ_PTE_LOCK_FREE(v2) & 1) == 0 )
+  if ( (MI_READ_PTE_LOCK_FREE(v5) & 1) == 0 )
   {
-    if ( *(_WORD *)(v5 + 32) )
+    if ( *(_WORD *)(v8 + 32) )
     {
-      _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      v1 = 2;
+      _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      v4 = 2;
       goto LABEL_20;
     }
-    v6 = *(_BYTE *)(v5 + 34);
-    _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( (v6 & 0x18) != 0 )
+    v9 = *(_BYTE *)(v8 + 34);
+    _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    if ( (v9 & 0x18) != 0 )
     {
-      v1 = 1;
+      v4 = 1;
       goto LABEL_20;
     }
     goto LABEL_14;
   }
-  v7 = *(_BYTE *)(v5 + 34) & 0x18;
-  _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  v1 = 2 - (v7 != 0);
+  v10 = *(_BYTE *)(v8 + 34);
+  _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  v4 = 2 - ((v10 & 0x18) != 0);
 LABEL_20:
-  if ( v9 != 17 )
-    MiUnlockProtoPoolPage(v4, v9);
-  return v1;
+  if ( v12 != 17 )
+    MiUnlockProtoPoolPage(v7, v12);
+  return v4;
 }

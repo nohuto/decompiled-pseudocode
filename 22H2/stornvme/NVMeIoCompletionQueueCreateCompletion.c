@@ -1,9 +1,9 @@
 /*
- * XREFs of NVMeIoCompletionQueueCreateCompletion @ 0x1C001F3A0
+ * XREFs of NVMeIoCompletionQueueCreateCompletion @ 0x1C0019B50
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 __int64 __fastcall NVMeIoCompletionQueueCreateCompletion(__int64 a1, __int64 a2)
@@ -17,12 +17,12 @@ __int64 __fastcall NVMeIoCompletionQueueCreateCompletion(__int64 a1, __int64 a2)
   v5 = result;
   if ( *(_BYTE *)(v4 + 3) != 1 )
   {
-    *(_DWORD *)(v3 + 36) = 23;
+    *(_DWORD *)(v3 + 28) = 23;
 LABEL_5:
-    result = StorPortExtendedFunction(101LL, v3, v3 + 4160);
+    result = StorPortExtendedFunction(101LL, v3, v3 + 3944, v3);
     goto LABEL_6;
   }
-  if ( _InterlockedIncrement((volatile signed __int32 *)(v3 + 924)) == *(unsigned __int16 *)(v3 + 338) )
+  if ( _InterlockedIncrement((volatile signed __int32 *)(v3 + 828)) == *(unsigned __int16 *)(v3 + 290) )
     goto LABEL_5;
 LABEL_6:
   *(_BYTE *)(v5 + 4253) |= 8u;

@@ -1,16 +1,16 @@
 /*
- * XREFs of RawQueryFsSizeInfo @ 0x14088F9E0
+ * XREFs of RawQueryFsSizeInfo @ 0x14088F9C0
  * Callers:
- *     RawQueryVolumeInformation @ 0x14068460C (RawQueryVolumeInformation.c)
+ *     RawQueryVolumeInformation @ 0x1406845EC (RawQueryVolumeInformation.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     RawBeginOperation @ 0x1400D81B0 (RawBeginOperation.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400DDC70 (IoBuildDeviceIoControlRequest.c)
- *     RawEndOperation @ 0x1400F97B8 (RawEndOperation.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     RawBeginOperation @ 0x1400D81D0 (RawBeginOperation.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400DDC90 (IoBuildDeviceIoControlRequest.c)
+ *     RawEndOperation @ 0x1400F97D8 (RawEndOperation.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RawQueryFsSizeInfo(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

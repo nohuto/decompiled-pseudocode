@@ -1,228 +1,267 @@
 /*
- * XREFs of ?DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z @ 0x1C0070820
+ * XREFs of ?DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z @ 0x1C00CA9D8
  * Callers:
- *     DrvDisplayConfigGetDeviceInfo @ 0x1C00C4CF0 (DrvDisplayConfigGetDeviceInfo.c)
- *     NtUserDisplayConfigGetDeviceInfo @ 0x1C0157A60 (NtUserDisplayConfigGetDeviceInfo.c)
- *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01990C8 (rimFindMonitorForDigitizerWithQDCData.c)
+ *     NtUserDisplayConfigGetDeviceInfo @ 0x1C001D580 (NtUserDisplayConfigGetDeviceInfo.c)
+ *     DrvDisplayConfigGetDeviceInfo @ 0x1C001DD40 (DrvDisplayConfigGetDeviceInfo.c)
  * Callees:
- *     UserRemoteConnectedSessionUsingWddm @ 0x1C006CF70 (UserRemoteConnectedSessionUsingWddm.c)
- *     UserRemoteConnectedSessionUsingXddm @ 0x1C006F4B0 (UserRemoteConnectedSessionUsingXddm.c)
- *     ?AllowInAnySession@DispConfigTypes@@YA_NW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z @ 0x1C0070B6C (-AllowInAnySession@DispConfigTypes@@YA_NW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z.c)
- *     ?GetGetterTypeSize@DispConfigTypes@@YAKW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z @ 0x1C0070BC4 (-GetGetterTypeSize@DispConfigTypes@@YAKW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z.c)
- *     DrvIsWddmDriverPresent @ 0x1C0070CE0 (DrvIsWddmDriverPresent.c)
- *     DrvpDisplayConfigGetDisplayDeviceInfo @ 0x1C0070D14 (DrvpDisplayConfigGetDisplayDeviceInfo.c)
- *     UserIsWddmConnectedSession @ 0x1C0071CE0 (UserIsWddmConnectedSession.c)
- *     ?GetMonitorBrightnessCaps@@YAXPEAU_DISPLAYCONFIG_GET_MONITOR_INTERNAL_INFO@@@Z @ 0x1C00BCEF4 (-GetMonitorBrightnessCaps@@YAXPEAU_DISPLAYCONFIG_GET_MONITOR_INTERNAL_INFO@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     DrvDisplayConfigGetScaleFactorOverrides @ 0x1C0173850 (DrvDisplayConfigGetScaleFactorOverrides.c)
+ *     UserRemoteConnectedSessionUsingWddm @ 0x1C001C7B0 (UserRemoteConnectedSessionUsingWddm.c)
+ *     UserRemoteConnectedSessionUsingXddm @ 0x1C001D190 (UserRemoteConnectedSessionUsingXddm.c)
+ *     UserIsWddmConnectedSession @ 0x1C001DEB0 (UserIsWddmConnectedSession.c)
+ *     DrvIsWddmDriverPresent @ 0x1C001F138 (DrvIsWddmDriverPresent.c)
+ *     DrvpDisplayConfigGetDisplayDeviceInfo @ 0x1C0020778 (DrvpDisplayConfigGetDisplayDeviceInfo.c)
+ *     ??1CritAcquire@Perf@InputTraceLogging@@QEAA@XZ @ 0x1C0036010 (--1CritAcquire@Perf@InputTraceLogging@@QEAA@XZ.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0036190 (UserSessionSwitchLeaveCrit.c)
+ *     EtwTraceAcquiredSharedUserCrit @ 0x1C0037E20 (EtwTraceAcquiredSharedUserCrit.c)
+ *     ??0CritAcquire@Perf@InputTraceLogging@@QEAA@_N@Z @ 0x1C0038040 (--0CritAcquire@Perf@InputTraceLogging@@QEAA@_N@Z.c)
+ *     EnterSharedCritAvoidingDitHitTestHazard @ 0x1C003BD50 (EnterSharedCritAvoidingDitHitTestHazard.c)
+ *     ?GetMonitorBrightnessCaps@@YAXPEAU_DISPLAYCONFIG_GET_MONITOR_INTERNAL_INFO@@@Z @ 0x1C00A5E70 (-GetMonitorBrightnessCaps@@YAXPEAU_DISPLAYCONFIG_GET_MONITOR_INTERNAL_INFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     Feature_OemPanelDriverSupport__private_ReportDeviceUsage @ 0x1C00CAE50 (Feature_OemPanelDriverSupport__private_ReportDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     DrvDisplayConfigGetScaleFactorOverrides @ 0x1C0146860 (DrvDisplayConfigGetScaleFactorOverrides.c)
  */
 
 __int64 __fastcall DrvDisplayConfigGetDeviceInfoInternal(struct DISPLAYCONFIG_DEVICE_INFO_HEADER *a1, char a2)
 {
-  __int64 v4; // rdx
+  __int64 v4; // rax
   __int64 v5; // rcx
-  unsigned int v6; // r8d
+  __int64 v6; // r8
   int v7; // esi
-  __int64 v8; // rcx
-  _DWORD *v9; // rdi
-  __int64 v10; // rdx
-  _QWORD *v11; // r14
+  unsigned int v8; // eax
+  _DWORD *v10; // rdi
+  __int64 v11; // rdx
   int v12; // eax
-  unsigned int v13; // ebp
-  int v14; // eax
-  unsigned int v16; // edi
-  int v18; // eax
-  wchar_t *v19; // rcx
-  __int64 v20; // rdx
+  __int64 v13; // rdx
+  __int64 v14; // rbp
+  _QWORD *v15; // rax
+  int v16; // eax
+  unsigned __int64 v17; // rdx
+  wchar_t *v18; // rcx
+  __int64 v19; // rax
+  int DisplayDeviceInfo; // eax
   __int64 v21; // rcx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // [rsp+20h] [rbp-28h]
-  int v27; // [rsp+50h] [rbp+8h] BYREF
+  LARGE_INTEGER *CurrentThreadWin32Thread; // rbx
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  __int64 v25; // r9
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  int v31; // eax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  __int64 v35; // rax
+  __int64 v36; // [rsp+20h] [rbp-58h]
+  int v37; // [rsp+30h] [rbp-48h] BYREF
+  _BYTE v38[32]; // [rsp+38h] [rbp-40h] BYREF
 
-  WdLogSingleEntry1(4LL, *(int *)a1);
+  v4 = WdLogNewEntry5_WdEvent(a1);
+  *(_QWORD *)(v4 + 24) = *(int *)a1;
+  WdLogEvent5_WdEvent(v4);
   v7 = 0;
-  if ( !(unsigned __int8)DispConfigTypes::AllowInAnySession(*(unsigned int *)a1)
-    && !(unsigned int)DrvIsWddmDriverPresent(v5, v4) )
+  if ( !(unsigned int)DrvIsWddmDriverPresent() )
   {
-    return 3221225659LL;
+    v8 = *(_DWORD *)a1 + 22;
+    if ( v8 > 0x1C )
+      return 3221225659LL;
+    v5 = 386976263LL;
+    if ( !_bittest((const int *)&v5, v8) )
+      return 3221225659LL;
   }
-  if ( (unsigned int)DispConfigTypes::GetGetterTypeSize(v6) != *((_DWORD *)a1 + 1) )
-    return 3221225485LL;
-  v9 = (_DWORD *)((char *)a1 + 16);
-  v10 = *((unsigned int *)a1 + 4);
-  v11 = (_QWORD *)((char *)a1 + 8);
-  if ( (_DWORD)v10 != -1 )
+  v10 = (_DWORD *)((char *)a1 + 16);
+  v11 = *((unsigned int *)a1 + 4);
+  if ( (_DWORD)v11 == -1
+    || (v12 = ((__int64 (__fastcall *)(char *, __int64, char *, char *))qword_1C0251AA0)(
+                (char *)a1 + 8,
+                v11,
+                (char *)a1 + 8,
+                (char *)a1 + 16),
+        v14 = v12,
+        v12 >= 0) )
   {
-    v12 = ((__int64 (__fastcall *)(char *, __int64, char *, char *))qword_1C0296888)(
-            (char *)a1 + 8,
-            v10,
-            (char *)a1 + 8,
-            (char *)a1 + 16);
-    v13 = v12;
-    if ( v12 < 0 )
+    v16 = *(_DWORD *)a1;
+    if ( *(int *)a1 > 100 )
     {
-      if ( *(_DWORD *)a1 == -21 )
-      {
-        *((_DWORD *)a1 + 506) = 1144084231;
-        WdLogSingleEntry5(2LL, *((int *)a1 + 3), *(unsigned int *)v11, (unsigned int)*v9, v12, 1144084231LL);
-      }
-      return v13;
+LABEL_44:
+      LODWORD(v10) = -1073741811;
     }
-  }
-  v14 = *(_DWORD *)a1;
-  if ( *(int *)a1 <= -9 )
-  {
-    if ( v14 != -9 )
+    else if ( v16 == 100 )
     {
-      switch ( v14 )
+LABEL_42:
+      LOBYTE(v5) = 1;
+      v31 = ((__int64 (__fastcall *)(__int64, struct DISPLAYCONFIG_DEVICE_INFO_HEADER *))qword_1C0251968)(v5, a1);
+      v10 = (_DWORD *)v31;
+      if ( v31 < 0 )
       {
-        case -29:
-        case -26:
+        v35 = WdLogNewEntry5_WdWarning(v33, v32, v34);
+        *(_QWORD *)(v35 + 24) = a1;
+        *(_QWORD *)(v35 + 32) = v10;
+        WdLogEvent5_WdWarning(v35);
+      }
+    }
+    else
+    {
+      v17 = 0x1C0000000uLL;
+      switch ( v16 )
+      {
         case -24:
         case -22:
         case -14:
         case -13:
         case -12:
         case -10:
-          goto LABEL_15;
-        case -25:
-          if ( *((_DWORD *)a1 + 1) < 0x28u )
-            return 3221225507LL;
-          return (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD, struct DISPLAYCONFIG_DEVICE_INFO_HEADER *))qword_1C0296968)(
-                                 *((_QWORD *)a1 + 1),
-                                 (unsigned int)*v9,
-                                 a1);
+        case -5:
+        case 2:
+        case 3:
+        case 4:
+        case 6:
+        case 7:
+        case 9:
+        case 11:
+          goto LABEL_42;
         case -21:
         case -11:
-          return (unsigned int)DrvpDisplayConfigGetDisplayDeviceInfo(a1);
+        case -2:
+          DisplayDeviceInfo = DrvpDisplayConfigGetDisplayDeviceInfo((int *)a1, 0x1C0000000LL);
+          goto LABEL_24;
         case -20:
           *((_DWORD *)a1 + 5) = gRemoteSessionUseWddm;
           *((_DWORD *)a1 + 6) = UserRemoteConnectedSessionUsingWddm();
           *((_DWORD *)a1 + 7) = UserRemoteConnectedSessionUsingXddm();
-          *((_DWORD *)a1 + 8) = UserIsWddmConnectedSession(v22);
+          *((_DWORD *)a1 + 8) = UserIsWddmConnectedSession();
           *((_DWORD *)a1 + 9) = gProtocolType == 0;
           *((_DWORD *)a1 + 10) = gProtocolType == -1;
           *((_WORD *)a1 + 22) = gProtocolType;
           *((_QWORD *)a1 + 6) = gRemoteTerminalLuid;
-          return 0;
+          goto LABEL_21;
         case -15:
           if ( *((_DWORD *)a1 + 1) < 0x20u )
             return 3221225507LL;
-          v23 = *((unsigned int *)a1 + 5);
-          v24 = (unsigned int)*v9;
-          v26 = *((_QWORD *)a1 + 3);
-          v25 = *((_QWORD *)a1 + 1);
-          v27 = 0;
-          v16 = ((__int64 (__fastcall *)(__int64, __int64, __int64, int *, __int64))qword_1C0296920)(
-                  v25,
-                  v24,
-                  v23,
-                  &v27,
-                  v26);
-          *((_DWORD *)a1 + 5) = v27;
-          return v16;
+          v28 = *((unsigned int *)a1 + 5);
+          v29 = (unsigned int)*v10;
+          v36 = *((_QWORD *)a1 + 3);
+          v30 = *((_QWORD *)a1 + 1);
+          v37 = 0;
+          LODWORD(v10) = ((__int64 (__fastcall *)(__int64, __int64, __int64, int *, __int64))qword_1C0251B50)(
+                           v30,
+                           v29,
+                           v28,
+                           &v37,
+                           v36);
+          *((_DWORD *)a1 + 5) = v37;
+          return (unsigned int)v10;
+        case -9:
+          if ( *((_DWORD *)a1 + 1) < 0x18u )
+            return 3221225507LL;
+          v26 = (unsigned int)*v10;
+          v27 = *((_QWORD *)a1 + 1);
+          v37 = 0;
+          LODWORD(v10) = ((__int64 (__fastcall *)(__int64, __int64, _QWORD, int *, _QWORD))qword_1C0251978)(
+                           v27,
+                           v26,
+                           0LL,
+                           &v37,
+                           0LL);
+          if ( (int)v10 >= 0 )
+          {
+            LOBYTE(v7) = v37 == 2;
+            *((_DWORD *)a1 + 5) = v7;
+          }
+          return (unsigned int)v10;
+        case -8:
+          if ( *((_DWORD *)a1 + 1) < 0x218u )
+            return 3221225507LL;
+          DisplayDeviceInfo = ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, char *, char *))qword_1C0251B30)(
+                                *((_QWORD *)a1 + 1),
+                                (unsigned int)*v10,
+                                512LL,
+                                (char *)a1 + 20,
+                                (char *)a1 + 24);
+          goto LABEL_24;
+        case -7:
+          if ( *((_DWORD *)a1 + 1) < 0x3ACu )
+            return 3221225507LL;
+          LODWORD(v10) = ((__int64 (__fastcall *)(_QWORD, _QWORD, struct DISPLAYCONFIG_DEVICE_INFO_HEADER *, _QWORD, _QWORD))qword_1C0251978)(
+                           *((_QWORD *)a1 + 1),
+                           (unsigned int)*v10,
+                           a1,
+                           0LL,
+                           0LL);
+          Feature_OemPanelDriverSupport__private_ReportDeviceUsage();
+          if ( a2 )
+          {
+            UserSessionSwitchLeaveCrit();
+            GetMonitorBrightnessCaps(a1);
+            CurrentThreadWin32Thread = (LARGE_INTEGER *)PsGetCurrentThreadWin32Thread(v21);
+            if ( CurrentThreadWin32Thread )
+              CurrentThreadWin32Thread[1] = KeQueryPerformanceCounter(0LL);
+            InputTraceLogging::Perf::CritAcquire::CritAcquire((InputTraceLogging::Perf::CritAcquire *)v38, 0);
+            EnterSharedCritAvoidingDitHitTestHazard(0, 1);
+            InputTraceLogging::Perf::CritAcquire::~CritAcquire(
+              (InputTraceLogging::Perf::CritAcquire *)v38,
+              v23,
+              v24,
+              v25);
+            EtwTraceAcquiredSharedUserCrit();
+          }
+          return (unsigned int)v10;
+        case -3:
+          if ( *((_DWORD *)a1 + 1) != 32 )
+            return 3221225485LL;
+          DisplayDeviceInfo = DrvDisplayConfigGetScaleFactorOverrides(a1, 0LL);
+LABEL_24:
+          LODWORD(v10) = DisplayDeviceInfo;
+          return (unsigned int)v10;
+        case 1:
+          v18 = gpGraphicsDeviceList;
+          if ( *((_DWORD *)a1 + 1) < 0x54u )
+            return 3221225507LL;
+          if ( !gpGraphicsDeviceList )
+            goto LABEL_22;
+          v17 = *((unsigned int *)a1 + 2);
+          do
+          {
+            if ( *((_QWORD *)a1 + 1) == *((_QWORD *)v18 + 31) && *((_DWORD *)v18 + 64) == *v10 )
+              break;
+            v18 = (wchar_t *)*((_QWORD *)v18 + 16);
+          }
+          while ( v18 );
+          if ( !v18 )
+          {
+LABEL_22:
+            v19 = WdLogNewEntry5_WdWarning(v18, v17, v6);
+            WdLogEvent5_WdWarning(v19);
+            return 3221226021LL;
+          }
+          *(_OWORD *)((char *)a1 + 20) = *((_OWORD *)v18 + 4);
+          *(_OWORD *)((char *)a1 + 36) = *((_OWORD *)v18 + 5);
+          *(_OWORD *)((char *)a1 + 52) = *((_OWORD *)v18 + 6);
+          *(_OWORD *)((char *)a1 + 68) = *((_OWORD *)v18 + 7);
+LABEL_21:
+          LODWORD(v10) = 0;
+          break;
         default:
-          return (unsigned int)-1073741811;
+          goto LABEL_44;
       }
     }
-    if ( *((_DWORD *)a1 + 1) >= 0x18u )
-    {
-      v20 = (unsigned int)*v9;
-      v21 = *v11;
-      v27 = 0;
-      v16 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD, int *, _QWORD))qword_1C0296768)(v21, v20, 0LL, &v27, 0LL);
-      if ( (v16 & 0x80000000) == 0 )
-      {
-        LOBYTE(v7) = v27 == 2;
-        *((_DWORD *)a1 + 5) = v7;
-      }
-      return v16;
-    }
-    return 3221225507LL;
+    return (unsigned int)v10;
   }
-  if ( v14 > 1 )
+  else
   {
-    if ( v14 > 4 && (v14 <= 5 || v14 != 9 && v14 > 7 && (v14 <= 10 || v14 > 12 && v14 != 100)) )
-      return (unsigned int)-1073741811;
-    goto LABEL_15;
+    if ( *(_DWORD *)a1 == -21 )
+    {
+      *((_DWORD *)a1 + 506) = 1144084231;
+      v15 = (_QWORD *)WdLogNewEntry5_WdError(v5, v13);
+      v15[3] = *((int *)a1 + 3);
+      v15[4] = *((unsigned int *)a1 + 2);
+      v15[5] = (unsigned int)*v10;
+      v15[6] = v14;
+      v15[7] = 1144084231LL;
+      WdLogEvent5_WdError(v15);
+    }
+    return (unsigned int)v14;
   }
-  if ( v14 != 1 )
-  {
-    if ( v14 == -7 )
-    {
-      if ( *((_DWORD *)a1 + 1) >= 0x3ACu )
-      {
-        v16 = ((__int64 (__fastcall *)(_QWORD, _QWORD, struct DISPLAYCONFIG_DEVICE_INFO_HEADER *, _QWORD, _QWORD))qword_1C0296768)(
-                *v11,
-                (unsigned int)*v9,
-                a1,
-                0LL,
-                0LL);
-        if ( a2 )
-          GetMonitorBrightnessCaps(a1);
-        return v16;
-      }
-      return 3221225507LL;
-    }
-    if ( v14 == -8 )
-    {
-      if ( *((_DWORD *)a1 + 1) < 0x218u )
-        return 3221225507LL;
-      return (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, char *, char *))qword_1C0296900)(
-                             *v11,
-                             (unsigned int)*v9,
-                             512LL,
-                             (char *)a1 + 20,
-                             (char *)a1 + 24);
-    }
-    if ( v14 != -5 )
-    {
-      if ( v14 != -3 )
-      {
-        if ( v14 != -2 )
-          return (unsigned int)-1073741811;
-        return (unsigned int)DrvpDisplayConfigGetDisplayDeviceInfo(a1);
-      }
-      if ( *((_DWORD *)a1 + 1) == 32 )
-        return (unsigned int)DrvDisplayConfigGetScaleFactorOverrides(a1, 0LL);
-      return 3221225485LL;
-    }
-LABEL_15:
-    LOBYTE(v8) = 1;
-    v18 = ((__int64 (__fastcall *)(__int64, struct DISPLAYCONFIG_DEVICE_INFO_HEADER *))qword_1C0296758)(v8, a1);
-    v16 = v18;
-    if ( v18 < 0 )
-      WdLogSingleEntry2(3LL, a1, v18);
-    return v16;
-  }
-  v19 = gpGraphicsDeviceList;
-  if ( *((_DWORD *)a1 + 1) < 0x54u )
-    return 3221225507LL;
-  if ( gpGraphicsDeviceList )
-  {
-    do
-    {
-      if ( *((_DWORD *)a1 + 2) == *((_DWORD *)v19 + 62)
-        && *((_DWORD *)a1 + 3) == *((_DWORD *)v19 + 63)
-        && *((_DWORD *)v19 + 64) == *v9 )
-      {
-        break;
-      }
-      v19 = (wchar_t *)*((_QWORD *)v19 + 16);
-    }
-    while ( v19 );
-    if ( v19 )
-    {
-      *(_OWORD *)((char *)a1 + 20) = *((_OWORD *)v19 + 4);
-      *(_OWORD *)((char *)a1 + 36) = *((_OWORD *)v19 + 5);
-      *(_OWORD *)((char *)a1 + 52) = *((_OWORD *)v19 + 6);
-      *(_OWORD *)((char *)a1 + 68) = *((_OWORD *)v19 + 7);
-      return 0;
-    }
-  }
-  WdLogSingleEntry0(3LL);
-  return 3221226021LL;
 }

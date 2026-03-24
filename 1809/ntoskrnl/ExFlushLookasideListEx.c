@@ -1,10 +1,10 @@
 /*
- * XREFs of ExFlushLookasideListEx @ 0x1401280F0
+ * XREFs of ExFlushLookasideListEx @ 0x140128110
  * Callers:
- *     ExDeleteLookasideListEx @ 0x1401280B0 (ExDeleteLookasideListEx.c)
+ *     ExDeleteLookasideListEx @ 0x1401280D0 (ExDeleteLookasideListEx.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x1401C5430 (RtlpInterlockedFlushSList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void __stdcall ExFlushLookasideListEx(PLOOKASIDE_LIST_EX Lookaside)

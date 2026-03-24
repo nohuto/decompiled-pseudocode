@@ -1,28 +1,34 @@
 /*
- * XREFs of ExpFindCurrentThread @ 0x14021CD50
+ * XREFs of ExpFindCurrentThread @ 0x14034DA50
  * Callers:
- *     ExpBoostIoAfterAcquire @ 0x14021CA70 (ExpBoostIoAfterAcquire.c)
- *     ExpAcquireResourceSharedLite @ 0x1402B1170 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x14032BD70 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x14039B280 (ExAcquireSharedWaitForExclusive.c)
- *     ExpTryConvertSharedToExclusiveLite @ 0x14063D600 (ExpTryConvertSharedToExclusiveLite.c)
+ *     ExpBoostIoAfterAcquire @ 0x1402872F0 (ExpBoostIoAfterAcquire.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x14031E750 (ExpAcquireSharedStarveExclusive.c)
+ *     ExpAcquireResourceSharedLite @ 0x14034C060 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x14034C9B0 (ExpAcquireResourceExclusiveLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1405B4D70 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpTryConvertSharedToExclusiveLite @ 0x1405B57D4 (ExpTryConvertSharedToExclusiveLite.c)
  * Callees:
- *     ExpExpandResourceOwnerTable @ 0x14021CE94 (ExpExpandResourceOwnerTable.c)
+ *     ExpExpandResourceOwnerTable @ 0x1402B861C (ExpExpandResourceOwnerTable.c)
  */
 
-_QWORD *__fastcall ExpFindCurrentThread(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, unsigned int a6)
+_QWORD *__fastcall ExpFindCurrentThread(
+        __int64 a1,
+        __int64 a2,
+        struct _KLOCK_QUEUE_HANDLE *a3,
+        int a4,
+        int a5,
+        unsigned int a6)
 {
   __int64 v6; // r10
   _QWORD *result; // rax
-  _QWORD *v12; // rcx
-  _QWORD *v13; // rbx
+  _QWORD *v12; // rdx
+  _QWORD *v13; // r8
   unsigned __int64 v14; // r9
-  __int64 v15; // rdx
+  __int64 v15; // rcx
   __int64 v16; // r10
-  _QWORD *v17; // r8
-  unsigned __int64 v18; // rdx
-  _QWORD *v19; // rdx
-  _QWORD *v20; // rax
+  unsigned __int64 v17; // rdi
+  _QWORD *v18; // rdx
+  _QWORD *v19; // rcx
 
   v6 = *(_QWORD *)(a1 + 48);
   result = (_QWORD *)(a1 + 48);
@@ -32,63 +38,64 @@ _QWORD *__fastcall ExpFindCurrentThread(__int64 a1, __int64 a2, __int64 a3, int 
     v13 = 0LL;
     if ( !v6 )
     {
-      v13 = result;
+      v13 = (_QWORD *)(a1 + 48);
       if ( a5 )
         v13 = 0LL;
     }
-    v14 = v6 != 0;
+    v14 = *(_QWORD *)(a1 + 48) != 0LL;
     if ( !a6
       || (v15 = *(_QWORD *)(a1 + 16)) == 0
       || a6 >= *(_DWORD *)(v15 + 8)
       || (result = (_QWORD *)(v15 + 16LL * a6), *result != a2) )
     {
       v16 = *(_QWORD *)(a1 + 16);
-      v17 = (_QWORD *)v16;
-      if ( !v16
-        || (v17 = (_QWORD *)(v16 + 16),
-            v18 = *(unsigned int *)(a1 + 64) + (unsigned __int64)*(unsigned int *)(a1 + 72),
-            v12 = (_QWORD *)(v16 + 16LL * *(unsigned int *)(v16 + 8)),
-            v14 >= v18) )
+      result = (_QWORD *)v16;
+      if ( v16 )
       {
-LABEL_9:
-        if ( a4 )
+        v17 = *(unsigned int *)(a1 + 64) + (unsigned __int64)*(unsigned int *)(a1 + 72);
+        v12 = (_QWORD *)(v16 + 16LL * *(unsigned int *)(v16 + 8));
+        result = (_QWORD *)(v16 + 16);
+        if ( v14 < v17 )
         {
-          if ( v13 || v17 < v12 && (v13 = v17) != 0LL )
+          while ( *result != a2 )
           {
-            v19 = v13;
-            result = v13;
-LABEL_14:
-            KeGetCurrentThread()->ResourceIndex = ((__int64)v19 - v16) >> 4;
-            return result;
+            if ( *result )
+            {
+              if ( ++v14 == v17 )
+              {
+                result += 2;
+                goto LABEL_13;
+              }
+            }
+            else
+            {
+              v19 = result;
+              if ( v13 )
+                v19 = v13;
+              v13 = v19;
+            }
+            result += 2;
+            if ( result == v12 )
+              goto LABEL_13;
           }
-          ExpExpandResourceOwnerTable(a1, a3, v17, v14);
+          v18 = result;
+          goto LABEL_18;
         }
-        return 0LL;
       }
-      while ( *v17 != a2 )
+LABEL_13:
+      if ( a4 )
       {
-        if ( *v17 )
+        if ( v13 || result < v12 && (v13 = result) != 0LL )
         {
-          if ( ++v14 == v18 )
-          {
-            v17 += 2;
-            goto LABEL_9;
-          }
+          v18 = v13;
+          result = v13;
+LABEL_18:
+          KeGetCurrentThread()->ResourceIndex = ((__int64)v18 - v16) >> 4;
+          return result;
         }
-        else
-        {
-          v20 = v17;
-          if ( v13 )
-            v20 = v13;
-          v13 = v20;
-        }
-        v17 += 2;
-        if ( v17 == v12 )
-          goto LABEL_9;
+        ExpExpandResourceOwnerTable(a1, a3);
       }
-      v19 = v17;
-      result = v17;
-      goto LABEL_14;
+      return 0LL;
     }
   }
   return result;

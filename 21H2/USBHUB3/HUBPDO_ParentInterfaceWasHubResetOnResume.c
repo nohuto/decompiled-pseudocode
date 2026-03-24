@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPDO_ParentInterfaceWasHubResetOnResume @ 0x1C00191D0
+ * XREFs of HUBPDO_ParentInterfaceWasHubResetOnResume @ 0x1C0018C80
  * Callers:
  *     <none>
  * Callees:

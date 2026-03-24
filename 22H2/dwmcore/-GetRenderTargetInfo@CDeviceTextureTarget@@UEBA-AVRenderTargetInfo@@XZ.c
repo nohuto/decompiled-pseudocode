@@ -1,26 +1,23 @@
 /*
- * XREFs of ?GetRenderTargetInfo@CDeviceTextureTarget@@UEBA?AVRenderTargetInfo@@XZ @ 0x1800D51B4
+ * XREFs of ?GetRenderTargetInfo@CDeviceTextureTarget@@UEBA?AVRenderTargetInfo@@XZ @ 0x1800BD910
  * Callers:
- *     ?GetRenderTargetInfo@CDeviceTextureTarget@@$4PPPPPPPM@A@EBA?AVRenderTargetInfo@@XZ @ 0x180120460 (-GetRenderTargetInfo@CDeviceTextureTarget@@$4PPPPPPPM@A@EBA-AVRenderTargetInfo@@XZ.c)
+ *     ?GetRenderTargetInfo@CDeviceTextureTarget@@$4PPPPPPPM@A@EBA?AVRenderTargetInfo@@XZ @ 0x1800F7A80 (-GetRenderTargetInfo@CDeviceTextureTarget@@$4PPPPPPPM@A@EBA-AVRenderTargetInfo@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDeviceTextureTarget::GetRenderTargetInfo(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx
-  __int64 v5; // rax
-  bool v6; // cl
 
   v4 = *(int *)(*(_QWORD *)(a1 - 392) + 8LL) + a1 - 392;
-  v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
-  v6 = 1;
-  *(_QWORD *)a2 = *(_QWORD *)(v5 + 896);
+  *(_QWORD *)a2 = *(_QWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4) + 936);
   *(_DWORD *)(a2 + 8) = *(_DWORD *)(a1 - 172);
   *(_DWORD *)(a2 + 12) = *(_DWORD *)(a1 - 136);
   *(_DWORD *)(a2 + 16) = *(_DWORD *)(a1 - 132);
-  if ( !*(_BYTE *)(a1 - 128) )
-    v6 = (*(_DWORD *)(a1 - 216) & 0x80000) != 0;
-  *(_BYTE *)(a2 + 20) = v6;
+  if ( *(_BYTE *)(a1 - 128) )
+    *(_BYTE *)(a2 + 20) = 1;
+  else
+    *(_BYTE *)(a2 + 20) = (*(_DWORD *)(a1 - 216) & 0x80000) != 0;
   return a2;
 }

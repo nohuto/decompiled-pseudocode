@@ -1,17 +1,17 @@
 /*
- * XREFs of ExAllocateHeapSpecialPool @ 0x14031E8BC
+ * XREFs of ExAllocateHeapSpecialPool @ 0x14031E9BC
  * Callers:
- *     ExAllocateHeapPool @ 0x1400BA150 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
  * Callees:
  *     RtlpHpSegAlloc @ 0x14000B118 (RtlpHpSegAlloc.c)
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
  *     MiDeterminePoolType @ 0x14007BF30 (MiDeterminePoolType.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExGetHeapFromType @ 0x1400E7618 (ExGetHeapFromType.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140104290 (ExpInsertPoolTrackerExpansion.c)
- *     EtwTracePool @ 0x1401B71C8 (EtwTracePool.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExGetHeapFromType @ 0x1400E7638 (ExGetHeapFromType.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x1401042B0 (ExpInsertPoolTrackerExpansion.c)
+ *     EtwTracePool @ 0x1401B71E8 (EtwTracePool.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 unsigned __int64 __fastcall ExAllocateHeapSpecialPool(int a1, ULONG_PTR a2, unsigned int a3)

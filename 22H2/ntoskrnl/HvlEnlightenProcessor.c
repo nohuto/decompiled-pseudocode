@@ -1,141 +1,124 @@
 /*
- * XREFs of HvlEnlightenProcessor @ 0x140382F20
+ * XREFs of HvlEnlightenProcessor @ 0x1403A7298
  * Callers:
- *     HvlpInitializeBootProcessor @ 0x140541150 (HvlpInitializeBootProcessor.c)
- *     KiInitializeKernel @ 0x140A8C770 (KiInitializeKernel.c)
- *     PopHandleNextState @ 0x140AA81DC (PopHandleNextState.c)
+ *     HvlpInitializeBootProcessor @ 0x1404F2D6C (HvlpInitializeBootProcessor.c)
+ *     PopHandleNextState @ 0x1409938B0 (PopHandleNextState.c)
+ *     KiInitializeKernel @ 0x14099CCF0 (KiInitializeKernel.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     MmMapIoSpaceEx @ 0x140335810 (MmMapIoSpaceEx.c)
- *     HvlpGetLpcbByLpIndex @ 0x1403CE3B8 (HvlpGetLpcbByLpIndex.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HvlSharedIsr @ 0x14045ED00 (HvlSharedIsr.c)
- *     HvlGetLpIndexFromProcessorIndex @ 0x14045EDF0 (HvlGetLpIndexFromProcessorIndex.c)
- *     HvlpSetupSchedulerAssist @ 0x140542240 (HvlpSetupSchedulerAssist.c)
- *     HvlpGetRegister64 @ 0x140548D80 (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x140548ED0 (HvlpSetRegister64.c)
- *     HvlpDiscoverTopologyLocal @ 0x140941440 (HvlpDiscoverTopologyLocal.c)
+ *     MmMapIoSpaceEx @ 0x1402E7FA0 (MmMapIoSpaceEx.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1403905F8 (HvlpGetLpcbByLpIndex.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvlSharedIsr @ 0x1404F1B80 (HvlSharedIsr.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x1404F1E10 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlpSetupSchedulerAssist @ 0x1404F3D5C (HvlpSetupSchedulerAssist.c)
+ *     HvlpGetRegister64 @ 0x1404F9E90 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1404F9F80 (HvlpSetRegister64.c)
+ *     HvlpDiscoverTopologyLocal @ 0x14088E8A0 (HvlpDiscoverTopologyLocal.c)
  */
 
-__int64 __fastcall HvlEnlightenProcessor(char a1)
+void __fastcall HvlEnlightenProcessor(char a1)
 {
-  __int64 result; // rax
-  struct _KPRCB *CurrentPrcb; // rsi
-  ULONG LowPart; // edx
-  ULONG v4; // r8d
-  unsigned __int8 v5; // cl
-  PHYSICAL_ADDRESS v6; // rbx
-  unsigned __int64 v7; // rcx
-  __int64 v8; // rax
-  unsigned int *p_Number; // rbp
-  __int64 v10; // rcx
-  char v11; // bl
-  __int64 LpcbByLpIndex; // rdi
+  struct _KPRCB *CurrentPrcb; // rdi
+  int v2; // edx
+  ULONG v3; // r8d
+  char v4; // cl
+  PHYSICAL_ADDRESS v5; // rbx
+  unsigned __int64 v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rcx
+  char v9; // bl
+  int *LpcbByLpIndex; // rsi
   unsigned int LpIndexFromProcessorIndex; // eax
-  __int64 v14; // rbx
-  unsigned __int64 v15; // rcx
-  __int64 v16; // rax
-  unsigned __int64 v17; // rbx
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
-  PHYSICAL_ADDRESS v19; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v20; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v13; // rbx
+  unsigned __int64 v14; // rcx
+  __int64 v15; // rax
+  unsigned __int64 v16; // rbx
+  __int64 v17; // [rsp+58h] [rbp+10h] BYREF
+  PHYSICAL_ADDRESS v18; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v19; // [rsp+68h] [rbp+20h] BYREF
 
-  result = (__int64)&retaddr;
-  v19.QuadPart = 0LL;
-  v20 = 0LL;
-  if ( HvlHypervisorConnected )
+  v17 = 0LL;
+  v19 = 0LL;
+  if ( HvlHypervisorConnected && (!a1 || (HvlpFlags & 2) == 0) )
   {
-    if ( !a1 || (result = HvlpFlags, (HvlpFlags & 2) == 0) )
+    CurrentPrcb = KeGetCurrentPrcb();
+    if ( !a1 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      if ( !a1 )
+      HvlpGetRegister64(589827LL, &v17);
+      v2 = v17;
+      v3 = (unsigned int)v17 >> 6;
+      v4 = v17 & 0x3F;
+      HvlpVirtualProcessorMapping[2 * CurrentPrcb->Number] = (unsigned int)v17 >> 6;
+      HvlpVirtualProcessorMapping[2 * CurrentPrcb->Number + 1] = v4;
+      if ( v2 != CurrentPrcb->Number )
+        HvlpVirtualProcessorsIdentityMapped = 0;
+      if ( v3 < 0x10 )
       {
-        HvlpGetRegister64(589827LL, &v19);
-        LowPart = v19.LowPart;
-        v4 = v19.LowPart >> 6;
-        v5 = v19.LowPart & 0x3F;
-        HvlpVirtualProcessorMapping[2 * CurrentPrcb->Number] = v19.LowPart >> 6;
-        HvlpVirtualProcessorMapping[2 * CurrentPrcb->Number + 1] = v5;
-        if ( LowPart != CurrentPrcb->Number )
-          HvlpVirtualProcessorsIdentityMapped = 0;
-        if ( v4 < 0x10 )
-        {
-          if ( v4 > ((HvlpFlags >> 8) & 0xF) )
-            HvlpFlags ^= ((unsigned __int16)HvlpFlags ^ (unsigned __int16)((_WORD)v4 << 8)) & 0xF00;
-        }
-        else
-        {
-          HvlEnlightenments &= ~0x80u;
-          HvlpEnlightenments &= ~0x80u;
-        }
-      }
-      if ( (HvlpFlags & 0x80000) != 0 )
-      {
-        v19.QuadPart = 0LL;
-        if ( (HvlpFlags & 2) != 0 )
-        {
-          HvlpGetRegister64(589843LL, &v19);
-          v6 = v19;
-          v7 = v19.QuadPart & 0xFFFFFFFFFFFFF000uLL;
-          if ( CurrentPrcb->Number )
-            v8 = MmMapIoSpaceEx(v7, 4096LL, 4u);
-          else
-            v8 = ((__int64 (__fastcall *)(unsigned __int64, __int64, __int64))qword_140C01B30)(v7, 1LL, 4LL);
-          CurrentPrcb->VirtualApicAssist = (void *)v8;
-        }
-        else
-        {
-          v6.QuadPart = MmGetPhysicalAddress(CurrentPrcb->VirtualApicAssist).QuadPart & 0xFFFFFFFFFFFFF000uLL;
-        }
-        HvlpSetRegister64(589843LL, v6.QuadPart | 1);
-        p_Number = &CurrentPrcb->Number;
+        if ( v3 > ((HvlpFlags >> 8) & 0xF) )
+          HvlpFlags ^= ((unsigned __int16)HvlpFlags ^ (unsigned __int16)((_WORD)v3 << 8)) & 0xF00;
       }
       else
       {
-        p_Number = &CurrentPrcb->Number;
-      }
-      HvlpSetupSchedulerAssist(CurrentPrcb);
-      v11 = HvlpFlags;
-      LpcbByLpIndex = 0LL;
-      if ( (HvlpFlags & 2) != 0 )
-      {
-        LpIndexFromProcessorIndex = HvlGetLpIndexFromProcessorIndex(CurrentPrcb->Number);
-        LpcbByLpIndex = HvlpGetLpcbByLpIndex(LpIndexFromProcessorIndex);
-        if ( (v11 & 0x20) != 0 )
-        {
-          HvlpGetRegister64(655379LL, &v20);
-          v14 = v20;
-          if ( (v20 & 1) == 0 )
-          {
-            v14 = v20 | 1;
-            HvlpSetRegister64(655379LL, v20 | 1);
-          }
-          v15 = v14 & 0xFFFFFFFFFFFFF000uLL;
-          if ( *p_Number )
-            v16 = MmMapIoSpaceEx(v15, 4096LL, 4u);
-          else
-            v16 = ((__int64 (__fastcall *)(unsigned __int64, __int64))qword_140C01B30)(v15, 1LL);
-          *(_QWORD *)(LpcbByLpIndex + 40) = v16;
-        }
-      }
-      if ( (HvlpFlags & 2) != 0 && (HvlpFlags & 0x20) != 0 )
-      {
-        v17 = ((unsigned __int64)((HvlpFlags & 0x10) == 0) << 17) | 0x30;
-        HvlpSetRegister64(655360LL, v17);
-        __writemsr(0x40000094u, v17);
-        HvlSharedIsr(1073741972LL, HIDWORD(v17));
-      }
-      result = HvlpFlags;
-      if ( (HvlpFlags & 2) != 0 )
-      {
-        if ( *p_Number )
-          return HvlpDiscoverTopologyLocal(
-                   v10,
-                   *(unsigned int *)(LpcbByLpIndex + 8),
-                   LpcbByLpIndex + 16,
-                   LpcbByLpIndex + 20);
+        HvlEnlightenments &= ~0x80u;
+        HvlpEnlightenments &= ~0x80u;
       }
     }
+    if ( (HvlpFlags & 0x80000) != 0 )
+    {
+      v18.QuadPart = 0LL;
+      if ( (HvlpFlags & 2) != 0 )
+      {
+        HvlpGetRegister64(589843LL, &v18);
+        v5 = v18;
+        v6 = v18.QuadPart & 0xFFFFFFFFFFFFF000uLL;
+        if ( CurrentPrcb->Number )
+          v7 = MmMapIoSpaceEx(v6, 4096LL, 4u);
+        else
+          v7 = ((__int64 (__fastcall *)(unsigned __int64, __int64, __int64))qword_140C00720)(v6, 1LL, 4LL);
+        CurrentPrcb->VirtualApicAssist = (void *)v7;
+      }
+      else
+      {
+        v5.QuadPart = MmGetPhysicalAddress(CurrentPrcb->VirtualApicAssist).QuadPart & 0xFFFFFFFFFFFFF000uLL;
+      }
+      HvlpSetRegister64(589843LL, v5.QuadPart | 1);
+    }
+    HvlpSetupSchedulerAssist(CurrentPrcb);
+    v9 = HvlpFlags;
+    LpcbByLpIndex = 0LL;
+    if ( (HvlpFlags >> 1) & 1 )
+    {
+      LpIndexFromProcessorIndex = HvlGetLpIndexFromProcessorIndex(CurrentPrcb->Number);
+      LpcbByLpIndex = HvlpGetLpcbByLpIndex(LpIndexFromProcessorIndex);
+      if ( (v9 & 0x20) != 0 )
+      {
+        HvlpGetRegister64(655379LL, &v19);
+        v13 = v19;
+        if ( (v19 & 1) == 0 )
+        {
+          v13 = v19 | 1;
+          HvlpSetRegister64(655379LL, v19 | 1);
+        }
+        v14 = v13 & 0xFFFFFFFFFFFFF000uLL;
+        if ( CurrentPrcb->Number )
+          v15 = MmMapIoSpaceEx(v14, 4096LL, 4u);
+        else
+          v15 = ((__int64 (__fastcall *)(unsigned __int64, __int64))qword_140C00720)(v14, 1LL);
+        *((_QWORD *)LpcbByLpIndex + 5) = v15;
+      }
+    }
+    if ( (HvlpFlags & 2) != 0 && (HvlpFlags & 0x20) != 0 )
+    {
+      v16 = ((unsigned __int64)((HvlpFlags & 0x10) == 0) << 17) | 0x30;
+      HvlpSetRegister64(655360LL, v16);
+      HvlpSetRegister64(655364LL, v16);
+      HvlSharedIsr();
+    }
+    if ( (HvlpFlags & 2) != 0 )
+    {
+      if ( CurrentPrcb->Number )
+        HvlpDiscoverTopologyLocal(v8, (unsigned int)LpcbByLpIndex[2], LpcbByLpIndex + 4, LpcbByLpIndex + 5);
+    }
   }
-  return result;
 }

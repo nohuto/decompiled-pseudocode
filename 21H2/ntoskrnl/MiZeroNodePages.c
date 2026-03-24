@@ -1,206 +1,189 @@
 /*
- * XREFs of MiZeroNodePages @ 0x1403D3960
+ * XREFs of MiZeroNodePages @ 0x1403B0220
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForGate @ 0x140217454 (KeWaitForGate.c)
- *     KeSignalGate @ 0x14024B0B4 (KeSignalGate.c)
- *     MiGetOptimalProcessorWriteCount @ 0x140263644 (MiGetOptimalProcessorWriteCount.c)
- *     MiWakeZeroingThreads @ 0x140267A5C (MiWakeZeroingThreads.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     ExAllocatePoolMm @ 0x14030B860 (ExAllocatePoolMm.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     MiCreateZeroThreadContext @ 0x1403D3CA0 (MiCreateZeroThreadContext.c)
- *     MiNodeCompletedBootZeroing @ 0x1403D3D2C (MiNodeCompletedBootZeroing.c)
- *     MiPreserveBootDecisions @ 0x1403D3D5C (MiPreserveBootDecisions.c)
- *     MiZeroPageCalibrate @ 0x1403D3EE0 (MiZeroPageCalibrate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PsCreateSystemThreadEx @ 0x1406F0360 (PsCreateSystemThreadEx.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
+ *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
+ *     MiGetOptimalProcessorWriteCount @ 0x1402E2484 (MiGetOptimalProcessorWriteCount.c)
+ *     MiWakeZeroingThreads @ 0x1402FF3D0 (MiWakeZeroingThreads.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     MiZeroPageCalibrate @ 0x1403AFE24 (MiZeroPageCalibrate.c)
+ *     MiCreateZeroThreadContext @ 0x1403B0C88 (MiCreateZeroThreadContext.c)
+ *     MiPreserveBootDecisions @ 0x1403B0D78 (MiPreserveBootDecisions.c)
+ *     MiNodeCompletedBootZeroing @ 0x1403B0EE8 (MiNodeCompletedBootZeroing.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDeleteZeroThreadContext @ 0x14054FC14 (MiDeleteZeroThreadContext.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiZeroNodePages(char *SystemArgument1)
+void __fastcall MiZeroNodePages(char *P)
 {
-  __int64 v1; // rsi
-  unsigned int v3; // r12d
-  int v4; // r15d
-  __int64 v5; // rbx
-  __m128i *v6; // rcx
-  __m128i v7; // xmm6
-  unsigned int v8; // edx
-  __int16 epi16; // ax
-  __int64 v10; // r14
-  char *PoolMm; // rax
-  char *v12; // r13
-  LARGE_INTEGER v13; // r8
-  LARGE_INTEGER v14; // r9
-  char *v15; // r15
-  unsigned __int64 v16; // r13
-  LARGE_INTEGER v17; // rdx
-  __int64 v18; // rcx
-  unsigned __int64 v19; // rax
-  __int64 v20; // rax
-  __int64 v21; // rbx
-  __int64 result; // rax
-  int v23; // r14d
-  unsigned __int64 OldIrql; // r14
+  ULONG_PTR v1; // r13
+  __int64 v3; // r12
+  __int64 v4; // rbx
+  unsigned int v5; // ecx
+  __int64 v6; // rsi
+  char *Pool; // rax
+  __int64 v8; // r8
+  char *v9; // rcx
+  unsigned int v10; // r15d
+  char *v11; // r14
+  unsigned __int64 v12; // rdx
+  __m128i v13; // xmm0
+  __int64 v14; // rcx
+  __int64 v15; // r9
+  unsigned __int64 v16; // rax
+  __int64 ZeroThreadContext; // rax
+  __int64 v18; // r8
+  _DWORD *v19; // r9
+  __m128i v20; // xmm0
+  int v21; // esi
+  unsigned __int64 OldIrql; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v28; // eax
-  bool v29; // zf
-  signed __int32 v30[6]; // [rsp+8h] [rbp-B9h] BYREF
-  __int64 v31; // [rsp+58h] [rbp-69h]
-  LARGE_INTEGER PerformanceCounter; // [rsp+68h] [rbp-59h]
-  __m128i v33; // [rsp+78h] [rbp-49h]
-  __m128i v34; // [rsp+88h] [rbp-39h]
-  __int128 v35; // [rsp+98h] [rbp-29h]
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+A8h] [rbp-19h] BYREF
-  unsigned int v37; // [rsp+128h] [rbp+67h]
-  HANDLE Handle; // [rsp+140h] [rbp+7Fh] BYREF
+  int v26; // eax
+  bool v27; // zf
+  signed __int32 v28[8]; // [rsp+0h] [rbp-A9h] BYREF
+  __int64 v29; // [rsp+30h] [rbp-79h]
+  __int64 v30; // [rsp+38h] [rbp-71h]
+  __int64 v31; // [rsp+40h] [rbp-69h]
+  unsigned __int64 v32; // [rsp+50h] [rbp-59h]
+  PVOID Pa; // [rsp+58h] [rbp-51h]
+  __int64 v34; // [rsp+60h] [rbp-49h]
+  __m128i v35; // [rsp+70h] [rbp-39h]
+  __m128i v36; // [rsp+80h] [rbp-29h]
+  __int128 v37; // [rsp+90h] [rbp-19h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+A0h] [rbp-9h] BYREF
+  unsigned int v39; // [rsp+110h] [rbp+67h]
+  HANDLE Handle; // [rsp+120h] [rbp+77h] BYREF
+  PVOID v41; // [rsp+128h] [rbp+7Fh]
 
-  v1 = *((_QWORD *)SystemArgument1 + 9);
-  v3 = 0;
-  *((_QWORD *)SystemArgument1 + 3) = 0LL;
+  v1 = *((_QWORD *)P + 9);
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
+  v3 = 0LL;
+  *((_QWORD *)P + 3) = 0LL;
+  *((_WORD *)P + 44) = 0;
+  P[90] = 6;
+  *((_DWORD *)P + 23) = 0;
   Handle = 0LL;
-  *((_WORD *)SystemArgument1 + 44) = 0;
-  SystemArgument1[90] = 6;
-  *((_DWORD *)SystemArgument1 + 23) = 0;
-  v4 = 0;
   LockHandle.LockQueue = 0LL;
-  v35 = 0LL;
-  *((_QWORD *)SystemArgument1 + 13) = SystemArgument1 + 96;
-  *((_QWORD *)SystemArgument1 + 12) = SystemArgument1 + 96;
-  v5 = *((unsigned int *)SystemArgument1 + 20);
-  *((_QWORD *)SystemArgument1 + 8) = SystemArgument1 + 56;
-  *((_QWORD *)SystemArgument1 + 7) = SystemArgument1 + 56;
-  v6 = *(__m128i **)(qword_140C506E0 + 120 * v5 + 112);
-  v7 = *v6;
-  v8 = v6[1].m128i_u16[0];
-  epi16 = _mm_extract_epi16(*v6, 4);
-  v33 = *v6;
-  *((_WORD *)SystemArgument1 + 60) = epi16;
-  v37 = dword_140C50728;
-  v10 = v8 / dword_140C50728;
-  *((_QWORD *)SystemArgument1 + 2) = SystemArgument1 + 8;
-  *((_QWORD *)SystemArgument1 + 1) = SystemArgument1 + 8;
-  *(_WORD *)SystemArgument1 = 263;
-  SystemArgument1[2] = 6;
-  if ( !(_DWORD)v10 )
-    v10 = 1LL;
-  *((_DWORD *)SystemArgument1 + 1) = 0;
-  *((_DWORD *)SystemArgument1 + 32) = v10;
-  *((_DWORD *)SystemArgument1 + 39) = v10;
-  *((_DWORD *)SystemArgument1 + 38) = v10;
-  *((_DWORD *)SystemArgument1 + 34) = 0;
-  PoolMm = (char *)ExAllocatePoolMm(64LL, 40 * v10, 0x615A694Du, (unsigned int)v5 | 0x80000000);
-  v12 = PoolMm;
-  if ( !PoolMm )
+  v37 = 0LL;
+  *((_QWORD *)P + 13) = P + 96;
+  *((_QWORD *)P + 12) = P + 96;
+  v4 = *((unsigned int *)P + 20);
+  *((_QWORD *)P + 8) = P + 56;
+  *((_QWORD *)P + 7) = P + 56;
+  v34 = *(_QWORD *)(v1 + 16) + 4544 * v4;
+  v5 = *(unsigned __int16 *)(v34 + 4488);
+  v35 = *(__m128i *)(v34 + 4472);
+  *((_WORD *)P + 60) = _mm_extract_epi16(v35, 4);
+  v39 = dword_140C4DEE4;
+  v6 = v5 / dword_140C4DEE4;
+  *(_WORD *)P = 263;
+  P[2] = 6;
+  *((_DWORD *)P + 1) = 0;
+  if ( !(_DWORD)v6 )
+    v6 = 1LL;
+  *((_QWORD *)P + 2) = P + 8;
+  *((_QWORD *)P + 1) = P + 8;
+  *((_DWORD *)P + 32) = v6;
+  *((_DWORD *)P + 38) = v6;
+  *((_DWORD *)P + 34) = 0;
+  *((_DWORD *)P + 39) = v6;
+  Pool = (char *)MiAllocatePool(64, 40 * v6, 0x20206D4Du);
+  Pa = Pool;
+  v9 = Pool;
+  if ( !Pool )
   {
-    *(_BYTE *)(v1 + 16176) = 1;
-    LODWORD(v10) = 0;
+    *(_BYTE *)(v1 + 6400) = 1;
+    LODWORD(v6) = 0;
   }
-  *((_QWORD *)SystemArgument1 + 18) = PoolMm;
-  *((_DWORD *)SystemArgument1 + 41) = v10;
-  v31 = *(_QWORD *)(*(_QWORD *)(v1 + 176) + 112LL);
-  PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  _InterlockedOr(v30, 0);
-  if ( (_DWORD)v10 )
+  *((_QWORD *)P + 18) = Pool;
+  *((_DWORD *)P + 41) = v6;
+  v32 = __rdtsc();
+  _InterlockedOr(v28, 0);
+  v10 = 0;
+  if ( !(_DWORD)v6 )
+    goto LABEL_35;
+  v11 = v9 + 17;
+  while ( 1 )
   {
-    v15 = v12 + 17;
-    v16 = v33.m128i_i64[0];
-    while ( 1 )
+    v12 = v35.m128i_i64[0];
+    v13 = v35;
+    *(_WORD *)(v11 - 1) = 1;
+    v11[1] = 6;
+    *(_DWORD *)(v11 + 3) = 0;
+    *(_QWORD *)(v11 + 15) = v11 + 7;
+    *(_QWORD *)(v11 + 7) = v11 + 7;
+    *(_QWORD *)&v37 = 0LL;
+    v36 = v13;
+    if ( v12 )
     {
-      *(_DWORD *)(v15 + 3) = 0;
-      v17.QuadPart = 0LL;
-      *(_WORD *)(v15 - 1) = 1;
-      v15[1] = 6;
-      *(_QWORD *)(v15 + 15) = v15 + 7;
-      *(_QWORD *)(v15 + 7) = v15 + 7;
-      *(_QWORD *)&v35 = 0LL;
-      v34 = v7;
-      if ( v16 )
+      v14 = 0LL;
+      LOBYTE(v8) = 0;
+      v36.m128i_i64[0] = 0LL;
+      if ( v39 )
       {
-        v18 = 0LL;
-        LOBYTE(v13.LowPart) = 0;
-        v34.m128i_i64[0] = 0LL;
-        if ( v37 )
+        do
         {
-          do
+          v15 = v3;
+          if ( !v12 )
+            break;
+          _BitScanForward64(&v16, v12);
+          v14 |= 1LL << v16;
+          v36.m128i_i64[0] = v14;
+          if ( !(_BYTE)v8 )
           {
-            v14 = v17;
-            if ( !v16 )
-              break;
-            _BitScanForward64(&v19, v16);
-            v18 |= 1LL << v19;
-            v34.m128i_i64[0] = v18;
-            if ( !LOBYTE(v13.LowPart) )
-            {
-              v17.QuadPart |= v18;
-              *(_QWORD *)&v35 = v14.QuadPart | v18;
-            }
-            ++LOBYTE(v13.LowPart);
-            v16 &= ~v18;
-            v33.m128i_i64[0] = v16;
-            v7 = v33;
+            v3 |= v14;
+            *(_QWORD *)&v37 = v15 | v14;
           }
-          while ( LOBYTE(v13.LowPart) < v37 );
+          LOBYTE(v8) = v8 + 1;
+          v12 &= ~v14;
         }
-      }
-      v20 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))MiCreateZeroThreadContext)(
-              SystemArgument1,
-              (LARGE_INTEGER)v17.QuadPart,
-              (LARGE_INTEGER)v13.QuadPart,
-              (LARGE_INTEGER)v14.QuadPart);
-      if ( !v20 )
-        break;
-      *(__m128i *)(v20 + 280) = v34;
-      *(_DWORD *)(v20 + 264) = v3;
-      *(_QWORD *)(v15 - 9) = v20;
-      _InterlockedIncrement((volatile signed __int32 *)(v1 + 16192));
-      if ( (int)PsCreateSystemThreadEx((unsigned int)&Handle, 0LL, (__int64)MiZeroLargePageThread, v20, v20 + 280, 0LL) < 0 )
-      {
-        _InterlockedDecrement((volatile signed __int32 *)(v1 + 16192));
-        break;
-      }
-      ObCloseHandle(Handle, 0);
-      ++v3;
-      *((_QWORD *)SystemArgument1 + 14) |= v35;
-      v15 += 40;
-      if ( v3 >= (unsigned int)v10 )
-      {
-        v4 = 0;
-        goto LABEL_17;
+        while ( (unsigned __int8)v8 < v39 );
+        v35.m128i_i64[0] = v12;
       }
     }
-    v23 = v10 - v3;
-    if ( _InterlockedExchangeAdd((volatile signed __int32 *)SystemArgument1 + 32, -v23) == v23 )
-      KeSignalGate(SystemArgument1, 1);
-    v4 = v23;
-    if ( v23 )
-      *(_BYTE *)(v1 + 16176) = 1;
+    ZeroThreadContext = MiCreateZeroThreadContext(P, 1LL, v8);
+    v41 = (PVOID)ZeroThreadContext;
+    if ( !ZeroThreadContext )
+      break;
+    v31 = 0LL;
+    v20 = v36;
+    v30 = ZeroThreadContext + 280;
+    v29 = ZeroThreadContext;
+    *(_DWORD *)(ZeroThreadContext + 264) = v10;
+    *(__m128i *)(ZeroThreadContext + 280) = v20;
+    if ( (int)PsCreateSystemThreadEx((int)&Handle, 0LL, (__int64)MiZeroLargePageThread, v29, v30, v31) < 0 )
+    {
+      v21 = v6 - v10;
+      MiDeleteZeroThreadContext(v41);
+      goto LABEL_24;
+    }
+    ObCloseHandle(Handle, 0);
+    *((_QWORD *)P + 14) |= v3;
+    ++v10;
+    v11 += 40;
+    v3 = 0LL;
+    if ( v10 >= (unsigned int)v6 )
+      goto LABEL_17;
   }
-LABEL_17:
-  if ( (ULONG_PTR *)v1 != &MiSystemPartition )
-    goto LABEL_20;
-  if ( v3 )
+  v21 = v6 - v10;
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 32, -v21) == v21 )
+    KeSignalGate((__int64)P, 1LL, v18, v19);
+LABEL_24:
+  if ( v21 )
   {
-    MiZeroPageCalibrate(v1, SystemArgument1);
-LABEL_20:
-    *((_DWORD *)SystemArgument1 + 40) = MiGetOptimalProcessorWriteCount(v5);
-    goto LABEL_21;
-  }
-  MiZeroPageCalibrate(v1, 0LL);
-LABEL_21:
-  v21 = *(_QWORD *)(v1 + 16) + 24512 * v5;
-  *(_BYTE *)(v21 + 22965) = 1;
-  if ( v4 )
-  {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)SystemArgument1 + 3, &LockHandle);
-    MiWakeZeroingThreads((__int64)SystemArgument1, 1);
+    *(_BYTE *)(v1 + 6400) = 1;
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)P + 3, &LockHandle);
+    MiWakeZeroingThreads((__int64)P, 1);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
@@ -212,27 +195,42 @@ LABEL_21:
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v28 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v29 = (v28 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v28;
-          if ( v29 )
+          v26 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v27 = (v26 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v26;
+          if ( v27 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
     __writecr8(OldIrql);
   }
-  KeSetEvent((PRKEVENT)(SystemArgument1 + 88), 0, 0);
-  if ( v3 )
-    KeWaitForGate((__int64)SystemArgument1, 0);
-  _InterlockedOr(v30, 0);
-  *((LARGE_INTEGER *)SystemArgument1 + 4) = (LARGE_INTEGER)(*(_QWORD *)&KeQueryPerformanceCounter(0LL)
-                                                          - PerformanceCounter.QuadPart);
-  if ( !*(_BYTE *)(v1 + 16176) )
-    MiPreserveBootDecisions(v21, SystemArgument1);
+LABEL_17:
+  if ( v10 )
+  {
+    MiZeroPageCalibrate(v1, (__int64)P);
+    *((_DWORD *)P + 40) = MiGetOptimalProcessorWriteCount(v4);
+  }
+  else
+  {
+LABEL_35:
+    MiZeroPageCalibrate(v1, 0LL);
+  }
+  KeSetEvent((PRKEVENT)(P + 88), 0, 0);
+  if ( v10 )
+    KeWaitForGate((__int64)P, 0);
+  _InterlockedOr(v28, 0);
+  *((_QWORD *)P + 4) = __rdtsc() - v32;
   MiNodeCompletedBootZeroing(v1);
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 16192), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
-    return KeSignalGate((_DWORD *)(v1 + 16152), 1);
-  return result;
+  if ( *(_BYTE *)(v1 + 6400) == 1 )
+  {
+    if ( Pa )
+      ExFreePoolWithTag(Pa, 0);
+    ExFreePoolWithTag(P, 0);
+  }
+  else
+  {
+    MiPreserveBootDecisions(v34, P);
+    *(_BYTE *)(v1 + 6297) = 1;
+  }
 }

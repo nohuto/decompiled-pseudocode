@@ -3,12 +3,12 @@
  * Callers:
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
  *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
- *     HvpResetPageProtection @ 0x14068E7D0 (HvpResetPageProtection.c)
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407F7814 (HvpApplyLogEntryDataToFileBackedHive.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B80 (HvpPerformLogFileRecovery.c)
+ *     HvpResetPageProtection @ 0x14068E7B0 (HvpResetPageProtection.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407F77F4 (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
  * Callees:
  *     ExProtectPoolEx @ 0x14000DED8 (ExProtectPoolEx.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     HvpViewMapSealRange @ 0x1405A592C (HvpViewMapSealRange.c)
  *     HvpViewMapCOWAndUnsealRange @ 0x1405A5A0C (HvpViewMapCOWAndUnsealRange.c)
  *     HvpMapEntryGetFreeBin @ 0x1405F9C1C (HvpMapEntryGetFreeBin.c)

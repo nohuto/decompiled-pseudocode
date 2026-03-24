@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM20_ErrorOnWaitingForResumeTimerToFlush @ 0x1C0010D00
+ * XREFs of HUBPSM20_ErrorOnWaitingForResumeTimerToFlush @ 0x1C00108F0
  * Callers:
  *     <none>
  * Callees:

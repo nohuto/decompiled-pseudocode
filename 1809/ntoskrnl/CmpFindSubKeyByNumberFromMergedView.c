@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFindSubKeyByNumberFromMergedView @ 0x1407F2EEC
+ * XREFs of CmpFindSubKeyByNumberFromMergedView @ 0x1407F2ECC
  * Callers:
  *     CmEnumerateKey @ 0x1405D2A20 (CmEnumerateKey.c)
  *     CmQueryKey @ 0x1405D6900 (CmQueryKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpFindSubKeyByNumberEx @ 0x1405D30B0 (CmpFindSubKeyByNumberEx.c)
  *     CmpDelayDerefKeyControlBlock @ 0x1405D4264 (CmpDelayDerefKeyControlBlock.c)
- *     CmpCompareKeysByName @ 0x1407F9704 (CmpCompareKeysByName.c)
+ *     CmpCompareKeysByName @ 0x1407F96E4 (CmpCompareKeysByName.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNumberFromMergedView(

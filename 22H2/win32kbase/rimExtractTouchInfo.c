@@ -1,10 +1,10 @@
 /*
- * XREFs of rimExtractTouchInfo @ 0x1C00E3136
+ * XREFs of rimExtractTouchInfo @ 0x1C017B2A4
  * Callers:
- *     rimExtractPointerDeviceUsages @ 0x1C01A97C8 (rimExtractPointerDeviceUsages.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C017A940 (rimExtractPointerDeviceUsages.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     rimExtractData @ 0x1C00E2FB2 (rimExtractData.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimExtractData @ 0x1C0179F68 (rimExtractData.c)
  */
 
 __int64 __fastcall rimExtractTouchInfo(__int64 a1, int a2, _DWORD *a3)
@@ -18,13 +18,13 @@ __int64 __fastcall rimExtractTouchInfo(__int64 a1, int a2, _DWORD *a3)
   v9 = 0;
   v8 = 0;
   if ( (unsigned int)(v4 - 1) > 3 && v4 != 7 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 3007);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2953);
   a3[6] = rimExtractData(a1, 13, 72, 1, &v9);
   a3[7] = rimExtractData(a1, 13, 73, 1, &v8);
   if ( v9 == v8 && v8 == 1 )
     a3[41] |= 1u;
   a3[5] = 1;
-  if ( (*(_DWORD *)(a1 + 360) & 0x8000) != 0 )
+  if ( (*(_DWORD *)(a1 + 312) & 0x8000) != 0 )
   {
     a3[51] = rimExtractData(a1, 13, 48, 4, a3 + 41);
   }

@@ -1,43 +1,32 @@
 /*
- * XREFs of ?OnDisconnectedThunk@BamoDataProviderRegistrarStubImpl@BamoImpl@@UEAAJXZ @ 0x1801E0EB0
+ * XREFs of ?OnDisconnectedThunk@BamoDataProviderRegistrarStubImpl@BamoImpl@@UEAAJXZ @ 0x18017E5C0
  * Callers:
  *     <none>
  * Callees:
- *     ??0?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVCalloutWrapperObject@12@@Z @ 0x1800AD028 (--0-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBase.c)
- *     ??1?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800AD070 (--1-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z @ 0x1800D717C (--0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall BamoImpl::BamoDataProviderRegistrarStubImpl::OnDisconnectedThunk(
-        BamoImpl::BamoDataProviderRegistrarStubImpl *this,
-        __int64 a2,
-        __int64 a3,
-        const char *a4)
+        BamoImpl::BamoDataProviderRegistrarStubImpl *this)
 {
-  __int64 v4; // rax
-  unsigned int v5; // ebx
-  __int64 v7; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  const char *v10; // r9
-  _BYTE v12[40]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v2; // rdi
+  unsigned int v3; // eax
+  __int64 v4; // rbx
+  unsigned int v5; // edi
+  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = *((_QWORD *)this + 3);
-  v5 = 0;
-  if ( *(int *)(v4 + 8) > 0 )
+  v2 = *((_QWORD *)this + 3);
+  Microsoft::BamoImpl::DropAndReacquireLock::DropAndReacquireLock(
+    (Microsoft::BamoImpl::DropAndReacquireLock *)&v7,
+    *(struct Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*(_QWORD *)(*((_QWORD *)this + 5) + 24LL) + 32LL));
+  v3 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)(v2 - 16) + 64LL))(v2 - 16, (char *)this - 16);
+  v4 = v7;
+  v5 = v3;
+  if ( v7 )
   {
-    v7 = v4 - 16;
-    Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-      (__int64)v12,
-      *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*(_QWORD *)(*((_QWORD *)this + 4) + 24LL) + 32LL),
-      a3,
-      a4);
-    v5 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v7 + 64LL))(v7, (char *)this - 16);
-    Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::~CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-      (__int64)v12,
-      v8,
-      v9,
-      v10);
+    EnterCriticalSection((LPCRITICAL_SECTION)(v7 + 128));
+    *(_DWORD *)(v4 + 168) = GetCurrentThreadId();
   }
   return v5;
 }

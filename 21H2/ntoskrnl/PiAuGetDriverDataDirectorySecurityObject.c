@@ -1,36 +1,38 @@
 /*
- * XREFs of PiAuGetDriverDataDirectorySecurityObject @ 0x140B2888C
+ * XREFs of PiAuGetDriverDataDirectorySecurityObject @ 0x140A6E0A8
  * Callers:
- *     PiCreateDriverDataDirectoryRoot @ 0x140B286CC (PiCreateDriverDataDirectoryRoot.c)
+ *     PiCreateDriverDataDirectoryRoot @ 0x140A6DEEC (PiCreateDriverDataDirectoryRoot.c)
  * Callees:
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x1407254F0 (RtlLengthSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x140726610 (RtlValidSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140744160 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14078ED60 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14078EDC0 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlAddAccessAllowedAceEx @ 0x140811740 (RtlAddAccessAllowedAceEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140676C10 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140768430 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlAddAccessAllowedAceEx @ 0x140781970 (RtlAddAccessAllowedAceEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuGetDriverDataDirectorySecurityObject(_QWORD *a1)
 {
   void *v2; // rdi
   ULONG v3; // ebx
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   ACL *v5; // rsi
   NTSTATUS Acl; // ebx
   PSID v7; // r14
   ULONG v8; // eax
-  void *v9; // rax
+  ULONG v9; // ebx
+  PVOID v10; // rax
   _OWORD SecurityDescriptor[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v12; // [rsp+50h] [rbp-10h]
+  __int64 v13; // [rsp+50h] [rbp-10h]
   ULONG BufferLength; // [rsp+88h] [rbp+28h] BYREF
 
-  v12 = 0LL;
+  v13 = 0LL;
   v2 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   v3 = 4
@@ -38,13 +40,14 @@ __int64 __fastcall PiAuGetDriverDataDirectorySecurityObject(_QWORD *a1)
       + *((unsigned __int8 *)SeAliasAdminsSid + 1)
       + *((unsigned __int8 *)SeExports->SeUserModeDriversSid + 1))
      + 56;
-  Pool2 = (ACL *)ExAllocatePool2(256LL, v3, 0x20207050u);
-  v5 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v3, 0x20207050u);
+  v5 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Acl = RtlCreateAcl(Pool2, v3, 2u);
+    Acl = RtlCreateAcl(PoolWithTag, v3, 2u);
     if ( Acl >= 0 )
     {
+      v7 = SeLocalSystemSid;
       Acl = RtlAddAccessAllowedAceEx(v5, 2u, 3u, 0x10000000u, SeLocalSystemSid);
       if ( Acl >= 0 )
       {
@@ -60,8 +63,7 @@ __int64 __fastcall PiAuGetDriverDataDirectorySecurityObject(_QWORD *a1)
               Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v5, 0);
               if ( Acl >= 0 )
               {
-                v7 = SeLocalSystemSid;
-                Acl = RtlSetOwnerSecurityDescriptor(SecurityDescriptor, SeLocalSystemSid, 0);
+                Acl = RtlSetOwnerSecurityDescriptor(SecurityDescriptor, v7, 0);
                 if ( Acl >= 0 )
                 {
                   Acl = RtlSetGroupSecurityDescriptor(SecurityDescriptor, v7, 0);
@@ -70,11 +72,13 @@ __int64 __fastcall PiAuGetDriverDataDirectorySecurityObject(_QWORD *a1)
                     if ( RtlValidSecurityDescriptor(SecurityDescriptor)
                       && (v8 = RtlLengthSecurityDescriptor(SecurityDescriptor), BufferLength = v8, v8 >= 0x28) )
                     {
-                      v9 = (void *)ExAllocatePool2(256LL, v8, 0x20207050u);
-                      v2 = v9;
-                      if ( v9 )
+                      v9 = v8;
+                      v10 = ExAllocatePoolWithTag(PagedPool, v8, 0x20207050u);
+                      v2 = v10;
+                      if ( v10 )
                       {
-                        Acl = RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, v9, &BufferLength);
+                        memset(v10, 0, v9);
+                        Acl = RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, v2, &BufferLength);
                         if ( Acl >= 0 )
                         {
                           *a1 = v2;

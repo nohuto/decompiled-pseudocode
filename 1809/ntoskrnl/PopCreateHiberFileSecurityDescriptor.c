@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCreateHiberFileSecurityDescriptor @ 0x140747CA8
+ * XREFs of PopCreateHiberFileSecurityDescriptor @ 0x140747C88
  * Callers:
- *     PopCreateHiberFile @ 0x140746730 (PopCreateHiberFile.c)
+ *     PopCreateHiberFile @ 0x140746710 (PopCreateHiberFile.c)
  * Callees:
  *     RtlGetAce @ 0x140016260 (RtlGetAce.c)
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
  */
 
 ACL *PopCreateHiberFileSecurityDescriptor()

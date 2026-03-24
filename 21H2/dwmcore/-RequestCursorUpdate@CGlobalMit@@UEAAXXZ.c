@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RequestCursorUpdate@CGlobalMit@@UEAAXXZ @ 0x18002A830
+ * XREFs of ?RequestCursorUpdate@CGlobalMit@@UEAAXXZ @ 0x1800CDF40
  * Callers:
  *     <none>
  * Callees:
- *     ?SetEvent@details@wil@@YAXPEAX@Z @ 0x18002A854 (-SetEvent@details@wil@@YAXPEAX@Z.c)
+ *     ?SetEvent@details@wil@@YAXPEAX@Z @ 0x1800CDF64 (-SetEvent@details@wil@@YAXPEAX@Z.c)
  */
 
 void __fastcall CGlobalMit::RequestCursorUpdate(CGlobalMit *this, void *a2)

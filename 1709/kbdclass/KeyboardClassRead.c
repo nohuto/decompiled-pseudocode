@@ -1,1 +1,122 @@
-/*\n * XREFs of KeyboardClassRead @ 0x1C0001520\n * Callers:\n *     <none>\n * Callees:\n *     WPP_RECORDER_SF_qq @ 0x1C00017D0 (WPP_RECORDER_SF_qq.c)\n *     KeyboardClassReadCopyData @ 0x1C00046A0 (KeyboardClassReadCopyData.c)\n *     WPP_RECORDER_SF_ @ 0x1C00053A0 (WPP_RECORDER_SF_.c)\n */\n\n__int64 __fastcall KeyboardClassRead(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rbx\n  __int64 v4; // r8\n  __int64 v5; // rsi\n  unsigned int CopyData; // ebp\n  unsigned int v7; // eax\n  NTSTATUS v8; // edi\n  char v9; // r14\n  KIRQL v10; // r15\n  __int64 **v11; // r9\n  __int64 *v12; // r8\n  __int64 *v14; // rcx\n  __int64 **v15; // rax\n  __int64 v16; // rdx\n\n  v2 = a2;\n  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(a2) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 3LL);\n  }\n  v4 = *(_QWORD *)(v2 + 184);\n  v5 = *(_QWORD *)(a1 + 64);\n  CopyData = 259;\n  v7 = *(_DWORD *)(v4 + 8);\n  if ( v7 )\n  {\n    if ( v7 == 12 * (v7 / 0xCuLL) )\n    {\n      if ( *(_BYTE *)(v5 + 363) )\n      {\n        v8 = -1073741667;\n      }\n      else if ( DriverEntry == *(NTSTATUS (__stdcall **)(_DRIVER_OBJECT *, PUNICODE_STRING))(*(_QWORD *)(v4 + 48) + 32LL) )\n      {\n        v8 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v5 + 32), (PVOID)v2, File, 1u, 0x20u);\n        if ( v8 >= 0 )\n          v8 = 259;\n      }\n      else\n      {\n        v8 = -1073741727;\n      }\n    }\n    else\n    {\n      v8 = -1073741789;\n    }\n  }\n  else\n  {\n    v8 = 0;\n  }\n  *(_DWORD *)(v2 + 48) = v8;\n  *(_QWORD *)(v2 + 56) = 0LL;\n  if ( v8 == 259 )\n  {\n    v9 = 0;\n    v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v5 + 160));\n    if ( *(_DWORD *)(v5 + 84) )\n    {\n      CopyData = KeyboardClassReadCopyData(v5, v2);\n      *(_DWORD *)(v2 + 48) = CopyData;\n    }\n    else\n    {\n      v11 = *(__int64 ***)(v5 + 176);\n      v12 = (__int64 *)(v2 + 168);\n      if ( *v11 != (__int64 *)(v5 + 168) )\n        __fastfail(3u);\n      *v12 = v5 + 168;\n      *(_QWORD *)(v2 + 176) = v11;\n      *v11 = v12;\n      *(_QWORD *)(v5 + 176) = v12;\n      _InterlockedExchange64((volatile __int64 *)(v2 + 104), (__int64)KeyboardClassCancel);\n      if ( !*(_BYTE *)(v2 + 68) )\n        goto LABEL_13;\n      if ( !_InterlockedExchange64((volatile __int64 *)(v2 + 104), 0LL) )\n      {\n        WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 3, 3, 45);\nLABEL_13:\n        *(_BYTE *)(*(_QWORD *)(v2 + 184) + 3LL) |= 1u;\nLABEL_14:\n        KeReleaseSpinLock((PKSPIN_LOCK)(v5 + 160), v10);\n        if ( v9 )\n        {\n          IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v5 + 32), (PVOID)v2, 0x20u);\n          IofCompleteRequest((PIRP)v2, 0);\n        }\n        return CopyData;\n      }\n      v14 = (__int64 *)*v12;\n      if ( *(__int64 **)(*v12 + 8) != v12 || (v15 = *(__int64 ***)(v2 + 176), *v15 != v12) )\n        __fastfail(3u);\n      *v15 = v14;\n      CopyData = -1073741536;\n      v14[1] = (__int64)v15;\n      *(_DWORD *)(v2 + 48) = -1073741536;\n      WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 3, 3, 44);\n    }\n    v9 = 1;\n    goto LABEL_14;\n  }\n  IofCompleteRequest((PIRP)v2, 0);\n  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(v16) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v16, 3LL);\n  }\n  return (unsigned int)v8;\n}\n
+/*
+ * XREFs of KeyboardClassRead @ 0x1C0001520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x1C00017D0 (WPP_RECORDER_SF_qq.c)
+ *     KeyboardClassReadCopyData @ 0x1C00046A0 (KeyboardClassReadCopyData.c)
+ *     WPP_RECORDER_SF_ @ 0x1C00053A0 (WPP_RECORDER_SF_.c)
+ */
+
+__int64 __fastcall KeyboardClassRead(__int64 a1, __int64 a2)
+{
+  __int64 v2; // rbx
+  __int64 v4; // r8
+  __int64 v5; // rsi
+  unsigned int CopyData; // ebp
+  unsigned int v7; // eax
+  NTSTATUS v8; // edi
+  char v9; // r14
+  KIRQL v10; // r15
+  __int64 **v11; // r9
+  __int64 *v12; // r8
+  __int64 *v14; // rcx
+  __int64 **v15; // rax
+  __int64 v16; // rdx
+
+  v2 = a2;
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 3LL);
+  }
+  v4 = *(_QWORD *)(v2 + 184);
+  v5 = *(_QWORD *)(a1 + 64);
+  CopyData = 259;
+  v7 = *(_DWORD *)(v4 + 8);
+  if ( v7 )
+  {
+    if ( v7 == 12 * (v7 / 0xCuLL) )
+    {
+      if ( *(_BYTE *)(v5 + 363) )
+      {
+        v8 = -1073741667;
+      }
+      else if ( DriverEntry == *(NTSTATUS (__stdcall **)(_DRIVER_OBJECT *, PUNICODE_STRING))(*(_QWORD *)(v4 + 48) + 32LL) )
+      {
+        v8 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v5 + 32), (PVOID)v2, File, 1u, 0x20u);
+        if ( v8 >= 0 )
+          v8 = 259;
+      }
+      else
+      {
+        v8 = -1073741727;
+      }
+    }
+    else
+    {
+      v8 = -1073741789;
+    }
+  }
+  else
+  {
+    v8 = 0;
+  }
+  *(_DWORD *)(v2 + 48) = v8;
+  *(_QWORD *)(v2 + 56) = 0LL;
+  if ( v8 == 259 )
+  {
+    v9 = 0;
+    v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v5 + 160));
+    if ( *(_DWORD *)(v5 + 84) )
+    {
+      CopyData = KeyboardClassReadCopyData(v5, v2);
+      *(_DWORD *)(v2 + 48) = CopyData;
+    }
+    else
+    {
+      v11 = *(__int64 ***)(v5 + 176);
+      v12 = (__int64 *)(v2 + 168);
+      if ( *v11 != (__int64 *)(v5 + 168) )
+        __fastfail(3u);
+      *v12 = v5 + 168;
+      *(_QWORD *)(v2 + 176) = v11;
+      *v11 = v12;
+      *(_QWORD *)(v5 + 176) = v12;
+      _InterlockedExchange64((volatile __int64 *)(v2 + 104), (__int64)KeyboardClassCancel);
+      if ( !*(_BYTE *)(v2 + 68) )
+        goto LABEL_13;
+      if ( !_InterlockedExchange64((volatile __int64 *)(v2 + 104), 0LL) )
+      {
+        WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 3, 3, 45);
+LABEL_13:
+        *(_BYTE *)(*(_QWORD *)(v2 + 184) + 3LL) |= 1u;
+LABEL_14:
+        KeReleaseSpinLock((PKSPIN_LOCK)(v5 + 160), v10);
+        if ( v9 )
+        {
+          IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v5 + 32), (PVOID)v2, 0x20u);
+          IofCompleteRequest((PIRP)v2, 0);
+        }
+        return CopyData;
+      }
+      v14 = (__int64 *)*v12;
+      if ( *(__int64 **)(*v12 + 8) != v12 || (v15 = *(__int64 ***)(v2 + 176), *v15 != v12) )
+        __fastfail(3u);
+      *v15 = v14;
+      CopyData = -1073741536;
+      v14[1] = (__int64)v15;
+      *(_DWORD *)(v2 + 48) = -1073741536;
+      WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 3, 3, 44);
+    }
+    v9 = 1;
+    goto LABEL_14;
+  }
+  IofCompleteRequest((PIRP)v2, 0);
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(v16) = 5;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v16, 3LL);
+  }
+  return (unsigned int)v8;
+}

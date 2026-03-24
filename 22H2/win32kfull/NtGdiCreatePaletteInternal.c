@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiCreatePaletteInternal @ 0x1C00ACF20
+ * XREFs of NtGdiCreatePaletteInternal @ 0x1C0120CB0
  * Callers:
  *     <none>
  * Callees:
@@ -9,7 +9,7 @@
 __int64 __fastcall NtGdiCreatePaletteInternal(ULONG64 a1, unsigned int a2)
 {
   __int64 v2; // rdi
-  ULONG64 v3; // r9
+  ULONG64 v3; // r8
   __int64 *v5; // [rsp+60h] [rbp-18h] BYREF
   int v6; // [rsp+68h] [rbp-10h]
 

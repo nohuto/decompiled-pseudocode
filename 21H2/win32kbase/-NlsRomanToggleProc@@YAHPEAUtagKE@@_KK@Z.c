@@ -1,11 +1,11 @@
 /*
- * XREFs of ?NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB6C0
+ * XREFs of ?NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01ABCC0
  * Callers:
  *     <none>
  * Callees:
- *     xxxKeyEventEx @ 0x1C003D9F0 (xxxKeyEventEx.c)
- *     ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01EAFB8 (-NlsClearKeyStateToggle@@YAXE@Z.c)
- *     ?NlsGetCurrentInputMode@@YAEPEAE@Z @ 0x1C01EB174 (-NlsGetCurrentInputMode@@YAEPEAE@Z.c)
+ *     xxxKeyEventEx @ 0x1C004BFD0 (xxxKeyEventEx.c)
+ *     ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01AB5B8 (-NlsClearKeyStateToggle@@YAXE@Z.c)
+ *     ?NlsGetCurrentInputMode@@YAEPEAE@Z @ 0x1C01AB774 (-NlsGetCurrentInputMode@@YAEPEAE@Z.c)
  */
 
 __int64 __fastcall NlsRomanToggleProc(struct tagKE *a1, __int64 a2)

@@ -1,27 +1,31 @@
 /*
- * XREFs of ViGrowPoolAllocation @ 0x1405CFC60
+ * XREFs of ViGrowPoolAllocation @ 0x1409D5494
  * Callers:
- *     VfHandlePoolAlloc @ 0x140AD1FB0 (VfHandlePoolAlloc.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45E0 (VeAllocatePoolWithTagPriority.c)
  * Callees:
- *     KeZeroSinglePage @ 0x140423F40 (KeZeroSinglePage.c)
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1402BC770 (ExAllocatePoolWithTagPriority.c)
+ *     KeZeroSinglePage @ 0x1404023F0 (KeZeroSinglePage.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall ViGrowPoolAllocation(union _SLIST_HEADER *a1)
 {
-  struct _SLIST_ENTRY *Pool2; // rax
+  struct _SLIST_ENTRY *PoolWithTagPriority; // rax
   union _SLIST_HEADER *v3; // rdi
   struct _SLIST_ENTRY *v4; // rbx
   __int64 v6; // rsi
 
-  Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(576LL, 4096LL, 1886414166LL);
+  PoolWithTagPriority = (struct _SLIST_ENTRY *)ExAllocatePoolWithTagPriority(
+                                                 (POOL_TYPE)640,
+                                                 0x1000uLL,
+                                                 0x70706556u,
+                                                 HighPoolPriority);
   v3 = a1 + 5;
-  v4 = Pool2;
-  if ( !Pool2 )
+  v4 = PoolWithTagPriority;
+  if ( !PoolWithTagPriority )
     return RtlpInterlockedPopEntrySList(a1 + 5);
-  KeZeroSinglePage(Pool2);
+  KeZeroSinglePage(PoolWithTagPriority);
   *((_QWORD *)&v4->Next + 1) = a1;
   v4[1].Next = (_SLIST_ENTRY *)556929861;
   RtlpInterlockedPushEntrySList(a1 + 4, v4);

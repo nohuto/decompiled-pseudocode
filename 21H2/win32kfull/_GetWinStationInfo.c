@@ -1,7 +1,7 @@
 /*
- * XREFs of _GetWinStationInfo @ 0x1C02202A0
+ * XREFs of _GetWinStationInfo @ 0x1C0226960
  * Callers:
- *     NtUserGetWinStationInfo @ 0x1C01F6FA0 (NtUserGetWinStationInfo.c)
+ *     <none>
  * Callees:
  *     <none>
  */

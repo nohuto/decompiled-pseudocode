@@ -1,7 +1,7 @@
 /*
- * XREFs of InitializeBuildStrings @ 0x140B35CFC
+ * XREFs of InitializeBuildStrings @ 0x140A38E88
  * Callers:
- *     KiInitializeBootStructures @ 0x140A8BDF0 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099BA20 (KiInitializeBootStructures.c)
  * Callees:
  *     <none>
  */
@@ -15,9 +15,9 @@ _BYTE *__fastcall InitializeBuildStrings(__int64 a1)
   _BYTE *result; // rax
   __int128 v6; // xmm1
 
-  v1 = (_OWORD *)(a1 + 2992);
-  v2 = *(_OWORD *)(a1 + 2992);
-  v3 = (_OWORD *)(a1 + 3216);
+  v1 = (_OWORD *)(a1 + 2960);
+  v2 = *(_OWORD *)(a1 + 2960);
+  v3 = (_OWORD *)(a1 + 3184);
   NtBuildLab[0] = v2;
   NtBuildLab[1] = v1[1];
   NtBuildLab[2] = v1[2];

@@ -1,10 +1,10 @@
 /*
- * XREFs of FWUPDATE_EvtDeviceD0Entry @ 0x1C003DEF0
+ * XREFs of FWUPDATE_EvtDeviceD0Entry @ 0x1C003D870
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0013230 (McTemplateK0ppqq_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0012D2C (McTemplateK0ppqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FWUPDATE_EvtDeviceD0Entry(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall FWUPDATE_EvtDeviceD0Entry(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0067170);
+         off_1C0066148);
   v3 = *(_QWORD *)v2;
   *(_DWORD *)(v2 + 28) = 1;
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 3104))(WdfDriverGlobals, a1);

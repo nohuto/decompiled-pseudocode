@@ -3,12 +3,12 @@
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     PopEsWorkItemSchedule @ 0x14071A500 (PopEsWorkItemSchedule.c)
+ *     PopEsWorkItemSchedule @ 0x14071A4E0 (PopEsWorkItemSchedule.c)
  */
 
 void PopEsInit()
 {
-  qword_14040FE98 = 0LL;
+  qword_14040FEC8 = 0LL;
   PopEsLock = 0LL;
   PopEsWorkItem.Parameter = 0LL;
   PopEsWorkItem.List.Flink = 0LL;

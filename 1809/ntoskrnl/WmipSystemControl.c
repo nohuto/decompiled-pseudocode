@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipSystemControl @ 0x1406CC100
+ * XREFs of WmipSystemControl @ 0x1406CC0E0
  * Callers:
  *     <none>
  * Callees:
- *     IoWMISystemControl @ 0x1406CC11C (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x1406CC0FC (IoWMISystemControl.c)
  */
 
 __int64 __fastcall WmipSystemControl(__int64 a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z @ 0x1C024DA88
+ * XREFs of ?_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z @ 0x1C025EE54
  * Callers:
- *     TouchTargetingRankForRectDeep @ 0x1C024E9B8 (TouchTargetingRankForRectDeep.c)
+ *     TouchTargetingRankForRectDeep @ 0x1C025FC80 (TouchTargetingRankForRectDeep.c)
  * Callees:
- *     _TTHmToPixels @ 0x1C0157B3A (_TTHmToPixels.c)
- *     _TTPixelsToHm @ 0x1C0157B80 (_TTPixelsToHm.c)
+ *     _TTHmToPixels @ 0x1C0260088 (_TTHmToPixels.c)
+ *     _TTPixelsToHm @ 0x1C02600D0 (_TTPixelsToHm.c)
  */
 
-void __fastcall _TTLimitDeepTargetingPoint(int a1, int a2, int *a3)
+void __fastcall _TTLimitDeepTargetingPoint(int a1, unsigned int a2, int *a3)
 {
   int v3; // edi
   int v5; // eax
@@ -18,10 +18,10 @@ void __fastcall _TTLimitDeepTargetingPoint(int a1, int a2, int *a3)
   v3 = *a3;
   if ( (int)TTPixelsToHm(abs32(a1 - *a3), a2) > 200 )
   {
-    v5 = TTHmToPixels(200, a2);
+    v5 = TTHmToPixels(200LL, a2);
     v8 = v6 - v5;
     if ( v6 <= v3 )
-      v8 = v6 + v5;
+      v8 = v5 + v6;
     *v7 = v8;
   }
 }

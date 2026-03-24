@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpMuiRegGrowStringPool @ 0x140A74DD0
+ * XREFs of RtlpMuiRegGrowStringPool @ 0x140981788
  * Callers:
- *     RtlpMuiRegGetOrAddString @ 0x1408475F8 (RtlpMuiRegGetOrAddString.c)
+ *     RtlpMuiRegGetOrAddString @ 0x14078EEF4 (RtlpMuiRegGetOrAddString.c)
  * Callees:
- *     RtlpMuiRegResizeStringPool @ 0x140A75114 (RtlpMuiRegResizeStringPool.c)
+ *     RtlpMuiRegResizeStringPool @ 0x140981AD0 (RtlpMuiRegResizeStringPool.c)
  */
 
-__int64 __fastcall RtlpMuiRegGrowStringPool(unsigned __int16 *P, __int64 a2, int a3, char a4)
+unsigned __int16 *__fastcall RtlpMuiRegGrowStringPool(unsigned __int16 *P, __int64 a2, int a3, char a4)
 {
   unsigned __int16 *v5; // r10
   int v6; // r9d
@@ -34,7 +34,7 @@ __int64 __fastcall RtlpMuiRegGrowStringPool(unsigned __int16 *P, __int64 a2, int
     if ( v9 >= v11 )
       v12 = v9;
     if ( a4 || v10 != v8 || v12 != v11 )
-      return RtlpMuiRegResizeStringPool(v5);
+      return (unsigned __int16 *)RtlpMuiRegResizeStringPool(v5);
   }
-  return (__int64)v5;
+  return v5;
 }

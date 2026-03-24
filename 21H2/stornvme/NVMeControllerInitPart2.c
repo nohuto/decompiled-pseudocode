@@ -1,120 +1,93 @@
 /*
- * XREFs of NVMeControllerInitPart2 @ 0x1C0006F74
+ * XREFs of NVMeControllerInitPart2 @ 0x1C000DDD0
  * Callers:
- *     NVMeHwPassiveInitialize @ 0x1C0005F00 (NVMeHwPassiveInitialize.c)
- *     NVMeHwInitialize @ 0x1C000E6D0 (NVMeHwInitialize.c)
- *     NVMeControllerPowerUp @ 0x1C0018D60 (NVMeControllerPowerUp.c)
- *     NVMeControllerReset @ 0x1C001906C (NVMeControllerReset.c)
- *     NVMeControllerReinitialize @ 0x1C00220A4 (NVMeControllerReinitialize.c)
+ *     NVMeHwInitialize @ 0x1C000AD80 (NVMeHwInitialize.c)
+ *     NVMeHwPassiveInitialize @ 0x1C000AE40 (NVMeHwPassiveInitialize.c)
+ *     NVMeControllerPowerUp @ 0x1C000E398 (NVMeControllerPowerUp.c)
+ *     NVMeControllerReset @ 0x1C000E684 (NVMeControllerReset.c)
+ *     NVMeControllerPanicResetActionWorkItem @ 0x1C0018290 (NVMeControllerPanicResetActionWorkItem.c)
  * Callees:
- *     GetInterruptMessageInformation @ 0x1C0006260 (GetInterruptMessageInformation.c)
- *     InitializePerfOptions @ 0x1C0006584 (InitializePerfOptions.c)
- *     IoSqToIoCqMapping @ 0x1C00066C8 (IoSqToIoCqMapping.c)
- *     IoQueuesCreationAsync @ 0x1C0006850 (IoQueuesCreationAsync.c)
- *     NVMeInitHostMemoryBuffer @ 0x1C0006EB0 (NVMeInitHostMemoryBuffer.c)
- *     NVMeControllerGetFeaturesSupportedCacheCapabilities @ 0x1C000793C (NVMeControllerGetFeaturesSupportedCacheCapabilities.c)
- *     IoQueuesInitialize @ 0x1C0008168 (IoQueuesInitialize.c)
- *     NVMeSetIoQueueCount @ 0x1C0008B98 (NVMeSetIoQueueCount.c)
- *     NVMeBuildPollingConfiguration @ 0x1C0008D3C (NVMeBuildPollingConfiguration.c)
- *     NVMeSetInterruptCoalescing @ 0x1C0008E58 (NVMeSetInterruptCoalescing.c)
- *     NVMeSetArbitration @ 0x1C0008F6C (NVMeSetArbitration.c)
- *     __security_check_cookie @ 0x1C000E880 (__security_check_cookie.c)
- *     memset @ 0x1C00109C0 (memset.c)
- *     FillControllerRuntimeLog @ 0x1C0017A04 (FillControllerRuntimeLog.c)
- *     IoQueuesCreation @ 0x1C0017D90 (IoQueuesCreation.c)
- *     IoReservedQueuesInitialize @ 0x1C0018434 (IoReservedQueuesInitialize.c)
- *     NVMeInitStreams @ 0x1C00198AC (NVMeInitStreams.c)
+ *     GetInterruptMessageInformation @ 0x1C000B6D4 (GetInterruptMessageInformation.c)
+ *     InitializePerfOptions @ 0x1C000BE94 (InitializePerfOptions.c)
+ *     IoQueuesCreation @ 0x1C000BFD8 (IoQueuesCreation.c)
+ *     IoQueuesCreationAsync @ 0x1C000C15C (IoQueuesCreationAsync.c)
+ *     IoQueuesInitialize @ 0x1C000C8F4 (IoQueuesInitialize.c)
+ *     IoReservedQueuesInitialize @ 0x1C000CE38 (IoReservedQueuesInitialize.c)
+ *     IoSqToIoCqMapping @ 0x1C000CF44 (IoSqToIoCqMapping.c)
+ *     NVMeInitHostMemoryBuffer @ 0x1C000EC10 (NVMeInitHostMemoryBuffer.c)
+ *     NVMeInitStreams @ 0x1C000EE88 (NVMeInitStreams.c)
+ *     NVMeBuildPollingConfiguration @ 0x1C0017E98 (NVMeBuildPollingConfiguration.c)
+ *     NVMeSetArbitration @ 0x1C001B3E4 (NVMeSetArbitration.c)
+ *     NVMeSetInterruptCoalescing @ 0x1C001B7A4 (NVMeSetInterruptCoalescing.c)
+ *     NVMeSetIoQueueCount @ 0x1C001B8B8 (NVMeSetIoQueueCount.c)
  */
 
-__int64 __fastcall NVMeControllerInitPart2(__int64 a1, char a2, char a3)
+char __fastcall NVMeControllerInitPart2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v6; // eax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  unsigned int v10; // edi
-  _BYTE v12[96]; // [rsp+70h] [rbp-88h] BYREF
+  char v4; // di
+  char v5; // si
+  int v7; // ecx
 
-  memset(v12, 0, 0x58uLL);
-  if ( a2 )
+  v4 = a3;
+  v5 = a2;
+  if ( (_BYTE)a2 )
   {
-    if ( !GetInterruptMessageInformation(a1) )
+    if ( !GetInterruptMessageInformation(a1, a2, a3, a4) )
     {
-      *(_DWORD *)(a1 + 36) = 11;
-      goto LABEL_40;
+      v7 = 11;
+LABEL_29:
+      *(_DWORD *)(a1 + 28) = v7;
+      goto LABEL_30;
     }
     NVMeBuildPollingConfiguration(a1);
   }
-  if ( (*(_DWORD *)(a1 + 136) & 0x10) == 0 && (*(_DWORD *)(a1 + 32) & 0x2000) != 0 )
-    *(_DWORD *)(a1 + 132) = 0xFFFF;
-  v6 = NVMeSetIoQueueCount(a1);
-  v10 = v6;
-  if ( v6 || !*(_WORD *)(a1 + 838) && (!*(_WORD *)(a1 + 306) || !*(_WORD *)(a1 + 304)) )
+  NVMeSetIoQueueCount(a1);
+  if ( !*(_WORD *)(a1 + 290) || !*(_WORD *)(a1 + 288) )
   {
-    *(_DWORD *)(a1 + 36) = 12;
-    if ( v6 )
-      goto LABEL_41;
-    goto LABEL_40;
+    v7 = 12;
+    goto LABEL_29;
   }
-  if ( (*(_DWORD *)(a1 + 64) & 4) == 0 )
+  if ( (*(_DWORD *)(a1 + 56) & 4) == 0 )
   {
     NVMeSetInterruptCoalescing(a1);
-    if ( (*(_DWORD *)(a1 + 64) & 4) == 0 )
+    if ( (*(_DWORD *)(a1 + 56) & 4) == 0 )
       NVMeSetArbitration(a1);
   }
-  if ( !a2 )
-    goto LABEL_22;
-  if ( *(_WORD *)(a1 + 306) && *(_WORD *)(a1 + 304) )
+  if ( v5 )
   {
-    if ( InitializePerfOptions(a1) )
+    if ( !InitializePerfOptions(a1) )
     {
-      if ( (unsigned __int8)IoQueuesInitialize(a1) )
-      {
-        IoSqToIoCqMapping(a1);
-        goto LABEL_20;
-      }
-      *(_DWORD *)(a1 + 36) = 13;
+      *(_DWORD *)(a1 + 288) = 0;
+      v7 = 21;
+      goto LABEL_29;
     }
-    else
+    if ( !IoQueuesInitialize(a1) )
     {
-      *(_DWORD *)(a1 + 304) = 0;
-      *(_DWORD *)(a1 + 36) = 21;
+      v7 = 13;
+      goto LABEL_29;
     }
-LABEL_40:
-    v10 = -1056964607;
-    goto LABEL_41;
+    if ( !*(_BYTE *)(a1 + 16) && *(_WORD *)(a1 + 822) && !IoReservedQueuesInitialize(a1) )
+    {
+      v7 = 17;
+      goto LABEL_29;
+    }
+    IoSqToIoCqMapping(a1);
   }
-LABEL_20:
-  if ( !*(_BYTE *)(a1 + 20) && *(_WORD *)(a1 + 838) && !(unsigned __int8)IoReservedQueuesInitialize(a1) )
+  if ( (*(_DWORD *)(a1 + 128) & 4) != 0 || v4 )
   {
-    *(_DWORD *)(a1 + 36) = 17;
-    goto LABEL_40;
-  }
-LABEL_22:
-  if ( *(_WORD *)(a1 + 306) && *(_WORD *)(a1 + 304) )
-  {
-    if ( (*(_DWORD *)(a1 + 136) & 4) != 0 || a3 )
+    if ( !IoQueuesCreation(a1) )
     {
-      v10 = IoQueuesCreation(a1);
-      if ( v10 )
-      {
-LABEL_41:
-        if ( !*(_BYTE *)(a1 + 20) )
-        {
-          FillControllerRuntimeLog(a1, v12);
-          StorPortNotification(4109LL, a1, 0LL, 0LL);
-        }
-        return v10;
-      }
-    }
-    else if ( !IoQueuesCreationAsync(a1) )
-    {
-      goto LABEL_40;
+LABEL_30:
+      StorPortNotification(4109LL, a1, 0LL);
+      return 0;
     }
   }
-  NVMeInitHostMemoryBuffer(a1, v7, v8, v9);
-  if ( (*(_BYTE *)(a1 + 3808) & 5) == 5 )
+  else if ( !IoQueuesCreationAsync(a1) )
+  {
+    goto LABEL_30;
+  }
+  NVMeInitHostMemoryBuffer(a1);
+  if ( (*(_BYTE *)(a1 + 3792) & 5) == 5 )
     NVMeInitStreams(a1);
-  NVMeControllerGetFeaturesSupportedCacheCapabilities(a1);
-  return v10;
+  return 1;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of EngLpkInstalled @ 0x1C028E420
+ * XREFs of EngLpkInstalled @ 0x1C028AD50
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,5 @@
 
 BOOL EngLpkInstalled(void)
 {
-  Gre::Base *v0; // rcx
-
-  return *(_DWORD *)(*((_QWORD *)Gre::Base::Globals(v0) + 241) + 1573012LL) != 0;
+  return *(_DWORD *)(gpGdiSharedMemory + 1573012LL) != 0;
 }

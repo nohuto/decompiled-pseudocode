@@ -1,13 +1,13 @@
 /*
- * XREFs of IoUnregisterFsRegistrationChange @ 0x140947690
+ * XREFs of IoUnregisterFsRegistrationChange @ 0x140893E60
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoUnregisterFsRegistrationChange(
@@ -16,8 +16,8 @@ void __stdcall IoUnregisterFsRegistrationChange(
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 *i; // rcx
-  __int64 *v6; // rdx
-  __int64 **v7; // rax
+  __int64 *v6; // rax
+  __int64 **v7; // rdx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -37,5 +37,5 @@ void __stdcall IoUnregisterFsRegistrationChange(
   }
   ExReleaseResourceLite(&IopDatabaseResource);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  ObfDereferenceObject(DriverObject);
+  HalPutDmaAdapter((PADAPTER_OBJECT)DriverObject);
 }

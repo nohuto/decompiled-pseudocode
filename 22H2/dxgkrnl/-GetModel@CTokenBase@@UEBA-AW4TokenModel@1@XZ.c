@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetModel@CTokenBase@@UEBA?AW4TokenModel@1@XZ @ 0x1C0019820
+ * XREFs of ?GetModel@CTokenBase@@UEBA?AW4TokenModel@1@XZ @ 0x1C001B6E0
  * Callers:
  *     <none>
  * Callees:

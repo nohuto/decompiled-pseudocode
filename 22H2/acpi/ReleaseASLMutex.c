@@ -1,12 +1,11 @@
 /*
- * XREFs of ReleaseASLMutex @ 0x1C0054DF0
+ * XREFs of ReleaseASLMutex @ 0x1C002F32C
  * Callers:
- *     RunContext @ 0x1C0053F54 (RunContext.c)
- *     Release @ 0x1C0055870 (Release.c)
- *     ParseAcquire @ 0x1C005A110 (ParseAcquire.c)
- *     ParseCall @ 0x1C005A6C0 (ParseCall.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
+ *     ParseAcquire @ 0x1C000A6C0 (ParseAcquire.c)
+ *     Release @ 0x1C0022E60 (Release.c)
  * Callees:
- *     ParseRelease @ 0x1C005BF90 (ParseRelease.c)
+ *     ParseRelease @ 0x1C0003760 (ParseRelease.c)
  */
 
 __int64 __fastcall ReleaseASLMutex(__int64 a1, __int64 a2, char a3)
@@ -22,15 +21,15 @@ __int64 __fastcall ReleaseASLMutex(__int64 a1, __int64 a2, char a3)
   __int128 v12; // [rsp+48h] [rbp-20h]
 
   v11 = a2;
-  v5 = 1179403602;
   v6 = 0LL;
   v7 = 0;
   v9 = 0LL;
   v10 = 0;
   v12 = 0LL;
+  v5 = 1179403602;
   v3 = 393216;
   if ( a3 )
     v3 = 458752;
   v8 = v3;
-  return ParseRelease(a1, &v5, 0LL);
+  return ParseRelease(a1, (__int64)&v5, 0);
 }

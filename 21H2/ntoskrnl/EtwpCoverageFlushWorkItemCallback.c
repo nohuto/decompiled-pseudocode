@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpCoverageFlushWorkItemCallback @ 0x1406E7DC0
+ * XREFs of EtwpCoverageFlushWorkItemCallback @ 0x1406C2100
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EtwpCoverageFlushPending @ 0x1406E7E90 (EtwpCoverageFlushPending.c)
- *     EtwpCoverageReset @ 0x1409E52D0 (EtwpCoverageReset.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     EtwpCoverageFlushPending @ 0x1406C21D0 (EtwpCoverageFlushPending.c)
+ *     EtwpCoverageReset @ 0x140935274 (EtwpCoverageReset.c)
  */
 
-char __fastcall EtwpCoverageFlushWorkItemCallback(_DWORD *a1)
+_QWORD *__fastcall EtwpCoverageFlushWorkItemCallback(_DWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   char v3; // di
@@ -31,5 +31,5 @@ char __fastcall EtwpCoverageFlushWorkItemCallback(_DWORD *a1)
   if ( (v3 & 2) != 0 && (v3 & 4) == 0 )
     ExfTryToWakePushLock(&EtwpCoverageLock);
   KeAbPostRelease((ULONG_PTR)&EtwpCoverageLock);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

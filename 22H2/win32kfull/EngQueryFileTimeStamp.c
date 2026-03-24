@@ -1,9 +1,9 @@
 /*
- * XREFs of EngQueryFileTimeStamp @ 0x1C0279850
+ * XREFs of EngQueryFileTimeStamp @ 0x1C027D530
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 LARGE_INTEGER __stdcall EngQueryFileTimeStamp(LPWSTR pwsz)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?_PnpQueryResources@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C0020830
+ * XREFs of ?_PnpQueryResources@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C008ABD0
  * Callers:
  *     <none>
  * Callees:
- *     ?PnpQueryResources@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C0020848 (-PnpQueryResources@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z.c)
+ *     ?PnpQueryResources@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C008A9B0 (-PnpQueryResources@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z.c)
  */
 
-int __fastcall FxPkgPdo::_PnpQueryResources(FxPkgPdo *This, FxIrp *Irp)
+__int64 __fastcall FxPkgPdo::_PnpQueryResources(FxPkgPdo *This, FxIrp *Irp, FxDevice *a3, _WDF_OBJECT_ATTRIBUTES *a4)
 {
-  return FxPkgPdo::PnpQueryResources(This, Irp);
+  return FxPkgPdo::PnpQueryResources(This, Irp, a3, a4);
 }

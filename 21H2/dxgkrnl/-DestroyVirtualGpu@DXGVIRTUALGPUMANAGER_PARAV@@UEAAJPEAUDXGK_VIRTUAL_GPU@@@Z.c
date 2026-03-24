@@ -1,20 +1,19 @@
 /*
- * XREFs of ?DestroyVirtualGpu@DXGVIRTUALGPUMANAGER_PARAV@@UEAAJPEAUDXGK_VIRTUAL_GPU@@@Z @ 0x1C035E660
+ * XREFs of ?DestroyVirtualGpu@DXGVIRTUALGPUMANAGER_PARAV@@UEAAJPEAUDXGK_VIRTUAL_GPU@@@Z @ 0x1C0235750
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?ReleaseVirtualGpuReference@DXGK_VIRTUAL_GPU_PARAV@@QEAAXXZ @ 0x1C035EBC4 (-ReleaseVirtualGpuReference@DXGK_VIRTUAL_GPU_PARAV@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGVIRTUALGPUMANAGER_PARAV::DestroyVirtualGpu(struct _KTHREAD **this, struct DXGK_VIRTUAL_GPU *a2)
 {
   DXGPUSHLOCK *v3; // rcx
-  __int64 v5; // rbp
-  struct DXGK_VIRTUAL_GPU **v6; // r8
-  struct DXGK_VIRTUAL_GPU **v7; // rdx
+  __int64 v5; // rsi
+  struct DXGK_VIRTUAL_GPU **v6; // rdx
+  struct DXGK_VIRTUAL_GPU **v7; // rcx
   _BYTE v9[8]; // [rsp+20h] [rbp-28h] BYREF
   DXGPUSHLOCK *v10; // [rsp+28h] [rbp-20h]
   int v11; // [rsp+30h] [rbp-18h]
@@ -29,7 +28,6 @@ __int64 __fastcall DXGVIRTUALGPUMANAGER_PARAV::DestroyVirtualGpu(struct _KTHREAD
   }
   v5 = *((unsigned int *)a2 + 6);
   --*((_DWORD *)this + 4);
-  DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(this + 9));
   v6 = (struct DXGK_VIRTUAL_GPU **)*((_QWORD *)a2 + 15);
   if ( v6[1] != (struct DXGK_VIRTUAL_GPU *)((char *)a2 + 120)
     || (v7 = (struct DXGK_VIRTUAL_GPU **)*((_QWORD *)a2 + 16), *v7 != (struct DXGK_VIRTUAL_GPU *)((char *)a2 + 120)) )
@@ -38,11 +36,8 @@ __int64 __fastcall DXGVIRTUALGPUMANAGER_PARAV::DestroyVirtualGpu(struct _KTHREAD
   }
   *v7 = (struct DXGK_VIRTUAL_GPU *)v6;
   v6[1] = (struct DXGK_VIRTUAL_GPU *)v7;
-  this[10] = 0LL;
-  ExReleasePushLockExclusiveEx(this + 9, 0LL);
-  KeLeaveCriticalRegion();
   (*(void (__fastcall **)(struct DXGK_VIRTUAL_GPU *))(*(_QWORD *)a2 + 8LL))(a2);
-  DXGK_VIRTUAL_GPU_PARAV::ReleaseVirtualGpuReference(a2);
+  (**(void (__fastcall ***)(struct DXGK_VIRTUAL_GPU *, __int64))a2)(a2, 1LL);
   *((_QWORD *)this[3] + v5) = 0LL;
   DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v9);
   return 0LL;

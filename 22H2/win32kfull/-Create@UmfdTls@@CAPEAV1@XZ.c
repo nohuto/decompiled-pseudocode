@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Create@UmfdTls@@CAPEAV1@XZ @ 0x1C00750A8
+ * XREFs of ?Create@UmfdTls@@CAPEAV1@XZ @ 0x1C013141C
  * Callers:
- *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0077200 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
- *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C0077ABC (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A7970 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00A8D30 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
  * Callees:
- *     ?Create@UmfdUMBuffer@@SAPEAV1@XZ @ 0x1C007501C (-Create@UmfdUMBuffer@@SAPEAV1@XZ.c)
- *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00A5A98 (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
+ *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00F43AC (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
+ *     ?Create@UmfdUMBuffer@@SAPEAV1@XZ @ 0x1C013147C (-Create@UmfdUMBuffer@@SAPEAV1@XZ.c)
  */
 
 struct UmfdTls *UmfdTls::Create(void)
@@ -25,6 +25,6 @@ struct UmfdTls *UmfdTls::Create(void)
   *(_QWORD *)v0 = v1;
   if ( v1 )
     return (struct UmfdTls *)v0;
-  UmfdTls::Destroy(v0);
+  UmfdTls::Destroy((void **)v0);
   return 0LL;
 }

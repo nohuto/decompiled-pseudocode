@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetFrameInfo@OUTPUTDUPL_CONTEXT@@QEAAXPEAU_D3DKMT_OUTPUTDUPL_FRAMEINFO@@@Z @ 0x1C0331ED8
+ * XREFs of ?GetFrameInfo@OUTPUTDUPL_CONTEXT@@QEAAXPEAU_D3DKMT_OUTPUTDUPL_FRAMEINFO@@@Z @ 0x1C02A1328
  * Callers:
- *     ?GetFrameInfo@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_OUTPUTDUPL_GET_FRAMEINFO@@@Z @ 0x1C032C16C (-GetFrameInfo@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_OUTPUTDUPL_GET_FRAMEINFO@@@Z.c)
+ *     ?GetFrameInfo@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_OUTPUTDUPL_GET_FRAMEINFO@@@Z @ 0x1C029A668 (-GetFrameInfo@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_OUTPUTDUPL_GET_FRAMEINFO@@@Z.c)
  * Callees:
- *     McTemplateK0pqxxqttqq_EtwWriteTransfer @ 0x1C0054F8C (McTemplateK0pqxxqttqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqxxqttqq_EtwWriteTransfer @ 0x1C004B2F8 (McTemplateK0pqxxqttqq_EtwWriteTransfer.c)
  */
 
 void __fastcall OUTPUTDUPL_CONTEXT::GetFrameInfo(OUTPUTDUPL_CONTEXT *this, struct _D3DKMT_OUTPUTDUPL_FRAMEINFO *a2)
@@ -56,6 +56,6 @@ void __fastcall OUTPUTDUPL_CONTEXT::GetFrameInfo(OUTPUTDUPL_CONTEXT *this, struc
   a2->TotalMetadataBufferSize = v4;
   *((_DWORD *)this + 77) = 1;
   *((_DWORD *)this + 78) = 1;
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0pqxxqttqq_EtwWriteTransfer(v8, v4, (__int64)a2);
 }

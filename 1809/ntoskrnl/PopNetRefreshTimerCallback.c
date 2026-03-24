@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNetRefreshTimerCallback @ 0x1402E4600
+ * XREFs of PopNetRefreshTimerCallback @ 0x1402E4700
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x140138CA8 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
  */
 
 char PopNetRefreshTimerCallback()

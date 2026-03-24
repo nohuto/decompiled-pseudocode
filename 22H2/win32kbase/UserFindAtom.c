@@ -1,15 +1,16 @@
 /*
- * XREFs of UserFindAtom @ 0x1C00996B0
+ * XREFs of UserFindAtom @ 0x1C00828A0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
  */
 
 __int64 __fastcall UserFindAtom(PWSTR AtomName)
 {
   NTSTATUS v1; // eax
   ULONG v3; // eax
+  __int64 v4; // rdx
   USHORT Atom; // [rsp+38h] [rbp+10h] BYREF
 
   Atom = 0;
@@ -17,7 +18,7 @@ __int64 __fastcall UserFindAtom(PWSTR AtomName)
   if ( (int)(v1 + 0x80000000) >= 0 && v1 != -1073741772 )
   {
     v3 = RtlNtStatusToDosError(v1);
-    UserSetLastError(v3);
+    UserSetLastError(v3, v4);
   }
   return Atom;
 }

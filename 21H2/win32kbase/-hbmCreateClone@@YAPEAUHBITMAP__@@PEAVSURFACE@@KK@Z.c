@@ -1,17 +1,17 @@
 /*
- * XREFs of ?hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z @ 0x1C0063A90
+ * XREFs of ?hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z @ 0x1C001BFB0
  * Callers:
- *     GreCreatePatternBrushInternal @ 0x1C00634C0 (GreCreatePatternBrushInternal.c)
+ *     GreCreatePatternBrushInternal @ 0x1C001BA50 (GreCreatePatternBrushInternal.c)
  * Callees:
- *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C001A590 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
- *     ??1SURFMEM@@QEAA@XZ @ 0x1C0025050 (--1SURFMEM@@QEAA@XZ.c)
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     ?vUnlock@NEEDGRELOCK@@QEAAXXZ @ 0x1C0099D40 (-vUnlock@NEEDGRELOCK@@QEAAXXZ.c)
- *     ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C00A6910 (-vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C000FBA0 (-vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z.c)
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C00267F0 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C00306C0 (--1SURFMEM@@QEAA@XZ.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     ?vUnlock@NEEDGRELOCK@@QEAAXXZ @ 0x1C0084B20 (-vUnlock@NEEDGRELOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall hbmCreateClone(struct SURFACE *a1, int a2, int a3)
@@ -19,10 +19,10 @@ __int64 __fastcall hbmCreateClone(struct SURFACE *a1, int a2, int a3)
   int v3; // eax
   __int64 *v5; // rax
   __int64 v6; // rsi
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  bool v9; // zf
-  struct _ERESOURCE *v10; // rdi
+  bool v7; // zf
+  struct _ERESOURCE *v8; // rdi
+  int v9; // eax
+  int v10; // eax
   int v12; // eax
   __int64 v13; // [rsp+60h] [rbp-29h] BYREF
   char v14; // [rsp+68h] [rbp-21h]
@@ -82,44 +82,49 @@ __int64 __fastcall hbmCreateClone(struct SURFACE *a1, int a2, int a3)
                        0,
                        0) )
   {
-    v9 = (*((_DWORD *)a1 + 28) & 0x4000) == 0;
-    v10 = 0LL;
+    v7 = (*((_DWORD *)a1 + 28) & 0x4000) == 0;
+    v8 = 0LL;
     v27 = v18;
     v28 = v19;
     v24 = 0LL;
     v26 = 0LL;
     v16 = 0LL;
-    if ( !v9 )
+    if ( !v7 )
     {
       v25 = *((_QWORD *)a1 + 6);
-      v10 = *(struct _ERESOURCE **)(v25 + 48);
+      v8 = *(struct _ERESOURCE **)(v25 + 48);
       NEEDGRELOCK::vLock((NEEDGRELOCK *)&v16, (struct PDEVOBJ *)&v25);
-      EngAcquireSemaphore((HSEMAPHORE)v10);
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemDevLock", v10, 11LL);
+      EngAcquireSemaphore((HSEMAPHORE)v8);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemDevLock", v8, 11LL);
     }
-    if ( !qword_1C029B000
-      || (int)qword_1C029B000() < 0
-      || qword_1C029B008
-      && (unsigned int)((__int64 (__fastcall *)(__int64, unsigned __int64, _QWORD, void *, __int64 *, __int64 *))qword_1C029B008)(
-                         (v13 + 24) & -(__int64)(v13 != 0),
-                         ((unsigned __int64)a1 + 24) & -(__int64)(a1 != 0LL),
-                         0LL,
-                         &xloIdent,
-                         &v26,
-                         &v24) )
+    if ( qword_1C0256280 )
+      v9 = qword_1C0256280();
+    else
+      v9 = -1073741637;
+    if ( v9 < 0
+      || (!qword_1C0256288
+        ? (v10 = 0)
+        : (v10 = ((__int64 (__fastcall *)(__int64, unsigned __int64, _QWORD, void *, __int64 *, __int64 *))qword_1C0256288)(
+                   (v13 + 24) & -(__int64)(v13 != 0),
+                   ((unsigned __int64)a1 + 24) & -(__int64)(a1 != 0LL),
+                   0LL,
+                   &xloIdent,
+                   &v26,
+                   &v24)),
+          v10) )
     {
       v14 |= 1u;
       v6 = *(_QWORD *)(v13 + 32);
     }
-    if ( v10 )
+    if ( v8 )
     {
-      EtwTraceGreLockReleaseSemaphore(L"hsemDevLock", v10);
-      ExReleaseResourceAndLeaveCriticalRegion(v10);
+      EtwTraceGreLockReleaseSemaphore(L"hsemDevLock", v8);
+      ExReleaseResourceAndLeaveCriticalRegion(v8);
       PsLeavePriorityRegion();
       NEEDGRELOCK::vUnlock((NEEDGRELOCK *)&v16);
     }
     NEEDGRELOCK::vUnlock((NEEDGRELOCK *)&v16);
   }
-  SURFMEM::~SURFMEM((SURFMEM *)&v13, v7, v8);
+  SURFMEM::~SURFMEM((SURFMEM *)&v13);
   return v6;
 }

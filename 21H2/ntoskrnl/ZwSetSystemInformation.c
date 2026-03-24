@@ -1,14 +1,13 @@
 /*
- * XREFs of ZwSetSystemInformation @ 0x14041EE00
+ * XREFs of ZwSetSystemInformation @ 0x1403FD920
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x1405FBC00 (SmKmStoreTerminateWorker.c)
- *     DifZwSetSystemInformationWrapper @ 0x140627B90 (DifZwSetSystemInformationWrapper.c)
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
- *     SmStoreCreate @ 0x1409D4754 (SmStoreCreate.c)
- *     SmStoreDelete @ 0x1409D4850 (SmStoreDelete.c)
- *     SmStoreResize @ 0x1409D4A38 (SmStoreResize.c)
- *     IoShutdownSystem @ 0x140A651B8 (IoShutdownSystem.c)
- *     KitpInitAitSampleRate @ 0x140B2DD94 (KitpInitAitSampleRate.c)
+ *     SmKmStoreTerminateWorker @ 0x14059E1E0 (SmKmStoreTerminateWorker.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     SmStoreCreate @ 0x14092A384 (SmStoreCreate.c)
+ *     SmStoreDelete @ 0x14092A480 (SmStoreDelete.c)
+ *     SmStoreResize @ 0x14092A658 (SmStoreResize.c)
+ *     IoShutdownSystem @ 0x1409AADD8 (IoShutdownSystem.c)
+ *     KitpInitAitSampleRate @ 0x140A7179C (KitpInitAitSampleRate.c)
  * Callees:
  *     <none>
  */

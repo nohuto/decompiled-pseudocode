@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCheckTopDeviceHint @ 0x140768088
+ * XREFs of IopCheckTopDeviceHint @ 0x14067C0AC
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     IopVerifyDeviceObjectOnStack @ 0x140302B80 (IopVerifyDeviceObjectOnStack.c)
- *     FsRtlFindExtraCreateParameter @ 0x140765860 (FsRtlFindExtraCreateParameter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     IopVerifyDeviceObjectOnStack @ 0x14030A544 (IopVerifyDeviceObjectOnStack.c)
+ *     FsRtlFindExtraCreateParameter @ 0x140651070 (FsRtlFindExtraCreateParameter.c)
  */
 
 __int64 __fastcall IopCheckTopDeviceHint(unsigned int **a1, __int64 a2, char a3, const UNICODE_STRING *a4)

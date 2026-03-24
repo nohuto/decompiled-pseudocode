@@ -1,10 +1,10 @@
 /*
- * XREFs of RawQueryFsVolumeInfo @ 0x1406846D4
+ * XREFs of RawQueryFsVolumeInfo @ 0x1406846B4
  * Callers:
- *     RawQueryVolumeInformation @ 0x14068460C (RawQueryVolumeInformation.c)
+ *     RawQueryVolumeInformation @ 0x1406845EC (RawQueryVolumeInformation.c)
  * Callees:
- *     RawBeginOperation @ 0x1400D81B0 (RawBeginOperation.c)
- *     RawEndOperation @ 0x1400F97B8 (RawEndOperation.c)
+ *     RawBeginOperation @ 0x1400D81D0 (RawBeginOperation.c)
+ *     RawEndOperation @ 0x1400F97D8 (RawEndOperation.c)
  */
 
 __int64 __fastcall RawQueryFsVolumeInfo(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

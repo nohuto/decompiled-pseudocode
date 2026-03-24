@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpBlockTwoHiveWrites @ 0x1407F0774
+ * XREFs of CmpBlockTwoHiveWrites @ 0x1407F0754
  * Callers:
- *     CmpVirtualBranchIsReplicated @ 0x1407F3DDC (CmpVirtualBranchIsReplicated.c)
- *     CmpVirtualPathPresent @ 0x1407F3F7C (CmpVirtualPathPresent.c)
- *     CmSaveMergedKeys @ 0x14080231C (CmSaveMergedKeys.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1407F3DBC (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x1407F3F5C (CmpVirtualPathPresent.c)
+ *     CmSaveMergedKeys @ 0x1408022FC (CmSaveMergedKeys.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)

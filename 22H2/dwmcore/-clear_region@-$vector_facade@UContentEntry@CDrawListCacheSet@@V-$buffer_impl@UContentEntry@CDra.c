@@ -1,83 +1,92 @@
 /*
- * XREFs of ?clear_region@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180040A34
+ * XREFs of ?clear_region@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180051D54
  * Callers:
- *     ?clear@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18003E708 (-clear@-$vector_facade@UContentEntry@CDrawListCacheSet@@V-$buffer_impl@UContentEntry@CDrawListCa.c)
- *     ?erase@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@UContentEntry@CDrawListCacheSet@@@2@V?$basic_iterator@$$CBUContentEntry@CDrawListCacheSet@@@2@@Z @ 0x18003F370 (-erase@-$vector_facade@UContentEntry@CDrawListCacheSet@@V-$buffer_impl@UContentEntry@CDrawListCa.c)
- *     ?Clear@CTreeData@@MEAAXXZ @ 0x1800437F0 (-Clear@CTreeData@@MEAAXXZ.c)
- *     ?ClearContentTreeDataCaches@CVisual@@IEAAXXZ @ 0x18004AB80 (-ClearContentTreeDataCaches@CVisual@@IEAAXXZ.c)
- *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180051CD0 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ??1CTreeData@@UEAA@XZ @ 0x18009B7E8 (--1CTreeData@@UEAA@XZ.c)
+ *     ?erase@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@UContentEntry@CDrawListCacheSet@@@2@V?$basic_iterator@$$CBUContentEntry@CDrawListCacheSet@@@2@@Z @ 0x18004F6DC (-erase@-$vector_facade@UContentEntry@CDrawListCacheSet@@V-$buffer_impl@UContentEntry@CDrawListCa.c)
+ *     ?OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18006E530 (-OnChanged@CVisual@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?clear@?$vector_facade@UContentEntry@CDrawListCacheSet@@V?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x1800A1128 (-clear@-$vector_facade@UContentEntry@CDrawListCacheSet@@V-$buffer_impl@UContentEntry@CDrawListCa.c)
  * Callees:
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ??$move@V?$move_iterator@PEAUContentEntry@CDrawListCacheSet@@@std@@V?$checked_array_iterator@PEAUContentEntry@CDrawListCacheSet@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUContentEntry@CDrawListCacheSet@@@stdext@@V?$move_iterator@PEAUContentEntry@CDrawListCacheSet@@@0@0V12@@Z @ 0x1800ED024 (--$move@V-$move_iterator@PEAUContentEntry@CDrawListCacheSet@@@std@@V-$checked_array_iterator@PEA.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ??$move@V?$move_iterator@PEAUContentEntry@CDrawListCacheSet@@@std@@V?$checked_array_iterator@PEAUContentEntry@CDrawListCacheSet@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUContentEntry@CDrawListCacheSet@@@stdext@@V?$move_iterator@PEAUContentEntry@CDrawListCacheSet@@@0@0V12@@Z @ 0x1800C92F0 (--$move@V-$move_iterator@PEAUContentEntry@CDrawListCacheSet@@@std@@V-$checked_array_iterator@PEA.c)
  */
 
-__int64 __fastcall detail::vector_facade<CDrawListCacheSet::ContentEntry,detail::buffer_impl<CDrawListCacheSet::ContentEntry,2,1,detail::liberal_expansion_policy>>::clear_region(
+unsigned int __fastcall detail::vector_facade<CDrawListCacheSet::ContentEntry,detail::buffer_impl<CDrawListCacheSet::ContentEntry,2,1,detail::liberal_expansion_policy>>::clear_region(
         __int64 *a1,
         __int64 a2,
         __int64 a3)
 {
   __int64 v3; // rsi
-  __int64 v5; // rcx
-  __int64 v6; // r10
-  unsigned __int64 v7; // rdx
-  unsigned __int64 v9; // r9
-  __int64 result; // rax
-  __int64 v11; // rdi
+  __int64 v4; // r11
+  __int64 v5; // r10
+  __int64 v6; // r9
+  unsigned __int64 v8; // rcx
+  unsigned __int64 v10; // rdx
+  unsigned int result; // eax
+  __int64 v12; // rdi
   __int64 i; // rbx
-  __int64 v13; // rcx
-  _QWORD v14[4]; // [rsp+20h] [rbp-48h] BYREF
-  _BYTE v15[32]; // [rsp+40h] [rbp-28h] BYREF
+  CDrawListEntry *v14; // rcx
+  bool v15; // sf
+  __int128 v16; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v17; // [rsp+30h] [rbp-38h]
+  __int128 v18; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v19; // [rsp+50h] [rbp-18h]
 
-  v5 = *a1;
-  v6 = a2;
-  v7 = a3 + a2;
-  v9 = 0xAAAAAAAAAAAAAAABuLL * ((a1[1] - v5) >> 3);
-  if ( v7 > v9 )
+  v4 = *a1;
+  v5 = a2;
+  v6 = a1[1] - *a1;
+  v8 = a2 + a3;
+  v10 = v6 / 24;
+  if ( v8 > v6 / 24 )
   {
     std::_Xoverflow_error("overflow");
     __debugbreak();
-    goto LABEL_16;
+    goto LABEL_19;
   }
-  result = (a1[1] - v5) >> 3;
-  v3 = v5 + 8 * result;
-  if ( v7 != v9 )
+  result = 3 * v10;
+  v3 = v4 + 24 * v10;
+  if ( v8 != v6 / 24 )
   {
-    if ( !v6 )
+    *(_QWORD *)&v16 = v4;
+    *((_QWORD *)&v16 + 1) = v6 / 24;
+    v15 = v5 < 0;
+    if ( v5 )
+    {
+      if ( !v4 )
+        goto LABEL_16;
+      v15 = v5 < 0;
+    }
+    if ( !v15 )
     {
 LABEL_13:
-      v14[0] = v5;
-      v14[1] = v9;
-      v14[2] = v6;
-      result = ((__int64 (__fastcall *)(_BYTE *, unsigned __int64, __int64, _QWORD *))std::move<std::move_iterator<CDrawListCacheSet::ContentEntry *>,stdext::checked_array_iterator<CDrawListCacheSet::ContentEntry *>>)(
-                 v15,
-                 v5 + 24 * v7,
-                 v3,
-                 v14);
-      goto LABEL_3;
-    }
-    if ( !v5 )
-LABEL_14:
-      _invalid_parameter_noinfo_noreturn();
-    if ( v6 >= 0 )
-    {
-      if ( v9 >= v6 )
-        goto LABEL_13;
-      goto LABEL_14;
-    }
+      if ( v5 <= 0 || v10 >= v5 )
+      {
+        v17 = v5;
+        v18 = v16;
+        v19 = v5;
+        result = std::move<std::move_iterator<CDrawListCacheSet::ContentEntry *>,stdext::checked_array_iterator<CDrawListCacheSet::ContentEntry *>>(
+                   &v16,
+                   v4 + 24 * v8,
+                   v3,
+                   &v18);
+        goto LABEL_3;
+      }
 LABEL_16:
-    if ( !v6 )
-      goto LABEL_13;
-    goto LABEL_14;
+      _o__invalid_parameter_noinfo_noreturn(v8, v10);
+      __debugbreak();
+      JUMPOUT(0x180051E5FLL);
+    }
+LABEL_19:
+    if ( v5 )
+      goto LABEL_16;
+    goto LABEL_13;
   }
 LABEL_3:
-  v11 = 24 * a3;
+  v12 = 24 * a3;
   for ( i = v3 - 24 * a3; i != v3; i += 24LL )
   {
-    v13 = *(_QWORD *)(i + 16);
-    if ( v13 )
-      result = CMILRefCountBaseT<IMILRefCount>::InternalRelease(v13);
+    v14 = *(CDrawListEntry **)(i + 16);
+    if ( v14 )
+      result = CDrawListEntry::Release(v14);
   }
-  a1[1] -= v11;
+  a1[1] -= v12;
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpInterruptFindLinesForGsiRange @ 0x1402523CC
+ * XREFs of HalpInterruptFindLinesForGsiRange @ 0x140378FA8
  * Callers:
- *     HalpInterruptApplyOverrides @ 0x140252258 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptGsiToLine @ 0x140252380 (HalpInterruptGsiToLine.c)
- *     HalDisableInterrupt @ 0x140396C30 (HalDisableInterrupt.c)
- *     HalpMaskInterrupt @ 0x140397D10 (HalpMaskInterrupt.c)
- *     HalpUnmaskInterrupt @ 0x1403B6180 (HalpUnmaskInterrupt.c)
- *     HalpInterruptRegisterLine @ 0x1403BD66C (HalpInterruptRegisterLine.c)
- *     HalpInterruptGetApicVersion @ 0x1403D8B80 (HalpInterruptGetApicVersion.c)
- *     HalpInterruptRequestInterrupt @ 0x1405091D0 (HalpInterruptRequestInterrupt.c)
- *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x14050A598 (HalpInterruptPerformDirectedEndOfInterrupt.c)
- *     HalpInterruptServiceActiveBoth @ 0x14050A60C (HalpInterruptServiceActiveBoth.c)
+ *     HalDisableInterrupt @ 0x140377280 (HalDisableInterrupt.c)
+ *     HalpInterruptGetApicVersion @ 0x1403785A0 (HalpInterruptGetApicVersion.c)
+ *     HalpInterruptApplyOverrides @ 0x140378E24 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
+ *     HalpUnmaskInterrupt @ 0x14038CBD0 (HalpUnmaskInterrupt.c)
+ *     HalpMaskInterrupt @ 0x1403A6F90 (HalpMaskInterrupt.c)
+ *     HalpInterruptRegisterLine @ 0x1403AB1E0 (HalpInterruptRegisterLine.c)
+ *     HalpInterruptRequestInterrupt @ 0x1404BC750 (HalpInterruptRequestInterrupt.c)
+ *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x1404BDB28 (HalpInterruptPerformDirectedEndOfInterrupt.c)
+ *     HalpInterruptServiceActiveBoth @ 0x1404BDB9C (HalpInterruptServiceActiveBoth.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ _DWORD *__fastcall HalpInterruptFindLinesForGsiRange(unsigned int a1, unsigned i
   {
     v5 = v2;
     v2 = (ULONG_PTR *)*v2;
-    v6 = (_QWORD **)(v5 + 31);
+    v6 = (_QWORD **)(v5 + 30);
     v7 = *v6;
     while ( v7 != v6 )
     {

@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIEcGetResources @ 0x1C0083784
+ * XREFs of ACPIEcGetResources @ 0x1C00AEBCC
  * Callers:
- *     ACPIEcStartDeviceWorker @ 0x1C00256C0 (ACPIEcStartDeviceWorker.c)
+ *     ACPIEcStartDeviceWorker @ 0x1C0053C40 (ACPIEcStartDeviceWorker.c)
  * Callees:
  *     <none>
  */

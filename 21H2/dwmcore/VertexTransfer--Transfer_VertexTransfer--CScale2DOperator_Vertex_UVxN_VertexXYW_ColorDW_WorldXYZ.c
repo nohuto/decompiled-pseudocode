@@ -1,21 +1,21 @@
 /*
- * XREFs of VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801EF5CC
+ * XREFs of VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___ @ 0x1801A8D84
  * Callers:
- *     ??$TransferVertices@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMatrix@@_NMAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@@Z @ 0x18000D1D8 (--$TransferVertices@U-$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBVCDrawListPrim.c)
+ *     ??$TransferVertices@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMatrix@@_NMAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@@Z @ 0x180020854 (--$TransferVertices@U-$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBVCDrawListPrim.c)
  * Callees:
- *     ?CalculateTBNFrameFrom3Vertices@@YA?AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBVCMILMatrix@@2@Z @ 0x18000D6E4 (-CalculateTBNFrameFrom3Vertices@@YA-AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV-$StridedSpan@$$CBU-$.c)
- *     ?BlendPremultipliedColorDW@@YAKKM@Z @ 0x1801EC4D8 (-BlendPremultipliedColorDW@@YAKKM@Z.c)
- *     ??$Transform2DAndFillPosXYUVs@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@AEBUVertexAAFixup_UVxN@@IAEBVCMILMatrix@@PEAU?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@PEAUD2D_POINT_2F@@@Z @ 0x1801EF928 (--$Transform2DAndFillPosXYUVs@U-$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBU-$V.c)
- *     VertexTransfer::TransformDeviceSpacePositionAndNormal @ 0x1801F0A94 (VertexTransfer--TransformDeviceSpacePositionAndNormal.c)
+ *     VertexTransfer::TransformDeviceSpacePositionAndNormal @ 0x1800124F8 (VertexTransfer--TransformDeviceSpacePositionAndNormal.c)
+ *     ?CalculateTBNFrameFrom3Vertices@@YA?AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBVCMILMatrix@@2@Z @ 0x180021798 (-CalculateTBNFrameFrom3Vertices@@YA-AUD2DQuaternion@@PEBUD2D_POINT_2F@@AEBV-$StridedSpan@$$CBU-$.c)
+ *     ?BlendPremultipliedColorDW@@YAKKM@Z @ 0x1801A712C (-BlendPremultipliedColorDW@@YAKKM@Z.c)
+ *     ??$Transform2DAndFillPosXYUVs@U?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@AEBUVertexAAFixup_UVxN@@IAEBVCMILMatrix@@PEAU?$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@PEAUD2D_POINT_2F@@@Z @ 0x1801A90E0 (--$Transform2DAndFillPosXYUVs@U-$Vertex_UVxN@UVertexXYW_ColorDW_WorldXYZ_Tangent@@@@@@YAXAEBU-$V.c)
  */
 
-struct D2DQuaternion *__fastcall VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
+__int16 __fastcall VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent____1_Vertex_UVxN_VertexXYW_ColorDW_WorldXYZ_Tangent___(
         __int64 a1,
         __int64 a2,
         CMILMatrix *a3,
         CMILMatrix *a4)
 {
-  struct D2DQuaternion *result; // rax
+  struct D2DQuaternion *v4; // rax
   struct D2D_POINT_2F *v6; // r15
   unsigned int v7; // ebp
   unsigned int v8; // r12d
@@ -23,24 +23,24 @@ struct D2DQuaternion *__fastcall VertexTransfer::Transfer_VertexTransfer::CScale
   float v11; // xmm6_4
   __int64 v12; // rdi
   __int64 v13; // rbx
-  __int128 v14; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v15; // [rsp+30h] [rbp-58h] BYREF
   _UNKNOWN *retaddr; // [rsp+88h] [rbp+0h] BYREF
-  char v16; // [rsp+90h] [rbp+8h] BYREF
-  __int64 v17; // [rsp+98h] [rbp+10h]
+  char v17; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v18; // [rsp+98h] [rbp+10h]
 
-  result = (struct D2DQuaternion *)&retaddr;
-  v17 = a2;
+  v4 = (struct D2DQuaternion *)&retaddr;
+  v18 = a2;
   v6 = *(struct D2D_POINT_2F **)a1;
   v7 = 0;
   v8 = *(_DWORD *)(a1 + 20);
   v9 = a2;
   v11 = *(float *)(a1 + 44);
-  v14 = _xmm;
+  v15 = _xmm;
   if ( a3 && a4 )
   {
-    result = CalculateTBNFrameFrom3Vertices((struct D2DQuaternion *)&v14, (__int64)v6, (__int64 *)(a1 + 8), a3, a4);
-    v9 = v17;
-    v14 = *(_OWORD *)result;
+    v4 = CalculateTBNFrameFrom3Vertices((struct D2DQuaternion *)&v15, (__int64)v6, (__int64 *)(a1 + 8), a3, a4);
+    v9 = v18;
+    v15 = *(_OWORD *)v4;
   }
   if ( v8 )
   {
@@ -54,15 +54,15 @@ struct D2DQuaternion *__fastcall VertexTransfer::Transfer_VertexTransfer::CScale
         *(_DWORD *)(a1 + 40),
         v9,
         v13,
-        (__int64)&v16);
+        (__int64)&v17);
       *(_DWORD *)(v13 + 8) = 1065353216;
       *(_DWORD *)(v13 + 12) = BlendPremultipliedColorDW(*(_DWORD *)(v12 + 12), v11);
-      result = (struct D2DQuaternion *)VertexTransfer::TransformDeviceSpacePositionAndNormal(v6, a3);
-      v9 = v17;
+      LOWORD(v4) = VertexTransfer::TransformDeviceSpacePositionAndNormal(v6, a3, (__int64)&v15, v13);
+      v9 = v18;
       ++v6;
       ++v7;
     }
     while ( v7 < v8 );
   }
-  return result;
+  return (__int16)v4;
 }

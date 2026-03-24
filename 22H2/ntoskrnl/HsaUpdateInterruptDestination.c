@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaUpdateInterruptDestination @ 0x14053109C
+ * XREFs of HsaUpdateInterruptDestination @ 0x1404E4598
  * Callers:
- *     HsaUpdateRemappingTableEntry @ 0x140531320 (HsaUpdateRemappingTableEntry.c)
+ *     HsaUpdateRemappingTableEntry @ 0x1404E4800 (HsaUpdateRemappingTableEntry.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HsaUpdateInterruptDestination(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)

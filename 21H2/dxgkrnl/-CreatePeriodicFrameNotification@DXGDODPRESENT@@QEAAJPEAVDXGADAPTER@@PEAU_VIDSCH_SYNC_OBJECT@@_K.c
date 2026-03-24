@@ -1,10 +1,9 @@
 /*
- * XREFs of ?CreatePeriodicFrameNotification@DXGDODPRESENT@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@PEA_K@Z @ 0x1C03BBAAC
+ * XREFs of ?CreatePeriodicFrameNotification@DXGDODPRESENT@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@PEA_K@Z @ 0x1C02FCFC0
  * Callers:
- *     ?CreatePeriodicFrameNotification@DXGSYNCOBJECT@@QEAAJPEAVDXGADAPTER@@00_KI@Z @ 0x1C033EFBC (-CreatePeriodicFrameNotification@DXGSYNCOBJECT@@QEAAJPEAVDXGADAPTER@@00_KI@Z.c)
+ *     ?CreatePeriodicFrameNotification@DXGSYNCOBJECT@@QEAAJPEAVDXGADAPTER@@00_KI@Z @ 0x1C02901A4 (-CreatePeriodicFrameNotification@DXGSYNCOBJECT@@QEAAJPEAVDXGADAPTER@@00_KI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?CreatePeriodicFrameNotification@BLTQUEUE@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@PEA_K@Z @ 0x1C03BB840 (-CreatePeriodicFrameNotification@BLTQUEUE@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU.c)
+ *     ?CreatePeriodicFrameNotification@BLTQUEUE@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@PEA_K@Z @ 0x1C02FCDB4 (-CreatePeriodicFrameNotification@BLTQUEUE@@QEAAJPEAVDXGADAPTER@@PEAU_VIDSCH_SYNC_OBJECT@@_KIPEAU.c)
  */
 
 __int64 __fastcall DXGDODPRESENT::CreatePeriodicFrameNotification(
@@ -16,27 +15,20 @@ __int64 __fastcall DXGDODPRESENT::CreatePeriodicFrameNotification(
         struct _D3DDDI_SYNCHRONIZATIONOBJECTINFO2 *a6,
         unsigned __int64 *a7)
 {
-  unsigned int v8; // [rsp+20h] [rbp-38h]
+  __int64 v7; // rax
+  unsigned int v9; // [rsp+20h] [rbp-28h]
 
-  if ( (*((_DWORD *)a2 + 109) & 0x100) == 0 )
+  if ( (*((_DWORD *)a2 + 87) & 0x100) == 0 )
     return BLTQUEUE::CreatePeriodicFrameNotification(
-             (struct _KTHREAD **)(*((_QWORD *)this + 1) + 2920LL * a5),
+             (struct _KTHREAD **)(*((_QWORD *)this + 1) + 2904LL * a5),
              a2,
              a3,
              (__int64)this,
-             v8,
+             v9,
              a6,
              a7);
-  WdLogSingleEntry1(1LL, 3997LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262146,
-    -1,
-    (__int64)L"Dod CreatePeriodicFrameNotification() has only been tested on indirect display",
-    3997LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v7 = WdLogNewEntry5_WdAssertion(this, a2);
+  *(_QWORD *)(v7 + 24) = 3891LL;
+  WdLogEvent5_WdAssertion(v7);
   return 3221225659LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of HsaProcessReservedDomains @ 0x140532EF0
+ * XREFs of HsaProcessReservedDomains @ 0x1404E4220
  * Callers:
  *     <none>
  * Callees:

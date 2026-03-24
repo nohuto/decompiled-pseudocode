@@ -1,9 +1,9 @@
 /*
- * XREFs of BvgaSetTextColor @ 0x14054F5B0
+ * XREFs of BvgaSetTextColor @ 0x1404FFB90
  * Callers:
  *     <none>
  * Callees:
- *     HeadlessDispatch @ 0x1403778A0 (HeadlessDispatch.c)
+ *     HeadlessDispatch @ 0x1403AA580 (HeadlessDispatch.c)
  */
 
 __int64 __fastcall BvgaSetTextColor(unsigned int a1)

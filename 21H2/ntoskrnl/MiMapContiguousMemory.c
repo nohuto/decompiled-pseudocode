@@ -1,104 +1,127 @@
 /*
- * XREFs of MiMapContiguousMemory @ 0x14021538C
+ * XREFs of MiMapContiguousMemory @ 0x140295824
  * Callers:
- *     MiAllocateContiguousMemory @ 0x140214244 (MiAllocateContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x140215340 (MmMapIoSpaceEx.c)
+ *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
+ *     MiAllocateContiguousMemory @ 0x140294F3C (MiAllocateContiguousMemory.c)
  * Callees:
- *     MiSanitizePage @ 0x140215598 (MiSanitizePage.c)
- *     MiMappingHasIoReferences @ 0x1402155C8 (MiMappingHasIoReferences.c)
- *     MiReleasePtes @ 0x1402BB6D0 (MiReleasePtes.c)
- *     MiFillSystemPtes @ 0x140308F00 (MiFillSystemPtes.c)
- *     MiReservePtes @ 0x1403095B0 (MiReservePtes.c)
- *     MiMapContiguousMemoryLarge @ 0x1403C6E24 (MiMapContiguousMemoryLarge.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MiInsertPteTracker @ 0x1405B6C18 (MiInsertPteTracker.c)
+ *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x140226EF0 (MiFillSystemPtes.c)
+ *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
+ *     MiMappingHasIoReferences @ 0x140295E94 (MiMappingHasIoReferences.c)
+ *     MiMapContiguousMemoryLarge @ 0x1403B8854 (MiMapContiguousMemoryLarge.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiInsertPteTracker @ 0x14055EDE0 (MiInsertPteTracker.c)
  */
 
-__int64 __fastcall MiMapContiguousMemory(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5)
+__int64 __fastcall MiMapContiguousMemory(
+        unsigned __int64 a1,
+        unsigned __int64 a2,
+        unsigned int a3,
+        unsigned __int64 a4)
 {
+  char v4; // r12
   unsigned int v5; // esi
-  __int64 v7; // rax
+  unsigned __int64 v7; // rcx
   unsigned __int64 v8; // r13
-  ULONG_PTR v9; // rax
-  unsigned __int64 v10; // r9
-  __int64 v11; // r10
-  unsigned __int64 v12; // r14
-  int v13; // r15d
-  __int64 v14; // rdi
+  ULONG_PTR v9; // rcx
+  __int64 v10; // r8
+  unsigned int v11; // r15d
+  int v12; // r14d
+  ULONG_PTR v13; // rdi
+  char v14; // al
   __int64 v15; // rdi
-  unsigned int v16; // r14d
+  unsigned int v16; // r15d
   __int64 v18; // r8
   __int64 v19; // r9
-  int v20; // ebx
-  __int64 v21; // [rsp+30h] [rbp-61h] BYREF
-  ULONG_PTR v22; // [rsp+38h] [rbp-59h]
-  unsigned __int64 v23; // [rsp+40h] [rbp-51h]
-  __int64 v24; // [rsp+48h] [rbp-49h]
-  unsigned __int64 v25; // [rsp+50h] [rbp-41h]
-  __int64 v26; // [rsp+58h] [rbp-39h]
-  _QWORD v27[5]; // [rsp+60h] [rbp-31h] BYREF
-  int v28; // [rsp+88h] [rbp-9h]
-  int v29; // [rsp+8Ch] [rbp-5h]
-  unsigned __int64 v30; // [rsp+90h] [rbp-1h]
+  unsigned __int64 v20; // rax
+  int v21; // ebx
+  int v22; // [rsp+30h] [rbp-49h] BYREF
+  int v23; // [rsp+34h] [rbp-45h]
+  ULONG_PTR v24; // [rsp+38h] [rbp-41h]
+  __int64 v25; // [rsp+40h] [rbp-39h]
+  unsigned __int64 v26; // [rsp+48h] [rbp-31h]
+  _QWORD v27[5]; // [rsp+50h] [rbp-29h] BYREF
+  int v28; // [rsp+78h] [rbp-1h]
+  int v29; // [rsp+7Ch] [rbp+3h]
+  unsigned __int64 v30; // [rsp+80h] [rbp+7h]
 
-  v5 = a4;
-  v26 = a3;
-  if ( a4 == -1 || a4 == 24 || (a4 & 5) == 5 || (a4 & 0xFFFFFFF8) == 0x10 || a2 + a1 <= a1 && a2 + a1 )
+  v26 = a2;
+  v4 = a4;
+  v5 = a3;
+  if ( a3 == -1 )
     return 0LL;
-  v7 = a1 & 0xFFF;
-  v24 = v7;
-  v23 = (unsigned __int64)(v7 + a2 + 4095) >> 12;
-  v8 = (unsigned __int64)(v7 + a3 + 4095) >> 12;
-  v25 = a1 >> 12;
-  v9 = MiSanitizePage(a1 >> 12, a2, a3, a2);
-  v22 = v9;
-  if ( (v5 & 2) != 0 && (MiFlags & 0x8000) != 0 )
+  if ( a3 == 24 )
+    return 0LL;
+  if ( (a3 & 5) == 5 )
+    return 0LL;
+  if ( (a3 & 0xFFFFFFF8) == 0x10 )
+    return 0LL;
+  v7 = a2 + a1;
+  if ( v7 <= a1 )
+  {
+    if ( v7 )
+      return 0LL;
+  }
+  v25 = a1 & 0xFFF;
+  v8 = (v25 + a2 + 4095) >> 12;
+  v9 = (a1 >> 12) & 0xFFFFFFFFFLL;
+  v10 = 0x1000000000LL;
+  if ( a1 >> 12 < 0x1000000000LL )
+    v9 = a1 >> 12;
+  v24 = v9;
+  if ( (v5 & 2) != 0 && (MiFlags & 0x10000) != 0 )
     v5 &= ~2u;
-  LODWORD(v21) = 0;
-  if ( (a1 & 0x1FFFFF) == 0 && v10 >= 0x200000 )
+  v22 = 0;
+  if ( (a1 & 0x1FFFFF) != 0
+    || a2 < 0x200000
+    || (v12 = a4 & 1, (a4 & 1) != 0)
+    || (v15 = MiMapContiguousMemoryLarge(v9, (__int64)&v22)) == 0 )
   {
-    v13 = a5 & 1;
-    if ( (a5 & 1) == 0 && v8 == v11 )
+    v23 = 0;
+    v11 = v8;
+    v12 = v4 & 1;
+    if ( (v4 & 1) != 0 )
     {
-      v15 = MiMapContiguousMemoryLarge(v9, (__int64)&v21);
-      if ( v15 )
-        goto LABEL_16;
+      v11 = v8 + 1;
+      if ( (_DWORD)v8 == -1 )
+        return 0LL;
+      v23 = 1;
     }
+    v13 = MiReservePtes((__int64)&qword_140C4EF40, v11, v10, a4);
+    if ( v13 )
+    {
+      v14 = v23 | 2;
+      if ( (v4 & 2) == 0 )
+        v14 = v23;
+      if ( (int)MiFillSystemPtes(v13, v8, v24, v5, v14, &v22) >= 0 )
+      {
+        v15 = v25 + ((__int64)(v13 << 25) >> 16);
+        goto LABEL_16;
+      }
+      MiReleasePtes((__int64)&qword_140C4EF40, (_QWORD *)v13, v11);
+    }
+    return 0LL;
   }
-  v12 = v8 + 1;
-  v13 = a5 & 1;
-  if ( (a5 & 1) == 0 )
-    v12 = v8;
-  if ( v12 > 0xFFFFFFFF )
-    return 0LL;
-  v14 = MiReservePtes(&qword_140C534C0, (unsigned int)v12);
-  if ( !v14 )
-    return 0LL;
-  if ( (int)MiFillSystemPtes(v14, v23, v22, v5, (a5 >> 1) & 1, (__int64)&v21) < 0 )
-  {
-    MiReleasePtes(&qword_140C534C0, v14, (unsigned int)v12);
-    return 0LL;
-  }
-  v15 = v24 + (v14 << 25 >> 16);
 LABEL_16:
-  v16 = v21 & 1;
-  if ( (v21 & 1) != 0 )
+  v16 = v22 & 1;
+  if ( (v22 & 1) != 0 )
     MiMappingHasIoReferences(v15);
-  if ( (dword_140D051BC & 1) != 0 )
+  if ( (dword_140CFB17C & 1) != 0 )
   {
     v27[0] = 0LL;
     v27[1] = 0LL;
-    v18 = v16 | 2;
     v28 = 0;
+    v18 = v16 | 2;
+    v30 = a1 >> 12;
     v19 = 1LL;
-    v30 = v25;
     v27[3] = v15;
-    v27[4] = a1 & 0xFFFFFFFFFFFFF000uLL;
-    v20 = a1 & 0xFFF;
+    v20 = a1 & 0xFFFFFFFFFFFFF000uLL;
+    v21 = a1 & 0xFFF;
+    v27[4] = v20;
     v27[2] = v26;
-    if ( !v13 )
+    if ( !v12 )
       v18 = v16;
-    v29 = v20;
+    v29 = v21;
     if ( v5 >> 3 == 1 )
     {
       v19 = 0LL;

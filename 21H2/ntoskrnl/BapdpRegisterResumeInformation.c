@@ -1,33 +1,31 @@
 /*
- * XREFs of BapdpRegisterResumeInformation @ 0x140B1C9E0
+ * XREFs of BapdpRegisterResumeInformation @ 0x140A41964
  * Callers:
- *     BapdpProcessResumeInformation @ 0x140B1C2F4 (BapdpProcessResumeInformation.c)
+ *     BapdpProcessResumeInformation @ 0x140A4126C (BapdpProcessResumeInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
  */
 
-int __fastcall BapdpRegisterResumeInformation(PVOID Data, ULONG DataSize)
+void __fastcall BapdpRegisterResumeInformation(PVOID Data, ULONG DataSize)
 {
-  int result; // eax
-  NTSTATUS v5; // eax
-  HANDLE v6; // rcx
+  NTSTATUS v4; // eax
+  HANDLE v5; // rcx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   ULONG Disposition; // [rsp+A0h] [rbp+20h] BYREF
   HANDLE KeyHandle; // [rsp+B0h] [rbp+30h] BYREF
   HANDLE Handle; // [rsp+B8h] [rbp+38h] BYREF
 
-  Disposition = 0;
-  result = 0;
-  *(&ObjectAttributes.Attributes + 1) = 0;
-  *(&ObjectAttributes.Length + 1) = 0;
-  DestinationString = 0LL;
   if ( Data )
   {
+    Disposition = 0;
+    *(&ObjectAttributes.Length + 1) = 0;
+    *(&ObjectAttributes.Attributes + 1) = 0;
+    DestinationString = 0LL;
     if ( DataSize )
     {
       KeyHandle = 0LL;
@@ -38,8 +36,7 @@ int __fastcall BapdpRegisterResumeInformation(PVOID Data, ULONG DataSize)
       ObjectAttributes.Length = 48;
       ObjectAttributes.Attributes = 576;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-      if ( result >= 0 )
+      if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, L"Winresume");
         ObjectAttributes.RootDirectory = KeyHandle;
@@ -47,18 +44,17 @@ int __fastcall BapdpRegisterResumeInformation(PVOID Data, ULONG DataSize)
         ObjectAttributes.ObjectName = &DestinationString;
         ObjectAttributes.Attributes = 576;
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        v5 = ZwCreateKey(&Handle, 0x20019u, &ObjectAttributes, 0, 0LL, 1u, &Disposition);
-        v6 = KeyHandle;
-        if ( v5 >= 0 )
+        v4 = ZwCreateKey(&Handle, 0x20019u, &ObjectAttributes, 0, 0LL, 1u, &Disposition);
+        v5 = KeyHandle;
+        if ( v4 >= 0 )
         {
           ZwClose(KeyHandle);
           RtlInitUnicodeString(&DestinationString, L"ResumeContext");
           ZwSetValueKey(Handle, &DestinationString, 0, 3u, Data, DataSize);
-          v6 = Handle;
+          v5 = Handle;
         }
-        return ZwClose(v6);
+        ZwClose(v5);
       }
     }
   }
-  return result;
 }

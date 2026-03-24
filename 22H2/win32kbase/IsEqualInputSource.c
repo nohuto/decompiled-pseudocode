@@ -1,9 +1,9 @@
 /*
- * XREFs of IsEqualInputSource @ 0x1C0059570
+ * XREFs of IsEqualInputSource @ 0x1C0048890
  * Callers:
- *     ?QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_INT@@PEBUtagPOINT@@@Z @ 0x1C0054818 (-QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_I.c)
- *     CoalesceInputSourceMouseMoves @ 0x1C0057400 (CoalesceInputSourceMouseMoves.c)
- *     GetCoalesceableMouseMessage @ 0x1C00B3720 (GetCoalesceableMouseMessage.c)
+ *     ?QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_INT@@PEBUtagPOINT@@@Z @ 0x1C0041BB0 (-QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_I.c)
+ *     CoalesceInputSourceMouseMoves @ 0x1C0046440 (CoalesceInputSourceMouseMoves.c)
+ *     GetCoalesceableMouseMessage @ 0x1C00493F0 (GetCoalesceableMouseMessage.c)
  * Callees:
  *     <none>
  */

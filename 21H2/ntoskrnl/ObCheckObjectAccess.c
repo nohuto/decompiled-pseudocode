@@ -1,51 +1,47 @@
 /*
- * XREFs of ObCheckObjectAccess @ 0x1406698A0
+ * XREFs of ObCheckObjectAccess @ 0x1405D9860
  * Callers:
- *     ObpGrantAccess @ 0x140669830 (ObpGrantAccess.c)
+ *     ObpGrantAccess @ 0x1405D97B4 (ObpGrantAccess.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     SeOpenObjectAuditAlarm @ 0x140669A30 (SeOpenObjectAuditAlarm.c)
- *     SeAppendPrivileges @ 0x1406A8AD0 (SeAppendPrivileges.c)
- *     ObReleaseObjectSecurityEx @ 0x140722890 (ObReleaseObjectSecurityEx.c)
- *     SeLockSubjectContext @ 0x140722AE0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x140723F40 (SeUnlockSubjectContext.c)
- *     ObpGetObjectSecurity @ 0x1407248C0 (ObpGetObjectSecurity.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     SeOpenObjectAuditAlarm @ 0x1405D99E0 (SeOpenObjectAuditAlarm.c)
+ *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
+ *     ObReleaseObjectSecurity @ 0x14065F410 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x14065F800 (ObpGetObjectSecurity.c)
+ *     SeLockSubjectContext @ 0x1406F5E30 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1406F5E90 (SeUnlockSubjectContext.c)
  */
 
 BOOLEAN __fastcall ObCheckObjectAccess(
         char *Object,
         PACCESS_STATE AccessState,
         __int64 a3,
-        __int64 a4,
+        KPROCESSOR_MODE a4,
         PNTSTATUS AccessStatus)
 {
   char v5; // di
   unsigned __int64 v7; // r10
-  KPROCESSOR_MODE AccessMode; // r12
   __int64 v10; // r14
   int ObjectSecurity; // edx
   BOOLEAN v12; // r14
   ACCESS_MASK v13; // eax
-  __int64 v14; // rdx
-  __int64 v15; // r9
   BOOLEAN result; // al
   ACCESS_MASK GrantedAccess; // [rsp+50h] [rbp-20h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+58h] [rbp-18h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+60h] [rbp-10h] BYREF
-  UNICODE_STRING *v20; // [rsp+68h] [rbp-8h]
-  char v21; // [rsp+A0h] [rbp+30h] BYREF
+  UNICODE_STRING *v18; // [rsp+68h] [rbp-8h]
+  BOOLEAN MemoryAllocated; // [rsp+A0h] [rbp+30h] BYREF
 
   v5 = 0;
   v7 = (unsigned __int8)*(Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8);
   GrantedAccess = 0;
-  v21 = 0;
-  AccessMode = a4;
+  MemoryAllocated = 0;
   Privileges = 0LL;
   SecurityDescriptor = 0LL;
   v10 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v7];
-  v20 = (UNICODE_STRING *)v10;
-  ObjectSecurity = ObpGetObjectSecurity(Object, &SecurityDescriptor, &v21, a4);
+  v18 = (UNICODE_STRING *)v10;
+  ObjectSecurity = ObpGetObjectSecurity(Object, &SecurityDescriptor, &MemoryAllocated);
   if ( ObjectSecurity < 0 )
     goto LABEL_9;
   if ( !SecurityDescriptor )
@@ -67,7 +63,7 @@ LABEL_9:
           AccessState->PreviouslyGrantedAccess,
           &Privileges,
           (PGENERIC_MAPPING)(v10 + 76),
-          AccessMode,
+          a4,
           &GrantedAccess,
           AccessStatus);
   if ( Privileges )
@@ -82,17 +78,16 @@ LABEL_9:
     AccessState->RemainingDesiredAccess &= ~(v13 | 0x2000000);
   }
   SeOpenObjectAuditAlarm(
-    v20 + 1,
+    v18 + 1,
     Object,
     0LL,
     SecurityDescriptor,
     AccessState,
     0,
     v12,
-    AccessMode,
+    a4,
     &AccessState->GenerateOnClose);
   SeUnlockSubjectContext(&AccessState->SubjectSecurityContext);
-  LOBYTE(v14) = v21;
-  ObReleaseObjectSecurityEx(SecurityDescriptor, v14, Object, v15);
+  ObReleaseObjectSecurity(SecurityDescriptor, MemoryAllocated);
   return v12;
 }

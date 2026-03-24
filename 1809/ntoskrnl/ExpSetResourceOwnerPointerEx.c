@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpSetResourceOwnerPointerEx @ 0x14010A2A0
+ * XREFs of ExpSetResourceOwnerPointerEx @ 0x14010A2C0
  * Callers:
- *     ExSetResourceOwnerPointerEx @ 0x14010A280 (ExSetResourceOwnerPointerEx.c)
- *     ExSetResourceOwnerPointer @ 0x140166890 (ExSetResourceOwnerPointer.c)
+ *     ExSetResourceOwnerPointerEx @ 0x14010A2A0 (ExSetResourceOwnerPointerEx.c)
+ *     ExSetResourceOwnerPointer @ 0x1401668B0 (ExSetResourceOwnerPointer.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
  *     ExpResourceEnforcesOwnershipTransfer @ 0x14004F570 (ExpResourceEnforcesOwnershipTransfer.c)
  *     ObpIncrPointerCount @ 0x14005B360 (ObpIncrPointerCount.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     PsBoostThreadIoEx @ 0x1400BBF70 (PsBoostThreadIoEx.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
- *     PerfLogExecutiveResourceSetOwnerPointer @ 0x14031372C (PerfLogExecutiveResourceSetOwnerPointer.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     PsBoostThreadIoEx @ 0x1400BBF90 (PsBoostThreadIoEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
+ *     PerfLogExecutiveResourceSetOwnerPointer @ 0x14031382C (PerfLogExecutiveResourceSetOwnerPointer.c)
  */
 
 void __fastcall ExpSetResourceOwnerPointerEx(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter4, char a3)

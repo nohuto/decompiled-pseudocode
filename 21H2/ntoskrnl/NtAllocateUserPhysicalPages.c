@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAllocateUserPhysicalPages @ 0x14097D9A0
+ * XREFs of NtAllocateUserPhysicalPages @ 0x1408D67C0
  * Callers:
  *     <none>
  * Callees:
- *     MiAllocateUserPhysicalPages @ 0x14097BD88 (MiAllocateUserPhysicalPages.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4CE8 (MiAllocateUserPhysicalPages.c)
  */
 
 int __fastcall NtAllocateUserPhysicalPages(void *a1, unsigned __int64 *a2, volatile void *a3)

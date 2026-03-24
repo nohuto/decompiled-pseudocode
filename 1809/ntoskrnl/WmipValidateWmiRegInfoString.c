@@ -1,8 +1,8 @@
 /*
- * XREFs of WmipValidateWmiRegInfoString @ 0x140707D68
+ * XREFs of WmipValidateWmiRegInfoString @ 0x140707D48
  * Callers:
- *     WmipBuildInstanceSet @ 0x140707908 (WmipBuildInstanceSet.c)
- *     WmipProcessWmiRegInfo @ 0x140707C6C (WmipProcessWmiRegInfo.c)
+ *     WmipBuildInstanceSet @ 0x1407078E8 (WmipBuildInstanceSet.c)
+ *     WmipProcessWmiRegInfo @ 0x140707C4C (WmipProcessWmiRegInfo.c)
  * Callees:
  *     <none>
  */

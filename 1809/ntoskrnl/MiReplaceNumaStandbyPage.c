@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReplaceNumaStandbyPage @ 0x1401189CC
+ * XREFs of MiReplaceNumaStandbyPage @ 0x1401189EC
  * Callers:
- *     MiReplaceTransitionPage @ 0x14011844C (MiReplaceTransitionPage.c)
+ *     MiReplaceTransitionPage @ 0x14011846C (MiReplaceTransitionPage.c)
  * Callees:
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiSetPfnNodeBlinkHigh @ 0x140118B9C (MiSetPfnNodeBlinkHigh.c)
- *     MiUnlinkNumaStandbyPage @ 0x140152260 (MiUnlinkNumaStandbyPage.c)
- *     MiInsertNumaStandbyPage @ 0x1402C02F4 (MiInsertNumaStandbyPage.c)
+ *     MiSetPfnNodeBlinkHigh @ 0x140118BBC (MiSetPfnNodeBlinkHigh.c)
+ *     MiUnlinkNumaStandbyPage @ 0x140152280 (MiUnlinkNumaStandbyPage.c)
+ *     MiInsertNumaStandbyPage @ 0x1402C03F4 (MiInsertNumaStandbyPage.c)
  */
 
 __int64 __fastcall MiReplaceNumaStandbyPage(__int64 a1, __int64 a2)

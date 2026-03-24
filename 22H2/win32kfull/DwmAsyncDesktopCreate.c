@@ -1,31 +1,30 @@
 /*
- * XREFs of DwmAsyncDesktopCreate @ 0x1C0058AC8
+ * XREFs of DwmAsyncDesktopCreate @ 0x1C00E9384
  * Callers:
- *     zzzDwmStartRedirection @ 0x1C00588D8 (zzzDwmStartRedirection.c)
- *     xxxCreateDesktopEx @ 0x1C00683E4 (xxxCreateDesktopEx.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     zzzDwmStartRedirection @ 0x1C00E942C (zzzDwmStartRedirection.c)
  * Callees:
- *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C00CD030 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DwmAsyncDesktopCreate(PVOID Object, __int64 a2)
 {
-  unsigned int v4; // ebx
-  _OWORD v6[2]; // [rsp+20h] [rbp-48h] BYREF
-  _QWORD v7[3]; // [rsp+40h] [rbp-28h]
+  unsigned int v3; // ebx
+  _OWORD v5[2]; // [rsp+20h] [rbp-48h] BYREF
+  _QWORD v6[3]; // [rsp+40h] [rbp-28h]
 
-  v4 = -1073741823;
-  IncrementDWMWindowUniqueness();
+  v3 = -1073741823;
+  _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    memset(v6, 0, sizeof(v6));
-    v7[0] = 0LL;
-    LODWORD(v6[0]) = 3407884;
-    WORD2(v6[0]) = 0x8000;
-    LODWORD(v7[1]) = 1073741838;
-    *(_QWORD *)((char *)&v7[1] + 4) = a2;
-    v4 = LpcRequestPort(Object, v6);
+    v6[0] = 0LL;
+    *(_QWORD *)((char *)&v6[1] + 4) = a2;
+    memset(v5, 0, sizeof(v5));
+    LODWORD(v5[0]) = 3407884;
+    WORD2(v5[0]) = 0x8000;
+    LODWORD(v6[1]) = 1073741838;
+    v3 = LpcRequestPort(Object, v5);
     ObfDereferenceObject(Object);
   }
-  return v4;
+  return v3;
 }

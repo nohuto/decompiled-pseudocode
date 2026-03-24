@@ -1,71 +1,85 @@
 /*
- * XREFs of ?EnsureBeginCreateD3D12Resources@CD3DDevice@@AEAAJXZ @ 0x18028D7EC
+ * XREFs of ?EnsureBeginCreateD3D12Resources@CD3DDevice@@AEAAJXZ @ 0x18023EF38
  * Callers:
- *     ?CreateSharedFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAVCSharedFence@@@Z @ 0x18028D4A4 (-CreateSharedFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAVCSharedFence@@@Z.c)
- *     ?GetD3D12DeviceNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z @ 0x18028DCB0 (-GetD3D12DeviceNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z.c)
- *     ?GetDirectInkSuperWetRendererNoRef@CD3DDevice@@QEAAJPEAPEAUIDCompositionDirectInkSuperWetRenderer@@@Z @ 0x18028DE98 (-GetDirectInkSuperWetRendererNoRef@CD3DDevice@@QEAAJPEAPEAUIDCompositionDirectInkSuperWetRendere.c)
- *     ?GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z @ 0x18028DF18 (-GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z.c)
- *     ?TryGetD3D12Device@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z @ 0x18028E848 (-TryGetD3D12Device@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z.c)
+ *     ?CreateSharedFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAVCSharedFence@@@Z @ 0x18023EC28 (-CreateSharedFence@CD3DDevice@@QEAAJAEBVCResourceTag@@_KPEAPEAVCSharedFence@@@Z.c)
+ *     ?GetD3D12DeviceNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z @ 0x18023F5DC (-GetD3D12DeviceNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z.c)
+ *     ?GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z @ 0x18023F65C (-GetHighPriorityComputeCommandQueueNoRef@CD3DDevice@@QEAAJPEAPEAUID3D12CommandQueue@@@Z.c)
+ *     ?TryGetD3D12Device@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z @ 0x180240454 (-TryGetD3D12Device@CD3DDevice@@QEAAJPEAPEAUID3D12Device@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x180287610 (-GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z.c)
- *     CAsyncTask_CD3DDevice::D3D12Resources_::Start__lambda_88358cf897930614284adb3422b4c545___ @ 0x18028C2AC (CAsyncTask_CD3DDevice--D3D12Resources_--Start__lambda_88358cf897930614284adb3422b4c545___.c)
- *     ??1?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAA@XZ @ 0x18028C650 (--1-$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x18023C7B0 (-GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z.c)
+ *     CAsyncTask_CD3DDevice::D3D12Resources_::Start__lambda_88358cf897930614284adb3422b4c545___ @ 0x18023CEC4 (CAsyncTask_CD3DDevice--D3D12Resources_--Start__lambda_88358cf897930614284adb3422b4c545___.c)
+ *     ??_G?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAAPEAXI@Z @ 0x18023D54C (--_G-$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAAPEAXI@Z.c)
  */
 
 __int64 __fastcall CD3DDevice::EnsureBeginCreateD3D12Resources(CD3DDevice *this)
 {
-  void **v1; // rsi
-  __int64 *v3; // rcx
-  __int64 v4; // rax
-  int v5; // eax
-  unsigned int v6; // ebx
+  __int64 **v1; // rsi
+  __int64 (__fastcall ***v3)(_QWORD, GUID *, __int64 **); // rcx
+  int v4; // eax
+  int started; // ebx
+  __int64 v6; // rax
+  int v7; // eax
   int DirectInkFactory; // eax
-  int started; // edi
-  void *v9; // rbx
+  __int64 *v9; // rcx
   __int64 v11; // [rsp+20h] [rbp-30h] BYREF
   struct IDCompositionDirectInkFactoryPartner *v12; // [rsp+28h] [rbp-28h] BYREF
-  void **v13; // [rsp+30h] [rbp-20h]
-  PTP_WORK *v14; // [rsp+38h] [rbp-18h] BYREF
+  __int64 **v13; // [rsp+30h] [rbp-20h]
+  __int64 *v14; // [rsp+38h] [rbp-18h] BYREF
   char v15; // [rsp+40h] [rbp-10h]
   wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+18h]
   struct IDCompositionDirectInkFactoryPartner *v17; // [rsp+70h] [rbp+20h] BYREF
   __int64 v18; // [rsp+78h] [rbp+28h] BYREF
+  __int64 *v19; // [rsp+80h] [rbp+30h] BYREF
 
-  v1 = (void **)((char *)this + 1032);
-  if ( !*((_QWORD *)this + 129) )
+  v1 = (__int64 **)((char *)this + 1072);
+  if ( !*((_QWORD *)this + 134) )
   {
-    v3 = (__int64 *)*((_QWORD *)this + 67);
-    v4 = *v3;
-    v18 = 0LL;
-    v5 = (*(__int64 (__fastcall **)(__int64 *, __int64 *))(v4 + 56))(v3, &v18);
-    v6 = v5;
-    if ( v5 < 0 )
+    v3 = (__int64 (__fastcall ***)(_QWORD, GUID *, __int64 **))*((_QWORD *)this + 74);
+    v19 = 0LL;
+    v4 = (**v3)(v3, &GUID_54ec77fa_1377_44e6_8c32_88fd5f44c84c, &v19);
+    started = v4;
+    if ( v4 < 0 )
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0xD06,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
-        (const char *)(unsigned int)v5);
-LABEL_15:
+        (void *)0x108E,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
+        (const char *)(unsigned int)v4);
+LABEL_19:
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v19);
+      return (unsigned int)started;
+    }
+    v6 = *v19;
+    v18 = 0LL;
+    v7 = (*(__int64 (__fastcall **)(__int64 *, __int64 *))(v6 + 56))(v19, &v18);
+    started = v7;
+    if ( v7 < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x1091,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
+        (const char *)(unsigned int)v7);
+LABEL_18:
       wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v18);
-      return v6;
+      goto LABEL_19;
     }
     v17 = 0LL;
-    DirectInkFactory = CD2DContext::GetDirectInkFactory((CD3DDevice *)((char *)this + 16), &v17);
-    v6 = DirectInkFactory;
+    DirectInkFactory = CD2DContext::GetDirectInkFactory((struct IDCompositionDirectInkFactoryPartner **)this + 2, &v17);
+    started = DirectInkFactory;
     if ( DirectInkFactory < 0 )
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0xD09,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
+        (void *)0x1094,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
         (const char *)(unsigned int)DirectInkFactory);
+LABEL_17:
       wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v17);
-      goto LABEL_15;
+      goto LABEL_18;
     }
     v11 = v18;
     if ( v18 )
@@ -84,28 +98,24 @@ LABEL_15:
       v9 = *v13;
       *v13 = v14;
       if ( v9 )
-      {
-        CAsyncTask<CD3DDevice::D3D12Resources>::~CAsyncTask<CD3DDevice::D3D12Resources>((__int64)v9);
-        operator delete(v9);
-      }
+        CAsyncTask<CD3DDevice::D3D12Resources>::`scalar deleting destructor'(v9);
     }
     if ( started < 0 )
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0xD14,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
+        (void *)0x109F,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\d3ddevice.cpp",
         (const char *)(unsigned int)started);
       wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v12);
       wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v11);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v17);
-      v6 = started;
-      goto LABEL_15;
+      goto LABEL_17;
     }
     wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v12);
     wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v11);
     wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v17);
     wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v18);
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v19);
   }
   return 0LL;
 }

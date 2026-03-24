@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapGetAllPolicyValues @ 0x140A0990C
+ * XREFs of WheapGetAllPolicyValues @ 0x14095DE50
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x140646AB8 (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x1405BDEE0 (WheapWmiExecutePolicyManagementMethod.c)
  * Callees:
- *     WheapGetPolicyValue @ 0x140A09950 (WheapGetPolicyValue.c)
+ *     WheapGetPolicyValue @ 0x14095DE94 (WheapGetPolicyValue.c)
  */
 
 __int64 __fastcall WheapGetAllPolicyValues(_DWORD *a1, unsigned int a2, __int64 a3)
@@ -13,9 +13,9 @@ __int64 __fastcall WheapGetAllPolicyValues(_DWORD *a1, unsigned int a2, __int64 
   int v6; // r9d
   __int64 v7; // r10
 
-  if ( a2 < 0x44 )
+  if ( a2 < 0x34 )
     return 3221225507LL;
-  *a1 = 17;
+  *a1 = 13;
   v5 = 0;
   do
   {
@@ -25,6 +25,6 @@ __int64 __fastcall WheapGetAllPolicyValues(_DWORD *a1, unsigned int a2, __int64 
     v5 = v6 + 1;
     a3 = v7 + 4;
   }
-  while ( v5 < 0x11 );
+  while ( v5 < 0xD );
   return result;
 }

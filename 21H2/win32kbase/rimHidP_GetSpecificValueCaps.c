@@ -1,24 +1,23 @@
 /*
- * XREFs of rimHidP_GetSpecificValueCaps @ 0x1C018E898
+ * XREFs of rimHidP_GetSpecificValueCaps @ 0x1C0163618
  * Callers:
- *     RIMGetDeviceFeedbackGlobalIntensityCaps @ 0x1C00DC348 (RIMGetDeviceFeedbackGlobalIntensityCaps.c)
- *     RIMDeliverConfigRequest @ 0x1C018AB6C (RIMDeliverConfigRequest.c)
- *     RIMIsInputUsagePresent @ 0x1C018C168 (RIMIsInputUsagePresent.c)
- *     RIMPopulatePointerDevice @ 0x1C018C3A8 (RIMPopulatePointerDevice.c)
- *     _PopulatePropertyUsageValues @ 0x1C018EE7C (_PopulatePropertyUsageValues.c)
- *     RIMAssignTouchType @ 0x1C018FAFC (RIMAssignTouchType.c)
- *     RIMCacheAxisChildIndex @ 0x1C018FDAC (RIMCacheAxisChildIndex.c)
- *     RIMCreatePointerDeviceInfo @ 0x1C0190190 (RIMCreatePointerDeviceInfo.c)
- *     RIMExtractPointerPropertyValues @ 0x1C01918C0 (RIMExtractPointerPropertyValues.c)
- *     RIMGetMaxCountFeatureDetails @ 0x1C0192AA4 (RIMGetMaxCountFeatureDetails.c)
- *     RIMGetPointerDeviceProperties @ 0x1C0193110 (RIMGetPointerDeviceProperties.c)
- *     RIMGetPropertyCount @ 0x1C0193C60 (RIMGetPropertyCount.c)
- *     RIMIsParallelDevice @ 0x1C0194800 (RIMIsParallelDevice.c)
- *     RIMRetrieveAllLinkIndexUsages @ 0x1C0194F6C (RIMRetrieveAllLinkIndexUsages.c)
- *     RIMRetrieveLinkCollection @ 0x1C0195468 (RIMRetrieveLinkCollection.c)
- *     RIMIDECheckScanTimeSupport @ 0x1C019B04C (RIMIDECheckScanTimeSupport.c)
+ *     _PopulatePropertyUsageValues @ 0x1C015B260 (_PopulatePropertyUsageValues.c)
+ *     RIMAssignTouchType @ 0x1C015BBC8 (RIMAssignTouchType.c)
+ *     RIMCacheAxisChildIndex @ 0x1C015BD7C (RIMCacheAxisChildIndex.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015C02C (RIMCreatePointerDeviceInfo.c)
+ *     RIMExtractPointerPropertyValues @ 0x1C015D2D0 (RIMExtractPointerPropertyValues.c)
+ *     RIMGetMaxCountFeatureDetails @ 0x1C015DE78 (RIMGetMaxCountFeatureDetails.c)
+ *     RIMGetPointerDeviceProperties @ 0x1C015E2B0 (RIMGetPointerDeviceProperties.c)
+ *     RIMGetPropertyCount @ 0x1C015E8F4 (RIMGetPropertyCount.c)
+ *     RIMIsParallelDevice @ 0x1C015F010 (RIMIsParallelDevice.c)
+ *     RIMRetrieveAllLinkIndexUsages @ 0x1C015F66C (RIMRetrieveAllLinkIndexUsages.c)
+ *     RIMRetrieveLinkCollection @ 0x1C015F930 (RIMRetrieveLinkCollection.c)
+ *     RIMDeliverConfigRequest @ 0x1C0161484 (RIMDeliverConfigRequest.c)
+ *     RIMIsInputUsagePresent @ 0x1C0161C34 (RIMIsInputUsagePresent.c)
+ *     RIMPopulatePointerDevice @ 0x1C0161DCC (RIMPopulatePointerDevice.c)
+ *     RIMIDECheckScanTimeSupport @ 0x1C01672C0 (RIMIDECheckScanTimeSupport.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall rimHidP_GetSpecificValueCaps(

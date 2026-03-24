@@ -1,11 +1,11 @@
 /*
- * XREFs of RaiseException @ 0x140199E60
+ * XREFs of RaiseException @ 0x140199E80
  * Callers:
- *     _raise_exc_ex @ 0x140199F24 (_raise_exc_ex.c)
+ *     _raise_exc_ex @ 0x140199F44 (_raise_exc_ex.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     RtlRaiseException @ 0x1402ED740 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     RtlRaiseException @ 0x1402ED840 (RtlRaiseException.c)
  */
 
 void __fastcall RaiseException(int a1, char a2, __int64 a3, const void *a4)

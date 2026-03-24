@@ -1,13 +1,14 @@
 /*
- * XREFs of VfIrpDatabaseCheckExFreePool @ 0x140AC1876
+ * XREFs of VfIrpDatabaseCheckExFreePool @ 0x1409E071C
  * Callers:
- *     VfPoolCheckIncorrectFreeApi @ 0x140ADB100 (VfPoolCheckIncorrectFreeApi.c)
+ *     VerifierExFreePool @ 0x1409D51A0 (VerifierExFreePool.c)
+ *     VerifierExFreePoolWithTag @ 0x1409D5230 (VerifierExFreePoolWithTag.c)
  * Callees:
- *     ViIrpDatabaseAcquireLockShared @ 0x1405D2608 (ViIrpDatabaseAcquireLockShared.c)
- *     ViIrpDatabaseReleaseLockShared @ 0x1405D26A8 (ViIrpDatabaseReleaseLockShared.c)
- *     VfUtilAddressRangeFitNoLock @ 0x140AC3404 (VfUtilAddressRangeFitNoLock.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
- *     ViIrpDatabaseFindPointer @ 0x140AE2AC4 (ViIrpDatabaseFindPointer.c)
+ *     ViIrpDatabaseAcquireLockShared @ 0x1405A2570 (ViIrpDatabaseAcquireLockShared.c)
+ *     ViIrpDatabaseReleaseLockShared @ 0x1405A2610 (ViIrpDatabaseReleaseLockShared.c)
+ *     VfUtilAddressRangeFitNoLock @ 0x1409C634C (VfUtilAddressRangeFitNoLock.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     ViIrpDatabaseFindPointer @ 0x1409E0B4C (ViIrpDatabaseFindPointer.c)
  */
 
 void __fastcall VfIrpDatabaseCheckExFreePool(ULONG_PTR BugCheckParameter2)
@@ -18,10 +19,10 @@ void __fastcall VfIrpDatabaseCheckExFreePool(ULONG_PTR BugCheckParameter2)
   v3 = 0;
   if ( VfIrpDatabaseInitialized )
   {
-    if ( (unsigned int)VfUtilAddressRangeFitNoLock(
-                         ViIrpDatabaseAddressRanges + 16LL * (unsigned __int8)(-125 * (BugCheckParameter2 >> 12)),
-                         BugCheckParameter2,
-                         BugCheckParameter2 + 1) )
+    if ( VfUtilAddressRangeFitNoLock(
+           (__m128i *)(ViIrpDatabaseAddressRanges + 16LL * (unsigned __int8)(-125 * (BugCheckParameter2 >> 12))),
+           BugCheckParameter2,
+           BugCheckParameter2 + 1) )
     {
       ViIrpDatabaseAcquireLockShared(&v3);
       Pointer = ViIrpDatabaseFindPointer(BugCheckParameter2);

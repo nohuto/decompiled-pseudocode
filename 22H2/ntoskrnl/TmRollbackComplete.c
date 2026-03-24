@@ -1,7 +1,7 @@
 /*
- * XREFs of TmRollbackComplete @ 0x1403D80D0
+ * XREFs of TmRollbackComplete @ 0x1403D07C0
  * Callers:
- *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
+ *     <none>
  * Callees:
  *     <none>
  */

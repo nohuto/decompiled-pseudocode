@@ -1,48 +1,56 @@
 /*
- * XREFs of WPP_RECORDER_SF_qd @ 0x1C01416A4
+ * XREFs of WPP_RECORDER_SF_qD @ 0x1C018408C
  * Callers:
- *     RIMQueryDev @ 0x1C0059780 (RIMQueryDev.c)
- *     RIMDeviceClassNotify @ 0x1C009F050 (RIMDeviceClassNotify.c)
- *     RIMCreateHidDesc @ 0x1C009F54C (RIMCreateHidDesc.c)
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C00A3EC0 (RawInputManagerDeviceObjectResolveHandle.c)
- *     NtUserInjectKeyboardInput @ 0x1C013BBA0 (NtUserInjectKeyboardInput.c)
- *     NtUserInjectMouseInput @ 0x1C013BFC0 (NtUserInjectMouseInput.c)
- *     RIMSetDeviceIdleTimeout @ 0x1C016AF70 (RIMSetDeviceIdleTimeout.c)
- *     RIMVirtDeviceClassNotify @ 0x1C0174BE8 (RIMVirtDeviceClassNotify.c)
- *     rimDoVirtRimDevChange @ 0x1C0175A60 (rimDoVirtRimDevChange.c)
+ *     rimObsUpdateInputObserverRegistration @ 0x1C0185F58 (rimObsUpdateInputObserverRegistration.c)
  * Callees:
  *     _guard_dispatch_icall_nop @ 0x1C00D2DC0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 WPP_RECORDER_SF_qd(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)
-{
-  unsigned __int64 v7; // rdi
-  unsigned int v8; // esi
-  int v10; // eax
-  int v12; // [rsp+20h] [rbp-48h]
-  __int64 v13; // [rsp+50h] [rbp-18h]
-  __int64 v14; // [rsp+58h] [rbp-10h]
-  __int64 v15; // [rsp+98h] [rbp+30h] BYREF
-  va_list va; // [rsp+98h] [rbp+30h]
-  va_list va1; // [rsp+A0h] [rbp+38h] BYREF
-
-  va_start(va1, a5);
-  va_start(va, a5);
-  v15 = va_arg(va1, _QWORD);
-  v7 = (unsigned __int64)a3 >> 16;
-  v8 = a2;
-  v10 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v7 + (((a3 - 1) >> 5) & 0x7FF) + 1);
-  if ( _bittest(&v10, ((_BYTE)a3 - 1) & 0x1F) && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v7 + 1) >= a2 )
-    ((void (__fastcall *)(_QWORD, __int64, __int64, _QWORD, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
-      *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v7),
-      43LL,
-      a5,
-      a4,
-      (__int64 *)va,
-      8LL,
-      va1,
-      4LL,
-      0LL);
-  LOWORD(v12) = a4;
-  return WppAutoLogTrace(a1, v8, a3, a5, v12, (__int64 *)va, 8LL, va1, 4LL, 0LL, v13, v14);
-}
+/*
+ * Hex-Rays decompilation failed for WPP_RECORDER_SF_qD @ 0x1C018408C
+ * Reason: Hex-Rays returned no pseudocode for 0x1C018408C
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 00000001C018408C: mov     r11, rsp
+ * 00000001C018408F: mov     [r11+8], rbx
+ * 00000001C0184093: push    rbp
+ * 00000001C0184094: sub     rsp, 50h
+ * 00000001C0184098: mov     rcx, cs:WPP_GLOBAL_Control
+ * 00000001C018409F: mov     ebp, 29h ; ')'
+ * 00000001C01840A4: mov     rbx, qword ptr cs:WPP_MAIN_CB.Queue
+ * 00000001C01840AB: test    dword ptr [rcx+2Ch], 400000h
+ * 00000001C01840B2: jz      short loc_1C01840FE
+ * 00000001C01840B4: cmp     byte ptr [rcx+29h], 4
+ * 00000001C01840B8: jb      short loc_1C01840FE
+ * 00000001C01840BA: and     qword ptr [r11-18h], 0
+ * 00000001C01840BF: lea     rdx, [r11+38h]
+ * 00000001C01840C3: mov     rax, cs:pfnWppTraceMessage
+ * 00000001C01840CA: lea     r8, WPP_6fc7381aee0e372bb3b376f4de323b29_Traceguids
+ * 00000001C01840D1: mov     rcx, [rcx+18h]
+ * 00000001C01840D5: mov     qword ptr [r11-20h], 4
+ * 00000001C01840DD: mov     [r11-28h], rdx
+ * 00000001C01840E1: lea     rdx, [r11+30h]
+ * 00000001C01840E5: mov     qword ptr [r11-30h], 8
+ * 00000001C01840ED: mov     [r11-38h], rdx
+ * 00000001C01840F1: lea     edx, [rbp+2]
+ * 00000001C01840F4: movzx   r9d, bp
+ * 00000001C01840F8: call    cs:__guard_dispatch_icall_fptr
+ * 00000001C01840FE: and     [rsp+58h+var_10], 0
+ * 00000001C0184104: lea     rax, [rsp+58h+arg_30]
+ * 00000001C018410C: mov     [rsp+58h+var_18], 4
+ * 00000001C0184115: lea     r9, WPP_6fc7381aee0e372bb3b376f4de323b29_Traceguids
+ * 00000001C018411C: mov     [rsp+58h+var_20], rax
+ * 00000001C0184121: mov     edx, 4
+ * 00000001C0184126: lea     rax, [rsp+58h+arg_28]
+ * 00000001C018412E: mov     [rsp+58h+var_28], 8
+ * 00000001C0184137: mov     [rsp+58h+var_30], rax
+ * 00000001C018413C: mov     rcx, rbx
+ * 00000001C018413F: mov     [rsp+58h+var_38], bp
+ * 00000001C0184144: lea     r8d, [rdx+13h]
+ * 00000001C0184148: call    cs:__imp_WppAutoLogTrace
+ * 00000001C018414F: nop     dword ptr [rax+rax+00h]
+ * 00000001C0184154: mov     rbx, [rsp+58h+arg_0]
+ * 00000001C0184159: add     rsp, 50h
+ * 00000001C018415D: pop     rbp
+ * 00000001C018415E: retn
+ */

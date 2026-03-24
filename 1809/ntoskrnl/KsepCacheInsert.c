@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepCacheInsert @ 0x14070CFAC
+ * XREFs of KsepCacheInsert @ 0x14070CF8C
  * Callers:
- *     KseAddHardwareId @ 0x1406FEFE8 (KseAddHardwareId.c)
- *     KsepDbCacheInsertDevice @ 0x140722810 (KsepDbCacheInsertDevice.c)
+ *     KseAddHardwareId @ 0x1406FEFC8 (KseAddHardwareId.c)
+ *     KsepDbCacheInsertDevice @ 0x1407227F0 (KsepDbCacheInsertDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KsepCacheInsert(__int64 a1, __int64 a2)

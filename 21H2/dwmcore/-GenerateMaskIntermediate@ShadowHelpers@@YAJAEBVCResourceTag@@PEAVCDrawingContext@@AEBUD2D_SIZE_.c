@@ -1,162 +1,159 @@
 /*
- * XREFs of ?GenerateMaskIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCBrush@@PEBVCShape@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1802A9A0C
+ * XREFs of ?GenerateMaskIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCBrush@@PEBVCShape@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18000F3F4
  * Callers:
- *     ?UpdateMaskIntermediate@CProjectedShadowCaster@@QEAAJPEAVCDrawingContext@@@Z @ 0x180201E44 (-UpdateMaskIntermediate@CProjectedShadowCaster@@QEAAJPEAVCDrawingContext@@@Z.c)
- *     ?GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180233CD8 (-GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEA.c)
- *     ?GenerateFastShadowIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x18023437C (-GenerateFastShadowIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
- *     ?GetReceiverMaskInputBrush@CProjectedShadowReceiver@@QEAAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z @ 0x18023551C (-GetReceiverMaskInputBrush@CProjectedShadowReceiver@@QEAAJPEAVCDrawingContext@@PEAPEAVCDrawListB.c)
+ *     ?GetReceiverMaskInputBrush@CProjectedShadowReceiver@@QEAAJPEAVCDrawingContext@@PEAPEAVCDrawListBrush@@@Z @ 0x180006350 (-GetReceiverMaskInputBrush@CProjectedShadowReceiver@@QEAAJPEAVCDrawingContext@@PEAPEAVCDrawListB.c)
+ *     ?GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18000E924 (-GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEA.c)
+ *     ?GenerateFastShadowIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x18000F57C (-GenerateFastShadowIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?UpdateMaskIntermediate@CProjectedShadowCaster@@QEAAJPEAVCDrawingContext@@@Z @ 0x1801E42FC (-UpdateMaskIntermediate@CProjectedShadowCaster@@QEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PixelAlign@@YA?AV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@AEBUMilRectF@@@Z @ 0x1800882E4 (-PixelAlign@@YA-AV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUnique.c)
- *     ?RestoreStateToLastMark@CDrawingContext@@QEAAXXZ @ 0x18008A3B4 (-RestoreStateToLastMark@CDrawingContext@@QEAAXXZ.c)
- *     ?MarkCurrentState@CDrawingContext@@QEAAJXZ @ 0x18008B3C4 (-MarkCurrentState@CDrawingContext@@QEAAJXZ.c)
- *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800A9DE0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
- *     ?PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1800BA5D0 (-PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800D36F8 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x1800D53DC (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
- *     ?PopLayer@CDrawingContext@@QEAAJXZ @ 0x1800D5448 (-PopLayer@CDrawingContext@@QEAAJXZ.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D92A8 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?BuildFromRectFs@CShape@@SAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@IPEAPEAV1@@Z @ 0x1801903EC (-BuildFromRectFs@CShape@@SAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeed.c)
- *     ?ClipWithRect@CShape@@SAJAEBV1@AEBUtagRECT@@PEAPEAV1@@Z @ 0x180190614 (-ClipWithRect@CShape@@SAJAEBV1@AEBUtagRECT@@PEAPEAV1@@Z.c)
- *     ?PushClipShapeForCurrentNode@CDrawingContext@@QEAAJ$$QEAVCShapePtr@@@Z @ 0x1801B3068 (-PushClipShapeForCurrentNode@CDrawingContext@@QEAAJ$$QEAVCShapePtr@@@Z.c)
+ *     ?MarkCurrentState@CDrawingContext@@QEAAJXZ @ 0x18000F53C (-MarkCurrentState@CDrawingContext@@QEAAJXZ.c)
+ *     ?RestoreStateToLastMark@CDrawingContext@@QEAAXXZ @ 0x18001FC0C (-RestoreStateToLastMark@CDrawingContext@@QEAAXXZ.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?PopLayer@CDrawingContext@@QEAAJXZ @ 0x1800409B0 (-PopLayer@CDrawingContext@@QEAAJXZ.c)
+ *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x180040A80 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
+ *     ?PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@@_NPEAPEAVIRenderTargetBitmap@@@Z @ 0x180040B6C (-PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@.c)
+ *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x180041730 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C891C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?PushClipShape@CDrawingContext@@QEAAJ$$QEAVCShapePtr@@@Z @ 0x180177EA8 (-PushClipShape@CDrawingContext@@QEAAJ$$QEAVCShapePtr@@@Z.c)
+ *     ?BuildFromRectFs@CShape@@SAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@IPEAPEAV1@@Z @ 0x18025D4FC (-BuildFromRectFs@CShape@@SAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeed.c)
+ *     ?ClipWithRect@CShape@@SAJAEBV1@AEBUtagRECT@@PEAPEAV1@@Z @ 0x18025D6C8 (-ClipWithRect@CShape@@SAJAEBV1@AEBUtagRECT@@PEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall ShadowHelpers::GenerateMaskIntermediate(
         __int64 a1,
         CDrawingContext *a2,
-        float *a3,
+        __int64 a3,
         __int64 a4,
         struct CShape *a5,
         char a6,
-        void *a7,
-        __int64 *a8)
+        float *a7,
+        _QWORD *a8)
 {
   struct CShape *v8; // rsi
-  int v13; // eax
-  __int64 v14; // rcx
-  int v15; // ebx
-  int v16; // eax
-  __int64 v17; // rcx
-  __int64 v18; // rdx
+  int v12; // eax
+  unsigned int v13; // ecx
+  int v14; // edi
+  int v15; // eax
+  unsigned int v16; // ecx
+  __int64 v17; // rdx
+  unsigned int v18; // ecx
   __int64 v19; // rcx
-  const struct tagRECT *v20; // rax
-  int v21; // eax
-  __int64 v22; // rcx
-  int v23; // eax
-  __int64 v24; // rcx
-  int v25; // eax
-  __int64 v26; // rcx
-  __int64 v27; // rcx
+  int v20; // eax
+  unsigned int v21; // ecx
+  __int64 v22; // rax
+  int v24; // eax
+  unsigned int v25; // ecx
+  int v26; // eax
+  unsigned int v27; // ecx
   int v28; // eax
-  __int64 v29; // rcx
-  __int64 v30; // rax
-  __int64 v32; // [rsp+20h] [rbp-58h]
-  __int64 v33; // [rsp+30h] [rbp-48h] BYREF
-  struct CShape *v34; // [rsp+38h] [rbp-40h] BYREF
-  char v35; // [rsp+40h] [rbp-38h]
-  struct CShape *v36; // [rsp+48h] [rbp-30h] BYREF
-  _DWORD v37[4]; // [rsp+50h] [rbp-28h] BYREF
+  unsigned int v29; // ecx
+  __int64 v30; // [rsp+30h] [rbp-48h] BYREF
+  struct CShape *v31; // [rsp+38h] [rbp-40h] BYREF
+  char v32; // [rsp+40h] [rbp-38h]
+  struct CShape *v33; // [rsp+48h] [rbp-30h] BYREF
+  struct tagRECT v34; // [rsp+50h] [rbp-28h] BYREF
 
   v8 = a5;
-  v33 = 0LL;
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(&v33);
-  LODWORD(v32) = 4;
-  v13 = CDrawingContext::PushOffScreenRenderingLayer(a2, a1, a3, DisplayId::None, v32, (__int64)&v33);
-  v15 = v13;
-  if ( v13 < 0 )
+  v30 = 0LL;
+  v12 = CDrawingContext::PushOffScreenRenderingLayer(a2, a1, a3, DisplayId::None, 0, &v30);
+  v14 = v12;
+  if ( v12 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0xE7u);
-    goto LABEL_27;
-  }
-  v16 = CDrawingContext::PushTransformInternal(a2, 0LL, (const struct CMILMatrix *)&CMILMatrix::Identity, 0, 1);
-  v15 = v16;
-  if ( v16 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, v16, 0xEAu);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0xE7u, 0LL);
     goto LABEL_11;
   }
-  v15 = CDrawingContext::MarkCurrentState(a2);
+  v15 = CDrawingContext::PushTransformInternal(a2, 0LL, (const struct CMILMatrix *)&CMILMatrix::Identity, 0, 1);
+  v14 = v15;
   if ( v15 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0LL, v15, 0xEEu);
+    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0xEAu, 0LL);
     goto LABEL_10;
   }
-  v34 = 0LL;
-  v35 = 0;
-  if ( !a5 )
+  v14 = CDrawingContext::MarkCurrentState(a2);
+  if ( v14 < 0 )
   {
-    if ( !a6 )
-      goto LABEL_21;
-    v23 = CShape::BuildFromRectFs(a7, v18, &v36);
-    v15 = v23;
-    if ( v23 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0LL, v23, 0x105u);
-      goto LABEL_9;
-    }
-    CShapePtr::Release((CShapePtr *)&v34);
-    v8 = v36;
-    goto LABEL_16;
-  }
-  if ( !a6 )
-  {
-    CShapePtr::Release((CShapePtr *)&v34);
-    v35 = 0;
-LABEL_17:
-    v34 = v8;
-    if ( v8 )
-    {
-      v25 = CDrawingContext::PushClipShapeForCurrentNode(a2, (__int64 *)&v34);
-      v15 = v25;
-      if ( v25 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0LL, v25, 0x10Bu);
-        goto LABEL_9;
-      }
-    }
-LABEL_21:
-    v27 = a4 + *(int *)(*(_QWORD *)(a4 + 64) + 8LL) + 64LL;
-    v28 = (*(__int64 (__fastcall **)(__int64, CDrawingContext *, float *, _QWORD))(*(_QWORD *)v27 + 16LL))(
-            v27,
-            a2,
-            a3,
-            0LL);
-    v15 = v28;
-    if ( v28 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0LL, v28, 0x10Eu);
-    }
-    else
-    {
-      v30 = v33;
-      v33 = 0LL;
-      *a8 = v30;
-    }
+    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v14, 0xEEu, 0LL);
     goto LABEL_9;
   }
-  v20 = (const struct tagRECT *)PixelAlign(v37, (__int64)a7);
-  v21 = CShape::ClipWithRect(a5, v20, &v36);
-  v15 = v21;
-  if ( v21 >= 0 )
+  v31 = 0LL;
+  v32 = 0;
+  if ( a5 )
   {
-    v8 = v36;
-    CShapePtr::Release((CShapePtr *)&v34);
-LABEL_16:
-    v35 = 1;
-    goto LABEL_17;
+    if ( !a6 )
+    {
+      CShapePtr::Release((CShapePtr *)&v31);
+      v32 = 0;
+      goto LABEL_22;
+    }
+    v34.left = (int)*a7;
+    v34.top = (int)a7[1];
+    v34.right = (int)a7[2];
+    v34.bottom = (int)a7[3];
+    v24 = CShape::ClipWithRect(a5, &v34, &v33);
+    v14 = v24;
+    if ( v24 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0xF8u, 0LL);
+      goto LABEL_8;
+    }
+    v8 = v33;
+    CShapePtr::Release((CShapePtr *)&v31);
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, v21, 0xFAu);
-LABEL_9:
-  CShapePtr::Release((CShapePtr *)&v34);
+  else
+  {
+    if ( !a6 )
+    {
+LABEL_6:
+      v19 = a4 + *(int *)(*(_QWORD *)(a4 + 56) + 8LL) + 56LL;
+      v20 = (*(__int64 (__fastcall **)(__int64, CDrawingContext *, __int64, _QWORD))(*(_QWORD *)v19 + 16LL))(
+              v19,
+              a2,
+              a3,
+              0LL);
+      v14 = v20;
+      if ( v20 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x10Cu, 0LL);
+      }
+      else
+      {
+        v22 = v30;
+        v30 = 0LL;
+        *a8 = v22;
+      }
+      goto LABEL_8;
+    }
+    v26 = CShape::BuildFromRectFs(a7, v17, &v33);
+    v14 = v26;
+    if ( v26 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0x103u, 0LL);
+      goto LABEL_8;
+    }
+    CShapePtr::Release((CShapePtr *)&v31);
+    v8 = v33;
+  }
+  v32 = 1;
+LABEL_22:
+  v31 = v8;
+  if ( !v8 )
+    goto LABEL_6;
+  v28 = CDrawingContext::PushClipShape(a2);
+  v14 = v28;
+  if ( v28 >= 0 )
+    goto LABEL_6;
+  MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0x109u, 0LL);
+LABEL_8:
+  CShapePtr::Release((CShapePtr *)&v31);
   CDrawingContext::RestoreStateToLastMark(a2);
-LABEL_10:
+LABEL_9:
   CDrawingContext::PopTransformInternal(a2, 1);
-LABEL_11:
+LABEL_10:
   CDrawingContext::PopLayer(a2);
-LABEL_27:
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v33);
-  return (unsigned int)v15;
+LABEL_11:
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(&v30);
+  return (unsigned int)v14;
 }

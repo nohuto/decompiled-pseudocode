@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CAtlasBitmapResource@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800D2EC0
+ * XREFs of ?GetPixelFormatInfo@CAtlasBitmapResource@@UEBA?AUPixelFormatInfo@@XZ @ 0x18020A760
  * Callers:
- *     ?GetPixelFormatInfo@CAtlasBitmapResource@@$4PPPPPPPM@GA@EBA?AUPixelFormatInfo@@XZ @ 0x180107D90 (-GetPixelFormatInfo@CAtlasBitmapResource@@$4PPPPPPPM@GA@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CAtlasBitmapResource@@$4PPPPPPPM@FI@EBA?AUPixelFormatInfo@@XZ @ 0x1800F6C10 (-GetPixelFormatInfo@CAtlasBitmapResource@@$4PPPPPPPM@FI@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CAtlasBitmapResource::GetPixelFormatInfo(__int64 *a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchiSignalRegisteredSyncObjects @ 0x1C00018B8
+ * XREFs of VidSchiSignalRegisteredSyncObjects @ 0x1C0015E8C
  * Callers:
- *     VidSchiMarkDeviceAsError @ 0x1C00017E4 (VidSchiMarkDeviceAsError.c)
+ *     VidSchiMarkDeviceAsError @ 0x1C0015DC0 (VidSchiMarkDeviceAsError.c)
  * Callees:
- *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0001980 (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
- *     ?VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0035690 (-VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0015F54 (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
+ *     ?VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C002A898 (-VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
  */
 
 void __fastcall VidSchiSignalRegisteredSyncObjects(struct HwQueueStagingList *a1, _QWORD *a2)

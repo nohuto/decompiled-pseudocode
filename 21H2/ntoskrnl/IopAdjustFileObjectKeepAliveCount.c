@@ -1,151 +1,151 @@
 /*
- * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x140558AE0
+ * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x140507358
  * Callers:
- *     IoDecrementKeepAliveCount @ 0x140558640 (IoDecrementKeepAliveCount.c)
- *     IoIncrementKeepAliveCount @ 0x1405587A0 (IoIncrementKeepAliveCount.c)
+ *     IoDecrementKeepAliveCount @ 0x140506EB0 (IoDecrementKeepAliveCount.c)
+ *     IoIncrementKeepAliveCount @ 0x140507010 (IoIncrementKeepAliveCount.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     IopGetSetSpecificExtension @ 0x1402A38B4 (IopGetSetSpecificExtension.c)
- *     IopGetFileObjectExtension @ 0x1402A3A14 (IopGetFileObjectExtension.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
+ *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
+ *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall IopAdjustFileObjectKeepAliveCount(__int64 a1, __int64 a2, int a3, _DWORD *a4, __int64 *a5)
+__int64 __fastcall IopAdjustFileObjectKeepAliveCount(__int64 a1, __int64 a2, int a3, _DWORD *a4, _QWORD *a5)
 {
-  _QWORD *Pool2; // rbx
-  __int64 v6; // rsi
+  _OWORD *Pool; // rbx
+  _OWORD *v6; // rsi
   __int64 result; // rax
-  unsigned int v11; // edi
-  __int64 v12; // r14
-  KIRQL v13; // al
-  __int64 v14; // rdx
-  __int64 *v15; // rcx
-  _DWORD *v16; // rax
-  bool v17; // al
+  unsigned int v10; // edi
+  __int64 v11; // r14
+  KIRQL v12; // al
+  __int64 *v13; // rcx
+  unsigned __int64 v14; // r13
+  _DWORD *v15; // rax
+  bool v16; // al
+  int v17; // edx
   int v18; // edx
   unsigned __int8 CurrentIrql; // al
-  KIRQL v20; // r14
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v23; // eax
-  bool v24; // zf
+  int v22; // eax
+  bool v23; // zf
   __int64 FileObjectExtension; // [rsp+30h] [rbp-38h] BYREF
   PKSPIN_LOCK SpinLock; // [rsp+38h] [rbp-30h]
-  KIRQL v27; // [rsp+80h] [rbp+18h]
 
   FileObjectExtension = 0LL;
-  Pool2 = 0LL;
+  Pool = 0LL;
   v6 = 0LL;
   if ( a3 )
   {
     result = IopGetSetSpecificExtension(a1, 1u, 0x20u, 1, &FileObjectExtension, 0LL);
-    v11 = result;
+    v10 = result;
     if ( (int)result < 0 )
       return result;
-    Pool2 = (_QWORD *)ExAllocatePool2(64LL, 32LL, 538996553LL);
-    if ( Pool2 )
+    Pool = IopVerifierExAllocatePool(NonPagedPoolNx, 0x20uLL);
+    if ( Pool )
     {
-      v6 = ExAllocatePool2(64LL, 56LL, 538996553LL);
+      v6 = IopVerifierExAllocatePool(NonPagedPoolNx, 0x38uLL);
       if ( !v6 )
       {
-        ExFreePoolWithTag(Pool2, 0);
-        Pool2 = 0LL;
+        ExFreePoolWithTag(Pool, 0);
+        Pool = 0LL;
       }
     }
-    v12 = FileObjectExtension;
+    v11 = FileObjectExtension;
   }
   else
   {
-    v11 = 0;
+    v10 = 0;
     FileObjectExtension = IopGetFileObjectExtension(a1, 1, 0LL);
-    v12 = FileObjectExtension;
+    v11 = FileObjectExtension;
     if ( !FileObjectExtension )
       return 3221225485LL;
   }
   SpinLock = (PKSPIN_LOCK)(a1 + 184);
-  v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 184));
-  v14 = *(_QWORD *)(v12 + 24);
-  v27 = v13;
-  if ( v14 )
+  v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 184));
+  v13 = *(__int64 **)(v11 + 24);
+  v14 = v12;
+  while ( v13 )
   {
-    v15 = *(__int64 **)(v12 + 24);
-    while ( v15[1] != a2 )
+    if ( v13[1] == a2 )
     {
-      v15 = (__int64 *)*v15;
-      if ( !v15 )
-        goto LABEL_11;
-    }
-    if ( a3 )
-      ++*((_DWORD *)v15 + 4);
-    else
-      --*((_DWORD *)v15 + 4);
-    v18 = *((_DWORD *)v15 + 4);
-    *a5 = v15[3];
-    *a4 = v18;
-  }
-  else
-  {
-LABEL_11:
-    if ( a3 )
-    {
-      if ( Pool2 )
-      {
-        *Pool2 = v14;
-        *(_QWORD *)(v12 + 24) = Pool2;
-        Pool2[1] = a2;
-        *((_DWORD *)Pool2 + 4) = 1;
-        Pool2[3] = v6;
-        *(_QWORD *)(v6 + 24) = a2;
-        *(_QWORD *)(v6 + 40) = a1;
-        v17 = 0;
-        if ( (*(_DWORD *)(a1 + 80) & 0x20000000) != 0 )
-        {
-          v16 = *(_DWORD **)(a1 + 208);
-          if ( !v16 || (*v16 & 8) == 0 )
-            v17 = 1;
-        }
-        *(_BYTE *)(v6 + 18) = v17;
-        Pool2 = 0LL;
-        *a5 = v6;
-        v6 = 0LL;
-        *a4 = 1;
-      }
+      v17 = *((_DWORD *)v13 + 4);
+      if ( a3 )
+        v18 = v17 + 1;
       else
+        v18 = v17 - 1;
+      *((_DWORD *)v13 + 4) = v18;
+      *a5 = v13[3];
+      *a4 = v18;
+      goto LABEL_27;
+    }
+    v13 = (__int64 *)*v13;
+  }
+  if ( a3 )
+  {
+    if ( Pool )
+    {
+      *Pool = 0LL;
+      Pool[1] = 0LL;
+      *v6 = 0LL;
+      v6[1] = 0LL;
+      v6[2] = 0LL;
+      *((_QWORD *)v6 + 6) = 0LL;
+      *(_QWORD *)Pool = *(_QWORD *)(v11 + 24);
+      *(_QWORD *)(v11 + 24) = Pool;
+      *((_QWORD *)Pool + 1) = a2;
+      *((_DWORD *)Pool + 4) = 1;
+      *((_QWORD *)Pool + 3) = v6;
+      *((_QWORD *)v6 + 3) = a2;
+      *((_QWORD *)v6 + 5) = a1;
+      v16 = 0;
+      if ( (*(_DWORD *)(a1 + 80) & 0x20000000) != 0 )
       {
-        v11 = -1073741670;
+        v15 = *(_DWORD **)(a1 + 208);
+        if ( !v15 || (*v15 & 8) == 0 )
+          v16 = 1;
       }
+      *((_BYTE *)v6 + 18) = v16;
+      Pool = 0LL;
+      *a5 = v6;
+      v6 = 0LL;
+      *a4 = 1;
     }
     else
     {
-      v11 = -1073741811;
-    }
-  }
-  KxReleaseSpinLock(SpinLock);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
-  {
-    v20 = v27;
-    if ( v27 <= 0xFu && CurrentIrql >= 2u )
-    {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v23 = ~(unsigned __int16)(-1LL << (v27 + 1));
-      v24 = (v23 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v23;
-      if ( v24 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v10 = -1073741670;
     }
   }
   else
   {
-    v20 = v27;
+    v10 = -1073741811;
   }
-  __writecr8(v20);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+LABEL_27:
+  KxReleaseSpinLock(SpinLock);
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+        v23 = (v22 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v22;
+        if ( v23 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+  }
+  __writecr8(v14);
+  if ( Pool )
+    ExFreePoolWithTag(Pool, 0);
   if ( v6 )
-    ExFreePoolWithTag((PVOID)v6, 0);
-  return v11;
+    ExFreePoolWithTag(v6, 0);
+  return v10;
 }

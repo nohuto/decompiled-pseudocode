@@ -1,70 +1,78 @@
 /*
- * XREFs of DxgkPrepareCcdDatabaseForAccess @ 0x1C03AFB4C
+ * XREFs of DxgkPrepareCcdDatabaseForAccess @ 0x1C02F07A8
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ??1?$unique_storage@U?$resource_policy@PEAU_ACL@@$$A6AXPEAU1@@_E$1?FreePoolWithTag@?$pool_helpers@PEAU_ACL@@$0ELGHHIEE@@details@wil@@SAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C006B0B0 (--1-$unique_storage@U-$resource_policy@PEAU_ACL@@$$A6AXPEAU1@@_E$1-FreePoolWithTag@-$pool_helper.c)
- *     AdjustCcdDatabasePermissions @ 0x1C03AF1BC (AdjustCcdDatabasePermissions.c)
- *     CheckCallerMatchesSid @ 0x1C03AF7E0 (CheckCallerMatchesSid.c)
- *     CreateServiceSid @ 0x1C03AFA60 (CreateServiceSid.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ??$invoke@P6AXPEAU_KEY_BASIC_INFORMATION@@@ZAEAPEAU1@@wistd@@YAX$$QEAP6AXPEAU_KEY_BASIC_INFORMATION@@@ZAEAPEAU1@@Z @ 0x1C0028784 (--$invoke@P6AXPEAU_KEY_BASIC_INFORMATION@@@ZAEAPEAU1@@wistd@@YAX$$QEAP6AXPEAU_KEY_BASIC_INFORMAT.c)
+ *     AdjustCcdDatabasePermissions @ 0x1C02EFD10 (AdjustCcdDatabasePermissions.c)
+ *     CheckCallerMatchesSid @ 0x1C02F042C (CheckCallerMatchesSid.c)
+ *     CreateServiceSid @ 0x1C02F06A8 (CreateServiceSid.c)
  */
 
 __int64 DxgkPrepareCcdDatabaseForAccess()
 {
-  PSID v0; // rbx
-  __int64 v1; // rbx
-  int v2; // eax
-  __int64 v3; // rdi
-  int v4; // eax
+  __int64 v0; // rdx
+  __int64 v1; // rcx
+  PSID v2; // rbx
+  __int64 v3; // rax
+  __int64 v4; // rdi
   int v5; // eax
-  PSID Sid; // [rsp+20h] [rbp-38h] BYREF
-  ULONG v8[6]; // [rsp+28h] [rbp-30h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  int v8; // eax
+  int v9; // eax
+  PSID Sid; // [rsp+20h] [rbp-30h] BYREF
+  void (__fastcall *v12)(void *); // [rsp+28h] [rbp-28h] BYREF
+  ULONG v13[6]; // [rsp+30h] [rbp-20h] BYREF
 
-  v8[0] = 80;
-  v8[1] = -123880637;
-  v8[2] = 1617898341;
-  v8[3] = -1424805804;
-  v8[4] = 1466607281;
-  v8[5] = 2109097600;
-  CreateServiceSid(&Sid, v8);
-  v0 = Sid;
+  v13[0] = 80;
+  v13[1] = -123880637;
+  v13[2] = 1617898341;
+  v13[3] = -1424805804;
+  v13[4] = 1466607281;
+  v13[5] = 2109097600;
+  CreateServiceSid(&Sid, v13);
+  v2 = Sid;
   if ( !Sid )
   {
-    v1 = -1073741670LL;
+    v3 = WdLogNewEntry5_WdError(v1, v0);
+    v4 = -1073741670LL;
 LABEL_7:
-    WdLogSingleEntry1(2LL, v1);
+    *(_QWORD *)(v3 + 24) = v4;
+    WdLogEvent5_WdError(v3);
     goto LABEL_9;
   }
-  v2 = CheckCallerMatchesSid(Sid);
-  v3 = v2;
-  if ( v2 >= 0 )
+  v5 = CheckCallerMatchesSid(Sid);
+  v4 = v5;
+  if ( v5 < 0
+    || (v8 = AdjustCcdDatabasePermissions(
+               0LL,
+               L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Connectivity\\",
+               0,
+               v2),
+        v4 = v8,
+        v8 < 0)
+    || (v9 = AdjustCcdDatabasePermissions(
+               0LL,
+               L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\",
+               0,
+               v2),
+        v4 = v9,
+        v9 < 0) )
   {
-    v4 = AdjustCcdDatabasePermissions(
-           0,
-           L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Connectivity\\",
-           0,
-           v0);
-    v3 = v4;
-    if ( v4 >= 0 )
-    {
-      v5 = AdjustCcdDatabasePermissions(
-             0,
-             L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\",
-             0,
-             v0);
-      v1 = v5;
-      if ( v5 >= 0 )
-      {
-        LODWORD(v1) = 0;
-        goto LABEL_9;
-      }
-      goto LABEL_7;
-    }
+    v3 = WdLogNewEntry5_WdError(v7, v6);
+    goto LABEL_7;
   }
-  WdLogSingleEntry1(2LL, v3);
-  LODWORD(v1) = v3;
+  LODWORD(v4) = 0;
 LABEL_9:
-  __1__unique_storage_U__resource_policy_PEAU_ACL____A6AXPEAU1___E_1_FreePoolWithTag___pool_helpers_PEAU_ACL___0ELGHHIEE__details_wil__SAX0_ZU__integral_constant__K_0A__wistd__PEAU1_PEAU1__0A___T_details_wil___details_wil__IEAA_XZ(&Sid);
-  return (unsigned int)v1;
+  if ( v2 )
+  {
+    Sid = v2;
+    v12 = wil::details::pool_helpers<_ACL *,1265072196>::FreePoolWithTag;
+    wistd::invoke<void (*)(_KEY_BASIC_INFORMATION *),_KEY_BASIC_INFORMATION * &>(
+      (__int64 (__fastcall **)(_QWORD))&v12,
+      &Sid);
+  }
+  return (unsigned int)v4;
 }

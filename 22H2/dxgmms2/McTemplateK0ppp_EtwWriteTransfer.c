@@ -1,19 +1,19 @@
 /*
- * XREFs of McTemplateK0ppp_EtwWriteTransfer @ 0x1C002F4D0
+ * XREFs of McTemplateK0ppp_EtwWriteTransfer @ 0x1C0024F28
  * Callers:
- *     ?VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z @ 0x1C0042650 (-VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z.c)
- *     VidSchCreateHwQueue @ 0x1C0043F00 (VidSchCreateHwQueue.c)
- *     ?DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C0087C8C (-DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ.c)
- *     ?InitializeVaAllocator@CVirtualAddressAllocator@@QEAAJ_KIPEAVVIDMM_GLOBAL@@PEAVVIDMM_PROCESS@@@Z @ 0x1C008F390 (-InitializeVaAllocator@CVirtualAddressAllocator@@QEAAJ_KIPEAVVIDMM_GLOBAL@@PEAVVIDMM_PROCESS@@@Z.c)
- *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C009E474 (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
- *     ?VidMmProcessAsyncOperation@@YAXPEAX@Z @ 0x1C00B2200 (-VidMmProcessAsyncOperation@@YAXPEAX@Z.c)
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B5730 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
- *     ?ReportVaAllocatorState@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C00F35AC (-ReportVaAllocatorState@CVirtualAddressAllocator@@QEAAXXZ.c)
- *     VidSchReportAdapter @ 0x1C0107B90 (VidSchReportAdapter.c)
- *     VidSchReportHwQueue @ 0x1C0108FA0 (VidSchReportHwQueue.c)
+ *     ?VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z @ 0x1C00375D0 (-VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z.c)
+ *     VidSchCreateHwQueue @ 0x1C0039AF0 (VidSchCreateHwQueue.c)
+ *     ?VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z @ 0x1C0062738 (-VidMmUnmapViewAsync@@YAXPEAU_EPROCESS@@PEAX1@Z.c)
+ *     ?InitializeVaAllocator@CVirtualAddressAllocator@@QEAAJ_KIPEAVVIDMM_GLOBAL@@PEAVVIDMM_PROCESS@@@Z @ 0x1C00834DC (-InitializeVaAllocator@CVirtualAddressAllocator@@QEAAJ_KIPEAVVIDMM_GLOBAL@@PEAVVIDMM_PROCESS@@@Z.c)
+ *     ?DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C0084888 (-DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ.c)
+ *     ?VidMmProcessAsyncOperation@@YAXPEAX@Z @ 0x1C00870F0 (-VidMmProcessAsyncOperation@@YAXPEAX@Z.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008C500 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?ReportVaAllocatorState@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C00BDF30 (-ReportVaAllocatorState@CVirtualAddressAllocator@@QEAAXXZ.c)
+ *     VidSchReportAdapter @ 0x1C00D08E0 (VidSchReportAdapter.c)
+ *     VidSchReportHwQueue @ 0x1C00D1D80 (VidSchReportHwQueue.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0ppp_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

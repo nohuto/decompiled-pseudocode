@@ -1,7 +1,7 @@
 /*
- * XREFs of MiZeroLargePage @ 0x140118D5C
+ * XREFs of MiZeroLargePage @ 0x140118D7C
  * Callers:
- *     MiZeroAndConvertLargePage @ 0x140118CA8 (MiZeroAndConvertLargePage.c)
+ *     MiZeroAndConvertLargePage @ 0x140118CC8 (MiZeroAndConvertLargePage.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiZeroPhysicalPage @ 0x140032010 (MiZeroPhysicalPage.c)
@@ -10,13 +10,13 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiDeleteUltraThreadContext @ 0x1400E17EC (MiDeleteUltraThreadContext.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiCreateUltraThreadContext @ 0x14013CAC4 (MiCreateUltraThreadContext.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeZeroPages @ 0x1401C0910 (KeZeroPages.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiDeleteUltraThreadContext @ 0x1400E180C (MiDeleteUltraThreadContext.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiCreateUltraThreadContext @ 0x14013CAE4 (MiCreateUltraThreadContext.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeZeroPages @ 0x1401C0930 (KeZeroPages.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 unsigned __int64 __fastcall MiZeroLargePage(__int64 a1, unsigned int a2, int a3)

@@ -1,52 +1,70 @@
 /*
- * XREFs of PipVisitDeviceObjectListEntry @ 0x140868E48
+ * XREFs of PipVisitDeviceObjectListEntry @ 0x14074942C
  * Callers:
- *     PipSortDeviceObjectList @ 0x140868D9C (PipSortDeviceObjectList.c)
- *     PipVisitDeviceObjectListEntry @ 0x140868E48 (PipVisitDeviceObjectListEntry.c)
+ *     PipVisitDeviceObjectListEntry @ 0x14074942C (PipVisitDeviceObjectListEntry.c)
+ *     PipSortDeviceObjectList @ 0x140749A5C (PipSortDeviceObjectList.c)
  * Callees:
- *     PiGetDependentList @ 0x14079C828 (PiGetDependentList.c)
- *     PiEnumerateDependentListEntry @ 0x140839E64 (PiEnumerateDependentListEntry.c)
- *     PipVisitDeviceObjectListEntry @ 0x140868E48 (PipVisitDeviceObjectListEntry.c)
- *     PipIsDeviceInDeviceObjectList @ 0x14086921C (PipIsDeviceInDeviceObjectList.c)
+ *     PiGetDependentList @ 0x140747814 (PiGetDependentList.c)
+ *     PipVisitDeviceObjectListEntry @ 0x14074942C (PipVisitDeviceObjectListEntry.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x14074995C (PipIsDeviceInDeviceObjectList.c)
+ *     PiEnumerateDependentListEntry @ 0x14089D948 (PiEnumerateDependentListEntry.c)
  */
 
-__int64 __fastcall PipVisitDeviceObjectListEntry(_DWORD *a1, _DWORD *a2, int *a3)
+__int64 __fastcall PipVisitDeviceObjectListEntry(__int64 a1, _DWORD *a2, int *a3)
 {
   int v5; // eax
-  __int64 v7; // rbp
-  __int64 i; // rdi
-  _QWORD *v9; // rcx
-  _QWORD *v10; // rax
-  __int64 *DependentList; // r14
-  __int64 *j; // rdi
-  int v13; // eax
-  _QWORD *v15; // [rsp+78h] [rbp+20h]
+  __int64 v7; // rcx
+  __int64 v8; // rbp
+  __int64 v9; // rdi
+  _QWORD *v10; // rcx
+  _QWORD *v11; // rax
+  __int64 *DependentList; // r15
+  __int64 *v13; // rdi
+  int v14; // eax
+  _QWORD v16[7]; // [rsp+20h] [rbp-38h] BYREF
+  char v17; // [rsp+60h] [rbp+8h] BYREF
+  _QWORD *v18; // [rsp+78h] [rbp+20h] BYREF
 
-  v15 = 0LL;
-  v5 = a1[4];
+  v16[0] = 0LL;
+  v18 = 0LL;
+  v5 = *(_DWORD *)(a1 + 16);
   if ( (v5 & 2) == 0 )
   {
-    a1[4] = v5 | 2;
-    if ( *(_QWORD *)a1 )
-      v7 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 312LL) + 40LL);
+    *(_DWORD *)(a1 + 16) = v5 | 2;
+    v7 = *(_QWORD *)a1;
+    if ( v7 )
+      v8 = *(_QWORD *)(*(_QWORD *)(v7 + 312) + 40LL);
     else
-      v7 = 0LL;
-    for ( i = 0LL; (unsigned int)i < *a2; i = (unsigned int)(i + 1) )
+      v8 = 0LL;
+    v9 = 0LL;
+    if ( *a2 )
     {
-      v9 = &a2[4 * i + 4 + 2 * i];
-      v10 = (_QWORD *)*v9;
-      v15 = v9;
-      if ( v10 )
-        v10 = *(_QWORD **)(v10[39] + 40LL);
-      if ( v10[2] == v7 || (v10[81] & 0xFFFFFFFFFFFFFFFEuLL) == v7 )
-        PipVisitDeviceObjectListEntry(v9, a2, a3);
+      do
+      {
+        v10 = &a2[4 * v9 + 4 + 2 * v9];
+        v11 = (_QWORD *)*v10;
+        v18 = v10;
+        if ( v11 )
+          v11 = *(_QWORD **)(v11[39] + 40LL);
+        if ( v11[2] == v8 || (v11[81] & 0xFFFFFFFFFFFFFFFEuLL) == v8 )
+          PipVisitDeviceObjectListEntry(v10, a2, a3);
+        v9 = (unsigned int)(v9 + 1);
+      }
+      while ( (unsigned int)v9 < *a2 );
+      v7 = *(_QWORD *)a1;
     }
-    DependentList = PiGetDependentList(*(_QWORD *)a1);
-    for ( j = (__int64 *)*DependentList; j != DependentList; j = (__int64 *)*j )
-      PiEnumerateDependentListEntry((__int64)j);
-    v13 = *a3;
-    a1[3] = *a3;
-    *a3 = v13 + 1;
+    DependentList = PiGetDependentList(v7);
+    v13 = (__int64 *)*DependentList;
+    while ( v13 != DependentList )
+    {
+      PiEnumerateDependentListEntry(v13, v16, &v17);
+      v13 = (__int64 *)*v13;
+      if ( v16[0] && (unsigned __int8)PipIsDeviceInDeviceObjectList(a2, v16[0], &v18) )
+        PipVisitDeviceObjectListEntry(v18, a2, a3);
+    }
+    v14 = *a3;
+    *(_DWORD *)(a1 + 12) = *a3;
+    *a3 = v14 + 1;
   }
   return 0LL;
 }

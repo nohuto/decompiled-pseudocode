@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqIrpQueryGetResult @ 0x1406BE1FC
+ * XREFs of PiDqIrpQueryGetResult @ 0x1406BE1DC
  * Callers:
  *     PiDqDispatch @ 0x140590640 (PiDqDispatch.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     PiDqQueryFreeActiveData @ 0x140590124 (PiDqQueryFreeActiveData.c)
  *     PiDqQueryGetNextIoctlInfo @ 0x1405901DC (PiDqQueryGetNextIoctlInfo.c)
  *     PiDqIrpComplete @ 0x140590A9C (PiDqIrpComplete.c)

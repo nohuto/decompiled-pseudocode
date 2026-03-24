@@ -1,29 +1,29 @@
 /*
- * XREFs of ACPITableLoad @ 0x1C001F8F0
+ * XREFs of ACPITableLoad @ 0x1C00258B0
  * Callers:
- *     ACPIInitializeDDBs @ 0x1C00BD6E4 (ACPIInitializeDDBs.c)
+ *     ACPIInitializeDDBs @ 0x1C00BE9B0 (ACPIInitializeDDBs.c)
  * Callees:
- *     ACPIBuildScheduleDpc @ 0x1C000C2F4 (ACPIBuildScheduleDpc.c)
- *     ACPIGpeBuildEventMasks @ 0x1C001B8FC (ACPIGpeBuildEventMasks.c)
- *     ACPIBuildSpecialSynchronizationRequest @ 0x1C001CB58 (ACPIBuildSpecialSynchronizationRequest.c)
- *     ACPIBuildRunMethodRequest @ 0x1C001FB38 (ACPIBuildRunMethodRequest.c)
- *     ACPIGpeClearEventMasks @ 0x1C001FC84 (ACPIGpeClearEventMasks.c)
- *     EnableDisableCMOSRegions @ 0x1C0020180 (EnableDisableCMOSRegions.c)
- *     ACPIQueryDeviceLockMutexSupport @ 0x1C0020370 (ACPIQueryDeviceLockMutexSupport.c)
- *     ACPIEcInitOpRegionHandler @ 0x1C0020398 (ACPIEcInitOpRegionHandler.c)
- *     ACPIRootInitialize @ 0x1C008F8C0 (ACPIRootInitialize.c)
+ *     EnableDisableCMOSRegions @ 0x1C0016500 (EnableDisableCMOSRegions.c)
+ *     ACPIGpeBuildEventMasks @ 0x1C001718C (ACPIGpeBuildEventMasks.c)
+ *     ACPIBuildSpecialSynchronizationRequest @ 0x1C001C75C (ACPIBuildSpecialSynchronizationRequest.c)
+ *     ACPIBuildScheduleDpc @ 0x1C001E54C (ACPIBuildScheduleDpc.c)
+ *     ACPIBuildRunMethodRequest @ 0x1C0025AF4 (ACPIBuildRunMethodRequest.c)
+ *     ACPIGpeClearEventMasks @ 0x1C0025C40 (ACPIGpeClearEventMasks.c)
+ *     ACPIQueryDeviceLockMutexSupport @ 0x1C0026A30 (ACPIQueryDeviceLockMutexSupport.c)
+ *     ACPIEcInitOpRegionHandler @ 0x1C0026A58 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
  */
 
 __int64 __fastcall ACPITableLoad(__int64 a1, int a2, __int64 a3)
 {
   KIRQL v4; // al
   int v5; // ebx
-  __int64 i; // rcx
-  KIRQL v7; // si
+  KIRQL v7; // al
   int v8; // ebx
-  KIRQL v9; // bl
-  KIRQL v11; // al
-  int v12; // ebx
+  KIRQL v9; // si
+  int v10; // ebx
+  KIRQL v11; // bl
+  __int64 i; // rcx
   int v13; // [rsp+48h] [rbp+10h] BYREF
 
   v13 = 0;
@@ -37,30 +37,30 @@ __int64 __fastcall ACPITableLoad(__int64 a1, int a2, __int64 a3)
   }
   else
   {
-    v11 = KeAcquireSpinLockRaiseToDpc(&AcpiBuildQueueLock);
-    v12 = --AcpiTableLoadDelta;
+    v7 = KeAcquireSpinLockRaiseToDpc(&AcpiBuildQueueLock);
+    v8 = --AcpiTableLoadDelta;
     if ( !AcpiTableLoadDelta )
     {
       for ( i = AcpiBuildQueueList; (__int64 *)i != &AcpiBuildQueueList; i = *(_QWORD *)i )
         *(_DWORD *)(i + 20) &= ~0x40u;
     }
-    KeReleaseSpinLock(&AcpiBuildQueueLock, v11);
-    if ( !v12 )
+    KeReleaseSpinLock(&AcpiBuildQueueLock, v7);
+    if ( !v8 )
     {
       if ( !*((_BYTE *)AcpiInformation + 133) )
         ACPIGpeBuildEventMasks();
       if ( (gOverrideFlags & 2) == 0 )
         ACPIEcInitOpRegionHandler();
-      if ( !*(_QWORD *)(RootDeviceExtension + 760) )
+      if ( !*(_QWORD *)(RootDeviceExtension + 720) )
         ACPIRootInitialize();
-      v7 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-      v8 = ACPIBuildRunMethodRequest(RootDeviceExtension, 0, 0, 1229867359, 7, 0);
+      v9 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+      v10 = ACPIBuildRunMethodRequest(RootDeviceExtension, 0, 0, 1229867359, 7, 0);
       ACPIQueryDeviceLockMutexSupport(&v13);
       if ( v13 )
-        v8 = ACPIBuildRunMethodRequest(RootDeviceExtension, 0, 0, 1296843871, 388, 0);
-      KeReleaseSpinLock(&AcpiDeviceTreeLock, v7);
-      if ( v8 < 0
-        || (EnableDisableCMOSRegions(*(_QWORD *)(RootDeviceExtension + 760)),
+        v10 = ACPIBuildRunMethodRequest(RootDeviceExtension, 0, 0, 1296843871, 388, 0);
+      KeReleaseSpinLock(&AcpiDeviceTreeLock, v9);
+      if ( v10 < 0
+        || (EnableDisableCMOSRegions(*(_QWORD *)(RootDeviceExtension + 720)),
             (int)ACPIBuildSpecialSynchronizationRequest(
                    RootDeviceExtension,
                    (__int64)ACPITableLoadCallBack,
@@ -70,9 +70,9 @@ __int64 __fastcall ACPITableLoad(__int64 a1, int a2, __int64 a3)
       {
         KeBugCheckEx(0xA3u, 1uLL, 0x110292uLL, 0LL, 0LL);
       }
-      v9 = KeAcquireSpinLockRaiseToDpc(&AcpiBuildQueueLock);
+      v11 = KeAcquireSpinLockRaiseToDpc(&AcpiBuildQueueLock);
       ACPIBuildScheduleDpc();
-      KeReleaseSpinLock(&AcpiBuildQueueLock, v9);
+      KeReleaseSpinLock(&AcpiBuildQueueLock, v11);
     }
   }
   return 0LL;

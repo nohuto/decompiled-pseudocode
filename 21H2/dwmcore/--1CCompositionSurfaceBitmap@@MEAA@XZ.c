@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1CCompositionSurfaceBitmap@@MEAA@XZ @ 0x1800C7524
+ * XREFs of ??1CCompositionSurfaceBitmap@@MEAA@XZ @ 0x1800366E4
  * Callers:
- *     ??_GCCompositionSurfaceBitmap@@MEAAPEAXI@Z @ 0x1800C74E0 (--_GCCompositionSurfaceBitmap@@MEAAPEAXI@Z.c)
+ *     ??_GCCompositionSurfaceBitmap@@MEAAPEAXI@Z @ 0x1800366A0 (--_GCCompositionSurfaceBitmap@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?UnRegisterBitmapNotifier@CCompositionSurfaceInfo@@QEAAXPEAVICompositionSurfaceInfoListener@@@Z @ 0x1800C76C4 (-UnRegisterBitmapNotifier@CCompositionSurfaceInfo@@QEAAXPEAVICompositionSurfaceInfoListener@@@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800D3824 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D2C0 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?UnRegisterBitmapNotifier@CCompositionSurfaceInfo@@QEAAXPEAVICompositionSurfaceInfoListener@@@Z @ 0x180036E2C (-UnRegisterBitmapNotifier@CCompositionSurfaceInfo@@QEAAXPEAVICompositionSurfaceInfoListener@@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B114 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
  */
 
 void __fastcall CCompositionSurfaceBitmap::~CCompositionSurfaceBitmap(CCompositionSurfaceBitmap *this)
@@ -15,19 +15,19 @@ void __fastcall CCompositionSurfaceBitmap::~CCompositionSurfaceBitmap(CCompositi
   CCompositionSurfaceInfo *v4; // rcx
 
   *(_QWORD *)this = &CCompositionSurfaceBitmap::`vftable'{for `CContent'};
-  *((_QWORD *)this + 9) = &CCompositionSurfaceBitmap::`vftable'{for `IPixelFormat'};
-  *((_QWORD *)this + 11) = &CCompositionSurfaceBitmap::`vftable'{for `ICompositionSurfaceInfoListener'};
-  *((_QWORD *)this + 12) = &CCompositionSurfaceBitmap::`vftable'{for `IDirtyRectSource'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 4LL) + 64) = &CCompositionSurfaceBitmap::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 64) = &CCompositionSurfaceBitmap::`vftable'{for `IContent'};
-  v2 = *(int *)(*((_QWORD *)this + 8) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 60) = v2 - 144;
-  v3 = *(int *)(*((_QWORD *)this + 8) + 8LL);
-  *(_DWORD *)((char *)this + v3 + 60) = v3 - 160;
-  v4 = (CCompositionSurfaceInfo *)*((_QWORD *)this + 13);
+  *((_QWORD *)this + 8) = &CCompositionSurfaceBitmap::`vftable'{for `IPixelFormat'};
+  *((_QWORD *)this + 10) = &CCompositionSurfaceBitmap::`vftable'{for `ICompositionSurfaceInfoListener'};
+  *((_QWORD *)this + 11) = &CCompositionSurfaceBitmap::`vftable'{for `IDirtyRectSource'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 4LL) + 56) = &CCompositionSurfaceBitmap::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 56) = &CCompositionSurfaceBitmap::`vftable'{for `IContent'};
+  v2 = *(int *)(*((_QWORD *)this + 7) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 52) = v2 - 152;
+  v3 = *(int *)(*((_QWORD *)this + 7) + 8LL);
+  *(_DWORD *)((char *)this + v3 + 52) = v3 - 168;
+  v4 = (CCompositionSurfaceInfo *)*((_QWORD *)this + 12);
   if ( v4 )
-    CCompositionSurfaceInfo::UnRegisterBitmapNotifier(v4, (CCompositionSurfaceBitmap *)((char *)this + 88));
-  FastRegion::CRegion::FreeMemory((CCompositionSurfaceBitmap *)((char *)this + 120));
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 13);
+    CCompositionSurfaceInfo::UnRegisterBitmapNotifier(v4, (CCompositionSurfaceBitmap *)((char *)this + 80));
+  FastRegion::CRegion::FreeMemory((CCompositionSurfaceBitmap *)((char *)this + 112));
+  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)this + 12);
   CResource::~CResource(this);
 }

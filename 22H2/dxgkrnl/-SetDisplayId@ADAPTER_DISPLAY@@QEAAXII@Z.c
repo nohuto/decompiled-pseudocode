@@ -1,39 +1,23 @@
 /*
- * XREFs of ?SetDisplayId@ADAPTER_DISPLAY@@QEAAXII@Z @ 0x1C00170C8
+ * XREFs of ?SetDisplayId@ADAPTER_DISPLAY@@QEAAXII@Z @ 0x1C001AFFC
  * Callers:
- *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0170854 (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
- *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0193D3C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00E63DC (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
+ *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00EBB74 (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-void __fastcall ADAPTER_DISPLAY::SetDisplayId(ADAPTER_DISPLAY *this, unsigned int a2, int a3)
+void __fastcall ADAPTER_DISPLAY::SetDisplayId(ADAPTER_DISPLAY *this, __int64 a2, int a3)
 {
   __int64 v4; // rbx
-  int v6; // edx
-  int v7; // r8d
+  __int64 v6; // rax
 
-  v4 = a2;
-  if ( a2 >= *((_DWORD *)this + 24) )
+  v4 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= *((_DWORD *)this + 20) )
   {
-    WdLogSingleEntry1(1LL, 6001LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          0,
-          v6,
-          v7,
-          0,
-          2,
-          -1,
-          (__int64)L"VidPnSourceId < m_NumVidPnSources",
-          6001LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 5842LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  *(_DWORD *)(4000 * v4 + *((_QWORD *)this + 16) + 624) = a3;
+  *(_DWORD *)(3968 * v4 + *((_QWORD *)this + 14) + 624) = a3;
 }

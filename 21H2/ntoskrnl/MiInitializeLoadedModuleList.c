@@ -1,133 +1,70 @@
 /*
- * XREFs of MiInitializeLoadedModuleList @ 0x140B09D6C
+ * XREFs of MiInitializeLoadedModuleList @ 0x140A55E9C
  * Callers:
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     RtlRemoveInvertedFunctionTable @ 0x140259480 (RtlRemoveInvertedFunctionTable.c)
- *     RtlpxLookupFunctionTable @ 0x140297AE0 (RtlpxLookupFunctionTable.c)
- *     ExInitializeResourceLite @ 0x14030F740 (ExInitializeResourceLite.c)
- *     MmReleaseLoadLock @ 0x1406F5AF0 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406F5B50 (MmAcquireLoadLock.c)
- *     MiConstructLoaderEntry @ 0x14075F4A4 (MiConstructLoaderEntry.c)
- *     MiLockdownSections @ 0x1407607D8 (MiLockdownSections.c)
- *     MiCaptureBootDriverRetpolineInfo @ 0x14082CB7C (MiCaptureBootDriverRetpolineInfo.c)
- *     NtSetDebugFilterState @ 0x14082CCC0 (NtSetDebugFilterState.c)
- *     MiUpdateBootDriverHotPatchImports @ 0x140B09F98 (MiUpdateBootDriverHotPatchImports.c)
- *     MiBuildImportsForBootDrivers @ 0x140B0A000 (MiBuildImportsForBootDrivers.c)
- *     MiLocateKernelSections @ 0x140B0A37C (MiLocateKernelSections.c)
+ *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
+ *     MiConstructLoaderEntry @ 0x14075DDD0 (MiConstructLoaderEntry.c)
+ *     MiLockdownSections @ 0x14075E564 (MiLockdownSections.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1407A5390 (MiCaptureBootDriverRetpolineInfo.c)
+ *     NtSetDebugFilterState @ 0x1407A54C0 (NtSetDebugFilterState.c)
+ *     MiBuildImportsForBootDrivers @ 0x140A56038 (MiBuildImportsForBootDrivers.c)
+ *     RtlCreateInvertedFunctionTableCacheEntry @ 0x140A56360 (RtlCreateInvertedFunctionTableCacheEntry.c)
+ *     MiLocateKernelSections @ 0x140A56418 (MiLocateKernelSections.c)
  */
 
 __int64 __fastcall MiInitializeLoadedModuleList(__int64 a1)
 {
-  bool v2; // si
-  __int64 v3; // rdi
-  __int64 v4; // r14
-  __int64 v5; // rcx
-  __int64 v6; // r12
+  bool v2; // di
+  __int64 *v3; // rsi
+  __int64 v4; // rbx
+  unsigned int *v5; // rcx
+  unsigned int *v6; // rbp
   int v7; // eax
-  struct _KTHREAD *Lock; // rbx
-  _QWORD *v9; // rcx
-  _QWORD *v10; // r8
-  int v12; // ebx
-  unsigned __int64 v13; // rcx
-  __int64 v14; // rdx
-  __int64 v15; // r9
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  _QWORD *v18; // rax
-  _QWORD *v19; // rcx
-  __int128 v20; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v21; // [rsp+40h] [rbp-10h]
-  __int64 v22; // [rsp+80h] [rbp+30h] BYREF
+  unsigned int *v9; // [rsp+50h] [rbp+8h] BYREF
 
-  v22 = 0LL;
-  qword_140C4F488 = (__int64)&qword_140C4F480;
-  qword_140C4F480 = (__int64)&qword_140C4F480;
+  v9 = 0LL;
+  qword_140C4CCC8 = (__int64)&qword_140C4CCC0;
+  qword_140C4CCC0 = (__int64)&qword_140C4CCC0;
   v2 = (KiSpeculationFeatures & 0x20000000000LL) != 0 || (KiSpeculationFeatures & 0x40000000000LL) != 0;
   ExInitializeResourceLite(&PsLoadedModuleResource);
   ExpCovPushLock = 0LL;
   *(&PsLoadedModuleList + 1) = &PsLoadedModuleList;
   PsLoadedModuleList = &PsLoadedModuleList;
-  qword_140C10E28 = (__int64)&ExpCovUnloadedModuleList;
+  qword_140C16248 = (__int64)&ExpCovUnloadedModuleList;
   ExpCovUnloadedModuleList = (__int64)&ExpCovUnloadedModuleList;
   NtSetDebugFilterState(0x7Eu, 0, 1);
-  v3 = *(_QWORD *)(a1 + 16);
-  MiLocateKernelSections(v3);
-  if ( v3 == a1 + 16 )
+  v3 = (__int64 *)(a1 + 16);
+  v4 = *v3;
+  MiLocateKernelSections(*v3);
+  if ( (__int64 *)v4 == v3 )
   {
 LABEL_11:
-    Lock = MmAcquireLoadLock();
-    v9 = (_QWORD *)(*(_QWORD *)(a1 + 240) + 3784LL);
-    v10 = (_QWORD *)*v9;
-    if ( (_QWORD *)*v9 != v9 )
-    {
-      do
-      {
-        if ( (v10[5] & 3) == 1 )
-        {
-          v14 = *(_QWORD *)(v10[9] + 144LL);
-          v15 = *(_QWORD *)(v10[10] + 144LL);
-          *(_QWORD *)(v14 + 280) = v15;
-          v16 = v14 + 296;
-          v17 = *(_QWORD *)(v10[9] + 144LL);
-          v18 = (_QWORD *)(v15 + 296);
-          *(_DWORD *)(v15 + 196) |= 0x20u;
-          *(_QWORD *)(v15 + 280) = v17;
-          v19 = *(_QWORD **)(v16 + 8);
-          if ( *v19 != v16 )
-            __fastfail(3u);
-          *v18 = v16;
-          *(_QWORD *)(v15 + 304) = v19;
-          *v19 = v18;
-          *(_QWORD *)(v16 + 8) = v18;
-          *(_DWORD *)(v15 + 312) = *((_DWORD *)v10 + 15);
-          v10[9] &= ~0x8000000000000000uLL;
-          v10[10] &= ~0x8000000000000000uLL;
-        }
-        v10 = (_QWORD *)*v10;
-      }
-      while ( v10 != (_QWORD *)(*(_QWORD *)(a1 + 240) + 3784LL) );
-    }
     MiBuildImportsForBootDrivers();
-    if ( (int)MiUpdateBootDriverHotPatchImports() >= 0 )
-    {
-      MmReleaseLoadLock((__int64)Lock);
-      return 1LL;
-    }
+    return 1LL;
   }
   else
   {
-    while ( (int)MiConstructLoaderEntry(v3, (const void **)(v3 + 88), (const void **)(v3 + 72), 0, 1, &v22) >= 0 )
+    while ( (int)MiConstructLoaderEntry(v4, (const void **)(v4 + 88), (const void **)(v4 + 72), 0, 1, &v9) >= 0 )
     {
-      *(_QWORD *)(v3 + 144) = v22;
-      v4 = v22;
-      *(_DWORD *)(v22 + 196) |= 0x100u;
-      v5 = v22;
-      v6 = *(_QWORD *)(v22 + 48);
-      if ( v6 == PsNtosImageBase && (MiFlags & 0x40000) == 0 )
+      v5 = v9;
+      v6 = v9 + 40;
+      if ( *((_QWORD *)v9 + 6) == PsNtosImageBase && (MiFlags & 0x80000) == 0 )
       {
-        v12 = *(_DWORD *)(v22 + 64);
-        v13 = *(_QWORD *)(v22 + 48);
-        v21 = 0LL;
-        v20 = 0LL;
-        RtlpxLookupFunctionTable(v13, (__int64)&v20);
-        xmmword_140E00030 = v20;
-        qword_140E00040 = v21;
-        LODWORD(qword_140E00040) = v12;
-        RtlRemoveInvertedFunctionTable(v6);
-        v5 = v22;
+        RtlCreateInvertedFunctionTableCacheEntry(*((_QWORD *)v9 + 6), v9[16]);
+        v5 = v9;
       }
-      MiLockdownSections(v5);
-      if ( v2 && (*(_DWORD *)(v22 + 104) & 0x800000) == 0 )
+      MiLockdownSections((__int64)v5);
+      if ( v2 && (v9[26] & 0x800000) == 0 )
       {
-        v7 = MiCaptureBootDriverRetpolineInfo(*(_QWORD *)(v22 + 48), *(_DWORD *)(v22 + 64), (_QWORD *)(v4 + 320));
+        v7 = MiCaptureBootDriverRetpolineInfo(*((_QWORD *)v9 + 6), v9[16], (_QWORD *)v6 + 17);
         if ( ((v7 + 0x80000000) & 0x80000000) == 0 && v7 != -1073741637 )
           break;
       }
-      v3 = *(_QWORD *)v3;
-      if ( v3 == a1 + 16 )
+      v4 = *(_QWORD *)v4;
+      if ( (__int64 *)v4 == v3 )
         goto LABEL_11;
     }
+    return 0LL;
   }
-  return 0LL;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmQueryLayeredKey @ 0x14026BE18
+ * XREFs of CmQueryLayeredKey @ 0x14026BF18
  * Callers:
  *     CmQueryKey @ 0x1405D6900 (CmQueryKey.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KCBNeedsVirtualImage_0 @ 0x14026C2BC (KCBNeedsVirtualImage_0.c)
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x14026D374 (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KCBNeedsVirtualImage_0 @ 0x14026C3BC (KCBNeedsVirtualImage_0.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x14026D474 (CmpQueryKeyDataFromKeyNodeStack.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
@@ -16,15 +16,15 @@
  *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
  *     SeCaptureSubjectContextEx @ 0x1405E07F0 (SeCaptureSubjectContextEx.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     CmpCleanupKcbStack @ 0x140643FD0 (CmpCleanupKcbStack.c)
- *     CmpLockKcbStackShared @ 0x140644050 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406440E0 (CmpUnlockKcbStack.c)
- *     CmpIsKeyStackSymlink @ 0x140644740 (CmpIsKeyStackSymlink.c)
- *     CmGetKeyFlags @ 0x140763E60 (CmGetKeyFlags.c)
- *     CmpCleanupKeyNodeStack @ 0x1407F99C0 (CmpCleanupKeyNodeStack.c)
- *     CmpInitializeKcbStack @ 0x1407F9F20 (CmpInitializeKcbStack.c)
- *     CmpInitializeKeyNodeStack @ 0x1407F9F48 (CmpInitializeKeyNodeStack.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x1407FA580 (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmpCleanupKcbStack @ 0x140643FB0 (CmpCleanupKcbStack.c)
+ *     CmpLockKcbStackShared @ 0x140644030 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
+ *     CmpIsKeyStackSymlink @ 0x140644720 (CmpIsKeyStackSymlink.c)
+ *     CmGetKeyFlags @ 0x140763E40 (CmGetKeyFlags.c)
+ *     CmpCleanupKeyNodeStack @ 0x1407F99A0 (CmpCleanupKeyNodeStack.c)
+ *     CmpInitializeKcbStack @ 0x1407F9F00 (CmpInitializeKcbStack.c)
+ *     CmpInitializeKeyNodeStack @ 0x1407F9F28 (CmpInitializeKeyNodeStack.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x1407FA560 (CmpStartKeyNodeStackFromKcbStack.c)
  */
 
 __int64 __fastcall CmQueryLayeredKey(__int64 a1, int a2, unsigned int *a3, unsigned int a4, unsigned int *a5)

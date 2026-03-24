@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CSnapshotMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0229C30
+ * XREFs of ?SetBufferProperty@CSnapshotMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E9EF0
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1C00DD6E0 (memcmp.c)
+ *     memcmp @ 0x1C00CE7B0 (memcmp.c)
  */
 
 __int64 __fastcall DirectComposition::CSnapshotMarshaler::SetBufferProperty(
@@ -21,14 +21,14 @@ __int64 __fastcall DirectComposition::CSnapshotMarshaler::SetBufferProperty(
   *a6 = 0;
   if ( a3 == 4 && a5 == 64 )
   {
-    if ( memcmp((char *)this + 84, a4, 0x40uLL) )
+    if ( memcmp((char *)this + 76, a4, 0x40uLL) )
     {
-      *(_OWORD *)((char *)this + 84) = *a4;
-      *(_OWORD *)((char *)this + 100) = a4[1];
-      *(_OWORD *)((char *)this + 116) = a4[2];
+      *(_OWORD *)((char *)this + 76) = *a4;
+      *(_OWORD *)((char *)this + 92) = a4[1];
+      *(_OWORD *)((char *)this + 108) = a4[2];
       v9 = a4[3];
       *((_DWORD *)this + 4) |= 0x20u;
-      *(_OWORD *)((char *)this + 132) = v9;
+      *(_OWORD *)((char *)this + 124) = v9;
       *a6 = 1;
     }
   }

@@ -1,62 +1,63 @@
 /*
- * XREFs of ?_WinSqmDWORDEvent@@YAXPEBU_EVENT_DESCRIPTOR@@PEAU_GUID@@KK@Z @ 0x1C00B7538
+ * XREFs of ?_WinSqmDWORDEvent@@YAXPEBU_EVENT_DESCRIPTOR@@PEAU_GUID@@KK@Z @ 0x1C00789D8
  * Callers:
- *     WinSqmSetDWORD @ 0x1C00B74E0 (WinSqmSetDWORD.c)
- *     WinSqmIncrementDWORD @ 0x1C00B7510 (WinSqmIncrementDWORD.c)
- *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00D0E68 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
- *     SqmPowerState @ 0x1C0147FA0 (SqmPowerState.c)
- *     WinSqmAddToAverageDWORD @ 0x1C0167670 (WinSqmAddToAverageDWORD.c)
- *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01DEAD0 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
+ *     WinSqmSetDWORD @ 0x1C0078880 (WinSqmSetDWORD.c)
+ *     SqmPowerState @ 0x1C00788B0 (SqmPowerState.c)
+ *     WinSqmIncrementDWORD @ 0x1C00789B0 (WinSqmIncrementDWORD.c)
+ *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00C0DF8 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
+ *     WinSqmAddToAverageDWORD @ 0x1C013A030 (WinSqmAddToAverageDWORD.c)
+ *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01A67E0 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
  * Callees:
- *     WinSqmEventWrite @ 0x1C005B8DC (WinSqmEventWrite.c)
- *     WinSqmEventEnabled @ 0x1C00B75B4 (WinSqmEventEnabled.c)
- *     ?IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z @ 0x1C00B760C (-IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     WinSqmEventEnabled @ 0x1C0078A58 (WinSqmEventEnabled.c)
+ *     ?IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z @ 0x1C0078AB0 (-IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z.c)
+ *     WinSqmEventWrite @ 0x1C00B1428 (WinSqmEventWrite.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 void __fastcall _WinSqmDWORDEvent(PCEVENT_DESCRIPTOR EventDescriptor, struct _GUID *a2, int a3, int a4)
 {
-  struct _GUID *v5; // rbx
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+20h] [rbp-50h] BYREF
-  int *v7; // [rsp+30h] [rbp-40h]
-  int v8; // [rsp+38h] [rbp-38h]
-  int v9; // [rsp+3Ch] [rbp-34h]
-  void *v10; // [rsp+40h] [rbp-30h]
-  int v11; // [rsp+48h] [rbp-28h]
-  int v12; // [rsp+4Ch] [rbp-24h]
-  int *v13; // [rsp+50h] [rbp-20h]
-  int v14; // [rsp+58h] [rbp-18h]
-  int v15; // [rsp+5Ch] [rbp-14h]
-  int v16; // [rsp+A0h] [rbp+30h] BYREF
-  int v17; // [rsp+A8h] [rbp+38h] BYREF
+  struct _GUID *v6; // rdi
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+20h] [rbp-58h] BYREF
+  int *v8; // [rsp+30h] [rbp-48h]
+  int v9; // [rsp+38h] [rbp-40h]
+  int v10; // [rsp+3Ch] [rbp-3Ch]
+  void *v11; // [rsp+40h] [rbp-38h]
+  int v12; // [rsp+48h] [rbp-30h]
+  int v13; // [rsp+4Ch] [rbp-2Ch]
+  int *v14; // [rsp+50h] [rbp-28h]
+  int v15; // [rsp+58h] [rbp-20h]
+  int v16; // [rsp+5Ch] [rbp-1Ch]
+  int v17; // [rsp+B0h] [rbp+38h] BYREF
+  int v18; // [rsp+B8h] [rbp+40h] BYREF
 
   if ( a2 != (struct _GUID *)-1LL )
   {
-    v17 = a4;
-    v16 = a3;
-    v5 = a2;
+    v18 = a4;
+    v17 = a3;
     if ( (unsigned int)IsExtendedWinSqmHandle(a2) )
     {
-      v5 = (struct _GUID *)((char *)v5 + 24);
+      v6 = (struct _GUID *)((char *)a2 + 24);
     }
-    else if ( !v5 )
+    else
     {
-      v5 = (struct _GUID *)&unk_1C0267080;
+      v6 = (struct _GUID *)&unk_1C020EFC8;
+      if ( a2 )
+        v6 = a2;
     }
-    if ( (unsigned int)WinSqmEventEnabled(EventDescriptor, v5) )
+    if ( (unsigned int)WinSqmEventEnabled(EventDescriptor, v6) )
     {
       UserData.Reserved = 0;
-      v9 = 0;
-      v12 = 0;
-      v15 = 0;
-      v7 = &v16;
-      v10 = &unk_1C029A528;
-      v13 = &v17;
-      UserData.Ptr = (ULONGLONG)v5;
+      v10 = 0;
+      v13 = 0;
+      v16 = 0;
+      v8 = &v17;
+      v11 = &unk_1C0255868;
+      v14 = &v18;
+      UserData.Ptr = (ULONGLONG)v6;
       UserData.Size = 16;
-      v8 = 4;
-      v11 = 4;
-      v14 = 4;
+      v9 = 4;
+      v12 = 4;
+      v15 = 4;
       WinSqmEventWrite(EventDescriptor, 4u, &UserData);
     }
   }

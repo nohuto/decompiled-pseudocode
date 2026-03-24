@@ -1,11 +1,11 @@
 /*
- * XREFs of IrqLibpParseMadt @ 0x1C00BE180
+ * XREFs of IrqLibpParseMadt @ 0x1C00BD72C
  * Callers:
- *     AcpiIrqLibConfigureLibrary @ 0x1C00BE048 (AcpiIrqLibConfigureLibrary.c)
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00BD584 (AcpiIrqLibConfigureLibrary.c)
  * Callees:
- *     ProcessorAddInstance @ 0x1C009DCC0 (ProcessorAddInstance.c)
- *     IcAddGicInstance @ 0x1C00B70AC (IcAddGicInstance.c)
- *     IcAddApicInstance @ 0x1C00BE290 (IcAddApicInstance.c)
+ *     ProcessorAddInstance @ 0x1C0097B80 (ProcessorAddInstance.c)
+ *     IcAddGicInstance @ 0x1C00B75E0 (IcAddGicInstance.c)
+ *     IcAddApicInstance @ 0x1C00BD844 (IcAddApicInstance.c)
  */
 
 __int64 __fastcall IrqLibpParseMadt(__int64 a1)
@@ -38,7 +38,7 @@ __int64 __fastcall IrqLibpParseMadt(__int64 a1)
             if ( (_BYTE)v4 == 12 )
             {
               result = IcAddApicInstance(*(unsigned int *)(v1 + 8));
-              goto LABEL_15;
+              goto LABEL_9;
             }
             break;
           case 2:
@@ -64,9 +64,9 @@ __int64 __fastcall IrqLibpParseMadt(__int64 a1)
             {
 LABEL_39:
               v5 = *(_DWORD *)(v1 + 4);
-LABEL_14:
+LABEL_8:
               result = ProcessorAddInstance(v5, -1);
-LABEL_15:
+LABEL_9:
               if ( (int)result < 0 )
                 return result;
             }
@@ -79,7 +79,7 @@ LABEL_15:
               if ( (unsigned __int8)v4 >= 0x4Cu )
               {
                 v5 = (*(_QWORD *)(v1 + 68) >> 8) ^ (*(_DWORD *)(v1 + 68) ^ (*(_DWORD *)(v1 + 68) >> 8)) & 0xFFFFFF;
-                goto LABEL_14;
+                goto LABEL_8;
               }
             }
             break;
@@ -87,7 +87,7 @@ LABEL_15:
             if ( *(_BYTE *)v1 == 12 && (unsigned __int8)v4 >= 0x18u )
             {
               result = IcAddGicInstance(*(_DWORD *)(v1 + 16));
-              goto LABEL_15;
+              goto LABEL_9;
             }
             break;
         }
@@ -95,7 +95,7 @@ LABEL_15:
       else if ( (_BYTE)v4 == 8 && (*(_BYTE *)(v1 + 4) & 1) != 0 )
       {
         v5 = *(unsigned __int8 *)(v1 + 3);
-        goto LABEL_14;
+        goto LABEL_8;
       }
       v1 += *(unsigned __int8 *)(v1 + 1);
       v3 = (_BYTE *)(v1 + 2);

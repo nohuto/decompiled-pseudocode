@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z @ 0x1C00A7B6C
+ * XREFs of ?ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z @ 0x1C0115C64
  * Callers:
- *     ?ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z @ 0x1C010F6B4 (-ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z.c)
+ *     ?ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z @ 0x1C005F890 (-ppfeGetAMatch@@YAPEAVPFE@@AEAVXDCOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEBGKKPEAKPEAU_POINTL@@3H@Z.c)
  * Callees:
- *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C0112870 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
- *     ?bSimItalic@IFIOBJ@@QEAAHXZ @ 0x1C015AB26 (-bSimItalic@IFIOBJ@@QEAAHXZ.c)
- *     ulCharsetToCodePage @ 0x1C015F42A (ulCharsetToCodePage.c)
- *     ?bInitPrivatePFT@@YAHXZ @ 0x1C026AE58 (-bInitPrivatePFT@@YAHXZ.c)
- *     ?pvSimBold@IFIOBJ@@QEAAPEAXXZ @ 0x1C029AFC4 (-pvSimBold@IFIOBJ@@QEAAPEAXXZ.c)
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C00BAC64 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ *     ?pvSimBold@IFIOBJ@@QEAAPEAXXZ @ 0x1C010D7B8 (-pvSimBold@IFIOBJ@@QEAAPEAXXZ.c)
+ *     ?bSimItalic@IFIOBJ@@QEAAHXZ @ 0x1C015577C (-bSimItalic@IFIOBJ@@QEAAHXZ.c)
+ *     ?bInitPrivatePFT@@YAHXZ @ 0x1C02724C0 (-bInitPrivatePFT@@YAHXZ.c)
+ *     ulCharsetToCodePage @ 0x1C02DC9F8 (ulCharsetToCodePage.c)
  */
 
 struct PFE *__fastcall MAPPER::ppfeSynthesizeAMatch(
@@ -17,156 +17,157 @@ struct PFE *__fastcall MAPPER::ppfeSynthesizeAMatch(
         struct _POINTL *a4)
 {
   int v4; // eax
-  __int64 v5; // rsi
-  unsigned int *v6; // r13
-  char *v9; // rdi
-  __int64 *v10; // r14
-  __int64 v12; // r14
-  struct Gre::Base::SESSION_GLOBALS *v13; // r15
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  unsigned int v16; // edx
-  int v17; // esi
+  unsigned int v5; // r10d
+  __int64 v6; // rsi
+  struct _POINTL *v7; // r13
+  char *v10; // rdi
+  __int64 *v11; // r14
+  int v12; // r12d
+  __int64 v14; // r14
+  struct PFF *v15; // rdx
+  int v16; // eax
+  int v17; // eax
   unsigned int v18; // r8d
-  int v19; // r14d
-  __int64 v20; // rdi
-  int v21; // r11d
-  __int16 v22; // cx
-  unsigned int v23; // eax
-  __int64 v24; // r8
-  __int64 v25; // rax
-  __int64 v26; // r9
-  __int64 v27; // rcx
-  __int64 v28; // rdx
-  struct _POINTL *v29; // rax
-  int v30; // [rsp+78h] [rbp+7h]
-  struct PFF *v31; // [rsp+80h] [rbp+Fh] BYREF
-  _QWORD v32[8]; // [rsp+88h] [rbp+17h] BYREF
-  unsigned int v33; // [rsp+D8h] [rbp+67h] BYREF
-  unsigned int *v34; // [rsp+E8h] [rbp+77h]
-  struct _POINTL *v35; // [rsp+F0h] [rbp+7Fh]
+  int v19; // edi
+  unsigned int v20; // r9d
+  int v21; // esi
+  __int64 v22; // r11
+  int v23; // eax
+  __int16 v24; // cx
+  unsigned int v25; // eax
+  __int64 v26; // rax
+  __int64 v27; // r9
+  int v28; // r8d
+  int v29; // eax
+  int v30; // r8d
+  int *v31; // r9
+  size_t v32; // [rsp+30h] [rbp-41h]
+  struct PFF *v33; // [rsp+78h] [rbp+7h] BYREF
+  _QWORD v34[9]; // [rsp+80h] [rbp+Fh] BYREF
+  unsigned int v35; // [rsp+D8h] [rbp+67h] BYREF
+  unsigned int *v36; // [rsp+E8h] [rbp+77h]
+  struct _POINTL *v37; // [rsp+F0h] [rbp+7Fh]
 
-  v35 = a4;
-  v34 = a3;
+  v37 = a4;
+  v36 = a3;
   v4 = *((_DWORD *)this + 22);
-  v5 = 0LL;
-  v33 = 0;
-  v6 = a3;
+  v5 = 0;
+  v6 = 0LL;
+  v35 = 0;
+  v7 = a4;
   if ( (v4 & 1) != 0 )
-    v9 = (char *)this + 92;
+    v10 = (char *)this + 92;
   else
-    v9 = (char *)(*((_QWORD *)this + 1) + 348LL);
-  v10 = (__int64 *)*((_QWORD *)this + 36);
-  v30 = 4 * *((_DWORD *)v9 + 1) + 8;
-  if ( !v10 )
-    return (struct PFE *)v5;
-  v12 = *v10;
-  v31 = 0LL;
-  if ( !v12 )
-    return (struct PFE *)v5;
-  v13 = Gre::Base::Globals(this);
-  if ( *((_QWORD *)v13 + 796) || (unsigned int)bInitPrivatePFT() )
+    v10 = (char *)(*((_QWORD *)this + 1) + 348LL);
+  v11 = (__int64 *)*((_QWORD *)this + 36);
+  v12 = 4 * *((_DWORD *)v10 + 1) + 8;
+  if ( !v11 )
+    return (struct PFE *)v6;
+  v14 = *v11;
+  v15 = 0LL;
+  v33 = 0LL;
+  if ( !v14 )
+    return (struct PFE *)v6;
+  if ( gpPFTPrivate )
   {
-    v32[0] = *((_QWORD *)v13 + 796);
-    if ( (*(_DWORD *)(v12 + 52) & 0x10) != 0 )
+LABEL_11:
+    v16 = *(_DWORD *)(v14 + 52);
+    v34[0] = gpPFTPrivate;
+    if ( (v16 & 0x10) != 0 )
     {
-LABEL_13:
-      if ( v33 && v31 )
+LABEL_14:
+      if ( v5 && v15 )
       {
-        if ( v33 == 1 )
+        if ( v5 == 1 )
         {
-          v5 = *((_QWORD *)v31 + 27);
+          v6 = *((_QWORD *)v15 + 27);
         }
         else
         {
-          v16 = 0;
-          v17 = 0x7FFFFFFF;
           v18 = 0;
-          if ( v33 )
+          v19 = 0x7FFFFFFF;
+          v20 = 0;
+          v21 = *((_DWORD *)this + 43);
+          do
           {
-            v19 = *((_DWORD *)this + 43);
-            do
+            v22 = *(_QWORD *)(*((_QWORD *)v15 + v20 + 27) + 32LL);
+            v23 = *(unsigned __int16 *)(v22 + 46) - v21;
+            if ( v23 < 0 )
+              v23 = v21 - *(unsigned __int16 *)(v22 + 46);
+            if ( v23 <= v19 )
             {
-              v20 = *(_QWORD *)(*((_QWORD *)v31 + v18 + 27) + 32LL);
-              v21 = v19 - *(unsigned __int16 *)(v20 + 46);
-              if ( *(unsigned __int16 *)(v20 + 46) - v19 >= 0 )
-                v21 = *(unsigned __int16 *)(v20 + 46) - v19;
-              if ( v21 <= v17 )
+              v19 = v23;
+              v24 = *(_WORD *)(*(int *)(v22 + 8) + v22);
+              if ( (*((_DWORD *)this + 63) & 0x2000000) != 0 )
               {
-                v17 = v21;
-                v22 = *(_WORD *)(*(int *)(v20 + 8) + v20);
-                if ( (*((_DWORD *)this + 63) & 0x2000000) != 0 )
-                {
-                  v23 = v18;
-                  if ( v22 != 64 )
-                    v23 = v16;
-                  v16 = v23;
-                }
-                else if ( v22 != 64 )
-                {
-                  v16 = v18;
-                }
+                v25 = v20;
+                if ( v24 != 64 )
+                  v25 = v18;
+                v18 = v25;
               }
-              ++v18;
+              else if ( v24 != 64 )
+              {
+                v18 = v20;
+              }
             }
-            while ( v18 < v33 );
-            v6 = v34;
+            ++v20;
           }
-          v5 = *((_QWORD *)v31 + v16 + 27);
+          while ( v20 < v5 );
+          v7 = v37;
+          v6 = *((_QWORD *)v15 + v18 + 27);
         }
         *a2 = 0;
-        v24 = 0LL;
-        v25 = *((_QWORD *)this + 1);
-        v26 = *(_QWORD *)(v5 + 32);
-        v32[0] = v26;
-        if ( *(_BYTE *)(v25 + 20) && (*(_BYTE *)(v26 + 52) & 1) == 0 && (unsigned int)IFIOBJ::bSimItalic((IFIOBJ *)v32) )
-        {
-          v24 = 0x4000LL;
+        v26 = *((_QWORD *)this + 1);
+        v27 = *(_QWORD *)(v6 + 32);
+        v34[0] = v27;
+        if ( *(_BYTE *)(v26 + 20) && (*(_BYTE *)(v27 + 52) & 1) == 0 && (unsigned int)IFIOBJ::bSimItalic((IFIOBJ *)v34) )
           *a2 = 0x4000;
-        }
         if ( (*((_DWORD *)this + 63) & 0x200000) == 0
-          && *(unsigned __int16 *)(v26 + 46) - *((_DWORD *)this + 43) < 0
-          && *((_DWORD *)this + 43) - *(unsigned __int16 *)(v26 + 46) > 150 )
+          && *(unsigned __int16 *)(v27 + 46) - *((_DWORD *)this + 43) < 0
+          && *((_DWORD *)this + 43) - *(unsigned __int16 *)(v27 + 46) > 150 )
         {
-          if ( IFIOBJ::pvSimBold((IFIOBJ *)v32) )
-          {
-            LODWORD(v24) = v24 | 0x2000;
-            *a2 = v24;
-          }
+          if ( IFIOBJ::pvSimBold((IFIOBJ *)v34) )
+            *a2 = v28 | 0x2000;
         }
-        v27 = *(unsigned __int8 *)(*((_QWORD *)this + 1) + 23LL);
-        v28 = *(unsigned __int8 *)(*((_QWORD *)this + 1) + 23LL) << 24;
-        *v6 = v28;
-        *v6 |= (unsigned int)ulCharsetToCodePage(v27, v28, v24) << 8;
-        v29 = v35;
-        v35->y = 1;
-        v29->x = 1;
+        *v36 = *(unsigned __int8 *)(*((_QWORD *)this + 1) + 23LL) << 24;
+        v29 = ulCharsetToCodePage();
+        *v31 = v30 | (v29 << 8);
+        v7->y = 1;
+        v7->x = 1;
       }
-      return (struct PFE *)v5;
+      return (struct PFE *)v6;
     }
-    v14 = (unsigned int)-(PUBLIC_PFTOBJ::bLoadFonts(
-                            (PUBLIC_PFTOBJ *)v32,
-                            *(unsigned __int16 **)(v12 + 24),
-                            *(_DWORD *)(v12 + 32),
-                            *(_DWORD *)(v12 + 36),
-                            (struct tagDESIGNVECTOR *)v9,
-                            v30,
-                            &v33,
-                            0x40u,
-                            &v31,
-                            0x30u,
-                            1,
-                            0LL,
-                            0,
-                            0) != 0);
-    v33 &= v14;
-    if ( v33 )
+    LODWORD(v32) = v12;
+    v17 = PUBLIC_PFTOBJ::bLoadFonts(
+            (PUBLIC_PFTOBJ *)v34,
+            *(unsigned __int16 **)(v14 + 24),
+            *(_DWORD *)(v14 + 32),
+            *(_DWORD *)(v14 + 36),
+            (struct tagDESIGNVECTOR *)v10,
+            v32,
+            &v35,
+            0x40u,
+            &v33,
+            0x30u,
+            1,
+            0LL,
+            0,
+            0);
+    v35 &= -(v17 != 0);
+    if ( v35 )
     {
-      v15 = SGDGetSessionState(v14);
-      GreQuerySystemTime(*(_QWORD *)(v15 + 32) + 20288LL);
-      goto LABEL_13;
+      GreQuerySystemTime(&PFTOBJ::FontChangeTime);
+      v5 = v35;
+      v15 = v33;
+      goto LABEL_14;
     }
-    return (struct PFE *)v5;
+    return (struct PFE *)v6;
+  }
+  if ( (unsigned int)bInitPrivatePFT() )
+  {
+    v5 = v35;
+    v15 = v33;
+    goto LABEL_11;
   }
   return 0LL;
 }

@@ -4,8 +4,8 @@
  *     IopLiveDumpEndMirroringCallback @ 0x140578890 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MmAddRangeToCrashDump @ 0x1402AE110 (MmAddRangeToCrashDump.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MmAddRangeToCrashDump @ 0x1402AE210 (MmAddRangeToCrashDump.c)
  *     IopLiveDumpMarkDeviceNode @ 0x140578D68 (IopLiveDumpMarkDeviceNode.c)
  *     IopLiveDumpMarkLoadedModuleList @ 0x140578EB4 (IopLiveDumpMarkLoadedModuleList.c)
  *     IopLiveDumpMarkProcessorData @ 0x140578F74 (IopLiveDumpMarkProcessorData.c)

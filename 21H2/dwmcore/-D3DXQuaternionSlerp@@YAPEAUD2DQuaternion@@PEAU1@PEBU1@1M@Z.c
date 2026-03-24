@@ -1,11 +1,11 @@
 /*
- * XREFs of ?D3DXQuaternionSlerp@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1M@Z @ 0x18026E238
+ * XREFs of ?D3DXQuaternionSlerp@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1M@Z @ 0x18021DE44
  * Callers:
- *     ?Slerp@CExpressionValueStack@@QEAAJXZ @ 0x180250390 (-Slerp@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Slerp@CExpressionValueStack@@QEAAJXZ @ 0x180201128 (-Slerp@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
- *     _o_atan2f_0 @ 0x180101898 (_o_atan2f_0.c)
- *     _o_sinf_0 @ 0x180101964 (_o_sinf_0.c)
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
+ *     atan2f_0 @ 0x1800F473F (atan2f_0.c)
+ *     sinf_0 @ 0x1800F479F (sinf_0.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
  */
 
 struct D2DQuaternion *__fastcall D3DXQuaternionSlerp(
@@ -20,8 +20,8 @@ struct D2DQuaternion *__fastcall D3DXQuaternionSlerp(
   float v9; // xmm7_4
   float v10; // xmm10_4
   float v11; // xmm7_4
-  float v12; // xmm0_4
-  float v13; // xmm9_4
+  float v12; // xmm6_4
+  float v13; // xmm0_4
   float v14; // xmm7_4
   char *v15; // rdi
   float v16; // xmm8_4
@@ -41,12 +41,11 @@ struct D2DQuaternion *__fastcall D3DXQuaternionSlerp(
   v11 = v9 * v10;
   if ( (float)(1.0 - v11) > 0.00000011920929 )
   {
-    v12 = o_sqrtf_0(1.0 - (float)(v11 * v11));
-    o_atan2f_0();
-    v13 = 1.0 / v12;
-    v14 = v12 * a4;
-    v8 = o_sinf_0(v12 * v8) * (float)(1.0 / v12);
-    v7 = o_sinf_0(v14) * v13;
+    v12 = sqrtf_0(1.0 - (float)(v11 * v11));
+    v13 = atan2f_0(v12, v11);
+    v14 = v13 * a4;
+    v8 = sinf_0(v13 * v8) * (float)(1.0 / v12);
+    v7 = sinf_0(v14) * (float)(1.0 / v12);
   }
   v15 = (char *)(a2 - (const struct D2DQuaternion *)v4);
   v16 = v7 * v10;

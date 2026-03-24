@@ -1,19 +1,19 @@
 /*
- * XREFs of MmStealTopLevelPage @ 0x14015DE64
+ * XREFs of MmStealTopLevelPage @ 0x14015DE84
  * Callers:
- *     KiSwapDirectoryTableBaseTarget @ 0x14015DD30 (KiSwapDirectoryTableBaseTarget.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x14015DD50 (KiSwapDirectoryTableBaseTarget.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiReplacePageTablePage @ 0x14011BE6C (MiReplacePageTablePage.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KeMakeKernelDirectoryTableBase @ 0x14013CC9C (KeMakeKernelDirectoryTableBase.c)
- *     KeMakeUserDirectoryTableBase @ 0x14013CF80 (KeMakeUserDirectoryTableBase.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiReplacePageTablePage @ 0x14011BE8C (MiReplacePageTablePage.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x14013CCBC (KeMakeKernelDirectoryTableBase.c)
+ *     KeMakeUserDirectoryTableBase @ 0x14013CFA0 (KeMakeUserDirectoryTableBase.c)
  */
 
 __int64 __fastcall MmStealTopLevelPage(unsigned __int64 a1)

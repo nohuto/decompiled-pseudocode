@@ -1,19 +1,19 @@
 /*
- * XREFs of MiScrubProcesses @ 0x14085FBE0
+ * XREFs of MiScrubProcesses @ 0x14085FBC0
  * Callers:
- *     MmScrubMemory @ 0x14085FCE4 (MmScrubMemory.c)
+ *     MmScrubMemory @ 0x14085FCC4 (MmScrubMemory.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiProcessHasAwePrivatePages @ 0x1402B14A0 (MiProcessHasAwePrivatePages.c)
- *     MiScrubProcessLargePages @ 0x1402CFA3C (MiScrubProcessLargePages.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiProcessHasAwePrivatePages @ 0x1402B15A0 (MiProcessHasAwePrivatePages.c)
+ *     MiScrubProcessLargePages @ 0x1402CFB3C (MiScrubProcessLargePages.c)
  *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
- *     MiScrubProcessPhysicalPages @ 0x140850370 (MiScrubProcessPhysicalPages.c)
- *     MiInitializeScrubPacket @ 0x14085F9A8 (MiInitializeScrubPacket.c)
- *     MiReleaseScrubPacket @ 0x14085FAC4 (MiReleaseScrubPacket.c)
+ *     MiScrubProcessPhysicalPages @ 0x140850350 (MiScrubProcessPhysicalPages.c)
+ *     MiInitializeScrubPacket @ 0x14085F988 (MiInitializeScrubPacket.c)
+ *     MiReleaseScrubPacket @ 0x14085FAA4 (MiReleaseScrubPacket.c)
  */
 
 __int64 __fastcall MiScrubProcesses(__int64 a1, __int64 a2, _QWORD *a3)

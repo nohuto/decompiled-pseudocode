@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_VfWdfIoTargetPurge @ 0x1C00C2B10
+ * XREFs of imp_VfWdfIoTargetPurge @ 0x1C00C1B10
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall imp_VfWdfIoTargetPurge(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFIOTARGET__ *IoTarget, __int64 Action)

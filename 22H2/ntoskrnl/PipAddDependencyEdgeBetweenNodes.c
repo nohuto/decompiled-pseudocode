@@ -1,13 +1,13 @@
 /*
- * XREFs of PipAddDependencyEdgeBetweenNodes @ 0x1403966F8
+ * XREFs of PipAddDependencyEdgeBetweenNodes @ 0x14050C450
  * Callers:
- *     PipSetDependency @ 0x140839894 (PipSetDependency.c)
- *     PipDependencyCopyEdge @ 0x1409546F0 (PipDependencyCopyEdge.c)
+ *     PipDependencyCopyEdge @ 0x14089DCBC (PipDependencyCopyEdge.c)
+ *     PipSetDependency @ 0x14089E044 (PipSetDependency.c)
  * Callees:
- *     PipCreateNewDependencyEdge @ 0x140396794 (PipCreateNewDependencyEdge.c)
- *     PipAddtoRebuildPowerRelationsQueue @ 0x14079C9A8 (PipAddtoRebuildPowerRelationsQueue.c)
- *     PipAddRequestToEdge @ 0x140839C0C (PipAddRequestToEdge.c)
- *     PipCheckValidNewDependencyEdge @ 0x140839D5C (PipCheckValidNewDependencyEdge.c)
+ *     PipCreateNewDependencyEdge @ 0x14050C4F0 (PipCreateNewDependencyEdge.c)
+ *     PipAddtoRebuildPowerRelationsQueue @ 0x140747B64 (PipAddtoRebuildPowerRelationsQueue.c)
+ *     PipAddRequestToEdge @ 0x14089D9AC (PipAddRequestToEdge.c)
+ *     PipCheckValidNewDependencyEdge @ 0x14089DB98 (PipCheckValidNewDependencyEdge.c)
  */
 
 __int64 __fastcall PipAddDependencyEdgeBetweenNodes(__int64 a1, __int64 a2, __int64 a3)
@@ -16,7 +16,7 @@ __int64 __fastcall PipAddDependencyEdgeBetweenNodes(__int64 a1, __int64 a2, __in
   _QWORD *v7; // rax
   unsigned int v8; // ebx
   _QWORD *v9; // rcx
-  __int64 v11; // r11
+  __int64 v10; // r11
   __int64 NewDependencyEdge; // rax
 
   v5 = (_QWORD *)(a1 + 16);
@@ -34,7 +34,7 @@ __int64 __fastcall PipAddDependencyEdgeBetweenNodes(__int64 a1, __int64 a2, __in
   }
   if ( (unsigned __int8)PipCheckValidNewDependencyEdge(a1, a2) )
   {
-    NewDependencyEdge = PipCreateNewDependencyEdge(a1, v11, a3);
+    NewDependencyEdge = PipCreateNewDependencyEdge(a1, v10, a3);
     if ( NewDependencyEdge )
     {
       if ( *(_QWORD *)(*(_QWORD *)(NewDependencyEdge + 32) + 48LL) )

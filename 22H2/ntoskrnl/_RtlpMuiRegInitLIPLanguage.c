@@ -1,25 +1,25 @@
 /*
- * XREFs of _RtlpMuiRegInitLIPLanguage @ 0x140A7570C
+ * XREFs of _RtlpMuiRegInitLIPLanguage @ 0x1409820EC
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x140846910 (RtlpMuiRegAddLanguageByName.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x14078F12C (RtlpMuiRegAddLanguageByName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwEnumerateValueKey @ 0x14041A900 (ZwEnumerateValueKey.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlCompareUnicodeStrings @ 0x1406DA090 (RtlCompareUnicodeStrings.c)
- *     LdrpQueryValueKey @ 0x140847830 (LdrpQueryValueKey.c)
- *     _RtlMuiRegAddLIPParent @ 0x140A751F4 (_RtlMuiRegAddLIPParent.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x1403F9C80 (ZwEnumerateValueKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlCompareUnicodeStrings @ 0x14065F910 (RtlCompareUnicodeStrings.c)
+ *     LdrpQueryValueKey @ 0x14078F1EC (LdrpQueryValueKey.c)
+ *     _RtlMuiRegAddLIPParent @ 0x140981BB0 (_RtlMuiRegAddLIPParent.c)
  */
 
 __int64 __fastcall RtlpMuiRegInitLIPLanguage(__int64 a1, void *a2, _BYTE *a3)
 {
   unsigned __int64 v3; // rbp
-  unsigned int v7; // r14d
-  ULONG v8; // ebx
+  unsigned int v7; // edi
+  ULONG v8; // r12d
   __int64 v9; // rsi
   int ValueKey; // eax
-  int v11; // edi
+  int v11; // ebx
   unsigned __int64 v12; // rcx
   int v14; // [rsp+50h] [rbp+0h] BYREF
 
@@ -43,7 +43,7 @@ __int64 __fastcall RtlpMuiRegInitLIPLanguage(__int64 a1, void *a2, _BYTE *a3)
               (ULONG *)(v3 + 24)) < 0
     || *(_DWORD *)v3 != 1 )
   {
-    goto LABEL_30;
+    goto LABEL_16;
   }
   RtlInitUnicodeString((PUNICODE_STRING)(v3 + 8), (PCWSTR)(v3 + 32));
   *(_DWORD *)v3 = 7;
@@ -66,43 +66,34 @@ __int64 __fastcall RtlpMuiRegInitLIPLanguage(__int64 a1, void *a2, _BYTE *a3)
   }
   if ( v11 != -2147483622 )
   {
-LABEL_30:
-    while ( 1 )
+LABEL_16:
+    while ( v7 < 4
+         && ZwEnumerateValueKey(a2, v8, KeyValueFullInformation, (PVOID)(v3 + 224), 0x200u, (PULONG)(v3 + 28)) >= 0 )
     {
-      while ( 1 )
+      if ( *(_DWORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xE4) == 7
+        || *(_DWORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xE4) == 1 )
       {
-        if ( v7 >= 4
-          || ZwEnumerateValueKey(a2, v8, KeyValueFullInformation, (PVOID)(v3 + 224), 0x200u, (PULONG)(v3 + 28)) < 0 )
+        v12 = *(unsigned int *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xF0);
+        if ( v12 + 24 <= 0x200 )
         {
-          return 0LL;
+          *(_WORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xF4 + 2 * (v12 >> 1)) = 0;
+          RtlInitUnicodeString((PUNICODE_STRING)(v3 + 8), (PCWSTR)(v3 + 244));
+          if ( (!(_DWORD)v9
+             || RtlCompareUnicodeStrings(
+                  *(PCWCH *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10),
+                  (unsigned __int64)*(unsigned __int16 *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 8) >> 1,
+                  (PCWCH)(v3 + 32),
+                  (unsigned int)v9,
+                  1u))
+            && (int)RtlMuiRegAddLIPParent(
+                      a1,
+                      (__int64)a3,
+                      v7,
+                      *(WCHAR **)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10)) >= 0 )
+          {
+            ++v7;
+          }
         }
-        if ( *(_DWORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xE4) == 7
-          || *(_DWORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xE4) == 1 )
-        {
-          v12 = *(unsigned int *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xF0);
-          if ( v12 + 24 <= 0x200 )
-            break;
-        }
-LABEL_20:
-        ++v8;
-      }
-      *(_WORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xF4 + 2 * (v12 >> 1)) = 0;
-      RtlInitUnicodeString((PUNICODE_STRING)(v3 + 8), (PCWSTR)(v3 + 244));
-      if ( (!(_DWORD)v9
-         || RtlCompareUnicodeStrings(
-              *(PCWCH *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10),
-              (unsigned __int64)*(unsigned __int16 *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 8) >> 1,
-              (PCWCH)(v3 + 32),
-              (unsigned int)v9,
-              1u))
-        && (int)RtlMuiRegAddLIPParent(
-                  a1,
-                  (__int64)a3,
-                  v7,
-                  *(WCHAR **)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10)) >= 0 )
-      {
-        ++v7;
-        goto LABEL_20;
       }
       ++v8;
     }

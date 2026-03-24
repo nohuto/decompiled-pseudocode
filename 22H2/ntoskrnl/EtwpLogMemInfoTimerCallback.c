@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpLogMemInfoTimerCallback @ 0x1404673B0
+ * XREFs of EtwpLogMemInfoTimerCallback @ 0x1405A8C60
  * Callers:
  *     <none>
  * Callees:
- *     MmQuerySystemMemoryInformation @ 0x1403680B8 (MmQuerySystemMemoryInformation.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwpLogMemNodeInfo @ 0x140467426 (EtwpLogMemNodeInfo.c)
- *     EtwpQueuePerfMemInfoWorkItem @ 0x140467808 (EtwpQueuePerfMemInfoWorkItem.c)
- *     EtwpLogMemInfo @ 0x1405FDEB4 (EtwpLogMemInfo.c)
+ *     MmQuerySystemMemoryInformation @ 0x1403262B8 (MmQuerySystemMemoryInformation.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpLogMemInfo @ 0x1405A8AF8 (EtwpLogMemInfo.c)
+ *     EtwpLogMemNodeInfo @ 0x1405A8CD8 (EtwpLogMemNodeInfo.c)
+ *     EtwpQueuePerfMemInfoWorkItem @ 0x1405A9320 (EtwpQueuePerfMemInfoWorkItem.c)
  */
 
 __int64 EtwpLogMemInfoTimerCallback()
@@ -19,7 +19,7 @@ __int64 EtwpLogMemInfoTimerCallback()
   result = MmQuerySystemMemoryInformation(v1);
   if ( (DWORD1(PerfGlobalGroupMask) & 0x80000) != 0 )
   {
-    EtwpLogMemInfo(0LL, v1);
+    EtwpLogMemInfo(0LL, (__int64)v1);
     result = EtwpLogMemNodeInfo();
   }
   if ( (DWORD1(PerfGlobalGroupMask) & 0x800000) != 0 )

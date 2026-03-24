@@ -1,15 +1,16 @@
 /*
- * XREFs of ?Draw@CInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18022F5F0
+ * XREFs of ?Draw@CInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801C4D4C
  * Callers:
- *     ?Draw@CInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18011C340 (-Draw@CInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F4670 (-Draw@CInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetD2DInk@CInk@@QEAAJPEAVCD3DDevice@@PEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z @ 0x18022FA34 (-GetD2DInk@CInk@@QEAAJPEAVCD3DDevice@@PEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?DrawInk@CDrawingContext@@UEAAJPEAUID2D1Ink@@AEBU_D3DCOLORVALUE@@PEAUID2D1InkStyle@@@Z @ 0x180175740 (-DrawInk@CDrawingContext@@UEAAJPEAUID2D1Ink@@AEBU_D3DCOLORVALUE@@PEAUID2D1InkStyle@@@Z.c)
+ *     ?GetD2DInk@CInk@@QEAAJPEAVCD3DDevice@@PEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z @ 0x1801C5160 (-GetD2DInk@CInk@@QEAAJPEAVCD3DDevice@@PEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z.c)
  */
 
 __int64 __fastcall CInk::Draw(
-        CInk *this,
+        const struct _D3DCOLORVALUE *this,
         struct CD3DDevice **a2,
         const struct D2D_SIZE_F *a3,
         struct CDrawListCache *a4)
@@ -26,7 +27,7 @@ __int64 __fastcall CInk::Draw(
 
   v14 = 0LL;
   v15 = 0LL;
-  D2DInk = CInk::GetD2DInk((CInk *)((char *)this - 240), a2[5], &v14, &v15);
+  D2DInk = CInk::GetD2DInk((CInk *)&this[-14].b, a2[5], &v14, &v15);
   v8 = v14;
   v9 = D2DInk;
   v10 = v15;
@@ -36,11 +37,7 @@ __int64 __fastcall CInk::Draw(
   }
   else
   {
-    v11 = (*((__int64 (__fastcall **)(char *, struct ID2D1Ink *, char *, struct ID2D1InkStyle *))a2[2] + 7))(
-            (char *)a2 + 16,
-            v14,
-            (char *)this - 112,
-            v15);
+    v11 = CDrawingContext::DrawInk((CDrawingContext *)(a2 + 2), v14, this - 7, v15);
     v9 = v11;
     if ( v11 < 0 )
       MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0xF5u, 0LL);

@@ -1,59 +1,66 @@
 /*
- * XREFs of MiFreeBootPageTable @ 0x140B5BF94
+ * XREFs of MiFreeBootPageTable @ 0x140A577A4
  * Callers:
- *     MxZeroBootMappings @ 0x140B5BE78 (MxZeroBootMappings.c)
+ *     MxZeroBootMappings @ 0x140A5767C (MxZeroBootMappings.c)
  * Callees:
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiLockAndInsertPageInFreeList @ 0x14038A8F4 (MiLockAndInsertPageInFreeList.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiLockAndInsertPageInFreeList @ 0x1403B6EAC (MiLockAndInsertPageInFreeList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiFreeBootPageTable(ULONG_PTR BugCheckParameter2)
+__int64 __fastcall MiFreeBootPageTable(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  __int64 v1; // rbx
-  __int16 v2; // ax
-  unsigned __int64 v3; // rdi
-  char v4; // cl
+  __int64 v4; // rbx
+  __int16 v5; // ax
+  unsigned __int64 v6; // rdi
+  char v7; // cl
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r9
-  int v8; // eax
-  _DWORD *SchedulerAssist; // r8
-  bool v10; // zf
+  struct _KPRCB *CurrentPrcb; // r10
+  int v11; // eax
+  bool v12; // zf
 
-  v1 = 48 * BugCheckParameter2 - 0x220000000000LL;
-  v2 = *(_WORD *)(v1 + 32);
-  if ( v2 )
+  v4 = 48 * BugCheckParameter2 - 0x58000000000LL;
+  v5 = *(_WORD *)(v4 + 32);
+  if ( v5 )
   {
-    if ( v2 != 2 || (*(_QWORD *)(v1 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1 )
+    if ( v5 != 2 || (*(_QWORD *)(v4 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1 )
       KeBugCheckEx(0x1Au, 0x3030307uLL, BugCheckParameter2, 0LL, 0LL);
-    v3 = (unsigned __int8)MiLockPageInline(48 * BugCheckParameter2 - 0x220000000000LL);
-    _InterlockedExchangeAdd64(&qword_140C69AB0, 0xFFFFFFFFFFFFFFFFuLL);
-    v4 = *(_BYTE *)(v1 + 34);
-    *(_QWORD *)(v1 + 24) &= 0xC000000000000000uLL;
-    *(_WORD *)(v1 + 32) = 0;
-    *(_BYTE *)(v1 + 34) = v4 & 0xF8 | 5;
-    _InterlockedAnd64((volatile signed __int64 *)(v1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    v6 = (unsigned __int8)MiLockPageInline(
+                            48 * BugCheckParameter2 - 0x58000000000LL,
+                            0x3FFFFFFFFFFFFFFFLL,
+                            a3,
+                            SchedulerAssist);
+    v7 = *(_BYTE *)(v4 + 34) & 0xFD;
+    *(_WORD *)(v4 + 32) = 0;
+    *(_QWORD *)(v4 + 24) &= 0xC000000000000000uLL;
+    *(_BYTE *)(v4 + 34) = v7 | 5;
+    _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v10 = (v8 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v8;
-        if ( v10 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          a2 = -1LL << ((unsigned __int8)v6 + 1);
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v11 = ~(unsigned __int16)a2;
+          v12 = (v11 & SchedulerAssist[5]) == 0;
+          a3 = (unsigned int)v11 & SchedulerAssist[5];
+          SchedulerAssist[5] = a3;
+          if ( v12 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
-    __writecr8(v3);
+    __writecr8(v6);
   }
   else
   {
-    *(_QWORD *)(v1 + 8) = 0LL;
-    *(_QWORD *)(v1 + 40) |= 0x40000000000000uLL;
+    *(_QWORD *)(v4 + 8) = 0LL;
+    *(_QWORD *)(v4 + 40) |= 0x4000000000000uLL;
   }
-  return MiLockAndInsertPageInFreeList(v1);
+  return MiLockAndInsertPageInFreeList(v4, a2, a3, SchedulerAssist);
 }

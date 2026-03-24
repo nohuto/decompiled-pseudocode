@@ -1,22 +1,22 @@
 /*
- * XREFs of imp_WdfDmaTransactionInitializeUsingRequest @ 0x1C0054730
+ * XREFs of imp_WdfDmaTransactionInitializeUsingRequest @ 0x1C00307F0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     ?SupportsChainedMdls@FxDmaEnabler@@QEAAEXZ @ 0x1C0037BD2 (-SupportsChainedMdls@FxDmaEnabler@@QEAAEXZ.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_LqqLd @ 0x1C00536CC (WPP_IFR_SF_LqqLd.c)
- *     WPP_IFR_SF_Lqqd @ 0x1C0053808 (WPP_IFR_SF_Lqqd.c)
- *     WPP_IFR_SF_qddd @ 0x1C0053A68 (WPP_IFR_SF_qddd.c)
- *     WPP_IFR_SF_qqdd @ 0x1C0053E0C (WPP_IFR_SF_qqdd.c)
- *     ?Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_DMA_DIRECTION@@PEAU_SCATTER_GATHER_LIST@@@Z3PEAU_MDL@@_KK@Z @ 0x1C0059728 (-Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_.c)
- *     ?GetDeviceControlOutputMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z @ 0x1C00675D8 (-GetDeviceControlOutputMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z.c)
- *     ?GetMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z @ 0x1C0067904 (-GetMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?SupportsChainedMdls@FxDmaEnabler@@QEAAEXZ @ 0x1C002F4A0 (-SupportsChainedMdls@FxDmaEnabler@@QEAAEXZ.c)
+ *     WPP_IFR_SF_LqqLd @ 0x1C002F4D0 (WPP_IFR_SF_LqqLd.c)
+ *     WPP_IFR_SF_Lqqd @ 0x1C002F60C (WPP_IFR_SF_Lqqd.c)
+ *     WPP_IFR_SF_qddd @ 0x1C002F86C (WPP_IFR_SF_qddd.c)
+ *     WPP_IFR_SF_qqDd @ 0x1C002FC10 (WPP_IFR_SF_qqDd.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     ?Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_DMA_DIRECTION@@PEAU_SCATTER_GATHER_LIST@@@Z3PEAU_MDL@@_KK@Z @ 0x1C0036AA0 (-Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_.c)
+ *     ?GetDeviceControlOutputMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z @ 0x1C004DC84 (-GetDeviceControlOutputMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z.c)
+ *     ?GetMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z @ 0x1C004DFB4 (-GetMdl@FxRequest@@QEAAJPEAPEAU_MDL@@@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 __int64 __fastcall imp_WdfDmaTransactionInitializeUsingRequest(
@@ -51,7 +51,7 @@ __int64 __fastcall imp_WdfDmaTransactionInitializeUsingRequest(
   pReqObj = 0LL;
   mdl = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)DmaTransaction,
     0x1401u,
     (void **)&pDmaTrans);
@@ -62,7 +62,7 @@ __int64 __fastcall imp_WdfDmaTransactionInitializeUsingRequest(
   if ( DmaDirection > 1 )
   {
     _a3 = -1073741811;
-    WPP_IFR_SF_qqdd(
+    WPP_IFR_SF_qqDd(
       m_Globals,
       2u,
       0xFu,
@@ -122,7 +122,15 @@ LABEL_26:
       WPP_IFR_SF_qL(m_Globals, 2u, 0xFu, 0xFu, WPP_FxDmaTransactionAPI_cpp_Traceguids, Request, 0xC0000010);
       FxVerifierDbgBreakPoint(m_Globals);
 LABEL_29:
-      WPP_IFR_SF_qqd(m_Globals, 2u, 0xFu, 0x10u, WPP_FxDmaTransactionAPI_cpp_Traceguids, Request, DmaTransaction, _a3);
+      WPP_IFR_SF_qid(
+        m_Globals,
+        2u,
+        0xFu,
+        0x10u,
+        WPP_FxDmaTransactionAPI_cpp_Traceguids,
+        Request,
+        (__int64)DmaTransaction,
+        _a3);
       return _a3;
     }
     if ( v9 == WdfDmaDirectionReadFromDevice )

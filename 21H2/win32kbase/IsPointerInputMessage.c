@@ -1,10 +1,10 @@
 /*
- * XREFs of IsPointerInputMessage @ 0x1C01DA6A4
+ * XREFs of IsPointerInputMessage @ 0x1C01A12B8
  * Callers:
- *     ?CoalesceMessage@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@_K@Z @ 0x1C01C0928 (-CoalesceMessage@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@_K@Z.c)
- *     ?GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInputDest@@@Z @ 0x1C01C6D20 (-GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInp.c)
- *     ?IsMessageDelegated@CPointerInfoNode@@QEBAHI@Z @ 0x1C01CE1F4 (-IsMessageDelegated@CPointerInfoNode@@QEBAHI@Z.c)
- *     IsPointerInputMessageWithState @ 0x1C01DA6D4 (IsPointerInputMessageWithState.c)
+ *     ?CoalesceMessage@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C0189FB4 (-CoalesceMessage@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
+ *     ?GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInputDest@@@Z @ 0x1C018FC3C (-GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInp.c)
+ *     ?IsMessageDelegated@CPointerInfoNode@@QEBAHI@Z @ 0x1C0196AE8 (-IsMessageDelegated@CPointerInfoNode@@QEBAHI@Z.c)
+ *     IsPointerInputMessageWithState @ 0x1C01A12E8 (IsPointerInputMessageWithState.c)
  * Callees:
  *     <none>
  */

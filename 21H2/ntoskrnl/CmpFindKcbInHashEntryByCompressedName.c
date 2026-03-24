@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpFindKcbInHashEntryByCompressedName @ 0x14091514C
+ * XREFs of CmpFindKcbInHashEntryByCompressedName @ 0x14086EF30
  * Callers:
- *     CmpSubtreeEnumeratorAdvance @ 0x14065B81C (CmpSubtreeEnumeratorAdvance.c)
- *     CmpPartialPromoteSubkeys @ 0x1409224D4 (CmpPartialPromoteSubkeys.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x14072998C (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpPartialPromoteSubkeys @ 0x1408800C0 (CmpPartialPromoteSubkeys.c)
  * Callees:
- *     CmpCompareTwoCompressedNames @ 0x14065C57C (CmpCompareTwoCompressedNames.c)
- *     CmpCompareCompressedName @ 0x1407C45A0 (CmpCompareCompressedName.c)
+ *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
+ *     CmpCompareTwoCompressedNames @ 0x140875E28 (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpFindKcbInHashEntryByCompressedName(
@@ -17,34 +17,34 @@ __int64 __fastcall CmpFindKcbInHashEntryByCompressedName(
 {
   __int64 v7; // rsi
   __int64 i; // rdi
-  __int64 v10; // rcx
-  int v11; // eax
-  __int16 v12; // ax
+  __int64 v10; // rax
+  __int16 v11; // cx
+  int v12; // eax
   __int128 v14; // [rsp+20h] [rbp-28h] BYREF
 
   v14 = 0LL;
   v7 = 0LL;
-  for ( i = *(_QWORD *)(*(_QWORD *)(a1 + 1648)
+  for ( i = *(_QWORD *)(*(_QWORD *)(a1 + 1640)
                       + 24
-                      * ((unsigned int)(*(_DWORD *)(a1 + 1656) - 1) & ((101027 * (a2 ^ (a2 >> 9))) ^ ((unsigned __int64)(101027 * (a2 ^ (a2 >> 9))) >> 9)))
+                      * ((unsigned int)(*(_DWORD *)(a1 + 1648) - 1) & ((101027 * (a2 ^ (a2 >> 9))) ^ ((unsigned __int64)(101027 * (a2 ^ (a2 >> 9))) >> 9)))
                       + 16); i; i = *(_QWORD *)(i + 8) )
   {
     if ( *(_DWORD *)i == a2 && *(_QWORD *)(i + 56) == a3 )
     {
       v10 = *(_QWORD *)(i + 64);
+      v11 = *(_WORD *)(v10 + 24);
       if ( (*(_DWORD *)v10 & 1) != 0 )
       {
-        v11 = CmpCompareTwoCompressedNames(a4, a5, (unsigned __int8 *)(v10 + 26), *(_WORD *)(v10 + 24));
+        v12 = CmpCompareTwoCompressedNames(a4, a5, v10 + 26, *(unsigned __int16 *)(v10 + 24));
       }
       else
       {
-        v12 = *(_WORD *)(v10 + 24);
         *((_QWORD *)&v14 + 1) = v10 + 26;
-        LOWORD(v14) = v12;
-        WORD1(v14) = v12;
-        v11 = CmpCompareCompressedName((__int64)&v14, a4, a5, 1);
+        LOWORD(v14) = v11;
+        WORD1(v14) = v11;
+        v12 = CmpCompareCompressedName((__int64)&v14, a4, a5, 1);
       }
-      if ( !v11 )
+      if ( !v12 )
         return i - 16;
     }
   }

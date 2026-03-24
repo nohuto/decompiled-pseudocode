@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddCompositionFrame@CCompositionFrameCollection@@UEAAXPEAUICompositionFrame@@@Z @ 0x1C00111C0
+ * XREFs of ?AddCompositionFrame@CCompositionFrameCollection@@UEAAXPEAUICompositionFrame@@@Z @ 0x1C0015D60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CCompositionFrameCollection::AddCompositionFrame(
@@ -11,23 +11,23 @@ void __fastcall CCompositionFrameCollection::AddCompositionFrame(
         struct ICompositionFrame *a2)
 {
   char *v2; // rsi
-  __int64 v5; // rcx
-  _QWORD *v6; // rax
-  _QWORD *v7; // rdi
+  char *v5; // rdi
+  _QWORD *v6; // rbx
+  __int64 v7; // rax
 
   v2 = (char *)this + 32;
   ExAcquirePushLockExclusiveEx((char *)this + 32, 0LL);
   v2[8] = 1;
   (**(void (__fastcall ***)(struct ICompositionFrame *))a2)(a2);
-  v5 = *((_QWORD *)this + 2);
+  v5 = (char *)this + 16;
   v6 = (_QWORD *)((char *)a2 + 16);
-  v7 = (_QWORD *)((char *)this + 16);
-  if ( *(_QWORD **)(v5 + 8) != v7 )
+  v7 = *(_QWORD *)v5;
+  if ( *(char **)(*(_QWORD *)v5 + 8LL) != v5 )
     __fastfail(3u);
-  *v6 = v5;
-  *((_QWORD *)a2 + 3) = v7;
-  *(_QWORD *)(v5 + 8) = v6;
-  *v7 = v6;
+  *v6 = v7;
+  v6[1] = v5;
+  *(_QWORD *)(v7 + 8) = v6;
+  *(_QWORD *)v5 = v6;
   if ( v2[8] )
     ExReleasePushLockExclusiveEx(v2, 0LL);
   else

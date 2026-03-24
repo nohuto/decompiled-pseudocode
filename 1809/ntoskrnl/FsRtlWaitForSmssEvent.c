@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlWaitForSmssEvent @ 0x140763F40
+ * XREFs of FsRtlWaitForSmssEvent @ 0x140763F20
  * Callers:
  *     <none>
  * Callees:

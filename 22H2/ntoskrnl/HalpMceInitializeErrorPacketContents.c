@@ -1,27 +1,27 @@
 /*
- * XREFs of HalpMceInitializeErrorPacketContents @ 0x140A8B3A8
+ * XREFs of HalpMceInitializeErrorPacketContents @ 0x1409A0DBC
  * Callers:
- *     HalpMceInitializeErrorPacket @ 0x140A8B33C (HalpMceInitializeErrorPacket.c)
- *     HalpHandlePreviousMcaErrors @ 0x140A950A4 (HalpHandlePreviousMcaErrors.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A951E4 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpMceInitializeErrorPacket @ 0x1409A0D50 (HalpMceInitializeErrorPacket.c)
+ *     HalpHandlePreviousMcaErrors @ 0x1409A6DF4 (HalpHandlePreviousMcaErrors.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A6F34 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 GUID *__fastcall HalpMceInitializeErrorPacketContents(GUID *a1)
 {
   GUID *result; // rax
 
-  memset(a1, 0, 0x174uLL);
+  memset(a1, 0, 0x160uLL);
   *(_DWORD *)a1[1].Data4 = HalpMceErrorSourceId;
   result = a1 + 5;
   *(_QWORD *)&a1[3].Data1 = a1 + 5;
   a1[2] = MCE_NOTIFY_TYPE_GUID;
   a1->Data1 = 1095059543;
   *(_DWORD *)&a1->Data2 = 3;
-  *(_DWORD *)a1->Data4 = 372;
+  *(_DWORD *)a1->Data4 = 352;
   *(_DWORD *)a1[3].Data4 = 1;
   a1[4].Data1 = 80;
-  *(_DWORD *)&a1[4].Data2 = 292;
+  *(_DWORD *)&a1[4].Data2 = 272;
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x180198190
+ * XREFs of ??1UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800AF0FC
  * Callers:
- *     ??1FeatureStateData@details_abi@wil@@QEAA@XZ @ 0x180197FAC (--1FeatureStateData@details_abi@wil@@QEAA@XZ.c)
- *     ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180199488 (-ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
- *     ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180199AA4 (-RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ *     ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x1800AF090 (-RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ *     ??_G?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAXI@Z @ 0x18014CBC0 (--_G-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAXI@Z.c)
+ *     ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x18014DE14 (-ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
  * Callees:
- *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x180104770 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x1800DE2A0 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
  */
 
 void __fastcall wil::details_abi::UsageIndexes::~UsageIndexes(wil::details_abi::UsageIndexes *this, void *a2)

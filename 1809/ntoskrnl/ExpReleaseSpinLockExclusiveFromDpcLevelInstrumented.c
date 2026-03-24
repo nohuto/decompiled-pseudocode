@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178
+ * XREFs of ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278
  * Callers:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     MiLockSectionControlArea @ 0x140020210 (MiLockSectionControlArea.c)
@@ -30,20 +30,20 @@
  *     MiMakeHyperRangeAccessible @ 0x14006E3D0 (MiMakeHyperRangeAccessible.c)
  *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
  *     MiAddViewsForSection @ 0x140077170 (MiAddViewsForSection.c)
- *     MiIdentifyPfn @ 0x1400A7EC0 (MiIdentifyPfn.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     CcGetVirtualAddress @ 0x1400AFC20 (CcGetVirtualAddress.c)
- *     MiCopyOnWrite @ 0x1400B45C0 (MiCopyOnWrite.c)
- *     RtlpHpLfhSlotAllocate @ 0x1400BAE80 (RtlpHpLfhSlotAllocate.c)
- *     ExReleaseSpinLockExclusive @ 0x1400BC5B0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE10 (RtlpHpLfhSubsegmentFreeBlock.c)
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     MmPurgeSection @ 0x1400E7CE0 (MmPurgeSection.c)
- *     CcCanIWrite @ 0x140104D00 (CcCanIWrite.c)
- *     MiZeroPageThread @ 0x1401791E0 (MiZeroPageThread.c)
+ *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     CcGetVirtualAddress @ 0x1400AFC40 (CcGetVirtualAddress.c)
+ *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1400BAEA0 (RtlpHpLfhSlotAllocate.c)
+ *     ExReleaseSpinLockExclusive @ 0x1400BC5D0 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE30 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
+ *     CcCanIWrite @ 0x140104D20 (CcCanIWrite.c)
+ *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
  * Callees:
- *     PerfLogSpinLockRelease @ 0x140313A38 (PerfLogSpinLockRelease.c)
+ *     PerfLogSpinLockRelease @ 0x140313B38 (PerfLogSpinLockRelease.c)
  */
 
 void __fastcall ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(_DWORD *a1, __int64 a2)

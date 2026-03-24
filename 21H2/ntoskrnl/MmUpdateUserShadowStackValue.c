@@ -1,107 +1,115 @@
 /*
- * XREFs of MmUpdateUserShadowStackValue @ 0x1405A7A98
+ * XREFs of MmUpdateUserShadowStackValue @ 0x1403F4628
  * Callers:
- *     PspFreeUserFiberShadowStack @ 0x1409AF728 (PspFreeUserFiberShadowStack.c)
+ *     PspFreeUserFiberShadowStack @ 0x14090A174 (PspFreeUserFiberShadowStack.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     MiLockLowestValidPageTable @ 0x14027D6E0 (MiLockLowestValidPageTable.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x1402BEDD0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x1402CC7C0 (MiMapPageInHyperSpaceWorker.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     MiReleasePageFileInfo @ 0x1402E20D0 (MiReleasePageFileInfo.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiObtainReferencedVadEx @ 0x14030E7C0 (MiObtainReferencedVadEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlockAndDereferenceVad @ 0x14032E700 (MiUnlockAndDereferenceVad.c)
- *     MiCaptureDirtyBitToPfn @ 0x14033C2A0 (MiCaptureDirtyBitToPfn.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     MiLockLowestValidPageTable @ 0x1403055C0 (MiLockLowestValidPageTable.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14030FB10 (MiCaptureDirtyBitToPfn.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140331AB0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140348910 (MiUnmapPageInHyperSpaceWorker.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MmUpdateUserShadowStackValue(unsigned __int64 a1, signed __int64 a2)
 {
-  __int64 v3; // rax
-  char *v4; // rsi
-  unsigned __int64 *v5; // r15
-  unsigned __int64 v6; // rdi
-  unsigned __int8 v7; // r12
+  volatile signed __int32 *v3; // rax
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  _DWORD *v6; // r9
+  char *v7; // rsi
+  int v8; // eax
+  unsigned __int64 *v9; // r15
+  unsigned __int64 v10; // rdi
+  unsigned __int8 v11; // r12
   unsigned __int64 valid; // r13
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  unsigned __int64 v13; // r12
-  __int64 v14; // rdi
-  volatile signed __int64 *v15; // rcx
-  BOOL v16; // r14d
-  unsigned __int64 v17; // rax
-  __int64 v18; // rcx
-  unsigned int v19; // edi
-  __int64 v21; // [rsp+20h] [rbp-58h] BYREF
-  unsigned __int64 v22; // [rsp+28h] [rbp-50h] BYREF
-  __int64 v23[9]; // [rsp+30h] [rbp-48h] BYREF
-  unsigned __int8 v25; // [rsp+90h] [rbp+18h]
-  unsigned int v26; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  unsigned __int64 v17; // r12
+  __int64 v18; // rdi
+  volatile signed __int64 *v19; // rcx
+  BOOL v20; // r14d
+  __int64 v21; // rdx
+  unsigned __int64 v22; // rax
+  __int64 v23; // rcx
+  unsigned int v24; // edi
+  int v26; // [rsp+20h] [rbp-58h] BYREF
+  volatile signed __int32 *v27; // [rsp+28h] [rbp-50h]
+  unsigned __int64 v28; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v29[8]; // [rsp+38h] [rbp-40h] BYREF
+  unsigned __int8 v31; // [rsp+90h] [rbp+18h]
+  unsigned int v32; // [rsp+98h] [rbp+20h] BYREF
 
-  v26 = 0;
-  v22 = 0LL;
+  v32 = 0;
+  v28 = 0LL;
   if ( (a1 & 7) != 0 )
     ExRaiseDatatypeMisalignment();
-  v3 = MiObtainReferencedVadEx(a1, 0, (int *)&v26);
-  v4 = (char *)v3;
-  v21 = v3;
+  v3 = MiObtainReferencedVadEx(a1, 0, (int *)&v32);
+  v7 = (char *)v3;
+  v27 = v3;
   if ( v3 )
   {
-    if ( (*(_DWORD *)(v3 + 48) & 0xA200000) == 0x8200000 )
+    v8 = *((_DWORD *)v3 + 12);
+    if ( (v8 & 0x100000) != 0 && (v8 & 0x1000000) == 0 && (v8 & 0x4000000) != 0 )
     {
-      v5 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
-      v6 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      v9 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6];
+      v10 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
       while ( 1 )
       {
-        v7 = MiLockWorkingSetShared((__int64)v5);
-        v25 = v7;
-        valid = MiLockLowestValidPageTable((__int64)v5, v6, &v22);
-        v9 = MI_READ_PTE_LOCK_FREE(v22);
-        v23[0] = v9;
-        if ( valid == ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL && (v9 & 1) != 0 )
+        v11 = MiLockWorkingSetShared((__int64)v9, v4, v5, v6);
+        v31 = v11;
+        valid = MiLockLowestValidPageTable((__int64)v9, v10, &v28);
+        v13 = MI_READ_PTE_LOCK_FREE(v28);
+        v29[0] = v13;
+        if ( valid == ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL && (v13 & 1) != 0 )
           break;
-        MiUnlockPageTableInternal((__int64)v5, valid);
-        MiUnlockWorkingSetShared((__int64)v5, v7);
+        MiUnlockPageTableInternal((__int64)v9, valid);
+        MiUnlockWorkingSetShared((__int64)v9, v11);
       }
-      v13 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)v23) >> 12) & 0xFFFFFFFFFFLL;
-      v14 = 48 * v13 - 0x220000000000LL;
-      LODWORD(v21) = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v14 + 24), 0x3FuLL) )
+      v17 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)v29) >> 12) & 0xFFFFFFFFFLL;
+      v18 = 48 * v17 - 0x58000000000LL;
+      v26 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v18 + 24), 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v21, v10, v11, v12);
-        while ( *(__int64 *)(v14 + 24) < 0 );
+          KeYieldProcessorEx(&v26, v14, v15, v16);
+        while ( *(__int64 *)(v18 + 24) < 0 );
       }
-      v15 = (volatile signed __int64 *)((a1 & 0xFFF) + MiMapPageInHyperSpaceWorker(v13, 0LL, 0x80000000));
-      v16 = a2 == _InterlockedCompareExchange64(v15, 0LL, a2);
-      MiUnmapPageInHyperSpaceWorker((unsigned __int64)v15, 0x11u);
-      v17 = MiCaptureDirtyBitToPfn(48 * v13 - 0x220000000000LL);
-      if ( v17 )
-        v18 = *(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(v14 + 40) >> 43) & 0x3FFLL));
+      v19 = (volatile signed __int64 *)((a1 & 0xFFF) + MiMapPageInHyperSpaceWorker(v17, 0LL, 0x80000000));
+      v20 = a2 == _InterlockedCompareExchange64(v19, 0LL, a2);
+      LOBYTE(v21) = 17;
+      MiUnmapPageInHyperSpaceWorker((unsigned __int64)v19, v21, 0x80000000);
+      v22 = MiCaptureDirtyBitToPfn(48 * v17 - 0x58000000000LL);
+      if ( v22 )
+        v23 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v18 + 40) >> 39) & 0x3FFLL));
       else
-        v18 = 0LL;
-      _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( v17 )
-        MiReleasePageFileInfo(v18, v17, 1);
-      MiUnlockPageTableInternal((__int64)v5, valid);
-      MiUnlockWorkingSetShared((__int64)v5, v25);
-      v19 = !v16 ? 0xC0000272 : 0;
+        v23 = 0LL;
+      _InterlockedAnd64((volatile signed __int64 *)(v18 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( v22 )
+        MiReleasePageFileInfo(v23, v22, 1);
+      MiUnlockPageTableInternal((__int64)v9, valid);
+      MiUnlockWorkingSetShared((__int64)v9, v31);
+      v24 = !v20 ? 0xC0000272 : 0;
     }
     else
     {
-      v19 = -1073741800;
+      v24 = -1073741800;
     }
   }
   else
   {
-    v19 = v26;
+    v24 = v32;
   }
-  if ( v4 )
-    MiUnlockAndDereferenceVad(v4);
-  return v19;
+  if ( v7 )
+    MiUnlockAndDereferenceVad(v7);
+  return v24;
 }

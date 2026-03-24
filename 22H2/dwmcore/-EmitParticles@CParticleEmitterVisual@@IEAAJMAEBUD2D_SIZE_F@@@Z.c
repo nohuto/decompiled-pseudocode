@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitParticles@CParticleEmitterVisual@@IEAAJMAEBUD2D_SIZE_F@@@Z @ 0x180245014
+ * XREFs of ?EmitParticles@CParticleEmitterVisual@@IEAAJMAEBUD2D_SIZE_F@@@Z @ 0x1801DFA3C
  * Callers:
- *     ?UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z @ 0x180246E0C (-UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z.c)
+ *     ?UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z @ 0x1801E1798 (-UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$generate_canonical@M$0?0V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@@std@@YAMAEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@0@@Z @ 0x1802430B0 (--$generate_canonical@M$0-0V-$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PP.c)
- *     ?SpawnParticles@CParticleEmitterVisual@@IEAAJHAEBUD2D_SIZE_F@@@Z @ 0x1802464D8 (-SpawnParticles@CParticleEmitterVisual@@IEAAJHAEBUD2D_SIZE_F@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$generate_canonical@M$0?0V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@@std@@YAMAEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@0@@Z @ 0x1801DD9C4 (--$generate_canonical@M$0-0V-$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PP.c)
+ *     ?SpawnParticles@CParticleEmitterVisual@@IEAAJHAEBUD2D_SIZE_F@@@Z @ 0x1801E0EE8 (-SpawnParticles@CParticleEmitterVisual@@IEAAJHAEBUD2D_SIZE_F@@@Z.c)
  */
 
 __int64 __fastcall CParticleEmitterVisual::EmitParticles(
@@ -26,28 +26,28 @@ __int64 __fastcall CParticleEmitterVisual::EmitParticles(
   __int64 v15; // rcx
   unsigned int v16; // ebx
 
-  v3 = *((float *)this + 1598) - a2;
+  v3 = *((float *)this + 1576) - a2;
   v5 = 0;
-  *((float *)this + 1598) = v3;
+  *((float *)this + 1576) = v3;
   if ( v3 < 0.0 )
   {
-    v7 = *((float *)this + 182);
-    v8 = (char *)this + 1388;
-    v9 = *((float *)this + 183);
-    v10 = std::generate_canonical<float,-1,std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253>>((__int64)this + 1388)
+    v7 = *((float *)this + 160);
+    v8 = (char *)this + 1300;
+    v9 = *((float *)this + 161);
+    v10 = std::generate_canonical<float,-1,std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253>>((__int64)this + 1300)
         * (float)(v9 - v7);
-    v11 = *((float *)this + 185);
+    v11 = *((float *)this + 163);
     v12 = v10 + v7;
-    v13 = *((float *)this + 184);
-    *((float *)this + 1598) = v12 + *((float *)this + 1598);
+    v13 = *((float *)this + 162);
+    *((float *)this + 1576) = v12 + *((float *)this + 1576);
     v5 = (int)(float)((float)(std::generate_canonical<float,-1,std::mersenne_twister_engine<unsigned int,32,624,397,31,2567483615,11,4294967295,7,2636928640,15,4022730752,18,1812433253>>((__int64)v8)
                             * (float)(v11 - v13))
                     + v13);
-    *((_DWORD *)this + 1599) += v5;
+    *((_DWORD *)this + 1577) += v5;
   }
   v14 = CParticleEmitterVisual::SpawnParticles(this, v5, a3);
   v16 = v14;
   if ( v14 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x24Fu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x259u, 0LL);
   return v16;
 }

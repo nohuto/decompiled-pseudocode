@@ -1,12 +1,12 @@
 /*
- * XREFs of NtReleaseSemaphore @ 0x14074D580
+ * XREFs of NtReleaseSemaphore @ 0x140683780
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeReleaseSemaphore @ 0x1402D3440 (KeReleaseSemaphore.c)
- *     KiFatalFilter @ 0x14056AA7C (KiFatalFilter.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KiFatalFilter @ 0x140514B30 (KiFatalFilter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtReleaseSemaphore(void *a1, int a2, LONG *a3)
@@ -14,7 +14,7 @@ __int64 __fastcall NtReleaseSemaphore(void *a1, int a2, LONG *a3)
   KPROCESSOR_MODE PreviousMode; // r14
   NTSTATUS v6; // edi
   LONG v7; // r8d
-  PVOID v8; // rsi
+  struct _DMA_ADAPTER *v8; // rsi
   LONG v9; // r15d
   __int64 v11; // rdx
   PVOID Object; // [rsp+38h] [rbp-20h] BYREF
@@ -34,9 +34,9 @@ __int64 __fastcall NtReleaseSemaphore(void *a1, int a2, LONG *a3)
   if ( v6 >= 0 )
   {
     v7 = a2;
-    v8 = Object;
+    v8 = (struct _DMA_ADAPTER *)Object;
     v9 = KeReleaseSemaphore((PRKSEMAPHORE)Object, 1, v7, 0);
-    ObfDereferenceObject(v8);
+    HalPutDmaAdapter(v8);
     if ( a3 )
       *a3 = v9;
   }

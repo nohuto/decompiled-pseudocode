@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwOpenTransaction @ 0x14041DE40
+ * XREFs of ZwOpenTransaction @ 0x1403FC9C0
  * Callers:
- *     DifZwOpenTransactionWrapper @ 0x140623030 (DifZwOpenTransactionWrapper.c)
- *     CmpRmUnDoPhase @ 0x14091C5C4 (CmpRmUnDoPhase.c)
+ *     CmpRmUnDoPhase @ 0x1408759F4 (CmpRmUnDoPhase.c)
  * Callees:
  *     <none>
  */

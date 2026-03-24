@@ -1,137 +1,143 @@
 /*
- * XREFs of ExAcquireFastMutexUnsafe @ 0x140302660
+ * XREFs of ExAcquireFastMutexUnsafe @ 0x1402067A0
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1402FE6F0 (FsRtlpOplockStoreKeyForDeleteOperation.c)
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
- *     ExEnterCriticalRegionAndAcquireFastMutexUnsafe @ 0x140302630 (ExEnterCriticalRegionAndAcquireFastMutexUnsafe.c)
- *     FsRtlUninitializeOplock @ 0x14034C030 (FsRtlUninitializeOplock.c)
- *     FsRtlCancelNotify @ 0x14035DB70 (FsRtlCancelNotify.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1403BF5C4 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D2CD0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     KeAcquireGuardedMutexUnsafe @ 0x14045F730 (KeAcquireGuardedMutexUnsafe.c)
- *     FsRtlOplockBreakToNoneEx @ 0x14053DDC0 (FsRtlOplockBreakToNoneEx.c)
- *     FsRtlOplockGetAnyBreakOwnerProcess @ 0x14053DF80 (FsRtlOplockGetAnyBreakOwnerProcess.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x14053E018 (FsRtlpAcknowledgeOplockBreak.c)
- *     DifExAcquireFastMutexUnsafeWrapper @ 0x1405D6F40 (DifExAcquireFastMutexUnsafeWrapper.c)
- *     DifKeAcquireGuardedMutexUnsafeWrapper @ 0x1405E21C0 (DifKeAcquireGuardedMutexUnsafeWrapper.c)
- *     FsRtlCheckOplockForFsFilterCallback @ 0x14067E390 (FsRtlCheckOplockForFsFilterCallback.c)
- *     CmpInitCmRM @ 0x14068571C (CmpInitCmRM.c)
- *     ExpGetFirmwareEnvironmentVariable @ 0x1406875CC (ExpGetFirmwareEnvironmentVariable.c)
- *     FsRtlNotifyFilterReportChangeLiteEx @ 0x14068A3A0 (FsRtlNotifyFilterReportChangeLiteEx.c)
- *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
- *     CmpIsCmRm @ 0x1406981A8 (CmpIsCmRm.c)
- *     CmpCleanupTransactionState @ 0x14069831C (CmpCleanupTransactionState.c)
- *     CmpTransInitializeTransaction @ 0x14069846C (CmpTransInitializeTransaction.c)
- *     CmpRunDownCmRM @ 0x1406987D0 (CmpRunDownCmRM.c)
- *     CmpLogCheckpoint @ 0x1406989A4 (CmpLogCheckpoint.c)
- *     CmSnapshotRMTxArray @ 0x140699FE8 (CmSnapshotRMTxArray.c)
- *     FsRtlpOplockFsctrlInternal @ 0x140766820 (FsRtlpOplockFsctrlInternal.c)
- *     CmpNotifyTriggerCheck @ 0x140766CF4 (CmpNotifyTriggerCheck.c)
- *     CmpPostNotify @ 0x140766D70 (CmpPostNotify.c)
- *     NtNotifyChangeMultipleKeys @ 0x140767040 (NtNotifyChangeMultipleKeys.c)
- *     LOCK_TRANSACTION_LIST @ 0x1407684DC (LOCK_TRANSACTION_LIST.c)
- *     CmpTransSearchAddTrans @ 0x140768A4C (CmpTransSearchAddTrans.c)
- *     CmpTransSearchAddLightWeightTrans @ 0x140768DAC (CmpTransSearchAddLightWeightTrans.c)
- *     CmpTransMgrPrepare @ 0x140768FAC (CmpTransMgrPrepare.c)
- *     CmNotifyRunDown @ 0x14076EAF4 (CmNotifyRunDown.c)
- *     FsRtlNotifyCleanup @ 0x1407C5000 (FsRtlNotifyCleanup.c)
- *     FsRtlNotifyFilterChangeDirectoryLite @ 0x1407C5090 (FsRtlNotifyFilterChangeDirectoryLite.c)
- *     CmpTransMgrRollback @ 0x1407D0EB8 (CmpTransMgrRollback.c)
- *     CmpCleanupLightWeightTransaction @ 0x1407D0F34 (CmpCleanupLightWeightTransaction.c)
- *     FsRtlOplockBreakH2 @ 0x1407E2980 (FsRtlOplockBreakH2.c)
- *     CmRmFinalizeRecovery @ 0x1407E8CA8 (CmRmFinalizeRecovery.c)
- *     NtQueryBootEntryOrder @ 0x14083F3D0 (NtQueryBootEntryOrder.c)
- *     NtQueryBootOptions @ 0x14083F5D0 (NtQueryBootOptions.c)
- *     NtEnumerateBootEntries @ 0x14083F840 (NtEnumerateBootEntries.c)
- *     FsRtlNotifyFilterReportChange @ 0x14084C6F0 (FsRtlNotifyFilterReportChange.c)
- *     FsRtlNotifyFilterChangeDirectory @ 0x140852B70 (FsRtlNotifyFilterChangeDirectory.c)
- *     SeRegisterLogonSessionTerminatedRoutineEx @ 0x140860E30 (SeRegisterLogonSessionTerminatedRoutineEx.c)
- *     NtGetEnvironmentVariableEx @ 0x140862720 (NtGetEnvironmentVariableEx.c)
- *     FsRtlCheckUpperOplock @ 0x14093DC80 (FsRtlCheckUpperOplock.c)
- *     FsRtlpOpBatchBreakClosePending @ 0x14093E3FC (FsRtlpOpBatchBreakClosePending.c)
- *     FsRtlpOplockBreakNotify @ 0x14093E538 (FsRtlpOplockBreakNotify.c)
- *     FsRtlNotifyCleanupAll @ 0x140940050 (FsRtlNotifyCleanupAll.c)
- *     KeStartDynamicProcessor @ 0x1409747B0 (KeStartDynamicProcessor.c)
- *     SeRegisterLogonSessionTerminatedRoutine @ 0x1409CFC70 (SeRegisterLogonSessionTerminatedRoutine.c)
- *     SeUnregisterLogonSessionTerminatedRoutine @ 0x1409CFD10 (SeUnregisterLogonSessionTerminatedRoutine.c)
- *     SeUnregisterLogonSessionTerminatedRoutineEx @ 0x1409CFDE0 (SeUnregisterLogonSessionTerminatedRoutineEx.c)
- *     SepNotifyFileSystems @ 0x1409D0320 (SepNotifyFileSystems.c)
- *     ExpSetBootEntry @ 0x1409FD220 (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x1409FD9B0 (ExpSetDriverEntry.c)
- *     ExpSetFirmwareEnvironmentVariable @ 0x1409FDFA4 (ExpSetFirmwareEnvironmentVariable.c)
- *     NtDeleteBootEntry @ 0x1409FE950 (NtDeleteBootEntry.c)
- *     NtDeleteDriverEntry @ 0x1409FEAE0 (NtDeleteDriverEntry.c)
- *     NtEnumerateDriverEntries @ 0x1409FEC70 (NtEnumerateDriverEntries.c)
- *     NtEnumerateSystemEnvironmentValuesEx @ 0x1409FF130 (NtEnumerateSystemEnvironmentValuesEx.c)
- *     NtQueryDriverEntryOrder @ 0x1409FF390 (NtQueryDriverEntryOrder.c)
- *     NtQueryEnvironmentVariableInfoEx @ 0x1409FF610 (NtQueryEnvironmentVariableInfoEx.c)
- *     NtQuerySystemEnvironmentValue @ 0x1409FF6C0 (NtQuerySystemEnvironmentValue.c)
- *     NtSetBootEntryOrder @ 0x1409FF9F0 (NtSetBootEntryOrder.c)
- *     NtSetBootOptions @ 0x1409FFC00 (NtSetBootOptions.c)
- *     NtSetDriverEntryOrder @ 0x1409FFE20 (NtSetDriverEntryOrder.c)
- *     NtSetSystemEnvironmentValue @ 0x140A00030 (NtSetSystemEnvironmentValue.c)
- *     CmObliterateRMTxArray @ 0x140A1C060 (CmObliterateRMTxArray.c)
- *     CmpLazyCommitWorker @ 0x140A1C170 (CmpLazyCommitWorker.c)
- *     CmpCommitPreparedLightWeightTransaction @ 0x140A1C694 (CmpCommitPreparedLightWeightTransaction.c)
- *     CmpPrepareLightWeightTransaction @ 0x140A1C804 (CmpPrepareLightWeightTransaction.c)
- *     KeInitSystem @ 0x140B53548 (KeInitSystem.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402057B0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402D44D0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1402D5100 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlCancelNotify @ 0x140303070 (FsRtlCancelNotify.c)
+ *     FsRtlUninitializeOplock @ 0x140306650 (FsRtlUninitializeOplock.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403752B0 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403929CC (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     KeAcquireGuardedMutexUnsafe @ 0x1403B50B0 (KeAcquireGuardedMutexUnsafe.c)
+ *     FsRtlOplockBreakToNoneEx @ 0x1404EFF30 (FsRtlOplockBreakToNoneEx.c)
+ *     FsRtlOplockGetAnyBreakOwnerProcess @ 0x1404F00D0 (FsRtlOplockGetAnyBreakOwnerProcess.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x1404F0144 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlCheckOplockForFsFilterCallback @ 0x1405CD900 (FsRtlCheckOplockForFsFilterCallback.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
+ *     CmpNotifyTriggerCheck @ 0x1405ED044 (CmpNotifyTriggerCheck.c)
+ *     CmpPostNotify @ 0x1405ED0C0 (CmpPostNotify.c)
+ *     CmpRunDownCmRM @ 0x14066D560 (CmpRunDownCmRM.c)
+ *     CmpCleanupLightWeightTransaction @ 0x14066DB30 (CmpCleanupLightWeightTransaction.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x14066DE54 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpCommitPreparedLightWeightTransaction @ 0x14066E164 (CmpCommitPreparedLightWeightTransaction.c)
+ *     CmKtmNotification @ 0x14066E410 (CmKtmNotification.c)
+ *     CmSnapshotRMTxArray @ 0x14066E8B8 (CmSnapshotRMTxArray.c)
+ *     CmpIsCmRm @ 0x14066E974 (CmpIsCmRm.c)
+ *     FsRtlNotifyFilterReportChange @ 0x1406746F0 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterChangeDirectory @ 0x140675020 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x140675380 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlNotifyCleanup @ 0x140675B00 (FsRtlNotifyCleanup.c)
+ *     FsRtlNotifyFilterChangeDirectoryLite @ 0x140675B90 (FsRtlNotifyFilterChangeDirectoryLite.c)
+ *     FsRtlOplockBreakH @ 0x14069B610 (FsRtlOplockBreakH.c)
+ *     CmRmFinalizeRecovery @ 0x1406A24AC (CmRmFinalizeRecovery.c)
+ *     CmNotifyRunDown @ 0x1406C5510 (CmNotifyRunDown.c)
+ *     LOCK_POST_LIST @ 0x1406DF184 (LOCK_POST_LIST.c)
+ *     LOCK_CM_RM_LIST @ 0x14070D9B4 (LOCK_CM_RM_LIST.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14071CCF0 (LOCK_TRANSACTION_LIST.c)
+ *     CmpTransSearchAddTrans @ 0x14076644C (CmpTransSearchAddTrans.c)
+ *     CmpTransInitializeTransaction @ 0x1407666DC (CmpTransInitializeTransaction.c)
+ *     CmpCleanupTransactionState @ 0x140770144 (CmpCleanupTransactionState.c)
+ *     CmpLogCheckpoint @ 0x1407702A4 (CmpLogCheckpoint.c)
+ *     CmpTransMgrRollback @ 0x140770D50 (CmpTransMgrRollback.c)
+ *     SeRegisterLogonSessionTerminatedRoutineEx @ 0x1407D0EB0 (SeRegisterLogonSessionTerminatedRoutineEx.c)
+ *     CmObliterateRMTxArray @ 0x140872A64 (CmObliterateRMTxArray.c)
+ *     CmpLazyCommitWorker @ 0x140872B80 (CmpLazyCommitWorker.c)
+ *     FsRtlCheckUpperOplock @ 0x14088B900 (FsRtlCheckUpperOplock.c)
+ *     FsRtlpOpBatchBreakClosePending @ 0x14088BEAC (FsRtlpOpBatchBreakClosePending.c)
+ *     FsRtlpOplockBreakNotify @ 0x14088BFE8 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlNotifyCleanupAll @ 0x14088D590 (FsRtlNotifyCleanupAll.c)
+ *     KeStartDynamicProcessor @ 0x1408BB810 (KeStartDynamicProcessor.c)
+ *     SeRegisterLogonSessionTerminatedRoutine @ 0x1409234D0 (SeRegisterLogonSessionTerminatedRoutine.c)
+ *     SeUnregisterLogonSessionTerminatedRoutine @ 0x140923570 (SeUnregisterLogonSessionTerminatedRoutine.c)
+ *     SeUnregisterLogonSessionTerminatedRoutineEx @ 0x140923640 (SeUnregisterLogonSessionTerminatedRoutineEx.c)
+ *     SepNotifyFileSystems @ 0x140923B60 (SepNotifyFileSystems.c)
+ *     ExpGetFirmwareEnvironmentVariable @ 0x140950804 (ExpGetFirmwareEnvironmentVariable.c)
+ *     ExpSetBootEntry @ 0x140951150 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x140951944 (ExpSetDriverEntry.c)
+ *     ExpSetFirmwareEnvironmentVariable @ 0x140951F1C (ExpSetFirmwareEnvironmentVariable.c)
+ *     NtDeleteBootEntry @ 0x140953040 (NtDeleteBootEntry.c)
+ *     NtDeleteDriverEntry @ 0x1409531D0 (NtDeleteDriverEntry.c)
+ *     NtEnumerateBootEntries @ 0x140953360 (NtEnumerateBootEntries.c)
+ *     NtEnumerateDriverEntries @ 0x1409539B0 (NtEnumerateDriverEntries.c)
+ *     NtEnumerateSystemEnvironmentValuesEx @ 0x140953E70 (NtEnumerateSystemEnvironmentValuesEx.c)
+ *     NtGetEnvironmentVariableEx @ 0x140954070 (NtGetEnvironmentVariableEx.c)
+ *     NtQueryBootEntryOrder @ 0x140954190 (NtQueryBootEntryOrder.c)
+ *     NtQueryBootOptions @ 0x140954410 (NtQueryBootOptions.c)
+ *     NtQueryDriverEntryOrder @ 0x140954710 (NtQueryDriverEntryOrder.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x140954990 (NtQueryEnvironmentVariableInfoEx.c)
+ *     NtQuerySystemEnvironmentValue @ 0x140954A40 (NtQuerySystemEnvironmentValue.c)
+ *     NtSetBootEntryOrder @ 0x140954D60 (NtSetBootEntryOrder.c)
+ *     NtSetBootOptions @ 0x140954F70 (NtSetBootOptions.c)
+ *     NtSetDriverEntryOrder @ 0x140955180 (NtSetDriverEntryOrder.c)
+ *     NtSetSystemEnvironmentValue @ 0x140955390 (NtSetSystemEnvironmentValue.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     ExpAcquireFastMutexContended @ 0x1402FCD4C (ExpAcquireFastMutexContended.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032F8C8 (KiAbTryReclaimOrphanedEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ExpAcquireFastMutexContended @ 0x140273240 (ExpAcquireFastMutexContended.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x1403F889C (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 void __stdcall ExAcquireFastMutexUnsafe(PFAST_MUTEX FastMutex)
 {
   struct _KTHREAD *CurrentThread; // rbp
-  __int64 v2; // rbx
-  unsigned int AbEntrySummary; // eax
-  unsigned int v5; // ecx
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
+  __int64 v2; // rdi
+  __int64 v4; // rax
+  char v5; // cl
   int SessionId; // eax
-  signed __int32 v9; // eax
-  signed __int32 v10; // ett
-  unsigned int v11; // [rsp+40h] [rbp+8h]
+  bool v7; // zf
+  unsigned __int8 AbOrphanedEntrySummary; // di
 
   CurrentThread = KeGetCurrentThread();
   v2 = 0LL;
-  _disable();
-  AbEntrySummary = CurrentThread->AbEntrySummary;
-  if ( CurrentThread->AbEntrySummary || (AbEntrySummary = KiAbTryReclaimOrphanedEntries(FastMutex, CurrentThread)) != 0 )
+  --CurrentThread->SpecialApcDisable;
+  if ( ++CurrentThread->AbAllocationRegionCount != 1 )
+    KeBugCheckEx(0x192u, (ULONG_PTR)CurrentThread, (ULONG_PTR)FastMutex, KeGetCurrentIrql(), 0LL);
+  LOBYTE(v4) = CurrentThread->AbEntrySummary;
+  if ( !(_BYTE)v4 )
   {
-    _BitScanForward(&v5, AbEntrySummary);
-    v11 = v5;
-    CurrentThread->AbEntrySummary = AbEntrySummary & ~(1 << v5);
-    CurrentPrcb = KeGetCurrentPrcb();
-    SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-    if ( SchedulerAssist )
+    if ( !CurrentThread->AbOrphanedEntrySummary )
     {
-      _m_prefetchw(SchedulerAssist);
-      v9 = *SchedulerAssist;
-      do
-      {
-        v10 = v9;
-        v9 = _InterlockedCompareExchange(SchedulerAssist, v9 & 0xFFDFFFFF, v9);
-      }
-      while ( v10 != v9 );
-      if ( (v9 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      if ( (WORD2(PerfGlobalGroupMask) & 0x200) != 0 )
+        EtwTraceAutoBoostEntryExhaustion(CurrentThread, FastMutex);
+      goto LABEL_20;
     }
-    _enable();
-    v2 = (__int64)(&CurrentThread[1].Process + 12 * v11);
-    if ( (unsigned __int64)FastMutex - qword_140C65AE8 < 0x8000000000LL )
-      SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
-    else
-      SessionId = -1;
-    *(_DWORD *)(v2 + 8) = SessionId;
-    *(_QWORD *)v2 = (unsigned __int64)FastMutex & 0x7FFFFFFFFFFFFFFCLL;
+    AbOrphanedEntrySummary = CurrentThread->AbOrphanedEntrySummary;
+    CurrentThread->AbOrphanedEntrySummary = 0;
+    LOBYTE(v4) = AbOrphanedEntrySummary | CurrentThread->AbEntrySummary;
   }
+  v5 = v4;
+  _BitScanForward((unsigned int *)&v4, (unsigned __int8)v4);
+  CurrentThread->AbEntrySummary = v5 & ~(1 << v4);
+  v2 = (__int64)&CurrentThread->LockEntries[v4];
+  if ( !v2 )
+  {
+LABEL_20:
+    _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0x10u);
+    goto LABEL_8;
+  }
+  if ( (unsigned __int64)FastMutex >= 0xFFFF800000000000uLL
+    && byte_140C4F9C8[(((unsigned __int64)FastMutex >> 39) & 0x1FF) - 256] == 1 )
+  {
+    SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
+  }
+  else
+  {
+    SessionId = -1;
+  }
+  *(_DWORD *)(v2 + 40) = SessionId;
+  *(_QWORD *)(v2 + 32) = (unsigned __int64)FastMutex & 0x7FFFFFFFFFFFFFFCLL;
+LABEL_8:
+  --CurrentThread->AbAllocationRegionCount;
+  KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
+  v7 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v7 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery();
   if ( !_interlockedbittestandreset(&FastMutex->Count, 0) )
-    ExpAcquireFastMutexContended((__int64)FastMutex, v2, (__int64)SchedulerAssist);
+    ExpAcquireFastMutexContended((ULONG_PTR)FastMutex);
   if ( v2 )
-    *(_BYTE *)(v2 + 18) = 1;
+    *(_BYTE *)(v2 + 26) |= 1u;
   FastMutex->Owner = CurrentThread;
 }

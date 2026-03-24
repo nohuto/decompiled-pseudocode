@@ -1,37 +1,35 @@
 /*
- * XREFs of ?DoTPButtonWarpBack@CPTPEngine@@AEAA?AUtagPOINT@@PEAUPTPInput@@@Z @ 0x1C0200194
+ * XREFs of ?DoTPButtonWarpBack@CPTPEngine@@AEAA?AUtagPOINT@@PEAUPTPInput@@@Z @ 0x1C01C4B9C
  * Callers:
- *     ?SendLeftDownFromPhysical@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUtagPOINT@@W4tagPTP_ACTION@@@Z @ 0x1C0203B20 (-SendLeftDownFromPhysical@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUtagPOINT@@W4tagPTP_ACTION@@@Z.c)
- *     ?SendRightDownFromPhysical@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUtagPOINT@@W4tagPTP_ACTION@@@Z @ 0x1C0203D58 (-SendRightDownFromPhysical@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUtagPOINT@@W4tagPTP_ACTION@@@Z.c)
+ *     ?SendLeftDownFromPhysical@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUtagPOINT@@W4tagPTP_ACTION@@@Z @ 0x1C01C848C (-SendLeftDownFromPhysical@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUtagPOINT@@W4tagPTP_ACTION@@@Z.c)
+ *     ?SendRightDownFromPhysical@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUtagPOINT@@W4tagPTP_ACTION@@@Z @ 0x1C01C86C4 (-SendRightDownFromPhysical@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUtagPOINT@@W4tagPTP_ACTION@@@Z.c)
  * Callees:
- *     ?CrossedTPButtonWarpBackThreshold@CPTPEngine@@AEAAHPEAUCContactState@@UtagPOINT@@@Z @ 0x1C01FF02C (-CrossedTPButtonWarpBackThreshold@CPTPEngine@@AEAAHPEAUCContactState@@UtagPOINT@@@Z.c)
- *     ?SendMouseOutput@CBasePTPEngine@@IEAAXW4Action@Mouse@Payload@PTPEngineOutput@@UtagPOINT@@@Z @ 0x1C0203CB4 (-SendMouseOutput@CBasePTPEngine@@IEAAXW4Action@Mouse@Payload@PTPEngineOutput@@UtagPOINT@@@Z.c)
- *     ?SendWarpbackTelemetry@CBasePTPEngine@@IEAAXW4tagPTP_ACTION@@UtagPOINT@@1K@Z @ 0x1C0204048 (-SendWarpbackTelemetry@CBasePTPEngine@@IEAAXW4tagPTP_ACTION@@UtagPOINT@@1K@Z.c)
+ *     ?CrossedTPButtonWarpBackThreshold@CPTPEngine@@AEAAHPEAUCContactState@@UtagPOINT@@@Z @ 0x1C01C3A38 (-CrossedTPButtonWarpBackThreshold@CPTPEngine@@AEAAHPEAUCContactState@@UtagPOINT@@@Z.c)
+ *     ?SendMouseOutput@CBasePTPEngine@@IEAAXW4Action@Mouse@Payload@PTPEngineOutput@@UtagPOINT@@@Z @ 0x1C01C8620 (-SendMouseOutput@CBasePTPEngine@@IEAAXW4Action@Mouse@Payload@PTPEngineOutput@@UtagPOINT@@@Z.c)
+ *     ?SendWarpbackTelemetry@CBasePTPEngine@@IEAAXW4tagPTP_ACTION@@UtagPOINT@@1K@Z @ 0x1C01C88FC (-SendWarpbackTelemetry@CBasePTPEngine@@IEAAXW4tagPTP_ACTION@@UtagPOINT@@1K@Z.c)
  */
 
 struct tagPOINT __fastcall CPTPEngine::DoTPButtonWarpBack(CPTPEngine *this, struct PTPInput *a2, __int64 a3)
 {
   bool v3; // zf
-  __int64 v5; // rbx
-  unsigned __int64 v8; // r12
-  char *v9; // rdi
-  unsigned __int64 v10; // rbp
+  unsigned __int64 v7; // r15
+  char *v8; // rbx
+  unsigned __int64 v9; // rbp
 
-  v3 = *((_DWORD *)this + 911) == 2;
-  v5 = *(_QWORD *)(a3 + 28);
-  *(_QWORD *)a2 = v5;
+  v3 = *((_DWORD *)this + 887) == 2;
+  *(_QWORD *)a2 = *(_QWORD *)(a3 + 28);
   if ( v3 )
   {
-    v8 = *((_QWORD *)this + 12);
-    v9 = (char *)this + 400 * *((unsigned int *)this + 902) + 1208;
-    v10 = *(_QWORD *)a3 - *((_QWORD *)v9 + 14);
-    if ( v10 < v8 * *((unsigned int *)this + 93) / 0x3E8
-      && !CPTPEngine::CrossedTPButtonWarpBackThreshold(this, (struct CContactState *)v9, *(struct tagPOINT *)(v9 + 8))
-      && ((_DWORD)v5 != *((_DWORD *)v9 + 16) || *(_DWORD *)(a3 + 32) != *((_DWORD *)v9 + 17)) )
+    v7 = *((_QWORD *)this + 12);
+    v8 = (char *)this + 392 * *((unsigned int *)this + 878) + 1160;
+    v9 = *(_QWORD *)a3 - *((_QWORD *)v8 + 13);
+    if ( v9 < v7 * *((unsigned int *)this + 81) / 0x3E8
+      && !CPTPEngine::CrossedTPButtonWarpBackThreshold(this, (struct CContactState *)v8, *(struct tagPOINT *)(v8 + 24))
+      && (*(_DWORD *)(a3 + 28) != *((_DWORD *)v8 + 14) || *(_DWORD *)(a3 + 32) != *((_DWORD *)v8 + 15)) )
     {
-      CBasePTPEngine::SendWarpbackTelemetry(this, 13LL, v5, *((_QWORD *)v9 + 8), 1000 * v10 / v8);
-      CBasePTPEngine::SendMouseOutput(this, 5LL, *((_QWORD *)v9 + 8));
-      *(_QWORD *)a2 = *((_QWORD *)v9 + 8);
+      CBasePTPEngine::SendWarpbackTelemetry(this, 13LL, *(_QWORD *)(a3 + 28), *((_QWORD *)v8 + 7), 1000 * v9 / v7);
+      CBasePTPEngine::SendMouseOutput(this, 5LL, *((_QWORD *)v8 + 7));
+      *(_QWORD *)a2 = *((_QWORD *)v8 + 7);
     }
   }
   return (struct tagPOINT)a2;

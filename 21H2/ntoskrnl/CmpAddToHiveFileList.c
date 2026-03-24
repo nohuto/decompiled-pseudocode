@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpAddToHiveFileList @ 0x1406E36C4
+ * XREFs of CmpAddToHiveFileList @ 0x1406BF09C
  * Callers:
- *     CmpLoadKeyCommon @ 0x14020AABC (CmpLoadKeyCommon.c)
- *     CmpFinishSystemHivesLoad @ 0x140833B80 (CmpFinishSystemHivesLoad.c)
- *     CmpLoadHiveVolatile @ 0x14090D4E8 (CmpLoadHiveVolatile.c)
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
+ *     CmpLoadHiveVolatile @ 0x14087CF5C (CmpLoadHiveVolatile.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryObject @ 0x14041B960 (ZwQueryObject.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryObject @ 0x1403FA5A0 (ZwQueryObject.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall CmpAddToHiveFileList(__int64 a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
   struct _PRIVILEGE_SET *TransientPoolWithTag; // rdi
   NTSTATUS v6; // ebx
-  ULONG v7; // eax
+  ULONG v7; // edx
   __int16 *Luid; // rcx
   ULONG DataSize; // eax
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
@@ -28,10 +28,10 @@ __int64 __fastcall CmpAddToHiveFileList(__int64 a1, __int64 a2, __int64 a3, stru
   ULONG ReturnLength; // [rsp+C0h] [rbp+40h] BYREF
   HANDLE KeyHandle; // [rsp+C8h] [rbp+48h] BYREF
 
-  ReturnLength = 0;
   DestinationString = 0LL;
+  ReturnLength = 0;
   v13 = 0;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   KeyHandle = 0LL;
   if ( !CmpHiveFileListHandle )
   {
@@ -61,7 +61,7 @@ __int64 __fastcall CmpAddToHiveFileList(__int64 a1, __int64 a2, __int64 a3, stru
     DataSize = 2;
     goto LABEL_6;
   }
-  v6 = ZwQueryObject(*(HANDLE *)(a1 + 1544), ObjectNameInformation, TransientPoolWithTag, 0x200u, &ReturnLength);
+  v6 = ZwQueryObject(*(HANDLE *)(a1 + 1536), ObjectNameInformation, TransientPoolWithTag, 0x200u, &ReturnLength);
   v7 = ReturnLength - 16;
   ReturnLength -= 16;
   if ( v6 >= 0 )
@@ -71,7 +71,7 @@ __int64 __fastcall CmpAddToHiveFileList(__int64 a1, __int64 a2, __int64 a3, stru
     DataSize = ReturnLength + 2;
 LABEL_6:
     ReturnLength = DataSize;
-    v6 = ZwSetValueKey(CmpHiveFileListHandle, (PUNICODE_STRING)(a1 + 1856), 0, 1u, Luid, DataSize);
+    v6 = ZwSetValueKey(CmpHiveFileListHandle, (PUNICODE_STRING)(a1 + 1848), 0, 1u, Luid, DataSize);
   }
   CmSiFreeMemory(TransientPoolWithTag);
   return (unsigned int)v6;

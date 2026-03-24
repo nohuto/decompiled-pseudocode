@@ -1,21 +1,19 @@
 /*
- * XREFs of EtwpUpdateRegEntryEnableMask @ 0x140790030
+ * XREFs of EtwpUpdateRegEntryEnableMask @ 0x1406E46CC
  * Callers:
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409E448C (EtwpNotifyDisallowedGuidChange.c)
+ *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     EtwpDisallowedGuidRemoval @ 0x140933EEC (EtwpDisallowedGuidRemoval.c)
  * Callees:
- *     EtwpApplyScopeFilters @ 0x140796D80 (EtwpApplyScopeFilters.c)
- *     EtwpTrackDecodeGuidForSession @ 0x1409F5444 (EtwpTrackDecodeGuidForSession.c)
+ *     EtwpApplyScopeFilters @ 0x140644118 (EtwpApplyScopeFilters.c)
+ *     EtwpTrackDecodeGuidForSession @ 0x140941194 (EtwpTrackDecodeGuidForSession.c)
  */
 
 char __fastcall EtwpUpdateRegEntryEnableMask(__int64 a1, __int64 a2, char a3, char a4, char a5, int a6)
 {
-  __int64 v7; // rbp
   __int64 v9; // rbx
   __int16 v10; // ax
   char v12; // [rsp+58h] [rbp+20h] BYREF
 
-  v7 = a2;
   if ( a4 )
     v9 = a5 != 0 ? 103LL : 101LL;
   else
@@ -24,8 +22,7 @@ char __fastcall EtwpUpdateRegEntryEnableMask(__int64 a1, __int64 a2, char a3, ch
   if ( a6 == 1 )
   {
     v12 = a3;
-    LOBYTE(a2) = 1;
-    EtwpApplyScopeFilters(a1, a2, a4, a5, (__int64)&v12);
+    EtwpApplyScopeFilters(a1, 1, a4, a5, &v12);
     v10 = *(_WORD *)(a1 + 98);
     if ( (v10 & 8) != 0 )
     {
@@ -38,7 +35,7 @@ char __fastcall EtwpUpdateRegEntryEnableMask(__int64 a1, __int64 a2, char a3, ch
       {
         if ( v12 )
         {
-          LOBYTE(v10) = EtwpTrackDecodeGuidForSession(v7, a1);
+          LOBYTE(v10) = EtwpTrackDecodeGuidForSession(a2, a1);
           if ( !(_BYTE)v10 )
           {
             LOBYTE(v10) = -1;

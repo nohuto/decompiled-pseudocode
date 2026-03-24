@@ -1,54 +1,51 @@
 /*
- * XREFs of MiRelockFaultState @ 0x14027D364
+ * XREFs of MiRelockFaultState @ 0x1403052A8
  * Callers:
- *     MiPrivateFixup @ 0x14024076C (MiPrivateFixup.c)
- *     MiIssueHardFault @ 0x14027A1F0 (MiIssueHardFault.c)
- *     MiWaitForCollidedFaultComplete @ 0x14027FEF8 (MiWaitForCollidedFaultComplete.c)
- *     MiFinishHardFault @ 0x140334C40 (MiFinishHardFault.c)
- *     MiKernelWriteToExecutableMemory @ 0x1405A7608 (MiKernelWriteToExecutableMemory.c)
- *     MiIdealClusterPage @ 0x1405C3C6C (MiIdealClusterPage.c)
+ *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
+ *     MiWaitForCollidedFaultComplete @ 0x14028C1F0 (MiWaitForCollidedFaultComplete.c)
+ *     MiPrivateFixup @ 0x14028CA28 (MiPrivateFixup.c)
+ *     MiIssueHardFault @ 0x14030E9B0 (MiIssueHardFault.c)
+ *     MiKernelWriteToExecutableMemory @ 0x1405489B4 (MiKernelWriteToExecutableMemory.c)
+ *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     MiLockLowestValidPageTable @ 0x14027D6E0 (MiLockLowestValidPageTable.c)
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     MiLockLowestValidPageTable @ 0x1403055C0 (MiLockLowestValidPageTable.c)
  */
 
-char __fastcall MiRelockFaultState(__int64 *a1, __int64 a2)
+char __fastcall MiRelockFaultState(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v2; // rbx
-  unsigned __int64 v3; // rdi
-  char v6; // r14
+  __int64 v4; // rbx
+  unsigned __int64 v5; // rdi
+  unsigned __int8 v8; // r14
   unsigned __int64 valid; // rax
-  __int64 SharedVm; // rbx
-  __int64 v9; // rdx
-  char v11; // [rsp+40h] [rbp+8h] BYREF
+  LONG *SharedVm; // rbx
+  char v12; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = *a1;
-  v3 = 0LL;
+  v4 = *(_QWORD *)a1;
+  v5 = 0LL;
   if ( !a2 )
-    goto LABEL_5;
-  v6 = MiLockWorkingSetShared(*a1);
-  valid = MiLockLowestValidPageTable(v2, a2 << 25 >> 16, &v11);
-  v3 = valid;
+    goto LABEL_6;
+  v8 = MiLockWorkingSetShared(*(_QWORD *)a1, a2, a3, a4);
+  valid = MiLockLowestValidPageTable(v4, a2 << 25 >> 16, &v12);
+  v5 = valid;
   if ( valid != a2 )
   {
-    MiUnlockPageTableInternal(v2, valid);
-    LOBYTE(v9) = v6;
-    MiUnlockWorkingSetShared(v2, v9);
-    v3 = 0LL;
-    goto LABEL_5;
+    MiUnlockPageTableInternal(v4, valid);
+    LOBYTE(valid) = MiUnlockWorkingSetShared(v4, v8);
+    v5 = 0LL;
   }
-  if ( !valid )
+  if ( !v5 )
   {
-LABEL_5:
-    *((_BYTE *)a1 + 13) |= 1u;
-    SharedVm = MiGetSharedVm(v2);
-    LOBYTE(valid) = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)SharedVm);
-    *(_DWORD *)(SharedVm + 4) = 0;
+LABEL_6:
+    *(_BYTE *)(a1 + 13) |= 1u;
+    SharedVm = MiGetSharedVm(v4);
+    LOBYTE(valid) = ExAcquireSpinLockExclusive(SharedVm);
+    SharedVm[1] = 0;
   }
-  a1[2] = v3;
+  *(_QWORD *)(a1 + 16) = v5;
   return valid;
 }

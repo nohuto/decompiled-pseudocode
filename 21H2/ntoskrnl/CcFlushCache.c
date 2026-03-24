@@ -1,9 +1,9 @@
 /*
- * XREFs of CcFlushCache @ 0x140248B00
+ * XREFs of CcFlushCache @ 0x1402C12D0
  * Callers:
  *     <none>
  * Callees:
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
+ *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
  */
 
 void __stdcall CcFlushCache(
@@ -12,5 +12,5 @@ void __stdcall CcFlushCache(
         ULONG Length,
         PIO_STATUS_BLOCK IoStatus)
 {
-  CcFlushCachePriv((_DWORD)SectionObjectPointer, (_DWORD)FileOffset, Length, 0, 0, (__int64)IoStatus);
+  CcFlushCachePriv((__int64)SectionObjectPointer, FileOffset, Length, 0LL, 0, (__int128 *)&IoStatus->0);
 }

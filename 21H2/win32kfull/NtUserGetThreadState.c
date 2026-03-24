@@ -1,44 +1,130 @@
 /*
- * XREFs of NtUserGetThreadState @ 0x1C00EB1F0
+ * XREFs of NtUserGetThreadState @ 0x1C00F7240
  * Callers:
  *     <none>
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     _GetQueueStatus @ 0x1C014B0C4 (_GetQueueStatus.c)
+ *     _GetQueueStatus @ 0x1C015C8FC (_GetQueueStatus.c)
  */
 
-__int64 __fastcall NtUserGetThreadState(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserGetThreadState(int a1)
 {
-  int v3; // edi
-  __int64 v5; // rax
-  __int64 v6; // rcx
-  __int64 v7; // rbx
-  __int64 v8; // rsi
+  __int64 v2; // rax
+  __int64 *v3; // rcx
+  __int64 v4; // rbx
+  __int64 v5; // rsi
+  int v7; // edi
+  int v8; // edi
   int v9; // edi
   int v10; // edi
   int v11; // edi
   int v12; // edi
   int v13; // edi
-  __int64 *v14; // rax
+  int v14; // edi
   int v15; // edi
   int v16; // edi
   int v17; // edi
   int v18; // edi
-  int v19; // edi
-  int v20; // edi
+  __int64 *v19; // rax
   HANDLE CurrentProcessId; // rax
-  __int64 v22; // rax
-  int v23; // edx
+  __int64 v21; // rax
+  __int64 v22; // rdx
 
-  v3 = a1;
-  if ( (_DWORD)a1 == 14 )
-    return 1LL;
-  v5 = EnterSharedCrit(a1, a2, a3);
-  v7 = 0LL;
-  v8 = v5;
-  if ( v3 > 7 )
+  v2 = EnterSharedCrit(0LL, 1LL);
+  v4 = 0LL;
+  v5 = v2;
+  if ( a1 > 8 )
   {
-    v15 = v3 - 8;
+    v7 = a1 - 9;
+    if ( !v7 )
+    {
+      v4 = *(int *)(v2 + 568);
+      goto LABEL_7;
+    }
+    v8 = v7 - 1;
+    if ( !v8 )
+    {
+      v3 = (__int64 *)gpqForeground;
+      LOBYTE(v4) = *(_QWORD *)(v2 + 432) == gpqForeground;
+      goto LABEL_7;
+    }
+    v9 = v8 - 1;
+    if ( !v9 )
+    {
+      v4 = *(unsigned int *)(*(_QWORD *)(v2 + 424) + 776LL);
+      goto LABEL_7;
+    }
+    v10 = v9 - 1;
+    if ( !v10 )
+    {
+      v4 = *(_QWORD *)(v2 + 800);
+      goto LABEL_7;
+    }
+    v11 = v10 - 1;
+    if ( v11 )
+    {
+      v12 = v11 - 1;
+      if ( v12 )
+      {
+        if ( v12 == 1 )
+          v4 = ((unsigned __int64)*(unsigned int *)(v2 + 1232) >> 29) & 1;
+        goto LABEL_7;
+      }
+    }
+    else
+    {
+      CurrentProcessId = PsGetCurrentProcessId();
+      v3 = (__int64 *)gpidLogon;
+      if ( CurrentProcessId != (HANDLE)gpidLogon && *(PVOID *)(v5 + 456) != grpdeskLogon )
+        goto LABEL_7;
+    }
+    v4 = 1LL;
+    goto LABEL_7;
+  }
+  if ( a1 == 8 )
+  {
+    v21 = *(_QWORD *)(v2 + 512);
+    if ( v21 )
+    {
+      v3 = (__int64 *)*(unsigned int *)(v21 + 84);
+      if ( *(_QWORD *)(v21 + 32) )
+      {
+        v22 = 1LL;
+      }
+      else
+      {
+        v22 = 4LL;
+        if ( ((unsigned __int16)v3 & 0x300) == 0 )
+          v22 = 2LL;
+      }
+      v4 = v22 | 8;
+      LOBYTE(v3) = (unsigned __int8)v3 & 1;
+      if ( !(_BYTE)v3 )
+        v4 = v22;
+    }
+  }
+  else
+  {
+    if ( !a1 )
+    {
+      v3 = *(__int64 **)(*(_QWORD *)(v2 + 432) + 112LL);
+      goto LABEL_5;
+    }
+    v13 = a1 - 1;
+    if ( !v13 )
+    {
+      v3 = *(__int64 **)(*(_QWORD *)(v2 + 432) + 120LL);
+LABEL_5:
+      if ( v3 )
+        v4 = *v3;
+      goto LABEL_7;
+    }
+    v14 = v13 - 1;
+    if ( !v14 )
+    {
+      v3 = *(__int64 **)(*(_QWORD *)(v2 + 432) + 104LL);
+      goto LABEL_5;
+    }
+    v15 = v14 - 1;
     if ( v15 )
     {
       v16 = v15 - 1;
@@ -50,126 +136,30 @@ __int64 __fastcall NtUserGetThreadState(__int64 a1, __int64 a2, __int64 a3)
           v18 = v17 - 1;
           if ( v18 )
           {
-            v19 = v18 - 1;
-            if ( v19 )
-            {
-              v20 = v19 - 1;
-              if ( v20 )
-              {
-                v6 = 2LL;
-                if ( v20 == 2 )
-                  v7 = (*(_DWORD *)(v5 + 1256) >> 29) & 1;
-              }
-              else
-              {
-                CurrentProcessId = PsGetCurrentProcessId();
-                v6 = gpidLogon;
-                if ( CurrentProcessId == (HANDLE)gpidLogon || *(PVOID *)(v8 + 456) == grpdeskLogon )
-                  v7 = 1LL;
-              }
-            }
-            else
-            {
-              v7 = *(_QWORD *)(v5 + 800);
-            }
+            if ( v18 == 1 )
+              v4 = *(_QWORD *)(*(_QWORD *)(v2 + 432) + 408LL);
           }
           else
           {
-            v7 = *(unsigned int *)(*(_QWORD *)(v5 + 424) + 776LL);
+            v4 = *(unsigned __int16 *)(*(_QWORD *)(v2 + 448) + 4LL);
           }
         }
         else
         {
-          v6 = gpqForeground;
-          LOBYTE(v7) = *(_QWORD *)(v5 + 432) == gpqForeground;
+          LOBYTE(v4) = (GetQueueStatus(7295LL) & 5) != 0;
         }
+        goto LABEL_7;
       }
-      else
-      {
-        v7 = *(int *)(v5 + 568);
-      }
+      v19 = *(__int64 **)(v2 + 792);
     }
     else
     {
-      v22 = *(_QWORD *)(v5 + 512);
-      if ( v22 )
-      {
-        v23 = *(_DWORD *)(v22 + 84);
-        if ( *(_QWORD *)(v22 + 32) )
-        {
-          v6 = 1LL;
-        }
-        else
-        {
-          v6 = 4LL;
-          if ( (v23 & 0x300) == 0 )
-            v6 = 2LL;
-        }
-        v7 = v6 | 8;
-        if ( (v23 & 1) == 0 )
-          v7 = v6;
-      }
+      v19 = *(__int64 **)(v2 + 784);
     }
-    goto LABEL_46;
+    if ( v19 )
+      v4 = *v19;
   }
-  if ( v3 != 7 )
-  {
-    if ( v3 )
-    {
-      v9 = v3 - 1;
-      if ( v9 )
-      {
-        v10 = v9 - 1;
-        if ( v10 )
-        {
-          v11 = v10 - 1;
-          if ( v11 )
-          {
-            v12 = v11 - 1;
-            if ( v12 )
-            {
-              v13 = v12 - 1;
-              if ( v13 )
-              {
-                if ( v13 == 1 )
-                {
-                  MicrosoftTelemetryAssertTriggeredNoArgsKM(v6);
-                  v7 = *(int *)(*(_QWORD *)(v8 + 448) + 4LL);
-                }
-              }
-              else
-              {
-                LOBYTE(v7) = (GetQueueStatus(7295LL) & 5) != 0;
-              }
-              goto LABEL_46;
-            }
-            v14 = *(__int64 **)(v5 + 792);
-          }
-          else
-          {
-            v14 = *(__int64 **)(v5 + 784);
-          }
-          if ( v14 )
-            v7 = *v14;
-          goto LABEL_46;
-        }
-        v6 = *(_QWORD *)(*(_QWORD *)(v5 + 432) + 104LL);
-      }
-      else
-      {
-        v6 = *(_QWORD *)(*(_QWORD *)(v5 + 432) + 120LL);
-      }
-    }
-    else
-    {
-      v6 = *(_QWORD *)(*(_QWORD *)(v5 + 432) + 112LL);
-    }
-    if ( v6 )
-      v7 = *(_QWORD *)v6;
-    goto LABEL_46;
-  }
-  v7 = *(_QWORD *)(*(_QWORD *)(v5 + 432) + 400LL);
-LABEL_46:
-  UserSessionSwitchLeaveCrit(v6);
-  return v7;
+LABEL_7:
+  UserSessionSwitchLeaveCrit(v3);
+  return v4;
 }

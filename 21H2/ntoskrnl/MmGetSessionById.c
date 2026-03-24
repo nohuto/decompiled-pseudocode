@@ -1,37 +1,40 @@
 /*
- * XREFs of MmGetSessionById @ 0x1402DF880
+ * XREFs of MmGetSessionById @ 0x140206410
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x14027B820 (MiTrimSharedPageFromViews.c)
- *     MmGetSessionObjectById @ 0x1402DF7D8 (MmGetSessionObjectById.c)
- *     PopWatchdogWorker @ 0x1403A0B60 (PopWatchdogWorker.c)
- *     PopPowerButtonWorkCallback @ 0x1405D89F0 (PopPowerButtonWorkCallback.c)
- *     PspChangeProcessExecutionState @ 0x140687754 (PspChangeProcessExecutionState.c)
- *     PspAttachSession @ 0x1406A8EEC (PspAttachSession.c)
- *     ExCallSessionCallBack @ 0x1406A8F48 (ExCallSessionCallBack.c)
- *     PsGetSiloBySessionId @ 0x14077D624 (PsGetSiloBySessionId.c)
- *     PnpNotifyDriverCallback @ 0x14078D3DC (PnpNotifyDriverCallback.c)
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     EtwpSendDataBlock @ 0x140790CF8 (EtwpSendDataBlock.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x1407947BC (ExpWnfCaptureScopeInstanceId.c)
- *     PiUEventBroadcastEventWorker @ 0x1407F4BB0 (PiUEventBroadcastEventWorker.c)
- *     CmFcpChangeSubscriptionWrapper @ 0x1409234E0 (CmFcpChangeSubscriptionWrapper.c)
- *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x140947DA4 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
- *     PiUEventBroadcastPortsChangedEvent @ 0x140947E30 (PiUEventBroadcastPortsChangedEvent.c)
- *     TtmpSessionWorker @ 0x1409A5C10 (TtmpSessionWorker.c)
+ *     MmGetSessionObjectById @ 0x140206364 (MmGetSessionObjectById.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
+ *     PopPowerButtonWorkCallback @ 0x140578850 (PopPowerButtonWorkCallback.c)
+ *     PopWatchdogWorker @ 0x140578E70 (PopWatchdogWorker.c)
+ *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14060F928 (ExpWnfCaptureScopeInstanceId.c)
+ *     PsGetSiloBySessionId @ 0x140634520 (PsGetSiloBySessionId.c)
+ *     PspAttachSession @ 0x1406835F8 (PspAttachSession.c)
+ *     ExCallSessionCallBack @ 0x140683678 (ExCallSessionCallBack.c)
+ *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     EtwpSendDataBlock @ 0x1406E4054 (EtwpSendDataBlock.c)
+ *     PnpNotifyDriverCallback @ 0x1406E5CC4 (PnpNotifyDriverCallback.c)
+ *     PiUEventBroadcastEventWorker @ 0x140773BF0 (PiUEventBroadcastEventWorker.c)
+ *     CmFcpChangeSubscriptionWrapper @ 0x14087E3C0 (CmFcpChangeSubscriptionWrapper.c)
+ *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x1408A2B00 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x1408A2B8C (PiUEventBroadcastPortsChangedEvent.c)
+ *     PopLazySensorActiveInput @ 0x1408F51B4 (PopLazySensorActiveInput.c)
+ *     TtmpSessionWorker @ 0x140900030 (TtmpSessionWorker.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiSelectSessionAttachProcess @ 0x1402DF940 (MiSelectSessionAttachProcess.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetThreadServerSilo @ 0x140347690 (PsGetThreadServerSilo.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
+ *     MiSelectSessionAttachProcess @ 0x14020657C (MiSelectSessionAttachProcess.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2D24 (KeIsExecutingInArbitraryThreadContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MmGetSessionById(unsigned int a1)
+__int64 __fastcall MmGetSessionById(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rsi
+  unsigned int v2; // ebx
+  __int64 v3; // rsi
   __int64 ThreadServerSilo; // rdi
-  _QWORD *v4; // rax
-  unsigned int v5; // ecx
+  _QWORD *v5; // rax
+  unsigned int v6; // ecx
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -41,28 +44,34 @@ __int64 __fastcall MmGetSessionById(unsigned int a1)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v2 = 0LL;
-  ThreadServerSilo = PsGetThreadServerSilo(KeGetCurrentThread());
+  v2 = a1;
+  v3 = 0LL;
+  if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(a1, a2) )
+    ThreadServerSilo = 0LL;
+  else
+    ThreadServerSilo = PsGetThreadServerSilo(KeGetCurrentThread());
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  v4 = (_QWORD *)qword_140C50638;
-  while ( v4 )
+  v5 = (_QWORD *)qword_140C4DDE8;
+  if ( !qword_140C4DDE8 )
+    goto LABEL_16;
+  while ( 1 )
   {
-    v5 = *((_DWORD *)v4 - 32);
-    if ( a1 > v5 )
+    v6 = *((_DWORD *)v5 - 34);
+    if ( v2 > v6 )
     {
-      v4 = (_QWORD *)v4[1];
+      v5 = (_QWORD *)v5[1];
+      goto LABEL_9;
     }
-    else
-    {
-      if ( a1 >= v5 )
-      {
-        if ( (!ThreadServerSilo || v4[93] == ThreadServerSilo) && v5 == a1 )
-          v2 = MiSelectSessionAttachProcess(v4 - 17);
-        break;
-      }
-      v4 = (_QWORD *)*v4;
-    }
+    if ( v2 >= v6 )
+      break;
+    v5 = (_QWORD *)*v5;
+LABEL_9:
+    if ( !v5 )
+      goto LABEL_16;
   }
+  if ( v5 && (!ThreadServerSilo || v5[113] == ThreadServerSilo) && v6 == v2 )
+    v3 = MiSelectSessionAttachProcess(v5 - 18);
+LABEL_16:
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
@@ -83,5 +92,5 @@ __int64 __fastcall MmGetSessionById(unsigned int a1)
     }
   }
   __writecr8(OldIrql);
-  return v2;
+  return v3;
 }

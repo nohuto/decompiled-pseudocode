@@ -1,134 +1,128 @@
 /*
- * XREFs of ?VidMmiProbeAndLockAllocation@@YAPEAU_VIDMM_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C009D2A0
+ * XREFs of ?VidMmiProbeAndLockAllocation@@YAPEAU_VIDMM_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C0062DAC
  * Callers:
- *     ?CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0086F90 (-CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?TransferProbeAndLockToNewProcess@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_LOCAL_ALLOC@@0@Z @ 0x1C008AAA8 (-TransferProbeAndLockToNewProcess@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_LOCAL_ALLOC@@0@Z.c)
- *     ?ProbeAndLockAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@_K2W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C008AB40 (-ProbeAndLockAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@_K2W.c)
- *     ?LockAllocationBackingStore@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C009A380 (-LockAllocationBackingStore@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?EnsureLockedPages@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_K1@Z @ 0x1C00E1CC8 (-EnsureLockedPages@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_K1@Z.c)
- *     ?ProbeAndLockAllocation@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C0104E50 (-ProbeAndLockAllocation@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@.c)
+ *     ?ProbeAndLockAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@_K2W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C0066500 (-ProbeAndLockAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@_K2W.c)
+ *     ?TransferProbeAndLockToNewProcess@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_LOCAL_ALLOC@@0@Z @ 0x1C0086B30 (-TransferProbeAndLockToNewProcess@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_LOCAL_ALLOC@@0@Z.c)
+ *     ?CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0096DC0 (-CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?EnsureLockedPages@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_K1@Z @ 0x1C00ADE90 (-EnsureLockedPages@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@_K1@Z.c)
+ *     ?ProbeAndLockAllocation@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C00CC120 (-ProbeAndLockAllocation@VIDMM_PROCESS_HEAP@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0005500 (--3@YAXPEAX@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0005D98 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005F60 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0019988 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z @ 0x1C009D4E8 (-VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z.c)
- *     ?VidMmMapViewOfAllocation@@YAPEAXPEAU_VIDMM_LOCAL_ALLOC@@_K1PEAPEAXH@Z @ 0x1C009D56C (-VidMmMapViewOfAllocation@@YAPEAXPEAU_VIDMM_LOCAL_ALLOC@@_K1PEAPEAXH@Z.c)
- *     ?TrackAndValidatePagesOnLock@VIDMM_SEGMENT@@QEAAEPEAU_VIDMM_MDL@@_KPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C009D6F0 (-TrackAndValidatePagesOnLock@VIDMM_SEGMENT@@QEAAEPEAU_VIDMM_MDL@@_KPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?VidMmUnmapViewOfAllocation@@YAXPEAU_VIDMM_LOCAL_ALLOC@@PEAX@Z @ 0x1C009D788 (-VidMmUnmapViewOfAllocation@@YAXPEAU_VIDMM_LOCAL_ALLOC@@PEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0005710 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0017928 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?VidMmMapViewOfAllocation@@YAPEAXPEAU_VIDMM_LOCAL_ALLOC@@_K1PEAPEAXH@Z @ 0x1C0062858 (-VidMmMapViewOfAllocation@@YAPEAXPEAU_VIDMM_LOCAL_ALLOC@@_K1PEAPEAXH@Z.c)
+ *     ?VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z @ 0x1C0062B9C (-VidMmiAllocateMdl@@YAPEAU_MDL@@PEAX_K@Z.c)
+ *     ?VidMmUnmapViewOfAllocation@@YAXPEAU_VIDMM_LOCAL_ALLOC@@PEAX@Z @ 0x1C0062C20 (-VidMmUnmapViewOfAllocation@@YAXPEAU_VIDMM_LOCAL_ALLOC@@PEAX@Z.c)
+ *     ?TrackAndValidatePagesOnLock@VIDMM_SEGMENT@@QEAAEPEAU_VIDMM_MDL@@_KPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0075D80 (-TrackAndValidatePagesOnLock@VIDMM_SEGMENT@@QEAAEPEAU_VIDMM_MDL@@_KPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  */
 
 struct _VIDMM_MDL *__fastcall VidMmiProbeAndLockAllocation(
         struct _VIDMM_GLOBAL_ALLOC *a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
+        __int64 a2,
+        SIZE_T a3,
         LOCK_OPERATION a4,
         struct VIDMM_SEGMENT *a5,
         struct _VIDMM_LOCAL_ALLOC *a6)
 {
   struct _VIDMM_LOCAL_ALLOC *v8; // rsi
-  char v9; // r12
+  char v9; // r15
   char v10; // r14
-  _QWORD *v11; // rax
-  _QWORD *v12; // rdi
-  void *v13; // rax
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  struct _MDL *Mdl; // rax
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // rcx
-  unsigned __int64 v20; // r8
-  __int64 v22; // rcx
-  PVOID *v23; // r14
-  void *v24[3]; // [rsp+58h] [rbp-60h] BYREF
-  _QWORD *v25; // [rsp+70h] [rbp-48h]
-  int v26; // [rsp+78h] [rbp-40h] BYREF
-  __int64 v27; // [rsp+80h] [rbp-38h]
-  char v28; // [rsp+88h] [rbp-30h]
+  struct _VIDMM_MDL *v11; // rax
+  __int64 v12; // rcx
+  struct _VIDMM_MDL *v13; // rdi
+  char *v14; // rax
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  PMDL Mdl; // rax
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // rcx
+  unsigned __int64 v21; // r8
+  __int64 v23; // rax
+  void *v24; // rcx
+  void *v25[3]; // [rsp+38h] [rbp-60h] BYREF
+  int v26; // [rsp+50h] [rbp-48h] BYREF
+  __int64 v27; // [rsp+58h] [rbp-40h]
+  char v28; // [rsp+60h] [rbp-38h]
 
   v8 = a6;
   if ( !a6 )
-    v8 = (struct _VIDMM_LOCAL_ALLOC *)*((_QWORD *)a1 + 11);
-  v24[1] = v8;
+    v8 = (struct _VIDMM_LOCAL_ALLOC *)*((_QWORD *)a1 + 12);
+  v25[1] = v8;
   v9 = 0;
   v10 = 0;
-  v11 = (_QWORD *)operator new(24LL, 0x35336956u, 256LL);
-  v12 = v11;
-  v24[2] = v11;
-  v25 = v11;
+  v11 = (struct _VIDMM_MDL *)operator new[](0x18uLL, 0x35336956u, PagedPool);
+  v13 = v11;
+  v25[2] = v11;
   if ( !v11 )
   {
-    _InterlockedIncrement(&dword_1C0076854);
-    WdLogSingleEntry1(6LL, 1248LL);
+    _InterlockedIncrement(&dword_1C0050744);
+    v23 = WdLogNewEntry5_WdLowResource(v12);
+    *(_QWORD *)(v23 + 24) = 1214LL;
 LABEL_14:
-    DxgkLogInternalTriageEvent(v22, 262145LL);
+    WdLogEvent5_WdLowResource(v23);
     goto LABEL_15;
   }
-  v11[1] = 0LL;
-  v24[0] = 0LL;
-  v13 = VidMmMapViewOfAllocation(v8, a2, a3, v24, 0);
-  if ( !v13 )
+  *((_QWORD *)v11 + 1) = 0LL;
+  v25[0] = 0LL;
+  v14 = VidMmMapViewOfAllocation(v8, a2, a3, v25, 0);
+  if ( !v14 )
   {
-    if ( bTracingEnabled && (byte_1C0076981 & 1) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v14, (__int64)&EventPerformanceWarning, v15, 14);
-    _InterlockedIncrement(&dword_1C0076884);
-    WdLogSingleEntry1(6LL, 1263LL);
+    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v15, &EventPerformanceWarning, v16, 14);
+    _InterlockedIncrement(&dword_1C0050774);
+    v23 = WdLogNewEntry5_WdLowResource(v15);
+    *(_QWORD *)(v23 + 24) = 1229LL;
     goto LABEL_14;
   }
   v9 = 1;
-  *(_DWORD *)v12 = 0;
-  Mdl = VidMmiAllocateMdl(v13, a3);
-  v12[1] = Mdl;
+  *(_DWORD *)v13 = 0;
+  Mdl = VidMmiAllocateMdl((unsigned __int64)v14, a3);
+  *((_QWORD *)v13 + 1) = Mdl;
   if ( !Mdl )
   {
     _InterlockedIncrement((volatile signed __int32 *)&gVidMmLowResourceAccumulated);
-    WdLogSingleEntry1(6LL, 1277LL);
+    v23 = WdLogNewEntry5_WdLowResource(v18);
+    *(_QWORD *)(v23 + 24) = 1243LL;
     goto LABEL_14;
   }
   v26 = -1;
   v27 = 0LL;
-  if ( (qword_1C0076010 & 2) != 0 )
+  if ( (qword_1C0050010 & 2) != 0 )
   {
     v28 = 1;
     v26 = 8000;
-    if ( byte_1C0076981 < 0 )
-      McTemplateK0q_EtwWriteTransfer(v17, (__int64)&EventProfilerEnter, v18, 8000);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v18, &EventProfilerEnter, v19, 8000);
   }
   else
   {
     v28 = 0;
   }
   DXGETWPROFILER_BASE::PushProfilerEntry();
-  MmProbeAndLockPages((PMDL)v12[1], 0, a4);
+  MmProbeAndLockPages(*((PMDL *)v13 + 1), 0, a4);
   DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v26);
-  if ( v28 && byte_1C0076981 < 0 )
-    McTemplateK0q_EtwWriteTransfer(v19, (__int64)&EventProfilerExit, v20, v26);
+  if ( v28 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v20, &EventProfilerExit, v21, v26);
   v10 = 1;
-  if ( !a5 || VIDMM_SEGMENT::TrackAndValidatePagesOnLock(a5, (struct _VIDMM_MDL *)v12, v20, a1) )
+  if ( !a5 || VIDMM_SEGMENT::TrackAndValidatePagesOnLock(a5, v13, v21, a1) )
   {
-    VidMmUnmapViewOfAllocation(v8, v24[0]);
-    return (struct _VIDMM_MDL *)v12;
+    VidMmUnmapViewOfAllocation(v8, v25[0]);
+    return v13;
   }
 LABEL_15:
   if ( v10 )
+    MmUnlockPages(*((PMDL *)v13 + 1));
+  if ( v13 )
   {
-    v23 = (PVOID *)(v12 + 1);
-    MmUnlockPages((PMDL)v12[1]);
-  }
-  else
-  {
-    v23 = (PVOID *)(v25 + 1);
-  }
-  if ( v12 )
-  {
-    if ( *v23 )
-      ExFreePoolWithTag(*v23, 0);
-    operator delete(v12);
+    v24 = (void *)*((_QWORD *)v13 + 1);
+    if ( v24 )
+      ExFreePoolWithTag(v24, 0);
+    operator delete(v13);
   }
   if ( v9 )
-    VidMmUnmapViewOfAllocation(v8, v24[0]);
+    VidMmUnmapViewOfAllocation(v8, v25[0]);
   return 0LL;
 }

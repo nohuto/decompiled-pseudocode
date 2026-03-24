@@ -1,72 +1,81 @@
 /*
- * XREFs of MiSubsectionProtosCreated @ 0x1405A0FD8
+ * XREFs of MiSubsectionProtosCreated @ 0x140542484
  * Callers:
- *     MmPurgeSection @ 0x14027F360 (MmPurgeSection.c)
- *     MiPurgeFileOnlyPfn @ 0x1405A0774 (MiPurgeFileOnlyPfn.c)
- *     MiAllocateFileExtents @ 0x14096F8CC (MiAllocateFileExtents.c)
+ *     MmPurgeSection @ 0x140238BA0 (MmPurgeSection.c)
+ *     MiPurgeFileOnlyPfn @ 0x140541D74 (MiPurgeFileOnlyPfn.c)
+ *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
  * Callees:
- *     KeSignalGate @ 0x14024B0B4 (KeSignalGate.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSubsectionProtosCreated(ULONG_PTR a1, __int64 a2, int a3, int a4)
 {
   __int64 v4; // rdi
   unsigned __int64 v9; // rsi
-  __int64 *v10; // rcx
-  __int64 *v11; // rbx
-  int v12; // eax
-  int v13; // eax
+  __int64 v10; // r8
+  _DWORD *v11; // r9
+  __int64 *v12; // rcx
+  int v13; // edx
+  unsigned int v14; // edx
+  __int64 *v15; // rbx
+  int v16; // eax
+  int v17; // eax
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v17; // zf
+  bool v21; // zf
 
   v4 = *(_QWORD *)a1;
   KeAbPostRelease(a1);
   v9 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v4 + 72));
   if ( (*(_DWORD *)(v4 + 56) & 0x20) != 0 )
   {
-    v10 = *(__int64 **)(v4 + 80);
+    v12 = *(__int64 **)(v4 + 80);
     *(_QWORD *)(v4 + 80) = 0LL;
+    goto LABEL_9;
   }
-  else
+  v13 = *(_DWORD *)(a1 + 52);
+  if ( a4 )
   {
-    if ( a4 )
-    {
-      *(_DWORD *)(a1 + 52) |= 0x40000000u;
-    }
-    else if ( a3 == *(_DWORD *)(a1 + 44) - (*(_DWORD *)(a1 + 52) & 0x3FFFFFFF) )
-    {
-      *(_DWORD *)(a1 + 52) &= ~0x40000000u;
-    }
-    v10 = *(__int64 **)(a1 + 24);
-    *(_QWORD *)(a1 + 24) = 0LL;
+    v14 = v13 | 0x40000000;
+LABEL_7:
+    *(_DWORD *)(a1 + 52) = v14;
+    goto LABEL_8;
   }
-  if ( v10 )
+  if ( a3 == *(_DWORD *)(a1 + 44) - (v13 & 0x3FFFFFFF) )
+  {
+    v14 = v13 & 0xBFFFFFFF;
+    goto LABEL_7;
+  }
+LABEL_8:
+  v12 = *(__int64 **)(a1 + 24);
+  *(_QWORD *)(a1 + 24) = 0LL;
+LABEL_9:
+  if ( v12 )
   {
     do
     {
-      v11 = (__int64 *)*v10;
-      if ( v10 != (__int64 *)a2 )
+      v15 = (__int64 *)*v12;
+      if ( v12 != (__int64 *)a2 )
       {
-        v12 = *((_DWORD *)v10 + 2);
-        *((_DWORD *)v10 + 3) = 1;
-        if ( (v12 & 0x40) == 0 )
+        v16 = *((_DWORD *)v12 + 2);
+        *((_DWORD *)v12 + 3) = 1;
+        if ( (v16 & 0x40) == 0 )
         {
-          v13 = 1;
+          v17 = 1;
           if ( (*(_DWORD *)(a2 + 8) & 0x100) != 0 )
-            v13 = 2;
-          *((_DWORD *)v10 + 3) = v13;
-          KeSignalGate((_DWORD *)v10 + 4, 1);
+            v17 = 2;
+          *((_DWORD *)v12 + 3) = v17;
+          KeSignalGate((__int64)(v12 + 2), 1LL, v10, v11);
         }
       }
-      v10 = v11;
+      v12 = v15;
     }
-    while ( v11 );
+    while ( v15 );
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 72));
   result = (unsigned int)KiIrqlFlags;
@@ -80,9 +89,9 @@ __int64 __fastcall MiSubsectionProtosCreated(ULONG_PTR a1, __int64 a2, int a3, i
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
         result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v17 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        v21 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v17 )
+        if ( v21 )
           result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }

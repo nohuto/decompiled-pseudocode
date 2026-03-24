@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkCddWaitForSynchronizationObject@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2@@@Z @ 0x1C01EE940
+ * XREFs of ?DxgkCddWaitForSynchronizationObject@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2@@@Z @ 0x1C0175D60
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkWaitForSynchronizationObjectInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2@@H_N@Z @ 0x1C016EE2C (-DxgkWaitForSynchronizationObjectInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2@@H_N@Z.c)
+ *     ?DxgkWaitForSynchronizationObjectInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2@@H@Z @ 0x1C00E8EF0 (-DxgkWaitForSynchronizationObjectInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2@@H@Z.c)
  */
 
 __int64 __fastcall DxgkCddWaitForSynchronizationObject(
@@ -11,6 +11,5 @@ __int64 __fastcall DxgkCddWaitForSynchronizationObject(
         __int64 a2,
         __int64 a3)
 {
-  LOBYTE(a3) = 1;
   return DxgkWaitForSynchronizationObjectInternal(a1, 0, a3);
 }

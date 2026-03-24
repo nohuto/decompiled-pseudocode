@@ -1,7 +1,7 @@
 /*
- * XREFs of ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C015F740
+ * XREFs of ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C00BED84
  * Callers:
- *     ?dwSetLayout@DC@@QEAAKJK@Z @ 0x1C00C2B00 (-dwSetLayout@DC@@QEAAKJK@Z.c)
+ *     ?dwSetLayout@DC@@QEAAKJK@Z @ 0x1C0093EC0 (-dwSetLayout@DC@@QEAAKJK@Z.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ void __fastcall DC::MirrorWindowOrg(DC *this)
   if ( (v1[27] & 1) == 0 )
   {
     v4 = v1[76];
-    goto LABEL_7;
+    goto LABEL_5;
   }
   v2 = v1[83];
   if ( v2 )
@@ -26,7 +26,7 @@ void __fastcall DC::MirrorWindowOrg(DC *this)
     if ( v3 != 0x80000000 || v2 != -1 )
     {
       v4 = v1[76] + v3 / v2;
-LABEL_7:
+LABEL_5:
       v1[77] = v4;
     }
   }

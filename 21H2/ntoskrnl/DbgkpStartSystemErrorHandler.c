@@ -1,15 +1,15 @@
 /*
- * XREFs of DbgkpStartSystemErrorHandler @ 0x14092A77C
+ * XREFs of DbgkpStartSystemErrorHandler @ 0x140887850
  * Callers:
- *     DbgkpSendErrorMessage @ 0x14092A29C (DbgkpSendErrorMessage.c)
+ *     DbgkpSendErrorMessage @ 0x140887370 (DbgkpSendErrorMessage.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryWnfStateNameInformation @ 0x14041E4E0 (ZwQueryWnfStateNameInformation.c)
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
- *     EtwUnregister @ 0x1406B7470 (EtwUnregister.c)
- *     EtwRegister @ 0x1406D2350 (EtwRegister.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryWnfStateNameInformation @ 0x1403FD040 (ZwQueryWnfStateNameInformation.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     EtwUnregister @ 0x1407601D0 (EtwUnregister.c)
+ *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
  */
 
 __int64 DbgkpStartSystemErrorHandler()

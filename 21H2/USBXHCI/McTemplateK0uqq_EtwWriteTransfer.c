@@ -1,11 +1,12 @@
 /*
- * XREFs of McTemplateK0uqq_EtwWriteTransfer @ 0x1C0043C54
+ * XREFs of McTemplateK0uqq_EtwWriteTransfer @ 0x1C0043248
  * Callers:
- *     UsbDevice_DirectWriteDoorbell @ 0x1C000900C (UsbDevice_DirectWriteDoorbell.c)
- *     Isoch_Stage_MapIntoRing @ 0x1C00090A0 (Isoch_Stage_MapIntoRing.c)
+ *     Isoch_Stage_MapIntoRing @ 0x1C0001050 (Isoch_Stage_MapIntoRing.c)
+ *     Control_Transfer_MapIntoRing @ 0x1C0004610 (Control_Transfer_MapIntoRing.c)
+ *     UsbDevice_DirectWriteDoorbell @ 0x1C000583C (UsbDevice_DirectWriteDoorbell.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C00351EC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0uqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, char a4, char a5, char a6)
@@ -26,5 +27,5 @@ NTSTATUS __fastcall McTemplateK0uqq_EtwWriteTransfer(__int64 a1, __int64 a2, __i
   v13 = 4LL;
   v10 = &a5;
   v12 = &a6;
-  return McGenEventWrite_EtwWriteTransfer(a1, (const EVENT_DESCRIPTOR *)"-", 0LL, 4u, &v7);
+  return McGenEventWrite_EtwWriteTransfer(a1, &USBXHCI_ETW_EVENT_DOORBELL_V1, 0LL, 4u, &v7);
 }

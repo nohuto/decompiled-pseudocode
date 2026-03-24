@@ -1,192 +1,146 @@
 /*
- * XREFs of ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810
+ * XREFs of ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410
  * Callers:
- *     KeSetUserAffinityThread @ 0x1402028C4 (KeSetUserAffinityThread.c)
- *     KeThawMultiProcess @ 0x140204688 (KeThawMultiProcess.c)
- *     KeSetProcessSchedulingGroup @ 0x1402047EC (KeSetProcessSchedulingGroup.c)
- *     KeForceResumeProcess @ 0x140204AE0 (KeForceResumeProcess.c)
- *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x14020A4F0 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
- *     MiDeleteClusterSection @ 0x1402189D0 (MiDeleteClusterSection.c)
- *     MiRemoveUnusedSegment @ 0x140219990 (MiRemoveUnusedSegment.c)
- *     MiInsertDecayClusterTimer @ 0x14021A95C (MiInsertDecayClusterTimer.c)
- *     MiOutPageSingleKernelStack @ 0x14021B5A0 (MiOutPageSingleKernelStack.c)
- *     MiRemoveUnusedSubsection @ 0x14021B994 (MiRemoveUnusedSubsection.c)
- *     MiSignalLargePageRebuild @ 0x14021D444 (MiSignalLargePageRebuild.c)
- *     MiPruneProcessLargePageCaches @ 0x14021E6B0 (MiPruneProcessLargePageCaches.c)
- *     MiLockPageTableInternal @ 0x1402376E0 (MiLockPageTableInternal.c)
- *     KiSearchForNewThread @ 0x140240330 (KiSearchForNewThread.c)
- *     KiAbEntryRemoveFromTree @ 0x14024B530 (KiAbEntryRemoveFromTree.c)
- *     KiAbEntryGetLockedHeadEntry @ 0x14024C730 (KiAbEntryGetLockedHeadEntry.c)
- *     MiEmptyDecayClusterTimers @ 0x14025AE00 (MiEmptyDecayClusterTimers.c)
- *     MiWalkPageTables @ 0x14025BBE0 (MiWalkPageTables.c)
- *     MiWalkPageTablesRecursively @ 0x14025C050 (MiWalkPageTablesRecursively.c)
- *     MiAcquirePageListLock @ 0x140267280 (MiAcquirePageListLock.c)
- *     MiSynchronizeFastPageInsert @ 0x14026DDF0 (MiSynchronizeFastPageInsert.c)
- *     MiInsertPageInList @ 0x14026EAE0 (MiInsertPageInList.c)
- *     MiSetVaAgeList @ 0x1402708C0 (MiSetVaAgeList.c)
- *     MiFlushSectionInternal @ 0x140275630 (MiFlushSectionInternal.c)
- *     MiLockPageListAndLastPage @ 0x140278E80 (MiLockPageListAndLastPage.c)
- *     MiDeletePagablePteRange @ 0x14027A040 (MiDeletePagablePteRange.c)
- *     MiDrainSystemAccessLog @ 0x140286BB4 (MiDrainSystemAccessLog.c)
- *     MiDrainOldAccessBuffers @ 0x140286CAC (MiDrainOldAccessBuffers.c)
- *     MiLargePageFreeToZero @ 0x140286E20 (MiLargePageFreeToZero.c)
- *     MiSetVadFlags @ 0x140287590 (MiSetVadFlags.c)
- *     MiSectionCreated @ 0x140287A14 (MiSectionCreated.c)
- *     MiComputeDataFlushRange @ 0x140288D60 (MiComputeDataFlushRange.c)
- *     MiLockVadTree @ 0x14028A7A0 (MiLockVadTree.c)
- *     MiCopyDataPageToImagePage @ 0x14028B350 (MiCopyDataPageToImagePage.c)
- *     MiRemoveDecayClusterTimer @ 0x14028BB90 (MiRemoveDecayClusterTimer.c)
- *     MiInsertUnusedSubsection @ 0x14028BBE0 (MiInsertUnusedSubsection.c)
- *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14028CC6C (KiAcquireReleaseObjectRundownLockExclusive.c)
- *     MmLockLoadedModuleListExclusive @ 0x140290AF8 (MmLockLoadedModuleListExclusive.c)
- *     MiReleasePageFileInfo @ 0x1402951BC (MiReleasePageFileInfo.c)
- *     MiCreateDecayPfn @ 0x140296130 (MiCreateDecayPfn.c)
- *     MiGatherMappedPages @ 0x140297C04 (MiGatherMappedPages.c)
- *     MiInsertUnusedSegment @ 0x1402A0B78 (MiInsertUnusedSegment.c)
- *     KeStartThread @ 0x1402BE0A8 (KeStartThread.c)
- *     KiUpdateProcessConcurrencyCount @ 0x1402C3090 (KiUpdateProcessConcurrencyCount.c)
- *     MiZeroLocalPages @ 0x1402CF540 (MiZeroLocalPages.c)
- *     MiZeroPage @ 0x1402D09F0 (MiZeroPage.c)
- *     MiCoalesceFreePages @ 0x1402D4970 (MiCoalesceFreePages.c)
- *     MiDeleteBatch @ 0x1402D5F70 (MiDeleteBatch.c)
- *     MiInsertLargePageChain @ 0x1402D68E0 (MiInsertLargePageChain.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiLargePagePromote @ 0x1402D77D0 (MiLargePagePromote.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
- *     MiBeginPageAccessor @ 0x1402E8034 (MiBeginPageAccessor.c)
- *     MiDemoteLocalLargePage @ 0x1402E81B0 (MiDemoteLocalLargePage.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1402E9C78 (MmAdjustWorkingSetSizeEx.c)
- *     KeTerminateThread @ 0x14030A438 (KeTerminateThread.c)
- *     PopPepWork @ 0x140311C7C (PopPepWork.c)
- *     PopPepLockActivityLink @ 0x140313988 (PopPepLockActivityLink.c)
- *     MiReplaceTransitionPage @ 0x1403304D0 (MiReplaceTransitionPage.c)
- *     MiDereferenceIoPages @ 0x140335F54 (MiDereferenceIoPages.c)
- *     MiReferenceIoPages @ 0x140336360 (MiReferenceIoPages.c)
- *     MiLockIoPfnTree @ 0x140336AB0 (MiLockIoPfnTree.c)
- *     MiDereferenceControlAreaPfnList @ 0x1403399D0 (MiDereferenceControlAreaPfnList.c)
- *     MiCheckForControlAreaDeletion @ 0x140339AD8 (MiCheckForControlAreaDeletion.c)
- *     MiDecayNodeNowEmpty @ 0x14034A440 (MiDecayNodeNowEmpty.c)
- *     MiWaitForPageWriteCompletion @ 0x14034A6C4 (MiWaitForPageWriteCompletion.c)
- *     KeSetPriorityAndQuantumProcess @ 0x14034FB90 (KeSetPriorityAndQuantumProcess.c)
- *     KeSetQuantumProcess @ 0x14035062C (KeSetQuantumProcess.c)
- *     MiClearFilePointer @ 0x140355090 (MiClearFilePointer.c)
- *     KeSetProcessPpmPolicy @ 0x140356AB0 (KeSetProcessPpmPolicy.c)
- *     MiReferencePageRuns @ 0x1403570E0 (MiReferencePageRuns.c)
- *     MiPreUnlockWorkingSetShared @ 0x14035CF20 (MiPreUnlockWorkingSetShared.c)
- *     MmQuerySystemWorkingSetInformation @ 0x140361BB0 (MmQuerySystemWorkingSetInformation.c)
- *     KeSetDisableQuantumProcess @ 0x140362F48 (KeSetDisableQuantumProcess.c)
- *     KeSetExecuteOptions @ 0x14036AD84 (KeSetExecuteOptions.c)
- *     MiZeroSectionObjectPointer @ 0x14036E5C8 (MiZeroSectionObjectPointer.c)
- *     KeFreezeProcess @ 0x14036F208 (KeFreezeProcess.c)
- *     KeUpdateSoftParkRankList @ 0x14039116C (KeUpdateSoftParkRankList.c)
- *     KeSetCpuSetsProcess @ 0x14039C834 (KeSetCpuSetsProcess.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A088C (MiTryUnlinkNodeLargePages.c)
- *     MiPreventControlAreaDeletion @ 0x1403A5E48 (MiPreventControlAreaDeletion.c)
- *     MiCopyWorkingSetFields @ 0x1403AE134 (MiCopyWorkingSetFields.c)
- *     KeSetAffinityProcess @ 0x1403AE3D8 (KeSetAffinityProcess.c)
- *     MiDemoteSlabEntry @ 0x1403CCD8C (MiDemoteSlabEntry.c)
- *     MiRemoveFaultNode @ 0x1403D6468 (MiRemoveFaultNode.c)
- *     VmpFaultEntryInsert @ 0x1404661D8 (VmpFaultEntryInsert.c)
- *     VmpFaultEntryRemove @ 0x140466396 (VmpFaultEntryRemove.c)
- *     VmpProcessContextLockExclusive @ 0x1404666BE (VmpProcessContextLockExclusive.c)
- *     VslIumEfiRuntimeService @ 0x14054B8C0 (VslIumEfiRuntimeService.c)
- *     KeAdjustTimerDelayProcess @ 0x14056F568 (KeAdjustTimerDelayProcess.c)
- *     KeRecomputeCpuSetAffinityProcess @ 0x1405752F4 (KeRecomputeCpuSetAffinityProcess.c)
- *     KeTransitionProcessorParkState @ 0x14057D8FC (KeTransitionProcessorParkState.c)
- *     KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057DBBC (KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule.c)
- *     KiSoftParkElectionDpcRoutine @ 0x14057E2E0 (KiSoftParkElectionDpcRoutine.c)
- *     PspIumReplenishPartitionPages @ 0x1405A6290 (PspIumReplenishPartitionPages.c)
- *     DbgpInsertDebugPrintCallback @ 0x1405A78D4 (DbgpInsertDebugPrintCallback.c)
- *     DbgpRemoveDebugPrintCallback @ 0x1405A7A38 (DbgpRemoveDebugPrintCallback.c)
- *     RtlpAcquirePropStoreLockExclusive @ 0x1405AAD40 (RtlpAcquirePropStoreLockExclusive.c)
- *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x1405D2390 (ViPtAcquireTreeLockAtDpcLevelSafe.c)
- *     MiAddPartitionHugeRange @ 0x14061F274 (MiAddPartitionHugeRange.c)
- *     MiHotRemoveHugeRange @ 0x140620144 (MiHotRemoveHugeRange.c)
- *     MiHugeRangeFreeToZero @ 0x140620CF4 (MiHugeRangeFreeToZero.c)
- *     MiInsertHugeRangeInList @ 0x14062103C (MiInsertHugeRangeInList.c)
- *     MiMakeEntireHugePfnGood @ 0x140621584 (MiMakeEntireHugePfnGood.c)
- *     MiMarkHugePfnBad @ 0x140621688 (MiMarkHugePfnBad.c)
- *     MiMarkHugePfnGood @ 0x140621E64 (MiMarkHugePfnGood.c)
- *     MiMoveBadHugeRangeCrossPartition @ 0x140622128 (MiMoveBadHugeRangeCrossPartition.c)
- *     MiSetHugeRangePartitionId @ 0x140622878 (MiSetHugeRangePartitionId.c)
- *     MiPurgeSubsection @ 0x140625744 (MiPurgeSubsection.c)
- *     MiMirrorGatherBrownPages @ 0x140626CE8 (MiMirrorGatherBrownPages.c)
- *     MiAddPendingBadPageNode @ 0x140629758 (MiAddPendingBadPageNode.c)
- *     MiBadPageInserted @ 0x1406297FC (MiBadPageInserted.c)
- *     MiRemovePendingBadPageNode @ 0x14062A978 (MiRemovePendingBadPageNode.c)
- *     MiFreezeIoPfnNode @ 0x14062E178 (MiFreezeIoPfnNode.c)
- *     MiMarkHugeRangeIoPfnDeleted @ 0x14062E7CC (MiMarkHugeRangeIoPfnDeleted.c)
- *     MiFreeModifiedReservations @ 0x140639F9C (MiFreeModifiedReservations.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14063C334 (MiCopyFileOnlyGlobalSubsectionPage.c)
- *     MiMarkFileOnlyPfnGood @ 0x14063E3A4 (MiMarkFileOnlyPfnGood.c)
- *     MiPurgeBadFileOnlyPages @ 0x14063EAE0 (MiPurgeBadFileOnlyPages.c)
- *     MiQueueExtentPfnDeletion @ 0x14063F128 (MiQueueExtentPfnDeletion.c)
- *     MiFaultGetFileExtents @ 0x140645EF4 (MiFaultGetFileExtents.c)
- *     MiAllocateEnclavePages @ 0x140646E08 (MiAllocateEnclavePages.c)
- *     MiDecommitHardwareEnclavePages @ 0x140647550 (MiDecommitHardwareEnclavePages.c)
- *     MiIncrementAweMapCount @ 0x14064AB40 (MiIncrementAweMapCount.c)
- *     MiWakeWaitersForAweCacheAttributeChange @ 0x14064C458 (MiWakeWaitersForAweCacheAttributeChange.c)
- *     MiFreeListPageContentsChanged @ 0x14064D754 (MiFreeListPageContentsChanged.c)
- *     MiMoveBadPageCrossPartition @ 0x14064D974 (MiMoveBadPageCrossPartition.c)
- *     MiSetPfnRemovalRequested @ 0x14064DF24 (MiSetPfnRemovalRequested.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x14064EB14 (MiChangePageAttributeLargeFreeZeroPage.c)
- *     MiLockAllMemoryLists @ 0x1406509A8 (MiLockAllMemoryLists.c)
- *     MiLockMemoryLists @ 0x1406509F0 (MiLockMemoryLists.c)
- *     MiLockPageListAndFirstPage @ 0x140650C44 (MiLockPageListAndFirstPage.c)
- *     MiLockStandbyOldestPage @ 0x140650D8C (MiLockStandbyOldestPage.c)
- *     MiNoPagesLastChance @ 0x140650F64 (MiNoPagesLastChance.c)
- *     MiSwapNumaStandbyPage @ 0x140651E40 (MiSwapNumaStandbyPage.c)
- *     MiMoveBackgroundZeroThreads @ 0x140655020 (MiMoveBackgroundZeroThreads.c)
- *     MmReportParkedProcessors @ 0x140655EB8 (MmReportParkedProcessors.c)
- *     MiDrainCrossPartitionUsage @ 0x140659A94 (MiDrainCrossPartitionUsage.c)
- *     MiGetPartitionNodeInformation @ 0x14065A118 (MiGetPartitionNodeInformation.c)
- *     MiRebuildLargePages @ 0x14065DE60 (MiRebuildLargePages.c)
- *     MiRepurposeDecayNode @ 0x1406618E4 (MiRepurposeDecayNode.c)
- *     MiUpdatePageFileBlockOwner @ 0x140666D0C (MiUpdatePageFileBlockOwner.c)
- *     MiCreateProcessLargePageCacheAnchor @ 0x140667E08 (MiCreateProcessLargePageCacheAnchor.c)
- *     ViDeadlockDetectionLock @ 0x140AD9DD8 (ViDeadlockDetectionLock.c)
+ *     MiWalkPageTables @ 0x140209280 (MiWalkPageTables.c)
+ *     MiWalkPageTablesRecursively @ 0x14020BD60 (MiWalkPageTablesRecursively.c)
+ *     MiLockPageTableInternal @ 0x14020EAB0 (MiLockPageTableInternal.c)
+ *     MiFlushSectionInternal @ 0x140219D70 (MiFlushSectionInternal.c)
+ *     MiReferencePageRuns @ 0x14022F500 (MiReferencePageRuns.c)
+ *     KeSetDisableQuantumProcess @ 0x140251964 (KeSetDisableQuantumProcess.c)
+ *     MiGatherMappedPages @ 0x140255428 (MiGatherMappedPages.c)
+ *     PopPepWork @ 0x140260D5C (PopPepWork.c)
+ *     PopPepLockActivityLink @ 0x1402617D8 (PopPepLockActivityLink.c)
+ *     MiOutPageSingleKernelStack @ 0x1402638B0 (MiOutPageSingleKernelStack.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x1402726C0 (KiAbEntryGetLockedHeadEntry.c)
+ *     MiRemoveUnusedSubsection @ 0x140279184 (MiRemoveUnusedSubsection.c)
+ *     MiCopyDataPageToImagePage @ 0x140284A68 (MiCopyDataPageToImagePage.c)
+ *     MmUnmapViewInSystemCache @ 0x140294160 (MmUnmapViewInSystemCache.c)
+ *     MiBeginPageAccessor @ 0x1402954C8 (MiBeginPageAccessor.c)
+ *     MiInsertPageInList @ 0x1402A6E90 (MiInsertPageInList.c)
+ *     MiRemoveUnusedSegment @ 0x1402D7B58 (MiRemoveUnusedSegment.c)
+ *     MiInsertUnusedSegment @ 0x1402D7D10 (MiInsertUnusedSegment.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
+ *     MiReferenceIoPages @ 0x1402E8B74 (MiReferenceIoPages.c)
+ *     MiWaitForPageWriteCompletion @ 0x1402ED00C (MiWaitForPageWriteCompletion.c)
+ *     MiCheckForControlAreaDeletion @ 0x1402F4FB8 (MiCheckForControlAreaDeletion.c)
+ *     MiClearFilePointer @ 0x1402F50B8 (MiClearFilePointer.c)
+ *     MiInsertUnusedSubsection @ 0x1402F5120 (MiInsertUnusedSubsection.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x140302B34 (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KeThawProcess @ 0x1403150C4 (KeThawProcess.c)
+ *     KeFreezeProcess @ 0x14031529C (KeFreezeProcess.c)
+ *     MiPreventControlAreaDeletion @ 0x14031E7D0 (MiPreventControlAreaDeletion.c)
+ *     MiRemoveFaultNode @ 0x14032061C (MiRemoveFaultNode.c)
+ *     KeSetExecuteOptions @ 0x1403251CC (KeSetExecuteOptions.c)
+ *     MiZeroSectionObjectPointer @ 0x14032C98C (MiZeroSectionObjectPointer.c)
+ *     MiReleasePageFileInfo @ 0x140330CC0 (MiReleasePageFileInfo.c)
+ *     KeStartThread @ 0x140340A7C (KeStartThread.c)
+ *     KeTerminateThread @ 0x140341500 (KeTerminateThread.c)
+ *     MiSectionCreated @ 0x140359E2C (MiSectionCreated.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x14035AEA4 (KeSetPriorityAndQuantumProcess.c)
+ *     KeSetQuantumProcess @ 0x14035B384 (KeSetQuantumProcess.c)
+ *     KeForceResumeProcess @ 0x14035BFB8 (KeForceResumeProcess.c)
+ *     KeSetProcessSchedulingGroup @ 0x14035C0AC (KeSetProcessSchedulingGroup.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140372420 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140372D48 (MmLockLoadedModuleListExclusive.c)
+ *     MiLockAllMemoryLists @ 0x1403821EC (MiLockAllMemoryLists.c)
+ *     KeSetAffinityThread @ 0x140398CCC (KeSetAffinityThread.c)
+ *     KeSetCpuSetsProcess @ 0x1403C5984 (KeSetCpuSetsProcess.c)
+ *     KeSetAffinityProcess @ 0x1403CABCC (KeSetAffinityProcess.c)
+ *     VslIumEfiRuntimeService @ 0x1404FC820 (VslIumEfiRuntimeService.c)
+ *     KeAdjustTimerDelayProcess @ 0x14051370C (KeAdjustTimerDelayProcess.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x14051C878 (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeTransitionProcessorParkState @ 0x1405253EC (KeTransitionProcessorParkState.c)
+ *     MiPurgeSubsection @ 0x14052A1F0 (MiPurgeSubsection.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FCB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiCopyImageExtentContents @ 0x140540074 (MiCopyImageExtentContents.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140546130 (MiDbgTranslatePhysicalAddress.c)
+ *     MiFaultGetFileExtents @ 0x140548330 (MiFaultGetFileExtents.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140549968 (MiDecommitHardwareEnclavePages.c)
+ *     MiNoPagesLastChance @ 0x140550708 (MiNoPagesLastChance.c)
+ *     MiDrainCrossPartitionUsage @ 0x140561FDC (MiDrainCrossPartitionUsage.c)
+ *     PspIumReplenishPartitionPages @ 0x140583EB8 (PspIumReplenishPartitionPages.c)
+ *     DbgpInsertDebugPrintCallback @ 0x140585584 (DbgpInsertDebugPrintCallback.c)
+ *     DbgpRemoveDebugPrintCallback @ 0x1405856DC (DbgpRemoveDebugPrintCallback.c)
+ *     VmpFaultEntryInsert @ 0x1405A2FF8 (VmpFaultEntryInsert.c)
+ *     VmpFaultEntryRemove @ 0x1405A31B0 (VmpFaultEntryRemove.c)
+ *     VmpProcessContextLockExclusive @ 0x1405A489C (VmpProcessContextLockExclusive.c)
+ *     ViDeadlockDetectionLock @ 0x1409DF2BC (ViDeadlockDetectionLock.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CCC60 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CCC90 (HvlNotifyLongSpinWait.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046ADD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140230F30 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5AE8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 void __stdcall ExAcquireSpinLockExclusiveAtDpcLevel(PEX_SPIN_LOCK SpinLock)
 {
-  unsigned int v2; // edi
-  __int64 v3; // rcx
-  char v4; // dl
+  __int64 v1; // rdx
+  __int64 v2; // r8
+  _DWORD *v3; // r9
+  struct _KPRCB *CurrentPrcb; // rdi
+  _DWORD *SchedulerAssist; // rcx
+  __int64 v7; // rdx
+  _DWORD *v8; // rcx
+  bool v9; // zf
+  unsigned __int32 v10; // eax
+  char v11; // dl
+  int v12; // eax
+  int v13; // eax
+  int v14; // [rsp+38h] [rbp+10h] BYREF
 
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
   {
-    v4 = -1;
-    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(SpinLock, v4);
+    v11 = -1;
+    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(SpinLock, v11);
   }
   else
   {
-    v2 = 0;
-    if ( _interlockedbittestandset(SpinLock, 0x1Fu) )
-      v2 = ExpWaitForSpinLockExclusiveAndAcquire((int *)SpinLock, 0xFFu);
-    while ( 1 )
+    CurrentPrcb = KeGetCurrentPrcb();
+    v14 = 0;
+    SchedulerAssist = CurrentPrcb->SchedulerAssist;
+    if ( SchedulerAssist )
     {
-      v3 = *(unsigned int *)SpinLock;
-      LODWORD(v3) = v3 & 0xBFFFFFFF;
-      if ( (_DWORD)v3 == 0x80000000 )
-        break;
-      if ( (*SpinLock & 0x40000000) == 0 )
-        _InterlockedOr(SpinLock, 0x40000000u);
-      if ( (++v2 & HvlLongSpinCountMask) == 0
-        && (HvlEnlightenments & 0x40) != 0
-        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v3) )
+      if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        HvlNotifyLongSpinWait(v2);
+        v12 = SchedulerAssist[6];
+        SchedulerAssist[6] = v12 + 1;
+        if ( v12 == -1 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
-      else
+    }
+    if ( _interlockedbittestandset(SpinLock, 0x1Fu) )
+    {
+      v8 = CurrentPrcb->SchedulerAssist;
+      if ( v8 )
       {
-        _mm_pause();
+        if ( CurrentPrcb->NestingLevel <= 1u )
+        {
+          v13 = v8[6] - 1;
+          v8[6] = v13;
+          if ( !v13 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
+      LOBYTE(v1) = -1;
+      v14 = ExpWaitForSpinLockExclusiveAndAcquire((unsigned __int64)SpinLock, v1, v2, v3);
+    }
+    v7 = *(unsigned int *)SpinLock;
+    if ( (*SpinLock & 0xBFFFFFFF) != 0x80000000 )
+    {
+      do
+      {
+        if ( (v7 & 0x40000000) == 0 )
+        {
+          v10 = _InterlockedCompareExchange(SpinLock, v7 | 0x40000000, v7);
+          v9 = (_DWORD)v7 == v10;
+          v7 = v10;
+          if ( !v9 )
+            continue;
+        }
+        KeYieldProcessorEx(&v14, v7, v2, (__int64)v3);
+        v7 = *(unsigned int *)SpinLock;
+      }
+      while ( (v7 & 0xBFFFFFFF) != 0x80000000 );
     }
   }
 }

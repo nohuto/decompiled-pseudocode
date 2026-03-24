@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z @ 0x1801FF348
+ * XREFs of ?ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z @ 0x18019F1E0
  * Callers:
- *     ?ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z @ 0x1801F54E8 (-ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z.c)
+ *     ?ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z @ 0x180191DD4 (-ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     Lanczos::Lanczos @ 0x1801FF540 (Lanczos--Lanczos.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     Lanczos::Lanczos @ 0x18019F3D8 (Lanczos--Lanczos.c)
  */
 
 void __fastcall Lanczos::ComputeDecimationFilterKernel(Lanczos *this, unsigned int a2, float *a3, float (*const a4)[6])

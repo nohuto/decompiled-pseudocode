@@ -1,14 +1,14 @@
 /*
- * XREFs of xxxForceWindowToDpiForTest @ 0x1C01E0AE0
+ * XREFs of xxxForceWindowToDpiForTest @ 0x1C01E669C
  * Callers:
- *     NtUserForceWindowToDpiForTest @ 0x1C01F3490 (NtUserForceWindowToDpiForTest.c)
+ *     NtUserForceWindowToDpiForTest @ 0x1C01F8B90 (NtUserForceWindowToDpiForTest.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     BuildHwndList @ 0x1C0071A90 (BuildHwndList.c)
- *     xxxNotifyMonitorChanged @ 0x1C007563C (xxxNotifyMonitorChanged.c)
+ *     xxxNotifyMonitorChanged @ 0x1C006C654 (xxxNotifyMonitorChanged.c)
+ *     BuildHwndList @ 0x1C006CB60 (BuildHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
  */
 
-__int64 __fastcall xxxForceWindowToDpiForTest(ShellWindowManagement *this, int a2)
+__int64 __fastcall xxxForceWindowToDpiForTest(struct tagWND *a1, int a2)
 {
   __int64 v4; // rax
   _DWORD *v5; // rbx
@@ -16,8 +16,8 @@ __int64 __fastcall xxxForceWindowToDpiForTest(ShellWindowManagement *this, int a
   unsigned int v7; // edi
   unsigned int v8; // edx
   unsigned __int16 v9; // r12
-  struct tagBWL *v10; // rax
-  _QWORD *i; // r14
+  struct tagBWL *v10; // r14
+  unsigned __int64 *i; // r14
   __int64 v12; // rax
   __int64 v13; // rsi
   _DWORD *v14; // rax
@@ -27,7 +27,7 @@ __int64 __fastcall xxxForceWindowToDpiForTest(ShellWindowManagement *this, int a
   v5 = (_DWORD *)v4;
   if ( v4 )
   {
-    v6 = (_OWORD *)*((_QWORD *)this + 36);
+    v6 = (_OWORD *)*((_QWORD *)a1 + 36);
     v7 = 1;
     *(_OWORD *)v4 = *v6;
     *(_OWORD *)(v4 + 16) = v6[1];
@@ -41,12 +41,12 @@ __int64 __fastcall xxxForceWindowToDpiForTest(ShellWindowManagement *this, int a
     *(_DWORD *)(v4 + 8) = v8;
     *(_DWORD *)(v4 + 12) = v8;
     *(_DWORD *)(v4 + 16) = v8;
-    v9 = *(_WORD *)(*((_QWORD *)this + 5) + 284LL);
-    v10 = BuildHwndList(this, (const struct tagWND *)1, 0LL, 1);
+    v9 = *(_WORD *)(*((_QWORD *)a1 + 5) + 284LL);
+    v10 = BuildHwndList(a1, 1, 0LL);
     if ( v10 )
     {
-      *((_DWORD *)this + 80) |= 0x40000u;
-      for ( i = (_QWORD *)((char *)v10 + 32); *i != 1LL; ++i )
+      *(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) |= 0x4000000u;
+      for ( i = (unsigned __int64 *)((char *)v10 + 32); *i != 1; ++i )
       {
         v12 = HMValidateHandleNoSecure(*i, 1);
         v13 = v12;
@@ -72,7 +72,7 @@ __int64 __fastcall xxxForceWindowToDpiForTest(ShellWindowManagement *this, int a
     }
     if ( (*v5)-- == 1 )
       Win32FreePool(v5);
-    xxxNotifyMonitorChanged(this, 0LL, 0LL, v9);
+    xxxNotifyMonitorChanged(a1, 0LL, 0LL, v9);
   }
   else
   {

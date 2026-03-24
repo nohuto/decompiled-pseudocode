@@ -1,44 +1,47 @@
 /*
- * XREFs of PspUnlockJob @ 0x1406A3BFC
+ * XREFs of PspUnlockJob @ 0x140618B90
  * Callers:
- *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     PspJobNotificationWorker @ 0x1406821C0 (PspJobNotificationWorker.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     PspSendProcessNotificationToJobChain @ 0x14069F410 (PspSendProcessNotificationToJobChain.c)
- *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
- *     PspEvaluateAndNotifyEmptyJob @ 0x1406A07B4 (PspEvaluateAndNotifyEmptyJob.c)
- *     PspGetNextJobProcess @ 0x1406A0D90 (PspGetNextJobProcess.c)
- *     PspQueryJobHierarchyProcessIdList @ 0x1406A0E9C (PspQueryJobHierarchyProcessIdList.c)
- *     PspLockRootJobFromProcess @ 0x1406A109C (PspLockRootJobFromProcess.c)
- *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
- *     PspQueryJobHierarchyAccountingInformation @ 0x1406A2AC0 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
- *     PspGetNextChildJob @ 0x1406A35B8 (PspGetNextChildJob.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1406A3680 (PspEnforceLimitsJobPostCallback.c)
- *     PspChargeJobWakeCounter @ 0x1406A3A44 (PspChargeJobWakeCounter.c)
- *     PspCallJobHierarchyCallbacks @ 0x1406A3CD4 (PspCallJobHierarchyCallbacks.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PsInsertPermanentSiloContextEx @ 0x14077CF6C (PsInsertPermanentSiloContextEx.c)
- *     PspSetJobIoRateControl @ 0x1407D861C (PspSetJobIoRateControl.c)
- *     PspJobClose @ 0x1407DD7D0 (PspJobClose.c)
- *     PspCreateSilo @ 0x1407E6988 (PspCreateSilo.c)
- *     PspNotificationPacketCallback @ 0x1407E7120 (PspNotificationPacketCallback.c)
- *     PspCompleteServerSiloShutdownDeferred @ 0x1409ACBA0 (PspCompleteServerSiloShutdownDeferred.c)
- *     PspConvertSiloToServerSilo @ 0x1409ACC94 (PspConvertSiloToServerSilo.c)
- *     PspQueryJobHierarchyInterferenceCount @ 0x1409B26E0 (PspQueryJobHierarchyInterferenceCount.c)
- *     PspQuitNextJobProcess @ 0x1409B288C (PspQuitNextJobProcess.c)
- *     PspSetNetRateControl @ 0x1409B30A4 (PspSetNetRateControl.c)
+ *     PspJobDelete @ 0x1402DD320 (PspJobDelete.c)
+ *     PspSetJobIoRateControl @ 0x1405D7F68 (PspSetJobIoRateControl.c)
+ *     PspCreateSilo @ 0x1405D90DC (PspCreateSilo.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x140604FA0 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspSendProcessNotificationToJobChain @ 0x140605088 (PspSendProcessNotificationToJobChain.c)
+ *     PspQueryJobHierarchyProcessIdList @ 0x140614560 (PspQueryJobHierarchyProcessIdList.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     PspLockRootJobFromProcess @ 0x140616734 (PspLockRootJobFromProcess.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406167F8 (PspRemoveProcessFromJobChain.c)
+ *     NtQueryInformationJobObject @ 0x140616CE0 (NtQueryInformationJobObject.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x140617BCC (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspGetNextChildJob @ 0x1406181BC (PspGetNextChildJob.c)
+ *     PspChargeJobWakeCounter @ 0x140618278 (PspChargeJobWakeCounter.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140618450 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspCallJobHierarchyCallbacks @ 0x140618654 (PspCallJobHierarchyCallbacks.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618780 (PspEnforceLimitsJobPostCallback.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x14065CC90 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspJobNotificationWorker @ 0x14065F1B0 (PspJobNotificationWorker.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140660CE4 (PsInsertPermanentSiloContextEx.c)
+ *     PspGetNextJobProcess @ 0x14068EDB0 (PspGetNextJobProcess.c)
+ *     PspNotificationPacketCallback @ 0x1406977B0 (PspNotificationPacketCallback.c)
+ *     PspJobClose @ 0x1406989C0 (PspJobClose.c)
+ *     PspAssignProcessToJob @ 0x14071E800 (PspAssignProcessToJob.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x140905FB0 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PspConvertSiloToServerSilo @ 0x1409060A4 (PspConvertSiloToServerSilo.c)
+ *     PspQueryJobHierarchyInterferenceCount @ 0x1409090A0 (PspQueryJobHierarchyInterferenceCount.c)
+ *     PspQuitNextJobProcess @ 0x14090924C (PspQuitNextJobProcess.c)
+ *     PspSetNetRateControl @ 0x140909914 (PspSetNetRateControl.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
  */
 
 void __fastcall PspUnlockJob(__int64 a1, __int64 a2)
 {
+  __int64 v3; // rcx
+
   ExReleaseResourceLite((PERESOURCE)(a1 + 56));
   if ( a2 )
   {
     if ( (*(_WORD *)(a2 + 486))++ == 0xFFFF && *(_QWORD *)(a2 + 152) != a2 + 152 )
-      KiCheckForKernelApcDelivery();
+      KiCheckForKernelApcDelivery(v3);
   }
 }

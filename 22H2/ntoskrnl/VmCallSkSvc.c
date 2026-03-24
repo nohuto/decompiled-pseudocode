@@ -1,12 +1,12 @@
 /*
- * XREFs of VmCallSkSvc @ 0x1405F89A0
+ * XREFs of VmCallSkSvc @ 0x1405A26F0
  * Callers:
  *     <none>
  * Callees:
- *     VslSvcEnterIumSecureMode @ 0x14054CBF4 (VslSvcEnterIumSecureMode.c)
+ *     VslSvcEnterIumSecureMode @ 0x1404FD6F8 (VslSvcEnterIumSecureMode.c)
  */
 
-__int64 __fastcall VmCallSkSvc(_OWORD *a1)
+NTSTATUS __fastcall VmCallSkSvc(__int128 *a1)
 {
   return VslSvcEnterIumSecureMode(a1);
 }

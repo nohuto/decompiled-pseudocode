@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenPartition @ 0x1401BA570
+ * XREFs of ZwOpenPartition @ 0x1401BA590
  * Callers:
  *     <none>
  * Callees:

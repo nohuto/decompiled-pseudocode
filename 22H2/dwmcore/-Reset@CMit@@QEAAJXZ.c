@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Reset@CMit@@QEAAJXZ @ 0x1800CBEB8
+ * XREFs of ?Reset@CMit@@QEAAJXZ @ 0x1800B4F90
  * Callers:
- *     ?Initialize@CInputManager@@UEAAJXZ @ 0x1800CBDD0 (-Initialize@CInputManager@@UEAAJXZ.c)
+ *     ?Initialize@CInputManager@@QEAAJXZ @ 0x1800B4EA8 (-Initialize@CInputManager@@QEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Start@CMit@@QEAAJXZ @ 0x1800CBF08 (-Start@CMit@@QEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Start@CMit@@QEAAJXZ @ 0x1800B4FE0 (-Start@CMit@@QEAAJXZ.c)
  */
 
 __int64 __fastcall CMit::Reset(HANDLE *this)
@@ -21,7 +21,7 @@ __int64 __fastcall CMit::Reset(HANDLE *this)
   }
   else
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x84u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x86u, 0LL);
   }
   return v1;
 }

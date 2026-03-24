@@ -1,132 +1,117 @@
 /*
- * XREFs of Win32AllocPoolZInit @ 0x1C004F080
+ * XREFs of Win32AllocPoolZInit @ 0x1C00298B0
  * Callers:
- *     HMAllocObjectEx @ 0x1C0012A1C (HMAllocObjectEx.c)
- *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C00673D0 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
- *     ?IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z @ 0x1C006DDA8 (-IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z.c)
- *     RIMAllocateAsyncPnpWorkItem @ 0x1C0074AA0 (RIMAllocateAsyncPnpWorkItem.c)
- *     RIMCreateDev @ 0x1C00C874C (RIMCreateDev.c)
- *     NtUserGetInputContainerId @ 0x1C01447E0 (NtUserGetInputContainerId.c)
- *     UserCreateBaseWindowHandle @ 0x1C014F190 (UserCreateBaseWindowHandle.c)
- *     RIMAddToActiveDevices @ 0x1C01863D8 (RIMAddToActiveDevices.c)
- *     RIMCreatePointerDeviceInfo @ 0x1C0187070 (RIMCreatePointerDeviceInfo.c)
- *     RIMGetDeviceButtons @ 0x1C0188A98 (RIMGetDeviceButtons.c)
- *     RIMGetPointerDeviceProperties @ 0x1C01897E0 (RIMGetPointerDeviceProperties.c)
- *     RIMGetPropertyCount @ 0x1C018A2D0 (RIMGetPropertyCount.c)
- *     rimGetCompleteFrameAndReleaseHoldingFrame @ 0x1C01A0738 (rimGetCompleteFrameAndReleaseHoldingFrame.c)
- *     rimGetCompleteFrameFromIVCompleteFrame @ 0x1C01A0A58 (rimGetCompleteFrameFromIVCompleteFrame.c)
- *     ?CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z @ 0x1C01BE764 (-CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z.c)
- *     ?ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@W4MIT_INPUT_INTEROP_CALLBACK@@@Z @ 0x1C01C2E20 (-ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@W4MIT_INPUT_INTE.c)
- *     ?PostInitialize@CMouseSensor@@EEAAJXZ @ 0x1C01E52E0 (-PostInitialize@CMouseSensor@@EEAAJXZ.c)
- *     ?DeliverSynthesizedMouseInput@@YAXPEBU_IVMouseInputPacket@@PEAX@Z @ 0x1C01ECFD4 (-DeliverSynthesizedMouseInput@@YAXPEBU_IVMouseInputPacket@@PEAX@Z.c)
- *     ?PacketCallback@CIVChannel@@AEAAJPEAU_IVSRContext@@@Z @ 0x1C01F3980 (-PacketCallback@CIVChannel@@AEAAJPEAU_IVSRContext@@@Z.c)
+ *     EtwInitializeAsyncKeyMonitor @ 0x1C00083E8 (EtwInitializeAsyncKeyMonitor.c)
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0009AD8 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     InitScancodeMap @ 0x1C000E700 (InitScancodeMap.c)
+ *     xxxUserChangeDisplaySettings @ 0x1C0019180 (xxxUserChangeDisplaySettings.c)
+ *     CreateProp @ 0x1C0025DD4 (CreateProp.c)
+ *     ?HMAllocateUserOrIsolatedType@@YAPEAX_KGE@Z @ 0x1C0029208 (-HMAllocateUserOrIsolatedType@@YAPEAX_KGE@Z.c)
+ *     HMAllocObject @ 0x1C0034080 (HMAllocObject.c)
+ *     RIMAllocateHidDesc @ 0x1C0057F3C (RIMAllocateHidDesc.c)
+ *     ?Create@CEvent@DirectComposition@@SAJW4_EVENT_TYPE@@HPEAPEAV12@@Z @ 0x1C005C5F8 (-Create@CEvent@DirectComposition@@SAJW4_EVENT_TYPE@@HPEAPEAV12@@Z.c)
+ *     ?Create@CBatchSharedMemoryPool@DirectComposition@@SAJPEAVCBatchSharedMemoryPoolSet@2@_NPEAPEAV12@@Z @ 0x1C005C7C4 (-Create@CBatchSharedMemoryPool@DirectComposition@@SAJPEAVCBatchSharedMemoryPoolSet@2@_NPEAPEAV12.c)
+ *     ?CreateBatch@CApplicationChannel@DirectComposition@@QEAAJPEAPEAVCBatch@2@@Z @ 0x1C005CDE4 (-CreateBatch@CApplicationChannel@DirectComposition@@QEAAJPEAPEAVCBatch@2@@Z.c)
+ *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C006CB48 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
+ *     ?Initialize@DelayZonePalmRejection@@AEAAXXZ @ 0x1C006CB90 (-Initialize@DelayZonePalmRejection@@AEAAXXZ.c)
+ *     ?Broadcast@InputConfig@@SAXXZ @ 0x1C006E10C (-Broadcast@InputConfig@@SAXXZ.c)
+ *     ?_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z @ 0x1C006E7A4 (-_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z.c)
+ *     ?AddRegion@CInputSpace@@QEAAJAEBUCInputSpaceRegion@@PEAPEAU2@@Z @ 0x1C006E934 (-AddRegion@CInputSpace@@QEAAJAEBUCInputSpaceRegion@@PEAPEAU2@@Z.c)
+ *     RIMGetQDCActivePathsData @ 0x1C006EBA0 (RIMGetQDCActivePathsData.c)
+ *     ?InsertAt@?$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@@@QEAAJAEBUContactRangeConfiguration@CInteractionConfigurationGroup@DirectComposition@@I@Z @ 0x1C0084B68 (-InsertAt@-$CStructDynamicArray@UContactRangeConfiguration@CInteractionConfigurationGroup@Direct.c)
+ *     InputInitialize @ 0x1C008B0FC (InputInitialize.c)
+ *     ?Initialize@InputExtensibilityCallout@@SAJXZ @ 0x1C008B324 (-Initialize@InputExtensibilityCallout@@SAJXZ.c)
+ *     ?Initialize@CForegroundInfo@@SAJXZ @ 0x1C008B44C (-Initialize@CForegroundInfo@@SAJXZ.c)
+ *     ?Initialize@CCursorClip@@SAJXZ @ 0x1C008B810 (-Initialize@CCursorClip@@SAJXZ.c)
+ *     ?Initialize@CInputConfig@@SAJXZ @ 0x1C008B8DC (-Initialize@CInputConfig@@SAJXZ.c)
+ *     ?Initialize@CInputSystemMetrics@@SAJXZ @ 0x1C008C24C (-Initialize@CInputSystemMetrics@@SAJXZ.c)
+ *     InitializeInputComponents @ 0x1C008C56C (InitializeInputComponents.c)
+ *     ?EnsureTokenBufferSize@SfmTokenArray@@AEAAJI@Z @ 0x1C0098C74 (-EnsureTokenBufferSize@SfmTokenArray@@AEAAJI@Z.c)
+ *     FindOrCreateMaterialProperty @ 0x1C009E238 (FindOrCreateMaterialProperty.c)
+ *     RIMAllocateAndLinkHidTLCInfo @ 0x1C00AC634 (RIMAllocateAndLinkHidTLCInfo.c)
+ *     ?Initialize@CMaterialPropertiesTable@DirectComposition@@SAJXZ @ 0x1C00AD868 (-Initialize@CMaterialPropertiesTable@DirectComposition@@SAJXZ.c)
+ *     ?OnSessionCreation@CSynchronizationManager@DirectComposition@@SAJXZ @ 0x1C00AD928 (-OnSessionCreation@CSynchronizationManager@DirectComposition@@SAJXZ.c)
+ *     ?OnSessionCreation@CConnection@DirectComposition@@SAJH@Z @ 0x1C00ADA00 (-OnSessionCreation@CConnection@DirectComposition@@SAJH@Z.c)
+ *     ?Create@CSystemChannel@DirectComposition@@SAJPEAVCConnection@2@PEAPEAV12@@Z @ 0x1C00ADC34 (-Create@CSystemChannel@DirectComposition@@SAJPEAVCConnection@2@PEAPEAV12@@Z.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E928 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ *     RecordPnpNotification @ 0x1C0138100 (RecordPnpNotification.c)
+ *     UserAddBaseWindowHandle @ 0x1C01390F0 (UserAddBaseWindowHandle.c)
+ *     RIMCreatePointerDeviceDeadzone @ 0x1C015A360 (RIMCreatePointerDeviceDeadzone.c)
+ *     rimSetupPalmTelemetry @ 0x1C015B59C (rimSetupPalmTelemetry.c)
+ *     RIMAddSimulatedPointerDeviceData @ 0x1C015B62C (RIMAddSimulatedPointerDeviceData.c)
+ *     RIMAddToActiveDevices @ 0x1C015B7FC (RIMAddToActiveDevices.c)
+ *     RIMAssignPreparsedData @ 0x1C015BA1C (RIMAssignPreparsedData.c)
+ *     RIMAssignTouchType @ 0x1C015BAF8 (RIMAssignTouchType.c)
+ *     RIMCacheAxisChildIndex @ 0x1C015BCAC (RIMCacheAxisChildIndex.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015BF5C (RIMCreatePointerDeviceInfo.c)
+ *     RIMExtractPointerPropertyValues @ 0x1C015D200 (RIMExtractPointerPropertyValues.c)
+ *     RIMGetDeviceButtons @ 0x1C015D900 (RIMGetDeviceButtons.c)
+ *     RIMGetPointerDeviceProperties @ 0x1C015E1E0 (RIMGetPointerDeviceProperties.c)
+ *     RIMInitializeDeadzone @ 0x1C015EB10 (RIMInitializeDeadzone.c)
+ *     RIMRetrieveAllLinkIndexUsages @ 0x1C015F59C (RIMRetrieveAllLinkIndexUsages.c)
+ *     RIMVirtAssignTouchType @ 0x1C015FE5C (RIMVirtAssignTouchType.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C0160080 (RIMVirtCreatePointerDeviceInfo.c)
+ *     RIMVirtGetDeviceButtons @ 0x1C01609E4 (RIMVirtGetDeviceButtons.c)
+ *     RIMAllocateHidConfigDesc @ 0x1C0160F50 (RIMAllocateHidConfigDesc.c)
+ *     RIMVirtAllocateHidDesc @ 0x1C0162838 (RIMVirtAllocateHidDesc.c)
+ *     RIMReadDigitizerToMonitorMappings @ 0x1C016487C (RIMReadDigitizerToMonitorMappings.c)
+ *     RIMIDEAllocateInjectedInfo @ 0x1C0166F30 (RIMIDEAllocateInjectedInfo.c)
+ *     RIMIDECreateHIDDesc @ 0x1C016740C (RIMIDECreateHIDDesc.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167888 (RIMIDECreatePointerDeviceInfo.c)
+ *     RIMIDEInjectHIDReportFromPointerInfo @ 0x1C0168DEC (RIMIDEInjectHIDReportFromPointerInfo.c)
+ *     RIMIDEResetPointerDeviceMaxCount @ 0x1C0169B4C (RIMIDEResetPointerDeviceMaxCount.c)
+ *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C016ACEC (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
+ *     ?BuildValueDeviceUsages@@YAHKPEAPEAUtagINPUT_INJECTION_VALUE@@PEAK@Z @ 0x1C016B00C (-BuildValueDeviceUsages@@YAHKPEAPEAUtagINPUT_INJECTION_VALUE@@PEAK@Z.c)
+ *     ?Initialize@RIMDeadzone@@QEAAJPEBUtagRIMDEADZONE@@@Z @ 0x1C016DFA8 (-Initialize@RIMDeadzone@@QEAAJPEBUtagRIMDEADZONE@@@Z.c)
+ *     ?SetDeadzonePalmTelemetry@RIMDeadzone@@QEAAJXZ @ 0x1C016E674 (-SetDeadzonePalmTelemetry@RIMDeadzone@@QEAAJXZ.c)
+ *     ?_InitializeLeftHandedDeadzone@RIMDeadzone@@AEAAJXZ @ 0x1C016E88C (-_InitializeLeftHandedDeadzone@RIMDeadzone@@AEAAJXZ.c)
+ *     ?_InitializeRightHandedDeadzone@RIMDeadzone@@AEAAJXZ @ 0x1C016E938 (-_InitializeRightHandedDeadzone@RIMDeadzone@@AEAAJXZ.c)
+ *     RIMStartPointerDeviceFrame @ 0x1C0171C28 (RIMStartPointerDeviceFrame.c)
+ *     rimGetCompleteFrameAndReleaseHoldingFrame @ 0x1C01721C8 (rimGetCompleteFrameAndReleaseHoldingFrame.c)
+ *     rimGetCompleteFrameFromIVCompleteFrame @ 0x1C017250C (rimGetCompleteFrameFromIVCompleteFrame.c)
+ *     rimStorePointersInHoldingFrame @ 0x1C01729D8 (rimStorePointersInHoldingFrame.c)
+ *     rimStoreRawDataBlock @ 0x1C0172E48 (rimStoreRawDataBlock.c)
+ *     rimObsDeliverInputToObserver @ 0x1C017E118 (rimObsDeliverInputToObserver.c)
+ *     rimObsPushInputMessage @ 0x1C017EBD0 (rimObsPushInputMessage.c)
+ *     RIMCmAllocPointerDeviceContacts @ 0x1C017FF10 (RIMCmAllocPointerDeviceContacts.c)
+ *     ?AddRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z @ 0x1C01878F4 (-AddRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z.c)
+ *     ?AllocPointerInfoNodeList@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@K@Z @ 0x1C0188154 (-AllocPointerInfoNodeList@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@K@Z.c)
+ *     ?AllocPointerQFrameList@CTouchProcessor@@AEAAPEAUCPointerQFrame@@K@Z @ 0x1C01881C8 (-AllocPointerQFrameList@CTouchProcessor@@AEAAPEAUCPointerQFrame@@K@Z.c)
+ *     ?AssignPointerCaptureData@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@PEAUCPointerMsgData@@@Z @ 0x1C018828C (-AssignPointerCaptureData@CTouchProcessor@@AEAAXPEAUCInputPointerNode@@PEAUCPointerMsgData@@@Z.c)
+ *     ?CleanupManipulationThreadData@CTouchProcessor@@QEAAXXZ @ 0x1C0189AB0 (-CleanupManipulationThreadData@CTouchProcessor@@QEAAXXZ.c)
+ *     ?CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z @ 0x1C018B6FC (-CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z.c)
+ *     ?CopyPTPPointerInputFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAU2@PEAX@Z @ 0x1C018BEFC (-CopyPTPPointerInputFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAU2@PEAX@Z.c)
+ *     ?CreateAndReferenceMsgData@CTouchProcessor@@AEAA_KGKKIH@Z @ 0x1C018C32C (-CreateAndReferenceMsgData@CTouchProcessor@@AEAA_KGKKIH@Z.c)
+ *     ?CreateNode@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GKIG@Z @ 0x1C018C488 (-CreateNode@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GKIG@Z.c)
+ *     ?ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@@Z @ 0x1C018E9D0 (-ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@@Z.c)
+ *     ?GetCoalesceInfo@CTouchProcessor@@AEAAPEAUtagCPointerCoalesceInfo@@K@Z @ 0x1C0191780 (-GetCoalesceInfo@CTouchProcessor@@AEAAPEAUtagCPointerCoalesceInfo@@K@Z.c)
+ *     ?GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C0195338 (-GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?AddProcessor@CPTPProcessorFactory@@SAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01A51F4 (-AddProcessor@CPTPProcessorFactory@@SAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ *     ?InitState@CPTPProcessor@@AEAAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01A5EA8 (-InitState@CPTPProcessor@@AEAAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ *     ?AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z @ 0x1C01AC608 (-AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z.c)
+ *     ?AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z @ 0x1C01AC890 (-AddEdgeZoneToList@DelayZonePalmRejection@@QEAAKPEAXKUtagRECT@@@Z.c)
+ *     SendShellClipChanged @ 0x1C01AEE20 (SendShellClipChanged.c)
+ *     ??0CIVSerializer@@QEAA@_K@Z @ 0x1C01B3C24 (--0CIVSerializer@@QEAA@_K@Z.c)
+ *     ivrLoadImage @ 0x1C01BA908 (ivrLoadImage.c)
+ *     ?AddInputPanelRectToList@DelayZoneTelemetry@@AEAAXUtagRECT@@@Z @ 0x1C01BD2BC (-AddInputPanelRectToList@DelayZoneTelemetry@@AEAAXUtagRECT@@@Z.c)
+ *     ?Create@PTPEngineTraceProducer@@SAJPEAVIPTPEngine@@_KPEAPEAV1@@Z @ 0x1C01C9B18 (-Create@PTPEngineTraceProducer@@SAJPEAVIPTPEngine@@_KPEAPEAV1@@Z.c)
+ *     ?CapturePointer@CApplicationChannel@DirectComposition@@QEAAJIW4CapturePointerType@@I_K@Z @ 0x1C01D4728 (-CapturePointer@CApplicationChannel@DirectComposition@@QEAAJIW4CapturePointerType@@I_K@Z.c)
+ *     ?Add@?$CStructDynamicArray@UInjectManipulationArgs@@@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x1C01E3E88 (-Add@-$CStructDynamicArray@UInjectManipulationArgs@@@@QEAAJAEBUInjectManipulationArgs@@@Z.c)
+ *     ?InsertAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAJAEBUPointerCaptureInfo@CInputManager@@I@Z @ 0x1C01FA59C (-InsertAt@-$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAJAEBUPointerCaptureInfo.c)
+ *     Win32UserInitialize @ 0x1C0297BBC (Win32UserInitialize.c)
  * Callees:
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
-__int64 __fastcall Win32AllocPoolZInit(unsigned __int64 a1, unsigned int a2)
+void *__fastcall Win32AllocPoolZInit(size_t Size, __int64 a2)
 {
-  NSInstrumentation::CLeakTrackingAllocator *v2; // rdi
-  const void *v3; // rsi
-  unsigned __int64 v4; // rbx
-  int v5; // eax
-  __int64 Pool2; // rbx
-  _QWORD *v8; // rax
-  __int64 v9; // r10
-  char v10; // r14
-  _QWORD v11[2]; // [rsp+20h] [rbp-79h] BYREF
-  PVOID BackTrace[24]; // [rsp+30h] [rbp-69h] BYREF
-  unsigned __int64 v13; // [rsp+100h] [rbp+67h] BYREF
-  unsigned int v14; // [rsp+108h] [rbp+6Fh] BYREF
-  __int64 v15; // [rsp+110h] [rbp+77h] BYREF
-  unsigned __int64 v16; // [rsp+118h] [rbp+7Fh] BYREF
+  void *v3; // rax
+  void *v4; // rbx
 
-  v2 = gpLeakTrackingAllocator;
-  v3 = (const void *)a2;
-  v4 = a1;
-  v14 = a2;
-  v15 = 260LL;
-  v5 = *(_DWORD *)gpLeakTrackingAllocator;
-  v16 = a1;
-  if ( !v5 )
-  {
-    Pool2 = ExAllocatePool2(260LL, a1, a2);
-    if ( Pool2 )
-      _InterlockedIncrement64((volatile signed __int64 *)v2 + 14);
-    return Pool2;
-  }
-  if ( v5 != 1 )
-  {
-    if ( v5 == 2 )
-    {
-      v13 = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, a2, &v13) )
-      {
-        v11[0] = &v15;
-        v11[1] = &v14;
-        return NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                 v2,
-                 v11,
-                 &v16);
-      }
-      v10 = 0;
-      if ( v4 < 0x1000 || (v4 & 0xFFF) != 0 )
-      {
-        v4 += 16LL;
-        v10 = 1;
-        v16 = v4;
-      }
-      Pool2 = ExAllocatePool2(v9, v4, (unsigned int)v3);
-      if ( Pool2 )
-      {
-        _InterlockedIncrement64((volatile signed __int64 *)v2 + 16);
-        NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-        if ( v10 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-        {
-          if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                  v2,
-                                  Pool2,
-                                  v13,
-                                  BackTrace) )
-          {
-            Pool2 += 16LL;
-            return Pool2;
-          }
-        }
-        else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                     v2,
-                                     Pool2,
-                                     v13,
-                                     BackTrace) )
-        {
-          return Pool2;
-        }
-        _InterlockedIncrement64((volatile signed __int64 *)v2 + 17);
-        _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-      }
-    }
-    return 0LL;
-  }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, a2) || v4 + 16 < v4 )
-    return 0LL;
-  v8 = (_QWORD *)ExAllocatePool2(v15 & 0xFFFFFFFFFFFFFFFDuLL, v4 + 16, v14);
-  Pool2 = (__int64)v8;
-  if ( !v8
-    || (_InterlockedIncrement64((volatile signed __int64 *)v2 + 14),
-        *v8 = v3,
-        Pool2 = (__int64)(v8 + 2),
-        v8 == (_QWORD *)-16LL) )
-  {
-    NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-      *((NSInstrumentation::CPointerHashTable **)v2 + 1),
-      v3);
-  }
-  return Pool2;
+  v3 = (void *)Win32AllocPool(Size, a2);
+  v4 = v3;
+  if ( v3 )
+    memset(v3, 0, Size);
+  return v4;
 }

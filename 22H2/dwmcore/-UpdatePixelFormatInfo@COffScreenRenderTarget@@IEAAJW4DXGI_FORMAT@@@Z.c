@@ -1,15 +1,15 @@
 /*
- * XREFs of ?UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z @ 0x1801EA648
+ * XREFs of ?UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z @ 0x180185A74
  * Callers:
- *     ?EnsureRenderTargets@COffScreenRenderTarget@@MEAAJXZ @ 0x1801E9B60 (-EnsureRenderTargets@COffScreenRenderTarget@@MEAAJXZ.c)
- *     ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1801ECFA4 (-EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z.c)
- *     ?ProcessCreate@CIndirectSwapchainRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INDIRECTSWAPCHAINRENDERTARGET_CREATE@@@Z @ 0x1801EF3A4 (-ProcessCreate@CIndirectSwapchainRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INDIRECTSW.c)
- *     ?ProcessCreate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_CREATE@@@Z @ 0x1801F05BC (-ProcessCreate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTAR.c)
- *     ?ProcessUpdate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET@@@Z @ 0x1801F094C (-ProcessUpdate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTAR.c)
+ *     ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1800ED664 (-EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z.c)
+ *     ?EnsureRenderTargets@COffScreenRenderTarget@@MEAAJXZ @ 0x1801854A0 (-EnsureRenderTargets@COffScreenRenderTarget@@MEAAJXZ.c)
+ *     ?ProcessCreate@CIndirectSwapchainRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INDIRECTSWAPCHAINRENDERTARGET_CREATE@@@Z @ 0x180189AC4 (-ProcessCreate@CIndirectSwapchainRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INDIRECTSW.c)
+ *     ?ProcessCreate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_CREATE@@@Z @ 0x18018B588 (-ProcessCreate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTAR.c)
+ *     ?ProcessUpdate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET@@@Z @ 0x18018B910 (-ProcessUpdate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTAR.c)
  * Callees:
- *     ?IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z @ 0x1800A8E7C (-IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z.c)
- *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x1800A9504 (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z @ 0x1800322E8 (-IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z.c)
+ *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x180033940 (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall COffScreenRenderTarget::UpdatePixelFormatInfo(COffScreenRenderTarget *this, int a2)
@@ -18,22 +18,22 @@ __int64 __fastcall COffScreenRenderTarget::UpdatePixelFormatInfo(COffScreenRende
   __int64 v3; // rcx
   __int64 v4; // r8
   unsigned int v5; // ebx
-  int v6; // eax
+  BOOL v6; // eax
   int v7; // edx
   __int64 v8; // r8
 
   if ( IsValidPixelFormat(a2) )
   {
-    *(_DWORD *)(v4 + 112) = v2;
-    v6 = HasAlphaChannel(v2);
-    *(_DWORD *)(v8 + 116) = v6 != 0 ? 1 : 3;
+    *(_DWORD *)(v4 + 88) = v2;
+    v6 = HasAlphaChannel(v3);
+    *(_DWORD *)(v8 + 92) = v6 ? 1 : 3;
     v5 = 0;
-    *(_DWORD *)(v8 + 120) = v7 == 10;
+    *(_DWORD *)(v8 + 96) = v7 == 10;
   }
   else
   {
     v5 = -2003292288;
-    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2003292288, 0x9Eu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2003292288, 0x8Eu, 0LL);
   }
   return v5;
 }

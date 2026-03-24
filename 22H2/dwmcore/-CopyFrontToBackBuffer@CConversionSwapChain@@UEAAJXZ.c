@@ -1,53 +1,64 @@
 /*
- * XREFs of ?CopyFrontToBackBuffer@CConversionSwapChain@@UEAAJXZ @ 0x1802A1D00
+ * XREFs of ?CopyFrontToBackBuffer@CConversionSwapChain@@UEAAJXZ @ 0x18024F05C
  * Callers:
- *     ?CopyFrontToBackBuffer@CConversionSwapChain@@$4PPPPPPPM@DFI@EAAJXZ @ 0x180120F00 (-CopyFrontToBackBuffer@CConversionSwapChain@@$4PPPPPPPM@DFI@EAAJXZ.c)
+ *     ?CopyFrontToBackBuffer@CConversionSwapChain@@$4PPPPPPPM@A@EAAJXZ @ 0x1800F74B0 (-CopyFrontToBackBuffer@CConversionSwapChain@@$4PPPPPPPM@A@EAAJXZ.c)
  * Callees:
- *     ?CopyFrontToBackBuffer@CLegacySwapChain@@UEAAJXZ @ 0x180042300 (-CopyFrontToBackBuffer@CLegacySwapChain@@UEAAJXZ.c)
- *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x180042744 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?NotifyRenderedRect@CLegacySwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180046640 (-NotifyRenderedRect@CLegacySwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DR.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800DCA44 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyRenderedRect@CLegacySwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18009A1F0 (-NotifyRenderedRect@CLegacySwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DR.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x18009B7D4 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?CopyFrontToBackBuffer@CLegacySwapChain@@UEAAJXZ @ 0x18009D7E4 (-CopyFrontToBackBuffer@CLegacySwapChain@@UEAAJXZ.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800C47D0 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CConversionSwapChain::CopyFrontToBackBuffer(CConversionSwapChain *this, __int64 a2, __int64 a3)
 {
   int v3; // eax
-  __int64 v5; // rdx
-  FastRegion::Internal::CRgnData *v6; // rcx
-  int v7; // eax
-  __int64 v8; // rcx
-  unsigned int v9; // ebx
-  _BYTE v11[8]; // [rsp+30h] [rbp-58h] BYREF
-  unsigned __int64 v12; // [rsp+38h] [rbp-50h]
-  _DWORD *v13; // [rsp+40h] [rbp-48h]
-  __int64 v14; // [rsp+48h] [rbp-40h]
-  int v15; // [rsp+50h] [rbp-38h]
-  _DWORD v16[4]; // [rsp+60h] [rbp-28h] BYREF
+  CLegacySwapChain *v5; // rdi
+  __int64 v6; // rdx
+  FastRegion::Internal::CRgnData *v7; // rcx
+  int v8; // eax
+  __int64 v9; // rcx
+  unsigned int v10; // ebx
+  _BYTE v12[8]; // [rsp+30h] [rbp-58h] BYREF
+  unsigned __int64 v13; // [rsp+38h] [rbp-50h]
+  _DWORD *v14; // [rsp+40h] [rbp-48h]
+  __int64 v15; // [rsp+48h] [rbp-40h]
+  int v16; // [rsp+50h] [rbp-38h]
+  _DWORD v17[4]; // [rsp+60h] [rbp-28h] BYREF
 
-  v3 = *((_DWORD *)this + 99);
+  v3 = *((_DWORD *)this - 115);
   if ( !v3 || v3 == 3 )
   {
     FastRegion::Internal::CRgnData::BeginIterator(
-      *((FastRegion::Internal::CRgnData **)this + 84),
-      (struct FastRegion::CRegion::Iterator *)v11);
-    while ( (unsigned __int64)v13 < v12 )
+      *((FastRegion::Internal::CRgnData **)this - 23),
+      (struct FastRegion::CRegion::Iterator *)v12);
+    v5 = (CConversionSwapChain *)((char *)this - 424);
+    while ( (unsigned __int64)v14 < v13 )
     {
-      v16[1] = *v13;
-      v16[3] = v13[2];
-      v5 = 2 * v15;
-      v16[0] = *(_DWORD *)(v14 + 4 * v5);
-      v16[2] = *(_DWORD *)(v14 + 4 * v5 + 4);
-      CLegacySwapChain::NotifyRenderedRect((__int64)this, (__int64)v16);
-      FastRegion::Internal::CRgnData::StepIterator(v6, (struct FastRegion::CRegion::Iterator *)v11);
+      v5 = (CConversionSwapChain *)((char *)this - 424);
+      v17[1] = *v14;
+      v17[3] = v14[2];
+      v6 = 2 * v16;
+      v17[0] = *(_DWORD *)(v15 + 4 * v6);
+      v17[2] = *(_DWORD *)(v15 + 4 * v6 + 4);
+      CLegacySwapChain::NotifyRenderedRect((__int64)this - 424, v17);
+      FastRegion::Internal::CRgnData::StepIterator(v7, (struct FastRegion::CRegion::Iterator *)v12);
     }
+    v3 = *((_DWORD *)this - 115);
   }
-  if ( ((*((_DWORD *)this + 99) - 1) & 0xFFFFFFFD) == 0 && *((_BYTE *)this + 776) )
-    CLegacySwapChain::NotifyRenderedRect((__int64)this, (__int64)this + 760);
-  v7 = CLegacySwapChain::CopyFrontToBackBuffer(this, a2, a3);
-  v9 = v7;
-  if ( v7 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x9Eu, 0LL);
-  return v9;
+  else
+  {
+    v5 = (CConversionSwapChain *)((char *)this - 424);
+  }
+  if ( (v3 == 1 || v3 == 3) && *((_BYTE *)this - 80) )
+  {
+    v5 = (CConversionSwapChain *)((char *)this - 424);
+    CLegacySwapChain::NotifyRenderedRect((__int64)this - 424, (_DWORD *)this - 24);
+  }
+  v8 = CLegacySwapChain::CopyFrontToBackBuffer(v5, a2, a3);
+  v10 = v8;
+  if ( v8 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x9Du, 0LL);
+  return v10;
 }

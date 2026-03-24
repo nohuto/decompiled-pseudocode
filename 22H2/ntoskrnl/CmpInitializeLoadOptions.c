@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpInitializeLoadOptions @ 0x1403B4514
+ * XREFs of CmpInitializeLoadOptions @ 0x1403B7680
  * Callers:
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 wchar_t *__fastcall CmpInitializeLoadOptions(ULONG_PTR BugCheckParameter3)
@@ -20,7 +20,10 @@ wchar_t *__fastcall CmpInitializeLoadOptions(ULONG_PTR BugCheckParameter3)
   RtlInitAnsiString(&SourceString, v1);
   CmpLoadOptions.Length = 0;
   CmpLoadOptions.MaximumLength = 2 * (SourceString.Length + 1);
-  CmpLoadOptions.Buffer = (wchar_t *)ExAllocatePool2(256LL, 2LL * ((unsigned int)SourceString.Length + 1), 809061699LL);
+  CmpLoadOptions.Buffer = (wchar_t *)ExAllocatePoolWithTag(
+                                       PagedPool,
+                                       2LL * ((unsigned int)SourceString.Length + 1),
+                                       0x30394D43u);
   if ( !CmpLoadOptions.Buffer )
     KeBugCheckEx(0x74u, 3uLL, 1uLL, BugCheckParameter3, 0LL);
   RtlAnsiStringToUnicodeString(&CmpLoadOptions, &SourceString, 0);

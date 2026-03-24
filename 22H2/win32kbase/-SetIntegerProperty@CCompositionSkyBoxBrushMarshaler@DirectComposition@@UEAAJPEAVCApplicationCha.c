@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022D7E0
+ * XREFs of ?SetIntegerProperty@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F48D0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddHandleToTable@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAPEAX@Z @ 0x1C0268C94
+ * XREFs of ?AddHandleToTable@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAPEAX@Z @ 0x1C0270558
  * Callers:
- *     ?CreatePhysicalMonitor@CMonitorAPI@@QEAAJAEAU_LUID@@KPEAPEAX@Z @ 0x1C0268D98 (-CreatePhysicalMonitor@CMonitorAPI@@QEAAJAEAU_LUID@@KPEAPEAX@Z.c)
+ *     ?CreatePhysicalMonitor@CMonitorAPI@@QEAAJAEAU_LUID@@KPEAPEAX@Z @ 0x1C0270664 (-CreatePhysicalMonitor@CMonitorAPI@@QEAAJAEAU_LUID@@KPEAPEAX@Z.c)
  * Callees:
- *     ?AddElement@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAK@Z @ 0x1C0268B88 (-AddElement@-$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAK@Z.c)
+ *     ?AddElement@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAK@Z @ 0x1C0270444 (-AddElement@-$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAK@Z.c)
  */
 
 __int64 __fastcall OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::AddHandleToTable(
@@ -11,7 +11,7 @@ __int64 __fastcall OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::AddH
         __int64 a2,
         _QWORD *a3)
 {
-  int v5; // ecx
+  int v5; // edx
   unsigned int v7; // [rsp+30h] [rbp+8h] BYREF
 
   v7 = 0;
@@ -19,8 +19,9 @@ __int64 __fastcall OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::AddH
   if ( v5 < 0 )
     return (unsigned int)v5;
   if ( OPM::INVALID_MONITOR_HANDLE == (void *)v7 )
-  {
     v5 = -1073741823;
+  if ( v5 < 0 )
+  {
     *(_QWORD *)(*(_QWORD *)a1 + 8LL * v7) = 0LL;
     --*(_DWORD *)(a1 + 8);
     return (unsigned int)v5;

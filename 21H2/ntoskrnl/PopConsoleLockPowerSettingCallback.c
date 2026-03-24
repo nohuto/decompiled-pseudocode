@@ -1,11 +1,11 @@
 /*
- * XREFs of PopConsoleLockPowerSettingCallback @ 0x140861FA0
+ * XREFs of PopConsoleLockPowerSettingCallback @ 0x140791F50
  * Callers:
  *     <none>
  * Callees:
- *     PopApplyPolicy @ 0x1408194D8 (PopApplyPolicy.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     PopApplyPolicy @ 0x1407929CC (PopApplyPolicy.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopConsoleLockPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3)
@@ -71,7 +71,8 @@ __int64 __fastcall PopConsoleLockPowerSettingCallback(_QWORD *a1, _DWORD *a2, in
   if ( !v19 && a3 == 4 && a2 )
   {
     LODWORD(v23) = *a2;
-    v20 = PopApplyPolicy(1, 0, v22, 0xE8u);
+    LOBYTE(v19) = 1;
+    v20 = ((__int64 (__fastcall *)(__int64, _QWORD, _OWORD *, __int64))PopApplyPolicy)(v19, 0LL, v22, 232LL);
   }
   else
   {

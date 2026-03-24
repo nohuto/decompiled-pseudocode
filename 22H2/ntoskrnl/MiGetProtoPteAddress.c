@@ -1,145 +1,165 @@
 /*
- * XREFs of MiGetProtoPteAddress @ 0x140272D70
+ * XREFs of MiGetProtoPteAddress @ 0x1402B11D0
  * Callers:
- *     MiSetReadOnlyOnSectionView @ 0x140215318 (MiSetReadOnlyOnSectionView.c)
- *     MiSplitPrivatePage @ 0x14021CE64 (MiSplitPrivatePage.c)
- *     MiZeroFault @ 0x140232300 (MiZeroFault.c)
- *     MmAccessFault @ 0x140235350 (MmAccessFault.c)
- *     MiCheckUserVirtualAddress @ 0x14025AC90 (MiCheckUserVirtualAddress.c)
- *     MiQueryAddressState @ 0x140271AE0 (MiQueryAddressState.c)
- *     MiGetPageProtection @ 0x140272900 (MiGetPageProtection.c)
- *     MiCountSharedPages @ 0x1402737F0 (MiCountSharedPages.c)
- *     MiResolveSharedZeroFault @ 0x140273F30 (MiResolveSharedZeroFault.c)
- *     MiSetProtectionOnSection @ 0x140277B60 (MiSetProtectionOnSection.c)
- *     MiWalkVaRange @ 0x140293C34 (MiWalkVaRange.c)
- *     MiIsCfgBitMapPageShared @ 0x1402E53F0 (MiIsCfgBitMapPageShared.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
- *     MiGetWorkingSetInfoList @ 0x1402F1954 (MiGetWorkingSetInfoList.c)
- *     MiExpandSharedZeroCluster @ 0x1402F2598 (MiExpandSharedZeroCluster.c)
- *     MiPteNeedsCommitCharge @ 0x140345C50 (MiPteNeedsCommitCharge.c)
- *     MiComputeImageVadCommitCharge @ 0x14061816C (MiComputeImageVadCommitCharge.c)
- *     MiUpControlAreaRefs @ 0x140625F6C (MiUpControlAreaRefs.c)
- *     MiUpdatePrivateDemandZeroView @ 0x1406313EC (MiUpdatePrivateDemandZeroView.c)
- *     MiPrepareImagePagesForHotPatch @ 0x140642938 (MiPrepareImagePagesForHotPatch.c)
- *     MiGetLargeVadMappingIndex @ 0x140646108 (MiGetLargeVadMappingIndex.c)
- *     MiMakePerSessionProtoPte @ 0x140665324 (MiMakePerSessionProtoPte.c)
- *     MiGetClusterPage @ 0x14066A064 (MiGetClusterPage.c)
- *     MiIdealClusterPage @ 0x14066A500 (MiIdealClusterPage.c)
- *     MiResolvePageFileFault @ 0x14066B52C (MiResolvePageFileFault.c)
- *     MiIsRangeFullyCommitted @ 0x1406F61C0 (MiIsRangeFullyCommitted.c)
- *     MiDeleteVad @ 0x1406FA4D0 (MiDeleteVad.c)
- *     MiCfgMarkValidEntries @ 0x1407A4C5C (MiCfgMarkValidEntries.c)
- *     MmFlushVirtualMemory @ 0x1407B4808 (MmFlushVirtualMemory.c)
- *     MiCommitPagefileBackedSection @ 0x1407DC608 (MiCommitPagefileBackedSection.c)
- *     MiFillMapFileInfo @ 0x1408AC30A (MiFillMapFileInfo.c)
- *     MiCloneLargeFileOnlyVad @ 0x140A336F4 (MiCloneLargeFileOnlyVad.c)
- *     MiDeletePartialCloneVads @ 0x140A48E9C (MiDeletePartialCloneVads.c)
+ *     MmAccessFault @ 0x14020D050 (MmAccessFault.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MiWalkVaRange @ 0x14023BA60 (MiWalkVaRange.c)
+ *     MiSetReadOnlyOnSectionView @ 0x140240500 (MiSetReadOnlyOnSectionView.c)
+ *     MiTrimSharedPageFromViews @ 0x1402702C4 (MiTrimSharedPageFromViews.c)
+ *     MiDeletePartialVad @ 0x14027DF5C (MiDeletePartialVad.c)
+ *     MiSplitPrivatePage @ 0x14028D630 (MiSplitPrivatePage.c)
+ *     MiIsCfgBitMapPageShared @ 0x14028DCEC (MiIsCfgBitMapPageShared.c)
+ *     MiCheckUserVirtualAddress @ 0x1402AF090 (MiCheckUserVirtualAddress.c)
+ *     MiResolveSharedZeroFault @ 0x1402AF200 (MiResolveSharedZeroFault.c)
+ *     MiQueryAddressState @ 0x1402AFDC0 (MiQueryAddressState.c)
+ *     MiGetPageProtection @ 0x1402B1430 (MiGetPageProtection.c)
+ *     MiSetProtectionOnSection @ 0x1402B3300 (MiSetProtectionOnSection.c)
+ *     MiZeroFault @ 0x1402CF5F0 (MiZeroFault.c)
+ *     MiResolvePageFileFault @ 0x1402E0F08 (MiResolvePageFileFault.c)
+ *     MiCountSharedPages @ 0x1402E2400 (MiCountSharedPages.c)
+ *     MiPteNeedsCommitCharge @ 0x1402E2938 (MiPteNeedsCommitCharge.c)
+ *     MiGetWorkingSetInfoList @ 0x1403378AC (MiGetWorkingSetInfoList.c)
+ *     MiExpandSharedZeroCluster @ 0x140339F98 (MiExpandSharedZeroCluster.c)
+ *     MiUpControlAreaRefs @ 0x14052AAB0 (MiUpControlAreaRefs.c)
+ *     MiComputeImageVadCommitCharge @ 0x14052B518 (MiComputeImageVadCommitCharge.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x14052D2D8 (MiUpdatePrivateDemandZeroView.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x14053EB0C (MiPrepareImagePagesForHotPatch.c)
+ *     MiGetLargeVadMappingIndex @ 0x1405485E8 (MiGetLargeVadMappingIndex.c)
+ *     MiGetClusterPage @ 0x1405558B0 (MiGetClusterPage.c)
+ *     MiIdealClusterPage @ 0x140555D54 (MiIdealClusterPage.c)
+ *     MiMakePerSessionProtoPte @ 0x14055B3E0 (MiMakePerSessionProtoPte.c)
+ *     MiIsRangeFullyCommitted @ 0x14063D9E0 (MiIsRangeFullyCommitted.c)
+ *     MmFlushVirtualMemory @ 0x140668FB4 (MmFlushVirtualMemory.c)
+ *     MiCommitPagefileBackedSection @ 0x14067FEA4 (MiCommitPagefileBackedSection.c)
+ *     MiCfgMarkValidEntries @ 0x1406FAA44 (MiCfgMarkValidEntries.c)
+ *     MiFillMapFileInfo @ 0x1408C45BC (MiFillMapFileInfo.c)
+ *     MiCloneLargeFileOnlyVad @ 0x1408CFD00 (MiCloneLargeFileOnlyVad.c)
+ *     MiDeletePartialCloneVads @ 0x1408D9578 (MiDeletePartialCloneVads.c)
  * Callees:
- *     MiLocatePagefileSubsection @ 0x140273720 (MiLocatePagefileSubsection.c)
- *     MiLocateSubsectionNode @ 0x1402891A0 (MiLocateSubsectionNode.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MiGetSharedProtos @ 0x14036973C (MiGetSharedProtos.c)
+ *     MiLocateSubsectionNode @ 0x140297160 (MiLocateSubsectionNode.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     MiGetSharedProtos @ 0x1403A5B08 (MiGetSharedProtos.c)
  */
 
-__int64 __fastcall MiGetProtoPteAddress(__int64 a1, __int64 a2, char a3, __int64 *a4)
+__int64 __fastcall MiGetProtoPteAddress(__int64 a1, __int64 a2, char a3, _QWORD *a4)
 {
-  __int64 *v4; // r11
   unsigned __int64 v6; // r10
-  unsigned int v8; // esi
-  __int64 v9; // r8
-  __int64 v10; // rbp
-  unsigned __int64 v11; // r9
-  _DWORD *v12; // r15
-  __int64 v13; // rcx
-  __int64 v14; // rbx
-  unsigned __int64 v15; // rdi
-  __int64 v16; // rax
-  int v17; // eax
-  int v18; // ecx
-  __int64 v19; // rcx
-  __int64 v21; // rax
-  unsigned __int64 v22; // rdi
-  __int64 SubsectionNode; // rax
+  int v7; // r9d
+  _QWORD *v8; // rbx
+  __int64 v9; // rbp
+  unsigned __int64 v10; // rdi
+  unsigned __int64 v11; // rax
+  __int64 v12; // r8
+  unsigned __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rcx
+  unsigned __int64 v17; // rdi
+  _QWORD *SubsectionNode; // rax
+  unsigned __int64 v19; // rcx
+  unsigned __int64 v20; // rcx
+  unsigned __int64 v21; // rax
+  unsigned __int64 v22; // rdx
   unsigned int SessionId; // eax
-  unsigned __int64 v25; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = (__int64 *)(a1 + 72);
   v6 = *(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32);
-  if ( ((*(_DWORD *)(a1 + 48) & 0x70) != 0x20 || (*(_DWORD *)(*(_QWORD *)*v4 + 56LL) & 0x8000000) == 0)
+  if ( ((*(_DWORD *)(a1 + 48) & 0x70) != 0x20 || (*(_DWORD *)(**(_QWORD **)(a1 + 72) + 56LL) & 0x4000000) == 0)
     && (__int64)(*(_QWORD *)(a1 + 88) - *(_QWORD *)(a1 + 80)) >> 3 >= a2 - v6
     && (a3 & 4) == 0 )
   {
-    *a4 = *v4;
+    *a4 = *(_QWORD *)(a1 + 72);
     return *(_QWORD *)(a1 + 80) + 8 * (a2 - v6);
   }
-  v8 = 0;
+  v7 = 0;
   *a4 = 0LL;
-  v9 = *v4;
-  v10 = *(_QWORD *)*v4;
-  v11 = a2 + ((__int64)(*(_QWORD *)(a1 + 80) - *(_QWORD *)(*v4 + 8)) >> 3) - v6;
-  v25 = v11;
-  if ( !*(_QWORD *)(v10 + 64) )
+  v8 = *(_QWORD **)(a1 + 72);
+  v9 = *v8;
+  v10 = a2 + ((__int64)(*(_QWORD *)(a1 + 80) - v8[1]) >> 3) - v6;
+  if ( !*(_QWORD *)(*v8 + 64LL) )
   {
-    v21 = MiLocatePagefileSubsection(v9, &v25);
-    v14 = v21;
-    if ( v21 )
+    if ( (*(_DWORD *)(v9 + 56) & 0x1000) != 0 || *((_DWORD *)v8 + 12) >= 0x40000000u )
     {
-      *a4 = v21;
-      v19 = *(_QWORD *)(v21 + 8);
-      if ( v19 )
+      v19 = 0x100000LL;
+      if ( *((_DWORD *)v8 + 12) >= 0x40000000u )
+        v19 = 0x200000LL;
+      v20 = v19 >> 3;
+      if ( v20 == 0x20000 )
       {
-        v12 = (_DWORD *)(v10 + 56);
-        goto LABEL_12;
+        v21 = v10 >> 17;
+        v10 &= 0x1FFFFu;
       }
+      else
+      {
+        v21 = v10 / v20;
+        v10 %= v20;
+      }
+      v22 = (unsigned int)v21 + 1LL;
+      if ( !v10 )
+        v22 = (unsigned int)v21;
+      if ( v22 > *(unsigned int *)(v9 + 96) )
+        return 0LL;
+      v8 += 11 * v21;
+      if ( v10 >= *((unsigned int *)v8 + 11) )
+        return 0LL;
+    }
+    else if ( v10 >= *((unsigned int *)v8 + 11) )
+    {
+      return 0LL;
+    }
+    if ( v8 )
+    {
+      *a4 = v8;
+      v15 = v8[1];
+      if ( !v15 )
+        return 0LL;
+      goto LABEL_13;
     }
     return 0LL;
   }
-  v12 = (_DWORD *)(v10 + 56);
-  v13 = 0LL;
-  v14 = v9;
-  v15 = v11;
-  if ( v11 >= *(unsigned int *)(v9 + 44) )
+  v11 = *((unsigned int *)v8 + 11);
+  v12 = 0LL;
+  v13 = a2 + ((__int64)(*(_QWORD *)(a1 + 80) - v8[1]) >> 3) - v6;
+  v14 = *(_QWORD *)(a1 + 72);
+  if ( v10 < v11 )
+  {
+LABEL_10:
+    v10 = v13;
+    v8 = (_QWORD *)v14;
+  }
+  else
   {
     while ( 1 )
     {
-      v16 = *(unsigned int *)(v14 + 44);
-      ++v13;
       v14 = *(_QWORD *)(v14 + 16);
-      v15 -= v16;
-      if ( v13 == 3 && (*v12 & 0x20) == 0 )
+      v13 -= v11;
+      if ( ++v12 == 3 && (*(_DWORD *)(v9 + 56) & 0x20) == 0 )
         break;
       if ( !v14 )
-      {
-        if ( (*v12 & 0x20) != 0 )
-          return 0LL;
         break;
-      }
-      if ( v15 < *(unsigned int *)(v14 + 44) )
+      v11 = *(unsigned int *)(v14 + 44);
+      if ( v13 < v11 )
         goto LABEL_10;
     }
-    v22 = (v11 + (*(unsigned int *)(v9 + 36) | ((unsigned __int64)(*(_WORD *)(v9 + 32) & 0xFFC0) << 26))) << 12;
+    if ( (*(_DWORD *)(v9 + 56) & 0x20) != 0 )
+      return 0LL;
+    v17 = ((*((unsigned int *)v8 + 9) | ((unsigned __int64)((_WORD)v8[4] & 0xFFC0) << 26)) + v10) << 12;
     if ( (a3 & 1) != 0 )
-      v8 = 1;
-    SubsectionNode = MiLocateSubsectionNode(v10, v22, v8);
-    v14 = SubsectionNode;
+      v7 = 1;
+    SubsectionNode = MiLocateSubsectionNode(*v8, v17, v7);
+    v8 = SubsectionNode;
     if ( !SubsectionNode )
       return 0LL;
-    v15 = (v22 >> 12)
-        - (*(unsigned int *)(SubsectionNode + 36) | ((unsigned __int64)(*(_WORD *)(SubsectionNode + 32) & 0xFFC0) << 26));
+    v10 = (v17 >> 12)
+        - (*((unsigned int *)SubsectionNode + 9) | ((unsigned __int64)((_WORD)SubsectionNode[4] & 0xFFC0) << 26));
   }
-LABEL_10:
-  v17 = *(_DWORD *)(v14 + 44);
-  v18 = *(_DWORD *)(v14 + 52) & 0x3FFFFFFF;
-  v25 = v15;
-  if ( v15 >= (unsigned int)(v17 - v18) )
+  if ( v10 >= *((_DWORD *)v8 + 11) - (*((_DWORD *)v8 + 13) & 0x3FFFFFFFu) )
     return 0LL;
-  v19 = *(_QWORD *)(v14 + 8);
-  *a4 = v14;
-LABEL_12:
-  if ( (*(_BYTE *)(v14 + 34) & 2) != 0 && (*v12 & 0x8000000) != 0 && (a3 & 2) == 0 )
+  v15 = v8[1];
+  *a4 = v8;
+LABEL_13:
+  if ( (*((_BYTE *)v8 + 34) & 2) != 0 && (*(_DWORD *)(v9 + 56) & 0x4000000) != 0 && (a3 & 2) == 0 )
   {
     SessionId = MmGetSessionIdEx(KeGetCurrentThread()->ApcState.Process);
-    v19 = *(_QWORD *)(MiGetSharedProtos(v10, SessionId, v14) + 72);
+    v15 = *(_QWORD *)(MiGetSharedProtos(v9, SessionId, v8) + 72);
   }
-  return v19 + 8 * v25;
+  return v15 + 8 * v10;
 }

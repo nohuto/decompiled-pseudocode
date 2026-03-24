@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetInStandby@CHolographicClient@@UEAAX_N@Z @ 0x1800FC8A0
+ * XREFs of ?SetInStandby@CHolographicClient@@UEAAX_N@Z @ 0x1800E3940
  * Callers:
  *     <none>
  * Callees:

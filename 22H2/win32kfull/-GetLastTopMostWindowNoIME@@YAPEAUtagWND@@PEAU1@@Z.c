@@ -1,53 +1,53 @@
 /*
- * XREFs of ?GetLastTopMostWindowNoIME@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00253C4
+ * XREFs of ?GetLastTopMostWindowNoIME@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0035A84
  * Callers:
- *     ?ImeSetTopmost@@YAXPEAUtagWND@@H0@Z @ 0x1C0025238 (-ImeSetTopmost@@YAXPEAUtagWND@@H0@Z.c)
+ *     ImeSetTopmost @ 0x1C00358C8 (ImeSetTopmost.c)
  * Callees:
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
  */
 
-struct tagWND *__fastcall GetLastTopMostWindowNoIME(struct tagWND *a1, __int64 a2)
+struct tagWND *__fastcall GetLastTopMostWindowNoIME(struct tagWND *a1)
 {
   __int64 DesktopWindow; // rax
-  _QWORD *v3; // r11
-  _QWORD *v4; // r9
-  _QWORD *v5; // rdx
-  _QWORD *v6; // r10
-  int v7; // edi
-  _QWORD *v8; // r8
-  __int64 v9; // rbx
+  _QWORD *v2; // r11
+  _QWORD *v3; // r9
+  _QWORD *v4; // rdx
+  _QWORD *v5; // r10
+  int v6; // edi
+  _QWORD *v7; // r8
+  __int64 v8; // rbx
 
-  DesktopWindow = GetDesktopWindow(a1, a2);
-  v4 = 0LL;
+  DesktopWindow = GetDesktopWindow(a1);
+  v3 = 0LL;
   if ( !DesktopWindow )
     return 0LL;
-  v5 = *(_QWORD **)(DesktopWindow + 112);
-  if ( !v5 )
+  v4 = *(_QWORD **)(DesktopWindow + 112);
+  if ( !v4 )
     return 0LL;
   do
   {
-    v6 = v5;
-    if ( (*(_BYTE *)(v5[5] + 24LL) & 8) == 0 )
+    v5 = v4;
+    if ( (*(_BYTE *)(v4[5] + 24LL) & 8) == 0 )
       break;
-    v7 = 0;
-    v8 = v5;
-    v9 = *(_QWORD *)(v5[17] + 8LL);
-    if ( (*(_BYTE *)(v9 + 10) & 1) != 0 || *(_WORD *)v9 == *(_WORD *)(gpsi + 898LL) )
+    v6 = 0;
+    v7 = v4;
+    v8 = *(_QWORD *)(v4[17] + 8LL);
+    if ( (*(_BYTE *)(v8 + 10) & 1) != 0 || *(_WORD *)v8 == *(_WORD *)(gpsi + 898LL) )
     {
-      while ( v3 != v8 )
+      while ( v2 != v7 )
       {
-        v8 = (_QWORD *)v8[15];
-        if ( !v8 )
+        v7 = (_QWORD *)v7[15];
+        if ( !v7 )
           goto LABEL_6;
       }
-      v7 = 1;
+      v6 = 1;
     }
 LABEL_6:
-    v5 = (_QWORD *)v5[11];
-    if ( v7 )
-      v6 = v4;
-    v4 = v6;
+    v4 = (_QWORD *)v4[11];
+    if ( v6 )
+      v5 = v3;
+    v3 = v5;
   }
-  while ( v5 );
-  return (struct tagWND *)v4;
+  while ( v4 );
+  return (struct tagWND *)v3;
 }

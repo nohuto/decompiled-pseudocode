@@ -1,14 +1,14 @@
 /*
- * XREFs of ExReturnPoolQuota @ 0x14011F308
+ * XREFs of ExReturnPoolQuota @ 0x14011F328
  * Callers:
- *     IopFreeIrp @ 0x1400B9680 (IopFreeIrp.c)
- *     IopCompleteRequest @ 0x1400BFCF0 (IopCompleteRequest.c)
+ *     IopFreeIrp @ 0x1400B96A0 (IopFreeIrp.c)
+ *     IopCompleteRequest @ 0x1400BFD10 (IopCompleteRequest.c)
  *     IopFreeMiniCompletionPacket @ 0x1405E9C20 (IopFreeMiniCompletionPacket.c)
  * Callees:
  *     ExIsSpecialPoolAddress @ 0x14000E140 (ExIsSpecialPoolAddress.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF990 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     PsReturnPoolQuota @ 0x14011F3A0 (PsReturnPoolQuota.c)
- *     ExpGetBilledProcess @ 0x14011F3D8 (ExpGetBilledProcess.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsReturnPoolQuota @ 0x14011F3C0 (PsReturnPoolQuota.c)
+ *     ExpGetBilledProcess @ 0x14011F3F8 (ExpGetBilledProcess.c)
  */
 
 void __fastcall ExReturnPoolQuota(ULONG_PTR a1)

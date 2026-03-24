@@ -1,5 +1,5 @@
 /*
- * XREFs of PsRemoveCreateThreadNotifyRoutine @ 0x14088C830
+ * XREFs of PsRemoveCreateThreadNotifyRoutine @ 0x14088C810
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,8 @@
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
  *     ExGetCallBackBlockContext @ 0x140088F00 (ExGetCallBackBlockContext.c)
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExCompareExchangeCallBack @ 0x14018665C (ExCompareExchangeCallBack.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExCompareExchangeCallBack @ 0x14018667C (ExCompareExchangeCallBack.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

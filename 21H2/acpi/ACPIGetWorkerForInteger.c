@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIGetWorkerForInteger @ 0x1C00249F0
+ * XREFs of ACPIGetWorkerForInteger @ 0x1C0026CF0
  * Callers:
  *     <none>
  * Callees:
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     FreeData @ 0x1C001840C (FreeData.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     FreeObjData @ 0x1C0018AA0 (FreeObjData.c)
- *     ACPIGetProcessorStatus @ 0x1C0024DC4 (ACPIGetProcessorStatus.c)
- *     ACPIBuildSynchronizationRequestInternal @ 0x1C002BBB4 (ACPIBuildSynchronizationRequestInternal.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     ACPIGetConvertToClassCode @ 0x1C005602C (ACPIGetConvertToClassCode.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     FreeObjData @ 0x1C00033D0 (FreeObjData.c)
+ *     FreeData @ 0x1C00036E8 (FreeData.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     ACPIGetProcessorStatus @ 0x1C00270F4 (ACPIGetProcessorStatus.c)
+ *     ACPIBuildSynchronizationRequestInternal @ 0x1C002C8F0 (ACPIBuildSynchronizationRequestInternal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ACPIGetConvertToClassCode @ 0x1C0055968 (ACPIGetConvertToClassCode.c)
  */
 
 void __fastcall ACPIGetWorkerForInteger(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -28,14 +28,14 @@ void __fastcall ACPIGetWorkerForInteger(__int64 a1, __int64 a2, __int64 a3, _QWO
   KIRQL v16; // al
   __int64 v17; // rdi
   int v18; // r9d
-  void (__fastcall *v19)(__int64, _QWORD, _QWORD, _QWORD); // rax
-  KIRQL v20; // al
-  _QWORD **v21; // r9
-  void **v22; // r8
-  _DWORD *v23; // rcx
-  __int64 v24; // rax
-  _DWORD *v25; // rax
-  __int64 v26; // rdx
+  _DWORD *v19; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // rax
+  void (__fastcall *v22)(__int64, _QWORD, _QWORD, _QWORD); // rax
+  KIRQL v23; // al
+  _QWORD **v24; // r9
+  void **v25; // r8
+  _DWORD *v26; // rax
   __int64 *v27; // rax
   int v28; // eax
   __int64 v29; // rcx
@@ -54,8 +54,12 @@ void __fastcall ACPIGetWorkerForInteger(__int64 a1, __int64 a2, __int64 a3, _QWO
   v10 = *(_DWORD *)a4;
   if ( (*(_DWORD *)a4 & 0x400) != 0 )
   {
-    v23 = (_DWORD *)a4[8];
-    if ( (v10 & 0x4000000) != 0 || (v26 = a4[3], !_bittest64((const signed __int64 *)(v26 + 8), 0x3Du)) )
+    v19 = (_DWORD *)a4[8];
+    if ( (v10 & 0x4000000) == 0 && (v20 = a4[3], (*(_QWORD *)(v20 + 8) & 0x2000000000000000LL) != 0) )
+    {
+      v21 = *(_QWORD *)(v20 + 568);
+    }
+    else
     {
       if ( v8 < 0 )
         goto LABEL_28;
@@ -64,15 +68,11 @@ void __fastcall ACPIGetWorkerForInteger(__int64 a1, __int64 a2, __int64 a3, _QWO
         v8 = -1072431089;
         goto LABEL_28;
       }
-      v24 = *(_QWORD *)(a3 + 16);
+      v21 = *(_QWORD *)(a3 + 16);
     }
-    else
-    {
-      v24 = *(_QWORD *)(v26 + 608);
-    }
-    *v4 = v24;
-    if ( v23 )
-      *v23 = 8;
+    *v4 = v21;
+    if ( v19 )
+      *v19 = 8;
     goto LABEL_27;
   }
   if ( (v10 & 0x800) != 0 )
@@ -130,7 +130,7 @@ LABEL_7:
         {
           if ( *(_WORD *)(a3 + 2) != 1 )
           {
-            v27 = AMLIGetNamedChild(*(__int64 **)(v11 + 760), 1096045407);
+            v27 = AMLIGetNamedChild(*(__int64 **)(v11 + 720), 1096045407);
             KeBugCheckEx(0xA5u, 8uLL, v11, (ULONG_PTR)v27, *(unsigned __int16 *)(a3 + 2));
           }
           v12 = *(_DWORD *)(a3 + 16);
@@ -174,7 +174,7 @@ LABEL_7:
     if ( (v14 & 2) == 0 && (v31 & 1) == 0 )
     {
       v16 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-      v17 = *(_QWORD *)(v11 + 792);
+      v17 = *(_QWORD *)(v11 + 752);
       KeReleaseSpinLock(&AcpiDeviceTreeLock, v16);
       if ( v17 )
         ACPIBuildSynchronizationRequestInternal(v17, (unsigned int)ACPIBuildIssueNotifyInvalidateRelations, v17, v18, 1);
@@ -200,9 +200,9 @@ LABEL_27:
     if ( (v10 & 0x4000) == 0 || *(_WORD *)(a3 + 2) == 1 )
     {
       *(_DWORD *)v4 = *(_DWORD *)(a3 + 16);
-      v25 = (_DWORD *)a4[8];
-      if ( v25 )
-        *v25 = 4;
+      v26 = (_DWORD *)a4[8];
+      if ( v26 )
+        *v26 = 4;
       goto LABEL_27;
     }
     v8 = -1072431089;
@@ -210,42 +210,42 @@ LABEL_27:
 LABEL_28:
   *((_DWORD *)a4 + 18) = v8;
   if ( (_BYTE)v5 )
-    goto LABEL_29;
-  dword_1C0081AC8 = 0;
-  byte_1C0081ACC = 0;
+    goto LABEL_32;
+  dword_1C0082908 = 0;
+  pszDest = 0;
   if ( (*(_BYTE *)a3 & 1) != 0 )
   {
     v29 = *(_QWORD *)(a3 + 8);
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v29 + 8), 0xFFFFFFFF) != 1 || (*(_BYTE *)v29 & 8) == 0 )
-      goto LABEL_35;
+      goto LABEL_31;
     FreeData(v29);
   }
   else
   {
     if ( !*(_QWORD *)(a3 + 32) || *(int *)(a3 + 8) > 0 )
-      goto LABEL_35;
+      goto LABEL_31;
     if ( *(_WORD *)(a3 + 2) == 4 )
       FreeDataBuffs(*(_QWORD *)(a3 + 32) + 8LL, **(_DWORD **)(a3 + 32));
     FreeObjData(a3);
   }
   v9 = a1;
-LABEL_35:
+LABEL_31:
   *(_OWORD *)a3 = 0LL;
   *(_OWORD *)(a3 + 16) = 0LL;
   *(_QWORD *)(a3 + 32) = 0LL;
-LABEL_29:
+LABEL_32:
   if ( (*(_DWORD *)a4 & 0x10000000) == 0 )
   {
-    v19 = (void (__fastcall *)(__int64, _QWORD, _QWORD, _QWORD))a4[5];
-    if ( v19 )
-      v19(v9, (unsigned int)v8, 0LL, a4[6]);
-    v20 = KeAcquireSpinLockRaiseToDpc(&AcpiGetLock);
-    v21 = (_QWORD **)a4[1];
-    if ( v21[1] != a4 + 1 || (v22 = (void **)a4[2], *v22 != a4 + 1) )
+    v22 = (void (__fastcall *)(__int64, _QWORD, _QWORD, _QWORD))a4[5];
+    if ( v22 )
+      v22(v9, (unsigned int)v8, 0LL, a4[6]);
+    v23 = KeAcquireSpinLockRaiseToDpc(&AcpiGetLock);
+    v24 = (_QWORD **)a4[1];
+    if ( v24[1] != a4 + 1 || (v25 = (void **)a4[2], *v25 != a4 + 1) )
       __fastfail(3u);
-    *v22 = v21;
-    v21[1] = v22;
-    KeReleaseSpinLock(&AcpiGetLock, v20);
+    *v25 = v24;
+    v24[1] = v25;
+    KeReleaseSpinLock(&AcpiGetLock, v23);
     ExFreePoolWithTag(a4, 0);
   }
 }

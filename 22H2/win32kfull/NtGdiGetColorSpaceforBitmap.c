@@ -1,29 +1,29 @@
 /*
- * XREFs of NtGdiGetColorSpaceforBitmap @ 0x1C02D5620
+ * XREFs of NtGdiGetColorSpaceforBitmap @ 0x1C02BA520
  * Callers:
  *     <none>
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0030084 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C02A79CC (-bDIBSection@SURFACE@@QEAAHXZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C00838AC (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C00A9A0C (-bDIBSection@SURFACE@@QEAAHXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiGetColorSpaceforBitmap(HSURF a1)
 {
   __int64 v1; // rbx
-  __int64 v2; // rcx
-  _BYTE v4[32]; // [rsp+20h] [rbp-38h] BYREF
-  SURFACE *v5; // [rsp+40h] [rbp-18h]
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  _BYTE v5[32]; // [rsp+20h] [rbp-38h] BYREF
+  SURFACE *v6; // [rsp+40h] [rbp-18h]
 
   v1 = 0LL;
-  SURFREF::SURFREF((SURFREF *)v4, a1);
-  if ( v5 )
+  SURFREF::SURFREF((SURFREF *)v5, a1);
+  if ( v6 )
   {
-    if ( SURFACE::bDIBSection(v5) )
-      v1 = *(_QWORD *)(v2 + 200);
-    if ( v2 )
-      DEC_SHARE_REF_CNT(v2);
+    if ( (unsigned int)SURFACE::bDIBSection(v6) )
+      v1 = *(_QWORD *)(v3 + 200);
+    DEC_SHARE_REF_CNT(v3, v2);
   }
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v4);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v5);
   return v1;
 }

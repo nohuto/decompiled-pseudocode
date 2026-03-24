@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SuspendResume@VIDMM_DEVICE@@QEAAX_N0@Z @ 0x1C00A6B3C
+ * XREFs of ?SuspendResume@VIDMM_DEVICE@@QEAAX_N0@Z @ 0x1C008AA94
  * Callers:
- *     ?VidMmSuspendResumeDevice@@YAXPEAVVIDMM_DEVICE@@_N1@Z @ 0x1C00188E0 (-VidMmSuspendResumeDevice@@YAXPEAVVIDMM_DEVICE@@_N1@Z.c)
+ *     ?VidMmSuspendResumeDevice@@YAXPEAVVIDMM_DEVICE@@_N1@Z @ 0x1C0015AA0 (-VidMmSuspendResumeDevice@@YAXPEAVVIDMM_DEVICE@@_N1@Z.c)
  * Callees:
- *     memset @ 0x1C001DC40 (memset.c)
- *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C00A6BA8 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C008AB00 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
  */
 
 void __fastcall VIDMM_DEVICE::SuspendResume(VIDMM_GLOBAL **this, char a2, char a3)

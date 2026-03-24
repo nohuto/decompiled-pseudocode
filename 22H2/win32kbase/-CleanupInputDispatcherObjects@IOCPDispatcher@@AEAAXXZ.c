@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CleanupInputDispatcherObjects@IOCPDispatcher@@AEAAXXZ @ 0x1C0084E8C
+ * XREFs of ?CleanupInputDispatcherObjects@IOCPDispatcher@@AEAAXXZ @ 0x1C00A930C
  * Callers:
- *     ?Close@IOCPDispatcher@@QEAAX_N@Z @ 0x1C0084D10 (-Close@IOCPDispatcher@@QEAAX_N@Z.c)
+ *     ?Close@IOCPDispatcher@@QEAAX_N@Z @ 0x1C00A8F60 (-Close@IOCPDispatcher@@QEAAX_N@Z.c)
  * Callees:
- *     ?Cleanup@SensorIOCPWCP@IOCPDispatcher@@QEAAXXZ @ 0x1C0084EDC (-Cleanup@SensorIOCPWCP@IOCPDispatcher@@QEAAXXZ.c)
+ *     ?Cleanup@SensorIOCPWCP@IOCPDispatcher@@QEAAXXZ @ 0x1C00A935C (-Cleanup@SensorIOCPWCP@IOCPDispatcher@@QEAAXXZ.c)
  */
 
 void __fastcall IOCPDispatcher::CleanupInputDispatcherObjects(IOCPDispatcher *this)

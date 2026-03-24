@@ -1,36 +1,38 @@
 /*
- * XREFs of KiInitializeNxSupportDiscard @ 0x140B73EE8
+ * XREFs of KiInitializeNxSupportDiscard @ 0x140A39E14
  * Callers:
- *     KiInitializeBootStructures @ 0x140A8BDF0 (KiInitializeBootStructures.c)
+ *     KiInitializeNXSupport @ 0x14099B8EC (KiInitializeNXSupport.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     strstr @ 0x1403D8B70 (strstr.c)
- *     KiGetCpuVendor @ 0x140A888A0 (KiGetCpuVendor.c)
- *     KiIsNXSupported @ 0x140A91C98 (KiIsNXSupported.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     strstr @ 0x1403D1180 (strstr.c)
+ *     KiIsNXSupported @ 0x14099B4B0 (KiIsNXSupported.c)
+ *     KiGetCpuVendor @ 0x14099B828 (KiGetCpuVendor.c)
  */
 
 char KiInitializeNxSupportDiscard()
 {
+  char v0; // al
   char result; // al
 
-  *(_BYTE *)(MmWriteableSharedUserData + 725) = *(_BYTE *)(MmWriteableSharedUserData + 725) & 0xFC | 1;
+  MEMORY[0xFFFFF780000002D5] = MEMORY[0xFFFFF780000002D5] & 0xFC | 1;
   if ( !strstr(*(const char **)(KeLoaderBlock_0 + 216), "NOEXECUTE=ALWAYSON") )
   {
     if ( strstr(*(const char **)(KeLoaderBlock_0 + 216), "NOEXECUTE=OPTOUT") )
     {
-      *(_BYTE *)(MmWriteableSharedUserData + 725) |= 3u;
+      v0 = MEMORY[0xFFFFF780000002D5] | 3;
     }
     else if ( strstr(*(const char **)(KeLoaderBlock_0 + 216), "NOEXECUTE=OPTIN")
            || !strstr(*(const char **)(KeLoaderBlock_0 + 216), "NOEXECUTE=ALWAYSOFF")
            && (strstr(*(const char **)(KeLoaderBlock_0 + 216), "NOEXECUTE")
             || !strstr(*(const char **)(KeLoaderBlock_0 + 216), "EXECUTE")) )
     {
-      *(_BYTE *)(MmWriteableSharedUserData + 725) = *(_BYTE *)(MmWriteableSharedUserData + 725) & 0xFC | 2;
+      v0 = MEMORY[0xFFFFF780000002D5] & 0xFC | 2;
     }
     else
     {
-      *(_BYTE *)(MmWriteableSharedUserData + 725) &= 0xFCu;
+      v0 = MEMORY[0xFFFFF780000002D5] & 0xFC;
     }
+    MEMORY[0xFFFFF780000002D5] = v0;
   }
   _RAX = 1LL;
   __asm { cpuid }
@@ -40,8 +42,8 @@ char KiInitializeNxSupportDiscard()
   if ( result )
   {
     __writemsr(0xC0000080, __readmsr(0xC0000080) | 0x800);
-    result = MmWriteableSharedUserData;
-    *(_BYTE *)(MmWriteableSharedUserData + 640) = 1;
+    result = 1;
+    MEMORY[0xFFFFF78000000280] = 1;
   }
   return result;
 }

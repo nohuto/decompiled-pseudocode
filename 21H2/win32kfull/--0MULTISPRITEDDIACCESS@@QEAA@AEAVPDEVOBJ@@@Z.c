@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0MULTISPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C00B7768
+ * XREFs of ??0MULTISPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C00EE220
  * Callers:
- *     vSpDynamicModeChange @ 0x1C00B7500 (vSpDynamicModeChange.c)
+ *     vSpDynamicModeChange @ 0x1C00EE000 (vSpDynamicModeChange.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C0086018 (-vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00EE310 (-vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
  */
 
 MULTISPRITEDDIACCESS *__fastcall MULTISPRITEDDIACCESS::MULTISPRITEDDIACCESS(
@@ -23,7 +23,7 @@ MULTISPRITEDDIACCESS *__fastcall MULTISPRITEDDIACCESS::MULTISPRITEDDIACCESS(
     || !PDEVOBJ::bAllowShareAccess(a2)
     || !*(_DWORD *)(ThreadWin32Thread + 104) && !*(_DWORD *)(ThreadWin32Thread + 108) )
   {
-    v5 = *(_QWORD *)a2 + 80LL;
+    v5 = *(_QWORD *)a2 + 88LL;
     *(_QWORD *)this = v5;
     if ( *(_DWORD *)(v5 + 60) )
     {
@@ -32,9 +32,9 @@ MULTISPRITEDDIACCESS *__fastcall MULTISPRITEDDIACCESS::MULTISPRITEDDIACCESS(
       {
         v8 = v5;
         v9 = *(_QWORD *)(*(_QWORD *)(v5 + 64) + 8 * v7);
-        if ( !*(_DWORD *)(v9 + 168) && (*(_DWORD *)(v9 + 40) & 0x20000) == 0 )
+        if ( !*(_DWORD *)(v9 + 176) && (*(_DWORD *)(v9 + 40) & 0x20000) == 0 )
         {
-          vSpDirectDriverAccess((struct _SPRITESTATE *)(v9 + 80), 1);
+          vSpDirectDriverAccess((struct _SPRITESTATE *)(v9 + 88), 1);
           v8 = *(_QWORD *)this;
         }
         v7 = (unsigned int)(v7 + 1);

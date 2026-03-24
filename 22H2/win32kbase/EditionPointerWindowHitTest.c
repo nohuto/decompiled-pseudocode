@@ -1,10 +1,10 @@
 /*
- * XREFs of EditionPointerWindowHitTest @ 0x1C0232D50
+ * XREFs of EditionPointerWindowHitTest @ 0x1C01FC044
  * Callers:
- *     ApiSetEditionPointerWindowHitTest @ 0x1C0207108 (ApiSetEditionPointerWindowHitTest.c)
+ *     ApiSetEditionPointerWindowHitTest @ 0x1C01CCE58 (ApiSetEditionPointerWindowHitTest.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 _OWORD *__fastcall EditionPointerWindowHitTest(_OWORD *a1)
@@ -23,9 +23,9 @@ _OWORD *__fastcall EditionPointerWindowHitTest(_OWORD *a1)
   _OWORD *result; // rax
   _OWORD v14[7]; // [rsp+70h] [rbp-78h] BYREF
 
-  if ( qword_1C02968E8 )
+  if ( qword_1C0257640 )
   {
-    v2 = (_OWORD *)((__int64 (__fastcall *)(_OWORD *))qword_1C02968E8)(v14);
+    v2 = (_OWORD *)((__int64 (__fastcall *)(_OWORD *))qword_1C0257640)(v14);
     v3 = v2[1];
     *a1 = *v2;
     v4 = v2[2];

@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiMiracastDdiMiracastCreateContext @ 0x1C038CD44
+ * XREFs of DpiMiracastDdiMiracastCreateContext @ 0x1C02CDC74
  * Callers:
- *     DxgkMiracastStartMiracastSession @ 0x1C0063340 (DxgkMiracastStartMiracastSession.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C0055770 (DxgkMiracastStartMiracastSession.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pxqt_EtwWriteTransfer @ 0x1C00562E8 (McTemplateK0pxqt_EtwWriteTransfer.c)
+ *     McTemplateK0pxqt_EtwWriteTransfer @ 0x1C002692C (McTemplateK0pxqt_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DpiMiracastDdiMiracastCreateContext(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
@@ -17,7 +17,7 @@ __int64 __fastcall DpiMiracastDdiMiracastCreateContext(__int64 a1, __int64 a2, _
   __int64 v14; // [rsp+30h] [rbp-18h]
   int v15; // [rsp+30h] [rbp-18h]
 
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200000000LL) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
   {
     v15 = 0;
     v13 = -1;
@@ -32,7 +32,7 @@ __int64 __fastcall DpiMiracastDdiMiracastCreateContext(__int64 a1, __int64 a2, _
   }
   v8 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64 *, _DWORD *))(a1 + 3192))(*(_QWORD *)(a1 + 48), a2, a3, a4);
   v10 = v8;
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200000000LL) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
   {
     LODWORD(v14) = v8;
     LODWORD(v12) = *a4;

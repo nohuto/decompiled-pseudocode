@@ -1,9 +1,9 @@
 /*
- * XREFs of KzLowerIrql @ 0x1400BC610
+ * XREFs of KzLowerIrql @ 0x1400BC630
  * Callers:
- *     KiVirtualizationException @ 0x1401CD300 (KiVirtualizationException.c)
+ *     KiVirtualizationException @ 0x1401CD400 (KiVirtualizationException.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall KzLowerIrql(KIRQL NewIrql)

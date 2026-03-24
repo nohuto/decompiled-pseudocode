@@ -1,41 +1,45 @@
 /*
- * XREFs of ?vTransferWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@1@Z @ 0x1C016D4D0
+ * XREFs of ?vTransferWndObjs@@YAXPEAVSURFACE@@PEAUHDEV__@@1@Z @ 0x1C014905C
  * Callers:
- *     ?DrvTransferGdiObjects@@YAXPEAUHDEV__@@0K@Z @ 0x1C0161E64 (-DrvTransferGdiObjects@@YAXPEAUHDEV__@@0K@Z.c)
+ *     ?DrvTransferGdiObjects@@YAXPEAUHDEV__@@0K@Z @ 0x1C0144AC0 (-DrvTransferGdiObjects@@YAXPEAUHDEV__@@0K@Z.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0048150 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?vUnreferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C005B180 (-vUnreferencePdev@PDEVOBJ@@QEAAXXZ.c)
- *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C0097060 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C00123D0 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C0022D50 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0039FC4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vTransferWndObjs(struct SURFACE *a1, struct PDEV *a2, HDEV a3)
 {
-  __int64 (*v6)(void); // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  int v8; // r8d
+  __int64 *v9; // rax
   __int64 i; // rbx
   __int64 j; // rdi
-  HDEV v9; // [rsp+48h] [rbp+10h] BYREF
-  struct PDEV *v10; // [rsp+50h] [rbp+18h] BYREF
-  HSEMAPHORE v11; // [rsp+58h] [rbp+20h] BYREF
+  int v12; // r8d
+  HDEV v13; // [rsp+48h] [rbp+10h] BYREF
+  struct PDEV *v14; // [rsp+50h] [rbp+18h] BYREF
+  HSEMAPHORE v15; // [rsp+58h] [rbp+20h] BYREF
 
-  v11 = *(HSEMAPHORE *)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 56LL);
-  EngAcquireSemaphore(v11);
-  v6 = qword_1C0294C40;
-  v10 = a2;
-  v9 = a3;
-  if ( qword_1C0294C40 )
-    v6 = (__int64 (*)(void))qword_1C0294C40();
-  for ( i = *(_QWORD *)v6; i; i = *(_QWORD *)(i + 8) )
+  v15 = ghsemWndobj;
+  EngAcquireSemaphore(ghsemWndobj);
+  v9 = (__int64 *)qword_1C0255838;
+  v14 = a2;
+  v13 = a3;
+  if ( qword_1C0255838 )
+    v9 = (__int64 *)qword_1C0255838(v7);
+  for ( i = *v9; i; i = *(_QWORD *)(i + 8) )
   {
     if ( *(struct SURFACE **)(i + 32) == a1 )
     {
       for ( j = *(_QWORD *)(i + 24); j; j = *(_QWORD *)(j + 160) )
       {
-        PDEVOBJ::vReferencePdev((PDEVOBJ *)&v9);
-        PDEVOBJ::vUnreferencePdev(&v10);
+        PDEVOBJ::vReferencePdev((PDEVOBJ *)&v13, v6, v8);
+        PDEVOBJ::vUnreferencePdev(&v14, 0, v12);
       }
     }
   }
-  SEMOBJ::vUnlock((PERESOURCE *)&v11);
+  SEMOBJ::vUnlock((PERESOURCE *)&v15);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TestRawInputModeCaptureMouse@@YA_NPEAUtagTHREADINFO@@@Z @ 0x1C01A897C
+ * XREFs of ?TestRawInputModeCaptureMouse@@YA_NPEAUtagTHREADINFO@@@Z @ 0x1C01D3A00
  * Callers:
- *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C005CFC0 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
+ *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C002A440 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
  * Callees:
- *     HasHidTable @ 0x1C01184A0 (HasHidTable.c)
+ *     HasHidTable @ 0x1C0052590 (HasHidTable.c)
  */
 
 bool __fastcall TestRawInputModeCaptureMouse(struct tagTHREADINFO *a1)
@@ -12,6 +12,6 @@ bool __fastcall TestRawInputModeCaptureMouse(struct tagTHREADINFO *a1)
 
   v2 = 0;
   if ( !(unsigned __int8)IsSpatialDelegationEnabledForThread(a1) && (unsigned int)HasHidTable((__int64)a1) )
-    return (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 53) + 848LL) + 100LL) & 0x100) != 0;
+    return (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 53) + 832LL) + 100LL) & 0x100) != 0;
   return v2;
 }

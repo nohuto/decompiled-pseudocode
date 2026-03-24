@@ -1,13 +1,13 @@
 /*
- * XREFs of GreDecQuotaCount @ 0x1C00A8710
+ * XREFs of GreDecQuotaCount @ 0x1C0095D20
  * Callers:
  *     <none>
  * Callees:
- *     GreAcquireHmgrSemaphore @ 0x1C002DF20 (GreAcquireHmgrSemaphore.c)
- *     GreReleaseHmgrSemaphore @ 0x1C002E900 (GreReleaseHmgrSemaphore.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0038C20 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0038D70 (GreAcquireHmgrSemaphore.c)
  */
 
-__int64 __fastcall GreDecQuotaCount(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall GreDecQuotaCount(__int64 a1, int a2, int a3)
 {
   __int64 v4; // rdx
   int v5; // ecx

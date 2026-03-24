@@ -1,35 +1,43 @@
 /*
- * XREFs of PoCaptureReasonContext @ 0x14036B98C
+ * XREFs of PoCaptureReasonContext @ 0x14028363C
  * Callers:
- *     PoRegisterSystemState @ 0x140201CD0 (PoRegisterSystemState.c)
- *     NtSetTimerEx @ 0x1402E3150 (NtSetTimerEx.c)
- *     PoCreatePowerRequest @ 0x140369E10 (PoCreatePowerRequest.c)
- *     PopPowerRequestCreateUserModeRequest @ 0x140369ECC (PopPowerRequestCreateUserModeRequest.c)
- *     NtSetTimer @ 0x1403749A0 (NtSetTimer.c)
- *     NtSetThreadExecutionState @ 0x1407EDD60 (NtSetThreadExecutionState.c)
- *     PoCreateThermalRequest @ 0x140829400 (PoCreateThermalRequest.c)
- *     PopPowerAggregatorInitialize @ 0x140B02408 (PopPowerAggregatorInitialize.c)
- *     PopInitializeHighPerfPowerRequest @ 0x140B2D588 (PopInitializeHighPerfPowerRequest.c)
+ *     NtSetTimerEx @ 0x1402491A0 (NtSetTimerEx.c)
+ *     NtSetTimer @ 0x1403769A0 (NtSetTimer.c)
+ *     PoRegisterSystemState @ 0x14056EF10 (PoRegisterSystemState.c)
+ *     PopPowerRequestCreateInfo @ 0x14067CFCC (PopPowerRequestCreateInfo.c)
+ *     NtSetThreadExecutionState @ 0x14067D5F0 (NtSetThreadExecutionState.c)
+ *     PoCreatePowerRequest @ 0x140772740 (PoCreatePowerRequest.c)
+ *     PoCreateThermalRequest @ 0x140790920 (PoCreateThermalRequest.c)
+ *     PopInitializeHighPerfPowerRequest @ 0x140A710FC (PopInitializeHighPerfPowerRequest.c)
  * Callees:
- *     PoGetRequester @ 0x14036BAB4 (PoGetRequester.c)
- *     PopCaptureReasonContext @ 0x14036BBCC (PopCaptureReasonContext.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PoGetRequester @ 0x140283794 (PoGetRequester.c)
+ *     PopCaptureReasonContext @ 0x1402838E0 (PopCaptureReasonContext.c)
+ *     Feature_3401902395__private_IsEnabledDeviceUsage @ 0x1403F7E54 (Feature_3401902395__private_IsEnabledDeviceUsage.c)
+ *     PoGetRequesterOld @ 0x1403F7F10 (PoGetRequesterOld.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PoCaptureReasonContext(unsigned __int64 a1, __int64 a2, __int64 a3, char a4, __int64 a5, _QWORD *a6)
+__int64 __fastcall PoCaptureReasonContext(unsigned __int64 a1, __int64 a2, __int64 a3, char a4, __int64 a5, PVOID *a6)
 {
-  char v7; // di
-  __int64 v8; // rcx
-  int v9; // ebx
-  __int128 v11; // [rsp+28h] [rbp-30h] BYREF
-  __int128 v12; // [rsp+38h] [rbp-20h]
-  __int64 v13; // [rsp+48h] [rbp-10h]
+  char v7; // si
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  int Requester; // ebx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  int IsEnabledDeviceUsage; // eax
+  PVOID v14; // r8
+  _BOOL8 v15; // rcx
+  int v17; // [rsp+20h] [rbp-38h]
+  __int128 v18; // [rsp+28h] [rbp-30h] BYREF
+  __int128 v19; // [rsp+38h] [rbp-20h]
+  __int64 v20; // [rsp+48h] [rbp-10h]
 
   v7 = a2;
-  v11 = 0LL;
-  v12 = 0LL;
-  v13 = 0LL;
+  v18 = 0LL;
+  v19 = 0LL;
+  v20 = 0LL;
   *a6 = 0LL;
   if ( a1 && (_BYTE)a2 )
   {
@@ -40,22 +48,38 @@ __int64 __fastcall PoCaptureReasonContext(unsigned __int64 a1, __int64 a2, __int
       a2 = 0x7FFFFFFF0000LL;
       if ( a1 + 40 > 0x7FFFFFFF0000LL || a1 + 40 < a1 )
         MEMORY[0x7FFFFFFF0000] = 0;
-      v11 = *(_OWORD *)a1;
-      v12 = *(_OWORD *)(a1 + 16);
-      v13 = *(_QWORD *)(a1 + 32);
-      a1 = (unsigned __int64)&v11;
+      v18 = *(_OWORD *)a1;
+      v19 = *(_OWORD *)(a1 + 16);
+      v20 = *(_QWORD *)(a1 + 32);
+      a1 = (unsigned __int64)&v18;
     }
     LOBYTE(a2) = v7;
-    v9 = PopCaptureReasonContext(a1, a2, a5, a6);
+    Requester = PopCaptureReasonContext(a1, a2, a5, a6);
+    v17 = Requester;
   }
   else
   {
-    v9 = PopCaptureReasonContext(a1, a2, a5, a6);
+    Requester = PopCaptureReasonContext(a1, a2, a5, a6);
   }
-  if ( v9 >= 0 )
+  if ( Requester >= 0 )
   {
-    LOBYTE(v8) = v7;
-    PoGetRequester(v8, a3, *a6);
+    IsEnabledDeviceUsage = Feature_3401902395__private_IsEnabledDeviceUsage(v9, v8, v11, v12, v17, v18);
+    v15 = IsEnabledDeviceUsage != 0;
+    v14 = *a6;
+    LOBYTE(v15) = v7;
+    if ( IsEnabledDeviceUsage )
+    {
+      Requester = PoGetRequester(v15, a3, v14);
+      if ( Requester < 0 && *a6 )
+      {
+        ExFreePoolWithTag(*a6, 0x78435250u);
+        *a6 = 0LL;
+      }
+    }
+    else
+    {
+      PoGetRequesterOld(v15, a3, v14);
+    }
   }
-  return (unsigned int)v9;
+  return (unsigned int)Requester;
 }

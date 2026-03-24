@@ -1,34 +1,31 @@
 /*
- * XREFs of ??$emplace_back@VCDepthSortingLayer@@@?$vector@VCDepthSortingLayer@@V?$allocator@VCDepthSortingLayer@@@std@@@std@@QEAA?A_T$$QEAVCDepthSortingLayer@@@Z @ 0x180259FB8
+ * XREFs of ??$emplace_back@VCDepthSortingLayer@@@?$vector@VCDepthSortingLayer@@V?$allocator@VCDepthSortingLayer@@@std@@@std@@QEAAAEAVCDepthSortingLayer@@$$QEAV2@@Z @ 0x1801FAC54
  * Callers:
- *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x18025A020 (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
+ *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x1801FACC0 (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall std::vector<CDepthSortingLayer>::emplace_back<CDepthSortingLayer>(__int64 *a1, __int64 a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rax
-  __int64 v6; // rcx
-  __int64 v7; // r8
+  __int64 v3; // rdx
   __int64 result; // rax
 
-  v4 = a1[1];
-  if ( v4 == a1[2] )
-    return std::vector<CDepthSortingLayer>::_Emplace_reallocate<CDepthSortingLayer>(a1, v4, (__int64 *)a2);
-  v5 = *(_QWORD *)a2;
-  v6 = *(_QWORD *)(a2 + 8);
-  v7 = *(_QWORD *)(a2 + 16);
-  *(_QWORD *)(a2 + 16) = 0LL;
-  *(_QWORD *)(a2 + 8) = 0LL;
+  v3 = a1[1];
+  if ( a1[2] == v3 )
+    return std::vector<CDepthSortingLayer>::_Emplace_reallocate<CDepthSortingLayer>(a1, v3, a2);
+  *(_QWORD *)v3 = 0LL;
+  *(_QWORD *)(v3 + 8) = 0LL;
+  *(_QWORD *)(v3 + 16) = 0LL;
+  *(_QWORD *)v3 = *(_QWORD *)a2;
+  *(_QWORD *)(v3 + 8) = *(_QWORD *)(a2 + 8);
+  *(_QWORD *)(v3 + 16) = *(_QWORD *)(a2 + 16);
   *(_QWORD *)a2 = 0LL;
-  *(_QWORD *)(v4 + 8) = v6;
-  *(_QWORD *)v4 = v5;
-  *(_QWORD *)(v4 + 16) = v7;
-  *(_DWORD *)(v4 + 24) = *(_DWORD *)(a2 + 24);
-  *(_DWORD *)(v4 + 28) = *(_DWORD *)(a2 + 28);
-  *(_DWORD *)(v4 + 32) = *(_DWORD *)(a2 + 32);
+  *(_QWORD *)(a2 + 8) = 0LL;
+  *(_QWORD *)(a2 + 16) = 0LL;
+  *(_DWORD *)(v3 + 24) = *(_DWORD *)(a2 + 24);
+  *(_DWORD *)(v3 + 28) = *(_DWORD *)(a2 + 28);
+  *(_DWORD *)(v3 + 32) = *(_DWORD *)(a2 + 32);
   result = a1[1];
   a1[1] = result + 40;
   return result;

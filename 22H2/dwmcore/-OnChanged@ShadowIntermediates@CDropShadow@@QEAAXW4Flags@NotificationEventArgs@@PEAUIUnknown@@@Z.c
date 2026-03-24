@@ -1,18 +1,17 @@
 /*
- * XREFs of ?OnChanged@ShadowIntermediates@CDropShadow@@QEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18022A7D4
+ * XREFs of ?OnChanged@ShadowIntermediates@CDropShadow@@QEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801BF0F4
  * Callers:
- *     ?NotifyOnChanged@CDropShadow@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180100730 (-NotifyOnChanged@CDropShadow@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?NotifyOnChanged@CDropShadow@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800DD900 (-NotifyOnChanged@CDropShadow@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  * Callees:
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?IsRectangularShadow@ShadowIntermediates@CDropShadow@@QEBA_NXZ @ 0x1801327A4 (-IsRectangularShadow@ShadowIntermediates@CDropShadow@@QEBA_NXZ.c)
+ *     ?IsRectangularShadow@ShadowIntermediates@CDropShadow@@QEBA_NXZ @ 0x180008ABC (-IsRectangularShadow@ShadowIntermediates@CDropShadow@@QEBA_NXZ.c)
+ *     ?DestroyIntermediates@ShadowIntermediates@CDropShadow@@QEAAX_N@Z @ 0x1801BEDAC (-DestroyIntermediates@ShadowIntermediates@CDropShadow@@QEAAX_N@Z.c)
  */
 
-void __fastcall CDropShadow::ShadowIntermediates::OnChanged(__int64 *a1, __int64 a2, __int64 a3)
+void __fastcall CDropShadow::ShadowIntermediates::OnChanged(
+        CDropShadow::ShadowIntermediates *a1,
+        __int64 a2,
+        __int64 a3)
 {
-  if ( a1[6]
-    && a3 == a1[6]
-    && !CDropShadow::ShadowIntermediates::IsRectangularShadow((CDropShadow::ShadowIntermediates *)a1) )
-  {
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(a1 + 7);
-  }
+  if ( *((_QWORD *)a1 + 1) && a3 == *((_QWORD *)a1 + 1) && !CDropShadow::ShadowIntermediates::IsRectangularShadow(a1) )
+    CDropShadow::ShadowIntermediates::DestroyIntermediates(a1, 1);
 }

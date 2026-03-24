@@ -1,15 +1,15 @@
 /*
- * XREFs of WriteCookAccess @ 0x1C0026A60
+ * XREFs of WriteCookAccess @ 0x1C0029900
  * Callers:
  *     <none>
  * Callees:
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
- *     DequeueAndReadyContext @ 0x1C0026C94 (DequeueAndReadyContext.c)
- *     QueueContext @ 0x1C002A818 (QueueContext.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     DequeueAndReadyContext @ 0x1C0029B50 (DequeueAndReadyContext.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     QueueContext @ 0x1C00686E4 (QueueContext.c)
  */
 
 __int64 __fastcall WriteCookAccess(__int64 a1, __int64 a2, unsigned int a3)
@@ -43,7 +43,7 @@ __int64 __fastcall WriteCookAccess(__int64 a1, __int64 a2, unsigned int a3)
     if ( !*(_BYTE *)(a2 + 88) )
     {
       *(_DWORD *)(a2 + 16) += 2;
-      goto LABEL_11;
+      goto LABEL_12;
     }
     v16 = 0;
     if ( (gDebugger & 0x100) != 0 )
@@ -79,18 +79,16 @@ __int64 __fastcall WriteCookAccess(__int64 a1, __int64 a2, unsigned int a3)
       LogError(3222536216LL);
       AcpiDiagTraceAmlError(a1, 3222536216LL);
       v22 = v21;
-LABEL_32:
-      PrintDebugMessage(212, *(unsigned __int8 *)(v7 + 12), v22, 0, 0LL);
-      return (unsigned int)-1072431080;
+      goto LABEL_34;
     }
-LABEL_10:
+LABEL_11:
     *(_QWORD *)(a2 + 64) |= *(_QWORD *)(a2 + 80) & ~*(_QWORD *)(a2 + 72);
     ++*(_DWORD *)(a2 + 16);
-    goto LABEL_11;
+    goto LABEL_12;
   }
   v8 = v6 - 1;
   if ( !v8 )
-    goto LABEL_10;
+    goto LABEL_11;
   v9 = v8 - 1;
   if ( v9 )
   {
@@ -98,7 +96,7 @@ LABEL_10:
       return v3;
     goto LABEL_7;
   }
-LABEL_11:
+LABEL_12:
   v12 = 0;
   if ( (gDebugger & 0x100) != 0 )
   {
@@ -126,7 +124,9 @@ LABEL_11:
     LogError(3222536216LL);
     AcpiDiagTraceAmlError(a1, 3222536216LL);
     v22 = v3;
-    goto LABEL_32;
+LABEL_34:
+    PrintDebugMessage(212, *(unsigned __int8 *)(v7 + 12), v22, 0, 0LL);
+    return (unsigned int)-1072431080;
   }
 LABEL_7:
   if ( *(_BYTE *)(a2 + 88) )

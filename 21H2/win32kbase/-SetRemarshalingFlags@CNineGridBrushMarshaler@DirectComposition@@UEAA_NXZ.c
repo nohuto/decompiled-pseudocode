@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CNineGridBrushMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C021D820
+ * XREFs of ?SetRemarshalingFlags@CNineGridBrushMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01E70A0
  * Callers:
  *     <none>
  * Callees:
@@ -9,116 +9,50 @@
 bool __fastcall DirectComposition::CNineGridBrushMarshaler::SetRemarshalingFlags(
         DirectComposition::CNineGridBrushMarshaler *this)
 {
-  bool v1; // zf
-  _DWORD *v2; // rax
-  char v4; // r8
-  _DWORD *v5; // rcx
-  char v6; // r10
-  char v7; // dl
-  char v8; // dl
-  char v9; // r10
+  __int64 v1; // rbp
+  bool v2; // si
+  bool v3; // di
+  bool v4; // bl
+  bool v5; // r11
+  bool v6; // r10
+  bool v7; // r9
+  bool v8; // r8
+  bool v9; // al
   char v10; // dl
-  char v11; // r10
-  char v12; // dl
-  char v13; // r10
-  char v14; // dl
-  char v15; // r10
-  char v16; // dl
-  char v17; // r10
-  char v18; // dl
-  char v19; // r10
-  char v20; // dl
-  char v21; // al
+  char v11; // al
 
-  v1 = *((_QWORD *)this + 10) == 0LL;
-  v2 = (_DWORD *)((char *)this + 16);
-  v4 = 1;
-  v5 = (_DWORD *)((char *)this + 16);
+  v1 = *((_QWORD *)this + 9);
+  v2 = *((float *)this + 20) != 0.0;
+  v3 = *((float *)this + 22) != 0.0;
+  v4 = *((float *)this + 24) != 0.0;
+  v5 = *((float *)this + 26) != 0.0;
+  v6 = *((float *)this + 21) != 1.0;
+  v7 = *((float *)this + 23) != 1.0;
+  v8 = *((float *)this + 25) != 1.0;
+  v9 = *((float *)this + 27) != 1.0;
   if ( v1 )
-  {
-    v6 = 0;
-  }
-  else
-  {
-    *v2 |= 0x20u;
-    v6 = 1;
-  }
-  if ( *((float *)this + 22) == 0.0 )
-  {
-    v7 = 0;
-  }
-  else
-  {
-    *v2 |= 0x40u;
-    v7 = 1;
-  }
-  v8 = v6 | v7;
-  if ( *((float *)this + 24) == 0.0 )
-  {
-    v9 = 0;
-  }
-  else
-  {
-    *v2 |= 0x80u;
-    v9 = 1;
-  }
-  v10 = v9 | v8;
-  if ( *((float *)this + 26) == 0.0 )
-  {
-    v11 = 0;
-  }
-  else
-  {
-    *v2 |= 0x100u;
+    *((_DWORD *)this + 4) |= 0x20u;
+  if ( v2 )
+    *((_DWORD *)this + 4) |= 0x40u;
+  if ( v3 )
+    *((_DWORD *)this + 4) |= 0x80u;
+  if ( v4 )
+    *((_DWORD *)this + 4) |= 0x100u;
+  if ( v5 )
+    *((_DWORD *)this + 4) |= 0x200u;
+  if ( v6 )
+    *((_DWORD *)this + 4) |= 0x400u;
+  if ( v7 )
+    *((_DWORD *)this + 4) |= 0x800u;
+  if ( v8 )
+    *((_DWORD *)this + 4) |= 0x1000u;
+  if ( v9 )
+    *((_DWORD *)this + 4) |= 0x2000u;
+  v10 = *((_BYTE *)this + 112);
+  if ( v10 )
+    *((_DWORD *)this + 4) |= 0x4000u;
+  v11 = v2 || v3 || v4 || v5 || v6 || v7 || v8 || v9;
+  if ( v1 )
     v11 = 1;
-  }
-  v12 = v11 | v10;
-  if ( *((float *)this + 28) == 0.0 )
-  {
-    v13 = 0;
-  }
-  else
-  {
-    *v2 |= 0x200u;
-    v13 = 1;
-  }
-  v14 = v13 | v12;
-  if ( *((float *)this + 23) == 1.0 )
-  {
-    v15 = 0;
-  }
-  else
-  {
-    *v2 |= 0x400u;
-    v15 = 1;
-  }
-  v16 = v15 | v14;
-  if ( *((float *)this + 25) == 1.0 )
-  {
-    v17 = 0;
-  }
-  else
-  {
-    *v2 |= 0x800u;
-    v17 = 1;
-  }
-  v18 = v17 | v16;
-  if ( *((float *)this + 27) == 1.0 )
-  {
-    v19 = 0;
-  }
-  else
-  {
-    *v2 |= 0x1000u;
-    v19 = 1;
-  }
-  v20 = v19 | v18;
-  if ( *((float *)this + 29) == 1.0 )
-    v4 = 0;
-  else
-    *v2 |= 0x2000u;
-  v21 = *((_BYTE *)this + 120);
-  if ( v21 )
-    *v5 |= 0x4000u;
-  return v4 | v20 | v21;
+  return v10 | v11;
 }

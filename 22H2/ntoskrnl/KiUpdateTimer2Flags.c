@@ -1,13 +1,13 @@
 /*
- * XREFs of KiUpdateTimer2Flags @ 0x14031DE38
+ * XREFs of KiUpdateTimer2Flags @ 0x140348E54
  * Callers:
- *     KiTimer2Expiration @ 0x1402514C0 (KiTimer2Expiration.c)
- *     KiExpireTimer2 @ 0x140251960 (KiExpireTimer2.c)
- *     KeDisableTimer2 @ 0x14031D998 (KeDisableTimer2.c)
- *     KeCancelTimer2 @ 0x14031DD00 (KeCancelTimer2.c)
- *     KiTraceSetTimer2 @ 0x14057D634 (KiTraceSetTimer2.c)
+ *     KiTimer2Expiration @ 0x140248150 (KiTimer2Expiration.c)
+ *     KiExpireTimer2 @ 0x14024AF30 (KiExpireTimer2.c)
+ *     KeCancelTimer2 @ 0x140348B50 (KeCancelTimer2.c)
+ *     KeDisableTimer2 @ 0x140348C40 (KeDisableTimer2.c)
+ *     KiTraceSetTimer2 @ 0x140523BD0 (KiTraceSetTimer2.c)
  * Callees:
- *     KiFinalizeTimer2Disablement @ 0x14031DED4 (KiFinalizeTimer2Disablement.c)
+ *     KiFinalizeTimer2Disablement @ 0x140348F6C (KiFinalizeTimer2Disablement.c)
  */
 
 char __fastcall KiUpdateTimer2Flags(volatile signed __int32 *a1, int a2, char a3)

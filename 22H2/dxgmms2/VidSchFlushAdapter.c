@@ -1,135 +1,134 @@
 /*
- * XREFs of VidSchFlushAdapter @ 0x1C01070F0
+ * XREFs of VidSchFlushAdapter @ 0x1C00CFF30
  * Callers:
- *     VidSchiHandleControlEvent @ 0x1C0105F7C (VidSchiHandleControlEvent.c)
- *     VidSchTerminateAdapter @ 0x1C01087F0 (VidSchTerminateAdapter.c)
+ *     VidSchiHandleControlEvent @ 0x1C00CE8A8 (VidSchiHandleControlEvent.c)
+ *     VidSchTerminateAdapter @ 0x1C00D1620 (VidSchTerminateAdapter.c)
  * Callees:
- *     VidSchIsWorkerThread @ 0x1C0001BF0 (VidSchIsWorkerThread.c)
- *     VidSchiInterlockedReadUlong @ 0x1C000258C (VidSchiInterlockedReadUlong.c)
- *     VidSchiClearFlipDevice @ 0x1C00025D8 (VidSchiClearFlipDevice.c)
- *     VidSchIsTDRPending @ 0x1C000B500 (VidSchIsTDRPending.c)
- *     VidSchiGetSchedulerStatus @ 0x1C0018968 (VidSchiGetSchedulerStatus.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     VidSchiUnlinkCrossAdapterSyncObjects @ 0x1C003C9B4 (VidSchiUnlinkCrossAdapterSyncObjects.c)
- *     VidSchiUnwaitAllContexts @ 0x1C003CA94 (VidSchiUnwaitAllContexts.c)
- *     ??$VidSchRundownUnorderedWaiter@U_VIDSCH_GLOBAL@@@@YAJPEAU_VIDSCH_GLOBAL@@0W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C003D0DC (--$VidSchRundownUnorderedWaiter@U_VIDSCH_GLOBAL@@@@YAJPEAU_VIDSCH_GLOBAL@@0W4_VIDSCH_FLUSH_STAGE.c)
- *     ?VidSchRundownUnorderedWaiterGlobal@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C003D9BC (-VidSchRundownUnorderedWaiterGlobal@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
- *     ?VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C003DA80 (-VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
- *     VidSchiCleanupQueuedCommand @ 0x1C0046DA8 (VidSchiCleanupQueuedCommand.c)
- *     VidSchiCompleteAllPendingCommand @ 0x1C0046E10 (VidSchiCompleteAllPendingCommand.c)
- *     VidSchiWaitFlushCompletion @ 0x1C0087DCC (VidSchiWaitFlushCompletion.c)
- *     VidSchResumeAdapter @ 0x1C0088380 (VidSchResumeAdapter.c)
- *     VidSchiRequestSchedulerStatus @ 0x1C00B9D00 (VidSchiRequestSchedulerStatus.c)
- *     VidSchiCancelDelayTimerDevice @ 0x1C0105BC4 (VidSchiCancelDelayTimerDevice.c)
- *     VidSchiHandleControlEvent @ 0x1C0105F7C (VidSchiHandleControlEvent.c)
- *     VidSchiWaitForEmptyHwQueue @ 0x1C0106F10 (VidSchiWaitForEmptyHwQueue.c)
- *     VidSchiBlockDriverCallback @ 0x1C010A02C (VidSchiBlockDriverCallback.c)
+ *     VidSchIsTDRPending @ 0x1C000C140 (VidSchIsTDRPending.c)
+ *     VidSchIsWorkerThread @ 0x1C0011B30 (VidSchIsWorkerThread.c)
+ *     VidSchiInterlockedReadUlong @ 0x1C0011B4C (VidSchiInterlockedReadUlong.c)
+ *     VidSchiClearFlipDevice @ 0x1C0011B88 (VidSchiClearFlipDevice.c)
+ *     VidSchiGetSchedulerStatus @ 0x1C001617C (VidSchiGetSchedulerStatus.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     VidSchiUnlinkCrossAdapterSyncObjects @ 0x1C0031FF0 (VidSchiUnlinkCrossAdapterSyncObjects.c)
+ *     VidSchiUnwaitAllContexts @ 0x1C0032100 (VidSchiUnwaitAllContexts.c)
+ *     ??$VidSchRundownUnorderedWaiter@U_VIDSCH_GLOBAL@@@@YAJPEAU_VIDSCH_GLOBAL@@0W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C0032724 (--$VidSchRundownUnorderedWaiter@U_VIDSCH_GLOBAL@@@@YAJPEAU_VIDSCH_GLOBAL@@0W4_VIDSCH_FLUSH_STAGE.c)
+ *     ?VidSchRundownUnorderedWaiterGlobal@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C0032FB8 (-VidSchRundownUnorderedWaiterGlobal@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
+ *     ?VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C00330E8 (-VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
+ *     VidSchiCleanupQueuedCommand @ 0x1C003C818 (VidSchiCleanupQueuedCommand.c)
+ *     VidSchiCompleteAllPendingCommand @ 0x1C003C880 (VidSchiCompleteAllPendingCommand.c)
+ *     VidSchiWaitFlushCompletion @ 0x1C008049C (VidSchiWaitFlushCompletion.c)
+ *     VidSchResumeAdapter @ 0x1C0084670 (VidSchResumeAdapter.c)
+ *     VidSchiRequestSchedulerStatus @ 0x1C0090308 (VidSchiRequestSchedulerStatus.c)
+ *     VidSchiCancelDelayTimerDevice @ 0x1C00CE408 (VidSchiCancelDelayTimerDevice.c)
+ *     VidSchiHandleControlEvent @ 0x1C00CE8A8 (VidSchiHandleControlEvent.c)
+ *     VidSchiWaitForEmptyHwQueue @ 0x1C00CF730 (VidSchiWaitForEmptyHwQueue.c)
+ *     VidSchiBlockDriverCallback @ 0x1C00D2FA4 (VidSchiBlockDriverCallback.c)
  */
 
-__int64 __fastcall VidSchFlushAdapter(struct _VIDSCH_GLOBAL *a1, int a2)
+__int64 __fastcall VidSchFlushAdapter(struct _VIDSCH_GLOBAL *a1, __int64 a2, __int64 a3)
 {
-  unsigned int v2; // edi
-  int v5; // r12d
-  __int64 v6; // rcx
+  unsigned int v3; // edi
+  int v4; // esi
+  int v6; // r12d
+  __int64 v7; // rax
   struct _KTHREAD *CurrentThread; // rax
-  _DWORD *v9; // r14
   struct _VIDSCH_GLOBAL *i; // r14
   __int64 v11; // rcx
-  _QWORD v12[20]; // [rsp+58h] [rbp-59h] BYREF
+  _QWORD v12[20]; // [rsp+38h] [rbp-59h] BYREF
 
-  v2 = 0;
-  v5 = 0;
+  v3 = 0;
+  v4 = a2;
+  v6 = 0;
   if ( a1 )
   {
-    if ( a2 == 17 )
+    if ( (_DWORD)a2 == 15 )
     {
       CurrentThread = KeGetCurrentThread();
-      if ( CurrentThread != *((struct _KTHREAD **)a1 + 21) && CurrentThread != *((struct _KTHREAD **)a1 + 22) )
-        *((_BYTE *)a1 + 3036) |= 3u;
+      if ( CurrentThread != *((struct _KTHREAD **)a1 + 20) && CurrentThread != *((struct _KTHREAD **)a1 + 21) )
+        *((_BYTE *)a1 + 2940) |= 3u;
     }
     if ( VidSchIsWorkerThread((__int64)a1) )
     {
-      if ( a2 )
+      if ( v4 )
       {
         if ( VidSchIsTDRPending((__int64)a1) )
         {
-          v9 = (_DWORD *)((char *)a1 + 3012);
-          if ( *((_DWORD *)a1 + 753) == 3 )
+          if ( *((_DWORD *)a1 + 729) == 3 )
           {
             VidSchiBlockDriverCallback(a1);
             *((_DWORD *)a1 + 9) = 23;
-            RtlClearAllBitsEx((char *)a1 + 584);
+            RtlClearAllBitsEx((char *)a1 + 576);
             VidSchiCompleteAllPendingCommand((__int64)a1);
           }
         }
         else
         {
           VidSchiWaitForEmptyHwQueue((__int64)a1);
-          v9 = (_DWORD *)((char *)a1 + 3012);
         }
-        if ( a2 == 17 || *v9 == 3 )
+        if ( v4 == 15 || *((_DWORD *)a1 + 729) == 3 )
         {
           VidSchiUnlinkCrossAdapterSyncObjects((__int64)a1);
           VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel(a1);
         }
         VidSchRundownUnorderedWaiterGlobal(a1);
-        for ( i = (struct _VIDSCH_GLOBAL *)*((_QWORD *)a1 + 37);
-              i != (struct _VIDSCH_GLOBAL *)((char *)a1 + 296);
+        for ( i = (struct _VIDSCH_GLOBAL *)*((_QWORD *)a1 + 36);
+              i != (struct _VIDSCH_GLOBAL *)((char *)a1 + 288);
               i = *(struct _VIDSCH_GLOBAL **)i )
         {
           VidSchiCancelDelayTimerDevice(0LL, (__int64)i - 104);
         }
         VidSchResumeAdapter((__int64)a1, 0);
         VidSchiUnwaitAllContexts((__int64)a1);
-        VidSchiClearFlipDevice(a1, 0LL, 9, 0xFFFFFFFD, 0);
+        VidSchiClearFlipDevice((struct _KEVENT *)a1, 0LL, 9);
         VidSchiCleanupQueuedCommand((__int64)a1);
-        if ( (unsigned int)(*((_DWORD *)a1 + 79) - 2) > 1 )
+        if ( (unsigned int)(*((_DWORD *)a1 + 77) - 2) > 1 )
           VidSchiHandleControlEvent(a1);
       }
     }
-    else if ( *(_BYTE *)(*((_QWORD *)a1 + 1) + 1025LL) || *(_DWORD *)(*((_QWORD *)a1 + 2) + 200LL) == 6 )
+    else if ( *(_BYTE *)(*((_QWORD *)a1 + 1) + 889LL) )
     {
-      v5 = VidSchiRequestSchedulerStatus((__int64)a1, 3, 1);
+      v6 = VidSchiRequestSchedulerStatus((__int64)a1, 3, 1);
     }
     else if ( (unsigned int)VidSchiGetSchedulerStatus((__int64)a1) == 1 )
     {
-      v5 = VidSchRundownUnorderedWaiter<_VIDSCH_GLOBAL>(v11, (__int64)a1, a2);
-      if ( v5 >= 0 && (a2 & 1) != 0 )
+      v6 = VidSchRundownUnorderedWaiter<_VIDSCH_GLOBAL>(v11, (__int64)a1, v4);
+      if ( v6 >= 0 && (v4 & 1) != 0 )
       {
-        if ( VidSchIsTDRPending((__int64)a1) || a2 == 17 )
+        if ( VidSchIsTDRPending((__int64)a1) || v4 == 15 )
           VidSchiUnwaitAllContexts((__int64)a1);
-        memset(v12, 0, sizeof(v12));
-        if ( *((_DWORD *)a1 + 181) )
+        if ( *((_DWORD *)a1 + 179) )
         {
+          memset(v12, 0, sizeof(v12));
           LODWORD(v12[4]) |= 0x10u;
-          v12[5] = (char *)a1 + 724;
           LODWORD(v12[2]) = 1;
+          v12[5] = (char *)a1 + 716;
           VidSchiWaitFlushCompletion((__int64)a1, (__int64)v12, 0x1Au);
         }
-        if ( *((_DWORD *)a1 + 184) )
+        if ( *((_DWORD *)a1 + 182) )
         {
           memset(v12, 0, sizeof(v12));
           LODWORD(v12[4]) |= 0x10u;
           LODWORD(v12[2]) = 3;
-          v12[5] = (char *)a1 + 736;
+          v12[5] = (char *)a1 + 728;
           VidSchiWaitFlushCompletion((__int64)a1, (__int64)v12, 0x19u);
         }
-        if ( a2 != 5 )
+        if ( v4 != 5 )
         {
-          VidSchiClearFlipDevice(a1, 0LL, 9, 0xFFFFFFFD, 0);
-          VidSchiInterlockedReadUlong((KSPIN_LOCK *)a1 + 219, (_DWORD *)a1 + 184);
+          VidSchiClearFlipDevice((struct _KEVENT *)a1, 0LL, 9);
+          VidSchiInterlockedReadUlong((KSPIN_LOCK *)a1 + 217, (_DWORD *)a1 + 182);
         }
       }
     }
-    LOBYTE(v2) = a2 == 17;
-    _InterlockedOr((volatile signed __int32 *)a1 + 1657, v2);
-    return (unsigned int)v5;
+    LOBYTE(v3) = v4 == 15;
+    _InterlockedOr((volatile signed __int32 *)a1 + 1625, v3);
+    return (unsigned int)v6;
   }
   else
   {
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(v6, 0x40000LL);
+    v7 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+    *(_QWORD *)(v7 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v7);
     return 3221225485LL;
   }
 }

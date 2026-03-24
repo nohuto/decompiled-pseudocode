@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpDiagRundownRegisterCallback @ 0x140946400
+ * XREFs of PnpDiagRundownRegisterCallback @ 0x1408A1280
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     PipForDeviceNodeSubtree @ 0x140764CE4 (PipForDeviceNodeSubtree.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14077572C (PpDevNodeLockTree.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
+ *     PipForDeviceNodeSubtree @ 0x1406B8550 (PipForDeviceNodeSubtree.c)
  */
 
 void __fastcall PnpDiagRundownRegisterCallback(
@@ -20,7 +20,7 @@ void __fastcall PnpDiagRundownRegisterCallback(
     if ( EtwEventEnabled(PnpRundownEtwHandle, &KMPnPRundownEvt_SleepStudy_ConnectionResource) )
     {
       PpDevNodeLockTree(0);
-      PipForDeviceNodeSubtree((__int64)IopRootDeviceNode, (__int64)PnpDiagRundownConnectionResourceForEachDevice, 0LL);
+      PipForDeviceNodeSubtree((__int64)IopRootDeviceNode, (__int64)PnpDiagRundownForEachDevice, 0LL);
       PpDevNodeUnlockTree(0);
     }
     if ( EtwEventEnabled(PnpRundownEtwHandle, &KMPnPRundownEvt_SleepStudy_ParentPdo) )
@@ -33,12 +33,6 @@ void __fastcall PnpDiagRundownRegisterCallback(
     {
       PpDevNodeLockTree(0);
       PipForDeviceNodeSubtree((__int64)IopRootDeviceNode, (__int64)PnpDiagRundownParentDevNodeForEachDevice, 0LL);
-      PpDevNodeUnlockTree(0);
-    }
-    if ( EtwEventEnabled(PnpRundownEtwHandle, &KMPnPRundownEvt_SleepStudy_InterruptResource) )
-    {
-      PpDevNodeLockTree(0);
-      PipForDeviceNodeSubtree((__int64)IopRootDeviceNode, (__int64)PnpDiagRundownInterruptResourceForEachDevice, 0LL);
       PpDevNodeUnlockTree(0);
     }
   }

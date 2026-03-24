@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vLine4Octant07@@YAXPEAU_DDALINE@@PEAEJK@Z @ 0x1C02FCE00
+ * XREFs of ?vLine4Octant07@@YAXPEAU_DDALINE@@PEAEJK@Z @ 0x1C02D49E0
  * Callers:
  *     <none>
  * Callees:
@@ -25,7 +25,7 @@ void __fastcall vLine4Octant07(struct _DDALINE *a1, unsigned __int8 *a2, int a3,
   v9 = *((_DWORD *)a1 + 3);
   v10 = a3;
   v11 = a4 & 0xF | (16 * (a4 & 0xF));
-  a2[(unsigned __int64)v4 >> 1] = byte_1C0329EE0[v4 & 1] & a2[(unsigned __int64)v4 >> 1] | v11 & ~byte_1C0329EE0[v4 & 1];
+  a2[(unsigned __int64)v4 >> 1] = PixelLineMask4[v4 & 1] & a2[(unsigned __int64)v4 >> 1] | v11 & ~PixelLineMask4[v4 & 1];
   while ( --v9 )
   {
     ++v4;
@@ -35,6 +35,6 @@ void __fastcall vLine4Octant07(struct _DDALINE *a1, unsigned __int8 *a2, int a3,
       v5 -= v6;
       v7 += v10;
     }
-    v7[(unsigned __int64)v4 >> 1] = v7[(unsigned __int64)v4 >> 1] & byte_1C0329EE0[v4 & 1] | v11 & ~byte_1C0329EE0[v4 & 1];
+    v7[(unsigned __int64)v4 >> 1] = v7[(unsigned __int64)v4 >> 1] & PixelLineMask4[v4 & 1] | v11 & ~PixelLineMask4[v4 & 1];
   }
 }

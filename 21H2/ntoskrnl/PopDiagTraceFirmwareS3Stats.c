@@ -1,91 +1,98 @@
 /*
- * XREFs of PopDiagTraceFirmwareS3Stats @ 0x140A6B91C
+ * XREFs of PopDiagTraceFirmwareS3Stats @ 0x1409B2134
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PopDiagTraceFirmwareS3Stats()
 {
-  unsigned int *Pool2; // rbx
+  unsigned int *PoolWithTag; // rbx
   unsigned int *i; // rdi
   unsigned __int64 v2; // kr00_8
-  unsigned __int64 v3; // rcx
-  unsigned __int64 v4; // kr08_8
-  ULONG Tag; // [rsp+48h] [rbp-19h] BYREF
-  unsigned int v6; // [rsp+4Ch] [rbp-15h] BYREF
-  unsigned int v7; // [rsp+50h] [rbp-11h] BYREF
-  int v8; // [rsp+54h] [rbp-Dh] BYREF
-  unsigned __int64 v9; // [rsp+58h] [rbp-9h] BYREF
-  unsigned __int64 v10; // [rsp+60h] [rbp-1h] BYREF
+  unsigned __int64 v3; // kr08_8
+  SIZE_T NumberOfBytes; // [rsp+48h] [rbp-19h] BYREF
+  unsigned int v5; // [rsp+50h] [rbp-11h] BYREF
+  int v6; // [rsp+54h] [rbp-Dh] BYREF
+  ULONGLONG pullResult; // [rsp+58h] [rbp-9h] BYREF
+  unsigned __int64 v8; // [rsp+60h] [rbp-1h] BYREF
+  unsigned __int64 v9; // [rsp+68h] [rbp+7h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp+Fh] BYREF
-  unsigned __int64 *v12; // [rsp+80h] [rbp+1Fh]
-  __int64 v13; // [rsp+88h] [rbp+27h]
-  int *v14; // [rsp+90h] [rbp+2Fh]
-  __int64 v15; // [rsp+98h] [rbp+37h]
+  unsigned __int64 *v11; // [rsp+80h] [rbp+1Fh]
+  __int64 v12; // [rsp+88h] [rbp+27h]
+  int *v13; // [rsp+90h] [rbp+2Fh]
+  __int64 v14; // [rsp+98h] [rbp+37h]
 
-  v8 = 0;
   v6 = 0;
-  Tag = 0;
-  v7 = 0;
-  v10 = 0LL;
+  NumberOfBytes = 0LL;
+  v5 = 0;
+  pullResult = 0LL;
   v9 = 0LL;
-  if ( ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, ULONG *))off_140C020D8[0])(35LL, 0LL, 0LL, &Tag) == -1073741820 )
+  v8 = 0LL;
+  if ( ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))off_140C00A68[0])(
+         35LL,
+         0LL,
+         0LL,
+         &NumberOfBytes) == -1073741820 )
   {
-    if ( Tag )
+    if ( (_DWORD)NumberOfBytes )
     {
-      Pool2 = (unsigned int *)ExAllocatePool2(64LL, Tag, 1953510227LL);
-      if ( Pool2 )
+      PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x74703353u);
+      if ( PoolWithTag )
       {
-        if ( ((int (__fastcall *)(__int64, _QWORD, unsigned int *, ULONG *))off_140C020D8[0])(35LL, Tag, Pool2, &Tag) >= 0 )
+        if ( ((int (__fastcall *)(__int64, _QWORD, unsigned int *, SIZE_T *))off_140C00A68[0])(
+               35LL,
+               (unsigned int)NumberOfBytes,
+               PoolWithTag,
+               &NumberOfBytes) >= 0 )
         {
-          for ( i = Pool2 + 2;
-                i < (unsigned int *)((char *)Pool2 + Pool2[1]);
+          for ( i = PoolWithTag + 2;
+                i < (unsigned int *)((char *)PoolWithTag + PoolWithTag[1]);
                 i = (unsigned int *)((char *)i + *((char *)i + 2)) )
           {
             if ( *(_WORD *)i )
             {
               if ( *(_WORD *)i == 1 )
               {
-                v9 = *(_QWORD *)(i + 1) / 0xF4240uLL;
-                v4 = *(_QWORD *)(i + 3);
+                v8 = *(_QWORD *)(i + 1) / 0xF4240uLL;
+                v3 = *(_QWORD *)(i + 3);
                 *(_QWORD *)&UserData.Size = 8LL;
-                UserData.Ptr = (ULONGLONG)&v9;
-                v12 = &v10;
-                v10 = v4 / 0xF4240;
-                v13 = 8LL;
+                UserData.Ptr = (ULONGLONG)&v8;
+                v11 = &v9;
+                v9 = v3 / 0xF4240;
+                v12 = 8LL;
                 EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_S3FWSTATS_SUSPEND, 0LL, 1u, 0LL, 0LL, 2u, &UserData);
               }
             }
             else
             {
-              v7 = i[1];
-              v6 = *((_QWORD *)i + 1) / 0xF4240uLL;
+              v5 = i[1];
+              HIDWORD(NumberOfBytes) = *((_QWORD *)i + 1) / 0xF4240uLL;
               v2 = *((_QWORD *)i + 2);
               *(_QWORD *)&UserData.Size = 4LL;
-              UserData.Ptr = (ULONGLONG)&v7;
-              v12 = (unsigned __int64 *)&v6;
-              v14 = &v8;
-              v8 = v2 / 0xF4240;
-              v13 = 4LL;
-              v15 = 4LL;
+              UserData.Ptr = (ULONGLONG)&v5;
+              v11 = (SIZE_T *)((char *)&NumberOfBytes + 4);
+              v13 = &v6;
+              v6 = v2 / 0xF4240;
+              v12 = 4LL;
+              v14 = 4LL;
               EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_S3FWSTATS_RESUME, 0LL, 1u, 0LL, 0LL, 3u, &UserData);
-              if ( !qword_140C22CE8 )
+              if ( !qword_140C23968 )
               {
-                v3 = -1LL;
-                if ( is_mul_ok(v6, PopQpcFrequency) )
-                  v3 = v6 * PopQpcFrequency;
-                qword_140C22CE8 = v3 / 0x3E8;
+                RtlULongLongMult(HIDWORD(NumberOfBytes), PopQpcFrequency, &pullResult);
+                pullResult /= 0x3E8uLL;
+                qword_140C23968 = pullResult;
               }
             }
           }
         }
-        ExFreePoolWithTag(Pool2, Tag);
+        ExFreePoolWithTag(PoolWithTag, NumberOfBytes);
       }
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCovSampStackHashLookup @ 0x1408C7988
+ * XREFs of EtwpCovSampStackHashLookup @ 0x1408C7968
  * Callers:
- *     EtwpCovSampStackHashCheck @ 0x1408C7754 (EtwpCovSampStackHashCheck.c)
+ *     EtwpCovSampStackHashCheck @ 0x1408C7734 (EtwpCovSampStackHashCheck.c)
  * Callees:
  *     <none>
  */

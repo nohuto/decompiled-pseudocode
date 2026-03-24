@@ -1,11 +1,11 @@
 /*
- * XREFs of HalGetEnvironmentVariable @ 0x1405048F0
+ * XREFs of HalGetEnvironmentVariable @ 0x1404BBA60
  * Callers:
- *     NtQuerySystemEnvironmentValue @ 0x1409FF6C0 (NtQuerySystemEnvironmentValue.c)
+ *     NtQuerySystemEnvironmentValue @ 0x140954A40 (NtQuerySystemEnvironmentValue.c)
  * Callees:
- *     HalpAcquireCmosSpinLock @ 0x14033BA0C (HalpAcquireCmosSpinLock.c)
- *     _stricmp @ 0x1403D90F0 (_stricmp.c)
- *     strncpy_s @ 0x1403DF3C0 (strncpy_s.c)
+ *     HalpAcquireCmosSpinLock @ 0x14030D87C (HalpAcquireCmosSpinLock.c)
+ *     _stricmp @ 0x1403D16D0 (_stricmp.c)
+ *     strncpy_s @ 0x1403D7810 (strncpy_s.c)
  */
 
 __int64 __fastcall HalGetEnvironmentVariable(const char *a1, unsigned __int16 a2, char *a3)

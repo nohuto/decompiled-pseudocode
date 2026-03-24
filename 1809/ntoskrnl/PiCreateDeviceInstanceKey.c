@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCreateDeviceInstanceKey @ 0x1406FD2F8
+ * XREFs of PiCreateDeviceInstanceKey @ 0x1406FD2D8
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     _CmCreateDevice @ 0x1406FD3AC (_CmCreateDevice.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _CmCreateDevice @ 0x1406FD38C (_CmCreateDevice.c)
  */
 
 __int64 __fastcall PiCreateDeviceInstanceKey(__int64 a1, _QWORD *a2, _DWORD *a3)

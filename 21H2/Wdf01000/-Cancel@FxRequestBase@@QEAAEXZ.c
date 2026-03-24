@@ -1,16 +1,16 @@
 /*
- * XREFs of ?Cancel@FxRequestBase@@QEAAEXZ @ 0x1C000EA30
+ * XREFs of ?Cancel@FxRequestBase@@QEAAEXZ @ 0x1C0019220
  * Callers:
- *     imp_WdfRequestCancelSentRequest @ 0x1C000E9E0 (imp_WdfRequestCancelSentRequest.c)
- *     ?SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z @ 0x1C001A8A0 (-SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z.c)
- *     ?_CancelSentRequests@FxIoTarget@@KAXPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1C002CF10 (-_CancelSentRequests@FxIoTarget@@KAXPEAU_SINGLE_LIST_ENTRY@@@Z.c)
- *     ?TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C0074894 (-TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
- *     ?CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ @ 0x1C0079658 (-CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ.c)
+ *     ?SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z @ 0x1C0001D10 (-SubmitSync@FxIoTarget@@QEAAJPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAK@Z.c)
+ *     imp_WdfRequestCancelSentRequest @ 0x1C00191D0 (imp_WdfRequestCancelSentRequest.c)
+ *     ?TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C0065FEC (-TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?_CancelSentRequests@FxIoTarget@@KAXPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1C00662E0 (-_CancelSentRequests@FxIoTarget@@KAXPEAU_SINGLE_LIST_ENTRY@@@Z.c)
+ *     ?CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ @ 0x1C006CAC8 (-CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ.c)
  * Callees:
- *     ?CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C000EAFC (-CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     WPP_IFR_SF_qqq @ 0x1C0030348 (WPP_IFR_SF_qqq.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C00192EC (-CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     WPP_IFR_SF_qqq @ 0x1C0032C78 (WPP_IFR_SF_qqq.c)
  */
 
 BOOLEAN __fastcall FxRequestBase::Cancel(FxRequestBase *this)
@@ -59,7 +59,7 @@ BOOLEAN __fastcall FxRequestBase::Cancel(FxRequestBase *this)
     v7 = v6;
     v8 = this->m_Globals;
     if ( v8->FxVerboseOn )
-      WPP_IFR_SF_qqd(v8, 5u, 0xDu, 0x10u, WPP_FxRequestBase_cpp_Traceguids, this, this->m_Irp.m_Irp, v6);
+      WPP_IFR_SF_qid(v8, 5u, 0xDu, 0x10u, WPP_FxRequestBase_cpp_Traceguids, this, (__int64)this->m_Irp.m_Irp, v6);
     if ( _InterlockedExchangeAdd(&this->m_IrpCompletionReferenceCount, 0xFFFFFFFF) == 1 )
     {
       v9 = this->m_Globals;

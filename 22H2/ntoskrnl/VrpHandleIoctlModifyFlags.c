@@ -1,49 +1,40 @@
 /*
- * XREFs of VrpHandleIoctlModifyFlags @ 0x140A7289C
+ * XREFs of VrpHandleIoctlModifyFlags @ 0x140882F9C
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x14077B590 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     PsGetJobSilo @ 0x14031C600 (PsGetJobSilo.c)
- *     PsGetPermanentSiloContext @ 0x14031C660 (PsGetPermanentSiloContext.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsGetJobSilo @ 0x140200050 (PsGetJobSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x1402EDF20 (PsGetPermanentSiloContext.c)
+ *     VrpUnlockJobContextExclusive @ 0x1405D2EBC (VrpUnlockJobContextExclusive.c)
+ *     VrpLockJobContextExclusive @ 0x1405D5E18 (VrpLockJobContextExclusive.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlModifyFlags(
         __int64 a1,
         unsigned int a2,
-        char a3,
+        KPROCESSOR_MODE a3,
         __int64 a4,
-        PVOID Object,
+        __int64 a5,
         __int64 a6)
 {
   int JobSilo; // edi
-  int v8; // eax
+  NTSTATUS v8; // eax
   PVOID v9; // rbx
-  struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 *v11; // r15
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 v14; // r14
-  unsigned __int64 v15; // rax
-  ULONG_PTR v16; // rsi
-  unsigned __int64 v18; // [rsp+78h] [rbp+38h] BYREF
+  __int64 v10; // rbx
+  PVOID Object; // [rsp+68h] [rbp+28h] BYREF
 
   Object = 0LL;
-  v18 = 0LL;
+  a5 = 0LL;
   a6 = 0LL;
-  if ( a2 < 0x10 || (*(_DWORD *)(a1 + 12) & *(_DWORD *)(a1 + 8)) != 0 )
+  if ( a2 < 0x10 || (*(_DWORD *)(a1 + 8) & *(_DWORD *)(a1 + 12)) != 0 )
   {
     return (unsigned int)-1073741811;
   }
   else
   {
-    v8 = ObpReferenceObjectByHandleWithTag(*(_QWORD *)a1, 6, (__int64)PsJobType, a3, 0x52566D43u, &Object, 0LL, 0LL);
+    v8 = ObReferenceObjectByHandleWithTag(*(HANDLE *)a1, 6u, (POBJECT_TYPE)PsJobType, a3, 0x52566D43u, &Object, 0LL);
     v9 = Object;
     JobSilo = v8;
     if ( v8 >= 0 )
@@ -51,26 +42,13 @@ __int64 __fastcall VrpHandleIoctlModifyFlags(
       JobSilo = PsGetJobSilo((__int64)Object);
       if ( JobSilo >= 0 )
       {
-        JobSilo = PsGetPermanentSiloContext(a6, VrpSiloContextSlot, &v18);
+        JobSilo = PsGetPermanentSiloContext(a6, VrpSiloContextSlot, (unsigned __int64 *)&a5);
         if ( JobSilo >= 0 )
         {
-          CurrentThread = KeGetCurrentThread();
-          v11 = (unsigned __int64 *)(v18 + 16);
-          v12 = v18 + 16;
-          --CurrentThread->KernelApcDisable;
-          v13 = KeAbPreAcquire(v12, 0LL);
-          v14 = v13;
-          if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
-            ExfAcquirePushLockExclusiveEx(v11, v13, (__int64)v11);
-          if ( v14 )
-            *(_BYTE *)(v14 + 18) = 1;
-          v15 = v18;
-          *(_DWORD *)(v18 + 80) = ~*(_DWORD *)(a1 + 12) & (*(_DWORD *)(a1 + 8) | *(_DWORD *)(v18 + 80));
-          v16 = v15 + 16;
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v15 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)(v15 + 16));
-          KeAbPostRelease(v16);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          v10 = a5;
+          VrpLockJobContextExclusive(a5);
+          *(_DWORD *)(v10 + 80) = ~*(_DWORD *)(a1 + 12) & (*(_DWORD *)(v10 + 80) | *(_DWORD *)(a1 + 8));
+          VrpUnlockJobContextExclusive(a5);
           v9 = Object;
         }
       }

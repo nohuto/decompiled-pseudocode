@@ -1,5 +1,5 @@
 /*
- * XREFs of W32kStub_GreSfmOpenTokenEvent @ 0x1C01EEAF0
+ * XREFs of W32kStub_GreSfmOpenTokenEvent @ 0x1C016E3B0
  * Callers:
  *     <none>
  * Callees:

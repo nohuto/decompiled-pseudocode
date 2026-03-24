@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBPDO_EvtDeviceResourceRequirementsQuery @ 0x1C007BF80
+ * XREFs of HUBPDO_EvtDeviceResourceRequirementsQuery @ 0x1C007AA20
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddDsmEvent @ 0x1C000A280 (HUBSM_AddDsmEvent.c)
- *     HUBMISC_WaitForSignal @ 0x1C0030194 (HUBMISC_WaitForSignal.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddDsmEvent @ 0x1C0009F80 (HUBSM_AddDsmEvent.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceResourceRequirementsQuery(const void *a1)
@@ -22,7 +22,7 @@ __int64 __fastcall HUBPDO_EvtDeviceResourceRequirementsQuery(const void *a1)
                                                                                                  + 1616))(
                               WdfDriverGlobals,
                               a1,
-                              off_1C00670F8)
+                              off_1C00660D0)
                           + 24);
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 1632))(
          WdfDriverGlobals,
@@ -33,7 +33,7 @@ __int64 __fastcall HUBPDO_EvtDeviceResourceRequirementsQuery(const void *a1)
          v3,
          v4,
          0LL,
-         10226,
+         10203,
          "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
   if ( v5 >= 0 )
   {
@@ -53,7 +53,7 @@ __int64 __fastcall HUBPDO_EvtDeviceResourceRequirementsQuery(const void *a1)
       WdfDriverGlobals,
       v6,
       0LL,
-      10265LL,
+      10242LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -64,7 +64,7 @@ __int64 __fastcall HUBPDO_EvtDeviceResourceRequirementsQuery(const void *a1)
       2u,
       5u,
       0x8Eu,
-      (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       v8);
   }
   return 0LL;

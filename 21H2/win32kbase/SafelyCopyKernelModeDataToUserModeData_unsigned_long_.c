@@ -1,8 +1,8 @@
 /*
- * XREFs of SafelyCopyKernelModeDataToUserModeData_unsigned_long_ @ 0x1C00CE244
+ * XREFs of SafelyCopyKernelModeDataToUserModeData_unsigned_long_ @ 0x1C00BEBA4
  * Callers:
- *     NtGdiGetCertificateSizeByHandle @ 0x1C00CE200 (NtGdiGetCertificateSizeByHandle.c)
- *     NtGdiGetCertificateSize @ 0x1C016D460 (NtGdiGetCertificateSize.c)
+ *     NtGdiGetCertificateSizeByHandle @ 0x1C00BEB60 (NtGdiGetCertificateSizeByHandle.c)
+ *     NtGdiGetCertificateSize @ 0x1C0140530 (NtGdiGetCertificateSize.c)
  * Callees:
  *     <none>
  */

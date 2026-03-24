@@ -1,61 +1,59 @@
 /*
- * XREFs of UsbhEtwRundown @ 0x1C005B5E4
+ * XREFs of UsbhEtwRundown @ 0x1C005CC90
  * Callers:
- *     UsbhEtwEnableCallback @ 0x1C005AC20 (UsbhEtwEnableCallback.c)
+ *     UsbhEtwEnableCallback @ 0x1C005C340 (UsbhEtwEnableCallback.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhAcquireFdoPnpLock @ 0x1C0031220 (UsbhAcquireFdoPnpLock.c)
- *     UsbhAcquirePdoStateLock @ 0x1C00312E4 (UsbhAcquirePdoStateLock.c)
- *     UsbhReleaseFdoPnpLock @ 0x1C0031348 (UsbhReleaseFdoPnpLock.c)
- *     UsbhEtwLogDeviceDescription @ 0x1C005ACEC (UsbhEtwLogDeviceDescription.c)
- *     UsbhEtwLogDeviceInformation @ 0x1C005AE08 (UsbhEtwLogDeviceInformation.c)
- *     UsbhEtwLogHubInformation @ 0x1C005B170 (UsbhEtwLogHubInformation.c)
- *     UsbhEtwLogHubPastExceptions @ 0x1C005B284 (UsbhEtwLogHubPastExceptions.c)
- *     UsbhEtwLogPortInformation @ 0x1C005B45C (UsbhEtwLogPortInformation.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C001CDA8 (UsbhAcquirePdoStateLock.c)
+ *     UsbhAcquireFdoPnpLock @ 0x1C0032554 (UsbhAcquireFdoPnpLock.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0032618 (UsbhReleaseFdoPnpLock.c)
+ *     UsbhEtwLogDeviceDescription @ 0x1C005C39C (UsbhEtwLogDeviceDescription.c)
+ *     UsbhEtwLogDeviceInformation @ 0x1C005C4B8 (UsbhEtwLogDeviceInformation.c)
+ *     UsbhEtwLogHubInformation @ 0x1C005C820 (UsbhEtwLogHubInformation.c)
+ *     UsbhEtwLogHubPastExceptions @ 0x1C005C934 (UsbhEtwLogHubPastExceptions.c)
+ *     UsbhEtwLogPortInformation @ 0x1C005CB0C (UsbhEtwLogPortInformation.c)
  */
 
 LONG UsbhEtwRundown()
 {
-  struct _DEVICE_OBJECT *i; // rdi
-  void (__fastcall **p_DeferredRoutine)(_KDPC *, void *, void *, void *); // rbx
-  __int64 Flink; // rsi
+  __int64 *i; // rdi
+  __int64 *v1; // rbx
+  __int64 v2; // rsi
   _DWORD *v3; // rax
   _DWORD *v4; // rax
   __int64 v5; // rcx
-  char *j; // r14
+  __int64 *j; // r14
   _DWORD *v7; // rax
   KIRQL v8; // dl
   _DWORD *v9; // rax
 
-  KeWaitForSingleObject(&WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, Executive, 0, 0, 0LL);
-  for ( i = (struct _DEVICE_OBJECT *)WPP_MAIN_CB.Queue.Wcb.DeviceObject;
-        i != (struct _DEVICE_OBJECT *)&WPP_MAIN_CB.Queue.Wcb.DeviceObject;
-        i = *(struct _DEVICE_OBJECT **)&i->Type )
+  KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+  for ( i = (__int64 *)qword_1C006C4A0; i != &qword_1C006C4A0; i = (__int64 *)*i )
   {
-    p_DeferredRoutine = &i[-16].Dpc.DeferredRoutine;
-    Flink = (__int64)i[-12].Queue.ListEntry.Flink;
-    v3 = FdoExt(Flink);
-    if ( (unsigned int)UsbhAcquireFdoPnpLock(Flink, (__int64)(v3 + 346), 13, 0, 1) == 5 )
+    v1 = i - 644;
+    v2 = *(i - 494);
+    v3 = FdoExt(v2);
+    if ( (unsigned int)UsbhAcquireFdoPnpLock(v2, (__int64)(v3 + 346), 13, 0, 1) == 5 )
     {
-      UsbhEtwLogHubInformation((__int64)&i[-16].Dpc.DeferredRoutine, &USBHUB_ETW_EVENT_HUB_INFORMATION);
-      UsbhEtwLogHubPastExceptions((__int64)&i[-16].Dpc.DeferredRoutine);
-      UsbhEtwLogPortInformation(Flink);
-      v4 = FdoExt(Flink);
+      UsbhEtwLogHubInformation((__int64)(i - 644), &USBHUB_ETW_EVENT_HUB_INFORMATION);
+      UsbhEtwLogHubPastExceptions((__int64)(i - 644));
+      UsbhEtwLogPortInformation(v2);
+      v4 = FdoExt(v2);
       UsbhAcquirePdoStateLock(v5, (__int64)(v4 + 346), 25);
-      for ( j = (char *)p_DeferredRoutine[601]; j != (char *)(p_DeferredRoutine + 601); j = *(char **)j )
+      for ( j = (__int64 *)v1[601]; j != v1 + 601; j = (__int64 *)*j )
       {
-        UsbhEtwLogDeviceInformation((__int64)(j - 1320), &USBHUB_ETW_EVENT_DEVICE_INFORMATION, 1);
-        UsbhEtwLogDeviceDescription((__int64)(j - 1320), &USBHUB_ETW_EVENT_DEVICE_DESCRIPTION);
+        UsbhEtwLogDeviceInformation((__int64)(j - 165), &USBHUB_ETW_EVENT_DEVICE_INFORMATION, 1);
+        UsbhEtwLogDeviceDescription((__int64)(j - 165), &USBHUB_ETW_EVENT_DEVICE_DESCRIPTION);
       }
-      v7 = FdoExt(Flink) + 346;
+      v7 = FdoExt(v2) + 346;
       v7[34] = 0;
-      WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+      qword_1C006C500 = 0LL;
       v8 = *((_BYTE *)v7 + 132);
       v7[22] = 1734964085;
-      KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v8);
+      KeReleaseSpinLock(&HubG, v8);
     }
-    v9 = FdoExt(Flink);
-    UsbhReleaseFdoPnpLock(Flink, (__int64)(v9 + 346));
+    v9 = FdoExt(v2);
+    UsbhReleaseFdoPnpLock(v2, (__int64)(v9 + 346));
   }
-  return KeSetEvent((PRKEVENT)&WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 0, 0);
+  return KeSetEvent(&Event, 0, 0);
 }

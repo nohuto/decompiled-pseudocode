@@ -1,33 +1,34 @@
 /*
- * XREFs of MmInitializeHandBuiltProcess2 @ 0x140860EDC
+ * XREFs of MmInitializeHandBuiltProcess2 @ 0x1407D0DE4
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     MiGetWsAndMakePageTablesNx @ 0x1403B0EB4 (MiGetWsAndMakePageTablesNx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiInsertProcessVads @ 0x1406B3068 (MiInsertProcessVads.c)
- *     MiAllocateProcessVads @ 0x1407D0090 (MiAllocateProcessVads.c)
- *     MiInitializeLockedPagesTracking @ 0x140A2B3B4 (MiInitializeLockedPagesTracking.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x1403CC4D0 (MiGetWsAndMakePageTablesNx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiInsertProcessVads @ 0x1406FBD48 (MiInsertProcessVads.c)
+ *     MiAllocateProcessVads @ 0x1406FC410 (MiAllocateProcessVads.c)
+ *     MiInitializeLockedPagesTracking @ 0x1408C4508 (MiInitializeLockedPagesTracking.c)
  */
 
-__int64 __fastcall MmInitializeHandBuiltProcess2(_KPROCESS *BugCheckParameter1)
+__int64 __fastcall MmInitializeHandBuiltProcess2(_KPROCESS *BugCheckParameter1, __int64 a2, __int64 a3, _DWORD *a4)
 {
+  _DWORD *v5; // r9
   int inserted; // ebx
   _QWORD *ProcessVads; // [rsp+20h] [rbp-48h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v5; // [rsp+28h] [rbp-40h] BYREF
+  _OWORD v9[3]; // [rsp+28h] [rbp-40h] BYREF
 
-  memset(&v5, 0, sizeof(v5));
-  MiGetWsAndMakePageTablesNx();
-  BugCheckParameter1[1].ActiveProcessors.StaticBitmap[28] = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28];
-  KiStackAttachProcess(BugCheckParameter1, 0, (__int64)&v5);
+  memset(v9, 0, sizeof(v9));
+  MiGetWsAndMakePageTablesNx((__int64)BugCheckParameter1, a2, a3, a4);
+  BugCheckParameter1[1].ActiveProcessorsPadding[8] = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8];
+  KiStackAttachProcess(BugCheckParameter1, 0LL, (__int64)v9, v5);
   ProcessVads = MiAllocateProcessVads((__int64)BugCheckParameter1, 0LL);
   if ( ProcessVads )
-    inserted = MiInsertProcessVads((__int64)BugCheckParameter1, &ProcessVads);
+    inserted = MiInsertProcessVads(BugCheckParameter1, &ProcessVads);
   else
     inserted = -1073741801;
-  KiUnstackDetachProcess(&v5);
+  KiUnstackDetachProcess((__int64)v9, 0);
   if ( inserted >= 0 && (MmTrackLockedPages & 1) != 0 && (MmTrackLockedPages & 0x10000000) == 0 )
     MiInitializeLockedPagesTracking(BugCheckParameter1);
   return (unsigned int)inserted;

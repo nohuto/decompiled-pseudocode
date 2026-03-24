@@ -1,9 +1,8 @@
 /*
- * XREFs of ?ClassFree@@YAXPEAUtagDESKTOP@@PEAD@Z @ 0x1C00634AC
+ * XREFs of ?ClassFree@@YAXPEAUtagDESKTOP@@PEAD@Z @ 0x1C01E8DEC
  * Callers:
- *     InternalRegisterClassEx @ 0x1C005FF10 (InternalRegisterClassEx.c)
- *     DestroyClass @ 0x1C0060880 (DestroyClass.c)
- *     ReferenceClass @ 0x1C00F8130 (ReferenceClass.c)
+ *     ReferenceClass @ 0x1C0025580 (ReferenceClass.c)
+ *     InternalRegisterClassEx @ 0x1C0079DD0 (InternalRegisterClassEx.c)
  * Callees:
  *     <none>
  */

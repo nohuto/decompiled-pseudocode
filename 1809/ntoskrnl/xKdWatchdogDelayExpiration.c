@@ -1,5 +1,5 @@
 /*
- * XREFs of xKdWatchdogDelayExpiration @ 0x14013DFC0
+ * XREFs of xKdWatchdogDelayExpiration @ 0x14013DFE0
  * Callers:
  *     <none>
  * Callees:

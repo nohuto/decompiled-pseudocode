@@ -4,9 +4,9 @@
  *     PspSetupUserStack @ 0x1405F8DD0 (PspSetupUserStack.c)
  * Callees:
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     ZwAllocateVirtualMemory @ 0x1401B8470 (ZwAllocateVirtualMemory.c)
- *     ZwSetInformationProcess @ 0x1401B84F0 (ZwSetInformationProcess.c)
- *     ZwFreeVirtualMemory @ 0x1401B8530 (ZwFreeVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x1401B8490 (ZwAllocateVirtualMemory.c)
+ *     ZwSetInformationProcess @ 0x1401B8510 (ZwSetInformationProcess.c)
+ *     ZwFreeVirtualMemory @ 0x1401B8550 (ZwFreeVirtualMemory.c)
  */
 
 NTSTATUS __fastcall RtlCreateUserStack(

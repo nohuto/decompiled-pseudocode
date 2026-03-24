@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HG@Z @ 0x1C011D800
+ * XREFs of ?HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HG@Z @ 0x1C013296C
  * Callers:
- *     _RegisterHotKey @ 0x1C009E114 (_RegisterHotKey.c)
+ *     _RegisterHotKey @ 0x1C0032C74 (_RegisterHotKey.c)
  * Callees:
- *     ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C009E5D8 (-NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z.c)
+ *     ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C003313C (-NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z.c)
  */
 
 char __fastcall HKAddChildHotkey(
@@ -35,7 +35,7 @@ char __fastcall HKAddChildHotkey(
           return 0;
         v17[1] = a3;
         v17[0] = v11 + 8;
-        HMAssignmentLock(v17, 0LL);
+        HMAssignmentLock(v17);
         *(_QWORD *)v12 = a1;
         v13 = (char *)(v12 + 24);
         *(_DWORD *)(v12 + 20) = a4;

@@ -1,95 +1,108 @@
 /*
- * XREFs of MiUnlinkPageFromBadList @ 0x14064E034
+ * XREFs of MiUnlinkPageFromBadList @ 0x14054F480
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140266510 (MiUnlinkPageFromListEx.c)
- *     MiRemoveBadPages @ 0x14062A4B0 (MiRemoveBadPages.c)
- *     MiUnlinkBadPages @ 0x14062AD80 (MiUnlinkBadPages.c)
- *     MiMarkFileOnlyPfnGood @ 0x14063E3A4 (MiMarkFileOnlyPfnGood.c)
- *     MiPurgeBadFileOnlyPages @ 0x14063EAE0 (MiPurgeBadFileOnlyPages.c)
- *     MiTransferPartitionPageRun @ 0x14065B674 (MiTransferPartitionPageRun.c)
+ *     MiUnlinkPageFromList @ 0x140217870 (MiUnlinkPageFromList.c)
+ *     MiRemoveBadPages @ 0x14052EB08 (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x14052F038 (MiUnlinkBadPages.c)
+ *     MiPurgeBadFileOnlyPages @ 0x140541830 (MiPurgeBadFileOnlyPages.c)
+ *     MiTransferPartitionPageRun @ 0x140562D50 (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiAcquirePageListLock @ 0x140267280 (MiAcquirePageListLock.c)
- *     MiReleasePageListLock @ 0x1402DDAD0 (MiReleasePageListLock.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiIsPfnFileOnly @ 0x140218D20 (MiIsPfnFileOnly.c)
+ *     MiSetPfnBlink @ 0x1402987B0 (MiSetPfnBlink.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
  */
 
 unsigned __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1, char a2)
 {
   unsigned __int64 v4; // rbp
-  unsigned __int64 v5; // rbx
-  __int64 *v6; // rbx
-  int v7; // r12d
-  __int64 v8; // r15
-  __int64 v9; // r14
-  unsigned __int64 v10; // r9
-  unsigned __int64 v11; // rdx
-  volatile signed __int32 *v12; // r8
-  int v13; // ebp
-  unsigned __int64 v14; // rcx
+  unsigned __int64 v5; // r9
+  ULONG_PTR *v6; // rdx
+  __int64 *v7; // rbx
+  int v8; // r15d
+  __int64 v9; // rsi
+  __int64 v10; // rdi
+  unsigned __int64 v11; // r9
+  unsigned __int64 v12; // rdx
+  volatile signed __int32 *v13; // r8
+  unsigned int v14; // eax
+  int v15; // ebp
+  unsigned __int64 v16; // rcx
   unsigned __int64 result; // rax
-  _BYTE v16[112]; // [rsp+20h] [rbp-A8h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
-  v4 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(a1 + 0x44000000000LL) >> 4);
-  memset(v16, 0, 0x68uLL);
-  v5 = a1[5];
-  if ( (v5 & 0x20000000000000LL) != 0 )
-    v6 = &qword_140C65788;
-  else
-    v6 = (__int64 *)(*(_QWORD *)(qword_140C674C8 + 8 * ((v5 >> 43) & 0x3FF)) + 6720LL);
-  v7 = a2 & 0x80;
-  if ( !v7 )
-    MiAcquirePageListLock((__int64)v6, (__int64)a1, 1, (__int64)v16);
-  v8 = *a1 & 0xFFFFFFFFFFLL;
-  v9 = a1[3] & 0xFFFFFFFFFFLL;
-  if ( v8 == 0x3FFFFFFFFFLL )
-    v6[3] = v9;
-  else
-    MiSetPfnBlink(48 * v8 - 0x220000000000LL, a1[3] & 0xFFFFFFFFFFLL, 0);
-  if ( v9 == 0x3FFFFFFFFFLL )
-    v6[2] = v8;
-  else
-    *(_QWORD *)(48 * v9 - 0x220000000000LL) = v8 | *(_QWORD *)(48 * v9 - 0x220000000000LL) & 0xFFFFFF0000000000uLL;
-  if ( v6 != &qword_140C65788 && dword_140C67F4C == 1 )
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v4 = (__int64)(a1 + 0xB000000000LL) / 48;
+  if ( MiIsPfnFileOnly((__int64)a1) )
   {
-    v10 = v4 & 0x1F;
-    LOBYTE(v11) = 1;
-    v12 = (volatile signed __int32 *)(*((_QWORD *)&xmmword_140C67FA0 + 1) + 4 * (v4 >> 5));
-    if ( v10 + 1 > 0x20 )
+    v6 = &MiSystemPartition;
+    v7 = &qword_140C4CAC0;
+  }
+  else
+  {
+    v6 = *(ULONG_PTR **)(qword_140C4E648 + 8 * ((a1[5] >> 39) & 0x3FFLL));
+    v7 = (__int64 *)(v6 + 512);
+  }
+  v8 = a2 & 0x80;
+  if ( !v8 )
+  {
+    LockHandle.LockQueue.Next = 0LL;
+    LockHandle.LockQueue.Lock = v6 + 516;
+    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)v6 + 516);
+    v5 = 0xFFFFFA8000000000uLL;
+  }
+  v9 = *a1 & 0xFFFFFFFFFLL;
+  v10 = a1[3] & 0xFFFFFFFFFLL;
+  if ( v9 == 0xFFFFFFFFFLL )
+    v7[3] = v10;
+  else
+    MiSetPfnBlink(v5 + 48 * v9, a1[3] & 0xFFFFFFFFFLL, 0);
+  if ( v10 == 0xFFFFFFFFFLL )
+    v7[2] = v9;
+  else
+    *(_QWORD *)(48 * v10 - 0x58000000000LL) = v9 | *(_QWORD *)(48 * v10 - 0x58000000000LL) & 0xFFFFFFF000000000uLL;
+  if ( v7 != &qword_140C4CAC0 && dword_140C4E6CC == 1 )
+  {
+    v11 = v4 & 0x1F;
+    LOBYTE(v12) = 1;
+    v13 = (volatile signed __int32 *)(qword_140C4E728 + 4 * (v4 >> 5));
+    if ( v11 + 1 <= 0x20 )
     {
-      if ( (v4 & 0x1F) == 0 )
-        goto LABEL_21;
-      v13 = v4 & 0x1F;
-      _InterlockedOr(v12++, ((1 << (32 - v13)) - 1) << v10);
-      v11 = 1LL - (unsigned int)(32 - v13);
-      if ( v11 >= 0x20 )
-      {
-        v14 = v11 >> 5;
-        v11 += -32LL * (v11 >> 5);
-        do
-        {
-          *v12++ = -1;
-          --v14;
-        }
-        while ( v14 );
-      }
-      if ( v11 )
-LABEL_21:
-        _InterlockedOr(v12, (1 << v11) - 1);
+      v14 = 1 << v11;
+LABEL_22:
+      _InterlockedOr(v13, v14);
+      goto LABEL_23;
     }
-    else
+    if ( (v4 & 0x1F) == 0 )
+      goto LABEL_21;
+    v15 = v4 & 0x1F;
+    _InterlockedOr(v13++, ((1 << (32 - v15)) - 1) << v11);
+    v12 = 1LL - (unsigned int)(32 - v15);
+    if ( v12 >= 0x20 )
     {
-      _InterlockedOr(v12, 1 << v10);
+      v16 = v12 >> 5;
+      v12 += -32LL * (v12 >> 5);
+      do
+      {
+        *v13++ = -1;
+        --v16;
+      }
+      while ( v16 );
+    }
+    if ( v12 )
+    {
+LABEL_21:
+      v14 = (1 << v12) - 1;
+      goto LABEL_22;
     }
   }
-  _InterlockedDecrement64(v6);
-  if ( !v7 )
-    MiReleasePageListLock((__int64)v6, (__int64)v16);
+LABEL_23:
+  --*v7;
+  if ( !v8 )
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   *a1 = 0LL;
-  result = 0xC000000000000000uLL;
-  a1[3] &= 0xC000000000000000uLL;
-  if ( v6 != &qword_140C65788 )
+  result = MiSetPfnBlink((__int64)a1, 0LL, 1);
+  if ( v7 != &qword_140C4CAC0 )
     a1[1] = 0LL;
   return result;
 }

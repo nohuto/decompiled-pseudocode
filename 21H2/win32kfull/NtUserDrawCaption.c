@@ -1,42 +1,40 @@
 /*
- * XREFs of NtUserDrawCaption @ 0x1C01F2B20
+ * XREFs of NtUserDrawCaption @ 0x1C01F8130
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     xxxDrawCaptionTemp @ 0x1C00B97AC (xxxDrawCaptionTemp.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     xxxDrawCaptionTemp @ 0x1C01590D4 (xxxDrawCaptionTemp.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall NtUserDrawCaption(__int64 a1, HDC a2, struct tagRECT *a3, unsigned int a4)
 {
   __int64 v8; // rcx
-  unsigned __int64 *v9; // rsi
+  __int64 v9; // rsi
   unsigned int v10; // ebx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int128 v15; // [rsp+50h] [rbp-68h] BYREF
-  __int64 v16; // [rsp+60h] [rbp-58h]
-  struct tagRECT v17; // [rsp+70h] [rbp-48h] BYREF
+  __int64 v11; // rcx
+  __int128 v13; // [rsp+50h] [rbp-68h] BYREF
+  __int64 v14; // [rsp+60h] [rbp-58h]
+  struct tagRECT v15; // [rsp+70h] [rbp-48h] BYREF
 
-  v17 = 0LL;
   v15 = 0LL;
-  v16 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v9 = (unsigned __int64 *)ValidateHwnd(a1);
+  v13 = 0LL;
+  v14 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v9 = ValidateHwnd(a1);
   v10 = 0;
   if ( v9 )
   {
-    *(_QWORD *)&v15 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v15;
-    *((_QWORD *)&v15 + 1) = v9;
+    *(_QWORD *)&v13 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v13;
+    *((_QWORD *)&v13 + 1) = v9;
     HMLockObject(v9);
     if ( (unsigned __int64)a3 >= MmUserProbeAddress )
       a3 = (struct tagRECT *)MmUserProbeAddress;
-    v17 = *a3;
-    v10 = xxxDrawCaptionTemp(v9, a2, &v17, 0LL, 0LL, 0LL, a4);
-    ThreadUnlock1(v12, v11, v13);
+    v15 = *a3;
+    v10 = xxxDrawCaptionTemp(v9, a2, &v15, 0LL, 0LL, 0LL, a4);
+    ThreadUnlock1(v11);
   }
   UserSessionSwitchLeaveCrit(v8);
   return v10;

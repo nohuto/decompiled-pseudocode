@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbInitializeOrderingList @ 0x140739AA4
+ * XREFs of ArbInitializeOrderingList @ 0x140739A84
  * Callers:
- *     ArbBuildAssignmentOrdering @ 0x140739458 (ArbBuildAssignmentOrdering.c)
+ *     ArbBuildAssignmentOrdering @ 0x140739438 (ArbBuildAssignmentOrdering.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

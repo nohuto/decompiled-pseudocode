@@ -1,11 +1,10 @@
 /*
- * XREFs of Controller_TelemetryUpdateSubmitReportSuccess @ 0x1C0078FFC
+ * XREFs of Controller_TelemetryUpdateSubmitReportSuccess @ 0x1C0075750
  * Callers:
- *     Controller_TelemetryReport @ 0x1C0034A08 (Controller_TelemetryReport.c)
+ *     Controller_TelemetryReport @ 0x1C00330D0 (Controller_TelemetryReport.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0018114 (WPP_RECORDER_SF_D.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_TelemetryUpdateSubmitReportSuccess(_QWORD *a1, int a2)
@@ -28,7 +27,7 @@ __int64 __fastcall Controller_TelemetryUpdateSubmitReportSuccess(_QWORD *a1, int
   {
     v8 = a2;
     LOBYTE(a2) = 2;
-    WPP_RECORDER_SF_D(a1[9], a2, 4, 239, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, v8);
+    WPP_RECORDER_SF_d(a1[9], a2, 4, 236, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v8);
   }
   result = a1[47] | (1LL << (v2 & 0x3F));
   a1[47] = result;
@@ -57,13 +56,13 @@ __int64 __fastcall Controller_TelemetryUpdateSubmitReportSuccess(_QWORD *a1, int
                  &v11);
       if ( (int)result >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_19;
-      v7 = 243;
+      v7 = 240;
     }
     else
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_19;
-      v7 = 242;
+      v7 = 239;
     }
   }
   else
@@ -87,17 +86,17 @@ __int64 __fastcall Controller_TelemetryUpdateSubmitReportSuccess(_QWORD *a1, int
                  a1 + 41);
       if ( (int)result >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_19;
-      v7 = 241;
+      v7 = 238;
     }
     else
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_19;
-      v7 = 240;
+      v7 = 237;
     }
   }
   LOBYTE(v6) = 3;
-  result = WPP_RECORDER_SF_d(a1[9], v6, 4, v7, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, result);
+  result = WPP_RECORDER_SF_d(a1[9], v6, 4, v7, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, result);
 LABEL_19:
   if ( v10 )
     return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 1848))(WdfDriverGlobals);

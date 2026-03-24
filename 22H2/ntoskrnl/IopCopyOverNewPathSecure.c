@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCopyOverNewPathSecure @ 0x14067E86C
+ * XREFs of IopCopyOverNewPathSecure @ 0x1405CDC80
  * Callers:
- *     IopGraftName @ 0x14087F9E8 (IopGraftName.c)
+ *     IopGraftName @ 0x140683164 (IopGraftName.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopCopyOverNewPathSecure(
@@ -16,10 +16,10 @@ __int64 __fastcall IopCopyOverNewPathSecure(
 {
   unsigned int v5; // r12d
   char *v8; // rbx
-  __int16 v9; // bp
+  __int16 v9; // r14
   __int64 v10; // rax
   _WORD *v12; // rdx
-  __int16 v13; // bp
+  __int16 v13; // r14
   char *v14; // rcx
 
   v5 = a3;
@@ -35,7 +35,7 @@ __int64 __fastcall IopCopyOverNewPathSecure(
     v10 = *(unsigned __int16 *)(a4 + 88);
     if ( a5 > (unsigned __int16)v10 )
       return 3221226112LL;
-    v12 = (_WORD *)(*(_QWORD *)(a4 + 96) + v10 - a5);
+    v12 = (_WORD *)(v10 + *(_QWORD *)(a4 + 96) - a5);
     if ( v8 > a1 && *((_WORD *)v8 - 1) == 92 && *v12 == 92 )
     {
       v8 -= 2;

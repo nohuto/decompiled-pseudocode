@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIVectorDisconnect @ 0x1C0044060
+ * XREFs of ACPIVectorDisconnect @ 0x1C0060DF0
  * Callers:
- *     ACPIVectorDisconnect2 @ 0x1C0044180 (ACPIVectorDisconnect2.c)
- *     ACPIEcDisconnectGpeVector @ 0x1C00834F8 (ACPIEcDisconnectGpeVector.c)
+ *     ACPIVectorDisconnect2 @ 0x1C0060F10 (ACPIVectorDisconnect2.c)
+ *     ACPIEcDisconnectGpeVector @ 0x1C00AE940 (ACPIEcDisconnectGpeVector.c)
  * Callees:
- *     ACPIGpeIndexToByteIndex @ 0x1C0003564 (ACPIGpeIndexToByteIndex.c)
- *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
- *     ACPIGpeEnableDisableEvents @ 0x1C002C2BC (ACPIGpeEnableDisableEvents.c)
- *     ACPIGpeInstallRemoveIndex @ 0x1C002C418 (ACPIGpeInstallRemoveIndex.c)
+ *     ACPIGpeInstallRemoveIndex @ 0x1C00172E4 (ACPIGpeInstallRemoveIndex.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C00265D0 (ACPIGpeEnableDisableEvents.c)
+ *     ACPIGpeIndexToByteIndex @ 0x1C002697C (ACPIGpeIndexToByteIndex.c)
  */
 
 __int64 __fastcall ACPIVectorDisconnect(char *P)
@@ -20,14 +20,14 @@ __int64 __fastcall ACPIVectorDisconnect(char *P)
 
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_(
-      WPP_GLOBAL_Control->DeviceExtension,
-      4,
-      14,
-      13,
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      0xEu,
+      0xDu,
       (__int64)&WPP_7b0d4207db2a3169cd3bb4e871adee9d_Traceguids);
   v2 = KeAcquireSpinLockRaiseToDpc(&GpeTableLock);
   ACPIGpeEnableDisableEvents(0, v3);
-  v4 = *(unsigned __int8 *)((unsigned int)ACPIGpeIndexToByteIndex() + GpeMap);
+  v4 = *(unsigned __int8 *)((unsigned int)ACPIGpeIndexToByteIndex(*(unsigned int *)P) + GpeMap);
   if ( v4 < GpeVectorTableSize )
   {
     v5 = 2LL * v4;

@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpBuildCmResourceLists @ 0x14081FCD8
+ * XREFs of PnpBuildCmResourceLists @ 0x14074F54C
  * Callers:
- *     PnpAllocateResources @ 0x140747FB4 (PnpAllocateResources.c)
- *     PnpReallocateResources @ 0x140958D9C (PnpReallocateResources.c)
- *     PnpRebalance @ 0x14095A02C (PnpRebalance.c)
+ *     PnpAllocateResources @ 0x14074FCE8 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x1408B3160 (PnpReallocateResources.c)
+ *     PnpRebalance @ 0x1408B87A4 (PnpRebalance.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PnpDetermineResourceListSize @ 0x140748D08 (PnpDetermineResourceListSize.c)
- *     PipSetDevNodeFlags @ 0x14076FB70 (PipSetDevNodeFlags.c)
- *     PipClearDevNodeFlags @ 0x14076FBEC (PipClearDevNodeFlags.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x14081FDD8 (IopWriteAllocatedResourcesToRegistry.c)
- *     PnpBuildCmResourceList @ 0x14082071C (PnpBuildCmResourceList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x140746A74 (PipClearDevNodeFlags.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x14074F64C (IopWriteAllocatedResourcesToRegistry.c)
+ *     PnpDetermineResourceListSize @ 0x140750A1C (PnpDetermineResourceListSize.c)
+ *     PnpBuildCmResourceList @ 0x140751180 (PnpBuildCmResourceList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpBuildCmResourceLists(unsigned __int64 a1, unsigned __int64 a2, char a3)
@@ -110,7 +110,7 @@ void __fastcall PnpBuildCmResourceLists(unsigned __int64 a1, unsigned __int64 a2
                 v11 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v9 + 312LL) + 40LL);
               else
                 v11 = 0LL;
-              v12 = PnpDetermineResourceListSize(*((_DWORD **)v7 - 2));
+              v12 = PnpDetermineResourceListSize(*((_QWORD *)v7 - 2));
               IopWriteAllocatedResourcesToRegistry(v11, v10, v12);
             }
           }

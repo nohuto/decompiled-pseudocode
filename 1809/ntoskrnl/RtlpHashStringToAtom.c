@@ -2,11 +2,11 @@
  * XREFs of RtlpHashStringToAtom @ 0x1405F54C0
  * Callers:
  *     RtlAddAtomToAtomTableEx @ 0x1400895B0 (RtlAddAtomToAtomTableEx.c)
- *     RtlpFreeAllAtom @ 0x140126790 (RtlpFreeAllAtom.c)
+ *     RtlpFreeAllAtom @ 0x1401267B0 (RtlpFreeAllAtom.c)
  *     RtlLookupAtomInAtomTable @ 0x1405F5280 (RtlLookupAtomInAtomTable.c)
  * Callees:
  *     RtlpLookupOrCreateLowBox @ 0x140088BBC (RtlpLookupOrCreateLowBox.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
  *     RtlpAtomMapAtomToHandleEntry @ 0x1405F5614 (RtlpAtomMapAtomToHandleEntry.c)
  */

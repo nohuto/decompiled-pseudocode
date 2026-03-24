@@ -1,22 +1,23 @@
 /*
- * XREFs of NtUserGetDManipHookInitFunction @ 0x1C0116350
+ * XREFs of NtUserGetDManipHookInitFunction @ 0x1C0125C90
  * Callers:
  *     <none>
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C002393C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0049A6C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetDManipHookInitFunction(unsigned __int16 *a1, unsigned __int16 *a2, __int64 a3)
+__int64 __fastcall NtUserGetDManipHookInitFunction(unsigned __int16 *a1, unsigned __int16 *a2)
 {
-  unsigned int v5; // r11d
-  __int64 v6; // rcx
+  __int64 v4; // rcx
+  __int64 v5; // rcx
 
-  EnterSharedCrit(a1, a2, a3);
+  EnterSharedCrit(0LL, 1LL);
   ProbeForWrite(a1, 0x208uLL, 2u);
   ProbeForWrite(a2, 0x208uLL, 2u);
+  PsGetCurrentProcessWin32Process(v4);
   RtlStringCchCopyW((char *)a1, 260LL, (char *)gszModuleDManipHook);
-  RtlStringCchCopyW((char *)a2, v5, (char *)L"InitializeDManipHook");
-  UserSessionSwitchLeaveCrit(v6);
+  RtlStringCchCopyW((char *)a2, 260LL, (char *)L"InitializeDManipHook");
+  UserSessionSwitchLeaveCrit(v5);
   return 1LL;
 }

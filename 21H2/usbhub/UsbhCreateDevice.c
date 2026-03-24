@@ -1,21 +1,21 @@
 /*
- * XREFs of UsbhCreateDevice @ 0x1C001BC70
+ * XREFs of UsbhCreateDevice @ 0x1C0019118
  * Callers:
- *     UsbhReset1Complete @ 0x1C001BA90 (UsbhReset1Complete.c)
+ *     UsbhReset1Complete @ 0x1C0018F50 (UsbhReset1Complete.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhLinkPdoDeviceHandle @ 0x1C001BE4C (UsbhLinkPdoDeviceHandle.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C001F800 (memset.c)
- *     Usbh_HubDerefDeviceHandle @ 0x1C002D868 (Usbh_HubDerefDeviceHandle.c)
- *     UsbhGetDeviceHandle @ 0x1C003772C (UsbhGetDeviceHandle.c)
- *     UsbhGetTtDeviceHandle @ 0x1C0037D00 (UsbhGetTtDeviceHandle.c)
- *     Usbh_HubRemoveUsbDevice @ 0x1C003A78C (Usbh_HubRemoveUsbDevice.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhEtwLogHubEventWithExtraData @ 0x1C005AF58 (UsbhEtwLogHubEventWithExtraData.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhLinkPdoDeviceHandle @ 0x1C00192F4 (UsbhLinkPdoDeviceHandle.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     Usbh_HubDerefDeviceHandle @ 0x1C002EC44 (Usbh_HubDerefDeviceHandle.c)
+ *     UsbhGetDeviceHandle @ 0x1C00389F4 (UsbhGetDeviceHandle.c)
+ *     UsbhGetTtDeviceHandle @ 0x1C0038FD8 (UsbhGetTtDeviceHandle.c)
+ *     Usbh_HubRemoveUsbDevice @ 0x1C003BA9C (Usbh_HubRemoveUsbDevice.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhEtwLogHubEventWithExtraData @ 0x1C005C608 (UsbhEtwLogHubEventWithExtraData.c)
  */
 
 __int64 __fastcall UsbhCreateDevice(__int64 a1, __int64 a2, unsigned __int16 a3, unsigned __int16 a4)
@@ -36,58 +36,60 @@ __int64 __fastcall UsbhCreateDevice(__int64 a1, __int64 a2, unsigned __int16 a3,
   int v20; // eax
   int v21; // [rsp+20h] [rbp-B9h]
   void *v22; // [rsp+38h] [rbp-A1h]
-  unsigned __int16 v23[2]; // [rsp+50h] [rbp-89h] BYREF
-  unsigned __int16 v24; // [rsp+54h] [rbp-85h]
+  int v23; // [rsp+48h] [rbp-91h]
+  unsigned __int16 v24[2]; // [rsp+50h] [rbp-89h] BYREF
+  unsigned __int16 v25; // [rsp+54h] [rbp-85h]
   __int64 DeviceHandle; // [rsp+58h] [rbp-81h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-79h] BYREF
-  void *v27; // [rsp+68h] [rbp-71h]
-  __int64 v28; // [rsp+70h] [rbp-69h]
-  int v29[24]; // [rsp+80h] [rbp-59h] BYREF
+  __int64 v27; // [rsp+60h] [rbp-79h] BYREF
+  void *v28; // [rsp+68h] [rbp-71h]
+  __int64 v29; // [rsp+70h] [rbp-69h]
+  int v30[24]; // [rsp+80h] [rbp-59h] BYREF
 
   v4 = a3;
-  v27 = (void *)a2;
+  v28 = (void *)a2;
   v7 = a4;
-  v24 = a3;
-  memset(&v29[1], 0, 0x50uLL);
-  v28 = v4;
+  v25 = a3;
+  memset(&v30[1], 0, 0x50uLL);
+  v29 = v4;
   DeviceHandle = 0LL;
-  v23[0] = 0;
+  v24[0] = 0;
   v8 = (unsigned int)v4;
   Log(a1, 4, 1668441412, (unsigned int)v4, v7);
   v9 = FdoExt(a1);
   v10 = PdoExt(a2);
   v11 = 0xFEFEFEFEFEFEFEFEuLL;
-  v26 = 0xFEFEFEFEFEFEFEFEuLL;
+  v27 = 0xFEFEFEFEFEFEFEFEuLL;
   if ( (v8 & 0x400) != 0 )
     goto LABEL_2;
   if ( (v9[640] & 0x40) != 0 )
   {
     Log(a1, 4, 1668441137, v8, v7);
     DeviceHandle = UsbhGetDeviceHandle(a1, a1);
-    v23[0] = v7;
+    v24[0] = v7;
     Log(a1, 4, 1668441138, DeviceHandle, v7);
     v12 = DeviceHandle;
     if ( !DeviceHandle )
     {
+      LOBYTE(v23) = 0;
       v17 = -1073741823;
-      UsbhException(a1, (unsigned __int16)v7, 5, 0, 0, -1073741823, -1, usbfile_bus_c, 6285, 0);
+      UsbhException(a1, (unsigned __int16)v7, 5, 0, 0, -1073741823, -1, usbfile_bus_c, 6285, v23);
       return (unsigned int)v17;
     }
 LABEL_3:
     if ( *((_QWORD *)v9 + 532) )
     {
-      v29[0] = 1;
+      v30[0] = 1;
       if ( *((_WORD *)v9 + 2113) < 7u )
       {
         LOWORD(v21) = v7;
         v16 = (*((__int64 (__fastcall **)(_QWORD, __int64 *, __int64, _QWORD, int, int *, unsigned __int16))v9 + 532))(
                 *((_QWORD *)v9 + 529),
-                &v26,
+                &v27,
                 v12,
-                v24,
+                v25,
                 v21,
-                v29,
-                v23[0]);
+                v30,
+                v24[0]);
       }
       else
       {
@@ -111,17 +113,17 @@ LABEL_3:
           i = 0;
         }
         *v13 = i + 1;
-        v22 = v27;
+        v22 = v28;
         v13[i + 1] = v7;
         v16 = (*((__int64 (__fastcall **)(_QWORD, __int64 *, __int64, _QWORD, _DWORD *, int *, unsigned __int16, void *, _DWORD *))v9
                + 561))(
                 *((_QWORD *)v9 + 529),
-                &v26,
+                &v27,
                 DeviceHandle,
-                v24,
+                v25,
                 v10 + 672,
-                v29,
-                v23[0],
+                v30,
+                v24[0],
                 v22,
                 v10 + 668);
       }
@@ -130,24 +132,25 @@ LABEL_3:
         Usbh_HubDerefDeviceHandle(a1, DeviceHandle, a1, 1212445810LL);
       if ( (v17 & 0xC0000000) == 0xC0000000 )
       {
-        if ( v29[1] == 5 )
-          v10[705] = v29[2] != 0 ? 1073807365 : 1073807360;
+        if ( v30[1] == 5 )
+          v10[705] = v30[2] != 0 ? 1073807365 : 1073807360;
         Log(a1, 4, 1667524129, v8, v7);
-        UsbhException(a1, (unsigned __int16)v7, 4, (int)v29, 84, v17, -1, usbfile_bus_c, 6405, 0);
-        UsbhEtwLogHubEventWithExtraData(a1, &USBHUB_ETW_EVENT_HUB_ENUM_CREATE_DEVICE_FAILURE, (unsigned int)v7, v29, 84);
-        v26 = 0xFEFEFEFEFEFEFEFEuLL;
+        LOBYTE(v23) = 0;
+        UsbhException(a1, (unsigned __int16)v7, 4, (int)v30, 84, v17, -1, usbfile_bus_c, 6405, v23);
+        UsbhEtwLogHubEventWithExtraData(a1, &USBHUB_ETW_EVENT_HUB_ENUM_CREATE_DEVICE_FAILURE, (unsigned int)v7, v30, 84);
+        v27 = 0xFEFEFEFEFEFEFEFEuLL;
       }
       else
       {
-        v11 = v26;
+        v11 = v27;
       }
       if ( v17 >= 0 )
       {
-        v17 = UsbhLinkPdoDeviceHandle(a1, v27, v11);
+        v17 = UsbhLinkPdoDeviceHandle(a1, v28, v11);
         if ( (v17 & 0xC0000000) == 0xC0000000 )
         {
-          Log(a1, 4, 1819175713, v26, v7);
-          Usbh_HubRemoveUsbDevice(a1, v26);
+          Log(a1, 4, 1819175713, v27, v7);
+          Usbh_HubRemoveUsbDevice(a1, v27);
         }
       }
     }
@@ -160,15 +163,16 @@ LABEL_3:
     return (unsigned int)v17;
   }
   Log(a1, 4, 1668441139, v8, v7);
-  TtDeviceHandle = UsbhGetTtDeviceHandle(a1, &DeviceHandle, a1, v23);
-  Log(a1, 4, 1668441140, DeviceHandle, v23[0]);
+  TtDeviceHandle = UsbhGetTtDeviceHandle(a1, &DeviceHandle, a1, v24);
+  Log(a1, 4, 1668441140, DeviceHandle, v24[0]);
   if ( (TtDeviceHandle & 0xC0000000) != 0xC0000000 )
   {
-    v8 = v28;
+    v8 = v29;
 LABEL_2:
     v12 = DeviceHandle;
     goto LABEL_3;
   }
-  UsbhException(a1, (unsigned __int16)v7, 104, 0, 0, TtDeviceHandle, -1, usbfile_bus_c, 6304, 0);
+  LOBYTE(v23) = 0;
+  UsbhException(a1, (unsigned __int16)v7, 104, 0, 0, TtDeviceHandle, -1, usbfile_bus_c, 6304, v23);
   return TtDeviceHandle;
 }

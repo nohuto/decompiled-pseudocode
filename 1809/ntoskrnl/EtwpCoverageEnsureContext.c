@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpCoverageEnsureContext @ 0x14075B064
+ * XREFs of EtwpCoverageEnsureContext @ 0x14075B044
  * Callers:
- *     EtwTelemetryCoverageReport @ 0x14012A560 (EtwTelemetryCoverageReport.c)
- *     EtwSetProcessTelemetryCoverage @ 0x1406B3FA0 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1406B3F80 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     KeInitializeTimer2 @ 0x1400FD4B0 (KeInitializeTimer2.c)
- *     EtwTelemetryCoverageReport @ 0x14012A560 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageStringHashInternal @ 0x14012A748 (TelemetryCoverageStringHashInternal.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     KeInitializeTimer2 @ 0x1400FD4D0 (KeInitializeTimer2.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x14012A768 (TelemetryCoverageStringHashInternal.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MmMapViewInSystemSpace @ 0x1405A23A0 (MmMapViewInSystemSpace.c)
  *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)
  *     MmCreateSection @ 0x14061B2D0 (MmCreateSection.c)
- *     EtwpCoverageEnsureStringBuffer @ 0x14075B458 (EtwpCoverageEnsureStringBuffer.c)
- *     EtwpCoverageFreeStringBuffers @ 0x1408B699C (EtwpCoverageFreeStringBuffers.c)
+ *     EtwpCoverageEnsureStringBuffer @ 0x14075B438 (EtwpCoverageEnsureStringBuffer.c)
+ *     EtwpCoverageFreeStringBuffers @ 0x1408B697C (EtwpCoverageFreeStringBuffers.c)
  */
 
 __int64 EtwpCoverageEnsureContext()

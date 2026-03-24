@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetClientProcessHandle@CHolographicExclusivePresentData@@UEAAPEAXXZ @ 0x180108BF0
+ * XREFs of ?GetClientProcessHandle@CHolographicExclusivePresentData@@UEAAPEAXXZ @ 0x1800E3730
  * Callers:
  *     <none>
  * Callees:

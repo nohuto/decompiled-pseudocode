@@ -1,10 +1,10 @@
 /*
- * XREFs of ExAcquireCacheAwarePushLockExclusiveEx @ 0x140411960
+ * XREFs of ExAcquireCacheAwarePushLockExclusiveEx @ 0x1403F8AA0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquireCacheAwarePushLockExclusiveEx @ 0x1402BC7E0 (ExfAcquireCacheAwarePushLockExclusiveEx.c)
+ *     ExfAcquireCacheAwarePushLockExclusiveEx @ 0x1402731B0 (ExfAcquireCacheAwarePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
  */
 
 volatile signed __int32 *__fastcall ExAcquireCacheAwarePushLockExclusiveEx(volatile signed __int32 **a1, char a2)
@@ -15,9 +15,9 @@ volatile signed __int32 *__fastcall ExAcquireCacheAwarePushLockExclusiveEx(volat
   if ( (a2 & 2) != 0 )
     v3 = 0LL;
   else
-    v3 = KeAbPreAcquire((__int64)a1, 0LL);
+    v3 = KeAbPreAcquire((ULONG_PTR)a1, 0LL, 0LL);
   result = ExfAcquireCacheAwarePushLockExclusiveEx(a1, v3, (__int64)a1);
   if ( v3 )
-    *(_BYTE *)(v3 + 18) = 1;
+    *(_BYTE *)(v3 + 26) |= 1u;
   return result;
 }

@@ -1,39 +1,35 @@
 /*
- * XREFs of vInitFontMapperFamilyFallbackTable @ 0x1C03B5100
+ * XREFs of vInitFontMapperFamilyFallbackTable @ 0x1C0393F00
  * Callers:
  *     <none>
  * Callees:
- *     PREALLOCMEM2 @ 0x1C00B7D9C (PREALLOCMEM2.c)
+ *     PREALLOCMEM2 @ 0x1C01324E0 (PREALLOCMEM2.c)
  */
 
-int __fastcall vInitFontMapperFamilyFallbackTable(__int64 a1)
+int vInitFontMapperFamilyFallbackTable()
 {
-  __int64 v1; // rbx
-  char *v2; // rax
-  unsigned int v3; // edx
+  char *v0; // rax
   struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+30h] [rbp-19h] BYREF
-  __int64 v6; // [rsp+68h] [rbp+1Fh]
-  int v7; // [rsp+70h] [rbp+27h]
-  __int64 v8; // [rsp+78h] [rbp+2Fh]
+  __int64 v3; // [rsp+68h] [rbp+1Fh]
+  int v4; // [rsp+70h] [rbp+27h]
+  __int64 v5; // [rsp+78h] [rbp+2Fh]
   unsigned int Context; // [rsp+B0h] [rbp+67h] BYREF
 
   Context = 0;
   QueryTable.Flags = 0;
   QueryTable.DefaultData = 0LL;
   QueryTable.DefaultLength = 0;
-  v6 = 0LL;
-  v7 = 0;
-  v8 = 0LL;
+  v3 = 0LL;
+  v4 = 0;
+  v5 = 0LL;
   QueryTable.QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)QueryRegistryFontMapperFamilyFallbackListRoutine;
   memset(&QueryTable.Name, 0, 20);
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  LODWORD(v2) = RtlQueryRegistryValues(3u, L"FontMapperFamilyFallbackDeprecated", &QueryTable, &Context, 0LL);
-  v3 = *(_DWORD *)(v1 + 19492);
-  if ( Context > v3 )
+  LODWORD(v0) = RtlQueryRegistryValues(3u, L"FontMapperFamilyFallbackDeprecated", &QueryTable, &Context, 0LL);
+  if ( Context > gcfmffTable )
   {
-    v2 = PREALLOCMEM2(*(void **)(v1 + 19480), v3 << 7, v3 << 7, 1179012423LL);
-    if ( v2 )
-      *(_QWORD *)(v1 + 19480) = v2;
+    v0 = PREALLOCMEM2(gpfmffTable, gcfmffTable << 7, gcfmffTable << 7, 0x46464D47u);
+    if ( v0 )
+      gpfmffTable = v0;
   }
-  return (int)v2;
+  return (int)v0;
 }

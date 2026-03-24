@@ -1,13 +1,13 @@
 /*
- * XREFs of MiApplyImportOptimizationToBootDrivers @ 0x1409F6F30
+ * XREFs of MiApplyImportOptimizationToBootDrivers @ 0x1409F6F40
  * Callers:
  *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA4F0 (MiIsImportOptimizationEnabled.c)
- *     MiIsRetpolineEnabled @ 0x1400DA550 (MiIsRetpolineEnabled.c)
- *     VslUpdateImportRelocationsOnImage @ 0x1401B3F1C (VslUpdateImportRelocationsOnImage.c)
- *     RtlUpdateImportRelocationsInImage @ 0x1401B5FEC (RtlUpdateImportRelocationsInImage.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
+ *     MiIsRetpolineEnabled @ 0x1400DA570 (MiIsRetpolineEnabled.c)
+ *     VslUpdateImportRelocationsOnImage @ 0x1401B3F3C (VslUpdateImportRelocationsOnImage.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x1401B600C (RtlUpdateImportRelocationsInImage.c)
  */
 
 __int64 MiApplyImportOptimizationToBootDrivers()

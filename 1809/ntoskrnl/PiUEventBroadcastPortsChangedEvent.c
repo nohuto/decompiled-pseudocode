@@ -1,14 +1,14 @@
 /*
- * XREFs of PiUEventBroadcastPortsChangedEvent @ 0x14082887C
+ * XREFs of PiUEventBroadcastPortsChangedEvent @ 0x14082885C
  * Callers:
- *     PiUEventBroadcastEventWorker @ 0x140702FD0 (PiUEventBroadcastEventWorker.c)
+ *     PiUEventBroadcastEventWorker @ 0x140702FB0 (PiUEventBroadcastEventWorker.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
  */

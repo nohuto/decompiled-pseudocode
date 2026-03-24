@@ -1,25 +1,23 @@
 /*
- * XREFs of ?ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ @ 0x1801E9FD0
+ * XREFs of ?ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ @ 0x180185950
  * Callers:
- *     ?ReleaseRenderTargets@CIndirectSwapchainRenderTarget@@EEAAXXZ @ 0x1801C6010 (-ReleaseRenderTargets@CIndirectSwapchainRenderTarget@@EEAAXXZ.c)
- *     ??1COffScreenRenderTarget@@MEAA@XZ @ 0x1801E9A1C (--1COffScreenRenderTarget@@MEAA@XZ.c)
- *     ?ProcessCreate@CIndirectSwapchainRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INDIRECTSWAPCHAINRENDERTARGET_CREATE@@@Z @ 0x1801EF3A4 (-ProcessCreate@CIndirectSwapchainRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INDIRECTSW.c)
- *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801EF82C (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
- *     ?Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ @ 0x1801EFB90 (-Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ.c)
- *     ?EnsureRenderTargets@CMagnifierRenderTarget@@MEAAJXZ @ 0x1801F0000 (-EnsureRenderTargets@CMagnifierRenderTarget@@MEAAJXZ.c)
- *     ?ProcessUpdate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET@@@Z @ 0x1801F094C (-ProcessUpdate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTAR.c)
+ *     ?ReleaseRenderTargets@CIndirectSwapchainRenderTarget@@EEAAXXZ @ 0x18016FD80 (-ReleaseRenderTargets@CIndirectSwapchainRenderTarget@@EEAAXXZ.c)
+ *     ??1COffScreenRenderTarget@@MEAA@XZ @ 0x1801852C8 (--1COffScreenRenderTarget@@MEAA@XZ.c)
+ *     ?ProcessCreate@CIndirectSwapchainRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INDIRECTSWAPCHAINRENDERTARGET_CREATE@@@Z @ 0x180189AC4 (-ProcessCreate@CIndirectSwapchainRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INDIRECTSW.c)
+ *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x180189EE4 (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ @ 0x18018A120 (-Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ.c)
+ *     ?EnsureRenderTargets@CMagnifierRenderTarget@@MEAAJXZ @ 0x18018B050 (-EnsureRenderTargets@CMagnifierRenderTarget@@MEAAJXZ.c)
+ *     ?ProcessUpdate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET@@@Z @ 0x18018B910 (-ProcessUpdate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTAR.c)
  * Callees:
- *     ??$ReleaseInterfaceNoNULL@VIRenderTargetBitmap@@@@YAXPEAVIRenderTargetBitmap@@@Z @ 0x180130E8E (--$ReleaseInterfaceNoNULL@VIRenderTargetBitmap@@@@YAXPEAVIRenderTargetBitmap@@@Z.c)
+ *     ??$ReleaseInterfaceNoNULL@VIBitmapLock@@@@YAXPEAVIBitmapLock@@@Z @ 0x18003D65C (--$ReleaseInterfaceNoNULL@VIBitmapLock@@@@YAXPEAVIBitmapLock@@@Z.c)
  */
 
 void __fastcall COffScreenRenderTarget::ReleaseRenderTargets(COffScreenRenderTarget *this)
 {
-  __int64 v1; // rsi
-  char *i; // rbx
+  __int64 i; // rdi
 
-  v1 = 0LL;
-  for ( i = (char *)this + 1760; (unsigned int)v1 < *((_DWORD *)this + 446); v1 = (unsigned int)(v1 + 1) )
-    ReleaseInterfaceNoNULL<IRenderTargetBitmap>(*(_QWORD *)(*(_QWORD *)i + 8 * v1));
-  *((_DWORD *)i + 6) = 0;
-  DynArrayImpl<0>::ShrinkToSize((__int64)i, 8u);
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 450); i = (unsigned int)(i + 1) )
+    ReleaseInterfaceNoNULL<IBitmapLock>(*(_QWORD *)(*((_QWORD *)this + 222) + 8 * i));
+  *((_DWORD *)this + 450) = 0;
+  DynArrayImpl<0>::ShrinkToSize((__int64)this + 1776, 8u);
 }

@@ -1,75 +1,73 @@
 /*
- * XREFs of PopDeferDoze @ 0x14098B6C4
+ * XREFs of PopDeferDoze @ 0x1408F0498
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopPrintEx @ 0x14032A4CC (PopPrintEx.c)
- *     PopIsDozeSupported @ 0x140980BB4 (PopIsDozeSupported.c)
- *     PopIsWakeTimerImmanent @ 0x14098B9B0 (PopIsWakeTimerImmanent.c)
- *     PopQueryPowerSettingUlong @ 0x14098BB7C (PopQueryPowerSettingUlong.c)
- *     PopDiagTraceDozeDeferralDecision @ 0x14098E9E8 (PopDiagTraceDozeDeferralDecision.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PopPrintEx @ 0x140364318 (PopPrintEx.c)
+ *     PopIsDozeSupported @ 0x1406F4118 (PopIsDozeSupported.c)
+ *     PopQueryPowerSettingUlong @ 0x140779A64 (PopQueryPowerSettingUlong.c)
+ *     PopDiagTraceDozeDeferralDecision @ 0x1408E9F50 (PopDiagTraceDozeDeferralDecision.c)
+ *     PopIsWakeTimerImmanent @ 0x1408F0624 (PopIsWakeTimerImmanent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-char __fastcall PopDeferDoze(int a1, int a2, _BYTE *a3)
+unsigned __int8 __fastcall PopDeferDoze(int a1, int a2, _BYTE *a3)
 {
   int v3; // ebx
-  char v4; // si
+  unsigned __int8 v4; // si
   char IsDozeSupported; // al
   int v9; // r9d
   int v10; // edx
   int v11; // r12d
   int v12; // eax
   int v13; // ebx
-  int v14; // edi
-  int v15; // ecx
-  int v16; // ebx
-  int v17; // r9d
-  PVOID v18; // rdi
+  __int64 v14; // rdi
+  int v15; // ebx
+  __int64 v16; // r9
+  PVOID v17; // rdi
   PVOID P[2]; // [rsp+40h] [rbp-10h] BYREF
-  int v21; // [rsp+90h] [rbp+40h] BYREF
-  int v22; // [rsp+A0h] [rbp+50h] BYREF
-  __int64 v23; // [rsp+A8h] [rbp+58h] BYREF
+  int v20; // [rsp+90h] [rbp+40h] BYREF
+  int v21; // [rsp+A0h] [rbp+50h] BYREF
+  __int64 v22; // [rsp+A8h] [rbp+58h] BYREF
 
   P[0] = 0LL;
   v3 = 0;
+  v20 = 0;
   v21 = 0;
-  v22 = 0;
   v4 = 0;
-  v23 = 0LL;
-  IsDozeSupported = PopIsDozeSupported(&PopCapabilities);
+  v22 = 0LL;
+  IsDozeSupported = PopIsDozeSupported((__int64)&PopCapabilities);
   v10 = v9 | 0x10;
   if ( IsDozeSupported )
     v10 = v9;
   v11 = v10 | 0x20;
   if ( *((_DWORD *)PopPolicy + 22) )
     v11 = v10;
-  if ( (unsigned __int8)PopQueryPowerSettingUlong(&GUID_LEGACY_RTC_MITIGATION, &v21, &v22) )
+  if ( PopQueryPowerSettingUlong(&GUID_LEGACY_RTC_MITIGATION, &v20, &v21) )
   {
-    v3 = v21;
+    v3 = v20;
     if ( !*a3 )
-      v3 = v22;
+      v3 = v21;
   }
   v12 = v11 | 0x40;
   if ( v3 )
     v12 = v11;
   v13 = v12;
-  if ( a3[3] && *a3 && v21 == 1 && !v22 )
+  if ( a3[3] && *a3 && v20 == 1 && !v21 )
     v13 = v12 | 0x100;
   v14 = MEMORY[0xFFFFF78000000008];
-  if ( !(unsigned __int8)PopIsWakeTimerImmanent(MEMORY[0xFFFFF78000000008], a1, a2, (unsigned int)&v23, (__int64)P) )
+  if ( !(unsigned __int8)PopIsWakeTimerImmanent(MEMORY[0xFFFFF78000000008], a1, a2, (unsigned int)&v22, (__int64)P) )
     v13 |= 0x80u;
-  v16 = ~PopDozeDeferralChecksToIgnore & v13;
-  if ( !v16 )
+  v15 = ~PopDozeDeferralChecksToIgnore & v13;
+  if ( !v15 )
   {
     v4 = 1;
     PopPrintEx(3LL, (__int64)"Deferring doze to S4\n");
   }
-  v17 = v14;
-  v18 = P[0];
-  LOBYTE(v15) = v4;
-  PopDiagTraceDozeDeferralDecision(v15, v16, P[0], v17, v23, a1, a2);
-  if ( v18 )
-    ExFreePoolWithTag(v18, 0x53577254u);
+  v16 = v14;
+  v17 = P[0];
+  PopDiagTraceDozeDeferralDecision(v4, v15, (__int64)P[0], v16, v22, a1, a2);
+  if ( v17 )
+    ExFreePoolWithTag(v17, 0x53577254u);
   return v4;
 }

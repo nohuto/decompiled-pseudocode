@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsTooltipHittest@@YAPEAGPEAUtagWND@@I@Z @ 0x1C01200F0
+ * XREFs of ?IsTooltipHittest@@YAPEAGPEAUtagWND@@I@Z @ 0x1C00306C0
  * Callers:
- *     xxxTrackMouseMove @ 0x1C007E59C (xxxTrackMouseMove.c)
+ *     xxxTrackMouseMove @ 0x1C002D5C0 (xxxTrackMouseMove.c)
  * Callees:
- *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C006A158 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
+ *     <none>
  */
 
 unsigned __int16 *__fastcall IsTooltipHittest(struct tagWND *a1, int a2)
@@ -16,7 +16,7 @@ unsigned __int16 *__fastcall IsTooltipHittest(struct tagWND *a1, int a2)
   int v7; // edx
   int v8; // edx
   unsigned __int16 *result; // rax
-  __int64 v10; // r9
+  __int64 v10; // rdx
   bool v11; // zf
   void *v12; // rcx
   __int64 v13; // rdx
@@ -37,23 +37,21 @@ unsigned __int16 *__fastcall IsTooltipHittest(struct tagWND *a1, int a2)
     v11 = (*(_BYTE *)(v13 + 31) & 0x20) == 0;
     v12 = &gszMIN;
     result = (unsigned __int16 *)&gszRESUP;
-    goto LABEL_19;
+LABEL_18:
+    if ( v11 )
+      return (unsigned __int16 *)v12;
+    return result;
   }
   v4 = v3 - 1;
   if ( !v4 )
   {
-    if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 30LL) & 1) == 0
-      || ShellWindowManagement::BehaviorEnabled(*((ShellWindowManagement **)a1 + 3), (const struct tagDESKTOP *)0x100) )
-    {
+    v10 = *((_QWORD *)a1 + 5);
+    if ( (*(_BYTE *)(v10 + 30) & 1) == 0 )
       return 0LL;
-    }
     v11 = (*(_BYTE *)(v10 + 31) & 1) == 0;
     v12 = &gszMAX;
     result = (unsigned __int16 *)&gszRESDOWN;
-LABEL_19:
-    if ( v11 )
-      return (unsigned __int16 *)v12;
-    return result;
+    goto LABEL_18;
   }
   v5 = v4 - 11;
   if ( !v5 )

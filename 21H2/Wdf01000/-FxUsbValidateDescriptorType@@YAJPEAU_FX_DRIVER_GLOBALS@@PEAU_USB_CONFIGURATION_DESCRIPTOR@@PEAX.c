@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FxUsbValidateDescriptorType@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_USB_CONFIGURATION_DESCRIPTOR@@PEAX2J_KW4FxUsbValidateDescriptorOp@@K@Z @ 0x1C007B7A8
+ * XREFs of ?FxUsbValidateDescriptorType@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_USB_CONFIGURATION_DESCRIPTOR@@PEAX2J_KW4FxUsbValidateDescriptorOp@@K@Z @ 0x1C006EF70
  * Callers:
- *     ?CreateInterfaces@FxUsbDevice@@QEAAJXZ @ 0x1C007C358 (-CreateInterfaces@FxUsbDevice@@QEAAJXZ.c)
- *     ?CreateSettings@FxUsbInterface@@QEAAJXZ @ 0x1C007E4DC (-CreateSettings@FxUsbInterface@@QEAAJXZ.c)
+ *     ?CreateInterfaces@FxUsbDevice@@QEAAJXZ @ 0x1C006FBD8 (-CreateInterfaces@FxUsbDevice@@QEAAJXZ.c)
+ *     ?CreateSettings@FxUsbInterface@@QEAAJXZ @ 0x1C0071DA0 (-CreateSettings@FxUsbInterface@@QEAAJXZ.c)
  * Callees:
- *     ?FxUsbFindDescriptorType@@YAPEAU_USB_COMMON_DESCRIPTOR@@PEAX_K0J@Z @ 0x1C007B654 (-FxUsbFindDescriptorType@@YAPEAU_USB_COMMON_DESCRIPTOR@@PEAX_K0J@Z.c)
- *     WPP_IFR_SF_ddiid @ 0x1C007B874 (WPP_IFR_SF_ddiid.c)
+ *     ?FxUsbFindDescriptorType@@YAPEAU_USB_COMMON_DESCRIPTOR@@PEAX_K0J@Z @ 0x1C006EE1C (-FxUsbFindDescriptorType@@YAPEAU_USB_COMMON_DESCRIPTOR@@PEAX_K0J@Z.c)
+ *     WPP_IFR_SF_ddiid @ 0x1C006F03C (WPP_IFR_SF_ddiid.c)
  */
 
 __int64 __fastcall FxUsbValidateDescriptorType(

@@ -1,14 +1,15 @@
 /*
- * XREFs of ??$_ForEachSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGP6AJPEAVTOPOLOGY_SET_DESCRIPTOR@0@PEAX@Z2@Z @ 0x1C017BB7C
+ * XREFs of ??$_ForEachSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGP6AJPEAVTOPOLOGY_SET_DESCRIPTOR@0@PEAX@Z2@Z @ 0x1C013E360
  * Callers:
- *     ?_ProcessConnectedSetDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVCONNECTED_SET_DESCRIPTOR@CCD_STORE@@PEAX@Z @ 0x1C01EA850 (-_ProcessConnectedSetDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVCONNECTED_SET_DESC.c)
+ *     ?_ProcessConnectedSetDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVCONNECTED_SET_DESCRIPTOR@CCD_STORE@@PEAX@Z @ 0x1C016B480 (-_ProcessConnectedSetDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVCONNECTED_SET_DESC.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     _CcdRetrieveSubkeyInfoFromRegistry @ 0x1C017BD30 (_CcdRetrieveSubkeyInfoFromRegistry.c)
- *     ??0TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAA@PEAXPEBU_STRING@@@Z @ 0x1C017D3D8 (--0TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAA@PEAXPEBU_STRING@@@Z.c)
- *     _CcdOpenRegistrySubkey @ 0x1C0182230 (_CcdOpenRegistrySubkey.c)
- *     ?_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C01824E0 (-_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ.c)
- *     ?_FindTopologySetIdDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@PEAX@Z @ 0x1C0182540 (-_FindTopologySetIdDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIP.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??0TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAA@PEAXPEBU_STRING@@@Z @ 0x1C013DDD4 (--0TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@AEAA@PEAXPEBU_STRING@@@Z.c)
+ *     _CcdRetrieveSubkeyInfoFromRegistry @ 0x1C013E4E8 (_CcdRetrieveSubkeyInfoFromRegistry.c)
+ *     _CcdOpenRegistrySubkey @ 0x1C013E5A0 (_CcdOpenRegistrySubkey.c)
+ *     _CcdOpenRegistrySubkey_0 @ 0x1C013E608 (_CcdOpenRegistrySubkey_0.c)
+ *     ?_FindTopologySetIdDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@PEAX@Z @ 0x1C0141B10 (-_FindTopologySetIdDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIP.c)
+ *     ?_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C014B4A0 (-_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CCD_STORE::_ForEachSetSubkey<CCD_STORE::TOPOLOGY_SET_DESCRIPTOR>(
@@ -17,124 +18,129 @@ __int64 __fastcall CCD_STORE::_ForEachSetSubkey<CCD_STORE::TOPOLOGY_SET_DESCRIPT
         CCD_RECENT_TOPOLOGY_RETRIEVER *a3)
 {
   int v4; // eax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   __int64 TopologySetIdDescriptorCallback; // rbx
   ULONG i; // edi
   int SubkeyInfoFromRegistry; // eax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
+  __int64 v10; // rdx
+  __int64 v11; // rcx
   void *v12; // r14
   __int64 v13; // rdx
   __int64 v14; // rcx
   __int64 v15; // r8
-  __int64 v16; // r9
-  _QWORD *v17; // rax
-  _QWORD *v19; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  _QWORD *v18; // rax
   _QWORD *v20; // rax
-  _WORD v21[2]; // [rsp+38h] [rbp-59h] BYREF
-  int v22; // [rsp+3Ch] [rbp-55h]
-  char *v23; // [rsp+40h] [rbp-51h]
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-49h] BYREF
-  _BYTE v25[112]; // [rsp+78h] [rbp-19h] BYREF
-  HANDLE Handle; // [rsp+F8h] [rbp+67h] BYREF
-  void *KeyHandle; // [rsp+100h] [rbp+6Fh] BYREF
-  void *v28; // [rsp+110h] [rbp+7Fh]
+  __int64 v21; // rax
+  _QWORD *v22; // rax
+  _QWORD *v23; // rax
+  _QWORD *v24; // rax
+  int v25; // [rsp+38h] [rbp-29h] BYREF
+  int v26; // [rsp+3Ch] [rbp-25h]
+  char *v27; // [rsp+40h] [rbp-21h]
+  _BYTE v28[112]; // [rsp+48h] [rbp-19h] BYREF
+  HANDLE KeyHandle; // [rsp+C8h] [rbp+67h] BYREF
+  HANDLE Handle; // [rsp+D0h] [rbp+6Fh] BYREF
+  void *v31; // [rsp+E0h] [rbp+7Fh]
 
-  HIDWORD(KeyHandle) = HIDWORD(a2);
-  Handle = 0LL;
-  LODWORD(KeyHandle) = 0;
+  HIDWORD(Handle) = HIDWORD(a2);
+  KeyHandle = 0LL;
+  LODWORD(Handle) = 0;
   v4 = CcdOpenRegistrySubkey(
-         &Handle,
-         131097LL,
-         0LL,
+         (int)&KeyHandle,
+         131097,
+         0,
          L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\",
-         &KeyHandle);
-  LODWORD(TopologySetIdDescriptorCallback) = v4;
+         (PULONG)&Handle);
+  TopologySetIdDescriptorCallback = v4;
   if ( v4 < 0 )
   {
-    WdLogSingleEntry4(
-      2LL,
-      v4,
-      L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\",
-      CCD_RECENT_TOPOLOGY_RETRIEVER::_FindTopologySetIdDescriptorCallback,
-      a3);
+    v20 = (_QWORD *)WdLogNewEntry5_WdError(v6, v5);
+    v20[5] = CCD_RECENT_TOPOLOGY_RETRIEVER::_FindTopologySetIdDescriptorCallback;
+    v20[3] = TopologySetIdDescriptorCallback;
+    v20[4] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\";
+    v20[6] = a3;
+    WdLogEvent5_WdError(v20);
   }
   else
   {
     for ( i = 0; ; ++i )
     {
-      KeyHandle = 0LL;
-      v28 = 0LL;
-      SubkeyInfoFromRegistry = CcdRetrieveSubkeyInfoFromRegistry(Handle, i);
+      Handle = 0LL;
+      v31 = 0LL;
+      SubkeyInfoFromRegistry = CcdRetrieveSubkeyInfoFromRegistry(KeyHandle, i);
       TopologySetIdDescriptorCallback = SubkeyInfoFromRegistry;
       if ( SubkeyInfoFromRegistry == -2147483622 )
       {
-        v17 = (_QWORD *)WdLogNewEntry5_WdTrace(v9, v8, v10, v11);
+        v18 = (_QWORD *)WdLogNewEntry5_WdTrace(v11, v10);
         LODWORD(TopologySetIdDescriptorCallback) = 0;
-        v17[3] = i;
-        v17[5] = CCD_RECENT_TOPOLOGY_RETRIEVER::_FindTopologySetIdDescriptorCallback;
-        v17[4] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\";
-        v17[6] = a3;
+        v18[3] = i;
+        v18[5] = CCD_RECENT_TOPOLOGY_RETRIEVER::_FindTopologySetIdDescriptorCallback;
+        v18[4] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\";
+        v18[6] = a3;
         goto LABEL_11;
       }
       if ( SubkeyInfoFromRegistry < 0 )
         break;
-      v12 = v28;
-      v21[0] = *((_WORD *)v28 + 6);
-      v21[1] = *((_WORD *)v28 + 6);
-      v22 = 0;
-      v23 = (char *)v28 + 16;
-      if ( v21[0] != *((_DWORD *)v28 + 3) )
-        WdLogSingleEntry0(1LL);
-      *(&ObjectAttributes.Length + 1) = 0;
-      memset(&ObjectAttributes.Attributes + 1, 0, 20);
-      ObjectAttributes.RootDirectory = Handle;
-      ObjectAttributes.Length = 48;
-      ObjectAttributes.ObjectName = (PUNICODE_STRING)v21;
-      ObjectAttributes.Attributes = 576;
-      TopologySetIdDescriptorCallback = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
-      operator delete(v12);
+      v12 = v31;
+      LOWORD(v25) = *((_WORD *)v31 + 6);
+      HIWORD(v25) = *((_WORD *)v31 + 6);
+      v26 = 0;
+      v27 = (char *)v31 + 16;
+      if ( (unsigned __int16)v25 != *((_DWORD *)v31 + 3) )
+      {
+        v21 = WdLogNewEntry5_WdAssertion((unsigned __int16)v25, v10);
+        WdLogEvent5_WdAssertion(v21);
+      }
+      TopologySetIdDescriptorCallback = (int)CcdOpenRegistrySubkey_0(
+                                               (int)&Handle,
+                                               983103,
+                                               (int)KeyHandle,
+                                               (int)&v25,
+                                               0LL);
+      operator delete[](v12);
       if ( (int)TopologySetIdDescriptorCallback < 0 )
       {
-        WdLogSingleEntry5(
-          3LL,
-          TopologySetIdDescriptorCallback,
-          i,
-          L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\",
-          CCD_RECENT_TOPOLOGY_RETRIEVER::_FindTopologySetIdDescriptorCallback,
-          a3);
+        v23 = (_QWORD *)WdLogNewEntry5_WdWarning(v14, v13, v15);
+        v23[4] = i;
+        v23[6] = CCD_RECENT_TOPOLOGY_RETRIEVER::_FindTopologySetIdDescriptorCallback;
+        v23[3] = TopologySetIdDescriptorCallback;
+        v23[5] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\";
+        v23[7] = a3;
+        WdLogEvent5_WdWarning(v23);
         goto LABEL_11;
       }
       CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::TOPOLOGY_SET_DESCRIPTOR(
-        (CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *)v25,
-        KeyHandle,
+        (CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *)v28,
+        Handle,
         0LL);
       TopologySetIdDescriptorCallback = (int)CCD_RECENT_TOPOLOGY_RETRIEVER::_FindTopologySetIdDescriptorCallback(
-                                               (struct CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *)v25,
+                                               (struct CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *)v28,
                                                a3);
-      ZwClose(KeyHandle);
+      ZwClose(Handle);
       if ( (int)TopologySetIdDescriptorCallback < 0 )
       {
-        v19 = (_QWORD *)WdLogNewEntry5_WdTrace(v14, v13, v15, v16);
-        v19[4] = i;
-        v19[6] = CCD_RECENT_TOPOLOGY_RETRIEVER::_FindTopologySetIdDescriptorCallback;
-        v19[3] = TopologySetIdDescriptorCallback;
-        v19[5] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\";
-        v19[7] = a3;
-        CCD_SET_STRING_ID::_Cleanup((CCD_SET_STRING_ID *)v25);
+        v22 = (_QWORD *)WdLogNewEntry5_WdTrace(v17, v16);
+        v22[4] = i;
+        v22[6] = CCD_RECENT_TOPOLOGY_RETRIEVER::_FindTopologySetIdDescriptorCallback;
+        v22[3] = TopologySetIdDescriptorCallback;
+        v22[5] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\";
+        v22[7] = a3;
+        CCD_SET_STRING_ID::_Cleanup((CCD_SET_STRING_ID *)v28);
         goto LABEL_11;
       }
-      CCD_SET_STRING_ID::_Cleanup((CCD_SET_STRING_ID *)v25);
+      CCD_SET_STRING_ID::_Cleanup((CCD_SET_STRING_ID *)v28);
     }
-    v20 = (_QWORD *)WdLogNewEntry5_WdTrace(v9, v8, v10, v11);
-    v20[4] = i;
-    v20[6] = CCD_RECENT_TOPOLOGY_RETRIEVER::_FindTopologySetIdDescriptorCallback;
-    v20[3] = TopologySetIdDescriptorCallback;
-    v20[5] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\";
-    v20[7] = a3;
+    v24 = (_QWORD *)WdLogNewEntry5_WdTrace(v11, v10);
+    v24[4] = i;
+    v24[6] = CCD_RECENT_TOPOLOGY_RETRIEVER::_FindTopologySetIdDescriptorCallback;
+    v24[3] = TopologySetIdDescriptorCallback;
+    v24[5] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\Configuration\\";
+    v24[7] = a3;
 LABEL_11:
-    ZwClose(Handle);
+    ZwClose(KeyHandle);
   }
   return (unsigned int)TopologySetIdDescriptorCallback;
 }

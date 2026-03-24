@@ -1,64 +1,90 @@
 /*
- * XREFs of KeSetForceIdle @ 0x14057CD24
+ * XREFs of KeSetForceIdle @ 0x140522EE8
  * Callers:
- *     PopDeepSleepClearDisengageReason @ 0x14028E63C (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14034A5E0 (PopDeepSleepClearDisengageReason.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetForceIdleState @ 0x14057D324 (KiSetForceIdleState.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x1405236E0 (KiSetForceIdleState.c)
  */
 
-void KeSetForceIdle()
+void __fastcall KeSetForceIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int v0; // edi
-  __int64 v1; // rbx
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  signed __int32 v4; // eax
-  signed __int32 v5; // ett
-  int v6; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v7; // [rsp+38h] [rbp+10h] BYREF
+  struct _KPRCB *CurrentPrcb; // rbx
+  _DWORD *SchedulerAssist; // rcx
+  int v6; // eax
+  _DWORD *v7; // rcx
+  int v8; // eax
+  int v9; // edi
+  __int64 v10; // rbx
+  struct _KPRCB *v11; // rcx
+  _DWORD *v12; // rdx
+  int v13; // eax
+  int v14; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER v15; // [rsp+38h] [rbp+10h] BYREF
 
-  v7.QuadPart = 0LL;
+  v15.QuadPart = 0LL;
   _disable();
-  v6 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
+  CurrentPrcb = KeGetCurrentPrcb();
+  v14 = 0;
+  while ( 1 )
   {
+    SchedulerAssist = CurrentPrcb->SchedulerAssist;
+    if ( SchedulerAssist )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v6 = SchedulerAssist[6];
+        SchedulerAssist[6] = v6 + 1;
+        if ( v6 == -1 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+    if ( !_interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
+      break;
+    v7 = CurrentPrcb->SchedulerAssist;
+    if ( v7 )
+    {
+      if ( CurrentPrcb->NestingLevel <= 1u )
+      {
+        v8 = v7[6] - 1;
+        v7[6] = v8;
+        if ( !v8 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
     do
-      KeYieldProcessorEx(&v6);
+      KeYieldProcessorEx(&v14, a2, a3, a4);
     while ( KiForceIdleLock );
   }
   if ( !KiForceIdleDisabled )
   {
-    v0 = KiForceIdleState;
-    v1 = RtlGetInterruptTimePrecise(&v7) + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
-    if ( !v0 )
+    v9 = KiForceIdleState;
+    v10 = RtlGetInterruptTimePrecise(&v15) + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
+    if ( !v9 )
     {
       KiSetForceIdleState(2LL);
-LABEL_10:
-      KiForceIdleStartTime = v1;
-      goto LABEL_11;
+LABEL_18:
+      KiForceIdleStartTime = v10;
+      goto LABEL_19;
     }
-    if ( v0 == 3 )
-      goto LABEL_10;
+    if ( v9 == 3 )
+      goto LABEL_18;
   }
-LABEL_11:
+LABEL_19:
   _InterlockedAnd64(&KiForceIdleLock, 0LL);
-  CurrentPrcb = KeGetCurrentPrcb();
-  SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-  if ( SchedulerAssist )
+  v11 = KeGetCurrentPrcb();
+  v12 = v11->SchedulerAssist;
+  if ( v12 )
   {
-    _m_prefetchw(SchedulerAssist);
-    v4 = *SchedulerAssist;
-    do
+    if ( v11->NestingLevel <= 1u )
     {
-      v5 = v4;
-      v4 = _InterlockedCompareExchange(SchedulerAssist, v4 & 0xFFDFFFFF, v4);
+      v13 = v12[6] - 1;
+      v12[6] = v13;
+      if ( !v13 )
+        KiRemoveSystemWorkPriorityKick((__int64)v11);
     }
-    while ( v5 != v4 );
-    if ( (v4 & 0x200000) != 0 )
-      KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
   }
   _enable();
 }

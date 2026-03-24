@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmParkMaximumCoresParked @ 0x140248DB8
+ * XREFs of PpmParkMaximumCoresParked @ 0x1402AE42C
  * Callers:
- *     PpmCheckMakeupSkippedChecks @ 0x140293320 (PpmCheckMakeupSkippedChecks.c)
+ *     PpmCheckMakeupSkippedChecks @ 0x1402AE280 (PpmCheckMakeupSkippedChecks.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ char PpmParkMaximumCoresParked()
   for ( i = 0; i < (unsigned int)PpmParkNumNodes; ++i )
   {
     v2 = 0;
-    v3 = (_BYTE *)(PpmParkNodes + 336LL * i + 130);
+    v3 = (_BYTE *)(PpmParkNodes + 272LL * i + 130);
     while ( v3[13] <= *v3 )
     {
       ++v2;

@@ -1,169 +1,179 @@
 /*
- * XREFs of NtUserGetClipboardData @ 0x1C01D0350
+ * XREFs of NtUserGetClipboardData @ 0x1C002CAD0
  * Callers:
  *     <none>
  * Callees:
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C00114AC (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@@-$.c)
- *     UserGetLastError @ 0x1C00164F8 (UserGetLastError.c)
- *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0018758 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
- *     _tlgKeywordOn @ 0x1C0041D94 (_tlgKeywordOn.c)
- *     ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C005FAE4 (-InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     Feature_ReadClipboardEvent__private_ReportDeviceUsage @ 0x1C013C564 (Feature_ReadClipboardEvent__private_ReportDeviceUsage.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01CBB98 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@@-$_tlgWriteTemplate@$$A6AJP.c)
- *     xxxGetClipboardData @ 0x1C01FDE64 (xxxGetClipboardData.c)
+ *     xxxGetClipboardData @ 0x1C002D328 (xxxGetClipboardData.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0030448 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C003DBBC (-InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
+ *     UserGetLastError @ 0x1C012CCF8 (UserGetLastError.c)
+ *     Feature_ReadClipboardEvent__private_IsEnabledDeviceUsage @ 0x1C0168E54 (Feature_ReadClipboardEvent__private_IsEnabledDeviceUsage.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01F54C8 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@@-$_tlgWriteTemplate@$$A6AJP.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01F55C0 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@@-$.c)
  */
 
 __int64 __fastcall NtUserGetClipboardData(unsigned int a1, _OWORD *a2)
 {
-  const char *v4; // rdi
-  __int64 v5; // rdx
+  char v4; // di
+  __int64 v5; // rsi
   __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  struct tagWINDOWSTATION *v9; // r14
-  const char *v10; // rbx
+  int v7; // r8d
+  struct tagWINDOWSTATION *v8; // r15
   __int64 ClipboardData; // rbx
-  int v12; // eax
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  unsigned int ThreadProcessId; // r13d
-  __int64 v19; // rbx
-  __int64 v20; // rbx
-  int LastError; // eax
+  int v11; // eax
+  int v12; // r8d
+  __int64 v14; // rcx
+  int v15; // r8d
+  __int64 v17; // rbx
+  __int64 v18; // rbx
+  int v19; // r8d
+  signed int LastError; // eax
   int v22; // eax
   bool v23; // sf
-  int v24; // eax
+  signed int v24; // eax
   __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  const char *v29; // [rsp+40h] [rbp-98h] BYREF
-  __int64 v30; // [rsp+48h] [rbp-90h] BYREF
-  const char *v31; // [rsp+50h] [rbp-88h] BYREF
-  __int64 v32; // [rsp+70h] [rbp-68h] BYREF
-  __int128 v33; // [rsp+78h] [rbp-60h] BYREF
-  __int128 v34; // [rsp+88h] [rbp-50h] BYREF
-  __int64 v35; // [rsp+98h] [rbp-40h]
-  const unsigned __int16 *TimeQuadPart; // [rsp+F0h] [rbp+18h] BYREF
-  const char *v37; // [rsp+F8h] [rbp+20h] BYREF
+  _DWORD v27[2]; // [rsp+40h] [rbp-168h] BYREF
+  _DWORD v28[4]; // [rsp+48h] [rbp-160h] BYREF
+  _DWORD v29[2]; // [rsp+60h] [rbp-148h] BYREF
+  _QWORD v30[2]; // [rsp+68h] [rbp-140h] BYREF
+  LONGLONG v31[2]; // [rsp+78h] [rbp-130h] BYREF
+  __int64 v32; // [rsp+88h] [rbp-120h] BYREF
+  const char *v33; // [rsp+90h] [rbp-118h] BYREF
+  _QWORD v34[3]; // [rsp+98h] [rbp-110h] BYREF
+  __int64 v35; // [rsp+B0h] [rbp-F8h] BYREF
+  const char *v36; // [rsp+B8h] [rbp-F0h] BYREF
+  _QWORD v37[3]; // [rsp+C0h] [rbp-E8h] BYREF
+  __int64 v38; // [rsp+D8h] [rbp-D0h] BYREF
+  const char *v39; // [rsp+E0h] [rbp-C8h] BYREF
+  _QWORD v40[3]; // [rsp+E8h] [rbp-C0h] BYREF
+  __int64 v41; // [rsp+128h] [rbp-80h] BYREF
+  const char *v42; // [rsp+130h] [rbp-78h] BYREF
+  _QWORD v43[3]; // [rsp+138h] [rbp-70h] BYREF
+  __int128 v44; // [rsp+150h] [rbp-58h]
+  __int128 v45; // [rsp+160h] [rbp-48h] BYREF
+  __int64 v46; // [rsp+170h] [rbp-38h]
+  HANDLE ThreadProcessId; // [rsp+1C0h] [rbp+18h] BYREF
+  int v48; // [rsp+1C8h] [rbp+20h]
 
-  v34 = 0LL;
-  v35 = 0LL;
-  v33 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v4 = (const char *)(*(_QWORD *)(gptiCurrent + 424LL) + 1000LL);
-  v30 = (__int64)v4;
-  v9 = CheckClipboardAccess();
-  if ( !v9 )
+  v45 = 0LL;
+  v46 = 0LL;
+  v44 = 0LL;
+  v4 = 1;
+  EnterCrit(0LL, 1LL);
+  v5 = *(_QWORD *)(gptiCurrent + 424LL) + 992LL;
+  v30[1] = v5;
+  v8 = CheckClipboardAccess();
+  if ( !v8 )
   {
-    if ( (unsigned int)dword_1C0354060 > 5 && tlgKeywordOn((__int64)&dword_1C0354060, 0x400000000000LL) )
+    if ( (unsigned int)dword_1C032A240 > 5
+      && (qword_1C032A250 & 0x400000000000LL) != 0
+      && (qword_1C032A258 & 0x400000000000LL) == qword_1C032A258 )
     {
-      v37 = v4;
-      LODWORD(TimeQuadPart) = -2147024891;
-      v10 = "AccessDenied";
-      v30 = (__int64)"AccessDenied";
-      v29 = (const char *)1;
+      v32 = v5;
+      LODWORD(ThreadProcessId) = -2147024891;
+      v33 = "AccessDenied";
+      v34[0] = 1LL;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
         v6,
-        byte_1C031BCEF,
+        (unsigned int)&unk_1C02F1B41,
         v7,
-        (__int64)&v29,
-        (void **)&v30,
-        (__int64)&TimeQuadPart,
-        (const unsigned __int16 **)&v37);
+        (unsigned int)v34,
+        (__int64)&v33,
+        (__int64)&ThreadProcessId,
+        (__int64)&v32);
     }
-    else
-    {
-      v10 = "AccessDenied";
-    }
-    if ( (unsigned int)dword_1C0354098 <= 5 || !tlgKeywordOn((__int64)&dword_1C0354098, 1LL) )
-      goto LABEL_9;
-    goto LABEL_8;
-  }
-  if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x20000000) != 0 )
-    v12 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 760LL) + 24LL) & 2;
-  else
-    v12 = 0;
-  if ( v12 )
-  {
-    UserSetLastError(5);
-    if ( (unsigned int)dword_1C0354060 > 5 && tlgKeywordOn((__int64)&dword_1C0354060, 0x400000000000LL) )
-    {
-      v37 = v4;
-      LODWORD(TimeQuadPart) = -2147024891;
-      v10 = "RestrictedThread";
-      v29 = "RestrictedThread";
-      v30 = 1LL;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
-        v6,
-        byte_1C031BCEF,
-        v7,
-        (__int64)&v30,
-        (void **)&v29,
-        (__int64)&TimeQuadPart,
-        (const unsigned __int16 **)&v37);
-    }
-    else
-    {
-      v10 = "RestrictedThread";
-    }
-    if ( (unsigned int)dword_1C0354098 <= 5 || !tlgKeywordOn((__int64)&dword_1C0354098, 1LL) )
-      goto LABEL_9;
-LABEL_8:
-    v29 = v10;
-    LODWORD(TimeQuadPart) = -2147024891;
-    v37 = v4;
+    if ( (unsigned int)dword_1C032A3D8 <= 5 )
+      goto LABEL_16;
+    if ( (qword_1C032A3E8 & 1) == 0 || (qword_1C032A3F0 & 1) != qword_1C032A3F0 )
+      v4 = 0;
+    if ( !v4 )
+      goto LABEL_16;
+    v34[1] = v5;
+    v48 = -2147024891;
+    v34[2] = "AccessDenied";
+LABEL_15:
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
       v6,
-      byte_1C031BD3B,
-      v7,
-      v8,
-      (void **)&v29,
-      (__int64)&TimeQuadPart,
-      (const unsigned __int16 **)&v37);
-LABEL_9:
+      &unk_1C02F1B01);
+LABEL_16:
     ClipboardData = 0LL;
-    goto LABEL_54;
+    goto LABEL_83;
   }
-  if ( !*(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 892LL)
+  if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x20000000) != 0 )
+    v11 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 768LL) + 24LL) & 2;
+  else
+    v11 = 0;
+  if ( v11 )
+  {
+    UserSetLastError(5LL);
+    if ( (unsigned int)dword_1C032A240 > 5
+      && (qword_1C032A250 & 0x400000000000LL) != 0
+      && (qword_1C032A258 & 0x400000000000LL) == qword_1C032A258 )
+    {
+      v35 = v5;
+      v27[0] = -2147024891;
+      v36 = "RestrictedThread";
+      v37[0] = 1LL;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
+        v6,
+        (unsigned int)&unk_1C02F1B41,
+        v12,
+        (unsigned int)v37,
+        (__int64)&v36,
+        (__int64)v27,
+        (__int64)&v35);
+    }
+    if ( (unsigned int)dword_1C032A3D8 <= 5 )
+      goto LABEL_16;
+    if ( (qword_1C032A3E8 & 1) == 0 || (qword_1C032A3F0 & 1) != qword_1C032A3F0 )
+      v4 = 0;
+    if ( !v4 )
+      goto LABEL_16;
+    v37[1] = v5;
+    v27[1] = -2147024891;
+    v37[2] = "RestrictedThread";
+    goto LABEL_15;
+  }
+  if ( !*(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 884LL)
     || (unsigned int)InForegroundQueue(gptiCurrent, 1) && (a1 == 1 || a1 == 13) )
   {
-    PushW32ThreadLock((__int64)v9, &v34, UserDereferenceObject);
-    ObfReferenceObject(v9);
-    Feature_ReadClipboardEvent__private_ReportDeviceUsage();
-    ThreadProcessId = 0;
-    TimeQuadPart = 0LL;
-    v19 = *((_QWORD *)v9 + 14);
-    if ( v19 )
+    PushW32ThreadLock(v8, &v45, UserDereferenceObject);
+    ObfReferenceObject(v8);
+    if ( (unsigned int)Feature_ReadClipboardEvent__private_IsEnabledDeviceUsage() )
     {
-      v20 = *(_QWORD *)(v19 + 16);
-      ThreadProcessId = (unsigned int)PsGetThreadProcessId(*(PETHREAD *)v20);
-      TimeQuadPart = (const unsigned __int16 *)PsGetProcessCreateTimeQuadPart(**(PEPROCESS **)(v20 + 424));
+      LODWORD(ThreadProcessId) = 0;
+      v30[0] = 0LL;
+      v17 = *((_QWORD *)v8 + 14);
+      if ( v17 )
+      {
+        v18 = *(_QWORD *)(v17 + 16);
+        ThreadProcessId = PsGetThreadProcessId(*(PETHREAD *)v18);
+        v30[0] = PsGetProcessCreateTimeQuadPart(**(PEPROCESS **)(v18 + 424));
+      }
+      v31[0] = PsGetProcessCreateTimeQuadPart(**(PEPROCESS **)(gptiCurrent + 424LL));
+      EtwTraceUiAuditReadClipboard(
+        *(unsigned int *)(*(_QWORD *)(gptiCurrent + 424LL) + 56LL),
+        v31,
+        (unsigned int)ThreadProcessId,
+        v30,
+        *((_DWORD *)v8 + 36));
     }
-    v37 = (const char *)PsGetProcessCreateTimeQuadPart(**(PEPROCESS **)(gptiCurrent + 424LL));
-    EtwTraceUiAuditReadClipboard(
-      *(unsigned int *)(*(_QWORD *)(gptiCurrent + 424LL) + 56LL),
-      &v37,
-      ThreadProcessId,
-      &TimeQuadPart,
-      *((_DWORD *)v9 + 36));
-    LODWORD(v33) = a1;
-    ClipboardData = xxxGetClipboardData(v9, a1, (struct tagGETCLIPBDATA *)&v33);
+    LODWORD(v44) = a1;
+    ClipboardData = xxxGetClipboardData(v8, a1);
     if ( ClipboardData )
     {
       if ( (unsigned __int64)a2 >= MmUserProbeAddress )
         a2 = (_OWORD *)MmUserProbeAddress;
-      *a2 = v33;
+      *a2 = v44;
     }
-    PopAndFreeW32ThreadLock((__int64)&v34);
-    if ( (unsigned int)dword_1C0354060 > 5 && tlgKeywordOn((__int64)&dword_1C0354060, 0x400000000000LL) )
+    PopAndFreeW32ThreadLock(&v45);
+    if ( (unsigned int)dword_1C032A240 > 5
+      && (qword_1C032A250 & 0x400000000000LL) != 0
+      && (qword_1C032A258 & 0x400000000000LL) == qword_1C032A258 )
     {
-      TimeQuadPart = (const unsigned __int16 *)v4;
       if ( ClipboardData )
       {
         LastError = 0;
@@ -174,17 +184,18 @@ LABEL_9:
         if ( LastError > 0 )
           LastError = (unsigned __int16)LastError | 0x80070000;
       }
-      LODWORD(v37) = LastError;
-      v31 = "FunctionExit";
-      v32 = 1LL;
+      v41 = v5;
+      v29[0] = LastError;
+      v42 = "FunctionExit";
+      v43[0] = 1LL;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
         v6,
-        byte_1C031BCEF,
-        v7,
-        (__int64)&v32,
-        (void **)&v31,
-        (__int64)&v37,
-        &TimeQuadPart);
+        (unsigned int)&unk_1C02F1B41,
+        v19,
+        (unsigned int)v43,
+        (__int64)&v42,
+        (__int64)v29,
+        (__int64)&v41);
     }
     if ( !ClipboardData )
     {
@@ -192,60 +203,62 @@ LABEL_9:
       v23 = v22 < 0;
       if ( v22 > 0 )
         v23 = 1;
-      if ( v23 && (unsigned int)dword_1C0354098 > 5 && tlgKeywordOn((__int64)&dword_1C0354098, 1LL) )
+      if ( v23 && (unsigned int)dword_1C032A3D8 > 5 )
       {
-        TimeQuadPart = (const unsigned __int16 *)v4;
-        v24 = UserGetLastError();
-        if ( v24 > 0 )
-          v24 = (unsigned __int16)v24 | 0x80070000;
-        LODWORD(v30) = v24;
-        v37 = "FunctionExit";
-        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
-          v25,
-          byte_1C031BD3B,
-          v26,
-          v27,
-          (void **)&v37,
-          (__int64)&v30,
-          &TimeQuadPart);
+        if ( (qword_1C032A3E8 & 1) == 0 || (qword_1C032A3F0 & 1) != qword_1C032A3F0 )
+          v4 = 0;
+        if ( v4 )
+        {
+          v24 = UserGetLastError();
+          if ( v24 > 0 )
+            v24 = (unsigned __int16)v24 | 0x80070000;
+          v43[1] = v5;
+          v29[1] = v24;
+          v43[2] = "FunctionExit";
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
+            v25,
+            &unk_1C02F1B01);
+        }
       }
     }
   }
   else
   {
-    if ( (unsigned int)dword_1C0354060 > 5 && tlgKeywordOn((__int64)&dword_1C0354060, 0x400000000000LL) )
+    if ( (unsigned int)dword_1C032A240 > 5
+      && (qword_1C032A250 & 0x400000000000LL) != 0
+      && (qword_1C032A258 & 0x400000000000LL) == qword_1C032A258 )
     {
-      v37 = v4;
-      LODWORD(TimeQuadPart) = -2147024891;
-      v29 = "UnsupportedFormatForLowBoxApp";
-      v30 = 1LL;
+      v38 = v5;
+      v28[0] = -2147024891;
+      v39 = "UnsupportedFormatForLowBoxApp";
+      v40[0] = 1LL;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
-        v13,
-        byte_1C031BCEF,
         v14,
-        (__int64)&v30,
-        (void **)&v29,
-        (__int64)&TimeQuadPart,
-        (const unsigned __int16 **)&v37);
-    }
-    if ( (unsigned int)dword_1C0354098 > 5 && tlgKeywordOn((__int64)&dword_1C0354098, 1LL) )
-    {
-      v37 = v4;
-      LODWORD(TimeQuadPart) = -2147024891;
-      v29 = "UnsupportedFormatForLowBoxApp";
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
+        (unsigned int)&unk_1C02F1B41,
         v15,
-        byte_1C031BD3B,
-        v16,
-        v17,
-        (void **)&v29,
-        (__int64)&TimeQuadPart,
-        (const unsigned __int16 **)&v37);
+        (unsigned int)v40,
+        (__int64)&v39,
+        (__int64)v28,
+        (__int64)&v38);
+    }
+    if ( (unsigned int)dword_1C032A3D8 > 5 )
+    {
+      if ( (qword_1C032A3E8 & 1) == 0 || (qword_1C032A3F0 & 1) != qword_1C032A3F0 )
+        v4 = 0;
+      if ( v4 )
+      {
+        v40[1] = v5;
+        v28[1] = -2147024891;
+        v40[2] = "UnsupportedFormatForLowBoxApp";
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
+          v14,
+          &unk_1C02F1B01);
+      }
     }
     ClipboardData = 0LL;
-    UserSetLastError(5);
+    UserSetLastError(5LL);
   }
-LABEL_54:
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
+LABEL_83:
+  UserSessionSwitchLeaveCrit(v6);
   return ClipboardData;
 }

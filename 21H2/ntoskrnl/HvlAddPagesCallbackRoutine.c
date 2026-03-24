@@ -1,58 +1,39 @@
 /*
- * XREFs of HvlAddPagesCallbackRoutine @ 0x14054A4B0
+ * XREFs of HvlAddPagesCallbackRoutine @ 0x1404F87E0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpEndPageListIteration @ 0x14054D1E8 (HvlpEndPageListIteration.c)
- *     HvlpGetPageList @ 0x14054D2AC (HvlpGetPageList.c)
- *     HvlpInvokeGetPageListHypercall @ 0x14054D374 (HvlpInvokeGetPageListHypercall.c)
- *     HvlpSetupPageListIteration @ 0x14054D424 (HvlpSetupPageListIteration.c)
- *     IoIsPartialDumpRetry @ 0x1405529A8 (IoIsPartialDumpRetry.c)
+ *     HvlpGetPageList @ 0x1404FB668 (HvlpGetPageList.c)
+ *     HvlpStartPageListIteration @ 0x1404FB84C (HvlpStartPageListIteration.c)
  */
 
 void __fastcall HvlAddPagesCallbackRoutine(
-        __int64 Reason,
+        KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,
         _QWORD *ReasonSpecificData,
-        __int64 ReasonSpecificDataLength)
+        ULONG ReasonSpecificDataLength)
 {
-  __int64 v5; // rdx
-  __int64 v6; // rax
   int PageList; // eax
-  _QWORD v8[3]; // [rsp+20h] [rbp-18h] BYREF
-  unsigned int v9; // [rsp+50h] [rbp+18h] BYREF
+  _QWORD v6[3]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v7; // [rsp+50h] [rbp+18h] BYREF
 
   ReasonSpecificData[3] = 0LL;
   *((_DWORD *)ReasonSpecificData + 2) = 0;
-  v8[0] = 0LL;
-  v9 = 0;
-  if ( qword_140C48908 && (*((_DWORD *)qword_140C48908 + 1) & 1) != 0 && HvlpFallbackScratchPage )
+  v6[0] = 0LL;
+  v7 = 0;
+  if ( qword_140C47508 && (*((_DWORD *)qword_140C47508 + 1) & 1) != 0 && HvlpFallbackScratchPage )
   {
     if ( !*ReasonSpecificData )
     {
-      if ( (HvlpForceAllPages & 1) != 0
-        || *((_DWORD *)ReasonSpecificData + 3) == 131073
-        && !(unsigned __int8)IoIsPartialDumpRetry(Reason, Record, ReasonSpecificData, ReasonSpecificDataLength) )
-      {
-        HvlpAllPages = 1;
-        v5 = 0LL;
-      }
-      else
-      {
-        HvlpAllPages = 0;
-        v5 = 2LL;
-      }
       *ReasonSpecificData = &HvlpCrashdumpIterationState;
       LOBYTE(HvlpCrashdumpIterationState) = 1;
-      v6 = HvlpSetupPageListIteration(1LL, v5);
-      if ( v6 )
-        HvlpInvokeGetPageListHypercall(v6, 0LL);
+      HvlpStartPageListIteration(1LL);
     }
-    PageList = HvlpGetPageList(1LL, v8, &v9);
-    if ( v9 )
+    PageList = HvlpGetPageList(1LL, v6, &v7);
+    if ( v7 )
     {
-      ReasonSpecificData[3] = v9;
-      ReasonSpecificData[2] = v8[0];
+      ReasonSpecificData[3] = v7;
+      ReasonSpecificData[2] = v6[0];
       *((_DWORD *)ReasonSpecificData + 2) = 2;
     }
     if ( PageList == 261 )
@@ -61,7 +42,8 @@ void __fastcall HvlAddPagesCallbackRoutine(
     }
     else
     {
-      HvlpEndPageListIteration(1LL);
+      qword_140C47428 = 0LL;
+      HvlpIteratorCrashdump = 0;
       LOBYTE(HvlpCrashdumpIterationState) = 0;
       *ReasonSpecificData = 0LL;
     }

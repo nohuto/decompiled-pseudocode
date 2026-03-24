@@ -1,21 +1,21 @@
 /*
- * XREFs of CcRepinBcb @ 0x1403A89A0
+ * XREFs of CcRepinBcb @ 0x1404EA5C0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 void __stdcall CcRepinBcb(PVOID Bcb)
 {
-  __int64 v2; // rcx
+  struct _FAST_MUTEX *v2; // rcx
 
   if ( *(_WORD *)Bcb != 765 )
-    KeBugCheckEx(0x34u, 0x25FDuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  ExAcquireFastMutex((PFAST_MUTEX)(*((_QWORD *)Bcb + 22) + 288LL));
-  v2 = *((_QWORD *)Bcb + 22);
+    KeBugCheckEx(0x34u, 0x2073uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  ExAcquireFastMutex((PFAST_MUTEX)(*((_QWORD *)Bcb + 22) + 280LL));
+  v2 = (struct _FAST_MUTEX *)*((_QWORD *)Bcb + 22);
   ++*((_DWORD *)Bcb + 16);
-  ExReleaseFastMutex((PFAST_MUTEX)(v2 + 288));
+  KeReleaseGuardedMutex(v2 + 5);
 }

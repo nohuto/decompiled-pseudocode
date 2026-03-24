@@ -6,7 +6,7 @@
  * Callees:
  *     MiSplitBitmapPages @ 0x1400265A8 (MiSplitBitmapPages.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeZeroSinglePage @ 0x1401C08D0 (KeZeroSinglePage.c)
+ *     KeZeroSinglePage @ 0x1401C08F0 (KeZeroSinglePage.c)
  *     MxMarkActiveDriverBits @ 0x1409B8D60 (MxMarkActiveDriverBits.c)
  */
 

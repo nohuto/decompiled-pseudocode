@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Validate@CInputConfig@@SA_NAEBUINPUT_SPACE@@PEBUINPUT_SPACE_REGION@@K@Z @ 0x1C01E3E60
+ * XREFs of ?Validate@CInputConfig@@SA_NAEBUINPUT_SPACE@@PEBUINPUT_SPACE_REGION@@K@Z @ 0x1C01B3628
  * Callers:
- *     NtConfigureInputSpace @ 0x1C0153670 (NtConfigureInputSpace.c)
+ *     NtConfigureInputSpace @ 0x1C0128AA0 (NtConfigureInputSpace.c)
  * Callees:
  *     <none>
  */

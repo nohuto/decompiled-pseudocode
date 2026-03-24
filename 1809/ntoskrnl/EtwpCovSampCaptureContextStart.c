@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpCovSampCaptureContextStart @ 0x1408C3DA0
+ * XREFs of EtwpCovSampCaptureContextStart @ 0x1408C3D80
  * Callers:
- *     EtwpCoverageSamplerStart @ 0x1408C8B70 (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStart @ 0x1408C8B50 (EtwpCoverageSamplerStart.c)
  * Callees:
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A60 (KeQueryMaximumProcessorCountEx.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     KeSetBasePriorityThread @ 0x1400CD350 (KeSetBasePriorityThread.c)
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     ExSaAllocate @ 0x140167774 (ExSaAllocate.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     EtwpCovSampLookasideGrow @ 0x140316F9C (EtwpCovSampLookasideGrow.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     KeSetBasePriorityThread @ 0x1400CD370 (KeSetBasePriorityThread.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     ExSaAllocate @ 0x140167794 (ExSaAllocate.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     EtwpCovSampLookasideGrow @ 0x14031709C (EtwpCovSampLookasideGrow.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x1408C4364 (EtwpCovSampCaptureFreeLookasides.c)
- *     EtwpCovSampLookasideControlInitialize @ 0x1408C6BD0 (EtwpCovSampLookasideControlInitialize.c)
- *     EtwpCovSampLookasideInitialize @ 0x1408C6C64 (EtwpCovSampLookasideInitialize.c)
- *     EtwpCovSampStackHashTableAlloc @ 0x1408C79F8 (EtwpCovSampStackHashTableAlloc.c)
- *     EtwpCovSampStrideSamplerInitialize @ 0x1408C7A90 (EtwpCovSampStrideSamplerInitialize.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x1408C4344 (EtwpCovSampCaptureFreeLookasides.c)
+ *     EtwpCovSampLookasideControlInitialize @ 0x1408C6BB0 (EtwpCovSampLookasideControlInitialize.c)
+ *     EtwpCovSampLookasideInitialize @ 0x1408C6C44 (EtwpCovSampLookasideInitialize.c)
+ *     EtwpCovSampStackHashTableAlloc @ 0x1408C79D8 (EtwpCovSampStackHashTableAlloc.c)
+ *     EtwpCovSampStrideSamplerInitialize @ 0x1408C7A70 (EtwpCovSampStrideSamplerInitialize.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
@@ -46,11 +46,11 @@ __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
   HANDLE Handle; // [rsp+A0h] [rbp+18h] BYREF
   PVOID Object; // [rsp+A8h] [rbp+20h] BYREF
 
-  v1 = (PVOID *)qword_140409E28;
+  v1 = (PVOID *)qword_140409DE8;
   v2 = 0LL;
   Handle = 0LL;
   v4 = 0LL;
-  if ( !qword_140409E28 )
+  if ( !qword_140409DE8 )
   {
     PoolWithTag = (PVOID *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x3D0uLL, 0x56777445u);
     v1 = PoolWithTag;
@@ -66,7 +66,7 @@ __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
     KeInitializeDpc((PRKDPC)(v1 + 95), (PKDEFERRED_ROUTINE)EtwpCovSampCaptureQueueDpc, v1);
     KeInitializeDpc((PRKDPC)(v1 + 103), (PKDEFERRED_ROUTINE)EtwpCovSampCaptureCleanupDpc, v1);
     KeInitializeEvent((PRKEVENT)v1 + 37, NotificationEvent, 0);
-    qword_140409E28 = (__int64)v1;
+    qword_140409DE8 = (__int64)v1;
   }
   v7 = (__int64 **)(v1 + 72);
   v1[73] = v1 + 72;

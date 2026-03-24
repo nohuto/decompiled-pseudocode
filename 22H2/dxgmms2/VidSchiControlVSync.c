@@ -1,162 +1,184 @@
 /*
- * XREFs of VidSchiControlVSync @ 0x1C00AE7D0
+ * XREFs of VidSchiControlVSync @ 0x1C0079384
  * Callers:
- *     VidSchiControlVSyncThread @ 0x1C0012520 (VidSchiControlVSyncThread.c)
- *     VidSchSetMonitorPowerState @ 0x1C0013640 (VidSchSetMonitorPowerState.c)
- *     ?VidSchiControlIndependentVidPnVSyncThread@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C00356E0 (-VidSchiControlIndependentVidPnVSyncThread@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
- *     VidSchControlVSyncAdapter @ 0x1C0090EC0 (VidSchControlVSyncAdapter.c)
- *     VidSchIsVSyncEnabled @ 0x1C00AE9A0 (VidSchIsVSyncEnabled.c)
+ *     VidSchiControlVSyncThread @ 0x1C0002600 (VidSchiControlVSyncThread.c)
+ *     ?VidSchiControlIndependentVidPnVSyncThread@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C002A8E8 (-VidSchiControlIndependentVidPnVSyncThread@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
+ *     VidSchSetMonitorPowerState @ 0x1C00352B0 (VidSchSetMonitorPowerState.c)
+ *     VidSchIsVSyncEnabled @ 0x1C0079F70 (VidSchIsVSyncEnabled.c)
+ *     VidSchControlVSyncAdapter @ 0x1C0088620 (VidSchControlVSyncAdapter.c)
  * Callees:
- *     ?DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z @ 0x1C00126A0 (-DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z.c)
- *     VidSchiGetVSyncSuspended @ 0x1C00133A0 (VidSchiGetVSyncSuspended.c)
- *     VidSchiSetVSyncSuspended @ 0x1C00133BC (VidSchiSetVSyncSuspended.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C002E3CC (McTemplateK0p_EtwWriteTransfer.c)
+ *     ?DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z @ 0x1C0002730 (-DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z.c)
+ *     VidSchiSetVSyncSuspended @ 0x1C0002784 (VidSchiSetVSyncSuspended.c)
+ *     VidSchiGetVSyncSuspended @ 0x1C0002F54 (VidSchiGetVSyncSuspended.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0023F2C (McTemplateK0p_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall VidSchiControlVSync(__int64 a1, enum _DXGK_INTERRUPT_TYPE j, int a3, unsigned int a4)
+__int64 __fastcall VidSchiControlVSync(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
-  char v4; // r10
-  unsigned int v5; // edi
-  __int64 v6; // r14
-  char v8; // bp
-  int v10; // eax
+  unsigned int v4; // edi
+  __int64 v5; // rbp
+  int v6; // r15d
+  char v7; // si
+  char v9; // r9
+  bool v10; // al
   int v11; // eax
-  __int64 k; // rcx
+  __int64 j; // rcx
   __int64 v13; // r8
-  unsigned int v14; // esi
+  int v14; // r14d
   __int64 v15; // rcx
   __int64 v17; // r8
-  __int64 v18; // r9
+  __int64 v18; // rax
   unsigned int v19; // r8d
   unsigned int i; // edx
   __int64 v21; // rcx
   __int64 v22; // rax
-  unsigned int v23; // ecx
+  const EVENT_DESCRIPTOR *v23; // rdx
+  unsigned int v24; // ecx
 
-  v4 = *(_BYTE *)(a1 + 2212);
-  v5 = 0;
-  v6 = a4;
-  v8 = j;
-  if ( !v4 )
+  v4 = 0;
+  v5 = a4;
+  v6 = a3;
+  v7 = a2;
+  if ( a1 )
   {
-    if ( *(_BYTE *)(a1 + 1808) != ((_BYTE)j != 0) )
-      goto LABEL_3;
-    return 0;
-  }
-  if ( a4 == -3 )
-  {
-    v19 = *(_DWORD *)(a1 + 40);
-    j = 0;
-    if ( !v19 )
-      return 0;
-    while ( *(_BYTE *)((unsigned int)j + a1 + 1808) == (v8 != 0) )
+    v9 = *(_BYTE *)(a1 + 2132);
+    if ( v9 )
     {
-      if ( ++j >= v19 )
+      if ( (_DWORD)v5 == -3 )
+      {
+        v19 = *(_DWORD *)(a1 + 40);
+        LODWORD(a2) = 0;
+        if ( v19 )
+        {
+          while ( *(_BYTE *)((unsigned int)a2 + a1 + 1792) == (v7 != 0) )
+          {
+            LODWORD(a2) = a2 + 1;
+            if ( (unsigned int)a2 >= v19 )
+              return 0;
+          }
+LABEL_5:
+          if ( v7 )
+          {
+            if ( v9 )
+            {
+              if ( (_DWORD)v5 == -3 )
+              {
+                for ( i = 0; i < *(_DWORD *)(a1 + 40); ++i )
+                {
+                  v21 = i;
+                  _InterlockedExchange((volatile __int32 *)(a1 + 4 * v21 + 2192), 1);
+                }
+              }
+              else
+              {
+                _InterlockedExchange((volatile __int32 *)(a1 + 4 * v5 + 2192), 1);
+              }
+            }
+            else
+            {
+              _InterlockedExchange((volatile __int32 *)(a1 + 2192), 1);
+            }
+            LODWORD(a2) = 0;
+            if ( *(_DWORD *)(a1 + 40) )
+            {
+              do
+              {
+                v11 = *(_DWORD *)(a1 + 2128);
+                if ( _bittest(&v11, a2) )
+                {
+                  if ( VidSchiGetVSyncSuspended(a1, a2) )
+                    _InterlockedExchange((volatile __int32 *)(*(_QWORD *)(a1 + 8 * v17 + 3104) + 33232LL), 1);
+                  *(_QWORD *)(*(_QWORD *)(a1 + 8 * v17 + 3104) + 33240LL) = 0LL;
+                }
+                LODWORD(a2) = a2 + 1;
+              }
+              while ( (unsigned int)a2 < *(_DWORD *)(a1 + 40) );
+            }
+          }
+          v14 = DXGADAPTER::DdiControlInterrupt(*(DXGADAPTER **)(a1 + 16), (enum _DXGK_INTERRUPT_TYPE)a2);
+          if ( v14 == -1073741822 )
+            v14 = 0;
+          if ( v14 < 0 )
+            return (unsigned int)v14;
+          if ( *(_BYTE *)(a1 + 2132) )
+          {
+            if ( (_DWORD)v5 == -3 )
+            {
+              for ( j = 0LL; (unsigned int)j < *(_DWORD *)(a1 + 40); *(_BYTE *)(v22 + a1 + 1792) = v7 != 0 )
+              {
+                v22 = (unsigned int)j;
+                j = (unsigned int)(j + 1);
+              }
+            }
+            else
+            {
+              LOBYTE(j) = v7 != 0;
+              *(_BYTE *)(v5 + a1 + 1792) = v7 != 0;
+            }
+          }
+          else
+          {
+            *(_BYTE *)(a1 + 1792) = v7 != 0;
+          }
+          if ( bTracingEnabled )
+          {
+            if ( v7 )
+            {
+              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000) == 0 )
+                goto LABEL_27;
+              v23 = (const EVENT_DESCRIPTOR *)&EventEnableVSync;
+            }
+            else
+            {
+              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000) == 0 )
+                goto LABEL_19;
+              v23 = (const EVENT_DESCRIPTOR *)&EventDisableVSync;
+            }
+            McTemplateK0p_EtwWriteTransfer(j, v23, v13, *(_QWORD *)(a1 + 16));
+          }
+LABEL_27:
+          if ( v7 )
+          {
+            VidSchiSetVSyncSuspended(a1, v5, 0);
+            _InterlockedOr((volatile signed __int32 *)(a1 + 36), 0x10u);
+LABEL_21:
+            v15 = *(unsigned int *)(a1 + 6288);
+            *(_QWORD *)(a1 + 8 * v15 + 6296) = MEMORY[0xFFFFF78000000320];
+            *(_DWORD *)(a1 + 4 * v15 + 6328) = v6;
+            *(_DWORD *)(a1 + 6288) = ((unsigned __int8)*(_DWORD *)(a1 + 6288) + 1) & 3;
+            return (unsigned int)v14;
+          }
+LABEL_19:
+          if ( *(_BYTE *)(a1 + 2132) == 1 && (_DWORD)v5 != -3 && (v24 = *(_DWORD *)(a1 + 40)) != 0 )
+          {
+            while ( *(_BYTE *)(v4 + a1 + 1792) != 1 )
+            {
+              if ( ++v4 >= v24 )
+                goto LABEL_20;
+            }
+          }
+          else
+          {
+LABEL_20:
+            _InterlockedAnd((volatile signed __int32 *)(a1 + 36), 0xFFFFFFEF);
+          }
+          goto LABEL_21;
+        }
         return 0;
+      }
+      if ( *(_BYTE *)(v5 + a1 + 1792) == ((_BYTE)a2 != 0) )
+        return 0;
+      v10 = 0;
     }
-  }
-  else if ( *(_BYTE *)(a4 + a1 + 1808) == ((_BYTE)j != 0) )
-  {
+    else
+    {
+      v10 = *(_BYTE *)(a1 + 1792) == ((_BYTE)a2 != 0);
+    }
+    if ( !v10 )
+      goto LABEL_5;
     return 0;
   }
-LABEL_3:
-  if ( v8 )
-  {
-    if ( v4 )
-    {
-      if ( a4 == -3 )
-      {
-        for ( i = 0; i < *(_DWORD *)(a1 + 40); ++i )
-        {
-          v21 = i;
-          _InterlockedExchange((volatile __int32 *)(a1 + 4 * v21 + 2272), 1);
-        }
-      }
-      else
-      {
-        _InterlockedExchange((volatile __int32 *)(a1 + 4LL * a4 + 2272), 1);
-      }
-    }
-    else
-    {
-      _InterlockedExchange((volatile __int32 *)(a1 + 2272), 1);
-    }
-    for ( j = 0; (unsigned int)j < *(_DWORD *)(a1 + 40); ++j )
-    {
-      v10 = *(_DWORD *)(a1 + 2208);
-      if ( _bittest(&v10, j) )
-      {
-        if ( VidSchiGetVSyncSuspended(a1, j) )
-          _InterlockedExchange((volatile __int32 *)(*(_QWORD *)(a1 + 8 * v17 + 3200) + 44260LL), 1);
-        *(_QWORD *)(*(_QWORD *)(a1 + 8 * (v17 + v18)) + 44264LL) = 0LL;
-      }
-    }
-  }
-  v11 = DXGADAPTER::DdiControlInterrupt(*(DXGADAPTER **)(a1 + 16), j);
-  v14 = v11;
-  if ( v11 == -1073741822 )
-  {
-    v14 = 0;
-LABEL_11:
-    if ( *(_BYTE *)(a1 + 2212) )
-    {
-      if ( (_DWORD)v6 == -3 )
-      {
-        for ( k = 0LL; (unsigned int)k < *(_DWORD *)(a1 + 40); *(_BYTE *)(v22 + a1 + 1808) = v8 != 0 )
-        {
-          v22 = (unsigned int)k;
-          k = (unsigned int)(k + 1);
-        }
-      }
-      else
-      {
-        LOBYTE(k) = v8 != 0;
-        *(_BYTE *)(v6 + a1 + 1808) = v8 != 0;
-      }
-    }
-    else
-    {
-      *(_BYTE *)(a1 + 1808) = v8 != 0;
-    }
-    if ( bTracingEnabled )
-    {
-      if ( v8 )
-      {
-        if ( (byte_1C0076982 & 8) != 0 )
-          McTemplateK0p_EtwWriteTransfer(k, &EventEnableVSync, v13, *(_QWORD *)(a1 + 16));
-        goto LABEL_17;
-      }
-      if ( (byte_1C0076982 & 8) != 0 )
-        McTemplateK0p_EtwWriteTransfer(k, &EventDisableVSync, v13, *(_QWORD *)(a1 + 16));
-    }
-    else if ( v8 )
-    {
-LABEL_17:
-      VidSchiSetVSyncSuspended(a1, v6, 0);
-      _InterlockedOr((volatile signed __int32 *)(a1 + 36), 0x10u);
-LABEL_18:
-      v15 = *(unsigned int *)(a1 + 6416);
-      *(_QWORD *)(a1 + 8 * v15 + 6424) = MEMORY[0xFFFFF78000000320];
-      *(_DWORD *)(a1 + 4 * v15 + 6456) = a3;
-      *(_DWORD *)(a1 + 6416) = ((unsigned __int8)*(_DWORD *)(a1 + 6416) + 1) & 3;
-      return v14;
-    }
-    if ( *(_BYTE *)(a1 + 2212) == 1 && (_DWORD)v6 != -3 && (v23 = *(_DWORD *)(a1 + 40)) != 0 )
-    {
-      while ( *(_BYTE *)(v5 + a1 + 1808) != 1 )
-      {
-        if ( ++v5 >= v23 )
-          goto LABEL_26;
-      }
-    }
-    else
-    {
-LABEL_26:
-      _InterlockedAnd((volatile signed __int32 *)(a1 + 36), 0xFFFFFFEF);
-    }
-    goto LABEL_18;
-  }
-  if ( v11 >= 0 )
-    goto LABEL_11;
-  return v14;
+  v18 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+  WdLogEvent5_WdAssertion(v18);
+  return 0LL;
 }

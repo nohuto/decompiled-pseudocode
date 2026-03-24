@@ -1,5 +1,5 @@
 /*
- * XREFs of IsProcessForeground @ 0x1C01CEE30
+ * XREFs of IsProcessForeground @ 0x1C01D2A80
  * Callers:
  *     <none>
  * Callees:

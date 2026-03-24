@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_PsmResetCompletePollingTimer @ 0x1C002BD90
+ * XREFs of HUBMISC_PsmResetCompletePollingTimer @ 0x1C002B6B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBMISC_PsmResetCompletePollingTimer(__int64 a1)
@@ -15,6 +15,6 @@ __int64 __fastcall HUBMISC_PsmResetCompletePollingTimer(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v1,
-         off_1C0067330);
+         off_1C00662E8);
   return (*(__int64 (__fastcall **)(__int64, __int64))(v2 + 1240))(v2, 3004LL);
 }

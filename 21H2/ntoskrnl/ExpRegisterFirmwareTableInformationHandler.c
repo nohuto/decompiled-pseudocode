@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x14085B59C
+ * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x1407CB658
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpRegisterFirmwareTableInformationHandler(__int64 a1, unsigned int a2, char a3)
@@ -58,7 +58,7 @@ __int64 __fastcall ExpRegisterFirmwareTableInformationHandler(__int64 a1, unsign
         {
           *v14 = (__int64 *)v13;
           *(_QWORD *)(v13 + 8) = v14;
-          ObfDereferenceObject((PVOID)v6[2]);
+          HalPutDmaAdapter((PADAPTER_OBJECT)v6[2]);
           ExFreePoolWithTag(v6, 0x54465241u);
           goto LABEL_11;
         }
@@ -84,13 +84,13 @@ LABEL_7:
     PoolWithTag[3] = PoolWithTag + 3;
     PoolWithTag[2] = v9;
     ObfReferenceObject(v9);
-    v11 = (_QWORD *)qword_140C15BD8;
-    if ( *(__int64 **)qword_140C15BD8 != &ExpFirmwareTableProviderListHead )
+    v11 = (_QWORD *)qword_140C19818;
+    if ( *(__int64 **)qword_140C19818 != &ExpFirmwareTableProviderListHead )
       goto LABEL_21;
     *v10 = &ExpFirmwareTableProviderListHead;
     v10[1] = v11;
     *v11 = v10;
-    qword_140C15BD8 = (__int64)v10;
+    qword_140C19818 = (__int64)v10;
   }
   else
   {
@@ -98,6 +98,6 @@ LABEL_7:
   }
 LABEL_11:
   ExReleaseResourceLite(&ExpFirmwareTableResource);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v3;
 }

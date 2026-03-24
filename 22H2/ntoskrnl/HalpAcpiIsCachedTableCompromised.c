@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpAcpiIsCachedTableCompromised @ 0x140337078
+ * XREFs of HalpAcpiIsCachedTableCompromised @ 0x1402E79EC
  * Callers:
- *     HalpAcpiGetTableWork @ 0x140336ED0 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiGetTableWork @ 0x1402E7850 (HalpAcpiGetTableWork.c)
  * Callees:
- *     HalpAcpiGetTableFromBios @ 0x1403354A0 (HalpAcpiGetTableFromBios.c)
- *     MmUnmapIoSpace @ 0x140335B30 (MmUnmapIoSpace.c)
- *     HalpUnmapVirtualAddress @ 0x14037E7D0 (HalpUnmapVirtualAddress.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
+ *     HalpAcpiGetTableFromBios @ 0x1402E7B80 (HalpAcpiGetTableFromBios.c)
+ *     MmUnmapIoSpace @ 0x1402EA680 (MmUnmapIoSpace.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BB230 (HalpUnmapVirtualAddress.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
  */
 
 bool __fastcall HalpAcpiIsCachedTableCompromised(__int64 a1, int a2, char *a3, char *a4, void *Buf2)
 {
-  const char *v5; // r10
+  char *v5; // r10
   int v7; // eax
   bool v8; // bl
   unsigned int *TableFromBios; // rax
@@ -20,22 +20,21 @@ bool __fastcall HalpAcpiIsCachedTableCompromised(__int64 a1, int a2, char *a3, c
   __int64 v13; // [rsp+38h] [rbp-10h] BYREF
 
   v13 = 0LL;
-  v5 = "SLIC";
+  v5 = HalpAcpiVerifiedTable;
   LODWORD(NumberOfBytes) = 0;
   v7 = 0;
   v8 = 1;
-  while ( a2 != *(_DWORD *)v5 )
+  do
   {
+    if ( a2 == *(_DWORD *)v5 )
+      break;
     ++v7;
     v5 += 4;
-    if ( v7 )
-    {
-      if ( v7 == 1 )
-        return 0;
-      break;
-    }
   }
-  TableFromBios = HalpAcpiGetTableFromBios(a1, a2, a3, a4, &NumberOfBytes, &v13);
+  while ( !v7 );
+  if ( v7 == 1 )
+    return 0;
+  TableFromBios = (unsigned int *)HalpAcpiGetTableFromBios(a1, a2, a3, a4, (__int64)&NumberOfBytes, (__int64)&v13);
   v11 = TableFromBios;
   if ( TableFromBios )
   {

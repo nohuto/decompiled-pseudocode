@@ -3,9 +3,9 @@
  * Callers:
  *     MiCopyDataPageToImagePage @ 0x14002D340 (MiCopyDataPageToImagePage.c)
  *     MiDeleteClusterSection @ 0x140081F00 (MiDeleteClusterSection.c)
- *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B804 (MiTryLockLeafAndContainingPagesAtDpc.c)
- *     MiConvertStandbyToProto @ 0x14013EA30 (MiConvertStandbyToProto.c)
- *     MiMakeTransitionHeatBatch @ 0x1402CEB14 (MiMakeTransitionHeatBatch.c)
+ *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B824 (MiTryLockLeafAndContainingPagesAtDpc.c)
+ *     MiConvertStandbyToProto @ 0x14013EA50 (MiConvertStandbyToProto.c)
+ *     MiMakeTransitionHeatBatch @ 0x1402CEC14 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     MiInvalidPteConforms @ 0x140039720 (MiInvalidPteConforms.c)
  */

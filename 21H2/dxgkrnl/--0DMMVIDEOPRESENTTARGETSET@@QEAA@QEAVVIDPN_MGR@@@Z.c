@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0DMMVIDEOPRESENTTARGETSET@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00284D4
+ * XREFs of ??0DMMVIDEOPRESENTTARGETSET@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0022BC4
  * Callers:
- *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C0211BD0 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
+ *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C0193CC0 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
  * Callees:
- *     ?SetAggregator@?$AggregatedBy@VVIDPN_MGR@@@@QEAAXPEAVVIDPN_MGR@@@Z @ 0x1C001DC80 (-SetAggregator@-$AggregatedBy@VVIDPN_MGR@@@@QEAAXPEAVVIDPN_MGR@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?SetAggregator@?$AggregatedBy@VVIDPN_MGR@@@@QEAAXPEAVVIDPN_MGR@@@Z @ 0x1C00197B8 (-SetAggregator@-$AggregatedBy@VVIDPN_MGR@@@@QEAAXPEAVVIDPN_MGR@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 DMMVIDEOPRESENTTARGETSET *__fastcall DMMVIDEOPRESENTTARGETSET::DMMVIDEOPRESENTTARGETSET(
@@ -13,8 +13,6 @@ DMMVIDEOPRESENTTARGETSET *__fastcall DMMVIDEOPRESENTTARGETSET::DMMVIDEOPRESENTTA
 {
   unsigned __int8 (__fastcall ***v2)(_QWORD); // rbx
   _QWORD *v4; // rcx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
 
   v2 = (unsigned __int8 (__fastcall ***)(_QWORD))((char *)this + 8);
   *((_DWORD *)this + 4) = 0;
@@ -24,20 +22,20 @@ DMMVIDEOPRESENTTARGETSET *__fastcall DMMVIDEOPRESENTTARGETSET::DMMVIDEOPRESENTTA
   *((_QWORD *)this + 3) = (char *)this + 24;
   *((_DWORD *)this + 12) = 2;
   *((_DWORD *)this + 14) = 0;
-  *(_QWORD *)this = &IndexedSet<DMMVIDEOPRESENTTARGET>::`vftable';
   *((_QWORD *)this + 11) = 0LL;
+  *(_QWORD *)this = &IndexedSet<DMMVIDEOPRESENTTARGET>::`vftable';
   *((_QWORD *)this + 8) = &ReferenceCounted::`vftable';
+  *(_QWORD *)this = &DMMVIDEOPRESENTTARGETSET::`vftable'{for `IndexedSet<DMMVIDEOPRESENTTARGET>'};
+  *((_QWORD *)this + 8) = &DMMVIDEOPRESENTTARGETSET::`vftable'{for `ReferenceCounted'};
   *((_DWORD *)this + 18) = 1;
   v4 = (_QWORD *)((char *)this + 80);
   *((_DWORD *)this + 26) = 1833172994;
-  *(_QWORD *)this = &DMMVIDEOPRESENTTARGETSET::`vftable'{for `IndexedSet<DMMVIDEOPRESENTTARGET>'};
-  *((_QWORD *)this + 8) = &DMMVIDEOPRESENTTARGETSET::`vftable'{for `ReferenceCounted'};
   *v4 = &DMMVIDEOPRESENTTARGETSET::`vftable'{for `AggregatedBy<VIDPN_MGR>'};
   *((_QWORD *)this + 12) = &DMMVIDEOPRESENTTARGETSET::`vftable'{for `SignedWithClassSignature<DMMVIDEOPRESENTTARGETSET>'};
   AggregatedBy<VIDPN_MGR>::SetAggregator((__int64)v4, (__int64)a2);
   *((_QWORD *)this + 15) = (char *)this + 112;
   *((_QWORD *)this + 14) = (char *)this + 112;
   if ( !(**v2)(v2) )
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v6, v5) + 24) = *((int *)this + 4);
+    *(_QWORD *)(WdLogNewEntry5_WdTrace() + 24) = *((int *)this + 4);
   return this;
 }

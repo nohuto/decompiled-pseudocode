@@ -1,22 +1,22 @@
 /*
- * XREFs of SepValidateReferencedCachedHandles @ 0x14065D67C
+ * XREFs of SepValidateReferencedCachedHandles @ 0x14065D65C
  * Callers:
- *     SepSetTokenCachedHandles @ 0x14065BDBC (SepSetTokenCachedHandles.c)
+ *     SepSetTokenCachedHandles @ 0x14065BD9C (SepSetTokenCachedHandles.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
- *     RtlGetCurrentServiceSessionId @ 0x14016CAE0 (RtlGetCurrentServiceSessionId.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
+ *     RtlGetCurrentServiceSessionId @ 0x14016CB00 (RtlGetCurrentServiceSessionId.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     RtlGetAppContainerSidType @ 0x140654B80 (RtlGetAppContainerSidType.c)
- *     RtlConvertSidToUnicodeString @ 0x14065A6D0 (RtlConvertSidToUnicodeString.c)
- *     SepQueryNameString @ 0x14065DBB4 (SepQueryNameString.c)
+ *     RtlGetAppContainerSidType @ 0x140654B60 (RtlGetAppContainerSidType.c)
+ *     RtlConvertSidToUnicodeString @ 0x14065A6B0 (RtlConvertSidToUnicodeString.c)
+ *     SepQueryNameString @ 0x14065DB94 (SepQueryNameString.c)
  */
 
 __int64 __fastcall SepValidateReferencedCachedHandles(__int64 a1, char **a2, unsigned int a3, HANDLE *a4)

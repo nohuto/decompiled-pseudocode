@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetProcessorInformation @ 0x14039BE14
+ * XREFs of KiGetProcessorInformation @ 0x1403BB61C
  * Callers:
- *     KiIntersectFeaturesWithPolicy @ 0x140A90724 (KiIntersectFeaturesWithPolicy.c)
+ *     KiIntersectFeaturesWithPolicy @ 0x1409A07A0 (KiIntersectFeaturesWithPolicy.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiGetProcessorInformation(_DWORD *a1, _DWORD *a2, _DWORD *a3, _DWORD *a4)

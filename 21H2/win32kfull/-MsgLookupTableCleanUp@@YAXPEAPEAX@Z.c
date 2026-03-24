@@ -1,8 +1,8 @@
 /*
- * XREFs of ?MsgLookupTableCleanUp@@YAXPEAPEAX@Z @ 0x1C00FC66C
+ * XREFs of ?MsgLookupTableCleanUp@@YAXPEAPEAX@Z @ 0x1C010FBCC
  * Callers:
- *     FreeWindowMessageFilter @ 0x1C005FCD0 (FreeWindowMessageFilter.c)
- *     FreeProcessMessageFilter @ 0x1C00FC640 (FreeProcessMessageFilter.c)
+ *     FreeWindowMessageFilter @ 0x1C007C1F0 (FreeWindowMessageFilter.c)
+ *     FreeProcessMessageFilter @ 0x1C010FBA0 (FreeProcessMessageFilter.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ void __fastcall MsgLookupTableCleanUp(void **a1)
   void **v2; // rdi
   __int64 v3; // rbp
   void *v4; // rsi
-  _QWORD *v5; // r14
+  void **v5; // r14
   __int64 v6; // r15
 
   if ( a1 )
@@ -24,7 +24,7 @@ void __fastcall MsgLookupTableCleanUp(void **a1)
       v4 = *v2;
       if ( *v2 )
       {
-        v5 = *v2;
+        v5 = (void **)*v2;
         v6 = 16LL;
         do
         {

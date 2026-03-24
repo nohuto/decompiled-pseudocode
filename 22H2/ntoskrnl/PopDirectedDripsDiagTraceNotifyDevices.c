@@ -1,124 +1,200 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceNotifyDevices @ 0x1405A0924
+ * XREFs of PopDirectedDripsDiagTraceNotifyDevices @ 0x14057CB90
  * Callers:
- *     PopDirectedDripsResumeDevices @ 0x140983C74 (PopDirectedDripsResumeDevices.c)
- *     PopDirectedDripsSuspendDevices @ 0x140983EC4 (PopDirectedDripsSuspendDevices.c)
+ *     PopDirectedDripsResumeDevices @ 0x1408E38D0 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x1408E3AC8 (PopDirectedDripsSuspendDevices.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     IoDiagTraceDirectedDripsCandidateDevices @ 0x1408B45E8 (IoDiagTraceDirectedDripsCandidateDevices.c)
  */
 
 char __fastcall PopDirectedDripsDiagTraceNotifyDevices(unsigned __int8 a1, int a2, __int64 a3)
 {
-  _UNKNOWN **v3; // rax
-  int v4; // edi
-  _BYTE *v5; // rsi
+  $C459BD0D405E8E46662177FB3D0A143F *v3; // rax
+  int v4; // esi
+  _BYTE *v5; // rdi
   PVOID *v6; // rdx
   _BYTE *v7; // rcx
   __int64 v8; // rax
   __int64 v9; // r8
   char *v10; // r8
-  PVOID *v11; // r9
-  unsigned int v12; // r10d
-  unsigned __int64 v13; // r11
+  PVOID *v11; // r10
+  unsigned __int64 v12; // r9
+  unsigned int v13; // r11d
   signed __int64 v14; // rbx
-  REGHANDLE v15; // rbx
-  int v17; // [rsp+48h] [rbp-29h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-19h] BYREF
-  int *v19; // [rsp+68h] [rbp-9h]
-  int v20; // [rsp+70h] [rbp-1h]
-  int v21; // [rsp+74h] [rbp+3h]
-  int *v22; // [rsp+78h] [rbp+7h]
-  int v23; // [rsp+80h] [rbp+Fh]
-  int v24; // [rsp+84h] [rbp+13h]
-  __int64 *v25; // [rsp+88h] [rbp+17h]
-  int v26; // [rsp+90h] [rbp+1Fh]
-  int v27; // [rsp+94h] [rbp+23h]
-  _UNKNOWN *retaddr; // [rsp+D0h] [rbp+5Fh] BYREF
-  int v29; // [rsp+E0h] [rbp+6Fh] BYREF
-  __int64 v30; // [rsp+E8h] [rbp+77h] BYREF
+  struct _KTHREAD *CurrentThread; // rbx
+  unsigned int SessionId; // edx
+  unsigned __int8 v17; // r14
+  unsigned int v18; // r8d
+  unsigned __int64 v19; // rdi
+  bool v20; // zf
+  __int64 v21; // rcx
+  int v22; // eax
+  unsigned int v23; // ecx
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  REGHANDLE v26; // rbx
+  int v28; // [rsp+4Ch] [rbp-35h] BYREF
+  int v29; // [rsp+50h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-29h] BYREF
+  int *v31; // [rsp+68h] [rbp-19h]
+  __int64 v32; // [rsp+70h] [rbp-11h]
+  int *v33; // [rsp+78h] [rbp-9h]
+  __int64 v34; // [rsp+80h] [rbp-1h]
+  __int64 *v35; // [rsp+88h] [rbp+7h]
+  __int64 v36; // [rsp+90h] [rbp+Fh]
+  _UNKNOWN *retaddr; // [rsp+E0h] [rbp+5Fh] BYREF
+  int v38; // [rsp+F0h] [rbp+6Fh] BYREF
+  __int64 v39; // [rsp+F8h] [rbp+77h] BYREF
 
-  v3 = &retaddr;
-  v30 = a3;
-  v29 = a2;
+  v3 = ($C459BD0D405E8E46662177FB3D0A143F *)&retaddr;
+  v39 = a3;
+  v38 = a2;
   v4 = a1;
+  v29 = 0;
   if ( a2 >= 0 )
   {
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopDirectedDripsDiagLock, 0LL);
-    v5 = (_BYTE *)MEMORY[0xFFFFF78000000008];
-    v6 = (PVOID *)PopDirectedDripsDiagSessionContext;
-    if ( PopDirectedDripsDiagSessionContext != &PopDirectedDripsDiagSessionContext )
+    if ( a1 )
     {
-      do
-      {
-        if ( (_BYTE)v4 )
-        {
-          v7 = v6[6];
-          v8 = 7LL;
-          v6[6] = 0LL;
-          v9 = 10LL;
-        }
-        else
-        {
-          v7 = v6[15];
-          v8 = 16LL;
-          v6[15] = 0LL;
-          v9 = 19LL;
-        }
-        v10 = (char *)&v6[v9];
-        v11 = &v6[v8];
-        if ( *((_DWORD *)v6 + 9) == dword_140C390E8 && v7 && ((_DWORD)v6[5] & 0x100) == 0 )
-        {
-          v12 = 0;
-          v13 = v5 - v7;
-          v14 = (char *)PopFxAccountingBucketLimits - v10;
-          do
-          {
-            if ( v13 >= *(_QWORD *)&v10[v14] && v13 < PopFxAccountingBucketLimits[v12 + 1] )
-            {
-              ++*(_DWORD *)v11;
-              *(_QWORD *)v10 += v13;
-            }
-            ++v12;
-            v11 = (PVOID *)((char *)v11 + 4);
-            v10 += 8;
-          }
-          while ( v12 < 5 );
-          if ( (_BYTE)v4 )
-            v6[15] = v5;
-        }
-        v6 = (PVOID *)*v6;
-      }
-      while ( v6 != &PopDirectedDripsDiagSessionContext );
+      LOBYTE(v3) = IoDiagTraceDirectedDripsCandidateDevices();
+      a2 = v38;
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopDirectedDripsDiagLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&PopDirectedDripsDiagLock);
-    LOBYTE(v3) = KeAbPostRelease((ULONG_PTR)&PopDirectedDripsDiagLock);
+    if ( a2 >= 0 )
+    {
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopDirectedDripsDiagLock, 0LL);
+      v5 = (_BYTE *)MEMORY[0xFFFFF78000000008];
+      v6 = (PVOID *)PopDirectedDripsDiagSessionContext;
+      if ( PopDirectedDripsDiagSessionContext != &PopDirectedDripsDiagSessionContext )
+      {
+        do
+        {
+          if ( (_BYTE)v4 )
+          {
+            v7 = v6[6];
+            v8 = 7LL;
+            v6[6] = 0LL;
+            v9 = 10LL;
+          }
+          else
+          {
+            v7 = v6[15];
+            v8 = 16LL;
+            v6[15] = 0LL;
+            v9 = 19LL;
+          }
+          v10 = (char *)&v6[v9];
+          v11 = &v6[v8];
+          if ( *((_DWORD *)v6 + 9) == dword_140C1EBC8 && v7 && ((_DWORD)v6[5] & 0x100) == 0 )
+          {
+            v12 = v5 - v7;
+            v13 = 0;
+            v14 = (char *)PopFxAccountingBucketLimits - v10;
+            do
+            {
+              if ( v12 >= *(_QWORD *)&v10[v14] && v12 < PopFxAccountingBucketLimits[v13 + 1] )
+              {
+                ++*(_DWORD *)v11;
+                *(_QWORD *)v10 += v12;
+              }
+              ++v13;
+              v11 = (PVOID *)((char *)v11 + 4);
+              v10 += 8;
+            }
+            while ( v13 < 5 );
+            if ( (_BYTE)v4 )
+              v6[15] = v5;
+          }
+          v6 = (PVOID *)*v6;
+        }
+        while ( v6 != &PopDirectedDripsDiagSessionContext );
+      }
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopDirectedDripsDiagLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&PopDirectedDripsDiagLock);
+      CurrentThread = KeGetCurrentThread();
+      v28 = 0;
+      if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&PopDirectedDripsDiagLock) == 1 )
+        SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+      else
+        SessionId = -1;
+      --CurrentThread->SpecialApcDisable;
+      v17 = ++CurrentThread->AbAllocationRegionCount;
+      v18 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+      while ( 1 )
+      {
+        v20 = !_BitScanReverse((unsigned int *)&v21, v18);
+        if ( v20 )
+          goto LABEL_32;
+        v19 = (unsigned __int64)&CurrentThread->LockEntries[v21];
+        v18 &= ~(1 << v21);
+        if ( (*(_BYTE *)(v19 + 26) & 1) != 0
+          && (*(_DWORD *)(v19 + 32) & 1) == 0
+          && (*(_QWORD *)(v19 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&PopDirectedDripsDiagLock & 0x7FFFFFFFFFFFFFFCLL)
+          && *(_DWORD *)(v19 + 40) == SessionId )
+        {
+          *(_BYTE *)(v19 + 26) &= ~1u;
+          if ( *(_QWORD *)(v19 + 32) )
+            break;
+        }
+      }
+      if ( !v19 )
+      {
+LABEL_32:
+        if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
+          KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, (ULONG_PTR)&PopDirectedDripsDiagLock, SessionId, 0LL);
+        goto LABEL_39;
+      }
+      *(_BYTE *)(v19 + 32) |= 2u;
+      if ( *(__int64 *)(v19 + 32) < 0 )
+        KiAbEntryRemoveFromTree(v19);
+      v22 = *(_DWORD *)(v19 + 88) & 0x1FFFF;
+      v23 = *(_DWORD *)(v19 + 88) & 0xFFFE0000;
+      *(_BYTE *)(v19 + 25) &= ~1u;
+      v28 = v22;
+      *(_DWORD *)(v19 + 88) = v23;
+      *(_QWORD *)(v19 + 32) = 0LL;
+      v24 = (__int64)(v19 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+      if ( v17 == 1 )
+        CurrentThread->AbEntrySummary |= 1 << v24;
+      else
+        _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v24);
+LABEL_39:
+      --CurrentThread->AbAllocationRegionCount;
+      LOBYTE(v3) = KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, (__int64)&PopDirectedDripsDiagLock, &v28);
+      v20 = CurrentThread->SpecialApcDisable++ == -1;
+      if ( v20 )
+      {
+        v3 = &CurrentThread->152;
+        if ( ($C459BD0D405E8E46662177FB3D0A143F *)v3->ApcState.ApcListHead[0].Flink != v3 )
+          LOBYTE(v3) = KiCheckForKernelApcDelivery(v25);
+      }
+    }
   }
   if ( PopDiagHandleRegistered )
   {
-    v15 = PopDiagHandle;
+    v26 = PopDiagHandle;
     LOBYTE(v3) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_DRIPS_NOTIFY_DEVICES);
     if ( (_BYTE)v3 )
     {
-      UserData.Reserved = 0;
-      v21 = 0;
-      v24 = 0;
-      v27 = 0;
+      v29 = v4;
       UserData.Ptr = (ULONGLONG)&PopWnfCsEnterScenarioId;
-      v17 = v4;
-      v19 = &v17;
-      v22 = &v29;
-      v25 = &v30;
-      UserData.Size = 1;
-      v20 = 4;
-      v23 = 4;
-      v26 = 8;
-      LOBYTE(v3) = EtwWriteEx(v15, &POP_ETW_EVENT_DIRECTED_DRIPS_NOTIFY_DEVICES, 0LL, 0, 0LL, 0LL, 4u, &UserData);
+      *(_QWORD *)&UserData.Size = 1LL;
+      v31 = &v29;
+      v32 = 4LL;
+      v33 = &v38;
+      v34 = 4LL;
+      v35 = &v39;
+      v36 = 8LL;
+      LOBYTE(v3) = EtwWriteEx(v26, &POP_ETW_EVENT_DIRECTED_DRIPS_NOTIFY_DEVICES, 0LL, 0, 0LL, 0LL, 4u, &UserData);
     }
   }
   return (char)v3;

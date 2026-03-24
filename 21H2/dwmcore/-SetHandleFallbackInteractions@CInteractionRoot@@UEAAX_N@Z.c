@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetHandleFallbackInteractions@CInteractionRoot@@UEAAX_N@Z @ 0x1800F93C0
+ * XREFs of ?SetHandleFallbackInteractions@CInteractionRoot@@UEAAX_N@Z @ 0x1800E3460
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 void __fastcall CInteractionRoot::SetHandleFallbackInteractions(CInteractionRoot *this, char a2)
 {
-  *((_BYTE *)this + 1288) &= ~4u;
-  *((_BYTE *)this + 1288) |= 4 * a2;
+  *((_BYTE *)this + 1296) &= ~4u;
+  *((_BYTE *)this + 1296) |= 4 * a2;
 }

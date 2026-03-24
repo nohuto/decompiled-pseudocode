@@ -1,9 +1,9 @@
 /*
  * XREFs of SepCreateImpersonationTokenDacl @ 0x140630A44
  * Callers:
- *     NtOpenThreadTokenEx @ 0x1406488A0 (NtOpenThreadTokenEx.c)
+ *     NtOpenThreadTokenEx @ 0x140648880 (NtOpenThreadTokenEx.c)
  * Callees:
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCheckDueTimeExpired @ 0x140217FB0
+ * XREFs of KiCheckDueTimeExpired @ 0x140257A60
  * Callers:
- *     KiWaitForAllObjects @ 0x1402175B8 (KiWaitForAllObjects.c)
- *     KeWaitForAlertByThreadId @ 0x140217B04 (KeWaitForAlertByThreadId.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
+ *     KeWaitForAlertByThreadId @ 0x140257330 (KeWaitForAlertByThreadId.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     KiWaitForAllObjects @ 0x14029A090 (KiWaitForAllObjects.c)
  * Callees:
  *     <none>
  */

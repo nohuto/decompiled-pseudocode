@@ -1,5 +1,5 @@
 /*
- * XREFs of _CloseWindowStation @ 0x1C00BE670
+ * XREFs of _CloseWindowStation @ 0x1C00ABEE0
  * Callers:
  *     <none>
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of CheckShellExperienceComposerAccess @ 0x1C021276C
+ * XREFs of CheckShellExperienceComposerAccess @ 0x1C01D2F9C
  * Callers:
- *     NtDCompositionSetMaterialProperty @ 0x1C0057A50 (NtDCompositionSetMaterialProperty.c)
+ *     NtDCompositionSetMaterialProperty @ 0x1C009D310 (NtDCompositionSetMaterialProperty.c)
  * Callees:
  *     <none>
  */

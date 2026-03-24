@@ -1,80 +1,82 @@
 /*
- * XREFs of AuthzBasepDeleteSecurityAttributeValues @ 0x14064A300
+ * XREFs of AuthzBasepDeleteSecurityAttributeValues @ 0x1405C1294
  * Callers:
- *     AuthzBasepDeleteSecurityAttribute @ 0x1402053E4 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x140251080 (AuthzBasepDeleteSecurityAttribute.c)
  * Callees:
- *     AuthzBasepAddSecurityAttributeValueToLists @ 0x140204AE4 (AuthzBasepAddSecurityAttributeValueToLists.c)
- *     AuthzBasepFindSecurityAttributeValue @ 0x140205030 (AuthzBasepFindSecurityAttributeValue.c)
- *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x14064A5F8 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     AuthzBasepAddSecurityAttributeValueToLists @ 0x140250E90 (AuthzBasepAddSecurityAttributeValueToLists.c)
+ *     AuthzBasepFindSecurityAttributeValue @ 0x140250EDC (AuthzBasepFindSecurityAttributeValue.c)
+ *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x1402C9824 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepDeleteSecurityAttributeValues(__int64 a1, __int64 a2, _BYTE *a3)
 {
   __int16 v3; // ax
-  __int64 result; // rax
-  unsigned int i; // esi
-  unsigned __int16 v9; // r8
-  __int64 v10; // rdx
-  __int64 SecurityAttributeValue; // rax
-  _DWORD *v12; // rbp
-  int v13; // eax
-  unsigned int v14; // ecx
+  __int64 SecurityAttributeValue; // rsi
+  int v8; // edi
+  unsigned int i; // r14d
+  unsigned __int16 v10; // r8
+  __int64 v11; // rdx
+  int v12; // eax
+  unsigned int v13; // eax
 
   v3 = *(_WORD *)(a2 + 16);
+  SecurityAttributeValue = 0LL;
+  v8 = 0;
   *a3 = 0;
   if ( *(_WORD *)(a1 + 48) != v3 )
-    return 3221225485LL;
+    return (unsigned int)-1073741811;
   for ( i = 0; i < *(_DWORD *)(a2 + 24); ++i )
   {
-    v9 = *(_WORD *)(a1 + 48);
-    if ( !v9 )
-      return 3221225485LL;
-    if ( v9 <= 2u )
+    v10 = *(_WORD *)(a1 + 48);
+    if ( v10 )
     {
-LABEL_13:
-      v10 = *(_QWORD *)(*(_QWORD *)(a2 + 32) + 8LL * i);
-      goto LABEL_14;
-    }
-    if ( v9 != 3 )
-    {
-      if ( v9 == 4 )
+      if ( v10 <= 2u )
+        goto LABEL_13;
+      switch ( v10 )
       {
-        v10 = *(_QWORD *)(a2 + 32) + 24LL * i;
-        goto LABEL_14;
-      }
-      if ( v9 != 5 )
-      {
-        if ( v9 == 6 )
-          goto LABEL_13;
-        if ( v9 != 16 )
-          return 3221225485LL;
-      }
-    }
-    v10 = *(_QWORD *)(a2 + 32) + 16LL * i;
+        case 3u:
+LABEL_11:
+          v11 = *(_QWORD *)(a2 + 32) + 16LL * i;
 LABEL_14:
-    SecurityAttributeValue = AuthzBasepFindSecurityAttributeValue(a1, v10, v9);
-    v12 = (_DWORD *)SecurityAttributeValue;
+          SecurityAttributeValue = AuthzBasepFindSecurityAttributeValue(a1, v11, v10);
+          goto LABEL_16;
+        case 4u:
+          v11 = *(_QWORD *)(a2 + 32) + 24LL * i;
+          goto LABEL_14;
+        case 5u:
+          goto LABEL_11;
+        case 6u:
+LABEL_13:
+          v11 = *(_QWORD *)(*(_QWORD *)(a2 + 32) + 8LL * i);
+          goto LABEL_14;
+        case 0x10u:
+          goto LABEL_11;
+      }
+    }
+    v8 = -1073741811;
+LABEL_16:
+    if ( v8 < 0 )
+      return (unsigned int)v8;
     if ( !SecurityAttributeValue )
-      return 3221226021LL;
-    v13 = *(_DWORD *)(SecurityAttributeValue + 32);
-    if ( (v13 & 4) != 0 )
-      return 3221226021LL;
-    if ( (v13 & 1) != 0 )
+      return (unsigned int)-1073741275;
+    v12 = *(_DWORD *)(SecurityAttributeValue + 32);
+    if ( (v12 & 4) != 0 )
+      return (unsigned int)-1073741275;
+    if ( (v12 & 1) != 0 )
     {
-      v12[8] = v13 | 4;
-      AuthzBasepAddSecurityAttributeValueToLists(a1, (__int64)v12, 0, 1);
+      *(_DWORD *)(SecurityAttributeValue + 32) = v12 | 4;
+      AuthzBasepAddSecurityAttributeValueToLists(a1, SecurityAttributeValue, 0, 1);
       ++*(_DWORD *)(a1 + 64);
     }
     else
     {
-      AuthzBasepRemoveSecurityAttributeValueFromLists(a1, v12, 0LL);
-      ExFreePoolWithTag(v12, 0);
+      AuthzBasepRemoveSecurityAttributeValueFromLists((_DWORD *)a1, (__int64 *)SecurityAttributeValue, 0);
+      ExFreePoolWithTag((PVOID)SecurityAttributeValue, 0);
     }
   }
-  v14 = *(_DWORD *)(a1 + 60);
-  result = 0LL;
-  if ( v14 == *(_DWORD *)(a1 + 64) && *(_DWORD *)(a1 + 88) <= v14 )
+  v13 = *(_DWORD *)(a1 + 60);
+  if ( v13 == *(_DWORD *)(a1 + 64) && *(_DWORD *)(a1 + 88) <= v13 )
     *a3 = 1;
-  return result;
+  return (unsigned int)v8;
 }

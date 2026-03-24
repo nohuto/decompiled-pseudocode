@@ -1,28 +1,23 @@
 /*
- * XREFs of ?Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommunicationPartner@@@Z @ 0x1801E9EA0
+ * XREFs of ?Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommunicationPartner@@@Z @ 0x1801A4A64
  * Callers:
- *     ?Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDCompositionDirectInkSuperWetRenderer@@PEAUIDCompositionDirectInkCommunicationPartner@@PEAVCLegacySwapChain@@PEAPEAV1@@Z @ 0x1801E97E0 (-Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDComposit.c)
+ *     ?Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDCompositionDirectInkCommunicationPartner@@PEAPEAV1@@Z @ 0x1801A4570 (-Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDComposit.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?reset@?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800279B8 (-reset@-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@_E$1-CloseHandle@details@wil@@YAX0@ZU-$i.c)
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x18003DB7C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x180177F9C (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
- *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x180178750 (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
- *     ??1CPresentStats@CDummyRemotingSwapChain@@QEAA@XZ @ 0x180192330 (--1CPresentStats@CDummyRemotingSwapChain@@QEAA@XZ.c)
- *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180193D74 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??$_Emplace_reallocate@PEAVCComputeScribbleFramebuffer@@@?$vector@PEAVCComputeScribbleFramebuffer@@V?$allocator@PEAVCComputeScribbleFramebuffer@@@std@@@std@@QEAAPEAPEAVCComputeScribbleFramebuffer@@QEAPEAV2@$$QEAPEAV2@@Z @ 0x1801E8D6C (--$_Emplace_reallocate@PEAVCComputeScribbleFramebuffer@@@-$vector@PEAVCComputeScribbleFramebuffe.c)
- *     ??$_Resize@U_Value_init_tag@std@@@?$vector@UScribbleFrame@CComputeScribbleScheduler@@V?$allocator@UScribbleFrame@CComputeScribbleScheduler@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801E8F1C (--$_Resize@U_Value_init_tag@std@@@-$vector@UScribbleFrame@CComputeScribbleScheduler@@V-$allocato.c)
- *     ??1CComputeScribbleStopwatch@@QEAA@XZ @ 0x1801E9484 (--1CComputeScribbleStopwatch@@QEAA@XZ.c)
- *     ??4?$com_ptr_t@UIDCompositionDirectInkCommunicationPartner@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAUIDCompositionDirectInkCommunicationPartner@@@Z @ 0x1801E952C (--4-$com_ptr_t@UIDCompositionDirectInkCommunicationPartner@@Uerr_returncode_policy@wil@@@wil@@QE.c)
- *     CalculateDisplayBlankTime @ 0x1801E9594 (CalculateDisplayBlankTime.c)
- *     ?attach@?$com_ptr_t@UIDisplayDevice@Core@Display@Devices@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAAXPEAUIDisplayDevice@Core@Display@Devices@Windows@@@Z @ 0x1801EAE74 (-attach@-$com_ptr_t@UIDisplayDevice@Core@Display@Devices@Windows@@Uerr_returncode_policy@wil@@@w.c)
- *     ?attach@?$com_ptr_t@UIDisplayTarget@Core@Display@Devices@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAAXPEAUIDisplayTarget@Core@Display@Devices@Windows@@@Z @ 0x1801EAEAC (-attach@-$com_ptr_t@UIDisplayTarget@Core@Display@Devices@Windows@@Uerr_returncode_policy@wil@@@w.c)
- *     ?Create@CComputeScribbleStopwatch@@SAJPEAUID3D12CommandQueue@@PEAPEAV1@@Z @ 0x1801EC858 (-Create@CComputeScribbleStopwatch@@SAJPEAUID3D12CommandQueue@@PEAPEAV1@@Z.c)
- *     ?CreateDDisplayDeviceAndTarget@CDDisplayManager@@QEAAJPEAUIDXGIOutputDWM@@PEAPEAUIDisplayDevice@Core@Display@Devices@Windows@@PEAPEAUIDisplayTarget@4567@@Z @ 0x180283984 (-CreateDDisplayDeviceAndTarget@CDDisplayManager@@QEAAJPEAUIDXGIOutputDWM@@PEAPEAUIDisplayDevice@.c)
- *     ?EnsureComputeScribbleResources@CSwapChainBuffer@@QEAAJPEAVCLegacySwapChain@@@Z @ 0x18028BF70 (-EnsureComputeScribbleResources@CSwapChainBuffer@@QEAAJPEAVCLegacySwapChain@@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180030F44 (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800B04B8 (-reset@-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@Z$1-CloseHandle@details@wil@@YAX0@ZU-$in.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ??4?$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradientStop@@@Z @ 0x1800F0108 (--4-$com_ptr_t@VCColorGradientStop@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCColorGradi.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x18014D7FC (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
+ *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x18014E76C (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801852C4 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     CalculateDisplayBlankTime @ 0x1801A42C8 (CalculateDisplayBlankTime.c)
+ *     ?attach@?$com_ptr_t@UIDisplayTarget@Core@Display@Devices@Windows@@Uerr_returncode_policy@wil@@@wil@@QEAAXPEAUIDisplayTarget@Core@Display@Devices@Windows@@@Z @ 0x1801A5A38 (-attach@-$com_ptr_t@UIDisplayTarget@Core@Display@Devices@Windows@@Uerr_returncode_policy@wil@@@w.c)
+ *     ?Create@CComputeScribbleStopwatch@@SAJPEAUID3D12CommandQueue@@PEAPEAV1@@Z @ 0x1801AA208 (-Create@CComputeScribbleStopwatch@@SAJPEAUID3D12CommandQueue@@PEAPEAV1@@Z.c)
+ *     ?CreateDDisplayDeviceAndTarget@CDisplayManager@@QEAAJPEAUIDXGIOutputDWM@@PEAPEAUIDisplayDevice@Core@Display@Devices@Windows@@PEAPEAUIDisplayTarget@4567@@Z @ 0x1802383D4 (-CreateDDisplayDeviceAndTarget@CDisplayManager@@QEAAJPEAUIDXGIOutputDWM@@PEAPEAUIDisplayDevice@C.c)
  */
 
 __int64 __fastcall CComputeScribbleScheduler::Initialize(
@@ -35,242 +30,195 @@ __int64 __fastcall CComputeScribbleScheduler::Initialize(
   unsigned int LastError; // edi
   int LastErrorFailHr; // ebx
   __int64 v10; // rdx
-  __int64 v12; // rax
-  __int64 v13; // rcx
-  double v14; // xmm1_8
-  __int64 v15; // rdx
-  wil::details *v16; // rcx
+  CDisplayManager *v12; // rcx
+  __int64 v13; // rdx
+  wil::details *v14; // rcx
   wil::details *Event; // rbx
-  __int64 v18; // r8
-  const char *v19; // r9
-  struct ID3D12CommandQueue *v20; // rcx
-  CComputeScribbleStopwatch *v21; // r14
-  double v22; // xmm1_8
-  double v23; // xmm0_8
-  __int64 v24; // r8
-  unsigned int v25; // ebx
-  CSwapChainBuffer *v26; // r15
-  int v27; // eax
-  unsigned int v28; // r14d
-  _BYTE *v29; // rdx
-  void *v30; // rax
+  __int64 v16; // r8
+  const char *v17; // r9
+  struct ID3D12CommandQueue *v18; // rcx
+  int v19; // r14d
+  __int64 *v20; // rbx
+  __int64 v21; // rcx
+  float v22; // xmm0_4
+  float v23; // xmm1_4
+  float v24; // xmm1_4
   HANDLE Thread; // rax
-  const char *v32; // r9
-  HANDLE v33; // rbx
-  __int64 v34; // rdx
-  HRESULT v35; // eax
-  HANDLE hThread; // [rsp+30h] [rbp-D0h] BYREF
-  CComputeScribbleStopwatch **v37; // [rsp+38h] [rbp-C8h]
-  struct Windows::Devices::Display::Core::IDisplayTarget *v38; // [rsp+40h] [rbp-C0h] BYREF
-  char v39; // [rsp+48h] [rbp-B8h]
-  int v40; // [rsp+50h] [rbp-B0h] BYREF
-  char *v41; // [rsp+58h] [rbp-A8h]
-  struct Windows::Devices::Display::Core::IDisplayDevice *v42; // [rsp+60h] [rbp-A0h] BYREF
-  char v43; // [rsp+68h] [rbp-98h]
-  _DWORD v44[48]; // [rsp+70h] [rbp-90h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+168h] [rbp+68h]
+  const char *v26; // r9
+  char *v27; // rbx
+  __int64 v28; // rdx
+  HRESULT v29; // eax
+  __int64 **v30; // [rsp+30h] [rbp-D0h]
+  struct CComputeScribbleStopwatch *v31; // [rsp+38h] [rbp-C8h] BYREF
+  char v32; // [rsp+40h] [rbp-C0h]
+  int v33; // [rsp+48h] [rbp-B8h] BYREF
+  HANDLE hThread; // [rsp+50h] [rbp-B0h] BYREF
+  char *v35; // [rsp+58h] [rbp-A8h]
+  struct Windows::Devices::Display::Core::IDisplayDevice *v36; // [rsp+60h] [rbp-A0h] BYREF
+  char v37; // [rsp+68h] [rbp-98h]
+  _DWORD v38[44]; // [rsp+70h] [rbp-90h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+158h] [rbp+58h]
 
   v6 = *(__int64 (__fastcall **)(struct IDCompositionDirectInkCommunicationPartner *, __int64))(*(_QWORD *)a3 + 40LL);
-  v7 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)g_pComposition + 82) + 112LL))(*((_QWORD *)g_pComposition + 82));
+  v7 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)g_pComposition + 63) + 88LL))(*((_QWORD *)g_pComposition + 63));
   LastError = 0;
   LastErrorFailHr = v6(a3, v7);
   if ( LastErrorFailHr < 0 )
   {
-    v10 = 104LL;
+    v10 = 100LL;
 LABEL_3:
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)v10,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblescheduler.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblescheduler.cpp",
       (const char *)(unsigned int)LastErrorFailHr);
     return (unsigned int)LastErrorFailHr;
   }
-  wil::com_ptr_t<IDCompositionDirectInkCommunicationPartner,wil::err_returncode_policy>::operator=(
-    (__int64 *)this + 23,
-    (__int64)a3);
-  LastErrorFailHr = (*(__int64 (__fastcall **)(struct IDXGIOutputDWM *, _DWORD *))(*(_QWORD *)a2 + 32LL))(a2, v44);
+  wil::com_ptr_t<CColorGradientStop,wil::err_returncode_policy>::operator=((__int64 *)this + 18, (__int64)a3);
+  LastErrorFailHr = (*(__int64 (__fastcall **)(struct IDXGIOutputDWM *, _DWORD *))(*(_QWORD *)a2 + 32LL))(a2, v38);
   if ( LastErrorFailHr < 0 )
   {
-    v10 = 108LL;
+    v10 = 104LL;
     goto LABEL_3;
   }
-  *((_DWORD *)this + 10) = v44[7];
-  *((_DWORD *)this + 11) = v44[8];
-  v12 = *((_QWORD *)this + 25);
-  v13 = *(_QWORD *)(v12 + 224);
-  if ( v13 < 0 )
-  {
-    v13 = *(_QWORD *)(v12 + 224) & 1LL;
-    v14 = (double)(int)(v13 | (*(_QWORD *)(v12 + 224) >> 1)) + (double)(int)(v13 | (*(_QWORD *)(v12 + 224) >> 1));
-  }
-  else
-  {
-    v14 = (double)(int)v13;
-  }
-  v38 = 0LL;
-  v39 = 1;
-  v41 = (char *)this + 24;
-  v37 = (CComputeScribbleStopwatch **)((char *)this + 32);
-  v42 = 0LL;
-  v43 = 1;
-  *((double *)this + 6) = v14 / (double)(int)g_qpcFrequency.LowPart;
-  LastErrorFailHr = CDDisplayManager::CreateDDisplayDeviceAndTarget((CDDisplayManager *)v13, a2, &v42, &v38);
-  if ( v43 )
-    wil::com_ptr_t<Windows::Devices::Display::Core::IDisplayDevice,wil::err_returncode_policy>::attach(v41, v42);
-  if ( v39 )
-    wil::com_ptr_t<Windows::Devices::Display::Core::IDisplayTarget,wil::err_returncode_policy>::attach(v37, v38);
+  *((_DWORD *)this + 8) = v38[7];
+  *((_DWORD *)this + 9) = v38[8];
+  v31 = 0LL;
+  v32 = 1;
+  v36 = 0LL;
+  v37 = 1;
+  v35 = (char *)this + 16;
+  *((float *)this + 10) = (float)v38[11] / (float)v38[10];
+  LastErrorFailHr = CDisplayManager::CreateDDisplayDeviceAndTarget(v12, a2, &v36, &v31);
+  if ( v37 )
+    wil::com_ptr_t<Windows::Devices::Display::Core::IDisplayTarget,wil::err_returncode_policy>::attach(v35, v36);
+  if ( v32 )
+    wil::com_ptr_t<Windows::Devices::Display::Core::IDisplayTarget,wil::err_returncode_policy>::attach(
+      (char *)this + 24,
+      v31);
   if ( LastErrorFailHr < 0 )
   {
-    v10 = 123LL;
+    v10 = 118LL;
     goto LABEL_3;
   }
   Event = (wil::details *)CreateEventExW(0LL, 0LL, 0, 0x1F0003u);
   if ( Event )
   {
     GetLastError();
-    _reset___unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__QEAAXPEAX_Z(
-      (wil::details **)this + 9,
+    wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::reset(
+      (wil::details **)this + 7,
       Event);
+    LastErrorFailHr = 0;
   }
   else
   {
-    LastErrorFailHr = wil::details::GetLastErrorFailHr(v16, v15, v18, v19);
-    if ( LastErrorFailHr < 0 )
-    {
-      v10 = 126LL;
-      goto LABEL_3;
-    }
+    LastErrorFailHr = wil::details::GetLastErrorFailHr(v14, v13, v16, v17);
   }
-  LastErrorFailHr = (*(__int64 (__fastcall **)(_QWORD, int *))(**((_QWORD **)this + 4) + 64LL))(
-                      *((_QWORD *)this + 4),
-                      &v40);
   if ( LastErrorFailHr < 0 )
   {
-    v10 = 129LL;
+    v10 = 121LL;
+    goto LABEL_3;
+  }
+  LastErrorFailHr = (*(__int64 (__fastcall **)(_QWORD, int *))(**((_QWORD **)this + 3) + 64LL))(
+                      *((_QWORD *)this + 3),
+                      &v33);
+  if ( LastErrorFailHr < 0 )
+  {
+    v10 = 124LL;
     goto LABEL_3;
   }
   LastErrorFailHr = CalculateDisplayBlankTime(
-                      v44[0] | (unsigned __int64)((__int64)v44[1] << 32),
-                      v40,
-                      (double *)this + 7);
+                      v38[0] | (unsigned __int64)((__int64)v38[1] << 32),
+                      v33,
+                      (float *)this + 11);
   if ( LastErrorFailHr < 0 )
   {
-    v10 = 132LL;
+    v10 = 127LL;
     goto LABEL_3;
   }
-  v20 = (struct ID3D12CommandQueue *)*((_QWORD *)this + 2);
-  v37 = (CComputeScribbleStopwatch **)((char *)this + 80);
-  v38 = 0LL;
-  v39 = 1;
-  LastErrorFailHr = CComputeScribbleStopwatch::Create(v20, &v38);
-  if ( v39 )
+  v18 = (struct ID3D12CommandQueue *)*((_QWORD *)this + 1);
+  v30 = (__int64 **)((char *)this + 64);
+  v31 = 0LL;
+  v32 = 1;
+  v19 = CComputeScribbleStopwatch::Create(v18, &v31);
+  if ( v32 )
   {
-    v21 = *v37;
-    *v37 = v38;
-    if ( v21 )
+    v20 = *v30;
+    *v30 = (__int64 *)v31;
+    if ( v20 )
     {
-      CComputeScribbleStopwatch::~CComputeScribbleStopwatch(v21);
-      operator delete(v21);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(v20 + 5);
+      v21 = v20[4];
+      if ( v21 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v21 + 16LL))(v21);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(v20);
+      operator delete(v20);
     }
   }
-  if ( LastErrorFailHr < 0 )
+  if ( v19 < 0 )
   {
-    v10 = 136LL;
-    goto LABEL_3;
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x83,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblescheduler.cpp",
+      (const char *)(unsigned int)v19);
+    return (unsigned int)v19;
   }
-  v22 = *((double *)this + 6);
-  if ( (float)((float)CCommonRegistryData::SuperWetTiming::ExtensionTimeMicroseconds / 1000000.0) <= v22 )
-    v22 = (float)((float)CCommonRegistryData::SuperWetTiming::ExtensionTimeMicroseconds / 1000000.0);
-  *(double *)this = v22;
-  v23 = DOUBLE_0_005;
-  if ( (float)((float)CCommonRegistryData::SuperWetTiming::PeriodicFenceMinDifferenceMicroseconds / 1000000.0) <= 0.005 )
-    v23 = (float)((float)CCommonRegistryData::SuperWetTiming::PeriodicFenceMinDifferenceMicroseconds / 1000000.0);
-  v24 = *((_QWORD *)this + 25);
-  v25 = 0;
-  *((double *)this + 1) = v23;
-  if ( !*(_DWORD *)(v24 + 204) )
+  v22 = (float)CCommonRegistryData::SuperWetTiming::ExtensionTimeMicroseconds / 1000000.0;
+  *(float *)this = v22;
+  v23 = *((float *)this + 10);
+  if ( v22 <= v23 )
+    v23 = v22;
+  *(float *)this = v23;
+  v24 = FLOAT_0_0049999999;
+  if ( (float)((float)CCommonRegistryData::SuperWetTiming::PeriodicFenceMinDifferenceMicroseconds / 1000000.0) <= 0.0049999999 )
+    v24 = (float)CCommonRegistryData::SuperWetTiming::PeriodicFenceMinDifferenceMicroseconds / 1000000.0;
+  *((float *)this + 1) = v24;
+  hThread = 0LL;
+  Thread = CreateThread(
+             0LL,
+             0LL,
+             (LPTHREAD_START_ROUTINE)lambda_89e933d5fb66f69ea87b181cfe24c3bb_::_lambda_invoker_cdecl_,
+             this,
+             4u,
+             0LL);
+  wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
+    &hThread,
+    Thread);
+  v27 = (char *)hThread;
+  if ( hThread )
   {
-LABEL_38:
-    std::vector<CComputeScribbleScheduler::ScribbleFrame>::_Resize<std::_Value_init_tag>(
-      (_QWORD *)this + 17,
-      *(unsigned int *)(v24 + 204));
-    hThread = 0LL;
-    Thread = CreateThread(
-               0LL,
-               0LL,
-               (LPTHREAD_START_ROUTINE)lambda_519802986d06bbdf622f922bf8fedd22_::_lambda_invoker_cdecl_,
-               this,
-               4u,
-               0LL);
-    wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-      &hThread,
-      Thread);
-    v33 = hThread;
-    if ( hThread )
+    v29 = SetThreadDescription(hThread, L"D3D12 Compute Scribble");
+    if ( v29 < 0 )
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        (void *)0x9D,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblescheduler.cpp",
+        (const char *)(unsigned int)v29);
+    if ( SetThreadPriority(v27, 2) && ResumeThread(v27) != -1 )
     {
-      v35 = SetThreadDescription(hThread, L"D3D12 Compute Scribble");
-      if ( v35 < 0 )
-        wil::details::in1diag3::_Log_Hr(
-          retaddr,
-          172LL,
-          (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblescheduler.cpp",
-          (const char *)(unsigned int)v35);
-      if ( SetThreadPriority(v33, 2) && ResumeThread(v33) != -1 )
+      if ( (HANDLE *)((char *)this + 48) != &hThread )
       {
-        if ( (HANDLE *)((char *)this + 64) != &hThread )
-        {
-          wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-            (void **)this + 8,
-            v33);
-          hThread = 0LL;
-        }
-        goto LABEL_49;
+        wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
+          (void **)this + 6,
+          v27);
+        v27 = 0LL;
       }
-      v34 = 183LL;
+      goto LABEL_42;
     }
-    else
-    {
-      v34 = 169LL;
-    }
-    LastError = wil::details::in1diag3::Return_GetLastError(
-                  retaddr,
-                  (void *)v34,
-                  (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblescheduler.cpp",
-                  v32);
-LABEL_49:
-    CDummyRemotingSwapChain::CPresentStats::~CPresentStats(&hThread);
-    return LastError;
+    v28 = 168LL;
   }
-  while ( 1 )
+  else
   {
-    v26 = *(CSwapChainBuffer **)(*(_QWORD *)(v24 + 104) + 8LL * (v25 % *(_DWORD *)(v24 + 204)));
-    v27 = CSwapChainBuffer::EnsureComputeScribbleResources(v26, (struct CLegacySwapChain *)v24);
-    v28 = v27;
-    if ( v27 < 0 )
-      break;
-    v29 = (_BYTE *)*((_QWORD *)this + 15);
-    v30 = (void *)*((_QWORD *)v26 + 12);
-    hThread = v30;
-    if ( v29 == *((_BYTE **)this + 16) )
-    {
-      std::vector<CComputeScribbleFramebuffer *>::_Emplace_reallocate<CComputeScribbleFramebuffer *>(
-        (const void **)this + 14,
-        v29,
-        &hThread);
-    }
-    else
-    {
-      *(_QWORD *)v29 = v30;
-      *((_QWORD *)this + 15) += 8LL;
-    }
-    v24 = *((_QWORD *)this + 25);
-    if ( ++v25 >= *(_DWORD *)(v24 + 204) )
-      goto LABEL_38;
+    v28 = 154LL;
   }
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)0x96,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblescheduler.cpp",
-    (const char *)(unsigned int)v27);
-  return v28;
+  LastError = wil::details::in1diag3::Return_GetLastError(
+                retaddr,
+                (void *)v28,
+                (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblescheduler.cpp",
+                v26);
+LABEL_42:
+  if ( (unsigned __int64)(v27 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    CloseHandle(v27);
+  return LastError;
 }

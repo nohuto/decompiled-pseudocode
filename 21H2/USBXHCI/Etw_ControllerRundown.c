@@ -1,11 +1,11 @@
 /*
- * XREFs of Etw_ControllerRundown @ 0x1C0014B40
+ * XREFs of Etw_ControllerRundown @ 0x1C0014964
  * Callers:
- *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C00149A0 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
- *     Etw_EnableCallback @ 0x1C0017910 (Etw_EnableCallback.c)
+ *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C00147B0 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
+ *     Etw_EnableCallback @ 0x1C0018870 (Etw_EnableCallback.c)
  * Callees:
- *     Etw_DeviceListRundown @ 0x1C0014C30 (Etw_DeviceListRundown.c)
- *     McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer @ 0x1C0049348 (McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer.c)
+ *     Etw_DeviceListRundown @ 0x1C0014A50 (Etw_DeviceListRundown.c)
+ *     McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer @ 0x1C001A5E8 (McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_ControllerRundown(__int64 a1, __int64 a2)
@@ -27,12 +27,12 @@ __int64 __fastcall Etw_ControllerRundown(__int64 a1, __int64 a2)
   LOBYTE(v3) = -1;
   if ( v2 )
   {
-    v13 = v2[20];
-    v12 = v2[21];
-    v11 = v2[24];
-    v10 = v2[25];
-    v9 = v2[26];
-    v14 = v2[28];
+    v13 = v2[21];
+    v12 = v2[22];
+    v11 = v2[25];
+    v10 = v2[26];
+    v9 = v2[27];
+    v14 = v2[29];
   }
   else
   {

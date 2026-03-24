@@ -1,19 +1,18 @@
 /*
- * XREFs of EtwpTraceALPC @ 0x1405FE3F0
+ * XREFs of EtwpTraceALPC @ 0x1405A9670
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall EtwpTraceALPC(__int64 a1, int a2)
+void __fastcall EtwpTraceALPC(__int64 a1, int a2)
 {
-  __int16 v2; // r9
-  __int64 result; // rax
-  __int64 v4; // [rsp+30h] [rbp-20h] BYREF
-  int v5; // [rsp+38h] [rbp-18h]
-  int v6; // [rsp+3Ch] [rbp-14h]
+  unsigned __int16 v2; // r9
+  __int64 v3; // [rsp+30h] [rbp-20h] BYREF
+  int v4; // [rsp+38h] [rbp-18h]
+  int v5; // [rsp+3Ch] [rbp-14h]
 
   switch ( *(_DWORD *)(a1 + 16) )
   {
@@ -41,25 +40,25 @@ __int64 __fastcall EtwpTraceALPC(__int64 a1, int a2)
         v2 = 6695;
         break;
       case 8:
-        v5 = 8;
+        v4 = 8;
         v2 = 6696;
 LABEL_20:
-        v4 = a1 + 24;
+        v3 = a1 + 24;
         goto LABEL_21;
       case 9:
         v2 = 6697;
         break;
       default:
-        return result;
+        return;
     }
 LABEL_19:
-    v5 = 4;
+    v4 = 4;
     goto LABEL_20;
   }
   v2 = 6692;
-  v4 = a1 + 24;
-  v5 = a2 - 24;
+  v3 = a1 + 24;
+  v4 = a2 - 24;
 LABEL_21:
-  v6 = 0;
-  return EtwTraceKernelEvent((int)&v4, 1, 0x100000u, v2, 4200706);
+  v5 = 0;
+  EtwTraceKernelEvent((__int64)&v3, 1u, 0x100000u, v2, 0x401902u);
 }

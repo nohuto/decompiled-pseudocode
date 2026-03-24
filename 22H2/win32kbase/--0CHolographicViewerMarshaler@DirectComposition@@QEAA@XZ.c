@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CHolographicViewerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C020B558
+ * XREFs of ??0CHolographicViewerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3D5C
  * Callers:
- *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C002EB8C (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C0029A24 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
  * Callees:
- *     ??0CResourceMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C020B78C (--0CResourceMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z.c)
+ *     <none>
  */
 
 DirectComposition::CHolographicViewerMarshaler *__fastcall DirectComposition::CHolographicViewerMarshaler::CHolographicViewerMarshaler(
@@ -11,11 +11,13 @@ DirectComposition::CHolographicViewerMarshaler *__fastcall DirectComposition::CH
 {
   DirectComposition::CHolographicViewerMarshaler *result; // rax
 
-  DirectComposition::CResourceMarshaler::CResourceMarshaler(this, 81LL);
+  *(_QWORD *)((char *)this + 20) = 1LL;
+  *((_QWORD *)this + 6) = 0LL;
   *(_QWORD *)this = &DirectComposition::CHolographicViewerMarshaler::`vftable';
   *((_QWORD *)this + 7) = 0LL;
   *((_QWORD *)this + 8) = 0LL;
   *((_DWORD *)this + 18) = 0;
+  *((_DWORD *)this + 10) = 76;
   *(_OWORD *)((char *)this + 76) = 0LL;
   *(_QWORD *)((char *)this + 92) = 0LL;
   *((_QWORD *)this + 13) = 0LL;

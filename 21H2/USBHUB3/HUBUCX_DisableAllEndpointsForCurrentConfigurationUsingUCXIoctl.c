@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C0025D54
+ * XREFs of HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C00258C8
  * Callers:
- *     HUBDSM_DisablingEndpointsInControllerOHubStopOnDetach @ 0x1C001D170 (HUBDSM_DisablingEndpointsInControllerOHubStopOnDetach.c)
- *     HUBDSM_DisablingEndpointsOnDetachWithSpecialFile @ 0x1C001D270 (HUBDSM_DisablingEndpointsOnDetachWithSpecialFile.c)
- *     HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending @ 0x1C001D2A0 (HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending.c)
+ *     HUBDSM_DisablingEndpointsInControllerOHubStopOnDetach @ 0x1C001CC30 (HUBDSM_DisablingEndpointsInControllerOHubStopOnDetach.c)
+ *     HUBDSM_DisablingEndpointsOnDetachWithSpecialFile @ 0x1C001CD30 (HUBDSM_DisablingEndpointsOnDetachWithSpecialFile.c)
+ *     HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending @ 0x1C001CD60 (HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C0024278 (HUBUCX_EnableDisableEndpointsUsingUCXIoctl.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C0023E38 (HUBUCX_EnableDisableEndpointsUsingUCXIoctl.c)
  */
 
 _UNKNOWN **__fastcall HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl(__int64 a1)
@@ -31,7 +31,7 @@ _UNKNOWN **__fastcall HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXI
         4u,
         5u,
         0x37u,
-        (__int64)&WPP_a5663512bb0f384af60f2cebe8e2cf44_Traceguids);
+        (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids);
     return (_UNKNOWN **)HUBSM_AddEvent(a1 + 504, 4028);
   }
   v4 = v1 + 16;

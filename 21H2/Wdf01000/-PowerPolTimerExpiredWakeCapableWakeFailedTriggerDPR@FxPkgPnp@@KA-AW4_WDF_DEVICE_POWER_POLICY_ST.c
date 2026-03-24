@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerPolTimerExpiredWakeCapableWakeFailedTriggerDPR@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C008AC80
+ * XREFs of ?PowerPolTimerExpiredWakeCapableWakeFailedTriggerDPR@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0086B60
  * Callers:
  *     <none>
  * Callees:
- *     ?SimulateDevicePowerRequired@FxPoxInterface@@QEAAXXZ @ 0x1C000E4BC (-SimulateDevicePowerRequired@FxPoxInterface@@QEAAXXZ.c)
+ *     ?SimulateDevicePowerRequired@FxPoxInterface@@QEAAXXZ @ 0x1C0010394 (-SimulateDevicePowerRequired@FxPoxInterface@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolTimerExpiredWakeCapableWakeFailedTriggerDPR(FxPkgPnp *This)

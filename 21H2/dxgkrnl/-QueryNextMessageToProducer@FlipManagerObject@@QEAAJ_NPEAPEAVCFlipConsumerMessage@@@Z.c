@@ -1,12 +1,12 @@
 /*
- * XREFs of ?QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C007A0C0
+ * XREFs of ?QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C0068988
  * Callers:
- *     NtFlipObjectQueryNextMessageToProducer @ 0x1C007B410 (NtFlipObjectQueryNextMessageToProducer.c)
- *     NtFlipObjectReadNextMessageToProducer @ 0x1C007B500 (NtFlipObjectReadNextMessageToProducer.c)
+ *     NtFlipObjectQueryNextMessageToProducer @ 0x1C0069BD0 (NtFlipObjectQueryNextMessageToProducer.c)
+ *     NtFlipObjectReadNextMessageToProducer @ 0x1C0069CC0 (NtFlipObjectReadNextMessageToProducer.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00069FC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0007EB4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?Dequeue@?$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ @ 0x1C0080EA8 (-Dequeue@-$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0010CC4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?Dequeue@?$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ @ 0x1C006D914 (-Dequeue@-$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ.c)
  */
 
 __int64 __fastcall FlipManagerObject::QueryNextMessageToProducer(
@@ -24,7 +24,7 @@ __int64 __fastcall FlipManagerObject::QueryNextMessageToProducer(
   v6 = CPushLock::AcquireLockExclusive((FlipManagerObject *)((char *)this + 40));
   if ( v6 >= 0 )
   {
-    v7 = *((_QWORD *)this + 32);
+    v7 = *((_QWORD *)this + 25);
     v6 = 0;
     v8 = *(_QWORD *)(v7 + 8);
     if ( v8 == v7 + 8 )

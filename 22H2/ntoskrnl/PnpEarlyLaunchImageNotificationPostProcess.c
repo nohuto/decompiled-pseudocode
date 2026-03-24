@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpEarlyLaunchImageNotificationPostProcess @ 0x140B68AC0
+ * XREFs of PnpEarlyLaunchImageNotificationPostProcess @ 0x140A6B200
  * Callers:
  *     <none>
  * Callees:
- *     PnpDiagnosticTraceObject @ 0x1403229A0 (PnpDiagnosticTraceObject.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
+ *     PnpDiagnosticTraceObject @ 0x1403645B8 (PnpDiagnosticTraceObject.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 void __fastcall PnpEarlyLaunchImageNotificationPostProcess(__int64 a1, __int64 a2, int *a3, int *a4, __int64 a5)
@@ -15,7 +15,7 @@ void __fastcall PnpEarlyLaunchImageNotificationPostProcess(__int64 a1, __int64 a
   v7 = *a3;
   if ( *((_DWORD *)PnpClassificationRank + v7) > *((_DWORD *)PnpClassificationRank + *a4) )
     *a4 = v7;
-  RtlFreeUnicodeString((PUNICODE_STRING)(a3 + 2));
-  RtlFreeUnicodeString((PUNICODE_STRING)(a3 + 14));
-  RtlFreeUnicodeString((PUNICODE_STRING)(a3 + 10));
+  RtlFreeAnsiString((PUNICODE_STRING)(a3 + 2));
+  RtlFreeAnsiString((PUNICODE_STRING)(a3 + 14));
+  RtlFreeAnsiString((PUNICODE_STRING)(a3 + 10));
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnprGetPageDestination @ 0x140563008
+ * XREFs of PnprGetPageDestination @ 0x14050F43C
  * Callers:
- *     PnprCopyReservedMapping @ 0x140562C4C (PnprCopyReservedMapping.c)
+ *     PnprCopyReservedMapping @ 0x14050F080 (PnprCopyReservedMapping.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnprGetPageDestination(unsigned __int64 a1, __int64 a2)
@@ -28,8 +28,8 @@ __int64 __fastcall PnprGetPageDestination(unsigned __int64 a1, __int64 a2)
     if ( (unsigned int)v2 >= v5 )
       return 3221226021LL;
   }
-  return (*(__int64 (__fastcall **)(_QWORD, unsigned __int64, __int64, __int64))(PnprContext + 33256))(
-           *(_QWORD *)(PnprContext + 33168),
+  return (*(__int64 (__fastcall **)(_QWORD, unsigned __int64, __int64, __int64))(PnprContext + 20968))(
+           *(_QWORD *)(PnprContext + 20880),
            a1,
            a2,
            v2);

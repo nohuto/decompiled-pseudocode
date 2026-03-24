@@ -1,9 +1,9 @@
 /*
- * XREFs of CmQuerySingleFeatureConfiguration @ 0x140911230
+ * XREFs of CmQuerySingleFeatureConfiguration @ 0x14086B1AC
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlQueryFeatureConfiguration @ 0x1403C7820 (RtlQueryFeatureConfiguration.c)
+ *     RtlQueryFeatureConfiguration @ 0x14038C800 (RtlQueryFeatureConfiguration.c)
  */
 
 __int64 __fastcall CmQuerySingleFeatureConfiguration(__int64 *a1, int a2, __int64 a3, int a4, _DWORD *a5)

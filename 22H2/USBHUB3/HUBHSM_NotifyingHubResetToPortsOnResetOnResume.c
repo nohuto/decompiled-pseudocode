@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_NotifyingHubResetToPortsOnResetOnResume @ 0x1C0008A80
+ * XREFs of HUBHSM_NotifyingHubResetToPortsOnResetOnResume @ 0x1C00082C0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_QueueResetToAllPSMs @ 0x1C0010BC0 (HUBMUX_QueueResetToAllPSMs.c)
+ *     HUBMUX_QueueResetToAllPSMs @ 0x1C000F794 (HUBMUX_QueueResetToAllPSMs.c)
  */
 
 __int64 __fastcall HUBHSM_NotifyingHubResetToPortsOnResetOnResume(__int64 a1)

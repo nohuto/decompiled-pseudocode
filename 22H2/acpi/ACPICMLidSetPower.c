@@ -1,22 +1,22 @@
 /*
- * XREFs of ACPICMLidSetPower @ 0x1C0019820
+ * XREFs of ACPICMLidSetPower @ 0x1C004EFB0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIDockIrpSetDevicePower @ 0x1C0002734 (ACPIDockIrpSetDevicePower.c)
- *     ACPICMLidSetPowerCompletion @ 0x1C00198C0 (ACPICMLidSetPowerCompletion.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     ACPIDockIrpSetDevicePower @ 0x1C002D924 (ACPIDockIrpSetDevicePower.c)
+ *     ACPICMLidSetPowerCompletion @ 0x1C004F050 (ACPICMLidSetPowerCompletion.c)
  */
 
 __int64 __fastcall ACPICMLidSetPower(ULONG_PTR a1, __int64 a2)
 {
-  int DeviceExtension; // eax
+  __int64 *DeviceExtension; // rax
   __int64 v5; // r8
   _DWORD *v6; // r8
   unsigned int v7; // eax
 
-  DeviceExtension = ACPIInternalGetDeviceExtension(a1);
+  DeviceExtension = (__int64 *)ACPIInternalGetDeviceExtension(a1);
   v5 = *(_QWORD *)(a2 + 184);
   *(_BYTE *)(v5 + 3) |= 1u;
   v6 = (_DWORD *)(v5 + 16);
@@ -30,7 +30,7 @@ __int64 __fastcall ACPICMLidSetPower(ULONG_PTR a1, __int64 a2)
            DeviceExtension,
            1145654367,
            537133058,
-           0,
+           0LL,
            0,
            (__int64)ACPICMLidSetPowerCompletion,
            a2,

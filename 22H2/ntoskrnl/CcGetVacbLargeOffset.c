@@ -1,41 +1,40 @@
 /*
- * XREFs of CcGetVacbLargeOffset @ 0x14029EF70
+ * XREFs of CcGetVacbLargeOffset @ 0x140305C88
  * Callers:
- *     CcGetVirtualAddressIfMapped @ 0x14029E820 (CcGetVirtualAddressIfMapped.c)
- *     CcUnmapVacbArray @ 0x14029ECA0 (CcUnmapVacbArray.c)
- *     CcGetVacbMiss @ 0x14029EFF0 (CcGetVacbMiss.c)
- *     CcUnmapInactiveViewsInternal @ 0x140538490 (CcUnmapInactiveViewsInternal.c)
+ *     CcGetVirtualAddressIfMapped @ 0x14028FAC4 (CcGetVirtualAddressIfMapped.c)
+ *     CcGetVacbMiss @ 0x140291040 (CcGetVacbMiss.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB484 (CcUnmapInactiveViewsInternal.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall CcGetVacbLargeOffset(__int64 a1, __int64 a2)
 {
+  int v2; // r8d
   __int64 v3; // r11
-  int v4; // r8d
-  int v5; // ecx
-  int v6; // r9d
+  int v4; // r9d
+  int v5; // r10d
   __int64 result; // rax
-  __int64 v8; // rdx
+  __int64 v7; // rdx
 
+  v2 = 0;
   v3 = a2;
-  v4 = 0;
-  v5 = 25;
+  v4 = 25;
   do
   {
-    v6 = v5;
-    v5 += 7;
-    ++v4;
+    v5 = v4;
+    v4 += 7;
+    ++v2;
   }
-  while ( *(_QWORD *)(a1 + 32) > 1LL << v5 );
-  for ( result = *(_QWORD *)(*(_QWORD *)(a1 + 88) + 8 * (a2 >> v6)); result; result = *(_QWORD *)(result + 8 * (v3 >> v6)) )
+  while ( *(_QWORD *)(a1 + 32) > 1LL << v4 );
+  for ( result = *(_QWORD *)(*(_QWORD *)(a1 + 88) + 8 * (a2 >> v5));
+        result && v2;
+        result = *(_QWORD *)(result + 8 * (v3 >> v5)) )
   {
-    if ( !v4 )
-      break;
-    v8 = 1LL << v6;
-    v6 -= 7;
-    v3 &= v8 - 1;
-    --v4;
+    v7 = 1LL << v5;
+    v5 -= 7;
+    --v2;
+    v3 &= v7 - 1;
   }
   return result;
 }

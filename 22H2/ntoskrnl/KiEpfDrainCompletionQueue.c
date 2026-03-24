@@ -1,14 +1,14 @@
 /*
- * XREFs of KiEpfDrainCompletionQueue @ 0x14057901C
+ * XREFs of KiEpfDrainCompletionQueue @ 0x1405240E8
  * Callers:
- *     KeWaitPhysicalFaultCompletion @ 0x140578E18 (KeWaitPhysicalFaultCompletion.c)
- *     KiEpfCompletionDpcRoutine @ 0x140579000 (KiEpfCompletionDpcRoutine.c)
- *     KiEpfHandleNotification @ 0x1405790A0 (KiEpfHandleNotification.c)
- *     KeInitSystem @ 0x140B53548 (KeInitSystem.c)
+ *     KeWaitPhysicalFaultCompletion @ 0x140523E9C (KeWaitPhysicalFaultCompletion.c)
+ *     KiEpfCompletionDpcRoutine @ 0x140524080 (KiEpfCompletionDpcRoutine.c)
+ *     KiEpfHandleNotification @ 0x140524170 (KiEpfHandleNotification.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KiEpfComplete @ 0x140578F10 (KiEpfComplete.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiEpfComplete @ 0x140523F8C (KiEpfComplete.c)
  */
 
 void KiEpfDrainCompletionQueue()
@@ -34,7 +34,7 @@ void KiEpfDrainCompletionQueue()
         v2 = 1;
         *(_QWORD *)KiEpfCompletionQueue = (v1 + 1) % (unsigned __int64)(unsigned int)KiEpfCompletionQueueSize;
       }
-      KxReleaseSpinLock((volatile signed __int64 *)&KiEpfCompletionQueueSpinLock);
+      KxReleaseSpinLock(&KiEpfCompletionQueueSpinLock);
       if ( !v2 )
         break;
       KiEpfComplete(v0);

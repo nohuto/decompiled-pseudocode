@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpUpdateLoggerSecurityDescriptor @ 0x1408C3030
+ * XREFs of EtwpUpdateLoggerSecurityDescriptor @ 0x1408C3010
  * Callers:
- *     EtwpUpdateTrace @ 0x140725AFC (EtwpUpdateTrace.c)
+ *     EtwpUpdateTrace @ 0x140725ADC (EtwpUpdateTrace.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x14012F2E0 (ExfAcquireReleasePushLockExclusive.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14012F300 (ExfAcquireReleasePushLockExclusive.c)
  *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
  *     ObLogSecurityDescriptor @ 0x1405C9E70 (ObLogSecurityDescriptor.c)
- *     EtwpEventWriteTemplateSession @ 0x1408BB088 (EtwpEventWriteTemplateSession.c)
+ *     EtwpEventWriteTemplateSession @ 0x1408BB068 (EtwpEventWriteTemplateSession.c)
  */
 
 __int64 __fastcall EtwpUpdateLoggerSecurityDescriptor(__int64 a1, char *a2)

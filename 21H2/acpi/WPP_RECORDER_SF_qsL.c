@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_RECORDER_SF_qsL @ 0x1C0009F30
+ * XREFs of WPP_RECORDER_SF_qsL @ 0x1C001D830
  * Callers:
- *     OSNotifyCreate @ 0x1C0009DF0 (OSNotifyCreate.c)
- *     ACPIDevicePowerProcessPhase3 @ 0x1C0022FAC (ACPIDevicePowerProcessPhase3.c)
+ *     ACPIDevicePowerProcessPhase3 @ 0x1C00136BC (ACPIDevicePowerProcessPhase3.c)
+ *     OSNotifyCreate @ 0x1C001D650 (OSNotifyCreate.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qsL(
@@ -16,7 +16,7 @@ __int64 __fastcall WPP_RECORDER_SF_qsL(
         char a6,
         const char *a7)
 {
-  const char *v7; // rdi
+  __int64 v7; // rdi
   __int64 v8; // rbx
   unsigned __int64 v11; // rsi
   int v13; // eax
@@ -24,7 +24,7 @@ __int64 __fastcall WPP_RECORDER_SF_qsL(
   const char *v16; // rcx
   int v17; // [rsp+20h] [rbp-58h]
 
-  v7 = a7;
+  v7 = (__int64)a7;
   v8 = -1LL;
   v11 = (unsigned __int64)a3 >> 16;
   v13 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v11 + (((a3 - 1) >> 5) & 0x7FF) + 1);
@@ -46,10 +46,8 @@ __int64 __fastcall WPP_RECORDER_SF_qsL(
   {
     do
       ++v8;
-    while ( v7[v8] );
+    while ( *(_BYTE *)(v7 + v8) );
   }
-  if ( !v7 )
-    v7 = "NULL";
   LOWORD(v17) = a4;
-  return WppAutoLogTrace(a1, 4LL, a3, a5, v17, &a6, 8LL, v7);
+  return WppAutoLogTrace(a1, 4LL, a3, a5, v17, &a6);
 }

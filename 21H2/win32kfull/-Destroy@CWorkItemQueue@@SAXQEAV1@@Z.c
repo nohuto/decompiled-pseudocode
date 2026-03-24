@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Destroy@CWorkItemQueue@@SAXQEAV1@@Z @ 0x1C011ACCC
+ * XREFs of ?Destroy@CWorkItemQueue@@SAXQEAV1@@Z @ 0x1C012E664
  * Callers:
- *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C011AC34 (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
- *     ??1?$CAutoDestroy@VCWorkItemQueue@@@@QEAA@XZ @ 0x1C02DC910 (--1-$CAutoDestroy@VCWorkItemQueue@@@@QEAA@XZ.c)
+ *     ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00F3F54 (-UmfdCallSessionInitialize@@YAJXZ.c)
+ *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C012E624 (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
  * Callees:
- *     ?Destroy@CManualResetEvent@@SAXQEAV1@@Z @ 0x1C011AD24 (-Destroy@CManualResetEvent@@SAXQEAV1@@Z.c)
+ *     ?Destroy@CManualResetEvent@@SAXQEAV1@@Z @ 0x1C012E748 (-Destroy@CManualResetEvent@@SAXQEAV1@@Z.c)
  */
 
 void __fastcall CWorkItemQueue::Destroy(union _SLIST_HEADER *pv)

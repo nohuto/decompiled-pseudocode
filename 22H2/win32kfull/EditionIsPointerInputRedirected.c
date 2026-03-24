@@ -1,10 +1,10 @@
 /*
- * XREFs of EditionIsPointerInputRedirected @ 0x1C01535D0
+ * XREFs of EditionIsPointerInputRedirected @ 0x1C01F1BA0
  * Callers:
  *     <none>
  * Callees:
- *     INPUTDEST_FROM_PWND @ 0x1C00AE500 (INPUTDEST_FROM_PWND.c)
- *     IsPointerInputRedirected @ 0x1C015368A (IsPointerInputRedirected.c)
+ *     INPUTDEST_FROM_PWND @ 0x1C0132244 (INPUTDEST_FROM_PWND.c)
+ *     IsPointerInputRedirected @ 0x1C01F1D94 (IsPointerInputRedirected.c)
  */
 
 __int64 __fastcall EditionIsPointerInputRedirected(__int64 a1, unsigned int a2, _OWORD *a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14099E220
+ * XREFs of PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x1408F7058
  * Callers:
- *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099E17C (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
- *     PopDirectedDripsDiagRundownDevices @ 0x14099E948 (PopDirectedDripsDiagRundownDevices.c)
+ *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x1408F6FA0 (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
+ *     PopDirectedDripsDiagRundownDevices @ 0x1408F7814 (PopDirectedDripsDiagRundownDevices.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDirectedDripsDiagFreeDeviceDiagnostic(_QWORD *P)

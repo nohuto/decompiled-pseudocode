@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HasRenderingIntermediate@CEffectBrush@@UEBA_NXZ @ 0x18022B960
+ * XREFs of ?HasRenderingIntermediate@CEffectBrush@@UEBA_NXZ @ 0x1801BFDE0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HasBlurEffectNode@CEffectBrush@@QEBA_NXZ @ 0x1801F3FF4 (-HasBlurEffectNode@CEffectBrush@@QEBA_NXZ.c)
+ *     ?HasBlurEffectNode@CEffectBrush@@QEBA_NXZ @ 0x18000F354 (-HasBlurEffectNode@CEffectBrush@@QEBA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CEffectBrush::HasRenderingIntermediate(CEffectBrush *this)
@@ -15,18 +15,18 @@ char __fastcall CEffectBrush::HasRenderingIntermediate(CEffectBrush *this)
   if ( !(unsigned __int8)CEffectBrush::HasBlurEffectNode(this) )
   {
     v2 = 0LL;
-    if ( !*((_DWORD *)this + 36) )
+    if ( !*((_DWORD *)this + 34) )
       return 0;
     while ( 1 )
     {
-      v3 = *(_QWORD *)(*((_QWORD *)this + 15) + 8 * v2);
+      v3 = *(_QWORD *)(*((_QWORD *)this + 14) + 8 * v2);
       if ( v3 )
       {
-        if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v3 + 264LL))(v3) )
+        if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v3 + 272LL))(v3) )
           break;
       }
       v2 = (unsigned int)(v2 + 1);
-      if ( (unsigned int)v2 >= *((_DWORD *)this + 36) )
+      if ( (unsigned int)v2 >= *((_DWORD *)this + 34) )
         return 0;
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vComputePageXform@DC@@QEAAXXZ @ 0x1C013E9F8
+ * XREFs of ?vComputePageXform@DC@@QEAAXXZ @ 0x1C016086C
  * Callers:
- *     ?iSetMapMode@DC@@QEAAHH@Z @ 0x1C013E220 (-iSetMapMode@DC@@QEAAHH@Z.c)
+ *     ?iSetMapMode@DC@@QEAAHH@Z @ 0x1C010CB40 (-iSetMapMode@DC@@QEAAHH@Z.c)
  * Callees:
  *     <none>
  */

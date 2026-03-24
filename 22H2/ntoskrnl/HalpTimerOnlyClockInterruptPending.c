@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerOnlyClockInterruptPending @ 0x1403CFA40
+ * XREFs of HalpTimerOnlyClockInterruptPending @ 0x14030BF40
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptGetHighestPriorityInterrupt @ 0x1403CFA90 (HalpInterruptGetHighestPriorityInterrupt.c)
+ *     HalpInterruptGetHighestPriorityInterrupt @ 0x14030BF90 (HalpInterruptGetHighestPriorityInterrupt.c)
  */
 
 bool HalpTimerOnlyClockInterruptPending()

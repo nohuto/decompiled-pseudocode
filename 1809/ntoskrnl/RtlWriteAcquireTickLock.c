@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlWriteAcquireTickLock @ 0x140117A50
+ * XREFs of RtlWriteAcquireTickLock @ 0x140117A70
  * Callers:
- *     KeSetSystemAllowedCpuSets @ 0x14011497C (KeSetSystemAllowedCpuSets.c)
- *     KeCpuSetReportParkedProcessors @ 0x140114A84 (KeCpuSetReportParkedProcessors.c)
- *     KiUpdateTimeAssist @ 0x140117818 (KiUpdateTimeAssist.c)
- *     KiUpdateSystemTime @ 0x14016AD08 (KiUpdateSystemTime.c)
- *     KiConfigureCpuSetSchedulingInformation @ 0x14017E22C (KiConfigureCpuSetSchedulingInformation.c)
- *     KeSetTagCpuSets @ 0x140296CE8 (KeSetTagCpuSets.c)
+ *     KeSetSystemAllowedCpuSets @ 0x14011499C (KeSetSystemAllowedCpuSets.c)
+ *     KeCpuSetReportParkedProcessors @ 0x140114AA4 (KeCpuSetReportParkedProcessors.c)
+ *     KiUpdateTimeAssist @ 0x140117838 (KiUpdateTimeAssist.c)
+ *     KiUpdateSystemTime @ 0x14016AD28 (KiUpdateSystemTime.c)
+ *     KiConfigureCpuSetSchedulingInformation @ 0x14017E24C (KiConfigureCpuSetSchedulingInformation.c)
+ *     KeSetTagCpuSets @ 0x140296DE8 (KeSetTagCpuSets.c)
  *     KiCalibrateTimeAdjustment @ 0x14056B040 (KiCalibrateTimeAdjustment.c)
  *     KiCreateCpuSetForProcessor @ 0x140571D00 (KiCreateCpuSetForProcessor.c)
  * Callees:

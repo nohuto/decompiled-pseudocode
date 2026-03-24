@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSetupMixedRealitytNotification @ 0x1407631A0
+ * XREFs of PopSetupMixedRealitytNotification @ 0x140763180
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     ExSubscribeWnfStateChange @ 0x1406BC490 (ExSubscribeWnfStateChange.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     ExSubscribeWnfStateChange @ 0x1406BC470 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 PopSetupMixedRealitytNotification()

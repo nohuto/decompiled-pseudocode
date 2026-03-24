@@ -1,92 +1,77 @@
 /*
- * XREFs of ?AddDriverBlackboxInfo@DISPLAYDIAGNOSTICADAPTERDATA@@AEAAJXZ @ 0x1C02ED064
+ * XREFs of ?AddDriverBlackboxInfo@DISPLAYDIAGNOSTICADAPTERDATA@@AEAAJXZ @ 0x1C02B95BC
  * Callers:
- *     ?CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C02EE034 (-CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z.c)
+ *     ?CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z @ 0x1C02BA3A0 (-CollectDisplayAdapterDiagData@DISPLAYDIAGNOSTICADAPTERDATA@@QEAAJPEAVDXGADAPTER@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?DdiCollectDiagnosticInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C02C62F8 (-DdiCollectDiagnosticInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?DdiCollectDiagnosticInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C02184C0 (-DdiCollectDiagnosticInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z.c)
  */
 
-__int64 __fastcall DISPLAYDIAGNOSTICADAPTERDATA::AddDriverBlackboxInfo(DISPLAYDIAGNOSTICADAPTERDATA *this)
+__int64 __fastcall DISPLAYDIAGNOSTICADAPTERDATA::AddDriverBlackboxInfo(DISPLAYDIAGNOSTICADAPTERDATA *this, __int64 a2)
 {
-  __int64 v1; // rbp
-  int v3; // edi
-  __int64 v4; // r9
+  __int64 v2; // rbp
+  int v3; // ebx
   __int64 v5; // rax
-  __int64 v7; // rbx
-  __int64 v8; // rsi
-  __int64 v9; // r8
-  int v10; // eax
-  __int64 v11; // rbx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 v9; // rax
+  PVOID v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  __int64 v15; // rax
+  __int64 v17; // rdi
+  __int64 v18; // r8
+  __int64 v19; // [rsp+50h] [rbp+8h]
+  __int64 v20; // [rsp+58h] [rbp+10h]
 
-  v1 = *(_QWORD *)this;
+  v2 = *(_QWORD *)this;
   v3 = 0;
   if ( !*(_QWORD *)this )
   {
-    WdLogSingleEntry1(1LL, 1301LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pDisplayAdapter != NULL", 1301LL, 0LL, 0LL, 0LL, 0LL);
+    v5 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v5 + 24) = 1201LL;
+    WdLogEvent5_WdAssertion(v5);
   }
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner((DXGADAPTER *)v1) )
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner((DXGADAPTER *)v2) )
   {
-    WdLogSingleEntry1(1LL, 1302LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pDisplayAdapter->IsCoreResourceSharedOwner()",
-      1302LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v8 + 24) = 1202LL;
+    WdLogEvent5_WdAssertion(v8);
   }
-  if ( *(_DWORD *)(v1 + 1968) >= 0xC004u && *(int *)(v1 + 2692) >= 2700 )
+  if ( *(_DWORD *)(v2 + 1872) >= 0xC004u && *(int *)(v2 + 2596) >= 2700 )
   {
     if ( *((_QWORD *)this + 435) )
     {
-      WdLogSingleEntry1(1LL, 1319LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"m_DriverBlackboxInfo.pBuffer == NULL",
-        1319LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v9 = WdLogNewEntry5_WdAssertion(v7, v6);
+      *(_QWORD *)(v9 + 24) = 1219LL;
+      WdLogEvent5_WdAssertion(v9);
     }
-    v5 = operator new[](0x100000uLL, 0x4B677844u, 256LL, v4);
-    *((_QWORD *)this + 435) = v5;
-    if ( !v5 )
+    v10 = operator new[](0x100000uLL, 0x4B677844u, PagedPool);
+    *((_QWORD *)this + 435) = v10;
+    if ( !v10 )
     {
-      WdLogSingleEntry1(6LL, 0x100000LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Out of memory allocating black screen driver blackbox buffer(size 0x%I64x)",
-        0x100000LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v15 = WdLogNewEntry5_WdLowResource(v12, v11, v13, v14);
+      *(_QWORD *)(v15 + 24) = 0x100000LL;
+      WdLogEvent5_WdLowResource(v15);
       return 3221225495LL;
     }
-    *((_QWORD *)this + 407) = *(_QWORD *)(v1 + 280);
+    memset(v10, 0, 0x100000uLL);
+    *((_QWORD *)this + 407) = *(_QWORD *)(v2 + 272);
     *((_DWORD *)this + 816) = 3;
     *((_DWORD *)this + 868) = 0x100000;
-    v7 = MEMORY[0xFFFFF78000000320];
-    v8 = v7 * KeQueryTimeIncrement();
-    v10 = DXGADAPTER::DdiCollectDiagnosticInfo(
-            (DXGADAPTER *)v1,
-            (DISPLAYDIAGNOSTICADAPTERDATA *)((char *)this + 3256),
-            v9);
-    v11 = MEMORY[0xFFFFF78000000320];
-    v3 = v10;
-    *((_QWORD *)this + 437) = (v11 * (unsigned __int64)KeQueryTimeIncrement() - v8) / 0x2710;
+    v19 = MEMORY[0xFFFFF78000000320];
+    v17 = v19 * KeQueryTimeIncrement();
+    v3 = DXGADAPTER::DdiCollectDiagnosticInfo(
+           (DXGADAPTER *)v2,
+           (DISPLAYDIAGNOSTICADAPTERDATA *)((char *)this + 3256),
+           v18);
+    v20 = MEMORY[0xFFFFF78000000320];
+    *((_QWORD *)this + 437) = (v20 * (unsigned __int64)KeQueryTimeIncrement() - v17) / 0x2710;
     if ( v3 >= 0 )
     {
       if ( *((_DWORD *)this + 869) <= 0x100000u )

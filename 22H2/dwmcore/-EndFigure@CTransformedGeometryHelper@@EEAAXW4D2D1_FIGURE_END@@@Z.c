@@ -1,5 +1,5 @@
 /*
- * XREFs of ?EndFigure@CTransformedGeometryHelper@@EEAAXW4D2D1_FIGURE_END@@@Z @ 0x1801B2E10
+ * XREFs of ?EndFigure@CTransformedGeometryHelper@@EEAAXW4D2D1_FIGURE_END@@@Z @ 0x18025FEB0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CTransformedGeometryHelper::EndFigure(CTransformedGeometryHelper *this, __int64 a2)
 {
-  (*(void (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 4) + 64LL))(*((_QWORD *)this + 4), a2);
+  (*(void (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 3) + 64LL))(*((_QWORD *)this + 3), a2);
 }

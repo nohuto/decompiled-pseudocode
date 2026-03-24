@@ -1,15 +1,15 @@
 /*
- * XREFs of CmSnapshotRMTxArray @ 0x1406A0094
+ * XREFs of CmSnapshotRMTxArray @ 0x1406A3B98
  * Callers:
- *     CmpTryToRundownHive @ 0x140208D94 (CmpTryToRundownHive.c)
- *     CmpPerformUnloadKey @ 0x14069E98C (CmpPerformUnloadKey.c)
+ *     CmpTryToRundownHive @ 0x140361574 (CmpTryToRundownHive.c)
+ *     CmpPerformUnloadKey @ 0x14071A1B8 (CmpPerformUnloadKey.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     CmpAddEnlistmentToRollbackPacket @ 0x14091B730 (CmpAddEnlistmentToRollbackPacket.c)
- *     CmpReserveRollbackPacketSpace @ 0x14091BB78 (CmpReserveRollbackPacketSpace.c)
- *     CmListGetNextElement @ 0x140AB4218 (CmListGetNextElement.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
+ *     CmpAddEnlistmentToRollbackPacket @ 0x140874B28 (CmpAddEnlistmentToRollbackPacket.c)
+ *     CmpReserveRollbackPacketSpace @ 0x140874F8C (CmpReserveRollbackPacketSpace.c)
  */
 
 __int64 __fastcall CmSnapshotRMTxArray(__int64 a1, _DWORD *a2)
@@ -48,7 +48,7 @@ __int64 __fastcall CmSnapshotRMTxArray(__int64 a1, _DWORD *a2)
       if ( v5 <= a2[1] - *a2 )
         break;
       ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-      KeLeaveCriticalRegion();
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       result = CmpReserveRollbackPacketSpace(a2, v5);
       if ( (int)result < 0 )
         return result;
@@ -63,7 +63,7 @@ __int64 __fastcall CmSnapshotRMTxArray(__int64 a1, _DWORD *a2)
         CmpAddEnlistmentToRollbackPacket(a2, *(_QWORD *)(v7 + 72));
     }
     ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return 0LL;
 }

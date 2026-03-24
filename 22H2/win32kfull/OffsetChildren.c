@@ -1,80 +1,83 @@
 /*
- * XREFs of OffsetChildren @ 0x1C00F147C
+ * XREFs of OffsetChildren @ 0x1C004C97C
  * Callers:
- *     ?UpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z @ 0x1C00CFC14 (-UpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00F58E4 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     zzzUpdateLayeredWindow @ 0x1C01BD720 (zzzUpdateLayeredWindow.c)
- *     xxxScrollWindowEx @ 0x1C022EE20 (xxxScrollWindowEx.c)
+ *     xxxScrollWindowEx @ 0x1C00677EC (xxxScrollWindowEx.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068290 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     UpdateWindowPositionsForDpiBoundaryChange @ 0x1C00F1404 (UpdateWindowPositionsForDpiBoundaryChange.c)
+ *     zzzUpdateLayeredWindow @ 0x1C00F1C94 (zzzUpdateLayeredWindow.c)
  * Callees:
- *     ?IsDpiBoundaryBetweenWindows@@YA_NPEBUtagWND@@0@Z @ 0x1C003120C (-IsDpiBoundaryBetweenWindows@@YA_NPEBUtagWND@@0@Z.c)
- *     IntersectRect @ 0x1C00D0330 (IntersectRect.c)
- *     OffsetWindow @ 0x1C00F1570 (OffsetWindow.c)
- *     DirtyVisRgnTrackers @ 0x1C00F319C (DirtyVisRgnTrackers.c)
- *     ScaleDpiOffsetWithSubpixel @ 0x1C01BA068 (ScaleDpiOffsetWithSubpixel.c)
+ *     OffsetWindow @ 0x1C004CA70 (OffsetWindow.c)
+ *     IsDpiBoundaryBetweenWindows @ 0x1C0070440 (IsDpiBoundaryBetweenWindows.c)
+ *     IntersectRect @ 0x1C00750C0 (IntersectRect.c)
+ *     ScaleDpiOffsetWithSubpixel @ 0x1C01E588C (ScaleDpiOffsetWithSubpixel.c)
  */
 
-__int64 __fastcall OffsetChildren(struct tagWND *a1, unsigned int a2, unsigned int a3, int *a4)
+_UNKNOWN **__fastcall OffsetChildren(struct tagWND *a1, unsigned int a2, int a3, __int64 a4, int a5)
 {
-  __int64 result; // rax
-  __int64 v9; // rbx
-  int v10; // esi
-  unsigned int v11; // r12d
-  unsigned int v12; // r13d
-  float *v13; // r10
-  _OWORD v14[3]; // [rsp+20h] [rbp-38h] BYREF
-  int v15; // [rsp+60h] [rbp+8h] BYREF
-  unsigned int v16; // [rsp+64h] [rbp+Ch]
+  _UNKNOWN **result; // rax
+  __int64 v6; // rbx
+  unsigned int v8; // esi
+  unsigned int v9; // ebp
+  int v12; // r14d
+  unsigned int v13; // eax
+  int v14; // eax
+  __int128 v15[3]; // [rsp+20h] [rbp-38h] BYREF
+  _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
+  int v17; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v18; // [rsp+64h] [rbp+Ch]
 
-  v14[0] = 0LL;
-  result = IsWindowDesktopComposed(a1);
-  if ( (_DWORD)result )
-    result = DirtyVisRgnTrackers(a1);
-  v9 = *((_QWORD *)a1 + 14);
-  if ( v9 )
+  result = &retaddr;
+  v6 = *((_QWORD *)a1 + 14);
+  a5 = a3;
+  v8 = a3;
+  v9 = a2;
+  v15[0] = 0LL;
+  if ( v6 )
   {
-    v10 = 0;
-    v11 = a2;
-    v12 = a3;
+    v12 = 0;
     while ( 1 )
     {
-      if ( a4 && !(unsigned int)IntersectRect(v14, a4, (int *)(*(_QWORD *)(v9 + 40) + 88LL)) )
-        goto LABEL_20;
-      if ( IsDpiBoundaryBetweenWindows((const struct tagWND *)v9, a1) )
+      if ( a4 && !(unsigned int)IntersectRect(v15, a4, *(_QWORD *)(v6 + 40) + 88LL) )
+        goto LABEL_21;
+      if ( (unsigned int)IsDpiBoundaryBetweenWindows(v6, a1) )
       {
-        v15 = a2;
-        v16 = a3;
-        ScaleDpiOffsetWithSubpixel(&v15, v13, (struct tagWND *)v9, a1);
-        a2 = v15;
-        v10 = 1;
-        a3 = v16;
+        v17 = v9;
+        v18 = v8;
+        ScaleDpiOffsetWithSubpixel(&v17, (float *)(v6 + 224), (struct tagWND *)v6, a1);
+        v9 = v17;
+        v12 = 1;
+        v8 = v18;
       }
       else
       {
-        *v13 = *((float *)a1 + 56);
-        *(_DWORD *)(v9 + 228) = *((_DWORD *)a1 + 57);
+        *(_DWORD *)(v6 + 224) = *((_DWORD *)a1 + 56);
+        *(_DWORD *)(v6 + 228) = *((_DWORD *)a1 + 57);
       }
-      OffsetWindow(v9, a2, a3);
-      if ( v10 )
-      {
-        a2 = v11;
-        a3 = v12;
-      }
-      result = *(_QWORD *)(v9 + 112);
-      v10 = 0;
+      OffsetWindow(v6, v9, v8);
+      v13 = a2;
+      if ( !v12 )
+        v13 = v9;
+      v9 = v13;
+      v14 = a5;
+      if ( !v12 )
+        v14 = v8;
+      v12 = 0;
+      v8 = v14;
+      result = *(_UNKNOWN ***)(v6 + 112);
       if ( !result )
       {
-LABEL_20:
+LABEL_21:
         while ( 1 )
         {
-          result = *(_QWORD *)(v9 + 88);
+          result = *(_UNKNOWN ***)(v6 + 88);
           if ( result )
             break;
-          v9 = *(_QWORD *)(v9 + 104);
-          if ( (struct tagWND *)v9 == a1 )
+          v6 = *(_QWORD *)(v6 + 104);
+          if ( (struct tagWND *)v6 == a1 )
             return result;
         }
       }
-      v9 = result;
+      v6 = (__int64)result;
     }
   }
   return result;

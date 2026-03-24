@@ -1,18 +1,18 @@
 /*
- * XREFs of ExRegisterExtension @ 0x1408484A0
+ * XREFs of ExRegisterExtension @ 0x14079D800
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExpFindHost @ 0x14084881C (ExpFindHost.c)
- *     ExpDereferenceHost @ 0x140A0282C (ExpDereferenceHost.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExpFindHost @ 0x14079DB78 (ExpFindHost.c)
+ *     ExpDereferenceHost @ 0x140956AEC (ExpDereferenceHost.c)
  */
 
 __int64 __fastcall ExRegisterExtension(__int64 *a1, int a2, unsigned __int16 *a3)
@@ -37,16 +37,16 @@ __int64 __fastcall ExRegisterExtension(__int64 *a1, int a2, unsigned __int16 *a3
     return 3221225485LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v6 = KeAbPreAcquire((__int64)&ExpHostListLock, 0LL);
+  v6 = KeAbPreAcquire((ULONG_PTR)&ExpHostListLock, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpHostListLock, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&ExpHostListLock, 0, v6, (__int64)&ExpHostListLock);
+    ExfAcquirePushLockSharedEx(&ExpHostListLock, v6, (ULONG_PTR)&ExpHostListLock);
   if ( v6 )
-    *(_BYTE *)(v6 + 18) = 1;
+    *(_BYTE *)(v6 + 26) |= 1u;
   Host = ExpFindHost(*a3, a3[1]);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpHostListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&ExpHostListLock);
   KeAbPostRelease((ULONG_PTR)&ExpHostListLock);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( !Host )
     return 3221226021LL;
   v8 = a3[2];
@@ -72,18 +72,18 @@ LABEL_14:
   v10 = KeGetCurrentThread();
   --v10->KernelApcDisable;
   v11 = (volatile signed __int64 *)(Host + 72);
-  v12 = KeAbPreAcquire(Host + 72, 0LL);
+  v12 = KeAbPreAcquire(Host + 72, 0LL, 0);
   v13 = v12;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(Host + 72), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(Host + 72), v12, Host + 72);
   if ( v13 )
-    *(_BYTE *)(v13 + 18) = 1;
+    *(_BYTE *)(v13 + 26) |= 1u;
   if ( *(_QWORD *)(Host + 80) || (*(_BYTE *)(Host + 88) & 1) != 0 )
   {
     if ( (_InterlockedExchangeAdd64(v11, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(Host + 72);
     KeAbPostRelease(Host + 72);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     v20 = -1073741771;
     goto LABEL_40;
   }
@@ -102,7 +102,7 @@ LABEL_14:
   if ( (v17 & 2) != 0 && (v17 & 4) == 0 )
     ExfTryToWakePushLock(Host + 72);
   KeAbPostRelease(Host + 72);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   v18 = (_QWORD *)*((_QWORD *)a3 + 2);
   if ( v18 )
     *v18 = *(_QWORD *)(Host + 40);

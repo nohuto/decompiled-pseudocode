@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00D4218
+ * XREFs of ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00C49BC
  * Callers:
- *     DrvUpdateGraphicsDeviceList @ 0x1C006ADB0 (DrvUpdateGraphicsDeviceList.c)
- *     DrvUpdateRemoteGraphicsDeviceList @ 0x1C017511C (DrvUpdateRemoteGraphicsDeviceList.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001DEE0 (DrvUpdateGraphicsDeviceList.c)
+ *     DrvUpdateRemoteGraphicsDeviceList @ 0x1C0148048 (DrvUpdateRemoteGraphicsDeviceList.c)
  * Callees:
- *     ?DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z @ 0x1C006A5AC (-DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z.c)
- *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C006CFA0 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00C14FC (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001D00C (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0067D78 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z @ 0x1C00B0B68 (-DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvUpdateRemoteAdapterInfo(struct tagGRAPHICS_DEVICE *a1)
@@ -39,7 +39,7 @@ __int64 __fastcall DrvUpdateRemoteAdapterInfo(struct tagGRAPHICS_DEVICE *a1)
   FileObject = 0LL;
   DestinationString = 0LL;
   LODWORD(v17) = 0;
-  if ( dword_1C0297080 )
+  if ( dword_1C02522A0 )
   {
     QueryTable.QueryRoutine = 0LL;
     QueryTable.Name = L"MaxObjectNumber";
@@ -59,16 +59,16 @@ __int64 __fastcall DrvUpdateRemoteAdapterInfo(struct tagGRAPHICS_DEVICE *a1)
       v5 = 0;
       while ( 1 )
       {
-        v2 = RtlStringCchPrintfW(&xmmword_1C0297098, 32LL, L"\\Device\\Video%d", v5);
+        v2 = RtlStringCchPrintfW(&Dest, 32LL, L"\\Device\\Video%d", v5);
         if ( v2 < 0 )
           break;
-        RtlInitUnicodeString(&DestinationString, &xmmword_1C0297098);
+        RtlInitUnicodeString(&DestinationString, &Dest);
         if ( IoGetDeviceObjectPointer(&DestinationString, 0, &FileObject, &DeviceObject) >= 0 )
         {
           v2 = GreDeviceIoControlImpl(DeviceObject, 0x232033u, 0LL, 0, &v9, 0x20u, &v18, 1u, 1);
-          if ( v2 >= 0 && (_QWORD)v10 == qword_1C0297084 )
+          if ( v2 >= 0 && (_QWORD)v10 == qword_1C02522A4 )
           {
-            if ( dword_1C0297080 )
+            if ( dword_1C02522A0 )
             {
               v2 = DrvForceChildDeviceReenumeration(DeviceObject, (struct _DEVICE_RELATIONS **)&P);
               if ( v2 >= 0 )
@@ -81,38 +81,37 @@ __int64 __fastcall DrvUpdateRemoteAdapterInfo(struct tagGRAPHICS_DEVICE *a1)
           }
           ObfDereferenceObject(FileObject);
           if ( v3 )
-          {
-            if ( v2 >= 0 )
-              return (unsigned int)v2;
-            break;
-          }
+            goto LABEL_19;
         }
         if ( ++v5 > (unsigned int)v17 )
         {
           v2 = -1073741772;
+LABEL_19:
+          if ( v2 >= 0 )
+            return (unsigned int)v2;
           break;
         }
       }
     }
-    *(_OWORD *)&xmmword_1C0297098 = 0LL;
-    xmmword_1C02970A8 = 0LL;
+    *(_OWORD *)&Dest = 0LL;
+    xmmword_1C02522C8 = 0LL;
     if ( Object )
     {
-      if ( dword_1C0297080 )
+      if ( dword_1C02522A0 )
       {
         ObfDereferenceObject(Object);
       }
       else
       {
         v17 = 0LL;
-        qword_1C0297084 = 0LL;
+        qword_1C02522A4 = 0LL;
       }
       Object = 0LL;
     }
   }
-  else if ( !Object && (unsigned __int8)((__int64 (*)(void))qword_1C02968F0)() )
+  else if ( !Object && (unsigned __int8)((__int64 (*)(void))qword_1C0251B08)() )
   {
-    qword_1C0297084 = *((_QWORD *)a1 + 37);
+    qword_1C02522A4 = *((_QWORD *)a1 + 37);
     Object = (PVOID)*((_QWORD *)a1 + 38);
   }
   return (unsigned int)v2;

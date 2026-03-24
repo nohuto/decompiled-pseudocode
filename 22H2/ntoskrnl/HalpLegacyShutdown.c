@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpLegacyShutdown @ 0x140506BB0
+ * XREFs of HalpLegacyShutdown @ 0x1404BE240
  * Callers:
  *     <none>
  * Callees:
- *     HalReturnToFirmware @ 0x140506A70 (HalReturnToFirmware.c)
+ *     HalReturnToFirmware @ 0x1404BE0F0 (HalReturnToFirmware.c)
  */
 
 void __noreturn HalpLegacyShutdown()

@@ -1,12 +1,13 @@
 /*
- * XREFs of ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C011778C
+ * XREFs of ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C002AA38
  * Callers:
- *     GreLddmProcessDesktopSwitch @ 0x1C011768C (GreLddmProcessDesktopSwitch.c)
- *     ?SpDdCreateFullscreenSprite@@YAJPEAUHDC__@@KPEAPEAXPEAPEAU1@@Z @ 0x1C026B85C (-SpDdCreateFullscreenSprite@@YAJPEAUHDC__@@KPEAPEAXPEAPEAU1@@Z.c)
- *     ?DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z @ 0x1C0273714 (-DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z.c)
- *     ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C0273A8C (-DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z.c)
- *     GreDxDwmShutdown @ 0x1C0275600 (GreDxDwmShutdown.c)
- *     ?MulIcmSetDeviceGammaRamp@@YAKPEAUDHPDEV__@@KPEAX@Z @ 0x1C02A1AA0 (-MulIcmSetDeviceGammaRamp@@YAKPEAUDHPDEV__@@KPEAX@Z.c)
+ *     UpdateGammaRampOnDevice @ 0x1C0028C50 (UpdateGammaRampOnDevice.c)
+ *     GreLddmProcessDesktopSwitch @ 0x1C002A93C (GreLddmProcessDesktopSwitch.c)
+ *     ?SpDdCreateFullscreenSprite@@YAJPEAUHDC__@@KPEAPEAXPEAPEAU1@@Z @ 0x1C026DAFC (-SpDdCreateFullscreenSprite@@YAJPEAUHDC__@@KPEAPEAXPEAPEAU1@@Z.c)
+ *     ?DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z @ 0x1C0275E08 (-DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z.c)
+ *     ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C0276178 (-DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z.c)
+ *     GreDxDwmShutdown @ 0x1C0277E90 (GreDxDwmShutdown.c)
+ *     ?MulIcmSetDeviceGammaRamp@@YAKPEAUDHPDEV__@@KPEAX@Z @ 0x1C02A3D00 (-MulIcmSetDeviceGammaRamp@@YAKPEAUDHPDEV__@@KPEAX@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +16,7 @@ __int64 __fastcall PDEVOBJ::bLddmDriver(PDEVOBJ *this)
 {
   __int64 v1; // rcx
 
-  v1 = *(_QWORD *)(*(_QWORD *)this + 2552LL);
+  v1 = *(_QWORD *)(*(_QWORD *)this + 2576LL);
   if ( ((v1 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0 )
     return (*(_DWORD *)(v1 + 160) >> 23) & 1;
   else

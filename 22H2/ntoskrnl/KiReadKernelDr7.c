@@ -1,7 +1,7 @@
 /*
- * XREFs of KiReadKernelDr7 @ 0x14056C0BC
+ * XREFs of KiReadKernelDr7 @ 0x140512B44
  * Callers:
- *     KiSwInterruptDispatch @ 0x1403E3F70 (KiSwInterruptDispatch.c)
+ *     KiSwInterruptDispatch @ 0x1403DC520 (KiSwInterruptDispatch.c)
  * Callees:
  *     <none>
  */

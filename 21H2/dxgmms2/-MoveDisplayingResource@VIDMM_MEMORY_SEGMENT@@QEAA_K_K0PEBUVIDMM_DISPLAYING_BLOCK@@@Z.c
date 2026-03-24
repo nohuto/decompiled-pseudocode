@@ -1,16 +1,15 @@
 /*
- * XREFs of ?MoveDisplayingResource@VIDMM_MEMORY_SEGMENT@@QEAA_K_K0PEBUVIDMM_DISPLAYING_BLOCK@@@Z @ 0x1C00E8E3C
+ * XREFs of ?MoveDisplayingResource@VIDMM_MEMORY_SEGMENT@@QEAA_K_K0PEBUVIDMM_DISPLAYING_BLOCK@@@Z @ 0x1C00C5078
  * Callers:
- *     ?Defragment@VIDMM_MEMORY_SEGMENT@@UEAAX_K0@Z @ 0x1C00E8C60 (-Defragment@VIDMM_MEMORY_SEGMENT@@UEAAX_K0@Z.c)
+ *     ?Defragment@VIDMM_MEMORY_SEGMENT@@UEAAX_K0@Z @ 0x1C00C4B40 (-Defragment@VIDMM_MEMORY_SEGMENT@@UEAAX_K0@Z.c)
  * Callees:
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00039B0 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003A80 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?SuspendSchedulerDeviceForMove@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00DA104 (-SuspendSchedulerDeviceForMove@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?UpdateVirtualAddressForNewResourceLocation@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00DB810 (-UpdateVirtualAddressForNewResourceLocation@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?VidMmiMoveAndFlipDisplayingAllocation@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K2@Z @ 0x1C00E9AD8 (-VidMmiMoveAndFlipDisplayingAllocation@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K2@Z.c)
- *     ?DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P8VIDMM_SEGMENT@@EAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@ZPEAV3@4PEAPEAU4@3@Z @ 0x1C00EF1A0 (-DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@.c)
- *     ?FindTemporarySegmentLocationForResource@VIDMM_LINEAR_POOL@@QEAAJPEBUVIDMM_FIND_TEMPORARY_LOCATION_ARGS@@_NPEA_K2@Z @ 0x1C00EF3D8 (-FindTemporarySegmentLocationForResource@VIDMM_LINEAR_POOL@@QEAAJPEBUVIDMM_FIND_TEMPORARY_LOCATI.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006030 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00060DC (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?SuspendSchedulerDeviceForMove@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B3FE0 (-SuspendSchedulerDeviceForMove@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?UpdateVirtualAddressForNewResourceLocation@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B5B68 (-UpdateVirtualAddressForNewResourceLocation@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?VidMmiMoveAndFlipDisplayingAllocation@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K2@Z @ 0x1C00C5F48 (-VidMmiMoveAndFlipDisplayingAllocation@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@_K2@Z.c)
+ *     ?DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P8VIDMM_SEGMENT@@EAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@ZPEAV3@4PEAPEAU4@3@Z @ 0x1C00CE840 (-DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@.c)
+ *     ?FindTemporarySegmentLocationForResource@VIDMM_LINEAR_POOL@@QEAAJPEBUVIDMM_FIND_TEMPORARY_LOCATION_ARGS@@_NPEA_K2@Z @ 0x1C00CEA78 (-FindTemporarySegmentLocationForResource@VIDMM_LINEAR_POOL@@QEAAJPEBUVIDMM_FIND_TEMPORARY_LOCATI.c)
  */
 
 __int64 __fastcall VIDMM_MEMORY_SEGMENT::MoveDisplayingResource(
@@ -19,121 +18,132 @@ __int64 __fastcall VIDMM_MEMORY_SEGMENT::MoveDisplayingResource(
         __int64 a3,
         const struct VIDMM_DISPLAYING_BLOCK *a4)
 {
-  __int64 v4; // rdi
+  __int64 v4; // rbx
   __int64 v6; // r14
   __int64 v9; // r14
   VIDMM_GLOBAL *v10; // rcx
-  __int64 v11; // rcx
-  VIDMM_LINEAR_POOL *v12; // rcx
-  __int64 v13; // rdx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
   __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rcx
-  unsigned __int64 v18; // r14
-  int v19; // r15d
-  unsigned __int64 v21; // [rsp+50h] [rbp-29h] BYREF
-  unsigned __int64 v22; // [rsp+58h] [rbp-21h] BYREF
-  _QWORD v23[5]; // [rsp+60h] [rbp-19h] BYREF
-  __int64 v24; // [rsp+88h] [rbp+Fh]
-  __int64 v25; // [rsp+90h] [rbp+17h]
-  char v26; // [rsp+E0h] [rbp+67h] BYREF
-  __int64 v27; // [rsp+E8h] [rbp+6Fh]
-  char v28; // [rsp+F8h] [rbp+7Fh] BYREF
+  char v15; // r13
+  VIDMM_LINEAR_POOL *v16; // rcx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  int v21; // r15d
+  unsigned __int64 v22; // r14
+  _QWORD *v23; // rax
+  __int64 v24; // rdx
+  unsigned __int64 v26; // [rsp+50h] [rbp-29h] BYREF
+  unsigned __int64 v27; // [rsp+58h] [rbp-21h] BYREF
+  _BYTE v28[8]; // [rsp+60h] [rbp-19h] BYREF
+  _QWORD v29[5]; // [rsp+68h] [rbp-11h] BYREF
+  __int64 v30; // [rsp+90h] [rbp+17h]
+  __int64 v31; // [rsp+98h] [rbp+1Fh]
+  char v33; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  v27 = a2;
   v4 = *(_QWORD *)a4;
   v6 = *((_QWORD *)a4 + 1);
-  v28 = 0;
+  v33 = 0;
   v9 = *(_QWORD *)(v4 + 16) + v6;
   KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx(v4 + 496, 0LL);
-  DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(v4 + 296));
+  ExAcquirePushLockExclusiveEx(v4 + 488, 0LL);
+  DXGFASTMUTEX::Acquire(*(DXGFASTMUTEX **)(v4 + 312));
   VIDMM_GLOBAL::SuspendSchedulerDeviceForMove(v10, (struct _VIDMM_GLOBAL_ALLOC *)v4);
-  if ( !*((_BYTE *)a4 + 24) && (*((_DWORD *)this[1] + 1764) & 0x40000) == 0 )
+  if ( !*((_BYTE *)a4 + 24) && (*((_DWORD *)this[1] + 1762) & 0x40000) == 0 )
   {
-    WdLogSingleEntry2(4LL, *((_QWORD *)a4 + 1), *((_QWORD *)a4 + 2));
+    v13 = WdLogNewEntry5_WdEvent(v12, v11);
+    *(_QWORD *)(v13 + 24) = *((_QWORD *)a4 + 1);
+    *(_QWORD *)(v13 + 32) = *((_QWORD *)a4 + 2);
+    WdLogEvent5_WdEvent(v13);
     VidMmiMoveAndFlipDisplayingAllocation(
       this[1],
       (struct _VIDMM_GLOBAL_ALLOC *)v4,
       *((_QWORD *)a4 + 1),
       *((_QWORD *)a4 + 2));
 LABEL_13:
-    **(_QWORD **)(v4 + 136) = *((_QWORD *)a4 + 2);
-    *(_QWORD *)(v4 + 128) = *((_QWORD *)a4 + 2);
-    *(_QWORD *)(*(_QWORD *)(v4 + 528) + 32LL) = (char *)this[3] + *((_QWORD *)a4 + 2);
+    **(_QWORD **)(v4 + 144) = *((_QWORD *)a4 + 2);
+    *(_QWORD *)(v4 + 136) = *((_QWORD *)a4 + 2);
+    *(_QWORD *)(*(_QWORD *)(v4 + 512) + 32LL) = (char *)this[3] + *((_QWORD *)a4 + 2);
     v9 = *((_QWORD *)a4 + 2) + *(_QWORD *)(v4 + 16);
     VIDMM_SEGMENT::UpdateVirtualAddressForNewResourceLocation((VIDMM_SEGMENT *)this, (VIDMM_SEGMENT **)v4);
     goto LABEL_14;
   }
-  v11 = *(_QWORD *)(v4 + 16);
-  v23[0] = v27;
-  v23[3] = *(unsigned int *)(v4 + 32);
-  v23[4] = VidMmiIsSaveableResource;
-  v24 = *((_QWORD *)a4 + 2);
-  v25 = v11 + v24;
-  v26 = 0;
-  v21 = 0LL;
-  v22 = 0LL;
-  v23[2] = v11;
-  v12 = this[19];
-  v23[1] = a3;
+  v14 = *(_QWORD *)(v4 + 16);
+  v26 = 0LL;
+  v27 = 0LL;
+  v15 = 0;
+  v29[0] = a2;
+  v29[3] = *(unsigned int *)(v4 + 32);
+  v29[4] = VidMmiIsSaveableResource;
+  v30 = *((_QWORD *)a4 + 2);
+  v31 = v14 + v30;
+  v29[2] = v14;
+  v16 = this[19];
+  v29[1] = a3;
   if ( (int)VIDMM_LINEAR_POOL::FindTemporarySegmentLocationForResource(
-              v12,
-              (const struct VIDMM_FIND_TEMPORARY_LOCATION_ARGS *)v23,
+              v16,
+              (const struct VIDMM_FIND_TEMPORARY_LOCATION_ARGS *)v29,
               1,
-              &v21,
-              &v22) >= 0 )
+              &v26,
+              &v27) >= 0 )
   {
-    v18 = v21;
-    v19 = v22;
+    v22 = v26;
+    v21 = v27;
 LABEL_11:
-    WdLogSingleEntry3(4LL, *((_QWORD *)a4 + 1), v18, *((_QWORD *)a4 + 2));
-    VidMmiMoveAndFlipDisplayingAllocation(this[1], (struct _VIDMM_GLOBAL_ALLOC *)v4, *((_QWORD *)a4 + 1), v18);
-    VidMmiMoveAndFlipDisplayingAllocation(this[1], (struct _VIDMM_GLOBAL_ALLOC *)v4, v18, *((_QWORD *)a4 + 2));
-    if ( v26 )
+    v23 = (_QWORD *)WdLogNewEntry5_WdEvent(v18, v17);
+    v23[3] = *((_QWORD *)a4 + 1);
+    v23[4] = v22;
+    v23[5] = *((_QWORD *)a4 + 2);
+    WdLogEvent5_WdEvent(v23);
+    VidMmiMoveAndFlipDisplayingAllocation(this[1], (struct _VIDMM_GLOBAL_ALLOC *)v4, *((_QWORD *)a4 + 1), v22);
+    VidMmiMoveAndFlipDisplayingAllocation(this[1], (struct _VIDMM_GLOBAL_ALLOC *)v4, v22, *((_QWORD *)a4 + 2));
+    if ( v15 )
       VIDMM_LINEAR_POOL::DirectedIterateAllocatedBlocksInRange(
         (unsigned int)this[19],
-        v18,
-        v19,
+        v22,
+        v21,
         0,
         (__int64)VIDMM_SEGMENT::RestoreResourceCB,
         (__int64)this,
         0LL,
-        (__int64)&v26,
-        (__int64)&v28);
+        (__int64)v28,
+        (__int64)&v33);
     goto LABEL_13;
   }
   if ( g_IsInternalReleaseOrDbg )
-    WdLogNewEntry5_WdTrace(v14, v13, v15, v16);
+    WdLogNewEntry5_WdTrace(v18);
   if ( (int)VIDMM_LINEAR_POOL::FindTemporarySegmentLocationForResource(
               this[19],
-              (const struct VIDMM_FIND_TEMPORARY_LOCATION_ARGS *)v23,
+              (const struct VIDMM_FIND_TEMPORARY_LOCATION_ARGS *)v29,
               0,
-              &v21,
-              &v22) >= 0 )
+              &v26,
+              &v27) >= 0 )
   {
-    v18 = v21;
-    v19 = v22;
+    v21 = v27;
+    v22 = v26;
     VIDMM_LINEAR_POOL::DirectedIterateAllocatedBlocksInRange(
       (unsigned int)this[19],
-      v21,
-      v22,
+      v26,
+      v27,
       0,
       (__int64)VIDMM_SEGMENT::SaveResourceCB,
       (__int64)this,
       0LL,
-      (__int64)&v26,
-      (__int64)&v28);
-    v26 = 1;
+      (__int64)v28,
+      (__int64)&v33);
+    v15 = 1;
     goto LABEL_11;
   }
-  _InterlockedIncrement(&dword_1C006E878);
-  WdLogSingleEntry1(6LL, 2981LL);
-  DxgkLogInternalTriageEvent(v17, 262145LL);
+  _InterlockedIncrement(&dword_1C00507C8);
+  v20 = WdLogNewEntry5_WdLowResource(v19);
+  *(_QWORD *)(v20 + 24) = 2963LL;
+  WdLogEvent5_WdLowResource(v20);
 LABEL_14:
-  ExReleasePushLockExclusiveEx(v4 + 496, 0LL);
+  ExReleasePushLockExclusiveEx(v4 + 488, 0LL);
   KeLeaveCriticalRegion();
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v4 + 296));
+  DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v4 + 312), v24);
   return v9;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiPortarbBacktrackAllocation @ 0x1C00B12A0
+ * XREFs of AcpiPortarbBacktrackAllocation @ 0x1C00B2050
  * Callers:
  *     <none>
  * Callees:
- *     RtlDeleteRange_0 @ 0x1C002F20D (RtlDeleteRange_0.c)
- *     AcpiArblibGetNextAlias @ 0x1C00ABF58 (AcpiArblibGetNextAlias.c)
+ *     RtlDeleteRange_0 @ 0x1C0031D4D (RtlDeleteRange_0.c)
+ *     AcpiArblibGetNextAlias @ 0x1C00AD2A0 (AcpiArblibGetNextAlias.c)
  */
 
 NTSTATUS __fastcall AcpiPortarbBacktrackAllocation(__int64 a1, ULONGLONG *a2)
@@ -12,9 +12,8 @@ NTSTATUS __fastcall AcpiPortarbBacktrackAllocation(__int64 a1, ULONGLONG *a2)
   __int64 v2; // rdi
   int v5; // ebp
   char NextAlias; // al
-  __int64 v7; // r9
-  void *v8; // r9
-  struct _RTL_RANGE_LIST *v9; // rcx
+  void *v7; // r9
+  struct _RTL_RANGE_LIST *v8; // rcx
   ULONGLONG Start; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *a2;
@@ -23,12 +22,11 @@ NTSTATUS __fastcall AcpiPortarbBacktrackAllocation(__int64 a1, ULONGLONG *a2)
   while ( 1 )
   {
     NextAlias = AcpiArblibGetNextAlias(v5, v2, &Start);
-    v8 = *(void **)(v7 + 32);
-    v9 = *(struct _RTL_RANGE_LIST **)(a1 + 48);
+    v8 = *(struct _RTL_RANGE_LIST **)(a1 + 48);
     if ( !NextAlias )
       break;
     v2 = Start;
-    RtlDeleteRange(v9, Start, *(_QWORD *)(a2[5] + 16) + Start - 1, v8);
+    RtlDeleteRange(v8, Start, *(_QWORD *)(a2[5] + 16) + Start - 1, v7);
   }
-  return RtlDeleteRange_0(v9, *a2, a2[1], v8);
+  return RtlDeleteRange_0(v8, *a2, a2[1], v7);
 }

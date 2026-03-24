@@ -1,8 +1,10 @@
 /*
- * XREFs of ZwWin32CreateSectionRetainHandle @ 0x1C00791C8
+ * XREFs of ZwWin32CreateSectionRetainHandle @ 0x1C00A88E0
  * Callers:
- *     ZwWin32CreateSection @ 0x1C007916C (ZwWin32CreateSection.c)
- *     ?ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTES@@PEAT_LARGE_INTEGER@@_N@Z @ 0x1C028AB00 (-ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTE.c)
+ *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00A85CC (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ *     InitializeWin32CrossSessionGlobals @ 0x1C01347A0 (InitializeWin32CrossSessionGlobals.c)
+ *     ?ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTES@@PEAT_LARGE_INTEGER@@_N@Z @ 0x1C02891AC (-ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTE.c)
+ *     ZwWin32CreateSection @ 0x1C028A0D0 (ZwWin32CreateSection.c)
  * Callees:
  *     <none>
  */

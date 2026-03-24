@@ -1,11 +1,10 @@
 /*
- * XREFs of ?Create@DXGCHANNELENDPOINTPROXY@@SAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAVDXGVMBUSCHANNEL@@PEAPEAV1@@Z @ 0x1C0365F38
+ * XREFs of ?Create@DXGCHANNELENDPOINTPROXY@@SAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAVDXGVMBUSCHANNEL@@PEAPEAV1@@Z @ 0x1C02B3150
  * Callers:
- *     ?RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z @ 0x1C0366F90 (-RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z.c)
+ *     ?RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z @ 0x1C02B401C (-RegisterSubscriber@DXGVMBUSCHANNEL@@QEAAJIPEAUIDXGCHANNELSUBSCRIBER@@PEAPEAUIDXGCHANNEL@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ??0DXGCHANNELENDPOINTPROXY@@IEAA@XZ @ 0x1C03657A0 (--0DXGCHANNELENDPOINTPROXY@@IEAA@XZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGCHANNELENDPOINTPROXY::Create(
@@ -15,26 +14,49 @@ __int64 __fastcall DXGCHANNELENDPOINTPROXY::Create(
         struct DXGCHANNELENDPOINTPROXY **a4)
 {
   unsigned int v8; // ebx
-  DXGCHANNELENDPOINTPROXY *v9; // rax
-  DXGCHANNELENDPOINTPROXY *v10; // r9
+  _DWORD *v9; // rax
+  _DWORD *v10; // rcx
 
   v8 = -1073741823;
-  v9 = (DXGCHANNELENDPOINTPROXY *)operator new[](0x98uLL, 0x4B677844u, 256LL);
+  v9 = operator new[](0x90uLL, 0x4B677844u, PagedPool);
+  v10 = v9;
   if ( v9 )
-    v10 = DXGCHANNELENDPOINTPROXY::DXGCHANNELENDPOINTPROXY(v9);
+  {
+    v9[8] = 1;
+    *(_QWORD *)v9 = &DXGCHANNELENDPOINTPROXY::`vftable'{for `IDXGCHANNEL'};
+    *((_QWORD *)v9 + 5) = 0LL;
+    *((_QWORD *)v9 + 6) = 0LL;
+    *((_QWORD *)v9 + 7) = 0LL;
+    *((_QWORD *)v9 + 8) = 0LL;
+    *((_QWORD *)v9 + 1) = &DXGCHANNELENDPOINTPROXY::`vftable'{for `IDXGEXPANDHANDLETABLECALLBACK'};
+    *((_QWORD *)v9 + 9) = 0LL;
+    *((_QWORD *)v9 + 10) = 0LL;
+    *((_QWORD *)v9 + 11) = 0LL;
+    v9[24] = 0;
+    v9[25] = 82;
+    v9[26] = 53;
+    v9[28] = 0x2000;
+    *((_QWORD *)v9 + 15) = 0LL;
+    *((_QWORD *)v9 + 16) = 0LL;
+    *((_QWORD *)v9 + 17) = 0LL;
+    *((_QWORD *)v9 + 3) = v9 + 4;
+    *((_QWORD *)v9 + 2) = v9 + 4;
+  }
   else
+  {
     v10 = 0LL;
+  }
   if ( a2 )
   {
-    *((_DWORD *)v10 + 9) = a1;
+    v10[9] = a1;
     v8 = 0;
-    *((_QWORD *)v10 + 17) = a2;
-    *((_QWORD *)v10 + 16) = a3;
-    *a4 = v10;
+    *((_QWORD *)v10 + 16) = a2;
+    *((_QWORD *)v10 + 15) = a3;
+    *a4 = (struct DXGCHANNELENDPOINTPROXY *)v10;
   }
   else if ( v10 )
   {
-    (*(void (__fastcall **)(DXGCHANNELENDPOINTPROXY *))(*(_QWORD *)v10 + 8LL))(v10);
+    (*(void (__fastcall **)(_DWORD *))(*(_QWORD *)v10 + 8LL))(v10);
   }
   return v8;
 }

@@ -2,17 +2,17 @@
  * XREFs of MiReturnImageBase @ 0x1405F0514
  * Callers:
  *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
- *     MiRelocateImageAgain @ 0x14064F5C0 (MiRelocateImageAgain.c)
- *     MiFreeRelocations @ 0x1406FD220 (MiFreeRelocations.c)
+ *     MiRelocateImageAgain @ 0x14064F5A0 (MiRelocateImageAgain.c)
+ *     MiFreeRelocations @ 0x1406FD200 (MiFreeRelocations.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiGetImageBitMapInfo @ 0x1400D9510 (MiGetImageBitMapInfo.c)
- *     MiZeroCfgSystemWideBitmap @ 0x14012DB20 (MiZeroCfgSystemWideBitmap.c)
- *     MiReturnSystemImageAddress @ 0x14070E020 (MiReturnSystemImageAddress.c)
+ *     MiGetImageBitMapInfo @ 0x1400D9530 (MiGetImageBitMapInfo.c)
+ *     MiZeroCfgSystemWideBitmap @ 0x14012DB40 (MiZeroCfgSystemWideBitmap.c)
+ *     MiReturnSystemImageAddress @ 0x14070E000 (MiReturnSystemImageAddress.c)
  */
 
 __int64 __fastcall MiReturnImageBase(unsigned int *a1)

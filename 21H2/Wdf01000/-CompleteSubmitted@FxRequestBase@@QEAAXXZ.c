@@ -1,14 +1,14 @@
 /*
- * XREFs of ?CompleteSubmitted@FxRequestBase@@QEAAXXZ @ 0x1C0004590
+ * XREFs of ?CompleteSubmitted@FxRequestBase@@QEAAXXZ @ 0x1C0009160
  * Callers:
- *     ?_RequestCompletionRoutine@FxIoTarget@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C0004E70 (-_RequestCompletionRoutine@FxIoTarget@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z.c)
- *     ?CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C000EAFC (-CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
- *     ?HandleFailedResubmit@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C0073F28 (-HandleFailedResubmit@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z.c)
- *     ?RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C00742EC (-RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z.c)
- *     ?TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C0074894 (-TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?_RequestCompletionRoutine@FxIoTarget@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C000C770 (-_RequestCompletionRoutine@FxIoTarget@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z.c)
+ *     ?CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C00192EC (-CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?HandleFailedResubmit@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C0065508 (-HandleFailedResubmit@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C00659EC (-RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C0065FEC (-TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
  * Callees:
- *     ?VerifierClearFormatted@FxRequestBase@@QEAAXXZ @ 0x1C001ACFC (-VerifierClearFormatted@FxRequestBase@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?VerifierClearFormatted@FxRequestBase@@QEAAXXZ @ 0x1C001985C (-VerifierClearFormatted@FxRequestBase@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxRequestBase::CompleteSubmitted(FxRequestBase *this)
@@ -17,15 +17,15 @@ void __fastcall FxRequestBase::CompleteSubmitted(FxRequestBase *this)
   FxIoTarget *m_Target; // rdi
   FxRequestContext *m_RequestContext; // rcx
   void (__fastcall *m_Completion)(WDFREQUEST__ *, WDFIOTARGET__ *, _WDF_REQUEST_COMPLETION_PARAMS *, void *); // rsi
-  _IRP *v6; // rax
-  _WDF_REQUEST_COMPLETION_PARAMS *p_m_CompletionParams; // r8
   void *m_TargetCompletionContext; // r9
-  unsigned __int64 v9; // r11
-  unsigned __int64 v10; // r10
+  FxRequestContext *v7; // r8
+  unsigned __int64 v8; // rdx
+  unsigned __int64 v9; // rcx
+  _WDF_REQUEST_COMPLETION_PARAMS *p_m_CompletionParams; // r8
+  _IRP *v11; // rax
+  unsigned __int64 v12; // r10
   _IO_STATUS_BLOCK IoStatus; // xmm0
-  FxIoTarget *v12; // rax
-  unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // rcx
+  FxIoTarget *v14; // rax
   _IRP *m_Irp; // rax
   _DWORD v16[2]; // [rsp+30h] [rbp-58h] BYREF
   _IO_STATUS_BLOCK v17; // [rsp+38h] [rbp-50h]
@@ -47,51 +47,50 @@ void __fastcall FxRequestBase::CompleteSubmitted(FxRequestBase *this)
     FxRequestBase::VerifierClearFormatted(this);
   }
   m_RequestContext = this->m_RequestContext;
-  if ( m_RequestContext )
+  if ( !m_RequestContext )
   {
-    m_RequestContext->m_CompletionParams.IoStatus = this->m_Irp.m_Irp->IoStatus;
-    this->m_RequestContext->CopyParameters(this->m_RequestContext, this);
     m_Completion = this->m_CompletionRoutine.m_Completion;
     if ( !m_Completion )
-      goto LABEL_13;
-    m_TargetCompletionContext = this->m_TargetCompletionContext;
-    p_m_CompletionParams = &this->m_RequestContext->m_CompletionParams;
-    v13 = 0LL;
-    this->m_CompletionRoutine.m_Completion = 0LL;
-    this->m_TargetCompletionContext = 0LL;
-    if ( m_Target->m_ObjectSize )
-      v13 = (unsigned __int64)m_Target ^ 0xFFFFFFFFFFFFFFF8uLL;
-    v14 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
-    if ( !this->m_ObjectSize )
-      v14 = 0LL;
-    goto LABEL_12;
-  }
-  m_Completion = this->m_CompletionRoutine.m_Completion;
-  if ( m_Completion )
-  {
-    v6 = this->m_Irp.m_Irp;
+      goto LABEL_12;
+    v11 = this->m_Irp.m_Irp;
     p_m_CompletionParams = (_WDF_REQUEST_COMPLETION_PARAMS *)v16;
     m_TargetCompletionContext = this->m_TargetCompletionContext;
-    v9 = 0LL;
     memset(v18, 0, sizeof(v18));
-    v10 = 0LL;
+    v12 = 0LL;
     v16[0] = 0;
     v16[1] = 255;
-    IoStatus = v6->IoStatus;
-    v12 = this->m_Target;
-    this->m_CompletionRoutine.m_Completion = 0LL;
+    IoStatus = v11->IoStatus;
+    v14 = this->m_Target;
     this->m_TargetCompletionContext = 0LL;
     v17 = IoStatus;
     memset(v18, 0, sizeof(v18));
-    if ( v12->m_ObjectSize )
-      v10 = (unsigned __int64)v12 ^ 0xFFFFFFFFFFFFFFF8uLL;
+    if ( v14->m_ObjectSize )
+      v12 = (unsigned __int64)v14 ^ 0xFFFFFFFFFFFFFFF8uLL;
+    v9 = 0LL;
     if ( this->m_ObjectSize )
       v9 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
-    v13 = v10;
-    v14 = v9;
-LABEL_12:
-    m_Completion((WDFREQUEST__ *)v14, (WDFIOTARGET__ *)v13, p_m_CompletionParams, m_TargetCompletionContext);
+    v8 = v12;
+    goto LABEL_11;
   }
-LABEL_13:
+  m_RequestContext->m_CompletionParams.IoStatus = this->m_Irp.m_Irp->IoStatus;
+  this->m_RequestContext->CopyParameters(this->m_RequestContext, this);
+  m_Completion = this->m_CompletionRoutine.m_Completion;
+  if ( m_Completion )
+  {
+    m_TargetCompletionContext = this->m_TargetCompletionContext;
+    v7 = this->m_RequestContext;
+    v8 = 0LL;
+    this->m_TargetCompletionContext = 0LL;
+    if ( m_Target->m_ObjectSize )
+      v8 = (unsigned __int64)m_Target ^ 0xFFFFFFFFFFFFFFF8uLL;
+    v9 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
+    p_m_CompletionParams = &v7->m_CompletionParams;
+    if ( !this->m_ObjectSize )
+      v9 = 0LL;
+LABEL_11:
+    this->m_CompletionRoutine.m_Completion = 0LL;
+    m_Completion((WDFREQUEST__ *)v9, (WDFIOTARGET__ *)v8, p_m_CompletionParams, m_TargetCompletionContext);
+  }
+LABEL_12:
   this->Release(this, m_Target, 530, "minkernel\\wdf\\framework\\shared\\core\\fxrequestbase.cpp");
 }

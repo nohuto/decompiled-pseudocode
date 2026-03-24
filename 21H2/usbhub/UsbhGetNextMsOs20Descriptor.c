@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhGetNextMsOs20Descriptor @ 0x1C0032D1C
+ * XREFs of UsbhGetNextMsOs20Descriptor @ 0x1C003405C
  * Callers:
- *     UsbhParseAndInstallRegistryValueDescriptors @ 0x1C003305C (UsbhParseAndInstallRegistryValueDescriptors.c)
- *     UsbhValidateMsOs20ConfigurationSubset @ 0x1C0052000 (UsbhValidateMsOs20ConfigurationSubset.c)
- *     UsbhValidateMsOs20DescriptorSet @ 0x1C0052150 (UsbhValidateMsOs20DescriptorSet.c)
- *     UsbhValidateMsOs20FunctionSubset @ 0x1C0052340 (UsbhValidateMsOs20FunctionSubset.c)
+ *     UsbhParseAndInstallRegistryValueDescriptors @ 0x1C00343C0 (UsbhParseAndInstallRegistryValueDescriptors.c)
+ *     UsbhValidateMsOs20ConfigurationSubset @ 0x1C0053650 (UsbhValidateMsOs20ConfigurationSubset.c)
+ *     UsbhValidateMsOs20DescriptorSet @ 0x1C00537A0 (UsbhValidateMsOs20DescriptorSet.c)
+ *     UsbhValidateMsOs20FunctionSubset @ 0x1C0053990 (UsbhValidateMsOs20FunctionSubset.c)
  * Callees:
  *     <none>
  */

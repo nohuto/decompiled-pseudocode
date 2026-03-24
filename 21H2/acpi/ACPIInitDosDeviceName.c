@@ -1,206 +1,230 @@
 /*
- * XREFs of ACPIInitDosDeviceName @ 0x1C0022B6C
+ * XREFs of ACPIInitDosDeviceName @ 0x1C0016A68
  * Callers:
- *     ACPIBusIrpQueryResources @ 0x1C00978C0 (ACPIBusIrpQueryResources.c)
+ *     ACPIBusIrpQueryResources @ 0x1C009C0D0 (ACPIBusIrpQueryResources.c)
  * Callees:
- *     WPP_RECORDER_SF_Dqss @ 0x1C0004A40 (WPP_RECORDER_SF_Dqss.c)
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     WPP_RECORDER_SF_dqss @ 0x1C004DEE0 (WPP_RECORDER_SF_dqss.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
 __int64 __fastcall ACPIInitDosDeviceName(__int64 a1)
 {
   NTSTATUS v2; // r11d
-  __int64 *v3; // rax
-  volatile signed __int32 *v4; // rdi
-  __int64 v6; // r8
-  void *v7; // rcx
-  void *v8; // r10
-  int v9; // esi
+  __int64 v3; // r8
+  __int64 v4; // r9
+  unsigned __int64 *v5; // rax
+  __int64 v6; // rdi
+  __int64 v8; // r8
+  void *v9; // rcx
   int v10; // edx
-  __int64 v11; // r8
-  void *v12; // rcx
-  void *v13; // r10
+  void *v11; // r10
+  int v12; // r9d
+  int v13; // esi
   __int64 v14; // r8
   void *v15; // rcx
-  void *v16; // r10
-  NTSTATUS v17; // edi
+  int v16; // edx
+  void *v17; // r10
   __int64 v18; // r8
-  const char *v19; // rcx
-  const char *v20; // r10
-  NTSTATUS v21; // eax
-  int v22; // edi
+  void *v19; // rcx
+  int v20; // edx
+  void *v21; // r10
+  NTSTATUS v22; // edi
   __int64 v23; // r8
   void *v24; // rcx
-  void *v25; // r10
+  int v25; // edx
+  void *v26; // r10
+  NTSTATUS v27; // eax
+  int v28; // edi
+  __int64 v29; // r8
+  void *v30; // rcx
+  void *v31; // r10
+  char DataSize; // [rsp+28h] [rbp-41h]
+  char v33; // [rsp+30h] [rbp-39h]
+  __int64 v34; // [rsp+38h] [rbp-31h]
+  __int64 v35; // [rsp+40h] [rbp-29h]
   struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-19h] BYREF
   struct _UNICODE_STRING UnicodeString; // [rsp+60h] [rbp-9h] BYREF
-  struct _STRING v28; // [rsp+70h] [rbp+7h] BYREF
-  _OWORD v29[2]; // [rsp+80h] [rbp+17h] BYREF
+  struct _STRING v38; // [rsp+70h] [rbp+7h] BYREF
+  _OWORD v39[2]; // [rsp+80h] [rbp+17h] BYREF
   PCSZ SourceString; // [rsp+A0h] [rbp+37h]
   int Data; // [rsp+D0h] [rbp+67h] BYREF
   void *DeviceRegKey; // [rsp+D8h] [rbp+6Fh] BYREF
 
   DeviceRegKey = 0LL;
   SourceString = 0LL;
-  v28 = 0LL;
+  v38 = 0LL;
   Data = 1;
-  memset(v29, 0, sizeof(v29));
+  memset(v39, 0, sizeof(v39));
   DestinationString = 0LL;
   UnicodeString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"FirmwareIdentified");
-  v2 = IoOpenDeviceRegistryKey(*(PDEVICE_OBJECT *)(a1 + 784), 1u, 0x20000u, &DeviceRegKey);
+  v2 = IoOpenDeviceRegistryKey(*(PDEVICE_OBJECT *)(a1 + 744), 1u, 0x20000u, &DeviceRegKey);
   if ( v2 < 0 )
   {
-    v6 = *(_QWORD *)(a1 + 8);
-    v7 = &unk_1C006FB8B;
-    v8 = &unk_1C006FB8B;
-    if ( (v6 & 0x200000000000LL) != 0 )
+    v8 = *(_QWORD *)(a1 + 8);
+    v9 = &unk_1C00701BA;
+    v10 = 0;
+    v11 = &unk_1C00701BA;
+    if ( (v8 & 0x200000000000LL) != 0 )
     {
-      v7 = *(void **)(a1 + 608);
-      if ( (v6 & 0x400000000000LL) != 0 )
-        v8 = *(void **)(a1 + 616);
+      v9 = *(void **)(a1 + 568);
+      if ( (v8 & 0x400000000000LL) != 0 )
+        v11 = *(void **)(a1 + 576);
     }
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_Lqss(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        2u,
-        1u,
-        0xBu,
-        (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
-        v2,
-        a1,
-        (__int64)v7,
-        (__int64)v8);
-    return 0LL;
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      return 0LL;
+    v35 = (__int64)v11;
+    v12 = 11;
+    v34 = (__int64)v9;
+    v33 = a1;
+    DataSize = v2;
+    goto LABEL_36;
   }
   ZwSetValueKey(DeviceRegKey, &DestinationString, 0, 4u, &Data, 4u);
   RtlInitUnicodeString(&DestinationString, L"DosDeviceName");
-  v3 = AMLIGetNamedChild(*(__int64 **)(a1 + 760), 1313096799);
-  v4 = (volatile signed __int32 *)v3;
-  if ( !v3 )
-    goto LABEL_3;
-  v9 = AMLIEvalNameSpaceObject(v3, (__int64)v29, 0, 0LL);
-  AMLIDereferenceHandleEx(v4);
-  if ( v9 < 0 )
+  v5 = (unsigned __int64 *)AMLIGetNamedChild(*(_QWORD *)(a1 + 720), 1313096799LL, v3, v4);
+  v6 = (__int64)v5;
+  if ( !v5 )
   {
-    v11 = *(_QWORD *)(a1 + 8);
-    v12 = &unk_1C006FB8B;
-    v13 = &unk_1C006FB8B;
-    if ( (v11 & 0x200000000000LL) != 0 )
-    {
-      v12 = *(void **)(a1 + 608);
-      if ( (v11 & 0x400000000000LL) != 0 )
-        v13 = *(void **)(a1 + 616);
-    }
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_Lqss(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        4u,
-        1u,
-        0xCu,
-        (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
-        v9,
-        a1,
-        (__int64)v12,
-        (__int64)v13);
 LABEL_3:
     ZwClose(DeviceRegKey);
     return 0LL;
   }
-  if ( WORD1(v29[0]) == 2 )
-  {
-    RtlInitAnsiString(&v28, SourceString);
-    v17 = RtlAnsiStringToUnicodeString(&UnicodeString, &v28, 1u);
-    if ( v17 >= 0 )
-    {
-      v21 = ZwSetValueKey(DeviceRegKey, &DestinationString, 0, 1u, UnicodeString.Buffer, UnicodeString.Length);
-      dword_1C0081AC8 = 0;
-      byte_1C0081ACC = 0;
-      v22 = v21;
-      FreeDataBuffs((__int64)v29, 1u);
-      ZwClose(DeviceRegKey);
-      RtlFreeUnicodeString(&UnicodeString);
-      if ( v22 < 0 )
-      {
-        v23 = *(_QWORD *)(a1 + 8);
-        v24 = &unk_1C006FB8B;
-        v25 = &unk_1C006FB8B;
-        if ( (v23 & 0x200000000000LL) != 0 )
-        {
-          v24 = *(void **)(a1 + 608);
-          if ( (v23 & 0x400000000000LL) != 0 )
-            v25 = *(void **)(a1 + 616);
-        }
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_Lqss(
-            (__int64)WPP_GLOBAL_Control->DeviceExtension,
-            2u,
-            1u,
-            0xFu,
-            (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
-            v22,
-            a1,
-            (__int64)v24,
-            (__int64)v25);
-      }
-      return 0LL;
-    }
-    v18 = *(_QWORD *)(a1 + 8);
-    v19 = (const char *)&unk_1C006FB8B;
-    v20 = (const char *)&unk_1C006FB8B;
-    if ( (v18 & 0x200000000000LL) != 0 )
-    {
-      v19 = *(const char **)(a1 + 608);
-      if ( (v18 & 0x400000000000LL) != 0 )
-        v20 = *(const char **)(a1 + 616);
-    }
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_Dqss(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        2u,
-        1u,
-        0xEu,
-        (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
-        v17,
-        a1,
-        v19,
-        v20);
-  }
-  else
+  v13 = AMLIEvalNameSpaceObject(v5, (__int64)v39, 0, 0LL);
+  AMLIDereferenceHandleEx(v6);
+  if ( v13 < 0 )
   {
     v14 = *(_QWORD *)(a1 + 8);
-    v15 = &unk_1C006FB8B;
-    v16 = &unk_1C006FB8B;
+    v15 = &unk_1C00701BA;
+    v16 = 0;
+    v17 = &unk_1C00701BA;
     if ( (v14 & 0x200000000000LL) != 0 )
     {
-      v15 = *(void **)(a1 + 608);
+      v15 = *(void **)(a1 + 568);
       if ( (v14 & 0x400000000000LL) != 0 )
-        v16 = *(void **)(a1 + 616);
+        v17 = *(void **)(a1 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v10) = 4;
-      WPP_RECORDER_SF_dqss(
+      LOBYTE(v16) = 4;
+      WPP_RECORDER_SF_Lqss(
         WPP_GLOBAL_Control->DeviceExtension,
-        v10,
+        v16,
         1,
-        13,
-        (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
-        SBYTE2(v29[0]),
+        12,
+        (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
+        v13,
         a1,
         (__int64)v15,
-        (__int64)v16);
+        (__int64)v17);
     }
-    v17 = 0;
+    goto LABEL_3;
   }
-  dword_1C0081AC8 = 0;
-  byte_1C0081ACC = 0;
-  FreeDataBuffs((__int64)v29, 1u);
+  if ( WORD1(v39[0]) == 2 )
+  {
+    RtlInitAnsiString(&v38, SourceString);
+    v22 = RtlAnsiStringToUnicodeString(&UnicodeString, &v38, 1u);
+    if ( v22 < 0 )
+    {
+      v23 = *(_QWORD *)(a1 + 8);
+      v24 = &unk_1C00701BA;
+      v25 = 0;
+      v26 = &unk_1C00701BA;
+      if ( (v23 & 0x200000000000LL) != 0 )
+      {
+        v24 = *(void **)(a1 + 568);
+        if ( (v23 & 0x400000000000LL) != 0 )
+          v26 = *(void **)(a1 + 576);
+      }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v25) = 2;
+        WPP_RECORDER_SF_Dqss(
+          WPP_GLOBAL_Control->DeviceExtension,
+          v25,
+          1,
+          14,
+          (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
+          v22,
+          a1,
+          (__int64)v24,
+          (__int64)v26);
+      }
+      goto LABEL_29;
+    }
+    v27 = ZwSetValueKey(DeviceRegKey, &DestinationString, 0, 1u, UnicodeString.Buffer, UnicodeString.Length);
+    dword_1C0082908 = 0;
+    pszDest = 0;
+    v28 = v27;
+    FreeDataBuffs((__int64)v39, 1u);
+    ZwClose(DeviceRegKey);
+    RtlFreeUnicodeString(&UnicodeString);
+    if ( v28 >= 0 )
+      return 0LL;
+    v29 = *(_QWORD *)(a1 + 8);
+    v30 = &unk_1C00701BA;
+    v10 = 0;
+    v31 = &unk_1C00701BA;
+    if ( (v29 & 0x200000000000LL) != 0 )
+    {
+      v30 = *(void **)(a1 + 568);
+      if ( (v29 & 0x400000000000LL) != 0 )
+        v31 = *(void **)(a1 + 576);
+    }
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      return 0LL;
+    v35 = (__int64)v31;
+    v12 = 15;
+    v34 = (__int64)v30;
+    v33 = a1;
+    DataSize = v28;
+LABEL_36:
+    LOBYTE(v10) = 2;
+    WPP_RECORDER_SF_Lqss(
+      WPP_GLOBAL_Control->DeviceExtension,
+      v10,
+      1,
+      v12,
+      (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
+      DataSize,
+      v33,
+      v34,
+      v35);
+    return 0LL;
+  }
+  v18 = *(_QWORD *)(a1 + 8);
+  v19 = &unk_1C00701BA;
+  v20 = 0;
+  v21 = &unk_1C00701BA;
+  if ( (v18 & 0x200000000000LL) != 0 )
+  {
+    v19 = *(void **)(a1 + 568);
+    if ( (v18 & 0x400000000000LL) != 0 )
+      v21 = *(void **)(a1 + 576);
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v20) = 4;
+    WPP_RECORDER_SF_Dqss(
+      WPP_GLOBAL_Control->DeviceExtension,
+      v20,
+      1,
+      13,
+      (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
+      SBYTE2(v39[0]),
+      a1,
+      (__int64)v19,
+      (__int64)v21);
+  }
+  v22 = 0;
+LABEL_29:
+  dword_1C0082908 = 0;
+  pszDest = 0;
+  FreeDataBuffs((__int64)v39, 1u);
   ZwClose(DeviceRegKey);
-  return (unsigned int)v17;
+  return (unsigned int)v22;
 }

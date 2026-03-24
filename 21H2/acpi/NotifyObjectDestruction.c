@@ -1,12 +1,12 @@
 /*
- * XREFs of NotifyObjectDestruction @ 0x1C0066970
+ * XREFs of NotifyObjectDestruction @ 0x1C00655B8
  * Callers:
- *     ParseUnload @ 0x1C006C0C0 (ParseUnload.c)
+ *     ParseUnload @ 0x1C006BE10 (ParseUnload.c)
  * Callees:
- *     NewObjOwner @ 0x1C00285B8 (NewObjOwner.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     MarkNativeObjectsDefunct @ 0x1C0065908 (MarkNativeObjectsDefunct.c)
- *     MigrateDefunctObjectsToNewOwner @ 0x1C00668B0 (MigrateDefunctObjectsToNewOwner.c)
+ *     NewObjOwner @ 0x1C0023628 (NewObjOwner.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     MarkNativeObjectsDefunct @ 0x1C006468C (MarkNativeObjectsDefunct.c)
+ *     MigrateDefunctObjectsToNewOwner @ 0x1C00654F8 (MigrateDefunctObjectsToNewOwner.c)
  */
 
 __int64 __fastcall NotifyObjectDestruction(__int64 a1)
@@ -104,7 +104,7 @@ __int64 __fastcall NotifyObjectDestruction(__int64 a1)
         else
         {
           v13 = v10[2];
-          if ( !v13 || (*(_BYTE *)(v13 + 64) & 4) == 0 && !_bittest16((const signed __int16 *)v10 + 32, 0xBu) )
+          if ( !v13 || (*(_BYTE *)(v13 + 64) & 4) == 0 && (v10[8] & 0x800) == 0 )
             ((void (__fastcall *)(__int64, __int64 *))ghDestroyObj)(5LL, v10);
         }
         v10 = v12;

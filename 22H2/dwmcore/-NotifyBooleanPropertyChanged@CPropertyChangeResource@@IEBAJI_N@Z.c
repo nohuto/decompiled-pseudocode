@@ -1,49 +1,40 @@
 /*
- * XREFs of ?NotifyBooleanPropertyChanged@CPropertyChangeResource@@IEBAJI_N@Z @ 0x18021B154
+ * XREFs of ?NotifyBooleanPropertyChanged@CPropertyChangeResource@@IEBAJI_N@Z @ 0x1801B1804
  * Callers:
- *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180097D88 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
+ *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800662B4 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
  * Callees:
- *     ?ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z @ 0x1800985F8 (-ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z @ 0x1800661A4 (-ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z.c)
  */
 
 __int64 __fastcall CPropertyChangeResource::NotifyBooleanPropertyChanged(CPropertyChangeResource *this)
 {
-  unsigned int v1; // ebx
+  int v1; // ebx
   __int64 v2; // rcx
-  int v3; // r10d
-  __int64 v4; // rdx
-  __int64 v5; // rax
-  __int64 v6; // r11
-  unsigned int v7; // ecx
-  int v8; // eax
-  __int64 v9; // rcx
-  __int64 v11; // [rsp+30h] [rbp-28h]
-  _QWORD v12[3]; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v3; // rdx
+  __int64 v4; // rax
+  __int64 v5; // r11
+  unsigned int v6; // ecx
+  __int64 v7; // rcx
+  _QWORD v9[3]; // [rsp+40h] [rbp-18h] BYREF
 
   v1 = 0;
   if ( CPropertyChangeResource::ShouldNotify(this) )
   {
-    v4 = *(unsigned int *)(v2 + 64);
-    v5 = *(_QWORD *)(v2 + 48);
-    v6 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 16) + 1240LL) + 40LL);
-    if ( v5 )
-      v7 = *(_DWORD *)(v5 + 76);
+    v3 = *(unsigned int *)(v2 + 56);
+    v4 = *(_QWORD *)(v2 + 48);
+    v5 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 16) + 1080LL) + 48LL);
+    if ( v4 )
+      v6 = *(_DWORD *)(v4 + 68);
     else
-      v7 = 0;
-    LODWORD(v11) = v3;
-    v12[0] = v7;
-    v12[1] = v4;
-    v8 = CoreUICallSend(v6, v12, 2LL, 14LL, 1, &unk_18033C4C9, v11);
-    v1 = v8;
-    if ( v8 == -2018375675 )
-    {
-      return 0;
-    }
-    else if ( v8 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xF0u, 0LL);
-    }
+      v6 = 0;
+    v9[1] = v3;
+    v9[0] = v6;
+    v1 = CoreUICallSend(v5, v9, 2LL, 13LL, 1, &unk_1802CE79B);
+    if ( v1 == -2018375675 )
+      v1 = 0;
+    if ( v1 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v1, 0xF0u, 0LL);
   }
-  return v1;
+  return (unsigned int)v1;
 }

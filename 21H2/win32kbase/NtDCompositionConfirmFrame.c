@@ -1,145 +1,197 @@
 /*
- * XREFs of NtDCompositionConfirmFrame @ 0x1C00812D0
+ * XREFs of NtDCompositionConfirmFrame @ 0x1C0056920
  * Callers:
  *     <none>
  * Callees:
- *     ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C0059B88 (--_GCConnection@DirectComposition@@AEAAPEAXI@Z.c)
- *     ?ConfirmFrame@CConnection@DirectComposition@@QEAAJPEAUtagCOMPOSITION_CONFIRM_FRAME_INFO@@@Z @ 0x1C0081570 (-ConfirmFrame@CConnection@DirectComposition@@QEAAJPEAUtagCOMPOSITION_CONFIRM_FRAME_INFO@@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     DirectComposition::Memory::Allocate_0 @ 0x1C00EA1F2 (DirectComposition--Memory--Allocate_0.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?ReturnProcessedBatch@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C0056C80 (-ReturnProcessedBatch@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z.c)
+ *     ?NotifyBatchProcessed@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C0056DF0 (-NotifyBatchProcessed@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z.c)
+ *     ?UnmapUserModeView@CBatchSharedMemoryPool@DirectComposition@@QEAAXXZ @ 0x1C005EDC8 (-UnmapUserModeView@CBatchSharedMemoryPool@DirectComposition@@QEAAXXZ.c)
+ *     ??1CConnection@DirectComposition@@AEAA@XZ @ 0x1C00AB1C4 (--1CConnection@DirectComposition@@AEAA@XZ.c)
+ *     ?ReleaseShellResourceAccess@CConnection@DirectComposition@@QEAAXI@Z @ 0x1C00B5D60 (-ReleaseShellResourceAccess@CConnection@DirectComposition@@QEAAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall NtDCompositionConfirmFrame(__int64 a1, __int128 *a2, __int64 a3, __int64 a4)
+__int64 __fastcall NtDCompositionConfirmFrame(__int64 a1, __int64 *a2)
 {
-  __int128 *v4; // rbx
-  DirectComposition::CConnection *v6; // r14
-  unsigned int v7; // esi
-  size_t v8; // r8
-  const void *v9; // rdx
-  __int64 v10; // rsi
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
+  DirectComposition::CConnection *v3; // rdi
+  int v4; // ebx
+  __int64 v5; // rsi
+  __int64 v6; // rcx
   __int64 CurrentProcessWin32Process; // rax
+  struct _ERESOURCE *v8; // rbx
+  volatile signed __int32 *v9; // rax
+  __int64 v10; // rdx
+  int v11; // eax
+  __int64 v12; // rcx
+  PERESOURCE *v13; // r14
+  struct _ERESOURCE *v14; // rbx
+  __int64 *v15; // rbx
   struct _ERESOURCE *v16; // rbx
-  volatile signed __int32 *v17; // rax
-  int v18; // ebx
-  int v20; // [rsp+20h] [rbp-238h]
-  _BYTE *v21; // [rsp+28h] [rbp-230h]
-  __int128 v22; // [rsp+38h] [rbp-220h] BYREF
-  __int128 v23; // [rsp+48h] [rbp-210h]
-  void *Src[2]; // [rsp+58h] [rbp-200h]
-  __int128 v25; // [rsp+68h] [rbp-1F0h]
-  __int128 v26; // [rsp+78h] [rbp-1E0h]
-  __int128 v27; // [rsp+88h] [rbp-1D0h]
-  _BYTE v28[416]; // [rsp+A0h] [rbp-1B8h] BYREF
+  unsigned __int64 v17; // rbx
+  unsigned __int64 v18; // rcx
+  unsigned __int64 v19; // rdx
+  _QWORD *v20; // rax
+  __int64 v21; // rcx
+  _QWORD *i; // rbx
+  __int64 *v24; // rsi
+  unsigned int v25; // edx
+  __int64 v26; // rcx
+  int v27; // [rsp+20h] [rbp-38h]
+  __int64 v28; // [rsp+28h] [rbp-30h]
+  DirectComposition::CConnection *v29; // [rsp+70h] [rbp+18h]
+  __int64 v30; // [rsp+78h] [rbp+20h] BYREF
 
-  v4 = a2;
-  v22 = 0LL;
-  v23 = 0LL;
-  *(_OWORD *)Src = 0LL;
-  v21 = 0LL;
-  v6 = 0LL;
-  if ( (PVOID)PsGetCurrentProcess(a1, a2, a3, a4) != g_pepDwm )
-    return 3221225506LL;
-  if ( v4 )
+  v3 = 0LL;
+  v29 = 0LL;
+  if ( a2 )
   {
-    if ( v4 + 3 < v4 || (unsigned __int64)(v4 + 3) > MmUserProbeAddress )
-      v4 = (__int128 *)MmUserProbeAddress;
-    v25 = *v4;
-    v26 = v4[1];
-    v27 = v4[2];
-    v22 = v25;
-    v23 = v26;
-    *(_OWORD *)Src = v27;
-    if ( (_QWORD)v25 )
-    {
-      v7 = (unsigned int)Src[0];
-      if ( (unsigned int)v27 > 0x100 )
-        v7 = 256;
-      LODWORD(Src[0]) = v7;
-      if ( v7 <= 4 )
-      {
-        v21 = v28;
-        goto LABEL_10;
-      }
-      v21 = (_BYTE *)DirectComposition::Memory::Allocate_0(104LL * v7);
-      if ( v21 )
-      {
-LABEL_10:
-        v20 = 0;
-        v8 = 104LL * v7;
-        v9 = Src[1];
-        if ( (char *)Src[1] + v8 < Src[1] || (char *)Src[1] + v8 > (void *)MmUserProbeAddress )
-          *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(v21, v9, v8);
-        Src[1] = v21;
-        goto LABEL_18;
-      }
-      v20 = -1073741801;
-    }
+    if ( a2 + 1 < a2 || (unsigned __int64)(a2 + 1) > MmUserProbeAddress )
+      a2 = (__int64 *)MmUserProbeAddress;
+    v28 = *a2;
+    if ( *a2 )
+      v4 = 0;
     else
+      v4 = -1073741811;
+    if ( v4 >= 0 )
     {
-      v20 = -1073741811;
+      KeEnterCriticalRegion();
+      v5 = 0LL;
+      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v6);
+      if ( CurrentProcessWin32Process )
+        v5 = *(_QWORD *)(CurrentProcessWin32Process + 256);
+      if ( v5 )
+      {
+        v8 = *(struct _ERESOURCE **)(v5 + 32);
+        KeEnterCriticalRegion();
+        ExAcquireResourceSharedLite(v8, 1u);
+        v9 = *(volatile signed __int32 **)(v5 + 24);
+        if ( v9 && a1 == *(_QWORD *)(v5 + 16) )
+        {
+          _InterlockedIncrement(v9);
+          v3 = *(DirectComposition::CConnection **)(v5 + 24);
+          v29 = v3;
+          v4 = 0;
+        }
+        else
+        {
+          v4 = -1073741790;
+        }
+        ExReleaseResourceLite(*(PERESOURCE *)(v5 + 32));
+        KeLeaveCriticalRegion();
+      }
+      else
+      {
+        v4 = -1073741823;
+      }
+      if ( v4 >= 0 )
+      {
+        v10 = 0LL;
+        v30 = 0LL;
+        v11 = -1073741275;
+        v12 = *((_QWORD *)v3 + 23);
+        if ( v12 )
+        {
+          v11 = (*(__int64 (__fastcall **)(__int64, __int64, __int64 *))(*(_QWORD *)v12 + 32LL))(v12, v28, &v30);
+          v10 = v30;
+        }
+        v27 = v11;
+        if ( v11 >= 0 )
+        {
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 16LL))(v10);
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v30 + 8LL))(v30);
+          v13 = (PERESOURCE *)((char *)v3 + 8);
+          v14 = (struct _ERESOURCE *)*((_QWORD *)v3 + 1);
+          KeEnterCriticalRegion();
+          ExAcquireResourceSharedLite(v14, 1u);
+          v15 = (__int64 *)*((_QWORD *)v3 + 15);
+          *((_QWORD *)v3 + 15) = 0LL;
+          *((_QWORD *)v3 + 16) = 0LL;
+          if ( v15 )
+          {
+            do
+            {
+              v24 = (__int64 *)*v15;
+              *((_BYTE *)v15 + 32) &= ~2u;
+              v25 = *((_DWORD *)v15 + 28);
+              if ( v25 )
+              {
+                DirectComposition::CConnection::ReleaseShellResourceAccess(
+                  *(DirectComposition::CConnection **)(v15[1] + 40),
+                  v25);
+                *((_DWORD *)v15 + 28) = 0;
+              }
+              if ( (v15[4] & 4) == 0 )
+                DirectComposition::CApplicationChannel::NotifyBatchProcessed(
+                  (DirectComposition::CApplicationChannel *)v15[1],
+                  (struct DirectComposition::CBatch *)v15);
+              DirectComposition::CApplicationChannel::ReturnProcessedBatch(
+                (DirectComposition::CApplicationChannel *)v15[1],
+                (struct DirectComposition::CBatch *)v15);
+              v15 = v24;
+            }
+            while ( v24 );
+          }
+          v16 = (struct _ERESOURCE *)*((_QWORD *)v3 + 9);
+          KeEnterCriticalRegion();
+          ExAcquireResourceExclusiveLite(v16, 1u);
+          v17 = 0LL;
+          while ( 1 )
+          {
+            v18 = *((_QWORD *)v3 + 5);
+            v19 = v17;
+            if ( v17 < v18 )
+            {
+              v20 = (_QWORD *)(*((_QWORD *)v3 + 2) + v17 * *((_QWORD *)v3 + 6));
+              do
+              {
+                if ( *v20 )
+                  break;
+                ++v19;
+                v20 = (_QWORD *)((char *)v20 + *((_QWORD *)v3 + 6));
+              }
+              while ( v19 < v18 );
+            }
+            if ( v19 >= v18 )
+              break;
+            _mm_lfence();
+            v17 = v19 + 1;
+            v21 = *(_QWORD *)(v19 * *((_QWORD *)v3 + 6) + *((_QWORD *)v3 + 2));
+            if ( !v21 )
+              break;
+            (*(void (__fastcall **)(__int64))(*(_QWORD *)v21 + 16LL))(v21);
+          }
+          ExReleaseResourceLite(*((PERESOURCE *)v3 + 9));
+          KeLeaveCriticalRegion();
+          v3 = v29;
+          for ( i = (_QWORD *)*((_QWORD *)v29 + 24); i != (_QWORD *)((char *)v29 + 192); i = (_QWORD *)*i )
+          {
+            if ( i[6] )
+            {
+              v26 = *(_QWORD *)(i[2] + 16LL);
+              if ( v26 )
+                MmUnmapViewOfSection(v26);
+              i[6] = 0LL;
+            }
+            i[4] = 0LL;
+            i[5] = 0LL;
+          }
+          ExReleaseResourceLite(*v13);
+          KeLeaveCriticalRegion();
+        }
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)v3, 0xFFFFFFFF) == 1 )
+        {
+          DirectComposition::CConnection::~CConnection(v29);
+          Win32FreePool((__int64)v29);
+        }
+        v4 = v27;
+      }
+      KeLeaveCriticalRegion();
     }
   }
   else
   {
-    v20 = -1073741811;
+    return (unsigned int)-1073741811;
   }
-LABEL_18:
-  if ( v20 >= 0 )
-  {
-    KeEnterCriticalRegion();
-    v10 = 0LL;
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v12, v11, v13, v14);
-    if ( CurrentProcessWin32Process )
-      v10 = *(_QWORD *)(CurrentProcessWin32Process + 256);
-    if ( v10 )
-    {
-      v16 = *(struct _ERESOURCE **)(v10 + 32);
-      KeEnterCriticalRegion();
-      ExAcquireResourceSharedLite(v16, 1u);
-      v17 = *(volatile signed __int32 **)(v10 + 24);
-      if ( v17 && a1 == *(_QWORD *)(v10 + 16) )
-      {
-        _InterlockedIncrement(v17);
-        v6 = *(DirectComposition::CConnection **)(v10 + 24);
-        v18 = 0;
-      }
-      else
-      {
-        v18 = -1073741790;
-      }
-      ExReleaseResourceLite(*(PERESOURCE *)(v10 + 32));
-      KeLeaveCriticalRegion();
-    }
-    else
-    {
-      v18 = -1073741823;
-    }
-    v20 = v18;
-    if ( v18 >= 0 )
-    {
-      v20 = DirectComposition::CConnection::ConfirmFrame(v6, (struct tagCOMPOSITION_CONFIRM_FRAME_INFO *)&v22);
-      v21 = 0LL;
-      if ( _InterlockedExchangeAdd((volatile signed __int32 *)v6, 0xFFFFFFFF) == 1 )
-      {
-        if ( v6 )
-          DirectComposition::CConnection::`scalar deleting destructor'(v6);
-      }
-    }
-    KeLeaveCriticalRegion();
-  }
-  if ( v21 )
-  {
-    if ( v21 != v28 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        v21);
-  }
-  return (unsigned int)v20;
+  return (unsigned int)v4;
 }

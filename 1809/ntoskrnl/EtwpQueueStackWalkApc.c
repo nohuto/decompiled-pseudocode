@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpQueueStackWalkApc @ 0x14030F160
+ * XREFs of EtwpQueueStackWalkApc @ 0x14030F260
  * Callers:
- *     EtwpStackTraceDispatcher @ 0x14030F41C (EtwpStackTraceDispatcher.c)
- *     EtwpStackWalkDpc @ 0x14030F5F0 (EtwpStackWalkDpc.c)
+ *     EtwpStackTraceDispatcher @ 0x14030F51C (EtwpStackTraceDispatcher.c)
+ *     EtwpStackWalkDpc @ 0x14030F6F0 (EtwpStackWalkDpc.c)
  * Callees:
  *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x1400D7850 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     KeInsertQueueApc @ 0x1400F1460 (KeInsertQueueApc.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F97F0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeRemoveQueueApc @ 0x14012F338 (KeRemoveQueueApc.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     KeTryToInsertQueueApc @ 0x140294B20 (KeTryToInsertQueueApc.c)
- *     EtwpQueueStackWalkDpc @ 0x14030F33C (EtwpQueueStackWalkDpc.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x1400D7870 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F9810 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeRemoveQueueApc @ 0x14012F358 (KeRemoveQueueApc.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     KeTryToInsertQueueApc @ 0x140294C20 (KeTryToInsertQueueApc.c)
+ *     EtwpQueueStackWalkDpc @ 0x14030F43C (EtwpQueueStackWalkDpc.c)
  */
 
 void __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned int *a3, unsigned int *a4)

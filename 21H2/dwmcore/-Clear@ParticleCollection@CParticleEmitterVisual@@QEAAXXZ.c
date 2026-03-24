@@ -1,15 +1,18 @@
 /*
- * XREFs of ?Clear@ParticleCollection@CParticleEmitterVisual@@QEAAXXZ @ 0x18019FCBC
+ * XREFs of ?Clear@ParticleCollection@CParticleEmitterVisual@@QEAAXXZ @ 0x18016E2EC
  * Callers:
- *     ?SetClear@CParticleEmitterVisual@@QEAAJ_N@Z @ 0x1801A25C8 (-SetClear@CParticleEmitterVisual@@QEAAJ_N@Z.c)
+ *     ?SetClear@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJ_N@Z @ 0x18017088C (-SetClear@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJ_N@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CParticleEmitterVisual::ParticleCollection::Clear(CParticleEmitterVisual::ParticleCollection *this)
 {
+  __int64 v1; // rax
+
+  v1 = *(_QWORD *)this;
   *((_DWORD *)this + 114) = 0;
-  *((_QWORD *)this + 1) = *(_QWORD *)this;
+  *((_QWORD *)this + 1) = v1;
   *((_QWORD *)this + 4) = *((_QWORD *)this + 3);
   *((_QWORD *)this + 7) = *((_QWORD *)this + 6);
   *((_QWORD *)this + 10) = *((_QWORD *)this + 9);

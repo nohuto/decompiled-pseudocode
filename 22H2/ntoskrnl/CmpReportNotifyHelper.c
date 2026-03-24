@@ -1,95 +1,91 @@
 /*
- * XREFs of CmpReportNotifyHelper @ 0x1406D54F0
+ * XREFs of CmpReportNotifyHelper @ 0x1405ED390
  * Callers:
- *     CmpReportNotifyForKcbStack @ 0x1406D5460 (CmpReportNotifyForKcbStack.c)
+ *     CmpReportNotifyForKcbStack @ 0x1405ED300 (CmpReportNotifyForKcbStack.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     CmpTransIsTransActive @ 0x14061652C (CmpTransIsTransActive.c)
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
- *     CmpDelayedDerefKeys @ 0x1406D591C (CmpDelayedDerefKeys.c)
- *     CmpNotifyTriggerCheck @ 0x140766CF4 (CmpNotifyTriggerCheck.c)
- *     CmpPostNotify @ 0x140766D70 (CmpPostNotify.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpTransIsTransActive @ 0x1404EC99C (CmpTransIsTransActive.c)
+ *     CmpNotifyTriggerCheck @ 0x1405ED044 (CmpNotifyTriggerCheck.c)
+ *     CmpPostNotify @ 0x1405ED0C0 (CmpPostNotify.c)
+ *     CmpDelayedDerefKeys @ 0x1405ED57C (CmpDelayedDerefKeys.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
  */
 
-__int64 __fastcall CmpReportNotifyHelper(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
+__int64 __fastcall CmpReportNotifyHelper(__int64 a1, __int64 a2, __int64 a3, int a4, __int128 *a5)
 {
-  volatile signed __int32 *v9; // r15
-  __int64 KcbAtLayerHeight; // rsi
-  __int64 v11; // rax
-  __int64 v12; // rbx
-  unsigned __int8 CurrentIrql; // r12
-  __int64 *i; // rbx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // rax
-  unsigned int v20; // edx
-  int v21; // edx
-  int v22; // r8d
-  unsigned __int8 v23; // cl
+  volatile signed __int64 *v9; // r14
+  __int64 KcbAtLayerHeight; // rdi
+  unsigned __int8 CurrentIrql; // r15
+  __int64 i; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rax
+  unsigned int v18; // edx
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  unsigned __int8 v21; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v26; // eax
-  bool v27; // zf
-  _QWORD v28[2]; // [rsp+40h] [rbp-38h] BYREF
+  int v24; // eax
+  bool v25; // zf
+  __int128 v26; // [rsp+40h] [rbp-38h] BYREF
 
-  v28[1] = v28;
-  v28[0] = v28;
-  v9 = (volatile signed __int32 *)(a2 + 1680);
+  *((_QWORD *)&v26 + 1) = &v26;
+  *(_QWORD *)&v26 = &v26;
+  v9 = (volatile signed __int64 *)(a2 + 1672);
   KcbAtLayerHeight = CmpGetKcbAtLayerHeight(a1);
-  v11 = KeAbPreAcquire((__int64)v9, 0LL);
-  v12 = v11;
-  if ( _interlockedbittestandset64(v9, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a2 + 1680), v11, a2 + 1680);
-  if ( v12 )
-    *(_BYTE *)(v12 + 18) = 1;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)v9, 0LL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
-  for ( i = *(__int64 **)(a2 + 1592); i; i = (__int64 *)*i )
+  for ( i = *(_QWORD *)(a2 + 1584); i; i = *(_QWORD *)i )
   {
-    v16 = i[4];
-    if ( (*(_DWORD *)(v16 + 8) & 0x7FE00000u) > (*(_DWORD *)(KcbAtLayerHeight + 8) & 0x7FE00000u) )
+    v14 = *(_QWORD *)(i + 32);
+    if ( (*(_DWORD *)(v14 + 8) & 0x7FE00000u) > (*(_DWORD *)(KcbAtLayerHeight + 8) & 0x7FE00000u) )
       break;
-    if ( (a4 & (_DWORD)i[6] & 0x3FFFFFFF) != 0 && ((i[6] & 0x40000000) != 0 || v16 == KcbAtLayerHeight) )
+    if ( (a4 & *(_DWORD *)(i + 48) & 0x3FFFFFFF) != 0
+      && ((*(_DWORD *)(i + 48) & 0x40000000) != 0 || v14 == KcbAtLayerHeight) )
     {
-      v17 = *(_QWORD *)(i[5] + 56);
-      if ( (!a3 || *(_QWORD *)(a3 + 56) == v17) && (!v17 || (unsigned int)CmpTransIsTransActive(v17)) )
+      v15 = *(_QWORD *)(*(_QWORD *)(i + 40) + 56LL);
+      if ( (!a3 || *(_QWORD *)(a3 + 56) == v15) && (!v15 || (unsigned int)CmpTransIsTransActive(v15)) )
       {
-        v18 = i[4];
-        v19 = KcbAtLayerHeight;
-        v20 = (*(_DWORD *)(v18 + 8) >> 21) & 0x3FF;
-        if ( ((*(_DWORD *)(KcbAtLayerHeight + 8) >> 21) & 0x3FFu) > v20 )
+        v16 = *(_QWORD *)(i + 32);
+        v17 = KcbAtLayerHeight;
+        v18 = (*(_DWORD *)(v16 + 8) >> 21) & 0x3FF;
+        if ( ((*(_DWORD *)(KcbAtLayerHeight + 8) >> 21) & 0x3FFu) > v18 )
         {
           do
-            v19 = *(_QWORD *)(v19 + 72);
-          while ( ((*(_DWORD *)(v19 + 8) >> 21) & 0x3FFu) > v20 );
+            v17 = *(_QWORD *)(v17 + 72);
+          while ( ((*(_DWORD *)(v17 + 8) >> 21) & 0x3FFu) > v18 );
         }
-        if ( v19 == v18 && (unsigned __int8)CmpNotifyTriggerCheck(i, a1, a3) )
-          CmpPostNotify((_DWORD)i, v21, v22, 268, 0, (__int64)v28, a5);
+        if ( v17 == v16 && CmpNotifyTriggerCheck(i, a1, a3) )
+          CmpPostNotify(i, v19, v20, 268LL, 0, &v26, a5);
       }
     }
   }
   if ( KiIrqlFlags )
   {
-    v23 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v26 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v27 = (v26 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v26;
-      if ( v27 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v21 = KeGetCurrentIrql();
+      if ( v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v24 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v25 = (v24 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v24;
+        if ( v25 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)v9);
+  if ( (_InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v9);
   KeAbPostRelease((ULONG_PTR)v9);
-  return CmpDelayedDerefKeys(v28);
+  return CmpDelayedDerefKeys(&v26);
 }

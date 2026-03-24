@@ -1,7 +1,7 @@
 /*
- * XREFs of MiUnlockControlAreaFileObjectShared @ 0x1400EAB34
+ * XREFs of MiUnlockControlAreaFileObjectShared @ 0x1400EAB54
  * Callers:
- *     MiTrimSection @ 0x1400EAB84 (MiTrimSection.c)
+ *     MiTrimSection @ 0x1400EABA4 (MiTrimSection.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

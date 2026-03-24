@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_CheckIfBOSDescriptorQueryShouldBeSkipped @ 0x1C002D310
+ * XREFs of HUBMISC_CheckIfBOSDescriptorQueryShouldBeSkipped @ 0x1C002A27C
  * Callers:
- *     HUBDSM_CheckingIfAlternateBOSDescriptorQueryShouldBeSkipped @ 0x1C00221F0 (HUBDSM_CheckingIfAlternateBOSDescriptorQueryShouldBeSkipped.c)
+ *     HUBDSM_CheckingIfAlternateBOSDescriptorQueryShouldBeSkipped @ 0x1C001FBF0 (HUBDSM_CheckingIfAlternateBOSDescriptorQueryShouldBeSkipped.c)
  * Callees:
- *     WPP_RECORDER_SF_q @ 0x1C00150D4 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_q @ 0x1C001373C (WPP_RECORDER_SF_q.c)
  */
 
 __int64 __fastcall HUBMISC_CheckIfBOSDescriptorQueryShouldBeSkipped(__int64 a1)
@@ -18,8 +18,8 @@ __int64 __fastcall HUBMISC_CheckIfBOSDescriptorQueryShouldBeSkipped(__int64 a1)
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
         4u,
         5u,
-        0x5Eu,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        0x5Cu,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         a1);
   }
   else

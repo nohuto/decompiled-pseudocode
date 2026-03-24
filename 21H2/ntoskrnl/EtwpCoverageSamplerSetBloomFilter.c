@@ -1,37 +1,35 @@
 /*
- * XREFs of EtwpCoverageSamplerSetBloomFilter @ 0x1409F352C
+ * XREFs of EtwpCoverageSamplerSetBloomFilter @ 0x140946FE4
  * Callers:
- *     EtwpSetCoverageSamplerInformation @ 0x1409F3EC0 (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x14094793C (EtwpSetCoverageSamplerInformation.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x14026D048 (MiRemoveFromSystemSpace.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     MiMapViewInSystemSpace @ 0x1406F3FDC (MiMapViewInSystemSpace.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
+ *     MmMapViewInSystemSpace @ 0x1406BF880 (MmMapViewInSystemSpace.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall EtwpCoverageSamplerSetBloomFilter(ULONG_PTR BugCheckParameter2, __int64 a2, KPROCESSOR_MODE a3)
 {
-  PVOID v3; // r14
-  int v6; // ebx
+  struct _DMA_ADAPTER *v3; // rbp
+  NTSTATUS v6; // ebx
   void *v7; // r10
   unsigned int v8; // ecx
   NTSTATUS v9; // eax
-  unsigned __int64 v10; // rax
-  __int64 v11; // rax
-  int v12; // r15d
+  __int64 v10; // rax
+  int v11; // r14d
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v14; // rcx
-  int v15; // eax
-  __int64 v17; // [rsp+30h] [rbp-10h] BYREF
-  ULONG_PTR BugCheckParameter1; // [rsp+70h] [rbp+30h] BYREF
-  PVOID Object; // [rsp+78h] [rbp+38h] BYREF
-  unsigned __int64 v20; // [rsp+88h] [rbp+48h] BYREF
+  void *v13; // rcx
+  int v14; // eax
+  PVOID MappedBase; // [rsp+60h] [rbp+8h] BYREF
+  PVOID Section; // [rsp+68h] [rbp+10h] BYREF
+  ULONG_PTR ViewSize; // [rsp+78h] [rbp+20h] BYREF
 
-  BugCheckParameter1 = 0LL;
+  MappedBase = 0LL;
   v3 = 0LL;
   if ( *(_DWORD *)(a2 + 12) != *(_DWORD *)(BugCheckParameter2 + 28) )
     return (unsigned int)-1073741811;
@@ -41,56 +39,54 @@ __int64 __fastcall EtwpCoverageSamplerSetBloomFilter(ULONG_PTR BugCheckParameter
   {
     if ( !v8 && !*(_DWORD *)(a2 + 16) )
     {
-      v12 = 0;
+      v11 = 0;
       goto LABEL_15;
     }
     goto LABEL_18;
   }
   if ( !v8 || ((v8 - 1) & v8) != 0 || v8 > 0x8000000 || (unsigned int)(*(_DWORD *)(a2 + 16) - 1) > 9 )
     return (unsigned int)-1073741811;
-  Object = 0LL;
-  v9 = ObReferenceObjectByHandle(v7, 4u, MmSectionObjectType, a3, &Object, 0LL);
-  v3 = Object;
+  Section = 0LL;
+  v9 = ObReferenceObjectByHandle(v7, 4u, MmSectionObjectType, a3, &Section, 0LL);
+  v3 = (struct _DMA_ADAPTER *)Section;
   v6 = v9;
   if ( v9 >= 0 )
   {
-    v10 = *(unsigned int *)(a2 + 8);
-    v17 = 0LL;
-    v20 = v10;
-    v6 = MiMapViewInSystemSpace((__int64)Object, &BugCheckParameter1, &v20, &v17, 0LL, 0LL);
+    ViewSize = *(unsigned int *)(a2 + 8);
+    v6 = MmMapViewInSystemSpace(Section, &MappedBase, &ViewSize);
     if ( v6 < 0 )
       goto LABEL_19;
-    v11 = *(unsigned int *)(a2 + 8);
-    if ( v20 == v11 )
+    v10 = *(unsigned int *)(a2 + 8);
+    if ( ViewSize == v10 )
     {
-      v12 = 8 * v11 - 1;
+      v11 = 8 * v10 - 1;
 LABEL_15:
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       ExAcquirePushLockExclusiveEx(BugCheckParameter2, 0LL);
-      v14 = *(_QWORD *)(BugCheckParameter2 + 1192);
+      v13 = *(void **)(BugCheckParameter2 + 1192);
       *(_QWORD *)(BugCheckParameter2 + 8) = KeGetCurrentThread();
-      *(_QWORD *)(BugCheckParameter2 + 1192) = BugCheckParameter1;
+      *(_QWORD *)(BugCheckParameter2 + 1192) = MappedBase;
       *(_DWORD *)(BugCheckParameter2 + 1200) = *(_DWORD *)(a2 + 8);
-      *(_DWORD *)(BugCheckParameter2 + 1204) = v12;
-      v15 = *(_DWORD *)(a2 + 16);
+      *(_DWORD *)(BugCheckParameter2 + 1204) = v11;
+      v14 = *(_DWORD *)(a2 + 16);
       *(_QWORD *)(BugCheckParameter2 + 8) = 0LL;
-      *(_DWORD *)(BugCheckParameter2 + 1208) = v15;
-      BugCheckParameter1 = v14;
+      *(_DWORD *)(BugCheckParameter2 + 1208) = v14;
+      MappedBase = v13;
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(BugCheckParameter2);
       KeAbPostRelease(BugCheckParameter2);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       v6 = 0;
       goto LABEL_19;
     }
 LABEL_18:
     v6 = -1073741811;
 LABEL_19:
-    if ( BugCheckParameter1 )
-      MiRemoveFromSystemSpace(BugCheckParameter1, 1);
+    if ( MappedBase )
+      MmUnmapViewInSystemSpace(MappedBase);
   }
   if ( v3 )
-    ObfDereferenceObject(v3);
+    HalPutDmaAdapter(v3);
   return (unsigned int)v6;
 }

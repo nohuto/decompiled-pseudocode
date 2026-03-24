@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022EA30
+ * XREFs of ?SetIntegerProperty@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01EF030
  * Callers:
  *     <none>
  * Callees:
@@ -39,68 +39,69 @@ __int64 __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::SetInteger
           v10 = v9 - 1;
           if ( v10 )
           {
-            v11 = v10 - 4;
+            v11 = v10 - 3;
             if ( !v11 )
             {
               if ( (unsigned int)(a4 - 1) > 3 )
                 return (unsigned int)-1073741811;
               *((_DWORD *)this + 4) |= 0x80u;
-              *((_DWORD *)this + 37) = a4;
+              *((_DWORD *)this + 32) = a4;
               goto LABEL_28;
             }
-            v12 = v11 - 2;
+            v12 = v11 - 1;
             if ( v12 )
             {
-              v13 = v12 - 2;
+              v13 = v12 - 1;
               if ( v13 )
               {
-                if ( v13 != 1 )
+                if ( v13 != 2 )
                   return (unsigned int)-1073741811;
-                *((_DWORD *)this + 4) |= 0x400u;
+                *((_DWORD *)this + 4) |= 0x200u;
+                *((_BYTE *)this + 141) = a4 != 0;
               }
               else
               {
-                *((_DWORD *)this + 4) |= 0x200u;
-                *((_BYTE *)this + 160) = a4 != 0;
+                *((_DWORD *)this + 4) |= 0x20u;
+                *((_BYTE *)this + 140) = a4 != 0;
               }
 LABEL_28:
               *a5 = 1;
               return v5;
             }
-            *((_DWORD *)this + 39) = a4;
+            *((_DWORD *)this + 34) = a4;
           }
           else
           {
-            *((_DWORD *)this + 25) = a4;
+            *((_DWORD *)this + 23) = a4;
           }
         }
         else
         {
-          if ( *((_DWORD *)this + 24) || (_DWORD)a4 != 10 && (_DWORD)a4 != 24 && (_DWORD)a4 != 28 && (_DWORD)a4 != 87 )
+          if ( *((_DWORD *)this + 22) || (_DWORD)a4 != 10 && (_DWORD)a4 != 24 && (_DWORD)a4 != 28 && (_DWORD)a4 != 87 )
             return (unsigned int)-1073741811;
-          *((_DWORD *)this + 24) = a4;
+          *((_DWORD *)this + 22) = a4;
         }
       }
       else
       {
-        if ( *((_DWORD *)this + 19) )
+        if ( *((_DWORD *)this + 17) )
           return (unsigned int)-1073741811;
-        *((_DWORD *)this + 19) = a4;
+        *((_DWORD *)this + 17) = a4;
       }
     }
     else
     {
-      if ( *((_DWORD *)this + 18) == (_DWORD)a4 )
+      if ( *((_DWORD *)this + 16) == (_DWORD)a4 )
         return v5;
-      *((_DWORD *)this + 18) = a4;
+      *((_DWORD *)this + 16) = a4;
     }
     *((_DWORD *)this + 4) |= 0x20u;
     goto LABEL_28;
   }
-  if ( *((_QWORD *)this + 10) != a4 )
+  if ( *((_QWORD *)this + 9) != a4 )
   {
     *((_DWORD *)this + 4) |= 0x80u;
-    *((_QWORD *)this + 10) = a4;
+    *((_QWORD *)this + 9) = a4;
     *a5 = 1;
   }
   return v5;

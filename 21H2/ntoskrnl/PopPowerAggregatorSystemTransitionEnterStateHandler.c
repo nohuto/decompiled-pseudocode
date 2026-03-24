@@ -1,41 +1,47 @@
 /*
- * XREFs of PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140806FC0
+ * XREFs of PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140774B20
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140808E28 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x1407761A8 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopPowerRequestRevokeRequests @ 0x140397BB4 (PopPowerRequestRevokeRequests.c)
- *     PopGetMonitorReasonFromPowerEventId @ 0x14039ADE8 (PopGetMonitorReasonFromPowerEventId.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopAcquirePowerRequestPushLock @ 0x140753094 (PopAcquirePowerRequestPushLock.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140809310 (PopPowerAggregatorSetCurrentState.c)
- *     PopSleepstudyStartNextSession @ 0x140809838 (PopSleepstudyStartNextSession.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorStartNextSession @ 0x140774C94 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776048 (PopPowerAggregatorSetCurrentState.c)
  */
 
 __int64 __fastcall PopPowerAggregatorSystemTransitionEnterStateHandler(__int64 a1)
 {
-  __int64 MonitorReasonFromPowerEventId; // rax
-  unsigned int v3; // ebx
-  _OWORD v5[2]; // [rsp+20h] [rbp-28h] BYREF
+  int v1; // eax
+  int v4; // eax
+  int v5; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v6; // [rsp+24h] [rbp-24h]
+  int v7; // [rsp+34h] [rbp-14h]
+  __int64 v8; // [rsp+38h] [rbp-10h]
 
-  if ( *(_DWORD *)(a1 + 56) != 5 )
+  v1 = *(_DWORD *)(a1 + 72);
+  if ( (v1 & 0xFFFFFFFC) != 0 || v1 == 1 )
   {
-    MonitorReasonFromPowerEventId = PopGetMonitorReasonFromPowerEventId(*(_DWORD *)(a1 + 60));
-    memset(v5, 0, sizeof(v5));
-    v3 = MonitorReasonFromPowerEventId & 0xFFFFFF;
-    LODWORD(v5[0]) = 5;
-    PopPowerAggregatorSetCurrentState(a1, v5);
-    PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
-    if ( qword_140C5AD70 )
-      qword_140C5AD70(1LL);
-    PopAcquirePowerRequestPushLock(1);
-    PopPowerRequestRevokeRequests(10, 1);
-    PopReleaseRwLock((ULONG_PTR)&PopPowerRequestLock);
-    KeSetEvent((PRKEVENT)(a1 + 264), 0, 0);
-    PopSleepstudyStartNextSession(3LL, v3);
-    PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
+    v4 = *(_DWORD *)(a1 + 88);
+    if ( v4 >= 0 && (v4 <= 2 || v4 == 4) )
+    {
+      PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
+      if ( qword_140C543E0 )
+        qword_140C543E0(1LL);
+      PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
+      KeSetEvent((PRKEVENT)(a1 + 280), 0, 0);
+      PopPowerAggregatorStartNextSession(3LL, *(unsigned int *)(a1 + 76));
+      *(_DWORD *)(a1 + 88) = 3;
+    }
+  }
+  else
+  {
+    v8 = 0LL;
+    v5 = 5;
+    v6 = 0LL;
+    v7 = 3;
+    PopPowerAggregatorSetCurrentState(a1, &v5);
   }
   return 0LL;
 }

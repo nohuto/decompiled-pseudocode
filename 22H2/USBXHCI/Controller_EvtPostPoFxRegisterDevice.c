@@ -1,9 +1,9 @@
 /*
- * XREFs of Controller_EvtPostPoFxRegisterDevice @ 0x1C001E810
+ * XREFs of Controller_EvtPostPoFxRegisterDevice @ 0x1C00317F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_EvtPostPoFxRegisterDevice(__int64 a1, __int64 a2)
@@ -14,9 +14,9 @@ __int64 __fastcall Controller_EvtPostPoFxRegisterDevice(__int64 a1, __int64 a2)
   v3 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      a1,
-                     off_1C00633D8)
+                     off_1C00603D8)
                  + 8);
   result = 0LL;
-  *(_QWORD *)(v3 + 584) = a2;
+  *(_QWORD *)(v3 + 536) = a2;
   return result;
 }

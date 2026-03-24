@@ -1,23 +1,23 @@
 /*
- * XREFs of TlgRegisterAggregateProviderEx @ 0x1C01F4AB0
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x1C0198878
  * Callers:
- *     ?DxgkInitializeTelemetry@@YAXXZ @ 0x1C0025EFC (-DxgkInitializeTelemetry@@YAXXZ.c)
+ *     ?DxgkInitializeTelemetry@@YAXXZ @ 0x1C0023810 (-DxgkInitializeTelemetry@@YAXXZ.c)
  * Callees:
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C01F4BEC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     ComputeFlushPeriod @ 0x1C01F4C98 (ComputeFlushPeriod.c)
- *     CreateTlgAggregateSession @ 0x1C01F4D3C (CreateTlgAggregateSession.c)
- *     DestroyAggregateSession @ 0x1C03C20F0 (DestroyAggregateSession.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C01989B4 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ComputeFlushPeriod @ 0x1C0198A54 (ComputeFlushPeriod.c)
+ *     CreateTlgAggregateSession @ 0x1C0198AF8 (CreateTlgAggregateSession.c)
+ *     DestroyAggregateSession @ 0x1C0300CC0 (DestroyAggregateSession.c)
  */
 
-__int64 __fastcall TlgRegisterAggregateProviderEx(_QWORD *CallbackContext, __int64 a2, __int64 a3, __int16 a4)
+__int64 __fastcall TlgRegisterAggregateProviderEx(PVOID CallbackContext, __int64 a2, __int64 a3, __int16 a4)
 {
-  unsigned int v4; // ebp
-  bool v5; // si
+  unsigned int v4; // esi
+  bool v5; // di
   __int64 v6; // r14
-  _QWORD *v7; // rdi
+  PVOID v7; // rbp
   __int64 TlgAggregateSession; // rax
   void *v9; // rbx
-  int v10; // esi
+  int v10; // edi
   __int64 v11; // rax
   __int64 *v12; // rcx
 
@@ -42,30 +42,29 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(_QWORD *CallbackContext, __int
   v10 = TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(v7);
   if ( v10 < 0 )
   {
-    v7[5] = 0LL;
     DestroyAggregateSession(v9);
     return (unsigned int)v10;
   }
   else
   {
-    ExAcquirePushLockExclusiveEx(&unk_1C0130ED0, 0LL);
-    v11 = qword_1C0131B60;
-    if ( !qword_1C0131B60 )
+    ExAcquirePushLockExclusiveEx(&unk_1C00B34F8, 0LL);
+    v11 = qword_1C00B40D8;
+    if ( !qword_1C00B40D8 )
     {
-      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C012FA48);
-      v11 = qword_1C0131B60;
+      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C00B1B38);
+      v11 = qword_1C00B40D8;
     }
-    v12 = &qword_1C0131B60;
+    v12 = &qword_1C00B40D8;
     while ( v11 )
     {
-      if ( *(_QWORD **)(v11 + 344) == v7 )
+      if ( *(PVOID *)(v11 + 344) == v7 )
         goto LABEL_11;
       v12 = (__int64 *)(v11 + 352);
       v11 = *(_QWORD *)(v11 + 352);
     }
     *v12 = (__int64)v9;
 LABEL_11:
-    ExReleasePushLockExclusiveEx(&unk_1C0130ED0, 0LL);
+    ExReleasePushLockExclusiveEx(&unk_1C00B34F8, 0LL);
     return 0LL;
   }
 }

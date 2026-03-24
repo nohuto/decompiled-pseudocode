@@ -1,38 +1,26 @@
 /*
- * XREFs of ?SetVisible@CVisual@@QEAAX_N@Z @ 0x1800E8AC4
+ * XREFs of ?SetVisible@CVisual@@QEAAX_N@Z @ 0x18001F480
  * Callers:
- *     ?SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180098630 (-SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
- *     ?ProcessSetVisible@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETVISIBLE@@@Z @ 0x180131EC4 (-ProcessSetVisible@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETVISIBLE@@@Z.c)
+ *     ?SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800D0C40 (-SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?ProcessSetVisible@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETVISIBLE@@@Z @ 0x1801AE6B4 (-ProcessSetVisible@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETVISIBLE@@@Z.c)
  * Callees:
- *     ?DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@@Z @ 0x180099078 (-DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@@Z.c)
- *     ?UpdateBackdropCounts@CVisual@@IEAAXPEBV1@_N@Z @ 0x1800E8B1C (-UpdateBackdropCounts@CVisual@@IEAAXPEBV1@_N@Z.c)
- *     ?DirtyForVisibleChild@CVisual@@IEAAXPEAV1@@Z @ 0x1800E8B60 (-DirtyForVisibleChild@CVisual@@IEAAXPEAV1@@Z.c)
+ *     ?DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x18009F3E8 (-DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z.c)
  */
 
 void __fastcall CVisual::SetVisible(CVisual *this, char a2)
 {
-  char v3; // cl
-  CVisual *v4; // rcx
-  bool v5; // r8
+  CVisual *v2; // rax
 
-  v3 = *((_BYTE *)this + 103);
-  if ( a2 != (v3 & 1) )
+  if ( a2 != ((*((_BYTE *)this + 95) & 2) != 0) )
   {
-    *((_BYTE *)this + 103) = a2 | v3 & 0xFE;
-    v4 = (CVisual *)*((_QWORD *)this + 11);
-    if ( v4 )
+    v2 = (CVisual *)*((_QWORD *)this + 10);
+    *((_BYTE *)this + 95) = (2 * a2) | *((_BYTE *)this + 95) & 0xFD;
+    if ( v2 )
     {
       if ( a2 )
-      {
-        CVisual::DirtyForVisibleChild(v4, this);
-        v5 = 1;
-      }
+        CVisual::DirtyForVisibleChild(v2, this, 0);
       else
-      {
-        CVisual::DirtyForInvisibleChild((CComposition **)v4, this);
-        v5 = 0;
-      }
-      CVisual::UpdateBackdropCounts(*((CVisual **)this + 11), this, v5);
+        CVisual::DirtyForInvisibleChild(v2, this, 0);
     }
   }
 }

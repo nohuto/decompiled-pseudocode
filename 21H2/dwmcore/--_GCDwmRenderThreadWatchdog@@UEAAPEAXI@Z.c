@@ -1,16 +1,21 @@
 /*
- * XREFs of ??_GCDwmRenderThreadWatchdog@@UEAAPEAXI@Z @ 0x1801CAC40
+ * XREFs of ??_GCDwmRenderThreadWatchdog@@UEAAPEAXI@Z @ 0x180156930
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1CWatchdogTimer@@UEAA@XZ @ 0x1801D70B0 (--1CWatchdogTimer@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CWatchdogTimer@@UEAA@XZ @ 0x180162660 (--1CWatchdogTimer@@UEAA@XZ.c)
  */
 
 CDwmRenderThreadWatchdog *__fastcall CDwmRenderThreadWatchdog::`scalar deleting destructor'(
         CDwmRenderThreadWatchdog *this,
         char a2)
 {
+  char *v4; // rcx
+
+  v4 = (char *)*((_QWORD *)this + 4);
+  if ( (unsigned __int64)(v4 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    CloseHandle(v4);
   CWatchdogTimer::~CWatchdogTimer(this);
   if ( (a2 & 1) != 0 )
     operator delete(this);

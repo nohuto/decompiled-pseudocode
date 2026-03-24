@@ -1,13 +1,13 @@
 /*
- * XREFs of BiGetKeyName @ 0x140713B6C
+ * XREFs of BiGetKeyName @ 0x140713B4C
  * Callers:
- *     BiGetObjectIdentifier @ 0x140713B18 (BiGetObjectIdentifier.c)
- *     BiBindEfiEntryToBcdObject @ 0x1408F22F8 (BiBindEfiEntryToBcdObject.c)
- *     BiCreateBootEntry @ 0x1408F2A38 (BiCreateBootEntry.c)
+ *     BiGetObjectIdentifier @ 0x140713AF8 (BiGetObjectIdentifier.c)
+ *     BiBindEfiEntryToBcdObject @ 0x1408F22D8 (BiBindEfiEntryToBcdObject.c)
+ *     BiCreateBootEntry @ 0x1408F2A18 (BiCreateBootEntry.c)
  * Callees:
- *     BiSanitizeHandle @ 0x14013B3B0 (BiSanitizeHandle.c)
- *     BiZwQueryKey @ 0x14016E5D8 (BiZwQueryKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     BiSanitizeHandle @ 0x14013B3D0 (BiSanitizeHandle.c)
+ *     BiZwQueryKey @ 0x14016E5F8 (BiZwQueryKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

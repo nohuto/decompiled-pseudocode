@@ -1,29 +1,32 @@
 /*
- * XREFs of ?bInsideDriverCall@@YAHPEAU_SPRITESTATE@@@Z @ 0x1C001ACE4
+ * XREFs of ?bInsideDriverCall@@YAHPEAU_SPRITESTATE@@@Z @ 0x1C00EECA0
  * Callers:
- *     ?bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C00190C0 (-bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEA.c)
- *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C001A564 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C00968A0 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C00EE7A0 (-bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEA.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
 __int64 __fastcall bInsideDriverCall(struct _SPRITESTATE *a1)
 {
   __int64 ThreadWin32Thread; // rax
   __int64 v3; // rdi
-  Gre::Base *v4; // rcx
-  unsigned int v5; // ebx
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v4; // ebx
+  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
 
-  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-  v7 = *(_QWORD *)a1;
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v6 = *(_QWORD *)a1;
   v3 = ThreadWin32Thread;
-  v5 = 0;
-  if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v7) )
-    Gre::Base::Globals(v4);
-  if ( !v3 || !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v7) || !*(_DWORD *)(v3 + 104) && !*(_DWORD *)(v3 + 108) )
+  PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v6);
+  v4 = 0;
+  if ( v3 && PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v6) && (*(_DWORD *)(v3 + 104) || *(_DWORD *)(v3 + 108)) )
+  {
+    if ( *(struct _SPRITESTATE **)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 32LL) == a1 )
+      return **(unsigned int **)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280);
+  }
+  else
+  {
     return *((unsigned int *)a1 + 22);
-  if ( *(struct _SPRITESTATE **)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 32LL) == a1 )
-    return **(unsigned int **)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280);
-  return v5;
+  }
+  return v4;
 }

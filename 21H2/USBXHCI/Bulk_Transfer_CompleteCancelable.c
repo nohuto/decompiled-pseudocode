@@ -1,15 +1,15 @@
 /*
- * XREFs of Bulk_Transfer_CompleteCancelable @ 0x1C000E3C8
+ * XREFs of Bulk_Transfer_CompleteCancelable @ 0x1C000C124
  * Callers:
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C000E0D4 (Bulk_ProcessTransferEventWithED1.c)
- *     Bulk_RetrieveNextStage @ 0x1C000E980 (Bulk_RetrieveNextStage.c)
- *     Bulk_MapStage @ 0x1C000F118 (Bulk_MapStage.c)
- *     Bulk_PrepareStage @ 0x1C000F538 (Bulk_PrepareStage.c)
- *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0044A5C (Bulk_ProcessTransferEventWithHaltedCompletion.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_RetrieveNextStage @ 0x1C000CD50 (Bulk_RetrieveNextStage.c)
+ *     Bulk_MapStage @ 0x1C000D4EC (Bulk_MapStage.c)
+ *     Bulk_PrepareStage @ 0x1C000D984 (Bulk_PrepareStage.c)
+ *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C004445C (Bulk_ProcessTransferEventWithHaltedCompletion.c)
  * Callees:
- *     Bulk_Transfer_PrepareForCompletion @ 0x1C000E550 (Bulk_Transfer_PrepareForCompletion.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_DDDqd @ 0x1C00456C4 (WPP_RECORDER_SF_DDDqd.c)
+ *     Bulk_Transfer_PrepareForCompletion @ 0x1C000C920 (Bulk_Transfer_PrepareForCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDDqd @ 0x1C0045208 (WPP_RECORDER_SF_DDDqd.c)
  */
 
 void __fastcall Bulk_Transfer_CompleteCancelable(__int64 a1, __int64 *a2, unsigned int a3, char a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDESC_ValidateMsOs20VendorRevision @ 0x1C003BCF0
+ * XREFs of HUBDESC_ValidateMsOs20VendorRevision @ 0x1C003B670
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall HUBDESC_ValidateMsOs20VendorRevision(__int64 a1, int *a2, unsigned __int16 *a3)
@@ -21,7 +21,7 @@ char __fastcall HUBDESC_ValidateMsOs20VendorRevision(__int64 a1, int *a2, unsign
   if ( (*a2 & 0x400) != 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*((_QWORD *)a2 + 12), 2u, 5u, 0x15Du, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids);
+      WPP_RECORDER_SF_(*((_QWORD *)a2 + 12), 2u, 5u, 0x15Du, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
     v7 = 258LL;
   }
   else if ( *a3 == 6 )
@@ -40,7 +40,7 @@ char __fastcall HUBDESC_ValidateMsOs20VendorRevision(__int64 a1, int *a2, unsign
         2u,
         5u,
         0x15Fu,
-        (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids,
+        (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
         v10);
     }
     v7 = 260LL;
@@ -55,7 +55,7 @@ char __fastcall HUBDESC_ValidateMsOs20VendorRevision(__int64 a1, int *a2, unsign
         2u,
         5u,
         0x15Eu,
-        (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids,
+        (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
         v9);
     }
     v7 = 259LL;
@@ -64,7 +64,7 @@ char __fastcall HUBDESC_ValidateMsOs20VendorRevision(__int64 a1, int *a2, unsign
   v5 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    WPP_RECORDER_SF_(*((_QWORD *)a2 + 12), 2u, 5u, 0x160u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids);
+    WPP_RECORDER_SF_(*((_QWORD *)a2 + 12), 2u, 5u, 0x160u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
     return 0;
   }
   return v5;

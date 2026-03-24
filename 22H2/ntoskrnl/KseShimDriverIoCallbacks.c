@@ -1,39 +1,39 @@
 /*
- * XREFs of KseShimDriverIoCallbacks @ 0x140693D74
+ * XREFs of KseShimDriverIoCallbacks @ 0x140757D14
  * Callers:
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
- *     IopInitializeBuiltinDriver @ 0x140B41264 (IopInitializeBuiltinDriver.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140A5E618 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     KsepPoolFreeNonPaged @ 0x140209F2C (KsepPoolFreeNonPaged.c)
- *     KsepLogInfo @ 0x140374700 (KsepLogInfo.c)
- *     KsepPoolAllocateNonPaged @ 0x1403A56A4 (KsepPoolAllocateNonPaged.c)
- *     memset @ 0x140435400 (memset.c)
- *     KsepDebugPrint @ 0x140580D64 (KsepDebugPrint.c)
- *     KsepGetShimCallbacksForDriver @ 0x140693B60 (KsepGetShimCallbacksForDriver.c)
- *     KsepDriverPathTail @ 0x140693FA4 (KsepDriverPathTail.c)
- *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)
- *     KsepStringDuplicateUnicode @ 0x140694900 (KsepStringDuplicateUnicode.c)
+ *     KsepLogInfo @ 0x140371F88 (KsepLogInfo.c)
+ *     KsepPoolFreeNonPaged @ 0x140372124 (KsepPoolFreeNonPaged.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KsepDebugPrint @ 0x140526E28 (KsepDebugPrint.c)
+ *     KsepPoolAllocateNonPaged @ 0x1405270C4 (KsepPoolAllocateNonPaged.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140757E40 (KsepGetShimCallbacksForDriver.c)
+ *     KsepStringFree @ 0x14075AFF0 (KsepStringFree.c)
+ *     KsepStringDuplicateUnicode @ 0x14075B024 (KsepStringDuplicateUnicode.c)
+ *     KsepDriverPathTail @ 0x14075B1A4 (KsepDriverPathTail.c)
  */
 
-__int64 __fastcall KseShimDriverIoCallbacks(__int64 *a1, __int64 a2, __int64 a3)
+__int64 __fastcall KseShimDriverIoCallbacks(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r14
   int ShimCallbacksForDriver; // edi
   char *NonPaged; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
   __int64 v12; // rdx
   __int64 v13; // rcx
   __int64 v14; // rdx
   __int64 v15; // rcx
-  signed __int64 v16; // r8
-  __int64 (__fastcall **v17)(__int64, IRP *); // rcx
-  char *v18; // r9
-  __int64 v19; // rbx
-  __int64 (__fastcall *v20)(__int64, IRP *); // rdx
-  __int64 (__fastcall *v21)(__int64, IRP *); // r10
-  __int64 v22; // rcx
+  __int64 v16; // rdx
+  signed __int64 v17; // r8
+  __int64 (__fastcall **v18)(__int64, IRP *); // rcx
+  char *v19; // r9
+  __int64 v20; // rbx
+  __int64 (__fastcall *v21)(__int64, IRP *); // rdx
+  __int64 (__fastcall *v22)(__int64, IRP *); // r11
   _QWORD v23[4]; // [rsp+28h] [rbp-E0h] BYREF
   _QWORD v24[32]; // [rsp+48h] [rbp-C0h] BYREF
 
@@ -43,7 +43,7 @@ __int64 __fastcall KseShimDriverIoCallbacks(__int64 *a1, __int64 a2, __int64 a3)
   ShimCallbacksForDriver = 0;
   if ( a3 )
   {
-    if ( dword_140C64E34 == 2 && (KseEngine & 1) == 0 )
+    if ( dword_140C505E4 == 2 && (KseEngine & 1) == 0 )
     {
       ShimCallbacksForDriver = KsepStringDuplicateUnicode(v23, a3);
       if ( ShimCallbacksForDriver >= 0 )
@@ -70,62 +70,62 @@ __int64 __fastcall KseShimDriverIoCallbacks(__int64 *a1, __int64 a2, __int64 a3)
               v11 = a1[12];
               if ( v11 )
               {
-                v22 = v24[1];
+                v12 = v24[1];
                 if ( v24[1] )
                 {
                   *((_QWORD *)NonPaged + 1) = v11;
-                  a1[12] = v22;
+                  a1[12] = v12;
                 }
               }
-              v12 = a1[13];
-              if ( v12 )
+              v13 = a1[13];
+              if ( v13 )
               {
-                v13 = v24[2];
+                v14 = v24[2];
                 if ( v24[2] )
                 {
-                  *((_QWORD *)NonPaged + 2) = v12;
-                  a1[13] = v13;
+                  *((_QWORD *)NonPaged + 2) = v13;
+                  a1[13] = v14;
                 }
               }
-              v14 = *(_QWORD *)(v3 + 8);
-              if ( v14 )
+              v15 = *(_QWORD *)(v3 + 8);
+              if ( v15 )
               {
-                v15 = v24[3];
+                v16 = v24[3];
                 if ( v24[3] )
                 {
-                  *((_QWORD *)NonPaged + 3) = v14;
-                  *(_QWORD *)(v3 + 8) = v15;
+                  *((_QWORD *)NonPaged + 3) = v15;
+                  *(_QWORD *)(v3 + 8) = v16;
                 }
               }
-              v16 = NonPaged - (char *)a1;
-              v17 = (__int64 (__fastcall **)(__int64, IRP *))(a1 + 14);
-              v18 = (char *)((char *)&v24[4] - (char *)a1);
-              v19 = 28LL;
+              v17 = NonPaged - (char *)a1;
+              v18 = (__int64 (__fastcall **)(__int64, IRP *))(a1 + 14);
+              v19 = (char *)((char *)&v24[4] - (char *)a1);
+              v20 = 28LL;
               do
               {
-                v20 = *v17;
-                if ( *v17 )
+                v21 = *v18;
+                if ( *v18 )
                 {
-                  if ( v20 != IopInvalidDeviceRequest )
+                  if ( v21 != IopInvalidDeviceRequest )
                   {
-                    v21 = *(__int64 (__fastcall **)(__int64, IRP *))((char *)v17 + (_QWORD)v18 - 112);
-                    if ( v21 )
+                    v22 = *(__int64 (__fastcall **)(__int64, IRP *))((char *)v18 + (_QWORD)v19 - 112);
+                    if ( v22 )
                     {
-                      *(__int64 (__fastcall **)(__int64, IRP *))((char *)v17 + v16 - 80) = v20;
-                      *v17 = v21;
+                      *(__int64 (__fastcall **)(__int64, IRP *))((char *)v18 + v17 - 80) = v21;
+                      *v18 = v22;
                     }
                   }
                 }
-                ++v17;
-                --v19;
+                ++v18;
+                --v20;
               }
-              while ( v19 );
+              while ( v20 );
               *(_QWORD *)(v3 + 56) = NonPaged;
               ShimCallbacksForDriver = 0;
               KsepHistoryMessages[((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F] = 524550LL;
               if ( (KsepDebugFlag & 1) != 0 )
-                KsepDebugPrint(9LL, "KSE: Hooked callbacks for driver [%ws].\n", v23[1], v18, v23[0]);
-              KsepLogInfo(9, "KSE: Hooked callbacks for driver [%ws].\n", v23[1], v18, v23[0]);
+                KsepDebugPrint(9LL, "KSE: Hooked callbacks for driver [%ws].\n", v23[1], v19, v23[0]);
+              KsepLogInfo(9LL, (__int64)"KSE: Hooked callbacks for driver [%ws].\n", v23[1], v19, v23[0]);
               goto LABEL_8;
             }
             ShimCallbacksForDriver = -1073741801;
@@ -141,6 +141,6 @@ LABEL_8:
   KsepHistoryMessages[((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F] = 524436LL;
   if ( (KsepDebugFlag & 1) != 0 )
     KsepDebugPrint(0LL, "KSE: Callback shimming - missing driver object or driver name.\n");
-  KsepLogInfo(0, "KSE: Callback shimming - missing driver object or driver name.\n");
+  KsepLogInfo(0LL, (__int64)"KSE: Callback shimming - missing driver object or driver name.\n");
   return 3221225485LL;
 }

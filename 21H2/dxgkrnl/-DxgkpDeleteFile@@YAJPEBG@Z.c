@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkpDeleteFile@@YAJPEBG@Z @ 0x1C0302D10
+ * XREFs of ?DxgkpDeleteFile@@YAJPEBG@Z @ 0x1C02626D8
  * Callers:
- *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C0301F98 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
- *     ?DxgkpCopyFile@@YAJPEBG0@Z @ 0x1C03027D4 (-DxgkpCopyFile@@YAJPEBG0@Z.c)
- *     ?DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0302ED8 (-DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z.c)
+ *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C0261B50 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
+ *     ?DxgkpCopyFile@@YAJPEBG0@Z @ 0x1C0262250 (-DxgkpCopyFile@@YAJPEBG0@Z.c)
+ *     ?DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C02628B8 (-DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z.c)
  * Callees:
  *     <none>
  */

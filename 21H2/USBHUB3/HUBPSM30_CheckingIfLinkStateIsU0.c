@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_CheckingIfLinkStateIsU0 @ 0x1C0011DD0
+ * XREFs of HUBPSM30_CheckingIfLinkStateIsU0 @ 0x1C00118D0
  * Callers:
  *     <none>
  * Callees:

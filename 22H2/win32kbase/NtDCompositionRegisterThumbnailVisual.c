@@ -1,15 +1,16 @@
 /*
- * XREFs of NtDCompositionRegisterThumbnailVisual @ 0x1C000AF70
+ * XREFs of NtDCompositionRegisterThumbnailVisual @ 0x1C0003B00
  * Callers:
  *     <none>
  * Callees:
- *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C0086BD0 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
- *     UserReferenceDwmApiPort @ 0x1C0086FA0 (UserReferenceDwmApiPort.c)
- *     GreLockDwmState @ 0x1C0087030 (GreLockDwmState.c)
- *     GreUnlockDwmState @ 0x1C00870B0 (GreUnlockDwmState.c)
- *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0099744 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     GreLockDwmState @ 0x1C0048DD0 (GreLockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C0048E10 (GreUnlockDwmState.c)
+ *     UserReferenceDwmApiPort @ 0x1C004AAF0 (UserReferenceDwmApiPort.c)
+ *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C004B1A0 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
+ *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0083A34 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
+ *     ?IsValidRect@@YA_NAEBUtagRECT@@@Z @ 0x1C00AB9CC (-IsValidRect@@YA_NAEBUtagRECT@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtDCompositionRegisterThumbnailVisual(
@@ -25,23 +26,23 @@ __int64 __fastcall NtDCompositionRegisterThumbnailVisual(
 {
   char v9; // r15
   __int64 *v11; // rbx
-  int v12; // edi
-  int v13; // esi
-  __int64 v14; // rbx
-  __int128 *v15; // rcx
+  void *v12; // r10
+  int v13; // edi
+  int v14; // esi
+  __int64 v15; // rbx
   __int128 *v16; // rcx
-  char v17; // al
-  char v18; // al
+  __int128 *v17; // rcx
+  __int16 v18; // r8
   CompositionObject *v19; // r14
-  PVOID v20; // r12
-  int v21; // esi
-  unsigned int v22; // r15d
+  int v20; // esi
+  unsigned int v21; // r15d
+  PVOID v22; // r12
   __int64 v23; // rcx
   PVOID Object; // [rsp+50h] [rbp-B8h] BYREF
   __int64 v26; // [rsp+58h] [rbp-B0h]
   __int64 v27; // [rsp+60h] [rbp-A8h]
   __int64 v28; // [rsp+68h] [rbp-A0h]
-  void *v29; // [rsp+70h] [rbp-98h]
+  __int64 v29; // [rsp+70h] [rbp-98h]
   __int128 v30; // [rsp+78h] [rbp-90h]
   __int128 v31; // [rsp+88h] [rbp-80h]
   _DWORD v32[12]; // [rsp+98h] [rbp-70h] BYREF
@@ -51,83 +52,79 @@ __int64 __fastcall NtDCompositionRegisterThumbnailVisual(
   Object = a1;
   v28 = a2;
   v11 = (__int64 *)a8;
-  v29 = a9;
-  v12 = 0;
+  v12 = a9;
+  v29 = (__int64)a9;
   v13 = 0;
+  v14 = 0;
   v26 = 0LL;
   memset(v32, 0, 45);
   if ( a8 + 8 < a8 || a8 + 8 > MmUserProbeAddress )
     v11 = (__int64 *)MmUserProbeAddress;
-  v14 = *v11;
-  v26 = v14;
+  v15 = *v11;
+  v26 = v15;
   v32[0] = a4;
-  v15 = (__int128 *)a5;
+  v16 = (__int128 *)a5;
   if ( a5 + 16 < a5 || a5 + 16 > MmUserProbeAddress )
-    v15 = (__int128 *)MmUserProbeAddress;
-  v30 = *v15;
-  *(_OWORD *)&v32[1] = v30;
-  v16 = (__int128 *)a6;
-  if ( a6 + 16 < a6 || a6 + 16 > MmUserProbeAddress )
     v16 = (__int128 *)MmUserProbeAddress;
-  v31 = *v16;
+  v30 = *v16;
+  *(_OWORD *)&v32[1] = v30;
+  v17 = (__int128 *)a6;
+  if ( a6 + 16 < a6 || a6 + 16 > MmUserProbeAddress )
+    v17 = (__int128 *)MmUserProbeAddress;
+  v31 = *v17;
   *(_OWORD *)&v32[5] = v31;
   LOBYTE(v32[9]) = a7;
   *(_DWORD *)((char *)&v32[9] + 1) = (a3 >> 2) & 1;
   *(_DWORD *)((char *)&v32[10] + 1) = (a3 >> 3) & 1;
-  if ( (v32[0] & 9) != 9 )
-    goto LABEL_32;
-  if ( (v32[0] & 2) != 0 )
+  if ( (v32[0] & 9) != 9
+    || (v32[0] & 2) != 0 && !IsValidRect((const struct tagRECT *)&v32[5])
+    || !IsValidRect((const struct tagRECT *)&v32[1])
+    || v32[1]
+    || v32[2]
+    || (_WORD)a1 == v18 )
   {
-    if ( v32[7] < v32[5] || (v17 = 1, v32[8] < v32[6]) )
-      v17 = 0;
-    if ( !v17 )
-      goto LABEL_32;
+    v14 = -1073741811;
   }
-  if ( v32[3] < v32[1] || (v18 = 1, v32[4] < v32[2]) )
-    v18 = 0;
-  if ( !v18 || *(_QWORD *)&v32[1] || !(_WORD)a1 )
-LABEL_32:
-    v13 = -1073741811;
-  if ( v13 >= 0 )
+  if ( v14 >= 0 )
   {
     Object = 0LL;
-    v13 = DirectComposition::ResourceObject::ResolveHandle(
-            a9,
+    v14 = DirectComposition::ResourceObject::ResolveHandle(
+            v12,
             1u,
             1,
             (struct DirectComposition::ResourceObject **)&Object);
-    if ( v13 >= 0 )
+    if ( v14 >= 0 )
     {
       v19 = (CompositionObject *)Object;
-      if ( *((_DWORD *)Object + 9) == 196 )
+      if ( *((_DWORD *)Object + 9) == 195 )
       {
         GreLockDwmState();
         Object = 0LL;
-        v13 = CompositionObject::OpenDwmHandle(v19, &Object);
-        if ( v13 >= 0 )
+        v14 = CompositionObject::OpenDwmHandle(v19, &Object);
+        if ( v14 >= 0 )
         {
-          v20 = Object;
-          v21 = v9 & 2;
-          v22 = v9 & 1;
+          v20 = v9 & 2;
+          v21 = v9 & 1;
+          v22 = Object;
           v23 = UserReferenceDwmApiPort();
-          if ( qword_1C0294EC8 )
+          if ( qword_1C0255AD0 )
           {
-            LOBYTE(v12) = v21 != 0;
-            v13 = qword_1C0294EC8(v23, a1, v27, v22, v12, v32, v14, v20);
+            LOBYTE(v13) = v20 != 0;
+            v14 = qword_1C0255AD0(v23, a1, v27, v21, v13, v32, v15, v22);
           }
           else
           {
-            v13 = -1073741637;
+            v14 = -1073741637;
           }
         }
         GreUnlockDwmState();
       }
       else
       {
-        v13 = -1073741811;
+        v14 = -1073741811;
       }
       ObfDereferenceObject(v19);
     }
   }
-  return (unsigned int)v13;
+  return (unsigned int)v14;
 }

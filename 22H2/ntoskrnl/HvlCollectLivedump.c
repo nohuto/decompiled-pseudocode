@@ -1,46 +1,49 @@
 /*
- * XREFs of HvlCollectLivedump @ 0x1405478D4
+ * XREFs of HvlCollectLivedump @ 0x1404F8898
  * Callers:
- *     IopLiveDumpCollectPages @ 0x140A9ABC4 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409AC020 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
- *     VslCollectLiveDumpInSk @ 0x14054ACEC (VslCollectLiveDumpInSk.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
  */
 
-__int64 __fastcall HvlCollectLivedump(LONGLONG a1, __int64 a2, LONGLONG *a3, __int64 a4)
+NTSTATUS __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
 {
-  __int64 result; // rax
-  PHYSICAL_ADDRESS *v9; // rbx
-  PHYSICAL_ADDRESS *v10; // r15
-  __int16 v11; // ax
-  int v12; // esi
-  void *v13; // rcx
-  unsigned int v14; // ebx
-  __int128 v15; // [rsp+20h] [rbp-89h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-79h]
-  __int64 v17; // [rsp+38h] [rbp-71h]
-  __int128 v18; // [rsp+40h] [rbp-69h] BYREF
-  __int64 v19; // [rsp+50h] [rbp-59h]
-  __int64 v20; // [rsp+58h] [rbp-51h]
-  _BYTE v21[32]; // [rsp+60h] [rbp-49h] BYREF
-  _BYTE v22[64]; // [rsp+80h] [rbp-29h] BYREF
+  NTSTATUS result; // eax
+  _QWORD *v8; // rbx
+  _QWORD *v9; // rax
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  _QWORD *v12; // r14
+  __int64 v13; // r9
+  __int16 v14; // ax
+  int v15; // esi
+  void *v16; // rcx
+  unsigned int v17; // ebx
+  __int128 v18; // [rsp+20h] [rbp-E0h] BYREF
+  __int128 v19; // [rsp+30h] [rbp-D0h]
+  __int128 v20; // [rsp+40h] [rbp-C0h] BYREF
+  __int128 v21; // [rsp+50h] [rbp-B0h]
+  _BYTE v22[112]; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v23[32]; // [rsp+D0h] [rbp-30h] BYREF
+  _BYTE v24[64]; // [rsp+F0h] [rbp-10h] BYREF
 
-  v19 = 0LL;
-  LODWORD(v20) = 0;
-  v16 = 0LL;
-  LODWORD(v17) = 0;
+  v20 = 0LL;
+  v21 = 0LL;
   v18 = 0LL;
-  v15 = 0LL;
-  if ( (HvlpRootFlags & 2) == 0 || !qword_140C5F468 )
-    return 3221225659LL;
+  v19 = 0LL;
+  if ( (HvlpRootFlags & 2) == 0 || !qword_140C47608 )
+    return -1073741637;
   if ( VslVsmEnabled )
   {
-    result = VslCollectLiveDumpInSk(a1, a2, a3, a4, v15, *((_QWORD *)&v15 + 1), v16, v17);
-    if ( (int)result >= 0 )
+    memset(v22, 0, 0x68uLL);
+    result = VslpEnterIumSecureMode(2u, 251, 0, (__int64)v22);
+    if ( result >= 0 )
     {
       *(_OWORD *)(a4 + 16) = HvlSkCrashdumpGuid;
       *a3 = 0LL;
@@ -48,35 +51,38 @@ __int64 __fastcall HvlCollectLivedump(LONGLONG a1, __int64 a2, LONGLONG *a3, __i
   }
   else
   {
-    v9 = HvlpAcquireHypercallPage((__int64)&v18, 1, (__int64)v22, 32LL);
-    v10 = HvlpAcquireHypercallPage((__int64)&v15, 2, (__int64)v21, 16LL);
-    v9->QuadPart = a1;
-    *(_OWORD *)&v9[1].LowPart = *(_OWORD *)a2;
-    v9[3] = *(PHYSICAL_ADDRESS *)(a2 + 16);
-    v11 = HvcallInitiateHypercall(142);
-    if ( !v11 || v11 == 51 )
+    v8 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v20, 1, (__int64)v24, 32LL);
+    v9 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v18, 2, (__int64)v23, 16LL);
+    v10 = *((_QWORD *)&v19 + 1);
+    v11 = *((_QWORD *)&v21 + 1);
+    v12 = v9;
+    *v8 = 0LL;
+    *(_OWORD *)(v8 + 1) = *(_OWORD *)a2;
+    v8[3] = *(_QWORD *)(a2 + 16);
+    v14 = HvcallInitiateHypercall(142, v11, v10, v13);
+    if ( !v14 || v14 == 51 )
     {
-      *a3 = v10->QuadPart;
-      v12 = 0;
+      *a3 = *v12;
+      v15 = 0;
     }
     else
     {
-      v12 = -1073741823;
+      v15 = -1073741823;
     }
-    HvlpReleaseHypercallPage((__int64)&v15);
     HvlpReleaseHypercallPage((__int64)&v18);
-    if ( v12 >= 0 )
+    HvlpReleaseHypercallPage((__int64)&v20);
+    if ( v15 >= 0 )
     {
-      v13 = *(void **)(a4 + 32);
-      v14 = dword_140C5F478 << 12;
-      if ( v13 == *(void **)a4 && *(_DWORD *)(a4 + 8) >= v14 )
-        memmove(v13, qword_140C5F468, v14);
+      v16 = *(void **)(a4 + 32);
+      v17 = dword_140C47618 << 12;
+      if ( v16 == *(void **)a4 && *(_DWORD *)(a4 + 8) >= v17 )
+        memmove(v16, qword_140C47608, v17);
       else
-        *(_QWORD *)(a4 + 32) = qword_140C5F468;
-      *(_DWORD *)(a4 + 40) = v14;
+        *(_QWORD *)(a4 + 32) = qword_140C47608;
+      *(_DWORD *)(a4 + 40) = v17;
       *(_OWORD *)(a4 + 16) = HvlCrashdumpGuid;
     }
-    return (unsigned int)v12;
+    return v15;
   }
   return result;
 }

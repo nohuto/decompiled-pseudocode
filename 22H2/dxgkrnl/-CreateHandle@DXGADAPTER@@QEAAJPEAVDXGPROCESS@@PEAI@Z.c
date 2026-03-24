@@ -1,76 +1,61 @@
 /*
- * XREFs of ?CreateHandle@DXGADAPTER@@QEAAJPEAVDXGPROCESS@@PEAI@Z @ 0x1C018F1D8
+ * XREFs of ?CreateHandle@DXGADAPTER@@QEAAJPEAVDXGPROCESS@@PEAI@Z @ 0x1C012C424
  * Callers:
- *     ?DxgkOpenAdapterFromLuidImpl@@YAJPEAU_D3DKMT_OPENADAPTERFROMLUID@@E@Z @ 0x1C018D188 (-DxgkOpenAdapterFromLuidImpl@@YAJPEAU_D3DKMT_OPENADAPTERFROMLUID@@E@Z.c)
- *     ?EnumAdaptersCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01B50A0 (-EnumAdaptersCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
- *     ?GetVirtualGpuDevice@DXGPROCESS@@QEAAPEAVDXGDEVICE@@PEAVADAPTER_RENDER@@@Z @ 0x1C0344E58 (-GetVirtualGpuDevice@DXGPROCESS@@QEAAPEAVDXGDEVICE@@PEAVADAPTER_RENDER@@@Z.c)
- *     ?VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0381CF0 (-VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusOpenAdapterCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00D9DC0 (-VmBusOpenAdapterCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?EnumAdaptersCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C012C200 (-EnumAdaptersCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ?DxgkOpenAdapterFromLuidImpl@@YAJPEAU_D3DKMT_OPENADAPTERFROMLUID@@E@Z @ 0x1C0145578 (-DxgkOpenAdapterFromLuidImpl@@YAJPEAU_D3DKMT_OPENADAPTERFROMLUID@@E@Z.c)
+ *     ?VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02444D0 (-VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?GetVirtualGpuDevice@DXGPROCESS@@QEAAPEAVDXGDEVICE@@PEAVADAPTER_RENDER@@@Z @ 0x1C02859D4 (-GetVirtualGpuDevice@DXGPROCESS@@QEAAPEAVDXGDEVICE@@PEAVADAPTER_RENDER@@@Z.c)
  * Callees:
- *     ?FreeHandleSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C000481C (-FreeHandleSafe@DXGPROCESS@@QEAAXI@Z.c)
- *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x1C00049F4 (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?OpenAdapter@DXGPROCESS@@QEAAJPEAVADAPTER_RENDER@@_N@Z @ 0x1C018F32C (-OpenAdapter@DXGPROCESS@@QEAAJPEAVADAPTER_RENDER@@_N@Z.c)
- *     ?AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z @ 0x1C01B3D00 (-AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z.c)
+ *     ?FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C0003148 (-FreeResourceHandleNoRefSafe@DXGPROCESS@@QEAAXI@Z.c)
+ *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x1C0007DCC (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
+ *     ?AllocHandleSafe@DXGPROCESS@@QEAAIPEAXW4_HMGRENTRY_TYPE@@@Z @ 0x1C00090A0 (-AllocHandleSafe@DXGPROCESS@@QEAAIPEAXW4_HMGRENTRY_TYPE@@@Z.c)
+ *     ?OpenAdapter@DXGPROCESS@@QEAAJPEAVADAPTER_RENDER@@_N@Z @ 0x1C012C504 (-OpenAdapter@DXGPROCESS@@QEAAJPEAVADAPTER_RENDER@@_N@Z.c)
  */
 
 __int64 __fastcall DXGADAPTER::CreateHandle(DXGADAPTER *this, struct DXGPROCESS *a2, unsigned int *a3)
 {
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  unsigned int v8; // eax
-  unsigned int v9; // ebp
-  struct ADAPTER_RENDER *v10; // rdx
-  int v11; // esi
-  int v13; // r9d
+  unsigned int v6; // esi
+  struct ADAPTER_RENDER *v7; // rdx
+  int v8; // ebp
+  __int64 v10; // rax
+  __int64 v11; // rax
 
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 3302LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pProcess != NULL", 3302LL, 0LL, 0LL, 0LL, 0LL);
+    v11 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    *(_QWORD *)(v11 + 24) = 3275LL;
+    WdLogEvent5_WdAssertion(v11);
   }
   if ( !a3 )
     return 3221225485LL;
   if ( *((_DWORD *)this + 50) == 1 )
   {
-    KeEnterCriticalRegion();
-    if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx((char *)a2 + 248, 0LL) )
-    {
-      if ( bTracingEnabled )
-      {
-        v13 = *((_DWORD *)a2 + 68);
-        if ( v13 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v6, &EventBlockThread, v7, v13);
-      }
-      ExAcquirePushLockExclusiveEx((char *)a2 + 248, 0LL);
-    }
-    *((_QWORD *)a2 + 32) = KeGetCurrentThread();
-    v8 = HMGRTABLE::AllocHandle((char *)a2 + 280, this, 1LL, 0LL, 0);
-    *((_QWORD *)a2 + 32) = 0LL;
-    v9 = v8;
-    ExReleasePushLockExclusiveEx((char *)a2 + 248, 0LL);
-    KeLeaveCriticalRegion();
+    v6 = DXGPROCESS::AllocHandleSafe((__int64)a2, (__int64)this, 1u);
     _InterlockedIncrement64((volatile signed __int64 *)this + 3);
-    if ( v9 )
+    if ( v6 )
     {
-      v10 = (struct ADAPTER_RENDER *)*((_QWORD *)this + 366);
-      if ( !v10 || (v11 = DXGPROCESS::OpenAdapter(a2, v10, (*((_DWORD *)a2 + 106) & 0x80) != 0), v11 >= 0) )
+      v7 = (struct ADAPTER_RENDER *)*((_QWORD *)this + 338);
+      if ( !v7 || (v8 = DXGPROCESS::OpenAdapter(a2, v7, (*((_BYTE *)a2 + 347) & 0x10) != 0), v8 >= 0) )
       {
-        *a3 = v9;
+        *a3 = v6;
         return 0LL;
       }
-      DXGPROCESS::FreeHandleSafe(a2, v9);
+      DXGPROCESS::FreeResourceHandleNoRefSafe(a2, v6);
     }
     else
     {
-      v11 = -1073741801;
+      v8 = -1073741801;
     }
     DXGADAPTER::ReleaseReferenceNoTracking(this);
-    return (unsigned int)v11;
+    return (unsigned int)v8;
   }
   else
   {
-    WdLogSingleEntry2(3LL, this, -1073741130LL);
+    v10 = WdLogNewEntry5_WdWarning(this, a2, a3);
+    *(_QWORD *)(v10 + 24) = this;
+    *(_QWORD *)(v10 + 32) = -1073741130LL;
+    WdLogEvent5_WdWarning(v10);
     return 3221226166LL;
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwCreateResourceManager @ 0x1405D2730
+ * XREFs of VerifierZwCreateResourceManager @ 0x1409D40C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierZwCreateResourceManager(__int64 a1, __int64 a2, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiTranslateBusNumberResource @ 0x1C0097490
+ * XREFs of AcpiTranslateBusNumberResource @ 0x1C00B5B80
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViGetMapRegisterFile @ 0x140A885FC
+ * XREFs of ViGetMapRegisterFile @ 0x1409CE914
  * Callers:
- *     VfFlushAdapterBuffers @ 0x140A853A0 (VfFlushAdapterBuffers.c)
- *     VfMapTransfer @ 0x140A86510 (VfMapTransfer.c)
- *     ViSwap @ 0x140A896FC (ViSwap.c)
+ *     VfFlushAdapterBuffers @ 0x1409CB6F0 (VfFlushAdapterBuffers.c)
+ *     VfMapTransfer @ 0x1409CC870 (VfMapTransfer.c)
+ *     ViSwap @ 0x1409CFA00 (ViSwap.c)
  * Callees:
  *     <none>
  */

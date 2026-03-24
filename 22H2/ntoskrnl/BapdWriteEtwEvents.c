@@ -1,19 +1,19 @@
 /*
- * XREFs of BapdWriteEtwEvents @ 0x140373E08
+ * XREFs of BapdWriteEtwEvents @ 0x14039A928
  * Callers:
- *     BapdpProcessEtwEvents @ 0x140373CE8 (BapdpProcessEtwEvents.c)
- *     PopBootLoaderTraceProcess @ 0x140988490 (PopBootLoaderTraceProcess.c)
+ *     BapdpProcessEtwEvents @ 0x1403AA358 (BapdpProcessEtwEvents.c)
+ *     PopBootLoaderTraceProcess @ 0x14077A018 (PopBootLoaderTraceProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     BapdpParseEventParts @ 0x14037416C (BapdpParseEventParts.c)
- *     BapdRegisterEtwProvider @ 0x140374214 (BapdRegisterEtwProvider.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     EtwUnregister @ 0x1407C1390 (EtwUnregister.c)
- *     EtwSetInformation @ 0x1407D76A0 (EtwSetInformation.c)
- *     BapdpWriteEventDataToRegistry @ 0x140A89198 (BapdpWriteEventDataToRegistry.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     BapdpParseEventParts @ 0x14039AC6C (BapdpParseEventParts.c)
+ *     BapdRegisterEtwProvider @ 0x14039AD14 (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     EtwUnregister @ 0x14075F9C0 (EtwUnregister.c)
+ *     EtwSetInformation @ 0x14077EFF0 (EtwSetInformation.c)
+ *     BapdpWriteEventDataToRegistry @ 0x1409994A4 (BapdpWriteEventDataToRegistry.c)
  */
 
 __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)
@@ -31,15 +31,15 @@ __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)
   __int64 v12; // rcx
   REGHANDLE v13; // r14
   __int64 v14; // rcx
-  const GUID *ActivityId; // rcx
-  const WCHAR *v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // rcx
-  int v19; // eax
+  __int16 v15; // ax
+  __int64 v16; // rcx
+  const WCHAR *v18; // rdx
+  __int64 v19; // rcx
+  int v20; // eax
   char v21; // [rsp+48h] [rbp-49h]
   GUID *v22; // [rsp+50h] [rbp-41h]
-  int Data; // [rsp+58h] [rbp-39h] BYREF
-  ULONG UserDataCount; // [rsp+5Ch] [rbp-35h] BYREF
+  ULONG UserDataCount; // [rsp+58h] [rbp-39h] BYREF
+  int Data; // [rsp+5Ch] [rbp-35h] BYREF
   REGHANDLE v25; // [rsp+60h] [rbp-31h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-29h] BYREF
   REGHANDLE v27; // [rsp+78h] [rbp-19h] BYREF
@@ -62,17 +62,17 @@ __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)
   v5 = 0LL;
   v6 = BapdRegisterEtwProvider(&BOOTENV_ETW_PROVIDER, a2, &RegHandle);
   if ( v6 < 0 )
-    goto LABEL_45;
+    goto LABEL_30;
   v21 = 0;
   v7 = BapdRegisterEtwProvider(&BOOT_PROVIDER_GUID, 0LL, &v27);
   v4 = v27;
   v6 = v7;
   if ( v7 < 0 )
-    goto LABEL_45;
+    goto LABEL_30;
   while ( v2 < v29 )
   {
     if ( *(_DWORD *)(v2 + 8) != 6 )
-      goto LABEL_20;
+      goto LABEL_19;
     v8 = (int *)(v2 + 68);
     BapdpParseEventParts(v2 + 48, v2 + 68, *(_DWORD *)(v2 + 64), (unsigned int)&UserData, (__int64)&UserDataCount);
     v10 = (_QWORD *)(v2 + 32);
@@ -82,15 +82,15 @@ __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)
       v12 = 0x1E535E959809A5BBLL - *(_QWORD *)(v2 + 40);
     if ( v12 )
     {
-      v17 = BOOT_PROVIDER_GUID - v11;
+      v16 = BOOT_PROVIDER_GUID - v11;
       if ( BOOT_PROVIDER_GUID == v11 )
-        v17 = 0x6B3FAED6A2C303F9LL - *(_QWORD *)(v2 + 40);
-      if ( v17 )
+        v16 = 0x6B3FAED6A2C303F9LL - *(_QWORD *)(v2 + 40);
+      if ( v16 )
       {
-        v18 = *(_QWORD *)&v3->Data1 - v11;
+        v19 = *(_QWORD *)&v3->Data1 - v11;
         if ( *(_QWORD *)&v3->Data1 == v11 )
-          v18 = *(_QWORD *)v3->Data4 - *(_QWORD *)(v2 + 40);
-        if ( v18 )
+          v19 = *(_QWORD *)v3->Data4 - *(_QWORD *)(v2 + 40);
+        if ( v19 )
         {
           if ( v5 )
           {
@@ -98,11 +98,11 @@ __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)
             v25 = 0LL;
           }
           LOBYTE(v9) = *(_BYTE *)(v2 + 51) != 11;
-          v19 = BapdRegisterEtwProvider(v2 + 32, v9, &v25);
+          v20 = BapdRegisterEtwProvider(v2 + 32, v9, &v25);
           v5 = v25;
-          v6 = v19;
-          if ( v19 < 0 )
-            goto LABEL_45;
+          v6 = v20;
+          if ( v20 < 0 )
+            goto LABEL_30;
           v13 = v25;
           v22 = (GUID *)(v2 + 32);
           if ( *(_BYTE *)(v2 + 51) == 11 )
@@ -129,55 +129,57 @@ __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)
     }
     if ( EtwEventEnabled(v13, (PCEVENT_DESCRIPTOR)(v2 + 48)) )
     {
-      ActivityId = *(_BYTE *)(v2 + 15) ? (const GUID *)(v2 + 16) : 0LL;
-      v6 = EtwWriteEx(v13, (PCEVENT_DESCRIPTOR)(v2 + 48), 0LL, 0, ActivityId, 0LL, UserDataCount, &UserData);
+      v6 = EtwWriteEx(
+             v13,
+             (PCEVENT_DESCRIPTOR)(v2 + 48),
+             0LL,
+             0,
+             (LPCGUID)((v2 + 16) & -(__int64)(*(_BYTE *)(v2 + 15) != 0)),
+             0LL,
+             UserDataCount,
+             &UserData);
       if ( v6 < 0 )
-        goto LABEL_45;
+        goto LABEL_30;
     }
     v14 = BOOTENV_ETW_PROVIDER - *v10;
     if ( BOOTENV_ETW_PROVIDER == *v10 )
       v14 = 0x1E535E959809A5BBLL - *(_QWORD *)(v2 + 40);
-    if ( v14 )
-      goto LABEL_27;
-    switch ( *(_WORD *)(v2 + 48) )
+    if ( !v14 )
     {
-      case 0xB:
-        v16 = L"POSTTime";
-LABEL_26:
-        RtlInitUnicodeString(&DestinationString, v16);
-        BapdpWriteEventDataToRegistry((PVOID)(v2 + 68));
-LABEL_27:
-        v3 = v22;
-        goto LABEL_20;
-      case 0x10:
-        goto LABEL_55;
-      case 0x14:
-        if ( !*v8 )
-          ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0LL);
-        goto LABEL_27;
-      case 0x1D:
-LABEL_55:
-        ExBootAppFailureStatus = *v8;
-        goto LABEL_27;
-      case 0x20:
-        v16 = L"BootmgrUserInputTime";
-        goto LABEL_26;
+      v15 = *(_WORD *)(v2 + 48);
+      switch ( v15 )
+      {
+        case 11:
+          v18 = L"POSTTime";
+          goto LABEL_38;
+        case 20:
+          if ( !*v8 )
+            ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0LL, 0LL, 0LL, 0, 0);
+          break;
+        case 16:
+        case 29:
+          ExBootAppFailureStatus = *v8;
+          break;
+        case 32:
+          v18 = L"BootmgrUserInputTime";
+LABEL_38:
+          RtlInitUnicodeString(&DestinationString, v18);
+          BapdpWriteEventDataToRegistry((PVOID)(v2 + 68));
+          break;
+      }
     }
     v3 = v22;
-    if ( *(_WORD *)(v2 + 48) == 158 )
-      ExBootAppErrorDiagCode = *v8;
-LABEL_20:
+LABEL_19:
     v2 = (*(unsigned int *)(v2 + 4) + v2 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
   }
-  if ( (qword_140C31AF8 & 4) != 0 )
+  if ( (qword_140C197B8 & 4) != 0 )
   {
-    Data = 0;
     RtlInitUnicodeString(&DestinationString, L"BootmgrUserInputTime");
     BapdpWriteEventDataToRegistry(&Data);
     RtlInitUnicodeString(&DestinationString, L"POSTTime");
     BapdpWriteEventDataToRegistry(&Data);
   }
-LABEL_45:
+LABEL_30:
   if ( RegHandle )
     EtwUnregister(RegHandle);
   if ( v4 )

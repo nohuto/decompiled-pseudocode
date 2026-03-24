@@ -1,49 +1,54 @@
 /*
- * XREFs of ?DxgAllocateDiagnosticInfoArgs@@YAPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@W4_DXGK_DIAGNOSTICINFO_TYPE@@@Z @ 0x1C02CE778
+ * XREFs of ?DxgAllocateDiagnosticInfoArgs@@YAPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@W4_DXGK_DIAGNOSTICINFO_TYPE@@@Z @ 0x1C0220AF8
  * Callers:
- *     DpiAddDevice @ 0x1C01F84B0 (DpiAddDevice.c)
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C02FF2BC (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     DpiAddDevice @ 0x1C017CFC0 (DpiAddDevice.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025F574 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
-__int64 __fastcall DxgAllocateDiagnosticInfoArgs(int a1, __int64 a2, __int64 a3, __int64 a4)
+_QWORD *__fastcall DxgAllocateDiagnosticInfoArgs(int a1)
 {
-  __int64 v5; // rdi
+  _QWORD *v2; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
   __int64 v6; // r9
-  unsigned int v7; // ebx
-  __int64 v8; // rax
+  _QWORD *v7; // rbx
+  unsigned int v8; // edi
+  PVOID v9; // rax
+  __int64 v10; // rax
 
-  v5 = operator new[](0xE8uLL, 0x4B677844u, 256LL, a4);
-  if ( !v5 )
-    goto LABEL_9;
-  if ( a1 == 1 || a1 == 2 || (v7 = 0x100000, a1 != 3) )
-    v7 = 0x80000;
-  v8 = operator new[](v7, 0x4B677844u, 256LL, v6);
-  *(_QWORD *)(v5 + 224) = v8;
-  if ( !v8 )
+  v2 = operator new[](0xE8uLL, 0x4B677844u, PagedPool);
+  v7 = v2;
+  if ( !v2 )
+    goto LABEL_10;
+  memset(v2, 0, 0xE8uLL);
+  if ( a1 == 1 || a1 == 2 || (v8 = 0x100000, a1 != 3) )
+    v8 = 0x80000;
+  v9 = operator new[](v8, 0x4B677844u, PagedPool);
+  v7[28] = v9;
+  if ( v9 )
   {
-    operator delete((void *)v5);
-    v5 = 0LL;
-LABEL_9:
-    WdLogSingleEntry1(6LL, 10822LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Out of memory allocating DxgAllocateDiagnosticInfoArgs",
-      10822LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return v5;
+    *((_DWORD *)v7 + 55) = 0;
+    *((_DWORD *)v7 + 54) = v8;
+    *((_DWORD *)v7 + 2) = a1;
+    memset(v9, 0, v8);
   }
-  *(_DWORD *)(v5 + 220) = 0;
-  *(_DWORD *)(v5 + 216) = v7;
-  *(_DWORD *)(v5 + 8) = a1;
-  return v5;
+  else
+  {
+    operator delete(v7);
+    v7 = 0LL;
+  }
+  if ( !v7 )
+  {
+LABEL_10:
+    v10 = WdLogNewEntry5_WdLowResource(v4, v3, v5, v6);
+    *(_QWORD *)(v10 + 24) = 10802LL;
+    WdLogEvent5_WdLowResource(v10);
+  }
+  return v7;
 }

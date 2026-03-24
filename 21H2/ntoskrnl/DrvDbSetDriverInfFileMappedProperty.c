@@ -1,77 +1,77 @@
 /*
- * XREFs of DrvDbSetDriverInfFileMappedProperty @ 0x140A2FC40
+ * XREFs of DrvDbSetDriverInfFileMappedProperty @ 0x14072DCBC
  * Callers:
- *     DrvDbDispatchDriverInfFile @ 0x140789110 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverInfFile @ 0x14063B730 (DrvDbDispatchDriverInfFile.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     DrvDbOpenDriverInfFileRegKey @ 0x140789AA4 (DrvDbOpenDriverInfFileRegKey.c)
- *     DrvDbSetRegValueMappedProperty @ 0x14081D304 (DrvDbSetRegValueMappedProperty.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     DrvDbOpenDriverInfFileRegKey @ 0x14063B014 (DrvDbOpenDriverInfFileRegKey.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x14072E35C (DrvDbSetRegValueMappedProperty.c)
  */
 
 __int64 __fastcall DrvDbSetDriverInfFileMappedProperty(
-        __int64 *a1,
-        __int64 a2,
+        int a1,
+        int a2,
         HANDLE a3,
         __int64 a4,
-        int a5,
-        int *a6,
-        ULONG a7)
+        unsigned int a5,
+        __int64 a6,
+        int a7)
 {
   int v8; // ebx
-  __int64 v11; // rax
-  int v12; // ebx
-  __int64 v13; // rcx
+  __int64 v11; // rcx
   __int64 (**i)[3]; // r8
-  __int64 *v15; // r10
-  __int64 v16; // rdx
-  __int64 v18; // rcx
-  __int64 (**v19)[3]; // rsi
-  int v20; // edi
+  __int64 *v13; // r10
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 (**v16)[3]; // rsi
+  unsigned int v17; // edi
+  int v18; // ebx
+  __int64 v20; // rax
   HANDLE Handle; // [rsp+68h] [rbp+20h] BYREF
 
   Handle = 0LL;
   v8 = *(_DWORD *)(a4 + 16);
   if ( v8 == 2 )
   {
-    v11 = *(_QWORD *)a4 - DEVPKEY_NODE;
+    v20 = *(_QWORD *)a4 - DEVPKEY_NODE;
     if ( *(_QWORD *)a4 == DEVPKEY_NODE )
-      v11 = *(_QWORD *)(a4 + 8) + 0x5008C7D4C8250077LL;
-    if ( !v11 )
+      v20 = *(_QWORD *)(a4 + 8) + 0x5008C7D4C8250077LL;
+    if ( !v20 )
       return (unsigned int)-1073741790;
   }
-  v13 = 0LL;
-  for ( i = &off_140002D80; ; i += 5 )
+  v11 = 0LL;
+  for ( i = &off_1400019E0; ; i += 5 )
   {
-    v15 = (__int64 *)*i;
+    v13 = (__int64 *)*i;
     if ( LODWORD((**i)[2]) == v8 )
     {
-      v16 = *v15 - *(_QWORD *)a4;
-      if ( *v15 == *(_QWORD *)a4 )
-        v16 = v15[1] - *(_QWORD *)(a4 + 8);
-      if ( !v16 )
+      v14 = *v13 - *(_QWORD *)a4;
+      if ( *v13 == *(_QWORD *)a4 )
+        v14 = v13[1] - *(_QWORD *)(a4 + 8);
+      if ( !v14 )
         break;
     }
-    v13 = (unsigned int)(v13 + 1);
-    if ( (unsigned int)v13 >= 4 )
+    v11 = (unsigned int)(v11 + 1);
+    if ( (unsigned int)v11 >= 4 )
       return (unsigned int)-1073741802;
   }
-  v18 = 5 * v13;
-  v19 = &off_140002D80 + v18;
-  if ( !v19 )
+  v15 = 5 * v11;
+  v16 = &off_1400019E0 + v15;
+  if ( !v16 )
     return (unsigned int)-1073741802;
-  v20 = a5;
-  if ( a5 != *((_DWORD *)v19 + 2) && a5 )
+  v17 = a5;
+  if ( a5 != *((_DWORD *)v16 + 2) && a5 )
     return (unsigned int)-1073741811;
   if ( !a3 )
   {
-    v12 = DrvDbOpenDriverInfFileRegKey(a1, a2, 2, 0, (__int64)&Handle, 0LL);
-    if ( v12 < 0 )
-      goto LABEL_22;
+    v18 = DrvDbOpenDriverInfFileRegKey(a1, a2, 2, 0, (__int64)&Handle, 0LL);
+    if ( v18 < 0 )
+      goto LABEL_13;
     a3 = Handle;
   }
-  v12 = DrvDbSetRegValueMappedProperty(v18, a3, (__int64)v19, v20, a6, a7);
-LABEL_22:
+  v18 = DrvDbSetRegValueMappedProperty(v15, a3, v16, v17, a6, a7);
+LABEL_13:
   if ( Handle )
     ZwClose(Handle);
-  return (unsigned int)v12;
+  return (unsigned int)v18;
 }

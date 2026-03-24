@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTscGetAttributes @ 0x1403B31C0
+ * XREFs of HalpTscGetAttributes @ 0x1403A19B0
  * Callers:
- *     HalpTscInitialize @ 0x1403B30A0 (HalpTscInitialize.c)
- *     HalpTscDiscover @ 0x1403BCF1C (HalpTscDiscover.c)
+ *     HalpTscInitialize @ 0x1403A1860 (HalpTscInitialize.c)
+ *     HalpTscDiscover @ 0x1403AAA90 (HalpTscDiscover.c)
  * Callees:
- *     HalSocRequestConfigurationData @ 0x1403B36F4 (HalSocRequestConfigurationData.c)
- *     HalSocRequestApi @ 0x1403B38C8 (HalSocRequestApi.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalSocRequestConfigurationData @ 0x1403A1E9C (HalSocRequestConfigurationData.c)
+ *     HalSocRequestApi @ 0x1403A209C (HalSocRequestApi.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTscGetAttributes(_BYTE *a1, _BYTE *a2, _BYTE *a3)
@@ -49,7 +49,7 @@ __int64 __fastcall HalpTscGetAttributes(_BYTE *a1, _BYTE *a2, _BYTE *a3)
     }
     if ( (v7 & 0x100) == 0 )
     {
-      HalSocRequestConfigurationData(8LL, v6, &v13);
+      HalSocRequestConfigurationData(7LL, v6, &v13);
       if ( !v13
         && v12 == 2
         && (KeGetCurrentPrcb()->CpuType == 15 && KeGetCurrentPrcb()->CpuModel >= 3u

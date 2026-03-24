@@ -1,644 +1,644 @@
 /*
- * XREFs of ?CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C003BF70
+ * XREFs of ?CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0087360
  * Callers:
- *     GreStretchDIBitsInternal @ 0x1C0029B2C (GreStretchDIBitsInternal.c)
- *     GreSetDIBitsToDeviceInternal @ 0x1C002E3F0 (GreSetDIBitsToDeviceInternal.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00398B0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     NtGdiAlphaBlend @ 0x1C0039BB0 (NtGdiAlphaBlend.c)
- *     NtGdiBitBltInternal @ 0x1C003DD70 (NtGdiBitBltInternal.c)
- *     ?iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z @ 0x1C013DC80 (-iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z.c)
+ *     GreDrawStream @ 0x1C0083A60 (GreDrawStream.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084EE0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     NtGdiAlphaBlend @ 0x1C00851E0 (NtGdiAlphaBlend.c)
+ *     NtGdiBitBltInternal @ 0x1C0088690 (NtGdiBitBltInternal.c)
+ *     GreStretchDIBitsInternal @ 0x1C00AE0CC (GreStretchDIBitsInternal.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF5A0 (GreSetDIBitsToDeviceInternal.c)
+ *     ?iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z @ 0x1C0159EB4 (-iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z.c)
  * Callees:
- *     ?bIsMonochrome@XEPALOBJ@@QEBAHXZ @ 0x1C00FDBF8 (-bIsMonochrome@XEPALOBJ@@QEBAHXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ??0COLORTRANSFORMOBJ@@QEAA@PEAX@Z @ 0x1C026ACF0 (--0COLORTRANSFORMOBJ@@QEAA@PEAX@Z.c)
- *     ?vMapNewXlate@XLATE@@QEAAXPEAU_TRANSLATE@@@Z @ 0x1C02BEB4C (-vMapNewXlate@XLATE@@QEAAXPEAU_TRANSLATE@@@Z.c)
- *     ?bEqualRGB_In_Palette@@YAHVXEPALOBJ@@0@Z @ 0x1C02D9D9C (-bEqualRGB_In_Palette@@YAHVXEPALOBJ@@0@Z.c)
+ *     ?bIsMonochrome@XEPALOBJ@@QEBAHXZ @ 0x1C011D6A4 (-bIsMonochrome@XEPALOBJ@@QEBAHXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ??0COLORTRANSFORMOBJ@@QEAA@PEAX@Z @ 0x1C026CF50 (--0COLORTRANSFORMOBJ@@QEAA@PEAX@Z.c)
+ *     ?vMapNewXlate@XLATE@@QEAAXPEAU_TRANSLATE@@@Z @ 0x1C02C01AC (-vMapNewXlate@XLATE@@QEAAXPEAU_TRANSLATE@@@Z.c)
+ *     ?bEqualRGB_In_Palette@@YAHVXEPALOBJ@@0@Z @ 0x1C02DB90C (-bEqualRGB_In_Palette@@YAHVXEPALOBJ@@0@Z.c)
  */
 
-_DWORD *CreateXlateObject(void *a1, int a2, ...)
+_DWORD *__fastcall CreateXlateObject(
+        void *a1,
+        int a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6,
+        unsigned int a7,
+        unsigned int a8,
+        unsigned int a9,
+        __int16 a10)
 {
-  struct PALETTE *v2; // rdi
-  unsigned int v5; // r13d
+  unsigned int v13; // r13d
   _DWORD *result; // rax
-  _DWORD *v7; // r15
-  unsigned int v8; // r12d
-  _DWORD *v9; // rdx
-  int v10; // ecx
-  int v11; // eax
-  __int64 v12; // r14
-  __int64 v13; // rcx
-  int v14; // eax
-  int v15; // r11d
-  struct PALETTE *v16; // rbx
-  __int16 v17; // cx
-  int v18; // eax
-  struct _TRANSLATE *v19; // r8
-  struct _TRANSLATE *v20; // r10
-  int v21; // edx
-  __int64 v22; // rsi
-  __int16 v23; // r11
-  int v24; // eax
-  __int64 v25; // r9
-  __int64 v26; // rdx
-  __int64 v27; // rdx
-  __int64 v28; // r9
-  unsigned int v29; // eax
-  _DWORD *v30; // rcx
-  int v31; // r9d
-  unsigned int v32; // ecx
-  __int64 v33; // rdx
-  __int64 v34; // rax
-  unsigned int v35; // eax
-  _DWORD *v36; // rcx
-  unsigned int i; // edx
-  __int64 v38; // rax
-  int v39; // eax
-  int v40; // r11d
-  int v41; // edi
-  unsigned int v42; // esi
-  int v43; // eax
+  _DWORD *v15; // r15
+  unsigned int v16; // r12d
+  _DWORD *v17; // rdx
+  int v18; // ecx
+  int v19; // eax
+  __int64 v20; // r14
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  int v23; // eax
+  int v24; // r9d
+  struct PALETTE *v25; // rbx
+  __int16 v26; // cx
+  int v27; // eax
+  struct _TRANSLATE *v28; // r11
+  struct _TRANSLATE *v29; // rdx
+  int v30; // eax
+  __int64 v31; // rsi
+  __int16 v32; // r9
+  int v33; // eax
+  __int64 v34; // r8
+  __int64 v35; // rdx
+  __int64 v36; // r8
+  unsigned int v37; // eax
+  _DWORD *v38; // rcx
+  unsigned int v39; // eax
+  _DWORD *v40; // rcx
+  unsigned int v41; // edx
+  struct _TRANSLATE *v42; // r9
+  __int64 v43; // rax
+  int v44; // eax
+  int v45; // r9d
+  unsigned int v46; // edi
+  unsigned int v47; // esi
+  unsigned int v48; // eax
   int NearestIndexFromColorref; // eax
-  int v45; // ebx
-  void *v46; // rcx
-  size_t v47; // r8
-  __int64 v48; // rdx
-  int v49; // eax
-  struct _TRANSLATE *v50; // rdx
-  struct _TRANSLATE *v51; // r13
-  _DWORD *v52; // r9
-  unsigned int v53; // eax
-  _DWORD *v54; // rcx
-  _DWORD *v55; // rsi
-  __int16 v56; // ax
-  __int64 v57; // rcx
-  unsigned int v58; // edx
-  __int64 v59; // rax
-  int v60; // eax
-  void *v61; // r9
-  int v62; // ebx
-  __int64 v63; // rdi
-  __int64 v64; // r14
+  unsigned int v50; // ebx
+  size_t v51; // r8
+  __int64 v52; // rdx
+  int v53; // eax
+  struct _TRANSLATE *v54; // rdx
+  unsigned int v55; // eax
+  _DWORD *v56; // rcx
+  _DWORD *v57; // rsi
+  int v58; // eax
+  struct _TRANSLATE *v59; // r8
+  unsigned int v60; // edx
+  struct _TRANSLATE *v61; // r14
+  __int64 v62; // rax
+  unsigned int v63; // ebx
+  __int64 v64; // rdi
   __int64 v65; // r13
-  struct PALETTE *v66; // rdi
-  unsigned int v67; // esi
-  __int64 v68; // rbx
-  int v69; // eax
-  unsigned int k; // esi
-  int v71; // eax
-  __int64 v72; // rcx
-  __int64 v73; // rcx
-  __int64 v74; // rax
-  int v75; // edx
-  int v76; // ebx
-  int v77; // r8d
-  int *v78; // rdx
-  int v79; // r11d
-  int v80; // edi
-  int v81; // r10d
-  int v82; // ecx
-  int *v83; // rcx
-  int v84; // eax
-  char v85; // [rsp+20h] [rbp-61h]
-  __int16 v86; // [rsp+24h] [rbp-5Dh]
-  int v87; // [rsp+24h] [rbp-5Dh]
-  int v88; // [rsp+28h] [rbp-59h]
-  int v89; // [rsp+28h] [rbp-59h]
-  __int16 v90; // [rsp+2Ch] [rbp-55h]
-  struct _TRANSLATE *v91; // [rsp+30h] [rbp-51h]
-  struct _TRANSLATE *v92; // [rsp+38h] [rbp-49h]
-  int v93; // [rsp+48h] [rbp-39h]
-  _BYTE v94[32]; // [rsp+50h] [rbp-31h] BYREF
-  __int64 v95; // [rsp+70h] [rbp-11h]
-  struct PALETTE *j; // [rsp+D0h] [rbp+4Fh] BYREF
-  va_list va; // [rsp+D0h] [rbp+4Fh]
-  __int64 v98; // [rsp+D8h] [rbp+57h] BYREF
-  va_list va1; // [rsp+D8h] [rbp+57h]
-  __int64 v100; // [rsp+E0h] [rbp+5Fh]
-  __int64 v101; // [rsp+E8h] [rbp+67h]
-  __int64 v102; // [rsp+F0h] [rbp+6Fh]
-  __int64 v103; // [rsp+F8h] [rbp+77h]
-  __int64 v104; // [rsp+100h] [rbp+7Fh]
-  __int64 v105; // [rsp+108h] [rbp+87h]
-  va_list va2; // [rsp+110h] [rbp+8Fh] BYREF
+  __int64 v66; // r14
+  __int64 v67; // rdi
+  unsigned int v68; // esi
+  __int64 v69; // rbx
+  int v70; // eax
+  struct _TRANSLATE *v71; // r13
+  unsigned int j; // esi
+  int v73; // eax
+  __int64 v74; // rcx
+  int v75; // r9d
+  unsigned int v76; // ecx
+  __int64 v77; // rdx
+  __int64 v78; // rax
+  __int64 v79; // rcx
+  __int64 v80; // rax
+  int v81; // edx
+  int v82; // ebx
+  int v83; // r8d
+  int *v84; // rdx
+  int v85; // r11d
+  int v86; // edi
+  int v87; // r10d
+  int v88; // ecx
+  int *v89; // rcx
+  int v90; // eax
+  __int16 v91; // [rsp+20h] [rbp-71h]
+  int v92; // [rsp+20h] [rbp-71h]
+  struct PALETTE *i; // [rsp+28h] [rbp-69h] BYREF
+  int v94; // [rsp+30h] [rbp-61h]
+  struct _TRANSLATE *v95; // [rsp+38h] [rbp-59h]
+  struct _TRANSLATE *v96; // [rsp+40h] [rbp-51h]
+  __int64 v97; // [rsp+48h] [rbp-49h]
+  int v98; // [rsp+50h] [rbp-41h]
+  __int64 v99; // [rsp+58h] [rbp-39h]
+  _BYTE v100[32]; // [rsp+60h] [rbp-31h] BYREF
+  __int64 v101; // [rsp+80h] [rbp-11h]
+  char v102; // [rsp+E0h] [rbp+4Fh]
+  __int64 v103; // [rsp+E8h] [rbp+57h] BYREF
 
-  va_start(va2, a2);
-  va_start(va1, a2);
-  va_start(va, a2);
-  j = va_arg(va1, struct PALETTE *);
-  va_copy(va2, va1);
-  v98 = va_arg(va2, _QWORD);
-  v100 = va_arg(va2, _QWORD);
-  v101 = va_arg(va2, _QWORD);
-  v102 = va_arg(va2, _QWORD);
-  v103 = va_arg(va2, _QWORD);
-  v104 = va_arg(va2, _QWORD);
-  v105 = va_arg(va2, _QWORD);
-  v2 = j;
-  v86 = v105;
-  if ( j )
-    v5 = *((_DWORD *)j + 7);
+  v103 = a4;
+  v91 = a10;
+  v99 = a3;
+  if ( a3 )
+    v13 = *(_DWORD *)(a3 + 28);
   else
-    v5 = 256;
-  result = (_DWORD *)AllocThreadBufferWithTag(4 * v5 + 88, 1953265735LL, 0LL);
-  v7 = result;
+    v13 = 256;
+  result = (_DWORD *)AllocThreadBufferWithTag(4 * v13 + 88, 1953265735LL, 0LL, a4);
+  v15 = result;
   if ( !result )
     return result;
-  v8 = 0;
-  v9 = result + 21;
-  v10 = 0;
+  v16 = 0;
+  v17 = result + 21;
+  v18 = 0;
   *result = _InterlockedIncrement(*(volatile signed __int32 **)&ulXlatePalUnique);
-  if ( !v5 )
+  if ( !v13 )
   {
-    v10 = 512;
-    v9 = 0LL;
+    v18 = 512;
+    v17 = 0LL;
   }
-  v11 = 2;
-  if ( !v5 )
-    v11 = 0;
-  v7[1] = v11;
-  *((_QWORD *)v7 + 2) = v9;
-  v7[19] = v10;
-  v7[2] = 0;
-  v7[3] = v5;
-  v7[9] = -1;
-  *((_QWORD *)v7 + 5) = 0LL;
-  *((_QWORD *)v7 + 6) = 0LL;
-  *((_QWORD *)v7 + 7) = 0LL;
-  v12 = ghsemPalette;
+  v19 = 2;
+  if ( !v13 )
+    v19 = 0;
+  v15[1] = v19;
+  *((_QWORD *)v15 + 2) = v17;
+  v15[19] = v18;
+  v15[2] = 0;
+  v15[3] = v13;
+  v15[9] = -1;
+  *((_QWORD *)v15 + 5) = 0LL;
+  *((_QWORD *)v15 + 6) = 0LL;
+  *((_QWORD *)v15 + 7) = 0LL;
+  v20 = ghsemPalette;
+  v97 = ghsemPalette;
   GreAcquireSemaphore(ghsemPalette);
-  v7[18] = 0;
-  *((_QWORD *)v7 + 8) = 0LL;
+  v15[18] = 0;
+  *((_QWORD *)v15 + 8) = 0LL;
   if ( (a2 & 7) != 0 )
   {
     if ( (a2 & 3) != 0 )
     {
-      v7[18] = a2;
-      *((_QWORD *)v7 + 8) = a1;
+      v15[18] = a2;
+      *((_QWORD *)v15 + 8) = a1;
       if ( (a2 & 2) != 0 )
       {
-        COLORTRANSFORMOBJ::COLORTRANSFORMOBJ((COLORTRANSFORMOBJ *)v94, a1);
-        v13 = v95;
-        if ( v95 )
+        COLORTRANSFORMOBJ::COLORTRANSFORMOBJ((COLORTRANSFORMOBJ *)v100, a1);
+        v22 = v101;
+        if ( v101 )
         {
-          v7[1] |= 0x10u;
-          DEC_SHARE_REF_CNT(v13);
+          v15[1] |= 0x10u;
+          DEC_SHARE_REF_CNT(v22, v21);
         }
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v94);
+        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v100);
       }
       else if ( (a2 & 1) != 0 )
       {
-        v14 = v7[1] | 0x20;
-        v7[1] = v14;
+        v23 = v15[1] | 0x20;
+        v15[1] = v23;
         if ( (a2 & 0x10000000) != 0 )
         {
           if ( a1 )
-            v7[1] = v14 | 8;
+            v15[1] = v23 | 8;
         }
       }
     }
     else if ( (a2 & 4) != 0 )
     {
-      v7[1] |= 0x20u;
-      v7[18] = a2;
+      v15[1] |= 0x20u;
+      v15[18] = a2;
     }
   }
-  v15 = v7[1] & 8;
-  v88 = v15;
-  if ( !v98 || (*(_DWORD *)(v98 + 24) & 0x800) != 0 )
+  v24 = v15[1] & 8;
+  v94 = v24;
+  if ( !v103 || (*(_DWORD *)(v103 + 24) & 0x800) != 0 )
   {
-    v16 = (struct PALETTE *)v101;
-    v85 = 1;
-    if ( !*(_QWORD *)(v101 + 72) )
-      v16 = ppalDefault;
-    v17 = v86;
-    if ( (v86 & 0x2000) == 0 )
+    v25 = (struct PALETTE *)a6;
+    v102 = 1;
+    if ( !*(_QWORD *)(a6 + 72) )
+      v25 = ppalDefault;
+    v26 = v91;
+    if ( (v91 & 0x2000) == 0 )
     {
-      v18 = v7[19] | 0x800;
-      v7[19] = v18;
-      if ( v98 )
-        v7[19] = v18 | 0x1000;
+      v27 = v15[19] | 0x800;
+      v15[19] = v27;
+      if ( v103 )
+        v15[19] = v27 | 0x1000;
     }
   }
   else
   {
-    v16 = (struct PALETTE *)v101;
-    v17 = v86;
-    v85 = 0;
+    v25 = (struct PALETTE *)a6;
+    v26 = v91;
+    v102 = 0;
   }
-  *((_QWORD *)v7 + 5) = v2;
-  *((_QWORD *)v7 + 6) = v98;
-  *((_QWORD *)v7 + 7) = v16;
-  v19 = (struct _TRANSLATE *)*((_QWORD *)v16 + 9);
-  v20 = (struct _TRANSLATE *)*((_QWORD *)v16 + 10);
-  v92 = v19;
-  v91 = v20;
-  if ( v2 )
+  *((_QWORD *)v15 + 5) = a3;
+  *((_QWORD *)v15 + 6) = v103;
+  *((_QWORD *)v15 + 7) = v25;
+  v28 = (struct _TRANSLATE *)*((_QWORD *)v25 + 9);
+  v29 = (struct _TRANSLATE *)*((_QWORD *)v25 + 10);
+  v96 = v28;
+  v95 = v29;
+  if ( a3 )
   {
-    v21 = *((_DWORD *)v2 + 6);
-    v90 = v21;
-    v93 = v21 & 0x800;
-    if ( (v21 & 0x800) == 0 || v19 != v20 && (v17 & 0x4000) == 0 )
+    v30 = *(_DWORD *)(a3 + 24);
+    LODWORD(i) = v30;
+    v98 = v30 & 0x800;
+    if ( (v30 & 0x800) == 0 || v28 != v29 && (v26 & 0x4000) == 0 )
     {
-      v22 = v98;
-      if ( (v21 & 0x8000) != 0 )
+      v31 = v103;
+      if ( (v30 & 0x8000) == 0 )
+        goto LABEL_57;
+      if ( !v103 )
+        goto LABEL_51;
+      LODWORD(v97) = *(_DWORD *)(v103 + 24);
+      v32 = v97;
+      if ( (v97 & 0x8000) != 0 )
       {
-        if ( !v98 )
-          goto LABEL_162;
-        LODWORD(j) = *(_DWORD *)(v98 + 24);
-        v23 = (__int16)j;
-        if ( ((unsigned __int16)j & 0x8000) != 0 )
+        v33 = *(_DWORD *)(v103 + 28);
+        if ( *(_DWORD *)(a3 + 28) == v33 && v33 == 256 )
         {
-          v24 = *(_DWORD *)(v98 + 28);
-          if ( *((_DWORD *)v2 + 7) == v24 && v24 == 256 )
+          if ( (v97 & 0x100) == 0 )
           {
-            if ( ((unsigned __int16)j & 0x100) != 0 )
-            {
-              v25 = *(_QWORD *)(v98 + 72);
-              if ( v25 )
-              {
-                LODWORD(v26) = 256;
-                while ( 1 )
-                {
-                  v26 = (unsigned int)(v26 - 1);
-                  if ( *(unsigned __int8 *)(v26 + v25 + 4) != (_DWORD)v26 )
-                    break;
-                  if ( !(_DWORD)v26 )
-                    goto LABEL_43;
-                }
-              }
-            }
-            else
-            {
 LABEL_43:
-              v27 = *((_QWORD *)v2 + 14);
-              LODWORD(v28) = 256;
-              while ( 1 )
-              {
-                v28 = (unsigned int)(v28 - 1);
-                if ( ((*(_DWORD *)(*(_QWORD *)(v98 + 112) + 4 * v28) ^ *(_DWORD *)(v27 + 4 * v28)) & 0xFFFFFF) != 0 )
-                  break;
-                v27 = *((_QWORD *)v2 + 14);
-                if ( !(_DWORD)v28 )
-                  goto LABEL_51;
-              }
-              v23 = (__int16)j;
+            LODWORD(v36) = 256;
+            while ( 1 )
+            {
+              v36 = (unsigned int)(v36 - 1);
+              if ( ((*(_DWORD *)(*(_QWORD *)(v103 + 112) + 4 * v36) ^ *(_DWORD *)(*(_QWORD *)(a3 + 112) + 4 * v36)) & 0xFFFFFF) != 0 )
+                break;
+              if ( !(_DWORD)v36 )
+                goto LABEL_52;
+            }
+            v32 = v97;
+LABEL_48:
+            v29 = v95;
+            goto LABEL_49;
+          }
+          v34 = *(_QWORD *)(v103 + 72);
+          if ( v34 )
+          {
+            LODWORD(v35) = 256;
+            while ( 1 )
+            {
+              v35 = (unsigned int)(v35 - 1);
+              if ( *(unsigned __int8 *)(v35 + v34 + 4) != (_DWORD)v35 )
+                goto LABEL_48;
+              if ( !(_DWORD)v35 )
+                goto LABEL_43;
             }
           }
         }
-        if ( (v23 & 0x800) != 0 && v19 == v20 )
+      }
+LABEL_49:
+      if ( (v32 & 0x800) == 0 || v28 != v29 )
+      {
+LABEL_56:
+        v24 = v94;
+LABEL_57:
+        if ( v98 && !v31 )
         {
-LABEL_162:
-          if ( (unsigned int)bEqualRGB_In_Palette(v2, v16) )
+          v39 = 0;
+          v40 = v15 + 21;
+          do
+            *v40++ = v39++;
+          while ( v39 < 0x100 );
+          v41 = 0;
+          if ( *((_DWORD *)v25 + 7) )
           {
-LABEL_51:
-            v29 = 0;
-            v30 = v7 + 21;
+            v42 = v95;
             do
-              *v30++ = v29++;
-            while ( v29 < 0x100 );
-            goto LABEL_53;
+            {
+              v43 = v41++;
+              v15[*((unsigned __int8 *)v42 + v43 + 4) + 21] = *((unsigned __int8 *)v28 + v43 + 4);
+            }
+            while ( v41 < *((_DWORD *)v25 + 7) );
           }
-          v19 = v92;
-          v20 = v91;
-        }
-        v15 = v88;
-      }
-      if ( v93 && !v22 )
-      {
-        v35 = 0;
-        v36 = v7 + 21;
-        do
-          *v36++ = v35++;
-        while ( v35 < 0x100 );
-        for ( i = 0;
-              i < *((_DWORD *)v16 + 7);
-              v7[*((unsigned __int8 *)v20 + v38 + 4) + 21] = *((unsigned __int8 *)v19 + v38 + 4) )
-        {
-          v38 = i++;
-        }
-        v39 = *((_DWORD *)v2 + 6);
-        if ( (v39 & 0x1000) != 0 )
-        {
-          v7[21] = 0;
-          v7[276] = 255;
-          goto LABEL_54;
-        }
-        if ( (v39 & 0x10000) != 0 )
-          goto LABEL_54;
-        v7[21] = 0;
-LABEL_123:
-        v7[267] = 246;
-        v7[22] = 1;
-        v7[268] = 247;
-        v7[23] = 2;
-        v7[269] = 248;
-        v7[24] = 3;
-        v7[270] = 249;
-        v7[25] = 4;
-        v7[271] = 250;
-        v7[26] = 5;
-        v7[272] = 251;
-        v7[27] = 6;
-        v7[273] = 252;
-        v7[28] = 7;
-        v7[274] = 253;
-        v7[29] = 8;
-        v7[275] = 254;
-        v7[30] = 9;
-        v7[276] = 255;
-        goto LABEL_54;
-      }
-      if ( (v90 & 0x2000) != 0 )
-      {
-        if ( (unsigned int)XEPALOBJ::bIsMonochrome((XEPALOBJ *)va1) )
-        {
-          v7[21] = 0;
-          v7[22] = 1;
-        }
-        else
-        {
-          v41 = v102;
-          if ( v40 )
+          v44 = *(_DWORD *)(a3 + 24);
+LABEL_65:
+          if ( (v44 & 0x1000) != 0 )
           {
-            v42 = v103;
-            v43 = v103;
-            v7[21] = v102;
+            v15[21] = 0;
+            v15[276] = 255;
+          }
+          else if ( (v44 & 0x10000) == 0 )
+          {
+            v15[21] = 0;
+            v15[267] = 246;
+            v15[22] = 1;
+            v15[268] = 247;
+            v15[23] = 2;
+            v15[269] = 248;
+            v15[24] = 3;
+            v15[270] = 249;
+            v15[25] = 4;
+            v15[271] = 250;
+            v15[26] = 5;
+            v15[272] = 251;
+            v15[27] = 6;
+            v15[273] = 252;
+            v15[28] = 7;
+            v15[274] = 253;
+            v15[29] = 8;
+            v15[275] = 254;
+            v15[30] = 9;
+            v15[276] = 255;
+          }
+          goto LABEL_136;
+        }
+        if ( ((unsigned __int16)i & 0x2000) != 0 )
+        {
+          if ( (unsigned int)XEPALOBJ::bIsMonochrome((XEPALOBJ *)&v103) )
+          {
+            v15[21] = 0;
+            v15[22] = 1;
           }
           else
           {
-            NearestIndexFromColorref = ulGetNearestIndexFromColorref(v22, v16, (unsigned int)v102, 1LL);
-            v42 = v103;
-            v7[21] = NearestIndexFromColorref;
-            v43 = ulGetNearestIndexFromColorref(v98, v16, v42, 1LL);
+            v46 = a7;
+            if ( v45 )
+            {
+              v47 = a8;
+              v48 = a8;
+              v15[21] = a7;
+            }
+            else
+            {
+              NearestIndexFromColorref = ulGetNearestIndexFromColorref(v31, v25, a7, 1LL);
+              v47 = a8;
+              v15[21] = NearestIndexFromColorref;
+              v48 = ulGetNearestIndexFromColorref(v103, v25, v47, 1LL);
+            }
+            v15[22] = v48;
+            v15[19] |= 0x100u;
+            v15[7] = v46;
+            v15[8] = v47;
           }
-          v7[22] = v43;
-          v7[19] |= 0x100u;
-          v7[7] = v41;
-          v7[8] = v42;
+          goto LABEL_136;
         }
-        goto LABEL_54;
+        if ( !v13 )
+        {
+          if ( v31 && (*(_DWORD *)(v31 + 24) & 0x2000) != 0 )
+          {
+            v50 = a9;
+            v15[21] = ulGetNearestIndexFromColorref(a3, a5, a9, 1LL);
+            v15[1] |= 4u;
+            v15[6] = v50;
+            *((_QWORD *)v15 + 2) = v15 + 21;
+          }
+          goto LABEL_136;
+        }
+        if ( !v31 || (*(_DWORD *)(v31 + 24) & 0x2000) == 0 )
+        {
+          if ( v24 )
+          {
+            v52 = v13;
+            do
+            {
+              --v52;
+              v15[v52 + 21] = *(_DWORD *)(v52 * 4 + *(_QWORD *)(a3 + 112));
+              --v13;
+            }
+            while ( v13 );
+          }
+          else
+          {
+            v53 = v91 & 0x2000;
+            v92 = v53;
+            if ( !v102 || v53 )
+            {
+              v25 = (struct PALETTE *)v31;
+              if ( v53 )
+                v15[19] |= 0x2000u;
+            }
+            for ( i = v25; ; v25 = i )
+            {
+              --v13;
+              v15[v13 + 21] = XEPALOBJ::ulDispatchGFPEFunction(
+                                &i,
+                                *((unsigned int *)v25 + 24),
+                                *(unsigned int *)(*(_QWORD *)(a3 + 112) + 4LL * v13));
+              if ( !v13 )
+                break;
+            }
+            if ( v102 && !v92 )
+            {
+              v54 = v95;
+              if ( !v103 )
+                v54 = v96;
+              XLATE::vMapNewXlate((XLATE *)v15, v54);
+            }
+          }
+          goto LABEL_136;
+        }
+        v51 = 4LL * v13;
+        goto LABEL_123;
       }
-      if ( !v5 )
+LABEL_51:
+      if ( (unsigned int)bEqualRGB_In_Palette(a3, v25) )
       {
-        if ( v22 && (*(_DWORD *)(v22 + 24) & 0x2000) != 0 )
-        {
-          v45 = v104;
-          v7[21] = ulGetNearestIndexFromColorref(v2, v100, (unsigned int)v104, 1LL);
-          v7[1] |= 4u;
-          v7[6] = v45;
-          *((_QWORD *)v7 + 2) = v7 + 21;
-        }
-        goto LABEL_54;
+LABEL_52:
+        v37 = 0;
+        v38 = v15 + 21;
+        do
+          *v38++ = v37++;
+        while ( v37 < 0x100 );
+        v15[1] |= 1u;
+        goto LABEL_136;
       }
-      if ( !v22 || !(unsigned int)XEPALOBJ::bIsMonochrome((XEPALOBJ *)va1) )
-      {
-        if ( v15 )
-        {
-          v48 = v5;
-          do
-          {
-            --v48;
-            v7[v48 + 21] = *(_DWORD *)(v48 * 4 + *((_QWORD *)v2 + 14));
-            --v5;
-          }
-          while ( v5 );
-        }
-        else
-        {
-          v49 = v86 & 0x2000;
-          v87 = v49;
-          if ( !v85 || v49 )
-          {
-            v16 = (struct PALETTE *)v22;
-            if ( v49 )
-              v7[19] |= 0x2000u;
-          }
-          for ( j = v16; ; v16 = j )
-          {
-            --v5;
-            v7[v5 + 21] = XEPALOBJ::ulDispatchGFPEFunction(
-                            (struct PALETTE **)va,
-                            *((unsigned int *)v16 + 24),
-                            *(unsigned int *)(*((_QWORD *)v2 + 14) + 4LL * v5));
-            if ( !v5 )
-              break;
-          }
-          if ( v85 && !v87 )
-          {
-            v50 = v92;
-            if ( v98 )
-              v50 = v91;
-            XLATE::vMapNewXlate((XLATE *)v7, v50);
-          }
-        }
-        goto LABEL_54;
-      }
-      v46 = v7 + 21;
-      v47 = 4LL * v5;
-LABEL_126:
-      memset(v46, 0, v47);
-      v62 = v104;
-      v7[(unsigned int)ulGetNearestIndexFromColorref(v2, v100, (unsigned int)v104, 1LL) + 21] = 1;
-      v7[1] |= 4u;
-      v7[6] = v62;
-      goto LABEL_54;
+      v28 = v96;
+      goto LABEL_56;
     }
   }
-  v51 = (struct _TRANSLATE *)*((_QWORD *)v16 + 9);
-  if ( !v19 )
+  if ( !v28 )
   {
-    v51 = (struct _TRANSLATE *)&defaultTranslate;
-    v92 = (struct _TRANSLATE *)&defaultTranslate;
-    v91 = (struct _TRANSLATE *)&defaultTranslate;
-    v16 = ppalDefault;
-    *((_QWORD *)v7 + 7) = ppalDefault;
+    v96 = (struct _TRANSLATE *)&defaultTranslate;
+    v95 = (struct _TRANSLATE *)&defaultTranslate;
+    v25 = ppalDefault;
+    *((_QWORD *)v15 + 7) = ppalDefault;
   }
-  v52 = v7 + 21;
-  v53 = 0;
-  v54 = v7 + 21;
+  v55 = 0;
+  v56 = v15 + 21;
   do
-    *v54++ = v53++;
-  while ( v53 < 0x100 );
-  v55 = (_DWORD *)v98;
-  if ( !v98 )
-    goto LABEL_53;
-  v89 = *(_DWORD *)(v98 + 24);
-  v56 = v89;
-  if ( (v89 & 0x8000) != 0 )
+    *v56++ = v55++;
+  while ( v55 < 0x100 );
+  v57 = (_DWORD *)v103;
+  if ( v103 )
   {
-    if ( (unsigned int)bEqualRGB_In_Palette(v98, v16) || v2 && (unsigned int)bEqualRGB_In_Palette(v57, v2) )
-      goto LABEL_53;
-    v56 = v89;
-    v52 = v7 + 21;
-  }
-  if ( (v56 & 0x800) == 0 )
-  {
-    if ( !(unsigned int)XEPALOBJ::bIsMonochrome((XEPALOBJ *)va1) )
+    LODWORD(i) = *(_DWORD *)(v103 + 24);
+    v58 = (unsigned __int16)i & 0x8000;
+    if ( ((unsigned __int16)i & 0x8000) != 0 )
     {
-      if ( v55[7] != 256 )
+      if ( (unsigned int)bEqualRGB_In_Palette(v103, v25) )
       {
-        memset(v61, 0, 0x400uLL);
-        v55 = (_DWORD *)v98;
+        v15[1] |= 1u;
+        goto LABEL_136;
       }
-      v63 = 10LL;
-      v64 = 0LL;
-      v65 = 10LL;
-      while ( 1 )
+      v58 = (unsigned __int16)i & 0x8000;
+    }
+    if ( v58 && a3 && (unsigned int)bEqualRGB_In_Palette(v57, a3) )
+    {
+      v15[1] |= 1u;
+    }
+    else
+    {
+      if ( ((unsigned __int16)i & 0x800) == 0 )
       {
-        v7[v64 + 21] = XEPALOBJ::ulDispatchGFPEFunction(
-                         (__int64 *)va1,
-                         (unsigned int)v55[24],
-                         *(unsigned int *)(v64 * 4 + logDefaultPal + 4));
-        v7[v63 + 257] = XEPALOBJ::ulDispatchGFPEFunction(
-                          (__int64 *)va1,
-                          *(unsigned int *)(v98 + 96),
-                          *(unsigned int *)(v63 * 4 + logDefaultPal + 4));
-        ++v63;
-        ++v64;
-        if ( !--v65 )
-          break;
-        v55 = (_DWORD *)v98;
-      }
-      v66 = j;
-      v12 = ghsemPalette;
-      if ( (v86 & 0x2000) != 0 )
-      {
-        v67 = 0;
-        if ( *((_DWORD *)j + 7) )
+        if ( !(unsigned int)XEPALOBJ::bIsMonochrome((XEPALOBJ *)&v103) )
         {
+          if ( v57[7] != 256 )
+          {
+            memset(v15 + 21, 0, 0x400uLL);
+            v57 = (_DWORD *)v103;
+          }
+          v64 = 10LL;
+          v65 = 0LL;
+          v66 = 10LL;
+          while ( 1 )
+          {
+            v15[v65 + 21] = XEPALOBJ::ulDispatchGFPEFunction(
+                              &v103,
+                              (unsigned int)v57[24],
+                              *(unsigned int *)(logDefaultPal + v65 * 4 + 4));
+            v15[v66 + 257] = XEPALOBJ::ulDispatchGFPEFunction(
+                               &v103,
+                               *(unsigned int *)(v103 + 96),
+                               *(unsigned int *)(v66 * 4 + logDefaultPal + 4));
+            ++v66;
+            ++v65;
+            if ( !--v64 )
+              break;
+            v57 = (_DWORD *)v103;
+          }
+          v67 = v99;
+          v20 = v97;
+          if ( (v91 & 0x2000) != 0 )
+          {
+            v68 = 0;
+            if ( *(_DWORD *)(v99 + 28) )
+            {
+              do
+              {
+                v69 = v68;
+                v70 = XEPALOBJ::ulDispatchGFPEFunction(
+                        &v103,
+                        *(unsigned int *)(v103 + 96),
+                        *(unsigned int *)(*(_QWORD *)(v67 + 112) + 4LL * v68++));
+                v15[v69 + 21] = v70;
+              }
+              while ( v68 < *(_DWORD *)(v67 + 28) );
+            }
+            v15[19] |= 0x2000u;
+          }
+          else
+          {
+            v71 = v96;
+            if ( v96 )
+            {
+              for ( j = 0; j < *((_DWORD *)v25 + 7); v15[v74 + 21] = v73 )
+              {
+                v73 = XEPALOBJ::ulDispatchGFPEFunction(
+                        &v103,
+                        *(unsigned int *)(v103 + 96),
+                        *(unsigned int *)(*((_QWORD *)v25 + 14) + 4LL * j));
+                v74 = *((unsigned __int8 *)v71 + j++ + 4);
+              }
+            }
+          }
+          goto LABEL_136;
+        }
+        v51 = 1024LL;
+LABEL_123:
+        memset(v15 + 21, 0, v51);
+        v63 = a9;
+        v15[(unsigned int)ulGetNearestIndexFromColorref(a3, a5, a9, 1LL) + 21] = 1;
+        v15[1] |= 4u;
+        v15[6] = v63;
+        goto LABEL_136;
+      }
+      v59 = v96;
+      if ( v95 != v96 )
+      {
+        v60 = 0;
+        if ( *((_DWORD *)v25 + 7) )
+        {
+          v61 = v95;
           do
           {
-            v68 = v67;
-            v69 = XEPALOBJ::ulDispatchGFPEFunction(
-                    (__int64 *)va1,
-                    *(unsigned int *)(v98 + 96),
-                    *(unsigned int *)(*((_QWORD *)v66 + 14) + 4LL * v67++));
-            v7[v68 + 21] = v69;
+            v62 = v60++;
+            v15[*((unsigned __int8 *)v59 + v62 + 4) + 21] = *((unsigned __int8 *)v61 + v62 + 4);
           }
-          while ( v67 < *((_DWORD *)v66 + 7) );
+          while ( v60 < *((_DWORD *)v25 + 7) );
+          v57 = (_DWORD *)v103;
+          v20 = v97;
         }
-        v7[19] |= 0x2000u;
+        v44 = v57[6];
+        goto LABEL_65;
       }
-      else if ( v92 )
-      {
-        for ( k = 0; k < *((_DWORD *)v16 + 7); v7[v72 + 21] = v71 )
-        {
-          v71 = XEPALOBJ::ulDispatchGFPEFunction(
-                  (__int64 *)va1,
-                  *(unsigned int *)(v98 + 96),
-                  *(unsigned int *)(*((_QWORD *)v16 + 14) + 4LL * k));
-          v72 = *((unsigned __int8 *)v92 + k++ + 4);
-        }
-      }
-      goto LABEL_54;
+      v15[1] |= 1u;
     }
-    v47 = 1024LL;
-    v46 = v61;
-    goto LABEL_126;
   }
-  if ( v91 != v51 )
+  else
   {
-    v58 = 0;
-    if ( *((_DWORD *)v16 + 7) )
-    {
-      do
-      {
-        v59 = v58++;
-        v7[*((unsigned __int8 *)v51 + v59 + 4) + 21] = *((unsigned __int8 *)v91 + v59 + 4);
-      }
-      while ( v58 < *((_DWORD *)v16 + 7) );
-      v55 = (_DWORD *)v98;
-      v12 = ghsemPalette;
-    }
-    v60 = v55[6];
-    if ( (v60 & 0x1000) != 0 )
-    {
-      *v52 = 0;
-      v7[276] = 255;
-      goto LABEL_54;
-    }
-    if ( (v60 & 0x10000) != 0 )
-      goto LABEL_54;
-    *v52 = 0;
-    goto LABEL_123;
+    v15[1] |= 1u;
   }
-LABEL_53:
-  v7[1] |= 1u;
-LABEL_54:
-  v31 = v7[1];
-  if ( (v31 & 9) == 0 )
+LABEL_136:
+  v75 = v15[1];
+  if ( (v75 & 9) == 0 )
   {
-    v32 = v7[3];
-    if ( v32 )
+    v76 = v15[3];
+    if ( v76 )
     {
-      v33 = *((_QWORD *)v7 + 5);
-      if ( !v33 || (v34 = *((_QWORD *)v7 + 6)) == 0 || *(_DWORD *)(v33 + 28) == *(_DWORD *)(v34 + 28) )
+      v77 = *((_QWORD *)v15 + 5);
+      if ( !v77 || (v78 = *((_QWORD *)v15 + 6)) == 0 || *(_DWORD *)(v77 + 28) == *(_DWORD *)(v78 + 28) )
       {
-        while ( *(_DWORD *)(*((_QWORD *)v7 + 2) + 4LL * v8) == v8 )
+        while ( *(_DWORD *)(*((_QWORD *)v15 + 2) + 4LL * v16) == v16 )
         {
-          if ( ++v8 >= v32 )
-            goto LABEL_156;
+          if ( ++v16 >= v76 )
+            goto LABEL_160;
         }
       }
     }
     else
     {
-      v73 = *((_QWORD *)v7 + 5);
-      v74 = *((_QWORD *)v7 + 6);
-      if ( v73 && v74 && !*(_DWORD *)(v74 + 28) )
+      v79 = *((_QWORD *)v15 + 5);
+      v80 = *((_QWORD *)v15 + 6);
+      if ( v79 && v80 && !*(_DWORD *)(v80 + 28) )
       {
-        v75 = *(_DWORD *)(v73 + 24);
-        v76 = 65280;
-        v77 = 16711680;
-        if ( (v75 & 2) != 0 )
+        v81 = *(_DWORD *)(v79 + 24);
+        v82 = 65280;
+        v83 = 16711680;
+        if ( (v81 & 2) != 0 )
         {
-          v78 = *(int **)(v73 + 112);
-          v79 = *v78;
-          v80 = v78[1];
-          v81 = v78[2];
+          v84 = *(int **)(v79 + 112);
+          v85 = *v84;
+          v86 = v84[1];
+          v87 = v84[2];
         }
         else
         {
-          v80 = 65280;
-          if ( (v75 & 4) != 0 )
+          v86 = 65280;
+          if ( (v81 & 4) != 0 )
           {
-            v79 = 255;
-            v81 = 16711680;
+            v85 = 255;
+            v87 = 16711680;
           }
           else
           {
-            v79 = 16711680;
-            v81 = 255;
+            v85 = 16711680;
+            v87 = 255;
           }
         }
-        v82 = *(_DWORD *)(v74 + 24);
-        if ( (v82 & 2) != 0 )
+        v88 = *(_DWORD *)(v80 + 24);
+        if ( (v88 & 2) != 0 )
         {
-          v83 = *(int **)(v74 + 112);
-          v84 = *v83;
-          v76 = v83[1];
-          v77 = v83[2];
+          v89 = *(int **)(v80 + 112);
+          v90 = *v89;
+          v82 = v89[1];
+          v83 = v89[2];
         }
-        else if ( (v82 & 4) != 0 )
+        else if ( (v88 & 4) != 0 )
         {
-          v84 = 255;
+          v90 = 255;
         }
         else
         {
-          v84 = 16711680;
-          v77 = 255;
+          v90 = 16711680;
+          v83 = 255;
         }
-        if ( v79 == v84 && v80 == v76 && v81 == v77 )
-LABEL_156:
-          v7[1] = v31 | 1;
+        if ( v85 == v90 && v86 == v82 && v87 == v83 )
+LABEL_160:
+          v15[1] = v75 | 1;
       }
     }
   }
-  if ( v12 )
+  if ( v20 )
   {
-    EtwTraceGreLockReleaseSemaphore(L"hsem", v12);
-    GreReleaseSemaphoreInternal(v12);
+    EtwTraceGreLockReleaseSemaphore(L"hsem", v20);
+    GreReleaseSemaphoreInternal(v20);
   }
-  return v7;
+  return v15;
 }

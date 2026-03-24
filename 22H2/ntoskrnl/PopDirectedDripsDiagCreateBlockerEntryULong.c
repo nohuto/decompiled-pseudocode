@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDirectedDripsDiagCreateBlockerEntryULong @ 0x14099DFF0
+ * XREFs of PopDirectedDripsDiagCreateBlockerEntryULong @ 0x1408F6E18
  * Callers:
- *     PopDirectedDripsDiagRundownDevices @ 0x14099E948 (PopDirectedDripsDiagRundownDevices.c)
+ *     PopDirectedDripsDiagRundownDevices @ 0x1408F7814 (PopDirectedDripsDiagRundownDevices.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
  */
 
 NTSTATUS __fastcall PopDirectedDripsDiagCreateBlockerEntryULong(__int64 a1, __int64 a2, unsigned int a3)

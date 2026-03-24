@@ -1,111 +1,122 @@
 /*
- * XREFs of ?AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18002A16C
+ * XREFs of ?AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18004AF38
  * Callers:
- *     ?Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z @ 0x180029C00 (-Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z.c)
- *     ?AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18003F9D8 (-AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechnique.c)
- *     ?AddMaskBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCMaskBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x1800F53A0 (-AddMaskBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCMaskBrush@@_NPEAPEAVCRenderingTechniqueFrag.c)
- *     ?AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18026DF90 (-AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechn.c)
+ *     ?AddMaskBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCMaskBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x180048ED4 (-AddMaskBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCMaskBrush@@_NPEAPEAVCRenderingTechniqueFrag.c)
+ *     ?Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z @ 0x180049ECC (-Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z.c)
+ *     ?AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18004A3BC (-AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechnique.c)
+ *     ?AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18020D9F8 (-AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechn.c)
  * Callees:
- *     ??1CRenderingTechniqueFragment@@QEAA@XZ @ 0x180029DF8 (--1CRenderingTechniqueFragment@@QEAA@XZ.c)
- *     ?CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z @ 0x18002D854 (-CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z.c)
- *     ?AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18003F9D8 (-AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechnique.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMaskBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCMaskBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x1800F53A0 (-AddMaskBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCMaskBrush@@_NPEAPEAVCRenderingTechniqueFrag.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18026DF90 (-AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechn.c)
- *     ?AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18026E0EC (-AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRe.c)
+ *     ?AddMaskBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCMaskBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x180048ED4 (-AddMaskBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCMaskBrush@@_NPEAPEAVCRenderingTechniqueFrag.c)
+ *     ??_GCRenderingTechniqueFragment@@QEAAPEAXI@Z @ 0x18004A230 (--_GCRenderingTechniqueFragment@@QEAAPEAXI@Z.c)
+ *     ?AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18004A3BC (-AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechnique.c)
+ *     ?CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z @ 0x18004B080 (-CheckFragmentSize@CBrushRenderingGraphBuilder@@IEAAJPEAVCRenderingTechniqueFragment@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18020D9F8 (-AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechn.c)
+ *     ?AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18020DB7C (-AddRadialGradientBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCRadialGradientBrush@@_NPEAPEAVCRe.c)
  */
 
 __int64 __fastcall CBrushRenderingGraphBuilder::AddBrush(
         CBrushRenderingGraphBuilder *this,
         struct CBrush *a2,
-        bool a3,
+        char a3,
         struct CRenderingTechniqueFragment **a4)
 {
   unsigned int v8; // ecx
   int v9; // ebx
   int v10; // eax
   unsigned int v11; // ecx
-  unsigned int v13; // [rsp+20h] [rbp-30h]
-  struct CRenderingTechniqueFragment *v14; // [rsp+38h] [rbp-18h] BYREF
-  char v15; // [rsp+40h] [rbp-10h]
-  struct CRenderingTechniqueFragment *v16; // [rsp+88h] [rbp+38h]
+  unsigned int v13; // ecx
+  unsigned int v14; // ecx
+  unsigned int v15; // ecx
+  unsigned int v16; // ecx
+  struct CRenderingTechniqueFragment *v17; // [rsp+38h] [rbp-18h] BYREF
+  char v18; // [rsp+40h] [rbp-10h]
+  struct CRenderingTechniqueFragment *v19; // [rsp+78h] [rbp+28h]
 
-  v16 = 0LL;
-  if ( !(*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)a2 + 56LL))(a2, 57LL) )
+  v19 = 0LL;
+  if ( (*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)a2 + 56LL))(a2, 55LL) )
   {
-    if ( (*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)a2 + 56LL))(a2, 107LL) )
+    v17 = 0LL;
+    v18 = 1;
+    v9 = CBrushRenderingGraphBuilder::AddEffectBrush(this, a2, a3, &v17);
+    if ( v18 )
     {
-      v14 = 0LL;
-      v15 = 1;
-      v9 = CBrushRenderingGraphBuilder::AddMaskBrush(this, a2, a3, &v14);
-      if ( v15 )
-        v16 = v14;
-      if ( v9 >= 0 )
-        goto LABEL_5;
-      v13 = 167;
+      v8 = 0;
+      v19 = v17;
     }
-    else if ( (*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)a2 + 56LL))(a2, 137LL) )
+    if ( v9 < 0 )
     {
-      v14 = 0LL;
-      v15 = 1;
-      v9 = CBrushRenderingGraphBuilder::AddRadialGradientBrush(this, a2, a3, &v14);
-      if ( v15 )
-        v16 = v14;
-      if ( v9 >= 0 )
-        goto LABEL_5;
-      v13 = 172;
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v9, 0x95u, 0LL);
+      goto LABEL_27;
     }
-    else if ( (*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)a2 + 56LL))(a2, 113LL) )
-    {
-      v14 = 0LL;
-      v15 = 1;
-      v9 = CBrushRenderingGraphBuilder::AddNineGridBrush(this, a2, a3, &v14);
-      if ( v15 )
-        v16 = v14;
-      if ( v9 >= 0 )
-        goto LABEL_5;
-      v13 = 177;
-    }
-    else
-    {
-      v9 = -2147467263;
-      v13 = 181;
-    }
-LABEL_28:
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v9, v13, 0LL);
-    goto LABEL_7;
   }
-  v14 = 0LL;
-  v15 = 1;
-  v9 = CBrushRenderingGraphBuilder::AddEffectBrush(this, a2, a3, &v14);
-  if ( v15 )
-    v16 = v14;
-  if ( v9 < 0 )
+  else if ( (*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)a2 + 56LL))(a2, 105LL) )
   {
-    v13 = 162;
-    goto LABEL_28;
+    v17 = 0LL;
+    v18 = 1;
+    v9 = CBrushRenderingGraphBuilder::AddMaskBrush(this, a2, a3, &v17);
+    if ( v18 )
+    {
+      v13 = 0;
+      v19 = v17;
+    }
+    if ( v9 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v9, 0x9Au, 0LL);
+      goto LABEL_27;
+    }
   }
-LABEL_5:
-  v10 = CBrushRenderingGraphBuilder::CheckFragmentSize(this, v16);
-  v9 = v10;
-  if ( v10 < 0 )
+  else if ( (*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)a2 + 56LL))(a2, 136LL) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xB9u, 0LL);
+    v17 = 0LL;
+    v18 = 1;
+    v9 = CBrushRenderingGraphBuilder::AddRadialGradientBrush(this, a2, a3, &v17);
+    if ( v18 )
+    {
+      v14 = 0;
+      v19 = v17;
+    }
+    if ( v9 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v9, 0x9Fu, 0LL);
+      goto LABEL_27;
+    }
   }
   else
   {
-    v9 = 0;
-    *a4 = v16;
-    ++*((_DWORD *)this + 2);
-    v16 = 0LL;
+    if ( !(*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)a2 + 56LL))(a2, 111LL) )
+    {
+      v9 = -2147467263;
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, -2147467263, 0xA8u, 0LL);
+      goto LABEL_27;
+    }
+    v17 = 0LL;
+    v18 = 1;
+    v9 = CBrushRenderingGraphBuilder::AddNineGridBrush(this, a2, a3, &v17);
+    if ( v18 )
+    {
+      v16 = 0;
+      v19 = v17;
+    }
+    if ( v9 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v9, 0xA4u, 0LL);
+      goto LABEL_27;
+    }
   }
-LABEL_7:
-  if ( v16 )
+  v10 = CBrushRenderingGraphBuilder::CheckFragmentSize(this, v19);
+  v9 = v10;
+  if ( v10 >= 0 )
   {
-    CRenderingTechniqueFragment::~CRenderingTechniqueFragment(v16);
-    operator delete(v16, 0x80uLL);
+    v9 = 0;
+    *a4 = v19;
+    ++*((_DWORD *)this + 2);
+    return (unsigned int)v9;
   }
+  MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xACu, 0LL);
+LABEL_27:
+  if ( v19 )
+    CRenderingTechniqueFragment::`scalar deleting destructor'(v19);
   return (unsigned int)v9;
 }

@@ -1,154 +1,143 @@
 /*
- * XREFs of KeQueryCurrentStackInformationEx @ 0x14022E9D0
+ * XREFs of KeQueryCurrentStackInformationEx @ 0x1402D0C30
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14022E7D0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     RtlpGetStackLimits @ 0x14022E980 (RtlpGetStackLimits.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271270 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     KeCheckStackAndTargetAddress @ 0x140346450 (KeCheckStackAndTargetAddress.c)
- *     KeQueryCurrentStackInformation @ 0x14034E3B0 (KeQueryCurrentStackInformation.c)
- *     RtlpGetStackLimitsEx @ 0x140353190 (RtlpGetStackLimitsEx.c)
- *     KasanWrapperRtlRestoreContext @ 0x1403565D0 (KasanWrapperRtlRestoreContext.c)
- *     WheaIsAltContextAllocPossible @ 0x140611D50 (WheaIsAltContextAllocPossible.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1402AA760 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1402AA8C0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     RtlpGetStackLimits @ 0x1402D0BE0 (RtlpGetStackLimits.c)
+ *     KeCheckStackAndTargetAddress @ 0x140309780 (KeCheckStackAndTargetAddress.c)
+ *     KeQueryCurrentStackInformation @ 0x140340240 (KeQueryCurrentStackInformation.c)
+ *     RtlpGetStackLimitsEx @ 0x140340290 (RtlpGetStackLimitsEx.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x14022EBF0 (KeAreInterruptsEnabled.c)
- *     KiRspInIstStack @ 0x14035A590 (KiRspInIstStack.c)
+ *     KeAreInterruptsEnabled @ 0x1402D0E60 (KeAreInterruptsEnabled.c)
+ *     KiRspInIstStack @ 0x140518B38 (KiRspInIstStack.c)
  */
 
-bool __fastcall KeQueryCurrentStackInformationEx(unsigned __int64 a1, _DWORD *a2, char **a3, unsigned __int64 *a4)
+bool __fastcall KeQueryCurrentStackInformationEx(
+        unsigned __int64 a1,
+        char *a2,
+        struct _KPRCB **a3,
+        unsigned __int64 *a4)
 {
+  char *v6; // r15
   unsigned __int8 CurrentIrql; // di
+  struct _KPRCB *CurrentPrcb; // rcx
   struct _KTHREAD *CurrentThread; // rbx
-  char *StackLimit; // r8
-  unsigned __int64 v11; // rax
-  char *StackBase; // rcx
+  struct _KPRCB *StackLimit; // rax
   bool result; // al
   char *IsrStack; // rax
-  char *v15; // rcx
-  char *v16; // rax
-  char *v17; // rcx
-  char *v18; // rax
-  char *v19; // rcx
-  char *v20; // rcx
-  char *v21; // rdx
-  __int64 v22; // rdx
+  struct _KPRCB *v14; // rcx
+  char *v15; // rax
+  char *v16; // rcx
+  char *v17; // rax
+  char *v18; // rcx
+  __int64 v19; // rdx
+  void *StackBase; // [rsp+20h] [rbp-38h]
 
+  v6 = a2;
   if ( !KiRecoveryInProgress && (KiBugCheckActive & 3) != 0 )
   {
-    *a2 = 0;
+    *(_DWORD *)a2 = 0;
     result = 1;
     *a4 = -1LL;
-    *a3 = (char *)0xFFFF800000000000LL;
+    *a3 = (struct _KPRCB *)0xFFFF800000000000LL;
     return result;
   }
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql >= 2u )
   {
     IsrStack = (char *)KeGetPcr()->Prcb.IsrStack;
-    v15 = IsrStack - 24576;
-    if ( (unsigned __int64)(IsrStack - 24576) <= a1 && a1 < (unsigned __int64)IsrStack )
+    v14 = (struct _KPRCB *)(IsrStack - 24576);
+    if ( a1 < (unsigned __int64)IsrStack && (unsigned __int64)v14 <= a1 )
     {
-      *a2 = 6;
+      *(_DWORD *)a2 = 6;
       *a4 = (unsigned __int64)IsrStack;
       result = 1;
-      *a3 = v15;
+      *a3 = v14;
       return result;
     }
-    v16 = (char *)KeGetPcr()->Prcb.ExceptionStack + 80;
-    v17 = v16 - 24576;
-    if ( (unsigned __int64)(v16 - 24576) <= a1 && a1 < (unsigned __int64)v16 )
+    v15 = (char *)KeGetPcr()->Prcb.ExceptionStack + 80;
+    v16 = v15 - 24576;
+    if ( a1 < (unsigned __int64)v15 && (unsigned __int64)v16 <= a1 )
     {
-      *a2 = 10;
-      *a4 = (unsigned __int64)v16;
+      *(_DWORD *)a2 = 10;
+      *a4 = (unsigned __int64)v15;
       result = 1;
-      *a3 = v17;
+      *a3 = (struct _KPRCB *)v16;
       return result;
     }
-    goto LABEL_18;
   }
-  if ( !(unsigned __int8)KeAreInterruptsEnabled() )
+  else if ( (unsigned __int8)KeAreInterruptsEnabled(a1, a2) )
   {
-LABEL_18:
-    v18 = (char *)KeGetPcr()->Prcb.ExceptionStack + 80;
-    v19 = v18 - 24576;
-    if ( (unsigned __int64)(v18 - 24576) <= a1 && a1 < (unsigned __int64)v18 )
-    {
-      *a2 = 10;
-      *a4 = (unsigned __int64)v18;
-      result = 1;
-      *a3 = v19;
-      return result;
-    }
+    goto LABEL_5;
   }
+  v17 = (char *)KeGetPcr()->Prcb.ExceptionStack + 80;
+  CurrentPrcb = (struct _KPRCB *)(v17 - 24576);
+  if ( a1 < (unsigned __int64)v17 && (unsigned __int64)CurrentPrcb <= a1 )
+  {
+    *(_DWORD *)v6 = 10;
+    *a4 = (unsigned __int64)v17;
+    result = 1;
+    *a3 = CurrentPrcb;
+    return result;
+  }
+LABEL_5:
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread->InitialStack != (void *)KeGetPcr()->Prcb.RspBase )
   {
-    *a2 = 5;
-    result = 1;
-    *a4 = -1LL;
-    *a3 = (char *)0xFFFF800000000000LL;
-    return result;
+    *(_DWORD *)v6 = 5;
+    goto LABEL_37;
   }
   if ( CurrentIrql >= 2u )
   {
-    v20 = (char *)KeGetPcr()->Prcb.DpcStack + 80;
-    v21 = &v20[-(unsigned int)KeKernelStackSize];
-    if ( a1 < (unsigned __int64)v20 && (unsigned __int64)v21 <= a1 )
+    v18 = (char *)KeGetPcr()->Prcb.DpcStack + 80;
+    a2 = &v18[-(unsigned int)KeKernelStackSize];
+    if ( (unsigned __int64)a2 <= a1 && a1 < (unsigned __int64)v18 )
     {
-      *a2 = 1;
-      result = 1;
-      *a4 = (unsigned __int64)v20;
-      *a3 = v21;
-      return result;
+      *(_DWORD *)v6 = 1;
+      *a4 = (unsigned __int64)v18;
+      *a3 = (struct _KPRCB *)a2;
+      return 1;
     }
-    if ( KeGetCurrentPrcb() == (struct _KPRCB *)KiDebuggerOwner )
+    CurrentPrcb = KeGetCurrentPrcb();
+    if ( CurrentPrcb == (struct _KPRCB *)KiDebuggerOwner )
     {
-      *a2 = 7;
-      result = 1;
+      *(_DWORD *)v6 = 7;
+LABEL_37:
       *a4 = -1LL;
-      *a3 = (char *)0xFFFF800000000000LL;
-      return result;
+      *a3 = (struct _KPRCB *)0xFFFF800000000000LL;
+      return 1;
     }
   }
-  if ( (unsigned __int8)KeAreInterruptsEnabled() && KeGetCurrentIrql() < 0xFu )
-    goto LABEL_9;
-  if ( (unsigned int)KiRspInIstStack(3LL, a1) )
+  if ( !(unsigned __int8)KeAreInterruptsEnabled(CurrentPrcb, a2) || KeGetCurrentIrql() >= 0xFu )
   {
-    *a2 = 8;
-    result = 1;
-    *a4 = -1LL;
-    *a3 = (char *)0xFFFF800000000000LL;
-    return result;
-  }
-  if ( !(unsigned int)KiRspInIstStack(2LL, v22) )
-  {
-LABEL_9:
-    if ( (CurrentThread->MiscFlags & 0x1000) != 0 )
+    if ( (unsigned int)KiRspInIstStack(3LL, a1) )
     {
-      *a2 = 2;
-    }
-    else if ( CurrentThread->CallbackNestingLevel )
-    {
-      *a2 = 4;
+      *(_DWORD *)v6 = 8;
     }
     else
     {
-      *a2 = 3;
+      if ( !(unsigned int)KiRspInIstStack(2LL, v19) )
+        goto LABEL_9;
+      *(_DWORD *)v6 = 9;
     }
-    StackLimit = (char *)CurrentThread->StackLimit;
-    v11 = (unsigned __int64)StackLimit;
-    StackBase = (char *)CurrentThread->StackBase;
-    *a4 = (unsigned __int64)StackBase;
-    if ( StackLimit >= StackBase )
-      v11 = (unsigned __int64)StackLimit;
-    *a3 = StackLimit;
-    return v11 <= a1 && a1 < *a4;
+    goto LABEL_37;
+  }
+LABEL_9:
+  if ( (CurrentThread->MiscFlags & 0x1000) != 0 )
+  {
+    *(_DWORD *)v6 = 2;
+  }
+  else if ( CurrentThread->CallbackNestingLevel )
+  {
+    *(_DWORD *)v6 = 4;
   }
   else
   {
-    *a2 = 9;
-    result = 1;
-    *a4 = -1LL;
-    *a3 = (char *)0xFFFF800000000000LL;
+    *(_DWORD *)v6 = 3;
   }
-  return result;
+  StackBase = CurrentThread->StackBase;
+  StackLimit = (struct _KPRCB *)CurrentThread->StackLimit;
+  *a4 = (unsigned __int64)StackBase;
+  *a3 = StackLimit;
+  return (unsigned __int64)StackLimit <= a1 && a1 < *a4;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsSetInstanceSupported@FxWmiInstanceExternal@@MEAAEXZ @ 0x1C005E6D0
+ * XREFs of ?IsSetInstanceSupported@FxWmiInstanceExternal@@MEAAEXZ @ 0x1C003ED20
  * Callers:
  *     <none>
  * Callees:

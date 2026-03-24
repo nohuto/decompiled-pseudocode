@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReferenceIoPages @ 0x1400E5F8C (MiReferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
  */
 
 __int64 __fastcall MiAddLoaderHalIoPte(__int64 a1, unsigned __int64 a2)

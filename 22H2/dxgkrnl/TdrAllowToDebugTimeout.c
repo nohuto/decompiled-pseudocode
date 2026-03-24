@@ -1,10 +1,10 @@
 /*
- * XREFs of TdrAllowToDebugTimeout @ 0x1C030FBB8
+ * XREFs of TdrAllowToDebugTimeout @ 0x1C0266C78
  * Callers:
- *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F310 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02663B0 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
  * Callees:
- *     ?TdrValidateDebugMode@@YAXXZ @ 0x1C00500F4 (-TdrValidateDebugMode@@YAXXZ.c)
- *     ?TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F19C (-TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrValidateDebugMode@@YAXXZ @ 0x1C0045194 (-TdrValidateDebugMode@@YAXXZ.c)
+ *     ?TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0266244 (-TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z.c)
  */
 
 __int64 __fastcall TdrAllowToDebugTimeout(struct _TDR_RECOVERY_CONTEXT *a1)
@@ -19,20 +19,20 @@ __int64 __fastcall TdrAllowToDebugTimeout(struct _TDR_RECOVERY_CONTEXT *a1)
   v6 = a1;
   v1 = 0;
   g_TdrRecoveryToDebug = a1;
-  if ( (dword_1C0142510 & 1) != 0 )
+  if ( (dword_1C00B482C & 1) != 0 )
   {
-    v2 = byte_1C0142514;
+    v2 = byte_1C00B4830;
   }
   else
   {
     LOBYTE(a1) = 1;
-    dword_1C0142510 |= 1u;
+    dword_1C00B482C |= 1u;
     v2 = (unsigned __int8)WdIsDebuggerPresent(a1) != 0;
-    byte_1C0142514 = v2;
+    byte_1C00B4830 = v2;
   }
-  byte_1C0140A84 = v2;
+  byte_1C00B3174 = v2;
   TdrValidateDebugMode();
-  if ( (byte_1C0140A84 || (unsigned __int8)WdQueryDebugFlag(0LL)) && !g_TdrDebugMode )
+  if ( (byte_1C00B3174 || (unsigned __int8)WdQueryDebugFlag(0LL)) && !g_TdrDebugMode )
   {
     DbgOwnerTag = TdrGetDbgOwnerTag(v6);
     if ( !DbgOwnerTag || DbgOwnerTag == -1LL )

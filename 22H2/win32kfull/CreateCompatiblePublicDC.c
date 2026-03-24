@@ -1,20 +1,20 @@
 /*
- * XREFs of CreateCompatiblePublicDC @ 0x1C023F4DC
+ * XREFs of CreateCompatiblePublicDC @ 0x1C0159590
  * Callers:
- *     xxxClientExtTextOutW @ 0x1C021212C (xxxClientExtTextOutW.c)
- *     xxxClientGetTextExtentPointW @ 0x1C0212AAC (xxxClientGetTextExtentPointW.c)
- *     xxxClientLpkDrawTextEx @ 0x1C0212EB8 (xxxClientLpkDrawTextEx.c)
- *     xxxClientPSMTextOut @ 0x1C02132C0 (xxxClientPSMTextOut.c)
+ *     xxxClientExtTextOutW @ 0x1C0158F28 (xxxClientExtTextOutW.c)
+ *     xxxClientGetTextExtentPointW @ 0x1C0159250 (xxxClientGetTextExtentPointW.c)
+ *     xxxClientLpkDrawTextEx @ 0x1C02329DC (xxxClientLpkDrawTextEx.c)
+ *     xxxClientPSMTextOut @ 0x1C0232E44 (xxxClientPSMTextOut.c)
  * Callees:
- *     GreGetLayout @ 0x1C0024844 (GreGetLayout.c)
- *     GreExtGetObjectW @ 0x1C002E520 (GreExtGetObjectW.c)
- *     GreCreateCompatibleBitmapInternal @ 0x1C0057310 (GreCreateCompatibleBitmapInternal.c)
- *     GetDPIServerInfo @ 0x1C00AB4C8 (GetDPIServerInfo.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     NtGdiGetDCObject @ 0x1C01190E0 (NtGdiGetDCObject.c)
- *     GreSelectFontInternal @ 0x1C0119F34 (GreSelectFontInternal.c)
- *     GreGetTextAlign @ 0x1C02D7C60 (GreGetTextAlign.c)
- *     GreSetTextAlign @ 0x1C02D7D04 (GreSetTextAlign.c)
+ *     GreSelectFont @ 0x1C0045E80 (GreSelectFont.c)
+ *     GreGetLayout @ 0x1C0045F14 (GreGetLayout.c)
+ *     GreExtGetObjectW @ 0x1C0083078 (GreExtGetObjectW.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     NtGdiGetDCObject @ 0x1C00AA130 (NtGdiGetDCObject.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AADE8 (GreCreateCompatibleBitmapInternal.c)
+ *     GetDPIServerInfo @ 0x1C00E0AC8 (GetDPIServerInfo.c)
+ *     GreSetTextAlign @ 0x1C01241C0 (GreSetTextAlign.c)
+ *     GreGetTextAlign @ 0x1C0125448 (GreGetTextAlign.c)
  */
 
 HDC __fastcall CreateCompatiblePublicDC(HDC a1, __int64 *a2)
@@ -22,15 +22,14 @@ HDC __fastcall CreateCompatiblePublicDC(HDC a1, __int64 *a2)
   HDC result; // rax
   __int64 CompatibleDC; // rax
   HDC v6; // rdi
-  HBRUSH DCObject; // rax
+  HSURF DCObject; // rax
   __int64 CompatibleBitmapInternal; // rax
   __int64 v9; // rbp
   __int64 v10; // rcx
-  __int64 DPIServerInfo; // rax
-  __int64 v12; // rbx
-  int v13[8]; // [rsp+60h] [rbp-38h] BYREF
+  int TextAlign; // eax
+  int v12[8]; // [rsp+60h] [rbp-28h] BYREF
 
-  memset(v13, 0, sizeof(v13));
+  memset(v12, 0, sizeof(v12));
   if ( (unsigned int)GreGetObjectOwner(a1, 1LL) )
     return a1;
   CompatibleDC = GreCreateCompatibleDC(a1);
@@ -38,13 +37,12 @@ HDC __fastcall CreateCompatiblePublicDC(HDC a1, __int64 *a2)
   if ( !CompatibleDC )
     return 0LL;
   if ( !(unsigned int)GreSetDCOwnerEx(CompatibleDC, 2147483650LL, 0LL, 0LL)
-    || (DCObject = (HBRUSH)NtGdiGetDCObject((__int64)a1, 327680),
-        !(unsigned int)GreExtGetObjectW(DCObject, 32LL, (__int64)v13)) )
+    || (DCObject = (HSURF)NtGdiGetDCObject(a1, 327680), !(unsigned int)GreExtGetObjectW(DCObject, 32LL, (char *)v12)) )
   {
     GreDeleteDC(v6);
     return 0LL;
   }
-  CompatibleBitmapInternal = GreCreateCompatibleBitmapInternal((__int64)a1, v13[1], v13[2], 0, 0LL, 0LL);
+  CompatibleBitmapInternal = GreCreateCompatibleBitmapInternal(a1, v12[1], v12[2], 0, 0LL, 0LL);
   v9 = CompatibleBitmapInternal;
   if ( !CompatibleBitmapInternal || !(unsigned int)GreSetBitmapOwner(CompatibleBitmapInternal, 2147483650LL) )
   {
@@ -54,15 +52,15 @@ HDC __fastcall CreateCompatiblePublicDC(HDC a1, __int64 *a2)
     return 0LL;
   }
   GreSelectBitmap(v6, v9);
-  DPIServerInfo = GetDPIServerInfo(v10);
-  v12 = GreSelectFontInternal((__int64)a1, *(_QWORD *)(DPIServerInfo + 24), 1);
-  GreSelectFontInternal((__int64)a1, v12, 1);
-  GreSelectFontInternal((__int64)v6, v12, 1);
-  GreGetTextAlign(a1);
-  GreSetTextAlign(v6);
+  GetDPIServerInfo(v10);
+  GreSelectFont(a1);
+  GreSelectFont(a1);
+  GreSelectFont(v6);
+  TextAlign = GreGetTextAlign(a1);
+  GreSetTextAlign(v6, TextAlign);
   if ( (GreGetLayout(a1) & 1) != 0 )
-    GreSetLayout(v6, (unsigned int)(v13[1] - 1), 1LL);
-  NtGdiBitBltInternal((__int64)v6, 0, 0, v13[1], v13[2], a1, 0, 0, 13369376, 0, 0);
+    GreSetLayout(v6, (unsigned int)(v12[1] - 1), 1LL);
+  NtGdiBitBltInternal(v6, 0, 0, v12[1], v12[2], a1, 0, 0, 13369376, 0, 0);
   result = v6;
   *a2 = v9;
   return result;

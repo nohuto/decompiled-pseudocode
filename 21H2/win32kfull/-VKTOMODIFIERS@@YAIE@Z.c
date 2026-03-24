@@ -1,7 +1,7 @@
 /*
- * XREFs of ?VKTOMODIFIERS@@YAIE@Z @ 0x1C0207BBC
+ * XREFs of ?VKTOMODIFIERS@@YAIE@Z @ 0x1C020756C
  * Callers:
- *     EditionUpdateSASModifiers @ 0x1C010A490 (EditionUpdateSASModifiers.c)
+ *     EditionUpdateSASModifiers @ 0x1C011F370 (EditionUpdateSASModifiers.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of IsDebuggerAttached @ 0x1C00A99EC
+ * XREFs of IsDebuggerAttached @ 0x1C003CEB8
  * Callers:
- *     ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C00A8DE0 (-InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z.c)
- *     _anonymous_namespace_::CanSetForegroundWindow @ 0x1C00A94FC (_anonymous_namespace_--CanSetForegroundWindow.c)
- *     IsAdaptiveQueueDetachExempted @ 0x1C00A9974 (IsAdaptiveQueueDetachExempted.c)
- *     SlowAppThreadInShellFrame @ 0x1C0116CD4 (SlowAppThreadInShellFrame.c)
- *     TryDetachShellFrame @ 0x1C01DD074 (TryDetachShellFrame.c)
+ *     _anonymous_namespace_::CanSetForegroundWindow @ 0x1C003CB30 (_anonymous_namespace_--CanSetForegroundWindow.c)
+ *     IsAdaptiveQueueDetachExempted @ 0x1C003CE40 (IsAdaptiveQueueDetachExempted.c)
+ *     ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C003DC5C (-InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z.c)
+ *     SlowAppThreadInShellFrame @ 0x1C0125054 (SlowAppThreadInShellFrame.c)
+ *     TryDetachShellFrame @ 0x1C01E2264 (TryDetachShellFrame.c)
  * Callees:
  *     <none>
  */

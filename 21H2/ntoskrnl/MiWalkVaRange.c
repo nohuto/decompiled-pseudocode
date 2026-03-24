@@ -1,387 +1,397 @@
 /*
- * XREFs of MiWalkVaRange @ 0x14033E5D0
+ * XREFs of MiWalkVaRange @ 0x14023C0F0
  * Callers:
- *     MiResetVirtualMemory @ 0x14024DB60 (MiResetVirtualMemory.c)
- *     MiProcessVaRangesInfoClass @ 0x140753B20 (MiProcessVaRangesInfoClass.c)
+ *     MiResetVirtualMemory @ 0x1402C538C (MiResetVirtualMemory.c)
+ *     MiProcessVaRangesInfoClass @ 0x14070FBB4 (MiProcessVaRangesInfoClass.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140222100 (KeShouldYieldProcessor.c)
- *     MiMakeProtoLeafValid @ 0x140240C38 (MiMakeProtoLeafValid.c)
- *     MiLockProtoPoolPage @ 0x140273AF0 (MiLockProtoPoolPage.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x1402802DC (MI_PROTO_FORMAT_COMBINED.c)
- *     MiIsPrototypePteVadLookup @ 0x1402806A0 (MiIsPrototypePteVadLookup.c)
- *     MiGetNextPageTable @ 0x14028F080 (MiGetNextPageTable.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiInsertTbFlushEntry @ 0x1402CF280 (MiInsertTbFlushEntry.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     MiReleasePageFileInfo @ 0x1402E20D0 (MiReleasePageFileInfo.c)
- *     MiCopyOnWrite @ 0x140316400 (MiCopyOnWrite.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
- *     MiGetProtoPteAddress @ 0x140319600 (MiGetProtoPteAddress.c)
- *     MmAccessFault @ 0x14031C860 (MmAccessFault.c)
- *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
- *     MiUnlockProtoPoolPage @ 0x140334790 (MiUnlockProtoPoolPage.c)
- *     MiActOnPte @ 0x14033E970 (MiActOnPte.c)
- *     MiWorkingSetIsContended @ 0x1403531F0 (MiWorkingSetIsContended.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiCopyOnWriteCheckConditions @ 0x1405BCAF8 (MiCopyOnWriteCheckConditions.c)
+ *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
+ *     MiActOnPte @ 0x14023C5F0 (MiActOnPte.c)
+ *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
+ *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x14028D248 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiIsPrototypePteVadLookup @ 0x14028D4D0 (MiIsPrototypePteVadLookup.c)
+ *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
+ *     MiMakeProtoLeafValid @ 0x1402BCAB4 (MiMakeProtoLeafValid.c)
+ *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
+ *     MiGetNextPageTable @ 0x14030D820 (MiGetNextPageTable.c)
+ *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
+ *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
+ *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiCopyOnWriteCheckConditions @ 0x14055BEF8 (MiCopyOnWriteCheckConditions.c)
  */
 
 __int64 __fastcall MiWalkVaRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5)
 {
-  __int64 v5; // r12
-  unsigned int v8; // esi
-  __int64 v9; // r13
-  unsigned __int64 v10; // rdi
-  unsigned __int64 v11; // r14
-  unsigned __int64 v12; // rbx
-  unsigned __int8 v13; // r15
-  unsigned __int64 NextPageTable; // rbx
-  __int64 v15; // r9
-  unsigned int v16; // r15d
-  __int64 ProtoPteAddress; // rsi
-  int v18; // r14d
-  int v19; // r12d
+  __int64 v5; // r14
+  __int64 v8; // r13
+  ULONG_PTR v9; // rdi
+  unsigned __int64 v10; // rsi
+  __int64 v11; // r15
+  __int64 v12; // rbx
+  __int64 v13; // r8
+  _DWORD *v14; // r9
+  unsigned __int8 v15; // r12
+  __int64 NextPageTable; // rax
+  __int64 v17; // rdx
+  ULONG_PTR v18; // rbx
+  unsigned int v19; // r12d
   __int64 v20; // rbx
-  __int64 v21; // r8
-  __int64 v22; // rbx
-  unsigned int v23; // eax
-  unsigned __int64 v24; // rdx
-  unsigned __int64 v25; // rdx
-  __int16 v26; // ax
-  __int64 v27; // r15
-  struct _LIST_ENTRY *Flink; // rdx
-  __int64 v30; // rax
-  __int64 v31; // rdx
-  int v32; // esi
-  __int64 v33; // rsi
+  signed __int64 ProtoPteAddress; // rsi
+  int v22; // r14d
+  int v23; // r15d
+  __int64 v24; // rbx
+  int v25; // eax
+  __int64 v26; // rdx
+  signed __int64 v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // r8
+  _DWORD *v30; // r9
+  unsigned int v31; // edi
+  int v33; // esi
   unsigned __int64 v34; // rax
-  __int64 v35; // rcx
-  __int64 v36; // rsi
-  int v37; // eax
-  unsigned __int8 v38; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int8 v39; // [rsp+41h] [rbp-BFh]
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v36; // rax
+  __int64 v37; // rdx
+  __int64 v38; // rsi
+  signed __int64 v39; // rax
+  signed __int64 v40; // rbx
+  __int64 v41; // rcx
+  __int64 v42; // rsi
+  int v43; // eax
+  unsigned __int8 v44; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int8 v45; // [rsp+41h] [rbp-BFh]
   int ProtoLeafValid; // [rsp+44h] [rbp-BCh]
-  __int64 v41; // [rsp+48h] [rbp-B8h]
-  unsigned __int64 *v42; // [rsp+50h] [rbp-B0h]
-  unsigned __int64 v43; // [rsp+58h] [rbp-A8h]
-  int v44; // [rsp+60h] [rbp-A0h]
-  __int64 v45; // [rsp+68h] [rbp-98h]
-  unsigned __int64 v46; // [rsp+70h] [rbp-90h]
-  int v47; // [rsp+78h] [rbp-88h] BYREF
-  unsigned __int64 v48; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v49; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v50; // [rsp+90h] [rbp-70h] BYREF
-  _KPROCESS *Process; // [rsp+98h] [rbp-68h]
-  int v52; // [rsp+A0h] [rbp-60h] BYREF
-  __int16 v53; // [rsp+A4h] [rbp-5Ch]
-  __int16 v54; // [rsp+A6h] [rbp-5Ah]
-  __int64 v55; // [rsp+A8h] [rbp-58h]
-  __int64 v56; // [rsp+B0h] [rbp-50h]
-  __int64 v57; // [rsp+B8h] [rbp-48h]
-  _BYTE v58[152]; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v47; // [rsp+48h] [rbp-B8h]
+  signed __int64 v48; // [rsp+50h] [rbp-B0h]
+  int v49; // [rsp+58h] [rbp-A8h]
+  __int64 v50; // [rsp+60h] [rbp-A0h]
+  unsigned __int64 *v51; // [rsp+68h] [rbp-98h]
+  int v52; // [rsp+70h] [rbp-90h]
+  ULONG_PTR v53; // [rsp+78h] [rbp-88h]
+  int v54; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v55; // [rsp+88h] [rbp-78h] BYREF
+  char v56[8]; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v57; // [rsp+98h] [rbp-68h] BYREF
+  _KPROCESS *Process; // [rsp+A0h] [rbp-60h]
+  int v59; // [rsp+B0h] [rbp-50h] BYREF
+  __int16 v60; // [rsp+B4h] [rbp-4Ch]
+  __int16 v61; // [rsp+B6h] [rbp-4Ah]
+  __int64 v62; // [rsp+B8h] [rbp-48h]
+  __int64 v63; // [rsp+C0h] [rbp-40h]
+  __int64 v64; // [rsp+C8h] [rbp-38h]
+  _BYTE v65[152]; // [rsp+D0h] [rbp-30h] BYREF
 
-  v45 = a3;
+  v47 = a3;
   v5 = a3;
-  v48 = 0LL;
-  v47 = 0;
-  v50 = 0LL;
-  v44 = a4;
+  v55 = 0LL;
   v54 = 0;
-  memset(v58, 0, sizeof(v58));
-  ProtoLeafValid = 0;
-  v8 = 0;
-  v41 = 0LL;
-  v9 = 0LL;
-  v38 = 17;
-  v10 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v11 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v55 = 20LL;
-  v52 = 1;
-  v12 = 0LL;
-  v53 = 0;
-  v56 = 0LL;
   v57 = 0LL;
-  v46 = v11;
-  v43 = 0LL;
+  v49 = a4;
+  v61 = 0;
+  memset(v65, 0, sizeof(v65));
+  ProtoLeafValid = 0;
+  v8 = 0LL;
+  v48 = 0LL;
+  v44 = 17;
+  v9 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v10 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v62 = 20LL;
+  v59 = 1;
+  v11 = 0LL;
+  v60 = 0;
+  v63 = 0LL;
+  v64 = 0LL;
+  v53 = v10;
+  v50 = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v42 = &Process[1].ActiveProcessors.StaticBitmap[26];
-  v39 = MiLockWorkingSetShared((__int64)&Process[1].ActiveProcessors.StaticBitmap[26]);
-  v13 = v39;
-  if ( v10 > v11 )
-    goto LABEL_31;
-  do
+  v12 = (__int64)&Process[1].ActiveProcessorsPadding[6];
+  v51 = &Process[1].ActiveProcessorsPadding[6];
+  v45 = MiLockWorkingSetShared((__int64)&Process[1].ActiveProcessorsPadding[6], 0x7FFFFFFFF8LL, v13, v14);
+  v15 = v45;
+  if ( v9 > v10 )
   {
-    if ( v43 )
-    {
-      MiUnlockPageTableInternal((__int64)v42, v43);
-      v43 = 0LL;
-    }
-    NextPageTable = MiGetNextPageTable(v10, v11, (__int64)&v52, v13, 0, &v47);
-    v16 = 1;
-    if ( NextPageTable != v10 )
-    {
-      if ( (*(_DWORD *)(v5 + 48) & 0x200000) != 0
-        || !*(_QWORD *)(v5 + 80)
-        || !MiGetProtoPteAddress(v5, (unsigned __int64)((__int64)(v10 << 25) >> 16) >> 12, 0, &v49) )
-      {
-        v8 = -1073740748;
-        ProtoLeafValid = -1073740748;
-        if ( !NextPageTable )
-        {
-          v12 = v43;
-          v13 = v39;
-          break;
-        }
-        v10 = NextPageTable;
-LABEL_6:
-        v43 = ((NextPageTable >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-        goto LABEL_7;
-      }
-      v16 = 0;
-    }
-    if ( NextPageTable )
-      goto LABEL_6;
-LABEL_7:
+    v31 = 0;
+    goto LABEL_36;
+  }
+LABEL_2:
+  if ( v11 )
+  {
+    MiUnlockPageTableInternal(v12, v11);
+    v11 = 0LL;
+    v50 = 0LL;
+  }
+  NextPageTable = MiGetNextPageTable(v9, v10, (unsigned int)&v59, v15, 0, (__int64)&v54);
+  v52 = 1;
+  v18 = NextPageTable;
+  if ( NextPageTable == v9 )
+    goto LABEL_5;
+  if ( (*(_DWORD *)(v5 + 48) & 0x100000) == 0
+    && *(_QWORD *)(v5 + 80)
+    && MiGetProtoPteAddress(v5, (unsigned __int64)((__int64)(v9 << 25) >> 16) >> 12, 0LL, v56) )
+  {
+    v52 = 0;
+    goto LABEL_5;
+  }
+  v31 = -1073740748;
+  ProtoLeafValid = -1073740748;
+  if ( v18 )
+  {
+    v9 = v18;
+LABEL_5:
+    if ( v18 )
+      v50 = ((v18 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v19 = v52;
+    v20 = v47;
     while ( 1 )
     {
       ProtoPteAddress = 0LL;
-      v18 = 0;
-      v19 = 0;
-      if ( v16 )
+      v22 = 0;
+      v23 = 0;
+      if ( !v19 )
+        goto LABEL_62;
+      v24 = *(_QWORD *)v9;
+      if ( (unsigned int)MiPteInShadowRange(v9, v17)
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (v24 & 1) != 0
+        && ((v24 & 0x20) == 0 || (v24 & 0x42) == 0) )
       {
-        v20 = *(_QWORD *)v10;
-        if ( MiPteInShadowRange(v10)
-          && (MiFlags & 0xC00000) != 0
-          && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-          && (v20 & 1) != 0
-          && ((v20 & 0x20) == 0 || (v20 & 0x42) == 0) )
+        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
         {
-          Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-          if ( Flink )
-          {
-            v30 = *((_QWORD *)&Flink->Flink + ((v10 >> 3) & 0x1FF));
-            v31 = v20 | 0x20;
-            if ( (v30 & 0x20) == 0 )
-              v31 = v20;
-            v20 = v31;
-            if ( (v30 & 0x42) != 0 )
-              v20 = v31 | 0x42;
-          }
+          v36 = *((_QWORD *)&Flink->Flink + ((v9 >> 3) & 0x1FF));
+          v37 = v24 | 0x20;
+          if ( (v36 & 0x20) == 0 )
+            v37 = v24;
+          v24 = v37;
+          if ( (v36 & 0x42) != 0 )
+            v24 = v37 | 0x42;
         }
-        if ( v20 )
-          break;
       }
-      v21 = v45;
-      if ( (*(_DWORD *)(v45 + 48) & 0x200000) == 0 && *(_QWORD *)(v45 + 80) )
+      if ( !v24 )
+        break;
+      if ( (v24 & 1) != 0 || (v24 & 0x400) == 0 )
       {
-        ProtoPteAddress = MiGetProtoPteAddress(v45, (unsigned __int64)((__int64)(v10 << 25) >> 16) >> 12, 0, &v49);
+        v20 = v47;
+        goto LABEL_14;
+      }
+      v33 = v49;
+      if ( v49 == 2 && (unsigned __int8)MI_PROTO_FORMAT_COMBINED(v24) )
+      {
+        v38 = v24;
+        if ( qword_140C4DF40 && (v24 & 0x10) == 0 )
+          v38 = v24 & ~qword_140C4DF40;
+        ProtoPteAddress = v38 >> 16;
+LABEL_55:
+        v20 = v47;
         if ( ProtoPteAddress )
-          goto LABEL_65;
-        if ( !v16 )
         {
-          v8 = ProtoLeafValid;
-LABEL_98:
-          v11 = v46;
-LABEL_23:
-          if ( v9 )
+LABEL_56:
+          if ( ((ProtoPteAddress ^ v48) & 0xFFFFFFFFFFFFF000uLL) != 0 )
           {
-            MiUnlockProtoPoolPage(v9, v38, v21, v15);
-            v9 = 0LL;
-            v41 = 0LL;
+            if ( v8 )
+            {
+              MiUnlockProtoPoolPage(v8, v44);
+              v48 = 0LL;
+            }
+            v8 = MiLockProtoPoolPage(ProtoPteAddress, &v44);
+            if ( !v8 )
+            {
+              MiFlushTbList(&v59);
+              v11 = v50;
+              v12 = (__int64)v51;
+              if ( v50 )
+              {
+                MiUnlockPageTableInternal(v51, v50);
+                v11 = 0LL;
+                v50 = 0LL;
+              }
+              v15 = v45;
+              MiUnlockWorkingSetShared(v12, v45);
+              MmAccessFault(2uLL, ProtoPteAddress, 0, 0LL);
+              v10 = v53;
+LABEL_33:
+              MiLockWorkingSetShared(v12, v28, v29, v30);
+              v5 = v47;
+              if ( v9 > v10 )
+              {
+                v31 = ProtoLeafValid;
+                goto LABEL_35;
+              }
+              goto LABEL_2;
+            }
+            v48 = ProtoPteAddress;
           }
-          MiFlushTbList((__int64)&v52);
-          v12 = v43;
-          v27 = (__int64)v42;
-          if ( v43 )
-          {
-            MiUnlockPageTableInternal((__int64)v42, v43);
-            v12 = 0LL;
-            v43 = 0LL;
-          }
-          MiUnlockWorkingSetShared(v27, v39);
-          if ( v19 == -1073740748 )
-            MiCopyOnWriteCheckConditions(v27, 3221226548LL);
-          v13 = v39;
-          goto LABEL_30;
         }
-      }
-LABEL_12:
-      if ( v9 )
-      {
-        MiUnlockProtoPoolPage(v9, v38, v21, v15);
-        v9 = 0LL;
-        v22 = 0LL;
-        v41 = 0LL;
-      }
-      else
-      {
-        v22 = v41;
-      }
+        else
+        {
 LABEL_14:
-      v23 = MiActOnPte(v45, v16, v10, ProtoPteAddress, v44, a5, &v50, &v48);
-      switch ( v23 )
-      {
-        case 0u:
-          goto LABEL_15;
-        case 0x112u:
-          MiInsertTbFlushEntry((__int64)&v52, (__int64)(v10 << 25) >> 16, 1LL, 0);
-          MiFlushTbList((__int64)&v52);
-          v37 = MiCopyOnWrite((__int64)(v10 << 25) >> 16, v10, 0xFFFFFFFFFFFFFFFFuLL, 0);
-          v22 = v41;
-          v19 = v37;
-          v10 -= 8LL;
-          v18 = 1;
-          goto LABEL_15;
-        case 0xC0000021:
-          MiInsertTbFlushEntry((__int64)&v52, (__int64)(v10 << 25) >> 16, 1LL, 0);
-LABEL_15:
-          v8 = ProtoLeafValid;
-          goto LABEL_16;
-      }
-      v8 = v23;
-      ProtoLeafValid = v23;
-LABEL_16:
-      v24 = v48;
-      if ( v48 )
-      {
-        if ( v9 )
-        {
-          MiUnlockProtoPoolPage(v9, v38, v21, v15);
-          v24 = v48;
-          v9 = 0LL;
-          v22 = 0LL;
-          v41 = 0LL;
+          if ( v8 )
+          {
+            MiUnlockProtoPoolPage(v8, v44);
+            v8 = 0LL;
+            v48 = 0LL;
+          }
         }
-        MiReleasePageFileInfo(v50, v24, 1);
-      }
-      v10 += 8LL;
-      v25 = v10;
-      v26 = v10;
-      if ( v18 )
-        goto LABEL_98;
-      ProtoLeafValid = v8;
-      v41 = v22;
-      if ( v19 < 0 )
-        goto LABEL_98;
-LABEL_19:
-      v11 = v46;
-      if ( v25 > v46
-        || (v26 & 0xFFF) == 0
-        || (v26 & 0x78) == 0 && (unsigned int)MiWorkingSetIsContended(v42)
-        || KeShouldYieldProcessor() )
-      {
-        goto LABEL_23;
-      }
-    }
-    if ( (v20 & 1) != 0 || (v20 & 0x400) == 0 )
-      goto LABEL_12;
-    v32 = v44;
-    if ( v44 == 2 && MI_PROTO_FORMAT_COMBINED(v20) )
-    {
-      v33 = v20;
-      if ( qword_140C50780 && (v20 & 0x10) == 0 )
-        v33 = v20 & ~qword_140C50780;
-      ProtoPteAddress = v33 >> 16;
-    }
-    else
-    {
-      if ( MI_PROTO_FORMAT_COMBINED(v20) )
-      {
-        if ( v32 == 1 )
-          goto LABEL_91;
-        if ( v9 )
+        v25 = MiActOnPte(v20, v19, v9, ProtoPteAddress, v49, a5, &v57, &v55);
+        if ( v25 )
         {
-          MiUnlockProtoPoolPage(v9, v38, v21, v15);
-          v9 = 0LL;
-          v41 = 0LL;
+          if ( v25 == 274 )
+          {
+            MiInsertTbFlushEntry(&v59, (__int64)(v9 << 25) >> 16, 1LL, 0LL);
+            MiFlushTbList(&v59);
+            v43 = MiCopyOnWrite((__int64)(v9 << 25) >> 16, v9, -1LL);
+            v20 = v47;
+            v23 = v43;
+            v9 -= 8LL;
+            v22 = 1;
+          }
+          else if ( v25 == -1073741791 )
+          {
+            MiInsertTbFlushEntry(&v59, (__int64)(v9 << 25) >> 16, 1LL, 0LL);
+          }
+          else
+          {
+            ProtoLeafValid = v25;
+          }
         }
-        MiFlushTbList((__int64)&v52);
-        ProtoLeafValid = MiMakeProtoLeafValid(v10, 24LL, v39);
-        v8 = ProtoLeafValid;
-        if ( ProtoLeafValid < 0 )
+        v26 = v55;
+        if ( v55 )
         {
-LABEL_91:
-          v8 = -1073740748;
+          if ( v8 )
+          {
+            MiUnlockProtoPoolPage(v8, v44);
+            v26 = v55;
+            v8 = 0LL;
+            v48 = 0LL;
+          }
+          MiReleasePageFileInfo(v57, v26, 1LL);
+        }
+        goto LABEL_18;
+      }
+      if ( (unsigned __int8)MI_PROTO_FORMAT_COMBINED(v24) )
+      {
+        if ( v33 == 1 )
+        {
+          v20 = v47;
           ProtoLeafValid = -1073740748;
         }
         else
         {
-          v10 -= 8LL;
+          if ( v8 )
+            MiUnlockProtoPoolPage(v8, v44);
+          v39 = 0LL;
+          if ( !v8 )
+            v39 = v48;
+          v40 = v39;
+          v48 = v39;
+          MiFlushTbList(&v59);
+          ProtoLeafValid = MiMakeProtoLeafValid(v9);
+          if ( ProtoLeafValid >= 0 )
+          {
+            v9 -= 8LL;
+            v48 = v40;
+            v20 = v47;
+            v8 = 0LL;
+          }
+          else
+          {
+            v20 = v47;
+            v8 = 0LL;
+            ProtoLeafValid = -1073740748;
+          }
         }
-        v25 = v10 + 8;
-        v10 = v25;
-        v26 = v25;
-        goto LABEL_19;
+        goto LABEL_18;
       }
-      v34 = ((__int64)(v10 << 25) >> 16) & 0xFFFFFFFFFFFFF000uLL;
-      if ( (v34 == 2147352576 || v34 == qword_140C50678 && qword_140C50678)
+      v34 = ((__int64)(v9 << 25) >> 16) & 0xFFFFFFFFFFFFF000uLL;
+      if ( (v34 == 2147352576 || v34 == qword_140C4DE48 && qword_140C4DE48)
         && (HIDWORD(Process[2].Header.WaitListHead.Flink) & 1) == 0 )
       {
-        goto LABEL_91;
+        v20 = v47;
+        ProtoLeafValid = -1073740748;
       }
-      v21 = v45;
-      if ( (*(_DWORD *)(v45 + 48) & 0x200000) != 0 || !*(_QWORD *)(v45 + 80) )
-        goto LABEL_108;
-      ProtoPteAddress = MiGetProtoPteAddress(v45, (unsigned __int64)((__int64)(v10 << 25) >> 16) >> 12, 0, &v49);
-      if ( !MiIsPrototypePteVadLookup(v20) )
+      else
       {
-        v35 = v20;
-        if ( qword_140C50780 && (v20 & 0x10) == 0 )
-          v35 = v20 & ~qword_140C50780;
-        if ( ProtoPteAddress != v35 >> 16 )
+        if ( (*(_DWORD *)(v47 + 48) & 0x100000) == 0 && *(_QWORD *)(v47 + 80) )
         {
-LABEL_108:
-          v36 = v20;
-          if ( qword_140C50780 && (v20 & 0x10) == 0 )
-            v36 = v20 & ~qword_140C50780;
-          ProtoPteAddress = v36 >> 16;
-          if ( v44 != 2 )
-            goto LABEL_91;
+          ProtoPteAddress = MiGetProtoPteAddress(v47, (unsigned __int64)((__int64)(v9 << 25) >> 16) >> 12, 0LL, v56);
+          if ( (unsigned int)MiIsPrototypePteVadLookup(v24) )
+            goto LABEL_55;
+          v41 = v24;
+          if ( qword_140C4DF40 && (v24 & 0x10) == 0 )
+            v41 = v24 & ~qword_140C4DF40;
+          if ( ProtoPteAddress == v41 >> 16 )
+            goto LABEL_55;
         }
+        v42 = v24;
+        if ( qword_140C4DF40 && (v24 & 0x10) == 0 )
+          v42 = v24 & ~qword_140C4DF40;
+        ProtoPteAddress = v42 >> 16;
+        if ( v49 == 2 )
+          goto LABEL_55;
+        v20 = v47;
+        ProtoLeafValid = -1073740748;
+      }
+LABEL_18:
+      v10 = v53;
+      v9 += 8LL;
+      if ( v22 == 1
+        || v23 < 0
+        || v9 > v53
+        || (v9 & 0xFFF) == 0
+        || (v9 & 0x78) == 0 && (unsigned int)MiWorkingSetIsContended(v51)
+        || KeShouldYieldProcessor() )
+      {
+        if ( v8 )
+          MiUnlockProtoPoolPage(v8, v44);
+        v27 = 0LL;
+        if ( !v8 )
+          v27 = v48;
+        v48 = v27;
+        MiFlushTbList(&v59);
+        v12 = (__int64)v51;
+        if ( v50 )
+        {
+          MiUnlockPageTableInternal(v51, v50);
+          v50 = 0LL;
+        }
+        v15 = v45;
+        MiUnlockWorkingSetShared(v12, v45);
+        if ( v23 == -1073740748 )
+          MiCopyOnWriteCheckConditions(v12, 3221226548LL);
+        v11 = v50;
+        v8 = 0LL;
+        goto LABEL_33;
       }
     }
-    if ( !ProtoPteAddress )
-      goto LABEL_12;
-LABEL_65:
-    v22 = v41;
-    if ( ((ProtoPteAddress ^ v41) & 0xFFFFFFFFFFFFF000uLL) == 0 )
+    v20 = v47;
+LABEL_62:
+    if ( (*(_DWORD *)(v20 + 48) & 0x100000) != 0 || !*(_QWORD *)(v20 + 80) )
       goto LABEL_14;
-    if ( v9 )
-    {
-      MiUnlockProtoPoolPage(v9, v38, v21, v15);
-      v41 = 0LL;
-    }
-    v9 = MiLockProtoPoolPage(ProtoPteAddress, (__int64)&v38);
-    if ( v9 )
-    {
-      v22 = ProtoPteAddress;
-      v41 = ProtoPteAddress;
+    ProtoPteAddress = MiGetProtoPteAddress(v20, (unsigned __int64)((__int64)(v9 << 25) >> 16) >> 12, 0LL, v56);
+    if ( ProtoPteAddress )
+      goto LABEL_56;
+    if ( v19 )
       goto LABEL_14;
-    }
-    MiFlushTbList((__int64)&v52);
-    v12 = v43;
-    if ( v43 )
-    {
-      MiUnlockPageTableInternal((__int64)v42, v43);
-      v12 = 0LL;
-      v43 = 0LL;
-    }
-    v13 = v39;
-    MiUnlockWorkingSetShared((__int64)v42, v39);
-    MmAccessFault(2uLL, ProtoPteAddress, 0, 0LL);
-    v8 = ProtoLeafValid;
-    v11 = v46;
-LABEL_30:
-    MiLockWorkingSetShared((__int64)v42);
-    v5 = v45;
+    v22 = 1;
+    v9 -= 8LL;
+    goto LABEL_18;
   }
-  while ( v10 <= v11 );
-LABEL_31:
-  MiFlushTbList((__int64)&v52);
-  if ( v12 )
-    MiUnlockPageTableInternal((__int64)v42, v12);
-  MiUnlockWorkingSetShared((__int64)v42, v13);
-  return v8;
+  v12 = (__int64)v51;
+LABEL_35:
+  v15 = v45;
+LABEL_36:
+  MiFlushTbList(&v59);
+  if ( v11 )
+    MiUnlockPageTableInternal(v12, v11);
+  MiUnlockWorkingSetShared(v12, v15);
+  return v31;
 }

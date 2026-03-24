@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C009C840
+ * XREFs of ?bOldPenNominal@DC@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C00BE300
  * Callers:
- *     ?vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C0032358 (-vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z.c)
+ *     ?vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C0023EF4 (-vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z.c)
  * Callees:
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z @ 0x1C009C980 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K_N@Z @ 0x1C00C8430 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K_N@Z.c)
  */
 
 __int64 __fastcall DC::bOldPenNominal(DC *this, struct EXFORMOBJ *a2, int a3)
@@ -17,11 +17,11 @@ __int64 __fastcall DC::bOldPenNominal(DC *this, struct EXFORMOBJ *a2, int a3)
   int v10; // r10d
   int v11; // r8d
   bool v12; // sf
-  int v13; // [rsp+20h] [rbp-10h] BYREF
-  __int64 v14; // [rsp+24h] [rbp-Ch]
-  int v15; // [rsp+2Ch] [rbp-4h]
-  int v16; // [rsp+40h] [rbp+10h] BYREF
-  int v17; // [rsp+44h] [rbp+14h]
+  int v13; // [rsp+30h] [rbp-10h] BYREF
+  __int64 v14; // [rsp+34h] [rbp-Ch]
+  int v15; // [rsp+3Ch] [rbp-4h]
+  int v16; // [rsp+50h] [rbp+10h] BYREF
+  int v17; // [rsp+54h] [rbp+14h]
 
   v3 = 0;
   if ( (*(_DWORD *)(*((_QWORD *)this + 122) + 340LL) & 0x20) != 0 )
@@ -29,7 +29,7 @@ __int64 __fastcall DC::bOldPenNominal(DC *this, struct EXFORMOBJ *a2, int a3)
     v13 = a3;
     v15 = a3;
     v14 = 0LL;
-    if ( (unsigned int)EXFORMOBJ::bXform(a2, (struct _VECTORL *)&v13, (struct _VECTORFX *)&v13, 2uLL) )
+    if ( (unsigned int)EXFORMOBJ::bXform(a2, (struct _VECTORL *)&v13, (struct _VECTORFX *)&v13, 2uLL, 0) )
     {
       v5 = v13;
       if ( v13 < 0 )
@@ -78,7 +78,7 @@ __int64 __fastcall DC::bOldPenNominal(DC *this, struct EXFORMOBJ *a2, int a3)
   {
     v16 = a3;
     v17 = 0;
-    if ( (unsigned int)EXFORMOBJ::bXform(a2, (struct _VECTORL *)&v16, (struct _VECTORFX *)&v16, 1uLL) )
+    if ( (unsigned int)EXFORMOBJ::bXform(a2, (struct _VECTORL *)&v16, (struct _VECTORFX *)&v16, 1uLL, 0) )
       return (int)abs32(v16) < 24;
   }
   return v3;

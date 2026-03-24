@@ -1,26 +1,27 @@
 /*
- * XREFs of WmipIncludeStaticNames @ 0x1409DD3C4
+ * XREFs of WmipIncludeStaticNames @ 0x1409327DC
  * Callers:
- *     WmipProcessEvent @ 0x14075DD3C (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x140757D80 (WmipProcessEvent.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     RtlStringCbCopyW @ 0x1402E0978 (RtlStringCbCopyW.c)
- *     WmipAlign @ 0x1402E09E0 (WmipAlign.c)
- *     RtlStringCbCatW @ 0x1402E0A04 (RtlStringCbCatW.c)
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     WmipUnreferenceEntry @ 0x1407838E0 (WmipUnreferenceEntry.c)
- *     WmipFindGEByGuid @ 0x140783CD8 (WmipFindGEByGuid.c)
- *     WmipReferenceEntry @ 0x140784160 (WmipReferenceEntry.c)
- *     WmipInsertStaticNames @ 0x14078CB04 (WmipInsertStaticNames.c)
- *     WmipStaticInstanceNameSize @ 0x14078CCE4 (WmipStaticInstanceNameSize.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
+ *     WmipAlign @ 0x140264F60 (WmipAlign.c)
+ *     RtlStringCbCatW @ 0x140265118 (RtlStringCbCatW.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     WmipInsertStaticNames @ 0x140638E70 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x14063904C (WmipStaticInstanceNameSize.c)
+ *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x14063EBE4 (WmipReferenceEntry.c)
+ *     WmipFindGEByGuid @ 0x14063F1D0 (WmipFindGEByGuid.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int a2)
+int *__fastcall WmipIncludeStaticNames(int *Src, unsigned int a2)
 {
+  int *v3; // rbx
   __int64 v4; // rbp
   volatile signed __int64 *GEByGuid; // rdi
   unsigned int v6; // esi
@@ -28,19 +29,19 @@ int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int a2)
   int v8; // ecx
   unsigned int v9; // edx
   unsigned int v10; // eax
-  unsigned int v11; // esi
+  unsigned int v11; // edi
   int *PoolWithTag; // rax
-  int *v13; // rdi
+  int *v13; // rsi
   __int64 v14; // rax
-  __int64 v15; // r15
-  const wchar_t *v16; // r15
-  __int64 v17; // rsi
+  __int64 v15; // r12
+  const wchar_t *v16; // r12
+  __int64 v17; // rdi
   __int64 v18; // rax
   unsigned int v19; // r14d
   __int64 v20; // rax
   __int64 v21; // r13
   int *v22; // rax
-  _WORD *v23; // rbx
+  _WORD *v23; // r15
   int v24; // eax
   unsigned int v25; // r14d
   unsigned int v26; // eax
@@ -48,13 +49,14 @@ int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int a2)
   int v29; // [rsp+34h] [rbp-54h]
   wchar_t pszDest[8]; // [rsp+38h] [rbp-50h] BYREF
 
+  v3 = Src;
   v4 = 0LL;
   if ( (Src[11] & 7) != 0 )
   {
     GEByGuid = WmipFindGEByGuid((_QWORD *)Src + 3, 0);
     if ( GEByGuid )
     {
-      v6 = Src[1];
+      v6 = v3[1];
       KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
       for ( i = *((_QWORD *)GEByGuid + 7); (volatile signed __int64 *)i != GEByGuid + 7; i = *(_QWORD *)i )
       {
@@ -73,7 +75,7 @@ int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int a2)
         if ( (v8 & 3) != 0 )
         {
           v9 = *(_DWORD *)(v4 + 72);
-          if ( (Src[11] & 1) != 0 )
+          if ( (v3[11] & 1) != 0 )
           {
             v28 = a2;
             if ( WmipAlign(4, (int *)&v28) )
@@ -86,18 +88,18 @@ int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int a2)
                 v13 = PoolWithTag;
                 if ( PoolWithTag )
                 {
-                  memmove(PoolWithTag, Src, *Src);
+                  memmove(PoolWithTag, v3, (unsigned int)*v3);
                   WmipInsertStaticNames(v13, v11, v4);
-LABEL_41:
-                  WmipUnreferenceEntry((__int64)&WmipISChunkInfo, (volatile signed __int64 *)v4);
-                  return v13;
+LABEL_34:
+                  v3 = v13;
+                  goto LABEL_41;
                 }
               }
             }
           }
           else
           {
-            v14 = Src[13];
+            v14 = (unsigned int)v3[13];
             v29 = v14;
             if ( (unsigned int)v14 < v9 )
             {
@@ -132,7 +134,7 @@ LABEL_41:
                   v13 = v22;
                   if ( v22 )
                   {
-                    memmove(v22, Src, *Src);
+                    memmove(v22, v3, (unsigned int)*v3);
                     v13[12] = v21;
                     *v13 = v19 + v21;
                     v23 = (_WORD *)((char *)v13 + v21);
@@ -155,7 +157,7 @@ LABEL_41:
                       while ( v23[v17 + 1] );
                       *v23 = 2 * (v17 + 1);
                     }
-                    goto LABEL_41;
+                    goto LABEL_34;
                   }
                 }
               }
@@ -165,17 +167,17 @@ LABEL_41:
       }
     }
   }
-  v26 = Src[11];
+  v26 = v3[11];
   if ( (v26 & 1) != 0 && a2 >= 0x3C )
   {
-    Src[14] = 0;
+    v3[14] = 0;
   }
   else if ( (v26 & 6) != 0 && a2 >= 0x34 )
   {
-    Src[12] = 0;
+    v3[12] = 0;
   }
-  v13 = (int *)Src;
+LABEL_41:
   if ( v4 )
-    goto LABEL_41;
-  return v13;
+    WmipUnreferenceEntry((__int64)&WmipISChunkInfo, (volatile signed __int64 *)v4);
+  return v3;
 }

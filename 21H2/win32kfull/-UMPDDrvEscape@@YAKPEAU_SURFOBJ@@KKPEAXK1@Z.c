@@ -1,22 +1,22 @@
 /*
- * XREFs of ?UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C0127650
+ * XREFs of ?UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C001E3D0
  * Callers:
  *     <none>
  * Callees:
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C01267F4 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C0129B98 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C0129CE0 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
- *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C0129D50 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
- *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C0129FAC (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
- *     ?bNeedThunk@UMPDOBJ@@QEBAHPEAX@Z @ 0x1C012A080 (-bNeedThunk@UMPDOBJ@@QEBAHPEAX@Z.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C012A154 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C012A484 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C012A700 (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
- *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C012B224 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02AB3A8 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DF14 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C001ED78 (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
+ *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C001EE10 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
+ *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C001F0A8 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
+ *     ?bNeedThunk@UMPDOBJ@@QEBAHPEAX@Z @ 0x1C001F15C (-bNeedThunk@UMPDOBJ@@QEBAHPEAX@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F188 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C001F4C4 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A1750 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A19A4 (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C00A1AD8 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02ACC48 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
  */
 
 __int64 __fastcall UMPDDrvEscape(
@@ -24,13 +24,13 @@ __int64 __fastcall UMPDDrvEscape(
         unsigned int a2,
         unsigned int a3,
         unsigned __int64 a4,
-        unsigned int Size,
+        size_t Size,
         void *a6)
 {
   unsigned int v7; // edi
   int v9; // r12d
   UMPDOBJ *v10; // rbx
-  unsigned int v11; // ecx
+  int v11; // ecx
   unsigned int v12; // eax
   int v13; // eax
   _QWORD *v14; // r13
@@ -70,7 +70,7 @@ __int64 __fastcall UMPDDrvEscape(
     goto LABEL_10;
   if ( a3 + 7 < a3 )
     goto LABEL_29;
-  if ( Size + 7 < Size )
+  if ( (int)Size + 7 < (unsigned int)Size )
     goto LABEL_29;
   v11 = (Size + 7) & 0xFFFFFFF8;
   v12 = ((a3 + 7) & 0xFFFFFFF8) + 80;
@@ -90,9 +90,9 @@ LABEL_10:
     LODWORD(v31[6]) = Size;
     v15 = v14;
     v31[5] = v14;
-    v26 = (void *)((unsigned __int64)v26 & -(__int64)(Size != 0));
+    v26 = (void *)((unsigned __int64)v26 & -(__int64)((_DWORD)Size != 0));
     v31[7] = v26;
-    if ( v23 != 25 || *((int *)a1->hdev + 448) >= 0 )
+    if ( v23 != 25 || *((int *)a1->hdev + 456) >= 0 )
       goto LABEL_15;
     if ( v14 )
     {
@@ -106,17 +106,17 @@ LABEL_15:
         if ( (!a3
            || !(unsigned int)UMPDOBJ::bNeedThunk(v10, v14)
            || (unsigned int)UMPDOBJ::ThunkMemBlock(v17, (void **)&v31[5], a3))
-          && (!Size || (v31[7] = UMPDOBJ::_AllocUserMem(v10, Size, 1)) != 0LL) )
+          && (!(_DWORD)Size || (v31[7] = UMPDOBJ::_AllocUserMem(v10, Size, 1)) != 0LL) )
         {
           if ( (unsigned int)UMPDOBJ::pso(v10, (UMPDOBJ *)((char *)v10 + 64), (struct _SURFOBJ **)&v31[3], v9) )
           {
             LODWORD(v20) = 4;
             if ( UMPDOBJ::Thunk(v10, v31, 0x40u, &v22, v20) != -1 )
             {
-              if ( Size )
+              if ( (_DWORD)Size )
               {
                 KernelPtr = UMPDOBJ::GetKernelPtr(v10, (void *)v31[7]);
-                memmove(v26, KernelPtr, Size);
+                memmove(v26, KernelPtr, (unsigned int)Size);
               }
               v7 = v22;
             }

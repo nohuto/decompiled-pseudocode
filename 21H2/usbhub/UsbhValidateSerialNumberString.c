@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhValidateSerialNumberString @ 0x1C00526D8
+ * XREFs of UsbhValidateSerialNumberString @ 0x1C0053D28
  * Callers:
- *     UsbhGetSerialNumber @ 0x1C00500D4 (UsbhGetSerialNumber.c)
+ *     UsbhGetSerialNumber @ 0x1C00516AC (UsbhGetSerialNumber.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 char __fastcall UsbhValidateSerialNumberString(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _BYTE *a5)

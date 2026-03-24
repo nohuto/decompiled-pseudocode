@@ -1,7 +1,7 @@
 /*
- * XREFs of ProcessorQueryGroupInformation @ 0x1C009AF58
+ * XREFs of ProcessorQueryGroupInformation @ 0x1C0097AFC
  * Callers:
- *     IrqPolicyUpdatePolicy @ 0x1C00AC5DC (IrqPolicyUpdatePolicy.c)
+ *     IrqPolicyUpdatePolicy @ 0x1C00BD6C4 (IrqPolicyUpdatePolicy.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall ProcessorQueryGroupInformation(__int64 a1, _DWORD *a2, char *
   __int64 v7; // rcx
   char v8; // dl
   __int64 *v9; // rax
-  bool v10; // cf
+  bool v11; // cf
 
   MaximumGroupCount = KeQueryMaximumGroupCount();
   v6 = 0;
@@ -23,9 +23,9 @@ __int64 __fastcall ProcessorQueryGroupInformation(__int64 a1, _DWORD *a2, char *
     v9 = *(__int64 **)(v7 + 16);
     while ( v9 != (__int64 *)(v7 + 16) )
     {
-      v10 = *((_DWORD *)v9 + 4) < 0xFFFFu;
+      v11 = *((_DWORD *)v9 + 4) < 0xFFFFu;
       v9 = (__int64 *)*v9;
-      if ( !v10 )
+      if ( !v11 )
         v8 = 1;
     }
     *a2 = *(_DWORD *)(v7 + 36);

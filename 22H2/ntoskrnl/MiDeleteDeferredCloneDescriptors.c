@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteDeferredCloneDescriptors @ 0x140663F7C
+ * XREFs of MiDeleteDeferredCloneDescriptors @ 0x14055A000
  * Callers:
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     MiDeleteCloneZombies @ 0x140367034 (MiDeleteCloneZombies.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiDeleteCloneZombies @ 0x14032267C (MiDeleteCloneZombies.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     RtlpInterlockedFlushSList @ 0x140428870 (RtlpInterlockedFlushSList.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     RtlpInterlockedFlushSList @ 0x140407030 (RtlpInterlockedFlushSList.c)
  */
 
 unsigned __int64 *__fastcall MiDeleteDeferredCloneDescriptors(__int64 a1)
@@ -16,7 +16,7 @@ unsigned __int64 *__fastcall MiDeleteDeferredCloneDescriptors(__int64 a1)
   unsigned __int64 *v5; // rbx
 
   v2 = 0LL;
-  v3 = RtlpInterlockedFlushSList((PSLIST_HEADER)(*(_QWORD *)(a1 + 1680) + 352LL));
+  v3 = RtlpInterlockedFlushSList((PSLIST_HEADER)(*(_QWORD *)(a1 + 1680) + 368LL));
   if ( v3 )
   {
     v4 = (unsigned __int64 *)(a1 + 1264);

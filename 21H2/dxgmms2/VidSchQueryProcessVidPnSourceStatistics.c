@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchQueryProcessVidPnSourceStatistics @ 0x1C00F4A20
+ * XREFs of VidSchQueryProcessVidPnSourceStatistics @ 0x1C00D1DF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,18 +8,28 @@
 
 __int64 __fastcall VidSchQueryProcessVidPnSourceStatistics(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v4; // r11
-  _DWORD *v5; // rdx
+  __int64 v7; // rdi
+  __int64 v8; // rsi
+  __int64 v9; // rdx
+  _DWORD *v10; // r8
 
-  if ( a2 >= *(_DWORD *)(a1 + 40) )
-    return 3221225485LL;
-  v4 = *(_QWORD *)(*(_QWORD *)(a3 + 32) + 8LL * *(unsigned int *)(a1 + 4));
-  if ( !v4 || !*(_QWORD *)(v4 + 8LL * a2 + 88) )
-    return 3221225485LL;
-  _mm_lfence();
-  v5 = *(_DWORD **)(*(_QWORD *)(*(_QWORD *)(a3 + 32) + 8LL * *(unsigned int *)(a1 + 4)) + 8LL * a2 + 88);
-  *a4 = *v5;
-  a4[1] = v5[1];
-  a4[2] = v5[2];
-  return 0LL;
+  v7 = a2;
+  if ( a2 < *(_DWORD *)(a1 + 40) )
+  {
+    v8 = a3 + 2656;
+    ExAcquirePushLockSharedEx(a3 + 2656, 0LL);
+    v9 = *(_QWORD *)(*(_QWORD *)(a3 + 24) + 8LL * *(unsigned int *)(a1 + 4));
+    if ( v9 && *(_QWORD *)(v9 + 8 * v7 + 88) )
+    {
+      _mm_lfence();
+      v10 = *(_DWORD **)(*(_QWORD *)(*(_QWORD *)(a3 + 24) + 8LL * *(unsigned int *)(a1 + 4)) + 8 * v7 + 88);
+      *a4 = *v10;
+      a4[1] = v10[1];
+      a4[2] = v10[2];
+      ExReleasePushLockSharedEx(v8, 0LL);
+      return 0LL;
+    }
+    ExReleasePushLockSharedEx(v8, 0LL);
+  }
+  return 3221225485LL;
 }

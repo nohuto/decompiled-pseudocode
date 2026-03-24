@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EventQueueWorker@FxEventQueue@@IEAAXXZ @ 0x1C0015F48
+ * XREFs of ?EventQueueWorker@FxEventQueue@@IEAAXXZ @ 0x1C0016658
  * Callers:
- *     ?_WorkerThreadRoutine@FxThreadedEventQueue@@KAXPEAX@Z @ 0x1C0014720 (-_WorkerThreadRoutine@FxThreadedEventQueue@@KAXPEAX@Z.c)
- *     ?_WorkItemCallback@FxThreadedEventQueue@@KAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0015F30 (-_WorkItemCallback@FxThreadedEventQueue@@KAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
- *     ?_WorkItemCallback@FxWorkItemEventQueue@@KAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0030C60 (-_WorkItemCallback@FxWorkItemEventQueue@@KAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
+ *     ?_WorkerThreadRoutine@FxThreadedEventQueue@@KAXPEAX@Z @ 0x1C0016620 (-_WorkerThreadRoutine@FxThreadedEventQueue@@KAXPEAX@Z.c)
+ *     ?_WorkItemCallback@FxThreadedEventQueue@@KAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0016640 (-_WorkItemCallback@FxThreadedEventQueue@@KAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
+ *     ?_WorkItemCallback@FxWorkItemEventQueue@@KAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C008B060 (-_WorkItemCallback@FxWorkItemEventQueue@@KAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
  * Callees:
- *     ?Evaluate@FxPostProcessInfo@@QEAAXPEAVFxPkgPnp@@@Z @ 0x1C0016054 (-Evaluate@FxPostProcessInfo@@QEAAXPEAVFxPkgPnp@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?ProcessDelayedDeletion@FxPkgPnp@@QEAAXXZ @ 0x1C00821CC (-ProcessDelayedDeletion@FxPkgPnp@@QEAAXXZ.c)
  */
 
 void __fastcall FxEventQueue::EventQueueWorker(FxEventQueue *this)
@@ -14,11 +14,14 @@ void __fastcall FxEventQueue::EventQueueWorker(FxEventQueue *this)
   FxPkgPnp *m_PkgPnp; // rdi
   _FX_DRIVER_GLOBALS *m_Globals; // rdx
   KIRQL v4; // al
-  KIRQL v5; // dl
-  unsigned __int8 m_QueueFlags; // r8
+  KIRQL v5; // r8
+  unsigned __int8 m_QueueFlags; // dl
   unsigned __int8 v7; // cl
+  _IRP *m_FireAndForgetIrp; // rax
+  FxCREvent *m_DeviceRemoveProcessed; // rcx
   FxCREvent *m_WorkItemFinished; // rax
-  FxPostProcessInfo info; // [rsp+20h] [rbp-28h] BYREF
+  FxPostProcessInfo info; // [rsp+20h] [rbp-20h] BYREF
+  _IRP *v12; // [rsp+50h] [rbp+10h] BYREF
 
   info.m_Event = 0LL;
   *(_WORD *)&info.m_DeleteObject = 0;
@@ -56,5 +59,23 @@ void __fastcall FxEventQueue::EventQueueWorker(FxEventQueue *this)
     }
   }
   KeReleaseSpinLock(&this->m_QueueLock.m_Lock, v5);
-  FxPostProcessInfo::Evaluate(&info, m_PkgPnp);
+  if ( info.m_SetRemovedEvent )
+  {
+    m_DeviceRemoveProcessed = (FxCREvent *)m_PkgPnp->m_DeviceRemoveProcessed;
+LABEL_18:
+    KeSetEvent(&m_DeviceRemoveProcessed->m_Event.m_Event, 0, 0);
+    return;
+  }
+  m_FireAndForgetIrp = info.m_FireAndForgetIrp;
+  if ( info.m_FireAndForgetIrp )
+  {
+    info.m_FireAndForgetIrp = 0LL;
+    v12 = m_FireAndForgetIrp;
+    m_PkgPnp->FireAndForgetIrp(m_PkgPnp, (FxIrp *)&v12);
+  }
+  if ( info.m_DeleteObject )
+    FxPkgPnp::ProcessDelayedDeletion(m_PkgPnp);
+  m_DeviceRemoveProcessed = info.m_Event;
+  if ( info.m_Event )
+    goto LABEL_18;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DpiEdidCheckSum@@YAEPEADK@Z @ 0x1C001FB00
+ * XREFs of ?DpiEdidCheckSum@@YAEPEADK@Z @ 0x1C0020F80
  * Callers:
- *     DpiIsValidEdid @ 0x1C001FACC (DpiIsValidEdid.c)
+ *     DpiIsValidEdid @ 0x1C0020F4C (DpiIsValidEdid.c)
  * Callees:
  *     <none>
  */
@@ -20,5 +20,5 @@ bool __fastcall DpiEdidCheckSum(char *a1, __int64 a2)
     --a2;
   }
   while ( a2 );
-  return v2 == 0;
+  return !v2;
 }

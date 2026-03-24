@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_NotifyingTransferRingsEndpointResetFromClient @ 0x1C004F590
+ * XREFs of ESM_NotifyingTransferRingsEndpointResetFromClient @ 0x1C004EA70
  * Callers:
  *     <none>
  * Callees:
- *     TR_EndpointResetFromClient @ 0x1C003FA2C (TR_EndpointResetFromClient.c)
+ *     TR_EndpointResetFromClient @ 0x1C003F218 (TR_EndpointResetFromClient.c)
  */
 
 __int64 __fastcall ESM_NotifyingTransferRingsEndpointResetFromClient(__int64 a1)

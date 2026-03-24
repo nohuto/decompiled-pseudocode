@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpResSearchResourceInsideDirectory @ 0x1407D38A8
+ * XREFs of LdrpResSearchResourceInsideDirectory @ 0x14068C6A4
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x140206200 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1402A7F28 (LdrpResSearchResourceMappedFile.c)
  * Callees:
- *     RtlULongLongAdd @ 0x140354360 (RtlULongLongAdd.c)
- *     RtlULongLongSub @ 0x140354968 (RtlULongLongSub.c)
- *     LdrpSectionTableFromVirtualAddress @ 0x140675C38 (LdrpSectionTableFromVirtualAddress.c)
- *     LdrpResCompareResourceNames @ 0x1407D4430 (LdrpResCompareResourceNames.c)
+ *     RtlULongLongAdd @ 0x14024D620 (RtlULongLongAdd.c)
+ *     RtlULongLongSub @ 0x1402606B8 (RtlULongLongSub.c)
+ *     LdrpResCompareResourceNames @ 0x14068D22C (LdrpResCompareResourceNames.c)
+ *     LdrpSectionTableFromVirtualAddress @ 0x14068D86C (LdrpSectionTableFromVirtualAddress.c)
  */
 
 __int64 __fastcall LdrpResSearchResourceInsideDirectory(
@@ -24,7 +24,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
         int a12,
         _WORD *a13)
 {
-  __int64 v14; // r11
+  ULONGLONG v14; // r11
   unsigned int v16; // ebx
   unsigned int v17; // edx
   _QWORD *v18; // r8
@@ -49,7 +49,7 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   __int64 v37; // rax
   __int64 v38; // rax
   int v39; // r10d
-  __int64 v40; // r9
+  int v40; // r9d
   ULONGLONG v41; // rdi
   ULONGLONG v42; // rsi
   ULONGLONG v43; // r11
@@ -62,16 +62,16 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
   ULONGLONG *v50; // r10
   __int64 v51; // r11
   __int64 v52; // r9
-  __int64 v53; // r8
+  int v53; // r8d
   __int16 v54; // ax
   unsigned int v55; // r10d
   __int64 v56; // rsi
   __int64 v57; // rax
-  __int64 v58; // r8
-  __int64 v59; // r9
+  int v58; // r8d
+  int v59; // r9d
   __int64 v60; // rax
-  __int64 v61; // r8
-  __int64 v62; // r9
+  int v61; // r8d
+  int v62; // r9d
   __int64 v63; // rax
   __int64 v64; // r10
   __int64 v65; // r10
@@ -142,13 +142,13 @@ __int64 __fastcall LdrpResSearchResourceInsideDirectory(
     *a13 = 0;
 LABEL_12:
   if ( !v21 )
-    goto LABEL_54;
+    goto LABEL_58;
   v23 = v20;
   v24 = v20 - 1;
   v80 = v24;
   v90 = v24;
   if ( !v23 )
-    goto LABEL_54;
+    goto LABEL_58;
   v82 = *v18;
   v84 = v82;
   if ( !v24 && a8 == 3 )
@@ -221,7 +221,7 @@ LABEL_12:
   if ( !v27 )
   {
     v77 = 0LL;
-LABEL_104:
+LABEL_106:
     switch ( a8 - v80 )
     {
       case 1:
@@ -254,7 +254,7 @@ LABEL_26:
     }
     v17 = *v26;
     v84 = *v26;
-LABEL_54:
+LABEL_58:
     v39 = v19 & 2;
     if ( v22 && !v39 )
     {
@@ -263,7 +263,7 @@ LABEL_54:
       {
         goto LABEL_151;
       }
-      v40 = (__int64)a13;
+      v40 = (int)a13;
       if ( a13 )
         *a13 = v17;
       v41 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
@@ -299,17 +299,17 @@ LABEL_54:
           v53 = a5;
         }
         v42 = v41 + v56 - a4;
-        v57 = LdrpSectionTableFromVirtualAddress(a1 & 0xFFFFFFFFFFFFFFFCuLL, v14, v53, v40, v55, v93);
+        v57 = LdrpSectionTableFromVirtualAddress((unsigned int)a1 & 0xFFFFFFFC, v14, v53, v40, v55, v93);
         if ( !v57 )
           goto LABEL_151;
         if ( *v22 > *(_DWORD *)(v57 + 8) )
         {
           ullSubtrahenda = *(_DWORD *)(v57 + 12);
-          v60 = LdrpSectionTableFromVirtualAddress(a1 & 0xFFFFFFFFFFFFFFFCuLL, a3, v58, v59, *v22, v93);
+          v60 = LdrpSectionTableFromVirtualAddress((unsigned int)a1 & 0xFFFFFFFC, a3, v58, v59, *v22, v93);
           if ( !v60 )
             goto LABEL_151;
           v96 = *(_DWORD *)(v60 + 12);
-          v63 = LdrpSectionTableFromVirtualAddress(a1 & 0xFFFFFFFFFFFFFFFCuLL, a3, v61, v62, v96, v93);
+          v63 = LdrpSectionTableFromVirtualAddress((unsigned int)a1 & 0xFFFFFFFC, a3, v61, v62, v96, v93);
           v64 = v63;
           if ( v63 )
           {
@@ -352,7 +352,7 @@ LABEL_54:
         v44 = 0LL;
         v46 = v22[1];
         v45 = a3;
-LABEL_70:
+LABEL_74:
         v47 = a10;
         if ( a10 )
         {
@@ -393,7 +393,7 @@ LABEL_70:
           {
             v46 = (unsigned int)v43;
             if ( v43 <= a3 && pullResult + v43 <= a3 )
-              goto LABEL_70;
+              goto LABEL_74;
           }
         }
       }
@@ -423,7 +423,7 @@ LABEL_151:
       }
       return v16;
     }
-    goto LABEL_104;
+    goto LABEL_106;
   }
 LABEL_27:
   v21 = 0LL;
@@ -451,7 +451,7 @@ LABEL_27:
       {
         v34 = v86[1];
         if ( (v34 & 0x80000000) == 0LL )
-          goto LABEL_97;
+          goto LABEL_100;
 LABEL_34:
         if ( (a12 & 0x1000) != 0 )
         {
@@ -474,7 +474,7 @@ LABEL_40:
       if ( (v74 & 4) != 0 )
       {
         LOWORD(v17) = v82;
-        goto LABEL_54;
+        goto LABEL_58;
       }
       HIWORD(v69) = HIWORD(v79);
       LOWORD(v69) = v79 + 1;
@@ -553,18 +553,18 @@ LABEL_41:
     goto LABEL_34;
   v21 = 0LL;
   v77 = 0LL;
-LABEL_97:
+LABEL_100:
   if ( (a12 & 0x1000) == 0 )
   {
     v22 = (unsigned int *)(v34 + a4);
-LABEL_101:
+LABEL_104:
     v76 = (ULONGLONG)v22;
     goto LABEL_39;
   }
   if ( v81 && RtlULongLongAdd(a4, v34, &pullResult) >= 0 )
   {
     v22 = (unsigned int *)pullResult;
-    goto LABEL_101;
+    goto LABEL_104;
   }
   return (unsigned int)-1073741701;
 }

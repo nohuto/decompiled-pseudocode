@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiPdoHandleStopDevice @ 0x1C0397690
+ * XREFs of DpiPdoHandleStopDevice @ 0x1C02D90A0
  * Callers:
- *     DpiPdoDispatchPnp @ 0x1C01E4250 (DpiPdoDispatchPnp.c)
+ *     DpiPdoDispatchPnp @ 0x1C0168730 (DpiPdoDispatchPnp.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
  */
 
 __int64 __fastcall DpiPdoHandleStopDevice(__int64 a1)
@@ -12,6 +12,9 @@ __int64 __fastcall DpiPdoHandleStopDevice(__int64 a1)
   __int64 v1; // rbx
   int v3; // eax
   bool v4; // zf
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
 
   v1 = *(_QWORD *)(a1 + 64);
   KeEnterCriticalRegion();
@@ -28,6 +31,8 @@ __int64 __fastcall DpiPdoHandleStopDevice(__int64 a1)
     DpiEnableD3Requests(*(_QWORD *)(v1 + 24));
   ExReleaseResourceLite(*(PERESOURCE *)(v1 + 168));
   KeLeaveCriticalRegion();
-  WdLogSingleEntry1(4LL, a1);
+  v7 = WdLogNewEntry5_WdEvent(v6, v5);
+  *(_QWORD *)(v7 + 24) = a1;
+  WdLogEvent5_WdEvent(v7);
   return 0LL;
 }

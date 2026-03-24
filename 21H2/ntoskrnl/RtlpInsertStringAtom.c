@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpInsertStringAtom @ 0x1406C5878
+ * XREFs of RtlpInsertStringAtom @ 0x1406ACC5C
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x1402F1090 (RtlAddAtomToAtomTableEx.c)
+ *     RtlAddAtomToAtomTableEx @ 0x14025A350 (RtlAddAtomToAtomTableEx.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExMapHandleToPointer @ 0x1407A1AC0 (ExMapHandleToPointer.c)
- *     ExCreateHandleEx @ 0x1407A1CE8 (ExCreateHandleEx.c)
- *     ExDestroyHandle @ 0x1407A2B78 (ExDestroyHandle.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExDestroyHandle @ 0x140619D78 (ExDestroyHandle.c)
+ *     ExMapHandleToPointer @ 0x14061BB00 (ExMapHandleToPointer.c)
+ *     ExCreateHandleEx @ 0x14062D820 (ExCreateHandleEx.c)
  */
 
 char __fastcall RtlpInsertStringAtom(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ char __fastcall RtlpInsertStringAtom(__int64 a1, __int64 a2)
   __int64 v5; // rbx
   unsigned int v6; // eax
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v9; // rax
+  signed __int64 *v9; // rax
 
   Handle = ExCreateHandleEx(*(_QWORD *)(a1 + 16), a2, 0, 0, 0LL);
   v5 = Handle;
@@ -32,7 +32,7 @@ char __fastcall RtlpInsertStringAtom(__int64 a1, __int64 a2)
     --CurrentThread->KernelApcDisable;
     v9 = ExMapHandleToPointer(*(_QWORD *)(a1 + 16), v5);
     ExDestroyHandle(*(_QWORD *)(a1 + 16), v5, v9);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return 0;
 }

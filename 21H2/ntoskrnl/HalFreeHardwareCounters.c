@@ -1,34 +1,28 @@
 /*
- * XREFs of HalFreeHardwareCounters @ 0x140908600
+ * XREFs of HalFreeHardwareCounters @ 0x1408643D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpReleaseHalCounters @ 0x1404B9130 (HalpReleaseHalCounters.c)
  */
 
 NTSTATUS __stdcall HalFreeHardwareCounters(HANDLE CounterSetHandle)
 {
-  unsigned int v1; // edx
-  __int64 v2; // rax
-  __int64 (*v4)(void); // rax
+  __int64 v2; // rdx
 
-  if ( CounterSetHandle != (HANDLE)HalpFullPmuHandle )
+  if ( CounterSetHandle == (HANDLE)HalpFullPmuHandle )
   {
-    if ( (char *)CounterSetHandle - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL )
+    if ( (HalpPmuInUse & 1) != 0 )
     {
-      v4 = HalpProfileInterface[15];
-      if ( v4 )
-        return v4();
+      _InterlockedDecrement(&HalpPmuInUse);
+      return 0;
     }
-    return -1073741811;
   }
-  if ( (KeGetCurrentPrcb()->HalReserved[2] & 1) == 0 )
-    return -1073741811;
-  v1 = 0;
-  while ( v1 < (unsigned __int8)KeNumberProcessors_0 )
+  else if ( (char *)CounterSetHandle - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL && *((_QWORD *)HalpProfileInterface[0] + 14) )
   {
-    v2 = v1++;
-    _InterlockedDecrement((volatile signed __int32 *)(KiProcessorBlock[v2] + 88));
+    HalpReleaseHalCounters();
+    return (*((__int64 (__fastcall **)(__int64))HalpProfileInterface[0] + 14))(v2);
   }
-  return 0;
+  return -1073741811;
 }

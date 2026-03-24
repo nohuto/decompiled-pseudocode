@@ -1,30 +1,30 @@
 /*
- * XREFs of MiLockProbePacketWorkingSet @ 0x14034B3F4
+ * XREFs of MiLockProbePacketWorkingSet @ 0x14030F1D8
  * Callers:
- *     MiProbeAndLockPacket @ 0x140236240 (MiProbeAndLockPacket.c)
- *     MiProbeLeafPteAccess @ 0x140236C30 (MiProbeLeafPteAccess.c)
- *     MiFaultInProbeAddress @ 0x14034B2CC (MiFaultInProbeAddress.c)
- *     MmProbeAndLockSelectedPages @ 0x1403D4D60 (MmProbeAndLockSelectedPages.c)
- *     MiSplitReducedCommitClonePage @ 0x14061CAD4 (MiSplitReducedCommitClonePage.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MiProbeLeafPteAccess @ 0x14020B6B0 (MiProbeLeafPteAccess.c)
+ *     MmProbeAndLockSelectedPages @ 0x14030EB80 (MmProbeAndLockSelectedPages.c)
+ *     MiFaultInProbeAddress @ 0x14030F0A8 (MiFaultInProbeAddress.c)
+ *     MiSplitReducedCommitClonePage @ 0x140530CD4 (MiSplitReducedCommitClonePage.c)
  * Callees:
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
  */
 
-char __fastcall MiLockProbePacketWorkingSet(__int64 a1)
+char __fastcall MiLockProbePacketWorkingSet(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  int v2; // ecx
-  __int64 v3; // rax
+  int v5; // ecx
+  __int64 v6; // rax
 
-  *(_DWORD *)(a1 + 72) &= 0xFFFFFFCF;
-  LOBYTE(v3) = MiLockWorkingSetShared(*(_QWORD *)(a1 + 104));
-  v2 = *(_DWORD *)(a1 + 72);
-  *(_BYTE *)(a1 + 76) = v3;
-  LOBYTE(v3) = v2 & 0xF;
-  if ( (v2 & 0xF) == 1 )
+  *(_DWORD *)(a1 + 64) &= 0xFFFFFFCF;
+  LOBYTE(v6) = MiLockWorkingSetShared(*(_QWORD *)(a1 + 96), a2, a3, a4);
+  v5 = *(_DWORD *)(a1 + 64);
+  *(_BYTE *)(a1 + 68) = v6;
+  LOBYTE(v6) = v5 & 0xF;
+  if ( (v5 & 0xF) == 1 )
   {
-    v3 = *(_QWORD *)(a1 + 88);
-    if ( *(_QWORD *)(v3 + 1264) )
-      *(_DWORD *)(a1 + 72) = v2 | 0x10;
+    v6 = *(_QWORD *)(a1 + 80);
+    if ( *(_QWORD *)(v6 + 1264) )
+      *(_DWORD *)(a1 + 64) = v5 | 0x10;
   }
-  return v3;
+  return v6;
 }

@@ -5,15 +5,15 @@
  *     PsImpersonateContainerOfThread @ 0x14005AE90 (PsImpersonateContainerOfThread.c)
  *     ObFastReferenceObjectLocked @ 0x14007DFF4 (ObFastReferenceObjectLocked.c)
  *     IopAcquireFastLock @ 0x14008C84C (IopAcquireFastLock.c)
- *     IoGetAttachedDeviceReference @ 0x1400ACE20 (IoGetAttachedDeviceReference.c)
- *     IopCallDriverReference @ 0x1400B6B90 (IopCallDriverReference.c)
- *     ExpApplyPriorityBoost @ 0x1400CEA00 (ExpApplyPriorityBoost.c)
- *     ObpLockDirectoryShared @ 0x140109F38 (ObpLockDirectoryShared.c)
- *     ExpSetResourceOwnerPointerEx @ 0x14010A2A0 (ExpSetResourceOwnerPointerEx.c)
+ *     IoGetAttachedDeviceReference @ 0x1400ACE40 (IoGetAttachedDeviceReference.c)
+ *     IopCallDriverReference @ 0x1400B6BB0 (IopCallDriverReference.c)
+ *     ExpApplyPriorityBoost @ 0x1400CEA20 (ExpApplyPriorityBoost.c)
+ *     ObpLockDirectoryShared @ 0x140109F58 (ObpLockDirectoryShared.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x14010A2C0 (ExpSetResourceOwnerPointerEx.c)
  *     ObpReferenceProcessObjectByHandle @ 0x1405D11B0 (ObpReferenceProcessObjectByHandle.c)
- *     ObInheritObjectHandle @ 0x1406969C4 (ObInheritObjectHandle.c)
+ *     ObInheritObjectHandle @ 0x1406969A4 (ObInheritObjectHandle.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall ObpIncrPointerCount(volatile signed __int64 *a1)

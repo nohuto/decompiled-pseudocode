@@ -1,14 +1,14 @@
 /*
- * XREFs of PerfDiagpUpdateCKCLEnableFlags @ 0x140742D78
+ * XREFs of PerfDiagpUpdateCKCLEnableFlags @ 0x140742D58
  * Callers:
- *     PerfDiagpProxyWorker @ 0x140742AE0 (PerfDiagpProxyWorker.c)
+ *     PerfDiagpProxyWorker @ 0x140742AC0 (PerfDiagpProxyWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
  *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
- *     PerfDiagpInitializeLoggerInfo @ 0x140742E84 (PerfDiagpInitializeLoggerInfo.c)
+ *     PerfDiagpInitializeLoggerInfo @ 0x140742E64 (PerfDiagpInitializeLoggerInfo.c)
  */
 
 __int64 __fastcall PerfDiagpUpdateCKCLEnableFlags(__int64 a1, __int64 a2)
@@ -38,9 +38,9 @@ __int64 __fastcall PerfDiagpUpdateCKCLEnableFlags(__int64 a1, __int64 a2)
       }
       else
       {
-        memmove(&unk_14040A888, &Size[1], LODWORD(Size[0]));
+        memmove(&unk_14040A868, &Size[1], LODWORD(Size[0]));
         PerfDiagpInitializeLoggerInfo(1LL, v4 >> 2);
-        return NtTraceControl(4u, dword_14040A7D0, dword_14040A7D0[0], dword_14040A7D0, dword_14040A7D0[0], v5);
+        return NtTraceControl(4u, dword_14040A7B0, dword_14040A7B0[0], dword_14040A7B0, dword_14040A7B0[0], v5);
       }
     }
     else

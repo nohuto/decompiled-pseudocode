@@ -1,9 +1,9 @@
 /*
- * XREFs of KeReleaseGuardedMutexUnsafe @ 0x140459FC0
+ * XREFs of KeReleaseGuardedMutexUnsafe @ 0x1403B5160
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
  */
 
 void __stdcall KeReleaseGuardedMutexUnsafe(PKGUARDED_MUTEX FastMutex)

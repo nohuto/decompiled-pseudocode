@@ -1,58 +1,43 @@
 /*
- * XREFs of EditionHandleSonarKeyEvent @ 0x1C00AFC50
+ * XREFs of EditionHandleSonarKeyEvent @ 0x1C011AB70
  * Callers:
  *     <none>
  * Callees:
- *     StopFade @ 0x1C01BCD50 (StopFade.c)
- *     zzzStartSonar @ 0x1C01BD5FC (zzzStartSonar.c)
+ *     StopFade @ 0x1C01E7A90 (StopFade.c)
+ *     zzzStartSonar @ 0x1C01E8308 (zzzStartSonar.c)
  */
 
 __int64 __fastcall EditionHandleSonarKeyEvent(__int64 a1, char a2)
 {
   __int64 result; // rax
-  __int64 v4; // rcx
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rcx
 
   result = *(unsigned __int16 *)(a1 + 2);
   if ( (result & 0x4000) == 0 )
   {
     if ( (result & 0x8000u) == 0LL )
     {
-      if ( _bittest((const signed __int32 *)gpdwCPUserPreferencesMask, 0xEu) )
+      result = (__int64)gpdwCPUserPreferencesMask;
+      if ( ((unsigned __int16)gpdwCPUserPreferencesMask & 0x4000) != 0 )
       {
-        a1 = gfade[12];
-        if ( (a1 & 0x80u) != 0LL )
+        result = gfade[0];
+        if ( (LODWORD(gfade[6]) & 0x80u) != 0 )
         {
-          StopFade();
-          *(_DWORD *)(SGDGetUserSessionState(v6) + 15964) = -1;
+          result = StopFade();
+          giSonarRadius = -1;
         }
       }
-      result = SGDGetUserSessionState(a1);
-      if ( *(_BYTE *)(result + 13991) != a2 )
-      {
-        result = SGDGetUserSessionState(v5);
-        *(_BYTE *)(result + 13991) = a2;
-      }
+      if ( gbLastVkForSonar != a2 )
+        gbLastVkForSonar = a2;
     }
     else
     {
-      if ( a2 == *(_BYTE *)(SGDGetUserSessionState(a1) + 13990)
-        && a2 == *(_BYTE *)(SGDGetUserSessionState(v4) + 13991)
-        && _bittest((const signed __int32 *)gpdwCPUserPreferencesMask, 0xEu) )
-      {
+      if ( a2 == 17 && gbLastVkForSonar == 17 && ((unsigned __int16)gpdwCPUserPreferencesMask & 0x4000) != 0 )
         zzzStartSonar();
-      }
       result = (__int64)gpdwCPUserPreferencesMask;
-      if ( _bittest((const signed __int32 *)gpdwCPUserPreferencesMask, 0xEu) )
+      if ( ((unsigned __int16)gpdwCPUserPreferencesMask & 0x4000) != 0 )
       {
-        result = SGDGetUserSessionState(v4);
-        if ( *(_BYTE *)(result + 13991) )
-        {
-          result = SGDGetUserSessionState(v7);
-          *(_BYTE *)(result + 13991) = 0;
-        }
+        if ( gbLastVkForSonar )
+          gbLastVkForSonar = 0;
       }
     }
   }

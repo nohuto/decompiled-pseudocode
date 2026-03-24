@@ -1,12 +1,12 @@
 /*
- * XREFs of WdipSemUpdateFrequentScenarioTable @ 0x1409DAACC
+ * XREFs of WdipSemUpdateFrequentScenarioTable @ 0x140930074
  * Callers:
- *     WdipSemLogInflightLimitExceededInformation @ 0x1409DA90C (WdipSemLogInflightLimitExceededInformation.c)
+ *     WdipSemLogInflightLimitExceededInformation @ 0x14092FEB4 (WdipSemLogInflightLimitExceededInformation.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     WdipSemFastAllocate @ 0x14081538C (WdipSemFastAllocate.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     WdipSemFastAllocate @ 0x1407889C0 (WdipSemFastAllocate.c)
  */
 
 __int64 __fastcall WdipSemUpdateFrequentScenarioTable(struct _SLIST_ENTRY *a1)
@@ -18,17 +18,17 @@ __int64 __fastcall WdipSemUpdateFrequentScenarioTable(struct _SLIST_ENTRY *a1)
   CurrentThread = KeGetCurrentThread();
   v2 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C16C28, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C1A988, 0LL);
   if ( a1 )
   {
-    if ( (unsigned int)dword_140C16C20 < 0x80 )
+    if ( (unsigned int)dword_140C1A980 < 0x80 )
     {
       v4 = WdipSemFastAllocate(5, 0x18u);
       if ( v4 )
       {
         *v4 = *a1;
         v4[1].Next = a1[1].Next;
-        WdipSemFrequentScenarioTable[dword_140C16C20++] = v4;
+        WdipSemFrequentScenarioTable[dword_140C1A980++] = v4;
       }
       else
       {
@@ -44,7 +44,7 @@ __int64 __fastcall WdipSemUpdateFrequentScenarioTable(struct _SLIST_ENTRY *a1)
   {
     v2 = -1073741811;
   }
-  ExReleasePushLockEx((ULONG_PTR)&qword_140C16C28, 0LL);
-  KeLeaveCriticalRegion();
+  ExReleasePushLockEx((ULONG_PTR)&qword_140C1A988, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v2;
 }

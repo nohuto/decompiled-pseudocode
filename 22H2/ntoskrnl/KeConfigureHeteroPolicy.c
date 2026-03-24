@@ -1,33 +1,30 @@
 /*
- * XREFs of KeConfigureHeteroPolicy @ 0x14082FAD4
+ * XREFs of KeConfigureHeteroPolicy @ 0x1407BBED0
  * Callers:
- *     PopConfigureHeteroPolicies @ 0x14082F41C (PopConfigureHeteroPolicies.c)
+ *     PopConfigureHeteroPolicies @ 0x1407BB8BC (PopConfigureHeteroPolicies.c)
  * Callees:
  *     <none>
  */
 
 char __fastcall KeConfigureHeteroPolicy(_DWORD *a1)
 {
-  __int64 v1; // r8
-  __int64 v3; // rbx
+  char v1; // r9
+  __int64 v3; // r10
   int *v4; // rax
-  __int64 v5; // r9
+  __int64 v5; // rdx
   __int64 v6; // rcx
   int v7; // ecx
-  char v8; // r9
-  int *v9; // rcx
-  __int64 v10; // r11
-  int v11; // eax
-  char v12; // r10
-  char v13; // r10
+  _DWORD *v8; // rcx
+  __int64 v9; // rdx
+  int v10; // eax
   char result; // al
 
-  v1 = 0LL;
+  v1 = 0;
   if ( *a1 >= 9u )
     *a1 = 0;
-  v3 = 7LL;
+  v3 = 5LL;
   v4 = a1 + 1;
-  v5 = 7LL;
+  v5 = 5LL;
   do
   {
     v6 = 2LL;
@@ -42,59 +39,45 @@ char __fastcall KeConfigureHeteroPolicy(_DWORD *a1)
     --v5;
   }
   while ( v5 );
-  v7 = a1[17];
+  v7 = a1[13];
   if ( (v7 & 0xFFFFFFC0) != 0 )
   {
-    a1[17] = 0;
+    a1[13] = 0;
     v7 = 0;
   }
-  v8 = 0;
   if ( KiDesiredHeteroCpuPolicy != *a1
-    || KiDynamicHeteroCpuPolicyImportantPriority != a1[15]
     || KiDynamicHeteroCpuPolicyMask != v7
-    || KiDynamicHeteroCpuPolicyExpectedRuntime != a1[16] )
+    || KiDynamicHeteroCpuPolicyImportantPriority != a1[11]
+    || KiDynamicHeteroCpuPolicyExpectedRuntime != a1[12] )
   {
     KiDesiredHeteroCpuPolicy = *a1;
-    v8 = 1;
-    KiDynamicHeteroCpuPolicyImportantPriority = a1[15];
-    KiDynamicHeteroCpuPolicyMask = a1[17];
-    KiDynamicHeteroCpuPolicyExpectedRuntime = a1[16];
-    KiDynamicHeteroCpuPolicyExpectedCycles = *(_DWORD *)(KiProcessorBlock[0] + 68)
-                                           * KiDynamicHeteroCpuPolicyExpectedRuntime;
+    v1 = 1;
+    KiDynamicHeteroCpuPolicyImportantPriority = a1[11];
+    KiDynamicHeteroCpuPolicyMask = a1[13];
+    KiDynamicHeteroCpuPolicyExpectedRuntime = a1[12];
+    KiDynamicHeteroCpuPolicyExpectedCycles = KiDynamicHeteroCpuPolicyExpectedRuntime
+                                           * *(_DWORD *)(KiProcessorBlock[0] + 68);
   }
-  v9 = KiDynamicHeteroCpuPolicy;
+  v8 = &KiDynamicHeteroCpuPolicy;
   do
   {
-    v10 = 2LL;
+    v9 = 2LL;
     do
     {
-      v11 = *(int *)((char *)v9 + (char *)a1 - (char *)KiDynamicHeteroCpuPolicy + 4);
-      if ( *v9 != v11 )
+      v10 = *(_DWORD *)((char *)v8 + (char *)a1 - (char *)&KiDynamicHeteroCpuPolicy + 4);
+      if ( *v8 != v10 )
       {
-        v8 = 1;
-        *v9 = v11;
+        v1 = 1;
+        *v8 = v10;
       }
-      v12 = *((_BYTE *)a1 + v1 + 90);
-      if ( KiMultiCoreHeteroLowerArchThreshold[v1] != v12 )
-      {
-        v8 = 1;
-        KiMultiCoreHeteroLowerArchThreshold[v1] = v12;
-      }
-      v13 = *((_BYTE *)a1 + v1 + 76);
-      if ( KiMultiCoreHeteroUpperArchThreshold[v1] != v13 )
-      {
-        v8 = 1;
-        KiMultiCoreHeteroUpperArchThreshold[v1] = v13;
-      }
-      ++v9;
-      ++v1;
-      --v10;
+      ++v8;
+      --v9;
     }
-    while ( v10 );
+    while ( v9 );
     --v3;
   }
   while ( v3 );
-  result = v8;
-  KiQosHysteresisTimerPeriod = a1[18];
+  result = v1;
+  KiQosHysteresisTimerPeriod = a1[14];
   return result;
 }

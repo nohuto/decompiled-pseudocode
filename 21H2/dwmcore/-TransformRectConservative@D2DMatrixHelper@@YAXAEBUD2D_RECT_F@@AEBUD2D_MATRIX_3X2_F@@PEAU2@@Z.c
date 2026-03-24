@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TransformRectConservative@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@PEAU2@@Z @ 0x18026F754
+ * XREFs of ?TransformRectConservative@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@PEAU2@@Z @ 0x180008640
  * Callers:
- *     ?Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z @ 0x1802ACC78 (-Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z.c)
+ *     ?Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z @ 0x1800081F0 (-Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 void __fastcall D2DMatrixHelper::TransformRectConservative(
@@ -25,10 +25,10 @@ void __fastcall D2DMatrixHelper::TransformRectConservative(
   float v14; // xmm5_4
   float v15; // xmm2_4
   float v16; // xmm1_4
-  __int128 v17; // [rsp+0h] [rbp-38h] BYREF
-  float v18; // [rsp+10h] [rbp-28h]
-  int v19; // [rsp+14h] [rbp-24h]
-  __int64 v20; // [rsp+18h] [rbp-20h] BYREF
+  __int128 v17; // [rsp+0h] [rbp-30h] BYREF
+  float v18; // [rsp+10h] [rbp-20h]
+  int v19; // [rsp+14h] [rbp-1Ch]
+  __int64 v20; // [rsp+18h] [rbp-18h] BYREF
 
   v4 = *((float *)this + 1);
   v5 = *(float *)this;

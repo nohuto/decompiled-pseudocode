@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMapImageInSystemProcess @ 0x14084C394
+ * XREFs of MiMapImageInSystemProcess @ 0x14084C374
  * Callers:
- *     MiMapImageInSystemSpace @ 0x140650E60 (MiMapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiGetUserReservationHighestAddress @ 0x14069626C (MiGetUserReservationHighestAddress.c)
+ *     MiGetUserReservationHighestAddress @ 0x14069624C (MiGetUserReservationHighestAddress.c)
  */
 
 __int64 __fastcall MiMapImageInSystemProcess(_DWORD *a1, char a2, unsigned __int64 *a3, __int64 *a4)

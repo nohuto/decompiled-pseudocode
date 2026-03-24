@@ -1,22 +1,22 @@
 /*
- * XREFs of ?QuerySwapChainBindingStatus@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C02E0EA4
+ * XREFs of ?QuerySwapChainBindingStatus@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C028DD4C
  * Callers:
- *     ?QuerySwapChainBindingStatusFromVm@DXGVIRTUALMACHINE@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAK@Z @ 0x1C0365354 (-QuerySwapChainBindingStatusFromVm@DXGVIRTUALMACHINE@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEA.c)
+ *     ?QuerySwapChainBindingStatusFromVm@DXGVIRTUALMACHINE@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAK@Z @ 0x1C023A93C (-QuerySwapChainBindingStatusFromVm@DXGVIRTUALMACHINE@@QEAAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEA.c)
  * Callees:
- *     NtNotifyPresentToCompositionSurface @ 0x1C0001F10 (NtNotifyPresentToCompositionSurface.c)
- *     ?OpenDwmHandle@DxgkCompositionObject@@QEBAJPEAPEAX@Z @ 0x1C0007114 (-OpenDwmHandle@DxgkCompositionObject@@QEBAJPEAPEAX@Z.c)
- *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C0009278 (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
- *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C00092A8 (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C000C1D8 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?DxgkQuerySwapChainBindingStatus@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C000DB54 (-DxgkQuerySwapChainBindingStatus@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00138D4 (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
- *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001EF50 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?AddRef@DxgkCompositionObject@@QEBAJXZ @ 0x1C006C430 (-AddRef@DxgkCompositionObject@@QEBAJXZ.c)
+ *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C0001FAC (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C00069B4 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C0006C64 (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C000D12C (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ?DxgkQuerySwapChainBindingStatus@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0013A08 (-DxgkQuerySwapChainBindingStatus@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ *     ?OpenDwmHandle@DxgkCompositionObject@@QEBAJPEAPEAX@Z @ 0x1C0018548 (-OpenDwmHandle@DxgkCompositionObject@@QEBAJPEAPEAX@Z.c)
+ *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001AAD0 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@DxgkCompositionObject@@QEBAJXZ @ 0x1C005E834 (-AddRef@DxgkCompositionObject@@QEBAJXZ.c)
+ *     NtNotifyPresentToCompositionSurface @ 0x1C0065590 (NtNotifyPresentToCompositionSurface.c)
  */
 
 __int64 __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::QuerySwapChainBindingStatus(
@@ -24,28 +24,44 @@ __int64 __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::QuerySwapChainBindingStatu
         unsigned int a2,
         struct _D3DKMT_PRESENTHISTORYTOKEN *a3)
 {
-  unsigned int v6; // edi
+  __int64 v6; // rdi
   DxgkCompositionObject *v7; // r14
   struct DXGFASTMUTEX *v8; // rax
   DxgkCompositionObject *v9; // rax
-  struct _KPROCESS *v10; // rdx
+  __int64 v10; // rdx
+  struct _KPROCESS *v11; // rdx
   DXGPROCESS *ProcessDxgProcess; // rax
-  DXGPROCESS *v12; // rbx
-  int v13; // eax
-  int v14; // eax
-  HANDLE v15; // rax
+  __int64 v13; // rdx
+  DXGPROCESS *v14; // rbx
+  __int64 v15; // rdx
+  int v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  int v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  _QWORD *v24; // rax
   int SwapChainBindingStatus; // eax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rdx
+  __int64 v32; // rdx
   HANDLE Handle; // [rsp+20h] [rbp-39h] BYREF
-  _BYTE v19[16]; // [rsp+28h] [rbp-31h] BYREF
-  _BYTE v20[16]; // [rsp+38h] [rbp-21h] BYREF
+  _BYTE v35[16]; // [rsp+28h] [rbp-31h] BYREF
+  _BYTE v36[16]; // [rsp+38h] [rbp-21h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+48h] [rbp-11h] BYREF
-  char v22; // [rsp+78h] [rbp+1Fh]
+  char v38; // [rsp+78h] [rbp+1Fh]
 
-  v6 = -1073741823;
+  LODWORD(v6) = -1073741823;
   v7 = 0LL;
   v8 = (struct DXGFASTMUTEX *)(*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 1) + 48LL))(*((_QWORD *)this + 1));
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v20, v8, 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v20);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v36, v8, 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v36);
   v9 = (DxgkCompositionObject *)(*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(**((_QWORD **)this + 1) + 72LL))(
                                   *((_QWORD *)this + 1),
                                   a2,
@@ -55,62 +71,74 @@ __int64 __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::QuerySwapChainBindingStatu
     v7 = v9;
     DxgkCompositionObject::AddRef(v9);
   }
-  if ( v20[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v20);
+  if ( v36[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v36, v10);
   if ( v7 )
   {
-    v10 = (struct _KPROCESS *)*((_QWORD *)this + 3);
-    v22 = 0;
-    CPROCESSATTACHHELPER::Attach(&ApcState, v10);
-    DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)v19);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v19);
+    v11 = (struct _KPROCESS *)*((_QWORD *)this + 3);
+    v38 = 0;
+    CPROCESSATTACHHELPER::Attach(&ApcState, v11);
+    DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)v35);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v35);
     ProcessDxgProcess = (DXGPROCESS *)PsGetProcessDxgProcess(*((_QWORD *)this + 3));
-    v12 = ProcessDxgProcess;
+    v14 = ProcessDxgProcess;
     if ( ProcessDxgProcess )
-      DXGPROCESS::AcquireReference(ProcessDxgProcess);
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v19);
-    if ( v12 )
+      DXGPROCESS::AcquireReference(ProcessDxgProcess, v13);
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v35, v13);
+    if ( v14 )
     {
-      if ( *((_DWORD *)v12 + 10) == 1 && (*(unsigned int (**)(void))(*((_QWORD *)v12 + 11) + 216LL))() )
+      if ( *((_DWORD *)v14 + 10) == 1 && (*(unsigned int (**)(void))(*((_QWORD *)v14 + 11) + 216LL))() )
       {
         Handle = 0LL;
-        v13 = DxgkCompositionObject::OpenDwmHandle(v7, &Handle);
-        v6 = v13;
-        if ( v13 < 0 )
+        v16 = DxgkCompositionObject::OpenDwmHandle(v7, &Handle);
+        v6 = v16;
+        if ( v16 < 0 )
         {
-          WdLogSingleEntry1(3LL, v13);
+          v30 = WdLogNewEntry5_WdWarning(v18, v17, v19);
+          *(_QWORD *)(v30 + 24) = v6;
+          WdLogEvent5_WdWarning(v30);
         }
         else
         {
-          v14 = NtNotifyPresentToCompositionSurface(Handle, (unsigned __int64)a3);
-          v6 = v14;
-          if ( v14 < 0 )
+          v20 = NtNotifyPresentToCompositionSurface((CCompositionSurface *)Handle, (unsigned __int64)a3);
+          v6 = v20;
+          if ( v20 < 0 )
           {
-            WdLogSingleEntry3(3LL, v14, Handle, a3);
+            v24 = (_QWORD *)WdLogNewEntry5_WdWarning(v22, v21, v23);
+            v24[3] = v6;
+            v24[4] = Handle;
+            v24[5] = a3;
+            WdLogEvent5_WdWarning(v24);
           }
           else
           {
-            v15 = Handle;
             a3->Token.Flip.Flags.Value |= 0x2000000u;
-            a3->Token.Flip.hLogicalSurface = (ULONG64)v15;
+          }
+          if ( (int)v6 >= 0 )
+          {
+            a3->Token.Flip.hLogicalSurface = (ULONG64)Handle;
             SwapChainBindingStatus = DxgkQuerySwapChainBindingStatus(1, a3);
             v6 = SwapChainBindingStatus;
             if ( SwapChainBindingStatus < 0 )
-              WdLogSingleEntry1(3LL, SwapChainBindingStatus);
+            {
+              v29 = WdLogNewEntry5_WdWarning(v27, v26, v28);
+              *(_QWORD *)(v29 + 24) = v6;
+              WdLogEvent5_WdWarning(v29);
+            }
             a3->Token.Flip.hLogicalSurface = 0LL;
           }
           ObCloseHandle(Handle, 1);
         }
       }
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v19);
-      DXGPROCESS::ReleaseReference(v12);
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v19);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v35);
+      DXGPROCESS::ReleaseReference(v14, v31);
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v35, v32);
     }
-    if ( v19[8] )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v19);
-    if ( v22 )
+    if ( v35[8] )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v35, v15);
+    if ( v38 )
       KeUnstackDetachProcess(&ApcState);
     DxgkCompositionObject::Release(v7);
   }
-  return v6;
+  return (unsigned int)v6;
 }

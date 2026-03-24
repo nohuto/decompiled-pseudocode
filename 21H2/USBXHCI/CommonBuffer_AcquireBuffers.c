@@ -1,10 +1,10 @@
 /*
- * XREFs of CommonBuffer_AcquireBuffers @ 0x1C0009DA4
+ * XREFs of CommonBuffer_AcquireBuffers @ 0x1C0009A94
  * Callers:
- *     TR_EnsureSegments @ 0x1C0008D50 (TR_EnsureSegments.c)
+ *     TR_EnsureSegments @ 0x1C00098D0 (TR_EnsureSegments.c)
  * Callees:
- *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009E10 (XilCoreCommonBuffer_AcquireBuffers.c)
- *     CommonBuffer_QueueWorkItem @ 0x1C0018AB8 (CommonBuffer_QueueWorkItem.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009B00 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     CommonBuffer_QueueWorkItem @ 0x1C0019468 (CommonBuffer_QueueWorkItem.c)
  */
 
 __int64 __fastcall CommonBuffer_AcquireBuffers(

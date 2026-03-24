@@ -1,9 +1,9 @@
 /*
- * XREFs of IcRemovePossibleReference @ 0x1C009F670
+ * XREFs of IcRemovePossibleReference @ 0x1C0096A68
  * Callers:
- *     IrqArbAddAllocation @ 0x1C009C4C0 (IrqArbAddAllocation.c)
- *     IrqArbBacktrackAllocation @ 0x1C009CE30 (IrqArbBacktrackAllocation.c)
- *     IrqArbpUnreferenceArbitrationList @ 0x1C009E8A0 (IrqArbpUnreferenceArbitrationList.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IrqArbpUnreferenceArbitrationList @ 0x1C0093FBC (IrqArbpUnreferenceArbitrationList.c)
+ *     IrqArbBacktrackAllocation @ 0x1C00B6F40 (IrqArbBacktrackAllocation.c)
  * Callees:
  *     <none>
  */

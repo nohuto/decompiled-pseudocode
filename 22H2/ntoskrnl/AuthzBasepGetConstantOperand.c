@@ -1,83 +1,78 @@
 /*
- * XREFs of AuthzBasepGetConstantOperand @ 0x140355170
+ * XREFs of AuthzBasepGetConstantOperand @ 0x14024EBE8
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14022BF60 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepGetNextValue @ 0x14030BF44 (AuthzBasepGetNextValue.c)
- *     AuthzBasepCompareFQBNOperands @ 0x14066F2D0 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14024D5F0 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepGetNextValue @ 0x14024F904 (AuthzBasepGetNextValue.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x1405C17D0 (AuthzBasepCompareFQBNOperands.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall AuthzBasepGetConstantOperand(unsigned __int8 *a1, int a2, __int64 a3, int *a4)
+__int64 __fastcall AuthzBasepGetConstantOperand(char *a1, int a2, __int64 a3, int *a4)
 {
   unsigned int v4; // r10d
-  int v7; // r11d
-  char v8; // r9
-  int v9; // ecx
-  int v10; // ecx
-  int v11; // ecx
-  int v12; // ecx
-  int v13; // ecx
-  unsigned int v14; // ecx
+  int v6; // r11d
+  unsigned __int8 v7; // cl
+  unsigned int v8; // ecx
   __int64 result; // rax
-  int v16; // ecx
-  char v17; // al
+  char v10; // al
 
   v4 = 0;
   *(_WORD *)a3 = 0;
   *(_BYTE *)(a3 + 4) = 0;
   *(_DWORD *)(a3 + 8) = 0;
-  v7 = 1;
+  v6 = 1;
   *(_QWORD *)(a3 + 16) = 0LL;
   *(_DWORD *)(a3 + 12) = 1;
   *(_DWORD *)(a3 + 24) = 0;
   *(_QWORD *)(a3 + 32) = 0LL;
-  v8 = *a1;
-  v9 = *a1 - 1;
-  if ( !v9 || (v10 = v9 - 1) == 0 || (v11 = v10 - 1) == 0 || (v12 = v11 - 1) == 0 )
+  v7 = *a1;
+  if ( v7 )
   {
-    if ( (unsigned int)(a2 - 1) >= 0xA )
+    if ( v7 <= 4u )
     {
-      *(_DWORD *)(a3 + 24) = 10;
-      *(_WORD *)a3 = 2;
-      *(_QWORD *)(a3 + 32) = a1 + 1;
-      v7 = 11;
-      goto LABEL_11;
+      if ( (unsigned int)(a2 - 1) >= 0xA )
+      {
+        *(_DWORD *)(a3 + 24) = 10;
+        *(_WORD *)a3 = 2;
+        *(_QWORD *)(a3 + 32) = a1 + 1;
+        v6 = 11;
+        goto LABEL_9;
+      }
+      goto LABEL_10;
     }
-    goto LABEL_12;
-  }
-  v13 = v12 - 12;
-  if ( !v13 || (v16 = v13 - 8) == 0 || (unsigned int)(v16 - 56) <= 1 )
-  {
-    if ( (unsigned int)(a2 - 1) >= 4 )
+    if ( v7 == 16 || v7 == 24 || (unsigned __int8)(v7 - 80) <= 1u )
     {
-      if ( v8 == 16 )
+      if ( (unsigned int)(a2 - 1) >= 4 )
       {
-        *(_WORD *)a3 = 3;
+        if ( v7 == 16 )
+        {
+          *(_WORD *)a3 = 3;
+        }
+        else
+        {
+          v10 = *(_BYTE *)(a3 + 4);
+          *(_WORD *)a3 = 16;
+          if ( v7 == 80 )
+            v10 = 1;
+          *(_BYTE *)(a3 + 4) = v10;
+        }
+        v8 = *(_DWORD *)(a1 + 1);
+        *(_DWORD *)(a3 + 24) = v8;
+        v6 = 5;
+        if ( a2 - 5 >= v8 )
+        {
+          *(_QWORD *)(a3 + 32) = a1 + 5;
+          v6 = v8 + 5;
+          goto LABEL_9;
+        }
       }
-      else
-      {
-        *(_WORD *)a3 = 16;
-        v17 = *(_BYTE *)(a3 + 4);
-        if ( v8 == 80 )
-          v17 = 1;
-        *(_BYTE *)(a3 + 4) = v17;
-      }
-      v14 = *(_DWORD *)(a1 + 1);
-      *(_DWORD *)(a3 + 24) = v14;
-      v7 = 5;
-      if ( a2 - 5 >= v14 )
-      {
-        *(_QWORD *)(a3 + 32) = a1 + 5;
-        v7 = v14 + 5;
-        goto LABEL_11;
-      }
+LABEL_10:
+      v4 = -1073741406;
     }
-LABEL_12:
-    v4 = -1073741406;
   }
-LABEL_11:
+LABEL_9:
   result = v4;
-  *a4 = v7;
+  *a4 = v6;
   return result;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of ?GetStockTransparentBitmap@CD3DDevice@@QEAAPEAVIBitmapRealization@@XZ @ 0x180115F4A
+ * XREFs of ?GetStockTransparentBitmap@CD3DDevice@@QEAAPEAVIBitmapRealization@@XZ @ 0x1800085E8
  * Callers:
- *     ?ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z @ 0x1800663FC (-ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z.c)
- *     ?SetTransparent@CDrawListBitmap@@QEAAJPEBVCDrawingContext@@@Z @ 0x1801133BE (-SetTransparent@CDrawListBitmap@@QEAAJPEBVCDrawingContext@@@Z.c)
+ *     ?SetTransparent@CDrawListBitmap@@QEAAJPEBVCDrawingContext@@@Z @ 0x180008598 (-SetTransparent@CDrawListBitmap@@QEAAJPEBVCDrawingContext@@@Z.c)
+ *     ?ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z @ 0x18003D4B8 (-ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z.c)
  * Callees:
- *     ?EnsureBlackBitmapTargets@CD3DDevice@@AEAAJXZ @ 0x18027DE10 (-EnsureBlackBitmapTargets@CD3DDevice@@AEAAJXZ.c)
+ *     ?EnsureBlackBitmapTargets@CD3DDevice@@AEAAJXZ @ 0x18001E100 (-EnsureBlackBitmapTargets@CD3DDevice@@AEAAJXZ.c)
  */
 
 struct IBitmapRealization *__fastcall CD3DDevice::GetStockTransparentBitmap(CD3DDevice *this)
 {
   __int64 v1; // rbx
-  __int64 v4; // rdx
+  __int64 v3; // rdx
 
   v1 = 0LL;
-  if ( !*((_QWORD *)this + 135) && (int)CD3DDevice::EnsureBlackBitmapTargets(this) < 0 )
+  if ( !*((_QWORD *)this + 140) && (int)CD3DDevice::EnsureBlackBitmapTargets(this) < 0 )
     return 0LL;
-  v4 = *((_QWORD *)this + 135);
-  if ( v4 )
-    return (struct IBitmapRealization *)(*(int *)(*(_QWORD *)(v4 + 8) + 16LL) + v4 + 8);
+  v3 = *((_QWORD *)this + 140);
+  if ( v3 )
+    return (struct IBitmapRealization *)(*(int *)(*(_QWORD *)(v3 + 8) + 16LL) + v3 + 8);
   return (struct IBitmapRealization *)v1;
 }

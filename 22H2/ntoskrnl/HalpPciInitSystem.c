@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpPciInitSystem @ 0x140A916E0
+ * XREFs of HalpPciInitSystem @ 0x1409A1150
  * Callers:
  *     <none>
  * Callees:
- *     HalpInitNonBusHandler @ 0x140B3600C (HalpInitNonBusHandler.c)
- *     HalpPciInitializeMmConfigAccess @ 0x140B6ACD0 (HalpPciInitializeMmConfigAccess.c)
- *     HalpPciReportMmConfigAddressRange @ 0x140B6AD6C (HalpPciReportMmConfigAddressRange.c)
+ *     HalpInitNonBusHandler @ 0x140A39058 (HalpInitNonBusHandler.c)
+ *     HalpPciInitializeMmConfigAccess @ 0x140A6C8BC (HalpPciInitializeMmConfigAccess.c)
+ *     HalpPciReportMmConfigAddressRange @ 0x140A6C94C (HalpPciReportMmConfigAddressRange.c)
  */
 
 __int64 __fastcall HalpPciInitSystem(int a1, __int64 a2, __int64 a3)

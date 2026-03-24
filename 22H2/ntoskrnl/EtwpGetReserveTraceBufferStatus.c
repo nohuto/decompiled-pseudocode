@@ -1,13 +1,11 @@
 /*
- * XREFs of EtwpGetReserveTraceBufferStatus @ 0x14036A548
+ * XREFs of EtwpGetReserveTraceBufferStatus @ 0x14036C70C
  * Callers:
- *     EtwpTraceMessageVa @ 0x140226F30 (EtwpTraceMessageVa.c)
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     EtwpEventWriteFull @ 0x140258450 (EtwpEventWriteFull.c)
- *     EtwpLogSystemEventUnsafe @ 0x14038C540 (EtwpLogSystemEventUnsafe.c)
- *     EtwTraceEvent @ 0x140467D22 (EtwTraceEvent.c)
- *     EtwTraceRaw @ 0x1405FF3C8 (EtwTraceRaw.c)
- *     EtwpWriteUserEvent @ 0x1406F41F0 (EtwpWriteUserEvent.c)
+ *     EtwpTraceMessageVa @ 0x14025CDC0 (EtwpTraceMessageVa.c)
+ *     EtwpEventWriteFull @ 0x14025D7C0 (EtwpEventWriteFull.c)
+ *     EtwTraceEvent @ 0x1405A5FE0 (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x1405A6488 (EtwTraceRaw.c)
+ *     EtwpWriteUserEvent @ 0x140627FE0 (EtwpWriteUserEvent.c)
  * Callees:
  *     <none>
  */

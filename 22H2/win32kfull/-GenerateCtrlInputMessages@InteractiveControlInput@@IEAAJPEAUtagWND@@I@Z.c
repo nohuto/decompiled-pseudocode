@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GenerateCtrlInputMessages@InteractiveControlInput@@IEAAJPEAUtagWND@@I@Z @ 0x1C0246A68
+ * XREFs of ?GenerateCtrlInputMessages@InteractiveControlInput@@IEAAJPEAUtagWND@@I@Z @ 0x1C0258034
  * Callers:
- *     ?GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@I@Z @ 0x1C0246B78 (-GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@.c)
+ *     ?GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@I@Z @ 0x1C0258150 (-GenerateMessages@InteractiveControlInput@@QEAAJPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@.c)
  * Callees:
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C011E780 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C00549A0 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
  */
 
 __int64 __fastcall InteractiveControlInput::GenerateCtrlInputMessages(
@@ -11,9 +11,9 @@ __int64 __fastcall InteractiveControlInput::GenerateCtrlInputMessages(
         struct tagWND *a2,
         int a3)
 {
-  unsigned int v3; // edi
-  unsigned __int64 v7; // rbx
-  unsigned int v8; // esi
+  unsigned int v3; // esi
+  unsigned __int64 v7; // rdi
+  unsigned int v8; // ebx
   unsigned __int64 v9; // r14
   int v11; // [rsp+68h] [rbp+10h] BYREF
   int v12; // [rsp+6Ch] [rbp+14h]
@@ -24,47 +24,48 @@ __int64 __fastcall InteractiveControlInput::GenerateCtrlInputMessages(
   v12 = 1;
   if ( a2 )
   {
-    v8 = 0;
+    v8 = 744;
     v9 = *(unsigned __int16 *)(*((_QWORD *)this + 5) + 8LL) | ((unsigned __int64)*((unsigned __int16 *)this + 16) << 16);
     do
     {
-      if ( (a3 & (1 << v8)) != 1 << v8 )
-        goto LABEL_15;
-      switch ( v8 )
+      if ( (a3 & (1 << (v8 + 24))) != 1 << (v8 + 24) )
+        goto LABEL_12;
+      if ( v8 >= 0x2ED )
       {
-        case 5u:
-        case 6u:
-          goto LABEL_13;
-        case 7u:
+        if ( v8 <= 0x2EE )
+          goto LABEL_10;
+        if ( v8 == 751 )
+        {
           v7 = *((int *)this + 19);
-          break;
-        case 8u:
-        case 9u:
-          goto LABEL_13;
-        case 0xAu:
-        case 0xBu:
-        case 0xCu:
+        }
+        else
+        {
+          if ( v8 <= 0x2F1 )
+            goto LABEL_10;
+          if ( v8 > 0x2F4 )
+          {
+            if ( v8 != 757 )
+              goto LABEL_11;
+LABEL_10:
+            v7 = 1LL;
+            goto LABEL_11;
+          }
           v7 = *((unsigned __int16 *)this + 28) | ((unsigned __int64)*((unsigned __int16 *)this + 30) << 16);
-          break;
-        case 0xDu:
-LABEL_13:
-          v7 = 1LL;
-          break;
-        default:
-          break;
+        }
       }
+LABEL_11:
       if ( !_PostTransformableMessageExtended(
-              (unsigned __int64)a2,
-              v8 + 744,
+              (__int64)a2,
+              v8,
               v9,
-              (__int128 *)v7,
+              (struct _LARGE_STRING *)v7,
               (struct tagINPUT_MESSAGE_SOURCE *)&v11,
               1) )
         return (unsigned int)-1073740030;
-LABEL_15:
+LABEL_12:
       ++v8;
     }
-    while ( v8 < 0x11 );
+    while ( v8 - 744 < 0x11 );
   }
   return v3;
 }

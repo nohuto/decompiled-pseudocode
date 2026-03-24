@@ -1,16 +1,16 @@
 /*
- * XREFs of SleepstudyHelperSetBlockerFriendlyName @ 0x140209A80
+ * XREFs of SleepstudyHelperSetBlockerFriendlyName @ 0x140325850
  * Callers:
- *     SleepstudyHelperCreateBlockerFromGuid @ 0x1402099A0 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x140325750 (SleepstudyHelperCreateBlockerFromGuid.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x140208E68 (RtlUnicodeStringCopy.c)
- *     SSHSupportAllocatePaged @ 0x14069376C (SSHSupportAllocatePaged.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x140206C90 (RtlUnicodeStringCopy.c)
+ *     SSHSupportAllocatePaged @ 0x14069D95C (SSHSupportAllocatePaged.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SleepstudyHelperSetBlockerFriendlyName(UNICODE_STRING *a1, const UNICODE_STRING *a2)
 {
-  __int64 Length; // rcx
+  SIZE_T Length; // rcx
   NTSTATUS v5; // ebx
   wchar_t *Buffer; // rcx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
@@ -18,9 +18,7 @@ __int64 __fastcall SleepstudyHelperSetBlockerFriendlyName(UNICODE_STRING *a1, co
   DestinationString = 0LL;
   if ( a1 && a2 && (Length = a2->Length, (_WORD)Length) )
   {
-    DestinationString.Buffer = (wchar_t *)SSHSupportAllocatePaged(
-                                            Length,
-                                            *(unsigned int *)(*(_QWORD *)&a1->Length + 24LL));
+    DestinationString.Buffer = (wchar_t *)SSHSupportAllocatePaged(Length, *(_DWORD *)(*(_QWORD *)&a1->Length + 24LL));
     if ( !DestinationString.Buffer )
       return (unsigned int)-1073741670;
     DestinationString.MaximumLength = a2->Length;

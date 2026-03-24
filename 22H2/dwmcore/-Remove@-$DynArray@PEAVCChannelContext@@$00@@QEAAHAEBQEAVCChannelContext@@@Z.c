@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Remove@?$DynArray@PEAVCChannelContext@@$00@@QEAAHAEBQEAVCChannelContext@@@Z @ 0x1800AA414
+ * XREFs of ?Remove@?$DynArray@PEAVCChannelContext@@$00@@QEAAHAEBQEAVCChannelContext@@@Z @ 0x1800CF814
  * Callers:
- *     ?CloseChannel@CComposition@@IEAAJI@Z @ 0x1800AA314 (-CloseChannel@CComposition@@IEAAJI@Z.c)
- *     ?Partition_RegisterForNotifications@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_REGISTERFORNOTIFICATIONS@@@Z @ 0x1800EC008 (-Partition_RegisterForNotifications@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@.c)
+ *     ?Partition_RegisterForNotifications@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_REGISTERFORNOTIFICATIONS@@@Z @ 0x1800CF3C4 (-Partition_RegisterForNotifications@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@.c)
+ *     ?CloseChannel@CComposition@@IEAAJI@Z @ 0x1800CF700 (-CloseChannel@CComposition@@IEAAJI@Z.c)
  * Callees:
  *     <none>
  */

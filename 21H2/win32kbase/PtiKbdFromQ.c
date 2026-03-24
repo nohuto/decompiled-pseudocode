@@ -1,10 +1,10 @@
 /*
- * XREFs of PtiKbdFromQ @ 0x1C01EA3D8
+ * XREFs of PtiKbdFromQ @ 0x1C01B11A8
  * Callers:
- *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C003DC00 (xxxUpdateGlobalsAndSendKeyEvent.c)
- *     GetCurrentKbdTables @ 0x1C01E9BB0 (GetCurrentKbdTables.c)
- *     ProcessKeyboardInputWorker @ 0x1C01E9C00 (ProcessKeyboardInputWorker.c)
- *     ?GetMouseWheelForegroundThread@CMouseProcessor@@CAPEAUtagTHREADINFO@@XZ @ 0x1C01FA948 (-GetMouseWheelForegroundThread@CMouseProcessor@@CAPEAUtagTHREADINFO@@XZ.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C004C1F0 (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     GetCurrentKbdTables @ 0x1C01B0670 (GetCurrentKbdTables.c)
+ *     ProcessKeyboardInputWorker @ 0x1C01B08E0 (ProcessKeyboardInputWorker.c)
+ *     ?GetMouseWheelForegroundThread@CMouseProcessor@@CAPEAUtagTHREADINFO@@XZ @ 0x1C01C03EC (-GetMouseWheelForegroundThread@CMouseProcessor@@CAPEAUtagTHREADINFO@@XZ.c)
  * Callees:
  *     <none>
  */

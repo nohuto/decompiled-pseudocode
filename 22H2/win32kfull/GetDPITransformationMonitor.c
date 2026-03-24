@@ -1,15 +1,15 @@
 /*
- * XREFs of GetDPITransformationMonitor @ 0x1C01B9BB4
+ * XREFs of GetDPITransformationMonitor @ 0x1C01E50B0
  * Callers:
- *     EditionDoPointerDPITransforms @ 0x1C0153510 (EditionDoPointerDPITransforms.c)
- *     ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C5C58 (-MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAP.c)
- *     ?xxxQueryLegacyActivation@@YA_JPEAUtagWND@@0FPEBUtagPOINTEREVENTINT@@@Z @ 0x1C01C6724 (-xxxQueryLegacyActivation@@YA_JPEAUtagWND@@0FPEBUtagPOINTEREVENTINT@@@Z.c)
- *     PointerInfoCopyOutHelperInternal @ 0x1C01C6B70 (PointerInfoCopyOutHelperInternal.c)
- *     ?GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C0240D28 (-GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z.c)
+ *     ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F0C3C (-MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAP.c)
+ *     ?xxxQueryLegacyActivation@@YA_JPEAUtagWND@@0FPEBUtagPOINTEREVENTINT@@@Z @ 0x1C01F17FC (-xxxQueryLegacyActivation@@YA_JPEAUtagWND@@0FPEBUtagPOINTEREVENTINT@@@Z.c)
+ *     EditionDoPointerDPITransforms @ 0x1C01F1AE0 (EditionDoPointerDPITransforms.c)
+ *     PointerInfoCopyOutHelperInternal @ 0x1C01F1EE0 (PointerInfoCopyOutHelperInternal.c)
+ *     ?GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C0251DA0 (-GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z.c)
  * Callees:
- *     _GetTopLevelWindow @ 0x1C00CFFB0 (_GetTopLevelWindow.c)
- *     _MonitorFromPoint @ 0x1C00D03B0 (_MonitorFromPoint.c)
- *     PtInRect @ 0x1C00D0A58 (PtInRect.c)
+ *     _MonitorFromPoint @ 0x1C0042060 (_MonitorFromPoint.c)
+ *     PtInRect @ 0x1C004DE1C (PtInRect.c)
+ *     _GetTopLevelWindow @ 0x1C006FC20 (_GetTopLevelWindow.c)
  */
 
 __int64 __fastcall GetDPITransformationMonitor(__int64 a1, __int64 a2)

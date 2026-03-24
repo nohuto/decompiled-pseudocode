@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetRegValueMappedProperty @ 0x14087798C
+ * XREFs of DrvDbGetRegValueMappedProperty @ 0x1406B43BC
  * Callers:
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x1408664C0 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbGetDriverInfFileMappedProperty @ 0x140876380 (DrvDbGetDriverInfFileMappedProperty.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1408769B8 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbGetDeviceIdMappedProperty @ 0x140876E44 (DrvDbGetDeviceIdMappedProperty.c)
- *     DrvDbGetDriverFileMappedProperty @ 0x140A6BA60 (DrvDbGetDriverFileMappedProperty.c)
- *     DrvDbGetDriverPackageSignerName @ 0x140A6C1D0 (DrvDbGetDriverPackageSignerName.c)
+ *     DrvDbGetDriverInfFileMappedProperty @ 0x1406B3E3C (DrvDbGetDriverInfFileMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406B469C (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x1406F9718 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140735700 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetDriverFileMappedProperty @ 0x14097D6D4 (DrvDbGetDriverFileMappedProperty.c)
+ *     DrvDbGetDriverPackageSignerName @ 0x14097DDF8 (DrvDbGetDriverPackageSignerName.c)
  * Callees:
- *     _RegRtlQueryValue @ 0x1406CE918 (_RegRtlQueryValue.c)
+ *     _RegRtlQueryValue @ 0x1406BB0F8 (_RegRtlQueryValue.c)
  */
 
 __int64 __fastcall DrvDbGetRegValueMappedProperty(
@@ -21,71 +21,61 @@ __int64 __fastcall DrvDbGetRegValueMappedProperty(
         _DWORD *a7)
 {
   int v9; // eax
-  _WORD *v11; // rbx
-  int v12; // eax
-  int *v13; // r9
-  const WCHAR *v14; // rdx
-  unsigned int v15; // edx
-  int v17; // eax
-  unsigned int v18; // ecx
-  __int64 v19[3]; // [rsp+30h] [rbp-18h] BYREF
-  int v20; // [rsp+50h] [rbp+8h] BYREF
-  int v21; // [rsp+54h] [rbp+Ch]
-  int v22; // [rsp+60h] [rbp+18h] BYREF
+  int v10; // eax
+  unsigned int Value; // eax
+  unsigned int v12; // edx
+  int v13; // eax
+  unsigned int v14; // ecx
+  __int64 v16[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  v21 = HIDWORD(a1);
-  v22 = 0;
-  v20 = 0;
   v9 = *(_DWORD *)(a3 + 8);
-  v11 = a5;
   if ( v9 == 17 || v9 == 5 )
-  {
-    v13 = &v20;
-    v12 = 4;
-  }
+    v10 = 4;
   else
-  {
-    v12 = a6;
-    v13 = (int *)a5;
-  }
-  v14 = *(const WCHAR **)(a3 + 16);
-  LODWORD(v19[0]) = v12;
-  v15 = RegRtlQueryValue(a2, v14, &v22, v13, (unsigned int *)v19);
-  if ( v15 == -1073741772 )
+    v10 = a6;
+  LODWORD(v16[0]) = v10;
+  Value = RegRtlQueryValue(a2, (__int64)v16);
+  v12 = Value;
+  if ( Value == -1073741772 )
     return (unsigned int)-1073741275;
-  if ( v15 && v15 != -1073741789 )
-    return v15;
-  if ( v22 != *(_DWORD *)(a3 + 24) )
-    return (unsigned int)-1073741595;
-  *a4 = *(_DWORD *)(a3 + 8);
-  v17 = *(_DWORD *)(a3 + 8);
-  if ( v17 == 5 )
+  if ( !Value || Value == -1073741789 )
   {
-    *a7 = 2;
-    if ( !v11 || a6 < 2 )
-      return (unsigned int)-1073741789;
-    if ( v15 != -1073741789 )
+    if ( !*(_DWORD *)(a3 + 24) )
     {
-      *v11 = v20;
-      return v15;
+      *a4 = *(_DWORD *)(a3 + 8);
+      v13 = *(_DWORD *)(a3 + 8);
+      if ( v13 == 5 )
+      {
+        *a7 = 2;
+        if ( !a5 || a6 < 2 )
+          return (unsigned int)-1073741789;
+        if ( v12 != -1073741789 )
+        {
+          *a5 = 0;
+          return v12;
+        }
+      }
+      else
+      {
+        if ( v13 != 17 )
+        {
+          v14 = v16[0];
+          *a7 = v16[0];
+          if ( a5 && a6 >= v14 )
+            return v12;
+          return (unsigned int)-1073741789;
+        }
+        *a7 = 1;
+        if ( !a5 || !a6 )
+          return (unsigned int)-1073741789;
+        if ( v12 != -1073741789 )
+        {
+          *(_BYTE *)a5 = 0;
+          return v12;
+        }
+      }
     }
     return (unsigned int)-1073741595;
   }
-  if ( v17 == 17 )
-  {
-    *a7 = 1;
-    if ( !v11 || !a6 )
-      return (unsigned int)-1073741789;
-    if ( v15 != -1073741789 )
-    {
-      *(_BYTE *)v11 = -(v20 != 0);
-      return v15;
-    }
-    return (unsigned int)-1073741595;
-  }
-  v18 = v19[0];
-  *a7 = v19[0];
-  if ( !v11 || a6 < v18 )
-    return (unsigned int)-1073741789;
-  return v15;
+  return v12;
 }

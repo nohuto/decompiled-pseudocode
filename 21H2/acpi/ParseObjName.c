@@ -1,16 +1,16 @@
 /*
- * XREFs of ParseObjName @ 0x1C0028CA8
+ * XREFs of ParseObjName @ 0x1C0021FB4
  * Callers:
- *     ParseArg @ 0x1C000B10C (ParseArg.c)
- *     ParsePackage @ 0x1C0012D00 (ParsePackage.c)
+ *     ParseArg @ 0x1C0022094 (ParseArg.c)
+ *     ParsePackage @ 0x1C0022100 (ParsePackage.c)
  * Callees:
- *     ParseName @ 0x1C000BE54 (ParseName.c)
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ParseName @ 0x1C00214C4 (ParseName.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ParseObjName(__int64 a1, char **a2, __int64 a3, char a4)
@@ -18,7 +18,7 @@ __int64 __fastcall ParseObjName(__int64 a1, char **a2, __int64 a3, char a4)
   __int64 v7; // rax
   unsigned int v8; // ebx
   __int64 v9; // rax
-  _SLIST_ENTRY *v10; // rax
+  void *v10; // rax
   char *v12; // r8
   char *v13; // rdx
   int v14; // ecx
@@ -46,7 +46,7 @@ __int64 __fastcall ParseObjName(__int64 a1, char **a2, __int64 a3, char a4)
       ++v9;
     while ( Src[v9] );
     *(_DWORD *)(a3 + 24) = v9 + 1;
-    v10 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, (int)v9 + 1);
+    v10 = (void *)HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, (int)v9 + 1);
     *(_QWORD *)(a3 + 32) = v10;
     if ( v10 )
     {

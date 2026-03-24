@@ -1,16 +1,16 @@
 /*
- * XREFs of VfFillAllocatedMemory @ 0x140A9A1DC
+ * XREFs of VfFillAllocatedMemory @ 0x1409DFFF4
  * Callers:
- *     VfHandlePoolAlloc @ 0x140A90660 (VfHandlePoolAlloc.c)
- *     VerifierMmAllocateContiguousMemory @ 0x140A9F2C0 (VerifierMmAllocateContiguousMemory.c)
- *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x140A9F440 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
- *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x140A9F580 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
- *     VerifierMmAllocateContiguousNodeMemory @ 0x140A9F6A0 (VerifierMmAllocateContiguousNodeMemory.c)
- *     VerifierMmAllocateNonCachedMemory @ 0x140A9F900 (VerifierMmAllocateNonCachedMemory.c)
- *     VfFillAllocatePagesForMdl @ 0x140AA0838 (VfFillAllocatePagesForMdl.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     VerifierMmAllocateContiguousMemory @ 0x1409E5DE0 (VerifierMmAllocateContiguousMemory.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x1409E5ED0 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x1409E5FF0 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     VerifierMmAllocateContiguousNodeMemory @ 0x1409E6110 (VerifierMmAllocateContiguousNodeMemory.c)
+ *     VerifierMmAllocateNonCachedMemory @ 0x1409E6390 (VerifierMmAllocateNonCachedMemory.c)
+ *     VfFillAllocatePagesForMdl @ 0x1409E74E8 (VfFillAllocatePagesForMdl.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void *__fastcall VfFillAllocatedMemory(void *a1, size_t a2)

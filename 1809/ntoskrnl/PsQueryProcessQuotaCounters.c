@@ -1,7 +1,7 @@
 /*
- * XREFs of PsQueryProcessQuotaCounters @ 0x14066D7B8
+ * XREFs of PsQueryProcessQuotaCounters @ 0x14066D798
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopEliminateBogusConflict @ 0x140564E78
+ * XREFs of IopEliminateBogusConflict @ 0x140510680
  * Callers:
- *     IopQueryConflictFillConflicts @ 0x14095ECBC (IopQueryConflictFillConflicts.c)
+ *     IopQueryConflictFillConflicts @ 0x1408B930C (IopQueryConflictFillConflicts.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
  */
 
 char __fastcall IopEliminateBogusConflict(__int64 a1, __int64 a2)
@@ -33,20 +33,17 @@ char __fastcall IopEliminateBogusConflict(__int64 a1, __int64 a2)
   while ( v5 );
   KeReleaseQueuedSpinLock(0xAuLL, v4);
   v6 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
-  if ( _bittest((const signed __int32 *)(v6 + 396), 0xCu) )
+  if ( (*(_DWORD *)(v6 + 396) & 0x1000) != 0 && (*(_DWORD *)(a2 + 48) & 0x1000) == 0 )
   {
-    if ( !_bittest((const signed __int32 *)(a2 + 48), 0xCu) )
+    v7 = *(_QWORD *)(a2 + 8);
+    if ( v7 )
     {
-      v7 = *(_QWORD *)(a2 + 8);
-      if ( v7 )
+      v8 = (const UNICODE_STRING *)(v6 + 56);
+      if ( v8->Length )
       {
-        v8 = (const UNICODE_STRING *)(v6 + 56);
-        if ( v8->Length )
-        {
-          v9 = (const UNICODE_STRING *)(*(_QWORD *)(v7 + 48) + 24LL);
-          if ( v8->Length == v9->Length && !RtlCompareUnicodeString(v8, v9, 1u) )
-            return 1;
-        }
+        v9 = (const UNICODE_STRING *)(*(_QWORD *)(v7 + 48) + 24LL);
+        if ( v8->Length == v9->Length && !RtlCompareUnicodeString(v8, v9, 1u) )
+          return 1;
       }
     }
   }

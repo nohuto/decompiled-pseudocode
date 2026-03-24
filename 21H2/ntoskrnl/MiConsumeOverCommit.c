@@ -1,11 +1,11 @@
 /*
- * XREFs of MiConsumeOverCommit @ 0x1405B3088
+ * XREFs of MiConsumeOverCommit @ 0x14055045C
  * Callers:
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiConsumeOverCommit(KSPIN_LOCK *a1, __int64 a2, __int64 a3)
@@ -23,12 +23,12 @@ __int64 __fastcall MiConsumeOverCommit(KSPIN_LOCK *a1, __int64 a2, __int64 a3)
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   v6 = 0;
-  KeAcquireInStackQueuedSpinLock(a1 + 2005, &LockHandle);
-  v7 = a1[2157];
+  KeAcquireInStackQueuedSpinLock(a1 + 781, &LockHandle);
+  v7 = a1[933];
   v8 = v7 + a2;
-  if ( v7 + a2 <= v7 || v8 + a3 < v8 || v8 + a3 > a1[2187] )
+  if ( v7 + a2 <= v7 || v8 + a3 < v8 || v8 + a3 > a1[949] )
   {
-    a1[2007] += a2;
+    a1[783] += a2;
     v6 = 1;
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);

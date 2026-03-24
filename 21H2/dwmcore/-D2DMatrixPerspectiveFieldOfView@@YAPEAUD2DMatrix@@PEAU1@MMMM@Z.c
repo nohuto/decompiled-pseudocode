@@ -1,9 +1,9 @@
 /*
- * XREFs of ?D2DMatrixPerspectiveFieldOfView@@YAPEAUD2DMatrix@@PEAU1@MMMM@Z @ 0x18026D260
+ * XREFs of ?D2DMatrixPerspectiveFieldOfView@@YAPEAUD2DMatrix@@PEAU1@MMMM@Z @ 0x18021CE64
  * Callers:
- *     ?Matrix4x4FromPerspectiveFieldOfView@CExpressionValueStack@@QEAAJXZ @ 0x18024CF88 (-Matrix4x4FromPerspectiveFieldOfView@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Matrix4x4FromPerspectiveFieldOfView@CExpressionValueStack@@QEAAJXZ @ 0x1801FE40C (-Matrix4x4FromPerspectiveFieldOfView@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
- *     _o_tanf_0 @ 0x180101994 (_o_tanf_0.c)
+ *     tanf_0 @ 0x1800F47B7 (tanf_0.c)
  */
 
 struct D2DMatrix *__fastcall D2DMatrixPerspectiveFieldOfView(
@@ -18,7 +18,7 @@ struct D2DMatrix *__fastcall D2DMatrixPerspectiveFieldOfView(
 
   if ( a2 <= 0.0 || a2 >= 3.1415927 || a4 <= 0.0 || a5 <= 0.0 || a4 >= a5 )
     return 0LL;
-  v7 = 1.0 / o_tanf_0(a2 * 0.5);
+  v7 = 1.0 / tanf_0(a2 * 0.5);
   *((_QWORD *)a1 + 1) = 0LL;
   *((_DWORD *)a1 + 1) = 0;
   *((_QWORD *)a1 + 3) = 0LL;

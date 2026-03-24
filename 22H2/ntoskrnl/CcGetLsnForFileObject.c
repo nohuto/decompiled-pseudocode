@@ -1,10 +1,10 @@
 /*
- * XREFs of CcGetLsnForFileObject @ 0x140537A60
+ * XREFs of CcGetLsnForFileObject @ 0x1404EA850
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
  */
 
 __int64 __fastcall CcGetLsnForFileObject(__int64 a1, _QWORD *a2)
@@ -21,8 +21,8 @@ __int64 __fastcall CcGetLsnForFileObject(__int64 a1, _QWORD *a2)
   v3 = *(_QWORD *)(*(_QWORD *)(a1 + 40) + 8LL);
   if ( !v3 )
     return 0LL;
-  v5 = (struct _FAST_MUTEX *)(v3 + 288);
-  ExAcquireFastMutex((PFAST_MUTEX)(v3 + 288));
+  v5 = (struct _FAST_MUTEX *)(v3 + 280);
+  ExAcquireFastMutex((PFAST_MUTEX)(v3 + 280));
   v6 = 0LL;
   v7 = v3 + 16;
   v8 = *(_QWORD *)(v3 + 16);
@@ -48,7 +48,7 @@ __int64 __fastcall CcGetLsnForFileObject(__int64 a1, _QWORD *a2)
     }
     v8 = *(_QWORD *)(v10 + 16);
   }
-  ExReleaseFastMutex(v5);
+  KeReleaseGuardedMutex(v5);
   if ( a2 )
     *a2 = v6;
   return v9;

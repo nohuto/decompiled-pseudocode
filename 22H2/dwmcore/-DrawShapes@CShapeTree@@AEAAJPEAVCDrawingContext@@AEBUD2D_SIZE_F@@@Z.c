@@ -1,133 +1,100 @@
 /*
- * XREFs of ?DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x1800910EC
+ * XREFs of ?DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x18020BB18
  * Callers:
- *     ?Draw@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180091318 (-Draw@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
- *     ?GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18026BB30 (-GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18020BA54 (-Draw@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18020BCE0 (-GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x18005AAAC (-Render@CShapeDrawingContext@@QEAAJXZ.c)
- *     ?DoesContain@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x180081148 (-DoesContain@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
- *     ??0CShapeDrawingContext@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@@Z @ 0x1800816C8 (--0CShapeDrawingContext@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@AEBV-$TMilRect_@MUMilRectF@@U.c)
- *     ??$Walk@VCShapeDrawingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeDrawingContext@@@Z @ 0x180083DD0 (--$Walk@VCShapeDrawingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeDrawingCont.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180090EF8 (-GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
- *     ?clear@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x1800912E0 (-clear@-$vector_facade@VMatrix3x2F@D2D1@@V-$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansi.c)
- *     ?MarkCurrentState@CDrawingContext@@QEAAJXZ @ 0x1800920D8 (-MarkCurrentState@CDrawingContext@@QEAAJXZ.c)
- *     ?PushClipRectForCurrentNode@CDrawingContext@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x180092118 (-PushClipRectForCurrentNode@CDrawingContext@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
- *     ?RestoreStateToLastMark@CDrawingContext@@QEAAXXZ @ 0x1800924F4 (-RestoreStateToLastMark@CDrawingContext@@QEAAXXZ.c)
- *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800B26B8 (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?_Adjust_manually_vector_aligned@std@@YAXAEAPEAXAEA_K@Z @ 0x1800E24C0 (-_Adjust_manually_vector_aligned@std@@YAXAEAPEAXAEA_K@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ??1CShapeDrawingContext@@QEAA@XZ @ 0x18026B884 (--1CShapeDrawingContext@@QEAA@XZ.c)
+ *     ?MarkCurrentState@CDrawingContext@@QEAAJXZ @ 0x18000F51C (-MarkCurrentState@CDrawingContext@@QEAAJXZ.c)
+ *     ?RestoreStateToLastMark@CDrawingContext@@QEAAXXZ @ 0x18001FACC (-RestoreStateToLastMark@CDrawingContext@@QEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18006BD48 (-GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ?DoesContain@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18007ABA0 (-DoesContain@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?GetWorldTransform@CDrawingContext@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800EB7D4 (-GetWorldTransform@CDrawingContext@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     ?PushClipRectForCurrentNode@CDrawingContext@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x180177948 (-PushClipRectForCurrentNode@CDrawingContext@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
+ *     ??1CShapeDrawingContext@@QEAA@XZ @ 0x18020B7F0 (--1CShapeDrawingContext@@QEAA@XZ.c)
+ *     ??$Walk@VCShapeDrawingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeDrawingContext@@@Z @ 0x180260B54 (--$Walk@VCShapeDrawingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeDrawingCont.c)
+ *     ??0CShapeDrawingContext@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@@Z @ 0x180260EFC (--0CShapeDrawingContext@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@AEBV-$TMilRect_@MUMilRectF@@U.c)
+ *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x18026170C (-Render@CShapeDrawingContext@@QEAAJXZ.c)
  */
 
-__int64 __fastcall CShapeTree::DrawShapes(CShapeTree *this, struct CDrawingContext *a2, struct D2D_SIZE_F *a3)
+__int64 __fastcall CShapeTree::DrawShapes(CShapeTree *this, struct CDrawingContext *a2, const struct D2D_SIZE_F *a3)
 {
-  unsigned int v6; // ebx
-  char v7; // r15
+  unsigned int v3; // ebx
+  char v4; // r14
+  int v5; // esi
   FLOAT width; // xmm1_4
   FLOAT height; // xmm0_4
   int v10; // eax
-  unsigned int v11; // ecx
+  __int64 v11; // rcx
   int v12; // eax
-  unsigned int v13; // ecx
+  __int64 v13; // rcx
   int v14; // eax
-  unsigned int v15; // ecx
+  __int64 v15; // rcx
   int v16; // eax
-  unsigned int v17; // ecx
-  void *v18; // rcx
-  unsigned __int64 v19; // rdx
-  char *v20; // rcx
-  bool v21; // zf
-  _BYTE v23[64]; // [rsp+40h] [rbp-C0h] BYREF
-  int v24; // [rsp+80h] [rbp-80h]
-  void *v25; // [rsp+90h] [rbp-70h] BYREF
-  FLOAT v26; // [rsp+98h] [rbp-68h]
-  FLOAT v27; // [rsp+9Ch] [rbp-64h]
-  unsigned __int64 v28[2]; // [rsp+A0h] [rbp-60h] BYREF
-  _BYTE v29[48]; // [rsp+B0h] [rbp-50h] BYREF
-  void *lpMem; // [rsp+E0h] [rbp-20h]
-  char *v31; // [rsp+F0h] [rbp-10h] BYREF
-  char v32; // [rsp+108h] [rbp+8h] BYREF
-  void *v33; // [rsp+2A8h] [rbp+1A8h]
-  __int128 v34; // [rsp+2B0h] [rbp+1B0h]
+  __int64 v17; // rcx
+  __int64 v19; // [rsp+30h] [rbp-D0h] BYREF
+  _BYTE v20[64]; // [rsp+40h] [rbp-C0h] BYREF
+  int v21; // [rsp+80h] [rbp-80h]
+  float v22[4]; // [rsp+90h] [rbp-70h] BYREF
+  __int128 v23; // [rsp+A0h] [rbp-60h] BYREF
+  _BYTE v24[544]; // [rsp+B0h] [rbp-50h] BYREF
 
-  v6 = 0;
-  v7 = 0;
-  *(_OWORD *)v28 = *((_OWORD *)this + 5);
-  if ( !*((_BYTE *)this + 97) )
-    return v6;
-  width = a3->width;
-  height = a3->height;
-  v25 = 0LL;
-  v26 = width;
-  v27 = height;
-  if ( !TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::DoesContain((float *)&v25, (float *)v28) )
+  v3 = 0;
+  v4 = 0;
+  v5 = (int)a3;
+  v23 = *(_OWORD *)((char *)this + 72);
+  if ( *((_BYTE *)this + 89) )
   {
-    v10 = CDrawingContext::MarkCurrentState(a2);
-    v6 = v10;
-    if ( v10 < 0 )
+    width = a3->width;
+    height = a3->height;
+    v22[0] = 0.0;
+    v22[1] = 0.0;
+    v22[2] = width;
+    v22[3] = height;
+    LOBYTE(v19) = 0;
+    if ( !TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::DoesContain(v22, (float *)&v23) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x114u, 0LL);
-      return v6;
+      v10 = CDrawingContext::MarkCurrentState(a2);
+      v3 = v10;
+      if ( v10 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x112u, 0LL);
+        return v3;
+      }
+      v4 = 1;
+      v12 = CDrawingContext::PushClipRectForCurrentNode((const struct CVisualTree **)a2, (struct MilRectF *)v22, &v19);
+      v3 = v12;
+      if ( v12 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x115u, 0LL);
+LABEL_13:
+        CDrawingContext::RestoreStateToLastMark(a2);
+        return v3;
+      }
+      if ( (_BYTE)v19 )
+        goto LABEL_13;
     }
-    v7 = 1;
-    v12 = CDrawingContext::PushClipRectForCurrentNode(a2, (struct MilRectF *)&v25);
-    v6 = v12;
-    if ( v12 < 0 )
+    v21 = 0;
+    CDrawingContext::GetWorldTransform(a2, (struct CMILMatrix *)v20);
+    CDrawingContext::GetClipBoundsWorld((__int64)a2);
+    CShapeDrawingContext::CShapeDrawingContext((unsigned int)v24, (_DWORD)a2, v5, (unsigned int)&v23, (__int64)v20);
+    v14 = CShapeTreeIterator::Walk<CShapeDrawingContext>(v24, this, v24);
+    v3 = v14;
+    if ( v14 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x117u, 0LL);
-      goto LABEL_15;
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x124u, 0LL);
     }
-  }
-  v24 = 0;
-  CMatrixStack::Top((struct CDrawingContext *)((char *)a2 + 400), (struct CMILMatrix *)v23);
-  CDrawingContext::GetClipBoundsWorld((__int64)a2, (float *)v28);
-  CShapeDrawingContext::CShapeDrawingContext((__int64)v29, (__int64)a2, a3, v28, (__int64)v23);
-  v14 = CShapeTreeIterator::Walk<CShapeDrawingContext>((__int64)v29, (__int64)this, (__int64)v29);
-  v6 = v14;
-  if ( v14 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x126u, 0LL);
-    goto LABEL_21;
-  }
-  v16 = CShapeDrawingContext::Render((CShapeDrawingContext *)v29);
-  v6 = v16;
-  if ( v16 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x127u, 0LL);
-LABEL_21:
-    CShapeDrawingContext::~CShapeDrawingContext((CShapeDrawingContext *)v29);
-    goto LABEL_14;
-  }
-  v18 = v33;
-  if ( v33 )
-  {
-    v25 = v33;
-    v19 = 8 * ((__int64)(*((_QWORD *)&v34 + 1) - (_QWORD)v33) >> 3);
-    v28[0] = v19;
-    if ( v19 >= 0x1000 )
+    else
     {
-      std::_Adjust_manually_vector_aligned(&v25, v28);
-      v19 = v28[0];
-      v18 = v25;
+      v16 = CShapeDrawingContext::Render((CShapeDrawingContext *)v24);
+      v3 = v16;
+      if ( v16 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x125u, 0LL);
     }
-    operator delete(v18, v19);
-    v33 = 0LL;
-    v34 = 0LL;
+    CShapeDrawingContext::~CShapeDrawingContext((CShapeDrawingContext *)v24);
+    if ( v4 )
+      goto LABEL_13;
   }
-  detail::vector_facade<D2D1::Matrix3x2F,detail::buffer_impl<D2D1::Matrix3x2F,10,1,detail::liberal_expansion_policy>>::clear(&v31);
-  v20 = v31;
-  v21 = v31 == &v32;
-  v31 = 0LL;
-  if ( v21 )
-    v20 = 0LL;
-  operator delete(v20);
-  operator delete(lpMem);
-LABEL_14:
-  if ( v7 )
-LABEL_15:
-    CDrawingContext::RestoreStateToLastMark(a2);
-  return v6;
+  return v3;
 }

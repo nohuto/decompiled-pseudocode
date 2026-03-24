@@ -1,9 +1,8 @@
 /*
- * XREFs of RtlCmEncodeMemIoResource @ 0x1403B84C0
+ * XREFs of RtlCmEncodeMemIoResource @ 0x1403AD4E0
  * Callers:
- *     VslGetSecurePciDeviceBootConfiguration @ 0x1404176A0 (VslGetSecurePciDeviceBootConfiguration.c)
- *     HalpReportResourceUsage @ 0x140AF77F8 (HalpReportResourceUsage.c)
- *     IopInitializeResourceMap @ 0x140AF7DC8 (IopInitializeResourceMap.c)
+ *     HalpReportResourceUsage @ 0x140A39D8C (HalpReportResourceUsage.c)
+ *     IopInitializeResourceMap @ 0x140A3A34C (IopInitializeResourceMap.c)
  * Callees:
  *     <none>
  */
@@ -18,20 +17,32 @@ NTSTATUS __stdcall RtlCmEncodeMemIoResource(
   ULONGLONG v6; // r9
   __int16 v7; // ax
 
-  if ( ((Type - 3) & 0xFB) != 0 && (Type != 1 || Length > 0xFFFFFFFF) )
+  if ( ((Type - 3) & 0xFB) != 0 )
+  {
+    if ( Type != 1 )
+      return -1073741811;
+    goto LABEL_9;
+  }
+  if ( Type == 1 )
+  {
+LABEL_9:
+    if ( Length <= 0xFFFFFFFF )
+      goto LABEL_3;
     return -1073741811;
+  }
+LABEL_3:
   Descriptor->u.Generic.Start.QuadPart = Start;
   if ( Type == 1 )
   {
     Descriptor->Type = 1;
-    goto LABEL_5;
+    goto LABEL_6;
   }
   v4 = Descriptor->Flags & 0xF1FF;
   Descriptor->Flags = v4;
   if ( Length <= 0xFFFFFFFF )
   {
     Descriptor->Type = 3;
-LABEL_5:
+LABEL_6:
     Descriptor->u.Generic.Length = Length;
     return 0;
   }

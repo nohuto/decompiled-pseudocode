@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetDrawListCacheForTextObject@CTextVisualContent@@AEAAJPEAVCDrawingContext@@PEAVCTreeData@@IPEAPEAVCDrawListCache@@@Z @ 0x18026C734
+ * XREFs of ?GetDrawListCacheForTextObject@CTextVisualContent@@AEAAJPEAVCDrawingContext@@PEAVCTreeData@@IPEAPEAVCDrawListCache@@@Z @ 0x18020CBD0
  * Callers:
- *     ?Draw@CTextVisualContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18026C2E8 (-Draw@CTextVisualContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CTextVisualContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18020C71C (-Draw@CTextVisualContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?GetCache@CDrawListCacheSet@@QEAAJIIPEBVIDeviceTarget@@PEAPEAVCDrawListCache@@@Z @ 0x18003EEF0 (-GetCache@CDrawListCacheSet@@QEAAJIIPEBVIDeviceTarget@@PEAPEAVCDrawListCache@@@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??1?$com_ptr_t@VCComputeScribbleFramebuffer@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1801D75C4 (--1-$com_ptr_t@VCComputeScribbleFramebuffer@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?GetCache@CDrawListCacheSet@@QEAAJIIPEBVIDeviceTarget@@PEAPEAVCDrawListCache@@@Z @ 0x180051FB0 (-GetCache@CDrawListCacheSet@@QEAAJIIPEBVIDeviceTarget@@PEAPEAVCDrawListCache@@@Z.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CTextVisualContent::GetDrawListCacheForTextObject(
@@ -15,30 +15,36 @@ __int64 __fastcall CTextVisualContent::GetDrawListCacheForTextObject(
         int a4,
         struct CDrawListCache **a5)
 {
-  struct CDrawListCache *v5; // rbx
+  struct CDrawListCache *v5; // r10
   int Cache; // eax
-  unsigned int v7; // edi
+  unsigned int v7; // ebx
+  CDrawListEntry *v8; // rcx
   wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
-  struct CDrawListCache *v10; // [rsp+40h] [rbp+8h] BYREF
+  struct CDrawListCache *v11; // [rsp+40h] [rbp+8h] BYREF
 
   v5 = 0LL;
-  v10 = 0LL;
-  if ( *((_BYTE *)a2 + 8171) )
+  v11 = 0LL;
+  if ( *((_BYTE *)a2 + 5956) )
   {
-    Cache = CDrawListCacheSet::GetCache((struct CTreeData *)((char *)a3 + 16), 3, a4, a2[4], &v10);
+    Cache = CDrawListCacheSet::GetCache((struct CTreeData *)((char *)a3 + 128), 3, a4, a2[4], &v11);
     v7 = Cache;
     if ( Cache < 0 )
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
         (void *)0x54,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\textvisualcontent.cpp",
         (const char *)(unsigned int)Cache);
-      wil::com_ptr_t<CComputeScribbleFramebuffer,wil::err_returncode_policy>::~com_ptr_t<CComputeScribbleFramebuffer,wil::err_returncode_policy>((volatile signed __int32 **)&v10);
-      return v7;
+      v8 = v11;
+      goto LABEL_6;
     }
-    v5 = v10;
+    v5 = v11;
   }
+  v8 = 0LL;
+  v7 = 0;
   *a5 = v5;
-  return 0LL;
+LABEL_6:
+  if ( v8 )
+    CDrawListEntry::Release(v8);
+  return v7;
 }

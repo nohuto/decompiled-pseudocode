@@ -1,197 +1,308 @@
 /*
- * XREFs of ?PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAVCFilterEffect@@11PEA_N@Z @ 0x180060A78
+ * XREFs of ?PushEffects@CDrawingContext@@QEAAJAEAUNodeEffects@1@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAVCFilterEffect@@11PEA_N@Z @ 0x18007F3E0
  * Callers:
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067A20 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007BE10 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     ?PushEffectLayer@CDrawingContext@@AEAAJPEBVCVisual@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@11PEAVCResource@@PEA_N@Z @ 0x18000E21C (-PushEffectLayer@CDrawingContext@@AEAAJPEBVCVisual@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMi.c)
- *     ?Push@?$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUStackStateEntry@CDrawingContext@@@Z @ 0x18005B5F4 (-Push@-$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUStackStateEntry@.c)
- *     ?PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUNodeEffects@1@PEA_N@Z @ 0x18005D0D0 (-PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRect.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800B26B8 (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
- *     ?Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800B5000 (-Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ @ 0x1800C3C54 (-GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x1801D34FC (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
- *     ?GetColorSpace@CVisual@@QEBA?AW4DXGI_COLOR_SPACE_TYPE@@XZ @ 0x1801D5D1C (-GetColorSpace@CVisual@@QEBA-AW4DXGI_COLOR_SPACE_TYPE@@XZ.c)
- *     ?GetColorTransform@CVisual@@QEBAPEAVCColorTransformResource@@XZ @ 0x1801D5D6C (-GetColorTransform@CVisual@@QEBAPEAVCColorTransformResource@@XZ.c)
- *     ?PushColorSpaceLayer@CDrawingContext@@AEAAJPEBVCVisual@@W4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1801D6534 (-PushColorSpaceLayer@CDrawingContext@@AEAAJPEBVCVisual@@W4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?PushColorTransformLayerForNode@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCColorTransformResource@@@Z @ 0x1801D6730 (-PushColorTransformLayerForNode@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCColorTransformResource@@.c)
- *     ?PushResampleLayer@CDrawingContext@@AEAAJPEBVCVisual@@W4Enum@CompositionResampleMode@@AEBUMilPointAndSizeL@@MM@Z @ 0x1801D69A0 (-PushResampleLayer@CDrawingContext@@AEAAJPEBVCVisual@@W4Enum@CompositionResampleMode@@AEBUMilPoi.c)
+ *     ?PushEffectLayer@CDrawingContext@@AEAAJPEBVCVisual@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@11PEAVCResource@@PEA_N@Z @ 0x18000EBCC (-PushEffectLayer@CDrawingContext@@AEAAJPEBVCVisual@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMi.c)
+ *     ?UpdateCpuClippingData@CVisual@@IEAAJPEBVCVisualTree@@W4Enum@CpuClippingMode@@_N@Z @ 0x18001BD4C (-UpdateCpuClippingData@CVisual@@IEAAJPEBVCVisualTree@@W4Enum@CpuClippingMode@@_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18007AA60 (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?Push@?$CWatermarkStack@UStackBackfaceVisibilityEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUStackBackfaceVisibilityEntry@CDrawingContext@@@Z @ 0x18007AAC0 (-Push@-$CWatermarkStack@UStackBackfaceVisibilityEntry@CDrawingContext@@$0EA@$01$09@@QEAAJAEBUSta.c)
+ *     ?PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJ$$QEAVCShapePtr@@PEBVCMILMatrix@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUNodeEffects@1@PEA_N@Z @ 0x18007FA30 (-PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJ$$QEAVCShapePtr@@PEBVCMILMatrix@@PEBV-.c)
+ *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180087AD0 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x18008D110 (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     ?GetColorTransform@CVisual@@QEBAPEAV?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@XZ @ 0x18009FE28 (-GetColorTransform@CVisual@@QEBAPEAV-$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFO.c)
+ *     ?GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ @ 0x1800A0088 (-GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ.c)
+ *     ?Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800BA1F8 (-Get2DScaleDimensionsWithPerspective@CMILMatrix@@QEBA_NPEAM0PEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?GetWorldTransform@CDrawingContext@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800EB7D4 (-GetWorldTransform@CDrawingContext@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x180174770 (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
+ *     ?GetColorSpace@CVisual@@QEBA?AW4DXGI_COLOR_SPACE_TYPE@@XZ @ 0x1801771FC (-GetColorSpace@CVisual@@QEBA-AW4DXGI_COLOR_SPACE_TYPE@@XZ.c)
+ *     ?PushColorSpaceLayer@CDrawingContext@@AEAAJPEBVCVisual@@W4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180177BB4 (-PushColorSpaceLayer@CDrawingContext@@AEAAJPEBVCVisual@@W4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?PushColorTransformLayerForNode@CDrawingContext@@AEAAJPEBVCVisual@@PEAV?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@@Z @ 0x180177DA8 (-PushColorTransformLayerForNode@CDrawingContext@@AEAAJPEBVCVisual@@PEAV-$TValueResource@UMilColo.c)
+ *     ?PushResampleLayer@CDrawingContext@@AEAAJPEBVCVisual@@W4Enum@CompositionResampleMode@@AEBUMilPointAndSizeL@@MM@Z @ 0x180177FFC (-PushResampleLayer@CDrawingContext@@AEAAJPEBVCVisual@@W4Enum@CompositionResampleMode@@AEBUMilPoi.c)
  */
 
-__int64 CDrawingContext::PushEffects(
+__int64 __fastcall CDrawingContext::PushEffects(
         CDrawingContext *this,
         _QWORD *a2,
-        unsigned __int64 a3,
+        __int64 a3,
         __int64 a4,
         __int64 a5,
-        void *a6,
-        ...)
+        __int64 a6,
+        _BYTE *a7)
 {
-  _BYTE *v6; // rsi
-  float v9; // xmm0_4
-  unsigned int v11; // edi
-  int v12; // eax
-  unsigned int v13; // ecx
-  char v14; // r15
-  void *v15; // r12
-  struct CFilterEffect **v17; // rax
-  struct CFilterEffect *v18; // rcx
-  int v19; // eax
-  unsigned int v20; // ecx
+  unsigned int v7; // ebx
+  float v11; // xmm0_4
+  char v12; // al
+  int v13; // eax
+  __int64 v14; // rcx
+  __int64 v15; // r15
+  __int64 v16; // rax
+  int ShapeData; // eax
+  __int64 v18; // rcx
+  int v19; // esi
+  __int64 v20; // rcx
   int v21; // eax
-  unsigned int v22; // ecx
-  struct CColorTransformResource *ColorTransform; // rax
-  CVisual *v24; // rcx
-  struct CFilterEffect *EffectInternal; // rax
-  int v26; // eax
-  unsigned int v27; // ecx
+  __int64 v22; // rcx
+  void (__fastcall ***v23)(_QWORD, __int64); // rcx
+  struct _LIST_ENTRY *v24; // rbx
+  CVisual *v25; // rsi
+  struct _LIST_ENTRY *TreeDataListHead; // rax
+  struct _LIST_ENTRY *i; // rcx
   int v28; // eax
-  unsigned int v29; // ecx
-  float v30; // xmm0_4
-  float v31; // xmm0_4
-  int v32; // eax
-  unsigned int v33; // ecx
+  __int64 v29; // rcx
+  char v30; // si
+  CVisual *v31; // rcx
+  struct CFilterEffect *EffectInternal; // rax
+  __int64 v33; // r15
+  int v34; // eax
+  __int64 v35; // rcx
+  struct CFilterEffect *v36; // rax
+  int v37; // eax
+  __int64 v38; // rcx
+  int v39; // eax
+  __int64 v40; // rcx
+  float v41; // xmm0_4
+  float v42; // xmm0_4
+  int v43; // eax
+  __int64 v44; // rcx
   enum DXGI_COLOR_SPACE_TYPE ColorSpace; // eax
-  __int128 v35; // [rsp+48h] [rbp-51h] BYREF
-  _BYTE v36[96]; // [rsp+58h] [rbp-41h] BYREF
-  __int64 v37; // [rsp+100h] [rbp+67h] BYREF
-  _BYTE *v38; // [rsp+118h] [rbp+7Fh] BYREF
-  va_list va; // [rsp+118h] [rbp+7Fh]
-  va_list va1; // [rsp+120h] [rbp+87h] BYREF
+  int updated; // eax
+  __int64 v47; // rcx
+  __int64 v49; // [rsp+40h] [rbp-B1h] BYREF
+  void (__fastcall ***v50)(_QWORD, __int64); // [rsp+48h] [rbp-A9h] BYREF
+  char v51; // [rsp+50h] [rbp-A1h]
+  __int128 v52; // [rsp+58h] [rbp-99h] BYREF
+  __int64 v53; // [rsp+68h] [rbp-89h] BYREF
+  __int64 v54; // [rsp+70h] [rbp-81h] BYREF
+  _OWORD v55[4]; // [rsp+80h] [rbp-71h] BYREF
+  __int16 v56; // [rsp+C0h] [rbp-31h]
+  __int128 v57; // [rsp+D0h] [rbp-21h] BYREF
 
-  va_start(va1, a6);
-  va_start(va, a6);
-  v38 = va_arg(va1, _BYTE *);
-  v37 = a4;
-  v6 = v38;
-  LODWORD(v9) = a2[4] & _xmm;
-  *v38 = 0;
-  v11 = 0;
-  if ( v9 < 0.0000011920929 || COERCE_FLOAT(*((_DWORD *)a2 + 11) & _xmm) < 0.0000011920929 )
+  v7 = 0;
+  v54 = a5;
+  *a7 = 0;
+  LODWORD(v11) = a2[1] & _xmm;
+  v53 = a6;
+  if ( v11 < 0.0000011920929 || COERCE_FLOAT(*((_DWORD *)a2 + 5) & _xmm) < 0.0000011920929 )
   {
-    *v6 = 1;
-    return v11;
+    *a7 = 1;
+    return v7;
   }
-  if ( a2[1]
-    || *((_BYTE *)a2 + 193)
-    || *((_BYTE *)a2 + 194)
-    || *((_BYTE *)a2 + 195)
-    || *((_BYTE *)a2 + 196)
-    || *((_DWORD *)a2 + 9)
-    || *((_DWORD *)a2 + 10)
-    || COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)a2 + 11) - 1.0) & _xmm) >= 0.0000011920929 )
+  v12 = *((_BYTE *)a2 + 164);
+  if ( !v12
+    && !*((_BYTE *)a2 + 165)
+    && !*((_BYTE *)a2 + 166)
+    && !*((_BYTE *)a2 + 167)
+    && !*((_BYTE *)a2 + 168)
+    && !*((_DWORD *)a2 + 3)
+    && !*((_DWORD *)a2 + 4)
+    && COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)a2 + 5) - 1.0) & _xmm) < 0.0000011920929 )
   {
-    v12 = CDrawingContext::PushLocalSpaceClipAndAlphaInternal(this, a3, (__int64)a2, v6);
-    v11 = v12;
-    if ( v12 < 0 )
+    *((_QWORD *)&v52 + 1) = *a2;
+    LODWORD(v52) = 7;
+    v13 = CWatermarkStack<CDrawingContext::StackBackfaceVisibilityEntry,64,2,10>::Push((unsigned int *)this + 94, &v52);
+    v7 = v13;
+    if ( v13 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0xC92u, 0LL);
+    return v7;
+  }
+  v50 = 0LL;
+  v15 = 0LL;
+  v51 = 0;
+  if ( v12 )
+  {
+    v16 = *a2;
+    *(_QWORD *)&v52 = 0LL;
+    v57 = 0LL;
+    BYTE8(v52) = 0;
+    ShapeData = CGeometry::GetShapeData(
+                  *(CGeometry **)(v16 + 240),
+                  (const struct D2D_SIZE_F *)(v16 + 132),
+                  (struct CShapePtr *)&v52);
+    v19 = ShapeData;
+    if ( ShapeData < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0xD86u, 0LL);
-      return v11;
+      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, ShapeData, 0x895u, 0LL);
     }
-    if ( !*v6 )
+    else
     {
-      v14 = 0;
-      if ( *((_BYTE *)a2 + 193) )
+      v20 = v52;
+      v19 = -2003292412;
+      if ( (_QWORD)v52 )
       {
-        ColorTransform = CVisual::GetColorTransform((CVisual *)*a2);
-        CDrawingContext::PushColorTransformLayerForNode(this, (const struct CVisual *)*a2, ColorTransform);
-        v14 = 1;
+        v21 = (*(__int64 (__fastcall **)(_QWORD, __int128 *, _QWORD))(*(_QWORD *)v52 + 32LL))(v52, &v57, 0LL);
+        v19 = v21;
+        if ( v21 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x115u, 0LL);
+        v20 = v52;
       }
-      v15 = a6;
-      if ( *((_BYTE *)a2 + 194) )
+      if ( v19 >= 0 )
       {
-        v24 = (CVisual *)*a2;
-        LOBYTE(v37) = 0;
-        EffectInternal = CVisual::GetEffectInternal(v24);
-        v26 = CDrawingContext::PushEffectLayer(
-                (struct IDeviceTarget **)this,
-                (struct CVisual *)*a2,
-                a3,
-                a5,
-                v15,
-                EffectInternal,
-                (char *)&v37);
-        v11 = v26;
-        if ( v26 < 0 )
+        v15 = v20;
+        v50 = (void (__fastcall ***)(_QWORD, __int64))v20;
+        v23 = 0LL;
+        v51 = BYTE8(v52);
+        *(_QWORD *)&v52 = 0LL;
+        BYTE8(v52) = 0;
+LABEL_24:
+        if ( v19 != -2003304438 )
+          v7 = v19;
+        if ( BYTE8(v52) && v23 )
+          (**v23)(v23, 1LL);
+        if ( (v7 & 0x80000000) != 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0xDA4u, 0LL);
-          return v11;
+          MilInstrumentationCheckHR_MaybeFailFast((__int64)v23, 0LL, 0, v7, 0xC9Bu, 0LL);
+          CShapePtr::Release((CShapePtr *)&v50);
+          return v7;
         }
-        v14 = 1;
-        *v6 |= v37;
+        if ( !v15 )
+          *((_BYTE *)a2 + 164) = 0;
+        goto LABEL_32;
       }
-      if ( *((_BYTE *)a2 + 195) )
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x896u, 0LL);
+    }
+    v23 = (void (__fastcall ***)(_QWORD, __int64))v52;
+    goto LABEL_24;
+  }
+LABEL_32:
+  if ( *(_BYTE *)(84LL * (unsigned int)(*((_DWORD *)this + 240) - 1) + *((_QWORD *)this + 117) + 80) )
+  {
+    v24 = (struct _LIST_ENTRY *)*((_QWORD *)this + 741);
+    v25 = (CVisual *)*a2;
+    if ( !((unsigned __int8 (__fastcall *)(struct _LIST_ENTRY *))v24->Flink[12].Blink)(v24) )
+    {
+      TreeDataListHead = CVisual::GetTreeDataListHead(v25);
+      if ( TreeDataListHead )
       {
-        v17 = (struct CFilterEffect **)(*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*a2 + 216LL))(*a2);
-        v18 = 0LL;
-        LOBYTE(v37) = 0;
-        if ( v17 )
-          v18 = *v17;
-        v19 = CDrawingContext::PushEffectLayer(
-                (struct IDeviceTarget **)this,
-                (struct CVisual *)*a2,
-                a3,
-                a5,
-                v15,
-                v18,
-                (char *)&v37);
-        v11 = v19;
-        if ( v19 < 0 )
+        for ( i = TreeDataListHead->Flink; i != TreeDataListHead; i = i->Flink )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0xDBDu, 0LL);
-          return v11;
-        }
-        v14 = 1;
-        *v6 |= v37;
-      }
-      if ( *((_DWORD *)a2 + 10) )
-      {
-        v28 = CDrawingContext::ComputeExternalLayerOffsetAndBounds(this, (struct MilPointAndSizeL *)&v35);
-        v11 = v28;
-        if ( v28 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0xDC6u, 0LL);
-          return v11;
-        }
-        CMILMatrix::SetToIdentity((CMILMatrix *)v36);
-        CMatrixStack::Top((CDrawingContext *)((char *)this + 400), (struct CMILMatrix *)v36);
-        CMILMatrix::Get2DScaleDimensionsWithPerspective((CMILMatrix *)v36, (float *)&v37, (float *)va);
-        v30 = *(float *)&v37 <= 1.0 ? 1.0 - *(float *)&v37 : *(float *)&v37 - 1.0;
-        if ( v30 > 0.0000099999997
-          || (*(float *)&v38 <= 1.0 ? (v31 = 1.0 - *(float *)&v38) : (v31 = *(float *)&v38 - 1.0), v31 > 0.0000099999997) )
-        {
-          v32 = CDrawingContext::PushResampleLayer(this, *a2, *((unsigned int *)a2 + 10), &v35, v37, (_DWORD)v38);
-          v11 = v32;
-          if ( v32 < 0 )
-          {
-            MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, v32, 0xDD6u, 0LL);
-            return v11;
-          }
-          v14 = 1;
+          if ( i[2].Flink == v24 )
+            break;
         }
       }
-      if ( *((_BYTE *)a2 + 196) )
-      {
-        ColorSpace = CVisual::GetColorSpace((CVisual *)*a2);
-        CDrawingContext::PushColorSpaceLayer(this, (const struct CVisual *)*a2, ColorSpace);
-      }
-      else if ( !v14 )
-      {
-        return v11;
-      }
-      CMatrixStack::Top((CDrawingContext *)((char *)this + 400), (struct CMILMatrix *)(a2 + 6));
     }
   }
-  else
+  v28 = CDrawingContext::PushLocalSpaceClipAndAlphaInternal(this, (__int64)a2, (__int64)a7);
+  v7 = v28;
+  if ( v28 < 0 )
   {
-    *((_QWORD *)&v35 + 1) = *a2;
-    LODWORD(v35) = 7;
-    v21 = CWatermarkStack<CDrawingContext::StackStateEntry,64,2,10>::Push((unsigned int *)this + 92, &v35);
-    v11 = v21;
-    if ( v21 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0xD80u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0xCB2u, 0LL);
+    goto LABEL_78;
   }
-  return v11;
+  if ( !*a7 )
+  {
+    v30 = 0;
+    if ( *((_BYTE *)a2 + 165) )
+    {
+      CVisual::GetColorTransform(*a2);
+      CDrawingContext::PushColorTransformLayerForNode(this, (struct CVisual *)*a2);
+      v30 = 1;
+    }
+    if ( *((_BYTE *)a2 + 166) )
+    {
+      v31 = (CVisual *)*a2;
+      LOBYTE(v49) = 0;
+      EffectInternal = CVisual::GetEffectInternal(v31);
+      v33 = v54;
+      v34 = CDrawingContext::PushEffectLayer(
+              (struct IDeviceTarget **)this,
+              (struct CVisual *)*a2,
+              a3,
+              v54,
+              v53,
+              EffectInternal,
+              (char *)&v49);
+      v7 = v34;
+      if ( v34 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0, v34, 0xCD0u, 0LL);
+        goto LABEL_78;
+      }
+      v30 = 1;
+      *a7 |= v49;
+    }
+    else
+    {
+      v33 = v54;
+    }
+    if ( *((_BYTE *)a2 + 167) )
+    {
+      v36 = (struct CFilterEffect *)(*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*a2 + 240LL))(*a2);
+      LOBYTE(v49) = 0;
+      if ( v36 )
+        v36 = *(struct CFilterEffect **)v36;
+      v37 = CDrawingContext::PushEffectLayer(
+              (struct IDeviceTarget **)this,
+              (struct CVisual *)*a2,
+              a3,
+              v33,
+              v53,
+              v36,
+              (char *)&v49);
+      v7 = v37;
+      if ( v37 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v38, 0LL, 0, v37, 0xCE3u, 0LL);
+        goto LABEL_78;
+      }
+      v30 = 1;
+      *a7 |= v49;
+    }
+    if ( *((_DWORD *)a2 + 4) )
+    {
+      v39 = CDrawingContext::ComputeExternalLayerOffsetAndBounds(this, (struct MilPointAndSizeL *)&v57);
+      v7 = v39;
+      if ( v39 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v40, 0LL, 0, v39, 0xCECu, 0LL);
+        goto LABEL_78;
+      }
+      v55[0] = _xmm;
+      v55[1] = _xmm;
+      v55[2] = _xmm;
+      v55[3] = _xmm;
+      v56 = 32085;
+      CMatrixStack::Top((CDrawingContext *)((char *)this + 408), (struct CMILMatrix *)v55);
+      CMILMatrix::Get2DScaleDimensionsWithPerspective(v55, &v53, &v54, 0LL);
+      v41 = *(float *)&v53 <= 1.0 ? 1.0 - *(float *)&v53 : *(float *)&v53 - 1.0;
+      if ( v41 > 0.0000099999997
+        || (*(float *)&v54 <= 1.0 ? (v42 = 1.0 - *(float *)&v54) : (v42 = *(float *)&v54 - 1.0), v42 > 0.0000099999997) )
+      {
+        v43 = CDrawingContext::PushResampleLayer(this, *a2, *((unsigned int *)a2 + 4), &v57, v53, v54);
+        v7 = v43;
+        if ( v43 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v43, 0xCFCu, 0LL);
+          goto LABEL_78;
+        }
+        v30 = 1;
+      }
+    }
+    if ( *((_BYTE *)a2 + 168) )
+    {
+      ColorSpace = CVisual::GetColorSpace((CVisual *)*a2);
+      CDrawingContext::PushColorSpaceLayer(this, (const struct CVisual *)*a2, ColorSpace);
+    }
+    else if ( !v30 )
+    {
+      goto LABEL_42;
+    }
+    CDrawingContext::GetWorldTransform(this, (struct CMILMatrix *)(a2 + 3));
+    updated = CVisual::UpdateCpuClippingData((CVisual **)*a2, *((const struct CVisualTree **)this + 741), 4u, 0);
+    v7 = updated;
+    if ( updated >= 0 )
+      goto LABEL_42;
+    MilInstrumentationCheckHR_MaybeFailFast(v47, 0LL, 0, updated, 0xD15u, 0LL);
+LABEL_78:
+    CShapePtr::Release((CShapePtr *)&v50);
+    return v7;
+  }
+LABEL_42:
+  if ( v51 && v50 )
+    (**v50)(v50, 1LL);
+  return v7;
 }

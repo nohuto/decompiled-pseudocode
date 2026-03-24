@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CMatrixTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0212A30
+ * XREFs of ?EmitUpdateCommands@CMatrixTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00B6A10
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 bool __fastcall DirectComposition::CMatrixTransform3DMarshaler::EmitUpdateCommands(
@@ -23,8 +23,8 @@ bool __fastcall DirectComposition::CMatrixTransform3DMarshaler::EmitUpdateComman
   *(_DWORD *)v6 = 76;
   v4 = v3 + 4;
   memset(v3 + 4, 0, 0x48uLL);
-  *(_DWORD *)v4 = 469;
-  *((_DWORD *)v4 + 1) = *((_DWORD *)this + 8);
+  *(_DWORD *)v4 = 492;
+  *((_DWORD *)v4 + 1) = *((_DWORD *)this + 6);
   result = 1;
   *(_OWORD *)(v4 + 8) = *(_OWORD *)((char *)this + 72);
   *(_OWORD *)(v4 + 24) = *(_OWORD *)((char *)this + 88);

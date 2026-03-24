@@ -1,15 +1,15 @@
 /*
- * XREFs of VrpHandleIoctlGetVirtualRootKey @ 0x1407F5E04
+ * XREFs of VrpHandleIoctlGetVirtualRootKey @ 0x140882BB8
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140692780 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     PsGetJobSilo @ 0x140212000 (PsGetJobSilo.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsDetachSiloFromCurrentThread @ 0x1402D7F90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x1402D7FB0 (PsAttachSiloToCurrentThread.c)
- *     PsIsThreadInSilo @ 0x1402F6170 (PsIsThreadInSilo.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsGetJobSilo @ 0x140200050 (PsGetJobSilo.c)
+ *     PsIsThreadInSilo @ 0x14025C988 (PsIsThreadInSilo.c)
+ *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlGetVirtualRootKey(
@@ -34,7 +34,7 @@ __int64 __fastcall VrpHandleIoctlGetVirtualRootKey(
   v16 = 0LL;
   Object = 0LL;
   KeyHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   if ( a2 < 0x10 || *(_DWORD *)(a1 + 8) > 2u )
   {
     return (unsigned int)-1073741811;

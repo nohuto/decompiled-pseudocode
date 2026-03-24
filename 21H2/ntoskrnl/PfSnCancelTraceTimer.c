@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnCancelTraceTimer @ 0x14035F934
+ * XREFs of PfSnCancelTraceTimer @ 0x1402DF8AC
  * Callers:
- *     PfSnDeactivateTrace @ 0x14035F854 (PfSnDeactivateTrace.c)
+ *     PfSnDeactivateTrace @ 0x1402DF7CC (PfSnDeactivateTrace.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnCancelTraceTimer(__int64 a1)
@@ -47,6 +47,6 @@ __int64 __fastcall PfSnCancelTraceTimer(__int64 a1)
   }
   __writecr8(v4);
   if ( v5 )
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 360));
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 360));
   return 0LL;
 }

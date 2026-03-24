@@ -1,11 +1,11 @@
 /*
- * XREFs of IrqPolicyGetDistributionDisposition @ 0x1C00AC3AC
+ * XREFs of IrqPolicyGetDistributionDisposition @ 0x1C00BCAA0
  * Callers:
- *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DBC (AcpiIrqLibSetupSciInterrupt.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0097104 (AcpiIrqLibSetupSciInterrupt.c)
  * Callees:
- *     OSGetRegistryValue @ 0x1C008DCBC (OSGetRegistryValue.c)
- *     OSOpenUnicodeHandle @ 0x1C008E3EC (OSOpenUnicodeHandle.c)
- *     IrqArbIrqFromGsiv @ 0x1C009D6CC (IrqArbIrqFromGsiv.c)
+ *     OSOpenUnicodeHandle @ 0x1C008FC50 (OSOpenUnicodeHandle.c)
+ *     OSGetRegistryValue @ 0x1C0094F04 (OSGetRegistryValue.c)
+ *     IrqArbIrqFromGsiv @ 0x1C00B70AC (IrqArbIrqFromGsiv.c)
  */
 
 __int64 __fastcall IrqPolicyGetDistributionDisposition(__int64 a1, __int64 a2)
@@ -31,7 +31,29 @@ __int64 __fastcall IrqPolicyGetDistributionDisposition(__int64 a1, __int64 a2)
   EmClientQueryRuleState(&GUID_EM_RULE_ACPI_IRQ_DISTRIBUTION_SPREAD_OUT, &v7);
   if ( v7 == 2 )
     IrqArbGlobalDistributionDisposition = 1;
-  if ( !IrqArbGlobalDistributionDisposition )
+  if ( IrqArbGlobalDistributionDisposition )
+  {
+    EmClientQueryRuleState(&GUID_EM_RULE_ACPI_IRQ_ROUTING_STACK_ON_IRQ9, &v7);
+    if ( v7 == 2 )
+    {
+      IrqArbGlobalStackingIrq = 9;
+    }
+    else
+    {
+      EmClientQueryRuleState(&GUID_EM_RULE_ACPI_IRQ_ROUTING_STACK_ON_IRQ10, &v7);
+      if ( v7 == 2 )
+      {
+        IrqArbGlobalStackingIrq = 10;
+      }
+      else
+      {
+        EmClientQueryRuleState(&GUID_EM_RULE_ACPI_IRQ_ROUTING_STACK_ON_IRQ11, &v7);
+        if ( v7 == 2 )
+          IrqArbGlobalStackingIrq = 11;
+      }
+    }
+  }
+  else
   {
     RtlInitUnicodeString(
       &DestinationString,
@@ -41,50 +63,29 @@ __int64 __fastcall IrqPolicyGetDistributionDisposition(__int64 a1, __int64 a2)
     if ( v3 < 0 || (v3 = OSGetRegistryValue(Handle, L"IRQDistribution", &P), v2 = v3, v3 < 0) )
     {
       if ( v3 != -1073741772 )
-        goto LABEL_25;
+        goto LABEL_11;
       IrqArbGlobalDistributionDisposition = 0;
+      goto LABEL_10;
     }
-    else
+    if ( *((_DWORD *)P + 1) && *(_DWORD *)P == 4 )
     {
-      if ( !*((_DWORD *)P + 1) || *(_DWORD *)P != 4 )
-      {
-        v2 = -1073741275;
-        ExFreePoolWithTag(P, 0);
-        goto LABEL_25;
-      }
       IrqArbGlobalDistributionDisposition = *((_DWORD *)P + 2);
       ExFreePoolWithTag(P, 0);
-      IrqArbGlobalStackingIrq = IrqArbIrqFromGsiv((unsigned int)IrqLibSciGsiv);
+      IrqArbGlobalStackingIrq = IrqArbIrqFromGsiv(IrqLibSciGsiv);
       if ( OSGetRegistryValue(Handle, L"ForcePCIBootConfig", &P) >= 0 )
       {
         if ( *((_DWORD *)P + 1) && *(_DWORD *)P == 4 )
           IrqArbGlobalStackingIrq = *((_DWORD *)P + 2);
         ExFreePoolWithTag(P, 0);
       }
+LABEL_10:
+      v2 = 0;
+      goto LABEL_11;
     }
-    v2 = 0;
-    goto LABEL_25;
+    v2 = -1073741275;
+    ExFreePoolWithTag(P, 0);
   }
-  EmClientQueryRuleState(&GUID_EM_RULE_ACPI_IRQ_ROUTING_STACK_ON_IRQ9, &v7);
-  if ( v7 == 2 )
-  {
-    IrqArbGlobalStackingIrq = 9;
-  }
-  else
-  {
-    EmClientQueryRuleState(&GUID_EM_RULE_ACPI_IRQ_ROUTING_STACK_ON_IRQ10, &v7);
-    if ( v7 == 2 )
-    {
-      IrqArbGlobalStackingIrq = 10;
-    }
-    else
-    {
-      EmClientQueryRuleState(&GUID_EM_RULE_ACPI_IRQ_ROUTING_STACK_ON_IRQ11, &v7);
-      if ( v7 == 2 )
-        IrqArbGlobalStackingIrq = 11;
-    }
-  }
-LABEL_25:
+LABEL_11:
   if ( Handle )
     ZwClose(Handle);
   return v2;

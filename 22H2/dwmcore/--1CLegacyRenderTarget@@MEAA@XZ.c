@@ -1,19 +1,16 @@
 /*
- * XREFs of ??1CLegacyRenderTarget@@MEAA@XZ @ 0x1800C8144
+ * XREFs of ??1CLegacyRenderTarget@@MEAA@XZ @ 0x180025C94
  * Callers:
- *     ??_GCLegacyRenderTarget@@MEAAPEAXI@Z @ 0x1800C7260 (--_GCLegacyRenderTarget@@MEAAPEAXI@Z.c)
- *     ??_ECLegacyStereoRenderTarget@@UEAAPEAXI@Z @ 0x1801C3190 (--_ECLegacyStereoRenderTarget@@UEAAPEAXI@Z.c)
+ *     ??_GCLegacyRenderTarget@@MEAAPEAXI@Z @ 0x180024490 (--_GCLegacyRenderTarget@@MEAAPEAXI@Z.c)
+ *     ??_ECLegacyStereoRenderTarget@@UEAAPEAXI@Z @ 0x18016CFF0 (--_ECLegacyStereoRenderTarget@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CF54 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ?ReleaseSwapChain@CLegacyRenderTarget@@IEAAXXZ @ 0x1800C72A4 (-ReleaseSwapChain@CLegacyRenderTarget@@IEAAXXZ.c)
- *     ??1COverlayContext@@QEAA@XZ @ 0x1800C93EC (--1COverlayContext@@QEAA@XZ.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     PubSebUnregisterRpc @ 0x1800FDA7C (PubSebUnregisterRpc.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??_GCRegion@@QEAAPEAXI@Z @ 0x1801C3900 (--_GCRegion@@QEAAPEAXI@Z.c)
- *     McTemplateU0zqq_EventWriteTransfer @ 0x1801E76FC (McTemplateU0zqq_EventWriteTransfer.c)
- *     ?PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z @ 0x18027C854 (-PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z.c)
+ *     PubSebUnregisterRpc @ 0x1800244D4 (PubSebUnregisterRpc.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1COverlayContext@@QEAA@XZ @ 0x18002E684 (--1COverlayContext@@QEAA@XZ.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     McTemplateU0zqq_EventWriteTransfer @ 0x180185114 (McTemplateU0zqq_EventWriteTransfer.c)
+ *     ?PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z @ 0x180216990 (-PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z.c)
  */
 
 void __fastcall CLegacyRenderTarget::~CLegacyRenderTarget(CLegacyRenderTarget *this)
@@ -22,75 +19,63 @@ void __fastcall CLegacyRenderTarget::~CLegacyRenderTarget(CLegacyRenderTarget *t
   __int64 v3; // rcx
   __int64 v4; // rcx
   struct _SEB_RPC_PUBLISH_DATA *v5; // rcx
-  CRegion *v6; // rcx
+  struct _SEB_RPC_PUBLISH_DATA *v6; // rcx
   char *v7; // rcx
-  CResource *v8; // rcx
-  __int64 v9; // rdx
-  CResource *v10; // rcx
-  struct _SEB_RPC_PUBLISH_DATA *v11; // rcx
+  CRenderTargetBitmap *v8; // rcx
+  CRenderTargetBitmap *v9; // rcx
   char updated; // al
-  int v13; // edx
-  int v14; // ecx
-  int v15; // r8d
-  __int64 v16; // rcx
+  int v11; // edx
+  int v12; // ecx
+  int v13; // r8d
 
   *(_QWORD *)this = &CLegacyRenderTarget::`vftable'{for `CRenderTarget'};
-  *((_QWORD *)this + 9) = &CLegacyRenderTarget::`vftable'{for `IVisualTreeClient'};
-  *((_QWORD *)this + 18) = &CLegacyRenderTarget::`vftable'{for `IOverlayMonitorTarget'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 4LL) + 80) = &CLegacyRenderTarget::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 8LL) + 80) = &CLegacyRenderTarget::`vftable'{for `IPixelFormat'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 12LL) + 80) = &CLegacyRenderTarget::`vftable'{for `IRenderTarget'};
-  v2 = *(int *)(*((_QWORD *)this + 10) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 76) = v2 - 18632;
-  v3 = *(int *)(*((_QWORD *)this + 10) + 8LL);
-  *(_DWORD *)((char *)this + v3 + 76) = v3 - 18648;
-  v4 = *(int *)(*((_QWORD *)this + 10) + 12LL);
-  *(_DWORD *)((char *)this + v4 + 76) = v4 - 18672;
-  CLegacyRenderTarget::ReleaseSwapChain(this);
-  if ( *((_QWORD *)this + 2335) )
-  {
-    if ( *((_BYTE *)this + 18672) )
-    {
-      if ( *((_BYTE *)this + 18673) )
-      {
-        v11 = (struct _SEB_RPC_PUBLISH_DATA *)*((_QWORD *)this + 2336);
-        if ( v11 )
-          PubSebiUpdateLevelEventRpc(v11, 0);
-      }
-      updated = PubSebiUpdateLevelEventRpc(*((struct _SEB_RPC_PUBLISH_DATA **)this + 2335), 0);
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
-        McTemplateU0zqq_EventWriteTransfer(v14, v13, v15, 0, updated);
-      *((_BYTE *)this + 18672) = 0;
-    }
-    PubSebUnregisterRpc(*((struct _SEB_RPC_PUBLISH_DATA **)this + 2335));
-    *((_QWORD *)this + 2335) = 0LL;
-  }
-  v5 = (struct _SEB_RPC_PUBLISH_DATA *)*((_QWORD *)this + 2336);
+  *((_QWORD *)this + 8) = &CLegacyRenderTarget::`vftable'{for `IVisualTreeClient'};
+  *((_QWORD *)this + 17) = &CLegacyRenderTarget::`vftable'{for `IOverlayMonitorTarget'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 4LL) + 72) = &CLegacyRenderTarget::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 8LL) + 72) = &CLegacyRenderTarget::`vftable'{for `IPixelFormat'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 12LL) + 72) = &CLegacyRenderTarget::`vftable'{for `IRenderTarget'};
+  v2 = *(int *)(*((_QWORD *)this + 9) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 68) = v2 - 18552;
+  v3 = *(int *)(*((_QWORD *)this + 9) + 8LL);
+  *(_DWORD *)((char *)this + v3 + 68) = v3 - 18568;
+  v4 = *(int *)(*((_QWORD *)this + 9) + 12LL);
+  *(_DWORD *)((char *)this + v4 + 68) = v4 - 18592;
+  v5 = (struct _SEB_RPC_PUBLISH_DATA *)*((_QWORD *)this + 2325);
   if ( v5 )
   {
+    if ( *((_BYTE *)this + 18593) )
+    {
+      if ( *((_BYTE *)this + 18594) && *((_QWORD *)this + 2326) )
+      {
+        PubSebiUpdateLevelEventRpc(*((struct _SEB_RPC_PUBLISH_DATA **)this + 2326), 0);
+        v5 = (struct _SEB_RPC_PUBLISH_DATA *)*((_QWORD *)this + 2325);
+      }
+      updated = PubSebiUpdateLevelEventRpc(v5, 0);
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+        McTemplateU0zqq_EventWriteTransfer(v12, v11, v13, 0, updated);
+      v5 = (struct _SEB_RPC_PUBLISH_DATA *)*((_QWORD *)this + 2325);
+      *((_BYTE *)this + 18593) = 0;
+    }
     PubSebUnregisterRpc(v5);
-    *((_QWORD *)this + 2336) = 0LL;
+    *((_QWORD *)this + 2325) = 0LL;
   }
-  v6 = (CRegion *)*((_QWORD *)this + 2332);
+  v6 = (struct _SEB_RPC_PUBLISH_DATA *)*((_QWORD *)this + 2326);
   if ( v6 )
-    CRegion::`scalar deleting destructor'(v6, 1u);
-  FastRegion::CRegion::FreeMemory((CLegacyRenderTarget *)((char *)this + 18584));
+  {
+    PubSebUnregisterRpc(v6);
+    *((_QWORD *)this + 2326) = 0LL;
+  }
   v7 = (char *)*((_QWORD *)this + 2322);
   if ( (unsigned __int64)(v7 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
     CloseHandle(v7);
-  COverlayContext::~COverlayContext((CLegacyRenderTarget *)((char *)this + 200));
-  v8 = (CResource *)*((_QWORD *)this + 24);
+  COverlayContext::~COverlayContext((CLegacyRenderTarget *)((char *)this + 472));
+  v8 = (CRenderTargetBitmap *)*((_QWORD *)this + 22);
   if ( v8 )
-    CResource::InternalRelease(v8);
-  v9 = *((_QWORD *)this + 23);
+    CRenderTargetBitmap::Release(v8);
+  v9 = (CRenderTargetBitmap *)*((_QWORD *)this + 21);
   if ( v9 )
-  {
-    v16 = v9 + 8 + *(int *)(*(_QWORD *)(v9 + 8) + 4LL);
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 16LL))(v16);
-  }
-  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)this + 22);
-  v10 = (CResource *)*((_QWORD *)this + 21);
-  if ( v10 )
-    CResource::InternalRelease(v10);
+    CRenderTargetBitmap::Release(v9);
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)this + 160);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 19);
   CRenderTarget::~CRenderTarget(this);
 }

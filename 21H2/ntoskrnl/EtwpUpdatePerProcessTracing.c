@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpUpdatePerProcessTracing @ 0x1409E491C
+ * XREFs of EtwpUpdatePerProcessTracing @ 0x140934444
  * Callers:
- *     EtwpUpdateTrace @ 0x1406ECE0C (EtwpUpdateTrace.c)
- *     EtwpStartLogger @ 0x1406EE2AC (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140796D68 (EtwpUpdateTrace.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     EtwpGetFlagExtension @ 0x1406EFB84 (EtwpGetFlagExtension.c)
- *     PsLookupProcessByProcessId @ 0x1407A8720 (PsLookupProcessByProcessId.c)
- *     EtwpUpdateProcessTracingCallback @ 0x1409E4A50 (EtwpUpdateProcessTracingCallback.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
+ *     EtwpGetFlagExtension @ 0x1406DDF20 (EtwpGetFlagExtension.c)
+ *     EtwpUpdateProcessTracingCallback @ 0x140934580 (EtwpUpdateProcessTracingCallback.c)
  */
 
 LONG __fastcall EtwpUpdatePerProcessTracing(__int64 a1, __int64 a2, char a3, unsigned int a4)
@@ -51,6 +51,6 @@ LONG __fastcall EtwpUpdatePerProcessTracing(__int64 a1, __int64 a2, char a3, uns
   if ( a2 == EtwpHostSiloState )
     *(_WORD *)(2 * v4 - 0x87FFFFFFC80LL) = v14;
   else
-    *(_WORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 8) + 1320LL) + 2 * v4 + 550) = v14;
+    *(_WORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 8) + 1128LL) + 2 * v4 + 550) = v14;
   return KeReleaseMutex(&EtwpGlobalMutex, 0);
 }

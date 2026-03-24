@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DestroyAllResourceStates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C008637C
+ * XREFs of ?DestroyAllResourceStates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C006C668
  * Callers:
- *     ?Delete@CFlipManager@@MEAAJPEAX@Z @ 0x1C0083BF0 (-Delete@CFlipManager@@MEAAJPEAX@Z.c)
- *     ?ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C0084C8C (-ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ.c)
+ *     ?MarkInvalid@CFlipManager@@MEAAXXZ @ 0x1C006B7E0 (-MarkInvalid@CFlipManager@@MEAAXXZ.c)
+ *     ?ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C006BB60 (-ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CEndpointResourceStateManager::DestroyAllResourceStates(CEndpointResourceStateManager *this)

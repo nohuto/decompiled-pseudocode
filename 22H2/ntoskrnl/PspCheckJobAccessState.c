@@ -1,35 +1,35 @@
 /*
- * XREFs of PspCheckJobAccessState @ 0x1409B214C
+ * XREFs of PspCheckJobAccessState @ 0x140908C3C
  * Callers:
- *     PspValidateJobAssignmentProcessLimits @ 0x1406A04F8 (PspValidateJobAssignmentProcessLimits.c)
- *     PspValidateJobAffinityState @ 0x140884DF8 (PspValidateJobAffinityState.c)
- *     PspSetAffinityLimitCallback @ 0x1409B2A50 (PspSetAffinityLimitCallback.c)
+ *     PspValidateJobAffinityState @ 0x1406998FC (PspValidateJobAffinityState.c)
+ *     PspValidateJobAssignmentProcessLimits @ 0x14071F2FC (PspValidateJobAssignmentProcessLimits.c)
+ *     PspSetAffinityLimitCallback @ 0x140909410 (PspSetAffinityLimitCallback.c)
  * Callees:
- *     SeAccessCheck @ 0x140231630 (SeAccessCheck.c)
- *     ObReleaseObjectSecurityEx @ 0x1406C3160 (ObReleaseObjectSecurityEx.c)
- *     ObpGetObjectSecurity @ 0x140736720 (ObpGetObjectSecurity.c)
+ *     SeAccessCheck @ 0x140206720 (SeAccessCheck.c)
+ *     ObReleaseObjectSecurity @ 0x1406D81D0 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x1406D85C0 (ObpGetObjectSecurity.c)
  */
 
 __int64 __fastcall PspCheckJobAccessState(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d
-  int v4; // eax
+  int v3; // eax
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+50h] [rbp-10h] BYREF
-  char v8; // [rsp+88h] [rbp+28h] BYREF
-  NTSTATUS AccessStatus; // [rsp+90h] [rbp+30h] BYREF
-  ACCESS_MASK GrantedAccess; // [rsp+98h] [rbp+38h] BYREF
+  BOOLEAN MemoryAllocated; // [rsp+78h] [rbp+18h] BYREF
+  NTSTATUS AccessStatus; // [rsp+80h] [rbp+20h] BYREF
+  ACCESS_MASK GrantedAccess; // [rsp+88h] [rbp+28h] BYREF
 
   GrantedAccess = 0;
   v2 = 0;
   SecurityDescriptor = 0LL;
-  v4 = *(_DWORD *)(a2 + 1120);
-  v8 = 0;
+  v3 = *(_DWORD *)(a2 + 1120);
+  MemoryAllocated = 0;
   AccessStatus = 0;
-  if ( (v4 & 1) == 0 )
+  if ( (v3 & 1) == 0 )
   {
     if ( (*(_DWORD *)a1 & 1) != 0 )
       return 0LL;
-    AccessStatus = ObpGetObjectSecurity(a2, &SecurityDescriptor, &v8, 0);
+    AccessStatus = ObpGetObjectSecurity(a2, &SecurityDescriptor, &MemoryAllocated, 0);
     v2 = AccessStatus;
     if ( AccessStatus >= 0 )
     {
@@ -44,7 +44,7 @@ __int64 __fastcall PspCheckJobAccessState(__int64 a1, __int64 a2)
         1,
         &GrantedAccess,
         &AccessStatus);
-      ObReleaseObjectSecurityEx(SecurityDescriptor, v8, a2);
+      ObReleaseObjectSecurity(SecurityDescriptor, MemoryAllocated);
       return (unsigned int)AccessStatus;
     }
   }

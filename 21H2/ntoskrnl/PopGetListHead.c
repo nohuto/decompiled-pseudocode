@@ -1,28 +1,28 @@
 /*
- * XREFs of PopGetListHead @ 0x140751908
+ * XREFs of PopGetListHead @ 0x14067AE00
  * Callers:
- *     PopSetPowerSettingValue @ 0x14075140C (PopSetPowerSettingValue.c)
- *     PopFindPowerSettingConfiguration @ 0x140751880 (PopFindPowerSettingConfiguration.c)
+ *     PopSetPowerSettingValue @ 0x14067A8D8 (PopSetPowerSettingValue.c)
+ *     PopFindPowerSettingConfiguration @ 0x14067AD78 (PopFindPowerSettingConfiguration.c)
  * Callees:
- *     PopStateIsSessionSpecific @ 0x14075197C (PopStateIsSessionSpecific.c)
+ *     PopStateIsSessionSpecific @ 0x14067AE74 (PopStateIsSessionSpecific.c)
  */
 
 PVOID *__fastcall PopGetListHead(_QWORD *a1)
 {
   __int64 v2; // rbx
   unsigned int v4; // ecx
-  char *i; // r8
+  GUID **i; // r8
   __int64 v6; // rdx
 
   v2 = 0LL;
   if ( !(unsigned __int8)PopStateIsSessionSpecific(a1) )
     return &PopPowerSettings;
   v4 = 0;
-  for ( i = (char *)&PopSessionSpecificGuids; ; i += 8 )
+  for ( i = PopSessionSpecificGuids; ; ++i )
   {
-    v6 = **(_QWORD **)i - *a1;
+    v6 = *(_QWORD *)&(*i)->Data1 - *a1;
     if ( !v6 )
-      v6 = *(_QWORD *)(*(_QWORD *)i + 8LL) - a1[1];
+      v6 = *(_QWORD *)(*i)->Data4 - a1[1];
     if ( !v6 )
       break;
     if ( ++v4 >= 2 )

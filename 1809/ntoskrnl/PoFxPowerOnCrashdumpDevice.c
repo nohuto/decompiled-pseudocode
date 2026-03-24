@@ -1,9 +1,9 @@
 /*
- * XREFs of PoFxPowerOnCrashdumpDevice @ 0x1402D7110
+ * XREFs of PoFxPowerOnCrashdumpDevice @ 0x1402D7210
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PoFxPowerOnCrashdumpDevice(__int64 a1, __int64 a2)

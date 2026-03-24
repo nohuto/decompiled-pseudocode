@@ -1,39 +1,54 @@
 /*
- * XREFs of ?CreateGlobal@CCD_BTL@@SAJXZ @ 0x1C0214110
+ * XREFs of ?CreateGlobal@CCD_BTL@@SAJXZ @ 0x1C017A600
  * Callers:
- *     DriverEntry @ 0x1C03DEE7C (DriverEntry.c)
+ *     DriverEntry @ 0x1C03072C8 (DriverEntry.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ??0CCD_BTL@@IEAA@XZ @ 0x1C0214184 (--0CCD_BTL@@IEAA@XZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ??0CCD_BTL@@IEAA@XZ @ 0x1C017A680 (--0CCD_BTL@@IEAA@XZ.c)
  */
 
-__int64 CCD_BTL::CreateGlobal(void)
+__int64 __fastcall CCD_BTL::CreateGlobal(__int64 a1, __int64 a2)
 {
-  CCD_BTL *v0; // rax
-  CCD_BTL *v1; // rbx
+  CCD_BTL *v2; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  CCD_BTL *v7; // rbx
+  __int64 v9; // rax
+  __int64 v10; // rax
 
   if ( CCD_BTL::m_pGlobalBtl )
   {
-    WdLogSingleEntry0(1LL);
+    v9 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v9);
     return 3221225473LL;
   }
   else
   {
-    v0 = (CCD_BTL *)operator new[](0xA0uLL, 0x63644356u, 256LL);
-    v1 = v0;
-    if ( v0 )
+    v2 = (CCD_BTL *)operator new[](0x98uLL, 0x63644356u, PagedPool);
+    v7 = v2;
+    if ( v2 )
     {
-      memset(v0, 0, 0xA0uLL);
-      CCD_BTL::CCD_BTL(v1);
-      CCD_BTL::m_pGlobalBtl = v1;
-      *(_QWORD *)v1 = &CCD_BTL_FULL::`vftable';
+      memset(v2, 0, 0x98uLL);
+      CCD_BTL::CCD_BTL(v7);
+      *(_QWORD *)v7 = &CCD_BTL_FULL::`vftable';
+    }
+    else
+    {
+      v7 = 0LL;
+    }
+    CCD_BTL::m_pGlobalBtl = v7;
+    if ( v7 )
+    {
       return 0LL;
     }
     else
     {
-      CCD_BTL::m_pGlobalBtl = 0LL;
-      WdLogSingleEntry1(6LL, 160LL);
+      v10 = WdLogNewEntry5_WdLowResource(v4, v3, v5, v6);
+      *(_QWORD *)(v10 + 24) = 152LL;
+      WdLogEvent5_WdLowResource(v10);
       return 3221225495LL;
     }
   }

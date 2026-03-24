@@ -1,14 +1,13 @@
 /*
- * XREFs of WheapCommitPolicy @ 0x140A096F8
+ * XREFs of WheapCommitPolicy @ 0x14095DDA0
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x14061430C (WheapWmiExecutePolicyManagementMethod.c)
- *     WheapResetPolicyDefaults @ 0x140A09A60 (WheapResetPolicyDefaults.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x1405BDE20 (WheapWmiExecutePolicyManagementMethod.c)
  * Callees:
- *     RtlWriteRegistryValue @ 0x1407D4860 (RtlWriteRegistryValue.c)
- *     RtlCheckRegistryKey @ 0x1407E5930 (RtlCheckRegistryKey.c)
- *     RtlCreateRegistryKey @ 0x1408646B0 (RtlCreateRegistryKey.c)
- *     WheapPfaReset @ 0x140A08F30 (WheapPfaReset.c)
- *     WheapLogPolicyTelemetry @ 0x140A099A4 (WheapLogPolicyTelemetry.c)
+ *     RtlWriteRegistryValue @ 0x1406978F0 (RtlWriteRegistryValue.c)
+ *     RtlCheckRegistryKey @ 0x14069EFA0 (RtlCheckRegistryKey.c)
+ *     RtlCreateRegistryKey @ 0x1407D0C20 (RtlCreateRegistryKey.c)
+ *     WheapLogPolicyTelemetry @ 0x14095DFCC (WheapLogPolicyTelemetry.c)
+ *     WheapPfaReset @ 0x14095E614 (WheapPfaReset.c)
  */
 
 __int64 WheapCommitPolicy()
@@ -43,8 +42,8 @@ __int64 WheapCommitPolicy()
       }
       ++v3;
       ++v2;
-      v4 += 4;
-      if ( v3 >= 0x14 )
+      v4 += 3;
+      if ( v3 >= 0xD )
       {
         if ( v1 )
           WheapPfaReset();

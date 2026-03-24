@@ -1,11 +1,11 @@
 /*
  * XREFs of KdpReportExceptionStateChange @ 0x140916954
  * Callers:
- *     KdpReport @ 0x14028CA00 (KdpReport.c)
- *     KiFreezeTargetExecution @ 0x1402975DC (KiFreezeTargetExecution.c)
+ *     KdpReport @ 0x14028CB00 (KdpReport.c)
+ *     KiFreezeTargetExecution @ 0x1402976DC (KiFreezeTargetExecution.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KdpSetCommonState @ 0x14028C478 (KdpSetCommonState.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KdpSetCommonState @ 0x14028C578 (KdpSetCommonState.c)
  *     KdpSendWaitContinue @ 0x140917100 (KdpSendWaitContinue.c)
  *     KdpSetContextState @ 0x14091868C (KdpSetContextState.c)
  *     KdpQuickMoveMemory @ 0x140918B04 (KdpQuickMoveMemory.c)

@@ -1,109 +1,111 @@
 /*
- * XREFs of _PnpRegQueryValueIndirect @ 0x1406B89A0
+ * XREFs of _PnpRegQueryValueIndirect @ 0x140699930
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbLengthW @ 0x1402DCD64 (RtlStringCbLengthW.c)
- *     _PnpParseIndirectResourceString @ 0x1406974B8 (_PnpParseIndirectResourceString.c)
- *     _PnpParseIndirectInfString @ 0x1406C47D8 (_PnpParseIndirectInfString.c)
- *     _RegRtlQueryValue @ 0x14077FC64 (_RegRtlQueryValue.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlStringCbLengthW @ 0x140265368 (RtlStringCbLengthW.c)
+ *     _RegRtlQueryValue @ 0x140642318 (_RegRtlQueryValue.c)
+ *     _PnpParseIndirectResourceString @ 0x140684510 (_PnpParseIndirectResourceString.c)
+ *     _PnpParseIndirectInfString @ 0x1406B109C (_PnpParseIndirectInfString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRegQueryValueIndirect(
         size_t a1,
         void *a2,
-        __int64 a3,
+        const WCHAR *a3,
         unsigned int *a4,
-        const wchar_t *a5,
+        unsigned __int64 a5,
         __int64 a6,
         bool *a7)
 {
-  const wchar_t *v7; // rdi
+  void *v7; // rbx
   unsigned int *v9; // rsi
-  void *Pool2; // rbx
-  bool *v12; // r14
-  unsigned int Value; // ebp
-  unsigned int v15; // ecx
-  unsigned int v16; // esi
-  int v17; // eax
+  PVOID PoolWithTag; // rdi
+  bool *v13; // r14
+  unsigned int Value; // eax
+  unsigned int v15; // ebp
+  unsigned int v17; // ecx
+  unsigned int v18; // esi
+  int v19; // eax
   size_t pcbLength; // [rsp+60h] [rbp+8h] BYREF
 
   pcbLength = a1;
-  v7 = a5;
+  v7 = (void *)a5;
   v9 = (unsigned int *)a6;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   if ( a5 )
-    v7 = (const wchar_t *)(-(__int64)(*(_DWORD *)a6 != 0) & (unsigned __int64)a5);
+    v7 = (void *)(-(__int64)(*(_DWORD *)a6 != 0) & a5);
   else
     *(_DWORD *)a6 = 0;
-  v12 = a7;
+  v13 = a7;
   if ( a7 )
     *a7 = 0;
   *a4 = 0;
-  Value = RegRtlQueryValue(a2, (__int64)v9);
-  if ( Value && Value != -1073741789 || !v12 )
-    return Value;
-  v15 = *a4;
+  Value = RegRtlQueryValue(a2, a3, a4, v7, v9);
+  v15 = Value;
+  if ( Value && Value != -1073741789 || !v13 )
+    return v15;
+  v17 = *a4;
   if ( *a4 > 3 )
   {
-    if ( v15 <= 6 )
-      goto LABEL_22;
-    if ( v15 != 7 )
+    if ( v17 <= 6 )
+      goto LABEL_21;
+    if ( v17 != 7 )
     {
-      if ( v15 - 8 > 3 )
+      if ( v17 - 8 > 3 )
       {
-        *v12 = (_WORD)v15 == 25;
-        return Value;
+        *v13 = (_WORD)v17 == 25;
+        return v15;
       }
-LABEL_22:
-      *v12 = 0;
-      return Value;
+LABEL_21:
+      *v13 = 0;
+      return v15;
     }
   }
-  v16 = *v9;
+  v18 = *v9;
   if ( Value )
   {
-    if ( v16 <= 0xFFFE )
+    if ( v18 <= 0xFFFE )
     {
       while ( 1 )
       {
-        if ( Pool2 )
-          ExFreePoolWithTag(Pool2, 0);
-        Pool2 = (void *)ExAllocatePool2(256LL, v16, 1380994640LL);
-        if ( !Pool2 )
+        if ( PoolWithTag )
+          ExFreePoolWithTag(PoolWithTag, 0);
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v18, 0x52504E50u);
+        if ( !PoolWithTag )
           break;
-        LODWORD(pcbLength) = v16;
-        v17 = RegRtlQueryValue(a2, (__int64)&pcbLength);
-        if ( v17 != -1073741789 )
+        LODWORD(pcbLength) = v18;
+        v19 = RegRtlQueryValue(a2, a3, 0LL, PoolWithTag, (unsigned int *)&pcbLength);
+        if ( v19 != -1073741789 )
+          goto LABEL_32;
+        if ( (unsigned int)pcbLength <= v18 )
         {
-          if ( v17 )
-            goto LABEL_31;
-          v7 = (const wchar_t *)Pool2;
-          goto LABEL_17;
+          v19 = -1073741595;
+LABEL_32:
+          if ( v19 )
+            goto LABEL_19;
+          v7 = PoolWithTag;
+          goto LABEL_16;
         }
-        if ( (unsigned int)pcbLength > v16 )
-        {
-          v16 = pcbLength;
-          if ( (unsigned int)pcbLength <= 0xFFFE )
-            continue;
-        }
-        goto LABEL_31;
+        v18 = pcbLength;
+        if ( (unsigned int)pcbLength > 0xFFFE )
+          goto LABEL_19;
       }
     }
   }
   else
   {
-LABEL_17:
-    if ( RtlStringCbLengthW(v7, v16, &pcbLength) >= 0
+LABEL_16:
+    if ( RtlStringCbLengthW((STRSAFE_PCNZWCH)v7, v18, &pcbLength) >= 0
       && ((unsigned __int8)PnpParseIndirectInfString(v7) || PnpParseIndirectResourceString((__int64)v7)) )
     {
-      *v12 = 1;
+      *v13 = 1;
     }
-    if ( Pool2 )
-LABEL_31:
-      ExFreePoolWithTag(Pool2, 0);
+LABEL_19:
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
   }
-  return Value;
+  return v15;
 }

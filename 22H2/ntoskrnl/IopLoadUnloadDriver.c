@@ -1,17 +1,14 @@
 /*
- * XREFs of IopLoadUnloadDriver @ 0x1407CF3E0
+ * XREFs of IopLoadUnloadDriver @ 0x140780720
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x140305300 (IopCompleteUnloadOrDelete.c)
- *     IopLoadDriverImage @ 0x14035A970 (IopLoadDriverImage.c)
+ *     IopCompleteUnloadOrDelete @ 0x140360440 (IopCompleteUnloadOrDelete.c)
+ *     IopLoadDriverImage @ 0x140399778 (IopLoadDriverImage.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     VfIsVerifierEnabled @ 0x140293860 (VfIsVerifierEnabled.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VfDriverProcessUnload @ 0x1405CEEB0 (VfDriverProcessUnload.c)
- *     DifIsPluginRunningWithoutReboot @ 0x1405D4F04 (DifIsPluginRunningWithoutReboot.c)
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
- *     IopOpenRegistryKey @ 0x1407CF480 (IopOpenRegistryKey.c)
- *     IopCallDriverReinitializationRoutines @ 0x1407CF4D8 (IopCallDriverReinitializationRoutines.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     IopOpenRegistryKey @ 0x1407690C4 (IopOpenRegistryKey.c)
+ *     IopCallDriverReinitializationRoutines @ 0x140771794 (IopCallDriverReinitializationRoutines.c)
  */
 
 LONG __fastcall IopLoadUnloadDriver(__int64 a1)
@@ -27,13 +24,11 @@ LONG __fastcall IopLoadUnloadDriver(__int64 a1)
   if ( v2 )
   {
     (*(void (**)(void))(v2 + 104))();
-    if ( (unsigned int)VfIsVerifierEnabled() || DifIsPluginRunningWithoutReboot() )
-      VfDriverProcessUnload(*(_QWORD *)(a1 + 56));
     v3 = 0;
   }
   else
   {
-    v3 = IopOpenRegistryKey(&Handle, 0LL, *(_QWORD *)(a1 + 64), 131097LL, 0);
+    v3 = IopOpenRegistryKey(&Handle, 0LL, *(UNICODE_STRING **)(a1 + 64), 0x20019u, 0);
     if ( v3 >= 0 )
     {
       v3 = IopLoadDriver(Handle, 1, 0, &v5);
@@ -45,7 +40,7 @@ LONG __fastcall IopLoadUnloadDriver(__int64 a1)
       {
         v3 = -1073741772;
       }
-      IopCallDriverReinitializationRoutines(0LL);
+      IopCallDriverReinitializationRoutines(0);
     }
   }
   *(_DWORD *)(a1 + 72) = v3;

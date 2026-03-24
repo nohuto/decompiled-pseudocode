@@ -1,12 +1,13 @@
 /*
- * XREFs of ?ProcessSetComponents@CManipulationTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATIONTRANSFORM_SETCOMPONENTS@@@Z @ 0x1800E907C
+ * XREFs of ?ProcessSetComponents@CManipulationTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATIONTRANSFORM_SETCOMPONENTS@@@Z @ 0x1800CF324
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z @ 0x18000E410 (-CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetProperty@CManipulationTransform@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800E9200 (-SetProperty@CManipulationTransform@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z @ 0x180024174 (-CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetProperty@CManipulationTransform@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800CF4B0 (-SetProperty@CManipulationTransform@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CManipulationTransform::ProcessSetComponents(
@@ -14,8 +15,8 @@ __int64 __fastcall CManipulationTransform::ProcessSetComponents(
         struct CResourceTable *a2,
         const struct tagMILCMD_MANIPULATIONTRANSFORM_SETCOMPONENTS *a3)
 {
-  int v3; // xmm1_4
-  int v5; // xmm0_4
+  int v5; // xmm1_4
+  int v6; // xmm0_4
   int v7; // eax
   __int64 v8; // rcx
   unsigned int v9; // ebx
@@ -35,16 +36,17 @@ __int64 __fastcall CManipulationTransform::ProcessSetComponents(
   int v24; // [rsp+34h] [rbp-1Ch]
   int v25; // [rsp+38h] [rbp-18h]
 
-  v3 = *((_DWORD *)a3 + 3);
+  (*(void (__fastcall **)(CManipulationTransform *, struct CResourceTable *))(*(_QWORD *)this + 64LL))(this, a2);
+  v5 = *((_DWORD *)a3 + 3);
   v23 = *((_DWORD *)a3 + 2);
-  v5 = *((_DWORD *)a3 + 4);
-  v24 = v3;
-  v25 = v5;
+  v6 = *((_DWORD *)a3 + 4);
+  v24 = v5;
+  v25 = v6;
   v7 = CManipulationTransform::SetProperty(this, 0LL, 52LL, &v23);
   v9 = v7;
   if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x58u);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x58u, 0LL);
   }
   else
   {
@@ -57,7 +59,7 @@ __int64 __fastcall CManipulationTransform::ProcessSetComponents(
     v9 = v12;
     if ( v12 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x5Bu);
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x5Bu, 0LL);
     }
     else
     {
@@ -70,7 +72,7 @@ __int64 __fastcall CManipulationTransform::ProcessSetComponents(
       v9 = v16;
       if ( v16 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, v16, 0x5Eu);
+        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x5Eu, 0LL);
       }
       else
       {
@@ -83,18 +85,18 @@ __int64 __fastcall CManipulationTransform::ProcessSetComponents(
         v9 = v20;
         if ( v20 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0LL, v20, 0x61u);
+          MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x61u, 0LL);
         }
         else
         {
-          if ( *((_BYTE *)this + 272) )
+          if ( *((_BYTE *)this + 264) )
           {
             CManipulationTransform::CalculateMatrixFromDelta(
-              (CManipulationTransform *)((char *)this + 160),
-              (CManipulationTransform *)((char *)this + 184),
-              (CManipulationTransform *)((char *)this + 196),
-              (CManipulationTransform *)((char *)this + 208));
-            *((_BYTE *)this + 272) = 0;
+              (CManipulationTransform *)((char *)this + 152),
+              (CManipulationTransform *)((char *)this + 176),
+              (CManipulationTransform *)((char *)this + 188),
+              (CManipulationTransform *)((char *)this + 200));
+            *((_BYTE *)this + 264) = 0;
           }
           return 0;
         }

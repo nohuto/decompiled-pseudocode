@@ -1,120 +1,125 @@
 /*
- * XREFs of IoctlQueryReservedQueueEntries @ 0x1C0013C84
+ * XREFs of IoctlQueryReservedQueueEntries @ 0x1C001325C
  * Callers:
- *     IoctlToNVMe @ 0x1C0014870 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
  */
 
 __int64 __fastcall IoctlQueryReservedQueueEntries(__int64 a1, __int64 a2)
 {
-  _QWORD *v2; // r14
-  unsigned int v5; // edi
+  __int64 v3; // rdx
+  unsigned int v5; // esi
   __int64 v6; // r8
-  unsigned __int16 *v7; // rdx
-  __int64 SrbDataBuffer; // r15
-  unsigned __int64 v9; // rcx
+  unsigned __int16 *v7; // rcx
+  __int64 v8; // rbp
+  __int64 result; // rax
+  unsigned __int64 v10; // rcx
   int v11; // ecx
-  unsigned __int16 v12; // cx
+  unsigned __int16 v12; // ax
   __int64 v13; // r8
   unsigned __int16 i; // r10
   __int64 v15; // r9
-  unsigned __int16 v16; // r11
+  _WORD *v16; // r15
   __int16 v17; // cx
-  _WORD *v18; // r12
-  __int16 v19; // cx
-  __int64 v20; // rdx
-  unsigned int *v21; // [rsp+50h] [rbp+8h] BYREF
+  unsigned __int16 v18; // r11
+  __int64 v19; // rdx
 
-  v2 = (_QWORD *)(a1 + 904);
-  v21 = 0LL;
+  v3 = 16LL;
   v5 = 16;
-  if ( *(_WORD *)(a1 + 918) )
+  if ( *(_WORD *)(a1 + 822) )
   {
-    v6 = *(unsigned __int16 *)(a1 + 918);
-    v7 = (unsigned __int16 *)(*v2 + 34LL);
+    v6 = *(unsigned __int16 *)(a1 + 822);
+    v7 = (unsigned __int16 *)(*(_QWORD *)(a1 + 808) + 26LL);
     do
     {
       if ( *(v7 - 5) )
-        v5 += 48 * *v7 + 48;
-      v7 += 24;
+        v5 += 32 * *v7 + 32;
+      v7 += 16;
       --v6;
     }
     while ( v6 );
   }
-  SrbDataBuffer = GetSrbDataBuffer(a2, &v21);
-  if ( *(_WORD *)(a1 + 890) )
+  if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    v9 = *v21;
-    if ( v9 >= (unsigned __int64)v5 + 28 )
-    {
-      NVMeZeroMemory((void *)(SrbDataBuffer + 28), v9 - 28);
-      v12 = *(_WORD *)(a1 + 918);
-      v13 = SrbDataBuffer + 44;
-      for ( i = 0; i < v12; ++i )
-      {
-        v15 = *v2 + 48LL * i;
-        if ( *(_WORD *)(v15 + 24) )
-        {
-          v16 = 0;
-          v17 = *(_WORD *)(v13 + 32);
-          *(_QWORD *)v13 = *(_QWORD *)v15;
-          *(_QWORD *)(v13 + 16) = *(_QWORD *)(v15 + 16);
-          *(_WORD *)(v13 + 24) = *(_WORD *)(v15 + 24);
-          *(_WORD *)(v13 + 26) = *(_WORD *)(v15 + 26);
-          v18 = (_WORD *)(v13 + 34);
-          v19 = *(_WORD *)(v13 + 32) ^ (*(_WORD *)(v15 + 32) ^ v17) & 1;
-          *(_WORD *)(v13 + 32) = v19;
-          *(_WORD *)(v13 + 32) = v19 ^ (*(_WORD *)(v15 + 32) ^ v19) & 2;
-          *(_DWORD *)(v13 + 28) = *(_DWORD *)(v15 + 28);
-          v13 += 48LL;
-          *v18 = 0;
-          v12 = *(_WORD *)(a1 + 918);
-          if ( v12 )
-          {
-            do
-            {
-              v20 = *(_QWORD *)(a1 + 896) + 48LL * v16;
-              if ( *(_WORD *)(v20 + 28) == *(_WORD *)(v15 + 24) )
-              {
-                *(_QWORD *)v13 = *(_QWORD *)v20;
-                *(_QWORD *)(v13 + 16) = *(_QWORD *)(v20 + 16);
-                *(_WORD *)(v13 + 24) = *(_WORD *)(v20 + 24);
-                *(_WORD *)(v13 + 26) = *(_WORD *)(v20 + 26);
-                *(_WORD *)(v13 + 30) ^= (*(_WORD *)(v13 + 30) ^ *(_WORD *)(v20 + 30)) & 1;
-                *(_WORD *)(v13 + 28) = *(_WORD *)(v20 + 28);
-                *(_WORD *)(v13 + 32) = *(_WORD *)(v20 + 32);
-                ++*v18;
-                v13 += 48LL;
-              }
-              v12 = *(_WORD *)(a1 + 918);
-              ++v16;
-            }
-            while ( v16 < v12 );
-          }
-        }
-      }
-      v11 = v5;
-      *(_WORD *)(SrbDataBuffer + 36) = *(_WORD *)(a1 + 890);
-    }
-    else
-    {
-      if ( (unsigned int)v9 < 0x24 )
-      {
-        *(_BYTE *)(a2 + 3) = 6;
-        return 3238002694LL;
-      }
-      v11 = 8;
-    }
-    *(_BYTE *)(a2 + 3) = 1;
-    *(_DWORD *)(SrbDataBuffer + 32) = v5;
-    *(_DWORD *)(SrbDataBuffer + 28) = v5;
-    *(_DWORD *)(SrbDataBuffer + 24) = v11;
+    v8 = *(_QWORD *)(a2 + 64);
+    v3 = 60LL;
   }
   else
   {
-    *(_BYTE *)(a2 + 3) = 1;
+    v8 = *(_QWORD *)(a2 + 24);
   }
-  return 0LL;
+  if ( !*(_WORD *)(a1 + 794) )
+  {
+    result = 3238002689LL;
+LABEL_14:
+    *(_BYTE *)(a2 + 3) = 6;
+    return result;
+  }
+  v10 = *(unsigned int *)(a2 + v3);
+  if ( v10 >= (unsigned __int64)v5 + 28 )
+  {
+    NVMeZeroMemory((void *)(v8 + 28), v10 - 28);
+    v12 = *(_WORD *)(a1 + 822);
+    v13 = v8 + 44;
+    for ( i = 0; i < v12; ++i )
+    {
+      v15 = *(_QWORD *)(a1 + 808) + 32LL * i;
+      if ( *(_WORD *)(v15 + 16) )
+      {
+        v16 = (_WORD *)(v13 + 26);
+        v17 = *(_WORD *)(v13 + 24);
+        v18 = 0;
+        *(_QWORD *)v13 = *(_QWORD *)v15;
+        *(_QWORD *)(v13 + 8) = *(_QWORD *)(v15 + 8);
+        *(_WORD *)(v13 + 16) = *(_WORD *)(v15 + 16);
+        *(_WORD *)(v13 + 18) = *(_WORD *)(v15 + 18);
+        *(_WORD *)(v13 + 24) ^= (*(_WORD *)(v15 + 24) ^ v17) & 1;
+        *(_WORD *)(v13 + 24) ^= ((unsigned __int8)*(_WORD *)(v13 + 24) ^ (unsigned __int8)*(_WORD *)(v15 + 24)) & 2;
+        *(_DWORD *)(v13 + 20) = *(_DWORD *)(v15 + 20);
+        v13 += 32LL;
+        *v16 = 0;
+        v12 = *(_WORD *)(a1 + 822);
+        if ( v12 )
+        {
+          do
+          {
+            v19 = *(_QWORD *)(a1 + 800) + 32LL * v18;
+            if ( *(_WORD *)(v19 + 20) == *(_WORD *)(v15 + 16) )
+            {
+              *(_QWORD *)v13 = *(_QWORD *)v19;
+              *(_QWORD *)(v13 + 8) = *(_QWORD *)(v19 + 8);
+              *(_WORD *)(v13 + 16) = *(_WORD *)(v19 + 16);
+              *(_WORD *)(v13 + 18) = *(_WORD *)(v19 + 18);
+              *(_WORD *)(v13 + 22) ^= (*(_WORD *)(v13 + 22) ^ *(_WORD *)(v19 + 22)) & 1;
+              *(_WORD *)(v13 + 20) = *(_WORD *)(v19 + 20);
+              *(_WORD *)(v13 + 24) = *(_WORD *)(v19 + 24);
+              ++*v16;
+              v13 += 32LL;
+            }
+            v12 = *(_WORD *)(a1 + 822);
+            ++v18;
+          }
+          while ( v18 < v12 );
+        }
+      }
+    }
+    v11 = v5;
+    *(_WORD *)(v8 + 36) = *(_WORD *)(a1 + 794);
+  }
+  else
+  {
+    if ( (unsigned int)v10 < 0x24 )
+    {
+      result = 3238002694LL;
+      goto LABEL_14;
+    }
+    v11 = 8;
+  }
+  *(_BYTE *)(a2 + 3) = 1;
+  result = 0LL;
+  *(_DWORD *)(v8 + 32) = v5;
+  *(_DWORD *)(v8 + 28) = v5;
+  *(_DWORD *)(v8 + 24) = v11;
+  return result;
 }

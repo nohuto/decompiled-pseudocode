@@ -1,5 +1,5 @@
 /*
- * XREFs of GreReleaseFastMutex @ 0x1C0097020
+ * XREFs of GreReleaseFastMutex @ 0x1C00823E0
  * Callers:
  *     <none>
  * Callees:

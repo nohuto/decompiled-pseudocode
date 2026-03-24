@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddContext@FxObject@@QEAAJPEAUFxContextHeader@@PEAPEAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0021584
+ * XREFs of ?AddContext@FxObject@@QEAAJPEAUFxContextHeader@@PEAPEAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0059C8C
  * Callers:
- *     ?FxObjectAllocateContext@@YAJPEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@EPEAPEAX@Z @ 0x1C0021414 (-FxObjectAllocateContext@@YAJPEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@EPEAPEAX@Z.c)
- *     ?MoveContexts@FxObject@@QEAAJPEAV1@@Z @ 0x1C006D08C (-MoveContexts@FxObject@@QEAAJPEAV1@@Z.c)
- *     VfAddContextToHandle @ 0x1C00C52D4 (VfAddContextToHandle.c)
+ *     ?FxObjectAllocateContext@@YAJPEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@EPEAPEAX@Z @ 0x1C0056614 (-FxObjectAllocateContext@@YAJPEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@EPEAPEAX@Z.c)
+ *     ?MoveContexts@FxObject@@QEAAJPEAV1@@Z @ 0x1C005A0F8 (-MoveContexts@FxObject@@QEAAJPEAV1@@Z.c)
+ *     VfAddContextToHandle @ 0x1C00C42D4 (VfAddContextToHandle.c)
  * Callees:
  *     <none>
  */
@@ -48,7 +48,7 @@ __int64 __fastcall FxObject::AddContext(
             this->m_ObjectFlags |= 0x400u;
           }
         }
-        goto LABEL_12;
+        goto LABEL_16;
       }
     }
     if ( Context )
@@ -59,7 +59,7 @@ __int64 __fastcall FxObject::AddContext(
   {
     v5 = -1073741738;
   }
-LABEL_12:
+LABEL_16:
   KeReleaseSpinLock(&this->m_SpinLock.m_Lock, v11);
   return v5;
 }

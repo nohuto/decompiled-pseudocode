@@ -1,15 +1,16 @@
 /*
- * XREFs of ?EtwTraceProcessWindowInfoSendUnique@@YAXPEBUtagPROCESS_UIFLAG_MAP@@@Z @ 0x1C0138654
+ * XREFs of ?EtwTraceProcessWindowInfoSendUnique@@YAXPEBUtagPROCESS_UIFLAG_MAP@@@Z @ 0x1C012150C
  * Callers:
- *     EtwTraceProcessWindowInfo @ 0x1C0053640 (EtwTraceProcessWindowInfo.c)
+ *     EtwTraceProcessWindowInfo @ 0x1C007B110 (EtwTraceProcessWindowInfo.c)
  * Callees:
- *     memset @ 0x1C00D6A00 (memset.c)
- *     McTemplateK0qqmx_EtwWriteTransfer @ 0x1C013D7BC (McTemplateK0qqmx_EtwWriteTransfer.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0031520 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     McTemplateK0qqmx_EtwWriteTransfer @ 0x1C01269B4 (McTemplateK0qqmx_EtwWriteTransfer.c)
  */
 
 void __fastcall EtwTraceProcessWindowInfoSendUnique(const struct tagPROCESS_UIFLAG_MAP *a1)
 {
-  unsigned int v1; // ebx
+  unsigned int v2; // ebx
   char *v3; // rcx
   _DWORD *v4; // r8
   char *v5; // rdx
@@ -17,7 +18,8 @@ void __fastcall EtwTraceProcessWindowInfoSendUnique(const struct tagPROCESS_UIFL
   int v7; // r8d
   int v8; // r9d
 
-  v1 = 0;
+  GetDomainLockRef(21);
+  v2 = 0;
   if ( !gfProcessWindowInfoInit )
   {
     gfProcessWindowInfoInit = 1;
@@ -28,15 +30,15 @@ void __fastcall EtwTraceProcessWindowInfoSendUnique(const struct tagPROCESS_UIFL
   while ( 1 )
   {
     if ( v4[6] < *((_DWORD *)v3 + 6) )
-      v3 = (char *)&gaProcessUIFlagMap + 32 * v1;
+      v3 = (char *)&gaProcessUIFlagMap + 32 * v2;
     if ( *(_QWORD *)v4 == *(_QWORD *)a1 )
       break;
-    ++v1;
+    ++v2;
     v4 += 8;
-    if ( v1 >= 0x14 )
+    if ( v2 >= 0x14 )
       goto LABEL_8;
   }
-  v5 = (char *)&gaProcessUIFlagMap + 32 * v1;
+  v5 = (char *)&gaProcessUIFlagMap + 32 * v2;
   if ( !v5 )
   {
 LABEL_8:

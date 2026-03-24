@@ -3,12 +3,12 @@
  * Callers:
  *     RtlpHpSegPageRangeShrink @ 0x14000ACF0 (RtlpHpSegPageRangeShrink.c)
  *     RtlpHpSegPageRangeAllocate @ 0x14000B270 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x140140EDC (RtlpHpSegContextReserve.c)
- *     RtlpHpSegLargeRangeAllocate @ 0x14018D108 (RtlpHpSegLargeRangeAllocate.c)
- *     RtlpHpSegContextCompact @ 0x1401B63A8 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegContextReserve @ 0x140140EFC (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x14018D128 (RtlpHpSegLargeRangeAllocate.c)
+ *     RtlpHpSegContextCompact @ 0x1401B63C8 (RtlpHpSegContextCompact.c)
  * Callees:
  *     RtlpHpSegPageRangeComputeLargePageCost @ 0x14000BCFC (RtlpHpSegPageRangeComputeLargePageCost.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
  */
 
 __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, __int64 a2, __int64 a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiResetProblemDevicesWorker @ 0x140852BC0
+ * XREFs of PiResetProblemDevicesWorker @ 0x14076EC80
  * Callers:
  *     <none>
  * Callees:
- *     PnpRequestDeviceAction @ 0x1402DCF44 (PnpRequestDeviceAction.c)
+ *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
  */
 
 __int64 __fastcall PiResetProblemDevicesWorker(__int64 a1, _DWORD *a2)

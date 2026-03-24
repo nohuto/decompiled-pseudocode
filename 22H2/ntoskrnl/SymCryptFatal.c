@@ -1,12 +1,13 @@
 /*
- * XREFs of SymCryptFatal @ 0x14056D244
+ * XREFs of SymCryptFatal @ 0x140514E68
  * Callers:
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403F2CE0 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
- *     SymCryptSaveYmmEnvWindowsKernelmodeWin8_1nLater @ 0x1403F2DB8 (SymCryptSaveYmmEnvWindowsKernelmodeWin8_1nLater.c)
- *     SymCryptInitEnvCommon @ 0x1403F5DFC (SymCryptInitEnvCommon.c)
- *     SymCryptFdefModSetRandomGeneric @ 0x1404047EC (SymCryptFdefModSetRandomGeneric.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403EB92C (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptSaveYmmEnvWindowsKernelmodeWin8_1nLater @ 0x1403EBA04 (SymCryptSaveYmmEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptInitEnvCommon @ 0x1403EEEDC (SymCryptInitEnvCommon.c)
+ *     SymCryptParallelHashProcess @ 0x1403EEF4C (SymCryptParallelHashProcess.c)
+ *     SymCryptParallelHashProcess_serial @ 0x1403EF1FC (SymCryptParallelHashProcess_serial.c)
  * Callees:
- *     SymCryptFatalEnvWindowsKernelmodeWin8_1nLater @ 0x1403F2CB4 (SymCryptFatalEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptFatalEnvWindowsKernelmodeWin8_1nLater @ 0x1403EB900 (SymCryptFatalEnvWindowsKernelmodeWin8_1nLater.c)
  */
 
 void __fastcall __noreturn SymCryptFatal(ULONG_PTR a1)

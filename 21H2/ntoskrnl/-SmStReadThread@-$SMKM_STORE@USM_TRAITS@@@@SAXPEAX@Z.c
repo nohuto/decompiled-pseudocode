@@ -1,35 +1,35 @@
 /*
- * XREFs of ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140237720
+ * XREFs of ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x1402E16D0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ?StAcquireReadContext@?$ST_STORE@USM_TRAITS@@@@SAPEAXPEAU1@@Z @ 0x1402378F8 (-StAcquireReadContext@-$ST_STORE@USM_TRAITS@@@@SAPEAXPEAU1@@Z.c)
- *     ?StReleaseReadContext@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@PEAX@Z @ 0x140237E3C (-StReleaseReadContext@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@PEAX@Z.c)
- *     KeSetActualBasePriorityThread @ 0x14028FD20 (KeSetActualBasePriorityThread.c)
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     SmFpFree @ 0x14037AE58 (SmFpFree.c)
- *     SmFpAllocate @ 0x14037DA00 (SmFpAllocate.c)
- *     ?SmStDirectReadComplete@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@J@Z @ 0x140391B70 (-SmStDirectReadComplete@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRA.c)
- *     ?SmStDirectReadIssue@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@PEAX@Z @ 0x140391B9C (-SmStDirectReadIssue@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     SmFpFree @ 0x1402DA854 (SmFpFree.c)
+ *     ?SmStDirectReadIssue@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@PEAX@Z @ 0x1402DF384 (-SmStDirectReadIssue@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS.c)
+ *     ?StReleaseReadContext@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@PEAX@Z @ 0x1402DF49C (-StReleaseReadContext@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@PEAX@Z.c)
+ *     ?SmStDirectReadComplete@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@J@Z @ 0x1402DF560 (-SmStDirectReadComplete@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRA.c)
+ *     SmFpAllocate @ 0x1402E0D78 (SmFpAllocate.c)
+ *     ?StAcquireReadContext@?$ST_STORE@USM_TRAITS@@@@SAPEAXPEAU1@@Z @ 0x1402E19F8 (-StAcquireReadContext@-$ST_STORE@USM_TRAITS@@@@SAPEAXPEAU1@@Z.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-LONG __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1)
+void __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1)
 {
   KSPIN_LOCK *v1; // r15
   __int64 v3; // rbp
   __int64 Context; // r14
-  LONG result; // eax
-  unsigned __int64 *v6; // rdi
+  NTSTATUS v5; // eax
+  __int128 **v6; // rdi
   KIRQL v7; // al
   __int64 *v8; // rdx
   unsigned __int64 v9; // rbx
-  __int64 *v10; // rsi
-  __int64 v11; // rbx
+  __int128 *v10; // rsi
+  struct _MDL *v11; // rbx
   unsigned int Issue; // eax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -40,10 +40,10 @@ LONG __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1)
 
   v1 = *(KSPIN_LOCK **)a1;
   v3 = *(_QWORD *)a1 + 6488LL;
-  KeSetActualBasePriorityThread((ULONG_PTR)KeGetCurrentThread());
+  KeSetActualBasePriorityThread((__int64)KeGetCurrentThread(), 12);
   Context = ST_STORE<SM_TRAITS>::StAcquireReadContext(v1);
   *(_DWORD *)(a1 + 32) = Context == 0 ? 0xC000009A : 0;
-  result = KeSetEvent((PRKEVENT)(a1 + 8), 0, 0);
+  KeSetEvent((PRKEVENT)(a1 + 8), 0, 0);
   if ( Context )
   {
     Object[0] = v1 + 815;
@@ -52,11 +52,11 @@ LONG __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1)
     {
       while ( 1 )
       {
-        result = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 0, 0LL, 0LL);
-        if ( result )
+        v5 = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 0, 0LL, 0LL);
+        if ( v5 )
           break;
         KeResetEvent((PRKEVENT)Object[0]);
-        v6 = v1 + 818;
+        v6 = (__int128 **)(v1 + 818);
         while ( 1 )
         {
           v7 = KeAcquireSpinLockRaiseToDpc(v1 + 820);
@@ -68,9 +68,9 @@ LONG __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1)
           }
           else
           {
-            v10 = (__int64 *)*v6;
-            *v6 = *(_QWORD *)*v6 & 0xFFFFFFFFFFFFFFF8uLL;
-            if ( v10 == v8 )
+            v10 = *v6;
+            *v6 = (__int128 *)(*(_QWORD *)*v6 & 0xFFFFFFFFFFFFFFF8uLL);
+            if ( v10 == (__int128 *)v8 )
             {
               *v6 = 0LL;
               *(_QWORD *)(v3 + 64) = v3 + 56;
@@ -101,16 +101,15 @@ LONG __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1)
           __writecr8(v9);
           if ( !v10 )
             break;
-          v11 = SmFpAllocate(&dword_140D324C0, 1);
-          Issue = SMKM_STORE<SM_TRAITS>::SmStDirectReadIssue(v1, v10, Context);
-          SMKM_STORE<SM_TRAITS>::SmStDirectReadComplete(v1, v10, Issue);
-          SmFpFree(&dword_140D324C0, 3LL, v1 + 811, v11);
+          v11 = (struct _MDL *)SmFpAllocate(&dword_140D24480, 3, (__int64)(v1 + 811), 0LL, 1);
+          Issue = SMKM_STORE<SM_TRAITS>::SmStDirectReadIssue((__int64)v1, (__int64)v10, Context);
+          SMKM_STORE<SM_TRAITS>::SmStDirectReadComplete((__int64)v1, v10, Issue);
+          SmFpFree((__int64)&dword_140D24480, 3, (__int64)(v1 + 811), v11);
         }
       }
     }
-    while ( result != 1 );
+    while ( v5 != 1 );
   }
   if ( Context )
-    return ST_STORE<SM_TRAITS>::StReleaseReadContext(v1, Context);
-  return result;
+    ST_STORE<SM_TRAITS>::StReleaseReadContext((__int64)v1, Context);
 }

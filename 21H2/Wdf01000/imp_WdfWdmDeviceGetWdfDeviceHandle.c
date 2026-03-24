@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfWdmDeviceGetWdfDeviceHandle @ 0x1C0035550
+ * XREFs of imp_WdfWdmDeviceGetWdfDeviceHandle @ 0x1C0049650
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 WDFDEVICE__ *__fastcall imp_WdfWdmDeviceGetWdfDeviceHandle(
@@ -14,6 +14,6 @@ WDFDEVICE__ *__fastcall imp_WdfWdmDeviceGetWdfDeviceHandle(
   void *retaddr; // [rsp+28h] [rbp+0h]
 
   if ( !DeviceObject )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, retaddr);
   return (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked(*((FxObject **)DeviceObject->DeviceExtension - 6));
 }

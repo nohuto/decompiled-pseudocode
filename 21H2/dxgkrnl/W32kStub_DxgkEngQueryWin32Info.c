@@ -1,5 +1,5 @@
 /*
- * XREFs of W32kStub_DxgkEngQueryWin32Info @ 0x1C0384BD0
+ * XREFs of W32kStub_DxgkEngQueryWin32Info @ 0x1C02BE810
  * Callers:
  *     <none>
  * Callees:

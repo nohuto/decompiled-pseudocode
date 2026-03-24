@@ -1,8 +1,8 @@
 /*
- * XREFs of ?RemoveContact@CInteractionProcessor@@QEAAXW4InputType@@@Z @ 0x18018E590
+ * XREFs of ?RemoveContact@CInteractionProcessor@@QEAAXW4InputType@@@Z @ 0x18022E990
  * Callers:
- *     ?RemoveContact@CInteractionRoot@@UEAAXW4InputType@@@Z @ 0x180183B60 (-RemoveContact@CInteractionRoot@@UEAAXW4InputType@@@Z.c)
- *     ?RemoveContact@CInteraction@@UEAAXW4InputType@@@Z @ 0x1801F2C80 (-RemoveContact@CInteraction@@UEAAXW4InputType@@@Z.c)
+ *     ?RemoveContact@CInteraction@@UEAAXW4InputType@@@Z @ 0x1801C6D90 (-RemoveContact@CInteraction@@UEAAXW4InputType@@@Z.c)
+ *     ?RemoveContact@CInteractionRoot@@UEAAXW4InputType@@@Z @ 0x1802353A0 (-RemoveContact@CInteractionRoot@@UEAAXW4InputType@@@Z.c)
  * Callees:
  *     <none>
  */

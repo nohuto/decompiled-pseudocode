@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIQueryCacheCoherencyAttribute @ 0x1C00A0518
+ * XREFs of ACPIQueryCacheCoherencyAttribute @ 0x1C009A070
  * Callers:
- *     ACPIBusIrpDeviceEnumerated @ 0x1C00937D0 (ACPIBusIrpDeviceEnumerated.c)
+ *     ACPIBusIrpDeviceEnumerated @ 0x1C0099770 (ACPIBusIrpDeviceEnumerated.c)
  * Callees:
- *     ACPIInternalSetFlags @ 0x1C0001778 (ACPIInternalSetFlags.c)
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
+ *     ACPIInternalSetFlags @ 0x1C0002350 (ACPIInternalSetFlags.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
 __int64 __fastcall ACPIQueryCacheCoherencyAttribute(ULONG_PTR BugCheckParameter2)
@@ -22,29 +22,29 @@ __int64 __fastcall ACPIQueryCacheCoherencyAttribute(ULONG_PTR BugCheckParameter2
   v9 = 0LL;
   v7 = 0LL;
   v8 = 0LL;
-  if ( _bittest64((const signed __int64 *)(BugCheckParameter2 + 8), 0x33u) )
+  if ( (*(_QWORD *)(BugCheckParameter2 + 8) & 0x8000000000000LL) != 0 )
     return 0;
-  v2 = ACPIInternalSetFlags((void *)(BugCheckParameter2 + 1000), 0x1000000uLL);
+  v2 = ACPIInternalSetFlags((void *)(BugCheckParameter2 + 960), 0x1000000uLL);
   if ( (v2 & v3) != 0 )
     return 0;
-  v4 = AMLIGetNamedChild(*(__int64 **)(BugCheckParameter2 + 760), 1094927199);
+  v4 = AMLIGetNamedChild(*(__int64 **)(BugCheckParameter2 + 720), 1094927199);
   if ( !v4 )
   {
-    *(_DWORD *)(BugCheckParameter2 + 940) = 1;
+    *(_DWORD *)(BugCheckParameter2 + 900) = 1;
     return 0;
   }
-  v5 = AMLIEvalNameSpaceObject(v4, (__int64)&v7, 0, 0LL);
+  v5 = AMLIEvalNameSpaceObject((unsigned __int64 *)v4, (__int64)&v7, 0, 0LL);
   if ( v5 >= 0 )
   {
     if ( WORD1(v7) != 1 )
-      KeBugCheckEx(0xA5u, 8uLL, BugCheckParameter2, *(_QWORD *)(BugCheckParameter2 + 760), WORD1(v7));
+      KeBugCheckEx(0xA5u, 8uLL, BugCheckParameter2, *(_QWORD *)(BugCheckParameter2 + 720), WORD1(v7));
     if ( (v8 & 1) != 0 )
     {
-      *(_DWORD *)(BugCheckParameter2 + 940) = 2;
+      *(_DWORD *)(BugCheckParameter2 + 900) = 2;
     }
     else
     {
-      *(_DWORD *)(BugCheckParameter2 + 940) = 3;
+      *(_DWORD *)(BugCheckParameter2 + 900) = 3;
       KeReportCacheIncoherentDevice();
     }
     AMLIFreeDataBuffs((__int64)&v7);

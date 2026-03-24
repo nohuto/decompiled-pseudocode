@@ -1,7 +1,7 @@
 /*
- * XREFs of ?HMDoubleFree@@YAXPEAX@Z @ 0x1C01413F0
+ * XREFs of ?HMDoubleFree@@YAXPEAX@Z @ 0x1C01139D0
  * Callers:
- *     HMFreeObject @ 0x1C004E3F0 (HMFreeObject.c)
+ *     HMFreeObject @ 0x1C0007F10 (HMFreeObject.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDSM_ValidatingMSOSExtendedConfigDescriptorHeader @ 0x1C001FD10
+ * XREFs of HUBDSM_ValidatingMSOSExtendedConfigDescriptorHeader @ 0x1C001F900
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBDESC_ValidateMSOSExtendedConfigDescriptorHeader @ 0x1C003A324 (HUBDESC_ValidateMSOSExtendedConfigDescriptorHeader.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDESC_ValidateMSOSExtendedConfigDescriptorHeader @ 0x1C0039C5C (HUBDESC_ValidateMSOSExtendedConfigDescriptorHeader.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_ValidatingMSOSExtendedConfigDescriptorHeader(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall HUBDSM_ValidatingMSOSExtendedConfigDescriptorHeader(__int64 a
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   v4 = *(_QWORD *)(v1 + 8);
   v13 = v1;
   v12 = 0LL;

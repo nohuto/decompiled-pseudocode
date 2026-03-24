@@ -1,15 +1,15 @@
 /*
- * XREFs of NtGetCachedSigningLevel @ 0x1406BE690
+ * XREFs of NtGetCachedSigningLevel @ 0x14069DE40
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeGetCachedSigningLevel @ 0x1406BE930 (SeGetCachedSigningLevel.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     SeGetCachedSigningLevel @ 0x14069E0E0 (SeGetCachedSigningLevel.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtGetCachedSigningLevel(
@@ -20,7 +20,7 @@ __int64 __fastcall NtGetCachedSigningLevel(
         unsigned int *a5,
         volatile void *a6)
 {
-  PVOID v10; // r13
+  struct _DMA_ADAPTER *v10; // r13
   KPROCESSOR_MODE PreviousMode; // r12
   NTSTATUS v12; // ebx
   int CachedSigningLevel; // r14d
@@ -34,15 +34,16 @@ __int64 __fastcall NtGetCachedSigningLevel(
   SIZE_T Length; // [rsp+38h] [rbp-D0h] BYREF
   PVOID Object; // [rsp+40h] [rbp-C8h] BYREF
   int v24; // [rsp+48h] [rbp-C0h]
-  HANDLE Handle; // [rsp+50h] [rbp-B8h]
-  volatile void *Address; // [rsp+58h] [rbp-B0h]
-  volatile void *v27; // [rsp+60h] [rbp-A8h]
+  volatile void *Address; // [rsp+50h] [rbp-B8h]
+  volatile void *v26; // [rsp+58h] [rbp-B0h]
+  HANDLE Handle; // [rsp+60h] [rbp-A8h]
   volatile void *v28; // [rsp+68h] [rbp-A0h]
   volatile void *v29; // [rsp+70h] [rbp-98h]
+  PVOID v30; // [rsp+78h] [rbp-90h]
   _BYTE Src[64]; // [rsp+80h] [rbp-88h] BYREF
 
   v28 = a4;
-  v27 = a3;
+  v26 = a3;
   Address = a2;
   Handle = a1;
   v29 = a6;
@@ -56,8 +57,8 @@ __int64 __fastcall NtGetCachedSigningLevel(
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
     v12 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
-    v10 = Object;
-    Handle = Object;
+    v10 = (struct _DMA_ADAPTER *)Object;
+    v30 = Object;
     if ( v12 >= 0 )
     {
       CachedSigningLevel = SeGetCachedSigningLevel(
@@ -75,11 +76,11 @@ __int64 __fastcall NtGetCachedSigningLevel(
         if ( PreviousMode == 1 )
         {
           ProbeForWrite(Address, 4uLL, 4u);
-          ProbeForWrite(v27, 1uLL, 1u);
+          ProbeForWrite(v26, 1uLL, 1u);
         }
         v16 = v21;
         *v15 = v21;
-        *(_BYTE *)v27 = v20;
+        *(_BYTE *)v26 = v20;
         v12 = CachedSigningLevel;
         if ( a5 )
         {
@@ -129,6 +130,6 @@ __int64 __fastcall NtGetCachedSigningLevel(
     v12 = -1073741811;
   }
   if ( v10 )
-    ObfDereferenceObject(v10);
+    HalPutDmaAdapter(v10);
   return (unsigned int)v12;
 }

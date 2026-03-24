@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhPCE_HW_Stop @ 0x1C0033D98
+ * XREFs of UsbhPCE_HW_Stop @ 0x1C00350FC
  * Callers:
- *     UsbhHubProcessIsr @ 0x1C00083B0 (UsbhHubProcessIsr.c)
- *     UsbhBusPnpStop_Action @ 0x1C0030B18 (UsbhBusPnpStop_Action.c)
+ *     UsbhHubProcessIsr @ 0x1C000F090 (UsbhHubProcessIsr.c)
+ *     UsbhBusPnpStop_Action @ 0x1C0031EC0 (UsbhBusPnpStop_Action.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhReleaseEnumBusLockEx @ 0x1C000FB0C (UsbhReleaseEnumBusLockEx.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C00029EC (UsbhReleaseEnumBusLockEx.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
  */
 
 void __fastcall UsbhPCE_HW_Stop(__int64 a1, unsigned __int16 a2, __int64 a3)
@@ -37,6 +37,6 @@ void __fastcall UsbhPCE_HW_Stop(__int64 a1, unsigned __int16 a2, __int64 a3)
   Log(a1, 512, 1346711863, 0LL, v4);
   PortData = UsbhGetPortData(a1, v4);
   if ( PortData )
-    UsbhDispatch_PortChangeQueueEventEx(a1, PortData, 17LL, a3, 0LL, 0, 0LL, 0LL);
+    UsbhDispatch_PortChangeQueueEventEx(a1, PortData, 17, a3, 0LL, 0, 0LL, 0LL);
   UsbhReleaseEnumBusLockEx(a1, a3, v4);
 }

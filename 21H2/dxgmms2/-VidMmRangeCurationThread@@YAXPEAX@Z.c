@@ -1,13 +1,13 @@
 /*
- * XREFs of ?VidMmRangeCurationThread@@YAXPEAX@Z @ 0x1C007E9D0
+ * XREFs of ?VidMmRangeCurationThread@@YAXPEAX@Z @ 0x1C0076C40
  * Callers:
  *     <none>
  * Callees:
- *     ?CurationThread@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ @ 0x1C007E9F0 (-CurationThread@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ.c)
+ *     ?CurationThread@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ @ 0x1C0076C60 (-CurationThread@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ.c)
  */
 
 void __fastcall VidMmRangeCurationThread(volatile __int32 *a1)
 {
-  _InterlockedExchange(a1 + 385, 0);
+  _InterlockedExchange(a1 + 383, 0);
   VIDMM_RECYCLE_HEAP_MGR::CurationThread((VIDMM_RECYCLE_HEAP_MGR *)a1);
 }

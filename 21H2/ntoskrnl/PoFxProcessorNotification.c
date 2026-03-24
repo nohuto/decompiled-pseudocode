@@ -1,9 +1,9 @@
 /*
- * XREFs of PoFxProcessorNotification @ 0x1403DD1C0
+ * XREFs of PoFxProcessorNotification @ 0x1403CE5B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PoFxProcessorNotification(__int64 a1)

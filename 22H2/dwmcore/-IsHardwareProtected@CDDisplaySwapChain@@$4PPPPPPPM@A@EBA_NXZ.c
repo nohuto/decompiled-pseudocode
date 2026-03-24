@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsHardwareProtected@CDDisplaySwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x18011EC80
+ * XREFs of ?IsHardwareProtected@CDDisplaySwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F6970
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpAccessFaultBatch @ 0x14030B978
+ * XREFs of VmpAccessFaultBatch @ 0x14030BA78
  * Callers:
- *     VmAccessFault @ 0x1408AFE40 (VmAccessFault.c)
+ *     VmAccessFault @ 0x1408AFE20 (VmAccessFault.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpAccessFaultBatchResolve @ 0x14030BC0C (VmpAccessFaultBatchResolve.c)
- *     VmpFaultEntryInsert @ 0x14030C08C (VmpFaultEntryInsert.c)
- *     VmpFaultEntryRemove @ 0x14030C1F8 (VmpFaultEntryRemove.c)
- *     VmpProcessContextLockShared @ 0x14030D104 (VmpProcessContextLockShared.c)
- *     VmpProcessUpdateSlat @ 0x14030D15C (VmpProcessUpdateSlat.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpAccessFaultBatchResolve @ 0x14030BD0C (VmpAccessFaultBatchResolve.c)
+ *     VmpFaultEntryInsert @ 0x14030C18C (VmpFaultEntryInsert.c)
+ *     VmpFaultEntryRemove @ 0x14030C2F8 (VmpFaultEntryRemove.c)
+ *     VmpProcessContextLockShared @ 0x14030D204 (VmpProcessContextLockShared.c)
+ *     VmpProcessUpdateSlat @ 0x14030D25C (VmpProcessUpdateSlat.c)
  */
 
 __int64 __fastcall VmpAccessFaultBatch(

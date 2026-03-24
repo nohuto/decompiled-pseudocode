@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetInformationJobObject @ 0x14041EBA0
+ * XREFs of ZwSetInformationJobObject @ 0x1403FD6C0
  * Callers:
- *     DifZwSetInformationJobObjectWrapper @ 0x1406272D0 (DifZwSetInformationJobObjectWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

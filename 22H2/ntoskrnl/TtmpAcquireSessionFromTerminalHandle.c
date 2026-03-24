@@ -1,27 +1,27 @@
 /*
- * XREFs of TtmpAcquireSessionFromTerminalHandle @ 0x1409A62E8
+ * XREFs of TtmpAcquireSessionFromTerminalHandle @ 0x140900984
  * Callers:
- *     TtmpDispatchAssignDevice @ 0x1409A6438 (TtmpDispatchAssignDevice.c)
- *     TtmpDispatchCreateEventQueue @ 0x1409A64E0 (TtmpDispatchCreateEventQueue.c)
- *     TtmpDispatchCreateTerminal @ 0x1409A661C (TtmpDispatchCreateTerminal.c)
- *     TtmpDispatchEvacuateDevices @ 0x1409A670C (TtmpDispatchEvacuateDevices.c)
- *     TtmpDispatchSetDefaultDeviceAssignment @ 0x1409A6918 (TtmpDispatchSetDefaultDeviceAssignment.c)
- *     TtmpDispatchSetDisplayPowerRequest @ 0x1409A69D4 (TtmpDispatchSetDisplayPowerRequest.c)
- *     TtmpDispatchSetDisplayState @ 0x1409A6A80 (TtmpDispatchSetDisplayState.c)
- *     TtmpDispatchSetDisplayTimeouts @ 0x1409A6B34 (TtmpDispatchSetDisplayTimeouts.c)
- *     TtmpDispatchSetInputWakeCapability @ 0x1409A6BF0 (TtmpDispatchSetInputWakeCapability.c)
+ *     TtmpDispatchAssignDevice @ 0x140900AE4 (TtmpDispatchAssignDevice.c)
+ *     TtmpDispatchCreateEventQueue @ 0x140900B8C (TtmpDispatchCreateEventQueue.c)
+ *     TtmpDispatchCreateTerminal @ 0x140900CC4 (TtmpDispatchCreateTerminal.c)
+ *     TtmpDispatchEvacuateDevices @ 0x140900DB4 (TtmpDispatchEvacuateDevices.c)
+ *     TtmpDispatchSetDefaultDeviceAssignment @ 0x140900FC4 (TtmpDispatchSetDefaultDeviceAssignment.c)
+ *     TtmpDispatchSetDisplayPowerRequest @ 0x140901080 (TtmpDispatchSetDisplayPowerRequest.c)
+ *     TtmpDispatchSetDisplayState @ 0x14090112C (TtmpDispatchSetDisplayState.c)
+ *     TtmpDispatchSetDisplayTimeouts @ 0x1409011E0 (TtmpDispatchSetDisplayTimeouts.c)
+ *     TtmpDispatchSetInputWakeCapability @ 0x14090129C (TtmpDispatchSetInputWakeCapability.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
  */
 
-__int64 __fastcall TtmpAcquireSessionFromTerminalHandle(void *a1, char a2, char a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall TtmpAcquireSessionFromTerminalHandle(void *a1, char a2, char a3, _QWORD *a4, __int64 *a5)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v7; // rsi
+  __int64 *v7; // rdi
   KPROCESSOR_MODE PreviousMode; // r9
   struct _OBJECT_TYPE *v11; // r8
   NTSTATUS v12; // eax
@@ -41,29 +41,36 @@ __int64 __fastcall TtmpAcquireSessionFromTerminalHandle(void *a1, char a2, char 
   a5 = 0LL;
   v12 = ObReferenceObjectByHandle(a1, 2u, v11, PreviousMode, (PVOID *)&a5, 0LL);
   v13 = v12;
-  if ( v12 < 0 )
+  if ( v12 >= 0 )
+  {
+    v13 = 0;
+    *v7 = (__int64)a5;
+  }
+  else
   {
     *v7 = 0LL;
-    TtmiLogError("TtmiReferenceTerminalByHandle", 1007LL, (unsigned int)v12, (unsigned int)v12);
+    TtmiLogError("TtmiReferenceTerminalByHandle", 869LL, (unsigned int)v12, (unsigned int)v12);
+  }
+  if ( (v13 & 0x80000000) != 0 )
+  {
     TtmiLogError("TtmpAcquireSessionFromTerminalHandle", 88LL, v13, v13);
     return v13;
   }
-  v15 = (__int64)a5;
-  *v7 = a5;
+  v15 = *v7;
   if ( *(_DWORD *)(v15 + 28) )
   {
     if ( !a3 )
     {
       v16 = 98LL;
-      goto LABEL_6;
+      goto LABEL_9;
     }
   }
   else if ( !a2 )
   {
     v16 = 93LL;
-LABEL_6:
+LABEL_9:
     v17 = -1073741788;
-LABEL_7:
+LABEL_10:
     TtmiLogError("TtmpAcquireSessionFromTerminalHandle", v16, 0xFFFFFFFFLL, v17);
     return v17;
   }
@@ -77,7 +84,7 @@ LABEL_7:
     KeLeaveCriticalRegion();
     v16 = 105LL;
     v17 = -1073740715;
-    goto LABEL_7;
+    goto LABEL_10;
   }
   *a4 = v19;
   return 0LL;

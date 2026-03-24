@@ -1,10 +1,13 @@
 /*
- * XREFs of EtwTraceAutoBoostClearFloor @ 0x140466A12
+ * XREFs of EtwTraceAutoBoostClearFloor @ 0x1405A73A0
  * Callers:
- *     KiAbThreadRemoveBoostsSlow @ 0x140317C60 (KiAbThreadRemoveBoostsSlow.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ExpWorkerInitialization @ 0x140A6AE74 (ExpWorkerInitialization.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140214970 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwTraceSiloKernelEvent @ 0x14025A0AC (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceAutoBoostClearFloor(__int64 a1, __int64 a2, int a3)
@@ -18,7 +21,7 @@ __int64 __fastcall EtwTraceAutoBoostClearFloor(__int64 a1, __int64 a2, int a3)
   int v10; // [rsp+48h] [rbp-20h]
   int v11; // [rsp+4Ch] [rbp-1Ch]
 
-  v3 = *(_DWORD *)(a1 + 1232);
+  v3 = *(_DWORD *)(a1 + 1152);
   v4 = *(_QWORD *)(a1 + 544);
   v6 = a2;
   v7 = v3;
@@ -26,5 +29,5 @@ __int64 __fastcall EtwTraceAutoBoostClearFloor(__int64 a1, __int64 a2, int a3)
   v11 = 0;
   v8 = a3;
   v10 = 16;
-  return EtwTraceSiloKernelEvent(*(_QWORD *)(v4 + 2160), (int)&v9, 1, 0x20000200u, 1347, 5250562);
+  return EtwTraceSiloKernelEvent(*(_QWORD *)(v4 + 2160), (int)&v9, 1, 0x20000200u, 1347, 5249538);
 }

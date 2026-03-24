@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetLeapSecondDataRegistryKeyHandle @ 0x140735664
+ * XREFs of ExpGetLeapSecondDataRegistryKeyHandle @ 0x140735644
  * Callers:
- *     ExpReadLeapSecondData @ 0x1407342FC (ExpReadLeapSecondData.c)
- *     ExSetLeapSecondEnabled @ 0x1408CD0E8 (ExSetLeapSecondEnabled.c)
+ *     ExpReadLeapSecondData @ 0x1407342DC (ExpReadLeapSecondData.c)
+ *     ExSetLeapSecondEnabled @ 0x1408CD0C8 (ExSetLeapSecondEnabled.c)
  * Callees:
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
  */
 
 NTSTATUS __fastcall ExpGetLeapSecondDataRegistryKeyHandle(_QWORD *a1)

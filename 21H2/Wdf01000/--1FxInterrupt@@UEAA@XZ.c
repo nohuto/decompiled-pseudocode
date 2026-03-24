@@ -1,20 +1,20 @@
 /*
- * XREFs of ??1FxInterrupt@@UEAA@XZ @ 0x1C008CD58
+ * XREFs of ??1FxInterrupt@@UEAA@XZ @ 0x1C0089000
  * Callers:
- *     ??_EFxInterrupt@@UEAAPEAXI@Z @ 0x1C008CDF0 (--_EFxInterrupt@@UEAAPEAXI@Z.c)
+ *     ??_EFxInterrupt@@UEAAPEAXI@Z @ 0x1C00890A0 (--_EFxInterrupt@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
  */
 
-void __fastcall FxInterrupt::~FxInterrupt(FxInterrupt *this, unsigned int a2)
+void __fastcall FxInterrupt::~FxInterrupt(FxInterrupt *this, unsigned int a2, unsigned int a3)
 {
-  bool v2; // zf
+  bool v3; // zf
 
-  v2 = this->m_Interrupt == 0LL;
+  v3 = this->m_Interrupt == 0LL;
   this->__vftable = (FxInterrupt_vtbl *)FxInterrupt::`vftable';
-  if ( !v2 )
+  if ( !v3 )
   {
     WPP_IFR_SF_(this->m_Globals, 2u, 0xCu, 0xAu, WPP_InterruptObject_cpp_Traceguids);
     FxVerifierDbgBreakPoint(this->m_Globals);
@@ -25,5 +25,5 @@ void __fastcall FxInterrupt::~FxInterrupt(FxInterrupt *this, unsigned int a2)
     FxVerifierDbgBreakPoint(this->m_Globals);
   }
   this->m_BuiltInSpinLock.m_DbgFlagIsInitialized = 0;
-  FxNonPagedObject::~FxNonPagedObject(this, a2);
+  FxNonPagedObject::~FxNonPagedObject(this, a2, a3);
 }

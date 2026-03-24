@@ -1,0 +1,222 @@
+/*
+ * XREFs of KiRaiseSecurityCheckFailure @ 0x1401640C0
+ * Callers:
+ *     KiRaiseSecurityCheckFailureShadow @ 0x140224B00 (KiRaiseSecurityCheckFailureShadow.c)
+ * Callees:
+ *     KiSaveDebugRegisterState @ 0x1401542B0 (KiSaveDebugRegisterState.c)
+ *     KiRaiseSecurityCheckFailure @ 0x1401640C0 (KiRaiseSecurityCheckFailure.c)
+ *     KiFastFailDispatch @ 0x140165E80 (KiFastFailDispatch.c)
+ */
+
+/*
+ * Hex-Rays decompilation failed for KiRaiseSecurityCheckFailure @ 0x1401640C0
+ * Reason: Hex-Rays returned no pseudocode for 0x1401640C0
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 00000001401640C0: sub     qword ptr [rsp+0], 2
+ * 00000001401640C5: sub     rsp, 8
+ * 00000001401640C9: push    rbp
+ * 00000001401640CA: sub     rsp, 158h
+ * 00000001401640D1: lea     rbp, [rsp+80h]
+ * 00000001401640D9: mov     [rbp+0E8h+var_13D], 1
+ * 00000001401640DD: mov     [rbp+0E8h+var_138], rax
+ * 00000001401640E1: mov     [rbp+0E8h+var_130], rcx
+ * 00000001401640E5: mov     [rbp+0E8h+var_128], rdx
+ * 00000001401640E9: mov     [rbp+0E8h+var_120], r8
+ * 00000001401640ED: mov     [rbp+0E8h+var_118], r9
+ * 00000001401640F1: mov     [rbp+0E8h+var_110], r10
+ * 00000001401640F5: mov     [rbp+0E8h+var_108], r11
+ * 00000001401640F9: test    [rbp+0E8h+arg_0], 1
+ * 0000000140164100: jnz     loc_140164266
+ * 0000000140164106: cmp     byte ptr gs:187h, 0
+ * 000000014016410F: jz      loc_140164436
+ * 0000000140164115: test    byte ptr gs:2EB0h, 1
+ * 000000014016411E: jz      loc_140164436
+ * 0000000140164124: mov     ecx, 48h ; 'H'
+ * 0000000140164129: mov     eax, 1
+ * 000000014016412E: xor     edx, edx
+ * 0000000140164130: wrmsr
+ * 0000000140164132: test    byte ptr gs:2EB0h, 4
+ * 000000014016413B: jnz     loc_140164436
+ * 0000000140164141: call    loc_140164254
+ * 0000000140164146: add     rsp, 8
+ * 000000014016414A: call    loc_14016425D
+ * 000000014016414F: add     rsp, 8
+ * 0000000140164153: call    loc_140164146
+ * 0000000140164158: add     rsp, 8
+ * 000000014016415C: call    loc_14016414F
+ * 0000000140164161: add     rsp, 8
+ * 0000000140164165: call    loc_140164158
+ * 000000014016416A: add     rsp, 8
+ * 000000014016416E: call    loc_140164161
+ * 0000000140164173: add     rsp, 8
+ * 0000000140164177: call    loc_14016416A
+ * 000000014016417C: add     rsp, 8
+ * 0000000140164180: call    loc_140164173
+ * 0000000140164185: add     rsp, 8
+ * 0000000140164189: call    loc_14016417C
+ * 000000014016418E: add     rsp, 8
+ * 0000000140164192: call    loc_140164185
+ * 0000000140164197: add     rsp, 8
+ * 000000014016419B: call    loc_14016418E
+ * 00000001401641A0: add     rsp, 8
+ * 00000001401641A4: call    loc_140164197
+ * 00000001401641A9: add     rsp, 8
+ * 00000001401641AD: call    loc_1401641A0
+ * 00000001401641B2: add     rsp, 8
+ * 00000001401641B6: call    loc_1401641A9
+ * 00000001401641BB: add     rsp, 8
+ * 00000001401641BF: call    loc_1401641B2
+ * 00000001401641C4: add     rsp, 8
+ * 00000001401641C8: call    loc_1401641BB
+ * 00000001401641CD: add     rsp, 8
+ * 00000001401641D1: call    loc_1401641C4
+ * 00000001401641D6: add     rsp, 8
+ * 00000001401641DA: call    loc_1401641CD
+ * 00000001401641DF: add     rsp, 8
+ * 00000001401641E3: call    loc_1401641D6
+ * 00000001401641E8: add     rsp, 8
+ * 00000001401641EC: call    loc_1401641DF
+ * 00000001401641F1: add     rsp, 8
+ * 00000001401641F5: call    loc_1401641E8
+ * 00000001401641FA: add     rsp, 8
+ * 00000001401641FE: call    loc_1401641F1
+ * 0000000140164203: add     rsp, 8
+ * 0000000140164207: call    loc_1401641FA
+ * 000000014016420C: add     rsp, 8
+ * 0000000140164210: call    loc_140164203
+ * 0000000140164215: add     rsp, 8
+ * 0000000140164219: call    loc_14016420C
+ * 000000014016421E: add     rsp, 8
+ * 0000000140164222: call    loc_140164215
+ * 0000000140164227: add     rsp, 8
+ * 000000014016422B: call    loc_14016421E
+ * 0000000140164230: add     rsp, 8
+ * 0000000140164234: call    loc_140164227
+ * 0000000140164239: add     rsp, 8
+ * 000000014016423D: call    loc_140164230
+ * 0000000140164242: add     rsp, 8
+ * 0000000140164246: call    loc_140164239
+ * 000000014016424B: add     rsp, 8
+ * 000000014016424F: call    loc_140164242
+ * 0000000140164254: add     rsp, 8
+ * 0000000140164258: call    loc_14016424B
+ * 000000014016425D: add     rsp, 8
+ * 0000000140164261: jmp     loc_140164436
+ * 0000000140164266: test    cs:KiKvaShadow, 1
+ * 000000014016426D: jnz     short loc_140164272
+ * 000000014016426F: swapgs
+ * 0000000140164272: mov     r10, gs:188h
+ * 000000014016427B: test    byte ptr gs:2EB0h, 1
+ * 0000000140164284: jz      loc_1401643E7
+ * 000000014016428A: mov     rcx, gs:188h
+ * 0000000140164293: mov     rcx, [rcx+220h]
+ * 000000014016429A: mov     rcx, [rcx+790h]
+ * 00000001401642A1: mov     gs:2EA8h, rcx
+ * 00000001401642AA: mov     ecx, 48h ; 'H'
+ * 00000001401642AF: mov     eax, 1
+ * 00000001401642B4: xor     edx, edx
+ * 00000001401642B6: wrmsr
+ * 00000001401642B8: test    byte ptr gs:2EB0h, 4
+ * 00000001401642C1: jnz     loc_1401643E7
+ * 00000001401642C7: call    loc_1401643DA
+ * 00000001401642CC: add     rsp, 8
+ * 00000001401642D0: call    loc_1401643E3
+ * 00000001401642D5: add     rsp, 8
+ * 00000001401642D9: call    loc_1401642CC
+ * 00000001401642DE: add     rsp, 8
+ * 00000001401642E2: call    loc_1401642D5
+ * 00000001401642E7: add     rsp, 8
+ * 00000001401642EB: call    loc_1401642DE
+ * 00000001401642F0: add     rsp, 8
+ * 00000001401642F4: call    loc_1401642E7
+ * 00000001401642F9: add     rsp, 8
+ * 00000001401642FD: call    loc_1401642F0
+ * 0000000140164302: add     rsp, 8
+ * 0000000140164306: call    loc_1401642F9
+ * 000000014016430B: add     rsp, 8
+ * 000000014016430F: call    loc_140164302
+ * 0000000140164314: add     rsp, 8
+ * 0000000140164318: call    loc_14016430B
+ * 000000014016431D: add     rsp, 8
+ * 0000000140164321: call    loc_140164314
+ * 0000000140164326: add     rsp, 8
+ * 000000014016432A: call    loc_14016431D
+ * 000000014016432F: add     rsp, 8
+ * 0000000140164333: call    loc_140164326
+ * 0000000140164338: add     rsp, 8
+ * 000000014016433C: call    loc_14016432F
+ * 0000000140164341: add     rsp, 8
+ * 0000000140164345: call    loc_140164338
+ * 000000014016434A: add     rsp, 8
+ * 000000014016434E: call    loc_140164341
+ * 0000000140164353: add     rsp, 8
+ * 0000000140164357: call    loc_14016434A
+ * 000000014016435C: add     rsp, 8
+ * 0000000140164360: call    loc_140164353
+ * 0000000140164365: add     rsp, 8
+ * 0000000140164369: call    loc_14016435C
+ * 000000014016436E: add     rsp, 8
+ * 0000000140164372: call    loc_140164365
+ * 0000000140164377: add     rsp, 8
+ * 000000014016437B: call    loc_14016436E
+ * 0000000140164380: add     rsp, 8
+ * 0000000140164384: call    loc_140164377
+ * 0000000140164389: add     rsp, 8
+ * 000000014016438D: call    loc_140164380
+ * 0000000140164392: add     rsp, 8
+ * 0000000140164396: call    loc_140164389
+ * 000000014016439B: add     rsp, 8
+ * 000000014016439F: call    loc_140164392
+ * 00000001401643A4: add     rsp, 8
+ * 00000001401643A8: call    loc_14016439B
+ * 00000001401643AD: add     rsp, 8
+ * 00000001401643B1: call    loc_1401643A4
+ * 00000001401643B6: add     rsp, 8
+ * 00000001401643BA: call    loc_1401643AD
+ * 00000001401643BF: add     rsp, 8
+ * 00000001401643C3: call    loc_1401643B6
+ * 00000001401643C8: add     rsp, 8
+ * 00000001401643CC: call    loc_1401643BF
+ * 00000001401643D1: add     rsp, 8
+ * 00000001401643D5: call    loc_1401643C8
+ * 00000001401643DA: add     rsp, 8
+ * 00000001401643DE: call    loc_1401643D1
+ * 00000001401643E3: add     rsp, 8
+ * 00000001401643E7: test    byte ptr [r10+3], 80h
+ * 00000001401643EC: jz      short loc_140164421
+ * 00000001401643EE: mov     ecx, 0C0000102h
+ * 00000001401643F3: rdmsr
+ * 00000001401643F5: shl     rdx, 20h
+ * 00000001401643F9: or      rax, rdx
+ * 00000001401643FC: cmp     [r10+0F0h], rax
+ * 0000000140164403: jz      short loc_140164421
+ * 0000000140164405: mov     rdx, [r10+1F0h]
+ * 000000014016440C: bts     dword ptr [r10+74h], 8
+ * 0000000140164412: dec     word ptr [r10+1E6h]
+ * 000000014016441A: mov     [rdx+80h], rax
+ * 0000000140164421: test    byte ptr [r10+3], 3
+ * 0000000140164426: mov     [rbp+0E8h+var_68], 0
+ * 000000014016442F: jz      short loc_140164436
+ * 0000000140164431: call    KiSaveDebugRegisterState
+ * 0000000140164436: cld
+ * 0000000140164437: lfence
+ * 000000014016443A: stmxcsr [rbp+0E8h+var_13C]
+ * 000000014016443E: ldmxcsr dword ptr gs:180h
+ * 0000000140164447: movaps  [rbp+0E8h+var_F8], xmm0
+ * 000000014016444B: movaps  [rbp+0E8h+var_E8], xmm1
+ * 000000014016444F: movaps  [rbp+0E8h+var_D8], xmm2
+ * 0000000140164453: movaps  [rbp+0E8h+var_C8], xmm3
+ * 0000000140164457: movaps  [rbp+0E8h+var_B8], xmm4
+ * 000000014016445B: movaps  [rbp+0E8h+var_A8], xmm5
+ * 000000014016445F: test    [rbp+0E8h+arg_8], 200h
+ * 0000000140164469: jz      short loc_14016446C
+ * 000000014016446B: sti
+ * 000000014016446C: mov     r9, [rbp+0E8h+var_130]
+ * 0000000140164470: mov     ecx, 0C0000409h
+ * 0000000140164475: mov     edx, 1
+ * 000000014016447A: mov     r8, [rbp+0E8h]
+ * 0000000140164481: call    KiFastFailDispatch
+ * 0000000140164486: nop
+ * 0000000140164487: retn
+ */

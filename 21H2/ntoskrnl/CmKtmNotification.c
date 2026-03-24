@@ -1,32 +1,30 @@
 /*
- * XREFs of CmKtmNotification @ 0x140741CF0
+ * XREFs of CmKtmNotification @ 0x1406A36F0
  * Callers:
  *     <none>
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x140223A20 (EtwGetKernelTraceTimestamp.c)
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     UNLOCK_HIVE_LOAD @ 0x14068934C (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x1406893EC (LOCK_HIVE_LOAD.c)
- *     CmpTransMgrRollback @ 0x1406E2798 (CmpTransMgrRollback.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     CmpIsCmRm @ 0x140742190 (CmpIsCmRm.c)
- *     CmLogTmRmAction @ 0x140742230 (CmLogTmRmAction.c)
- *     CmpCleanupTransactionState @ 0x140742300 (CmpCleanupTransactionState.c)
- *     CmpAccountForLogReservation @ 0x14074244C (CmpAccountForLogReservation.c)
- *     CmpTransMgrPrepare @ 0x1407424F0 (CmpTransMgrPrepare.c)
- *     CmpTransMgrCommit @ 0x1407426B8 (CmpTransMgrCommit.c)
- *     CmpQueryNameString @ 0x140742C78 (CmpQueryNameString.c)
- *     CmpRecoverEnlistment @ 0x14091BA74 (CmpRecoverEnlistment.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406725C0 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x140672754 (LOCK_HIVE_LOAD.c)
+ *     CmpIsCmRm @ 0x1406A3C54 (CmpIsCmRm.c)
+ *     CmpQueryNameString @ 0x140716838 (CmpQueryNameString.c)
+ *     CmLogTmRmAction @ 0x140763AC8 (CmLogTmRmAction.c)
+ *     CmpAccountForLogReservation @ 0x140767230 (CmpAccountForLogReservation.c)
+ *     CmpTransMgrPrepare @ 0x140768D04 (CmpTransMgrPrepare.c)
+ *     CmpTransMgrCommit @ 0x140768EA0 (CmpTransMgrCommit.c)
+ *     CmpCleanupTransactionState @ 0x140770484 (CmpCleanupTransactionState.c)
+ *     CmpTransMgrRollback @ 0x140771090 (CmpTransMgrRollback.c)
+ *     CmpRecoverEnlistment @ 0x140874E8C (CmpRecoverEnlistment.c)
  */
 
-__int64 __fastcall CmKtmNotification(
+NTSTATUS __fastcall CmKtmNotification(
         PKENLISTMENT EnlistmentObject,
         _DWORD *RMContext,
         PVOID TransactionContext,
@@ -35,232 +33,223 @@ __int64 __fastcall CmKtmNotification(
         ULONG ArgumentLength,
         PVOID Argument)
 {
-  char v8; // r13
-  __int64 v11; // rdx
-  int v12; // ebx
-  NTSTATUS v13; // eax
+  char v7; // r15
+  char v9; // r12
+  __int64 v12; // rdx
+  NTSTATUS result; // eax
+  int v14; // edi
   struct _KTHREAD *CurrentThread; // rax
-  int v15; // eax
-  __int64 v16; // rcx
-  char v17; // r12
+  int v16; // eax
   __int64 v18; // rdx
-  __int64 v19; // rcx
-  int v21; // eax
-  char v22; // r15
+  __int64 v19; // r8
+  __int64 v20; // rcx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  int v23; // eax
+  PVOID v24; // rcx
+  char v25; // r13
+  int v26; // eax
+  int v27; // eax
+  __int64 v28; // r9
   NTSTATUS OnlyEnlistment; // eax
   UNICODE_STRING *p_UnicodeString; // rcx
-  char v25; // [rsp+40h] [rbp-71h] BYREF
-  char v26; // [rsp+41h] [rbp-70h]
-  char v27; // [rsp+42h] [rbp-6Fh]
-  PVOID Key; // [rsp+48h] [rbp-69h] BYREF
-  int v29; // [rsp+50h] [rbp-61h] BYREF
-  unsigned int v30; // [rsp+54h] [rbp-5Dh]
-  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-59h] BYREF
-  HANDLE Handle; // [rsp+68h] [rbp-49h]
-  __int128 v33; // [rsp+70h] [rbp-41h] BYREF
-  __int128 v34; // [rsp+80h] [rbp-31h] BYREF
-  _OWORD v35[2]; // [rsp+90h] [rbp-21h] BYREF
+  char v31; // [rsp+40h] [rbp-61h] BYREF
+  char v32; // [rsp+41h] [rbp-60h]
+  PVOID Key; // [rsp+48h] [rbp-59h] BYREF
+  int v34; // [rsp+50h] [rbp-51h] BYREF
+  unsigned int v35; // [rsp+54h] [rbp-4Dh]
+  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-49h] BYREF
+  HANDLE Handle; // [rsp+68h] [rbp-39h]
+  __int128 v38; // [rsp+70h] [rbp-31h] BYREF
+  _OWORD v39[2]; // [rsp+80h] [rbp-21h] BYREF
 
+  v7 = 0;
   Key = 0LL;
   Handle = 0LL;
-  v27 = 0;
-  v25 = 0;
-  v33 = 0LL;
-  v29 = 0;
-  v8 = 0;
-  v34 = 0LL;
+  v31 = 0;
+  v34 = 0;
+  v32 = 1;
+  v38 = 0LL;
+  v9 = 0;
   UnicodeString = 0LL;
-  v26 = 1;
-  memset(v35, 0, sizeof(v35));
-  CmpInitializeThreadInfo((__int64)&v33);
-  if ( !(unsigned __int8)CmpIsCmRm(RMContext) )
-  {
-    v12 = -1073741811;
-    goto LABEL_84;
-  }
+  memset(v39, 0, sizeof(v39));
+  if ( !(unsigned __int8)CmpIsCmRm(RMContext, RMContext, TransactionContext) )
+    return -1073741811;
   if ( (RMContext[26] & 8) != 0 )
-    goto LABEL_83;
+    return 0;
   if ( TransactionNotification == 256 )
-  {
-    v13 = CmpRecoverEnlistment(RMContext, v11, Argument);
-    goto LABEL_6;
-  }
+    return CmpRecoverEnlistment(RMContext, v12, Argument);
   if ( (TransactionNotification & 0xE) == 0 )
+    return 0;
+  result = TmReferenceEnlistmentKey(EnlistmentObject, &Key);
+  v14 = result;
+  if ( !result )
   {
-LABEL_83:
-    v12 = 0;
-    goto LABEL_84;
-  }
-  v12 = TmReferenceEnlistmentKey(EnlistmentObject, &Key);
-  if ( v12 )
-    goto LABEL_84;
-  CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
-  v15 = *((_DWORD *)Key + 12);
-  if ( (v15 & 8) != 0 )
-  {
-    switch ( TransactionNotification )
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
+    v16 = *((_DWORD *)Key + 12);
+    if ( (v16 & 8) != 0 )
     {
-      case 2u:
-        *((_DWORD *)Key + 12) = v15 | 1;
-        ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-        KeLeaveCriticalRegion();
-        v13 = TmPrepareComplete(EnlistmentObject, 0LL);
-        break;
-      case 4u:
-        *((_DWORD *)Key + 12) = v15 | 4;
-        ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-        KeLeaveCriticalRegion();
-        TmCommitComplete(EnlistmentObject, 0LL);
-        goto LABEL_84;
-      case 8u:
-        *((_DWORD *)Key + 12) = v15 | 2;
-        ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-        KeLeaveCriticalRegion();
-        v13 = TmRollbackComplete(EnlistmentObject, 0LL);
-        break;
-      default:
-LABEL_84:
-        CmCleanupThreadInfo((__int64 *)&v33);
-        return (unsigned int)v12;
-    }
-LABEL_6:
-    v12 = v13;
-    goto LABEL_84;
-  }
-  ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-  KeLeaveCriticalRegion();
-  v16 = qword_140C02770;
-  if ( CmRmSystem != RMContext )
-    v16 = *((_QWORD *)RMContext + 10);
-  if ( CmpTraceTxrRoutine && (int)CmpQueryNameString(*(_QWORD *)(v16 + 1544), &UnicodeString) >= 0 )
-  {
-    EtwGetKernelTraceTimestamp((unsigned __int64)v35, 0x20000uLL);
-    v34 = *(_OWORD *)((char *)Key + 88);
-  }
-  if ( (struct _KTHREAD *)CmpLoadHiveLockOwner == KeGetCurrentThread() )
-  {
-    v17 = 0;
-  }
-  else
-  {
-    LOCK_HIVE_LOAD();
-    v17 = 1;
-  }
-  if ( (unsigned __int8)CmpIsCmRm(RMContext) )
-  {
-    switch ( TransactionNotification )
-    {
-      case 2u:
-        v21 = CmpTransMgrPrepare(RMContext, Key, &v29, &v25);
-        break;
-      case 4u:
-        v21 = CmpTransMgrCommit(v19, Key, &v29);
-        break;
-      case 8u:
-        v21 = CmpTransMgrRollback((__int64)Key, &v29);
-        break;
-      default:
-        v12 = -1073741811;
-        v30 = -1073741811;
-        goto LABEL_46;
-    }
-    v30 = v21;
-    v12 = v21;
-    if ( v21 >= 0 || TransactionNotification == 4 )
-    {
-      v30 = v21;
-      if ( *((PVOID *)Key + 2) == (char *)Key + 16 || v21 < 0 )
+      if ( TransactionNotification != 2 )
       {
-        v26 = 0;
-      }
-      else
-      {
-        v12 = CmLogTmRmAction((int)RMContext);
-        if ( TransactionNotification != 2 )
-          v12 = 0;
-      }
-      v27 = 1;
-      if ( TransactionNotification == 4 )
-        goto LABEL_48;
-    }
-    if ( TransactionNotification == 8 )
-    {
-LABEL_48:
-      v22 = v25;
-LABEL_49:
-      if ( *((_QWORD *)Key + 9) )
-        Handle = (HANDLE)*((_QWORD *)Key + 10);
-      if ( (*((_DWORD *)Key + 12) & 0x20) != 0 && (int)CmpAccountForLogReservation(RMContext, v18, 0LL) >= 0 )
-        *((_DWORD *)Key + 12) &= ~0x20u;
-      if ( v12 >= 0 || TransactionNotification != 4 )
-      {
-        v12 = CmpTransMgrRollback((__int64)Key, &v29);
-        CmpCleanupTransactionState(RMContext, Key, TransactionNotification);
-      }
-LABEL_57:
-      TmDereferenceEnlistmentKey(EnlistmentObject, 0LL);
-      if ( v17 )
-        UNLOCK_HIVE_LOAD();
-      if ( v27 == 1 )
-      {
-        switch ( TransactionNotification )
+        if ( TransactionNotification == 4 )
         {
-          case 2u:
-            if ( v22 == 1 )
-              OnlyEnlistment = TmReadOnlyEnlistment(EnlistmentObject, 0LL);
-            else
-              OnlyEnlistment = TmPrepareComplete(EnlistmentObject, 0LL);
-            break;
-          case 4u:
-            TmCommitComplete(EnlistmentObject, 0LL);
-            goto LABEL_69;
-          case 8u:
-            OnlyEnlistment = TmRollbackComplete(EnlistmentObject, 0LL);
-            break;
-          default:
-            goto LABEL_69;
+          *((_DWORD *)Key + 12) = v16 | 4;
+          ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          TmCommitComplete(EnlistmentObject, 0LL);
         }
-        v12 = OnlyEnlistment;
+        else if ( TransactionNotification == 8 )
+        {
+          *((_DWORD *)Key + 12) = v16 | 2;
+          ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          return TmRollbackComplete(EnlistmentObject, 0LL);
+        }
+        return v14;
       }
-LABEL_69:
-      if ( Handle )
-        ZwClose(Handle);
-      switch ( TransactionNotification )
-      {
-        case 2u:
-          v8 = 31;
-          break;
-        case 4u:
-          v8 = 30;
-          break;
-        case 8u:
-          v8 = 32;
-          break;
-      }
-      if ( CmpTraceTxrRoutine && v8 )
-      {
-        if ( !UnicodeString.Buffer )
-          goto LABEL_84;
-        p_UnicodeString = &UnicodeString;
-        LOBYTE(p_UnicodeString) = v8;
-        CmpTraceTxrRoutine(p_UnicodeString, v35, &v34, v30, v29, &UnicodeString);
-      }
-      if ( UnicodeString.Buffer )
-        RtlFreeUnicodeString(&UnicodeString);
-      goto LABEL_84;
+      *((_DWORD *)Key + 12) = v16 | 1;
+      ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      return TmPrepareComplete(EnlistmentObject, 0LL);
     }
-LABEL_46:
-    v22 = v25;
-    if ( v25 != 1 )
-      goto LABEL_57;
-    goto LABEL_49;
+    ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    v20 = qword_140C01170;
+    if ( CmRmSystem != RMContext )
+      v20 = *((_QWORD *)RMContext + 10);
+    if ( CmpTraceTxrRoutine && (int)CmpQueryNameString(*(_QWORD *)(v20 + 1536), &UnicodeString) >= 0 )
+    {
+      EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v39, 0x20000u);
+      v38 = *(_OWORD *)((char *)Key + 88);
+    }
+    if ( (struct _KTHREAD *)CmpLoadHiveLockOwner == KeGetCurrentThread() )
+      v7 = 1;
+    else
+      LOCK_HIVE_LOAD();
+    if ( !(unsigned __int8)CmpIsCmRm(RMContext, v18, v19) )
+    {
+      if ( !v7 )
+        UNLOCK_HIVE_LOAD();
+      TmDereferenceEnlistmentKey(EnlistmentObject, 0LL);
+      if ( UnicodeString.Buffer )
+        RtlFreeAnsiString(&UnicodeString);
+      return -1073741811;
+    }
+    switch ( TransactionNotification )
+    {
+      case 2u:
+        v23 = CmpTransMgrPrepare(RMContext, Key, &v34, &v31);
+        break;
+      case 4u:
+        v23 = CmpTransMgrCommit(v22, Key, &v34);
+        break;
+      case 8u:
+        v23 = CmpTransMgrRollback(Key, &v34);
+        break;
+      default:
+        v14 = -1073741811;
+LABEL_39:
+        v35 = v14;
+        if ( v14 >= 0 || TransactionNotification == 4 )
+        {
+          v24 = Key;
+          if ( *((PVOID *)Key + 2) == (char *)Key + 16 || v14 < 0 )
+          {
+            v32 = 0;
+          }
+          else
+          {
+            v26 = CmLogTmRmAction((_DWORD)RMContext);
+            v24 = Key;
+            v14 = v26;
+            if ( TransactionNotification != 2 )
+              v14 = 0;
+          }
+          v25 = 1;
+          if ( TransactionNotification == 4 )
+          {
+LABEL_50:
+            if ( *((_QWORD *)v24 + 9) )
+              Handle = (HANDLE)*((_QWORD *)v24 + 10);
+            if ( (*((_DWORD *)v24 + 12) & 0x20) != 0 )
+            {
+              if ( (int)CmpAccountForLogReservation(RMContext, v21, 0LL) >= 0 )
+                *((_DWORD *)Key + 12) &= ~0x20u;
+              v24 = Key;
+            }
+            if ( v14 >= 0 || TransactionNotification != 4 )
+            {
+              v27 = CmpTransMgrRollback(v24, &v34);
+              LOBYTE(v28) = v32;
+              v14 = v27;
+              CmpCleanupTransactionState(RMContext, Key, TransactionNotification, v28);
+            }
+LABEL_59:
+            TmDereferenceEnlistmentKey(EnlistmentObject, 0LL);
+            if ( !v7 )
+              UNLOCK_HIVE_LOAD();
+            if ( v25 == 1 )
+            {
+              switch ( TransactionNotification )
+              {
+                case 2u:
+                  if ( v31 == 1 )
+                    OnlyEnlistment = TmReadOnlyEnlistment(EnlistmentObject, 0LL);
+                  else
+                    OnlyEnlistment = TmPrepareComplete(EnlistmentObject, 0LL);
+                  break;
+                case 4u:
+                  TmCommitComplete(EnlistmentObject, 0LL);
+                  goto LABEL_71;
+                case 8u:
+                  OnlyEnlistment = TmRollbackComplete(EnlistmentObject, 0LL);
+                  break;
+                default:
+                  goto LABEL_71;
+              }
+              v14 = OnlyEnlistment;
+            }
+LABEL_71:
+            if ( Handle )
+              ZwClose(Handle);
+            switch ( TransactionNotification )
+            {
+              case 2u:
+                v9 = 31;
+                break;
+              case 4u:
+                v9 = 30;
+                break;
+              case 8u:
+                v9 = 32;
+                break;
+            }
+            if ( CmpTraceTxrRoutine && v9 )
+            {
+              if ( !UnicodeString.Buffer )
+                return v14;
+              p_UnicodeString = &UnicodeString;
+              LOBYTE(p_UnicodeString) = v9;
+              CmpTraceTxrRoutine(p_UnicodeString, v39, &v38, v35, v34, &UnicodeString);
+            }
+            if ( UnicodeString.Buffer )
+              RtlFreeAnsiString(&UnicodeString);
+            return v14;
+          }
+        }
+        else
+        {
+          v24 = Key;
+          v25 = 0;
+        }
+        if ( TransactionNotification != 8 && v31 != 1 )
+          goto LABEL_59;
+        goto LABEL_50;
+    }
+    v14 = v23;
+    goto LABEL_39;
   }
-  if ( v17 )
-    UNLOCK_HIVE_LOAD();
-  TmDereferenceEnlistmentKey(EnlistmentObject, 0LL);
-  if ( UnicodeString.Buffer )
-    RtlFreeUnicodeString(&UnicodeString);
-  return 3221225485LL;
+  return result;
 }

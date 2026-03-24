@@ -1,48 +1,42 @@
 /*
- * XREFs of ?SetBufferProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C021E550
+ * XREFs of ?SetBufferProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E7E10
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0030874 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memcpy_s @ 0x1C00D7B98 (memcpy_s.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     memcpy_s @ 0x1C00C6D54 (memcpy_s.c)
  */
 
 __int64 __fastcall DirectComposition::CSpriteShapeMarshaler::SetBufferProperty(
-        char **this,
+        DirectComposition::CSpriteShapeMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
         const void *a4,
         rsize_t MaxCount)
 {
   unsigned int v5; // ebx
-  unsigned __int64 v8; // rsi
-  __int64 Quota; // r15
-  char *v10; // rdx
-  char *v11; // rcx
+  unsigned __int64 v8; // rbp
+  __int64 v9; // r14
+  __int64 v10; // rcx
+  void *v11; // rcx
 
   v5 = 0;
   if ( a3 == 9 && (a4 || !MaxCount) )
   {
     v8 = MaxCount >> 2;
-    if ( (unsigned int)(MaxCount >> 2) > *((_DWORD *)this + 26) )
+    if ( (unsigned int)(MaxCount >> 2) > *((_DWORD *)this + 24) )
     {
-      Quota = NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(
-                (NSInstrumentation::CLeakTrackingAllocator *)this,
-                260LL,
-                MaxCount,
-                1685275460);
-      if ( !Quota )
+      v9 = Win32AllocPoolWithQuota(MaxCount, 0x64734344u);
+      if ( !v9 )
         return (unsigned int)-1073741801;
-      v10 = this[12];
+      v10 = *((_QWORD *)this + 11);
       if ( v10 )
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          v10);
-      this[12] = (char *)Quota;
+        Win32FreePool(v10);
+      *((_QWORD *)this + 11) = v9;
     }
-    v11 = this[12];
-    this[13] = (char *)(unsigned int)v8;
+    v11 = (void *)*((_QWORD *)this + 11);
+    *((_QWORD *)this + 12) = (unsigned int)v8;
     memcpy_s(v11, 4LL * (unsigned int)v8, a4, MaxCount);
     *((_DWORD *)this + 4) |= 0x400u;
     return v5;

@@ -1,33 +1,41 @@
 /*
- * XREFs of DpiFdoInitializeDisplayDiagnostics @ 0x1C001D594
+ * XREFs of DpiFdoInitializeDisplayDiagnostics @ 0x1C0022EA0
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C0200110 (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C0189268 (DpiFdoStartAdapter.c)
  * Callees:
- *     DpiFdoCleanupDisplayDiagnostics @ 0x1C0023B7C (DpiFdoCleanupDisplayDiagnostics.c)
- *     DpiQueryMiniportInterface @ 0x1C0204EAC (DpiQueryMiniportInterface.c)
+ *     DpiFdoCleanupDisplayDiagnostics @ 0x1C0022F1C (DpiFdoCleanupDisplayDiagnostics.c)
+ *     DpiQueryMiniportInterface @ 0x1C018E538 (DpiQueryMiniportInterface.c)
  */
 
 __int64 __fastcall DpiFdoInitializeDisplayDiagnostics(__int64 a1)
 {
-  __int64 v1; // rdi
-  int MiniportInterface; // eax
-  unsigned int v3; // ebx
+  int v1; // eax
+  __int64 v2; // rcx
+  int MiniportInterface; // ebx
+  __int64 v4; // rdi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v8; // rax
+  __int64 v9; // [rsp+58h] [rbp+10h]
 
-  v1 = *(_QWORD *)(a1 + 64);
+  v1 = a1;
+  v2 = *(_QWORD *)(a1 + 64);
   MiniportInterface = 0;
-  if ( !*(_WORD *)(v1 + 5600) )
+  v9 = v2;
+  v4 = v2 + 5656;
+  if ( !*(_WORD *)(v2 + 5656) )
   {
-    MiniportInterface = DpiQueryMiniportInterface(a1, (unsigned int)&GUID_DXGK_DISPLAY_DIAGNOSTICS_INTERFACE, 48, 1);
-    if ( MiniportInterface >= 0 && (*(_WORD *)(v1 + 5600) != 48 || !*(_QWORD *)(v1 + 5632) || !*(_QWORD *)(v1 + 5640)) )
+    MiniportInterface = DpiQueryMiniportInterface(v1, (unsigned int)&GUID_DXGK_DISPLAY_DIAGNOSTICS_INTERFACE, 48, 1);
+    if ( MiniportInterface >= 0 && (*(_WORD *)v4 != 48 || !*(_QWORD *)(v4 + 32) || !*(_QWORD *)(v4 + 40)) )
     {
-      v3 = -1073741823;
-      WdLogSingleEntry1(2LL, -1073741823LL);
-      goto LABEL_4;
+      v8 = WdLogNewEntry5_WdError(v6, v5);
+      *(_QWORD *)(v8 + 24) = -1073741823LL;
+      WdLogEvent5_WdError(v8);
+      MiniportInterface = -1073741823;
     }
+    v2 = v9;
   }
-  v3 = MiniportInterface;
   if ( MiniportInterface < 0 )
-LABEL_4:
-    DpiFdoCleanupDisplayDiagnostics(v1);
-  return v3;
+    DpiFdoCleanupDisplayDiagnostics(v2);
+  return (unsigned int)MiniportInterface;
 }

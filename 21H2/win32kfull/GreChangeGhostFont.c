@@ -1,9 +1,9 @@
 /*
- * XREFs of GreChangeGhostFont @ 0x1C027A3B0
+ * XREFs of GreChangeGhostFont @ 0x1C027C840
  * Callers:
- *     NtGdiChangeGhostFont @ 0x1C02ACA20 (NtGdiChangeGhostFont.c)
+ *     NtGdiChangeGhostFont @ 0x1C02AE2B0 (NtGdiChangeGhostFont.c)
  * Callees:
- *     ?ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z @ 0x1C0270288 (-ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z.c)
+ *     ?ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z @ 0x1C02725B8 (-ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z.c)
  */
 
 __int64 __fastcall GreChangeGhostFont(void *a1, int a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCloudbookHardwareLockedProvider @ 0x14085DC70
+ * XREFs of ExpCloudbookHardwareLockedProvider @ 0x1407D13B0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExpOsProductCacheProviderHelper @ 0x14085DD84 (ExpOsProductCacheProviderHelper.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExpOsProductCacheProviderHelper @ 0x1407D14C4 (ExpOsProductCacheProviderHelper.c)
  */
 
 __int64 __fastcall ExpCloudbookHardwareLockedProvider(

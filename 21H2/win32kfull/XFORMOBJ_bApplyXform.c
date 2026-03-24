@@ -1,11 +1,11 @@
 /*
- * XREFs of XFORMOBJ_bApplyXform @ 0x1C02BE010
+ * XREFs of XFORMOBJ_bApplyXform @ 0x1C02BF690
  * Callers:
- *     NtGdiXFORMOBJ_bApplyXform @ 0x1C02B4020 (NtGdiXFORMOBJ_bApplyXform.c)
+ *     NtGdiXFORMOBJ_bApplyXform @ 0x1C02B5CC0 (NtGdiXFORMOBJ_bApplyXform.c)
  * Callees:
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C0088D80 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
- *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C013067C (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00B63B0 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
+ *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C014047C (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 BOOL __stdcall XFORMOBJ_bApplyXform(XFORMOBJ *pxo, ULONG iMode, ULONG cPoints, PVOID pvIn, PVOID pvOut)

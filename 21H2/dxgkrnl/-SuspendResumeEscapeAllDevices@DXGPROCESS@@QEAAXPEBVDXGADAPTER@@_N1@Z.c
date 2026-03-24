@@ -1,14 +1,13 @@
 /*
- * XREFs of ?SuspendResumeEscapeAllDevices@DXGPROCESS@@QEAAXPEBVDXGADAPTER@@_N1@Z @ 0x1C033791C
+ * XREFs of ?SuspendResumeEscapeAllDevices@DXGPROCESS@@QEAAXPEBVDXGADAPTER@@_N1@Z @ 0x1C02864A0
  * Callers:
- *     ?DxgEscapeSuspendResumeProcess@@YAJPEAU_D3DKMT_ESCAPE@@PEAXPEAVDXGADAPTER@@1_N3@Z @ 0x1C03081F8 (-DxgEscapeSuspendResumeProcess@@YAJPEAU_D3DKMT_ESCAPE@@PEAXPEAVDXGADAPTER@@1_N3@Z.c)
+ *     ?DxgEscapeSuspendResumeProcess@@YAJPEAU_D3DKMT_ESCAPE@@PEAXPEAVDXGADAPTER@@1_N3@Z @ 0x1C0267748 (-DxgEscapeSuspendResumeProcess@@YAJPEAU_D3DKMT_ESCAPE@@PEAXPEAVDXGADAPTER@@1_N3@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C00096EC (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0009730 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C000BD28 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?FlushPagingQueues@DXGDEVICE@@QEAAXXZ @ 0x1C016404C (-FlushPagingQueues@DXGDEVICE@@QEAAXXZ.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0004300 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ @ 0x1C00072DC (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGPROCESS@@VDXGDEVICE@@@@QEBAPEAVDXGDEVICE@@XZ.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0007464 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?FlushPagingQueues@DXGDEVICE@@QEAAXXZ @ 0x1C00E2850 (-FlushPagingQueues@DXGDEVICE@@QEAAXXZ.c)
  */
 
 void __fastcall DXGPROCESS::SuspendResumeEscapeAllDevices(
@@ -17,70 +16,58 @@ void __fastcall DXGPROCESS::SuspendResumeEscapeAllDevices(
         char a3,
         char a4)
 {
-  struct _KTHREAD *v8; // rdi
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
+  struct _KTHREAD *v11; // rdi
   DXGDEVICE *Current; // rax
-  DXGDEVICE *v10; // rbx
-  __int64 v11; // r8
-  __int64 v12; // rdx
-  __int64 v13; // rax
-  _QWORD v14[2]; // [rsp+50h] [rbp-38h] BYREF
-  _QWORD v15[2]; // [rsp+60h] [rbp-28h] BYREF
+  DXGDEVICE *v13; // rbx
+  __int64 v14; // r8
+  __int64 v15; // rdx
+  __int64 v16; // rax
+  _QWORD v17[2]; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v18[3]; // [rsp+30h] [rbp-18h] BYREF
 
   if ( KeGetCurrentIrql() )
   {
-    WdLogSingleEntry1(1LL, 2708LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"KeGetCurrentIrql() == PASSIVE_LEVEL",
-      2708LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v8 + 24) = 2602LL;
+    WdLogEvent5_WdAssertion(v8);
   }
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 2710LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pDxgAdapter", 2710LL, 0LL, 0LL, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v9 + 24) = 2604LL;
+    WdLogEvent5_WdAssertion(v9);
   }
-  if ( this[28] != KeGetCurrentThread() )
+  if ( this[23] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 2711LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_DeviceCreationLock.IsExclusiveOwner()",
-      2711LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v10 + 24) = 2605LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  v8 = this[40];
-  v14[0] = this + 40;
+  v11 = this[35];
+  v17[0] = this + 35;
   while ( 1 )
   {
-    v14[1] = v8;
-    Current = (DXGDEVICE *)DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v14);
-    v10 = Current;
+    v17[1] = v11;
+    Current = (DXGDEVICE *)DXGNODELIST<DXGPROCESS,DXGDEVICE>::ITERATOR::GetCurrent(v17);
+    v13 = Current;
     if ( !Current )
       break;
     if ( *(const struct DXGADAPTER **)(*((_QWORD *)Current + 2) + 16LL) == a2 )
     {
-      DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v15, Current);
+      DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v18, Current);
       if ( a3 )
-        DXGDEVICE::FlushPagingQueues(v10);
-      LOBYTE(v11) = a4;
-      v12 = *(_QWORD *)(*((_QWORD *)v10 + 2) + 648LL);
-      v13 = *(_QWORD *)(v12 + 8);
-      LOBYTE(v12) = a3;
-      (*(void (__fastcall **)(_QWORD, __int64, __int64))(v13 + 1128))(*((_QWORD *)v10 + 95), v12, v11);
-      if ( v15[0] )
-        DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v15);
+        DXGDEVICE::FlushPagingQueues(v13);
+      LOBYTE(v14) = a4;
+      v15 = *(_QWORD *)(*((_QWORD *)v13 + 2) + 640LL);
+      v16 = *(_QWORD *)(v15 + 8);
+      LOBYTE(v15) = a3;
+      (*(void (__fastcall **)(_QWORD, __int64, __int64))(v16 + 1120))(*((_QWORD *)v13 + 95), v15, v14);
+      if ( v18[0] )
+        DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v18);
     }
-    v8 = *(struct _KTHREAD **)v8;
+    v11 = *(struct _KTHREAD **)v11;
   }
 }

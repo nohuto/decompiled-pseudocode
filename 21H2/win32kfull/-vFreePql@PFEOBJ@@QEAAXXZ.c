@@ -1,17 +1,17 @@
 /*
- * XREFs of ?vFreePql@PFEOBJ@@QEAAXXZ @ 0x1C0011A78
+ * XREFs of ?vFreePql@PFEOBJ@@QEAAXXZ @ 0x1C00A1F88
  * Callers:
- *     bUnloadEudcFont @ 0x1C00119A4 (bUnloadEudcFont.c)
+ *     bUnloadEudcFont @ 0x1C00A1EB0 (bUnloadEudcFont.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall PFEOBJ::vFreePql(PFEOBJ *this)
 {
-  __int64 v2; // rcx
+  void *v2; // rcx
 
   *(_DWORD *)(*(_QWORD *)this + 12LL) &= ~0x200u;
-  v2 = *(_QWORD *)(*(_QWORD *)this + 112LL);
+  v2 = *(void **)(*(_QWORD *)this + 112LL);
   if ( v2 )
   {
     Win32FreePool(v2);

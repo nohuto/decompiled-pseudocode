@@ -1,49 +1,46 @@
 /*
- * XREFs of NtGdiCloseFigure @ 0x1C02C0C80
+ * XREFs of NtGdiCloseFigure @ 0x1C0143950
  * Callers:
  *     <none>
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C015A6C4 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C0284C7C (--0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C014475C (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C01447BC (--0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiCloseFigure(HDC a1)
 {
-  ULONG v1; // ecx
-  DC *v3[2]; // [rsp+20h] [rbp-59h] BYREF
-  _BYTE v4[32]; // [rsp+30h] [rbp-49h] BYREF
-  _BYTE v5[8]; // [rsp+50h] [rbp-29h] BYREF
-  __int64 v6; // [rsp+58h] [rbp-21h]
+  unsigned int v1; // ebx
+  ULONG v2; // ecx
+  _QWORD v4[2]; // [rsp+20h] [rbp-B8h] BYREF
+  _BYTE v5[32]; // [rsp+30h] [rbp-A8h] BYREF
+  _BYTE v6[8]; // [rsp+50h] [rbp-88h] BYREF
+  __int64 v7; // [rsp+58h] [rbp-80h]
 
-  DCOBJ::DCOBJ((DCOBJ *)v3, a1);
-  if ( !v3[0] )
+  DCOBJ::DCOBJ((DCOBJ *)v4, a1);
+  v1 = 0;
+  if ( !v4[0] )
   {
-    v1 = 87;
-LABEL_3:
-    EngSetLastError(v1);
-LABEL_12:
-    DCOBJ::~DCOBJ((DCOBJ *)v3);
-    return 0LL;
+    v2 = 87;
+LABEL_5:
+    EngSetLastError(v2);
+    goto LABEL_11;
   }
-  if ( (*((_DWORD *)v3[0] + 62) & 1) == 0 )
+  if ( (*(_DWORD *)(v4[0] + 248LL) & 1) == 0 )
   {
-    v1 = 1003;
-    goto LABEL_3;
+    v2 = 1003;
+    goto LABEL_5;
   }
-  XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)v5, v3);
-  if ( !v6 || !EPATHOBJ::bCloseFigure((EPATHOBJ *)v5) )
-  {
+  XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)v6, (struct XDCOBJ *)v4);
+  if ( v7 && EPATHOBJ::bCloseFigure((EPATHOBJ *)v6) )
+    v1 = 1;
+  else
     EngSetLastError(8u);
-    XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v5);
-    goto LABEL_12;
-  }
-  XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v5);
-  if ( v3[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v3);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v4);
-  return 1LL;
+  XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v6);
+LABEL_11:
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v4);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v5);
+  return v1;
 }

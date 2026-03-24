@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD218
+ * XREFs of RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD318
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x1400BAE80 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1400BAEA0 (RtlpHpLfhSlotAllocate.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,12 +10,12 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD530 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x1402FDB00 (RtlpHpLfhSubsegmentIncBlockCounts.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD630 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x1402FDC00 (RtlpHpLfhSubsegmentIncBlockCounts.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, __int64 a2, unsigned int a3)
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, __int64 a2, unsign
   int v29; // [rsp+A8h] [rbp+58h] BYREF
 
   v28 = -1;
-  v6 = (unsigned __int16)qword_14040E0A8 ^ *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)((unsigned int)a2 >> 12);
+  v6 = (unsigned __int16)qword_14040E088 ^ *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)((unsigned int)a2 >> 12);
   SessionId = -1;
   v8 = RtlpHpLfhSubsegmentIncBlockCounts(a1, a2, a3, v6, (__int64)&v25, 0, (__int64)&v28);
   if ( v8 == -1 )

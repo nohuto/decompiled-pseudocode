@@ -1,21 +1,22 @@
 /*
- * XREFs of CreateDIBPalette @ 0x1C01FD818
+ * XREFs of CreateDIBPalette @ 0x1C021F148
  * Callers:
- *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD360 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021EDD4 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
  * Callees:
- *     GreCreateHalftonePalette @ 0x1C02D14F0 (GreCreateHalftonePalette.c)
+ *     GreCreateHalftonePalette @ 0x1C02B716C (GreCreateHalftonePalette.c)
  */
 
 _WORD *__fastcall CreateDIBPalette(unsigned __int16 *a1, int a2)
 {
   int v2; // ebx
-  unsigned __int16 v3; // r14
-  __int64 v5; // rsi
+  unsigned __int16 v3; // bp
+  __int64 v5; // r14
   _WORD *result; // rax
-  void *v7; // rdi
+  unsigned __int16 *v7; // rdi
   _BYTE *v8; // rdx
-  __int64 v9; // rsi
+  __int64 v9; // r14
   _BYTE *v10; // rcx
+  char v11; // al
   __int64 HalftonePalette; // rbx
 
   v2 = 0;
@@ -29,38 +30,40 @@ LABEL_12:
   }
   if ( *(_DWORD *)a1 == 12 )
   {
-    v5 = 1LL;
+    v5 = 0LL;
   }
   else
   {
-    v5 = 0LL;
+    v5 = 1LL;
     if ( *((_DWORD *)a1 + 8) )
       v3 = a1[16];
   }
-  result = (_WORD *)Win32AllocPoolWithQuotaZInit(4LL * v3 + 8, 1885565781LL);
+  result = (_WORD *)Win32AllocPoolWithQuota(4LL * v3 + 8, 1885565781LL);
   v7 = result;
   if ( result )
   {
     result[1] = v3;
-    v8 = (char *)a1 + *a1;
+    v8 = (_BYTE *)(*a1 + 1LL);
     *result = 768;
     if ( v3 )
     {
-      v9 = v5 ^ 1;
+      v9 = v5 + 3;
       v10 = (char *)result + 5;
+      v8 = &v8[(_QWORD)a1];
       do
       {
         ++v2;
-        *(v10 - 1) = v8[2];
-        *v10 = v8[1];
+        *(v10 - 1) = v8[1];
+        *v10 = *v8;
         v10 += 4;
-        *(v10 - 3) = *v8;
-        v8 += v9 + 3;
+        v11 = *(v8 - 1);
+        v8 += v9;
+        *(v10 - 3) = v11;
         *(v10 - 2) = 4;
       }
-      while ( v2 < (unsigned __int16)result[1] );
+      while ( v2 < v7[1] );
     }
-    HalftonePalette = GreCreatePalette(result, v8);
+    HalftonePalette = GreCreatePalette(v7, v8);
     Win32FreePool(v7);
     goto LABEL_12;
   }

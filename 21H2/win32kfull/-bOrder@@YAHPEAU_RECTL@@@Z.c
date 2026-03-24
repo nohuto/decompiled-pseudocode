@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bOrder@@YAHPEAU_RECTL@@@Z @ 0x1C012912C
+ * XREFs of ?bOrder@@YAHPEAU_RECTL@@@Z @ 0x1C013DA4C
  * Callers:
- *     NtGdiEngCopyBits @ 0x1C0125BC0 (NtGdiEngCopyBits.c)
- *     NtGdiEngStretchBltROP @ 0x1C0127170 (NtGdiEngStretchBltROP.c)
- *     NtGdiEngStretchBlt @ 0x1C0128AE0 (NtGdiEngStretchBlt.c)
- *     NtGdiEngAlphaBlend @ 0x1C02B0FA0 (NtGdiEngAlphaBlend.c)
- *     NtGdiEngTransparentBlt @ 0x1C02B2B00 (NtGdiEngTransparentBlt.c)
+ *     NtGdiEngCopyBits @ 0x1C013AFF0 (NtGdiEngCopyBits.c)
+ *     NtGdiEngStretchBltROP @ 0x1C013B380 (NtGdiEngStretchBltROP.c)
+ *     NtGdiEngStretchBlt @ 0x1C013D2A0 (NtGdiEngStretchBlt.c)
+ *     NtGdiEngAlphaBlend @ 0x1C02B2650 (NtGdiEngAlphaBlend.c)
+ *     NtGdiEngTransparentBlt @ 0x1C02B4690 (NtGdiEngTransparentBlt.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,9 @@
 /*
- * XREFs of ?SetTimer@CWatchdogTimer@@AEAAXHH@Z @ 0x18007AAC4
+ * XREFs of ?SetTimer@CWatchdogTimer@@AEAAXHH@Z @ 0x18016271C
  * Callers:
- *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18007AFD4 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
- *     ??1CWatchdogTimer@@UEAA@XZ @ 0x1801D70B0 (--1CWatchdogTimer@@UEAA@XZ.c)
+ *     ??1CWatchdogTimer@@UEAA@XZ @ 0x180162660 (--1CWatchdogTimer@@UEAA@XZ.c)
  * Callees:
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall CWatchdogTimer::SetTimer(CWatchdogTimer *this, int a2, LONG a3)

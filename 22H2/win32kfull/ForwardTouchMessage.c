@@ -1,25 +1,25 @@
 /*
- * XREFs of ForwardTouchMessage @ 0x1C01B01AC
+ * XREFs of ForwardTouchMessage @ 0x1C01DC09C
  * Callers:
- *     NtUserPostMessage @ 0x1C011E4B0 (NtUserPostMessage.c)
- *     NtUserfnTOUCH @ 0x1C01E3180 (NtUserfnTOUCH.c)
+ *     NtUserPostMessage @ 0x1C0054600 (NtUserPostMessage.c)
+ *     NtUserfnTOUCH @ 0x1C0206670 (NtUserfnTOUCH.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z @ 0x1C01AF02C (-CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z.c)
- *     _FreeTouchInputInfo @ 0x1C01B0580 (_FreeTouchInputInfo.c)
- *     _PostMessageCheckIL @ 0x1C01B704C (_PostMessageCheckIL.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z @ 0x1C01DB1A8 (-CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z.c)
+ *     _FreeTouchInputInfo @ 0x1C01DC580 (_FreeTouchInputInfo.c)
+ *     _PostMessageCheckIL @ 0x1C01E21F8 (_PostMessageCheckIL.c)
  */
 
 __int64 __fastcall ForwardTouchMessage(
         struct tagTHREADINFO *a1,
         struct tagWND *a2,
         __int64 a3,
-        __int64 a4,
+        unsigned __int64 a4,
         volatile void *Address,
         int a6,
         __int64 a7,
-        int a8,
+        unsigned int a8,
         _QWORD *a9)
 {
   unsigned int v10; // r15d
@@ -28,17 +28,15 @@ __int64 __fastcall ForwardTouchMessage(
   struct HTOUCHINPUT__ *ValidTouchInputInfo; // rax
   struct HTOUCHINPUT__ *v16; // rsi
   unsigned int v17; // edi
-  int v18; // ebx
-  int v19; // ebx
-  int v20; // ebx
+  unsigned int v18; // ebx
 
   v10 = a3;
-  if ( (unsigned __int64)a2 - 1 > 0xFFFFFFFFFFFFFFFDuLL || !Address || (unsigned __int64)(a4 - 1) > 0xFFFFFFFE )
+  if ( (unsigned __int64)a2 - 1 > 0xFFFFFFFFFFFFFFFDuLL || !Address || a4 - 1 > 0xFFFFFFFE )
   {
-    UserSetLastError(87);
+    UserSetLastError(87LL, (__int64)a2, a3);
     return 0LL;
   }
-  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(4294967294LL, a2, a3);
+  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(4294967294LL);
   ProbeForRead(Address, 48LL * (unsigned int)a4, CurrentProcessWow64Process != 0 ? 1 : 4);
   ValidTouchInputInfo = CreateValidTouchInputInfo(a1, v14, a4, (struct tagTOUCHINPUT *const)Address);
   v16 = ValidTouchInputInfo;
@@ -46,14 +44,13 @@ __int64 __fastcall ForwardTouchMessage(
     return 0LL;
   if ( a6 )
   {
-    v17 = PostMessageCheckIL(a2, v10);
+    v17 = PostMessageCheckIL(a2, v10, a4, (__int64)ValidTouchInputInfo);
     v18 = a8;
   }
   else
   {
     v18 = a8;
-    *a9 = (*((__int64 (__fastcall **)(struct tagWND *, _QWORD, __int64, struct HTOUCHINPUT__ *, __int64))&WPP_MAIN_CB.SectorSize
-           + (((_BYTE)a8 + 6) & 0x1F)))(
+    *a9 = ((__int64 (__fastcall *)(struct tagWND *, _QWORD, unsigned __int64, struct HTOUCHINPUT__ *, __int64))mpFnidPfn[((_BYTE)a8 + 6) & 0x1F])(
             a2,
             v10,
             a4,
@@ -61,7 +58,7 @@ __int64 __fastcall ForwardTouchMessage(
             a7);
     v17 = 1;
   }
-  if ( !v17 || (v19 = v18 - 683) == 0 || (v20 = v19 - 1) == 0 || v20 == 8 )
+  if ( !v17 || v18 >= 0x2AB && (v18 <= 0x2AC || v18 == 692) )
     FreeTouchInputInfo(v16, 1LL);
   return v17;
 }

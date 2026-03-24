@@ -1,11 +1,11 @@
 /*
- * XREFs of PipHardwareConfigTriggerRespecialize @ 0x140952090
+ * XREFs of PipHardwareConfigTriggerRespecialize @ 0x14089B7C0
  * Callers:
- *     PipHardwareConfigInit @ 0x140B6D528 (PipHardwareConfigInit.c)
+ *     PipHardwareConfigInit @ 0x140A512F4 (PipHardwareConfigInit.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     IopCreateRegistryKeyEx @ 0x1407DAA18 (IopCreateRegistryKeyEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     IopCreateRegistryKeyEx @ 0x14073C1E4 (IopCreateRegistryKeyEx.c)
  */
 
 __int64 __fastcall PipHardwareConfigTriggerRespecialize(HANDLE a1)

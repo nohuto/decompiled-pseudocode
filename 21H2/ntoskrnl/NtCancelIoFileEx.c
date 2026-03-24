@@ -1,23 +1,27 @@
 /*
- * XREFs of NtCancelIoFileEx @ 0x1406CF5D0
+ * XREFs of NtCancelIoFileEx @ 0x14069DB20
  * Callers:
  *     <none>
  * Callees:
- *     IopReferenceFileObject @ 0x1402AC790 (IopReferenceFileObject.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     IopCancelIoFile @ 0x1406CF67C (IopCancelIoFile.c)
+ *     IopCancelIrpsInFileObjectList @ 0x1402BAF1C (IopCancelIrpsInFileObjectList.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IopReferenceFileObject @ 0x140348A20 (IopReferenceFileObject.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x14070A1F4 (IopCancelIrpsInThreadListForCurrentProcess.c)
  */
 
-NTSTATUS __fastcall NtCancelIoFileEx(void *a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall NtCancelIoFileEx(void *a1, __int64 a2, unsigned __int64 a3)
 {
   KPROCESSOR_MODE PreviousMode; // r8
   __int64 v6; // rdx
-  NTSTATUS result; // eax
-  PVOID v8; // rdi
-  PVOID Object; // [rsp+30h] [rbp-18h] BYREF
-  int v10; // [rsp+68h] [rbp+20h]
+  __int64 result; // rax
+  struct _KTHREAD *CurrentThread; // rax
+  struct _DMA_ADAPTER *v9; // rdi
+  int v10; // eax
+  int v11; // ebx
+  PADAPTER_OBJECT DmaAdapter; // [rsp+30h] [rbp-18h] BYREF
+  unsigned int v13; // [rsp+68h] [rbp+20h]
 
-  Object = 0LL;
+  DmaAdapter = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
@@ -26,15 +30,22 @@ NTSTATUS __fastcall NtCancelIoFileEx(void *a1, __int64 a2, unsigned __int64 a3)
       v6 = a3;
     *(_DWORD *)v6 = *(_DWORD *)v6;
   }
-  result = IopReferenceFileObject(a1, 0, PreviousMode, &Object, 0LL);
-  if ( result >= 0 )
+  result = IopReferenceFileObject(a1, 0, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  if ( (int)result >= 0 )
   {
-    v8 = Object;
-    v10 = IopCancelIoFile(Object, a2);
-    *(_DWORD *)a3 = v10;
+    CurrentThread = KeGetCurrentThread();
+    ++CurrentThread->OtherOperationCount;
+    __incgsdword(0x2EE4u);
+    v9 = DmaAdapter;
+    v10 = IopCancelIrpsInFileObjectList((__int64)DmaAdapter, (int)KeGetCurrentThread()->ApcState.Process, a2, 0, 0, 0);
+    v11 = v10;
+    if ( !a2 || !v10 )
+      v11 = IopCancelIrpsInThreadListForCurrentProcess(v9, a2) | v10;
+    v13 = v11 == 0 ? 0xC0000225 : 0;
+    *(_DWORD *)a3 = v13;
     *(_QWORD *)(a3 + 8) = 0LL;
-    ObfDereferenceObject(v8);
-    return v10;
+    HalPutDmaAdapter(v9);
+    return v13;
   }
   return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ?CreateDDASwapChain@CD3DDevice@@QEAAJPEAUIDXGIOutput@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVIDDASwapChain@@@Z @ 0x1802804B0
+ * XREFs of ?CreateDDASwapChain@CD3DDevice@@QEAAJPEAUIDXGIOutput@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVIDDASwapChain@@@Z @ 0x18023E584
  * Callers:
- *     ?EnsureSwapChain@CDDARenderTarget@@IEAAJXZ @ 0x1801E102C (-EnsureSwapChain@CDDARenderTarget@@IEAAJXZ.c)
+ *     ?EnsureSwapChain@CDDARenderTarget@@IEAAJXZ @ 0x1801990F0 (-EnsureSwapChain@CDDARenderTarget@@IEAAJXZ.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?UseSwapchainAsShaderInput@CD3DDevice@@QEBA_NXZ @ 0x18001F44C (-UseSwapchainAsShaderInput@CD3DDevice@@QEBA_NXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x18007F688 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Create@CDDASwapChain@@SAJPEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVIDDASwapChain@@@Z @ 0x180293930 (-Create@CDDASwapChain@@SAJPEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRende.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?UseSwapchainAsShaderInput@CD3DDevice@@QEBA_NXZ @ 0x180025D3C (-UseSwapchainAsShaderInput@CD3DDevice@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180078248 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Create@CDDASwapChain@@SAJPEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVIDDASwapChain@@@Z @ 0x180250458 (-Create@CDDASwapChain@@SAJPEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRende.c)
  */
 
 __int64 __fastcall CD3DDevice::CreateDDASwapChain(
@@ -48,12 +48,12 @@ __int64 __fastcall CD3DDevice::CreateDDASwapChain(
   v24 = 0LL;
   v23 = 0LL;
   *a6 = 0LL;
-  v9 = *((_DWORD *)this + 272);
+  v9 = *((_DWORD *)this + 282);
   v22 = 0LL;
   if ( v9 < 0 )
   {
     v18 = v9;
-    v21 = 533;
+    v21 = 1256;
     goto LABEL_16;
   }
   v25 = *a3;
@@ -61,7 +61,7 @@ __int64 __fastcall CD3DDevice::CreateDDASwapChain(
   v28 = 1LL;
   v26 = v10;
   v27 = 0;
-  v11 = CD3DDevice::UseSwapchainAsShaderInput(this) == 0;
+  v11 = !CD3DDevice::UseSwapchainAsShaderInput(this);
   v30 = v13;
   if ( !v11 )
     v12 = 112;
@@ -77,7 +77,7 @@ __int64 __fastcall CD3DDevice::CreateDDASwapChain(
   v9 = v15;
   if ( v15 < 0 )
   {
-    v21 = 558;
+    v21 = 1281;
     goto LABEL_11;
   }
   v16 = v24;
@@ -88,30 +88,30 @@ __int64 __fastcall CD3DDevice::CreateDDASwapChain(
   v9 = v15;
   if ( v15 < 0 )
   {
-    v21 = 559;
+    v21 = 1282;
     goto LABEL_11;
   }
   v15 = (*(__int64 (__fastcall **)(__int64, _QWORD, struct D2D_SIZE_U *, struct IDXGIOutput *, struct IDXGISwapChainDWM1 **))(*(_QWORD *)v23 + 32LL))(
           v23,
-          *((_QWORD *)this + 69),
+          *((_QWORD *)this + 74),
           &v25,
           a2,
           &v22);
   v9 = v15;
   if ( v15 < 0 )
   {
-    v21 = 565;
+    v21 = 1288;
     goto LABEL_11;
   }
   v15 = CDDASwapChain::Create(this, v22, a4, a5, a6);
   v9 = v15;
   if ( v15 < 0 )
   {
-    v21 = 572;
+    v21 = 1295;
 LABEL_11:
     v18 = v15;
 LABEL_16:
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_180377E10, 2LL, v18, v21);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_1802F0D88, 2u, v18, v21, 0LL);
   }
   v19 = CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this, v9, 2u);
   wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v22);

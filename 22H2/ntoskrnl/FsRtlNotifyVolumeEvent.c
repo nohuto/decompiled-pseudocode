@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlNotifyVolumeEvent @ 0x140875160
+ * XREFs of FsRtlNotifyVolumeEvent @ 0x14076D7C0
  * Callers:
- *     RawCleanup @ 0x140792128 (RawCleanup.c)
- *     RawUserFsCtrl @ 0x140882664 (RawUserFsCtrl.c)
+ *     RawCleanup @ 0x14062DCCC (RawCleanup.c)
+ *     RawUserFsCtrl @ 0x14076D5C8 (RawUserFsCtrl.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     FsRtlNotifyVolumeEventEx @ 0x1407949D0 (FsRtlNotifyVolumeEventEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x14071B7D0 (FsRtlNotifyVolumeEventEx.c)
  */
 
 NTSTATUS __stdcall FsRtlNotifyVolumeEvent(PFILE_OBJECT FileObject, ULONG EventCode)

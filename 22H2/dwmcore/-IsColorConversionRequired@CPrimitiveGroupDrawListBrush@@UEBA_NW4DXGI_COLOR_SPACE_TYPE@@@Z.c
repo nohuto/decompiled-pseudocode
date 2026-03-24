@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsColorConversionRequired@CPrimitiveGroupDrawListBrush@@UEBA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1802B9B20
+ * XREFs of ?IsColorConversionRequired@CPrimitiveGroupDrawListBrush@@UEBA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180269990
  * Callers:
  *     <none>
  * Callees:
- *     ?GetPixelFormatInfo@CDrawListBitmap@@QEBA?AUPixelFormatInfo@@XZ @ 0x1800E691C (-GetPixelFormatInfo@CDrawListBitmap@@QEBA-AUPixelFormatInfo@@XZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?GetPixelFormatInfo@CDrawListBitmap@@QEBA?AUPixelFormatInfo@@XZ @ 0x180057BE4 (-GetPixelFormatInfo@CDrawListBitmap@@QEBA-AUPixelFormatInfo@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 char __fastcall CPrimitiveGroupDrawListBrush::IsColorConversionRequired(
@@ -15,7 +15,7 @@ char __fastcall CPrimitiveGroupDrawListBrush::IsColorConversionRequired(
   __int64 v3; // rbx
   _DWORD *v6; // rdx
   __int64 v7; // rax
-  _BYTE v9[16]; // [rsp+20h] [rbp-28h] BYREF
+  _DWORD v9[4]; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = *((_QWORD *)this + 9);
   v3 = 0LL;
@@ -27,8 +27,8 @@ char __fastcall CPrimitiveGroupDrawListBrush::IsColorConversionRequired(
     if ( *v6 )
     {
       v7 = (unsigned int)v6[10];
-      if ( (unsigned int)v7 < *(_DWORD *)(v2 + 32)
-        && a2 != *(_DWORD *)(CDrawListBitmap::GetPixelFormatInfo(*(_QWORD *)(v2 + 80) + 24 * v7, (__int64)v9) + 8) )
+      if ( (unsigned int)v7 < *(_DWORD *)(v2 + 56)
+        && a2 != CDrawListBitmap::GetPixelFormatInfo((CDrawListBitmap *)(*(_QWORD *)(v2 + 104) + 48 * v7), v9)[2] )
       {
         break;
       }

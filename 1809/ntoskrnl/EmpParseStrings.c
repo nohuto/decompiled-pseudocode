@@ -3,8 +3,8 @@
  * Callers:
  *     EmpParseInfDatabase @ 0x1409BDD1C (EmpParseInfDatabase.c)
  * Callees:
- *     RtlStringCchCopyA @ 0x14012A7D4 (RtlStringCchCopyA.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlStringCchCopyA @ 0x14012A7F4 (RtlStringCchCopyA.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     EmpInfParseGetSectionLineCount @ 0x1409BEFA0 (EmpInfParseGetSectionLineCount.c)

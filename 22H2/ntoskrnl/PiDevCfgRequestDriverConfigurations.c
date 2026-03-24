@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDevCfgRequestDriverConfigurations @ 0x14095FAB8
+ * XREFs of PiDevCfgRequestDriverConfigurations @ 0x1408A7EBC
  * Callers:
- *     PiDevCfgProcessDevice @ 0x14087A6C0 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgProcessDevice @ 0x140736238 (PiDevCfgProcessDevice.c)
  * Callees:
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140879844 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgSetObjectProperty @ 0x14087BC10 (PiDevCfgSetObjectProperty.c)
- *     PiDevCfgAppendMultiSz @ 0x14095C6E4 (PiDevCfgAppendMultiSz.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PiDevCfgSetObjectProperty @ 0x14074178C (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x14076B620 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgAppendMultiSz @ 0x1408A4CDC (PiDevCfgAppendMultiSz.c)
  */
 
 __int64 __fastcall PiDevCfgRequestDriverConfigurations(__int64 a1, __int64 a2)
@@ -24,7 +24,7 @@ __int64 __fastcall PiDevCfgRequestDriverConfigurations(__int64 a1, __int64 a2)
   appended = DriverConfiguration;
   if ( (int)(DriverConfiguration + 0x80000000) < 0 || DriverConfiguration == -1073740653 )
   {
-    appended = PiDevCfgAppendMultiSz(&UnicodeString, (const void **)(a2 + 408), 0LL, 1);
+    appended = PiDevCfgAppendMultiSz(&UnicodeString, (const void **)(a2 + 392), 0LL, 1);
     if ( appended >= 0 )
     {
       v6 = (__int64 *)(a2 + 208);
@@ -33,7 +33,7 @@ __int64 __fastcall PiDevCfgRequestDriverConfigurations(__int64 a1, __int64 a2)
         appended = PiDevCfgQueryDriverConfiguration(i);
         if ( ((appended + 0x80000000) & 0x80000000) == 0 && appended != -1073740653 )
           goto LABEL_13;
-        appended = PiDevCfgAppendMultiSz(&UnicodeString, (const void **)(i + 408), 0LL, 1);
+        appended = PiDevCfgAppendMultiSz(&UnicodeString, (const void **)(i + 392), 0LL, 1);
         if ( appended < 0 )
           goto LABEL_13;
       }
@@ -41,13 +41,13 @@ __int64 __fastcall PiDevCfgRequestDriverConfigurations(__int64 a1, __int64 a2)
         appended = PiDevCfgSetObjectProperty(
                      *(__int64 *)&PiPnpRtlCtx,
                      (_DWORD *)a1,
-                     *(const WCHAR **)(a1 + 8),
-                     1,
+                     *(_QWORD *)(a1 + 8),
+                     1u,
                      *(_QWORD *)(a1 + 16),
                      v9,
                      (__int64)DEVPKEY_Device_RequestConfigurationIds,
                      8210,
-                     UnicodeString.Buffer,
+                     (__int64)UnicodeString.Buffer,
                      UnicodeString.Length,
                      0);
       else
@@ -55,6 +55,6 @@ __int64 __fastcall PiDevCfgRequestDriverConfigurations(__int64 a1, __int64 a2)
     }
   }
 LABEL_13:
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&UnicodeString);
   return (unsigned int)appended;
 }

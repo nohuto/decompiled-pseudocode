@@ -1,83 +1,112 @@
 /*
- * XREFs of SdbMakeIndexKeyFromStringEx @ 0x14075B9CC
+ * XREFs of SdbMakeIndexKeyFromStringEx @ 0x14075A4D0
  * Callers:
- *     SdbFindFirstStringIndexedTag @ 0x14075B7F4 (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140759C00 (SdbFindFirstStringIndexedTag.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     RtlUpcaseUnicodeString @ 0x1407E5410 (RtlUpcaseUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F96BC (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
+ *     RtlUpcaseUnicodeString @ 0x1406CC820 (RtlUpcaseUnicodeString.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
  */
 
-__int64 __fastcall SdbMakeIndexKeyFromStringEx(const WCHAR *a1, char a2)
+__int64 __fastcall SdbMakeIndexKeyFromStringEx(PCWSTR SourceString, char a2)
 {
   unsigned __int64 v2; // rax
-  char *v3; // rdi
+  char *v3; // rsi
   __int64 v4; // rbx
   unsigned __int16 *v5; // r14
   int v6; // edx
   const WCHAR *v7; // rdx
-  unsigned __int64 v8; // rcx
-  unsigned __int64 v9; // rax
-  unsigned __int16 v10; // dx
-  __int16 v11; // dx
-  UNICODE_STRING v13; // [rsp+38h] [rbp-19h] BYREF
+  unsigned __int64 v9; // rdi
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // r8
+  bool v12; // cc
+  unsigned __int64 v13; // rax
+  char v14; // cl
+  unsigned __int64 v15; // rax
+  unsigned __int64 v16; // rax
+  unsigned __int16 v17; // cx
+  __int16 v18; // cx
+  UNICODE_STRING SourceStringa; // [rsp+38h] [rbp-19h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-9h] BYREF
-  UNICODE_STRING SourceString; // [rsp+58h] [rbp+7h] BYREF
-  _BYTE v16[16]; // [rsp+68h] [rbp+17h] BYREF
-  char v17; // [rsp+78h] [rbp+27h] BYREF
+  UNICODE_STRING v21; // [rsp+58h] [rbp+7h] BYREF
+  _BYTE v22[16]; // [rsp+68h] [rbp+17h] BYREF
+  char v23; // [rsp+78h] [rbp+27h] BYREF
 
   v2 = -1LL;
-  v3 = (char *)&SourceString.MaximumLength + 5;
+  v3 = (char *)&v21.MaximumLength + 5;
   v4 = 0LL;
   do
     ++v2;
-  while ( a1[v2] );
-  v5 = (unsigned __int16 *)v16;
+  while ( SourceString[v2] );
+  v5 = (unsigned __int16 *)v22;
   v6 = a2 & 2;
   DestinationString = 0LL;
-  SourceString = 0LL;
-  v13 = 0LL;
+  SourceStringa = 0LL;
+  v21 = 0LL;
   if ( v2 > 8 && v6 )
-    v7 = &a1[v2 - 8];
+    v7 = &SourceString[v2 - 8];
   else
-    v7 = a1;
+    v7 = SourceString;
   RtlInitUnicodeString(&DestinationString, v7);
-  SourceString.Buffer = (wchar_t *)&v17;
-  SourceString.MaximumLength = 16;
-  RtlCopyUnicodeString(&SourceString, &DestinationString);
-  v13.MaximumLength = 16;
-  v13.Buffer = (wchar_t *)v16;
-  if ( RtlUpcaseUnicodeString(&v13, &SourceString, 0) < 0 )
+  SourceStringa.Buffer = (wchar_t *)&v23;
+  SourceStringa.MaximumLength = 16;
+  RtlCopyUnicodeString(&SourceStringa, &DestinationString);
+  v21.MaximumLength = 16;
+  v21.Buffer = (wchar_t *)v22;
+  if ( RtlUpcaseUnicodeString(&v21, &SourceStringa, 0) < 0 )
   {
     AslLogCallPrintf(1LL);
     return 0LL;
   }
-  v8 = (unsigned __int64)v13.Length >> 1;
-  if ( v8 > 8 )
+  v9 = (unsigned __int64)v21.Length >> 1;
+  if ( (unsigned int)Feature_CompatBuildInVb__private_IsEnabledDeviceUsage() && (v10 = 0LL, (v11 = v9) != 0) )
+  {
+    while ( 1 )
+    {
+      v12 = v9 <= 8;
+      if ( v9 >= 8 )
+        break;
+      v13 = v10++;
+      v14 = HIBYTE(v21.Buffer[v13]);
+      v15 = v9 + 1;
+      if ( !v14 )
+        v15 = v9;
+      v9 = v15;
+      if ( v10 >= v11 )
+        goto LABEL_16;
+    }
+  }
+  else
+  {
+LABEL_16:
+    v12 = v9 <= 8;
+  }
+  if ( !v12 )
     return 0LL;
-  *(_QWORD *)&SourceString.Length = 0LL;
-  v9 = 0LL;
-  if ( v8 )
+  *(_QWORD *)&v21.Length = 0LL;
+  v16 = 0LL;
+  if ( v9 )
   {
     do
     {
-      v10 = *v5++;
-      *v3-- = v10;
-      v11 = HIBYTE(v10);
-      if ( (_BYTE)v11 )
+      v17 = *v5++;
+      *v3-- = v17;
+      v18 = HIBYTE(v17);
+      if ( (_BYTE)v18 )
       {
-        if ( v9 < 7 )
+        if ( v16 < 7 )
         {
-          *v3-- = v11;
-          ++v9;
+          *v3-- = v18;
+          ++v16;
         }
       }
-      ++v9;
+      ++v16;
     }
-    while ( v9 < v8 );
-    return *(_QWORD *)&SourceString.Length;
+    while ( v16 < v9 );
+    return *(_QWORD *)&v21.Length;
   }
   return v4;
 }

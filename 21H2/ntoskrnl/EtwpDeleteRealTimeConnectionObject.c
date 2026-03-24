@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpDeleteRealTimeConnectionObject @ 0x1406EAB10
+ * XREFs of EtwpDeleteRealTimeConnectionObject @ 0x1406C34C0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
  */
 
-LONG_PTR __fastcall EtwpDeleteRealTimeConnectionObject(HANDLE *a1)
+void __fastcall EtwpDeleteRealTimeConnectionObject(__int64 a1)
 {
-  ZwClose(a1[2]);
-  ObfDereferenceObject(a1[6]);
-  return ObfDereferenceObject(a1[7]);
+  ZwClose(*(HANDLE *)(a1 + 16));
+  HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 48));
+  HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 56));
 }

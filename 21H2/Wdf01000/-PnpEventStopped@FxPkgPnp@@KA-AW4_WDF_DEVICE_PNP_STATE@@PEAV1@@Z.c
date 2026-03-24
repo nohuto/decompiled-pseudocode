@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PnpEventStopped@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0084A80
+ * XREFs of ?PnpEventStopped@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007B300
  * Callers:
  *     <none>
  * Callees:
- *     ?PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z @ 0x1C002BFE4 (-PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z.c)
- *     ?PnpReleaseHardware@FxPkgPnp@@IEAAJXZ @ 0x1C0084F24 (-PnpReleaseHardware@FxPkgPnp@@IEAAJXZ.c)
- *     ?NotifyResourceobjectsToReleaseResources@FxPkgPnp@@AEAAXXZ @ 0x1C0088760 (-NotifyResourceobjectsToReleaseResources@FxPkgPnp@@AEAAXXZ.c)
+ *     ?PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z @ 0x1C007B4AC (-PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z.c)
+ *     ?PnpReleaseHardware@FxPkgPnp@@IEAAJXZ @ 0x1C007C08C (-PnpReleaseHardware@FxPkgPnp@@IEAAJXZ.c)
+ *     ?NotifyResourceobjectsToReleaseResources@FxPkgPnp@@AEAAXXZ @ 0x1C008102C (-NotifyResourceobjectsToReleaseResources@FxPkgPnp@@AEAAXXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PnpEventStopped(FxPkgPnp *This)

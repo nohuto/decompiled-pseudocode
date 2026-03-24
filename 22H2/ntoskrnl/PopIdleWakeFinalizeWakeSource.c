@@ -1,26 +1,33 @@
 /*
- * XREFs of PopIdleWakeFinalizeWakeSource @ 0x14059D738
+ * XREFs of PopIdleWakeFinalizeWakeSource @ 0x14057B3B8
  * Callers:
- *     PopIdleWakeNotifyWakeSource @ 0x14059DC7C (PopIdleWakeNotifyWakeSource.c)
+ *     PopIdleWakeNotifyWakeSource @ 0x14057BC60 (PopIdleWakeNotifyWakeSource.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
  */
 
 NTSTATUS __fastcall PopIdleWakeFinalizeWakeSource(int a1, __int64 a2)
 {
-  const wchar_t *v2; // r8
+  wchar_t *v3; // r9
+  wchar_t *v4; // rdx
+  const wchar_t *v5; // r8
   NTSTATUS result; // eax
 
-  if ( a1 == 129 && *(_BYTE *)a2 == 3 )
+  if ( a1 == 6 && *(_BYTE *)a2 == 3 )
   {
-    if ( !PopTimeBrokerExpirationDueTime
-      || MEMORY[0xFFFFF78000000014] < (unsigned __int64)PopTimeBrokerExpirationDueTime
-      || (v2 = &PopTimeBrokerExpirationReason,
-          (unsigned __int64)(PopTimeBrokerExpirationDueTime + 20000000) < MEMORY[0xFFFFF78000000014]) )
+    v3 = 0LL;
+    if ( PopTimeBrokerExpirationDueTime
+      && MEMORY[0xFFFFF78000000014] >= (unsigned __int64)PopTimeBrokerExpirationDueTime )
     {
-      v2 = L"Unknown";
+      v4 = &PopTimeBrokerExpirationReason;
+      if ( (unsigned __int64)(PopTimeBrokerExpirationDueTime + 20000000) < MEMORY[0xFFFFF78000000014] )
+        v4 = 0LL;
+      v3 = v4;
     }
-    return RtlStringCbCopyW((NTSTRSAFE_PWSTR)(a2 + 2), 0x80uLL, v2);
+    v5 = L"Unknown";
+    if ( v3 )
+      v5 = v3;
+    return RtlStringCbCopyW((NTSTRSAFE_PWSTR)(a2 + 2), 0x80uLL, v5);
   }
   return result;
 }

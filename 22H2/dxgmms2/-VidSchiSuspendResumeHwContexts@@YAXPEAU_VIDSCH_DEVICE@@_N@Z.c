@@ -1,32 +1,32 @@
 /*
- * XREFs of ?VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z @ 0x1C00030C8
+ * XREFs of ?VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z @ 0x1C00127A8
  * Callers:
- *     VidSchSuspendResumeDevice @ 0x1C0002D30 (VidSchSuspendResumeDevice.c)
+ *     VidSchSuspendResumeDevice @ 0x1C0012470 (VidSchSuspendResumeDevice.c)
  * Callees:
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C00032E4 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00033A8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?VidSchiIsDeviceSuspended@@YA_NPEAU_VIDSCH_DEVICE@@@Z @ 0x1C0042940 (-VidSchiIsDeviceSuspended@@YA_NPEAU_VIDSCH_DEVICE@@@Z.c)
- *     VidSchiSuspendResumeHwContext @ 0x1C0046604 (VidSchiSuspendResumeHwContext.c)
- *     VidSchWaitForCompletionEvent @ 0x1C0087E2C (VidSchWaitForCompletionEvent.c)
- *     VidSchRegisterCompletionEvent @ 0x1C0088184 (VidSchRegisterCompletionEvent.c)
- *     VidSchUnregisterCompletionEvent @ 0x1C0108DEC (VidSchUnregisterCompletionEvent.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011E50 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00128EC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?VidSchiIsDeviceSuspended@@YA_NPEAU_VIDSCH_DEVICE@@@Z @ 0x1C0037D38 (-VidSchiIsDeviceSuspended@@YA_NPEAU_VIDSCH_DEVICE@@@Z.c)
+ *     VidSchiSuspendResumeHwContext @ 0x1C003C148 (VidSchiSuspendResumeHwContext.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C0080A40 (VidSchWaitForCompletionEvent.c)
+ *     VidSchRegisterCompletionEvent @ 0x1C0080B60 (VidSchRegisterCompletionEvent.c)
+ *     VidSchUnregisterCompletionEvent @ 0x1C00D1BD0 (VidSchUnregisterCompletionEvent.c)
  */
 
 void __fastcall VidSchiSuspendResumeHwContexts(struct _VIDSCH_DEVICE *a1, char a2)
 {
-  __int64 v2; // rsi
+  __int64 v2; // rdi
   unsigned int v5; // eax
   char v6; // r14
-  __int64 *v7; // rax
+  struct _VIDSCH_DEVICE *v7; // rcx
   __int64 v8; // rdx
-  _QWORD *v9; // rdi
+  _QWORD *v9; // rsi
   __int64 v10; // rax
-  __int64 *v11; // rcx
-  __int64 *v12; // rdx
+  _QWORD **v11; // rax
+  _QWORD *v12; // rdx
   int v13; // eax
   _QWORD **v14; // [rsp+28h] [rbp-A9h] BYREF
-  __int64 *v15; // [rsp+30h] [rbp-A1h]
+  _QWORD ***v15; // [rsp+30h] [rbp-A1h]
   _QWORD v16[4]; // [rsp+38h] [rbp-99h] BYREF
   __int16 v17; // [rsp+58h] [rbp-79h]
   _QWORD v18[20]; // [rsp+68h] [rbp-69h] BYREF
@@ -34,7 +34,7 @@ void __fastcall VidSchiSuspendResumeHwContexts(struct _VIDSCH_DEVICE *a1, char a
   v2 = *((_QWORD *)a1 + 4);
   if ( !*((_BYTE *)a1 + 204)
     && !_InterlockedCompareExchange((volatile signed __int32 *)a1 + 50, 0, 0)
-    && !*(_DWORD *)(v2 + 3012) )
+    && !*(_DWORD *)(v2 + 2916) )
   {
     v5 = *((_DWORD *)a1 + 350);
     v6 = 0;
@@ -48,31 +48,28 @@ void __fastcall VidSchiSuspendResumeHwContexts(struct _VIDSCH_DEVICE *a1, char a
       return;
     }
     v17 = 0;
-    v15 = (__int64 *)&v14;
+    v15 = &v14;
     v14 = &v14;
-    v16[0] = v2 + 1728;
-    AcquireSpinLock::Acquire((AcquireSpinLock *)v16);
-    v7 = (__int64 *)*((_QWORD *)a1 + 11);
-    if ( v7 != (__int64 *)((char *)a1 + 88) )
+    v16[0] = v2 + 1712;
+    AcquireSpinLock::Acquire((Acquire *)v16);
+    v7 = (struct _VIDSCH_DEVICE *)*((_QWORD *)a1 + 11);
+    if ( v7 != (struct _VIDSCH_DEVICE *)((char *)a1 + 88) )
     {
       v11 = v15;
       do
       {
-        if ( !*((_DWORD *)v7 + 13) )
-        {
-          v12 = v7 - 2;
-          if ( (_QWORD ***)*v11 != &v14 )
+        v12 = (_QWORD *)((char *)v7 - 16);
+        if ( *v11 != &v14 )
 LABEL_16:
-            __fastfail(3u);
-          v12[1] = (__int64)v11;
-          *v12 = (__int64)&v14;
-          *v11 = (__int64)v12;
-          v11 = v7 - 2;
-          v15 = v7 - 2;
-        }
-        v7 = (__int64 *)*v7;
+          __fastfail(3u);
+        v12[1] = v11;
+        *v12 = &v14;
+        *v11 = v12;
+        v11 = (_QWORD **)((char *)v7 - 16);
+        v15 = (_QWORD ***)((char *)v7 - 16);
+        v7 = *(struct _VIDSCH_DEVICE **)v7;
       }
-      while ( v7 != (__int64 *)((char *)a1 + 88) );
+      while ( v7 != (struct _VIDSCH_DEVICE *)((char *)a1 + 88) );
     }
     AcquireSpinLock::Release((AcquireSpinLock *)v16);
     while ( 1 )

@@ -1,11 +1,12 @@
 /*
- * XREFs of RIMHidTLCActive @ 0x1C0199F40
+ * XREFs of RIMHidTLCActive @ 0x1C00557C4
  * Callers:
- *     RIMFreeSpecificDevWorker @ 0x1C00B7910 (RIMFreeSpecificDevWorker.c)
- *     RIMIsRawInputActive @ 0x1C00DBE44 (RIMIsRawInputActive.c)
- *     rimObsStartStopDeviceRead @ 0x1C01B5628 (rimObsStartStopDeviceRead.c)
+ *     RIMDirectStartStopDeviceRead @ 0x1C0053E80 (RIMDirectStartStopDeviceRead.c)
+ *     rimOnPnpArrived @ 0x1C0055904 (rimOnPnpArrived.c)
+ *     RIMFreeSpecificDevWorker @ 0x1C00BBA6C (RIMFreeSpecificDevWorker.c)
+ *     rimObsStartStopDeviceRead @ 0x1C017F394 (rimObsStartStopDeviceRead.c)
  * Callees:
- *     RIMHidValidExclusive @ 0x1C0199F7C (RIMHidValidExclusive.c)
+ *     RIMHidValidExclusive @ 0x1C00B5BD0 (RIMHidValidExclusive.c)
  */
 
 __int64 __fastcall RIMHidTLCActive(_DWORD *a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlAllocatePoolWithTag @ 0x14053DC80
+ * XREFs of FsRtlAllocatePoolWithTag @ 0x1404EFE30
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall FsRtlAllocatePoolWithTag(POOL_TYPE a1, unsigned int a2, ULONG a3)
@@ -13,6 +13,6 @@ PVOID __fastcall FsRtlAllocatePoolWithTag(POOL_TYPE a1, unsigned int a2, ULONG a
 
   result = ExAllocatePoolWithTag(a1, a2, a3);
   if ( !result )
-    RtlRaiseStatus(-1073741670);
+    RtlRaiseStatus(0xC000009A);
   return result;
 }

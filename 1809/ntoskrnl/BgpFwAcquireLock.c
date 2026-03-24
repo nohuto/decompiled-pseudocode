@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpFwAcquireLock @ 0x14016F238
+ * XREFs of BgpFwAcquireLock @ 0x14016F258
  * Callers:
- *     BgLibraryEnable @ 0x140159808 (BgLibraryEnable.c)
- *     BgQueryBootGraphicsInformation @ 0x14016ED88 (BgQueryBootGraphicsInformation.c)
- *     BgpFwQueryBootGraphicsInformation @ 0x14016F2A0 (BgpFwQueryBootGraphicsInformation.c)
- *     KiBugCheckProgress @ 0x140292320 (KiBugCheckProgress.c)
- *     KiDisplayBlueScreen @ 0x140292474 (KiDisplayBlueScreen.c)
- *     BgDisplaySafeToPowerOffScreen @ 0x1403275DC (BgDisplaySafeToPowerOffScreen.c)
+ *     BgLibraryEnable @ 0x140159828 (BgLibraryEnable.c)
+ *     BgQueryBootGraphicsInformation @ 0x14016EDA8 (BgQueryBootGraphicsInformation.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x14016F2C0 (BgpFwQueryBootGraphicsInformation.c)
+ *     KiBugCheckProgress @ 0x140292420 (KiBugCheckProgress.c)
+ *     KiDisplayBlueScreen @ 0x140292574 (KiDisplayBlueScreen.c)
+ *     BgDisplaySafeToPowerOffScreen @ 0x1403276DC (BgDisplaySafeToPowerOffScreen.c)
  *     BgGetContext @ 0x14094E034 (BgGetContext.c)
  *     BgFreeContext @ 0x14094E1D4 (BgFreeContext.c)
  *     ResFwpPageOutBackground @ 0x14094E460 (ResFwpPageOutBackground.c)

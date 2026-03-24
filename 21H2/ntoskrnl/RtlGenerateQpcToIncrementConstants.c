@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlGenerateQpcToIncrementConstants @ 0x1403A4A60
+ * XREFs of RtlGenerateQpcToIncrementConstants @ 0x140397FCC
  * Callers:
- *     KeSetTimeAdjustment @ 0x14039F05C (KeSetTimeAdjustment.c)
- *     KiSetupTimeIncrement @ 0x1403D94C0 (KiSetupTimeIncrement.c)
+ *     KeSetTimeAdjustment @ 0x140392754 (KeSetTimeAdjustment.c)
+ *     KiSetupTimeIncrement @ 0x1403B4944 (KiSetupTimeIncrement.c)
  * Callees:
- *     RtlpComputeFraction @ 0x1403A4A9C (RtlpComputeFraction.c)
+ *     RtlpComputeFraction @ 0x140398008 (RtlpComputeFraction.c)
  */
 
 unsigned __int64 __fastcall RtlGenerateQpcToIncrementConstants(unsigned int a1, char *a2)

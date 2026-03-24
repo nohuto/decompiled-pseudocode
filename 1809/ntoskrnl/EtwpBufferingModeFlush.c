@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpBufferingModeFlush @ 0x1408BE038
+ * XREFs of EtwpBufferingModeFlush @ 0x1408BE018
  * Callers:
- *     EtwpFlushTrace @ 0x1406C2960 (EtwpFlushTrace.c)
+ *     EtwpFlushTrace @ 0x1406C2940 (EtwpFlushTrace.c)
  * Callees:
  *     EtwpLockUnlockBufferList @ 0x140014AC8 (EtwpLockUnlockBufferList.c)
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
  *     EtwpPrepareDirtyBuffer @ 0x140015598 (EtwpPrepareDirtyBuffer.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     EtwpBufferingModeCompressionFlush @ 0x140314930 (EtwpBufferingModeCompressionFlush.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     EtwpBufferingModeCompressionFlush @ 0x140314A30 (EtwpBufferingModeCompressionFlush.c)
  *     EtwpFlushBufferToLogfile @ 0x1405C0784 (EtwpFlushBufferToLogfile.c)
  *     EtwpWaitForBufferReferenceCount @ 0x1405C1CE0 (EtwpWaitForBufferReferenceCount.c)
  *     EtwpPrepareHeader @ 0x1405C1DD0 (EtwpPrepareHeader.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     EtwpCreateLogFile @ 0x140699B1C (EtwpCreateLogFile.c)
- *     EtwpFinalizeHeader @ 0x14069A41C (EtwpFinalizeHeader.c)
- *     EtwpFindAndLockBufferForFlushing @ 0x1408BE3A4 (EtwpFindAndLockBufferForFlushing.c)
+ *     EtwpCreateLogFile @ 0x140699AFC (EtwpCreateLogFile.c)
+ *     EtwpFinalizeHeader @ 0x14069A3FC (EtwpFinalizeHeader.c)
+ *     EtwpFindAndLockBufferForFlushing @ 0x1408BE384 (EtwpFindAndLockBufferForFlushing.c)
  */
 
 __int64 __fastcall EtwpBufferingModeFlush(unsigned int *a1)

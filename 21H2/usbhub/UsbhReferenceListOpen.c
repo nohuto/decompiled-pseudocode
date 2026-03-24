@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhReferenceListOpen @ 0x1C004100C
+ * XREFs of UsbhReferenceListOpen @ 0x1C004223C
  * Callers:
- *     UsbhAddDevice @ 0x1C0041550 (UsbhAddDevice.c)
+ *     UsbhAddDevice @ 0x1C0042800 (UsbhAddDevice.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReferenceListAdd @ 0x1C001AD54 (UsbhReferenceListAdd.c)
+ *     UsbhReferenceListAdd @ 0x1C0001AE8 (UsbhReferenceListAdd.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 __int64 __fastcall UsbhReferenceListOpen(__int64 a1)

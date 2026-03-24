@@ -1,8 +1,8 @@
 /*
- * XREFs of MmImageSectionPagable @ 0x14065400C
+ * XREFs of MmImageSectionPagable @ 0x140653FEC
  * Callers:
- *     MiSnapDriverRange @ 0x140653C00 (MiSnapDriverRange.c)
- *     MmResetDriverPaging @ 0x140653F40 (MmResetDriverPaging.c)
+ *     MiSnapDriverRange @ 0x140653BE0 (MiSnapDriverRange.c)
+ *     MmResetDriverPaging @ 0x140653F20 (MmResetDriverPaging.c)
  *     sub_14098EFA4 @ 0x14098EFA4 (sub_14098EFA4.c)
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  *     MiLockPagableSections @ 0x1409BCE2C (MiLockPagableSections.c)

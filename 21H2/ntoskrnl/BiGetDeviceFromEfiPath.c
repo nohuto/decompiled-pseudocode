@@ -1,14 +1,14 @@
 /*
- * XREFs of BiGetDeviceFromEfiPath @ 0x140A1FFC0
+ * XREFs of BiGetDeviceFromEfiPath @ 0x140972054
  * Callers:
- *     BiCreateMergedBootEntry @ 0x140A1F420 (BiCreateMergedBootEntry.c)
- *     BiUpdateBcdObject @ 0x140A20DF8 (BiUpdateBcdObject.c)
+ *     BiCreateMergedBootEntry @ 0x1409714B4 (BiCreateMergedBootEntry.c)
+ *     BiUpdateBcdObject @ 0x140972E90 (BiUpdateBcdObject.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     BiTranslateFilePath @ 0x140A20C90 (BiTranslateFilePath.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     BiTranslateFilePath @ 0x140972D28 (BiTranslateFilePath.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, _DWORD *a3)

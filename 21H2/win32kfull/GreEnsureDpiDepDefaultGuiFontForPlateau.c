@@ -1,11 +1,11 @@
 /*
- * XREFs of GreEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C0291380
+ * XREFs of GreEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C0293830
  * Callers:
- *     NtGdiEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C02ACD20 (NtGdiEnsureDpiDepDefaultGuiFontForPlateau.c)
+ *     NtGdiEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C02AE5F0 (NtGdiEnsureDpiDepDefaultGuiFontForPlateau.c)
  * Callees:
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00228A4 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00228D8 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     hfontInitDefaultGuiFont @ 0x1C03909E0 (hfontInitDefaultGuiFont.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BD148 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BD17C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03939F0 (hfontInitDefaultGuiFont.c)
  */
 
 void __fastcall GreEnsureDpiDepDefaultGuiFontForPlateau(__int64 a1, __int64 a2, __int64 a3)

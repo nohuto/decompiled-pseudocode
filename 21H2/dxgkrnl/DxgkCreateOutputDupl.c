@@ -1,99 +1,103 @@
 /*
- * XREFs of DxgkCreateOutputDupl @ 0x1C0324550
+ * XREFs of DxgkCreateOutputDupl @ 0x1C029D060
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C002B250 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DoesLowBoxAppHaveOutputDuplCapability@@YAEXZ @ 0x1C032048C (-DoesLowBoxAppHaveOutputDuplCapability@@YAEXZ.c)
- *     ?DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C03204EC (-DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_F.c)
- *     ?IsInLowBox@@YAHXZ @ 0x1C0321980 (-IsInLowBox@@YAHXZ.c)
- *     DxgkDestroyOutputDuplInternal @ 0x1C03247E8 (DxgkDestroyOutputDuplInternal.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C0002BD4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?DoesLowBoxAppHaveOutputDuplCapability@@YAEXZ @ 0x1C0299528 (-DoesLowBoxAppHaveOutputDuplCapability@@YAEXZ.c)
+ *     ?DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C0299588 (-DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_F.c)
+ *     ?IsInLowBox@@YAHXZ @ 0x1C029A810 (-IsInLowBox@@YAHXZ.c)
+ *     DxgkDestroyOutputDuplInternal @ 0x1C029D2D8 (DxgkDestroyOutputDuplInternal.c)
  */
 
-__int64 __fastcall DxgkCreateOutputDupl(ULONG64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall DxgkCreateOutputDupl(ULONG64 a1, __int64 a2)
 {
+  __int64 v3; // rdx
+  __int64 v4; // rcx
   struct DXGPROCESS *Current; // rdi
-  int v7; // eax
-  int v8; // ebx
+  __int64 v6; // rax
+  int v8; // eax
   int v9; // ebx
-  _D3DKMT_CREATE_OUTPUTDUPL *v10; // rax
+  __int64 v10; // rdx
+  int v11; // ebx
+  _D3DKMT_CREATE_OUTPUTDUPL *v12; // rax
   struct DXGGLOBAL *Global; // rax
-  __int64 v12; // r8
-  int v13; // ebx
   __int64 v14; // r8
-  _DWORD *v15; // rdx
-  int v16; // [rsp+50h] [rbp-68h] BYREF
-  _BYTE v17[16]; // [rsp+58h] [rbp-60h] BYREF
-  _DWORD v18[4]; // [rsp+68h] [rbp-50h] BYREF
-  _D3DKMT_CREATE_OUTPUTDUPL v19; // [rsp+78h] [rbp-40h] BYREF
+  int v15; // ebx
+  __int64 v16; // r8
+  _DWORD *v17; // rdx
+  int v18; // [rsp+20h] [rbp-68h] BYREF
+  _BYTE v19[16]; // [rsp+28h] [rbp-60h] BYREF
+  _DWORD v20[4]; // [rsp+38h] [rbp-50h] BYREF
+  _D3DKMT_CREATE_OUTPUTDUPL v21; // [rsp+48h] [rbp-40h] BYREF
 
-  Current = DXGPROCESS::GetCurrent(a1, a2, a3, a4);
+  Current = DXGPROCESS::GetCurrent(a1, a2);
   if ( !Current )
   {
-    WdLogSingleEntry1(2LL, 3474LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid process context.", 3474LL, 0LL, 0LL, 0LL, 0LL);
+    v6 = WdLogNewEntry5_WdError(v4, v3);
+    *(_QWORD *)(v6 + 24) = 3486LL;
+    WdLogEvent5_WdError(v6);
     return 3221225485LL;
   }
   if ( (g_OutputDuplicationTestControl & 2) != 0 )
-    v7 = 1;
+    v8 = 1;
   else
-    v7 = (*(__int64 (**)(void))(*((_QWORD *)Current + 11) + 216LL))();
-  v8 = (v7 != 0 ? 4 : 0) | (8 * (g_OutputDuplicationTestControl & 1));
-  v16 = v8;
+    v8 = (*(__int64 (**)(void))(*((_QWORD *)Current + 11) + 216LL))();
+  v9 = (v8 != 0 ? 4 : 0) | (8 * (g_OutputDuplicationTestControl & 1));
+  v18 = v9;
   if ( !(*(unsigned int (**)(void))(*((_QWORD *)Current + 11) + 216LL))() )
   {
     if ( (unsigned int)IsInLowBox() )
     {
-      v9 = v8 | 2;
-      v16 = v9;
+      v11 = v9 | 2;
+      v18 = v11;
       if ( !DoesLowBoxAppHaveOutputDuplCapability() )
       {
         if ( !g_OSTestSigningEnabled || (g_OutputDuplicationTestControl & 1) == 0 )
           return 3221225506LL;
-        v16 = v9 | 8;
+        v18 = v11 | 8;
       }
     }
   }
-  v10 = (_D3DKMT_CREATE_OUTPUTDUPL *)a1;
+  v12 = (_D3DKMT_CREATE_OUTPUTDUPL *)a1;
   if ( a1 >= MmUserProbeAddress )
-    v10 = (_D3DKMT_CREATE_OUTPUTDUPL *)MmUserProbeAddress;
-  v19 = *v10;
-  Global = DXGGLOBAL_GetGlobal();
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v17, (struct DXGGLOBAL *)((char *)Global + 305320), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
-  v13 = DxgkCreateOutputDuplInternal(&v19, (struct _D3DKMT_CREATE_OUTPUTDUPL_FLAGS *)&v16, v12);
-  if ( v13 >= 0 )
+    v12 = (_D3DKMT_CREATE_OUTPUTDUPL *)MmUserProbeAddress;
+  v21 = *v12;
+  Global = DXGGLOBAL::GetGlobal(MmUserProbeAddress, v10);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v19, (struct DXGGLOBAL *)((char *)Global + 304880), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v19);
+  v15 = DxgkCreateOutputDuplInternal(&v21, (struct _D3DKMT_CREATE_OUTPUTDUPL_FLAGS *)&v18, v14);
+  if ( v15 >= 0 )
   {
     if ( !(*(unsigned int (**)(void))(*((_QWORD *)Current + 11) + 208LL))() )
     {
-      v13 = -1073741790;
+      v15 = -1073741790;
 LABEL_19:
-      v18[0] = v19.hAdapter;
-      v18[1] = v19.VidPnSourceId;
-      v18[2] = 0;
-      DxgkDestroyOutputDuplInternal(v18, 1LL);
+      v20[0] = v21.hAdapter;
+      v20[1] = v21.VidPnSourceId;
+      v20[2] = 0;
+      DxgkDestroyOutputDuplInternal(v20, 1LL);
       goto LABEL_20;
     }
-    v16 |= 1u;
-    v13 = DxgkCreateOutputDuplInternal(&v19, (struct _D3DKMT_CREATE_OUTPUTDUPL_FLAGS *)&v16, v14);
-    if ( v13 < 0 )
+    v18 |= 1u;
+    v15 = DxgkCreateOutputDuplInternal(&v21, (struct _D3DKMT_CREATE_OUTPUTDUPL_FLAGS *)&v18, v16);
+    if ( v15 < 0 )
       goto LABEL_19;
   }
 LABEL_20:
-  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v17);
-  if ( v13 >= 0 )
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v19);
+  if ( v15 >= 0 )
   {
-    v15 = (_DWORD *)(a1 + 12);
+    v17 = (_DWORD *)(a1 + 12);
     if ( a1 + 12 >= MmUserProbeAddress )
-      v15 = (_DWORD *)MmUserProbeAddress;
-    *v15 = v19.RequiredKeyedMutexCount;
+      v17 = (_DWORD *)MmUserProbeAddress;
+    *v17 = v21.RequiredKeyedMutexCount;
   }
-  return (unsigned int)v13;
+  return (unsigned int)v15;
 }

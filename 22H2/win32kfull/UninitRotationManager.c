@@ -1,5 +1,5 @@
 /*
- * XREFs of UninitRotationManager @ 0x1C00BE580
+ * XREFs of UninitRotationManager @ 0x1C0136DB0
  * Callers:
  *     <none>
  * Callees:

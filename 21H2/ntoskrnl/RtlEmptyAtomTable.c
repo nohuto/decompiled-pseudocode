@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlEmptyAtomTable @ 0x1409B8CC0
+ * XREFs of RtlEmptyAtomTable @ 0x1409130B0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     RtlpFreeAtom @ 0x1406AB544 (RtlpFreeAtom.c)
- *     RtlpFreeHandleForAtom @ 0x1406AB574 (RtlpFreeHandleForAtom.c)
- *     RtlpLockAtomTable @ 0x1407A0EA0 (RtlpLockAtomTable.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     RtlpLockAtomTable @ 0x14061BA14 (RtlpLockAtomTable.c)
+ *     RtlpFreeAtom @ 0x1406A156C (RtlpFreeAtom.c)
+ *     RtlpFreeHandleForAtom @ 0x1406A159C (RtlpFreeHandleForAtom.c)
  */
 
 __int64 __fastcall RtlEmptyAtomTable(__int64 a1, char a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiLockUnlockCommon @ 0x1406A24DC
+ * XREFs of MiLockUnlockCommon @ 0x1406A24BC
  * Callers:
  *     NtLockVirtualMemory @ 0x14001A570 (NtLockVirtualMemory.c)
- *     NtUnlockVirtualMemory @ 0x1400B3D70 (NtUnlockVirtualMemory.c)
+ *     NtUnlockVirtualMemory @ 0x1400B3D90 (NtUnlockVirtualMemory.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)

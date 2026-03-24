@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIGetWorkerForBuffer @ 0x1C002B310
+ * XREFs of ACPIGetWorkerForBuffer @ 0x1C002B060
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 void __fastcall ACPIGetWorkerForBuffer(__int64 a1, int a2, __int64 a3, _QWORD *a4)
@@ -13,8 +13,8 @@ void __fastcall ACPIGetWorkerForBuffer(__int64 a1, int a2, __int64 a3, _QWORD *a
   unsigned int v6; // edi
   char v8; // r14
   unsigned int v9; // eax
-  void *Pool2; // rax
-  void *v11; // rbp
+  PVOID PoolWithTag; // rax
+  PVOID v11; // rbp
   _QWORD *v12; // rax
   _DWORD *v13; // rcx
   void (__fastcall *v14)(__int64, _QWORD, _QWORD, _QWORD); // rax
@@ -27,29 +27,29 @@ void __fastcall ACPIGetWorkerForBuffer(__int64 a1, int a2, __int64 a3, _QWORD *a
   if ( a2 < 0 )
   {
     v8 = 0;
-    goto LABEL_13;
+    goto LABEL_3;
   }
   if ( *(_WORD *)(a3 + 2) != 3 )
   {
     if ( (*(_DWORD *)a4 & 0x40000000) != 0 )
-      KeBugCheckEx(0xA3u, 1uLL, 0x60E66uLL, 0LL, 0LL);
-    goto LABEL_6;
+      KeBugCheckEx(0xA3u, 1uLL, 0x60E88uLL, 0LL, 0LL);
+    goto LABEL_17;
   }
   v9 = *(_DWORD *)(a3 + 24);
   if ( !v9 )
   {
-LABEL_6:
+LABEL_17:
     v6 = -1072431089;
-    goto LABEL_13;
+    goto LABEL_3;
   }
-  Pool2 = (void *)ExAllocatePool2(
-                    (-(__int64)((*(_DWORD *)a4 & 0x8000000) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256,
-                    v9,
-                    1114661697LL);
-  v11 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(
+                  (POOL_TYPE)((*(_DWORD *)a4 & 0x8000000) != 0 ? NonPagedPoolNx : PagedPool),
+                  v9,
+                  0x42706341u);
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memmove(Pool2, *(const void **)(a3 + 32), *(unsigned int *)(a3 + 24));
+    memmove(PoolWithTag, *(const void **)(a3 + 32), *(unsigned int *)(a3 + 24));
     v12 = (_QWORD *)a4[7];
     if ( v12 )
     {
@@ -63,13 +63,13 @@ LABEL_6:
   {
     v6 = -1073741670;
   }
-LABEL_13:
+LABEL_3:
   *((_DWORD *)a4 + 18) = v6;
   if ( v8 )
   {
-    dword_1C006F938 = 0;
+    dword_1C0082908 = 0;
     pszDest = 0;
-    FreeDataBuffs(a3, 1LL);
+    FreeDataBuffs(a3, 1u);
   }
   if ( (*(_DWORD *)a4 & 0x10000000) == 0 )
   {

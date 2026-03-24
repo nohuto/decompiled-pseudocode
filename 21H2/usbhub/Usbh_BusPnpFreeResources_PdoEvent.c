@@ -1,16 +1,16 @@
 /*
- * XREFs of Usbh_BusPnpFreeResources_PdoEvent @ 0x1C0039F80
+ * XREFs of Usbh_BusPnpFreeResources_PdoEvent @ 0x1C003B290
  * Callers:
- *     UsbhAsyncStop @ 0x1C0041C0C (UsbhAsyncStop.c)
- *     Usbh_FDO_WaitPnpStop @ 0x1C0043FE0 (Usbh_FDO_WaitPnpStop.c)
+ *     UsbhAsyncStop @ 0x1C0042EBC (UsbhAsyncStop.c)
+ *     Usbh_FDO_WaitPnpStop @ 0x1C0045290 (Usbh_FDO_WaitPnpStop.c)
  * Callees:
- *     UsbhUnlinkPdoDeviceHandle @ 0x1C00015D0 (UsbhUnlinkPdoDeviceHandle.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhAcquirePdoStateLock @ 0x1C00312E4 (UsbhAcquirePdoStateLock.c)
- *     UsbhDeletePdo @ 0x1C00537BC (UsbhDeletePdo.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C0018990 (UsbhUnlinkPdoDeviceHandle.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C001CDA8 (UsbhAcquirePdoStateLock.c)
+ *     UsbhDeletePdo @ 0x1C0054E1C (UsbhDeletePdo.c)
  */
 
 void __fastcall Usbh_BusPnpFreeResources_PdoEvent(__int64 a1, __int64 a2)
@@ -48,9 +48,9 @@ void __fastcall Usbh_BusPnpFreeResources_PdoEvent(__int64 a1, __int64 a2)
             if ( v9 != 3 )
               continue;
             *(_DWORD *)(a2 + 136) = 0;
-            WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+            qword_1C006C500 = 0LL;
             *(_DWORD *)(a2 + 88) = 1734964085;
-            KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, *(_BYTE *)(a2 + 132));
+            KeReleaseSpinLock(&HubG, *(_BYTE *)(a2 + 132));
             UsbhUnlinkPdoDeviceHandle(a1, v8, 2017740849, 1);
           }
           UsbhAcquirePdoStateLock(v10, a2, 17);
@@ -59,8 +59,8 @@ void __fastcall Usbh_BusPnpFreeResources_PdoEvent(__int64 a1, __int64 a2)
     }
   }
   *(_DWORD *)(a2 + 136) = 0;
-  WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+  qword_1C006C500 = 0LL;
   v11 = *(_BYTE *)(a2 + 132);
   *(_DWORD *)(a2 + 88) = 1734964085;
-  KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v11);
+  KeReleaseSpinLock(&HubG, v11);
 }

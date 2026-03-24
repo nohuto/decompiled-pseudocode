@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiGetLastTransitionStatus @ 0x1C00516E0
+ * XREFs of AcpiGetLastTransitionStatus @ 0x1C00521F0
  * Callers:
  *     <none>
  * Callees:
@@ -10,10 +10,10 @@ __int64 __fastcall AcpiGetLastTransitionStatus(__int64 a1, _DWORD *a2)
 {
   __int64 result; // rax
 
-  if ( *(_QWORD *)(a1 + 440) )
+  if ( *(_QWORD *)(a1 + 400) )
   {
-    result = -(__int64)(*(_DWORD *)(a1 + 1000) & 0x10000);
-    *a2 = ((*(_DWORD *)(a1 + 1000) & 0x10000) != 0LL) + 1;
+    result = -(__int64)(*(_DWORD *)(a1 + 960) & 0x10000);
+    *a2 = ((*(_DWORD *)(a1 + 960) & 0x10000) != 0LL) + 1;
   }
   else
   {

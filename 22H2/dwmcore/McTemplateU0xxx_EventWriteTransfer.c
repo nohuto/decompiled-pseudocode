@@ -1,13 +1,12 @@
 /*
- * XREFs of McTemplateU0xxx_EventWriteTransfer @ 0x180256D00
+ * XREFs of McTemplateU0xxx_EventWriteTransfer @ 0x1801F3DFC
  * Callers:
- *     ?SetSpriteBitmap@CWindowNode@@AEAAJPEAVCGdiSpriteBitmap@@@Z @ 0x1800AA5F0 (-SetSpriteBitmap@CWindowNode@@AEAAJPEAVCGdiSpriteBitmap@@@Z.c)
- *     ?NotifyMetaData@CDummyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z @ 0x180299AB0 (-NotifyMetaData@CDummyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z.c)
- *     ?NotifyMetaData@CLegacyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z @ 0x1802A3BE0 (-NotifyMetaData@CLegacyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z.c)
- *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1802A97E8 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?SetSpriteImage@CWindowNode@@AEAAJPEAVISpriteImage@@@Z @ 0x1800D0F14 (-SetSpriteImage@CWindowNode@@AEAAJPEAVISpriteImage@@@Z.c)
+ *     ?NotifyMetaData@CLegacyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z @ 0x1800E58C0 (-NotifyMetaData@CLegacyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z.c)
+ *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F2130 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxx_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, ...)
@@ -37,5 +36,5 @@ ULONG McTemplateU0xxx_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2,
   va_copy(v6, va1);
   v9 = 8LL;
   va_copy(v8, va2);
-  return McGenEventWrite_EventWriteTransfer(&Microsoft_Windows_Dwm_Core_Provider_Context, a2, v11, 4u, &v3);
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, v11, 4u, &v3);
 }

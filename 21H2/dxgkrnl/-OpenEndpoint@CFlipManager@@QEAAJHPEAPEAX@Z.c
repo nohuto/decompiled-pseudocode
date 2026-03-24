@@ -1,20 +1,22 @@
 /*
- * XREFs of ?OpenEndpoint@CFlipManager@@QEAAJHPEAPEAX@Z @ 0x1C007DF84
+ * XREFs of ?OpenEndpoint@CFlipManager@@QEAAJHPEAPEAX@Z @ 0x1C006B868
  * Callers:
- *     ?OpenEndpoint@FlipManagerObject@@QEAAJ_NPEAPEAX1@Z @ 0x1C007C060 (-OpenEndpoint@FlipManagerObject@@QEAAJ_NPEAPEAX1@Z.c)
+ *     ?OpenEndpoint@FlipManagerObject@@QEAAJ_NPEAPEAX1@Z @ 0x1C006A7D8 (-OpenEndpoint@FlipManagerObject@@QEAAJ_NPEAPEAX1@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CFlipManager::OpenEndpoint(CFlipManager *this, int a2, void **a3)
 {
   __int64 *v6; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   __int64 CurrentProcess; // rsi
   struct DXGGLOBAL *Global; // rax
-  bool v9; // zf
-  NTSTATUS v10; // edi
-  HANDLE v11; // rcx
+  bool v11; // zf
+  NTSTATUS v12; // edi
+  HANDLE v13; // rcx
   HANDLE Handle; // [rsp+78h] [rbp+20h] BYREF
 
   Handle = 0LL;
@@ -22,41 +24,42 @@ __int64 __fastcall CFlipManager::OpenEndpoint(CFlipManager *this, int a2, void *
   CurrentProcess = PsGetCurrentProcess();
   if ( *v6 )
   {
-    if ( a2 || (Global = DXGGLOBAL_GetGlobal(), !(*(unsigned int (**)(void))(*((_QWORD *)Global + 38073) + 528LL))()) )
+    if ( a2
+      || (Global = DXGGLOBAL::GetGlobal(v8, v7), !(*(unsigned int (**)(void))(*((_QWORD *)Global + 38048) + 296LL))()) )
     {
-      v9 = *v6 == CurrentProcess;
+      v11 = *v6 == CurrentProcess;
     }
     else
     {
       if ( *v6 == 1 )
         goto LABEL_9;
-      v9 = *v6 == CurrentProcess;
+      v11 = *v6 == CurrentProcess;
     }
-    if ( !v9 )
+    if ( !v11 )
     {
-      v10 = -1073741790;
+      v12 = -1073741790;
       goto LABEL_13;
     }
   }
 LABEL_9:
-  v10 = ObOpenObjectByPointer(
-          *(PVOID *)((char *)this + (a2 != 0 ? 8 : 0) + 288),
+  v12 = ObOpenObjectByPointer(
+          *(PVOID *)((char *)this + (a2 != 0 ? 8 : 0) + 208),
           0,
           0LL,
           0x100000u,
           (POBJECT_TYPE)ExEventObjectType,
           1,
           &Handle);
-  if ( v10 >= 0 )
+  if ( v12 >= 0 )
   {
     if ( !*v6 )
       *v6 = CurrentProcess;
-    v11 = Handle;
+    v13 = Handle;
     Handle = 0LL;
-    *a3 = v11;
+    *a3 = v13;
   }
 LABEL_13:
   if ( Handle )
     ObCloseHandle(Handle, 1);
-  return (unsigned int)v10;
+  return (unsigned int)v12;
 }

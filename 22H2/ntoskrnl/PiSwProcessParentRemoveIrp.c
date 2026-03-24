@@ -1,113 +1,62 @@
 /*
- * XREFs of PiSwProcessParentRemoveIrp @ 0x14086A324
+ * XREFs of PiSwProcessParentRemoveIrp @ 0x14074BC04
  * Callers:
- *     IopRemoveDevice @ 0x140869E38 (IopRemoveDevice.c)
+ *     IopRemoveDevice @ 0x14074B778 (IopRemoveDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     McTemplateK0zzzzdd_EtwWriteTransfer @ 0x140564370 (McTemplateK0zzzzdd_EtwWriteTransfer.c)
- *     PiSwCloseDescendants @ 0x14086A2DC (PiSwCloseDescendants.c)
- *     PiSwFindSwDevice @ 0x14086A40C (PiSwFindSwDevice.c)
- *     PiSwDestroyDeviceObject @ 0x14096725C (PiSwDestroyDeviceObject.c)
- *     PiSwProcessRemove @ 0x140967780 (PiSwProcessRemove.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PiSwProcessRemove @ 0x140732F28 (PiSwProcessRemove.c)
+ *     PiSwDestroyDeviceObject @ 0x140733048 (PiSwDestroyDeviceObject.c)
+ *     PiSwCloseDescendants @ 0x14074BCE8 (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x14074BD68 (PiSwFindSwDevice.c)
  */
 
-void __fastcall PiSwProcessParentRemoveIrp(__int64 a1)
+_QWORD *__fastcall PiSwProcessParentRemoveIrp(__int64 a1)
 {
-  char *v1; // rbp
-  __int64 v3; // rdx
-  __int64 v4; // rbx
+  __int64 v1; // rbx
+  __int64 v2; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v6; // rsi
-  const wchar_t *v7; // rcx
+  __int64 *v4; // rdi
+  __int64 *v5; // rbp
+  const wchar_t *v6; // rcx
   __int64 SwDevice; // rax
-  __int64 *v9; // rax
-  char *v10; // r8
-  struct _DEVICE_OBJECT *v11; // r14
-  __int64 *DeviceExtension; // r15
-  char *DeviceNode; // rcx
-  __int64 v14; // rdx
-  int v15; // r11d
-  const wchar_t *v16; // r10
-  const wchar_t *v17; // r8
-  const wchar_t *v18; // rcx
-  const wchar_t *v19; // r9
+  __int64 v8; // rdx
+  struct _DEVICE_OBJECT *v10; // rbp
 
-  v1 = 0LL;
+  v1 = a1;
   if ( a1 )
-    v3 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
-  else
-    v3 = 0LL;
-  v4 = (v3 + 40) & -(__int64)(v3 != 0);
+    a1 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
+  v2 = (a1 + 40) & -(__int64)(a1 != 0);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
-  v6 = (__int64 *)PiSwGlobalPdoAssociationList;
-  while ( v6 != &PiSwGlobalPdoAssociationList )
+  v4 = (__int64 *)PiSwGlobalPdoAssociationList;
+  while ( v4 != &PiSwGlobalPdoAssociationList )
   {
-    v9 = v6;
-    v10 = v1;
-    v6 = (__int64 *)*v6;
-    if ( v9[2] == a1 )
+    v5 = v4;
+    v4 = (__int64 *)*v4;
+    if ( v5[2] == v1 )
     {
-      v11 = (struct _DEVICE_OBJECT *)v9[3];
-      DeviceExtension = (__int64 *)v11->DeviceExtension;
-      DeviceNode = (char *)v11->DeviceObjectExtension->DeviceNode;
-      v14 = *DeviceExtension;
-      v1 = DeviceNode + 40;
-      if ( !DeviceNode )
-        v1 = v10;
-      if ( (byte_140C0E20C & 8) != 0 )
-      {
-        if ( v14 )
-          v15 = *(_DWORD *)(v14 + 4);
-        else
-          LOBYTE(v15) = 0;
-        if ( v4 )
-          v16 = *(const wchar_t **)(v4 + 8);
-        else
-          v16 = &word_1408882A0;
-        if ( v1 )
-          v17 = (const wchar_t *)*((_QWORD *)v1 + 1);
-        else
-          v17 = &word_1408882A0;
-        if ( v14 )
-        {
-          v18 = *(const wchar_t **)(v14 + 16);
-          v19 = *(const wchar_t **)(v14 + 8);
-        }
-        else
-        {
-          v18 = &word_1408882A0;
-          v19 = &word_1408882A0;
-        }
-        McTemplateK0zzzzdd_EtwWriteTransfer(
-          (__int64)v18,
-          v14,
-          (__int64)v17,
-          v19,
-          v18,
-          v17,
-          v16,
-          v15,
-          *((_DWORD *)DeviceExtension + 2));
-      }
-      if ( (DeviceExtension[1] & 0x20) == 0 )
-        PiSwProcessRemove(v11, 0LL);
-      PiSwDestroyDeviceObject(v11);
+      v10 = (struct _DEVICE_OBJECT *)v5[3];
+      if ( (*((_DWORD *)v10->DeviceExtension + 2) & 0x20) == 0 )
+        PiSwProcessRemove((__int64)v10, 0);
+      PiSwDestroyDeviceObject(v10);
     }
   }
-  if ( v4 )
+  if ( v2 )
   {
-    v7 = *(const wchar_t **)(v4 + 8);
-    if ( v7 )
+    v6 = *(const wchar_t **)(v2 + 8);
+    if ( v6 )
     {
-      SwDevice = PiSwFindSwDevice(v7);
+      SwDevice = PiSwFindSwDevice(v6);
       if ( !SwDevice || (*(_DWORD *)(SwDevice + 4) & 1) == 0 && !*(_DWORD *)(SwDevice + 180) )
-        PiSwCloseDescendants(v4, 1);
+      {
+        LOBYTE(v8) = 1;
+        PiSwCloseDescendants(v2, v8);
+      }
     }
   }
   ExReleaseResourceLite(&PiSwLockObj);
-  KeLeaveCriticalRegion();
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

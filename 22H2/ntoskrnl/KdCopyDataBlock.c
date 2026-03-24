@@ -1,10 +1,10 @@
 /*
- * XREFs of KdCopyDataBlock @ 0x140567170
+ * XREFs of KdCopyDataBlock @ 0x140510688
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x14054FF70 (IoFillTriageDumpBuffer.c)
- *     IopInitializeInMemoryDumpData @ 0x140553410 (IopInitializeInMemoryDumpData.c)
- *     KeCapturePersistentThreadState @ 0x140554360 (KeCapturePersistentThreadState.c)
- *     KdDecodeDataBlock @ 0x140567240 (KdDecodeDataBlock.c)
+ *     IoFillTriageDumpBuffer @ 0x140501A40 (IoFillTriageDumpBuffer.c)
+ *     IopInitializeInMemoryDumpData @ 0x140503F50 (IopInitializeInMemoryDumpData.c)
+ *     KeCapturePersistentThreadState @ 0x140504CC0 (KeCapturePersistentThreadState.c)
+ *     KdDecodeDataBlock @ 0x140510744 (KdDecodeDataBlock.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall KdCopyDataBlock(_OWORD *a1)
   v2 = a1;
   if ( KdpDataBlockEncoded )
   {
-    v3 = 116;
+    v3 = 112;
     do
     {
       result = (__int64)&KdpDataBlockEncoded;
@@ -50,8 +50,6 @@ __int64 __fastcall KdCopyDataBlock(_OWORD *a1)
       --result;
     }
     while ( result );
-    *v2 = *v1;
-    v2[1] = v1[1];
   }
   return result;
 }

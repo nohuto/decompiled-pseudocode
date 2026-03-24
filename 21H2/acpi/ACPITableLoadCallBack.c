@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPITableLoadCallBack @ 0x1C001F7F0
+ * XREFs of ACPITableLoadCallBack @ 0x1C0030360
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalMoveList @ 0x1C0002C10 (ACPIInternalMoveList.c)
- *     ACPIDeviceInternalSynchronizeRequest @ 0x1C0007924 (ACPIDeviceInternalSynchronizeRequest.c)
- *     ACPIPowerScheduleDpc @ 0x1C0008120 (ACPIPowerScheduleDpc.c)
- *     ACPIGpeBuildWakeMasks @ 0x1C001D4E0 (ACPIGpeBuildWakeMasks.c)
- *     Simulator_RefreshTree @ 0x1C0065440 (Simulator_RefreshTree.c)
+ *     ACPIGpeBuildWakeMasks @ 0x1C001AFA8 (ACPIGpeBuildWakeMasks.c)
+ *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001C8E8 (ACPIDeviceInternalSynchronizeRequest.c)
+ *     ACPIPowerScheduleDpc @ 0x1C001CD7C (ACPIPowerScheduleDpc.c)
+ *     ACPIInternalMoveList @ 0x1C00318C8 (ACPIInternalMoveList.c)
+ *     Simulator_RefreshTree @ 0x1C00641C0 (Simulator_RefreshTree.c)
  */
 
 void __fastcall ACPITableLoadCallBack(_QWORD *a1, char a2)
@@ -23,7 +23,7 @@ void __fastcall ACPITableLoadCallBack(_QWORD *a1, char a2)
   KeAcquireSpinLockAtDpcLevel(&AcpiPowerQueueLock);
   if ( (__int64 *)AcpiPowerDelayedQueueList != &AcpiPowerDelayedQueueList )
   {
-    ACPIInternalMoveList(&AcpiPowerDelayedQueueList, (__int64)&AcpiPowerQueueList);
+    ACPIInternalMoveList(&AcpiPowerDelayedQueueList, &AcpiPowerQueueList);
     ACPIPowerScheduleDpc();
   }
   KeReleaseSpinLockFromDpcLevel(&AcpiPowerQueueLock);

@@ -1,20 +1,25 @@
 /*
- * XREFs of WheapIsNonHestErrorSource @ 0x1403811E0
+ * XREFs of WheapIsNonHestErrorSource @ 0x1403BAA44
  * Callers:
- *     WheaAddErrorSource @ 0x1408210A0 (WheaAddErrorSource.c)
- *     WheaRemoveErrorSource @ 0x140A07970 (WheaRemoveErrorSource.c)
+ *     WheaAddErrorSource @ 0x1407AF700 (WheaAddErrorSource.c)
+ *     WheaRemoveErrorSource @ 0x14095CF90 (WheaRemoveErrorSource.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall WheapIsNonHestErrorSource(__int64 a1)
+bool __fastcall WheapIsNonHestErrorSource(signed int a1)
 {
-  unsigned int v1; // eax
-  int v2; // ecx
   bool result; // al
+  int v2; // eax
 
-  result = (*(_BYTE *)(a1 + 36) & 1) != 0
-        || (v1 = *(_DWORD *)(a1 + 8), v1 <= 0xD) && (v2 = 12592, _bittest(&v2, v1))
-        || (int)v1 >= 14;
+  result = 0;
+  if ( a1 > 3 )
+  {
+    if ( (unsigned int)a1 > 0xB )
+      return 1;
+    v2 = 3776;
+    if ( !_bittest(&v2, a1) )
+      return 1;
+  }
   return result;
 }

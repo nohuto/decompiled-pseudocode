@@ -1,31 +1,32 @@
 /*
- * XREFs of PsImpersonateClient @ 0x140734F30
+ * XREFs of PsImpersonateClient @ 0x1406D3C60
  * Callers:
- *     CmpCmdHiveOpen @ 0x14068B2C0 (CmpCmdHiveOpen.c)
- *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
- *     AlpcpImpersonateMessage @ 0x14071CE70 (AlpcpImpersonateMessage.c)
- *     NtSetInformationThread @ 0x140733AB0 (NtSetInformationThread.c)
- *     NtImpersonateAnonymousToken @ 0x1407F5620 (NtImpersonateAnonymousToken.c)
- *     SeImpersonateClientEx @ 0x1407F6460 (SeImpersonateClientEx.c)
- *     EtwpDelayCreate @ 0x1407F70C4 (EtwpDelayCreate.c)
- *     PsAssignImpersonationToken @ 0x14087F370 (PsAssignImpersonationToken.c)
- *     PsRevertThreadToSelf @ 0x1409B1D30 (PsRevertThreadToSelf.c)
- *     PsRevertToSelf @ 0x1409B1D60 (PsRevertToSelf.c)
+ *     AlpcpImpersonateMessage @ 0x1405E9BE0 (AlpcpImpersonateMessage.c)
+ *     CmpCmdHiveOpen @ 0x140603588 (CmpCmdHiveOpen.c)
+ *     PsAssignImpersonationToken @ 0x1406D3B90 (PsAssignImpersonationToken.c)
+ *     CmpOpenHiveFile @ 0x1406EA6B8 (CmpOpenHiveFile.c)
+ *     NtImpersonateAnonymousToken @ 0x14070DED0 (NtImpersonateAnonymousToken.c)
+ *     PsRevertToSelf @ 0x1407145E0 (PsRevertToSelf.c)
+ *     SeImpersonateClientEx @ 0x140714780 (SeImpersonateClientEx.c)
+ *     PsRevertThreadToSelf @ 0x1409088E0 (PsRevertThreadToSelf.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ObFastDereferenceObject @ 0x140297B60 (ObFastDereferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     SeSetTokenTrustLink @ 0x1403550F8 (SeSetTokenTrustLink.c)
- *     SeQueryTokenTrustSid @ 0x140361248 (SeQueryTokenTrustSid.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
- *     SeCopyClientToken @ 0x14071DD30 (SeCopyClientToken.c)
- *     PspWriteTebImpersonationInfo @ 0x1407352F0 (PspWriteTebImpersonationInfo.c)
- *     SeTokenCanImpersonate @ 0x1407354A0 (SeTokenCanImpersonate.c)
+ *     ObFastReferenceObjectLocked @ 0x1402062F8 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     SeSetTokenTrustLink @ 0x140318C84 (SeSetTokenTrustLink.c)
+ *     SeQueryTokenTrustSid @ 0x140321CE4 (SeQueryTokenTrustSid.c)
+ *     ObFastDereferenceObject @ 0x140345620 (ObFastDereferenceObject.c)
+ *     ObFastReferenceObject @ 0x1403456F0 (ObFastReferenceObject.c)
+ *     PspWriteTebImpersonationInfo @ 0x1406D4040 (PspWriteTebImpersonationInfo.c)
+ *     SeTokenCanImpersonate @ 0x1406D41E0 (SeTokenCanImpersonate.c)
+ *     SeCopyClientToken @ 0x1406DAAF4 (SeCopyClientToken.c)
  */
 
 NTSTATUS __stdcall PsImpersonateClient(
@@ -38,30 +39,34 @@ NTSTATUS __stdcall PsImpersonateClient(
   _KPROCESS *Process; // rbx
   char v6; // bp
   unsigned __int64 v9; // rsi
-  void *v11; // rsi
-  struct _KTHREAD *v12; // r14
-  struct _KTHREAD *CurrentThread; // rbp
-  struct _KTHREAD *v14; // rdx
-  void *v15; // rax
-  unsigned __int64 v16; // r13
-  __int64 v17; // r8
-  signed __int64 v18; // rax
-  signed __int64 v19; // rtt
-  bool v20; // zf
+  struct _DMA_ADAPTER *v11; // rsi
+  struct _KTHREAD *v12; // rbp
+  struct _KTHREAD *CurrentThread; // rbx
+  char v14; // al
+  __int64 v15; // rcx
+  bool v16; // zf
+  struct _KTHREAD *v17; // rdx
+  signed __int64 *v18; // r13
+  struct _DMA_ADAPTER *v19; // r14
+  int v20; // r8d
   char v21; // bp
-  struct _KTHREAD *v22; // r12
+  struct _KTHREAD *v22; // r14
   unsigned __int64 v23; // rbx
-  int v25; // r12d
-  NTSTATUS v26; // esi
-  struct _KTHREAD *v27; // [rsp+30h] [rbp-48h]
-  _DWORD *v28; // [rsp+38h] [rbp-40h] BYREF
-  char v29; // [rsp+88h] [rbp+10h]
+  char v24; // al
+  __int64 v25; // rcx
+  int v27; // ebx
+  NTSTATUS v28; // ebx
+  signed __int64 *p_Lock; // rbx
+  struct _KTHREAD *v30; // [rsp+30h] [rbp-58h]
+  _DWORD *v31; // [rsp+38h] [rbp-50h] BYREF
+  char v32; // [rsp+98h] [rbp+10h]
+  struct _KTHREAD *v33; // [rsp+98h] [rbp+10h]
 
   Process = Thread->Process;
   v6 = 0;
-  v28 = 0LL;
+  v31 = 0LL;
   v9 = (unsigned __int64)Token;
-  v27 = 0LL;
+  v30 = 0LL;
   if ( !Token )
   {
     v11 = 0LL;
@@ -74,108 +79,112 @@ NTSTATUS __stdcall PsImpersonateClient(
     if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 8) != 0 )
     {
       v12 = Thread[1].WaitBlock[1].Thread;
-      v11 = (void *)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+      v11 = (struct _DMA_ADAPTER *)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
       Thread[1].WaitBlock[1].Thread = 0LL;
       _InterlockedAnd((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0xFFFFFFF7);
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&Thread[1].WaitBlockList, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    v14 = _InterlockedExchangeAdd64((volatile signed __int64 *)&Thread[1].WaitBlockList, 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v14 & 2) != 0 && (v14 & 4) == 0 )
       ExfTryToWakePushLock((volatile signed __int64 *)&Thread[1].WaitBlockList);
     KeAbPostRelease((ULONG_PTR)&Thread[1].WaitBlockList);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread);
-    v14 = CurrentThread;
-LABEL_23:
-    PspWriteTebImpersonationInfo(Thread, v14);
+    v16 = CurrentThread->KernelApcDisable++ == -1;
+    if ( v16
+      && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152
+      && !CurrentThread->SpecialApcDisable )
+    {
+      KiCheckForKernelApcDelivery(v15);
+    }
+    v17 = CurrentThread;
+LABEL_20:
+    PspWriteTebImpersonationInfo(Thread, v17);
     if ( v11 )
-      ObfDereferenceObjectWithTag(v11, 0x746C6644u);
+      HalPutDmaAdapter(v11);
     if ( v12 )
-      ObfDereferenceObjectWithTag(v12, 0x746C6644u);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v12);
     return 0;
   }
-  v15 = (void *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x746C6644u);
-  v16 = (unsigned __int64)v15;
-  if ( !v15 )
+  v18 = (signed __int64 *)&Process[1].Affinity.Bitmap[5];
+  v19 = (struct _DMA_ADAPTER *)ObFastReferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5]);
+  if ( !v19 )
   {
-    v21 = ImpersonationLevel;
-LABEL_15:
-    ObfReferenceObject((PVOID)v9);
-LABEL_16:
-    v22 = KeGetCurrentThread();
-    --v22->KernelApcDisable;
-    v23 = v9 & 0xFFFFFFFFFFFFFFF8uLL | v21 & 3 | (4LL * (EffectiveOnly & 1));
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&Thread[1].WaitBlockList, 0LL);
-    if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 8) != 0 )
+    v33 = KeGetCurrentThread();
+    --v33->KernelApcDisable;
+    p_Lock = (signed __int64 *)&Process[1].Header.Lock;
+    ExAcquirePushLockSharedEx((ULONG_PTR)p_Lock, 0LL);
+    v19 = (struct _DMA_ADAPTER *)ObFastReferenceObjectLocked(v18);
+    if ( _InterlockedCompareExchange64(p_Lock, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared(p_Lock);
+    KeAbPostRelease((ULONG_PTR)p_Lock);
+    KeLeaveCriticalRegionThread((__int64)v33);
+    if ( !v19 )
     {
-      v12 = Thread[1].WaitBlock[1].Thread;
-      v11 = (void *)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
-      Thread[1].WaitBlock[1].Thread = 0LL;
+      v21 = ImpersonationLevel;
+      goto LABEL_12;
     }
-    else
-    {
-      v11 = 0LL;
-      v12 = 0LL;
-      _InterlockedOr((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 8u);
-    }
-    Thread[1].WaitBlock[1].Thread = v27;
-    *($B2204E9EE8E7DD8EE814BFFAF87CA578 *)((char *)&Thread[1].116 + 4) = ($B2204E9EE8E7DD8EE814BFFAF87CA578)v23;
-    if ( CopyOnOpen )
-      _InterlockedOr((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0x100u);
-    else
-      _InterlockedAnd((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0xFFFFFEFF);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&Thread[1].WaitBlockList, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&Thread[1].WaitBlockList);
-    KeAbPostRelease((ULONG_PTR)&Thread[1].WaitBlockList);
-    KeLeaveCriticalRegionThread((__int64)v22);
-    v14 = v22;
-    goto LABEL_23;
   }
-  v29 = ImpersonationLevel;
-  if ( (int)SeTokenCanImpersonate(v15, (PACCESS_TOKEN)v9) >= 0 )
+  v32 = ImpersonationLevel;
+  if ( (int)SeTokenCanImpersonate(v19, (PACCESS_TOKEN)v9) >= 0 )
   {
-LABEL_10:
-    _m_prefetchw(&Process[1].Affinity.StaticBitmap[5]);
-    v18 = Process[1].Affinity.StaticBitmap[5];
-    if ( (v16 ^ v18) >= 0xF )
+LABEL_11:
+    ObFastDereferenceObject(v18, v19);
+    v16 = v6 == 0;
+    v21 = v32;
+    if ( !v16 )
     {
-LABEL_31:
-      ObfDereferenceObjectWithTag((PVOID)v16, 0x746C6644u);
-    }
-    else
-    {
-      while ( 1 )
+LABEL_13:
+      v22 = KeGetCurrentThread();
+      v23 = v9 & 0xFFFFFFFFFFFFFFF8uLL | v21 & 3 | (4LL * (EffectiveOnly & 1));
+      --v22->KernelApcDisable;
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&Thread[1].WaitBlockList, 0LL);
+      if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 8) != 0 )
       {
-        v19 = v18;
-        v18 = _InterlockedCompareExchange64(
-                (volatile signed __int64 *)&Process[1].Affinity.StaticBitmap[5],
-                v18 + 1,
-                v18);
-        if ( v19 == v18 )
-          break;
-        if ( (v16 ^ v18) >= 0xF )
-          goto LABEL_31;
+        v12 = Thread[1].WaitBlock[1].Thread;
+        v11 = (struct _DMA_ADAPTER *)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
       }
-      if ( ObpTraceFlags )
-        ObpPushStackInfo(v16 - 48, 0, 1u, 0x746C6644u);
+      else
+      {
+        v11 = 0LL;
+        v12 = 0LL;
+        _InterlockedOr((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 8u);
+      }
+      Thread[1].WaitBlock[1].Thread = v30;
+      *($716DEF6A987B9E81ED436DA1BE78D38B *)((char *)&Thread[1].116 + 4) = ($716DEF6A987B9E81ED436DA1BE78D38B)v23;
+      if ( CopyOnOpen )
+        _InterlockedOr((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0x100u);
+      else
+        _InterlockedAnd((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0xFFFFFEFF);
+      v24 = _InterlockedExchangeAdd64((volatile signed __int64 *)&Thread[1].WaitBlockList, 0xFFFFFFFFFFFFFFFFuLL);
+      if ( (v24 & 2) != 0 && (v24 & 4) == 0 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&Thread[1].WaitBlockList);
+      KeAbPostRelease((ULONG_PTR)&Thread[1].WaitBlockList);
+      v16 = v22->KernelApcDisable++ == -1;
+      if ( v16
+        && ($C459BD0D405E8E46662177FB3D0A143F *)v22->ApcState.ApcListHead[0].Flink != &v22->152
+        && !v22->SpecialApcDisable )
+      {
+        KiCheckForKernelApcDelivery(v25);
+      }
+      v17 = v22;
+      goto LABEL_20;
     }
-    v20 = v6 == 0;
-    v21 = v29;
-    if ( !v20 )
-      goto LABEL_16;
-    goto LABEL_15;
+LABEL_12:
+    ObfReferenceObject((PVOID)v9);
+    goto LABEL_13;
   }
-  v25 = 1;
-  v29 = 1;
+  v27 = 1;
+  v32 = 1;
   if ( *(_DWORD *)(v9 + 192) == 2 && *(int *)(v9 + 196) < 1 )
   {
-    v25 = *(_DWORD *)(v9 + 196);
-    v29 = v25;
+    v27 = *(_DWORD *)(v9 + 196);
+    v32 = v27;
   }
-  v26 = SeCopyClientToken(v9, v25, v17, 0, 0LL, (PVOID *)&v28);
-  if ( v26 >= 0 )
+  v28 = SeCopyClientToken(v9, v27, v20, 0, 0LL, (__int64)&v31);
+  if ( v28 >= 0 )
   {
-    v9 = (unsigned __int64)v28;
+    v9 = (unsigned __int64)v31;
     v6 = 1;
-    goto LABEL_10;
+    goto LABEL_11;
   }
-  ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.StaticBitmap[5], v16, 0x746C6644u);
-  return v26;
+  ObFastDereferenceObject(v18, v19);
+  return v28;
 }

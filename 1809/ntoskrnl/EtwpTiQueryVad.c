@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTiQueryVad @ 0x1408BD550
+ * XREFs of EtwpTiQueryVad @ 0x1408BD530
  * Callers:
- *     EtwpTiVadQueryEventWriteCallback @ 0x1408BD6A0 (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1408BD680 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x1401B85D0 (ZwQueryVirtualMemory.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1401B85F0 (ZwQueryVirtualMemory.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

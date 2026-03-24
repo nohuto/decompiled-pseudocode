@@ -1,9 +1,9 @@
 /*
- * XREFs of ZwSetInformationObject @ 0x1401B8CF0
+ * XREFs of ZwSetInformationObject @ 0x1401B8D10
  * Callers:
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
  *     CmpCmdHiveClose @ 0x1405AFA08 (CmpCmdHiveClose.c)
- *     CmpFlushBackupHive @ 0x1407F4070 (CmpFlushBackupHive.c)
+ *     CmpFlushBackupHive @ 0x1407F4050 (CmpFlushBackupHive.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of PopDripsWatchdogTakeAction @ 0x1408797A8
+ * XREFs of PopDripsWatchdogTakeAction @ 0x140879788
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x14086E440 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopDripsWatchdogWorkerRoutine @ 0x140879C40 (PopDripsWatchdogWorkerRoutine.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14086E420 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogWorkerRoutine @ 0x140879C20 (PopDripsWatchdogWorkerRoutine.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x14013B9C0 (VfIsVerifierEnabled.c)
- *     PpmIdlePrevetoWatchdog @ 0x1402D4C70 (PpmIdlePrevetoWatchdog.c)
- *     PopQueueDirectedDripsWork @ 0x1402D6A68 (PopQueueDirectedDripsWork.c)
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x1402D74D0 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopDiagTraceCsDripsWatchdog @ 0x1402DF7A8 (PopDiagTraceCsDripsWatchdog.c)
- *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x1402DF9A4 (PopDiagTraceCsDripsWatchdogPerfTrack.c)
- *     PopDeviceConstraintsEnforced @ 0x1402E7058 (PopDeviceConstraintsEnforced.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140812510 (DbgkWerCaptureLiveKernelDump.c)
- *     PopCheckTestsigningEnabled @ 0x140865EA4 (PopCheckTestsigningEnabled.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140869614 (PopFxDestroyDripsBlockingDeviceList.c)
- *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x1408796AC (PopDripsWatchdogInvokeDeviceCallbacks.c)
- *     PopDripsWatchdogReportDirectedDripsDevice @ 0x14087975C (PopDripsWatchdogReportDirectedDripsDevice.c)
+ *     VfIsVerifierEnabled @ 0x14013B9E0 (VfIsVerifierEnabled.c)
+ *     PpmIdlePrevetoWatchdog @ 0x1402D4D70 (PpmIdlePrevetoWatchdog.c)
+ *     PopQueueDirectedDripsWork @ 0x1402D6B68 (PopQueueDirectedDripsWork.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1402D75D0 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopDiagTraceCsDripsWatchdog @ 0x1402DF8A8 (PopDiagTraceCsDripsWatchdog.c)
+ *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x1402DFAA4 (PopDiagTraceCsDripsWatchdogPerfTrack.c)
+ *     PopDeviceConstraintsEnforced @ 0x1402E7158 (PopDeviceConstraintsEnforced.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x1408124F0 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopCheckTestsigningEnabled @ 0x140865E84 (PopCheckTestsigningEnabled.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x1408695F4 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x14087968C (PopDripsWatchdogInvokeDeviceCallbacks.c)
+ *     PopDripsWatchdogReportDirectedDripsDevice @ 0x14087973C (PopDripsWatchdogReportDirectedDripsDevice.c)
  */
 
 void __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, unsigned int a3)
@@ -58,7 +58,7 @@ void __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, unsigned int 
       _m_prefetchw(&PopDirectedDripsState);
       if ( (_InterlockedOr(&PopDirectedDripsState, 0) & 1) != 0 && !PopDirectedDripsEnableV2 )
       {
-        _InterlockedExchange(&dword_140419184, 0);
+        _InterlockedExchange(&dword_140419164, 0);
         LOBYTE(v24) = 1;
       }
       v7 = v22[0];
@@ -232,10 +232,10 @@ void __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, unsigned int 
     _m_prefetchw(&PopDirectedDripsState);
     if ( (_InterlockedOr(&PopDirectedDripsState, 0) & 1) != 0
       && !PopDirectedDripsEnableV2
-      && _InterlockedExchangeAdd(&dword_140419184, 0) <= 0 )
+      && _InterlockedExchangeAdd(&dword_140419164, 0) <= 0 )
     {
-      v19 = _InterlockedExchangeAdd(&dword_140419190, 0);
-      v20 = _InterlockedExchangeAdd(&dword_14041918C, 0);
+      v19 = _InterlockedExchangeAdd(&dword_140419170, 0);
+      v20 = _InterlockedExchangeAdd(&dword_14041916C, 0);
       if ( v19 )
       {
         if ( v19 != v20 )

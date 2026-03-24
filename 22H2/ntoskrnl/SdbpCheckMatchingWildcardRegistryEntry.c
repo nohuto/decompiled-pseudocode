@@ -1,19 +1,19 @@
 /*
- * XREFs of SdbpCheckMatchingWildcardRegistryEntry @ 0x140A507CC
+ * XREFs of SdbpCheckMatchingWildcardRegistryEntry @ 0x1409654EC
  * Callers:
- *     SdbpCheckMatchingWildcardRegistry @ 0x140A506A0 (SdbpCheckMatchingWildcardRegistry.c)
+ *     SdbpCheckMatchingWildcardRegistry @ 0x1409653C0 (SdbpCheckMatchingWildcardRegistry.c)
  * Callees:
- *     SdbpCheckMatchingRegistryValue @ 0x140A4FB6C (SdbpCheckMatchingRegistryValue.c)
- *     AslRegWildcardFindClose @ 0x140A562A4 (AslRegWildcardFindClose.c)
- *     AslRegWildcardFindFirst @ 0x140A56328 (AslRegWildcardFindFirst.c)
- *     AslRegWildcardFindNext @ 0x140A563E8 (AslRegWildcardFindNext.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x14096489C (SdbpCheckMatchingRegistryValue.c)
+ *     AslRegWildcardFindClose @ 0x1409699B8 (AslRegWildcardFindClose.c)
+ *     AslRegWildcardFindFirst @ 0x140969A3C (AslRegWildcardFindFirst.c)
+ *     AslRegWildcardFindNext @ 0x140969B00 (AslRegWildcardFindNext.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingWildcardRegistryEntry(
         __int64 a1,
         wchar_t *a2,
         int a3,
-        __int16 *a4,
+        unsigned __int16 *a4,
         int a5,
         __int64 a6,
         void *Buf1,

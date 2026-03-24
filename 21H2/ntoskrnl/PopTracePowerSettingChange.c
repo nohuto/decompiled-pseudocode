@@ -1,9 +1,9 @@
 /*
- * XREFs of PopTracePowerSettingChange @ 0x1406DFDF0
+ * XREFs of PopTracePowerSettingChange @ 0x14067E7B0
  * Callers:
  *     <none>
  * Callees:
- *     PopDiagTracePowerSetting @ 0x1406DFE10 (PopDiagTracePowerSetting.c)
+ *     PopDiagTracePowerSetting @ 0x14067E7D0 (PopDiagTracePowerSetting.c)
  */
 
 __int64 __fastcall PopTracePowerSettingChange(LPCGUID SettingGuid, PVOID Value, __int64 ValueLength, PVOID Context)

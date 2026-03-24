@@ -1,28 +1,29 @@
 /*
- * XREFs of MiHandleDriverNonPagedSections @ 0x1407608BC
+ * XREFs of MiHandleDriverNonPagedSections @ 0x14075C910
  * Callers:
- *     MiSessionRemoveImage @ 0x1402DBD88 (MiSessionRemoveImage.c)
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
+ *     MiSessionRemoveImage @ 0x14038AFF8 (MiSessionRemoveImage.c)
+ *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C91F8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiUnlockCodePage @ 0x140256158 (MiUnlockCodePage.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiLockCode @ 0x140312BB0 (MiLockCode.c)
- *     MiDisablePagingOfDriver @ 0x140760730 (MiDisablePagingOfDriver.c)
- *     MiFindDriverNonPagedSections @ 0x140760A2C (MiFindDriverNonPagedSections.c)
- *     MiSnapDriverRange @ 0x140760B20 (MiSnapDriverRange.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiLockCode @ 0x1403235B0 (MiLockCode.c)
+ *     MiUnlockCodePage @ 0x1403A1050 (MiUnlockCodePage.c)
+ *     MiFindDriverNonPagedSections @ 0x14075CA84 (MiFindDriverNonPagedSections.c)
+ *     MiDisablePagingOfDriver @ 0x14075EEA0 (MiDisablePagingOfDriver.c)
+ *     MiSnapDriverRange @ 0x14075EF48 (MiSnapDriverRange.c)
  */
 
-__int64 __fastcall MiHandleDriverNonPagedSections(__int64 a1, int a2, int a3)
+__int64 __fastcall MiHandleDriverNonPagedSections(__int64 a1, char a2, int a3)
 {
   unsigned __int64 v4; // rcx
-  int v7; // edi
-  char v8; // r12
-  char v9; // bl
-  unsigned __int64 v10; // rbx
+  int v7; // esi
+  char v8; // bl
+  unsigned __int64 v9; // rdi
+  char v10; // di
   int v11; // r12d
-  unsigned __int64 v12; // r14
+  unsigned __int64 v12; // r15
   int v13; // eax
-  unsigned __int64 v14; // rsi
+  unsigned __int64 v14; // rbx
   int v16; // ebx
   unsigned __int64 v17[2]; // [rsp+30h] [rbp-10h] BYREF
   int v18; // [rsp+70h] [rbp+30h] BYREF
@@ -37,22 +38,14 @@ __int64 __fastcall MiHandleDriverNonPagedSections(__int64 a1, int a2, int a3)
   v8 = 1;
   if ( a3 == 1 )
   {
-    v9 = 2;
-    if ( (dword_140D051B4 & 1) == 0 && (a2 & 2) == 0 )
+    if ( (dword_140CFB174 & 1) == 0 && (a2 & 2) == 0 )
     {
       if ( (a2 & 1) == 0 )
-      {
         MiDisablePagingOfDriver(a1);
-        v8 = 2;
-      }
-      goto LABEL_7;
+      v8 = !(a2 & 1) + 1;
+      goto LABEL_8;
     }
-    if ( (a2 & 1) != 0 )
-    {
-      v9 = 1;
-      if ( (a2 & 0x40000000) != 0 )
-        v9 = 5;
-    }
+    v10 = ((a2 & 1) == 0) + 1;
     v11 = 0;
     v12 = 0LL;
     while ( 1 )
@@ -73,7 +66,7 @@ LABEL_17:
       }
       else
       {
-        v7 = MiLockCode(a1, v19, v17[0], v9);
+        v7 = MiLockCode(a1, v19, v17[0], v10);
         if ( v7 >= 0 )
           goto LABEL_17;
         v11 = 0;
@@ -81,7 +74,7 @@ LABEL_17:
       }
     }
   }
-  if ( (dword_140D051B4 & 1) != 0 )
+  if ( (dword_140CFB174 & 1) != 0 )
   {
     v16 = 0;
     do
@@ -93,9 +86,9 @@ LABEL_17:
     while ( v16 );
     return 0LL;
   }
-LABEL_7:
+LABEL_8:
   v18 = 0;
-  v10 = 0LL;
+  v9 = 0LL;
   while ( (int)MiFindDriverNonPagedSections(a1, &v18, &v19, v17) >= 0 )
   {
     if ( a3 == 1 )
@@ -103,14 +96,14 @@ LABEL_7:
       v7 = MiLockCode(a1, v19, v17[0], v8);
       if ( v7 < 0 )
       {
-        v10 = v19;
+        v9 = v19;
         a3 = 0;
         v18 = 0;
       }
     }
     else
     {
-      if ( v19 == v10 )
+      if ( v19 == v9 )
         return (unsigned int)v7;
       MiUnlockCodePage(v19, v17[0], 0);
     }

@@ -1,24 +1,26 @@
 /*
- * XREFs of MiProtectLargeKernelHalRange @ 0x14082B4E0
+ * XREFs of MiProtectLargeKernelHalRange @ 0x1407A1470
  * Callers:
  *     <none>
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiGetPdeAddress @ 0x14027FCC4 (MiGetPdeAddress.c)
- *     MiInitializeTbFlushList @ 0x14027FCE4 (MiInitializeTbFlushList.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiMakeValidPte @ 0x1402CBD10 (MiMakeValidPte.c)
- *     MiInsertTbFlushEntry @ 0x1402CF280 (MiInsertTbFlushEntry.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     MiGetPteAddress @ 0x140313C70 (MiGetPteAddress.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
- *     MiRewritePteWithLockBit @ 0x1403C2C58 (MiRewritePteWithLockBit.c)
- *     MiUnlockPageTable @ 0x1403C2CA0 (MiUnlockPageTable.c)
- *     MiLockPageTable @ 0x1403C2CB8 (MiLockPageTable.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiComputeDriverProtection @ 0x14082BA10 (MiComputeDriverProtection.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiGetPdeAddress @ 0x14026DF3C (MiGetPdeAddress.c)
+ *     MiInitializeTbFlushList @ 0x14026DF5C (MiInitializeTbFlushList.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     MiReadPteShadow @ 0x140305A30 (MiReadPteShadow.c)
+ *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
+ *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiLockPageTable @ 0x14038216C (MiLockPageTable.c)
+ *     MiRewritePteWithLockBit @ 0x1403B6C18 (MiRewritePteWithLockBit.c)
+ *     MiUnlockPageTable @ 0x1403B6C60 (MiUnlockPageTable.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiComputeDriverProtection @ 0x1407A1990 (MiComputeDriverProtection.c)
  */
 
 __int64 __fastcall MiProtectLargeKernelHalRange(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)
@@ -27,53 +29,58 @@ __int64 __fastcall MiProtectLargeKernelHalRange(unsigned __int64 a1, unsigned __
   unsigned __int64 PteAddress; // rdi
   unsigned __int64 PdeAddress; // r13
   char *AnyMultiplexedVm; // rsi
-  unsigned __int8 v10; // r12
-  unsigned __int64 v11; // rbx
-  unsigned int v12; // r14d
-  unsigned __int64 v13; // rax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  _DWORD *v12; // r9
+  unsigned __int64 v13; // rbx
+  BOOL v14; // r15d
+  unsigned int v15; // r14d
+  unsigned __int64 PteShadow; // rax
   unsigned __int64 ValidPte; // rax
-  __int64 v15; // r9
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // [rsp+20h] [rbp-118h] BYREF
-  _BYTE v20[192]; // [rsp+30h] [rbp-108h] BYREF
+  _KPROCESS *v18; // rdx
+  unsigned __int8 v20; // [rsp+20h] [rbp-118h]
+  unsigned __int64 v21; // [rsp+28h] [rbp-110h] BYREF
+  _BYTE v22[192]; // [rsp+30h] [rbp-108h] BYREF
 
-  memset(v20, 0, 0xB8uLL);
-  MiInitializeTbFlushList((__int64)v20, 0, 20);
+  memset(v22, 0, 0xB8uLL);
+  MiInitializeTbFlushList((__int64)v22, 0, 20);
   v6 = MiComputeDriverProtection(0LL, a3);
   PteAddress = 0LL;
   PdeAddress = MiGetPdeAddress(a2);
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-  v10 = MiLockWorkingSetShared((__int64)AnyMultiplexedVm);
-  v11 = MiGetPdeAddress(a1);
-  if ( v11 < PdeAddress )
+  v20 = MiLockWorkingSetShared((__int64)AnyMultiplexedVm, v10, v11, v12);
+  v13 = MiGetPdeAddress(a1);
+  if ( v13 < PdeAddress )
   {
-    v12 = v6 | 0xA4000000;
+    v14 = MiPteInShadowRange((unsigned __int64)&v21);
+    v15 = v6 | 0xA4000000;
     while ( 1 )
     {
       if ( !PteAddress )
-        goto LABEL_7;
-      if ( (v11 & 0xFFF) == 0 )
+        goto LABEL_9;
+      if ( (v13 & 0xFFF) == 0 )
         break;
 LABEL_5:
-      v19 = MI_READ_PTE_LOCK_FREE(v11);
-      v13 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v19);
-      ValidPte = MiMakeValidPte(v11, (v13 >> 12) & 0xFFFFFFFFFFLL, v12);
-      MiRewritePteWithLockBit((__int64)AnyMultiplexedVm, (volatile __int64 *)v11, ValidPte, v15);
-      v11 += 8LL;
-      if ( v11 >= PdeAddress )
-        goto LABEL_6;
+      PteShadow = MI_READ_PTE_LOCK_FREE(v13);
+      v21 = PteShadow;
+      if ( v14 )
+        PteShadow = MiReadPteShadow((unsigned __int64)&v21, PteShadow);
+      ValidPte = MiMakeValidPte(v13, (PteShadow >> 12) & 0xFFFFFFFFFLL, v15);
+      MiRewritePteWithLockBit((__int64)AnyMultiplexedVm, (volatile __int64 *)v13, ValidPte);
+      v13 += 8LL;
+      if ( v13 >= PdeAddress )
+        goto LABEL_8;
     }
     MiUnlockPageTable((__int64)AnyMultiplexedVm, PteAddress);
-LABEL_7:
-    PteAddress = MiGetPteAddress(v11);
-    MiLockPageTable((__int64)AnyMultiplexedVm, PteAddress, v17, v18);
+LABEL_9:
+    PteAddress = MiGetPteAddress(v13);
+    MiLockPageTable((__int64)AnyMultiplexedVm, PteAddress);
     goto LABEL_5;
   }
-LABEL_6:
+LABEL_8:
   MiUnlockPageTable((__int64)AnyMultiplexedVm, PteAddress);
-  MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v10);
-  MiInsertTbFlushEntry((__int64)v20, a1, (a2 - a1) >> 21, 1);
-  MiFlushTbList((__int64)v20);
+  MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v20);
+  MiInsertTbFlushEntry((__int64)v22, a1, (a2 - a1) >> 21, 1);
+  MiFlushTbList((__int64)v22, v18);
   return 0LL;
 }

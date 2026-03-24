@@ -1,9 +1,9 @@
 /*
- * XREFs of XmCallOp @ 0x1403B84B0
+ * XREFs of XmCallOp @ 0x1403960B0
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmPushStack @ 0x1403B8F30 (XmPushStack.c)
+ *     XmPushStack @ 0x140396668 (XmPushStack.c)
  */
 
 __int64 __fastcall XmCallOp(__int64 a1)

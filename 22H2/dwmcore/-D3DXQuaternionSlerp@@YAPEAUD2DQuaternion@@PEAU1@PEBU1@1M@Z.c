@@ -1,11 +1,11 @@
 /*
- * XREFs of ?D3DXQuaternionSlerp@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1M@Z @ 0x18027E89C
+ * XREFs of ?D3DXQuaternionSlerp@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1M@Z @ 0x18021DB54
  * Callers:
- *     ?Slerp@CExpressionValueStack@@QEAAJXZ @ 0x180261AA8 (-Slerp@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Slerp@CExpressionValueStack@@QEAAJXZ @ 0x180200E98 (-Slerp@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
- *     atan2f_0 @ 0x18011B884 (atan2f_0.c)
- *     sinf_0 @ 0x18011B944 (sinf_0.c)
- *     sqrtf_0 @ 0x18011B95C (sqrtf_0.c)
+ *     atan2f_0 @ 0x1800F3F6F (atan2f_0.c)
+ *     sinf_0 @ 0x1800F3FCF (sinf_0.c)
+ *     sqrtf_0 @ 0x1800F3FDB (sqrtf_0.c)
  */
 
 struct D2DQuaternion *__fastcall D3DXQuaternionSlerp(

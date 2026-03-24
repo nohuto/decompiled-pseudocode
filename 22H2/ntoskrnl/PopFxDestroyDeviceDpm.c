@@ -1,24 +1,25 @@
 /*
- * XREFs of PopFxDestroyDeviceDpm @ 0x140589CCC
+ * XREFs of PopFxDestroyDeviceDpm @ 0x1403CCF18
  * Callers:
- *     PoFxUnregisterDevice @ 0x140984C00 (PoFxUnregisterDevice.c)
- *     PopFxUnregisterDevice @ 0x140985E74 (PopFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x1407B495C (PopFxUnregisterDevice.c)
+ *     PoFxUnregisterDevice @ 0x1407D5080 (PoFxUnregisterDevice.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     PopFxDestroyDeviceCommon @ 0x140589C70 (PopFxDestroyDeviceCommon.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     PopFxDestroyDeviceCommon @ 0x1403CD034 (PopFxDestroyDeviceCommon.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PopFxDestroyDeviceDpm(__int64 a1, __int64 a2)
+__int64 __fastcall PopFxDestroyDeviceDpm(__int64 a1, __int64 a2)
 {
   void *v4; // rcx
   void *v5; // rcx
   IRP *v6; // rcx
   void *v7; // rcx
-  _QWORD *v8; // rcx
-  __int64 i; // rsi
+  void *v8; // rcx
+  __int64 v9; // rsi
   __int64 v10; // rbp
+  void *v11; // rcx
 
   v4 = *(void **)(a2 + 104);
   if ( v4 )
@@ -34,18 +35,25 @@ void __fastcall PopFxDestroyDeviceDpm(__int64 a1, __int64 a2)
   v7 = *(void **)(a2 + 1200);
   if ( v7 )
     ExFreePoolWithTag(v7, 0x4D584650u);
-  v8 = *(_QWORD **)(a2 + 832);
+  v8 = *(void **)(a2 + 832);
   if ( v8 )
   {
-    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a2 + 828); i = (unsigned int)(i + 1) )
+    v9 = 0LL;
+    if ( *(_DWORD *)(a2 + 828) )
     {
-      v10 = v8[i];
-      if ( *(_QWORD *)(v10 + 424) )
+      do
       {
-        ExFreePoolWithTag(*(PVOID *)(v10 + 424), 0x4D584650u);
-        *(_QWORD *)(v10 + 424) = 0LL;
-        v8 = *(_QWORD **)(a2 + 832);
+        v10 = *(_QWORD *)(*(_QWORD *)(a2 + 832) + 8 * v9);
+        v11 = *(void **)(v10 + 424);
+        if ( v11 )
+        {
+          ExFreePoolWithTag(v11, 0x4D584650u);
+          *(_QWORD *)(v10 + 424) = 0LL;
+        }
+        v9 = (unsigned int)(v9 + 1);
       }
+      while ( (unsigned int)v9 < *(_DWORD *)(a2 + 828) );
+      v8 = *(void **)(a2 + 832);
     }
     ExFreePoolWithTag(v8, 0x4D584650u);
     *(_QWORD *)(a2 + 832) = 0LL;
@@ -55,5 +63,5 @@ void __fastcall PopFxDestroyDeviceDpm(__int64 a1, __int64 a2)
   *(_QWORD *)(a2 + 72) = 0LL;
   if ( a1 )
     _InterlockedAnd((volatile signed __int32 *)(a1 + 296), 0xFFFFFFBF);
-  PopFxDestroyDeviceCommon((PVOID *)a2, 1);
+  return PopFxDestroyDeviceCommon((PVOID)a2);
 }

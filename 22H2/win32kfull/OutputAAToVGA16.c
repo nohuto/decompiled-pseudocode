@@ -1,5 +1,5 @@
 /*
- * XREFs of OutputAAToVGA16 @ 0x1C0259350
+ * XREFs of OutputAAToVGA16 @ 0x1C02651A0
  * Callers:
  *     <none>
  * Callees:
@@ -28,7 +28,7 @@ char __fastcall OutputAAToVGA16(
   int v19; // ecx
   int v20; // r8d
   unsigned __int64 v21; // r8
-  char v22; // al
+  char v22; // cl
   __int128 v24; // [rsp+0h] [rbp-38h]
 
   v10 = a6;
@@ -39,7 +39,7 @@ char __fastcall OutputAAToVGA16(
   {
     v12 = a2 + 4;
     if ( a2[7] )
-      *a4 = VGA16Xlate[((HIDWORD(v24) & (*(_DWORD *)(a5 + 4LL * *v12) - (unsigned int)*a6) | (unsigned int)v13 & (*(_DWORD *)(a5 + 4LL * v12[1] + 1024) - a6[1]) | (unsigned __int64)(HIDWORD(v13) & (*(_DWORD *)(a5 + 4LL * v12[2] + 2048) - (unsigned int)a6[2]))) ^ 0x70000) >> 16] | *a4 & 0xF0;
+      *a4 = *a4 & 0xF0 | VGA16Xlate[((HIDWORD(v24) & (*(_DWORD *)(a5 + 4LL * *v12) - (unsigned int)*a6) | (unsigned int)v13 & (*(_DWORD *)(a5 + 4LL * v12[1] + 1024) - a6[1]) | (unsigned __int64)(HIDWORD(v13) & (*(_DWORD *)(a5 + 4LL * v12[2] + 2048) - (unsigned int)a6[2]))) ^ 0x70000) >> 16];
     ++a4;
     v10 = a6 + 3;
     if ( (unsigned __int64)(a6 + 3) >= a7 )
@@ -89,7 +89,7 @@ LABEL_23:
                                                                                       - (unsigned int)v10[1]) | (unsigned __int64)(DWORD2(v24) & (unsigned int)(v20 - v19))) ^ 0x700000;
       v22 = *a4 & 0xF;
     }
-    LOBYTE(v14) = VGA16Xlate[v21 >> 16] | v22;
+    LOBYTE(v14) = v22 | VGA16Xlate[v21 >> 16];
     goto LABEL_23;
   }
   if ( (unsigned __int64)v15 < a3 )
@@ -115,8 +115,7 @@ LABEL_23:
 LABEL_12:
   if ( HIBYTE(a9) && v15[3] )
   {
-    LOBYTE(v14) = VGA16Xlate[(((unsigned int)v24 & (*(_DWORD *)(a5 + 4LL * *v15) - *v10) | v16 & (*(_DWORD *)(a5 + 4LL * v15[1] + 1024)
-                                                                                                - (unsigned int)v10[1]) | (unsigned __int64)(DWORD2(v24) & (*(_DWORD *)(a5 + 4LL * v15[2] + 2048) - (unsigned int)v10[2]))) ^ 0x700000) >> 16] | *a4 & 0xF;
+    LOBYTE(v14) = *a4 & 0xF | VGA16Xlate[(((unsigned int)v24 & (*(_DWORD *)(a5 + 4LL * *v15) - *v10) | v16 & (*(_DWORD *)(a5 + 4LL * v15[1] + 1024) - (unsigned int)v10[1]) | (unsigned __int64)(DWORD2(v24) & (*(_DWORD *)(a5 + 4LL * v15[2] + 2048) - (unsigned int)v10[2]))) ^ 0x700000) >> 16];
     *a4 = v14;
   }
   return v14;

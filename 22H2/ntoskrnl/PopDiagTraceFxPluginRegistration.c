@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFxPluginRegistration @ 0x140850860
+ * XREFs of PopDiagTraceFxPluginRegistration @ 0x1408EA8BC
  * Callers:
- *     PopFxRegisterPluginEx @ 0x1403A85E8 (PopFxRegisterPluginEx.c)
- *     PopDiagTraceFxRundown @ 0x140588968 (PopDiagTraceFxRundown.c)
+ *     PopDiagTraceFxRundown @ 0x14034D750 (PopDiagTraceFxRundown.c)
+ *     PopFxRegisterPluginEx @ 0x14056BE38 (PopFxRegisterPluginEx.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxPluginRegistration(__int64 a1, __int64 a2, char a3)

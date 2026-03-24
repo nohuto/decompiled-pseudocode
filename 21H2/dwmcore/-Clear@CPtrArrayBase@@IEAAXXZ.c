@@ -1,12 +1,11 @@
 /*
- * XREFs of ?Clear@CPtrArrayBase@@IEAAXXZ @ 0x1800DE2D4
+ * XREFs of ?Clear@CPtrArrayBase@@IEAAXXZ @ 0x1800CB708
  * Callers:
- *     ?RemoveAllChildren@CVisual@@IEAAXXZ @ 0x1800474A4 (-RemoveAllChildren@CVisual@@IEAAXXZ.c)
- *     ??1CVisual@@MEAA@XZ @ 0x18004A90C (--1CVisual@@MEAA@XZ.c)
- *     ??1CWindowNode@@MEAA@XZ @ 0x180061494 (--1CWindowNode@@MEAA@XZ.c)
- *     ??1CThreadContext@@AEAA@XZ @ 0x180261A1C (--1CThreadContext@@AEAA@XZ.c)
+ *     ??_GCWindowAssociationMapEntry@@QEAAPEAXI@Z @ 0x180035560 (--_GCWindowAssociationMapEntry@@QEAAPEAXI@Z.c)
+ *     ??1CVisual@@MEAA@XZ @ 0x1800A047C (--1CVisual@@MEAA@XZ.c)
+ *     ??1CThreadContext@@AEAA@XZ @ 0x180210B30 (--1CThreadContext@@AEAA@XZ.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CPtrArrayBase::Clear(CPtrArrayBase *this)
@@ -15,6 +14,6 @@ void __fastcall CPtrArrayBase::Clear(CPtrArrayBase *this)
 
   v2 = *(_QWORD *)this;
   if ( (v2 & 2) != 0 )
-    DefaultHeap::Free((void *)(v2 & 0xFFFFFFFFFFFFFFFCuLL));
+    operator delete((void *)(v2 & 0xFFFFFFFFFFFFFFFCuLL));
   *(_QWORD *)this = 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetNextItemSafe@CDataBlockReader@@QEAAJPEAIPEAPEAX0@Z @ 0x1800BB98C
+ * XREFs of ?GetNextItemSafe@CDataBlockReader@@QEAAJPEAIPEAPEAX0@Z @ 0x180037E44
  * Callers:
- *     ?CheckPrimitives@CRenderData@@AEAAJXZ @ 0x1800BB528 (-CheckPrimitives@CRenderData@@AEAAJXZ.c)
- *     ?GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z @ 0x1800BB664 (-GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z.c)
+ *     ?CheckPrimitiveCount@CRenderData@@AEAAJXZ @ 0x180037A20 (-CheckPrimitiveCount@CRenderData@@AEAAJXZ.c)
+ *     ?GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z @ 0x180037B18 (-GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z @ 0x1800BB9E0 (-GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z.c)
+ *     ?GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z @ 0x180037E98 (-GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z.c)
  */
 
 __int64 __fastcall CDataBlockReader::GetNextItemSafe(
@@ -17,7 +17,7 @@ __int64 __fastcall CDataBlockReader::GetNextItemSafe(
   void **v7; // r8
   unsigned int *v8; // r9
   unsigned int NextItemSafe; // r10d
-  __int64 v10; // rdx
+  __int64 v11; // rdx
   int v12; // eax
   __int64 v13; // rdx
 
@@ -25,12 +25,12 @@ __int64 __fastcall CDataBlockReader::GetNextItemSafe(
   NextItemSafe = CDataStreamReader::GetNextItemSafe((CDataBlockReader *)((char *)this + 16), a2, a3, a4);
   if ( NextItemSafe == 1 )
   {
-    v10 = **((_QWORD **)this + 1);
-    if ( v10 != *(_QWORD *)this )
+    v11 = **((_QWORD **)this + 1);
+    if ( v11 != *(_QWORD *)this )
     {
-      *((_QWORD *)this + 1) = v10;
-      v12 = *(_DWORD *)(v10 + 20);
-      v13 = v10 + 24;
+      *((_QWORD *)this + 1) = v11;
+      v12 = *(_DWORD *)(v11 + 20);
+      v13 = v11 + 24;
       *(_QWORD *)v4 = v13;
       *((_QWORD *)v4 + 1) = v13;
       *((_DWORD *)v4 + 4) = v12;

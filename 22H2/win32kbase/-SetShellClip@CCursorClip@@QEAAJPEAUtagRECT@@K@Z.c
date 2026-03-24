@@ -1,36 +1,36 @@
 /*
- * XREFs of ?SetShellClip@CCursorClip@@QEAAJPEAUtagRECT@@K@Z @ 0x1C01DC2B4
+ * XREFs of ?SetShellClip@CCursorClip@@QEAAJPEAUtagRECT@@K@Z @ 0x1C01A2C34
  * Callers:
- *     NtSetShellCursorState @ 0x1C0142BE0 (NtSetShellCursorState.c)
+ *     NtSetShellCursorState @ 0x1C012D180 (NtSetShellCursorState.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00329E8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C009C3B0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?SetShellClip@Mouse@InputTraceLogging@@SAXPEAUtagRECT@@K@Z @ 0x1C01DC368 (-SetShellClip@Mouse@InputTraceLogging@@SAXPEAUtagRECT@@K@Z.c)
- *     SendShellClipChanged @ 0x1C01E8B00 (SendShellClipChanged.c)
- *     ApiSetEditionInternalSetCursorPos @ 0x1C020688C (ApiSetEditionInternalSetCursorPos.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C005B5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005DD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ApiSetEditionInternalSetCursorPos @ 0x1C00B1B74 (ApiSetEditionInternalSetCursorPos.c)
+ *     ?SetShellClip@Mouse@InputTraceLogging@@SAXPEAUtagRECT@@K@Z @ 0x1C01A2CD8 (-SetShellClip@Mouse@InputTraceLogging@@SAXPEAUtagRECT@@K@Z.c)
+ *     SendShellClipChanged @ 0x1C01AEE20 (SendShellClipChanged.c)
  */
 
 __int64 __fastcall CCursorClip::SetShellClip(CCursorClip *this, struct tagRECT *a2, unsigned int a3)
 {
-  PVOID Reserved; // rdi
+  CCursorClip *v3; // rdi
   CPushLock *v6; // rbx
-  char *v7; // rdx
+  __int64 v7; // rcx
   int v8; // edi
 
-  Reserved = WPP_MAIN_CB.Reserved;
-  v6 = (CPushLock *)((char *)WPP_MAIN_CB.Reserved + 32);
-  CPushLock::AcquireLockExclusive((CPushLock *)((char *)WPP_MAIN_CB.Reserved + 32));
-  v7 = (char *)*((_QWORD *)Reserved + 33);
+  v3 = gpCursorClip;
+  v6 = (CCursorClip *)((char *)gpCursorClip + 32);
+  CPushLock::AcquireLockExclusive((CCursorClip *)((char *)gpCursorClip + 32));
+  v7 = *((_QWORD *)v3 + 10);
   if ( v7 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v7);
-  *((_QWORD *)Reserved + 33) = a2;
-  *((_DWORD *)Reserved + 68) = a3;
+    Win32FreePool(v7);
+  *((_QWORD *)v3 + 10) = a2;
+  *((_DWORD *)v3 + 22) = a3;
   InputTraceLogging::Mouse::SetShellClip(a2, a3);
-  v8 = *((_DWORD *)Reserved + 68);
+  v8 = *((_DWORD *)v3 + 22);
   CPushLock::ReleaseLock(v6);
   SendShellClipChanged(a2);
   if ( v8 )
-    ApiSetEditionInternalSetCursorPos(*((unsigned int *)gpsi + 1240), *((unsigned int *)gpsi + 1241), 2LL);
+    ApiSetEditionInternalSetCursorPos(*((_DWORD *)gpsi + 1240), *((_DWORD *)gpsi + 1241), 2u);
   return 0LL;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of VslTestRoutine @ 0x14054CCC0
+ * XREFs of VslTestRoutine @ 0x1404FD7C0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 VslTestRoutine()
+NTSTATUS VslTestRoutine()
 {
   _BYTE v1[112]; // [rsp+20h] [rbp-88h] BYREF
 

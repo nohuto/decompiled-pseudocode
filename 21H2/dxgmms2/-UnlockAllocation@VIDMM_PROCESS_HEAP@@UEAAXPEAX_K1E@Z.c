@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UnlockAllocation@VIDMM_PROCESS_HEAP@@UEAAXPEAX_K1E@Z @ 0x1C00F2A90
+ * XREFs of ?UnlockAllocation@VIDMM_PROCESS_HEAP@@UEAAXPEAX_K1E@Z @ 0x1C00CE050
  * Callers:
  *     <none>
  * Callees:
- *     ?VidMmiUnlockAllocation@@YAXPEAU_VIDMM_MDL@@@Z @ 0x1C00A672C (-VidMmiUnlockAllocation@@YAXPEAU_VIDMM_MDL@@@Z.c)
+ *     ?VidMmiUnlockAllocation@@YAXPEAU_VIDMM_MDL@@@Z @ 0x1C006332C (-VidMmiUnlockAllocation@@YAXPEAU_VIDMM_MDL@@@Z.c)
  */
 
 void __fastcall VIDMM_PROCESS_HEAP::UnlockAllocation(

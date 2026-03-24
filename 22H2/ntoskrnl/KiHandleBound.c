@@ -1,12 +1,12 @@
 /*
- * XREFs of KiHandleBound @ 0x14056CD60
+ * XREFs of KiHandleBound @ 0x140514AB0
  * Callers:
- *     KiBoundFault @ 0x14042CC00 (KiBoundFault.c)
+ *     KiBoundFault @ 0x14040AFC0 (KiBoundFault.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140214F10 (ExReferenceCallBackBlock.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14025A1B0 (ExReferenceCallBackBlock.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 KiHandleBound()
@@ -35,7 +35,7 @@ __int64 KiHandleBound()
       if ( v5 == v4 )
         goto LABEL_6;
     }
-    ExReleaseRundownProtection_0(v3);
+    ExReleaseRundownProtection(v3);
   }
 LABEL_6:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());

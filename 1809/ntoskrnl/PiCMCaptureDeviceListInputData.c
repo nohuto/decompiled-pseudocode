@@ -1,11 +1,11 @@
 /*
- * XREFs of PiCMCaptureDeviceListInputData @ 0x1406BBA78
+ * XREFs of PiCMCaptureDeviceListInputData @ 0x1406BBA58
  * Callers:
- *     PiCMGetDeviceIdList @ 0x1406BB694 (PiCMGetDeviceIdList.c)
+ *     PiCMGetDeviceIdList @ 0x1406BB674 (PiCMGetDeviceIdList.c)
  * Callees:
  *     PiControlFreeUserModeCallersBuffer @ 0x140006AF0 (PiControlFreeUserModeCallersBuffer.c)
  *     PiControlMakeUserModeCallersCopy @ 0x140597F3C (PiControlMakeUserModeCallersCopy.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureDeviceListInputData(_DWORD *a1, unsigned int a2, int a3, __int64 a4)

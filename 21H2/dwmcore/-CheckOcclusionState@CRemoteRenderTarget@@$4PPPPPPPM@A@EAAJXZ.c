@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CheckOcclusionState@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x180105A70
+ * XREFs of ?CheckOcclusionState@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x1800F4D40
  * Callers:
  *     <none>
  * Callees:

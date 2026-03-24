@@ -1,13 +1,13 @@
 /*
- * XREFs of DispatchNotificationWorker @ 0x1C0004DA0
+ * XREFs of DispatchNotificationWorker @ 0x1C005C740
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0E0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C0017F40 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DispatchNotificationWorker(ULONG_PTR BugCheckParameter4)
+char __fastcall DispatchNotificationWorker(ULONG_PTR a1)
 {
   KIRQL v2; // al
   void (__fastcall *v3)(__int64, _QWORD); // r14
@@ -17,11 +17,11 @@ __int64 __fastcall DispatchNotificationWorker(ULONG_PTR BugCheckParameter4)
   void **v7; // rax
 
   v2 = KeAcquireSpinLockRaiseToDpc(&NotifyHandlerLock);
-  v3 = *(void (__fastcall **)(__int64, _QWORD))(BugCheckParameter4 + 392);
-  v4 = *(_QWORD *)(BugCheckParameter4 + 400);
+  v3 = *(void (__fastcall **)(__int64, _QWORD))(a1 + 352);
+  v4 = *(_QWORD *)(a1 + 360);
   KeReleaseSpinLock(&NotifyHandlerLock, v2);
-  KeWaitForSingleObject((PVOID)(BugCheckParameter4 + 904), Executive, 0, 0, 0LL);
-  v5 = (void **)(BugCheckParameter4 + 864);
+  KeWaitForSingleObject((PVOID)(a1 + 864), Executive, 0, 0, 0LL);
+  v5 = (void **)(a1 + 824);
   while ( 1 )
   {
     v6 = (void ***)*v5;
@@ -31,13 +31,13 @@ __int64 __fastcall DispatchNotificationWorker(ULONG_PTR BugCheckParameter4)
       __fastfail(3u);
     *v5 = v7;
     v7[1] = v5;
-    KeSetEvent((PRKEVENT)(BugCheckParameter4 + 904), 0, 0);
+    KeSetEvent((PRKEVENT)(a1 + 864), 0, 0);
     if ( v3 )
       v3(v4, *((unsigned int *)v6 + 4));
     ExFreePoolWithTag(v6, 0x4D706341u);
-    KeWaitForSingleObject((PVOID)(BugCheckParameter4 + 904), Executive, 0, 0, 0LL);
+    KeWaitForSingleObject((PVOID)(a1 + 864), Executive, 0, 0, 0LL);
   }
-  *(_BYTE *)(BugCheckParameter4 + 936) = 0;
-  KeSetEvent((PRKEVENT)(BugCheckParameter4 + 904), 0, 0);
-  return ACPIInitDereferenceDeviceExtensionUnlocked(BugCheckParameter4);
+  *(_BYTE *)(a1 + 896) = 0;
+  KeSetEvent((PRKEVENT)(a1 + 864), 0, 0);
+  return ACPIInitDereferenceDeviceExtensionUnlocked(a1);
 }

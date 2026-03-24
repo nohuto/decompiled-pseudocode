@@ -1,19 +1,20 @@
 /*
- * XREFs of PrintObject @ 0x1C004E4E8
+ * XREFs of PrintObject @ 0x1C0066934
  * Callers:
- *     ReadObject @ 0x1C0005BEE (ReadObject.c)
- *     PrintObject @ 0x1C004E4E8 (PrintObject.c)
- *     AccFieldUnit @ 0x1C0051650 (AccFieldUnit.c)
- *     AsyncEvalObject @ 0x1C00544F0 (AsyncEvalObject.c)
- *     NestAsyncEvalObject @ 0x1C005498C (NestAsyncEvalObject.c)
- *     ParseArgObj @ 0x1C005A600 (ParseArgObj.c)
- *     ParseLocalObj @ 0x1C005B80C (ParseLocalObj.c)
- *     ParseTerm @ 0x1C005C7B0 (ParseTerm.c)
+ *     AsyncEvalObject @ 0x1C0005890 (AsyncEvalObject.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseScope @ 0x1C0008890 (ParseScope.c)
+ *     AccFieldUnit @ 0x1C000A0B0 (AccFieldUnit.c)
+ *     ReadObject @ 0x1C000B4C0 (ReadObject.c)
+ *     ParseArgObj @ 0x1C00227E4 (ParseArgObj.c)
+ *     ParseLocalObj @ 0x1C00232CC (ParseLocalObj.c)
+ *     PrintObject @ 0x1C0066934 (PrintObject.c)
+ *     NestAsyncEvalObject @ 0x1C00683FC (NestAsyncEvalObject.c)
  * Callees:
- *     GetObjectTypeName @ 0x1C004BD70 (GetObjectTypeName.c)
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
- *     PrintBuffData @ 0x1C004E428 (PrintBuffData.c)
- *     PrintObject @ 0x1C004E4E8 (PrintObject.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     PrintBuffData @ 0x1C0066874 (PrintBuffData.c)
+ *     PrintObject @ 0x1C0066934 (PrintObject.c)
  */
 
 ULONG __fastcall PrintObject(__int64 a1)
@@ -39,8 +40,9 @@ ULONG __fastcall PrintObject(__int64 a1)
       {
         ConPrintf("\n\t");
         PrintObject(*(_QWORD *)(a1 + 32) + 8 * (5LL * v5++ + 1));
-        if ( v5 < **(_DWORD **)(a1 + 32) )
-          ConPrintf(",");
+        if ( v5 >= **(_DWORD **)(a1 + 32) )
+          break;
+        ConPrintf(",");
       }
       return ConPrintf("}");
     default:

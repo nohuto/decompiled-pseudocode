@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmInitCoreParkingPolicy @ 0x140B747BC
+ * XREFs of PpmInitCoreParkingPolicy @ 0x140A72A44
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -12,32 +12,28 @@ _BYTE *PpmInitCoreParkingPolicy()
   _BYTE *result; // rax
 
   v0 = 2LL;
-  byte_140C39554 = 100;
-  byte_140C3970C = 100;
-  result = &unk_140C3970E;
+  byte_140C1EEF4 = 100;
+  byte_140C1F9A4 = 100;
+  result = &unk_140C1F9A6;
   do
   {
-    *(result - 440) = 100;
+    *(result - 2736) = 100;
     *result = 100;
-    *(result - 461) = 0;
+    *(result - 2757) = 0;
     *(result - 21) = 0;
     ++result;
     --v0;
   }
   while ( v0 );
-  word_140C39548 = 0;
-  word_140C39700 = 0;
-  dword_140C39550 = 1;
-  dword_140C39708 = 1;
-  dword_140C3954C = 1;
-  dword_140C39704 = 1;
-  word_140C39544 = 24902;
-  word_140C396FC = 24902;
-  byte_140C39546 = 20;
-  byte_140C396FE = 20;
-  word_140C3967C = 0;
-  word_140C39834 = 0;
-  byte_140C3967E = 0;
-  byte_140C39836 = 0;
+  word_140C1EEE8 = 0;
+  word_140C1F998 = 0;
+  dword_140C1EEF0 = 1;
+  dword_140C1F9A0 = 1;
+  dword_140C1EEEC = 1;
+  dword_140C1F99C = 1;
+  word_140C1EEE4 = 24902;
+  word_140C1F994 = 24902;
+  byte_140C1EEE6 = 20;
+  byte_140C1F996 = 20;
   return result;
 }

@@ -1,148 +1,149 @@
 /*
- * XREFs of MiProcessLoaderEntry @ 0x1402D8C20
+ * XREFs of MiProcessLoaderEntry @ 0x140372360
  * Callers:
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
- *     MiConstructLoaderEntry @ 0x14075F4A4 (MiConstructLoaderEntry.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x14075DDD0 (MiConstructLoaderEntry.c)
  * Callees:
- *     RtlRemoveInvertedFunctionTable @ 0x140259480 (RtlRemoveInvertedFunctionTable.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     RtlInsertInvertedFunctionTable @ 0x1402D8ABC (RtlInsertInvertedFunctionTable.c)
- *     MiReleaseResourceLite @ 0x1402D8E00 (MiReleaseResourceLite.c)
- *     MmLockLoadedModuleListExclusive @ 0x1402D8E9C (MmLockLoadedModuleListExclusive.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlInsertInvertedFunctionTable @ 0x1403721F8 (RtlInsertInvertedFunctionTable.c)
+ *     MiReleaseResourceLite @ 0x14037253C (MiReleaseResourceLite.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140372568 (MmLockLoadedModuleListExclusive.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x140372864 (RtlRemoveInvertedFunctionTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiProcessLoaderEntry(unsigned __int64 *a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rbp
-  ULONG_PTR v5; // r8
-  unsigned __int64 **v6; // rax
+  unsigned __int64 **v5; // rax
+  bool v6; // r8
   _QWORD *v7; // rdx
   ULONG_PTR v8; // r10
-  _QWORD *v9; // rax
-  unsigned __int8 v10; // bl
-  unsigned __int64 v12; // rcx
-  unsigned __int64 **v13; // rax
-  unsigned __int8 v14; // bl
-  unsigned __int8 v15; // al
-  struct _KPRCB *v16; // r9
-  _DWORD *v17; // r8
-  int v18; // eax
-  bool v19; // zf
+  ULONG_PTR v9; // r8
+  _QWORD *v10; // rax
+  unsigned __int8 v11; // bl
+  unsigned __int64 v13; // rcx
+  unsigned __int64 **v14; // rax
+  unsigned __int8 v15; // bl
+  unsigned __int8 v16; // al
+  struct _KPRCB *v17; // r9
+  _DWORD *v18; // r8
+  int v19; // eax
+  bool v20; // zf
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v23; // eax
-  unsigned __int8 v24; // [rsp+48h] [rbp+10h] BYREF
+  int v24; // eax
+  unsigned __int8 v25; // [rsp+48h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v24 = 0;
+  v25 = 0;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PsLoadedModuleResource, 1u);
   if ( a2 != 1 )
   {
-    if ( (MiFlags & 0x40000) == 0 )
+    if ( (MiFlags & 0x80000) == 0 )
       RtlRemoveInvertedFunctionTable(a1[6]);
-    MmLockLoadedModuleListExclusive(&v24);
-    v12 = *a1;
-    v13 = (unsigned __int64 **)a1[1];
-    if ( *(unsigned __int64 **)(*a1 + 8) == a1 && *v13 == a1 )
+    MmLockLoadedModuleListExclusive(&v25);
+    v13 = *a1;
+    v14 = (unsigned __int64 **)a1[1];
+    if ( *(unsigned __int64 **)(*a1 + 8) == a1 && *v14 == a1 )
     {
-      *v13 = (unsigned __int64 *)v12;
-      *(_QWORD *)(v12 + 8) = v13;
-      RtlAvlRemoveNode(&BugCheckParameter3, a1 + 29);
+      *v14 = (unsigned __int64 *)v13;
+      *(_QWORD *)(v13 + 8) = v14;
+      RtlAvlRemoveNode(&qword_140C4CD60, a1 + 29);
       ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
       {
-        v14 = v24;
-        if ( v24 <= 0xFu && CurrentIrql >= 2u )
+        v15 = v25;
+        if ( v25 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v14 = v24;
-          v23 = ~(unsigned __int16)(-1LL << (v24 + 1));
-          v19 = (v23 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v23;
-          if ( v19 )
+          v15 = v25;
+          v24 = ~(unsigned __int16)(-1LL << (v25 + 1));
+          v20 = (v24 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v24;
+          if ( v20 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
       else
       {
-        v14 = v24;
+        v15 = v25;
       }
-      __writecr8(v14);
-      return MiReleaseResourceLite(CurrentThread, &PsLoadedModuleResource, 64LL);
+      __writecr8(v15);
+      return MiReleaseResourceLite(CurrentThread);
     }
 LABEL_24:
     __fastfail(3u);
   }
-  MmLockLoadedModuleListExclusive(&v24);
-  v6 = (unsigned __int64 **)*(&PsLoadedModuleList + 1);
+  MmLockLoadedModuleListExclusive(&v25);
+  v5 = (unsigned __int64 **)*(&PsLoadedModuleList + 1);
   if ( *(PVOID **)*(&PsLoadedModuleList + 1) != &PsLoadedModuleList )
     goto LABEL_24;
   *a1 = (unsigned __int64)&PsLoadedModuleList;
-  LOBYTE(v5) = 0;
-  a1[1] = (unsigned __int64)v6;
-  *v6 = a1;
-  v7 = (_QWORD *)BugCheckParameter3;
+  v6 = 0;
+  a1[1] = (unsigned __int64)v5;
+  *v5 = a1;
+  v7 = (_QWORD *)qword_140C4CD60;
   *(&PsLoadedModuleList + 1) = a1;
   v8 = a1[6];
-  if ( BugCheckParameter3 )
+  if ( qword_140C4CD60 )
   {
     while ( 1 )
     {
-      v5 = *(v7 - 23);
-      if ( v8 <= v5 + (unsigned int)(*((_DWORD *)v7 - 42) - 1) )
+      v9 = *(v7 - 23);
+      if ( v8 <= v9 + (unsigned int)(*((_DWORD *)v7 - 42) - 1) )
       {
-        if ( v8 >= v5 )
+        if ( v8 >= v9 )
           KeBugCheckEx(0x1Au, 0x2101uLL, v8, (ULONG_PTR)v7, 0LL);
-        v9 = (_QWORD *)*v7;
+        v10 = (_QWORD *)*v7;
         if ( !*v7 )
         {
-          LOBYTE(v5) = 0;
+          v6 = 0;
           break;
         }
       }
       else
       {
-        v9 = (_QWORD *)v7[1];
-        if ( !v9 )
+        v10 = (_QWORD *)v7[1];
+        if ( !v10 )
         {
-          LOBYTE(v5) = 1;
+          v6 = 1;
           break;
         }
       }
-      v7 = v9;
+      v7 = v10;
     }
   }
-  RtlAvlInsertNodeEx(&BugCheckParameter3, v7, v5, a1 + 29);
+  RtlAvlInsertNodeEx(&qword_140C4CD60, (unsigned __int64)v7, v6, a1 + 29);
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (v15 = KeGetCurrentIrql(), v15 <= 0xFu) )
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (v16 = KeGetCurrentIrql(), v16 <= 0xFu) )
   {
-    v10 = v24;
-    if ( v24 <= 0xFu && v15 >= 2u )
+    v11 = v25;
+    if ( v25 <= 0xFu && v16 >= 2u )
     {
-      v16 = KeGetCurrentPrcb();
-      v17 = v16->SchedulerAssist;
-      v10 = v24;
-      v18 = ~(unsigned __int16)(-1LL << (v24 + 1));
-      v19 = (v18 & v17[5]) == 0;
-      v17[5] &= v18;
-      if ( v19 )
-        KiRemoveSystemWorkPriorityKick(v16);
+      v17 = KeGetCurrentPrcb();
+      v18 = v17->SchedulerAssist;
+      v11 = v25;
+      v19 = ~(unsigned __int16)(-1LL << (v25 + 1));
+      v20 = (v19 & v18[5]) == 0;
+      v18[5] &= v19;
+      if ( v20 )
+        KiRemoveSystemWorkPriorityKick(v17);
     }
   }
   else
   {
-    v10 = v24;
+    v11 = v25;
   }
-  __writecr8(v10);
-  if ( (MiFlags & 0x40000) == 0 )
+  __writecr8(v11);
+  if ( (MiFlags & 0x80000) == 0 )
     RtlInsertInvertedFunctionTable(a1[6], *((_DWORD *)a1 + 16));
-  return MiReleaseResourceLite(CurrentThread, &PsLoadedModuleResource, 64LL);
+  return MiReleaseResourceLite(CurrentThread);
 }

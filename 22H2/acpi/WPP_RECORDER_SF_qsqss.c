@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_qsqss @ 0x1C003390C
+ * XREFs of WPP_RECORDER_SF_qsqss @ 0x1C00595FC
  * Callers:
- *     OSNotifyDeviceWake @ 0x1C003301C (OSNotifyDeviceWake.c)
+ *     OSNotifyDeviceWake @ 0x1C0058CEC (OSNotifyDeviceWake.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qsqss(
@@ -14,28 +14,26 @@ __int64 __fastcall WPP_RECORDER_SF_qsqss(
         __int64 a5,
         char a6,
         const char *a7,
-        char a8,
-        const char *a9,
-        const char *a10)
+        __int64 a8,
+        __int64 a9,
+        __int64 a10)
 {
-  const char *v10; // rbp
+  __int64 v10; // rdi
   __int64 v11; // rbx
-  const char *v12; // rsi
-  const char *v14; // rdi
+  __int64 v12; // rsi
+  const char *v14; // rbp
   __int64 v15; // r9
   __int64 v16; // r8
   __int64 v17; // rdx
   const char *v18; // rcx
   __int64 v19; // rcx
   __int64 v20; // rax
-  __int64 v21; // rax
-  __int64 v22; // rbx
-  int v24; // [rsp+20h] [rbp-78h]
+  int v22; // [rsp+20h] [rbp-78h]
 
-  v10 = a7;
+  v10 = a10;
   v11 = -1LL;
   v12 = a9;
-  v14 = a10;
+  v14 = a7;
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10000) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
   {
     if ( a10 )
@@ -43,14 +41,14 @@ __int64 __fastcall WPP_RECORDER_SF_qsqss(
       v15 = -1LL;
       do
         ++v15;
-      while ( a10[v15] );
+      while ( *(_BYTE *)(a10 + v15) );
     }
     if ( a9 )
     {
       v16 = -1LL;
       do
         ++v16;
-      while ( a9[v16] );
+      while ( *(_BYTE *)(a9 + v16) );
     }
     if ( a7 )
     {
@@ -71,56 +69,26 @@ __int64 __fastcall WPP_RECORDER_SF_qsqss(
       8LL,
       v18);
   }
-  if ( v14 )
+  if ( v10 )
   {
     v19 = -1LL;
     do
       ++v19;
-    while ( v14[v19] );
+    while ( *(_BYTE *)(v10 + v19) );
   }
-  if ( !v14 )
-    v14 = "NULL";
   if ( v12 )
   {
     v20 = -1LL;
     do
       ++v20;
-    while ( v12[v20] );
-    v21 = v20 + 1;
+    while ( *(_BYTE *)(v12 + v20) );
   }
-  else
-  {
-    v21 = 5LL;
-  }
-  if ( !v12 )
-    v12 = "NULL";
-  if ( v10 )
+  if ( v14 )
   {
     do
       ++v11;
-    while ( v10[v11] );
-    v22 = v11 + 1;
+    while ( v14[v11] );
   }
-  else
-  {
-    v22 = 5LL;
-  }
-  if ( !v10 )
-    v10 = "NULL";
-  LOWORD(v24) = 26;
-  return WppAutoLogTrace(
-           a1,
-           4LL,
-           17LL,
-           &WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids,
-           v24,
-           &a6,
-           8LL,
-           v10,
-           v22,
-           &a8,
-           8LL,
-           v12,
-           v21,
-           v14);
+  LOWORD(v22) = 26;
+  return WppAutoLogTrace(a1, 4LL, 17LL, &WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids, v22, &a6);
 }

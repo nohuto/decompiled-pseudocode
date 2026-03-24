@@ -1,8 +1,8 @@
 /*
- * XREFs of UlongToHex @ 0x1C000C9E8
+ * XREFs of UlongToHex @ 0x1C001E338
  * Callers:
- *     GetRegistrySettings @ 0x1C000B42C (GetRegistrySettings.c)
- *     GetRegistrySettingsForSpecificKey @ 0x1C0025594 (GetRegistrySettingsForSpecificKey.c)
+ *     GetRegistrySettings @ 0x1C001CF78 (GetRegistrySettings.c)
+ *     GetRegistrySettingsForSpecificKey @ 0x1C001E008 (GetRegistrySettingsForSpecificKey.c)
  * Callees:
  *     <none>
  */

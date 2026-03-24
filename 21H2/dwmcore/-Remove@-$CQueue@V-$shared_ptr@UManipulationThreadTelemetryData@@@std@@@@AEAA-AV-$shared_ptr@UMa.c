@@ -1,17 +1,18 @@
 /*
- * XREFs of ?Remove@?$CQueue@V?$shared_ptr@UManipulationThreadTelemetryData@@@std@@@@AEAA?AV?$shared_ptr@UManipulationThreadTelemetryData@@@std@@_NPEAI@Z @ 0x1801F2BA8
+ * XREFs of ?Remove@?$CQueue@V?$shared_ptr@UManipulationThreadTelemetryData@@@std@@@@AEAA?AV?$shared_ptr@UManipulationThreadTelemetryData@@@std@@_NPEAI@Z @ 0x1801C6CB8
  * Callers:
- *     ??1?$CQueue@V?$shared_ptr@UTOUCH_TELEMETRY_UPDATE_INFO@@@std@@@@QEAA@XZ @ 0x1801F1B80 (--1-$CQueue@V-$shared_ptr@UTOUCH_TELEMETRY_UPDATE_INFO@@@std@@@@QEAA@XZ.c)
- *     ?UpdateInteraction@CManipulationTelemetryData@InteractionLatencyTelemetry@@UEAAJPEBUIManipulationResource@@W4ScrollState@@_K@Z @ 0x180275E10 (-UpdateInteraction@CManipulationTelemetryData@InteractionLatencyTelemetry@@UEAAJPEBUIManipulatio.c)
+ *     ??_ECManipulationTelemetryData@@UEAAPEAXI@Z @ 0x1801C5EE8 (--_ECManipulationTelemetryData@@UEAAPEAXI@Z.c)
+ *     ??1?$CQueue@V?$shared_ptr@UTOUCH_TELEMETRY_UPDATE_INFO@@@std@@@@QEAA@XZ @ 0x180231FC8 (--1-$CQueue@V-$shared_ptr@UTOUCH_TELEMETRY_UPDATE_INFO@@@std@@@@QEAA@XZ.c)
+ *     ?UpdateInteraction@CManipulationTelemetryData@@UEAAJPEBUIManipulationResource@@W4ScrollState@@_K@Z @ 0x180232710 (-UpdateInteraction@CManipulationTelemetryData@@UEAAJPEBUIManipulationResource@@W4ScrollState@@_K.c)
  * Callees:
- *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x18000E7B0 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??4?$shared_ptr@UShapeData@CCursorState@@@std@@QEAAAEAV01@AEBV01@@Z @ 0x1801DEE78 (--4-$shared_ptr@UShapeData@CCursorState@@@std@@QEAAAEAV01@AEBV01@@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x180173D04 (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ *     ??4?$shared_ptr@UManipulationThreadTelemetryData@@@std@@QEAAAEAV01@AEBV01@@Z @ 0x180183EAC (--4-$shared_ptr@UManipulationThreadTelemetryData@@@std@@QEAAAEAV01@AEBV01@@Z.c)
  */
 
-__int64 *__fastcall CQueue<std::shared_ptr<ManipulationThreadTelemetryData>>::Remove(
+_QWORD *__fastcall CQueue<std::shared_ptr<ManipulationThreadTelemetryData>>::Remove(
         __int64 a1,
-        __int64 *a2,
+        _QWORD *a2,
         __int64 a3,
         _DWORD *a4)
 {
@@ -29,7 +30,7 @@ __int64 *__fastcall CQueue<std::shared_ptr<ManipulationThreadTelemetryData>>::Re
   *(_QWORD *)(v8 + 8) = a1;
   if ( v7 != (_QWORD *)a1 )
   {
-    std::shared_ptr<CCursorState::ShapeData>::operator=(a2, v7 + 2);
+    std::shared_ptr<ManipulationThreadTelemetryData>::operator=(a2, v7 + 2);
     v9 = (std::_Ref_count_base *)v7[3];
     if ( v9 )
       std::_Ref_count_base::_Decref(v9);

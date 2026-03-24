@@ -1,20 +1,21 @@
 /*
- * XREFs of EditionNotifyDwmForSystemVisualDestruction @ 0x1C0110910
+ * XREFs of EditionNotifyDwmForSystemVisualDestruction @ 0x1C0129250
  * Callers:
  *     <none>
  * Callees:
- *     DwmAsyncDestroyDCompositionHwndTarget @ 0x1C0110974 (DwmAsyncDestroyDCompositionHwndTarget.c)
+ *     DwmAsyncDestroyDCompositionHwndTarget @ 0x1C01292B4 (DwmAsyncDestroyDCompositionHwndTarget.c)
  */
 
 __int64 __fastcall EditionNotifyDwmForSystemVisualDestruction(__int64 a1)
 {
-  __int64 v1; // rcx
-  void *v2; // rax
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  void *v3; // rax
 
   if ( (unsigned int)IsWindowDesktopComposed(a1) )
   {
-    v2 = (void *)ReferenceDwmApiPort(v1);
-    DwmAsyncDestroyDCompositionHwndTarget(v2);
+    v3 = (void *)ReferenceDwmApiPort(v2, v1);
+    DwmAsyncDestroyDCompositionHwndTarget(v3);
   }
   return 0LL;
 }

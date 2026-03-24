@@ -1,7 +1,7 @@
 /*
- * XREFs of ?D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@MUD2DVector3@@@Z @ 0x18026DC24
+ * XREFs of ?D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@MUD2DVector3@@@Z @ 0x18021D828
  * Callers:
- *     ?Matrix4x4FromScale@CExpressionValueStack@@QEAAJI@Z @ 0x18024DD64 (-Matrix4x4FromScale@CExpressionValueStack@@QEAAJI@Z.c)
+ *     ?Matrix4x4FromScale@CExpressionValueStack@@QEAAJI@Z @ 0x1801FF034 (-Matrix4x4FromScale@CExpressionValueStack@@QEAAJI@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of PoFxRegisterDevice @ 0x140823470
+ * XREFs of PoFxRegisterDevice @ 0x1407B5540
  * Callers:
- *     DifPoFxRegisterDeviceWrapper @ 0x1406197A0 (DifPoFxRegisterDeviceWrapper.c)
+ *     <none>
  * Callees:
- *     PopPrintEx @ 0x140369B48 (PopPrintEx.c)
- *     PopFxRegisterDevice @ 0x1408236BC (PopFxRegisterDevice.c)
- *     PopFxConvertV1Components @ 0x1408245C4 (PopFxConvertV1Components.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PopPrintEx @ 0x14028411C (PopPrintEx.c)
+ *     PopFxRegisterDevice @ 0x1407B578C (PopFxRegisterDevice.c)
+ *     PopFxConvertV1Components @ 0x1407B61E0 (PopFxConvertV1Components.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PoFxRegisterDevice(PDEVICE_OBJECT DeviceObject, int *a2, __int64 a3)
 {
-  int *v3; // r14
-  int v6; // eax
-  __int64 v7; // rsi
-  __int64 v8; // rdi
-  void *v9; // r15
+  void *v3; // rsi
+  int *v4; // r14
+  int v7; // eax
+  __int64 v8; // r15
+  __int64 v9; // rdi
   __int64 v10; // rax
   __int64 v11; // rdx
   char v12; // r12
@@ -33,11 +33,12 @@ __int64 __fastcall PoFxRegisterDevice(PDEVICE_OBJECT DeviceObject, int *a2, __in
 
   v23 = (__int64 *)a3;
   v3 = 0LL;
+  v4 = 0LL;
   if ( !DeviceObject )
     return (unsigned int)-1073741811;
-  v6 = *a2;
-  v7 = 0LL;
+  v7 = *a2;
   v8 = 0LL;
+  v9 = 0LL;
   if ( *a2 == 1 )
   {
     PopPrintEx(1LL, (__int64)"Device using PO_FX_VERSION_V1: devobj 0x%p", DeviceObject);
@@ -49,54 +50,56 @@ __int64 __fastcall PoFxRegisterDevice(PDEVICE_OBJECT DeviceObject, int *a2, __in
     v20 = *((_QWORD *)a2 + 3);
     v21 = *((_QWORD *)a2 + 4);
     v22 = *((_QWORD *)a2 + 5);
-    v9 = (void *)PopFxConvertV1Components(a2 + 16);
+    v3 = (void *)PopFxConvertV1Components(a2 + 16, (unsigned int)a2[1]);
     v10 = 0LL;
-    a3 = (__int64)v23;
     v11 = v24;
-    goto LABEL_4;
+    a3 = (__int64)v23;
   }
-  if ( v6 == 2 )
+  else
   {
-    v9 = a2 + 20;
-    v11 = *((_QWORD *)a2 + 8);
-    v18 = *((_QWORD *)a2 + 2);
-    v19 = *((_QWORD *)a2 + 3);
-    v20 = *((_QWORD *)a2 + 4);
-    v21 = *((_QWORD *)a2 + 5);
-    v22 = *((_QWORD *)a2 + 6);
-    goto LABEL_15;
+    if ( v7 == 2 )
+    {
+      v3 = a2 + 20;
+      v11 = *((_QWORD *)a2 + 8);
+      v18 = *((_QWORD *)a2 + 2);
+      v19 = *((_QWORD *)a2 + 3);
+      v20 = *((_QWORD *)a2 + 4);
+      v21 = *((_QWORD *)a2 + 5);
+      v22 = *((_QWORD *)a2 + 6);
+    }
+    else
+    {
+      if ( v7 != 3 )
+        goto LABEL_36;
+      v3 = a2 + 26;
+      v8 = *((_QWORD *)a2 + 8);
+      v4 = a2;
+      v9 = *((_QWORD *)a2 + 9);
+      v18 = *((_QWORD *)a2 + 2);
+      v19 = *((_QWORD *)a2 + 3);
+      v20 = *((_QWORD *)a2 + 4);
+      v21 = *((_QWORD *)a2 + 5);
+      v22 = *((_QWORD *)a2 + 6);
+      v11 = *((_QWORD *)a2 + 11);
+    }
+    v10 = *((_QWORD *)a2 + 1);
   }
-  if ( v6 != 3 )
-    return (unsigned int)-1073741811;
-  v9 = a2 + 26;
-  v7 = *((_QWORD *)a2 + 8);
-  v3 = a2;
-  v8 = *((_QWORD *)a2 + 9);
-  v18 = *((_QWORD *)a2 + 2);
-  v19 = *((_QWORD *)a2 + 3);
-  v20 = *((_QWORD *)a2 + 4);
-  v21 = *((_QWORD *)a2 + 5);
-  v22 = *((_QWORD *)a2 + 6);
-  v11 = *((_QWORD *)a2 + 11);
-LABEL_15:
-  v10 = *((_QWORD *)a2 + 1);
-LABEL_4:
   v12 = 0;
-  if ( v7 )
+  if ( v8 )
   {
-    if ( v8 )
+    if ( v9 )
     {
       v12 = 1;
       goto LABEL_6;
     }
   }
-  else if ( !v8 )
+  else if ( !v9 )
   {
 LABEL_6:
     v13 = PopFxRegisterDevice(DeviceObject, v11, v10, a3);
     if ( v13 >= 0 && v12 )
     {
-      v15 = v3[20];
+      v15 = v4[20];
       v16 = *v23;
       if ( v15 == -1 )
       {
@@ -108,11 +111,11 @@ LABEL_6:
           v15 = PopFxDirectedFxDefaultTimeout;
         *(_DWORD *)(v16 + 912) = v15;
       }
-      v17 = *((_QWORD *)v3 + 1);
+      v17 = *((_QWORD *)v4 + 1);
       if ( (v17 & 2) != 0 )
       {
         _InterlockedOr((volatile signed __int32 *)(v16 + 824), 0x200u);
-        v17 = *((_QWORD *)v3 + 1);
+        v17 = *((_QWORD *)v4 + 1);
       }
       if ( (v17 & 4) != 0 )
         _InterlockedOr((volatile signed __int32 *)(v16 + 824), 0x400u);
@@ -122,9 +125,10 @@ LABEL_6:
     }
     goto LABEL_8;
   }
+LABEL_36:
   v13 = -1073741811;
 LABEL_8:
-  if ( v9 && *a2 == 1 )
-    ExFreePoolWithTag(v9, 0x4D584650u);
+  if ( v3 && *a2 == 1 )
+    ExFreePoolWithTag(v3, 0x4D584650u);
   return (unsigned int)v13;
 }

@@ -1,16 +1,20 @@
 /*
- * XREFs of MiSwitchKstackPages @ 0x14062D6E8
+ * XREFs of MiSwitchKstackPages @ 0x1405365AC
  * Callers:
- *     MiSwapStackPage @ 0x140399C4C (MiSwapStackPage.c)
- *     MiStackTheftIsr @ 0x14062D4D0 (MiStackTheftIsr.c)
+ *     MiSwapStackPage @ 0x14031F4BC (MiSwapStackPage.c)
+ *     MiStackTheftIsr @ 0x1405363A0 (MiStackTheftIsr.c)
  * Callees:
- *     MiSetPfnIdentity @ 0x1402194A8 (MiSetPfnIdentity.c)
- *     MiCopyPfnEntryEx @ 0x140219D80 (MiCopyPfnEntryEx.c)
+ *     MiCopyPfnEntryEx @ 0x140336A40 (MiCopyPfnEntryEx.c)
  */
 
-signed __int64 __fastcall MiSwitchKstackPages(__int64 a1, __int128 *a2)
+unsigned __int64 __fastcall MiSwitchKstackPages(__int64 a1, __int64 a2)
 {
+  __int64 v2; // rcx
+  unsigned __int64 result; // rax
+
   MiCopyPfnEntryEx(a1, a2);
-  *(_BYTE *)(a1 + 34) = *(_BYTE *)(a1 + 34) & 0xF8 | 6;
-  return MiSetPfnIdentity(a1, 2);
+  *(_BYTE *)(v2 + 34) = *(_BYTE *)(v2 + 34) & 0xF8 | 6;
+  result = *(_QWORD *)(v2 + 40) & 0x8FFFFFFFFFFFFFFFuLL | 0x2000000000000000LL;
+  *(_QWORD *)(v2 + 40) = result;
+  return result;
 }

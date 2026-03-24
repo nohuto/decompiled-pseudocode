@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnTraceBufferAllocate @ 0x14035FCE0
+ * XREFs of PfSnTraceBufferAllocate @ 0x140360920
  * Callers:
- *     MiCompleteProtoPteFault @ 0x1403203D0 (MiCompleteProtoPteFault.c)
- *     PfSnTraceGetLogEntry @ 0x14036669C (PfSnTraceGetLogEntry.c)
- *     PfSnBeginTrace @ 0x1407DA91C (PfSnBeginTrace.c)
+ *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
+ *     PfSnTraceGetLogEntry @ 0x14031A890 (PfSnTraceGetLogEntry.c)
+ *     PfSnBeginTrace @ 0x14071A8AC (PfSnBeginTrace.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _DWORD *PfSnTraceBufferAllocate()
@@ -14,7 +14,7 @@ _DWORD *PfSnTraceBufferAllocate()
   _DWORD *result; // rax
   _DWORD *v1; // rbx
 
-  result = (_DWORD *)ExAllocatePool2(64LL, 69632LL, 1112564547LL);
+  result = ExAllocatePoolWithTag(NonPagedPoolNx, 0x11000uLL, 0x42506343u);
   v1 = result;
   if ( result )
   {

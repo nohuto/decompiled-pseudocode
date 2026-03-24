@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdatePageFileList @ 0x1403CF758
+ * XREFs of MiUpdatePageFileList @ 0x1403BFAAC
  * Callers:
- *     MiIncreaseCommitLimits @ 0x1403CF51C (MiIncreaseCommitLimits.c)
- *     MiInsertPageFileInList @ 0x14084B418 (MiInsertPageFileInList.c)
- *     MiDeletePagefile @ 0x14096F074 (MiDeletePagefile.c)
+ *     MiIncreaseCommitLimits @ 0x1403BF7AC (MiIncreaseCommitLimits.c)
+ *     MiInsertPageFileInList @ 0x1407B6FD0 (MiInsertPageFileInList.c)
+ *     MiDeletePagefile @ 0x1408D048C (MiDeletePagefile.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiUpdatePageFileList(__int64 a1, int a2)
@@ -29,17 +29,17 @@ void __fastcall MiUpdatePageFileList(__int64 a1, int a2)
   if ( !*(_QWORD *)(a1 + 56) )
     return;
   v4 = (unsigned __int64 *)(a1 + 256);
-  v5 = ExAcquireSpinLockExclusive(&dword_140C531C8);
+  v5 = ExAcquireSpinLockExclusive(&dword_140C4ECB8);
   if ( !a2 )
   {
-    RtlAvlRemoveNode((unsigned __int64 *)&qword_140C531C0, v4);
+    RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4ECB0, v4);
     goto LABEL_5;
   }
   v6 = *(_QWORD *)(a1 + 56);
   *(_WORD *)(a1 + 204) |= 0x100u;
   v7 = 0;
-  v8 = (_QWORD *)qword_140C531C0;
-  if ( !qword_140C531C0 )
+  v8 = (_QWORD *)qword_140C4ECB0;
+  if ( !qword_140C4ECB0 )
     goto LABEL_4;
   while ( v6 < *(v8 - 25) )
   {
@@ -54,9 +54,9 @@ LABEL_10:
     goto LABEL_10;
   v7 = 1;
 LABEL_4:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C531C0, (unsigned __int64)v8, v7, v4);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4ECB0, (unsigned __int64)v8, v7, v4);
 LABEL_5:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C531C8);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4ECB8);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

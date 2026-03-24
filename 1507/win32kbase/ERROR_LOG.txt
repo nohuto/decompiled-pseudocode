@@ -1,81 +1,81 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F5C0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F340>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5E922F340>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F5C0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F980>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F5C0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F5C0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F340>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F980>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F340>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F340>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F5C0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F5C0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F5C0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F340>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F5C0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F980>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F340>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F980>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F980>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F980>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F980>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F980>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F980>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F340>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F980>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001D5EC26F980>) 
- 
+[EXCEPTION] UserSurfaceAccessCheck @ 0x1C000B840: Hex-Rays returned no pseudocode for 0x1C000B840
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C000B840'), <traceback object at 0x000002E62547D480>)
+
+[EXCEPTION] UserScreenAccessCheck @ 0x1C000BD00: Hex-Rays returned no pseudocode for 0x1C000BD00
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C000BD00'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] UserGetCurrentProcessDpiAwareness @ 0x1C000BF70: Hex-Rays returned no pseudocode for 0x1C000BF70
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C000BF70'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] HmgAllocateObjectAttr @ 0x1C000C97C: Hex-Rays returned no pseudocode for 0x1C000C97C
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C000C97C'), <traceback object at 0x000002E625495280>)
+
+[EXCEPTION] GetDPIMetrics @ 0x1C0012920: Hex-Rays returned no pseudocode for 0x1C0012920
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0012920'), <traceback object at 0x000002E6254855C0>)
+
+[EXCEPTION] GetDPIServerInfo @ 0x1C0012FC0: Hex-Rays returned no pseudocode for 0x1C0012FC0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0012FC0'), <traceback object at 0x000002E6254942C0>)
+
+[EXCEPTION] HMChangeOwnerThread @ 0x1C00142F0: Hex-Rays returned no pseudocode for 0x1C00142F0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C00142F0'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] ?IsHandleEntrySecure@@YAHPEAXPEAU_HANDLEENTRY@@@Z @ 0x1C0016198: Hex-Rays returned no pseudocode for 0x1C0016198
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0016198'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C0023438: Hex-Rays returned no pseudocode for 0x1C0023438
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0023438'), <traceback object at 0x000002E6254A3D80>)
+
+[EXCEPTION] ?Current@CProcessData@DirectComposition@@SAPEAV12@XZ @ 0x1C0024960: Hex-Rays returned no pseudocode for 0x1C0024960
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0024960'), <traceback object at 0x000002E6254A3B40>)
+
+[EXCEPTION] GreGetStockObject @ 0x1C00332C0: Hex-Rays returned no pseudocode for 0x1C00332C0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C00332C0'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] HmgDecProcessHandleCount @ 0x1C00386E0: Hex-Rays returned no pseudocode for 0x1C00386E0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C00386E0'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] ?IsHandleEntryAccessibleForIL@@YAHPEAU_HANDLEENTRY@@@Z @ 0x1C004F908: Hex-Rays returned no pseudocode for 0x1C004F908
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C004F908'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] SetHandleFlag @ 0x1C00524A0: Hex-Rays returned no pseudocode for 0x1C00524A0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C00524A0'), <traceback object at 0x000002E6254855C0>)
+
+[EXCEPTION] SameCoordinateSpace @ 0x1C0055D2C: Hex-Rays returned no pseudocode for 0x1C0055D2C
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0055D2C'), <traceback object at 0x000002E6254855C0>)
+
+[EXCEPTION] GetMonitorFlags @ 0x1C00560B0: Hex-Rays returned no pseudocode for 0x1C00560B0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C00560B0'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] InitLoadResources @ 0x1C00594A8: Hex-Rays returned no pseudocode for 0x1C00594A8
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C00594A8'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] HmgFreeDcAttr @ 0x1C005A7F8: Hex-Rays returned no pseudocode for 0x1C005A7F8
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C005A7F8'), <traceback object at 0x000002E6253D0B80>)
+
+[EXCEPTION] DelayedDestroyCacheDC @ 0x1C005AB48: Hex-Rays returned no pseudocode for 0x1C005AB48
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C005AB48'), <traceback object at 0x000002E625495280>)
+
+[EXCEPTION] HmgFreeObjectAttr @ 0x1C005C5F0: Hex-Rays returned no pseudocode for 0x1C005C5F0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C005C5F0'), <traceback object at 0x000002E6254855C0>)
+
+[EXCEPTION] MonitorDpiFromProcess @ 0x1C0069C60: Hex-Rays returned no pseudocode for 0x1C0069C60
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0069C60'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] ?MultiUserGreHmgOwnAll@@YAXK@Z @ 0x1C006CF28: Hex-Rays returned no pseudocode for 0x1C006CF28
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C006CF28'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] ?vReleaseCurrentpMapProcForSurfaces@@YAXW4_CLEANUPTYPE@@@Z @ 0x1C006CFE8: Hex-Rays returned no pseudocode for 0x1C006CFE8
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C006CFE8'), <traceback object at 0x000002E6254855C0>)
+
+[EXCEPTION] MultiUserCleanupDCs @ 0x1C006D6C4: Hex-Rays returned no pseudocode for 0x1C006D6C4
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C006D6C4'), <traceback object at 0x000002E625484D00>)
+
+[EXCEPTION] ExpandedMonitorSpace @ 0x1C00A6530: Hex-Rays returned no pseudocode for 0x1C00A6530
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C00A6530'), <traceback object at 0x000002E625453D80>)
+
+[EXCEPTION] UserIsCurrentProcessImmersive @ 0x1C00AE280: Hex-Rays returned no pseudocode for 0x1C00AE280
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C00AE280'), <traceback object at 0x000002E62548F300>)
+
+[EXCEPTION] _GetClientRect @ 0x1C00D3234: Hex-Rays returned no pseudocode for 0x1C00D3234
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C00D3234'), <traceback object at 0x000002E62547D540>)
+

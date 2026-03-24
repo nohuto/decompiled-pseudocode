@@ -1,53 +1,56 @@
 /*
- * XREFs of strcat_s @ 0x1403DF1A0
+ * XREFs of strcat_s @ 0x1403D75D0
  * Callers:
- *     ExpSystemErrorHandler2 @ 0x140AAB210 (ExpSystemErrorHandler2.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3140 (ExpSystemErrorHandler2.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strcat_s(char *a1, rsize_t SizeInBytes, const char *Src)
 {
   char *v3; // r9
-  errno_t v4; // ebx
-  signed __int64 v6; // r9
-  char v7; // al
+  signed __int64 v4; // r9
+  char v5; // al
+  errno_t v6; // ebx
 
   if ( a1 && SizeInBytes )
   {
-    if ( Src )
+    if ( !Src )
+      goto LABEL_14;
+    v3 = a1;
+    do
     {
-      v3 = a1;
-      while ( *v3 )
+      if ( !*v3 )
+        break;
+      ++v3;
+      --SizeInBytes;
+    }
+    while ( SizeInBytes );
+    if ( SizeInBytes )
+    {
+      v4 = v3 - Src;
+      do
       {
-        ++v3;
-        if ( !--SizeInBytes )
-          goto LABEL_7;
-      }
-      v6 = v3 - Src;
-      while ( 1 )
-      {
-        v7 = *Src;
-        Src[v6] = *Src;
+        v5 = *Src;
+        Src[v4] = *Src;
         ++Src;
-        if ( !v7 )
-          return 0;
-        if ( !--SizeInBytes )
-        {
-          v4 = 34;
-          goto LABEL_8;
-        }
+        if ( !v5 )
+          break;
+        --SizeInBytes;
       }
+      while ( SizeInBytes );
+      if ( SizeInBytes )
+        return 0;
+      v6 = 34;
     }
     else
     {
-LABEL_7:
-      v4 = 22;
-LABEL_8:
-      *a1 = 0;
-      xHalTimerWatchdogStop();
-      return v4;
+LABEL_14:
+      v6 = 22;
     }
+    *a1 = 0;
+    xHalTimerWatchdogStop();
+    return v6;
   }
   else
   {

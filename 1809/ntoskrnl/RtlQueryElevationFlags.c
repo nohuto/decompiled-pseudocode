@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlQueryElevationFlags @ 0x1406B4EA0
+ * XREFs of RtlQueryElevationFlags @ 0x1406B4E80
  * Callers:
  *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
  * Callees:

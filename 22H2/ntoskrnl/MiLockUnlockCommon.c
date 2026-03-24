@@ -1,81 +1,68 @@
 /*
- * XREFs of MiLockUnlockCommon @ 0x1407B8830
+ * XREFs of MiLockUnlockCommon @ 0x14067DB7C
  * Callers:
- *     NtUnlockVirtualMemory @ 0x140283040 (NtUnlockVirtualMemory.c)
- *     NtLockVirtualMemory @ 0x1402A3000 (NtLockVirtualMemory.c)
+ *     NtUnlockVirtualMemory @ 0x1402AE5C0 (NtUnlockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x140339070 (NtLockVirtualMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall MiLockUnlockCommon(
-        ULONG_PTR BugCheckParameter1,
-        void **a2,
-        __int64 *a3,
-        int a4,
-        _QWORD *a5,
-        _QWORD *a6,
-        PVOID *a7)
+NTSTATUS __fastcall MiLockUnlockCommon(HANDLE Handle, void **a2, PVOID *a3, int a4, _QWORD *a5, _QWORD *a6, PVOID *a7)
 {
   char v7; // si
-  char PreviousMode; // r14
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  void *v13; // rdi
-  __int64 v14; // rbx
-  unsigned __int64 v15; // rax
-  __int64 result; // rax
-  PVOID Object[3]; // [rsp+48h] [rbp-30h] BYREF
-  __int64 v18; // [rsp+60h] [rbp-18h]
+  KPROCESSOR_MODE PreviousMode; // r14
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  void *v12; // rdi
+  PVOID v13; // rbx
+  NTSTATUS result; // eax
+  PVOID Object[5]; // [rsp+48h] [rbp-30h] BYREF
 
   v7 = a4;
   Object[0] = 0LL;
   if ( (a4 & 0xFFFFFFFC) != 0 || (a4 & 3) == 0 )
-    return 3221225485LL;
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v11 = 0x7FFFFFFF0000LL;
-    v12 = 0x7FFFFFFF0000LL;
+    v10 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v12 = (__int64)a2;
-    *(_QWORD *)v12 = *(_QWORD *)v12;
+      v10 = (__int64)a2;
+    *(_QWORD *)v10 = *(_QWORD *)v10;
+    v11 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
       v11 = (__int64)a3;
     *(_QWORD *)v11 = *(_QWORD *)v11;
   }
-  v13 = *a2;
-  Object[2] = v13;
-  v18 = *a3;
-  v14 = v18;
-  if ( !v18 )
-    return 3221225485LL;
-  v15 = (unsigned __int64)v13 + v18 - 1;
-  if ( v15 < (unsigned __int64)v13 || v15 > 0x7FFFFFFEFFFFLL )
-    return 3221225485LL;
-  result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
-             8,
-             (__int64)PsProcessType,
+  v12 = *a2;
+  Object[2] = v12;
+  v13 = *a3;
+  Object[3] = *a3;
+  if ( (unsigned __int64)v12 > 0x7FFFFFFEFFFFLL || 0x7FFFFFFF0000LL - (__int64)v12 < (unsigned __int64)v13 || !v13 )
+    return -1073741811;
+  result = ObReferenceObjectByHandleWithTag(
+             Handle,
+             8u,
+             (POBJECT_TYPE)PsProcessType,
              PreviousMode,
              0x6D566D4Du,
              Object,
-             0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     if ( (v7 & 2) == 0 || SeSinglePrivilegeCheck(SeLockMemoryPrivilege, PreviousMode) )
     {
-      *a5 = v13;
-      *a6 = v14;
+      *a5 = v12;
+      *a6 = v13;
       *a7 = Object[0];
-      return 0LL;
+      return 0;
     }
     else
     {
       ObfDereferenceObjectWithTag(Object[0], 0x6D566D4Du);
-      return 3221225569LL;
+      return -1073741727;
     }
   }
   return result;

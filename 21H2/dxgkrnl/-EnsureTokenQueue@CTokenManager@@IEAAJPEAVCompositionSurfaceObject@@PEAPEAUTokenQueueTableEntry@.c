@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C00209C8
+ * XREFs of ?EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C001BF08
  * Callers:
- *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C00208C0 (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
+ *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C001BE00 (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
  * Callees:
- *     ?Create@CTokenQueue@@SAJPEAPEAV1@@Z @ 0x1C001943C (-Create@CTokenQueue@@SAJPEAPEAV1@@Z.c)
+ *     ?Create@CTokenQueue@@SAJPEAPEAV1@@Z @ 0x1C0017CDC (-Create@CTokenQueue@@SAJPEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CTokenManager::EnsureTokenQueue(
@@ -13,26 +13,23 @@ __int64 __fastcall CTokenManager::EnsureTokenQueue(
 {
   struct _RTL_GENERIC_TABLE *v3; // rbp
   int v5; // ebx
-  __int64 v6; // rdx
   _QWORD *inserted; // rdi
-  __int64 v8; // r8
-  __int64 v9; // r9
-  _QWORD v11[5]; // [rsp+20h] [rbp-28h] BYREF
-  unsigned __int8 v12; // [rsp+50h] [rbp+8h] BYREF
-  struct CTokenQueue *v13; // [rsp+58h] [rbp+10h] BYREF
+  _QWORD v8[5]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned __int8 v9; // [rsp+50h] [rbp+8h] BYREF
+  struct CTokenQueue *v10; // [rsp+58h] [rbp+10h] BYREF
 
-  v11[0] = a2;
-  v3 = (struct _RTL_GENERIC_TABLE *)((char *)this + 200);
-  v11[1] = 0LL;
-  v12 = 0;
+  v8[0] = a2;
+  v3 = (struct _RTL_GENERIC_TABLE *)((char *)this + 192);
+  v8[1] = 0LL;
+  v9 = 0;
   v5 = 0;
-  inserted = RtlInsertElementGenericTable((PRTL_GENERIC_TABLE)((char *)this + 200), v11, 0x10u, &v12);
+  inserted = RtlInsertElementGenericTable((PRTL_GENERIC_TABLE)((char *)this + 192), v8, 0x10u, &v9);
   if ( inserted )
   {
-    if ( v12 )
+    if ( v9 )
     {
-      v13 = 0LL;
-      v5 = CTokenQueue::Create(&v13, v6, v8, v9);
+      v10 = 0LL;
+      v5 = CTokenQueue::Create(&v10);
       if ( v5 < 0 )
       {
         RtlDeleteElementGenericTable(v3, inserted);
@@ -40,7 +37,7 @@ __int64 __fastcall CTokenManager::EnsureTokenQueue(
       }
       else
       {
-        inserted[1] = v13;
+        inserted[1] = v10;
       }
     }
   }

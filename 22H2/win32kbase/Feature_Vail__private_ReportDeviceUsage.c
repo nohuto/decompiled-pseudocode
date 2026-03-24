@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_Vail__private_ReportDeviceUsage @ 0x1C00D2B2C
+ * XREFs of Feature_Vail__private_ReportDeviceUsage @ 0x1C00CB404
  * Callers:
- *     DrvEnumDisplaySettings @ 0x1C0033CC0 (DrvEnumDisplaySettings.c)
+ *     DrvEnumDisplaySettings @ 0x1C0020E50 (DrvEnumDisplaySettings.c)
  * Callees:
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C00D0048 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C012DA74 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C00C72FC (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0114434 (wil_details_FeatureReporting_ReportUsageToService.c)
  */
 
 void Feature_Vail__private_ReportDeviceUsage()

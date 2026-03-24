@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bSecureBits@@YAHPEAXKPEAPEAX@Z @ 0x1C02C7E1C
+ * XREFs of ?bSecureBits@@YAHPEAXKPEAPEAX@Z @ 0x1C02B178C
  * Callers:
- *     NtGdiEngCreatePalette @ 0x1C02C9590 (NtGdiEngCreatePalette.c)
+ *     NtGdiEngCreatePalette @ 0x1C0128C70 (NtGdiEngCreatePalette.c)
  * Callees:
  *     <none>
  */
@@ -9,7 +9,7 @@
 __int64 __fastcall bSecureBits(char *a1, unsigned int a2, void **a3)
 {
   unsigned int v4; // ebx
-  char *v5; // r9
+  char *v5; // r8
   HANDLE v6; // rax
 
   v4 = 1;

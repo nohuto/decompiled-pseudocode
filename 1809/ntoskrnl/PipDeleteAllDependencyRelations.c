@@ -1,13 +1,13 @@
 /*
- * XREFs of PipDeleteAllDependencyRelations @ 0x14075D81C
+ * XREFs of PipDeleteAllDependencyRelations @ 0x14075D7FC
  * Callers:
  *     PnpDeleteAllDependencyRelations @ 0x14059F218 (PnpDeleteAllDependencyRelations.c)
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x1402877B0 (PiListEntryToDependencyEdge.c)
- *     PipFreeDependencyEdge @ 0x1402879B8 (PipFreeDependencyEdge.c)
- *     PipDeleteDependencyNode @ 0x14075D8CC (PipDeleteDependencyNode.c)
- *     PipConvertResolutionsToReservations @ 0x14075D930 (PipConvertResolutionsToReservations.c)
- *     PipAttemptDependentStart @ 0x140823CF4 (PipAttemptDependentStart.c)
+ *     PiListEntryToDependencyEdge @ 0x1402878B0 (PiListEntryToDependencyEdge.c)
+ *     PipFreeDependencyEdge @ 0x140287AB8 (PipFreeDependencyEdge.c)
+ *     PipDeleteDependencyNode @ 0x14075D8AC (PipDeleteDependencyNode.c)
+ *     PipConvertResolutionsToReservations @ 0x14075D910 (PipConvertResolutionsToReservations.c)
+ *     PipAttemptDependentStart @ 0x140823CD4 (PipAttemptDependentStart.c)
  */
 
 __int64 __fastcall PipDeleteAllDependencyRelations(__int64 a1)

@@ -1,41 +1,38 @@
 /*
- * XREFs of ?vLookupScript@@YAXKPEAGK@Z @ 0x1C0085EA4
+ * XREFs of ?vLookupScript@@YAXKPEAGK@Z @ 0x1C00E4A48
  * Callers:
- *     cjCopyFontDataW @ 0x1C0004930 (cjCopyFontDataW.c)
- *     vIFIMetricsToEnumLogFontExDvW @ 0x1C0085834 (vIFIMetricsToEnumLogFontExDvW.c)
+ *     vIFIMetricsToEnumLogFontExDvW @ 0x1C00E49D8 (vIFIMetricsToEnumLogFontExDvW.c)
  * Callees:
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01150FC (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     InitializeScripts @ 0x1C03B3738 (InitializeScripts.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0064C1C (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     InitializeScripts @ 0x1C03921F0 (InitializeScripts.c)
  */
 
-void __fastcall vLookupScript(int a1, unsigned __int16 *a2)
+void __fastcall vLookupScript(int a1, char *a2)
 {
-  __int64 v4; // rcx
-  unsigned int v5; // ebx
-  int v6; // edi
-  __int64 v7; // r8
-  _DWORD *v8; // rax
-  const unsigned __int16 *v9; // r8
+  int v4; // eax
+  unsigned int v5; // r8d
+  int v6; // ebx
+  _DWORD *v7; // rax
+  char *v8; // r8
 
+  v4 = InitializeScripts();
   v5 = 0;
-  if ( (unsigned int)InitializeScripts() )
+  if ( v4 )
   {
     v6 = a1 + 1000;
-    v7 = *(_QWORD *)(SGDGetSessionState(v4) + 32);
-    v8 = (_DWORD *)(v7 + 19592);
+    v7 = &aScripts;
     do
     {
-      if ( *v8 == v6 )
-      {
-        v9 = *(const unsigned __int16 **)(v7 + 16 * (v5 + 1225LL));
-        goto LABEL_5;
-      }
+      if ( *v7 == v6 )
+        break;
       ++v5;
-      v8 += 4;
+      v7 += 4;
     }
     while ( v5 < 0x13 );
-    v9 = *(const unsigned __int16 **)(v7 + 19888);
-LABEL_5:
-    StringCchCopyW(a2, 0x20uLL, v9);
+    if ( v5 >= 0x13 )
+      v8 = (char *)qword_1C03399F8;
+    else
+      v8 = (char *)*((_QWORD *)&aScripts + 2 * v5 + 1);
+    StringCchCopyW(a2, 32LL, v8);
   }
 }

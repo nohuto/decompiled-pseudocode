@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildContextFromSecurityDescriptor @ 0x14064C418
+ * XREFs of AdtpBuildContextFromSecurityDescriptor @ 0x1405C32C0
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x14064B46C (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x1405C237C (AdtpBuildAccessReasonAuditString.c)
  * Callees:
- *     RtlFindAceByType @ 0x140349610 (RtlFindAceByType.c)
- *     SeRmReferenceFindCapName @ 0x1405F5B98 (SeRmReferenceFindCapName.c)
- *     RtlGetSaclSecurityDescriptor @ 0x14066FE80 (RtlGetSaclSecurityDescriptor.c)
+ *     RtlFindAceByType @ 0x140352210 (RtlFindAceByType.c)
+ *     SeRmReferenceFindCapName @ 0x140597CD4 (SeRmReferenceFindCapName.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x140610D70 (RtlGetSaclSecurityDescriptor.c)
  */
 
 int __fastcall AdtpBuildContextFromSecurityDescriptor(void *a1, __int64 a2)
@@ -43,7 +43,7 @@ int __fastcall AdtpBuildContextFromSecurityDescriptor(void *a1, __int64 a2)
     v4 = AceByType + 8;
   }
 LABEL_8:
-  result = SeRmReferenceFindCapName(v4, (_DWORD *)(a2 + 8), (__int64 *)(a2 + 16));
+  result = SeRmReferenceFindCapName(v4, (_DWORD *)(a2 + 8), (_QWORD *)(a2 + 16));
   if ( result < 0 )
   {
 LABEL_9:

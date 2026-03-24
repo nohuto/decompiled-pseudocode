@@ -1,26 +1,29 @@
 /*
- * XREFs of ??_GFxSystemThread@@UEAAPEAXI@Z @ 0x1C0091470
+ * XREFs of ??_GFxSystemThread@@UEAAPEAXI@Z @ 0x1C0090E90
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
  */
 
-FxSystemThread *__fastcall FxSystemThread::`scalar deleting destructor'(FxSystemThread *this, unsigned int a2)
+FxSystemThread *__fastcall FxSystemThread::`scalar deleting destructor'(
+        FxSystemThread *this,
+        unsigned int a2,
+        unsigned int a3)
 {
-  char v2; // bl
-  FxSystemThread *v4; // rcx
+  char v3; // bl
+  FxSystemThread *v5; // rcx
 
-  v2 = a2;
+  v3 = a2;
   this->__vftable = (FxSystemThread_vtbl *)FxSystemThread::`vftable';
-  FxNonPagedObject::~FxNonPagedObject(this, a2);
-  if ( (v2 & 1) != 0 )
+  FxNonPagedObject::~FxNonPagedObject(this, a2, a3);
+  if ( (v3 & 1) != 0 )
   {
-    v4 = (FxSystemThread *)((char *)this - 48);
+    v5 = (FxSystemThread *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      v4 = this;
-    FxPoolFree((FX_POOL_TRACKER *)v4);
+      v5 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v5);
   }
   return this;
 }

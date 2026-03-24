@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@CSharedWriteCaptureControllerMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C023B040
+ * XREFs of ?IsOfType@CSharedWriteCaptureControllerMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C01F98C0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C008B860 (-IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C007F370 (-IsOfType@CResourceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall DirectComposition::CSharedWriteCaptureControllerMarshaler::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall DirectComposition::CSharedWriteCaptureControllerMarshaler::IsOfT
   char v2; // al
   char v3; // cl
 
-  if ( a2 == 205 )
+  if ( a2 == 204 )
     return 1;
   v2 = DirectComposition::CResourceMarshaler::IsOfType(a1, a2);
   v3 = 0;

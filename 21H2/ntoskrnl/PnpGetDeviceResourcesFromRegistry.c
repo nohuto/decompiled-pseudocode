@@ -1,27 +1,27 @@
 /*
- * XREFs of PnpGetDeviceResourcesFromRegistry @ 0x140748B18
+ * XREFs of PnpGetDeviceResourcesFromRegistry @ 0x140750824
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x1406CF970 (IopInitializeDeviceInstanceKey.c)
- *     IopQueryDeviceResources @ 0x140748758 (IopQueryDeviceResources.c)
- *     IopPnPDispatch @ 0x140763C50 (IopPnPDispatch.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074ED50 (IopInitializeDeviceInstanceKey.c)
+ *     IopPnPDispatch @ 0x14074F750 (IopPnPDispatch.c)
+ *     IopQueryDeviceResources @ 0x14075046C (IopQueryDeviceResources.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
- *     PnpReadDeviceConfiguration @ 0x14084D6C0 (PnpReadDeviceConfiguration.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     PnpReadDeviceConfiguration @ 0x140750DD0 (PnpReadDeviceConfiguration.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetDeviceResourcesFromRegistry(__int64 a1, int a2, char a3, void **a4, _DWORD *a5)
 {
-  _DWORD *v5; // r12
-  NTSTATUS RegistryValue; // ebx
+  _DWORD *v5; // r13
+  int RegistryValue; // ebx
   HANDLE v10; // rcx
   __int64 v11; // rdx
   __int64 result; // rax
-  NTSTATUS v13; // eax
+  int v13; // eax
   __int64 v14; // rdx
   __int64 v15; // rdx
   int DeviceConfiguration; // eax
@@ -29,23 +29,32 @@ __int64 __fastcall PnpGetDeviceResourcesFromRegistry(__int64 a1, int a2, char a3
   __int64 v18; // rdx
   unsigned int *v19; // rdi
   unsigned int v20; // eax
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
+  _DWORD *v22; // rax
   PVOID P[2]; // [rsp+40h] [rbp-10h] BYREF
-  HANDLE Handle; // [rsp+98h] [rbp+48h] BYREF
+  HANDLE Handle; // [rsp+88h] [rbp+38h] BYREF
 
   v5 = a5;
   *a4 = 0LL;
   Handle = 0LL;
-  P[0] = 0LL;
-  *v5 = 0;
   RegistryValue = 0;
+  *v5 = 0;
+  P[0] = 0LL;
   if ( a2 )
   {
     if ( a1 )
       v14 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
     else
       v14 = 0LL;
-    RegistryValue = CmOpenDeviceRegKey(PiPnpRtlCtx, *(_QWORD *)(v14 + 48), 20, 0, 131097, 0, (__int64)&Handle, 0LL);
+    RegistryValue = CmOpenDeviceRegKey(
+                      *(__int64 *)&PiPnpRtlCtx,
+                      *(_QWORD *)(v14 + 48),
+                      20,
+                      0,
+                      131097,
+                      0,
+                      (__int64)&Handle,
+                      0LL);
     if ( RegistryValue < 0 )
       return (unsigned int)RegistryValue;
     if ( (a3 & 1) != 0 )
@@ -71,14 +80,18 @@ LABEL_26:
         v20 = *((_DWORD *)P[0] + 3);
         if ( v20 )
         {
-          Pool2 = ExAllocatePool2(256LL, v20, 1970499664LL);
-          *a4 = (void *)Pool2;
-          if ( Pool2 )
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, v20, 0x75737050u);
+          *a4 = PoolWithTag;
+          if ( PoolWithTag )
           {
             *v5 = v19[3];
             memmove(*a4, (char *)v19 + v19[2], v19[3]);
+            v22 = *a4;
             if ( *((_DWORD *)*a4 + 1) == -1 )
-              *(_QWORD *)((char *)*a4 + 4) = 1LL;
+            {
+              v22[2] = 0;
+              v22[1] = 1;
+            }
           }
           else
           {
@@ -93,7 +106,15 @@ LABEL_26:
   if ( (a3 & 1) != 0 )
   {
     v18 = a1 ? *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL) : 0LL;
-    RegistryValue = CmOpenDeviceRegKey(PiPnpRtlCtx, *(_QWORD *)(v18 + 48), 19, 0, 131097, 0, (__int64)&Handle, 0LL);
+    RegistryValue = CmOpenDeviceRegKey(
+                      *(__int64 *)&PiPnpRtlCtx,
+                      *(_QWORD *)(v18 + 48),
+                      19,
+                      0,
+                      131097,
+                      0,
+                      (__int64)&Handle,
+                      0LL);
     if ( RegistryValue >= 0 )
     {
       RegistryValue = PnpReadDeviceConfiguration(Handle, 1LL, a4, v5);
@@ -110,7 +131,15 @@ LABEL_26:
       v15 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
     else
       v15 = 0LL;
-    result = CmOpenDeviceRegKey(PiPnpRtlCtx, *(_QWORD *)(v15 + 48), 20, 0, 131097, 0, (__int64)&Handle, 0LL);
+    result = CmOpenDeviceRegKey(
+               *(__int64 *)&PiPnpRtlCtx,
+               *(_QWORD *)(v15 + 48),
+               20,
+               0,
+               131097,
+               0,
+               (__int64)&Handle,
+               0LL);
     if ( (int)result < 0 )
       return result;
     DeviceConfiguration = PnpReadDeviceConfiguration(Handle, 2LL, a4, v5);
@@ -138,7 +167,7 @@ LABEL_12:
     v11 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
   else
     v11 = 0LL;
-  result = CmOpenDeviceRegKey(PiPnpRtlCtx, *(_QWORD *)(v11 + 48), 20, 0, 131097, 0, (__int64)&Handle, 0LL);
+  result = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, *(_QWORD *)(v11 + 48), 20, 0, 131097, 0, (__int64)&Handle, 0LL);
   if ( (int)result >= 0 )
   {
     v10 = Handle;

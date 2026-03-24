@@ -1,76 +1,55 @@
 /*
- * XREFs of _BuildPropList @ 0x1C00E5788
+ * XREFs of _BuildPropList @ 0x1C0113B74
  * Callers:
- *     NtUserBuildPropList @ 0x1C00E56A0 (NtUserBuildPropList.c)
+ *     NtUserBuildPropList @ 0x1C0113A50 (NtUserBuildPropList.c)
  * Callees:
- *     ??1?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C006B9B0 (--1-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@$$V@SharedUserCritOnly@@QEAA@.c)
- *     ??0?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@AEAUtagObjLock@@@Z @ 0x1C006C4AC (--0-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@$$V@SharedUserCritOnly@@QEAA@.c)
- *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z @ 0x1C007944C (-LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     <none>
  */
 
-__int64 __fastcall BuildPropList(__int64 a1, char *a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall BuildPropList(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
 {
-  SIZE_T v7; // r14
-  char *v8; // r15
-  __int64 v9; // rbx
-  _DWORD *v10; // rdx
-  int v11; // r9d
-  __int64 v12; // r8
-  int v13; // r10d
-  unsigned int v14; // edx
-  unsigned int v15; // ebx
+  unsigned int v4; // r10d
+  unsigned __int64 v5; // rbp
+  __int64 v7; // rax
+  int v9; // r11d
+  unsigned int v10; // ebx
+  int v11; // r8d
+  __int64 v12; // rdx
+  int i; // r9d
+  unsigned __int64 v14; // rcx
+  unsigned int v15; // eax
   __int64 v16; // rcx
-  _BYTE v18[48]; // [rsp+48h] [rbp-60h] BYREF
 
-  v7 = 16LL * (unsigned int)a3;
-  v8 = &a2[v7 - 16];
-  SharedUserCritOnly::DomainShared<>::DomainExclusive<>::ObjectLock<tagObjLock>::ObjectLock<tagObjLock>(
-    (__int64)v18,
-    *(tagObjLock **)(a1 + 144),
-    a3);
-  LockRefactorStagingAssertOwned(*(struct _KTHREAD ***)(a1 + 144));
-  v9 = *(_QWORD *)(*(_QWORD *)(a1 + 144) + 24LL);
-  if ( v9 )
+  v4 = 0;
+  v5 = 16LL * a3 + a2 - 16;
+  v7 = *(_QWORD *)(a1 + 144);
+  v9 = 0;
+  v10 = 0;
+  if ( v7 )
   {
-    ProbeForWrite(a2, v7, 4u);
-    v10 = a4;
-    if ( (unsigned __int64)a4 >= MmUserProbeAddress )
-      v10 = (_DWORD *)MmUserProbeAddress;
-    *v10 = *v10;
-    v11 = *(_DWORD *)(v9 + 4);
-    v12 = v9 + 8;
-    v13 = 0;
-    v14 = 0;
-    v15 = 0;
-    while ( v11 )
+    v11 = *(_DWORD *)(v7 + 4);
+    v12 = v7 + 8;
+    for ( i = 0; v11; --v11 )
     {
-      if ( &a2[16 * v14] > v8 )
-      {
-        v14 = 0;
-        v15 = -1073741789;
-      }
+      v14 = a2 + 16LL * v10;
+      if ( v14 > v5 )
+        i = -1073741789;
+      v15 = 0;
+      if ( v14 <= v5 )
+        v15 = v10;
+      v10 = v15;
       if ( (*(_BYTE *)(v12 + 10) & 1) == 0 )
       {
-        v16 = 2LL * v14;
-        *(_QWORD *)&a2[8 * v16] = *(_QWORD *)v12;
-        *(_WORD *)&a2[8 * v16 + 8] = *(_WORD *)(v12 + 8);
-        ++v14;
-        ++v13;
+        v16 = 2LL * v15;
+        v10 = v15 + 1;
+        ++v9;
+        *(_QWORD *)(a2 + 8 * v16) = *(_QWORD *)v12;
+        *(_WORD *)(a2 + 8 * v16 + 8) = *(_WORD *)(v12 + 8);
       }
       v12 += 16LL;
-      --v11;
     }
-    *a4 = v13;
-    SharedUserCritOnly::DomainShared<>::DomainExclusive<>::ObjectLock<tagObjLock>::~ObjectLock<tagObjLock>((__int64)v18);
-    return v15;
+    v4 = i;
   }
-  else
-  {
-    if ( (unsigned __int64)a4 >= MmUserProbeAddress )
-      a4 = (_DWORD *)MmUserProbeAddress;
-    *a4 = 0;
-    SharedUserCritOnly::DomainShared<>::DomainExclusive<>::ObjectLock<tagObjLock>::~ObjectLock<tagObjLock>((__int64)v18);
-    return 0LL;
-  }
+  *a4 = v9;
+  return v4;
 }

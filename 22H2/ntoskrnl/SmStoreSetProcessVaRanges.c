@@ -1,44 +1,41 @@
 /*
- * XREFs of SmStoreSetProcessVaRanges @ 0x1407B77DC
+ * XREFs of SmStoreSetProcessVaRanges @ 0x1406FB63C
  * Callers:
- *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x140341B10 (MmOutSwapWorkingSet.c)
+ *     MmInSwapWorkingSet @ 0x140350CF4 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x140350FC0 (MmOutSwapWorkingSet.c)
  * Callees:
- *     SSHSupportAllocateNonPaged @ 0x14032D1C0 (SSHSupportAllocateNonPaged.c)
- *     SmpKeyedStoreSetVaRanges @ 0x140342558 (SmpKeyedStoreSetVaRanges.c)
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     SSHSupportAllocateNonPaged @ 0x140322FE4 (SSHSupportAllocateNonPaged.c)
+ *     SmpKeyedStoreSetVaRanges @ 0x140351A08 (SmpKeyedStoreSetVaRanges.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmStoreSetProcessVaRanges(void *Src, __int64 a2)
 {
-  void *v4; // rdi
-  __int64 ProcessPartition; // r14
-  __int64 v6; // rdx
-  __int64 v7; // rbx
-  void *NonPaged; // rax
-  int v9; // ebx
+  void *v2; // rbx
+  _KPROCESS *Process; // rbp
+  size_t v5; // rdi
+  PVOID NonPaged; // rax
+  int v7; // edi
 
-  v4 = 0LL;
-  ProcessPartition = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
-  if ( v6 )
+  v2 = 0LL;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  if ( a2 )
   {
-    v7 = 16 * a2;
-    NonPaged = (void *)SSHSupportAllocateNonPaged(v7, 0x52566D73u);
-    v4 = NonPaged;
+    v5 = 16 * a2;
+    NonPaged = SSHSupportAllocateNonPaged(16 * a2, 0x52566D73u);
+    v2 = NonPaged;
     if ( !NonPaged )
       return (unsigned int)-1073741670;
-    memmove(NonPaged, Src, v7);
+    memmove(NonPaged, Src, v5);
   }
-  v9 = SmpKeyedStoreSetVaRanges((volatile signed __int64 *)(ProcessPartition + 2072));
-  if ( v9 >= 0 )
+  v7 = SmpKeyedStoreSetVaRanges((ULONG_PTR)qword_140D24188, Process);
+  if ( v7 >= 0 )
   {
-    return 0;
+    v2 = 0LL;
+    v7 = 0;
   }
-  else if ( v4 )
-  {
-    ExFreePoolWithTag(v4, 0);
-  }
-  return (unsigned int)v9;
+  if ( v2 )
+    ExFreePoolWithTag(v2, 0);
+  return (unsigned int)v7;
 }

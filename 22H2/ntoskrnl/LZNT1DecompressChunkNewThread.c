@@ -1,13 +1,13 @@
 /*
- * XREFs of LZNT1DecompressChunkNewThread @ 0x140304D34
+ * XREFs of LZNT1DecompressChunkNewThread @ 0x1402F26C8
  * Callers:
- *     RtlDecompressBufferLZNT1 @ 0x14076C5B0 (RtlDecompressBufferLZNT1.c)
- *     RtlDecompressFragmentLZNT1 @ 0x1407DA400 (RtlDecompressFragmentLZNT1.c)
+ *     RtlDecompressBufferLZNT1 @ 0x140662050 (RtlDecompressBufferLZNT1.c)
+ *     RtlDecompressFragmentLZNT1 @ 0x1406621C0 (RtlDecompressFragmentLZNT1.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     KeQueryPriorityThread @ 0x140304B70 (KeQueryPriorityThread.c)
- *     LZNT1DecompressChunk @ 0x140429B60 (LZNT1DecompressChunk.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeQueryPriorityThread @ 0x1402682A0 (KeQueryPriorityThread.c)
+ *     LZNT1DecompressChunk @ 0x1404081D0 (LZNT1DecompressChunk.c)
  */
 
 __int64 __fastcall LZNT1DecompressChunkNewThread(

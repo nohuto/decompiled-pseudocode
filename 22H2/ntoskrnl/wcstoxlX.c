@@ -1,27 +1,26 @@
 /*
- * XREFs of wcstoxlX @ 0x1403DB610
+ * XREFs of wcstoxlX @ 0x1403D3B7C
  * Callers:
- *     wcstol @ 0x1403DB82C (wcstol.c)
- *     wcstolX @ 0x1403DB85C (wcstolX.c)
- *     wcstoul @ 0x1403DB890 (wcstoul.c)
+ *     wcstol @ 0x1403D3D94 (wcstol.c)
+ *     wcstolX @ 0x1403D3DC4 (wcstolX.c)
+ *     wcstoul @ 0x1403D3E00 (wcstoul.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
- *     _iswctype_l @ 0x1403DBCB4 (_iswctype_l.c)
- *     _wchartodigit @ 0x1403DD644 (_wchartodigit.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
+ *     _iswctype_l @ 0x1403D423C (_iswctype_l.c)
+ *     _wchartodigit @ 0x1403D5AC4 (_wchartodigit.c)
  */
 
 __int64 __fastcall wcstoxlX(__int64 a1, wint_t *a2, wint_t **a3, unsigned int a4, int a5, int a6)
 {
   unsigned int v6; // r14d
-  wint_t v9; // bp
-  wint_t *v10; // rbx
-  unsigned int v11; // edi
-  int v12; // esi
-  unsigned int v13; // r13d
-  unsigned int v14; // ecx
-  unsigned __int16 v15; // dx
-  int v16; // ecx
-  wint_t *v17; // rbx
+  wint_t v8; // bp
+  wint_t *v9; // rbx
+  unsigned int v10; // edi
+  int v11; // esi
+  unsigned int v12; // r13d
+  unsigned int v13; // ecx
+  int v14; // ecx
+  wint_t *v15; // rbx
   __int64 result; // rax
 
   v6 = a4;
@@ -32,111 +31,107 @@ __int64 __fastcall wcstoxlX(__int64 a1, wint_t *a2, wint_t **a3, unsigned int a4
     xHalTimerWatchdogStop();
     return 0LL;
   }
-  v9 = *a2;
-  v10 = a2 + 1;
-  v11 = 0;
-  while ( iswctype_l(v9, 8u, 0LL) )
-    v9 = *v10++;
-  v12 = a5;
-  if ( v9 == 45 )
+  v8 = *a2;
+  v9 = a2 + 1;
+  v10 = 0;
+  while ( iswctype_l(v8, 8u, 0LL) )
+    v8 = *v9++;
+  v11 = a5;
+  if ( v8 == 45 )
   {
-    v12 = a5 | 2;
+    v11 = a5 | 2;
   }
-  else if ( v9 != 43 )
+  else if ( v8 != 43 )
   {
     goto LABEL_13;
   }
-  v9 = *v10++;
+  v8 = *v9++;
 LABEL_13:
   if ( v6 )
+    goto LABEL_19;
+  if ( !(unsigned int)wchartodigit(v8) )
   {
-    if ( v6 != 16 )
-      goto LABEL_23;
-    goto LABEL_20;
-  }
-  if ( !(unsigned int)wchartodigit(v9) )
-  {
-    if ( ((*v10 - 88) & 0xFFDF) != 0 )
+    if ( ((*v9 - 88) & 0xFFDF) != 0 )
     {
       v6 = 8;
       goto LABEL_23;
     }
     v6 = 16;
-LABEL_20:
-    if ( !(unsigned int)wchartodigit(v9) && ((*v10 - 88) & 0xFFDF) == 0 )
+LABEL_19:
+    if ( v6 == 16 && !(unsigned int)wchartodigit(v8) && ((*v9 - 88) & 0xFFDF) == 0 )
     {
-      v9 = v10[1];
-      v10 += 2;
+      v8 = v9[1];
+      v9 += 2;
     }
     goto LABEL_23;
   }
   v6 = 10;
 LABEL_23:
-  v13 = 0xFFFFFFFF / v6;
+  v12 = 0xFFFFFFFF / v6;
   while ( 1 )
   {
-    v14 = wchartodigit(v9);
-    if ( v14 != -1 )
+    v13 = wchartodigit(v8);
+    if ( v13 != -1 )
       goto LABEL_30;
-    v15 = v9 - 97;
-    if ( (unsigned __int16)(v9 - 65) > 0x19u && v15 > 0x19u )
+    if ( (unsigned __int16)(v8 - 65) > 0x19u && (unsigned __int16)(v8 - 97) > 0x19u )
       break;
-    v16 = v9 - 32;
-    if ( v15 > 0x19u )
-      v16 = v9;
-    v14 = v16 - 55;
+    v14 = v8 - 32;
+    if ( (unsigned __int16)(v8 - 97) > 0x19u )
+      v14 = v8;
+    v13 = v14 - 55;
 LABEL_30:
-    if ( v14 >= v6 )
+    if ( v13 >= v6 )
       break;
-    v12 |= 8u;
-    if ( a6 || v11 < v13 || v11 == v13 && v14 <= 0xFFFFFFFF % v6 )
+    v11 |= 8u;
+    if ( a6 || v10 < v12 || v10 == v12 && v13 <= 0xFFFFFFFF % v6 )
     {
-      v11 = v14 + v6 * v11;
+      v10 = v13 + v6 * v10;
     }
     else
     {
-      v12 |= 4u;
+      v11 |= 4u;
       if ( !a3 )
         break;
     }
-    v9 = *v10++;
+    v8 = *v9++;
   }
-  v17 = v10 - 1;
-  if ( (v12 & 8) != 0 )
+  v15 = v9 - 1;
+  if ( (v11 & 8) != 0 )
   {
-    if ( (v12 & 4) == 0 )
+    if ( (v11 & 4) == 0 )
     {
-      if ( (v12 & 1) != 0 )
+      if ( (v11 & 1) != 0 )
         goto LABEL_52;
-      if ( (v12 & 2) != 0 )
+      if ( (v11 & 2) != 0 )
       {
-        if ( v11 <= 0x80000000 )
+        if ( v10 <= 0x80000000 )
           goto LABEL_52;
       }
-      else if ( v11 <= 0x7FFFFFFF )
+      else if ( v10 <= 0x7FFFFFFF )
       {
         goto LABEL_52;
       }
     }
     if ( !a6 )
     {
-      if ( (v12 & 1) != 0 )
-        v11 = -1;
+      gbl_errno = 34;
+      if ( (v11 & 1) != 0 )
+        v10 = -1;
       else
-        v11 = ((v12 & 2) != 0) + 0x7FFFFFFF;
+        v10 = ((v11 & 2) != 0) + 0x7FFFFFFF;
     }
   }
   else
   {
     if ( a3 )
-      v17 = a2;
-    v11 = 0;
+      v15 = a2;
+    v10 = 0;
   }
 LABEL_52:
   if ( a3 )
-    *a3 = v17;
-  result = -v11;
-  if ( (v12 & 2) == 0 )
-    return v11;
+    *a3 = v15;
+  result = -v10;
+  if ( (v11 & 2) == 0 )
+    return v10;
   return result;
 }

@@ -1,23 +1,23 @@
 /*
  * XREFs of CcSetFileSizesEx @ 0x14007CFC0
  * Callers:
- *     CcSetFileSizes @ 0x14013B4F0 (CcSetFileSizes.c)
+ *     CcSetFileSizes @ 0x14013B510 (CcSetFileSizes.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
  *     MmFlushSection @ 0x14001FFD8 (MmFlushSection.c)
  *     CcUnmapVacbArray @ 0x1400798E0 (CcUnmapVacbArray.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementOpenCount @ 0x1400ACF80 (CcDecrementOpenCount.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     CcPurgeAndClearCacheSection @ 0x1400E78D8 (CcPurgeAndClearCacheSection.c)
- *     CcPurgeCacheSection @ 0x1400E7A80 (CcPurgeCacheSection.c)
- *     CcDeleteMbcb @ 0x140125968 (CcDeleteMbcb.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     CcExtendVacbArray @ 0x14012C9A4 (CcExtendVacbArray.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F230 (FsRtlIsNtstatusExpected.c)
- *     CcDeleteBcbs @ 0x14016047C (CcDeleteBcbs.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcDecrementOpenCount @ 0x1400ACFA0 (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     CcPurgeAndClearCacheSection @ 0x1400E78F8 (CcPurgeAndClearCacheSection.c)
+ *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
+ *     CcDeleteMbcb @ 0x140125988 (CcDeleteMbcb.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     CcExtendVacbArray @ 0x14012C9C4 (CcExtendVacbArray.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
+ *     CcDeleteBcbs @ 0x14016049C (CcDeleteBcbs.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
  */
 

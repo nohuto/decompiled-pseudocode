@@ -1,34 +1,38 @@
 /*
- * XREFs of IoctlSetProtocolInfoProcess @ 0x1C0014048
+ * XREFs of IoctlSetProtocolInfoProcess @ 0x1C00135F0
  * Callers:
- *     IoctlToNVMe @ 0x1C0014870 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     SetProtocolInfoFeatureData @ 0x1C001B1DC (SetProtocolInfoFeatureData.c)
+ *     SetProtocolInfoFeatureData @ 0x1C001744C (SetProtocolInfoFeatureData.c)
  */
 
 __int64 __fastcall IoctlSetProtocolInfoProcess(__int64 a1, __int64 a2)
 {
-  _DWORD *SrbDataBuffer; // rdx
-  __int64 v3; // r9
-  __int64 v4; // r11
-  unsigned __int64 v5; // rax
-  __int64 v6; // r10
-  unsigned int *v8; // [rsp+40h] [rbp+18h] BYREF
+  _DWORD *v2; // r8
+  __int64 v3; // rax
+  unsigned __int64 v4; // r10
+  __int64 v5; // r11
 
-  v8 = 0LL;
-  SrbDataBuffer = (_DWORD *)GetSrbDataBuffer(a2, &v8);
-  v5 = *v8;
-  if ( (unsigned int)v5 < 0x4C
-    || (v6 = (unsigned int)SrbDataBuffer[13], v5 < v6 + 36 + (unsigned __int64)(unsigned int)SrbDataBuffer[14]) )
+  if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    *(_BYTE *)(v3 + 3) = 21;
+    v2 = *(_DWORD **)(a2 + 64);
+    v3 = 60LL;
   }
   else
   {
-    if ( (!(_DWORD)v6 || (((_BYTE)v6 + 36) & 7) == 0) && SrbDataBuffer[9] == 3 && SrbDataBuffer[10] == 3 )
-      return SetProtocolInfoFeatureData(v4, v3);
-    *(_BYTE *)(v3 + 3) = 6;
+    v2 = *(_DWORD **)(a2 + 24);
+    v3 = 16LL;
+  }
+  v4 = *(unsigned int *)(a2 + v3);
+  if ( (unsigned int)v4 < 0x4C || (v5 = (unsigned int)v2[13], v4 < v5 + 36 + (unsigned __int64)(unsigned int)v2[14]) )
+  {
+    *(_BYTE *)(a2 + 3) = 21;
+  }
+  else
+  {
+    if ( (!(_DWORD)v5 || (((_BYTE)v5 + 36) & 7) == 0) && v2[9] == 3 && v2[10] == 3 )
+      return SetProtocolInfoFeatureData(a1);
+    *(_BYTE *)(a2 + 3) = 6;
   }
   return 3238002694LL;
 }

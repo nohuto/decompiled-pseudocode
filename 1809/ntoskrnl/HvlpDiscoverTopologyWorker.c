@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpDiscoverTopologyWorker @ 0x1408179D0
+ * XREFs of HvlpDiscoverTopologyWorker @ 0x1408179B0
  * Callers:
- *     HvlpDiscoverTopologyLocal @ 0x1408179B8 (HvlpDiscoverTopologyLocal.c)
- *     HvlpDiscoverTopologyComplete @ 0x1409F4130 (HvlpDiscoverTopologyComplete.c)
+ *     HvlpDiscoverTopologyLocal @ 0x140817998 (HvlpDiscoverTopologyLocal.c)
+ *     HvlpDiscoverTopologyComplete @ 0x1409F4138 (HvlpDiscoverTopologyComplete.c)
  * Callees:
- *     HvlpDiscoverTopologyAmd @ 0x1409F4014 (HvlpDiscoverTopologyAmd.c)
- *     HvlpDiscoverTopologyIntel @ 0x1409F4248 (HvlpDiscoverTopologyIntel.c)
+ *     HvlpDiscoverTopologyAmd @ 0x1409F401C (HvlpDiscoverTopologyAmd.c)
+ *     HvlpDiscoverTopologyIntel @ 0x1409F4250 (HvlpDiscoverTopologyIntel.c)
  */
 
 __int64 HvlpDiscoverTopologyWorker()

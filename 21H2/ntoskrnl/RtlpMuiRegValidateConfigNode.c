@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMuiRegValidateConfigNode @ 0x140654FBC
+ * XREFs of RtlpMuiRegValidateConfigNode @ 0x1405CA89C
  * Callers:
- *     RtlpPopulateLanguageConfigList @ 0x14082FDD8 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x1407941DC (RtlpPopulateLanguageConfigList.c)
  * Callees:
- *     RtlpMuiRegConfigMatchesInstalled @ 0x140A35084 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140A35494 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x14098102C (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140981438 (RtlpMuiRegGetInstalledLanguageIndex.c)
  */
 
 __int64 __fastcall RtlpMuiRegValidateConfigNode(__int64 a1, unsigned __int16 *a2)
@@ -14,7 +14,7 @@ __int64 __fastcall RtlpMuiRegValidateConfigNode(__int64 a1, unsigned __int16 *a2
   int InstalledLanguageIndex; // eax
   int v7; // r9d
   unsigned int v8; // ebx
-  const signed __int16 *v9; // rdi
+  __int64 v9; // rdi
   __int16 v10; // bp
   __int16 v11; // r15
   char v12; // r14
@@ -24,7 +24,7 @@ __int64 __fastcall RtlpMuiRegValidateConfigNode(__int64 a1, unsigned __int16 *a2
   int v16; // edx
   char v17; // al
   __int16 v18; // r8
-  const signed __int16 *v20; // [rsp+40h] [rbp-58h] BYREF
+  _WORD *v20; // [rsp+40h] [rbp-58h] BYREF
   int v21; // [rsp+A0h] [rbp+8h]
   __int16 v22; // [rsp+A8h] [rbp+10h] BYREF
   __int16 v23; // [rsp+B0h] [rbp+18h] BYREF
@@ -40,8 +40,8 @@ __int64 __fastcall RtlpMuiRegValidateConfigNode(__int64 a1, unsigned __int16 *a2
   v8 = InstalledLanguageIndex;
   if ( InstalledLanguageIndex >= 0 )
   {
-    v9 = (const signed __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL) + 28LL * v22);
-    if ( _bittest16(v9, 0xCu) )
+    v9 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL) + 28LL * v22;
+    if ( (*(_WORD *)v9 & 0x1000) != 0 )
     {
       return (unsigned int)-1073741772;
     }
@@ -61,15 +61,22 @@ __int64 __fastcall RtlpMuiRegValidateConfigNode(__int64 a1, unsigned __int16 *a2
         v15 = a2[v10 + 3];
         for ( i = a2[v10 + 3]; ; v15 = i )
         {
-          v16 = (unsigned __int16)((unsigned __int16)v9[4] >> v14);
+          v16 = (unsigned __int16)(*(_WORD *)(v9 + 8) >> v14);
           v20 = 0LL;
           LOBYTE(v7) = v16 & 3;
           LOBYTE(v16) = v12;
-          v17 = RtlpMuiRegConfigMatchesInstalled(v21, v16, v15, v7, v9[v13 + 6], (__int64)&v20, (__int64)&v23);
+          v17 = RtlpMuiRegConfigMatchesInstalled(
+                  v21,
+                  v16,
+                  v15,
+                  v7,
+                  *(_WORD *)(v9 + 2LL * v13 + 12),
+                  (__int64)&v20,
+                  (__int64)&v23);
           v7 = 0;
           if ( v17 )
           {
-            if ( (!v20 || !_bittest16(v20, 0xCu)) && ((*(_BYTE *)v9 & 4) == 0 || v20) )
+            if ( (!v20 || (*v20 & 0x1000) == 0) && ((*(_BYTE *)v9 & 4) == 0 || v20) )
               break;
           }
           ++v13;
@@ -78,7 +85,7 @@ __int64 __fastcall RtlpMuiRegValidateConfigNode(__int64 a1, unsigned __int16 *a2
             return (unsigned int)-1073741772;
         }
         v18 = v23;
-        v9 = v20;
+        v9 = (__int64)v20;
         if ( v23 != -1 )
         {
           a2[1] = (2 << (2 * v10)) | a2[1] & ~(3 << (2 * v10));

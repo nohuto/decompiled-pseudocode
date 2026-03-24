@@ -1,39 +1,39 @@
 /*
- * XREFs of ObCompleteObjectDuplication @ 0x1407BFAC4
+ * XREFs of ObCompleteObjectDuplication @ 0x140664680
  * Callers:
- *     AlpcpExposeHandleAttribute @ 0x14073C944 (AlpcpExposeHandleAttribute.c)
- *     AlpcpQueryHandleInformationMessage @ 0x1407BF9BC (AlpcpQueryHandleInformationMessage.c)
+ *     AlpcpExposeHandleAttribute @ 0x1405E89F0 (AlpcpExposeHandleAttribute.c)
+ *     AlpcpQueryHandleInformationMessage @ 0x140664578 (AlpcpQueryHandleInformationMessage.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ObpFilterOperation @ 0x14034E760 (ObpFilterOperation.c)
- *     SeAuditingWithTokenForSubcategory @ 0x1406BB250 (SeAuditingWithTokenForSubcategory.c)
- *     ObpIncrementHandleCountEx @ 0x1406E7110 (ObpIncrementHandleCountEx.c)
- *     ObpDecrementHandleCount @ 0x140740464 (ObpDecrementHandleCount.c)
- *     ExCreateHandleEx @ 0x140740974 (ExCreateHandleEx.c)
- *     ObReferenceProcessHandleTable @ 0x140742B50 (ObReferenceProcessHandleTable.c)
- *     ObpPreInterceptHandleDuplicate @ 0x1407BFC8C (ObpPreInterceptHandleDuplicate.c)
- *     ObpPostInterceptHandleDuplicate @ 0x1408A5D3C (ObpPostInterceptHandleDuplicate.c)
- *     SeAuditHandleDuplication @ 0x1409CA84C (SeAuditHandleDuplication.c)
- *     EtwTraceDuplicateHandle @ 0x1409E516C (EtwTraceDuplicateHandle.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObpFilterOperation @ 0x1402F450C (ObpFilterOperation.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x140608B90 (SeAuditingWithTokenForSubcategory.c)
+ *     ObpIncrementHandleCountEx @ 0x140643680 (ObpIncrementHandleCountEx.c)
+ *     ExCreateHandleEx @ 0x140664860 (ExCreateHandleEx.c)
+ *     ObpPreInterceptHandleDuplicate @ 0x140664AE8 (ObpPreInterceptHandleDuplicate.c)
+ *     ObpDecrementHandleCount @ 0x1406F6CE4 (ObpDecrementHandleCount.c)
+ *     ObpPostInterceptHandleDuplicate @ 0x1408DDE8C (ObpPostInterceptHandleDuplicate.c)
+ *     SeAuditHandleDuplication @ 0x14091DB1C (SeAuditHandleDuplication.c)
+ *     EtwTraceDuplicateHandle @ 0x140935B4C (EtwTraceDuplicateHandle.c)
  */
 
-__int64 __fastcall ObCompleteObjectDuplication(__int64 *a1, __int64 a2, unsigned __int8 a3, __int64 *a4, int *a5)
+__int64 __fastcall ObCompleteObjectDuplication(__int64 *a1, ULONG_PTR a2, unsigned __int8 a3, __int64 *a4, _DWORD *a5)
 {
   unsigned __int64 v9; // rax
-  __int64 v10; // r14
+  int v10; // r14d
   __int64 v11; // r9
   bool v12; // r12
   int v13; // esi
   __int64 v14; // r10
-  __int64 v15; // r15
+  int v15; // r15d
   __int64 v16; // rax
   int v17; // edx
   int v18; // r10d
   __int64 Handle; // r14
   int v20; // edx
-  int *v21; // rcx
+  _DWORD *v21; // rcx
   int v22; // eax
   __int64 v24; // r9
   int v25; // eax
@@ -63,7 +63,7 @@ __int64 __fastcall ObCompleteObjectDuplication(__int64 *a1, __int64 a2, unsigned
       {
 LABEL_4:
         ObfReferenceObjectWithTag((PVOID)a1[2], 0x6E48624Fu);
-        Handle = ExCreateHandleEx(v10, v15, v29, *((_DWORD *)a1 + 9), (_DWORD *)a1 + 7);
+        Handle = ExCreateHandleEx(v10, v15, v29, *((_DWORD *)a1 + 9), (__int64)a1 + 28);
         if ( Handle )
         {
           if ( (*((_DWORD *)a1 + 9) & 4) != 0 && SeAuditingWithTokenForSubcategory(124, 0LL) )
@@ -72,12 +72,12 @@ LABEL_4:
         else
         {
           ObfDereferenceObjectWithTag((PVOID)a1[2], 0x7544624Fu);
-          ObpDecrementHandleCount((_KPROCESS *)a2, v15);
+          ObpDecrementHandleCount(a2);
           v13 = -1073741670;
         }
         if ( v12 )
           Handle |= 0xFFFFFFFF80000000uLL;
-        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112));
+        ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112));
         if ( (_QWORD *)v28[0] != v28 )
         {
           LOBYTE(v20) = v12;
@@ -90,7 +90,7 @@ LABEL_4:
           *a4 = Handle;
           *v21 = v22;
         }
-        if ( (xmmword_140D1EAD0 & 0x40) != 0 && v13 >= 0 )
+        if ( (xmmword_140CFC490 & 0x40) != 0 && v13 >= 0 )
           EtwTraceDuplicateHandle(a1[1], Handle, a1[2], *(_DWORD *)(*a1 + 1088), *(_DWORD *)(a2 + 1088), v27);
         return (unsigned int)v13;
       }
@@ -106,9 +106,9 @@ LABEL_4:
         v29 = v25;
         goto LABEL_4;
       }
-      ObpDecrementHandleCount((_KPROCESS *)a2, v15);
+      ObpDecrementHandleCount(a2);
     }
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112));
     return (unsigned int)v13;
   }
   return 3221225738LL;

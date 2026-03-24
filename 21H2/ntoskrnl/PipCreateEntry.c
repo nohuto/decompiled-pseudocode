@@ -1,25 +1,28 @@
 /*
- * XREFs of PipCreateEntry @ 0x140B126B8
+ * XREFs of PipCreateEntry @ 0x140A5EE6C
  * Callers:
- *     PipLookupGroupName @ 0x140B125BC (PipLookupGroupName.c)
+ *     PipLookupGroupName @ 0x140A5ED70 (PipLookupGroupName.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PipCreateEntry(const void **a1)
+_OWORD *__fastcall PipCreateEntry(const void **a1)
 {
-  __int64 result; // rax
-  __int64 v3; // rbx
+  _OWORD *result; // rax
+  _OWORD *v3; // rbx
 
-  result = ExAllocatePool2(256LL, *(unsigned __int16 *)a1 + 48LL, 0x6E697050u);
+  result = ExAllocatePoolWithTag(PagedPool, *(unsigned __int16 *)a1 + 48LL, 0x6E697050u);
   v3 = result;
   if ( result )
   {
-    *(_WORD *)(result + 32) = *(_WORD *)a1;
-    *(_WORD *)(result + 34) = *(_WORD *)a1;
-    *(_QWORD *)(result + 40) = result + 48;
-    memmove((void *)(result + 48), a1[1], *(unsigned __int16 *)a1);
+    *result = 0LL;
+    result[1] = 0LL;
+    result[2] = 0LL;
+    *((_WORD *)result + 16) = *(_WORD *)a1;
+    *((_WORD *)result + 17) = *(_WORD *)a1;
+    *((_QWORD *)result + 5) = result + 3;
+    memmove(result + 3, a1[1], *(unsigned __int16 *)a1);
     return v3;
   }
   return result;

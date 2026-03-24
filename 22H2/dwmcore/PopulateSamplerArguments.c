@@ -1,26 +1,26 @@
 /*
- * XREFs of PopulateSamplerArguments @ 0x180028D1C
+ * XREFs of PopulateSamplerArguments @ 0x180047244
  * Callers:
- *     PrepareSamplers @ 0x180028BDC (PrepareSamplers.c)
+ *     PrepareSamplers @ 0x180047E0C (PrepareSamplers.c)
  * Callees:
- *     DecodeInputTexcoord @ 0x180027E90 (DecodeInputTexcoord.c)
- *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x18002A408 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     DecodeInputTexcoord @ 0x1800471A0 (DecodeInputTexcoord.c)
+ *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x180048DA0 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PopulateSamplerArguments(__int64 a1, __int64 a2, unsigned int a3, _BYTE *a4, __int64 a5)
+__int64 __fastcall PopulateSamplerArguments(unsigned __int64 a1, __int64 a2, unsigned int a3, _BYTE *a4, __int64 a5)
 {
-  __int16 v6; // r12
+  __int16 v6; // r14
   int v8; // edx
   unsigned __int16 v9; // cx
   _BYTE *v10; // rdi
   unsigned int v12; // ebx
-  char v13; // al
+  int v13; // eax
+  unsigned int v14; // ecx
+  char v16; // al
   int appended; // eax
-  unsigned int v15; // ecx
-  int v16; // eax
-  unsigned int v17; // ecx
+  unsigned int v18; // ecx
   char v19; // al
   int v20; // eax
   unsigned int v21; // ecx
@@ -37,58 +37,58 @@ __int64 __fastcall PopulateSamplerArguments(__int64 a1, __int64 a2, unsigned int
   v12 = 0;
   v22 = a3 | 0x400;
   if ( !a4[2] )
-    goto LABEL_19;
-  if ( v10[23] || v10[18] )
+    goto LABEL_20;
+  if ( v10[22] || v10[18] )
   {
-    v13 = a4[4];
-    v23 = 0uLL;
-    *(_WORD *)&v24[14] = (unsigned __int8)(v13 + 48);
+    v16 = a4[4];
     qmemcpy(v24, "GetSamplerData", 14);
+    *(_WORD *)&v24[14] = (unsigned __int8)(v16 + 48);
+    v23 = 0LL;
     LOWORD(v8) = a3 | 0x300;
     appended = CShaderLinkingGraphBuilder::AppendNode(
                  a1,
                  v8,
-                 (unsigned int)word_18033C020,
+                 (unsigned int)&word_1802CE406,
                  a5,
                  (__int64)v24,
                  (__int64)&v23);
     v12 = appended;
     if ( appended < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, appended, 0x313u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, appended, 0x2E8u, 0LL);
       return v12;
     }
     v9 = v22;
   }
   if ( (v10[20] || v10[19])
     && (v19 = a4[4],
-        v23 = 0uLL,
+        v26 = 0,
         v25 = v19 + 48,
         qmemcpy(v24, "GetSamplerDataExt", sizeof(v24)),
-        v26 = 0,
+        v23 = 0LL,
         v20 = CShaderLinkingGraphBuilder::AppendNode(
                 a1,
                 v9,
-                (unsigned int)word_18033C020,
+                (unsigned int)&word_1802CE406,
                 a5,
                 (__int64)v24,
                 (__int64)&v23),
         v12 = v20,
         v20 < 0) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x319u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x2EEu, 0LL);
   }
   else
   {
-LABEL_19:
+LABEL_20:
     if ( *a4 )
     {
-      if ( !v10[23] )
+      if ( !v10[22] )
       {
-        v16 = DecodeInputTexcoord(a1, a2, v6, a5);
-        v12 = v16;
-        if ( v16 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x322u, 0LL);
+        v13 = DecodeInputTexcoord(a1, a2, v6, a5);
+        v12 = v13;
+        if ( v13 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x2F7u, 0LL);
       }
     }
   }

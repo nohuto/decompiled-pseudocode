@@ -1,1 +1,233 @@
-/*\n * XREFs of KbdConfiguration @ 0x1C0010560\n * Callers:\n *     DriverEntry @ 0x1C0010080 (DriverEntry.c)\n * Callees:\n *     WPP_RECORDER_SF_S @ 0x1C0002610 (WPP_RECORDER_SF_S.c)\n *     WPP_RECORDER_SF_d @ 0x1C00027F0 (WPP_RECORDER_SF_d.c)\n *     WPP_RECORDER_SF_D @ 0x1C0002880 (WPP_RECORDER_SF_D.c)\n *     __security_check_cookie @ 0x1C0002D30 (__security_check_cookie.c)\n *     _guard_dispatch_icall_nop @ 0x1C0002EE0 (_guard_dispatch_icall_nop.c)\n *     _tlgKeywordOn @ 0x1C0007478 (_tlgKeywordOn.c)\n *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00074AC (_tlgWriteTransfer_EtwWriteTransfer.c)\n */\n\nvoid __fastcall KbdConfiguration(__int64 a1)\n{\n  char v1; // si\n  void *v2; // rbx\n  __int64 v3; // rdx\n  unsigned __int64 v4; // r10\n  const wchar_t *v5; // rax\n  __int16 v6; // r8\n  signed __int64 v7; // r9\n  int v8; // eax\n  int v9; // edx\n  int v10; // r8d\n  __int64 Pool2; // rax\n  HANDLE v12; // rdi\n  __int64 (__fastcall *SystemRoutineAddress)(__int64, HANDLE, void *, _QWORD); // rax\n  int v14; // eax\n  int v15; // eax\n  __int64 v16; // rcx\n  __int64 v17; // r8\n  __int64 v18; // r9\n  int v19; // r9d\n  HANDLE *p_Handle; // [rsp+28h] [rbp-89h]\n  int v21; // [rsp+38h] [rbp-79h] BYREF\n  int v22; // [rsp+3Ch] [rbp-75h] BYREF\n  KSPIN_LOCK Lock; // [rsp+40h] [rbp-71h] BYREF\n  HANDLE Handle; // [rsp+48h] [rbp-69h] BYREF\n  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-61h] BYREF\n  struct _EVENT_DATA_DESCRIPTOR v26; // [rsp+68h] [rbp-49h] BYREF\n  int *v27; // [rsp+88h] [rbp-29h]\n  __int64 v28; // [rsp+90h] [rbp-21h]\n  int *v29; // [rsp+98h] [rbp-19h]\n  __int64 v30; // [rsp+A0h] [rbp-11h]\n  _DWORD *v31; // [rsp+A8h] [rbp-9h]\n  __int64 v32; // [rsp+B0h] [rbp-1h]\n  PWSTR Buffer; // [rsp+B8h] [rbp+7h]\n  _DWORD v34[2]; // [rsp+C0h] [rbp+Fh] BYREF\n  KSPIN_LOCK *p_Lock; // [rsp+C8h] [rbp+17h]\n  __int64 v36; // [rsp+D0h] [rbp+1Fh]\n  char *v37; // [rsp+D8h] [rbp+27h]\n  __int64 v38; // [rsp+E0h] [rbp+2Fh]\n\n  v1 = 1;\n  Handle = 0LL;\n  v2 = 0LL;\n  dword_1C000A234 = 100;\n  *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Busy = 1;\n  WPP_MAIN_CB.DeviceQueue.Lock = 1LL;\n  if ( (stru_1C000A338.Length & 1) == 0\n    && (stru_1C000A338.MaximumLength & 1) == 0\n    && stru_1C000A338.Length <= stru_1C000A338.MaximumLength\n    && stru_1C000A338.MaximumLength != 0xFFFF\n    && (stru_1C000A338.Buffer || !stru_1C000A338.Length && !stru_1C000A338.MaximumLength) )\n  {\n    v3 = 0x7FFFLL;\n    v4 = (unsigned __int64)stru_1C000A338.MaximumLength >> 1;\n    v5 = L"KeyboardClass";\n    v6 = 0;\n    if ( v4 )\n    {\n      v7 = (char *)stru_1C000A338.Buffer - (char *)L"KeyboardClass";\n      do\n      {\n        if ( !v3 )\n          break;\n        if ( !*v5 )\n          break;\n        *(const wchar_t *)((char *)v5 + v7) = *v5;\n        --v3;\n        ++v5;\n        ++v6;\n      }\n      while ( v3 + v4 - 0x7FFF );\n    }\n    stru_1C000A338.Length = 2 * v6;\n  }\n  p_Handle = &Handle;\n  v8 = IoOpenDriverRegistryKey(a1, 0LL, 131097LL, 0LL);\n  if ( v8 < 0 )\n  {\n    if ( v8 == -1073741772 )\n      goto LABEL_17;\n    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      goto LABEL_19;\n    v19 = 64;\n    LOBYTE(v9) = 2;\n    goto LABEL_47;\n  }\n  Pool2 = ExAllocatePool2(256LL, 336LL, 1130652235LL);\n  v2 = (void *)Pool2;\n  if ( !Pool2 )\n  {\n    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      goto LABEL_19;\n    LOBYTE(v9) = 2;\n    WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 65, (unsigned int)&Handle, 1);\n    goto LABEL_17;\n  }\n  *(_DWORD *)(Pool2 + 8) = 288;\n  *(_DWORD *)(Pool2 + 32) = 67108868;\n  *(_QWORD *)(Pool2 + 16) = L"KeyboardDataQueueSize";\n  *(_DWORD *)(Pool2 + 64) = 288;\n  *(_QWORD *)(Pool2 + 24) = &dword_1C000A234;\n  *(_DWORD *)(Pool2 + 88) = 67108868;\n  *(_QWORD *)(Pool2 + 72) = L"MaximumPortsServiced";\n  *(_QWORD *)(Pool2 + 80) = &WPP_MAIN_CB.DeviceQueue.1;\n  *(_QWORD *)(Pool2 + 128) = L"KeyboardDeviceBaseName";\n  *(_QWORD *)(Pool2 + 136) = &stru_1C000A338;\n  *(_QWORD *)(Pool2 + 184) = L"ConnectMultiplePorts";\n  *(_QWORD *)(Pool2 + 192) = &WPP_MAIN_CB.DeviceQueue.Lock;\n  *(_QWORD *)(Pool2 + 240) = L"SendOutputToAllPorts";\n  *(_QWORD *)(Pool2 + 248) = (char *)&WPP_MAIN_CB.DeviceQueue.Lock + 4;\n  *(_DWORD *)(Pool2 + 120) = 288;\n  *(_DWORD *)(Pool2 + 144) = 16777217;\n  *(_DWORD *)(Pool2 + 176) = 288;\n  *(_DWORD *)(Pool2 + 200) = 67108868;\n  *(_DWORD *)(Pool2 + 232) = 288;\n  *(_DWORD *)(Pool2 + 256) = 67108868;\n  v12 = Handle;\n  DestinationString = 0LL;\n  RtlInitUnicodeString(&DestinationString, L"RtlQueryRegistryValuesEx");\n  SystemRoutineAddress = (__int64 (__fastcall *)(__int64, HANDLE, void *, _QWORD))MmGetSystemRoutineAddress(&DestinationString);\n  if ( !SystemRoutineAddress )\n    SystemRoutineAddress = (__int64 (__fastcall *)(__int64, HANDLE, void *, _QWORD))RtlQueryRegistryValues;\n  LODWORD(p_Handle) = 0;\n  v8 = SystemRoutineAddress(3221225472LL, v12, v2, 0LL);\n  if ( v8 < 0 )\n  {\n    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      goto LABEL_19;\n    v19 = 66;\n    LOBYTE(v9) = 3;\nLABEL_47:\n    WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v9, v10, v19, (_DWORD)p_Handle, v8);\n  }\nLABEL_17:\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n  {\n    LOBYTE(v9) = 4;\n    WPP_RECORDER_SF_S(\n      WPP_GLOBAL_Control->DeviceExtension,\n      v9,\n      v10,\n      67,\n      (_DWORD)p_Handle,\n      (__int64)stru_1C000A338.Buffer);\n  }\nLABEL_19:\n  v14 = dword_1C000A234;\n  if ( dword_1C000A234 )\n  {\n    if ( (unsigned int)dword_1C000A234 > 0x15555555 )\n    {\n      v15 = 1200;\n      goto LABEL_22;\n    }\n  }\n  else\n  {\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      WPP_RECORDER_SF_D(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 68, (_DWORD)p_Handle, 0);\n    v14 = 100;\n  }\n  v15 = 12 * v14;\nLABEL_22:\n  dword_1C000A234 = v15;\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n  {\n    WPP_RECORDER_SF_D(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 69, (_DWORD)p_Handle, v15);\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n    {\n      LOBYTE(v9) = 4;\n      WPP_RECORDER_SF_d(\n        WPP_GLOBAL_Control->DeviceExtension,\n        v9,\n        v10,\n        70,\n        (_DWORD)p_Handle,\n        WPP_MAIN_CB.DeviceQueue.Busy);\n    }\n  }\n  if ( LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )\n  {\n    v1 = 0;\n    LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) = 0;\n  }\n  else\n  {\n    LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) = 1;\n  }\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n  {\n    LOBYTE(v9) = 4;\n    WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 71, (_DWORD)p_Handle, v1);\n  }\n  if ( (unsigned int)dword_1C000A010 > 5 && tlgKeywordOn() )\n  {\n    v21 = dword_1C000A234;\n    v27 = &v21;\n    v22 = *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Busy;\n    v29 = &v22;\n    v31 = v34;\n    Buffer = stru_1C000A338.Buffer;\n    v34[0] = stru_1C000A338.Length;\n    Lock = WPP_MAIN_CB.DeviceQueue.Lock;\n    p_Lock = &Lock;\n    v37 = (char *)&Lock + 4;\n    v28 = 4LL;\n    v30 = 4LL;\n    v32 = 2LL;\n    v34[1] = 0;\n    v36 = 4LL;\n    v38 = 4LL;\n    tlgWriteTransfer_EtwWriteTransfer(v16, (unsigned __int8 *)dword_1C0008834, v17, v18, 8u, &v26);\n  }\n  if ( v2 )\n    ExFreePoolWithTag(v2, 0);\n  if ( Handle )\n    ZwClose(Handle);\n}\n
+/*
+ * XREFs of KbdConfiguration @ 0x1C0010560
+ * Callers:
+ *     DriverEntry @ 0x1C0010080 (DriverEntry.c)
+ * Callees:
+ *     WPP_RECORDER_SF_S @ 0x1C0002610 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_d @ 0x1C00027F0 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002880 (WPP_RECORDER_SF_D.c)
+ *     __security_check_cookie @ 0x1C0002D30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0002EE0 (_guard_dispatch_icall_nop.c)
+ *     _tlgKeywordOn @ 0x1C0007478 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00074AC (_tlgWriteTransfer_EtwWriteTransfer.c)
+ */
+
+void __fastcall KbdConfiguration(__int64 a1)
+{
+  char v1; // si
+  void *v2; // rbx
+  __int64 v3; // rdx
+  unsigned __int64 v4; // r10
+  const wchar_t *v5; // rax
+  __int16 v6; // r8
+  signed __int64 v7; // r9
+  int v8; // eax
+  int v9; // edx
+  int v10; // r8d
+  __int64 Pool2; // rax
+  HANDLE v12; // rdi
+  __int64 (__fastcall *SystemRoutineAddress)(__int64, HANDLE, void *, _QWORD); // rax
+  int v14; // eax
+  int v15; // eax
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  int v19; // r9d
+  HANDLE *p_Handle; // [rsp+28h] [rbp-89h]
+  int v21; // [rsp+38h] [rbp-79h] BYREF
+  int v22; // [rsp+3Ch] [rbp-75h] BYREF
+  KSPIN_LOCK Lock; // [rsp+40h] [rbp-71h] BYREF
+  HANDLE Handle; // [rsp+48h] [rbp-69h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-61h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v26; // [rsp+68h] [rbp-49h] BYREF
+  int *v27; // [rsp+88h] [rbp-29h]
+  __int64 v28; // [rsp+90h] [rbp-21h]
+  int *v29; // [rsp+98h] [rbp-19h]
+  __int64 v30; // [rsp+A0h] [rbp-11h]
+  _DWORD *v31; // [rsp+A8h] [rbp-9h]
+  __int64 v32; // [rsp+B0h] [rbp-1h]
+  PWSTR Buffer; // [rsp+B8h] [rbp+7h]
+  _DWORD v34[2]; // [rsp+C0h] [rbp+Fh] BYREF
+  KSPIN_LOCK *p_Lock; // [rsp+C8h] [rbp+17h]
+  __int64 v36; // [rsp+D0h] [rbp+1Fh]
+  char *v37; // [rsp+D8h] [rbp+27h]
+  __int64 v38; // [rsp+E0h] [rbp+2Fh]
+
+  v1 = 1;
+  Handle = 0LL;
+  v2 = 0LL;
+  dword_1C000A234 = 100;
+  *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Busy = 1;
+  WPP_MAIN_CB.DeviceQueue.Lock = 1LL;
+  if ( (stru_1C000A338.Length & 1) == 0
+    && (stru_1C000A338.MaximumLength & 1) == 0
+    && stru_1C000A338.Length <= stru_1C000A338.MaximumLength
+    && stru_1C000A338.MaximumLength != 0xFFFF
+    && (stru_1C000A338.Buffer || !stru_1C000A338.Length && !stru_1C000A338.MaximumLength) )
+  {
+    v3 = 0x7FFFLL;
+    v4 = (unsigned __int64)stru_1C000A338.MaximumLength >> 1;
+    v5 = L"KeyboardClass";
+    v6 = 0;
+    if ( v4 )
+    {
+      v7 = (char *)stru_1C000A338.Buffer - (char *)L"KeyboardClass";
+      do
+      {
+        if ( !v3 )
+          break;
+        if ( !*v5 )
+          break;
+        *(const wchar_t *)((char *)v5 + v7) = *v5;
+        --v3;
+        ++v5;
+        ++v6;
+      }
+      while ( v3 + v4 - 0x7FFF );
+    }
+    stru_1C000A338.Length = 2 * v6;
+  }
+  p_Handle = &Handle;
+  v8 = IoOpenDriverRegistryKey(a1, 0LL, 131097LL, 0LL);
+  if ( v8 < 0 )
+  {
+    if ( v8 == -1073741772 )
+      goto LABEL_17;
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_19;
+    v19 = 64;
+    LOBYTE(v9) = 2;
+    goto LABEL_47;
+  }
+  Pool2 = ExAllocatePool2(256LL, 336LL, 1130652235LL);
+  v2 = (void *)Pool2;
+  if ( !Pool2 )
+  {
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_19;
+    LOBYTE(v9) = 2;
+    WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 65, (unsigned int)&Handle, 1);
+    goto LABEL_17;
+  }
+  *(_DWORD *)(Pool2 + 8) = 288;
+  *(_DWORD *)(Pool2 + 32) = 67108868;
+  *(_QWORD *)(Pool2 + 16) = L"KeyboardDataQueueSize";
+  *(_DWORD *)(Pool2 + 64) = 288;
+  *(_QWORD *)(Pool2 + 24) = &dword_1C000A234;
+  *(_DWORD *)(Pool2 + 88) = 67108868;
+  *(_QWORD *)(Pool2 + 72) = L"MaximumPortsServiced";
+  *(_QWORD *)(Pool2 + 80) = &WPP_MAIN_CB.DeviceQueue.1;
+  *(_QWORD *)(Pool2 + 128) = L"KeyboardDeviceBaseName";
+  *(_QWORD *)(Pool2 + 136) = &stru_1C000A338;
+  *(_QWORD *)(Pool2 + 184) = L"ConnectMultiplePorts";
+  *(_QWORD *)(Pool2 + 192) = &WPP_MAIN_CB.DeviceQueue.Lock;
+  *(_QWORD *)(Pool2 + 240) = L"SendOutputToAllPorts";
+  *(_QWORD *)(Pool2 + 248) = (char *)&WPP_MAIN_CB.DeviceQueue.Lock + 4;
+  *(_DWORD *)(Pool2 + 120) = 288;
+  *(_DWORD *)(Pool2 + 144) = 16777217;
+  *(_DWORD *)(Pool2 + 176) = 288;
+  *(_DWORD *)(Pool2 + 200) = 67108868;
+  *(_DWORD *)(Pool2 + 232) = 288;
+  *(_DWORD *)(Pool2 + 256) = 67108868;
+  v12 = Handle;
+  DestinationString = 0LL;
+  RtlInitUnicodeString(&DestinationString, L"RtlQueryRegistryValuesEx");
+  SystemRoutineAddress = (__int64 (__fastcall *)(__int64, HANDLE, void *, _QWORD))MmGetSystemRoutineAddress(&DestinationString);
+  if ( !SystemRoutineAddress )
+    SystemRoutineAddress = (__int64 (__fastcall *)(__int64, HANDLE, void *, _QWORD))RtlQueryRegistryValues;
+  LODWORD(p_Handle) = 0;
+  v8 = SystemRoutineAddress(3221225472LL, v12, v2, 0LL);
+  if ( v8 < 0 )
+  {
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_19;
+    v19 = 66;
+    LOBYTE(v9) = 3;
+LABEL_47:
+    WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v9, v10, v19, (_DWORD)p_Handle, v8);
+  }
+LABEL_17:
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v9) = 4;
+    WPP_RECORDER_SF_S(
+      WPP_GLOBAL_Control->DeviceExtension,
+      v9,
+      v10,
+      67,
+      (_DWORD)p_Handle,
+      (__int64)stru_1C000A338.Buffer);
+  }
+LABEL_19:
+  v14 = dword_1C000A234;
+  if ( dword_1C000A234 )
+  {
+    if ( (unsigned int)dword_1C000A234 > 0x15555555 )
+    {
+      v15 = 1200;
+      goto LABEL_22;
+    }
+  }
+  else
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_D(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 68, (_DWORD)p_Handle, 0);
+    v14 = 100;
+  }
+  v15 = 12 * v14;
+LABEL_22:
+  dword_1C000A234 = v15;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    WPP_RECORDER_SF_D(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 69, (_DWORD)p_Handle, v15);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v9) = 4;
+      WPP_RECORDER_SF_d(
+        WPP_GLOBAL_Control->DeviceExtension,
+        v9,
+        v10,
+        70,
+        (_DWORD)p_Handle,
+        WPP_MAIN_CB.DeviceQueue.Busy);
+    }
+  }
+  if ( LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )
+  {
+    v1 = 0;
+    LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) = 0;
+  }
+  else
+  {
+    LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) = 1;
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v9) = 4;
+    WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 71, (_DWORD)p_Handle, v1);
+  }
+  if ( (unsigned int)dword_1C000A010 > 5 && tlgKeywordOn() )
+  {
+    v21 = dword_1C000A234;
+    v27 = &v21;
+    v22 = *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Busy;
+    v29 = &v22;
+    v31 = v34;
+    Buffer = stru_1C000A338.Buffer;
+    v34[0] = stru_1C000A338.Length;
+    Lock = WPP_MAIN_CB.DeviceQueue.Lock;
+    p_Lock = &Lock;
+    v37 = (char *)&Lock + 4;
+    v28 = 4LL;
+    v30 = 4LL;
+    v32 = 2LL;
+    v34[1] = 0;
+    v36 = 4LL;
+    v38 = 4LL;
+    tlgWriteTransfer_EtwWriteTransfer(v16, (unsigned __int8 *)dword_1C0008834, v17, v18, 8u, &v26);
+  }
+  if ( v2 )
+    ExFreePoolWithTag(v2, 0);
+  if ( Handle )
+    ZwClose(Handle);
+}

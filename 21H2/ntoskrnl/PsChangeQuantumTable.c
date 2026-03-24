@@ -1,28 +1,27 @@
 /*
- * XREFs of PsChangeQuantumTable @ 0x14068F5DC
+ * XREFs of PsChangeQuantumTable @ 0x14078C7B8
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
- *     PspInitPhase0 @ 0x140AFD7A4 (PspInitPhase0.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     PspInitPhase0 @ 0x140A3DC68 (PspInitPhase0.c)
  * Callees:
- *     MmIsThisAnNtAsSystem @ 0x14020C520 (MmIsThisAnNtAsSystem.c)
- *     PspUnlockProcessListShared @ 0x14020C7B0 (PspUnlockProcessListShared.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeSetQuantumProcess @ 0x1402EC4D0 (KeSetQuantumProcess.c)
- *     PspComputeQuantum @ 0x14079D40C (PspComputeQuantum.c)
+ *     PspUnlockProcessListShared @ 0x1402D6218 (PspUnlockProcessListShared.c)
+ *     KeSetQuantumProcess @ 0x1402E9E24 (KeSetQuantumProcess.c)
+ *     MmIsThisAnNtAsSystem @ 0x1402EE2B0 (MmIsThisAnNtAsSystem.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PspComputeQuantum @ 0x1406D9AFC (PspComputeQuantum.c)
  */
 
-unsigned __int8 __fastcall PsChangeQuantumTable(char a1, char a2)
+char __fastcall PsChangeQuantumTable(char a1, char a2)
 {
   unsigned int v3; // eax
   int v5; // eax
   char *v6; // rbx
   int v7; // edi
-  unsigned __int8 result; // al
+  char result; // al
   struct _KTHREAD *CurrentThread; // rdi
-  __int64 v10; // rdx
   __int64 *i; // rbx
-  char v12; // al
-  __int64 v13; // r8
+  char v11; // al
+  __int64 v12; // r8
 
   v3 = a2 & 3;
   if ( v3 >= 2 )
@@ -48,8 +47,8 @@ unsigned __int8 __fastcall PsChangeQuantumTable(char a1, char a2)
     v6 += 3;
   PspForegroundQuantum = *(_WORD *)v6;
   result = v6[2];
-  PspUseJobSchedulingClasses = v6 == byte_140A37D6B;
-  byte_140D3CBEE = result;
+  PspUseJobSchedulingClasses = v6 == &byte_140983687;
+  byte_140D2E876 = result;
   if ( a1 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -57,11 +56,10 @@ unsigned __int8 __fastcall PsChangeQuantumTable(char a1, char a2)
     ExAcquirePushLockSharedEx((ULONG_PTR)&PspActiveProcessLock, 0LL);
     for ( i = (__int64 *)PsActiveProcessHead; i != &PsActiveProcessHead; i = (__int64 *)*i )
     {
-      LOBYTE(v10) = *((_BYTE *)i + 754);
-      v12 = PspComputeQuantum(i - 137, v10);
-      KeSetQuantumProcess(v13, v12);
+      v11 = PspComputeQuantum((__int64)(i - 137), *((_BYTE *)i + 754));
+      KeSetQuantumProcess(v12, v11);
     }
-    return (unsigned __int8)PspUnlockProcessListShared((__int64)CurrentThread);
+    return PspUnlockProcessListShared((__int64)CurrentThread);
   }
   return result;
 }

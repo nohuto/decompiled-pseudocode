@@ -1,10 +1,10 @@
 /*
- * XREFs of MUIRegistrySystemRoutine @ 0x140846700
+ * XREFs of MUIRegistrySystemRoutine @ 0x1407901D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A1214 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A8028 (RtlpMuiRegCreateKernelRegistryInfo.c)
  */
 
 void __fastcall MUIRegistrySystemRoutine(__int64 a1)
@@ -15,7 +15,7 @@ void __fastcall MUIRegistrySystemRoutine(__int64 a1)
   if ( a1 )
   {
     KernelRegistryInfo = RtlpMuiRegCreateKernelRegistryInfo(
-                           (_QWORD *)(a1 + 8),
+                           (ULONG_PTR *)(a1 + 8),
                            (_DWORD *)(a1 + 16),
                            (_DWORD *)(a1 + 20),
                            *(_DWORD *)(a1 + 24),

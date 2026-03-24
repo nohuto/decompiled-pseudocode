@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetFullMDL@VIDMM_PROCESS_HEAP@@UEAAPEAU_MDL@@PEAX@Z @ 0x1C0104900
+ * XREFs of ?GetFullMDL@VIDMM_PROCESS_HEAP@@UEAAPEAU_MDL@@PEAX@Z @ 0x1C00CBBF0
  * Callers:
  *     <none>
  * Callees:

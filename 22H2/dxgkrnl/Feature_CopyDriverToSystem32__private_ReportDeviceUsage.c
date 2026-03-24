@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_CopyDriverToSystem32__private_ReportDeviceUsage @ 0x1C0025D48
+ * XREFs of Feature_CopyDriverToSystem32__private_ReportDeviceUsage @ 0x1C00278B4
  * Callers:
- *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C030AD78 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
+ *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C02622D0 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00245B0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024828 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024F04 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0025174 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_CopyDriverToSystem32__private_ReportDeviceUsage()

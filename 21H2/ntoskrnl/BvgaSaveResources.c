@@ -1,11 +1,11 @@
 /*
- * XREFs of BvgaSaveResources @ 0x140B25AE4
+ * XREFs of BvgaSaveResources @ 0x140A6B7D8
  * Callers:
- *     BvgaDriverInitialize @ 0x140B25950 (BvgaDriverInitialize.c)
+ *     BvgaDriverInitialize @ 0x140A6B640 (BvgaDriverInitialize.c)
  * Callees:
- *     KeBugCheck @ 0x14041F3B0 (KeBugCheck.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void BvgaSaveResources()

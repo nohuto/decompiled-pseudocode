@@ -1,13 +1,13 @@
 /*
- * XREFs of TR_Enable_Internal @ 0x1C0001298
+ * XREFs of TR_Enable_Internal @ 0x1C00055F4
  * Callers:
- *     Endpoint_Enable @ 0x1C0004FA0 (Endpoint_Enable.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003B0F0 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003B3B0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ *     Endpoint_Enable @ 0x1C00083B0 (Endpoint_Enable.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003ABD0 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003AEA0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
  * Callees:
- *     WPP_RECORDER_SF_DDqd @ 0x1C0001330 (WPP_RECORDER_SF_DDqd.c)
- *     TR_InitializeTransferRing @ 0x1C00013FC (TR_InitializeTransferRing.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDqd @ 0x1C000568C (WPP_RECORDER_SF_DDqd.c)
+ *     TR_InitializeTransferRing @ 0x1C0005758 (TR_InitializeTransferRing.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TR_Enable_Internal(_QWORD *a1)
@@ -28,7 +28,7 @@ __int64 __fastcall TR_Enable_Internal(_QWORD *a1)
       v4,
       v3,
       18,
-      (__int64)&WPP_202329088b1a3bd773cf1c67d995fd13_Traceguids,
+      (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
       *(_BYTE *)(a1[6] + 135LL),
       *(_DWORD *)(v3 + 144),
       *(_QWORD *)(v3 + 24),

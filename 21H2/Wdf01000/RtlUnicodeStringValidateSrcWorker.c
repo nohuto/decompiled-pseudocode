@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUnicodeStringValidateSrcWorker @ 0x1C00271AC
+ * XREFs of RtlUnicodeStringValidateSrcWorker @ 0x1C002E4F0
  * Callers:
- *     RtlUnicodeStringCopy @ 0x1C00270F0 (RtlUnicodeStringCopy.c)
- *     RtlStringCbCopyUnicodeString @ 0x1C0060D0C (RtlStringCbCopyUnicodeString.c)
+ *     RtlStringCbCopyUnicodeString @ 0x1C0043330 (RtlStringCbCopyUnicodeString.c)
+ *     RtlUnicodeStringCopy @ 0x1C0060AB4 (RtlUnicodeStringCopy.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker @ 0x1C0027228 (RtlUnicodeStringValidateWorker.c)
+ *     RtlUnicodeStringValidateWorker @ 0x1C002E52C (RtlUnicodeStringValidateWorker.c)
  */
 
 int __fastcall RtlUnicodeStringValidateSrcWorker(

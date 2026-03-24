@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpTraceCaptureMemoryPages @ 0x14055A5FC
+ * XREFs of IopLiveDumpTraceCaptureMemoryPages @ 0x14050910C
  * Callers:
- *     IopLiveDumpCaptureMemoryPages @ 0x140A9A978 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x1409ABAA4 (IopLiveDumpCaptureMemoryPages.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140559E30 (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x14050895C (IopLiveDumpIsTracingEnabled.c)
  */
 
 char IopLiveDumpTraceCaptureMemoryPages()
@@ -35,10 +35,10 @@ char IopLiveDumpTraceCaptureMemoryPages()
     v3 = v1 + 488;
     v6 = 8LL;
     v5 = v1 + 496;
-    v7 = v1 + 504;
-    v9 = v1 + 512;
-    v11 = v1 + 520;
-    v13 = v1 + 528;
+    v7 = v1 + 512;
+    v9 = v1 + 520;
+    v11 = v1 + 528;
+    v13 = v1 + 536;
     v8 = 8LL;
     v10 = 8LL;
     v12 = 8LL;

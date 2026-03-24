@@ -1,14 +1,14 @@
 /*
- * XREFs of VfCheckImageCompliance @ 0x140A82B0C
+ * XREFs of VfCheckImageCompliance @ 0x1409C791C
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x140A9A8F8 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409D9B98 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _stricmp @ 0x1403E1190 (_stricmp.c)
- *     VfReportIssueWithOptions @ 0x1405FFA20 (VfReportIssueWithOptions.c)
- *     ViCiPreprocessOptions @ 0x140A83044 (ViCiPreprocessOptions.c)
- *     ViTargetIncrementCounter @ 0x140A8B2AC (ViTargetIncrementCounter.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _stricmp @ 0x1403D1DD0 (_stricmp.c)
+ *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
+ *     ViCiPreprocessOptions @ 0x1409C7E50 (ViCiPreprocessOptions.c)
+ *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
  */
 
 void __fastcall VfCheckImageCompliance(__int64 a1)
@@ -21,7 +21,7 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
   unsigned int v7; // r12d
   unsigned int v8; // ecx
   __int16 v9; // ax
-  int v10; // ecx
+  int v10; // eax
   char Str1[8]; // [rsp+30h] [rbp-20h] BYREF
   char v12; // [rsp+38h] [rbp-18h]
 
@@ -56,8 +56,8 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
                 Str1);
               VfReportIssueWithOptions(0xC4u, 0x2003uLL, a1 + 88, v5, (ULONG_PTR)Str1, Response);
               if ( (MmVerifierData & 0x1000) != 0 )
-                ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 292LL);
-              _InterlockedIncrement(&dword_140C2A064);
+                ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 284LL);
+              _InterlockedIncrement(&dword_140C2A8FC);
             }
           }
           if ( v2 )
@@ -68,38 +68,38 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
               *(_QWORD *)Str1 = *(_QWORD *)v5;
               v12 = 0;
               ViCiPreprocessOptions(
-                byte_140C0D8D4,
+                byte_140C12E5C,
                 "The image %wZ contains an IAT, 0x%p in executable section (name %s).",
                 8197LL,
                 a1 + 88,
                 v6,
                 Str1);
-              VfReportIssueWithOptions(0xC4u, 0x2005uLL, a1 + 88, (ULONG_PTR)v6, (ULONG_PTR)Str1, byte_140C0D8D4);
+              VfReportIssueWithOptions(0xC4u, 0x2005uLL, a1 + 88, (ULONG_PTR)v6, (ULONG_PTR)Str1, byte_140C12E5C);
               if ( (MmVerifierData & 0x1000) != 0 )
-                ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 300LL);
-              _InterlockedIncrement(&dword_140C2A06C);
+                ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 292LL);
+              _InterlockedIncrement(&dword_140C2A904);
             }
           }
           v9 = *(_WORD *)(v4 + 24);
           if ( v9 == 267 || v9 == 523 )
-          {
             v10 = *(_DWORD *)(v4 + 56);
-            if ( !v10 || (v10 & 0xFFF) != 0 )
-            {
-              *(_QWORD *)Str1 = *(_QWORD *)v5;
-              v12 = 0;
-              ViCiPreprocessOptions(
-                byte_140C0D8D8,
-                "The image %wZ contains section 0x%p that is not page aligned (name %s).",
-                8196LL,
-                a1 + 88,
-                v5,
-                Str1);
-              VfReportIssueWithOptions(0xC4u, 0x2004uLL, a1 + 88, v5, (ULONG_PTR)Str1, byte_140C0D8D8);
-              if ( (MmVerifierData & 0x1000) != 0 )
-                ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 296LL);
-              _InterlockedIncrement(&dword_140C2A068);
-            }
+          else
+            v10 = 4096;
+          if ( !v10 || (v10 & 0xFFF) != 0 )
+          {
+            *(_QWORD *)Str1 = *(_QWORD *)v5;
+            v12 = 0;
+            ViCiPreprocessOptions(
+              byte_140C12E64,
+              "The image %wZ contains section 0x%p that is not page aligned (name %s).",
+              8196LL,
+              a1 + 88,
+              v5,
+              Str1);
+            VfReportIssueWithOptions(0xC4u, 0x2004uLL, a1 + 88, v5, (ULONG_PTR)Str1, byte_140C12E64);
+            if ( (MmVerifierData & 0x1000) != 0 )
+              ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 288LL);
+            _InterlockedIncrement(&dword_140C2A900);
           }
           v5 += 40LL;
           ++v7;

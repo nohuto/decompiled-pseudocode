@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiEngCreateDeviceBitmap @ 0x1C02C94D0
+ * XREFs of NtGdiEngCreateDeviceBitmap @ 0x1C02B22D0
  * Callers:
  *     <none>
  * Callees:
- *     ?ValidUmpdSizl@@YAHUtagSIZE@@_N@Z @ 0x1C02C7620 (-ValidUmpdSizl@@YAHUtagSIZE@@_N@Z.c)
+ *     ?ValidUmpdSizl@@YAHUtagSIZE@@_N@Z @ 0x1C015D0EC (-ValidUmpdSizl@@YAHUtagSIZE@@_N@Z.c)
  */
 
 HBITMAP __fastcall NtGdiEngCreateDeviceBitmap(__int64 a1, struct tagSIZE a2)

@@ -1,45 +1,41 @@
 /*
- * XREFs of KiActivateWaiterPriQueue @ 0x14030BB1C
+ * XREFs of KiActivateWaiterPriQueue @ 0x1402F79E4
  * Callers:
- *     KiCommitThreadWait @ 0x140241F00 (KiCommitThreadWait.c)
- *     KiPriQueueThreadPriorityChanged @ 0x1402BAAC4 (KiPriQueueThreadPriorityChanged.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x14030B318 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiCommitThreadWait @ 0x1402C6640 (KiCommitThreadWait.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x1402F76C0 (KiPriQueueThreadPriorityChanged.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1402F781C (KiActivateWaiterQueueWithNoLocks.c)
  * Callees:
- *     KiAttemptFastRemovePriQueue @ 0x1402BF710 (KiAttemptFastRemovePriQueue.c)
- *     KiWakePriQueueWaiter @ 0x140356EBC (KiWakePriQueueWaiter.c)
+ *     KiAttemptFastRemovePriQueue @ 0x1402F7A60 (KiAttemptFastRemovePriQueue.c)
+ *     KiWakePriQueueWaiter @ 0x1402F7B3C (KiWakePriQueueWaiter.c)
  */
 
-_QWORD *__fastcall KiActivateWaiterPriQueue(ULONG_PTR a1, __int64 a2)
+_QWORD *__fastcall KiActivateWaiterPriQueue(ULONG_PTR a1)
 {
   _QWORD *result; // rax
-  _QWORD *v4; // rdi
-  ULONG_PTR v5; // rcx
-  unsigned int v6; // [rsp+38h] [rbp+10h] BYREF
-  int v7; // [rsp+3Ch] [rbp+14h]
+  _QWORD *v3; // rdi
+  ULONG_PTR v4; // rcx
 
-  v7 = HIDWORD(a2);
-  v6 = 0;
   result = (_QWORD *)(a1 + 8);
   if ( (_QWORD *)*result != result )
   {
     if ( *(_DWORD *)(a1 + 4) )
     {
-      result = KiAttemptFastRemovePriQueue(a1, (int *)&v6, -1);
-      v4 = result;
+      result = (_QWORD *)KiAttemptFastRemovePriQueue(a1);
+      v3 = result;
       if ( result )
       {
-        result = (_QWORD *)KiWakePriQueueWaiter(KeGetCurrentPrcb(), a1, result, v6);
+        result = (_QWORD *)KiWakePriQueueWaiter(KeGetCurrentPrcb(), a1, result, 0LL);
         if ( !(_BYTE)result )
         {
           ++*(_DWORD *)(a1 + 4);
-          v5 = a1 + 16LL * (int)v6 + 24;
-          result = *(_QWORD **)v5;
-          if ( *(_QWORD *)(*(_QWORD *)v5 + 8LL) != v5 )
+          v4 = a1 + 24;
+          result = *(_QWORD **)(a1 + 24);
+          if ( *(_QWORD *)(*(_QWORD *)v4 + 8LL) != v4 )
             __fastfail(3u);
-          *v4 = result;
-          v4[1] = v5;
-          result[1] = v4;
-          *(_QWORD *)v5 = v4;
+          *v3 = result;
+          v3[1] = v4;
+          result[1] = v3;
+          *(_QWORD *)v4 = v3;
         }
       }
     }

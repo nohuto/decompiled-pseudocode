@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBuffer@FxMemoryBufferFromPoolLookaside@@UEAAPEAXXZ @ 0x1C000BBF0
+ * XREFs of ?GetBuffer@FxMemoryBufferFromPoolLookaside@@UEAAPEAXXZ @ 0x1C000DB30
  * Callers:
  *     <none>
  * Callees:

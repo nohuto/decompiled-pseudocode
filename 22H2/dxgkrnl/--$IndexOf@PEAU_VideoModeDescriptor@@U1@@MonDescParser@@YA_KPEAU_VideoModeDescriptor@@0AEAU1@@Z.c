@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$IndexOf@PEAU_VideoModeDescriptor@@U1@@MonDescParser@@YA_KPEAU_VideoModeDescriptor@@0AEAU1@@Z @ 0x1C001E468
+ * XREFs of ??$IndexOf@PEAU_VideoModeDescriptor@@U1@@MonDescParser@@YA_KPEAU_VideoModeDescriptor@@0AEAU1@@Z @ 0x1C001F09C
  * Callers:
- *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C001E0B0 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
+ *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C001ECC8 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
  * Callees:
- *     ??8MonDescParser@@YA_NAEBU_VideoModeDescriptor@@0@Z @ 0x1C001E4A0 (--8MonDescParser@@YA_NAEBU_VideoModeDescriptor@@0@Z.c)
+ *     ??8MonDescParser@@YA_NAEBU_VideoModeDescriptor@@0@Z @ 0x1C001F0D4 (--8MonDescParser@@YA_NAEBU_VideoModeDescriptor@@0@Z.c)
  */
 
 __int64 __fastcall MonDescParser::IndexOf<_VideoModeDescriptor *,_VideoModeDescriptor>(

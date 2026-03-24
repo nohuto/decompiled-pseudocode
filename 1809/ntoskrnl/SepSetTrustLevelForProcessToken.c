@@ -1,12 +1,12 @@
 /*
- * XREFs of SepSetTrustLevelForProcessToken @ 0x1400D9DF4
+ * XREFs of SepSetTrustLevelForProcessToken @ 0x1400D9E14
  * Callers:
- *     SeSubProcessToken @ 0x14064EA6C (SeSubProcessToken.c)
- *     SeExchangePrimaryToken @ 0x140748BB8 (SeExchangePrimaryToken.c)
+ *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
+ *     SeExchangePrimaryToken @ 0x140748B98 (SeExchangePrimaryToken.c)
  * Callees:
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
- *     SepSidFromProcessProtection @ 0x1400ABACC (SepSidFromProcessProtection.c)
- *     SepSetTokenTrust @ 0x1406A4688 (SepSetTokenTrust.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
+ *     SepSidFromProcessProtection @ 0x1400ABAEC (SepSidFromProcessProtection.c)
+ *     SepSetTokenTrust @ 0x1406A4668 (SepSetTokenTrust.c)
  */
 
 __int64 __fastcall SepSetTrustLevelForProcessToken(__int64 a1, __int64 a2, _BYTE *a3)

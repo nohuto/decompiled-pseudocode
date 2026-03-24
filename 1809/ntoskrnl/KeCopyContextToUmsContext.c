@@ -1,12 +1,12 @@
 /*
- * XREFs of KeCopyContextToUmsContext @ 0x140846864
+ * XREFs of KeCopyContextToUmsContext @ 0x140846844
  * Callers:
- *     PspSetUmsThreadContext @ 0x14088F31C (PspSetUmsThreadContext.c)
+ *     PspSetUmsThreadContext @ 0x14088F2FC (PspSetUmsThreadContext.c)
  * Callees:
  *     RtlpSanitizeContextFlags @ 0x1400A1E00 (RtlpSanitizeContextFlags.c)
  *     RtlpCopyLegacyContext @ 0x1400A21D4 (RtlpCopyLegacyContext.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KiCopyXStateArea @ 0x140294200 (KiCopyXStateArea.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KiCopyXStateArea @ 0x140294300 (KiCopyXStateArea.c)
  */
 
 __int64 __fastcall KeCopyContextToUmsContext(__int64 a1, __int64 a2)

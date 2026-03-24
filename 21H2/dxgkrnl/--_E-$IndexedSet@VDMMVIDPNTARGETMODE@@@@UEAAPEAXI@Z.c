@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_E?$IndexedSet@VDMMVIDPNTARGETMODE@@@@UEAAPEAXI@Z @ 0x1C0068450
+ * XREFs of ??_E?$IndexedSet@VDMMVIDPNTARGETMODE@@@@UEAAPEAXI@Z @ 0x1C005B8A0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$Set@VDMMVIDEOPRESENTSOURCE@@@@UEAA@XZ @ 0x1C0067B60 (--1-$Set@VDMMVIDEOPRESENTSOURCE@@@@UEAA@XZ.c)
+ *     ??1?$Set@VDMMVIDEOPRESENTSOURCE@@@@UEAA@XZ @ 0x1C005AF5C (--1-$Set@VDMMVIDEOPRESENTSOURCE@@@@UEAA@XZ.c)
  */
 
 _QWORD *__fastcall IndexedSet<DMMVIDPNTARGETMODE>::`vector deleting destructor'(_QWORD *P, char a2)

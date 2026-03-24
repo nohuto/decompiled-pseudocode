@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetTotalCommitLimit @ 0x14026A05C
+ * XREFs of MmGetTotalCommitLimit @ 0x14027B5A0
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x1406F2420 (ExpQuerySystemPerformanceInformation.c)
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140646800 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MmGetTotalCommitLimit(unsigned __int16 a1)
 {
-  return *(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8LL * a1) + 17496LL);
+  return *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * a1) + 7592LL);
 }

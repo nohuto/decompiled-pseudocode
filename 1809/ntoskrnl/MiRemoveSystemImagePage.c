@@ -1,8 +1,8 @@
 /*
- * XREFs of MiRemoveSystemImagePage @ 0x14012C09C
+ * XREFs of MiRemoveSystemImagePage @ 0x14012C0BC
  * Callers:
  *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MiMakeDriverPagesPrivate @ 0x1400DB3F0 (MiMakeDriverPagesPrivate.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400DB410 (MiMakeDriverPagesPrivate.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiTerminateWsle @ 0x14007ACA0 (MiTerminateWsle.c)

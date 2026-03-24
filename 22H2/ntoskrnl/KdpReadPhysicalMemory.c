@@ -1,30 +1,31 @@
 /*
- * XREFs of KdpReadPhysicalMemory @ 0x140AB5178
+ * XREFs of KdpReadPhysicalMemory @ 0x1409B7870
  * Callers:
- *     KdpSendWaitContinue @ 0x140AB17C8 (KdpSendWaitContinue.c)
- *     KdpReadPhysicalMemoryLong @ 0x140AB52C4 (KdpReadPhysicalMemoryLong.c)
+ *     KdpReadPhysicalMemoryLong @ 0x1409B79C0 (KdpReadPhysicalMemoryLong.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
- *     MmDbgCopyMemory @ 0x1402E5DB0 (MmDbgCopyMemory.c)
- *     RunLengthEncode @ 0x140567B98 (RunLengthEncode.c)
- *     KdpCopyMemoryChunks @ 0x140AB12A4 (KdpCopyMemoryChunks.c)
+ *     RunLengthEncode @ 0x1405115D8 (RunLengthEncode.c)
+ *     MmDbgCopyMemory @ 0x1405469DC (MmDbgCopyMemory.c)
+ *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpReadPhysicalMemory(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int64 v4; // rbx
   unsigned int v8; // eax
-  int v9; // edx
+  unsigned int v9; // edx
   int v10; // ecx
   int v11; // ecx
   int v12; // ecx
   int v13; // eax
-  _QWORD v15[5]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+70h] [rbp+18h] BYREF
+  int v14; // eax
+  _QWORD v16[3]; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v17; // [rsp+60h] [rbp+18h] BYREF
 
-  v16 = a3;
+  v17 = a3;
   v4 = *(unsigned int *)(a1 + 24);
-  v15[0] = 56LL;
-  v15[1] = a1;
+  v16[0] = 56LL;
+  v16[1] = a1;
   if ( v4 > (unsigned __int64)(unsigned int)KdTransportMaxPacketSize - 56 )
     LODWORD(v4) = KdTransportMaxPacketSize - 56;
   v8 = *(unsigned __int16 *)(a2 + 2);
@@ -32,7 +33,7 @@ __int64 __fastcall KdpReadPhysicalMemory(__int64 a1, __int64 a2, __int64 a3, __i
   v10 = *(_DWORD *)(a1 + 28);
   if ( (unsigned int)v4 > v8 )
     LODWORD(v4) = v8;
-  LODWORD(v16) = v4;
+  LODWORD(v17) = v4;
   v11 = v10 - 1;
   if ( v11 )
   {
@@ -55,16 +56,17 @@ __int64 __fastcall KdpReadPhysicalMemory(__int64 a1, __int64 a2, __int64 a3, __i
   {
     if ( (unsigned int)v4 > 4096 - (*(_DWORD *)(a1 + 16) & 0xFFFu) )
       LODWORD(v4) = 4096 - (*(_DWORD *)(a1 + 16) & 0xFFF);
-    v13 = MmDbgCopyMemory(*(char **)(a1 + 16), *(_QWORD *)(a2 + 8), v4, 0, v9);
+    v13 = MmDbgCopyMemory(*(char **)(a1 + 16), *(_BYTE **)(a2 + 8), v4, 0, v9);
+    *(_DWORD *)(a1 + 8) = v13;
     if ( v13 < 0 )
       LODWORD(v4) = 0;
   }
   else
   {
-    v13 = KdpCopyMemoryChunks(*(char **)(a1 + 16), *(_QWORD *)(a2 + 8), v4, 0, v9, &v16);
-    LODWORD(v4) = v16;
+    v14 = KdpCopyMemoryChunks(*(PVOID *)(a1 + 16), v9, (__int64)&v17);
+    LODWORD(v4) = v17;
+    *(_DWORD *)(a1 + 8) = v14;
   }
-  *(_DWORD *)(a1 + 8) = v13;
   *(_DWORD *)(a1 + 28) = v4;
   if ( *(_DWORD *)a1 == 12642 && (unsigned int)v4 >= 4 && RunLengthEncode(*(int **)(a2 + 8), v4) )
   {
@@ -72,5 +74,5 @@ __int64 __fastcall KdpReadPhysicalMemory(__int64 a1, __int64 a2, __int64 a3, __i
     LOWORD(v4) = 4;
   }
   *(_WORD *)a2 = v4;
-  return KdSendPacket(2LL, v15, a2, a4);
+  return KdSendPacket(2LL, v16, a2, a4);
 }

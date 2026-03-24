@@ -1,114 +1,143 @@
 /*
- * XREFs of ?DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@_N@Z @ 0x1800FAD18
+ * XREFs of ?DeriveDesktopPlaneAttributes@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@_N@Z @ 0x180030064
  * Callers:
- *     ?InitCheckCandidatesList@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x1800FAA7C (-InitCheckCandidatesList@COverlayContext@@CA_NAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@PEAV-$ve.c)
- *     ?TrimCheckCandidatesList@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x1801DE580 (-TrimCheckCandidatesList@COverlayContext@@CA_NAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@PEAV-$ve.c)
+ *     ?InitCheckCandidatesList@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18002FDD0 (-InitCheckCandidatesList@COverlayContext@@CA_NAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@PEAV-$ve.c)
+ *     ?TrimCheckCandidatesList@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18017CA8C (-TrimCheckCandidatesList@COverlayContext@@CA_NAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@PEAV-$ve.c)
  * Callees:
- *     ?GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z @ 0x180041694 (-GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800FAF04 (-ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?CalcDesktopClip@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAVCRegion@@@Z @ 0x1800FAF50 (-CalcDesktopClip@COverlayContext@@AEAAXAEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@@$0-0@gsl.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??A?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayContext@@_K@Z @ 0x18012F752 (--A-$span@PEAVOverlayPlaneInfo@COverlayContext@@$0-0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayCo.c)
- *     ?IsEquivalentTo@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18012FA60 (-IsEquivalentTo@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
- *     ?OverlaysEnabled@COverlayContext@@AEBA_NXZ @ 0x1801DE398 (-OverlaysEnabled@COverlayContext@@AEBA_NXZ.c)
+ *     ?CalcDesktopClip@COverlayContext@@AEAAXAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@PEAVCRegion@@@Z @ 0x180030374 (-CalcDesktopClip@COverlayContext@@AEAAXAEBV-$span@PEAVOverlayPlaneInfo@COverlayContext@@$0-0@gsl.c)
+ *     ?ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18003043C (-ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z @ 0x18009D684 (-GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z.c)
+ *     ?IsEquivalentTo@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800D17F8 (-IsEquivalentTo@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??A?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayContext@@_J@Z @ 0x180179E04 (--A-$span@PEAVOverlayPlaneInfo@COverlayContext@@$0-0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayCo.c)
+ *     ?OverlaysEnabled@COverlayContext@@AEBA_NXZ @ 0x18017C8D8 (-OverlaysEnabled@COverlayContext@@AEBA_NXZ.c)
+ *     ?RequiresFrontPlane@OverlayPlaneInfo@COverlayContext@@QEBA_NXZ @ 0x18017CA68 (-RequiresFrontPlane@OverlayPlaneInfo@COverlayContext@@QEBA_NXZ.c)
  */
 
-void __fastcall COverlayContext::DeriveDesktopPlaneAttributes(COverlayContext *this, _QWORD *a2, char a3)
+void __fastcall COverlayContext::DeriveDesktopPlaneAttributes(COverlayContext *this, __int64 *a2, char a3)
 {
-  int v5; // eax
-  __int64 (__fastcall ***v6)(_QWORD, struct tagRECT *); // rcx
-  __int64 v7; // rax
-  __int64 v8; // rdx
-  enum DXGI_COLOR_SPACE_TYPE v9; // ebx
-  __int64 (__fastcall ***v10)(_QWORD, __int128 *); // rcx
-  __int64 v11; // rax
-  unsigned int v12; // eax
-  _QWORD *v13; // rdx
-  __int64 v14; // rcx
-  struct tagRECT v15; // xmm0
-  __int64 v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rbx
-  bool v19; // zf
-  _DWORD *v20; // rax
-  __int128 v21; // [rsp+20h] [rbp-49h] BYREF
-  struct tagRECT v22; // [rsp+38h] [rbp-31h] BYREF
-  int *v23; // [rsp+50h] [rbp-19h] BYREF
-  int v24; // [rsp+58h] [rbp-11h] BYREF
+  int v5; // r14d
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  _BYTE *v8; // rbx
+  __int64 v9; // rax
+  COverlayContext::OverlayPlaneInfo **v10; // rax
+  char v11; // r15
+  bool v12; // zf
+  int v13; // eax
+  __int64 (__fastcall ***v14)(_QWORD, struct tagRECT *); // rcx
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  enum DXGI_COLOR_SPACE_TYPE v17; // ebx
+  __int64 v18; // rax
+  unsigned int v19; // eax
+  _QWORD *v20; // rdx
+  _DWORD *v21; // rax
+  __int64 v22; // rcx
+  _DWORD *v23; // rax
+  void (__fastcall ***v24)(_QWORD, struct tagRECT *); // rcx
+  struct tagRECT v25; // xmm0
+  _DWORD *v26; // rax
+  struct tagRECT v27; // [rsp+20h] [rbp-49h] BYREF
+  int *v28; // [rsp+40h] [rbp-29h] BYREF
+  int v29; // [rsp+48h] [rbp-21h] BYREF
 
-  *((_BYTE *)this + 11025) = a3;
-  if ( *a2
-    && (v16 = gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](a2, 0LL),
-        v17 = *(_QWORD *)this,
-        v18 = *(_QWORD *)v16,
-        v22 = *(struct tagRECT *)(*(_QWORD *)v16 + 68LL),
-        v21 = *(_OWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v17 + 160LL))(v17) + 20),
-        (unsigned __int8)TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::IsEquivalentTo(
-                           &v22,
-                           &v21))
-    && *(_BYTE *)(v18 + 179) )
+  *((_BYTE *)this + 11033) = a3;
+  v5 = 1;
+  if ( !*a2 )
+    goto LABEL_9;
+  v6 = gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](a2, 0LL);
+  v7 = *(_QWORD *)this;
+  v8 = *(_BYTE **)v6;
+  v27 = *(struct tagRECT *)(*(_QWORD *)v6 + 68LL);
+  v9 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v7 + 152LL))(v7);
+  if ( (unsigned __int8)TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::IsEquivalentTo(&v27, v9)
+    && (!v8[177] || v8[181])
+    && v8[179] )
   {
-    *((_BYTE *)this + 11024) = 0;
+    *((_BYTE *)this + 11032) = 0;
+    return;
+  }
+  if ( !*a2
+    || (v10 = (COverlayContext::OverlayPlaneInfo **)gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](
+                                                      a2,
+                                                      0LL),
+        v11 = 1,
+        !COverlayContext::OverlayPlaneInfo::RequiresFrontPlane(*v10)) )
+  {
+LABEL_9:
+    v11 = 0;
+  }
+  *((_BYTE *)this + 11032) = 1;
+  if ( !*((_DWORD *)this + 18) || (v12 = !COverlayContext::OverlaysEnabled(this), v13 = 4, !v12) )
+    v13 = 0;
+  *((_DWORD *)this + 2730) = v13;
+  *((_DWORD *)this + 2743) = 1;
+  if ( v11 || *a2 <= 0 )
+    v5 = 0;
+  *((_DWORD *)this + 2744) = v5;
+  v14 = (__int64 (__fastcall ***)(_QWORD, struct tagRECT *))(*(_QWORD *)this
+                                                           + 8LL
+                                                           + *(int *)(*(_QWORD *)(*(_QWORD *)this + 8LL) + 8LL));
+  v15 = (**v14)(v14, &v27);
+  v16 = *(_QWORD *)this;
+  v17 = *(_DWORD *)(v15 + 8);
+  *((_DWORD *)this + 2749) = v17;
+  v18 = (*(__int64 (__fastcall **)(__int64, struct tagRECT *))(*(_QWORD *)v16 + 80LL))(v16, &v27);
+  v19 = ConvertSDRBoostToSDRWhiteLevel(*(float *)(v18 + 16), v17);
+  v20 = *(_QWORD **)this;
+  *((_DWORD *)this + 2756) = v19;
+  *((_DWORD *)this + 2754) = 2;
+  if ( *((_BYTE *)this + 11033) )
+  {
+    v21 = (_DWORD *)(*(__int64 (__fastcall **)(_QWORD *))(*v20 + 168LL))(v20);
+    *(_QWORD *)((char *)this + 10924) = 0LL;
+    *((_DWORD *)this + 2733) = v21[2] - *v21;
+    v22 = *(_QWORD *)this;
+    *((_DWORD *)this + 2734) = v21[3] - v21[1];
+    v23 = (_DWORD *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v22 + 152LL))(v22);
+    *((_DWORD *)this + 2735) = *v23;
+    *((_DWORD *)this + 2736) = v23[1];
+    *((_DWORD *)this + 2737) = v23[2];
+    *((_DWORD *)this + 2738) = v23[3];
   }
   else
   {
-    *((_BYTE *)this + 11024) = 1;
-    if ( !*((_DWORD *)this + 17) || (v19 = !COverlayContext::OverlaysEnabled(this), v5 = 4, !v19) )
-      v5 = 0;
-    *((_DWORD *)this + 2728) = v5;
-    *((_DWORD *)this + 2741) = 1;
-    *((_DWORD *)this + 2742) = *a2 != 0LL;
-    v6 = (__int64 (__fastcall ***)(_QWORD, struct tagRECT *))(*(_QWORD *)this
-                                                            + 8LL
-                                                            + *(int *)(*(_QWORD *)(*(_QWORD *)this + 8LL) + 8LL));
-    v7 = (**v6)(v6, &v22);
-    v8 = *(_QWORD *)this;
-    v9 = *(_DWORD *)(v7 + 8);
-    *((_DWORD *)this + 2747) = v9;
-    v10 = (__int64 (__fastcall ***)(_QWORD, __int128 *))(v8 + 8 + *(int *)(*(_QWORD *)(v8 + 8) + 12LL));
-    v11 = (**v10)(v10, &v21);
-    v12 = ConvertSDRBoostToSDRWhiteLevel(*(float *)(v11 + 16), v9);
-    v13 = *(_QWORD **)this;
-    *((_DWORD *)this + 2754) = v12;
-    *((_DWORD *)this + 2752) = 2;
-    if ( *((_BYTE *)this + 11025) )
+    v24 = (void (__fastcall ***)(_QWORD, struct tagRECT *))((char *)v20 + *(int *)(v20[1] + 12LL) + 8);
+    (**v24)(v24, &v27);
+    *((_DWORD *)this + 2733) = v27.left;
+    *((_DWORD *)this + 2734) = v27.top;
+    *(_QWORD *)((char *)this + 10924) = 0LL;
+    *(_OWORD *)((char *)this + 10940) = *(_OWORD *)((char *)this + 10924);
+  }
+  if ( v11 )
+  {
+    v26 = (_DWORD *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 152LL))(*(_QWORD *)this);
+    *((_DWORD *)this + 2739) = *v26;
+    *((_DWORD *)this + 2740) = v26[1];
+    *((_DWORD *)this + 2741) = v26[2];
+    *((_DWORD *)this + 2742) = v26[3];
+  }
+  else
+  {
+    v29 = 0;
+    v28 = &v29;
+    COverlayContext::CalcDesktopClip(this, a2, &v28);
+    v27 = 0LL;
+    if ( FastRegion::CRegion::GetBoundingRect((FastRegion::CRegion *)&v28, &v27) )
     {
-      v20 = (_DWORD *)(*(__int64 (__fastcall **)(_QWORD *))(*v13 + 160LL))(v13);
-      *(_QWORD *)((char *)this + 10916) = 0LL;
-      *((_DWORD *)this + 2731) = v20[9];
-      *((_DWORD *)this + 2732) = v20[10];
-      *((_DWORD *)this + 2733) = v20[5];
-      *((_DWORD *)this + 2734) = v20[6];
-      *((_DWORD *)this + 2735) = v20[7];
-      *((_DWORD *)this + 2736) = v20[8];
-    }
-    else
-    {
-      v14 = (__int64)v13 + *(int *)(v13[1] + 12LL) + 8;
-      (*(void (__fastcall **)(__int64, struct tagRECT *))(*(_QWORD *)v14 + 16LL))(v14, &v22);
-      *((_DWORD *)this + 2731) = v22.left;
-      *((_DWORD *)this + 2732) = v22.top;
-      *(_QWORD *)((char *)this + 10916) = 0LL;
-      *(_OWORD *)((char *)this + 10932) = *(_OWORD *)((char *)this + 10916);
-    }
-    v24 = 0;
-    v23 = &v24;
-    COverlayContext::CalcDesktopClip(this, a2, &v23);
-    v22 = 0LL;
-    if ( FastRegion::CRegion::GetBoundingRect(&v23, &v22) )
-    {
-      if ( *((_BYTE *)this + 11025) || !*((_BYTE *)this + 11299) )
-        v15 = v22;
+      if ( *((_BYTE *)this + 11033) || !*((_BYTE *)this + 11419) )
+        v25 = v27;
       else
-        v15 = *(struct tagRECT *)((char *)this + 10932);
-      *(struct tagRECT *)((char *)this + 10948) = v15;
+        v25 = *(struct tagRECT *)((char *)this + 10940);
+      *(struct tagRECT *)((char *)this + 10956) = v25;
     }
     else
     {
-      *((_BYTE *)this + 11024) = 0;
+      *((_BYTE *)this + 11032) = 0;
     }
-    FastRegion::CRegion::FreeMemory((void **)&v23);
+    FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v28);
   }
 }

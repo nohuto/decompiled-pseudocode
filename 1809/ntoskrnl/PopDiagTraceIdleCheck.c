@@ -4,8 +4,8 @@
  *     PopCheckForIdleness @ 0x140010410 (PopCheckForIdleness.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceIdleCheck(__int64 a1, int a2, int a3)
@@ -45,7 +45,7 @@ char __fastcall PopDiagTraceIdleCheck(__int64 a1, int a2, int a3)
     {
       v7 = 0;
       *(_QWORD *)&UserData.Size = 4LL;
-      v8 = dword_140417628 >= (unsigned int)dword_14041762C;
+      v8 = dword_140417648 >= (unsigned int)dword_14041764C;
       v12 = 4LL;
       v9 = dword_1403FE780 != 0;
       v14 = 4LL;
@@ -53,7 +53,7 @@ char __fastcall PopDiagTraceIdleCheck(__int64 a1, int a2, int a3)
       v16 = 4LL;
       v11 = &v24;
       v13 = &v25;
-      v15 = &dword_140417628;
+      v15 = &dword_140417648;
       v17 = &v7;
       v19 = &v8;
       v21 = &v9;

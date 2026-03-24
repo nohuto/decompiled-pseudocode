@@ -1,14 +1,14 @@
 /*
- * XREFs of ?bMakeXlate@EXLATEOBJ@@QEAAHPEBGVXEPALOBJ@@PEAVSURFACE@@KK@Z @ 0x1C02BE5D8
+ * XREFs of ?bMakeXlate@EXLATEOBJ@@QEAAHPEBGVXEPALOBJ@@PEAVSURFACE@@KK@Z @ 0x1C02BFC38
  * Callers:
- *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C0009E08 (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
- *     GreStretchDIBitsInternal @ 0x1C0029B2C (GreStretchDIBitsInternal.c)
- *     GreSetDIBitsToDeviceInternal @ 0x1C002E3F0 (GreSetDIBitsToDeviceInternal.c)
- *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C02797A8 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
+ *     GreStretchDIBitsInternal @ 0x1C00AE0CC (GreStretchDIBitsInternal.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF5A0 (GreSetDIBitsToDeviceInternal.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C00CFD3C (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C027BC58 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?vCheckForTrivial@XLATE@@QEAAXXZ @ 0x1C02BEA2C (-vCheckForTrivial@XLATE@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?vCheckForTrivial@XLATE@@QEAAXXZ @ 0x1C02C008C (-vCheckForTrivial@XLATE@@QEAAXXZ.c)
  */
 
 __int64 __fastcall EXLATEOBJ::bMakeXlate(
@@ -45,9 +45,9 @@ __int64 __fastcall EXLATEOBJ::bMakeXlate(
 
   v6 = a6;
   v32 = *(_QWORD *)(a4 + 128);
-  if ( a6 <= 0x3FFFFFFF && 4 * (unsigned __int64)a6 + 88 > 4 * (unsigned __int64)a6 )
+  if ( a6 <= 0x3FFFFFFF && 4 * (unsigned __int64)a6 + 88 >= 4 * (unsigned __int64)a6 )
   {
-    v10 = AllocThreadBufferWithTag(4 * a6 + 88, 1953265735LL, 0LL);
+    v10 = AllocThreadBufferWithTag(4 * a6 + 88, 1953265735LL, 0LL, a4);
     *a1 = (XLATE *)v10;
     if ( v10 )
     {

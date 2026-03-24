@@ -1,22 +1,16 @@
 /*
- * XREFs of KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x14056E0E0
+ * XREFs of KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x140520A60
  * Callers:
  *     <none>
  * Callees:
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KiAndAffinityEx @ 0x140252320 (KiAndAffinityEx.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252640 (KiFlushSoftwareInterruptBatch.c)
- *     KeAndGroupAffinityEx @ 0x140254360 (KeAndGroupAffinityEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x140255090 (KeGetProcessorIndexFromNumber.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056E73C (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiReadyDeferredReadyList @ 0x1402306D0 (KiReadyDeferredReadyList.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KiRequestSoftwareInterrupt @ 0x14035E984 (KiRequestSoftwareInterrupt.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x140520C00 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  */
 
 void __fastcall KiUpdateVpBackingThreadPriorityDpcRoutine(
@@ -26,245 +20,94 @@ void __fastcall KiUpdateVpBackingThreadPriorityDpcRoutine(
         PVOID SystemArgument2)
 {
   __int64 *v4; // rbx
-  __int64 **v5; // rdx
-  __int64 *v6; // rcx
-  __int64 **v7; // rax
-  __int64 **v8; // r8
-  __int64 *v9; // rcx
-  __int64 *v10; // rdi
-  ULONG_PTR v11; // rdi
-  struct _KPRCB *CurrentPrcb; // rbx
-  char v13; // si
-  _QWORD *v14; // rdi
-  void (__fastcall *v15)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
-  __int16 v16; // r12
-  unsigned int *v17; // rbx
-  unsigned __int64 v18; // rdi
-  int v19; // ebp
-  unsigned __int8 v20; // si
-  __int64 (__fastcall *v21)(_QWORD, _DWORD *, __int128 *, _QWORD, int *); // rax
-  int v22; // eax
-  __int64 (__fastcall *v23)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
-  int v24; // eax
-  __int64 (__fastcall *v25)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
-  int v26; // eax
-  signed __int32 v27[8]; // [rsp+0h] [rbp-338h] BYREF
-  _DWORD v28[2]; // [rsp+30h] [rbp-308h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-300h] BYREF
-  int v30; // [rsp+3Ch] [rbp-2FCh]
-  _QWORD *v31; // [rsp+40h] [rbp-2F8h] BYREF
-  __int128 v32; // [rsp+48h] [rbp-2F0h] BYREF
-  int v33; // [rsp+58h] [rbp-2E0h]
-  int v34; // [rsp+60h] [rbp-2D8h] BYREF
-  __int128 v35; // [rsp+68h] [rbp-2D0h] BYREF
-  __int64 v36; // [rsp+78h] [rbp-2C0h]
-  int v37; // [rsp+80h] [rbp-2B8h] BYREF
-  int v38; // [rsp+84h] [rbp-2B4h]
-  _DWORD v39[2]; // [rsp+88h] [rbp-2B0h] BYREF
-  _DWORD v40[2]; // [rsp+90h] [rbp-2A8h] BYREF
-  _DWORD v41[2]; // [rsp+98h] [rbp-2A0h] BYREF
-  _DWORD v42[2]; // [rsp+A0h] [rbp-298h] BYREF
-  _DWORD v43[2]; // [rsp+A8h] [rbp-290h] BYREF
-  int v44; // [rsp+B0h] [rbp-288h] BYREF
-  __int128 v45; // [rsp+B4h] [rbp-284h]
-  __int128 v46; // [rsp+C8h] [rbp-270h] BYREF
-  _QWORD v47[34]; // [rsp+E0h] [rbp-258h] BYREF
-  _QWORD v48[34]; // [rsp+1F0h] [rbp-148h] BYREF
-  int v49; // [rsp+330h] [rbp-8h]
+  __int64 *v5; // rcx
+  __int64 *v6; // rax
+  __int64 v7; // r8
+  __int64 **v8; // rdx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 *v12; // rdi
+  ULONG_PTR v13; // rdi
+  struct _KPRCB *CurrentPrcb; // rsi
+  _DWORD *SchedulerAssist; // rcx
+  int v16; // eax
+  _DWORD *v17; // rcx
+  int v18; // eax
+  struct _KPRCB *v19; // rbx
+  signed __int32 v20[8]; // [rsp+0h] [rbp-38h] BYREF
+  int v21; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD *v22; // [rsp+28h] [rbp-10h] BYREF
 
   v4 = 0LL;
   KxAcquireSpinLock(&KiUpdateVpThreadPriorityLock);
-  v5 = (__int64 **)KiUpdateVpThreadPriorityListHead;
-  if ( (__int64 *)KiUpdateVpThreadPriorityListHead != &KiUpdateVpThreadPriorityListHead )
+  v5 = (__int64 *)KiUpdateVpThreadPriorityListHead;
+  while ( v5 != &KiUpdateVpThreadPriorityListHead )
   {
-    do
-    {
-      v6 = *v5;
-      v7 = v5;
-      v5 = (__int64 **)v6;
-      v8 = (__int64 **)v7[1];
-      if ( (__int64 **)v6[1] != v7 || *v8 != (__int64 *)v7 )
-        __fastfail(3u);
-      *v8 = v6;
-      v6[1] = (__int64)v8;
-      *v7 = v4;
-      v4 = (__int64 *)v7;
-      v7[1] = 0LL;
-      _InterlockedAdd16((volatile signed __int16 *)v7 - 70, 1u);
-    }
-    while ( v6 != &KiUpdateVpThreadPriorityListHead );
+    v6 = v5;
+    v5 = (__int64 *)*v5;
+    v7 = *v6;
+    v8 = (__int64 **)v6[1];
+    if ( *(__int64 **)(*v6 + 8) != v6 || *v8 != v6 )
+      __fastfail(3u);
+    *v8 = (__int64 *)v7;
+    *(_QWORD *)(v7 + 8) = v8;
+    v6[1] = 0LL;
+    *v6 = (__int64)v4;
+    v4 = v6;
+    _InterlockedAdd16((volatile signed __int16 *)v6 - 70, 1u);
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&KiUpdateVpThreadPriorityLock);
-  v31 = 0LL;
+  KxReleaseSpinLock(&KiUpdateVpThreadPriorityLock);
+  v22 = 0LL;
   while ( v4 )
   {
-    v9 = v4;
-    v10 = v4;
+    v12 = v4;
     v4 = (__int64 *)*v4;
-    v11 = (ULONG_PTR)(v10 - 126);
-    *v9 = 1LL;
-    _InterlockedOr(v27, 0);
-    v34 = 0;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v11 + 64), 0LL) )
+    v13 = (ULONG_PTR)(v12 - 126);
+    *(_QWORD *)(v13 + 1008) = 1LL;
+    _InterlockedOr(v20, 0);
+    CurrentPrcb = KeGetCurrentPrcb();
+    v21 = 0;
+    while ( 1 )
     {
-      do
-        KeYieldProcessorEx(&v34);
-      while ( *(_QWORD *)(v11 + 64) );
-    }
-    if ( (*(_DWORD *)(v11 + 120) & 0x400000) != 0 )
-      KiUpdateVpBackingThreadPriorityFromTopLevel(v11);
-    *(_QWORD *)(v11 + 64) = 0LL;
-    _InterlockedDecrement16((volatile signed __int16 *)(v11 + 868));
-  }
-  CurrentPrcb = KeGetCurrentPrcb();
-  v13 = 0;
-  v14 = v31;
-  if ( v31 )
-  {
-    v31 = (_QWORD *)*v31;
-    do
-    {
-      KiDeferredReadySingleThread((__int64)CurrentPrcb, (unsigned __int64)(v14 - 27), (__int64)&v31);
-      v14 = v31;
-      ++v13;
-      if ( v31 )
-        v31 = (_QWORD *)*v31;
-      if ( (v13 & 0xF) == 0 )
-        KiFlushSoftwareInterruptBatch(&CurrentPrcb->DeferredDispatchInterrupts.Level);
-    }
-    while ( v14 );
-  }
-  KiFlushSoftwareInterruptBatch(&CurrentPrcb->DeferredDispatchInterrupts.Level);
-  if ( CurrentPrcb->NextThread && !CurrentPrcb->DpcRoutineActive )
-  {
-    if ( CurrentPrcb->NestingLevel )
-    {
-      CurrentPrcb->InterruptRequest = 1;
-      return;
-    }
-    memset(&v47[1], 0, 0x100uLL);
-    v45 = 0LL;
-    if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
-    {
-      ProcNumber = (struct _PROCESSOR_NUMBER)-1;
-      v44 = 3;
-      v30 = 1;
-      v28[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
-      v28[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-      v15 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                                + 120);
-      _disable();
-      v15(*(_QWORD *)(HalpInterruptController + 16), v28, &v44, 47LL, &ProcNumber);
-      if ( (v49 & 0x200) != 0 )
-        _enable();
-      return;
-    }
-    LODWORD(v47[0]) = 2097153;
-    memset((char *)v47 + 4, 0, 0x104uLL);
-    KeAddProcessorAffinityEx((unsigned __int16 *)v47, KeGetPcr()->Prcb.Number);
-    v28[0] = 0;
-    v36 = 0LL;
-    v46 = 0LL;
-    v35 = 0LL;
-    memset(&v48[1], 0, 0x100uLL);
-    v33 = 0;
-    v32 = 0LL;
-    if ( qword_140C62628 )
-    {
-      qword_140C62628(v47, 47LL);
-      return;
-    }
-    LODWORD(v48[0]) = 2097153;
-    memset((char *)v48 + 4, 0, 0x104uLL);
-    KiAndAffinityEx((unsigned __int16 *)&HalpInterruptPhysicalTargets, (unsigned __int16 *)v47, v48, 0x20u);
-    v16 = v49;
-    if ( HalpInterruptClusterModeEnabled )
-    {
-      v17 = (unsigned int *)HalpInterruptClusterData;
-      ProcNumber = 0;
-      while ( (unsigned __int64)v17 < HalpInterruptClusterDataEnd )
+      SchedulerAssist = CurrentPrcb->SchedulerAssist;
+      if ( SchedulerAssist )
       {
-        if ( (unsigned int)KeAndGroupAffinityEx(v47, (__int64)(v17 + 2), (char *)&v46) )
+        if ( CurrentPrcb->NestingLevel <= 1u )
         {
-          v18 = v46;
-          v19 = 0;
-          LODWORD(v32) = 6;
-          v20 = 0;
-          *((_QWORD *)&v32 + 1) = *v17;
-          ProcNumber.Group = WORD4(v46);
-          for ( ProcNumber.Number = 0; v18; ProcNumber.Number = v20 )
-          {
-            if ( (v18 & 1) != 0 )
-            {
-              v28[0] = KeGetProcessorIndexFromNumber(&ProcNumber);
-              v19 |= *(_DWORD *)(HalpInterruptTargets + 24LL * v28[0] + 12);
-              HIDWORD(v32) = v19;
-            }
-            ++v20;
-            v18 >>= 1;
-          }
-          v37 = -1;
-          v38 = 1;
-          v39[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
-          v39[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-          v21 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, __int128 *, _QWORD, int *))(HalpInterruptController + 120);
-          _disable();
-          v22 = v21(*(_QWORD *)(HalpInterruptController + 16), v39, &v32, (unsigned int)(v38 + 46), &v37);
-          if ( (v16 & 0x200) != 0 )
-            _enable();
-          if ( v22 < 0 )
-            return;
+          v16 = SchedulerAssist[6];
+          SchedulerAssist[6] = v16 + 1;
+          if ( v16 == -1 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
-        v17 += 6;
       }
-      goto LABEL_54;
-    }
-    if ( HalpInterruptPhysicalModeOnly )
-      goto LABEL_54;
-    *((_QWORD *)&v35 + 1) = v47[1];
-    *(_QWORD *)&v35 = v47;
-    LODWORD(v32) = 5;
-    DWORD2(v32) = 0;
-    while ( !(unsigned int)KeEnumerateNextProcessor(v28, (unsigned __int16 **)&v35) )
-    {
-      if ( *(_DWORD *)(HalpInterruptTargets + 24LL * v28[0]) == 5 )
-        DWORD2(v32) |= *(_DWORD *)(HalpInterruptTargets + 24LL * v28[0] + 8);
-    }
-    if ( !DWORD2(v32) )
-      goto LABEL_54;
-    v40[0] = -1;
-    v40[1] = 1;
-    v41[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
-    v41[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-    v23 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *))(HalpInterruptController + 120);
-    _disable();
-    v24 = v23(*(_QWORD *)(HalpInterruptController + 16), v41, &v32, 47LL, v40);
-    if ( (v16 & 0x200) != 0 )
-      _enable();
-    if ( v24 >= 0 )
-    {
-LABEL_54:
-      *((_QWORD *)&v35 + 1) = v48[1];
-      *(_QWORD *)&v35 = v48;
-      v28[0] = 0;
-      LOWORD(v36) = 0;
-      do
+      if ( !_interlockedbittestandset64((volatile signed __int32 *)(v13 + 64), 0LL) )
+        break;
+      v17 = CurrentPrcb->SchedulerAssist;
+      if ( v17 )
       {
-        if ( (unsigned int)KeEnumerateNextProcessor(v28, (unsigned __int16 **)&v35) )
-          break;
-        v42[0] = -1;
-        LODWORD(v32) = 4;
-        v42[1] = 1;
-        DWORD2(v32) = *(_DWORD *)(HalpInterruptTargets + 24LL * v28[0] + 8);
-        v43[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
-        v43[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-        v25 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *))(HalpInterruptController + 120);
-        _disable();
-        v26 = v25(*(_QWORD *)(HalpInterruptController + 16), v43, &v32, 47LL, v42);
-        if ( (v16 & 0x200) != 0 )
-          _enable();
+        if ( CurrentPrcb->NestingLevel <= 1u )
+        {
+          v18 = v17[6] - 1;
+          v17[6] = v18;
+          if ( !v18 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
-      while ( v26 >= 0 );
+      do
+        KeYieldProcessorEx(&v21, v9, v10, v11);
+      while ( *(_QWORD *)(v13 + 64) );
     }
+    if ( (*(_DWORD *)(v13 + 120) & 0x400000) != 0 )
+      KiUpdateVpBackingThreadPriorityFromTopLevel(v13);
+    KiReleaseThreadLockSafe(v13);
+    _InterlockedDecrement16((volatile signed __int16 *)(v13 + 868));
+  }
+  v19 = KeGetCurrentPrcb();
+  KiReadyDeferredReadyList((__int64)v19, &v22);
+  if ( v19->NextThread )
+  {
+    if ( !v19->DpcRoutineActive )
+      KiRequestSoftwareInterrupt(v19, 2);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExReInitializeRundownProtectionCacheAware @ 0x140322090
+ * XREFs of ExReInitializeRundownProtectionCacheAware @ 0x1403608D0
  * Callers:
- *     EtwpFreeLoggerContext @ 0x14078E1AC (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x14069817C (EtwpFreeLoggerContext.c)
  * Callees:
- *     ExRundownCompletedCacheAware @ 0x1403220E0 (ExRundownCompletedCacheAware.c)
+ *     ExRundownCompletedCacheAware @ 0x140360920 (ExRundownCompletedCacheAware.c)
  */
 
 void __stdcall ExReInitializeRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)

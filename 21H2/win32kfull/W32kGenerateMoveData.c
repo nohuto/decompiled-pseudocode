@@ -1,5 +1,5 @@
 /*
- * XREFs of W32kGenerateMoveData @ 0x1C0275B00
+ * XREFs of W32kGenerateMoveData @ 0x1C02782F0
  * Callers:
  *     <none>
  * Callees:

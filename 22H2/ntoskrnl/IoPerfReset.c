@@ -1,13 +1,13 @@
 /*
- * XREFs of IoPerfReset @ 0x140559074
+ * XREFs of IoPerfReset @ 0x140507B5C
  * Callers:
- *     EtwpDisableKernelTrace @ 0x1407D5984 (EtwpDisableKernelTrace.c)
- *     IoUnregisterIoTracking @ 0x140949140 (IoUnregisterIoTracking.c)
+ *     EtwpDisableKernelTrace @ 0x1407932FC (EtwpDisableKernelTrace.c)
+ *     IoUnregisterIoTracking @ 0x1408957B0 (IoUnregisterIoTracking.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     IopUpdateFunctionPointers @ 0x14055648C (IopUpdateFunctionPointers.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopUpdateFunctionPointers @ 0x1405015D8 (IopUpdateFunctionPointers.c)
  */
 
 __int64 __fastcall IoPerfReset(char a1)
@@ -22,26 +22,29 @@ __int64 __fastcall IoPerfReset(char a1)
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(&IopFunctionPointerLock, &LockHandle);
-  if ( (a1 & 1) != 0 && !--dword_140D184CC )
+  if ( (a1 & 1) != 0 && !--dword_140CF56A4 )
     IopPerfStatus &= ~1u;
-  if ( (a1 & 2) != 0 && !--dword_140D184D0 )
+  if ( (a1 & 2) != 0 && !--dword_140CF56A8 )
     IopPerfStatus &= ~2u;
   if ( !IopPerfStatus )
     IopUpdateFunctionPointers(2, 0, 1);
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v6 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v7 = (v6 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v6;
-      if ( v7 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v6 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v7 = (v6 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v6;
+        if ( v7 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

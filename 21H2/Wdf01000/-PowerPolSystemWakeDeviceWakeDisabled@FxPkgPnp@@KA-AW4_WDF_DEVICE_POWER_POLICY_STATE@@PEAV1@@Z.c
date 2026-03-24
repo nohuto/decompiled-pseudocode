@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerPolSystemWakeDeviceWakeDisabled@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000E560
+ * XREFs of ?PowerPolSystemWakeDeviceWakeDisabled@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C00104D0
  * Callers:
  *     <none>
  * Callees:

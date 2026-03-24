@@ -1,17 +1,16 @@
 /*
- * XREFs of ?EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z @ 0x18008C5D0
+ * XREFs of ?EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z @ 0x18007A618
  * Callers:
- *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x180084C60 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?SubmitRenderCommand@CD2DContext@@QEAAJ$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@PEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z @ 0x18008C528 (-SubmitRenderCommand@CD2DContext@@QEAAJ$$QEAV-$unique_ptr@VCBatchCommand@@U-$default_delete@VCBa.c)
- *     ?EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z @ 0x18008C5D0 (-EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z.c)
+ *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z @ 0x180078970 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@.c)
+ *     ?EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z @ 0x18007A618 (-EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z.c)
+ *     ?AppendDrawListEntry@CD2DContext@@QEAAJPEAVCDrawListEntry@@PEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z @ 0x18023AEDC (-AppendDrawListEntry@CD2DContext@@QEAAJPEAVCDrawListEntry@@PEAVCHwLightCollectionBuffer@@PEAVCli.c)
  * Callees:
- *     ?SetLightingCollection@CDrawListEntryBatch@@QEAAJPEAVCHwLightCollectionBuffer@@@Z @ 0x180085B20 (-SetLightingCollection@CDrawListEntryBatch@@QEAAJPEAVCHwLightCollectionBuffer@@@Z.c)
- *     ?OpenDrawListEntryBatch@CDrawListBatchManager@@IEAAJPEAVIDeviceTarget@@PEAPEAVCDrawListEntryBatch@@@Z @ 0x180085C04 (-OpenDrawListEntryBatch@CDrawListBatchManager@@IEAAJPEAVIDeviceTarget@@PEAPEAVCDrawListEntryBatc.c)
- *     ?EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z @ 0x18008C5D0 (-EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z.c)
- *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18008E000 (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??4?$ComPtr@VClipPlaneInfoRef@@@WRL@Microsoft@@QEAAAEAV012@PEAVClipPlaneInfoRef@@@Z @ 0x1800F3150 (--4-$ComPtr@VClipPlaneInfoRef@@@WRL@Microsoft@@QEAAAEAV012@PEAVClipPlaneInfoRef@@@Z.c)
- *     ?GetCurrentTargetNoRef@CD2DContext@@IEBAPEAVCD2DTarget@@XZ @ 0x18011A884 (-GetCurrentTargetNoRef@CD2DContext@@IEBAPEAVCD2DTarget@@XZ.c)
+ *     ?OpenDrawListEntryBatch@CDrawListBatchManager@@IEAAJPEAPEAVCDrawListEntryBatch@@@Z @ 0x18002B0D0 (-OpenDrawListEntryBatch@CDrawListBatchManager@@IEAAJPEAPEAVCDrawListEntryBatch@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z @ 0x18007A618 (-EnsureDrawListBatch@CD2DContext@@IEAAJPEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z.c)
+ *     ?SetLightingCollection@CDrawListEntryBatch@@QEAAJPEAVCHwLightCollectionBuffer@@@Z @ 0x18007A6B4 (-SetLightingCollection@CDrawListEntryBatch@@QEAAJPEAVCHwLightCollectionBuffer@@@Z.c)
+ *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18008FEFC (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DContext::EnsureDrawListBatch(
@@ -21,29 +20,29 @@ __int64 __fastcall CD2DContext::EnsureDrawListBatch(
 {
   struct ClipPlaneInfoRef **v5; // rcx
   int v7; // eax
-  unsigned int v8; // ecx
+  __int64 v8; // rcx
   unsigned int v9; // ebx
-  struct CD2DTarget *CurrentTargetNoRef; // rax
+  struct CHwLightCollectionBuffer *v10; // rdx
+  CDrawListEntryBatch *v11; // rsi
   int v12; // eax
-  unsigned int v13; // ecx
-  struct CHwLightCollectionBuffer *v14; // rdx
-  struct CDrawListEntryBatch *v15; // rsi
+  __int64 v13; // rcx
+  struct ClipPlaneInfoRef *v14; // rcx
   int v16; // eax
-  unsigned int v17; // ecx
+  __int64 v17; // rcx
   int v18; // eax
-  unsigned int v19; // ecx
-  struct CDrawListEntryBatch *v20; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v19; // rcx
+  CDrawListEntryBatch *v20; // [rsp+40h] [rbp+8h] BYREF
 
-  v5 = (struct ClipPlaneInfoRef **)*((_QWORD *)this + 17);
-  v20 = (struct CDrawListEntryBatch *)v5;
+  v5 = (struct ClipPlaneInfoRef **)*((_QWORD *)this + 22);
+  v20 = (CDrawListEntryBatch *)v5;
   if ( v5 )
   {
     if ( v5[4] == a3 )
     {
-      v7 = CDrawListEntryBatch::SetLightingCollection(v5, a2);
-      v9 = v7;
-      if ( v7 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1F4u, 0LL);
+      v16 = CDrawListEntryBatch::SetLightingCollection((CDrawListEntryBatch *)v5, a2);
+      v9 = v16;
+      if ( v16 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x1E2u, 0LL);
     }
     else
     {
@@ -51,31 +50,42 @@ __int64 __fastcall CD2DContext::EnsureDrawListBatch(
       v18 = CD2DContext::EnsureDrawListBatch(this, a2, a3);
       v9 = v18;
       if ( v18 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x1F0u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x1DEu, 0LL);
     }
   }
   else
   {
-    CurrentTargetNoRef = CD2DContext::GetCurrentTargetNoRef(this);
-    v12 = CDrawListBatchManager::OpenDrawListEntryBatch(
-            (CD2DContext *)((char *)this + 8),
-            *((struct IDeviceTarget **)CurrentTargetNoRef + 3),
-            &v20);
-    v9 = v12;
-    if ( v12 < 0 )
+    v7 = CDrawListBatchManager::OpenDrawListEntryBatch((CD2DContext *)((char *)this + 8), &v20);
+    v9 = v7;
+    if ( v7 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x1E1u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1CFu, 0LL);
     }
     else
     {
-      v14 = a2;
-      v15 = v20;
-      v16 = CDrawListEntryBatch::SetLightingCollection((struct CHwLightCollectionBuffer **)v20, v14);
-      v9 = v16;
-      if ( v16 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x1E3u, 0LL);
+      v10 = a2;
+      v11 = v20;
+      v12 = CDrawListEntryBatch::SetLightingCollection(v20, v10);
+      v9 = v12;
+      if ( v12 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x1D1u, 0LL);
+      }
       else
-        Microsoft::WRL::ComPtr<ClipPlaneInfoRef>::operator=((char *)v15 + 32, a3);
+      {
+        v14 = (struct ClipPlaneInfoRef *)*((_QWORD *)v11 + 4);
+        if ( v14 != a3 )
+        {
+          if ( a3 )
+          {
+            (**(void (__fastcall ***)(struct ClipPlaneInfoRef *))a3)(a3);
+            v14 = (struct ClipPlaneInfoRef *)*((_QWORD *)v11 + 4);
+          }
+          *((_QWORD *)v11 + 4) = a3;
+          if ( v14 )
+            (*(void (__fastcall **)(struct ClipPlaneInfoRef *))(*(_QWORD *)v14 + 8LL))(v14);
+        }
+      }
     }
   }
   return v9;

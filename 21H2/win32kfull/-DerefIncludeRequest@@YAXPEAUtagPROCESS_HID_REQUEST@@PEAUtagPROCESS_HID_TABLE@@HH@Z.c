@@ -1,12 +1,10 @@
 /*
- * XREFs of ?DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z @ 0x1C0103114
+ * XREFs of ?DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z @ 0x1C0108EE8
  * Callers:
- *     FreeHidProcessRequest @ 0x1C0102B44 (FreeHidProcessRequest.c)
- *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01D0C50 (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
+ *     FreeHidProcessRequest @ 0x1C0107C8C (FreeHidProcessRequest.c)
+ *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01D512C (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
  * Callees:
- *     ??0?$ObjectLockRecursive@UtagObjLock@@@?$DomainExclusiveRecursive@$$V@?$DomainSharedRecursive@$$V@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00B0DBC (--0-$ObjectLockRecursive@UtagObjLock@@@-$DomainExclusiveRecursive@$$V@-$DomainSharedRecursive@$$.c)
- *     FreeHidTLCInfo @ 0x1C0103208 (FreeHidTLCInfo.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     FreeHidTLCInfo @ 0x1C01D55C0 (FreeHidTLCInfo.c)
  */
 
 void __fastcall DerefIncludeRequest(struct tagPROCESS_HID_REQUEST *a1, struct tagPROCESS_HID_TABLE *a2, int a3, int a4)
@@ -15,9 +13,6 @@ void __fastcall DerefIncludeRequest(struct tagPROCESS_HID_REQUEST *a1, struct ta
   int v8; // eax
   __int64 v9; // rax
   bool v10; // zf
-  _BYTE v11[16]; // [rsp+20h] [rbp-38h] BYREF
-  tagObjLock *v12; // [rsp+30h] [rbp-28h]
-  char v13; // [rsp+40h] [rbp-18h]
 
   if ( a3 )
   {
@@ -58,15 +53,7 @@ void __fastcall DerefIncludeRequest(struct tagPROCESS_HID_REQUEST *a1, struct ta
     if ( !a3 )
     {
       --*((_DWORD *)a2 + 20);
-      DomainSharedRecursive<>::DomainExclusiveRecursive<>::ObjectLockRecursive<tagObjLock>::ObjectLockRecursive<tagObjLock>(
-        (__int64)v11,
-        gHidCountersLock);
       --gHidCounters[2];
-      if ( v13 )
-      {
-        if ( v12 )
-          tagObjLock::UnLockExclusive(v12);
-      }
     }
   }
 }

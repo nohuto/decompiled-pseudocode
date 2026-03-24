@@ -1,22 +1,22 @@
 /*
- * XREFs of ?PartitionUpdateCursorMouseMove@CChannel@@UEAAJXZ @ 0x1800DFBD0
+ * XREFs of ?PartitionUpdateCursorMouseMove@CChannel@@UEAAJXZ @ 0x18005D500
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
  */
 
-__int64 __fastcall CChannel::PartitionUpdateCursorMouseMove(CDataStreamWriter **this)
+__int64 __fastcall CChannel::PartitionUpdateCursorMouseMove(CChannel *this)
 {
-  CDataStreamWriter **v1; // rbx
+  CChannel *v1; // rbx
   int v3; // [rsp+30h] [rbp+8h] BYREF
-  struct _RTL_CRITICAL_SECTION *v4; // [rsp+38h] [rbp+10h] BYREF
+  char *v4; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = this;
-  v4 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
-  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
-  v3 = 289;
+  v4 = (char *)this + 168;
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  v3 = 296;
   LODWORD(v1) = CChannel::SendCommand(v1, &v3, 4u);
   CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v4);
   return (unsigned int)v1;

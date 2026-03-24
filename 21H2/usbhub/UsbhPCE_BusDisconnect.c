@@ -1,21 +1,21 @@
 /*
- * XREFs of UsbhPCE_BusDisconnect @ 0x1C00338F4
+ * XREFs of UsbhPCE_BusDisconnect @ 0x1C0034C58
  * Callers:
- *     UsbhPdoDevicePowerState @ 0x1C0005200 (UsbhPdoDevicePowerState.c)
- *     UsbhOvercurrentResetWorker @ 0x1C002F330 (UsbhOvercurrentResetWorker.c)
- *     UsbhBusDisconnect_Action @ 0x1C0030A90 (UsbhBusDisconnect_Action.c)
+ *     UsbhPdoDevicePowerState @ 0x1C00109A0 (UsbhPdoDevicePowerState.c)
+ *     UsbhOvercurrentResetWorker @ 0x1C0030700 (UsbhOvercurrentResetWorker.c)
+ *     UsbhBusDisconnect_Action @ 0x1C0031E38 (UsbhBusDisconnect_Action.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
-int *__fastcall UsbhPCE_BusDisconnect(__int64 a1, __int64 a2, unsigned __int16 a3)
+__int64 __fastcall UsbhPCE_BusDisconnect(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   __int64 v3; // rsi
-  int *result; // rax
+  __int64 result; // rax
   int v7; // [rsp+28h] [rbp-20h]
 
   v3 = a3;
@@ -32,8 +32,8 @@ int *__fastcall UsbhPCE_BusDisconnect(__int64 a1, __int64 a2, unsigned __int16 a
       v7);
   }
   Log(a1, 512, 1346711857, 0LL, v3);
-  result = (int *)UsbhGetPortData(a1, v3);
+  result = UsbhGetPortData(a1, v3);
   if ( result )
-    return UsbhDispatch_PortChangeQueueEventEx(a1, (__int64)result, 11LL, a2, 0LL, 0, 0LL, 0LL);
+    return UsbhDispatch_PortChangeQueueEventEx(a1, result, 11, a2, 0LL, 0, 0LL, 0LL);
   return result;
 }

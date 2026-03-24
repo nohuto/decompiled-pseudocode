@@ -1,14 +1,14 @@
 /*
- * XREFs of SleepstudyHelperCreateBlockerFromDevice @ 0x140845B40
+ * XREFs of SleepstudyHelperCreateBlockerFromDevice @ 0x1408FB0A0
  * Callers:
- *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140845A90 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
- *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1409A2360 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
- *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1409A2420 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1408FB580 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1408FB640 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x1408FB730 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
  * Callees:
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407A8840 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140845C24 (SshpGenerateDeviceFriendlyName.c)
- *     SshpGenerateDeviceVerboseDescription @ 0x140845E1C (SshpGenerateDeviceVerboseDescription.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x14069AB20 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x1408FB170 (SshpGenerateDeviceFriendlyName.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SleepstudyHelperCreateBlockerFromDevice(
@@ -17,43 +17,36 @@ __int64 __fastcall SleepstudyHelperCreateBlockerFromDevice(
         struct _DEVICE_OBJECT *a3,
         _QWORD *a4)
 {
-  __int64 Pool2; // rax
-  _QWORD *v9; // rdi
-  __int128 v10; // xmm0
-  int DeviceFriendlyName; // ebx
+  _QWORD *v4; // rbx
+  _QWORD *PoolWithTag; // rax
+  int DeviceFriendlyName; // edi
+  __int128 v11; // xmm0
 
+  v4 = 0LL;
   if ( a1 && a2 && a3 && a4 )
   {
-    Pool2 = ExAllocatePool2(256LL, 96LL, *(unsigned int *)(a1 + 24));
-    v9 = (_QWORD *)Pool2;
-    if ( Pool2 )
-    {
-      *(_DWORD *)(Pool2 + 8) = 0;
-      *(_QWORD *)Pool2 = a1;
-      v10 = *a2;
-      *(_QWORD *)(Pool2 + 32) = a3;
-      *(_BYTE *)(Pool2 + 88) = 1;
-      *(_OWORD *)(Pool2 + 16) = v10;
-      DeviceFriendlyName = SshpGenerateDeviceFriendlyName(a3);
-      if ( DeviceFriendlyName < 0
-        || (DeviceFriendlyName = SshpGenerateDeviceVerboseDescription(a3), DeviceFriendlyName < 0) )
-      {
-        SleepstudyHelperDestroyBlockerBuilder(v9);
-      }
-      else
-      {
-        *a4 = v9;
-        return 0;
-      }
-    }
-    else
-    {
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x50uLL, *(_DWORD *)(a1 + 24));
+    v4 = PoolWithTag;
+    if ( !PoolWithTag )
       return (unsigned int)-1073741670;
+    memset(PoolWithTag, 0, 0x50uLL);
+    *v4 = a1;
+    v11 = *a2;
+    v4[4] = a3;
+    *((_BYTE *)v4 + 72) = 1;
+    *((_OWORD *)v4 + 1) = v11;
+    DeviceFriendlyName = SshpGenerateDeviceFriendlyName(a3);
+    if ( DeviceFriendlyName >= 0 )
+    {
+      *a4 = v4;
+      return 0;
     }
   }
   else
   {
-    return (unsigned int)-1073741811;
+    DeviceFriendlyName = -1073741811;
   }
+  if ( v4 )
+    SleepstudyHelperDestroyBlockerBuilder(v4);
   return (unsigned int)DeviceFriendlyName;
 }

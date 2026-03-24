@@ -1,13 +1,13 @@
 /*
- * XREFs of KiIntSteerDisable @ 0x14016D400
+ * XREFs of KiIntSteerDisable @ 0x14016D420
  * Callers:
- *     KeDisconnectInterrupt @ 0x14016D2A0 (KeDisconnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x14016D2C0 (KeDisconnectInterrupt.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiIntSteerUpdateDeviceInterruptMask @ 0x14012F6A0 (KiIntSteerUpdateDeviceInterruptMask.c)
- *     KiIntSteerLogState @ 0x14016E20C (KiIntSteerLogState.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIntSteerUpdateDeviceInterruptMask @ 0x14012F6C0 (KiIntSteerUpdateDeviceInterruptMask.c)
+ *     KiIntSteerLogState @ 0x14016E22C (KiIntSteerLogState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

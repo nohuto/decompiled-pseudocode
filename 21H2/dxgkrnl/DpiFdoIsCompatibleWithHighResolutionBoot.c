@@ -1,30 +1,40 @@
 /*
- * XREFs of DpiFdoIsCompatibleWithHighResolutionBoot @ 0x1C021BD54
+ * XREFs of DpiFdoIsCompatibleWithHighResolutionBoot @ 0x1C019FA88
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
  * Callees:
- *     DpiReadPnpRegistryValue @ 0x1C01DCD70 (DpiReadPnpRegistryValue.c)
+ *     DpiReadPnpRegistryValue @ 0x1C01842D4 (DpiReadPnpRegistryValue.c)
  */
 
 char __fastcall DpiFdoIsCompatibleWithHighResolutionBoot(__int64 a1)
 {
   __int64 v1; // rax
-  unsigned int v3; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v6; // rax
+  unsigned int v7; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 64);
   if ( !v1 || *(_DWORD *)(v1 + 16) != 1953656900 || *(_DWORD *)(v1 + 20) != 2 )
     return 1;
-  v3 = 0;
-  if ( (int)DpiReadPnpRegistryValue(a1, L"HighResBootCompatible", (char *)&v3, 4u, 2u) < 0 )
+  v7 = 0;
+  if ( (int)DpiReadPnpRegistryValue(a1, L"HighResBootCompatible", (char *)&v7, 4u, 2u) < 0 )
   {
-    WdLogSingleEntry1(4LL, 1LL);
+    v4 = WdLogNewEntry5_WdEvent(v3, v2);
+    *(_QWORD *)(v4 + 24) = 1LL;
+LABEL_6:
+    WdLogEvent5_WdEvent(v4);
     return 1;
   }
-  if ( v3 )
+  if ( v7 )
   {
-    WdLogSingleEntry1(4LL, v3);
-    return 1;
+    v4 = WdLogNewEntry5_WdEvent(v3, v2);
+    *(_QWORD *)(v4 + 24) = v7;
+    goto LABEL_6;
   }
-  WdLogSingleEntry1(4LL, 0LL);
+  v6 = WdLogNewEntry5_WdEvent(v3, v2);
+  *(_QWORD *)(v6 + 24) = 0LL;
+  WdLogEvent5_WdEvent(v6);
   return 0;
 }

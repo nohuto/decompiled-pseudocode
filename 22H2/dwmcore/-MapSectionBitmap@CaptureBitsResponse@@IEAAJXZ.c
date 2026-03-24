@@ -1,83 +1,76 @@
 /*
- * XREFs of ?MapSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1800208C8
+ * XREFs of ?MapSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1800439E4
  * Callers:
- *     ?OnPresentComplete@VisualCaptureBitsResponse@@UEAAJXZ @ 0x1800207C0 (-OnPresentComplete@VisualCaptureBitsResponse@@UEAAJXZ.c)
- *     ?OnPresentComplete@CaptureBitsResponse@@UEAAJXZ @ 0x1801E0050 (-OnPresentComplete@CaptureBitsResponse@@UEAAJXZ.c)
+ *     ?OnPresentComplete@VisualCaptureBitsResponse@@UEAAJXZ @ 0x1800434C0 (-OnPresentComplete@VisualCaptureBitsResponse@@UEAAJXZ.c)
+ *     ?OnPresentComplete@CaptureBitsResponse@@UEAAJXZ @ 0x180193620 (-OnPresentComplete@CaptureBitsResponse@@UEAAJXZ.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x1800A7DA4 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x1800320F8 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D0818 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CaptureBitsResponse::MapSectionBitmap(CaptureBitsResponse *this)
 {
   void *v2; // rax
-  unsigned __int8 *v3; // rax
-  unsigned int v4; // r10d
-  unsigned int v5; // r9d
-  unsigned int v6; // edx
-  int v7; // eax
-  unsigned int v8; // ecx
-  signed int v9; // ebx
-  char *v10; // rcx
+  int v3; // eax
+  unsigned int v4; // ecx
+  signed int v5; // ebx
+  char *v6; // rcx
+  int v8; // r9d
   signed int LastError; // eax
-  unsigned int v13; // ecx
   unsigned int dwNumberOfBytesToMap; // [rsp+20h] [rbp-28h]
-  struct IBitmapSource *v15; // [rsp+50h] [rbp+8h] BYREF
+  struct IBitmapSource *v11; // [rsp+50h] [rbp+8h] BYREF
 
-  v15 = 0LL;
+  v11 = 0LL;
   SetLastError(0);
-  v2 = MapViewOfFile(*((HANDLE *)this + 207), 2u, 0, 0, *((unsigned int *)this + 418));
-  *((_QWORD *)this + 208) = v2;
-  if ( v2 )
+  v2 = MapViewOfFile(*((HANDLE *)this + 211), 2u, 0, 0, *((unsigned int *)this + 426));
+  *((_QWORD *)this + 212) = v2;
+  if ( !v2 )
   {
-    memset_0(v2, 0, *((unsigned int *)this + 418));
-    v3 = (unsigned __int8 *)*((_QWORD *)this + 208);
-    v4 = *((_DWORD *)this + 418);
-    v5 = *((_DWORD *)this + 419);
-    v6 = *((_DWORD *)this + 410);
-    v15 = 0LL;
-    v7 = HrCreateBitmapFromMemoryEx(
-           *((_DWORD *)this + 409),
-           v6,
-           (CaptureBitsResponse *)((char *)this + 1644),
-           v5,
-           v4,
-           v3,
-           0LL,
-           &v15);
-    v9 = v7;
-    if ( v7 < 0 )
-    {
-      dwNumberOfBytesToMap = 269;
-    }
-    else
-    {
-      wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((char *)this + 1680);
-      v10 = (char *)v15 + *(int *)(*((_QWORD *)v15 + 1) + 4LL) + 8;
-      v7 = (**(__int64 (__fastcall ***)(char *, GUID *, char *))v10)(
-             v10,
-             &GUID_14d094dc_1246_4784_b811_74305a3ecec8,
-             (char *)this + 1680);
-      v9 = v7;
-      if ( v7 >= 0 )
-        goto LABEL_4;
-      dwNumberOfBytesToMap = 272;
-    }
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, dwNumberOfBytesToMap, 0LL);
-    goto LABEL_4;
+    LastError = GetLastError();
+    v5 = LastError;
+    if ( LastError > 0 )
+      v5 = (unsigned __int16)LastError | 0x80070000;
+    if ( v5 >= 0 )
+      v5 = -2003304445;
+    dwNumberOfBytesToMap = 250;
+    v8 = v5;
+    goto LABEL_13;
   }
-  LastError = GetLastError();
-  v9 = LastError;
-  if ( LastError > 0 )
-    v9 = (unsigned __int16)LastError | 0x80070000;
-  if ( v9 >= 0 )
-    v9 = -2003304445;
-  MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v9, 0x100u, 0LL);
-LABEL_4:
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(&v15);
-  return (unsigned int)v9;
+  memset_0(v2, 0, *((unsigned int *)this + 426));
+  v3 = HrCreateBitmapFromMemoryEx(
+         *((_DWORD *)this + 417),
+         *((_DWORD *)this + 418),
+         (CaptureBitsResponse *)((char *)this + 1676),
+         *((_DWORD *)this + 427),
+         *((_DWORD *)this + 426),
+         *((unsigned __int8 **)this + 212),
+         0LL,
+         &v11);
+  v5 = v3;
+  if ( v3 < 0 )
+  {
+    dwNumberOfBytesToMap = 263;
+    goto LABEL_7;
+  }
+  wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((char *)this + 1712);
+  v6 = (char *)v11 + *(int *)(*((_QWORD *)v11 + 1) + 4LL) + 8;
+  v3 = (**(__int64 (__fastcall ***)(char *, GUID *, char *))v6)(
+         v6,
+         &GUID_14d094dc_1246_4784_b811_74305a3ecec8,
+         (char *)this + 1712);
+  v5 = v3;
+  if ( v3 < 0 )
+  {
+    dwNumberOfBytesToMap = 266;
+LABEL_7:
+    v8 = v3;
+LABEL_13:
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v8, dwNumberOfBytesToMap, 0LL);
+  }
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v11);
+  return (unsigned int)v5;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetVerticesCore@CGeometry2DGroup@@MEAAJPEAUMilVertexXYZDUV2@@I@Z @ 0x18021E310
+ * XREFs of ?GetVerticesCore@CGeometry2DGroup@@MEAAJPEAUMilVertexXYZDUV2@@I@Z @ 0x1801B4CE0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGeometry2DGroup::GetVerticesCore(
@@ -14,10 +14,10 @@ __int64 __fastcall CGeometry2DGroup::GetVerticesCore(
 {
   int v3; // eax
   unsigned int v4; // esi
-  _QWORD *v8; // rbx
-  _QWORD *v9; // rbp
+  __int64 i; // rdi
+  __int64 v9; // rax
   __int64 v10; // r14
-  unsigned int v11; // r13d
+  unsigned int v11; // r12d
   int v12; // eax
   __int64 v13; // rcx
 
@@ -26,28 +26,26 @@ __int64 __fastcall CGeometry2DGroup::GetVerticesCore(
   *((_DWORD *)this + 8) = v3 ^ ((unsigned __int8)v3 ^ (unsigned __int8)(v3 + 2)) & 6;
   if ( (((unsigned __int8)v3 ^ ((unsigned __int8)v3 ^ (unsigned __int8)(v3 + 2)) & 6) & 6) == 2 )
   {
-    v8 = (_QWORD *)*((_QWORD *)this + 10);
-    v9 = (_QWORD *)*((_QWORD *)this + 11);
-    while ( v8 != v9 )
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 24); i = (unsigned int)(i + 1) )
     {
-      v10 = *v8;
-      if ( *v8 )
+      v9 = *((_QWORD *)this + 13);
+      v10 = *(_QWORD *)(v9 + 8 * i);
+      if ( v10 )
       {
-        v11 = (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)v10 + 184LL))(*v8);
-        v12 = (*(__int64 (__fastcall **)(__int64, struct MilVertexXYZDUV2 *, _QWORD))(*(_QWORD *)v10 + 224LL))(
+        v11 = (*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)v10 + 200LL))(*(_QWORD *)(v9 + 8 * i));
+        v12 = (*(__int64 (__fastcall **)(__int64, struct MilVertexXYZDUV2 *, _QWORD))(*(_QWORD *)v10 + 240LL))(
                 v10,
                 a2,
                 a3);
         v4 = v12;
         if ( v12 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x1B5u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x1C3u, 0LL);
           break;
         }
         a2 = (struct MilVertexXYZDUV2 *)((char *)a2 + 32 * v11);
         a3 -= v11;
       }
-      ++v8;
     }
   }
   *((_DWORD *)this + 8) ^= (*((_DWORD *)this + 8) ^ (2 * (*((_DWORD *)this + 8) >> 1) - 2)) & 6;

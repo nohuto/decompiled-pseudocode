@@ -1,7 +1,7 @@
 /*
- * XREFs of PopFxFreeUniqueId @ 0x1406EEF5C
+ * XREFs of PopFxFreeUniqueId @ 0x1406EEF3C
  * Callers:
- *     PoFxAbandonDevice @ 0x1406ED028 (PoFxAbandonDevice.c)
+ *     PoFxAbandonDevice @ 0x1406ED008 (PoFxAbandonDevice.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

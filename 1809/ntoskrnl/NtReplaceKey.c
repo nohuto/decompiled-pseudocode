@@ -1,5 +1,5 @@
 /*
- * XREFs of NtReplaceKey @ 0x1407EA090
+ * XREFs of NtReplaceKey @ 0x1407EA070
  * Callers:
  *     <none>
  * Callees:
@@ -8,20 +8,20 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2F98 (CmpIsRegistryLockAcquired.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpNameFromAttributes @ 0x1405B7860 (CmpNameFromAttributes.c)
  *     CmCheckNoTxContext @ 0x1405B7B6C (CmCheckNoTxContext.c)
  *     CmObReferenceObjectByHandle @ 0x1405CD4CC (CmObReferenceObjectByHandle.c)
  *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     CmPostCallbackNotificationEx @ 0x14063FAC0 (CmPostCallbackNotificationEx.c)
- *     CmReplaceKey @ 0x1407EF15C (CmReplaceKey.c)
+ *     CmPostCallbackNotificationEx @ 0x14063FAA0 (CmPostCallbackNotificationEx.c)
+ *     CmReplaceKey @ 0x1407EF13C (CmReplaceKey.c)
  */
 
 NTSTATUS __stdcall NtReplaceKey(
@@ -147,14 +147,14 @@ NTSTATUS __stdcall NtReplaceKey(
   if ( v10 >= 0 )
   {
     if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
-      TlgWrite(&stru_1403FFAA0, &unk_14036BA07, 0LL, 0LL, 2u, &v31);
+      TlgWrite(&stru_1403FFAA0, &unk_14036BB17, 0LL, 0LL, 2u, &v31);
   }
   else if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
   {
     v21 = v10;
     v29 = &v21;
     v30 = 4LL;
-    TlgWrite(&stru_1403FFAA0, &unk_14036BA2D, 0LL, 0LL, 3u, &pData);
+    TlgWrite(&stru_1403FFAA0, &unk_14036BB3D, 0LL, 0LL, 3u, &pData);
   }
   return v10;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of PfSnDetermineEnablePrefetcher @ 0x1408663C0
+ * XREFs of PfSnDetermineEnablePrefetcher @ 0x1407D5550
  * Callers:
- *     PfpParametersWatcher @ 0x140980230 (PfpParametersWatcher.c)
- *     PfSnBeginBootPhase @ 0x140A87910 (PfSnBeginBootPhase.c)
+ *     PfpParametersWatcher @ 0x1408E0C50 (PfpParametersWatcher.c)
+ *     PfSnBeginBootPhase @ 0x14099B274 (PfSnBeginBootPhase.c)
  * Callees:
  *     <none>
  */
@@ -10,5 +10,5 @@
 void PfSnDetermineEnablePrefetcher()
 {
   if ( (_DWORD)InitSafeBootMode )
-    qword_140C64EF0 = 0LL;
+    qword_140C50120 = 0LL;
 }

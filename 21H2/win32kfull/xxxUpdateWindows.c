@@ -1,13 +1,12 @@
 /*
- * XREFs of xxxUpdateWindows @ 0x1C023D2E8
+ * XREFs of xxxUpdateWindows @ 0x1C0242410
  * Callers:
- *     xxxSetLayeredWindow @ 0x1C0082DD4 (xxxSetLayeredWindow.c)
- *     NtUserUpdateWindows @ 0x1C0200460 (NtUserUpdateWindows.c)
+ *     <none>
  * Callees:
- *     xxxUpdateThreadsWindows @ 0x1C02105B8 (xxxUpdateThreadsWindows.c)
+ *     xxxUpdateThreadsWindows @ 0x1C021307C (xxxUpdateThreadsWindows.c)
  */
 
-__int64 __fastcall xxxUpdateWindows(struct tagWND *a1, HRGN a2)
+__int64 __fastcall xxxUpdateWindows(__int64 a1, HRGN a2)
 {
   xxxUpdateThreadsWindows(gptiCurrent, a1, a2);
   return 1LL;

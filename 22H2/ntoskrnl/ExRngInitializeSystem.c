@@ -1,18 +1,19 @@
 /*
- * XREFs of ExRngInitializeSystem @ 0x140B6E7F4
+ * XREFs of ExRngInitializeSystem @ 0x140A6E660
  * Callers:
- *     KiInitializeBootStructures @ 0x140A8BDF0 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099BA20 (KiInitializeBootStructures.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 ExRngInitializeSystem()
 {
   _DWORD *v0; // r8
   unsigned int v1; // r9d
-  __int64 v2; // r10
-  __int64 v3; // rdi
+  __int64 v2; // rdi
+  __int64 v3; // r10
   __int64 v4; // rax
   __int128 *v5; // rcx
   __int128 v6; // xmm1
@@ -45,15 +46,15 @@ __int64 ExRngInitializeSystem()
   _OWORD v33[14]; // [rsp+20h] [rbp-F8h] BYREF
 
   v0 = &ExpLFGRngState;
-  ExpLFGRngLock = 0LL;
   v1 = 220;
-  v2 = 2LL;
-  v3 = *(_QWORD *)(KeLoaderBlock_0 + 240);
+  ExpLFGRngLock = 0LL;
+  v2 = *(_QWORD *)(KeLoaderBlock_0 + 240);
+  v3 = 2LL;
   do
   {
     v4 = v1;
     v1 += 220;
-    v5 = (__int128 *)(v4 + v3 + 1440);
+    v5 = (__int128 *)(v4 + v2 + 1440);
     v6 = v5[1];
     v33[0] = *v5;
     v7 = v5[2];
@@ -115,13 +116,18 @@ __int64 ExRngInitializeSystem()
     v0[54] = DWORD2(v33[13]);
     *v0 |= 1u;
     v0 += 57;
-    --v2;
+    --v3;
   }
-  while ( v2 );
+  while ( v3 );
   ExpRemainingLeftoverBootRngData = (1024 - v1) >> 2;
-  memmove(ExpLeftoverBootRngData, (const void *)(v1 + v3 + 1440), 4LL * ((1024 - v1) >> 2));
-  result = 0LL;
-  memset((void *)(v3 + 1440), 0, 0x400uLL);
+  memmove(ExpLeftoverBootRngData, (const void *)(v1 + v2 + 1440), 4LL * ((1024 - v1) >> 2));
+  memset((void *)(v2 + 1440), 0, 0x400uLL);
   memset(v33, 0, 0xDCuLL);
+  ExpSecurityCookieRandomData = (unsigned __int64)(unsigned int)ExGenRandom(0) << 32;
+  result = (unsigned int)ExGenRandom(0);
+  ExpSecurityCookieRandomData = (unsigned int)result | (unsigned __int64)ExpSecurityCookieRandomData;
+  HIWORD(ExpSecurityCookieRandomData) = 0;
+  if ( !ExpSecurityCookieRandomData )
+    ExpSecurityCookieRandomData = 1LL;
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KeCaptureWaitChainHeadEx @ 0x140233430
+ * XREFs of KeCaptureWaitChainHeadEx @ 0x14038FE30
  * Callers:
- *     ExpReleaseResourceSharedForThreadLite @ 0x1402B1740 (ExpReleaseResourceSharedForThreadLite.c)
- *     ExpPrepareToWakeResourceShared @ 0x14039D2EC (ExpPrepareToWakeResourceShared.c)
- *     ExpPrepareToWakeResourceExclusive @ 0x14039D600 (ExpPrepareToWakeResourceExclusive.c)
+ *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
+ *     ExpPrepareToWakeResourceShared @ 0x14038EC38 (ExpPrepareToWakeResourceShared.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x14038FD98 (ExpPrepareToWakeResourceExclusive.c)
  * Callees:
- *     RtlInsertHeadCircularList @ 0x1402334A0 (RtlInsertHeadCircularList.c)
+ *     RtlInsertHeadCircularList @ 0x1402CC5A4 (RtlInsertHeadCircularList.c)
  */
 
-__int64 __fastcall KeCaptureWaitChainHeadEx(_QWORD **a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall KeCaptureWaitChainHeadEx(_QWORD **a1, __int64 *a2, _QWORD *a3)
 {
   __int64 result; // rax
   _QWORD *v4; // r10
@@ -36,7 +36,7 @@ __int64 __fastcall KeCaptureWaitChainHeadEx(_QWORD **a1, _QWORD *a2, _QWORD *a3)
       *v9 = v8;
       v8[1] = v9;
     }
-    result = RtlInsertHeadCircularList(a2, v6, a2, v6[2]);
+    result = RtlInsertHeadCircularList(a2, v6);
   }
   else
   {

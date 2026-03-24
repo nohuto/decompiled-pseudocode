@@ -1,11 +1,10 @@
 /*
- * XREFs of ?SendCreateCompositionSurface@DXG_GUEST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAIPEAPEAX@Z @ 0x1C02E13E4
+ * XREFs of ?SendCreateCompositionSurface@DXG_GUEST_COMPOSITIONOBJECTCHANNEL@@QEAAJPEAIPEAPEAX@Z @ 0x1C028E2E4
  * Callers:
- *     ?VailSendCreateCompositionSurface@DXGSESSIONDATA@@QEAAJPEAIPEAPEAX@Z @ 0x1C03527F0 (-VailSendCreateCompositionSurface@DXGSESSIONDATA@@QEAAJPEAIPEAPEAX@Z.c)
+ *     ?VailSendCreateCompositionSurface@DXGSESSIONDATA@@QEAAJPEAIPEAPEAX@Z @ 0x1C02B76D4 (-VailSendCreateCompositionSurface@DXGSESSIONDATA@@QEAAJPEAIPEAPEAX@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXG_GUEST_COMPOSITIONOBJECTCHANNEL::SendCreateCompositionSurface(
@@ -13,73 +12,70 @@ __int64 __fastcall DXG_GUEST_COMPOSITIONOBJECTCHANNEL::SendCreateCompositionSurf
         unsigned int *a2,
         void **a3)
 {
-  __int64 v5; // rcx
-  int v7; // eax
-  __int64 v8; // rdi
-  __int64 v9; // rdx
-  unsigned int v11; // [rsp+50h] [rbp-9h] BYREF
-  int v12; // [rsp+58h] [rbp-1h] BYREF
-  int v13; // [rsp+5Ch] [rbp+3h]
-  int v14; // [rsp+60h] [rbp+7h]
-  unsigned int v15; // [rsp+64h] [rbp+Bh]
-  void *v16; // [rsp+68h] [rbp+Fh]
-  _DWORD v17[4]; // [rsp+70h] [rbp+17h] BYREF
+  __int64 v3; // rcx
+  int v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // rbx
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  unsigned int v15; // [rsp+30h] [rbp-40h] BYREF
+  int v16; // [rsp+38h] [rbp-38h] BYREF
+  int v17; // [rsp+3Ch] [rbp-34h]
+  int v18; // [rsp+40h] [rbp-30h]
+  unsigned int v19; // [rsp+44h] [rbp-2Ch]
+  void *v20; // [rsp+48h] [rbp-28h]
+  _DWORD v21[4]; // [rsp+50h] [rbp-20h] BYREF
 
-  v17[3] = 0;
-  v15 = 0;
-  v16 = 0LL;
-  v17[0] = 1886220131;
-  v12 = 1886220131;
-  v5 = *((_QWORD *)this + 1);
-  v17[1] = -1073741823;
-  v17[2] = 1;
-  v13 = -1073741823;
-  v14 = 2;
-  v11 = 24;
-  v7 = (*(__int64 (__fastcall **)(__int64, _DWORD *, __int64, int *, unsigned int *))(*(_QWORD *)v5 + 32LL))(
-         v5,
-         v17,
+  v3 = *((_QWORD *)this + 1);
+  v21[3] = 0;
+  v19 = 0;
+  v20 = 0LL;
+  v21[0] = 1886220131;
+  v16 = 1886220131;
+  v21[1] = -1073741823;
+  v21[2] = 1;
+  v17 = -1073741823;
+  v18 = 2;
+  v15 = 24;
+  v6 = (*(__int64 (__fastcall **)(__int64, _DWORD *, __int64, int *, unsigned int *))(*(_QWORD *)v3 + 32LL))(
+         v3,
+         v21,
          16LL,
-         &v12,
-         &v11);
-  v8 = v7;
-  if ( v7 < 0 )
+         &v16,
+         &v15);
+  v10 = v6;
+  if ( v6 < 0 )
   {
-    WdLogSingleEntry2(2LL, v7, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"SendSyncMessage returns error from host. Returning 0x%I64x",
-      v8,
-      (__int64)this,
-      0LL,
-      0LL,
-      0LL);
-    return (unsigned int)v8;
+    v11 = WdLogNewEntry5_WdWarning(v8, v7, v9);
+    *(_QWORD *)(v11 + 24) = v10;
+    WdLogEvent5_WdWarning(v11);
+    return (unsigned int)v10;
   }
-  if ( v11 != 24 )
+  if ( v15 != 24 )
   {
-    v9 = v11;
+    v12 = WdLogNewEntry5_WdWarning(v8, v7, v9);
+    v13 = v15;
 LABEL_5:
-    WdLogSingleEntry2(3LL, v9, -1073741823LL);
-    LODWORD(v8) = -1073741823;
-    return (unsigned int)v8;
+    *(_QWORD *)(v12 + 24) = v13;
+    *(_QWORD *)(v12 + 32) = -1073741823LL;
+    WdLogEvent5_WdWarning(v12);
+    LODWORD(v10) = -1073741823;
+    return (unsigned int)v10;
   }
-  if ( v14 != 2 )
+  if ( v18 != 2 )
   {
-    v9 = v14;
+    v12 = WdLogNewEntry5_WdWarning(v8, v7, v9);
+    v13 = v18;
     goto LABEL_5;
   }
-  LODWORD(v8) = v13;
-  if ( v13 < 0 )
+  LODWORD(v10) = v17;
+  if ( v17 >= 0 )
   {
-    WdLogSingleEntry2(3LL, v13, this);
+    *a2 = v19;
+    *a3 = v20;
   }
-  else
-  {
-    *a2 = v15;
-    *a3 = v16;
-  }
-  return (unsigned int)v8;
+  return (unsigned int)v10;
 }

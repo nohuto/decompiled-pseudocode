@@ -1,22 +1,17 @@
 /*
- * XREFs of ?OnRemoteCloseNotification@CBaseInput@@AEAAJXZ @ 0x1C006EEA0
+ * XREFs of ?OnRemoteCloseNotification@CBaseInput@@AEAAJXZ @ 0x1C00573B0
  * Callers:
  *     <none>
  * Callees:
- *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C0052D0C (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C0052D50 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     RimInputTypeToDeviceInputType @ 0x1C006EEF0 (RimInputTypeToDeviceInputType.c)
- *     RIMDirectPnpRemoveDevicesOfType @ 0x1C0070630 (RIMDirectPnpRemoveDevicesOfType.c)
+ *     RIMDirectPnpRemoveDevicesOfType @ 0x1C0053760 (RIMDirectPnpRemoveDevicesOfType.c)
+ *     RimInputTypeToDeviceInputType @ 0x1C00573DC (RimInputTypeToDeviceInputType.c)
  */
 
-__int64 __fastcall CBaseInput::OnRemoteCloseNotification(CBaseInput *this)
+__int64 __fastcall CBaseInput::OnRemoteCloseNotification(CBaseInput *this, __int64 a2)
 {
-  unsigned int v2; // eax
-  __int64 *v4; // [rsp+30h] [rbp+8h] BYREF
+  int v2; // eax
+  __int64 v3; // r8
 
-  InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(&v4, "OnRemoteCloseNotification", 0LL);
-  v2 = RimInputTypeToDeviceInputType(*((unsigned int *)this + 36));
-  LODWORD(this) = RIMDirectPnpRemoveDevicesOfType(*((_QWORD *)this + 1), v2);
-  InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v4);
-  return (unsigned int)this;
+  v2 = RimInputTypeToDeviceInputType(*((unsigned int *)this + 36), a2, this);
+  return RIMDirectPnpRemoveDevicesOfType(*(_QWORD *)(v3 + 8), v2);
 }

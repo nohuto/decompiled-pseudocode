@@ -1,15 +1,15 @@
 /*
- * XREFs of EmProviderDeregister @ 0x14092CA90
+ * XREFs of EmProviderDeregister @ 0x14088A060
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x1403C45F0 (EmpQueueRuleUpdateState.c)
- *     EmpProviderDeregisterEntry @ 0x140540E10 (EmpProviderDeregisterEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     EmpQueueRuleUpdateState @ 0x1403B41C8 (EmpQueueRuleUpdateState.c)
+ *     EmpProviderDeregisterEntry @ 0x1404EECB0 (EmpProviderDeregisterEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EmProviderDeregister(char *P)
@@ -71,7 +71,7 @@ void __fastcall EmProviderDeregister(char *P)
       }
     }
     if ( *(_QWORD *)P )
-      ObfDereferenceObject(*(PVOID *)P);
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)P);
     v12 = (void *)*((_QWORD *)P + 5);
     if ( v12 )
       ExFreePoolWithTag(v12, 0x72704D45u);

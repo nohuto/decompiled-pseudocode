@@ -1,9 +1,9 @@
 /*
- * XREFs of RaspTestIntersection @ 0x14017B090
+ * XREFs of RaspTestIntersection @ 0x14017B0B0
  * Callers:
- *     RaspScanConvert @ 0x14017AC30 (RaspScanConvert.c)
+ *     RaspScanConvert @ 0x14017AC50 (RaspScanConvert.c)
  * Callees:
- *     BgpFmSqrt @ 0x14017B3C0 (BgpFmSqrt.c)
+ *     BgpFmSqrt @ 0x14017B3E0 (BgpFmSqrt.c)
  */
 
 __int64 __fastcall RaspTestIntersection(__int64 a1, int a2, _DWORD *a3, _DWORD *a4)

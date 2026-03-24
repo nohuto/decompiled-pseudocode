@@ -1,323 +1,324 @@
 /*
- * XREFs of Endpoint_Create @ 0x1C006B6C8
+ * XREFs of Endpoint_Create @ 0x1C006A5F0
  * Callers:
- *     Endpoint_UcxEvtUsbDeviceEndpointAdd @ 0x1C006B450 (Endpoint_UcxEvtUsbDeviceEndpointAdd.c)
- *     Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd @ 0x1C0071FA0 (Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd.c)
+ *     Endpoint_UcxEvtUsbDeviceEndpointAdd @ 0x1C006A420 (Endpoint_UcxEvtUsbDeviceEndpointAdd.c)
+ *     Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd @ 0x1C0071860 (Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_ddqDdd @ 0x1C0001D08 (WPP_RECORDER_SF_ddqDdd.c)
- *     XilEndpoint_Create @ 0x1C0001DEC (XilEndpoint_Create.c)
- *     TR_GetWdfQueue @ 0x1C0001E60 (TR_GetWdfQueue.c)
- *     UsbDevice_AddEndpointToDeviceEndpointList @ 0x1C0001E70 (UsbDevice_AddEndpointToDeviceEndpointList.c)
- *     Etw_EndpointCreate @ 0x1C0001F54 (Etw_EndpointCreate.c)
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_ddq @ 0x1C00059E8 (WPP_RECORDER_SF_ddq.c)
- *     Controller_IsSecureDevice @ 0x1C0005AD0 (Controller_IsSecureDevice.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Endpoint_CreateClearStallContext @ 0x1C0038344 (Endpoint_CreateClearStallContext.c)
- *     Endpoint_SetType @ 0x1C006B678 (Endpoint_SetType.c)
- *     TR_Create @ 0x1C006BCD8 (TR_Create.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ddqDdd @ 0x1C0007C74 (WPP_RECORDER_SF_ddqDdd.c)
+ *     WPP_RECORDER_SF_ddq @ 0x1C0009428 (WPP_RECORDER_SF_ddq.c)
+ *     XilEndpoint_Create @ 0x1C00095C8 (XilEndpoint_Create.c)
+ *     TR_GetWdfQueue @ 0x1C0009650 (TR_GetWdfQueue.c)
+ *     UsbDevice_AddEndpointToDeviceEndpointList @ 0x1C0009660 (UsbDevice_AddEndpointToDeviceEndpointList.c)
+ *     Etw_EndpointCreate @ 0x1C0009744 (Etw_EndpointCreate.c)
+ *     Controller_IsSecureDevice @ 0x1C0009764 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Endpoint_CreateClearStallContext @ 0x1C0037DB4 (Endpoint_CreateClearStallContext.c)
+ *     Endpoint_SetType @ 0x1C006A5A0 (Endpoint_SetType.c)
+ *     TR_Create @ 0x1C006AD7C (TR_Create.c)
  */
 
 __int64 __fastcall Endpoint_Create(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _QWORD *a6)
 {
   __m128i *v8; // r14
   unsigned int v9; // ebx
-  __int64 v10; // rdx
   char IsSecureDevice; // al
-  int v12; // edx
-  int v13; // ecx
-  int v14; // edx
+  int v11; // edx
+  int v12; // ecx
+  int v13; // edx
   int ClearStallContext; // edi
-  unsigned int v16; // ebx
-  __int64 v17; // rax
-  __int64 v18; // rbx
-  bool v19; // cf
-  struct _DEVICE_OBJECT *v20; // rax
+  unsigned int v15; // ebx
+  __int64 v16; // rax
+  unsigned int v17; // edx
+  int v18; // r9d
+  unsigned int v19; // ebx
+  __int64 v20; // rax
+  unsigned int v21; // edx
+  __int64 v22; // rbx
+  bool v23; // cf
+  unsigned int v24; // ebx
+  __int64 v25; // rax
+  struct _DEVICE_OBJECT *v26; // rax
   PIO_WORKITEM WorkItem; // rax
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  int v24; // edx
-  __int64 v25; // rcx
-  int v26; // r8d
-  int v27; // r9d
-  char v28; // al
-  int v29; // eax
-  char v30; // al
-  __int64 WdfQueue; // rax
+  unsigned int v28; // ebx
+  __int64 v29; // rax
+  int v30; // edx
+  __int64 v31; // rax
   __int64 v32; // rcx
-  __int64 v33; // rcx
-  unsigned int v35; // ebx
-  __int64 v36; // rax
-  unsigned __int16 v37; // r9
-  unsigned int v38; // ebx
+  int v33; // edx
+  int v34; // r8d
+  int v35; // r9d
+  int v36; // ecx
+  __int64 v37; // rax
+  int v38; // ebx
   __int64 v39; // rax
-  unsigned int v40; // ebx
-  __int64 v41; // rax
-  unsigned int v42; // edx
-  __int64 v43; // rax
-  __int64 v44; // rax
-  int v45; // [rsp+28h] [rbp-89h]
-  __int64 v46; // [rsp+30h] [rbp-81h]
-  __int64 v47; // [rsp+38h] [rbp-79h]
-  __int64 v48; // [rsp+40h] [rbp-71h]
-  __int64 v49; // [rsp+68h] [rbp-49h] BYREF
-  _QWORD v50[2]; // [rsp+70h] [rbp-41h] BYREF
-  __int128 v51; // [rsp+80h] [rbp-31h]
-  __int64 v52; // [rsp+90h] [rbp-21h]
-  __int128 v53; // [rsp+98h] [rbp-19h] BYREF
-  void (__fastcall *v54)(__int64); // [rsp+A8h] [rbp-9h]
-  __int64 v55; // [rsp+B0h] [rbp-1h]
-  __int128 v56; // [rsp+B8h] [rbp+7h]
-  void *v57; // [rsp+C8h] [rbp+17h]
-  __int64 v58; // [rsp+118h] [rbp+67h] BYREF
+  char v40; // al
+  __int64 WdfQueue; // rax
+  __int64 v42; // rcx
+  __int64 v43; // rcx
+  char v45; // [rsp+30h] [rbp-81h]
+  int v46; // [rsp+38h] [rbp-79h]
+  char v47; // [rsp+40h] [rbp-71h]
+  unsigned __int64 v48; // [rsp+68h] [rbp-49h] BYREF
+  _QWORD v49[2]; // [rsp+70h] [rbp-41h] BYREF
+  __int128 v50; // [rsp+80h] [rbp-31h]
+  __int64 v51; // [rsp+90h] [rbp-21h]
+  __int128 v52; // [rsp+98h] [rbp-19h] BYREF
+  void (__fastcall *v53)(__int64); // [rsp+A8h] [rbp-9h]
+  __int64 v54; // [rsp+B0h] [rbp-1h]
+  __int128 v55; // [rsp+B8h] [rbp+7h]
+  void *v56; // [rsp+C8h] [rbp+17h]
+  __int64 v57; // [rsp+118h] [rbp+67h] BYREF
 
-  v58 = a3;
-  v49 = 0LL;
-  DWORD1(v53) = 0;
-  HIDWORD(v50[0]) = 0;
+  v57 = a3;
+  DWORD1(v52) = 0;
+  v55 = 0LL;
+  v48 = 0LL;
   v8 = (__m128i *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                     WdfDriverGlobals,
                     a1,
-                    off_1C0061428);
+                    off_1C0060428);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     v9 = *(unsigned __int8 *)(a4 + 2);
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
       WdfDriverGlobals,
       a2,
-      off_1C00612C0);
-    HIDWORD(v48) = HIDWORD(a4);
+      off_1C00602C0);
     WPP_RECORDER_SF_ddqDdd(
       v8[4].m128i_i64[1],
-      v10,
+      v9 >> 7,
       (v9 >> 7) + 2 * (*(_BYTE *)(a4 + 2) & 0x7F),
-      *(_BYTE *)(a4 + 3) & 3,
-      v45);
+      *(_BYTE *)(a4 + 3) & 3);
   }
-  v57 = off_1C00611A8;
-  *(_QWORD *)&v53 = 56LL;
-  *((_QWORD *)&v53 + 1) = Endpoint_EvtEndpointCleanupCallback;
-  v54 = Endpoint_EvtDestroyCallback;
-  v56 = 0LL;
-  v55 = 0x100000001LL;
+  v56 = off_1C00601A8;
+  *(_QWORD *)&v52 = 56LL;
+  *((_QWORD *)&v52 + 1) = Endpoint_EvtEndpointCleanupCallback;
+  v54 = 0x100000001LL;
+  v53 = Endpoint_EvtDestroyCallback;
+  v55 = 0LL;
   IsSecureDevice = Controller_IsSecureDevice((__int64)v8);
-  v13 = v12;
-  v14 = v12 + 1;
+  v12 = v11;
+  v13 = v11 + 1;
   if ( IsSecureDevice )
-    v13 = v14;
-  LODWORD(v55) = v13;
-  ClearStallContext = qword_1C00627F0(UcxDriverGlobals, a2, &v58, &v53, &v49);
-  if ( ClearStallContext < 0 )
-  {
-    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      return (unsigned int)ClearStallContext;
-    v35 = *(unsigned __int8 *)(a4 + 2);
-    v36 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-            WdfDriverGlobals,
-            a2,
-            off_1C00612C0);
-    v37 = 15;
-    LODWORD(v48) = ClearStallContext;
-    LODWORD(v47) = (v35 >> 7) + 2 * (*(_BYTE *)(a4 + 2) & 0x7F);
-    LODWORD(v46) = *(unsigned __int8 *)(v36 + 135);
-LABEL_31:
-    WPP_RECORDER_SF_ddd(
-      v8[4].m128i_i64[1],
-      2u,
-      0xDu,
-      v37,
-      (__int64)&WPP_60b6c7b69d133891580a7186b105caca_Traceguids,
-      v46,
-      v47,
-      v48);
-    return (unsigned int)ClearStallContext;
-  }
-  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    v16 = *(unsigned __int8 *)(a4 + 2);
-    v17 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-            WdfDriverGlobals,
-            a2,
-            off_1C00612C0);
-    WPP_RECORDER_SF_ddq(
-      v8[4].m128i_i64[1],
-      4u,
-      0xDu,
-      0x10u,
-      (__int64)&WPP_60b6c7b69d133891580a7186b105caca_Traceguids,
-      *(unsigned __int8 *)(v17 + 135),
-      (v16 >> 7) + 2 * (*(_BYTE *)(a4 + 2) & 0x7F),
-      v49);
-  }
-  v18 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-          WdfDriverGlobals,
-          v49,
-          off_1C00611A8);
-  KeInitializeEvent((PRKEVENT)(v18 + 40), NotificationEvent, 0);
-  v52 = 0LL;
-  v51 = 0LL;
-  LODWORD(v51) = 0;
-  DWORD2(v51) = 0;
-  v50[1] = Endpoint_WdfEvtStateMachineTimer;
-  BYTE4(v51) = 1;
-  v50[0] = 40LL;
-  v19 = (_mm_srli_si128(v8[21], 8).m128i_u32[0] & 0x40000) != 0LL;
-  v54 = 0LL;
-  v55 = 0x100000001LL;
-  LOBYTE(v52) = v19;
-  v57 = 0LL;
-  v56 = (unsigned __int64)v49;
-  v53 = 0LL;
-  LODWORD(v53) = 56;
-  ClearStallContext = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD *, __int128 *, __int64))(WdfFunctions_01023 + 2544))(
-                        WdfDriverGlobals,
-                        v50,
-                        &v53,
-                        v18 + 1296);
-  if ( ClearStallContext < 0 )
-  {
-    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      return (unsigned int)ClearStallContext;
-    v38 = *(unsigned __int8 *)(a4 + 2);
-    v39 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-            WdfDriverGlobals,
-            a2,
-            off_1C00612C0);
-    v37 = 17;
-    goto LABEL_30;
-  }
-  v20 = (struct _DEVICE_OBJECT *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 248))(
-                                   WdfDriverGlobals,
-                                   v8->m128i_i64[0]);
-  WorkItem = IoAllocateWorkItem(v20);
-  *(_QWORD *)(v18 + 1272) = WorkItem;
-  if ( !WorkItem )
+    v12 = v13;
+  LODWORD(v54) = v12;
+  ClearStallContext = qword_1C00617D0(UcxDriverGlobals, a2, &v57, &v52, &v48);
+  if ( ClearStallContext >= 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v40 = *(unsigned __int8 *)(a4 + 2);
-      v41 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+      v19 = *(unsigned __int8 *)(a4 + 2);
+      v20 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
               WdfDriverGlobals,
               a2,
-              off_1C00612C0);
-      v40 >>= 7;
-      v42 = v40 + 2 * (*(_BYTE *)(a4 + 2) & 0x7F);
-      LOBYTE(v42) = 2;
-      WPP_RECORDER_SF_DD(
+              off_1C00602C0);
+      v21 = v19 >> 7;
+      LOBYTE(v21) = 4;
+      WPP_RECORDER_SF_ddq(
         v8[4].m128i_i64[1],
-        v42,
+        v21,
         13,
-        18,
-        (__int64)&WPP_60b6c7b69d133891580a7186b105caca_Traceguids,
-        *(_BYTE *)(v41 + 135),
-        v40 + 2 * (*(_BYTE *)(a4 + 2) & 0x7F));
+        16,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+        *(_BYTE *)(v20 + 135),
+        (v19 >> 7) + 2 * (*(_BYTE *)(a4 + 2) & 0x7F),
+        v48);
     }
-    return (unsigned int)-1073741670;
-  }
-  *(_DWORD *)(v18 + 1168) = 0;
-  *(_DWORD *)(v18 + 1140) = 2000;
-  *(_DWORD *)(v18 + 1264) = 2000;
-  *(_QWORD *)(v18 + 1256) = &ESMStateTable;
-  *(_QWORD *)(v18 + 1248) = v18;
-  *(_BYTE *)(v18 + 1306) = Controller_IsSecureDevice((__int64)v8);
-  if ( *(_BYTE *)(g_WdfDriverUsbXhciContext + 28) && (v8[51].m128i_i32[1] & 1) != 0 )
-    *(_BYTE *)(v18 + 1306) = 1;
-  *(_QWORD *)v18 = v8;
-  *(_QWORD *)(v18 + 8) = a2;
-  v22 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-          WdfDriverGlobals,
-          a2,
-          off_1C00612C0);
-  v23 = a5;
-  *(_QWORD *)(v18 + 16) = v22;
-  *(_QWORD *)(v18 + 136) = 0LL;
-  *(_QWORD *)(v18 + 264) = 0LL;
-  *(_DWORD *)(v18 + 96) = *(_DWORD *)a4;
-  *(_WORD *)(v18 + 100) = *(_WORD *)(a4 + 4);
-  *(_BYTE *)(v18 + 102) = *(_BYTE *)(a4 + 6);
-  if ( v23 )
-  {
-    *(_DWORD *)(v18 + 103) = *(_DWORD *)v23;
-    *(_WORD *)(v18 + 107) = *(_WORD *)(v23 + 4);
-  }
-  if ( a6 )
-    *(_QWORD *)(v18 + 109) = *a6;
-  Endpoint_SetType(v18);
-  v28 = *(_BYTE *)(v18 + 98);
-  if ( (unsigned int)(*(_DWORD *)(v18 + 120) - 1) > 2 )
-    v29 = 2 * (v28 & 0xF) + 1;
-  else
-    v29 = 2 * (v28 & 0xF);
-  *(_DWORD *)(v18 + 144) = v29;
-  ClearStallContext = XilEndpoint_Create(v25, v24, v26, v27);
-  if ( ClearStallContext < 0 )
-  {
+    v22 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, unsigned __int64, void *))(WdfFunctions_01023 + 1616))(
+            WdfDriverGlobals,
+            v48,
+            off_1C00601A8);
+    KeInitializeEvent((PRKEVENT)(v22 + 40), NotificationEvent, 0);
+    v51 = 0LL;
+    v50 = 0LL;
+    LODWORD(v50) = 0;
+    DWORD2(v50) = 0;
+    v49[1] = Endpoint_WdfEvtStateMachineTimer;
+    BYTE4(v50) = 1;
+    v49[0] = 40LL;
+    v23 = (_mm_srli_si128(v8[21], 8).m128i_u32[0] & 0x40000) != 0LL;
+    v53 = 0LL;
+    v54 = 0x100000001LL;
+    LOBYTE(v51) = v23;
+    v56 = 0LL;
+    v55 = v48;
+    v52 = 0LL;
+    LODWORD(v52) = 56;
+    ClearStallContext = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD *, __int128 *, __int64))(WdfFunctions_01023 + 2544))(
+                          WdfDriverGlobals,
+                          v49,
+                          &v52,
+                          v22 + 1296);
+    if ( ClearStallContext < 0 )
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        return (unsigned int)ClearStallContext;
+      v24 = *(unsigned __int8 *)(a4 + 2);
+      v25 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+              WdfDriverGlobals,
+              a2,
+              off_1C00602C0);
+      v18 = 17;
+      goto LABEL_14;
+    }
+    v26 = (struct _DEVICE_OBJECT *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 248))(
+                                     WdfDriverGlobals,
+                                     v8->m128i_i64[0]);
+    WorkItem = IoAllocateWorkItem(v26);
+    *(_QWORD *)(v22 + 1272) = WorkItem;
+    if ( !WorkItem )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v28 = *(unsigned __int8 *)(a4 + 2);
+        v29 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+                WdfDriverGlobals,
+                a2,
+                off_1C00602C0);
+        v30 = (v28 >> 7) + 2 * (*(_BYTE *)(a4 + 2) & 0x7F);
+        LOBYTE(v30) = 2;
+        WPP_RECORDER_SF_dd(
+          v8[4].m128i_i64[1],
+          v30,
+          13,
+          18,
+          (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+          *(_BYTE *)(v29 + 135),
+          (v28 >> 7) + 2 * (*(_BYTE *)(a4 + 2) & 0x7F));
+      }
+      return (unsigned int)-1073741670;
+    }
+    *(_DWORD *)(v22 + 1168) = 0;
+    *(_DWORD *)(v22 + 1140) = 2000;
+    *(_DWORD *)(v22 + 1264) = 2000;
+    *(_QWORD *)(v22 + 1256) = &ESMStateTable;
+    *(_QWORD *)(v22 + 1248) = v22;
+    *(_BYTE *)(v22 + 1306) = Controller_IsSecureDevice((__int64)v8);
+    if ( *(_BYTE *)(g_WdfDriverUsbXhciContext + 28) && (v8[51].m128i_i32[1] & 1) != 0 )
+      *(_BYTE *)(v22 + 1306) = 1;
+    *(_QWORD *)v22 = v8;
+    *(_QWORD *)(v22 + 8) = a2;
+    v31 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+            WdfDriverGlobals,
+            a2,
+            off_1C00602C0);
+    v32 = a5;
+    *(_QWORD *)(v22 + 16) = v31;
+    *(_QWORD *)(v22 + 136) = 0LL;
+    *(_QWORD *)(v22 + 264) = 0LL;
+    *(_DWORD *)(v22 + 96) = *(_DWORD *)a4;
+    *(_WORD *)(v22 + 100) = *(_WORD *)(a4 + 4);
+    *(_BYTE *)(v22 + 102) = *(_BYTE *)(a4 + 6);
+    if ( v32 )
+    {
+      *(_DWORD *)(v22 + 103) = *(_DWORD *)v32;
+      *(_WORD *)(v22 + 107) = *(_WORD *)(v32 + 4);
+    }
+    if ( a6 )
+      *(_QWORD *)(v22 + 109) = *a6;
+    Endpoint_SetType(v22);
+    v36 = 2 * (*(_BYTE *)(v22 + 98) & 0xF);
+    if ( (unsigned int)(*(_DWORD *)(v22 + 120) - 1) > 2 )
+      ++v36;
+    *(_DWORD *)(v22 + 144) = v36;
+    ClearStallContext = XilEndpoint_Create(v22, v33, v34, v35);
+    if ( ClearStallContext < 0 )
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        return (unsigned int)ClearStallContext;
+      v24 = *(unsigned __int8 *)(a4 + 2);
+      v25 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+              WdfDriverGlobals,
+              a2,
+              off_1C00602C0);
+      v18 = 19;
+LABEL_14:
+      v17 = v24 >> 7;
+      v47 = ClearStallContext;
+      v46 = (v24 >> 7) + 2 * (*(_BYTE *)(a4 + 2) & 0x7F);
+      v45 = *(_BYTE *)(v25 + 135);
+      goto LABEL_8;
+    }
+    if ( *(_DWORD *)(*(_QWORD *)(v22 + 16) + 20LL) == 3
+      && (*(_BYTE *)(v22 + 99) & 3) == 2
+      && (*(_BYTE *)(v22 + 106) & 0x1F) != 0 )
+    {
+      v37 = *(_QWORD *)v22;
+      *(_BYTE *)(v22 + 37) = 1;
+      if ( (*(_QWORD *)(v37 + 336) & 0x200000LL) != 0 )
+      {
+        ClearStallContext = Endpoint_CreateClearStallContext(v22);
+        if ( ClearStallContext < 0 )
+        {
+          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            return (unsigned int)ClearStallContext;
+          v38 = *(_DWORD *)(v22 + 144);
+          v39 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+                  WdfDriverGlobals,
+                  a2,
+                  off_1C00602C0);
+          v18 = 20;
+          goto LABEL_38;
+        }
+      }
+      v40 = *(_BYTE *)(v22 + 37);
+    }
+    else
+    {
+      *(_BYTE *)(v22 + 37) = 0;
+      v40 = 0;
+    }
+    ClearStallContext = TR_Create((_DWORD)v8, v22, v48, v40 != 0, v22 + 88);
+    if ( ClearStallContext >= 0 )
+    {
+      WdfQueue = TR_GetWdfQueue(*(_QWORD *)(v22 + 88));
+      ((void (__fastcall *)(__int64, unsigned __int64, __int64))qword_1C00617F8)(UcxDriverGlobals, v48, WdfQueue);
+      if ( *(_DWORD *)(v22 + 144) == 1 )
+        *(_QWORD *)(*(_QWORD *)(v22 + 16) + 176LL) = v22;
+      v42 = *(_QWORD *)(v22 + 16);
+      *(_QWORD *)(v22 + 24) = v48;
+      UsbDevice_AddEndpointToDeviceEndpointList(v42, v48, (_QWORD *)(v22 + 64));
+      Etw_EndpointCreate(v43, (_QWORD *)v22);
+      return (unsigned int)ClearStallContext;
+    }
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return (unsigned int)ClearStallContext;
-    v38 = *(unsigned __int8 *)(a4 + 2);
+    v38 = *(_DWORD *)(v22 + 144);
     v39 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
             WdfDriverGlobals,
             a2,
-            off_1C00612C0);
-    v37 = 19;
-LABEL_30:
-    LODWORD(v48) = ClearStallContext;
-    LODWORD(v47) = (v38 >> 7) + 2 * (*(_BYTE *)(a4 + 2) & 0x7F);
-    LODWORD(v46) = *(unsigned __int8 *)(v39 + 135);
-    goto LABEL_31;
+            off_1C00602C0);
+    v18 = 21;
+LABEL_38:
+    v47 = ClearStallContext;
+    LOBYTE(v46) = v38;
+    v45 = *(_BYTE *)(v39 + 135);
+    goto LABEL_8;
   }
-  if ( *(_DWORD *)(*(_QWORD *)(v18 + 16) + 20LL) == 3
-    && (*(_BYTE *)(v18 + 99) & 3) == 2
-    && (*(_BYTE *)(v18 + 106) & 0x1F) != 0 )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v43 = *(_QWORD *)v18;
-    *(_BYTE *)(v18 + 37) = 1;
-    if ( (*(_QWORD *)(v43 + 336) & 0x200000LL) != 0 )
-    {
-      ClearStallContext = Endpoint_CreateClearStallContext(v18);
-      if ( ClearStallContext < 0 )
-      {
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          return (unsigned int)ClearStallContext;
-        v44 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-                WdfDriverGlobals,
-                a2,
-                off_1C00612C0);
-        v37 = 20;
-        goto LABEL_45;
-      }
-    }
-    v30 = *(_BYTE *)(v18 + 37);
-  }
-  else
-  {
-    *(_BYTE *)(v18 + 37) = 0;
-    v30 = 0;
-  }
-  ClearStallContext = TR_Create((_DWORD)v8, v18, v49, v30 != 0, v18 + 88);
-  if ( ClearStallContext < 0 )
-  {
-    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      return (unsigned int)ClearStallContext;
-    v44 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+    v15 = *(unsigned __int8 *)(a4 + 2);
+    v16 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
             WdfDriverGlobals,
             a2,
-            off_1C00612C0);
-    v37 = 21;
-LABEL_45:
-    LODWORD(v48) = ClearStallContext;
-    LODWORD(v47) = *(_DWORD *)(v18 + 144);
-    LODWORD(v46) = *(unsigned __int8 *)(v44 + 135);
-    goto LABEL_31;
+            off_1C00602C0);
+    v18 = 15;
+    v47 = ClearStallContext;
+    v46 = (v15 >> 7) + 2 * (*(_BYTE *)(a4 + 2) & 0x7F);
+    v45 = *(_BYTE *)(v16 + 135);
+LABEL_8:
+    LOBYTE(v17) = 2;
+    WPP_RECORDER_SF_ddd(
+      v8[4].m128i_i64[1],
+      v17,
+      13,
+      v18,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+      v45,
+      v46,
+      v47);
   }
-  WdfQueue = TR_GetWdfQueue(*(_QWORD *)(v18 + 88));
-  ((void (__fastcall *)(__int64, __int64, __int64))qword_1C0062818)(UcxDriverGlobals, v49, WdfQueue);
-  if ( *(_DWORD *)(v18 + 144) == 1 )
-    *(_QWORD *)(*(_QWORD *)(v18 + 16) + 176LL) = v18;
-  v32 = *(_QWORD *)(v18 + 16);
-  *(_QWORD *)(v18 + 24) = v49;
-  UsbDevice_AddEndpointToDeviceEndpointList(v32, v49, (_QWORD *)(v18 + 64));
-  Etw_EndpointCreate(v33, (_QWORD *)v18);
   return (unsigned int)ClearStallContext;
 }

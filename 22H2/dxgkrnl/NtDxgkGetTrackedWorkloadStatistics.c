@@ -1,140 +1,151 @@
 /*
- * XREFs of NtDxgkGetTrackedWorkloadStatistics @ 0x1C035FC60
+ * XREFs of NtDxgkGetTrackedWorkloadStatistics @ 0x1C02BE380
  * Callers:
  *     <none>
  * Callees:
- *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C000438C (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1DXGDEVICEACCESSLOCKSHARED@@QEAA@XZ @ 0x1C0007C20 (--1DXGDEVICEACCESSLOCKSHARED@@QEAA@XZ.c)
- *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C0007F7C (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
- *     ??0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0015A34 (--0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C0024B68 (--1COREDEVICEACCESS@@QEAA@XZ.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ??0DXGTRACKEDWORKLOADBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGTRACKEDWORKLOAD@@PEAPEAVDXGDEVICE@@@Z @ 0x1C035D98C (--0DXGTRACKEDWORKLOADBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGTRACKEDWORKLOAD@@PEAPEAVDXGDEVICE.c)
- *     ??1DXGTRACKEDWORKLOADBYHANDLE@@QEAA@XZ @ 0x1C035DCF0 (--1DXGTRACKEDWORKLOADBYHANDLE@@QEAA@XZ.c)
- *     ?GetTrackedWorkloadUserStatistics@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAU_D3DKMT_GETTRACKEDWORKLOADSTATISTICS@@@Z @ 0x1C035E2F4 (-GetTrackedWorkloadUserStatistics@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAU_D3DKMT_GETTRACKED.c)
- *     ?ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_K@Z @ 0x1C035E430 (-ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_.c)
- *     ?ReportStats@DXGTRACKEDWORKLOAD@@QEAAXXZ @ 0x1C035ED78 (-ReportStats@DXGTRACKEDWORKLOAD@@QEAAXXZ.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C0002FB8 (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ??1COREDEVICEACCESS@@QEAA@XZ @ 0x1C0004E20 (--1COREDEVICEACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z @ 0x1C00087C0 (-AcquireShared@COREDEVICEACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0008DD8 (--0DXGDEVICEACCESSLOCKSHARED@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ??0DXGTRACKEDWORKLOADBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGTRACKEDWORKLOAD@@PEAPEAVDXGDEVICE@@@Z @ 0x1C02BC708 (--0DXGTRACKEDWORKLOADBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGTRACKEDWORKLOAD@@PEAPEAVDXGDEVICE.c)
+ *     ??1DXGTRACKEDWORKLOADBYHANDLE@@QEAA@XZ @ 0x1C02BCA78 (--1DXGTRACKEDWORKLOADBYHANDLE@@QEAA@XZ.c)
+ *     ?GetTrackedWorkloadUserStatistics@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAU_D3DKMT_GETTRACKEDWORKLOADSTATISTICS@@@Z @ 0x1C02BD068 (-GetTrackedWorkloadUserStatistics@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAU_D3DKMT_GETTRACKED.c)
+ *     ?ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_K@Z @ 0x1C02BD1B4 (-ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_.c)
  */
 
 __int64 __fastcall NtDxgkGetTrackedWorkloadStatistics(struct DXGDEVICE *a1)
 {
-  unsigned int *v2; // rax
-  size_t v3; // r8
-  const void *v5; // rdx
-  __int64 v6; // rcx
-  struct DXGPROCESS *Current; // rax
-  DXGTRACKEDWORKLOAD *v8; // rbx
-  __int64 v9; // rdi
-  struct DXGDEVICE *v10; // r14
+  __int64 v2; // rdx
+  unsigned int *v3; // rax
+  size_t v4; // r8
+  __int64 v5; // rax
+  const void *v7; // rdx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
   __int64 v11; // r9
-  int v12; // eax
-  struct COREDEVICEACCESS *v13; // r8
-  unsigned __int64 *v14; // rax
-  struct DXGDEVICE *v15; // rdx
-  ULONG64 v16; // rdx
-  _QWORD *v17; // rdx
-  _DWORD *v18; // rdx
-  struct DXGDEVICE *v19; // [rsp+50h] [rbp-348h] BYREF
-  DXGTRACKEDWORKLOAD *v20[2]; // [rsp+58h] [rbp-340h] BYREF
-  DXGTRACKEDWORKLOAD *v21; // [rsp+68h] [rbp-330h] BYREF
-  _BYTE v22[16]; // [rsp+70h] [rbp-328h] BYREF
-  _BYTE v23[592]; // [rsp+80h] [rbp-318h] BYREF
-  _BYTE v24[160]; // [rsp+2D0h] [rbp-C8h] BYREF
+  struct _KTHREAD **Current; // rax
+  DXGTRACKEDWORKLOAD *v13; // rsi
+  __int64 v14; // rbx
+  struct DXGDEVICE *v15; // r14
+  __int64 v16; // r9
+  int v17; // eax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  unsigned __int64 *v21; // rax
+  struct DXGDEVICE *v22; // rdx
+  ULONG64 v23; // rdx
+  _QWORD *v24; // rdx
+  _DWORD *v25; // rdx
+  __int64 v26; // [rsp+30h] [rbp-358h] BYREF
+  char v27; // [rsp+38h] [rbp-350h]
+  DXGTRACKEDWORKLOAD *v28[2]; // [rsp+40h] [rbp-348h] BYREF
+  DXGTRACKEDWORKLOAD *v29; // [rsp+50h] [rbp-338h] BYREF
+  struct DXGDEVICE *v30[3]; // [rsp+58h] [rbp-330h] BYREF
+  _BYTE v31[592]; // [rsp+70h] [rbp-318h] BYREF
+  _BYTE v32[160]; // [rsp+2C0h] [rbp-C8h] BYREF
 
-  v19 = a1;
-  memset(v23, 0, sizeof(v23));
-  v2 = (unsigned int *)a1;
+  v30[1] = a1;
+  memset(v31, 0, sizeof(v31));
+  v3 = (unsigned int *)a1;
   if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-    v2 = (unsigned int *)MmUserProbeAddress;
-  v3 = *v2;
-  if ( (unsigned int)v3 >= 0x250 )
+    v3 = (unsigned int *)MmUserProbeAddress;
+  v4 = *v3;
+  if ( (unsigned int)v4 >= 0x250 )
   {
-    if ( (unsigned int)v3 > 0x250 )
-      v3 = 592LL;
-    v5 = a1;
+    if ( (unsigned int)v4 > 0x250 )
+      v4 = 592LL;
+    v7 = a1;
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-      v5 = (const void *)MmUserProbeAddress;
-    memmove(v23, v5, v3);
-    v19 = 0LL;
-    v21 = 0LL;
-    Current = DXGPROCESS::GetCurrent(v6);
+      v7 = (const void *)MmUserProbeAddress;
+    memmove(v31, v7, v4);
+    v30[0] = 0LL;
+    v29 = 0LL;
+    Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(v9, v8, v10, v11);
     DXGTRACKEDWORKLOADBYHANDLE::DXGTRACKEDWORKLOADBYHANDLE(
-      (DXGTRACKEDWORKLOADBYHANDLE *)v20,
-      *(unsigned int *)&v23[4],
+      (DXGTRACKEDWORKLOADBYHANDLE *)v28,
+      *(unsigned int *)&v31[4],
       Current,
-      &v21,
-      &v19);
-    v8 = v21;
-    if ( v21 )
+      &v29,
+      v30);
+    v13 = v29;
+    if ( v29 )
     {
-      v10 = v19;
-      DXGDEVICEACCESSLOCKSHARED::DXGDEVICEACCESSLOCKSHARED((DXGDEVICEACCESSLOCKSHARED *)v22, v19);
-      COREDEVICEACCESS::COREDEVICEACCESS((__int64)v24, (__int64)v10, 0, v11, 0);
-      v12 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v24, 0LL);
-      v9 = v12;
-      if ( v12 >= 0 )
+      v15 = v30[0];
+      DXGDEVICEACCESSLOCKSHARED::DXGDEVICEACCESSLOCKSHARED((DXGDEVICEACCESSLOCKSHARED *)&v26, v30[0]);
+      COREDEVICEACCESS::COREDEVICEACCESS((__int64)v32, (__int64)v15, 0, v16, 0);
+      v17 = COREDEVICEACCESS::AcquireShared((COREDEVICEACCESS *)v32, 0LL);
+      v14 = v17;
+      if ( v17 >= 0 )
       {
-        v14 = (unsigned __int64 *)&v23[16];
-        if ( *((_DWORD *)v8 + 21) )
-          v14 = 0LL;
-        LODWORD(v9) = DXGTRACKEDWORKLOAD::ProcessActiveInstancePairs(v8, v10, v13, *(unsigned __int64 *)&v23[8], v14);
-        if ( (int)v9 >= 0 )
+        v21 = (unsigned __int64 *)&v31[16];
+        if ( *((_DWORD *)v13 + 21) )
+          v21 = 0LL;
+        LODWORD(v14) = DXGTRACKEDWORKLOAD::ProcessActiveInstancePairs(
+                         v13,
+                         v15,
+                         (struct COREDEVICEACCESS *)v32,
+                         *(unsigned __int64 *)&v31[8],
+                         v21);
+        if ( (int)v14 >= 0 )
         {
-          LODWORD(v9) = DXGTRACKEDWORKLOAD::GetTrackedWorkloadUserStatistics(
-                          v8,
-                          v15,
-                          (struct _D3DKMT_GETTRACKEDWORKLOADSTATISTICS *)v23);
-          if ( (int)v9 >= 0 )
+          LODWORD(v14) = DXGTRACKEDWORKLOAD::GetTrackedWorkloadUserStatistics(
+                           v13,
+                           v22,
+                           (struct _D3DKMT_GETTRACKEDWORKLOADSTATISTICS *)v31);
+          if ( (int)v14 >= 0 )
           {
-            DXGTRACKEDWORKLOAD::ReportStats(v8);
-            v16 = (ULONG64)a1 + 536;
+            v23 = (ULONG64)a1 + 536;
             if ( (unsigned __int64)a1 + 536 >= MmUserProbeAddress )
-              v16 = MmUserProbeAddress;
-            *(_OWORD *)v16 = *(_OWORD *)&v23[536];
-            *(_OWORD *)(v16 + 16) = *(_OWORD *)&v23[552];
-            *(_QWORD *)(v16 + 32) = *(_QWORD *)&v23[568];
-            v17 = (_QWORD *)((char *)a1 + 576);
+              v23 = MmUserProbeAddress;
+            *(_OWORD *)v23 = *(_OWORD *)&v31[536];
+            *(_OWORD *)(v23 + 16) = *(_OWORD *)&v31[552];
+            *(_QWORD *)(v23 + 32) = *(_QWORD *)&v31[568];
+            v24 = (_QWORD *)((char *)a1 + 576);
             if ( (unsigned __int64)a1 + 576 >= MmUserProbeAddress )
-              v17 = (_QWORD *)MmUserProbeAddress;
-            *v17 = *(_QWORD *)&v23[576];
-            v18 = (_DWORD *)((char *)a1 + 584);
+              v24 = (_QWORD *)MmUserProbeAddress;
+            *v24 = *(_QWORD *)&v31[576];
+            v25 = (_DWORD *)((char *)a1 + 584);
             if ( (unsigned __int64)a1 + 584 >= MmUserProbeAddress )
-              v18 = (_DWORD *)MmUserProbeAddress;
-            *v18 = *(_DWORD *)&v23[584];
+              v25 = (_DWORD *)MmUserProbeAddress;
+            *v25 = *(_DWORD *)&v31[584];
           }
         }
       }
       else
       {
-        WdLogSingleEntry2(2LL, v10, v12);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Device 0x%I64x: Failed to acquire device access, returning 0x%I64x",
-          (__int64)v10,
-          v9,
-          0LL,
-          0LL,
-          0LL);
+        v20 = WdLogNewEntry5_WdError(v19, v18);
+        *(_QWORD *)(v20 + 24) = v15;
+        *(_QWORD *)(v20 + 32) = v14;
+        WdLogEvent5_WdError(v20);
       }
-      COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v24);
-      DXGDEVICEACCESSLOCKSHARED::~DXGDEVICEACCESSLOCKSHARED((DXGDEVICEACCESSLOCKSHARED *)v22);
+      COREDEVICEACCESS::~COREDEVICEACCESS((COREDEVICEACCESS *)v32);
+      if ( v26 )
+      {
+        if ( v27 )
+        {
+          ExReleaseResourceLite(*(PERESOURCE *)(v26 + 136));
+          KeLeaveCriticalRegion();
+        }
+      }
     }
     else
     {
-      LODWORD(v9) = -1073741811;
+      LODWORD(v14) = -1073741811;
     }
-    DXGTRACKEDWORKLOADBYHANDLE::~DXGTRACKEDWORKLOADBYHANDLE(v20);
-    return (unsigned int)v9;
+    DXGTRACKEDWORKLOADBYHANDLE::~DXGTRACKEDWORKLOADBYHANDLE(v28);
+    return (unsigned int)v14;
   }
   else
   {
-    WdLogSingleEntry1(3LL, 706LL);
+    v5 = WdLogNewEntry5_WdWarning(MmUserProbeAddress, v2, v4);
+    *(_QWORD *)(v5 + 24) = 671LL;
+    WdLogEvent5_WdWarning(v5);
     return 3221225485LL;
   }
 }

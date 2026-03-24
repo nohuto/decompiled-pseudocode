@@ -1,14 +1,14 @@
 /*
- * XREFs of PoIssueCoalescingNotification @ 0x14058D824
+ * XREFs of PoIssueCoalescingNotification @ 0x14056E9B8
  * Callers:
- *     CmpIssueNewDirtyCallback @ 0x1407E47EC (CmpIssueNewDirtyCallback.c)
- *     PopCoalescingCallbackWorker @ 0x140987000 (PopCoalescingCallbackWorker.c)
+ *     CmpIssueNewDirtyCallback @ 0x14069FE70 (CmpIssueNewDirtyCallback.c)
+ *     PopCoalescingCallbackWorker @ 0x1408E6870 (PopCoalescingCallbackWorker.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140214F10 (ExReferenceCallBackBlock.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExReferenceCallBackBlock @ 0x14025A1B0 (ExReferenceCallBackBlock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)
@@ -20,17 +20,13 @@ void __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)
   struct _EX_RUNDOWN_REF *v6; // rbx
   signed __int64 v7; // rax
   signed __int64 v8; // rtt
-  char v9; // [rsp+20h] [rbp-18h] BYREF
-  __int16 v10; // [rsp+21h] [rbp-17h]
-  char v11; // [rsp+23h] [rbp-15h]
-  int v12; // [rsp+24h] [rbp-14h]
-  __int64 v13; // [rsp+28h] [rbp-10h]
+  _DWORD v9[2]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v10; // [rsp+28h] [rbp-10h]
 
-  v12 = a2;
-  v10 = 0;
-  v11 = 0;
-  v13 = 0LL;
-  v9 = *(_BYTE *)(a1 + 32);
+  v9[0] = 0;
+  v10 = 0LL;
+  v9[1] = a2;
+  LOBYTE(v9[0]) = *(_BYTE *)(a1 + 32);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&PopCoalRegistrationListLock, 0LL);
@@ -43,8 +39,8 @@ void __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)
     v6 = v5;
     if ( v5 )
     {
-      if ( *((_BYTE *)i - 16) != v9 )
-        ((void (__fastcall *)(struct _EX_RUNDOWN_REF *, char *, __int64))v5[1].Count)(v5, &v9, v13);
+      if ( *((_BYTE *)i - 16) != LOBYTE(v9[0]) )
+        ((void (__fastcall *)(struct _EX_RUNDOWN_REF *, _DWORD *, __int64))v5[1].Count)(v5, v9, v10);
       _m_prefetchw(v4);
       v7 = *v4;
       while ( ((unsigned __int64)v6 ^ v7) < 0xF )
@@ -54,10 +50,10 @@ void __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)
         if ( v8 == v7 )
           goto LABEL_9;
       }
-      ExReleaseRundownProtection_0(v6);
+      ExReleaseRundownProtection(v6);
     }
 LABEL_9:
     ;
   }
-  PopReleaseRwLock((__int64 *)&PopCoalRegistrationListLock);
+  PopReleaseRwLock((ULONG_PTR)&PopCoalRegistrationListLock);
 }

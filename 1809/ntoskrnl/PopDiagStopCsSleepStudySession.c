@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDiagStopCsSleepStudySession @ 0x14087059C
+ * XREFs of PopDiagStopCsSleepStudySession @ 0x14087057C
  * Callers:
- *     PopDisplayBurstSuppressWorker @ 0x140874B30 (PopDisplayBurstSuppressWorker.c)
- *     PopForceCompleteCsSleepStudySessionWorker @ 0x140874CD0 (PopForceCompleteCsSleepStudySessionWorker.c)
- *     PopLidClosedSleepStudyWorker @ 0x140874F90 (PopLidClosedSleepStudyWorker.c)
- *     PopPowerAggregatorExecuteDirectedDripsCallback @ 0x140875BB0 (PopPowerAggregatorExecuteDirectedDripsCallback.c)
+ *     PopDisplayBurstSuppressWorker @ 0x140874B10 (PopDisplayBurstSuppressWorker.c)
+ *     PopForceCompleteCsSleepStudySessionWorker @ 0x140874CB0 (PopForceCompleteCsSleepStudySessionWorker.c)
+ *     PopLidClosedSleepStudyWorker @ 0x140874F70 (PopLidClosedSleepStudyWorker.c)
+ *     PopPowerAggregatorExecuteDirectedDripsCallback @ 0x140875B90 (PopPowerAggregatorExecuteDirectedDripsCallback.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopEvaluateAggressiveStandbyActions @ 0x140868BE8 (PopEvaluateAggressiveStandbyActions.c)
- *     PopDiagNextCsSleepStudySession @ 0x140870290 (PopDiagNextCsSleepStudySession.c)
- *     PdcTaskClientRequest @ 0x14089A708 (PdcTaskClientRequest.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopEvaluateAggressiveStandbyActions @ 0x140868BC8 (PopEvaluateAggressiveStandbyActions.c)
+ *     PopDiagNextCsSleepStudySession @ 0x140870270 (PopDiagNextCsSleepStudySession.c)
+ *     PdcTaskClientRequest @ 0x14089A6E8 (PdcTaskClientRequest.c)
  */
 
 LONG __fastcall PopDiagStopCsSleepStudySession(char a1, int a2, int a3)

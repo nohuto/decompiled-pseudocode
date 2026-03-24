@@ -1,24 +1,14 @@
 /*
- * XREFs of ?ApplyKeyStateUpdate@@YAXE_N@Z @ 0x1C01ECDE4
+ * XREFs of ?ApplyKeyStateUpdate@@YAXE_N@Z @ 0x1C01B3D6C
  * Callers:
- *     ?ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EDA10 (-ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManage.c)
+ *     ?ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B7A10 (-ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManage.c)
  * Callees:
- *     UpdateAsyncKeyState @ 0x1C0089620 (UpdateAsyncKeyState.c)
- *     UpdateRawKeyState @ 0x1C00AD178 (UpdateRawKeyState.c)
+ *     UpdateAsyncKeyState @ 0x1C004D680 (UpdateAsyncKeyState.c)
+ *     UpdateRawKeyState @ 0x1C0095DC8 (UpdateRawKeyState.c)
  */
 
-void __fastcall ApplyKeyStateUpdate(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall ApplyKeyStateUpdate(unsigned __int8 a1, char a2)
 {
-  char v4; // bl
-  char v5; // di
-  __int64 v6; // r8
-  __int64 v7; // rdx
-  __int64 v8; // r9
-
-  v4 = a2;
-  v5 = a1;
-  UpdateRawKeyState(a1, a2, a3, a4);
-  LOBYTE(v6) = v4;
-  LOBYTE(v7) = v5;
-  UpdateAsyncKeyState(gpqForeground, v7, v6, v8);
+  UpdateRawKeyState(a1, a2);
+  UpdateAsyncKeyState(gpqForeground, a1, a2);
 }

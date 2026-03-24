@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryInformationThread @ 0x14064A580
+ * XREFs of NtQueryInformationThread @ 0x14064A560
  * Callers:
  *     <none>
  * Callees:
@@ -13,30 +13,30 @@
  *     KeQueryValuesThread @ 0x14008EF50 (KeQueryValuesThread.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     PsQueryThreadStartAddress @ 0x1400A3970 (PsQueryThreadStartAddress.c)
- *     PsGetWorkOnBehalfThread @ 0x1400ACCF4 (PsGetWorkOnBehalfThread.c)
- *     PsEncodeThreadWorkOnBehalfTicket @ 0x1400ACDA0 (PsEncodeThreadWorkOnBehalfTicket.c)
- *     IoThreadToProcess @ 0x1400ACF00 (IoThreadToProcess.c)
- *     KeQueryTotalCycleTimeThread @ 0x1400D1D60 (KeQueryTotalCycleTimeThread.c)
- *     KeQueryBasePriorityThread @ 0x1400D2250 (KeQueryBasePriorityThread.c)
- *     PsGetEffectiveContainerId @ 0x140125480 (PsGetEffectiveContainerId.c)
- *     KeQueryAffinityThread @ 0x14013B0C0 (KeQueryAffinityThread.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x14015CDB0 (KeSetIdealProcessorThreadByNumber.c)
- *     xKdEnumerateDebuggingDevices @ 0x140193FC0 (xKdEnumerateDebuggingDevices.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KeQueryActualAffinityThread @ 0x14028DCD0 (KeQueryActualAffinityThread.c)
- *     KeQueryHeteroCpuPolicyThread @ 0x14028DE20 (KeQueryHeteroCpuPolicyThread.c)
- *     KeQueryCpuSetsThread @ 0x1402965C8 (KeQueryCpuSetsThread.c)
+ *     PsGetWorkOnBehalfThread @ 0x1400ACD14 (PsGetWorkOnBehalfThread.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x1400ACDC0 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     IoThreadToProcess @ 0x1400ACF20 (IoThreadToProcess.c)
+ *     KeQueryTotalCycleTimeThread @ 0x1400D1D80 (KeQueryTotalCycleTimeThread.c)
+ *     KeQueryBasePriorityThread @ 0x1400D2270 (KeQueryBasePriorityThread.c)
+ *     PsGetEffectiveContainerId @ 0x1401254A0 (PsGetEffectiveContainerId.c)
+ *     KeQueryAffinityThread @ 0x14013B0E0 (KeQueryAffinityThread.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x14015CDD0 (KeSetIdealProcessorThreadByNumber.c)
+ *     xKdEnumerateDebuggingDevices @ 0x140193FE0 (xKdEnumerateDebuggingDevices.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KeQueryActualAffinityThread @ 0x14028DDD0 (KeQueryActualAffinityThread.c)
+ *     KeQueryHeteroCpuPolicyThread @ 0x14028DF20 (KeQueryHeteroCpuPolicyThread.c)
+ *     KeQueryCpuSetsThread @ 0x1402966C8 (KeQueryCpuSetsThread.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     MmCopyVirtualMemory @ 0x1406447B0 (MmCopyVirtualMemory.c)
- *     PspWow64GetContextThread @ 0x1406A82D8 (PspWow64GetContextThread.c)
- *     PsGetThreadExitStatus @ 0x1406CB000 (PsGetThreadExitStatus.c)
- *     VslGetSecureTebAddress @ 0x14081887C (VslGetSecureTebAddress.c)
- *     PspQueryLastCallThread @ 0x140888A84 (PspQueryLastCallThread.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     MmCopyVirtualMemory @ 0x140644790 (MmCopyVirtualMemory.c)
+ *     PspWow64GetContextThread @ 0x1406A82B8 (PspWow64GetContextThread.c)
+ *     PsGetThreadExitStatus @ 0x1406CAFE0 (PsGetThreadExitStatus.c)
+ *     VslGetSecureTebAddress @ 0x14081885C (VslGetSecureTebAddress.c)
+ *     PspQueryLastCallThread @ 0x140888A64 (PspQueryLastCallThread.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQueryInformationThread(
@@ -766,7 +766,7 @@ LABEL_166:
               }
               else
               {
-                v56 = &word_140766570;
+                v56 = &word_140766550;
                 v57 = 0;
                 v66 = 0;
               }
@@ -972,7 +972,7 @@ LABEL_116:
               return result;
             v15 = Object;
             if ( *((_QWORD *)Object + 243) )
-              v59 = qword_14040E330;
+              v59 = qword_14040E310;
             v6->m128i_i32[0] = v59;
             if ( ReturnLength )
               *ReturnLength = 4;

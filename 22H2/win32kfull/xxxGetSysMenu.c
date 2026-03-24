@@ -1,49 +1,42 @@
 /*
- * XREFs of xxxGetSysMenu @ 0x1C02221A0
+ * XREFs of xxxGetSysMenu @ 0x1C00DAE14
  * Callers:
- *     ?xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z @ 0x1C00F188C (-xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z.c)
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
- *     ?xxxGetInitMenuParam@@YAPEAUtagMENU@@PEAUtagWND@@PEAH@Z @ 0x1C01FF028 (-xxxGetInitMenuParam@@YAPEAUtagMENU@@PEAUtagWND@@PEAH@Z.c)
- *     xxxMNStartMenu @ 0x1C01FFC8C (xxxMNStartMenu.c)
- *     ?xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z @ 0x1C0222AD8 (-xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z.c)
- *     xxxGetMenuBarInfo @ 0x1C0230D6C (xxxGetMenuBarInfo.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     ?xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z @ 0x1C004B32C (-xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z.c)
+ *     xxxGetMenuBarInfo @ 0x1C008AA48 (xxxGetMenuBarInfo.c)
+ *     ?xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z @ 0x1C00DACB8 (-xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z.c)
+ *     ?xxxGetInitMenuParam@@YAPEAUtagMENU@@PEAUtagWND@@PEAH@Z @ 0x1C02211C8 (-xxxGetInitMenuParam@@YAPEAUtagMENU@@PEAUtagWND@@PEAH@Z.c)
+ *     xxxMNStartMenu @ 0x1C0222080 (xxxMNStartMenu.c)
  * Callees:
- *     xxxGetSysMenuPtr @ 0x1C006347C (xxxGetSysMenuPtr.c)
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00635B4 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     _GetSubMenu @ 0x1C0066FE8 (_GetSubMenu.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C009D540 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C009E5C0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     xxxSetSysMenu @ 0x1C0222254 (xxxSetSysMenu.c)
+ *     xxxSetSysMenu @ 0x1C0046C70 (xxxSetSysMenu.c)
+ *     xxxGetSysMenuPtr @ 0x1C006190C (xxxGetSysMenuPtr.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078AA0 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     _GetSubMenu @ 0x1C00DC7AC (_GetSubMenu.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010104C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
  */
 
-__int64 __fastcall xxxGetSysMenu(_QWORD *a1, int a2)
+__int64 __fastcall xxxGetSysMenu(struct tagWND *a1, int a2)
 {
-  __int64 SysMenuPtr; // rax
-  __int64 v5; // rcx
-  __int64 SubMenu; // rax
-  __int64 v7; // rbx
-  _QWORD v9[2]; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v10; // [rsp+30h] [rbp-10h]
+  __int64 v4; // rbx
+  _QWORD v6[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v7; // [rsp+30h] [rbp-18h]
 
-  SmartObjStackRefBase<tagMENU>::Init(v9, 0LL);
-  v10 = 0LL;
+  SmartObjStackRefBase<tagMENU>::Init(v6, 0LL);
   xxxSetSysMenu(a1);
-  SysMenuPtr = xxxGetSysMenuPtr(a1);
-  v10 = 0LL;
-  SmartObjStackRefBase<tagMENU>::operator=(v9, SysMenuPtr);
-  if ( !SmartObjStackRef<tagMENU>::operator==((__int64)v9) && a2 )
+  xxxGetSysMenuPtr(a1);
+  v7 = 0LL;
+  SmartObjStackRefBase<tagMENU>::operator=(v6);
+  if ( !SmartObjStackRef<tagMENU>::operator==((__int64)v6) && a2 )
   {
-    v5 = v10;
-    if ( !v10 )
-      v5 = *(_QWORD *)v9[0];
-    SubMenu = GetSubMenu(v5);
-    v10 = 0LL;
-    SmartObjStackRefBase<tagMENU>::operator=(v9, SubMenu);
+    GetSubMenu();
+    v7 = 0LL;
+    SmartObjStackRefBase<tagMENU>::operator=(v6);
   }
-  v7 = v10;
-  if ( !v10 )
-    v7 = *(_QWORD *)v9[0];
-  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v9);
-  return v7;
+  v4 = v7;
+  if ( !v7 )
+    v4 = *(_QWORD *)v6[0];
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v6);
+  return v4;
 }

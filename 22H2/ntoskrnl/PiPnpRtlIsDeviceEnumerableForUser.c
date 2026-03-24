@@ -1,20 +1,20 @@
 /*
- * XREFs of PiPnpRtlIsDeviceEnumerableForUser @ 0x140740C2C
+ * XREFs of PiPnpRtlIsDeviceEnumerableForUser @ 0x1406AD34C
  * Callers:
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740D40 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1406ACF7C (PiPnpRtlApplyMandatoryDeviceFilters.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PnpGetObjectProperty @ 0x1406D0160 (PnpGetObjectProperty.c)
- *     PiAuVerifyAccessToObject @ 0x14079ADDC (PiAuVerifyAccessToObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PiAuVerifyAccessToObject @ 0x140684DD8 (PiAuVerifyAccessToObject.c)
+ *     PnpGetObjectProperty @ 0x1406B081C (PnpGetObjectProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlIsDeviceEnumerableForUser(
         __int64 a1,
-        int a2,
+        __int64 a2,
         __int64 a3,
         struct _SECURITY_SUBJECT_CONTEXT *a4,
-        _BYTE *a5)
+        BOOLEAN *a5)
 {
   int ObjectProperty; // eax
   int v7; // ebx
@@ -31,14 +31,12 @@ __int64 __fastcall PiPnpRtlIsDeviceEnumerableForUser(
   *a5 = 0;
   ObjectProperty = PnpGetObjectProperty(
                      0x47706E50u,
-                     0x200u,
-                     a2,
-                     1,
+                     0x200uLL,
                      a3,
                      0LL,
-                     (__int64)&DEVPKEY_Device_EffectiveRestrictedSD,
+                     (__int64)&DEVPKEY_Device_RestrictedSD,
                      (__int64)&v9,
-                     &P,
+                     (__int64)&P,
                      0LL,
                      0);
   v7 = ObjectProperty;
@@ -48,7 +46,7 @@ __int64 __fastcall PiPnpRtlIsDeviceEnumerableForUser(
   {
     if ( v9 != 19 )
       goto LABEL_3;
-    v7 = PiAuVerifyAccessToObject(1u, P, &GenericMapping, a4, (__int64)a5);
+    v7 = PiAuVerifyAccessToObject(1u, P, &GenericMapping, a4, a5);
     if ( v7 < 0 )
     {
 LABEL_2:

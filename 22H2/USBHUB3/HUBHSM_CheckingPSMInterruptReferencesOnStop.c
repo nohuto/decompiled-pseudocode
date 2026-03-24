@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_CheckingPSMInterruptReferencesOnStop @ 0x1C0008750
+ * XREFs of HUBHSM_CheckingPSMInterruptReferencesOnStop @ 0x1C0007F90
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_CheckIfAllPSMInterruptReferencesAreReleased @ 0x1C0010C68 (HUBMUX_CheckIfAllPSMInterruptReferencesAreReleased.c)
+ *     HUBMUX_CheckIfAllPSMInterruptReferencesAreReleased @ 0x1C000F83C (HUBMUX_CheckIfAllPSMInterruptReferencesAreReleased.c)
  */
 
 __int64 __fastcall HUBHSM_CheckingPSMInterruptReferencesOnStop(__int64 a1)

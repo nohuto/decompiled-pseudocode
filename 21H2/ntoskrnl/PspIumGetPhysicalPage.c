@@ -1,13 +1,13 @@
 /*
- * XREFs of PspIumGetPhysicalPage @ 0x1408824D0
+ * XREFs of PspIumGetPhysicalPage @ 0x14090CB3C
  * Callers:
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PspIumReplenishPartitionPages @ 0x1405E29C8 (PspIumReplenishPartitionPages.c)
- *     MmVirtualAccessFault @ 0x140881C00 (MmVirtualAccessFault.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PspIumReplenishPartitionPages @ 0x140583F78 (PspIumReplenishPartitionPages.c)
+ *     MmVirtualAccessFault @ 0x1408D1D64 (MmVirtualAccessFault.c)
  */
 
 __int64 __fastcall PspIumGetPhysicalPage(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -58,7 +58,7 @@ __int64 __fastcall PspIumGetPhysicalPage(__int64 a1, __int64 a2, __int64 a3, _DW
       }
     }
     if ( Process != v7 )
-      KiUnstackDetachProcess((__int64)v15, 0LL);
+      KiUnstackDetachProcess((__int64)v15, 0);
   }
   result = v11;
   *(_QWORD *)(a1 + 8) = v11;

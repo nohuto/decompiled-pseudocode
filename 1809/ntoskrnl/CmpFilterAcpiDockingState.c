@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFilterAcpiDockingState @ 0x1407313E4
+ * XREFs of CmpFilterAcpiDockingState @ 0x1407313C4
  * Callers:
- *     CmSetAcpiHwProfile @ 0x140730EF0 (CmSetAcpiHwProfile.c)
+ *     CmSetAcpiHwProfile @ 0x140730ED0 (CmSetAcpiHwProfile.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall CmpFilterAcpiDockingState(unsigned __int16 *a1, int a2, __int64 a3, int a4, __int64 a5, __int64 a6)

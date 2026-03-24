@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSignalCallDpcSynchronize @ 0x140294070 (KeSignalCallDpcSynchronize.c)
+ *     KeSignalCallDpcSynchronize @ 0x140294170 (KeSignalCallDpcSynchronize.c)
  *     RtlApplyHotPatch @ 0x14057E148 (RtlApplyHotPatch.c)
  */
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiChargeProcessPhysicalPages @ 0x14097F200
+ * XREFs of MiChargeProcessPhysicalPages @ 0x1408D7334
  * Callers:
- *     MiCommitExistingVad @ 0x14032C1B0 (MiCommitExistingVad.c)
- *     MiAllocateUserPhysicalPages @ 0x14097BD88 (MiAllocateUserPhysicalPages.c)
- *     MiCreateLargePageVad @ 0x140982DE4 (MiCreateLargePageVad.c)
+ *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4CE8 (MiAllocateUserPhysicalPages.c)
+ *     MiCreateLargePageVad @ 0x1408D9F64 (MiCreateLargePageVad.c)
  * Callees:
  *     <none>
  */

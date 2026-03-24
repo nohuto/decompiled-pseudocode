@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpandAV_CY @ 0x1C025C9C0
+ * XREFs of ExpandAV_CY @ 0x1C0265C20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ExpandAV_CY(__int64 a1)

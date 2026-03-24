@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalDestroyed @ 0x1409AA2BC
+ * XREFs of TtmiLogTerminalDestroyed @ 0x140904840
  * Callers:
- *     TtmpDeleteTerminal @ 0x1409AB8C0 (TtmpDeleteTerminal.c)
+ *     TtmpDeleteTerminal @ 0x1408FDEF0 (TtmpDeleteTerminal.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void TtmiLogTerminalDestroyed()
@@ -17,17 +17,17 @@ void TtmiLogTerminalDestroyed()
   int v4; // [rsp+60h] [rbp-18h]
   int v5; // [rsp+64h] [rbp-14h]
 
-  if ( (unsigned int)dword_140D53948 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140D53948, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL) )
     {
       v5 = 0;
       v3 = &v1;
       v1 = v0;
       v4 = 8;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140D53948,
-        (unsigned __int8 *)&word_1400337DE,
+        (__int64)&dword_140D2D8C8,
+        (unsigned __int8 *)&byte_14002B02F,
         0LL,
         0LL,
         3u,

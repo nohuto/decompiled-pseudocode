@@ -1,23 +1,23 @@
 /*
- * XREFs of MiFindFreePageFileSpace @ 0x14012411C
+ * XREFs of MiFindFreePageFileSpace @ 0x14012413C
  * Callers:
  *     MiReservePageFileSpace @ 0x140081320 (MiReservePageFileSpace.c)
- *     MiGetKernelStackSwapSupport @ 0x140124014 (MiGetKernelStackSwapSupport.c)
- *     MiFindPageFileWriteCluster @ 0x140150C60 (MiFindPageFileWriteCluster.c)
- *     MiTrimUnusedPageFileRegionsApc @ 0x1402B8870 (MiTrimUnusedPageFileRegionsApc.c)
- *     MiReserveWorkingSetSwapSpaceRuns @ 0x14085EC28 (MiReserveWorkingSetSwapSpaceRuns.c)
+ *     MiGetKernelStackSwapSupport @ 0x140124034 (MiGetKernelStackSwapSupport.c)
+ *     MiFindPageFileWriteCluster @ 0x140150C80 (MiFindPageFileWriteCluster.c)
+ *     MiTrimUnusedPageFileRegionsApc @ 0x1402B8970 (MiTrimUnusedPageFileRegionsApc.c)
+ *     MiReserveWorkingSetSwapSpaceRuns @ 0x14085EC08 (MiReserveWorkingSetSwapSpaceRuns.c)
  * Callees:
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x140124554 (MiInvalidatePageFileBitmapsCache.c)
- *     MiPageFileLargestBitmapsRun @ 0x140124818 (MiPageFileLargestBitmapsRun.c)
- *     MiCheckHintedPageFileSpace @ 0x140124938 (MiCheckHintedPageFileSpace.c)
- *     MiSetPageFileAllocationBits @ 0x140150818 (MiSetPageFileAllocationBits.c)
- *     MiRescanPagefileBitmaps @ 0x14018804C (MiRescanPagefileBitmaps.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFindFreePageFileSpaceForward @ 0x1402B7CDC (MiFindFreePageFileSpaceForward.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x140124574 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiPageFileLargestBitmapsRun @ 0x140124838 (MiPageFileLargestBitmapsRun.c)
+ *     MiCheckHintedPageFileSpace @ 0x140124958 (MiCheckHintedPageFileSpace.c)
+ *     MiSetPageFileAllocationBits @ 0x140150838 (MiSetPageFileAllocationBits.c)
+ *     MiRescanPagefileBitmaps @ 0x14018806C (MiRescanPagefileBitmaps.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFindFreePageFileSpaceForward @ 0x1402B7DDC (MiFindFreePageFileSpaceForward.c)
  */
 
 __int64 __fastcall MiFindFreePageFileSpace(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3, unsigned int a4)

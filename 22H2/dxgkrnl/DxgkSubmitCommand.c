@@ -1,91 +1,66 @@
 /*
- * XREFs of DxgkSubmitCommand @ 0x1C01C6360
+ * XREFs of DxgkSubmitCommand @ 0x1C00FB090
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?SearchDxgThreadList@DXGGLOBAL@@QEAAPEAVDXGPROCESS@@PEAU_ETHREAD@@@Z @ 0x1C00164A0 (-SearchDxgThreadList@DXGGLOBAL@@QEAAPEAVDXGPROCESS@@PEAU_ETHREAD@@@Z.c)
- *     ?DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z @ 0x1C01C6A40 (-DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z.c)
- *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01CA0D0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ?DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z @ 0x1C00FB130 (-DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01059F0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
  */
 
-__int64 __fastcall DxgkSubmitCommand(struct _D3DKMT_SUBMITCOMMAND *a1)
+__int64 __fastcall DxgkSubmitCommand(struct _D3DKMT_SUBMITCOMMAND *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 CurrentProcess; // rax
   __int64 ProcessDxgProcess; // rax
-  __int64 v4; // rcx
-  struct DXGPROCESS *v5; // rdi
-  struct DXGPROCESS *v6; // rsi
-  unsigned int v7; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct DXGPROCESS *v9; // rbx
+  struct DXGPROCESS *v10; // rdi
+  unsigned int v11; // ebx
   struct DXGTHREAD *Current; // rax
-  struct _ETHREAD *CurrentThread; // rbx
-  KSPIN_LOCK *Global; // rax
-  __int64 v12; // rax
-  __int64 v13; // rcx
-  __int64 v14; // rax
+  __int64 v14; // rbx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  __int64 v19; // rax
 
-  CurrentProcess = PsGetCurrentProcess(a1);
+  CurrentProcess = PsGetCurrentProcess(a1, a2, a3, a4);
   ProcessDxgProcess = PsGetProcessDxgProcess(CurrentProcess);
-  v5 = (struct DXGPROCESS *)ProcessDxgProcess;
-  if ( !ProcessDxgProcess || (*(_DWORD *)(ProcessDxgProcess + 424) & 0x80) != 0 )
+  v9 = (struct DXGPROCESS *)ProcessDxgProcess;
+  if ( (!ProcessDxgProcess || (*(_BYTE *)(ProcessDxgProcess + 347) & 0x10) != 0)
+    && (Current = DXGTHREAD::GetCurrent()) != 0LL
+    && (v10 = (struct DXGPROCESS *)*((_QWORD *)Current + 1)) != 0LL
+    || (v10 = v9) != 0LL )
   {
-    Current = DXGTHREAD::GetCurrent();
-    if ( Current )
+    v11 = DxgkSubmitCommandInternal(a1, v10);
+    if ( (int)(v11 + 0x80000000) >= 0
+      && v11 != -1073741130
+      && !g_DwmRenderDebugMode
+      && *((_BYTE *)v10 + 346)
+      && !KdRefreshDebuggerNotPresent() )
     {
-      v6 = (struct DXGPROCESS *)*((_QWORD *)Current + 3);
-      if ( v6 )
-        goto LABEL_4;
+      DbgPrintEx(
+        0x65u,
+        0,
+        "\n"
+        "An unexpected render failure 0x%x from DWM has been detected.\n"
+        "We broke into the debugger to allow a chance for debugging this issue.\n"
+        "To disable debug breaks for DWM render failures, run \"?? dxgmms2!g_DwmRenderDebugMode=1\" command,\n"
+        "or \"ed 0x%p 1\"\n"
+        "\n",
+        v11,
+        (const void *)&g_DwmRenderDebugMode);
+      __debugbreak();
     }
-    else
-    {
-      CurrentThread = KeGetCurrentThread();
-      Global = (KSPIN_LOCK *)DXGGLOBAL::GetGlobal();
-      v6 = DXGGLOBAL::SearchDxgThreadList(Global, CurrentThread);
-      if ( v6 )
-        goto LABEL_4;
-      WdLogSingleEntry1(2LL, 2923LL);
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Failed to find DXGPROCESS", 2923LL, 0LL, 0LL, 0LL, 0LL);
-    }
+    return v11;
   }
-  v6 = v5;
-  if ( !v5 )
+  else
   {
-    v12 = PsGetCurrentProcess(v4);
-    WdLogSingleEntry2(2LL, v12, -1073741811LL);
-    v14 = PsGetCurrentProcess(v13);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"unexpected process 0x%I64x returning 0x%I64x",
-      v14,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
+    v14 = WdLogNewEntry5_WdError(v8, v7);
+    v19 = PsGetCurrentProcess(v16, v15, v17, v18);
+    *(_QWORD *)(v14 + 32) = -1073741811LL;
+    *(_QWORD *)(v14 + 24) = v19;
+    WdLogEvent5_WdError(v14);
     return 3221225485LL;
   }
-LABEL_4:
-  v7 = DxgkSubmitCommandInternal(a1, v6);
-  if ( (int)(v7 + 0x80000000) >= 0
-    && v7 != -1073741130
-    && !g_DwmRenderDebugMode
-    && (*((_DWORD *)v6 + 106) & 4) != 0
-    && !KdRefreshDebuggerNotPresent() )
-  {
-    DbgPrintEx(
-      0x65u,
-      0,
-      "\n"
-      "An unexpected render failure 0x%x from DWM has been detected.\n"
-      "We broke into the debugger to allow a chance for debugging this issue.\n"
-      "To disable debug breaks for DWM render failures, run \"?? dxgmms2!g_DwmRenderDebugMode=1\" command,\n"
-      "or \"ed 0x%p 1\"\n"
-      "\n",
-      v7,
-      (const void *)&g_DwmRenderDebugMode);
-    __debugbreak();
-  }
-  return v7;
 }

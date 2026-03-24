@@ -1,74 +1,74 @@
 /*
- * XREFs of HalpQueryDebuggerInformation @ 0x140A710B8
+ * XREFs of HalpQueryDebuggerInformation @ 0x1409B54CC
  * Callers:
- *     HaliQuerySystemInformation @ 0x140A47990 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
  * Callees:
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
  */
 
 __int64 __fastcall HalpQueryDebuggerInformation(_DWORD *a1, unsigned int a2, unsigned int *a3)
 {
   __int64 *v3; // rbx
   int v4; // esi
-  __int64 v8; // rdx
-  __int64 v9; // rax
-  int v10; // r8d
-  char *v11; // rcx
-  unsigned int v12; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  int v11; // r8d
+  char *v12; // rcx
+  unsigned int v13; // eax
   unsigned int v14; // r9d
   int v15; // r8d
   unsigned int v16; // eax
   const wchar_t *v17; // r8
 
   *a3 = 4;
-  v3 = (__int64 *)qword_140C4A188;
+  v3 = (__int64 *)qword_140C48D68;
   v4 = 0;
-  if ( (__int64 *)qword_140C4A188 == &qword_140C4A188 )
+  if ( (__int64 *)qword_140C48D68 == &qword_140C48D68 )
     return 3221225473LL;
   do
   {
-    v8 = v3[2];
-    v9 = *a3;
-    v10 = *(_DWORD *)(v8 + 220);
-    v11 = (char *)a1 + v9;
-    if ( v10 )
+    v9 = v3[2];
+    v10 = *a3;
+    v11 = *(_DWORD *)(v9 + 220);
+    v12 = (char *)a1 + v10;
+    if ( v11 )
     {
-      if ( v10 != 1 )
+      if ( v11 != 1 )
         return 3221225473LL;
-      v14 = *(_DWORD *)(v8 + 232) + 2;
-      v15 = *(_DWORD *)(v8 + 232) + 22;
-      v16 = v15 + v9;
+      v14 = *(_DWORD *)(v9 + 232) + 2;
+      v15 = *(_DWORD *)(v9 + 232) + 22;
+      v16 = v15 + v10;
       *a3 = v16;
       if ( v16 <= a2 )
       {
-        *(_DWORD *)v11 = 1;
-        *((_DWORD *)v11 + 1) = v15;
-        *((_DWORD *)v11 + 2) = *(_DWORD *)(v8 + 232);
-        if ( *(_DWORD *)(v8 + 232) )
+        *(_DWORD *)v12 = 1;
+        *((_DWORD *)v12 + 1) = v15;
+        *((_DWORD *)v12 + 2) = *(_DWORD *)(v9 + 232);
+        if ( *(_DWORD *)(v9 + 232) )
         {
-          v17 = *(const wchar_t **)(v8 + 224);
+          v17 = *(const wchar_t **)(v9 + 224);
           if ( v17 )
-            wcscpy_s((wchar_t *)v11 + 6, (unsigned __int64)v14 >> 1, v17);
+            wcscpy_s((wchar_t *)v12 + 6, (unsigned __int64)v14 >> 1, v17);
         }
       }
     }
     else
     {
-      v12 = v9 + 20;
-      *a3 = v12;
-      if ( v12 <= a2 )
+      v13 = v10 + 20;
+      *a3 = v13;
+      if ( v13 <= a2 )
       {
-        *(_DWORD *)v11 = 0;
-        *((_DWORD *)v11 + 1) = 20;
-        *((_DWORD *)v11 + 3) = *(_DWORD *)v8;
-        *((_DWORD *)v11 + 4) = *(_DWORD *)(v8 + 4);
-        *((_WORD *)v11 + 4) = *(_WORD *)(v8 + 8);
+        *(_DWORD *)v12 = 0;
+        *((_DWORD *)v12 + 1) = 20;
+        *((_DWORD *)v12 + 3) = *(_DWORD *)v9;
+        *((_DWORD *)v12 + 4) = *(_DWORD *)(v9 + 4);
+        *((_WORD *)v12 + 4) = *(_WORD *)(v9 + 8);
       }
     }
     v3 = (__int64 *)*v3;
     ++v4;
   }
-  while ( v3 != &qword_140C4A188 );
+  while ( v3 != &qword_140C48D68 );
   if ( !v4 )
     return 3221225473LL;
   if ( *a3 > a2 )

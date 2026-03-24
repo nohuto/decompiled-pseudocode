@@ -1,88 +1,104 @@
 /*
- * XREFs of CleanupGDI @ 0x1C00514B8
+ * XREFs of CleanupGDI @ 0x1C000763C
  * Callers:
- *     CleanupResources @ 0x1C00522CC (CleanupResources.c)
+ *     CleanupResources @ 0x1C000716C (CleanupResources.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     HmgShareLockCheck @ 0x1C0020DC0 (HmgShareLockCheck.c)
- *     GreDeleteObject @ 0x1C0023690 (GreDeleteObject.c)
- *     HmgSetOwner @ 0x1C0028640 (HmgSetOwner.c)
- *     GreGetStockObject @ 0x1C002E9B0 (GreGetStockObject.c)
- *     DestroyMonitor @ 0x1C0050630 (DestroyMonitor.c)
- *     ?DestroyFont@@YAXPEAPEAUHFONT__@@@Z @ 0x1C0051830 (-DestroyFont@@YAXPEAPEAUHFONT__@@@Z.c)
- *     ?DestroyRegion@@YAXPEAPEAUHRGN__@@@Z @ 0x1C0051858 (-DestroyRegion@@YAXPEAPEAUHRGN__@@@Z.c)
- *     ?DestroyDC@@YAXPEAPEAUHDC__@@@Z @ 0x1C005188C (-DestroyDC@@YAXPEAPEAUHDC__@@@Z.c)
- *     ?DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z @ 0x1C0051938 (-DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z.c)
- *     DelayedDestroyCacheDC @ 0x1C005197C (DelayedDestroyCacheDC.c)
- *     DestroyCacheDCEntries @ 0x1C0051A48 (DestroyCacheDCEntries.c)
- *     DrvCleanupAndDestroyMDEV @ 0x1C0052138 (DrvCleanupAndDestroyMDEV.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     hbmSelectBitmap @ 0x1C009A990 (hbmSelectBitmap.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C016C500 (--0SURFREF@@QEAA@XZ.c)
+ *     DelayedDestroyCacheDC @ 0x1C000737C (DelayedDestroyCacheDC.c)
+ *     DestroyCacheDCEntries @ 0x1C0007448 (DestroyCacheDCEntries.c)
+ *     ?DestroyFont@@YAXPEAPEAUHFONT__@@@Z @ 0x1C00079BC (-DestroyFont@@YAXPEAPEAUHFONT__@@@Z.c)
+ *     ?DestroyRegion@@YAXPEAPEAUHRGN__@@@Z @ 0x1C00079E4 (-DestroyRegion@@YAXPEAPEAUHRGN__@@@Z.c)
+ *     ?DestroyDC@@YAXPEAPEAUHDC__@@@Z @ 0x1C0007A18 (-DestroyDC@@YAXPEAPEAUHDC__@@@Z.c)
+ *     DestroyMonitor @ 0x1C0007AD0 (DestroyMonitor.c)
+ *     ?DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z @ 0x1C000A650 (-DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z.c)
+ *     DrvCleanupAndDestroyMDEV @ 0x1C000A95C (DrvCleanupAndDestroyMDEV.c)
+ *     GreGetStockObject @ 0x1C002AB20 (GreGetStockObject.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
+ *     HmgShareLockCheck @ 0x1C002DBE0 (HmgShareLockCheck.c)
+ *     HmgSetOwner @ 0x1C0035470 (HmgSetOwner.c)
+ *     GreDeleteObject @ 0x1C0038500 (GreDeleteObject.c)
+ *     hbmSelectBitmap @ 0x1C00911B0 (hbmSelectBitmap.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C013F6E4 (--0SURFREF@@QEAA@XZ.c)
  */
 
-PVOID CleanupGDI()
+__int64 CleanupGDI()
 {
-  HRGN *v0; // rdi
-  __int64 v1; // rbx
-  __int64 v2; // rbx
-  __int64 v3; // rdi
-  void *v4; // rdx
-  PVOID result; // rax
-  __int64 v6; // rcx
-  __int64 v7; // rbx
-  HBITMAP StockObject; // rax
-  _BYTE v9[32]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v10; // [rsp+40h] [rbp-18h]
+  int v0; // ebx
+  __int64 v1; // rsi
+  __int64 v2; // rdi
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  int v5; // eax
+  __int64 v6; // rdi
+  __int64 v7; // rsi
+  __int64 result; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rbx
+  int v11; // eax
+  _BYTE v12[32]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v13; // [rsp+40h] [rbp-18h]
 
-  DestroyDC((HDC *)gpDispInfo + 7);
-  DestroyDC((HDC *)gpDispInfo + 8);
-  DestroyDC((HDC *)gpDispInfo + 9);
+  DestroyDC((HDC *)(gpDispInfo + 56));
+  DestroyDC((HDC *)(gpDispInfo + 64));
+  DestroyDC((HDC *)(gpDispInfo + 72));
   DestroyDC(&ghdcMem);
   DestroyDC(&ghdcMem2);
-  if ( gfade && qword_1C029B990 && (int)qword_1C029B990() >= 0 && qword_1C029B998 )
-    qword_1C029B998();
-  DestroyDC(&qword_1C02971D8);
-  if ( qword_1C0297290 )
+  v0 = -1073741637;
+  if ( gfade )
   {
-    StockObject = (HBITMAP)GreGetStockObject(21);
-    hbmSelectBitmap(qword_1C0297298, StockObject, 0, 0);
-    GreDeleteObject((HRGN)qword_1C0297290);
-    qword_1C0297290 = 0LL;
+    v11 = qword_1C0256C20 ? qword_1C0256C20() : -1073741637;
+    if ( v11 >= 0 && qword_1C0256C28 )
+      qword_1C0256C28();
   }
-  DestroyDC(&qword_1C0297298);
-  DestroyCacheDCEntries(gptiCurrent);
+  DestroyDC(&qword_1C0252418);
+  if ( qword_1C0253CA0 )
+  {
+    GreGetStockObject(21LL);
+    hbmSelectBitmap(qword_1C0253CA8);
+    GreDeleteObject(qword_1C0253CA0);
+    qword_1C0253CA0 = 0LL;
+  }
+  DestroyDC(&qword_1C0253CA8);
+  DestroyCacheDCEntries((__int64)gptiCurrent);
   DestroyCacheDCEntries(0LL);
-  DelayedDestroyCacheDC(1LL);
-  v0 = (HRGN *)gpDispInfo;
-  v1 = *((_QWORD *)gpDispInfo + 10);
-  if ( v1 )
+  DelayedDestroyCacheDC(1);
+  v1 = gpDispInfo;
+  v2 = *(_QWORD *)(gpDispInfo + 80);
+  if ( v2 )
   {
-    SURFREF::SURFREF((SURFREF *)v9);
-    v10 = HmgShareLockCheck(v1, 5);
-    if ( v10 && (v1 & 0x800000) == 0 )
-      HmgSetOwner(v1, 0x80000002, 5);
-    SURFREF::~SURFREF((SURFREF *)v9);
-    GreDeleteObject(v0[10]);
-    v0[10] = 0LL;
+    SURFREF::SURFREF((SURFREF *)v12);
+    LOBYTE(v3) = 5;
+    v13 = HmgShareLockCheck(v2, v3);
+    if ( v13 && (v2 & 0x800000) == 0 )
+    {
+      LOBYTE(v4) = 5;
+      HmgSetOwner(v2, 2147483650LL, v4);
+    }
+    SURFREF::~SURFREF((SURFREF *)v12);
+    GreDeleteObject(*(HBRUSH *)(v1 + 80));
+    *(_QWORD *)(v1 + 80) = 0LL;
   }
-  if ( qword_1C029B9C0 && (int)qword_1C029B9C0() >= 0 && qword_1C029B9C8 )
-    qword_1C029B9C8();
+  if ( qword_1C0256C50 )
+    v5 = qword_1C0256C50();
+  else
+    v5 = -1073741637;
+  if ( v5 >= 0 && qword_1C0256C58 )
+    qword_1C0256C58();
   DestroyFont(&ghbrHungApp);
   DestroyFont((HFONT *)gpsi + 618);
   DestroyFont(&ghbrWhite);
   DestroyFont(&ghbrBlack);
-  v2 = 4696LL;
-  v3 = 31LL;
+  v6 = 4696LL;
+  v7 = 31LL;
   do
   {
-    DestroyFont((HFONT *)((char *)gpsi + v2));
-    v2 += 8LL;
-    --v3;
+    DestroyFont((HFONT *)((char *)gpsi + v6));
+    v6 += 8LL;
+    --v7;
   }
-  while ( v3 );
-  DestroyRegion((HRGN *)gpDispInfo + 15);
+  while ( v7 );
+  DestroyRegion((HRGN *)(gpDispInfo + 120));
   DestroyRegion(&ghrgnInvalidSum);
   DestroyRegion(&ghrgnVisNew);
   DestroyRegion(&ghrgnSWP1);
@@ -107,39 +123,37 @@ PVOID CleanupGDI()
   DestroyAllDPIMETRICSFonts(&g96DpiMetrics);
   if ( g_pWallpaperSettings )
   {
-    if ( qword_1C029B9A0 && (int)qword_1C029B9A0() >= 0 && qword_1C029B9A8 )
-      qword_1C029B9A8(g_pWallpaperSettings);
+    if ( qword_1C0256C30 )
+      v0 = qword_1C0256C30();
+    if ( v0 >= 0 && qword_1C0256C38 )
+      qword_1C0256C38(g_pWallpaperSettings);
     g_pWallpaperSettings = 0LL;
   }
   if ( g_hbmDesktopPattern )
   {
-    GreDeleteObject((HRGN)g_hbmDesktopPattern);
+    GreDeleteObject(g_hbmDesktopPattern);
     g_hbmDesktopPattern = 0LL;
   }
-  if ( *((_QWORD *)gpDispInfo + 2) )
+  if ( *(_QWORD *)(gpDispInfo + 16) )
   {
     DrvCleanupAndDestroyMDEV();
-    v4 = (void *)*((_QWORD *)gpDispInfo + 2);
-    if ( v4 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        v4);
-    *((_QWORD *)gpDispInfo + 2) = 0LL;
-    *((_QWORD *)gpDispInfo + 5) = 0LL;
+    Win32FreePool(*(_QWORD *)(gpDispInfo + 16));
+    *(_QWORD *)(gpDispInfo + 16) = 0LL;
+    *(_QWORD *)(gpDispInfo + 40) = 0LL;
   }
   result = gpDispInfo;
-  v6 = *((_QWORD *)gpDispInfo + 13);
-  if ( v6 )
+  v9 = *(_QWORD *)(gpDispInfo + 104);
+  if ( v9 )
   {
     do
     {
-      v7 = *(_QWORD *)(v6 + 56);
-      result = (PVOID)DestroyMonitor((struct tagMONITOR *)v6);
-      v6 = v7;
+      v10 = *(_QWORD *)(v9 + 56);
+      result = DestroyMonitor((struct tagMONITOR *)v9);
+      v9 = v10;
     }
-    while ( v7 );
+    while ( v10 );
   }
   if ( gpMonitorCached )
-    return (PVOID)DestroyMonitor(gpMonitorCached);
+    return DestroyMonitor(gpMonitorCached);
   return result;
 }

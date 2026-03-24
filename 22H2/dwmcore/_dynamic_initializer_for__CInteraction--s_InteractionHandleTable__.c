@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CInteraction::s_InteractionHandleTable__ @ 0x1800015A0
+ * XREFs of _dynamic_initializer_for__CInteraction::s_InteractionHandleTable__ @ 0x180002200
  * Callers:
  *     <none>
  * Callees:

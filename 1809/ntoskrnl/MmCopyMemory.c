@@ -1,5 +1,5 @@
 /*
- * XREFs of MmCopyMemory @ 0x1400EA850
+ * XREFs of MmCopyMemory @ 0x1400EA870
  * Callers:
  *     <none>
  * Callees:
@@ -8,14 +8,14 @@
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiGetSessionVm @ 0x1400E943C (MiGetSessionVm.c)
- *     MiTranslatePageForCopy @ 0x1400E9C10 (MiTranslatePageForCopy.c)
- *     MiPrefetchVirtualMemory @ 0x1400EA120 (MiPrefetchVirtualMemory.c)
- *     MiCopySinglePage @ 0x1400EA608 (MiCopySinglePage.c)
- *     MiUnlockSystemVa @ 0x1400ECDA4 (MiUnlockSystemVa.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwReadVirtualMemory @ 0x1401B8950 (ZwReadVirtualMemory.c)
- *     MiCheckPhysicalAddressRange @ 0x1402BA38C (MiCheckPhysicalAddressRange.c)
+ *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
+ *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
+ *     MiPrefetchVirtualMemory @ 0x1400EA140 (MiPrefetchVirtualMemory.c)
+ *     MiCopySinglePage @ 0x1400EA628 (MiCopySinglePage.c)
+ *     MiUnlockSystemVa @ 0x1400ECDC4 (MiUnlockSystemVa.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwReadVirtualMemory @ 0x1401B8970 (ZwReadVirtualMemory.c)
+ *     MiCheckPhysicalAddressRange @ 0x1402BA48C (MiCheckPhysicalAddressRange.c)
  */
 
 NTSTATUS __fastcall MmCopyMemory(char *Buffer, char *a2, SIZE_T NumberOfBytesToRead, int a4, PSIZE_T NumberOfBytesRead)

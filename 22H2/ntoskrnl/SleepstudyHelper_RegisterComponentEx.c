@@ -1,12 +1,12 @@
 /*
- * XREFs of SleepstudyHelper_RegisterComponentEx @ 0x1408512B0
+ * XREFs of SleepstudyHelper_RegisterComponentEx @ 0x1408FB4B0
  * Callers:
  *     <none>
  * Callees:
- *     SleepstudyHelperCreateBlockerFromGuid @ 0x1402099A0 (SleepstudyHelperCreateBlockerFromGuid.c)
- *     SleepstudyHelperDestroyBlocker @ 0x1403B4A80 (SleepstudyHelperDestroyBlocker.c)
- *     SleepstudyHelperBuildBlocker @ 0x1407A8670 (SleepstudyHelperBuildBlocker.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407A8840 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x140325750 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperDestroyBlocker @ 0x140580A70 (SleepstudyHelperDestroyBlocker.c)
+ *     SleepstudyHelperBuildBlocker @ 0x14069A960 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x14069AB20 (SleepstudyHelperDestroyBlockerBuilder.c)
  */
 
 __int64 __fastcall SleepstudyHelper_RegisterComponentEx(
@@ -17,12 +17,12 @@ __int64 __fastcall SleepstudyHelper_RegisterComponentEx(
         KSPIN_LOCK **a5)
 {
   KSPIN_LOCK *v5; // rsi
-  __int64 *v6; // rbx
+  ULONG_PTR *v6; // rbx
   KSPIN_LOCK **v7; // r14
   __int128 v8; // xmm1
   int v9; // eax
   int v10; // edi
-  __int64 *v12; // [rsp+30h] [rbp-30h] BYREF
+  ULONG_PTR *v12; // [rsp+30h] [rbp-30h] BYREF
   __int128 v13; // [rsp+38h] [rbp-28h] BYREF
   __int128 v14; // [rsp+48h] [rbp-18h] BYREF
   KSPIN_LOCK *v15; // [rsp+80h] [rbp+20h] BYREF
@@ -36,7 +36,7 @@ __int64 __fastcall SleepstudyHelper_RegisterComponentEx(
     v8 = *a3;
     v14 = *a2;
     v13 = v8;
-    v9 = SleepstudyHelperCreateBlockerFromGuid(a1, &v14, &v13, a4, 0, (__int64 *)&v12);
+    v9 = SleepstudyHelperCreateBlockerFromGuid(a1, &v14, &v13, a4, 0, &v12);
     v6 = v12;
     v10 = v9;
     if ( v9 >= 0 )

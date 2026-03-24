@@ -1,75 +1,86 @@
 /*
- * XREFs of SmcStorePlacementGet @ 0x1409DB718
+ * XREFs of SmcStorePlacementGet @ 0x14092DFA8
  * Callers:
- *     SmcStoreResize @ 0x1409DB824 (SmcStoreResize.c)
- *     SmcStoreSlotReserve @ 0x1409DBBF4 (SmcStoreSlotReserve.c)
+ *     SmcStoreResize @ 0x14092E0C8 (SmcStoreResize.c)
+ *     SmcStoreSlotReserve @ 0x14092E4B0 (SmcStoreSlotReserve.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     RtlFindSetBits @ 0x1402967D0 (RtlFindSetBits.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     RtlFindSetBits @ 0x1402D8000 (RtlFindSetBits.c)
  */
 
 __int64 __fastcall SmcStorePlacementGet(__int64 a1, ULONG a2, __int64 a3)
 {
   unsigned int v3; // edi
-  unsigned __int64 v5; // rdx
-  unsigned __int64 v6; // rbx
-  unsigned __int64 v7; // r9
-  _DWORD *v9; // rcx
+  unsigned __int64 v6; // r11
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rsi
+  _DWORD *v9; // rdx
   _DWORD *v10; // r8
-  _DWORD *v11; // r10
+  unsigned __int64 v11; // r10
+  unsigned __int64 v12; // r9
   ULONG SetBits; // eax
-  ULONG v13; // ebx
-  signed int v14; // ebx
-  int v15; // esi
-  signed int v16; // eax
+  ULONG v14; // ebx
+  signed int v15; // ebx
+  int v16; // esi
+  signed int v17; // eax
   RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = 0;
   BitMapHeader.SizeOfBitMap = *(_DWORD *)(a1 + 8);
   *(&BitMapHeader.SizeOfBitMap + 1) = 0;
-  v5 = a1 + 168;
-  v6 = a1 + 552;
+  v6 = ((unsigned __int64)BitMapHeader.SizeOfBitMap + 31) >> 5;
+  v7 = a1 + 168;
   BitMapHeader.Buffer = *(unsigned int **)(a3 + 8);
-  v7 = ((unsigned __int64)BitMapHeader.SizeOfBitMap + 31) >> 5;
-  while ( v5 < v6 )
+  v8 = v7 + 384;
+  while ( v7 < v8 )
   {
-    if ( v5 != a3 )
+    if ( v7 != a3 )
     {
-      v9 = *(_DWORD **)(v5 + 8);
+      v9 = *(_DWORD **)(v7 + 8);
       if ( v9 )
       {
         v10 = *(_DWORD **)(a3 + 8);
-        v11 = &v9[v7];
-        while ( v9 < v11 )
-          *v10++ ^= *v9++;
+        v11 = v6;
+        v12 = 0LL;
+        if ( v9 > &v9[v6] )
+          v11 = 0LL;
+        if ( v11 )
+        {
+          do
+          {
+            ++v12;
+            *v10++ ^= *v9++;
+          }
+          while ( v12 < v11 );
+        }
       }
     }
-    v5 += 24LL;
+    v7 += 24LL;
   }
   SetBits = RtlFindSetBits(&BitMapHeader, a2, 0);
-  v13 = SetBits;
+  v14 = SetBits;
   if ( SetBits == -1 )
   {
-    v15 = 0;
-    v16 = RtlFindSetBits(&BitMapHeader, 1u, 0);
-    if ( v16 < 0 )
+    v16 = 0;
+    v17 = RtlFindSetBits(&BitMapHeader, 1u, 0);
+    if ( v17 < 0 )
       return (unsigned int)-1073741697;
     while ( 1 )
     {
-      ++v15;
-      v14 = v16 + 1;
-      if ( v15 == a2 )
+      ++v16;
+      v15 = v17 + 1;
+      if ( v16 == a2 )
         break;
-      v16 = RtlFindSetBits(&BitMapHeader, 1u, v14);
-      if ( v16 < v14 )
+      v17 = RtlFindSetBits(&BitMapHeader, 1u, v15);
+      if ( v17 < v15 )
         return (unsigned int)-1073741697;
     }
   }
   else
   {
     RtlClearBits(&BitMapHeader, 0, SetBits);
-    v14 = a2 + v13;
+    v15 = a2 + v14;
   }
-  RtlClearBits(&BitMapHeader, v14, BitMapHeader.SizeOfBitMap - v14);
+  RtlClearBits(&BitMapHeader, v15, BitMapHeader.SizeOfBitMap - v15);
   return v3;
 }

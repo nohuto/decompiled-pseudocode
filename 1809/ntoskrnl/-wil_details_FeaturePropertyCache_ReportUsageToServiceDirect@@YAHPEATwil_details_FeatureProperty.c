@@ -1,16 +1,16 @@
 /*
- * XREFs of ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4E4C
+ * XREFs of ?wil_details_FeaturePropertyCache_ReportUsageToServiceDirect@@YAHPEATwil_details_FeaturePropertyCache@@IW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1400A4E6C
  * Callers:
  *     WbValidateEncryptionSegmentArguments @ 0x1405842C0 (WbValidateEncryptionSegmentArguments.c)
  *     WbDecryptWarbirdEncryptionSegment @ 0x1405844AC (WbDecryptWarbirdEncryptionSegment.c)
  *     WbReEncryptWarbirdEncryptionSegment @ 0x1405847A8 (WbReEncryptWarbirdEncryptionSegment.c)
  *     WbInitializeEncryptionSegment @ 0x140584B2C (WbInitializeEncryptionSegment.c)
  *     WbValidateHeapExecuteCallArguments @ 0x14062415C (WbValidateHeapExecuteCallArguments.c)
- *     sub_1406901F0 @ 0x1406901F0 (sub_1406901F0.c)
+ *     sub_1406901D0 @ 0x1406901D0 (sub_1406901D0.c)
  * Callees:
- *     ?wil_details_RecordUsageInPropertyCache@@YA?AUwil_details_RecordUsageResult@@PEATwil_details_FeaturePropertyCache@@W4wil_details_ServiceReportingKind@@II@Z @ 0x1400A4EC8 (-wil_details_RecordUsageInPropertyCache@@YA-AUwil_details_RecordUsageResult@@PEATwil_details_Fea.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ?wil_details_RecordUsageInPropertyCache@@YA?AUwil_details_RecordUsageResult@@PEATwil_details_FeaturePropertyCache@@W4wil_details_ServiceReportingKind@@II@Z @ 0x1400A4EE8 (-wil_details_RecordUsageInPropertyCache@@YA-AUwil_details_RecordUsageResult@@PEATwil_details_Fea.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall wil_details_FeaturePropertyCache_ReportUsageToServiceDirect(__int64 a1, __int64 a2, unsigned int a3)

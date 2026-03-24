@@ -1,12 +1,12 @@
 /*
- * XREFs of IopAllocateGenericTableEntry @ 0x140933B80
+ * XREFs of IopAllocateGenericTableEntry @ 0x140890E30
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IopAllocateGenericTableEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+PVOID __fastcall IopAllocateGenericTableEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
 {
-  return ExAllocatePool2(256LL, ByteSize, 1700032329LL);
+  return ExAllocatePoolWithTag(PagedPool, ByteSize, 0x65546F49u);
 }

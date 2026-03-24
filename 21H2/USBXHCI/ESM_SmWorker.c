@@ -1,13 +1,13 @@
 /*
- * XREFs of ESM_SmWorker @ 0x1C004F1F0
+ * XREFs of ESM_SmWorker @ 0x1C004E770
  * Callers:
  *     <none>
  * Callees:
- *     ESM_RunStateMachine @ 0x1C000529C (ESM_RunStateMachine.c)
- *     ESM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C00057C8 (ESM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState.c)
- *     Controller_RaiseAndTrackIrql @ 0x1C0005C20 (Controller_RaiseAndTrackIrql.c)
- *     Controller_LowerAndTrackIrql @ 0x1C0005CB4 (Controller_LowerAndTrackIrql.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00052C8 (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0005358 (Controller_RaiseAndTrackIrql.c)
+ *     ESM_RunStateMachine @ 0x1C0008980 (ESM_RunStateMachine.c)
+ *     ESM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C0008D48 (ESM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ESM_SmWorker(PDEVICE_OBJECT DeviceObject, _QWORD *Context)

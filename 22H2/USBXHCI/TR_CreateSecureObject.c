@@ -1,25 +1,22 @@
 /*
- * XREFs of TR_CreateSecureObject @ 0x1C004129C
+ * XREFs of TR_CreateSecureObject @ 0x1C003EDAC
  * Callers:
- *     TR_Create @ 0x1C006DE38 (TR_Create.c)
+ *     TR_Create @ 0x1C006AD7C (TR_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     CommonBuffer_ReleaseBuffer @ 0x1C001E7A4 (CommonBuffer_ReleaseBuffer.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     CommonBuffer_AcquireShadowBuffer @ 0x1C003219C (CommonBuffer_AcquireShadowBuffer.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     XilEndpoint_GetRemoteHandle @ 0x1C00390BC (XilEndpoint_GetRemoteHandle.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     CommonBuffer_AcquireShadowBuffer @ 0x1C003062C (CommonBuffer_AcquireShadowBuffer.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     XilEndpoint_GetRemoteHandle @ 0x1C0037620 (XilEndpoint_GetRemoteHandle.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
-__int64 __fastcall TR_CreateSecureObject(__int64 a1)
+__int64 __fastcall TR_CreateSecureObject(__int64 a1, int a2, int a3, int a4)
 {
-  __int64 v1; // rax
-  int v3; // edx
-  int v4; // r8d
-  int v5; // r9d
-  __int64 v6; // r14
+  __int64 v4; // rax
+  __int64 v6; // r15
   _QWORD *v7; // rdi
   int v8; // esi
   __int64 v9; // rcx
@@ -32,71 +29,77 @@ __int64 __fastcall TR_CreateSecureObject(__int64 a1)
   int v16; // edx
   int v17; // r8d
   int v18; // r9d
-  _QWORD *v20; // rcx
-  __int128 v21; // [rsp+48h] [rbp-31h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-21h]
+  _QWORD *v19; // rcx
+  __int128 v21; // [rsp+40h] [rbp-39h] BYREF
+  __int64 v22; // [rsp+50h] [rbp-29h]
   _QWORD v23[8]; // [rsp+60h] [rbp-19h] BYREF
 
-  LODWORD(v22) = 0;
-  v1 = *(_QWORD *)(a1 + 40);
+  v22 = 0LL;
+  v4 = *(_QWORD *)(a1 + 40);
   v21 = 0LL;
-  if ( *(_BYTE *)(v1 + 601) && KeGetCurrentIrql() )
+  if ( *(_BYTE *)(v4 + 553) && KeGetCurrentIrql() )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v3, v4, v5);
+      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, a2, a3, a4);
     if ( !KdRefreshDebuggerNotPresent() )
       __debugbreak();
   }
   v6 = *(_QWORD *)(*(_QWORD *)(a1 + 40) + 120LL);
-  v7 = (_QWORD *)CommonBuffer_AcquireShadowBuffer(*(_DWORD *)(a1 + 20), a1, 828862034);
-  if ( !v7 )
-    return (unsigned int)-1073741670;
-  memset(v23, 0, sizeof(v23));
-  v9 = *(_QWORD *)(a1 + 56);
-  LODWORD(v23[4]) = 39;
-  RemoteHandle = XilEndpoint_GetRemoteHandle(v9, v10, v11, v12);
-  v14 = *(_QWORD *)(a1 + 40);
-  v23[5] = RemoteHandle;
-  LODWORD(v23[6]) = *(_DWORD *)(a1 + 64);
-  HIDWORD(v23[6]) = *(_DWORD *)(a1 + 20);
-  LOBYTE(v23[7]) = (*(_QWORD *)(v14 + 336) & 0x4000000000000LL) != 0;
-  v8 = SecureChannel_SendRequestSynchronously(*(_QWORD *)(v14 + 112), v23, 64LL, &v21, 24);
-  if ( v8 < 0 )
+  v7 = CommonBuffer_AcquireShadowBuffer(*(_DWORD *)(a1 + 20), a1, 828862034);
+  if ( v7 )
   {
-LABEL_16:
-    CommonBuffer_ReleaseBuffer(v6, (__int64)v7);
-    return (unsigned int)v8;
-  }
-  if ( (int)v21 < 0 )
-  {
-    v8 = v21;
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    memset(v23, 0, sizeof(v23));
+    v9 = *(_QWORD *)(a1 + 56);
+    LODWORD(v23[4]) = 39;
+    RemoteHandle = XilEndpoint_GetRemoteHandle(v9, v10, v11, v12);
+    v14 = *(_QWORD *)(a1 + 40);
+    v23[5] = RemoteHandle;
+    LODWORD(v23[6]) = *(_DWORD *)(a1 + 64);
+    HIDWORD(v23[6]) = *(_DWORD *)(a1 + 20);
+    LOBYTE(v23[7]) = (*(_QWORD *)(v14 + 336) & 0x4000000000000LL) != 0;
+    v8 = SecureChannel_SendRequestSynchronously(*(_QWORD *)(v14 + 112), v23, 64LL, &v21, 24);
+    if ( v8 < 0 )
+      goto LABEL_20;
+    if ( (int)v21 >= 0 )
     {
-      LOBYTE(v15) = 2;
-      WPP_RECORDER_SF_d(
-        *(_QWORD *)(*(_QWORD *)(a1 + 40) + 72LL),
-        v15,
-        14,
-        24,
-        (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids,
-        v21);
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v16, v17, v18);
+      *(_QWORD *)(a1 + 288) = *((_QWORD *)&v21 + 1);
+      v7[3] = v22;
+      *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
+      v19 = *(_QWORD **)(a1 + 216);
+      if ( *v19 != a1 + 208 )
+        __fastfail(3u);
+      v7[1] = v19;
+      *v7 = a1 + 208;
+      *v19 = v7;
+      *(_QWORD *)(a1 + 216) = v7;
+      KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), *(_BYTE *)(a1 + 104));
     }
-    if ( !KdRefreshDebuggerNotPresent() )
-      __debugbreak();
-    goto LABEL_16;
+    else
+    {
+      v8 = v21;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v15) = 2;
+        WPP_RECORDER_SF_d(
+          *(_QWORD *)(*(_QWORD *)(a1 + 40) + 72LL),
+          v15,
+          14,
+          24,
+          (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
+          v21);
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v16, v17, v18);
+      }
+      if ( !KdRefreshDebuggerNotPresent() )
+        __debugbreak();
+    }
+    if ( v8 < 0 )
+LABEL_20:
+      CommonBuffer_ReleaseBuffer(v6, (__int64)v7);
   }
-  *(_QWORD *)(a1 + 288) = *((_QWORD *)&v21 + 1);
-  v7[3] = v22;
-  *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
-  v20 = *(_QWORD **)(a1 + 216);
-  if ( *v20 != a1 + 208 )
-    __fastfail(3u);
-  v7[1] = v20;
-  *v7 = a1 + 208;
-  *v20 = v7;
-  *(_QWORD *)(a1 + 216) = v7;
-  KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), *(_BYTE *)(a1 + 104));
+  else
+  {
+    return (unsigned int)-1073741670;
+  }
   return (unsigned int)v8;
 }

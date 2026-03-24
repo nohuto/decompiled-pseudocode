@@ -1,10 +1,10 @@
 /*
- * XREFs of BcdInitializeBcdSyncMutant @ 0x140B76138
+ * XREFs of BcdInitializeBcdSyncMutant @ 0x140A73808
  * Callers:
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateMutant @ 0x14041BDA0 (ZwCreateMutant.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateMutant @ 0x1403FB0A0 (ZwCreateMutant.c)
  */
 
 int BcdInitializeBcdSyncMutant()

@@ -1,10 +1,10 @@
 /*
- * XREFs of IsPointerInputRedirected @ 0x1C015368A
+ * XREFs of IsPointerInputRedirected @ 0x1C01F1D94
  * Callers:
- *     EditionIsPointerInputRedirected @ 0x1C01535D0 (EditionIsPointerInputRedirected.c)
- *     IsPointerInputTypeRedirected @ 0x1C0153720 (IsPointerInputTypeRedirected.c)
+ *     EditionIsPointerInputRedirected @ 0x1C01F1BA0 (EditionIsPointerInputRedirected.c)
+ *     IsPointerInputTypeRedirected @ 0x1C01F1E30 (IsPointerInputTypeRedirected.c)
  * Callees:
- *     UpdatePointerRedirIsAlive @ 0x1C006D138 (UpdatePointerRedirIsAlive.c)
+ *     UpdatePointerRedirIsAlive @ 0x1C007C19C (UpdatePointerRedirIsAlive.c)
  */
 
 __int64 __fastcall IsPointerInputRedirected(__int64 a1, __int64 a2, int a3, _QWORD *a4)

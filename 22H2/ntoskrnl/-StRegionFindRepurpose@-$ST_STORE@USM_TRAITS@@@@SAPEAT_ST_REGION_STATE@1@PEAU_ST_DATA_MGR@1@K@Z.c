@@ -1,20 +1,20 @@
 /*
- * XREFs of ?StRegionFindRepurpose@?$ST_STORE@USM_TRAITS@@@@SAPEAT_ST_REGION_STATE@1@PEAU_ST_DATA_MGR@1@K@Z @ 0x1405C92A8
+ * XREFs of ?StRegionFindRepurpose@?$ST_STORE@USM_TRAITS@@@@SAPEAT_ST_REGION_STATE@1@PEAU_ST_DATA_MGR@1@K@Z @ 0x14059CBF8
  * Callers:
- *     ?StDmRegionRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z @ 0x1405C7588 (-StDmRegionRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z.c)
+ *     ?StDmRegionRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z @ 0x14059C360 (-StDmRegionRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z.c)
  * Callees:
  *     <none>
  */
 
 _WORD *__fastcall ST_STORE<SM_TRAITS>::StRegionFindRepurpose(__int64 a1, int a2)
 {
-  __int16 v2; // ax
-  __int64 v3; // r9
-  unsigned int v4; // edi
-  _WORD *v5; // r8
-  __int64 v6; // r14
-  char *v7; // rsi
-  __int64 v8; // r15
+  __int64 v2; // r9
+  unsigned int v3; // edi
+  _WORD *v4; // r8
+  __int64 v5; // r15
+  char *v6; // r14
+  __int64 v7; // rbp
+  __int16 v8; // ax
   int v9; // edx
   unsigned __int16 v10; // r10
   unsigned __int16 v11; // r10
@@ -22,46 +22,46 @@ _WORD *__fastcall ST_STORE<SM_TRAITS>::StRegionFindRepurpose(__int64 a1, int a2)
   _WORD v14[28]; // [rsp+0h] [rbp-38h] BYREF
   char v15; // [rsp+48h] [rbp+10h] BYREF
 
-  v2 = *(_WORD *)(a1 + 816);
-  LODWORD(v3) = a2 - 1;
-  v4 = *(_DWORD *)(a1 + 856);
-  v5 = v14;
-  v6 = *(_QWORD *)(a1 + 1032);
-  v7 = &v15;
-  v8 = *(_QWORD *)(a1 + 1048);
+  LODWORD(v2) = a2 - 1;
+  v3 = *(_DWORD *)(a1 + 856);
+  v4 = v14;
+  v5 = *(_QWORD *)(a1 + 1032);
+  v6 = &v15;
+  v7 = *(_QWORD *)(a1 + 1048);
+  v8 = *(_WORD *)(a1 + 816) & 0x1FFF;
   v15 = -1;
   v9 = 0;
-  v14[0] = v2 & 0x1FFF;
-  if ( !v4 )
+  v14[0] = v8;
+  if ( !v3 )
     return 0LL;
   while ( 1 )
   {
-    v3 = (unsigned int)(v3 + 1);
-    if ( (_DWORD)v3 != *(_DWORD *)(a1 + 788) )
+    v2 = (unsigned int)(v2 + 1);
+    if ( (_DWORD)v2 != *(_DWORD *)(a1 + 788) )
       break;
-    LODWORD(v3) = -1;
+    LODWORD(v2) = -1;
     --v9;
 LABEL_10:
-    if ( ++v9 >= v4 )
+    if ( ++v9 >= v3 )
       goto LABEL_13;
   }
-  v10 = *(_WORD *)(v6 + 2 * v3);
+  v10 = *(_WORD *)(v5 + 2 * v2);
   if ( v10 >= 0x4000u )
     goto LABEL_10;
   v11 = v10 & 0x1FFF;
   if ( v11 )
   {
-    v12 = *(_BYTE *)(v3 + v8);
-    if ( v12 <= (unsigned __int8)*v7 && (v12 < (unsigned __int8)*v7 || v11 <= (unsigned __int16)(*v5 & 0x1FFF)) )
+    v12 = *(_BYTE *)(v2 + v7);
+    if ( v12 <= (unsigned __int8)*v6 && (v12 < (unsigned __int8)*v6 || v11 <= (unsigned __int16)(*v4 & 0x1FFF)) )
     {
-      v7 = (char *)(v3 + v8);
-      v5 = (_WORD *)(v6 + 2 * v3);
+      v6 = (char *)(v2 + v7);
+      v4 = (_WORD *)(v5 + 2 * v2);
     }
     goto LABEL_10;
   }
-  v5 = (_WORD *)(v6 + 2 * v3);
+  v4 = (_WORD *)(v5 + 2 * v2);
 LABEL_13:
-  if ( v5 == v14 )
-    return 0LL;
-  return v5;
+  if ( v4 != v14 )
+    return v4;
+  return 0LL;
 }

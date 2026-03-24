@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x1400DED64
+ * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x1400DED84
  * Callers:
- *     MiDereferenceDataSubsections @ 0x1402C48F8 (MiDereferenceDataSubsections.c)
+ *     MiDereferenceDataSubsections @ 0x1402C49F8 (MiDereferenceDataSubsections.c)
  *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiReleaseReadListResources @ 0x1406628F0 (MiReleaseReadListResources.c)
+ *     MiReleaseReadListResources @ 0x1406628D0 (MiReleaseReadListResources.c)
  * Callees:
  *     MiRemoveViewsFromSection @ 0x140079370 (MiRemoveViewsFromSection.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2, unsigned __int64 a2, unsigned int a3)

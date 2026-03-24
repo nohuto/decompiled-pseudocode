@@ -1,210 +1,104 @@
 /*
- * XREFs of ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x18008E4D0
+ * XREFs of ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x1800C0170
  * Callers:
- *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x180084C60 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?Flush@CBatchOptimizer@@QEAAXXZ @ 0x18008E0E0 (-Flush@CBatchOptimizer@@QEAAXXZ.c)
- *     ?AddRenderingCommand@CBatchOptimizer@@QEAAX$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@@Z @ 0x18008F3C0 (-AddRenderingCommand@CBatchOptimizer@@QEAAX$$QEAV-$unique_ptr@VCBatchCommand@@U-$default_delete@.c)
- *     ?AppendLayer@CBatchOptimizer@@AEAAXXZ @ 0x180091088 (-AppendLayer@CBatchOptimizer@@AEAAXXZ.c)
+ *     ?AppendLayer@CBatchOptimizer@@AEAAXXZ @ 0x1800121F4 (-AppendLayer@CBatchOptimizer@@AEAAXXZ.c)
+ *     ?AddRenderingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCDrawListEntry@@@Z @ 0x180079090 (-AddRenderingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCDrawListEntry@@@Z.c)
+ *     ?Flush@CBatchOptimizer@@QEAAXXZ @ 0x18008FFF8 (-Flush@CBatchOptimizer@@QEAAXXZ.c)
  * Callees:
- *     ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x18000D700 (-TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z.c)
- *     ?ContinueLayer@CBatchOptimizer@@AEAAXH@Z @ 0x18000DB9C (-ContinueLayer@CBatchOptimizer@@AEAAXH@Z.c)
- *     ?SkipContinuations@CBatchOptimizer@@AEBAHH@Z @ 0x180013544 (-SkipContinuations@CBatchOptimizer@@AEBAHH@Z.c)
- *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x18008E890 (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x180011F8C (-TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z.c)
+ *     ?SkipContinuations@CBatchOptimizer@@AEBAHH@Z @ 0x1800153F8 (-SkipContinuations@CBatchOptimizer@@AEBAHH@Z.c)
+ *     ?RecycleLayer@CBatchOptimizer@@AEAAXH@Z @ 0x18009031C (-RecycleLayer@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ?CanTunnelToLayer@CBatchOptimizer@@AEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@HPEAH@Z @ 0x1800C039C (-CanTunnelToLayer@CBatchOptimizer@@AEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSi.c)
+ *     ??1?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800C0490 (--1-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?AppendEntryToLayer@CBatchOptimizer@@AEAAXHAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$$QEAV?$com_ptr_t@VCDrawListEntry@@Uerr_returncode_policy@wil@@@wil@@$$QEAV?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@4@@Z @ 0x1800C04B0 (-AppendEntryToLayer@CBatchOptimizer@@AEAAXHAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAnd.c)
+ *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x1800C058C (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CBatchOptimizer::TryMergeOneLayer(CBatchOptimizer *this)
 {
-  char *v1; // r9
-  int v2; // r8d
-  int v4; // ecx
-  __int64 v5; // r9
-  __int64 v6; // r15
-  __int64 v7; // rsi
-  signed int v8; // ebp
-  __int64 v9; // r13
-  int *v10; // r14
-  char *v11; // rdi
-  int v12; // r10d
-  __int64 v13; // rdx
-  int *v14; // r9
-  __int64 v15; // r11
-  char *v16; // rax
-  __int64 v17; // rcx
-  float *v18; // rax
-  int *v19; // rdx
-  int v20; // r9d
-  __int64 v21; // rcx
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  char *v24; // rdx
-  __int64 v25; // rcx
-  int v26; // eax
-  int v27; // r9d
-  signed int v29; // eax
-  __int64 v30; // rax
-  __int64 v31; // rax
-  __int64 v32; // [rsp+20h] [rbp-58h]
-  int v33; // [rsp+80h] [rbp+8h]
-  int v34; // [rsp+88h] [rbp+10h]
-  int v35; // [rsp+90h] [rbp+18h]
-  __int64 v36; // [rsp+98h] [rbp+20h]
+  int *v1; // r8
+  int i; // esi
+  int v4; // r13d
+  __int64 v5; // rbp
+  __int64 v6; // r8
+  int *j; // rdx
+  __int64 v8; // r15
+  unsigned int v9; // edi
+  char *v10; // r14
+  __int64 v11; // r9
+  __int64 v12; // rcx
+  CBatchOptimizer *v13; // rcx
+  int v15; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v16; // [rsp+88h] [rbp+10h]
+  __int64 v17; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v18; // [rsp+98h] [rbp+20h]
 
-  v1 = (char *)this + 48;
-  v2 = 0;
-  v33 = 0;
-  if ( *((_DWORD *)this + 130 * *((int *)this + 12) + 26) )
-  {
-    do
-    {
-      v30 = *((int *)v1 + 1);
-      v1 += 4;
-      ++v2;
-    }
-    while ( *((_DWORD *)this + 130 * v30 + 26) );
-    v33 = v2;
-  }
+  v1 = (int *)((char *)this + 48);
+  for ( i = 0; *((_DWORD *)this + 130 * *v1 + 26); ++i )
+    ++v1;
   v4 = *((_DWORD *)this + 8);
-  v5 = v4 - 1;
-  v6 = v2;
-  v34 = *((_DWORD *)this + 8);
-  v32 = v5;
-  if ( v2 == v5 )
+  v5 = i;
+  v6 = v4 - 1;
+  v18 = v6;
+  while ( v5 != v6 )
   {
-LABEL_35:
-    *((_BYTE *)this + 4240) = 0;
-    return 0;
-  }
-  while ( 1 )
-  {
-    v7 = 520LL * *((int *)this + v6 + 12);
-    if ( *(_DWORD *)((char *)this + v7 + 100) )
+    v8 = 520LL * *((int *)this + v5 + 12);
+    if ( *(_DWORD *)((char *)this + v8 + 100) )
     {
-      if ( !*(_QWORD *)((char *)this + v7 + 112) )
+      if ( !*(_QWORD *)((char *)this + v8 + 112) )
       {
-        v8 = v2 + 1;
-        if ( v2 + 1 != v4 )
-          break;
+        v9 = i + 1;
+        if ( i + 1 != v4 )
+        {
+          do
+          {
+            v10 = (char *)this + 520 * *((int *)this + (int)v9 + 12);
+            if ( *((_DWORD *)v10 + 26) )
+            {
+              v9 = CBatchOptimizer::SkipContinuations(this, v9);
+            }
+            else if ( *((_DWORD *)v10 + 25) == 1
+                   && !*((_QWORD *)v10 + 14)
+                   && *(_QWORD *)((char *)this + v8 + 80) == *((_QWORD *)v10 + 10) )
+            {
+              v15 = i;
+              if ( (unsigned __int8)CBatchOptimizer::CanTunnelToLayer(this, v10 + 280, v9, &v15) )
+              {
+                v15 = *((_DWORD *)v10 + 24);
+                v17 = 0LL;
+                v11 = (unsigned int)(v15 - 1);
+                v12 = *(_QWORD *)&v10[8 * v11 + 120];
+                *((_QWORD *)v10 + 12) = (unsigned int)v11;
+                v16 = (v12 - 16) & -(__int64)(v12 != 0);
+                CBatchOptimizer::AppendEntryToLayer(this, (__int64)&v17);
+                if ( v16 )
+                  (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 8LL))(v16);
+                wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::~com_ptr_t<CRenderingEffect,wil::err_returncode_policy>(&v17);
+                if ( v15 == 1 )
+                {
+                  CBatchOptimizer::RecycleLayer(this, v9);
+                  CBatchOptimizer::ConsolidateAdjacentHomogeneousLayers(v13, v9 - 1);
+                  return 1;
+                }
+                if ( CBatchOptimizer::TryRemoveEmptyStateSettingLayer(this, v9) )
+                  return 1;
+              }
+            }
+            ++v9;
+          }
+          while ( v9 != v4 );
+          v6 = v18;
+        }
       }
     }
-LABEL_20:
-    ++v2;
-    ++v6;
-    v33 = v2;
-    v19 = (int *)((char *)this + 4 * v6 + 48);
-    if ( *((_DWORD *)this + 130 * *v19 + 26) )
+    ++i;
+    for ( j = (int *)((char *)this + 4 * ++v5 + 48); *((_DWORD *)this + 130 * *j + 26); ++j )
     {
-      do
-      {
-        v31 = v19[1];
-        ++v19;
-        ++v2;
-        ++v6;
-      }
-      while ( *((_DWORD *)this + 130 * v31 + 26) );
-      v33 = v2;
-    }
-    if ( v6 == v5 )
-      goto LABEL_35;
-    v4 = v34;
-  }
-  while ( 1 )
-  {
-    v9 = v8;
-    v10 = (int *)((char *)this + 4 * v8 + 48);
-    v11 = (char *)this + 520 * *v10;
-    if ( *((_DWORD *)v11 + 26) )
-    {
-      v29 = CBatchOptimizer::SkipContinuations(this, v8);
-      v2 = v33;
-      v8 = v29;
-      goto LABEL_18;
-    }
-    if ( *((_DWORD *)v11 + 25) != 1
-      || *((_QWORD *)v11 + 14)
-      || *(_QWORD *)((char *)this + v7 + 80) != *((_QWORD *)v11 + 10) )
-    {
-      goto LABEL_18;
-    }
-    v12 = v8 - 1;
-    if ( v8 - 1 != v2 )
-    {
-      v13 = v12;
-      v14 = (int *)((char *)this + 4 * v12 + 48);
-      while ( 1 )
-      {
-        v15 = 0LL;
-        v16 = (char *)this + 520 * *v14;
-        v17 = *((int *)v16 + 25);
-        if ( (_DWORD)v17 )
-          break;
-LABEL_37:
-        --v13;
-        --v14;
-        if ( v13 == v2 )
-          goto LABEL_23;
-      }
-      v18 = (float *)(v16 + 284);
-      while ( *((float *)v11 + 72) < *(v18 - 1)
-           || v18[1] < *((float *)v11 + 70)
-           || *((float *)v11 + 73) < *v18
-           || v18[2] < *((float *)v11 + 71) )
-      {
-        ++v15;
-        v18 += 4;
-        if ( v15 == v17 )
-          goto LABEL_37;
-      }
-      goto LABEL_18;
-    }
-LABEL_23:
-    v20 = *((_DWORD *)v11 + 24);
-    v35 = v20;
-    v21 = (unsigned int)(v20 - 1);
-    v22 = *(_QWORD *)&v11[8 * v21 + 120];
-    *((_DWORD *)v11 + 24) = v21;
-    v36 = v22;
-    *((_DWORD *)v11 + 25) = 0;
-    v23 = 520LL * *((int *)this + v6 + 12);
-    if ( v2 && *(_DWORD *)((char *)this + v23 + 100) == 20 || *(_DWORD *)((char *)this + v23 + 96) == 20 )
-    {
-      CBatchOptimizer::ContinueLayer(this, v2);
-      v2 = v33;
-      v12 = v8 - 1;
-      v20 = v35;
-    }
-    v24 = (char *)this + 520 * *((int *)this + v6 + 12);
-    v25 = *((unsigned int *)v24 + 24);
-    *((_DWORD *)v24 + 24) = v25 + 1;
-    *(_QWORD *)&v24[8 * v25 + 120] = v36;
-    if ( v2 )
-      *(_OWORD *)&v24[16 * *((unsigned int *)v24 + 25) + 280] = *(_OWORD *)(v11 + 280);
-    ++*((_DWORD *)v24 + 25);
-    if ( v20 == 1 )
-      break;
-    if ( CBatchOptimizer::TryRemoveEmptyStateSettingLayer(this, v8) )
-      return 1;
-    v2 = v33;
-LABEL_18:
-    if ( ++v8 == v34 )
-    {
-      v5 = v32;
-      goto LABEL_20;
+      ++i;
+      ++v5;
     }
   }
-  v26 = *((_DWORD *)this + 8) - 1;
-  if ( v8 != v26 )
-  {
-    v27 = *v10;
-    do
-    {
-      ++v9;
-      *v10 = v10[1];
-      ++v10;
-    }
-    while ( v9 != v26 );
-    *((_DWORD *)this + v26 + 12) = v27;
-  }
-  --*((_DWORD *)this + 8);
-  CBatchOptimizer::ConsolidateAdjacentHomogeneousLayers(this, v12);
-  return 1;
+  *((_BYTE *)this + 4240) = 0;
+  return 0;
 }

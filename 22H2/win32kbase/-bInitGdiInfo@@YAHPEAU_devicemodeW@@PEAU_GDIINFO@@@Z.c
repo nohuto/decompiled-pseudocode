@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bInitGdiInfo@@YAHPEAU_devicemodeW@@PEAU_GDIINFO@@@Z @ 0x1C0091198
+ * XREFs of ?bInitGdiInfo@@YAHPEAU_devicemodeW@@PEAU_GDIINFO@@@Z @ 0x1C007BC28
  * Callers:
- *     ?StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C0090D20 (-StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO.c)
+ *     ?StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C007B8A0 (-StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO.c)
  * Callees:
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall bInitGdiInfo(struct _devicemodeW *a1, struct _GDIINFO *a2)
@@ -21,10 +21,10 @@ __int64 __fastcall bInitGdiInfo(struct _devicemodeW *a1, struct _GDIINFO *a2)
     v4 = 0LL;
 LABEL_8:
     a2->ulNumColors = -1;
-    v6 = *((__int16 *)&unk_1C024CDE0 + 2 * v4);
+    v6 = *((__int16 *)&unk_1C02114A0 + 2 * v4);
     a2->ulPanningHorzRes = v6;
     a2->ulHorzRes = v6;
-    v7 = *((__int16 *)&unk_1C024CDE0 + 2 * v4 + 1);
+    v7 = *((__int16 *)&unk_1C02114A0 + 2 * v4 + 1);
     a2->ulPanningVertRes = v7;
     a2->ulVertRes = v7;
     dmLogPixels = a1->dmLogPixels;
@@ -65,7 +65,7 @@ LABEL_8:
     return result;
   }
   v4 = 0LL;
-  v5 = (__int16 *)&unk_1C024CDE2;
+  v5 = (__int16 *)&unk_1C02114A2;
   do
   {
     if ( a1->dmPelsWidth == *(v5 - 1)

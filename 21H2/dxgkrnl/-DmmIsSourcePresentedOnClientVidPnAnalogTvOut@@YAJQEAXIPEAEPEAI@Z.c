@@ -1,146 +1,167 @@
 /*
- * XREFs of ?DmmIsSourcePresentedOnClientVidPnAnalogTvOut@@YAJQEAXIPEAEPEAI@Z @ 0x1C039C1C8
+ * XREFs of ?DmmIsSourcePresentedOnClientVidPnAnalogTvOut@@YAJQEAXIPEAEPEAI@Z @ 0x1C02DDAC8
  * Callers:
- *     DxgkHandleVideoParameters @ 0x1C0384354 (DxgkHandleVideoParameters.c)
+ *     DxgkHandleVideoParameters @ 0x1C0294C68 (DxgkHandleVideoParameters.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000D514 (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C000F08C (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
- *     ?GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C000F0C8 (-GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C01AA388 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C00055D4 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?reset@?$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z @ 0x1C00056AC (-reset@-$auto_rc@$$CBVDMMVIDPN@@@@QEAAXPEBVDMMVIDPN@@@Z.c)
+ *     ?GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C0007E24 (-GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C0124D74 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
  */
 
 __int64 __fastcall DmmIsSourcePresentedOnClientVidPnAnalogTvOut(
         DXGADAPTER *a1,
-        unsigned int a2,
+        __int64 a2,
         unsigned __int8 *a3,
         unsigned int *a4)
 {
   unsigned int v4; // edi
   __int64 v5; // r12
-  __int64 v10; // rsi
-  __int64 v11; // rsi
-  __int64 v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rsi
-  DMMVIDPNTOPOLOGY **v15; // r15
-  __int64 v16; // rbx
-  __int64 i; // rbp
-  int v18; // eax
+  __int64 v9; // rax
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  __int64 v15; // rsi
+  __int64 v16; // rsi
+  __int64 v17; // rax
+  __int64 v18; // rax
   __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // rsi
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  __int64 v23; // rax
+  __int64 v24; // rsi
+  char **v25; // r15
+  __int64 v26; // rbx
+  __int64 i; // rbp
+  int v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  __int64 v32; // r9
+  __int64 v33; // rsi
   struct DMMVIDEOPRESENTTARGET *TargetById; // rax
-  _QWORD *v23; // rax
-  __int64 v24; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v25; // [rsp+58h] [rbp-30h] BYREF
-  unsigned int v26; // [rsp+A8h] [rbp+20h] BYREF
+  __int64 v35; // rcx
+  __int64 v36; // rax
+  _QWORD *v37; // rax
+  __int64 v38; // rdx
+  __int64 v39; // rdx
+  __int64 v40; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v41[6]; // [rsp+28h] [rbp-30h] BYREF
+  unsigned int v42; // [rsp+78h] [rbp+20h] BYREF
 
   v4 = 0;
-  v5 = a2;
+  v5 = (unsigned int)a2;
   if ( !a4 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v9 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v9 + 24) = 0LL;
+    WdLogEvent5_WdError(v9);
     return 3221225485LL;
   }
   *a4 = -1;
   if ( !a1 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v11 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v11 + 24) = 0LL;
+LABEL_5:
+    WdLogEvent5_WdError(v11);
     return 3223191554LL;
   }
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(a1) )
-    WdLogSingleEntry0(1LL);
-  v10 = *((_QWORD *)a1 + 349);
-  if ( !v10 )
   {
-    WdLogSingleEntry1(2LL, a1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)a1,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3223191554LL;
+    v14 = WdLogNewEntry5_WdAssertion(v13, v12);
+    WdLogEvent5_WdAssertion(v14);
   }
-  v11 = *(_QWORD *)(v10 + 104);
-  if ( v11 )
+  v15 = *((_QWORD *)a1 + 337);
+  if ( !v15 )
   {
-    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v25, v11);
-    v12 = *(_QWORD *)(v11 + 128);
-    v24 = 0LL;
-    if ( v12 )
+    v11 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v11 + 24) = a1;
+    goto LABEL_5;
+  }
+  v16 = *(_QWORD *)(v15 + 88);
+  if ( v16 )
+  {
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(v41, v16);
+    v18 = *(_QWORD *)(v16 + 88);
+    v40 = 0LL;
+    if ( v18 )
     {
-      _InterlockedIncrement((volatile signed __int32 *)(v12 + 32));
-      v13 = *(_QWORD *)(v11 + 128);
+      _InterlockedIncrement((volatile signed __int32 *)(v18 + 32));
+      v19 = *(_QWORD *)(v16 + 88);
     }
     else
     {
-      v13 = 0LL;
+      v19 = 0LL;
     }
-    auto_rc<DMMVIDPN const>::reset(&v24, v13);
-    if ( v24 )
+    auto_rc<DMMVIDPN const>::reset(&v40, v19);
+    if ( v40 )
     {
-      v15 = (DMMVIDPNTOPOLOGY **)(v24 + 96);
-      _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v11 + 120) + 72LL));
-      v16 = *(_QWORD *)(v11 + 120);
+      v25 = (char **)(v40 + 96);
+      _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v16 + 80) + 72LL));
+      v26 = *(_QWORD *)(v16 + 80);
       for ( i = 0LL; ; ++i )
       {
-        v26 = -1;
-        v18 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource(v15, v5, i, &v26);
-        v14 = v18;
-        if ( v18 < 0 )
+        v42 = -1;
+        v28 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource(v25, (unsigned int)v5, i, &v42);
+        v24 = v28;
+        if ( v28 < 0 )
           break;
-        v21 = v26;
-        if ( v26 == -1 )
-          goto LABEL_21;
-        TargetById = DMMVIDEOPRESENTTARGETSET::GetTargetById((DMMVIDEOPRESENTTARGETSET *)v16, v26);
+        v33 = v42;
+        if ( v42 == -1 )
+          goto LABEL_23;
+        TargetById = DMMVIDEOPRESENTTARGETSET::GetTargetById((DMMVIDEOPRESENTTARGETSET *)v26, v42);
         if ( TargetById )
         {
-          if ( *((_BYTE *)TargetById + 108) )
+          if ( *((_BYTE *)TargetById + 104) )
           {
             *a3 = 1;
-            *a4 = v21;
-LABEL_21:
-            if ( v16 )
-              ReferenceCounted::Release((ReferenceCounted *)(v16 + 64));
-            goto LABEL_28;
+            *a4 = v33;
+LABEL_23:
+            if ( v26 )
+              ReferenceCounted::Release((ReferenceCounted *)(v26 + 64), v29);
+            goto LABEL_30;
           }
         }
         else
         {
-          WdLogSingleEntry2(2LL, v21, v16);
+          v36 = WdLogNewEntry5_WdError(v35, v29);
+          *(_QWORD *)(v36 + 24) = v33;
+          *(_QWORD *)(v36 + 32) = v26;
+          WdLogEvent5_WdError(v36);
         }
       }
-      v23 = (_QWORD *)WdLogNewEntry5_WdTrace(v20, v19);
-      v23[3] = i;
-      v23[4] = v5;
-      v23[5] = v15;
-      v23[6] = v14;
-      if ( v16 )
-        ReferenceCounted::Release((ReferenceCounted *)(v16 + 64));
+      v37 = (_QWORD *)WdLogNewEntry5_WdTrace(v30, v29, v31, v32);
+      v37[3] = i;
+      v37[4] = v5;
+      v37[5] = v25;
+      v37[6] = v24;
+      if ( v26 )
+        ReferenceCounted::Release((ReferenceCounted *)(v26 + 64), v38);
     }
     else
     {
-      WdLogSingleEntry1(3LL, a1);
-      LODWORD(v14) = -1071774884;
+      v23 = WdLogNewEntry5_WdWarning(v21, v20, v22);
+      *(_QWORD *)(v23 + 24) = a1;
+      WdLogEvent5_WdWarning(v23);
+      LODWORD(v24) = -1071774884;
     }
-    v4 = v14;
-LABEL_28:
-    auto_rc<DMMVIDPN const>::reset(&v24, 0LL);
-    DXGFASTMUTEX::Release((struct _KTHREAD **)(v25 + 40));
+    v4 = v24;
+LABEL_30:
+    auto_rc<DMMVIDPN const>::reset(&v40, 0LL);
+    DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v41[0] + 40), v39);
     return v4;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a1);
+    v17 = WdLogNewEntry5_WdError(v13, v12);
+    *(_QWORD *)(v17 + 24) = a1;
+    WdLogEvent5_WdError(v17);
     return 3223192373LL;
   }
 }

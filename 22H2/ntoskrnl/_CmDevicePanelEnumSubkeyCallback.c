@@ -1,142 +1,144 @@
 /*
- * XREFs of _CmDevicePanelEnumSubkeyCallback @ 0x14082C4E0
+ * XREFs of _CmDevicePanelEnumSubkeyCallback @ 0x1407B0DF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyExW @ 0x14022B258 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyW @ 0x14022C6D0 (RtlStringCchCopyW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcstoul @ 0x1403DB890 (wcstoul.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14082CF10 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCchCopyExW @ 0x14032E518 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCchCopyW @ 0x140371E80 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcstoul @ 0x1403D3E00 (wcstoul.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B18C8 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmDevicePanelEnumSubkeyCallback(__int64 a1, __int64 a2, const wchar_t *a3, int *a4)
 {
   int v5; // ecx
-  int v9; // ecx
+  wchar_t *v9; // r14
   int v10; // ecx
-  bool v11; // cc
-  wchar_t *Pool2; // rax
-  wchar_t *v13; // rsi
-  size_t v14; // rdx
+  int v11; // ecx
+  bool v12; // cc
+  wchar_t *PoolWithTag; // rax
+  wchar_t *v14; // rsi
   wchar_t *v15; // rcx
-  size_t v16; // rcx
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  __int64 v19; // rdi
-  unsigned __int8 (__fastcall *v21)(__int64, wchar_t *, __int64, _QWORD); // rax
-  unsigned int v22; // edi
-  unsigned int v23; // eax
-  wchar_t *EndPtr; // [rsp+30h] [rbp-40h] BYREF
-  HANDLE Handle; // [rsp+38h] [rbp-38h] BYREF
-  size_t pcchRemaining; // [rsp+40h] [rbp-30h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-28h] BYREF
-  GUID Guid; // [rsp+58h] [rbp-18h] BYREF
+  size_t v16; // rdx
+  size_t v17; // rcx
+  NTSTATUS v18; // eax
+  __int64 v19; // rcx
+  wchar_t *v20; // rax
+  unsigned __int8 (__fastcall *v22)(__int64, wchar_t *, __int64, _QWORD); // rax
+  unsigned int v23; // edi
+  unsigned int v24; // eax
+  wchar_t *EndPtr; // [rsp+30h] [rbp-48h] BYREF
+  HANDLE Handle; // [rsp+38h] [rbp-40h] BYREF
+  size_t pcchRemaining; // [rsp+40h] [rbp-38h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-30h] BYREF
+  GUID Guid; // [rsp+58h] [rbp-20h] BYREF
 
   v5 = *a4;
   EndPtr = 0LL;
   pcchRemaining = 0LL;
   Handle = 0LL;
+  v9 = 0LL;
   DestinationString = 0LL;
   Guid = 0LL;
-  v9 = v5 - 1;
-  if ( v9 )
+  v10 = v5 - 1;
+  if ( v10 )
   {
-    v10 = v9 - 1;
-    if ( v10 )
+    v11 = v10 - 1;
+    if ( v11 )
     {
-      if ( v10 != 1 )
+      if ( v11 != 1 )
         return 0LL;
-      v11 = wcstoul(a3, &EndPtr, 16) <= 7;
+      v12 = wcstoul(a3, &EndPtr, 16) <= 7;
     }
     else
     {
-      v11 = wcstoul(a3, &EndPtr, 16) <= 0xFFFF;
+      v12 = wcstoul(a3, &EndPtr, 16) <= 0xFFFF;
     }
-    if ( v11 && EndPtr && !*EndPtr )
+    if ( v12 && EndPtr && !*EndPtr )
     {
 LABEL_7:
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, 114LL, 1380994640LL);
-      v13 = Pool2;
-      if ( !Pool2 )
-        goto LABEL_20;
-      v14 = 57LL;
-      v15 = Pool2;
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x72uLL, 0x52504E50u);
+      v14 = PoolWithTag;
+      if ( !PoolWithTag )
+        goto LABEL_22;
+      v15 = PoolWithTag;
+      v16 = 57LL;
       if ( *((_WORD *)a4 + 2) )
       {
-        if ( RtlStringCchCopyExW(Pool2, 0x39uLL, (NTSTRSAFE_PCWSTR)a4 + 2, &EndPtr, &pcchRemaining, 0x900u) < 0
-          || (v16 = pcchRemaining, pcchRemaining < 2) )
-        {
-LABEL_19:
-          ExFreePoolWithTag(v13, 0);
-          goto LABEL_20;
-        }
+        if ( RtlStringCchCopyExW(PoolWithTag, 0x39uLL, (NTSTRSAFE_PCWSTR)a4 + 2, &EndPtr, &pcchRemaining, 0x900u) < 0 )
+          goto LABEL_21;
+        v17 = pcchRemaining;
+        if ( pcchRemaining < 2 )
+          goto LABEL_21;
         *EndPtr = 92;
-        v14 = v16 - 2;
+        v16 = v17 - 2;
         *++EndPtr = 0;
         v15 = EndPtr;
       }
       else
       {
-        EndPtr = Pool2;
+        EndPtr = PoolWithTag;
       }
-      if ( RtlStringCchCopyW(v15, v14, a3) >= 0 )
+      v18 = RtlStringCchCopyW(v15, v16, a3);
+      v19 = 0LL;
+      if ( v18 >= 0 )
       {
-        if ( (unsigned int)*a4 >= 3 )
+        if ( (unsigned int)*a4 < 3 )
         {
-          if ( RtlInitUnicodeStringEx(&DestinationString, v13) >= 0 )
-          {
-            v21 = (unsigned __int8 (__fastcall *)(__int64, wchar_t *, __int64, _QWORD))*((_QWORD *)a4 + 15);
-            v22 = DestinationString.MaximumLength >> 1;
-            if ( !v21 || v21(a1, v13, 6LL, *((_QWORD *)a4 + 16)) )
-            {
-              a4[37] += v22;
-              v23 = a4[36];
-              if ( v23 > v22 )
-              {
-                RtlStringCchCopyExW(*((NTSTRSAFE_PWSTR *)a4 + 17), v23, v13, 0LL, 0LL, 0x900u);
-                *((_QWORD *)a4 + 17) += 2LL * v22;
-                a4[36] -= v22;
-              }
-            }
-          }
-        }
-        else
-        {
-          v17 = 0LL;
           if ( a1 )
-            v17 = *(_QWORD *)(a1 + 224);
-          if ( (int)SysCtxRegOpenKey(v17, a2, (__int64)a3, 8u, 0x20019u, (__int64)&Handle) >= 0 )
+            v19 = *(_QWORD *)(a1 + 224);
+          if ( (int)SysCtxRegOpenKey(v19, a2, (__int64)a3, 8u, 0x20019u, (__int64)&Handle) < 0 )
+            goto LABEL_21;
+          v20 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0xA0uLL, 0x52504E50u);
+          v9 = v20;
+          if ( !v20 )
+            goto LABEL_21;
+          memset(v20, 0, 0xA0uLL);
+          *(_DWORD *)v9 = *a4 + 1;
+          RtlStringCchCopyExW(v9 + 2, 0x39uLL, v14, 0LL, 0LL, 0x900u);
+          *((_QWORD *)v9 + 15) = *((_QWORD *)a4 + 15);
+          *((_QWORD *)v9 + 16) = *((_QWORD *)a4 + 16);
+          *((_QWORD *)v9 + 17) = *((_QWORD *)a4 + 17);
+          *((_DWORD *)v9 + 36) = a4[36];
+          *((_DWORD *)v9 + 37) = a4[37];
+          PnpCtxRegEnumKeyWithCallback(a1, Handle, &CmDevicePanelEnumSubkeyCallback, v9);
+          a4[37] = *((_DWORD *)v9 + 37);
+          *((_QWORD *)a4 + 17) = *((_QWORD *)v9 + 17);
+          a4[36] = *((_DWORD *)v9 + 36);
+          goto LABEL_19;
+        }
+        if ( RtlInitUnicodeStringEx(&DestinationString, v14) >= 0 )
+        {
+          v22 = (unsigned __int8 (__fastcall *)(__int64, wchar_t *, __int64, _QWORD))*((_QWORD *)a4 + 15);
+          v23 = DestinationString.MaximumLength >> 1;
+          if ( !v22 || v22(a1, v14, 6LL, *((_QWORD *)a4 + 16)) )
           {
-            v18 = ExAllocatePool2(256LL, 160LL, 1380994640LL);
-            v19 = v18;
-            if ( v18 )
+            a4[37] += v23;
+            v24 = a4[36];
+            if ( v24 > v23 )
             {
-              *(_DWORD *)v18 = *a4 + 1;
-              RtlStringCchCopyExW((NTSTRSAFE_PWSTR)(v18 + 4), 0x39uLL, v13, 0LL, 0LL, 0x900u);
-              *(_QWORD *)(v19 + 120) = *((_QWORD *)a4 + 15);
-              *(_QWORD *)(v19 + 128) = *((_QWORD *)a4 + 16);
-              *(_QWORD *)(v19 + 136) = *((_QWORD *)a4 + 17);
-              *(_DWORD *)(v19 + 144) = a4[36];
-              *(_DWORD *)(v19 + 148) = a4[37];
-              PnpCtxRegEnumKeyWithCallback(a1, Handle, &CmDevicePanelEnumSubkeyCallback, v19);
-              a4[37] = *(_DWORD *)(v19 + 148);
-              *((_QWORD *)a4 + 17) = *(_QWORD *)(v19 + 136);
-              a4[36] = *(_DWORD *)(v19 + 144);
-              ExFreePoolWithTag((PVOID)v19, 0);
+              RtlStringCchCopyExW(*((NTSTRSAFE_PWSTR *)a4 + 17), v24, v14, 0LL, 0LL, 0x900u);
+              *((_QWORD *)a4 + 17) += 2LL * v23;
+              a4[36] -= v23;
+LABEL_19:
+              if ( v9 )
+                ExFreePoolWithTag(v9, 0);
             }
           }
         }
       }
-      goto LABEL_19;
+LABEL_21:
+      ExFreePoolWithTag(v14, 0);
     }
   }
   else
@@ -145,7 +147,7 @@ LABEL_19:
     if ( RtlGUIDFromString(&DestinationString, &Guid) >= 0 )
       goto LABEL_7;
   }
-LABEL_20:
+LABEL_22:
   if ( Handle )
     ZwClose(Handle);
   return 0LL;

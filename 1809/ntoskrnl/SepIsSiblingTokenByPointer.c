@@ -1,7 +1,7 @@
 /*
- * XREFs of SepIsSiblingTokenByPointer @ 0x1406B9354
+ * XREFs of SepIsSiblingTokenByPointer @ 0x1406B9334
  * Callers:
- *     SeIsTokenAssignableToProcess @ 0x1406B9118 (SeIsTokenAssignableToProcess.c)
+ *     SeIsTokenAssignableToProcess @ 0x1406B90F8 (SeIsTokenAssignableToProcess.c)
  * Callees:
  *     SepReleaseOrderedReadLocks @ 0x1400135BC (SepReleaseOrderedReadLocks.c)
  *     SepAcquireOrderedReadLocks @ 0x1400135F0 (SepAcquireOrderedReadLocks.c)

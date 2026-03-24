@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HrInit@CBitmap@@UEAAJPEAVIBitmapSource@@@Z @ 0x180107E40
+ * XREFs of ?HrInit@CBitmap@@UEAAJPEAVIBitmapSource@@@Z @ 0x1800E3000
  * Callers:
  *     <none>
  * Callees:

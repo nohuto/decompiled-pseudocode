@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTracePowerTransitionStart @ 0x1409911F8
+ * XREFs of PopDiagTracePowerTransitionStart @ 0x1407748D8
  * Callers:
- *     PopIssueActionRequest @ 0x140989D54 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140776468 (PopIssueActionRequest.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwWriteStartScenario @ 0x14085E060 (EtwWriteStartScenario.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwWriteStartScenario @ 0x140788390 (EtwWriteStartScenario.c)
  */
 
 __int64 __fastcall PopDiagTracePowerTransitionStart(int a1, int a2)
@@ -30,12 +30,7 @@ __int64 __fastcall PopDiagTracePowerTransitionStart(int a1, int a2)
     *(_QWORD *)&v5.Size = 4LL;
     v7 = 4LL;
     v9 = 8LL;
-    return EtwWriteStartScenario(
-             (ULONG_PTR *)PopDiagHandle,
-             &POP_ETW_EVENT_POWERTRANSITION_START,
-             &PopDiagActivityId,
-             3u,
-             &v5);
+    return EtwWriteStartScenario(PopDiagHandle, &POP_ETW_EVENT_POWERTRANSITION_START, &PopDiagActivityId, 3u, &v5);
   }
   return result;
 }

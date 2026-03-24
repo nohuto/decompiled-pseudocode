@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCreateDriverSwDevices @ 0x1406EB51C
+ * XREFs of PiCreateDriverSwDevices @ 0x1406EB4FC
  * Callers:
- *     PipProcessStartPhase3 @ 0x1406EAB38 (PipProcessStartPhase3.c)
+ *     PipProcessStartPhase3 @ 0x1406EAB18 (PipProcessStartPhase3.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x1406EB4C0 (PnpDeviceObjectToDeviceInstance.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14074B304 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x1406EB4A0 (PnpDeviceObjectToDeviceInstance.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x14074B2E4 (_PnpCtxRegEnumKeyWithCallback.c)
  */
 
 __int64 __fastcall PiCreateDriverSwDevices(__int64 a1)

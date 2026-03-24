@@ -1,47 +1,58 @@
 /*
- * XREFs of NtGdiPATHOBJ_vEnumStart @ 0x1C02B39D0
+ * XREFs of NtGdiPATHOBJ_vEnumStart @ 0x1C02B5600
  * Callers:
  *     <none>
  * Callees:
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0009B28 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ??$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z @ 0x1C02B03D8 (--$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CFBDC (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     Feature_1508323640__private_IsEnabledDeviceUsage @ 0x1C016A12C (Feature_1508323640__private_IsEnabledDeviceUsage.c)
+ *     ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016D8BC (-bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ.c)
+ *     ??$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z @ 0x1C02B183C (--$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z.c)
+ *     ?vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ @ 0x1C02B2070 (-vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ.c)
  */
 
 __int64 __fastcall NtGdiPATHOBJ_vEnumStart(__int64 a1)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
-  unsigned int v4; // ebx
-  struct UMPDOBJ *v5; // rdi
+  struct UMPDOBJ *ThreadCurrentObj; // rbx
+  unsigned int v4; // edi
   unsigned __int64 v6; // rax
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v4 = 0;
-  v5 = ThreadCurrentObj;
-  if ( ThreadCurrentObj )
+  if ( !ThreadCurrentObj )
+    goto LABEL_5;
+  if ( (unsigned int)Feature_1508323640__private_IsEnabledDeviceUsage() )
   {
-    ++*((_DWORD *)ThreadCurrentObj + 105);
-    v6 = UMPDOBJ::GetDDIOBJ<_PATHOBJ>((__int64)ThreadCurrentObj, a1);
-    if ( v6 )
+    if ( !UMPDOBJ::bIncrementEngCallRecursionCount(ThreadCurrentObj) )
     {
-      if ( (*((_DWORD *)v5 + 103) & 0x100) == 0 || *(_QWORD *)(v6 + 8) )
-      {
-        PATHOBJ_vEnumStart((PATHOBJ *)v6);
-      }
-      else if ( gfUMPDDebug )
-      {
-        DbgPrint(
-          "clientcore\\windows\\core\\ntgdi\\gre\\windows\\umpdeng.cxx:%d:NtGdiPATHOBJ_vEnumStart:Invalid EPATHOBJ.\n",
-          3968);
-      }
+      ThreadCurrentObj = 0LL;
+LABEL_5:
+      v4 = -1073741811;
+      goto LABEL_6;
     }
-    --*((_DWORD *)v5 + 105);
   }
   else
   {
-    return (unsigned int)-1073741811;
+    ++*((_DWORD *)ThreadCurrentObj + 105);
   }
+  v6 = UMPDOBJ::GetDDIOBJ<_PATHOBJ>((__int64)ThreadCurrentObj, a1);
+  if ( v6 )
+  {
+    if ( (*((_DWORD *)ThreadCurrentObj + 103) & 0x100) == 0 || *(_QWORD *)(v6 + 8) )
+    {
+      PATHOBJ_vEnumStart((PATHOBJ *)v6);
+    }
+    else if ( gfUMPDDebug )
+    {
+      DbgPrint(
+        "clientcore\\windows\\core\\ntgdi\\gre\\windows\\umpdeng.cxx:%d:NtGdiPATHOBJ_vEnumStart:Invalid EPATHOBJ.\n",
+        4175);
+    }
+  }
+  v4 = 0;
+LABEL_6:
+  if ( ThreadCurrentObj )
+    UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
   return v4;
 }

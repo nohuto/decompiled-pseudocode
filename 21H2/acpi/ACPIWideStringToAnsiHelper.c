@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIWideStringToAnsiHelper @ 0x1C001C598
+ * XREFs of ACPIWideStringToAnsiHelper @ 0x1C00281A0
  * Callers:
- *     ACPIGetConvertToPnpID @ 0x1C001C530 (ACPIGetConvertToPnpID.c)
- *     ACPIGetConvertToDeviceID @ 0x1C001CFD0 (ACPIGetConvertToDeviceID.c)
- *     ACPIGetConvertToInstanceID @ 0x1C001D958 (ACPIGetConvertToInstanceID.c)
- *     ACPIGetConvertToCompatibleID @ 0x1C001DF4C (ACPIGetConvertToCompatibleID.c)
- *     ACPIGetConvertToHardwareID @ 0x1C005616C (ACPIGetConvertToHardwareID.c)
- *     ACPIGetConvertToString @ 0x1C00562A8 (ACPIGetConvertToString.c)
+ *     ACPIGetConvertToCompatibleID @ 0x1C0027CF0 (ACPIGetConvertToCompatibleID.c)
+ *     ACPIGetConvertToInstanceID @ 0x1C0028068 (ACPIGetConvertToInstanceID.c)
+ *     ACPIGetConvertToPnpID @ 0x1C00280D0 (ACPIGetConvertToPnpID.c)
+ *     ACPIGetConvertToDeviceID @ 0x1C0028138 (ACPIGetConvertToDeviceID.c)
+ *     ACPIGetConvertToHardwareID @ 0x1C0055AA8 (ACPIGetConvertToHardwareID.c)
+ *     ACPIGetConvertToString @ 0x1C0055BDC (ACPIGetConvertToString.c)
  * Callees:
  *     <none>
  */

@@ -1,29 +1,31 @@
 /*
- * XREFs of ?EnsurePositionIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXW4PropertyValueMask@1@@Z @ 0x180232564
+ * XREFs of ?EnsurePositionIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXW4PropertyValueMask@1@@Z @ 0x1801C9328
  * Callers:
- *     ?NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ @ 0x180132B58 (-NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ.c)
- *     ?SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x180234C14 (-SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
+ *     ?NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ @ 0x1801C9EB8 (-NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ.c)
+ *     ?SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z @ 0x1801CBC98 (-SetMaxPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z @ 0x180133212 (-SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z @ 0x1801CC018 (-SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z.c)
  */
 
-void __fastcall CInteractionTracker::EnsurePositionIsLessThanOrEqualToMax(__int64 a1, char a2)
+__int64 __fastcall CInteractionTracker::EnsurePositionIsLessThanOrEqualToMax(__int64 a1, char a2)
 {
   int v2; // eax
-  __int64 v3; // [rsp+20h] [rbp-28h] BYREF
-  int v4; // [rsp+28h] [rbp-20h]
+  __int64 result; // rax
+  __int64 v4; // [rsp+20h] [rbp-28h] BYREF
+  int v5; // [rsp+28h] [rbp-20h]
 
-  if ( !*(_DWORD *)(a1 + 176) && (*(_BYTE *)(a1 + 540) & 0x20) == 0 )
+  if ( !*(_DWORD *)(a1 + 168) && (*(_BYTE *)(a1 + 532) & 0x20) == 0 )
   {
-    v2 = *(_DWORD *)(a1 + 88);
-    v3 = *(_QWORD *)(a1 + 80);
-    v4 = v2;
+    v2 = *(_DWORD *)(a1 + 80);
+    v4 = *(_QWORD *)(a1 + 72);
+    v5 = v2;
     if ( (a2 & 1) != 0 )
-      LODWORD(v3) = fminf(*(float *)(a1 + 80), *(float *)(a1 + 104));
+      LODWORD(v4) = fminf(*(float *)(a1 + 72), *(float *)(a1 + 96));
     if ( (a2 & 2) != 0 )
-      HIDWORD(v3) = fminf(*(float *)(a1 + 84), *(float *)(a1 + 108));
-    v4 = 0;
-    CInteractionTracker::SetPosition(a1, (__int64)&v3, 0);
+      HIDWORD(v4) = fminf(*(float *)(a1 + 76), *(float *)(a1 + 100));
+    v5 = 0;
+    return CInteractionTracker::SetPosition(a1, &v4, 0LL);
   }
+  return result;
 }

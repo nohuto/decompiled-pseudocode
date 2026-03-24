@@ -1,58 +1,54 @@
 /*
- * XREFs of SmProcessResizeRequest @ 0x1409D7310
+ * XREFs of SmProcessResizeRequest @ 0x140929F8C
  * Callers:
- *     SmSetStoreInformation @ 0x1407E82F4 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406A1334 (SmSetStoreInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x1405C2C84 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x140350084 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
  */
 
-__int64 __fastcall SmProcessResizeRequest(__int64 a1, int a2, char a3)
+__int64 __fastcall SmProcessResizeRequest(__int64 a1, __int64 a2, int a3, char a4)
 {
   __int64 result; // rax
-  __int64 ProcessPartition; // rdi
-  bool v6; // zf
-  int v7; // eax
-  unsigned int v8; // edx
-  LARGE_INTEGER v9[2]; // [rsp+30h] [rbp-50h] BYREF
+  bool v7; // zf
+  int v8; // eax
+  unsigned int v9; // edx
+  LARGE_INTEGER v10[2]; // [rsp+30h] [rbp-50h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-40h] BYREF
-  int v11; // [rsp+58h] [rbp-28h] BYREF
-  __int64 v12; // [rsp+5Ch] [rbp-24h]
-  int v13; // [rsp+64h] [rbp-1Ch]
-  __int64 v14; // [rsp+68h] [rbp-18h]
-  int v15; // [rsp+70h] [rbp-10h]
-  __int64 v16; // [rsp+74h] [rbp-Ch]
-  int v17; // [rsp+7Ch] [rbp-4h]
+  int v12; // [rsp+58h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+5Ch] [rbp-24h]
+  int v14; // [rsp+64h] [rbp-1Ch]
+  __int64 v15; // [rsp+68h] [rbp-18h]
+  int v16; // [rsp+70h] [rbp-10h]
+  __int64 v17; // [rsp+74h] [rbp-Ch]
+  int v18; // [rsp+7Ch] [rbp-4h]
 
-  memset(&Event, 0, sizeof(Event));
-  *(_OWORD *)&v9[0].LowPart = 0LL;
-  if ( a2 != 24 )
+  *(_OWORD *)&v10[0].LowPart = 0LL;
+  if ( a3 != 24 )
     return 3221225990LL;
-  if ( a3 )
+  if ( a4 )
     return 3221225485LL;
-  if ( (unsigned __int8)*(_DWORD *)a1 != 6 )
+  if ( (unsigned __int8)*(_DWORD *)a2 != 6 )
     return 3221225561LL;
-  ProcessPartition = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
   KeInitializeEvent(&Event, NotificationEvent, 0);
-  v12 = 0LL;
-  v13 = 0;
-  v16 = 0LL;
-  v17 = 0;
-  v6 = (*(_DWORD *)a1 & 0x100) == 0;
-  v11 = 4;
-  if ( v6 )
-    v7 = 5;
+  v13 = 0LL;
+  v14 = 0;
+  v17 = 0LL;
+  v18 = 0;
+  v7 = (*(_DWORD *)a2 & 0x100) == 0;
+  v12 = 4;
+  if ( v7 )
+    v8 = 5;
   else
-    v7 = 4;
-  v8 = *(_DWORD *)(a1 + 4);
-  HIDWORD(v12) = v7;
-  v15 = *(_DWORD *)(a1 + 8);
-  v14 = *(_QWORD *)(a1 + 16);
-  SMKM_STORE_MGR<SM_TRAITS>::SmStoreRequest(ProcessPartition, v8, (__int64)&v11, (__int64)&Event, (__int64)v9);
+    v8 = 4;
+  v9 = *(_DWORD *)(a2 + 4);
+  HIDWORD(v13) = v8;
+  v16 = *(_DWORD *)(a2 + 8);
+  v15 = *(_QWORD *)(a2 + 16);
+  SMKM_STORE_MGR<SM_TRAITS>::SmStoreRequest(a1, v9, (int)&v12, (int)&Event, (__int64)v10);
   KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-  result = v9[0].LowPart;
-  *(_DWORD *)(a1 + 8) = v15;
+  result = v10[0].LowPart;
+  *(_DWORD *)(a2 + 8) = v16;
   return result;
 }

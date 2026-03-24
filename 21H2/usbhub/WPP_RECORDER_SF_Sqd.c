@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_RECORDER_SF_Sqd @ 0x1C0050930
+ * XREFs of WPP_RECORDER_SF_Sqd @ 0x1C0051F80
  * Callers:
- *     UsbhBuildDeviceID @ 0x1C004F128 (UsbhBuildDeviceID.c)
- *     UsbhBuildHardwareID @ 0x1C004F438 (UsbhBuildHardwareID.c)
- *     UsbhUpdateUxdSettings @ 0x1C005A420 (UsbhUpdateUxdSettings.c)
+ *     UsbhBuildDeviceID @ 0x1C005068C (UsbhBuildDeviceID.c)
+ *     UsbhBuildHardwareID @ 0x1C00509B0 (UsbhBuildHardwareID.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005BAE4 (UsbhUpdateUxdSettings.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_Sqd(
@@ -50,7 +50,7 @@ __int64 WPP_RECORDER_SF_Sqd(
     v12 = a6;
     if ( !a6 )
       v12 = L"NULL";
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, __int64, _QWORD, const wchar_t *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, __int64, _QWORD, const wchar_t *, __int64, __int64 *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.SecurityDescriptor)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       a5,

@@ -1,17 +1,15 @@
 /*
- * XREFs of McTemplateK0z_EtwWriteTransfer @ 0x140561388
+ * XREFs of McTemplateK0z_EtwWriteTransfer @ 0x14050D9F4
  * Callers:
- *     PnpLogActionQueueEvent @ 0x14035949C (PnpLogActionQueueEvent.c)
- *     PipProcessDevNodeTree @ 0x1406CB740 (PipProcessDevNodeTree.c)
- *     PiUEventNotifyUserMode @ 0x140783EFC (PiUEventNotifyUserMode.c)
- *     PnpInsertEventInQueue @ 0x140786840 (PnpInsertEventInQueue.c)
- *     PiUpdateGuestAssignedState @ 0x140792AD8 (PiUpdateGuestAssignedState.c)
- *     PnpProcessTargetDeviceEvent @ 0x1407948AC (PnpProcessTargetDeviceEvent.c)
- *     PiSwCloseDescendants @ 0x14086A2DC (PiSwCloseDescendants.c)
- *     PiCMQueryRemove @ 0x14096A324 (PiCMQueryRemove.c)
+ *     PnpLogActionQueueEvent @ 0x14036FEE8 (PnpLogActionQueueEvent.c)
+ *     PnpInsertEventInQueue @ 0x140634C88 (PnpInsertEventInQueue.c)
+ *     PiCMQueryRemove @ 0x14072F1D0 (PiCMQueryRemove.c)
+ *     PipProcessDevNodeTree @ 0x14073D6A4 (PipProcessDevNodeTree.c)
+ *     PnpProcessTargetDeviceEvent @ 0x1407475C0 (PnpProcessTargetDeviceEvent.c)
+ *     PiUEventSendDeviceInstallNotification @ 0x1408A2D2C (PiUEventSendDeviceInstallNotification.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403C3C60 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036E304 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0z_EtwWriteTransfer(

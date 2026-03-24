@@ -1,13 +1,13 @@
 /*
- * XREFs of VidSchTimeoutSyncObject @ 0x1C001A0C0
+ * XREFs of VidSchTimeoutSyncObject @ 0x1C0016C9C
  * Callers:
- *     VidSchDestroySyncObject @ 0x1C0099880 (VidSchDestroySyncObject.c)
+ *     VidSchDestroySyncObject @ 0x1C0083750 (VidSchDestroySyncObject.c)
  * Callees:
- *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C0009A80 (--1HwQueueStagingList@@QEAA@XZ.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0014690 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C0014924 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0018B1C (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
- *     VidSchiUnblockUnorderedWaiter @ 0x1C003AC04 (VidSchiUnblockUnorderedWaiter.c)
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C000AFA0 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011F60 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00129FC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0015ED4 (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
+ *     VidSchiUnblockUnorderedWaiter @ 0x1C0031FAC (VidSchiUnblockUnorderedWaiter.c)
  */
 
 __int64 __fastcall VidSchTimeoutSyncObject(_VIDSCH_SYNC_OBJECT *this)
@@ -23,12 +23,12 @@ __int64 __fastcall VidSchTimeoutSyncObject(_VIDSCH_SYNC_OBJECT *this)
 
   v1 = *((_QWORD *)this + 1);
   v10 = 0;
-  v9[0] = v1 + 1728;
+  v9[0] = v1 + 1712;
   AcquireSpinLock::Acquire((Acquire *)v9);
-  v4 = *((_DWORD *)this + 10) == 0;
+  v4 = *((_DWORD *)this + 9) == 0;
   v7[1] = v7;
   v7[0] = v7;
-  v5 = *((_DWORD *)this + 12);
+  v5 = *((_DWORD *)this + 11);
   v8 = 0;
   if ( v4 || v5 != 2 )
   {

@@ -1,27 +1,27 @@
 /*
- * XREFs of PfGenerateTrace @ 0x140988074
+ * XREFs of PfGenerateTrace @ 0x140776874
  * Callers:
- *     PfSetSuperfetchInformation @ 0x1406AD6BC (PfSetSuperfetchInformation.c)
- *     PfpLogEventRequest @ 0x140986E88 (PfpLogEventRequest.c)
- *     PfpLogScenarioEvent @ 0x140986F94 (PfpLogScenarioEvent.c)
- *     PfPowerActionNotify @ 0x140A49250 (PfPowerActionNotify.c)
+ *     PfSetSuperfetchInformation @ 0x1406DBD54 (PfSetSuperfetchInformation.c)
+ *     PfpLogEventRequest @ 0x14077668C (PfpLogEventRequest.c)
+ *     PfpLogScenarioEvent @ 0x140776764 (PfpLogScenarioEvent.c)
+ *     PfPowerActionNotify @ 0x1409909B4 (PfPowerActionNotify.c)
  * Callees:
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall PfGenerateTrace(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v5; // edi
-  PVOID v6; // r14
+  struct _DMA_ADAPTER *v6; // r14
   PVOID Object[2]; // [rsp+40h] [rbp-28h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -34,7 +34,7 @@ __int64 __fastcall PfGenerateTrace(__int64 a1, int a2)
       _InterlockedIncrement((volatile signed __int32 *)(a1 + 80));
     KeResetEvent((PRKEVENT)(a1 + 56));
     KeSetEvent((PRKEVENT)(a1 + 32), 0, 0);
-    v6 = *(PVOID *)a1;
+    v6 = *(struct _DMA_ADAPTER **)a1;
     ObfReferenceObject(*(PVOID *)a1);
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PfTGlobals, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(&PfTGlobals);
@@ -43,7 +43,7 @@ __int64 __fastcall PfGenerateTrace(__int64 a1, int a2)
     Object[0] = (PVOID)(a1 + 56);
     Object[1] = v6;
     KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 0, 0LL, 0LL);
-    ObfDereferenceObject(v6);
+    HalPutDmaAdapter(v6);
     if ( !a2 )
       _InterlockedAdd((volatile signed __int32 *)(a1 + 80), 0xFFFFFFFF);
   }

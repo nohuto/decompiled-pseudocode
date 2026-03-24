@@ -1,21 +1,21 @@
 /*
- * XREFs of ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C0157978
+ * XREFs of ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C013E6D8
  * Callers:
- *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C0157A50 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
+ *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C013E7B0 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
  * Callees:
- *     bFToL @ 0x1C00038EC (bFToL.c)
+ *     bFToL @ 0x1C0082B80 (bFToL.c)
  */
 
 void __fastcall ERECTL::vScale(ERECTL *this, const struct POINTFL *a2)
 {
-  float v2; // xmm2_4
+  float v2; // xmm1_4
   int *v3; // r14
   int *v4; // rsi
-  float v5; // xmm1_4
+  float v5; // xmm2_4
   int *v6; // rdi
-  int v7; // r15d
-  int v8; // r12d
-  int v9; // ebp
+  int v7; // ebp
+  int v8; // r15d
+  int v9; // r12d
   unsigned int v11; // r8d
   unsigned int v12; // r8d
   unsigned int v13; // r8d

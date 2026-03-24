@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPepReleaseActivityLink @ 0x1400FF72C
+ * XREFs of PopPepReleaseActivityLink @ 0x1400FF74C
  * Callers:
- *     PopPepTryPowerDownDevice @ 0x1400FEEFC (PopPepTryPowerDownDevice.c)
- *     PopPepProcessEvent @ 0x1400FF594 (PopPepProcessEvent.c)
- *     PopPepSurprisePowerOn @ 0x140158704 (PopPepSurprisePowerOn.c)
- *     PopPepUpdateConstraints @ 0x140172194 (PopPepUpdateConstraints.c)
- *     PopPepCompleteComponentIdleState @ 0x1402DC7E8 (PopPepCompleteComponentIdleState.c)
- *     PopPepComponentSetLatency @ 0x1402DC8C4 (PopPepComponentSetLatency.c)
- *     PopPepComponentSetResidency @ 0x1402DC9A8 (PopPepComponentSetResidency.c)
- *     PopPepComponentSetWakeHint @ 0x1402DCA9C (PopPepComponentSetWakeHint.c)
+ *     PopPepTryPowerDownDevice @ 0x1400FEF1C (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x1400FF5B4 (PopPepProcessEvent.c)
+ *     PopPepSurprisePowerOn @ 0x140158724 (PopPepSurprisePowerOn.c)
+ *     PopPepUpdateConstraints @ 0x1401721B4 (PopPepUpdateConstraints.c)
+ *     PopPepCompleteComponentIdleState @ 0x1402DC8E8 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetLatency @ 0x1402DC9C4 (PopPepComponentSetLatency.c)
+ *     PopPepComponentSetResidency @ 0x1402DCAA8 (PopPepComponentSetResidency.c)
+ *     PopPepComponentSetWakeHint @ 0x1402DCB9C (PopPepComponentSetWakeHint.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopPepReleaseActivityLink(__int64 a1, volatile LONG *a2, char a3, unsigned __int8 a4)

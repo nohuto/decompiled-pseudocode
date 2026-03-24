@@ -3,7 +3,7 @@
  * Callers:
  *     EmClientQueryRuleState @ 0x1405653B0 (EmClientQueryRuleState.c)
  *     EmClientRuleEvaluate @ 0x1405654A0 (EmClientRuleEvaluate.c)
- *     EmpClientRuleRegisterNotification @ 0x140813680 (EmpClientRuleRegisterNotification.c)
+ *     EmpClientRuleRegisterNotification @ 0x140813660 (EmpClientRuleRegisterNotification.c)
  *     EmpParseRuleTerm @ 0x1409BE478 (EmpParseRuleTerm.c)
  *     EmpParseRules @ 0x1409BEA68 (EmpParseRules.c)
  *     EmpParseTargetRules @ 0x1409BEFF4 (EmpParseTargetRules.c)

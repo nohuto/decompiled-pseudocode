@@ -1,12 +1,11 @@
 /*
- * XREFs of CmpExpandPathInfo @ 0x140681500
+ * XREFs of CmpExpandPathInfo @ 0x1406958E0
  * Callers:
- *     CmpComputeComponentHashes @ 0x1406811B0 (CmpComputeComponentHashes.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
+ *     CmpComputeComponentHashes @ 0x1406FBCC0 (CmpComputeComponentHashes.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall CmpExpandPathInfo(__int64 a1)

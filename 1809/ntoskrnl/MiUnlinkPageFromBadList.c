@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlinkPageFromBadList @ 0x1402BFD00
+ * XREFs of MiUnlinkPageFromBadList @ 0x1402BFE00
  * Callers:
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     MiRemoveBadPages @ 0x1402A6C6C (MiRemoveBadPages.c)
- *     MiUnlinkBadPages @ 0x1402A6F88 (MiUnlinkBadPages.c)
- *     MiPurgeBadFileOnlyPages @ 0x1402B6520 (MiPurgeBadFileOnlyPages.c)
- *     MiTransferPartitionPageRun @ 0x1402D25F8 (MiTransferPartitionPageRun.c)
+ *     MiRemoveBadPages @ 0x1402A6D6C (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x1402A7088 (MiUnlinkBadPages.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1402B6620 (MiPurgeBadFileOnlyPages.c)
+ *     MiTransferPartitionPageRun @ 0x1402D26F8 (MiTransferPartitionPageRun.c)
  * Callees:
  *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
  *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
  */
 
 unsigned __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1, char a2)

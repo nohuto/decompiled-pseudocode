@@ -1,15 +1,15 @@
 /*
- * XREFs of PopBcdSetupResumeObject @ 0x140714F48
+ * XREFs of PopBcdSetupResumeObject @ 0x140714F28
  * Callers:
- *     PopBcdSetPendingResume @ 0x1406DF998 (PopBcdSetPendingResume.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x140712330 (PopBcdSetDefaultResumeObjectElements.c)
+ *     PopBcdSetPendingResume @ 0x1406DF978 (PopBcdSetPendingResume.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x140712310 (PopBcdSetDefaultResumeObjectElements.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
  */
 
 __int64 __fastcall PopBcdSetupResumeObject(void *a1)

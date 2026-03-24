@@ -1,68 +1,66 @@
 /*
- * XREFs of ?SetReferenceProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0032450
+ * XREFs of ?SetReferenceProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01E7EF0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@PEAPEAV12@PEAV12@W4Optionality@12@W4MIL_RESOURCE_TYPE@@PEAKKW4MarshalingFlagSemantic@12@PEA_N@Z @ 0x1C002D3BC (-SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicati_ea_1C002D3BC.c)
- *     ?SetReferenceProperty@CShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0030FF0 (-SetReferenceProperty@CShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCRe.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
+ *     ?SetReferenceProperty@CShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01E80D0 (-SetReferenceProperty@CShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCRe.c)
  */
 
 __int64 __fastcall DirectComposition::CSpriteShapeMarshaler::SetReferenceProperty(
-        struct DirectComposition::CResourceMarshaler **this,
+        DirectComposition::CSpriteShapeMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
-        int a3,
+        unsigned int a3,
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
-  struct DirectComposition::CResourceMarshaler **v7; // rdx
-  int *v8; // rcx
-  int v9; // [rsp+30h] [rbp-28h]
-  bool *v10; // [rsp+40h] [rbp-18h]
+  unsigned int v5; // edi
+  int v10; // ebp
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  struct DirectComposition::CResourceMarshaler **v13; // r14
 
-  switch ( a3 )
+  v5 = 0;
+  *a5 = 0;
+  if ( a3 == 1 )
   {
-    case 1:
-      v7 = this + 9;
-      v10 = a5;
-      v8 = (int *)(this + 2);
-      v9 = 64;
-      return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-               a2,
-               v7,
-               (unsigned int *)a4,
-               1,
-               17,
-               v8,
-               v9,
-               0,
-               v10);
-    case 2:
-      v7 = this + 10;
-      v10 = a5;
-      v8 = (int *)(this + 2);
-      v9 = 256;
-      return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-               a2,
-               v7,
-               (unsigned int *)a4,
-               1,
-               17,
-               v8,
-               v9,
-               0,
-               v10);
-    case 3:
-      return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-               a2,
-               this + 8,
-               (unsigned int *)a4,
-               1,
-               67,
-               (int *)this + 4,
-               128,
-               0,
-               a5);
-    default:
-      return DirectComposition::CShapeMarshaler::SetReferenceProperty(this, a2, a3, a4, a5);
+    v10 = 64;
+    v11 = 72LL;
+    goto LABEL_7;
   }
+  if ( a3 == 2 )
+  {
+    v10 = 256;
+    v11 = 80LL;
+LABEL_7:
+    v12 = 14LL;
+    goto LABEL_8;
+  }
+  if ( a3 != 3 )
+    return (unsigned int)DirectComposition::CShapeMarshaler::SetReferenceProperty(this, a2, a3, a4, a5);
+  v10 = 128;
+  v11 = 64LL;
+  v12 = 65LL;
+LABEL_8:
+  v13 = (struct DirectComposition::CResourceMarshaler **)((char *)this + v11);
+  if ( !(DirectComposition::CSpriteShapeMarshaler *)((char *)this + v11)
+    || a4
+    && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          v12) )
+  {
+    return (unsigned int)DirectComposition::CShapeMarshaler::SetReferenceProperty(this, a2, a3, a4, a5);
+  }
+  if ( *v13 != a4 )
+  {
+    DirectComposition::CApplicationChannel::ReleaseResource(a2, *v13);
+    *v13 = a4;
+    if ( a4 )
+      DirectComposition::CResourceMarshaler::AddRef(a4);
+    *((_DWORD *)this + 4) |= v10;
+    *a5 = 1;
+  }
+  return v5;
 }

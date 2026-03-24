@@ -6,16 +6,16 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExUpdateLicenseDataInternal @ 0x1405A0AD0 (ExUpdateLicenseDataInternal.c)
  *     ExpSetKernelDataProtection @ 0x1405A15F4 (ExpSetKernelDataProtection.c)
- *     ExpCheckPortableOperatingSystem @ 0x1406C75CC (ExpCheckPortableOperatingSystem.c)
- *     ExGetExpirationDate @ 0x14073541C (ExGetExpirationDate.c)
- *     sub_140735AE4 @ 0x140735AE4 (sub_140735AE4.c)
- *     sub_14073BE10 @ 0x14073BE10 (sub_14073BE10.c)
- *     sub_1408CF074 @ 0x1408CF074 (sub_1408CF074.c)
+ *     ExpCheckPortableOperatingSystem @ 0x1406C75AC (ExpCheckPortableOperatingSystem.c)
+ *     ExGetExpirationDate @ 0x1407353FC (ExGetExpirationDate.c)
+ *     sub_140735AC4 @ 0x140735AC4 (sub_140735AC4.c)
+ *     sub_14073BDF0 @ 0x14073BDF0 (sub_14073BDF0.c)
+ *     sub_1408CF054 @ 0x1408CF054 (sub_1408CF054.c)
  *     sub_1409C46A8 @ 0x1409C46A8 (sub_1409C46A8.c)
  */
 
@@ -56,7 +56,7 @@ __int64 ExInitLicenseData()
   qword_14096D448 = (__int64)ExUpdateOsPfnInRegistry;
   qword_14096D450 = (__int64)SeExports;
   ClipSpInitialize(0LL, &g_kernelCallbacks);
-  sub_14073BE10();
+  sub_14073BDF0();
   sub_1409C46A8();
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -92,7 +92,7 @@ __int64 ExInitLicenseData()
     v4 = KeGetCurrentThread();
     --v4->KernelApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096E4E0, 0LL);
-    v5 = sub_140735AE4();
+    v5 = sub_140735AC4();
     if ( v5 == -1073741762 )
       byte_14096E4C1 = 1;
     v6 = byte_14096E4C1;
@@ -102,7 +102,7 @@ __int64 ExInitLicenseData()
     KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
     if ( !v0 && v6 )
-      sub_1408CF074(&KernelLicensingCacheCorrupt);
+      sub_1408CF054(&KernelLicensingCacheCorrupt);
     if ( v5 >= 0 && !v6 )
       ExUpdateLicenseDataInternal(dword_140A0A158, (unsigned int *)off_14096D030);
     v8 = &v25;

@@ -1,35 +1,48 @@
 /*
- * XREFs of DpiFdoDispatchPnp @ 0x1C021C2F0
+ * XREFs of DpiFdoDispatchPnp @ 0x1C019FF10
  * Callers:
  *     <none>
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     DpiFdoOpenDeviceFileObjectIfNeeded @ 0x1C01FBED0 (DpiFdoOpenDeviceFileObjectIfNeeded.c)
- *     DpiFdoCloseDeviceFileObject @ 0x1C0388F9C (DpiFdoCloseDeviceFileObject.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     DpiFdoOpenDeviceFileObjectIfNeeded @ 0x1C0182094 (DpiFdoOpenDeviceFileObjectIfNeeded.c)
+ *     DpiFdoCloseDeviceFileObject @ 0x1C02C8BA8 (DpiFdoCloseDeviceFileObject.c)
  */
 
 __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
-  __int64 DeviceExtension; // [rsp+30h] [rbp-68h]
-  char v4; // [rsp+38h] [rbp-60h]
-  int Status; // [rsp+3Ch] [rbp-5Ch]
-  UCHAR MinorFunction; // [rsp+40h] [rbp-58h]
-  struct _IO_STACK_LOCATION *CurrentStackLocation; // [rsp+48h] [rbp-50h]
-  POWER_STATE State; // [rsp+50h] [rbp-48h] BYREF
-  unsigned int v9; // [rsp+54h] [rbp-44h]
-  unsigned int v10; // [rsp+58h] [rbp-40h]
-  POWER_STATE v11; // [rsp+5Ch] [rbp-3Ch]
-  __int64 v12; // [rsp+60h] [rbp-38h]
-  __int64 v13; // [rsp+78h] [rbp-20h]
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 DeviceExtension; // [rsp+20h] [rbp-98h]
+  char v12; // [rsp+28h] [rbp-90h]
+  int Status; // [rsp+2Ch] [rbp-8Ch]
+  UCHAR MinorFunction; // [rsp+30h] [rbp-88h]
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // [rsp+40h] [rbp-78h]
+  POWER_STATE State; // [rsp+48h] [rbp-70h] BYREF
+  unsigned int v17; // [rsp+4Ch] [rbp-6Ch]
+  unsigned int v18; // [rsp+50h] [rbp-68h]
+  _QWORD *v19; // [rsp+58h] [rbp-60h]
+  _QWORD *v20; // [rsp+60h] [rbp-58h]
+  __int64 v21; // [rsp+68h] [rbp-50h]
+  __int64 v22; // [rsp+70h] [rbp-48h]
+  __int64 v23; // [rsp+78h] [rbp-40h]
+  POWER_STATE v24; // [rsp+80h] [rbp-38h]
+  __int64 v25; // [rsp+88h] [rbp-30h]
+  __int64 v26; // [rsp+98h] [rbp-20h]
 
-  v12 = 0LL;
+  v25 = 0LL;
   Status = -1073741637;
-  v4 = 0;
+  v12 = 0;
   DeviceExtension = (__int64)a1->DeviceExtension;
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
-  v12 = *(_QWORD *)(DeviceExtension + 40);
+  v25 = *(_QWORD *)(DeviceExtension + 40);
   if ( CurrentStackLocation->MinorFunction < 0x18u
     && *(_QWORD *)(DeviceExtension + 8LL * CurrentStackLocation->MinorFunction + 288) )
   {
@@ -51,7 +64,7 @@ __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
       State.SystemState = PowerSystemWorking;
       *(_DWORD *)(DeviceExtension + 284) = 1;
       *(_DWORD *)(DeviceExtension + 280) = 1;
-      v11.SystemState = PoSetPowerState(a1, DevicePowerState, State).SystemState;
+      v24.SystemState = PoSetPowerState(a1, DevicePowerState, State).SystemState;
       *(_DWORD *)(DeviceExtension + 4LL * (*(_DWORD *)(DeviceExtension + 276) % 8u) + 244) = *(_DWORD *)(DeviceExtension + 240);
       ++*(_DWORD *)(DeviceExtension + 276);
       *(_DWORD *)(DeviceExtension + 240) = *(_DWORD *)(DeviceExtension + 236);
@@ -67,11 +80,15 @@ __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
       if ( *(_BYTE *)(DeviceExtension + 484) )
         DpiCheckForOutstandingD3Requests(DeviceExtension);
       ExAcquireResourceExclusiveLite(*(PERESOURCE *)(DeviceExtension + 168), 1u);
-      if ( byte_1C0130491 && !*(_BYTE *)(DeviceExtension + 481) || *(_BYTE *)(DeviceExtension + 480) )
+      if ( byte_1C00B2B11 && !*(_BYTE *)(DeviceExtension + 481) || *(_BYTE *)(DeviceExtension + 480) )
       {
-        v4 = 1;
+        v12 = 1;
         Status = -1073741823;
-        WdLogSingleEntry3(2LL, a1, (unsigned __int8)byte_1C0130491, *(unsigned __int8 *)(DeviceExtension + 480));
+        v20 = (_QWORD *)WdLogNewEntry5_WdError(v6, v5);
+        v20[3] = a1;
+        v20[4] = (unsigned __int8)byte_1C00B2B11;
+        v20[5] = *(unsigned __int8 *)(DeviceExtension + 480);
+        WdLogEvent5_WdError(v20);
       }
       else if ( *(_DWORD *)(DeviceExtension + 236) == 6 )
       {
@@ -80,7 +97,14 @@ __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
       else
       {
         if ( *(_DWORD *)(DeviceExtension + 236) == 4 )
-          WdLogSingleEntry4(0LL, 275LL, 21LL, DeviceExtension, -1073741823LL);
+        {
+          v19 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v6, v5);
+          v19[3] = 275LL;
+          v19[4] = 21LL;
+          v19[5] = DeviceExtension;
+          v19[6] = -1073741823LL;
+          WdLogEvent5_WdCriticalError(v19);
+        }
         if ( DeviceExtension
           && *(_DWORD *)(DeviceExtension + 16) == 1953656900
           && (*(_DWORD *)(DeviceExtension + 20) == 2 || *(_DWORD *)(DeviceExtension + 20) == 3) )
@@ -101,7 +125,7 @@ __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
       if ( *(_BYTE *)(DeviceExtension + 484) )
         DpiCheckForOutstandingD3Requests(DeviceExtension);
       ExAcquireResourceExclusiveLite(*(PERESOURCE *)(DeviceExtension + 168), 1u);
-      v4 = 1;
+      v12 = 1;
       IoForwardIrpSynchronously(*(PDEVICE_OBJECT *)(DeviceExtension + 160), a2);
       Status = a2->IoStatus.Status;
       if ( Status >= 0 )
@@ -109,16 +133,20 @@ __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
         if ( *(_DWORD *)(DeviceExtension + 236) == 5 )
         {
           *(_DWORD *)(DeviceExtension + 236) = *(_DWORD *)(DeviceExtension + 240);
-          v10 = *(_DWORD *)(DeviceExtension + 276) - 1;
-          *(_DWORD *)(DeviceExtension + 276) = v10;
-          *(_DWORD *)(DeviceExtension + 240) = *(_DWORD *)(DeviceExtension + 4LL * (v10 % 8) + 244);
+          v18 = *(_DWORD *)(DeviceExtension + 276) - 1;
+          *(_DWORD *)(DeviceExtension + 276) = v18;
+          *(_DWORD *)(DeviceExtension + 240) = *(_DWORD *)(DeviceExtension + 4LL * (v18 % 8) + 244);
           if ( DeviceExtension
             && *(_DWORD *)(DeviceExtension + 16) == 1953656900
             && (*(_DWORD *)(DeviceExtension + 20) == 2 || *(_DWORD *)(DeviceExtension + 20) == 3) )
           {
             Status = DpiFdoOpenDeviceFileObjectIfNeeded(DeviceExtension);
             if ( Status < 0 )
-              WdLogSingleEntry1(2LL, Status);
+            {
+              v22 = WdLogNewEntry5_WdError(v8, v7);
+              *(_QWORD *)(v22 + 24) = Status;
+              WdLogEvent5_WdError(v22);
+            }
           }
         }
         else if ( *(_DWORD *)(DeviceExtension + 236) == 6 )
@@ -135,12 +163,16 @@ __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
       if ( *(_BYTE *)(DeviceExtension + 484) )
         DpiCheckForOutstandingD3Requests(DeviceExtension);
       ExAcquireResourceExclusiveLite(*(PERESOURCE *)(DeviceExtension + 168), 1u);
-      *(_DWORD *)(DeviceExtension + 4LL * (*(_DWORD *)(DeviceExtension + 276) % 8u) + 244) = *(_DWORD *)(DeviceExtension + 240);
+      v3 = *(unsigned int *)(DeviceExtension + 240);
+      *(_DWORD *)(DeviceExtension + 4LL * (*(_DWORD *)(DeviceExtension + 276) % 8u) + 244) = v3;
       ++*(_DWORD *)(DeviceExtension + 276);
-      *(_DWORD *)(DeviceExtension + 240) = *(_DWORD *)(DeviceExtension + 236);
+      v4 = *(unsigned int *)(DeviceExtension + 236);
+      *(_DWORD *)(DeviceExtension + 240) = v4;
       *(_DWORD *)(DeviceExtension + 236) = 4;
       Status = 0;
-      WdLogSingleEntry1(4LL, a1);
+      v21 = WdLogNewEntry5_WdEvent(v4, v3);
+      *(_QWORD *)(v21 + 24) = a1;
+      WdLogEvent5_WdEvent(v21);
       if ( *(_BYTE *)(DeviceExtension + 484) )
         DpiEnableD3Requests(*(_QWORD *)(DeviceExtension + 24));
       goto LABEL_81;
@@ -149,14 +181,14 @@ __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
       if ( *(_BYTE *)(DeviceExtension + 484) )
         DpiCheckForOutstandingD3Requests(DeviceExtension);
       ExAcquireResourceExclusiveLite(*(PERESOURCE *)(DeviceExtension + 168), 1u);
-      if ( byte_1C0130491 && !*(_BYTE *)(DeviceExtension + 481) || *(_BYTE *)(DeviceExtension + 480) )
+      if ( byte_1C00B2B11 && !*(_BYTE *)(DeviceExtension + 481) || *(_BYTE *)(DeviceExtension + 480) )
       {
-        v4 = 1;
+        v12 = 1;
         Status = -1073741823;
       }
       else
       {
-        v4 = 1;
+        v12 = 1;
         Status = -1073741808;
       }
       if ( *(_BYTE *)(DeviceExtension + 484) )
@@ -167,15 +199,15 @@ __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
       if ( *(_BYTE *)(DeviceExtension + 484) )
         DpiCheckForOutstandingD3Requests(DeviceExtension);
       ExAcquireResourceExclusiveLite(*(PERESOURCE *)(DeviceExtension + 168), 1u);
-      v4 = 1;
+      v12 = 1;
       IoForwardIrpSynchronously(*(PDEVICE_OBJECT *)(DeviceExtension + 160), a2);
       Status = a2->IoStatus.Status;
       if ( Status >= 0 && *(_DWORD *)(DeviceExtension + 236) == 3 )
       {
         *(_DWORD *)(DeviceExtension + 236) = *(_DWORD *)(DeviceExtension + 240);
-        v9 = *(_DWORD *)(DeviceExtension + 276) - 1;
-        *(_DWORD *)(DeviceExtension + 276) = v9;
-        *(_DWORD *)(DeviceExtension + 240) = *(_DWORD *)(DeviceExtension + 4LL * (v9 % 8) + 244);
+        v17 = *(_DWORD *)(DeviceExtension + 276) - 1;
+        *(_DWORD *)(DeviceExtension + 276) = v17;
+        *(_DWORD *)(DeviceExtension + 240) = *(_DWORD *)(DeviceExtension + 4LL * (v17 % 8) + 244);
       }
       if ( *(_BYTE *)(DeviceExtension + 484) )
         DpiEnableD3Requests(*(_QWORD *)(DeviceExtension + 24));
@@ -185,14 +217,14 @@ __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
         && *(_DWORD *)(DeviceExtension + 16) == 1953656900
         && (*(_DWORD *)(DeviceExtension + 20) == 2 || *(_DWORD *)(DeviceExtension + 20) == 3) )
       {
-        v4 = 1;
+        v12 = 1;
         IoForwardIrpSynchronously(*(PDEVICE_OBJECT *)(DeviceExtension + 160), a2);
         Status = a2->IoStatus.Status;
         qmemcpy((void *)(DeviceExtension + 1296), CurrentStackLocation->Parameters.Create.SecurityContext, 0x40uLL);
       }
       break;
     case 0x14u:
-      v4 = 1;
+      v12 = 1;
       IoForwardIrpSynchronously(*(PDEVICE_OBJECT *)(DeviceExtension + 160), a2);
       Status = a2->IoStatus.Status;
       if ( Status >= 0 || Status == -1073741637 )
@@ -220,8 +252,8 @@ __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
           {
             if ( *(_DWORD *)(DeviceExtension + 16) == 1953656900 && *(_DWORD *)(DeviceExtension + 20) == 2 )
             {
-              v13 = DeviceExtension;
-              if ( *(_BYTE *)(DeviceExtension + 5372) )
+              v26 = DeviceExtension;
+              if ( *(_BYTE *)(DeviceExtension + 5444) )
                 a2->IoStatus.Information |= 0x100uLL;
             }
           }
@@ -233,12 +265,16 @@ __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
       if ( *(_BYTE *)(DeviceExtension + 484) )
         DpiCheckForOutstandingD3Requests(DeviceExtension);
       ExAcquireResourceExclusiveLite(*(PERESOURCE *)(DeviceExtension + 168), 1u);
-      *(_DWORD *)(DeviceExtension + 4LL * (*(_DWORD *)(DeviceExtension + 276) % 8u) + 244) = *(_DWORD *)(DeviceExtension + 240);
+      v9 = *(unsigned int *)(DeviceExtension + 240);
+      *(_DWORD *)(DeviceExtension + 4LL * (*(_DWORD *)(DeviceExtension + 276) % 8u) + 244) = v9;
       ++*(_DWORD *)(DeviceExtension + 276);
-      *(_DWORD *)(DeviceExtension + 240) = *(_DWORD *)(DeviceExtension + 236);
+      v10 = *(unsigned int *)(DeviceExtension + 236);
+      *(_DWORD *)(DeviceExtension + 240) = v10;
       *(_DWORD *)(DeviceExtension + 236) = 6;
       Status = 0;
-      WdLogSingleEntry1(4LL, a1);
+      v23 = WdLogNewEntry5_WdEvent(v10, v9);
+      *(_QWORD *)(v23 + 24) = a1;
+      WdLogEvent5_WdEvent(v23);
       if ( *(_BYTE *)(DeviceExtension + 484) )
         DpiEnableD3Requests(*(_QWORD *)(DeviceExtension + 24));
 LABEL_81:
@@ -246,7 +282,7 @@ LABEL_81:
       KeLeaveCriticalRegion();
       break;
   }
-  if ( v4 || Status < 0 && Status != -1073741637 )
+  if ( v12 || Status < 0 && Status != -1073741637 )
   {
     a2->IoStatus.Status = Status;
     IofCompleteRequest(a2, 1);

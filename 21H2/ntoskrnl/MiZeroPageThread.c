@@ -1,23 +1,60 @@
 /*
- * XREFs of MiZeroPageThread @ 0x1403D9D30
+ * XREFs of MiZeroPageThread @ 0x1403CABA0
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForGate @ 0x140217454 (KeWaitForGate.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     MiZeroBootLargePages @ 0x1403D9D88 (MiZeroBootLargePages.c)
- *     MiForceZeroingThreadExits @ 0x1405B2734 (MiForceZeroingThreadExits.c)
+ *     MiZeroPage @ 0x140233310 (MiZeroPage.c)
+ *     MiInitializeColorTable @ 0x1403B0D1C (MiInitializeColorTable.c)
+ *     MiZeroBootLargePages @ 0x1403CABF4 (MiZeroBootLargePages.c)
+ *     MiDeleteZeroThreadContext @ 0x14054FC14 (MiDeleteZeroThreadContext.c)
+ *     MiGetPagesToZero @ 0x14054FD4C (MiGetPagesToZero.c)
+ *     MiSetZeroPageThreadPriority @ 0x14054FEB4 (MiSetZeroPageThreadPriority.c)
+ *     MiWaitForFreePagesToZero @ 0x14054FF8C (MiWaitForFreePagesToZero.c)
  */
 
-__int64 __fastcall MiZeroPageThread(_BYTE *a1)
+__int64 __fastcall MiZeroPageThread(ULONG_PTR *a1)
 {
   __int64 result; // rax
+  _DWORD *v3; // r14
+  unsigned int v4; // ebx
+  struct _KTHREAD *CurrentThread; // rbp
+  unsigned int v6; // r12d
+  int v7; // eax
+  unsigned int i; // esi
+  __int64 v9; // [rsp+50h] [rbp+8h] BYREF
 
-  if ( (int)MiZeroBootLargePages() < 0 )
-    a1[16176] = 1;
-  KeWaitForSingleObject(a1 + 104, WrFreePage, 0, 0, 0LL);
-  result = MiForceZeroingThreadExits(a1);
-  if ( a1[16177] )
-    return KeWaitForGate((__int64)(a1 + 16152), 0);
+  if ( a1 != &MiSystemPartition || (result = MiZeroBootLargePages(), (int)result < 0) )
+  {
+    v3 = (_DWORD *)a1[805];
+    v4 = 0;
+    v3[67] = -1;
+    MiInitializeColorTable(v3 + 62, 0);
+    CurrentThread = KeGetCurrentThread();
+    v9 = 0LL;
+    *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x400u;
+    v6 = MiSetZeroPageThreadPriority(a1, CurrentThread, 0LL);
+    while ( 1 )
+    {
+      v7 = MiWaitForFreePagesToZero(a1, &v9, v4);
+      if ( v7 == -1 )
+        break;
+      if ( v4 != v7 )
+      {
+        v4 = v7;
+        MiInitializeColorTable(v3 + 62, v7);
+      }
+      for ( i = 0; i <= 3; ++i )
+      {
+        if ( (unsigned int)MiGetPagesToZero(a1, v3, i) )
+          break;
+      }
+      if ( i <= 3 )
+        MiZeroPage((__int64)v3, (__int64)a1);
+    }
+    MiSetZeroPageThreadPriority(a1, CurrentThread, v6);
+    *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) &= ~0x400u;
+    result = MiDeleteZeroThreadContext(v3);
+    a1[805] = 0LL;
+  }
   return result;
 }

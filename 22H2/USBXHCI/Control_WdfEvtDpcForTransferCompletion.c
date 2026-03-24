@@ -1,16 +1,16 @@
 /*
- * XREFs of Control_WdfEvtDpcForTransferCompletion @ 0x1C0042E30
+ * XREFs of Control_WdfEvtDpcForTransferCompletion @ 0x1C0019B00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Control_ProcessTransferCompletion @ 0x1C0042604 (Control_ProcessTransferCompletion.c)
+ *     Control_ProcessTransferCompletion @ 0x1C0019B38 (Control_ProcessTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall Control_WdfEvtDpcForTransferCompletion(__int64 a1)
+__int64 __fastcall Control_WdfEvtDpcForTransferCompletion(__int64 a1)
 {
   __int64 v1; // rax
 
   v1 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 912))(WdfDriverGlobals, a1);
-  Control_ProcessTransferCompletion(v1);
+  return Control_ProcessTransferCompletion(v1);
 }

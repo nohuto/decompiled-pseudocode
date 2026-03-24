@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhPdoPower_SetPower @ 0x1C0002AD0
+ * XREFs of UsbhPdoPower_SetPower @ 0x1C001AFE0
  * Callers:
  *     <none>
  * Callees:
- *     UsbhPdoDevicePowerState @ 0x1C0005200 (UsbhPdoDevicePowerState.c)
- *     UsbhPdoSystemPowerState @ 0x1C000B094 (UsbhPdoSystemPowerState.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhPoStartNextPowerIrp_Pdo @ 0x1C000DEEC (UsbhPoStartNextPowerIrp_Pdo.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhPdoDevicePowerState @ 0x1C00109A0 (UsbhPdoDevicePowerState.c)
+ *     UsbhPdoSystemPowerState @ 0x1C0010E28 (UsbhPdoSystemPowerState.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhPoStartNextPowerIrp_Pdo @ 0x1C0013CDC (UsbhPoStartNextPowerIrp_Pdo.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
-__int64 __fastcall UsbhPdoPower_SetPower(__int64 a1, IRP *a2)
+__int64 __fastcall UsbhPdoPower_SetPower(ULONG_PTR a1, IRP *a2)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // r8
   __int64 v5; // rcx
@@ -22,7 +22,7 @@ __int64 __fastcall UsbhPdoPower_SetPower(__int64 a1, IRP *a2)
   __int64 v11; // r9
   __int64 v12; // rdx
   unsigned int v13; // edx
-  __int64 v15; // rax
+  _DWORD *v15; // rax
 
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   if ( !a1 )
@@ -81,7 +81,7 @@ LABEL_24:
   if ( v13 == 1 )
     return UsbhPdoDevicePowerState(*(_QWORD *)(v5 + 1184), a1, a2);
   v15 = PdoExt(a1);
-  UsbhPoStartNextPowerIrp_Pdo(*(_QWORD *)(v15 + 1184), a1, a2, 767LL);
+  UsbhPoStartNextPowerIrp_Pdo(*((_QWORD *)v15 + 148), a1, a2, 767);
   a2->IoStatus.Status = -1073741637;
   IofCompleteRequest(a2, 0);
   return 3221225659LL;

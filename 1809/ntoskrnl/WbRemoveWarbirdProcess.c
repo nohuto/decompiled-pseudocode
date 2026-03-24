@@ -13,7 +13,7 @@
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     sub_140625234 @ 0x140625234 (sub_140625234.c)
  *     sub_14062554C @ 0x14062554C (sub_14062554C.c)
- *     sub_1406B0E5C @ 0x1406B0E5C (sub_1406B0E5C.c)
+ *     sub_1406B0E3C @ 0x1406B0E3C (sub_1406B0E3C.c)
  */
 
 __int64 __fastcall WbRemoveWarbirdProcess(__int64 a1)
@@ -52,7 +52,7 @@ __int64 __fastcall WbRemoveWarbirdProcess(__int64 a1)
       ExfAcquirePushLockExclusiveEx(&qword_14043FA38, v7, (ULONG_PTR)&qword_14043FA38);
     if ( v9 )
       *(_BYTE *)(v9 + 26) |= 1u;
-    v4 = sub_1406B0E5C((unsigned int)&dword_14043FA10, a1, 8, -1, (__int64)&v11);
+    v4 = sub_1406B0E3C((unsigned int)&dword_14043FA10, a1, 8, -1, (__int64)&v11);
     v10 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043FA38, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v10 & 2) != 0 && (v10 & 4) == 0 )
       ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043FA38);

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReadWriteAnyLevelShadowPte @ 0x14012B2DC
+ * XREFs of MiReadWriteAnyLevelShadowPte @ 0x14012B2FC
  * Callers:
- *     MiCheckKernelShadow @ 0x14012B1F8 (MiCheckKernelShadow.c)
- *     MiMakeShadowPageTableRange @ 0x14072A324 (MiMakeShadowPageTableRange.c)
- *     MiInitializeShadowPageTable @ 0x14072A414 (MiInitializeShadowPageTable.c)
- *     MmDeleteShadowMapping @ 0x140858EEC (MmDeleteShadowMapping.c)
+ *     MiCheckKernelShadow @ 0x14012B218 (MiCheckKernelShadow.c)
+ *     MiMakeShadowPageTableRange @ 0x14072A304 (MiMakeShadowPageTableRange.c)
+ *     MiInitializeShadowPageTable @ 0x14072A3F4 (MiInitializeShadowPageTable.c)
+ *     MmDeleteShadowMapping @ 0x140858ECC (MmDeleteShadowMapping.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiReadWriteAnyLevelShadowPte(unsigned __int64 a1, int a2, int a3, __int64 a4)

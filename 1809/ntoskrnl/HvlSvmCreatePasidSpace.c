@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlSvmCreatePasidSpace @ 0x1402758A0
+ * XREFs of HvlSvmCreatePasidSpace @ 0x1402759A0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpHandleInsufficientMemory @ 0x1401B3A9C (HvlpHandleInsufficientMemory.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x1401B3EB4 (HvlpHvStatusIsInsufficientMemory.c)
- *     HvcallpExtendedFastHypercall @ 0x1401C7270 (HvcallpExtendedFastHypercall.c)
- *     HvlpHvToNtStatus @ 0x140279480 (HvlpHvToNtStatus.c)
+ *     HvlpHandleInsufficientMemory @ 0x1401B3ABC (HvlpHandleInsufficientMemory.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x1401B3ED4 (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvcallpExtendedFastHypercall @ 0x1401C7290 (HvcallpExtendedFastHypercall.c)
+ *     HvlpHvToNtStatus @ 0x140279580 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmCreatePasidSpace(int a1, int a2)

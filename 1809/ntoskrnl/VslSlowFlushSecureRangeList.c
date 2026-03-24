@@ -1,11 +1,11 @@
 /*
- * XREFs of VslSlowFlushSecureRangeList @ 0x14027BFC4
+ * XREFs of VslSlowFlushSecureRangeList @ 0x14027C0C4
  * Callers:
- *     HvlpSlowFlushListTb @ 0x140279DAC (HvlpSlowFlushListTb.c)
- *     HvlpSlowFlushListTbEx @ 0x140279F24 (HvlpSlowFlushListTbEx.c)
+ *     HvlpSlowFlushListTb @ 0x140279EAC (HvlpSlowFlushListTb.c)
+ *     HvlpSlowFlushListTbEx @ 0x14027A024 (HvlpSlowFlushListTbEx.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslSlowFlushSecureRangeList(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

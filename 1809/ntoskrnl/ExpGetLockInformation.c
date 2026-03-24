@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpGetLockInformation @ 0x1408CB8AC
+ * XREFs of ExpGetLockInformation @ 0x1408CB88C
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExUnlockUserBuffer @ 0x14011A6F8 (ExUnlockUserBuffer.c)
+ *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
  *     ExQuerySystemLockInformation @ 0x14057E5CC (ExQuerySystemLockInformation.c)
- *     ExLockUserBuffer @ 0x14069E938 (ExLockUserBuffer.c)
+ *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
  */
 
 __int64 __fastcall ExpGetLockInformation(unsigned __int64 a1, unsigned int a2, unsigned int *a3)

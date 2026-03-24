@@ -1,9 +1,9 @@
 /*
- * XREFs of GreQueryFonts @ 0x1C0142988
+ * XREFs of GreQueryFonts @ 0x1C0154664
  * Callers:
- *     NtGdiQueryFonts @ 0x1C0142850 (NtGdiQueryFonts.c)
+ *     NtGdiQueryFonts @ 0x1C0154530 (NtGdiQueryFonts.c)
  * Callees:
- *     ?QueryFonts@PUBLIC_PFTOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@KPEAT_LARGE_INTEGER@@@Z @ 0x1C01429B8 (-QueryFonts@PUBLIC_PFTOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@KPEAT_LARGE_INTEGER@@@Z.c)
+ *     ?QueryFonts@PUBLIC_PFTOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@KPEAT_LARGE_INTEGER@@@Z @ 0x1C0154694 (-QueryFonts@PUBLIC_PFTOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@KPEAT_LARGE_INTEGER@@@Z.c)
  */
 
 __int64 __fastcall GreQueryFonts(struct _UNIVERSAL_FONT_ID *a1, unsigned int a2, union _LARGE_INTEGER *a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ValidateHmonitor @ 0x1C0030100
+ * XREFs of ValidateHmonitor @ 0x1C000F990
  * Callers:
- *     <none>
+ *     xxxCreateThreadInfo @ 0x1C003D918 (xxxCreateThreadInfo.c)
  * Callees:
- *     HMValidateSharedHandle @ 0x1C0030048 (HMValidateSharedHandle.c)
+ *     HMValidateSharedHandle @ 0x1C000F9A8 (HMValidateSharedHandle.c)
  */
 
-__int64 __fastcall ValidateHmonitor(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall ValidateHmonitor(__int64 a1)
 {
-  return HMValidateSharedHandle(a1, a2);
+  return HMValidateSharedHandle(a1);
 }

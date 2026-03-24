@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptRequestSecondaryInterrupt @ 0x14051D768
+ * XREFs of HalpInterruptRequestSecondaryInterrupt @ 0x1404D1174
  * Callers:
- *     HalpInterruptRequestInterrupt @ 0x1405091D0 (HalpInterruptRequestInterrupt.c)
+ *     HalpInterruptRequestInterrupt @ 0x1404BC750 (HalpInterruptRequestInterrupt.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpReleaseSecondaryIcEntryShared @ 0x1404593D2 (HalpReleaseSecondaryIcEntryShared.c)
- *     HalpFindSecondaryIcEntry @ 0x14051D24C (HalpFindSecondaryIcEntry.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpFindSecondaryIcEntry @ 0x1404D0C58 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D14C4 (HalpReleaseSecondaryIcEntryShared.c)
  */
 
 __int64 __fastcall HalpInterruptRequestSecondaryInterrupt(unsigned int a1)
@@ -16,7 +16,7 @@ __int64 __fastcall HalpInterruptRequestSecondaryInterrupt(unsigned int a1)
   int v6; // edi
   int v7; // [rsp+38h] [rbp+10h] BYREF
 
-  if ( !SecondaryIcServicesEnabled || !((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))off_140C01DD0[0])(0LL, a1) )
+  if ( !SecondaryIcServicesEnabled || !((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))off_140C00780[0])(0LL, a1) )
     return 3221225485LL;
   SecondaryIcEntry = HalpFindSecondaryIcEntry(a1);
   v4 = SecondaryIcEntry;
@@ -35,5 +35,5 @@ __int64 __fastcall HalpInterruptRequestSecondaryInterrupt(unsigned int a1)
   if ( v6 < 0 || v7 == -1 )
     return (unsigned int)v6;
   else
-    return off_140C01E60[0]();
+    return off_140C00810[0]();
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlMBMessageWParamCharToWCS @ 0x1C025A63C
+ * XREFs of RtlMBMessageWParamCharToWCS @ 0x1C025DA60
  * Callers:
- *     xxxDispatchMessage @ 0x1C00429F0 (xxxDispatchMessage.c)
- *     fnHkINLPMSG @ 0x1C0076120 (fnHkINLPMSG.c)
- *     NtUserfnINWPARAMCHAR @ 0x1C0202FC0 (NtUserfnINWPARAMCHAR.c)
+ *     fnHkINLPMSG @ 0x1C005D100 (fnHkINLPMSG.c)
+ *     xxxDispatchMessage @ 0x1C006AE54 (xxxDispatchMessage.c)
+ *     NtUserfnINWPARAMCHAR @ 0x1C0206680 (NtUserfnINWPARAMCHAR.c)
  * Callees:
- *     ConvertToAndFromWideChar @ 0x1C00E7F50 (ConvertToAndFromWideChar.c)
- *     THREAD_CODEPAGE @ 0x1C022AA7C (THREAD_CODEPAGE.c)
+ *     ConvertToAndFromWideChar @ 0x1C00A4AF4 (ConvertToAndFromWideChar.c)
+ *     THREAD_CODEPAGE @ 0x1C0230DD0 (THREAD_CODEPAGE.c)
  */
 
 __int64 __fastcall RtlMBMessageWParamCharToWCS(unsigned int a1, CHAR *a2)

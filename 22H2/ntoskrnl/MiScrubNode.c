@@ -1,186 +1,148 @@
 /*
- * XREFs of MiScrubNode @ 0x140A466E0
+ * XREFs of MiScrubNode @ 0x140563F8C
  * Callers:
- *     MiScrubMemoryWorker @ 0x140A46670 (MiScrubMemoryWorker.c)
+ *     MiScrubMemoryWorker @ 0x1408DBFF0 (MiScrubMemoryWorker.c)
  * Callees:
- *     MiClaimPhysicalRun @ 0x1403BA11C (MiClaimPhysicalRun.c)
- *     MiPfnsWorthTrying @ 0x1403BB034 (MiPfnsWorthTrying.c)
- *     MiEmptyKernelStackCache @ 0x140644800 (MiEmptyKernelStackCache.c)
- *     MiMakePageBad @ 0x14065E320 (MiMakePageBad.c)
- *     MiScrubInterrupted @ 0x14065E480 (MiScrubInterrupted.c)
- *     MiScrubPage @ 0x14065F160 (MiScrubPage.c)
- *     MiScrubLargePageRegions @ 0x140A46480 (MiScrubLargePageRegions.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234880 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiClaimPhysicalRun @ 0x1402810AC (MiClaimPhysicalRun.c)
+ *     MiPfnsWorthTrying @ 0x1402827B0 (MiPfnsWorthTrying.c)
+ *     MiEmptyKernelStackCache @ 0x1403CFBA4 (MiEmptyKernelStackCache.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMakePageBad @ 0x140563874 (MiMakePageBad.c)
+ *     MiScrubInterrupted @ 0x140563998 (MiScrubInterrupted.c)
+ *     MiScrubPage @ 0x140564234 (MiScrubPage.c)
+ *     MiScrubNodeLargePages @ 0x1408D8818 (MiScrubNodeLargePages.c)
  */
 
-__int64 __fastcall MiScrubNode(__int64 a1)
+unsigned __int64 __fastcall MiScrubNode(__int64 a1)
 {
-  unsigned int v1; // r8d
-  __int64 v2; // rdi
-  unsigned int *v4; // rdx
-  __int64 result; // rax
-  __int64 v6; // rbx
-  __int64 v7; // rbp
-  unsigned int *v8; // r9
-  int v9; // r11d
-  unsigned __int64 v10; // r13
-  unsigned __int64 v11; // rcx
-  int v12; // edx
-  __int64 v13; // r15
-  __int64 v14; // rax
-  unsigned __int64 v15; // r12
-  unsigned __int64 v16; // rdi
-  __int64 v17; // rsi
-  unsigned __int64 v18; // rax
-  __int64 v19; // rax
-  __int64 v20; // r8
-  char v21; // bl
-  unsigned int *v22; // [rsp+60h] [rbp-58h]
-  union _SLIST_HEADER *v23; // [rsp+68h] [rbp-50h]
-  int v24; // [rsp+C0h] [rbp+8h] BYREF
-  int v25; // [rsp+C8h] [rbp+10h]
-  __int64 v26; // [rsp+D0h] [rbp+18h]
-  __int64 v27; // [rsp+D8h] [rbp+20h]
+  __int64 v1; // r8
+  __int16 *v3; // rbx
+  unsigned int *v4; // rax
+  unsigned int *v5; // rbp
+  unsigned __int64 result; // rax
+  _DWORD *v7; // rcx
+  __int64 v8; // r12
+  ULONG_PTR v9; // r13
+  ULONG_PTR v10; // rsi
+  __int64 i; // rdi
+  unsigned __int64 v12; // r8
+  __int64 v13; // rcx
+  int v14; // ebx
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  _DWORD *v17; // r9
+  __int64 v18; // r8
+  _DWORD *v19; // r9
+  unsigned __int64 v20; // r15
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  bool v23; // zf
+  int v24; // [rsp+90h] [rbp+8h] BYREF
+  __int16 *v25; // [rsp+98h] [rbp+10h]
 
-  v24 = 0;
-  v1 = -1;
-  v2 = *(_QWORD *)a1;
-  v26 = v2;
-  v4 = *(unsigned int **)(v2 + 80);
-  result = *(_QWORD *)(v2 + 48);
-  v23 = (union _SLIST_HEADER *)result;
-  v6 = *v4;
-  v27 = v6;
-  LODWORD(v7) = v6;
-  v8 = &v4[4 * v6 + 4];
-  v22 = v8;
-  if ( !(_DWORD)v6 )
-    return result;
-  v9 = *(_DWORD *)(a1 + 8);
-  while ( 1 )
+  v1 = *(unsigned int *)(a1 + 8);
+  v3 = *(__int16 **)(*(_QWORD *)a1 + 48LL);
+  v4 = *(unsigned int **)(a1 + 216);
+  v25 = v3;
+  v5 = &v4[4 * *v4 + 4];
+  result = MiScrubNodeLargePages(a1, v3, v1);
+  v7 = *(_DWORD **)(a1 + 216);
+  v8 = 0LL;
+  if ( *v7 )
   {
-    v7 = (unsigned int)(v7 - 1);
-    result = (unsigned int)v7;
-    if ( v8[2 * v7] == v9 )
+    while ( 1 )
     {
-      v10 = *(_QWORD *)(a1 + 192);
-      result = 2LL * (unsigned int)v7;
-      v1 = v7;
-      v11 = *(_QWORD *)&v4[4 * (unsigned int)v7 + 4];
-      if ( v10 >= v11 || v10 == -1LL )
+      result = *(unsigned int *)(a1 + 8);
+      if ( v5[2 * v8] == (_DWORD)result )
         break;
+LABEL_26:
+      v7 = *(_DWORD **)(a1 + 216);
+      v8 = (unsigned int)(v8 + 1);
+      if ( (unsigned int)v8 >= *v7 )
+        return result;
     }
-    if ( !(_DWORD)v7 )
-      goto LABEL_11;
-  }
-  result = (unsigned int)(v6 + 1);
-  if ( v10 >= *(_QWORD *)&v4[4 * (unsigned int)v7 + 6] + v11 - 1 )
-  {
-    result = (unsigned int)v6;
-    v10 = *(_QWORD *)&v4[4 * (unsigned int)v7 + 6] + v11 - 1;
-  }
-  LODWORD(v6) = result;
-  v27 = (unsigned int)result;
-  if ( v10 != -1LL )
-    goto LABEL_13;
-LABEL_11:
-  if ( v1 == -1 )
-    return result;
-  LODWORD(v7) = v1;
-  result = 2LL * v1;
-  v10 = *(_QWORD *)&v4[4 * v1 + 6] + *(_QWORD *)&v4[4 * v1 + 4] - 1LL;
-LABEL_13:
-  v12 = 0;
-  LODWORD(v13) = v7 + 1;
-  v25 = 0;
-  if ( !(_DWORD)v6 )
-    return result;
-  while ( 1 )
-  {
-    if ( !(_DWORD)v13 )
-      LODWORD(v13) = **(_DWORD **)(v2 + 80);
-    v13 = (unsigned int)(v13 - 1);
-    if ( v8[2 * v13] == *(_DWORD *)(a1 + 8) )
-      break;
-LABEL_38:
-    result = (unsigned int)(v25 + 1);
-    v25 = result;
-    if ( (unsigned int)result >= (unsigned int)v6 )
-      return result;
-    v12 = result;
-  }
-  v14 = *(_QWORD *)(v2 + 80);
-  v15 = *(_QWORD *)(v14 + 16LL * (unsigned int)v13 + 16);
-  v16 = *(_QWORD *)(v14 + 16LL * (unsigned int)v13 + 24) + v15 - 1;
-  if ( (_DWORD)v13 == (_DWORD)v7 )
-  {
-    if ( v12 )
-      v15 = v10 + 1;
-    else
-      v16 = v10;
-  }
-  v17 = 48 * v16 - 0x220000000000LL;
-  if ( v16 < v15 || !v15 )
-  {
-LABEL_37:
-    v2 = v26;
-    goto LABEL_38;
-  }
-  while ( !MiScrubInterrupted(a1) )
-  {
-    v18 = MiPfnsWorthTrying((__int64)v23, v17, 1LL, 117440512, &v24);
-    if ( v18 )
+    v9 = *(_QWORD *)&v7[4 * (unsigned int)v8 + 4];
+    v10 = v9 + *(_QWORD *)&v7[4 * (unsigned int)v8 + 6] - 1LL;
+    result = 0xFFFFFA8000000000uLL;
+    for ( i = 48 * v10 - 0x58000000000LL; ; i -= 48LL )
     {
-      if ( v18 >= v16 - v15 + 1 )
-        goto LABEL_36;
-      v17 += 48 - 48 * v18;
-      v16 += 1 - v18;
-      v19 = MiScrubLargePageRegions((__int64 *)a1, v17, v18);
-      if ( v19 )
+      if ( v10 < v9 || !v9 )
+        goto LABEL_26;
+      result = MiScrubInterrupted(a1);
+      if ( (_DWORD)result )
+        return result;
+      v24 = 0;
+      result = MiPfnsWorthTrying(v3, i, 1LL, 117440512, &v24);
+      v12 = result;
+      if ( result )
       {
-        v16 += v19;
-        if ( MiScrubInterrupted(a1) )
+        if ( result >= v10 - v9 + 1 )
+          goto LABEL_26;
+        v13 = 48 - 48 * result;
+        result = 1 - result;
+        i += v13;
+        v10 += 1 - v12;
+      }
+      else
+      {
+        if ( v24 == 1 )
+          MiEmptyKernelStackCache();
+        result = MiClaimPhysicalRun(
+                   (__int64)v3,
+                   v10,
+                   1LL,
+                   0xFFFFFFFFFLL,
+                   a1 + 176,
+                   117440512,
+                   -1,
+                   0LL,
+                   *(unsigned __int8 *)(i + 34) >> 6,
+                   0LL);
+        if ( !result )
         {
-          result = v23[1].Alignment;
-          *(_QWORD *)(25408LL * *(unsigned int *)(a1 + 8) + result + 23112) = v16 - 1;
-          return result;
+          v14 = MiScrubPage(a1, i, 0LL, 0LL);
+          v20 = (unsigned __int8)MiLockPageInline(i, v15, v16, v17);
+          if ( v14 < 0 || (*(_BYTE *)(i + 35) & 0x40) != 0 )
+          {
+            v3 = v25;
+            if ( *(__int16 **)(qword_140C4E648 + 8 * ((*(_QWORD *)(i + 40) >> 39) & 0x3FFLL)) == v25 )
+            {
+              MiMakePageBad(i, 2LL, v18, v19);
+              goto LABEL_16;
+            }
+          }
+          else
+          {
+            v3 = v25;
+          }
+          MiInsertPageInFreeOrZeroedList(v10, 2);
+LABEL_16:
+          _InterlockedAnd64((volatile signed __int64 *)(i + 24), 0x7FFFFFFFFFFFFFFFuLL);
+          result = (unsigned int)KiIrqlFlags;
+          if ( KiIrqlFlags )
+          {
+            if ( (KiIrqlFlags & 1) != 0 )
+            {
+              result = KeGetCurrentIrql();
+              if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v20 <= 0xFu && (unsigned __int8)result >= 2u )
+              {
+                CurrentPrcb = KeGetCurrentPrcb();
+                SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v20 + 1));
+                v23 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+                SchedulerAssist[5] &= result;
+                if ( v23 )
+                  result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+              }
+            }
+          }
+          __writecr8(v20);
         }
-        v17 += 48 * v20;
       }
-    }
-    else
-    {
-      if ( (v24 & 1) != 0 )
-        MiEmptyKernelStackCache(v23, 0);
-      if ( !MiClaimPhysicalRun(
-              (__int64)v23,
-              v16,
-              1LL,
-              qword_140C65CA0,
-              a1 + 48,
-              117440512,
-              -1,
-              0LL,
-              *(unsigned __int8 *)(v17 + 34) >> 6,
-              0LL,
-              &v24) )
-      {
-        v21 = 2;
-        if ( (int)MiScrubPage((unsigned __int64 *)a1, v17, 0LL, 0) < 0 )
-          v21 = 3;
-        MiMakePageBad(v16, v21);
-      }
-    }
-    --v16;
-    v17 -= 48LL;
-    if ( v16 < v15 )
-    {
-LABEL_36:
-      LODWORD(v6) = v27;
-      v8 = v22;
-      goto LABEL_37;
+      --v10;
     }
   }
-  result = v23[1].Alignment;
-  *(_QWORD *)(25408LL * *(unsigned int *)(a1 + 8) + result + 23112) = v16;
   return result;
 }

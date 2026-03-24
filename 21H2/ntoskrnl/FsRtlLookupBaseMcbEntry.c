@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlLookupBaseMcbEntry @ 0x140221E70
+ * XREFs of FsRtlLookupBaseMcbEntry @ 0x140291520
  * Callers:
- *     FsRtlLookupLargeMcbEntry @ 0x1405411A0 (FsRtlLookupLargeMcbEntry.c)
+ *     FsRtlLookupLargeMcbEntry @ 0x1404EF010 (FsRtlLookupLargeMcbEntry.c)
  * Callees:
  *     <none>
  */
@@ -15,22 +15,19 @@ BOOLEAN __stdcall FsRtlLookupBaseMcbEntry(
         PLONGLONG SectorCountFromStartingLbn,
         PULONG Index)
 {
-  int v7; // edi
-  signed int v8; // r10d
-  unsigned int v11; // ebp
+  int v7; // ebp
+  signed int v8; // r11d
   signed int v12; // ebx
   unsigned int v13; // r9d
-  _DWORD *Mapping; // rsi
-  int v15; // eax
-  __int64 v16; // rdx
-  int v17; // r8d
-  int v18; // eax
-  LONGLONG v20; // r8
-  _DWORD *v21; // r9
+  _DWORD *Mapping; // r10
+  ULONG v15; // eax
+  int v16; // r8d
+  int v17; // ecx
+  LONGLONG v19; // r8
+  _DWORD *v20; // r9
 
   v7 = 0;
   v8 = Mcb->PairCount - 1;
-  v11 = Vbn;
   v12 = 0;
   if ( v8 < 0 )
     return 0;
@@ -39,11 +36,10 @@ BOOLEAN __stdcall FsRtlLookupBaseMcbEntry(
   {
     Mapping = Mcb->Mapping;
     v15 = (v8 + v12) / 2;
-    v16 = (unsigned int)v15;
     if ( !v15 )
       break;
-    v13 = v11;
-    if ( v11 >= Mapping[2 * v15 - 2] )
+    v13 = Vbn;
+    if ( (unsigned int)Vbn >= Mapping[2 * v15 - 2] )
       break;
     v8 = v15 - 1;
 LABEL_20:
@@ -57,38 +53,38 @@ LABEL_20:
   }
   if ( Lbn )
   {
-    v17 = Mapping[2 * v15 + 1];
-    if ( v17 == -1 )
+    v16 = Mapping[2 * v15 + 1];
+    if ( v16 == -1 )
     {
       *Lbn = -1LL;
     }
     else
     {
       if ( v15 )
-        v18 = Mapping[2 * (v15 - 1)];
+        v17 = Mapping[2 * v15 - 2];
       else
-        v18 = 0;
-      *Lbn = v13 + v17 - v18;
+        v17 = 0;
+      *Lbn = v13 + v16 - v17;
     }
   }
   if ( SectorCountFromLbn )
-    *SectorCountFromLbn = *((_DWORD *)Mcb->Mapping + 2 * v16) - v13;
+    *SectorCountFromLbn = *((_DWORD *)Mcb->Mapping + 2 * v15) - v13;
   if ( StartingLbn )
   {
-    v20 = *((unsigned int *)Mcb->Mapping + 2 * v16 + 1);
-    if ( (_DWORD)v20 == -1 )
+    v19 = *((unsigned int *)Mcb->Mapping + 2 * v15 + 1);
+    if ( (_DWORD)v19 == -1 )
       *StartingLbn = -1LL;
     else
-      *StartingLbn = v20;
+      *StartingLbn = v19;
   }
   if ( SectorCountFromStartingLbn )
   {
-    v21 = Mcb->Mapping;
-    if ( (_DWORD)v16 )
-      v7 = v21[2 * (unsigned int)(v16 - 1)];
-    *SectorCountFromStartingLbn = (unsigned int)(v21[2 * v16] - v7);
+    v20 = Mcb->Mapping;
+    if ( v15 )
+      v7 = v20[2 * v15 - 2];
+    *SectorCountFromStartingLbn = (unsigned int)(v20[2 * v15] - v7);
   }
   if ( Index )
-    *Index = v16;
+    *Index = v15;
   return 1;
 }

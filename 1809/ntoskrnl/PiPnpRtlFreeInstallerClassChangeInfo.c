@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlFreeInstallerClassChangeInfo @ 0x1406F96EC
+ * XREFs of PiPnpRtlFreeInstallerClassChangeInfo @ 0x1406F96CC
  * Callers:
  *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
- *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x1406F19CC (PiPnpRtlGatherInstallerClassChangeInfo.c)
+ *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x1406F19AC (PiPnpRtlGatherInstallerClassChangeInfo.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1406F9750 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1406F9730 (PiDmRemoveCacheReferenceForObject.c)
  */
 
 void __fastcall PiPnpRtlFreeInstallerClassChangeInfo(unsigned int **P)

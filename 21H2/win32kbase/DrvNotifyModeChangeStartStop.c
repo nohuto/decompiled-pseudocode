@@ -1,79 +1,71 @@
 /*
- * XREFs of DrvNotifyModeChangeStartStop @ 0x1C0078988
+ * XREFs of DrvNotifyModeChangeStartStop @ 0x1C00109B0
  * Callers:
- *     ApplyPathsModality @ 0x1C00787AC (ApplyPathsModality.c)
+ *     ApplyPathsModality @ 0x1C000FF74 (ApplyPathsModality.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     hdevEnumerate @ 0x1C006FCD0 (hdevEnumerate.c)
- *     GreLockDisplayDevice @ 0x1C006FE40 (GreLockDisplayDevice.c)
- *     GreUnlockDisplayDevice @ 0x1C006FE80 (GreUnlockDisplayDevice.c)
- *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0072044 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
- *     ?vSync@PDEVOBJ@@QEAAXPEAU_SURFOBJ@@PEAU_RECTL@@K@Z @ 0x1C0078B50 (-vSync@PDEVOBJ@@QEAAXPEAU_SURFOBJ@@PEAU_RECTL@@K@Z.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C0089800 (EtwTraceGreLockAcquireSemaphoreShared.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0010CB4 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     hdevEnumerate @ 0x1C0010E40 (hdevEnumerate.c)
+ *     GreLockDisplayDevice @ 0x1C00110B0 (GreLockDisplayDevice.c)
+ *     GreUnlockDisplayDevice @ 0x1C00110F0 (GreUnlockDisplayDevice.c)
+ *     ?vSync@PDEVOBJ@@QEAAXPEAU_SURFOBJ@@PEAU_RECTL@@K@Z @ 0x1C00111B0 (-vSync@PDEVOBJ@@QEAAXPEAU_SURFOBJ@@PEAU_RECTL@@K@Z.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C007F220 (EtwTraceGreLockAcquireSemaphoreShared.c)
  */
 
-__int64 __fastcall DrvNotifyModeChangeStartStop(char a1, __int64 a2)
+__int64 __fastcall DrvNotifyModeChangeStartStop(char a1)
 {
-  int v3; // edx
-  int v4; // r8d
-  struct PDEV **i; // rcx
-  struct PDEV *v6; // rax
-  __int64 v7; // rbx
-  __int64 v8; // rcx
-  __int64 v9; // rcx
+  __int64 i; // rcx
+  __int64 v3; // rax
+  __int64 v4; // rbx
   __int64 result; // rax
-  __int64 v11; // rcx
-  int v12; // eax
-  __int64 v13; // [rsp+38h] [rbp+10h] BYREF
+  int v6; // eax
+  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
 
   if ( ghsemDynamicModeChange )
-    ExEnterPriorityRegionAndAcquireResourceShared(ghsemDynamicModeChange, a2);
+    ExEnterPriorityRegionAndAcquireResourceShared();
   EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
-  EngAcquireSemaphore((HSEMAPHORE)ghsemGreLock);
+  EngAcquireSemaphore(ghsemGreLock);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemGreLock", ghsemGreLock, 2LL);
-  EngAcquireSemaphore((HSEMAPHORE)ghsemDCVisRgn);
+  EngAcquireSemaphore(ghsemDCVisRgn);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDCVisRgn", ghsemDCVisRgn, 3LL);
-  for ( i = 0LL; ; i = (struct PDEV **)v7 )
+  for ( i = 0LL; ; i = v4 )
   {
-    v6 = hdevEnumerate(i, v3, v4);
-    v7 = (__int64)v6;
-    if ( !v6 )
+    v3 = hdevEnumerate(i);
+    v4 = v3;
+    if ( !v3 )
       break;
-    v12 = *((_DWORD *)v6 + 10);
-    v13 = v7;
-    if ( (v12 & 1) != 0
-      && (v12 & 0x400) == 0
-      && (v12 & 0x20000) == 0
-      && (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v13) )
+    v7 = v3;
+    v6 = *(_DWORD *)(v3 + 40);
+    if ( (v6 & 1) != 0 && (v6 & 0x400) == 0 && (v6 & 0x20000) == 0 && (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v7) )
     {
-      GreLockDisplayDevice(v7);
+      GreLockDisplayDevice(v4);
       PDEVOBJ::vSync(
-        (PDEVOBJ *)&v13,
-        (struct _SURFOBJ *)((*(_QWORD *)(v7 + 2528) + 24LL) & -(__int64)(*(_QWORD *)(v7 + 2528) != 0LL)),
+        (PDEVOBJ *)&v7,
+        (struct _SURFOBJ *)((*(_QWORD *)(v4 + 2552) + 24LL) & -(__int64)(*(_QWORD *)(v4 + 2552) != 0LL)),
         0LL,
         a1 != 0 ? 30 : 18);
-      GreUnlockDisplayDevice(v7);
+      GreUnlockDisplayDevice(v4);
     }
   }
   EtwTraceGreLockReleaseSemaphore(L"ghsemDCVisRgn", ghsemDCVisRgn);
   if ( ghsemDCVisRgn )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemDCVisRgn);
-    PsLeavePriorityRegion(v8);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDCVisRgn);
+    PsLeavePriorityRegion();
   }
   EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
   if ( ghsemGreLock )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemGreLock);
-    PsLeavePriorityRegion(v9);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemGreLock);
+    PsLeavePriorityRegion();
   }
   result = EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
   if ( ghsemDynamicModeChange )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemDynamicModeChange);
-    return PsLeavePriorityRegion(v11);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
+    return PsLeavePriorityRegion();
   }
   return result;
 }

@@ -1,27 +1,27 @@
 /*
- * XREFs of HalSocRequestApi @ 0x1403B38C8
+ * XREFs of HalSocRequestApi @ 0x1403A209C
  * Callers:
- *     HalpHvTimerInitialize @ 0x14039E230 (HalpHvTimerInitialize.c)
- *     HalpTscGetAttributes @ 0x1403B31C0 (HalpTscGetAttributes.c)
- *     HalpApicSetupRegisterAccess @ 0x1403B3594 (HalpApicSetupRegisterAccess.c)
- *     HalpRtcDiscover @ 0x1403BCC5C (HalpRtcDiscover.c)
- *     HalpApicTimerDiscover @ 0x1403BCDA0 (HalpApicTimerDiscover.c)
- *     HalpTscDiscover @ 0x1403BCF1C (HalpTscDiscover.c)
- *     HalpApicTimerIsInvariant @ 0x1403BE694 (HalpApicTimerIsInvariant.c)
- *     HalpArtAvailable @ 0x1403BE95C (HalpArtAvailable.c)
- *     HalpHvDiscover @ 0x1403BEA4C (HalpHvDiscover.c)
- *     HalpApicGetCpuInfo @ 0x1403DD284 (HalpApicGetCpuInfo.c)
- *     HalpVpptTimerRegister @ 0x14050D760 (HalpVpptTimerRegister.c)
- *     HalpHvCounterUpdateCallback @ 0x140521D90 (HalpHvCounterUpdateCallback.c)
- *     HalpIvtProcessDrhdEntry @ 0x1405370FC (HalpIvtProcessDrhdEntry.c)
- *     IvtInitializeIommu @ 0x140A63CE0 (IvtInitializeIommu.c)
- *     HsaInitializeIommu @ 0x140A64A00 (HsaInitializeIommu.c)
+ *     HalpHvTimerInitialize @ 0x140390BC0 (HalpHvTimerInitialize.c)
+ *     HalpTscGetAttributes @ 0x1403A19B0 (HalpTscGetAttributes.c)
+ *     HalpApicSetupRegisterAccess @ 0x1403A1D54 (HalpApicSetupRegisterAccess.c)
+ *     HalpRtcDiscover @ 0x1403AA7D8 (HalpRtcDiscover.c)
+ *     HalpApicTimerDiscover @ 0x1403AA91C (HalpApicTimerDiscover.c)
+ *     HalpTscDiscover @ 0x1403AAA90 (HalpTscDiscover.c)
+ *     HalpApicTimerIsInvariant @ 0x1403AC174 (HalpApicTimerIsInvariant.c)
+ *     HalpArtAvailable @ 0x1403AC43C (HalpArtAvailable.c)
+ *     HalpHvDiscover @ 0x1403AC52C (HalpHvDiscover.c)
+ *     HalpApicGetCpuInfo @ 0x1403CDF38 (HalpApicGetCpuInfo.c)
+ *     HalpVpptTimerRegister @ 0x1404C0C98 (HalpVpptTimerRegister.c)
+ *     HalpHvCounterUpdateCallback @ 0x1404D4A70 (HalpHvCounterUpdateCallback.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E740C (HalpIvtProcessDrhdEntry.c)
+ *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
+ *     HsaInitializeIommu @ 0x1409AA5F0 (HsaInitializeIommu.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403B37B0 (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     HalpHvIsFrequencyAvailable @ 0x1403DE864 (HalpHvIsFrequencyAvailable.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     HalpHvIsFrequencyAvailable @ 0x1403CF628 (HalpHvIsFrequencyAvailable.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall HalSocRequestApi(__int64 a1, __int64 a2, int a3, __int64 a4, void *a5)
@@ -67,7 +67,7 @@ __int64 __fastcall HalSocRequestApi(__int64 a1, __int64 a2, int a3, __int64 a4, 
   v12 = v11 - 1;
   if ( !v12 )
   {
-    if ( HalpIsMicrosoftCompatibleHvLoaded() )
+    if ( HalpIsMicrosoftCompatibleHvLoaded(a1) )
     {
       _RAX = 1073741827LL;
       __asm { cpuid }
@@ -76,7 +76,7 @@ __int64 __fastcall HalSocRequestApi(__int64 a1, __int64 a2, int a3, __int64 a4, 
       if ( (_RAX & 2) != 0 )
       {
         p_Src = (__int64 (__fastcall **)())&HalpTimerHypervisorReferenceTime;
-        HalpTimerHypervisorReferenceTime = qword_140C4C488;
+        HalpTimerHypervisorReferenceTime = qword_140C4A188;
         v8 = (__int64 *)&HalpTimerHvReferenceCallbackList;
         v16 = 8;
         v9 = 1;
@@ -117,7 +117,7 @@ __int64 __fastcall HalSocRequestApi(__int64 a1, __int64 a2, int a3, __int64 a4, 
     return (unsigned int)-1073741637;
   }
   p_Src = (__int64 (__fastcall **)())&Src;
-  Src = xmmword_140C4C468;
+  Src = xmmword_140C4A168;
   v8 = &HalpTimerHvApicCallbackList;
   v9 = 1;
 LABEL_8:

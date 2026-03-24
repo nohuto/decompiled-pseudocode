@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     __security_init_cookie @ 0x1C000D044 (__security_init_cookie.c)
- *     DriverEntry @ 0x1C000D080 (DriverEntry.c)
+ *     DriverEntry @ 0x1C000D290 (DriverEntry.c)
  */
 
 NTSTATUS __stdcall GsDriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)

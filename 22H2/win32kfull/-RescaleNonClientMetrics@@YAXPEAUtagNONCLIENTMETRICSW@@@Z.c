@@ -1,23 +1,21 @@
 /*
- * XREFs of ?RescaleNonClientMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01C75EC
+ * XREFs of ?RescaleNonClientMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01D6144
  * Callers:
- *     ?xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z @ 0x1C01C8170 (-xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z.c)
+ *     ?xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z @ 0x1C01D6CF4 (-xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z.c)
  * Callees:
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
+ *     <none>
  */
 
 void __fastcall RescaleNonClientMetrics(struct tagNONCLIENTMETRICSW *a1)
 {
-  INT DpiForSystem; // eax
+  INT v2; // r8d
   INT v3; // ebx
-  INT v4; // edx
 
-  DpiForSystem = GetDpiForSystem((__int64)a1);
-  v3 = DpiForSystem;
-  v4 = *(unsigned __int16 *)(gpsi + 6998LL);
-  if ( DpiForSystem != v4 )
+  v2 = *(unsigned __int16 *)(PsGetCurrentProcessWin32Process(a1) + 284);
+  if ( (_WORD)v2 != *(_WORD *)(gpsi + 6998LL) )
   {
-    *((_DWORD *)a1 + 4) = EngMulDiv(*((_DWORD *)a1 + 4), v4, DpiForSystem);
+    v3 = v2;
+    *((_DWORD *)a1 + 4) = EngMulDiv(*((_DWORD *)a1 + 4), *(unsigned __int16 *)(gpsi + 6998LL), v2);
     *((_DWORD *)a1 + 5) = EngMulDiv(*((_DWORD *)a1 + 5), *(unsigned __int16 *)(gpsi + 6998LL), v3);
     *((_DWORD *)a1 + 7) = EngMulDiv(*((_DWORD *)a1 + 7), *(unsigned __int16 *)(gpsi + 6998LL), v3);
     *((_DWORD *)a1 + 6) = EngMulDiv(*((_DWORD *)a1 + 6), *(unsigned __int16 *)(gpsi + 6998LL), v3);

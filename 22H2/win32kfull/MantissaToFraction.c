@@ -1,7 +1,7 @@
 /*
- * XREFs of MantissaToFraction @ 0x1C0252DC8
+ * XREFs of MantissaToFraction @ 0x1C001F7A8
  * Callers:
- *     AntiLog @ 0x1C025286C (AntiLog.c)
+ *     AntiLog @ 0x1C001F55C (AntiLog.c)
  * Callees:
  *     <none>
  */
@@ -66,6 +66,6 @@ __int64 __fastcall MantissaToFraction(__int16 a1, unsigned int a2)
     result = (100000 * (v6 + v7) + (v6 >> 1)) / (unsigned int)v6;
   }
   if ( v8 )
-    return (unsigned int)(dword_1C0326248[v8 - 1] + result);
+    return (unsigned int)(dword_1C02EE5C8[v8 - 1] + result);
   return result;
 }

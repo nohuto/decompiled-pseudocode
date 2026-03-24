@@ -1,157 +1,154 @@
 /*
- * XREFs of Controller_D0EntryRestoreState @ 0x1C0032654
+ * XREFs of Controller_D0EntryRestoreState @ 0x1C0030AF4
  * Callers:
- *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014500 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014CE0 (Controller_WdfEvtDeviceD0Entry.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_I @ 0x1C0013948 (WPP_RECORDER_SF_I.c)
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0036ADC (McTemplateK0p_EtwWriteTransfer.c)
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0036D80 (McTemplateK0pq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_I @ 0x1C00140DC (WPP_RECORDER_SF_I.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0034FB0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0035254 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
-__int64 __fastcall Controller_D0EntryRestoreState(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall Controller_D0EntryRestoreState(__int64 a1, char a2, __int64 a3, int a4)
 {
-  int v4; // edx
-  int v5; // r9d
-  __int64 v6; // rcx
-  unsigned int *v7; // r14
-  unsigned int *v8; // rbp
+  __int64 v5; // rcx
+  unsigned int *v6; // r14
+  unsigned int *v7; // rsi
   __int16 Ulong; // ax
-  ULONGLONG v10; // rcx
-  __int64 v11; // r8
-  int v12; // r9d
-  int v13; // ebx
-  ULONGLONG UnbiasedInterruptTime; // rsi
-  int v15; // eax
-  __int16 v16; // ax
-  ULONGLONG v17; // rax
-  unsigned __int64 v18; // rdx
-  ULONGLONG v19; // rax
-  unsigned __int64 v20; // rdx
-  int v21; // ebx
-  ULONGLONG v22; // rax
-  int v23; // r8d
-  unsigned __int64 v24; // rdx
-  int v26; // [rsp+20h] [rbp-48h]
-  const char *v27; // [rsp+28h] [rbp-40h]
-  int v28; // [rsp+30h] [rbp-38h]
-  const char *v29; // [rsp+38h] [rbp-30h]
+  ULONGLONG v9; // rcx
+  __int64 v10; // r8
+  int v11; // r9d
+  int v12; // ebx
+  ULONGLONG UnbiasedInterruptTime; // rbp
+  int v14; // eax
+  __int16 v15; // ax
+  ULONGLONG v16; // rax
+  unsigned __int64 v17; // rdx
+  ULONGLONG v18; // rax
+  unsigned __int64 v19; // rdx
+  int v20; // ebx
+  ULONGLONG v21; // rax
+  int v22; // r8d
+  unsigned __int64 v23; // rdx
+  int v25; // [rsp+20h] [rbp-48h]
+  const char *v26; // [rsp+28h] [rbp-40h]
+  int v27; // [rsp+30h] [rbp-38h]
+  const char *v28; // [rsp+38h] [rbp-30h]
   union _LARGE_INTEGER Interval; // [rsp+70h] [rbp+8h] BYREF
 
   Interval.QuadPart = 0LL;
-  if ( *(_BYTE *)(a1 + 601) && KeGetCurrentIrql() )
+  if ( *(_BYTE *)(a1 + 553) && KeGetCurrentIrql() )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v29 = "Code Path Requires Passive Level";
-      v28 = 3823;
-      v27 = "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\controller.c";
-      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v4, a3, v5);
+      v28 = "Code Path Requires Passive Level";
+      v27 = 3705;
+      v26 = "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\controller.c";
+      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, a2, a3, a4);
     }
     if ( !KdRefreshDebuggerNotPresent() )
       __debugbreak();
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), 4, 4, 109, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
-  if ( (WPP_MAIN_CB.AlignmentRequirement & 8) != 0 )
+    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), 4, 4, 108, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc & 8) != 0 )
     McTemplateK0p_EtwWriteTransfer(a1, &USBXHCI_ETW_EVENT_CONTROLLER_RESTORE_STATE_START, a3, *(_QWORD *)(a1 + 8));
-  v6 = *(_QWORD *)(a1 + 88);
-  v7 = *(unsigned int **)(v6 + 32);
-  v8 = v7 + 1;
-  Ulong = XilRegister_ReadUlong(v6, v7 + 1);
+  v5 = *(_QWORD *)(a1 + 88);
+  v6 = *(unsigned int **)(v5 + 32);
+  v7 = v6 + 1;
+  Ulong = XilRegister_ReadUlong(v5, v6 + 1);
   if ( (Ulong & 1) != 0 )
   {
     if ( (Ulong & 0x100) != 0 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_36;
-      v12 = 111;
+      v11 = 110;
       goto LABEL_14;
     }
     if ( (Ulong & 0x200) != 0 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_36;
-      v12 = 112;
+      v11 = 111;
       goto LABEL_14;
     }
-    v13 = 20;
+    v12 = 20;
     XilRegister_WriteUlong(*(_QWORD *)(a1 + 88), (_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 88) + 32LL) + 20LL), 2);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), 4, 4, 113, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), 4, 4, 112, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
     UnbiasedInterruptTime = KeQueryUnbiasedInterruptTime();
-    v15 = XilRegister_ReadUlong(*(_QWORD *)(a1 + 88), v7);
-    XilRegister_WriteUlong(*(_QWORD *)(a1 + 88), v7, v15 | 0x200);
+    v14 = XilRegister_ReadUlong(*(_QWORD *)(a1 + 88), v6);
+    XilRegister_WriteUlong(*(_QWORD *)(a1 + 88), v6, v14 | 0x200);
     while ( 1 )
     {
-      v16 = XilRegister_ReadUlong(*(_QWORD *)(a1 + 88), v8);
-      if ( (v16 & 0x400) != 0 )
+      v15 = XilRegister_ReadUlong(*(_QWORD *)(a1 + 88), v7);
+      if ( (v15 & 0x400) != 0 )
         break;
-      if ( (v16 & 0x200) == 0 )
+      if ( (v15 & 0x200) == 0 )
       {
-        v19 = KeQueryUnbiasedInterruptTime();
-        v10 = v19;
+        v18 = KeQueryUnbiasedInterruptTime();
+        v9 = v18;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v20 = (v19 - UnbiasedInterruptTime) / 0xA;
-          LOBYTE(v20) = 4;
-          WPP_RECORDER_SF_I(*(_QWORD *)(a1 + 72), v20, v11, 115, v26, (v19 - UnbiasedInterruptTime) / 0xA);
+          v19 = (v18 - UnbiasedInterruptTime) / 0xA;
+          LOBYTE(v19) = 4;
+          WPP_RECORDER_SF_I(*(_QWORD *)(a1 + 72), v19, v10, 114, v25, (v18 - UnbiasedInterruptTime) / 0xA);
         }
-        v21 = 0;
+        v20 = 0;
         goto LABEL_37;
       }
-      if ( !v13 )
+      if ( !v12 )
       {
-        v17 = KeQueryUnbiasedInterruptTime();
-        v10 = v17;
+        v16 = KeQueryUnbiasedInterruptTime();
+        v9 = v16;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          v18 = (v17 - UnbiasedInterruptTime) / 0x2710;
-          LOBYTE(v18) = 2;
-          WPP_RECORDER_SF_I(*(_QWORD *)(a1 + 72), v18, v11, 116, v26, (v17 - UnbiasedInterruptTime) / 0x2710);
+          v17 = (v16 - UnbiasedInterruptTime) / 0x2710;
+          LOBYTE(v17) = 2;
+          WPP_RECORDER_SF_I(*(_QWORD *)(a1 + 72), v17, v10, 115, v25, (v16 - UnbiasedInterruptTime) / 0x2710);
         }
         goto LABEL_36;
       }
       Interval.QuadPart = -2000LL;
       KeDelayExecutionThread(0, 0, &Interval);
-      --v13;
+      --v12;
     }
-    v22 = KeQueryUnbiasedInterruptTime();
+    v21 = KeQueryUnbiasedInterruptTime();
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v24 = (v22 - UnbiasedInterruptTime) / 0x2710;
-      LOBYTE(v24) = 2;
-      WPP_RECORDER_SF_I(*(_QWORD *)(a1 + 72), v24, v23, 114, v26, (v22 - UnbiasedInterruptTime) / 0x2710);
+      v23 = (v21 - UnbiasedInterruptTime) / 0x2710;
+      LOBYTE(v23) = 2;
+      WPP_RECORDER_SF_I(*(_QWORD *)(a1 + 72), v23, v22, 113, v25, (v21 - UnbiasedInterruptTime) / 0x2710);
     }
-    XilRegister_WriteUlong(*(_QWORD *)(a1 + 88), v8, 1024);
+    XilRegister_WriteUlong(*(_QWORD *)(a1 + 88), v7, 1024);
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v12 = 110;
+    v11 = 109;
 LABEL_14:
-    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), 2, 4, v12, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
+    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), 2, 4, v11, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
   }
 LABEL_36:
-  v21 = -1073741630;
+  v20 = -1073741630;
 LABEL_37:
-  if ( (WPP_MAIN_CB.AlignmentRequirement & 8) != 0 )
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc & 8) != 0 )
     McTemplateK0pq_EtwWriteTransfer(
-      v10,
+      v9,
       &USBXHCI_ETW_EVENT_CONTROLLER_RESTORE_STATE_COMPLETE,
-      v11,
+      v10,
       *(_QWORD *)(a1 + 8),
-      v21,
+      v20,
+      v26,
       v27,
-      v28,
-      v29);
-  if ( v21 < 0 )
+      v28);
+  if ( v20 < 0 )
   {
     ++*(_DWORD *)(a1 + 480);
-    ++*(_DWORD *)(a1 + 524);
     *(_BYTE *)(a1 + 472) = 1;
   }
-  return (unsigned int)v21;
+  return (unsigned int)v20;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MyRegQueryUlong @ 0x1C005CA44
+ * XREFs of MyRegQueryUlong @ 0x1C005E0BC
  * Callers:
- *     CheckUSBFnIncludeDefaultCfg @ 0x1C005BC48 (CheckUSBFnIncludeDefaultCfg.c)
- *     ReadManifestAssignedValue @ 0x1C005BF98 (ReadManifestAssignedValue.c)
- *     ReadTestOverrideValue @ 0x1C005C094 (ReadTestOverrideValue.c)
- *     UpdateUcmIsPresentBit @ 0x1C005C3A0 (UpdateUcmIsPresentBit.c)
+ *     CheckUSBFnIncludeDefaultCfg @ 0x1C005D2E8 (CheckUSBFnIncludeDefaultCfg.c)
+ *     ReadManifestAssignedValue @ 0x1C005D61C (ReadManifestAssignedValue.c)
+ *     ReadTestOverrideValue @ 0x1C005D718 (ReadTestOverrideValue.c)
+ *     UpdateUcmIsPresentBit @ 0x1C005DA24 (UpdateUcmIsPresentBit.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MyRegQueryUlong(HANDLE KeyHandle, const WCHAR *a2, _DWORD *a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x140362FA0
+ * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x1402A6A5C
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x140362C48 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1402A66E0 (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
- *     RtlpHeapGenerateRandomValue64 @ 0x1403631E0 (RtlpHeapGenerateRandomValue64.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x1402A6C9C (RtlpHeapGenerateRandomValue64.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentInitialize(
@@ -26,9 +26,9 @@ __int64 __fastcall RtlpHpLfhSubsegmentInitialize(
   _WORD *v17; // rdi
   unsigned __int64 v18; // rcx
   signed __int64 *v19; // rdi
-  unsigned int v20; // r8d
-  __int16 Spare18_high; // di
+  __int16 Ucb_high; // di
   __int64 result; // rax
+  unsigned int v22; // r8d
   int v23; // [rsp+58h] [rbp+10h]
 
   *(_OWORD *)a1 = 0LL;
@@ -43,7 +43,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentInitialize(
     v11 = (8 * (a2 - 2 * (a2 / a3)) - 384) / (8 * a4 + 2);
   v12 = (unsigned int)a1 >> 12;
   HIWORD(v23) = (2 * (a2 / a3 + 4 * (((unsigned __int64)(2 * v9) + 63) >> 6)) + 63) & 0xFFF0;
-  *(_DWORD *)(a1 + 40) = v23 ^ qword_140C5A5C8 ^ ((unsigned int)a1 >> 12);
+  *(_DWORD *)(a1 + 40) = v23 ^ DWORD2(RtlpHpHeapGlobals) ^ ((unsigned int)a1 >> 12);
   _BitScanForward(&v13, a3);
   *(_BYTE *)(a1 + 45) = v8;
   *(_BYTE *)(a1 + 44) = v13;
@@ -75,30 +75,30 @@ __int64 __fastcall RtlpHpLfhSubsegmentInitialize(
   {
     if ( ((a4 - 1) & a4) != 0 )
     {
-      v20 = 4096;
+      v22 = 4096;
       do
       {
-        if ( (v20 - v10) % a4 )
+        if ( (v22 - v10) % a4 )
         {
-          _bittestandset64(v19, 2 * ((v20 - v10) / a4));
+          _bittestandset64(v19, 2 * ((v22 - v10) / a4));
           --*(_WORD *)(a1 + 32);
           --*(_WORD *)(a1 + 34);
           ++*(_BYTE *)(a1 + 39);
         }
-        v20 += 4096;
+        v22 += 4096;
       }
-      while ( v20 < a2 );
+      while ( v22 < a2 );
     }
     else
     {
       if ( (unsigned __int16)v10 - ((a4 - 1) & ((unsigned __int16)v10 + a4 - 1)) + a4 - 1 + a4 * v11 != a2 )
         NT_ASSERT("FirstBlockOffset + BlockSize * BlockCount == SubsegmentSize");
       HIWORD(v23) = v10 - ((a4 - 1) & (v10 + a4 - 1)) + a4 - 1;
-      *(_DWORD *)(a1 + 40) = v23 ^ qword_140C5A5C8 ^ v12;
+      *(_DWORD *)(a1 + 40) = v23 ^ DWORD2(RtlpHpHeapGlobals) ^ v12;
     }
   }
-  Spare18_high = HIWORD(KeGetCurrentThread()[1].Spare18);
+  Ucb_high = HIWORD(KeGetCurrentThread()[1].Ucb);
   result = RtlpHeapGenerateRandomValue64() & 0x7F7F7F7F7F7F7F7FLL;
-  *(_QWORD *)&RtlpLowFragHeapRandomData[8 * ((unsigned __int8)Spare18_high >> 3)] = result;
+  RtlpLowFragHeapRandomData[(unsigned __int8)Ucb_high >> 3] = result;
   return result;
 }

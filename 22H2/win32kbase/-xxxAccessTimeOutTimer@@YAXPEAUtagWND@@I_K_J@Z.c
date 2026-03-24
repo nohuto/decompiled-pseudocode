@@ -1,40 +1,40 @@
 /*
- * XREFs of ?xxxAccessTimeOutTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01B66D0
+ * XREFs of ?xxxAccessTimeOutTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0183B10
  * Callers:
  *     <none>
  * Callees:
- *     PostWinlogonMessage @ 0x1C0086360 (PostWinlogonMessage.c)
- *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C00A3090 (-SetAccessEnabledFlag@@YAXXZ.c)
- *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C01B74F0 (-xxxTurnOffStickyKeys@@YAXXZ.c)
- *     ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C0207254 (ApiSetEditionPostAccessibilitySettingChangedEvent.c)
- *     ApiSetEditionPostRitSound @ 0x1C0207580 (ApiSetEditionPostRitSound.c)
+ *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C000D590 (-SetAccessEnabledFlag@@YAXXZ.c)
+ *     PostWinlogonMessage @ 0x1C00763B0 (PostWinlogonMessage.c)
+ *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C0185580 (-xxxTurnOffStickyKeys@@YAXXZ.c)
+ *     ApiSetEditionPostAccessibility @ 0x1C01CD030 (ApiSetEditionPostAccessibility.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD44C (ApiSetEditionPostRitSound.c)
  */
 
 void __fastcall xxxAccessTimeOutTimer(struct tagWND *a1)
 {
   __int64 v1; // rdx
 
-  if ( (dword_1C02905FC & 1) != 0
-    || (dword_1C02905F4 & 1) != 0
-    || (dword_1C02905D4 & 1) != 0
-    || (dword_1C02905BC & 1) != 0
-    || (dword_1C0293964 & 1) != 0
-    || (dword_1C02905AC & 1) != 0
+  if ( (xmmword_1C024F974 & 1) != 0
+    || (dword_1C024F944 & 1) != 0
+    || (dword_1C024F94C & 1) != 0
+    || (dword_1C024F93C & 1) != 0
+    || (dword_1C0252EC4 & 1) != 0
+    || (dword_1C024F91C & 1) != 0
     || (gdwPUDFlags & 0x8000) != 0 )
   {
-    dword_1C02905FC &= ~1u;
+    LODWORD(xmmword_1C024F974) = xmmword_1C024F974 & 0xFFFFFFFE;
     xxxTurnOffStickyKeys();
-    dword_1C02905D4 &= ~1u;
-    dword_1C02905BC &= ~1u;
-    dword_1C0293964 &= ~1u;
+    dword_1C024F94C &= ~1u;
+    dword_1C024F93C &= ~1u;
+    dword_1C0252EC4 &= ~1u;
     gdwPUDFlags &= ~0x8000u;
-    dword_1C02905AC &= ~1u;
-    PostWinlogonMessage(0x402u, (struct _EX_RUNDOWN_REF *)9);
-    if ( (dword_1C02905C4 & 2) != 0 )
+    dword_1C024F91C &= ~1u;
+    PostWinlogonMessage(1026LL, 9u);
+    if ( (qword_1C024F92C & 2) != 0 )
       ApiSetEditionPostRitSound(1LL, v1, 0LL);
-    ApiSetEditionPostAccessibilitySettingChangedEvent(3LL);
-    ApiSetEditionPostAccessibilitySettingChangedEvent(2LL);
-    ApiSetEditionPostAccessibilitySettingChangedEvent(1LL);
+    ApiSetEditionPostAccessibility(3LL);
+    ApiSetEditionPostAccessibility(2LL);
+    ApiSetEditionPostAccessibility(1LL);
   }
   SetAccessEnabledFlag();
 }

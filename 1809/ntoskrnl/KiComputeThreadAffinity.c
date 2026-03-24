@@ -1,20 +1,20 @@
 /*
  * XREFs of KiComputeThreadAffinity @ 0x14008A430
  * Callers:
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     KiSetSystemAffinityThread @ 0x1400D63E0 (KiSetSystemAffinityThread.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140114D84 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiSetAffinityThread @ 0x14011545C (KiSetAffinityThread.c)
- *     KiUpdateThreadCpuSets @ 0x14018CAB4 (KiUpdateThreadCpuSets.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiSetSystemAffinityThread @ 0x1400D6400 (KiSetSystemAffinityThread.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140114DA4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiSetAffinityThread @ 0x14011547C (KiSetAffinityThread.c)
+ *     KiUpdateThreadCpuSets @ 0x14018CAD4 (KiUpdateThreadCpuSets.c)
  * Callees:
  *     RtlBeginReadTickLock @ 0x14008A5E4 (RtlBeginReadTickLock.c)
  *     KiComputeCpuSetAffinity @ 0x14008A5F8 (KiComputeCpuSetAffinity.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15A4 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x1400D559C (KiUpdateNodeAffinitizedFlag.c)
- *     KiPrcbInGroupAffinity @ 0x1400D5714 (KiPrcbInGroupAffinity.c)
- *     KeSelectIdealProcessor @ 0x1400D8994 (KeSelectIdealProcessor.c)
- *     KeSelectNodeForAffinity @ 0x140115748 (KeSelectNodeForAffinity.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15C4 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x1400D55BC (KiUpdateNodeAffinitizedFlag.c)
+ *     KiPrcbInGroupAffinity @ 0x1400D5734 (KiPrcbInGroupAffinity.c)
+ *     KeSelectIdealProcessor @ 0x1400D89B4 (KeSelectIdealProcessor.c)
+ *     KeSelectNodeForAffinity @ 0x140115768 (KeSelectNodeForAffinity.c)
  */
 
 __int64 __fastcall KiComputeThreadAffinity(__int64 a1)

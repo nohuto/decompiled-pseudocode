@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReserveUserSessionViewsWorker@@YAJPEAPEAX0@Z @ 0x1C00CD880
+ * XREFs of ?ReserveUserSessionViewsWorker@@YAJPEAPEAX0@Z @ 0x1C0137BA4
  * Callers:
- *     ?UserInitialize@@YAJXZ @ 0x1C00AE3AC (-UserInitialize@@YAJXZ.c)
+ *     ?ReserveUserSessionViews@@YAJPEAPEAX0@Z @ 0x1C0137B48 (-ReserveUserSessionViews@@YAJPEAPEAX0@Z.c)
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     Win32CreateSection @ 0x1C007E7E8 (Win32CreateSection.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     Win32CreateSection @ 0x1C006C828 (Win32CreateSection.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ReserveUserSessionViewsWorker(void **a1, void **a2, __int64 a3)
@@ -17,51 +17,53 @@ __int64 __fastcall ReserveUserSessionViewsWorker(void **a1, void **a2, __int64 a
   ULONG_PTR v9; // rbp
   NTSTATUS Section; // eax
   unsigned int v11; // ebx
-  PVOID v12; // rcx
-  int v13; // eax
-  ULONG v15; // eax
+  ULONG v12; // eax
+  __int64 v13; // rdx
+  PVOID v14; // rcx
+  int v15; // eax
   ULONG v16; // eax
-  __int64 v17; // [rsp+20h] [rbp-48h]
-  ULONG_PTR v18; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v17; // rdx
+  __int64 v19; // [rsp+20h] [rbp-48h]
+  ULONG_PTR v20; // [rsp+80h] [rbp+18h] BYREF
   ULONG_PTR ViewSize; // [rsp+88h] [rbp+20h] BYREF
 
-  if ( qword_1C0295CB0 )
-    v5 = qword_1C0295CB0(1LL);
+  if ( qword_1C0256890 )
+    v5 = qword_1C0256890(1LL);
   else
     v5 = 0;
-  if ( qword_1C0295CB0 )
-    v6 = qword_1C0295CB0(2LL);
+  if ( qword_1C0256890 )
+    v6 = qword_1C0256890(2LL);
   else
     v6 = 0;
-  if ( qword_1C0295CB0 )
-    v7 = qword_1C0295CB0(0LL);
+  if ( qword_1C0256890 )
+    v7 = qword_1C0256890(0LL);
   else
     v7 = 0;
-  v8 = (int)qword_1C0295CB0;
-  if ( qword_1C0295CB0 )
-    v8 = qword_1C0295CB0(3LL);
+  v8 = (int)qword_1C0256890;
+  if ( qword_1C0256890 )
+    v8 = qword_1C0256890(3LL);
   v9 = (unsigned int)(v5 + v7 + 10 * v8 + v6);
-  v18 = v9;
-  Section = Win32CreateSection(a1, 983071LL, a3, (__int64)&v18, v17, 0x4000000);
+  v20 = v9;
+  Section = Win32CreateSection(a1, 983071LL, a3, (__int64)&v20, v19, 0x4000000);
   v11 = Section;
-  if ( Section < 0 )
+  if ( Section >= 0 )
   {
-    v15 = RtlNtStatusToDosError(Section);
-    UserSetLastError(v15);
+    *a2 = 0LL;
+    v14 = *a1;
+    ViewSize = v9;
+    v15 = MmMapViewInSessionSpace(v14, a2, &ViewSize);
+    v11 = v15;
+    if ( v15 < 0 )
+    {
+      v16 = RtlNtStatusToDosError(v15);
+      UserSetLastError(v16, v17);
+      ObfDereferenceObject(*a1);
+    }
   }
   else
   {
-    *a2 = 0LL;
-    v12 = *a1;
-    ViewSize = v9;
-    v13 = MmMapViewInSessionSpace(v12, a2, &ViewSize);
-    v11 = v13;
-    if ( v13 < 0 )
-    {
-      v16 = RtlNtStatusToDosError(v13);
-      UserSetLastError(v16);
-      ObfDereferenceObject(*a1);
-    }
+    v12 = RtlNtStatusToDosError(Section);
+    UserSetLastError(v12, v13);
   }
   return v11;
 }

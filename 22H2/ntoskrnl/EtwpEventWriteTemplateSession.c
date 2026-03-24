@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpEventWriteTemplateSession @ 0x1409E3CB4
+ * XREFs of EtwpEventWriteTemplateSession @ 0x140939ECC
  * Callers:
- *     EtwpTransitionToRealtime @ 0x1405FF618 (EtwpTransitionToRealtime.c)
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpLogger @ 0x140773610 (EtwpLogger.c)
- *     EtwpFlushTrace @ 0x1407F6068 (EtwpFlushTrace.c)
- *     EtwpUpdateTrace @ 0x1407F8630 (EtwpUpdateTrace.c)
- *     EtwpStopTrace @ 0x1407F8938 (EtwpStopTrace.c)
- *     EtwpTracingProvEnableCallback @ 0x1408662F0 (EtwpTracingProvEnableCallback.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x1409EC3C4 (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     EtwpTransitionToRealtime @ 0x1403F8718 (EtwpTransitionToRealtime.c)
+ *     EtwpLogger @ 0x1406BE4D0 (EtwpLogger.c)
+ *     EtwpFlushTrace @ 0x140710F3C (EtwpFlushTrace.c)
+ *     EtwpStopTrace @ 0x14071185C (EtwpStopTrace.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140791BF8 (EtwpUpdateTrace.c)
+ *     EtwpTracingProvEnableCallback @ 0x1407D5620 (EtwpTracingProvEnableCallback.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x14094157C (EtwpUpdateLoggerSecurityDescriptor.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateSession(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3)
@@ -56,14 +56,14 @@ NTSTATUS __fastcall EtwpEventWriteTemplateSession(__int64 a1, const EVENT_DESCRI
 
   v14 = &EtwpNull;
   v19 = &EtwpNull;
-  UserData.Ptr = a3 + 276;
+  UserData.Ptr = a3 + 292;
   v6 = 0;
   v9 = a3 + 12;
   v3 = 6;
-  v11 = *(_QWORD *)(a3 + 144);
-  v12 = *(unsigned __int16 *)(a3 + 136);
-  v16 = *(_QWORD *)(a3 + 160);
-  v17 = *(unsigned __int16 *)(a3 + 152);
+  v11 = *(_QWORD *)(a3 + 160);
+  v12 = *(unsigned __int16 *)(a3 + 152);
+  v16 = *(_QWORD *)(a3 + 176);
+  v17 = *(unsigned __int16 *)(a3 + 168);
   v7 = 0;
   v5 = 0;
   *(_QWORD *)&UserData.Size = 16LL;
@@ -77,15 +77,15 @@ NTSTATUS __fastcall EtwpEventWriteTemplateSession(__int64 a1, const EVENT_DESCRI
     || a2 == (const EVENT_DESCRIPTOR *)ETW_EVENT_SESSION_INFO )
   {
     v22 = 4LL;
-    v21 = a3 + 224;
-    v23 = a3 + 236;
+    v21 = a3 + 240;
+    v23 = a3 + 252;
     v25 = a3 + 4;
     v3 = 12;
-    v5 = *(_DWORD *)(a3 + 244);
-    v6 = *(_DWORD *)(a3 + 232);
+    v5 = *(_DWORD *)(a3 + 260);
+    v6 = *(_DWORD *)(a3 + 248);
     v27 = &v5;
     v29 = &v6;
-    v31 = a3 + 212;
+    v31 = a3 + 228;
     v24 = 4LL;
     v26 = 4LL;
     v28 = 4LL;
@@ -94,10 +94,10 @@ NTSTATUS __fastcall EtwpEventWriteTemplateSession(__int64 a1, const EVENT_DESCRI
     if ( a2 != &ETW_EVENT_START_TRACE )
     {
       v3 = 16;
-      v7 = *(_DWORD *)(a3 + 240);
+      v7 = *(_DWORD *)(a3 + 256);
       v33 = &v7;
-      v35 = a3 + 252;
-      v37 = a3 + 260;
+      v35 = a3 + 268;
+      v37 = a3 + 276;
       v34 = 4LL;
       v36 = 4LL;
       v38 = 4LL;

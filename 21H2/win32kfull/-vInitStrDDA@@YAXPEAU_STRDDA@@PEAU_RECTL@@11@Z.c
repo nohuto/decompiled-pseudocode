@@ -1,196 +1,192 @@
 /*
- * XREFs of ?vInitStrDDA@@YAXPEAU_STRDDA@@PEAU_RECTL@@11@Z @ 0x1C00DF6A0
+ * XREFs of ?vInitStrDDA@@YAXPEAU_STRDDA@@PEAU_RECTL@@11@Z @ 0x1C00F6F80
  * Callers:
- *     ?EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C002FC4C (-EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
- *     ?EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAH@Z @ 0x1C028C190 (-EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
+ *     ?EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C00B174C (-EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
+ *     ?EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAH@Z @ 0x1C028E4F0 (-EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
  * Callees:
- *     STR_DIV @ 0x1C00DF8FC (STR_DIV.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     STR_DIV @ 0x1C00F7218 (STR_DIV.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall vInitStrDDA(struct _STRDDA *a1, struct _RECTL *a2, struct _RECTL *a3, struct _RECTL *a4)
 {
-  struct _RECTL *v4; // r12
+  struct _RECTL *v4; // r14
   LONG left; // edx
   struct _RECTL *v7; // r11
-  LONG right; // edx
-  LONG v10; // edi
+  LONG right; // edi
+  LONG v10; // r13d
   __int64 v11; // rdx
-  int *v12; // r10
-  __int64 v13; // r11
-  int v14; // r13d
-  int v15; // r9d
-  int v16; // r15d
-  int v17; // esi
-  int v18; // ecx
-  int v19; // r8d
-  int v20; // edx
-  int v21; // r12d
-  _DWORD *v22; // r14
-  int v23; // ecx
-  int v24; // eax
-  int v25; // edi
-  LONG v26; // r13d
-  __int64 v27; // r9
-  __int64 v28; // r10
-  int v29; // r15d
-  int v30; // r14d
-  int v31; // r11d
-  int v32; // esi
-  int v33; // ecx
-  int v34; // r8d
-  int v35; // edx
+  int v12; // r9d
+  int *v13; // r10
+  __int64 v14; // r11
+  int v15; // r8d
+  int v16; // edx
+  int v17; // r15d
+  int v18; // esi
+  int v19; // r14d
+  _DWORD *v20; // r12
+  int v21; // r9d
+  int v22; // ecx
+  int v23; // eax
+  int v24; // edi
+  LONG v25; // r12d
+  __int64 v26; // r9
+  __int64 v27; // r10
+  int v28; // r15d
+  int v29; // r13d
+  int v30; // r8d
+  int v31; // edx
+  int v32; // r11d
+  int v33; // esi
+  int v34; // ecx
+  int v35; // eax
   int v36; // ecx
-  int v37; // eax
-  int v38; // ecx
-  __int64 v39; // r14
-  int v40; // ecx
-  int v41; // eax
-  int v42; // edx
   LONG top; // ecx
-  __int64 v44; // r14
-  int v45; // ecx
-  int v46; // eax
-  int v47; // edx
-  _QWORD v48[2]; // [rsp+20h] [rbp-50h] BYREF
-  LONG v49; // [rsp+30h] [rbp-40h]
-  struct _RECTL *v50; // [rsp+38h] [rbp-38h]
-  __int128 v51; // [rsp+40h] [rbp-30h]
-  __int128 v52; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v38; // r12
+  int v39; // ecx
+  int v40; // eax
+  int v41; // edx
+  __int64 v42; // r15
+  int v43; // ecx
+  int v44; // eax
+  int v45; // edx
+  _QWORD v46[2]; // [rsp+20h] [rbp-40h] BYREF
+  struct _RECTL *v47; // [rsp+30h] [rbp-30h]
+  __int128 v48; // [rsp+38h] [rbp-28h]
+  __int128 v49; // [rsp+48h] [rbp-18h] BYREF
 
   v4 = a4;
-  v50 = a4;
+  v47 = a4;
   left = a3->left;
   v7 = a3;
-  v51 = 0LL;
-  v52 = 0LL;
+  v48 = 0LL;
+  v49 = 0LL;
   if ( __PAIR64__(a3->top, left) )
   {
     top = a3->top;
-    v7 = (struct _RECTL *)&v52;
-    LODWORD(v51) = a2->left - left;
-    DWORD1(v51) = a2->top - top;
-    DWORD2(v51) = a2->right - left;
-    HIDWORD(v51) = a2->bottom - top;
-    DWORD2(v52) = a3->right - left;
-    HIDWORD(v52) = a3->bottom - top;
+    v7 = (struct _RECTL *)&v49;
+    LODWORD(v48) = a2->left - left;
+    DWORD1(v48) = a2->top - top;
+    DWORD2(v48) = a2->right - left;
+    HIDWORD(v48) = a2->bottom - top;
+    DWORD2(v49) = a3->right - left;
+    HIDWORD(v49) = a3->bottom - top;
   }
   *((_QWORD *)a1 + 3) = (char *)a1 + 4 * v7->right + 32;
-  right = a4->right;
-  v10 = v7->right;
-  v48[0] = 0LL;
-  v11 = (unsigned int)(right - a4->left);
-  v49 = a4->left;
-  STR_DIV(v48, v11, (unsigned int)v10);
-  v14 = v48[0];
-  v16 = v15;
-  v17 = v15;
-  v18 = ((v10 - 1) >> 1) + HIDWORD(v48[0]);
-  v19 = LODWORD(v48[0]) + 1;
-  if ( v18 < v10 )
-    v19 = v48[0];
-  v20 = ((v10 - 1) >> 1) + HIDWORD(v48[0]) - v10;
-  if ( v18 < v10 )
-    v20 = ((v10 - 1) >> 1) + HIDWORD(v48[0]);
-  if ( *v12 > 0 )
+  right = v7->right;
+  v10 = a4->left;
+  v11 = (unsigned int)(a4->right - a4->left);
+  v46[0] = 0LL;
+  STR_DIV(v46, v11, (unsigned int)right);
+  v15 = v46[0];
+  v16 = HIDWORD(v46[0]) + ((right - 1) >> 1);
+  if ( v16 >= right )
   {
-    v39 = (unsigned int)*v12;
-    v17 = *v12;
-    do
-    {
-      v16 = v19;
-      v41 = v19 + LODWORD(v48[0]);
-      v19 += LODWORD(v48[0]) + 1;
-      v42 = v20 + HIDWORD(v48[0]);
-      v40 = v42;
-      if ( v42 < v10 )
-        v19 = v41;
-      v20 = v42 - v10;
-      if ( v40 < v10 )
-        v20 = v40;
-      --v39;
-    }
-    while ( v39 );
-    v4 = v50;
+    v15 = LODWORD(v46[0]) + 1;
+    v16 -= right;
   }
-  *(_DWORD *)a1 = v16 + v49;
-  if ( v17 < v12[2] )
+  v17 = v12;
+  v18 = v12;
+  if ( *v13 > 0 )
   {
-    v21 = HIDWORD(v48[0]);
-    v22 = (_DWORD *)((char *)a1 + 32);
+    v38 = (unsigned int)*v13;
+    v18 = *v13;
     do
     {
-      v23 = v19 + v14;
-      ++v17;
-      *v22 = v19 - v16;
-      v16 = v19;
-      v24 = v20 + v21;
-      v19 += v14 + 1;
-      v20 = v20 + v21 - v10;
-      ++v22;
-      if ( v24 < v10 )
+      v17 = v15;
+      v40 = v15 + LODWORD(v46[0]);
+      v15 += LODWORD(v46[0]) + 1;
+      v41 = v16 + HIDWORD(v46[0]);
+      v39 = v41;
+      if ( v41 < right )
+        v15 = v40;
+      v16 = v41 - right;
+      if ( v39 < right )
+        v16 = v39;
+      --v38;
+    }
+    while ( v38 );
+    v4 = v47;
+  }
+  *(_DWORD *)a1 = v17 + v10;
+  if ( v18 < v13[2] )
+  {
+    v19 = v46[0];
+    v20 = (_DWORD *)((char *)a1 + 32);
+    v21 = HIDWORD(v46[0]);
+    do
+    {
+      v22 = v15 + v19;
+      ++v18;
+      *v20 = v15 - v17;
+      v17 = v15;
+      v23 = v16 + v21;
+      v15 += v19 + 1;
+      v16 = v16 + v21 - right;
+      ++v20;
+      if ( v23 < right )
       {
-        v20 = v24;
-        v19 = v23;
+        v16 = v23;
+        v15 = v22;
       }
     }
-    while ( v17 < v12[2] );
-    v4 = v50;
+    while ( v18 < v13[2] );
+    v4 = v47;
   }
-  *((_DWORD *)a1 + 2) = v16 + v4->left;
-  v25 = *(_DWORD *)(v13 + 12);
-  v26 = v4->top;
-  STR_DIV(v48, (unsigned int)(v4->bottom - v26), (unsigned int)v25);
-  v29 = v48[0];
-  v30 = HIDWORD(v48[0]);
-  v31 = v27;
-  v32 = v27;
-  v33 = HIDWORD(v48[0]) + ((v25 - 1) >> 1);
-  v34 = LODWORD(v48[0]) + 1;
-  if ( v33 < v25 )
-    v34 = v48[0];
-  v35 = HIDWORD(v48[0]) + ((v25 - 1) >> 1) - v25;
-  if ( v33 < v25 )
-    v35 = HIDWORD(v48[0]) + ((v25 - 1) >> 1);
-  if ( *(int *)(v28 + 4) > 0 )
+  *((_DWORD *)a1 + 2) = v17 + v4->left;
+  v24 = *(_DWORD *)(v14 + 12);
+  v25 = v4->top;
+  STR_DIV(v46, (unsigned int)(v4->bottom - v25), (unsigned int)v24);
+  v28 = HIDWORD(v46[0]);
+  v29 = v46[0];
+  v30 = v46[0];
+  v31 = HIDWORD(v46[0]) + ((v24 - 1) >> 1);
+  if ( v31 >= v24 )
   {
-    v44 = *(unsigned int *)(v28 + 4);
-    v32 = *(_DWORD *)(v28 + 4);
+    v30 = LODWORD(v46[0]) + 1;
+    v31 -= v24;
+  }
+  v32 = v26;
+  v33 = v26;
+  if ( *(int *)(v27 + 4) > 0 )
+  {
+    v42 = *(unsigned int *)(v27 + 4);
+    v33 = *(_DWORD *)(v27 + 4);
     do
     {
-      v31 = v34;
-      v46 = v34 + LODWORD(v48[0]);
-      v34 += LODWORD(v48[0]) + 1;
-      v47 = v35 + HIDWORD(v48[0]);
-      v45 = v47;
-      if ( v47 < v25 )
-        v34 = v46;
-      v35 = v47 - v25;
-      if ( v45 < v25 )
-        v35 = v45;
-      --v44;
+      v32 = v30;
+      v44 = v30 + LODWORD(v46[0]);
+      v30 += LODWORD(v46[0]) + 1;
+      v45 = v31 + HIDWORD(v46[0]);
+      v43 = v45;
+      if ( v45 < v24 )
+        v30 = v44;
+      v31 = v45 - v24;
+      if ( v43 < v24 )
+        v31 = v43;
+      --v42;
     }
-    while ( v44 );
-    v4 = v50;
-    v30 = HIDWORD(v48[0]);
+    while ( v42 );
+    v4 = v47;
+    v28 = HIDWORD(v46[0]);
   }
-  *((_DWORD *)a1 + 1) = v31 + v26;
-  while ( v32 < *(_DWORD *)(v28 + 12) )
+  *((_DWORD *)a1 + 1) = v25 + v32;
+  while ( v33 < *(_DWORD *)(v27 + 12) )
   {
-    v36 = v34 - v31;
-    ++v32;
-    v31 = v34;
-    *(_DWORD *)(v27 + *((_QWORD *)a1 + 3)) = v36;
-    v37 = v35 + v30;
-    v38 = v34 + v29;
-    v35 = v35 + v30 - v25;
-    v34 += v29 + 1;
-    v27 += 4LL;
-    if ( v37 < v25 )
+    v34 = v30 - v32;
+    ++v33;
+    v32 = v30;
+    *(_DWORD *)(v26 + *((_QWORD *)a1 + 3)) = v34;
+    v35 = v31 + v28;
+    v36 = v30 + v29;
+    v31 = v31 + v28 - v24;
+    v30 += v29 + 1;
+    v26 += 4LL;
+    if ( v35 < v24 )
     {
-      v35 = v37;
-      v34 = v38;
+      v31 = v35;
+      v30 = v36;
     }
   }
-  *((_DWORD *)a1 + 3) = v31 + v4->top;
+  *((_DWORD *)a1 + 3) = v32 + v4->top;
 }

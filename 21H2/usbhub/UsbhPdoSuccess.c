@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhPdoSuccess @ 0x1C0056530
+ * XREFs of UsbhPdoSuccess @ 0x1C0057BF0
  * Callers:
  *     <none>
  * Callees:
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhIncPdoIoCount @ 0x1C000EF40 (UsbhIncPdoIoCount.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhIncPdoIoCount @ 0x1C0014F6C (UsbhIncPdoIoCount.c)
  */
 
 __int64 __fastcall UsbhPdoSuccess(ULONG_PTR BugCheckParameter3, IRP *BugCheckParameter4)

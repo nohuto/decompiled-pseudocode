@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpPrefetchVolumesCleanup @ 0x1406AE59C
+ * XREFs of PfpPrefetchVolumesCleanup @ 0x1406C5D4C
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406AE11C (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x1406C5978 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     PfpOpenHandleClose @ 0x1407DFFD8 (PfpOpenHandleClose.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PfpOpenHandleClose @ 0x1406C9690 (PfpOpenHandleClose.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpPrefetchVolumesCleanup(_QWORD *a1)
@@ -24,13 +24,13 @@ void __fastcall PfpPrefetchVolumesCleanup(_QWORD *a1)
       {
         v4 = v2;
         v5 = (unsigned __int64)v3 << 6;
-        if ( _bittest64((const signed __int64 *)&v2[v5 + 56], 0x22u) )
+        if ( (*(_QWORD *)&v2[v5 + 56] & 0x400000000LL) != 0 )
         {
           PfpOpenHandleClose(&v2[v5 + 32], a1[5]);
           v2 = (char *)a1[2];
           v4 = v2;
         }
-        if ( _bittest64((const signed __int64 *)&v4[v5 + 24], 0x22u) )
+        if ( (*(_QWORD *)&v4[v5 + 24] & 0x400000000LL) != 0 )
         {
           PfpOpenHandleClose(&v4[v5], a1[5]);
           v2 = (char *)a1[2];

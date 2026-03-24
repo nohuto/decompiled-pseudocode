@@ -1,11 +1,11 @@
 /*
- * XREFs of SmcCacheManagerInitialize @ 0x140B25808
+ * XREFs of SmcCacheManagerInitialize @ 0x140A4B660
  * Callers:
- *     SmGlobalsInitialize @ 0x140B256D0 (SmGlobalsInitialize.c)
+ *     SmGlobalsInitialize @ 0x140A4B528 (SmGlobalsInitialize.c)
  * Callees:
- *     ExInitializePushLock @ 0x1402A0840 (ExInitializePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall SmcCacheManagerInitialize(struct _EX_RUNDOWN_REF *a1)
@@ -19,7 +19,7 @@ struct _EX_RUNDOWN_REF *__fastcall SmcCacheManagerInitialize(struct _EX_RUNDOWN_
   v3 = 16LL;
   do
   {
-    ExInitializePushLock(v2);
+    ExInitializePushLock(&v2->Count);
     ExWaitForRundownProtectionRelease(v2);
     v2[1].Count = 0LL;
     v2 += 4;

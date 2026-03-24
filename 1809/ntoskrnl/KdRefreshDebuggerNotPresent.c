@@ -1,7 +1,7 @@
 /*
- * XREFs of KdRefreshDebuggerNotPresent @ 0x140193E30
+ * XREFs of KdRefreshDebuggerNotPresent @ 0x140193E50
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
  * Callees:
  *     KdEnterDebugger @ 0x140915D40 (KdEnterDebugger.c)
  *     KdExitDebugger @ 0x140915E88 (KdExitDebugger.c)

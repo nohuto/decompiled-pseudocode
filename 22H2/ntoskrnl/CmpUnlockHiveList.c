@@ -1,28 +1,16 @@
 /*
- * XREFs of CmpUnlockHiveList @ 0x140750E48
+ * XREFs of CmpUnlockHiveList @ 0x14071C694
  * Callers:
- *     CmpUnJoinClassOfTrust @ 0x140207A48 (CmpUnJoinClassOfTrust.c)
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
- *     CmpJoinClassOfTrust @ 0x14036DBCC (CmpJoinClassOfTrust.c)
+ *     CmpJoinClassOfTrust @ 0x14032CBB4 (CmpJoinClassOfTrust.c)
+ *     CmpUnJoinClassOfTrust @ 0x140360E0C (CmpUnJoinClassOfTrust.c)
+ *     CmpLoadKeyCommon @ 0x14036102C (CmpLoadKeyCommon.c)
+ *     CmpCreateHive @ 0x14071D9E8 (CmpCreateHive.c)
+ *     CmpLoadHiveVolatile @ 0x14087CFAC (CmpLoadHiveVolatile.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
  */
 
-signed __int32 CmpUnlockHiveList()
+char CmpUnlockHiveList()
 {
-  signed __int64 v0; // rdx
-  ULONG_PTR v1; // rtt
-
-  _m_prefetchw(&CmpHiveListHeadLock);
-  v0 = CmpHiveListHeadLock - 16;
-  if ( (CmpHiveListHeadLock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-    v0 = 0LL;
-  if ( (CmpHiveListHeadLock & 2) != 0
-    || (v1 = CmpHiveListHeadLock,
-        v1 != _InterlockedCompareExchange64((volatile signed __int64 *)&CmpHiveListHeadLock, v0, CmpHiveListHeadLock)) )
-  {
-    ExfReleasePushLock(&CmpHiveListHeadLock);
-  }
-  return KeAbPostRelease((ULONG_PTR)&CmpHiveListHeadLock);
+  return ExReleasePushLockEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
 }

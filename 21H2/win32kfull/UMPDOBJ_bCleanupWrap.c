@@ -1,9 +1,9 @@
 /*
- * XREFs of UMPDOBJ_bCleanupWrap @ 0x1C0128080
+ * XREFs of UMPDOBJ_bCleanupWrap @ 0x1C00A15C0
  * Callers:
  *     <none>
  * Callees:
- *     ?bCleanupWorker@UMPDOBJ@@QEAAHXZ @ 0x1C0128098 (-bCleanupWorker@UMPDOBJ@@QEAAHXZ.c)
+ *     ?bCleanupWorker@UMPDOBJ@@QEAAHXZ @ 0x1C00A15D8 (-bCleanupWorker@UMPDOBJ@@QEAAHXZ.c)
  */
 
 __int64 __fastcall UMPDOBJ_bCleanupWrap(UMPDOBJ *a1)

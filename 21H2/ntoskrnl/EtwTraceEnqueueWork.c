@@ -1,55 +1,57 @@
 /*
- * XREFs of EtwTraceEnqueueWork @ 0x14062DA60
+ * XREFs of EtwTraceEnqueueWork @ 0x1405A77C0
  * Callers:
- *     KeSetProcess @ 0x1402095F0 (KeSetProcess.c)
- *     IoSetIoCompletionEx @ 0x14022A180 (IoSetIoCompletionEx.c)
- *     KeRundownQueueCommon @ 0x140234888 (KeRundownQueueCommon.c)
- *     KeDeleteMutant @ 0x140234B28 (KeDeleteMutant.c)
- *     KeSignalGate @ 0x14024B0B4 (KeSignalGate.c)
- *     KeInsertQueue @ 0x1402624D0 (KeInsertQueue.c)
- *     KePulseEvent @ 0x14026A0D0 (KePulseEvent.c)
- *     KiTimerWaitTest @ 0x1402A7FE0 (KiTimerWaitTest.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExpReleaseResourceExclusiveForThreadLite @ 0x1402B02B0 (ExpReleaseResourceExclusiveForThreadLite.c)
- *     ExpReleaseResourceSharedForThreadLite @ 0x1402B1740 (ExpReleaseResourceSharedForThreadLite.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x1402BA130 (NtWaitForWorkViaWorkerFactory.c)
- *     KeReleaseSemaphore @ 0x1402D3440 (KeReleaseSemaphore.c)
- *     KiResumeThread @ 0x1402EF710 (KiResumeThread.c)
- *     KeTerminateThread @ 0x1402F00BC (KeTerminateThread.c)
- *     KiRundownMutants @ 0x1402F0604 (KiRundownMutants.c)
- *     KeRegisterObjectNotification @ 0x1402F0D90 (KeRegisterObjectNotification.c)
- *     KiExpireTimer2 @ 0x1402F2CA0 (KiExpireTimer2.c)
- *     AlpcpQueueIoCompletion @ 0x1402F6750 (AlpcpQueueIoCompletion.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1402F8040 (NtReleaseWorkerFactoryWorker.c)
- *     KeReleaseMutant @ 0x1402F91E0 (KeReleaseMutant.c)
- *     KeInsertQueueEx @ 0x140311A50 (KeInsertQueueEx.c)
- *     KeSetEventBoostPriorityEx @ 0x1403595B4 (KeSetEventBoostPriorityEx.c)
- *     IoSetIoCompletionEx2 @ 0x14035A850 (IoSetIoCompletionEx2.c)
- *     KeReleaseSemaphoreEx @ 0x14035AD70 (KeReleaseSemaphoreEx.c)
- *     KiInsertQueueInternal @ 0x14035B608 (KiInsertQueueInternal.c)
- *     KeWakeWaitChain @ 0x14035B8F4 (KeWakeWaitChain.c)
- *     KeInsertHeadQueue @ 0x140570CF0 (KeInsertHeadQueue.c)
+ *     KeRegisterObjectNotification @ 0x140202F18 (KeRegisterObjectNotification.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtAssociateWaitCompletionPacket @ 0x140229620 (NtAssociateWaitCompletionPacket.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x140242B70 (NtReleaseWorkerFactoryWorker.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     IoSetIoCompletionEx2 @ 0x140246230 (IoSetIoCompletionEx2.c)
+ *     KiTimerWaitTest @ 0x140247DF0 (KiTimerWaitTest.c)
+ *     KiExpireTimer2 @ 0x14024B5C0 (KiExpireTimer2.c)
+ *     KeSetProcess @ 0x140251D1C (KeSetProcess.c)
+ *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
+ *     KePulseEvent @ 0x140271AC0 (KePulseEvent.c)
+ *     KiRundownMutants @ 0x140277650 (KiRundownMutants.c)
+ *     KeTerminateThread @ 0x1402784F0 (KeTerminateThread.c)
+ *     KiResumeThread @ 0x1402798D0 (KiResumeThread.c)
+ *     IoSetIoCompletionEx @ 0x14028FFC0 (IoSetIoCompletionEx.c)
+ *     KeInsertQueueEx @ 0x1402901A0 (KeInsertQueueEx.c)
+ *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
+ *     KeRundownQueueCommon @ 0x1402A9DDC (KeRundownQueueCommon.c)
+ *     KeDeleteMutant @ 0x1402AA058 (KeDeleteMutant.c)
+ *     KeWakeWaitChain @ 0x1402BA75C (KeWakeWaitChain.c)
+ *     KiInsertQueueInternal @ 0x1402BCED8 (KiInsertQueueInternal.c)
+ *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
+ *     KeInsertQueue @ 0x1402CCD30 (KeInsertQueue.c)
+ *     KeSetEventBoostPriorityEx @ 0x1402F1788 (KeSetEventBoostPriorityEx.c)
+ *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
+ *     KeReleaseMutant @ 0x1403424B0 (KeReleaseMutant.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x14034B5C0 (ExpReleaseResourceSharedForThreadLite.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x14034D1C0 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     KeInsertHeadQueue @ 0x14051AF80 (KeInsertHeadQueue.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void __fastcall EtwTraceEnqueueWork(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall EtwTraceEnqueueWork(__int64 a1, __int64 a2, char a3)
 {
   int v3; // eax
-  __int64 v4; // [rsp+30h] [rbp-38h] BYREF
-  int v5; // [rsp+38h] [rbp-30h]
-  int v6; // [rsp+3Ch] [rbp-2Ch]
-  __int64 *v7; // [rsp+40h] [rbp-28h] BYREF
-  int v8; // [rsp+48h] [rbp-20h]
-  int v9; // [rsp+4Ch] [rbp-1Ch]
+  __int64 v5; // [rsp+30h] [rbp-38h] BYREF
+  int v6; // [rsp+38h] [rbp-30h]
+  int v7; // [rsp+3Ch] [rbp-2Ch]
+  __int64 *v8; // [rsp+40h] [rbp-28h] BYREF
+  int v9; // [rsp+48h] [rbp-20h]
+  int v10; // [rsp+4Ch] [rbp-1Ch]
 
-  v3 = *(_DWORD *)(a1 + 1232);
-  v6 = 0;
-  v4 = a2;
-  v5 = v3;
-  v7 = &v4;
-  v9 = 0;
-  v8 = 12;
-  EtwTraceKernelEvent((__int64)&v7, 1u, 0x21000000u, 0x53Eu, a3 != 0 ? 5250562 : 5244418);
+  v3 = *(_DWORD *)(a1 + 1152);
+  v7 = 0;
+  v5 = a2;
+  v6 = v3;
+  v8 = &v5;
+  v10 = 0;
+  v9 = 12;
+  return EtwTraceKernelEvent((int)&v8, 1, 0x21000000u, 1342, a3 != 0 ? 5250562 : 5244418);
 }

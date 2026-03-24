@@ -1,7 +1,7 @@
 /*
- * XREFs of CheckShellExperienceComposerAccess @ 0x1C020A11C
+ * XREFs of CheckShellExperienceComposerAccess @ 0x1C01D2ECC
  * Callers:
- *     NtDCompositionSetMaterialProperty @ 0x1C00AF250 (NtDCompositionSetMaterialProperty.c)
+ *     NtDCompositionSetMaterialProperty @ 0x1C009E0D0 (NtDCompositionSetMaterialProperty.c)
  * Callees:
  *     <none>
  */
@@ -14,8 +14,8 @@ __int64 CheckShellExperienceComposerAccess()
   v2 = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"shellExperienceComposer");
-  if ( (int)RtlCapabilityCheck(0LL, &DestinationString, &v2) < 0 )
-    return 3221225506LL;
+  if ( (int)RtlCapabilityCheck(0LL, &DestinationString, &v2) >= 0 && v2 )
+    return 0LL;
   else
-    return v2 == 0 ? 0xC0000022 : 0;
+    return 3221225506LL;
 }

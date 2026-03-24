@@ -1,35 +1,56 @@
 /*
- * XREFs of ?bWiden@WIDENER@@IEAAHXZ @ 0x1C015DC7A
+ * XREFs of ?bWiden@WIDENER@@IEAAHXZ @ 0x1C0140328
  * Callers:
- *     ??0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEBU_LINEATTRS@@@Z @ 0x1C02F120C (--0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEBU_LINEATTRS@@@Z.c)
+ *     ??0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C01400E8 (--0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z.c)
  * Callees:
- *     ?bBeginFigure@WIDEPATHOBJ@@QEAAHXZ @ 0x1C015D84A (-bBeginFigure@WIDEPATHOBJ@@QEAAHXZ.c)
- *     ?bValid@WIDENER@@QEBAHXZ @ 0x1C015DBC4 (-bValid@WIDENER@@QEBAHXZ.c)
- *     ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C015E01A (-vAddEndCap@WIDENER@@IEAAXXZ.c)
- *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C015E430 (-vAddStartCap@WIDENER@@IEAAXXZ.c)
- *     ?vEndFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C015E5A2 (-vEndFigure@WIDEPATHOBJ@@QEAAXXZ.c)
- *     ?vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z @ 0x1C015E5F2 (-vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z.c)
- *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C02F21F8 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
- *     ?vNextStyleEvent@STYLER@@QEAAXXZ @ 0x1C02F2F74 (-vNextStyleEvent@STYLER@@QEAAXXZ.c)
- *     ?vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C02F3214 (-vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ.c)
- *     ?vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ @ 0x1C02F3288 (-vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ.c)
+ *     ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C013EF20 (-vAddEndCap@WIDENER@@IEAAXXZ.c)
+ *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C013EFAC (-vAddStartCap@WIDENER@@IEAAXXZ.c)
+ *     ?vNextEvent@LINER@@QEAAXXZ @ 0x1C014050C (-vNextEvent@LINER@@QEAAXXZ.c)
+ *     ?bBeginFigure@WIDEPATHOBJ@@QEAAHXZ @ 0x1C0140788 (-bBeginFigure@WIDEPATHOBJ@@QEAAHXZ.c)
+ *     ?bValid@WIDENER@@QEBAHXZ @ 0x1C01408C0 (-bValid@WIDENER@@QEBAHXZ.c)
+ *     ?vEndFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C0140904 (-vEndFigure@WIDEPATHOBJ@@QEAAXXZ.c)
+ *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C01409F0 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z @ 0x1C014158C (-vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z.c)
+ *     ?vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C0141970 (-vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ.c)
+ *     ?efNextStyleLength@STYLER@@IEAA?AVEFLOAT@@XZ @ 0x1C02CE89C (-efNextStyleLength@STYLER@@IEAA-AVEFLOAT@@XZ.c)
+ *     ?efWorldLength@STYLER@@IEAA?AVEFLOAT@@VEVECTORFX@@@Z @ 0x1C02CE8D8 (-efWorldLength@STYLER@@IEAA-AVEFLOAT@@VEVECTORFX@@@Z.c)
+ *     ?ptfxFraction@@YA?AU_POINTFIX@@U1@PEAVLINEDATA@@AEAVEFLOAT@@2@Z @ 0x1C02CE968 (-ptfxFraction@@YA-AU_POINTFIX@@U1@PEAVLINEDATA@@AEAVEFLOAT@@2@Z.c)
+ *     ?vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ @ 0x1C02CEF58 (-vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ.c)
  */
 
-_BOOL8 __fastcall WIDENER::bWiden(WIDENER *this)
+__int64 __fastcall WIDENER::bWiden(WIDENER *this)
 {
-  int v2; // ecx
+  int v2; // eax
   int v3; // ecx
   int v4; // ecx
   int v5; // ecx
-  int v6; // edx
-  WIDEPATHOBJ *v7; // rbx
-  WIDEPATHOBJ *v8; // rcx
-  char v9; // r10
-  __int64 v10; // rax
-  struct WIDEPATHOBJ *v11; // r10
-  int v12; // ecx
-  int v13; // ecx
-  int v14; // ecx
+  int v6; // ecx
+  int v7; // edx
+  int v8; // ecx
+  int v9; // ecx
+  int v10; // ecx
+  struct WIDEPATHOBJ *v12; // r10
+  WIDEPATHOBJ *v13; // rbx
+  WIDEPATHOBJ *v14; // rcx
+  char v15; // r10
+  float v16; // xmm1_4
+  int v17; // ecx
+  __int64 v18; // r8
+  int v19; // xmm0_4
+  float v20; // xmm1_4
+  int v21; // eax
+  char *v22; // rdx
+  WIDENER *v23; // rcx
+  _DWORD *StyleLength; // rax
+  __int64 v25; // r8
+  int v26; // xmm0_4
+  __int64 v27; // rax
+  char v28[4]; // [rsp+20h] [rbp-28h] BYREF
+  char v29; // [rsp+24h] [rbp-24h] BYREF
+  char v30; // [rsp+50h] [rbp+8h] BYREF
+  char v31; // [rsp+58h] [rbp+10h] BYREF
+  char v32; // [rsp+60h] [rbp+18h] BYREF
+  char v33; // [rsp+68h] [rbp+20h] BYREF
 
   while ( 1 )
   {
@@ -37,63 +58,143 @@ _BOOL8 __fastcall WIDENER::bWiden(WIDENER *this)
     {
       while ( 1 )
       {
-        STYLER::vNextStyleEvent(this);
-        v2 = *((_DWORD *)this + 172);
-        if ( v2 > 5 )
-          break;
-        if ( v2 == 5 )
-          goto LABEL_19;
-        if ( v2 )
+        v2 = *((_DWORD *)this + 10);
+        if ( (v2 & 2) == 0 )
         {
-          v3 = v2 - 1;
-          if ( v3 )
+          LINER::vNextEvent(this);
+          goto LABEL_3;
+        }
+        if ( (v2 & 4) != 0 )
+        {
+          if ( *((_DWORD *)this + 172) == 5 )
           {
-            v4 = v3 - 1;
-            if ( v4 )
+            while ( 1 )
             {
-              v5 = v4 - 1;
-              if ( v5 )
+              v16 = *((float *)this + 187);
+              if ( v16 < *((float *)this + 186) )
               {
-                if ( v5 == 1 )
-                {
-                  v6 = 1;
-                  goto LABEL_10;
-                }
+                *((float *)this + 186) = *((float *)this + 186) - *((float *)this + 187);
+                *((float *)this + 188) = *((float *)this + 187) + *((float *)this + 188);
+                *(struct _POINTFIX *)((char *)this + 692) = ptfxFraction(
+                                                              *(struct _POINTFIX *)((char *)this + 760),
+                                                              *((struct LINEDATA **)this + 89),
+                                                              (WIDENER *)((char *)this + 752),
+                                                              (WIDENER *)((char *)this + 756));
+                *((_DWORD *)this + 187) = *(_DWORD *)STYLER::efNextStyleLength(this, &v31);
+                *((_DWORD *)this + 172) = 6;
+                goto LABEL_3;
               }
-              else
+              *((float *)this + 187) = v16 - *((float *)this + 186);
+              LINER::vNextEvent(this);
+              v17 = *((_DWORD *)this + 172);
+              if ( (unsigned int)(v17 - 3) > 1 )
+                break;
+              v18 = *((_QWORD *)this + 89);
+              *((_DWORD *)this + 188) = FP_0_0;
+              v19 = *(_DWORD *)STYLER::efWorldLength(this, &v30, *(_QWORD *)(v18 + 40));
+              *((_QWORD *)this + 95) = *(_QWORD *)((char *)this + 692);
+              *((_DWORD *)this + 189) = v19;
+              *((_DWORD *)this + 186) = v19;
+            }
+            if ( v17 == 1 )
+              LINER::vNextEvent(this);
+            *((_DWORD *)this + 10) &= ~4u;
+            *((_DWORD *)this + 172) = 8;
+            goto LABEL_3;
+          }
+          v20 = *((float *)this + 187);
+          if ( v20 <= *((float *)this + 186) )
+          {
+            *((float *)this + 186) = *((float *)this + 186) - *((float *)this + 187);
+            *((float *)this + 188) = *((float *)this + 187) + *((float *)this + 188);
+            *(struct _POINTFIX *)((char *)this + 692) = ptfxFraction(
+                                                          *(struct _POINTFIX *)((char *)this + 760),
+                                                          *((struct LINEDATA **)this + 89),
+                                                          (WIDENER *)((char *)this + 752),
+                                                          (WIDENER *)((char *)this + 756));
+            *((_QWORD *)this + 88) = *((_QWORD *)this + 89);
+            *((_DWORD *)this + 187) = *(_DWORD *)STYLER::efNextStyleLength(this, &v32);
+            *((_DWORD *)this + 172) = 5;
+            goto LABEL_3;
+          }
+          *((float *)this + 187) = v20 - *((float *)this + 186);
+        }
+        LINER::vNextEvent(this);
+        v21 = *((_DWORD *)this + 172);
+        if ( v21 )
+        {
+          if ( (unsigned int)(v21 - 3) > 1 )
+          {
+            *((_DWORD *)this + 10) &= ~4u;
+            goto LABEL_3;
+          }
+          v22 = &v33;
+          v23 = this;
+        }
+        else
+        {
+          *((_QWORD *)this + 91) = *((_QWORD *)this + 90);
+          StyleLength = (_DWORD *)STYLER::efNextStyleLength(this, v28);
+          v22 = &v29;
+          *((_DWORD *)this + 187) = *StyleLength;
+        }
+        v25 = *((_QWORD *)this + 89);
+        *((_DWORD *)this + 188) = FP_0_0;
+        v26 = *(_DWORD *)STYLER::efWorldLength(v23, v22, *(_QWORD *)(v25 + 40));
+        v27 = *(_QWORD *)((char *)this + 692);
+        *((_DWORD *)this + 10) |= 4u;
+        *((_QWORD *)this + 95) = v27;
+        *((_DWORD *)this + 186) = v26;
+        *((_DWORD *)this + 189) = v26;
+LABEL_3:
+        v3 = *((_DWORD *)this + 172);
+        if ( v3 > 5 )
+          break;
+        if ( v3 == 5 )
+          goto LABEL_19;
+        if ( v3 )
+        {
+          v4 = v3 - 1;
+          if ( v4 )
+          {
+            v5 = v4 - 1;
+            if ( v5 )
+            {
+              v6 = v5 - 1;
+              if ( !v6 )
               {
-                v6 = 0;
+                v7 = 0;
+                goto LABEL_10;
+              }
+              if ( v6 == 1 )
+              {
+                v7 = 1;
 LABEL_10:
-                WIDENER::vAddJoin(this, v6);
+                WIDENER::vAddJoin(this, v7);
               }
             }
             else
             {
               WIDENER::vAddJoin(this, 0);
               WIDEPATHOBJ::vEndFigure((WIDENER *)((char *)this + 984));
-              v7 = (WIDENER *)((char *)this + 1136);
+              v13 = (WIDENER *)((char *)this + 1136);
               WIDEPATHOBJ::vEndFigure((WIDENER *)((char *)this + 1136));
-              v8 = (WIDENER *)((char *)this + 1136);
-              if ( (v9 & 8) == 0 )
+              v14 = (WIDENER *)((char *)this + 1136);
+              if ( (v15 & 8) == 0 )
               {
                 *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 143) + 40LL) + 16LL) |= 8u;
-                if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure(v8) )
+                if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure(v14) )
                   return 0LL;
                 WIDEPATHOBJ::vReverseConcatenate((WIDENER *)((char *)this + 1136), (WIDENER *)((char *)this + 984));
-LABEL_31:
-                WIDEPATHOBJ::vEndFigure(v7);
-                v10 = *(_QWORD *)(*((_QWORD *)this + 143) + 40LL);
-                goto LABEL_32;
+                goto LABEL_26;
               }
-              if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure(v8) )
+              if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure(v14) )
                 return 0LL;
               WIDEPATHOBJ::vReverseConcatenate((WIDENER *)((char *)this + 1136), (WIDENER *)((char *)this + 984));
               WIDEPATHOBJ::vEndFigure((WIDENER *)((char *)this + 1136));
               WIDEPATHOBJ::vPrependBeforeSubpath((WIDENER *)((char *)this + 1136));
               WIDEPATHOBJ::vPrependBeforeFigure((WIDENER *)((char *)this + 1136));
-              v10 = *(_QWORD *)(*((_QWORD *)this + 143) + 40LL);
-LABEL_32:
-              *(_DWORD *)(v10 + 16) |= 8u;
+              *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 143) + 40LL) + 16LL) |= 8u;
             }
           }
           else
@@ -101,9 +202,9 @@ LABEL_32:
 LABEL_19:
             WIDENER::vAddEndCap(this);
             WIDEPATHOBJ::vEndFigure((WIDENER *)((char *)this + 984));
-            if ( !WIDENER::bValid(this) )
+            if ( !(unsigned int)WIDENER::bValid(this) )
               return 0LL;
-            WIDEPATHOBJ::vReverseConcatenate((WIDENER *)((char *)this + 1136), v11);
+            WIDEPATHOBJ::vReverseConcatenate((WIDENER *)((char *)this + 1136), v12);
             WIDEPATHOBJ::vEndFigure((WIDENER *)((char *)this + 1136));
             *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 143) + 40LL) + 16LL) |= 8u;
             *((_DWORD *)this + 10) |= 8u;
@@ -120,16 +221,16 @@ LABEL_19:
           *((_QWORD *)this + 160) = *(_QWORD *)(*((_QWORD *)this + 143) + 40LL);
         }
       }
-      v12 = v2 - 6;
-      if ( !v12 )
+      v8 = v3 - 6;
+      if ( !v8 )
         break;
-      v13 = v12 - 1;
-      if ( v13 )
+      v9 = v8 - 1;
+      if ( v9 )
       {
-        v14 = v13 - 1;
-        if ( v14 )
+        v10 = v9 - 1;
+        if ( v10 )
         {
-          if ( v14 == 1 )
+          if ( v10 == 1 )
             return WIDENER::bValid(this);
         }
         else
@@ -143,12 +244,14 @@ LABEL_19:
       }
       else if ( !*((_DWORD *)this + 323) )
       {
-        v7 = (WIDENER *)((char *)this + 1136);
+        v13 = (WIDENER *)((char *)this + 1136);
         if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure((WIDENER *)((char *)this + 1136)) )
           return 0LL;
         WIDENER::vAddStartCap(this);
         WIDENER::vAddEndCap(this);
-        goto LABEL_31;
+LABEL_26:
+        WIDEPATHOBJ::vEndFigure(v13);
+        *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 143) + 40LL) + 16LL) |= 8u;
       }
     }
     if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure((WIDENER *)((char *)this + 984))

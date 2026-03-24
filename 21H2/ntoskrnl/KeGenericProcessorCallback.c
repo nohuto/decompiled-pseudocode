@@ -1,117 +1,110 @@
 /*
- * XREFs of KeGenericProcessorCallback @ 0x14035BB4C
+ * XREFs of KeGenericProcessorCallback @ 0x1402EB178
  * Callers:
- *     KeGenericCallDpc @ 0x140217420 (KeGenericCallDpc.c)
- *     KeRemoveQueueDpcEx @ 0x14024E1A0 (KeRemoveQueueDpcEx.c)
- *     KeDisableTimer2 @ 0x1402D40E4 (KeDisableTimer2.c)
- *     KeFlushQueuedDpcs @ 0x1402D96F0 (KeFlushQueuedDpcs.c)
- *     ExpUpdateTimerConfiguration @ 0x14035C7A4 (ExpUpdateTimerConfiguration.c)
- *     KeUpdateDpcWatchdogConfiguration @ 0x1405685CC (KeUpdateDpcWatchdogConfiguration.c)
- *     KeSetIntervalProfile @ 0x1407F8914 (KeSetIntervalProfile.c)
- *     RtlUpdateSwapReference @ 0x1408331DC (RtlUpdateSwapReference.c)
- *     PspSetVmProcessorHostProcessWorkerRoutine @ 0x1409AFA60 (PspSetVmProcessorHostProcessWorkerRoutine.c)
+ *     KeDisableTimer2 @ 0x14027FC30 (KeDisableTimer2.c)
+ *     KeRemoveQueueDpcEx @ 0x1402C8000 (KeRemoveQueueDpcEx.c)
+ *     ExpUpdateTimerConfiguration @ 0x1402EAF00 (ExpUpdateTimerConfiguration.c)
+ *     KeFlushQueuedDpcs @ 0x1402EC6E0 (KeFlushQueuedDpcs.c)
+ *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
+ *     KeSetIntervalProfile @ 0x140734424 (KeSetIntervalProfile.c)
+ *     RtlUpdateSwapReference @ 0x1407CACBC (RtlUpdateSwapReference.c)
+ *     PspSetVmProcessorHostProcessWorkerRoutine @ 0x14090A4C0 (PspSetVmProcessorHostProcessWorkerRoutine.c)
  * Callees:
- *     KiCheckForThreadDispatch @ 0x140294824 (KiCheckForThreadDispatch.c)
- *     KeSetPriorityBoost @ 0x1403438F0 (KeSetPriorityBoost.c)
- *     KeSetPriorityThread @ 0x140344340 (KeSetPriorityThread.c)
- *     KiRemoveBoostThread @ 0x14035B110 (KiRemoveBoostThread.c)
- *     KiEnumerateNextProcessorNumber @ 0x14035BDA0 (KiEnumerateNextProcessorNumber.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KiEnumerateNextProcessorNumber @ 0x1402284F0 (KiEnumerateNextProcessorNumber.c)
+ *     KeSetPriorityBoost @ 0x14022F6F0 (KeSetPriorityBoost.c)
+ *     KiRemoveBoostThread @ 0x14024AED0 (KiRemoveBoostThread.c)
+ *     KeSetPriorityThread @ 0x140257AE0 (KeSetPriorityThread.c)
+ *     KiCheckForThreadDispatch @ 0x1402783B4 (KiCheckForThreadDispatch.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-void __fastcall KeGenericProcessorCallback(
-        _QWORD *a1,
+char __fastcall KeGenericProcessorCallback(
+        unsigned __int16 *a1,
         void (__fastcall *a2)(struct _KPRCB *, __int64),
         __int64 a3,
         int a4)
 {
-  __int64 v7; // r8
-  _DWORD *v8; // r9
+  struct _KTHREAD *CurrentThread; // rdi
   struct _GROUP_AFFINITY *p_PreviousAffinity; // r12
   struct _KPRCB *CurrentPrcb; // rbx
-  KPRIORITY v11; // r15d
-  struct _KTHREAD *CurrentThread; // rdi
-  __int64 v13; // rax
-  __int64 v14; // rsi
-  __int64 v15; // r8
-  _DWORD *SchedulerAssist; // r9
+  KPRIORITY v10; // r15d
+  unsigned __int16 *v11; // rax
+  __int64 v12; // rsi
   unsigned __int8 CurrentIrql; // si
-  int v18; // r14d
-  int v19; // [rsp+20h] [rbp-E0h] BYREF
-  int v20; // [rsp+24h] [rbp-DCh]
-  __int64 v21; // [rsp+28h] [rbp-D8h]
+  __int64 v14; // rdx
+  _DWORD *SchedulerAssist; // r9
+  int v17; // [rsp+20h] [rbp-E0h] BYREF
+  __int64 v18; // [rsp+28h] [rbp-D8h]
   struct _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-D0h] BYREF
-  _QWORD v23[2]; // [rsp+40h] [rbp-C0h] BYREF
-  __int16 v24; // [rsp+50h] [rbp-B0h]
-  int v25; // [rsp+52h] [rbp-AEh]
-  __int16 v26; // [rsp+56h] [rbp-AAh]
+  unsigned __int16 *v20[2]; // [rsp+40h] [rbp-C0h] BYREF
+  __int16 v21; // [rsp+50h] [rbp-B0h]
+  int v22; // [rsp+52h] [rbp-AEh]
+  __int16 v23; // [rsp+56h] [rbp-AAh]
   struct _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD v28[34]; // [rsp+70h] [rbp-90h] BYREF
+  _QWORD v25[22]; // [rsp+70h] [rbp-90h] BYREF
 
-  v21 = a3;
-  v20 = a4;
+  v18 = a3;
   Affinity = 0LL;
-  memset(v28, 0, 0x108uLL);
-  v25 = 0;
-  v26 = 0;
-  v19 = 0;
+  memset(v25, 0, 0xA8uLL);
+  v22 = 0;
+  v23 = 0;
+  v17 = 0;
   PreviousAffinity = 0LL;
   if ( !a1 )
   {
-    LODWORD(v28[0]) = 2097153;
-    a1 = v28;
-    memset((char *)v28 + 4, 0, 0x104uLL);
-    v28[1] |= 1uLL;
+    LODWORD(v25[0]) = 1310721;
+    a1 = (unsigned __int16 *)v25;
+    memset((char *)v25 + 4, 0, 0xA4uLL);
+    v25[1] |= 1uLL;
   }
-  p_PreviousAffinity = &PreviousAffinity;
-  *(_DWORD *)Affinity.Reserved = 0;
-  CurrentPrcb = 0LL;
-  Affinity.Reserved[2] = 0;
-  v11 = 0;
   CurrentThread = KeGetCurrentThread();
+  p_PreviousAffinity = &PreviousAffinity;
+  CurrentPrcb = 0LL;
+  *(_DWORD *)Affinity.Reserved = 0;
+  v10 = 0;
+  Affinity.Reserved[2] = 0;
   if ( a4 )
   {
     if ( (a4 & 2) != 0 )
-      v11 = KeSetPriorityThread(CurrentThread, 30);
+      v10 = KeSetPriorityThread(CurrentThread, 30);
     else
-      KeSetPriorityBoost((__int64)CurrentThread, 15LL, v7, v8);
+      KeSetPriorityBoost((__int64)CurrentThread, 15);
   }
-  v13 = a1[1];
-  v23[0] = a1;
-  v14 = v21;
-  v24 = 0;
-  v23[1] = v13;
-  while ( !(unsigned int)KiEnumerateNextProcessorNumber(&v19, v23) )
+  v11 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
+  v20[0] = a1;
+  v12 = v18;
+  v20[1] = v11;
+  v21 = 0;
+  while ( !(unsigned int)KiEnumerateNextProcessorNumber((__int64)&v17, v20) )
   {
-    Affinity.Group = v19;
-    Affinity.Mask = 1LL << SBYTE2(v19);
+    Affinity.Group = v17;
+    Affinity.Mask = 1LL << SBYTE2(v17);
     KeSetSystemGroupAffinityThread(&Affinity, p_PreviousAffinity);
     CurrentPrcb = KeGetCurrentPrcb();
-    a2(CurrentPrcb, v14);
+    a2(CurrentPrcb, v12);
     p_PreviousAffinity = 0LL;
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  v18 = v20;
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    v15 = (unsigned int)SchedulerAssist[5];
-    SchedulerAssist[5] = v15 | ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
+    SchedulerAssist[5] |= ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
   }
   CurrentPrcb->DpcRoutineActive = 1;
-  if ( v18 )
+  if ( a4 )
   {
-    if ( (v18 & 2) != 0 )
-      KeSetPriorityThread(CurrentThread, v11);
+    if ( (a4 & 2) != 0 )
+      KeSetPriorityThread(CurrentThread, v10);
     else
-      KiRemoveBoostThread((__int64)CurrentPrcb, (__int64)CurrentThread, v15, (__int64)SchedulerAssist);
+      KiRemoveBoostThread((__int64)CurrentPrcb, (__int64)CurrentThread);
   }
   KeRevertToUserGroupAffinityThread(&PreviousAffinity);
+  LOBYTE(v14) = CurrentIrql;
   CurrentPrcb->DpcRoutineActive = 0;
-  KiCheckForThreadDispatch((__int64)CurrentPrcb, CurrentIrql);
+  return KiCheckForThreadDispatch((__int64)CurrentPrcb, v14);
 }

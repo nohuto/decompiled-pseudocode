@@ -1,51 +1,58 @@
 /*
- * XREFs of ObOpenObjectByPointer @ 0x1407379D0
+ * XREFs of ObOpenObjectByPointer @ 0x140653F10
  * Callers:
- *     CmLoadDifferencingKey @ 0x14069108C (CmLoadDifferencingKey.c)
- *     CmConvertHandleToKernelHandle @ 0x140691CD0 (CmConvertHandleToKernelHandle.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x1406B7EA8 (PspOneDirectionSecurityDomainCombine.c)
- *     PsOpenProcess @ 0x1406F3DB0 (PsOpenProcess.c)
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
- *     NtOpenThreadTokenEx @ 0x14071DF70 (NtOpenThreadTokenEx.c)
- *     PspCreateObjectHandle @ 0x14073FCC0 (PspCreateObjectHandle.c)
- *     ExGetNextProcess @ 0x140742E88 (ExGetNextProcess.c)
- *     VrpPreLoadKey @ 0x14077A954 (VrpPreLoadKey.c)
- *     VrpPostEnumerateKey @ 0x14077AEC8 (VrpPostEnumerateKey.c)
- *     NtCreateWorkerFactory @ 0x1407860A0 (NtCreateWorkerFactory.c)
- *     ObpSetDeviceMap @ 0x1407B006C (ObpSetDeviceMap.c)
- *     PsOpenThread @ 0x1407BBD70 (PsOpenThread.c)
- *     PiCMDuplicateRegistryHandle @ 0x1407BF28C (PiCMDuplicateRegistryHandle.c)
- *     CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x1407C700C (CmFcManagerQueryFeatureConfigurationSectionInformation.c)
- *     PspCombineSecurityDomains @ 0x1407C729C (PspCombineSecurityDomains.c)
- *     NtOpenPrivateNamespace @ 0x1407C8C60 (NtOpenPrivateNamespace.c)
- *     NtGetNextProcess @ 0x1407D4BE0 (NtGetNextProcess.c)
- *     WmipIoControl @ 0x1407D66F0 (WmipIoControl.c)
- *     NtGetNextThread @ 0x1407DF590 (NtGetNextThread.c)
- *     MmManagePartitionGetMemoryEvents @ 0x1407EA6D0 (MmManagePartitionGetMemoryEvents.c)
- *     EtwpOpenConsumer @ 0x1407F5F94 (EtwpOpenConsumer.c)
- *     SPCallServerHandleFileIntegrityUpdate @ 0x1407FEDE4 (SPCallServerHandleFileIntegrityUpdate.c)
- *     CmpInitializeRegistryProcess @ 0x14080D05C (CmpInitializeRegistryProcess.c)
- *     SmRegistrationInfoFill @ 0x1408431CC (SmRegistrationInfoFill.c)
- *     ObInitServerSilo @ 0x14085687C (ObInitServerSilo.c)
- *     IopInvalidateVolumesForDevice @ 0x140882338 (IopInvalidateVolumesForDevice.c)
- *     DbgkOpenProcessDebugPort @ 0x140936D90 (DbgkOpenProcessDebugPort.c)
- *     DbgkpOpenHandles @ 0x1409375D4 (DbgkpOpenHandles.c)
- *     DbgkUserReportWorkRoutine @ 0x140939CF0 (DbgkUserReportWorkRoutine.c)
- *     ObOpenObjectByPointerWithTag @ 0x14097C190 (ObOpenObjectByPointerWithTag.c)
- *     TtmiOpenDefaultTerminal @ 0x1409AB14C (TtmiOpenDefaultTerminal.c)
- *     SmKmFileInfoDuplicate @ 0x1409D8AD4 (SmKmFileInfoDuplicate.c)
- *     EtwpCapturePreviousRegistryData @ 0x1409F43D4 (EtwpCapturePreviousRegistryData.c)
- *     MiOpenSpecialPurposeMemory @ 0x140A476FC (MiOpenSpecialPurposeMemory.c)
+ *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
+ *     NtGetNextThread @ 0x1405DAE20 (NtGetNextThread.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x140607670 (PspOneDirectionSecurityDomainCombine.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
+ *     PsOpenThread @ 0x140626120 (PsOpenThread.c)
+ *     ExGetNextProcess @ 0x14062BF4C (ExGetNextProcess.c)
+ *     ExpGetProcessInformation @ 0x14063E980 (ExpGetProcessInformation.c)
+ *     NtOpenThreadTokenEx @ 0x140653590 (NtOpenThreadTokenEx.c)
+ *     NtOpenProcessTokenEx @ 0x140653D50 (NtOpenProcessTokenEx.c)
+ *     CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x140684420 (CmFcManagerQueryFeatureConfigurationSectionInformation.c)
+ *     PspCombineSecurityDomains @ 0x140685D04 (PspCombineSecurityDomains.c)
+ *     WmipIoControl @ 0x14068B1D0 (WmipIoControl.c)
+ *     EtwpOpenConsumer @ 0x14069BE14 (EtwpOpenConsumer.c)
+ *     ObpSetDeviceMap @ 0x1406A04E4 (ObpSetDeviceMap.c)
+ *     PiCMDuplicateRegistryHandle @ 0x1406A8C84 (PiCMDuplicateRegistryHandle.c)
+ *     PspCreateObjectHandle @ 0x1406C3584 (PspCreateObjectHandle.c)
+ *     PsOpenProcess @ 0x1406D34F0 (PsOpenProcess.c)
+ *     CmLoadDifferencingKey @ 0x1406E737C (CmLoadDifferencingKey.c)
+ *     CmConvertHandleToKernelHandle @ 0x1406E8014 (CmConvertHandleToKernelHandle.c)
+ *     NtCreateWorkerFactory @ 0x140701710 (NtCreateWorkerFactory.c)
+ *     NtOpenPrivateNamespace @ 0x140718550 (NtOpenPrivateNamespace.c)
+ *     SPCallServerHandleFileIntegrityUpdate @ 0x1407288C4 (SPCallServerHandleFileIntegrityUpdate.c)
+ *     IopInvalidateVolumesForDevice @ 0x14077B720 (IopInvalidateVolumesForDevice.c)
+ *     NtGetNextProcess @ 0x14078A7B0 (NtGetNextProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x140799280 (CmpInitializeRegistryProcess.c)
+ *     ObInitServerSilo @ 0x1407C9000 (ObInitServerSilo.c)
+ *     SmRegistrationInfoFill @ 0x1407CF218 (SmRegistrationInfoFill.c)
+ *     MmManagePartitionGetMemoryEvents @ 0x1407D1BBC (MmManagePartitionGetMemoryEvents.c)
+ *     VrpPreLoadKey @ 0x1408833DC (VrpPreLoadKey.c)
+ *     DbgkOpenProcessDebugPort @ 0x140884438 (DbgkOpenProcessDebugPort.c)
+ *     DbgkpOpenHandles @ 0x140884C84 (DbgkpOpenHandles.c)
+ *     DbgkUserReportWorkRoutine @ 0x140886DA0 (DbgkUserReportWorkRoutine.c)
+ *     ObOpenObjectByPointerWithTag @ 0x1408DCAE0 (ObOpenObjectByPointerWithTag.c)
+ *     TtmiOpenDefaultTerminal @ 0x1408FD868 (TtmiOpenDefaultTerminal.c)
+ *     SmKmFileInfoDuplicate @ 0x14092B36C (SmKmFileInfoDuplicate.c)
+ *     EtwpCapturePreviousRegistryData @ 0x14093B1D4 (EtwpCapturePreviousRegistryData.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     SepDeleteAccessState @ 0x140232250 (SepDeleteAccessState.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x140232B20 (SepCreateAccessStateFromSubjectContext.c)
- *     ObReferenceObjectByPointerWithTag @ 0x1402B6810 (ObReferenceObjectByPointerWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
- *     SeCaptureSubjectContextEx @ 0x1407380F0 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
+ *     ObFastReferenceObjectLocked @ 0x1402062F8 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x1402D6EC0 (ObReferenceObjectByPointerWithTag.c)
+ *     SepDeleteAccessState @ 0x140345670 (SepDeleteAccessState.c)
+ *     ObFastReferenceObject @ 0x1403456F0 (ObFastReferenceObject.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x140345810 (SepCreateAccessStateFromSubjectContext.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
  */
 
 NTSTATUS __stdcall ObOpenObjectByPointer(
@@ -57,17 +64,28 @@ NTSTATUS __stdcall ObOpenObjectByPointer(
         KPROCESSOR_MODE AccessMode,
         PHANDLE Handle)
 {
+  void *v10; // r12
   POBJECT_TYPE v11; // rdi
   NTSTATUS result; // eax
-  struct _KTHREAD *CurrentThread; // rcx
-  NTSTATUS v14; // ebx
-  NTSTATUS v15; // edi
-  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+60h] [rbp-1E8h] BYREF
-  _QWORD v17[20]; // [rsp+80h] [rbp-1C8h] BYREF
-  _QWORD v18[28]; // [rsp+120h] [rbp-128h] BYREF
+  struct _KTHREAD *CurrentThread; // rbx
+  signed __int64 *p_Lock; // r13
+  _QWORD *v15; // r12
+  ULONG_PTR v16; // rbx
+  NTSTATUS v17; // ebx
+  NTSTATUS v18; // edi
+  signed __int64 *v19; // r13
+  signed __int64 *BugCheckParameter2; // [rsp+68h] [rbp-210h]
+  struct _KTHREAD *v22; // [rsp+70h] [rbp-208h]
+  struct _KTHREAD *v23; // [rsp+70h] [rbp-208h]
+  __int128 v24; // [rsp+78h] [rbp-200h] BYREF
+  ULONG_PTR v25; // [rsp+88h] [rbp-1F0h]
+  signed __int64 v26; // [rsp+90h] [rbp-1E8h]
+  _QWORD v27[20]; // [rsp+A0h] [rbp-1D8h] BYREF
+  _QWORD v28[28]; // [rsp+140h] [rbp-138h] BYREF
 
-  memset(v18, 0, sizeof(v18));
-  memset(v17, 0, sizeof(v17));
+  memset(v28, 0, sizeof(v28));
+  memset(v27, 0, sizeof(v27));
+  v10 = 0LL;
   v11 = ObjectType;
   *Handle = 0LL;
   result = ObReferenceObjectByPointerWithTag(Object, 0, ObjectType, AccessMode, 0x6E48624Fu);
@@ -87,41 +105,85 @@ NTSTATUS __stdcall ObOpenObjectByPointer(
       if ( !PassedAccessState )
       {
         CurrentThread = KeGetCurrentThread();
-        memset(&SubjectContext, 0, sizeof(SubjectContext));
-        SeCaptureSubjectContextEx(CurrentThread, CurrentThread->ApcState.Process, &SubjectContext);
-        v14 = SepCreateAccessStateFromSubjectContext(
-                &SubjectContext,
-                v17,
-                v18,
-                DesiredAccess,
-                &v11->TypeInfo.GenericMapping.GenericRead);
-        if ( v14 < 0 )
+        *((_QWORD *)&v24 + 1) = 0LL;
+        p_Lock = (signed __int64 *)&CurrentThread->ApcState.Process->Header.Lock;
+        v26 = p_Lock[136];
+        if ( CurrentThread && (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
+        {
+          v22 = KeGetCurrentThread();
+          --v22->KernelApcDisable;
+          BugCheckParameter2 = (signed __int64 *)&CurrentThread[1].WaitBlockList;
+          ExAcquirePushLockSharedEx((ULONG_PTR)&CurrentThread[1].WaitBlockList, 0LL);
+          if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
+          {
+            v10 = (void *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+            ObfReferenceObject(v10);
+            DWORD2(v24) = *((_DWORD *)&CurrentThread[1].0 + 1) & 3;
+          }
+          if ( _InterlockedCompareExchange64(BugCheckParameter2, 0LL, 17LL) != 17 )
+            ExfReleasePushLockShared(BugCheckParameter2);
+          KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
+          KeLeaveCriticalRegionThread((__int64)v22);
+        }
+        *(_QWORD *)&v24 = v10;
+        v15 = p_Lock + 151;
+        v16 = ObFastReferenceObject(p_Lock + 151);
+        if ( !v16 )
+        {
+          v23 = KeGetCurrentThread();
+          --v23->KernelApcDisable;
+          v19 = p_Lock + 135;
+          ExAcquirePushLockSharedEx((ULONG_PTR)v19, 0LL);
+          v16 = ObFastReferenceObjectLocked(v15);
+          if ( _InterlockedCompareExchange64(v19, 0LL, 17LL) != 17 )
+            ExfReleasePushLockShared(v19);
+          KeAbPostRelease((ULONG_PTR)v19);
+          KeLeaveCriticalRegionThread((__int64)v23);
+        }
+        v25 = v16;
+        if ( SeTokenLeakTracking )
+        {
+          if ( v16 )
+          {
+            _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v16 + 1144) + 284LL));
+            if ( v16 == SepTokenLeakToken )
+              __debugbreak();
+          }
+          if ( (_QWORD)v24 )
+          {
+            _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v24 + 1144) + 284LL));
+            if ( (_QWORD)v24 == SepTokenLeakToken )
+              __debugbreak();
+          }
+        }
+        v17 = SepCreateAccessStateFromSubjectContext(&v24, v27, v28, DesiredAccess, &v11->TypeInfo.GenericMapping);
+        if ( v17 < 0 )
         {
           ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
-          return v14;
+          return v17;
         }
-        PassedAccessState = (PACCESS_STATE)v17;
+        PassedAccessState = (PACCESS_STATE)v27;
       }
-      v15 = ObpCreateHandle(
-              1,
-              (char *)Object,
+      v18 = ObpCreateHandle(
+              1u,
+              (struct _DMA_ADAPTER *)Object,
               0,
-              (__int64)PassedAccessState,
+              PassedAccessState,
               0,
               HandleAttributes,
               AccessMode,
               0LL,
               0,
               0LL,
-              Handle);
-      if ( v15 < 0 )
+              (unsigned __int64 *)Handle);
+      if ( v18 < 0 )
         ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
-      if ( PassedAccessState == (PACCESS_STATE)v17 )
+      if ( PassedAccessState == (PACCESS_STATE)v27 )
       {
         SepDeleteAccessState((__int64)PassedAccessState);
         SeReleaseSubjectContext(&PassedAccessState->SubjectSecurityContext);
       }
-      return v15;
+      return v18;
     }
   }
   return result;

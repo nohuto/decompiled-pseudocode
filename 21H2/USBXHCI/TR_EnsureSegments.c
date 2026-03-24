@@ -1,16 +1,16 @@
 /*
- * XREFs of TR_EnsureSegments @ 0x1C0008D50
+ * XREFs of TR_EnsureSegments @ 0x1C00098D0
  * Callers:
- *     Isoch_PrepareStage @ 0x1C0008870 (Isoch_PrepareStage.c)
- *     TR_AcquireSegments @ 0x1C001A616 (TR_AcquireSegments.c)
- *     TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C003FD80 (TR_ReAllocateTransferRingSegmentsForOffload.c)
- *     Bulk_EP_EnableForwardProgress @ 0x1C0044580 (Bulk_EP_EnableForwardProgress.c)
- *     TR_Create @ 0x1C006BCD8 (TR_Create.c)
+ *     Isoch_PrepareStage @ 0x1C00038C0 (Isoch_PrepareStage.c)
+ *     TR_AcquireSegments @ 0x1C003EC30 (TR_AcquireSegments.c)
+ *     TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C003F56C (TR_ReAllocateTransferRingSegmentsForOffload.c)
+ *     Bulk_EP_EnableForwardProgress @ 0x1C0043DE0 (Bulk_EP_EnableForwardProgress.c)
+ *     TR_Create @ 0x1C006AD7C (TR_Create.c)
  * Callees:
- *     CommonBuffer_AcquireBuffers @ 0x1C0009DA4 (CommonBuffer_AcquireBuffers.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C000B300 (WPP_RECORDER_SF_DDDD.c)
- *     TR_AcquireSecureSegments @ 0x1C003F134 (TR_AcquireSecureSegments.c)
- *     WPP_RECORDER_SF_DDDDD @ 0x1C003FF60 (WPP_RECORDER_SF_DDDDD.c)
+ *     CommonBuffer_AcquireBuffers @ 0x1C0009A94 (CommonBuffer_AcquireBuffers.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     TR_AcquireSecureSegments @ 0x1C003E894 (TR_AcquireSecureSegments.c)
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C003F810 (WPP_RECORDER_SF_DDDDD.c)
  */
 
 __int64 __fastcall TR_EnsureSegments(__int64 a1, unsigned int a2, char a3)
@@ -58,7 +58,7 @@ __int64 __fastcall TR_EnsureSegments(__int64 a1, unsigned int a2, char a3)
       v18,
       *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL),
       16,
-      (__int64)&WPP_202329088b1a3bd773cf1c67d995fd13_Traceguids,
+      (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
       *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
       *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
       *(_DWORD *)(a1 + 64),
@@ -91,12 +91,12 @@ __int64 __fastcall TR_EnsureSegments(__int64 a1, unsigned int a2, char a3)
       v19 = *(_QWORD *)(a1 + 56);
       v20 = *(_DWORD *)(v19 + 144);
       LOBYTE(v19) = 2;
-      WPP_RECORDER_SF_DDDD(
+      WPP_RECORDER_SF_dddd(
         *(_QWORD *)(*(_QWORD *)(a1 + 40) + 72LL),
         v19,
         14,
         17,
-        (__int64)&WPP_202329088b1a3bd773cf1c67d995fd13_Traceguids,
+        (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
         *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
         v20,
         *(_DWORD *)(a1 + 64),

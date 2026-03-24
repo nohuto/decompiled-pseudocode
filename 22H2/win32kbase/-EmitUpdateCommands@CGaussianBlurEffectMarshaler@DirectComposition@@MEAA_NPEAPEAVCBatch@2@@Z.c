@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CGaussianBlurEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C020E850
+ * XREFs of ?EmitUpdateCommands@CGaussianBlurEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DFBA0
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitData@CGaussianBlurEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C020E7D0 (-EmitData@CGaussianBlurEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitUpdateCommands@CEffectInputSet@DirectComposition@@QEAA_NW4MILCMD@@IPEAPEAVCBatch@2@@Z @ 0x1C020ED34 (-EmitUpdateCommands@CEffectInputSet@DirectComposition@@QEAA_NW4MILCMD@@IPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitData@CGaussianBlurEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DFB24 (-EmitData@CGaussianBlurEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CEffectInputSet@DirectComposition@@QEAA_NW4MILCMD@@IPEAPEAVCBatch@2@@Z @ 0x1C01DFFD4 (-EmitUpdateCommands@CEffectInputSet@DirectComposition@@QEAA_NW4MILCMD@@IPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CGaussianBlurEffectMarshaler::EmitUpdateCommands(
@@ -17,7 +17,7 @@ char __fastcall DirectComposition::CGaussianBlurEffectMarshaler::EmitUpdateComma
   if ( (unsigned __int8)DirectComposition::CEffectInputSet::EmitUpdateCommands(
                           (char *)this + 72,
                           a2,
-                          *((unsigned int *)this + 8),
+                          *((unsigned int *)this + 6),
                           a2) )
     return DirectComposition::CGaussianBlurEffectMarshaler::EmitData(this, a2) != 0;
   return v4;

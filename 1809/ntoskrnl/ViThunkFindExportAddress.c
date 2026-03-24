@@ -3,7 +3,7 @@
  * Callers:
  *     ViThunkFindAllExportAddresses @ 0x1409B77F0 (ViThunkFindAllExportAddresses.c)
  * Callees:
- *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C50 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C70 (RtlpImageDirectoryEntryToDataEx.c)
  */
 
 unsigned __int64 __fastcall ViThunkFindExportAddress(__int64 a1, char *a2, int *a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlCopyRangeList @ 0x140738B10
+ * XREFs of RtlCopyRangeList @ 0x140738AF0
  * Callers:
- *     ArbTestAllocation @ 0x140737E60 (ArbTestAllocation.c)
- *     ArbBootAllocation @ 0x140738140 (ArbBootAllocation.c)
- *     RtlMergeRangeLists @ 0x140890340 (RtlMergeRangeLists.c)
- *     ArbQueryConflict @ 0x1409055E0 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x140905960 (ArbRetestAllocation.c)
+ *     ArbTestAllocation @ 0x140737E40 (ArbTestAllocation.c)
+ *     ArbBootAllocation @ 0x140738120 (ArbBootAllocation.c)
+ *     RtlMergeRangeLists @ 0x140890320 (RtlMergeRangeLists.c)
+ *     ArbQueryConflict @ 0x1409055C0 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x140905940 (ArbRetestAllocation.c)
  * Callees:
- *     RtlpCopyRangeListEntry @ 0x140738BA0 (RtlpCopyRangeListEntry.c)
- *     RtlFreeRangeList @ 0x140738E40 (RtlFreeRangeList.c)
+ *     RtlpCopyRangeListEntry @ 0x140738B80 (RtlpCopyRangeListEntry.c)
+ *     RtlFreeRangeList @ 0x140738E20 (RtlFreeRangeList.c)
  */
 
 NTSTATUS __stdcall RtlCopyRangeList(PRTL_RANGE_LIST CopyRangeList, PRTL_RANGE_LIST RangeList)

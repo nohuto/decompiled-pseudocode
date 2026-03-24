@@ -1,12 +1,11 @@
 /*
- * XREFs of EtwpUpdateGuidEnableInfo @ 0x140780D88
+ * XREFs of EtwpUpdateGuidEnableInfo @ 0x1407167F8
  * Callers:
- *     EtwpEnableGuid @ 0x140780210 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x140715CA4 (EtwpEnableGuid.c)
  * Callees:
- *     EtwpGetEnableInfoIndex @ 0x140228668 (EtwpGetEnableInfoIndex.c)
- *     EtwpReferenceGuidEntry @ 0x1406BF964 (EtwpReferenceGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x1406BF9A4 (EtwpUnreferenceGuidEntry.c)
- *     EtwpUpdateGuidFilterData @ 0x140781010 (EtwpUpdateGuidFilterData.c)
+ *     EtwpReferenceGuidEntry @ 0x1405EBAA4 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpUpdateFilterData @ 0x140716B70 (EtwpUpdateFilterData.c)
  */
 
 __int64 __fastcall EtwpUpdateGuidEnableInfo(
@@ -17,40 +16,33 @@ __int64 __fastcall EtwpUpdateGuidEnableInfo(
         _BYTE *a5)
 {
   int v5; // eax
-  char v9; // dl
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r10
-  __int64 v13; // rdx
-  __int64 v14; // r9
-  __int64 v15; // rax
+  unsigned int v9; // r10d
+  __int64 v10; // r8
+  unsigned int v11; // r10d
+  unsigned __int8 v12; // si
+  char *v13; // r9
+  __int64 v14; // rax
+  __int64 v15; // r14
   __int64 v16; // r11
-  char *v17; // r8
-  int v18; // r15d
-  unsigned __int8 v19; // si
-  __int64 v20; // r14
-  unsigned __int8 v22; // al
-  unsigned int v23; // r15d
-  char *v24; // rdx
-  __int64 v25; // rax
-  __int64 v26; // r11
-  __int64 v27; // r9
-  int v28; // r14d
-  __int64 v29; // rsi
-  unsigned __int8 v30; // al
-  __int128 v31; // [rsp+20h] [rbp-20h]
-  __int128 v32; // [rsp+20h] [rbp-20h]
-  __int128 v33; // [rsp+30h] [rbp-10h]
-  __int128 v34; // [rsp+30h] [rbp-10h]
-  unsigned int v35; // [rsp+78h] [rbp+38h] BYREF
+  int v17; // r15d
+  unsigned __int8 v19; // al
+  unsigned __int8 v20; // si
+  char *v21; // r9
+  __int64 v22; // rax
+  __int64 v23; // r14
+  __int64 v24; // r11
+  int v25; // r15d
+  unsigned __int8 v26; // al
+  __int128 v27; // [rsp+30h] [rbp-20h]
+  __int128 v28; // [rsp+30h] [rbp-20h]
+  __int128 v29; // [rsp+40h] [rbp-10h]
+  __int128 v30; // [rsp+40h] [rbp-10h]
 
-  v35 = 0;
   v5 = *(_DWORD *)(a2 + 72);
   if ( v5 == 1 )
   {
-    v9 = *(_BYTE *)(BugCheckParameter2 + 91) ^ (*(_BYTE *)(BugCheckParameter2 + 91) ^ *(_BYTE *)(a2 + 112)) & 1;
-    *(_BYTE *)(BugCheckParameter2 + 91) = v9;
-    *(_BYTE *)(BugCheckParameter2 + 91) = v9 & 1 | (2 * *(_BYTE *)(a2 + 107));
+    *(_BYTE *)(BugCheckParameter2 + 91) ^= (*(_BYTE *)(BugCheckParameter2 + 91) ^ *(_BYTE *)(a2 + 112)) & 1;
+    *(_BYTE *)(BugCheckParameter2 + 91) = *(_BYTE *)(BugCheckParameter2 + 91) & 1 | (2 * *(_BYTE *)(a2 + 107));
     *(_WORD *)(BugCheckParameter2 + 88) = *(_WORD *)(a2 + 104);
     *(_BYTE *)(BugCheckParameter2 + 90) = *(_BYTE *)(a2 + 106);
     *(_QWORD *)(BugCheckParameter2 + 80) = a3;
@@ -59,98 +51,102 @@ __int64 __fastcall EtwpUpdateGuidEnableInfo(
   {
     *(_BYTE *)(BugCheckParameter2 + 91) &= ~1u;
   }
-  if ( EtwpGetEnableInfoIndex(BugCheckParameter2, *(unsigned __int16 *)(a2 + 78), &v35) )
+  v9 = 0;
+  v10 = 8LL;
+  do
   {
-    v23 = v35;
-    v24 = (char *)(v10 + 132);
-    v25 = 32 * (v35 + 4LL);
-    v26 = -1LL;
-    *(_OWORD *)(v25 + v10) = *(_OWORD *)(a2 + 72);
-    v27 = 8LL;
-    v32 = 0LL;
-    v28 = 0;
-    LOBYTE(v11) = 0;
-    v29 = 0LL;
-    *(_OWORD *)(v25 + v10 + 16) = *(_OWORD *)(a2 + 88);
-    *((_QWORD *)&v34 + 1) = -1LL;
-    do
+    if ( *(_DWORD *)(32 * (v9 + 4LL) + BugCheckParameter2)
+      && *(_WORD *)(32LL * v9 + BugCheckParameter2 + 134) == *(_WORD *)(a2 + 78) )
     {
-      if ( *((_DWORD *)v24 - 1) )
+      *(_QWORD *)&v28 = 0LL;
+      v20 = 0;
+      v21 = (char *)(BugCheckParameter2 + 132);
+      v22 = 32 * (v9 + 4LL);
+      v23 = 0LL;
+      v24 = -1LL;
+      HIDWORD(v28) = 0;
+      v25 = 0;
+      *((_QWORD *)&v30 + 1) = -1LL;
+      *(_OWORD *)(v22 + BugCheckParameter2) = *(_OWORD *)(a2 + 72);
+      *(_OWORD *)(v22 + BugCheckParameter2 + 16) = *(_OWORD *)(a2 + 88);
+      do
       {
-        v30 = v11;
-        LODWORD(v32) = v12;
-        if ( (unsigned __int8)v11 <= (unsigned __int8)*v24 )
-          v30 = *v24;
-        v26 &= *(_QWORD *)(v24 + 20);
-        v29 |= *(_QWORD *)(v24 + 12);
-        LOBYTE(v11) = v30;
-        v28 |= *((_DWORD *)v24 + 1);
-        *((_QWORD *)&v34 + 1) = v26;
+        if ( *((_DWORD *)v21 - 1) )
+        {
+          v26 = v20;
+          LODWORD(v28) = 1;
+          if ( v20 <= (unsigned __int8)*v21 )
+            v26 = *v21;
+          v24 &= *(_QWORD *)(v21 + 20);
+          v23 |= *(_QWORD *)(v21 + 12);
+          v20 = v26;
+          v25 |= *((_DWORD *)v21 + 1);
+          *((_QWORD *)&v30 + 1) = v24;
+        }
+        v21 += 32;
+        --v10;
       }
-      v24 += 32;
-      v27 -= v12;
+      while ( v10 );
+      BYTE4(v28) = v20;
+      DWORD2(v28) = v25;
+      *a5 = 1 << v9;
+      *(_QWORD *)&v30 = v23;
+      *(_OWORD *)(BugCheckParameter2 + 96) = v28;
+      *(_OWORD *)(BugCheckParameter2 + 112) = v30;
+      LOBYTE(v21) = *(_DWORD *)(a2 + 72) == 0;
+      EtwpUpdateFilterData(BugCheckParameter2, v9, a2, (_DWORD)v21, a4);
+      if ( !*(_DWORD *)(a2 + 72) )
+        EtwpUnreferenceGuidEntry((__int64 *)BugCheckParameter2);
+      return 0LL;
     }
-    while ( v27 );
-    BYTE4(v32) = v11;
-    DWORD2(v32) = v28;
-    *(_QWORD *)&v34 = v29;
-    *a5 = (_BYTE)v12 << v23;
-    *(_OWORD *)(BugCheckParameter2 + 96) = v32;
-    *(_OWORD *)(BugCheckParameter2 + 112) = v34;
-    LOBYTE(v11) = *(_DWORD *)(a2 + 72) == 0;
-    EtwpUpdateGuidFilterData(BugCheckParameter2, v23, v11, a4);
-    if ( !*(_DWORD *)(a2 + 72) )
-      EtwpUnreferenceGuidEntry((__int64 *)BugCheckParameter2);
-    return 0LL;
+    ++v9;
   }
+  while ( v9 < 8 );
   if ( *(_DWORD *)(a2 + 72) )
   {
-    v13 = 0LL;
-    v14 = 8LL;
-    while ( 1 )
+    v11 = 0;
+    while ( *(_DWORD *)(32 * (v11 + 4LL) + BugCheckParameter2) )
     {
-      v15 = 32 * ((unsigned int)v13 + 4LL);
-      if ( !*(_DWORD *)(v15 + v10) )
-        break;
-      v13 = (unsigned int)(v12 + v13);
-      if ( (unsigned int)v13 >= 8 )
+      if ( ++v11 >= 8 )
         return 3221225626LL;
     }
+    *(_QWORD *)&v27 = 0LL;
+    v12 = 0;
+    v13 = (char *)(BugCheckParameter2 + 132);
+    v14 = 32 * (v11 + 4LL);
+    v15 = 0LL;
     v16 = -1LL;
-    v17 = (char *)(v10 + 132);
-    *(_OWORD *)(v15 + v10) = *(_OWORD *)(a2 + 72);
-    v31 = 0LL;
-    v18 = 0;
-    v19 = 0;
-    v20 = 0LL;
-    *(_OWORD *)(v15 + v10 + 16) = *(_OWORD *)(a2 + 88);
-    *((_QWORD *)&v33 + 1) = -1LL;
+    HIDWORD(v27) = 0;
+    v17 = 0;
+    *((_QWORD *)&v29 + 1) = -1LL;
+    *(_OWORD *)(v14 + BugCheckParameter2) = *(_OWORD *)(a2 + 72);
+    *(_OWORD *)(v14 + BugCheckParameter2 + 16) = *(_OWORD *)(a2 + 88);
     do
     {
-      if ( *((_DWORD *)v17 - 1) )
+      if ( *((_DWORD *)v13 - 1) )
       {
-        v22 = v19;
-        LODWORD(v31) = v12;
-        if ( v19 <= (unsigned __int8)*v17 )
-          v22 = *v17;
-        v16 &= *(_QWORD *)(v17 + 20);
-        v20 |= *(_QWORD *)(v17 + 12);
-        v19 = v22;
-        v18 |= *((_DWORD *)v17 + 1);
-        *((_QWORD *)&v33 + 1) = v16;
+        v19 = v12;
+        LODWORD(v27) = 1;
+        if ( v12 <= (unsigned __int8)*v13 )
+          v19 = *v13;
+        v16 &= *(_QWORD *)(v13 + 20);
+        v15 |= *(_QWORD *)(v13 + 12);
+        v12 = v19;
+        v17 |= *((_DWORD *)v13 + 1);
+        *((_QWORD *)&v29 + 1) = v16;
       }
-      v17 += 32;
-      v14 -= v12;
+      v13 += 32;
+      --v10;
     }
-    while ( v14 );
-    BYTE4(v31) = v19;
-    DWORD2(v31) = v18;
-    *(_QWORD *)&v33 = v20;
-    *a5 = (_BYTE)v12 << v13;
-    *(_OWORD *)(BugCheckParameter2 + 96) = v31;
-    *(_OWORD *)(BugCheckParameter2 + 112) = v33;
-    LOBYTE(v17) = *(_DWORD *)(a2 + 72) == 0;
-    EtwpUpdateGuidFilterData(BugCheckParameter2, v13, v17, a4);
+    while ( v10 );
+    BYTE4(v27) = v12;
+    DWORD2(v27) = v17;
+    *a5 = 1 << v11;
+    *(_QWORD *)&v29 = v15;
+    *(_OWORD *)(BugCheckParameter2 + 96) = v27;
+    *(_OWORD *)(BugCheckParameter2 + 112) = v29;
+    LOBYTE(v13) = *(_DWORD *)(a2 + 72) == 0;
+    EtwpUpdateFilterData(BugCheckParameter2, v11, a2, (_DWORD)v13, a4);
     EtwpReferenceGuidEntry(BugCheckParameter2);
     return 0LL;
   }

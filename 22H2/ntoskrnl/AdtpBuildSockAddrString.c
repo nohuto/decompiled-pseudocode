@@ -1,12 +1,12 @@
 /*
- * XREFs of AdtpBuildSockAddrString @ 0x140A5B430
+ * XREFs of AdtpBuildSockAddrString @ 0x14096DDD8
  * Callers:
- *     AdtpPackageParameters @ 0x140399314 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C0314 (AdtpPackageParameters.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     AdtpBuildIPv4Strings @ 0x140A5A6CC (AdtpBuildIPv4Strings.c)
- *     AdtpBuildIPv6Strings @ 0x140A5A834 (AdtpBuildIPv6Strings.c)
- *     AdtpBuildMacStrings @ 0x140A5A99C (AdtpBuildMacStrings.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     AdtpBuildIPv4Strings @ 0x14096D0BC (AdtpBuildIPv4Strings.c)
+ *     AdtpBuildIPv6Strings @ 0x14096D214 (AdtpBuildIPv6Strings.c)
+ *     AdtpBuildMacStrings @ 0x14096D36C (AdtpBuildMacStrings.c)
  */
 
 __int64 __fastcall AdtpBuildSockAddrString(

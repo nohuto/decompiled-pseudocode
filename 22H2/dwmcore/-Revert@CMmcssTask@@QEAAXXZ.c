@@ -1,15 +1,14 @@
 /*
- * XREFs of ?Revert@CMmcssTask@@QEAAXXZ @ 0x1800F9CF8
+ * XREFs of ?Revert@CMmcssTask@@QEAAXXZ @ 0x1800ADB14
  * Callers:
- *     ?ProcessRenderingStatus@CComposition@@QEAAXJ@Z @ 0x180050A78 (-ProcessRenderingStatus@CComposition@@QEAAXJ@Z.c)
- *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x1800CE480 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
- *     ?ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ @ 0x1800CE720 (-ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ.c)
- *     ?UpdateMMCSSTask@CKst@@EEAAJXZ @ 0x1800F9AC0 (-UpdateMMCSSTask@CKst@@EEAAJXZ.c)
- *     ?Run@CGlobalMit@@MEAAKXZ @ 0x1800F9B40 (-Run@CGlobalMit@@MEAAKXZ.c)
- *     _lambda_08f8e6791065478e4a38815f49fd4aba_::_lambda_invoker_cdecl_ @ 0x180104440 (_lambda_08f8e6791065478e4a38815f49fd4aba_--_lambda_invoker_cdecl_.c)
+ *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x180030920 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
+ *     ?ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ @ 0x180030A70 (-ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ.c)
+ *     ?ProcessRenderingStatus@CComposition@@QEAAXJ@Z @ 0x1800736CC (-ProcessRenderingStatus@CComposition@@QEAAXJ@Z.c)
+ *     ?Run@CGlobalMit@@MEAAKXZ @ 0x1800AD970 (-Run@CGlobalMit@@MEAAKXZ.c)
+ *     _lambda_08f8e6791065478e4a38815f49fd4aba_::_lambda_invoker_cdecl_ @ 0x1800DFD40 (_lambda_08f8e6791065478e4a38815f49fd4aba_--_lambda_invoker_cdecl_.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CMmcssTask::Revert(struct _RTL_CRITICAL_SECTION *this)

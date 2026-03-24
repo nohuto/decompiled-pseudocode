@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiFanEjectInterface @ 0x1C002DC64
+ * XREFs of AcpiFanEjectInterface @ 0x1C0011940
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C0005A80 (ACPIBusIrpQueryInterface.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
  */
 
 __int64 __fastcall AcpiFanEjectInterface(ULONG_PTR a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhAcquireControllerName @ 0x1C0048210
+ * XREFs of UsbhAcquireControllerName @ 0x1C0049590
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetControllerName @ 0x1C002AE68 (UsbhGetControllerName.c)
- *     WPP_RECORDER_SF_dd @ 0x1C002DDB8 (WPP_RECORDER_SF_dd.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetControllerName @ 0x1C002C234 (UsbhGetControllerName.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002F194 (WPP_RECORDER_SF_dd.c)
  */
 
 __int64 __fastcall UsbhAcquireControllerName(__int64 a1, __int64 a2, unsigned int a3, unsigned int *a4, __int64 a5)

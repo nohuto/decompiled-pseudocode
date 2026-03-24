@@ -1,15 +1,15 @@
 /*
- * XREFs of ?Init@VIDMM_WORKER_THREAD@@QEAAJPEAPEAU_KEVENT@@@Z @ 0x1C00B1C34
+ * XREFs of ?Init@VIDMM_WORKER_THREAD@@QEAAJPEAPEAU_KEVENT@@@Z @ 0x1C0097AC4
  * Callers:
- *     ?Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@KI@Z @ 0x1C00B1204 (-Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@KI@Z.c)
+ *     ?CreateWorkerThread@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C0097A68 (-CreateWorkerThread@VIDMM_GLOBAL@@QEAAJXZ.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00029AC (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?RequestWorkerThreadStatus@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@E@Z @ 0x1C00A68B8 (-RequestWorkerThreadStatus@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@E@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?RequestWorkerThreadStatus@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@E@Z @ 0x1C008AFF4 (-RequestWorkerThreadStatus@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@E@Z.c)
  */
 
 __int64 __fastcall VIDMM_WORKER_THREAD::Init(__int64 StartContext, struct _KEVENT **a2)
 {
-  __int64 v4; // rax
+  PVOID v4; // rax
   __int64 v5; // rdi
   __int64 v6; // rsi
   NTSTATUS v7; // edi
@@ -17,7 +17,7 @@ __int64 __fastcall VIDMM_WORKER_THREAD::Init(__int64 StartContext, struct _KEVEN
   void *ThreadHandle; // [rsp+80h] [rbp+8h] BYREF
 
   *a2 = 0LL;
-  v4 = operator new[](72LL, 0x37346956u, 64LL);
+  v4 = operator new[](0x48uLL, 0x37346956u, (POOL_TYPE)512);
   *(_QWORD *)(StartContext + 176) = v4;
   if ( !v4 )
     return 3221225495LL;

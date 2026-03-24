@@ -1,121 +1,118 @@
 /*
- * XREFs of EtwpCovSampCaptureQueueApc @ 0x1406034F0
+ * XREFs of EtwpCovSampCaptureQueueApc @ 0x1405AED80
  * Callers:
- *     EtwpCovSampCaptureSample @ 0x140603790 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureSample @ 0x1405AF118 (EtwpCovSampCaptureSample.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeInitializeApc @ 0x1402BE6A0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140469B2A (EtwpCovSampCaptureReleaseToLookaside.c)
- *     EtwpCovSampLookasidePop @ 0x140469BA8 (EtwpCovSampLookasidePop.c)
- *     KeIsThreadRunning @ 0x14056EE70 (KeIsThreadRunning.c)
- *     KeTryToInsertQueueApc @ 0x140573250 (KeTryToInsertQueueApc.c)
+ *     KeInsertQueueApc @ 0x14025F120 (KeInsertQueueApc.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     KeInitializeApc @ 0x140341E70 (KeInitializeApc.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KeIsThreadRunning @ 0x140512F94 (KeIsThreadRunning.c)
+ *     KeTryToInsertQueueApc @ 0x14051A750 (KeTryToInsertQueueApc.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x1405AF0A0 (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampLookasidePop @ 0x1405AF44C (EtwpCovSampLookasidePop.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureQueueApc(__int64 a1)
 {
-  struct _KTHREAD *CurrentThread; // rbx
-  int v2; // r12d
-  __int64 v3; // r9
-  int v5; // r14d
-  volatile signed __int32 *v6; // rdi
-  unsigned int v7; // esi
-  unsigned int v8; // eax
-  unsigned int v9; // ecx
-  __int64 v10; // rsi
-  __int64 v11; // r15
-  PSLIST_ENTRY v12; // rax
-  PSLIST_ENTRY v13; // rbp
-  __int64 v14; // rsi
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v2; // rbp
+  __int64 v3; // r13
+  int v4; // r14d
+  int v5; // r15d
+  unsigned int v7; // edi
+  __int64 v8; // rbx
+  unsigned int v9; // eax
+  unsigned int v10; // ecx
+  __int64 v11; // rdi
+  __int64 v12; // rax
+  __int64 v13; // rbx
   unsigned __int8 CurrentIrql; // al
-  struct _KTHREAD *v16; // rax
-  __int64 v17; // rbx
-  __int64 Next; // rdx
-  __int64 v20; // [rsp+90h] [rbp+18h]
+  struct _KTHREAD *v15; // rax
+  __int64 v16; // rbx
+  __int64 v17; // rdx
 
   CurrentThread = KeGetCurrentThread();
-  v2 = 0;
-  v3 = qword_140C31CA8;
-  v20 = qword_140C31CA8;
-  v5 = 1;
+  v2 = 0LL;
+  v3 = qword_140C198C8;
+  v4 = 0;
+  v5 = 0;
   if ( CurrentThread->Process->FreezeCount + ((*(_DWORD *)&CurrentThread->Process->0 >> 3) & 1)
     || CurrentThread->SuspendCount
     || (CurrentThread->MiscFlags & 0x4000) == 0 )
   {
-    return (unsigned int)-1073741637;
+    v7 = -1073741637;
   }
-  v6 = (volatile signed __int32 *)(&CurrentThread[1].SwapListEntry + 1);
-  if ( !_interlockedbittestandset((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0x17u) )
+  else
   {
-    v8 = ((unsigned int)*(_QWORD *)(v3 + 8) >> 13) & 0x3FFFF;
-    _BitScanReverse(&v9, v8);
-    v10 = ((unsigned int)*(_QWORD *)(v3 + 8) >> 4) & 0x1FF;
-    v11 = *(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v9 - 2) + 8LL * (v8 ^ (1 << v9)) + 8);
-    v12 = EtwpCovSampLookasidePop(v3, v11 + 8 * (v10 + 2));
-    v13 = v12;
+    if ( _interlockedbittestandset((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0x17u) )
+      return (unsigned int)-1073740008;
+    v4 = 1;
+    v8 = (*(_QWORD *)(v3 + 8) >> 4) & 0x1FFLL;
+    v9 = ((unsigned int)*(_QWORD *)(v3 + 8) >> 13) & 0x3FFFF;
+    _BitScanReverse(&v10, v9);
+    v11 = *(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v10 - 2) + 8LL * (v9 ^ (1 << v10)) + 8);
+    v12 = EtwpCovSampLookasidePop(v3, v11 + 8 * (v8 + 2));
+    v2 = v12;
     if ( !v12 )
     {
-      _InterlockedAdd((volatile signed __int32 *)(v11 + 8 * v10 + 308), 1u);
+      _InterlockedIncrement((volatile signed __int32 *)(v11 + 8 * v8 + 308));
       v7 = -1073741670;
-      goto LABEL_23;
+LABEL_24:
+      _InterlockedAnd((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0xFF7FFFFF);
+      return v7;
     }
-    v14 = (__int64)(&v12[3].Next + 1);
+    v13 = v12 + 56;
     KeInitializeApc(
-      (__int64)(&v12[3].Next + 1),
+      v12 + 56,
       (__int64)CurrentThread,
       0,
       (__int64)EtwpCovSampCaptureApc,
       (__int64)EtwpCovSampCaptureApcRundown,
       (__int64)EtwpCovSampCaptureApc,
       0,
-      v20);
-    *((_QWORD *)&v13[7].Next + 1) = 0LL;
-    LODWORD(v13[9].Next) = MEMORY[0xFFFFF78000000320];
+      v3);
+    *(_QWORD *)(v2 + 120) = 0LL;
+    *(_DWORD *)(v2 + 144) = MEMORY[0xFFFFF78000000320];
     CurrentIrql = KeGetCurrentIrql();
     if ( CurrentIrql <= 2u )
     {
       if ( CurrentIrql < 2u )
       {
-        v16 = KeGetCurrentThread();
-        v2 = 1;
-        --v16->KernelApcDisable;
+        v15 = KeGetCurrentThread();
+        --v15->KernelApcDisable;
+        v5 = 1;
       }
-      if ( !(unsigned __int8)KeInsertQueueApc(v14, a1, 0LL, 0) )
+      if ( !KeInsertQueueApc(v13, a1, 0LL, 0) )
       {
         v7 = -1073741823;
-        goto LABEL_18;
+        goto LABEL_19;
       }
     }
-    else if ( !KeTryToInsertQueueApc(v14, a1) )
+    else if ( !KeTryToInsertQueueApc(v13, a1, 0LL) )
     {
       if ( (CurrentThread->MiscFlags & 0x4000) != 0 )
         KeIsThreadRunning((__int64)CurrentThread);
       v7 = -1073741823;
       goto LABEL_21;
     }
-    v5 = 0;
-    v13 = 0LL;
+    v4 = 0;
+    v2 = 0LL;
     v7 = 0;
-LABEL_18:
-    if ( v2 )
-      KeLeaveCriticalRegion();
-    if ( !v13 )
-    {
-LABEL_22:
-      if ( !v5 )
-        return v7;
-LABEL_23:
-      _InterlockedAnd(v6, 0xFF7FFFFF);
-      return v7;
-    }
-LABEL_21:
-    v17 = qword_140C31CA8;
-    memset(&v13[3].Next + 1, 0, 0x58uLL);
-    Next = (__int64)v13[3].Next;
-    LODWORD(v13[9].Next) = 0;
-    EtwpCovSampCaptureReleaseToLookaside(v17, Next, v13);
-    goto LABEL_22;
   }
-  return (unsigned int)-1073740008;
+LABEL_19:
+  if ( v5 )
+    KeLeaveCriticalRegion();
+LABEL_21:
+  if ( v2 )
+  {
+    v16 = qword_140C198C8;
+    memset((void *)(v2 + 56), 0, 0x58uLL);
+    v17 = *(_QWORD *)(v2 + 48);
+    *(_DWORD *)(v2 + 144) = 0;
+    EtwpCovSampCaptureReleaseToLookaside(v16, v17, v2);
+  }
+  if ( v4 )
+    goto LABEL_24;
+  return v7;
 }

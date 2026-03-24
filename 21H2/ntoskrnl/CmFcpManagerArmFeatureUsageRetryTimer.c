@@ -1,15 +1,15 @@
 /*
- * XREFs of CmFcpManagerArmFeatureUsageRetryTimer @ 0x14053FF38
+ * XREFs of CmFcpManagerArmFeatureUsageRetryTimer @ 0x1404ED920
  * Callers:
- *     CmFcpManagerDrainUsageNotifications @ 0x140832E84 (CmFcpManagerDrainUsageNotifications.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x1407CABF0 (CmFcpManagerDrainUsageNotifications.c)
  * Callees:
- *     ExSetTimer @ 0x1402D5750 (ExSetTimer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     ExSetTimer @ 0x140280070 (ExSetTimer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-__int64 __fastcall CmFcpManagerArmFeatureUsageRetryTimer(__int64 a1)
+_BOOL8 __fastcall CmFcpManagerArmFeatureUsageRetryTimer(__int64 a1)
 {
-  __int64 result; // rax
+  _BOOL8 result; // rax
   _QWORD v3[2]; // [rsp+20h] [rbp-28h] BYREF
 
   if ( !*(_BYTE *)(a1 + 337) )

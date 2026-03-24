@@ -1,20 +1,20 @@
 /*
- * XREFs of ?CleanupFreedTLCInfo@@YAXXZ @ 0x1C00AE4F8
+ * XREFs of ?CleanupFreedTLCInfo@@YAXXZ @ 0x1C0107F84
  * Callers:
- *     _RegisterRawInputDevices @ 0x1C00AE358 (_RegisterRawInputDevices.c)
+ *     _RegisterRawInputDevices @ 0x1C0108350 (_RegisterRawInputDevices.c)
  * Callees:
- *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C00AE584 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00AE5B4 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
- *     FreeHidTLCInfo @ 0x1C0103208 (FreeHidTLCInfo.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C0108C7C (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C0108CAC (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     FreeHidTLCInfo @ 0x1C01D55C0 (FreeHidTLCInfo.c)
  */
 
 void CleanupFreedTLCInfo(void)
 {
   _QWORD *v0; // rax
   _QWORD *v1; // rbx
-  _QWORD *v2; // rax
-  _QWORD *v3; // rbx
-  _DWORD *v4; // rcx
+  _DWORD *v2; // rcx
+  _QWORD *v3; // rax
+  _QWORD *v4; // rbx
   _QWORD *v5; // rcx
   _QWORD *v6; // rax
   char v7; // [rsp+30h] [rbp+8h] BYREF
@@ -24,27 +24,27 @@ void CleanupFreedTLCInfo(void)
   v1 = (_QWORD *)RawInputManagerObject::gHidRequestTable[0];
   while ( v1 != v0 )
   {
-    v4 = v1;
+    v2 = v1;
     v1 = (_QWORD *)*v1;
-    if ( !(v4[5] | v4[6] | v4[8] | v4[9]) )
+    if ( !(v2[5] | v2[6] | v2[8] | v2[9]) )
       FreeHidTLCInfo();
     v0 = (_QWORD *)RawInputManagerObject::gHidRequestTable[0];
   }
-  v2 = v0 + 2;
-  v3 = (_QWORD *)*v2;
-  while ( v3 != v2 )
+  v3 = v0 + 2;
+  v4 = (_QWORD *)*v3;
+  while ( v4 != v3 )
   {
-    v5 = v3;
-    v3 = (_QWORD *)*v3;
+    v5 = v4;
+    v4 = (_QWORD *)*v4;
     if ( !*((_DWORD *)v5 + 5) )
     {
-      if ( (_QWORD *)v3[1] != v5 || (v6 = (_QWORD *)v5[1], (_QWORD *)*v6 != v5) )
+      if ( (_QWORD *)v4[1] != v5 || (v6 = (_QWORD *)v5[1], (_QWORD *)*v6 != v5) )
         __fastfail(3u);
-      *v6 = v3;
-      v3[1] = v6;
+      *v6 = v4;
+      v4[1] = v6;
       Win32FreePool(v5);
     }
-    v2 = &RawInputManagerObject::gHidRequestTable[2];
+    v3 = &RawInputManagerObject::gHidRequestTable[2];
   }
   RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v7);
 }

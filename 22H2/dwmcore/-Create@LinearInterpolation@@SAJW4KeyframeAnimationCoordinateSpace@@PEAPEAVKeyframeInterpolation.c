@@ -1,32 +1,35 @@
 /*
- * XREFs of ?Create@LinearInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@PEAPEAVKeyframeInterpolation@@@Z @ 0x1800D85F8
+ * XREFs of ?Create@LinearInterpolation@@SAJW4KeyframeAnimationCoordinateSpace@@PEAPEAVKeyframeInterpolation@@@Z @ 0x1800A9D50
  * Callers:
- *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x180055F08 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
+ *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800AAD18 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
  * Callees:
- *     ??2KeyframeInterpolation@@SAPEAX_K@Z @ 0x1800D8900 (--2KeyframeInterpolation@@SAPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??2KeyframeInterpolation@@SAPEAX_K@Z @ 0x1800AC800 (--2KeyframeInterpolation@@SAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall LinearInterpolation::Create(int a1, _QWORD *a2)
 {
-  char *v4; // rbx
+  _QWORD *v4; // rax
+  _QWORD *v5; // rbx
   __int64 result; // rax
 
-  v4 = (char *)KeyframeInterpolation::operator new(0x18uLL);
+  v4 = KeyframeInterpolation::operator new(0x18uLL);
+  v5 = v4;
   if ( v4 )
   {
-    *(_QWORD *)(v4 + 12) = 0LL;
-    *((_DWORD *)v4 + 5) = 0;
+    *(_OWORD *)v4 = 0LL;
+    v4[2] = 0LL;
     *((_DWORD *)v4 + 2) = 0;
-    *(_QWORD *)v4 = &LinearInterpolation::`vftable';
-    ((void (__fastcall *)(char *))LinearInterpolation::`vftable')(v4);
+    *v4 = &LinearInterpolation::`vftable';
   }
   else
   {
-    v4 = 0LL;
+    v5 = 0LL;
   }
-  *((_DWORD *)v4 + 4) = a1;
+  if ( v5 )
+    (*(void (__fastcall **)(_QWORD *))*v5)(v5);
+  *((_DWORD *)v5 + 4) = a1;
   result = 0LL;
-  *a2 = v4;
+  *a2 = v5;
   return result;
 }

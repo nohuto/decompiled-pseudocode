@@ -1,5 +1,5 @@
 /*
- * XREFs of WbProcessStartup @ 0x1406CFE14
+ * XREFs of WbProcessStartup @ 0x1406CFDF4
  * Callers:
  *     WbDispatchOperation @ 0x140625364 (WbDispatchOperation.c)
  * Callees:

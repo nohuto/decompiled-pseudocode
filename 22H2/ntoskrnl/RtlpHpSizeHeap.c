@@ -1,35 +1,40 @@
 /*
- * XREFs of RtlpHpSizeHeap @ 0x1405B6848
+ * XREFs of RtlpHpSizeHeap @ 0x1405949C4
  * Callers:
- *     RtlpHpFreeHeap @ 0x1402AC490 (RtlpHpFreeHeap.c)
- *     ExFreeHeapPool @ 0x140322ED0 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x1402C2790 (RtlpHpFreeHeap.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     RtlpHpSizeHeapInternal @ 0x1405B68E0 (RtlpHpSizeHeapInternal.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     RtlpHpSizeHeapInternal @ 0x140594A6C (RtlpHpSizeHeapInternal.c)
  */
 
 __int64 __fastcall RtlpHpSizeHeap(__int64 a1, __int64 a2, int a3)
 {
-  unsigned int v4; // edi
+  int v3; // r9d
   int v5; // edx
-  __int64 v6; // rax
-  __int64 v7; // rbx
+  int v6; // r8d
+  unsigned int v7; // edi
+  __int64 v8; // rax
+  __int64 v9; // rbx
 
-  v4 = *(_DWORD *)(a1 + 20) | a3;
-  v5 = *(_DWORD *)(a1 + 220);
-  if ( v5 && v5 == KeGetCurrentThread()[1].CurrentRunTime )
-    v4 |= 1u;
+  v3 = *(_DWORD *)(a1 + 220);
+  v5 = a3 | *(_DWORD *)(a1 + 20);
+  v6 = 0;
+  if ( v3 )
+    LOBYTE(v6) = v3 == KeGetCurrentThread()[1].CurrentRunTime;
+  v7 = v5 | 1;
+  if ( !v6 )
+    v7 = v5;
   if ( !a2 )
     return -1LL;
   if ( (a2 & 0xF) != 0 )
     return -1LL;
-  v6 = RtlpHpSizeHeapInternal(a1, a2, v4, 0LL);
-  v7 = v6;
-  if ( v6 != -1
-    && (v4 & 0x10000000) != 0
-    && RtlCompareMemory((const void *)(v6 + a2), CheckHeapFillPattern, 0x10uLL) != 16 )
+  v8 = RtlpHpSizeHeapInternal(a1, a2, v7, 0LL);
+  v9 = v8;
+  if ( v8 != -1
+    && (v7 & 0x10000000) != 0
+    && RtlCompareMemory((const void *)(v8 + a2), CheckHeapFillPattern, 0x10uLL) != 16 )
   {
     return -1LL;
   }
-  return v7;
+  return v9;
 }

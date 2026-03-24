@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x14085C208
+ * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x1407CB578
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpRegisterFirmwareTableInformationHandler(__int64 a1, unsigned int a2, char a3)
@@ -18,12 +18,12 @@ __int64 __fastcall ExpRegisterFirmwareTableInformationHandler(__int64 a1, unsign
   struct _KTHREAD *CurrentThread; // rax
   __int64 *v6; // rsi
   __int64 *v7; // rax
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   void *v9; // rcx
   _QWORD *v10; // rdi
   _QWORD *v11; // rax
-  __int64 v13; // rdx
-  __int64 **v14; // rcx
+  __int64 v13; // rcx
+  __int64 **v14; // rdx
 
   v3 = 0;
   if ( a3 )
@@ -58,7 +58,7 @@ __int64 __fastcall ExpRegisterFirmwareTableInformationHandler(__int64 a1, unsign
         {
           *v14 = (__int64 *)v13;
           *(_QWORD *)(v13 + 8) = v14;
-          ObfDereferenceObject((PVOID)v6[2]);
+          HalPutDmaAdapter((PADAPTER_OBJECT)v6[2]);
           ExFreePoolWithTag(v6, 0x54465241u);
           goto LABEL_11;
         }
@@ -73,24 +73,24 @@ LABEL_22:
 LABEL_7:
   if ( !*(_BYTE *)(a1 + 4) )
     goto LABEL_22;
-  Pool2 = ExAllocatePool2(256LL, 40LL, 1413894721LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x54465241u);
+  if ( PoolWithTag )
   {
-    *(_DWORD *)Pool2 = *(_DWORD *)a1;
-    *(_QWORD *)(Pool2 + 8) = *(_QWORD *)(a1 + 8);
+    *(_DWORD *)PoolWithTag = *(_DWORD *)a1;
+    PoolWithTag[1] = *(_QWORD *)(a1 + 8);
     v9 = *(void **)(a1 + 16);
-    v10 = (_QWORD *)(Pool2 + 24);
-    *(_QWORD *)(Pool2 + 32) = Pool2 + 24;
-    *(_QWORD *)(Pool2 + 24) = Pool2 + 24;
-    *(_QWORD *)(Pool2 + 16) = v9;
+    v10 = PoolWithTag + 3;
+    PoolWithTag[4] = PoolWithTag + 3;
+    PoolWithTag[3] = PoolWithTag + 3;
+    PoolWithTag[2] = v9;
     ObfReferenceObject(v9);
-    v11 = (_QWORD *)qword_140C31BD8;
-    if ( *(__int64 **)qword_140C31BD8 != &ExpFirmwareTableProviderListHead )
+    v11 = (_QWORD *)qword_140C19858;
+    if ( *(__int64 **)qword_140C19858 != &ExpFirmwareTableProviderListHead )
       goto LABEL_21;
     *v10 = &ExpFirmwareTableProviderListHead;
     v10[1] = v11;
     *v11 = v10;
-    qword_140C31BD8 = (__int64)v10;
+    qword_140C19858 = (__int64)v10;
   }
   else
   {

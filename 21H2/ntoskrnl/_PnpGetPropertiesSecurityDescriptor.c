@@ -1,43 +1,45 @@
 /*
- * XREFs of _PnpGetPropertiesSecurityDescriptor @ 0x140743C8C
+ * XREFs of _PnpGetPropertiesSecurityDescriptor @ 0x140768234
  * Callers:
- *     _PnpOpenPropertiesKey @ 0x14077EF20 (_PnpOpenPropertiesKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406454C4 (_PnpOpenPropertiesKey.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x1402EF430 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x1407254F0 (RtlLengthSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x140726610 (RtlValidSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140744160 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14078ED60 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14078EDC0 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlValidSid @ 0x1407B4660 (RtlValidSid.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
+ *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140676C10 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140768430 (RtlAbsoluteToSelfRelativeSD.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void *PnpGetPropertiesSecurityDescriptor()
 {
-  void *v0; // rbx
-  ULONG v1; // edi
-  ACL *Pool2; // rax
-  ACL *v3; // rsi
+  void *v0; // rsi
+  ULONG v1; // ebx
+  ACL *PoolWithTag; // rax
+  ACL *v3; // rdi
   ULONG v4; // eax
-  void *v5; // rax
-  void *v6; // rdi
+  ULONG v5; // r14d
+  PVOID v6; // rax
+  void *v7; // rbx
   struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp-50h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+38h] [rbp-48h] BYREF
-  __int64 v10; // [rsp+58h] [rbp-28h]
-  _BYTE Sid[16]; // [rsp+60h] [rbp-20h] BYREF
+  __int64 v11; // [rsp+58h] [rbp-28h]
+  unsigned __int8 Sid[16]; // [rsp+60h] [rbp-20h] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   v0 = 0LL;
-  v10 = 0LL;
+  v11 = 0LL;
   *(_DWORD *)IdentifierAuthority.Value = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   if ( RtlInitializeSid(Sid, &IdentifierAuthority, 1u) >= 0 )
@@ -46,12 +48,12 @@ void *PnpGetPropertiesSecurityDescriptor()
     if ( RtlValidSid(Sid) )
     {
       v1 = RtlLengthSid(Sid) + 16;
-      Pool2 = (ACL *)ExAllocatePool2(256LL, v1, 1380994640LL);
-      v3 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v1, 0x52504E50u);
+      v3 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        if ( RtlCreateAcl(Pool2, v1, 2u) >= 0
-          && (int)RtlpAddKnownAce((int)v3, 2, 2, 983103, Sid, 0) >= 0
+        if ( RtlCreateAcl(PoolWithTag, v1, 2u) >= 0
+          && (int)RtlpAddKnownAce((__int64)v3, 2u, 2, 983103, Sid, 0) >= 0
           && RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) >= 0
           && RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v3, 0) >= 0
           && RtlSetOwnerSecurityDescriptor(SecurityDescriptor, Sid, 1u) >= 0
@@ -64,14 +66,19 @@ void *PnpGetPropertiesSecurityDescriptor()
             *(_DWORD *)IdentifierAuthority.Value = v4;
             if ( v4 >= 0x28 )
             {
-              v5 = (void *)ExAllocatePool2(256LL, v4, 1380994640LL);
-              v6 = v5;
-              if ( v5 )
+              v5 = v4;
+              v6 = ExAllocatePoolWithTag(PagedPool, v4, 0x52504E50u);
+              v7 = v6;
+              if ( v6 )
               {
-                if ( RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, v5, (PULONG)IdentifierAuthority.Value) < 0 )
-                  ExFreePoolWithTag(v6, 0);
-                else
-                  v0 = v6;
+                memset(v6, 0, v5);
+                if ( RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, v7, (PULONG)IdentifierAuthority.Value) >= 0 )
+                {
+                  v0 = v7;
+                  v7 = 0LL;
+                }
+                if ( v7 )
+                  ExFreePoolWithTag(v7, 0);
               }
             }
           }

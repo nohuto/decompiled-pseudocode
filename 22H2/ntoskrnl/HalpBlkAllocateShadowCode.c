@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBlkAllocateShadowCode @ 0x140B92D5C
+ * XREFs of HalpBlkAllocateShadowCode @ 0x140A8DE08
  * Callers:
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140B92ECC (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140A8DF74 (HalpBlkInitializeVirtualAddressSpace.c)
  * Callees:
- *     HalpBlkAddVirtualMapping @ 0x140B92AA0 (HalpBlkAddVirtualMapping.c)
- *     HalpBlkAllocateShadowCodePages @ 0x140B92DE4 (HalpBlkAllocateShadowCodePages.c)
+ *     HalpBlkAddVirtualMapping @ 0x140A8DB4C (HalpBlkAddVirtualMapping.c)
+ *     HalpBlkAllocateShadowCodePages @ 0x140A8DE90 (HalpBlkAllocateShadowCodePages.c)
  */
 
 __int64 HalpBlkAllocateShadowCode()
@@ -13,14 +13,14 @@ __int64 HalpBlkAllocateShadowCode()
   __int64 v1; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = 0LL;
-  result = HalpBlkAllocateShadowCodePages(HalpLMStub, HalpLMStubEnd - (char *)HalpLMStub, &v1);
+  result = HalpBlkAllocateShadowCodePages(HalpLMStub, HalpLMStubEnd - (_BYTE *)HalpLMStub, &v1);
   if ( (int)result >= 0 )
   {
     result = HalpBlkAddVirtualMapping(HalpBlkTiledMemoryMapPa, v1, (unsigned __int64)HalpLMStub, 1, 32);
     if ( (int)result >= 0 )
       return HalpBlkAllocateShadowCodePages(
-               *(_QWORD *)(*(_QWORD *)(HalpMmLoaderBlock + 240) + 3504LL),
-               *(_QWORD *)(*(_QWORD *)(HalpMmLoaderBlock + 240) + 3512LL),
+               *(_QWORD *)(*(_QWORD *)(HalpMmLoaderBlock + 240) + 3472LL),
+               *(_QWORD *)(*(_QWORD *)(HalpMmLoaderBlock + 240) + 3480LL),
                0LL);
   }
   return result;

@@ -1,37 +1,38 @@
 /*
- * XREFs of GreSetRedirection @ 0x1C00C830C
+ * XREFs of GreSetRedirection @ 0x1C00EF6B8
  * Callers:
- *     DeleteOrSetRedirectionBitmap @ 0x1C00C825C (DeleteOrSetRedirectionBitmap.c)
- *     CreateOrGetRedirectionBitmap @ 0x1C00D564C (CreateOrGetRedirectionBitmap.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C00BEDE8 (CreateOrGetRedirectionBitmap.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C00EF608 (DeleteOrSetRedirectionBitmap.c)
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0030084 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C00838AC (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreSetRedirection(HSURF a1, int a2)
 {
   unsigned int v3; // ebx
-  _BYTE v5[32]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v6; // [rsp+40h] [rbp-18h]
+  __int64 v4; // rdx
+  _BYTE v6[32]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v7; // [rsp+40h] [rbp-18h]
 
   v3 = 0;
-  SURFREF::SURFREF((SURFREF *)v5, a1);
-  if ( v6 )
+  SURFREF::SURFREF((SURFREF *)v6, a1);
+  if ( v7 )
   {
     if ( a2 )
     {
-      *(_DWORD *)(v6 + 112) |= 0x800u;
-      *(_DWORD *)(v6 + 116) |= 0x80u;
+      *(_DWORD *)(v7 + 112) |= 0x800u;
+      *(_DWORD *)(v7 + 116) |= 0x80u;
     }
     else
     {
-      *(_DWORD *)(v6 + 116) &= ~0x80u;
-      *(_DWORD *)(v6 + 112) &= ~0x800u;
+      *(_DWORD *)(v7 + 116) &= ~0x80u;
+      *(_DWORD *)(v7 + 112) &= ~0x800u;
     }
     v3 = 1;
-    if ( v6 )
-      DEC_SHARE_REF_CNT(v6);
+    if ( v7 )
+      DEC_SHARE_REF_CNT(v7, v4);
   }
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v5);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v6);
   return v3;
 }

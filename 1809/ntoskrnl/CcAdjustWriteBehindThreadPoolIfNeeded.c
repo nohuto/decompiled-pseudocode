@@ -3,14 +3,14 @@
  * Callers:
  *     CcChargeDirtyPages @ 0x140023780 (CcChargeDirtyPages.c)
  *     CcUninitializeCacheMap @ 0x14007C530 (CcUninitializeCacheMap.c)
- *     CcCanIWrite @ 0x140104D00 (CcCanIWrite.c)
- *     CcQueueLazyWriteScanThread @ 0x140183820 (CcQueueLazyWriteScanThread.c)
+ *     CcCanIWrite @ 0x140104D20 (CcCanIWrite.c)
+ *     CcQueueLazyWriteScanThread @ 0x140183840 (CcQueueLazyWriteScanThread.c)
  * Callees:
  *     CcAdjustWriteBehindThreadPool @ 0x1400239F0 (CcAdjustWriteBehindThreadPool.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     CcBoostLowPriorityWorkerThread @ 0x140107F30 (CcBoostLowPriorityWorkerThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x140107F50 (CcBoostLowPriorityWorkerThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(__int64 a1, char a2)

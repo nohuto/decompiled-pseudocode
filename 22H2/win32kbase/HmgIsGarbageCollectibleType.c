@@ -1,13 +1,23 @@
 /*
- * XREFs of HmgIsGarbageCollectibleType @ 0x1C01592D8
+ * XREFs of HmgIsGarbageCollectibleType @ 0x1C00C9D28
  * Callers:
- *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C00350B8 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
- *     HmgSetOwner @ 0x1C003E5F0 (HmgSetOwner.c)
+ *     HmgSetOwner @ 0x1C00368E0 (HmgSetOwner.c)
+ *     ?MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z @ 0x1C013F84C (-MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall HmgIsGarbageCollectibleType(char a1)
+_BOOL8 __fastcall HmgIsGarbageCollectibleType(unsigned __int8 a1)
 {
-  return a1 == 5 || a1 == 7 || a1 == 8 || a1 == 9 || a1 == 16;
+  int v1; // eax
+  _BOOL8 result; // rax
+
+  result = 0;
+  if ( a1 <= 0x10u )
+  {
+    v1 = 66464;
+    if ( _bittest(&v1, a1) )
+      return 1;
+  }
+  return result;
 }

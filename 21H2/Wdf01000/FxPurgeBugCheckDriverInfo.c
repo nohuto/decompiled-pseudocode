@@ -1,9 +1,9 @@
 /*
- * XREFs of FxPurgeBugCheckDriverInfo @ 0x1C0091060
+ * XREFs of FxPurgeBugCheckDriverInfo @ 0x1C009079C
  * Callers:
- *     FxDestroy @ 0x1C006B75C (FxDestroy.c)
+ *     FxDestroy @ 0x1C0056D9C (FxDestroy.c)
  * Callees:
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
  */
 
 void __fastcall FxPurgeBugCheckDriverInfo(_FX_DRIVER_GLOBALS *FxDriverGlobals)

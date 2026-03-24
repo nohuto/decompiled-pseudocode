@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryFullAttributesFile @ 0x1401BA950
+ * XREFs of ZwQueryFullAttributesFile @ 0x1401BA970
  * Callers:
  *     <none>
  * Callees:

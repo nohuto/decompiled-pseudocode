@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CProjectedShadow::s_cpFastShadowIntermediate__ @ 0x180002940
+ * XREFs of _dynamic_initializer_for__CProjectedShadow::s_cpFastShadowIntermediate__ @ 0x180002360
  * Callers:
  *     <none>
  * Callees:

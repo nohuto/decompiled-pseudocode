@@ -1,13 +1,12 @@
 /*
- * XREFs of ?xxxHandleQueueCompletion@@YA?AW4QueueCompletionStatus@@PEAUtagTHREADINFO@@JQEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C011E074
+ * XREFs of ?xxxHandleQueueCompletion@@YA?AW4QueueCompletionStatus@@PEAUtagTHREADINFO@@JQEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C00D9FF0
  * Callers:
- *     xxxRemoveQueueCompletion @ 0x1C006A534 (xxxRemoveQueueCompletion.c)
- *     NtUserDrainThreadCoreMessagingCompletions @ 0x1C011DE90 (NtUserDrainThreadCoreMessagingCompletions.c)
+ *     xxxRemoveQueueCompletion @ 0x1C00D9F1C (xxxRemoveQueueCompletion.c)
  * Callees:
- *     ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C011E130 (-xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATIO.c)
+ *     ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C0054060 (-xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATIO.c)
  */
 
-__int64 __fastcall xxxHandleQueueCompletion(__int64 a1, int a2, __int64 a3, unsigned int a4)
+__int64 __fastcall xxxHandleQueueCompletion(__int64 a1, int a2, __int64 a3, int a4)
 {
   unsigned int v4; // ebx
   int v5; // eax
@@ -28,10 +27,10 @@ __int64 __fastcall xxxHandleQueueCompletion(__int64 a1, int a2, __int64 a3, unsi
     {
       return 2;
     }
-    else if ( !v5 && *(_QWORD *)(a1 + 1504) )
+    else if ( !v5 && *(_QWORD *)(a1 + 1464) )
     {
       v4 = 4;
-      xxxHandleCoreMessagingQueueCompletion(a1, a3, a4);
+      xxxHandleCoreMessagingQueueCompletion(a1, (ULONG64 *)a3, a4);
     }
   }
   return v4;

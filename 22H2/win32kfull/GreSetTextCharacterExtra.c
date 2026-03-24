@@ -1,21 +1,19 @@
 /*
- * XREFs of GreSetTextCharacterExtra @ 0x1C02D7D98
+ * XREFs of GreSetTextCharacterExtra @ 0x1C02BBE10
  * Callers:
- *     xxxDrawMenuItem @ 0x1C0234CAC (xxxDrawMenuItem.c)
- *     ?xxxMNItemSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAUtagPOINT@@@Z @ 0x1C0237E5C (-xxxMNItemSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAU.c)
- *     xxxDrawState @ 0x1C023F6F0 (xxxDrawState.c)
+ *     xxxDrawMenuItem @ 0x1C004470C (xxxDrawMenuItem.c)
+ *     ?xxxMNItemSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAUtagPOINT@@@Z @ 0x1C0048148 (-xxxMNItemSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAU.c)
+ *     xxxDrawState @ 0x1C0250784 (xxxDrawState.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall GreSetTextCharacterExtra(HDC a1, int a2)
 {
   unsigned int v3; // ebx
   __int64 v4; // rcx
-  _QWORD v6[2]; // [rsp+20h] [rbp-38h] BYREF
-  _BYTE v7[40]; // [rsp+30h] [rbp-28h] BYREF
+  _QWORD v6[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v3 = 0x80000000;
   DCOBJ::DCOBJ((DCOBJ *)v6, a1);
@@ -24,9 +22,7 @@ __int64 __fastcall GreSetTextCharacterExtra(HDC a1, int a2)
     v4 = *(_QWORD *)(v6[0] + 976LL);
     v3 = *(_DWORD *)(v4 + 280);
     *(_DWORD *)(v4 + 280) = a2;
-    if ( v6[0] )
-      XDCOBJ::vUnlockFast((XDCOBJ *)v6);
   }
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v7);
+  DCOBJ::~DCOBJ((DCOBJ *)v6);
   return v3;
 }

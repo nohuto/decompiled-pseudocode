@@ -1,14 +1,14 @@
 /*
- * XREFs of VslRelocateImage @ 0x14054E280
+ * XREFs of VslRelocateImage @ 0x1404FE780
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslRelocateImage(__int64 a1, __int64 a2)
+NTSTATUS __fastcall VslRelocateImage(__int64 a1, __int64 a2)
 {
   _QWORD v5[14]; // [rsp+20h] [rbp-88h] BYREF
 

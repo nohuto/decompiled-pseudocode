@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C02953E4
+ * XREFs of ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C02979BC
  * Callers:
- *     GreEnableEUDC @ 0x1C00991AC (GreEnableEUDC.c)
+ *     GreEnableEUDC @ 0x1C00E95A8 (GreEnableEUDC.c)
  * Callees:
- *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C0011B90 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
- *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C0013268 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00A1DA4 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C00A1FB8 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
  */
 
 __int64 bSetupDefaultFlEntry(void)
@@ -24,7 +24,7 @@ __int64 bSetupDefaultFlEntry(void)
   struct PFF *v13; // [rsp+A8h] [rbp+48h] BYREF
   struct _FONTHASH **v14; // [rsp+B0h] [rbp+50h] BYREF
 
-  v0 = (char *)&unk_1C032FE0C;
+  v0 = (char *)&unk_1C0334ABC;
   v14 = gpPFTPublic;
   v1 = 0;
   for ( i = 0; i < 7; ++i )

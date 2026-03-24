@@ -1,17 +1,17 @@
 /*
- * XREFs of SmKmStoreFileMakeSecurityDescriptor @ 0x1409DA1FC
+ * XREFs of SmKmStoreFileMakeSecurityDescriptor @ 0x14092CAB0
  * Callers:
- *     SmKmStoreFileCreateForIoType @ 0x1409D9C28 (SmKmStoreFileCreateForIoType.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14092C4DC (SmKmStoreFileCreateForIoType.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A60 (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x1402979B0 (RtlSubAuthoritySid.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735770 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     RtlInitializeSid @ 0x140782560 (RtlInitializeSid.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x140347A80 (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x1403482A0 (RtlSubAuthoritySid.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D5220 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     RtlInitializeSid @ 0x140718B40 (RtlInitializeSid.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SmKmStoreFileMakeSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, ACL **a2)
@@ -19,11 +19,11 @@ __int64 __fastcall SmKmStoreFileMakeSecurityDescriptor(PSECURITY_DESCRIPTOR Secu
   void *v4; // r14
   void *Src; // rsi
   ACL *v6; // rdi
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v8; // r15
   int Acl; // ebx
-  void *v10; // rax
-  void *v11; // rax
+  PVOID v10; // rax
+  PVOID v11; // rax
   ULONG v12; // ebx
   ULONG v13; // ebx
   ULONG v14; // ebx
@@ -38,21 +38,21 @@ __int64 __fastcall SmKmStoreFileMakeSecurityDescriptor(PSECURITY_DESCRIPTOR Secu
   v4 = 0LL;
   Src = 0LL;
   v6 = 0LL;
-  Pool2 = (void *)ExAllocatePool2(256LL, 12LL, 1396993395LL);
-  v8 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xCuLL, 0x53446D73u);
+  v8 = PoolWithTag;
+  if ( !PoolWithTag )
     return (unsigned int)-1073741670;
-  Acl = RtlInitializeSid(Pool2, &IdentifierAuthority, 1u);
+  Acl = RtlInitializeSid(PoolWithTag, &IdentifierAuthority, 1u);
   if ( Acl >= 0 )
   {
-    v10 = (void *)ExAllocatePool2(256LL, 12LL, 1396993395LL);
+    v10 = ExAllocatePoolWithTag(PagedPool, 0xCuLL, 0x53446D73u);
     v4 = v10;
     if ( v10 )
     {
       Acl = RtlInitializeSid(v10, &v17, 1u);
       if ( Acl < 0 )
         goto LABEL_17;
-      v11 = (void *)ExAllocatePool2(256LL, 16LL, 1396993395LL);
+      v11 = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x53446D73u);
       Src = v11;
       if ( v11 )
       {
@@ -66,7 +66,7 @@ __int64 __fastcall SmKmStoreFileMakeSecurityDescriptor(PSECURITY_DESCRIPTOR Secu
         v12 = RtlLengthSid(Src);
         v13 = RtlLengthSid(v4) + v12;
         v14 = RtlLengthSid(v8) + 32 + v13;
-        v15 = (ACL *)ExAllocatePool2(256LL, v14, 1631874419LL);
+        v15 = (ACL *)ExAllocatePoolWithTag(PagedPool, v14, 0x61446D73u);
         v6 = v15;
         if ( v15 )
         {

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x1406B7698
+ * XREFs of ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x1406B7678
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGhesMemoryErrorHandler @ 0x14051988C
+ * XREFs of HalpGhesMemoryErrorHandler @ 0x1404CFD78
  * Callers:
- *     HalpGenericErrorSourceRecovery @ 0x140519760 (HalpGenericErrorSourceRecovery.c)
+ *     HalpGenericErrorSourceRecovery @ 0x1404CFC58 (HalpGenericErrorSourceRecovery.c)
  * Callees:
- *     HalpMemoryErrorDeferredRecovery @ 0x1405199D4 (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x1404CFE70 (HalpMemoryErrorDeferredRecovery.c)
  */
 
 __int64 __fastcall HalpGhesMemoryErrorHandler(__int64 *a1)

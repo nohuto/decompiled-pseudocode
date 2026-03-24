@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FindCacheEntry@QDC_CACHE@@AEAAPEAUQDC_CACHE_ENTRY@1@_NI@Z @ 0x1C017BDE8
+ * XREFs of ?FindCacheEntry@QDC_CACHE@@AEAAPEAUQDC_CACHE_ENTRY@1@_NI@Z @ 0x1C0145524
  * Callers:
- *     ?AddToCache@QDC_CACHE@@QEAAJIIIIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C017CF24 (-AddToCache@QDC_CACHE@@QEAAJIIIIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAW4DISPLAYCONFIG_TOPOLOG.c)
+ *     ?AddToCache@QDC_CACHE@@QEAAJIIIIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C01453B4 (-AddToCache@QDC_CACHE@@QEAAJIIIIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAW4DISPLAYCONFIG_TOPOLOG.c)
  * Callees:
  *     <none>
  */
@@ -13,14 +13,14 @@ struct QDC_CACHE::QDC_CACHE_ENTRY *__fastcall QDC_CACHE::FindCacheEntry(QDC_CACH
   char v5; // r9
   bool v6; // zf
 
-  result = (QDC_CACHE *)((char *)this + 56);
+  result = (QDC_CACHE *)((char *)this + 16);
   for ( i = 0; i < 0x12; ++i )
   {
     v5 = *(_BYTE *)result;
     if ( a2 )
     {
       if ( !v5 )
-        goto LABEL_5;
+        goto LABEL_4;
       v6 = *((_DWORD *)result + 1) == a3;
     }
     else
@@ -29,7 +29,7 @@ struct QDC_CACHE::QDC_CACHE_ENTRY *__fastcall QDC_CACHE::FindCacheEntry(QDC_CACH
     }
     if ( v6 )
       return result;
-LABEL_5:
+LABEL_4:
     result = (struct QDC_CACHE::QDC_CACHE_ENTRY *)((char *)result + 32);
   }
   return 0LL;

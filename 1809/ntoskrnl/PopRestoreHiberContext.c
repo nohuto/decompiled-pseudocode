@@ -3,12 +3,12 @@
  * Callers:
  *     PopHandleNextState @ 0x140569410 (PopHandleNextState.c)
  * Callees:
- *     IoNotifyDump @ 0x1401445DC (IoNotifyDump.c)
- *     IoInitializeDumpStack @ 0x140144684 (IoInitializeDumpStack.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopInternalAddToDumpFile @ 0x1402D3224 (PopInternalAddToDumpFile.c)
+ *     IoNotifyDump @ 0x1401445FC (IoNotifyDump.c)
+ *     IoInitializeDumpStack @ 0x1401446A4 (IoInitializeDumpStack.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
  *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
  *     PopDecompressHiberBlocks @ 0x140569E60 (PopDecompressHiberBlocks.c)
  *     PopHiberReadChecksums @ 0x14057CDB8 (PopHiberReadChecksums.c)
@@ -82,10 +82,10 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
     if ( v6[11] == v6[69] )
       v5 = v6[72];
     *(_QWORD *)(BugCheckParameter3 + 400) = v5;
-    v7 = qword_140417AB8;
+    v7 = qword_1404178B8;
     v8 = *(_DWORD *)(BugCheckParameter3 + 280);
     v9 = *(_QWORD *)(BugCheckParameter3 + 272);
-    memset(qword_140417AB8, 0, 0x40uLL);
+    memset(qword_1404178B8, 0, 0x40uLL);
     v7[6] = 0;
     *(_QWORD *)v7 = v9;
     v7[2] = v8;
@@ -96,8 +96,8 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
     {
       *(_DWORD *)(BugCheckParameter3 + 184) = 9;
       *(_QWORD *)(BugCheckParameter3 + 160) = v34;
-      v34[0] = qword_140417A38;
-      v34[1] = qword_140417A38;
+      v34[0] = qword_140417838;
+      v34[1] = qword_140417838;
       v34[2] = 0LL;
       ((void (__fastcall *)(_QWORD))off_1403FE598[0])(0LL);
       v27 = IoInitializeDumpStack(*(_QWORD *)(BugCheckParameter3 + 168));
@@ -183,14 +183,14 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
       v33 = 100 * (qword_140417CC8 * v11 / (v15 + v14 + 1) - v20) / (v21 - v20);
       if ( v33 > 99 )
       {
-        dword_140417A64 = 99;
+        dword_140417864 = 99;
         goto LABEL_22;
       }
-      dword_140417A64 = v33;
+      dword_140417864 = v33;
       if ( (int)v33 >= 1 )
         goto LABEL_22;
     }
-    dword_140417A64 = 1;
+    dword_140417864 = 1;
 LABEL_22:
     v22 = __rdtsc();
     qword_140417CE8 = (((unsigned __int64)HIDWORD(v22) << 32) | (unsigned int)v22) - v10;

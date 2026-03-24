@@ -45,7 +45,7 @@ int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
     do
     {
       KeWaitForSingleObject(&Semaphore, Executive, 0, 0, 0LL);
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140417690 + 1, &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_1404176B0 + 1, &LockHandle);
       v9 = (_QWORD *)*v2;
       if ( *(_QWORD **)(*v2 + 8LL) != v2
         || (v10 = *v9, *(_QWORD **)(*v9 + 8LL) != v9)

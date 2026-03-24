@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpCaptureHandleAttributeInternal @ 0x14066AD78
+ * XREFs of AlpcpCaptureHandleAttributeInternal @ 0x14068513C
  * Callers:
- *     AlpcpCaptureHandleAttribute @ 0x14066AD24 (AlpcpCaptureHandleAttribute.c)
- *     AlpcpCaptureHandleAttribute32 @ 0x1406E54C4 (AlpcpCaptureHandleAttribute32.c)
+ *     AlpcpCaptureHandleAttribute @ 0x1406850E8 (AlpcpCaptureHandleAttribute.c)
+ *     AlpcpCaptureHandleAttribute32 @ 0x1407732E4 (AlpcpCaptureHandleAttribute32.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ObCaptureObjectStateForDuplication @ 0x14066B04C (ObCaptureObjectStateForDuplication.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     AlpcpAllocateBlob @ 0x1407A73B0 (AlpcpAllocateBlob.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpAllocateBlob @ 0x140660A8C (AlpcpAllocateBlob.c)
+ *     ObCaptureObjectStateForDuplication @ 0x140685408 (ObCaptureObjectStateForDuplication.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcpCaptureHandleAttributeInternal(__int64 a1, __int64 a2)
@@ -18,28 +18,27 @@ __int64 __fastcall AlpcpCaptureHandleAttributeInternal(__int64 a1, __int64 a2)
   char PreviousMode; // r12
   __int64 v4; // rsi
   ULONG_PTR v5; // rdi
-  char *Pool2; // r14
-  void *Blob; // rax
+  char *PoolWithTag; // r14
+  _OWORD *Blob; // rax
   _KPROCESS *Process; // r13
   int v9; // ebx
   __int64 j; // r12
   int v11; // ecx
-  unsigned __int64 v13; // r10
+  unsigned __int64 v13; // r9
   __int64 v14; // rbx
-  __int64 i; // r9
-  int v16; // ecx
-  char *v17; // [rsp+58h] [rbp-50h]
-  int *v18; // [rsp+60h] [rbp-48h]
-  char v19; // [rsp+B0h] [rbp+8h]
-  __int64 v21; // [rsp+C0h] [rbp+18h]
+  __int64 i; // r8
+  char *v16; // [rsp+58h] [rbp-50h]
+  _DWORD *v17; // [rsp+60h] [rbp-48h]
+  char v18; // [rsp+B0h] [rbp+8h]
+  __int64 v20; // [rsp+C0h] [rbp+18h]
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v19 = PreviousMode;
+  v18 = PreviousMode;
   if ( (*(_DWORD *)a1 & 0xFFF0FFFF) != 0 )
     return 3221225485LL;
   LODWORD(v4) = 1;
   v5 = 0LL;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   if ( (*(_DWORD *)a1 & 0x40000) != 0 )
   {
     v4 = *(unsigned int *)(a1 + 16);
@@ -47,8 +46,8 @@ __int64 __fastcall AlpcpCaptureHandleAttributeInternal(__int64 a1, __int64 a2)
       return 3221227298LL;
     if ( (unsigned int)v4 > 1 )
     {
-      Pool2 = (char *)ExAllocatePool2(64LL, 24 * v4, 1214476364LL);
-      if ( !Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 24 * v4, 0x4863704Cu);
+      if ( !PoolWithTag )
         return 3221225495LL;
       v13 = *(_QWORD *)(a1 + 8);
       if ( KeGetCurrentThread()->PreviousMode )
@@ -64,14 +63,13 @@ __int64 __fastcall AlpcpCaptureHandleAttributeInternal(__int64 a1, __int64 a2)
       }
       for ( i = 0LL; (unsigned int)i < (unsigned int)v4; i = (unsigned int)(i + 1) )
       {
-        v17 = &Pool2[24 * i];
-        v18 = (int *)(v13 + 16LL * (unsigned int)i);
-        v16 = *v18;
-        *(_DWORD *)v17 = *v18;
-        *((_QWORD *)v17 + 1) = (unsigned int)v18[1];
-        *((_DWORD *)v17 + 4) = v18[2];
-        *((_DWORD *)v17 + 5) = v18[3];
-        if ( (v16 & 0xFFF4FFFF) != 0 )
+        v16 = &PoolWithTag[24 * i];
+        v17 = (_DWORD *)(v13 + 16LL * (unsigned int)i);
+        *(_DWORD *)v16 = *v17;
+        *((_QWORD *)v16 + 1) = (unsigned int)v17[1];
+        *((_DWORD *)v16 + 4) = v17[2];
+        *((_DWORD *)v16 + 5) = v17[3];
+        if ( (*(_DWORD *)v16 & 0xFFF4FFFF) != 0 )
         {
           v9 = -1073741811;
           goto LABEL_12;
@@ -82,7 +80,7 @@ __int64 __fastcall AlpcpCaptureHandleAttributeInternal(__int64 a1, __int64 a2)
     return 3221225485LL;
   }
 LABEL_3:
-  Blob = (void *)AlpcpAllocateBlob(AlpcHandleDataType, 48LL * (unsigned int)v4, 0LL);
+  Blob = AlpcpAllocateBlob((__int64)AlpcHandleDataType, 48LL * (unsigned int)v4, 0);
   v5 = (ULONG_PTR)Blob;
   if ( Blob )
   {
@@ -101,14 +99,14 @@ LABEL_3:
         v5 = 0LL;
         goto LABEL_12;
       }
-      v21 = 48 * j;
-      v9 = ObCaptureObjectStateForDuplication(Process, v19, v5 + 48 * j + 8);
+      v20 = 48 * j;
+      v9 = ObCaptureObjectStateForDuplication(Process, v18, v5 + 48 * j + 8);
       if ( v9 >= 0 )
       {
-        v11 = *(_DWORD *)(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(*(_QWORD *)(v21 + v5 + 24)
-                                                                                                - 24LL) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(*(_QWORD *)(v21 + v5 + 24) - 48) >> 8)]
+        v11 = *(_DWORD *)(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(*(_QWORD *)(v20 + v5 + 24)
+                                                                                                - 24LL) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(*(_QWORD *)(v20 + v5 + 24) - 48) >> 8)]
                         + 68);
-        *(_DWORD *)(v21 + v5) = v11;
+        *(_DWORD *)(v20 + v5) = v11;
         if ( (v11 & 0xFFD) == 0 )
           break;
       }
@@ -121,8 +119,8 @@ LABEL_3:
   }
 LABEL_12:
   if ( v5 )
-    AlpcpDereferenceBlobEx(v5);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x4863704Cu);
+    AlpcpDereferenceBlobEx(v5, 1);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x4863704Cu);
   return (unsigned int)v9;
 }

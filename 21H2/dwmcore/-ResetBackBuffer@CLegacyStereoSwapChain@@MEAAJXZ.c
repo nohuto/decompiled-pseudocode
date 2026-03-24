@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ResetBackBuffer@CLegacyStereoSwapChain@@MEAAJXZ @ 0x180290C40
+ * XREFs of ?ResetBackBuffer@CLegacyStereoSwapChain@@MEAAJXZ @ 0x18024DD60
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ResetBackBuffer@CLegacySwapChain@@MEAAJXZ @ 0x1800F4780 (-ResetBackBuffer@CLegacySwapChain@@MEAAJXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ResetBackBuffer@CLegacySwapChain@@MEAAJXZ @ 0x1800DDF50 (-ResetBackBuffer@CLegacySwapChain@@MEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLegacyStereoSwapChain::ResetBackBuffer(CLegacyStereoSwapChain *this)
@@ -18,15 +18,15 @@ __int64 __fastcall CLegacyStereoSwapChain::ResetBackBuffer(CLegacyStereoSwapChai
   unsigned int v7; // ebx
   __int64 v8; // rcx
   __int64 (__fastcall ***v9)(_QWORD, __int64, _QWORD *); // rbx
-  __int64 v10; // r8
+  __int64 v10; // r9
   __int64 (__fastcall **v11)(_QWORD, __int64, _QWORD *); // rax
   __int64 (__fastcall *v12)(_QWORD, __int64, _QWORD *); // rsi
   __int64 v13; // rcx
   int v14; // eax
   __int64 v15; // rcx
 
-  v1 = (_QWORD *)((char *)this + 344);
-  v3 = *((_QWORD *)this + 43);
+  v1 = (_QWORD *)((char *)this + 296);
+  v3 = *((_QWORD *)this + 37);
   *v1 = 0LL;
   if ( v3 )
   {
@@ -37,7 +37,7 @@ __int64 __fastcall CLegacyStereoSwapChain::ResetBackBuffer(CLegacyStereoSwapChai
   v7 = v5;
   if ( v5 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, &dword_180377E10, 2LL, v5, 0xC3u);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, &dword_1802F0D88, 2u, v5, 0xC0u, 0LL);
   }
   else
   {
@@ -52,13 +52,13 @@ __int64 __fastcall CLegacyStereoSwapChain::ResetBackBuffer(CLegacyStereoSwapChai
       v12 = *v11;
       if ( v10 )
       {
-        v13 = v10 + 8 + *(int *)(*(_QWORD *)(v10 + 8) + 4LL);
+        v13 = *(int *)(*(_QWORD *)(v10 + 8) + 4LL) + v10 + 8;
         (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 16LL))(v13);
       }
       v14 = v12(v9, 1LL, v1);
       v7 = v14;
       if ( v14 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v15, &dword_180377E10, 2LL, v14, 0xCBu);
+        MilInstrumentationCheckHR_MaybeFailFast(v15, &dword_1802F0D88, 2u, v14, 0xC8u, 0LL);
       else
         (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)*v1 + 8LL))(*v1, 2LL);
     }

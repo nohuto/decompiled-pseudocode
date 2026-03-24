@@ -1,127 +1,149 @@
 /*
- * XREFs of IrqArbCommitAllocation @ 0x1C009D050
+ * XREFs of IrqArbCommitAllocation @ 0x1C0093900
  * Callers:
  *     <none>
  * Callees:
- *     LinkNodeClearPossibleData @ 0x1C0099310 (LinkNodeClearPossibleData.c)
- *     LinkNodeCopyData @ 0x1C0099348 (LinkNodeCopyData.c)
- *     LinkNodeWriteStateToHardware @ 0x1C00995E0 (LinkNodeWriteStateToHardware.c)
- *     PcisuppIsPciDevice @ 0x1C0099F78 (PcisuppIsPciDevice.c)
- *     PcisuppWriteIntLine @ 0x1C009A388 (PcisuppWriteIntLine.c)
- *     ProcessorCopyData @ 0x1C009A974 (ProcessorCopyData.c)
- *     ProcessorpClearData @ 0x1C009B0A8 (ProcessorpClearData.c)
- *     IrqArbpSetDeviceProperties @ 0x1C009E604 (IrqArbpSetDeviceProperties.c)
- *     IcClearPossibleData @ 0x1C009EFE0 (IcClearPossibleData.c)
- *     IcCopyData @ 0x1C009F088 (IcCopyData.c)
- *     IcCopyInputStateToDeviceState @ 0x1C009F1E0 (IcCopyInputStateToDeviceState.c)
- *     IcRemapInputs @ 0x1C009F4A0 (IcRemapInputs.c)
- *     IrtClearDeletedMsiMappings @ 0x1C00A03FC (IrtClearDeletedMsiMappings.c)
- *     IrtRemapNewMsiAssignments @ 0x1C00A0548 (IrtRemapNewMsiAssignments.c)
+ *     LinkNodeCopyData @ 0x1C00922F4 (LinkNodeCopyData.c)
+ *     IrqArbpSetDeviceProperties @ 0x1C0092578 (IrqArbpSetDeviceProperties.c)
+ *     IcCopyInputStateToDeviceState @ 0x1C00937A0 (IcCopyInputStateToDeviceState.c)
+ *     PcisuppIsPciDevice @ 0x1C0093BD0 (PcisuppIsPciDevice.c)
+ *     PcisuppWriteIntLine @ 0x1C0093D00 (PcisuppWriteIntLine.c)
+ *     LinkNodeClearPossibleData @ 0x1C009429C (LinkNodeClearPossibleData.c)
+ *     ProcessorCopyData @ 0x1C00944E0 (ProcessorCopyData.c)
+ *     ProcessorpClearData @ 0x1C0094850 (ProcessorpClearData.c)
+ *     IcClearPossibleData @ 0x1C0094980 (IcClearPossibleData.c)
+ *     IcRemapInputs @ 0x1C00952A8 (IcRemapInputs.c)
+ *     IrtRemapNewMsiAssignments @ 0x1C0095CE0 (IrtRemapNewMsiAssignments.c)
+ *     LinkNodeWriteStateToHardware @ 0x1C0095F18 (LinkNodeWriteStateToHardware.c)
+ *     IrtClearDeletedMsiMappings @ 0x1C0095F7C (IrtClearDeletedMsiMappings.c)
  */
 
 __int64 __fastcall IrqArbCommitAllocation(__int64 a1)
 {
   struct _RTL_RANGE_LIST *v2; // rcx
+  PRTL_RANGE i; // rax
   _DWORD *UserData; // rax
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  int IsPciDevice; // ebx
-  char *v8; // rsi
-  _DWORD *v9; // rdx
-  char Start; // dl
-  PRTL_RANGE v11; // rcx
-  struct _RTL_RANGE_LIST *v12; // rcx
-  struct _RANGE_LIST_ITERATOR v14; // [rsp+20h] [rbp-40h] BYREF
+  int IsPciDevice; // edi
+  __int64 j; // r8
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int128 v9; // xmm1
+  __int128 v10; // xmm0
+  __int128 v11; // xmm1
+  __int128 v12; // xmm0
+  PRTL_RANGE k; // rcx
+  _DWORD *v14; // rbx
+  __int64 Start_low; // rdx
+  struct _RTL_RANGE_LIST *v16; // rcx
+  struct _RANGE_LIST_ITERATOR v18; // [rsp+20h] [rbp-40h] BYREF
   struct _RANGE_LIST_ITERATOR Iterator; // [rsp+40h] [rbp-20h] BYREF
-  bool v16; // [rsp+90h] [rbp+30h] BYREF
-  PRTL_RANGE v17; // [rsp+98h] [rbp+38h] BYREF
-  PRTL_RANGE Range; // [rsp+A0h] [rbp+40h] BYREF
+  char v20; // [rsp+80h] [rbp+20h] BYREF
+  PRTL_RANGE v21; // [rsp+88h] [rbp+28h] BYREF
+  PRTL_RANGE Range; // [rsp+90h] [rbp+30h] BYREF
 
-  v17 = 0LL;
+  v21 = 0LL;
+  v20 = 0;
   Range = 0LL;
-  v16 = 0;
   v2 = *(struct _RTL_RANGE_LIST **)(a1 + 48);
-  memset(&v14, 0, sizeof(v14));
+  memset(&v18, 0, sizeof(v18));
   memset(&Iterator, 0, sizeof(Iterator));
   RtlGetFirstRange(v2, &Iterator, &Range);
-  while ( Range )
+  for ( i = Range; Range; i = Range )
   {
-    UserData = Range->UserData;
+    UserData = i->UserData;
     if ( UserData )
       UserData[1] &= ~8u;
     RtlGetNextRange(&Iterator, &Range, 1u);
   }
   IrtClearDeletedMsiMappings(a1);
-  IsPciDevice = ProcessorCopyData(0LL, v4, v5, v6);
+  IsPciDevice = ProcessorCopyData(0LL);
   if ( IsPciDevice < 0 )
-    goto LABEL_30;
+    goto LABEL_34;
   IsPciDevice = IcRemapInputs();
   if ( IsPciDevice < 0 )
-    goto LABEL_30;
-  IcCopyInputStateToDeviceState(a1, 1LL);
-  IsPciDevice = IcCopyData(0LL);
-  if ( IsPciDevice < 0 )
-    goto LABEL_30;
-  ProcessorpClearData(1);
+    goto LABEL_34;
+  IcCopyInputStateToDeviceState(a1, 1);
+  for ( j = IcListHead; &IcListHead != (__int64 *)j; j = *(_QWORD *)j )
+  {
+    if ( *(int *)(j + 28) >= 0 && *(_DWORD *)(j + 20) - *(_DWORD *)(j + 16) != -1 )
+    {
+      v7 = j + 48;
+      v8 = (unsigned int)(*(_DWORD *)(j + 20) - *(_DWORD *)(j + 16) + 1);
+      do
+      {
+        *(_DWORD *)(v7 - 16) = *(_DWORD *)(v7 - 12);
+        *(_DWORD *)(v7 - 8) = *(_DWORD *)(v7 - 4);
+        *(_BYTE *)(v7 + 176) = *(_BYTE *)(v7 + 177);
+        v9 = *(_OWORD *)(v7 + 104);
+        *(_OWORD *)v7 = *(_OWORD *)(v7 + 88);
+        v10 = *(_OWORD *)(v7 + 120);
+        *(_OWORD *)(v7 + 16) = v9;
+        v11 = *(_OWORD *)(v7 + 136);
+        *(_OWORD *)(v7 + 32) = v10;
+        v12 = *(_OWORD *)(v7 + 152);
+        *(_OWORD *)(v7 + 48) = v11;
+        *(_QWORD *)&v11 = *(_QWORD *)(v7 + 168);
+        *(_OWORD *)(v7 + 64) = v12;
+        *(_QWORD *)(v7 + 80) = v11;
+        v7 += 200LL;
+        --v8;
+      }
+      while ( v8 );
+    }
+  }
+  ProcessorpClearData(1LL);
   IcClearPossibleData();
   IsPciDevice = LinkNodeWriteStateToHardware();
   if ( IsPciDevice < 0 )
-    goto LABEL_30;
+    goto LABEL_34;
   IsPciDevice = LinkNodeCopyData(0);
   if ( IsPciDevice < 0 )
-    goto LABEL_30;
+    goto LABEL_34;
   LinkNodeClearPossibleData();
   IsPciDevice = IrtRemapNewMsiAssignments(a1);
   if ( IsPciDevice < 0 )
-    goto LABEL_30;
-  RtlGetFirstRange(*(PRTL_RANGE_LIST *)(a1 + 48), &v14, &v17);
-  while ( 1 )
+    goto LABEL_34;
+  RtlGetFirstRange(*(PRTL_RANGE_LIST *)(a1 + 48), &v18, &v21);
+  for ( k = v21; v21; k = v21 )
   {
-    v11 = v17;
-    if ( !v17 )
-      break;
-    if ( v17->Owner && (v17->Attributes & 1) == 0 )
+    if ( k->Owner && (k->Attributes & 1) == 0 )
     {
-      v8 = (char *)v17->UserData;
-      v9 = v8 + 4;
-      if ( !v8 || (*v9 & 0x10) == 0 )
+      v14 = k->UserData;
+      if ( !v14 || (v14[1] & 0x10) == 0 )
       {
-        IsPciDevice = PcisuppIsPciDevice((__int64)v17->Owner, &v16);
-        v9 = v8 + 4;
-        if ( IsPciDevice >= 0 && v16 )
+        IsPciDevice = PcisuppIsPciDevice(k->Owner, &v20);
+        if ( IsPciDevice >= 0 && v20 )
         {
-          if ( v17->Start <= 0xFF )
-            Start = v17->Start;
+          if ( v21->Start <= 0xFF )
+            Start_low = LOBYTE(v21->Start);
           else
-            Start = 0;
-          PcisuppWriteIntLine((__int64)v17->Owner, Start);
-          v9 = v8 + 4;
+            LOBYTE(Start_low) = 0;
+          PcisuppWriteIntLine(v21->Owner, Start_low);
         }
-        v11 = v17;
+        k = v21;
       }
-      if ( v8 )
+      if ( v14 )
       {
-        if ( (*v9 & 1) != 0 )
+        if ( (v14[1] & 1) != 0 )
         {
-          Iterator = v14;
-          IsPciDevice = IrqArbpSetDeviceProperties(v11, &Iterator);
+          Iterator = v18;
+          IsPciDevice = IrqArbpSetDeviceProperties(k, (__int128 *)&Iterator);
           if ( IsPciDevice < 0 )
-            goto LABEL_30;
+            goto LABEL_34;
         }
       }
     }
-    RtlGetNextRange(&v14, &v17, 1u);
+    RtlGetNextRange(&v18, &v21, 1u);
   }
-  v12 = *(struct _RTL_RANGE_LIST **)(a1 + 40);
+  v16 = *(struct _RTL_RANGE_LIST **)(a1 + 40);
   *(_QWORD *)(a1 + 40) = *(_QWORD *)(a1 + 48);
-  *(_QWORD *)(a1 + 48) = v12;
-  RtlFreeRangeList(v12);
-  ProcessorpClearData(1);
+  *(_QWORD *)(a1 + 48) = v16;
+  RtlFreeRangeList(v16);
+  ProcessorpClearData(1LL);
   IcClearPossibleData();
   LinkNodeClearPossibleData();
   if ( IsPciDevice < 0 )
-LABEL_30:
-    byte_1C006E7E8 = 0;
+LABEL_34:
+    byte_1C0081748 = 0;
   return (unsigned int)IsPciDevice;
 }

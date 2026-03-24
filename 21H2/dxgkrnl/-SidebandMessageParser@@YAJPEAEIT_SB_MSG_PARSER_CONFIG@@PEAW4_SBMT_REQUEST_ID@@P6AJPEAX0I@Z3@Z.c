@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SidebandMessageParser@@YAJPEAEIT_SB_MSG_PARSER_CONFIG@@PEAW4_SBMT_REQUEST_ID@@P6AJPEAX0I@Z3@Z @ 0x1C008224C
+ * XREFs of ?SidebandMessageParser@@YAJPEAEIT_SB_MSG_PARSER_CONFIG@@PEAW4_SBMT_REQUEST_ID@@P6AJPEAX0I@Z3@Z @ 0x1C006F4B8
  * Callers:
- *     NtDxgkDisplayPortOperation @ 0x1C004E190 (NtDxgkDisplayPortOperation.c)
+ *     NtDxgkDisplayPortOperation @ 0x1C004FEB0 (NtDxgkDisplayPortOperation.c)
  * Callees:
  *     <none>
  */

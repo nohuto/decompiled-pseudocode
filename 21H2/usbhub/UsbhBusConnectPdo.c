@@ -1,22 +1,22 @@
 /*
- * XREFs of UsbhBusConnectPdo @ 0x1C001DE04
+ * XREFs of UsbhBusConnectPdo @ 0x1C0017E8C
  * Callers:
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
- *     UsbhSetEnumerationFailed @ 0x1C004E0C8 (UsbhSetEnumerationFailed.c)
+ *     UsbhReset2Complete @ 0x1C0010540 (UsbhReset2Complete.c)
+ *     UsbhSetEnumerationFailed @ 0x1C004F4D8 (UsbhSetEnumerationFailed.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhSignalSyncDeviceResetPdo @ 0x1C000F168 (UsbhSignalSyncDeviceResetPdo.c)
- *     UsbhSignalDriverResetEvent @ 0x1C001DF64 (UsbhSignalDriverResetEvent.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
- *     SET_PDO_HWPNPSTATE @ 0x1C0035D18 (SET_PDO_HWPNPSTATE.c)
- *     UsbhBusIoInvalidateDeviceRelations @ 0x1C0035F00 (UsbhBusIoInvalidateDeviceRelations.c)
- *     WPP_RECORDER_SF_S @ 0x1C003ADD0 (WPP_RECORDER_SF_S.c)
- *     WPP_RECORDER_SF_c @ 0x1C003AEF4 (WPP_RECORDER_SF_c.c)
- *     UsbhEtwLogDeviceInformation @ 0x1C005AE08 (UsbhEtwLogDeviceInformation.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C001518C (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0017FEC (UsbhSignalDriverResetEvent.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
+ *     SET_PDO_HWPNPSTATE @ 0x1C0036FD4 (SET_PDO_HWPNPSTATE.c)
+ *     UsbhBusIoInvalidateDeviceRelations @ 0x1C00371C0 (UsbhBusIoInvalidateDeviceRelations.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003C0E0 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_c @ 0x1C003C204 (WPP_RECORDER_SF_c.c)
+ *     UsbhEtwLogDeviceInformation @ 0x1C005C4B8 (UsbhEtwLogDeviceInformation.c)
  */
 
 void __fastcall UsbhBusConnectPdo(__int64 a1, __int64 a2)
@@ -35,20 +35,20 @@ void __fastcall UsbhBusConnectPdo(__int64 a1, __int64 a2)
   KIRQL v15; // dl
 
   v2 = *(_QWORD *)(a2 + 376);
-  *(_BYTE *)(v2 + 132) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
+  *(_BYTE *)(v2 + 132) = KeAcquireSpinLockRaiseToDpc(&HubG);
   *(_DWORD *)(v2 + 136) = 1;
   *(_DWORD *)(v2 + 88) = 2018460752;
   *(_DWORD *)(v2 + 92) = 2;
-  WPP_MAIN_CB.Dpc.DeferredRoutine = (void (__fastcall *)(_KDPC *, void *, void *, void *))v2;
+  qword_1C006C500 = v2;
   *(_QWORD *)(v2 + 24) = KeGetCurrentThread();
   v5 = *(_QWORD *)(a2 + 392);
   if ( !v5 )
   {
     *(_DWORD *)(v2 + 136) = 0;
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+    qword_1C006C500 = 0LL;
     v15 = *(_BYTE *)(v2 + 132);
     *(_DWORD *)(v2 + 88) = 1734964085;
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v15);
+    KeReleaseSpinLock(&HubG, v15);
     return;
   }
   v6 = (int)PdoExt(*(_QWORD *)(a2 + 392))[281];
@@ -73,9 +73,9 @@ void __fastcall UsbhBusConnectPdo(__int64 a1, __int64 a2)
     SET_PDO_HWPNPSTATE(v5, 2LL, 2LL);
     v7[226] = 1;
     *(_DWORD *)(v2 + 136) = 0;
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+    qword_1C006C500 = 0LL;
     *(_DWORD *)(v2 + 88) = 1734964085;
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, *(_BYTE *)(v2 + 132));
+    KeReleaseSpinLock(&HubG, *(_BYTE *)(v2 + 132));
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
       WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, 0, 1, 43, (__int64)"FKh&");
     if ( (v8[355] & 0x100) != 0 )
@@ -301,9 +301,9 @@ LABEL_97:
         *(_QWORD *)(a2 + 392));
   }
   *(_DWORD *)(v2 + 136) = 0;
-  WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+  qword_1C006C500 = 0LL;
   *(_DWORD *)(v2 + 88) = 1734964085;
-  KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, *(_BYTE *)(v2 + 132));
+  KeReleaseSpinLock(&HubG, *(_BYTE *)(v2 + 132));
   UsbhSignalSyncDeviceResetPdo(a1, v5, 0);
   UsbhSignalDriverResetEvent(a1, a2);
 }

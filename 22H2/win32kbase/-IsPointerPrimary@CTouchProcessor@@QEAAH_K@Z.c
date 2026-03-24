@@ -1,28 +1,21 @@
 /*
- * XREFs of ?IsPointerPrimary@CTouchProcessor@@QEAAH_K@Z @ 0x1C01CCEE0
+ * XREFs of ?IsPointerPrimary@CTouchProcessor@@QEAAH_K@Z @ 0x1C0196D90
  * Callers:
  *     <none>
  * Callees:
- *     ?UnLock@CInpLockGuard@@QEAAXXZ @ 0x1C00B9740 (-UnLock@CInpLockGuard@@QEAAXXZ.c)
- *     ??0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z @ 0x1C01B9698 (--0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z.c)
- *     ?GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z @ 0x1C01C7440 (-GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z.c)
+ *     ??0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z @ 0x1C00CCCC0 (--0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z.c)
+ *     ??1CInpLockGuardShared@@QEAA@XZ @ 0x1C0187434 (--1CInpLockGuardShared@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CTouchProcessor::IsPointerPrimary(CTouchProcessor *this, __int64 a2)
 {
-  CTouchProcessor *v3; // rcx
-  struct CPointerMsgData *NonConstMsgData; // rax
-  unsigned int v5; // ebx
-  CInpLockGuard *v7; // [rsp+20h] [rbp-18h] BYREF
-  int v8; // [rsp+28h] [rbp-10h]
+  unsigned int v3; // ebx
+  CInpLockGuard *v5[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  CInpLockGuardShared::CInpLockGuardShared((CInpLockGuardShared *)&v7, (CTouchProcessor *)((char *)this + 32), 1);
-  NonConstMsgData = CTouchProcessor::GetNonConstMsgData(v3, a2);
-  if ( NonConstMsgData )
-    v5 = -__CFSHR__(*((_DWORD *)NonConstMsgData + 9), 5);
-  else
-    v5 = 0;
-  if ( !v8 )
-    CInpLockGuard::UnLock(v7);
-  return v5;
+  CInpLockGuardShared::CInpLockGuardShared((CInpLockGuardShared *)v5, (CTouchProcessor *)((char *)this + 40), 1);
+  v3 = 0;
+  if ( a2 )
+    v3 = -__CFSHR__(*(_DWORD *)(a2 + 36), 5);
+  CInpLockGuardShared::~CInpLockGuardShared(v5);
+  return v3;
 }

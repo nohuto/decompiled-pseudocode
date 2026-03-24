@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpComputeEpilogueOffset @ 0x1401AEF4C
+ * XREFs of RtlpComputeEpilogueOffset @ 0x1401AEF6C
  * Callers:
- *     FsRtlTruncateSmallMcb @ 0x1403228C0 (FsRtlTruncateSmallMcb.c)
+ *     FsRtlTruncateSmallMcb @ 0x1403229C0 (FsRtlTruncateSmallMcb.c)
  * Callees:
- *     KeExitRetpoline @ 0x14013914C (KeExitRetpoline.c)
+ *     KeExitRetpoline @ 0x14013916C (KeExitRetpoline.c)
  *     sub_140349570 @ 0x140349570 (sub_140349570.c)
  *     KeGuardDispatchICall @ 0x14034AB40 (KeGuardDispatchICall.c)
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpWaitForEmptyDeviceActionQueue @ 0x14082EFB8
+ * XREFs of PnpWaitForEmptyDeviceActionQueue @ 0x1407AC6C4
  * Callers:
- *     PopGracefulShutdown @ 0x140A6AEC0 (PopGracefulShutdown.c)
- *     PnpWaitForDevicesToStart @ 0x140B10D78 (PnpWaitForDevicesToStart.c)
- *     PipInitializeCoreDriversByGroup @ 0x140B10D98 (PipInitializeCoreDriversByGroup.c)
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
+ *     PopGracefulShutdown @ 0x1409B0F60 (PopGracefulShutdown.c)
+ *     PnpWaitForDevicesToStart @ 0x140A5D40C (PnpWaitForDevicesToStart.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140A5D42C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
 NTSTATUS PnpWaitForEmptyDeviceActionQueue()

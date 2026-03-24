@@ -1,44 +1,41 @@
 /*
- * XREFs of UsbDevice_InitializeEndpointContext @ 0x1C000CD58
+ * XREFs of UsbDevice_InitializeEndpointContext @ 0x1C0007FF4
  * Callers:
- *     UsbDevice_InitializeInputContextForAddEndpoints @ 0x1C000BC1C (UsbDevice_InitializeInputContextForAddEndpoints.c)
- *     UsbDevice_ReconfigureEndpoint @ 0x1C00494EC (UsbDevice_ReconfigureEndpoint.c)
+ *     UsbDevice_InitializeInputContextForAddEndpoints @ 0x1C0007D58 (UsbDevice_InitializeInputContextForAddEndpoints.c)
+ *     UsbDevice_ReconfigureEndpoint @ 0x1C0046B7C (UsbDevice_ReconfigureEndpoint.c)
  * Callees:
- *     Endpoint_GetDequeuePointer @ 0x1C000CF0C (Endpoint_GetDequeuePointer.c)
- *     Endpoint_GetMaxPrimaryStreams @ 0x1C000CF6C (Endpoint_GetMaxPrimaryStreams.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C0008334 (Endpoint_GetDequeuePointer.c)
+ *     Endpoint_GetMaxPrimaryStreams @ 0x1C0008394 (Endpoint_GetMaxPrimaryStreams.c)
  */
 
 unsigned int __fastcall UsbDevice_InitializeEndpointContext(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v5; // r8d
   char v7; // al
-  int v8; // eax
-  unsigned int v9; // edx
-  int v10; // eax
-  unsigned __int8 v11; // cl
-  int v12; // edx
-  char v13; // cl
-  unsigned __int8 v14; // al
-  int v15; // r8d
-  int v16; // eax
+  __int64 v8; // rax
+  int v9; // eax
+  unsigned int v10; // edx
+  int v11; // eax
+  unsigned __int8 v12; // cl
+  int v13; // eax
+  int v14; // edx
+  char v15; // cl
+  unsigned __int8 v16; // al
+  int v17; // ecx
+  int v18; // eax
+  int v19; // r10d
+  char v20; // cl
+  int v21; // eax
+  int v22; // ecx
   int MaxPrimaryStreams; // eax
-  _DWORD *v18; // r10
-  __int64 v19; // rcx
+  _DWORD *v24; // r11
+  __int64 v25; // rcx
   __int64 DequeuePointer; // rax
-  __int64 v21; // r10
-  int v22; // r9d
-  __int16 v23; // cx
-  unsigned int v24; // r9d
+  __int64 v27; // r11
+  int v28; // r10d
+  __int16 v29; // cx
+  unsigned int v30; // r10d
   unsigned int result; // eax
-  int v26; // edx
-  __int64 v27; // rax
-  int v28; // edx
-  char v29; // al
-  int v30; // r9d
-  char v31; // cl
-  int v32; // eax
-  int v33; // edx
-  int v34; // ecx
 
   v5 = 0;
   *(_DWORD *)(a3 + 4) ^= (*(_DWORD *)(a3 + 4) ^ (8 * *(_DWORD *)(a2 + 120))) & 0x38;
@@ -48,123 +45,136 @@ unsigned int __fastcall UsbDevice_InitializeEndpointContext(__int64 a1, __int64 
     || (*(_QWORD *)(*(_QWORD *)a2 + 336LL) & 0x10000000000000LL) != 0
     && v7 == 3
     && *(char *)(a2 + 98) < 0
-    && (v27 = *(_QWORD *)(a2 + 16), *(_WORD *)(v27 + 124) == 1529)
-    && *(_WORD *)(v27 + 126) == 4353
-    && *(_DWORD *)(v27 + 36) > 1u )
+    && (v8 = *(_QWORD *)(a2 + 16), *(_WORD *)(v8 + 124) == 1529)
+    && *(_WORD *)(v8 + 126) == 4353
+    && *(_DWORD *)(v8 + 36) > 1u )
   {
-    v8 = 0;
+    v9 = 0;
   }
   else
   {
-    v8 = 6;
+    v9 = 6;
   }
-  v9 = v8 | *(_DWORD *)(a3 + 4) & 0xFFFFFFF9;
-  *(_DWORD *)(a3 + 4) = v9;
-  v10 = *(_DWORD *)(a1 + 20);
-  v11 = *(_BYTE *)(a2 + 102);
-  switch ( v10 )
+  v10 = v9 | *(_DWORD *)(a3 + 4) & 0xFFFFFFF9;
+  *(_DWORD *)(a3 + 4) = v10;
+  v11 = *(_DWORD *)(a1 + 20);
+  v12 = *(_BYTE *)(a2 + 102);
+  switch ( v11 )
   {
     case 0:
-      v28 = v9 & 0x38;
-      if ( v28 != 56 && v28 != 24 )
-        goto LABEL_23;
+      if ( (((v10 & 0x38) - 24) & 0xFFFFFFDF) != 0 )
+      {
+        LOWORD(v13) = *(_WORD *)(a3 + 6);
+      }
+      else
+      {
+        if ( v12 >= 0x10u )
+          *(_BYTE *)(a3 + 2) = 8 - (v12 < 0x20u);
+        else
+          *(_BYTE *)(a3 + 2) = 6;
+        v5 = *(unsigned __int16 *)(a3 + 6);
+        *(_WORD *)(a3 + 18) = v5;
+        LOWORD(v13) = v5;
+        *(_BYTE *)(a3 + 3) = 0;
+      }
+      v13 = (unsigned __int16)v13;
       goto LABEL_32;
     case 1:
-      v26 = v9 & 0x38;
-      if ( v26 != 56 && v26 != 24 )
+      v14 = v10 & 0x38;
+      if ( ((v14 - 24) & 0xFFFFFFDF) != 0 )
       {
-        if ( ((v26 - 8) & 0xFFFFFFDF) != 0 )
+        if ( ((v14 - 8) & 0xFFFFFFDF) != 0 )
         {
-LABEL_23:
-          *(_DWORD *)(a2 + 152) = *(unsigned __int16 *)(a3 + 6);
+LABEL_31:
+          v13 = *(unsigned __int16 *)(a3 + 6);
+LABEL_32:
+          *(_DWORD *)(a2 + 152) = v13;
           break;
         }
         *(_WORD *)(a3 + 2) = 3;
-LABEL_22:
+LABEL_30:
         v5 = *(unsigned __int16 *)(a3 + 6);
         *(_WORD *)(a3 + 18) = v5;
-        goto LABEL_23;
+        goto LABEL_31;
       }
-      if ( v11 < 2u )
+      if ( v12 >= 2u )
+      {
+        if ( v12 < 4u )
+          goto LABEL_28;
+        if ( v12 >= 8u )
+        {
+          if ( v12 >= 0x10u )
+            *(_BYTE *)(a3 + 2) = 8 - (v12 < 0x20u);
+          else
+            *(_BYTE *)(a3 + 2) = 6;
+          goto LABEL_29;
+        }
+        *(_BYTE *)(a3 + 2) = 5;
+        if ( !*(_DWORD *)(a1 + 40)
+          && (_mm_srli_si128(*(__m128i *)(*(_QWORD *)(a1 + 8) + 336LL), 8).m128i_u64[0] & 0x20000) != 0 )
+        {
+LABEL_28:
+          *(_BYTE *)(a3 + 2) = 4;
+        }
+      }
+      else
       {
         *(_BYTE *)(a3 + 2) = 3;
-        goto LABEL_45;
       }
-      if ( v11 < 4u )
-      {
-        *(_BYTE *)(a3 + 2) = 4;
-        goto LABEL_45;
-      }
-      if ( v11 < 8u )
-      {
-        *(_BYTE *)(a3 + 2) = 5;
-        if ( *(_DWORD *)(a1 + 40) )
-          goto LABEL_45;
-        v29 = 5;
-        if ( (_mm_srli_si128(*(__m128i *)(*(_QWORD *)(a1 + 8) + 336LL), 8).m128i_u32[0] & 0x20000) != 0 )
-          v29 = 4;
-        goto LABEL_44;
-      }
-LABEL_32:
-      if ( v11 < 0x10u )
-      {
-        *(_BYTE *)(a3 + 2) = 6;
-LABEL_45:
-        *(_BYTE *)(a3 + 3) = 0;
-        goto LABEL_22;
-      }
-      v29 = 8 - (v11 < 0x20u);
-LABEL_44:
-      *(_BYTE *)(a3 + 2) = v29;
-      goto LABEL_45;
+LABEL_29:
+      *(_BYTE *)(a3 + 3) = 0;
+      goto LABEL_30;
     case 2:
-      v12 = v9 & 0x38;
-      if ( v12 == 56 || ((v12 - 8) & 0xFFFFFFCF) == 0 )
+      if ( (((v10 & 0x38) - 8) & 0xFFFFFFCF) != 0 )
       {
-        if ( v11 < 2u )
+        LOBYTE(v17) = *(_BYTE *)(a3 + 5);
+        LOWORD(v18) = *(_WORD *)(a3 + 6);
+      }
+      else
+      {
+        if ( v12 >= 2u )
         {
-          v13 = 0;
-        }
-        else if ( v11 < 6u )
-        {
-          v13 = v11 - 1;
+          if ( v12 >= 6u )
+            v15 = 5;
+          else
+            v15 = v12 - 1;
         }
         else
         {
-          v13 = 5;
+          v15 = 0;
         }
-        *(_BYTE *)(a3 + 2) = v13;
-        v14 = (*(_WORD *)(a2 + 100) >> 11) & 3;
+        *(_BYTE *)(a3 + 2) = v15;
+        v16 = (*(_WORD *)(a2 + 100) >> 11) & 3;
         *(_BYTE *)(a3 + 3) = 0;
-        v15 = v14;
-        v16 = *(unsigned __int16 *)(a3 + 6);
-        *(_BYTE *)(a3 + 5) = v15;
-        v5 = v16 * (v15 + 1);
-        *(_WORD *)(a3 + 18) = v5;
+        v17 = v16;
+        v18 = *(unsigned __int16 *)(a3 + 6);
+        *(_BYTE *)(a3 + 5) = v17;
+        v5 = v18 * (v17 + 1);
+        *(_WORD *)(a3 + 18) = v18 * (v17 + 1);
       }
-      *(_DWORD *)(a2 + 152) = *(unsigned __int16 *)(a3 + 6) * (*(unsigned __int8 *)(a3 + 5) + 1);
+      *(_DWORD *)(a2 + 152) = (unsigned __int16)v18 * ((unsigned __int8)v17 + 1);
       break;
     case 3:
-      v30 = v9 & 0x38;
-      if ( v30 == 56 || ((v30 - 8) & 0xFFFFFFCF) == 0 )
+      v19 = v10 & 0x38;
+      if ( ((v19 - 24) & 0xFFFFFFCF) == 0 && v19 != 72 || v19 == 8 )
       {
-        if ( v11 >= 2u )
+        if ( v12 >= 2u )
         {
-          if ( v11 >= 6u )
-            v31 = 5;
+          if ( v12 >= 6u )
+            v20 = 5;
           else
-            v31 = v11 - 1;
+            v20 = v12 - 1;
         }
         else
         {
-          v31 = 0;
+          v20 = 0;
         }
-        *(_BYTE *)(a3 + 2) = v31;
-        v32 = *(unsigned __int8 *)(a2 + 106);
-        if ( (v32 & 0x80u) == 0 )
+        *(_BYTE *)(a3 + 2) = v20;
+        v21 = *(unsigned __int8 *)(a2 + 106);
+        if ( (v21 & 0x80u) == 0 )
         {
           v5 = *(unsigned __int16 *)(a2 + 107);
-          *(_DWORD *)a3 ^= (*(_DWORD *)a3 ^ (v32 << 8)) & 0x300;
+          *(_DWORD *)a3 ^= (*(_DWORD *)a3 ^ (v21 << 8)) & 0x300;
         }
         else
         {
@@ -174,12 +184,11 @@ LABEL_44:
         *(_WORD *)(a3 + 18) = v5;
         *(_BYTE *)(a3 + 3) = BYTE2(v5);
       }
-      v33 = v9 & 0x38;
-      if ( v33 == 40 || v33 == 8 )
-        v34 = v5;
+      if ( (((v10 & 0x38) - 8) & 0xFFFFFFDF) != 0 )
+        v22 = *(unsigned __int16 *)(a3 + 6) * (*(unsigned __int8 *)(a3 + 5) + 1);
       else
-        v34 = *(unsigned __int16 *)(a3 + 6) * (*(unsigned __int8 *)(a3 + 5) + 1);
-      *(_DWORD *)(a2 + 152) = v34;
+        v22 = v5;
+      *(_DWORD *)(a2 + 152) = v22;
       *(_BYTE *)(a3 + 5) = *(_BYTE *)(a2 + 105);
       break;
   }
@@ -188,15 +197,15 @@ LABEL_44:
   *(_DWORD *)(a2 + 148) = *(unsigned __int8 *)(a3 + 5);
   *(_WORD *)(a3 + 16) = v5 >> 1;
   MaxPrimaryStreams = Endpoint_GetMaxPrimaryStreams(a2);
-  *v18 ^= (*v18 ^ (MaxPrimaryStreams << 10)) & 0x7C00;
-  DequeuePointer = Endpoint_GetDequeuePointer(v19, 0LL);
-  *(_QWORD *)(v21 + 8) = DequeuePointer;
-  v23 = v22;
-  LODWORD(DequeuePointer) = v22;
-  v24 = v22 & 0xFFFF7FFF;
+  *v24 ^= (*v24 ^ (MaxPrimaryStreams << 10)) & 0x7C00;
+  DequeuePointer = Endpoint_GetDequeuePointer(v25, 0LL);
+  v29 = v28;
+  *(_QWORD *)(v27 + 8) = DequeuePointer;
+  LODWORD(DequeuePointer) = v28;
+  v30 = v28 & 0xFFFF7FFF;
   result = DequeuePointer | 0x8000;
-  if ( (v23 & 0x7C00) != 0 )
-    v24 = result;
-  *(_DWORD *)v21 = v24;
+  if ( (v29 & 0x7C00) != 0 )
+    v30 = result;
+  *(_DWORD *)v27 = v30;
   return result;
 }

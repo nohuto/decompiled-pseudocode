@@ -1,17 +1,17 @@
 /*
- * XREFs of AdtpBuildStagingReasonAuditStringInternal @ 0x140326AD8
+ * XREFs of AdtpBuildStagingReasonAuditStringInternal @ 0x140326BD8
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x140325AEC (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x140325BEC (AdtpBuildAccessReasonAuditString.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     AdtpFormatPrefix @ 0x140326E90 (AdtpFormatPrefix.c)
- *     StringCchPrintfExW @ 0x140326F70 (StringCchPrintfExW.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     AdtpFormatPrefix @ 0x140326F90 (AdtpFormatPrefix.c)
+ *     StringCchPrintfExW @ 0x140327070 (StringCchPrintfExW.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AdtpBuildAccessesString @ 0x1408EFECC (AdtpBuildAccessesString.c)
+ *     AdtpBuildAccessesString @ 0x1408EFEAC (AdtpBuildAccessesString.c)
  */
 
 __int64 __fastcall AdtpBuildStagingReasonAuditStringInternal(

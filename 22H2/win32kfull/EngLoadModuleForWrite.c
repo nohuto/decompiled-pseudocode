@@ -1,9 +1,9 @@
 /*
- * XREFs of EngLoadModuleForWrite @ 0x1C028B570
+ * XREFs of EngLoadModuleForWrite @ 0x1C0289BE0
  * Callers:
  *     <none>
  * Callees:
- *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C028A8F0 (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
+ *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C0288FAC (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
  */
 
 HANDLE __stdcall EngLoadModuleForWrite(LPWSTR pwsz, ULONG cjSizeOfModule)

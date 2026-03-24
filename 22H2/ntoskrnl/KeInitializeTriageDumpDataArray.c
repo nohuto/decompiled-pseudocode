@@ -1,7 +1,7 @@
 /*
- * XREFs of KeInitializeTriageDumpDataArray @ 0x1403A7D00
+ * XREFs of KeInitializeTriageDumpDataArray @ 0x1403C9C10
  * Callers:
- *     IopInitializeTriageDumpData @ 0x14084F710 (IopInitializeTriageDumpData.c)
+ *     IopInitializeTriageDumpData @ 0x1407C9078 (IopInitializeTriageDumpData.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,10 @@
 /*
- * XREFs of AcpiSdevIdentifierInterface @ 0x1C0094D80
+ * XREFs of AcpiSdevIdentifierInterface @ 0x1C00B5608
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
- *     ACPIFilterIrpQueryInterface @ 0x1C0086170 (ACPIFilterIrpQueryInterface.c)
+ *     ACPIFilterIrpQueryInterface @ 0x1C0099170 (ACPIFilterIrpQueryInterface.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     AcpiCheckSecureDevice @ 0x1C0094C18 (AcpiCheckSecureDevice.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AcpiCheckSecureDevice @ 0x1C00B55A8 (AcpiCheckSecureDevice.c)
  */
 
 __int64 __fastcall AcpiSdevIdentifierInterface(ULONG_PTR a1, __int64 a2)

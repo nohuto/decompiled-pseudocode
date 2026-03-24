@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeImageRetpolineContext @ 0x14070705C
+ * XREFs of MiFreeImageRetpolineContext @ 0x1407133FC
  * Callers:
- *     MiCaptureRetpolineRelocationTables @ 0x1406ACDDC (MiCaptureRetpolineRelocationTables.c)
- *     MiParseImageLoadConfig @ 0x140706ABC (MiParseImageLoadConfig.c)
- *     MiCaptureBootDriverRetpolineInfo @ 0x14082CB7C (MiCaptureBootDriverRetpolineInfo.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x140712C50 (MiCaptureRetpolineRelocationTables.c)
+ *     MiParseImageLoadConfig @ 0x140712E88 (MiParseImageLoadConfig.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1407A5390 (MiCaptureBootDriverRetpolineInfo.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeImageRetpolineContext(_QWORD *a1)

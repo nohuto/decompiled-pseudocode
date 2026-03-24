@@ -1,12 +1,12 @@
 /*
- * XREFs of ?pstro@UMPDOBJ@@QEAAHPEAPEAU_STROBJ@@@Z @ 0x1C01295A0
+ * XREFs of ?pstro@UMPDOBJ@@QEAAHPEAPEAU_STROBJ@@@Z @ 0x1C013D114
  * Callers:
- *     ?UMPDDrvTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@K@Z @ 0x1C01292C0 (-UMPDDrvTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRU.c)
+ *     ?UMPDDrvTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@K@Z @ 0x1C013C600 (-UMPDDrvTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRU.c)
  * Callees:
- *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C0129CE0 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
- *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C0129FAC (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
- *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C012A700 (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1C001ED78 (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
+ *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C001F0A8 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
+ *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C00A1AD8 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall UMPDOBJ::pstro(UMPDOBJ *this, struct _STROBJ **a2)
@@ -14,7 +14,7 @@ _BOOL8 __fastcall UMPDOBJ::pstro(UMPDOBJ *this, struct _STROBJ **a2)
   _QWORD *v2; // rbx
   __int128 v5; // rdi
   __int128 v6; // xmm1
-  _QWORD *KernelPtr; // rax
+  char *KernelPtr; // rax
   __int64 i; // r8
   __int64 v10; // rdx
   void *v11; // [rsp+30h] [rbp-40h] BYREF
@@ -27,7 +27,7 @@ _BOOL8 __fastcall UMPDOBJ::pstro(UMPDOBJ *this, struct _STROBJ **a2)
   v11 = (void *)*((_QWORD *)&v5 + 1);
   if ( *((_QWORD *)&v5 + 1) )
   {
-    if ( !(unsigned int)UMPDOBJ::ThunkMemBlock(this, &v11, 2 * *(_DWORD *)v2) )
+    if ( !(unsigned int)UMPDOBJ::ThunkMemBlock(this, (const void **)&v11, 2 * *(_DWORD *)v2) )
       return 0LL;
     *((_QWORD *)&v5 + 1) = v11;
   }
@@ -35,11 +35,11 @@ _BOOL8 __fastcall UMPDOBJ::pstro(UMPDOBJ *this, struct _STROBJ **a2)
   v11 = (void *)v5;
   if ( (_QWORD)v5 )
   {
-    if ( !(unsigned int)UMPDOBJ::ThunkMemBlock(this, &v11, 24 * *(_DWORD *)v2) )
+    if ( !(unsigned int)UMPDOBJ::ThunkMemBlock(this, (const void **)&v11, 24 * *(_DWORD *)v2) )
       return 0LL;
     *(_QWORD *)&v5 = v11;
-    KernelPtr = UMPDOBJ::GetKernelPtr(this, v11);
-    for ( i = 0LL; (unsigned int)i < *(_DWORD *)v2; KernelPtr[v10 + 1] = 0LL )
+    KernelPtr = UMPDOBJ::GetKernelPtr(this, (char *)v11);
+    for ( i = 0LL; (unsigned int)i < *(_DWORD *)v2; *(_QWORD *)&KernelPtr[8 * v10 + 8] = 0LL )
     {
       v10 = 3 * i;
       i = (unsigned int)(i + 1);
@@ -49,5 +49,5 @@ _BOOL8 __fastcall UMPDOBJ::pstro(UMPDOBJ *this, struct _STROBJ **a2)
   v12[0] = *(_OWORD *)v2;
   v12[1] = v6;
   v12[2] = v5;
-  return (unsigned int)UMPDOBJ::ThunkDDIOBJ(this, (UMPDOBJ *)((char *)this + 192), (void **)a2, 0x30u, v12) != 0;
+  return (unsigned int)UMPDOBJ::ThunkDDIOBJ(this, (UMPDOBJ *)((char *)this + 192), (const void **)a2, 0x30u, v12) != 0;
 }

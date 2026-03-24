@@ -1,21 +1,13 @@
 /*
- * XREFs of McTemplateK0qqq_EtwWriteTransfer @ 0x1C00543C0
+ * XREFs of McTemplateK0qqq_EtwWriteTransfer @ 0x1C004A724
  * Callers:
- *     ?StartVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z @ 0x1C01D437C (-StartVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z.c)
- *     ?RecreateVsyncSource@BLTQUEUE@@AEAAX_NW4VsyncEvent@1@@Z @ 0x1C01DE1A8 (-RecreateVsyncSource@BLTQUEUE@@AEAAX_NW4VsyncEvent@1@@Z.c)
- *     ?LogEtw@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z @ 0x1C032CA64 (-LogEtw@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z.c)
+ *     ?LogEtw@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z @ 0x1C029AEC4 (-LogEtw@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall McTemplateK0qqq_EtwWriteTransfer(
-        __int64 a1,
-        const EVENT_DESCRIPTOR *a2,
-        __int64 a3,
-        int a4,
-        char a5,
-        char a6)
+NTSTATUS __fastcall McTemplateK0qqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, char a5, char a6)
 {
   struct _EVENT_DATA_DESCRIPTOR v7; // [rsp+30h] [rbp-50h] BYREF
   int *v8; // [rsp+40h] [rbp-40h]
@@ -30,8 +22,13 @@ NTSTATUS __fastcall McTemplateK0qqq_EtwWriteTransfer(
   v8 = &v14;
   v9 = 4LL;
   v10 = &a5;
-  v12 = &a6;
   v11 = 4LL;
+  v12 = &a6;
   v13 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, a2, a3, 4u, &v7);
+  return McGenEventWrite_EtwWriteTransfer(
+           (REGHANDLE *)&DxgkControlGuid_Context,
+           &Dxgk_Diag_OutputDupl_High_Level_Update_Start,
+           a3,
+           4u,
+           &v7);
 }

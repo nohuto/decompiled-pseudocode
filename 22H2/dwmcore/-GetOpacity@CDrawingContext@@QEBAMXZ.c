@@ -1,8 +1,7 @@
 /*
- * XREFs of ?GetOpacity@CDrawingContext@@QEBAMXZ @ 0x1801187A0
+ * XREFs of ?GetOpacity@CDrawingContext@@QEBAMXZ @ 0x1800EB7A4
  * Callers:
- *     ?FillRectanglesWithDrawListBitmap@CDrawingContext@@AEAAJAEBVCDrawListBitmap@@AEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBVMILMatrix3x2@@@Z @ 0x180078200 (-FillRectanglesWithDrawListBitmap@CDrawingContext@@AEAAJAEBVCDrawListBitmap@@AEBV-$span@$$CBUMil.c)
- *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x1801D4350 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
+ *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x180175944 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,9 +10,9 @@ float __fastcall CDrawingContext::GetOpacity(CDrawingContext *this)
 {
   int v1; // eax
 
-  v1 = *((_DWORD *)this + 812);
+  v1 = *((_DWORD *)this + 808);
   if ( v1 )
-    return *(float *)(*((_QWORD *)this + 408) + 4LL * (unsigned int)(v1 - 1));
+    return *(float *)(*((_QWORD *)this + 406) + 4LL * (unsigned int)(v1 - 1));
   else
     return *(float *)&FLOAT_1_0;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiUpdateSpecCtrlEnhancedIBRS @ 0x1404605C8
+ * XREFs of KiUpdateSpecCtrlEnhancedIBRS @ 0x14051B850
  * Callers:
- *     KiUpdateSpeculationControl @ 0x1403259E0 (KiUpdateSpeculationControl.c)
+ *     KiUpdateSpeculationControl @ 0x14021ECC0 (KiUpdateSpeculationControl.c)
  * Callees:
  *     <none>
  */
@@ -74,14 +74,14 @@ LABEL_8:
   {
     result = 65023LL;
     *(_WORD *)(a1 + 1760) &= ~0x200u;
-    if ( !v7 && (v9 & 0x800) != 0 && ((*(_DWORD *)(a2 + 2172) & 0x1000) == 0 || (*(_BYTE *)(a1 + 1764) & 1) == 0) )
-    {
-      result = 65534LL;
-      *(_WORD *)(a1 + 1766) &= ~1u;
-      v6 &= ~1u;
-      *(_WORD *)(a1 + 1744) &= ~1u;
-      *(_WORD *)(a1 + 1770) &= ~1u;
-    }
+  }
+  if ( !v7 && (v9 & 0x800) != 0 && ((*(_DWORD *)(a2 + 2172) & 0x1000) == 0 || (*(_BYTE *)(a1 + 1764) & 1) == 0) )
+  {
+    result = 65534LL;
+    *(_WORD *)(a1 + 1766) &= ~1u;
+    v6 &= ~1u;
+    *(_WORD *)(a1 + 1744) &= ~1u;
+    *(_WORD *)(a1 + 1770) &= ~1u;
   }
   if ( (v9 & 0x2000) != 0 )
   {

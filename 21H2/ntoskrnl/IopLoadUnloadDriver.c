@@ -1,51 +1,48 @@
 /*
- * XREFs of IopLoadUnloadDriver @ 0x1406DE800
+ * XREFs of IopLoadUnloadDriver @ 0x140780820
  * Callers:
- *     IopLoadDriverImage @ 0x140255A78 (IopLoadDriverImage.c)
- *     IopCompleteUnloadOrDelete @ 0x1402D5CA8 (IopCompleteUnloadOrDelete.c)
+ *     IopCompleteUnloadOrDelete @ 0x140360FD0 (IopCompleteUnloadOrDelete.c)
+ *     IopLoadDriverImage @ 0x140399E78 (IopLoadDriverImage.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     VfIsVerifierEnabled @ 0x1402DA4B0 (VfIsVerifierEnabled.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfDriverProcessUnload @ 0x1405FEB18 (VfDriverProcessUnload.c)
- *     DifIsPluginRunningWithoutReboot @ 0x140604874 (DifIsPluginRunningWithoutReboot.c)
- *     IopCallDriverReinitializationRoutines @ 0x1406DE8A0 (IopCallDriverReinitializationRoutines.c)
- *     IopOpenRegistryKey @ 0x1406DE960 (IopOpenRegistryKey.c)
- *     IopLoadDriver @ 0x14074A178 (IopLoadDriver.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     IopOpenRegistryKey @ 0x140769AA4 (IopOpenRegistryKey.c)
+ *     IopCallDriverReinitializationRoutines @ 0x140771AD4 (IopCallDriverReinitializationRoutines.c)
  */
 
 LONG __fastcall IopLoadUnloadDriver(__int64 a1)
 {
   __int64 v2; // rcx
-  int Driver; // ebx
+  int v3; // ebx
+  int v5; // [rsp+40h] [rbp+8h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp+10h] BYREF
 
+  v5 = 0;
   v2 = *(_QWORD *)(a1 + 56);
   Handle = 0LL;
   if ( v2 )
   {
     (*(void (**)(void))(v2 + 104))();
-    if ( (unsigned int)VfIsVerifierEnabled() || DifIsPluginRunningWithoutReboot() )
-      VfDriverProcessUnload(*(_QWORD *)(a1 + 56));
-    Driver = 0;
+    v3 = 0;
   }
   else
   {
-    Driver = IopOpenRegistryKey(&Handle, 0LL, *(_QWORD *)(a1 + 64), 131097LL, 0);
-    if ( Driver >= 0 )
+    v3 = IopOpenRegistryKey(&Handle, 0LL, *(UNICODE_STRING **)(a1 + 64), 0x20019u, 0);
+    if ( v3 >= 0 )
     {
-      Driver = IopLoadDriver(Handle);
-      if ( Driver == -1073740955 )
+      v3 = IopLoadDriver(Handle, 1, 0, &v5);
+      if ( v3 == -1073740955 )
       {
-        Driver = 0;
+        v3 = v5;
       }
-      else if ( Driver == -1073740914 )
+      else if ( v3 == -1073740914 )
       {
-        Driver = -1073741772;
+        v3 = -1073741772;
       }
-      IopCallDriverReinitializationRoutines(0LL);
+      IopCallDriverReinitializationRoutines(0);
     }
   }
-  *(_DWORD *)(a1 + 72) = Driver;
+  *(_DWORD *)(a1 + 72) = v3;
   return KeSetEvent((PRKEVENT)(a1 + 32), 0, 0);
 }

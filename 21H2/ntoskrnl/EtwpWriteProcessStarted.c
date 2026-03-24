@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpWriteProcessStarted @ 0x1407136E8
+ * XREFs of EtwpWriteProcessStarted @ 0x14062B670
  * Callers:
- *     EtwTraceProcess @ 0x14070AC28 (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x14060330C (EtwTraceProcess.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessStartKey @ 0x14023FCD0 (PsGetProcessStartKey.c)
- *     PsGetProcessSessionId @ 0x14028AF60 (PsGetProcessSessionId.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402A2094 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MmGetSessionCreateTime @ 0x140711EE8 (MmGetSessionCreateTime.c)
+ *     PsGetProcessSessionId @ 0x140252EB0 (PsGetProcessSessionId.c)
+ *     PsGetProcessStartKey @ 0x14025F4F0 (PsGetProcessStartKey.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MmGetSessionCreateTime @ 0x14061157C (MmGetSessionCreateTime.c)
  */
 
 char __fastcall EtwpWriteProcessStarted(__int64 a1, int *a2, __int64 a3, unsigned __int16 *a4, unsigned __int8 **a5)
@@ -69,9 +69,9 @@ char __fastcall EtwpWriteProcessStarted(__int64 a1, int *a2, __int64 a3, unsigne
   v6 = &EmptyUnicodeString;
   if ( v5 )
     v6 = *(__int64 **)(a1 + 1472);
-  if ( (unsigned int)dword_140C043A8 > 5 )
+  if ( (unsigned int)dword_140C02BB8 > 5 )
   {
-    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140C043A8, 3LL);
+    LOBYTE(v5) = tlgKeywordOn((__int64)&dword_140C02BB8, 3LL);
     if ( (_BYTE)v5 )
     {
       v21 = *(_QWORD *)(a1 + 1128);
@@ -109,8 +109,8 @@ char __fastcall EtwpWriteProcessStarted(__int64 a1, int *a2, __int64 a3, unsigne
       v49 = &v20;
       v48 = 4LL;
       v50 = 4LL;
-      tlgCreate1Sz_wchar_t((__int64)v51, (const WCHAR *)(a3 + 16));
-      tlgCreate1Sz_wchar_t((__int64)v52, (const WCHAR *)(a3 + 272));
+      tlgCreate1Sz_wchar_t((__int64)v51, (const size_t *)(a3 + 16));
+      tlgCreate1Sz_wchar_t((__int64)v52, (const size_t *)(a3 + 272));
       if ( a5 )
         v13 = *a5;
       else
@@ -125,8 +125,8 @@ char __fastcall EtwpWriteProcessStarted(__int64 a1, int *a2, __int64 a3, unsigne
       v58 = *((_QWORD *)a4 + 1);
       v59[0] = *a4;
       LOBYTE(v5) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140C043A8,
-                     (unsigned __int8 *)byte_140035351,
+                     (__int64)&dword_140C02BB8,
+                     (unsigned __int8 *)&word_14002C826,
                      0LL,
                      0LL,
                      0x13u,

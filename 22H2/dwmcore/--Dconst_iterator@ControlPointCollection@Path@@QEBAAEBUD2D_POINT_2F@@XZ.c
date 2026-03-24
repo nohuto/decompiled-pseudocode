@@ -1,18 +1,18 @@
 /*
- * XREFs of ??Dconst_iterator@ControlPointCollection@Path@@QEBAAEBUD2D_POINT_2F@@XZ @ 0x1800D47F8
+ * XREFs of ??Dconst_iterator@ControlPointCollection@Path@@QEBAAEBUD2D_POINT_2F@@XZ @ 0x180220574
  * Callers:
- *     ?IsEmpty@CPathSegmentsShape@@UEBA_NXZ @ 0x1800D4720 (-IsEmpty@CPathSegmentsShape@@UEBA_NXZ.c)
- *     ?Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z @ 0x1802AF58C (-Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z.c)
+ *     ?GetControlPointCount@CPathData@@QEBAIXZ @ 0x180220A94 (-GetControlPointCount@CPathData@@QEBAIXZ.c)
+ *     ?Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z @ 0x18025E620 (-Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z.c)
  * Callees:
- *     ??A?$span@$$CBUD2D_POINT_2F@@$0?0@gsl@@QEBAAEBUD2D_POINT_2F@@_K@Z @ 0x1800D4828 (--A-$span@$$CBUD2D_POINT_2F@@$0-0@gsl@@QEBAAEBUD2D_POINT_2F@@_K@Z.c)
- *     ?GetControlPoints@Segment@Path@@QEBA?AV?$span@$$CBUD2D_POINT_2F@@$0?0@gsl@@XZ @ 0x1800D48AC (-GetControlPoints@Segment@Path@@QEBA-AV-$span@$$CBUD2D_POINT_2F@@$0-0@gsl@@XZ.c)
+ *     ??A?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayContext@@_J@Z @ 0x180179E04 (--A-$span@PEAVOverlayPlaneInfo@COverlayContext@@$0-0@gsl@@QEBAAEAPEAVOverlayPlaneInfo@COverlayCo.c)
+ *     ?GetControlPoints@Segment@Path@@QEBA?AV?$span@$$CBUD2D_POINT_2F@@$0?0@gsl@@XZ @ 0x18021F8C8 (-GetControlPoints@Segment@Path@@QEBA-AV-$span@$$CBUD2D_POINT_2F@@$0-0@gsl@@XZ.c)
  */
 
 __int64 __fastcall Path::ControlPointCollection::const_iterator::operator*(__int64 a1)
 {
-  __int64 ControlPoints; // rax
-  _BYTE v4[24]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned __int64 *ControlPoints; // rax
+  _QWORD v4[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  ControlPoints = Path::Segment::GetControlPoints(*(_QWORD *)a1, v4);
-  return gsl::span<D2D_POINT_2F const,-1>::operator[](ControlPoints, *(unsigned int *)(a1 + 16));
+  ControlPoints = Path::Segment::GetControlPoints(*(_BYTE **)a1, v4);
+  return gsl::span<COverlayContext::OverlayPlaneInfo *,-1>::operator[](ControlPoints, *(unsigned int *)(a1 + 16));
 }

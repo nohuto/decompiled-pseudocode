@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtInitializeMTRR @ 0x1403AB978
+ * XREFs of IvtInitializeMTRR @ 0x1404E03B4
  * Callers:
- *     IvtInitializeIommu @ 0x140A8A670 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x1409A9A90 (IvtInitializeIommu.c)
  * Callees:
  *     <none>
  */

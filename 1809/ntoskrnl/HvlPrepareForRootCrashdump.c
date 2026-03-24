@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlPrepareForRootCrashdump @ 0x140274BF0
+ * XREFs of HvlPrepareForRootCrashdump @ 0x140274CF0
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     HvlNotifyRootCrashdump @ 0x140274B2C (HvlNotifyRootCrashdump.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     HvlNotifyRootCrashdump @ 0x140274C2C (HvlNotifyRootCrashdump.c)
  */
 
 __int64 HvlPrepareForRootCrashdump()

@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpGetMappingFromCacheEntry @ 0x1402D7BD4
+ * XREFs of LdrpGetMappingFromCacheEntry @ 0x1402A8D28
  * Callers:
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402D7A40 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402A8B94 (LdrpGetAlternateResourceModuleHandleEx.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
  */
 
 char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4)
@@ -33,10 +33,11 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a
     if ( !v11 )
       return 0;
     v12 = *(_WORD *)(v11 + 24);
-    if ( v12 != 267 && v12 != 523 )
-      return 0;
-    v9 = *(unsigned int *)(v11 + 80);
-    if ( !*(_DWORD *)(v11 + 80) )
+    if ( v12 == 267 || v12 == 523 )
+      v9 = *(unsigned int *)(v11 + 80);
+    else
+      v9 = 0LL;
+    if ( !v9 )
       return 0;
   }
   if ( a2 < (v8 & 0xFFFFFFFFFFFFFFFCuLL) || a2 >= v9 + (v8 & 0xFFFFFFFFFFFFFFFCuLL) )

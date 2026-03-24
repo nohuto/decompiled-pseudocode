@@ -1,9 +1,9 @@
 /*
- * XREFs of _UserTestForWinStaAccess @ 0x1C00680DC
+ * XREFs of _UserTestForWinStaAccess @ 0x1C000FECC
  * Callers:
- *     xxxResolveDesktop @ 0x1C0067670 (xxxResolveDesktop.c)
+ *     xxxResolveDesktop @ 0x1C000F4F0 (xxxResolveDesktop.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 int __fastcall UserTestForWinStaAccess(PCUNICODE_STRING String1, int a2)
@@ -52,7 +52,7 @@ int __fastcall UserTestForWinStaAccess(PCUNICODE_STRING String1, int a2)
     v8 = ZwQueryInformationToken(TokenHandle, TokenStatistics, 0LL, 0, &TokenInformationLength);
     if ( v8 == -1073741789 )
     {
-      v10 = (_DWORD *)Win32AllocPoolWithQuotaZInit(TokenInformationLength, 1702064981LL);
+      v10 = (_DWORD *)Win32AllocPoolWithQuota(TokenInformationLength, 1702064981LL);
       if ( v10 )
       {
         v8 = ZwQueryInformationToken(TokenHandle, TokenStatistics, v10, TokenInformationLength, &TokenInformationLength);

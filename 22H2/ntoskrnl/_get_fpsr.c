@@ -1,10 +1,10 @@
 /*
- * XREFs of _get_fpsr @ 0x14042A970
+ * XREFs of _get_fpsr @ 0x140408FE0
  * Callers:
- *     _clrfp @ 0x1403DDC28 (_clrfp.c)
- *     _ctrlfp @ 0x1403DDC4C (_ctrlfp.c)
- *     _set_statfp @ 0x1403DDCD0 (_set_statfp.c)
- *     _statfp @ 0x1403DDCF8 (_statfp.c)
+ *     _clrfp @ 0x1403D60C0 (_clrfp.c)
+ *     _ctrlfp @ 0x1403D60E4 (_ctrlfp.c)
+ *     _set_statfp @ 0x1403D6168 (_set_statfp.c)
+ *     _statfp @ 0x1403D6190 (_statfp.c)
  * Callees:
  *     <none>
  */

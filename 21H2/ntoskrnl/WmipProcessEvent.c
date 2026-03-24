@@ -1,40 +1,38 @@
 /*
- * XREFs of WmipProcessEvent @ 0x14075DD3C
+ * XREFs of WmipProcessEvent @ 0x140757D80
  * Callers:
- *     WmipEventNotification @ 0x14069A660 (WmipEventNotification.c)
- *     WmipSendGuidUpdateNotifications @ 0x14075DBD8 (WmipSendGuidUpdateNotifications.c)
- *     WmipGenerateMofResourceNotification @ 0x140856634 (WmipGenerateMofResourceNotification.c)
- *     WmipGenerateBinaryMofNotification @ 0x1409DE4C4 (WmipGenerateBinaryMofNotification.c)
+ *     WmipEventNotification @ 0x140756510 (WmipEventNotification.c)
+ *     WmipSendGuidUpdateNotifications @ 0x140757C1C (WmipSendGuidUpdateNotifications.c)
+ *     WmipGenerateMofResourceNotification @ 0x1407C55D0 (WmipGenerateMofResourceNotification.c)
+ *     WmipGenerateBinaryMofNotification @ 0x1407D116C (WmipGenerateBinaryMofNotification.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x1402240B0 (ObReferenceObjectSafe.c)
- *     WmipWriteWnodeToObject @ 0x140252CF0 (WmipWriteWnodeToObject.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     WmipUnreferenceEntry @ 0x1407838E0 (WmipUnreferenceEntry.c)
- *     WmipFindGEByGuid @ 0x140783CD8 (WmipFindGEByGuid.c)
- *     WmipDereferenceEvent @ 0x1409DCFD4 (WmipDereferenceEvent.c)
- *     WmipIncludeStaticNames @ 0x1409DD3C4 (WmipIncludeStaticNames.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     WmipWriteWnodeToObject @ 0x1403713C4 (WmipWriteWnodeToObject.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
+ *     WmipFindGEByGuid @ 0x14063F1D0 (WmipFindGEByGuid.c)
+ *     WmipDereferenceEvent @ 0x1409323EC (WmipDereferenceEvent.c)
+ *     WmipIncludeStaticNames @ 0x1409327DC (WmipIncludeStaticNames.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall WmipProcessEvent(_DWORD *P, __int64 a2, char a3)
+__int64 __fastcall WmipProcessEvent(_DWORD *P, char a2, char a3)
 {
   char v3; // bp
-  _DWORD *v4; // rsi
-  _DWORD *v5; // rdi
-  _DWORD *v6; // rbx
-  __int64 GEByGuid; // r13
+  PVOID v4; // rsi
+  PVOID v5; // rdi
+  PVOID v6; // rbx
+  volatile signed __int64 *GEByGuid; // r13
   unsigned int v8; // r15d
-  _QWORD *v10; // r12
+  volatile signed __int64 *v10; // r12
   __int64 v11; // rbp
-  void (__fastcall *v12)(_DWORD *, _QWORD); // rax
+  void (__fastcall *v12)(PVOID, _QWORD); // rax
   __int64 v13; // rax
-  char v15; // [rsp+88h] [rbp+10h]
-  _DWORD *v17; // [rsp+98h] [rbp+20h]
+  void *v17; // [rsp+98h] [rbp+20h]
 
-  v15 = a2;
   v3 = a3;
   v4 = P;
   if ( (P[11] & 0x2000) == 0 )
@@ -43,43 +41,42 @@ __int64 __fastcall WmipProcessEvent(_DWORD *P, __int64 a2, char a3)
     v6 = P;
     v17 = 0LL;
 LABEL_3:
-    if ( (v6[11] & 0x80u) != 0 )
-      v6 = (_DWORD *)WmipIncludeStaticNames(v6);
-    LOBYTE(a2) = 1;
-    GEByGuid = WmipFindGEByGuid(v6 + 6, a2);
+    if ( (*((_DWORD *)v6 + 11) & 0x80u) != 0 )
+      v6 = (PVOID)WmipIncludeStaticNames(v6);
+    GEByGuid = WmipFindGEByGuid((_QWORD *)v6 + 3, 1);
     if ( GEByGuid )
     {
       v8 = 0;
       KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
-      v10 = *(_QWORD **)(GEByGuid + 40);
-      if ( v10 != (_QWORD *)(GEByGuid + 40) )
+      v10 = (volatile signed __int64 *)*((_QWORD *)GEByGuid + 5);
+      if ( v10 != GEByGuid + 5 )
       {
         do
         {
           v11 = (__int64)(v10 - 5);
-          v10 = (_QWORD *)*v10;
+          v10 = (volatile signed __int64 *)*v10;
           if ( ObReferenceObjectSafe(v11) )
           {
             if ( (*(_DWORD *)(v11 + 164) & 2) != 0 )
             {
-              v12 = *(void (__fastcall **)(_DWORD *, _QWORD))(v11 + 72);
+              v12 = *(void (__fastcall **)(PVOID, _QWORD))(v11 + 72);
               if ( v12 )
                 v12(v6, *(_QWORD *)(v11 + 80));
             }
-            else if ( (int)WmipWriteWnodeToObject(v11, v6, v15) < 0 )
+            else if ( (int)WmipWriteWnodeToObject(v11, (unsigned int *)v6, a2) < 0 )
             {
               v8 = -1073741823;
             }
-            ObfDereferenceObject((PVOID)v11);
+            HalPutDmaAdapter((PADAPTER_OBJECT)v11);
           }
         }
-        while ( v10 != (_QWORD *)(GEByGuid + 40) );
+        while ( v10 != GEByGuid + 5 );
         v5 = v17;
         v4 = P;
         v3 = a3;
       }
       KeReleaseMutex(&WmipSMMutex, 0);
-      WmipUnreferenceEntry(&WmipGEChunkInfo, GEByGuid);
+      WmipUnreferenceEntry((__int64)&WmipGEChunkInfo, GEByGuid);
     }
     else
     {
@@ -94,11 +91,11 @@ LABEL_3:
     return v8;
   }
   v13 = WmipDereferenceEvent();
-  v17 = (_DWORD *)v13;
-  v5 = (_DWORD *)v13;
+  v17 = (void *)v13;
+  v5 = (PVOID)v13;
   if ( v13 )
   {
-    v6 = (_DWORD *)v13;
+    v6 = (PVOID)v13;
     goto LABEL_3;
   }
   if ( v3 )

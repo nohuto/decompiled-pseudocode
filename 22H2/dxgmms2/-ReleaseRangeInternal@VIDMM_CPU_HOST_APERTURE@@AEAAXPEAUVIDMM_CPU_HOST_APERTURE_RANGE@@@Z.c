@@ -1,45 +1,39 @@
 /*
- * XREFs of ?ReleaseRangeInternal@VIDMM_CPU_HOST_APERTURE@@AEAAXPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z @ 0x1C0033780
+ * XREFs of ?ReleaseRangeInternal@VIDMM_CPU_HOST_APERTURE@@AEAAXPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z @ 0x1C002954C
  * Callers:
- *     ?AcquireRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0032E94 (-AcquireRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0033764 (-ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?UnblockRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z @ 0x1C0033828 (-UnblockRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z.c)
+ *     ?AcquireRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0028BF4 (-AcquireRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0029530 (-ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?UnblockRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z @ 0x1C00295B8 (-UnblockRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
 void __fastcall VIDMM_CPU_HOST_APERTURE::ReleaseRangeInternal(
         VIDMM_CPU_HOST_APERTURE *this,
-        struct VIDMM_CPU_HOST_APERTURE_RANGE *a2)
+        struct VIDMM_CPU_HOST_APERTURE_RANGE *a2,
+        __int64 a3)
 {
-  int v2; // r10d
-  __int64 v3; // rax
-  __int64 v6; // rdx
+  int v3; // r10d
+  __int64 v4; // rax
+  __int64 v6; // r8
   int v7; // ecx
+  __int64 v8; // rax
 
-  v2 = *(_DWORD *)a2;
-  v3 = *((unsigned int *)a2 + 1);
-  if ( *(_DWORD *)a2 == -1 || (_DWORD)v3 == -1 )
+  v3 = *(_DWORD *)a2;
+  v4 = *((unsigned int *)a2 + 1);
+  if ( *(_DWORD *)a2 == -1 || (_DWORD)v4 == -1 )
   {
-    WdLogSingleEntry1(1LL, this);
-    ((void (*)(_QWORD, __int64, __int64, const wchar_t *, ...))DxgCoreInterface[86])(
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"Attempting to free invalid page range in CpuHostAperture 0x%p",
-      this,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+    *(_QWORD *)(v8 + 24) = this;
+    WdLogEvent5_WdAssertion(v8);
   }
   else
   {
     v6 = *((_QWORD *)this + 5);
-    v7 = *(_DWORD *)(v6 + 4 * v3);
-    *(_DWORD *)(v6 + 4LL * (unsigned int)v3) = *((_DWORD *)this + 16);
+    v7 = *(_DWORD *)(v6 + 4 * v4);
+    *(_DWORD *)(v6 + 4LL * (unsigned int)v4) = *((_DWORD *)this + 16);
     *((_DWORD *)this + 15) += v7;
-    *((_DWORD *)this + 16) = v2;
+    *((_DWORD *)this + 16) = v3;
     *(_DWORD *)a2 = -1;
     *((_DWORD *)a2 + 1) = -1;
   }

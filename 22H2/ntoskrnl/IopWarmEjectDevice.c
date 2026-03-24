@@ -1,14 +1,14 @@
 /*
- * XREFs of IopWarmEjectDevice @ 0x14096F1EC
+ * XREFs of IopWarmEjectDevice @ 0x1408B4660
  * Callers:
- *     PnpProcessCompletedEject @ 0x1409590A0 (PnpProcessCompletedEject.c)
+ *     PnpProcessCompletedEject @ 0x1408A2500 (PnpProcessCompletedEject.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     PnpSetPowerVetoEvent @ 0x1409649B0 (PnpSetPowerVetoEvent.c)
- *     NtInitiatePowerAction @ 0x14098B410 (NtInitiatePowerAction.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     NtInitiatePowerAction @ 0x140775A10 (NtInitiatePowerAction.c)
+ *     PnpSetPowerVetoEvent @ 0x1408AC154 (PnpSetPowerVetoEvent.c)
  */
 
 __int64 __fastcall IopWarmEjectDevice(_QWORD *a1, unsigned int a2)
@@ -21,7 +21,7 @@ __int64 __fastcall IopWarmEjectDevice(_QWORD *a1, unsigned int a2)
   PpDevNodeLockTree(1);
   IopWarmEjectPdo = (__int64)a1;
   PpDevNodeUnlockTree(1);
-  v5 = NtInitiatePowerAction(7LL, a2, 3LL);
+  v5 = NtInitiatePowerAction(7LL, a2, 3, 0);
   if ( v5 == -1073741727 )
     PnpSetPowerVetoEvent(7, v4, v6, a1, 12, 0LL);
   PpDevNodeLockTree(1);

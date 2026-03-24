@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0qqqqzzzzqx_EtwWriteTransfer @ 0x1C013DCC0
+ * XREFs of McTemplateK0qqqqzzzzqx_EtwWriteTransfer @ 0x1C0055D08
  * Callers:
- *     EtwTraceMessageCheckDelay @ 0x1C0089570 (EtwTraceMessageCheckDelay.c)
+ *     EtwTraceMessageCheckDelay @ 0x1C0122ED0 (EtwTraceMessageCheckDelay.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall McTemplateK0qqqqzzzzqx_EtwWriteTransfer(
+__int64 __fastcall McTemplateK0qqqqzzzzqx_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -22,126 +22,129 @@ NTSTATUS __fastcall McTemplateK0qqqqzzzzqx_EtwWriteTransfer(
         char a12,
         char a13)
 {
-  const wchar_t *v13; // r9
-  const wchar_t *v14; // rbx
-  const wchar_t *v15; // rdx
-  const wchar_t *v16; // r8
-  int v17; // r10d
-  __int64 v18; // rax
-  int v19; // r11d
+  const wchar_t *v13; // rcx
+  int v14; // r8d
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  int v17; // r9d
+  const wchar_t *v18; // rcx
+  __int64 v19; // rdx
   int v20; // r9d
-  int v21; // r8d
-  bool v22; // zf
-  struct _EVENT_DATA_DESCRIPTOR v24; // [rsp+38h] [rbp-B9h] BYREF
-  int *v25; // [rsp+48h] [rbp-A9h]
-  __int64 v26; // [rsp+50h] [rbp-A1h]
-  char *v27; // [rsp+58h] [rbp-99h]
-  __int64 v28; // [rsp+60h] [rbp-91h]
-  char *v29; // [rsp+68h] [rbp-89h]
-  __int64 v30; // [rsp+70h] [rbp-81h]
-  char *v31; // [rsp+78h] [rbp-79h]
-  __int64 v32; // [rsp+80h] [rbp-71h]
-  const wchar_t *v33; // [rsp+88h] [rbp-69h]
-  int v34; // [rsp+90h] [rbp-61h]
-  int v35; // [rsp+94h] [rbp-5Dh]
-  const wchar_t *v36; // [rsp+98h] [rbp-59h]
-  int v37; // [rsp+A0h] [rbp-51h]
-  int v38; // [rsp+A4h] [rbp-4Dh]
-  const wchar_t *v39; // [rsp+A8h] [rbp-49h]
-  int v40; // [rsp+B0h] [rbp-41h]
-  int v41; // [rsp+B4h] [rbp-3Dh]
-  const wchar_t *v42; // [rsp+B8h] [rbp-39h]
-  int v43; // [rsp+C0h] [rbp-31h]
-  int v44; // [rsp+C4h] [rbp-2Dh]
-  char *v45; // [rsp+C8h] [rbp-29h]
-  __int64 v46; // [rsp+D0h] [rbp-21h]
-  char *v47; // [rsp+D8h] [rbp-19h]
-  __int64 v48; // [rsp+E0h] [rbp-11h]
-  int v49; // [rsp+130h] [rbp+3Fh] BYREF
+  const wchar_t *v21; // rcx
+  __int64 v22; // rdx
+  int v23; // r9d
+  const wchar_t *v24; // rcx
+  bool v25; // zf
+  _BYTE v27[16]; // [rsp+30h] [rbp-B1h] BYREF
+  int *v28; // [rsp+40h] [rbp-A1h]
+  __int64 v29; // [rsp+48h] [rbp-99h]
+  char *v30; // [rsp+50h] [rbp-91h]
+  __int64 v31; // [rsp+58h] [rbp-89h]
+  char *v32; // [rsp+60h] [rbp-81h]
+  __int64 v33; // [rsp+68h] [rbp-79h]
+  char *v34; // [rsp+70h] [rbp-71h]
+  __int64 v35; // [rsp+78h] [rbp-69h]
+  const wchar_t *v36; // [rsp+80h] [rbp-61h]
+  int v37; // [rsp+88h] [rbp-59h]
+  int v38; // [rsp+8Ch] [rbp-55h]
+  const wchar_t *v39; // [rsp+90h] [rbp-51h]
+  int v40; // [rsp+98h] [rbp-49h]
+  int v41; // [rsp+9Ch] [rbp-45h]
+  const wchar_t *v42; // [rsp+A0h] [rbp-41h]
+  int v43; // [rsp+A8h] [rbp-39h]
+  int v44; // [rsp+ACh] [rbp-35h]
+  const wchar_t *v45; // [rsp+B0h] [rbp-31h]
+  int v46; // [rsp+B8h] [rbp-29h]
+  int v47; // [rsp+BCh] [rbp-25h]
+  char *v48; // [rsp+C0h] [rbp-21h]
+  __int64 v49; // [rsp+C8h] [rbp-19h]
+  char *v50; // [rsp+D0h] [rbp-11h]
+  __int64 v51; // [rsp+D8h] [rbp-9h]
+  int v52; // [rsp+118h] [rbp+37h] BYREF
 
-  v49 = a4;
+  v52 = a4;
   v13 = a8;
-  v14 = a11;
-  v15 = a10;
-  v16 = a9;
-  v25 = &v49;
-  v27 = &a5;
-  v17 = 10;
-  v26 = 4LL;
-  v29 = &a6;
-  v31 = &a7;
-  v18 = -1LL;
-  v28 = 4LL;
-  v30 = 4LL;
-  v32 = 4LL;
+  v28 = &v52;
+  v29 = 4LL;
+  v30 = &a5;
+  v32 = &a6;
+  v34 = &a7;
+  v14 = 10;
+  v15 = -1LL;
+  v31 = 4LL;
+  v33 = 4LL;
+  v35 = 4LL;
   if ( a8 )
   {
-    a1 = -1LL;
+    v16 = -1LL;
     do
-      ++a1;
-    while ( a8[a1] );
-    v19 = 2 * a1 + 2;
+      ++v16;
+    while ( a8[v16] );
+    v17 = 2 * v16 + 2;
   }
   else
   {
-    v19 = 10;
+    v17 = 10;
   }
-  v34 = v19;
-  v35 = 0;
+  v37 = v17;
+  v38 = 0;
   if ( !a8 )
     v13 = L"NULL";
-  v33 = v13;
+  v36 = v13;
+  v18 = a9;
   if ( a9 )
   {
-    a1 = -1LL;
+    v19 = -1LL;
     do
-      ++a1;
-    while ( a9[a1] );
-    v20 = 2 * a1 + 2;
+      ++v19;
+    while ( a9[v19] );
+    v20 = 2 * v19 + 2;
   }
   else
   {
     v20 = 10;
   }
-  v37 = v20;
-  v38 = 0;
+  v40 = v20;
+  v41 = 0;
   if ( !a9 )
-    v16 = L"NULL";
-  v36 = v16;
+    v18 = L"NULL";
+  v39 = v18;
+  v21 = a10;
   if ( a10 )
   {
-    a1 = -1LL;
+    v22 = -1LL;
     do
-      ++a1;
-    while ( a10[a1] );
-    v21 = 2 * a1 + 2;
+      ++v22;
+    while ( a10[v22] );
+    v23 = 2 * v22 + 2;
   }
   else
   {
-    v21 = 10;
+    v23 = 10;
   }
-  v40 = v21;
-  v41 = 0;
+  v43 = v23;
+  v44 = 0;
   if ( !a10 )
-    v15 = L"NULL";
-  v39 = v15;
-  v22 = a11 == 0LL;
+    v21 = L"NULL";
+  v42 = v21;
+  v24 = a11;
+  v25 = a11 == 0LL;
   if ( a11 )
   {
     do
-      ++v18;
-    while ( a11[v18] );
-    v17 = 2 * v18 + 2;
-    v22 = a11 == 0LL;
+      ++v15;
+    while ( a11[v15] );
+    v14 = 2 * v15 + 2;
+    v25 = a11 == 0LL;
   }
-  v43 = v17;
-  v45 = &a12;
-  v44 = 0;
-  v47 = &a13;
-  v46 = 4LL;
-  if ( v22 )
-    v14 = L"NULL";
-  v42 = v14;
-  v48 = 8LL;
-  return McGenEventWrite_EtwWriteTransfer(a1, &ImmersiveMessageCheckDelayEvent, &W32kControlGuid, 0xBu, &v24);
+  v46 = v14;
+  v48 = &a12;
+  v47 = 0;
+  v50 = &a13;
+  v49 = 4LL;
+  if ( v25 )
+    v24 = L"NULL";
+  v45 = v24;
+  v51 = 8LL;
+  return McGenEventWrite_EtwWriteTransfer(v24, &ImmersiveMessageCheckDelayEvent, &W32kControlGuid, 11LL, v27);
 }

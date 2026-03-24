@@ -1,10 +1,9 @@
 /*
- * XREFs of ??B?$HmgLockResultBase@VMETA@@@@QEBA_NXZ @ 0x1C015F320
+ * XREFs of ??B?$HmgLockResultBase@VMETA@@@@QEBA_NXZ @ 0x1C016DBF8
  * Callers:
- *     GreSelectFontInternal @ 0x1C00BFA08 (GreSelectFontInternal.c)
- *     GreSelectFont @ 0x1C00E8510 (GreSelectFont.c)
- *     GreDeleteServerMetaFile @ 0x1C02B6DA0 (GreDeleteServerMetaFile.c)
- *     NtGdiGetServerMetaFileBits @ 0x1C02B6FB0 (NtGdiGetServerMetaFileBits.c)
+ *     UnlockDesktopMenu @ 0x1C0136510 (UnlockDesktopMenu.c)
+ *     GreDeleteServerMetaFile @ 0x1C02B8C84 (GreDeleteServerMetaFile.c)
+ *     NtGdiGetServerMetaFileBits @ 0x1C02B8E40 (NtGdiGetServerMetaFileBits.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,42 @@
 /*
- * XREFs of ApiSetEditionForegroundQAccessibleToMouseProducer @ 0x1C00C9854
+ * XREFs of ApiSetEditionForegroundQAccessibleToMouseProducer @ 0x1C0043318
  * Callers:
- *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0052A60 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
- *     _anonymous_namespace_::CancelCoolSwitchWithForegroundCheck @ 0x1C01F5608 (_anonymous_namespace_--CancelCoolSwitchWithForegroundCheck.c)
- *     ?ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C01F5920 (-ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z.c)
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C00423C4 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C004ABB0 (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ *     ?ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C009CC80 (-ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ApiSetEditionForegroundQAccessibleToMouseProducer(__int64 a1, __int64 a2, unsigned int a3)
 {
-  unsigned int v3; // ebx
+  unsigned int v5; // ebx
+  int v6; // eax
 
-  v3 = 0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      180,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   if ( *(_DWORD *)(a1 + 8) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1269LL);
-  if ( qword_1C0296438 && (int)qword_1C0296438() >= 0 && qword_1C0296440 )
-    return (unsigned int)qword_1C0296440(*(_QWORD *)a1, 1LL, a3);
-  return v3;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1482LL);
+  v5 = 0;
+  if ( qword_1C0257208 )
+    v6 = qword_1C0257208();
+  else
+    v6 = -1073741637;
+  if ( v6 >= 0 && qword_1C0257210 )
+    v5 = qword_1C0257210(*(_QWORD *)a1, 1LL, a3);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      181,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  return v5;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z @ 0x18029D52C
+ * XREFs of ?Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z @ 0x18025AE3C
  * Callers:
- *     ?EnsureHolographicClient@CHolographicManager@@AEAAJXZ @ 0x180295C00 (-EnsureHolographicClient@CHolographicManager@@AEAAJXZ.c)
+ *     ?EnsureHolographicClient@CHolographicManager@@AEAAJXZ @ 0x1802537B0 (-EnsureHolographicClient@CHolographicManager@@AEAAJXZ.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18007E4F4 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z @ 0x18029CE34 (-Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z.c)
- *     ??0CHolographicClient@@IEAA@PEAVCHolographicInteropTaskQueue@@0@Z @ 0x18029D1A4 (--0CHolographicClient@@IEAA@PEAVCHolographicInteropTaskQueue@@0@Z.c)
- *     ?Initialize@CHolographicClient@@AEAAJXZ @ 0x18029DB14 (-Initialize@CHolographicClient@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z @ 0x18025A808 (-Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z.c)
+ *     ??0CHolographicClient@@IEAA@PEAVCHolographicInteropTaskQueue@@0@Z @ 0x18025AB28 (--0CHolographicClient@@IEAA@PEAVCHolographicInteropTaskQueue@@0@Z.c)
+ *     ?Initialize@CHolographicClient@@AEAAJXZ @ 0x18025B3F4 (-Initialize@CHolographicClient@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CHolographicClient::Create(
@@ -18,50 +18,51 @@ __int64 __fastcall CHolographicClient::Create(
         struct CHolographicInteropTaskQueue **a2,
         struct CHolographicClient **a3)
 {
-  int v6; // eax
-  __int64 v7; // rcx
-  struct CHolographicInteropTaskQueue *v8; // rdi
-  unsigned int v9; // ebx
-  CHolographicClient *v10; // rax
-  __int64 v11; // rcx
-  CHolographicClient *v12; // rax
-  CHolographicClient *v13; // rsi
-  int v14; // eax
-  __int64 v15; // rcx
-  struct CHolographicInteropTaskQueue *v17; // [rsp+68h] [rbp+20h] BYREF
+  CRenderTargetBitmap *v4; // rbx
+  int v7; // eax
+  __int64 v8; // rcx
+  struct CHolographicInteropTaskQueue *v9; // rsi
+  unsigned int v10; // edi
+  CHolographicClient *v11; // rax
+  __int64 v12; // rcx
+  int v13; // eax
+  __int64 v14; // rcx
+  struct CHolographicInteropTaskQueue *v16; // [rsp+68h] [rbp+20h] BYREF
 
-  v17 = 0LL;
-  v6 = CHolographicInteropTaskQueue::Create(&v17);
-  v8 = v17;
-  v9 = v6;
-  if ( v6 < 0 )
+  v4 = 0LL;
+  v16 = 0LL;
+  v7 = CHolographicInteropTaskQueue::Create(&v16);
+  v9 = v16;
+  v10 = v7;
+  if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x14u);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x14u, 0LL);
+LABEL_10:
+    if ( v4 )
+      CRenderTargetBitmap::Release(v4);
+    goto LABEL_12;
   }
-  else
+  v11 = (CHolographicClient *)operator new(0x120uLL);
+  if ( v11 )
+    v4 = CHolographicClient::CHolographicClient(v11, a1, v9);
+  if ( v4 )
   {
-    v10 = (CHolographicClient *)operator new(0x120uLL);
-    if ( v10 && (v12 = CHolographicClient::CHolographicClient(v10, a1, v8), (v13 = v12) != 0LL) )
+    CMILCOMBase::InternalAddRef(v4);
+    v13 = CHolographicClient::Initialize(v4);
+    v10 = v13;
+    if ( v13 >= 0 )
     {
-      CMILRefCountImpl::AddReference((CHolographicClient *)((char *)v12 + 8));
-      v14 = CHolographicClient::Initialize(v13);
-      v9 = v14;
-      if ( v14 >= 0 )
-      {
-        *a2 = v8;
-        *a3 = v13;
-        return v9;
-      }
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0x1Au);
-      CMILRefCountBaseT<IUnknown>::InternalRelease((volatile signed __int32 *)v13);
+      *a2 = v9;
+      *a3 = v4;
+      return v10;
     }
-    else
-    {
-      v9 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, -2147024882, 0x17u);
-    }
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x1Au, 0LL);
+    goto LABEL_10;
   }
-  if ( v8 )
-    (*(void (__fastcall **)(struct CHolographicInteropTaskQueue *))(*(_QWORD *)v8 + 8LL))(v8);
-  return v9;
+  v10 = -2147024882;
+  MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, 0x17u, 0LL);
+LABEL_12:
+  if ( v9 )
+    (*(void (__fastcall **)(struct CHolographicInteropTaskQueue *))(*(_QWORD *)v9 + 8LL))(v9);
+  return v10;
 }

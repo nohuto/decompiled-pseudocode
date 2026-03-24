@@ -2,15 +2,15 @@
  * XREFs of MiFlushRelease @ 0x1400792CC
  * Callers:
  *     MmFlushSection @ 0x14001FFD8 (MmFlushSection.c)
- *     MmTrimSection @ 0x1400E96D0 (MmTrimSection.c)
- *     MiFreeOverlappedFlushEntry @ 0x1402B4964 (MiFreeOverlappedFlushEntry.c)
+ *     MmTrimSection @ 0x1400E96F0 (MmTrimSection.c)
+ *     MiFreeOverlappedFlushEntry @ 0x1402B4A64 (MiFreeOverlappedFlushEntry.c)
  *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
- *     MmFlushVirtualMemory @ 0x1406B6C3C (MmFlushVirtualMemory.c)
+ *     MmFlushVirtualMemory @ 0x1406B6C1C (MmFlushVirtualMemory.c)
  * Callees:
  *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
  *     MiDecrementSubsections @ 0x140079410 (MiDecrementSubsections.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiFlushRelease(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)

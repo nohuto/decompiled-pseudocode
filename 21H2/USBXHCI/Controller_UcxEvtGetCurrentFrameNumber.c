@@ -1,10 +1,10 @@
 /*
- * XREFs of Controller_UcxEvtGetCurrentFrameNumber @ 0x1C0001010
+ * XREFs of Controller_UcxEvtGetCurrentFrameNumber @ 0x1C0001B40
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_UcxEvtGetCurrentFrameNumber(__int64 a1, unsigned int *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall Controller_UcxEvtGetCurrentFrameNumber(__int64 a1, unsigned i
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0061428);
+         off_1C0060428);
   if ( *(_DWORD *)(v3 + 392) == 1 )
   {
     v4 = MEMORY[0xFFFFF78000000320] * *(unsigned int *)(v3 + 444) / 10000LL;
@@ -60,8 +60,8 @@ __int64 __fastcall Controller_UcxEvtGetCurrentFrameNumber(__int64 a1, unsigned i
         *(_QWORD *)(v3 + 72),
         v10,
         4,
-        175,
-        (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+        174,
+        (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
         v8);
     }
     *a2 = v8;

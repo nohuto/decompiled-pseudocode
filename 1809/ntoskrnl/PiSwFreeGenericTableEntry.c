@@ -1,5 +1,5 @@
 /*
- * XREFs of PiSwFreeGenericTableEntry @ 0x1406DC200
+ * XREFs of PiSwFreeGenericTableEntry @ 0x1406DC1E0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DisplayTelemetryEnabledCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C030D2C0
+ * XREFs of ?DisplayTelemetryEnabledCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C02B10C0
  * Callers:
  *     <none>
  * Callees:
- *     LogMonitorOnOffTelemetry @ 0x1C01F6890 (LogMonitorOnOffTelemetry.c)
+ *     LogMonitorOnOffTelemetry @ 0x1C017A470 (LogMonitorOnOffTelemetry.c)
  */
 
 __int64 __fastcall DisplayTelemetryEnabledCallback(struct DXGADAPTER *a1, __int64 a2)

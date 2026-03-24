@@ -1,7 +1,7 @@
 /*
- * XREFs of ??$InitLookAsideRef@UtagMENU@@@@YAEPEAUtagMENU@@@Z @ 0x1C00A179C
+ * XREFs of ??$InitLookAsideRef@UtagMENU@@@@YAEPEAUtagMENU@@@Z @ 0x1C01038F4
  * Callers:
- *     ?InternalCreateMenu@@YAPEAUtagMENU@@H@Z @ 0x1C00A1618 (-InternalCreateMenu@@YAPEAUtagMENU@@H@Z.c)
+ *     ?InternalCreateMenu@@YAPEAUtagMENU@@H@Z @ 0x1C0103838 (-InternalCreateMenu@@YAPEAUtagMENU@@H@Z.c)
  * Callees:
  *     <none>
  */

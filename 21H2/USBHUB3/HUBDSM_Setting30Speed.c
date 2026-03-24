@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_Setting30Speed @ 0x1C001EB00
+ * XREFs of HUBDSM_Setting30Speed @ 0x1C001E5C0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_ComputeDelayInNanoSecondsFromSpeedAttr @ 0x1C002E1E8 (HUBMISC_ComputeDelayInNanoSecondsFromSpeedAttr.c)
+ *     HUBMISC_ComputeDelayInNanoSecondsFromSpeedAttr @ 0x1C002DB64 (HUBMISC_ComputeDelayInNanoSecondsFromSpeedAttr.c)
  */
 
 __int64 __fastcall HUBDSM_Setting30Speed(__int64 a1)

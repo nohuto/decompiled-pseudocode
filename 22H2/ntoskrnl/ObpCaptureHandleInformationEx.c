@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpCaptureHandleInformationEx @ 0x1408A59E0
+ * XREFs of ObpCaptureHandleInformationEx @ 0x1408DCFF0
  * Callers:
  *     <none>
  * Callees:
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
+ *     <none>
  */
 
 __int64 __fastcall ObpCaptureHandleInformationEx(
@@ -14,28 +14,26 @@ __int64 __fastcall ObpCaptureHandleInformationEx(
         unsigned int a5,
         unsigned int *a6)
 {
-  unsigned int v10; // eax
-  unsigned int v11; // r9d
-  unsigned __int64 HandlePointer; // rax
-  int v13; // ecx
+  unsigned int v9; // r9d
+  unsigned __int64 v10; // r8
+  int v11; // ecx
 
-  v10 = *a6 + 40;
-  *a6 = v10;
-  if ( v10 >= 0x28 )
+  *a6 += 40;
+  if ( *a6 >= 0x28 )
   {
-    if ( a5 >= v10 )
+    if ( a5 >= *a6 )
     {
-      HandlePointer = ExGetHandlePointer(a3);
-      v11 = 0;
+      v9 = 0;
+      v10 = (*a3 >> 16) & 0xFFFFFFFFFFFFFFF0uLL;
       *(_QWORD *)(*(_QWORD *)a1 + 8LL) = a2;
-      v13 = ((__int64)*(unsigned int *)a3 >> 17) & 7 | 8;
+      v11 = ((__int64)*(unsigned int *)a3 >> 17) & 7 | 8;
       if ( (a3[1] & 0x2000000) == 0 )
-        LOBYTE(v13) = ((__int64)*(unsigned int *)a3 >> 17) & 7;
-      *(_DWORD *)(*(_QWORD *)a1 + 32LL) = v13 & 7;
-      *(_WORD *)(*(_QWORD *)a1 + 30LL) = *(unsigned __int8 *)(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(HandlePointer + 24) ^ (unsigned __int64)BYTE1(HandlePointer)]
+        LOBYTE(v11) = ((__int64)*(unsigned int *)a3 >> 17) & 7;
+      *(_DWORD *)(*(_QWORD *)a1 + 32LL) = v11 & 7;
+      *(_WORD *)(*(_QWORD *)a1 + 30LL) = *(unsigned __int8 *)(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v10 + 24) ^ (unsigned __int64)BYTE1(v10)]
                                                             + 40);
       *(_QWORD *)(*(_QWORD *)a1 + 16LL) = a4;
-      **(_QWORD **)a1 = HandlePointer + 48;
+      **(_QWORD **)a1 = v10 + 48;
       *(_WORD *)(*(_QWORD *)a1 + 28LL) = 0;
       *(_DWORD *)(*(_QWORD *)a1 + 24LL) = a3[1] & 0x1FFFFFF;
       *(_QWORD *)a1 += 40LL;
@@ -49,5 +47,5 @@ __int64 __fastcall ObpCaptureHandleInformationEx(
   {
     return (unsigned int)-1073741675;
   }
-  return v11;
+  return v9;
 }

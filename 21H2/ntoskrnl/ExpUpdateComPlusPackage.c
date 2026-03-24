@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpUpdateComPlusPackage @ 0x1409F7B3C
+ * XREFs of ExpUpdateComPlusPackage @ 0x14094B76C
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall ExpUpdateComPlusPackage(int a1)
@@ -19,12 +19,12 @@ __int64 __fastcall ExpUpdateComPlusPackage(int a1)
   Data = a1;
   Disposition = 0;
   KeyHandle = 0LL;
-  v1 = ZwOpenKey(&KeyHandle, 0x40000000u, &stru_140C091B8);
+  v1 = ZwOpenKey(&KeyHandle, 0x40000000u, &stru_140C0F010);
   if ( v1 == -1073741772 )
-    v1 = ZwCreateKey(&KeyHandle, 0x40000000u, &stru_140C091B8, 0, 0LL, 0, &Disposition);
+    v1 = ZwCreateKey(&KeyHandle, 0x40000000u, &stru_140C0F010, 0, 0LL, 0, &Disposition);
   if ( v1 >= 0 )
   {
-    v1 = ZwSetValueKey(KeyHandle, &stru_140C044E0, 0, 4u, &Data, 4u);
+    v1 = ZwSetValueKey(KeyHandle, &stru_140C020C0, 0, 4u, &Data, 4u);
     ZwClose(KeyHandle);
   }
   return (unsigned int)v1;

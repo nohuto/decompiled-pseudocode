@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  */
 
 __int64 __fastcall ViFilterRemoveNotificationCompletion(__int64 a1, __int64 a2)

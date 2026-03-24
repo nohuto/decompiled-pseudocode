@@ -1,10 +1,9 @@
 /*
- * XREFs of Command_GetSupportedExtendedCapabilityCommandCompletion @ 0x1C002FBC0
+ * XREFs of Command_GetSupportedExtendedCapabilityCommandCompletion @ 0x1C002E1F0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_L @ 0x1C0013710 (WPP_RECORDER_SF_L.c)
- *     WPP_RECORDER_SF_D @ 0x1C0018114 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
  */
 
 LONG __fastcall Command_GetSupportedExtendedCapabilityCommandCompletion(__int64 a1)
@@ -26,18 +25,18 @@ LONG __fastcall Command_GetSupportedExtendedCapabilityCommandCompletion(__int64 
     {
       v6 = v4;
       LOBYTE(v4) = 4;
-      WPP_RECORDER_SF_D(*(_QWORD *)(v3 + 16), v4, 7, 25, (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids, v6);
+      WPP_RECORDER_SF_d(*(_QWORD *)(v3 + 16), v4, 7, 25, (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids, v6);
     }
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v2) = 3;
-    WPP_RECORDER_SF_L(
+    WPP_RECORDER_SF_d(
       *(_QWORD *)(v3 + 16),
       v2,
       7,
       26,
-      (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids,
+      (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids,
       *(_BYTE *)(a1 + 60));
   }
   return KeSetEvent((PRKEVENT)(v1 + 13), 0, 0);

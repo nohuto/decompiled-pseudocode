@@ -1,12 +1,12 @@
 /*
- * XREFs of RawSetInformation @ 0x1409B53D8
+ * XREFs of RawSetInformation @ 0x14090F7D8
  * Callers:
- *     RawDispatch @ 0x14074B9B0 (RawDispatch.c)
+ *     RawDispatch @ 0x14071AB40 (RawDispatch.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     RawEndOperation @ 0x1402D2B6C (RawEndOperation.c)
- *     RawBeginOperation @ 0x1402D2BA0 (RawBeginOperation.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     RawEndOperation @ 0x140360738 (RawEndOperation.c)
+ *     RawBeginOperation @ 0x14036096C (RawBeginOperation.c)
  */
 
 __int64 __fastcall RawSetInformation(__int64 a1, IRP *a2, __int64 a3)

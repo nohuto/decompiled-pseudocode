@@ -1,104 +1,92 @@
 /*
- * XREFs of HvpSetRangeProtection @ 0x14079B0D0
+ * XREFs of HvpSetRangeProtection @ 0x140709E78
  * Callers:
- *     HvpAddBin @ 0x14068C820 (HvpAddBin.c)
- *     HvpResetPageProtection @ 0x1406C61D8 (HvpResetPageProtection.c)
- *     HvpMarkDirty @ 0x14071F430 (HvpMarkDirty.c)
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x14091A9EC (HvpApplyLogEntryDataToFileBackedHive.c)
- *     HvpPerformLogFileRecovery @ 0x14091ADA0 (HvpPerformLogFileRecovery.c)
+ *     HvpResetPageProtection @ 0x140646428 (HvpResetPageProtection.c)
+ *     HvpMarkDirty @ 0x140708560 (HvpMarkDirty.c)
+ *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x140873D3C (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpPerformLogFileRecovery @ 0x1408740BC (HvpPerformLogFileRecovery.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     HvpViewMapSealRange @ 0x14068DE2C (HvpViewMapSealRange.c)
- *     HvpViewMapCOWAndUnsealRange @ 0x14068DF38 (HvpViewMapCOWAndUnsealRange.c)
- *     HvpProtectBinPartial @ 0x1406C9BF4 (HvpProtectBinPartial.c)
- *     HvpMapEntryGetFreeBin @ 0x14079B740 (HvpMapEntryGetFreeBin.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140AB44A4 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetCellMap @ 0x140AB44C0 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140AB451C (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140AB4534 (HvpGetBinContextInitialize.c)
+ *     ExProtectPoolEx @ 0x140362BE8 (ExProtectPoolEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HvpMapEntryGetFreeBin @ 0x14070810C (HvpMapEntryGetFreeBin.c)
+ *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
+ *     HvpViewMapSealRange @ 0x140723C50 (HvpViewMapSealRange.c)
+ *     HvpViewMapCOWAndUnsealRange @ 0x140723D80 (HvpViewMapCOWAndUnsealRange.c)
  */
 
 __int64 __fastcall HvpSetRangeProtection(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,
         unsigned int a3,
-        int a4)
+        unsigned int a4)
 {
-  unsigned int v7; // ebx
-  int v8; // r8d
+  unsigned int v5; // edi
+  unsigned int v6; // ebx
   __int64 CellMap; // rax
   __int64 FreeBin; // rax
-  unsigned int *v11; // rcx
-  unsigned int v12; // r11d
-  __int64 v13; // rax
-  __int64 v14; // rcx
-  char v15; // r8
-  __int64 v16; // r10
-  int v17; // r11d
-  unsigned int v18; // esi
-  __int64 v19; // rcx
+  _DWORD *v10; // rcx
+  int v11; // r10d
+  __int64 v12; // rax
+  char v13; // r8
+  unsigned int v14; // r10d
+  unsigned __int64 v15; // r11
+  unsigned int v16; // esi
+  ULONG_PTR v17; // rcx
   __int64 result; // rax
-  __int64 BinAddress; // rax
-  __int64 v22; // r8
-  unsigned int v23; // r11d
-  int v24; // eax
-  __int64 v25; // rdx
-  unsigned int v26; // ecx
-  __int16 v27; // [rsp+50h] [rbp+8h] BYREF
 
-  v27 = 0;
-  v7 = BugCheckParameter3;
-  HvpGetBinContextInitialize(&v27);
-  if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 0x11) == 0 && v8 )
+  v5 = a3;
+  v6 = BugCheckParameter3;
+  if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 0x11) == 0 && a3 )
   {
-    do
+    while ( 1 )
     {
-      CellMap = HvpGetCellMap(BugCheckParameter2, v7);
+      CellMap = HvpGetCellMap(BugCheckParameter2, v6);
       if ( !CellMap )
-        KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v7, 0x445uLL);
+        KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v6, 0x40CuLL);
       if ( (*(_QWORD *)(CellMap + 8) & 0xFFFFFFFFFFFFFFF0uLL) == 0 )
       {
-        v7 += 4096;
-        a3 -= 4096;
-        continue;
+        v5 -= 4096;
+        v16 = 4096;
+        goto LABEL_14;
       }
-      FreeBin = HvpMapEntryGetFreeBin(CellMap);
-      if ( FreeBin )
-        v12 = v7 - *(_DWORD *)(FreeBin + 20);
-      else
-        v12 = *v11;
-      v13 = HvpGetCellMap(BugCheckParameter2, v7 - v12);
-      v18 = *(_DWORD *)(v13 + 16) - v17;
-      if ( a3 < v18 )
-        v18 = a3;
-      if ( (v15 & 8) != 0 )
+      FreeBin = HvpMapEntryGetFreeBin((_BYTE *)CellMap);
+      v11 = FreeBin ? v6 - *(_DWORD *)(FreeBin + 20) : *v10;
+      v12 = HvpGetCellMap(BugCheckParameter2, v6 - v11);
+      v16 = v5;
+      if ( v5 >= *(_DWORD *)(v12 + 16) - v14 )
+        v16 = *(_DWORD *)(v12 + 16) - v14;
+      if ( (v13 & 8) != 0 )
+        break;
+      if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 0x20000) == 0 )
       {
-        BinAddress = HvpMapEntryGetBinAddress(v14, v16, &v27);
-        v24 = HvpProtectBinPartial(BugCheckParameter2, BinAddress, v22, v23, v18, a4 == 4);
-        HvpMapEntryReleaseBinAddress(v24 >= 0, v25, &v27);
-        result = v26;
-        if ( !v26 )
+        result = 1LL;
+LABEL_19:
+        if ( !(_DWORD)result )
           goto LABEL_23;
+        goto LABEL_13;
       }
-      else if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 0x20000) != 0 )
+      v17 = BugCheckParameter2 + 216;
+      if ( a4 == 2 )
       {
-        v19 = BugCheckParameter2 + 224;
-        if ( a4 == 2 )
-        {
-          HvpViewMapSealRange(v19, v7, v18);
-        }
-        else if ( (int)HvpViewMapCOWAndUnsealRange(v19, v7, v18) < 0 )
-        {
-          result = 0LL;
-LABEL_23:
-          if ( a4 == 4 )
-            return result;
-        }
+        HvpViewMapSealRange(v17, v6, v16);
       }
-      a3 -= v18;
-      v7 += v18;
+      else if ( (int)HvpViewMapCOWAndUnsealRange(v17, v6, v16) < 0 )
+      {
+        result = 0LL;
+LABEL_23:
+        if ( a4 == 4 )
+          return result;
+      }
+LABEL_13:
+      v5 -= v16;
+LABEL_14:
+      v6 += v16;
+      if ( !v5 )
+        return 1LL;
     }
-    while ( a3 );
+    result = ExProtectPoolEx(v15, v15 + v14, v16, a4);
+    goto LABEL_19;
   }
   return 1LL;
 }

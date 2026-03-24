@@ -1,42 +1,46 @@
 /*
- * XREFs of ?PresentMPO@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x1800C743C
+ * XREFs of ?PresentMPO@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x180240130
  * Callers:
- *     ?PresentMPO@CLegacySwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x1800C7370 (-PresentMPO@CLegacySwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_.c)
- *     ?InternalPresentDFlip@CLegacySwapChain@@MEAAJ_N0IIIIPEAUIUnknown@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_METADATA_TYPE@@PEBXAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@5@Z @ 0x18029B480 (-InternalPresentDFlip@CLegacySwapChain@@MEAAJ_N0IIIIPEAUIUnknown@@W4DXGI_COLOR_SPACE_TYPE@@W4DXG.c)
+ *     ?PresentDFlip@CLegacySwapChain@@UEAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_METADATA_TYPE@@PEBXAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x180249DA4 (-PresentDFlip@CLegacySwapChain@@UEAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_M.c)
+ *     ?PresentMPO@CLegacySwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x18024A014 (-PresentMPO@CLegacySwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CheckForLeakedDWMSwapChain@CD3DDevice@@CAXPEAUIDXGISwapChainDWM1@@@Z @ 0x1800C71B4 (-CheckForLeakedDWMSwapChain@CD3DDevice@@CAXPEAUIDXGISwapChainDWM1@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180078718 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x18008F604 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ?CheckForLeakedDWMSwapChain@CD3DDevice@@AEAAXPEAUIDXGISwapChainDWM1@@@Z @ 0x1800DFF24 (-CheckForLeakedDWMSwapChain@CD3DDevice@@AEAAXPEAUIDXGISwapChainDWM1@@@Z.c)
+ *     ?SkipUnpin@CD3DDevice@@QEAAXXZ @ 0x1800ECCC0 (-SkipUnpin@CD3DDevice@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CD3DDevice::PresentMPO(CD3DDevice *this, struct IDXGISwapChainDWM1 *a2)
+__int64 __fastcall CD3DDevice::PresentMPO(CD3DDevice *this, struct IDXGISwapChainDWM1 *a2, __int64 a3, char a4)
 {
-  int v2; // ebx
-  __int64 v5; // rcx
-  __int64 v6; // rax
+  int v4; // ebx
+  __int64 v8; // rcx
+  CD3DDevice *v9; // rcx
+  int v10; // r8d
 
-  v2 = *((_DWORD *)this + 272);
-  if ( v2 < 0 )
+  v4 = *((_DWORD *)this + 282);
+  if ( v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v2, 0x334u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v4, 0xC39u, 0LL);
   }
   else
   {
-    v2 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 28) + 112LL))(*((_QWORD *)this + 28));
-    if ( v2 < 0 )
+    v4 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 33) + 112LL))(*((_QWORD *)this + 33));
+    if ( v4 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v2, 0x33Eu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v4, 0xC4Bu, 0LL);
     }
     else
     {
-      v6 = 0LL;
-      if ( g_pComposition )
-        v6 = *((_QWORD *)g_pComposition + 62);
-      *((_QWORD *)this + 186) = v6;
-      *((_BYTE *)this + 1507) = 0;
-      if ( v2 == 142213121 )
-        CD3DDevice::CheckForLeakedDWMSwapChain(a2);
+      *((_QWORD *)this + 177) = GetCurrentFrameId();
+      *((_BYTE *)this + 1435) = 0;
+      if ( v4 == 142213121 )
+        CD3DDevice::CheckForLeakedDWMSwapChain(v9, a2);
     }
   }
-  return CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this, v2, 1);
+  v10 = CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this, v4, 1u);
+  if ( v10 < 0 || (a4 & 2) != 0 )
+    CD3DDevice::SkipUnpin(this);
+  return (unsigned int)v10;
 }

@@ -1,10 +1,9 @@
 /*
- * XREFs of HalAcpiGetTable @ 0x140394D60
+ * XREFs of HalAcpiGetTable @ 0x1403CA210
  * Callers:
- *     HalpAddDevice @ 0x140836770 (HalpAddDevice.c)
- *     HalpDbgInitSystem @ 0x140A8F2C0 (HalpDbgInitSystem.c)
+ *     HalpDbgInitSystem @ 0x1409A1280 (HalpDbgInitSystem.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
  */
 
 __int64 __fastcall HalAcpiGetTable(__int64 a1, int a2)

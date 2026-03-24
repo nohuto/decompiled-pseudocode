@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpExtGetAcpiTable @ 0x14050D5E0
+ * XREFs of HalpExtGetAcpiTable @ 0x1404C41A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
  */
 
 __int64 __fastcall HalpExtGetAcpiTable(__int64 a1, int a2, int a3, int a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of IsWindowContentProtected @ 0x1C00CF0C0
+ * XREFs of IsWindowContentProtected @ 0x1C0038814
  * Callers:
- *     zzzComposeDesktop @ 0x1C0058DA4 (zzzComposeDesktop.c)
- *     _VisrgnFromWindow @ 0x1C005AC9C (_VisrgnFromWindow.c)
- *     CreateSprite @ 0x1C00CD224 (CreateSprite.c)
- *     ProtectedContentAccessCheck @ 0x1C00CF0E8 (ProtectedContentAccessCheck.c)
- *     CreateOrGetRedirectionBitmap @ 0x1C00D564C (CreateOrGetRedirectionBitmap.c)
+ *     CreateSprite @ 0x1C0038614 (CreateSprite.c)
+ *     ProtectedContentAccessCheck @ 0x1C0078E6C (ProtectedContentAccessCheck.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C00BEDE8 (CreateOrGetRedirectionBitmap.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
+ *     _VisrgnFromWindow @ 0x1C011CB48 (_VisrgnFromWindow.c)
  * Callees:
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
  */
 
 __int64 __fastcall IsWindowContentProtected(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiAcpiExposeInfo @ 0x1C0218024
+ * XREFs of DpiAcpiExposeInfo @ 0x1C01972C8
  * Callers:
- *     DpiFdoEnumChildDevices @ 0x1C0217450 (DpiFdoEnumChildDevices.c)
+ *     DpiFdoEnumChildDevices @ 0x1C0197594 (DpiFdoEnumChildDevices.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     DpiAcpiPrepareAcpiChildNameList @ 0x1C02179B4 (DpiAcpiPrepareAcpiChildNameList.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DpiAcpiPrepareAcpiChildNameList @ 0x1C0197AD8 (DpiAcpiPrepareAcpiChildNameList.c)
  */
 
 __int64 __fastcall DpiAcpiExposeInfo(__int64 a1)
@@ -14,71 +14,76 @@ __int64 __fastcall DpiAcpiExposeInfo(__int64 a1)
   __int64 result; // rax
   NTSTATUS v3; // ebx
   wchar_t *Buffer; // rax
-  CHAR *Pool2; // rax
-  wchar_t *v6; // rax
-  unsigned int v7; // r14d
-  wchar_t *v8; // rdi
+  CHAR *PoolWithTag; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  wchar_t *v10; // rax
+  unsigned int v11; // r14d
+  wchar_t *v12; // rdi
+  __int64 v13; // rax
   struct _STRING Destination; // [rsp+40h] [rbp-79h] BYREF
   void *KeyHandle; // [rsp+50h] [rbp-69h] BYREF
   HANDLE Handle; // [rsp+58h] [rbp-61h] BYREF
   struct _STRING DestinationString; // [rsp+60h] [rbp-59h] BYREF
   STRING Source; // [rsp+70h] [rbp-49h] BYREF
-  _QWORD v14[2]; // [rsp+80h] [rbp-39h] BYREF
+  _QWORD v19[2]; // [rsp+80h] [rbp-39h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-29h] BYREF
-  _OWORD v16[2]; // [rsp+C0h] [rbp+7h] BYREF
-  int v17; // [rsp+E0h] [rbp+27h]
-  wchar_t v18; // [rsp+E4h] [rbp+2Bh]
+  _OWORD v21[2]; // [rsp+C0h] [rbp+7h] BYREF
+  int v22; // [rsp+E0h] [rbp+27h]
+  wchar_t v23; // [rsp+E4h] [rbp+2Bh]
 
   v1 = *(struct _UNICODE_STRING **)(a1 + 64);
   *(_QWORD *)&Source.Length = 65537LL;
   Source.Buffer = (PCHAR)File;
   *(_QWORD *)&Destination.Length = 0LL;
   Destination.Buffer = 0LL;
-  result = DpiAcpiPrepareAcpiChildNameList((__int64)v1);
+  result = DpiAcpiPrepareAcpiChildNameList(v1);
   v3 = result;
   if ( (int)result >= 0 )
   {
-    Buffer = v1[206].Buffer;
+    Buffer = v1[205].Buffer;
     if ( *(_DWORD *)Buffer == 1198089537 && *((_DWORD *)Buffer + 1) )
     {
       Destination.MaximumLength = 4096;
-      Pool2 = (CHAR *)ExAllocatePool2(256LL, 4096LL, 1953656900LL);
-      Destination.Buffer = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (CHAR *)ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x74727044u);
+      Destination.Buffer = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memset(Pool2, 0, Destination.MaximumLength);
-        v6 = v1[206].Buffer;
-        v7 = 1;
-        v8 = v6 + 4;
-        if ( *((_DWORD *)v6 + 1) > 1u )
+        memset(PoolWithTag, 0, Destination.MaximumLength);
+        v10 = v1[205].Buffer;
+        v11 = 1;
+        v12 = v10 + 4;
+        if ( *((_DWORD *)v10 + 1) > 1u )
         {
           do
           {
-            v8 = (wchar_t *)((char *)v8 + *((unsigned int *)v8 + 1) + 8);
-            if ( (*(_BYTE *)v8 & 1) == 0 )
+            v12 = (wchar_t *)((char *)v12 + *((unsigned int *)v12 + 1) + 8);
+            if ( (*(_BYTE *)v12 & 1) == 0 )
             {
               DestinationString = 0LL;
-              RtlInitAnsiString(&DestinationString, (PCSZ)v8 + 8);
+              RtlInitAnsiString(&DestinationString, (PCSZ)v12 + 8);
               RtlAppendStringToString(&Destination, &DestinationString);
               RtlAppendStringToString(&Destination, &Source);
             }
-            ++v7;
+            ++v11;
           }
-          while ( v7 < *((_DWORD *)v1[206].Buffer + 1) );
+          while ( v11 < *((_DWORD *)v1[205].Buffer + 1) );
         }
         if ( !Destination.Buffer )
           return (unsigned int)v3;
         if ( Destination.Length )
         {
-          v17 = *(_DWORD *)L"FO";
-          v18 = aDisplayAcpiInf[18];
-          v14[0] = 2490404LL;
-          v14[1] = v16;
-          v16[0] = *(_OWORD *)L"_DISPLAY_ACPI_INFO";
+          v22 = *(_DWORD *)L"FO";
+          v23 = aDisplayAcpiInf[18];
+          v19[0] = 2490404LL;
+          v19[1] = v21;
+          v21[0] = *(_OWORD *)L"_DISPLAY_ACPI_INFO";
           *(_QWORD *)&DestinationString.Length = 0LL;
           DestinationString.Buffer = 0LL;
           KeyHandle = 0LL;
-          v16[1] = *(_OWORD *)L"_ACPI_INFO";
+          v21[1] = *(_OWORD *)L"_ACPI_INFO";
           Handle = 0LL;
           *(_QWORD *)&ObjectAttributes.Length = 48LL;
           *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
@@ -89,7 +94,7 @@ __int64 __fastcall DpiAcpiExposeInfo(__int64 a1)
           if ( v3 >= 0 )
           {
             ObjectAttributes.RootDirectory = KeyHandle;
-            ObjectAttributes.ObjectName = (PUNICODE_STRING)v14;
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)v19;
             ObjectAttributes.Length = 48;
             ObjectAttributes.Attributes = 576;
             *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -112,7 +117,9 @@ __int64 __fastcall DpiAcpiExposeInfo(__int64 a1)
       else
       {
         v3 = -1073741801;
-        WdLogSingleEntry1(6LL, -1073741801LL);
+        v13 = WdLogNewEntry5_WdLowResource(v7, v6, v8, v9);
+        *(_QWORD *)(v13 + 24) = -1073741801LL;
+        WdLogEvent5_WdLowResource(v13);
       }
     }
     else

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInsertNewCombineBlocks @ 0x140245D28
+ * XREFs of MiInsertNewCombineBlocks @ 0x14036B858
  * Callers:
- *     MiAllocateCombineProto @ 0x14026AB70 (MiAllocateCombineProto.c)
+ *     MiAllocateCombineProto @ 0x140367E10 (MiAllocateCombineProto.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiLockPagedRange @ 0x1406C2718 (MiLockPagedRange.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiLockPagedRange @ 0x140727860 (MiLockPagedRange.c)
  */
 
 _QWORD *__fastcall MiInsertNewCombineBlocks(__int64 a1, _QWORD *a2)

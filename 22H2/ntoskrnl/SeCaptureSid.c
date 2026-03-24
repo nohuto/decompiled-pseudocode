@@ -1,21 +1,21 @@
 /*
- * XREFs of SeCaptureSid @ 0x1406BB2CC
+ * XREFs of SeCaptureSid @ 0x1405DE46C
  * Callers:
- *     SeAccessCheckByType @ 0x1402B3A90 (SeAccessCheckByType.c)
- *     NtCreateTokenEx @ 0x1406BB530 (NtCreateTokenEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x14071333C (ExpWnfCaptureScopeInstanceId.c)
- *     AlpcpConnectPort @ 0x1407173E0 (AlpcpConnectPort.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x1407AB5FC (AlpcpPortQueryConnectedSidInfo.c)
- *     NtSecureConnectPort @ 0x1407C43C0 (NtSecureConnectPort.c)
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x1407F2AC0 (NtCreateLowBoxToken.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x140345AC0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     NtCreateTokenEx @ 0x1405DC930 (NtCreateTokenEx.c)
+ *     NtSecureConnectPort @ 0x1405DDC90 (NtSecureConnectPort.c)
+ *     AlpcpConnectPort @ 0x1405DF5BC (AlpcpConnectPort.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14060FD88 (ExpWnfCaptureScopeInstanceId.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x1406616E8 (AlpcpPortQueryConnectedSidInfo.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x1406EF370 (NtCreateLowBoxToken.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlValidSid @ 0x1407378A0 (RtlValidSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlValidSid @ 0x1406D54E0 (RtlValidSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureSid(char *Src, char a2, __int64 a3, __int64 a4, int a5, char a6, PSID *a7)
@@ -57,7 +57,7 @@ __int64 __fastcall SeCaptureSid(char *Src, char a2, __int64 a3, __int64 a4, int 
     v11 = 4 * v10 + 8;
   }
   v13 = v11;
-  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)1025, v11, 0x69536553u);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v11, 0x69536553u);
   *a7 = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225626LL;

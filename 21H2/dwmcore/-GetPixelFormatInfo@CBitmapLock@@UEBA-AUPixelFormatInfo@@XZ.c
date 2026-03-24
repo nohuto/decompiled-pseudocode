@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CBitmapLock@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800E9A10
+ * XREFs of ?GetPixelFormatInfo@CBitmapLock@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800D4390
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CBitmapLock::GetPixelFormatInfo(__int64 a1, __int64 a2)
@@ -11,10 +11,10 @@ __int64 __fastcall CBitmapLock::GetPixelFormatInfo(__int64 a1, __int64 a2)
   int v4; // eax
   struct _RTL_CRITICAL_SECTION *v6; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = (struct _RTL_CRITICAL_SECTION *)(a1 + 32);
-  EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 32));
-  v4 = *(_DWORD *)(a1 + 108);
-  *(_QWORD *)a2 = *(_QWORD *)(a1 + 100);
+  v6 = (struct _RTL_CRITICAL_SECTION *)(a1 + 24);
+  EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 24));
+  v4 = *(_DWORD *)(a1 + 100);
+  *(_QWORD *)a2 = *(_QWORD *)(a1 + 92);
   *(_DWORD *)(a2 + 8) = v4;
   CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v6);
   return a2;

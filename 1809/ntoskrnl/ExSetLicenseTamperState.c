@@ -1,5 +1,5 @@
 /*
- * XREFs of ExSetLicenseTamperState @ 0x1408CEB70
+ * XREFs of ExSetLicenseTamperState @ 0x1408CEB50
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExpSetKernelDataProtection @ 0x1405A15F4 (ExpSetKernelDataProtection.c)
  *     ExpGetKernelDataProtection @ 0x1405A1B24 (ExpGetKernelDataProtection.c)
  *     sub_1405A23DC @ 0x1405A23DC (sub_1405A23DC.c)

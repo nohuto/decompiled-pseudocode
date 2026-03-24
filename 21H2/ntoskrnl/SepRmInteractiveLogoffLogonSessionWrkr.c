@@ -1,9 +1,9 @@
 /*
- * XREFs of SepRmInteractiveLogoffLogonSessionWrkr @ 0x14069BB90
+ * XREFs of SepRmInteractiveLogoffLogonSessionWrkr @ 0x14077A420
  * Callers:
- *     SepRmCommandServerThread @ 0x14083B300 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407AD230 (SepRmCommandServerThread.c)
  * Callees:
- *     SepDeleteLogonSessionTrack @ 0x14069BDD0 (SepDeleteLogonSessionTrack.c)
+ *     SepDeleteLogonSessionTrack @ 0x14077A670 (SepDeleteLogonSessionTrack.c)
  */
 
 __int64 __fastcall SepRmInteractiveLogoffLogonSessionWrkr(__int64 a1, __int64 a2)

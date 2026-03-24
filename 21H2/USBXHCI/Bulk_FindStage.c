@@ -1,14 +1,14 @@
 /*
- * XREFs of Bulk_FindStage @ 0x1C000B5B0
+ * XREFs of Bulk_FindStage @ 0x1C000BD10
  * Callers:
- *     Bulk_ProcessTransferEventWithED0 @ 0x1C000AE90 (Bulk_ProcessTransferEventWithED0.c)
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C000E0D4 (Bulk_ProcessTransferEventWithED1.c)
- *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C00448B8 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DBF8 (Bulk_ProcessTransferEventWithED0.c)
+ *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C00442A0 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
  * Callees:
- *     TR_DoesSegmentContainDequeuePointer @ 0x1C000B6E4 (TR_DoesSegmentContainDequeuePointer.c)
- *     WPP_RECORDER_SF_DDDqq @ 0x1C000EBF0 (WPP_RECORDER_SF_DDDqq.c)
- *     StageQueue_ForwardScanGetNextStage @ 0x1C000FA58 (StageQueue_ForwardScanGetNextStage.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
+ *     TR_DoesSegmentContainDequeuePointer @ 0x1C000BE44 (TR_DoesSegmentContainDequeuePointer.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C000C530 (StageQueue_ForwardScanGetNextStage.c)
+ *     WPP_RECORDER_SF_DDDqq @ 0x1C000CFB8 (WPP_RECORDER_SF_DDDqq.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
  */
 
 char __fastcall Bulk_FindStage(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
@@ -39,7 +39,7 @@ char __fastcall Bulk_FindStage(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
       {
         v18 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
         LOBYTE(v18) = 4;
-        WPP_RECORDER_SF_ddd(
+        WPP_RECORDER_SF_ddL(
           *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
           v18,
           14,
@@ -104,7 +104,7 @@ LABEL_10:
   {
     v17 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
     LOBYTE(v17) = 4;
-    WPP_RECORDER_SF_ddd(
+    WPP_RECORDER_SF_ddL(
       *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
       v17,
       14,

@@ -1,38 +1,25 @@
 /*
- * XREFs of KiDebugTrapOrFault @ 0x14042C940
+ * XREFs of KiDebugTrapOrFault @ 0x14040A940
  * Callers:
- *     KiDebugTrapOrFaultShadow @ 0x140AB5180 (KiDebugTrapOrFaultShadow.c)
+ *     KiDebugTrapOrFaultShadow @ 0x140A14180 (KiDebugTrapOrFaultShadow.c)
  * Callees:
- *     VslKernelShadowStackAssist @ 0x14054EA40 (VslKernelShadowStackAssist.c)
+ *     <none>
  */
 
-__int64 __fastcall KiDebugTrapOrFault(
-        __int64 a1,
-        __int64 a2,
-        int a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        __int64 a7,
-        __int64 a8)
+__int64 __fastcall KiDebugTrapOrFault(int a1, int a2, int a3, int a4, __int64 a5, int a6, __int64 a7, __int64 a8)
 {
   bool v8; // zf
   __int64 v9; // rcx
-  void *retaddr; // [rsp+B8h] [rbp+0h]
-  char v17; // [rsp+C0h] [rbp+8h]
+  void *retaddr; // [rsp+0h] [rbp+0h]
+  char v13; // [rsp+8h] [rbp+8h]
+  __int64 v14; // [rsp+10h] [rbp+10h]
+  __int64 v15; // [rsp+20h] [rbp+20h]
 
-  v8 = (v17 & 1) == 0;
-  if ( (v17 & 1) != 0 )
+  v8 = (v13 & 1) == 0;
+  if ( (v13 & 1) != 0 )
   {
 LABEL_6:
-    if ( v8 )
-    {
-      _mm_lfence();
-      __asm { rdsspq  rdx }
-      if ( _RDX )
-        VslKernelShadowStackAssist(2, (_DWORD)_RDX, 0, *_RDX, 0LL, 4);
-    }
-    else if ( (KiKvaShadow & 1) != 0 )
+    if ( v8 || (KiKvaShadow & 1) != 0 )
     {
       _mm_lfence();
     }
@@ -41,17 +28,8 @@ LABEL_6:
       __asm { swapgs }
       _mm_lfence();
       __asm { swapgs }
-      __asm { rdsspq  rdx }
-      if ( _RDX )
-      {
-        __asm
-        {
-          clrssbsy qword ptr [rdx]
-          setssbsy
-        }
-      }
     }
-    return KxDebugTrapOrFault(a1, a2, retaddr, a4);
+    return KxDebugTrapOrFault(v15, v14);
   }
   else
   {

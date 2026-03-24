@@ -1,240 +1,218 @@
 /*
- * XREFs of ?xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z @ 0x1C022CF04
+ * XREFs of ?xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z @ 0x1C015B99C
  * Callers:
- *     NtUserSetWindowWord @ 0x1C01DD860 (NtUserSetWindowWord.c)
+ *     NtUserSetWindowWord @ 0x1C015B8C0 (NtUserSetWindowWord.c)
  * Callees:
- *     ??1CProcessAttachDetach@@QEAA@XZ @ 0x1C00CA914 (--1CProcessAttachDetach@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     Feature_Backport_UserModeTooltips__private_IsEnabledDeviceUsage @ 0x1C0139CA0 (Feature_Backport_UserModeTooltips__private_IsEnabledDeviceUsage.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     FCallerOk @ 0x1C022D438 (FCallerOk.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     FCallerOk @ 0x1C00FB0AC (FCallerOk.c)
  */
 
-__int64 __fastcall xxxSetWindowWord(struct tagWND *a1, unsigned int a2, unsigned __int16 a3)
+__int64 __fastcall xxxSetWindowWord(struct tagWND *a1, int a2, unsigned __int16 a3)
 {
-  int v3; // r15d
-  __int64 v4; // rbx
-  __int64 v6; // r8
-  __int64 v7; // rsi
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v9; // r8
-  __int64 v10; // rdx
+  int v3; // r12d
+  unsigned __int64 v4; // rsi
+  char v6; // bl
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // r15
   __int64 v11; // rcx
-  __int64 v12; // r14
-  __int64 v13; // rax
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  __int64 v17; // rax
-  __int64 v18; // r8
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // r14
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  __int64 v24; // rax
-  __int64 v25; // r9
-  bool v26; // sf
-  int v27; // ecx
-  __int64 v28; // rdx
-  _DWORD *v29; // rdx
-  _DWORD *v30; // rax
-  __int16 *v31; // rdx
-  unsigned int v32; // ecx
-  __int16 v33; // r8
-  _DWORD *v34; // rdx
-  __int64 v35; // r14
-  BOOL v36; // ecx
-  int v37; // eax
-  __int64 v38; // rcx
-  unsigned __int64 v39; // rdx
-  int v40; // ebx
-  __int64 v41; // r8
-  _WORD *v42; // rax
-  __int64 v43; // rcx
-  char v44; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v12; // r9
+  bool v13; // sf
+  unsigned __int64 v14; // r9
+  _WORD *v15; // rdx
+  unsigned __int64 v16; // rdx
+  int v17; // esi
+  __int64 v18; // rdx
+  unsigned __int16 *v19; // rax
+  unsigned __int16 v20; // si
+  __int64 result; // rax
+  __int64 v22; // rcx
+  __int64 v23; // r15
+  __int64 v24; // rcx
+  __int64 CurrentProcessWin32Process; // rax
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  __int64 v28; // rcx
+  __int64 v29; // rcx
+  __int64 v30; // rdx
+  int *v31; // rdx
+  int *v32; // rax
+  int v33; // ebx
+  unsigned int v34; // ecx
+  _DWORD *v35; // r10
+  __int64 v36; // rcx
+  char v37; // [rsp+88h] [rbp+20h]
 
   v3 = a3;
   v4 = a2;
-  v44 = 0;
-  if ( !(unsigned int)FCallerOk() )
-    goto LABEL_73;
-  v6 = *((_QWORD *)a1 + 5);
-  v7 = (int)v4;
-  if ( (*(_BYTE *)(v6 + 18) & 1) != 0 )
+  v6 = 0;
+  v37 = 0;
+  if ( !(unsigned int)FCallerOk((__int64)a1) )
   {
-    if ( (unsigned __int64)(int)v4 >= 8 && (int)v4 < 0 || (unsigned __int64)(int)v4 > 0x16 && (int)v4 < 30 )
-      goto LABEL_45;
-    if ( (*(_WORD *)(v6 + 42) & 0x2FFF) == 0x2A4 )
+LABEL_68:
+    v22 = 5LL;
+    goto LABEL_69;
+  }
+  v9 = *((_QWORD *)a1 + 5);
+  if ( (*(_BYTE *)(v9 + 18) & 1) != 0 )
+  {
+    if ( v4 >= 8 && (v4 & 0x80000000) != 0LL || v4 > 0x16 && (int)v4 < 30 )
     {
-      if ( (int)v4 < 0 )
-        goto LABEL_45;
-      if ( (int)v4 + 2LL <= (unsigned __int64)*(unsigned int *)(v6 + 248) )
-        goto LABEL_53;
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process((int)v4 + 2LL);
-      v9 = CurrentProcessWin32Process;
-      if ( CurrentProcessWin32Process )
-        v9 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-      v10 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL);
-      if ( v10 == v9 )
-        goto LABEL_53;
-      v11 = *(unsigned int *)(*((_QWORD *)a1 + 5) + 232LL);
-      if ( (v11 & 0x10) != 0 )
-        goto LABEL_53;
-      v12 = v10 + 888;
-      v13 = PsGetCurrentProcessWin32Process(v11);
-      if ( v13 )
-        v13 &= -(__int64)(*(_QWORD *)v13 != 0LL);
-      if ( (unsigned __int8)CheckAccess(v13 + 888, v12) )
-        goto LABEL_20;
-      v15 = PsGetCurrentProcessWin32Process(v14);
-      if ( v15 )
-        v15 &= -(__int64)(*(_QWORD *)v15 != 0LL);
-      if ( *(int *)(v15 + 12) < 0 )
+      v22 = 1413LL;
+LABEL_69:
+      UserSetLastError(v22, v7, v8);
+      return 0LL;
+    }
+    if ( (*(_WORD *)(v9 + 42) & 0x2FFF) == 0x2A4 )
+    {
+      if ( v4 + 2 <= *(unsigned int *)(v9 + 252) )
+        goto LABEL_9;
+      v23 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL);
+      if ( v23 == PsGetCurrentProcessWin32Process(v4 + 2) || (*(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) & 0x800) != 0 )
+        goto LABEL_9;
+      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v24);
+      if ( (unsigned __int8)CheckAccess(CurrentProcessWin32Process + 880, v23 + 880)
+        || *(int *)(PsGetCurrentProcessWin32Process(v26) + 12) < 0 )
       {
-LABEL_20:
         KeAttachProcess(**(PRKPROCESS **)(*((_QWORD *)a1 + 2) + 424LL));
-        v44 = 1;
-LABEL_53:
-        v26 = (int)v4 < 0;
-LABEL_54:
-        if ( !v26
-          && v4 + 2 <= (unsigned __int64)(unsigned int)(*(_DWORD *)(*((_QWORD *)a1 + 5) + 248LL)
-                                                      + *(_DWORD *)(*((_QWORD *)a1 + 5) + 200LL)) )
-        {
-          v31 = *(__int16 **)(*((_QWORD *)a1 + 17) + 8LL);
-          if ( !_bittest16(v31 + 3, 8u) )
-            goto LABEL_67;
-          v32 = 0;
-          v33 = *v31;
-          v34 = &gDefaultServerClasses;
-          while ( v33 != *(_WORD *)(gpsi + 2LL * ((*v34 >> 3) & 0x1F) + 868) )
-          {
-            ++v32;
-            v34 += 12;
-            if ( v32 >= 8 )
-              goto LABEL_67;
-          }
-          v35 = 6LL * v32;
-          if ( (int)v4 >= *((_DWORD *)&gDefaultServerClasses + 12 * v32 + 6) )
-            goto LABEL_67;
-          v36 = Feature_Backport_UserModeTooltips__private_IsEnabledDeviceUsage() != 0;
-          v37 = *((_DWORD *)&gDefaultServerClasses + 2 * v35) & 0xF8;
-          if ( v36 )
-          {
-            if ( v37 == 176 )
-              MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTellMeIf", 0x20000, 379);
-            goto LABEL_67;
-          }
-          if ( v37 == 176 && (unsigned __int64)((int)v4 + 2LL) <= 0xFFFFFFFFFFFFFEE8uLL )
-          {
-LABEL_67:
-            v38 = *((_QWORD *)a1 + 5);
-            v39 = *(unsigned int *)(v38 + 248);
-            if ( (int)v4 + 2LL <= v39 )
-            {
-              v43 = *((_QWORD *)a1 + 35);
-              LOWORD(v4) = *(_WORD *)((int)v4 + v43);
-              *(_WORD *)(v7 + v43) = v3;
-            }
-            else
-            {
-              v40 = v4 - v39;
-              v41 = *(_QWORD *)(v38 + 296);
-              if ( (*(_DWORD *)(v38 + 232) & 0x10) != 0 )
-                v42 = (_WORD *)(v41 + v40 + *(_QWORD *)(*((_QWORD *)a1 + 3) + 136LL));
-              else
-                v42 = (_WORD *)(v40 + v41);
-              LOWORD(v4) = *v42;
-              *v42 = v3;
-            }
-            goto LABEL_23;
-          }
-          goto LABEL_73;
-        }
-LABEL_45:
-        v27 = 1413;
-LABEL_74:
-        UserSetLastError(v27);
-        CProcessAttachDetach::~CProcessAttachDetach((CProcessAttachDetach *)&v44);
-        return 0LL;
+        v6 = 1;
+        goto LABEL_9;
       }
-LABEL_73:
-      v27 = 5;
-      goto LABEL_74;
+      goto LABEL_68;
     }
   }
   if ( (_DWORD)v4 == -21 )
   {
-    LOWORD(v4) = *(_WORD *)(v6 + 216);
-    *(_QWORD *)(v6 + 216) = v3 | ((unsigned __int16)HIWORD(*(_DWORD *)(v6 + 216)) << 16);
-LABEL_23:
-    CProcessAttachDetach::~CProcessAttachDetach((CProcessAttachDetach *)&v44);
-    return (unsigned __int16)v4;
+    result = *(unsigned __int16 *)(v9 + 216);
+    *(_QWORD *)(v9 + 216) = v3 | ((unsigned __int16)HIWORD(*(_DWORD *)(v9 + 216)) << 16);
+    return result;
   }
   if ( (_DWORD)v4 == -16 )
   {
-    LOWORD(v4) = *(_WORD *)(v6 + 28);
-    *(_DWORD *)(v6 + 28) = v3 | *(_DWORD *)(v6 + 28) & 0xFFFF0000;
-    goto LABEL_23;
+    result = *(unsigned __int16 *)(v9 + 28);
+    *(_DWORD *)(v9 + 28) = v3 | *(_DWORD *)(v9 + 28) & 0xFFFF0000;
+    return result;
   }
-  if ( (int)v4 >= 0 && (int)v4 + 2LL > (unsigned __int64)*(unsigned int *)(v6 + 248) )
+  if ( (v4 & 0x80000000) == 0LL && v4 + 2 > *(unsigned int *)(v9 + 252) )
   {
-    v17 = PsGetCurrentProcessWin32Process((int)v4 + 2LL);
-    v18 = v17;
-    if ( v17 )
-      v18 = -(__int64)(*(_QWORD *)v17 != 0LL) & v17;
-    v19 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL);
-    if ( v19 != v18 )
+    v10 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL);
+    if ( v10 != PsGetCurrentProcessWin32Process(v4 + 2) && (*(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) & 0x800) == 0 )
     {
-      v20 = *(unsigned int *)(*((_QWORD *)a1 + 5) + 232LL);
-      if ( (v20 & 0x10) == 0 )
+      v27 = PsGetCurrentProcessWin32Process(v11);
+      if ( (unsigned __int8)CheckAccess(v27 + 880, v10 + 880) || *(int *)(PsGetCurrentProcessWin32Process(v28) + 12) < 0 )
       {
-        v21 = v19 + 888;
-        v22 = PsGetCurrentProcessWin32Process(v20);
-        if ( v22 )
-          v22 &= -(__int64)(*(_QWORD *)v22 != 0LL);
-        if ( !(unsigned __int8)CheckAccess(v22 + 888, v21) )
-        {
-          v24 = PsGetCurrentProcessWin32Process(v23);
-          if ( v24 )
-            v24 &= -(__int64)(*(_QWORD *)v24 != 0LL);
-          if ( *(int *)(v24 + 12) >= 0 )
-            goto LABEL_73;
-        }
         KeAttachProcess(**(PRKPROCESS **)(*((_QWORD *)a1 + 2) + 424LL));
-        v44 = 1;
+        v6 = 1;
+        v37 = 1;
+        goto LABEL_8;
+      }
+      goto LABEL_68;
+    }
+  }
+LABEL_8:
+  v12 = *((_QWORD *)a1 + 5);
+  v8 = *(_WORD *)(v12 + 42) & 0x2FFF;
+  if ( (*(_WORD *)(v12 + 42) & 0x2FFF) == 0 )
+  {
+LABEL_9:
+    v13 = (v4 & 0x80000000) != 0LL;
+    goto LABEL_10;
+  }
+  if ( (v4 & 0x80000000) != 0LL )
+  {
+LABEL_43:
+    v29 = 1413LL;
+    goto LABEL_44;
+  }
+  v7 = (*(_WORD *)(v12 + 42) & 0x2FFFu) - 666;
+  if ( (int)v4 >= *(unsigned __int16 *)(gpsi + 2 * v7 + 328) - 320 )
+    goto LABEL_9;
+  v8 = (unsigned int)(v8 - 673);
+  if ( !(_DWORD)v8 )
+  {
+    if ( !(_DWORD)v4 )
+    {
+      v30 = **(_QWORD **)(v12 + 296);
+      if ( !v30 || v30 == -1 )
+      {
+        if ( v6 )
+          KeDetachProcess();
+        return 0LL;
+      }
+      else
+      {
+        v31 = (int *)(v30 + 8);
+        v32 = v31;
+        if ( (unsigned __int64)v31 >= MmUserProbeAddress )
+          v32 = (int *)MmUserProbeAddress;
+        v33 = *v32;
+        *v31 = v3;
+        if ( v37 )
+          KeDetachProcess();
+        return (unsigned __int16)v33;
+      }
+    }
+    goto LABEL_43;
+  }
+  if ( (_DWORD)v8 != 6 )
+    goto LABEL_43;
+  v13 = (v4 & 0x80000000) != 0LL;
+  if ( (_DWORD)v4 )
+    goto LABEL_43;
+LABEL_10:
+  if ( v13 )
+    goto LABEL_43;
+  v8 = *((_QWORD *)a1 + 5);
+  v14 = *(unsigned int *)(v8 + 252);
+  if ( (unsigned __int64)(unsigned int)v4 + 2 > (unsigned int)(v14 + *(_DWORD *)(v8 + 200)) )
+    goto LABEL_43;
+  v15 = *(_WORD **)(*((_QWORD *)a1 + 17) + 8LL);
+  if ( (v15[3] & 0x100) != 0 )
+  {
+    v34 = 0;
+    v35 = &gDefaultServerClasses;
+    while ( *v15 != *(_WORD *)(gpsi + 2LL * ((*v35 >> 3) & 0x1F) + 868) )
+    {
+      ++v34;
+      v35 += 12;
+      if ( v34 >= 8 )
+        goto LABEL_13;
+    }
+    if ( (int)v4 < *((_DWORD *)&gDefaultServerClasses + 12 * v34 + 6) )
+    {
+      v7 = *v35 & 0xF8;
+      if ( (*(_BYTE *)v35 & 0xF8) != 0xB0 || v4 + 2 > 0xFFFFFFFFFFFFFEE0uLL )
+      {
+        v29 = 5LL;
+LABEL_44:
+        UserSetLastError(v29, v7, v8);
+        if ( v6 )
+          KeDetachProcess();
+        return 0LL;
       }
     }
   }
-  v25 = *((_QWORD *)a1 + 5);
-  if ( (*(_WORD *)(v25 + 42) & 0x2FFF) == 0 )
-    goto LABEL_53;
-  if ( (int)v4 < 0 )
-    goto LABEL_45;
-  if ( (int)v4 >= *(unsigned __int16 *)(gpsi + 2LL * ((*(_WORD *)(v25 + 42) & 0x2FFFu) - 666) + 328) - 328 )
-    goto LABEL_53;
-  if ( (*(_WORD *)(v25 + 42) & 0x2FFF) != 0x2A1 )
+LABEL_13:
+  v16 = v4;
+  if ( v4 + 2 <= v14 )
   {
-    if ( (*(_WORD *)(v25 + 42) & 0x2FFF) != 0x2A7 )
-      goto LABEL_45;
-    v26 = (int)v4 < 0;
-    if ( (_DWORD)v4 )
-      goto LABEL_45;
-    goto LABEL_54;
+    v36 = *((_QWORD *)a1 + 35);
+    v20 = *(_WORD *)(v4 + v36);
+    *(_WORD *)(v16 + v36) = v3;
   }
-  if ( (_DWORD)v4 )
-    goto LABEL_45;
-  v28 = **(_QWORD **)(v25 + 296);
-  if ( v28 && v28 != -1 )
+  else
   {
-    v29 = (_DWORD *)(v28 + 8);
-    v30 = v29;
-    if ( (unsigned __int64)v29 >= MmUserProbeAddress )
-      v30 = (_DWORD *)MmUserProbeAddress;
-    LODWORD(v4) = *v30;
-    *v29 = v3;
-    goto LABEL_23;
+    v17 = v4 - v14;
+    v18 = *(_QWORD *)(v8 + 296);
+    if ( (*(_DWORD *)(v8 + 232) & 0x800) != 0 )
+      v19 = (unsigned __int16 *)(v18 + v17 + *(_QWORD *)(*((_QWORD *)a1 + 3) + 128LL));
+    else
+      v19 = (unsigned __int16 *)(v17 + v18);
+    v20 = *v19;
+    *v19 = v3;
   }
-  CProcessAttachDetach::~CProcessAttachDetach((CProcessAttachDetach *)&v44);
-  return 0LL;
+  if ( v6 )
+    KeDetachProcess();
+  return v20;
 }

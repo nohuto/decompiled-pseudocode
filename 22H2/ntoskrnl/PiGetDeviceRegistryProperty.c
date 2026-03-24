@@ -1,24 +1,24 @@
 /*
- * XREFs of PiGetDeviceRegistryProperty @ 0x140954DC8
+ * XREFs of PiGetDeviceRegistryProperty @ 0x14089E568
  * Callers:
- *     IoGetDeviceProperty @ 0x140792EB0 (IoGetDeviceProperty.c)
+ *     IoGetDeviceProperty @ 0x1406B8A70 (IoGetDeviceProperty.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     wcsstr @ 0x1403DB540 (wcsstr.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PnpFindAlternateStringData @ 0x1407936D4 (PnpFindAlternateStringData.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x140798CA4 (PnpDeviceObjectToDeviceInstance.c)
- *     RtlFormatMessageEx @ 0x1409B9B48 (RtlFormatMessageEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     wcsstr @ 0x1403D3A90 (wcsstr.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PnpFindAlternateStringData @ 0x14069486C (PnpFindAlternateStringData.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x140743594 (PnpDeviceObjectToDeviceInstance.c)
+ *     RtlFormatMessageEx @ 0x140910EE8 (RtlFormatMessageEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiGetDeviceRegistryProperty(__int64 a1, __int64 a2, __int64 a3, __int64 a4, wchar_t *a5, __int64 a6)
@@ -26,9 +26,9 @@ __int64 __fastcall PiGetDeviceRegistryProperty(__int64 a1, __int64 a2, __int64 a
   __int64 v7; // r12
   struct _KTHREAD *CurrentThread; // rax
   int RegistryValue; // ebx
-  _DWORD *v10; // rsi
-  unsigned int v11; // r14d
-  wchar_t *v12; // rdi
+  _DWORD *v10; // rdi
+  unsigned int v11; // esi
+  wchar_t *v12; // r14
   wchar_t *v13; // r15
   wchar_t *v14; // rax
   __int64 v15; // rcx
@@ -49,11 +49,11 @@ __int64 __fastcall PiGetDeviceRegistryProperty(__int64 a1, __int64 a2, __int64 a
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
   __int64 v32[20]; // [rsp+D0h] [rbp-30h] BYREF
 
+  v28 = a5;
+  v7 = 0LL;
   KeyHandle = 0LL;
   DestinationString = 0LL;
-  v28 = a5;
   v29 = a6;
-  v7 = 0LL;
   CurrentThread = KeGetCurrentThread();
   P = 0LL;
   memset(Size, 0, sizeof(Size));

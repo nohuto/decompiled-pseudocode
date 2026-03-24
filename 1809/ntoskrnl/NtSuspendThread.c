@@ -1,11 +1,11 @@
 /*
- * XREFs of NtSuspendThread @ 0x1406C20E0
+ * XREFs of NtSuspendThread @ 0x1406C20C0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PsSuspendThread @ 0x1406C21A0 (PsSuspendThread.c)
+ *     PsSuspendThread @ 0x1406C2180 (PsSuspendThread.c)
  */
 
 NTSTATUS __stdcall NtSuspendThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)

@@ -1,12 +1,13 @@
 /*
- * XREFs of PpmEventTraceProcessorIdle @ 0x14099AE0C
+ * XREFs of PpmEventTraceProcessorIdle @ 0x1408F3590
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140864680 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D53F0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PpmEventTraceProcessorIdle(__int64 a1)
@@ -15,85 +16,88 @@ void __fastcall PpmEventTraceProcessorIdle(__int64 a1)
   int v3; // ecx
   unsigned int v4; // eax
   ULONG v5; // ebp
-  __int64 Pool2; // rax
+  unsigned int v6; // r14d
+  struct _EVENT_DATA_DESCRIPTOR *PoolWithTag; // rax
   struct _EVENT_DATA_DESCRIPTOR *UserData; // rbx
-  unsigned int v8; // r8d
-  __int64 v9; // rdx
-  __int64 v10; // r9
-  struct _EVENT_DATA_DESCRIPTOR *v11; // rcx
-  const wchar_t *v12; // r10
-  __int64 v13; // rcx
-  int v14; // eax
-  __int16 v15; // [rsp+58h] [rbp+10h] BYREF
-  unsigned int v16; // [rsp+60h] [rbp+18h] BYREF
-  int v17; // [rsp+68h] [rbp+20h] BYREF
+  unsigned int v9; // r8d
+  struct _EVENT_DATA_DESCRIPTOR *v10; // rdx
+  __int64 v11; // r9
+  struct _EVENT_DATA_DESCRIPTOR *v12; // rcx
+  const wchar_t *v13; // r10
+  __int64 v14; // rcx
+  int v15; // eax
+  __int16 v16; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v17; // [rsp+70h] [rbp+18h] BYREF
+  int v18; // [rsp+78h] [rbp+20h] BYREF
 
   if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_CURRENT_IDLE_RUNDOWN) )
   {
-    v2 = *(_QWORD *)(a1 + 33600);
+    v2 = *(_QWORD *)(a1 + 0x8000);
     if ( v2 )
     {
       v4 = *(_DWORD *)(v2 + 32);
-      v16 = v4;
+      v17 = v4;
       v3 = *(_DWORD *)(v2 + 36);
     }
     else
     {
-      v16 = 0;
+      v17 = 0;
       v3 = 0;
       v4 = 0;
     }
+    v18 = v3;
     v5 = 2 * v4 + 4;
-    v17 = v3;
-    Pool2 = ExAllocatePool2(256LL, 16 * v5 + 37 * v4, 1699565648LL);
-    UserData = (struct _EVENT_DATA_DESCRIPTOR *)Pool2;
-    if ( Pool2 )
+    v6 = 16 * v5 + 37 * v4;
+    PoolWithTag = (struct _EVENT_DATA_DESCRIPTOR *)ExAllocatePoolWithTag(PagedPool, v6, 0x654D5050u);
+    UserData = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v8 = 0;
-      v15 = *(unsigned __int8 *)(a1 + 208);
-      *(_DWORD *)(Pool2 + 12) = 0;
-      *(_DWORD *)(Pool2 + 28) = 0;
-      *(_DWORD *)(Pool2 + 44) = 0;
-      *(_DWORD *)(Pool2 + 60) = 0;
-      v9 = Pool2 + 16LL * v5;
-      *(_DWORD *)(Pool2 + 8) = 2;
-      *(_DWORD *)(Pool2 + 24) = 1;
-      *(_QWORD *)Pool2 = &v15;
-      *(_QWORD *)(Pool2 + 16) = a1 + 209;
-      *(_QWORD *)(Pool2 + 32) = &v17;
-      *(_QWORD *)(Pool2 + 48) = &v16;
-      *(_DWORD *)(Pool2 + 40) = 4;
-      for ( *(_DWORD *)(Pool2 + 56) = 4; v8 < v16; UserData[v13].Reserved = 0 )
+      memset(PoolWithTag, 0, v6);
+      v16 = *(unsigned __int8 *)(a1 + 208);
+      v9 = 0;
+      UserData->Reserved = 0;
+      UserData[1].Reserved = 0;
+      UserData[2].Reserved = 0;
+      UserData[3].Reserved = 0;
+      UserData->Ptr = (ULONGLONG)&v16;
+      UserData[1].Ptr = a1 + 209;
+      UserData[2].Ptr = (ULONGLONG)&v18;
+      v10 = &UserData[v5];
+      UserData[3].Ptr = (ULONGLONG)&v17;
+      UserData->Size = 2;
+      UserData[1].Size = 1;
+      UserData[2].Size = 4;
+      for ( UserData[3].Size = 4; v9 < v17; UserData[v14].Reserved = 0 )
       {
-        v10 = 344LL * v8;
-        v11 = &UserData[2 * v8 + 4];
-        *(_DWORD *)v9 = *(_DWORD *)(v10 + v2 + 1384);
-        *(_DWORD *)(v9 + 4) = *(_DWORD *)(v10 + v2 + 1388);
-        *(_BYTE *)(v9 + 8) = *(_BYTE *)(v10 + v2 + 1440);
-        *(_DWORD *)(v9 + 9) = *(unsigned __int8 *)(v10 + v2 + 1441);
-        *(_DWORD *)(v9 + 13) = *(unsigned __int8 *)(v10 + v2 + 1442);
-        *(_DWORD *)(v9 + 17) = *(unsigned __int8 *)(v10 + v2 + 1443);
-        *(_DWORD *)(v9 + 21) = *(unsigned __int8 *)(v10 + v2 + 1444);
-        *(_DWORD *)(v9 + 25) = *(unsigned __int8 *)(v10 + v2 + 1445);
-        *(_DWORD *)(v9 + 29) = *(unsigned __int8 *)(v10 + v2 + 1446);
-        *(_DWORD *)(v9 + 33) = *(unsigned __int8 *)(v10 + v2 + 1447);
-        v11->Reserved = 0;
-        v11->Ptr = v9;
-        v11->Size = 37;
-        v12 = *(const wchar_t **)(v10 + v2 + 1376);
-        v13 = 2 * v8 + 5;
-        if ( v12 )
+        v11 = 248LL * v9;
+        v12 = &UserData[2 * v9 + 4];
+        LODWORD(v10->Ptr) = *(_DWORD *)(v11 + v2 + 1000);
+        HIDWORD(v10->Ptr) = *(_DWORD *)(v11 + v2 + 1004);
+        LOBYTE(v10->Size) = *(_BYTE *)(v11 + v2 + 1056);
+        *(ULONG *)((char *)&v10->Size + 1) = *(unsigned __int8 *)(v11 + v2 + 1057);
+        *(ULONG *)((char *)&v10->Reserved + 1) = *(unsigned __int8 *)(v11 + v2 + 1058);
+        *(_DWORD *)((char *)&v10[1].Ptr + 1) = *(unsigned __int8 *)(v11 + v2 + 1059);
+        *(_DWORD *)((char *)&v10[1].Ptr + 5) = *(unsigned __int8 *)(v11 + v2 + 1060);
+        *(ULONG *)((char *)&v10[1].Size + 1) = *(unsigned __int8 *)(v11 + v2 + 1061);
+        *(ULONG *)((char *)&v10[1].Reserved + 1) = *(unsigned __int8 *)(v11 + v2 + 1062);
+        *(_DWORD *)((char *)&v10[2].Ptr + 1) = *(unsigned __int8 *)(v11 + v2 + 1063);
+        v12->Reserved = 0;
+        v12->Ptr = (ULONGLONG)v10;
+        v12->Size = 37;
+        v13 = *(const wchar_t **)(v11 + v2 + 992);
+        v14 = 2 * v9 + 5;
+        if ( v13 )
         {
-          v14 = *(unsigned __int16 *)(v10 + v2 + 1370);
+          v15 = *(unsigned __int16 *)(v11 + v2 + 986);
         }
         else
         {
-          v14 = 28;
-          v12 = L"<unspecified>";
+          v15 = 28;
+          v13 = L"<unspecified>";
         }
-        UserData[2 * v8 + 5].Ptr = (ULONGLONG)v12;
-        v9 += 37LL;
-        UserData[2 * v8++ + 5].Size = v14;
+        UserData[2 * v9 + 5].Ptr = (ULONGLONG)v13;
+        v10 = (struct _EVENT_DATA_DESCRIPTOR *)((char *)v10 + 37);
+        UserData[2 * v9++ + 5].Size = v15;
       }
       EtwWrite(PpmEtwHandle, &PPM_ETW_CURRENT_IDLE_RUNDOWN, 0LL, v5, UserData);
       ExFreePoolWithTag(UserData, 0x654D5050u);

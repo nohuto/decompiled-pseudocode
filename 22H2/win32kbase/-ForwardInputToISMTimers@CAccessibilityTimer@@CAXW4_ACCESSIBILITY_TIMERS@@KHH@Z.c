@@ -1,22 +1,13 @@
 /*
- * XREFs of ?ForwardInputToISMTimers@CAccessibilityTimer@@CAXW4_ACCESSIBILITY_TIMERS@@KHH@Z @ 0x1C01E1400
+ * XREFs of ?ForwardInputToISMTimers@CAccessibilityTimer@@CAXW4_ACCESSIBILITY_TIMERS@@KHH@Z @ 0x1C01A8460
  * Callers:
- *     ?KillTimer@CAccessibilityTimer@@SA_NW4_ACCESSIBILITY_TIMERS@@@Z @ 0x1C01E1520 (-KillTimer@CAccessibilityTimer@@SA_NW4_ACCESSIBILITY_TIMERS@@@Z.c)
- *     ?SetTimer@CAccessibilityTimer@@SA?AW4_ACCESSIBILITY_TIMERS@@KP6AXPEAUtagWND@@I_K_J@ZH@Z @ 0x1C01E1570 (-SetTimer@CAccessibilityTimer@@SA-AW4_ACCESSIBILITY_TIMERS@@KP6AXPEAUtagWND@@I_K_J@ZH@Z.c)
+ *     ?KillTimer@CAccessibilityTimer@@SA_NW4_ACCESSIBILITY_TIMERS@@@Z @ 0x1C01A8580 (-KillTimer@CAccessibilityTimer@@SA_NW4_ACCESSIBILITY_TIMERS@@@Z.c)
+ *     ?SetTimer@CAccessibilityTimer@@SA?AW4_ACCESSIBILITY_TIMERS@@KP6AXPEAUtagWND@@I_K_J@ZH@Z @ 0x1C01A85D0 (-SetTimer@CAccessibilityTimer@@SA-AW4_ACCESSIBILITY_TIMERS@@KP6AXPEAUtagWND@@I_K_J@ZH@Z.c)
  * Callees:
- *     SendMessageTo @ 0x1C006A100 (SendMessageTo.c)
+ *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C004DFF4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
  */
 
-__int64 __fastcall CAccessibilityTimer::ForwardInputToISMTimers(int a1, int a2, int a3, __int64 a4)
+__int64 CAccessibilityTimer::ForwardInputToISMTimers()
 {
-  int v5; // [rsp+20h] [rbp-18h] BYREF
-  int v6; // [rsp+24h] [rbp-14h]
-  int v7; // [rsp+28h] [rbp-10h]
-
-  v5 = a1;
-  v7 = a2;
-  v6 = a3 != 0;
-  if ( (_DWORD)a4 )
-    v6 = (a3 != 0) | 2;
-  return SendMessageTo(17LL, (__int64)&v5, 12LL, a4);
+  return InputExtensibilityCallout::CoreMsgSendMessage(1LL, 18);
 }

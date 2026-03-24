@@ -1,47 +1,66 @@
 /*
- * XREFs of ?RenderOverlayColor@CDrawingContext@@AEAAJAEBU_D3DCOLORVALUE@@AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180004470
+ * XREFs of ?RenderOverlayColor@CDrawingContext@@AEAAJAEBU_D3DCOLORVALUE@@AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x18017848C
  * Callers:
- *     ?DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z @ 0x1800B2A90 (-DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z.c)
+ *     ?DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z @ 0x18006858C (-DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z.c)
  * Callees:
- *     ?FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x180004548 (-FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV-$span@$$CBUMilRectF@@$0-0@gsl@@AEBU_D3D.c)
- *     ?GetInverseDesktopMPOTransform@COverlayContext@@QEBAXPEAVCMILMatrix@@@Z @ 0x180004E24 (-GetInverseDesktopMPOTransform@COverlayContext@@QEBAXPEAVCMILMatrix@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800A9DE0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
- *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x1800D53DC (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x180040A80 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
+ *     ??1CDisableCPUClipScope@CDrawingContext@@QEAA@XZ @ 0x180041518 (--1CDisableCPUClipScope@CDrawingContext@@QEAA@XZ.c)
+ *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x180041730 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Enter@CDisableCPUClipScope@CDrawingContext@@QEAAJPEAV2@@Z @ 0x18006879C (-Enter@CDisableCPUClipScope@CDrawingContext@@QEAAJPEAV2@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x1801771A8 (-FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV-$span@$$CBUMilRectF@@$0-0@gsl@@AEBU_D3D.c)
+ *     ?GetInverseDesktopMPOTransform@COverlayContext@@QEBAXPEAVCMILMatrix@@@Z @ 0x18017C2D4 (-GetInverseDesktopMPOTransform@COverlayContext@@QEBAXPEAVCMILMatrix@@@Z.c)
  */
 
-__int64 __fastcall CDrawingContext::RenderOverlayColor(CDrawingContext *this, __int64 a2, __int64 a3)
+__int64 __fastcall CDrawingContext::RenderOverlayColor(struct CDrawingContext *a1, __int64 a2, __int64 a3)
 {
   __int64 i; // rax
-  COverlayContext *v5; // rcx
-  int v6; // eax
-  unsigned int v7; // ecx
-  unsigned int v8; // ebx
-  int v9; // eax
-  unsigned int v10; // ecx
-  _BYTE v12[64]; // [rsp+40h] [rbp-88h] BYREF
-  int v13; // [rsp+80h] [rbp-48h]
-  float v14[4]; // [rsp+90h] [rbp-38h]
+  COverlayContext *v6; // rcx
+  int v7; // eax
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
+  int v10; // eax
+  __int64 v11; // rcx
+  int v12; // eax
+  __int64 v13; // rcx
+  __int64 v15; // [rsp+30h] [rbp-A8h] BYREF
+  _QWORD v16[3]; // [rsp+38h] [rbp-A0h] BYREF
+  _BYTE v17[64]; // [rsp+50h] [rbp-88h] BYREF
+  int v18; // [rsp+90h] [rbp-48h]
+  float v19[4]; // [rsp+A0h] [rbp-38h] BYREF
 
   for ( i = 0LL; i < 4; ++i )
-    v14[i] = (float)*(int *)(a3 + 4 * i);
-  v5 = (COverlayContext *)*((_QWORD *)this + 6);
-  v13 = 0;
-  COverlayContext::GetInverseDesktopMPOTransform(v5, (struct CMILMatrix *)v12);
-  v6 = CDrawingContext::PushTransformInternal(this, 0LL, (const struct CMILMatrix *)v12, 0, 1);
-  v8 = v6;
-  if ( v6 < 0 )
+    v19[i] = (float)*(int *)(a3 + 4 * i);
+  v6 = (COverlayContext *)*((_QWORD *)a1 + 6);
+  v15 = 0LL;
+  v18 = 0;
+  COverlayContext::GetInverseDesktopMPOTransform(v6, (struct CMILMatrix *)v17);
+  v7 = CDrawingContext::PushTransformInternal(a1, 0LL, (const struct CMILMatrix *)v17, 0, 1);
+  v9 = v7;
+  if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xAAu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1350u, 0LL);
   }
   else
   {
-    v9 = CDrawingContext::FillRectanglesWithSolidColor(this);
-    v8 = v9;
-    if ( v9 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xAEu, 0LL);
-    CDrawingContext::PopTransformInternal(this, 1);
+    v10 = CDrawingContext::CDisableCPUClipScope::Enter((CDrawingContext::CDisableCPUClipScope *)&v15, a1);
+    v9 = v10;
+    if ( v10 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x1355u, 0LL);
+    }
+    else
+    {
+      v16[0] = 1LL;
+      v16[1] = v19;
+      v12 = CDrawingContext::FillRectanglesWithSolidColor(a1, (__int64)v16, a2);
+      v9 = v12;
+      if ( v12 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x1358u, 0LL);
+    }
+    CDrawingContext::PopTransformInternal(a1, 1);
   }
-  return v8;
+  CDrawingContext::CDisableCPUClipScope::~CDisableCPUClipScope((CDrawingContext::CDisableCPUClipScope *)&v15);
+  return v9;
 }

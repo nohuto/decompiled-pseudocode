@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PushGammaBlendLayer@CDrawingContext@@QEAAJAEBUMilPointAndSizeL@@@Z @ 0x1801B3B14
+ * XREFs of ?PushGammaBlendLayer@CDrawingContext@@QEAAJAEBUMilPointAndSizeL@@@Z @ 0x180178260
  * Callers:
- *     ?Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1802154FC (-Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801C2938 (-Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x1800BA748 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
- *     ??_ECOffScreenRenderingLayer@@UEAAPEAXI@Z @ 0x1800BAA50 (--_ECOffScreenRenderingLayer@@UEAAPEAXI@Z.c)
- *     ?Create@CGammaBlendLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAPEAV1@@Z @ 0x1801DCB70 (-Create@CGammaBlendLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??_ECOffScreenRenderingLayer@@UEAAPEAXI@Z @ 0x180060EA0 (--_ECOffScreenRenderingLayer@@UEAAPEAXI@Z.c)
+ *     ?PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z @ 0x1800622C4 (-PushLayer@CDrawingContext@@AEAAJPEBVCVisual@@PEAVCLayer@@_N2@Z.c)
+ *     ?Create@CGammaBlendLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAPEAV1@@Z @ 0x180191DC0 (-Create@CGammaBlendLayer@@SAJPEAVIDeviceTarget@@AEBUMilPointAndSizeL@@PEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CDrawingContext::PushGammaBlendLayer(struct IDeviceTarget **this, const struct MilPointAndSizeL *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall CDrawingContext::PushGammaBlendLayer(struct IDeviceTarget **t
   v5 = v3;
   if ( v3 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0xEFAu);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0xE9Bu, 0LL);
   }
   else
   {
@@ -31,7 +31,7 @@ __int64 __fastcall CDrawingContext::PushGammaBlendLayer(struct IDeviceTarget **t
     v5 = v6;
     if ( v6 >= 0 )
       return v5;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0xF00u);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xEA1u, 0LL);
   }
   if ( v9 )
     COffScreenRenderingLayer::`vector deleting destructor'(v9, 1);

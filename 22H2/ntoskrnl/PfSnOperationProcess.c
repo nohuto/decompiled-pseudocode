@@ -1,17 +1,17 @@
 /*
- * XREFs of PfSnOperationProcess @ 0x14097F8F0
+ * XREFs of PfSnOperationProcess @ 0x1406A51B8
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x14074DA94 (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140709C3C (PfSnSetPrefetcherInformation.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PfSnBeginScenario @ 0x1407508D0 (PfSnBeginScenario.c)
- *     PfSnCheckScenario @ 0x140760C60 (PfSnCheckScenario.c)
- *     PfCalculateProcessHash @ 0x140761120 (PfCalculateProcessHash.c)
- *     PfSnFindImageFileName @ 0x1407C2BE4 (PfSnFindImageFileName.c)
- *     PfSnEndProcessTrace @ 0x1407E58A0 (PfSnEndProcessTrace.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PfSnEndProcessTrace @ 0x14062E760 (PfSnEndProcessTrace.c)
+ *     PfSnCheckScenario @ 0x14062EB58 (PfSnCheckScenario.c)
+ *     PfCalculateProcessHash @ 0x14062ED30 (PfCalculateProcessHash.c)
+ *     PfSnBeginScenario @ 0x140630458 (PfSnBeginScenario.c)
+ *     PfSnFindImageFileName @ 0x140630EFC (PfSnFindImageFileName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnOperationProcess(__int64 a1)
@@ -21,9 +21,9 @@ __int64 __fastcall PfSnOperationProcess(__int64 a1)
   unsigned __int8 v4; // cl
   unsigned int v5; // eax
   bool v6; // cf
-  unsigned int v7; // ebx
   _KPROCESS *Process; // r14
-  int v9; // eax
+  int v8; // eax
+  unsigned int v9; // ebx
   unsigned __int64 ImageFileName; // r9
   int v11; // ecx
   unsigned int v12; // edx
@@ -39,69 +39,68 @@ __int64 __fastcall PfSnOperationProcess(__int64 a1)
   P = 0LL;
   if ( !v2 || (v4 = *(_BYTE *)(a1 + 1), v4 >= 2u) || *(_WORD *)(a1 + 2) )
   {
-    v7 = -1073741811;
+    v9 = -1073741811;
+    goto LABEL_13;
+  }
+  v5 = *(_DWORD *)(a1 + 4);
+  if ( (v4 & 1) != 0 )
+  {
+    v6 = v5 < 2;
   }
   else
   {
-    v5 = *(_DWORD *)(a1 + 4);
-    if ( (v4 & 1) != 0 )
-    {
-      v6 = v5 < 2;
-    }
-    else
-    {
-      if ( (v5 & 4) != 0 && (v5 & 3) != 0 )
-        return (unsigned int)-1073741811;
-      v6 = v5 < 8;
-    }
-    if ( !v6 )
+    if ( (v5 & 4) != 0 && (v5 & 3) != 0 )
       return (unsigned int)-1073741811;
-    if ( (int)PfSnCheckScenario(1, &v14) < 0 )
-      return 0;
-    Process = KeGetCurrentThread()->ApcState.Process;
-    v9 = PfCalculateProcessHash((__int64)Process, (unsigned __int64)&P);
-    v3 = P;
-    v7 = v9;
-    if ( v9 >= 0 )
+    v6 = v5 < 8;
+  }
+  if ( !v6 )
+    return (unsigned int)-1073741811;
+  if ( (int)PfSnCheckScenario(1, &v14) < 0 )
+    return 0;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  v8 = PfCalculateProcessHash((__int64)Process, (unsigned __int64)&P);
+  v3 = P;
+  v9 = v8;
+  if ( v8 >= 0 )
+  {
+    ImageFileName = PfSnFindImageFileName((unsigned __int16 *)P, v16);
+    if ( ImageFileName )
     {
-      ImageFileName = PfSnFindImageFileName((unsigned __int16 *)P, v16);
-      if ( ImageFileName )
+      RtlStringCbPrintfW(
+        pszDest,
+        0x3CuLL,
+        L"Op-%.17s-%08X",
+        ImageFileName,
+        HIDWORD(Process[1].ActiveProcessors.Bitmap[8]));
+      v11 = *(_DWORD *)(a1 + 4);
+      v12 = v11 & 1;
+      v2 = (*(_BYTE *)(a1 + 1) & 1) == 0;
+      *(_DWORD *)&pszDest[30] = *(_DWORD *)(a1 + 8);
+      if ( v2 )
       {
-        RtlStringCbPrintfW(
-          pszDest,
-          0x3CuLL,
-          L"Op-%.17s-%08X",
-          ImageFileName,
-          HIDWORD(Process[1].ActiveProcessors.StaticBitmap[8]));
-        v11 = *(_DWORD *)(a1 + 4);
-        v12 = v11 & 1;
-        v2 = (*(_BYTE *)(a1 + 1) & 1) == 0;
-        *(_DWORD *)&pszDest[30] = *(_DWORD *)(a1 + 8);
-        if ( v2 )
+        if ( (v11 & 2) != 0 || v14 == 2 )
         {
-          if ( (v11 & 2) != 0 || v14 == 2 )
-          {
-            v12 |= 2u;
-          }
-          else if ( (v11 & 4) != 0 )
-          {
-            v12 |= 4u;
-          }
-          PfSnBeginScenario(Process, (unsigned __int8 *)pszDest, 1, v12, 0LL);
+          v12 |= 2u;
         }
-        else
+        else if ( (v11 & 4) != 0 )
         {
-          PfSnEndProcessTrace((__int64)Process, v12 + 8, pszDest);
+          v12 |= 4u;
         }
-        v7 = 0;
+        PfSnBeginScenario(Process, pszDest, 1, v12, 0LL);
       }
       else
       {
-        v7 = -1073741595;
+        PfSnEndProcessTrace((__int64)Process, v12 + 8, pszDest);
       }
+      v9 = 0;
+    }
+    else
+    {
+      v9 = -1073741595;
     }
   }
+LABEL_13:
   if ( v3 )
     ExFreePoolWithTag(v3, 0);
-  return v7;
+  return v9;
 }

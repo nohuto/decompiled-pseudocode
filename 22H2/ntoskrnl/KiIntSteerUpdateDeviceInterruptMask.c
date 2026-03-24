@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerUpdateDeviceInterruptMask @ 0x14031FE10
+ * XREFs of KiIntSteerUpdateDeviceInterruptMask @ 0x14031A4E0
  * Callers:
- *     KiIntSteerDistributeInterrupts @ 0x140221588 (KiIntSteerDistributeInterrupts.c)
- *     KiIntSteerDisable @ 0x14031F2B0 (KiIntSteerDisable.c)
- *     KiIntSteerConnect @ 0x140320D4C (KiIntSteerConnect.c)
+ *     KiIntSteerDistributeInterrupts @ 0x140229620 (KiIntSteerDistributeInterrupts.c)
+ *     KiIntSteerDisable @ 0x14037688C (KiIntSteerDisable.c)
+ *     KiIntSteerConnect @ 0x140377694 (KiIntSteerConnect.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
  */
 
 __int64 __fastcall KiIntSteerUpdateDeviceInterruptMask(__int64 a1, int a2, __int64 a3)
@@ -37,13 +37,13 @@ __int64 __fastcall KiIntSteerUpdateDeviceInterruptMask(__int64 a1, int a2, __int
     {
       if ( a2 == 1 && (*(_DWORD *)(Prcb + 11672))-- == 1 )
         _interlockedbittestandset64(
-          (volatile signed __int32 *)(*(_QWORD *)(Prcb + 192) + 104LL),
+          (volatile signed __int32 *)(*(_QWORD *)(Prcb + 192) + 96LL),
           *(unsigned __int8 *)(Prcb + 209));
     }
     else if ( ++*(_DWORD *)(Prcb + 11672) == 1 )
     {
       _interlockedbittestandreset64(
-        (volatile signed __int32 *)(*(_QWORD *)(Prcb + 192) + 104LL),
+        (volatile signed __int32 *)(*(_QWORD *)(Prcb + 192) + 96LL),
         *(unsigned __int8 *)(Prcb + 209));
     }
   }

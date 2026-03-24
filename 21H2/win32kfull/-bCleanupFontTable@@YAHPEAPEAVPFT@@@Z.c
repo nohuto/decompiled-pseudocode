@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00EF5FC
+ * XREFs of ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00E674C
  * Callers:
- *     GdiMultiUserFontCleanup @ 0x1C00EE660 (GdiMultiUserFontCleanup.c)
+ *     GdiMultiUserFontCleanup @ 0x1C00E63D0 (GdiMultiUserFontCleanup.c)
  * Callees:
- *     ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C000BF1C (-bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z.c)
- *     ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C00EF698 (-bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z.c)
+ *     ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C00A5720 (-bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z.c)
+ *     ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C00E67E8 (-bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z.c)
  */
 
 __int64 __fastcall bCleanupFontTable(struct PFT **a1)
@@ -30,7 +30,7 @@ __int64 __fastcall bCleanupFontTable(struct PFT **a1)
       LOBYTE(v5) = bCleanupFontHash((struct _FONTHASH **)(v1 + 16)) & v5;
     if ( !*(_DWORD *)(v1 + 28) )
     {
-      Win32FreePool(v1);
+      Win32FreePool((void *)v1);
       v1 = 0LL;
     }
     v2 = (v1 == 0) & (unsigned __int8)v5;

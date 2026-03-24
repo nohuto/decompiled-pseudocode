@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PnpDisableInterfaces@FxPkgPnp@@IEAAXXZ @ 0x1C0083C6C
+ * XREFs of ?PnpDisableInterfaces@FxPkgPnp@@IEAAXXZ @ 0x1C007A074
  * Callers:
- *     ?PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z @ 0x1C0083BC8 (-PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z.c)
+ *     ?PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z @ 0x1C0079FD0 (-PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z.c)
  * Callees:
- *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C0017090 (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C000EA4C (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
  */
 
 void __fastcall FxPkgPnp::PnpDisableInterfaces(FxPkgPnp *this, _FX_DRIVER_GLOBALS *a2)

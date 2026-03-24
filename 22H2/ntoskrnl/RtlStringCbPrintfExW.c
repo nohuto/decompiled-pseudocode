@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlStringCbPrintfExW @ 0x140226370
+ * XREFs of RtlStringCbPrintfExW @ 0x14024F030
  * Callers:
- *     RtlQueryPackageClaims @ 0x140226060 (RtlQueryPackageClaims.c)
- *     WmipGenerateBinaryMofNotification @ 0x14085331C (WmipGenerateBinaryMofNotification.c)
- *     PiNormalizeDeviceText @ 0x140871388 (PiNormalizeDeviceText.c)
- *     EtwpQueryPsmKey @ 0x1409E72E8 (EtwpQueryPsmKey.c)
- *     ConvertDevpropcompkeyToString @ 0x140A6E164 (ConvertDevpropcompkeyToString.c)
- *     ConvertDevpropertyToString @ 0x140A6E2A0 (ConvertDevpropertyToString.c)
- *     PipCreateComputerId @ 0x140B3EFBC (PipCreateComputerId.c)
+ *     RtlQueryPackageClaims @ 0x14024EA60 (RtlQueryPackageClaims.c)
+ *     PiNormalizeDeviceText @ 0x14076A260 (PiNormalizeDeviceText.c)
+ *     WmipGenerateBinaryMofNotification @ 0x1407D108C (WmipGenerateBinaryMofNotification.c)
+ *     EtwpQueryPsmKey @ 0x140933A8C (EtwpQueryPsmKey.c)
+ *     ConvertDevpropcompkeyToString @ 0x14097F058 (ConvertDevpropcompkeyToString.c)
+ *     ConvertDevpropertyToString @ 0x14097F194 (ConvertDevpropertyToString.c)
+ *     PipCreateComputerId @ 0x140A5C698 (PipCreateComputerId.c)
  * Callees:
- *     RtlStringVPrintfWorkerW @ 0x14022648C (RtlStringVPrintfWorkerW.c)
- *     RtlStringExHandleFillBehindNullW @ 0x1403B2F00 (RtlStringExHandleFillBehindNullW.c)
- *     StringExHandleOtherFlagsW @ 0x14055F878 (StringExHandleOtherFlagsW.c)
+ *     RtlStringVPrintfWorkerW @ 0x14032ECB0 (RtlStringVPrintfWorkerW.c)
+ *     RtlStringExHandleFillBehindNullW @ 0x1403CF4FC (RtlStringExHandleFillBehindNullW.c)
+ *     StringExHandleOtherFlagsW @ 0x14050C2D8 (StringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS RtlStringCbPrintfExW(
@@ -25,10 +25,11 @@ NTSTATUS RtlStringCbPrintfExW(
 {
   size_t v7; // rdi
   NTSTATUS v10; // ebx
-  wchar_t *v11; // r12
-  const wchar_t *v12; // r9
-  NTSTATUS v13; // eax
-  size_t v14; // rcx
+  size_t v11; // r8
+  wchar_t *v12; // r12
+  NTSTRSAFE_PCWSTR v13; // r9
+  NTSTATUS v14; // eax
+  size_t v15; // rcx
   STRSAFE_LPWSTR ppszDestEnda; // [rsp+30h] [rbp-18h] BYREF
   size_t pcchNewDestLength[2]; // [rsp+38h] [rbp-10h] BYREF
   va_list va; // [rsp+C0h] [rbp+78h] BYREF
@@ -36,6 +37,7 @@ NTSTATUS RtlStringCbPrintfExW(
   va_start(va, pszFormat);
   v7 = cbDest >> 1;
   v10 = 0;
+  v11 = 3221225485LL;
   if ( (dwFlags & 0x100) != 0 )
   {
     if ( !pszDest && v7 || v7 > 0x7FFFFFFF )
@@ -49,67 +51,70 @@ NTSTATUS RtlStringCbPrintfExW(
   {
     if ( v7 )
       *pszDest = 0;
+    return v10;
+  }
+  ppszDestEnda = pszDest;
+  v12 = pszDest;
+  pcchNewDestLength[0] = cbDest >> 1;
+  if ( (dwFlags & 0x100) != 0 )
+  {
+    v13 = (NTSTRSAFE_PCWSTR)&cchOriginalDestLength;
+    if ( pszFormat )
+      v13 = pszFormat;
   }
   else
   {
-    ppszDestEnda = pszDest;
-    v11 = pszDest;
-    pcchNewDestLength[0] = cbDest >> 1;
-    if ( (dwFlags & 0x100) != 0 )
+    v13 = pszFormat;
+  }
+  v10 = 0;
+  if ( (dwFlags & 0xFFFFE000) != 0 )
+  {
+    v10 = -1073741811;
+    if ( v7 )
+      *pszDest = 0;
+  }
+  else
+  {
+    if ( !v7 )
     {
-      v12 = (const wchar_t *)&cchOriginalDestLength;
-      if ( pszFormat )
-        v12 = pszFormat;
-    }
-    else
-    {
-      v12 = pszFormat;
-    }
-    v10 = 0;
-    if ( (dwFlags & 0xFFFFE000) != 0 )
-    {
-      v10 = -1073741811;
-      if ( v7 )
-        *pszDest = 0;
-    }
-    else if ( v7 )
-    {
-      pcchNewDestLength[0] = 0LL;
-      v13 = RtlStringVPrintfWorkerW(pszDest, v7, pcchNewDestLength, v12, va);
-      v14 = pcchNewDestLength[0];
-      v10 = v13;
-      v7 -= pcchNewDestLength[0];
-      pcchNewDestLength[0] = v7;
-      v11 = &pszDest[v14];
-      ppszDestEnda = v11;
-      if ( v13 >= 0 )
-      {
-        if ( (dwFlags & 0x200) != 0 )
-          RtlStringExHandleFillBehindNullW(&pszDest[v14], (cbDest & 1) + 2 * v7, dwFlags);
-        goto LABEL_12;
-      }
-    }
-    else
-    {
-      if ( !*v12 )
-      {
+      if ( !*v13 )
+        goto LABEL_13;
+      v10 = pszDest != 0LL ? -2147483643 : -1073741811;
 LABEL_12:
+      if ( v10 >= 0 )
+      {
+LABEL_13:
         if ( ppszDestEnd )
-          *ppszDestEnd = v11;
+          *ppszDestEnd = v12;
         if ( pcbRemaining )
           *pcbRemaining = (cbDest & 1) + 2 * v7;
         return v10;
       }
-      v10 = pszDest != 0LL ? -2147483643 : -1073741811;
+      goto LABEL_27;
     }
-    if ( (dwFlags & 0x1C00) != 0 && cbDest )
+    pcchNewDestLength[0] = 0LL;
+    v14 = RtlStringVPrintfWorkerW(pszDest, v7, pcchNewDestLength, v13, va);
+    v15 = pcchNewDestLength[0];
+    v10 = v14;
+    v7 -= pcchNewDestLength[0];
+    pcchNewDestLength[0] = v7;
+    v12 = &pszDest[v15];
+    ppszDestEnda = v12;
+    if ( v14 >= 0 )
     {
-      StringExHandleOtherFlagsW(pszDest, cbDest, (size_t)ppszDestEnd, &ppszDestEnda, pcchNewDestLength, dwFlags);
-      v11 = ppszDestEnda;
-      v7 = pcchNewDestLength[0];
-    }
-    if ( (int)(v10 + 0x80000000) < 0 || v10 == -2147483643 )
+      if ( (dwFlags & 0x200) != 0 )
+        RtlStringExHandleFillBehindNullW(&pszDest[v15], (cbDest & 1) + 2 * v7, dwFlags);
       goto LABEL_12;
+    }
   }
+LABEL_27:
+  if ( (dwFlags & 0x1C00) != 0 && cbDest )
+  {
+    StringExHandleOtherFlagsW(pszDest, cbDest, v11, &ppszDestEnda, pcchNewDestLength, dwFlags);
+    v12 = ppszDestEnda;
+    v7 = pcchNewDestLength[0];
+  }
+  if ( (int)(v10 + 0x80000000) < 0 || v10 == -2147483643 )
+    goto LABEL_13;
   return v10;
 }

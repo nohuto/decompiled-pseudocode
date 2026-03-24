@@ -1,16 +1,17 @@
 /*
- * XREFs of HUBREG_QueryUsbflagsAlternateSettingFilter @ 0x1C00347D8
+ * XREFs of HUBREG_QueryUsbflagsAlternateSettingFilter @ 0x1C0031600
  * Callers:
- *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C0083478 (HUBREG_QueryUsbflagsValuesForDevice.c)
+ *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C007DA10 (HUBREG_QueryUsbflagsValuesForDevice.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 void __fastcall HUBREG_QueryUsbflagsAlternateSettingFilter(__int64 a1, __int64 a2)
 {
   unsigned __int16 v4; // r9
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   unsigned int v6; // [rsp+60h] [rbp+18h] BYREF
   int v7; // [rsp+68h] [rbp+20h] BYREF
 
@@ -43,24 +44,25 @@ LABEL_19:
         2u,
         5u,
         v4,
-        (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids);
+        (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids);
       return;
     }
-    Pool2 = ExAllocatePool2(64LL, v6 + 6LL, 1681082453LL);
-    *(_QWORD *)(a1 + 2448) = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v6 + 6LL, 0x64334855u);
+    *(_QWORD *)(a1 + 2448) = PoolWithTag;
+    if ( !PoolWithTag )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return;
       v4 = 22;
       goto LABEL_19;
     }
+    memset(PoolWithTag, 0, v6 + 6LL);
     if ( (*(int (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, _QWORD, __int64, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
            WdfDriverGlobals,
            a2,
            L",.",
            v6,
-           Pool2 + 4,
+           *(_QWORD *)(a1 + 2448) + 4LL,
            0LL,
            0LL) >= 0 )
     {
@@ -70,7 +72,7 @@ LABEL_19:
           4u,
           5u,
           0x18u,
-          (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids);
+          (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids);
       **(_DWORD **)(a1 + 2448) = v6 >> 1;
     }
     else
@@ -81,7 +83,7 @@ LABEL_19:
           2u,
           5u,
           0x17u,
-          (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids);
+          (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids);
       ExFreePoolWithTag(*(PVOID *)(a1 + 2448), 0x64334855u);
       *(_QWORD *)(a1 + 2448) = 0LL;
     }

@@ -1,86 +1,82 @@
 /*
- * XREFs of xxxDesktopThread @ 0x1C00A4360
+ * XREFs of xxxDesktopThread @ 0x1C00D9750
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     xxxDesktopThreadWaiter @ 0x1C00A4844 (xxxDesktopThreadWaiter.c)
- *     ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00A4A14 (-xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
- *     ?IsAnyThreadAttached@tagQ@@QEBA_NXZ @ 0x1C0117970 (-IsAnyThreadAttached@tagQ@@QEBA_NXZ.c)
- *     ??_GLegacyInputDispatcher@@QEAAPEAXI@Z @ 0x1C011F8B0 (--_GLegacyInputDispatcher@@QEAAPEAXI@Z.c)
- *     xxxCleanupMotherDesktopWindow @ 0x1C01226E8 (xxxCleanupMotherDesktopWindow.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ??_GLegacyInputDispatcher@@QEAAPEAXI@Z @ 0x1C000A648 (--_GLegacyInputDispatcher@@QEAAPEAXI@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     xxxCleanupMotherDesktopWindow @ 0x1C00D6DA4 (xxxCleanupMotherDesktopWindow.c)
+ *     ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D9EC4 (-xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     xxxDesktopThreadWaiter @ 0x1C00D9FF4 (xxxDesktopThreadWaiter.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-LONG __fastcall xxxDesktopThread(PRKEVENT *a1)
+void __fastcall xxxDesktopThread(struct tagTERMINAL *a1)
 {
-  unsigned int v2; // r12d
-  int v3; // esi
-  __int64 v4; // rcx
+  unsigned int v2; // edi
+  char v3; // r12
+  int v4; // r14d
   const WCHAR *v5; // rdx
   __int64 CurrentThreadWin32Thread; // rax
   const wchar_t *v7; // rdx
-  struct _KEVENT *ThreadWin32Thread; // rax
-  struct _KEVENT *v9; // r15
-  struct _KEVENT *v10; // r14
-  unsigned int v11; // edx
+  struct tagTHREADINFO *ThreadWin32Thread; // rax
+  struct tagTHREADINFO *v9; // r13
+  _DWORD *v10; // r15
+  PRKEVENT v11; // rcx
   __int64 v12; // rcx
   struct _KEVENT *v13; // rcx
-  PRKEVENT v14; // rbx
+  void *v14; // rbx
   __int64 v15; // rcx
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  unsigned int v18; // ebx
-  unsigned int v19; // r12d
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // r9
+  struct _KEVENT *v16; // rcx
+  bool v17; // zf
+  void *v18; // rcx
+  LegacyInputDispatcher *v19; // rcx
+  PRKEVENT v20; // rcx
+  __int64 v21; // rcx
+  unsigned int v22; // edi
   unsigned int v23; // ebx
-  unsigned int v24; // edx
-  __int64 v25; // rcx
-  __int64 v26; // rax
-  _QWORD *v27; // rcx
-  int Flink; // eax
-  LegacyInputDispatcher *v29; // rcx
-  LegacyInputDispatcher *v30; // rcx
-  LONG result; // eax
-  PRKEVENT v32; // rcx
-  __int64 v33; // rcx
-  struct _KEVENT *v34; // rcx
-  bool v35; // zf
-  __int64 v36; // rcx
-  PRKEVENT v37; // rcx
-  PRKEVENT v38; // rcx
-  signed __int32 v39[8]; // [rsp+8h] [rbp-89h] BYREF
-  char v40; // [rsp+38h] [rbp-59h]
-  LegacyInputDispatcher *v41; // [rsp+40h] [rbp-51h] BYREF
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  int v27; // ebx
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  _QWORD *v30; // rcx
+  int v31; // eax
+  LegacyInputDispatcher *v32; // rcx
+  signed __int32 v33[8]; // [rsp+8h] [rbp-89h] BYREF
+  int v34; // [rsp+38h] [rbp-59h]
+  int v35; // [rsp+3Ch] [rbp-55h]
+  LegacyInputDispatcher *v36; // [rsp+40h] [rbp-51h] BYREF
   int ProcessInformation; // [rsp+48h] [rbp-49h] BYREF
-  unsigned int v43; // [rsp+4Ch] [rbp-45h]
   struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-41h] BYREF
-  _QWORD v45[10]; // [rsp+68h] [rbp-29h] BYREF
+  _QWORD v39[10]; // [rsp+68h] [rbp-29h] BYREF
 
-  v43 = 0;
-  v40 = 0;
-  v41 = 0LL;
+  v35 = 0;
+  v36 = 0LL;
   v2 = 0;
+  v3 = 0;
   DestinationString = 0LL;
-  memset(v45, 0, sizeof(v45));
-  v3 = *(_DWORD *)a1 & 2;
-  SetThreadBasePriority(KeGetCurrentThread(), v3 != 0 ? 12 : 16);
-  if ( !v3 )
+  memset(v39, 0, sizeof(v39));
+  v4 = *(_DWORD *)a1 & 2;
+  SetThreadBasePriority(KeGetCurrentThread(), v4 != 0 ? 12 : 16);
+  if ( !v4 )
   {
-    if ( Event )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v4);
-    Event = (PRKEVENT)CreateKernelEvent(1LL, 0LL);
+    if ( qword_1C033AF08 )
+    {
+      v34 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 847LL);
+    }
+    qword_1C033AF08 = (PRKEVENT)CreateKernelEvent(1LL);
   }
   v5 = L"IO_DT";
-  if ( v3 )
+  if ( v4 )
     v5 = L"NOIO_DT";
   RtlInitUnicodeString(&DestinationString, v5);
-  if ( v3 )
+  if ( v4 )
   {
     v7 = L"Win32k Desktop Thread (NOIO_DT)";
   }
@@ -92,193 +88,204 @@ LONG __fastcall xxxDesktopThread(PRKEVENT *a1)
     v7 = L"Win32k Desktop Thread (IO_DT)";
   }
   SetThreadName(-2LL, v7);
-  if ( (int)InitSystemThread(&DestinationString) < 0 || !v3 && !Event )
+  if ( (int)InitSystemThread(&DestinationString) >= 0 && (v4 || qword_1C033AF08) )
   {
-    *(_DWORD *)a1 |= 8u;
-    _InterlockedOr(v39, 0);
-    result = KeSetEvent(a1[5], 1, 0);
-    if ( v3 )
-      return result;
-    v32 = Event;
-    if ( !Event )
-      return result;
-LABEL_80:
-    result = Win32FreePool(v32);
-    Event = 0LL;
-    return result;
-  }
-  ThreadWin32Thread = (struct _KEVENT *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  a1[2] = ThreadWin32Thread;
-  v9 = ThreadWin32Thread;
-  v10 = *(struct _KEVENT **)&ThreadWin32Thread[18].Header.Lock;
-  a1[3] = v10;
-  ++LODWORD(v10[16].Header.WaitListHead.Flink);
-  ThreadWin32Thread[19].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)gpkdiStatic;
-  ThreadWin32Thread[25].Header.WaitListHead.Blink = 0LL;
-  if ( (int)LegacyInputDispatcher::Create(&v41) < 0 )
-  {
-    *(_DWORD *)a1 |= 8u;
-    _InterlockedOr(v39, 0);
-    result = KeSetEvent(a1[5], 1, 0);
-    if ( v3 )
-      return result;
-    v32 = Event;
-    goto LABEL_80;
-  }
-  if ( !v3 )
-  {
-    v11 = 1;
-    v45[0] = Feedback::gpevtPointerCursorOperation;
-    v45[1] = OnPointerCursorOperation;
-    if ( !gDWMCapable )
+    ThreadWin32Thread = (struct tagTHREADINFO *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    *((_QWORD *)a1 + 2) = ThreadWin32Thread;
+    v9 = ThreadWin32Thread;
+    v10 = (_DWORD *)*((_QWORD *)ThreadWin32Thread + 54);
+    *((_QWORD *)a1 + 3) = v10;
+    ++v10[99];
+    *((_QWORD *)ThreadWin32Thread + 58) = gpkdiStatic;
+    *((_QWORD *)ThreadWin32Thread + 77) = 0LL;
+    if ( (int)LegacyInputDispatcher::Create(&v36) < 0 )
     {
-      v11 = 2;
-      v45[3] = OnPTPMouseOperation;
-      v45[2] = gpevtPTPOperation;
+      *(_DWORD *)a1 |= 8u;
+      _InterlockedOr(v33, 0);
+      KeSetEvent(*((PRKEVENT *)a1 + 5), 1, 0);
+      if ( v4 )
+        return;
+      v11 = qword_1C033AF08;
+      goto LABEL_75;
     }
-    v2 = v11 + 1;
-    v12 = 2LL * v11;
-    v43 = v11 + 1;
-    v45[v12] = Event;
-    v45[v12 + 1] = lambda_512f5916cb944740d11e96e056576eff_::_lambda_invoker_cdecl_;
-    if ( gSessionId == gServiceSessionId )
+    if ( !v4 )
     {
-      CBaseInput::InitializeSensor(gpMouseSensor);
-      v40 = 1;
-    }
-    else if ( !gDWMCapable )
-    {
-      v40 = 1;
-      if ( (int)CBaseInput::InitializeSensor(gpMouseSensor) >= 0 )
+      v39[0] = Feedback::gpevtPointerCursorOperation;
+      v39[1] = OnPointerCursorOperation;
+      v39[3] = OnPTPMouseOperation;
+      v39[4] = qword_1C033AF08;
+      v39[5] = lambda_59a4e3142c84351a80394e9d40be16cb_::_lambda_invoker_cdecl_;
+      v39[2] = gpevtPTPOperation;
+      v39[6] = GetSynthesizedContainerMouseInputEvent();
+      v2 = 4;
+      v39[7] = ChildProcessRootSynthesizedMouseInput;
+      v35 = 4;
+      if ( gSessionId == gServiceSessionId )
       {
-        if ( gProtocolType )
+        CBaseInput::InitializeSensor(gpMouseSensor);
+        v3 = 1;
+      }
+      else
+      {
+        v3 = 1;
+        if ( (int)CBaseInput::InitializeSensor(gpMouseSensor) >= 0 )
         {
-          EnterCrit(1LL, 0LL);
-          CBaseInput::HandleTSRequest(gpMouseSensor, 0LL);
-          UserSessionSwitchLeaveCrit(v33);
+          if ( gProtocolType )
+          {
+            EnterCrit(0LL, 1LL);
+            CBaseInput::HandleTSRequest(gpMouseSensor, 0LL);
+            UserSessionSwitchLeaveCrit(v12);
+          }
+          CBaseInput::Read(gpMouseSensor);
         }
-        CBaseInput::Read(gpMouseSensor);
       }
     }
-  }
-  EnterCrit(1LL, 0LL);
-  v13 = a1[5];
-  *(_DWORD *)a1 |= 4u;
-  KeSetEvent(v13, 1, 0);
-  v14 = a1[7];
-  ObReferenceObjectByPointer(v14, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0);
-  UserSessionSwitchLeaveCrit(v15);
-  KeWaitForSingleObject(v14, WrUserRequest, 0, 0, 0LL);
-  EnterCrit(1LL, 0LL);
-  ObfDereferenceObject(v14);
-  if ( (*(_DWORD *)a1 & 8) != 0 )
-  {
-    _InterlockedOr(v39, 0);
-    if ( a1[1] )
-      xxxCleanupMotherDesktopWindow(a1, v16, v17);
-    v34 = a1[5];
-    if ( v34 )
-      KeSetEvent(v34, 1, 0);
-    v35 = LODWORD(v10[16].Header.WaitListHead.Flink)-- == 1;
-    if ( v35 && !tagQ::IsAnyThreadAttached((tagQ *)v10) && (v10[16].Header.SignalState & 0x4000000) != 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v36);
-    v37 = a1[7];
-    a1[2] = 0LL;
-    a1[3] = 0LL;
-    *(_DWORD *)a1 = 0;
-    if ( v37 )
+    EnterCrit(0LL, 1LL);
+    v13 = (struct _KEVENT *)*((_QWORD *)a1 + 5);
+    *(_DWORD *)a1 |= 4u;
+    KeSetEvent(v13, 1, 0);
+    v14 = (void *)*((_QWORD *)a1 + 7);
+    ObReferenceObjectByPointer(v14, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0);
+    if ( gdwInAtomicOperation )
     {
-      ObfDereferenceObject(v37);
-      a1[7] = 0LL;
+      v15 = gdwExtraInstrumentations;
+      if ( (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
     }
-    if ( v40 )
-      CleanupSensorExplicitly(0LL);
-    v30 = v41;
-    if ( v41 )
-      LegacyInputDispatcher::`scalar deleting destructor'(v41, v16);
-    if ( !v3 )
+    UserSessionSwitchLeaveCrit(v15);
+    KeWaitForSingleObject(v14, WrUserRequest, 0, 0, 0LL);
+    EnterCrit(0LL, 1LL);
+    ObfDereferenceObject(v14);
+    if ( (*(_DWORD *)a1 & 8) != 0 )
     {
-      v38 = Event;
-      if ( !Event )
+      _InterlockedOr(v33, 0);
+      if ( *((_QWORD *)a1 + 1) )
+        xxxCleanupMotherDesktopWindow((__int64)a1);
+      v16 = (struct _KEVENT *)*((_QWORD *)a1 + 5);
+      if ( v16 )
+        KeSetEvent(v16, 1, 0);
+      v17 = v10[99]-- == 1;
+      if ( v17 && !v10[98] && (v10[97] & 0x4000000) != 0 )
       {
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(0LL);
-        v38 = Event;
+        v34 = 0x20000;
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1021LL);
       }
-      Win32FreePool(v38);
-      Event = 0LL;
+      v18 = (void *)*((_QWORD *)a1 + 7);
+      *((_QWORD *)a1 + 2) = 0LL;
+      *((_QWORD *)a1 + 3) = 0LL;
+      *(_DWORD *)a1 = 0;
+      if ( v18 )
+      {
+        ObfDereferenceObject(v18);
+        *((_QWORD *)a1 + 7) = 0LL;
+      }
+      if ( v3 )
+        CleanupSensorExplicitly(0LL);
+      v19 = v36;
+      if ( v36 )
+        LegacyInputDispatcher::`scalar deleting destructor'(v36);
+      if ( !v4 )
+      {
+        v20 = qword_1C033AF08;
+        if ( !qword_1C033AF08 )
+        {
+          v34 = 0x20000;
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1040LL);
+          v20 = qword_1C033AF08;
+        }
+        Win32FreePool(v20);
+        qword_1C033AF08 = 0LL;
+      }
     }
+    else
+    {
+      *((_QWORD *)a1 + 8) = **((_QWORD **)a1 + 2);
+      ProcessInformation = 1;
+      ZwSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessBreakOnTermination, &ProcessInformation, 4u);
+      v21 = 2LL * v2;
+      v22 = v2 + 1;
+      v39[v21] = *((_QWORD *)v9 + 177);
+      v23 = v22 + 8;
+      if ( v4 )
+        v23 = v22;
+      LegacyInputDispatcher::Initialize(v36, 1, 0, v23, v22, (struct LegacyDispatcherObject *)v39);
+      if ( v23 != v22 )
+        CBaseInput::RegisterDispatcherObject(gpMouseSensor, v36);
+      v27 = v35;
+      *((_DWORD *)v36 + 15) = v35;
+      if ( v4 )
+        qword_1C033AF10 = (__int64)v36;
+      else
+        qword_1C033AF18 = (__int64)v36;
+      do
+      {
+        do
+          LOBYTE(v24) = 1;
+        while ( (unsigned int)xxxDesktopThreadWaiter(v24, 0LL, v25, v26) != v27 );
+      }
+      while ( (unsigned int)xxxHandleDesktopMessages(v9, a1) );
+      if ( a1 == (struct tagTERMINAL *)gTermIO[0] )
+        gdwHydraHint |= 0x100000u;
+      *((_QWORD *)a1 + 2) = 0LL;
+      *((_QWORD *)a1 + 3) = 0LL;
+      *((_DWORD *)a1 + 8) = 0;
+      *(_DWORD *)a1 = 0;
+      v28 = *((_QWORD *)v9 + 57);
+      if ( v28 )
+      {
+        HMAssignmentUnlock(v28 + 184);
+        v29 = *((_QWORD *)v9 + 57);
+        v30 = (_QWORD *)(*(_QWORD *)(v29 + 8) + 24LL);
+        if ( *v30 )
+        {
+          *(_QWORD *)(**(_QWORD **)(v29 + 8) + 8LL) = 0LL;
+          HMAssignmentUnlock(v30);
+        }
+      }
+      *((_QWORD *)v9 + 58) = gpkdiStatic;
+      v31 = v10[99];
+      if ( !v31 )
+      {
+        v35 = 0x20000;
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1160LL);
+        v31 = v10[99];
+      }
+      v10[99] = v31 - 1;
+      if ( *((_DWORD **)v9 + 54) != v10 )
+        zzzDestroyQueue(v10);
+      if ( v3 )
+        CleanupSensorExplicitly(0LL);
+      v32 = v36;
+      if ( v36 )
+        LegacyInputDispatcher::`scalar deleting destructor'(v36);
+      v36 = 0LL;
+      UserSessionSwitchLeaveCrit(v32);
+      if ( !v4 )
+      {
+        Win32FreePool(qword_1C033AF08);
+        qword_1C033AF08 = 0LL;
+      }
+      ProcessInformation = 0;
+      ZwSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessBreakOnTermination, &ProcessInformation, 4u);
+      EnterCrit(0LL, 1LL);
+      *((_QWORD *)a1 + 8) = 0LL;
+    }
+    UserSessionSwitchLeaveCrit(v19);
   }
   else
   {
-    a1[8] = *(PRKEVENT *)&a1[2]->Header.Lock;
-    ProcessInformation = 1;
-    ZwSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessBreakOnTermination, &ProcessInformation, 4u);
-    v18 = v2 + 1;
-    v45[2 * v2] = *(_QWORD *)&v9[59].Header.Lock;
-    if ( v2 + 1 > 5 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(2LL * v2);
-    if ( v3 || (v19 = v2 + 10, gDWMCapable) )
-      v19 = v18;
-    LegacyInputDispatcher::Initialize(v41, 1, 0, v19, v18, (struct LegacyDispatcherObject *)v45);
-    if ( v19 != v18 && !gDWMCapable )
-      CBaseInput::RegisterDispatcherObject(gpMouseSensor, v41);
-    v23 = v43;
-    *((_DWORD *)v41 + 15) = v43;
-    if ( v3 )
-      qword_1C03361C0 = (__int64)v41;
-    else
-      qword_1C03361C8 = (__int64)v41;
-    do
+    *(_DWORD *)a1 |= 8u;
+    _InterlockedOr(v33, 0);
+    KeSetEvent(*((PRKEVENT *)a1 + 5), 1, 0);
+    if ( !v4 )
     {
-      do
-        LOBYTE(v20) = 1;
-      while ( (unsigned int)xxxDesktopThreadWaiter(v20, 0LL, v21, v22) != v23 );
-    }
-    while ( (unsigned int)xxxHandleDesktopMessages((struct tagTHREADINFO *)v9, (struct tagTERMINAL *)a1) );
-    if ( a1 == (PRKEVENT *)gTermIO[0] )
-      gdwHydraHint |= 0x100000u;
-    a1[2] = 0LL;
-    a1[3] = 0LL;
-    *((_DWORD *)a1 + 8) = 0;
-    *(_DWORD *)a1 = 0;
-    v25 = *(_QWORD *)&v9[19].Header.Lock;
-    if ( v25 )
-    {
-      HMAssignmentUnlock(v25 + 184);
-      v26 = *(_QWORD *)&v9[19].Header.Lock;
-      v27 = (_QWORD *)(*(_QWORD *)(v26 + 8) + 24LL);
-      if ( *v27 )
+      v11 = qword_1C033AF08;
+      if ( qword_1C033AF08 )
       {
-        *(_QWORD *)(**(_QWORD **)(v26 + 8) + 8LL) = 0LL;
-        HMAssignmentUnlock(v27);
+LABEL_75:
+        Win32FreePool(v11);
+        qword_1C033AF08 = 0LL;
       }
     }
-    v9[19].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)gpkdiStatic;
-    Flink = (int)v10[16].Header.WaitListHead.Flink;
-    if ( !Flink )
-    {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(gpkdiStatic);
-      Flink = (int)v10[16].Header.WaitListHead.Flink;
-    }
-    LODWORD(v10[16].Header.WaitListHead.Flink) = Flink - 1;
-    if ( *(struct _KEVENT **)&v9[18].Header.Lock != v10 )
-      zzzDestroyQueue(v10, v9);
-    if ( v40 )
-      CleanupSensorExplicitly(0LL);
-    v29 = v41;
-    if ( v41 )
-      LegacyInputDispatcher::`scalar deleting destructor'(v41, v24);
-    v41 = 0LL;
-    UserSessionSwitchLeaveCrit(v29);
-    if ( !v3 )
-    {
-      Win32FreePool(Event);
-      Event = 0LL;
-    }
-    ProcessInformation = 0;
-    ZwSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessBreakOnTermination, &ProcessInformation, 4u);
-    EnterCrit(1LL, 0LL);
-    a1[8] = 0LL;
   }
-  return UserSessionSwitchLeaveCrit(v30);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhPCE_QueueChangeObject @ 0x1C0033E78
+ * XREFs of UsbhPCE_QueueChangeObject @ 0x1C00351DC
  * Callers:
- *     UsbhResetPortTimerDpc @ 0x1C0038A80 (UsbhResetPortTimerDpc.c)
+ *     UsbhResetPortTimerDpc @ 0x1C0039D70 (UsbhResetPortTimerDpc.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall UsbhPCE_QueueChangeObject(
@@ -37,7 +37,7 @@ __int64 __fastcall UsbhPCE_QueueChangeObject(
   }
   result = UsbhGetPortData(a1, v7);
   if ( result )
-    result = (__int64)UsbhDispatch_PortChangeQueueEventEx(a1, result, 4LL, a4, a3, 2, a6, 0LL);
+    result = UsbhDispatch_PortChangeQueueEventEx(a1, result, 4, a4, a3, 2, a6, 0LL);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )

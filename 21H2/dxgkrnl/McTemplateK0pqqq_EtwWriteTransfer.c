@@ -1,17 +1,18 @@
 /*
- * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0044DE4
+ * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C003A3D8
  * Callers:
- *     ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C00435D8 (-CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z.c)
- *     ?ProcessPStateTransitionRequest@DXGADAPTER@@QEAAXXZ @ 0x1C004428C (-ProcessPStateTransitionRequest@DXGADAPTER@@QEAAXXZ.c)
- *     DpiDxgkDdiStartDevice @ 0x1C0219A50 (DpiDxgkDdiStartDevice.c)
- *     DpiMiracastDdiMiracastQueryCaps @ 0x1C021BDC0 (DpiMiracastDdiMiracastQueryCaps.c)
- *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02BD52C (-ReportState@DXGADAPTER@@QEAAXXZ.c)
- *     ?VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0370A70 (-VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
- *     DpiCallDrvSetBacklightOptimizationLevel @ 0x1C03905F4 (DpiCallDrvSetBacklightOptimizationLevel.c)
- *     DpiCallDrvSetBrightness @ 0x1C0390670 (DpiCallDrvSetBrightness.c)
+ *     ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C0037190 (-CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z.c)
+ *     ?ProcessPStateTransitionRequest@DXGADAPTER@@QEAAXXZ @ 0x1C0038C28 (-ProcessPStateTransitionRequest@DXGADAPTER@@QEAAXXZ.c)
+ *     ?VmBusOpenAdapterCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00D9E60 (-VmBusOpenAdapterCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DpiDxgkDdiStartDevice @ 0x1C019DBF8 (DpiDxgkDdiStartDevice.c)
+ *     DpiMiracastDdiMiracastQueryCaps @ 0x1C019FB04 (DpiMiracastDdiMiracastQueryCaps.c)
+ *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C020EB6C (-ReportState@DXGADAPTER@@QEAAXXZ.c)
+ *     ?VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0243980 (-VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DpiCallDrvSetBacklightOptimizationLevel @ 0x1C02D19C0 (DpiCallDrvSetBacklightOptimizationLevel.c)
+ *     DpiCallDrvSetBrightness @ 0x1C02D1A3C (DpiCallDrvSetBrightness.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

@@ -1,29 +1,27 @@
 /*
- * XREFs of ?ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBUMarshaledManipulationInfo@@@Z @ 0x18027506C
+ * XREFs of ?ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBUMarshaledManipulationInfo@@@Z @ 0x180213940
  * Callers:
- *     ?ProcessSetManipulations@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBXI@Z @ 0x180233CD8 (-ProcessSetManipulations@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION.c)
+ *     ?ProcessSetManipulations@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBXI@Z @ 0x1801CA880 (-ProcessSetManipulations@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x180049524 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A8DC (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800D9B98 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?SetAutoReset_RenderThread@CManipulation@@QEAAJ_N@Z @ 0x18020E2C8 (-SetAutoReset_RenderThread@CManipulation@@QEAAJ_N@Z.c)
- *     ??1?$vector@PEAUDepthGraphNode@@V?$allocator@PEAUDepthGraphNode@@@std@@@std@@QEAA@XZ @ 0x18026CC9C (--1-$vector@PEAUDepthGraphNode@@V-$allocator@PEAUDepthGraphNode@@@std@@@std@@QEAA@XZ.c)
- *     ??$_Emplace_reallocate@PEAVCManipulation@@@?$vector@PEAVCManipulation@@V?$allocator@PEAVCManipulation@@@std@@@std@@QEAAPEAPEAVCManipulation@@QEAPEAV2@$$QEAPEAV2@@Z @ 0x180273A20 (--$_Emplace_reallocate@PEAVCManipulation@@@-$vector@PEAVCManipulation@@V-$allocator@PEAVCManipul.c)
- *     ??$_Find@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@?$_Hash@V?$_Umap_traits@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@V?$_Uhash_compare@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@U?$hash@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@U?$equal_to@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@4@@4@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@4@$0A@@std@@@std@@AEBAPEAU?$_List_node@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@PEAX@1@AEBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@_K@Z @ 0x180273B34 (--$_Find@V-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@-$_Hash@V-$_Umap_traits.c)
- *     ??$emplace@AEAV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@?$_Hash@V?$_Umap_traits@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@V?$_Uhash_compare@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@U?$hash@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@U?$equal_to@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@4@@4@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@4@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@std@@@std@@@std@@_N@1@AEAV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@$$QEAV?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@1@@Z @ 0x180273CE0 (--$emplace@AEAV-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V-$unique_ptr@VCCha.c)
- *     ??0?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCManipulation@@@Z @ 0x180274168 (--0-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCManipulation@@@Z.c)
- *     ?CleanupManipulationMap@InteractionSourceManager@@AEAAXAEBV?$vector@PEAVCManipulation@@V?$allocator@PEAVCManipulation@@@std@@@std@@@Z @ 0x180274328 (-CleanupManipulationMap@InteractionSourceManager@@AEAAXAEBV-$vector@PEAVCManipulation@@V-$alloca.c)
- *     ?IsManipulationActive@InteractionSourceManager@@AEAA_NPEBVCManipulation@@@Z @ 0x180274B60 (-IsManipulationActive@InteractionSourceManager@@AEAA_NPEBVCManipulation@@@Z.c)
- *     ?IsManipulationInMap@InteractionSourceManager@@AEAA_NPEAVCManipulation@@@Z @ 0x180274BAC (-IsManipulationInMap@InteractionSourceManager@@AEAA_NPEAVCManipulation@@@Z.c)
- *     ?ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ @ 0x18027538C (-ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ.c)
- *     ??0CChainingHelper@@QEAA@PEAVCInteraction@@@Z @ 0x18027644C (--0CChainingHelper@@QEAA@PEAVCInteraction@@@Z.c)
- *     ?ClearAllConfigurations@CChainingHelper@@QEAAXXZ @ 0x180276650 (-ClearAllConfigurations@CChainingHelper@@QEAAXXZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??0?$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCCompositionSurfaceInfo@@@Z @ 0x180025A30 (--0-$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCComposition.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D9B0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$_Emplace_reallocate@PEBVCVisual@@@?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@QEAAPEAPEBVCVisual@@QEAPEBV2@$$QEAPEBV2@@Z @ 0x180164458 (--$_Emplace_reallocate@PEBVCVisual@@@-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@std@@@std@.c)
+ *     ?SetAutoReset_RenderThread@CManipulation@@QEAAJ_N@Z @ 0x1801D4778 (-SetAutoReset_RenderThread@CManipulation@@QEAAJ_N@Z.c)
+ *     ??$_Insert@AEAV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@?$list@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@2@@std@@QEAAXV?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@std@@@std@@U_Iterator_base0@2@@1@AEAV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@$$QEAV?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@1@@Z @ 0x1802124AC (--$_Insert@AEAV-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V-$unique_ptr@VCCha.c)
+ *     ??$_Insert_unverified@AEAU?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@std@@@std@@@2@@?$_Hash@V?$_Umap_traits@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@V?$_Uhash_compare@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@U?$hash@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@U?$equal_to@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@4@@4@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@4@$0A@@std@@@std@@IEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@std@@@std@@@std@@_N@1@AEAU?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@1@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@std@@@std@@@1@@Z @ 0x18021255C (--$_Insert_unverified@AEAU-$pair@$$CBV-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@w.c)
+ *     ?CleanupManipulationMap@InteractionSourceManager@@AEAAXAEBV?$vector@PEAVCManipulation@@V?$allocator@PEAVCManipulation@@@std@@@std@@@Z @ 0x180212BEC (-CleanupManipulationMap@InteractionSourceManager@@AEAAXAEBV-$vector@PEAVCManipulation@@V-$alloca.c)
+ *     ?IsManipulationActive@InteractionSourceManager@@AEAA_NPEBVCManipulation@@@Z @ 0x180213410 (-IsManipulationActive@InteractionSourceManager@@AEAA_NPEBVCManipulation@@@Z.c)
+ *     ?ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ @ 0x180213C60 (-ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ.c)
+ *     ?lower_bound@?$_Hash@V?$_Umap_traits@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@V?$_Uhash_compare@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@U?$hash@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@U?$equal_to@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@4@@4@V?$allocator@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@4@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$unique_ptr@VCChainingHelper@@U?$default_delete@VCChainingHelper@@@std@@@std@@@std@@@std@@@std@@@2@AEBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x180214654 (-lower_bound@-$_Hash@V-$_Umap_traits@V-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@w.c)
+ *     ??0CChainingHelper@@QEAA@PEAVCInteraction@@@Z @ 0x180214F48 (--0CChainingHelper@@QEAA@PEAVCInteraction@@@Z.c)
+ *     ?ClearAllConfigurations@CChainingHelper@@QEAAXXZ @ 0x1802150A0 (-ClearAllConfigurations@CChainingHelper@@QEAAXXZ.c)
  */
 
 __int64 __fastcall InteractionSourceManager::ProcessSetManipulations(
@@ -33,170 +31,175 @@ __int64 __fastcall InteractionSourceManager::ProcessSetManipulations(
         const struct MarshaledManipulationInfo *a4)
 {
   __int64 v4; // rax
-  _BYTE *v5; // rdi
-  unsigned int v6; // r13d
-  CResourceTable *v8; // r9
-  _BYTE *v10; // r14
+  struct CManipulation **v5; // rsi
+  CResourceTable *v7; // r9
+  struct CManipulation **v9; // r14
   struct CResource *ResourceWithoutType; // rax
-  CResourceTable *v12; // r9
-  unsigned int v13; // edx
-  __int64 v14; // rbx
-  struct CInteraction *v15; // r15
-  struct CManipulation *v16; // rbx
-  __int64 v17; // rcx
-  __int64 appended; // rax
-  __int64 v19; // rbx
-  CChainingHelper *v20; // rcx
-  CChainingHelper *v21; // rax
-  __int64 *v22; // rdi
-  __int64 *v23; // rcx
-  int v24; // eax
-  unsigned int v25; // edi
-  int v26; // eax
-  unsigned int v27; // ebx
-  CChainingHelper *v28; // rax
-  __int64 *v29; // rbx
-  void *v31; // [rsp+20h] [rbp-40h] BYREF
-  CResource *v32; // [rsp+28h] [rbp-38h]
-  char v33[16]; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v34; // [rsp+40h] [rbp-20h] BYREF
-  _BYTE *v35; // [rsp+50h] [rbp-10h]
-  wil::details::in1diag3 *retaddr; // [rsp+98h] [rbp+38h]
-  struct CManipulation *v37; // [rsp+A0h] [rbp+40h] BYREF
-  struct CResourceTable *v38; // [rsp+A8h] [rbp+48h]
-  const struct tagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS *v39; // [rsp+B0h] [rbp+50h]
+  CResourceTable *v11; // rcx
+  unsigned int v12; // edx
+  __int64 v13; // rbx
+  struct CResource *v14; // rdi
+  struct CManipulation *v15; // rbx
+  struct CInteraction *v16; // r12
+  bool v17; // di
+  __int64 v18; // rdi
+  CChainingHelper *v19; // rcx
+  CChainingHelper *v20; // rax
+  struct CManipulation *v21; // rbx
+  int v22; // eax
+  unsigned int v23; // edi
+  CChainingHelper *v24; // rax
+  __int64 v25; // rcx
+  __int64 v27; // rdx
+  struct CManipulation *v28; // [rsp+20h] [rbp-60h] BYREF
+  struct CManipulation *v29; // [rsp+28h] [rbp-58h] BYREF
+  __int128 v30; // [rsp+30h] [rbp-50h] BYREF
+  struct CManipulation **v31; // [rsp+40h] [rbp-40h]
+  __int64 v32; // [rsp+48h] [rbp-38h] BYREF
+  CResource *v33; // [rsp+50h] [rbp-30h]
+  __int64 v34; // [rsp+58h] [rbp-28h] BYREF
+  __int64 v35; // [rsp+60h] [rbp-20h] BYREF
+  char v36[24]; // [rsp+68h] [rbp-18h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+B8h] [rbp+38h]
+  int v38; // [rsp+C0h] [rbp+40h]
 
-  v39 = a3;
-  v38 = a2;
   v4 = *((_QWORD *)this + 1);
   v5 = 0LL;
-  v6 = 0;
-  v35 = 0LL;
-  v8 = a2;
-  v32 = *(CResource **)(v4 + 16);
-  v34 = 0LL;
-  if ( !*((_DWORD *)a3 + 2) )
+  v38 = 0;
+  v7 = a2;
+  v31 = 0LL;
+  v33 = *(CResource **)(v4 + 16);
+  v30 = 0LL;
+  if ( *((_DWORD *)a3 + 2) )
   {
-LABEL_28:
-    InteractionSourceManager::CleanupManipulationMap(this, (_QWORD **)&v34);
-    if ( !*((_DWORD *)v32 + 44) )
-      InteractionSourceManager::ReconfigureAllManipulations(this);
-    if ( (_QWORD)v34 )
-      std::_Deallocate<16,0>((void *)v34, (unsigned __int64)&v35[-v34] & 0xFFFFFFFFFFFFFFF8uLL);
-    return 0LL;
-  }
-  v10 = (_BYTE *)*((_QWORD *)&v34 + 1);
-  while ( 1 )
-  {
-    ResourceWithoutType = CResourceTable::GetResourceWithoutType(v8, *(_DWORD *)a4);
-    v13 = *((_DWORD *)a4 + 1);
-    v14 = (__int64)ResourceWithoutType;
-    v15 = v13 ? CResourceTable::GetResourceWithoutType(v12, v13) : 0LL;
-    if ( !v14
-      || !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v14 + 56LL))(v14, 105LL)
-      || v15 && !(*(unsigned __int8 (__fastcall **)(struct CInteraction *, __int64))(*(_QWORD *)v15 + 56LL))(v15, 89LL) )
+    v9 = (struct CManipulation **)*((_QWORD *)&v30 + 1);
+    while ( 1 )
     {
-      break;
+      ResourceWithoutType = CResourceTable::GetResourceWithoutType(v7, *(_DWORD *)a4);
+      v12 = *((_DWORD *)a4 + 1);
+      v13 = (__int64)ResourceWithoutType;
+      if ( v12 )
+        v14 = CResourceTable::GetResourceWithoutType(v11, v12);
+      else
+        v14 = 0LL;
+      if ( !v13
+        || !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v13 + 56LL))(v13, 103LL)
+        || v14 && !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)v14 + 56LL))(v14, 87LL) )
+      {
+        v23 = -2003303421;
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          (void *)0x30,
+          (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\animations\\interactionsourcemanager.cpp",
+          (const char *)0x88980403LL);
+        goto LABEL_32;
+      }
+      wil::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>(
+        &v28,
+        v13);
+      v15 = v28;
+      v29 = v28;
+      if ( v5 == v9 )
+      {
+        std::vector<CVisual const *>::_Emplace_reallocate<CVisual const *>((__int64 *)&v30, v9, &v29);
+        v5 = v31;
+        v9 = (struct CManipulation **)*((_QWORD *)&v30 + 1);
+      }
+      else
+      {
+        *v9++ = v28;
+        *((_QWORD *)&v30 + 1) = v9;
+      }
+      v16 = (struct CInteraction *)(((unsigned __int64)v14 - 8) & -(__int64)(v14 != 0LL));
+      wil::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>(
+        &v32,
+        (__int64)v15);
+      std::_Hash<std::_Umap_traits<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::unique_ptr<CChainingHelper>,std::_Uhash_compare<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::hash<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>,std::equal_to<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>>,std::allocator<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>>>,0>>::lower_bound(
+        (char *)this + 16,
+        &v34,
+        &v32);
+      v17 = v34 != *((_QWORD *)this + 3);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v32);
+      if ( !v17 )
+        break;
+      if ( InteractionSourceManager::IsManipulationActive(this, v15) )
+      {
+        std::_Hash<std::_Umap_traits<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::unique_ptr<CChainingHelper>,std::_Uhash_compare<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::hash<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>,std::equal_to<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>>,std::allocator<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>>>,0>>::lower_bound(
+          (char *)this + 16,
+          &v35,
+          &v28);
+        v18 = v35;
+        v19 = *(CChainingHelper **)(v35 + 24);
+        if ( *((struct CInteraction **)v19 + 5) != v16 )
+        {
+          CChainingHelper::ClearAllConfigurations(v19);
+          v20 = (CChainingHelper *)operator new(0x30uLL);
+          if ( v20 )
+            v20 = CChainingHelper::CChainingHelper(v20, v16);
+          v21 = *(struct CManipulation **)(v18 + 24);
+          *(_QWORD *)(v18 + 24) = v20;
+LABEL_24:
+          if ( v21 )
+          {
+            v25 = *((_QWORD *)v21 + 5);
+            if ( v25 )
+              (*(void (__fastcall **)(__int64))(*(_QWORD *)v25 + 8LL))(v25);
+            operator delete(v21);
+          }
+        }
+      }
+      a4 = (const struct MarshaledManipulationInfo *)((char *)a4 + 8);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v28);
+      v7 = a2;
+      if ( (unsigned int)++v38 >= *((_DWORD *)a3 + 2) )
+        goto LABEL_29;
     }
-    wil::com_ptr_t<CManipulation,wil::err_returncode_policy>::com_ptr_t<CManipulation,wil::err_returncode_policy>(
-      &v37,
-      v14);
-    v16 = v37;
-    v31 = v37;
-    if ( v10 == v5 )
+    v22 = CManipulation::SetAutoReset_RenderThread(v15);
+    v23 = v22;
+    if ( v22 < 0 )
     {
-      std::vector<CManipulation *>::_Emplace_reallocate<CManipulation *>((const void **)&v34, v10, &v31);
-      v10 = (_BYTE *)*((_QWORD *)&v34 + 1);
+      v27 = 88LL;
+      goto LABEL_37;
     }
-    else
+    v22 = CResource::RegisterNotifier(v33, v15);
+    v23 = v22;
+    if ( v22 < 0 )
     {
-      *(_QWORD *)v10 = v37;
-      v10 += 8;
-      *((_QWORD *)&v34 + 1) = v10;
-    }
-    if ( InteractionSourceManager::IsManipulationInMap(this, v16) )
-    {
-      if ( !InteractionSourceManager::IsManipulationActive(this, v16) )
-        goto LABEL_27;
-      v31 = v16;
-      appended = std::_Fnv1a_append_bytes(v17, (const unsigned __int8 *const)&v31, 8uLL);
-      v19 = std::_Hash<std::_Umap_traits<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::unique_ptr<CChainingHelper>,std::_Uhash_compare<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::hash<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>,std::equal_to<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>>,std::allocator<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>>>,0>>::_Find<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>(
-              (_QWORD *)this + 2,
-              &v37,
-              appended);
-      v20 = *(CChainingHelper **)(v19 + 24);
-      if ( *((struct CInteraction **)v20 + 5) == v15 )
-        goto LABEL_27;
-      CChainingHelper::ClearAllConfigurations(v20);
-      v21 = (CChainingHelper *)operator new(0x30uLL);
-      if ( v21 )
-        v21 = CChainingHelper::CChainingHelper(v21, v15);
-      v22 = *(__int64 **)(v19 + 24);
-      *(_QWORD *)(v19 + 24) = v21;
-      if ( !v22 )
-        goto LABEL_27;
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(v22 + 5);
-      v23 = v22;
-      goto LABEL_26;
-    }
-    v24 = CManipulation::SetAutoReset_RenderThread(v16);
-    v25 = v24;
-    if ( v24 < 0 )
-    {
+      v27 = 94LL;
+LABEL_37:
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0x58,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\animations\\interactionsourcemanager.cpp",
-        (const char *)(unsigned int)v24);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v37);
-      v27 = v25;
-      goto LABEL_36;
+        (void *)v27,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\animations\\interactionsourcemanager.cpp",
+        (const char *)(unsigned int)v22);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v28);
+      goto LABEL_32;
     }
-    v26 = CResource::RegisterNotifier(v32, v16);
-    v27 = v26;
-    if ( v26 < 0 )
-    {
-      wil::details::in1diag3::Return_Hr(
-        retaddr,
-        (void *)0x5E,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\animations\\interactionsourcemanager.cpp",
-        (const char *)(unsigned int)v26);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v37);
-      goto LABEL_36;
-    }
-    v28 = (CChainingHelper *)operator new(0x30uLL);
-    if ( v28 )
-      v28 = CChainingHelper::CChainingHelper(v28, v15);
-    v31 = v28;
-    std::_Hash<std::_Umap_traits<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::unique_ptr<CChainingHelper>,std::_Uhash_compare<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::hash<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>,std::equal_to<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>>,std::allocator<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>>>,0>>::emplace<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> &,std::unique_ptr<CChainingHelper>>(
-      (float *)this + 4,
-      (__int64)v33,
-      (__int64 *)&v37,
-      (__int64 *)&v31);
-    v29 = (__int64 *)v31;
-    if ( v31 )
-    {
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)v31 + 5);
-      v23 = v29;
-LABEL_26:
-      operator delete(v23);
-    }
-LABEL_27:
-    a4 = (const struct MarshaledManipulationInfo *)((char *)a4 + 8);
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v37);
-    ++v6;
-    v5 = v35;
-    v8 = v38;
-    if ( v6 >= *((_DWORD *)v39 + 2) )
-      goto LABEL_28;
+    v24 = (CChainingHelper *)operator new(0x30uLL);
+    if ( v24 )
+      v24 = CChainingHelper::CChainingHelper(v24, v16);
+    v29 = v24;
+    std::list<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>>>::_Insert<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> &,std::unique_ptr<CChainingHelper>>(
+      (__int64)this + 24,
+      **((_QWORD **)this + 3),
+      (__int64 *)&v28,
+      (__int64 *)&v29);
+    std::_Hash<std::_Umap_traits<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::unique_ptr<CChainingHelper>,std::_Uhash_compare<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>,std::hash<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>,std::equal_to<wil::com_ptr_t<CManipulation,wil::err_returncode_policy>>>,std::allocator<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>>>,0>>::_Insert_unverified<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>> &,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<wil::com_ptr_t<CManipulation,wil::err_returncode_policy> const,std::unique_ptr<CChainingHelper>>>>>>(
+      (_QWORD *)this + 2,
+      (__int64)v36,
+      (__int64 *)(**((_QWORD **)this + 3) + 16LL),
+      **((__int64 ***)this + 3));
+    v21 = v29;
+    goto LABEL_24;
   }
-  v27 = -2003303421;
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)0x30,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\animations\\interactionsourcemanager.cpp",
-    (const char *)0x88980403LL);
-LABEL_36:
-  std::vector<DepthGraphNode *>::~vector<DepthGraphNode *>((__int64)&v34);
-  return v27;
+LABEL_29:
+  InteractionSourceManager::CleanupManipulationMap(this, (_QWORD **)&v30);
+  if ( !*((_DWORD *)v33 + 42) )
+    InteractionSourceManager::ReconfigureAllManipulations(this);
+  v5 = v31;
+  v23 = 0;
+LABEL_32:
+  if ( (_QWORD)v30 )
+    std::_Deallocate<16,0>((void *)v30, ((unsigned __int64)v5 - v30) & 0xFFFFFFFFFFFFFFF8uLL);
+  return v23;
 }

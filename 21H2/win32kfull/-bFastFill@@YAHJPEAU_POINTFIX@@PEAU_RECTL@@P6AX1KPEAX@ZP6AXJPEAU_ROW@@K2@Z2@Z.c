@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bFastFill@@YAHJPEAU_POINTFIX@@PEAU_RECTL@@P6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C0135558
+ * XREFs of ?bFastFill@@YAHJPEAU_POINTFIX@@PEAU_RECTL@@P6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C01482C0
  * Callers:
- *     ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C01353A8 (-bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
+ *     ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C0148110 (-bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall bFastFill(
@@ -60,15 +60,15 @@ __int64 __fastcall bFastFill(
   struct _POINTFIX *v49; // rcx
   unsigned __int64 v50; // rax
   int j; // eax
-  __int32 v52; // edi
-  int v53; // r11d
-  __int64 v54; // r9
-  unsigned __int64 v55; // rax
-  unsigned __int64 v56; // rdx
-  int v57; // r12d
+  int v52; // r12d
+  __int64 v53; // r9
+  int v54; // edx
+  int v55; // r8d
+  __int32 v56; // edi
+  int v57; // r11d
   __int64 v58; // r9
-  int v59; // edx
-  int v60; // r8d
+  unsigned __int64 v59; // rax
+  unsigned __int64 v60; // rdx
   int v61; // ecx
   int v62; // eax
   unsigned int v63; // [rsp+30h] [rbp-288h]
@@ -299,7 +299,7 @@ LABEL_58:
                 && (int)**((_DWORD **)&v71 + 1) >> 4 >= v45
                 && (int)**((_DWORD **)&v68 + 1) >> 4 >= v45 )
               {
-                goto LABEL_128;
+                goto LABEL_110;
               }
               goto LABEL_47;
             }
@@ -352,8 +352,8 @@ LABEL_47:
       if ( v14 )
       {
         ((void (__fastcall *)(_QWORD, _BYTE *, _QWORD, void *))v75)(v15, v86, v14, v7);
-        v57 = v65;
-        v58 = v63;
+        v52 = v65;
+        v53 = v63;
         v7 = a6;
         v13 = (int *)v86;
         v73 = (int *)v86;
@@ -361,30 +361,30 @@ LABEL_47:
       }
       else
       {
-        v57 = v65;
-        v58 = v63;
+        v52 = v65;
+        v53 = v63;
       }
-      v59 = v67;
+      v54 = v67;
       if ( (_DWORD)v70 != (_DWORD)v67 )
       {
-        v60 = v70;
+        v55 = v70;
         if ( (int)v70 <= (int)v67 )
         {
-          v60 = v67;
-          v59 = v70;
+          v55 = v67;
+          v54 = v70;
         }
         v85 = 0LL;
         DWORD1(v85) = v16;
         HIDWORD(v85) = v16 + v33;
         if ( v77 )
         {
-          v61 = v57;
-          if ( v59 >= v57 )
-            v61 = v59;
+          v61 = v52;
+          if ( v54 >= v52 )
+            v61 = v54;
           LODWORD(v85) = v61;
-          v62 = v58;
-          if ( v60 <= (int)v58 )
-            v62 = v60;
+          v62 = v53;
+          if ( v55 <= (int)v53 )
+            v62 = v55;
           DWORD2(v85) = v62;
           if ( v61 < v62 )
           {
@@ -394,13 +394,13 @@ LABEL_47:
         }
         else
         {
-          LODWORD(v85) = v59;
-          DWORD2(v85) = v60;
-          ((void (__fastcall *)(__int128 *, __int64, void *, __int64))v80)(&v85, 1LL, v7, v58);
+          LODWORD(v85) = v54;
+          DWORD2(v85) = v55;
+          ((void (__fastcall *)(__int128 *, __int64, void *, __int64))v80)(&v85, 1LL, v7, v53);
           v7 = a6;
         }
       }
-LABEL_128:
+LABEL_110:
       v16 += v33;
       goto LABEL_16;
     }
@@ -504,30 +504,30 @@ LABEL_66:
       v32 = (v22 + 15) >> 4;
       if ( v32 < v66.m128i_i32[1] )
       {
-        v52 = v66.m128i_i32[1] - v32;
+        v56 = v66.m128i_i32[1] - v32;
         if ( v78 >> 4 >= v66.m128i_i32[1] || v26 || v27 )
         {
-          v53 = v30 + v52 * v26;
-          *((_DWORD *)&v67 + 2 * v18) = v53;
-          v54 = v31 + v52 * (__int64)v27;
-          if ( v54 < 0 )
+          v57 = v30 + v56 * v26;
+          *((_DWORD *)&v67 + 2 * v18) = v57;
+          v58 = v31 + v56 * (__int64)v27;
+          if ( v58 < 0 )
           {
-            *((_DWORD *)&v67 + 2 * v18 + 2) = v54;
+            *((_DWORD *)&v67 + 2 * v18 + 2) = v58;
           }
           else
           {
-            if ( (v54 & 0xFFFFFFFF80000000uLL) != 0 )
+            if ( (v58 & 0xFFFFFFFF80000000uLL) != 0 )
             {
-              v55 = v54 / (unsigned __int64)v23;
-              v56 = v54 % (unsigned __int64)v23;
+              v59 = v58 / (unsigned __int64)v23;
+              v60 = v58 % (unsigned __int64)v23;
             }
             else
             {
-              LODWORD(v56) = (int)v54 % (int)v23;
-              LODWORD(v55) = (int)v54 / (int)v23;
+              LODWORD(v60) = (int)v58 % (int)v23;
+              LODWORD(v59) = (int)v58 / (int)v23;
             }
-            *((_DWORD *)&v67 + 2 * v18) = v53 + 1 + v55;
-            *((_DWORD *)&v67 + 2 * v18 + 2) = v56 - v23;
+            *((_DWORD *)&v67 + 2 * v18) = v57 + 1 + v59;
+            *((_DWORD *)&v67 + 2 * v18 + 2) = v60 - v23;
           }
         }
       }

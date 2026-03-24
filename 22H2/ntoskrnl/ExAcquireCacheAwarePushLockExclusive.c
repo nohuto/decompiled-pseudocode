@@ -1,20 +1,20 @@
 /*
- * XREFs of ExAcquireCacheAwarePushLockExclusive @ 0x1402BC760
+ * XREFs of ExAcquireCacheAwarePushLockExclusive @ 0x140273160
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquireCacheAwarePushLockExclusiveEx @ 0x1402BC7E0 (ExfAcquireCacheAwarePushLockExclusiveEx.c)
+ *     ExfAcquireCacheAwarePushLockExclusiveEx @ 0x1402731B0 (ExfAcquireCacheAwarePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
  */
 
-__int64 __fastcall ExAcquireCacheAwarePushLockExclusive(__int64 a1)
+__int64 __fastcall ExAcquireCacheAwarePushLockExclusive(ULONG_PTR a1)
 {
-  __int64 v2; // rbx
+  __int64 v2; // rdi
   __int64 result; // rax
 
-  v2 = KeAbPreAcquire(a1, 0LL);
+  v2 = KeAbPreAcquire(a1);
   result = ExfAcquireCacheAwarePushLockExclusiveEx(a1, v2, a1);
   if ( v2 )
-    *(_BYTE *)(v2 + 18) = 1;
+    *(_BYTE *)(v2 + 26) |= 1u;
   return result;
 }

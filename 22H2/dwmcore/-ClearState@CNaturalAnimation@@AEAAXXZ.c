@@ -1,11 +1,10 @@
 /*
- * XREFs of ?ClearState@CNaturalAnimation@@AEAAXXZ @ 0x18023C618
+ * XREFs of ?ClearState@CNaturalAnimation@@AEAAXXZ @ 0x1801D75D8
  * Callers:
- *     ??0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1801C1194 (--0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z.c)
- *     ?GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z @ 0x18023CB9C (-GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z.c)
- *     ?StartAsTriggeredAnimation@CNaturalAnimation@@UEAAJXZ @ 0x18023E440 (-StartAsTriggeredAnimation@CNaturalAnimation@@UEAAJXZ.c)
+ *     ??0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z @ 0x18016AC08 (--0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z @ 0x1801D7B0C (-GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z.c)
  * Callees:
- *     ?GetD3DMatrix@CMILMatrix@@QEBA?AU_D3DMATRIX@@XZ @ 0x1800E5900 (-GetD3DMatrix@CMILMatrix@@QEBA-AU_D3DMATRIX@@XZ.c)
+ *     ?GetD3DMatrix@CMILMatrix@@QEBA?AU_D3DMATRIX@@XZ @ 0x1800E100C (-GetD3DMatrix@CMILMatrix@@QEBA-AU_D3DMATRIX@@XZ.c)
  */
 
 void __fastcall CNaturalAnimation::ClearState(CNaturalAnimation *this)
@@ -22,27 +21,27 @@ void __fastcall CNaturalAnimation::ClearState(CNaturalAnimation *this)
   __int128 v10; // xmm2
   __int128 v11; // xmm3
   __int64 v12; // r9
-  char v13; // r8
-  struct _D3DMATRIX v14; // [rsp+20h] [rbp-48h] BYREF
+  struct _D3DMATRIX v13; // [rsp+20h] [rbp-48h] BYREF
 
-  *((_BYTE *)this + 588) = *((_BYTE *)this + 588) & 0xBA | 0x44;
-  D3DMatrix = CMILMatrix::GetD3DMatrix((struct _D3DMATRIX *)&CMILMatrix::Identity, &v14);
+  *((_BYTE *)this + 564) &= ~1u;
+  *((_BYTE *)this + 564) |= 0x44u;
+  D3DMatrix = CMILMatrix::GetD3DMatrix(&CMILMatrix::Identity, &v13);
   v2 = *(_OWORD *)&D3DMatrix->_21;
   v3 = *(_OWORD *)&D3DMatrix->_31;
   v4 = *(_OWORD *)&D3DMatrix->_41;
-  *(_OWORD *)(v5 + 524) = *(_OWORD *)&D3DMatrix->_11;
-  *(_OWORD *)(v5 + 540) = v2;
-  *(_OWORD *)(v5 + 556) = v3;
-  *(_OWORD *)(v5 + 572) = v4;
-  v7 = CMILMatrix::GetD3DMatrix(v6, &v14);
+  *(_OWORD *)(v5 + 500) = *(_OWORD *)&D3DMatrix->_11;
+  *(_OWORD *)(v5 + 516) = v2;
+  *(_OWORD *)(v5 + 532) = v3;
+  *(_OWORD *)(v5 + 548) = v4;
+  v7 = CMILMatrix::GetD3DMatrix(v6, &v13);
   v8 = *(_OWORD *)&v7->_11;
   v9 = *(_OWORD *)&v7->_21;
   v10 = *(_OWORD *)&v7->_31;
   v11 = *(_OWORD *)&v7->_41;
-  *(_QWORD *)(v12 + 424) = 0LL;
-  *(_OWORD *)(v12 + 460) = v8;
-  *(_OWORD *)(v12 + 476) = v9;
-  *(_BYTE *)(v12 + 588) = v13 & 0xF5;
-  *(_OWORD *)(v12 + 492) = v10;
-  *(_OWORD *)(v12 + 508) = v11;
+  *(_QWORD *)(v12 + 400) = 0LL;
+  *(_BYTE *)(v12 + 564) &= ~2u;
+  *(_OWORD *)(v12 + 436) = v8;
+  *(_OWORD *)(v12 + 452) = v9;
+  *(_OWORD *)(v12 + 468) = v10;
+  *(_OWORD *)(v12 + 484) = v11;
 }

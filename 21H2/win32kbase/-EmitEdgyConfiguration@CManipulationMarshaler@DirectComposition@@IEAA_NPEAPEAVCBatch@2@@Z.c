@@ -1,45 +1,37 @@
 /*
- * XREFs of ?EmitEdgyConfiguration@CManipulationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021A520
+ * XREFs of ?EmitEdgyConfiguration@CManipulationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E401C
  * Callers:
- *     ?EmitUpdateCommands@CManipulationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021A7C0 (-EmitUpdateCommands@CManipulationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CManipulationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E4290 (-EmitUpdateCommands@CManipulationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 char __fastcall DirectComposition::CManipulationMarshaler::EmitEdgyConfiguration(
         DirectComposition::CManipulationMarshaler *this,
         struct DirectComposition::CBatch ***a2)
 {
-  int v2; // ebx
-  bool v3; // zf
-  char v5; // bp
-  _DWORD *v6; // rax
-  _DWORD *v7; // rsi
-  __int64 v8; // rax
-  _DWORD *v10; // [rsp+30h] [rbp+8h] BYREF
+  char v3; // si
+  _DWORD *v4; // rax
+  _DWORD *v5; // rbx
+  _DWORD *v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = 0;
-  v3 = (*((_DWORD *)this + 4) & 0x100) == 0;
-  v5 = 1;
-  v10 = 0LL;
-  if ( !v3 )
+  v7 = 0LL;
+  v3 = 1;
+  if ( (*((_DWORD *)this + 4) & 0x100) != 0 )
   {
-    if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x94uLL, (void **)&v10) )
+    if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x94uLL, (void **)&v7) )
     {
-      v6 = v10;
-      *v10 = 148;
-      v7 = v6 + 1;
-      memset(v6 + 1, 0, 0x90uLL);
-      *v7 = 251;
-      v7[1] = *((_DWORD *)this + 8);
-      v8 = *((_QWORD *)this + 36);
-      if ( v8 )
-        v2 = *(_DWORD *)(v8 + 32);
-      v7[2] = v2;
-      memmove(v7 + 4, (char *)this + 160, *((unsigned int *)this + 39));
-      v7[3] = *((_DWORD *)this + 39);
+      v4 = v7;
+      *v7 = 148;
+      v5 = v4 + 1;
+      memset(v4 + 1, 0, 0x90uLL);
+      *v5 = 260;
+      v5[1] = *((_DWORD *)this + 6);
+      v5[2] = *(_DWORD *)(*((_QWORD *)this + 35) + 24LL);
+      memmove(v5 + 4, (char *)this + 152, *((unsigned int *)this + 37));
+      v5[3] = *((_DWORD *)this + 37);
       *((_DWORD *)this + 4) &= ~0x100u;
     }
     else
@@ -47,5 +39,5 @@ char __fastcall DirectComposition::CManipulationMarshaler::EmitEdgyConfiguration
       return 0;
     }
   }
-  return v5;
+  return v3;
 }

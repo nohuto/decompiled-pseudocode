@@ -1,7 +1,7 @@
 /*
- * XREFs of PspStorageEmptyArrayNonReadonly @ 0x1402EC018
+ * XREFs of PspStorageEmptyArrayNonReadonly @ 0x1402EC118
  * Callers:
- *     PspCompleteHardDereferenceSiloDeferred @ 0x140886C80 (PspCompleteHardDereferenceSiloDeferred.c)
+ *     PspCompleteHardDereferenceSiloDeferred @ 0x140886C60 (PspCompleteHardDereferenceSiloDeferred.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

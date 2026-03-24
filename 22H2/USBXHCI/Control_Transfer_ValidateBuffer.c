@@ -1,11 +1,11 @@
 /*
- * XREFs of Control_Transfer_ValidateBuffer @ 0x1C00072F0
+ * XREFs of Control_Transfer_ValidateBuffer @ 0x1C000508C
  * Callers:
- *     Control_MapTransfer @ 0x1C00071E4 (Control_MapTransfer.c)
+ *     Control_MapTransfer @ 0x1C0003FBC (Control_MapTransfer.c)
  * Callees:
- *     WPP_RECORDER_SF_DDi @ 0x1C0041F7C (WPP_RECORDER_SF_DDi.c)
- *     WPP_RECORDER_SF_DDqD @ 0x1C00436B0 (WPP_RECORDER_SF_DDqD.c)
- *     WPP_RECORDER_SF_DDqDD @ 0x1C00437D4 (WPP_RECORDER_SF_DDqDD.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
+ *     WPP_RECORDER_SF_DDqD @ 0x1C0040A1C (WPP_RECORDER_SF_DDqD.c)
+ *     WPP_RECORDER_SF_DDqDD @ 0x1C0040B40 (WPP_RECORDER_SF_DDqDD.c)
  */
 
 __int64 __fastcall Control_Transfer_ValidateBuffer(__int64 a1)
@@ -32,7 +32,7 @@ __int64 __fastcall Control_Transfer_ValidateBuffer(__int64 a1)
           *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL),
           v1,
           29,
-          (__int64)&WPP_1132998d7a983e6252cacd8244985166_Traceguids,
+          (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
           *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
           *(_QWORD *)(v1 + 24),
@@ -49,7 +49,7 @@ __int64 __fastcall Control_Transfer_ValidateBuffer(__int64 a1)
           *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL),
           v1,
           30,
-          (__int64)&WPP_1132998d7a983e6252cacd8244985166_Traceguids,
+          (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
           *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
           *(_QWORD *)(v1 + 24),
@@ -68,7 +68,7 @@ __int64 __fastcall Control_Transfer_ValidateBuffer(__int64 a1)
           v8,
           v1,
           31,
-          (__int64)&WPP_1132998d7a983e6252cacd8244985166_Traceguids,
+          (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
           *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
           *(_QWORD *)(v1 + 24),
@@ -87,7 +87,7 @@ __int64 __fastcall Control_Transfer_ValidateBuffer(__int64 a1)
           v9,
           v1,
           32,
-          (__int64)&WPP_1132998d7a983e6252cacd8244985166_Traceguids,
+          (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
           *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
           *(_QWORD *)(v1 + 24));

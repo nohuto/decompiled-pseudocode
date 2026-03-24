@@ -1,24 +1,27 @@
 /*
- * XREFs of CiSchedulerCancelTaskIndexYield @ 0x1C0002D80
+ * XREFs of CiSchedulerCancelTaskIndexYield @ 0x1C0002B50
  * Callers:
- *     CiDispatchFastIoDeviceControl @ 0x1C000AA20 (CiDispatchFastIoDeviceControl.c)
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A6C0 (CiDispatchFastIoDeviceControl.c)
  * Callees:
- *     CiSchedulerUpdateTaskIndexPriorities @ 0x1C0002020 (CiSchedulerUpdateTaskIndexPriorities.c)
- *     CiSchedulerSetTaskIndexThreadTag @ 0x1C00029D0 (CiSchedulerSetTaskIndexThreadTag.c)
- *     CiSchedulerRemoveDeadline @ 0x1C0002E70 (CiSchedulerRemoveDeadline.c)
- *     CiSystemUpdateMediaBufferingState @ 0x1C0002F30 (CiSystemUpdateMediaBufferingState.c)
- *     CiLogTaskIndexCancelYield @ 0x1C0004174 (CiLogTaskIndexCancelYield.c)
+ *     CiSchedulerSetTaskIndexThreadTag @ 0x1C0001010 (CiSchedulerSetTaskIndexThreadTag.c)
+ *     CiSystemUpdateMediaBufferingState @ 0x1C0002A30 (CiSystemUpdateMediaBufferingState.c)
+ *     CiSchedulerUpdateTaskIndexPriorities @ 0x1C0002C20 (CiSchedulerUpdateTaskIndexPriorities.c)
+ *     CiSchedulerRemoveDeadline @ 0x1C0002C60 (CiSchedulerRemoveDeadline.c)
+ *     CiLogTaskIndexCancelYield @ 0x1C0003EC4 (CiLogTaskIndexCancelYield.c)
  */
 
 void __fastcall CiSchedulerCancelTaskIndexYield(__int64 a1)
 {
   char v1; // di
-  int v3; // eax
+  __int64 v3; // rcx
   int v4; // eax
-  unsigned int v5; // eax
+  int v5; // eax
+  unsigned int v6; // eax
+  __int64 v7; // rcx
+  __int64 v8; // rcx
 
   v1 = 0;
-  if ( byte_1C00073C0 )
+  if ( byte_1C0007370 )
     CiLogTaskIndexCancelYield();
   KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
   WPP_MAIN_CB.Queue.Wcb.CurrentIrp = KeGetCurrentThread();
@@ -33,36 +36,36 @@ void __fastcall CiSchedulerCancelTaskIndexYield(__int64 a1)
   }
   else if ( !v1 )
   {
-    goto LABEL_9;
+    goto LABEL_8;
   }
   CiSchedulerUpdateTaskIndexPriorities(a1);
-LABEL_9:
-  v3 = *(_DWORD *)(a1 + 184);
-  if ( (v3 & 4) != 0 )
+LABEL_8:
+  v4 = *(_DWORD *)(a1 + 184);
+  if ( (v4 & 4) != 0 )
   {
     --CiTotalTasksDeadlineExpired;
-    v5 = v3 & 0xFFFFFFFB;
-    *(_DWORD *)(a1 + 184) = v5;
-    if ( (v5 & 8) != 0 )
+    v6 = v4 & 0xFFFFFFFB;
+    *(_DWORD *)(a1 + 184) = v6;
+    if ( (v6 & 8) != 0 )
     {
       ++CiTotalTasksBuffering;
-      *(_DWORD *)(a1 + 184) = v5 & 0xFFFFFFF5 | 2;
-      CiSystemUpdateMediaBufferingState();
+      *(_DWORD *)(a1 + 184) = v6 & 0xFFFFFFF5 | 2;
+      CiSystemUpdateMediaBufferingState(v3);
       CiSchedulerSetTaskIndexThreadTag(a1, 1u);
     }
     else
     {
-      CiSchedulerSetTaskIndexThreadTag(a1, 3u);
-      CiSystemUpdateMediaBufferingState();
+      CiSchedulerSetTaskIndexThreadTag(a1, 0);
+      CiSystemUpdateMediaBufferingState(v7);
     }
   }
-  v4 = *(_DWORD *)(a1 + 184);
-  if ( (v4 & 2) != 0 )
+  v5 = *(_DWORD *)(a1 + 184);
+  if ( (v5 & 2) != 0 )
   {
-    *(_DWORD *)(a1 + 184) = v4 & 0xFFFFFFFD;
-    CiSchedulerSetTaskIndexThreadTag(a1, 3u);
+    *(_DWORD *)(a1 + 184) = v5 & 0xFFFFFFFD;
+    CiSchedulerSetTaskIndexThreadTag(a1, 0);
     --CiTotalTasksBuffering;
-    CiSystemUpdateMediaBufferingState();
+    CiSystemUpdateMediaBufferingState(v8);
   }
   WPP_MAIN_CB.Queue.Wcb.CurrentIrp = 0LL;
   KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.DeviceObject, 0);

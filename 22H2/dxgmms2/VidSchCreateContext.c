@@ -1,43 +1,42 @@
 /*
- * XREFs of VidSchCreateContext @ 0x1C0090040
+ * XREFs of VidSchCreateContext @ 0x1C007FA20
  * Callers:
  *     <none>
  * Callees:
- *     VidSchiCreateContextInternal @ 0x1C0003E8C (VidSchiCreateContextInternal.c)
- *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C0004A6C (VidSchiDriverNodeEngineToSchedulerNode.c)
- *     VidSchiGetSoftwareOnlyNodeForDriverEngine @ 0x1C00188D8 (VidSchiGetSoftwareOnlyNodeForDriverEngine.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
+ *     VidSchiCreateContextInternal @ 0x1C00106CC (VidSchiCreateContextInternal.c)
+ *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C0011480 (VidSchiDriverNodeEngineToSchedulerNode.c)
+ *     VidSchiGetSoftwareOnlyNodeForDriverEngine @ 0x1C0016120 (VidSchiGetSoftwareOnlyNodeForDriverEngine.c)
  */
 
-__int64 __fastcall VidSchCreateContext(__int64 a1, unsigned int *a2)
+char *__fastcall VidSchCreateContext(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rbx
-  unsigned int v4; // r9d
-  unsigned int v5; // edx
-  __int64 v6; // rcx
+  __int64 v4; // rbx
+  int v5; // r9d
+  unsigned int v6; // edx
+  __int64 v7; // rcx
   int SoftwareOnlyNodeForDriverEngine; // eax
-  int *v8; // r10
-  __int64 v9; // r11
-  __int64 v11; // rcx
+  int *v9; // r10
+  __int64 v10; // r11
+  __int64 v12; // rax
 
   if ( a1 && a2 )
   {
-    v3 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 800LL);
-    v4 = *a2 & 0xFFFFFFF6 | 8;
-    *a2 = (4 * ((*a2 & 0x440) != 0)) | *a2 & 0xFFFFFFE2 | 8 | (16 * ((*a2 & 0x440) == 0));
-    v5 = a2[2];
-    v6 = *(_QWORD *)(v3 + 32);
-    if ( (v4 & 0x440) != 0 )
-      SoftwareOnlyNodeForDriverEngine = VidSchiGetSoftwareOnlyNodeForDriverEngine(v6, v5);
+    v4 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 768LL);
+    v5 = *(_WORD *)a2 & 0x440;
+    *(_DWORD *)a2 = (4 * (v5 != 0)) | *(_DWORD *)a2 & 0xFFFFFFE2 | 8 | (16 * (v5 == 0));
+    v6 = *(_DWORD *)(a2 + 8);
+    v7 = *(_QWORD *)(v4 + 32);
+    if ( v5 )
+      SoftwareOnlyNodeForDriverEngine = VidSchiGetSoftwareOnlyNodeForDriverEngine(v7, v6);
     else
-      SoftwareOnlyNodeForDriverEngine = VidSchiDriverNodeEngineToSchedulerNode(v6, a2[1], v5);
-    v8[1] = SoftwareOnlyNodeForDriverEngine;
-    return VidSchiCreateContextInternal(v3, v8, v9);
+      SoftwareOnlyNodeForDriverEngine = VidSchiDriverNodeEngineToSchedulerNode(v7, *(_DWORD *)(a2 + 4), v6);
+    v9[1] = SoftwareOnlyNodeForDriverEngine;
+    return VidSchiCreateContextInternal(v4, v9, v10);
   }
   else
   {
-    WdLogSingleEntry0(1LL);
-    DxgkLogInternalTriageEvent(v11, 0x40000LL);
+    v12 = WdLogNewEntry5_WdAssertion(a1, a2, a3);
+    WdLogEvent5_WdAssertion(v12);
     return 0LL;
   }
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of CiSchedulerQueryCurrentTime @ 0x1C0001630
+ * XREFs of CiSchedulerQueryCurrentTime @ 0x1C0002150
  * Callers:
- *     CiSchedulerProcessDeadlines @ 0x1C0001250 (CiSchedulerProcessDeadlines.c)
- *     CiSchedulerSleep @ 0x1C00014A0 (CiSchedulerSleep.c)
+ *     CiSchedulerSleep @ 0x1C0001DB0 (CiSchedulerSleep.c)
+ *     CiSchedulerProcessDeadlines @ 0x1C0001F40 (CiSchedulerProcessDeadlines.c)
  * Callees:
  *     <none>
  */

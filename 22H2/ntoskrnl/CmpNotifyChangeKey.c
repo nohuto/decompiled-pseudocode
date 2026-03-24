@@ -1,126 +1,126 @@
 /*
- * XREFs of CmpNotifyChangeKey @ 0x140767A00
+ * XREFs of CmpNotifyChangeKey @ 0x1406DC890
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x140767040 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1406DC020 (NtNotifyChangeMultipleKeys.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     CmpPostNotify @ 0x140766D70 (CmpPostNotify.c)
- *     CmpFreePostBlock @ 0x140768860 (CmpFreePostBlock.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140AF62F0 (CmpIsKeyDeletedForKeyBody.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpPostNotify @ 0x1405ED0C0 (CmpPostNotify.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     CmpFreePostBlock @ 0x1406E0850 (CmpFreePostBlock.c)
  */
 
-__int64 __fastcall CmpNotifyChangeKey(__int64 a1, _QWORD *a2, int a3, char a4, __int64 a5, __int64 a6, __int64 a7)
+__int64 __fastcall CmpNotifyChangeKey(__int64 a1, _QWORD *a2, __int64 a3, char a4, __int64 a5, __int64 a6, __int64 a7)
 {
-  __int64 v11; // r8
-  __int64 v12; // r14
-  __int64 v13; // rbx
-  __int64 Pool2; // rax
-  __int64 *v15; // rdx
-  __int64 v16; // rax
-  __int64 v17; // rcx
-  _QWORD *v18; // rax
-  _QWORD *v19; // rcx
-  _QWORD *v20; // rcx
+  int v7; // ebp
+  __int64 v11; // rdi
+  __int64 v12; // rsi
+  __int64 v13; // rcx
+  _QWORD *v14; // rax
+  _QWORD *v15; // rcx
+  _QWORD *v16; // rcx
   __int64 *SListFaultAddress; // rdx
-  _QWORD *v22; // rax
-  unsigned __int8 CurrentIrql; // bl
+  _QWORD *v18; // rax
+  char *PoolWithQuotaTag; // rax
+  __int64 *v21; // rdx
+  __int64 v22; // rax
+  unsigned __int8 CurrentIrql; // si
   struct _KTHREAD *CurrentThread; // rcx
-  struct _KTHREAD *v26; // rdx
-  __int64 **v27; // rcx
+  struct _KTHREAD *v25; // rdx
+  __int64 **v26; // rcx
   void **p_SListFaultAddress; // rax
-  _QWORD *v29; // rdx
-  __int64 **v30; // rax
-  unsigned __int8 v31; // cl
+  _QWORD *v28; // rdx
+  __int64 **v29; // rax
+  unsigned __int8 v30; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v34; // eax
-  bool v35; // zf
-  int v36; // eax
-  signed __int32 v37[8]; // [rsp+0h] [rbp-A8h] BYREF
-  _QWORD v38[2]; // [rsp+40h] [rbp-68h] BYREF
-  char v39; // [rsp+50h] [rbp-58h]
-  char v40; // [rsp+51h] [rbp-57h]
-  _BYTE v41[5]; // [rsp+52h] [rbp-56h]
-  char v42; // [rsp+57h] [rbp-51h]
-  _QWORD v43[2]; // [rsp+60h] [rbp-48h] BYREF
+  int v33; // eax
+  bool v34; // zf
+  int v35; // eax
+  signed __int32 v36[8]; // [rsp+0h] [rbp-A8h] BYREF
+  _QWORD v37[2]; // [rsp+40h] [rbp-68h] BYREF
+  char v38; // [rsp+50h] [rbp-58h]
+  char v39; // [rsp+51h] [rbp-57h]
+  _BYTE v40[5]; // [rsp+52h] [rbp-56h]
+  char v41; // [rsp+57h] [rbp-51h]
+  _QWORD v42[2]; // [rsp+60h] [rbp-48h] BYREF
 
-  if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(a1, 0LL) )
+  v7 = a3;
+  if ( (*(_DWORD *)(a1 + 48) & 9) != 0 )
   {
     CmpFreePostBlock(a2);
     return 3221225852LL;
   }
-  v12 = *(_QWORD *)(a1 + 16);
-  v13 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 32LL);
-  if ( !v12 )
+  v11 = *(_QWORD *)(a1 + 16);
+  v12 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 32LL);
+  if ( !v11 )
   {
-    Pool2 = ExAllocatePool2(257LL, 88LL, 1651395907LL);
-    v12 = Pool2;
-    if ( !Pool2 )
+    PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x58uLL, 0x626E4D43u);
+    v11 = (__int64)PoolWithQuotaTag;
+    if ( !PoolWithQuotaTag )
     {
       CmpFreePostBlock(a2);
       return 3221225626LL;
     }
-    *(_QWORD *)(Pool2 + 32) = *(_QWORD *)(a1 + 8);
-    *(_DWORD *)(Pool2 + 48) = a3 & 0x3FFFFFFF | ((a4 & 1) << 30);
-    *(_QWORD *)(Pool2 + 24) = Pool2 + 16;
-    *(_QWORD *)(Pool2 + 16) = Pool2 + 16;
-    *(_QWORD *)(a1 + 16) = Pool2;
-    *(_QWORD *)(Pool2 + 40) = a1;
-    SeCaptureSubjectContext((PSECURITY_SUBJECT_CONTEXT)(Pool2 + 56));
-    v15 = (__int64 *)(v13 + 1592);
-    v16 = *(_QWORD *)(v13 + 1592);
-    if ( v16 )
+    *((_QWORD *)PoolWithQuotaTag + 4) = *(_QWORD *)(a1 + 8);
+    *((_DWORD *)PoolWithQuotaTag + 12) = v7 & 0x3FFFFFFF | ((a4 & 1) << 30);
+    *((_QWORD *)PoolWithQuotaTag + 3) = PoolWithQuotaTag + 16;
+    *((_QWORD *)PoolWithQuotaTag + 2) = PoolWithQuotaTag + 16;
+    *(_QWORD *)(a1 + 16) = PoolWithQuotaTag;
+    *((_QWORD *)PoolWithQuotaTag + 5) = a1;
+    SeCaptureSubjectContext((PSECURITY_SUBJECT_CONTEXT)(PoolWithQuotaTag + 56));
+    v21 = (__int64 *)(v12 + 1584);
+    v22 = *(_QWORD *)(v12 + 1584);
+    if ( v22 )
     {
-      v11 = (*(_DWORD *)(*(_QWORD *)(a1 + 8) + 8LL) >> 21) & 0x3FF;
+      a3 = (*(_DWORD *)(*(_QWORD *)(a1 + 8) + 8LL) >> 21) & 0x3FF;
       while ( 1 )
       {
-        v15 = (__int64 *)v16;
-        if ( ((*(_DWORD *)(*(_QWORD *)(v16 + 32) + 8LL) >> 21) & 0x3FFu) > (unsigned int)v11 )
+        v21 = (__int64 *)v22;
+        if ( ((*(_DWORD *)(*(_QWORD *)(v22 + 32) + 8LL) >> 21) & 0x3FFu) > (unsigned int)a3 )
           break;
-        v16 = *(_QWORD *)v16;
-        if ( !*v15 )
-          goto LABEL_8;
+        v22 = *(_QWORD *)v22;
+        if ( !*v21 )
+          goto LABEL_19;
       }
-      *(_QWORD *)v12 = v16;
-      **(_QWORD **)(v16 + 8) = v12;
-      *(_QWORD *)(v12 + 8) = *(_QWORD *)(v16 + 8);
-      *(_QWORD *)(v16 + 8) = v12;
+      *(_QWORD *)v11 = v22;
+      **(_QWORD **)(v22 + 8) = v11;
+      *(_QWORD *)(v11 + 8) = *(_QWORD *)(v22 + 8);
+      *(_QWORD *)(v22 + 8) = v11;
     }
     else
     {
-LABEL_8:
-      *v15 = v12;
-      *(_QWORD *)v12 = 0LL;
-      *(_QWORD *)(v12 + 8) = v15;
+LABEL_19:
+      *v21 = v11;
+      *(_QWORD *)v11 = 0LL;
+      *(_QWORD *)(v11 + 8) = v21;
     }
   }
-  v17 = *(_QWORD *)(v12 + 16);
-  v18 = (_QWORD *)(v12 + 16);
-  if ( *(_QWORD *)(v17 + 8) != v12 + 16 )
+  v13 = *(_QWORD *)(v11 + 16);
+  v14 = (_QWORD *)(v11 + 16);
+  if ( *(_QWORD *)(v13 + 8) != v11 + 16 )
     goto LABEL_32;
-  *a2 = v17;
-  a2[1] = v18;
-  *(_QWORD *)(v17 + 8) = a2;
-  v19 = a2 + 4;
-  *v18 = a2;
+  *a2 = v13;
+  a2[1] = v14;
+  *(_QWORD *)(v13 + 8) = a2;
+  v15 = a2 + 4;
+  *v14 = a2;
   if ( (a2[7] & 0x10000) != 0 )
   {
     a2[5] = a2 + 4;
-    *v19 = v19;
+    *v15 = v15;
   }
   else
   {
-    v29 = *(_QWORD **)(a7 + 40);
-    if ( *v29 != a7 + 32 )
+    v28 = *(_QWORD **)(a7 + 40);
+    if ( *v28 != a7 + 32 )
       goto LABEL_32;
-    *v19 = a7 + 32;
-    a2[5] = v29;
-    *v29 = v19;
-    *(_QWORD *)(a7 + 40) = v19;
+    *v15 = a7 + 32;
+    a2[5] = v28;
+    *v28 = v15;
+    *(_QWORD *)(a7 + 40) = v15;
   }
   if ( (unsigned int)(unsigned __int16)*((_DWORD *)a2 + 14) - 3 > 1 )
   {
@@ -130,85 +130,88 @@ LABEL_8:
     if ( ((__int64)CurrentThread[1].Queue & 8) == 0 )
     {
       LOBYTE(CurrentThread[1].Queue) |= 8u;
-      _InterlockedOr(v37, 0);
+      _InterlockedOr(v36, 0);
       CurrentThread[1].QuantumTarget = (unsigned __int64)&CurrentThread[1].SListFaultAddress;
       CurrentThread[1].SListFaultAddress = &CurrentThread[1].SListFaultAddress;
     }
-    v26 = KeGetCurrentThread();
-    v27 = (__int64 **)(a2 + 2);
+    v25 = KeGetCurrentThread();
+    v26 = (__int64 **)(a2 + 2);
     if ( (a2[7] & 0x10000) != 0 )
     {
-      p_SListFaultAddress = &v26[1].SListFaultAddress;
-      SListFaultAddress = (__int64 *)v26[1].SListFaultAddress;
+      p_SListFaultAddress = &v25[1].SListFaultAddress;
+      SListFaultAddress = (__int64 *)v25[1].SListFaultAddress;
       if ( (void **)SListFaultAddress[1] == p_SListFaultAddress )
       {
-        *v27 = SListFaultAddress;
+        *v26 = SListFaultAddress;
         a2[3] = p_SListFaultAddress;
-        SListFaultAddress[1] = (__int64)v27;
-        *p_SListFaultAddress = v27;
+        SListFaultAddress[1] = (__int64)v26;
+        *p_SListFaultAddress = v26;
         goto LABEL_26;
       }
     }
     else
     {
-      SListFaultAddress = (__int64 *)&v26[1].SListFaultAddress;
-      v30 = (__int64 **)SListFaultAddress[1];
-      if ( *v30 == SListFaultAddress )
+      SListFaultAddress = (__int64 *)&v25[1].SListFaultAddress;
+      v29 = (__int64 **)SListFaultAddress[1];
+      if ( *v29 == SListFaultAddress )
       {
-        *v27 = SListFaultAddress;
-        a2[3] = v30;
-        *v30 = (__int64 *)v27;
-        SListFaultAddress[1] = (__int64)v27;
+        *v26 = SListFaultAddress;
+        a2[3] = v29;
+        *v29 = (__int64 *)v26;
+        SListFaultAddress[1] = (__int64)v26;
 LABEL_26:
         if ( KiIrqlFlags )
         {
-          v31 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SListFaultAddress = (__int64 *)(-1LL << (CurrentIrql + 1));
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v34 = ~(unsigned __int16)SListFaultAddress;
-            v35 = (v34 & SchedulerAssist[5]) == 0;
-            v11 = (unsigned int)v34 & SchedulerAssist[5];
-            SchedulerAssist[5] = v11;
-            if ( v35 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            v30 = KeGetCurrentIrql();
+            if ( v30 <= 0xFu && CurrentIrql <= 0xFu && v30 >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SListFaultAddress = (__int64 *)(-1LL << (CurrentIrql + 1));
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v33 = ~(unsigned __int16)SListFaultAddress;
+              v34 = (v33 & SchedulerAssist[5]) == 0;
+              a3 = (unsigned int)v33 & SchedulerAssist[5];
+              SchedulerAssist[5] = a3;
+              if ( v34 )
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
           }
         }
         __writecr8(CurrentIrql);
-        goto LABEL_16;
+        goto LABEL_9;
       }
     }
 LABEL_32:
     __fastfail(3u);
   }
-  v20 = (_QWORD *)qword_140D53640;
+  v16 = (_QWORD *)qword_140D2D698;
   SListFaultAddress = &CmpAsyncKernelPostList;
-  v22 = a2 + 2;
-  if ( *(__int64 **)qword_140D53640 != &CmpAsyncKernelPostList )
+  v18 = a2 + 2;
+  if ( *(__int64 **)qword_140D2D698 != &CmpAsyncKernelPostList )
     goto LABEL_32;
-  *v22 = &CmpAsyncKernelPostList;
-  a2[3] = v20;
-  *v20 = v22;
-  qword_140D53640 = (__int64)(a2 + 2);
-LABEL_16:
+  *v18 = &CmpAsyncKernelPostList;
+  a2[3] = v16;
+  *v16 = v18;
+  qword_140D2D698 = (__int64)(a2 + 2);
+LABEL_9:
   if ( (DWORD2(PerfGlobalGroupMask) & 0x2000000) != 0 )
   {
-    v36 = *((_DWORD *)a2 + 14);
-    v39 = v36;
-    *(_DWORD *)&v41[1] = 0;
-    v38[1] = *(_QWORD *)(a1 + 8);
-    v42 = 0;
-    v43[0] = v38;
-    v38[0] = a2;
-    *(_DWORD *)v41 = (v36 & 0x10000) != 0;
-    v40 = a4;
-    v43[1] = 19LL;
-    EtwTraceKernelEvent((int)v43, 1, 0x42000000u, 2352, 5249282);
+    v35 = *((_DWORD *)a2 + 14);
+    v38 = v35;
+    *(_DWORD *)&v40[1] = 0;
+    v37[1] = *(_QWORD *)(a1 + 8);
+    v41 = 0;
+    v42[0] = v37;
+    v37[0] = a2;
+    *(_DWORD *)v40 = (v35 & 0x10000) != 0;
+    v39 = a4;
+    v42[1] = 19LL;
+    EtwTraceKernelEvent((__int64)v42, 1u, 0x42000000u, 0x930u, 0x501902u);
   }
-  if ( *(int *)(v12 + 48) >= 0 )
+  if ( *(int *)(v11 + 48) >= 0 )
     return 259LL;
-  CmpPostNotify(v12, (__int64)SListFaultAddress, v11, 268LL, 1, 0LL, 0LL);
+  CmpPostNotify(v11, (__int64)SListFaultAddress, a3, 268LL, 1, 0LL, 0LL);
   return 0LL;
 }

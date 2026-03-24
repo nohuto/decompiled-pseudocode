@@ -1,31 +1,36 @@
 /*
- * XREFs of ZombieCursor @ 0x1C01C0D70
+ * XREFs of ZombieCursor @ 0x1C01EAD50
  * Callers:
  *     <none>
  * Callees:
- *     ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C00AA3A4 (-UnlinkCursor@@YAXPEAUtagCURSOR@@@Z.c)
+ *     ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C011C180 (-UnlinkCursor@@YAXPEAUtagCURSOR@@@Z.c)
  */
 
 __int64 __fastcall ZombieCursor(__int64 a1)
 {
-  int v2; // edi
-  __int64 v3; // rsi
+  int v1; // eax
+  int v3; // edi
+  __int64 v4; // rsi
 
-  if ( (*(_DWORD *)(a1 + 80) & 0x100) != 0 )
-    UnlinkCursor((struct tagCURSOR *)a1);
-  if ( (*(_DWORD *)(a1 + 80) & 8) != 0 )
+  v1 = *(_DWORD *)(a1 + 80);
+  if ( (v1 & 0x100) != 0 )
   {
-    v2 = 0;
+    UnlinkCursor((struct tagCURSOR *)a1);
+    v1 = *(_DWORD *)(a1 + 80);
+  }
+  if ( (v1 & 8) != 0 )
+  {
+    v3 = 0;
     if ( *(int *)(a1 + 88) > 0 )
     {
-      v3 = 0LL;
+      v4 = 0LL;
       do
       {
-        HMChangeOwnerProcessWorker(*(_QWORD *)(*(_QWORD *)(a1 + 96) + v3), gptiRit);
-        ++v2;
-        v3 += 8LL;
+        HMChangeOwnerProcessWorker(*(_QWORD *)(*(_QWORD *)(a1 + 96) + v4), gptiRit);
+        ++v3;
+        v4 += 8LL;
       }
-      while ( v2 < *(_DWORD *)(a1 + 88) );
+      while ( v3 < *(_DWORD *)(a1 + 88) );
     }
   }
   return HMChangeOwnerProcessWorker(a1, gptiRit);

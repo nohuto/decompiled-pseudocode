@@ -1,75 +1,74 @@
 /*
- * XREFs of GreSetDCOwnerEx @ 0x1C004BDD0
+ * XREFs of GreSetDCOwnerEx @ 0x1C0038F20
  * Callers:
- *     _GetDCEx @ 0x1C004A820 (_GetDCEx.c)
- *     GetMonitorDC @ 0x1C005B3E8 (GetMonitorDC.c)
- *     CreateCacheDC @ 0x1C005BC20 (CreateCacheDC.c)
- *     InitUserScreen @ 0x1C005CD6C (InitUserScreen.c)
- *     DestroyCacheDC @ 0x1C005D380 (DestroyCacheDC.c)
- *     ?DestroyDC@@YAXPEAPEAUHDC__@@@Z @ 0x1C00A0434 (-DestroyDC@@YAXPEAPEAUHDC__@@@Z.c)
- *     GreCleanDCAndSetOwnerEx @ 0x1C00D32B0 (GreCleanDCAndSetOwnerEx.c)
+ *     DestroyCacheDC @ 0x1C0008970 (DestroyCacheDC.c)
+ *     ?DestroyDC@@YAXPEAPEAUHDC__@@@Z @ 0x1C0008E98 (-DestroyDC@@YAXPEAPEAUHDC__@@@Z.c)
+ *     _GetDCEx @ 0x1C0038070 (_GetDCEx.c)
+ *     GetMonitorDC @ 0x1C003B0E0 (GetMonitorDC.c)
+ *     InitUserScreen @ 0x1C006B23C (InitUserScreen.c)
+ *     CreateCacheDC @ 0x1C006B8B0 (CreateCacheDC.c)
+ *     GreCleanDCAndSetOwnerEx @ 0x1C00CC150 (GreCleanDCAndSetOwnerEx.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00329E8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     GreIncQuotaCount @ 0x1C003C4A0 (GreIncQuotaCount.c)
- *     ?SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z @ 0x1C003E79C (-SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z.c)
- *     ?vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C003ED80 (-vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z.c)
- *     HmgDecProcessHandleCount @ 0x1C003F938 (HmgDecProcessHandleCount.c)
- *     HmgIncProcessHandleCountEx @ 0x1C0040440 (HmgIncProcessHandleCountEx.c)
- *     GreReleaseHmgrSemaphore @ 0x1C00427F0 (GreReleaseHmgrSemaphore.c)
- *     GreAcquireHmgrSemaphore @ 0x1C0042870 (GreAcquireHmgrSemaphore.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0043330 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0043570 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
- *     ?pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ @ 0x1C00440F0 (-pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ.c)
- *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C00443E0 (--1HANDLELOCK@@QEAA@XZ.c)
- *     ?Pid@HANDLELOCK@@QEAAXK@Z @ 0x1C0046E44 (-Pid@HANDLELOCK@@QEAAXK@Z.c)
- *     GreSetBrushOwner @ 0x1C00601D0 (GreSetBrushOwner.c)
- *     ?FreeDCAttributes@@YAXPEAVDC@@@Z @ 0x1C008ADF8 (-FreeDCAttributes@@YAXPEAVDC@@@Z.c)
- *     HmgFreeDcAttr @ 0x1C008AE88 (HmgFreeDcAttr.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00981A4 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00981E4 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ?AcquireDcVisRgnExclusive@DC@@QEAA@XZ @ 0x1C00D1650 (-AcquireDcVisRgnExclusive@DC@@QEAA@XZ.c)
- *     ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C00D28F8 (-AcquireDcVisRgnShared@DC@@QEAA@XZ.c)
- *     ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00D2BB8 (-GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z.c)
- *     HmgAllocateDcAttr @ 0x1C00E02F0 (HmgAllocateDcAttr.c)
+ *     GreSetBrushOwner @ 0x1C001DDE0 (GreSetBrushOwner.c)
+ *     HmgFreeDcAttr @ 0x1C002C8BC (HmgFreeDcAttr.c)
+ *     ?SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z @ 0x1C002C988 (-SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z.c)
+ *     HmgAllocateDcAttr @ 0x1C002C9D8 (HmgAllocateDcAttr.c)
+ *     ?FreeDCAttributes@@YAXPEAVDC@@@Z @ 0x1C002CB3C (-FreeDCAttributes@@YAXPEAVDC@@@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0030700 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0030A00 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?GetEntryObject@GdiHandleManager@@QEAAPEAVOBJECT@@I@Z @ 0x1C00312D0 (-GetEntryObject@GdiHandleManager@@QEAAPEAVOBJECT@@I@Z.c)
+ *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C0031680 (--1HANDLELOCK@@QEAA@XZ.c)
+ *     ?Pid@HANDLELOCK@@QEAAXK@Z @ 0x1C003350C (-Pid@HANDLELOCK@@QEAAXK@Z.c)
+ *     HmgDecProcessHandleCount @ 0x1C00336B8 (HmgDecProcessHandleCount.c)
+ *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C0035D50 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C003A090 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C003A1E0 (GreAcquireHmgrSemaphore.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00473AC (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00473E0 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005DD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     GreIncQuotaCount @ 0x1C009B7C0 (GreIncQuotaCount.c)
+ *     ?AcquireDcVisRgnExclusive@DC@@QEAA@XZ @ 0x1C00C85B8 (-AcquireDcVisRgnExclusive@DC@@QEAA@XZ.c)
+ *     HmgIncProcessHandleCountEx @ 0x1C00C9C1C (HmgIncProcessHandleCountEx.c)
+ *     ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C00CA238 (-AcquireDcVisRgnShared@DC@@QEAA@XZ.c)
+ *     ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00CB878 (-GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z.c)
  */
 
-__int64 __fastcall GreSetDCOwnerEx(__int64 a1, unsigned int a2, int a3, int a4)
+__int64 __fastcall GreSetDCOwnerEx(__int64 a1, unsigned int a2, int a3, unsigned int a4)
 {
   unsigned int v5; // ebx
-  BOOL v6; // r14d
+  BOOL v6; // r12d
   unsigned int v7; // edi
-  struct _DC_ATTR *DcAttr; // rsi
-  struct OBJECT *v9; // rax
-  __int64 v10; // r13
-  struct OBJECT *v11; // r12
-  bool v12; // bl
-  char v13; // dl
+  struct _DC_ATTR *DcAttr; // r13
+  _DWORD *v9; // r14
+  struct OBJECT *EntryObject; // r15
+  bool v11; // bl
+  BOOL v12; // eax
+  __int64 v13; // rdx
   unsigned int v14; // ebx
   unsigned int v15; // eax
   unsigned int v16; // ebx
-  int v17; // ecx
-  __int64 v18; // rcx
-  unsigned __int64 CurrentProcessWin32Process; // rax
+  __int64 v17; // rcx
+  struct _W32PROCESS *CurrentProcessWin32Process; // rax
+  bool v19; // cf
   unsigned int v20; // ebx
-  __int64 v21; // rcx
-  __int64 v22; // rax
   unsigned int CurrentProcessId; // eax
-  __int64 v24; // rcx
-  unsigned int v26; // eax
-  _BYTE v27[8]; // [rsp+30h] [rbp-50h] BYREF
-  __int64 v28; // [rsp+38h] [rbp-48h]
-  char v29; // [rsp+40h] [rbp-40h]
-  __int64 v30; // [rsp+48h] [rbp-38h]
-  char v31; // [rsp+50h] [rbp-30h]
-  struct _RECTL v32; // [rsp+58h] [rbp-28h] BYREF
-  __int64 v33; // [rsp+68h] [rbp-18h] BYREF
-  int v34; // [rsp+70h] [rbp-10h]
-  __int64 v35; // [rsp+C0h] [rbp+40h] BYREF
-  int v36; // [rsp+D0h] [rbp+50h]
-  int v37; // [rsp+D8h] [rbp+58h]
+  unsigned int v22; // ecx
+  __int64 v23; // rcx
+  _BYTE v25[8]; // [rsp+30h] [rbp-39h] BYREF
+  __int64 v26; // [rsp+38h] [rbp-31h]
+  char v27; // [rsp+40h] [rbp-29h]
+  __int64 v28; // [rsp+48h] [rbp-21h]
+  char v29; // [rsp+50h] [rbp-19h]
+  struct _RECTL v30; // [rsp+58h] [rbp-11h] BYREF
+  _DWORD *v31; // [rsp+68h] [rbp-1h] BYREF
+  int v32; // [rsp+70h] [rbp+7h]
+  struct _RECTL *v33; // [rsp+D0h] [rbp+67h] BYREF
+  int v34; // [rsp+D8h] [rbp+6Fh]
+  int v35; // [rsp+E0h] [rbp+77h]
+  unsigned int v36; // [rsp+E8h] [rbp+7Fh]
 
-  v37 = a4;
-  v36 = a3;
+  v36 = a4;
+  v35 = a3;
   v5 = a1;
   v6 = a3 == 0;
   v7 = 0;
@@ -77,127 +76,141 @@ __int64 __fastcall GreSetDCOwnerEx(__int64 a1, unsigned int a2, int a3, int a4)
   if ( a2 == -2147483646 && !a3 )
     DcAttr = (struct _DC_ATTR *)HmgAllocateDcAttr();
   GreAcquireHmgrSemaphore(a1);
-  v33 = 0LL;
-  v34 = 0;
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v33, (unsigned __int16)v5 | (v5 >> 8) & 0xFF0000, 0, 0, 0);
-  if ( v34 )
+  v31 = 0LL;
+  v32 = 0;
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v31, (unsigned __int16)v5 | (v5 >> 8) & 0xFF0000, 0, 0, 0);
+  if ( v32 )
   {
-    v9 = HANDLELOCK::pObj((HANDLELOCK *)&v33);
-    v10 = v33;
-    v11 = v9;
-    if ( *(_BYTE *)(v33 + 14) != 1 || *(_WORD *)(v33 + 12) != HIWORD(v5) )
-      goto LABEL_45;
-    if ( *((_WORD *)v9 + 6) )
+    v9 = v31;
+    EntryObject = GdiHandleManager::GetEntryObject(gpHandleManager, *v31 & 0xFFFFFF);
+    if ( *((_BYTE *)v9 + 14) == 1 && *((_WORD *)v9 + 6) == HIWORD(v5) )
     {
-      if ( *((struct _KTHREAD **)v9 + 2) != KeGetCurrentThread() )
-        goto LABEL_45;
-      v10 = v33;
-    }
-    if ( a2 == -2147483630 )
-      goto LABEL_38;
-    if ( (*(_DWORD *)(v10 + 8) & 0xFFFFFFFE) == 0x80000012 )
-    {
-      DC::AcquireDcVisRgnShared(v9);
-      v12 = GrepValidateVisRgn(v11, *((struct REGION **)v11 + 142), (struct ERECTL *)&v32);
-      if ( v29 )
-        CPushLock::ReleaseLock((CPushLock *)(v28 + 1112));
-      if ( !v12 )
+      if ( !*((_WORD *)EntryObject + 6) )
       {
-        DC::AcquireDcVisRgnExclusive(v11);
-        v35 = *((_QWORD *)v11 + 142);
-        if ( v35 )
-          RGNOBJ::vSet((RGNOBJ *)&v35, &v32);
-        if ( v31 )
-          CPushLock::ReleaseLock((CPushLock *)(v30 + 1112));
-      }
-    }
-    if ( !a2 )
-    {
-LABEL_38:
-      v20 = *(_DWORD *)(v10 + 8) & 0xFFFFFFFE;
-      if ( v20 == ((unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC) )
-      {
-        v22 = SGDGetSessionState(v21);
-        PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v27, (struct _EX_PUSH_LOCK *)(*(_QWORD *)(v22 + 24) + 2336LL));
-        FreeDCAttributes(v11);
-        HANDLELOCK::Pid((HANDLELOCK *)&v33, a2);
-        CurrentProcessId = (unsigned int)PsGetCurrentProcessId();
-        HmgDecProcessHandleCount(CurrentProcessId & 0xFFFFFFFC);
-        v7 = 1;
-        PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v27);
-      }
-      else
-      {
-        v26 = *(_DWORD *)(v10 + 8) & 0xFFFFFFFE;
-        if ( v26 == -2147483630 )
+LABEL_10:
+        if ( a2 == -2147483630 )
+          goto LABEL_37;
+        if ( (v9[2] & 0xFFFFFFFE) == 0x80000012 )
         {
-          HANDLELOCK::Pid((HANDLELOCK *)&v33, a2);
-          v7 = 1;
-        }
-        else if ( !v26 && !a2 )
-        {
-          v7 = 1;
-          goto LABEL_45;
-        }
-      }
-      if ( a2 != -2147483630 )
-        goto LABEL_41;
-    }
-    else if ( a2 == -2147483646 )
-    {
-      v14 = (unsigned int)PsGetCurrentProcessId();
-      v15 = *(_DWORD *)(v10 + 8) & 0xFFFFFFFE;
-      v16 = v14 & 0xFFFFFFFC;
-      if ( v15 == v16 || v15 == -2147483630 || !v15 )
-      {
-        v17 = 0;
-        v7 = 1;
-        if ( v15 != v16 )
-        {
-          v7 = HmgIncProcessHandleCountEx(v16, v13, v37);
-          if ( v7 )
+          DC::AcquireDcVisRgnShared(EntryObject);
+          v11 = GrepValidateVisRgn(EntryObject, *((struct REGION **)EntryObject + 143), (struct ERECTL *)&v30);
+          if ( v27 )
+            CPushLock::ReleaseLock((CPushLock *)(v26 + 1112));
+          if ( !v11 )
           {
-            v17 = 1;
+            DC::AcquireDcVisRgnExclusive(EntryObject);
+            v33 = (struct _RECTL *)*((_QWORD *)EntryObject + 143);
+            if ( v33 )
+              RGNOBJ::vSet(&v33, &v30);
+            if ( v29 )
+              CPushLock::ReleaseLock((CPushLock *)(v28 + 1112));
+          }
+        }
+        if ( !a2 )
+        {
+LABEL_37:
+          v20 = v9[2] & 0xFFFFFFFE;
+          if ( v20 == ((unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC) )
+          {
+            PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v25, (struct _EX_PUSH_LOCK *)&gDCOwnershipChangeLock);
+            FreeDCAttributes(EntryObject);
+            HANDLELOCK::Pid((HANDLELOCK *)&v31, a2);
+            CurrentProcessId = (unsigned int)PsGetCurrentProcessId();
+            HmgDecProcessHandleCount(CurrentProcessId & 0xFFFFFFFC);
+            v7 = 1;
+            PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v25);
           }
           else
           {
-            if ( !v36 )
-              goto LABEL_41;
-            CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v18);
-            if ( CurrentProcessWin32Process )
-              CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-            GreIncQuotaCount((struct _W32PROCESS *)CurrentProcessWin32Process);
-            v17 = 1;
+            v22 = v9[2] & 0xFFFFFFFE;
+            if ( v22 != -2147483630 )
+            {
+              v12 = v6;
+              if ( !v22 && !a2 )
+              {
+                v7 = 1;
+                v12 = 0;
+              }
+              goto LABEL_45;
+            }
+            HANDLELOCK::Pid((HANDLELOCK *)&v31, a2);
             v7 = 1;
           }
+          goto LABEL_41;
         }
-        if ( !*(_QWORD *)(v10 + 16) )
+        v12 = v6;
+        if ( a2 != -2147483646 )
         {
-          if ( DcAttr )
+LABEL_45:
+          if ( a2 != -2147483630 && v7 && v12 && (unsigned int)GreSetBrushOwner(**((HBRUSH **)EntryObject + 17), a2) )
+            GreSetBrushOwner(**((HBRUSH **)EntryObject + 18), a2);
+          goto LABEL_50;
+        }
+        v14 = (unsigned int)PsGetCurrentProcessId();
+        v15 = v9[2] & 0xFFFFFFFE;
+        v16 = v14 & 0xFFFFFFFC;
+        if ( v15 == v16 || v15 == -2147483630 || !v15 )
+        {
+          v34 = 0;
+          v7 = 1;
+          if ( v15 == v16 )
           {
-            SetupDCAttributes(v11, DcAttr);
-            DcAttr = 0LL;
-          }
-          else if ( !v36 )
-          {
-            v7 = 0;
-            if ( v17 )
+LABEL_29:
+            if ( !*((_QWORD *)v9 + 2) )
+            {
+              if ( DcAttr )
+              {
+                SetupDCAttributes(EntryObject, DcAttr);
+                DcAttr = 0LL;
+              }
+              else
+              {
+                v19 = v35 != 0;
+                v35 = -v35;
+                v7 &= -v19;
+              }
+            }
+            if ( v7 )
+            {
+              HANDLELOCK::Pid((HANDLELOCK *)&v31, v16);
+            }
+            else if ( v34 )
+            {
               HmgDecProcessHandleCount(v16);
+            }
             goto LABEL_41;
           }
+          v7 = HmgIncProcessHandleCountEx(v16, v13, v36);
+          if ( v7 )
+          {
+LABEL_28:
+            v34 = 1;
+            goto LABEL_29;
+          }
+          if ( v35 )
+          {
+            CurrentProcessWin32Process = (struct _W32PROCESS *)PsGetCurrentProcessWin32Process(v17);
+            GreIncQuotaCount(CurrentProcessWin32Process);
+            v7 = 1;
+            goto LABEL_28;
+          }
         }
-        HANDLELOCK::Pid((HANDLELOCK *)&v33, v16);
-      }
 LABEL_41:
-      if ( v7 && v6 && (unsigned int)GreSetBrushOwner(**((HBRUSH **)v11 + 17), a2) )
-        GreSetBrushOwner(**((HBRUSH **)v11 + 18), a2);
+        v12 = v6;
+        goto LABEL_45;
+      }
+      if ( *((struct _KTHREAD **)EntryObject + 2) == KeGetCurrentThread() )
+      {
+        v9 = v31;
+        goto LABEL_10;
+      }
     }
-LABEL_45:
-    HANDLELOCK::vUnlock((HANDLELOCK *)&v33);
+LABEL_50:
+    HANDLELOCK::vUnlock((HANDLELOCK *)&v31);
   }
-  HANDLELOCK::~HANDLELOCK((HANDLELOCK *)&v33);
-  GreReleaseHmgrSemaphore(v24);
+  HANDLELOCK::~HANDLELOCK((HANDLELOCK *)&v31);
+  GreReleaseHmgrSemaphore(v23);
   if ( DcAttr )
-    HmgFreeDcAttr(DcAttr);
+    HmgFreeDcAttr((__int64)DcAttr);
   return v7;
 }

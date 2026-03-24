@@ -1,110 +1,98 @@
 /*
- * XREFs of PopVerifySystemPowerState @ 0x14082580C
+ * XREFs of PopVerifySystemPowerState @ 0x14078B828
  * Callers:
- *     PopActionRetrieveInitialState @ 0x14058F3E0 (PopActionRetrieveInitialState.c)
- *     PdcPoVerifyPowerState @ 0x140824380 (PdcPoVerifyPowerState.c)
- *     PopVerifySystemPowerPolicy @ 0x140825404 (PopVerifySystemPowerPolicy.c)
- *     PopAdvanceSystemPowerState @ 0x14098417C (PopAdvanceSystemPowerState.c)
- *     PopExecutePowerAction @ 0x1409898A4 (PopExecutePowerAction.c)
+ *     PopActionRetrieveInitialState @ 0x14038CCC4 (PopActionRetrieveInitialState.c)
+ *     PopExecutePowerAction @ 0x140775C28 (PopExecutePowerAction.c)
+ *     PopAdvanceSystemPowerState @ 0x14077A120 (PopAdvanceSystemPowerState.c)
+ *     PopVerifySystemPowerPolicy @ 0x14079CEF4 (PopVerifySystemPowerPolicy.c)
+ *     PdcPoVerifyPowerState @ 0x1407D53D0 (PdcPoVerifyPowerState.c)
  * Callees:
- *     PopIsHibernateSupported @ 0x140873AD4 (PopIsHibernateSupported.c)
- *     PopIsHiberbootSupported @ 0x140980BF0 (PopIsHiberbootSupported.c)
+ *     PopIsHibernateSupported @ 0x1406F4158 (PopIsHibernateSupported.c)
+ *     PopIsHiberbootSupported @ 0x14077A0FC (PopIsHiberbootSupported.c)
  */
 
-void __fastcall PopVerifySystemPowerState(int *a1, unsigned int a2)
+void __fastcall PopVerifySystemPowerState(int *a1, int a2)
 {
-  unsigned int v2; // r10d
+  int v2; // r10d
   int *v3; // r11
   int v4; // r9d
-  int v5; // r8d
-  char v6; // al
+  char v5; // al
+  __int128 *v6; // rcx
+  _BYTE *v7; // rcx
+  _BYTE *v9; // rcx
 
   v2 = a2;
   v3 = a1;
   if ( a1 )
   {
     v4 = *a1;
-    v5 = *a1;
     if ( *a1 <= -1 || (unsigned int)(v4 - 2) <= 3 )
     {
-      if ( a2 > 1 )
+      v5 = 1;
+      if ( a2 >= 0 )
       {
-        if ( a2 != 2 )
-          goto LABEL_7;
-        v6 = 1;
-        if ( v5 != 2 )
+        v6 = &PopCapabilities;
+        if ( a2 > 1 )
         {
-          if ( v5 != 3 )
+          if ( a2 != 2 )
+            goto LABEL_8;
+        }
+        else
+        {
+          if ( v4 == 5 )
           {
-            if ( v5 != 4 )
-            {
-              if ( v5 != 5 )
-                goto LABEL_7;
-LABEL_31:
-              if ( !v6
-                || !(unsigned __int8)PopIsHiberbootSupported(&PopCapabilities)
-                && !(unsigned __int8)PopIsHibernateSupported(&PopCapabilities) )
-              {
-                v4 = 1;
-              }
-              goto LABEL_7;
-            }
-LABEL_30:
-            if ( BYTE5(PopCapabilities) )
-              goto LABEL_7;
-            goto LABEL_31;
+            if ( PopIsHiberbootSupported((__int64)&PopCapabilities) )
+              goto LABEL_8;
+            if ( PopIsHibernateSupported(v7) )
+              goto LABEL_8;
+            v4 = 4;
           }
-LABEL_28:
-          if ( BYTE4(PopCapabilities) )
-            goto LABEL_7;
-          v4 = 4;
-          goto LABEL_30;
-        }
-LABEL_26:
-        if ( BYTE3(PopCapabilities) )
-          goto LABEL_7;
-        v4 = 3;
-        goto LABEL_28;
-      }
-      if ( v4 == 5 )
-      {
-        if ( (unsigned __int8)PopIsHiberbootSupported(&PopCapabilities)
-          || (unsigned __int8)PopIsHibernateSupported(&PopCapabilities) )
-        {
-          goto LABEL_7;
-        }
-        v4 = 4;
-      }
-      else if ( v5 != 4 )
-      {
-        if ( v5 != 3 )
-        {
-          if ( v5 != 2 )
-            goto LABEL_7;
-LABEL_23:
-          if ( BYTE3(PopCapabilities) )
-            goto LABEL_7;
-          v4 = 1;
-          if ( v2 != 1 )
-            goto LABEL_7;
-          v6 = 0;
+          if ( v4 == 4 )
+          {
+            if ( BYTE5(PopCapabilities) )
+              goto LABEL_8;
+            v4 = 3;
+          }
+          if ( v4 == 3 )
+          {
+            if ( BYTE4(PopCapabilities) )
+              goto LABEL_8;
+            v4 = 2;
+          }
+          if ( v4 == 2 )
+          {
+            if ( BYTE3(PopCapabilities) )
+              goto LABEL_8;
+            v4 = 1;
+          }
+          if ( v4 != 1 || v2 != 1 )
+            goto LABEL_8;
+          v5 = 0;
           v4 = 2;
-          goto LABEL_26;
         }
-LABEL_21:
-        if ( BYTE4(PopCapabilities) )
-          goto LABEL_7;
-        v4 = 2;
-        goto LABEL_23;
+        if ( v4 == 2 )
+        {
+          if ( BYTE3(PopCapabilities) )
+            goto LABEL_8;
+          v4 = 3;
+        }
+        if ( v4 == 3 )
+        {
+          if ( BYTE4(PopCapabilities) )
+            goto LABEL_8;
+          v4 = 4;
+        }
+        if ( v4 == 4 )
+        {
+          if ( BYTE5(PopCapabilities) )
+            goto LABEL_8;
+          v4 = 5;
+        }
+        if ( v4 == 5 && (!v5 || !PopIsHiberbootSupported((__int64)v6) && !PopIsHibernateSupported(v9)) )
+          v4 = 1;
       }
-      if ( BYTE5(PopCapabilities) )
-      {
-LABEL_7:
-        *v3 = v4;
-        return;
-      }
-      v4 = 3;
-      goto LABEL_21;
+LABEL_8:
+      *v3 = v4;
     }
   }
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of PopPdcIdleResiliencyCallback @ 0x14086F288
+ * XREFs of PopPdcIdleResiliencyCallback @ 0x14086F268
  * Callers:
- *     PdcPoResiliencyClient @ 0x14086EE60 (PdcPoResiliencyClient.c)
+ *     PdcPoResiliencyClient @ 0x14086EE40 (PdcPoResiliencyClient.c)
  * Callees:
- *     PpmQueryTime @ 0x14011F840 (PpmQueryTime.c)
- *     PpmIdleCsVetoAccountingResiliencyUpdate @ 0x1402D4A14 (PpmIdleCsVetoAccountingResiliencyUpdate.c)
- *     PopFxBeginDeviceIRPhaseAccounting @ 0x1402D7318 (PopFxBeginDeviceIRPhaseAccounting.c)
- *     PopFxEndDeviceIRPhaseAccounting @ 0x1402D7F44 (PopFxEndDeviceIRPhaseAccounting.c)
- *     PopFxPauseDeviceAccounting @ 0x1402D891C (PopFxPauseDeviceAccounting.c)
- *     PopFxResumeDeviceAccounting @ 0x1402D9398 (PopFxResumeDeviceAccounting.c)
- *     PopAccumulateNonActivatedCpuTime @ 0x1402DE3A4 (PopAccumulateNonActivatedCpuTime.c)
- *     PopUpdateNonAttributedCpuTimeReference @ 0x1402DE40C (PopUpdateNonAttributedCpuTimeReference.c)
- *     PpmDisableHighPerfRequestDeferredExpiration @ 0x1402E30C4 (PpmDisableHighPerfRequestDeferredExpiration.c)
+ *     PpmQueryTime @ 0x14011F860 (PpmQueryTime.c)
+ *     PpmIdleCsVetoAccountingResiliencyUpdate @ 0x1402D4B14 (PpmIdleCsVetoAccountingResiliencyUpdate.c)
+ *     PopFxBeginDeviceIRPhaseAccounting @ 0x1402D7418 (PopFxBeginDeviceIRPhaseAccounting.c)
+ *     PopFxEndDeviceIRPhaseAccounting @ 0x1402D8044 (PopFxEndDeviceIRPhaseAccounting.c)
+ *     PopFxPauseDeviceAccounting @ 0x1402D8A1C (PopFxPauseDeviceAccounting.c)
+ *     PopFxResumeDeviceAccounting @ 0x1402D9498 (PopFxResumeDeviceAccounting.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x1402DE4A4 (PopAccumulateNonActivatedCpuTime.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x1402DE50C (PopUpdateNonAttributedCpuTimeReference.c)
+ *     PpmDisableHighPerfRequestDeferredExpiration @ 0x1402E31C4 (PpmDisableHighPerfRequestDeferredExpiration.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
  *     PopCheckResiliencyScenarios @ 0x140589E14 (PopCheckResiliencyScenarios.c)
  *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     PopDirectedDripsIdleResiliencyCallback @ 0x140867D38 (PopDirectedDripsIdleResiliencyCallback.c)
- *     PopCancelDripsWatchdog @ 0x1408793C4 (PopCancelDripsWatchdog.c)
- *     PopSetDripsWatchdog @ 0x14087A070 (PopSetDripsWatchdog.c)
+ *     PopDirectedDripsIdleResiliencyCallback @ 0x140867D18 (PopDirectedDripsIdleResiliencyCallback.c)
+ *     PopCancelDripsWatchdog @ 0x1408793A4 (PopCancelDripsWatchdog.c)
+ *     PopSetDripsWatchdog @ 0x14087A050 (PopSetDripsWatchdog.c)
  */
 
 __int64 __fastcall PopPdcIdleResiliencyCallback(int a1, unsigned __int8 a2)

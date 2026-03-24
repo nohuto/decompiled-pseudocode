@@ -1,12 +1,12 @@
 /*
- * XREFs of EditionEndDeferWinEventNotify @ 0x1C0025040
+ * XREFs of EditionEndDeferWinEventNotify @ 0x1C0122170
  * Callers:
  *     <none>
  * Callees:
- *     zzzEndDeferWinEventNotify @ 0x1C0025058 (zzzEndDeferWinEventNotify.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DEA4 (zzzEndDeferWinEventNotify.c)
  */
 
-__int64 __fastcall EditionEndDeferWinEventNotify(__int64 a1)
+void EditionEndDeferWinEventNotify()
 {
-  return zzzEndDeferWinEventNotify(a1);
+  zzzEndDeferWinEventNotify();
 }

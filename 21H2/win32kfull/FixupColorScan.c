@@ -1,10 +1,11 @@
 /*
- * XREFs of FixupColorScan @ 0x1C0140044
+ * XREFs of FixupColorScan @ 0x1C01517E8
  * Callers:
- *     GetFixupScan @ 0x1C0005AE0 (GetFixupScan.c)
+ *     GetFixupScan @ 0x1C00C79F0 (GetFixupScan.c)
+ *     RepDIB_CY @ 0x1C013AD20 (RepDIB_CY.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void *__fastcall FixupColorScan(__m128i *a1, void *a2)

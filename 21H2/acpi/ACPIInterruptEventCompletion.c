@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIInterruptEventCompletion @ 0x1C0030CF0
+ * XREFs of ACPIInterruptEventCompletion @ 0x1C0030DD0
  * Callers:
  *     <none>
  * Callees:
@@ -11,14 +11,7 @@ void __fastcall ACPIInterruptEventCompletion(__int64 a1, int a2, __int64 a3, __i
   KIRQL v6; // si
 
   v6 = KeAcquireSpinLockRaiseToDpc(&GpeTableLock);
-  if ( a2 >= 0 )
-  {
-    AcpiGpeWorkDone = 1;
-    *((_BYTE *)GpeComplete + (unsigned __int8)a4) |= HIBYTE(a4);
-    if ( !AcpiGpeDpcRunning )
-      KeInsertQueueDpc(&AcpiGpeDpc, 0LL, 0LL);
-  }
-  else
+  if ( a2 < 0 )
   {
     *((_BYTE *)GpeRunMethod + (unsigned __int8)a4) |= HIBYTE(a4);
     if ( !AcpiGpeDpcScheduled )
@@ -26,6 +19,13 @@ void __fastcall ACPIInterruptEventCompletion(__int64 a1, int a2, __int64 a3, __i
       AcpiGpeDpcScheduled = 1;
       KeSetTimer(&AcpiGpeTimer, (LARGE_INTEGER)-20000000LL, &AcpiGpeDpc);
     }
+  }
+  else
+  {
+    AcpiGpeWorkDone = 1;
+    *((_BYTE *)GpeComplete + (unsigned __int8)a4) |= HIBYTE(a4);
+    if ( !AcpiGpeDpcRunning )
+      KeInsertQueueDpc(&AcpiGpeDpc, 0LL, 0LL);
   }
   KeReleaseSpinLock(&GpeTableLock, v6);
 }

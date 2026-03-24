@@ -1,297 +1,300 @@
 /*
- * XREFs of SfnGETDBCSTEXTLENGTHS @ 0x1C00D5120
+ * XREFs of SfnGETDBCSTEXTLENGTHS @ 0x1C0022C30
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0061D10 (PopAndFreeAlwaysW32ThreadLock.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C006A940 (-AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     ?AllocateCallbackData@@YAJPEAU_CAPTUREBUF@@KPEAPEAX@Z @ 0x1C00803F0 (-AllocateCallbackData@@YAJPEAU_CAPTUREBUF@@KPEAPEAX@Z.c)
- *     ?CalcOutputStringSize@@YAKPEAU_CALLBACKSTATUS@@KHH@Z @ 0x1C00D57F4 (-CalcOutputStringSize@@YAKPEAU_CALLBACKSTATUS@@KHH@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z @ 0x1C0021AFC (-AllocCallbackMessage@@YAPEAXKK_KPEAEH0@Z.c)
+ *     ?CalcOutputStringSize@@YAKPEAU_CALLBACKSTATUS@@KHH@Z @ 0x1C0023398 (-CalcOutputStringSize@@YAKPEAU_CALLBACKSTATUS@@KHH@Z.c)
+ *     ?AllocateCallbackData@@YAJPEAU_CAPTUREBUF@@KPEAPEAX@Z @ 0x1C0023470 (-AllocateCallbackData@@YAJPEAU_CAPTUREBUF@@KPEAPEAX@Z.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0052354 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005240C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00524D0 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052508 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BFD00 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall SfnGETDBCSTEXTLENGTHS(
         _QWORD *a1,
         int a2,
         __int64 a3,
-        unsigned __int8 *a4,
+        int a4,
         __int64 a5,
         __int64 a6,
         char a7,
         __int64 a8)
 {
   __int64 ThreadWin32Thread; // rax
-  __int64 v12; // r14
-  __int64 v13; // rdi
-  __int64 v14; // rax
-  int v15; // edi
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
+  __int64 v13; // r14
+  __int64 v14; // rdi
+  __int64 v15; // rax
+  __int64 v16; // rax
+  int v17; // edi
+  __int64 v18; // rcx
   __int64 v19; // rcx
-  __int64 *v20; // rcx
-  __int64 v21; // rdx
-  int v22; // r12d
-  BOOL v24; // edx
-  unsigned int v25; // edi
-  __int64 v26; // r14
-  __int64 v27; // rax
-  __int64 v28; // r8
-  unsigned int v29; // r12d
-  unsigned __int8 *v30; // rdi
+  __int64 *v20; // rdi
+  __int64 v21; // rdi
+  __int64 v23; // rdx
+  unsigned int v24; // edi
+  __int64 v25; // r14
+  unsigned int v26; // edx
+  unsigned int v27; // r12d
+  unsigned __int8 *v28; // rdi
+  __int64 v29; // rax
+  __int64 v30; // rax
   __int64 v31; // rax
-  __int64 v32; // rax
-  int v33; // esi
-  __int64 v34; // rdx
-  __int64 v35; // rcx
-  __int64 v36; // r8
-  __int64 v37; // rcx
-  __int64 *v38; // rcx
-  __int64 v39; // rdx
-  ULONG64 v40; // rcx
-  __int64 v41; // xmm0_8
-  __int64 v42; // rax
-  __int64 v43; // rsi
-  char v45; // [rsp+30h] [rbp-428h] BYREF
-  _BYTE v46[7]; // [rsp+31h] [rbp-427h] BYREF
-  __int64 v47; // [rsp+38h] [rbp-420h]
-  unsigned __int8 *v48; // [rsp+40h] [rbp-418h]
-  int v49; // [rsp+48h] [rbp-410h] BYREF
-  int v50; // [rsp+4Ch] [rbp-40Ch] BYREF
-  int v51; // [rsp+50h] [rbp-408h]
-  int v52; // [rsp+54h] [rbp-404h]
-  __int64 v53; // [rsp+58h] [rbp-400h]
-  unsigned int v54; // [rsp+60h] [rbp-3F8h]
-  unsigned __int64 v55; // [rsp+88h] [rbp-3D0h] BYREF
-  __int64 v56; // [rsp+90h] [rbp-3C8h]
-  unsigned __int64 v57[3]; // [rsp+98h] [rbp-3C0h] BYREF
-  __int64 v58; // [rsp+B0h] [rbp-3A8h]
-  __int64 v59; // [rsp+B8h] [rbp-3A0h]
-  __int64 v60; // [rsp+C0h] [rbp-398h]
-  ULONG_PTR RegionSize; // [rsp+C8h] [rbp-390h] BYREF
-  __int128 v62; // [rsp+D0h] [rbp-388h]
-  __int128 v63; // [rsp+E0h] [rbp-378h]
-  __int64 v64; // [rsp+F0h] [rbp-368h]
-  __int128 v65; // [rsp+F8h] [rbp-360h]
-  __int64 v66; // [rsp+108h] [rbp-350h]
-  __int64 v67; // [rsp+110h] [rbp-348h] BYREF
-  int v68; // [rsp+118h] [rbp-340h]
-  int v69; // [rsp+11Ch] [rbp-33Ch]
-  __int64 v70; // [rsp+120h] [rbp-338h]
-  __int64 v71; // [rsp+128h] [rbp-330h]
-  __int64 v72; // [rsp+130h] [rbp-328h]
-  __int128 v73; // [rsp+138h] [rbp-320h] BYREF
-  __int64 v74; // [rsp+148h] [rbp-310h]
-  __int128 v75; // [rsp+188h] [rbp-2D0h] BYREF
-  __int64 v76; // [rsp+198h] [rbp-2C0h]
-  __int128 v77; // [rsp+1A0h] [rbp-2B8h] BYREF
-  __int64 v78; // [rsp+1B0h] [rbp-2A8h]
-  __int128 v79; // [rsp+1B8h] [rbp-2A0h] BYREF
-  __int64 v80; // [rsp+1C8h] [rbp-290h]
-  unsigned __int8 v81[96]; // [rsp+1D0h] [rbp-288h] BYREF
-  unsigned __int8 v82[512]; // [rsp+230h] [rbp-228h] BYREF
+  int v32; // esi
+  __int64 v33; // rcx
+  __int64 v34; // rcx
+  __int64 *v35; // rsi
+  __int64 v36; // rsi
+  ULONG64 v37; // rcx
+  __int64 v38; // xmm0_8
+  char v39; // [rsp+30h] [rbp-428h] BYREF
+  char v40; // [rsp+31h] [rbp-427h] BYREF
+  char v41; // [rsp+32h] [rbp-426h] BYREF
+  char v42; // [rsp+33h] [rbp-425h] BYREF
+  int v43; // [rsp+34h] [rbp-424h]
+  int v44; // [rsp+38h] [rbp-420h] BYREF
+  int v45; // [rsp+3Ch] [rbp-41Ch] BYREF
+  int v46; // [rsp+40h] [rbp-418h]
+  __int64 v47; // [rsp+48h] [rbp-410h]
+  unsigned int v48; // [rsp+50h] [rbp-408h]
+  unsigned __int64 v49; // [rsp+78h] [rbp-3E0h] BYREF
+  __int128 v50; // [rsp+80h] [rbp-3D8h]
+  unsigned __int64 v51; // [rsp+90h] [rbp-3C8h] BYREF
+  __int64 v52; // [rsp+98h] [rbp-3C0h]
+  __int64 v53; // [rsp+A0h] [rbp-3B8h]
+  __int64 v54; // [rsp+B8h] [rbp-3A0h]
+  __int64 v55; // [rsp+C0h] [rbp-398h]
+  __int128 v56; // [rsp+C8h] [rbp-390h]
+  ULONG_PTR RegionSize; // [rsp+D8h] [rbp-380h] BYREF
+  __int128 v58; // [rsp+E0h] [rbp-378h]
+  __int64 v59; // [rsp+F0h] [rbp-368h]
+  __int128 v60; // [rsp+F8h] [rbp-360h] BYREF
+  __int64 v61; // [rsp+108h] [rbp-350h]
+  __int128 v62; // [rsp+110h] [rbp-348h]
+  __int64 v63; // [rsp+120h] [rbp-338h]
+  __int64 v64; // [rsp+128h] [rbp-330h] BYREF
+  int v65; // [rsp+130h] [rbp-328h]
+  int v66; // [rsp+134h] [rbp-324h]
+  __int64 v67; // [rsp+138h] [rbp-320h]
+  __int64 v68; // [rsp+140h] [rbp-318h]
+  __int64 v69; // [rsp+148h] [rbp-310h]
+  _QWORD v70[3]; // [rsp+150h] [rbp-308h] BYREF
+  __int128 v71; // [rsp+168h] [rbp-2F0h] BYREF
+  __int64 v72; // [rsp+178h] [rbp-2E0h]
+  __int128 v73; // [rsp+1B8h] [rbp-2A0h] BYREF
+  __int64 v74; // [rsp+1C8h] [rbp-290h]
+  unsigned __int8 v75[96]; // [rsp+1D0h] [rbp-288h] BYREF
+  unsigned __int8 v76[512]; // [rsp+230h] [rbp-228h] BYREF
 
-  v48 = a4;
-  v58 = a3;
-  v52 = (_DWORD)a4 != 0;
-  v51 = a7 & 1;
-  v57[0] = 0LL;
-  v49 = 0;
-  v47 = 0LL;
-  v75 = 0LL;
-  v76 = 0LL;
-  v63 = 0LL;
-  v64 = 0LL;
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v12 = ThreadWin32Thread;
+  v54 = a3;
+  v46 = a4 != 0;
+  v43 = a7 & 1;
+  v51 = 0LL;
+  v44 = 0;
+  v52 = 0LL;
+  v70[2] = 0LL;
+  v58 = 0LL;
+  v59 = 0LL;
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v13 = ThreadWin32Thread;
   if ( a1 )
-    v13 = a1[5] - *(_QWORD *)(ThreadWin32Thread + 472);
+    v14 = a1[5] - *(_QWORD *)(ThreadWin32Thread + 472);
   else
-    v13 = 0LL;
+    v14 = 0LL;
   if ( !a1 )
     return 0LL;
-  v53 = *(_QWORD *)(a1[5] + 120LL);
-  v69 = 0;
-  v67 = v13;
-  v68 = a2;
-  v70 = a3;
-  v59 = a5;
-  v71 = a5;
-  v60 = a6;
-  v72 = a6;
-  ThreadLock((__int64)a1, (__int64 *)&v75);
-  v14 = *(_QWORD *)(v12 + 480);
-  v62 = *(_OWORD *)(v14 + 64);
-  v63 = v62;
-  v64 = *(_QWORD *)(v14 + 80);
-  *(_QWORD *)(v14 + 72) = v13;
-  *(_QWORD *)(*(_QWORD *)(v12 + 480) + 64LL) = *a1;
-  *(_QWORD *)(*(_QWORD *)(v12 + 480) + 80LL) = *(_QWORD *)(a1[5] + 224LL);
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v45);
+  v47 = *(_QWORD *)(a1[5] + 120LL);
+  v66 = 0;
+  v64 = v14;
+  v65 = a2;
+  v67 = a3;
+  v55 = a5;
+  v68 = a5;
+  *(_QWORD *)&v56 = a6;
+  v69 = a6;
+  v15 = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v70[0] = *(_QWORD *)(v15 + 416);
+  *(_QWORD *)(v15 + 416) = v70;
+  v70[1] = a1;
+  HMLockObject(a1);
+  v16 = *(_QWORD *)(v13 + 480);
+  v50 = *(_OWORD *)(v16 + 64);
+  v58 = v50;
+  v59 = *(_QWORD *)(v16 + 80);
+  *(_QWORD *)(v16 + 72) = v14;
+  *(_QWORD *)(*(_QWORD *)(v13 + 480) + 64LL) = *a1;
+  *(_QWORD *)(*(_QWORD *)(v13 + 480) + 80LL) = *(_QWORD *)(a1[5] + 224LL);
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v40);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v39);
   EtwTraceBeginCallback(6LL);
-  v15 = KeUserModeCallback(6LL, &v67, 40LL, v57, &v49);
+  v17 = KeUserModeCallback(6LL, &v64, 40LL, &v51, &v44);
   EtwTraceEndCallback(6LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v45);
-  ThreadUnlock1(v17, v16, v18);
-  v19 = *(_QWORD *)(v12 + 480);
-  *(_OWORD *)(v19 + 64) = v62;
-  *(_QWORD *)(v19 + 80) = v64;
-  if ( v15 < 0 || v49 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v39);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v40);
+  ThreadUnlock1(v18);
+  v19 = *(_QWORD *)(v13 + 480);
+  *(_OWORD *)(v19 + 64) = v50;
+  *(_QWORD *)(v19 + 80) = v59;
+  if ( v17 < 0 || v44 != 24 )
     return 0LL;
-  v20 = (__int64 *)v57[0];
-  if ( v57[0] + 8 < v57[0] || v57[0] + 8 > MmUserProbeAddress )
+  v20 = (__int64 *)v51;
+  if ( v51 + 8 < v51 || v51 + 8 > MmUserProbeAddress )
     v20 = (__int64 *)MmUserProbeAddress;
   v21 = *v20;
-  v47 = *v20;
-  if ( a8 && (*(_DWORD *)(a8 + 84) & 5) != 0 )
-    return v47;
-  if ( (a7 & 2) != 0 )
-    return v47;
-  if ( (int)v21 <= 0 )
-    return v47;
-  v22 = v51;
-  if ( v52 == v51 )
-    return v47;
-  if ( *(_QWORD *)(a1[5] + 120LL) != v53 )
-    return 2 * v21;
-  v24 = 0;
+  v52 = v21;
+  if ( a8 && (*(_DWORD *)(a8 + 84) & 5) != 0 || (a7 & 2) != 0 || (int)v21 <= 0 || v46 == v43 )
+    return v21;
+  if ( *(_QWORD *)(a1[5] + 120LL) != v47 )
+    goto LABEL_62;
+  v23 = 0LL;
   if ( a2 != 14 )
   {
-    if ( HMValidateHandleNoSecure(*a1, 1) )
+    LOBYTE(v23) = 1;
+    if ( HMValidateHandleNoSecure(*a1, v23) )
     {
       if ( a2 == 394 )
       {
-        v24 = (*(_DWORD *)(a1[5] + 28LL) & 0x40) == 0 && (*(_DWORD *)(a1[5] + 28LL) & 0x30) != 0;
-        goto LABEL_56;
+        LODWORD(v23) = (*(_DWORD *)(a1[5] + 28LL) & 0x40) == 0 && (*(_DWORD *)(a1[5] + 28LL) & 0x30) != 0;
+        goto LABEL_59;
       }
       if ( a2 == 329 )
       {
         if ( (*(_DWORD *)(a1[5] + 28LL) & 0x30) != 0 && (*(_DWORD *)(a1[5] + 28LL) & 0x200) == 0 )
         {
-          v24 = 1;
-LABEL_57:
-          v47 = 8LL;
-          goto LABEL_18;
-        }
-        v24 = 0;
-LABEL_56:
-        if ( !v24 )
+          LODWORD(v23) = 1;
+LABEL_60:
+          v21 = 8LL;
+          v52 = 8LL;
           goto LABEL_19;
-        goto LABEL_57;
+        }
+        LODWORD(v23) = 0;
+LABEL_59:
+        if ( !(_DWORD)v23 )
+          goto LABEL_20;
+        goto LABEL_60;
       }
     }
     return 0LL;
   }
-LABEL_18:
-  if ( v24 )
-    return v47;
 LABEL_19:
-  if ( (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 488) & 0x4000000) != 0 )
+  if ( (_DWORD)v23 )
+    return v21;
+LABEL_20:
+  if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x4000000) != 0 )
   {
-    if ( (_DWORD)v48 )
-      return 2 * v47;
-    return v47;
+    if ( a4 )
+LABEL_62:
+      v21 *= 2LL;
+    return v21;
   }
-  v25 = v47 + 1;
-  v54 = v47 + 1;
-  memset(v81, 0, sizeof(v81));
-  v55 = 0LL;
-  v50 = 0;
-  v56 = 0LL;
-  v77 = 0LL;
-  v78 = 0LL;
-  v65 = 0LL;
-  v66 = 0LL;
-  v26 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v53 = a1[5] - *(_QWORD *)(v26 + 472);
-  v27 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  *(_DWORD *)(v27 + 488) |= 0x4000000u;
-  v28 = 2 * v25;
-  if ( v22 )
-    v28 = v25;
-  v29 = v28;
-  v30 = AllocCallbackMessage(96, 1u, v28, v82, 0, 0x200uLL);
-  v48 = v30;
-  if ( !v30 )
+  v24 = v21 + 1;
+  v48 = v24;
+  memset(v75, 0, sizeof(v75));
+  v49 = 0LL;
+  v45 = 0;
+  v53 = 0LL;
+  v60 = 0LL;
+  v61 = 0LL;
+  v62 = 0LL;
+  v63 = 0LL;
+  v25 = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v47 = a1[5] - *(_QWORD *)(v25 + 472);
+  *(_DWORD *)(gptiCurrent + 488LL) |= 0x4000000u;
+  v26 = 2 * v24;
+  if ( v43 )
+    v26 = v24;
+  v27 = v26;
+  v28 = AllocCallbackMessage(96, 1u, v26, v76, 0, 0x200uLL);
+  *(_QWORD *)&v50 = v28;
+  if ( !v28 )
     return 0LL;
-  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  v73 = 0LL;
-  v74 = 0LL;
-  if ( v30 != v81 && v30 != v82 )
-    PushW32ThreadLock((__int64)v30, &v73, (__int64)Win32FreePool);
-  *((_QWORD *)v30 + 5) = v53;
-  *((_DWORD *)v30 + 12) = a2 - 1;
-  v31 = v54;
+  W32GetThreadWin32Thread(KeGetCurrentThread());
+  v71 = 0LL;
+  v72 = 0LL;
+  if ( v28 != v75 && v28 != v76 )
+    PushW32ThreadLock(v28, &v71, Win32FreePool);
+  *((_QWORD *)v28 + 5) = v47;
+  *((_DWORD *)v28 + 12) = a2 - 1;
+  v29 = v48;
   if ( a2 != 14 )
-    v31 = v58;
-  *((_QWORD *)v30 + 7) = v31;
-  *((_QWORD *)v30 + 8) = v59;
-  *((_QWORD *)v30 + 9) = v60;
-  if ( (int)AllocateCallbackData((struct _CAPTUREBUF *)v30, v29, (void **)v30 + 10) < 0 )
-    goto LABEL_46;
-  *((_DWORD *)v30 + 22) = v29;
-  ThreadLock((__int64)a1, (__int64 *)&v77);
-  v32 = *(_QWORD *)(v26 + 480);
-  v62 = *(_OWORD *)(v32 + 64);
-  v65 = v62;
-  v66 = *(_QWORD *)(v32 + 80);
-  *(_QWORD *)(v32 + 72) = v53;
-  *(_QWORD *)(*(_QWORD *)(v26 + 480) + 64LL) = *a1;
-  *(_QWORD *)(*(_QWORD *)(v26 + 480) + 80LL) = *(_QWORD *)(a1[5] + 224LL);
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v46);
+    v29 = v54;
+  *((_QWORD *)v28 + 7) = v29;
+  *((_QWORD *)v28 + 8) = v55;
+  *((_QWORD *)v28 + 9) = v56;
+  if ( AllocateCallbackData((struct _CAPTUREBUF *)v28, v27, (void **)v28 + 10) < 0 )
+    goto LABEL_48;
+  *((_DWORD *)v28 + 22) = v27;
+  v30 = W32GetThreadWin32Thread(KeGetCurrentThread());
+  *(_QWORD *)&v60 = *(_QWORD *)(v30 + 416);
+  *(_QWORD *)(v30 + 416) = &v60;
+  *((_QWORD *)&v60 + 1) = a1;
+  HMLockObject(a1);
+  v31 = *(_QWORD *)(v25 + 480);
+  v56 = *(_OWORD *)(v31 + 64);
+  v62 = v56;
+  v63 = *(_QWORD *)(v31 + 80);
+  *(_QWORD *)(v31 + 72) = v47;
+  *(_QWORD *)(*(_QWORD *)(v25 + 480) + 64LL) = *a1;
+  *(_QWORD *)(*(_QWORD *)(v25 + 480) + 80LL) = *(_QWORD *)(a1[5] + 224LL);
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v42);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v41);
   EtwTraceBeginCallback(35LL);
-  *((_QWORD *)v30 + 2) = 0LL;
-  v33 = KeUserModeCallback(35LL, v30, *(unsigned int *)v30, &v55, &v50);
+  *((_QWORD *)v28 + 2) = 0LL;
+  v32 = KeUserModeCallback(35LL, v28, *(unsigned int *)v28, &v49, &v45);
   EtwTraceEndCallback(35LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)v46);
-  ThreadUnlock1(v35, v34, v36);
-  v37 = *(_QWORD *)(v26 + 480);
-  *(_OWORD *)(v37 + 64) = v62;
-  *(_QWORD *)(v37 + 80) = v66;
-  if ( v33 < 0 )
-    goto LABEL_46;
-  if ( v50 == 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v41);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v42);
+  ThreadUnlock1(v33);
+  v34 = *(_QWORD *)(v25 + 480);
+  *(_OWORD *)(v34 + 64) = v56;
+  *(_QWORD *)(v34 + 80) = v63;
+  if ( v32 < 0 )
+    goto LABEL_48;
+  if ( v45 == 24 )
   {
-    v38 = (__int64 *)v55;
-    if ( v55 + 8 < v55 || v55 + 8 > MmUserProbeAddress )
-      v38 = (__int64 *)MmUserProbeAddress;
-    v39 = *v38;
-    v56 = *v38;
-    if ( (!a8 || (*(_DWORD *)(a8 + 84) & 5) == 0) && (int)v39 > 0 )
+    v35 = (__int64 *)v49;
+    if ( v49 + 8 < v49 || v49 + 8 > MmUserProbeAddress )
+      v35 = (__int64 *)MmUserProbeAddress;
+    v36 = *v35;
+    v53 = v36;
+    if ( (!a8 || (*(_DWORD *)(a8 + 84) & 5) == 0) && (int)v36 > 0 )
     {
-      v40 = v55;
-      if ( v55 + 24 < v55 || v55 + 24 > MmUserProbeAddress )
-        v40 = MmUserProbeAddress;
-      v41 = *(_QWORD *)(v40 + 16);
-      v79 = *(_OWORD *)v40;
-      v80 = v41;
-      v56 = CalcOutputStringSize((struct _CALLBACKSTATUS *)&v79, v39, v52, v51);
+      v37 = v49;
+      if ( v49 + 24 < v49 || v49 + 24 > MmUserProbeAddress )
+        v37 = MmUserProbeAddress;
+      v38 = *(_QWORD *)(v37 + 16);
+      v73 = *(_OWORD *)v37;
+      v74 = v38;
+      v36 = CalcOutputStringSize((struct _CALLBACKSTATUS *)&v73, v36, v46, v43);
+      v53 = v36;
     }
-    v42 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-    *(_DWORD *)(v42 + 488) &= ~0x4000000u;
-    v43 = v56;
+    *(_DWORD *)(gptiCurrent + 488LL) &= ~0x4000000u;
   }
   else
   {
-LABEL_46:
-    v43 = 0LL;
+LABEL_48:
+    v36 = 0LL;
   }
-  if ( v30 != v81 && v30 != v82 )
+  if ( v28 != v75 && v28 != v76 )
   {
-    if ( *((_QWORD *)v30 + 4) )
+    if ( *((_QWORD *)v28 + 4) )
     {
       RegionSize = 0LL;
-      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)v30 + 4, &RegionSize, 0x8000u);
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)v28 + 4, &RegionSize, 0x8000u);
     }
-    PopAndFreeAlwaysW32ThreadLock((__int64)&v73);
+    PopAndFreeAlwaysW32ThreadLock(&v71);
   }
-  return v43;
+  return v36;
 }

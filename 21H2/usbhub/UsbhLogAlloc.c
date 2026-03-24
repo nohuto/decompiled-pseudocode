@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhLogAlloc @ 0x1C0048074
+ * XREFs of UsbhLogAlloc @ 0x1C00493F4
  * Callers:
- *     UsbhAddDevice @ 0x1C0041550 (UsbhAddDevice.c)
+ *     UsbhAddDevice @ 0x1C0042800 (UsbhAddDevice.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     memset @ 0x1C001F800 (memset.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 unsigned __int64 __fastcall UsbhLogAlloc(__int64 a1, __int64 a2, int a3)

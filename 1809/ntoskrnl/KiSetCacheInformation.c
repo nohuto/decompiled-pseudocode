@@ -3,7 +3,7 @@
  * Callers:
  *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
  * Callees:
- *     KeBugCheck @ 0x1401BBB80 (KeBugCheck.c)
+ *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
  *     KiSetCacheInformationIntel @ 0x1405721B4 (KiSetCacheInformationIntel.c)
  *     KiSetCacheInformationAmd @ 0x14057B798 (KiSetCacheInformationAmd.c)
  */

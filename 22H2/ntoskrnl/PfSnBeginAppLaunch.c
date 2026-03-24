@@ -1,102 +1,109 @@
 /*
- * XREFs of PfSnBeginAppLaunch @ 0x140760A08
+ * XREFs of PfSnBeginAppLaunch @ 0x14062E94C
  * Callers:
- *     PfProcessCreateNotification @ 0x140760974 (PfProcessCreateNotification.c)
- *     PfSnAppLaunchScenarioControl @ 0x14097F790 (PfSnAppLaunchScenarioControl.c)
+ *     PfProcessCreateNotification @ 0x14062E8B4 (PfProcessCreateNotification.c)
+ *     PfSnAppLaunchScenarioControl @ 0x1408E0910 (PfSnAppLaunchScenarioControl.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PfSnBeginScenario @ 0x1407508D0 (PfSnBeginScenario.c)
- *     PfSnLogScenarioDecision @ 0x140752F04 (PfSnLogScenarioDecision.c)
- *     PfSnCheckScenario @ 0x140760C60 (PfSnCheckScenario.c)
- *     PfCalculateProcessHash @ 0x140761120 (PfCalculateProcessHash.c)
- *     PfSnCalculateScenarioNameAndHash @ 0x1407C2AB0 (PfSnCalculateScenarioNameAndHash.c)
- *     PfSnAltProfileFindByScenarioId @ 0x1407E09AC (PfSnAltProfileFindByScenarioId.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PfSnCheckScenario @ 0x14062EB58 (PfSnCheckScenario.c)
+ *     PfCalculateProcessHash @ 0x14062ED30 (PfCalculateProcessHash.c)
+ *     PfSnBeginScenario @ 0x140630458 (PfSnBeginScenario.c)
+ *     PfSnLogScenarioDecision @ 0x140630730 (PfSnLogScenarioDecision.c)
+ *     PfSnCheckModernApp @ 0x1406308A8 (PfSnCheckModernApp.c)
+ *     PfSnScanCommandLine @ 0x140630AD4 (PfSnScanCommandLine.c)
+ *     PfSnIsHostingApplication @ 0x140630DEC (PfSnIsHostingApplication.c)
+ *     PfSnFindImageFileName @ 0x140630EFC (PfSnFindImageFileName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PfSnBeginAppLaunch(void *a1, PVOID a2, int a3)
+__int64 __fastcall PfSnBeginAppLaunch(__int64 a1, __int128 *a2, int a3)
 {
-  __int64 v6; // rcx
-  int v7; // ebx
-  struct _KTHREAD *CurrentThread; // rax
+  void *v6; // rdi
+  int v7; // r14d
+  int v8; // ebx
+  const void *ImageFileName; // rdx
   __int64 v10; // rax
-  int v11; // eax
-  unsigned int v12; // r9d
-  int v13; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v14; // [rsp+64h] [rbp-9Ch] BYREF
-  int v15; // [rsp+68h] [rbp-98h] BYREF
-  int v16; // [rsp+6Ch] [rbp-94h] BYREF
-  int v17; // [rsp+70h] [rbp-90h] BYREF
-  int v18; // [rsp+74h] [rbp-8Ch] BYREF
-  PVOID P; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v20; // [rsp+80h] [rbp-80h] BYREF
-  __int128 v21; // [rsp+88h] [rbp-78h] BYREF
-  _OWORD v22[4]; // [rsp+A0h] [rbp-60h] BYREF
-  wchar_t Str2[40]; // [rsp+E0h] [rbp-20h] BYREF
-  _BYTE v24[256]; // [rsp+130h] [rbp+30h] BYREF
+  __int64 v11; // rbx
+  int v12; // eax
+  unsigned __int8 IsHostingApplication; // al
+  int v14; // ecx
+  int v16; // eax
+  int v17; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v18; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned int v19; // [rsp+50h] [rbp-B0h] BYREF
+  int v20; // [rsp+54h] [rbp-ACh] BYREF
+  int v21; // [rsp+58h] [rbp-A8h] BYREF
+  __int128 v22; // [rsp+60h] [rbp-A0h] BYREF
+  wchar_t SubStr[32]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v24[256]; // [rsp+B0h] [rbp-50h] BYREF
 
-  v18 = 0;
+  v21 = 0;
+  v19 = 0;
+  v20 = 0;
+  v18 = 0LL;
   v17 = 0;
-  v13 = 0;
-  v15 = 0;
-  v16 = 0;
-  v21 = 0LL;
-  memset(Str2, 0, 0x44uLL);
-  P = 0LL;
-  memset(v22, 0, sizeof(v22));
-  v14 = 0;
-  v7 = PfSnCheckScenario(0LL, &v18);
-  if ( v7 < 0 )
-    goto LABEL_2;
+  v6 = 0LL;
+  memset(SubStr, 0, sizeof(SubStr));
+  v7 = 0;
+  v8 = PfSnCheckScenario(0LL, &v21);
+  if ( v8 < 0 )
+    goto LABEL_17;
   if ( !a2 )
   {
-    v7 = PfCalculateProcessHash(a1, &P);
-    if ( v7 < 0 )
-      goto LABEL_2;
-    a2 = P;
+    v16 = PfCalculateProcessHash(a1, &v18);
+    v6 = (void *)v18;
+    v8 = v16;
+    if ( v16 < 0 )
+    {
+LABEL_17:
+      PfSnLogScenarioDecision((unsigned int)SubStr, 0, 0, 15, 15, v8, -1LL);
+      goto LABEL_14;
+    }
+    a2 = (__int128 *)v18;
   }
-  v20 = 256LL;
-  v7 = PfSnCalculateScenarioNameAndHash(v6, v22, &v21, &v17, &v13, &v15, &v16, &v20, v24, &v14, a1, a2);
-  if ( v7 < 0 )
+  v22 = *a2;
+  ImageFileName = (const void *)PfSnFindImageFileName(a2, &v19);
+  if ( !ImageFileName )
   {
-LABEL_2:
-    PfSnLogScenarioDecision((ULONG_PTR)a1, (const size_t *)v22, 0, 0, 15, 15, v7, -1LL);
-    goto LABEL_3;
+    v8 = -1073741811;
+    goto LABEL_17;
   }
-  HIDWORD(v22[3]) = v17 + v15 + v16;
-  *(_OWORD *)Str2 = v22[0];
-  *(_OWORD *)&Str2[8] = v22[1];
-  *(_OWORD *)&Str2[24] = v22[3];
-  *(_OWORD *)&Str2[16] = v22[2];
-  *(_DWORD *)&Str2[32] = v13;
-  CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_140C6A838, 0LL);
-  v10 = PfSnAltProfileFindByScenarioId(Str2);
-  if ( v10 )
-    v11 = *(_DWORD *)(v10 + 124);
-  else
-    v11 = v13;
-  HIDWORD(v22[3]) += v11;
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C6A838, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_140C6A838);
-  KeAbPostRelease((ULONG_PTR)&qword_140C6A838);
-  KeLeaveCriticalRegion();
-  HIDWORD(v22[3]) += a3;
-  if ( (dword_140C6A810 & 0x20) != 0 || v18 == 2 )
-    v12 = v14 | 2;
-  else
-    v12 = v14;
-  v7 = PfSnBeginScenario(a1, (unsigned __int8 *)v22, 0, v12, (const void **)&v21);
-  if ( v7 >= 0 )
-    v7 = 0;
-LABEL_3:
-  if ( P )
-    ExFreePoolWithTag(P, 0);
-  return (unsigned int)v7;
+  v10 = v19;
+  if ( v19 >= 0x1D )
+    v10 = 29LL;
+  v11 = v10;
+  memmove(SubStr, ImageFileName, 2 * v10);
+  v12 = *(_DWORD *)(a1 + 1524);
+  SubStr[v11] = 0;
+  *(_DWORD *)&SubStr[30] = v12;
+  IsHostingApplication = PfSnIsHostingApplication(SubStr);
+  v8 = PfSnScanCommandLine(&v17, IsHostingApplication);
+  if ( v8 < 0 )
+    goto LABEL_17;
+  *(_DWORD *)&SubStr[30] += v17;
+  v18 = 256LL;
+  v8 = PfSnCheckModernApp(&v20, &v17, v24, &v18);
+  if ( v8 < 0 )
+    goto LABEL_17;
+  v14 = *(_DWORD *)&SubStr[30];
+  if ( v20 )
+  {
+    v14 = v17 + *(_DWORD *)&SubStr[30];
+    *((_QWORD *)&v22 + 1) = v24;
+    v7 = 8;
+    LOWORD(v22) = v18;
+    WORD1(v22) = v18;
+  }
+  *(_DWORD *)&SubStr[30] = a3 + v14;
+  if ( (dword_140C50550 & 0x20) != 0 || v21 == 2 )
+    v7 |= 2u;
+  v8 = PfSnBeginScenario(a1, (unsigned int)SubStr, 0, v7, (__int64)&v22);
+  if ( v8 >= 0 )
+    v8 = 0;
+LABEL_14:
+  if ( v6 )
+    ExFreePoolWithTag(v6, 0);
+  return (unsigned int)v8;
 }

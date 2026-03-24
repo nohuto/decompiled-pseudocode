@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer @ 0x1801126CE
+ * XREFs of McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer @ 0x180153114
  * Callers:
- *     ?Report@CProcessAttributionReporter@@QEAAXXZ @ 0x18007B3D8 (-Report@CProcessAttributionReporter@@QEAAXXZ.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18006FCF0 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer(
@@ -55,7 +55,6 @@ ULONG __fastcall McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer(
   v14 = &v39;
   v23 = 0;
   v17 = 4 * a3;
-  v28 = 0;
   v19 = &a5;
   v21 = a6;
   v22 = 4 * a5;
@@ -68,6 +67,7 @@ ULONG __fastcall McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer(
   v34 = &a11;
   v36 = a12;
   v37 = 4 * a11;
+  v28 = 0;
   v33 = 0;
   v38 = 0;
   v15 = 4LL;

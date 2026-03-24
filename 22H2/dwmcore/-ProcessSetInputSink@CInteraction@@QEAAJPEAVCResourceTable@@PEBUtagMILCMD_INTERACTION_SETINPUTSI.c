@@ -1,42 +1,38 @@
 /*
- * XREFs of ?ProcessSetInputSink@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETINPUTSINK@@@Z @ 0x1800E5F18
+ * XREFs of ?ProcessSetInputSink@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETINPUTSINK@@@Z @ 0x1800E1158
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z @ 0x1800991C8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?UpdateInputSink@CInteraction@@QEAAJPEAX@Z @ 0x1800E5F94 (-UpdateInputSink@CInteraction@@QEAAJPEAX@Z.c)
- *     McTemplateU0pp_EventWriteTransfer @ 0x1801A29A8 (McTemplateU0pp_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UpdateInputSink@CInteraction@@QEAAJPEAX@Z @ 0x1800E11C0 (-UpdateInputSink@CInteraction@@QEAAJPEAX@Z.c)
+ *     ?OnInputSinkChange@CVisual@@QEAAXXZ @ 0x1800E1690 (-OnInputSinkChange@CVisual@@QEAAXXZ.c)
+ *     McTemplateU0xx_EventWriteTransfer @ 0x180155FC8 (McTemplateU0xx_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CInteraction::ProcessSetInputSink(CInteraction *this, struct CResourceTable *a2, void **a3)
 {
   int updated; // eax
-  __int64 v6; // rcx
-  unsigned int v7; // edi
-  __int64 v8; // rbx
-  __int64 v9; // rbx
+  CVisual *v6; // rcx
+  unsigned int v7; // ebx
+  __int64 v8; // rdx
 
   updated = CInteraction::UpdateInputSink(this, a3[1]);
   v7 = updated;
   if ( updated < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, updated, 0x187u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v6, 0LL, 0, updated, 0x19Fu, 0LL);
   }
   else
   {
-    v8 = *((_QWORD *)this + 14);
+    v8 = *((_QWORD *)this + 13);
     if ( v8 )
     {
-      v9 = *(_QWORD *)(v8 + 16);
-      if ( v9 )
-      {
-        CVisual::PropagateFlags(v9, 0x10u);
-        *(_BYTE *)(v9 + 100) |= 0x20u;
-      }
+      v6 = *(CVisual **)(v8 + 16);
+      if ( v6 )
+        CVisual::OnInputSinkChange(v6);
     }
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x4000) != 0 )
-      McTemplateU0pp_EventWriteTransfer(v6, &EVTDESC_INTERACTION_SET_INPUT_SINK, this, a3[1]);
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
+      McTemplateU0xx_EventWriteTransfer(v6, &EVTDESC_INTERACTION_SET_INPUT_SINK, (char *)this + 8, a3[1]);
   }
   return v7;
 }

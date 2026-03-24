@@ -1,66 +1,63 @@
 /*
- * XREFs of RtlAddMandatoryAce @ 0x1407F33F0
+ * XREFs of RtlAddMandatoryAce @ 0x1406D44E0
  * Callers:
- *     IopCreateSecurityDescriptorPerType @ 0x14076BAD0 (IopCreateSecurityDescriptorPerType.c)
- *     ObpVerifyAccessToBoundaryEntry @ 0x1407F3170 (ObpVerifyAccessToBoundaryEntry.c)
- *     CmpGenerateAppHiveSecurityDescriptor @ 0x140885688 (CmpGenerateAppHiveSecurityDescriptor.c)
- *     SepInitSystemDacls @ 0x140B59E44 (SepInitSystemDacls.c)
- *     ExpKeyedEventInitialization @ 0x140B6ECCC (ExpKeyedEventInitialization.c)
+ *     ObpVerifyAccessToBoundaryEntry @ 0x1405DAB30 (ObpVerifyAccessToBoundaryEntry.c)
+ *     RtlpNewSecurityObject @ 0x14064CD10 (RtlpNewSecurityObject.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x140719678 (IopCreateSecurityDescriptorPerType.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x140778E88 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     SepInitSystemDacls @ 0x140A4A880 (SepInitSystemDacls.c)
+ *     ExpKeyedEventInitialization @ 0x140A6F2EC (ExpKeyedEventInitialization.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlCopySid @ 0x140715020 (RtlCopySid.c)
- *     RtlValidAcl @ 0x140736D80 (RtlValidAcl.c)
- *     RtlValidSid @ 0x1407378A0 (RtlValidSid.c)
- *     RtlFirstFreeAce @ 0x1407F3570 (RtlFirstFreeAce.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlFirstFreeAce @ 0x1406D4640 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x1406D5380 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x1406D54E0 (RtlValidSid.c)
  */
 
-__int64 __fastcall RtlAddMandatoryAce(__int64 a1, unsigned int a2, int a3, __int64 a4, char a5, int a6)
+__int64 __fastcall RtlAddMandatoryAce(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, int a6)
 {
-  int v10; // ecx
-  unsigned __int8 v11; // si
-  __int64 v12; // r8
-  unsigned __int16 v13; // dx
-  char v14; // cl
+  int v9; // eax
+  char v10; // di
+  __int64 v11; // r9
+  unsigned __int16 v12; // dx
   __int64 result; // rax
-  __int64 v16; // [rsp+20h] [rbp-48h] BYREF
-  int v17; // [rsp+28h] [rbp-40h]
-  unsigned __int16 v18; // [rsp+2Ch] [rbp-3Ch]
+  __int64 v14; // [rsp+20h] [rbp-38h] BYREF
+  int v15; // [rsp+28h] [rbp-30h]
+  unsigned __int16 v16; // [rsp+2Ch] [rbp-2Ch]
 
-  v16 = 0LL;
-  v17 = 0;
-  v18 = 4096;
+  v14 = 0LL;
+  v15 = 0;
+  v16 = 4096;
   if ( !a1 )
     return 3221225591LL;
-  if ( a5 != 17 )
-    return 3221225485LL;
   if ( !RtlValidSid((PSID)a4) )
     return 3221225592LL;
-  v10 = *(_DWORD *)(a4 + 2) - v17;
-  if ( !v10 )
-    v10 = *(unsigned __int16 *)(a4 + 6) - v18;
-  if ( v10 )
+  v9 = *(_DWORD *)(a4 + 2) - v15;
+  if ( !v9 )
+    v9 = *(unsigned __int16 *)(a4 + 6) - v16;
+  if ( v9 )
     return 3221225485LL;
-  v11 = *(_BYTE *)a1;
-  if ( *(_BYTE *)a1 > 4u || a2 > 4 )
+  v10 = *(_BYTE *)a1;
+  if ( *(_BYTE *)a1 > 4u )
     return 3221225561LL;
+  if ( (unsigned __int8)v10 <= 2u )
+    v10 = 2;
   if ( (a3 & 0xFFFFFFE0) != 0 || (a6 & 0xFFFFFFF8) != 0 )
     return 3221225485LL;
-  if ( !RtlValidAcl(a1) || !(unsigned __int8)RtlFirstFreeAce(a1, &v16) )
+  if ( !(unsigned __int8)RtlValidAcl(a1) || !(unsigned __int8)RtlFirstFreeAce(a1, &v14) )
     return 3221225591LL;
-  v12 = v16;
-  v13 = 4 * (*(unsigned __int8 *)(a4 + 1) + 4);
-  if ( !v16 || v16 + (unsigned __int64)v13 > a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+  v11 = v14;
+  v12 = 4 * (*(unsigned __int8 *)(a4 + 1) + 4);
+  if ( !v14 || v14 + (unsigned __int64)v12 > a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
     return 3221225625LL;
-  *(_WORD *)(v16 + 2) = v13;
-  *(_BYTE *)(v12 + 1) = a3;
-  *(_BYTE *)v12 = 17;
-  *(_DWORD *)(v12 + 4) = a6;
-  RtlCopySid(4 * *(unsigned __int8 *)(a4 + 1) + 8, (PSID)(v12 + 8), (PSID)a4);
+  *(_WORD *)(v14 + 2) = v12;
+  *(_BYTE *)(v11 + 1) = a3;
+  *(_BYTE *)v11 = 17;
+  *(_DWORD *)(v11 + 4) = a6;
+  memmove((void *)(v11 + 8), (const void *)a4, 4LL * *(unsigned __int8 *)(a4 + 1) + 8);
   ++*(_WORD *)(a1 + 4);
-  v14 = v11;
-  if ( v11 <= (unsigned __int8)a2 )
-    v14 = a2;
   result = 0LL;
-  *(_BYTE *)a1 = v14;
+  *(_BYTE *)a1 = v10;
   return result;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SetWorldTransform@CWindowBackgroundTreatment@@QEAAXAEBVCMILMatrix@@W4WalkReason@@@Z @ 0x1800DFA58
+ * XREFs of ?SetWorldTransform@CWindowBackgroundTreatment@@QEAAXAEBVCMILMatrix@@W4WalkReason@@@Z @ 0x1800C8FF0
  * Callers:
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180091060 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009FA80 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007B940 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18008A040 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,24 +15,24 @@ __int64 __fastcall CWindowBackgroundTreatment::SetWorldTransform(__int64 a1, __i
   __int128 v6; // xmm1
   __int64 result; // rax
 
-  if ( *(_DWORD *)(a1 + 228) == 1 )
+  if ( *(_DWORD *)(a1 + 284) == 1 )
   {
-    v3 = *(_DWORD *)(a1 + 224);
-    v4 = *(_OWORD *)(a1 + 176);
-    *(_OWORD *)(a1 + 232) = *(_OWORD *)(a1 + 160);
-    v5 = *(_OWORD *)(a1 + 192);
-    *(_OWORD *)(a1 + 248) = v4;
-    v6 = *(_OWORD *)(a1 + 208);
-    *(_OWORD *)(a1 + 264) = v5;
-    *(_OWORD *)(a1 + 280) = v6;
-    *(_DWORD *)(a1 + 296) = v3;
+    v3 = *(_DWORD *)(a1 + 280);
+    v4 = *(_OWORD *)(a1 + 232);
+    *(_OWORD *)(a1 + 288) = *(_OWORD *)(a1 + 216);
+    v5 = *(_OWORD *)(a1 + 248);
+    *(_OWORD *)(a1 + 304) = v4;
+    v6 = *(_OWORD *)(a1 + 264);
+    *(_OWORD *)(a1 + 320) = v5;
+    *(_OWORD *)(a1 + 336) = v6;
+    *(_DWORD *)(a1 + 352) = v3;
   }
-  *(_OWORD *)(a1 + 160) = *(_OWORD *)a2;
-  *(_OWORD *)(a1 + 176) = *(_OWORD *)(a2 + 16);
-  *(_OWORD *)(a1 + 192) = *(_OWORD *)(a2 + 32);
-  *(_OWORD *)(a1 + 208) = *(_OWORD *)(a2 + 48);
+  *(_OWORD *)(a1 + 216) = *(_OWORD *)a2;
+  *(_OWORD *)(a1 + 232) = *(_OWORD *)(a2 + 16);
+  *(_OWORD *)(a1 + 248) = *(_OWORD *)(a2 + 32);
+  *(_OWORD *)(a1 + 264) = *(_OWORD *)(a2 + 48);
   result = *(unsigned int *)(a2 + 64);
-  *(_DWORD *)(a1 + 224) = result;
-  *(_DWORD *)(a1 + 228) = a3;
+  *(_DWORD *)(a1 + 280) = result;
+  *(_DWORD *)(a1 + 284) = a3;
   return result;
 }

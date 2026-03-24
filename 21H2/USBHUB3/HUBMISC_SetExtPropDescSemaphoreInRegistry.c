@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMISC_SetExtPropDescSemaphoreInRegistry @ 0x1C007DD8C
+ * XREFs of HUBMISC_SetExtPropDescSemaphoreInRegistry @ 0x1C007C7B0
  * Callers:
- *     HUBDSM_SettingExtPropDescSemaphoreForMsOs2 @ 0x1C00225E0 (HUBDSM_SettingExtPropDescSemaphoreForMsOs2.c)
+ *     HUBDSM_SettingExtPropDescSemaphoreForMsOs2 @ 0x1C0022190 (HUBDSM_SettingExtPropDescSemaphoreForMsOs2.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C00812DC (HUBREG_WriteValueToDeviceHardwareKey.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C007FD70 (HUBREG_WriteValueToDeviceHardwareKey.c)
  */
 
 __int64 __fastcall HUBMISC_SetExtPropDescSemaphoreInRegistry(__int64 a1)
@@ -51,7 +51,7 @@ LABEL_13:
       2u,
       5u,
       v3,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v6);
   }
   return ((v2 >> 31) & 0xFFFFFFF4) + 4077;

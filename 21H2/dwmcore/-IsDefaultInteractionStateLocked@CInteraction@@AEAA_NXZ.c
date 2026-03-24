@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ @ 0x1800E0C84
+ * XREFs of ?IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ @ 0x1800E1234
  * Callers:
- *     ??1CInteraction@@MEAA@XZ @ 0x1800E01C4 (--1CInteraction@@MEAA@XZ.c)
- *     ?UpdateDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x1801F3160 (-UpdateDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z.c)
+ *     ??1CInteraction@@MEAA@XZ @ 0x1800E0B04 (--1CInteraction@@MEAA@XZ.c)
+ *     ?UpdateDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x1801C7320 (-UpdateDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,14 +13,14 @@ bool __fastcall CInteraction::IsDefaultInteractionStateLocked(CInteraction *this
   CInteraction **v3; // rdx
 
   v1 = 0;
-  if ( dword_1803D3820 > 0 )
+  if ( dword_18034B4F8 > 0 )
   {
     v3 = (CInteraction **)CInteraction::s_DefaultStateLockedInteractions;
     while ( *v3 != this )
     {
       ++v1;
       ++v3;
-      if ( v1 >= dword_1803D3820 )
+      if ( v1 >= dword_18034B4F8 )
         goto LABEL_2;
     }
   }

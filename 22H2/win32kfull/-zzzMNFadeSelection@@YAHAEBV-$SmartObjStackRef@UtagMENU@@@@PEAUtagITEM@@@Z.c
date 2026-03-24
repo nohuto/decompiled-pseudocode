@@ -1,66 +1,85 @@
 /*
- * XREFs of ?zzzMNFadeSelection@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C02164D8
+ * XREFs of ?zzzMNFadeSelection@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0236180
  * Callers:
- *     ?xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@I_J@Z @ 0x1C0215E6C (-xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITE.c)
+ *     ?xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@I_J@Z @ 0x1C0235AE8 (-xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITE.c)
  * Callees:
- *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C0062940 (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
- *     MNGetPopupFromMenu @ 0x1C0064740 (MNGetPopupFromMenu.c)
- *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C00A9F90 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
- *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00AE308 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01BBFB0 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
- *     zzzShowFade @ 0x1C01BD4B8 (zzzShowFade.c)
+ *     MNGetPopupFromMenu @ 0x1C00478F8 (MNGetPopupFromMenu.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C0104778 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C010F934 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01E6B48 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
+ *     zzzShowFade @ 0x1C01E81C4 (zzzShowFade.c)
  */
 
 __int64 __fastcall zzzMNFadeSelection(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx
-  __int64 v5; // rax
-  __int64 v6; // rbx
-  _DWORD *v7; // r9
-  HDC v8; // rsi
+  unsigned int v5; // esi
+  __int64 v6; // rcx
+  _DWORD *v7; // rax
+  __int64 v8; // rbx
+  _DWORD *v9; // r9
+  HDC v10; // r14
   HDC DCEx; // rbx
-  _QWORD v11[2]; // [rsp+60h] [rbp-38h] BYREF
-  struct tagRECT v12; // [rsp+70h] [rbp-28h] BYREF
+  struct _KTHREAD *CurrentThread; // r14
+  __int64 v13; // rdi
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v19; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 *ThreadWin32Thread; // rax
+  _QWORD *v22; // rcx
+  _QWORD v24[2]; // [rsp+60h] [rbp+17h] BYREF
+  struct tagRECT v25; // [rsp+70h] [rbp+27h] BYREF
 
-  SmartObjStackRefBase<tagPOPUPMENU>::Init(v11, 0LL);
-  if ( gbDisableAlpha
-    || ((unsigned int)gpdwCPUserPreferencesMask & 0x80000400) != 0x80000400
-    || (unsigned int)CInputGlobals::GetLastInputType(gpInputGlobals) == 1
+  v25 = 0LL;
+  SmartObjStackRefBase<tagPOPUPMENU>::Init(v24, 0LL);
+  if ( gbDisableAlpha )
+    goto LABEL_12;
+  v4 = (unsigned int)gpdwCPUserPreferencesMask & 0x80000400;
+  if ( (_DWORD)v4 != -2147482624 )
+    goto LABEL_12;
+  v5 = 1;
+  if ( (unsigned int)CInputGlobals::GetLastInputType(gpInputGlobals) == 1
     || (unsigned int)CInputGlobals::GetLastInputType(gpInputGlobals) == 4
     || CInputGlobals::WasLastInputJournalling(gpInputGlobals) )
   {
     goto LABEL_12;
   }
-  v4 = *(_QWORD *)(a1 + 16);
-  if ( !v4 )
-    v4 = **(_QWORD **)a1;
-  v5 = MNGetPopupFromMenu(v4, 0LL);
-  SmartObjStackRefBase<tagPOPUPMENU>::operator=(v11, v5);
-  if ( !*(_QWORD *)v11[0]
-    || (v6 = *(_QWORD *)(*(_QWORD *)v11[0] + 16LL)) == 0
-    || (v7 = *(_DWORD **)a2,
-        v12.left = *(_DWORD *)(*(_QWORD *)(v6 + 40) + 104LL) + *(_DWORD *)(*(_QWORD *)a2 + 64LL),
-        v12.top = v7[17] + *(_DWORD *)(*(_QWORD *)(v6 + 40) + 108LL),
-        v12.right = v12.left + v7[18],
-        v12.bottom = v12.top + v7[19],
-        (v8 = CreateFadeInternal(
-                0LL,
-                &v12,
-                0x15Eu,
-                (*(_DWORD *)(*(_QWORD *)(v6 + 40) + 288LL) & 0xF) == 0 ? 0x100 : 0,
-                *(_DWORD *)(*(_QWORD *)(v6 + 40) + 288LL))) == 0LL) )
+  v6 = *(_QWORD *)(a1 + 16);
+  if ( !v6 )
+    v6 = **(_QWORD **)a1;
+  v7 = MNGetPopupFromMenu(v6, 0LL);
+  SmartObjStackRefBase<tagPOPUPMENU>::operator=(v24, (__int64)v7);
+  if ( !*(_QWORD *)v24[0] )
+    goto LABEL_12;
+  v4 = *(_QWORD *)v24[0];
+  v8 = *(_QWORD *)(*(_QWORD *)v24[0] + 16LL);
+  if ( !v8
+    || (v9 = *(_DWORD **)a2,
+        v25.left = *(_DWORD *)(*(_QWORD *)(v8 + 40) + 104LL) + *(_DWORD *)(*(_QWORD *)a2 + 64LL),
+        v25.top = *(_DWORD *)(*(_QWORD *)(v8 + 40) + 108LL) + v9[17],
+        v25.right = v25.left + v9[18],
+        v25.bottom = v25.top + v9[19],
+        (v10 = CreateFadeInternal(
+                 0LL,
+                 &v25,
+                 350,
+                 (*(_DWORD *)(*(_QWORD *)(v8 + 40) + 288LL) & 0xF) == 0 ? 0x100 : 0,
+                 *(_DWORD *)(*(_QWORD *)(v8 + 40) + 288LL))) == 0LL) )
   {
 LABEL_12:
-    SmartObjStackRefBase<tagPOPUPMENU>::~SmartObjStackRefBase<tagPOPUPMENU>(v11);
-    return 0LL;
+    v5 = 0;
   }
   else
   {
-    DCEx = (HDC)_GetDCEx(v6, 0LL, 1073807360LL);
+    DCEx = (HDC)_GetDCEx(v8, 0LL, 1073807360LL);
     NtGdiBitBltInternal(
-      (__int64)v8,
+      v10,
       0,
       0,
       *(_DWORD *)(*(_QWORD *)a2 + 72LL),
@@ -73,7 +92,26 @@ LABEL_12:
       0);
     _ReleaseDC(DCEx);
     zzzShowFade();
-    SmartObjStackRefBase<tagPOPUPMENU>::~SmartObjStackRefBase<tagPOPUPMENU>(v11);
-    return 1LL;
   }
+  CurrentThread = KeGetCurrentThread();
+  v13 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v4)
+    || (CurrentProcess = PsGetCurrentProcess(v15, v14, v16),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v19),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v13 = *ThreadWin32Thread;
+  }
+  if ( v24[0] != gSmartObjNullRef && !--*(_DWORD *)(v24[0] + 8LL) )
+  {
+    if ( *(_BYTE *)(v24[0] + 12LL) )
+      Win32FreeToPagedLookasideList(gpStackRefLookAside, v24[0]);
+  }
+  v22 = *(_QWORD **)(v13 + 1472);
+  if ( v22 )
+    *(_QWORD *)(v13 + 1472) = *v22;
+  return v5;
 }

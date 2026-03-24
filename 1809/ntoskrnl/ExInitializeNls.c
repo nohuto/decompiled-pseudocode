@@ -3,8 +3,8 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateDirectoryObject @ 0x1401B9590 (ZwCreateDirectoryObject.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x1401B95B0 (ZwCreateDirectoryObject.c)
  */
 
 NTSTATUS ExInitializeNls()

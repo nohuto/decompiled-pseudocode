@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIThermalLoop @ 0x1C00209C0
+ * XREFs of ACPIThermalLoop @ 0x1C0012A10
  * Callers:
- *     ACPIThermalTMPCallback @ 0x1C00204A0 (ACPIThermalTMPCallback.c)
- *     ACPIThermalLoopEx @ 0x1C00209D8 (ACPIThermalLoopEx.c)
- *     ACPIThermalUpdateTemperature @ 0x1C002167C (ACPIThermalUpdateTemperature.c)
- *     ACPIThermalComplete @ 0x1C0022170 (ACPIThermalComplete.c)
- *     ACPIThermalWorker @ 0x1C00959C0 (ACPIThermalWorker.c)
+ *     ACPIThermalComplete @ 0x1C0011DE0 (ACPIThermalComplete.c)
+ *     ACPIThermalTMPCallback @ 0x1C00124B0 (ACPIThermalTMPCallback.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
+ *     ACPIThermalUpdateTemperature @ 0x1C0013534 (ACPIThermalUpdateTemperature.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
  * Callees:
- *     ACPIThermalLoopEx @ 0x1C00209D8 (ACPIThermalLoopEx.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
  */
 
 __int64 __fastcall ACPIThermalLoop(__int64 a1, __int64 a2)

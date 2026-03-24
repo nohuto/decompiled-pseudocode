@@ -1,12 +1,12 @@
 /*
- * XREFs of IopAcquireReferencesFromIoAttributionHandle @ 0x1403639F0
+ * XREFs of IopAcquireReferencesFromIoAttributionHandle @ 0x14028A5C4
  * Callers:
- *     IoNotifyQuotaState @ 0x14025AFF0 (IoNotifyQuotaState.c)
- *     IoGetIoRateControl @ 0x140363850 (IoGetIoRateControl.c)
+ *     IoNotifyQuotaState @ 0x140201210 (IoNotifyQuotaState.c)
+ *     IoGetIoRateControl @ 0x14028A420 (IoGetIoRateControl.c)
  * Callees:
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     IopFindDiskIoAttribution @ 0x140365DD0 (IopFindDiskIoAttribution.c)
- *     IoDiskIoAttributionDereference @ 0x140366814 (IoDiskIoAttributionDereference.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     IopFindDiskIoAttribution @ 0x14028A6D0 (IopFindDiskIoAttribution.c)
+ *     IoDiskIoAttributionDereference @ 0x14028A7B4 (IoDiskIoAttributionDereference.c)
  */
 
 __int64 __fastcall IopAcquireReferencesFromIoAttributionHandle(
@@ -15,28 +15,32 @@ __int64 __fastcall IopAcquireReferencesFromIoAttributionHandle(
         unsigned __int64 *a3)
 {
   struct _EX_RUNDOWN_REF *DiskIoAttribution; // rax
-  unsigned int v6; // ebx
-  struct _EX_RUNDOWN_REF *v7; // rdi
+  struct _EX_RUNDOWN_REF *v6; // rbx
+  unsigned __int64 Count; // rax
+  unsigned int v8; // edi
 
   DiskIoAttribution = (struct _EX_RUNDOWN_REF *)IopFindDiskIoAttribution();
-  v6 = 0;
-  v7 = DiskIoAttribution;
+  v6 = DiskIoAttribution;
   if ( DiskIoAttribution )
   {
-    if ( ExAcquireRundownProtection(DiskIoAttribution + 21) )
+    if ( ExAcquireRundownProtection_0(DiskIoAttribution + 21) )
     {
-      *a3 = v7[20].Count;
-      *a2 = v7;
+      Count = v6[20].Count;
+      *a2 = v6;
+      v6 = 0LL;
+      *a3 = Count;
+      v8 = 0;
     }
     else
     {
-      v6 = -1073741431;
-      IoDiskIoAttributionDereference(v7);
+      v8 = -1073741431;
     }
+    if ( v6 )
+      IoDiskIoAttributionDereference(v6);
   }
   else
   {
     return (unsigned int)-1073741275;
   }
-  return v6;
+  return v8;
 }

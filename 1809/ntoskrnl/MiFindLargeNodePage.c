@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFindLargeNodePage @ 0x1402A8F04
+ * XREFs of MiFindLargeNodePage @ 0x1402A9004
  * Callers:
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x14085FE84 (MiAllocatePartitionPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x14085FE64 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)
  *     MiGetLargePageDemoteAsNeeded @ 0x140028AD4 (MiGetLargePageDemoteAsNeeded.c)
@@ -10,8 +10,8 @@
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
  *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     MiSetPfnOwnedAndActive @ 0x1401295AC (MiSetPfnOwnedAndActive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSetPfnOwnedAndActive @ 0x1401295CC (MiSetPfnOwnedAndActive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiFindLargeNodePage(__int64 a1, unsigned int a2, int *a3, int a4, int a5, char a6)

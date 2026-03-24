@@ -1,10 +1,10 @@
 /*
- * XREFs of PopBatteryIrpComplete @ 0x1405D47C0
+ * XREFs of PopBatteryIrpComplete @ 0x140573E10
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PopBatteryQueueWork @ 0x14036972C (PopBatteryQueueWork.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     PopBatteryQueueWork @ 0x14039AABC (PopBatteryQueueWork.c)
  */
 
 __int64 __fastcall PopBatteryIrpComplete(__int64 a1, __int64 a2, __int64 a3)

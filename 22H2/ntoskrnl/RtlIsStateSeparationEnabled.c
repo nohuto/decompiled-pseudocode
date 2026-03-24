@@ -1,15 +1,13 @@
 /*
- * XREFs of RtlIsStateSeparationEnabled @ 0x1407E25A0
+ * XREFs of RtlIsStateSeparationEnabled @ 0x14069AC30
  * Callers:
- *     RtlpGetBootStatusPath @ 0x1403C5CB4 (RtlpGetBootStatusPath.c)
- *     BapdpProcessBCDCache @ 0x140B38EBC (BapdpProcessBCDCache.c)
- *     BapdpProcessVsmKeyBlobs @ 0x140B39350 (BapdpProcessVsmKeyBlobs.c)
- *     CmFcManagerStartRuntimePhase @ 0x140B3B6E8 (CmFcManagerStartRuntimePhase.c)
- *     PpDevCfgInit @ 0x140B43330 (PpDevCfgInit.c)
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
- *     PopInitializePowerButtonHold @ 0x140B52018 (PopInitializePowerButtonHold.c)
+ *     RtlpGetBootStatusPath @ 0x140399114 (RtlpGetBootStatusPath.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140A4083C (BapdpProcessVsmKeyBlobs.c)
+ *     PpDevCfgInit @ 0x140A52024 (PpDevCfgInit.c)
  * Callees:
- *     CmIsStateSeparationEnabled @ 0x140367128 (CmIsStateSeparationEnabled.c)
+ *     CmIsStateSeparationEnabled @ 0x140323318 (CmIsStateSeparationEnabled.c)
  */
 
 bool RtlIsStateSeparationEnabled()

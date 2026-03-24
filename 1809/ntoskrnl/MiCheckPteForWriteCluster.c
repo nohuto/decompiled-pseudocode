@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckPteForWriteCluster @ 0x140150758
+ * XREFs of MiCheckPteForWriteCluster @ 0x140150778
  * Callers:
- *     MiGetPageForWriteCluster @ 0x140150640 (MiGetPageForWriteCluster.c)
+ *     MiGetPageForWriteCluster @ 0x140150660 (MiGetPageForWriteCluster.c)
  * Callees:
  *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCheckPteForWriteCluster(

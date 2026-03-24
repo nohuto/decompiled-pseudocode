@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsClockCalibrationSupported@ADAPTER_RENDER@@QEBAEXZ @ 0x1C0012B7C
+ * XREFs of ?IsClockCalibrationSupported@ADAPTER_RENDER@@QEBAEXZ @ 0x1C0007D6C
  * Callers:
- *     ?EnableClockCalibration@ADAPTER_RENDER@@QEAAXE@Z @ 0x1C01B438C (-EnableClockCalibration@ADAPTER_RENDER@@QEAAXE@Z.c)
- *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0203930 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?EnableClockCalibration@ADAPTER_RENDER@@QEAAXE@Z @ 0x1C01218E0 (-EnableClockCalibration@ADAPTER_RENDER@@QEAAXE@Z.c)
+ *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0189BF8 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ bool __fastcall ADAPTER_RENDER::IsClockCalibrationSupported(ADAPTER_RENDER *this
 
   v1 = *((_QWORD *)this + 2);
   result = 0;
-  if ( *(_QWORD *)(v1 + 904) )
-    return *(_DWORD *)(v1 + 2424) >= 4864;
+  if ( *(_QWORD *)(v1 + 816) )
+    return *(_DWORD *)(v1 + 2328) >= 4864;
   return result;
 }

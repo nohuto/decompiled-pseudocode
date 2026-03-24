@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeMutant @ 0x1400DD358
+ * XREFs of KiInitializeMutant @ 0x1400DD378
  * Callers:
- *     KeInitializeMutex @ 0x1400DD320 (KeInitializeMutex.c)
- *     KeInitializeMutant @ 0x1400DD340 (KeInitializeMutant.c)
- *     LdrpInitMuiCrits @ 0x1400F4418 (LdrpInitMuiCrits.c)
+ *     KeInitializeMutex @ 0x1400DD340 (KeInitializeMutex.c)
+ *     KeInitializeMutant @ 0x1400DD360 (KeInitializeMutant.c)
+ *     LdrpInitMuiCrits @ 0x1400F4438 (LdrpInitMuiCrits.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  *     sub_1409C46A8 @ 0x1409C46A8 (sub_1409C46A8.c)
  *     PnpInitializeDeviceEvents @ 0x1409C7260 (PnpInitializeDeviceEvents.c)
@@ -15,8 +15,8 @@
  *     ExpProfileInitialization @ 0x1409DE2E0 (ExpProfileInitialization.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiInitializeMutant(__int64 a1, __int64 a2, __int64 a3)

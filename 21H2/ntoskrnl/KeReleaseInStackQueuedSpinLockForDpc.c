@@ -1,15 +1,14 @@
 /*
- * XREFs of KeReleaseInStackQueuedSpinLockForDpc @ 0x140257B80
+ * XREFs of KeReleaseInStackQueuedSpinLockForDpc @ 0x1405166E0
  * Callers:
- *     KeInsertDeviceQueue @ 0x140257A00 (KeInsertDeviceQueue.c)
- *     KeRemoveDeviceQueue @ 0x140257A90 (KeRemoveDeviceQueue.c)
- *     KeInsertByKeyDeviceQueue @ 0x14045A4A0 (KeInsertByKeyDeviceQueue.c)
- *     KeRemoveByKeyDeviceQueue @ 0x140570810 (KeRemoveByKeyDeviceQueue.c)
- *     KeRemoveByKeyDeviceQueueIfBusy @ 0x1405708F0 (KeRemoveByKeyDeviceQueueIfBusy.c)
- *     DifKeReleaseInStackQueuedSpinLockForDpcWrapper @ 0x140614550 (DifKeReleaseInStackQueuedSpinLockForDpcWrapper.c)
+ *     KeInsertByKeyDeviceQueue @ 0x14051A8C0 (KeInsertByKeyDeviceQueue.c)
+ *     KeInsertDeviceQueue @ 0x14051A980 (KeInsertDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueue @ 0x14051AA10 (KeRemoveByKeyDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueueIfBusy @ 0x14051AAF0 (KeRemoveByKeyDeviceQueueIfBusy.c)
+ *     KeRemoveDeviceQueue @ 0x14051ABD0 (KeRemoveDeviceQueue.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall KeReleaseInStackQueuedSpinLockForDpc(PKLOCK_QUEUE_HANDLE LockHandle)
@@ -38,7 +37,7 @@ void __stdcall KeReleaseInStackQueuedSpinLockForDpc(PKLOCK_QUEUE_HANDLE LockHand
           v7 = (v6 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v6;
           if ( v7 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }

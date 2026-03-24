@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStdInitializeStackDatabase @ 0x140891E14
+ * XREFs of RtlStdInitializeStackDatabase @ 0x140891DF4
  * Callers:
- *     RtlpInitializeStackTraceDatabase @ 0x140891F48 (RtlpInitializeStackTraceDatabase.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x140891F28 (RtlpInitializeStackTraceDatabase.c)
  * Callees:
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall RtlStdInitializeStackDatabase(__int64 a1, __int64 a2, unsigned __int64 a3, _QWORD *a4)

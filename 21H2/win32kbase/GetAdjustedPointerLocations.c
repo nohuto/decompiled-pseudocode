@@ -1,10 +1,10 @@
 /*
- * XREFs of GetAdjustedPointerLocations @ 0x1C00E8EB0
+ * XREFs of GetAdjustedPointerLocations @ 0x1C01AE720
  * Callers:
  *     <none>
  * Callees:
- *     ?GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01E74A4 (-GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
- *     GetAdjustedPointerPixelLocation @ 0x1C01E7A90 (GetAdjustedPointerPixelLocation.c)
+ *     ?GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01AE14C (-GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ *     GetAdjustedPointerPixelLocation @ 0x1C01AE7D0 (GetAdjustedPointerPixelLocation.c)
  */
 
 _BOOL8 __fastcall GetAdjustedPointerLocations(

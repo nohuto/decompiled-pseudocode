@@ -1,573 +1,559 @@
 /*
- * XREFs of HalpNumaInitializeStaticConfiguration @ 0x140B66ED8
+ * XREFs of HalpNumaInitializeStaticConfiguration @ 0x140A63EE0
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140B66918 (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336E50 (HalpAcpiGetTable.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     qsort @ 0x1403D9DD0 (qsort.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpInitializeConfigurationFromMadt @ 0x140B67044 (HalpInitializeConfigurationFromMadt.c)
- *     HalpChannelInitializeStaticConfiguration @ 0x140B672F0 (HalpChannelInitializeStaticConfiguration.c)
- *     HalpAllocateNumaConfigData @ 0x140B67340 (HalpAllocateNumaConfigData.c)
- *     HalpGetAvailableProximityId @ 0x140B92114 (HalpGetAvailableProximityId.c)
- *     HalpGetNumaProcMemoryCount @ 0x140B921A0 (HalpGetNumaProcMemoryCount.c)
- *     HalpNumaSortProcessors @ 0x140B925B8 (HalpNumaSortProcessors.c)
- *     HalpUpdateConfigurationFromMsct @ 0x140B92664 (HalpUpdateConfigurationFromMsct.c)
- *     HalpVerifySratEntryLengthAndFlag @ 0x140B92A28 (HalpVerifySratEntryLengthAndFlag.c)
+ *     HalpAcpiGetTable @ 0x1402E77D0 (HalpAcpiGetTable.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
+ *     HalpInitializeConfigurationFromMadt @ 0x140A63F94 (HalpInitializeConfigurationFromMadt.c)
+ *     HalpChannelInitializeStaticConfiguration @ 0x140A64240 (HalpChannelInitializeStaticConfiguration.c)
+ *     HalpAllocateNumaConfigData @ 0x140A644EC (HalpAllocateNumaConfigData.c)
+ *     HalpGetAvailableProximityId @ 0x140A8CE20 (HalpGetAvailableProximityId.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140A8CEAC (HalpGetNumaProcMemoryCount.c)
+ *     HalpUpdateConfigurationFromMsct @ 0x140A8D2CC (HalpUpdateConfigurationFromMsct.c)
+ *     HalpVerifySratEntryLengthAndFlag @ 0x140A8D690 (HalpVerifySratEntryLengthAndFlag.c)
  */
 
-void *__fastcall HalpNumaInitializeStaticConfiguration(__int64 a1)
+__int64 __fastcall HalpNumaInitializeStaticConfiguration(__int64 a1)
 {
   __int64 v1; // r14
-  void *result; // rax
-  unsigned int v3; // edi
-  unsigned int v4; // ebx
-  __int64 v5; // rdx
-  unsigned int v6; // edi
+  __int64 result; // rax
+  unsigned int v3; // ebx
+  __int64 v4; // r8
+  unsigned __int64 v5; // rdx
+  unsigned __int64 v6; // r9
   unsigned int v7; // eax
-  __int64 v8; // r8
-  unsigned int v9; // esi
-  unsigned int v10; // ebx
-  char v11; // r15
-  int v12; // r12d
-  __int64 v13; // r10
-  unsigned __int64 v14; // rdi
-  __int64 v15; // r13
-  __int64 v16; // rax
-  unsigned __int8 *v17; // r10
-  __int64 v18; // r11
-  int v19; // r8d
-  __int64 v20; // r11
-  __int64 v21; // r9
-  unsigned int v22; // ecx
-  int v23; // r11d
-  unsigned __int64 v24; // r9
-  __int64 v25; // rcx
-  unsigned __int64 v26; // r11
+  _DWORD *v8; // rdi
+  unsigned __int64 i; // rcx
+  __int64 v10; // rdi
+  unsigned int v11; // esi
+  unsigned int v12; // ebx
+  char v13; // r15
+  int v14; // r12d
+  unsigned __int8 *v15; // rdi
+  unsigned __int64 v16; // r11
+  __int64 v17; // r13
+  __int64 v18; // r10
+  unsigned __int8 v19; // r10
+  __int64 v20; // r10
+  unsigned int v21; // ecx
+  int v22; // r10d
+  __int64 v23; // rcx
+  __int64 v24; // rcx
+  int v25; // eax
+  int v26; // r8d
   __int64 v27; // rcx
-  __int64 v28; // rcx
-  _QWORD *v29; // rax
-  __int64 v30; // rcx
-  int v31; // eax
-  int v32; // r9d
-  __int64 v33; // rcx
-  __int64 v34; // r10
-  __int64 v35; // rdx
-  unsigned int v36; // r8d
-  __int64 v37; // r11
-  unsigned int v38; // r10d
-  unsigned int v39; // ecx
+  __int64 v28; // r9
+  __int64 v29; // rdx
+  unsigned int v30; // edi
+  __int64 v31; // rcx
+  __int64 v32; // r10
+  unsigned int v33; // r9d
+  unsigned int v34; // ecx
   __int64 Table; // rax
-  __int64 v41; // rdx
-  __int64 v42; // rcx
-  __int64 v43; // r8
-  __int64 v44; // r9
-  unsigned int v45; // r10d
-  unsigned int v46; // r11d
-  unsigned int v47; // ebx
-  int v48; // ebx
-  unsigned int v49; // edi
-  __int16 v50; // ax
-  __int64 v51; // rcx
-  __int64 v52; // rax
-  unsigned __int64 v53; // r9
-  __int64 v54; // rax
-  unsigned int *v55; // rdi
-  unsigned int *v56; // r14
-  int v57; // ebx
-  unsigned int v58; // r11d
-  _QWORD *v59; // rsi
-  unsigned int v60; // r10d
-  unsigned int v61; // edx
-  unsigned int v62; // r10d
-  unsigned int v63; // r8d
-  unsigned int v64; // edx
-  __int16 v65; // ax
-  __int64 v66; // rdx
-  unsigned int v67; // eax
-  __int64 v68; // rcx
-  __int64 v69; // rbx
-  unsigned int v70; // edi
-  unsigned int i; // esi
-  int v72; // r15d
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // r8
+  unsigned int v39; // r9d
+  __int64 v40; // rdi
+  unsigned int v41; // r10d
+  unsigned int v42; // r11d
+  int v43; // r11d
+  unsigned int v44; // ebx
+  __int16 v45; // ax
+  __int64 v46; // rcx
+  __int64 v47; // rax
+  unsigned __int64 v48; // r8
+  __int64 v49; // rax
+  unsigned int *v50; // rbx
+  unsigned int v51; // edi
+  unsigned int *v52; // r14
+  int v53; // r11d
+  unsigned int v54; // r10d
+  _QWORD *v55; // rsi
+  unsigned int v56; // r9d
+  unsigned int v57; // edx
+  unsigned int v58; // r9d
+  unsigned int v59; // edi
+  __int16 v60; // ax
+  __int64 v61; // rdx
+  unsigned int v62; // edi
+  unsigned int v63; // eax
+  __int64 v64; // rcx
+  __int64 v65; // r14
+  unsigned int v66; // esi
+  unsigned int v67; // ebx
+  int v68; // edi
+  __int64 v69; // r15
   int AvailableProximityId; // eax
-  __int64 v74; // r11
-  int v75; // r12d
-  __int64 v76; // rcx
-  unsigned int v77; // r10d
-  int v78; // r9d
-  __int64 v79; // rax
-  __int64 v80; // rcx
-  __int64 v81; // r10
-  bool v82; // zf
-  unsigned int v83; // [rsp+40h] [rbp-18h] BYREF
-  unsigned int v84; // [rsp+44h] [rbp-14h] BYREF
-  _DWORD v85[4]; // [rsp+48h] [rbp-10h] BYREF
-  unsigned __int8 v87; // [rsp+A8h] [rbp+50h]
-  unsigned int v88; // [rsp+B8h] [rbp+60h] BYREF
+  __int64 v71; // r11
+  int v72; // r12d
+  __int64 v73; // rcx
+  unsigned int v74; // r9d
+  int v75; // r8d
+  __int64 v76; // rax
+  __int64 v77; // rcx
+  __int64 v78; // rdi
+  __int64 v79; // r10
+  int v80; // [rsp+40h] [rbp-18h] BYREF
+  unsigned int v81; // [rsp+44h] [rbp-14h] BYREF
+  _DWORD v82[4]; // [rsp+48h] [rbp-10h] BYREF
+  unsigned __int8 v84; // [rsp+A8h] [rbp+50h]
+  int v85; // [rsp+B8h] [rbp+60h] BYREF
 
-  HalpNumaInitializationComplete = 1;
-  v88 = 0;
-  v85[0] = 0;
-  v83 = 0;
-  v84 = 0;
+  v85 = 0;
+  v82[0] = 0;
   v1 = a1;
+  v80 = 0;
+  v81 = 0;
+  HalpNumaInitializationComplete = 1;
   HalpAcpiMpst = HalpAcpiGetTable(a1, 1414746189, 0, 0);
   HalpAcpiSrat = HalpAcpiGetTable(v1, 1413567059, 0, 0);
   HalpAcpiMsct = HalpAcpiGetTable(v1, 1413698381, 0, 0);
   if ( !HalpAcpiSrat )
-    return (void *)HalpInitializeConfigurationFromMadt(v1);
-  v87 = *(_BYTE *)(HalpAcpiSrat + 8);
-  result = (void *)HalpGetNumaProcMemoryCount(v85, &v84, &v83, &v88);
+    return HalpInitializeConfigurationFromMadt(v1);
+  v84 = *(_BYTE *)(HalpAcpiSrat + 8);
+  result = HalpGetNumaProcMemoryCount(v82, &v81, &v80, &v85);
   if ( (_BYTE)result )
   {
-    v3 = v83;
-    v4 = v84;
-    result = (void *)HalpAllocateNumaConfigData(v85[0], v84, v83, v88);
+    v3 = v81;
+    result = HalpAllocateNumaConfigData(v1, v82[0], v81, v80, v85);
     if ( HalpNumaConfig )
     {
-      if ( !v3
-        || (result = (void *)HalpMmAllocateMemoryInternal(24 * v3, 1u), (HalpNumaSratMemoryRanges = result) != 0LL) )
+      v5 = 0LL;
+      v6 = 0xFFFFFFFFLL;
+      if ( v3 )
       {
-        v6 = 0;
-        if ( v4 )
+        if ( v3 >= 4 )
         {
-          if ( v4 >= 4 )
+          v4 = *(_QWORD *)HalpNumaConfig;
+          if ( *(_QWORD *)HalpNumaConfig > (unsigned __int64)HalpNumaConfig
+            || *(_QWORD *)HalpNumaConfig + 4 * (unsigned __int64)(v3 - 1) < HalpNumaConfig )
           {
-            v5 = HalpNumaConfig;
-            if ( *(_QWORD *)HalpNumaConfig > (unsigned __int64)HalpNumaConfig
-              || *(_QWORD *)HalpNumaConfig + 4 * (unsigned __int64)(v4 - 1) < HalpNumaConfig )
-            {
-              v7 = v4 & 0xFFFFFFFC;
-              do
-                v6 += 4;
-              while ( v6 < v7 );
-              memset(*(void **)HalpNumaConfig, -1, 16 * ((unsigned __int64)v7 >> 2));
-            }
-          }
-          if ( v6 < v4 )
-          {
-            v5 = 4LL * v6;
-            v8 = v4 - v6;
+            v7 = v3 & 0xFFFFFFFC;
             do
-            {
-              *(_DWORD *)(v5 + *(_QWORD *)HalpNumaConfig) = -1;
-              v5 += 4LL;
-              --v8;
-            }
-            while ( v8 );
+              v5 = (unsigned int)(v5 + 4);
+            while ( (unsigned int)v5 < v7 );
+            v8 = *(_DWORD **)HalpNumaConfig;
+            for ( i = (16 * ((unsigned __int64)v7 >> 2)) >> 2; i; --i )
+              *v8++ = -1;
           }
         }
-        v9 = 0;
-        v10 = 0;
-        v11 = 0;
-        v12 = 0;
-        v13 = HalpAcpiSrat + 48;
-        v14 = HalpAcpiSrat + *(unsigned int *)(HalpAcpiSrat + 4);
-        if ( HalpAcpiSrat + 50 <= v14 )
+        if ( (unsigned int)v5 < v3 )
         {
-          v15 = HalpNumaConfig;
-          while ( 1 )
+          v10 = 4LL * (unsigned int)v5;
+          v5 = v3 - (unsigned int)v5;
+          do
           {
-            v16 = *(unsigned __int8 *)(v13 + 1);
-            if ( (unsigned __int8)v16 < 2u || v13 + v16 > v14 )
-            {
-LABEL_58:
-              v1 = a1;
-              goto LABEL_59;
-            }
-            LOBYTE(v5) = v87 >= 3u;
-            if ( (unsigned __int8)HalpVerifySratEntryLengthAndFlag(v13, v5) )
-              break;
-            v13 = v18;
+            *(_DWORD *)(v10 + *(_QWORD *)HalpNumaConfig) = -1;
+            v10 += 4LL;
+            --v5;
+          }
+          while ( v5 );
+        }
+      }
+      v11 = 0;
+      v12 = 0;
+      v13 = 0;
+      v14 = 0;
+      v15 = (unsigned __int8 *)(HalpAcpiSrat + 48);
+      v16 = HalpAcpiSrat + *(unsigned int *)(HalpAcpiSrat + 4);
+      if ( HalpAcpiSrat + 50 <= v16 )
+      {
+        v17 = HalpNumaConfig;
+        while ( 1 )
+        {
+          v18 = v15[1];
+          if ( (unsigned __int8)v18 < 2u || (unsigned __int64)&v15[v18] > v16 )
+          {
 LABEL_57:
-            if ( v13 + 2 > v14 )
-              goto LABEL_58;
+            v1 = a1;
+            goto LABEL_58;
           }
-          if ( *(_BYTE *)(HalpAcpiSrat + 8) == 1 )
-          {
-            v19 = v17[2];
-          }
-          else if ( *v17 )
-          {
-            if ( *v17 == 2 )
-              v19 = *((_DWORD *)v17 + 1);
-            else
-              v19 = *(_DWORD *)(v17 + 2);
-          }
+          LOBYTE(v5) = v84 >= 3u;
+          if ( (unsigned __int8)HalpVerifySratEntryLengthAndFlag(v15, v5, v4, v6) )
+            break;
+LABEL_56:
+          v15 += v19;
+          if ( (unsigned __int64)(v15 + 2) > v16 )
+            goto LABEL_57;
+        }
+        if ( *(_BYTE *)(HalpAcpiSrat + 8) == 1 )
+        {
+          v4 = v15[2];
+        }
+        else if ( *v15 )
+        {
+          if ( *v15 == 2 )
+            v4 = *((unsigned int *)v15 + 1);
           else
-          {
-            v19 = v17[2] + ((v17[9] + ((v17[10] + (v17[11] << 8)) << 8)) << 8);
-          }
-          v20 = HalpNumaConfig;
-          v21 = 0LL;
-          v22 = *(_DWORD *)(HalpNumaConfig + 56);
-          if ( v22 )
-          {
-            do
-            {
-              if ( v19 == *(_DWORD *)(*(_QWORD *)(v15 + 24) + 4 * v21) )
-                break;
-              v21 = (unsigned int)(v21 + 1);
-            }
-            while ( (unsigned int)v21 < v22 );
-          }
-          if ( (_DWORD)v21 == v22 )
-          {
-            *(_DWORD *)(*(_QWORD *)(v15 + 24) + 4 * v21) = v19;
-            *(_DWORD *)(*(_QWORD *)(HalpNumaConfig + 32) + 4 * v21) = v19;
-            ++*(_DWORD *)(v20 + 56);
-          }
-          v5 = *v17;
-          switch ( *v17 )
-          {
-            case 0u:
-              goto LABEL_39;
-            case 1u:
-              v24 = *((_QWORD *)v17 + 1) >> 12;
-              v25 = *((_QWORD *)v17 + 2) >> 12;
-              v26 = v25 + v24 - 1;
-              if ( v24 < HalpMinNumaPage )
-                HalpMinNumaPage = *((_QWORD *)v17 + 1) >> 12;
-              if ( v26 > HalpMaxNumaPage )
-                HalpMaxNumaPage = v25 + v24 - 1;
-              HalpNumaPageCount += v25;
-              v27 = 2LL * v10;
-              v5 = v10++;
-              *((_QWORD *)HalpNumaMemoryRanges + v27) = v24;
-              *((_DWORD *)HalpNumaMemoryRanges + 2 * v27 + 2) = v19;
-              v28 = 3 * v5;
-              v29 = HalpNumaSratMemoryRanges;
-              *((_QWORD *)HalpNumaSratMemoryRanges + v28 + 1) = v24;
-              v29[v28 + 2] = v26;
-              LODWORD(v29[v28]) = v19;
-              break;
-            case 2u:
-LABEL_39:
-              if ( (_BYTE)v5 )
-              {
-                v23 = *((_DWORD *)v17 + 2);
-              }
-              else
-              {
-                v23 = v17[3];
-                if ( v23 == 255 )
-                  v23 = -1;
-              }
-              v5 = HalpNumaConfig;
-              v30 = v9++;
-              *(_DWORD *)(*(_QWORD *)HalpNumaConfig + 4 * v30) = v23;
-              *(_DWORD *)(*(_QWORD *)(v5 + 16) + 4 * v30) = v19;
-              ++*(_DWORD *)(*(_QWORD *)(v5 + 40) + 4 * v21);
-              if ( v87 >= 3u )
-              {
-                if ( *v17 )
-                  v31 = *((_DWORD *)v17 + 4);
-                else
-                  v31 = *((_DWORD *)v17 + 3);
-                if ( v11 )
-                {
-                  if ( v12 != v31 )
-                    HalpMaximumClockDomainCount = 2;
-                }
-                else
-                {
-                  v11 = 1;
-                  v12 = v31;
-                }
-              }
-              break;
-          }
-          v13 = (__int64)&v17[v17[1]];
-          goto LABEL_57;
-        }
-LABEL_59:
-        HalpNumaMemoryRangeCount = v10;
-        LODWORD(HalpNumaSratMemoryRangeCount) = v10;
-        *(_DWORD *)(HalpNumaConfig + 60) = v9;
-        qsort(HalpNumaMemoryRanges, v10, 0x10uLL, (int (__cdecl *)(const void *, const void *))HalpNodeCostSort);
-        qsort(
-          HalpNumaSratMemoryRanges,
-          (unsigned int)HalpNumaSratMemoryRangeCount,
-          0x18uLL,
-          (int (__cdecl *)(const void *, const void *))HalpCompareNumaMemoryRanges);
-        v32 = 0;
-        if ( v10 > 1 )
-        {
-          v33 = 0LL;
-          v34 = v10 - 1;
-          v35 = 16LL;
-          do
-          {
-            if ( *(_DWORD *)((char *)HalpNumaMemoryRanges + v33 + 8) != *(_DWORD *)((char *)HalpNumaMemoryRanges
-                                                                                  + v35
-                                                                                  + 8) )
-            {
-              v33 = 16LL * (unsigned int)++v32;
-              *(_OWORD *)((char *)HalpNumaMemoryRanges + v33) = *(_OWORD *)((char *)HalpNumaMemoryRanges + v35);
-            }
-            v35 += 16LL;
-            --v34;
-          }
-          while ( v34 );
-        }
-        v36 = 0;
-        HalpNumaMemoryRangeCount = v32 + 1;
-        HalpNumaMaxMemoryRangeCount = v32 + 1;
-        *((_QWORD *)HalpNumaMemoryRanges + 2 * (unsigned int)(v32 + 1)) = -1LL;
-        *((_DWORD *)HalpNumaMemoryRanges + 4 * (unsigned int)(v32 + 1) + 2) = 0;
-        *(_QWORD *)HalpNumaMemoryRanges = 0LL;
-        if ( v32 != -1 )
-        {
-          v37 = HalpNumaConfig;
-          do
-          {
-            v38 = *(_DWORD *)(v37 + 56);
-            v39 = 0;
-            if ( v38 )
-            {
-              while ( *((_DWORD *)HalpNumaMemoryRanges + 4 * v36 + 2) != *(_DWORD *)(*(_QWORD *)(v37 + 24) + 4LL * v39) )
-              {
-                if ( ++v39 >= v38 )
-                  goto LABEL_71;
-              }
-              *((_DWORD *)HalpNumaMemoryRanges + 4 * v36 + 2) = v39;
-            }
-LABEL_71:
-            ++v36;
-          }
-          while ( v36 < v32 + 1 );
-        }
-        if ( HalpAcpiMsct )
-          HalpUpdateConfigurationFromMsct(
-            HalpNumaConfig + 56,
-            *(_DWORD *)(HalpNumaConfig + 64),
-            HalpNumaConfig + 60,
-            *(_DWORD *)(HalpNumaConfig + 68),
-            (__int64)&HalpMaximumClockDomainCount,
-            *(_QWORD *)(HalpNumaConfig + 24),
-            *(_QWORD *)(HalpNumaConfig + 40),
-            *(_QWORD *)(HalpNumaConfig + 16));
-        Table = HalpAcpiGetTable(v1, 1414089811, 0, 0);
-        v44 = Table;
-        if ( !Table )
-          goto LABEL_84;
-        v45 = *(_DWORD *)(Table + 36);
-        v42 = v45 * v45 + 44;
-        if ( (unsigned int)v42 > *(_DWORD *)(Table + 4) )
-          goto LABEL_85;
-        v43 = HalpNumaConfig;
-        v46 = 0;
-        v41 = *(unsigned int *)(HalpNumaConfig + 56);
-        if ( (_DWORD)v41 )
-        {
-          while ( 1 )
-          {
-            v42 = v46;
-            v47 = *(_DWORD *)(*(_QWORD *)(v43 + 24) + 4LL * v46);
-            if ( v47 >= v45 )
-              break;
-            v48 = v45 * v47;
-            v49 = 0;
-            if ( (_DWORD)v41 )
-            {
-              do
-              {
-                v42 = v49;
-                v41 = *(unsigned int *)(*(_QWORD *)(v43 + 24) + 4LL * v49);
-                if ( (unsigned int)v41 >= v45 )
-                  goto LABEL_85;
-                v50 = *(unsigned __int8 *)((unsigned int)(v41 + v48) + v44 + 44);
-                if ( (unsigned __int8)v50 < 0xAu )
-                  goto LABEL_85;
-                v51 = v49 + *(_DWORD *)(v43 + 64) * v46;
-                ++v49;
-                *(_WORD *)(*(_QWORD *)(v43 + 48) + 2 * v51) = v50 << 7;
-              }
-              while ( v49 < *(_DWORD *)(v43 + 56) );
-            }
-            v41 = 1280LL;
-            v52 = *(_QWORD *)(v43 + 48);
-            v42 = v46 * (*(_DWORD *)(v43 + 64) + 1);
-            if ( *(_WORD *)(v52 + 2 * v42) != 1280 )
-              break;
-            *(_WORD *)(v52 + 2 * v42) = 0;
-            ++v46;
-            v41 = *(unsigned int *)(v43 + 56);
-            if ( v46 >= (unsigned int)v41 )
-              goto LABEL_84;
-          }
+            v4 = *(unsigned int *)(v15 + 2);
         }
         else
         {
-LABEL_84:
-          HalpAcpiSlit = v44;
+          v4 = v15[2] + ((v15[9] + ((v15[10] + (v15[11] << 8)) << 8)) << 8);
         }
-LABEL_85:
-        v53 = *(_QWORD *)(*(_QWORD *)(v1 + 240) + 296LL);
-        if ( !HalpAcpiSlit )
+        v20 = HalpNumaConfig;
+        v6 = 0LL;
+        v21 = *(_DWORD *)(HalpNumaConfig + 56);
+        if ( v21 )
         {
-          if ( !v53
-            || (v41 = HalpNumaConfig,
-                v54 = *(unsigned int *)v53,
-                v55 = (unsigned int *)(HalpNumaConfig + 56),
-                v43 = *(unsigned int *)(HalpNumaConfig + 56),
-                (_DWORD)v54 != (_DWORD)v43) )
+          do
           {
-LABEL_106:
-            v41 = HalpNumaConfig;
-            v43 = 0LL;
-            v67 = *(_DWORD *)(HalpNumaConfig + 56);
-            if ( v67 )
+            if ( (_DWORD)v4 == *(_DWORD *)(*(_QWORD *)(v17 + 24) + 4 * v6) )
+              break;
+            v6 = (unsigned int)(v6 + 1);
+          }
+          while ( (unsigned int)v6 < v21 );
+        }
+        if ( (_DWORD)v6 == v21 )
+        {
+          *(_DWORD *)(*(_QWORD *)(v17 + 24) + 4 * v6) = v4;
+          *(_DWORD *)(*(_QWORD *)(HalpNumaConfig + 32) + 4 * v6) = v4;
+          ++*(_DWORD *)(v20 + 56);
+        }
+        v5 = *v15;
+        switch ( *v15 )
+        {
+          case 0u:
+            goto LABEL_38;
+          case 1u:
+            v5 = *((_QWORD *)v15 + 1) >> 12;
+            v23 = *((_QWORD *)v15 + 2) >> 12;
+            v6 = v23 + v5 - 1;
+            if ( v5 < HalpMinNumaPage )
+              HalpMinNumaPage = *((_QWORD *)v15 + 1) >> 12;
+            if ( v6 > HalpMaxNumaPage )
+              HalpMaxNumaPage = v23 + v5 - 1;
+            HalpNumaPageCount += v23;
+            v24 = 2LL * v12++;
+            *((_QWORD *)HalpNumaMemoryRanges + v24) = v5;
+            *((_DWORD *)HalpNumaMemoryRanges + 2 * v24 + 2) = v4;
+            break;
+          case 2u:
+LABEL_38:
+            if ( (_BYTE)v5 )
             {
+              v22 = *((_DWORD *)v15 + 2);
+            }
+            else
+            {
+              v22 = v15[3];
+              if ( v22 == 255 )
+                v22 = -1;
+            }
+            v5 = HalpNumaConfig;
+            *(_DWORD *)(*(_QWORD *)HalpNumaConfig + 4LL * v11) = v22;
+            *(_DWORD *)(*(_QWORD *)(v5 + 16) + 4LL * v11) = v4;
+            v4 = 1LL;
+            ++v11;
+            ++*(_DWORD *)(*(_QWORD *)(v5 + 40) + 4 * v6);
+            if ( v84 >= 3u )
+            {
+              if ( *v15 )
+                v25 = *((_DWORD *)v15 + 4);
+              else
+                v25 = *((_DWORD *)v15 + 3);
+              if ( v13 )
+              {
+                if ( v14 != v25 )
+                  HalpMaximumClockDomainCount = 2;
+              }
+              else
+              {
+                v13 = 1;
+                v14 = v25;
+              }
+            }
+            break;
+        }
+        v19 = v15[1];
+        goto LABEL_56;
+      }
+LABEL_58:
+      HalpNumaMemoryRangeCount = v12;
+      *(_DWORD *)(HalpNumaConfig + 60) = v11;
+      qsort(HalpNumaMemoryRanges, v12, 0x10uLL, (int (__cdecl *)(const void *, const void *))HalpNodeCostSort);
+      v26 = 0;
+      if ( v12 > 1 )
+      {
+        v27 = 0LL;
+        v28 = v12 - 1;
+        v29 = 16LL;
+        do
+        {
+          if ( *(_DWORD *)((char *)HalpNumaMemoryRanges + v27 + 8) != *(_DWORD *)((char *)HalpNumaMemoryRanges + v29 + 8) )
+          {
+            v27 = 16LL * (unsigned int)++v26;
+            *(_OWORD *)((char *)HalpNumaMemoryRanges + v27) = *(_OWORD *)((char *)HalpNumaMemoryRanges + v29);
+          }
+          v29 += 16LL;
+          --v28;
+        }
+        while ( v28 );
+      }
+      v30 = 0;
+      v31 = 2LL * (unsigned int)(v26 + 1);
+      HalpNumaMemoryRangeCount = v26 + 1;
+      HalpNumaMaxMemoryRangeCount = v26 + 1;
+      *((_QWORD *)HalpNumaMemoryRanges + v31) = -1LL;
+      *((_DWORD *)HalpNumaMemoryRanges + 2 * v31 + 2) = 0;
+      *(_QWORD *)HalpNumaMemoryRanges = 0LL;
+      if ( v26 != -1 )
+      {
+        v32 = HalpNumaConfig;
+        do
+        {
+          v33 = *(_DWORD *)(v32 + 56);
+          v34 = 0;
+          if ( v33 )
+          {
+            while ( *((_DWORD *)HalpNumaMemoryRanges + 4 * v30 + 2) != *(_DWORD *)(*(_QWORD *)(v32 + 24) + 4LL * v34) )
+            {
+              if ( ++v34 >= v33 )
+                goto LABEL_70;
+            }
+            *((_DWORD *)HalpNumaMemoryRanges + 4 * v30 + 2) = v34;
+          }
+LABEL_70:
+          ++v30;
+        }
+        while ( v30 < v26 + 1 );
+      }
+      if ( HalpAcpiMsct )
+        HalpUpdateConfigurationFromMsct(
+          HalpNumaConfig + 56,
+          *(_DWORD *)(HalpNumaConfig + 64),
+          HalpNumaConfig + 60,
+          *(_DWORD *)(HalpNumaConfig + 68),
+          (__int64)&HalpMaximumClockDomainCount,
+          *(_QWORD *)(HalpNumaConfig + 24),
+          *(_QWORD *)(HalpNumaConfig + 40),
+          *(_QWORD *)(HalpNumaConfig + 16));
+      Table = HalpAcpiGetTable(v1, 1414089811, 0, 0);
+      v38 = Table;
+      if ( Table )
+      {
+        v39 = *(_DWORD *)(Table + 36);
+        v37 = v39 * v39 + 44;
+        if ( (unsigned int)v37 > *(_DWORD *)(Table + 4) )
+        {
+LABEL_84:
+          v48 = *(_QWORD *)(*(_QWORD *)(v1 + 240) + 296LL);
+          if ( !HalpAcpiSlit )
+          {
+            if ( !v48 )
+              goto LABEL_107;
+            v36 = HalpNumaConfig;
+            v49 = *(unsigned int *)v48;
+            v50 = (unsigned int *)(HalpNumaConfig + 56);
+            v51 = *(_DWORD *)(HalpNumaConfig + 56);
+            if ( (_DWORD)v49 != v51 )
+              goto LABEL_107;
+            v52 = (unsigned int *)(v48 + 4 * v49);
+            v53 = 0;
+            v54 = 0;
+            if ( v51 )
+            {
+              v55 = (_QWORD *)(HalpNumaConfig + 24);
               do
               {
-                v53 = 0LL;
+                v56 = *(_DWORD *)v48;
+                v57 = 0;
+                if ( *(_DWORD *)v48 )
+                {
+                  v37 = *(unsigned int *)(*v55 + 4LL * v54);
+                  while ( *(_DWORD *)(v48 + 4LL * v57 + 4) != (_DWORD)v37 )
+                  {
+                    if ( ++v57 >= v56 )
+                      goto LABEL_95;
+                  }
+                  v53 = v57 * v56;
+                }
+LABEL_95:
+                if ( v57 == v56 )
+                  goto LABEL_107;
+                v58 = 0;
+                if ( v51 )
+                {
+                  while ( 1 )
+                  {
+                    v59 = *(_DWORD *)v48;
+                    v36 = 0LL;
+                    if ( *(_DWORD *)v48 )
+                    {
+                      v37 = *(unsigned int *)(*v55 + 4LL * v58);
+                      do
+                      {
+                        if ( *(_DWORD *)(v48 + 4LL * (unsigned int)v36 + 4) == (_DWORD)v37 )
+                          break;
+                        v36 = (unsigned int)(v36 + 1);
+                      }
+                      while ( (unsigned int)v36 < v59 );
+                    }
+                    if ( (_DWORD)v36 == v59 )
+                      break;
+                    v60 = *((_WORD *)v52 + (unsigned int)(v53 + v36) + 2);
+                    v37 = *(_QWORD *)(HalpNumaConfig + 48);
+                    v61 = v58 + v54 * *(_DWORD *)(HalpNumaConfig + 64);
+                    ++v58;
+                    *(_WORD *)(v37 + 2 * v61) = v60;
+                    if ( v58 >= *v50 )
+                      goto LABEL_103;
+                  }
+                  v48 = 0LL;
+                  break;
+                }
+LABEL_103:
+                v36 = HalpNumaConfig;
+                v37 = v54 * (*(_DWORD *)(HalpNumaConfig + 64) + 1);
+                ++v54;
+                *(_WORD *)(*(_QWORD *)(HalpNumaConfig + 48) + 2 * v37) = 0;
+                v51 = *v50;
+              }
+              while ( v54 < *v50 );
+            }
+            if ( !v48 )
+            {
+LABEL_107:
+              v36 = HalpNumaConfig;
+              v62 = 0;
+              v63 = *(_DWORD *)(HalpNumaConfig + 56);
+              if ( v63 )
+              {
+                do
+                {
+                  v48 = 0LL;
+                  if ( v63 )
+                  {
+                    do
+                    {
+                      v64 = (unsigned int)v48 + v62 * *(_DWORD *)(v36 + 64);
+                      v48 = (unsigned int)(v48 + 1);
+                      *(_WORD *)(*(_QWORD *)(v36 + 48) + 2 * v64) = 1;
+                    }
+                    while ( (unsigned int)v48 < *(_DWORD *)(v36 + 56) );
+                  }
+                  v37 = v62 * (*(_DWORD *)(v36 + 64) + 1);
+                  ++v62;
+                  *(_WORD *)(*(_QWORD *)(v36 + 48) + 2 * v37) = 0;
+                  v63 = *(_DWORD *)(v36 + 56);
+                }
+                while ( v62 < v63 );
+              }
+            }
+          }
+          v65 = HalpNumaConfig;
+          v66 = 0;
+          v67 = *(_DWORD *)(HalpNumaConfig + 56);
+          if ( v67 )
+          {
+            do
+            {
+              v68 = HalpMaximumGroupSize;
+              v69 = v66;
+              if ( *(_DWORD *)(*(_QWORD *)(v65 + 40) + 4LL * v66) > (unsigned int)HalpMaximumGroupSize )
+              {
+                AvailableProximityId = HalpGetAvailableProximityId(v37, v36, v48);
+                v71 = HalpNumaConfig;
+                *(_DWORD *)(v65 + 56) = v67 + 1;
+                v72 = AvailableProximityId;
+                v73 = *(_QWORD *)(v65 + 40);
+                v74 = 0;
+                v75 = *(_DWORD *)(v73 + 4LL * v66);
+                *(_DWORD *)(v73 + 4LL * v66) = v68;
+                v48 = (unsigned int)(v75 - v68);
+                *(_DWORD *)(*(_QWORD *)(v65 + 40) + 4LL * v67) = v48;
+                *(_DWORD *)(*(_QWORD *)(v71 + 24) + 4LL * v67) = AvailableProximityId;
+                *(_DWORD *)(*(_QWORD *)(v71 + 32) + 4LL * v67) = *(_DWORD *)(*(_QWORD *)(v71 + 32) + 4LL * v66);
                 if ( v67 )
                 {
                   do
                   {
-                    v68 = (unsigned int)(v53 + *(_DWORD *)(v41 + 64) * v43);
-                    v53 = (unsigned int)(v53 + 1);
-                    *(_WORD *)(*(_QWORD *)(v41 + 48) + 2 * v68) = 1;
+                    *(_WORD *)(*(_QWORD *)(v71 + 48) + 2LL * (v67 + v74 * *(_DWORD *)(v71 + 64))) = *(_WORD *)(*(_QWORD *)(v71 + 48) + 2LL * (v74 * *(_DWORD *)(v71 + 64) + v66));
+                    v76 = v74 + v66 * *(_DWORD *)(v71 + 64);
+                    v77 = v74 + v67 * *(_DWORD *)(v71 + 64);
+                    ++v74;
+                    *(_WORD *)(*(_QWORD *)(v71 + 48) + 2 * v77) = *(_WORD *)(*(_QWORD *)(v71 + 48) + 2 * v76);
                   }
-                  while ( (unsigned int)v53 < *(_DWORD *)(v41 + 56) );
+                  while ( v74 < v67 );
+                  v69 = v66;
                 }
-                v42 = (unsigned int)(v43 * (*(_DWORD *)(v41 + 64) + 1));
-                v43 = (unsigned int)(v43 + 1);
-                *(_WORD *)(*(_QWORD *)(v41 + 48) + 2 * v42) = 0;
-                v67 = *(_DWORD *)(v41 + 56);
-              }
-              while ( (unsigned int)v43 < v67 );
-            }
-            goto LABEL_110;
-          }
-          v56 = (unsigned int *)(v53 + 4 * v54);
-          v57 = 0;
-          v58 = 0;
-          if ( (_DWORD)v43 )
-          {
-            v59 = (_QWORD *)(HalpNumaConfig + 24);
-            do
-            {
-              v60 = *(_DWORD *)v53;
-              v61 = 0;
-              if ( *(_DWORD *)v53 )
-              {
-                v42 = *(unsigned int *)(*v59 + 4LL * v58);
-                while ( *(_DWORD *)(v53 + 4LL * v61 + 4) != (_DWORD)v42 )
+                v78 = HalpNumaConfig;
+                v37 = v67 * (*(_DWORD *)(HalpNumaConfig + 64) + 1);
+                *(_WORD *)(*(_QWORD *)(HalpNumaConfig + 48) + 2 * v37) = 0;
+                v36 = (unsigned int)(*(_DWORD *)(v78 + 60) - 1);
+                if ( *(_DWORD *)(v78 + 60) != 1 )
                 {
-                  if ( ++v61 >= v60 )
-                    goto LABEL_96;
-                }
-                v57 = v61 * v60;
-              }
-LABEL_96:
-              if ( v61 == v60 )
-                goto LABEL_106;
-              v62 = 0;
-              if ( (_DWORD)v43 )
-              {
-                do
-                {
-                  v63 = *(_DWORD *)v53;
-                  v64 = 0;
-                  if ( *(_DWORD *)v53 )
+                  do
                   {
-                    v42 = *(unsigned int *)(*v59 + 4LL * v62);
-                    do
+                    if ( !(_DWORD)v48 )
+                      break;
+                    v79 = *(_QWORD *)(v78 + 16);
+                    v37 = *(unsigned int *)(*(_QWORD *)(v71 + 24) + 4 * v69);
+                    if ( *(_DWORD *)(v79 + 4 * v36) == (_DWORD)v37 )
                     {
-                      if ( *(_DWORD *)(v53 + 4LL * v64 + 4) == (_DWORD)v42 )
-                        break;
-                      ++v64;
+                      v48 = (unsigned int)(v48 - 1);
+                      *(_DWORD *)(v79 + 4 * v36) = v72;
                     }
-                    while ( v64 < v63 );
+                    v36 = (unsigned int)(v36 - 1);
                   }
-                  if ( v64 == v63 )
-                    goto LABEL_106;
-                  v65 = *((_WORD *)v56 + v57 + v64 + 2);
-                  v42 = *(_QWORD *)(HalpNumaConfig + 48);
-                  v66 = v62 + *(_DWORD *)(HalpNumaConfig + 64) * v58;
-                  ++v62;
-                  *(_WORD *)(v42 + 2 * v66) = v65;
+                  while ( (_DWORD)v36 );
                 }
-                while ( v62 < *v55 );
               }
-              v41 = HalpNumaConfig;
-              v42 = v58 * (*(_DWORD *)(HalpNumaConfig + 64) + 1);
-              ++v58;
-              *(_WORD *)(*(_QWORD *)(HalpNumaConfig + 48) + 2 * v42) = 0;
-              v43 = *v55;
+              v67 = *(_DWORD *)(v65 + 56);
+              ++v66;
             }
-            while ( v58 < (unsigned int)v43 );
+            while ( v66 < v67 );
           }
+          if ( HalpMaximumClockDomainCount != 1 )
+            HalpTimerPlatformSourceForced = 1;
+          return HalpChannelInitializeStaticConfiguration(v37, v36, v48);
         }
-LABEL_110:
-        if ( HalpSplitLargeNumaNodes )
+        v40 = HalpNumaConfig;
+        v41 = 0;
+        v36 = *(unsigned int *)(HalpNumaConfig + 56);
+        if ( (_DWORD)v36 )
         {
-          v69 = HalpNumaConfig;
-          HalpNumaSortProcessors(
-            *(unsigned int *)(HalpNumaConfig + 60),
-            *(_QWORD *)(HalpNumaConfig + 16),
-            *(_QWORD *)HalpNumaConfig,
-            v53);
-          v70 = *(_DWORD *)(v69 + 56);
-          for ( i = 0; i < v70; ++i )
+          do
           {
-            v72 = HalpMaximumGroupSize;
-            if ( *(_DWORD *)(*(_QWORD *)(v69 + 40) + 4LL * i) > (unsigned int)HalpMaximumGroupSize )
+            v37 = v41;
+            v42 = *(_DWORD *)(*(_QWORD *)(v40 + 24) + 4LL * v41);
+            if ( v42 >= v39 )
+              goto LABEL_84;
+            v43 = v39 * v42;
+            v44 = 0;
+            if ( (_DWORD)v36 )
             {
-              AvailableProximityId = HalpGetAvailableProximityId();
-              v74 = HalpNumaConfig;
-              *(_DWORD *)(v69 + 56) = v70 + 1;
-              v75 = AvailableProximityId;
-              v76 = *(_QWORD *)(v69 + 40);
-              v77 = 0;
-              v78 = *(_DWORD *)(v76 + 4LL * i);
-              *(_DWORD *)(v76 + 4LL * i) = v72;
-              v53 = (unsigned int)(v78 - v72);
-              *(_DWORD *)(*(_QWORD *)(v69 + 40) + 4LL * v70) = v53;
-              *(_DWORD *)(*(_QWORD *)(v74 + 24) + 4LL * v70) = AvailableProximityId;
-              for ( *(_DWORD *)(*(_QWORD *)(v74 + 32) + 4LL * v70) = *(_DWORD *)(*(_QWORD *)(v74 + 32) + 4LL * i);
-                    v77 < v70;
-                    *(_WORD *)(v43 + 2 * v80) = *(_WORD *)(v43 + 2 * v79) )
+              do
               {
-                *(_WORD *)(*(_QWORD *)(v74 + 48) + 2LL * (v70 + *(_DWORD *)(v74 + 64) * v77)) = *(_WORD *)(*(_QWORD *)(v74 + 48) + 2LL * (*(_DWORD *)(v74 + 64) * v77 + i));
-                v43 = *(_QWORD *)(v74 + 48);
-                v79 = v77 + i * *(_DWORD *)(v74 + 64);
-                v80 = v77 + v70 * *(_DWORD *)(v74 + 64);
-                ++v77;
+                v37 = v44;
+                v36 = *(unsigned int *)(*(_QWORD *)(v40 + 24) + 4LL * v44);
+                if ( (unsigned int)v36 >= v39 )
+                  goto LABEL_84;
+                v45 = *(unsigned __int8 *)((unsigned int)(v36 + v43) + v38 + 44);
+                if ( (unsigned __int8)v45 < 0xAu )
+                  goto LABEL_84;
+                v46 = v44 + v41 * *(_DWORD *)(v40 + 64);
+                ++v44;
+                *(_WORD *)(*(_QWORD *)(v40 + 48) + 2 * v46) = v45 << 7;
               }
-              v42 = v70 * (*(_DWORD *)(HalpNumaConfig + 64) + 1);
-              *(_WORD *)(*(_QWORD *)(HalpNumaConfig + 48) + 2 * v42) = 0;
-              v41 = (unsigned int)(*(_DWORD *)(v69 + 60) - 1);
-              if ( *(_DWORD *)(v69 + 60) != 1 )
-              {
-                do
-                {
-                  if ( !(_DWORD)v53 )
-                    break;
-                  v81 = *(_QWORD *)(v69 + 16);
-                  v42 = *(unsigned int *)(*(_QWORD *)(v74 + 24) + 4LL * i);
-                  if ( *(_DWORD *)(v81 + 4 * v41) == (_DWORD)v42 )
-                  {
-                    v53 = (unsigned int)(v53 - 1);
-                    *(_DWORD *)(v81 + 4 * v41) = v75;
-                  }
-                  v82 = (_DWORD)v41 == 1;
-                  v41 = (unsigned int)(v41 - 1);
-                }
-                while ( !v82 );
-              }
+              while ( v44 < *(_DWORD *)(v40 + 56) );
             }
-            v70 = *(_DWORD *)(v69 + 56);
+            v36 = 1280LL;
+            v47 = *(_QWORD *)(v40 + 48);
+            v37 = v41 * (*(_DWORD *)(v40 + 64) + 1);
+            if ( *(_WORD *)(v47 + 2 * v37) != 1280 )
+              goto LABEL_84;
+            *(_WORD *)(v47 + 2 * v37) = 0;
+            ++v41;
+            v36 = *(unsigned int *)(v40 + 56);
           }
+          while ( v41 < (unsigned int)v36 );
         }
-        if ( HalpMaximumClockDomainCount != 1 )
-          HalpTimerPlatformSourceForced = 1;
-        return (void *)HalpChannelInitializeStaticConfiguration(v42, v41, v43, v53);
       }
+      HalpAcpiSlit = v38;
+      goto LABEL_84;
     }
   }
   return result;

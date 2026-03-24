@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsAdvancedDirectFlipCompatible@CGlobalCompositionSurfaceInfo@@UEBA_NXZ @ 0x180134490
+ * XREFs of ?IsAdvancedDirectFlipCompatible@CGlobalCompositionSurfaceInfo@@UEBA_NXZ @ 0x1801F88D0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall CGlobalCompositionSurfaceInfo::IsAdvancedDirectFlipCompatible(CGlobalCompositionSurfaceInfo *this)
@@ -14,7 +14,7 @@ bool __fastcall CGlobalCompositionSurfaceInfo::IsAdvancedDirectFlipCompatible(CG
   bool v3; // bl
   __int64 v5; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *((_QWORD *)this + 26);
+  v1 = *((_QWORD *)this + 23);
   if ( !v1 )
     return 0;
   v2 = *(int *)(*(_QWORD *)(v1 + 8) + 4LL);

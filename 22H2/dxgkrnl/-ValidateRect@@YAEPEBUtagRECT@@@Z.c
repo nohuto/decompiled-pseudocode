@@ -1,18 +1,21 @@
 /*
- * XREFs of ?ValidateRect@@YAEPEBUtagRECT@@@Z @ 0x1C03777D4
+ * XREFs of ?ValidateRect@@YAEPEBUtagRECT@@@Z @ 0x1C023C14C
  * Callers:
- *     ?ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z @ 0x1C03774F8 (-ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z.c)
- *     ?ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z @ 0x1C0377848 (-ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z.c)
- *     ?ValidateSubRect@@YAEPEBUtagRECT@@0@Z @ 0x1C0377940 (-ValidateSubRect@@YAEPEBUtagRECT@@0@Z.c)
+ *     ?ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z @ 0x1C023BF0C (-ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z.c)
+ *     ?ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z @ 0x1C023C194 (-ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z.c)
+ *     ?ValidateSubRect@@YAEPEBUtagRECT@@0@Z @ 0x1C023C24C (-ValidateSubRect@@YAEPEBUtagRECT@@0@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-unsigned __int8 __fastcall ValidateRect(const struct tagRECT *a1)
+unsigned __int8 __fastcall ValidateRect(const struct tagRECT *a1, __int64 a2)
 {
+  __int64 v3; // rax
+
   if ( a1->left <= a1->right && a1->top <= a1->bottom )
     return 1;
-  WdLogSingleEntry1(2LL, 2267LL);
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid rect", 2267LL, 0LL, 0LL, 0LL, 0LL);
+  v3 = WdLogNewEntry5_WdError(a1, a2);
+  *(_QWORD *)(v3 + 24) = 1846LL;
+  WdLogEvent5_WdError(v3);
   return 0;
 }

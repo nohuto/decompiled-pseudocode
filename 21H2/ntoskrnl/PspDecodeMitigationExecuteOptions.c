@@ -1,7 +1,7 @@
 /*
- * XREFs of PspDecodeMitigationExecuteOptions @ 0x1406E1C0C
+ * XREFs of PspDecodeMitigationExecuteOptions @ 0x1406BDC08
  * Callers:
- *     PspApplyMitigationOptions @ 0x14070E104 (PspApplyMitigationOptions.c)
+ *     PspApplyMitigationOptions @ 0x1406D8A1C (PspApplyMitigationOptions.c)
  * Callees:
  *     <none>
  */

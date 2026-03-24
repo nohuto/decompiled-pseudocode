@@ -1,30 +1,24 @@
 /*
- * XREFs of ?IsExecutionStateErrorState@DXGDEVICE@@QEBAEXZ @ 0x1C01BEC84
+ * XREFs of ?IsExecutionStateErrorState@DXGDEVICE@@QEBAEXZ @ 0x1C0143764
  * Callers:
- *     ?FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z @ 0x1C0162FC0 (-FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z.c)
- *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01BBB3C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0142C1C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ *     ?FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z @ 0x1C014D16C (-FinalizeTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@K@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?GetDeviceExecutionState@DXGDEVICE@@QEBAJPEAW4_D3DKMT_DEVICEEXECUTION_STATE@@@Z @ 0x1C01BECBC (-GetDeviceExecutionState@DXGDEVICE@@QEBAJPEAW4_D3DKMT_DEVICEEXECUTION_STATE@@@Z.c)
+ *     ?GetDeviceExecutionState@DXGDEVICE@@QEBAJPEAW4_D3DKMT_DEVICEEXECUTION_STATE@@@Z @ 0x1C014379C (-GetDeviceExecutionState@DXGDEVICE@@QEBAJPEAW4_D3DKMT_DEVICEEXECUTION_STATE@@@Z.c)
  */
 
 bool __fastcall DXGDEVICE::IsExecutionStateErrorState(DXGDEVICE *this)
 {
-  _D3DKMT_DEVICEEXECUTION_STATE v3; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v5; // rax
+  enum _D3DKMT_DEVICEEXECUTION_STATE v6; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = 0;
-  if ( (int)DXGDEVICE::GetDeviceExecutionState(this, &v3) >= 0 )
-    return v3 != D3DKMT_DEVICEEXECUTION_ACTIVE;
-  WdLogSingleEntry1(2LL, this);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"GetDeviceExecutionState failed for device 0x%I64x, unable to determine if the device is in device removed state",
-    (__int64)this,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v6 = 0;
+  if ( (int)DXGDEVICE::GetDeviceExecutionState(this, &v6) >= 0 )
+    return v6 != D3DKMT_DEVICEEXECUTION_ACTIVE;
+  v5 = WdLogNewEntry5_WdError(v3, v2);
+  *(_QWORD *)(v5 + 24) = this;
+  WdLogEvent5_WdError(v5);
   return 1;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpMatchOsVersion @ 0x1408436C0
+ * XREFs of SdbpMatchOsVersion @ 0x140754B18
  * Callers:
- *     SdbpCheckForMatch @ 0x1408433DC (SdbpCheckForMatch.c)
+ *     SdbpCheckForMatch @ 0x1407547A4 (SdbpCheckForMatch.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlGetVersion @ 0x1406C2630 (RtlGetVersion.c)
- *     SdbFindFirstTag @ 0x140792CCC (SdbFindFirstTag.c)
- *     SdbReadQWORDTag @ 0x140842904 (SdbReadQWORDTag.c)
- *     SdbpCheckUptoVersion @ 0x140842D54 (SdbpCheckUptoVersion.c)
- *     SdbpCheckFromVersion @ 0x140A1467C (SdbpCheckFromVersion.c)
- *     SdbpCheckVersion @ 0x140A146C0 (SdbpCheckVersion.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlGetVersion @ 0x1406AC620 (RtlGetVersion.c)
+ *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
+ *     SdbpCheckUptoVersion @ 0x1407B3754 (SdbpCheckUptoVersion.c)
+ *     SdbReadQWORDTag @ 0x1407B3A20 (SdbReadQWORDTag.c)
+ *     SdbpCheckFromVersion @ 0x1409676B0 (SdbpCheckFromVersion.c)
+ *     SdbpCheckVersion @ 0x1409676F4 (SdbpCheckVersion.c)
  */
 
 _BOOL8 __fastcall SdbpMatchOsVersion(__int64 a1, unsigned int a2)
@@ -22,7 +22,7 @@ _BOOL8 __fastcall SdbpMatchOsVersion(__int64 a1, unsigned int a2)
   unsigned int v8; // eax
   __int64 QWORDTag; // rax
   __int64 v11; // rax
-  unsigned __int64 v12; // rax
+  __int64 v12; // rax
   struct _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-148h] BYREF
 
   v4 = 1;
@@ -30,23 +30,23 @@ _BOOL8 __fastcall SdbpMatchOsVersion(__int64 a1, unsigned int a2)
   VersionInformation.dwOSVersionInfoSize = 284;
   RtlGetVersion(&VersionInformation);
   v5 = (VersionInformation.dwBuildNumber | ((VersionInformation.dwMinorVersion | ((unsigned __int64)VersionInformation.dwMajorVersion << 16)) << 16)) << 16;
-  FirstTag = SdbFindFirstTag(a1, a2, 20509);
+  FirstTag = SdbFindFirstTag(a1, a2, 20509LL);
   if ( FirstTag )
   {
     QWORDTag = SdbReadQWORDTag(a1, FirstTag, 0LL);
     v4 = SdbpCheckVersion(QWORDTag, v5) != 0;
   }
-  v7 = SdbFindFirstTag(a1, a2, 20511);
+  v7 = SdbFindFirstTag(a1, a2, 20511LL);
   if ( v7 )
   {
     v11 = SdbReadQWORDTag(a1, v7, 0LL);
     v4 = v4 && (unsigned int)SdbpCheckFromVersion(v11, v5);
   }
-  v8 = SdbFindFirstTag(a1, a2, 20510);
+  v8 = SdbFindFirstTag(a1, a2, 20510LL);
   if ( v8 )
   {
     v12 = SdbReadQWORDTag(a1, v8, 0LL);
-    return v4 && SdbpCheckUptoVersion(v12, v5);
+    return v4 && (unsigned int)SdbpCheckUptoVersion(v12, v5);
   }
   return v4;
 }

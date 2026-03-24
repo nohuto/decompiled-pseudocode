@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CComponentTransform3D::sc_Orientation__ @ 0x180001A00
+ * XREFs of _dynamic_initializer_for__CComponentTransform3D::sc_Orientation__ @ 0x180001810
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CComponentTransform3D::sc_Orientation__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D01D8 = (unsigned __int64)CComponentTransform3D::SetOrientation;
-  qword_1803D01E8 = v1;
+  xmmword_180344088 = (unsigned __int64)CComponentTransform3D::SetOrientation;
+  qword_180344098 = v1;
   return result;
 }

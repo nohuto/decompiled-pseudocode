@@ -3,8 +3,8 @@
  * Callers:
  *     MiAgePteWorker @ 0x14006B2C0 (MiAgePteWorker.c)
  *     MiCrcStillIntact @ 0x140082C54 (MiCrcStillIntact.c)
- *     MiResetAccessBitPte @ 0x14016E810 (MiResetAccessBitPte.c)
- *     MiResetAccessBitPteWorker @ 0x1402B3680 (MiResetAccessBitPteWorker.c)
+ *     MiResetAccessBitPte @ 0x14016E830 (MiResetAccessBitPte.c)
+ *     MiResetAccessBitPteWorker @ 0x1402B3780 (MiResetAccessBitPteWorker.c)
  * Callees:
  *     MiSetVaAgeList @ 0x14003E2D0 (MiSetVaAgeList.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -13,13 +13,13 @@
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     MiUnlockNestedPageTableWritePte @ 0x1400984D4 (MiUnlockNestedPageTableWritePte.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiCompressTbFlushList @ 0x140113A80 (MiCompressTbFlushList.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     qsort @ 0x1401962C0 (qsort.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiCompressTbFlushList @ 0x140113AA0 (MiCompressTbFlushList.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiClearPteAccessed(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, int a5, int a6)

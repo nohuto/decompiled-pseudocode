@@ -1,185 +1,170 @@
 /*
- * XREFs of DxgkOutputDuplPresent @ 0x1C0333140
+ * XREFs of DxgkOutputDuplPresent @ 0x1C0282D20
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     OutputDuplPresent @ 0x1C0325430 (OutputDuplPresent.c)
- *     ?TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z @ 0x1C0332ED4 (-TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z @ 0x1C0282ADC (-TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z.c)
+ *     OutputDuplPresent @ 0x1C029DFD8 (OutputDuplPresent.c)
  */
 
-__int64 __fastcall DxgkOutputDuplPresent(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall DxgkOutputDuplPresent(__int64 a1, __int64 a2)
 {
-  _OWORD *v4; // rdi
+  _OWORD *v2; // rdi
   struct DXGPROCESS *Current; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  struct DXGPROCESS *v10; // r13
-  __int64 CurrentProcess; // rax
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // rax
-  _D3DKMT_OUTPUTDUPLPRESENT *v18; // rcx
-  __int64 v19; // rax
-  unsigned __int64 v20; // r15
-  unsigned __int64 v21; // rsi
-  unsigned int v22; // eax
-  RECT *v23; // rdi
-  RECT *v24; // rax
-  D3DKMT_MOVE_RECT *v25; // r14
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  struct DXGPROCESS *v7; // r13
+  __int64 v8; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  __int64 v13; // rax
+  _D3DKMT_OUTPUTDUPLPRESENT *v14; // rcx
+  __int64 v15; // rax
+  unsigned __int64 v16; // r14
+  unsigned __int64 v17; // rsi
+  unsigned int v18; // eax
+  RECT *v19; // rdi
+  RECT *v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  __int64 v25; // rax
+  D3DKMT_MOVE_RECT *v26; // r15
   const RECT *pDirtyRects; // rdx
-  const RECT *v27; // rcx
+  const RECT *v28; // rcx
   UINT MoveRectCount; // ecx
-  const D3DKMT_MOVE_RECT *v29; // r8
-  unsigned int v30; // esi
-  _D3DKMT_OUTPUTDUPLPRESENT v31; // [rsp+60h] [rbp-168h] BYREF
+  const D3DKMT_MOVE_RECT *v30; // r8
+  unsigned int v31; // esi
+  __int64 v32; // rax
+  _D3DKMT_OUTPUTDUPLPRESENT v33; // [rsp+40h] [rbp-168h] BYREF
 
-  v4 = (_OWORD *)a1;
-  Current = DXGPROCESS::GetCurrent(a1, a2, a3, a4);
-  v10 = Current;
+  v2 = (_OWORD *)a1;
+  Current = DXGPROCESS::GetCurrent(a1, a2);
+  v7 = Current;
   if ( !Current )
   {
-    CurrentProcess = PsGetCurrentProcess(v7, v6, v8, v9);
-    WdLogSingleEntry2(2LL, -1073741811LL, CurrentProcess);
-    v16 = PsGetCurrentProcess(v13, v12, v14, v15);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Presenting from unexpected process 0x%I64x 0x%I64x",
-      -1073741811LL,
-      v16,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v8 + 24) = -1073741811LL;
+    *(_QWORD *)(v8 + 32) = PsGetCurrentProcess(v10, v9);
+    v11 = v8;
+LABEL_3:
+    WdLogEvent5_WdError(v11);
     return 3221225485LL;
   }
-  if ( (*((_DWORD *)Current + 106) & 4) == 0 )
+  if ( !*((_BYTE *)Current + 346) )
   {
-    WdLogSingleEntry1(2LL, 11689LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Function can only be called from DWM process",
-      11689LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return -1073741811LL;
+    v13 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v13 + 24) = 11480LL;
+    v11 = v13;
+    goto LABEL_3;
   }
-  if ( (unsigned __int64)v4 >= MmUserProbeAddress )
-    v4 = (_OWORD *)MmUserProbeAddress;
-  v18 = &v31;
-  v19 = 2LL;
+  if ( (unsigned __int64)v2 >= MmUserProbeAddress )
+    v2 = (_OWORD *)MmUserProbeAddress;
+  v14 = &v33;
+  v15 = 2LL;
   do
   {
-    *(_OWORD *)&v18->hContext = *v4;
-    *(_OWORD *)v18->BroadcastContext = v4[1];
-    *(_OWORD *)&v18->BroadcastContext[4] = v4[2];
-    *(_OWORD *)&v18->BroadcastContext[8] = v4[3];
-    *(_OWORD *)&v18->BroadcastContext[12] = v4[4];
-    *(_OWORD *)&v18->BroadcastContext[16] = v4[5];
-    *(_OWORD *)&v18->BroadcastContext[20] = v4[6];
-    v18 = (_D3DKMT_OUTPUTDUPLPRESENT *)((char *)v18 + 128);
-    *(_OWORD *)&v18[-1].PresentRegions.pMoveRects = v4[7];
-    v4 += 8;
-    --v19;
+    *(_OWORD *)&v14->hContext = *v2;
+    *(_OWORD *)v14->BroadcastContext = v2[1];
+    *(_OWORD *)&v14->BroadcastContext[4] = v2[2];
+    *(_OWORD *)&v14->BroadcastContext[8] = v2[3];
+    *(_OWORD *)&v14->BroadcastContext[12] = v2[4];
+    *(_OWORD *)&v14->BroadcastContext[16] = v2[5];
+    *(_OWORD *)&v14->BroadcastContext[20] = v2[6];
+    v14 = (_D3DKMT_OUTPUTDUPLPRESENT *)((char *)v14 + 128);
+    *(_OWORD *)&v14[-1].PresentRegions.pMoveRects = v2[7];
+    v2 += 8;
+    --v15;
   }
-  while ( v19 );
-  *(_OWORD *)&v18->hContext = *v4;
-  *(_OWORD *)v18->BroadcastContext = v4[1];
-  *(_OWORD *)&v18->BroadcastContext[4] = v4[2];
-  *(_QWORD *)&v18->BroadcastContext[8] = *((_QWORD *)v4 + 6);
-  v20 = 16LL * v31.PresentRegions.DirtyRectCount;
-  if ( v20 > 0xFFFFFFFF )
+  while ( v15 );
+  *(_OWORD *)&v14->hContext = *v2;
+  *(_OWORD *)v14->BroadcastContext = v2[1];
+  *(_OWORD *)&v14->BroadcastContext[4] = v2[2];
+  *(_QWORD *)&v14->BroadcastContext[8] = *((_QWORD *)v2 + 6);
+  v16 = 16LL * v33.PresentRegions.DirtyRectCount;
+  if ( v16 > 0xFFFFFFFF )
   {
-    WdLogSingleEntry1(3LL, 11708LL);
+    v32 = WdLogNewEntry5_WdWarning(0xFFFFFFFFLL, 128LL, v6);
+    *(_QWORD *)(v32 + 24) = 11499LL;
+    goto LABEL_36;
+  }
+  v17 = 24LL * v33.PresentRegions.MoveRectCount;
+  if ( v17 > 0xFFFFFFFF )
+  {
+    v32 = WdLogNewEntry5_WdWarning(0xFFFFFFFFLL, 128LL, v6);
+    *(_QWORD *)(v32 + 24) = 11506LL;
+    goto LABEL_36;
+  }
+  v18 = v17 + v16;
+  if ( (int)v17 + (int)v16 < (unsigned int)v17 )
+  {
+    v32 = WdLogNewEntry5_WdWarning(0xFFFFFFFFLL, 128LL, v6);
+    *(_QWORD *)(v32 + 24) = 11513LL;
+LABEL_36:
+    WdLogEvent5_WdWarning(v32);
     return 3221225621LL;
   }
-  v21 = 24LL * v31.PresentRegions.MoveRectCount;
-  if ( v21 > 0xFFFFFFFF )
+  v19 = 0LL;
+  if ( v18 )
   {
-    WdLogSingleEntry1(3LL, 11715LL);
-    return 3221225621LL;
-  }
-  v22 = v21 + v20;
-  if ( (int)v21 + (int)v20 < (unsigned int)v21 )
-  {
-    WdLogSingleEntry1(3LL, 11722LL);
-    return 3221225621LL;
-  }
-  v23 = 0LL;
-  if ( v22 )
-  {
-    v24 = (RECT *)operator new[](v22, 0x4B677844u, 256LL, v9);
-    v23 = v24;
-    if ( !v24 )
+    v20 = (RECT *)operator new[](v18, 0x4B677844u, PagedPool);
+    v19 = v20;
+    if ( !v20 )
     {
-      WdLogSingleEntry1(6LL, 11733LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to alloc buffer for kernel copy of meta data.",
-        11733LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v25 = WdLogNewEntry5_WdLowResource(v22, v21, v23, v24);
+      *(_QWORD *)(v25 + 24) = 11524LL;
+      WdLogEvent5_WdLowResource(v25);
       return 3221225495LL;
     }
-    v25 = (D3DKMT_MOVE_RECT *)&v24[v31.PresentRegions.DirtyRectCount];
-    if ( v31.PresentRegions.DirtyRectCount )
+    v26 = (D3DKMT_MOVE_RECT *)&v20[v33.PresentRegions.DirtyRectCount];
+    if ( v33.PresentRegions.DirtyRectCount )
     {
-      pDirtyRects = v31.PresentRegions.pDirtyRects;
-      v27 = (const RECT *)((char *)v31.PresentRegions.pDirtyRects + (unsigned int)v20);
-      if ( v27 < v31.PresentRegions.pDirtyRects || (unsigned __int64)v27 > MmUserProbeAddress )
+      pDirtyRects = v33.PresentRegions.pDirtyRects;
+      v28 = (const RECT *)((char *)v33.PresentRegions.pDirtyRects + (unsigned int)v16);
+      if ( v28 < v33.PresentRegions.pDirtyRects || (unsigned __int64)v28 > MmUserProbeAddress )
         *(_BYTE *)MmUserProbeAddress = 0;
-      memmove(v24, pDirtyRects, (unsigned int)v20);
-      v31.PresentRegions.pDirtyRects = v23;
+      memmove(v20, pDirtyRects, (unsigned int)v16);
+      v33.PresentRegions.pDirtyRects = v19;
     }
     else
     {
-      v31.PresentRegions.pDirtyRects = 0LL;
+      v33.PresentRegions.pDirtyRects = 0LL;
     }
-    MoveRectCount = v31.PresentRegions.MoveRectCount;
-    if ( v31.PresentRegions.MoveRectCount )
+    MoveRectCount = v33.PresentRegions.MoveRectCount;
+    if ( v33.PresentRegions.MoveRectCount )
     {
-      if ( (_DWORD)v21 )
+      if ( (_DWORD)v17 )
       {
-        v29 = (const D3DKMT_MOVE_RECT *)((char *)v31.PresentRegions.pMoveRects + (unsigned int)v21);
-        if ( (unsigned __int64)v29 > MmUserProbeAddress || v29 < v31.PresentRegions.pMoveRects )
+        v30 = (const D3DKMT_MOVE_RECT *)((char *)v33.PresentRegions.pMoveRects + (unsigned int)v17);
+        if ( (unsigned __int64)v30 > MmUserProbeAddress || v30 < v33.PresentRegions.pMoveRects )
         {
           *(_BYTE *)MmUserProbeAddress = 0;
-          MoveRectCount = v31.PresentRegions.MoveRectCount;
+          MoveRectCount = v33.PresentRegions.MoveRectCount;
         }
       }
-      TranslateAndCopyDWMMoveRegionToDDAMoveRegions(MoveRectCount, v31.PresentRegions.pMoveRects, v25);
-      v31.PresentRegions.pMoveRects = v25;
+      TranslateAndCopyDWMMoveRegionToDDAMoveRegions(MoveRectCount, v33.PresentRegions.pMoveRects, v26);
+      v33.PresentRegions.pMoveRects = v26;
     }
     else
     {
-      v31.PresentRegions.pMoveRects = 0LL;
+      v33.PresentRegions.pMoveRects = 0LL;
     }
   }
   else
   {
-    v31.PresentRegions.pDirtyRects = 0LL;
-    v31.PresentRegions.pMoveRects = 0LL;
+    v33.PresentRegions.pDirtyRects = 0LL;
+    v33.PresentRegions.pMoveRects = 0LL;
   }
-  v30 = OutputDuplPresent(&v31, v10);
-  if ( v23 )
-    operator delete[](v23);
-  return v30;
+  v31 = OutputDuplPresent(&v33, v7);
+  if ( v19 )
+    operator delete[](v19);
+  return v31;
 }

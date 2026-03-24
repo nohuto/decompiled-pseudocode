@@ -1,16 +1,16 @@
 /*
- * XREFs of ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140651D6C
+ * XREFs of ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C7A10
  * Callers:
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1406515E8 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140651824 (-CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x140651C24 (-SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C7284 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x1405C74C0 (-CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x1405C78C8 (-SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x140651394 (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1406516CC (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?CheckSum@MBR_HEADER@@QEAAKXZ @ 0x140651710 (-CheckSum@MBR_HEADER@@QEAAKXZ.c)
- *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x140651754 (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
- *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x140930370 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1405C7038 (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1405C7368 (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?CheckSum@MBR_HEADER@@QEAAKXZ @ 0x1405C73AC (-CheckSum@MBR_HEADER@@QEAAKXZ.c)
+ *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x1405C73F0 (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
+ *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x14088D8F0 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
  */
 
 __int64 __fastcall SC_MBR::WritePartitionTable(SC_DISK **this, struct SC_DISK_LAYOUT *a2)
@@ -23,8 +23,8 @@ __int64 __fastcall SC_MBR::WritePartitionTable(SC_DISK **this, struct SC_DISK_LA
   int v9; // esi
   char v10; // bp
   __int8 *v11; // rdi
-  __int8 *v12; // r13
-  unsigned int v13; // r15d
+  __int8 *v12; // r15
+  unsigned int v13; // r12d
   __int64 v14; // r8
   char v15; // cl
   int v16; // r9d
@@ -33,7 +33,7 @@ __int64 __fastcall SC_MBR::WritePartitionTable(SC_DISK **this, struct SC_DISK_LA
   unsigned int v19; // edx
   __int64 v20; // rax
   unsigned int v21; // edx
-  unsigned int v22; // edx
+  __int64 v22; // r8
   int Sectors; // eax
   unsigned int v25; // [rsp+20h] [rbp-68h]
   unsigned __int64 v26; // [rsp+24h] [rbp-64h]
@@ -44,7 +44,7 @@ __int64 __fastcall SC_MBR::WritePartitionTable(SC_DISK **this, struct SC_DISK_LA
   v4 = 0;
   v26 = 0LL;
   v25 = 0;
-  v5 = (const __m128i *)*((_QWORD *)*this + 33);
+  v5 = (const __m128i *)*((_QWORD *)*this + 32);
   v7 = *((_DWORD *)a2 + 2);
   v8 = 0;
   v9 = 0;
@@ -98,16 +98,16 @@ __int64 __fastcall SC_MBR::WritePartitionTable(SC_DISK **this, struct SC_DISK_LA
           *v11 = *((_BYTE *)a2 + 144 * v4 + 81) != 0 ? 0x80 : 0;
           v11[4] = *((_BYTE *)a2 + 144 * v4 + 80);
           v18 = *((_QWORD *)a2 + 18 * v4 + 7);
-          v19 = *((_DWORD *)*this + 59);
+          v19 = *((_DWORD *)*this + 57);
           if ( v19 )
             v18 /= (__int64)v19;
           *((_DWORD *)v11 + 2) = v18 - v16;
           v20 = *((_QWORD *)a2 + v14 + 8);
-          v21 = *((_DWORD *)*this + 59);
+          v21 = *((_DWORD *)*this + 57);
           if ( v21 )
             v20 /= (__int64)v21;
           *((_DWORD *)v11 + 3) = v20;
-          MBR_ENTRY::ComputeChs((MBR_ENTRY *)v11, (struct _DISK_GEOMETRY *)*this + 9);
+          MBR_ENTRY::ComputeChs((MBR_ENTRY *)v11, (struct _DISK_GEOMETRY *)((char *)*this + 208));
           v4 = v25;
           LOBYTE(v2) = 0;
         }
@@ -133,8 +133,8 @@ __int64 __fastcall SC_MBR::WritePartitionTable(SC_DISK **this, struct SC_DISK_LA
     if ( v12 )
     {
       v8 = *((_DWORD *)v12 + 2);
-      v22 = v8 + HIDWORD(v26);
       LODWORD(v26) = v8 + HIDWORD(v26);
+      v22 = (unsigned int)(v8 + HIDWORD(v26));
       if ( v27 )
         v8 = v27;
       HIDWORD(v26) = v8;

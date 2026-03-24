@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140704B20
+ * XREFs of _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140704B00
  * Callers:
- *     _CmSetDeviceInterfaceMappedProperty @ 0x1406FC8A0 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x1406FC880 (_CmSetDeviceInterfaceMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _CmOpenDeviceInterfaceRegKey @ 0x14059B4E8 (_CmOpenDeviceInterfaceRegKey.c)
- *     _PnpCtxRegCreateKey @ 0x1406E6484 (_PnpCtxRegCreateKey.c)
- *     _RegRtlSetValue @ 0x1406FCBC8 (_RegRtlSetValue.c)
+ *     _PnpCtxRegCreateKey @ 0x1406E6464 (_PnpCtxRegCreateKey.c)
+ *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
@@ -45,7 +45,7 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
   if ( v7 < 2 )
     return (unsigned int)-1073741264;
   v13 = 0LL;
-  v14 = &off_140908F18;
+  v14 = &off_140908EF8;
   do
   {
     v15 = *v14;

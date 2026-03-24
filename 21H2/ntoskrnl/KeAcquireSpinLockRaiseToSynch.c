@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAcquireSpinLockRaiseToSynch @ 0x14056E850
+ * XREFs of KeAcquireSpinLockRaiseToSynch @ 0x140516810
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
  */
 
 KIRQL __stdcall KeAcquireSpinLockRaiseToSynch(PKSPIN_LOCK SpinLock)

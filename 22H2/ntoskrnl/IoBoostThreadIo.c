@@ -1,13 +1,13 @@
 /*
- * XREFs of IoBoostThreadIo @ 0x140373590
+ * XREFs of IoBoostThreadIo @ 0x1405055B0
  * Callers:
  *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     IoBoostThreadIoPriority @ 0x14031B140 (IoBoostThreadIoPriority.c)
+ *     PsBoostThreadIoEx @ 0x1402CDF90 (PsBoostThreadIoEx.c)
+ *     IoBoostThreadIoPriority @ 0x1402D8E10 (IoBoostThreadIoPriority.c)
  */
 
-__int64 __fastcall IoBoostThreadIo(volatile signed __int64 *a1, int a2, char a3, int a4)
+__int64 __fastcall IoBoostThreadIo(KSPIN_LOCK *a1, int a2, char a3, int a4)
 {
   if ( a4 )
     return 3221225485LL;

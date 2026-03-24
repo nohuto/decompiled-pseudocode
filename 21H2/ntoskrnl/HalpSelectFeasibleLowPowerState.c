@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpSelectFeasibleLowPowerState @ 0x140B4D5C8
+ * XREFs of HalpSelectFeasibleLowPowerState @ 0x140A8DA78
  * Callers:
- *     HalpChannelInitializeStaticConfiguration @ 0x140AFA5EC (HalpChannelInitializeStaticConfiguration.c)
+ *     HalpChannelInitializeStaticConfiguration @ 0x140A64240 (HalpChannelInitializeStaticConfiguration.c)
  * Callees:
  *     <none>
  */

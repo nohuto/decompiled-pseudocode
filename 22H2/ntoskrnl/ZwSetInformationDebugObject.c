@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetInformationDebugObject @ 0x14041DB00
+ * XREFs of ZwSetInformationDebugObject @ 0x1403FCD00
  * Callers:
  *     <none>
  * Callees:

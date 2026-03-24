@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ProcessDisableOutputPrediction@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_DISABLEOUTPUTPREDICTION@@@Z @ 0x1801F2778
+ * XREFs of ?ProcessDisableOutputPrediction@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_DISABLEOUTPUTPREDICTION@@@Z @ 0x1801C6888
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,9 +13,9 @@ __int64 __fastcall CInteraction::ProcessDisableOutputPrediction(
 {
   char v3; // dl
 
-  v3 = *((_BYTE *)this + 193) & 0xFD | (*((_BYTE *)a3 + 8) != 0 ? 2 : 0);
-  *((_BYTE *)this + 193) = v3;
-  if ( (v3 & 2) != 0 )
+  v3 = *((_BYTE *)this + 185) & 0xFE | (*((_BYTE *)a3 + 8) != 0);
+  *((_BYTE *)this + 185) = v3;
+  if ( (v3 & 1) != 0 )
     _InterlockedIncrement((volatile signed __int32 *)&CCommonRegistryData::m_cForceDisableInteractionOutputPrediction);
   else
     _InterlockedDecrement((volatile signed __int32 *)&CCommonRegistryData::m_cForceDisableInteractionOutputPrediction);

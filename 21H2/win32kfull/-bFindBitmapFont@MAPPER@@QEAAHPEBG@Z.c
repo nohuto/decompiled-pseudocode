@@ -1,50 +1,55 @@
 /*
- * XREFs of ?bFindBitmapFont@MAPPER@@QEAAHPEBG@Z @ 0x1C001EF44
+ * XREFs of ?bFindBitmapFont@MAPPER@@QEAAHPEBG@Z @ 0x1C010021C
  * Callers:
- *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C001EDA4 (-bGetFaceName@MAPPER@@AEAAHXZ.c)
+ *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C010007C (-bGetFaceName@MAPPER@@AEAAHXZ.c)
  * Callees:
- *     ?bValid@FHOBJ@@QEBAHXZ @ 0x1C0012CE4 (-bValid@FHOBJ@@QEBAHXZ.c)
- *     ?pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C0013374 (-pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z.c)
- *     ?pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z @ 0x1C00F46C8 (-pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z.c)
+ *     ?pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z @ 0x1C00BA778 (-pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z.c)
+ *     ?bValid@FHOBJ@@QEBAHXZ @ 0x1C00BAE34 (-bValid@FHOBJ@@QEBAHXZ.c)
+ *     ?pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00BBCF8 (-pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z.c)
  */
 
 __int64 __fastcall MAPPER::bFindBitmapFont(MAPPER *this, const unsigned __int16 *a2)
 {
   struct _HASHBUCKET *v5; // rax
-  unsigned int v6; // ebx
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  unsigned int v9; // ebx
   _QWORD *i; // rcx
-  __int64 v8; // r8
-  int v9; // edx
-  int v10; // eax
-  struct _FONTSUB *v11; // rax
+  __int64 v11; // r8
   int v12; // edx
-  _QWORD v13[3]; // [rsp+30h] [rbp-18h] BYREF
+  int v13; // eax
+  int v14; // edx
+  struct _FONTSUB *v15; // rax
+  _QWORD v16[3]; // [rsp+30h] [rbp-18h] BYREF
 
   if ( (*((_DWORD *)this + 63) & 0x10000000) != 0 )
     return 0LL;
-  v13[0] = gpPFTPublic;
-  v13[1] = *gpPFTPublic;
-  if ( FHOBJ::bValid((FHOBJ *)v13) )
+  v16[0] = gpPFTPublic;
+  v16[1] = *gpPFTPublic;
+  if ( FHOBJ::bValid((FHOBJ *)v16) )
   {
-    v5 = FHOBJ::pbktSearch((FHOBJ *)v13, a2, 0LL, 0LL, 0);
-    v6 = 1;
+    v5 = FHOBJ::pbktSearch((FHOBJ *)v16, a2, 0LL, 0LL, 0);
+    v9 = 1;
     if ( v5
-      || (v11 = pfsubAlternateFacename(a2)) != 0LL
-      && (*((_BYTE *)v11 + 195) & 1) != 0
-      && (v5 = FHOBJ::pbktSearch((FHOBJ *)v13, (const unsigned __int16 *)v11 + 65, 0LL, 0LL, 0)) != 0LL )
+      || (v15 = pfsubAlternateFacename(a2, v6, v7, v8)) != 0LL
+      && (*((_BYTE *)v15 + 195) & 1) != 0
+      && (v5 = FHOBJ::pbktSearch((FHOBJ *)v16, (const unsigned __int16 *)v15 + 65, 0LL, 0LL, 0)) != 0LL )
     {
       for ( i = (_QWORD *)*((_QWORD *)v5 + 1); i; i = (_QWORD *)*i )
       {
-        v8 = *(_QWORD *)(i[1] + 32LL);
-        if ( (*(_DWORD *)(v8 + 48) & 2) != 0 )
+        v11 = *(_QWORD *)(i[1] + 32LL);
+        if ( (*(_DWORD *)(v11 + 48) & 2) != 0 )
         {
-          v9 = (*((_DWORD *)this + 63) & 2) != 0 ? *(__int16 *)(v8 + 56) : *(__int16 *)(v8 + 60) + *(__int16 *)(v8 + 62);
-          v10 = *((_DWORD *)this + 41);
-          if ( v10 == v9 || v10 == 2 && v9 == 3 )
+          v12 = (*((_DWORD *)this + 63) & 2) != 0
+              ? *(__int16 *)(v11 + 56)
+              : *(__int16 *)(v11 + 60) + *(__int16 *)(v11 + 62);
+          v13 = *((_DWORD *)this + 41);
+          if ( v13 == v12 || v13 == 2 && v12 == 3 )
           {
-            v12 = *((_DWORD *)this + 42);
-            if ( !v12 || v12 == *(__int16 *)(v8 + 76) )
-              return v6;
+            v14 = *((_DWORD *)this + 42);
+            if ( !v14 || v14 == *(__int16 *)(v11 + 76) )
+              return v9;
           }
         }
       }

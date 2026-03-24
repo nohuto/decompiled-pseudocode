@@ -1,63 +1,53 @@
 /*
- * XREFs of ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C00F178C
+ * XREFs of ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C004B5B8
  * Callers:
- *     NtUserSetCursor @ 0x1C00A4ED0 (NtUserSetCursor.c)
- *     ?xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z @ 0x1C00F188C (-xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z.c)
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     xxxSwitchWndProc @ 0x1C01CB5E0 (xxxSwitchWndProc.c)
- *     NtUserHideCursorNoCapture @ 0x1C01D4B60 (NtUserHideCursorNoCapture.c)
- *     ?xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z @ 0x1C01ED858 (-xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z.c)
- *     ?xxxTrackInitSize@@YAHPEAUtagWND@@I_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01F19F0 (-xxxTrackInitSize@@YAHPEAUtagWND@@I_K_JPEAUMOVESIZEDATA@@@Z.c)
- *     xxxDragObject @ 0x1C022F868 (xxxDragObject.c)
- *     xxxHelpLoop @ 0x1C0239514 (xxxHelpLoop.c)
+ *     NtUserSetCursor @ 0x1C0048690 (NtUserSetCursor.c)
+ *     ?xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z @ 0x1C004B32C (-xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?zzzHideCursorNoCapture@@YA_KXZ @ 0x1C01D3B90 (-zzzHideCursorNoCapture@@YA_KXZ.c)
+ *     xxxSwitchWndProc @ 0x1C01F4C80 (xxxSwitchWndProc.c)
+ *     ?xxxTrackInitSize@@YAHPEAUtagWND@@I_K_JPEAU_MOVESIZEDATA@@@Z @ 0x1C02106D4 (-xxxTrackInitSize@@YAHPEAUtagWND@@I_K_JPEAU_MOVESIZEDATA@@@Z.c)
+ *     xxxInitializeMoveSizeData @ 0x1C021184C (xxxInitializeMoveSizeData.c)
+ *     ?xxxSendSysCommandToWindow@CMoveSizeRequest@@AEAAXPEAUtagWND@@@Z @ 0x1C0241668 (-xxxSendSysCommandToWindow@CMoveSizeRequest@@AEAAXPEAUtagWND@@@Z.c)
+ *     xxxDragObject @ 0x1C02480D4 (xxxDragObject.c)
+ *     xxxHelpLoop @ 0x1C024FBDC (xxxHelpLoop.c)
  * Callees:
- *     LockQCursor @ 0x1C005B5D0 (LockQCursor.c)
- *     zzzUpdateCursorImage @ 0x1C00E6B60 (zzzUpdateCursorImage.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C011E0F8 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     LockQCursor @ 0x1C00128F0 (LockQCursor.c)
+ *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004B674 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     zzzUpdateCursorImage @ 0x1C0080E90 (zzzUpdateCursorImage.c)
  */
 
 struct tagCURSOR *__fastcall zzzSetCursor(struct tagCURSOR *a1)
 {
-  __int64 v2; // rbx
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v4; // rbx
-  struct tagCURSOR *v5; // rdx
+  struct tagTHREADINFO *CurrentLogicalCursorThread; // rax
+  __int64 v3; // rbx
+  struct tagCURSOR *v4; // r8
+  __int64 v6; // rcx
   __int64 v7; // rdx
   __int64 v8; // rcx
-  __int64 v9; // r8
-  _QWORD v10[5]; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v9[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( !IS_USERCRIT_OWNED_AT_ALL() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-  v2 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v2 = *ThreadWin32Thread;
-  if ( (*(_DWORD *)(v2 + 1272) & 0x8000000) != 0 )
-    v2 = *(_QWORD *)(v2 + 1520);
-  v4 = *(_QWORD *)(v2 + 432);
-  v5 = *(struct tagCURSOR **)(v4 + 384);
-  if ( v5 != a1 )
+  CurrentLogicalCursorThread = _GetCurrentLogicalCursorThread();
+  v3 = *((_QWORD *)CurrentLogicalCursorThread + 54);
+  v4 = *(struct tagCURSOR **)(v3 + 376);
+  if ( v4 != a1 )
   {
-    v5 = (struct tagCURSOR *)LockQCursor(v4, a1);
-    if ( gpqCursor )
+    v4 = (struct tagCURSOR *)LockQCursor(*((_QWORD *)CurrentLogicalCursorThread + 54), a1);
+    if ( !gpqCursor )
+      MEMORY[0] = v3;
+    if ( v3 == gpqCursor )
     {
-      if ( v4 != gpqCursor )
-        return v5;
+      v9[2] = 0LL;
+      v6 = gptiCurrent;
+      v7 = gptiCurrent;
+      v9[0] = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = v9;
+      v9[1] = v4;
+      if ( v4 )
+        HMLockObject(v4);
+      zzzUpdateCursorImage(v6, v7, v4);
+      return (struct tagCURSOR *)ThreadUnlock1(v8);
     }
-    else
-    {
-      MEMORY[0] = v4;
-    }
-    v10[2] = 0LL;
-    v10[0] = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = v10;
-    v10[1] = v5;
-    if ( v5 )
-      HMLockObject(v5);
-    zzzUpdateCursorImage();
-    return (struct tagCURSOR *)ThreadUnlock1(v8, v7, v9);
   }
-  return v5;
+  return v4;
 }

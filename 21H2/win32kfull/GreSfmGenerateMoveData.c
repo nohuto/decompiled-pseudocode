@@ -1,7 +1,7 @@
 /*
- * XREFs of GreSfmGenerateMoveData @ 0x1C029FB4C
+ * XREFs of GreSfmGenerateMoveData @ 0x1C02A1044
  * Callers:
- *     NtGdiHLSurfSetInformation @ 0x1C0089CD0 (NtGdiHLSurfSetInformation.c)
+ *     NtGdiHLSurfSetInformation @ 0x1C0014D90 (NtGdiHLSurfSetInformation.c)
  * Callees:
  *     <none>
  */

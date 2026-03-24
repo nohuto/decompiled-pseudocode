@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0zqzt_EtwWriteTransfer @ 0x1C0179124
+ * XREFs of McTemplateK0zqzt_EtwWriteTransfer @ 0x1C014CF38
  * Callers:
- *     EtwFontLoadAttemptEvent @ 0x1C0178670 (EtwFontLoadAttemptEvent.c)
+ *     EtwFontLoadAttemptEvent @ 0x1C014C370 (EtwFontLoadAttemptEvent.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0zqzt_EtwWriteTransfer(

@@ -1,163 +1,160 @@
 /*
- * XREFs of PspAllocateAndQueryNotificationChannel @ 0x140678C4C
+ * XREFs of PspAllocateAndQueryNotificationChannel @ 0x14067F620
  * Callers:
- *     NtQueryInformationJobObject @ 0x140684450 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140616880 (NtQueryInformationJobObject.c)
  * Callees:
- *     ExConvertExclusiveToSharedLite @ 0x140239790 (ExConvertExclusiveToSharedLite.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x14041D180 (ZwCreateWnfStateName.c)
- *     ZwDeleteWnfStateName @ 0x14041D320 (ZwDeleteWnfStateName.c)
- *     PspLockRootJobExclusive @ 0x140678FCC (PspLockRootJobExclusive.c)
- *     PspDispatchWakeNotification @ 0x140679280 (PspDispatchWakeNotification.c)
- *     PspComputeReportWakeFilter @ 0x1406793A4 (PspComputeReportWakeFilter.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x140679440 (RtlGetOwnerSecurityDescriptor.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FF880 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspUnlockJob @ 0x1406FFE90 (PspUnlockJob.c)
- *     ObReleaseObjectSecurityEx @ 0x140722890 (ObReleaseObjectSecurityEx.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     ObpGetObjectSecurity @ 0x1407248C0 (ObpGetObjectSecurity.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     SeQueryInformationToken @ 0x14079F290 (SeQueryInformationToken.c)
- *     PsReferenceEffectiveToken @ 0x1407B3B60 (PsReferenceEffectiveToken.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     ExConvertExclusiveToSharedLite @ 0x1402B21C0 (ExConvertExclusiveToSharedLite.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1403FBD20 (ZwCreateWnfStateName.c)
+ *     ZwDeleteWnfStateName @ 0x1403FBEC0 (ZwDeleteWnfStateName.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
+ *     PspUnlockJobConditionally @ 0x140618F8C (PspUnlockJobConditionally.c)
+ *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
+ *     ObReleaseObjectSecurity @ 0x14065F410 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x14065F800 (ObpGetObjectSecurity.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     PspLockRootJobExclusive @ 0x14067F980 (PspLockRootJobExclusive.c)
+ *     PspDispatchWakeNotification @ 0x14067FC24 (PspDispatchWakeNotification.c)
+ *     PspComputeReportWakeFilter @ 0x14067FC98 (PspComputeReportWakeFilter.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x14067FD40 (RtlGetOwnerSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2, _OWORD *a3)
 {
   bool v3; // zf
   char v7; // r13
-  __int64 v8; // rdx
+  char v8; // r15
+  __int64 v9; // rdi
+  __int64 v10; // rdx
   int ObjectSecurity; // edi
-  __int64 v10; // r9
-  PSECURITY_DESCRIPTOR v11; // r12
-  void *v12; // r15
+  PSECURITY_DESCRIPTOR v13; // r12
+  struct _DMA_ADAPTER *v14; // r15
   ACL *PoolWithTag; // rax
-  ACL *v14; // r15
-  char v15; // r15
-  PVOID v16; // rcx
-  __int64 v17; // rdi
-  __int64 v18; // rdx
-  char v20; // [rsp+40h] [rbp-59h] BYREF
-  char v21; // [rsp+41h] [rbp-58h] BYREF
-  BOOLEAN OwnerDefaulted[2]; // [rsp+42h] [rbp-57h] BYREF
-  int v23; // [rsp+44h] [rbp-55h] BYREF
-  __int64 v24; // [rsp+48h] [rbp-51h] BYREF
-  PVOID TokenInformation; // [rsp+50h] [rbp-49h] BYREF
-  ULONG AclLength; // [rsp+58h] [rbp-41h]
-  PSID Owner; // [rsp+60h] [rbp-39h] BYREF
-  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+68h] [rbp-31h] BYREF
-  __int64 v29; // [rsp+70h] [rbp-29h] BYREF
-  _BYTE v30[8]; // [rsp+78h] [rbp-21h] BYREF
-  __int64 v31; // [rsp+80h] [rbp-19h]
-  _OWORD v32[2]; // [rsp+88h] [rbp-11h] BYREF
-  __int64 v33; // [rsp+A8h] [rbp+Fh]
-  __int64 v34; // [rsp+B0h] [rbp+17h] BYREF
+  ACL *v16; // r15
+  _QWORD *v17; // rcx
+  BOOLEAN MemoryAllocated; // [rsp+40h] [rbp-69h] BYREF
+  bool v19; // [rsp+41h] [rbp-68h] BYREF
+  BOOLEAN OwnerDefaulted[6]; // [rsp+42h] [rbp-67h] BYREF
+  __int64 v21; // [rsp+48h] [rbp-61h] BYREF
+  int v22; // [rsp+50h] [rbp-59h] BYREF
+  PVOID TokenInformation; // [rsp+58h] [rbp-51h] BYREF
+  ULONG AclLength; // [rsp+60h] [rbp-49h]
+  PSID Owner; // [rsp+68h] [rbp-41h] BYREF
+  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+70h] [rbp-39h] BYREF
+  __int64 v27; // [rsp+78h] [rbp-31h] BYREF
+  int v28; // [rsp+80h] [rbp-29h] BYREF
+  __int64 v29; // [rsp+88h] [rbp-21h]
+  _OWORD v30[2]; // [rsp+90h] [rbp-19h] BYREF
+  __int64 v31; // [rsp+B0h] [rbp+7h]
+  __int64 v32; // [rsp+B8h] [rbp+Fh] BYREF
 
-  v3 = (*(_DWORD *)(a2 + 1512) & 0x800) == 0;
-  v20 = 0;
-  v21 = 0;
-  v29 = 0LL;
+  v3 = (*(_DWORD *)(a2 + 1320) & 0x800) == 0;
+  MemoryAllocated = 0;
+  v19 = 0;
+  v27 = 0LL;
   Owner = 0LL;
   v7 = 0;
   SecurityDescriptor = 0LL;
-  v24 = 0LL;
-  memset(v32, 0, sizeof(v32));
-  v33 = 0LL;
-  v23 = 0;
-  TokenInformation = 0LL;
+  v21 = 0LL;
+  memset(v30, 0, sizeof(v30));
   v31 = 0LL;
-  v34 = 0LL;
+  v22 = 0;
+  TokenInformation = 0LL;
+  v29 = 0LL;
+  v32 = 0LL;
   if ( !v3 )
   {
-    v15 = 1;
-    PspLockRootJobExclusive(a2, a1, &v24);
-    v17 = v24;
-    if ( a2 != v24 )
+    v8 = 1;
+    PspLockRootJobExclusive(a2, a1, &v21);
+    v9 = v21;
+    if ( a2 != v21 )
     {
-      ExConvertExclusiveToSharedLite((PERESOURCE)(v24 + 56));
+      ExConvertExclusiveToSharedLite((PERESOURCE)(v21 + 56));
       ExAcquireResourceExclusiveLite((PERESOURCE)(a2 + 56), 1u);
     }
-    goto LABEL_12;
+    goto LABEL_4;
   }
-  ObjectSecurity = ObpGetObjectSecurity(a2, &SecurityDescriptor, &v20, 0LL);
+  ObjectSecurity = ObpGetObjectSecurity(a2, &SecurityDescriptor, &MemoryAllocated, 0);
   if ( ObjectSecurity < 0 )
     return (unsigned int)ObjectSecurity;
-  v11 = SecurityDescriptor;
+  v13 = SecurityDescriptor;
   if ( !SecurityDescriptor )
   {
     ObjectSecurity = -1073741790;
-LABEL_27:
-    LOBYTE(v8) = v20;
-    ObReleaseObjectSecurityEx(v11, v8, a2, v10);
+LABEL_25:
+    ObReleaseObjectSecurity(v13, MemoryAllocated);
     return (unsigned int)ObjectSecurity;
   }
   ObjectSecurity = RtlGetOwnerSecurityDescriptor(SecurityDescriptor, &Owner, OwnerDefaulted);
   if ( ObjectSecurity < 0 )
-    goto LABEL_27;
-  v12 = (void *)PsReferenceEffectiveToken(a1, 1953654867LL, &v23, &v21, v30, 0LL);
-  ObjectSecurity = SeQueryInformationToken(v12, TokenUser, &TokenInformation);
-  if ( v23 == 1 )
+    goto LABEL_25;
+  v14 = (struct _DMA_ADAPTER *)PsReferenceEffectiveToken(a1, &v22, &v19, &v28, 0LL);
+  ObjectSecurity = SeQueryInformationToken(v14, TokenUser, &TokenInformation);
+  if ( v22 == 1 )
   {
-    ObFastDereferenceObject((signed __int64 *)(*(_QWORD *)(a1 + 184) + 1208LL), (unsigned __int64)v12, 0x74726853u);
+    ObFastDereferenceObject((signed __int64 *)(*(_QWORD *)(a1 + 184) + 1208LL), v14);
   }
-  else if ( v12 )
+  else if ( v14 )
   {
-    ObfDereferenceObjectWithTag(v12, 0x74726853u);
+    HalPutDmaAdapter(v14);
   }
   if ( ObjectSecurity < 0 )
-    goto LABEL_27;
+    goto LABEL_25;
   AclLength = 4 * (*((unsigned __int8 *)Owner + 1) + *(unsigned __int8 *)(*(_QWORD *)TokenInformation + 1LL)) + 48;
   PoolWithTag = (ACL *)ExAllocatePoolWithTag(NonPagedPoolNx, AclLength, 0x66577350u);
-  v14 = PoolWithTag;
+  v16 = PoolWithTag;
   if ( !PoolWithTag
     || (RtlCreateAcl(PoolWithTag, AclLength, 2u),
-        RtlpAddKnownAce((int)v14, 2, 0, 0x80000000, Owner, 0),
-        RtlpAddKnownAce((int)v14, 2, 0, 0x80000000, *(void **)TokenInformation, 0),
-        RtlCreateSecurityDescriptor(v32, 1u),
-        RtlSetDaclSecurityDescriptor(v32, 1u, v14, 0),
-        ObjectSecurity = ZwCreateWnfStateName((__int64)&v34, 3LL),
-        ExFreePoolWithTag(v14, 0x66577350u),
+        RtlpAddKnownAce((__int64)v16, 2u, 0, 0x80000000, (unsigned __int8 *)Owner, 0),
+        RtlpAddKnownAce((__int64)v16, 2u, 0, 0x80000000, *(unsigned __int8 **)TokenInformation, 0),
+        RtlCreateSecurityDescriptor(v30, 1u),
+        RtlSetDaclSecurityDescriptor(v30, 1u, v16, 0),
+        ObjectSecurity = ZwCreateWnfStateName((__int64)&v32, 3LL),
+        ExFreePoolWithTag(v16, 0x66577350u),
         ObjectSecurity < 0) )
   {
     ExFreePoolWithTag(TokenInformation, 0);
-    goto LABEL_27;
+    goto LABEL_25;
   }
-  v15 = 0;
-  PspLockRootJobExclusive(a2, a1, &v24);
-  if ( (*(_DWORD *)(a2 + 1512) & 0x800) != 0 )
+  v8 = 0;
+  PspLockRootJobExclusive(a2, a1, &v21);
+  if ( (*(_DWORD *)(a2 + 1320) & 0x800) != 0 )
   {
-    v17 = v24;
+    v9 = v21;
     v7 = 1;
   }
   else
   {
-    *(_QWORD *)(a2 + 1072) = v34;
-    PspComputeReportWakeFilter(a2, &v29, a2 + 1144, 0LL);
-    PspEnumJobsAndProcessesInJobHierarchy(v16, 0LL, 2);
-    _interlockedbittestandset((volatile signed __int32 *)(a2 + 1512), 0xBu);
+    *(_QWORD *)(a2 + 880) = v32;
+    PspComputeReportWakeFilter(a2, &v27, a2 + 952, 0LL);
+    PspEnumJobsAndProcessesInJobHierarchy(v17, 0, (int)PspEnableWakeCounters, (int)PspEnableProcessWakeCounters, 0LL, 2);
+    _interlockedbittestandset((volatile signed __int32 *)(a2 + 1320), 0xBu);
     _InterlockedIncrement64(&PspJobTimeLimitsRequest);
-    v17 = v24;
+    v9 = v21;
   }
-LABEL_12:
-  *a3 = *(_OWORD *)(a2 + 1072);
-  a3[1] = *(_OWORD *)(a2 + 1088);
-  a3[2] = *(_OWORD *)(a2 + 1104);
-  a3[3] = *(_OWORD *)(a2 + 1120);
-  if ( v15 && a2 != v17 )
-    ExReleaseResourceLite((PERESOURCE)(a2 + 56));
-  PspUnlockJob(v17, a1);
+LABEL_4:
+  *a3 = *(_OWORD *)(a2 + 880);
+  a3[1] = *(_OWORD *)(a2 + 896);
+  a3[2] = *(_OWORD *)(a2 + 912);
+  a3[3] = *(_OWORD *)(a2 + 928);
+  if ( v8 )
+    PspUnlockJobConditionally(a2, &v21);
+  PspUnlockJob(v9, a1);
   if ( v7 )
   {
-    ZwDeleteWnfStateName((__int64)&v34, v18);
+    ZwDeleteWnfStateName((__int64)&v32, v10);
   }
-  else if ( !v15 )
+  else if ( !v8 )
   {
     PspDispatchWakeNotification((PVOID)a2);
   }

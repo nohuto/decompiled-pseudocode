@@ -1,326 +1,365 @@
 /*
- * XREFs of PipCallDriverAddDeviceQueryRoutine @ 0x14068C35C
+ * XREFs of PipCallDriverAddDeviceQueryRoutine @ 0x14073E9B8
  * Callers:
- *     PnpCallDriverQueryServiceHelper @ 0x14068C158 (PnpCallDriverQueryServiceHelper.c)
+ *     PnpCallDriverQueryServiceHelper @ 0x14073E7AC (PnpCallDriverQueryServiceHelper.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14022AEA4 (PipSetDevNodeState.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x140362424 (PnpDiagnosticTraceDeviceOperation.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IopReferenceDriverObjectByName @ 0x14068C668 (IopReferenceDriverObjectByName.c)
- *     IopGetDriverNameFromKeyNode @ 0x14068CCD4 (IopGetDriverNameFromKeyNode.c)
- *     PipOpenServiceEnumKeys @ 0x14068E904 (PipOpenServiceEnumKeys.c)
- *     PnpGetServiceStartType @ 0x14068F410 (PnpGetServiceStartType.c)
- *     PnpIsLegacyDriver @ 0x14068F830 (PnpIsLegacyDriver.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
- *     IopCallDriverReinitializationRoutines @ 0x1407CF4D8 (IopCallDriverReinitializationRoutines.c)
- *     PnpCheckPossibleBootStartDriver @ 0x14084DED0 (PnpCheckPossibleBootStartDriver.c)
- *     PipSetDevNodeProblem @ 0x1408697BC (PipSetDevNodeProblem.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     PpInitGetGroupOrderIndex @ 0x140B41824 (PpInitGetGroupOrderIndex.c)
- *     PnpLoadBootFilterDriver @ 0x140B6D398 (PnpLoadBootFilterDriver.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PipSetDevNodeState @ 0x14036EEA8 (PipSetDevNodeState.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x14037BD64 (PnpDiagnosticTraceDeviceOperation.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PnpIsLegacyDriver @ 0x14073C78C (PnpIsLegacyDriver.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     IopReferenceDriverObjectByName @ 0x14073ECD8 (IopReferenceDriverObjectByName.c)
+ *     IopGetDriverNameFromKeyNode @ 0x14073EDA0 (IopGetDriverNameFromKeyNode.c)
+ *     PipOpenServiceEnumKeys @ 0x14073F08C (PipOpenServiceEnumKeys.c)
+ *     PnpGetServiceStartType @ 0x14073F214 (PnpGetServiceStartType.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeProblem @ 0x14074C18C (PipSetDevNodeProblem.c)
+ *     IopCallDriverReinitializationRoutines @ 0x140771794 (IopCallDriverReinitializationRoutines.c)
+ *     PnpCheckPossibleBootStartDriver @ 0x1407BD8C4 (PnpCheckPossibleBootStartDriver.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PnpLoadBootFilterDriver @ 0x140A5B5A0 (PnpLoadBootFilterDriver.c)
+ *     PpInitGetGroupOrderIndex @ 0x140A5EC00 (PpInitGetGroupOrderIndex.c)
  */
 
-__int64 __fastcall PipCallDriverAddDeviceQueryRoutine(int a1, const WCHAR *a2, unsigned int a3, __int64 *a4, int a5)
+__int64 __fastcall PipCallDriverAddDeviceQueryRoutine(
+        int a1,
+        const WCHAR *a2,
+        unsigned int a3,
+        __int64 *a4,
+        int a5,
+        char a6)
 {
-  char v5; // r15
-  const WCHAR *v6; // rbx
-  _DWORD *v8; // rsi
-  unsigned int v9; // r13d
-  char v10; // r12
-  HANDLE v11; // r14
-  __int16 v12; // r8
-  int v13; // ecx
-  int v14; // eax
-  unsigned int v15; // ebx
+  __int64 result; // rax
+  const WCHAR *v7; // rbx
+  struct _DMA_ADAPTER *v9; // rsi
+  unsigned int v10; // r13d
+  char v11; // r12
+  HANDLE v12; // r15
+  __int16 v13; // dx
+  char v14; // r14
+  int v15; // ecx
+  int v16; // ebx
+  int v17; // eax
   int DriverNameFromKeyNode; // eax
   int ServiceStartType; // eax
-  unsigned int v18; // r15d
-  __int64 v19; // rax
-  __int64 v21; // rdx
-  _QWORD *v22; // rdi
-  _QWORD *Pool2; // rax
+  unsigned int v20; // r14d
+  __int64 v21; // rax
   int Driver; // eax
-  int v25; // eax
-  void *v26; // rcx
-  unsigned __int64 v27; // rax
-  __int64 v28; // rcx
-  int v29; // ecx
-  __int64 v30; // rcx
-  __int64 v31; // r8
-  __int64 v32; // rdx
-  unsigned int v33; // [rsp+34h] [rbp-2Ch] BYREF
+  SIZE_T v23; // rdx
+  _QWORD *v24; // rdi
+  _QWORD *PoolWithTag; // rax
+  int v26; // eax
+  void *v27; // rcx
+  unsigned __int64 v28; // rax
+  __int64 v29; // rcx
+  int v30; // ecx
+  __int64 v31; // rcx
+  unsigned int v32; // eax
+  __int64 v33; // r8
+  __int64 v34; // rdx
+  unsigned int v35; // [rsp+30h] [rbp-30h] BYREF
+  unsigned int v36; // [rsp+34h] [rbp-2Ch] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-28h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-20h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-10h] BYREF
-  char v37; // [rsp+90h] [rbp+30h]
+  char v40; // [rsp+90h] [rbp+30h]
 
-  v5 = 0;
-  v6 = L"\\Driver\\";
-  v33 = 0;
-  v37 = 0;
+  result = 0LL;
+  v7 = L"\\Driver\\";
+  v36 = 0;
+  v35 = 0;
+  v40 = 0;
   Handle = 0LL;
-  v8 = 0LL;
-  v9 = 0;
+  v9 = 0LL;
   v10 = 0;
-  v11 = 0LL;
+  v11 = 0;
+  v12 = 0LL;
   DestinationString = 0LL;
   UnicodeString = 0LL;
-  if ( a1 != 1 || a3 <= 2 )
-    return 0LL;
-  RtlInitUnicodeString(&DestinationString, a2);
-  v12 = 92;
-  v13 = 0;
-  while ( DestinationString.Buffer[v13] == v12 )
+  if ( a1 == 1 && a3 > 2 )
   {
-    ++v6;
-    ++v13;
-    v12 = *v6;
-    if ( !*v6 )
+    RtlInitUnicodeString(&DestinationString, a2);
+    v13 = 92;
+    v14 = 1;
+    v15 = 0;
+    do
+    {
+      if ( DestinationString.Buffer[v15] != v13 )
+      {
+        v16 = 0;
+        v14 = 0;
+        goto LABEL_6;
+      }
+      ++v7;
+      ++v15;
+      v13 = *v7;
+    }
+    while ( *v7 );
+    v16 = 0;
+LABEL_6:
+    if ( v14 )
     {
       RtlInitUnicodeString(&UnicodeString, DestinationString.Buffer);
-      v5 = 1;
-LABEL_9:
-      v8 = (_DWORD *)IopReferenceDriverObjectByName(&UnicodeString);
-      Handle = v8;
-      if ( v8 )
-        goto LABEL_26;
-      if ( !v5 )
+    }
+    else
+    {
+      if ( !*(_WORD *)(*a4 + 56) )
       {
-        ServiceStartType = PnpGetServiceStartType(DestinationString.Buffer, v11, &v33);
-        v18 = v33;
-        if ( ServiceStartType < 0 )
-          v18 = 4;
-        if ( a5 != 3 && !PnPBootDriversInitialized )
+        *(UNICODE_STRING *)(*a4 + 56) = DestinationString;
+        *(_QWORD *)(*a4 + 64) = ExAllocatePoolWithTag(PagedPool, DestinationString.MaximumLength, 0x48706E50u);
+        v27 = *(void **)(*a4 + 64);
+        if ( !v27 )
         {
-          PpInitGetGroupOrderIndex(v11);
-          v25 = PnpLoadBootFilterDriver(v11, &UnicodeString);
-          v15 = v25;
-          if ( v25 >= 0 )
+          *(_WORD *)(*a4 + 58) = 0;
+          *(_WORD *)(*a4 + 56) = 0;
+          *(_QWORD *)(*a4 + 64) = 0LL;
+          return (unsigned int)-1073741823;
+        }
+        memmove(v27, DestinationString.Buffer, DestinationString.MaximumLength);
+      }
+      v17 = PipOpenServiceEnumKeys(&DestinationString, 131097LL, &Handle, 0LL, 0);
+      v16 = v17;
+      if ( v17 < 0 )
+      {
+        if ( v17 != -1073741772 || a5 )
+          PipSetDevNodeProblem(*a4, 19LL, (unsigned int)v17);
+        else
+          v16 = 0;
+        v12 = Handle;
+        goto LABEL_23;
+      }
+      v12 = Handle;
+      DriverNameFromKeyNode = IopGetDriverNameFromKeyNode(Handle, &UnicodeString);
+      v16 = DriverNameFromKeyNode;
+      if ( DriverNameFromKeyNode < 0 )
+      {
+        PipSetDevNodeProblem(*a4, 19LL, (unsigned int)DriverNameFromKeyNode);
+        goto LABEL_23;
+      }
+      v40 = 1;
+      v16 = 0;
+    }
+    v9 = (struct _DMA_ADAPTER *)IopReferenceDriverObjectByName(&UnicodeString);
+    Handle = v9;
+    if ( v9 )
+    {
+LABEL_36:
+      if ( (*(_DWORD *)&v9[1].Version & 0x10) != 0 )
+      {
+        if ( PnpIsLegacyDriver((__int64)v9) )
+        {
+          if ( a5 != 3 )
+            goto LABEL_22;
+          PipSetDevNodeFlags(*a4, 4096LL);
+          PipSetDevNodeState(*a4, 776);
+        }
+        else if ( (unsigned int)(*(_DWORD *)(*a4 + 300) - 770) <= 1 )
+        {
+          v24 = (__int64 *)((char *)&a4[a5] + v23);
+          PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)(v23 - 15), v23, 0x6E657050u);
+          if ( PoolWithTag )
           {
-            v8 = Handle;
-            if ( Handle )
-            {
-              ObfReferenceObject(Handle);
-              goto LABEL_47;
-            }
-LABEL_81:
-            PnpDiagnosticTraceDeviceOperation(
-              &KMPnPEvt_DriverLoad_Fail,
-              (unsigned __int16 *)(*a4 + 40),
-              v15,
-              (__int64)&UnicodeString,
-              0);
-            v30 = *a4;
-            if ( (*(_DWORD *)(*a4 + 396) & 0x6000) != 0 )
-              goto LABEL_18;
-            if ( (int)v15 <= -1073740961 )
-            {
-              switch ( v15 )
-              {
-                case 0xC000035F:
-                  goto LABEL_103;
-                case 0xC000009A:
-                  v32 = 3LL;
-                  break;
-                case 0xC0000160:
-                  v32 = 40LL;
-                  break;
-                case 0xC000019D:
-                  goto LABEL_89;
-                case 0xC000025E:
-                  v32 = 41LL;
-                  break;
-                case 0xC000026C:
-LABEL_89:
-                  v31 = v9;
-                  v32 = 39LL;
-                  goto LABEL_94;
-                default:
-LABEL_103:
-                  v32 = 31LL;
-                  break;
-              }
-              goto LABEL_92;
-            }
-            if ( v15 == -1073740955 )
-            {
-              v31 = 0LL;
-              v32 = 37LL;
-              goto LABEL_94;
-            }
-            if ( v15 == -1073740949 )
-            {
-              PipSetDevNodeProblem(v30, 48LL, 3221226347LL);
-              PipSetDevNodeFlags(*a4, 0x100000LL);
-              goto LABEL_18;
-            }
-            if ( v15 != -1073740948 )
-            {
-              if ( v15 == -1073740914 )
-              {
-                v32 = 38LL;
-              }
-              else
-              {
-                if ( v15 != -1073740760 )
-                  goto LABEL_103;
-                v32 = 52LL;
-              }
-LABEL_92:
-              v31 = v15;
-LABEL_94:
-              PipSetDevNodeProblem(v30, v32, v31);
-LABEL_18:
-              v10 = v37;
-              goto LABEL_19;
-            }
-            PipSetDevNodeFlags(v30, 0x100000LL);
-LABEL_105:
-            v15 = 0;
-            goto LABEL_18;
+            *PoolWithTag = v9;
+            v9 = 0LL;
+            PoolWithTag[1] = 0LL;
+            while ( *v24 )
+              v24 = (_QWORD *)(*v24 + 8LL);
+            *v24 = PoolWithTag;
           }
-          if ( (unsigned int)(v25 + 1073740949) > 1 )
+          else
           {
-            if ( v18 && !*(_BYTE *)(a4[1] + 4) && !(unsigned __int8)PnpCheckPossibleBootStartDriver(v11) )
+            v16 = -1073741670;
+          }
+          goto LABEL_22;
+        }
+      }
+      goto LABEL_21;
+    }
+    if ( !v14 )
+    {
+      ServiceStartType = PnpGetServiceStartType(DestinationString.Buffer, v12, &v36);
+      v20 = v36;
+      if ( ServiceStartType < 0 )
+        v20 = 4;
+      if ( a5 != 3 && !PnPBootDriversInitialized )
+      {
+        PpInitGetGroupOrderIndex(v12);
+        v26 = PnpLoadBootFilterDriver(v12, &UnicodeString);
+        v16 = v26;
+        if ( v26 < 0 )
+        {
+          if ( (unsigned int)(v26 + 1073740949) > 1 )
+          {
+            if ( v20 && !*(_BYTE *)(a4[1] + 4) && !(unsigned __int8)PnpCheckPossibleBootStartDriver(v12) )
               *(_BYTE *)(*a4 + 688) = 1;
-            v8 = Handle;
-            goto LABEL_18;
+            v9 = (struct _DMA_ADAPTER *)Handle;
+            goto LABEL_22;
           }
-          v8 = Handle;
-LABEL_47:
-          if ( !v8 )
-            goto LABEL_81;
-          goto LABEL_26;
+          v9 = (struct _DMA_ADAPTER *)Handle;
         }
-        v19 = a4[1];
-        if ( v18 > *(_DWORD *)v19 )
+        else
         {
-          if ( v18 == 4 && (*(_DWORD *)(*a4 + 396) & 0x6000) == 0 )
-            PipSetDevNodeProblem(*a4, 32LL, 0LL);
+          v9 = (struct _DMA_ADAPTER *)Handle;
+          if ( !Handle )
+            goto LABEL_87;
+          ObfReferenceObject(Handle);
         }
-        else if ( *(_BYTE *)(v19 + 4) )
+        goto LABEL_50;
+      }
+      v21 = a4[1];
+      if ( v20 > *(_DWORD *)v21 )
+      {
+        if ( v20 == 4 && (*(_DWORD *)(*a4 + 396) & 0x6000) == 0 )
+          PipSetDevNodeProblem(*a4, 32LL, 0LL);
+      }
+      else
+      {
+        if ( *(_BYTE *)(v21 + 4) )
         {
-          Driver = IopLoadDriver(v11);
-          v15 = Driver;
-          v11 = 0LL;
-          v9 = Driver;
-          if ( Driver < 0 && Driver != -1073740955 )
+          Driver = IopLoadDriver(v12, a6, a5 != 3, (int *)&v35);
+          v16 = Driver;
+          v12 = 0LL;
+          v10 = Driver;
+          if ( Driver < 0 )
           {
-            v27 = (unsigned int)(Driver + 1073740961);
-            if ( (unsigned int)v27 > 0x2F || (v28 = 0x800000003001LL, !_bittest64(&v28, v27)) )
+            if ( Driver == -1073740955 )
             {
-              if ( v15 != -1073741218 && v15 != -1073741670 && v15 != -1073740760 )
-                v15 = -1073741204;
+              if ( v35 == -1073741670 )
+                v16 = -1073741670;
+            }
+            else
+            {
+              v28 = (unsigned int)(Driver + 1073740961);
+              if ( (unsigned int)v28 > 0x2F || (v29 = 0x800000003001LL, !_bittest64(&v29, v28)) )
+              {
+                if ( v16 != -1073741218 && v16 != -1073741670 && v16 != -1073740760 )
+                  v16 = -1073741204;
+              }
             }
           }
           if ( PnPInitialized )
             IopCallDriverReinitializationRoutines(0LL);
-          v8 = (_DWORD *)IopReferenceDriverObjectByName(&UnicodeString);
-          if ( !v8 )
+          v9 = (struct _DMA_ADAPTER *)IopReferenceDriverObjectByName(&UnicodeString);
+          if ( v9 )
           {
-            if ( !PnpBootMode )
-              goto LABEL_81;
-            if ( v15 + 1073740961 <= 0xD )
-            {
-              v29 = 12353;
-              if ( _bittest(&v29, v15 + 1073740961) )
-                goto LABEL_81;
-            }
-            if ( v15 == -1073740760 )
-              goto LABEL_81;
-            v15 = -1073741204;
-            goto LABEL_47;
+LABEL_35:
+            v16 = 0;
+            goto LABEL_36;
           }
-LABEL_26:
-          if ( (v8[4] & 0x10) != 0 )
+          if ( !PnpBootMode
+            || (unsigned int)(v16 + 1073740961) <= 0xD && (v30 = 12353, _bittest(&v30, v16 + 1073740961))
+            || v16 == -1073740760 )
           {
-            if ( (unsigned int)PnpIsLegacyDriver(v8) )
+LABEL_87:
+            PnpDiagnosticTraceDeviceOperation(
+              &KMPnPEvt_DriverLoad_Fail,
+              (unsigned __int16 *)(*a4 + 40),
+              v16,
+              (__int64)&UnicodeString,
+              0);
+            v31 = *a4;
+            if ( (*(_DWORD *)(*a4 + 396) & 0x6000) == 0 )
             {
-              if ( a5 != 3 )
-                goto LABEL_105;
-              PipSetDevNodeFlags(*a4, 4096LL);
-              PipSetDevNodeState(*a4, 778);
-            }
-            else if ( (unsigned int)(*(_DWORD *)(*a4 + 300) - 771) <= 2 )
-            {
-              v22 = (__int64 *)((char *)&a4[a5] + v21);
-              v15 = 0;
-              Pool2 = (_QWORD *)ExAllocatePool2(256LL, v21, 1852141648LL);
-              if ( Pool2 )
+              if ( v16 > -1073740955 )
               {
-                *Pool2 = v8;
-                v8 = 0LL;
-                Pool2[1] = 0LL;
-                while ( *v22 )
-                  v22 = (_QWORD *)(*v22 + 8LL);
-                *v22 = Pool2;
+                if ( v16 == -1073740949 )
+                {
+                  PipSetDevNodeProblem(v31, 48LL, 3221226347LL);
+                  PipSetDevNodeFlags(*a4, 0x100000LL);
+                  goto LABEL_22;
+                }
+                if ( v16 == -1073740948 )
+                {
+                  PipSetDevNodeFlags(v31, 0x100000LL);
+                  v16 = 0;
+                  goto LABEL_22;
+                }
+                v33 = 3221226382LL;
+                if ( v16 == -1073740914 )
+                {
+                  v34 = 38LL;
+                  goto LABEL_100;
+                }
+                v32 = -1073740760;
+                if ( v16 != -1073740760 )
+                  goto LABEL_108;
+                v34 = 52LL;
               }
               else
               {
-                v15 = -1073741670;
+                if ( v16 == -1073740955 )
+                {
+                  v33 = v35;
+                  v34 = 37LL;
+                  goto LABEL_100;
+                }
+                v32 = -1073741670;
+                if ( v16 == -1073741670 )
+                {
+                  v34 = 3LL;
+                }
+                else
+                {
+                  v33 = 3221225824LL;
+                  if ( v16 == -1073741472 )
+                  {
+                    v34 = 40LL;
+                    goto LABEL_100;
+                  }
+                  if ( v16 == -1073741411 )
+                    goto LABEL_95;
+                  v32 = -1073741218;
+                  if ( v16 != -1073741218 )
+                  {
+                    if ( v16 == -1073741204 )
+                    {
+LABEL_95:
+                      v33 = v10;
+                      v34 = 39LL;
+LABEL_100:
+                      PipSetDevNodeProblem(v31, v34, v33);
+                      goto LABEL_22;
+                    }
+LABEL_108:
+                    v33 = (unsigned int)v16;
+                    v34 = 31LL;
+                    goto LABEL_100;
+                  }
+                  v34 = 41LL;
+                }
               }
-              goto LABEL_18;
+              v33 = v32;
+              goto LABEL_100;
             }
+LABEL_22:
+            v11 = v40;
+LABEL_23:
+            if ( v12 )
+              ZwClose(v12);
+            if ( v11 )
+              RtlFreeAnsiString(&UnicodeString);
+            if ( v9 )
+              HalPutDmaAdapter(v9);
+            return (unsigned int)v16;
           }
+          v16 = -1073741204;
+LABEL_50:
+          if ( !v9 )
+            goto LABEL_87;
+          goto LABEL_35;
         }
-        else if ( v18 && !(unsigned __int8)PnpCheckPossibleBootStartDriver(v11) )
-        {
+        if ( v20 && !(unsigned __int8)PnpCheckPossibleBootStartDriver(v12) )
           *(_BYTE *)(*a4 + 688) = 1;
-        }
       }
-      v15 = -1073741823;
-      goto LABEL_18;
     }
+LABEL_21:
+    v16 = -1073741823;
+    goto LABEL_22;
   }
-  if ( !*(_WORD *)(*a4 + 56) )
-  {
-    *(UNICODE_STRING *)(*a4 + 56) = DestinationString;
-    *(_QWORD *)(*a4 + 64) = ExAllocatePool2(256LL, DestinationString.MaximumLength, 1215327824LL);
-    v26 = *(void **)(*a4 + 64);
-    if ( !v26 )
-    {
-      *(_WORD *)(*a4 + 58) = 0;
-      v15 = -1073741823;
-      *(_WORD *)(*a4 + 56) = 0;
-      *(_QWORD *)(*a4 + 64) = 0LL;
-      return v15;
-    }
-    memmove(v26, DestinationString.Buffer, DestinationString.MaximumLength);
-  }
-  v14 = PipOpenServiceEnumKeys(&DestinationString, 131097LL, &Handle, 0LL, 0);
-  v15 = v14;
-  if ( v14 < 0 )
-  {
-    if ( v14 != -1073741772 || a5 )
-      PipSetDevNodeProblem(*a4, 19LL, (unsigned int)v14);
-    else
-      v15 = 0;
-    v11 = Handle;
-  }
-  else
-  {
-    v11 = Handle;
-    DriverNameFromKeyNode = IopGetDriverNameFromKeyNode(Handle, &UnicodeString);
-    v15 = DriverNameFromKeyNode;
-    if ( DriverNameFromKeyNode >= 0 )
-    {
-      v37 = 1;
-      goto LABEL_9;
-    }
-    PipSetDevNodeProblem(*a4, 19LL, (unsigned int)DriverNameFromKeyNode);
-  }
-LABEL_19:
-  if ( v11 )
-    ZwClose(v11);
-  if ( v10 )
-    RtlFreeUnicodeString(&UnicodeString);
-  if ( v8 )
-    ObfDereferenceObject(v8);
-  return v15;
+  return result;
 }

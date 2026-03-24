@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryTimer @ 0x1409FB7C0
+ * XREFs of NtQueryTimer @ 0x14094F260
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeQueryTimerDueTime @ 0x140570E20 (KeQueryTimerDueTime.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeQueryTimerDueTime @ 0x140515D48 (KeQueryTimerDueTime.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtQueryTimer(HANDLE Handle, int a2, unsigned __int64 a3, int a4, unsigned __int64 a5)
@@ -15,10 +15,13 @@ __int64 __fastcall NtQueryTimer(HANDLE Handle, int a2, unsigned __int64 a3, int 
   __int64 v9; // rdx
   __int64 v10; // rcx
   _DWORD *v11; // rsi
-  NTSTATUS v12; // r15d
-  char v13; // r12
-  __int64 v14; // rbx
-  __int64 v15; // rdi
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  _DWORD *v14; // r9
+  NTSTATUS v15; // r15d
+  int v16; // r12d
+  __int64 v17; // rbx
+  __int64 v18; // rdi
   PVOID Object; // [rsp+30h] [rbp-38h] BYREF
 
   if ( a2 )
@@ -49,27 +52,27 @@ __int64 __fastcall NtQueryTimer(HANDLE Handle, int a2, unsigned __int64 a3, int 
     v11 = (_DWORD *)a5;
   }
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(Handle, 1u, ExTimerObjectType, PreviousMode, &Object, 0LL);
-  if ( v12 >= 0 )
+  v15 = ObReferenceObjectByHandle(Handle, 1u, ExTimerObjectType, PreviousMode, &Object, 0LL);
+  if ( v15 >= 0 )
   {
-    v13 = *((_BYTE *)Object + 4);
-    v14 = MEMORY[0xFFFFF78000000008];
-    v15 = KeQueryTimerDueTime((__int64)Object) - v14;
-    ObfDereferenceObject(Object);
+    v16 = *((_DWORD *)Object + 1);
+    v17 = MEMORY[0xFFFFF78000000008];
+    v18 = KeQueryTimerDueTime((__int64)Object, v12, v13, v14) - v17;
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     if ( PreviousMode )
     {
-      *(_BYTE *)(a3 + 8) = v13;
-      *(_QWORD *)a3 = v15;
+      *(_BYTE *)(a3 + 8) = v16;
+      *(_QWORD *)a3 = v18;
       if ( v11 )
         *v11 = 16;
     }
     else
     {
-      *(_BYTE *)(a3 + 8) = v13;
-      *(_QWORD *)a3 = v15;
+      *(_BYTE *)(a3 + 8) = v16;
+      *(_QWORD *)a3 = v18;
       if ( v11 )
         *v11 = 16;
     }
   }
-  return (unsigned int)v12;
+  return (unsigned int)v15;
 }

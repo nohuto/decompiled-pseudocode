@@ -1,12 +1,12 @@
 /*
- * XREFs of ?RemoveCloneGroupByModality@CCD_TOPOLOGY@@QEAAJAEBU_LUID@@I@Z @ 0x1C03BBB78
+ * XREFs of ?RemoveCloneGroupByModality@CCD_TOPOLOGY@@QEAAJAEBU_LUID@@I@Z @ 0x1C02EB8D4
  * Callers:
- *     ?AugmentTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@_N@Z @ 0x1C03BECC0 (-AugmentTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_C.c)
- *     ?_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z @ 0x1C03BF648 (-_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z.c)
+ *     ?AugmentTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@_N@Z @ 0x1C014FF00 (-AugmentTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_C.c)
+ *     ?_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z @ 0x1C0150028 (-_CommitEntry@CDS_JOURNAL@@CAJAEBU_ENTRY@1@PEAVCCD_TOPOLOGY@@_N@Z.c)
  * Callees:
- *     ?IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z @ 0x1C0003930 (-IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z.c)
- *     ?ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ @ 0x1C017FC64 (-ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ.c)
- *     ?SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z @ 0x1C03BC170 (-SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z.c)
+ *     ?IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z @ 0x1C000DAE8 (-IsMatchingSource@CCD_TOPOLOGY@@SA_NAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_LUID@@I@Z.c)
+ *     ?ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ @ 0x1C013CEE0 (-ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ.c)
+ *     ?SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z @ 0x1C02EBD50 (-SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z.c)
  */
 
 __int64 __fastcall CCD_TOPOLOGY::RemoveCloneGroupByModality(CCD_TOPOLOGY *this, const struct _LUID *a2, int a3)
@@ -14,59 +14,68 @@ __int64 __fastcall CCD_TOPOLOGY::RemoveCloneGroupByModality(CCD_TOPOLOGY *this, 
   __int64 v3; // rax
   int v4; // ebp
   unsigned int v5; // ebx
-  __int64 v9; // r9
-  unsigned int v10; // r10d
-  __int64 v11; // rdi
-  int v12; // r10d
-  unsigned int v13; // r11d
-  unsigned int v14; // edi
-  __int64 v15; // rdx
+  __int16 v9; // ax
+  __int64 v10; // r9
+  unsigned int v11; // r10d
+  __int64 v12; // rdi
+  int v13; // r10d
+  unsigned int v14; // r11d
+  unsigned int v15; // edi
+  __int64 v16; // rdx
 
   v3 = *((_QWORD *)this + 8);
   v4 = -1;
   v5 = 0;
-  if ( v3 && *(_WORD *)(v3 + 20) )
+  if ( v3 )
+    v9 = *(_WORD *)(v3 + 20);
+  else
+    v9 = 0;
+  if ( v9 )
   {
     CCD_TOPOLOGY::ClearModalitySetId((void **)this);
-    v9 = *((_QWORD *)this + 8);
-    v10 = 0;
-    if ( *(_WORD *)(v9 + 20) )
+    v10 = *((_QWORD *)this + 8);
+    v11 = 0;
+    if ( *(_WORD *)(v10 + 20) )
     {
       while ( 1 )
       {
-        v11 = 296LL * v10;
-        if ( CCD_TOPOLOGY::IsMatchingSource((const struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v11 + v9 + 56), a2, a3) )
+        v12 = v11;
+        if ( CCD_TOPOLOGY::IsMatchingSource(
+               (const struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(272LL * v11 + v10 + 48),
+               a2,
+               a3) )
+        {
           break;
-        v10 = v12 + 1;
-        if ( v10 >= v13 )
-          goto LABEL_8;
+        }
+        v11 = v13 + 1;
+        if ( v11 >= v14 )
+          goto LABEL_10;
       }
-      v4 = *(_DWORD *)(v11 + v9 + 240);
-LABEL_8:
-      v14 = 0;
+      v4 = *(_DWORD *)(272 * v12 + v10 + 232);
+    }
+LABEL_10:
+    v15 = 0;
+    if ( *(_WORD *)(v10 + 20) )
+    {
+      v16 = v10;
       do
       {
-        v15 = v9;
-        if ( v4 != *(_DWORD *)(296LL * v5 + v9 + 240) )
+        v10 = v16;
+        if ( v4 != *(_DWORD *)(272LL * v15 + v16 + 232) )
         {
-          if ( v14 != v5 )
+          if ( v5 != v15 )
           {
-            CCD_TOPOLOGY::SwapPathsDescriptors(this, v5, v14);
-            v15 = *((_QWORD *)this + 8);
+            CCD_TOPOLOGY::SwapPathsDescriptors(this, v15, v5);
+            v10 = *((_QWORD *)this + 8);
           }
-          ++v14;
+          ++v5;
         }
-        ++v5;
-        v9 = v15;
+        ++v15;
+        v16 = v10;
       }
-      while ( v5 < *(unsigned __int16 *)(v15 + 20) );
+      while ( v15 < *(unsigned __int16 *)(v10 + 20) );
     }
-    else
-    {
-      LOWORD(v14) = 0;
-      v15 = *((_QWORD *)this + 8);
-    }
-    *(_WORD *)(v15 + 20) = v14;
+    *(_WORD *)(v10 + 20) = v5;
   }
   return 0LL;
 }

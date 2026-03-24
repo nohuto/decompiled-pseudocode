@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CompleteInteraction@CInteractionProcessor@@QEAAJPEAUIManipulationResource@@@Z @ 0x1801AC700
+ * XREFs of ?CompleteInteraction@CInteractionProcessor@@QEAAJPEAUIManipulationResource@@@Z @ 0x18022C294
  * Callers:
- *     ?CompleteInteraction@CInteractionRoot@@UEAAJXZ @ 0x1801A43E0 (-CompleteInteraction@CInteractionRoot@@UEAAJXZ.c)
- *     ?CompleteInteraction@CInteraction@@UEAAJXZ @ 0x18020BF00 (-CompleteInteraction@CInteraction@@UEAAJXZ.c)
+ *     ?CompleteInteraction@CInteraction@@UEAAJXZ @ 0x1801C5E20 (-CompleteInteraction@CInteraction@@UEAAJXZ.c)
+ *     ?CompleteInteraction@CInteractionRoot@@UEAAJXZ @ 0x180234010 (-CompleteInteraction@CInteractionRoot@@UEAAJXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CInteractionProcessor::CompleteInteraction(
@@ -45,6 +45,7 @@ __int64 __fastcall CInteractionProcessor::CompleteInteraction(
   *(_QWORD *)((char *)this + 1252) = _mm_unpacklo_ps((__m128)0LL, (__m128)0LL).m128_u64[0];
   *((_DWORD *)this + 315) = 0;
   *((_WORD *)this + 624) = 0;
+  v6 = *(_QWORD *)this == 0LL ? 0x8007139F : 0;
   if ( *(_QWORD *)this )
   {
     (*(void (__fastcall **)(_QWORD, struct IManipulationResource *, struct IManipulationResource *))(**(_QWORD **)this + 32LL))(
@@ -71,10 +72,6 @@ __int64 __fastcall CInteractionProcessor::CompleteInteraction(
       if ( (*((_BYTE *)this + 1264) & 8) == 0 )
         (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 60) + 152LL))(*((_QWORD *)this + 60));
     }
-  }
-  else
-  {
-    return (unsigned int)-2147019873;
   }
   return v6;
 }

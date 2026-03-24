@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCovSampStackHashCheck @ 0x1408AA23C
+ * XREFs of EtwpCovSampStackHashCheck @ 0x140945D64
  * Callers:
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408A899C (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
- *     EtwpCovSampCaptureBufferProcess @ 0x1408A8AB4 (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampSampleBufferProcess @ 0x1409F2BF4 (EtwpCovSampSampleBufferProcess.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1409420CC (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x1409421E0 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x140945B94 (EtwpCovSampSampleBufferProcess.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     EtwpCovSampStackHashLookup @ 0x1409F2DC4 (EtwpCovSampStackHashLookup.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpCovSampStackHashLookup @ 0x140945FA0 (EtwpCovSampStackHashLookup.c)
  */
 
 __int64 __fastcall EtwpCovSampStackHashCheck(__int64 a1, __int64 a2, unsigned __int8 *a3, __int64 a4)
 {
-  unsigned int *v7; // rbp
-  unsigned int v8; // esi
+  unsigned int *v7; // rsi
+  unsigned int v8; // ebp
   unsigned int *v9; // rdi
   __int64 v10; // rbx
   __int64 v11; // r8
@@ -30,14 +30,14 @@ __int64 __fastcall EtwpCovSampStackHashCheck(__int64 a1, __int64 a2, unsigned __
   volatile signed __int32 *v23; // [rsp+58h] [rbp+10h] BYREF
 
   v23 = 0LL;
-  if ( !*(_QWORD *)(a1 + 1312) )
+  if ( !*(_QWORD *)(a1 + 944) )
     return 0LL;
-  v7 = *(unsigned int **)(a1 + 1312);
+  v7 = *(unsigned int **)(a1 + 944);
   v8 = 0;
-  v9 = *(unsigned int **)(a1 + 1320);
+  v9 = *(unsigned int **)(a1 + 952);
   if ( v7 == v9 )
-    v9 = *(unsigned int **)(a1 + 1328);
-  v10 = *(_QWORD *)(a1 + 1336);
+    v9 = *(unsigned int **)(a1 + 960);
+  v10 = *(_QWORD *)(a1 + 968);
   a4 = (unsigned int)a4;
   v11 = 8LL * (unsigned int)a4;
   if ( (unsigned __int64)v11 >= 8 )
@@ -133,7 +133,7 @@ LABEL_32:
       {
         memset(v9 + 2, 0, 4LL * v9[1]);
         *v9 = 0;
-        _InterlockedExchange64((volatile __int64 *)(a1 + 1312), (__int64)v9);
+        _InterlockedExchange64((volatile __int64 *)(a1 + 944), (__int64)v9);
       }
     }
   }

@@ -1,20 +1,21 @@
 /*
- * XREFs of ?HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z @ 0x1C01F7CF0
+ * XREFs of ?HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z @ 0x1C01BD494
  * Callers:
- *     ?UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDelayZonePanelTelemetryData@@PEBUtagPOINTER_INFO@@K@Z @ 0x1C01F7F88 (-UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDela.c)
+ *     ?UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDelayZonePanelTelemetryData@@PEBUtagPOINTER_INFO@@K@Z @ 0x1C01BD724 (-UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDela.c)
  * Callees:
- *     PtInRect @ 0x1C003C178 (PtInRect.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     PtInRect @ 0x1C006FD0C (PtInRect.c)
  */
 
 char __fastcall DelayZoneTelemetry::HitTestInputPanelRegion(DelayZoneTelemetry *this, struct tagPOINT a2)
 {
-  char *v2; // r14
-  char v3; // si
+  char *v2; // rsi
+  char v3; // bp
   char *v4; // rdi
-  __int64 v7; // r8
-  __int64 v8; // rcx
-  _QWORD *v9; // rax
+  bool v7; // zf
+  __int64 v8; // r8
+  char *v9; // rax
+  char **v10; // rdx
 
   v2 = (char *)this + 12288;
   v3 = 0;
@@ -23,17 +24,16 @@ char __fastcall DelayZoneTelemetry::HitTestInputPanelRegion(DelayZoneTelemetry *
     return 0;
   do
   {
-    if ( PtInRect((_DWORD *)v4 + 4, *(_QWORD *)&a2) )
+    v7 = !PtInRect((_DWORD *)v4 + 4, *(_QWORD *)&a2);
+    v9 = *(char **)v4;
+    if ( !v7 )
       v3 = 1;
-    v8 = *(_QWORD *)v4;
-    v4 = (char *)v8;
-    if ( *(_QWORD *)(v8 + 8) != v7 || (v9 = *(_QWORD **)(v7 + 8), *v9 != v7) )
+    v4 = *(char **)v4;
+    if ( *((_QWORD *)v9 + 1) != v8 || (v10 = *(char ***)(v8 + 8), *v10 != (char *)v8) )
       __fastfail(3u);
-    *v9 = v8;
-    *(_QWORD *)(v8 + 8) = v9;
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)v7);
+    *v10 = v9;
+    *((_QWORD *)v9 + 1) = v10;
+    Win32FreePool(v8);
   }
   while ( v4 != v2 );
   return v3;

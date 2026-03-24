@@ -1,13 +1,13 @@
 /*
- * XREFs of MiScrubNonPagedPool @ 0x14084F0F8
+ * XREFs of MiScrubNonPagedPool @ 0x14084F0D8
  * Callers:
- *     MiScrubNode @ 0x1402CF5C8 (MiScrubNode.c)
+ *     MiScrubNode @ 0x1402CF6C8 (MiScrubNode.c)
  * Callees:
  *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
- *     MiReturnNonPagedPoolVa @ 0x140161614 (MiReturnNonPagedPoolVa.c)
- *     MiScanNonPagedPoolVa @ 0x1401635C0 (MiScanNonPagedPoolVa.c)
- *     MiPushBadPool @ 0x1402AC60C (MiPushBadPool.c)
- *     MiScrubPage @ 0x1402CF850 (MiScrubPage.c)
+ *     MiReturnNonPagedPoolVa @ 0x140161634 (MiReturnNonPagedPoolVa.c)
+ *     MiScanNonPagedPoolVa @ 0x1401635E0 (MiScanNonPagedPoolVa.c)
+ *     MiPushBadPool @ 0x1402AC70C (MiPushBadPool.c)
+ *     MiScrubPage @ 0x1402CF950 (MiScrubPage.c)
  */
 
 void __fastcall MiScrubNonPagedPool(unsigned __int64 *a1, unsigned int a2, __int64 a3)

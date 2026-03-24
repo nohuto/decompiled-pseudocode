@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0ppffffubr6q_EventWriteTransfer @ 0x1801128CA
+ * XREFs of McTemplateU0ppffffubr6q_EventWriteTransfer @ 0x180178CA8
  * Callers:
- *     ?EtwLogCurrentState@CDrawingContext@@QEBAXXZ @ 0x1800D8EF8 (-EtwLogCurrentState@CDrawingContext@@QEBAXXZ.c)
+ *     ?EtwLogCurrentState@CDrawingContext@@QEBAXXZ @ 0x1800BA744 (-EtwLogCurrentState@CDrawingContext@@QEBAXXZ.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0ppffffubr6q_EventWriteTransfer(

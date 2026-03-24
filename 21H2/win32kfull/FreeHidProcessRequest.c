@@ -1,17 +1,17 @@
 /*
- * XREFs of FreeHidProcessRequest @ 0x1C0102B44
+ * XREFs of FreeHidProcessRequest @ 0x1C0107C8C
  * Callers:
- *     _RegisterRawInputDevices @ 0x1C00AE358 (_RegisterRawInputDevices.c)
- *     DestroyThreadHidObjects @ 0x1C01028F0 (DestroyThreadHidObjects.c)
- *     FreeProcessHidTable @ 0x1C011E378 (FreeProcessHidTable.c)
+ *     DestroyThreadHidObjects @ 0x1C0107960 (DestroyThreadHidObjects.c)
+ *     _RegisterRawInputDevices @ 0x1C0108350 (_RegisterRawInputDevices.c)
+ *     FreeProcessHidTable @ 0x1C0133018 (FreeProcessHidTable.c)
  * Callees:
- *     ?DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z @ 0x1C000356C (-DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z.c)
- *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C01030EC (-IsLegacyDevice@@YAHGG@Z.c)
- *     ?DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z @ 0x1C0103114 (-DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z.c)
- *     ?DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z @ 0x1C01D0A28 (-DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z.c)
+ *     ?DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z @ 0x1C0006D20 (-DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z.c)
+ *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C0108BE4 (-IsLegacyDevice@@YAHGG@Z.c)
+ *     ?DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z @ 0x1C0108EE8 (-DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z.c)
+ *     ?DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z @ 0x1C01D4DE4 (-DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z.c)
  */
 
-__int64 __fastcall FreeHidProcessRequest(struct tagPROCESS_HID_REQUEST *a1, int a2, struct tagPROCESS_HID_TABLE *a3)
+void __fastcall FreeHidProcessRequest(struct tagPROCESS_HID_REQUEST *a1, int a2, struct tagPROCESS_HID_TABLE *a3)
 {
   int v6; // ebp
   __int64 v7; // rax
@@ -40,5 +40,5 @@ __int64 __fastcall FreeHidProcessRequest(struct tagPROCESS_HID_REQUEST *a1, int 
   }
   *v8 = (struct tagPROCESS_HID_REQUEST *)v7;
   *(_QWORD *)(v7 + 8) = v8;
-  return Win32FreePool(a1);
+  Win32FreePool(a1);
 }

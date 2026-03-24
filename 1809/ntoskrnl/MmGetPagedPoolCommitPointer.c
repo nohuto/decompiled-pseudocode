@@ -1,5 +1,5 @@
 /*
- * XREFs of MmGetPagedPoolCommitPointer @ 0x14013BBD0
+ * XREFs of MmGetPagedPoolCommitPointer @ 0x14013BBF0
  * Callers:
  *     KdInitSystem @ 0x140915140 (KdInitSystem.c)
  * Callees:

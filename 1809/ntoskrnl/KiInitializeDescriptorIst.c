@@ -1,5 +1,5 @@
 /*
- * XREFs of KiInitializeDescriptorIst @ 0x14017E444
+ * XREFs of KiInitializeDescriptorIst @ 0x14017E464
  * Callers:
  *     KiEnableKvaShadowing @ 0x140572BD8 (KiEnableKvaShadowing.c)
  * Callees:

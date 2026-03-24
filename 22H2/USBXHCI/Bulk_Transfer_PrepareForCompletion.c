@@ -1,82 +1,75 @@
 /*
- * XREFs of Bulk_Transfer_PrepareForCompletion @ 0x1C0011B44
+ * XREFs of Bulk_Transfer_PrepareForCompletion @ 0x1C000C920
  * Callers:
- *     Bulk_Transfer_Complete @ 0x1C000E908 (Bulk_Transfer_Complete.c)
- *     Bulk_Transfer_CompleteCancelable @ 0x1C0012F88 (Bulk_Transfer_CompleteCancelable.c)
+ *     Bulk_Transfer_CompleteCancelable @ 0x1C000C124 (Bulk_Transfer_CompleteCancelable.c)
+ *     Bulk_Transfer_Complete @ 0x1C000C840 (Bulk_Transfer_Complete.c)
  * Callees:
- *     TR_GetUsbdStatusFromTrbCompletionCode @ 0x1C0006014 (TR_GetUsbdStatusFromTrbCompletionCode.c)
- *     TR_ReleaseDoubleBuffer @ 0x1C0011C64 (TR_ReleaseDoubleBuffer.c)
- *     WPP_RECORDER_SF_DDDqdD @ 0x1C0011D6C (WPP_RECORDER_SF_DDDqdD.c)
+ *     TR_GetUsbdStatusFromTrbCompletionCode @ 0x1C0004588 (TR_GetUsbdStatusFromTrbCompletionCode.c)
+ *     TR_ReleaseDoubleBuffer @ 0x1C000CA48 (TR_ReleaseDoubleBuffer.c)
+ *     WPP_RECORDER_SF_DDDqdD @ 0x1C000CABC (WPP_RECORDER_SF_DDDqdD.c)
  */
 
 void __fastcall Bulk_Transfer_PrepareForCompletion(__int64 a1, __int64 a2, unsigned int a3)
 {
-  __int64 v3; // r11
-  _DWORD *v6; // rcx
+  __int64 v3; // r10
+  unsigned __int16 v6; // ax
+  __int64 v7; // rcx
   int UsbdStatusFromTrbCompletionCode; // eax
-  int v8; // r8d
-  int v9; // r9d
-  __int64 v10; // r10
-  __int64 v11; // r11
+  int v9; // r8d
+  __int64 v10; // r9
+  __int64 v11; // r10
   int v12; // eax
   struct _MDL *v13; // rcx
-  __int64 v14; // r8
+  __int64 v14; // rdx
+  unsigned __int16 v15; // ax
+  struct _MDL *v16; // rax
 
   v3 = *(_QWORD *)(a2 + 48);
-  if ( *(_WORD *)(v3 + 2) == 8
-    || *(_WORD *)(v3 + 2) == 9
-    || *(_WORD *)(v3 + 2) == 10
-    || *(_WORD *)(v3 + 2) == 50
-    || *(_WORD *)(v3 + 2) == 55
-    || *(_WORD *)(v3 + 2) == 56
-    || (unsigned int)*(unsigned __int16 *)(v3 + 2) - 57 > 1 )
-  {
-    v6 = (_DWORD *)(v3 + 36);
-  }
-  else
-  {
-    v6 = (_DWORD *)(v3 + 52);
-  }
-  *v6 = *(_DWORD *)(a2 + 108);
+  v6 = *(_WORD *)(v3 + 2);
+  if ( v6 <= 0x38u || (v7 = 52LL, v6 > 0x3Au) )
+    v7 = 36LL;
+  *(_DWORD *)(v3 + v7) = *(_DWORD *)(a2 + 108);
   UsbdStatusFromTrbCompletionCode = TR_GetUsbdStatusFromTrbCompletionCode(a1, *(_DWORD *)(a2 + 68), a3);
   *(_DWORD *)(v11 + 4) = UsbdStatusFromTrbCompletionCode;
-  if ( UsbdStatusFromTrbCompletionCode <= -1073737728 )
+  if ( UsbdStatusFromTrbCompletionCode <= -1073738240 )
   {
-    switch ( UsbdStatusFromTrbCompletionCode )
+    if ( UsbdStatusFromTrbCompletionCode == -1073738240 )
     {
-      case -1073737728:
-        v12 = -1073741670;
-        goto LABEL_7;
-      case -2147483136:
-      case -2147482880:
-      case -2147482112:
-      case -1073739264:
-        v12 = -1073741811;
-        goto LABEL_7;
-      case -1073738240:
-        v12 = -1073741637;
-        goto LABEL_7;
+      v12 = -1073741637;
+      goto LABEL_6;
     }
-    goto LABEL_33;
-  }
-  if ( UsbdStatusFromTrbCompletionCode == -1073676288 )
-  {
-    v12 = -1073741536;
-    goto LABEL_7;
-  }
-  if ( UsbdStatusFromTrbCompletionCode != -1073713152 )
-  {
-    if ( (unsigned int)UsbdStatusFromTrbCompletionCode <= 1 )
+    if ( UsbdStatusFromTrbCompletionCode == -2147483136
+      || UsbdStatusFromTrbCompletionCode == -2147482880
+      || UsbdStatusFromTrbCompletionCode == -2147482112
+      || UsbdStatusFromTrbCompletionCode == -1073739264 )
     {
-      v12 = 0;
-      goto LABEL_7;
+      v12 = -1073741811;
+      goto LABEL_6;
     }
-LABEL_33:
-    v12 = -1073741823;
-    goto LABEL_7;
+    goto LABEL_27;
   }
-  v12 = -1073741810;
-LABEL_7:
+  switch ( UsbdStatusFromTrbCompletionCode )
+  {
+    case -1073676288:
+      v12 = -1073741536;
+      break;
+    case -1073737728:
+      v12 = -1073741670;
+      break;
+    case -1073713152:
+      v12 = -1073741810;
+      break;
+    default:
+      if ( (unsigned int)UsbdStatusFromTrbCompletionCode <= 1 )
+      {
+        v12 = 0;
+        break;
+      }
+LABEL_27:
+      v12 = -1073741823;
+      break;
+  }
+LABEL_6:
   *(_DWORD *)(a2 + 72) = v12;
   ++*(_DWORD *)(v10 + 240);
   *(_QWORD *)(v10 + 248) += *(unsigned int *)(a2 + 108);
@@ -86,8 +79,8 @@ LABEL_7:
     WPP_RECORDER_SF_DDDqdD(
       *(_QWORD *)(*(_QWORD *)(v10 + 56) + 80LL),
       *(unsigned __int8 *)(*(_QWORD *)(v10 + 48) + 135LL),
-      v8,
-      v9);
+      v9,
+      v10);
   if ( *(_QWORD *)(a2 + 96) )
   {
     TR_ReleaseDoubleBuffer(*(_QWORD *)(a2 + 56));
@@ -96,20 +89,16 @@ LABEL_7:
   v13 = *(struct _MDL **)(a2 + 80);
   if ( v13 )
   {
-    if ( (v14 = *(_QWORD *)(a2 + 48), *(_WORD *)(v14 + 2) != 8)
-      && *(_WORD *)(v14 + 2) != 9
-      && *(_WORD *)(v14 + 2) != 10
-      && *(_WORD *)(v14 + 2) != 50
-      && *(_WORD *)(v14 + 2) != 55
-      && *(_WORD *)(v14 + 2) != 56
-      && (unsigned int)*(unsigned __int16 *)(v14 + 2) - 57 < 2
-      || v13 != *(struct _MDL **)(v14 + 48) )
+    v14 = *(_QWORD *)(a2 + 48);
+    v15 = *(_WORD *)(v14 + 2);
+    if ( v15 <= 0x38u || v15 > 0x3Au )
+      v16 = *(struct _MDL **)(v14 + 48);
+    else
+      v16 = 0LL;
+    if ( v13 != v16 && v13 != *(struct _MDL **)(*(_QWORD *)(a2 + 56) + 120LL) )
     {
-      if ( v13 != *(struct _MDL **)(*(_QWORD *)(a2 + 56) + 120LL) )
-      {
-        IoFreeMdl(v13);
-        *(_QWORD *)(a2 + 80) = 0LL;
-      }
+      IoFreeMdl(v13);
+      *(_QWORD *)(a2 + 80) = 0LL;
     }
   }
   *(_BYTE *)(a2 + 16) = 0;

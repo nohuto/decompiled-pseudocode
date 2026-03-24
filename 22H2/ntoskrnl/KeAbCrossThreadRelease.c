@@ -1,17 +1,15 @@
 /*
- * XREFs of KeAbCrossThreadRelease @ 0x1403CA6A8
+ * XREFs of KeAbCrossThreadRelease @ 0x14038E120
  * Callers:
- *     ExpReleaseDisownedFastResourceShared @ 0x1403CA3F0 (ExpReleaseDisownedFastResourceShared.c)
- *     ExpReleaseDisownedFastResourceExclusive2 @ 0x140415968 (ExpReleaseDisownedFastResourceExclusive2.c)
- *     ExpReleaseDisownedFastResourceShared2 @ 0x140415B18 (ExpReleaseDisownedFastResourceShared2.c)
- *     ExpReleaseDisownedFastResourceExclusive @ 0x14060A734 (ExpReleaseDisownedFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceShared @ 0x14038DEEC (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1405B49D0 (ExpReleaseDisownedFastResourceExclusive.c)
  * Callees:
- *     KiAbCrossThreadRelease @ 0x1403CA6DC (KiAbCrossThreadRelease.c)
+ *     KiAbCrossThreadRelease @ 0x14038E150 (KiAbCrossThreadRelease.c)
  */
 
 __int64 __fastcall KeAbCrossThreadRelease(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   if ( (a2 & 1) != 0 )
-    a2 = a3 + 96LL * (unsigned __int8)(a2 >> 1) + 1696;
+    a2 = *(_QWORD *)(a3 + 800) + 96LL * (unsigned __int8)(a2 >> 1);
   return KiAbCrossThreadRelease(a1, a2);
 }

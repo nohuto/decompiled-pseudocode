@@ -13,7 +13,7 @@
  *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
  *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
  *     MiCommitPagefileBackedSection @ 0x14061DFB0 (MiCommitPagefileBackedSection.c)
- *     MiAllocateChildVads @ 0x14085DA18 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
  * Callees:
  *     <none>
  */

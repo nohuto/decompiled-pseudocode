@@ -1,43 +1,36 @@
 /*
- * XREFs of HvlDmaAllocateDeviceDomain @ 0x140542EA0
+ * XREFs of HvlDmaAllocateDeviceDomain @ 0x1404F40B0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x1403CBB50 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x14045EE8E (HvlpHvStatusIsInsufficientMemory.c)
- *     HvlpHvToNtStatus @ 0x14045EEB6 (HvlpHvToNtStatus.c)
- *     HvlpHandleInsufficientMemory @ 0x14053FEF8 (HvlpHandleInsufficientMemory.c)
+ *     HvcallFastExtended @ 0x14038FC00 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvlpHandleInsufficientMemory @ 0x1404F1CE8 (HvlpHandleInsufficientMemory.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x1404FA958 (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvlpHvToNtStatus @ 0x1404FA974 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlDmaAllocateDeviceDomain(int *a1)
 {
-  int v2; // eax
-  char v3; // cl
-  __int16 v4; // ax
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  _QWORD v9[2]; // [rsp+40h] [rbp-38h] BYREF
-  BOOL v10; // [rsp+50h] [rbp-28h]
-  int v11; // [rsp+54h] [rbp-24h]
-  __int64 v12; // [rsp+58h] [rbp-20h]
+  __int64 v1; // rax
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  _QWORD v6[2]; // [rsp+40h] [rbp-38h] BYREF
+  BOOL v7; // [rsp+50h] [rbp-28h]
+  int v8; // [rsp+54h] [rbp-24h]
 
-  v9[1] = 0LL;
-  v12 = 0LL;
-  v9[0] = -1LL;
-  v10 = *((_BYTE *)a1 + 4) != 0;
-  v2 = *a1;
-  v3 = *((_BYTE *)a1 + 8);
-  v11 = v2;
-  LODWORD(v12) = *((_BYTE *)a1 + 9) & 1 | (2 * (v3 & 1));
+  v6[1] = 0LL;
+  v6[0] = -1LL;
+  v7 = *((_BYTE *)a1 + 4) != 0;
+  v8 = *a1;
   while ( 1 )
   {
-    v4 = HvcallFastExtended(65713LL, (__int64)v9, 0x20u, 0LL, 0);
-    if ( !HvlpHvStatusIsInsufficientMemory(v4) )
+    v1 = HvcallFastExtended(65713LL, (__int64)v6, 24LL, 0LL, 0);
+    if ( !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v1, v1) )
       break;
-    if ( (int)HvlpHandleInsufficientMemory(v6, v5, v6, v7) < 0 )
+    if ( (int)HvlpHandleInsufficientMemory(v3, v2, v4) < 0 )
       return 3221225626LL;
   }
-  return HvlpHvToNtStatus(v6);
+  return HvlpHvToNtStatus(v3);
 }

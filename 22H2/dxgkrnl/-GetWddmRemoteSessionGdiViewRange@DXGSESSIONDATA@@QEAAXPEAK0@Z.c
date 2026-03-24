@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetWddmRemoteSessionGdiViewRange@DXGSESSIONDATA@@QEAAXPEAK0@Z @ 0x1C03552B8
+ * XREFs of ?GetWddmRemoteSessionGdiViewRange@DXGSESSIONDATA@@QEAAXPEAK0@Z @ 0x1C029F248
  * Callers:
- *     DxgkGetWddmRemoteSessionGdiViewRange @ 0x1C0356AB0 (DxgkGetWddmRemoteSessionGdiViewRange.c)
+ *     DxgkGetWddmRemoteSessionGdiViewRange @ 0x1C02A05E0 (DxgkGetWddmRemoteSessionGdiViewRange.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
  */
 
 void __fastcall DXGSESSIONDATA::GetWddmRemoteSessionGdiViewRange(
@@ -13,23 +13,24 @@ void __fastcall DXGSESSIONDATA::GetWddmRemoteSessionGdiViewRange(
         unsigned int *a2,
         unsigned int *a3)
 {
-  int v6; // eax
-  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v6; // rdx
+  int v7; // eax
+  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v7, (DXGSESSIONDATA *)((char *)this + 19088), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v7);
-  if ( *((_DWORD *)this + 4784) )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v8, (DXGSESSIONDATA *)((char *)this + 19048), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v8);
+  if ( *((_DWORD *)this + 4772) )
   {
-    *a2 = **((_DWORD **)this + 2394);
-    v6 = *(_DWORD *)(*((_QWORD *)this + 2394) + 4LL * (unsigned int)(*((_DWORD *)this + 4784) - 1));
-    *((_DWORD *)this + 4787) = v6;
+    *a2 = **((_DWORD **)this + 2388);
+    v7 = *(_DWORD *)(*((_QWORD *)this + 2388) + 4LL * (unsigned int)(*((_DWORD *)this + 4772) - 1));
+    *((_DWORD *)this + 4775) = v7;
   }
   else
   {
-    *a2 = *((_DWORD *)this + 4787);
-    v6 = *((_DWORD *)this + 4787) - 1;
+    *a2 = *((_DWORD *)this + 4775);
+    v7 = *((_DWORD *)this + 4775) - 1;
   }
-  *a3 = v6;
-  if ( v7[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v7);
+  *a3 = v7;
+  if ( v8[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8, v6);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of GUIDToSCSINameString @ 0x1C0012A58
+ * XREFs of GUIDToSCSINameString @ 0x1C0012564
  * Callers:
- *     FormInquiryDeviceIdentifiersData @ 0x1C0012368 (FormInquiryDeviceIdentifiersData.c)
+ *     FormInquiryDeviceIdentifiersData @ 0x1C0011EFC (FormInquiryDeviceIdentifiersData.c)
  * Callees:
- *     HexFromUchar @ 0x1C0012E30 (HexFromUchar.c)
+ *     HexFromUchar @ 0x1C0012748 (HexFromUchar.c)
  */
 
 __int64 __fastcall GUIDToSCSINameString(_BYTE *a1, _DWORD *a2, unsigned int a3, unsigned int a4)
@@ -20,7 +20,7 @@ __int64 __fastcall GUIDToSCSINameString(_BYTE *a1, _DWORD *a2, unsigned int a3, 
   if ( a4 < 2 * a3 + 4 )
     return 3238002694LL;
   v8 = 4;
-  *a2 = dword_1C0030050;
+  *a2 = dword_1C0025010;
   if ( a3 )
   {
     v9 = a3;

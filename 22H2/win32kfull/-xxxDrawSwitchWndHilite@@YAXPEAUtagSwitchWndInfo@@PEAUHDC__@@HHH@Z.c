@@ -1,58 +1,54 @@
 /*
- * XREFs of ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C013BB08
+ * XREFs of ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C0168AB4
  * Callers:
- *     ?xxxMoveSwitchWndHilite@@YAPEAUHWND__@@PEAUtagWND@@PEAUtagSwitchWndInfo@@H@Z @ 0x1C01C961C (-xxxMoveSwitchWndHilite@@YAPEAUHWND__@@PEAUtagWND@@PEAUtagSwitchWndInfo@@H@Z.c)
- *     ?xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z @ 0x1C01C9CAC (-xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z.c)
+ *     ?xxxMoveSwitchWndHilite@@YAPEAUHWND__@@PEAUtagWND@@PEAUtagSwitchWndInfo@@H@Z @ 0x1C01F2C5C (-xxxMoveSwitchWndHilite@@YAPEAUHWND__@@PEAUtagWND@@PEAUtagSwitchWndInfo@@H@Z.c)
+ *     ?xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z @ 0x1C01F3314 (-xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z.c)
  * Callees:
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreSetTextColor @ 0x1C0027D58 (GreSetTextColor.c)
- *     FillRect @ 0x1C0028BEC (FillRect.c)
- *     RtlInitLargeUnicodeString @ 0x1C0065A48 (RtlInitLargeUnicodeString.c)
- *     ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C0095A30 (-getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@.c)
- *     TextCopy @ 0x1C0095B3C (TextCopy.c)
- *     GetDPIServerInfo @ 0x1C00AB4C8 (GetDPIServerInfo.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     GreSelectFont @ 0x1C011BD80 (GreSelectFont.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     DrawFrame @ 0x1C024C638 (DrawFrame.c)
- *     DrawTextExWorker @ 0x1C024D1FC (DrawTextExWorker.c)
+ *     RtlInitLargeUnicodeString @ 0x1C0033F1C (RtlInitLargeUnicodeString.c)
+ *     GreSetTextColor @ 0x1C0044578 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     FillRect @ 0x1C0045694 (FillRect.c)
+ *     GreSelectFont @ 0x1C0045E80 (GreSelectFont.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     GetDPIServerInfo @ 0x1C00E0AC8 (GetDPIServerInfo.c)
+ *     ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C00FCF38 (-getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@.c)
+ *     TextCopy @ 0x1C00FD05C (TextCopy.c)
+ *     DrawFrame @ 0x1C015A3A8 (DrawFrame.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     DrawTextExWorker @ 0x1C025E630 (DrawTextExWorker.c)
  */
 
 void __fastcall xxxDrawSwitchWndHilite(struct tagSwitchWndInfo *a1, HDC a2, int a3, int a4, int a5)
 {
   HDC DCEx; // rdi
-  int v9; // esi
+  int v9; // r14d
   int v10; // r8d
   int v11; // ecx
   int v12; // r15d
   int v13; // r12d
   int v14; // r13d
   __int64 v15; // rcx
-  __int64 DPIServerInfo; // rax
-  __int64 v17; // rax
-  _QWORD *v18; // rcx
-  __int64 v19; // rax
-  unsigned __int64 *v20; // rbx
+  __int64 v16; // rax
+  unsigned __int64 *v17; // rcx
+  __int64 v18; // rax
+  unsigned __int64 v19; // rbx
   struct _LARGE_UNICODE_STRING *StrName; // rax
-  RECT v22; // xmm6
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  struct tagTHREADINFO *v27; // rax
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  _BYTE v31[24]; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v32; // [rsp+70h] [rbp-98h]
-  int v33; // [rsp+78h] [rbp-90h]
-  int v34; // [rsp+7Ch] [rbp-8Ch]
-  __int64 v35; // [rsp+80h] [rbp-88h] BYREF
-  RECT v36; // [rsp+88h] [rbp-80h] BYREF
-  __int128 v37; // [rsp+98h] [rbp-70h] BYREF
-  unsigned __int16 v38[256]; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 ThreadWin32Thread; // rax
+  __int64 v22; // rax
+  __int64 v23; // rcx
+  int v24[4]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v25; // [rsp+60h] [rbp-A0h] BYREF
+  int v26; // [rsp+68h] [rbp-98h]
+  __int64 v27; // [rsp+6Ch] [rbp-94h]
+  unsigned __int64 LowLimit[2]; // [rsp+78h] [rbp-88h] BYREF
+  RECT v29; // [rsp+88h] [rbp-78h] BYREF
+  _QWORD v30[3]; // [rsp+98h] [rbp-68h] BYREF
+  __int128 v31; // [rsp+B0h] [rbp-50h] BYREF
+  int v32[4]; // [rsp+C0h] [rbp-40h] BYREF
+  __int128 v33; // [rsp+D0h] [rbp-30h] BYREF
+  unsigned __int16 v34[256]; // [rsp+E0h] [rbp-20h] BYREF
 
   DCEx = a2;
   if ( a2 )
@@ -61,77 +57,81 @@ void __fastcall xxxDrawSwitchWndHilite(struct tagSwitchWndInfo *a1, HDC a2, int 
   }
   else
   {
-    DCEx = (HDC)_GetDCEx(gspwndAltTab, 0LL, 0x10000LL);
     v9 = 1;
+    DCEx = (HDC)_GetDCEx(gspwndAltTab, 0LL, 0x10000LL);
   }
   v10 = *((_DWORD *)a1 + 29);
   v11 = v10 * a4 + *((_DWORD *)a1 + 22);
-  LODWORD(v32) = v10 * a3 + *((_DWORD *)a1 + 21);
-  HIDWORD(v32) = v11;
-  v33 = v32 + v10;
-  v34 = v11 + v10;
-  DrawFrame(DCEx);
+  v24[0] = v10 * a3 + *((_DWORD *)a1 + 21);
+  v24[1] = v11;
+  v24[2] = v24[0] + v10;
+  v24[3] = v11 + v10;
+  DrawFrame(DCEx, v24, 2, a5 != 0 ? 104 : 120);
   v12 = 0;
   if ( a5 )
   {
-    v35 = 0LL;
-    v13 = GreSetTextColor((__int64)DCEx, *(_DWORD *)(gpsi + 4640LL));
+    LowLimit[0] = 0LL;
+    v13 = GreSetTextColor(DCEx, *(_DWORD *)(gpsi + 4640LL));
     v14 = GreSetBkColor(DCEx, *(_DWORD *)(gpsi + 4628LL));
-    DPIServerInfo = GetDPIServerInfo(v15);
-    v17 = GreSelectFont(DCEx, *(_QWORD *)(DPIServerInfo + 8));
-    v18 = (_QWORD *)*((_QWORD *)a1 + 4);
-    v32 = v17;
-    v19 = HMValidateHandleNoSecure(*v18, 1);
-    v20 = (unsigned __int64 *)v19;
-    if ( v19 )
+    GetDPIServerInfo(v15);
+    v16 = GreSelectFont(DCEx);
+    v17 = (unsigned __int64 *)*((_QWORD *)a1 + 4);
+    LowLimit[1] = v16;
+    v18 = HMValidateHandleNoSecure(*v17, 1);
+    v19 = v18;
+    if ( v18 )
     {
-      if ( *(_DWORD *)(*(_QWORD *)(v19 + 40) + 184LL) )
+      if ( *(_DWORD *)(*(_QWORD *)(v18 + 40) + 184LL) )
       {
-        *(_OWORD *)v31 = 0LL;
+        v31 = 0LL;
         StrName = tagWND::ProtectedLargeUnicodeStringWNDstrName::getStrName(
-                    (tagWND::ProtectedLargeUnicodeStringWNDstrName *)(v19 + 184),
-                    (struct _LARGE_UNICODE_STRING *)v31);
-        v12 = TextCopy((__int64)StrName, (char *)v38, 0x100u);
+                    (tagWND::ProtectedLargeUnicodeStringWNDstrName *)(v18 + 184),
+                    (struct _LARGE_UNICODE_STRING *)&v31);
+        v12 = TextCopy((__int64)StrName, (char *)v34, 0x100u);
       }
       else
       {
-        v38[0] = 0;
+        v34[0] = 0;
       }
-      v22 = *(RECT *)((char *)a1 + 92);
-      v36 = v22;
-      FillRect(DCEx, &v36, *(HBRUSH *)(gpsi + 4816LL));
-      v27 = PtiCurrentShared(v24, v23, v25, v26);
-      if ( (*(_DWORD *)(*((_QWORD *)v27 + 53) + 752LL) & 0xF) == 0 || (*((_DWORD *)v27 + 122) & 1) != 0 )
+      v29 = *(RECT *)((char *)a1 + 92);
+      FillRect(DCEx, &v29, *(HBRUSH *)(gpsi + 4816LL));
+      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      if ( (*(_DWORD *)(*(_QWORD *)(ThreadWin32Thread + 424) + 760LL) & 0xF) == 0
+        || (*(_DWORD *)(ThreadWin32Thread + 488) & 1) != 0 )
       {
-        *(_QWORD *)v31 = 20LL;
-        *(_QWORD *)&v31[12] = 0LL;
-        *(_DWORD *)&v31[8] = 0;
-        DrawTextExWorker(DCEx, v38, v12, &v36, 0x8820u, (struct tagDRAWTEXTPARAMS *)v31);
+        v25 = 20LL;
+        v27 = 0LL;
+        v26 = 0;
+        DrawTextExWorker(DCEx, v34, v12, &v29, 0x8820u, (struct tagDRAWTEXTPARAMS *)&v25);
       }
       else
       {
-        memset(v31, 0, sizeof(v31));
-        v36 = 0LL;
-        v37 = 0LL;
-        RtlInitLargeUnicodeString((__int64)&v37, (__int64)v38);
-        v36 = v22;
-        ThreadLock(v20, v31);
+        v30[2] = 0LL;
+        *(_OWORD *)v32 = 0LL;
+        v33 = 0LL;
+        RtlInitLargeUnicodeString((__int64)&v33, (__int64)v34);
+        *(RECT *)v32 = v29;
+        v22 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+        v30[0] = *(_QWORD *)(v22 + 416);
+        *(_QWORD *)(v22 + 416) = v30;
+        v30[1] = v19;
+        HMLockObject(v19);
         xxxSendTransformableMessageTimeout(
-          v20,
+          v19,
           0x8Cu,
-          (__int64)DCEx,
-          (__int128 *)&v36.left,
+          (unsigned __int64)DCEx,
+          (struct _LARGE_STRING *)v32,
           2u,
           0x64u,
-          (unsigned __int64 *)&v35,
+          (__int64 *)LowLimit,
           1,
           0);
-        ThreadUnlock1(v29, v28, v30);
+        ThreadUnlock1(v23);
       }
     }
-    GreSelectFont(DCEx, v32);
+    GreSelectFont(DCEx);
     GreSetBkColor(DCEx, v14);
-    GreSetTextColor((__int64)DCEx, v13);
+    GreSetTextColor(DCEx, v13);
   }
   if ( v9 )
     _ReleaseDC(DCEx);

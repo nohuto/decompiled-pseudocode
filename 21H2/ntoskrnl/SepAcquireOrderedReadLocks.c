@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAcquireOrderedReadLocks @ 0x14021F6E8
+ * XREFs of SepAcquireOrderedReadLocks @ 0x140360058
  * Callers:
- *     SepIsSiblingTokenByPointer @ 0x1406953C8 (SepIsSiblingTokenByPointer.c)
- *     NtCompareTokens @ 0x140695A40 (NtCompareTokens.c)
- *     SeTokenCanImpersonate @ 0x1407AFBE0 (SeTokenCanImpersonate.c)
+ *     SeTokenCanImpersonate @ 0x14065B420 (SeTokenCanImpersonate.c)
+ *     SepIsSiblingTokenByPointer @ 0x140716B0C (SepIsSiblingTokenByPointer.c)
+ *     NtCompareTokens @ 0x140717200 (NtCompareTokens.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
  */
 
 BOOLEAN __fastcall SepAcquireOrderedReadLocks(unsigned __int64 a1, unsigned __int64 a2)

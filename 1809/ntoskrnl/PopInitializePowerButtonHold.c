@@ -3,11 +3,11 @@
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F29E4 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
- *     PopOpenKey @ 0x140178B34 (PopOpenKey.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopInitializeWorkItem @ 0x140729864 (PopInitializeWorkItem.c)
- *     PopPowerButtonBugcheckConfigure @ 0x140729920 (PopPowerButtonBugcheckConfigure.c)
+ *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A04 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
+ *     PopOpenKey @ 0x140178B54 (PopOpenKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopInitializeWorkItem @ 0x140729844 (PopInitializeWorkItem.c)
+ *     PopPowerButtonBugcheckConfigure @ 0x140729900 (PopPowerButtonBugcheckConfigure.c)
  */
 
 void __fastcall PopInitializePowerButtonHold(int a1)

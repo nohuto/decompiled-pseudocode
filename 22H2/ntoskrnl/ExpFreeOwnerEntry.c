@@ -1,79 +1,53 @@
 /*
- * XREFs of ExpFreeOwnerEntry @ 0x140260A40
+ * XREFs of ExpFreeOwnerEntry @ 0x140275670
  * Callers:
- *     ExReleaseResourceForThreadLite @ 0x14025FC40 (ExReleaseResourceForThreadLite.c)
- *     ExpReleaseResourceForThreadLite @ 0x1402604E0 (ExpReleaseResourceForThreadLite.c)
+ *     CcUnpinFileDataEx @ 0x140274CB0 (CcUnpinFileDataEx.c)
  * Callees:
- *     ObpDeferObjectDeletion @ 0x14020B950 (ObpDeferObjectDeletion.c)
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402C3BD0 (ObDereferenceObjectDeferDelete.c)
+ *     PsBoostThreadIoEx @ 0x1402CDF90 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoQoS @ 0x1402DD248 (PsBoostThreadIoQoS.c)
  */
 
-__int64 __fastcall ExpFreeOwnerEntry(__int64 a1)
+__int64 __fastcall ExpFreeOwnerEntry(__int64 a1, __int64 a2)
 {
-  int v1; // eax
-  ULONG_PTR v3; // rdi
+  int v2; // eax
+  unsigned __int64 v4; // rdi
   __int64 result; // rax
-  signed __int64 v5; // rax
-  bool v6; // cc
-  signed __int64 BugCheckParameter4; // rax
 
-  v1 = *(_DWORD *)(a1 + 8);
-  v3 = *(_QWORD *)a1;
-  if ( (v1 & 2) != 0 )
+  v2 = *(_DWORD *)(a1 + 8);
+  v4 = *(_QWORD *)a1;
+  if ( (v2 & 2) != 0 )
   {
-    v3 &= 0xFFFFFFFFFFFFFFFCuLL;
+    v4 &= 0xFFFFFFFFFFFFFFFCuLL;
   }
-  else if ( (v3 & 3) != 0 )
+  else if ( (v4 & 3) != 0 )
   {
-LABEL_15:
+LABEL_11:
     result = 0LL;
     *(_QWORD *)a1 = 0LL;
     return result;
   }
-  if ( !v3 )
-    goto LABEL_15;
-  if ( (v1 & 1) != 0 )
+  if ( !v4 )
+    goto LABEL_11;
+  if ( (v2 & 1) != 0 )
   {
-    PsBoostThreadIoEx(v3, 1, 0, 0LL);
+    LOBYTE(a2) = 1;
+    PsBoostThreadIoEx(v4, a2, 0LL, 0LL);
     *(_DWORD *)(a1 + 8) &= ~1u;
-    v1 = *(_DWORD *)(a1 + 8);
+    v2 = *(_DWORD *)(a1 + 8);
   }
-  if ( (v1 & 4) != 0 )
+  if ( (v2 & 4) != 0 )
   {
-    _InterlockedDecrement((volatile signed __int32 *)(v3 + 1444));
+    PsBoostThreadIoQoS(v4, 1LL);
     *(_DWORD *)(a1 + 8) &= ~4u;
-    v1 = *(_DWORD *)(a1 + 8);
+    v2 = *(_DWORD *)(a1 + 8);
   }
-  if ( (v1 & 2) != 0 )
+  if ( (v2 & 2) != 0 )
   {
-    if ( ObpTraceFlags )
-      ObpPushStackInfo(v3 - 48);
-    v5 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v3 - 48), 0xFFFFFFFFFFFFFFFFuLL);
-    v6 = v5 <= 1;
-    BugCheckParameter4 = v5 - 1;
-    if ( v6 )
-    {
-      if ( *(_QWORD *)(v3 - 40) )
-        KeBugCheckEx(
-          0x18u,
-          ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v3 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v3 - 48) >> 8)],
-          v3,
-          3uLL,
-          *(_QWORD *)(v3 - 40));
-      if ( BugCheckParameter4 < 0 )
-        KeBugCheckEx(0x18u, 0LL, v3, 4uLL, BugCheckParameter4);
-      ObpDeferObjectDeletion(v3 - 48);
-    }
+    ObDereferenceObjectDeferDelete((PVOID)v4);
     *(_DWORD *)(a1 + 8) &= ~2u;
-    result = 0LL;
-    *(_QWORD *)a1 = 0LL;
   }
-  else
-  {
-    result = 0LL;
-    *(_QWORD *)a1 = 0LL;
-  }
+  result = 0LL;
+  *(_QWORD *)a1 = 0LL;
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ForceRender@CConnection@DirectComposition@@QEAAJ_N0W4Enum@DwmHardwareTeardown@@0@Z @ 0x1C00CA680
+ * XREFs of ?ForceRender@CConnection@DirectComposition@@QEAAJ_N0W4Enum@DwmHardwareTeardown@@0@Z @ 0x1C00C49C0
  * Callers:
- *     DCompositionForceRender @ 0x1C00CA5F4 (DCompositionForceRender.c)
- *     DCompositionDDAChange @ 0x1C0209140 (DCompositionDDAChange.c)
+ *     DCompositionForceRender @ 0x1C00C4934 (DCompositionForceRender.c)
+ *     DCompositionDDAChange @ 0x1C01D1EF4 (DCompositionDDAChange.c)
  * Callees:
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0065C58 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     ?ForceRender@CSystemChannel@DirectComposition@@QEAAJ_N0W4Enum@DwmHardwareTeardown@@0@Z @ 0x1C00CA768 (-ForceRender@CSystemChannel@DirectComposition@@QEAAJ_N0W4Enum@DwmHardwareTeardown@@0@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C005AA80 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     ?ForceRender@CSystemChannel@DirectComposition@@QEAAJ_N0W4Enum@DwmHardwareTeardown@@0@Z @ 0x1C00C4AA8 (-ForceRender@CSystemChannel@DirectComposition@@QEAAJ_N0W4Enum@DwmHardwareTeardown@@0@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CConnection::ForceRender(__int64 a1, char a2, char a3, unsigned int a4, char a5)

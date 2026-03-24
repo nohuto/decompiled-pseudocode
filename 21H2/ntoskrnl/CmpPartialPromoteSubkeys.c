@@ -1,40 +1,40 @@
 /*
- * XREFs of CmpPartialPromoteSubkeys @ 0x1409224D4
+ * XREFs of CmpPartialPromoteSubkeys @ 0x1408800C0
  * Callers:
- *     CmpSetKeySecurity @ 0x140677810 (CmpSetKeySecurity.c)
+ *     CmpSetKeySecurity @ 0x14066DF0C (CmpSetKeySecurity.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpKeyEnumStackAdvance @ 0x14065B900 (CmpKeyEnumStackAdvance.c)
- *     CmpKeyEnumStackNotifyPromotion @ 0x14065CB84 (CmpKeyEnumStackNotifyPromotion.c)
- *     CmpKeyEnumStackCleanup @ 0x14069F024 (CmpKeyEnumStackCleanup.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14069F1CC (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpKeyEnumStackInitialize @ 0x14069F1F4 (CmpKeyEnumStackInitialize.c)
- *     CmpFindKcbInHashEntryByName @ 0x1406D2154 (CmpFindKcbInHashEntryByName.c)
- *     CmpHashUnicodeComponent @ 0x140718B68 (CmpHashUnicodeComponent.c)
- *     CmpHashCompressedComponent @ 0x14071BC04 (CmpHashCompressedComponent.c)
- *     CmpGetKcbAtLayerHeight @ 0x140721CE0 (CmpGetKcbAtLayerHeight.c)
- *     CmpPopulateKcbStack @ 0x1407C063C (CmpPopulateKcbStack.c)
- *     CmpStartKcbStack @ 0x1407C07F4 (CmpStartKcbStack.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x14091514C (CmpFindKcbInHashEntryByCompressedName.c)
- *     CmpKeyEnumStackStartFromKcbStack @ 0x140920F1C (CmpKeyEnumStackStartFromKcbStack.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x140922984 (CmpPromoteSingleKeyFromKcbStacks.c)
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140922B20 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpFindKcbInHashEntryByName @ 0x1405EFB44 (CmpFindKcbInHashEntryByName.c)
+ *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
+ *     CmpKeyEnumStackCleanup @ 0x140699B20 (CmpKeyEnumStackCleanup.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140699C98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpKeyEnumStackInitialize @ 0x140699CBC (CmpKeyEnumStackInitialize.c)
+ *     CmpStartKcbStack @ 0x1406FB380 (CmpStartKcbStack.c)
+ *     CmpPopulateKcbStack @ 0x1406FB4F0 (CmpPopulateKcbStack.c)
+ *     CmpKeyEnumStackAdvance @ 0x140729B28 (CmpKeyEnumStackAdvance.c)
+ *     CmpHashCompressedComponent @ 0x140766704 (CmpHashCompressedComponent.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x14086EF30 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpKeyEnumStackNotifyPromotion @ 0x14087ABDC (CmpKeyEnumStackNotifyPromotion.c)
+ *     CmpKeyEnumStackStartFromKcbStack @ 0x14087AC78 (CmpKeyEnumStackStartFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x14088057C (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140880718 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
  */
 
 __int64 __fastcall CmpPartialPromoteSubkeys(__int64 a1)
 {
   __int16 v2; // dx
-  __int64 KcbAtLayerHeight; // rdi
+  __int64 KcbAtLayerHeight; // rsi
   __int16 v4; // dx
   __int64 v5; // r8
   struct _LOOKASIDE_LIST_EX *v6; // r9
   int started; // ebx
-  __int16 v8; // dx
+  __int16 v8; // r8
+  __int64 v9; // r9
+  __int16 v10; // dx
   __int64 EntryAtLayerHeight; // rax
-  __int16 v10; // r9
-  __int64 v11; // r10
   __int64 v12; // rax
   int v13; // ebx
   unsigned __int8 *v14; // r14
@@ -69,60 +69,62 @@ __int64 __fastcall CmpPartialPromoteSubkeys(__int64 a1)
         if ( v19 < 0 )
           break;
         v8 = *(_WORD *)(KcbAtLayerHeight + 66);
+        v9 = 0LL;
+        v10 = v8;
         if ( v8 >= 0 )
         {
           while ( 1 )
           {
-            EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight((__int64)&v24[4], v8);
+            EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight((__int64)&v24[4], v10);
             if ( *(_QWORD *)(EntryAtLayerHeight + 16) )
               break;
-            if ( --v8 < 0 )
+            if ( --v10 < 0 )
               goto LABEL_9;
           }
-          v11 = EntryAtLayerHeight;
+          v9 = EntryAtLayerHeight;
+        }
 LABEL_9:
-          if ( v8 != v10 )
+        if ( v10 != v8 )
+        {
+          v12 = *(_QWORD *)(v9 + 16);
+          v13 = *(unsigned __int16 *)(v12 + 72);
+          v14 = (unsigned __int8 *)(v12 + 76);
+          LOBYTE(v12) = *(_BYTE *)(v12 + 2);
+          v21.m128i_i64[1] = (__int64)v14;
+          v21.m128i_i16[0] = v13;
+          v21.m128i_i16[1] = v13;
+          if ( (v12 & 0x20) != 0 )
           {
-            v12 = *(_QWORD *)(v11 + 16);
-            v13 = *(unsigned __int16 *)(v12 + 72);
-            v14 = (unsigned __int8 *)(v12 + 76);
-            LOBYTE(v12) = *(_BYTE *)(v12 + 2);
-            v21.m128i_i64[1] = (__int64)v14;
-            v21.m128i_i16[0] = v13;
-            v21.m128i_i16[1] = v13;
-            if ( (v12 & 0x20) != 0 )
-            {
-              v15 = CmpHashCompressedComponent(v14, v13);
-              KcbInHashEntryByCompressedName = CmpFindKcbInHashEntryByCompressedName(
-                                                 *(_QWORD *)(KcbAtLayerHeight + 32),
-                                                 v15 + 37 * *(_DWORD *)(KcbAtLayerHeight + 16),
-                                                 KcbAtLayerHeight,
-                                                 v14,
-                                                 v13);
-            }
-            else
-            {
-              v17 = CmpHashUnicodeComponent(&v21);
-              KcbInHashEntryByCompressedName = CmpFindKcbInHashEntryByName(
-                                                 *(_QWORD *)(KcbAtLayerHeight + 32),
-                                                 v17 + 37 * *(_DWORD *)(KcbAtLayerHeight + 16),
-                                                 KcbAtLayerHeight,
-                                                 (__int64)&v21);
-            }
-            if ( KcbInHashEntryByCompressedName )
-            {
-              CmpPopulateKcbStack((__int64)&v22, KcbInHashEntryByCompressedName);
-              v18 = CmpPromoteSingleKeyFromKcbStacks(a1, &v22, 0LL);
-            }
-            else
-            {
-              v18 = CmpPromoteSingleKeyFromParentKcbAndChildKeyNode(a1, &v24[4], 0LL);
-            }
-            started = v18;
-            if ( v18 < 0 )
-              goto LABEL_21;
-            CmpKeyEnumStackNotifyPromotion((__int64)v24);
+            v15 = CmpHashCompressedComponent(v14, v13);
+            KcbInHashEntryByCompressedName = CmpFindKcbInHashEntryByCompressedName(
+                                               *(_QWORD *)(KcbAtLayerHeight + 32),
+                                               v15 + 37 * *(_DWORD *)(KcbAtLayerHeight + 16),
+                                               KcbAtLayerHeight,
+                                               v14,
+                                               v13);
           }
+          else
+          {
+            v17 = CmpHashUnicodeComponent(&v21);
+            KcbInHashEntryByCompressedName = CmpFindKcbInHashEntryByName(
+                                               *(_QWORD *)(KcbAtLayerHeight + 32),
+                                               v17 + 37 * *(_DWORD *)(KcbAtLayerHeight + 16),
+                                               KcbAtLayerHeight,
+                                               (__int64)&v21);
+          }
+          if ( KcbInHashEntryByCompressedName )
+          {
+            CmpPopulateKcbStack((__int64)&v22, KcbInHashEntryByCompressedName);
+            v18 = CmpPromoteSingleKeyFromKcbStacks(a1, &v22, 0LL);
+          }
+          else
+          {
+            v18 = CmpPromoteSingleKeyFromParentKcbAndChildKeyNode(a1, &v24[4], 0LL);
+          }
+          started = v18;
+          if ( v18 < 0 )
+            goto LABEL_21;
+          CmpKeyEnumStackNotifyPromotion(v24);
         }
       }
       if ( v19 == -2147483622 )

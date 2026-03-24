@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwGetNextThread @ 0x14041C680
+ * XREFs of ZwGetNextThread @ 0x1403FB940
  * Callers:
  *     <none>
  * Callees:

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpPrepareLightWeightTransaction @ 0x14069377C
+ * XREFs of CmpPrepareLightWeightTransaction @ 0x14069375C
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x140693564 (CmpCommitLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140693544 (CmpCommitLightWeightTransaction.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmpCleanupLightWeightPrepare @ 0x140693858 (CmpCleanupLightWeightPrepare.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
- *     CmpProcessLightWeightUOW @ 0x140694A3C (CmpProcessLightWeightUOW.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmpCleanupLightWeightPrepare @ 0x140693838 (CmpCleanupLightWeightPrepare.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
+ *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
  */
 
 __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1)
   EVENT_DATA_DESCRIPTOR v9; // [rsp+58h] [rbp-30h] BYREF
 
   if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 1uLL) )
-    TlgWrite(&stru_1403FFAA0, &unk_14036BFC4, 0LL, 0LL, 2u, &pData);
+    TlgWrite(&stru_1403FFAA0, &unk_14036C0D4, 0LL, 0LL, 2u, &pData);
   if ( a1 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -51,6 +51,6 @@ __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1)
   v5 = 0;
 LABEL_8:
   if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 1uLL) )
-    TlgWrite(&stru_1403FFAA0, &unk_14036BF93, 0LL, 0LL, 2u, &v9);
+    TlgWrite(&stru_1403FFAA0, &unk_14036C0A3, 0LL, 0LL, 2u, &v9);
   return (unsigned int)v5;
 }

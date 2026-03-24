@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrApplyDynamicRelocations @ 0x140376104
+ * XREFs of LdrApplyDynamicRelocations @ 0x1403B6488
  * Callers:
- *     MiApplyDynamicRelocations @ 0x140B47844 (MiApplyDynamicRelocations.c)
+ *     MiApplyDynamicRelocations @ 0x140A4F5D8 (MiApplyDynamicRelocations.c)
  * Callees:
  *     <none>
  */
@@ -12,82 +12,81 @@ __int64 __fastcall LdrApplyDynamicRelocations(
         __int64 a3,
         __int64 a4,
         int a5,
-        int a6,
-        __int64 a7,
-        __int64 a8)
+        __int64 a6,
+        __int64 a7)
 {
-  unsigned int *v9; // r8
-  unsigned __int64 v10; // rcx
-  bool v11; // zf
-  unsigned int *v12; // rdx
-  __int64 v13; // rax
-  unsigned __int64 v14; // r9
-  unsigned int *v15; // rax
-  __int64 v16; // rcx
-  unsigned int *v17; // r8
-  __int64 v18; // r10
-  unsigned __int64 v19; // rcx
-  unsigned __int64 v20; // rdi
-  unsigned __int16 *v21; // rbx
+  unsigned int *v8; // r8
+  unsigned __int64 v9; // rcx
+  bool v10; // zf
+  unsigned int *v11; // rdx
+  __int64 v12; // rax
+  unsigned __int64 v13; // r9
+  unsigned int *v14; // rax
+  __int64 v15; // rcx
+  unsigned int *v16; // r8
+  __int64 v17; // r10
+  unsigned __int64 v18; // rcx
+  unsigned __int64 v19; // rdi
+  unsigned __int16 *v20; // rbx
   unsigned int i; // r10d
-  __int64 v23; // rax
-  unsigned __int64 v24; // rcx
+  __int64 v22; // rax
+  unsigned __int64 v23; // rcx
 
   if ( *a2 != 1 )
     return 3221225659LL;
-  v9 = a2 + 2;
-  v10 = (unsigned __int64)a2 + (unsigned int)a2[1] + 8;
-  v11 = v10 == (_QWORD)(a2 + 2);
-  if ( v10 >= (unsigned __int64)(a2 + 2) )
+  v8 = a2 + 2;
+  v9 = (unsigned __int64)a2 + (unsigned int)a2[1] + 8;
+  v10 = v9 == (_QWORD)(a2 + 2);
+  if ( v9 >= (unsigned __int64)(a2 + 2) )
   {
-    v12 = a2 + 2;
-    if ( v11 )
+    v11 = a2 + 2;
+    if ( v10 )
       return 0LL;
     while ( 1 )
     {
-      v13 = v12[2];
-      v14 = (unsigned __int64)v12 + v13 + 12;
-      if ( v12 < v9 || v14 > v10 || v14 < (unsigned __int64)v12 )
+      v12 = v11[2];
+      v13 = (unsigned __int64)v11 + v12 + 12;
+      if ( v11 < v8 || v13 > v9 || v13 < (unsigned __int64)v11 )
         break;
-      if ( *(_QWORD *)v12 == a7 )
+      if ( *(_QWORD *)v11 == a6 )
       {
-        v15 = v12 + 3;
-        if ( v12 + 3 == (unsigned int *)v14 )
+        v14 = v11 + 3;
+        if ( v11 + 3 == (unsigned int *)v13 )
           return 0LL;
         while ( 1 )
         {
-          v16 = v15[1];
-          if ( (unsigned int)v16 < 0xA )
+          v15 = v14[1];
+          if ( (unsigned int)v15 < 0xA )
             break;
-          if ( (v16 & 1) != 0 )
+          if ( (v15 & 1) != 0 )
             break;
-          v17 = (unsigned int *)((char *)v15 + v16);
-          v18 = (unsigned int)v16;
-          if ( v15 <= v12 || (unsigned __int64)v17 > v14 || v17 < v15 )
+          v16 = (unsigned int *)((char *)v14 + v15);
+          v17 = (unsigned int)v15;
+          if ( v14 <= v11 || (unsigned __int64)v16 > v13 || v16 < v14 )
             break;
-          v19 = a1 + *v15;
-          v20 = (unsigned __int64)(v18 - 8) >> 1;
-          v21 = (unsigned __int16 *)(v15 + 2);
-          for ( i = 0; i < (unsigned int)v20; v19 = v24 & 0xFFFFFFFFFFFFF000uLL )
+          v18 = a1 + *v14;
+          v19 = (unsigned __int64)(v17 - 8) >> 1;
+          v20 = (unsigned __int16 *)(v14 + 2);
+          for ( i = 0; i < (unsigned int)v19; v18 = v23 & 0xFFFFFFFFFFFFF000uLL )
           {
-            v23 = *v21;
-            if ( !(_WORD)v23 && i )
+            v22 = *v20;
+            if ( !(_WORD)v22 && i )
               break;
-            if ( (unsigned __int16)v23 >= 0x1000u )
+            if ( (unsigned __int16)v22 >= 0x1000u )
               return 3221225595LL;
-            v24 = v23 | v19;
+            v23 = v22 | v18;
             ++i;
-            ++v21;
-            *(_QWORD *)v24 += a8 - a7;
+            ++v20;
+            *(_QWORD *)v23 += a7 - a6;
           }
-          v15 = v17;
-          if ( v17 == (unsigned int *)v14 )
+          v14 = v16;
+          if ( v16 == (unsigned int *)v13 )
             return 0LL;
         }
         return 3221225595LL;
       }
-      v12 = (unsigned int *)((char *)v12 + v13 + 12);
-      if ( v14 == v10 )
+      v11 = (unsigned int *)((char *)v11 + v12 + 12);
+      if ( v13 == v9 )
         return 0LL;
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of FadePalette @ 0x140550D9C
+ * XREFs of FadePalette @ 0x1404FF12C
  * Callers:
- *     RotBarUpdate @ 0x140550FDC (RotBarUpdate.c)
+ *     RotBarUpdate @ 0x1404FF36C (RotBarUpdate.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall FadePalette(unsigned __int8 a1)
   v1 = &MainPalette - PalettePtr;
   v2 = a1;
   v3 = 16LL;
-  v4 = &unk_140C0CBA1 - PalettePtr;
+  v4 = &unk_140C12651 - PalettePtr;
   v5 = (char *)PalettePtr + 2;
   do
   {

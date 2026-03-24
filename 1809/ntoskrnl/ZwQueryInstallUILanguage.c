@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryInstallUILanguage @ 0x1401BAA90
+ * XREFs of ZwQueryInstallUILanguage @ 0x1401BAAB0
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x14073DFA8 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x14073DF88 (_RtlpMuiRegLoadInstalled.c)
  * Callees:
  *     <none>
  */

@@ -1,45 +1,38 @@
 /*
- * XREFs of ?PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z @ 0x1C00761A4
+ * XREFs of ?PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z @ 0x1C005324C
  * Callers:
- *     ?RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z @ 0x1C0075FAC (-RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z.c)
+ *     ?RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z @ 0x1C00530AC (-RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0046340 (W32GetThreadWin32Thread.c)
- *     ?ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ @ 0x1C0057FD0 (-ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ.c)
- *     ?ForwardPnpNotificationToISM@CBaseInput@@CAXW4_KnownRIMDeviceKind@@PEBUDEVICEINFO@@QEAXK@Z @ 0x1C006C548 (-ForwardPnpNotificationToISM@CBaseInput@@CAXW4_KnownRIMDeviceKind@@PEBUDEVICEINFO@@QEAXK@Z.c)
- *     GetKnownRIMDeviceKind @ 0x1C006D78C (GetKnownRIMDeviceKind.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     ?ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ @ 0x1C0046904 (-ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ.c)
+ *     ApiSetEditionDevicePnpNotification @ 0x1C0053338 (ApiSetEditionDevicePnpNotification.c)
+ *     ?ForwardPnpNotificationToISM@CBaseInput@@CAXW4_KnownRIMDeviceKind@@PEBUDEVICEINFO@@QEAXK@Z @ 0x1C008A674 (-ForwardPnpNotificationToISM@CBaseInput@@CAXW4_KnownRIMDeviceKind@@PEBUDEVICEINFO@@QEAXK@Z.c)
+ *     GetKnownRIMDeviceKind @ 0x1C008A8A8 (GetKnownRIMDeviceKind.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CBaseInput::PerformPnpNotification(CBaseInput *this, const struct _DevicePnpNotification *a2)
 {
-  PKDPC BufferChainingDpc; // rdi
-  SINGLE_LIST_ENTRY *p_DpcListEntry; // rbx
-  int KnownRIMDeviceKind; // eax
+  CInputThread *v4; // rdi
+  int v5; // ebx
+  unsigned int KnownRIMDeviceKind; // eax
   __int64 v7; // r10
 
   if ( !W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1962LL);
-  BufferChainingDpc = WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc;
-  p_DpcListEntry = &WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc->DpcListEntry;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1929LL);
+  v4 = gpInputThread;
   KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(p_DpcListEntry, 0LL);
-  LODWORD(BufferChainingDpc) = BufferChainingDpc->DeferredRoutine;
-  ExReleasePushLockSharedEx(p_DpcListEntry, 0LL);
+  ExAcquirePushLockSharedEx(v4, 0LL);
+  v5 = *((_DWORD *)v4 + 4);
+  ExReleasePushLockSharedEx(v4, 0LL);
   KeLeaveCriticalRegion();
-  if ( (_DWORD)BufferChainingDpc == 2 && (unsigned int)(*((_DWORD *)a2 + 5) - 2) <= 1 )
+  if ( v5 == 2 && (unsigned int)(*((_DWORD *)a2 + 5) - 2) <= 1 )
   {
-    if ( !CBaseInput::ExecutingOnSensorHostingThread(this)
-      && (KeGetCurrentThread() != gpIVThread || (*(_DWORD *)(*(_QWORD *)a2 + 184LL) & 0x40) == 0) )
-    {
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1994LL);
-    }
+    if ( !CBaseInput::ExecutingOnSensorHostingThread(this) )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1959LL);
     KnownRIMDeviceKind = GetKnownRIMDeviceKind(*(_QWORD *)a2);
-    CBaseInput::ForwardPnpNotificationToISM(KnownRIMDeviceKind, v7, *((_QWORD *)a2 + 1), *((_DWORD *)a2 + 5));
+    if ( KnownRIMDeviceKind )
+      CBaseInput::ForwardPnpNotificationToISM(KnownRIMDeviceKind, v7, *((_QWORD *)a2 + 1), *((unsigned int *)a2 + 5));
   }
-  if ( qword_1C0296610 && (int)qword_1C0296610() >= 0 )
-  {
-    if ( qword_1C0296618 )
-      qword_1C0296618(a2);
-  }
+  ApiSetEditionDevicePnpNotification(a2);
 }

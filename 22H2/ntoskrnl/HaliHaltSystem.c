@@ -1,11 +1,11 @@
 /*
- * XREFs of HaliHaltSystem @ 0x140506B10
+ * XREFs of HaliHaltSystem @ 0x1404BE190
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiPmRegisterRead @ 0x1403A1570 (HalpAcpiPmRegisterRead.c)
- *     HalpShutdown @ 0x140506D54 (HalpShutdown.c)
- *     InbvCheckDisplayOwnership @ 0x14054E5D0 (InbvCheckDisplayOwnership.c)
+ *     HalpAcpiPmRegisterRead @ 0x140398F40 (HalpAcpiPmRegisterRead.c)
+ *     HalpShutdown @ 0x1404BE3DC (HalpShutdown.c)
+ *     InbvCheckDisplayOwnership @ 0x1404FEBB0 (InbvCheckDisplayOwnership.c)
  */
 
 void __noreturn HaliHaltSystem()
@@ -18,16 +18,22 @@ void __noreturn HaliHaltSystem()
     do
     {
       do
+      {
+        v0 = 0;
         v1 = 0;
+      }
       while ( !(_DWORD)KiBugCheckData && !(unsigned __int8)InbvCheckDisplayOwnership() );
     }
-    while ( !HalpShutdownContext || !PmRegisters[0] );
-    HalpAcpiPmRegisterRead(0, 0, (__int64)&v1, 2u, 0LL);
-    v0 = v1;
-    if ( byte_140C605F0 )
+    while ( !HalpShutdownContext );
+    if ( PmRegisters[0] )
     {
-      HalpAcpiPmRegisterRead(3, 0, (__int64)&v1, 2u, 0LL);
-      v0 |= v1;
+      HalpAcpiPmRegisterRead(0, 0, (__int64)&v1, 2u, 0LL);
+      v0 = v1;
+      if ( byte_140C49150 )
+      {
+        HalpAcpiPmRegisterRead(3, 0, (__int64)&v1, 2u, 0LL);
+        v0 |= v1;
+      }
     }
     if ( (v0 & 0x8100) == 0x100 )
       HalpShutdown();

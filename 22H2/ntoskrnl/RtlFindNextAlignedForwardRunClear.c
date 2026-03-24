@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindNextAlignedForwardRunClear @ 0x14029502C
+ * XREFs of RtlFindNextAlignedForwardRunClear @ 0x14032F864
  * Callers:
- *     EtwpFindUserBufferSpace @ 0x14070916C (EtwpFindUserBufferSpace.c)
+ *     EtwpFindUserBufferSpace @ 0x1406BEE00 (EtwpFindUserBufferSpace.c)
  * Callees:
  *     <none>
  */
@@ -15,10 +15,10 @@ __int64 __fastcall RtlFindNextAlignedForwardRunClear(int *a1, __int64 a2, int a3
   unsigned __int64 v9; // rbp
   _DWORD *i; // r9
   char v11; // al
-  int v12; // edi
+  int v12; // ebx
   unsigned int v13; // r8d
   int v14; // ecx
-  unsigned int v15; // r8d
+  unsigned int v16; // r8d
 
   v3 = *a1;
   v4 = 0;
@@ -33,7 +33,7 @@ LABEL_4:
   {
     v11 = v4;
     v4 &= 0xFFFFFFE0;
-    v12 = *((_DWORD *)qword_1400166D0 + (v11 & 0x1F)) | *i;
+    v12 = *i | *((_DWORD *)qword_1400127A0 + (v11 & 0x1F));
     if ( (v12 & v8) != v8 )
     {
       v13 = 0;
@@ -43,35 +43,36 @@ LABEL_4:
         {
           v14 = 0;
           if ( v4 < v3 )
-            break;
+          {
+            do
+            {
+              if ( _bittest64(*((const signed __int64 **)a1 + 1), v4) )
+                break;
+              ++v4;
+              if ( ++v14 == a3 )
+                return v4 - v14;
+            }
+            while ( v4 < v3 );
+            if ( v14 )
+            {
+              v16 = v14 + v13 + 1;
+              if ( v16 >= 0x20 )
+              {
+                ++v4;
+                goto LABEL_4;
+              }
+              v13 = v16 - 1;
+            }
+          }
         }
-LABEL_9:
+        ++v13;
         ++v4;
-        if ( ++v13 >= 0x20 )
-          goto LABEL_20;
+        if ( v13 >= 0x20 )
+          goto LABEL_10;
       }
-      do
-      {
-        if ( _bittest64(*((const signed __int64 **)a1 + 1), v4) )
-          break;
-        ++v4;
-        if ( ++v14 == a3 )
-          return v4 - v14;
-      }
-      while ( v4 < v3 );
-      if ( !v14 )
-        goto LABEL_9;
-      v15 = v14 + v13 + 1;
-      if ( v15 < 0x20 )
-      {
-        v13 = v15 - 1;
-        goto LABEL_9;
-      }
-      ++v4;
-      goto LABEL_4;
     }
     v4 += 32;
-LABEL_20:
+LABEL_10:
     ;
   }
   return 0xFFFFFFFFLL;

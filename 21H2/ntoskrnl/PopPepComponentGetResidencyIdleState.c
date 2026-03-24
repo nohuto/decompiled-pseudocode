@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepComponentGetResidencyIdleState @ 0x140354BBC
+ * XREFs of PopPepComponentGetResidencyIdleState @ 0x140262644
  * Callers:
- *     PopPepCompleteComponentActiveActivity @ 0x140354A90 (PopPepCompleteComponentActiveActivity.c)
- *     PopPepComponentSetResidency @ 0x1405D4D6C (PopPepComponentSetResidency.c)
- *     PopPepIdleTimeoutRoutine @ 0x1405D5360 (PopPepIdleTimeoutRoutine.c)
- *     PopPepRegisterDevice @ 0x140824268 (PopPepRegisterDevice.c)
+ *     PopPepCompleteComponentActiveActivity @ 0x140262480 (PopPepCompleteComponentActiveActivity.c)
+ *     PopPepComponentSetResidency @ 0x140574388 (PopPepComponentSetResidency.c)
+ *     PopPepIdleTimeoutRoutine @ 0x1405749F0 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepRegisterDevice @ 0x14078ED18 (PopPepRegisterDevice.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall PopPepComponentGetResidencyIdleState(__int64 a1, unsigned __i
   {
     do
     {
-      if ( *(_QWORD *)(*(_QWORD *)(a1 + 200) + 24 * v2 + 8) <= a2 )
+      if ( *(_QWORD *)(*(_QWORD *)(a1 + 192) + 24 * v2 + 8) <= a2 )
         break;
       v4 = (_DWORD)v2 == 1;
       v2 = (unsigned int)(v2 - 1);

@@ -1,22 +1,22 @@
 /*
- * XREFs of IncPaintCountInterMoveSize @ 0x1C0222E20
+ * XREFs of IncPaintCountInterMoveSize @ 0x1C023DF00
  * Callers:
- *     InternalInvalidate3 @ 0x1C0034D50 (InternalInvalidate3.c)
+ *     InternalInvalidate3 @ 0x1C00746C4 (InternalInvalidate3.c)
  * Callees:
- *     ?SetWakeBitInterMoveSize@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01B2F40 (-SetWakeBitInterMoveSize@@YAXPEAUtagTHREADINFO@@I@Z.c)
+ *     ?SetWakeBitInterMoveSize@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01D2690 (-SetWakeBitInterMoveSize@@YAXPEAUtagTHREADINFO@@I@Z.c)
  */
 
-void __fastcall IncPaintCountInterMoveSize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall IncPaintCountInterMoveSize(__int64 a1)
 {
-  struct tagTHREADINFO *v4; // rbx
-  int v5; // edx
+  __int64 v1; // rbx
+  int v2; // edx
 
-  v4 = *(struct tagTHREADINFO **)(a1 + 16);
-  v5 = *((_DWORD *)v4 + 150);
-  *((_DWORD *)v4 + 150) = v5 + 1;
-  if ( !v5 )
+  v1 = *(_QWORD *)(a1 + 16);
+  v2 = *(_DWORD *)(v1 + 600);
+  *(_DWORD *)(v1 + 600) = v2 + 1;
+  if ( !v2 )
   {
-    EtwTraceWakePump(v4, a1, 15LL, a4);
-    SetWakeBitInterMoveSize(v4);
+    EtwTraceWakePump(v1, a1, 15LL);
+    SetWakeBitInterMoveSize((struct tagTHREADINFO *)v1);
   }
 }

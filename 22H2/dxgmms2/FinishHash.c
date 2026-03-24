@@ -1,7 +1,7 @@
 /*
- * XREFs of FinishHash @ 0x1C0018938
+ * XREFs of FinishHash @ 0x1C0016130
  * Callers:
- *     ComputeFlushPeriod @ 0x1C00BDFC4 (ComputeFlushPeriod.c)
+ *     ComputeFlushPeriod @ 0x1C0090BF4 (ComputeFlushPeriod.c)
  * Callees:
  *     <none>
  */

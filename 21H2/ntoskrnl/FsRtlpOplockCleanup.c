@@ -1,30 +1,30 @@
 /*
- * XREFs of FsRtlpOplockCleanup @ 0x1402A30D0
+ * XREFs of FsRtlpOplockCleanup @ 0x1402AD5D0
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x1402A5D00 (FsRtlCheckOplockEx2.c)
+ *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
  * Callees:
- *     FsRtlpClearOwner @ 0x140240DB4 (FsRtlpClearOwner.c)
- *     FsRtlpModifyThreadPriorities @ 0x14024A390 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x14024E7F8 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14024E884 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     FsRtlpComputeShareableOplockState @ 0x1402A2DE8 (FsRtlpComputeShareableOplockState.c)
- *     FsRtlpOplockDequeueRH @ 0x1402A386C (FsRtlpOplockDequeueRH.c)
- *     IoGetOplockFullFoExt @ 0x1402A39EC (IoGetOplockFullFoExt.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1404173E4 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x140542AEC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     FsRtlpComputeShareableOplockState @ 0x140206150 (FsRtlpComputeShareableOplockState.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x1402ADAF8 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     IoGetOplockFullFoExt @ 0x1403567B8 (IoGetOplockFullFoExt.c)
+ *     FsRtlpOplockDequeueRH @ 0x140356AA0 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpClearOwner @ 0x140375278 (FsRtlpClearOwner.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140379E74 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1404F0B4C (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1404F0C4C (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlpOplockCleanup(__int64 a1, __int64 a2)
 {
   char v3; // r15
   char v4; // si
-  __int64 v5; // r10
-  char v6; // r11
+  __int64 v5; // r9
+  char v6; // r10
   __int64 OplockFullFoExt; // r13
   _QWORD *v8; // rbx
   int v9; // r12d
@@ -34,12 +34,12 @@ void __fastcall FsRtlpOplockCleanup(__int64 a1, __int64 a2)
   __int64 v13; // rsi
   __int64 v14; // rbx
   __int64 v15; // rcx
-  _QWORD *v16; // rcx
-  _QWORD *v17; // r11
+  void *v16; // rcx
+  _QWORD *v17; // r10
   __int64 v18; // rcx
   _QWORD *v19; // rax
   void *i; // rbx
-  _QWORD *v21; // rcx
+  void *v21; // rcx
   _QWORD *v22; // rcx
   __int64 v23; // rdx
   _QWORD *v24; // rax
@@ -58,14 +58,14 @@ void __fastcall FsRtlpOplockCleanup(__int64 a1, __int64 a2)
     for ( i = *(void **)(a1 + 104); ; i = *(void **)i )
     {
       if ( i == (void *)(a1 + 104) )
-        goto LABEL_43;
+        goto LABEL_44;
       if ( *(_QWORD *)(v5 + 48) == *((_QWORD *)i + 2) )
         break;
     }
     while ( 1 )
     {
-      v21 = *(_QWORD **)(a1 + 88);
-      if ( v21 == (_QWORD *)(a1 + 88) )
+      v21 = *(void **)(a1 + 88);
+      if ( v21 == (void *)(a1 + 88) )
         break;
       FsRtlpRemoveAndCompleteWaitingIrp(v21);
     }
@@ -80,7 +80,7 @@ void __fastcall FsRtlpOplockCleanup(__int64 a1, __int64 a2)
     ExFreePoolWithTag(i, 0);
     v5 = a2;
     v6 = 1;
-LABEL_43:
+LABEL_44:
     *(_DWORD *)(a1 + 144) &= ~0x1000000u;
     if ( *(_QWORD *)(a1 + 104) != a1 + 104 )
       v4 = v6;
@@ -194,8 +194,8 @@ LABEL_11:
     *(_DWORD *)(a1 + 144) = *(_DWORD *)(a1 + 144) & 0x20 | 1;
     while ( 1 )
     {
-      v16 = *(_QWORD **)(a1 + 88);
-      if ( v16 == (_QWORD *)(a1 + 88) )
+      v16 = *(void **)(a1 + 88);
+      if ( v16 == (void *)(a1 + 88) )
         break;
       FsRtlpRemoveAndCompleteWaitingIrp(v16);
     }

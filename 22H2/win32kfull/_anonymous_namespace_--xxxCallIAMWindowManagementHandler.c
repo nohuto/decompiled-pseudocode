@@ -1,52 +1,47 @@
 /*
- * XREFs of _anonymous_namespace_::xxxCallIAMWindowManagementHandler @ 0x1C021E20C
+ * XREFs of _anonymous_namespace_::xxxCallIAMWindowManagementHandler @ 0x1C00DA860
  * Callers:
- *     ?xxxGetShellShowWindowCommand@@YA?AUShowCommandAndSource@@PEAUtagWND@@EAEBUtagUSERSTARTUPINFO@@@Z @ 0x1C0026FA0 (-xxxGetShellShowWindowCommand@@YA-AUShowCommandAndSource@@PEAUtagWND@@EAEBUtagUSERSTARTUPINFO@@@.c)
- *     ?xxxArrangementInfoHandler@CallShell@@YA_NPEBUMOVESIZEDATA@@W4ShellNotificationWindowKind@@PEAU_SHELL_WINDOWMANAGEMENT_CALLOUT_INFO@@@Z @ 0x1C021E0B4 (-xxxArrangementInfoHandler@CallShell@@YA_NPEBUMOVESIZEDATA@@W4ShellNotificationWindowKind@@PEAU_.c)
- *     ?xxxMigrateWindowHandler@CallShell@@YA_NPEAUtagWND@@W4_SHELL_MIGRATE_WINDOW_REASON@@AEBUtagRECT@@2GU4@PEAUtagMONITOR@@PEAU4@PEAW4State@AdvancedWindowPos@@PEAK@Z @ 0x1C021E2F8 (-xxxMigrateWindowHandler@CallShell@@YA_NPEAUtagWND@@W4_SHELL_MIGRATE_WINDOW_REASON@@AEBUtagRECT@.c)
- *     ?xxxWindowSizeStartingHandler@CallShell@@YAXPEAUtagWND@@H@Z @ 0x1C021F208 (-xxxWindowSizeStartingHandler@CallShell@@YAXPEAUtagWND@@H@Z.c)
+ *     ?xxxShowWindowPolicyHandler@CallShell@@YA_NPEAUtagWND@@IPEAW4SHELL_SPECIFIED_SHOW_COMMAND@@PEAUWINDOW_GROUP_ID@@PEAUtagRECT@@@Z @ 0x1C00DA6E8 (-xxxShowWindowPolicyHandler@CallShell@@YA_NPEAUtagWND@@IPEAW4SHELL_SPECIFIED_SHOW_COMMAND@@PEAUW.c)
+ *     ?xxxArrangementRectangleHandler@CallShell@@YA_NPEAUHWND__@@UtagPOINT@@PEAUtagRECT@@2@Z @ 0x1C023D2A0 (-xxxArrangementRectangleHandler@CallShell@@YA_NPEAUHWND__@@UtagPOINT@@PEAUtagRECT@@2@Z.c)
+ *     ?xxxWindowSizeStartingHandler@CallShell@@YA_NPEAUtagWND@@H@Z @ 0x1C023D394 (-xxxWindowSizeStartingHandler@CallShell@@YA_NPEAUtagWND@@H@Z.c)
  * Callees:
- *     _anonymous_namespace_::ResolveWindowManagementTargetWindow @ 0x1C004C888 (_anonymous_namespace_--ResolveWindowManagementTargetWindow.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
- *     _anonymous_namespace_::SeverWindowManagementConnectionToShell @ 0x1C021DAC4 (_anonymous_namespace_--SeverWindowManagementConnectionToShell.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     _anonymous_namespace_::SeverWindowManagementConnectionToShell @ 0x1C023D0D8 (_anonymous_namespace_--SeverWindowManagementConnectionToShell.c)
  */
 
-struct tagWND *__fastcall anonymous_namespace_::xxxCallIAMWindowManagementHandler(__int128 *a1, int a2)
+__int64 __fastcall anonymous_namespace_::xxxCallIAMWindowManagementHandler(struct _LARGE_STRING *a1)
 {
-  struct tagWND *result; // rax
-  unsigned int v5; // ebx
-  unsigned __int64 *v6; // rsi
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  struct tagWND *v12; // r8
-  __int128 v13; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v14; // [rsp+60h] [rbp-18h]
-  __int64 v15; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v2; // rdi
+  unsigned __int64 v3; // rbx
+  __int64 ThreadWin32Thread; // rax
+  unsigned int v5; // esi
+  _BOOL8 v6; // rbx
+  __int64 v7; // rcx
+  _QWORD v9[4]; // [rsp+50h] [rbp-28h] BYREF
+  unsigned __int64 LowLimit; // [rsp+88h] [rbp+10h] BYREF
 
-  result = anonymous_namespace_::ResolveWindowManagementTargetWindow(a2);
-  v5 = 0;
-  v6 = (unsigned __int64 *)result;
-  if ( result )
-  {
-    v13 = 0LL;
-    v14 = 0LL;
-    ThreadLock(result, &v13);
-    v15 = 0LL;
-    if ( xxxSendTransformableMessageTimeout(v6, 0x341u, 0LL, a1, 2u, 0x7D0u, (unsigned __int64 *)&v15, 1, 1) )
-    {
-      ThreadUnlock1(v8, v7, v9);
-    }
-    else
-    {
-      ThreadUnlock1(v8, v7, v9);
-      if ( !a2 )
-        anonymous_namespace_::SeverWindowManagementConnectionToShell(v11, v10, v12);
-    }
-    LOBYTE(v5) = v15 == 1;
-    return (struct tagWND *)v5;
-  }
-  return result;
+  v2 = *(_QWORD *)(gptiCurrent + 456LL);
+  LowLimit = 0LL;
+  if ( !v2 )
+    return 0;
+  if ( !*(_QWORD *)(v2 + 288) )
+    return 0;
+  v3 = *(_QWORD *)(v2 + 328);
+  if ( !v3 )
+    return 0;
+  v9[2] = 0LL;
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v9[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v9;
+  v9[1] = v3;
+  HMLockObject(v3);
+  v5 = 1;
+  v6 = xxxSendTransformableMessageTimeout(v3, 0x341u, 0LL, a1, 2u, 0x7D0u, (__int64 *)&LowLimit, 1, 1) == 0;
+  ThreadUnlock1(v7);
+  if ( v6 )
+    anonymous_namespace_::SeverWindowManagementConnectionToShell(v2);
+  if ( LowLimit != 1 )
+    return 0;
+  return v5;
 }

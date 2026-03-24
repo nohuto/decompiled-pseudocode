@@ -1,13 +1,13 @@
 /*
- * XREFs of ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01CBB98
+ * XREFs of ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01F54C8
  * Callers:
- *     NtUserCloseClipboard @ 0x1C0010F10 (NtUserCloseClipboard.c)
- *     NtUserOpenClipboard @ 0x1C0010FF0 (NtUserOpenClipboard.c)
- *     NtUserGetClipboardData @ 0x1C01D0350 (NtUserGetClipboardData.c)
- *     NtUserSetClipboardData @ 0x1C01DAC20 (NtUserSetClipboardData.c)
+ *     NtUserGetClipboardData @ 0x1C002CAD0 (NtUserGetClipboardData.c)
+ *     NtUserSetClipboardData @ 0x1C002ECB0 (NtUserSetClipboardData.c)
+ *     NtUserOpenClipboard @ 0x1C002F9F0 (NtUserOpenClipboard.c)
+ *     NtUserCloseClipboard @ 0x1C002FCF0 (NtUserCloseClipboard.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D1C24 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
@@ -47,7 +47,7 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   }
   else
   {
-    v9 = &word_1C030D60C;
+    v9 = &word_1C02E497C;
     v11 = 2;
   }
   v19 = a6;
@@ -65,11 +65,11 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   }
   else
   {
-    v12 = &unk_1C031F02C;
+    v12 = &unk_1C02F5020;
     v13 = 1;
   }
   v16 = v12;
   v17 = v13;
   v18 = 0;
-  return tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0354098, a2, 0LL, 0LL, 5u, &v15);
+  return tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C032A3D8, a2, 0LL, 0LL, 5u, &v15);
 }

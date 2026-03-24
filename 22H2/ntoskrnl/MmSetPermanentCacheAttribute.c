@@ -1,18 +1,18 @@
 /*
- * XREFs of MmSetPermanentCacheAttribute @ 0x140A30800
+ * XREFs of MmSetPermanentCacheAttribute @ 0x1408C8340
  * Callers:
  *     <none>
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     KeGenericCallDpcEx @ 0x1403C6090 (KeGenericCallDpcEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     KeGenericCallDpc @ 0x14035E460 (KeGenericCallDpc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmSetPermanentCacheAttribute(unsigned __int64 a1, unsigned __int64 a2, int a3, int a4)
 {
   __int64 result; // rax
-  unsigned __int64 v5; // rsi
-  unsigned __int64 v6; // rdi
+  unsigned __int64 v5; // rdi
+  unsigned __int64 v6; // rsi
   PVOID Pool; // rax
   void *v8; // rbx
   PVOID v9; // [rsp+20h] [rbp-18h] BYREF
@@ -43,7 +43,7 @@ __int64 __fastcall MmSetPermanentCacheAttribute(unsigned __int64 a1, unsigned __
   *((_QWORD *)Pool + 4) = v5 + v6 - 1;
   v10 = 0;
   v9 = Pool;
-  KeGenericCallDpcEx((__int64)MiMakeIoRangePermanentDpc, (__int64)&v9);
+  KeGenericCallDpc((__int64)MiMakeIoRangePermanentDpc, (__int64)&v9);
   result = (unsigned int)v10;
   if ( v10 < 0 )
   {

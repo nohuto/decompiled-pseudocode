@@ -1,23 +1,24 @@
 /*
- * XREFs of IopEnumerateRelations @ 0x1407667B0
+ * XREFs of IopEnumerateRelations @ 0x1407384F0
  * Callers:
- *     PiRestartRemovalRelations @ 0x1406EAC14 (PiRestartRemovalRelations.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1407655BC (PnpProcessQueryRemoveAndEject.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140766258 (PnpUnlinkDeviceRemovalRelations.c)
- *     PiEventBuildPdoList @ 0x1407663DC (PiEventBuildPdoList.c)
- *     PnpDeleteLockedDeviceNodes @ 0x14076651C (PnpDeleteLockedDeviceNodes.c)
- *     PnpCompileDeviceInstancePaths @ 0x140766640 (PnpCompileDeviceInstancePaths.c)
- *     PnpInvalidateRelationsInList @ 0x14080E8D0 (PnpInvalidateRelationsInList.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140810CB4 (PnpQueuePendingSurpriseRemoval.c)
- *     PnpBuildUnsafeRemovalDeviceList @ 0x140810F90 (PnpBuildUnsafeRemovalDeviceList.c)
- *     PnpFinalizeDeviceRemovalForReset @ 0x140945A9C (PnpFinalizeDeviceRemovalForReset.c)
- *     PnpTrackQueryRemoveDevices @ 0x140950DA4 (PnpTrackQueryRemoveDevices.c)
- *     IopCheckIfMergeRequired @ 0x1409581A0 (IopCheckIfMergeRequired.c)
+ *     PiRestartRemovalRelations @ 0x14073358C (PiRestartRemovalRelations.c)
+ *     PnpTrackQueryRemoveDevices @ 0x1407344D0 (PnpTrackQueryRemoveDevices.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x140737ADC (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x140737C58 (PnpUnlinkDeviceRemovalRelations.c)
+ *     PiEventBuildPdoList @ 0x140737DE4 (PiEventBuildPdoList.c)
+ *     PnpBuildUnsafeRemovalDeviceList @ 0x140737F40 (PnpBuildUnsafeRemovalDeviceList.c)
+ *     PnpInvalidateRelationsInList @ 0x14073808C (PnpInvalidateRelationsInList.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x140738200 (PnpDeleteLockedDeviceNodes.c)
+ *     PnpCompileDeviceInstancePaths @ 0x140738360 (PnpCompileDeviceInstancePaths.c)
+ *     PnpCancelRemoveOnHungDevices @ 0x1408A2280 (PnpCancelRemoveOnHungDevices.c)
+ *     IopCheckIfMergeRequired @ 0x1408B2604 (IopCheckIfMergeRequired.c)
+ *     PiProcessCanceledRemoveForReset @ 0x1408B8ED8 (PiProcessCanceledRemoveForReset.c)
  * Callees:
- *     PipDeviceObjectListElementAt @ 0x1406E3A88 (PipDeviceObjectListElementAt.c)
+ *     PipDeviceObjectListElementAt @ 0x14076EC1C (PipDeviceObjectListElementAt.c)
  */
 
-bool __fastcall IopEnumerateRelations(unsigned int **a1, int *a2, _QWORD *a3, _DWORD *a4, int *a5)
+bool __fastcall IopEnumerateRelations(unsigned int **a1, int *a2, _QWORD *a3, _DWORD *a4, _DWORD *a5)
 {
   bool v5; // r11
   int v7; // eax
@@ -45,7 +46,7 @@ bool __fastcall IopEnumerateRelations(unsigned int **a1, int *a2, _QWORD *a3, _D
           return v5;
         v9 = v10 + ~v9;
       }
-      v5 = (int)PipDeviceObjectListElementAt(v8, v9, a3, a4, a5) >= 0;
+      v5 = (int)PipDeviceObjectListElementAt((_DWORD)v8, v9, (_DWORD)a3, (_DWORD)a4, (__int64)a5) >= 0;
       ++a2[1];
     }
   }

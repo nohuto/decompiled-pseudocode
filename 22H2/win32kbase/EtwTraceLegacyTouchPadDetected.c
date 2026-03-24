@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTraceLegacyTouchPadDetected @ 0x1C013AB80
+ * XREFs of EtwTraceLegacyTouchPadDetected @ 0x1C0122EA0
  * Callers:
- *     RIMApiSetCheckForLegacyTouchPad @ 0x1C006D074 (RIMApiSetCheckForLegacyTouchPad.c)
+ *     <none>
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C00DF278 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124850 (McTemplateK0_EtwWriteTransfer.c)
  */
 
-NTSTATUS __fastcall EtwTraceLegacyTouchPadDetected(__int64 a1)
+__int64 __fastcall EtwTraceLegacyTouchPadDetected(__int64 a1)
 {
-  NTSTATUS result; // eax
+  __int64 result; // rax
 
   if ( (Microsoft_Windows_Win32kEnableBits & 0x10000000) != 0 )
     return McTemplateK0_EtwWriteTransfer(a1, &LegacyTouchPadDetected, &W32kControlGuid);

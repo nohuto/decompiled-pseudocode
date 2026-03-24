@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@?$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCScenePbrMaterial@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A0EE0
+ * XREFs of ?IsOfType@?$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCScenePbrMaterial@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F3F0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@?$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A0F2C (-IsOfType@-$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@UEBA_NW4MIL_RESOU.c)
+ *     ?IsOfType@?$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F460 (-IsOfType@-$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@UEBA_NW4MIL_RESOU.c)
  */
 
 char __fastcall CSceneMetallicRoughnessMaterialGeneratedT<CSceneMetallicRoughnessMaterial,CScenePbrMaterial>::IsOfType(
@@ -13,7 +13,7 @@ char __fastcall CSceneMetallicRoughnessMaterialGeneratedT<CSceneMetallicRoughnes
   char v2; // al
   char v3; // cl
 
-  if ( a2 == 158 )
+  if ( a2 == 159 )
     return 1;
   v2 = CScenePbrMaterialGeneratedT<CScenePbrMaterial,CSceneMaterial>::IsOfType();
   v3 = 0;

@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampCaptureCancelApcs @ 0x140316444
+ * XREFs of EtwpCovSampCaptureCancelApcs @ 0x140316544
  * Callers:
- *     EtwpCovSampCaptureContextStop @ 0x1403166B0 (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1403167B0 (EtwpCovSampCaptureContextStop.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KeRemoveQueueApc @ 0x14012F338 (KeRemoveQueueApc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140316D50 (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KeRemoveQueueApc @ 0x14012F358 (KeRemoveQueueApc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140316E50 (EtwpCovSampCaptureReleaseToLookaside.c)
  */
 
 LONG_PTR __fastcall EtwpCovSampCaptureCancelApcs(__int64 a1)
@@ -58,7 +58,7 @@ LONG_PTR __fastcall EtwpCovSampCaptureCancelApcs(__int64 a1)
         {
           if ( KeRemoveQueueApc((__int64)(v3 + 4), v7, v8) )
           {
-            v10 = qword_140409E28;
+            v10 = qword_140409DE8;
             memset(v3 + 4, 0, 0x58uLL);
             v11 = v3[3];
             *((_DWORD *)v3 + 30) = 0;

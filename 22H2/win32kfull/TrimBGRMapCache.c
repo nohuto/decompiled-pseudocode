@@ -1,70 +1,59 @@
 /*
- * XREFs of TrimBGRMapCache @ 0x1C02555B0
+ * XREFs of TrimBGRMapCache @ 0x1C0262318
  * Callers:
- *     AddBGRMapCache @ 0x1C02532F8 (AddBGRMapCache.c)
- *     FindBGRMapCache @ 0x1C02550F8 (FindBGRMapCache.c)
+ *     AddBGRMapCache @ 0x1C0261118 (AddBGRMapCache.c)
+ *     FindBGRMapCache @ 0x1C0261E34 (FindBGRMapCache.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall TrimBGRMapCache(__int64 a1)
+__int64 TrimBGRMapCache()
 {
-  unsigned int v1; // edi
-  __int64 v2; // rbx
-  int v3; // eax
-  unsigned __int64 v4; // rsi
-  _OWORD *v5; // rbp
-  unsigned int v6; // r14d
-  int v7; // ecx
-  int v8; // r8d
+  unsigned int v0; // ebx
+  int v1; // esi
+  PVOID *v2; // rdi
+  PVOID *v3; // rbp
+  int i; // r14d
+  int v5; // eax
 
-  v1 = 0;
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 48);
-  EngAcquireSemaphore(*(HSEMAPHORE *)(v2 + 24));
-  v3 = *(_DWORD *)(v2 + 56);
-  if ( v3 > 5 && *(_DWORD *)(v2 + 64) )
+  v0 = 0;
+  EngAcquireSemaphore(qword_1C0339F88);
+  v1 = dword_1C0339FA8;
+  if ( dword_1C0339FA8 > 5 && HIDWORD(qword_1C0339FAC) )
   {
-    v4 = *(_QWORD *)(v2 + 48);
-    v1 = *(_DWORD *)(v2 + 56);
-    v5 = (_OWORD *)v4;
-    v6 = v1;
-    do
+    v2 = (PVOID *)Src;
+    v0 = dword_1C0339FA8;
+    v3 = (PVOID *)Src;
+    for ( i = dword_1C0339FA8; i; v2 += 2 )
     {
-      --v6;
-      v7 = v3;
-      if ( v3 <= 5 )
+      --i;
+      if ( v1 <= 5 )
         break;
-      if ( *(_DWORD *)(v4 + 8) )
+      if ( *((_DWORD *)v2 + 2) )
       {
-        if ( v5 != (_OWORD *)v4 )
-        {
-          *v5 = *(_OWORD *)v4;
-          v3 = *(_DWORD *)(v2 + 56);
-        }
-        ++v5;
+        if ( v3 != v2 )
+          *(_OWORD *)v3 = *(_OWORD *)v2;
+        v3 += 2;
       }
       else
       {
-        EngFreeMem(*(PVOID *)v4);
-        --*(_DWORD *)(v2 + 56);
-        --*(_DWORD *)(v2 + 64);
-        v3 = *(_DWORD *)(v2 + 56);
+        EngFreeMem(*v2);
+        v1 = dword_1C0339FA8 - 1;
+        --HIDWORD(qword_1C0339FAC);
+        --dword_1C0339FA8;
       }
-      v4 += 16LL;
-      v7 = v3;
     }
-    while ( v6 );
-    if ( v1 != v7 )
+    if ( v0 != v1 )
     {
-      if ( v4 > (unsigned __int64)v5 )
+      if ( v2 > v3 )
       {
-        v8 = *(_DWORD *)(v2 + 48) + 16 * v1 - v4;
-        if ( v8 > 0 )
-          memmove(v5, (const void *)v4, v8);
+        v5 = (_DWORD)Src + 16 * v0 - (_DWORD)v2;
+        if ( v5 > 0 )
+          memmove(v3, v2, v5);
       }
-      v1 -= *(_DWORD *)(v2 + 56);
+      v0 -= v1;
     }
   }
-  EngReleaseSemaphore(*(HSEMAPHORE *)(v2 + 24));
-  return v1;
+  EngReleaseSemaphore(qword_1C0339F88);
+  return v0;
 }

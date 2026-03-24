@@ -1,17 +1,17 @@
 /*
- * XREFs of ?DIBtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUtagBITMAPINFOHEADER@@K@Z @ 0x1C0219558
+ * XREFs of ?DIBtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUtagBITMAPINFOHEADER@@K@Z @ 0x1C021EBA0
  * Callers:
- *     ?xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z @ 0x1C0219B58 (-xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z.c)
- *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021A050 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z @ 0x1C021EE64 (-xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z.c)
+ *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021F1E4 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z @ 0x1C021981C (-SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z.c)
+ *     ?SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z @ 0x1C015CDEC (-SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 struct BITMAPV5HEADER *__fastcall DIBtoDIBV5(struct tagBITMAPINFOHEADER *a1)
 {
-  unsigned __int64 v2; // r8
+  unsigned __int64 v2; // r9
   size_t v3; // rsi
   unsigned int v4; // r9d
   unsigned __int64 v5; // r10
@@ -27,7 +27,7 @@ struct BITMAPV5HEADER *__fastcall DIBtoDIBV5(struct tagBITMAPINFOHEADER *a1)
     return 0LL;
   if ( abs32(a1->biHeight) * (unsigned __int64)(((unsigned int)(v2 + 31) >> 3) & 0x1FFFFFFC) > 0xFFFFFFFF )
     return 0LL;
-  v3 = SizeOfDibColorTable(a1);
+  v3 = (unsigned int)SizeOfDibColorTable(a1);
   v6 = v4 + 124;
   if ( v4 + 124 < v4 )
     return 0LL;
@@ -36,7 +36,7 @@ struct BITMAPV5HEADER *__fastcall DIBtoDIBV5(struct tagBITMAPINFOHEADER *a1)
   v7 = v4;
   if ( v5 < v4 + v3 + 40 )
     return 0LL;
-  v8 = (_OWORD *)Win32AllocPoolZInit(v6 + (unsigned int)v3, 1650684757LL);
+  v8 = (_OWORD *)Win32AllocPool(v6 + (unsigned int)v3, 1650684757LL);
   v9 = v8;
   if ( !v8 )
     return 0LL;

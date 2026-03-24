@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CorrectOvershootIfNecessary@CScalarForceEvaluator@@AEAA?AUIntegrationState@@AEBU2@PEAUIAccelerator@@PEA_N@Z @ 0x18027694C
+ * XREFs of ?CorrectOvershootIfNecessary@CScalarForceEvaluator@@AEAA?AUIntegrationState@@AEBU2@PEAUIAccelerator@@PEA_N@Z @ 0x180215338
  * Callers:
- *     ?AdvanceToTime@CScalarForceEvaluator@@QEAAMMPEAUIAccelerator@@@Z @ 0x180276794 (-AdvanceToTime@CScalarForceEvaluator@@QEAAMMPEAUIAccelerator@@@Z.c)
+ *     ?AdvanceToTime@CScalarForceEvaluator@@QEAAMMPEAUIAccelerator@@@Z @ 0x1802151E4 (-AdvanceToTime@CScalarForceEvaluator@@QEAAMMPEAUIAccelerator@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CScalarForceEvaluator::CorrectOvershootIfNecessary(
@@ -13,7 +13,7 @@ __int64 __fastcall CScalarForceEvaluator::CorrectOvershootIfNecessary(
         __int64 a4,
         _BYTE *a5)
 {
-  int v5; // edi
+  int v6; // edi
   char v9; // cl
   float (__fastcall *v10)(__int64); // rax
   float v11; // xmm0_4
@@ -25,7 +25,7 @@ __int64 __fastcall CScalarForceEvaluator::CorrectOvershootIfNecessary(
   float v17; // xmm1_4
   __int128 v19; // [rsp+20h] [rbp-38h]
 
-  v5 = 0;
+  v6 = 0;
   *(_OWORD *)a2 = *(_OWORD *)a3;
   *a5 = 0;
   *(_DWORD *)(a2 + 16) = *(_DWORD *)(a3 + 16);
@@ -37,8 +37,8 @@ __int64 __fastcall CScalarForceEvaluator::CorrectOvershootIfNecessary(
     if ( (v9 & 1) != 0 )
     {
       v11 = v10(a4) - *(float *)(a1 + 16);
-      LOBYTE(v5) = v11 < 0.0;
-      if ( *(float *)(a1 + 52) != (float)((v11 > 0.0) - v5) )
+      LOBYTE(v6) = v11 < 0.0;
+      if ( *(float *)(a1 + 52) != (float)((v11 > 0.0) - v6) )
       {
         v12 = *(float *)(a1 + 36);
         v13 = (*(double (__fastcall **)(__int64))(*(_QWORD *)a4 + 24LL))(a4);
@@ -55,9 +55,9 @@ __int64 __fastcall CScalarForceEvaluator::CorrectOvershootIfNecessary(
     else
     {
       v16 = v10(a4) - *(float *)(a1 + 16);
-      LOBYTE(v5) = v16 < 0.0;
+      LOBYTE(v6) = v16 < 0.0;
       *(_BYTE *)(a1 + 64) &= ~1u;
-      v17 = (float)((v16 > 0.0) - v5);
+      v17 = (float)((v16 > 0.0) - v6);
       *(float *)(a1 + 52) = v17;
       *(_BYTE *)(a1 + 64) |= COERCE_FLOAT(LODWORD(v17) & _xmm) >= 0.0000011920929;
     }

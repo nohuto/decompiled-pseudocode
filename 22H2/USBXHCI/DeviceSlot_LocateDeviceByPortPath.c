@@ -1,15 +1,15 @@
 /*
- * XREFs of DeviceSlot_LocateDeviceByPortPath @ 0x1C0037BFC
+ * XREFs of DeviceSlot_LocateDeviceByPortPath @ 0x1C003613C
  * Callers:
- *     Crashdump_InitializeDeviceContext @ 0x1C004C584 (Crashdump_InitializeDeviceContext.c)
+ *     Crashdump_InitializeDeviceContext @ 0x1C0049A70 (Crashdump_InitializeDeviceContext.c)
  * Callees:
- *     XilDeviceSlot_GetUsbDeviceHandleArray @ 0x1C0038110 (XilDeviceSlot_GetUsbDeviceHandleArray.c)
+ *     XilDeviceSlot_GetUsbDeviceHandleArray @ 0x1C0036650 (XilDeviceSlot_GetUsbDeviceHandleArray.c)
  */
 
 __int64 __fastcall DeviceSlot_LocateDeviceByPortPath(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  unsigned int v3; // edi
-  unsigned int v7; // ebx
+  unsigned int v3; // ebx
+  unsigned int v7; // edi
   __int64 v8; // rsi
   unsigned int v9; // eax
 

@@ -1,27 +1,28 @@
 /*
- * XREFs of VidSchQueryFlipQueueInfo @ 0x1C00A8C80
+ * XREFs of VidSchQueryFlipQueueInfo @ 0x1C008CCB0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall VidSchQueryFlipQueueInfo(__int64 a1, _DWORD *a2)
+__int64 __fastcall VidSchQueryFlipQueueInfo(__int64 a1, _DWORD *a2, __int64 a3)
 {
-  __int64 v3; // rcx
+  __int64 v4; // rax
 
   if ( a1 && a2 )
   {
     a2[2] &= 1u;
     *a2 = 0;
     a2[1] = 31;
-    a2[2] = (*(_DWORD *)(*(_QWORD *)(a1 + 16) + 2148LL) >> 2) & 1;
+    a2[2] = (*(_DWORD *)(*(_QWORD *)(a1 + 16) + 2052LL) >> 2) & 1;
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(v3, 0x40000LL);
+    v4 = WdLogNewEntry5_WdAssertion(a1, a2, a3);
+    *(_QWORD *)(v4 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v4);
     return 3221225485LL;
   }
 }

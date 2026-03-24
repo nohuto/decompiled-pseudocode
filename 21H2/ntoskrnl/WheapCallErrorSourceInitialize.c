@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapCallErrorSourceInitialize @ 0x1403C08BC
+ * XREFs of WheapCallErrorSourceInitialize @ 0x1403BAE50
  * Callers:
- *     WheapInitializeDeferredErrorSources @ 0x140643344 (WheapInitializeDeferredErrorSources.c)
- *     WheaAddErrorSource @ 0x14084E510 (WheaAddErrorSource.c)
- *     WheaInitializeProcessor @ 0x140A6D30C (WheaInitializeProcessor.c)
- *     WheaInitialize @ 0x140AFF910 (WheaInitialize.c)
+ *     WheapInitializeDeferredErrorSources @ 0x1405BAE38 (WheapInitializeDeferredErrorSources.c)
+ *     WheaAddErrorSource @ 0x1407AF2C0 (WheaAddErrorSource.c)
+ *     WheaInitializeProcessor @ 0x1409B36A4 (WheaInitializeProcessor.c)
+ *     WheaInitialize @ 0x140A6305C (WheaInitialize.c)
  * Callees:
- *     WheapGetErrorSourceFunction @ 0x1403C0934 (WheapGetErrorSourceFunction.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     WheapGetErrorSourceFunction @ 0x1403BAF90 (WheapGetErrorSourceFunction.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WheapCallErrorSourceInitialize(__int64 a1, unsigned int a2)
@@ -18,14 +18,14 @@ __int64 __fastcall WheapCallErrorSourceInitialize(__int64 a1, unsigned int a2)
 
   if ( *(_DWORD *)(a1 + 40) == 16 )
   {
-    ErrorSourceFunction = (__int64 (__fastcall *)(_QWORD, _QWORD))WheapGetErrorSourceFunction(a1, 1LL, 0LL);
+    ErrorSourceFunction = (__int64 (__fastcall *)(_QWORD, _QWORD))WheapGetErrorSourceFunction(a1, 1LL);
     result = 0LL;
     if ( ErrorSourceFunction )
       result = ErrorSourceFunction(*(_QWORD *)(a1 + 56), *(unsigned int *)(a1 + 124));
   }
   else
   {
-    v4 = (__int64 (__fastcall *)(_QWORD, __int64, _QWORD))WheapGetErrorSourceFunction(a1, 1LL, 0LL);
+    v4 = (__int64 (__fastcall *)(_QWORD, __int64, _QWORD))WheapGetErrorSourceFunction(a1, 1LL);
     if ( v4 )
       result = v4(a2, a1 + 96, *(_QWORD *)(a1 + 56));
     else

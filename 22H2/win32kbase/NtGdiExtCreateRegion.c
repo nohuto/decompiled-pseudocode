@@ -1,14 +1,14 @@
 /*
- * XREFs of NtGdiExtCreateRegion @ 0x1C007C780
+ * XREFs of NtGdiExtCreateRegion @ 0x1C0023AD0
  * Callers:
  *     <none>
  * Callees:
- *     ?ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z @ 0x1C00030B0 (-ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z.c)
- *     AllocFreeTmpBuffer @ 0x1C005AB80 (AllocFreeTmpBuffer.c)
- *     FreeTmpBuffer @ 0x1C005AD30 (FreeTmpBuffer.c)
- *     GreExtCreateRegion @ 0x1C007C890 (GreExtCreateRegion.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     ?ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z @ 0x1C0023890 (-ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z.c)
+ *     AllocFreeTmpBuffer @ 0x1C0023990 (AllocFreeTmpBuffer.c)
+ *     FreeTmpBuffer @ 0x1C0023BF0 (FreeTmpBuffer.c)
+ *     GreExtCreateRegion @ 0x1C0024210 (GreExtCreateRegion.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiExtCreateRegion(struct _XFORML *a1, size_t Size, char *Src)
@@ -24,7 +24,7 @@ __int64 __fastcall NtGdiExtCreateRegion(struct _XFORML *a1, size_t Size, char *S
   Region = 0LL;
   if ( (unsigned int)(Size - 32) <= 0x270FFE0 )
   {
-    v7 = (void *)AllocFreeTmpBuffer((unsigned int)Size);
+    v7 = (void *)AllocFreeTmpBuffer(Size);
     if ( v7 )
     {
       v8 = 1;
@@ -42,7 +42,7 @@ __int64 __fastcall NtGdiExtCreateRegion(struct _XFORML *a1, size_t Size, char *S
       }
       if ( Region )
         Region = GreExtCreateRegion(a1, (unsigned int)v4, v7);
-      FreeTmpBuffer((__int64)v7);
+      FreeTmpBuffer(v7);
     }
   }
   return Region;

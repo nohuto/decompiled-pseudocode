@@ -1,55 +1,60 @@
 /*
- * XREFs of ?BTreeInsertEx@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAJPEAU1@PEAUSEARCH_RESULT@1@PEAK@Z @ 0x140380950
+ * XREFs of ?BTreeInsertEx@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAJPEAU1@PEAUSEARCH_RESULT@1@PEAK@Z @ 0x1402DB514
  * Callers:
- *     ?BTreeInsert@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAJPEAU1@PEAU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@PEAUSEARCH_RESULT@1@@Z @ 0x140380900 (-BTreeInsert@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION.c)
- *     ?BTreeSplitChild@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAPEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1403833EC (-BTreeSplitChild@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_RE.c)
+ *     ?BTreeSplitChild@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAPEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1402CE34C (-BTreeSplitChild@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_RE.c)
+ *     ?BTreeInsert@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAJPEAU1@PEAU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@PEAUSEARCH_RESULT@1@@Z @ 0x1402DB4C4 (-BTreeInsert@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION.c)
  * Callees:
- *     ?BTreeRedistribute@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAPEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x140382944 (-BTreeRedistribute@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_.c)
- *     ?BTreeNewNode@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAPEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@KK@Z @ 0x1403830D4 (-BTreeNewNode@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEX.c)
- *     ?BTreeSplitChild@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAPEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1403833EC (-BTreeSplitChild@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_RE.c)
- *     SmArrayGrow @ 0x140383620 (SmArrayGrow.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ?NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z @ 0x1405F6710 (-NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z.c)
+ *     ?BTreeSplitChild@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAPEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1402CE34C (-BTreeSplitChild@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_RE.c)
+ *     ?BTreeNewNode@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAPEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@KK@Z @ 0x1402CEA0C (-BTreeNewNode@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEX.c)
+ *     ?BTreeRedistribute@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAPEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1402CEB74 (-BTreeRedistribute@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_.c)
+ *     SmArrayGrow @ 0x14035B794 (SmArrayGrow.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ?NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z @ 0x140598850 (-NpLeafDerefInternal@NP_CONTEXT@@SAXPEAUNP_CTX@1@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeInsertEx(
-        __int64 a1,
+        int **a1,
         __int64 a2,
-        _DWORD *a3)
+        int *a3)
 {
-  _DWORD *v3; // rax
+  int *v3; // rax
   unsigned int v4; // ebx
   __int64 v8; // rcx
   int v9; // edi
-  __int64 *v10; // r14
-  _DWORD *v11; // rsi
+  int **v10; // rsi
+  char *v11; // rdi
   char v12; // cl
-  int v13; // r9d
+  int v13; // edx
   unsigned int v14; // r12d
-  _DWORD *v15; // rdi
+  int *v15; // rsi
   __int64 v17; // rax
-  __int64 v18; // rdi
+  __int64 v18; // rbp
   __int64 v19; // rax
-  __int64 v20; // rax
-  unsigned __int64 v21; // r10
-  __int64 v22; // rdx
-  unsigned __int64 v23; // r8
-  int v24; // eax
-  _DWORD *v25; // rdx
-  void **v26; // rdx
-  __int64 v27; // rax
-  unsigned __int64 v28; // rcx
-  void **v29; // rax
-  bool v30; // cc
-  struct NP_CONTEXT::NP_CTX *v31; // rcx
-  __int64 v32; // rdx
-  void **v33; // rdx
-  char v34; // cl
-  int v35; // edi
-  int v36; // eax
-  __int64 v37; // rax
+  unsigned __int64 v20; // rax
+  unsigned __int64 v21; // r9
+  unsigned __int64 v22; // r8
+  unsigned __int64 v23; // r10
+  char *v24; // r8
+  int v25; // edx
+  __int64 v26; // rax
+  void **v27; // rdx
+  __int64 v28; // rax
+  unsigned __int64 v29; // rcx
+  void **v30; // rax
+  bool v31; // cc
+  struct NP_CONTEXT::NP_CTX *v32; // rcx
+  int *v33; // rax
+  __int64 v34; // rax
+  void **v35; // rdx
+  unsigned __int64 v36; // rcx
+  void **v37; // rax
+  struct NP_CONTEXT::NP_CTX *v38; // rcx
+  __int64 v39; // rcx
+  int v40; // eax
+  int v41; // ebp
+  char v42; // al
 
-  v3 = *(_DWORD **)a1;
+  v3 = *a1;
   v4 = 0;
   v8 = 0LL;
   if ( v3 )
@@ -59,34 +64,34 @@ __int64 __fastcall B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,40
     return (unsigned int)-1073741670;
   if ( v9 )
   {
-    v10 = (__int64 *)(*(_QWORD *)a2 + 16LL * (unsigned int)(v9 - 1));
+    v10 = (int **)(*(_QWORD *)a2 + 16LL * (unsigned int)(v9 - 1));
   }
   else
   {
-    v37 = B_TREE<_SM_PAGE_KEY,ST_STORE<SM_TRAITS>::_ST_PAGE_ENTRY,4096,NP_CONTEXT,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeNewNode(
-            a1,
-            1LL,
-            1LL);
-    *(_QWORD *)a1 = v37;
-    if ( !v37 )
+    v33 = (int *)B_TREE<_SM_PAGE_KEY,ST_STORE<SM_TRAITS>::_ST_PAGE_ENTRY,4096,NP_CONTEXT,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeNewNode(
+                   (__int64)a1,
+                   1u,
+                   1);
+    *a1 = v33;
+    if ( !v33 )
       return (unsigned int)-1073741670;
-    v10 = *(__int64 **)a2;
-    *v10 = v37;
-    v10[1] = *(_QWORD *)a1 + 16LL;
+    v10 = *(int ***)a2;
+    *v10 = v33;
+    v10[1] = *a1 + 4;
     ++*(_DWORD *)(a2 + 24);
   }
-  v11 = (_DWORD *)*v10;
-  v12 = *(_BYTE *)(*v10 + 3);
-  v13 = *(_DWORD *)*v10;
+  v11 = (char *)*v10;
+  v12 = *((_BYTE *)*v10 + 3);
+  v13 = **v10;
   v14 = v12 != 0 ? 1020 : 255;
   if ( (unsigned __int16)v13 >= v14 )
   {
-    v17 = v10[1] - (_QWORD)v11 - 16;
+    v17 = (char *)v10[1] - v11 - 16;
     v18 = v17 >> 2;
     v19 = v17 >> 4;
     if ( !v12 )
       LODWORD(v18) = v19;
-    if ( v11 == *(_DWORD **)a1 )
+    if ( v11 == (char *)*a1 )
     {
       v23 = 0LL;
       v22 = 0LL;
@@ -95,113 +100,124 @@ __int64 __fastcall B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,40
     else
     {
       v20 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeRedistribute(
-              a1,
+              (__int64)a1,
               a2);
-      v21 = *(v10 - 1);
-      v13 = *v11;
+      v21 = (unsigned __int64)*(v10 - 1);
+      v13 = *(_DWORD *)v11;
       v22 = v20;
       v23 = v21 + 32LL * ((v20 & 1) == 0) - 16;
     }
-    v24 = (unsigned __int16)v13;
     if ( (unsigned __int16)v13 < v14 )
     {
       if ( (v22 & 1) != 0 )
       {
-        v25 = (_DWORD *)(v22 & 0xFFFFFFFFFFFFFFFEuLL);
-        LODWORD(v18) = (unsigned __int16)v13 + v18 - v14;
-        if ( *((_BYTE *)v11 + 3) )
+        v24 = (char *)(v22 & 0xFFFFFFFFFFFFFFFEuLL);
+        v25 = v18 + (unsigned __int16)v13 - v14;
+        if ( v11[3] )
         {
-          if ( (int)v18 <= 0 )
-          {
-            v11 = v25;
-            LODWORD(v18) = (unsigned __int16)*v25 + (_DWORD)v18;
-          }
+          if ( v25 > 0 )
+            goto LABEL_19;
         }
-        else if ( (int)v18 < 0 )
+        else
         {
-          v11 = v25;
-          LODWORD(v18) = (unsigned __int16)*v25 + v18 + 1;
-          goto LABEL_50;
+          if ( v25 >= 0 )
+            goto LABEL_19;
+          ++v25;
         }
-        if ( v11 != v25 )
-        {
-LABEL_21:
+        v11 = v24;
+        v25 += (unsigned __int16)*(_DWORD *)v24;
+LABEL_19:
+        if ( v11 == v24 )
+          *(v10 - 1) = (int *)v23;
+        else
           v21 = v23;
-LABEL_22:
-          *v10 = (__int64)v11;
-          if ( *((_BYTE *)v11 + 3) )
-          {
-            v26 = (void **)(v21 - 8);
-            v10[1] = (__int64)&v11[(int)v18 + 4];
-            v27 = *(v10 - 2);
-            v28 = v27 + 16;
-            v29 = (void **)(v27 + 8);
-            v30 = v21 <= v28;
-            v31 = (struct NP_CONTEXT::NP_CTX *)(a1 + 16);
-            if ( v30 )
-              v26 = v29;
-            if ( **(_DWORD **)v31 != -1 )
-              NP_CONTEXT::NpLeafDerefInternal(v31, v26);
-          }
-          else
-          {
-            v10[1] = (__int64)&v11[4 * (int)v18 + 4];
-          }
-          v12 = *((_BYTE *)v11 + 3);
-          v13 = *v11;
-          goto LABEL_7;
-        }
-LABEL_50:
-        *(v10 - 1) = v23;
-        goto LABEL_22;
+        goto LABEL_21;
       }
-LABEL_38:
-      if ( (int)v18 > v24 )
+      if ( (int)v18 > (unsigned __int16)v13 )
       {
-        v34 = *((_BYTE *)v11 + 3);
-        v35 = v18 - v24;
-        *(v10 - 1) = v23;
-        v11 = (_DWORD *)v22;
-        v36 = v35 - 1;
-        if ( v34 )
-          v36 = v35;
-        LODWORD(v18) = v36;
-        goto LABEL_22;
+        v42 = v11[3];
+        v41 = v18 - (unsigned __int16)v13;
+        v11 = (char *)v22;
+        *(v10 - 1) = (int *)v23;
+LABEL_40:
+        v25 = v41 - 1;
+        if ( v42 )
+          v25 = v41;
+        goto LABEL_21;
       }
-      goto LABEL_21;
+      v21 = v23;
+      goto LABEL_48;
     }
-    if ( v22 && *((_BYTE *)v11 + 3) )
+    if ( v22 && v11[3] )
     {
-      v32 = *(v10 - 2);
-      v33 = (void **)(v23 > v32 + 16 ? v23 - 8 : v32 + 8);
-      if ( **(_DWORD **)(a1 + 16) != -1 )
-        NP_CONTEXT::NpLeafDerefInternal((struct NP_CONTEXT::NP_CTX *)(a1 + 16), v33);
+      v34 = (__int64)*(v10 - 2);
+      v35 = (void **)(v23 - 8);
+      v36 = v34 + 16;
+      v37 = (void **)(v34 + 8);
+      v31 = v23 <= v36;
+      v38 = (struct NP_CONTEXT::NP_CTX *)(a1 + 2);
+      if ( v31 )
+        v35 = v37;
+      if ( **(_DWORD **)v38 != -1 )
+        NP_CONTEXT::NpLeafDerefInternal(v38, v35);
     }
-    v22 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeSplitChild(
-            a1,
-            a2,
-            v23);
-    if ( v22 )
+    v39 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeSplitChild(
+            (__int64)a1,
+            a2);
+    if ( v39 )
     {
-      v10 = (__int64 *)(*(_QWORD *)a2 + 16LL * (unsigned int)(*(_DWORD *)(a2 + 24) - 1));
-      v24 = (unsigned __int16)*v11;
-      v21 = *(v10 - 1);
-      v23 = v21 + 16;
-      goto LABEL_38;
+      v10 = (int **)(*(_QWORD *)a2 + 16LL * (unsigned int)(*(_DWORD *)(a2 + 24) - 1));
+      v40 = (unsigned __int16)*(_DWORD *)v11;
+      v21 = (unsigned __int64)*(v10 - 1);
+      if ( (int)v18 > v40 )
+      {
+        v41 = v18 - v40;
+        v42 = v11[3];
+        v11 = (char *)v39;
+        *(v10 - 1) = (int *)(v21 + 16);
+        goto LABEL_40;
+      }
+      v21 += 16LL;
+LABEL_48:
+      v25 = v18;
+LABEL_21:
+      *v10 = (int *)v11;
+      v26 = v25;
+      if ( v11[3] )
+      {
+        v27 = (void **)(v21 - 8);
+        v10[1] = (int *)&v11[4 * v26 + 16];
+        v28 = (__int64)*(v10 - 2);
+        v29 = v28 + 16;
+        v30 = (void **)(v28 + 8);
+        v31 = v21 <= v29;
+        v32 = (struct NP_CONTEXT::NP_CTX *)(a1 + 2);
+        if ( v31 )
+          v27 = v30;
+        if ( **(_DWORD **)v32 != -1 )
+          NP_CONTEXT::NpLeafDerefInternal(v32, v27);
+      }
+      else
+      {
+        v10[1] = (int *)&v11[16 * v25 + 16];
+      }
+      v13 = *(_DWORD *)v11;
+      v12 = v11[3];
+      goto LABEL_7;
     }
     return (unsigned int)-1073741670;
   }
 LABEL_7:
-  v15 = (_DWORD *)v10[1];
+  v15 = v10[1];
   if ( v12 )
   {
-    memmove(v15 + 1, v15, (size_t)v11 + 4LL * (unsigned __int16)v13 + 16 - (_QWORD)v15);
+    memmove(v15 + 1, v15, (size_t)&v11[4LL * (unsigned __int16)v13 + 16 - (_QWORD)v15]);
     *v15 = *a3;
-    ++*(_QWORD *)(a1 + 8);
+    a1[1] = (int *)((char *)a1[1] + 1);
   }
   else
   {
-    memmove(v15 + 4, v15, (size_t)v11 + 16 * ((unsigned __int16)v13 + 1LL) - (_QWORD)v15);
+    memmove(v15 + 4, v15, (size_t)&v11[16 * ((unsigned __int16)v13 + 1LL) - (_QWORD)v15]);
     *(_OWORD *)v15 = *(_OWORD *)a3;
   }
   ++*(_WORD *)v11;

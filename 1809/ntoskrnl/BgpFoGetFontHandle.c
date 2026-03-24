@@ -6,9 +6,9 @@
  *     BgpTxtGetRegionContext @ 0x14094F8BC (BgpTxtGetRegionContext.c)
  *     BgpTxtCreateRegion @ 0x14095003C (BgpTxtCreateRegion.c)
  *     BgpConsoleInitialize @ 0x140951730 (BgpConsoleInitialize.c)
- *     BgpFoDetermineFontInformation @ 0x1409FB738 (BgpFoDetermineFontInformation.c)
+ *     BgpFoDetermineFontInformation @ 0x1409FB748 (BgpFoDetermineFontInformation.c)
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  */
 
 __int64 __fastcall BgpFoGetFontHandle(wchar_t *Str2, __int64 **a2)

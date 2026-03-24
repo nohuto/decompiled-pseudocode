@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiInitializePortArbiter @ 0x1C008C03C
+ * XREFs of AcpiInitializePortArbiter @ 0x1C00B1EB4
  * Callers:
- *     AcpiArblibInitializeArbiter @ 0x1C000B688 (AcpiArblibInitializeArbiter.c)
+ *     AcpiArblibInitializeArbiter @ 0x1C00AD2D4 (AcpiArblibInitializeArbiter.c)
  * Callees:
- *     ArbInitializeArbiterInstance @ 0x1C00A1BA4 (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeArbiterInstance @ 0x1C009FCF0 (ArbInitializeArbiterInstance.c)
  */
 
 __int64 __fastcall AcpiInitializePortArbiter(__int64 a1, __int64 a2)
@@ -18,5 +18,5 @@ __int64 __fastcall AcpiInitializePortArbiter(__int64 a1, __int64 a2)
   v3[31] = &AcpiPortarbFindSuitableRange;
   v3[32] = AcpiPortarbAddAllocation;
   v3[33] = AcpiPortarbBacktrackAllocation;
-  return ArbInitializeArbiterInstance(v3, *(_QWORD *)(a2 + 768), 1LL, a1);
+  return ArbInitializeArbiterInstance((__int64)v3, *(_QWORD *)(a2 + 728), 1, a1);
 }

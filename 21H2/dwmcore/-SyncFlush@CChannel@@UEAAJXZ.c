@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SyncFlush@CChannel@@UEAAJXZ @ 0x18002D2C0
+ * XREFs of ?SyncFlush@CChannel@@UEAAJXZ @ 0x180027CE0
  * Callers:
- *     ?SyncDesktopCaptureBits@CChannel@@UEAAJU_LUID@@HHIIW4DXGI_FORMAT@@_KPEAX@Z @ 0x18002D0B0 (-SyncDesktopCaptureBits@CChannel@@UEAAJU_LUID@@HHIIW4DXGI_FORMAT@@_KPEAX@Z.c)
- *     ?SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z @ 0x1801AC3B4 (-SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z.c)
+ *     ?SyncDesktopCaptureBits@CChannel@@UEAAJU_LUID@@HHIIW4DXGI_FORMAT@@_KPEAX@Z @ 0x180027AF0 (-SyncDesktopCaptureBits@CChannel@@UEAAJU_LUID@@HHIIW4DXGI_FORMAT@@_KPEAX@Z.c)
+ *     ?SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z @ 0x180151004 (-SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z.c)
  * Callees:
- *     ?SynchronizeChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x18002D308 (-SynchronizeChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SynchronizeChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x180027D28 (-SynchronizeChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CChannel::SyncFlush(CChannel *this)
@@ -20,7 +20,7 @@ __int64 __fastcall CChannel::SyncFlush(CChannel *this)
   v3 = CInternalMilCmdConnection::SynchronizeChannel(*((CInternalMilCmdConnection **)this + 6), v1);
   v5 = v3;
   if ( v3 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x26Au, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x252u, 0LL);
   *((_BYTE *)this + 208) = 0;
   return v5;
 }

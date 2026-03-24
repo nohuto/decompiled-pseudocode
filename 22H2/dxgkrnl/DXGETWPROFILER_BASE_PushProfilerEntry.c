@@ -1,53 +1,37 @@
 /*
- * XREFs of DXGETWPROFILER_BASE_PushProfilerEntry @ 0x1C000B240
+ * XREFs of DXGETWPROFILER_BASE_PushProfilerEntry @ 0x1C0014290
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01CA0D0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01059F0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
  */
 
-char __fastcall DXGETWPROFILER_BASE_PushProfilerEntry(__int64 a1, int a2)
+struct DXGTHREAD *__fastcall DXGETWPROFILER_BASE_PushProfilerEntry(__int64 a1, __int64 a2)
 {
-  struct DXGTHREAD *Current; // rax
+  int v2; // edi
+  struct DXGTHREAD *result; // rax
   int v5; // ecx
-  int v6; // edx
-  int v7; // ecx
-  int v8; // r8d
+  __int64 v6; // rax
 
+  v2 = a2;
   if ( *(_QWORD *)(a1 + 8) )
   {
-    WdLogSingleEntry1(1LL, 368LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v7,
-          v6,
-          v8,
-          0,
-          2,
-          -1,
-          (__int64)L"m_pThread == NULL",
-          368LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v6 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v6 + 24) = 336LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  LOBYTE(Current) = KeGetCurrentIrql();
-  if ( (unsigned __int8)Current < 2u )
+  result = (struct DXGTHREAD *)KeGetCurrentIrql();
+  if ( (unsigned __int8)result < 2u )
   {
-    Current = DXGTHREAD::GetCurrent();
-    *(_QWORD *)(a1 + 8) = Current;
-    if ( Current )
+    result = DXGTHREAD::GetCurrent();
+    *(_QWORD *)(a1 + 8) = result;
+    if ( result )
     {
-      v5 = *((_DWORD *)Current + 13);
+      v5 = *((_DWORD *)result + 9);
       if ( !v5 )
-        *((_DWORD *)Current + 14) = a2;
-      *((_DWORD *)Current + 13) = v5 + 1;
+        *((_DWORD *)result + 10) = v2;
+      *((_DWORD *)result + 9) = v5 + 1;
     }
   }
-  return (char)Current;
+  return result;
 }

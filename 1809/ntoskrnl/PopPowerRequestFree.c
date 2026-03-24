@@ -1,5 +1,5 @@
 /*
- * XREFs of PopPowerRequestFree @ 0x1406CFCF0
+ * XREFs of PopPowerRequestFree @ 0x1406CFCD0
  * Callers:
  *     <none>
  * Callees:

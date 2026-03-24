@@ -1,14 +1,13 @@
 /*
- * XREFs of ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C00034A4
+ * XREFs of ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0012090
  * Callers:
- *     ??_EVIDMM_DEVICE_PAGING_QUEUE@@QEAAPEAXI@Z @ 0x1C0003504 (--_EVIDMM_DEVICE_PAGING_QUEUE@@QEAAPEAXI@Z.c)
- *     ??_GVIDSCH_FLIP_QUEUE@@QEAAPEAXI@Z @ 0x1C0018860 (--_GVIDSCH_FLIP_QUEUE@@QEAAPEAXI@Z.c)
- *     ??1VIDMM_PARTITION@@QEAA@XZ @ 0x1C0030E80 (--1VIDMM_PARTITION@@QEAA@XZ.c)
- *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00DFE3C (--1VIDMM_GLOBAL@@QEAA@XZ.c)
- *     ??1VIDMM_LINEAR_POOL@@QEAA@XZ @ 0x1C01013C4 (--1VIDMM_LINEAR_POOL@@QEAA@XZ.c)
- *     VidSchTerminateAdapter @ 0x1C01087F0 (VidSchTerminateAdapter.c)
+ *     ??_EVIDMM_DEVICE_PAGING_QUEUE@@QEAAPEAXI@Z @ 0x1C001204C (--_EVIDMM_DEVICE_PAGING_QUEUE@@QEAAPEAXI@Z.c)
+ *     ??_GVIDMM_PARTITION@@QEAAPEAXI@Z @ 0x1C0026C6C (--_GVIDMM_PARTITION@@QEAAPEAXI@Z.c)
+ *     ??_GVIDSCH_FLIP_QUEUE@@QEAAPEAXI@Z @ 0x1C0029E34 (--_GVIDSCH_FLIP_QUEUE@@QEAAPEAXI@Z.c)
+ *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00AC37C (--1VIDMM_GLOBAL@@QEAA@XZ.c)
+ *     ??1VIDMM_LINEAR_POOL@@QEAA@XZ @ 0x1C00CCC80 (--1VIDMM_LINEAR_POOL@@QEAA@XZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall `vector destructor iterator'(char *a1, __int64 a2, __int64 a3, void (__fastcall *a4)(char *))

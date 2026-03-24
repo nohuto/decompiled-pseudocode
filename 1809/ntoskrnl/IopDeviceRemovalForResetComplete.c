@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDeviceRemovalForResetComplete @ 0x1408269A0
+ * XREFs of IopDeviceRemovalForResetComplete @ 0x140826980
  * Callers:
  *     <none>
  * Callees:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x14015D770 (RtlUnicodeStringValidateDestWorker.c)
- *     McTemplateK0hzr0qqhzr4 @ 0x140287ED0 (McTemplateK0hzr0qqhzr4.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x14015D790 (RtlUnicodeStringValidateDestWorker.c)
+ *     McTemplateK0hzr0qqhzr4 @ 0x140287FD0 (McTemplateK0hzr0qqhzr4.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopFreeResetRemovalContext @ 0x140826B50 (IopFreeResetRemovalContext.c)
- *     PnpTraceDeviceRemovalForResetComplete @ 0x140839798 (PnpTraceDeviceRemovalForResetComplete.c)
+ *     IopFreeResetRemovalContext @ 0x140826B30 (IopFreeResetRemovalContext.c)
+ *     PnpTraceDeviceRemovalForResetComplete @ 0x140839778 (PnpTraceDeviceRemovalForResetComplete.c)
  */
 
 __int64 __fastcall IopDeviceRemovalForResetComplete(char *P, __int64 a2, __int64 a3, size_t *a4)
@@ -64,12 +64,12 @@ __int64 __fastcall IopDeviceRemovalForResetComplete(char *P, __int64 a2, __int64
     *((_DWORD *)P + 40) = v5;
     if ( RtlUnicodeStringValidateDestWorker((PCUNICODE_STRING)(P + 200), &ppszDest, &pcchDest, a4, cchMax, dwFlags) >= 0 )
     {
-      v10 = &word_140766570;
+      v10 = &word_140766550;
       v11 = 0x7FFFLL;
       if ( pcchDest )
       {
         v12 = pcchDest - 0x7FFF;
-        v13 = (char *)ppszDest - (char *)&word_140766570;
+        v13 = (char *)ppszDest - (char *)&word_140766550;
         do
         {
           if ( !v11 )

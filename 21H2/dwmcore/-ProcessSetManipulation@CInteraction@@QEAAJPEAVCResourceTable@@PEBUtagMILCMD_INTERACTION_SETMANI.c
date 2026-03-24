@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetManipulation@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETMANIPULATION@@@Z @ 0x1801F2914
+ * XREFs of ?ProcessSetManipulation@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETMANIPULATION@@@Z @ 0x1801C69F4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??4?$ComPtr@VCManipulation@@@WRL@Microsoft@@QEAAAEAV012@PEAVCManipulation@@@Z @ 0x1801F1BDC (--4-$ComPtr@VCManipulation@@@WRL@Microsoft@@QEAAAEAV012@PEAVCManipulation@@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CInteraction::ProcessSetManipulation(
@@ -12,14 +12,25 @@ __int64 __fastcall CInteraction::ProcessSetManipulation(
         struct CResourceTable *a2,
         const struct tagMILCMD_INTERACTION_SETMANIPULATION *a3)
 {
-  __int64 Resource; // rax
+  __int64 Resource; // rbx
   unsigned int v5; // edx
+  __int64 v7; // rcx
 
   Resource = 0LL;
   v5 = *((_DWORD *)a3 + 2);
   if ( v5 )
     Resource = CResourceTable::GetResource((__int64)a2, v5, 0x67u);
-  if ( Resource != *((_QWORD *)this + 34) )
-    Microsoft::WRL::ComPtr<CManipulation>::operator=((__int64 *)this + 34, Resource);
+  v7 = *((_QWORD *)this + 33);
+  if ( Resource != v7 )
+  {
+    if ( Resource )
+    {
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)Resource + 8LL))(Resource);
+      v7 = *((_QWORD *)this + 33);
+    }
+    *((_QWORD *)this + 33) = Resource;
+    if ( v7 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  }
   return 0LL;
 }

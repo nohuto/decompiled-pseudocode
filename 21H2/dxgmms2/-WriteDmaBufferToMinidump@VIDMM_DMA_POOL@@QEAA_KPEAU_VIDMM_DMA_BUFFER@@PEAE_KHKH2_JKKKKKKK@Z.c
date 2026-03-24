@@ -1,10 +1,10 @@
 /*
- * XREFs of ?WriteDmaBufferToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_DMA_BUFFER@@PEAE_KHKH2_JKKKKKKK@Z @ 0x1C00E0E00
+ * XREFs of ?WriteDmaBufferToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_DMA_BUFFER@@PEAE_KHKH2_JKKKKKKK@Z @ 0x1C00BB388
  * Callers:
- *     ?WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z @ 0x1C00E1224 (-WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z.c)
+ *     ?WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z @ 0x1C00BB7AC (-WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z.c)
  * Callees:
- *     memmove @ 0x1C001D980 (memmove.c)
- *     ?BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z @ 0x1C00A4420 (-BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z.c)
+ *     memmove @ 0x1C0018C00 (memmove.c)
+ *     ?BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z @ 0x1C00756EC (-BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall VIDMM_DMA_POOL::WriteDmaBufferToMinidump(
@@ -26,20 +26,20 @@ __int64 __fastcall VIDMM_DMA_POOL::WriteDmaBufferToMinidump(
         unsigned int a16)
 {
   unsigned __int8 *v16; // r10
-  struct _VIDMM_DMA_BUFFER *v17; // r15
+  struct _VIDMM_DMA_BUFFER *v17; // r13
   unsigned __int64 v19; // r11
-  size_t v20; // r13
+  size_t v20; // r12
   unsigned __int64 v21; // rdi
   unsigned int v22; // esi
   unsigned int v23; // edx
   int v24; // ecx
   unsigned int v25; // r9d
-  unsigned int v26; // r12d
+  unsigned int v26; // r15d
   unsigned int v27; // ebx
   size_t v28; // rbp
   size_t v29; // r14
   unsigned __int64 v30; // r8
-  unsigned int v31; // r13d
+  unsigned int v31; // r12d
   unsigned __int64 v32; // rax
   __int64 v33; // rax
   unsigned __int64 v34; // rax
@@ -48,7 +48,7 @@ __int64 __fastcall VIDMM_DMA_POOL::WriteDmaBufferToMinidump(
   unsigned int v37; // edx
   unsigned int v38; // esi
   unsigned int *v39; // rcx
-  int v40; // r12d
+  int v40; // r15d
   unsigned int v41; // eax
   unsigned int v42; // r9d
   unsigned __int64 v43; // rdx
@@ -62,7 +62,7 @@ __int64 __fastcall VIDMM_DMA_POOL::WriteDmaBufferToMinidump(
   unsigned __int64 v51; // rdx
   __int64 v52; // rax
   __int64 v53; // rdi
-  unsigned __int8 *v54; // r12
+  unsigned __int8 *v54; // r15
   unsigned __int8 *v55; // rsi
   size_t v56; // rbx
   unsigned __int64 v57; // rbp
@@ -101,7 +101,7 @@ __int64 __fastcall VIDMM_DMA_POOL::WriteDmaBufferToMinidump(
   if ( v20 )
   {
     v31 = 0;
-    while ( 1 )
+    do
     {
       if ( v21 )
       {
@@ -118,117 +118,113 @@ __int64 __fastcall VIDMM_DMA_POOL::WriteDmaBufferToMinidump(
           if ( v30 < 0x40 )
             v33 = v30;
         }
-        v21 -= v33;
         v29 += v33;
+        v21 -= v33;
         v30 -= v33;
-        if ( !v19 )
-          goto LABEL_49;
       }
       else if ( !v19 )
       {
-        goto LABEL_50;
-      }
-      v34 = 1024LL;
-      if ( v30 < 0x400 )
-        v34 = v30;
-      if ( v34 >= v19 )
-      {
-        v35 = v19;
-      }
-      else
-      {
-        v35 = 1024LL;
-        if ( v30 < 0x400 )
-          v35 = v30;
-      }
-      v28 += v35;
-      v19 -= v35;
-      v30 -= v35;
-      if ( v23 )
-      {
-        v36 = 0;
-        v37 = a12;
-        if ( a12 < a13 )
-        {
-          v38 = v67;
-          v39 = (unsigned int *)(*((_QWORD *)v17 + 15) + 8 * (3LL * a12 + 2));
-          do
-          {
-            v40 = v36;
-            if ( *v39 < v28 )
-            {
-              LODWORD(Src) = v37;
-              v41 = v37;
-              if ( !v36 )
-                v36 = 1;
-              if ( v40 )
-                v41 = v38;
-              v38 = v41;
-            }
-            ++v37;
-            v39 += 6;
-          }
-          while ( v37 < a13 );
-          v17 = a2;
-          v67 = v38;
-          v26 = v38;
-          v22 = v68;
-        }
-        v42 = v26;
-        v43 = v30 / 0x18;
-        v44 = (_DWORD)Src - v26 - v22 + 1;
-        if ( (unsigned int)(v30 / 0x18) >= v44 )
-          v43 = v44;
-        v22 += v43;
-        v68 = v22;
-        v45 = v30 - 24 * v43;
-        if ( v26 <= (unsigned int)Src )
-        {
-          v46 = v66;
-          do
-          {
-            v47 = *(_DWORD *)(*((_QWORD *)v17 + 15) + 24LL * v42);
-            v48 = v47;
-            if ( v27 < v47 )
-              v48 = v27;
-            v27 = v48;
-            if ( v46 > v47 )
-              v47 = v46;
-            ++v42;
-            v46 = v47;
-          }
-          while ( v42 <= (unsigned int)Src );
-          v17 = a2;
-          v31 = v47;
-          v22 = v68;
-          v26 = v67;
-        }
-        v49 = *((_DWORD *)v17 + 13) - 1;
-        if ( v31 < v49 )
-          v49 = v31;
-        v66 = v49;
-        v31 = v49;
-        v50 = v49 - v27 - v65 + 1;
-        v51 = v45 / 0x18;
-        if ( (unsigned int)(v45 / 0x18) >= v50 )
-          v51 = v50;
-        v24 = v51 + v65;
-        v65 += v51;
-        v52 = 3 * v51;
-        v23 = a13;
-        v30 = v45 - 8 * v52;
-      }
-LABEL_49:
-      if ( !v30 )
-      {
-LABEL_50:
-        v16 = a3;
-        v20 = v61;
-        v25 = a12;
-        v60 = v27;
         break;
       }
+      if ( v19 )
+      {
+        v34 = 1024LL;
+        if ( v30 < 0x400 )
+          v34 = v30;
+        if ( v34 >= v19 )
+        {
+          v35 = v19;
+        }
+        else
+        {
+          v35 = 1024LL;
+          if ( v30 < 0x400 )
+            v35 = v30;
+        }
+        v28 += v35;
+        v19 -= v35;
+        v30 -= v35;
+        if ( v23 )
+        {
+          v36 = 0;
+          v37 = a12;
+          if ( a12 < a13 )
+          {
+            v38 = v67;
+            v39 = (unsigned int *)(*((_QWORD *)v17 + 15) + 8 * (3LL * a12 + 2));
+            do
+            {
+              v40 = v36;
+              if ( *v39 < v28 )
+              {
+                LODWORD(Src) = v37;
+                v41 = v37;
+                if ( !v36 )
+                  v36 = 1;
+                if ( v40 )
+                  v41 = v38;
+                v38 = v41;
+              }
+              ++v37;
+              v39 += 6;
+            }
+            while ( v37 < a13 );
+            v17 = a2;
+            v67 = v38;
+            v26 = v38;
+            v22 = v68;
+          }
+          v42 = v26;
+          v43 = v30 / 0x18;
+          v44 = (_DWORD)Src - v26 - v22 + 1;
+          if ( (unsigned int)(v30 / 0x18) >= v44 )
+            v43 = v44;
+          v22 += v43;
+          v68 = v22;
+          v45 = v30 - 24 * v43;
+          if ( v26 <= (unsigned int)Src )
+          {
+            v46 = v66;
+            do
+            {
+              v47 = *(_DWORD *)(*((_QWORD *)v17 + 15) + 24LL * v42);
+              v48 = v47;
+              if ( v27 < v47 )
+                v48 = v27;
+              v27 = v48;
+              if ( v46 > v47 )
+                v47 = v46;
+              ++v42;
+              v46 = v47;
+            }
+            while ( v42 <= (unsigned int)Src );
+            v17 = a2;
+            v31 = v47;
+            v22 = v68;
+            v26 = v67;
+          }
+          v49 = *((_DWORD *)v17 + 13) - 1;
+          if ( v31 < v49 )
+            v49 = v31;
+          v66 = v49;
+          v31 = v49;
+          v50 = v49 - v27 - v65 + 1;
+          v51 = v45 / 0x18;
+          if ( (unsigned int)(v45 / 0x18) >= v50 )
+            v51 = v50;
+          v24 = v51 + v65;
+          v65 += v51;
+          v52 = 3 * v51;
+          v23 = a13;
+          v30 = v45 - 8 * v52;
+        }
+      }
     }
+    while ( v30 );
+    v16 = a3;
+    v20 = v61;
+    v25 = a12;
+    v60 = v27;
   }
   *(_QWORD *)v16 = a8;
   *((_QWORD *)v16 + 1) = a9;

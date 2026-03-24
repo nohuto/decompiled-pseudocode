@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpFileWrite @ 0x1406C8080
+ * XREFs of CmpFileWrite @ 0x1406C8060
  * Callers:
- *     CmpSaveKeyByFileCopy @ 0x1408032B0 (CmpSaveKeyByFileCopy.c)
+ *     CmpSaveKeyByFileCopy @ 0x140803290 (CmpSaveKeyByFileCopy.c)
  * Callees:
  *     CmpDoFileWrite @ 0x1405B3A60 (CmpDoFileWrite.c)
  */

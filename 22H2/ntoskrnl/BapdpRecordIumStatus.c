@@ -1,12 +1,12 @@
 /*
- * XREFs of BapdpRecordIumStatus @ 0x140B38C84
+ * XREFs of BapdpRecordIumStatus @ 0x140A40EDC
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140B38D8C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A405AC (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     BapdRegisterEtwProvider @ 0x140374214 (BapdRegisterEtwProvider.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwUnregister @ 0x1407C1390 (EtwUnregister.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     BapdRegisterEtwProvider @ 0x14039AD14 (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwUnregister @ 0x14075F9C0 (EtwUnregister.c)
  */
 
 int BapdpRecordIumStatus()
@@ -31,18 +31,18 @@ int BapdpRecordIumStatus()
   {
     v1 = *(_QWORD *)(KeLoaderBlock_0 + 240);
     UserData.Reserved = 0;
-    UserData.Ptr = v1 + 2896;
+    UserData.Ptr = v1 + 2864;
     UserData.Size = 4;
     v2 = *(_QWORD *)(KeLoaderBlock_0 + 240);
     v9 = 0;
-    v7 = v2 + 2888;
+    v7 = v2 + 2856;
     v8 = 4;
     v3 = *(_QWORD *)(KeLoaderBlock_0 + 240);
     v12 = 0;
-    v10 = v3 + 2892;
+    v10 = v3 + 2860;
     v11 = 4;
     v4 = &BOOT_ENVIRONMENT_VSM_POLICY_ENABLEMENT;
-    if ( *(int *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 2896LL) < 0 )
+    if ( *(int *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 2864LL) < 0 )
       v4 = (const EVENT_DESCRIPTOR *)BOOT_ENVIRONMENT_VSM_POLICY_ENABLEMENT_FAILURE;
     result = EtwWriteEx(RegHandle, v4, 0LL, 0, 0LL, 0LL, 3u, &UserData);
   }

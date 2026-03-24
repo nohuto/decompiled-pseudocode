@@ -4,7 +4,7 @@
  *     HdlspProcessDumpCommand @ 0x14094CB74 (HdlspProcessDumpCommand.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     HdlspGetLine @ 0x14094C584 (HdlspGetLine.c)
  *     HdlspPutString @ 0x14094CF98 (HdlspPutString.c)
  */

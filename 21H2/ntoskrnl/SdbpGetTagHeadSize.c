@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpGetTagHeadSize @ 0x140793480
+ * XREFs of SdbpGetTagHeadSize @ 0x14075A268
  * Callers:
- *     SdbpGetMappedTagData @ 0x14075B988 (SdbpGetMappedTagData.c)
- *     SdbpReadTagData @ 0x140791084 (SdbpReadTagData.c)
- *     SdbpGetNextTagId @ 0x1407941A4 (SdbpGetNextTagId.c)
+ *     SdbpGetMappedTagData @ 0x140759E04 (SdbpGetMappedTagData.c)
+ *     SdbpReadTagData @ 0x140759F40 (SdbpReadTagData.c)
+ *     SdbpGetNextTagId @ 0x14075A2B8 (SdbpGetNextTagId.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbpReadMappedData @ 0x140797F3C (SdbpReadMappedData.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpReadMappedData @ 0x14075A42C (SdbpReadMappedData.c)
  */
 
 __int64 __fastcall SdbpGetTagHeadSize(__int64 a1, __int64 a2)

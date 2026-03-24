@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUpdateForkMaps @ 0x1402CAB08
+ * XREFs of MiUpdateForkMaps @ 0x1402CAC08
  * Callers:
- *     MiCloneVads @ 0x1402C8A68 (MiCloneVads.c)
+ *     MiCloneVads @ 0x1402C8B68 (MiCloneVads.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetNextPageTable @ 0x140084240 (MiGetNextPageTable.c)
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
  *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiIncreaseUsedPtesCount @ 0x140110044 (MiIncreaseUsedPtesCount.c)
- *     MiMapSinglePage @ 0x14012185C (MiMapSinglePage.c)
- *     MiBuildForkPageTable @ 0x1402C780C (MiBuildForkPageTable.c)
- *     MiDoneWithThisPageGetAnother @ 0x1402C97E0 (MiDoneWithThisPageGetAnother.c)
+ *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
+ *     MiMapSinglePage @ 0x14012187C (MiMapSinglePage.c)
+ *     MiBuildForkPageTable @ 0x1402C790C (MiBuildForkPageTable.c)
+ *     MiDoneWithThisPageGetAnother @ 0x1402C98E0 (MiDoneWithThisPageGetAnother.c)
  */
 
 ULONG_PTR __fastcall MiUpdateForkMaps(__int64 *a1, __int64 a2, __int64 a3, _QWORD *a4, __int64 a5, char a6)

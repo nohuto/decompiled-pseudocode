@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SaveState@FxPkgPnp@@IEAAXE@Z @ 0x1C0017DC4
+ * XREFs of ?SaveState@FxPkgPnp@@IEAAXE@Z @ 0x1C00106C0
  * Callers:
- *     ?_PowerStateCallback@FxPowerPolicyOwnerSettings@@KAXPEAX00@Z @ 0x1C00174D0 (-_PowerStateCallback@FxPowerPolicyOwnerSettings@@KAXPEAX00@Z.c)
- *     ?PowerPolStartingDecideS0Wake@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0017D10 (-PowerPolStartingDecideS0Wake@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
- *     ?PowerPolicySetSxWakeState@FxPkgPnp@@QEAAXE@Z @ 0x1C0020750 (-PowerPolicySetSxWakeState@FxPkgPnp@@QEAAXE@Z.c)
- *     ?PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z @ 0x1C0083BC8 (-PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z.c)
+ *     ?PowerPolStartingDecideS0Wake@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0010520 (-PowerPolStartingDecideS0Wake@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
+ *     ?_PowerStateCallback@FxPowerPolicyOwnerSettings@@KAXPEAX00@Z @ 0x1C00105D0 (-_PowerStateCallback@FxPowerPolicyOwnerSettings@@KAXPEAX00@Z.c)
+ *     ?PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z @ 0x1C0079FD0 (-PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z.c)
+ *     ?PowerPolicySetSxWakeState@FxPkgPnp@@QEAAXE@Z @ 0x1C0082130 (-PowerPolicySetSxWakeState@FxPkgPnp@@QEAAXE@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z @ 0x1C0015054 (-OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z @ 0x1C000EADC (-OpenSettingsKey@FxDevice@@QEAAJPEAPEAXK@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
  */
 
 void __fastcall FxPkgPnp::SaveState(FxPkgPnp *this, unsigned __int8 UseCanSaveState)
@@ -17,7 +17,7 @@ void __fastcall FxPkgPnp::SaveState(FxPkgPnp *this, unsigned __int8 UseCanSaveSt
   _IRP *m_PendingDevicePowerIrp; // rax
   FxPowerPolicyOwnerSettings *v5; // rax
   FxPowerPolicyOwnerSettings *v6; // rcx
-  const void *ObjectHandleUnchecked; // rax
+  const void *_a1; // rax
   _FX_DRIVER_GLOBALS *v8; // r10
   _UNICODE_STRING name; // [rsp+30h] [rbp-10h] BYREF
   int Data; // [rsp+50h] [rbp+10h] BYREF
@@ -32,8 +32,8 @@ void __fastcall FxPkgPnp::SaveState(FxPkgPnp *this, unsigned __int8 UseCanSaveSt
     {
       if ( !this->m_Globals->FxVerboseOn )
         return;
-      ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-      WPP_IFR_SF_q(v8, 5u, 0xCu, 0x50u, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids, ObjectHandleUnchecked);
+      _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+      WPP_IFR_SF_q(v8, 5u, 0xCu, 0x50u, (const _GUID *)&WPP_FxPkgPnp_cpp_Traceguids, _a1);
     }
     else if ( (m_Owner->m_IdleSettings.Dirty || m_Owner->m_WakeSettings.Dirty)
            && (m_Owner->m_IdleSettings.Overridable || m_Owner->m_WakeSettings.Overridable)

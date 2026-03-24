@@ -1,13 +1,13 @@
 /*
- * XREFs of IovAttachDeviceToDeviceStack @ 0x140AC1FA4
+ * XREFs of IovAttachDeviceToDeviceStack @ 0x1409C4A5C
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x14035F2C4 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x14034C324 (IopAttachDeviceToDeviceStackSafe.c)
  * Callees:
- *     ViDifCheckCallbackInterception @ 0x14020A54C (ViDifCheckCallbackInterception.c)
- *     VfDifAllocateCallbackStorage @ 0x1405CED5C (VfDifAllocateCallbackStorage.c)
- *     ViDifCaptureDriverEntry @ 0x1405CEFDC (ViDifCaptureDriverEntry.c)
- *     ViDifCaptureIoCallbacks @ 0x1405CF04C (ViDifCaptureIoCallbacks.c)
- *     IovUtilFlushStackCache @ 0x140AD39CC (IovUtilFlushStackCache.c)
+ *     ViDifCheckCallbackInterception @ 0x14037D908 (ViDifCheckCallbackInterception.c)
+ *     ViDifAllocateCallbackStorage @ 0x1405A0B78 (ViDifAllocateCallbackStorage.c)
+ *     ViDifCaptureDriverEntry @ 0x1405A0BBC (ViDifCaptureDriverEntry.c)
+ *     ViDifCaptureIoCallbacks @ 0x1405A0BE8 (ViDifCaptureIoCallbacks.c)
+ *     IovUtilFlushStackCache @ 0x1409D6914 (IovUtilFlushStackCache.c)
  */
 
 __int64 __fastcall IovAttachDeviceToDeviceStack(__int64 a1, __int64 a2)
@@ -15,7 +15,8 @@ __int64 __fastcall IovAttachDeviceToDeviceStack(__int64 a1, __int64 a2)
   __int64 result; // rax
   struct _DRIVER_OBJECT *v4; // rbx
   PDRIVER_EXTENSION DriverExtension; // rdi
-  __int64 CallbackStorage; // rax
+  PVOID CallbackStorage; // rax
+  _QWORD *v7; // rcx
 
   result = (unsigned int)VfIoDisabled;
   if ( !VfIoDisabled )
@@ -24,12 +25,12 @@ __int64 __fastcall IovAttachDeviceToDeviceStack(__int64 a1, __int64 a2)
     DriverExtension = v4->DriverExtension;
     if ( ViDifCheckCallbackInterception(v4) && !*(_QWORD *)&DriverExtension[1].ServiceKeyName.Length )
     {
-      CallbackStorage = VfDifAllocateCallbackStorage();
+      CallbackStorage = ViDifAllocateCallbackStorage();
       if ( CallbackStorage )
       {
         *(_QWORD *)&DriverExtension[1].ServiceKeyName.Length = CallbackStorage;
         if ( ViDifCaptureDriverEntry((__int64)v4) )
-          ViDifCaptureIoCallbacks(v4);
+          ViDifCaptureIoCallbacks(v7);
       }
     }
     return IovUtilFlushStackCache(a2);

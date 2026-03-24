@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0DXGRESOURCEREFERENCE@@QEAA@$$QEAV0@@Z @ 0x1C02D7150
+ * XREFs of ??0DXGRESOURCEREFERENCE@@QEAA@$$QEAV0@@Z @ 0x1C0227F54
  * Callers:
- *     DxgGetHandleDataCB @ 0x1C02EE710 (DxgGetHandleDataCB.c)
+ *     DxgGetHandleDataCB @ 0x1C0118DA0 (DxgGetHandleDataCB.c)
  * Callees:
  *     <none>
  */

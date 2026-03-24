@@ -1,125 +1,109 @@
 /*
- * XREFs of ?Lock@CWin32kLocks@@QEAAJPEAUHWND__@@HHH@Z @ 0x1C0055E38
+ * XREFs of ?Lock@CWin32kLocks@@QEAAJPEAUHWND__@@HHH@Z @ 0x1C001BB54
  * Callers:
- *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C01BF8F0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
- *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1C033E51C (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C0107DA0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1C02805F0 (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
  * Callees:
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?Unlock@CWin32kLocks@@QEAAXXZ @ 0x1C0025FCC (-Unlock@CWin32kLocks@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?vLock@DXGSTABLEVISRGNANDSPRITE@@QEAAXPEAUHDC__@@QEBU_DXGKWIN32KENG_INTERFACE@@PEAVDXGADAPTER@@HH@Z @ 0x1C00560DC (-vLock@DXGSTABLEVISRGNANDSPRITE@@QEAAXPEAUHDC__@@QEBU_DXGKWIN32KENG_INTERFACE@@PEAVDXGADAPTER@@H.c)
+ *     ?Unlock@CWin32kLocks@@QEAAXXZ @ 0x1C0027AC8 (-Unlock@CWin32kLocks@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CWin32kLocks::Lock(CWin32kLocks *this, HWND a2, int a3, int a4, int a5)
 {
-  unsigned int v9; // ebx
-  int v10; // edx
-  int v11; // ecx
-  int v12; // r8d
-  int v13; // edx
-  int v14; // ecx
-  int v15; // r8d
-  __int64 v16; // rax
-  int v17; // edx
-  int v18; // ecx
-  int v19; // r8d
+  __int64 v6; // rcx
+  unsigned int v7; // edi
+  unsigned __int64 v11; // rsi
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rsi
+  __int64 v18; // rbp
+  __int64 v19; // rax
   __int64 v20; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
 
-  v9 = 0;
-  if ( DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this + 7)) )
+  v6 = *((_QWORD *)this + 7);
+  v7 = 0;
+  if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v6 + 184)
+    || ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v6 + 168)) )
   {
-    WdLogSingleEntry1(1LL, 578LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v11,
-          v10,
-          v12,
-          0LL,
-          2,
-          -1,
-          L"!m_pAdapter->IsCoreResourceSharedOwner()",
-          578LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v22 = WdLogNewEntry5_WdAssertion(v6, a2);
+    *(_QWORD *)(v22 + 24) = 586LL;
+    WdLogEvent5_WdAssertion(v22);
   }
-  if ( *(_QWORD *)this || *((_QWORD *)this + 1) || *((_QWORD *)this + 2) )
+  if ( *(_QWORD *)this || (v11 = (unsigned __int64)this + 8, *((_QWORD *)this + 1)) || *((_QWORD *)this + 2) )
   {
-    WdLogSingleEntry1(1LL, 580LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v14,
-          v13,
-          v15,
-          0LL,
-          2,
-          -1,
-          L"m_hWindowDc == NULL && m_hFullscreenDc == NULL && m_hDevLocked == NULL",
-          580LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v23 = WdLogNewEntry5_WdAssertion(v6, a2);
+    *(_QWORD *)(v23 + 24) = 588LL;
+    WdLogEvent5_WdAssertion(v23);
+    v11 = (unsigned __int64)this + 8;
   }
-  v16 = (*(__int64 (__fastcall **)(HWND, unsigned __int64))(*((_QWORD *)this + 3) + 48LL))(
+  v12 = (*(__int64 (__fastcall **)(HWND, unsigned __int64))(*((_QWORD *)this + 3) + 48LL))(
           a2,
-          ((unsigned __int64)this + 8) & -(__int64)(a5 != 0));
-  *(_QWORD *)this = v16;
-  if ( v16 )
+          v11 & -(__int64)(a5 != 0));
+  *(_QWORD *)this = v12;
+  v14 = v12;
+  if ( v12 )
   {
-    if ( a5 )
+    if ( a5 && !*(_QWORD *)v11 )
     {
-      if ( !*((_QWORD *)this + 1) )
+      v24 = WdLogNewEntry5_WdAssertion(v12, v13);
+      *(_QWORD *)(v24 + 24) = 594LL;
+      WdLogEvent5_WdAssertion(v24);
+      v14 = *(_QWORD *)this;
+    }
+    (*(void (__fastcall **)(__int64, __int64))(*((_QWORD *)this + 3) + 288LL))(v14, 1LL);
+    v17 = *((_QWORD *)this + 7);
+    v18 = *(_QWORD *)this;
+    *((_QWORD *)this + 4) = *((_QWORD *)this + 3);
+    *((_QWORD *)this + 5) = 0LL;
+    *((_DWORD *)this + 12) = a3;
+    if ( *((_DWORD *)this + 13) )
+    {
+      v25 = WdLogNewEntry5_WdAssertion(v16, v15);
+      *(_QWORD *)(v25 + 24) = 484LL;
+      WdLogEvent5_WdAssertion(v25);
+    }
+    if ( v18 )
+    {
+      if ( v17 )
       {
-        WdLogSingleEntry1(1LL, 586LL);
-        if ( bTracingEnabled )
+        v19 = *((_QWORD *)this + 4);
+        *((_QWORD *)this + 5) = v17;
+        (*(void (__fastcall **)(__int64))(v19 + 256))(v18);
+        if ( a4 )
         {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-            McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-              v18,
-              v17,
-              v19,
-              0LL,
-              2,
-              -1,
-              L"((! bFullscreen) || (m_hFullscreenDc))",
-              586LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
+          (*(void (__fastcall **)(_QWORD, bool))(*((_QWORD *)this + 4) + 272LL))(
+            *((_QWORD *)this + 5),
+            *((_DWORD *)this + 12) == 0);
+          *((_DWORD *)this + 13) = 1;
         }
       }
     }
-    (*(void (__fastcall **)(_QWORD, __int64))(*((_QWORD *)this + 3) + 288LL))(*(_QWORD *)this, 1LL);
-    DXGSTABLEVISRGNANDSPRITE::vLock(
-      (CWin32kLocks *)((char *)this + 32),
-      *(HDC *)this,
-      *((const struct _DXGKWIN32KENG_INTERFACE *const *)this + 3),
-      *((struct DXGADAPTER **)this + 7),
-      a3,
-      a4);
     v20 = (*(__int64 (__fastcall **)(_QWORD))(*((_QWORD *)this + 3) + 16LL))(*(_QWORD *)this);
     *((_QWORD *)this + 2) = v20;
     if ( !v20 )
     {
-      WdLogSingleEntry1(4LL, *(_QWORD *)this);
+      v26 = WdLogNewEntry5_WdEvent();
+      *(_QWORD *)(v26 + 24) = *(_QWORD *)this;
+      WdLogEvent5_WdEvent(v26);
       CWin32kLocks::Unlock(this);
       return (unsigned int)-1073741811;
     }
   }
   else
   {
-    v9 = -1071775731;
-    WdLogSingleEntry1(4LL, a2);
+    v7 = -1071775731;
+    v27 = WdLogNewEntry5_WdEvent();
+    *(_QWORD *)(v27 + 24) = a2;
+    WdLogEvent5_WdEvent(v27);
   }
-  return v9;
+  return v7;
 }

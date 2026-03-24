@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQueryObject @ 0x14041A8A0
+ * XREFs of ZwQueryObject @ 0x1403F9C20
  * Callers:
- *     DifZwQueryObjectWrapper @ 0x1405F5470 (DifZwQueryObjectWrapper.c)
- *     CmpNameFromAttributes @ 0x140691F04 (CmpNameFromAttributes.c)
- *     CmpAddToHiveFileList @ 0x1407E53E4 (CmpAddToHiveFileList.c)
- *     _RegRtlQueryKeyPathName @ 0x14086223C (_RegRtlQueryKeyPathName.c)
- *     EtwpObjectTypeRundown @ 0x1409EF4A0 (EtwpObjectTypeRundown.c)
- *     CmpCmdRenameHive @ 0x140A11A28 (CmpCmdRenameHive.c)
+ *     CmpAddToHiveFileList @ 0x1406A1CFC (CmpAddToHiveFileList.c)
+ *     CmpNameFromAttributes @ 0x1406E80BC (CmpNameFromAttributes.c)
+ *     _RegRtlQueryKeyPathName @ 0x1407D1F88 (_RegRtlQueryKeyPathName.c)
+ *     CmpCmdRenameHive @ 0x140876B2C (CmpCmdRenameHive.c)
+ *     EtwpObjectTypeRundown @ 0x14093E1F4 (EtwpObjectTypeRundown.c)
  * Callees:
  *     <none>
  */

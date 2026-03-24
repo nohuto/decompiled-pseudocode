@@ -1,12 +1,12 @@
 /*
- * XREFs of IoWMISetSingleInstance @ 0x1409DF050
+ * XREFs of IoWMISetSingleInstance @ 0x140931240
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     WmipQuerySetExecuteSI @ 0x1406C6DEC (WmipQuerySetExecuteSI.c)
- *     WmipAllocateSingleInstanceWnode @ 0x1409DF574 (WmipAllocateSingleInstanceWnode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     WmipQuerySetExecuteSI @ 0x140756A60 (WmipQuerySetExecuteSI.c)
+ *     WmipAllocateSingleInstanceWnode @ 0x140931760 (WmipAllocateSingleInstanceWnode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMISetSingleInstance(
@@ -56,7 +56,14 @@ NTSTATUS __stdcall IoWMISetSingleInstance(
     *((_DWORD *)v10 + 14) = v13;
     memmove((char *)v10 + v13, ValueBuffer, ValueBufferSize);
     LODWORD(v17) = *(_DWORD *)v10;
-    SingleInstanceWnode = WmipQuerySetExecuteSI(DataBlockObject, 0LL, 0, 2u, (__int64)v10, v12, (unsigned int *)&v17);
+    SingleInstanceWnode = WmipQuerySetExecuteSI(
+                            (PADAPTER_OBJECT)DataBlockObject,
+                            0LL,
+                            0,
+                            2u,
+                            (__int64)v10,
+                            v12,
+                            (unsigned int *)&v17);
     ExFreePoolWithTag(v10, 0);
   }
   return SingleInstanceWnode;

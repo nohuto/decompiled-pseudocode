@@ -1,10 +1,10 @@
 /*
- * XREFs of RotBarUpdate @ 0x14054EA0C
+ * XREFs of RotBarUpdate @ 0x1404FEFEC
  * Callers:
- *     InbvRotateGuiBootDisplay @ 0x14054E8B0 (InbvRotateGuiBootDisplay.c)
+ *     InbvRotateGuiBootDisplay @ 0x1404FEE90 (InbvRotateGuiBootDisplay.c)
  * Callees:
- *     InbvGetDisplayState @ 0x14054E62C (InbvGetDisplayState.c)
- *     FadePalette @ 0x14054E7CC (FadePalette.c)
+ *     InbvGetDisplayState @ 0x1404FEC0C (InbvGetDisplayState.c)
+ *     FadePalette @ 0x1404FEDAC (FadePalette.c)
  */
 
 void RotBarUpdate()
@@ -22,9 +22,9 @@ void RotBarUpdate()
     {
       v5 = PaletteNum;
       FadePalette(PaletteNum);
+      PaletteNum = ++v5;
       *((_DWORD *)PalettePtr + 1) = 0;
-      PaletteNum = v5 + 1;
-      if ( v5 + 1 >= 20 )
+      if ( v5 >= 20 )
       {
         PltRotBarStatus = 2;
         PaletteNum = 1;

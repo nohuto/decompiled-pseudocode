@@ -1,7 +1,7 @@
 /*
- * XREFs of PopInitializeWorkItem @ 0x140729864
+ * XREFs of PopInitializeWorkItem @ 0x140729844
  * Callers:
- *     PopInitializeIRTimer @ 0x14017DC84 (PopInitializeIRTimer.c)
+ *     PopInitializeIRTimer @ 0x14017DCA4 (PopInitializeIRTimer.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  *     PopInitializePowerButtonHold @ 0x1409B3CBC (PopInitializePowerButtonHold.c)
  *     PopInitializeDirectedDrips @ 0x1409DC6E0 (PopInitializeDirectedDrips.c)

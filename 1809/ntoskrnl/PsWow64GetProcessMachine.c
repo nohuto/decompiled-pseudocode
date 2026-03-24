@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpWalkFrameChain @ 0x14009EB90 (RtlpWalkFrameChain.c)
  *     KeVerifyContextRecord @ 0x1400A1C88 (KeVerifyContextRecord.c)
- *     PsWow64GetSupportedArchitectures @ 0x1400F53B8 (PsWow64GetSupportedArchitectures.c)
+ *     PsWow64GetSupportedArchitectures @ 0x1400F53D8 (PsWow64GetSupportedArchitectures.c)
  * Callees:
  *     <none>
  */

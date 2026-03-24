@@ -1,23 +1,29 @@
 /*
- * XREFs of wil_details_FeatureReporting_ReportUsageToService @ 0x1C012DA74
+ * XREFs of wil_details_FeatureReporting_ReportUsageToService @ 0x1C0114434
  * Callers:
- *     DrvBuildDevmodeList @ 0x1C00169E4 (DrvBuildDevmodeList.c)
- *     wil_details_IsEnabledFallback @ 0x1C00D009C (wil_details_IsEnabledFallback.c)
- *     ?ReportUsageForAllVelocityKeys@@YAXXZ @ 0x1C00D0D28 (-ReportUsageForAllVelocityKeys@@YAXXZ.c)
- *     Feature_GdiEnableLiveKernelDump__private_ReportDeviceUsage @ 0x1C00D20DC (Feature_GdiEnableLiveKernelDump__private_ReportDeviceUsage.c)
- *     Feature_DispBroker_EmulateKernelSdcReset__private_ReportDeviceUsage @ 0x1C00D2AC8 (Feature_DispBroker_EmulateKernelSdcReset__private_ReportDeviceUsage.c)
- *     Feature_Vail__private_ReportDeviceUsage @ 0x1C00D2B2C (Feature_Vail__private_ReportDeviceUsage.c)
- *     Feature_PenTapped_ReportUsage @ 0x1C00D40B4 (Feature_PenTapped_ReportUsage.c)
- *     Feature_CursorDeadzoneJump__private_ReportDeviceUsage @ 0x1C00D46B4 (Feature_CursorDeadzoneJump__private_ReportDeviceUsage.c)
- *     Feature_InputDrivenDynamicRefreshRate__private_ReportDeviceUsage @ 0x1C00D5650 (Feature_InputDrivenDynamicRefreshRate__private_ReportDeviceUsage.c)
+ *     DrvBuildDevmodeList @ 0x1C00182C0 (DrvBuildDevmodeList.c)
+ *     wil_details_IsEnabledFallback @ 0x1C00C7350 (wil_details_IsEnabledFallback.c)
+ *     Feature_BrokeredDisplays_TestMode__private_ReportDeviceUsage @ 0x1C00C73E4 (Feature_BrokeredDisplays_TestMode__private_ReportDeviceUsage.c)
+ *     Feature_BrokeredDisplays_ModeChanges__private_ReportDeviceUsage @ 0x1C00CB33C (Feature_BrokeredDisplays_ModeChanges__private_ReportDeviceUsage.c)
+ *     Feature_OemPanelDriverSupport__private_ReportDeviceUsage @ 0x1C00CB3A0 (Feature_OemPanelDriverSupport__private_ReportDeviceUsage.c)
+ *     Feature_Vail__private_ReportDeviceUsage @ 0x1C00CB404 (Feature_Vail__private_ReportDeviceUsage.c)
+ *     Feature_PenTapped_ReportUsage @ 0x1C00CCB38 (Feature_PenTapped_ReportUsage.c)
+ *     Feature_InputVirtualizationDesktopSpecific__private_ReportDeviceUsage @ 0x1C00CD4D8 (Feature_InputVirtualizationDesktopSpecific__private_ReportDeviceUsage.c)
+ *     Feature_InputVirtualization__private_ReportDeviceUsage @ 0x1C00CD53C (Feature_InputVirtualization__private_ReportDeviceUsage.c)
+ *     Feature_KeyboardInputVirtualization__private_ReportDeviceUsage @ 0x1C00CDB38 (Feature_KeyboardInputVirtualization__private_ReportDeviceUsage.c)
+ *     Feature_MouseInputVirtualization__private_ReportDeviceUsage @ 0x1C00CDB9C (Feature_MouseInputVirtualization__private_ReportDeviceUsage.c)
+ *     Feature_PTPInputVirtualization__private_ReportDeviceUsage @ 0x1C00CDC00 (Feature_PTPInputVirtualization__private_ReportDeviceUsage.c)
+ *     Feature_PenInputVirtualization__private_ReportDeviceUsage @ 0x1C00CDC64 (Feature_PenInputVirtualization__private_ReportDeviceUsage.c)
+ *     Feature_TouchInputVirtualization__private_ReportDeviceUsage @ 0x1C00CDCC8 (Feature_TouchInputVirtualization__private_ReportDeviceUsage.c)
+ *     Feature_MinQMouseAndMiP__private_ReportDeviceUsage @ 0x1C00CDD2C (Feature_MinQMouseAndMiP__private_ReportDeviceUsage.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1C00B7974 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1C0114560 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
  */
 
 __int64 (__fastcall *__fastcall wil_details_FeatureReporting_ReportUsageToService(
         __int64 a1,
-        unsigned __int64 a2,
+        __int64 a2,
         int a3))(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD)
 {
   unsigned int v3; // ebx

@@ -1,20 +1,20 @@
 /*
- * XREFs of SepSetTokenCachedHandles @ 0x14065BDBC
+ * XREFs of SepSetTokenCachedHandles @ 0x14065BD9C
  * Callers:
- *     SepSetTokenBnoIsolation @ 0x1400DA12C (SepSetTokenBnoIsolation.c)
- *     NtCreateLowBoxToken @ 0x140654F90 (NtCreateLowBoxToken.c)
+ *     SepSetTokenBnoIsolation @ 0x1400DA14C (SepSetTokenBnoIsolation.c)
+ *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     SepCloseCachedTokenHandles @ 0x1400DD4A0 (SepCloseCachedTokenHandles.c)
- *     SepReferenceCachedTokenHandles @ 0x1400DD674 (SepReferenceCachedTokenHandles.c)
- *     RtlCreateHashTable @ 0x14016A530 (RtlCreateHashTable.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     SepCloseCachedTokenHandles @ 0x1400DD4C0 (SepCloseCachedTokenHandles.c)
+ *     SepReferenceCachedTokenHandles @ 0x1400DD694 (SepReferenceCachedTokenHandles.c)
+ *     RtlCreateHashTable @ 0x14016A550 (RtlCreateHashTable.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepGetCachedHandlesEntry @ 0x14065BF78 (SepGetCachedHandlesEntry.c)
- *     SepValidateReferencedCachedHandles @ 0x14065D67C (SepValidateReferencedCachedHandles.c)
+ *     SepGetCachedHandlesEntry @ 0x14065BF58 (SepGetCachedHandlesEntry.c)
+ *     SepValidateReferencedCachedHandles @ 0x14065D65C (SepValidateReferencedCachedHandles.c)
  */
 
 __int64 __fastcall SepSetTokenCachedHandles(_QWORD *a1, _DWORD *a2, unsigned int a3, HANDLE *a4)

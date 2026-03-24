@@ -1,5 +1,5 @@
 /*
- * XREFs of or_all_N_wide_rotated_no_last @ 0x1C01259F0
+ * XREFs of or_all_N_wide_rotated_no_last @ 0x1C01395D0
  * Callers:
  *     <none>
  * Callees:
@@ -24,7 +24,7 @@ _BYTE *__fastcall or_all_N_wide_rotated_no_last(
 
   result = a5;
   v9 = &a5[a3 * a1];
-  v10 = a3 - a7;
+  v10 = a3 - a7 + 1LL;
   do
   {
     v11 = &result[a7 - 1];
@@ -37,7 +37,7 @@ _BYTE *__fastcall or_all_N_wide_rotated_no_last(
     }
     while ( result != v11 );
     *result |= v12;
-    result += v10 + 1;
+    result += v10;
   }
   while ( result != v9 );
   return result;

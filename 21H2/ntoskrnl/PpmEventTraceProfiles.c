@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventTraceProfiles @ 0x140855034
+ * XREFs of PpmEventTraceProfiles @ 0x1407C5974
  * Callers:
- *     PpmRegisterProfiles @ 0x140854E78 (PpmRegisterProfiles.c)
- *     PpmEventTraceControlCallback @ 0x140864680 (PpmEventTraceControlCallback.c)
+ *     PpmRegisterProfiles @ 0x1407C5768 (PpmRegisterProfiles.c)
+ *     PpmEventTraceControlCallback @ 0x1407D53F0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x1402E0AC4 (RtlStringCchLengthW.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PpmEndProfileAccumulation @ 0x14099D79C (PpmEndProfileAccumulation.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PpmEndProfileAccumulation @ 0x1408F5D6C (PpmEndProfileAccumulation.c)
  */
 
 char __fastcall PpmEventTraceProfiles(char a1)
@@ -87,14 +87,14 @@ char __fastcall PpmEventTraceProfiles(char a1)
         v24 = (char *)v7 + 28;
         v27 = (char *)v7 + 12;
         v28 = 16;
-        v13 = v7[1075] / 0xA;
-        v14 = v7[1076] / 0xA;
-        v9 = v7[1077];
+        v13 = v7[691] / 0xA;
+        v14 = v7[692] / 0xA;
+        v9 = v7[693];
         v32 = 0;
         v35 = 0;
         v38 = 0;
         v41 = 0;
-        v30 = v7 + 1074;
+        v30 = v7 + 690;
         v33 = &v13;
         v36 = &v14;
         v39 = &v15;
@@ -109,9 +109,9 @@ char __fastcall PpmEventTraceProfiles(char a1)
         LOBYTE(v1) = EtwWrite(PpmEtwHandle, v10, 0LL, 9u, &UserData);
         if ( v5 == PpmProfileCount )
           break;
-        v6 = (STRSAFE_PCNZWCH *)(PpmProfiles + 8624LL * v5++);
+        v6 = (STRSAFE_PCNZWCH *)(PpmProfiles + 5552LL * v5++);
       }
-      v4[1073] = v16;
+      v4[689] = v16;
     }
   }
   return (char)v1;

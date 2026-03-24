@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlPrepareEnclaveCall @ 0x140464390
+ * XREFs of RtlPrepareEnclaveCall @ 0x1405932C8
  * Callers:
- *     PsCallEnclave @ 0x1409B68B0 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x14090D220 (PsCallEnclave.c)
  * Callees:
  *     <none>
  */
@@ -15,20 +15,24 @@ __int64 __fastcall RtlPrepareEnclaveCall(
         _QWORD *a6,
         _QWORD *a7)
 {
-  __int64 *v9; // r11
-  __int64 v10; // r9
-  __int64 v11; // rcx
+  __int64 v8; // r11
+  __int64 v9; // rbx
+  __int64 *v10; // r10
+  __int64 v11; // r8
+  __int64 v12; // rcx
 
-  v9 = *(__int64 **)(a1 + 384);
-  v10 = (__int64)v9;
-  if ( (unsigned __int64)v9 >= 0x7FFFFFFF0000LL )
-    v10 = 0x7FFFFFFF0000LL;
-  *(_QWORD *)v10 = *(_QWORD *)v10;
-  v11 = *v9;
-  if ( *(_WORD *)(a1 + 368) != 51 || v11 != a3 && v11 != a4 )
+  v8 = PspEnclaveDispatchReturn;
+  v9 = PspCallEnclaveReturn;
+  v10 = *(__int64 **)(a1 + 384);
+  v11 = (__int64)v10;
+  if ( (unsigned __int64)v10 >= 0x7FFFFFFF0000LL )
+    v11 = 0x7FFFFFFF0000LL;
+  *(_QWORD *)v11 = *(_QWORD *)v11;
+  v12 = *v10;
+  if ( *(_WORD *)(a1 + 368) != 51 || v12 != v9 && v12 != v8 )
     return 3221225485LL;
-  *(_QWORD *)(a1 + 384) = v9 + 1;
-  *(_QWORD *)(a1 + 360) = v11;
+  *(_QWORD *)(a1 + 384) = v10 + 1;
+  *(_QWORD *)(a1 + 360) = v12;
   if ( a5 )
     __writemsr(0x6A7u, __readmsr(0x6A7u) + 8);
   *(_QWORD *)(a1 + 80) = a2;

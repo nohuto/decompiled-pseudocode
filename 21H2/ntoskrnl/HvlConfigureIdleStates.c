@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlConfigureIdleStates @ 0x140549824
+ * XREFs of HvlConfigureIdleStates @ 0x1404F7A44
  * Callers:
- *     PpmIdleUpdateHvStates @ 0x14099E040 (PpmIdleUpdateHvStates.c)
+ *     PpmIdleUpdateHvStates @ 0x1408F6850 (PpmIdleUpdateHvStates.c)
  * Callees:
- *     HvlpSetPowerProperty @ 0x14054A3D8 (HvlpSetPowerProperty.c)
+ *     HvlpSetPowerProperty @ 0x1404F8718 (HvlpSetPowerProperty.c)
  */
 
 __int64 __fastcall HvlConfigureIdleStates(int a1, _OWORD *a2)

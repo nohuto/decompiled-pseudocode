@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CLineGeometry::sc_EndPoint__ @ 0x180002710
+ * XREFs of _dynamic_initializer_for__CLineGeometry::sc_EndPoint__ @ 0x180002290
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CLineGeometry::sc_EndPoint__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D2138 = (unsigned __int64)CResource::SetAnimatedProperty;
-  qword_1803D2148 = v1;
+  xmmword_180346248 = (unsigned __int64)CResource::SetAnimatedProperty;
+  qword_180346258 = v1;
   return result;
 }

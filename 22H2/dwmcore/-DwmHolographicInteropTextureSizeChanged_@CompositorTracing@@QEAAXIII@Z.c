@@ -1,11 +1,10 @@
 /*
- * XREFs of ?DwmHolographicInteropTextureSizeChanged_@CompositorTracing@@QEAAXIII@Z @ 0x1802AAB28
+ * XREFs of ?DwmHolographicInteropTextureSizeChanged_@CompositorTracing@@QEAAXIII@Z @ 0x180258A7C
  * Callers:
- *     ??$DwmHolographicInteropTextureSizeChanged@AEAIAEAIAEAI@CompositorTracing@@SAXAEAI00@Z @ 0x1802AA0C8 (--$DwmHolographicInteropTextureSizeChanged@AEAIAEAIAEAI@CompositorTracing@@SAXAEAI00@Z.c)
+ *     ??$DwmHolographicInteropTextureSizeChanged@AEAIAEAIAEAI@CompositorTracing@@SAXAEAI00@Z @ 0x1802581DC (--$DwmHolographicInteropTextureSizeChanged@AEAIAEAIAEAI@CompositorTracing@@SAXAEAI00@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800FB924 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@33@Z @ 0x180216730 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800DB230 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@33@Z @ 0x1801C01B8 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_.c)
  */
 
 void __fastcall CompositorTracing::DwmHolographicInteropTextureSizeChanged_(
@@ -14,33 +13,32 @@ void __fastcall CompositorTracing::DwmHolographicInteropTextureSizeChanged_(
         int a3,
         int a4)
 {
-  _DWORD *v7; // rcx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  int v11; // [rsp+40h] [rbp-18h] BYREF
-  _DWORD v12[5]; // [rsp+44h] [rbp-14h] BYREF
-  CompositorTracing *v13; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  int v10; // [rsp+40h] [rbp-18h] BYREF
+  _DWORD v11[5]; // [rsp+44h] [rbp-14h] BYREF
+  CompositorTracing *v12; // [rsp+60h] [rbp+8h] BYREF
 
-  v13 = this;
-  v7 = (_DWORD *)wil::details::static_lazy<CompositorTracing>::get(
-                   (__int64)this,
-                   (void (__cdecl *)())_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_)[1];
-  if ( *v7 > 5u )
+  v12 = this;
+  v7 = *((_QWORD *)wil::details::static_lazy<CompositorTracing>::get(
+                     (__int64)this,
+                     _lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_)
+       + 1);
+  if ( *(_DWORD *)v7 > 5u
+    && (*(_QWORD *)(v7 + 16) & 0x400000000000LL) != 0
+    && (*(_QWORD *)(v7 + 24) & 0x400000000000LL) == *(_QWORD *)(v7 + 24) )
   {
-    if ( tlgKeywordOn((__int64)v7, 0x400000000000LL) )
-    {
-      LODWORD(v13) = a4;
-      v11 = a3;
-      v12[0] = a2;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        v8,
-        byte_180382C3C,
-        v9,
-        v10,
-        (__int64)v12,
-        (__int64)&v11,
-        (__int64)&v13);
-    }
+    LODWORD(v12) = a4;
+    v10 = a3;
+    v11[0] = a2;
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      v7,
+      byte_1802ED869,
+      v8,
+      v9,
+      (__int64)v11,
+      (__int64)&v10,
+      (__int64)&v12);
   }
 }

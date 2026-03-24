@@ -1,44 +1,50 @@
 /*
- * XREFs of PspGetEffectiveNoWakeCharge @ 0x1406A3E44
+ * XREFs of PspGetEffectiveNoWakeCharge @ 0x140618C24
  * Callers:
- *     PspEnforceLimitsJobPostCallback @ 0x1406A3680 (PspEnforceLimitsJobPostCallback.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618780 (PspEnforceLimitsJobPostCallback.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PspGetEffectiveNoWakeCharge(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
+  unsigned int v3; // r9d
   __int64 result; // rax
-  __int64 v5; // r8
-  __int64 v6; // rdx
+  __int64 v6; // r8
+  __int64 v7; // rdx
 
-  result = *(unsigned int *)(a1 + 1536);
+  v3 = *(_DWORD *)(a1 + 1320);
   *a2 = 0LL;
   *a3 = 0LL;
-  if ( (result & 0x800) != 0 )
+  result = v3;
+  if ( (v3 & 0x800) != 0 )
   {
-    if ( *(_DWORD *)(a1 + 1048) )
+    if ( *(_DWORD *)(a1 + 856) )
     {
-      v5 = *(_QWORD *)(a1 + 1160);
-      *a2 = v5;
-      if ( (result & 0x400000) == 0 )
+      v6 = *(_QWORD *)(a1 + 944);
+      *a2 = v6;
+      if ( (v3 & 0x400000) == 0 )
       {
-        v6 = *(_QWORD *)(a1 + 1288);
-        if ( !v6 || (*(_DWORD *)(v6 + 1536) & 0x1000) == 0 || !*(_DWORD *)(v6 + 1048) )
+        v7 = *(_QWORD *)(a1 + 1072);
+        if ( !v7 || (*(_DWORD *)(v7 + 1320) & 0x1000) == 0 || !*(_DWORD *)(v7 + 856) )
         {
-          *a3 = v5;
-          if ( v6 )
-            _InterlockedOr((volatile signed __int32 *)(v6 + 1536), 0x400000u);
+          *a3 = v6;
+          result = v3;
+          if ( v7 )
+          {
+            _InterlockedOr((volatile signed __int32 *)(v7 + 1320), 0x400000u);
+            result = *(unsigned int *)(a1 + 1320);
+          }
         }
       }
     }
   }
-  if ( (*(_DWORD *)(a1 + 1536) & 0x400000) != 0 )
+  if ( (result & 0x400000) != 0 )
   {
-    result = *(_QWORD *)(a1 + 1288);
+    result = *(_QWORD *)(a1 + 1072);
     if ( result )
-      _InterlockedOr((volatile signed __int32 *)(result + 1536), 0x400000u);
-    _InterlockedAnd((volatile signed __int32 *)(a1 + 1536), 0xFFBFFFFF);
+      _InterlockedOr((volatile signed __int32 *)(result + 1320), 0x400000u);
+    _InterlockedAnd((volatile signed __int32 *)(a1 + 1320), 0xFFBFFFFF);
   }
   return result;
 }

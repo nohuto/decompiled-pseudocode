@@ -1,51 +1,63 @@
 /*
- * XREFs of ?_IsUsingSimulatedMonitor@MONITOR_MGR@@QEAAEXZ @ 0x1C01DBF04
+ * XREFs of ?_IsUsingSimulatedMonitor@MONITOR_MGR@@QEAAEXZ @ 0x1C014FA28
  * Callers:
- *     MonitorIsUsingSimulatedMonitor @ 0x1C01DAEB4 (MonitorIsUsingSimulatedMonitor.c)
+ *     ?IsEmergencyMonitorConnected@@YAJPEAXIPEAE@Z @ 0x1C014F88C (-IsEmergencyMonitorConnected@@YAJPEAXIPEAE@Z.c)
+ *     MonitorIsUsingSimulatedMonitor @ 0x1C014F9AC (MonitorIsUsingSimulatedMonitor.c)
  * Callees:
- *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0005BE4 (--1MUTEX_LOCK@@QEAA@XZ.c)
- *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C0005D78 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
+ *     <none>
  */
 
-char __fastcall MONITOR_MGR::_IsUsingSimulatedMonitor(MONITOR_MGR *this)
+char __fastcall MONITOR_MGR::_IsUsingSimulatedMonitor(MONITOR_MGR *this, __int64 a2)
 {
-  char *v2; // rdx
-  MONITOR_MGR *v3; // rcx
-  char *v4; // rax
-  char v5; // bl
-  char *v6; // rcx
-  DXGFASTMUTEX *v8; // [rsp+30h] [rbp+8h] BYREF
+  struct _FAST_MUTEX *v2; // rbx
+  MONITOR_MGR *v4; // rdx
+  MONITOR_MGR *v5; // rcx
+  char *v6; // rax
+  char v7; // di
+  __int64 v9; // rax
+  __int64 v10; // rax
 
-  MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)&v8, (MONITOR_MGR *)((char *)this + 80));
-  v2 = (char *)this + 40;
-  v3 = (MONITOR_MGR *)*((_QWORD *)this + 5);
-  if ( v3 == (MONITOR_MGR *)((char *)this + 40) )
-    goto LABEL_8;
-  v4 = (char *)v3 - 152;
-  if ( !v3 )
-    v4 = 0LL;
-  if ( !v4 )
+  v2 = (struct _FAST_MUTEX *)((char *)this + 168);
+  if ( this == (MONITOR_MGR *)-168LL )
   {
-LABEL_8:
-    v5 = 0;
+    v9 = WdLogNewEntry5_WdAssertion(-168LL, a2);
+    WdLogEvent5_WdAssertion(v9);
+  }
+  KeAcquireGuardedMutex(v2);
+  v4 = (MONITOR_MGR *)((char *)this + 128);
+  v5 = (MONITOR_MGR *)*((_QWORD *)this + 16);
+  if ( v5 == (MONITOR_MGR *)((char *)this + 128) )
+    goto LABEL_10;
+  v6 = (char *)v5 - 16;
+  if ( !v5 )
+    v6 = 0LL;
+  if ( !v6 )
+  {
+LABEL_10:
+    v7 = 0;
   }
   else
   {
-    v5 = 1;
-    while ( *((_DWORD *)v4 + 78) == 1 )
+    v7 = 1;
+    while ( *((_DWORD *)v6 + 108) == 1 )
     {
-      v6 = (char *)*((_QWORD *)v4 + 19);
-      if ( v6 != v2 )
+      v5 = (MONITOR_MGR *)*((_QWORD *)v6 + 2);
+      if ( v5 != v4 )
       {
-        v4 = v6 - 152;
-        if ( !v6 )
-          v4 = 0LL;
-        if ( v4 )
+        v6 = (char *)v5 - 16;
+        if ( !v5 )
+          v6 = 0LL;
+        if ( v6 )
           continue;
       }
-      goto LABEL_8;
+      goto LABEL_10;
     }
   }
-  MUTEX_LOCK::~MUTEX_LOCK(&v8);
-  return v5;
+  if ( !v2 )
+  {
+    v10 = WdLogNewEntry5_WdAssertion(v5, v4);
+    WdLogEvent5_WdAssertion(v10);
+  }
+  KeReleaseGuardedMutex(v2);
+  return v7;
 }

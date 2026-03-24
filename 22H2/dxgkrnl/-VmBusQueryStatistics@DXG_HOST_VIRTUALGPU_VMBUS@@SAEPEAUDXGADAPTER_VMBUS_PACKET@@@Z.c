@@ -1,90 +1,84 @@
 /*
- * XREFs of ?VmBusQueryStatistics@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0384270
+ * XREFs of ?VmBusQueryStatistics@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0246090
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_QUERYSTATISTICS@@@@YAPEAUDXGKVMB_COMMAND_QUERYSTATISTICS@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B9E4 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_QUERYSTATISTICS@@@@YAPEAUDXGKVMB_COMMAND_QUERYSTATISTICS@.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     DxgkQueryStatisticsInternal @ 0x1C02D4710 (DxgkQueryStatisticsInternal.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_QUERYSTATISTICS@@@@YAPEAUDXGKVMB_COMMAND_QUERYSTATISTICS@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00407C4 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_QUERYSTATISTICS@@@@YAPEAUDXGKVMB_COMMAND_QUERYSTATISTICS@.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     DxgkQueryStatisticsInternal @ 0x1C0226088 (DxgkQueryStatisticsInternal.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusQueryStatistics(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // si
-  __int64 v5; // rax
-  __int64 v6; // rbx
-  __int64 v7; // r8
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // si
+  __int64 v6; // rax
+  __int64 v8; // rax
+  __int64 v9; // r8
+  __int64 v10; // rbx
   int StatisticsInternal; // eax
-  __int64 v9; // rcx
-  _OWORD *v10; // rax
-  _OWORD *v11; // rdx
-  __int128 v12; // xmm1
-  struct VMBPACKETCOMPLETION__ *v13; // rcx
-  _BYTE v14[8]; // [rsp+50h] [rbp-338h] BYREF
-  DXGPUSHLOCK *v15; // [rsp+58h] [rbp-330h]
-  int v16; // [rsp+60h] [rbp-328h]
-  _DWORD v17[196]; // [rsp+68h] [rbp-320h] BYREF
+  __int64 v12; // rcx
+  _OWORD *v13; // rax
+  char *v14; // rdx
+  __int128 v15; // xmm1
+  struct VMBPACKETCOMPLETION__ *v16; // rcx
+  _BYTE v17[8]; // [rsp+20h] [rbp-338h] BYREF
+  DXGPUSHLOCK *v18; // [rsp+28h] [rbp-330h]
+  int v19; // [rsp+30h] [rbp-328h]
+  _DWORD v20[2]; // [rsp+38h] [rbp-320h] BYREF
+  char v21; // [rsp+40h] [rbp-318h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v14, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v15);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 1;
-  v16 = 1;
-  if ( !*(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v17, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v18);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 1;
+  v19 = 1;
+  if ( !*(_BYTE *)(v4 + 165) )
   {
-    WdLogSingleEntry1(2LL, 5715LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The adapter is already closed by the guest",
-      5715LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v6 + 24) = 4994LL;
+    WdLogEvent5_WdError(v6);
 LABEL_3:
-    v3 = 0;
+    v5 = 0;
     goto LABEL_4;
   }
-  v5 = CastToVmBusCommand<DXGKVMB_COMMAND_QUERYSTATISTICS>((__int64)a1);
-  v6 = v5;
-  if ( !v5 || *(_QWORD *)(v5 + 40) )
+  v8 = CastToVmBusCommand<DXGKVMB_COMMAND_QUERYSTATISTICS>((__int64)a1);
+  v10 = v8;
+  if ( !v8 || *(_QWORD *)(v8 + 40) )
     goto LABEL_3;
-  *(_QWORD *)(v5 + 28) = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 16LL) + 404LL);
-  memset(&v17[1], 0, 0x30CuLL);
-  StatisticsInternal = DxgkQueryStatisticsInternal(v6 + 24, 0, v7);
-  v9 = 6LL;
-  v17[0] = StatisticsInternal;
-  v10 = (_OWORD *)(v6 + 48);
-  v11 = &v17[2];
+  *(_QWORD *)(v8 + 28) = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL) + 316LL);
+  v20[1] = 0;
+  StatisticsInternal = DxgkQueryStatisticsInternal(v8 + 24, 0, v9);
+  v12 = 6LL;
+  v20[0] = StatisticsInternal;
+  v13 = (_OWORD *)(v10 + 48);
+  v14 = &v21;
   do
   {
-    *v11 = *v10;
-    v11[1] = v10[1];
-    v11[2] = v10[2];
-    v11[3] = v10[3];
-    v11[4] = v10[4];
-    v11[5] = v10[5];
-    v11[6] = v10[6];
-    v11 += 8;
-    v12 = v10[7];
-    v10 += 8;
-    *(v11 - 1) = v12;
-    --v9;
+    *(_OWORD *)v14 = *v13;
+    *((_OWORD *)v14 + 1) = v13[1];
+    *((_OWORD *)v14 + 2) = v13[2];
+    *((_OWORD *)v14 + 3) = v13[3];
+    *((_OWORD *)v14 + 4) = v13[4];
+    *((_OWORD *)v14 + 5) = v13[5];
+    *((_OWORD *)v14 + 6) = v13[6];
+    v14 += 128;
+    v15 = v13[7];
+    v13 += 8;
+    *((_OWORD *)v14 - 1) = v15;
+    --v12;
   }
-  while ( v9 );
-  v13 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 16);
-  *(_QWORD *)v11 = *(_QWORD *)v10;
-  VmBusCompletePacket(v13, v17, 0x310u);
+  while ( v12 );
+  v16 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 9);
+  *(_QWORD *)v14 = *(_QWORD *)v13;
+  VmBusCompletePacket(v16, v20, 0x310u);
 LABEL_4:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v14);
-  return v3;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v17);
+  return v5;
 }

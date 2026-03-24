@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetDhpdev @ 0x1C02B3570
+ * XREFs of NtGdiGetDhpdev @ 0x1C02B5180
  * Callers:
  *     <none>
  * Callees:
- *     ?ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z @ 0x1C014B8D4 (-ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z.c)
+ *     ?ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z @ 0x1C015AF84 (-ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z.c)
  */
 
 __int64 __fastcall NtGdiGetDhpdev(HDEV a1)
@@ -17,7 +17,7 @@ __int64 __fastcall NtGdiGetDhpdev(HDEV a1)
   if ( v2 )
   {
     v4 = v2;
-    v1 = *((_QWORD *)v2 + 221);
+    v1 = *((_QWORD *)v2 + 225);
     PDEVOBJ::vUnreferencePdev(&v4, 0LL);
   }
   return v1;

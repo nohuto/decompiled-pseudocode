@@ -5,8 +5,8 @@
  *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
  *     ExInitSystemPhase2 @ 0x1409D56E8 (ExInitSystemPhase2.c)
  * Callees:
- *     BapdpProcessEtwEvents @ 0x140186180 (BapdpProcessEtwEvents.c)
- *     BapdpMarshallBootDataToRegistry @ 0x14018629C (BapdpMarshallBootDataToRegistry.c)
+ *     BapdpProcessEtwEvents @ 0x1401861A0 (BapdpProcessEtwEvents.c)
+ *     BapdpMarshallBootDataToRegistry @ 0x1401862BC (BapdpMarshallBootDataToRegistry.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     BapdpProcessEDrvHintInfo @ 0x1409D0D68 (BapdpProcessEDrvHintInfo.c)
  *     BapdpProcessFwUpdateResults @ 0x1409D0DF8 (BapdpProcessFwUpdateResults.c)

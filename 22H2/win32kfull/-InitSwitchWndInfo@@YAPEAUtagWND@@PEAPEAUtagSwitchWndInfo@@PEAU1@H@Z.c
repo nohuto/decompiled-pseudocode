@@ -1,179 +1,178 @@
 /*
- * XREFs of ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01C9060
+ * XREFs of ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01F2678
  * Callers:
- *     xxxNextWindow @ 0x1C01CA504 (xxxNextWindow.c)
- *     xxxOldNextWindow @ 0x1C01CACD8 (xxxOldNextWindow.c)
+ *     xxxNextWindow @ 0x1C01F3B6C (xxxNextWindow.c)
+ *     xxxOldNextWindow @ 0x1C01F43B0 (xxxOldNextWindow.c)
  * Callees:
- *     GetDPIServerInfo @ 0x1C00AB4C8 (GetDPIServerInfo.c)
- *     GetMonitorRect @ 0x1C00C46EC (GetMonitorRect.c)
- *     BuildHwndList @ 0x1C00D2540 (BuildHwndList.c)
- *     FreeHwndList @ 0x1C00D2E50 (FreeHwndList.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     ?NextPrevTaskIndex@@YAHPEAUtagSwitchWndInfo@@HHH@Z @ 0x1C01C93F8 (-NextPrevTaskIndex@@YAHPEAUtagSwitchWndInfo@@HHH@Z.c)
- *     ?_RemoveNonTaskWindows@@YAHPEAUtagBWL@@PEAUtagWND@@PEAHPEAPEAPEAUHWND__@@@Z @ 0x1C01C94F0 (-_RemoveNonTaskWindows@@YAHPEAUtagBWL@@PEAUtagWND@@PEAHPEAPEAPEAUHWND__@@@Z.c)
- *     _GetNextQueueWindow @ 0x1C01CA2B8 (_GetNextQueueWindow.c)
+ *     GetMonitorRect @ 0x1C0041D58 (GetMonitorRect.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     BuildHwndList @ 0x1C006CAC0 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C006DA20 (FreeHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     GetDPIServerInfo @ 0x1C00E0AC8 (GetDPIServerInfo.c)
+ *     ?NextPrevTaskIndex@@YAHPEAUtagSwitchWndInfo@@HHH@Z @ 0x1C01F2A2C (-NextPrevTaskIndex@@YAHPEAUtagSwitchWndInfo@@HHH@Z.c)
+ *     ?_RemoveNonTaskWindows@@YAHPEAUtagBWL@@PEAUtagWND@@PEAHPEAPEAPEAUHWND__@@@Z @ 0x1C01F2B28 (-_RemoveNonTaskWindows@@YAHPEAUtagBWL@@PEAUtagWND@@PEAHPEAPEAPEAUHWND__@@@Z.c)
+ *     _GetNextQueueWindow @ 0x1C01F3918 (_GetNextQueueWindow.c)
  */
 
 struct tagWND *__fastcall InitSwitchWndInfo(struct tagSwitchWndInfo **a1, struct tagWND *a2, int a3)
 {
   unsigned int v3; // ebx
-  __int64 v6; // r14
-  __int64 v7; // rsi
-  __int64 v8; // rax
-  __int64 v9; // rcx
+  __int64 v7; // rdi
+  __int64 v8; // rsi
+  __int64 v9; // rax
   struct tagBWL *v10; // rax
   struct tagBWL *v11; // rbp
-  int v12; // eax
-  int v13; // edi
+  int v12; // r14d
+  __int64 v13; // rax
   __int64 v14; // rax
   __int64 v15; // rcx
   __int64 v16; // rsi
-  int DpiForSystem; // eax
-  int DpiDependentMetric; // eax
-  __int64 v20; // rcx
-  INT v21; // eax
-  int v22; // r13d
-  int v23; // edx
-  int v24; // r12d
+  unsigned int DpiForSystem; // eax
+  INT v19; // eax
+  int v20; // edx
   __int64 PrevTaskIndex; // r8
-  int v26; // r11d
-  char *v27; // rdx
-  int v28; // ebp
+  char *v22; // rdx
+  int v23; // ebp
+  int v24; // eax
+  bool v25; // zf
+  int v26; // r14d
+  __int64 v27; // rcx
+  int v28; // r12d
   int v29; // eax
-  bool v30; // zf
-  int v31; // edi
-  __int64 v32; // rcx
-  int v33; // r14d
-  int v34; // eax
-  int v35; // r15d
-  int v36; // r9d
-  int v37; // edx
+  int v30; // r13d
+  int v31; // r9d
+  int v32; // edx
   _DWORD *DPIServerInfo; // rbx
   __m128i *MonitorRect; // rax
-  int v40; // edi
-  __int64 v41; // r9
-  unsigned __int64 v42; // xmm0_8
-  int v43; // r10d
-  int v44; // r8d
-  int v45; // r11d
-  HWND *v46; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v47[10]; // [rsp+28h] [rbp-50h] BYREF
-  int v50; // [rsp+98h] [rbp+20h] BYREF
+  int v35; // edi
+  int v36; // r14d
+  __int64 v37; // r9
+  unsigned __int64 v38; // xmm0_8
+  int v39; // r10d
+  int v40; // ecx
+  int v41; // r8d
+  int v42; // eax
+  int v43; // r11d
+  int DpiDependentMetric; // [rsp+20h] [rbp-58h]
+  HWND *v45; // [rsp+28h] [rbp-50h] BYREF
+  __int128 v46[4]; // [rsp+30h] [rbp-48h] BYREF
+  int v48; // [rsp+98h] [rbp+20h] BYREF
 
   v3 = 0;
-  v46 = 0LL;
-  v50 = 0;
-  v6 = 0LL;
-  v7 = *(_QWORD *)(gptiCurrent + 464LL);
-  v8 = *(_QWORD *)(GetDispInfo(a1) + 96);
+  v45 = 0LL;
+  v48 = 0;
+  v7 = 0LL;
+  v8 = *(_QWORD *)(gptiCurrent + 464LL);
+  v9 = *(_QWORD *)(GetDispInfo(a1, a2) + 96);
   *a1 = 0LL;
-  v9 = *(_QWORD *)(v7 + 24);
-  v47[0] = v8;
-  v10 = BuildHwndList(*(ShellWindowManagement **)(v9 + 112), (const struct tagWND *)2, 0LL, 1LL);
+  *(_QWORD *)&v46[0] = v9;
+  v10 = BuildHwndList(*(struct tagWND **)(*(_QWORD *)(v8 + 24) + 112LL), 2, 0LL);
   v11 = v10;
   if ( !v10 )
   {
-LABEL_26:
+LABEL_28:
     LOBYTE(v3) = (_GetKeyState(16LL) & 0x8000u) != 0LL;
     return (struct tagWND *)GetNextQueueWindow(a2, v3, 0LL);
   }
-  v12 = _RemoveNonTaskWindows(v10, a2, &v50, &v46);
-  v13 = v12;
+  v12 = _RemoveNonTaskWindows(v10, a2, &v48, &v45);
   if ( v12 < 2 )
   {
-    if ( v12 == 1 )
-      v6 = HMValidateHandleNoSecure(*((_QWORD *)v11 + 4), 1);
-    else
-      v6 = *(_QWORD *)(v7 + 168);
-LABEL_7:
+    if ( v12 != 1
+      || (v13 = HMValidateHandleNoSecure(*((_QWORD *)v11 + 4), 1), (v7 = v13) != 0)
+      && (*(_BYTE *)(*(_QWORD *)(v13 + 40) + 23LL) & 7) == 1
+      && a2 == (struct tagWND *)v13 )
+    {
+      v7 = *(_QWORD *)(v8 + 168);
+    }
+LABEL_9:
     FreeHwndList(v11);
-    if ( v6 )
-      return (struct tagWND *)v6;
-    goto LABEL_26;
+    if ( v7 )
+      return (struct tagWND *)v7;
+    goto LABEL_28;
   }
-  v14 = Win32AllocPoolWithQuotaZInit(120LL, 1818325845LL);
+  v14 = Win32AllocPoolWithQuota(120LL, 1818325845LL);
   v16 = v14;
   if ( !v14 )
-    goto LABEL_7;
+    goto LABEL_9;
   *(_QWORD *)(v14 + 8) = gptiCurrent;
   *(_QWORD *)(v14 + 16) = v11;
-  *(_QWORD *)(v14 + 24) = v46;
-  *(_DWORD *)(v14 + 40) = v13;
-  *(_DWORD *)(v14 + 44) = v13;
+  *(_QWORD *)(v14 + 24) = v45;
+  *(_DWORD *)(v14 + 40) = v12;
+  *(_DWORD *)(v14 + 44) = v12;
   DpiForSystem = GetDpiForSystem(v15);
-  DpiDependentMetric = GetDpiDependentMetric(5, DpiForSystem);
-  v20 = *(_QWORD *)(gptiCurrent + 424LL);
-  LODWORD(v46) = DpiDependentMetric;
-  v21 = EngMulDiv(11, *(unsigned __int16 *)(v20 + 284), 96);
-  v22 = (int)v46;
-  v23 = v50;
-  *(_DWORD *)(v16 + 112) = (_DWORD)v46;
-  v24 = v21 + v22;
-  *(_DWORD *)(v16 + 116) = v21 + v22;
-  PrevTaskIndex = (int)NextPrevTaskIndex((struct tagSwitchWndInfo *)v16, v23, 1, a3 == 0);
-  v27 = (char *)v11 + 8 * PrevTaskIndex + 32;
-  v28 = v13;
-  *(_QWORD *)(v16 + 32) = v27;
-  if ( gnFastAltTabColumns < v13 )
-    v28 = gnFastAltTabColumns;
-  v29 = v13 / v28;
-  v30 = v13 == v28 * (v13 / v28);
-  v31 = v13 % v28;
-  v32 = !v30;
-  v33 = v32 + v29;
-  if ( (int)v32 + v29 <= gnFastAltTabRows )
+  DpiDependentMetric = GetDpiDependentMetric(5LL, DpiForSystem);
+  v19 = EngMulDiv(11, *(unsigned __int16 *)(*(_QWORD *)(gptiCurrent + 424LL) + 284LL), 96);
+  v20 = v48;
+  *(_DWORD *)(v16 + 112) = DpiDependentMetric;
+  LODWORD(v45) = DpiDependentMetric + v19;
+  *(_DWORD *)(v16 + 116) = DpiDependentMetric + v19;
+  PrevTaskIndex = (int)NextPrevTaskIndex((struct tagSwitchWndInfo *)v16, v20, 1, a3 == 0);
+  v22 = (char *)v11 + 8 * PrevTaskIndex + 32;
+  v23 = v12;
+  *(_QWORD *)(v16 + 32) = v22;
+  if ( gnFastAltTabColumns < v12 )
+    v23 = gnFastAltTabColumns;
+  v24 = v12 / v23;
+  v25 = v12 == v23 * (v12 / v23);
+  v26 = v12 % v23;
+  v27 = !v25;
+  v28 = v27 + v24;
+  if ( (int)v27 + v24 <= gnFastAltTabRows )
   {
-    v34 = 0;
+    v29 = 0;
   }
   else
   {
-    v33 = gnFastAltTabRows;
-    v31 = v28;
-    *(_DWORD *)(v16 + 44) = v28 * gnFastAltTabRows;
-    v34 = v26;
+    v28 = gnFastAltTabRows;
+    v26 = v23;
+    *(_DWORD *)(v16 + 44) = v23 * gnFastAltTabRows;
+    v29 = 1;
   }
-  *(_DWORD *)(v16 + 48) = v34;
-  v35 = v28;
-  *(_DWORD *)(v16 + 56) = v28;
-  if ( v31 )
-    v35 = v31;
-  *(_DWORD *)(v16 + 60) = v33;
-  *(_DWORD *)(v16 + 64) = v35;
-  if ( (int)PrevTaskIndex < v28 * v33 )
+  *(_DWORD *)(v16 + 48) = v29;
+  v30 = v23;
+  *(_DWORD *)(v16 + 56) = v23;
+  if ( v26 )
+    v30 = v26;
+  *(_DWORD *)(v16 + 60) = v28;
+  *(_DWORD *)(v16 + 64) = v30;
+  if ( (int)PrevTaskIndex < v23 * v28 )
   {
-    v36 = (int)PrevTaskIndex / v28;
-    v32 = (unsigned int)(v28 * ((int)PrevTaskIndex / v28));
-    v37 = (int)PrevTaskIndex % v28;
+    v31 = (int)PrevTaskIndex / v23;
+    v27 = (unsigned int)(v23 * ((int)PrevTaskIndex / v23));
+    v32 = (int)PrevTaskIndex % v23;
   }
   else
   {
-    v36 = v26 + (v33 >> 2);
-    v37 = v26 + (v28 >> 2);
-    v3 = PrevTaskIndex - v28 * v36 - v37;
+    v31 = (v28 >> 2) + 1;
+    v32 = (v23 >> 2) + 1;
+    v3 = PrevTaskIndex - v23 * v31 - v32;
   }
   *(_DWORD *)(v16 + 52) = v3;
-  *(_DWORD *)(v16 + 72) = v36;
-  *(_DWORD *)(v16 + 68) = v37;
-  DPIServerInfo = (_DWORD *)GetDPIServerInfo(v32);
-  MonitorRect = (__m128i *)GetMonitorRect((__int64)v47, v47[0]);
-  v40 = DPIServerInfo[1];
-  v41 = MonitorRect->m128i_i64[0];
-  v42 = _mm_srli_si128(*MonitorRect, 8).m128i_u64[0];
-  v43 = v42 - *(_OWORD *)MonitorRect;
-  v44 = DPIServerInfo[5];
-  if ( v43 >= DPIServerInfo[4] + gnFastAltTabColumns * v24 + 6 * v40 + v22 / 2 )
-    v43 = DPIServerInfo[4] + gnFastAltTabColumns * v24 + 6 * v40 + v22 / 2;
-  *(_DWORD *)(v16 + 76) = v43;
-  v45 = HIDWORD(v42) - HIDWORD(v41);
-  if ( HIDWORD(v42) - HIDWORD(v41) >= v33 * v24 + v22 + v44 / 2 + 2 * v44 )
-    v45 = v33 * v24 + v22 + v44 / 2 + 2 * v44;
-  *(_DWORD *)(v16 + 80) = v45;
-  if ( v33 == 1 )
-    v28 = v35;
-  *(_DWORD *)(v16 + 88) = v22 >> 1;
-  *(_DWORD *)(v16 + 84) = (v43 + -4 * v40 - v28 * v24) >> 1;
+  *(_DWORD *)(v16 + 72) = v31;
+  *(_DWORD *)(v16 + 68) = v32;
+  DPIServerInfo = (_DWORD *)GetDPIServerInfo(v27);
+  MonitorRect = (__m128i *)GetMonitorRect(v46, *(__int64 *)&v46[0]);
+  v35 = DPIServerInfo[1];
+  v36 = (int)v45;
+  v37 = MonitorRect->m128i_i64[0];
+  v38 = _mm_srli_si128(*MonitorRect, 8).m128i_u64[0];
+  v39 = v38 - *(_OWORD *)MonitorRect;
+  v40 = (int)v45;
+  if ( v39 >= DpiDependentMetric / 2 + DPIServerInfo[4] + (int)v45 * gnFastAltTabColumns + 6 * v35 )
+    v39 = DpiDependentMetric / 2 + DPIServerInfo[4] + (_DWORD)v45 * gnFastAltTabColumns + 6 * v35;
+  v41 = DPIServerInfo[5];
+  *(_DWORD *)(v16 + 76) = v39;
+  v42 = v28 * v40 + DpiDependentMetric + v41 / 2;
+  v43 = HIDWORD(v38) - HIDWORD(v37);
+  if ( v28 != 1 )
+    v30 = v23;
+  *(_DWORD *)(v16 + 88) = DpiDependentMetric >> 1;
+  *(_DWORD *)(v16 + 84) = (v39 + -4 * v35 - v36 * v30) >> 1;
+  if ( v43 >= v42 + 2 * v41 )
+    v43 = v42 + 2 * v41;
+  *(_DWORD *)(v16 + 80) = v43;
   *(_QWORD *)v16 = gpswiFirst;
   gpswiFirst = (struct tagSwitchWndInfo *)v16;
   *a1 = (struct tagSwitchWndInfo *)v16;

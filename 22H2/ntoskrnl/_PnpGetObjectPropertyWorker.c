@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpGetObjectPropertyWorker @ 0x1406D0434
+ * XREFs of _PnpGetObjectPropertyWorker @ 0x1406B0AE8
  * Callers:
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _PnpGetGenericStoreProperty @ 0x1406CDAB0 (_PnpGetGenericStoreProperty.c)
- *     _PnpOpenObjectRegKey @ 0x1406CFA10 (_PnpOpenObjectRegKey.c)
- *     _PnpGetMappedPropertyDispatch @ 0x1406D05C4 (_PnpGetMappedPropertyDispatch.c)
- *     _PnpValidatePropertyData @ 0x1407973C8 (_PnpValidatePropertyData.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _PnpOpenObjectRegKey @ 0x1406B0644 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetMappedPropertyDispatch @ 0x1406B0C7C (_PnpGetMappedPropertyDispatch.c)
+ *     _PnpGetGenericStoreProperty @ 0x1406B0FBC (_PnpGetGenericStoreProperty.c)
+ *     _PnpValidatePropertyData @ 0x1406B309C (_PnpValidatePropertyData.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyWorker(
@@ -15,7 +15,7 @@ __int64 __fastcall PnpGetObjectPropertyWorker(
         __int64 a2,
         unsigned int a3,
         void *a4,
-        const wchar_t *a5,
+        __int64 a5,
         __int64 a6,
         _DWORD *a7,
         unsigned __int64 a8,
@@ -50,7 +50,7 @@ __int64 __fastcall PnpGetObjectPropertyWorker(
                              a2,
                              a3,
                              (_DWORD)a4,
-                             (__int64)a5,
+                             a5,
                              a6,
                              (__int64)a7,
                              (__int64)v14,
@@ -66,7 +66,7 @@ __int64 __fastcall PnpGetObjectPropertyWorker(
         goto LABEL_5;
       v12 = Handle[0];
     }
-    MappedPropertyDispatch = PnpGetGenericStoreProperty(a1, (__int64)v12, a5, a6, a7, (__int64)v14, v15, a10);
+    MappedPropertyDispatch = PnpGetGenericStoreProperty(a1, v12, a5, a6, a7, v14, v15, a10);
     if ( MappedPropertyDispatch >= 0 )
       MappedPropertyDispatch = PnpValidatePropertyData(v14, *a10);
   }

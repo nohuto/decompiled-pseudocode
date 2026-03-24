@@ -1,13 +1,14 @@
 /*
- * XREFs of ?OpenSharedSurfaceRenderTarget@CMagnifierRenderTarget@@AEAAJPEAXU_LUID@@PEAUHMONITOR__@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1801C7AB8
+ * XREFs of ?OpenSharedSurfaceRenderTarget@CMagnifierRenderTarget@@AEAAJPEAXU_LUID@@PEAUHMONITOR__@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18018B6A8
  * Callers:
- *     ?EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ @ 0x1801C7888 (-EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ.c)
+ *     ?EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ @ 0x18018B484 (-EnsureSharedRenderTargets@CMagnifierRenderTarget@@AEAAJXZ.c)
  * Callees:
- *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18006ACA0 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18007E4B0 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAX_NW4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@MPEAPEAVIRenderTargetBitmap@@@Z @ 0x18027D7C4 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAX_NW4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDi.c)
- *     ?ValidateLuidAndMonitor@CDisplayManager@@QEAAJU_LUID@@PEAUHMONITOR__@@@Z @ 0x18027FD74 (-ValidateLuidAndMonitor@CDisplayManager@@QEAAJU_LUID@@PEAUHMONITOR__@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F200 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FAE0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18005FB10 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAX_NW4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@MPEAPEAVIRenderTargetBitmap@@@Z @ 0x18023EDF0 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAX_NW4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDi.c)
  */
 
 __int64 __fastcall CMagnifierRenderTarget::OpenSharedSurfaceRenderTarget(
@@ -17,58 +18,46 @@ __int64 __fastcall CMagnifierRenderTarget::OpenSharedSurfaceRenderTarget(
         HMONITOR a4,
         struct IRenderTargetBitmap **a5)
 {
-  struct IRenderTargetBitmap **v5; // r14
-  int v6; // esi
-  int v10; // eax
-  unsigned int v11; // edi
+  int v8; // edi
+  CDeviceManager *v9; // rcx
   int Device; // eax
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  CD3DDevice *v15; // rbx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  CD3DDevice *v13; // rbx
+  unsigned int v14; // esi
   int RenderTargetBitmap; // eax
-  __int64 v17; // rcx
+  __int64 v16; // rcx
+  CD3DDevice *v18; // [rsp+40h] [rbp-28h] BYREF
 
-  v5 = a5;
-  v6 = (int)a4;
   *a5 = 0LL;
+  v8 = DisplayId::None;
   if ( a4 )
-  {
-    v10 = CDisplayManager::ValidateLuidAndMonitor(this, a3, a4);
-    v11 = v10;
-    if ( v10 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_180377E10, 2LL, v10, 0x1D7u);
-      return v11;
-    }
-  }
-  else
-  {
-    v6 = DisplayId::None;
-  }
-  a5 = 0LL;
-  Device = CDeviceManager::GetDevice(this, a3, (struct CD3DDevice **)&a5);
-  v15 = (CD3DDevice *)a5;
-  v11 = Device;
+    v8 = (int)a4;
+  v18 = 0LL;
+  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v18);
+  Device = CDeviceManager::GetDevice(v9, a3, &v18);
+  v13 = v18;
+  v14 = Device;
   if ( Device < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v13, &dword_180377E10, 2LL, Device, 0x1DFu);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_1802F0D88, 2u, Device, 0x1DDu, 0LL);
   }
   else
   {
     RenderTargetBitmap = CD3DDevice::CreateRenderTargetBitmap(
-                           a5,
+                           v18,
                            a2,
-                           v14,
-                           *((unsigned int *)this + 29),
-                           *((_DWORD *)this + 30),
-                           v6,
+                           v12,
+                           *((unsigned int *)this + 23),
+                           *((_DWORD *)this + 24),
+                           v8,
                            0,
-                           v5);
-    v11 = RenderTargetBitmap;
+                           a5);
+    v14 = RenderTargetBitmap;
     if ( RenderTargetBitmap < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v17, &dword_180377E10, 2LL, RenderTargetBitmap, 0x1E7u);
+      MilInstrumentationCheckHR_MaybeFailFast(v16, &dword_1802F0D88, 2u, RenderTargetBitmap, 0x1E5u, 0LL);
   }
-  if ( v15 )
-    CD3DDevice::Release(v15);
-  return v11;
+  if ( v13 )
+    CD3DDevice::Release(v13);
+  return v14;
 }

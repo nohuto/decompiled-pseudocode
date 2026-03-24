@@ -1,124 +1,119 @@
 /*
- * XREFs of NtUserGetPointerDeviceProperties @ 0x1C01F5BD0
+ * XREFs of NtUserGetPointerDeviceProperties @ 0x1C01FB1B0
  * Callers:
  *     <none>
  * Callees:
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtUserGetPointerDeviceProperties(__int64 a1, unsigned int *a2, volatile void *a3)
 {
-  unsigned int *v4; // rdi
-  __int64 v6; // rdx
-  ULONG64 v7; // rdx
+  int v6; // ebx
+  __int64 v7; // rdx
   __int64 v8; // r8
-  int v9; // ebx
-  unsigned int v10; // r14d
-  unsigned int *v11; // rax
-  unsigned int v12; // eax
-  unsigned int v13; // r15d
-  unsigned __int64 v14; // rcx
-  unsigned int v15; // r13d
-  __int64 v16; // rdx
-  __int64 v17; // rax
-  const void *v18; // rsi
-  __int64 v19; // rcx
-  _QWORD v21[3]; // [rsp+28h] [rbp-70h] BYREF
-  __int64 v22; // [rsp+40h] [rbp-58h]
-  unsigned int v23; // [rsp+4Ch] [rbp-4Ch]
-  int v24; // [rsp+50h] [rbp-48h]
-  unsigned __int64 v25; // [rsp+60h] [rbp-38h]
-  char v26; // [rsp+A0h] [rbp+8h] BYREF
-  unsigned int v27; // [rsp+B8h] [rbp+20h]
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  unsigned int v11; // r14d
+  unsigned int *v12; // rax
+  unsigned int v13; // eax
+  unsigned int v14; // r15d
+  unsigned __int64 v15; // rcx
+  unsigned int v16; // r12d
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  void *v19; // rax
+  const void *v20; // rsi
+  __int64 v21; // rcx
+  _QWORD v23[3]; // [rsp+28h] [rbp-80h] BYREF
+  void *v24; // [rsp+40h] [rbp-68h]
+  int v25; // [rsp+4Ch] [rbp-5Ch]
+  _BYTE v26[16]; // [rsp+58h] [rbp-50h] BYREF
+  unsigned __int64 v27; // [rsp+68h] [rbp-40h]
 
-  v4 = a2;
-  v22 = 0LL;
-  v21[0] = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v26);
-  if ( !a1 || !v4 )
+  v24 = 0LL;
+  v23[0] = 0LL;
+  v6 = 1;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v26);
+  if ( !a1 || !a2 )
   {
-    v9 = 0;
-    UserSetLastError(87LL, v6);
+    v6 = 0;
+    UserSetLastError(87LL, v7, v8);
     goto LABEL_32;
   }
-  if ( !(unsigned int)ResolveMouseOrPointerDevice(a1, v21, 0LL) )
+  if ( !(unsigned int)ResolveMouseOrPointerDevice(a1, v23, 0LL) )
   {
-    v9 = 0;
-    UserSetLastError(6LL, v7);
+    v6 = 0;
+    UserSetLastError(6LL, v9, v10);
     goto LABEL_29;
   }
-  v10 = *(_DWORD *)(v21[0] + 384LL);
+  v11 = *(_DWORD *)(v23[0] + 336LL);
   if ( !a3 )
   {
-    if ( (unsigned __int64)v4 >= MmUserProbeAddress )
-      v4 = (unsigned int *)MmUserProbeAddress;
-    *v4 = v10;
-    v9 = 1;
+    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+      a2 = (unsigned int *)MmUserProbeAddress;
+    *a2 = v11;
     goto LABEL_29;
   }
-  v11 = v4;
-  if ( (unsigned __int64)v4 >= MmUserProbeAddress )
-    v11 = (unsigned int *)MmUserProbeAddress;
-  v12 = *v11;
-  v27 = v12;
-  if ( v12 < v10 )
+  v12 = a2;
+  if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+    v12 = (unsigned int *)MmUserProbeAddress;
+  v13 = *v12;
+  if ( v13 < v11 )
   {
-    if ( (unsigned __int64)v4 >= MmUserProbeAddress )
-      v4 = (unsigned int *)MmUserProbeAddress;
-    *v4 = v10;
-    v9 = 0;
-    UserSetLastError(122LL, v7);
+    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+      a2 = (unsigned int *)MmUserProbeAddress;
+    *a2 = v11;
+    v6 = 0;
+    UserSetLastError(122LL, v9, v10);
     goto LABEL_29;
   }
-  v13 = v12 - *(_DWORD *)(v21[0] + 1040LL);
-  v23 = v13;
-  v14 = 28LL * v12;
-  v25 = v14;
-  if ( v14 <= 0xFFFFFFFF && v13 )
+  v14 = v13 - *(_DWORD *)(v23[0] + 984LL);
+  v15 = 28LL * v13;
+  v27 = v15;
+  if ( v15 <= 0xFFFFFFFF && v14 )
   {
-    if ( (unsigned int)v14 >= 0x2710000 )
+    if ( (unsigned int)v15 >= 0x2710000 )
     {
 LABEL_18:
-      v9 = 0;
-      UserSetLastError(8LL, v7);
+      v6 = 0;
+      UserSetLastError(8LL, v9, v10);
       goto LABEL_29;
     }
-    v24 = 28 * v10;
-    v15 = 28 * v10;
-    ProbeForWrite(a3, 28 * v10, 8u);
-    if ( 28 * v10 - 1 > 0x270FFFF )
+    v25 = 28 * v11;
+    v16 = 28 * v11;
+    ProbeForWrite(a3, 28 * v11, 8u);
+    if ( 28 * v11 - 1 > 0x270FFFF )
     {
-      v9 = 0;
-      UserSetLastError(1359LL, v16);
+      v6 = 0;
+      UserSetLastError(1359LL, v17, v18);
       goto LABEL_29;
     }
-    v17 = Win32AllocPoolZInit(v15, 1668313941LL);
-    v18 = (const void *)v17;
-    v22 = v17;
-    if ( !v17 )
+    v19 = (void *)Win32AllocPoolZInit(v16, 1668313941LL);
+    v20 = v19;
+    v24 = v19;
+    if ( !v19 )
       goto LABEL_18;
-    v9 = RIMGetPointerDeviceProperties(v21[0], v10, v17, v13);
-    if ( v9 )
+    v6 = RIMGetPointerDeviceProperties(v23[0], v11, v19, v14);
+    if ( v6 )
     {
-      memmove((void *)a3, v18, v15);
-      v7 = MmUserProbeAddress;
-      if ( (unsigned __int64)v4 >= MmUserProbeAddress )
-        v4 = (unsigned int *)MmUserProbeAddress;
-      *v4 = v10;
+      memmove((void *)a3, v20, v16);
+      if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+        a2 = (unsigned int *)MmUserProbeAddress;
+      *a2 = v11;
       goto LABEL_29;
     }
   }
-  v9 = 0;
-  UserSetLastError(87LL, v7);
+  v6 = 0;
+  UserSetLastError(87LL, v9, v10);
 LABEL_29:
-  if ( v22 )
-    Win32FreePool(v22);
+  if ( v24 )
+    Win32FreePool(v24);
 LABEL_32:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v26, v7, v8);
-  UserSessionSwitchLeaveCrit(v19);
-  return v9;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v26);
+  UserSessionSwitchLeaveCrit(v21);
+  return v6;
 }

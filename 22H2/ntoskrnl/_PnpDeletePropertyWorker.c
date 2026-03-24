@@ -1,19 +1,26 @@
 /*
- * XREFs of _PnpDeletePropertyWorker @ 0x14086FB0C
+ * XREFs of _PnpDeletePropertyWorker @ 0x14076C76C
  * Callers:
- *     _PnpSetGenericStoreProperty @ 0x1407976D8 (_PnpSetGenericStoreProperty.c)
- *     DrvDbDeleteObjectSubKey @ 0x140A6B02C (DrvDbDeleteObjectSubKey.c)
+ *     _PnpSetGenericStoreProperty @ 0x140742C38 (_PnpSetGenericStoreProperty.c)
+ *     DrvDbDeleteObjectSubKey @ 0x14097CDFC (DrvDbDeleteObjectSubKey.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x14022B68C (RtlUnalignedStringCchLengthW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     _PnpOpenPropertiesKey @ 0x1406CDCF0 (_PnpOpenPropertiesKey.c)
+ *     RtlUnalignedStringCchLengthW @ 0x14032EA54 (RtlUnalignedStringCchLengthW.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406BE2A4 (_PnpOpenPropertiesKey.c)
  */
 
-__int64 __fastcall PnpDeletePropertyWorker(__int64 a1, int a2, const WCHAR *a3, __int64 a4, int a5, __int64 a6, int a7)
+__int64 __fastcall PnpDeletePropertyWorker(
+        __int64 a1,
+        __int64 a2,
+        const WCHAR *a3,
+        __int64 a4,
+        int a5,
+        __int64 a6,
+        int a7)
 {
   int v10; // eax
   NTSTATUS v11; // ebx
@@ -36,7 +43,7 @@ __int64 __fastcall PnpDeletePropertyWorker(__int64 a1, int a2, const WCHAR *a3, 
            0x800u,
            L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}\\%04lX") < 0 )
       return (unsigned int)-1073741595;
-    v10 = PnpOpenPropertiesKey(a1, a2, pszDest, 6, 0, (__int64)pszFormat, &KeyHandle);
+    v10 = PnpOpenPropertiesKey(a1, a2, pszDest, 6u, 0, (__int64)pszFormat, &KeyHandle);
     v11 = v10;
     if ( v10 == -1073741772 )
       return (unsigned int)-1073741275;

@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpPCIConfig @ 0x14033F1A0
+ * XREFs of HalpPCIConfig @ 0x140309270
  * Callers:
- *     HaliPciInterfaceWriteConfig @ 0x14033F0F0 (HaliPciInterfaceWriteConfig.c)
- *     HaliPciInterfaceReadConfig @ 0x14033F130 (HaliPciInterfaceReadConfig.c)
- *     HalpWritePCIConfig @ 0x140394EA0 (HalpWritePCIConfig.c)
- *     HalpReadPCIConfig @ 0x1403950C4 (HalpReadPCIConfig.c)
- *     HalpPciHandleSecureAccess @ 0x14045E130 (HalpPciHandleSecureAccess.c)
- *     HaliHandlePCIConfigSpaceAccess @ 0x140520920 (HaliHandlePCIConfigSpaceAccess.c)
- *     HalpKdWritePCIConfig @ 0x14052B290 (HalpKdWritePCIConfig.c)
+ *     HaliPciInterfaceReadConfig @ 0x140309200 (HaliPciInterfaceReadConfig.c)
+ *     HaliPciInterfaceWriteConfig @ 0x14037CC80 (HaliPciInterfaceWriteConfig.c)
+ *     HalpWritePCIConfig @ 0x14039E0DC (HalpWritePCIConfig.c)
+ *     HalpReadPCIConfig @ 0x14039E3F4 (HalpReadPCIConfig.c)
+ *     HalpPciHandleSecureAccess @ 0x1404D265C (HalpPciHandleSecureAccess.c)
+ *     HaliHandlePCIConfigSpaceAccess @ 0x1404D68C0 (HaliHandlePCIConfigSpaceAccess.c)
+ *     HalpKdWritePCIConfig @ 0x1404DF250 (HalpKdWritePCIConfig.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     HalpPCIAcquireConfigSpaceLock @ 0x14033F2E8 (HalpPCIAcquireConfigSpaceLock.c)
- *     HalpPciAccessMmConfigSpace @ 0x14033F334 (HalpPciAccessMmConfigSpace.c)
- *     HalpPciAccessIoConfigSpace @ 0x140392EFC (HalpPciAccessIoConfigSpace.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpPciAccessMmConfigSpace @ 0x1403093C0 (HalpPciAccessMmConfigSpace.c)
+ *     HalpPCIAcquireConfigSpaceLock @ 0x140309544 (HalpPCIAcquireConfigSpaceLock.c)
+ *     HalpPciAccessIoConfigSpace @ 0x1403BBD38 (HalpPciAccessIoConfigSpace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall HalpPCIConfig(
@@ -31,10 +31,10 @@ __int64 __fastcall HalpPCIConfig(
   ULONG_PTR v8; // rbx
   ULONG_PTR v9; // r15
   unsigned int v10; // r12d
-  ULONG_PTR *v11; // r8
+  __int64 *v11; // r8
   char v12; // r9
+  int v13; // edx
   __int64 result; // rax
-  int v14; // edx
   int v15; // edx
   unsigned __int8 v16; // bl
   unsigned int v17; // edx
@@ -50,21 +50,21 @@ __int64 __fastcall HalpPCIConfig(
   v10 = (unsigned __int16)a1;
   v23[0] = 0;
   if ( HalpIommuSkipPciConfigDisabled )
-    goto LABEL_6;
-  v11 = (ULONG_PTR *)HalpIommuList;
+    goto LABEL_3;
+  v11 = (__int64 *)HalpIommuList;
   v12 = 0;
-  if ( (ULONG_PTR *)HalpIommuList == &HalpIommuList )
-    goto LABEL_6;
+  if ( (__int64 *)HalpIommuList == &HalpIommuList )
+    goto LABEL_3;
   do
   {
     a1 = (unsigned int *)v11;
-    v11 = (ULONG_PTR *)*v11;
-    result = a1[122];
-    if ( (result & 8) != 0 && a1[124] == v10 && a1[125] == (_DWORD)v9 )
+    v11 = (__int64 *)*v11;
+    result = a1[114];
+    if ( (result & 8) != 0 && a1[116] == v10 && a1[117] == (_DWORD)v9 )
     {
-      v17 = a1[126];
+      v17 = a1[118];
       result = (unsigned int)v8 ^ v17;
-      if ( (((unsigned __int8)v8 ^ *((_BYTE *)a1 + 504)) & 0x1F) == 0
+      if ( (((unsigned __int8)v8 ^ *((_BYTE *)a1 + 472)) & 0x1F) == 0
         && (((unsigned __int8)v8 ^ (unsigned __int8)v17) & 0xE0) == 0 )
       {
         v12 = 1;
@@ -74,11 +74,11 @@ __int64 __fastcall HalpPCIConfig(
   while ( v11 != &HalpIommuList );
   if ( !v12 )
   {
-LABEL_6:
-    if ( qword_140C62648 )
+LABEL_3:
+    if ( qword_140C4A2C8 )
     {
       LOBYTE(a1) = a7 == 1;
-      result = qword_140C62648(
+      result = qword_140C4A2C8(
                  a1,
                  v10,
                  (unsigned int)v9,
@@ -93,8 +93,8 @@ LABEL_6:
         KeBugCheckEx(0xC0u, v9, v8, BugCheckParameter3, (int)result);
     }
     HalpPCIAcquireConfigSpaceLock(v23);
-    LOBYTE(v14) = v9;
-    result = HalpPciAccessMmConfigSpace((unsigned __int16)v10, v14, v8, (_DWORD)a4, BugCheckParameter3, Size, a7);
+    LOBYTE(v13) = v9;
+    result = HalpPciAccessMmConfigSpace((unsigned __int16)v10, v13, v8, (_DWORD)a4, BugCheckParameter3, Size, a7);
     if ( !(_BYTE)result )
     {
       LOBYTE(v15) = v9;
@@ -104,8 +104,8 @@ LABEL_6:
     }
     if ( !HalpDoingCrashDump )
     {
-      KxReleaseSpinLock((volatile signed __int64 *)&HalpPCIConfigLock);
-      if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+      KxReleaseSpinLock(&HalpPCIConfigLock);
+      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
       {
         v16 = v23[0];
         if ( v23[0] <= 0xFu && CurrentIrql >= 2u )

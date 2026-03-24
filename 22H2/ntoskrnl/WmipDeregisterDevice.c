@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipDeregisterDevice @ 0x140882A38
+ * XREFs of WmipDeregisterDevice @ 0x140754674
  * Callers:
- *     IoWMIRegistrationControl @ 0x14086C380 (IoWMIRegistrationControl.c)
+ *     IoWMIRegistrationControl @ 0x140754720 (IoWMIRegistrationControl.c)
  * Callees:
- *     WmipUnreferenceRegEntry @ 0x14022AAD4 (WmipUnreferenceRegEntry.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     WmipFindRegEntryByDevice @ 0x1403C1F64 (WmipFindRegEntryByDevice.c)
- *     WmipDeregisterRegEntry @ 0x1403D4480 (WmipDeregisterRegEntry.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     WmipUnreferenceRegEntry @ 0x14032E244 (WmipUnreferenceRegEntry.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     WmipFindRegEntryByDevice @ 0x1403717C4 (WmipFindRegEntryByDevice.c)
+ *     WmipDeregisterRegEntry @ 0x140371974 (WmipDeregisterRegEntry.c)
  */
 
 __int64 __fastcall WmipDeregisterDevice(__int64 a1)

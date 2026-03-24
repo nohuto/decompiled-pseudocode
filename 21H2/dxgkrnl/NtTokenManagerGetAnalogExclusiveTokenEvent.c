@@ -1,33 +1,36 @@
 /*
- * XREFs of NtTokenManagerGetAnalogExclusiveTokenEvent @ 0x1C00757C0
+ * XREFs of NtTokenManagerGetAnalogExclusiveTokenEvent @ 0x1C0063790
  * Callers:
  *     <none>
  * Callees:
- *     DxgkGetSessionTokenManager @ 0x1C0003660 (DxgkGetSessionTokenManager.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkGetSessionTokenManager @ 0x1C000E150 (DxgkGetSessionTokenManager.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtTokenManagerGetAnalogExclusiveTokenEvent(HANDLE *a1)
 {
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   struct DXGGLOBAL *Global; // rax
+  __int64 v5; // rdx
   int SessionTokenManager; // edi
-  __int64 v4; // rbx
+  __int64 v7; // rbx
   HANDLE Handle; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v7; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v10; // [rsp+50h] [rbp+18h] BYREF
 
   Handle = (HANDLE)-1LL;
   KeEnterCriticalRegion();
-  Global = DXGGLOBAL_GetGlobal();
-  if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38073) + 528LL))() )
+  Global = DXGGLOBAL::GetGlobal(v3, v2);
+  if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38048) + 296LL))() )
   {
-    v7 = 0LL;
-    SessionTokenManager = DxgkGetSessionTokenManager(&v7);
+    v10 = 0LL;
+    SessionTokenManager = DxgkGetSessionTokenManager(&v10, v5);
     if ( SessionTokenManager >= 0 )
     {
-      v4 = v7;
-      SessionTokenManager = (*(__int64 (__fastcall **)(__int64, HANDLE *))(*(_QWORD *)v7 + 112LL))(v7, &Handle);
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
+      v7 = v10;
+      SessionTokenManager = (*(__int64 (__fastcall **)(__int64, HANDLE *))(*(_QWORD *)v10 + 104LL))(v10, &Handle);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 8LL))(v7);
     }
   }
   else

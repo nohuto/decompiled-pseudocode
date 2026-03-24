@@ -1,58 +1,43 @@
 /*
- * XREFs of VfSetVerifierInformation @ 0x140ADE7E8
+ * XREFs of VfSetVerifierInformation @ 0x1409ECBFC
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
- *     VfFaultsSetParameters @ 0x140AD7148 (VfFaultsSetParameters.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
+ *     VfFaultsSetParameters @ 0x1409DC9D8 (VfFaultsSetParameters.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     VfInitSystemNoRebootNeeded @ 0x140AC3CE8 (VfInitSystemNoRebootNeeded.c)
- *     VfDriverLock @ 0x140ACB73C (VfDriverLock.c)
- *     VfSettingsCheckForChanges @ 0x140ADBDA4 (VfSettingsCheckForChanges.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     VfDriverLock @ 0x1409C25C8 (VfDriverLock.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409C6D50 (VfInitSystemNoRebootNeeded.c)
+ *     VfSettingsCheckForChanges @ 0x1409E048C (VfSettingsCheckForChanges.c)
  */
 
 __int64 __fastcall VfSetVerifierInformation(unsigned int *a1, unsigned int a2)
 {
-  unsigned int v4; // ecx
-  __int64 *v5; // rax
-  unsigned int v6; // edi
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  int v10; // edx
-  int v11; // edi
-  unsigned int v12; // esi
+  unsigned int v4; // ebx
+  __int64 v5; // rcx
+  int v6; // edx
+  int v7; // ebx
+  unsigned int v8; // esi
 
   if ( a2 < 4 )
     return 3221225476LL;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( VfSafeMode )
     return 3221226335LL;
-  v4 = 0;
-  v5 = &VfRuleClasses;
-  do
-  {
-    if ( *(_DWORD *)v5 )
-      return 3221228559LL;
-    ++v4;
-    v5 = (__int64 *)((char *)v5 + 4);
-  }
-  while ( v4 < 2 );
-  v6 = *a1;
+  v4 = *a1;
   VfDriverLock();
   if ( !MmVerifierData )
     MmVerifyDriverLevel = 0;
-  VfInitSystemNoRebootNeeded(v7, 0, v8, v9);
-  v10 = v6 & VerifierModifyableOptions;
-  v11 = VerifierModifyableOptions & ~v6;
-  v12 = ~v11 & (MmVerifierData | v10);
-  if ( v12 != MmVerifierData )
+  VfInitSystemNoRebootNeeded(v5, 0);
+  v6 = v4 & VerifierModifyableOptions;
+  v7 = VerifierModifyableOptions & ~v4;
+  v8 = ~v7 & (v6 | MmVerifierData);
+  if ( v8 != MmVerifierData )
   {
-    VfSettingsCheckForChanges(MmVerifierData, v10, v11, v12);
-    ++dword_140C139E0;
-    MmVerifierData = v12;
-    *a1 = v12;
+    VfSettingsCheckForChanges(MmVerifierData, v6, v7, v8);
+    ++dword_140C2A958;
+    MmVerifierData = v8;
+    *a1 = v8;
   }
-  ViLegacyVolatile = 1;
   ViDriversLoadLockOwner = 0LL;
-  KeReleaseMutex(&ViDriversLoadLock, 0);
+  KeReleaseMutex((PRKMUTEX)&ViDriversLoadLock, 0);
   return 0LL;
 }

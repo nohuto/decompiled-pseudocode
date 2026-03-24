@@ -1,12 +1,13 @@
 /*
- * XREFs of UserGetRedirectedWindowOrigin @ 0x1C0118F90
+ * XREFs of UserGetRedirectedWindowOrigin @ 0x1C004C3B0
  * Callers:
- *     xxxSetLayeredWindow @ 0x1C00CEB30 (xxxSetLayeredWindow.c)
- *     GreGetRandomRgn @ 0x1C0131360 (GreGetRandomRgn.c)
- *     GetDCOrgOnScreen @ 0x1C01BDC24 (GetDCOrgOnScreen.c)
- *     DxgkEngBltViaGDI @ 0x1C026F280 (DxgkEngBltViaGDI.c)
+ *     xxxSetLayeredWindow @ 0x1C0035D20 (xxxSetLayeredWindow.c)
+ *     GetDCOrgOnScreen @ 0x1C0042AB0 (GetDCOrgOnScreen.c)
+ *     GreGetRandomRgn @ 0x1C0042B10 (GreGetRandomRgn.c)
+ *     DxgkEngBltViaGDI @ 0x1C0276750 (DxgkEngBltViaGDI.c)
  * Callees:
- *     GetStyleWindow @ 0x1C0119070 (GetStyleWindow.c)
+ *     IsDesktopWindow @ 0x1C004C550 (IsDesktopWindow.c)
+ *     GetStyleWindow @ 0x1C00714C0 (GetStyleWindow.c)
  */
 
 __int64 __fastcall UserGetRedirectedWindowOrigin(__int64 a1, __int64 a2)
@@ -14,9 +15,6 @@ __int64 __fastcall UserGetRedirectedWindowOrigin(__int64 a1, __int64 a2)
   unsigned int v4; // edi
   __int64 v5; // rax
   __int64 v6; // rcx
-  __int64 v7; // rax
-  __int64 v8; // rdx
-  __int64 v9; // rdx
   __int64 StyleWindow; // rax
 
   v4 = 0;
@@ -24,26 +22,17 @@ __int64 __fastcall UserGetRedirectedWindowOrigin(__int64 a1, __int64 a2)
   v5 = LookupDC(a1, 1LL);
   if ( v5 && (*(_DWORD *)(v5 + 64) & 0x4000) != 0 )
   {
-    v6 = *(_QWORD *)(v5 + 16);
-    v7 = 0LL;
-    v8 = *(_QWORD *)(v6 + 24);
-    if ( v8 )
-    {
-      v9 = *(_QWORD *)(v8 + 8);
-      if ( v9 )
-        v7 = *(_QWORD *)(v9 + 24);
-    }
-    if ( v6 == v7 )
+    if ( (unsigned int)IsDesktopWindow(*(_QWORD *)(v5 + 16)) )
     {
       *(_QWORD *)a2 = 0LL;
-      goto LABEL_9;
+      goto LABEL_6;
     }
     StyleWindow = GetStyleWindow(v6, 2848LL);
     if ( StyleWindow )
     {
       *(_DWORD *)a2 = *(_DWORD *)(*(_QWORD *)(StyleWindow + 40) + 88LL);
       *(_DWORD *)(a2 + 4) = *(_DWORD *)(*(_QWORD *)(StyleWindow + 40) + 92LL);
-LABEL_9:
+LABEL_6:
       v4 = 1;
     }
   }

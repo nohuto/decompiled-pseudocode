@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSnapshot@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A1670
+ * XREFs of ?IsOfType@CSnapshot@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016FB70
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CSnapshot::IsOfType(__int64 a1, int a2)
 {
-  return ((a2 - 45) & 0xFFFFFF7F) == 0;
+  return a2 == 174 || a2 == 45;
 }

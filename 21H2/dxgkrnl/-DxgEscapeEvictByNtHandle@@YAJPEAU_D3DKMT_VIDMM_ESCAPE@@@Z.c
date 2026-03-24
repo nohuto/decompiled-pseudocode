@@ -1,31 +1,38 @@
 /*
- * XREFs of ?DxgEscapeEvictByNtHandle@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@@Z @ 0x1C030735C
+ * XREFs of ?DxgEscapeEvictByNtHandle@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@@Z @ 0x1C0266A58
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DxgEscapeEvictByNtHandle(struct _D3DKMT_VIDMM_ESCAPE *a1)
 {
-  unsigned int v2; // ebx
+  __int64 v2; // rbx
   HANDLE hProcess; // rcx
   NTSTATUS v4; // eax
-  _QWORD *v5; // rdi
-  __int64 v6; // rsi
-  __int64 v7; // rdx
-  _QWORD **v8; // rax
-  _QWORD *v9; // r14
-  PVOID Object; // [rsp+50h] [rbp-B8h] BYREF
-  struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+58h] [rbp-B0h] BYREF
-  _BYTE v13[144]; // [rsp+60h] [rbp-A8h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // rax
+  _QWORD *v9; // rdi
+  __int64 v10; // rsi
+  __int64 v11; // rdx
+  __int64 v12; // rdx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  _QWORD **v16; // rax
+  _QWORD *v17; // r14
+  PVOID Object; // [rsp+30h] [rbp-B8h] BYREF
+  struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+38h] [rbp-B0h] BYREF
+  _BYTE v21[144]; // [rsp+40h] [rbp-A8h] BYREF
 
-  v2 = 0;
+  LODWORD(v2) = 0;
   hProcess = a1->SuspendProcess.hProcess;
   if ( hProcess )
   {
@@ -41,60 +48,56 @@ __int64 __fastcall DxgEscapeEvictByNtHandle(struct _D3DKMT_VIDMM_ESCAPE *a1)
     v2 = v4;
     if ( v4 < 0 )
     {
-      WdLogSingleEntry2(3LL, a1->EvictByNtHandle.NtHandle, v4);
-      return v2;
+      v8 = WdLogNewEntry5_WdWarning(v6, v5, v7);
+      *(_QWORD *)(v8 + 24) = a1->EvictByNtHandle.NtHandle;
+      *(_QWORD *)(v8 + 32) = v2;
+      WdLogEvent5_WdWarning(v8);
+      return (unsigned int)v2;
     }
-    v5 = Object;
-    v6 = *((_QWORD *)Object + 2);
-    if ( v6 )
+    v9 = Object;
+    v10 = *((_QWORD *)Object + 2);
+    if ( v10 )
     {
-      v7 = *(_QWORD *)(v6 + 80);
-      if ( v7 )
+      v11 = *(_QWORD *)(v10 + 80);
+      if ( v11 )
       {
-        COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v13, *(struct DXGADAPTER *const *)(v7 + 16), 0LL);
-        v2 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v13, 0LL);
-        if ( (v2 & 0x80000000) != 0 )
+        COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v21, *(struct DXGADAPTER *const *)(v11 + 16), 0LL);
+        LODWORD(v2) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v21, 0LL);
+        if ( (int)v2 < 0 )
         {
-          ObfDereferenceObject(v5);
+          ObfDereferenceObject(v9);
 LABEL_10:
-          COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v13);
-          return v2;
+          COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v21, v13);
+          return (unsigned int)v2;
         }
-        if ( *(int *)(*(_QWORD *)(*(_QWORD *)(v6 + 80) + 16LL) + 2692LL) >= 2000 )
+        v14 = *(_QWORD *)(*(_QWORD *)(v10 + 80) + 16LL);
+        if ( *(int *)(v14 + 2596) >= 2000 )
         {
-          WdLogSingleEntry1(2LL, 566LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Evict By NT Handle Case not supported in WDDM2.x\n",
-            566LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          ObfDereferenceObject(v5);
-          v2 = -1073741595;
+          v15 = WdLogNewEntry5_WdError(v14, v12);
+          *(_QWORD *)(v15 + 24) = 578LL;
+          WdLogEvent5_WdError(v15);
+          ObfDereferenceObject(v9);
+          LODWORD(v2) = -1073741595;
           goto LABEL_10;
         }
-        v8 = (_QWORD **)(v5[2] + 136LL);
-        v9 = *v8;
-        while ( v9 != v8 )
+        v16 = (_QWORD **)(v9[2] + 136LL);
+        v17 = *v16;
+        while ( v17 != v16 )
         {
-          (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v6 + 80) + 648LL)
+          (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v10 + 80) + 640LL)
                                                                              + 8LL)
-                                                                 + 736LL))(
-            *(_QWORD *)(*(_QWORD *)(v6 + 80) + 656LL),
+                                                                 + 728LL))(
+            *(_QWORD *)(*(_QWORD *)(v10 + 80) + 648LL),
             0LL,
-            *(v9 - 5),
+            *(v17 - 5),
             0LL);
-          v9 = (_QWORD *)*v9;
-          v8 = (_QWORD **)(v5[2] + 136LL);
+          v17 = (_QWORD *)*v17;
+          v16 = (_QWORD **)(v9[2] + 136LL);
         }
-        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v13);
+        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v21, v12);
       }
     }
-    ObfDereferenceObject(v5);
+    ObfDereferenceObject(v9);
   }
-  return v2;
+  return (unsigned int)v2;
 }

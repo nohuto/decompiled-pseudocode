@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_MarkingAnyEndpointsToBeEnableAsDisabled @ 0x1C0023BE0
+ * XREFs of HUBDSM_MarkingAnyEndpointsToBeEnableAsDisabled @ 0x1C0021400
  * Callers:
  *     <none>
  * Callees:

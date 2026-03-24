@@ -1,10 +1,10 @@
 /*
- * XREFs of GreSetStretchBltMode @ 0x1C00BE37C
+ * XREFs of GreSetStretchBltMode @ 0x1C004459C
  * Callers:
- *     BltIcon @ 0x1C00BE16C (BltIcon.c)
+ *     BltIcon @ 0x1C004438C (BltIcon.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall GreSetStretchBltMode(HDC a1, int a2)

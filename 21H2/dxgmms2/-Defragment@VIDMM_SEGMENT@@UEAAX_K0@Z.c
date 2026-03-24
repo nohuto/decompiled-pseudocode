@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z @ 0x1C00843B0
+ * XREFs of ?Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z @ 0x1C00750F0
  * Callers:
- *     VidMmEndDmaBufferCPUAccess @ 0x1C0018F10 (VidMmEndDmaBufferCPUAccess.c)
- *     ?SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C0032BC4 (-SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z.c)
- *     ??1VIDMM_RECYCLE_HEAP@@QEAA@XZ @ 0x1C008200C (--1VIDMM_RECYCLE_HEAP@@QEAA@XZ.c)
+ *     VidMmEndDmaBufferCPUAccess @ 0x1C0016160 (VidMmEndDmaBufferCPUAccess.c)
+ *     ?SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C0028634 (-SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z.c)
+ *     ??1VIDMM_RECYCLE_HEAP@@QEAA@XZ @ 0x1C007B144 (--1VIDMM_RECYCLE_HEAP@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */

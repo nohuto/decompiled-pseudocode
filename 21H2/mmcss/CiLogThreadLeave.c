@@ -1,9 +1,9 @@
 /*
- * XREFs of CiLogThreadLeave @ 0x1C0004544
+ * XREFs of CiLogThreadLeave @ 0x1C0004294
  * Callers:
- *     CiThreadCleanup @ 0x1C000A680 (CiThreadCleanup.c)
+ *     CiThreadCleanup @ 0x1C000B8E0 (CiThreadCleanup.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CiLogThreadLeave(__int64 a1)

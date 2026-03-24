@@ -1,9 +1,9 @@
 /*
- * XREFs of VmpFillGpnRanges @ 0x140629910
+ * XREFs of VmpFillGpnRanges @ 0x1405A33A0
  * Callers:
- *     VmpPrefetchVirtualAddresses @ 0x14062B1A8 (VmpPrefetchVirtualAddresses.c)
+ *     VmpPrefetchVirtualAddresses @ 0x1405A4584 (VmpPrefetchVirtualAddresses.c)
  * Callees:
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x140629368 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405A2E80 (VmpConvertPortionVpnRangeToGpnRange.c)
  */
 
 _UNKNOWN **__fastcall VmpFillGpnRanges(
@@ -12,7 +12,7 @@ _UNKNOWN **__fastcall VmpFillGpnRanges(
         __int64 a3,
         __int64 *a4,
         __int64 a5,
-        __int64 *a6)
+        _QWORD *a6)
 {
   _UNKNOWN **result; // rax
   bool v7; // zf
@@ -30,7 +30,7 @@ _UNKNOWN **__fastcall VmpFillGpnRanges(
   {
     while ( 1 )
     {
-      result = (_UNKNOWN **)VmpConvertPortionVpnRangeToGpnRange(a1, a2, 0xFFFFFFFFFFFFFFFFuLL, a6, &v16, 0);
+      result = (_UNKNOWN **)VmpConvertPortionVpnRangeToGpnRange(a1, a2, 0xFFFFFFFFFFFFFFFFuLL, a6, &v16);
       v12 = *((_QWORD *)&v16 + 1);
       if ( !*((_QWORD *)&v16 + 1) )
         return result;

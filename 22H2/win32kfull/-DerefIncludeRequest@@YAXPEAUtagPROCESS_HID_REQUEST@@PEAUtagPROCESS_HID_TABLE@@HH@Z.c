@@ -1,89 +1,59 @@
 /*
- * XREFs of ?DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z @ 0x1C009FCC0
+ * XREFs of ?DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z @ 0x1C0108B68
  * Callers:
- *     FreeHidProcessRequest @ 0x1C009F158 (FreeHidProcessRequest.c)
- *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01A9A00 (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
+ *     FreeHidProcessRequest @ 0x1C010790C (FreeHidProcessRequest.c)
+ *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01D4B6C (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
  * Callees:
- *     FreeHidTLCInfo @ 0x1C009ED94 (FreeHidTLCInfo.c)
- *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C009FBE0 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
- *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C009FC90 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0?$ObjectLockRecursive@UtagObjLock@@@?$DomainExclusiveRecursive@$$V@?$DomainSharedRecursive@$$V@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00A00AC (--0-$ObjectLockRecursive@UtagObjLock@@@-$DomainExclusiveRecursive@$$V@-$DomainSharedRecursive@$$.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     FreeHidTLCInfo @ 0x1C01D5000 (FreeHidTLCInfo.c)
  */
 
 void __fastcall DerefIncludeRequest(struct tagPROCESS_HID_REQUEST *a1, struct tagPROCESS_HID_TABLE *a2, int a3, int a4)
 {
-  __int64 v8; // rax
+  int v7; // eax
+  int v8; // eax
   __int64 v9; // rax
-  __int64 v11; // rcx
-  int v12; // eax
-  int v13; // eax
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  _BYTE v16[8]; // [rsp+20h] [rbp-58h] BYREF
-  _BYTE v17[16]; // [rsp+28h] [rbp-50h] BYREF
-  tagObjLock *v18; // [rsp+38h] [rbp-40h]
-  char v19; // [rsp+48h] [rbp-30h]
+  bool v10; // zf
 
   if ( a3 )
   {
-    v13 = *((_DWORD *)a2 + 25);
-    if ( (v13 & 0x100) != 0 && *((_WORD *)a1 + 8) == 1 && *((_WORD *)a1 + 9) == 2 )
+    v7 = *((_DWORD *)a2 + 25);
+    if ( (v7 & 0x100) != 0 && *((_WORD *)a1 + 8) == 1 && *((_WORD *)a1 + 9) == 2 )
     {
-      v13 &= ~0x100u;
-      *((_DWORD *)a2 + 25) = v13;
+      v7 &= ~0x100u;
+      *((_DWORD *)a2 + 25) = v7;
     }
-    if ( (v13 & 0x800) != 0 && *((_WORD *)a1 + 8) == 1 && *((_WORD *)a1 + 9) == 2 )
+    if ( (v7 & 0x200) != 0 && *((_WORD *)a1 + 8) == 1 && *((_WORD *)a1 + 9) == 6 )
     {
-      v13 &= ~0x800u;
-      *((_DWORD *)a2 + 25) = v13;
+      v7 &= ~0x200u;
+      *((_DWORD *)a2 + 25) = v7;
     }
-    if ( (v13 & 0x200) != 0 && *((_WORD *)a1 + 8) == 1 && *((_WORD *)a1 + 9) == 6 )
+    if ( (v7 & 0x400) != 0 && *((_WORD *)a1 + 8) == 1 && *((_WORD *)a1 + 9) == 6 )
     {
-      v13 &= ~0x200u;
-      *((_DWORD *)a2 + 25) = v13;
+      v7 &= ~0x400u;
+      *((_DWORD *)a2 + 25) = v7;
     }
-    if ( (v13 & 0x400) != 0 && *((_WORD *)a1 + 8) == 1 && *((_WORD *)a1 + 9) == 6 )
-    {
-      v13 &= ~0x400u;
-      *((_DWORD *)a2 + 25) = v13;
-    }
-    if ( (v13 & 0x1000) != 0 && *((_WORD *)a1 + 8) == 1 && *((_WORD *)a1 + 9) == 6 )
-      *((_DWORD *)a2 + 25) = v13 & 0xFFFFEFFF;
+    if ( (v7 & 0x800) != 0 && *((_WORD *)a1 + 8) == 1 && *((_WORD *)a1 + 9) == 6 )
+      *((_DWORD *)a2 + 25) = v7 & 0xFFFFF7FF;
   }
   else
   {
-    v8 = SGDGetUserSessionState(a1);
-    RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)v16, (struct _KTHREAD **)(v8 + 288));
     v9 = *((_QWORD *)a1 + 3);
-    if ( (*(_DWORD *)(v9 + 24))-- == 1 )
+    v10 = (*(_DWORD *)(v9 + 24))-- == 1;
+    if ( v10
+      && a4
+      && !(*(_DWORD *)(*((_QWORD *)a1 + 3) + 20LL) | *(_DWORD *)(*((_QWORD *)a1 + 3) + 24LL) | *(_DWORD *)(*((_QWORD *)a1 + 3) + 32LL) | *(_DWORD *)(*((_QWORD *)a1 + 3) + 36LL)) )
     {
-      if ( a4 )
-      {
-        v11 = *((_QWORD *)a1 + 3);
-        if ( !(*(_DWORD *)(v11 + 20) | *(_DWORD *)(v11 + 24) | *(_DWORD *)(v11 + 32) | *(_DWORD *)(v11 + 36)) )
-          FreeHidTLCInfo((_QWORD *)v11);
-      }
+      FreeHidTLCInfo();
     }
-    RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)v16);
   }
-  v12 = *((_DWORD *)a1 + 5);
-  if ( (v12 & 1) != 0 )
+  v8 = *((_DWORD *)a1 + 5);
+  if ( (v8 & 1) != 0 )
   {
-    *((_DWORD *)a1 + 5) = v12 & 0xFFFFFFFE;
+    *((_DWORD *)a1 + 5) = v8 & 0xFFFFFFFE;
     if ( !a3 )
     {
       --*((_DWORD *)a2 + 20);
-      DomainSharedRecursive<>::DomainExclusiveRecursive<>::ObjectLockRecursive<tagObjLock>::ObjectLockRecursive<tagObjLock>(
-        v17,
-        gHidCountersLock);
-      v15 = SGDGetUserSessionState(v14);
-      --*(_DWORD *)(v15 + 16856);
-      if ( v19 )
-      {
-        if ( v18 )
-          tagObjLock::UnLockExclusive(v18);
-      }
+      --gHidCounters[2];
     }
   }
 }

@@ -1,31 +1,39 @@
 /*
- * XREFs of EtwpCancelTraceImageUnloadApc @ 0x14062E9B0
+ * XREFs of EtwpCancelTraceImageUnloadApc @ 0x1405A8450
  * Callers:
  *     <none>
  * Callees:
- *     EtwpTraceImageUnload @ 0x140280D70 (EtwpTraceImageUnload.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     FsRtlGetFileNameInformation @ 0x1406E4910 (FsRtlGetFileNameInformation.c)
- *     FsRtlReleaseFileNameInformation @ 0x1406E5900 (FsRtlReleaseFileNameInformation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     EtwpTraceImageUnload @ 0x14025A6BC (EtwpTraceImageUnload.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCancelTraceImageUnloadApc(PVOID P)
 {
   __int64 v2; // rcx
-  unsigned __int16 *v3; // rcx
-  __int128 v4; // [rsp+50h] [rbp-18h] BYREF
-  __int64 v5; // [rsp+70h] [rbp+8h] BYREF
+  int v3; // eax
+  unsigned __int16 *v4; // rcx
+  __int128 v5; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v6; // [rsp+70h] [rbp+8h] BYREF
 
+  v6 = 0LL;
   v5 = 0LL;
   v2 = *((_QWORD *)P + 11);
-  v4 = 0LL;
-  if ( (int)FsRtlGetFileNameInformation(v2, 512LL, &v4, &v5) < 0 )
-    v3 = (unsigned __int16 *)(*((_QWORD *)P + 11) + 88LL);
+  if ( FltMgrCallbacks )
+    v3 = (*(__int64 (__fastcall **)(__int64, __int64, __int128 *, __int64 *))(FltMgrCallbacks + 24))(
+           v2,
+           512LL,
+           &v5,
+           &v6);
   else
-    v3 = (unsigned __int16 *)&v4;
+    v3 = -1073741637;
+  if ( v3 < 0 )
+    v4 = (unsigned __int16 *)(*((_QWORD *)P + 11) + 88LL);
+  else
+    v4 = (unsigned __int16 *)&v5;
   EtwpTraceImageUnload(
-    v3,
+    v4,
     *((_QWORD *)P + 12),
     *((_QWORD *)P + 13),
     *((_QWORD *)P + 14),
@@ -35,8 +43,8 @@ void __fastcall EtwpCancelTraceImageUnloadApc(PVOID P)
     *((_DWORD *)P + 33),
     *((_QWORD *)P + 17),
     0);
-  if ( v5 )
-    FsRtlReleaseFileNameInformation();
-  ObfDereferenceObject(*((PVOID *)P + 11));
+  if ( v6 )
+    (*(void (**)(void))(FltMgrCallbacks + 32))();
+  ObfDereferenceObjectWithTag(*((PVOID *)P + 11), 0x746C6644u);
   ExFreePoolWithTag(P, 0);
 }

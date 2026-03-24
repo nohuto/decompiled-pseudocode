@@ -1,50 +1,50 @@
 /*
- * XREFs of MiDeleteTopLevelPage @ 0x140217060
+ * XREFs of MiDeleteTopLevelPage @ 0x1402970E8
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140216EE8 (MiDeleteFinalPageTables.c)
- *     MiDeleteProcessShadow @ 0x14027D408 (MiDeleteProcessShadow.c)
+ *     MiDeleteFinalPageTables @ 0x140296F6C (MiDeleteFinalPageTables.c)
+ *     MiDeleteProcessShadow @ 0x140305768 (MiDeleteProcessShadow.c)
  * Callees:
- *     MiClearContainingMapping @ 0x1402170F4 (MiClearContainingMapping.c)
- *     MiDecrementShareCount @ 0x140273FD0 (MiDecrementShareCount.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDecrementShareCount @ 0x1402401C0 (MiDecrementShareCount.c)
+ *     MiClearContainingMapping @ 0x14029717C (MiClearContainingMapping.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiDeleteTopLevelPage(__int64 a1, __int64 a2)
+__int64 __fastcall MiDeleteTopLevelPage(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v2; // rbx
-  unsigned __int64 v3; // rdi
-  unsigned int v4; // esi
+  __int64 v3; // rbx
+  unsigned __int64 v4; // rdi
+  unsigned int v5; // esi
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v9; // eax
-  bool v10; // zf
+  int v10; // eax
+  bool v11; // zf
 
-  v2 = 48 * a2 - 0x220000000000LL;
-  v3 = (unsigned __int8)MiLockPageInline(v2);
-  MiClearContainingMapping(v2);
-  *(_QWORD *)(v2 + 24) |= 0x4000000000000000uLL;
-  MiDecrementShareCount(v2);
-  v4 = MiDecrementShareCount(v2);
-  _InterlockedAnd64((volatile signed __int64 *)(v2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  v3 = 48 * a2 - 0x58000000000LL;
+  v4 = (unsigned __int8)MiLockPageInline(v3, a2, a3);
+  MiClearContainingMapping(v3);
+  *(_QWORD *)(v3 + 24) |= 0x4000000000000000uLL;
+  MiDecrementShareCount(v3);
+  v5 = MiDecrementShareCount(v3);
+  _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-        v10 = (v9 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v9;
-        if ( v10 )
+        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v11 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v11 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
-  __writecr8(v3);
-  return v4;
+  __writecr8(v4);
+  return v5;
 }

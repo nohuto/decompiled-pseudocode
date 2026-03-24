@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalQueryProcessorRestartEntryPoint @ 0x14013DF90
+ * XREFs of xHalQueryProcessorRestartEntryPoint @ 0x14013DFB0
  * Callers:
  *     <none>
  * Callees:

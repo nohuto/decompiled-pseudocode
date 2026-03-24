@@ -1,9 +1,9 @@
 /*
- * XREFs of SeSrpAccessCheck @ 0x1402FE830
+ * XREFs of SeSrpAccessCheck @ 0x1402FE930
  * Callers:
  *     <none>
  * Callees:
- *     SepCommonAccessCheckEx @ 0x14015B66C (SepCommonAccessCheckEx.c)
+ *     SepCommonAccessCheckEx @ 0x14015B68C (SepCommonAccessCheckEx.c)
  */
 
 __int64 __fastcall SeSrpAccessCheck(

@@ -1,19 +1,19 @@
 /*
- * XREFs of GreRectVisible @ 0x1C00885EC
+ * XREFs of GreRectVisible @ 0x1C00B84E0
  * Callers:
- *     NtGdiRectVisible @ 0x1C0088590 (NtGdiRectVisible.c)
+ *     NtGdiRectVisible @ 0x1C00B8840 (NtGdiRectVisible.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C003FD30 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0041E20 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C0042DBC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
- *     ?bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z @ 0x1C0088D44 (-bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C008E0D4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C015DE30 (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C008E970 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B2CDC (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00B30BC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z @ 0x1C00B7A24 (-bXform@EXFORMOBJ@@QEAAHAEAVERECTL@@@Z.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B9858 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C016A4AC (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
  */
 
 __int64 __fastcall GreRectVisible(HDC a1, struct _RECTL *a2)
@@ -24,11 +24,11 @@ __int64 __fastcall GreRectVisible(HDC a1, struct _RECTL *a2)
   char *v6; // rcx
   LONG right; // eax
   LONG left; // edx
-  struct REGION *v10; // [rsp+30h] [rbp-D0h] BYREF
-  _QWORD v11[2]; // [rsp+38h] [rbp-C8h] BYREF
-  _QWORD v12[2]; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v13; // [rsp+58h] [rbp-A8h] BYREF
-  int v14; // [rsp+60h] [rbp-A0h]
+  __int64 v10; // [rsp+30h] [rbp-D0h] BYREF
+  int v11; // [rsp+38h] [rbp-C8h]
+  struct REGION *v12; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD v13[2]; // [rsp+48h] [rbp-B8h] BYREF
+  _QWORD v14[2]; // [rsp+58h] [rbp-A8h] BYREF
   DC *v15[7]; // [rsp+68h] [rbp-98h] BYREF
   char v16[8]; // [rsp+A0h] [rbp-60h] BYREF
   __int64 v17; // [rsp+A8h] [rbp-58h]
@@ -58,13 +58,13 @@ LABEL_14:
     }
     v4 = XDCOBJ::prgnEffRao(v15);
     v5 = *a2;
-    v10 = v4;
+    v12 = v4;
     v20 = v5;
-    EXFORMOBJ::vQuickInit((EXFORMOBJ *)v11, (struct XDCOBJ *)v15, 0x80000204);
-    if ( (*(_DWORD *)(v11[0] + 32LL) & 1) != 0 )
+    EXFORMOBJ::vQuickInit((EXFORMOBJ *)v13, (struct XDCOBJ *)v15, 0x80000204);
+    if ( (*(_DWORD *)(v13[0] + 32LL) & 1) != 0 )
     {
-      EXFORMOBJ::vOrder((EXFORMOBJ *)v11, &v20);
-      EXFORMOBJ::bXform((EXFORMOBJ *)v11, (struct ERECTL *)&v20);
+      EXFORMOBJ::vOrder((EXFORMOBJ *)v13, &v20);
+      EXFORMOBJ::bXform((EXFORMOBJ *)v13, (struct _POINTL *)&v20);
       v6 = (char *)v15[0] + 1024;
       if ( (*((_DWORD *)v15[0] + 10) & 1) == 0 )
         v6 = (char *)v15[0] + 1016;
@@ -72,7 +72,7 @@ LABEL_14:
       v20.right += *(_DWORD *)v6;
       v20.top += *((_DWORD *)v6 + 1);
       v20.bottom += *((_DWORD *)v6 + 1);
-      v3 = RGNOBJ::bInside((RGNOBJ *)&v10, &v20) == 2;
+      v3 = RGNOBJ::bInside((RGNOBJ *)&v12, &v20) == 2;
       goto LABEL_14;
     }
     right = a2->right;
@@ -88,19 +88,20 @@ LABEL_14:
     PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v16);
     if ( v17 )
     {
-      if ( EPATHOBJ::bMoveTo((EPATHOBJ *)v16, (struct EXFORMOBJ *)v11, &v21)
-        && EPATHOBJ::bPolyLineTo((EPATHOBJ *)v16, (struct EXFORMOBJ *)v11, &v22, 3u)
+      if ( EPATHOBJ::bMoveTo((EPATHOBJ *)v16, (struct EXFORMOBJ *)v13, &v21)
+        && EPATHOBJ::bPolyLineTo((EPATHOBJ *)v16, (struct EXFORMOBJ *)v13, &v22, 3u)
         && EPATHOBJ::bCloseFigure((EPATHOBJ *)v16) )
       {
-        v14 = 0;
-        RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v13, (struct EPATHOBJ *)v16, 1u, 0LL);
-        RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v13);
-        RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v12);
-        RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v12);
-        if ( v13 && v12[0] )
+        v10 = 0LL;
+        v11 = 0;
+        RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v10, (struct EPATHOBJ *)v16, 1u, 0LL);
+        RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v10);
+        RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v14);
+        RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v14);
+        if ( v10 && v14[0] )
         {
-          if ( RGNOBJ::bMerge((RGNOBJ *)v12, (struct RGNOBJ *)&v10, (struct RGNOBJ *)&v13, 8u)
-            && (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)v12) != 1 )
+          if ( RGNOBJ::bMerge((RGNOBJ *)v14, (struct RGNOBJ *)&v12, (struct RGNOBJ *)&v10, 8u)
+            && (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)v14) != 1 )
           {
             v3 = 2;
           }
@@ -110,8 +111,8 @@ LABEL_14:
           EngSetLastError(8u);
           v3 = -1;
         }
-        RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v12);
-        RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v13);
+        RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v14);
+        RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v10);
         goto LABEL_13;
       }
     }
@@ -124,7 +125,7 @@ LABEL_13:
     PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v16);
     goto LABEL_14;
   }
-  TraceLoggingWriteUnsupportedGdiUsage(21LL, 0LL, *((unsigned __int16 *)v15[0] + 6));
+  TraceLoggingWriteUnsupportedGdiUsage(21LL, 0LL, *((unsigned __int16 *)v15[0] + 6), 7LL, 0LL);
 LABEL_4:
   EngSetLastError(6u);
   v3 = -1;

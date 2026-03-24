@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDevCfgFreeDeviceContext @ 0x1407D95B0
+ * XREFs of PiDevCfgFreeDeviceContext @ 0x14073683C
  * Callers:
- *     PpDevCfgProcessDeviceOperations @ 0x1407D94D0 (PpDevCfgProcessDeviceOperations.c)
- *     PiDevCfgProcessDeviceCallback @ 0x1408446E0 (PiDevCfgProcessDeviceCallback.c)
- *     PiDevCfgProcessDevice @ 0x14087A6C0 (PiDevCfgProcessDevice.c)
- *     PiDevCfgInitDeviceContext @ 0x14087CCD8 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgInitDeviceCallback @ 0x14095E5A0 (PiDevCfgInitDeviceCallback.c)
- *     PpDevCfgCheckDeviceNeedsUpdate @ 0x140962938 (PpDevCfgCheckDeviceNeedsUpdate.c)
- *     PpDevCfgProcessDeviceClass @ 0x1409629AC (PpDevCfgProcessDeviceClass.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x140962D24 (PpDevCfgProcessDeviceExtensions.c)
- *     PpDevCfgProcessDeviceReset @ 0x14096346C (PpDevCfgProcessDeviceReset.c)
+ *     PpDevCfgProcessDeviceClass @ 0x140730310 (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceReset @ 0x140730680 (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgProcessDevice @ 0x140736238 (PiDevCfgProcessDevice.c)
+ *     PpDevCfgProcessDeviceOperations @ 0x140736760 (PpDevCfgProcessDeviceOperations.c)
+ *     PiDevCfgInitDeviceContext @ 0x140737ED8 (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x1407BE4D0 (PiDevCfgProcessDeviceCallback.c)
+ *     PiDevCfgInitDeviceCallback @ 0x1408A6990 (PiDevCfgInitDeviceCallback.c)
+ *     PpDevCfgCheckDeviceNeedsUpdate @ 0x1408AA8C8 (PpDevCfgCheckDeviceNeedsUpdate.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AA93C (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 void __fastcall PiDevCfgFreeDeviceContext(__int64 a1)
@@ -31,7 +31,7 @@ void __fastcall PiDevCfgFreeDeviceContext(__int64 a1)
   v3 = 3LL;
   do
   {
-    RtlFreeUnicodeString(v2++);
+    RtlFreeAnsiString(v2++);
     --v3;
   }
   while ( v3 );

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentFree @ 0x14036EB14
+ * XREFs of RtlpHpLfhSubsegmentFree @ 0x1402B1568
  * Callers:
- *     RtlpHpLfhBucketAddSubsegment @ 0x140365834 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhOwnerCleanup @ 0x14036EA64 (RtlpHpLfhOwnerCleanup.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x1402B1104 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhOwnerCleanup @ 0x140389C60 (RtlpHpLfhOwnerCleanup.c)
  * Callees:
- *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x140365560 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x140307C30 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentFree(__int64 a1, __int64 a2, __int64 a3, char a4)

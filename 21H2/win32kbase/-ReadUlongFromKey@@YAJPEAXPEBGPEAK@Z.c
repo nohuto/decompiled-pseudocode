@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReadUlongFromKey@@YAJPEAXPEBGPEAK@Z @ 0x1C005BFE8
+ * XREFs of ?ReadUlongFromKey@@YAJPEAXPEBGPEAK@Z @ 0x1C00B2EC4
  * Callers:
- *     WinSqmIsOptedInEx @ 0x1C005BE90 (WinSqmIsOptedInEx.c)
+ *     WinSqmIsOptedInEx @ 0x1C00B2D50 (WinSqmIsOptedInEx.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall ReadUlongFromKey(HANDLE KeyHandle, const unsigned __int16 *a2, unsigned int *a3)

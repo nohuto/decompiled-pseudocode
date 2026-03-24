@@ -1,21 +1,21 @@
 /*
- * XREFs of ?ResetAdapterCollection@CTokenManager@@MEAAXXZ @ 0x1C0017760
+ * XREFs of ?ResetAdapterCollection@CTokenManager@@MEAAXXZ @ 0x1C0013790
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C00121F0 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
- *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C00190C0 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
- *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C0019660 (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
+ *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C0012CB0 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
+ *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C0012E50 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
+ *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C0013350 (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
  */
 
 void __fastcall CTokenManager::ResetAdapterCollection(CTokenManager *this)
 {
   CTokenManager::AcquireTokenManagerLock(this);
-  ExAcquirePushLockExclusiveEx((char *)this + 152, 0LL);
-  *((_BYTE *)this + 160) = 1;
-  CAdapterCollection::InternalDiscard((CTokenManager *)((char *)this + 112));
-  CPushLockCriticalSection::Release((CTokenManager *)((char *)this + 152));
-  *((_DWORD *)this + 22) = 0;
-  *((_QWORD *)this + 13) = 0LL;
-  ExReleasePushLockExclusiveEx((char *)this + 96, 0LL);
+  ExAcquirePushLockExclusiveEx((char *)this + 144, 0LL);
+  *((_BYTE *)this + 152) = 1;
+  CAdapterCollection::InternalDiscard((CTokenManager *)((char *)this + 104));
+  CPushLockCriticalSection::Release((CTokenManager *)((char *)this + 144));
+  *((_DWORD *)this + 20) = 0;
+  *((_QWORD *)this + 12) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 88, 0LL);
 }

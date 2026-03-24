@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPDO_PowerSettingCallback @ 0x1C001B030
+ * XREFs of HUBPDO_PowerSettingCallback @ 0x1C00193C0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 __int64 __fastcall HUBPDO_PowerSettingCallback(LPCGUID SettingGuid, int *Value, ULONG ValueLength, _DWORD *Context)
@@ -28,7 +28,7 @@ __int64 __fastcall HUBPDO_PowerSettingCallback(LPCGUID SettingGuid, int *Value, 
       || RtlCompareMemory(SettingGuid, &GUID_POWER_USB_U1_ENABLE_FOR_HUBS, 0x10uLL) == 16 )
     {
       if ( ValueLength < 4 )
-        goto LABEL_37;
+        goto LABEL_41;
       v14 = *Value != 0;
       v15 = Source1 & 0xFE;
     }
@@ -41,7 +41,7 @@ __int64 __fastcall HUBPDO_PowerSettingCallback(LPCGUID SettingGuid, int *Value, 
           || RtlCompareMemory(SettingGuid, &GUID_POWER_USB_U1_TIMEOUT_FOR_HUBS, 0x10uLL) == 16 )
         {
           if ( ValueLength < 4 )
-            goto LABEL_37;
+            goto LABEL_41;
           v13 = *Value;
           if ( *Value )
           {
@@ -49,12 +49,12 @@ __int64 __fastcall HUBPDO_PowerSettingCallback(LPCGUID SettingGuid, int *Value, 
             {
               if ( v13 == 2 )
                 LOBYTE(Source1) = Source1 & 0xEB;
-              goto LABEL_41;
+              goto LABEL_39;
             }
             v12 = Source1 & 0xEB | 4;
 LABEL_24:
             LOBYTE(Source1) = v12;
-            goto LABEL_41;
+            goto LABEL_39;
           }
           LOBYTE(Source1) = Source1 | 0x14;
         }
@@ -62,23 +62,23 @@ LABEL_24:
                || RtlCompareMemory(SettingGuid, &GUID_POWER_USB_U2_TIMEOUT_FOR_HUBS, 0x10uLL) == 16 )
         {
           if ( ValueLength < 4 )
-            goto LABEL_37;
+            goto LABEL_41;
           v11 = *Value;
           if ( !*Value )
           {
             LOBYTE(Source1) = Source1 | 0x28;
-            goto LABEL_41;
+            goto LABEL_39;
           }
           if ( v11 != 1 )
           {
             if ( v11 == 2 )
               LOBYTE(Source1) = Source1 & 0xD7;
-            goto LABEL_41;
+            goto LABEL_39;
           }
           v12 = Source1 & 0xD7 | 8;
           goto LABEL_24;
         }
-LABEL_41:
+LABEL_39:
         if ( RtlCompareMemory(&Source1, v4, 4uLL) != 4 )
         {
           *v4 = Source1;
@@ -87,12 +87,12 @@ LABEL_41:
         return v7;
       }
       if ( ValueLength < 4 )
-        goto LABEL_37;
+        goto LABEL_41;
       v14 = *Value != 0 ? 2 : 0;
       v15 = Source1 & 0xFD;
     }
     LOBYTE(Source1) = v15 | v14;
-    goto LABEL_41;
+    goto LABEL_39;
   }
   v10 = *Value;
   if ( (unsigned int)*Value <= 3 )
@@ -117,17 +117,17 @@ LABEL_41:
     {
       Source1 = 0;
     }
-    goto LABEL_41;
+    goto LABEL_39;
   }
-LABEL_37:
+LABEL_41:
   v7 = -1073741811;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_d(
       *(_QWORD *)(*((_QWORD *)Context + 1) + 1432LL),
       2u,
       2u,
-      0x85u,
-      (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+      0x7Du,
+      (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
       -1073741811);
   return v7;
 }

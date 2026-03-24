@@ -1,8 +1,8 @@
 /*
- * XREFs of ?compModeCap@@YAHPEAUtagModeCap@@0@Z @ 0x1C00695E8
+ * XREFs of ?compModeCap@@YAHPEAUtagModeCap@@0@Z @ 0x1C0090B90
  * Callers:
- *     ?InsertModecapList@@YAKPEAUtagModeCap@@0K@Z @ 0x1C0068FAC (-InsertModecapList@@YAKPEAUtagModeCap@@0K@Z.c)
- *     ?PruneMode@@YAHPEAU_devicemodeW@@PEAUtagModeCap@@HPEAU_FREQUENCY_RAGE@@K@Z @ 0x1C0069408 (-PruneMode@@YAHPEAU_devicemodeW@@PEAUtagModeCap@@HPEAU_FREQUENCY_RAGE@@K@Z.c)
+ *     ?InsertModecapList@@YAKPEAUtagModeCap@@0K@Z @ 0x1C00905A4 (-InsertModecapList@@YAKPEAUtagModeCap@@0K@Z.c)
+ *     ?PruneMode@@YAHPEAU_devicemodeW@@PEAUtagModeCap@@HPEAU_FREQUENCY_RAGE@@K@Z @ 0x1C0090998 (-PruneMode@@YAHPEAU_devicemodeW@@PEAUtagModeCap@@HPEAU_FREQUENCY_RAGE@@K@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of UpdateKeyStateForMessage @ 0x1C00A6E40
+ * XREFs of UpdateKeyStateForMessage @ 0x1C0093B30
  * Callers:
- *     HandleDeferredInput @ 0x1C00074D0 (HandleDeferredInput.c)
+ *     HandleDeferredInput @ 0x1C0001830 (HandleDeferredInput.c)
  * Callees:
- *     _anonymous_namespace_::UpdateKeyState @ 0x1C00A6F1C (_anonymous_namespace_--UpdateKeyState.c)
- *     ApiSetEditionGetKeyStateUpdateParamsForRawInput @ 0x1C00A7044 (ApiSetEditionGetKeyStateUpdateParamsForRawInput.c)
+ *     ApiSetEditionGetKeyStateUpdateParamsForRawInput @ 0x1C0002D34 (ApiSetEditionGetKeyStateUpdateParamsForRawInput.c)
+ *     _anonymous_namespace_::UpdateKeyState @ 0x1C0093C10 (_anonymous_namespace_--UpdateKeyState.c)
  */
 
 unsigned __int64 __fastcall UpdateKeyStateForMessage(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -26,28 +26,23 @@ unsigned __int64 __fastcall UpdateKeyStateForMessage(__int64 a1, __int64 a2, __i
   LOBYTE(a4) = 0;
   v14 = 0;
   LOBYTE(a3) = 1;
+  if ( v4 == 514 )
+  {
+    LOBYTE(a3) = 0;
+LABEL_17:
+    v11 = 1;
+LABEL_18:
+    v14 = v11;
+    goto LABEL_14;
+  }
   if ( v4 <= 0x202 )
   {
-    if ( v4 == 514 )
-    {
-      LOBYTE(a3) = 0;
-LABEL_17:
-      v11 = 1;
-LABEL_20:
-      v14 = v11;
-      goto LABEL_14;
-    }
     v6 = v4 - 255;
     if ( !v6 )
     {
       v15 = 0;
       v16 = 0;
-      result = ApiSetEditionGetKeyStateUpdateParamsForRawInput(
-                 a1,
-                 a2,
-                 (unsigned int)&v14,
-                 (unsigned int)&v15,
-                 (__int64)&v16);
+      result = ApiSetEditionGetKeyStateUpdateParamsForRawInput(a1, a2, (__int64)&v14, (__int64)&v15, (__int64)&v16);
       v11 = v14;
       LOBYTE(a3) = v15 != 0;
       LOBYTE(a4) = v16 != 0;
@@ -107,14 +102,16 @@ LABEL_33:
   }
   v12 = result - 2;
   if ( !v12 )
-    goto LABEL_19;
+  {
+LABEL_31:
+    v11 = 4;
+    goto LABEL_18;
+  }
   v13 = v12 - 1;
   if ( !v13 )
   {
     LOBYTE(a3) = 0;
-LABEL_19:
-    v11 = 4;
-    goto LABEL_20;
+    goto LABEL_31;
   }
   result = (unsigned int)(v13 - 3);
   if ( (_DWORD)result )
@@ -126,12 +123,12 @@ LABEL_19:
   if ( *(_WORD *)(a2 + 34) == 1 )
   {
     v11 = 5;
-    goto LABEL_20;
+    goto LABEL_18;
   }
   if ( *(_WORD *)(a2 + 34) == 2 )
   {
     v11 = 6;
-    goto LABEL_20;
+    goto LABEL_18;
   }
   return result;
 }

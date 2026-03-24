@@ -1,86 +1,86 @@
 /*
- * XREFs of EtwpEnumerateTraceGuids @ 0x1409E7C38
+ * XREFs of EtwpEnumerateTraceGuids @ 0x14072B948
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     EtwpGetNextGuidEntry @ 0x1406BF130 (EtwpGetNextGuidEntry.c)
+ *     EtwpGetNextGuidEntry @ 0x1407148AC (EtwpGetNextGuidEntry.c)
  */
 
-__int64 __fastcall EtwpEnumerateTraceGuids(__int64 a1, __int64 a2, unsigned int a3, unsigned int *a4)
+__int64 __fastcall EtwpEnumerateTraceGuids(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  unsigned int v4; // edi
-  unsigned int v6; // ebx
-  signed __int64 *v7; // rdx
-  __int64 i; // rsi
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  signed __int64 *NextGuidEntry; // r10
-  __int64 v14; // rdx
-  unsigned int v15; // r9d
-  __int64 (**v16)[2]; // r8
-  __int64 v17; // r10
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  __int64 result; // rax
+  int v4; // ebx
+  unsigned int v5; // edi
+  __int64 v7; // rbp
+  unsigned int v8; // r14d
+  __int64 *v9; // rdx
+  signed __int64 *NextGuidEntry; // rax
+  __int64 v11; // rcx
+  unsigned int v12; // r8d
+  __int64 (**v13)[2]; // rdx
+  __int64 v14; // rsi
+  __int64 v15; // r9
+  int v16; // eax
 
   v4 = 0;
-  v6 = 0;
-  v7 = 0LL;
-  for ( i = a1; ; a1 = i )
+  v5 = 0;
+  v7 = a1;
+  v8 = *a3 / 0x24u;
+  v9 = 0LL;
+  while ( 1 )
   {
-    NextGuidEntry = EtwpGetNextGuidEntry(a1, v7, 0);
+    NextGuidEntry = EtwpGetNextGuidEntry(a1, v9, 0);
     if ( !NextGuidEntry )
       break;
-    v11 = v6++;
-    if ( v6 > 0x71C71C7 )
+    if ( ++v5 > 0x71C71C7 )
     {
-LABEL_9:
+LABEL_17:
       v4 = -2147483643;
-      goto LABEL_19;
+      goto LABEL_18;
     }
-    if ( v6 <= a3 )
+    if ( v5 <= v8 )
     {
-      v12 = 9 * v11;
-      *(_OWORD *)(a2 + 4 * v12) = *(_OWORD *)(NextGuidEntry + 5);
-      *(_DWORD *)(a2 + 4 * v12 + 28) = *((_DWORD *)NextGuidEntry + 20);
-      *(_DWORD *)(a2 + 4 * v12 + 20) = *((unsigned __int16 *)NextGuidEntry + 44);
-      *(_DWORD *)(a2 + 4 * v12 + 24) = *((unsigned __int8 *)NextGuidEntry + 90);
-      *(_BYTE *)(a2 + 4 * v12 + 32) = *((_BYTE *)NextGuidEntry + 91) & 1;
+      *(_OWORD *)a2 = *(_OWORD *)(NextGuidEntry + 5);
+      *(_DWORD *)(a2 + 28) = *((_DWORD *)NextGuidEntry + 20);
+      *(_DWORD *)(a2 + 20) = *((unsigned __int16 *)NextGuidEntry + 44);
+      *(_DWORD *)(a2 + 24) = *((unsigned __int8 *)NextGuidEntry + 90);
+      *(_BYTE *)(a2 + 32) = *((_BYTE *)NextGuidEntry + 91) & 1;
+      a2 += 36LL;
     }
-    v7 = NextGuidEntry;
+    v9 = NextGuidEntry;
+    a1 = v7;
   }
-  if ( i == EtwpHostSiloState )
-    v14 = 2147353472LL;
+  if ( v7 == EtwpHostSiloState )
+    v11 = 2147353472LL;
   else
-    v14 = *(_QWORD *)(*(_QWORD *)(i + 8) + 1320LL) + 550LL;
-  v15 = 0;
-  v16 = &EtwpUmglProviders;
+    v11 = *(_QWORD *)(*(_QWORD *)(v7 + 8) + 1128LL) + 550LL;
+  v12 = 0;
+  v13 = &EtwpUmglProviders;
+  v14 = a2 + 28;
   do
   {
-    v17 = *((unsigned __int8 *)v16 + 8);
-    v18 = v6;
-    if ( *(_BYTE *)(v14 + 2 * v17) )
+    v15 = *((unsigned __int8 *)v13 + 8);
+    if ( *(_BYTE *)(v11 + 2 * v15) )
     {
-      if ( ++v6 > 0x71C71C7 )
-        goto LABEL_9;
-      if ( v6 <= a3 )
+      if ( ++v5 > 0x71C71C7 )
+        goto LABEL_17;
+      if ( v5 <= v8 )
       {
-        v19 = 9 * v18;
-        *(_OWORD *)(a2 + 4 * v19) = *(_OWORD *)*v16;
-        *(_DWORD *)(a2 + 4 * v19 + 20) = *(unsigned __int8 *)(v14 + 2 * v17);
-        *(_DWORD *)(a2 + 4 * v19 + 28) = *(unsigned __int8 *)(v14 + 2 * v17 + 1);
-        *(_DWORD *)(a2 + 4 * v19 + 24) = 0;
-        *(_BYTE *)(a2 + 4 * v19 + 32) = 1;
+        *(_OWORD *)(v14 - 28) = *(_OWORD *)*v13;
+        *(_DWORD *)(v14 - 8) = *(unsigned __int8 *)(v11 + 2 * v15);
+        v16 = *(unsigned __int8 *)(v11 + 2 * v15 + 1);
+        *(_DWORD *)(v14 - 4) = 0;
+        *(_DWORD *)v14 = v16;
+        *(_BYTE *)(v14 + 4) = 1;
+        v14 += 36LL;
       }
     }
-    ++v15;
-    v16 += 2;
+    ++v12;
+    v13 += 2;
   }
-  while ( v15 < 0xA );
-  if ( v6 > a3 )
-    v4 = -1073741789;
-LABEL_19:
-  result = v4;
-  *a4 = v6;
-  return result;
+  while ( v12 < 0xA );
+LABEL_18:
+  *a3 = 36 * v5;
+  if ( v4 >= 0 && v5 > v8 )
+    return (unsigned int)-1073741789;
+  return (unsigned int)v4;
 }

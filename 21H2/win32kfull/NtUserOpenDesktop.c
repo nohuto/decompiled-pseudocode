@@ -1,35 +1,33 @@
 /*
- * XREFs of NtUserOpenDesktop @ 0x1C00CEEE0
+ * XREFs of NtUserOpenDesktop @ 0x1C000F170
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _OpenDesktop @ 0x1C00CEF78 (_OpenDesktop.c)
+ *     _OpenDesktop @ 0x1C000F208 (_OpenDesktop.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserOpenDesktop(int a1, int a2, int a3)
+__int64 __fastcall NtUserOpenDesktop(struct _OBJECT_ATTRIBUTES *a1)
 {
-  __int64 v5; // rbp
-  int v7; // edx
-  NTSTATUS v8; // eax
-  __int64 v9; // rcx
-  ULONG v11; // eax
-  __int64 v12; // rdx
-  __int64 v13; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v1; // rbp
+  NTSTATUS v3; // eax
+  __int64 v4; // rcx
+  ULONG v6; // eax
+  __int64 v7; // [rsp+58h] [rbp+20h] BYREF
 
-  v5 = 0LL;
-  v13 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v8 = OpenDesktop(a1, v7, a2, a3, (__int64)&v13);
-  if ( v8 < 0 )
+  v1 = 0LL;
+  v7 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v3 = OpenDesktop(a1, (__int64)&v7);
+  if ( v3 < 0 )
   {
-    v11 = RtlNtStatusToDosError(v8);
-    UserSetLastError(v11, v12);
+    v6 = RtlNtStatusToDosError(v3);
+    UserSetLastError(v6);
   }
   else
   {
-    v5 = v13;
+    v1 = v7;
   }
-  UserSessionSwitchLeaveCrit(v9);
-  return v5;
+  UserSessionSwitchLeaveCrit(v4);
+  return v1;
 }

@@ -1,12 +1,13 @@
 /*
- * XREFs of HalpMapPhysicalMemoryWriteThrough64 @ 0x1403BEC00
+ * XREFs of HalpMapPhysicalMemoryWriteThrough64 @ 0x1404BCA00
  * Callers:
  *     <none>
  * Callees:
- *     HalpMap @ 0x1403BF3B8 (HalpMap.c)
+ *     HalpMap @ 0x1403BB938 (HalpMap.c)
  */
 
-__int64 __fastcall HalpMapPhysicalMemoryWriteThrough64(int a1, int a2, char a3)
+unsigned __int64 __fastcall HalpMapPhysicalMemoryWriteThrough64(__int64 a1, __int64 a2, char a3, __int64 a4)
 {
-  return HalpMap(a1, a2, 0, a3, 4);
+  LOBYTE(a4) = a3;
+  return HalpMap(a1, a2, 0, a4, 4u);
 }

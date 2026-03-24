@@ -1,63 +1,69 @@
 /*
- * XREFs of ?ValidateMemoryRanges@VIDMM_SEGMENT@@QEAAJIPEAU_DXGK_MEMORYRANGE@@AEA_K@Z @ 0x1C0100278
+ * XREFs of ?ValidateMemoryRanges@VIDMM_SEGMENT@@QEAAJIPEAU_DXGK_MEMORYRANGE@@AEA_K@Z @ 0x1C00C887C
  * Callers:
- *     ?BlockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@W4_DXGK_QUERYADAPTERINFOTYPE@@IAEA_K@Z @ 0x1C00FC3E8 (-BlockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@W4_DXGK_QUERYADAPTERINFOTYPE@@.c)
- *     ?UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z @ 0x1C00FFF4C (-UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z.c)
+ *     ?BlockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@W4_DXGK_QUERYADAPTERINFOTYPE@@IAEA_K@Z @ 0x1C00C4E90 (-BlockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@W4_DXGK_QUERYADAPTERINFOTYPE@@.c)
+ *     ?UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z @ 0x1C00C8574 (-UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall VIDMM_SEGMENT::ValidateMemoryRanges(
         VIDMM_SEGMENT *this,
-        unsigned int a2,
+        unsigned __int64 a2,
         struct _DXGK_MEMORYRANGE *a3,
         unsigned __int64 *a4)
 {
-  unsigned int v4; // r11d
+  int v4; // ebx
+  unsigned int v7; // ebp
+  VIDMM_SEGMENT *v8; // r11
   UINT64 *i; // r10
-  UINT64 v9; // rax
-  UINT64 v10; // rcx
-  UINT64 v11; // rdx
-  UINT64 v12; // r8
-  UINT64 v13; // rcx
-  __int64 v15; // rbx
-  UINT64 SizeInBytes; // rcx
+  unsigned __int64 v10; // rax
+  unsigned __int64 v11; // r8
+  unsigned __int64 v12; // r9
+  _QWORD *v14; // rax
 
   v4 = 0;
-  if ( !a2 )
+  v7 = a2;
+  v8 = this;
+  if ( !(_DWORD)a2 )
     return 0LL;
   for ( i = &a3->SizeInBytes; ; i += 2 )
   {
-    v9 = *(i - 1);
-    v10 = *((_QWORD *)this + 8);
-    if ( v9 >= v10 )
+    v10 = *(i - 1);
+    v11 = *((_QWORD *)v8 + 8);
+    if ( v10 >= v11 )
       break;
-    v11 = *i;
-    v12 = v9 + *i;
-    if ( v12 > v10 )
+    a2 = *i;
+    v12 = v10 + *i;
+    if ( v12 > v11 )
       break;
-    v13 = *((_QWORD *)this + 6);
-    if ( v9 < v13 )
+    this = (VIDMM_SEGMENT *)*((_QWORD *)v8 + 6);
+    if ( v10 < (unsigned __int64)this )
     {
-      if ( v12 >= v13 )
+      if ( v12 >= (unsigned __int64)this )
       {
-        v11 = v13 - v9;
-        *i = v13 - v9;
+        a2 = (unsigned __int64)this - v10;
+        *i = (UINT64)this - v10;
       }
-      if ( !v11 || v11 >= *((_QWORD *)this + 6) - *((_QWORD *)this + 9) )
+      if ( !a2 || (this = (VIDMM_SEGMENT *)(*((_QWORD *)v8 + 6) - *((_QWORD *)v8 + 9)), a2 >= (unsigned __int64)this) )
       {
-        v15 = v4;
-        WdLogSingleEntry3(1LL, a3[v4].SizeInBytes, -1073741811LL, 756LL);
-        SizeInBytes = a3[v15].SizeInBytes;
+        v14 = (_QWORD *)WdLogNewEntry5_WdAssertion(this, a2, v11);
+        v14[3] = a3[v4].SizeInBytes;
+        v14[4] = -1073741811LL;
+        v14[5] = 638LL;
         goto LABEL_15;
       }
-      *a4 += v11;
+      *a4 += a2;
     }
-    if ( ++v4 >= a2 )
+    if ( ++v4 >= v7 )
       return 0LL;
   }
-  WdLogSingleEntry4(1LL, v9, a3[v4].SizeInBytes, -1073741811LL, 733LL);
+  v14 = (_QWORD *)WdLogNewEntry5_WdAssertion(this, a2, v11);
+  v14[3] = a3[v4].SegmentOffset;
+  v14[4] = a3[v4].SizeInBytes;
+  v14[5] = -1073741811LL;
+  v14[6] = 615LL;
 LABEL_15:
-  DxgkLogInternalTriageEvent(SizeInBytes, 0x40000LL);
+  WdLogEvent5_WdAssertion(v14);
   return 3221225485LL;
 }

@@ -5,7 +5,7 @@
  * Callees:
  *     MiReadPteShadow @ 0x14006C550 (MiReadPteShadow.c)
  *     MiMakeDemandZeroPte @ 0x140097EE0 (MiMakeDemandZeroPte.c)
- *     MiPrefetchVirtualMemory @ 0x1400EA120 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchVirtualMemory @ 0x1400EA140 (MiPrefetchVirtualMemory.c)
  */
 
 __int64 MiPrefetchDriverPages()

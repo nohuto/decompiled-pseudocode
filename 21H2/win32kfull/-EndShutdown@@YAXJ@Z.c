@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EndShutdown@@YAXJ@Z @ 0x1C011BF00
+ * XREFs of ?EndShutdown@@YAXJ@Z @ 0x1C00D7A30
  * Callers:
- *     xxxSetInformationThread @ 0x1C00A6350 (xxxSetInformationThread.c)
+ *     xxxSetInformationThread @ 0x1C00D9030 (xxxSetInformationThread.c)
  * Callees:
- *     _PostThreadMessage @ 0x1C00AB08C (_PostThreadMessage.c)
- *     ?NotifyLogon@@YAHK@Z @ 0x1C011BFB8 (-NotifyLogon@@YAHK@Z.c)
+ *     ?NotifyLogon@@YAHK@Z @ 0x1C00D7AF0 (-NotifyLogon@@YAHK@Z.c)
+ *     _PostThreadMessage @ 0x1C00DA748 (_PostThreadMessage.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -22,7 +22,7 @@ void __fastcall EndShutdown(int a1)
   {
     if ( gptiShutdownNotify )
     {
-      PostThreadMessage(gptiShutdownNotify, 0x16u, 0LL, 0LL);
+      PostThreadMessage(gptiShutdownNotify, 22LL, 0LL);
       gptiShutdownNotify = 0LL;
       v1 = *(_DWORD *)(grpwinstaLogoff + 64LL);
     }
@@ -34,7 +34,7 @@ void __fastcall EndShutdown(int a1)
   {
     gptiShutdownNotify = 0LL;
     NotifyLogon(gdwShutdownFlags);
-    if ( (gdwShutdownFlags & 0x40580B) != 0 && !gProtocolType )
+    if ( (gdwShutdownFlags & 0x2040580B) != 0 && !gProtocolType )
     {
       if ( gSqmIsOptedIn )
         SqmPowerState();

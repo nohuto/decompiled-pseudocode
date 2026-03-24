@@ -1,85 +1,80 @@
 /*
- * XREFs of rimFindReferencedRimObj @ 0x1C0004BD0
+ * XREFs of rimFindReferencedRimObj @ 0x1C015281C
  * Callers:
- *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C00046D4 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
- *     RIMIDECreatePseudoHIDDevice @ 0x1C019C4FC (RIMIDECreatePseudoHIDDevice.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C0168074 (RIMIDECreatePseudoHIDDevice.c)
+ *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C0168340 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     rimIsExplicitRimUsagesMatchingUsages @ 0x1C0056498 (rimIsExplicitRimUsagesMatchingUsages.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     rimIsExplicitRimUsagesMatchingUsages @ 0x1C0057A7C (rimIsExplicitRimUsagesMatchingUsages.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall rimFindReferencedRimObj(
-        unsigned int a1,
-        unsigned __int16 a2,
-        unsigned __int16 a3,
-        struct _LIST_ENTRY **a4)
+__int64 __fastcall rimFindReferencedRimObj(unsigned int a1, __int16 a2, __int16 a3, struct _LIST_ENTRY **a4)
 {
-  struct _LIST_ENTRY *v8; // rdi
-  __int64 v9; // rdx
-  __int64 v10; // r8
+  struct _LIST_ENTRY *v5; // rdi
   struct _LIST_ENTRY *Flink; // r11
-  struct _LIST_ENTRY *v12; // rcx
-  struct _LIST_ENTRY *v13; // rbx
-  int v14; // eax
-  NTSTATUS v15; // ebx
-  int v17; // ebp
+  struct _LIST_ENTRY *v10; // rbx
+  int v11; // eax
+  int v12; // ebp
+  int v13; // r8d
+  NTSTATUS v14; // ebx
 
-  v8 = 0LL;
-  RIMLockExclusive(&gObListLock);
+  v5 = 0LL;
+  RIMLockExclusive((__int64)&gObListLock);
   Flink = gObRimList.Flink;
-  v12 = &gObRimList;
   if ( gObRimList.Flink == &gObRimList )
-    goto LABEL_15;
+    goto LABEL_23;
   while ( 1 )
   {
-    v13 = Flink - 1;
-    if ( !LOBYTE(Flink[4].Flink) && !BYTE1(v13[5].Flink) && !BYTE2(v13->Blink) && (a1 & HIDWORD(v13[5].Flink)) != 0 )
+    v10 = Flink - 1;
+    if ( !LOBYTE(Flink[4].Flink) && !BYTE1(v10[5].Flink) && !BYTE2(v10->Blink) && (a1 & HIDWORD(v10[5].Flink)) != 0 )
     {
       if ( a1 <= 0x10 )
       {
-        v14 = 65814;
-        if ( _bittest(&v14, a1) )
+        v11 = 65814;
+        if ( _bittest(&v11, a1) )
         {
-          if ( LODWORD(v13[68].Flink) )
-            goto LABEL_10;
-          goto LABEL_9;
+          if ( LODWORD(v10[54].Flink) )
+            goto LABEL_19;
+          v13 = 403;
+          goto LABEL_18;
         }
       }
       if ( a1 == 32 )
         break;
     }
-LABEL_20:
+LABEL_12:
     Flink = Flink->Flink;
     if ( Flink == &gObRimList )
-      goto LABEL_11;
+      goto LABEL_20;
   }
-  v17 = (int)v13[68].Flink;
-  if ( !(unsigned int)rimIsExplicitRimUsagesMatchingUsages(&Flink[-1], a2, a3) )
+  v12 = (int)v10[54].Flink;
+  if ( !(unsigned int)rimIsExplicitRimUsagesMatchingUsages((__int64)&Flink[-1], a2, a3) )
   {
-    v12 = &gObRimList;
-    if ( v17 )
-      v8 = v13;
-    goto LABEL_20;
+    if ( v12 )
+      v5 = v10;
+    goto LABEL_12;
   }
-  if ( v17 )
-LABEL_9:
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v12, v9, v10);
-LABEL_10:
-  v8 = v13;
-LABEL_11:
-  if ( !v8 )
+  if ( !v12 )
+    goto LABEL_19;
+  v13 = 413;
+LABEL_18:
+  MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, v13);
+LABEL_19:
+  v5 = v10;
+LABEL_20:
+  if ( !v5 )
   {
-LABEL_15:
-    v15 = -1073741637;
-    goto LABEL_14;
+LABEL_23:
+    v14 = -1073741637;
+    goto LABEL_24;
   }
-  v15 = ObReferenceObjectByPointer(v8, 3u, ExRawInputManagerObjectType, 1);
-  if ( v15 >= 0 )
-    *a4 = v8;
-LABEL_14:
-  qword_1C029A118 = 0LL;
+  v14 = ObReferenceObjectByPointer(v5, 3u, ExRawInputManagerObjectType, 1);
+  if ( v14 >= 0 )
+    *a4 = v5;
+LABEL_24:
+  qword_1C0255428 = 0LL;
   ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
   KeLeaveCriticalRegion();
-  return (unsigned int)v15;
+  return (unsigned int)v14;
 }

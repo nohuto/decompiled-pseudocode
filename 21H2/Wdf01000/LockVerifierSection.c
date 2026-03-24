@@ -1,10 +1,10 @@
 /*
- * XREFs of LockVerifierSection @ 0x1C006C0F8
+ * XREFs of LockVerifierSection @ 0x1C0058820
  * Callers:
- *     FxInitialize @ 0x1C0027E24 (FxInitialize.c)
- *     FxLibraryCommonRegisterClient @ 0x1C0028820 (FxLibraryCommonRegisterClient.c)
+ *     FxLibraryCommonRegisterClient @ 0x1C0041AE4 (FxLibraryCommonRegisterClient.c)
+ *     FxInitialize @ 0x1C00570B8 (FxInitialize.c)
  * Callees:
- *     WPP_IFR_SF_dZq @ 0x1C006C3A0 (WPP_IFR_SF_dZq.c)
+ *     WPP_IFR_SF_dZq @ 0x1C0058AC8 (WPP_IFR_SF_dZq.c)
  */
 
 void __fastcall LockVerifierSection(

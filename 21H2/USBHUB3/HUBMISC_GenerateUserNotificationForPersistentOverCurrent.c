@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C007E0A8
+ * XREFs of HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C007CACC
  * Callers:
- *     HUBPSM20_NotifyingUserAboutPersistentOverCurrent @ 0x1C0011160 (HUBPSM20_NotifyingUserAboutPersistentOverCurrent.c)
+ *     HUBPSM20_NotifyingUserAboutPersistentOverCurrent @ 0x1C0010D50 (HUBPSM20_NotifyingUserAboutPersistentOverCurrent.c)
  * Callees:
- *     WPP_RECORDER_SF_qqd @ 0x1C000EC30 (WPP_RECORDER_SF_qqd.c)
- *     WMI_FireNotification @ 0x1C0086B48 (WMI_FireNotification.c)
+ *     WPP_RECORDER_SF_qqd @ 0x1C000E808 (WPP_RECORDER_SF_qqd.c)
+ *     WMI_FireNotification @ 0x1C0084F0C (WMI_FireNotification.c)
  */
 
 __int64 __fastcall HUBMISC_GenerateUserNotificationForPersistentOverCurrent(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall HUBMISC_GenerateUserNotificationForPersistentOverCurrent(__in
       2u,
       4u,
       0x71u,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       *(_QWORD *)a1,
       a1,
       v3);

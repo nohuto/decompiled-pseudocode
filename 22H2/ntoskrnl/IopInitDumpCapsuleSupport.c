@@ -1,21 +1,26 @@
 /*
- * XREFs of IopInitDumpCapsuleSupport @ 0x1403B30F4
+ * XREFs of IopInitDumpCapsuleSupport @ 0x1403CDC5C
  * Callers:
- *     IoConfigureCrashDump @ 0x14054FA04 (IoConfigureCrashDump.c)
- *     IoInitializeCrashDump @ 0x1408360EC (IoInitializeCrashDump.c)
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     IoConfigureCrashDump @ 0x1403BFA60 (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x1407B7F14 (IoInitializeCrashDump.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     IopIsBitlockerOn @ 0x1403B3148 (IopIsBitlockerOn.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopIsBitlockerOn @ 0x1403CDCC0 (IopIsBitlockerOn.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 IopInitDumpCapsuleSupport()
 {
+  PVOID PoolWithTag; // rax
+
   if ( CapsuleTriageDumpBlockInitialized || (unsigned __int8)IopIsBitlockerOn() )
     return 0LL;
-  CapsuleTriageDumpBlock = (PVOID)ExAllocatePool2(64LL, 268288LL, 1886209091LL);
-  if ( CapsuleTriageDumpBlock )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x41800uLL, 0x706D4443u);
+  CapsuleTriageDumpBlock = PoolWithTag;
+  if ( PoolWithTag )
   {
+    memset(PoolWithTag, 0, 0x41800uLL);
     CapsuleTriageDumpBlockInitialized = 1;
     return 0LL;
   }

@@ -1,20 +1,17 @@
 /*
- * XREFs of HUBPDO_EvtDeviceReleaseHardware @ 0x1C007CFF0
+ * XREFs of HUBPDO_EvtDeviceReleaseHardware @ 0x1C00788B0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBSM_AddDsmEvent @ 0x1C000A740 (HUBSM_AddDsmEvent.c)
- *     Feature_USB4PowerImprovements__private_IsEnabled @ 0x1C000CC4C (Feature_USB4PowerImprovements__private_IsEnabled.c)
- *     HUBMISC_WaitForSignal @ 0x1C0032CDC (HUBMISC_WaitForSignal.c)
- *     SleepstudyHelper_UnregisterComponent @ 0x1C0043C6C (SleepstudyHelper_UnregisterComponent.c)
- *     DereferenceDeviceResetInterface @ 0x1C0043D14 (DereferenceDeviceResetInterface.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     HUBREG_DeleteUxdSettings @ 0x1C0086928 (HUBREG_DeleteUxdSettings.c)
- *     HUBWNF_PublishUsbPartnerDualRoleFeatures @ 0x1C008B5D4 (HUBWNF_PublishUsbPartnerDualRoleFeatures.c)
- *     TUNNEL_ReleaseUsb4HostPowerReferenceForPort @ 0x1C008E31C (TUNNEL_ReleaseUsb4HostPowerReferenceForPort.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001870 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBSM_AddDsmEvent @ 0x1C0009F80 (HUBSM_AddDsmEvent.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     DereferenceDeviceResetInterface @ 0x1C00416F8 (DereferenceDeviceResetInterface.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_DeleteUxdSettings @ 0x1C0080E50 (HUBREG_DeleteUxdSettings.c)
+ *     HUBWNF_PublishUsbPartnerDualRoleFeatures @ 0x1C0085074 (HUBWNF_PublishUsbPartnerDualRoleFeatures.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
@@ -29,29 +26,28 @@ __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
   __int64 v9; // rax
   __int64 v10; // rcx
   int v11; // eax
-  int IsEnabled; // eax
-  __int64 v14; // [rsp+20h] [rbp-48h]
-  _BYTE v15[8]; // [rsp+30h] [rbp-38h] BYREF
-  GUID v16; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v13; // [rsp+20h] [rbp-48h]
+  _BYTE v14[8]; // [rsp+30h] [rbp-38h] BYREF
+  GUID v15; // [rsp+38h] [rbp-30h] BYREF
 
-  v16 = 0LL;
+  v15 = 0LL;
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, const void *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00690F8);
+         off_1C00660D0);
   v3 = *(_QWORD *)(v2 + 24);
   if ( (*(_DWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
                       WdfDriverGlobals,
                       WdfDriverGlobals->Driver,
-                      off_1C00691E8)
+                      off_1C00661C0)
                   + 4) & 0x1000) != 0
     && EtwActivityIdControl(3u, (LPGUID)(v3 + 2176)) >= 0 )
   {
-    v16 = *(GUID *)(v3 + 2176);
+    v15 = *(GUID *)(v3 + 2176);
     _InterlockedOr((volatile signed __int32 *)(v3 + 1636), 0x80u);
   }
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 2) != 0 )
-    McTemplateK0p_EtwWriteTransfer(v4, &USBHUB3_ETW_EVENT_DEVICE_RELEASE_HARDWARE_START, &v16, *(_QWORD *)(v3 + 24));
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 2) != 0 )
+    McTemplateK0p_EtwWriteTransfer(v4, &USBHUB3_ETW_EVENT_DEVICE_RELEASE_HARDWARE_START, &v15, *(_QWORD *)(v3 + 24));
   if ( *(_QWORD *)(v2 + 392) )
   {
     SleepstudyHelper_UnregisterComponent();
@@ -60,10 +56,10 @@ __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, const void *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00690F8);
+         off_1C00660D0);
   *(_BYTE *)v5 = 1;
   _InterlockedAnd((volatile signed __int32 *)(v3 + 1636), 0xFFFFBFFF);
-  v15[0] = 0;
+  v14[0] = 0;
   v6 = *(_QWORD *)v3;
   v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 1632))(
          WdfDriverGlobals,
@@ -72,20 +68,20 @@ __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
     WdfDriverGlobals,
     v7,
     "ControllerPowerReference Tag",
-    94LL,
+    93LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\ucx.h");
-  (*(void (__fastcall **)(_QWORD, _BYTE *))(v6 + 560))(*(_QWORD *)(v6 + 248), v15);
+  (*(void (__fastcall **)(_QWORD, _BYTE *))(v6 + 560))(*(_QWORD *)(v6 + 248), v14);
   KeClearEvent((PRKEVENT)(v3 + 1584));
   HUBSM_AddDsmEvent(v3, 4099LL);
   HUBMISC_WaitForSignal((PVOID)(v3 + 1584), "Device PDORemoved", a1);
   v8 = *(_QWORD *)v3;
-  (*(void (__fastcall **)(_QWORD, _BYTE *))(*(_QWORD *)v3 + 568LL))(*(_QWORD *)(*(_QWORD *)v3 + 248LL), v15);
+  (*(void (__fastcall **)(_QWORD, _BYTE *))(*(_QWORD *)v3 + 568LL))(*(_QWORD *)(*(_QWORD *)v3 + 248LL), v14);
   v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1632))(WdfDriverGlobals, v8);
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const char *, __int64, const char *))(WdfFunctions_01015 + 1648))(
     WdfDriverGlobals,
     v9,
     "ControllerPowerReference Tag",
-    130LL,
+    129LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\ucx.h");
   v11 = *(_DWORD *)(v5 + 32);
   if ( (v11 & 0x400) != 0 )
@@ -105,21 +101,17 @@ __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
       _InterlockedAnd((volatile signed __int32 *)(v3 + 1632), 0xFFFBFFFF);
     }
     if ( (*(_DWORD *)(v3 + 1644) & 0x4000000) != 0 )
-      DereferenceDeviceResetInterface((_QWORD *)(v5 + 456));
-    IsEnabled = Feature_USB4PowerImprovements__private_IsEnabled();
-    v10 = *(_QWORD *)(v3 + 8);
-    if ( !IsEnabled || _bittest((const signed __int32 *)(v10 + 204), 0xBu) && (*(_DWORD *)(v3 + 1636) & 0x200000) == 0 )
-      TUNNEL_ReleaseUsb4HostPowerReferenceForPort(v10);
+      DereferenceDeviceResetInterface(v5 + 456);
   }
-  if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 2) != 0 )
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 2) != 0 )
   {
-    LODWORD(v14) = 0;
+    LODWORD(v13) = 0;
     McTemplateK0pq_EtwWriteTransfer(
       v10,
       &USBHUB3_ETW_EVENT_DEVICE_RELEASE_HARDWARE_COMPLETE,
-      &v16,
+      &v15,
       *(_QWORD *)(v3 + 24),
-      v14);
+      v13);
   }
   _InterlockedAnd((volatile signed __int32 *)(v3 + 1636), 0xFFFFFF7F);
   return 0LL;

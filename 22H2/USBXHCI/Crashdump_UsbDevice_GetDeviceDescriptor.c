@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_UsbDevice_GetDeviceDescriptor @ 0x1C0050154
+ * XREFs of Crashdump_UsbDevice_GetDeviceDescriptor @ 0x1C004D67C
  * Callers:
- *     Crashdump_UsbDevice_Configure @ 0x1C004FB34 (Crashdump_UsbDevice_Configure.c)
+ *     Crashdump_UsbDevice_Configure @ 0x1C004D05C (Crashdump_UsbDevice_Configure.c)
  * Callees:
- *     memset @ 0x1C0020600 (memset.c)
- *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004F424 (Crashdump_Endpoint_SendControlTransfer.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004C954 (Crashdump_Endpoint_SendControlTransfer.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_GetDeviceDescriptor(_QWORD *a1, unsigned __int8 **a2)

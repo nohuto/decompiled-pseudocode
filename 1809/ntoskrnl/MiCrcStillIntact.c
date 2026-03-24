@@ -10,9 +10,9 @@
  *     MiRecheckVaVm @ 0x140085570 (MiRecheckVaVm.c)
  *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
  *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiCombineCandidate @ 0x1400B26B0 (MiCombineCandidate.c)
- *     MiTbFlushType @ 0x1400EDB84 (MiTbFlushType.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
+ *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5)

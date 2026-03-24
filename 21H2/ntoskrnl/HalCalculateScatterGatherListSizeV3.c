@@ -1,9 +1,9 @@
 /*
- * XREFs of HalCalculateScatterGatherListSizeV3 @ 0x1403B2500
+ * XREFs of HalCalculateScatterGatherListSizeV3 @ 0x1403A0FD0
  * Callers:
  *     <none>
  * Callees:
- *     HalGetDmaTransferInfo @ 0x140200710 (HalGetDmaTransferInfo.c)
+ *     HalGetDmaTransferInfo @ 0x1404C6270 (HalGetDmaTransferInfo.c)
  */
 
 __int64 __fastcall HalCalculateScatterGatherListSizeV3(
@@ -18,11 +18,10 @@ __int64 __fastcall HalCalculateScatterGatherListSizeV3(
   unsigned int v8; // edx
   __int64 result; // rax
   unsigned __int64 v10; // r8
-  int v11; // [rsp+20h] [rbp-38h]
-  int v12; // [rsp+30h] [rbp-28h] BYREF
-  __int128 v13; // [rsp+34h] [rbp-24h]
+  int v11; // [rsp+30h] [rbp-28h] BYREF
+  __int128 v12; // [rsp+34h] [rbp-24h]
 
-  v13 = 0LL;
+  v12 = 0LL;
   if ( !a2 )
   {
     v7 = ((a3 & 0xFFF) + (unsigned __int64)a4 + 4095) >> 12;
@@ -34,13 +33,12 @@ __int64 __fastcall HalCalculateScatterGatherListSizeV3(
   v10 = a3 - *(unsigned int *)(a2 + 44) - *(_QWORD *)(a2 + 32);
   if ( v10 >= *(unsigned int *)(a2 + 40) )
     return 3221225485LL;
-  v12 = 1;
-  LOBYTE(v11) = 0;
-  result = HalGetDmaTransferInfo(a1, a2, v10, a4, v11, &v12);
+  v11 = 1;
+  result = HalGetDmaTransferInfo(a1, a2, v10, a4, 0, (__int64)&v11);
   if ( (int)result >= 0 )
   {
-    v8 = DWORD2(v13);
-    LODWORD(v7) = v13;
+    v8 = DWORD2(v12);
+    LODWORD(v7) = v12;
 LABEL_4:
     if ( (unsigned int)v7 > *(_DWORD *)(a1 + 224) )
     {

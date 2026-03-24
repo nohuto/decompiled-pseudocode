@@ -1,19 +1,20 @@
 /*
- * XREFs of MiSetWsleProtection @ 0x140216EE0
+ * XREFs of MiSetWsleProtection @ 0x14036AB70
  * Callers:
- *     MiSetReadOnlyOnSectionView @ 0x140215318 (MiSetReadOnlyOnSectionView.c)
- *     MiSetProtectionOnSection @ 0x140277B60 (MiSetProtectionOnSection.c)
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiBuildForkPte @ 0x140662270 (MiBuildForkPte.c)
+ *     MiConvertPrivateToProto @ 0x1403699A0 (MiConvertPrivateToProto.c)
+ *     MiBuildForkPte @ 0x1405581FC (MiBuildForkPte.c)
  * Callees:
- *     MiGetWsleContents @ 0x140216FD0 (MiGetWsleContents.c)
- *     MiWriteValidPteVolatile @ 0x140217040 (MiWriteValidPteVolatile.c)
+ *     MiWriteWsle @ 0x14031A590 (MiWriteWsle.c)
+ *     MiGetWsleContents @ 0x140339D50 (MiGetWsleContents.c)
  */
 
-__int64 __fastcall MiSetWsleProtection(__int64 a1, __int64 a2, __int64 a3)
+signed __int64 __fastcall MiSetWsleProtection(__int64 a1, unsigned __int64 a2)
 {
-  unsigned __int64 v3; // r10
+  char WsleContents; // al
+  char v3; // r9
+  __int64 v4; // rcx
+  unsigned __int64 v5; // r10
 
-  MiGetWsleContents(a1, a2, a3, (unsigned int)a3);
-  return MiWriteValidPteVolatile(((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 0x80000000LL);
+  WsleContents = MiGetWsleContents(a1, a2);
+  return MiWriteWsle(v4, v5, (16 * (v3 & 7)) | WsleContents & 0x8Fu);
 }

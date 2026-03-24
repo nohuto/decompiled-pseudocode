@@ -1,5 +1,5 @@
 /*
- * XREFs of PspCreatePicoProcess @ 0x14088C1C0
+ * XREFs of PspCreatePicoProcess @ 0x14088C1A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,9 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PsCreateMinimalProcess @ 0x14075754C (PsCreateMinimalProcess.c)
+ *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
  */
 
 __int64 __fastcall PspCreatePicoProcess(__int64 a1, __int64 a2, HANDLE *a3)

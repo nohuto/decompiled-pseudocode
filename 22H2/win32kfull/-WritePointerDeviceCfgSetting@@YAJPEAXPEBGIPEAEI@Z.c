@@ -1,8 +1,8 @@
 /*
- * XREFs of ?WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z @ 0x1C01F3830
+ * XREFs of ?WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z @ 0x1C0209438
  * Callers:
- *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C01F36B4 (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
- *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C01F38A0 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
+ *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C02092BC (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
+ *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C02094A8 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
  * Callees:
  *     <none>
  */

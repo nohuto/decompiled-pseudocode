@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetProductInfo @ 0x14036A310
+ * XREFs of RtlGetProductInfo @ 0x140329F60
  * Callers:
- *     ExGetSuiteMask @ 0x14083B3C8 (ExGetSuiteMask.c)
- *     ExpInitSystemPhase1 @ 0x140B4D6E4 (ExpInitSystemPhase1.c)
+ *     ExGetSuiteMask @ 0x1407BE280 (ExGetSuiteMask.c)
+ *     ExpInitSystemPhase1 @ 0x140A3C2EC (ExpInitSystemPhase1.c)
  * Callees:
- *     CompareVersions @ 0x14036A450 (CompareVersions.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryLicenseValue @ 0x14041D260 (ZwQueryLicenseValue.c)
+ *     CompareVersions @ 0x14032A0A0 (CompareVersions.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x1403FC4A0 (ZwQueryLicenseValue.c)
  */
 
 BOOLEAN __stdcall RtlGetProductInfo(
@@ -19,8 +19,8 @@ BOOLEAN __stdcall RtlGetProductInfo(
   ULONG v5; // esi
   BOOLEAN v6; // bl
   unsigned __int64 v8; // rax
-  unsigned __int64 v9; // r8
-  int v10; // r9d
+  int v9; // r8d
+  unsigned __int64 v10; // r9
   __int64 v11; // r10
   unsigned int v12; // [rsp+38h] [rbp-D0h] BYREF
   int v13; // [rsp+3Ch] [rbp-CCh] BYREF
@@ -44,7 +44,7 @@ BOOLEAN __stdcall RtlGetProductInfo(
   *ReturnedProductType = 0;
   v16[0] = OSMajorVersion;
   v16[1] = OSMinorVersion;
-  v17 = xmmword_1400176A8;
+  v17 = xmmword_140012780;
   v16[2] = SpMajorVersion;
   v16[3] = SpMinorVersion;
   if ( (int)CompareVersions(v16, &v17) < 0 )
@@ -66,9 +66,9 @@ BOOLEAN __stdcall RtlGetProductInfo(
       v17 = *(_OWORD *)&v18[5 * v8];
       if ( (int)CompareVersions(v15, &v17) < 0 )
         v5 = v18[v11 + 4];
-      v8 = (unsigned int)(v10 + 1);
+      v8 = (unsigned int)(v9 + 1);
     }
-    while ( v8 < v9 );
+    while ( v8 < v10 );
     if ( v5 )
     {
       *ReturnedProductType = v5;

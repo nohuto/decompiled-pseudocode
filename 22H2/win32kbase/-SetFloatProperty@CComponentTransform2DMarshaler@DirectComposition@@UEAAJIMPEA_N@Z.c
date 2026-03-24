@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CComponentTransform2DMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00B7D50
+ * XREFs of ?SetFloatProperty@CComponentTransform2DMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E49B0
  * Callers:
  *     <none>
  * Callees:

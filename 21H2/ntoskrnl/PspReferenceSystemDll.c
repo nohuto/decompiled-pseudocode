@@ -1,22 +1,22 @@
 /*
- * XREFs of PspReferenceSystemDll @ 0x140757130
+ * XREFs of PspReferenceSystemDll @ 0x140712A44
  * Callers:
- *     DbgkCreateThread @ 0x140702604 (DbgkCreateThread.c)
- *     PspMapSystemDll @ 0x140756AD4 (PspMapSystemDll.c)
- *     MmInitSystemDll @ 0x140B30EE0 (MmInitSystemDll.c)
- *     PspGetSystemDllSecureHandle @ 0x140B533E0 (PspGetSystemDllSecureHandle.c)
+ *     DbgkCreateThread @ 0x140647420 (DbgkCreateThread.c)
+ *     PspMapSystemDll @ 0x140712408 (PspMapSystemDll.c)
+ *     MmInitSystemDll @ 0x140A4B9EC (MmInitSystemDll.c)
+ *     PspGetSystemDllSecureHandle @ 0x140A93648 (PspGetSystemDllSecureHandle.c)
  * Callees:
- *     ObFastReferenceObject @ 0x14027A950 (ObFastReferenceObject.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ObFastReferenceObjectLocked @ 0x1405C5DA0 (ObFastReferenceObjectLocked.c)
+ *     ObFastReferenceObjectLocked @ 0x140206338 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ObFastReferenceObject @ 0x14027C6E0 (ObFastReferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
  */
 
-unsigned __int64 __fastcall PspReferenceSystemDll(signed __int64 *a1)
+ULONG_PTR __fastcall PspReferenceSystemDll(signed __int64 *a1)
 {
-  unsigned __int64 v2; // rdi
+  ULONG_PTR v2; // rbx
   struct _KTHREAD *CurrentThread; // rbp
 
   v2 = ObFastReferenceObject(a1);
@@ -25,11 +25,11 @@ unsigned __int64 __fastcall PspReferenceSystemDll(signed __int64 *a1)
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockSharedEx((ULONG_PTR)(a1 + 1), 0LL);
-    v2 = ObFastReferenceObjectLocked(a1, 0x64537350u);
+    v2 = ObFastReferenceObjectLocked(a1);
     if ( _InterlockedCompareExchange64(a1 + 1, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(a1 + 1);
     KeAbPostRelease((ULONG_PTR)(a1 + 1));
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
   return v2;
 }

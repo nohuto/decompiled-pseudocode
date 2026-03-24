@@ -2,13 +2,13 @@
  * XREFs of CmpFindNameInListCellWithStatus @ 0x1405D0720
  * Callers:
  *     CmpFindNameInListWithStatus @ 0x1405D0670 (CmpFindNameInListWithStatus.c)
- *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x140800DE0 (CmpValueEnumStackMatchingValueInUpperLayer.c)
+ *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x140800DC0 (CmpValueEnumStackMatchingValueInUpperLayer.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
  *     CmpCompareCompressedName @ 0x1405D5D90 (CmpCompareCompressedName.c)
- *     CmpCompareTwoCompressedNames @ 0x1407F97CC (CmpCompareTwoCompressedNames.c)
+ *     CmpCompareTwoCompressedNames @ 0x1407F97AC (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpFindNameInListCellWithStatus(

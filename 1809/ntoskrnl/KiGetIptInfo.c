@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGetIptInfo @ 0x140294438
+ * XREFs of KiGetIptInfo @ 0x140294538
  * Callers:
  *     KiInitializeXSave @ 0x1405732C0 (KiInitializeXSave.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     KiGetCpuVendor @ 0x14056F6EC (KiGetCpuVendor.c)
  */
 

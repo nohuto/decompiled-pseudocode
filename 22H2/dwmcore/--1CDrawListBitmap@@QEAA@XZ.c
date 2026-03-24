@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1CDrawListBitmap@@QEAA@XZ @ 0x1800DB180
+ * XREFs of ??1CDrawListBitmap@@QEAA@XZ @ 0x180056AC0
  * Callers:
- *     ??1CBrushRenderingEffect@@EEAA@XZ @ 0x1800307CC (--1CBrushRenderingEffect@@EEAA@XZ.c)
- *     ?ProcessRenderCommands_OffscreenRenderPass@CCpuClipAntialiasSinkContext@@AEAAJPEAVCDrawingContext@@IPEAV?$list@USinkRenderCommand@CCpuClipAntialiasSinkContext@@V?$allocator@USinkRenderCommand@CCpuClipAntialiasSinkContext@@@std@@@std@@PEBV?$vector_facade@UBounds@CCpuClipAntialiasSink@@V?$buffer_impl@UBounds@CCpuClipAntialiasSink@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x180091448 (-ProcessRenderCommands_OffscreenRenderPass@CCpuClipAntialiasSinkContext@@AEAAJPEAVCDrawingContex.c)
- *     ??_GCCommonRenderingEffect@@MEAAPEAXI@Z @ 0x1800D8AA0 (--_GCCommonRenderingEffect@@MEAAPEAXI@Z.c)
+ *     ??_GCCommonRenderingEffect@@UEAAPEAXI@Z @ 0x180054D80 (--_GCCommonRenderingEffect@@UEAAPEAXI@Z.c)
+ *     ??_ECBrushRenderingEffect@@UEAAPEAXI@Z @ 0x1800C90B0 (--_ECBrushRenderingEffect@@UEAAPEAXI@Z.c)
+ *     _lambda_611de328e1bb62dc15d573c6a00f4466_::operator() @ 0x1800EEFB4 (_lambda_611de328e1bb62dc15d573c6a00f4466_--operator().c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDrawListBitmap::~CDrawListBitmap(CDrawListBitmap *this)

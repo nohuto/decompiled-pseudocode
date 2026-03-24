@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessSetLookupId@CDataSourceReader@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DATASOURCEREADER_SETLOOKUPID@@@Z @ 0x180212290
+ * XREFs of ?ProcessSetLookupId@CDataSourceReader@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DATASOURCEREADER_SETLOOKUPID@@@Z @ 0x1801BEDD0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?AddReaderToReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z @ 0x18019547C (-AddReaderToReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z.c)
- *     ?GetDataSourceProxy@DataProviderManager@@QEAAPEAVBamoDataSourceProxy@@_K0@Z @ 0x1801955B0 (-GetDataSourceProxy@DataProviderManager@@QEAAPEAVBamoDataSourceProxy@@_K0@Z.c)
- *     ?RegisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z @ 0x1801BCE5C (-RegisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?AddReaderToReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z @ 0x180164BBC (-AddReaderToReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z.c)
+ *     ?GetDataSourceProxy@DataProviderManager@@QEAAPEAVBamoDataSourceProxy@@_K0@Z @ 0x180164CEC (-GetDataSourceProxy@DataProviderManager@@QEAAPEAVBamoDataSourceProxy@@_K0@Z.c)
+ *     ?RegisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z @ 0x180180D08 (-RegisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z.c)
  */
 
 __int64 __fastcall CDataSourceReader::ProcessSetLookupId(
@@ -16,50 +16,48 @@ __int64 __fastcall CDataSourceReader::ProcessSetLookupId(
 {
   __int64 v3; // rdx
   unsigned __int64 v5; // r8
-  struct BamoDataSourceProxy *DataSourceProxy; // rax
+  DataSourceProxy *DataSourceProxy; // rax
   __int64 v7; // r8
   const char *v8; // r9
-  int v9; // eax
-  int v10; // ebx
+  DataSourceProxy *v9; // rsi
+  int v10; // eax
+  int v11; // ebx
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
   v3 = *((_QWORD *)a3 + 1);
-  *((_QWORD *)this + 8) = v3;
+  *((_QWORD *)this + 7) = v3;
   v5 = *((_QWORD *)a3 + 2);
-  *((_QWORD *)this + 9) = v5;
+  *((_QWORD *)this + 8) = v5;
   DataSourceProxy = DataProviderManager::GetDataSourceProxy(
-                      *(DataProviderManager **)(*((_QWORD *)this + 2) + 1256LL),
+                      *(DataProviderManager **)(*((_QWORD *)this + 2) + 1096LL),
                       v3,
                       v5);
-  if ( !DataSourceProxy )
+  v9 = DataSourceProxy;
+  if ( DataSourceProxy )
   {
-    DataProviderManager::AddReaderToReadyList(*(DataProviderManager **)(*((_QWORD *)this + 2) + 1256LL), this, v7, v8);
-    return 0LL;
-  }
-  v9 = DataSourceProxy::RegisterReader(DataSourceProxy, this);
-  v10 = v9;
-  if ( v9 >= 0 )
-  {
-    v10 = 0;
-  }
-  else
-  {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x178,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataprovidermanager.cpp",
-      (const char *)(unsigned int)v9);
-    if ( v10 == -2147024891 )
+    v10 = DataSourceProxy::RegisterReader(DataSourceProxy, this);
+    v11 = v10;
+    if ( v10 >= 0 )
+      v11 = 0;
+    else
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x178,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataprovidermanager.cpp",
+        (const char *)(unsigned int)v10);
+    if ( v11 == -2147024891 )
       return 0LL;
+    if ( v11 < 0 )
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x45,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\datasourcereader.cpp",
+        (const char *)(unsigned int)v11);
+      return (unsigned int)v11;
+    }
   }
-  if ( v10 < 0 )
-  {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x45,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\datasourcereader.cpp",
-      (const char *)(unsigned int)v10);
-    return (unsigned int)v10;
-  }
+  if ( !v9 )
+    DataProviderManager::AddReaderToReadyList(*(DataProviderManager **)(*((_QWORD *)this + 2) + 1096LL), this, v7, v8);
   return 0LL;
 }

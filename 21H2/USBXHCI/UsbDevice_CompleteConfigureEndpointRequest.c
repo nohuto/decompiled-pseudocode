@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbDevice_CompleteConfigureEndpointRequest @ 0x1C00025C0
+ * XREFs of UsbDevice_CompleteConfigureEndpointRequest @ 0x1C000793C
  * Callers:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C000239C (UsbDevice_QueueConfigureEndpointEvent.c)
- *     UsbDevice_HandleUnhandledEventReceivedState @ 0x1C0046F14 (UsbDevice_HandleUnhandledEventReceivedState.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_HandleUnhandledEventReceivedState @ 0x1C0046A54 (UsbDevice_HandleUnhandledEventReceivedState.c)
  * Callees:
- *     WPP_RECORDER_SF_dqqd @ 0x1C00026E0 (WPP_RECORDER_SF_dqqd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
- *     McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1C0048E7C (McTemplateK0ppqqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_dqqd @ 0x1C0007A5C (WPP_RECORDER_SF_dqqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1C0048C44 (McTemplateK0ppqqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall UsbDevice_CompleteConfigureEndpointRequest(__int64 a1, int a2, int a3, int a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KxWaitForLockOwnerShipWithIrql @ 0x14045A2D2
+ * XREFs of KxWaitForLockOwnerShipWithIrql @ 0x140516610
  * Callers:
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14045A10C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KxWaitForLockOwnerShipWithIrql(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)

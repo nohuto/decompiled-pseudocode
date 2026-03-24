@@ -1,73 +1,68 @@
 /*
- * XREFs of rimAddToObTrackList @ 0x1C0073740
+ * XREFs of rimAddToObTrackList @ 0x1C005915C
  * Callers:
- *     RawInputManagerObjectCreate @ 0x1C00702E0 (RawInputManagerObjectCreate.c)
- *     RawInputManagerDeviceObjectCreate @ 0x1C0072EA8 (RawInputManagerDeviceObjectCreate.c)
- *     RawInputManagerInputObserverObjectCreate @ 0x1C0191B04 (RawInputManagerInputObserverObjectCreate.c)
+ *     RawInputManagerObjectCreate @ 0x1C0057E28 (RawInputManagerObjectCreate.c)
+ *     RawInputManagerDeviceObjectCreate @ 0x1C0058CE8 (RawInputManagerDeviceObjectCreate.c)
+ *     RawInputManagerInputObserverObjectCreate @ 0x1C01661E0 (RawInputManagerInputObserverObjectCreate.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall rimAddToObTrackList(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall rimAddToObTrackList(__int64 a1)
 {
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  int v10; // eax
-  __int64 v11; // rcx
-  __int64 *v12; // rbx
-  __int64 v13; // rax
-  __int64 **v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 **v17; // rcx
-  __int64 v18; // rax
+  int v2; // eax
+  _QWORD *v3; // rcx
+  _QWORD *v4; // rax
+  struct _LIST_ENTRY *Blink; // rcx
+  struct _LIST_ENTRY *v6; // rax
+  struct _LIST_ENTRY *v7; // rdx
+  struct _LIST_ENTRY *v8; // rax
 
-  v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-  RIMLockExclusive(v5 + 240);
-  v10 = *(_DWORD *)(a1 + 4);
-  if ( v10 == 1 )
+  RIMLockExclusive((__int64)&gObListLock);
+  v2 = *(_DWORD *)(a1 + 4);
+  if ( v2 == 1 )
   {
-    v12 = (__int64 *)(a1 + 16);
-    v13 = SGDGetUserSessionState(v7, v6, v8, v9) + 304;
-  }
-  else
-  {
-    v11 = 2LL;
-    if ( v10 != 2 )
+    Blink = gObRimList.Blink;
+    v6 = (struct _LIST_ENTRY *)(a1 + 16);
+    if ( gObRimList.Blink->Flink == &gObRimList )
     {
-      if ( v10 != 3 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 408LL);
-      v12 = (__int64 *)(a1 + 16);
-      v13 = SGDGetUserSessionState(v11, v6, v8, v9) + 336;
-      v14 = *(__int64 ***)(v13 + 8);
-      if ( *v14 == (__int64 *)v13 )
-      {
-        *v12 = v13;
-        *(_QWORD *)(a1 + 24) = v14;
-        *v14 = v12;
-        goto LABEL_6;
-      }
-LABEL_7:
-      __fastfail(3u);
+      v6->Flink = &gObRimList;
+      *(_QWORD *)(a1 + 24) = Blink;
+      Blink->Flink = v6;
+      gObRimList.Blink = (struct _LIST_ENTRY *)(a1 + 16);
+      goto LABEL_6;
     }
-    v12 = (__int64 *)(a1 + 16);
-    v13 = SGDGetUserSessionState(2LL, v6, v8, v9) + 320;
+LABEL_4:
+    __fastfail(3u);
   }
-  v17 = *(__int64 ***)(v13 + 8);
-  if ( *v17 != (__int64 *)v13 )
-    goto LABEL_7;
-  *v12 = v13;
-  v12[1] = (__int64)v17;
-  *v17 = v12;
+  if ( v2 != 2 )
+  {
+    if ( v2 != 3 )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 339LL);
+    v7 = gObRimInputObserverList.Blink;
+    v8 = (struct _LIST_ENTRY *)(a1 + 16);
+    if ( gObRimInputObserverList.Blink->Flink == &gObRimInputObserverList )
+    {
+      v8->Flink = &gObRimInputObserverList;
+      *(_QWORD *)(a1 + 24) = v7;
+      v7->Flink = v8;
+      gObRimInputObserverList.Blink = (struct _LIST_ENTRY *)(a1 + 16);
+      goto LABEL_6;
+    }
+    goto LABEL_4;
+  }
+  v3 = (_QWORD *)qword_1C0254488;
+  v4 = (_QWORD *)(a1 + 16);
+  if ( *(__int64 **)qword_1C0254488 != &gObRimDevList )
+    goto LABEL_4;
+  *v4 = &gObRimDevList;
+  *(_QWORD *)(a1 + 24) = v3;
+  *v3 = v4;
+  qword_1C0254488 = a1 + 16;
 LABEL_6:
-  *(_QWORD *)(v13 + 8) = v12;
   *(_BYTE *)(a1 + 8) = 1;
-  v18 = SGDGetUserSessionState(v17, v14, v15, v16);
-  *(_QWORD *)(v18 + 248) = 0LL;
-  ExReleasePushLockExclusiveEx(v18 + 240, 0LL);
+  qword_1C0254458 = 0LL;
+  ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
   KeLeaveCriticalRegion();
 }

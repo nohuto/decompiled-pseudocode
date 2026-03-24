@@ -1,22 +1,17 @@
 /*
- * XREFs of DebugPrint @ 0x140428780
+ * XREFs of DebugPrint @ 0x140406F40
  * Callers:
- *     vDbgPrintExWithPrefixInternal @ 0x14032A5D0 (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x1403643E0 (vDbgPrintExWithPrefixInternal.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DebugPrint(__int64 a1, __int64 a2, unsigned int a3)
+__int64 DebugPrint()
 {
-  __int64 v3; // r9
-  __int64 v4; // r8
-  __int64 v5; // rcx
+  __int64 result; // rax
 
-  v3 = a3;
-  v4 = (unsigned int)a2;
-  LOWORD(a2) = *(_WORD *)a1;
-  v5 = *(_QWORD *)(a1 + 8);
+  result = 1LL;
   __asm { int     2Dh; Windows NT - eax = 1: debug print }
   __debugbreak();
-  return DebugPrintAfterInt3(v5, a2, v4, v3);
+  return result;
 }

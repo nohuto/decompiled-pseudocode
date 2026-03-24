@@ -1,18 +1,18 @@
 /*
- * XREFs of PopUmpoProcessMessage @ 0x1407EFC00
+ * XREFs of PopUmpoProcessMessage @ 0x14067A514
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x14036AF00 (PopUmpoSendPowerMessage.c)
- *     PopUmpoProcessMessages @ 0x1407EFAD0 (PopUmpoProcessMessages.c)
+ *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
+ *     PopUmpoProcessMessages @ 0x14067A3E4 (PopUmpoProcessMessages.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwAlpcAcceptConnectPort @ 0x14041C640 (ZwAlpcAcceptConnectPort.c)
- *     ZwAlpcCancelMessage @ 0x14041C660 (ZwAlpcCancelMessage.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PopUmpoProcessPowerMessage @ 0x1407EFD2C (PopUmpoProcessPowerMessage.c)
- *     PopAcquireUmpoPushLock @ 0x1407F02CC (PopAcquireUmpoPushLock.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwAlpcAcceptConnectPort @ 0x1403FB280 (ZwAlpcAcceptConnectPort.c)
+ *     ZwAlpcCancelMessage @ 0x1403FB2A0 (ZwAlpcCancelMessage.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopUmpoProcessPowerMessage @ 0x14067A644 (PopUmpoProcessPowerMessage.c)
+ *     PopAcquireUmpoPushLock @ 0x14067C3D4 (PopAcquireUmpoPushLock.c)
  */
 
 __int64 __fastcall PopUmpoProcessMessage(__int64 a1)

@@ -1,22 +1,19 @@
 /*
- * XREFs of CmpAllocateTransientPoolWithQuotaTag @ 0x140367AF0
+ * XREFs of CmpAllocateTransientPoolWithQuotaTag @ 0x14027EF58
  * Callers:
- *     CmLoadDifferencingKey @ 0x14067CE4C (CmLoadDifferencingKey.c)
- *     CmCreateKey @ 0x14067F8D0 (CmCreateKey.c)
- *     CmUnloadKey @ 0x14069E454 (CmUnloadKey.c)
- *     NtDeleteValueKey @ 0x140714980 (NtDeleteValueKey.c)
- *     CmpCaptureKeyValueArray @ 0x14071F740 (CmpCaptureKeyValueArray.c)
- *     NtSetValueKey @ 0x14071FAA0 (NtSetValueKey.c)
- *     NtQueryKey @ 0x1407333B0 (NtQueryKey.c)
- *     CmpBounceContextStart @ 0x1407C1A00 (CmpBounceContextStart.c)
- *     NtQueryValueKey @ 0x1407C9930 (NtQueryValueKey.c)
- *     NtCompactKeys @ 0x14090E310 (NtCompactKeys.c)
- *     NtQueryOpenSubKeysEx @ 0x14090EC00 (NtQueryOpenSubKeysEx.c)
- *     NtRenameKey @ 0x14090EF60 (NtRenameKey.c)
- *     CmUpdateFeatureConfiguration @ 0x1409113B4 (CmUpdateFeatureConfiguration.c)
- *     CmUpdateFeatureUsageSubscription @ 0x140911544 (CmUpdateFeatureUsageSubscription.c)
+ *     CmpBounceContextStart @ 0x1405F47B0 (CmpBounceContextStart.c)
+ *     NtSetValueKey @ 0x140663DC0 (NtSetValueKey.c)
+ *     CmpCaptureKeyValueArray @ 0x140667100 (CmpCaptureKeyValueArray.c)
+ *     NtDeleteValueKey @ 0x140669100 (NtDeleteValueKey.c)
+ *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
+ *     CmCreateKey @ 0x14066F690 (CmCreateKey.c)
+ *     NtQueryValueKey @ 0x1406F7AE0 (NtQueryValueKey.c)
+ *     CmUnloadKey @ 0x140719C78 (CmUnloadKey.c)
+ *     NtCompactKeys @ 0x140868000 (NtCompactKeys.c)
+ *     NtQueryOpenSubKeysEx @ 0x1408688F0 (NtQueryOpenSubKeysEx.c)
+ *     NtRenameKey @ 0x140868C30 (NtRenameKey.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
  */
 
 PVOID __fastcall CmpAllocateTransientPoolWithQuotaTag(__int64 a1, SIZE_T a2, ULONG a3)

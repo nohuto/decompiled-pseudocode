@@ -1,10 +1,8 @@
 /*
- * XREFs of ZwAlpcAcceptConnectPort @ 0x14041C640
+ * XREFs of ZwAlpcAcceptConnectPort @ 0x1403FB280
  * Callers:
- *     DifZwAlpcAcceptConnectPortWrapper @ 0x14061CD10 (DifZwAlpcAcceptConnectPortWrapper.c)
- *     PopUmpoProcessMessage @ 0x1407EFC00 (PopUmpoProcessMessage.c)
- *     SshpAlpcProcessAlpcMessage @ 0x14081AFCC (SshpAlpcProcessAlpcMessage.c)
- *     PopMonitorProcessLoop @ 0x1408600E4 (PopMonitorProcessLoop.c)
+ *     PopUmpoProcessMessage @ 0x14067A514 (PopUmpoProcessMessage.c)
+ *     PopMonitorProcessLoop @ 0x1407D0674 (PopMonitorProcessLoop.c)
  * Callees:
  *     <none>
  */

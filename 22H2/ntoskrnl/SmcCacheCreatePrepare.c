@@ -1,42 +1,40 @@
 /*
- * XREFs of SmcCacheCreatePrepare @ 0x1409D7E80
+ * XREFs of SmcCacheCreatePrepare @ 0x14092A764
  * Callers:
- *     SmcProcessCreateRequest @ 0x1409D7F4C (SmcProcessCreateRequest.c)
+ *     SmcProcessCreateRequest @ 0x14092A830 (SmcProcessCreateRequest.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     SmRegistrationCtxStart @ 0x140861930 (SmRegistrationCtxStart.c)
- *     SmcCacheManagerStart @ 0x1409DAD08 (SmcCacheManagerStart.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     SmRegistrationCtxStart @ 0x1407D16F8 (SmRegistrationCtxStart.c)
+ *     SmcCacheManagerStart @ 0x14092D594 (SmcCacheManagerStart.c)
  */
 
 __int64 __fastcall SmcCacheCreatePrepare(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v2; // rsi
-  int v4; // ebp
+  int v2; // edi
 
   CurrentThread = KeGetCurrentThread();
-  v2 = (volatile signed __int64 *)(a1 - 136);
-  v4 = 0;
+  v2 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx(a1 - 136, 0LL);
-  if ( (*(_DWORD *)(a1 - 152) & 8) == 0 )
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&BugCheckParameter2, 0LL);
+  if ( (dword_140D24140 & 8) == 0 )
   {
-    v4 = SmRegistrationCtxStart((_QWORD *)(a1 + 560));
-    if ( v4 >= 0 )
-      *(_DWORD *)(a1 - 152) |= 8u;
+    v2 = SmRegistrationCtxStart((struct _DMA_ADAPTER **)&qword_140D243F0);
+    if ( v2 >= 0 )
+      dword_140D24140 |= 8u;
   }
-  if ( (*(_DWORD *)(a1 - 152) & 0xC) == 8 )
+  if ( (dword_140D24140 & 4) == 0 && (dword_140D24140 & 8) != 0 )
   {
-    v4 = SmcCacheManagerStart(a1, *(_QWORD *)(a1 + 560));
-    if ( v4 >= 0 )
-      *(_DWORD *)(a1 - 152) |= 4u;
+    v2 = SmcCacheManagerStart(a1, qword_140D243F0);
+    if ( v2 >= 0 )
+      dword_140D24140 |= 4u;
   }
-  if ( (_InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v2);
-  KeAbPostRelease((ULONG_PTR)v2);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&BugCheckParameter2);
+  KeAbPostRelease((ULONG_PTR)&BugCheckParameter2);
   KeLeaveCriticalRegion();
-  return (unsigned int)v4;
+  return (unsigned int)v2;
 }

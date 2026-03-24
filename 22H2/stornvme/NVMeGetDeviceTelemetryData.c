@@ -1,127 +1,101 @@
 /*
- * XREFs of NVMeGetDeviceTelemetryData @ 0x1C00154F8
+ * XREFs of NVMeGetDeviceTelemetryData @ 0x1C001476C
  * Callers:
- *     ScsiToNVMe @ 0x1C00015C0 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     NVMeAllocateDmaBuffer @ 0x1C000C26C (NVMeAllocateDmaBuffer.c)
- *     BuildGetLogPageCommandForTelemetryLog @ 0x1C0010FA8 (BuildGetLogPageCommandForTelemetryLog.c)
+ *     BuildGetLogPageCommand @ 0x1C0002AA4 (BuildGetLogPageCommand.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
  */
 
-__int64 __fastcall NVMeGetDeviceTelemetryData(__int64 a1, __int64 a2, __int64 a3, char a4)
+__int64 __fastcall NVMeGetDeviceTelemetryData(__int64 a1, __int64 a2, _BYTE *a3)
 {
-  unsigned int v6; // edi
-  __int64 SrbDataBuffer; // rax
-  char v8; // r9
-  _BYTE *v9; // r10
-  void *v10; // r12
-  unsigned int v11; // edx
-  int v12; // esi
-  __int64 v13; // r13
-  unsigned int v14; // esi
-  unsigned int v15; // ecx
+  unsigned int v3; // edi
+  void *v6; // r15
+  __int64 v7; // rax
+  int v8; // r14d
+  unsigned int v9; // r14d
   __int64 SrbExtension; // rbx
-  unsigned int v17; // r8d
-  __int64 result; // rax
-  int v19; // [rsp+28h] [rbp-48h]
-  unsigned __int64 v20; // [rsp+50h] [rbp-20h] BYREF
-  unsigned int v21; // [rsp+58h] [rbp-18h] BYREF
-  void *v22; // [rsp+60h] [rbp-10h]
-  __int64 PhysicalAddress; // [rsp+68h] [rbp-8h]
-  unsigned __int8 v24; // [rsp+B0h] [rbp+40h]
+  void *v12; // [rsp+40h] [rbp-10h]
+  __int64 PhysicalAddress; // [rsp+48h] [rbp-8h]
+  int v14; // [rsp+88h] [rbp+38h]
+  unsigned __int64 v15; // [rsp+88h] [rbp+38h]
+  unsigned int v16; // [rsp+98h] [rbp+48h] BYREF
 
-  v6 = 0;
-  v20 = 0LL;
-  SrbDataBuffer = GetSrbDataBuffer(a2, &v20);
-  v22 = 0LL;
-  v24 = 1;
-  v10 = (void *)SrbDataBuffer;
-  PhysicalAddress = 0LL;
-  v21 = 0;
-  if ( v8 )
-    v11 = *(_DWORD *)(a1 + 4316);
+  v3 = 0;
+  if ( *(_BYTE *)(a2 + 2) == 40 )
+  {
+    v6 = *(void **)(a2 + 64);
+    v7 = 60LL;
+  }
   else
-    v11 = *(_DWORD *)(a1 + 4320);
-  if ( !SrbDataBuffer || *(_DWORD *)v20 < 0x200u )
+  {
+    v6 = *(void **)(a2 + 24);
+    v7 = 16LL;
+  }
+  v12 = 0LL;
+  PhysicalAddress = 0LL;
+  v16 = 0;
+  if ( v6 && *(_DWORD *)(a2 + v7) >= 0x200u )
+  {
+    HIBYTE(v14) = a3[10];
+    BYTE2(v14) = a3[11];
+    BYTE1(v14) = a3[12];
+    LOBYTE(v14) = a3[13];
+    v8 = v14;
+    HIBYTE(v15) = a3[2];
+    BYTE6(v15) = a3[3];
+    BYTE5(v15) = a3[4];
+    BYTE4(v15) = a3[5];
+    BYTE3(v15) = a3[6];
+    BYTE2(v15) = a3[7];
+    BYTE1(v15) = a3[8];
+    v9 = v8 << 9;
+    LOBYTE(v15) = a3[9];
+    if ( *(_BYTE *)(a1 + 16) )
+    {
+      PhysicalAddress = StorPortGetPhysicalAddress(a1, 0LL, v6, &v16);
+      if ( !PhysicalAddress || !v16 )
+      {
+        *(_BYTE *)(a2 + 3) = 4;
+        return 3238002691LL;
+      }
+      v12 = v6;
+      if ( v9 >= v16 )
+        v9 = v16;
+      v9 &= 0xFFFFFE00;
+    }
+    else
+    {
+      NVMeAllocateDmaBuffer(a1, v9);
+      v6 = 0LL;
+    }
+    if ( v6 )
+    {
+      SrbExtension = GetSrbExtension(a2);
+      NVMeZeroMemory(v6, v9);
+      *(_BYTE *)(SrbExtension + 4253) |= 3u;
+      SrbAssignQueueId(a1, a2);
+      BuildGetLogPageCommand(a1, SrbExtension, 7u, v9, PhysicalAddress, -1, v15, 0);
+      *(_BYTE *)(SrbExtension + 4253) |= 4u;
+      *(_QWORD *)(SrbExtension + 4224) = NVMeGetLogPageTelemetryDataCompletion;
+      *(_QWORD *)(SrbExtension + 4200) = v12;
+      *(_QWORD *)(SrbExtension + 4208) = PhysicalAddress;
+      *(_QWORD *)(SrbExtension + 4232) = (unsigned int)v15;
+      *(_DWORD *)(SrbExtension + 4240) = v9;
+    }
+    else
+    {
+      *(_BYTE *)(a2 + 3) = 4;
+      return (unsigned int)-1056964605;
+    }
+    return v3;
+  }
+  else
   {
     *(_BYTE *)(a2 + 3) = 21;
     return 3238002694LL;
   }
-  if ( (*(_BYTE *)(*(_QWORD *)(a1 + 1840) + 261LL) & 8) == 0 || !v11 )
-  {
-    result = 3238002690LL;
-    goto LABEL_29;
-  }
-  BYTE3(v20) = v9[10];
-  BYTE2(v20) = v9[11];
-  BYTE1(v20) = v9[12];
-  LOBYTE(v20) = v9[13];
-  v12 = v20;
-  HIBYTE(v20) = v9[2];
-  BYTE6(v20) = v9[3];
-  BYTE5(v20) = v9[4];
-  BYTE4(v20) = v9[5];
-  BYTE3(v20) = v9[6];
-  BYTE2(v20) = v9[7];
-  BYTE1(v20) = v9[8];
-  LOBYTE(v20) = v9[9];
-  v13 = (unsigned int)v20;
-  v14 = v12 << 9;
-  if ( (unsigned int)v20 >= v11 || (v20 & 0x1FF) != 0 )
-  {
-    result = 3238002695LL;
-LABEL_29:
-    *(_BYTE *)(a2 + 3) = 6;
-    return result;
-  }
-  v15 = v14;
-  if ( v14 + (unsigned int)v20 > v11 )
-  {
-    v14 = v11 - v20;
-    v15 = v11 - v20;
-  }
-  if ( !v8 && v15 + (_DWORD)v20 == *(_DWORD *)(a1 + 4320) )
-    v24 = (*(_BYTE *)(a1 + 156) & 2) != 0;
-  if ( *(_BYTE *)(a1 + 20) )
-  {
-    PhysicalAddress = StorPortGetPhysicalAddress(a1, 0LL, SrbDataBuffer, &v21);
-    if ( !PhysicalAddress || !v21 )
-    {
-      *(_BYTE *)(a2 + 3) = 4;
-      return 3238002691LL;
-    }
-    v22 = v10;
-    if ( v14 >= v21 )
-      v14 = v21;
-    v14 &= 0xFFFFFE00;
-  }
-  else
-  {
-    NVMeAllocateDmaBuffer(a1, v14);
-    v10 = v22;
-  }
-  if ( v10 )
-  {
-    SrbExtension = GetSrbExtension(a2);
-    NVMeZeroMemory(v10, v14);
-    *(_BYTE *)(SrbExtension + 4253) |= 3u;
-    SrbAssignQueueId(a1, a2);
-    LOBYTE(v17) = 8 - (a4 != 0);
-    BuildGetLogPageCommandForTelemetryLog(a1, SrbExtension, v17, v14, PhysicalAddress, v19, v20, 0, v24);
-    *(_BYTE *)(SrbExtension + 4253) |= 4u;
-    *(_QWORD *)(SrbExtension + 4224) = NVMeGetLogPageTelemetryDataCompletion;
-    *(_QWORD *)(SrbExtension + 4200) = v22;
-    *(_QWORD *)(SrbExtension + 4208) = PhysicalAddress;
-    *(_DWORD *)(SrbExtension + 4240) = v14;
-    *(_QWORD *)(SrbExtension + 4232) = v13;
-  }
-  else
-  {
-    *(_BYTE *)(a2 + 3) = 4;
-    return (unsigned int)-1056964605;
-  }
-  return v6;
 }

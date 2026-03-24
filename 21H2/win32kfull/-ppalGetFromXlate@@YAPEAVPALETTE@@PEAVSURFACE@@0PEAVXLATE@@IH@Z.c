@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C0092F14
+ * XREFs of ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C001A9F4
  * Callers:
- *     EngHTBlt @ 0x1C009247C (EngHTBlt.c)
- *     ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C0092F14 (-ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z.c)
+ *     EngHTBlt @ 0x1C0019F38 (EngHTBlt.c)
+ *     ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C001A9F4 (-ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z.c)
  * Callees:
- *     ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C0092F14 (-ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z.c)
+ *     ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C001A9F4 (-ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z.c)
  */
 
 struct PALETTE *__fastcall ppalGetFromXlate(struct SURFACE *a1, struct SURFACE *a2, struct XLATE *a3, int a4, int a5)
@@ -28,22 +28,22 @@ struct PALETTE *__fastcall ppalGetFromXlate(struct SURFACE *a1, struct SURFACE *
   if ( a4 == 1 )
   {
     v7 = *((_QWORD *)a1 + 6);
-    if ( v7 && (*(_DWORD *)(v7 + 2140) & 0x100) != 0 )
+    if ( v7 && (*(_DWORD *)(v7 + 2172) & 0x100) != 0 )
     {
-      v8 = *((_DWORD *)a1 + 24) == *(_DWORD *)(v7 + 2076);
+      v8 = *((_DWORD *)a1 + 24) == *(_DWORD *)(v7 + 2108);
       goto LABEL_15;
     }
   }
   else
   {
     v7 = *((_QWORD *)a2 + 6);
-    if ( v7 && (*(_DWORD *)(v7 + 2140) & 0x100) == 0 )
+    if ( v7 && (*(_DWORD *)(v7 + 2172) & 0x100) == 0 )
     {
-      v8 = *((_DWORD *)a2 + 24) == *(_DWORD *)(v7 + 2076);
+      v8 = *((_DWORD *)a2 + 24) == *(_DWORD *)(v7 + 2108);
 LABEL_15:
       if ( v8 )
       {
-        v5 = *(_QWORD *)(v7 + 1776);
+        v5 = *(_QWORD *)(v7 + 1808);
         if ( v5 )
           return (struct PALETTE *)v5;
       }

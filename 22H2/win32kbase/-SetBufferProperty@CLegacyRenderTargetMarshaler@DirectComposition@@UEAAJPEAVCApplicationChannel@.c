@@ -1,63 +1,69 @@
 /*
- * XREFs of ?SetBufferProperty@CLegacyRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00BD9D0
+ * XREFs of ?SetBufferProperty@CLegacyRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00AB910
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?IsValidRect@@YA_NAEBUtagRECT@@@Z @ 0x1C00AB9CC (-IsValidRect@@YA_NAEBUtagRECT@@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CLegacyRenderTargetMarshaler::SetBufferProperty(
         DirectComposition::CLegacyRenderTargetMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        __m128i *a4,
+        struct tagRECT *a4,
         unsigned __int64 a5,
         bool *a6)
 {
-  unsigned int v6; // edx
-  unsigned __int64 v7; // xmm0_8
-  __m128 v9; // xmm1
-  float v10; // xmm2_4
-  __int64 v11; // rax
+  bool *v6; // r11
+  unsigned int v7; // edx
+  int v8; // r8d
+  int v9; // r8d
+  struct tagRECT v10; // xmm6
+  __int64 v11; // r10
+  struct tagRECT v13; // xmm6
+  __int64 v14; // rax
+  struct tagRECT v15; // [rsp+20h] [rbp-28h] BYREF
 
-  v6 = 0;
+  v6 = a6;
+  v7 = 0;
   *a6 = 0;
-  if ( a3 == 6 )
+  v8 = a3 - 2;
+  if ( !v8 )
   {
-    if ( a5 == 16 )
+    if ( a5 == 8 && !*((_DWORD *)this + 14) && !*((_DWORD *)this + 15) )
     {
-      v9 = (__m128)_mm_loadu_si128(a4);
-      LODWORD(v10) = _mm_shuffle_ps(v9, v9, 85).m128_u32[0];
-      if ( _mm_shuffle_ps(v9, v9, 170).m128_f32[0] >= v9.m128_f32[0] && _mm_shuffle_ps(v9, v9, 255).m128_f32[0] >= v10 )
+      v14 = *(_QWORD *)&a4->left;
+      *((_DWORD *)this + 4) |= 0x20u;
+      *((_QWORD *)this + 7) = v14;
+      goto LABEL_7;
+    }
+    return (unsigned int)-1073741811;
+  }
+  v9 = v8 - 4;
+  if ( v9 )
+  {
+    if ( v9 == 1 && a5 == 16 )
+    {
+      v13 = *a4;
+      v15 = *a4;
+      if ( IsValidRect(&v15) )
       {
-        *(__m128 *)((char *)this + 88) = v9;
-        goto LABEL_8;
+        *(struct tagRECT *)(v11 + 104) = v13;
+        goto LABEL_6;
       }
     }
     return (unsigned int)-1073741811;
   }
-  if ( a3 == 2 )
-  {
-    if ( a5 == 8 && !*((_DWORD *)this + 14) && !*((_DWORD *)this + 15) )
-    {
-      v11 = a4->m128i_i64[0];
-      *((_DWORD *)this + 4) |= 0x20u;
-      *((_QWORD *)this + 7) = v11;
-      goto LABEL_9;
-    }
-    return (unsigned int)-1073741811;
-  }
-  if ( a3 != 8 )
-    return (unsigned int)-1073741811;
   if ( a5 != 16 )
     return (unsigned int)-1073741811;
-  v7 = _mm_srli_si128(*a4, 8).m128i_u64[0];
-  if ( (unsigned int)v7 <= (unsigned int)a4->m128i_i64[0] || HIDWORD(v7) <= HIDWORD(a4->m128i_i64[0]) )
+  v10 = *a4;
+  v15 = *a4;
+  if ( !IsValidRect(&v15) )
     return (unsigned int)-1073741811;
-  *(__m128i *)((char *)this + 108) = *a4;
-LABEL_8:
-  *((_DWORD *)this + 4) |= 0x80u;
-LABEL_9:
-  *a6 = 1;
-  return v6;
+  *(struct tagRECT *)(v11 + 88) = v10;
+LABEL_6:
+  *(_DWORD *)(v11 + 16) |= 0x80u;
+LABEL_7:
+  *v6 = 1;
+  return v7;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of SepIsParentOfChildAppContainer @ 0x1409CEF44
+ * XREFs of SepIsParentOfChildAppContainer @ 0x14092567C
  * Callers:
- *     SeIsParentOfChildAppContainer @ 0x1409C6230 (SeIsParentOfChildAppContainer.c)
+ *     SeIsParentOfChildAppContainer @ 0x14091C850 (SeIsParentOfChildAppContainer.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     SepGetTokenSessionMapEntry @ 0x1405F5A58 (SepGetTokenSessionMapEntry.c)
- *     RtlIsParentOfChildAppContainer @ 0x1409B9218 (RtlIsParentOfChildAppContainer.c)
- *     SepFindMatchingLowBoxNumberEntries @ 0x1409CEBD4 (SepFindMatchingLowBoxNumberEntries.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     SepGetTokenSessionMapEntry @ 0x140597B98 (SepGetTokenSessionMapEntry.c)
+ *     RtlIsParentOfChildAppContainer @ 0x140673594 (RtlIsParentOfChildAppContainer.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x1409252EC (SepFindMatchingLowBoxNumberEntries.c)
  */
 
 char __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3)
@@ -38,13 +38,13 @@ char __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3)
       --CurrentThread->KernelApcDisable;
       ExAcquirePushLockSharedEx((ULONG_PTR)&LowboxSessionMapLock, 0LL);
       v7 = 1;
-      if ( (int)SepGetTokenSessionMapEntry(a1, 0, (__int64 *)&BugCheckParameter2) < 0 )
+      if ( (int)SepGetTokenSessionMapEntry(a1, 0, &BugCheckParameter2) < 0 )
       {
 LABEL_11:
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)&LowboxSessionMapLock, 0LL, 17LL) != 17 )
           ExfReleasePushLockShared((signed __int64 *)&LowboxSessionMapLock);
         KeAbPostRelease((ULONG_PTR)&LowboxSessionMapLock);
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         return IsParentOfChildAppContainer;
       }
     }
@@ -66,7 +66,7 @@ LABEL_11:
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(BugCheckParameter2);
     KeAbPostRelease(BugCheckParameter2);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( !v7 )
       return IsParentOfChildAppContainer;
     goto LABEL_11;

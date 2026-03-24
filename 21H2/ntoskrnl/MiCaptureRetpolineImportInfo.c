@@ -1,26 +1,27 @@
 /*
- * XREFs of MiCaptureRetpolineImportInfo @ 0x14075C060
+ * XREFs of MiCaptureRetpolineImportInfo @ 0x14077DD4C
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x1407614BC (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x14075CB78 (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MiIsRetpolineEnabled @ 0x14029C6C4 (MiIsRetpolineEnabled.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     RtlCaptureRetpolineImportRvas @ 0x1402D7FF8 (RtlCaptureRetpolineImportRvas.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiIsRetpolineEnabled @ 0x14035E904 (MiIsRetpolineEnabled.c)
+ *     RtlCaptureRetpolineImportRvas @ 0x140397BE8 (RtlCaptureRetpolineImportRvas.c)
  */
 
 __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
 {
-  struct _KTHREAD *CurrentThread; // rsi
-  _DWORD *Pool; // rbp
+  struct _KTHREAD *CurrentThread; // rbp
+  _DWORD *Pool; // rsi
   __int64 v4; // rax
   __int64 v6; // r14
   __int64 v7; // rcx
   unsigned int (*v8)(void); // rdi
   __int64 result; // rax
+  char v10; // di
   unsigned int v11; // [rsp+50h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -55,15 +56,12 @@ __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
 LABEL_5:
       --CurrentThread->SpecialApcDisable;
       ExAcquirePushLockExclusiveEx(v6 + 24, 0LL);
-      *(_QWORD *)(*(_QWORD *)(v6 + 88) + 16LL) = Pool;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 24), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      *(_QWORD *)(*(_QWORD *)(v6 + 96) + 16LL) = Pool;
+      v10 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 24), 0xFFFFFFFFFFFFFFFFuLL);
+      if ( (v10 & 2) != 0 && (v10 & 4) == 0 )
         ExfTryToWakePushLock(v6 + 24);
       KeAbPostRelease(v6 + 24);
-      if ( CurrentThread->SpecialApcDisable++ == -1
-        && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      {
-        KiCheckForKernelApcDelivery();
-      }
+      KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
       return 0LL;
     }
   }

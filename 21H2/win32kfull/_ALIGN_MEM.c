@@ -1,28 +1,28 @@
 /*
- * XREFs of _ALIGN_MEM @ 0x1C006E4F4
+ * XREFs of _ALIGN_MEM @ 0x1C001D71C
  * Callers:
- *     SetupAAHeader @ 0x1C006DC90 (SetupAAHeader.c)
- *     BuildExpandAAInfo @ 0x1C00DA2D0 (BuildExpandAAInfo.c)
- *     BuildBltAAInfo @ 0x1C00EE230 (BuildBltAAInfo.c)
- *     BuildShrinkAAInfo @ 0x1C0262C40 (BuildShrinkAAInfo.c)
- *     BuildTileAAInfo @ 0x1C0263320 (BuildTileAAInfo.c)
+ *     BuildShrinkAAInfo @ 0x1C0001E10 (BuildShrinkAAInfo.c)
+ *     SetupAAHeader @ 0x1C001CE78 (SetupAAHeader.c)
+ *     BuildExpandAAInfo @ 0x1C00D3B80 (BuildExpandAAInfo.c)
+ *     BuildBltAAInfo @ 0x1C01032B0 (BuildBltAAInfo.c)
+ *     BuildTileAAInfo @ 0x1C0265D70 (BuildTileAAInfo.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ALIGN_MEM(unsigned int *a1, unsigned int a2)
+__int64 __fastcall ALIGN_MEM(_DWORD *a1, unsigned int a2)
 {
+  unsigned int v2; // r8d
+  int v3; // r9d
   __int64 result; // rax
 
-  if ( a2 + 8 < a2 )
-  {
-    *a1 = -1;
-    return 2147942934LL;
-  }
-  else
-  {
-    result = 0LL;
-    *a1 = (a2 + 8) & 0xFFFFFFF8;
-  }
+  v2 = a2 + 8;
+  v3 = -1;
+  if ( a2 + 8 >= a2 )
+    v3 = a2 + 8;
+  result = v2 < a2 ? 0x80070216 : 0;
+  *a1 = v3;
+  if ( v2 >= a2 )
+    *a1 = v3 & 0xFFFFFFF8;
   return result;
 }

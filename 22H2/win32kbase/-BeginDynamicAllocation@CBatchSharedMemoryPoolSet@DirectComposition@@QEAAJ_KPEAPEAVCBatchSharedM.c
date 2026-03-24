@@ -1,11 +1,11 @@
 /*
- * XREFs of ?BeginDynamicAllocation@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_KPEAPEAVCBatchSharedMemoryPool@2@PEA_K@Z @ 0x1C00289B8
+ * XREFs of ?BeginDynamicAllocation@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_KPEAPEAVCBatchSharedMemoryPool@2@PEA_K@Z @ 0x1C005F9CC
  * Callers:
- *     ?StaticAllocate@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_KPEAPEAVCBatchSharedMemoryPool@2@PEA_K@Z @ 0x1C0025894 (-StaticAllocate@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_KPEAPEAVCBatchSharedMemoryPoo.c)
- *     NtDCompositionSubmitDWMBatch @ 0x1C0028310 (NtDCompositionSubmitDWMBatch.c)
+ *     ?StaticAllocate@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_KPEAPEAVCBatchSharedMemoryPool@2@PEA_K@Z @ 0x1C005CD74 (-StaticAllocate@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_KPEAPEAVCBatchSharedMemoryPoo.c)
+ *     ?GetBatchFragment@CApplicationChannel@DirectComposition@@QEAAPEAVCBatch@2@_N0@Z @ 0x1C005F78C (-GetBatchFragment@CApplicationChannel@DirectComposition@@QEAAPEAVCBatch@2@_N0@Z.c)
  * Callees:
- *     ?BeginDynamicAllocation@CBatchSharedMemoryPool@DirectComposition@@QEAA_N_KPEA_K@Z @ 0x1C0025DA0 (-BeginDynamicAllocation@CBatchSharedMemoryPool@DirectComposition@@QEAA_N_KPEA_K@Z.c)
- *     ?Create@CBatchSharedMemoryPool@DirectComposition@@SAJPEAVCBatchSharedMemoryPoolSet@2@_NPEAPEAV12@@Z @ 0x1C0025DCC (-Create@CBatchSharedMemoryPool@DirectComposition@@SAJPEAVCBatchSharedMemoryPoolSet@2@_NPEAPEAV12.c)
+ *     ?Create@CBatchSharedMemoryPool@DirectComposition@@SAJPEAVCBatchSharedMemoryPoolSet@2@_NPEAPEAV12@@Z @ 0x1C005C7C4 (-Create@CBatchSharedMemoryPool@DirectComposition@@SAJPEAVCBatchSharedMemoryPoolSet@2@_NPEAPEAV12.c)
+ *     ?BeginDynamicAllocation@CBatchSharedMemoryPool@DirectComposition@@QEAA_N_KPEA_K@Z @ 0x1C00A3278 (-BeginDynamicAllocation@CBatchSharedMemoryPool@DirectComposition@@QEAA_N_KPEA_K@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CBatchSharedMemoryPoolSet::BeginDynamicAllocation(
@@ -49,7 +49,7 @@ __int64 __fastcall DirectComposition::CBatchSharedMemoryPoolSet::BeginDynamicAll
         v9 = v15[0];
         goto LABEL_12;
       }
-LABEL_16:
+LABEL_17:
       __fastfail(3u);
     }
     if ( !*((_BYTE *)this + 64) )
@@ -65,21 +65,24 @@ LABEL_16:
     goto LABEL_6;
   v12 = *(DirectComposition::CBatchSharedMemoryPoolSet **)this;
   if ( *(DirectComposition::CBatchSharedMemoryPoolSet **)(*(_QWORD *)this + 8LL) != this )
-    goto LABEL_16;
+    goto LABEL_17;
   if ( *v10 != this )
-    goto LABEL_16;
+    goto LABEL_17;
   *v10 = v12;
   *((_QWORD *)v12 + 1) = v10;
   v13 = *(_QWORD *)v8;
   if ( *(char **)(*(_QWORD *)v8 + 8LL) != v8 )
-    goto LABEL_16;
+    goto LABEL_17;
   *(_QWORD *)this = v13;
   *((_QWORD *)this + 1) = v8;
   *(_QWORD *)(v13 + 8) = this;
 LABEL_12:
   *(_QWORD *)v8 = this;
+  if ( v4 >= 0 )
+  {
 LABEL_6:
-  *a3 = this;
-  *a4 = v9;
+    *a3 = this;
+    *a4 = v9;
+  }
   return (unsigned int)v4;
 }

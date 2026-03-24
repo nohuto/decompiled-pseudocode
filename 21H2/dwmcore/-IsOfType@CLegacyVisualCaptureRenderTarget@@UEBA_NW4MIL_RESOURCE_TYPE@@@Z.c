@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CLegacyVisualCaptureRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A14B0
+ * XREFs of ?IsOfType@CLegacyVisualCaptureRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F940
  * Callers:
  *     <none>
  * Callees:

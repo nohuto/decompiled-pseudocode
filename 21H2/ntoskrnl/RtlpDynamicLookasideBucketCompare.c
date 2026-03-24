@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpDynamicLookasideBucketCompare @ 0x140230590
+ * XREFs of RtlpDynamicLookasideBucketCompare @ 0x1402A2400
  * Callers:
  *     <none>
  * Callees:

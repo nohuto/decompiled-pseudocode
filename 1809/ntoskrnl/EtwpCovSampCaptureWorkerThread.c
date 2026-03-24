@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpCovSampCaptureWorkerThread @ 0x1408C4510
+ * XREFs of EtwpCovSampCaptureWorkerThread @ 0x1408C44F0
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5430 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x140316428 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140316D50 (EtwpCovSampCaptureReleaseToLookaside.c)
- *     EtwpCovSampLookasideGrow @ 0x140316F9C (EtwpCovSampLookasideGrow.c)
- *     EtwpCovSampCaptureBufferProcess @ 0x1408C3C7C (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampSampleBufferProcess @ 0x1408C7584 (EtwpCovSampSampleBufferProcess.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x140316528 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140316E50 (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampLookasideGrow @ 0x14031709C (EtwpCovSampLookasideGrow.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x1408C3C5C (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x1408C7564 (EtwpCovSampSampleBufferProcess.c)
  */
 
 void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)

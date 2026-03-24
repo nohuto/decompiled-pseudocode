@@ -1,28 +1,29 @@
 /*
- * XREFs of RemoveVisRgnTracker @ 0x1C00B3BEC
+ * XREFs of RemoveVisRgnTracker @ 0x1C00EF3EC
  * Callers:
- *     ?_DetachWindowCompositionTarget@@YAHPEAUtagWND@@K@Z @ 0x1C00B36BC (-_DetachWindowCompositionTarget@@YAHPEAUtagWND@@K@Z.c)
- *     UnsetLayeredWindow @ 0x1C00B3964 (UnsetLayeredWindow.c)
- *     UserRemoveWindowedSwapChain @ 0x1C01510C0 (UserRemoveWindowedSwapChain.c)
+ *     ?_DetachWindowCompositionTarget@@YAHPEAUtagWND@@H@Z @ 0x1C00ED174 (-_DetachWindowCompositionTarget@@YAHPEAUtagWND@@H@Z.c)
+ *     UnsetLayeredWindow @ 0x1C00EF178 (UnsetLayeredWindow.c)
+ *     UserRemoveWindowedSwapChain @ 0x1C0161A40 (UserRemoveWindowedSwapChain.c)
  * Callees:
- *     ??$GetProp@VCVisRgnTrackerProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCVisRgnTrackerProp@@@Z @ 0x1C006B80C (--$GetProp@VCVisRgnTrackerProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCVisRgnTrackerProp@@@Z.c)
- *     ?RemoveTracker@CVisRgnTrackerProp@@QEAAXK@Z @ 0x1C00B3C34 (-RemoveTracker@CVisRgnTrackerProp@@QEAAXK@Z.c)
- *     ?RemoveAndDeleteProp@CWindowProp@@QEAAXXZ @ 0x1C00B3CFC (-RemoveAndDeleteProp@CWindowProp@@QEAAXXZ.c)
+ *     ??$GetProp@VCVisRgnTrackerProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCVisRgnTrackerProp@@@Z @ 0x1C004E9AC (--$GetProp@VCVisRgnTrackerProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCVisRgnTrackerProp@@@Z.c)
+ *     ?RemoveAndDeleteProp@CWindowProp@@QEAAXXZ @ 0x1C00EF784 (-RemoveAndDeleteProp@CWindowProp@@QEAAXXZ.c)
  */
 
-void __fastcall RemoveVisRgnTracker(__int64 a1, unsigned int a2)
+void __fastcall RemoveVisRgnTracker(__int64 a1, int a2)
 {
-  unsigned int v3; // edx
-  CVisRgnTrackerProp *v4; // rbx
-  CVisRgnTrackerProp *v5; // [rsp+40h] [rbp+18h] BYREF
+  CWindowProp *v3; // rcx
+  int v4; // ebx
+  bool v5; // zf
+  CWindowProp *v6; // [rsp+40h] [rbp+18h] BYREF
 
-  v5 = 0LL;
-  if ( CWindowProp::GetProp<CVisRgnTrackerProp>(a1, (__int64 *)&v5) )
+  v6 = 0LL;
+  if ( CWindowProp::GetProp<CVisRgnTrackerProp>(a1, (__int64 *)&v6) )
   {
-    v3 = a2;
-    v4 = v5;
-    CVisRgnTrackerProp::RemoveTracker(v5, v3);
-    if ( !*((_DWORD *)v4 + 10) )
-      CWindowProp::RemoveAndDeleteProp(v4);
+    v3 = v6;
+    v4 = ~a2;
+    v5 = (v4 & *((_DWORD *)v6 + 8)) == 0;
+    *((_DWORD *)v6 + 8) &= v4;
+    if ( v5 )
+      CWindowProp::RemoveAndDeleteProp(v3);
   }
 }

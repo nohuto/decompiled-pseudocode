@@ -1,13 +1,13 @@
 /*
- * XREFs of SeDeassignSecurity @ 0x1407BF990
+ * XREFs of SeDeassignSecurity @ 0x1406842B0
  * Callers:
- *     SepDeleteAccessState @ 0x140232250 (SepDeleteAccessState.c)
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     ObpAssignSecurity @ 0x1407BCC80 (ObpAssignSecurity.c)
- *     CmpCreateHiveRootCell @ 0x14087495C (CmpCreateHiveRootCell.c)
+ *     SepDeleteAccessState @ 0x140345670 (SepDeleteAccessState.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     ObpAssignSecurity @ 0x1406DBD9C (ObpAssignSecurity.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
+ *     CmpCreateHiveRootCell @ 0x14078DAF0 (CmpCreateHiveRootCell.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall SeDeassignSecurity(PSECURITY_DESCRIPTOR *SecurityDescriptor)

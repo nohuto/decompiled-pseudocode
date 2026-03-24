@@ -1,13 +1,13 @@
 /*
- * XREFs of NtQueueApcThreadEx @ 0x1406776B0
+ * XREFs of NtQueueApcThreadEx @ 0x140677690
  * Callers:
- *     NtQueueApcThread @ 0x140677870 (NtQueueApcThread.c)
+ *     NtQueueApcThread @ 0x140677850 (NtQueueApcThread.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     KeInsertQueueApc @ 0x1400F1460 (KeInsertQueueApc.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

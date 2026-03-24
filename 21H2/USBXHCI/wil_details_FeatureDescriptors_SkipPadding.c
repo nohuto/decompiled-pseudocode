@@ -1,10 +1,10 @@
 /*
- * XREFs of wil_details_FeatureDescriptors_SkipPadding @ 0x1C001904C
+ * XREFs of wil_details_FeatureDescriptors_SkipPadding @ 0x1C001A220
  * Callers:
- *     wil_details_EvaluateFeatureDependencies @ 0x1C006B0AC (wil_details_EvaluateFeatureDependencies.c)
- *     wil_details_RegisterFeatureStagingChangeNotification @ 0x1C006B26C (wil_details_RegisterFeatureStagingChangeNotification.c)
- *     wil_details_UpdateFeatureConfiguredStates @ 0x1C006B2D0 (wil_details_UpdateFeatureConfiguredStates.c)
- *     wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C007B080 (wil_details_PopulateInitialConfiguredFeatureStates.c)
+ *     wil_details_EvaluateFeatureDependencies @ 0x1C006A0A0 (wil_details_EvaluateFeatureDependencies.c)
+ *     wil_details_UpdateFeatureConfiguredStates @ 0x1C006A26C (wil_details_UpdateFeatureConfiguredStates.c)
+ *     wil_InitializeFeatureStaging @ 0x1C007A03C (wil_InitializeFeatureStaging.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C007A0CC (wil_details_PopulateInitialConfiguredFeatureStates.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ _QWORD *__fastcall wil_details_FeatureDescriptors_SkipPadding(_QWORD *a1)
 {
   while ( 1 )
   {
-    if ( a1 >= wil_details_featureDescriptors_z )
+    if ( a1 >= wil_details_featureDescriptors_a )
       return 0LL;
     if ( *a1 )
       break;

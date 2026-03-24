@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CDropShadow::sc_Opacity__ @ 0x180002670
+ * XREFs of _dynamic_initializer_for__CDropShadow::sc_Opacity__ @ 0x180002130
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CDropShadow::sc_Opacity__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E4890 = (unsigned __int64)CDropShadow::SetAnimatedProperty;
-  qword_1803E48A0 = v1;
+  xmmword_1803460C0 = (unsigned __int64)CBrush::SetAnimatedProperty;
+  qword_1803460D0 = v1;
   return result;
 }

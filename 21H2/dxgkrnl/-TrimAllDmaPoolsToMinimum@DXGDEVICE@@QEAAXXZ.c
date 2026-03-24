@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TrimAllDmaPoolsToMinimum@DXGDEVICE@@QEAAXXZ @ 0x1C015D5BC
+ * XREFs of ?TrimAllDmaPoolsToMinimum@DXGDEVICE@@QEAAXXZ @ 0x1C00E126C
  * Callers:
- *     ?NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ @ 0x1C01646AC (-NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ.c)
+ *     ?NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ @ 0x1C00E3598 (-NotifyProcessFreeze@DXGDEVICE@@QEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DXGDEVICE::TrimAllDmaPoolsToMinimum(DXGDEVICE *this)
@@ -15,6 +15,6 @@ void __fastcall DXGDEVICE::TrimAllDmaPoolsToMinimum(DXGDEVICE *this)
   for ( i = (_QWORD *)*((_QWORD *)this + 58); i != (_QWORD *)v1 && i; i = (_QWORD *)*i )
   {
     if ( i[29] )
-      (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(i[2] + 16LL) + 648LL) + 8LL) + 480LL))();
+      (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(i[2] + 16LL) + 640LL) + 8LL) + 472LL))();
   }
 }

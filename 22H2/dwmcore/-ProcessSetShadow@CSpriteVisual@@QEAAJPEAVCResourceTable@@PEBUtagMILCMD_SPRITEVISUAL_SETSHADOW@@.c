@@ -1,17 +1,17 @@
 /*
- * XREFs of ?ProcessSetShadow@CSpriteVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SPRITEVISUAL_SETSHADOW@@@Z @ 0x1802524A4
+ * XREFs of ?ProcessSetShadow@CSpriteVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SPRITEVISUAL_SETSHADOW@@@Z @ 0x1800B7894
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A8DC (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?ClearContentTreeDataCaches@CVisual@@IEAAXXZ @ 0x18004AB80 (-ClearContentTreeDataCaches@CVisual@@IEAAXXZ.c)
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z @ 0x1800991C8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetDropShadow@CSpriteVisual@@IEBAPEAVCDropShadow@@XZ @ 0x1801338AA (-GetDropShadow@CSpriteVisual@@IEBAPEAVCDropShadow@@XZ.c)
- *     ?RemoveVisualFromCache@CDropShadow@@QEAAXPEAVCVisual@@@Z @ 0x18022A8F8 (-RemoveVisualFromCache@CDropShadow@@QEAAXPEAVCVisual@@@Z.c)
- *     ?SetDropShadow@CSpriteVisual@@IEAAXPEAVCDropShadow@@@Z @ 0x180252650 (-SetDropShadow@CSpriteVisual@@IEAAXPEAVCDropShadow@@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ClearContentTreeDataCaches@CVisual@@IEAAXXZ @ 0x18009D958 (-ClearContentTreeDataCaches@CVisual@@IEAAXXZ.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D9B0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009FAF8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?RemoveVisualFromCache@CDropShadow@@QEAAXPEAVCVisual@@@Z @ 0x1800B76A4 (-RemoveVisualFromCache@CDropShadow@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?SetDropShadow@CSpriteVisual@@AEAAXPEAVCDropShadow@@@Z @ 0x1800B7958 (-SetDropShadow@CSpriteVisual@@AEAAXPEAVCDropShadow@@@Z.c)
+ *     ?GetDropShadow@CSpriteVisual@@AEBAPEAVCDropShadow@@XZ @ 0x1800B80DC (-GetDropShadow@CSpriteVisual@@AEBAPEAVCDropShadow@@XZ.c)
  */
 
 __int64 __fastcall CSpriteVisual::ProcessSetShadow(
@@ -19,50 +19,47 @@ __int64 __fastcall CSpriteVisual::ProcessSetShadow(
         struct CResourceTable *a2,
         const struct tagMILCMD_SPRITEVISUAL_SETSHADOW *a3)
 {
-  unsigned int v4; // edi
-  unsigned int v5; // edx
-  struct CResource *Resource; // rsi
-  __int64 v8; // rcx
+  unsigned int v5; // esi
+  struct CDropShadow *Resource; // rax
+  __int64 v7; // rcx
+  struct CResource *v8; // rbp
+  int v9; // eax
+  __int64 v10; // rcx
   CDropShadow *DropShadow; // rax
-  int v10; // eax
-  __int64 v11; // rcx
-  struct CResource *v12; // rax
+  struct CResource *v13; // rax
 
-  v4 = 0;
-  v5 = *((_DWORD *)a3 + 2);
-  Resource = 0LL;
-  if ( !v5 || (Resource = (struct CResource *)CResourceTable::GetResource((__int64)a2, v5, 0x37u)) != 0LL )
+  v5 = 0;
+  Resource = (struct CDropShadow *)CResourceTable::GetResource((__int64)a2, *((_DWORD *)a3 + 2), 0x35u);
+  v8 = Resource;
+  if ( *((_DWORD *)a3 + 2) && !Resource )
   {
-    if ( Resource != CSpriteVisual::GetDropShadow(this) )
+    v5 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2003303421, 0x54u, 0LL);
+  }
+  else if ( Resource != CSpriteVisual::GetDropShadow(this) )
+  {
+    CVisual::ClearContentTreeDataCaches(this);
+    if ( (**((_DWORD **)this + 28) & 0x10000) != 0 )
     {
-      CVisual::ClearContentTreeDataCaches(this);
-      if ( (**((_DWORD **)this + 29) & 0x10000) != 0 )
+      DropShadow = CSpriteVisual::GetDropShadow(this);
+      CDropShadow::RemoveVisualFromCache(DropShadow, this);
+    }
+    v9 = CResource::RegisterNotifier(this, v8);
+    v5 = v9;
+    if ( v9 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x64u, 0LL);
+    }
+    else
+    {
+      if ( (**((_DWORD **)this + 28) & 0x10000) != 0 )
       {
-        DropShadow = CSpriteVisual::GetDropShadow(this);
-        CDropShadow::RemoveVisualFromCache(DropShadow, this);
+        v13 = CSpriteVisual::GetDropShadow(this);
+        CResource::UnRegisterNotifierInternal(this, v13);
       }
-      v10 = CResource::RegisterNotifier(this, Resource);
-      v4 = v10;
-      if ( v10 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x63u, 0LL);
-      }
-      else
-      {
-        if ( (**((_DWORD **)this + 29) & 0x10000) != 0 )
-        {
-          v12 = CSpriteVisual::GetDropShadow(this);
-          CResource::UnRegisterNotifierInternal(this, v12);
-        }
-        CSpriteVisual::SetDropShadow(this, Resource);
-        CVisual::PropagateFlags((__int64)this, 5u);
-      }
+      CSpriteVisual::SetDropShadow(this, v8);
+      CVisual::PropagateFlags((__int64)this, 5u);
     }
   }
-  else
-  {
-    v4 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0x53u, 0LL);
-  }
-  return v4;
+  return v5;
 }

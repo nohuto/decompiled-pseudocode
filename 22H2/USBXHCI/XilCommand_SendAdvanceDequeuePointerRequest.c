@@ -1,12 +1,12 @@
 /*
- * XREFs of XilCommand_SendAdvanceDequeuePointerRequest @ 0x1C0031D04
+ * XREFs of XilCommand_SendAdvanceDequeuePointerRequest @ 0x1C003017C
  * Callers:
- *     XilCommand_AdvanceCommandRingControlDequeuePointer @ 0x1C0031288 (XilCommand_AdvanceCommandRingControlDequeuePointer.c)
+ *     XilCommand_AdvanceCommandRingControlDequeuePointer @ 0x1C002F6F8 (XilCommand_AdvanceCommandRingControlDequeuePointer.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 char __fastcall XilCommand_SendAdvanceDequeuePointerRequest(__int64 a1, int a2)
@@ -49,7 +49,7 @@ char __fastcall XilCommand_SendAdvanceDequeuePointerRequest(__int64 a1, int a2)
           v6,
           7,
           24,
-          (__int64)&WPP_db21d8d52d393cb96c062fdb7e607301_Traceguids,
+          (__int64)&WPP_4b601d8e2e913b6c42a65f3f32a61124_Traceguids,
           v11);
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v7, v8, v9);
@@ -67,7 +67,7 @@ char __fastcall XilCommand_SendAdvanceDequeuePointerRequest(__int64 a1, int a2)
                    v6,
                    7,
                    23,
-                   (__int64)&WPP_db21d8d52d393cb96c062fdb7e607301_Traceguids,
+                   (__int64)&WPP_4b601d8e2e913b6c42a65f3f32a61124_Traceguids,
                    v5);
   }
   return v5;

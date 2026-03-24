@@ -1,13 +1,13 @@
 /*
- * XREFs of WinSqmSetString @ 0x1C0167D5C
+ * XREFs of WinSqmSetString @ 0x1C013A668
  * Callers:
- *     ldevLoadDriver @ 0x1C0075290 (ldevLoadDriver.c)
+ *     ldevLoadDriver @ 0x1C0015500 (ldevLoadDriver.c)
  * Callees:
- *     WinSqmEventWrite @ 0x1C005B8DC (WinSqmEventWrite.c)
- *     WinSqmEventEnabled @ 0x1C00B75B4 (WinSqmEventEnabled.c)
- *     ?IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z @ 0x1C00B760C (-IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     WinSqmEventEnabled @ 0x1C0078A58 (WinSqmEventEnabled.c)
+ *     ?IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z @ 0x1C0078AB0 (-IsExtendedWinSqmHandle@@YAHPEAU_GUID@@@Z.c)
+ *     WinSqmEventWrite @ 0x1C00B1428 (WinSqmEventWrite.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 NTSTATUS __fastcall WinSqmSetString(__int64 a1, __int64 a2, const wchar_t *a3)
@@ -32,7 +32,7 @@ NTSTATUS __fastcall WinSqmSetString(__int64 a1, __int64 a2, const wchar_t *a3)
 
   v11 = 8969;
   memset(v20, 0, sizeof(v20));
-  v4 = (ULONGLONG)&unk_1C0267080;
+  v4 = (ULONGLONG)&unk_1C020EFC8;
   if ( (unsigned int)IsExtendedWinSqmHandle(0LL) )
     v4 = 24LL;
   result = WinSqmEventEnabled(&SQM_SET_STRING, (void *)v4);
@@ -57,7 +57,7 @@ NTSTATUS __fastcall WinSqmSetString(__int64 a1, __int64 a2, const wchar_t *a3)
     UserData.Ptr = v4;
     v13 = &v11;
     *(_QWORD *)&UserData.Size = 16LL;
-    v15 = &unk_1C029A528;
+    v15 = &unk_1C0255868;
     v17 = v20;
     v10 = -1LL;
     v14 = 4LL;

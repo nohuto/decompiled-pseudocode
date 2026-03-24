@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpCopyModifiedData @ 0x1407F78C8
+ * XREFs of HvpCopyModifiedData @ 0x1407F78A8
  * Callers:
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407F7814 (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407F77F4 (HvpApplyLogEntryDataToFileBackedHive.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
  */
 

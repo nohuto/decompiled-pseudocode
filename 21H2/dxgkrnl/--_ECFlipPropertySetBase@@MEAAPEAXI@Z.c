@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECFlipPropertySetBase@@MEAAPEAXI@Z @ 0x1C00799F0
+ * XREFs of ??_ECFlipPropertySetBase@@MEAAPEAXI@Z @ 0x1C0068340
  * Callers:
  *     <none>
  * Callees:
- *     ??1CFlipPropertySetBase@@MEAA@XZ @ 0x1C007EC7C (--1CFlipPropertySetBase@@MEAA@XZ.c)
+ *     ??1CFlipPropertySetBase@@MEAA@XZ @ 0x1C006BE4C (--1CFlipPropertySetBase@@MEAA@XZ.c)
  */
 
 CFlipPropertySetBase *__fastcall CFlipPropertySetBase::`vector deleting destructor'(CFlipPropertySetBase *P, char a2)

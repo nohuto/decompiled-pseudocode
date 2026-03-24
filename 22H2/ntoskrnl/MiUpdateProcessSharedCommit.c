@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUpdateProcessSharedCommit @ 0x1407487B8
+ * XREFs of MiUpdateProcessSharedCommit @ 0x1406817F4
  * Callers:
- *     MiChargeSegmentCommit @ 0x140748518 (MiChargeSegmentCommit.c)
+ *     MiChargeSegmentCommit @ 0x1406202F0 (MiChargeSegmentCommit.c)
  * Callees:
- *     MiIncludeSharedCommit @ 0x1402A0DB0 (MiIncludeSharedCommit.c)
+ *     MiIncludeSharedCommit @ 0x1402955B0 (MiIncludeSharedCommit.c)
  */
 
 _QWORD *__fastcall MiUpdateProcessSharedCommit(__int64 a1)
@@ -29,7 +29,7 @@ _QWORD *__fastcall MiUpdateProcessSharedCommit(__int64 a1)
     {
       v7 = v4[3];
       if ( (v7 & 1) != 0 )
-        v8 = (volatile signed __int64 *)((v7 & 0xFFFFFFFFFFFFFFFEuLL) + 1552);
+        v8 = (volatile signed __int64 *)((v7 & 0xFFFFFFFFFFFFFFFEuLL) + 1336);
       else
         v8 = (volatile signed __int64 *)(v7 + 2344);
       _InterlockedExchangeAdd64(v8, v3);

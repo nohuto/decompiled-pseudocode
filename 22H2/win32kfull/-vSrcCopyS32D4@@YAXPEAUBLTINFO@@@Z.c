@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vSrcCopyS32D4@@YAXPEAUBLTINFO@@@Z @ 0x1C02EA440
+ * XREFs of ?vSrcCopyS32D4@@YAXPEAUBLTINFO@@@Z @ 0x1C0150610
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C008CAC0 (XLATEOBJ_iXlate.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C77F0 (XLATEOBJ_iXlate.c)
  */
 
 void __fastcall vSrcCopyS32D4(struct BLTINFO *a1)
@@ -11,8 +11,8 @@ void __fastcall vSrcCopyS32D4(struct BLTINFO *a1)
   int *v1; // rbp
   __int64 v2; // r14
   XLATEOBJ *v3; // r13
-  _BYTE *v4; // r14
-  ULONG *v5; // r12
+  ULONG *v4; // r12
+  _BYTE *v5; // r14
   ULONG v6; // esi
   char v7; // r8
   int v8; // edi
@@ -31,28 +31,28 @@ void __fastcall vSrcCopyS32D4(struct BLTINFO *a1)
   v2 = *((int *)a1 + 14);
   v3 = *(XLATEOBJ **)a1;
   v17 = v2 + *((_DWORD *)a1 + 7);
-  v4 = (_BYTE *)(*((_QWORD *)a1 + 2) + (v2 >> 1));
-  pxlo = *(XLATEOBJ **)a1;
-  v5 = (ULONG *)(*((_QWORD *)a1 + 1) + 4LL * *((int *)a1 + 12));
-  v6 = *v5;
-  v15 = v5;
+  v4 = (ULONG *)(*((_QWORD *)a1 + 1) + 4 * *((_DWORD *)a1 + 12));
+  v5 = (_BYTE *)(*((_QWORD *)a1 + 2) + (v2 >> 1));
+  v6 = *v4;
+  v15 = v4;
   v18 = *((_DWORD *)a1 + 8);
-  v7 = XLATEOBJ_iXlate(*(XLATEOBJ **)a1, *v5);
+  pxlo = *(XLATEOBJ **)a1;
+  v7 = XLATEOBJ_iXlate(*(XLATEOBJ **)a1, *v4);
   while ( 1 )
   {
     v8 = v1[14];
-    v9 = v4;
-    v10 = v5;
+    v9 = v5;
+    v10 = v4;
     if ( (v8 & 1) != 0 )
     {
-      v10 = v5 + 1;
-      if ( v6 != *v5 )
+      v10 = v4 + 1;
+      if ( v6 != *v4 )
       {
-        v6 = *v5;
-        v7 = XLATEOBJ_iXlate(v3, *v5);
+        v6 = *v4;
+        v7 = XLATEOBJ_iXlate(v3, *v4);
       }
-      v9 = v4 + 1;
-      *v4 = v7 | *v4 & 0xF0;
+      v9 = v5 + 1;
+      *v5 = v7 | *v5 & 0xF0;
       ++v8;
     }
     v11 = v17;
@@ -85,7 +85,7 @@ void __fastcall vSrcCopyS32D4(struct BLTINFO *a1)
         *v9++ = v7 | (16 * v13);
       }
       while ( v12 < v11 );
-      v5 = v15;
+      v4 = v15;
       v1 = (int *)a1;
     }
     if ( v8 < v11 )
@@ -100,8 +100,8 @@ void __fastcall vSrcCopyS32D4(struct BLTINFO *a1)
     if ( !--v18 )
       break;
     v3 = pxlo;
-    v5 = (ULONG *)((char *)v5 + v1[10]);
-    v4 += v1[11];
-    v15 = v5;
+    v4 = (ULONG *)((char *)v4 + v1[10]);
+    v5 += v1[11];
+    v15 = v4;
   }
 }

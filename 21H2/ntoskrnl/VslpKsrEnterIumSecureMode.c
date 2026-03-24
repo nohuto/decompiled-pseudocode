@@ -1,20 +1,20 @@
 /*
- * XREFs of VslpKsrEnterIumSecureMode @ 0x14054FD30
+ * XREFs of VslpKsrEnterIumSecureMode @ 0x1404FDEA0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-__int64 __fastcall VslpKsrEnterIumSecureMode(__int128 *a1)
+NTSTATUS __fastcall VslpKsrEnterIumSecureMode(__int128 *a1)
 {
   __int128 v2; // xmm1
   __int128 v3; // xmm0
   __int128 v4; // xmm1
   __int128 v5; // xmm0
   __int128 v6; // xmm1
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int128 v8; // xmm1
   __int128 v9; // xmm0
   __int128 v10; // xmm1
@@ -40,7 +40,7 @@ __int64 __fastcall VslpKsrEnterIumSecureMode(__int128 *a1)
   v6 = a1[5];
   v18 = v5;
   v19 = v6;
-  result = VslpEnterIumSecureMode(2u, 267, 0, (__int64)&v13);
+  result = VslpEnterIumSecureMode(2u, 266, 0, (__int64)&v13);
   v8 = v15;
   *a1 = v14;
   v9 = v16;

@@ -1,85 +1,90 @@
 /*
- * XREFs of _PnpCtxRegisterMachineNode @ 0x140A60C28
+ * XREFs of _PnpCtxRegisterMachineNode @ 0x1409749C8
  * Callers:
- *     PiDrvDbRegisterNode @ 0x140813CBC (PiDrvDbRegisterNode.c)
+ *     PiPnpRtlInit @ 0x1407A3780 (PiPnpRtlInit.c)
+ *     PiPnpRtlRegisterDriverMachineNodeCallback @ 0x1407D4700 (PiPnpRtlRegisterDriverMachineNodeCallback.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     _PnpCtxCreateNode @ 0x140855DB8 (_PnpCtxCreateNode.c)
- *     _PnpCtxDestroyNode @ 0x140A608A8 (_PnpCtxDestroyNode.c)
- *     _PnpCtxFindNode @ 0x140A609A8 (_PnpCtxFindNode.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _PnpCtxCreateNode @ 0x1407A4BD8 (_PnpCtxCreateNode.c)
+ *     _PnpCtxDestroyNode @ 0x140974648 (_PnpCtxDestroyNode.c)
+ *     _PnpCtxFindNode @ 0x140974748 (_PnpCtxFindNode.c)
  */
 
 __int64 __fastcall PnpCtxRegisterMachineNode(__int64 a1, const WCHAR *a2, int a3, __int64 a4, __int64 a5)
 {
-  __int64 v6; // rdi
+  __int64 v6; // rbx
   __int64 v7; // rsi
-  int Node; // ebx
-  _QWORD *v9; // rdx
-  _QWORD *v10; // rcx
-  __int64 *v11; // rcx
-  __int64 v12; // rdx
-  __int64 **v13; // rax
-  UNICODE_STRING *v14; // rcx
+  __int64 v8; // r9
+  int v9; // edi
+  _QWORD *v10; // rdx
+  _QWORD *v11; // rcx
+  __int64 *v12; // rcx
+  __int64 v13; // rdx
+  __int64 **v14; // rax
+  UNICODE_STRING *v15; // rcx
+  void *v17; // [rsp+28h] [rbp-30h]
   PVOID P; // [rsp+60h] [rbp+8h] BYREF
 
   P = 0LL;
   v6 = *(_QWORD *)&PiPnpRtlCtx;
   v7 = a3;
-  if ( a3 == 1 || a3 == 2 )
+  if ( a3 <= 0 )
+    return (unsigned int)-1073741811;
+  if ( a3 > 2 )
   {
-    if ( *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 16LL * a3 + 24) != *(_QWORD *)&PiPnpRtlCtx + 16LL * a3 + 24 )
-      return (unsigned int)-1073741298;
-  }
-  else if ( a3 != 3 )
-  {
+    if ( a3 == 3 )
+      goto LABEL_4;
     return (unsigned int)-1073741811;
   }
+  if ( *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 16LL * a3 + 24) != *(_QWORD *)&PiPnpRtlCtx + 16LL * a3 + 24 )
+    return (unsigned int)-1073741298;
+LABEL_4:
   if ( (int)PnpCtxFindNode(*(__int64 *)&PiPnpRtlCtx, a2, 0, (const UNICODE_STRING **)&P) < 0 )
   {
-    Node = PnpCtxCreateNode(
-             (int *)v6,
-             a2,
-             v7,
-             0,
-             a5,
-             -1,
-             -1,
-             *(HANDLE *)(*(_QWORD *)(v6 + 224) + 8LL),
-             (UNICODE_STRING **)&P);
-    if ( Node < 0 )
+    v9 = PnpCtxCreateNode(
+           (int *)v6,
+           a2,
+           v7,
+           v8,
+           a5,
+           v17,
+           -1,
+           (HANDLE)(*(_QWORD *)(*(_QWORD *)(v6 + 224) + 8LL) & -(__int64)(*(_QWORD *)(*(_QWORD *)(v6 + 224) + 8LL) != 0LL)),
+           &P);
+    if ( v9 < 0 )
     {
-      v14 = (UNICODE_STRING *)P;
+      v15 = (UNICODE_STRING *)P;
     }
     else
     {
-      v9 = *(_QWORD **)(v6 + 16);
-      if ( *v9 != v6 + 8 )
-        goto LABEL_13;
-      v10 = P;
+      v10 = *(_QWORD **)(v6 + 16);
+      if ( *v10 != v6 + 8 )
+        goto LABEL_12;
+      v11 = P;
       *(_QWORD *)P = v6 + 8;
-      v10[1] = v9;
-      *v9 = v10;
-      *(_QWORD *)(v6 + 16) = v10;
-      v11 = v10 + 2;
-      v12 = 16 * v7 + v6 + 24;
-      v13 = *(__int64 ***)(v12 + 8);
-      if ( *v13 != (__int64 *)v12 )
-LABEL_13:
+      v11[1] = v10;
+      *v10 = v11;
+      *(_QWORD *)(v6 + 16) = v11;
+      v12 = v11 + 2;
+      v13 = 16 * v7 + v6 + 24;
+      v14 = *(__int64 ***)(v13 + 8);
+      if ( *v14 != (__int64 *)v13 )
+LABEL_12:
         __fastfail(3u);
-      *v11 = v12;
-      v11[1] = (__int64)v13;
-      *v13 = v11;
-      *(_QWORD *)(v12 + 8) = v11;
+      *v12 = v13;
+      v12[1] = (__int64)v14;
+      *v14 = v12;
+      *(_QWORD *)(v13 + 8) = v12;
       memset((void *)(v6 + 96), 0, 0x80uLL);
-      v14 = 0LL;
+      v15 = 0LL;
       *(_BYTE *)(v6 + 4) = *(_QWORD *)(v6 + 56) != v6 + 56;
     }
-    if ( v14 )
-      PnpCtxDestroyNode(v14);
+    if ( v15 )
+      PnpCtxDestroyNode(v15);
   }
   else
   {
     return (unsigned int)-1073741771;
   }
-  return (unsigned int)Node;
+  return (unsigned int)v9;
 }

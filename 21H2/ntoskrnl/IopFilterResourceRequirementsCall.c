@@ -1,16 +1,16 @@
 /*
- * XREFs of IopFilterResourceRequirementsCall @ 0x140748D6C
+ * XREFs of IopFilterResourceRequirementsCall @ 0x140750A80
  * Callers:
- *     IopQueryDeviceResources @ 0x140748758 (IopQueryDeviceResources.c)
+ *     IopQueryDeviceResources @ 0x14075046C (IopQueryDeviceResources.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IoAllocateIrp @ 0x1402AAB20 (IoAllocateIrp.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     IopQueueThreadIrp @ 0x1402AE1B0 (IopQueueThreadIrp.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IovUtilWatermarkIrp @ 0x1402D3080 (IovUtilWatermarkIrp.c)
- *     IoGetAttachedDeviceReference @ 0x1403109B0 (IoGetAttachedDeviceReference.c)
+ *     IoGetAttachedDeviceReference @ 0x14022CA10 (IoGetAttachedDeviceReference.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     IovUtilWatermarkIrp @ 0x140361ED4 (IovUtilWatermarkIrp.c)
+ *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
  */
 
 __int64 __fastcall IopFilterResourceRequirementsCall(struct _DEVICE_OBJECT *a1, ULONG_PTR a2, _QWORD *a3)
@@ -60,6 +60,6 @@ __int64 __fastcall IopFilterResourceRequirementsCall(struct _DEVICE_OBJECT *a1, 
   {
     v8 = -1073741670;
   }
-  ObfDereferenceObject(AttachedDeviceReference);
+  HalPutDmaAdapter((PADAPTER_OBJECT)AttachedDeviceReference);
   return v8;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessInputWithRateLimitingIfEnabled@Mouse@InputTraceLogging@@SAXPEAUDEVICEINFO@@_N_J22K@Z @ 0x1C00E9490
+ * XREFs of ?ProcessInputWithRateLimitingIfEnabled@Mouse@InputTraceLogging@@SAXPEAUDEVICEINFO@@_N_J22K@Z @ 0x1C01B27B8
  * Callers:
- *     ?ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C01EC28C (-ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@.c)
+ *     ?ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C01B2690 (-ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004DAC0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C008F428 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 void __fastcall InputTraceLogging::Mouse::ProcessInputWithRateLimitingIfEnabled(
@@ -46,7 +46,7 @@ void __fastcall InputTraceLogging::Mouse::ProcessInputWithRateLimitingIfEnabled(
   int v33; // [rsp+D8h] [rbp+2Fh]
   int v34; // [rsp+DCh] [rbp+33h]
 
-  if ( (unsigned int)dword_1C028EE70 > 4 && tlgKeywordOn((__int64)&dword_1C028EE70, 64LL) )
+  if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 64LL) )
   {
     v34 = 0;
     v31 = 0;
@@ -72,6 +72,6 @@ void __fastcall InputTraceLogging::Mouse::ProcessInputWithRateLimitingIfEnabled(
     v15 = v9;
     v33 = 4;
     v21 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C028EE70, (unsigned __int8 *)dword_1C02633F0, 0LL, 0LL, 8u, &v16);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C024BA90, (unsigned __int8 *)dword_1C022003C, 0LL, 0LL, 8u, &v16);
   }
 }

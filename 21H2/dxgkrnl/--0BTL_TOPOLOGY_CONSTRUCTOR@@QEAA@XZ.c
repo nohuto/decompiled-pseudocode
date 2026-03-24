@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0BTL_TOPOLOGY_CONSTRUCTOR@@QEAA@XZ @ 0x1C01B7D54
+ * XREFs of ??0BTL_TOPOLOGY_CONSTRUCTOR@@QEAA@XZ @ 0x1C02ED774
  * Callers:
- *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C01B6AE8 (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
- *     ?QueryTopologyClass@CCD_TOPOLOGY@@QEAAJPEAW4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C01B7AFC (-QueryTopologyClass@CCD_TOPOLOGY@@QEAAJPEAW4CCD_TOPOLOGY_CLASS@@@Z.c)
+ *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C01375F4 (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
+ *     ?QueryTopologyClass@CCD_TOPOLOGY@@QEAAJPEAW4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C01379F8 (-QueryTopologyClass@CCD_TOPOLOGY@@QEAAJPEAW4CCD_TOPOLOGY_CLASS@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -24,7 +24,6 @@ BTL_TOPOLOGY_CONSTRUCTOR *__fastcall BTL_TOPOLOGY_CONSTRUCTOR::BTL_TOPOLOGY_CONS
   *((_DWORD *)this + 11) = 0;
   *((_DWORD *)this + 12) = 1;
   *((_WORD *)this + 26) = 0;
-  *((_BYTE *)this + 54) = 0;
   *((_DWORD *)this + 14) = 4;
   *((_WORD *)this + 30) = 256;
   return result;

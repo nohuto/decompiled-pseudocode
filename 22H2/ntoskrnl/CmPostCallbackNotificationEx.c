@@ -1,49 +1,57 @@
 /*
- * XREFs of CmPostCallbackNotificationEx @ 0x140691E30
+ * XREFs of CmPostCallbackNotificationEx @ 0x140645BA0
  * Callers:
- *     CmLoadDifferencingKey @ 0x14069108C (CmLoadDifferencingKey.c)
- *     CmPostCallbackNotification @ 0x140691DD4 (CmPostCallbackNotification.c)
- *     CmUnloadKey @ 0x140698DD8 (CmUnloadKey.c)
- *     NtSetValueKey @ 0x1406D2AB0 (NtSetValueKey.c)
- *     CmpSecurityMethod @ 0x1406D5980 (CmpSecurityMethod.c)
- *     NtQueryMultipleValueKey @ 0x14070DE10 (NtQueryMultipleValueKey.c)
- *     NtDeleteValueKey @ 0x14070EAF0 (NtDeleteValueKey.c)
- *     NtDeleteKey @ 0x14070FD60 (NtDeleteKey.c)
- *     NtFlushKey @ 0x1407ACA70 (NtFlushKey.c)
- *     NtRenameKey @ 0x140A0E060 (NtRenameKey.c)
- *     NtReplaceKey @ 0x140A0E560 (NtReplaceKey.c)
- *     NtRestoreKey @ 0x140A0E8C0 (NtRestoreKey.c)
- *     NtSaveKeyEx @ 0x140A0EC80 (NtSaveKeyEx.c)
- *     NtSaveMergedKeys @ 0x140A0EF10 (NtSaveMergedKeys.c)
+ *     CmpParseKey @ 0x140646330 (CmpParseKey.c)
+ *     NtQueryMultipleValueKey @ 0x140686BA0 (NtQueryMultipleValueKey.c)
+ *     NtFlushKey @ 0x140696C00 (NtFlushKey.c)
+ *     NtSetValueKey @ 0x1406DCBB0 (NtSetValueKey.c)
+ *     CmpSecurityMethod @ 0x1406DDF10 (CmpSecurityMethod.c)
+ *     NtDeleteValueKey @ 0x1406E1EF0 (NtDeleteValueKey.c)
+ *     NtDeleteKey @ 0x1406E5000 (NtDeleteKey.c)
+ *     CmLoadDifferencingKey @ 0x1406E737C (CmLoadDifferencingKey.c)
+ *     NtSaveKeyEx @ 0x140729810 (NtSaveKeyEx.c)
+ *     NtRenameKey @ 0x140868C80 (NtRenameKey.c)
+ *     NtReplaceKey @ 0x140869190 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x140869520 (NtRestoreKey.c)
  * Callees:
- *     CmpIsRegistryLockAcquired @ 0x14022FB70 (CmpIsRegistryLockAcquired.c)
- *     CmpCallCallBacksEx @ 0x1406E86A0 (CmpCallCallBacksEx.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x1402D0610 (ExIsResourceAcquiredSharedLite.c)
+ *     CmpCallCallBacksEx @ 0x140640B60 (CmpCallCallBacksEx.c)
  */
 
 __int64 __fastcall CmPostCallbackNotificationEx(
-        int a1,
+        unsigned int a1,
         __int64 a2,
         unsigned int a3,
         __int64 a4,
         __int64 a5,
         _QWORD *a6)
 {
-  _QWORD v11[2]; // [rsp+48h] [rbp-9h] BYREF
-  _QWORD v12[3]; // [rsp+58h] [rbp+7h] BYREF
-  __int64 v13; // [rsp+70h] [rbp+1Fh]
-  __int128 v14; // [rsp+78h] [rbp+27h]
-  __int64 v15; // [rsp+88h] [rbp+37h]
+  struct _SLIST_ENTRY *v10; // r8
+  _QWORD v12[2]; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v13; // [rsp+50h] [rbp-48h] BYREF
+  unsigned int v14; // [rsp+58h] [rbp-40h]
+  int v15; // [rsp+5Ch] [rbp-3Ch]
+  __int64 v16; // [rsp+60h] [rbp-38h]
+  unsigned int v17; // [rsp+68h] [rbp-30h]
+  __int128 v18; // [rsp+6Ch] [rbp-2Ch]
+  __int64 v19; // [rsp+7Ch] [rbp-1Ch]
+  int v20; // [rsp+84h] [rbp-14h]
 
-  if ( !CmpCallBackCount || CmpIsRegistryLockAcquired() || (_QWORD *)*a6 == a6 )
+  if ( !CmpCallBackCount || ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) || (_QWORD *)*a6 == a6 )
     return a3;
-  v15 = 0LL;
-  v11[0] = v12;
-  v11[1] = a5;
-  v12[0] = a2;
-  v12[1] = a3;
-  v13 = a3;
-  v12[2] = a4;
-  v14 = 0LL;
-  CmpCallCallBacksEx(a1, (unsigned int)v12, (unsigned __int64)v11 & -(__int64)(a5 != 0), 0, a1, a2, (__int64)a6);
-  return (unsigned int)v13;
+  v15 = 0;
+  v12[0] = &v13;
+  v10 = (struct _SLIST_ENTRY *)v12;
+  v19 = 0LL;
+  v20 = 0;
+  if ( !a5 )
+    v10 = 0LL;
+  v12[1] = a5;
+  v13 = a2;
+  v14 = a3;
+  v18 = 0LL;
+  v17 = a3;
+  v16 = a4;
+  CmpCallCallBacksEx(a1, (__int64)&v13, v10, 0, a1, a2, (__int64)a6);
+  return v17;
 }

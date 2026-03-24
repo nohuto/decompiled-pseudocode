@@ -1,26 +1,26 @@
 /*
- * XREFs of UsbhHubIsr @ 0x1C0004510
+ * XREFs of UsbhHubIsr @ 0x1C0019BF0
  * Callers:
  *     <none>
  * Callees:
- *     UsbhQueueWorkItemWithRetry @ 0x1C0005F10 (UsbhQueueWorkItemWithRetry.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhSignalResumeEvent @ 0x1C001B0E8 (UsbhSignalResumeEvent.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhSignalSuspendEvent @ 0x1C00349E0 (UsbhSignalSuspendEvent.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhSignalResumeEvent @ 0x1C00015A0 (UsbhSignalResumeEvent.c)
+ *     UsbhQueueWorkItemWithRetry @ 0x1C000BEB0 (UsbhQueueWorkItemWithRetry.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhSignalSuspendEvent @ 0x1C0035C9C (UsbhSignalSuspendEvent.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhHubIsr(PDEVICE_OBJECT DeviceObject, PIRP Irp, _QWORD *Context)
 {
-  unsigned int v5; // edi
-  __int64 v6; // rsi
-  __int64 v7; // r12
+  unsigned int v5; // ebx
+  __int64 v6; // r14
+  __int64 v7; // rbp
   __int64 v8; // rcx
-  signed __int32 v9; // r14d
+  signed __int32 v9; // r12d
   __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 Status; // r13
@@ -31,26 +31,27 @@ __int64 __fastcall UsbhHubIsr(PDEVICE_OBJECT DeviceObject, PIRP Irp, _QWORD *Con
   __int64 v17; // rcx
   __int64 v18; // rdx
   __int64 v19; // rcx
-  __int64 v20; // r15
+  __int64 v20; // rsi
   __int64 v21; // rcx
   __int64 v22; // rdx
-  KSPIN_LOCK *v23; // r12
+  KSPIN_LOCK *v23; // rbp
   KIRQL v24; // al
   __int64 v25; // rdx
   __int64 v26; // rcx
   struct _KEVENT *v27; // rcx
-  unsigned int v29; // ebp
+  unsigned int v29; // esi
   __int64 v30; // r8
-  unsigned int v31; // r14d
-  KIRQL v32; // r14
-  __int64 v33; // rax
+  __int64 v31; // rbp
+  KIRQL v32; // bp
+  _DWORD *v33; // rax
   _QWORD *v34; // rax
   _QWORD *v35; // rcx
-  __int64 v36; // rax
-  __int64 v37; // rax
+  _DWORD *v36; // rax
+  _DWORD *v37; // rax
   int v38; // r10d
-  __int64 v39; // rax
-  __int64 v40; // [rsp+50h] [rbp-48h]
+  _DWORD *v39; // rax
+  int v40; // [rsp+48h] [rbp-50h]
+  __int64 v41; // [rsp+50h] [rbp-48h]
 
   v5 = 1;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -64,7 +65,7 @@ LABEL_83:
   if ( *(_DWORD *)v6 != 541218120 )
     UsbhTrapFatal_Dbg(Context, v6);
   v7 = *(_QWORD *)(v6 + 2672);
-  v40 = v7;
+  v41 = v7;
   if ( (UsbhLogMask & 4) != 0 )
   {
     v8 = *(_QWORD *)(v6 + 888)
@@ -107,8 +108,9 @@ LABEL_83:
   }
   if ( (int)Status >= 0 && !*(_DWORD *)(v7 + 36) )
   {
-    Log((_DWORD)Context, 4, 1769101906, Status, *(int *)(v7 + 4));
-    UsbhException((int)Context, 0, 116, 0, v38, Status, *(_DWORD *)(v7 + 4), usbfile_bus_c, 1094, 0);
+    Log((__int64)Context, 4, 1769101906, Status, *(int *)(v7 + 4));
+    LOBYTE(v40) = 0;
+    UsbhException((int)Context, 0, 116, 0, v38, Status, *(_DWORD *)(v7 + 4), usbfile_bus_c, 1094, v40);
   }
   if ( (Status & 0xC0000000) != 0xC0000000 && *(int *)(v7 + 4) >= 0 && v9 != -1 )
   {
@@ -129,40 +131,41 @@ LABEL_83:
       }
       ++v29;
     }
-    if ( v29 > *(unsigned __int8 *)(FdoExt(Context) + 2938) )
+    if ( v29 > *((unsigned __int8 *)FdoExt((__int64)Context) + 2938) )
     {
       v29 = 0;
-      Log((_DWORD)Context, 4, 1113870435, v31, 0LL);
-      UsbhException((int)Context, 0, 117, 0, 0, 0, 0, usbfile_bus_c, 1190, 0);
+      Log((__int64)Context, 4, 1113870435, v31, 0LL);
+      LOBYTE(v40) = 0;
+      UsbhException((int)Context, 0, 117, 0, 0, 0, 0, usbfile_bus_c, 1190, v40);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
       WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, 0, 1, 17, (__int64)"FKh&", v29);
     v32 = KeAcquireSpinLockRaiseToDpc(&SpinLock);
-    v33 = FdoExt(Context);
-    *(_DWORD *)(v33 + 1532) = v29;
-    *(_DWORD *)(v33 + 1536) = 1;
-    v34 = (_QWORD *)(v33 + 1544);
-    v35 = (_QWORD *)qword_1C006A6A8;
-    if ( *(__int64 **)qword_1C006A6A8 != &qword_1C006A6A0 )
+    v33 = FdoExt((__int64)Context);
+    v33[383] = v29;
+    v33[384] = 1;
+    v34 = v33 + 386;
+    v35 = (_QWORD *)qword_1C006C608;
+    if ( *(__int64 **)qword_1C006C608 != &qword_1C006C600 )
       __fastfail(3u);
-    v34[1] = qword_1C006A6A8;
-    *v34 = &qword_1C006A6A0;
+    v34[1] = qword_1C006C608;
+    *v34 = &qword_1C006C600;
     *v35 = v34;
-    qword_1C006A6A8 = (__int64)v34;
-    v36 = FdoExt(Context);
-    _InterlockedIncrement((volatile signed __int32 *)(v36 + 2740));
-    Log((_DWORD)Context, 4, 1212764715, (_DWORD)Context, *(int *)(v36 + 2740));
+    qword_1C006C608 = (__int64)v34;
+    v36 = FdoExt((__int64)Context);
+    _InterlockedIncrement(v36 + 685);
+    Log((__int64)Context, 4, 1212764715, (__int64)Context, (int)v36[685]);
     KeReleaseSpinLock(&SpinLock, v32);
-    v37 = FdoExt(Context);
+    v37 = FdoExt((__int64)Context);
     UsbhQueueWorkItemWithRetry(
-      (_DWORD)Context,
+      (__int64)Context,
       *(_QWORD *)(v6 + 2720),
-      (unsigned int)UsbhHubIsrWorker,
+      (int)UsbhHubIsrWorker,
       0,
-      v37 + 1384,
+      (__int64)(v37 + 346),
       v29,
       1230467945);
-    v27 = &stru_1C006A6B0;
+    v27 = &stru_1C006C610;
     goto LABEL_43;
   }
   if ( (_DWORD)Status == -1073741536 )
@@ -243,14 +246,14 @@ LABEL_19:
       if ( *(_DWORD *)(v20 + 696) == 2 )
       {
         KeReleaseSpinLock(v23, v24);
-        Log((_DWORD)Context, 16, 1666207794, (_DWORD)Context, *(unsigned __int16 *)(v20 + 4));
+        Log((__int64)Context, 16, 1666207794, (__int64)Context, *(unsigned __int16 *)(v20 + 4));
         UsbhSignalSuspendEvent(Context, v20);
       }
       else if ( *(_DWORD *)(v20 + 696) == 3 )
       {
         KeReleaseSpinLock(v23, v24);
-        Log((_DWORD)Context, 16, 1666207793, (_DWORD)Context, *(unsigned __int16 *)(v20 + 4));
-        UsbhSignalResumeEvent(Context, v20);
+        Log((__int64)Context, 16, 1666207793, (__int64)Context, *(unsigned __int16 *)(v20 + 4));
+        UsbhSignalResumeEvent((__int64)Context, v20);
       }
       else
       {
@@ -258,7 +261,7 @@ LABEL_19:
       }
       ++v5;
     }
-    v7 = v40;
+    v7 = v41;
   }
   if ( (_DWORD)Status == -1073741536 )
   {
@@ -293,20 +296,21 @@ LABEL_79:
   if ( ++*(_DWORD *)(v6 + 2656) < 3u )
   {
     *(_DWORD *)(v6 + 2560) |= 0x1000u;
-    v39 = FdoExt(Context);
+    v39 = FdoExt((__int64)Context);
     UsbhQueueWorkItemWithRetry(
-      (_DWORD)Context,
+      (__int64)Context,
       *(_QWORD *)(v6 + 2728),
-      (unsigned int)UsbhHubResetIrqPipeWorker,
+      (int)UsbhHubResetIrqPipeWorker,
       0,
-      v39 + 1384,
+      (__int64)(v39 + 346),
       0,
       1230467689);
   }
   else
   {
     KeSetEvent((PRKEVENT)(v6 + 2688), 0, 0);
-    UsbhException((int)Context, 0, 7, 0, 0, Status, *(_DWORD *)(v7 + 4), usbfile_bus_c, 1147, 0);
+    LOBYTE(v40) = 0;
+    UsbhException((int)Context, 0, 7, 0, 0, Status, *(_DWORD *)(v7 + 4), usbfile_bus_c, 1147, v40);
   }
   return 3221225494LL;
 }

@@ -1,10 +1,9 @@
 /*
- * XREFs of wcsncpycch @ 0x1C0024788
+ * XREFs of wcsncpycch @ 0x1C00245DC
  * Callers:
- *     ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C00246CC (-CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z.c)
- *     xxxInterSendMsgEx @ 0x1C004D920 (xxxInterSendMsgEx.c)
- *     NtUserRemoteConnect @ 0x1C00B7330 (NtUserRemoteConnect.c)
- *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C0225AC8 (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
+ *     ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C002452C (-CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z.c)
+ *     NtUserRemoteConnect @ 0x1C0131590 (NtUserRemoteConnect.c)
+ *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C024267C (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
  * Callees:
  *     <none>
  */

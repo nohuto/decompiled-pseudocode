@@ -1,11 +1,11 @@
 /*
- * XREFs of ?TraceEnvironment@PTPEngineTraceProducer@@AEAAXPEBUPTPEnvironment@@@Z @ 0x1C02057B4
+ * XREFs of ?TraceEnvironment@PTPEngineTraceProducer@@AEAAXPEBUPTPEnvironment@@@Z @ 0x1C01CA02C
  * Callers:
- *     _lambda_0ea3833fecfc7a67e7cb38c46f5cb3a9_::_lambda_invoker_cdecl_ @ 0x1C00D48D0 (_lambda_0ea3833fecfc7a67e7cb38c46f5cb3a9_--_lambda_invoker_cdecl_.c)
- *     ?SetEnvironment@PTPEngineTraceProducer@@UEAAJPEBUPTPEnvironment@@@Z @ 0x1C0205700 (-SetEnvironment@PTPEngineTraceProducer@@UEAAJPEBUPTPEnvironment@@@Z.c)
+ *     _lambda_fa6a589edf23ed69d06e62f02aabf114_::_lambda_invoker_cdecl_ @ 0x1C00CD630 (_lambda_fa6a589edf23ed69d06e62f02aabf114_--_lambda_invoker_cdecl_.c)
+ *     ?SetEnvironment@PTPEngineTraceProducer@@UEAAJPEBUPTPEnvironment@@@Z @ 0x1C01C9F50 (-SetEnvironment@PTPEngineTraceProducer@@UEAAJPEBUPTPEnvironment@@@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U_tlgWrapperBinary@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@AEBU_tlgWrapperBinary@@@Z @ 0x1C0205200 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U_tlgWrapperBinary@@@-$_tlgWriteTempl.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U_tlgWrapperBinary@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@AEBU_tlgWrapperBinary@@@Z @ 0x1C01C98B4 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U_tlgWrapperBinary@@@-$_tlgWriteTempl.c)
  */
 
 void __fastcall PTPEngineTraceProducer::TraceEnvironment(PTPEngineTraceProducer *this, const struct PTPEnvironment *a2)
@@ -27,69 +27,69 @@ void __fastcall PTPEngineTraceProducer::TraceEnvironment(PTPEngineTraceProducer 
   int v18; // [rsp+80h] [rbp+30h] BYREF
   __int64 v19; // [rsp+88h] [rbp+38h] BYREF
 
-  if ( (unsigned int)dword_1C02882F8 > 5 )
+  if ( (unsigned int)dword_1C0249170 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C02882F8, 3LL) )
+    if ( tlgKeywordOn((__int64)&dword_1C0249170, 3LL) )
     {
       v18 = 1;
-      v16 = (const struct PTPEnvironment *)((char *)a2 + 460);
+      v16 = (const struct PTPEnvironment *)((char *)a2 + 412);
       v17 = 96;
-      v19 = *((_QWORD *)this + 75);
+      v19 = *((_QWORD *)this + 69);
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperBinary>(
         v4,
-        byte_1C025FDBF,
+        byte_1C02206F8,
         v5,
         v6,
         (__int64)&v19,
         (__int64)&v18,
         (__int64 *)&v16);
-      LODWORD(v5) = dword_1C02882F8;
+      LODWORD(v5) = dword_1C0249170;
     }
     if ( (unsigned int)v5 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_1C02882F8, 3LL) )
+      if ( tlgKeywordOn((__int64)&dword_1C0249170, 3LL) )
       {
         v16 = a2;
-        v17 = 140;
-        v19 = *((_QWORD *)this + 75);
-        v18 = 4;
+        v17 = 92;
+        v19 = *((_QWORD *)this + 69);
+        v18 = 2;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperBinary>(
           v7,
-          byte_1C025FF3C,
+          byte_1C02207B5,
           v8,
           v9,
           (__int64)&v19,
           (__int64)&v18,
           (__int64 *)&v16);
-        LODWORD(v8) = dword_1C02882F8;
+        LODWORD(v8) = dword_1C0249170;
       }
       if ( (unsigned int)v8 > 5 )
       {
-        if ( tlgKeywordOn((__int64)&dword_1C02882F8, 3LL) )
+        if ( tlgKeywordOn((__int64)&dword_1C0249170, 3LL) )
         {
           v18 = 1;
-          v16 = (const struct PTPEnvironment *)((char *)a2 + 436);
+          v16 = (const struct PTPEnvironment *)((char *)a2 + 388);
           v17 = 24;
-          v19 = *((_QWORD *)this + 75);
+          v19 = *((_QWORD *)this + 69);
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperBinary>(
             v10,
-            byte_1C025FFC0,
+            byte_1C022083B,
             v11,
             v12,
             (__int64)&v19,
             (__int64)&v18,
             (__int64 *)&v16);
-          LODWORD(v11) = dword_1C02882F8;
+          LODWORD(v11) = dword_1C0249170;
         }
-        if ( (unsigned int)v11 > 5 && tlgKeywordOn((__int64)&dword_1C02882F8, 3LL) )
+        if ( (unsigned int)v11 > 5 && tlgKeywordOn((__int64)&dword_1C0249170, 3LL) )
         {
-          v18 = 12;
-          v16 = (const struct PTPEnvironment *)((char *)a2 + 140);
+          v18 = 10;
+          v16 = (const struct PTPEnvironment *)((char *)a2 + 92);
           v17 = 296;
-          v19 = *((_QWORD *)this + 75);
+          v19 = *((_QWORD *)this + 69);
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperBinary>(
             v13,
-            byte_1C025FE83,
+            byte_1C02207F7,
             v14,
             v15,
             (__int64)&v19,

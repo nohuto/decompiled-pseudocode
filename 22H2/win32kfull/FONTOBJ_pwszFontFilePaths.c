@@ -1,9 +1,9 @@
 /*
- * XREFs of FONTOBJ_pwszFontFilePaths @ 0x1C0298930
+ * XREFs of FONTOBJ_pwszFontFilePaths @ 0x1C0293130
  * Callers:
  *     <none>
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
  */
 
 LPWSTR __stdcall FONTOBJ_pwszFontFilePaths(FONTOBJ *pfo, ULONG *pcwc)

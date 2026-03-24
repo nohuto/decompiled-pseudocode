@@ -1,7 +1,7 @@
 /*
- * XREFs of FlattenEventEntryTree @ 0x1C0075D30
+ * XREFs of FlattenEventEntryTree @ 0x1C0062A8C
  * Callers:
- *     FlushLookUpTableBucket @ 0x1C0075D78 (FlushLookUpTableBucket.c)
+ *     FlushLookUpTableBucket @ 0x1C0062AD4 (FlushLookUpTableBucket.c)
  * Callees:
  *     <none>
  */

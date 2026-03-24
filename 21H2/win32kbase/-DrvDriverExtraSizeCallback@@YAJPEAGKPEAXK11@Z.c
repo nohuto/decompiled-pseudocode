@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DrvDriverExtraSizeCallback@@YAJPEAGKPEAXK11@Z @ 0x1C00CA3B0
+ * XREFs of ?DrvDriverExtraSizeCallback@@YAJPEAGKPEAXK11@Z @ 0x1C00BB830
  * Callers:
  *     <none>
  * Callees:

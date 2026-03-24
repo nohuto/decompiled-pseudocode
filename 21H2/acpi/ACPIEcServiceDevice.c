@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIEcServiceDevice @ 0x1C0053A64
+ * XREFs of ACPIEcServiceDevice @ 0x1C0054390
  * Callers:
- *     ACPIEcQueueEcIrp @ 0x1C0052CB0 (ACPIEcQueueEcIrp.c)
- *     AcpiEcCommonDpcHandler @ 0x1C0052E34 (AcpiEcCommonDpcHandler.c)
- *     ACPIEcWatchdogDpc @ 0x1C00541E0 (ACPIEcWatchdogDpc.c)
+ *     ACPIEcQueueEcIrp @ 0x1C00535D0 (ACPIEcQueueEcIrp.c)
+ *     AcpiEcCommonDpcHandler @ 0x1C0053754 (AcpiEcCommonDpcHandler.c)
+ *     ACPIEcWatchdogDpc @ 0x1C0054AB0 (ACPIEcWatchdogDpc.c)
  * Callees:
- *     ACPIEcMaskInterrupt @ 0x1C0052E98 (ACPIEcMaskInterrupt.c)
- *     ACPIEcUnmaskInterrupt @ 0x1C0052EE0 (ACPIEcUnmaskInterrupt.c)
- *     ACPIEcUnloadPending @ 0x1C00537E4 (ACPIEcUnloadPending.c)
- *     ACPIEcLogAction @ 0x1C0053808 (ACPIEcLogAction.c)
- *     ACPIEcServiceIoLoop @ 0x1C0053B78 (ACPIEcServiceIoLoop.c)
+ *     ACPIEcMaskInterrupt @ 0x1C00537B8 (ACPIEcMaskInterrupt.c)
+ *     ACPIEcUnmaskInterrupt @ 0x1C0053800 (ACPIEcUnmaskInterrupt.c)
+ *     ACPIEcLogAction @ 0x1C0054134 (ACPIEcLogAction.c)
+ *     ACPIEcServiceIoLoop @ 0x1C00544A4 (ACPIEcServiceIoLoop.c)
+ *     ACPIEcUnloadPending @ 0x1C00AF030 (ACPIEcUnloadPending.c)
  */
 
 void __fastcall ACPIEcServiceDevice(__int64 a1)
@@ -46,7 +46,7 @@ LABEL_5:
       v4 = *(_BYTE *)(a1 + 121) == 0;
       *(_BYTE *)(a1 + 456) = 0;
       if ( !v4 )
-        ACPIEcUnloadPending((_BYTE *)a1);
+        ACPIEcUnloadPending(a1);
       if ( !*(_BYTE *)(a1 + 458) )
       {
         *(_BYTE *)(a1 + 458) = 1;

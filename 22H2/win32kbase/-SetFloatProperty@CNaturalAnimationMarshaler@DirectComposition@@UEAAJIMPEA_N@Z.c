@@ -1,13 +1,12 @@
 /*
- * XREFs of ?SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C022CB50
+ * XREFs of ?SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01F3C40
  * Callers:
  *     <none>
  * Callees:
- *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0007DD0 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
- *     DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_ @ 0x1C022C8CC (DirectComposition--_anonymous_namespace_--UpdatePropertyIfChanged_float_.c)
- *     ?EnsureProperties@CNaturalAnimationMarshaler@DirectComposition@@AEAAJW4Enum@NaturalMotionAnimationType@@@Z @ 0x1C022CA5C (-EnsureProperties@CNaturalAnimationMarshaler@DirectComposition@@AEAAJW4Enum@NaturalMotionAnimati.c)
- *     ?FinalValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z @ 0x1C022CAD0 (-FinalValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z.c)
- *     ?InitialValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z @ 0x1C022CB0C (-InitialValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z.c)
+ *     DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_ @ 0x1C01F3938 (DirectComposition--_anonymous_namespace_--UpdatePropertyIfChanged_float_.c)
+ *     ?EnsureProperties@CNaturalAnimationMarshaler@DirectComposition@@AEAAJW4Enum@NaturalMotionAnimationType@@@Z @ 0x1C01F3B38 (-EnsureProperties@CNaturalAnimationMarshaler@DirectComposition@@AEAAJW4Enum@NaturalMotionAnimati.c)
+ *     ?FinalValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z @ 0x1C01F3BA8 (-FinalValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z.c)
+ *     ?InitialValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z @ 0x1C01F3BE4 (-InitialValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CNaturalAnimationMarshaler::SetFloatProperty(
@@ -16,112 +15,153 @@ __int64 __fastcall DirectComposition::CNaturalAnimationMarshaler::SetFloatProper
         float a3,
         bool *a4)
 {
-  float *v5; // rdx
-  DirectComposition::CNaturalAnimationMarshaler *v6; // rcx
-  bool *v7; // r9
-  unsigned int v8; // r10d
-  float *v9; // rdx
-  DirectComposition::CNaturalAnimationMarshaler *v10; // rcx
-  bool *v11; // r9
-  __int64 v12; // rcx
-  float *v13; // rdx
-  bool v14; // cf
-  int v15; // edx
-  __int64 v16; // rcx
+  unsigned int v4; // edx
+  unsigned int v5; // edx
+  unsigned int v6; // edx
+  unsigned int v7; // edx
+  unsigned int v8; // edx
+  unsigned int v9; // edx
+  float *v10; // rdx
+  DirectComposition::CNaturalAnimationMarshaler *v11; // rcx
+  bool *v12; // r9
+  unsigned int v13; // r11d
+  float *v14; // rdx
+  DirectComposition::CNaturalAnimationMarshaler *v15; // rcx
+  bool *v16; // r9
+  __int64 v17; // rcx
+  float *v18; // rdx
+  unsigned int v19; // edx
+  unsigned int v20; // edx
+  unsigned int v21; // edx
+  unsigned int v22; // edx
+  unsigned int v23; // edx
+  __int64 v24; // r10
+  bool v25; // cf
+  int v26; // edx
+  __int64 v27; // rcx
 
   *a4 = 0;
-  if ( a2 > 0x2C )
+  if ( a2 > 0x2B )
   {
-    switch ( a2 )
+    v19 = a2 - 44;
+    if ( v19 )
     {
-      case '-':
-        v13 = (float *)((char *)this + 156);
-        goto LABEL_45;
-      case '.':
-        v13 = (float *)((char *)this + 160);
-        goto LABEL_45;
-      case '0':
-        v15 = 2;
-        break;
-      case '1':
-        v8 = DirectComposition::CNaturalAnimationMarshaler::EnsureProperties((float *)this, 2);
-        if ( (v8 & 0x80000000) != 0 )
-          return v8;
-        v14 = a3 < 0.0;
-LABEL_40:
-        if ( v14 )
-          return (unsigned int)-1073741811;
-        *((float *)this + 43) = a3;
-LABEL_37:
-        *((_DWORD *)this + 4) |= 0x10000u;
-        return v8;
-      case '2':
-        v15 = 1;
-        break;
-      case '3':
-        v8 = DirectComposition::CNaturalAnimationMarshaler::EnsureProperties((float *)this, 1);
-        if ( (v8 & 0x80000000) != 0 )
-          return v8;
+      v20 = v19 - 1;
+      if ( v20 )
+      {
+        v21 = v20 - 2;
+        if ( v21 )
+        {
+          v22 = v21 - 1;
+          if ( !v22 )
+          {
+            v13 = DirectComposition::CNaturalAnimationMarshaler::EnsureProperties((float *)this, 2);
+            if ( (v13 & 0x80000000) != 0 )
+              return v13;
+            v25 = a3 < 0.0;
+LABEL_39:
+            if ( v25 )
+              return (unsigned int)-1073741811;
+            *(float *)(v24 + 172) = a3;
+LABEL_36:
+            *(_DWORD *)(v24 + 16) |= 0x8000u;
+            return v13;
+          }
+          v23 = v22 - 1;
+          if ( v23 )
+          {
+            if ( v23 != 1 )
+              return (unsigned int)-1073741811;
+            v13 = DirectComposition::CNaturalAnimationMarshaler::EnsureProperties((float *)this, 1);
+            if ( (v13 & 0x80000000) != 0 )
+              return v13;
+            if ( a3 < 0.0 )
+              return (unsigned int)-1073741811;
+            v25 = a3 > 1.0;
+            goto LABEL_39;
+          }
+          v26 = 1;
+        }
+        else
+        {
+          v26 = 2;
+        }
+        v13 = DirectComposition::CNaturalAnimationMarshaler::EnsureProperties((float *)this, v26);
+        if ( (v13 & 0x80000000) != 0 )
+          return v13;
         if ( a3 < 0.0 )
           return (unsigned int)-1073741811;
-        v14 = a3 > 1.0;
-        goto LABEL_40;
-      default:
-        return (unsigned int)DirectComposition::CResourceMarshaler::SetFloatProperty(this, a2, a3, a4);
-    }
-    v8 = DirectComposition::CNaturalAnimationMarshaler::EnsureProperties((float *)this, v15);
-    if ( (v8 & 0x80000000) != 0 )
-      return v8;
-    if ( a3 < 0.0 )
-      return (unsigned int)-1073741811;
-    *((float *)this + 42) = a3;
-    goto LABEL_37;
-  }
-  if ( a2 != 44 )
-  {
-    if ( a2 != 16 )
-    {
-      switch ( a2 )
-      {
-        case '$':
-          v9 = (float *)((char *)this + 140);
-          break;
-        case '%':
-          v9 = (float *)((char *)this + 144);
-          break;
-        case '&':
-          v9 = (float *)((char *)this + 148);
-          break;
-        case '(':
-          v5 = (float *)((char *)this + 128);
-          goto LABEL_13;
-        case ')':
-          v5 = (float *)((char *)this + 132);
-          goto LABEL_13;
-        case '*':
-          v5 = (float *)((char *)this + 136);
-LABEL_13:
-          DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_(a3, v5, a4);
-          DirectComposition::CNaturalAnimationMarshaler::InitialValueSetOrChanged(v6, v7);
-          return v8;
-        default:
-          return (unsigned int)DirectComposition::CResourceMarshaler::SetFloatProperty(this, a2, a3, a4);
+        *(float *)(v24 + 168) = a3;
+        goto LABEL_36;
       }
-      DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_(a3, v9, a4);
-      DirectComposition::CNaturalAnimationMarshaler::FinalValueSetOrChanged(v10, v11);
-      return v8;
+      v18 = (float *)((char *)this + 160);
     }
-    if ( a3 >= 0.0 )
+    else
     {
-      if ( DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_(a3, (float *)this + 46, a4) )
-        *(_DWORD *)(v12 + 16) |= 0x20000u;
-      return v8;
+      v18 = (float *)((char *)this + 156);
     }
-    return (unsigned int)-1073741811;
+LABEL_44:
+    if ( DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_(a3, v18, a4) )
+      *(_DWORD *)(v27 + 16) |= 0x4000u;
+    return v13;
   }
-  v13 = (float *)((char *)this + 152);
-LABEL_45:
-  if ( DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_(a3, v13, a4) )
-    *(_DWORD *)(v16 + 16) |= 0x8000u;
-  return v8;
+  if ( a2 == 43 )
+  {
+    v18 = (float *)((char *)this + 152);
+    goto LABEL_44;
+  }
+  v4 = a2 - 16;
+  if ( v4 )
+  {
+    v5 = v4 - 19;
+    if ( v5 )
+    {
+      v6 = v5 - 1;
+      if ( v6 )
+      {
+        v7 = v6 - 1;
+        if ( v7 )
+        {
+          v8 = v7 - 2;
+          if ( !v8 )
+          {
+            v10 = (float *)((char *)this + 128);
+            goto LABEL_13;
+          }
+          v9 = v8 - 1;
+          if ( !v9 )
+          {
+            v10 = (float *)((char *)this + 132);
+            goto LABEL_13;
+          }
+          if ( v9 == 1 )
+          {
+            v10 = (float *)((char *)this + 136);
+LABEL_13:
+            DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_(a3, v10, a4);
+            DirectComposition::CNaturalAnimationMarshaler::InitialValueSetOrChanged(v11, v12);
+            return v13;
+          }
+          return (unsigned int)-1073741811;
+        }
+        v14 = (float *)((char *)this + 148);
+      }
+      else
+      {
+        v14 = (float *)((char *)this + 144);
+      }
+    }
+    else
+    {
+      v14 = (float *)((char *)this + 140);
+    }
+    DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_(a3, v14, a4);
+    DirectComposition::CNaturalAnimationMarshaler::FinalValueSetOrChanged(v15, v16);
+    return v13;
+  }
+  if ( a3 < 0.0 )
+    return (unsigned int)-1073741811;
+  if ( DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_(a3, (float *)this + 46, a4) )
+    *(_DWORD *)(v17 + 16) |= 0x10000u;
+  return v13;
 }

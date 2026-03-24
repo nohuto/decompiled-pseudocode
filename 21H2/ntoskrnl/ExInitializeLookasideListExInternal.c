@@ -1,14 +1,14 @@
 /*
- * XREFs of ExInitializeLookasideListExInternal @ 0x1402A03B0
+ * XREFs of ExInitializeLookasideListExInternal @ 0x14035E1E0
  * Callers:
- *     ExInitializeLookasideListEx @ 0x1402A0360 (ExInitializeLookasideListEx.c)
- *     VmInitSystem @ 0x140B1E5EC (VmInitSystem.c)
- *     CmpInitCmPrivateAlloc @ 0x140B4E160 (CmpInitCmPrivateAlloc.c)
+ *     ExInitializeLookasideListEx @ 0x14035E190 (ExInitializeLookasideListEx.c)
+ *     VmInitSystem @ 0x140A47B1C (VmInitSystem.c)
+ *     CmpInitCmPrivateAlloc @ 0x140A8EB7C (CmpInitCmPrivateAlloc.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     InitializeSListHead @ 0x1402A05A0 (InitializeSListHead.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExInitializeLookasideListExInternal(
@@ -22,25 +22,23 @@ __int64 __fastcall ExInitializeLookasideListExInternal(
         __int16 a8,
         int a9)
 {
-  __int16 v10; // cx
-  __int16 v12; // bp
-  int v13; // r15d
-  int v14; // esi
-  __int64 *v15; // rdi
-  KSPIN_LOCK *v16; // r12
-  int v17; // esi
-  PVOID (__fastcall *v18)(POOL_TYPE, SIZE_T, ULONG, PLOOKASIDE_LIST_EX); // rax
-  __int64 (__fastcall *v19)(ULONG_PTR); // rax
-  unsigned __int64 v20; // rsi
-  PSLIST_HEADER *v21; // rax
-  PSLIST_HEADER v22; // rbx
+  __int16 v11; // cx
+  __int16 v14; // r15
+  int v15; // eax
+  int v16; // esi
+  __int64 *v17; // rdi
+  KSPIN_LOCK *v18; // r12
+  unsigned __int64 v19; // rsi
+  PSLIST_HEADER *v20; // rax
+  PSLIST_HEADER v21; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v27; // eax
-  bool v28; // zf
+  int v26; // eax
+  bool v27; // zf
+  int v28; // [rsp+20h] [rbp-38h]
 
-  v10 = a8;
+  v11 = a8;
   if ( a8 )
   {
     if ( (unsigned __int16)(a8 - 256) > 0x300u )
@@ -48,89 +46,87 @@ __int64 __fastcall ExInitializeLookasideListExInternal(
   }
   else
   {
-    v10 = 256;
+    v11 = 256;
   }
-  v12 = 0;
+  v14 = 0;
   if ( !a9 )
-    v12 = v10;
-  v13 = 8;
+    v14 = v11;
+  v15 = 8;
   if ( a6 > 8 )
-    v13 = a6;
+    v15 = a6;
+  v28 = v15;
   if ( ((a5 - 1) & a5) != 0 || (a5 & 0xFFFFFFFC) != 0 )
     return 3221225715LL;
   if ( (a5 & 1) != 0 )
   {
-    v14 = 16;
+    v16 = 16;
   }
   else
   {
-    v14 = 0;
+    v16 = 0;
     if ( a5 )
-      v14 = 8;
+      v16 = 8;
   }
   if ( (a4 & 0xFFFFFC18) != 0 || (a4 & 3) == 3 )
     return 3221225714LL;
-  v15 = &ExNPagedLookasideListHead;
-  v16 = &ExNPagedLookasideLock;
+  v17 = &ExNPagedLookasideListHead;
+  v18 = &ExNPagedLookasideLock;
   if ( (a4 & 1) != 0 )
   {
-    v15 = &ExPagedLookasideListHead;
-    v16 = &ExPagedLookasideLock;
+    v17 = &ExPagedLookasideListHead;
+    v18 = &ExPagedLookasideLock;
   }
   InitializeSListHead(SListHead);
   LOWORD(SListHead[1].Alignment) = ExMinimumLookasideDepth;
-  v17 = a4 | v14;
   *((_DWORD *)&SListHead[2].HeaderX64 + 2) = a7;
-  v18 = a2;
-  *((_WORD *)&SListHead[1].HeaderX64 + 1) = v12;
+  *((_DWORD *)&SListHead[2].HeaderX64 + 3) = v28;
+  *((_WORD *)&SListHead[1].HeaderX64 + 1) = v14;
   *(_QWORD *)((char *)&SListHead[1].HeaderX64 + 4) = 0LL;
-  if ( !a2 )
-    v18 = CmpAllocateTransientPoolWithTag;
   *(_QWORD *)((char *)&SListHead[1].HeaderX64 + 12) = 0LL;
-  SListHead[3].Alignment = (unsigned __int64)v18;
-  *((_DWORD *)&SListHead[2].HeaderX64 + 1) = v17;
-  v19 = ExFreePoolEx;
-  if ( a3 )
-    v19 = a3;
-  *((_DWORD *)&SListHead[2].HeaderX64 + 3) = v13;
-  SListHead[3].Region = (unsigned __int64)v19;
+  *((_DWORD *)&SListHead[2].HeaderX64 + 1) = a4 | v16;
+  if ( !a2 )
+    a2 = CmpAllocateTransientPoolWithTag;
+  SListHead[3].Alignment = (unsigned __int64)a2;
+  if ( !a3 )
+    a3 = ExFreePoolEx;
+  SListHead[3].Region = (unsigned __int64)a3;
   SListHead[5].Alignment = 0LL;
-  v20 = KeAcquireSpinLockRaiseToDpc(v16);
+  v19 = KeAcquireSpinLockRaiseToDpc(v18);
   if ( a9 )
   {
-    LOWORD(SListHead[1].Alignment) = v12;
+    LOWORD(SListHead[1].Alignment) = v14;
     *((_WORD *)&SListHead[1].HeaderX64 + 1) = -1;
   }
   else if ( !ExMinimumLookasideDepth )
   {
     LODWORD(SListHead[1].Alignment) = -65536;
   }
-  v21 = (PSLIST_HEADER *)v15[1];
-  v22 = SListHead + 4;
-  if ( *v21 != (PSLIST_HEADER)v15 )
+  v20 = (PSLIST_HEADER *)v17[1];
+  v21 = SListHead + 4;
+  if ( *v20 != (PSLIST_HEADER)v17 )
     __fastfail(3u);
-  v22->Alignment = (unsigned __int64)v15;
-  v22->Region = (unsigned __int64)v21;
-  *v21 = v22;
-  v15[1] = (__int64)v22;
-  KxReleaseSpinLock(v16);
+  v21->Alignment = (unsigned __int64)v17;
+  v21->Region = (unsigned __int64)v20;
+  *v20 = v21;
+  v17[1] = (__int64)v21;
+  KxReleaseSpinLock(v18);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( CurrentIrql <= 0xFu && (unsigned __int8)v20 <= 0xFu && CurrentIrql >= 2u )
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v19 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v20 + 1));
-        v28 = (v27 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v27;
-        if ( v28 )
+        v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v19 + 1));
+        v27 = (v26 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v26;
+        if ( v27 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
-  __writecr8(v20);
+  __writecr8(v19);
   return 0LL;
 }

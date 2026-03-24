@@ -1,12 +1,11 @@
 /*
- * XREFs of HalpTscFallback @ 0x14050A330
+ * XREFs of HalpTscFallback @ 0x1404C1550
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     RtlSetSystemGlobalData @ 0x14035B9D0 (RtlSetSystemGlobalData.c)
- *     HalCalibratePerformanceCounter @ 0x1404FE230 (HalCalibratePerformanceCounter.c)
- *     HalpTimerSelectFallbackPerformanceCounter @ 0x1405093E0 (HalpTimerSelectFallbackPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     HalCalibratePerformanceCounter @ 0x140384030 (HalCalibratePerformanceCounter.c)
+ *     HalpTimerSelectFallbackPerformanceCounter @ 0x1404C02F8 (HalpTimerSelectFallbackPerformanceCounter.c)
  */
 
 __int64 __fastcall HalpTscFallback(ULONG_PTR Argument)
@@ -15,16 +14,14 @@ __int64 __fastcall HalpTscFallback(ULONG_PTR Argument)
   __int64 result; // rax
   signed __int32 v4[8]; // [rsp+0h] [rbp-28h] BYREF
   int v5; // [rsp+20h] [rbp-8h]
-  __int64 v6; // [rsp+38h] [rbp+10h] BYREF
 
-  LOBYTE(v6) = 0;
   _disable();
   v2 = v5 & 0x200;
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)Argument, 0xFFFFFFFF) == 1 )
   {
     *(LARGE_INTEGER *)(Argument + 8) = KeQueryPerformanceCounter(0LL);
     HalpTimerSelectFallbackPerformanceCounter();
-    RtlSetSystemGlobalData(17, &v6, 1);
+    MEMORY[0xFFFFF780000003C6] = 0;
     _InterlockedDecrement((volatile signed __int32 *)Argument);
   }
   else

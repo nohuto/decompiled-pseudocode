@@ -1,23 +1,22 @@
 /*
- * XREFs of OSReadRegValue @ 0x1C00968B0
+ * XREFs of OSReadRegValue @ 0x1C0097444
  * Callers:
- *     AMLIAddNextNamespaceOverrideObject @ 0x1C0065C08 (AMLIAddNextNamespaceOverrideObject.c)
- *     ACPIRegReadAMLRegistryEntry @ 0x1C008E978 (ACPIRegReadAMLRegistryEntry.c)
- *     ACPIInitShutdownNotification @ 0x1C008ED60 (ACPIInitShutdownNotification.c)
- *     ACPIRootInitialize @ 0x1C008F8C0 (ACPIRootInitialize.c)
- *     ACPIThermalGetParameter @ 0x1C00966CC (ACPIThermalGetParameter.c)
- *     ACPIInitGlobalHeapSize @ 0x1C00967F4 (ACPIInitGlobalHeapSize.c)
- *     ACPIRegReadEntireAcpiTable @ 0x1C00B1D9C (ACPIRegReadEntireAcpiTable.c)
- *     ACPIRegReadEntireSimulatorAcpiTable @ 0x1C00B2020 (ACPIRegReadEntireSimulatorAcpiTable.c)
- *     AcpiDiagInitialize @ 0x1C00BB8FC (AcpiDiagInitialize.c)
- *     ACPIInitializeAMLI @ 0x1C00BCD04 (ACPIInitializeAMLI.c)
- *     AMLIInitialize @ 0x1C00BCDB8 (AMLIInitialize.c)
- *     ACPIInitReadRegistryKeys @ 0x1C00BD39C (ACPIInitReadRegistryKeys.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C006498C (AMLIAddNextNamespaceOverrideObject.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008FCF0 (ACPIRegReadAMLRegistryEntry.c)
+ *     ACPIInitGlobalHeapSize @ 0x1C00977FC (ACPIInitGlobalHeapSize.c)
+ *     ACPIInitShutdownNotification @ 0x1C00978B8 (ACPIInitShutdownNotification.c)
+ *     ACPIThermalGetParameter @ 0x1C009B9BC (ACPIThermalGetParameter.c)
+ *     ACPIRegReadEntireAcpiTable @ 0x1C00B24BC (ACPIRegReadEntireAcpiTable.c)
+ *     ACPIRegReadEntireSimulatorAcpiTable @ 0x1C00B2740 (ACPIRegReadEntireSimulatorAcpiTable.c)
+ *     ACPIInitializeAMLI @ 0x1C00BCC5C (ACPIInitializeAMLI.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
+ *     ACPIInitReadRegistryKeys @ 0x1C00BD2FC (ACPIInitReadRegistryKeys.c)
+ *     AcpiDiagInitialize @ 0x1C00BDE98 (AcpiDiagInitialize.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     WPP_RECORDER_SF_LL @ 0x1C0022ECC (WPP_RECORDER_SF_LL.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     OSOpenHandle @ 0x1C008EB74 (OSOpenHandle.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_LL @ 0x1C00170AC (WPP_RECORDER_SF_LL.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     OSOpenHandle @ 0x1C008FBB8 (OSOpenHandle.c)
  */
 
 __int64 __fastcall OSReadRegValue(PCSZ SourceString, void *a2, _BYTE *a3, unsigned int *a4)
@@ -25,24 +24,25 @@ __int64 __fastcall OSReadRegValue(PCSZ SourceString, void *a2, _BYTE *a3, unsign
   int v8; // ebx
   NTSTATUS v9; // eax
   unsigned int v10; // r13d
-  WCHAR *Pool2; // rdi
+  WCHAR *PoolWithTag; // rdi
   ULONG Length; // ebx
   NTSTATUS v14; // eax
   const WCHAR *v15; // r15
-  __int64 v16; // rcx
+  __int64 v16; // rsi
   unsigned int v17; // ebx
-  int v18; // esi
-  NTSTATUS v19; // eax
-  unsigned int v20; // eax
+  int v18; // edx
+  WCHAR v19; // cx
+  bool v20; // zf
+  NTSTATUS v21; // eax
+  unsigned int v22; // eax
   PULONG ResultLength; // [rsp+28h] [rbp-48h]
-  NTSTATUS v22; // [rsp+40h] [rbp-30h]
-  HANDLE KeyHandle; // [rsp+48h] [rbp-28h] BYREF
-  struct _UNICODE_STRING ValueName; // [rsp+50h] [rbp-20h] BYREF
-  struct _STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
-  ULONG v26; // [rsp+A8h] [rbp+38h] BYREF
+  HANDLE KeyHandle; // [rsp+40h] [rbp-30h] BYREF
+  struct _UNICODE_STRING ValueName; // [rsp+48h] [rbp-28h] BYREF
+  struct _STRING DestinationString; // [rsp+58h] [rbp-18h] BYREF
+  ULONG v27; // [rsp+A8h] [rbp+38h] BYREF
 
   KeyHandle = 0LL;
-  v26 = 0;
+  v27 = 0;
   DestinationString = 0LL;
   ValueName = 0LL;
   if ( a2 )
@@ -58,12 +58,12 @@ __int64 __fastcall OSReadRegValue(PCSZ SourceString, void *a2, _BYTE *a3, unsign
     if ( v8 < 0 || !KeyHandle )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_D(
+        WPP_RECORDER_SF_L(
           (__int64)WPP_GLOBAL_Control->DeviceExtension,
           2u,
           0xBu,
           0x13u,
-          (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+          (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
           v8);
       return (unsigned int)v8;
     }
@@ -73,18 +73,18 @@ __int64 __fastcall OSReadRegValue(PCSZ SourceString, void *a2, _BYTE *a3, unsign
   if ( v8 < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         0xBu,
         0x14u,
-        (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+        (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
         v8);
     if ( !a2 )
       ZwClose(KeyHandle);
     return (unsigned int)v8;
   }
-  v9 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformationAlign64, 0LL, 0, &v26);
+  v9 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformationAlign64, 0LL, 0, &v27);
   v8 = v9;
   v10 = -2147483643;
   if ( v9 != -1073741789 && v9 != -2147483643 )
@@ -92,12 +92,12 @@ __int64 __fastcall OSReadRegValue(PCSZ SourceString, void *a2, _BYTE *a3, unsign
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LODWORD(ResultLength) = v9;
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         0xBu,
         0x15u,
-        (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+        (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
         ResultLength);
     }
     RtlFreeUnicodeString(&ValueName);
@@ -111,23 +111,23 @@ __int64 __fastcall OSReadRegValue(PCSZ SourceString, void *a2, _BYTE *a3, unsign
   {
     if ( v8 != -2147483643 )
     {
-      Pool2 = 0LL;
+      PoolWithTag = 0LL;
       if ( v8 != -1073741789 )
         goto LABEL_21;
     }
-    Length = v26;
-    Pool2 = (WCHAR *)ExAllocatePool2(256LL, v26, 1299211073LL);
-    if ( !Pool2 )
+    Length = v27;
+    PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, v27, 0x4D706341u);
+    if ( !PoolWithTag )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LODWORD(ResultLength) = v26;
-        WPP_RECORDER_SF_D(
+        LODWORD(ResultLength) = v27;
+        WPP_RECORDER_SF_L(
           (__int64)WPP_GLOBAL_Control->DeviceExtension,
           2u,
           0x16u,
           0x16u,
-          (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+          (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
           ResultLength);
       }
       RtlFreeUnicodeString(&ValueName);
@@ -135,72 +135,79 @@ __int64 __fastcall OSReadRegValue(PCSZ SourceString, void *a2, _BYTE *a3, unsign
         ZwClose(KeyHandle);
       return 3221225626LL;
     }
-    v14 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformationAlign64, Pool2, Length, &v26);
+    v14 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformationAlign64, PoolWithTag, Length, &v27);
     v8 = v14;
     if ( v14 != -2147483643 && v14 != -1073741789 )
       break;
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
   if ( v14 < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LODWORD(ResultLength) = v14;
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_L(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
         2u,
         0x15u,
         0x17u,
-        (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+        (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
         ResultLength);
     }
     RtlFreeUnicodeString(&ValueName);
     if ( !a2 )
       ZwClose(KeyHandle);
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     return (unsigned int)v8;
   }
 LABEL_21:
   RtlFreeUnicodeString(&ValueName);
   if ( !a2 )
     ZwClose(KeyHandle);
-  if ( *(_DWORD *)Pool2 == 1 || *(_DWORD *)Pool2 == 7 )
+  if ( *(_DWORD *)PoolWithTag == 1 || *(_DWORD *)PoolWithTag == 7 )
   {
-    v15 = Pool2 + 4;
-    LODWORD(v16) = (v26 - 8) >> 1;
+    v15 = PoolWithTag + 4;
+    LODWORD(v16) = (v27 - 8) >> 1;
     v17 = 0;
+    if ( !(_DWORD)v16 )
+      goto LABEL_67;
+    while ( 1 )
+    {
+      v18 = v16;
+      v16 = (unsigned int)(v16 - 1);
+      v19 = v15[v16];
+      v20 = v19 == 0;
+      if ( !v19 )
+        break;
+      if ( !(_DWORD)v16 )
+      {
+        v20 = v19 == 0;
+        break;
+      }
+    }
+    if ( v20 )
+      LODWORD(v16) = v18;
     if ( (_DWORD)v16 )
     {
-      while ( 1 )
-      {
-        v18 = v16;
-        v16 = (unsigned int)(v16 - 1);
-        if ( !v15[v16] )
-          break;
-        if ( !(_DWORD)v16 )
-          goto LABEL_58;
-      }
       while ( *v15 )
       {
         RtlInitUnicodeString(&ValueName, v15);
-        v19 = RtlUnicodeStringToAnsiString(&DestinationString, &ValueName, 1u);
-        v22 = v19;
-        if ( v19 < 0 )
+        v21 = RtlUnicodeStringToAnsiString(&DestinationString, &ValueName, 1u);
+        v10 = v21;
+        if ( v21 < 0 )
         {
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LODWORD(ResultLength) = v19;
-            WPP_RECORDER_SF_D(
+            LODWORD(ResultLength) = v21;
+            WPP_RECORDER_SF_L(
               (__int64)WPP_GLOBAL_Control->DeviceExtension,
               2u,
               0x16u,
               0x18u,
-              (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+              (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
               ResultLength);
-            v19 = v22;
           }
-          v10 = v19;
-          goto LABEL_65;
+          goto LABEL_66;
         }
         v17 += DestinationString.MaximumLength;
         if ( *a4 >= v17 )
@@ -209,31 +216,32 @@ LABEL_21:
           a3 += DestinationString.MaximumLength;
         }
         RtlFreeAnsiString(&DestinationString);
-        v18 -= ValueName.Length >> 1;
+        LODWORD(v16) = v16 - (ValueName.Length >> 1);
         v15 += (unsigned __int64)ValueName.Length >> 1;
-        if ( *(_DWORD *)Pool2 == 7 )
+        if ( *(_DWORD *)PoolWithTag == 7 )
         {
-          if ( !v18 )
+          if ( !(_DWORD)v16 )
             break;
           ++v15;
-          --v18;
+          LODWORD(v16) = v16 - 1;
         }
-        if ( !v18 )
+        if ( !(_DWORD)v16 )
           break;
       }
+      v10 = -2147483643;
       if ( !v17 )
-        goto LABEL_58;
+        goto LABEL_67;
     }
     else
     {
-LABEL_58:
+LABEL_67:
       v17 = 1;
       if ( *a4 )
         *a3++ = 0;
     }
-    if ( *(_DWORD *)Pool2 == 7 && *a4 >= ++v17 )
+    if ( *(_DWORD *)PoolWithTag == 7 && *a4 >= ++v17 )
       *a3 = 0;
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     if ( *a4 >= v17 )
     {
       *a4 = v17;
@@ -247,7 +255,7 @@ LABEL_58:
         2u,
         0xBu,
         0x19u,
-        (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+        (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
         ResultLength,
         v17);
     }
@@ -255,17 +263,17 @@ LABEL_58:
   }
   else
   {
-    v20 = *((_DWORD *)Pool2 + 1);
-    if ( *a4 >= v20 )
+    v22 = *((_DWORD *)PoolWithTag + 1);
+    if ( *a4 >= v22 )
     {
-      memmove(a3, Pool2 + 4, v20);
-      *a4 = *((_DWORD *)Pool2 + 1);
-      ExFreePoolWithTag(Pool2, 0);
+      memmove(a3, PoolWithTag + 4, v22);
+      *a4 = *((_DWORD *)PoolWithTag + 1);
+      ExFreePoolWithTag(PoolWithTag, 0);
       return 0LL;
     }
-    *a4 = v20;
-LABEL_65:
-    ExFreePoolWithTag(Pool2, 0);
+    *a4 = v22;
+LABEL_66:
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
   return v10;
 }

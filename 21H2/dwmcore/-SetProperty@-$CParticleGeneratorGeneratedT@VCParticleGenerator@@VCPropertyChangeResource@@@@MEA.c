@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetProperty@?$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801A4850
+ * XREFs of ?SetProperty@?$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180172630
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?SetMaxDirection@?$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@@QEAAJUfloat3@Numerics@Foundation@Windows@@@Z @ 0x1801A3188 (-SetMaxDirection@-$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@.c)
- *     ?SetMinDirection@?$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@@QEAAJUfloat3@Numerics@Foundation@Windows@@@Z @ 0x1801A3560 (-SetMinDirection@-$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?SetMaxDirection@?$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@@QEAAJUfloat3@Numerics@Foundation@Windows@@@Z @ 0x180171294 (-SetMaxDirection@-$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@.c)
+ *     ?SetMinDirection@?$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@@QEAAJUfloat3@Numerics@Foundation@Windows@@@Z @ 0x1801715E0 (-SetMinDirection@-$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@.c)
  */
 
 __int64 __fastcall CParticleGeneratorGeneratedT<CParticleGenerator,CPropertyChangeResource>::SetProperty(
@@ -32,101 +32,93 @@ __int64 __fastcall CParticleGeneratorGeneratedT<CParticleGenerator,CPropertyChan
   int v18; // edx
   int v19; // edx
   int v20; // edx
-  __int64 v21; // rax
-  unsigned int v23; // [rsp+20h] [rbp-28h]
-  unsigned __int64 v24; // [rsp+30h] [rbp-18h] BYREF
-  int v25; // [rsp+38h] [rbp-10h]
+  unsigned int v22; // [rsp+20h] [rbp-28h]
+  __int64 v23; // [rsp+30h] [rbp-18h] BYREF
+  int v24; // [rsp+38h] [rbp-10h]
 
   if ( a3 == 18 )
   {
     v14 = a2 - 3;
-    if ( !v14 )
+    if ( v14 )
     {
-      if ( *(float *)a4 != *(float *)(a1 + 108) )
+      v15 = v14 - 1;
+      if ( v15 )
       {
-        v21 = *(_QWORD *)a1;
-        *(_DWORD *)(a1 + 108) = *a4;
-        (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(v21 + 72))(a1, 0LL, 0LL);
-      }
-      return 0;
-    }
-    v15 = v14 - 1;
-    if ( v15 )
-    {
-      v16 = v15 - 1;
-      if ( v16 )
-      {
-        v17 = v16 - 1;
-        if ( v17 )
+        v16 = v15 - 1;
+        if ( v16 )
         {
-          v18 = v17 - 5;
-          if ( v18 )
+          v17 = v16 - 1;
+          if ( v17 )
           {
-            v19 = v18 - 1;
-            if ( v19 )
+            v18 = v17 - 5;
+            if ( v18 )
             {
-              v20 = v19 - 4;
-              if ( v20 )
+              v19 = v18 - 1;
+              if ( v19 )
               {
-                if ( v20 != 1 )
+                v20 = v19 - 4;
+                if ( v20 )
                 {
-                  v23 = 1904;
-                  goto LABEL_35;
+                  if ( v20 != 1 )
+                  {
+                    v22 = 1692;
+                    goto LABEL_35;
+                  }
+                  if ( *(float *)a4 != *(float *)(a1 + 220) )
+                  {
+                    *(_DWORD *)(a1 + 220) = *a4;
+LABEL_53:
+                    (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)a1 + 72LL))(a1, 0LL, 0LL);
+                  }
                 }
-                if ( *(float *)a4 == *(float *)(a1 + 228) )
-                  return 0;
-                *(_DWORD *)(a1 + 228) = *a4;
+                else if ( *(float *)a4 != *(float *)(a1 + 216) )
+                {
+                  *(_DWORD *)(a1 + 216) = *a4;
+                  goto LABEL_53;
+                }
               }
-              else
+              else if ( *(float *)a4 != *(float *)(a1 + 184) )
               {
-                if ( *(float *)a4 == *(float *)(a1 + 224) )
-                  return 0;
-                *(_DWORD *)(a1 + 224) = *a4;
+                *(_DWORD *)(a1 + 184) = *a4;
+                goto LABEL_53;
               }
             }
-            else
+            else if ( *(float *)a4 != *(float *)(a1 + 180) )
             {
-              if ( *(float *)a4 == *(float *)(a1 + 192) )
-                return 0;
-              *(_DWORD *)(a1 + 192) = *a4;
+              *(_DWORD *)(a1 + 180) = *a4;
+              goto LABEL_53;
             }
           }
-          else
+          else if ( *(float *)a4 != *(float *)(a1 + 112) )
           {
-            if ( *(float *)a4 == *(float *)(a1 + 188) )
-              return 0;
-            *(_DWORD *)(a1 + 188) = *a4;
+            *(_DWORD *)(a1 + 112) = *a4;
+            goto LABEL_53;
           }
         }
-        else
+        else if ( *(float *)a4 != *(float *)(a1 + 108) )
         {
-          if ( *(float *)a4 == *(float *)(a1 + 120) )
-            return 0;
-          *(_DWORD *)(a1 + 120) = *a4;
+          *(_DWORD *)(a1 + 108) = *a4;
+          goto LABEL_53;
         }
       }
-      else
+      else if ( *(float *)a4 != *(float *)(a1 + 104) )
       {
-        if ( *(float *)a4 == *(float *)(a1 + 116) )
-          return 0;
-        *(_DWORD *)(a1 + 116) = *a4;
+        *(_DWORD *)(a1 + 104) = *a4;
+        goto LABEL_53;
       }
     }
-    else
+    else if ( *(float *)a4 != *(float *)(a1 + 100) )
     {
-      if ( *(float *)a4 == *(float *)(a1 + 112) )
-        return 0;
-      *(_DWORD *)(a1 + 112) = *a4;
+      *(_DWORD *)(a1 + 100) = *a4;
+      goto LABEL_53;
     }
-LABEL_39:
-    (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)a1 + 72LL))(a1, 0LL, 0LL);
     return 0;
   }
   if ( a3 != 52 )
   {
     if ( a3 != 69 )
     {
-      v23 = 1953;
+      v22 = 1741;
 LABEL_35:
       v13 = -2147024809;
       v11 = -2147024809;
@@ -143,26 +135,26 @@ LABEL_35:
         {
           if ( v6 != 1 )
           {
-            v23 = 1948;
+            v22 = 1736;
             goto LABEL_35;
           }
-          *(_OWORD *)(a1 + 172) = *(_OWORD *)a4;
+          *(_OWORD *)(a1 + 164) = *(_OWORD *)a4;
         }
         else
         {
-          *(_OWORD *)(a1 + 156) = *(_OWORD *)a4;
+          *(_OWORD *)(a1 + 148) = *(_OWORD *)a4;
         }
       }
       else
       {
-        *(_OWORD *)(a1 + 140) = *(_OWORD *)a4;
+        *(_OWORD *)(a1 + 132) = *(_OWORD *)a4;
       }
     }
     else
     {
-      *(_OWORD *)(a1 + 124) = *(_OWORD *)a4;
+      *(_OWORD *)(a1 + 116) = *(_OWORD *)a4;
     }
-    goto LABEL_39;
+    goto LABEL_53;
   }
   if ( a2 )
   {
@@ -174,43 +166,43 @@ LABEL_35:
       {
         if ( v8 != 1 )
         {
-          v23 = 1926;
+          v22 = 1714;
           goto LABEL_35;
         }
-        *(_QWORD *)(a1 + 208) = *(_QWORD *)a4;
-        *(_DWORD *)(a1 + 216) = a4[2];
+        *(_QWORD *)(a1 + 200) = *(_QWORD *)a4;
+        *(_DWORD *)(a1 + 208) = a4[2];
       }
       else
       {
-        *(_QWORD *)(a1 + 196) = *(_QWORD *)a4;
-        *(_DWORD *)(a1 + 204) = a4[2];
+        *(_QWORD *)(a1 + 188) = *(_QWORD *)a4;
+        *(_DWORD *)(a1 + 196) = a4[2];
       }
-      goto LABEL_39;
+      goto LABEL_53;
     }
     v9 = a4[2];
-    v24 = *(_QWORD *)a4;
-    v25 = v9;
-    v10 = CParticleGeneratorGeneratedT<CParticleGenerator,CPropertyChangeResource>::SetMaxDirection(a1, &v24);
+    v23 = *(_QWORD *)a4;
+    v24 = v9;
+    v10 = CParticleGeneratorGeneratedT<CParticleGenerator,CPropertyChangeResource>::SetMaxDirection(a1, (__int64)&v23);
     v11 = v10;
     if ( v10 < 0 )
     {
-      v23 = 1915;
+      v22 = 1703;
 LABEL_25:
       v13 = v10;
 LABEL_36:
-      MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, v13, v23);
+      MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, v13, v22, 0LL);
     }
   }
   else
   {
     v12 = a4[2];
-    v24 = *(_QWORD *)a4;
-    v25 = v12;
-    v10 = CParticleGeneratorGeneratedT<CParticleGenerator,CPropertyChangeResource>::SetMinDirection(a1, &v24);
+    v23 = *(_QWORD *)a4;
+    v24 = v12;
+    v10 = CParticleGeneratorGeneratedT<CParticleGenerator,CPropertyChangeResource>::SetMinDirection(a1, (__int64)&v23);
     v11 = v10;
     if ( v10 < 0 )
     {
-      v23 = 1911;
+      v22 = 1699;
       goto LABEL_25;
     }
   }

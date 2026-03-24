@@ -1,20 +1,20 @@
 /*
- * XREFs of BiCreateKeySecurityDescriptor @ 0x140807830
+ * XREFs of BiCreateKeySecurityDescriptor @ 0x1407844E0
  * Callers:
- *     BiCreateKey @ 0x140806388 (BiCreateKey.c)
- *     BiOpenKey @ 0x140807650 (BiOpenKey.c)
- *     BiCloseKey @ 0x1408077DC (BiCloseKey.c)
+ *     BiCreateKey @ 0x140783B10 (BiCreateKey.c)
+ *     BiOpenKey @ 0x140784304 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078448C (BiCloseKey.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A60 (RtlLengthSid.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x140710FF0 (RtlLengthSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735770 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140782500 (RtlSetOwnerSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x140347A80 (RtlLengthSid.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D5220 (RtlpAddKnownAce.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406D8E90 (RtlLengthSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1406EFA60 (RtlSetOwnerSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 ACL *__fastcall BiCreateKeySecurityDescriptor(int a1)
@@ -24,7 +24,7 @@ ACL *__fastcall BiCreateKeySecurityDescriptor(int a1)
   ULONG v4; // ebx
   ULONG v5; // ebp
   ULONG v6; // r15d
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   ACL *v8; // rdi
   ACL *v9; // rbx
   ULONG v10; // ebx
@@ -36,12 +36,12 @@ ACL *__fastcall BiCreateKeySecurityDescriptor(int a1)
   v4 = RtlLengthSid(SeLocalSystemSid);
   v5 = v4 + RtlLengthSid(Src) + 24;
   v6 = v5 + RtlLengthSid(Src) + 40;
-  Pool2 = (ACL *)ExAllocatePool2(258LL, v6, 1262764866LL);
-  v8 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v6, 0x4B444342u);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v9 = Pool2 + 5;
-    if ( RtlCreateAcl(Pool2 + 5, v5, 2u) >= 0
+    v9 = PoolWithTag + 5;
+    if ( RtlCreateAcl(PoolWithTag + 5, v5, 2u) >= 0
       && (int)RtlpAddKnownAce((__int64)v9, 2u, 0, a1, (unsigned __int8 *)Src, 0) >= 0
       && (int)RtlpAddKnownAce((__int64)v9, 2u, 0, 983103, (unsigned __int8 *)SeLocalSystemSid, 0) >= 0
       && RtlCreateSecurityDescriptor(v8, 1u) >= 0

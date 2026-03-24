@@ -1,20 +1,20 @@
 /*
- * XREFs of PspSetCreateProcessNotifyRoutine @ 0x140748480
+ * XREFs of PspSetCreateProcessNotifyRoutine @ 0x140748460
  * Callers:
- *     PsSetCreateProcessNotifyRoutineEx @ 0x140748120 (PsSetCreateProcessNotifyRoutineEx.c)
- *     PsSetCreateProcessNotifyRoutineEx2 @ 0x140748180 (PsSetCreateProcessNotifyRoutineEx2.c)
- *     PsSetCreateProcessNotifyRoutine @ 0x140748360 (PsSetCreateProcessNotifyRoutine.c)
+ *     PsSetCreateProcessNotifyRoutineEx @ 0x140748100 (PsSetCreateProcessNotifyRoutineEx.c)
+ *     PsSetCreateProcessNotifyRoutineEx2 @ 0x140748160 (PsSetCreateProcessNotifyRoutineEx2.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x140748340 (PsSetCreateProcessNotifyRoutine.c)
  * Callees:
  *     ExDereferenceCallBackBlock @ 0x140088AA0 (ExDereferenceCallBackBlock.c)
  *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
  *     ExGetCallBackBlockContext @ 0x140088F00 (ExGetCallBackBlockContext.c)
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExCompareExchangeCallBack @ 0x14018665C (ExCompareExchangeCallBack.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x140186720 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExCompareExchangeCallBack @ 0x14018667C (ExCompareExchangeCallBack.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x140186740 (MmVerifyCallbackFunctionCheckFlags.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExAllocateCallBack @ 0x140748578 (ExAllocateCallBack.c)
+ *     ExAllocateCallBack @ 0x140748558 (ExAllocateCallBack.c)
  */
 
 __int64 __fastcall PspSetCreateProcessNotifyRoutine(unsigned __int64 a1, unsigned int a2)

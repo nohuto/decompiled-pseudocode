@@ -1,10 +1,10 @@
 /*
- * XREFs of KeValidateBugCheckCallbackRecord @ 0x140292180
+ * XREFs of KeValidateBugCheckCallbackRecord @ 0x140292280
  * Callers:
- *     IopDumpCallAddPagesCallbacks @ 0x1402810DC (IopDumpCallAddPagesCallbacks.c)
- *     IopDumpCallRemovePagesCallbacks @ 0x140281234 (IopDumpCallRemovePagesCallbacks.c)
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x140292960 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
- *     KiInvokeBugCheckEntryCallbacks @ 0x140292B00 (KiInvokeBugCheckEntryCallbacks.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x1402811DC (IopDumpCallAddPagesCallbacks.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x140281334 (IopDumpCallRemovePagesCallbacks.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x140292A60 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x140292C00 (KiInvokeBugCheckEntryCallbacks.c)
  *     IopLiveDumpCallRemovePagesCallbacks @ 0x140578168 (IopLiveDumpCallRemovePagesCallbacks.c)
  * Callees:
  *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)

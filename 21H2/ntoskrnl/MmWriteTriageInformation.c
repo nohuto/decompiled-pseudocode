@@ -1,10 +1,10 @@
 /*
- * XREFs of MmWriteTriageInformation @ 0x14059388C
+ * XREFs of MmWriteTriageInformation @ 0x140538DBC
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x14055225C (IoFillTriageDumpBuffer.c)
+ *     IoFillTriageDumpBuffer @ 0x140501DC0 (IoFillTriageDumpBuffer.c)
  * Callees:
- *     RtlGetNtProductType @ 0x140245CC0 (RtlGetNtProductType.c)
- *     ExVerifySuite @ 0x1403CCF10 (ExVerifySuite.c)
+ *     RtlGetNtProductType @ 0x1402C2020 (RtlGetNtProductType.c)
+ *     ExVerifySuite @ 0x1403AF740 (ExVerifySuite.c)
  */
 
 __int64 __fastcall MmWriteTriageInformation(_OWORD *a1)
@@ -28,13 +28,13 @@ __int64 __fastcall MmWriteTriageInformation(_OWORD *a1)
   LODWORD(v5) = MmVerifierData;
   HIDWORD(v4) = v2;
   DWORD1(v5) = ((unsigned int)MiFlags >> 1) & 1;
-  *((_QWORD *)&v5 + 1) = qword_140C534B0;
-  *(_QWORD *)&v6 = qword_140C4F048;
-  *((_QWORD *)&v6 + 1) = qword_140C534B8;
-  *(_QWORD *)&v7 = qword_140C534A8;
-  *((_QWORD *)&v7 + 1) = qword_140C592E8;
-  *(_QWORD *)&v8 = qword_140C58E00;
-  result = qword_140C58E08;
+  *((_QWORD *)&v5 + 1) = qword_140C4EF30;
+  *(_QWORD *)&v6 = qword_140C4C8C8;
+  *((_QWORD *)&v6 + 1) = qword_140C4EF38;
+  *(_QWORD *)&v7 = qword_140C4EF28;
+  *((_QWORD *)&v7 + 1) = qword_140C52AA8;
+  *(_QWORD *)&v8 = qword_140C525C0;
+  result = qword_140C525C8;
   *a1 = v4;
   *((_QWORD *)&v8 + 1) = result;
   a1[1] = v5;

@@ -1,12 +1,14 @@
 /*
- * XREFs of VerifierExDeleteNPagedLookasideList @ 0x140A9ECD0
+ * XREFs of VerifierExDeleteNPagedLookasideList @ 0x1409E1140
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ViLookasideDelete @ 0x1409E16DC (ViLookasideDelete.c)
  */
 
-__int64 VerifierExDeleteNPagedLookasideList()
+__int64 __fastcall VerifierExDeleteNPagedLookasideList(ULONG_PTR a1)
 {
-  return ((__int64 (*)(void))pXdvExDeleteNPagedLookasideList)();
+  ViLookasideDelete(a1);
+  return ((__int64 (__fastcall *)(ULONG_PTR))pXdvExDeleteNPagedLookasideList)(a1);
 }

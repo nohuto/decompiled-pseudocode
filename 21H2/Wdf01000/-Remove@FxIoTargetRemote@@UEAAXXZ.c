@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Remove@FxIoTargetRemote@@UEAAXXZ @ 0x1C002C5E0
+ * XREFs of ?Remove@FxIoTargetRemote@@UEAAXXZ @ 0x1C0067630
  * Callers:
  *     <none>
  * Callees:
- *     ?Close@FxIoTargetRemote@@QEAAXW4FxIoTargetRemoteCloseReason@@@Z @ 0x1C002C5FC (-Close@FxIoTargetRemote@@QEAAXW4FxIoTargetRemoteCloseReason@@@Z.c)
+ *     ?Close@FxIoTargetRemote@@QEAAXW4FxIoTargetRemoteCloseReason@@@Z @ 0x1C0066C2C (-Close@FxIoTargetRemote@@QEAAXW4FxIoTargetRemoteCloseReason@@@Z.c)
  */
 
-void __fastcall FxIoTargetRemote::Remove(FxIoTargetRemote *this)
+void __fastcall FxIoTargetRemote::Remove(FxIoTargetRemote *this, __int64 a2, unsigned __int8 a3)
 {
-  FxIoTargetRemote::Close(this, FxIoTargetRemoteCloseReasonDelete);
+  FxIoTargetRemote::Close(this, 3u, a3);
 }

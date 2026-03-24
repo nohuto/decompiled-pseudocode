@@ -1,54 +1,53 @@
 /*
- * XREFs of Controller_DecrementNumberOfEndpointsOffloaded @ 0x1C0032CE0
+ * XREFs of Controller_DecrementNumberOfEndpointsOffloaded @ 0x1C0031164
  * Callers:
- *     Endpoint_Disable @ 0x1C000B0DC (Endpoint_Disable.c)
+ *     Endpoint_Disable @ 0x1C000AB88 (Endpoint_Disable.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     DynamicLock_Acquire @ 0x1C000A948 (DynamicLock_Acquire.c)
- *     DynamicLock_Release @ 0x1C000A988 (DynamicLock_Release.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     Interrupter_DeInitializeAfterOffload @ 0x1C003DBEC (Interrupter_DeInitializeAfterOffload.c)
+ *     DynamicLock_Release @ 0x1C0006D40 (DynamicLock_Release.c)
+ *     DynamicLock_Acquire @ 0x1C0007340 (DynamicLock_Acquire.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     Interrupter_DeInitializeAfterOffload @ 0x1C003B8B8 (Interrupter_DeInitializeAfterOffload.c)
  */
 
-__int64 __fastcall Controller_DecrementNumberOfEndpointsOffloaded(__int64 a1)
+__int64 __fastcall Controller_DecrementNumberOfEndpointsOffloaded(__int64 a1, int a2, int a3, int a4)
 {
-  int v2; // edx
-  int v3; // r8d
-  int v4; // r9d
-  int v5; // eax
-  int v6; // edx
-  int v7; // eax
-  __int64 v8; // rdx
+  int v5; // edx
+  int v6; // r8d
+  int v7; // r9d
+  int v8; // eax
+  int v9; // eax
+  __int64 v10; // rdx
 
-  DynamicLock_Acquire(*(_QWORD *)(a1 + 648));
-  v5 = *(_DWORD *)(a1 + 640);
-  if ( v5 )
+  DynamicLock_Acquire(*(_QWORD *)(a1 + 600), a2, a3, a4);
+  v8 = *(_DWORD *)(a1 + 592);
+  if ( v8 )
   {
-    v7 = v5 - 1;
-    *(_DWORD *)(a1 + 640) = v7;
-    if ( !v7 && *(_DWORD *)(a1 + 636) == 1 )
+    v9 = v8 - 1;
+    *(_DWORD *)(a1 + 592) = v9;
+    if ( !v9 && *(_DWORD *)(a1 + 588) == 1 )
     {
       Interrupter_DeInitializeAfterOffload(*(_QWORD *)(a1 + 128));
-      if ( *(_DWORD *)(a1 + 636) == 1 )
+      if ( *(_DWORD *)(a1 + 588) == 1 )
       {
-        v8 = *(_QWORD *)(a1 + 832);
-        *(_BYTE *)(a1 + 840) = 0;
-        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 3040))(WdfDriverGlobals, v8);
+        v10 = *(_QWORD *)(a1 + 776);
+        *(_BYTE *)(a1 + 784) = 0;
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 3040))(WdfDriverGlobals, v10);
       }
     }
   }
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v2, v3, v4);
+      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v5, v6, v7);
     if ( !KdRefreshDebuggerNotPresent() )
       __debugbreak();
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v6) = 2;
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), v6, 4, 313, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
+      LOBYTE(v5) = 2;
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), v5, 4, 303, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
     }
   }
-  return DynamicLock_Release(*(_QWORD *)(a1 + 648));
+  return DynamicLock_Release(*(_QWORD *)(a1 + 600), v5, v6, v7);
 }

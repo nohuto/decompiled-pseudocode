@@ -1,7 +1,7 @@
 /*
- * XREFs of ViAvlCompareNode @ 0x14035DB20
+ * XREFs of ViAvlCompareNode @ 0x14037C290
  * Callers:
- *     ViAvlCompareNodeUseSessionId @ 0x14035DAD0 (ViAvlCompareNodeUseSessionId.c)
+ *     ViAvlCompareNodeUseSessionId @ 0x14037C240 (ViAvlCompareNodeUseSessionId.c)
  * Callees:
  *     <none>
  */

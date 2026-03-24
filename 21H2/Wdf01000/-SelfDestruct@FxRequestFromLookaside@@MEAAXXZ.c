@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SelfDestruct@FxRequestFromLookaside@@MEAAXXZ @ 0x1C0008230
+ * XREFs of ?SelfDestruct@FxRequestFromLookaside@@MEAAXXZ @ 0x1C0007860
  * Callers:
  *     <none>
  * Callees:
- *     ??1FxObject@@UEAA@XZ @ 0x1C00083A0 (--1FxObject@@UEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?_CleanupPointer@FxObject@@SAPEAUFX_POOL_HEADER@@PEAU_FX_DRIVER_GLOBALS@@PEAV1@@Z @ 0x1C00386AE (-_CleanupPointer@FxObject@@SAPEAUFX_POOL_HEADER@@PEAU_FX_DRIVER_GLOBALS@@PEAV1@@Z.c)
- *     ??_GFxRequestTimer@@QEAAPEAXI@Z @ 0x1C00387A2 (--_GFxRequestTimer@@QEAAPEAXI@Z.c)
- *     ??_GFxVerifierLock@@QEAAPEAXI@Z @ 0x1C00551B0 (--_GFxVerifierLock@@QEAAPEAXI@Z.c)
- *     ?FxPoolRemoveNonPagedAllocateTracker@@YAXPEAUFX_POOL_TRACKER@@@Z @ 0x1C00686C4 (-FxPoolRemoveNonPagedAllocateTracker@@YAXPEAUFX_POOL_TRACKER@@@Z.c)
- *     ?FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z @ 0x1C006EECC (-FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z.c)
+ *     ??1FxObject@@UEAA@XZ @ 0x1C00079A0 (--1FxObject@@UEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ??_GFxVerifierLock@@QEAAPEAXI@Z @ 0x1C00317F0 (--_GFxVerifierLock@@QEAAPEAXI@Z.c)
+ *     ?FxPoolRemoveNonPagedAllocateTracker@@YAXPEAUFX_POOL_TRACKER@@@Z @ 0x1C004EDF4 (-FxPoolRemoveNonPagedAllocateTracker@@YAXPEAUFX_POOL_TRACKER@@@Z.c)
+ *     ?_CleanupPointer@FxObject@@SAPEAUFX_POOL_HEADER@@PEAU_FX_DRIVER_GLOBALS@@PEAV1@@Z @ 0x1C004F198 (-_CleanupPointer@FxObject@@SAPEAUFX_POOL_HEADER@@PEAU_FX_DRIVER_GLOBALS@@PEAV1@@Z.c)
+ *     ??_GFxRequestTimer@@QEAAPEAXI@Z @ 0x1C005355C (--_GFxRequestTimer@@QEAAPEAXI@Z.c)
+ *     ?FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z @ 0x1C005BF4C (-FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z.c)
  */
 
 void __fastcall FxRequestFromLookaside::SelfDestruct(FxRequestFromLookaside *this, unsigned int a2)
@@ -21,12 +21,12 @@ void __fastcall FxRequestFromLookaside::SelfDestruct(FxRequestFromLookaside *thi
   _IRP *m_Irp; // rsi
   FxRequestTimer *m_Timer; // rcx
   __int64 v8; // rax
-  _SLIST_ENTRY *v9; // rsi
+  _SLIST_ENTRY *m_InternalContext; // rsi
   _SLIST_ENTRY *v10; // rdx
   _SLIST_HEADER *p_m_SpinLock; // rcx
-  _SLIST_ENTRY *m_InternalContext; // rbx
   FxVerifierLock *Flink; // rcx
-  FX_POOL_HEADER *v14; // rax
+  FX_POOL_HEADER *v13; // rax
+  _SLIST_ENTRY *v14; // rbx
 
   m_DeviceBase = this->m_DeviceBase;
   this->__vftable = (FxRequestFromLookaside_vtbl *)FxRequestBase::`vftable';
@@ -41,23 +41,18 @@ void __fastcall FxRequestFromLookaside::SelfDestruct(FxRequestFromLookaside *thi
   }
   m_RequestContext = v3->m_RequestContext;
   m_Irp = v3->m_Irp.m_Irp;
-  if ( !m_RequestContext )
+  if ( m_RequestContext )
   {
-LABEL_3:
-    if ( !m_Irp )
-      goto LABEL_4;
-    goto LABEL_27;
+    if ( m_Irp )
+    {
+      m_RequestContext->ReleaseAndRestore(m_RequestContext, v3);
+      m_RequestContext = v3->m_RequestContext;
+    }
+    if ( m_RequestContext )
+      ((void (__fastcall *)(FxRequestContext *, __int64))m_RequestContext->~FxRequestContext)(m_RequestContext, 1LL);
   }
-  if ( !m_Irp
-    || (m_RequestContext->ReleaseAndRestore(m_RequestContext, v3), (m_RequestContext = v3->m_RequestContext) != 0LL) )
-  {
-    ((void (__fastcall *)(FxRequestContext *, __int64))m_RequestContext->~FxRequestContext)(m_RequestContext, 1LL);
-    goto LABEL_3;
-  }
-LABEL_27:
-  if ( v3->m_IrpAllocation == 1 )
+  if ( m_Irp && v3->m_IrpAllocation == 1 )
     IoFreeIrp(v3->m_Irp.m_Irp);
-LABEL_4:
   m_Timer = v3->m_Timer;
   if ( m_Timer )
     FxRequestTimer::`scalar deleting destructor'(m_Timer, a2);
@@ -75,41 +70,37 @@ LABEL_4:
   FxObject::~FxObject(v3);
   if ( v3->m_ForwardRequestToParent )
   {
-    v14 = FxObject::_CleanupPointer(v3->m_Globals, v3);
-    ExFreePoolWithTag(v14->Base, 0);
+    v13 = FxObject::_CleanupPointer(v3->m_Globals, v3);
+    ExFreePoolWithTag(v13->Base, 0);
+    return;
   }
-  else
+  if ( SLOBYTE(v3->m_ObjectFlags) < 0 )
+    v3 = (FxRequestFromLookaside *)((char *)v3 - 48);
+  if ( m_DeviceBase->m_Globals->FxPoolTrackingOn )
+    FxPoolRemoveNonPagedAllocateTracker((FX_POOL_TRACKER *)v3[-1].m_InternalContext);
+  v8 = *(_QWORD *)&m_DeviceBase[3].m_SpinLock.m_DbgFlagIsInitialized;
+  if ( !v8 || *(_WORD *)(v8 + 8) != 4354 || !*(_BYTE *)(v8 + 1779) )
   {
-    if ( SLOBYTE(v3->m_ObjectFlags) < 0 )
-      v3 = (FxRequestFromLookaside *)((char *)v3 - 48);
-    if ( m_DeviceBase->m_Globals->FxPoolTrackingOn )
-      FxPoolRemoveNonPagedAllocateTracker((FX_POOL_TRACKER *)v3[-1].m_InternalContext);
-    v8 = *(_QWORD *)&m_DeviceBase[3].m_SpinLock.m_DbgFlagIsInitialized;
-    if ( v8 && *(_WORD *)(v8 + 8) == 4354 && *(_BYTE *)(v8 + 1779) )
+    m_InternalContext = (_SLIST_ENTRY *)v3[-1].m_InternalContext;
+    ++HIDWORD(m_DeviceBase[2].m_ChildEntry.Flink);
+    if ( ExQueryDepthSList((PSLIST_HEADER)&m_DeviceBase[2].m_SpinLock) >= LOWORD(m_DeviceBase[2].m_ParentObject) )
     {
-      m_InternalContext = (_SLIST_ENTRY *)v3[-1].m_InternalContext;
-      if ( ExQueryDepthSList((PSLIST_HEADER)&m_DeviceBase[2].m_SpinLock) < LOWORD(m_DeviceBase[2].m_ParentObject) )
-      {
-        v10 = m_InternalContext;
-        p_m_SpinLock = (_SLIST_HEADER *)&m_DeviceBase[2].m_SpinLock;
-        goto LABEL_16;
-      }
-      (*(void (__fastcall **)(_SLIST_ENTRY *))&m_DeviceBase[2].m_NPLock.m_DbgFlagIsInitialized)(m_InternalContext);
-    }
-    else
-    {
-      v9 = (_SLIST_ENTRY *)v3[-1].m_InternalContext;
-      ++HIDWORD(m_DeviceBase[2].m_ChildEntry.Flink);
-      if ( ExQueryDepthSList((PSLIST_HEADER)&m_DeviceBase[2].m_SpinLock) < LOWORD(m_DeviceBase[2].m_ParentObject) )
-      {
-        v10 = v9;
-        p_m_SpinLock = (_SLIST_HEADER *)&m_DeviceBase[2].m_SpinLock;
-LABEL_16:
-        ExpInterlockedPushEntrySList(p_m_SpinLock, v10);
-        return;
-      }
       ++LODWORD(m_DeviceBase[2].m_ChildEntry.Blink);
-      (*(void (__fastcall **)(_SLIST_ENTRY *))&m_DeviceBase[2].m_NPLock.m_DbgFlagIsInitialized)(v9);
+      (*(void (__fastcall **)(_SLIST_ENTRY *))&m_DeviceBase[2].m_NPLock.m_DbgFlagIsInitialized)(m_InternalContext);
+      return;
     }
+    v10 = m_InternalContext;
+    p_m_SpinLock = (_SLIST_HEADER *)&m_DeviceBase[2].m_SpinLock;
+LABEL_16:
+    ExpInterlockedPushEntrySList(p_m_SpinLock, v10);
+    return;
   }
+  v14 = (_SLIST_ENTRY *)v3[-1].m_InternalContext;
+  if ( ExQueryDepthSList((PSLIST_HEADER)&m_DeviceBase[2].m_SpinLock) < LOWORD(m_DeviceBase[2].m_ParentObject) )
+  {
+    v10 = v14;
+    p_m_SpinLock = (_SLIST_HEADER *)&m_DeviceBase[2].m_SpinLock;
+    goto LABEL_16;
+  }
+  (*(void (__fastcall **)(_SLIST_ENTRY *))&m_DeviceBase[2].m_NPLock.m_DbgFlagIsInitialized)(v14);
 }

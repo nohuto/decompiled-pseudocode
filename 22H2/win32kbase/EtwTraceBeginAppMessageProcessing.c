@@ -1,24 +1,21 @@
 /*
- * XREFs of EtwTraceBeginAppMessageProcessing @ 0x1C0096E40
+ * XREFs of EtwTraceBeginAppMessageProcessing @ 0x1C0080700
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCallbackCount@@YACXZ @ 0x1C00DEF46 (-GetCallbackCount@@YACXZ.c)
- *     McTemplateK0cdqq_EtwWriteTransfer @ 0x1C00DF334 (McTemplateK0cdqq_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     McTemplateK0cdqq_EtwWriteTransfer @ 0x1C0124A10 (McTemplateK0cdqq_EtwWriteTransfer.c)
  */
 
 void __fastcall EtwTraceBeginAppMessageProcessing(char a1, char a2, __int64 a3)
 {
-  int v5; // ebx
   int v6; // r9d
   int v7; // edx
   int v8; // ecx
-  int v9; // r8d
 
   if ( (Microsoft_Windows_Win32kEnableBits & 0x4000) != 0 )
   {
-    v5 = *(_DWORD *)(a3 + 8);
-    LOBYTE(v6) = GetCallbackCount();
-    McTemplateK0cdqq_EtwWriteTransfer(v8, v7, v9, v6, a1, a2, v5);
+    LOBYTE(v6) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
+    McTemplateK0cdqq_EtwWriteTransfer(v8, v7, *(_DWORD *)(a3 + 8), v6, a1, a2, *(_DWORD *)(a3 + 8));
   }
 }

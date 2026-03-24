@@ -1,12 +1,11 @@
 /*
- * XREFs of DwmAsyncUpdateVisRgn @ 0x1C00B4974
+ * XREFs of DwmAsyncUpdateVisRgn @ 0x1C0039A30
  * Callers:
- *     ?RemoveTracker@CVisRgnTrackerProp@@QEAAXK@Z @ 0x1C00B3C34 (-RemoveTracker@CVisRgnTrackerProp@@QEAAXK@Z.c)
- *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C00B4534 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
+ *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C00394E8 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncUpdateVisRgn(PVOID Object, __int64 a2, int a3, __int64 a4, int a5)
@@ -23,7 +22,7 @@ __int64 __fastcall DwmAsyncUpdateVisRgn(PVOID Object, __int64 a2, int a3, __int6
     v9 = 0;
     do
     {
-      v13[10] = 1073741955;
+      v13[10] = 1073741953;
       v10 = 27;
       *(_QWORD *)&v13[11] = a2;
       v13[13] = v9;

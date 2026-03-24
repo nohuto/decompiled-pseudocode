@@ -1,80 +1,63 @@
 /*
- * XREFs of ?VmBusSendUpdateAllocationProperty@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEBVDXGPROCESS@@PEBVDXGPAGINGQUEUE@@PEBVDXGALLOCATION@@PEAUD3DDDI_UPDATEALLOCPROPERTY@@@Z @ 0x1C037EDC4
+ * XREFs of ?VmBusSendUpdateAllocationProperty@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEBVDXGPROCESS@@PEBVDXGPAGINGQUEUE@@PEBVDXGALLOCATION@@PEAUD3DDDI_UPDATEALLOCPROPERTY@@@Z @ 0x1C024D4F0
  * Callers:
- *     DxgkUpdateAllocationProperty @ 0x1C032C2A0 (DxgkUpdateAllocationProperty.c)
+ *     DxgkUpdateAllocationProperty @ 0x1C027C980 (DxgkUpdateAllocationProperty.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005CCCC (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0364EA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z @ 0x1C037E5E0 (-VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024CF2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendUpdateAllocationProperty(
-        DXG_GUEST_VIRTUALGPU_VMBUS *this,
+        struct _KTHREAD **this,
         const struct DXGPROCESS *a2,
         const struct DXGPAGINGQUEUE *a3,
         const struct DXGALLOCATION *a4,
         struct D3DDDI_UPDATEALLOCPROPERTY *a5)
 {
-  __int64 v9; // rcx
-  int v10; // edi
-  int v11; // r8d
-  int v12; // edx
-  int v13; // eax
-  __int128 v14; // xmm0
-  unsigned int v16; // [rsp+58h] [rbp-B0h] BYREF
-  _QWORD v17[3]; // [rsp+60h] [rbp-A8h] BYREF
-  int v18; // [rsp+78h] [rbp-90h]
-  UINT64 v19; // [rsp+188h] [rbp+80h] BYREF
-  int v20; // [rsp+190h] [rbp+88h]
+  int v5; // eax
+  int v6; // eax
+  __int128 v7; // xmm0
+  __int128 v8; // xmm1
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  int v11; // ebx
+  __int64 v12; // rax
+  unsigned int v14[4]; // [rsp+30h] [rbp-21h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-11h] BYREF
+  int v16; // [rsp+48h] [rbp-9h]
+  int v17; // [rsp+4Ch] [rbp-5h]
+  int v18; // [rsp+50h] [rbp-1h]
+  __int128 v19; // [rsp+58h] [rbp+7h]
+  __int128 v20; // [rsp+68h] [rbp+17h]
+  __int64 v21; // [rsp+78h] [rbp+27h]
+  UINT64 v22; // [rsp+80h] [rbp+2Fh] BYREF
+  int v23; // [rsp+88h] [rbp+37h]
 
-  v18 = 0;
-  *(_OWORD *)&v17[1] = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v17[1], this, 0x40u, 0LL, 0LL, 0LL);
-  v9 = v17[1];
-  if ( v17[1] )
+  v5 = *((_DWORD *)a2 + 106);
+  v15 = 0LL;
+  v17 = 0;
+  v16 = v5;
+  v6 = *((_DWORD *)a3 + 7);
+  v7 = *(_OWORD *)&a5->hPagingQueue;
+  v18 = 56;
+  v8 = *(_OWORD *)&a5->Flags.0;
+  v14[0] = 16;
+  v19 = v7;
+  LODWORD(v19) = v6;
+  *(_QWORD *)&v7 = *(_QWORD *)&a5->0;
+  DWORD1(v19) = *((_DWORD *)a4 + 24);
+  v20 = v8;
+  v21 = v7;
+  v11 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, (struct DXGKVMB_COMMAND_BASE *)&v15, 64LL, (char *)&v22, v14);
+  if ( v11 < 0 || (v11 = -1073741823, v14[0] < 0x10) || (v11 = v23, v23 < 0) )
   {
-    v11 = *((_DWORD *)a4 + 5);
-    v12 = *((_DWORD *)a3 + 7);
-    v13 = *((_DWORD *)a2 + 126);
-    *(_QWORD *)v17[1] = 0LL;
-    *(_DWORD *)(v9 + 20) = 0;
-    *(_BYTE *)(v9 + 12) = 0;
-    *(_DWORD *)(v9 + 12) &= 0x1FFu;
-    *(_DWORD *)(v9 + 8) = v13;
-    *(_DWORD *)(v9 + 16) = 56;
-    v14 = *(_OWORD *)&a5->hPagingQueue;
-    v16 = 16;
-    *(_OWORD *)(v9 + 24) = v14;
-    *(_OWORD *)(v9 + 40) = *(_OWORD *)&a5->Flags.0;
-    *(_QWORD *)(v9 + 56) = *(_QWORD *)&a5->0;
-    *(_DWORD *)(v9 + 24) = v12;
-    *(_DWORD *)(v9 + 28) = v11;
-    v10 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)&v17[1], &v19, &v16);
-    if ( v10 < 0 || (v10 = -1073741823, v16 < 0x10) || (v10 = v20, v20 < 0) )
-    {
-      WdLogSingleEntry1(2LL, v10);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"VmBusSendUpdateAllocationProperty failed: 0x%I64x",
-        v10,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
-    else
-    {
-      a5->PagingFenceValue = v19;
-    }
+    v12 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v12 + 24) = v11;
+    WdLogEvent5_WdError(v12);
   }
   else
   {
-    v10 = -1073741801;
+    a5->PagingFenceValue = v22;
   }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v17[1]);
-  return (unsigned int)v10;
+  return (unsigned int)v11;
 }

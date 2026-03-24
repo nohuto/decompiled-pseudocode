@@ -1,16 +1,16 @@
 /*
- * XREFs of PopNetRefreshTimerWorkerCallback @ 0x140998800
+ * XREFs of PopNetRefreshTimerWorkerCallback @ 0x1408F1F70
  * Callers:
  *     <none>
  * Callees:
- *     PopOkayToQueueNextWorkItem @ 0x140368A78 (PopOkayToQueueNextWorkItem.c)
- *     PopNetArmRefreshTimer @ 0x1409984D0 (PopNetArmRefreshTimer.c)
- *     PopNetDisengageNetworkRefresh @ 0x14099862C (PopNetDisengageNetworkRefresh.c)
- *     PopNetEngageNetworkRefresh @ 0x140998678 (PopNetEngageNetworkRefresh.c)
- *     PopNetGetNextDueRefreshTime @ 0x1409986C4 (PopNetGetNextDueRefreshTime.c)
- *     PopNetIsNetworkRefreshEnabled @ 0x140998778 (PopNetIsNetworkRefreshEnabled.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1402D1FF4 (PopOkayToQueueNextWorkItem.c)
+ *     PopNetArmRefreshTimer @ 0x1408F1C00 (PopNetArmRefreshTimer.c)
+ *     PopNetDisengageNetworkRefresh @ 0x1408F1D1C (PopNetDisengageNetworkRefresh.c)
+ *     PopNetEngageNetworkRefresh @ 0x1408F1D68 (PopNetEngageNetworkRefresh.c)
+ *     PopNetGetNextDueRefreshTime @ 0x1408F1DB4 (PopNetGetNextDueRefreshTime.c)
+ *     PopNetIsNetworkRefreshEnabled @ 0x1408F1EE4 (PopNetIsNetworkRefreshEnabled.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopNetRefreshTimerWorkerCallback(int a1)
@@ -42,6 +42,6 @@ __int64 __fastcall PopNetRefreshTimerWorkerCallback(int a1)
     }
     PopNetArmRefreshTimer(QuadPart, v3);
   }
-  PopOkayToQueueNextWorkItem((__int64)&unk_140C1F9A8);
+  PopOkayToQueueNextWorkItem((__int64)&unk_140C20A28);
   return PopReleasePolicyLock(v6, v5);
 }

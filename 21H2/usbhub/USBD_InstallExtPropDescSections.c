@@ -1,7 +1,7 @@
 /*
- * XREFs of USBD_InstallExtPropDescSections @ 0x1C003175C
+ * XREFs of USBD_InstallExtPropDescSections @ 0x1C00329EC
  * Callers:
- *     UsbhInstallMsOsExtendedProperties @ 0x1C0032E68 (UsbhInstallMsOsExtendedProperties.c)
+ *     UsbhInstallMsOsExtendedProperties @ 0x1C00341A8 (UsbhInstallMsOsExtendedProperties.c)
  * Callees:
  *     <none>
  */

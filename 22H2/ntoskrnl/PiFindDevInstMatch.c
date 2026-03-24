@@ -1,59 +1,62 @@
 /*
- * XREFs of PiFindDevInstMatch @ 0x1407C2544
+ * XREFs of PiFindDevInstMatch @ 0x14073C2C4
  * Callers:
- *     PiProcessDriverInstance @ 0x1407C22B0 (PiProcessDriverInstance.c)
+ *     PiProcessDriverInstance @ 0x14073C510 (PiProcessDriverInstance.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     PnpRegSzToString @ 0x1407C274C (PnpRegSzToString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     PnpRegSzToString @ 0x14073C4CC (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiFindDevInstMatch(void *a1, const UNICODE_STRING *a2, unsigned int *a3, __int64 a4, _DWORD *a5)
+__int64 __fastcall PiFindDevInstMatch(
+        void *a1,
+        const UNICODE_STRING *a2,
+        unsigned int *a3,
+        __int64 a4,
+        NTSTRSAFE_PWSTR ppszDestEnd)
 {
-  _DWORD *v5; // rax
-  unsigned int v6; // ebx
-  ULONG v9; // r13d
-  unsigned int v10; // r15d
-  NTSTATUS RegistryValue; // eax
+  NTSTRSAFE_PWSTR v5; // r13
+  int v6; // edi
+  ULONG v9; // r12d
+  unsigned int v10; // r14d
+  __int64 result; // rax
   PVOID v12; // rcx
-  __int64 Pool2; // rdi
-  void *v14; // r14
-  int v15; // esi
-  __int64 v16; // rax
-  NTSTATUS v17; // eax
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  wchar_t *v20; // rax
-  UNICODE_STRING v22; // xmm0
-  void *v23; // rcx
-  __int64 v24; // [rsp+30h] [rbp-38h]
+  unsigned __int16 *PoolWithTag; // rbx
+  PVOID v14; // rsi
+  __int64 v15; // rax
+  NTSTATUS v16; // eax
+  __int64 v17; // rdx
+  wchar_t *v18; // rax
+  UNICODE_STRING v19; // xmm0
+  unsigned __int16 *v20; // rcx
+  __int64 v21; // [rsp+30h] [rbp-38h]
   UNICODE_STRING ValueName; // [rsp+40h] [rbp-28h] BYREF
   UNICODE_STRING String1; // [rsp+50h] [rbp-18h] BYREF
   ULONG ResultLength; // [rsp+C0h] [rbp+58h] BYREF
-  PVOID P; // [rsp+C8h] [rbp+60h] BYREF
+  PVOID P; // [rsp+C8h] [rbp+60h]
 
-  v5 = a5;
+  v5 = ppszDestEnd;
   v6 = 0;
   *(_WORD *)a4 = 0;
   *(_QWORD *)(a4 + 8) = 0LL;
-  *v5 = -1;
+  *(_DWORD *)v5 = -1;
   *a3 = 0;
   ResultLength = 0;
-  P = 0LL;
   v9 = 256;
-  v10 = 0;
+  P = 0LL;
   ValueName = 0LL;
+  v10 = 0;
   String1 = 0LL;
-  RegistryValue = IopGetRegistryValue(a1, L"Count", 0, &P);
-  if ( RegistryValue < 0 )
+  result = IopGetRegistryValue(a1);
+  if ( (int)result < 0 )
   {
-    if ( RegistryValue != -1073741772 )
-      return (unsigned int)RegistryValue;
-    return v6;
+    if ( (_DWORD)result != -1073741772 )
+      return result;
+    return 0LL;
   }
   v12 = P;
   if ( *((_DWORD *)P + 1) == 4 && *((_DWORD *)P + 3) >= 4u )
@@ -62,73 +65,71 @@ __int64 __fastcall PiFindDevInstMatch(void *a1, const UNICODE_STRING *a2, unsign
     *a3 = v10;
   }
   ExFreePoolWithTag(v12, 0);
-  Pool2 = ExAllocatePool2(256LL, 256LL, 538996816LL);
-  if ( !Pool2 )
+  PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, 0x100uLL, 0x20207050u);
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v14 = (void *)ExAllocatePool2(256LL, 20LL, 538996816LL);
+  v14 = ExAllocatePoolWithTag(PagedPool, 0x14uLL, 0x20207050u);
   if ( !v14 )
   {
-    v23 = (void *)Pool2;
-    goto LABEL_23;
+    v20 = PoolWithTag;
+    goto LABEL_22;
   }
-  v15 = 0;
   if ( !v10 )
   {
 LABEL_15:
-    ExFreePoolWithTag((PVOID)Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     if ( !*(_WORD *)a4 )
       ExFreePoolWithTag(v14, 0);
     return 0LL;
   }
   while ( 1 )
   {
-    LODWORD(v24) = v15;
-    P = v14;
-    RtlStringCchPrintfExW((NTSTRSAFE_PWSTR)v14, 0xAuLL, (NTSTRSAFE_PWSTR *)&P, 0LL, 0, L"%u", v24);
+    LODWORD(v21) = v6;
+    ppszDestEnd = (NTSTRSAFE_PWSTR)v14;
+    RtlStringCchPrintfExW((NTSTRSAFE_PWSTR)v14, 0xAuLL, &ppszDestEnd, 0LL, 0, L"%u", v21);
     ValueName.MaximumLength = 20;
-    v16 = ((_BYTE *)P - (_BYTE *)v14) >> 1;
-    ValueName.Length = (_DWORD)v16 == -1 ? 20 : 2 * v16;
+    v15 = ((char *)ppszDestEnd - (_BYTE *)v14) >> 1;
+    ValueName.Length = (_DWORD)v15 == -1 ? 20 : 2 * v15;
     ValueName.Buffer = (wchar_t *)v14;
-    v17 = ZwQueryValueKey(a1, &ValueName, KeyValueFullInformation, (PVOID)Pool2, v9, &ResultLength);
-    if ( v17 < 0 )
+    v16 = ZwQueryValueKey(a1, &ValueName, KeyValueFullInformation, PoolWithTag, v9, &ResultLength);
+    if ( v16 < 0 )
       break;
-    if ( *(_DWORD *)(Pool2 + 4) == 1 )
+    if ( *((_DWORD *)PoolWithTag + 1) == 1 )
     {
-      v18 = *(unsigned int *)(Pool2 + 12);
-      if ( (unsigned int)v18 > 2 )
+      v17 = *((unsigned int *)PoolWithTag + 3);
+      if ( (unsigned int)v17 > 2 )
       {
-        v19 = Pool2 + *(unsigned int *)(Pool2 + 8);
-        LODWORD(P) = 0;
-        PnpRegSzToString(v19, v18, &P);
-        String1.MaximumLength = *(_WORD *)(Pool2 + 12);
-        v20 = (wchar_t *)(Pool2 + *(unsigned int *)(Pool2 + 8));
-        String1.Length = (unsigned __int16)P;
-        String1.Buffer = v20;
+        LODWORD(ppszDestEnd) = 0;
+        PnpRegSzToString((char *)PoolWithTag + *((unsigned int *)PoolWithTag + 2), v17, &ppszDestEnd);
+        String1.MaximumLength = PoolWithTag[6];
+        v18 = (unsigned __int16 *)((char *)PoolWithTag + *((unsigned int *)PoolWithTag + 2));
+        String1.Length = (unsigned __int16)ppszDestEnd;
+        String1.Buffer = v18;
         if ( RtlEqualUnicodeString(&String1, a2, 1u) )
         {
-          v22 = ValueName;
-          *a5 = v15;
-          *(UNICODE_STRING *)a4 = v22;
+          v19 = ValueName;
+          *(_DWORD *)v5 = v6;
+          *(UNICODE_STRING *)a4 = v19;
           goto LABEL_15;
         }
       }
     }
 LABEL_14:
-    if ( ++v15 >= v10 )
+    if ( ++v6 >= v10 )
       goto LABEL_15;
   }
-  if ( v17 != -2147483643 && v17 != -1073741789 )
+  if ( v16 != -2147483643 && v16 != -1073741789 )
     goto LABEL_14;
-  ExFreePoolWithTag((PVOID)Pool2, 0);
+  ExFreePoolWithTag(PoolWithTag, 0);
   v9 = ResultLength;
-  Pool2 = ExAllocatePool2(256LL, ResultLength, 538996816LL);
-  if ( Pool2 )
+  PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, ResultLength, 0x20207050u);
+  if ( PoolWithTag )
   {
-    --v15;
+    --v6;
     goto LABEL_14;
   }
-  v23 = v14;
-LABEL_23:
-  ExFreePoolWithTag(v23, 0);
+  v20 = (unsigned __int16 *)v14;
+LABEL_22:
+  ExFreePoolWithTag(v20, 0);
   return 3221225626LL;
 }

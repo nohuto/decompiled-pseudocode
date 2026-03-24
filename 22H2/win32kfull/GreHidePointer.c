@@ -1,92 +1,107 @@
 /*
- * XREFs of GreHidePointer @ 0x1C00E1284
+ * XREFs of GreHidePointer @ 0x1C0028DC0
  * Callers:
- *     ?HidePointer@CursorApiRouter@@QEAA_N_N@Z @ 0x1C00E11D0 (-HidePointer@CursorApiRouter@@QEAA_N_N@Z.c)
+ *     SetPointerMetaVisibility @ 0x1C0028D8C (SetPointerMetaVisibility.c)
+ *     ?RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z @ 0x1C01DA6B8 (-RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z.c)
+ *     ?xxxSwitchCursors@@YAXHH@Z @ 0x1C01DA9F0 (-xxxSwitchCursors@@YAXHH@Z.c)
+ *     NtUserShowSystemCursor @ 0x1C02031E0 (NtUserShowSystemCursor.c)
  * Callees:
- *     ?GreHidePointerInternal@@YAXPEAUHDEV__@@@Z @ 0x1C0072488 (-GreHidePointerInternal@@YAXPEAUHDEV__@@@Z.c)
- *     GreMovePointer @ 0x1C0078400 (GreMovePointer.c)
- *     GreUpdatePointerState @ 0x1C00E1640 (GreUpdatePointerState.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     GreSetPointer @ 0x1C00FAA98 (GreSetPointer.c)
+ *     ?GreHidePointerInternal@@YAXPEAUHDEV__@@@Z @ 0x1C000873C (-GreHidePointerInternal@@YAXPEAUHDEV__@@@Z.c)
+ *     GreMovePointer @ 0x1C0016B30 (GreMovePointer.c)
+ *     GreSetPointer @ 0x1C0081D88 (GreSetPointer.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
  */
 
-__int64 __fastcall GreHidePointer(Gre::Base *a1)
+__int64 __fastcall GreHidePointer(int a1)
 {
-  unsigned int v1; // ebp
-  unsigned int v2; // r14d
-  struct Gre::Base::SESSION_GLOBALS *v3; // rdi
+  unsigned int v2; // ebp
   __int64 HDEV; // rax
-  HDEV v5; // rsi
-  __int64 v6; // rcx
+  HDEV v4; // rsi
+  __int64 v5; // rcx
+  __int64 CurrentProcessWin32Process; // rax
   __int64 v7; // rbx
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
+  int v8; // eax
+  unsigned int v10; // eax
+  unsigned int v11; // edx
+  struct _CURSINFO *v12; // rcx
   __int64 v13; // [rsp+48h] [rbp+10h] BYREF
   __int64 v14; // [rsp+50h] [rbp+18h] BYREF
 
-  v1 = (unsigned int)a1;
   v2 = 1;
-  v3 = Gre::Base::Globals(a1);
-  GreAcquireSemaphoreSharedInternal(*((_QWORD *)v3 + 10));
-  EtwTraceGreLockAcquireSemaphoreShared(L"GreBaseGlobals.hsemDynamicModeChange", *((_QWORD *)v3 + 10));
+  GreAcquireSemaphoreSharedInternal(ghsemDynamicModeChange);
+  EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
   HDEV = UserGetHDEV();
-  v5 = (HDEV)HDEV;
+  v4 = (HDEV)HDEV;
   if ( HDEV )
   {
     v13 = HDEV;
     if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v13) )
-      GreAcquireSemaphore(*((_QWORD *)v3 + 15));
-    v14 = *(_QWORD *)(v13 + 56);
+      GreAcquireSemaphore(ghsemGreLock);
+    v14 = *(_QWORD *)(v13 + 64);
     GreAcquireSemaphore(v14);
-    v7 = *(_QWORD *)(SGDGetSessionState(v6) + 32);
-    if ( (unsigned int)GreUpdatePointerState(v1) )
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v5);
+    v7 = CurrentProcessWin32Process;
+    if ( CurrentProcessWin32Process )
     {
-      if ( v1 )
+      v8 = *(_DWORD *)(CurrentProcessWin32Process + 12);
+      if ( a1 )
       {
-        GreHidePointerInternal(v5);
-      }
-      else
-      {
-        if ( *(_DWORD *)(v7 + 8676) )
+        if ( (v8 & 0x40000000) == 0 && gulCachedPointerRefs != -1 )
         {
-          if ( *(_BYTE *)(v7 + 8644) )
+          if ( !gulCachedPointerRefs )
           {
-            v9 = *(_QWORD *)(v7 + 8624);
-            v10 = *(unsigned int *)(v7 + 8632);
-            v11 = *(unsigned int *)(v7 + 8636);
-            v12 = *(unsigned int *)(v7 + 8640);
+            GreHidePointerInternal(v4);
+            v8 = *(_DWORD *)(v7 + 12);
           }
-          else
-          {
-            v9 = 0LL;
-            v10 = 0LL;
-            v11 = 0LL;
-            v12 = 0LL;
-          }
-          GreSetPointer(v9, v10, v11, v12);
-          *(_DWORD *)(v7 + 8676) = 0;
+          ++gulCachedPointerRefs;
+          *(_DWORD *)(v7 + 12) = v8 | 0x40000000;
         }
-        if ( *(_DWORD *)(v7 + 8680) )
+      }
+      else if ( (v8 & 0x40000000) != 0 )
+      {
+        *(_DWORD *)(v7 + 12) = v8 & 0xBFFFFFFF;
+        v10 = gulCachedPointerRefs;
+        if ( gulCachedPointerRefs )
         {
-          GreMovePointer(v5, *(_DWORD *)(v7 + 8656), *(_DWORD *)(v7 + 8660), *(_DWORD *)(v7 + 8664));
-          *(_DWORD *)(v7 + 8680) = 0;
+          --gulCachedPointerRefs;
+          if ( v10 == 1 )
+          {
+            if ( bCachedSetPointerRefs )
+            {
+              if ( byte_1C033933C )
+              {
+                v11 = dword_1C0339330;
+                v12 = gCachedSetPointerState;
+              }
+              else
+              {
+                v11 = 0;
+                v12 = 0LL;
+              }
+              GreSetPointer(v12, v11);
+              bCachedSetPointerRefs = 0;
+            }
+            if ( bCachedMovePointerRefs )
+            {
+              GreMovePointer(v4, dword_1C033C550, dword_1C033C554, dword_1C033C558);
+              bCachedMovePointerRefs = 0;
+            }
+          }
         }
       }
     }
     SEMOBJ::vUnlock((SEMOBJ *)&v14);
     if ( !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v13) )
     {
-      EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemGreLock");
-      GreReleaseSemaphoreInternal(*((_QWORD *)v3 + 15));
+      EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
+      GreReleaseSemaphoreInternal(ghsemGreLock);
     }
   }
   else
   {
     v2 = 0;
   }
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDynamicModeChange");
-  GreReleaseSemaphoreInternal(*((_QWORD *)v3 + 10));
+  EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+  GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
   return v2;
 }

@@ -1,31 +1,34 @@
 /*
- * XREFs of HalpDpStartProcessor @ 0x140A97C34
+ * XREFs of HalpDpStartProcessor @ 0x1409A8B94
  * Callers:
- *     HalpDpReplaceControl @ 0x140A97960 (HalpDpReplaceControl.c)
+ *     HalpDpReplaceControl @ 0x1409A88C0 (HalpDpReplaceControl.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403776B0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalGetProcessorIdByNtNumber @ 0x140383D00 (HalGetProcessorIdByNtNumber.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HalpInterruptStartProcessor @ 0x140A895A0 (HalpInterruptStartProcessor.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140376FC0 (HalGetProcessorIdByNtNumber.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A1C74 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HalpInterruptStartProcessor @ 0x140999F64 (HalpInterruptStartProcessor.c)
  */
 
 __int64 __fastcall HalpDpStartProcessor(ULONG_PTR BugCheckParameter2, _DWORD *a2, __int64 a3, unsigned int a4)
 {
-  int v4; // ebx
-  ULONG_PTR v5; // rsi
+  unsigned int v4; // ebx
+  __int64 v5; // r15
   ULONG_PTR MaximumRegisteredProcessorCount; // r14
   unsigned int v10; // ecx
   __int64 result; // rax
+  ULONG_PTR BugCheckParameter3; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = 0;
   v5 = (unsigned int)BugCheckParameter2;
+  LODWORD(BugCheckParameter3) = 0;
   MaximumRegisteredProcessorCount = (unsigned int)HalpQueryMaximumRegisteredProcessorCount();
-  if ( (int)HalGetProcessorIdByNtNumber((unsigned int)v5) < 0 )
+  CurTiledCr3LowPart = *(_DWORD *)(HalpTiledCr3Addresses + 8 * v5 + 4);
+  if ( HalGetProcessorIdByNtNumber(v5, &BugCheckParameter3) < 0 )
     KeBugCheckEx(0x5Cu, 0x2001uLL, (unsigned int)v5, (unsigned int)MaximumRegisteredProcessorCount, 0LL);
   v10 = 0;
   if ( a4 )
   {
-    while ( *a2 )
+    while ( *a2 != (_DWORD)BugCheckParameter3 )
     {
       ++v10;
       ++a2;
@@ -36,9 +39,9 @@ __int64 __fastcall HalpDpStartProcessor(ULONG_PTR BugCheckParameter2, _DWORD *a2
   }
 LABEL_8:
   if ( v10 == a4 )
-    KeBugCheckEx(0x5Cu, 0x2001uLL, v5, 0LL, 1uLL);
-  result = HalpInterruptStartProcessor(v5, v4, 3, (const void *)(HalpHiberProcState + 1472 * v5));
+    KeBugCheckEx(0x5Cu, 0x2001uLL, (unsigned int)v5, (unsigned int)BugCheckParameter3, 1uLL);
+  result = HalpInterruptStartProcessor(v5, v4, 3, (const void *)(HalpHiberProcState + 1472LL * (unsigned int)v5));
   if ( (_DWORD)result != 4 )
-    KeBugCheckEx(0x5Cu, 0x2001uLL, v5, MaximumRegisteredProcessorCount, 2uLL);
+    KeBugCheckEx(0x5Cu, 0x2001uLL, (unsigned int)v5, MaximumRegisteredProcessorCount, 2uLL);
   return result;
 }

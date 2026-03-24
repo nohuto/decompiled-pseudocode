@@ -1,31 +1,36 @@
 /*
- * XREFs of PopProcessorParkMaskNotification @ 0x14058CDA0
+ * XREFs of PopProcessorParkMaskNotification @ 0x14056E1D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopProcessorParkMaskNotification(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rbx
+  __int64 v2; // r11
   unsigned int v3; // r10d
   __int64 v4; // rcx
-  __int64 v5; // r9
+  unsigned __int8 (__fastcall *v5)(__int64, __int64, __int64); // rax
+  __int64 v6; // r9
 
   v2 = *(_QWORD *)(a1 + 64);
   v3 = 0;
   v4 = *(_QWORD *)(a1 + 72);
-  if ( !v2 || !*(_QWORD *)(v2 + 104) )
+  if ( !v2 )
+    return 3221225474LL;
+  v5 = *(unsigned __int8 (__fastcall **)(__int64, __int64, __int64))(v2 + 104);
+  if ( !v5 )
     return 3221225474LL;
   if ( *(_DWORD *)a2 )
   {
     do
     {
-      v5 = v3++;
-      *(_QWORD *)(*(_QWORD *)(a2 + 16) + 16 * v5) = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 16) + 16 * v5) + 72LL);
+      v6 = v3++;
+      *(_QWORD *)(*(_QWORD *)(a2 + 16) + 16 * v6) = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 16) + 16 * v6) + 72LL);
     }
     while ( v3 < *(_DWORD *)a2 );
+    v5 = *(unsigned __int8 (__fastcall **)(__int64, __int64, __int64))(v2 + 104);
   }
-  return (*(unsigned __int8 (__fastcall **)(__int64, __int64, __int64))(v2 + 104))(v4, 32LL, a2) == 0 ? 0xC00000BB : 0;
+  return v5(v4, 32LL, a2) == 0 ? 0xC00000BB : 0;
 }

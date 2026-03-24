@@ -1,83 +1,82 @@
 /*
- * XREFs of MiSoftFaultMappedView @ 0x140270A00
+ * XREFs of MiSoftFaultMappedView @ 0x14028D5A0
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140222100 (KeShouldYieldProcessor.c)
- *     MiUnlockFaultWorkingSet @ 0x14024D050 (MiUnlockFaultWorkingSet.c)
- *     MiImagePageOk @ 0x140271020 (MiImagePageOk.c)
- *     MiInvalidPteConforms @ 0x140273A80 (MiInvalidPteConforms.c)
- *     MiLockProtoPoolPage @ 0x140273AF0 (MiLockProtoPoolPage.c)
- *     MiCompleteRestrictedImageFault @ 0x1402CB710 (MiCompleteRestrictedImageFault.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiVadMapsLargeImage @ 0x14030EC40 (MiVadMapsLargeImage.c)
- *     MiMakeSystemAddressValid @ 0x14032CE60 (MiMakeSystemAddressValid.c)
- *     MiUnlockProtoPoolPage @ 0x140334790 (MiUnlockProtoPoolPage.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x14059A31C (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiVadMapsLargeImage @ 0x14021CC20 (MiVadMapsLargeImage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
+ *     MiInvalidPteConforms @ 0x14023B540 (MiInvalidPteConforms.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     MiImagePageOk @ 0x14028DC10 (MiImagePageOk.c)
+ *     MiUnlockFaultWorkingSet @ 0x14028DD1C (MiUnlockFaultWorkingSet.c)
+ *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
+ *     MiMakeSystemAddressValid @ 0x14030E390 (MiMakeSystemAddressValid.c)
+ *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
+ *     MiCompleteRestrictedImageFault @ 0x14031D0A0 (MiCompleteRestrictedImageFault.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall MiSoftFaultMappedView(__int64 a1)
 {
   int v1; // edx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v3; // rbx
+  __int64 v3; // r12
   __int64 v4; // rcx
   __int64 v5; // rcx
-  unsigned __int64 v6; // rdi
-  __int64 v7; // r13
-  int v8; // r15d
+  int v6; // r14d
+  int v7; // r15d
+  __int64 v8; // r13
   __int64 v9; // rdx
   __int64 v10; // rax
-  __int64 v11; // rcx
+  unsigned __int64 v11; // rcx
   unsigned __int64 *v12; // rsi
-  unsigned __int64 v13; // r14
+  ULONG_PTR v13; // rdi
   unsigned __int64 v14; // rcx
-  unsigned __int64 v15; // r12
-  __int64 v16; // rdx
+  unsigned __int64 v15; // rbx
+  __int64 v16; // r8
   __int64 v17; // r9
-  unsigned __int64 v18; // r12
-  _DWORD *v19; // rax
-  unsigned __int64 v20; // r8
-  unsigned __int64 v21; // rbx
-  unsigned __int64 v22; // rax
+  unsigned __int64 *v18; // rbx
+  __int64 v19; // rbx
+  LONG *v20; // rax
+  unsigned __int64 i; // rdx
+  unsigned __int64 v22; // rbx
   unsigned __int64 v23; // rax
-  __int64 v24; // rdi
-  volatile signed __int64 *v25; // rbx
-  unsigned __int64 v26; // rdi
-  unsigned int v27; // ecx
-  int v28; // ebx
-  __int64 v29; // rdx
-  unsigned int v30; // ebx
-  unsigned int v31; // ebx
-  __int64 v32; // rdx
-  __int64 v33; // rcx
+  __int64 v24; // r12
+  __int64 v25; // r15
+  int v26; // ecx
+  ULONG_PTR v27; // rbx
+  ULONG_PTR v28; // rbx
+  unsigned __int64 v29; // rdx
+  int v30; // r15d
+  __int64 v31; // rdx
+  __int64 v32; // r8
+  _DWORD *v33; // r9
   unsigned __int8 v35[4]; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned int v36; // [rsp+34h] [rbp-CCh]
-  __int64 v37; // [rsp+38h] [rbp-C8h]
-  __int128 v38; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int64 v39; // [rsp+50h] [rbp-B0h]
+  int v36; // [rsp+34h] [rbp-CCh]
+  ULONG_PTR v37; // [rsp+38h] [rbp-C8h]
+  __int64 v38; // [rsp+40h] [rbp-C0h]
+  __int128 v39; // [rsp+48h] [rbp-B8h] BYREF
   unsigned __int64 v40; // [rsp+58h] [rbp-A8h]
   __int64 v41; // [rsp+60h] [rbp-A0h]
   __int64 v42; // [rsp+68h] [rbp-98h]
   int v43; // [rsp+70h] [rbp-90h] BYREF
-  unsigned __int64 v44; // [rsp+78h] [rbp-88h]
+  ULONG_PTR v44; // [rsp+78h] [rbp-88h]
   _QWORD v45[16]; // [rsp+80h] [rbp-80h] BYREF
 
   v1 = *(_DWORD *)(a1 + 48);
-  v39 = 0LL;
-  v42 = a1;
+  v40 = 0LL;
+  v38 = a1;
   LODWORD(CurrentThread) = v1 & 0xF80;
   v3 = a1;
-  v38 = 0LL;
+  v39 = 0LL;
   if ( (_DWORD)CurrentThread == 128 )
     return (char)CurrentThread;
-  if ( (v1 & 0x200000) == 0 )
+  if ( (v1 & 0x100000) == 0 )
   {
     LOBYTE(CurrentThread) = v1 & 0x70;
-    if ( (v1 & 0x70) == 0x20 && (v1 & 0x400000) != 0 )
+    if ( (v1 & 0x70) == 0x20 && (v1 & 0x200000) != 0 )
       return (char)CurrentThread;
   }
   LODWORD(CurrentThread) = MiVadMapsLargeImage(a1);
@@ -85,239 +84,217 @@ char __fastcall MiSoftFaultMappedView(__int64 a1)
     return (char)CurrentThread;
   CurrentThread = *(struct _KTHREAD **)(v4 + 72);
   v5 = *(_QWORD *)&CurrentThread->Header.Lock;
-  if ( (*(_DWORD *)(*(_QWORD *)&CurrentThread->Header.Lock + 56LL) & 0x8000000) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)&CurrentThread->Header.Lock + 56LL) & 0x4000000) != 0 )
     return (char)CurrentThread;
-  v6 = 0LL;
+  v6 = 0;
+  v7 = 0;
   v36 = 0;
+  v41 = 0LL;
+  v37 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v7 = *(_QWORD *)(v5 + 32);
-  v8 = 0;
-  v40 = 0LL;
-  v9 = (__int64)&CurrentThread->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
-  v41 = v9;
-  if ( !v7 )
+  v8 = *(_QWORD *)(v5 + 32);
+  v9 = (__int64)&CurrentThread->ApcState.Process[1].ActiveProcessorsPadding[6];
+  v42 = v9;
+  if ( !v8 )
     return (char)CurrentThread;
   v10 = *(unsigned int *)(v3 + 24);
-  v37 = 0LL;
-  v11 = *(unsigned __int8 *)(v3 + 32);
+  v11 = (unsigned __int64)*(unsigned __int8 *)(v3 + 32) << 32;
   v12 = *(unsigned __int64 **)(v3 + 80);
   v35[0] = 17;
-  v13 = 8 * ((v10 | (v11 << 32)) & 0xFFFFFFFFFLL) - 0x98000000000LL;
+  v13 = 8 * ((v10 | v11) & 0xFFFFFFFFFLL) - 0x98000000000LL;
   v14 = (*(unsigned int *)(v3 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v3 + 33) << 32)) & 0xFFFFFFFFFLL;
-  BYTE13(v38) |= 4u;
+  BYTE13(v39) |= 4u;
   v15 = 8 * v14 - 0x98000000000LL;
   v44 = v15;
-  *(_QWORD *)&v38 = v9;
-  BYTE12(v38) = MiLockWorkingSetShared(v9);
+  *(_QWORD *)&v39 = v9;
+  BYTE12(v39) = MiLockWorkingSetShared(v9, v9, 0xFFFFFFFFFLL, (_DWORD *)0xFFFFF68000000000LL);
   if ( v13 > v15 )
-    goto LABEL_66;
+    goto LABEL_46;
+  v18 = v12;
   while ( 1 )
   {
-    v18 = v6;
-    if ( (unsigned __int64)v12 > *(_QWORD *)(v3 + 88) || !v7 )
+    if ( (unsigned __int64)v18 > *(_QWORD *)(v3 + 88) || !v8 )
+      goto LABEL_41;
+    if ( v6
+      && (v6 & 8) == 0
+      && ((v19 = v42, (*(_BYTE *)(v42 + 184) & 7) == 2) ? (v20 = &dword_140C4F780) : (v20 = (LONG *)(v42 + 192)),
+          (*v20 & 0x40000000) != 0 || KeShouldYieldProcessor()) )
     {
-LABEL_61:
-      v31 = v36;
-LABEL_62:
-      if ( v37 )
-        MiUnlockProtoPoolPage(v37, v35[0]);
-      if ( v31 )
-        MiCompleteRestrictedImageFault(&v38, v6, v45, v31);
-      goto LABEL_66;
-    }
-    if ( v8
-      && (v8 & 8) == 0
-      && ((*(_BYTE *)(v41 + 184) & 7) == 2 ? (v19 = &unk_140C53D00) : (v19 = (_DWORD *)(v41 + 192)),
-          (*v19 & 0x40000000) != 0 || KeShouldYieldProcessor()) )
-    {
-      v28 = 1;
+      v30 = 1;
     }
     else
     {
-      if ( v39 && (v13 & 0xFFF) != 0 )
-        goto LABEL_19;
-      v28 = 2;
+      if ( v40 && (v13 & 0xFFF) != 0 )
+        goto LABEL_20;
+      v19 = v42;
+      v30 = 2;
     }
-    if ( v37 )
+    if ( v35[0] != 17 )
     {
-      MiUnlockProtoPoolPage(v37, v35[0]);
-      v37 = 0LL;
-    }
-    if ( v36 )
-    {
-      if ( !(unsigned int)MiCompleteRestrictedImageFault(&v38, v6, v45, v36) )
-        goto LABEL_74;
-      v36 = 0;
-    }
-    v29 = v39;
-    if ( v39 )
-    {
-      MiUnlockPageTableInternal(v41, v39);
-      v39 = 0LL;
-    }
-    if ( v28 == 1 )
-    {
-      MiUnlockFaultWorkingSet((__int64 *)&v38, v29);
-      v30 = *(_DWORD *)(v42 + 48);
-      MiLockWorkingSetShared(v41);
-    }
-    else
-    {
-      v30 = *(_DWORD *)(v42 + 48);
-    }
-    MiMakeSystemAddressValid(v13, 0, (v30 >> 12) & 0x7F, BYTE12(v38), 0);
-    v39 = ((v13 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-LABEL_19:
-    ++v8;
-    if ( *(_QWORD *)v13 )
-      goto LABEL_39;
-    if ( ((unsigned __int16)v12 & 0xFFF) != 0 )
-    {
-      if ( v37 )
-        break;
-    }
-    else if ( v37 )
-    {
-      MiUnlockProtoPoolPage(v37, v35[0]);
-      v37 = 0LL;
+      MiUnlockProtoPoolPage(v41, v35[0]);
+      v35[0] = 17;
     }
     if ( v36 )
     {
-      if ( !(unsigned int)MiCompleteRestrictedImageFault(&v38, v6, v45, v36) )
+      if ( !(unsigned int)MiCompleteRestrictedImageFault(&v39, v37, v45) )
       {
-LABEL_74:
-        v31 = 0;
-        goto LABEL_62;
+        v7 = 0;
+LABEL_41:
+        v28 = v37;
+LABEL_42:
+        if ( v35[0] != 17 )
+          MiUnlockProtoPoolPage(v41, v35[0]);
+        if ( v7 )
+          MiCompleteRestrictedImageFault(&v39, v28, v45);
+        goto LABEL_46;
       }
       v36 = 0;
     }
-    v37 = MiLockProtoPoolPage(v12, v35);
-    if ( v37 )
-      break;
-    v16 = v39;
-    v33 = (4096 - ((unsigned __int16)v12 & 0xFFF)) & 0xFFFFFFF8;
-    v12 = (unsigned __int64 *)((char *)v12 + v33);
-    v13 += v33;
-    if ( v39 && v39 != ((v13 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
+    if ( v40 )
     {
-      MiUnlockPageTableInternal(v41, v39);
-      v39 = 0LL;
+      MiUnlockPageTableInternal(v19, v40);
+      v40 = 0LL;
     }
+    if ( v30 == 1 )
+    {
+      MiUnlockFaultWorkingSet(&v39);
+      MiLockWorkingSetShared(v42, v31, v32, v33);
+    }
+    MiMakeSystemAddressValid(v13, 0);
+    v7 = v36;
+    v40 = ((v13 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+LABEL_20:
+    ++v6;
+    if ( !*(_QWORD *)v13 )
+      break;
+LABEL_39:
+    ++v12;
+    v13 += 8LL;
+    v18 = v12;
 LABEL_40:
-    v6 = v40;
+    v7 = v36;
     if ( v13 > v44 )
-      goto LABEL_61;
-    v3 = v42;
+      goto LABEL_41;
   }
+  if ( ((unsigned __int16)v12 & 0xFFF) != 0 )
+  {
+    if ( v35[0] != 17 )
+      goto LABEL_23;
+  }
+  else if ( v35[0] != 17 )
+  {
+    MiUnlockProtoPoolPage(v41, v35[0]);
+    v35[0] = 17;
+  }
+  if ( v7 )
+  {
+    v28 = v37;
+    if ( !(unsigned int)MiCompleteRestrictedImageFault(&v39, v37, v45) )
+    {
+      v7 = 0;
+      goto LABEL_42;
+    }
+    v36 = 0;
+  }
+  v41 = MiLockProtoPoolPage(v12, v35);
+  if ( !v41 )
+  {
+    v29 = 8 * ((unsigned __int64)(4096 - ((unsigned __int16)v12 & 0xFFFu)) >> 3);
+    v12 = (unsigned __int64 *)((char *)v12 + v29);
+    v13 += v29;
+    v18 = v12;
+    if ( v40 && v40 != ((v13 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
+    {
+      MiUnlockPageTableInternal(v42, v40);
+      v40 = 0LL;
+    }
+    goto LABEL_40;
+  }
+LABEL_23:
   if ( (*(_BYTE *)v12 & 1) == 0 )
     goto LABEL_39;
-  v20 = 0x7FFFFFFFFFFFFFFFLL;
-  while ( 2 )
+  for ( i = 0x7FFFFFFFFFFFFFFFLL; ; _InterlockedAnd64((volatile signed __int64 *)(v25 + 24), i) )
   {
-    while ( 2 )
+    while ( 1 )
     {
-      while ( 2 )
+      v22 = *v12;
+      v23 = *v12;
+      if ( (*v12 & 1) != 0 )
+        goto LABEL_26;
+      if ( (*v12 & 0xC00) != 0x800 )
+        goto LABEL_38;
+      if ( MiInvalidPteConforms(*v12) )
       {
-        while ( 1 )
-        {
-          v21 = *v12;
-          v22 = *v12;
-          if ( (*v12 & 1) != 0 )
-            break;
-          if ( (*v12 & 0xC00) != 0x800 )
-            goto LABEL_39;
-          if ( (unsigned int)MiInvalidPteConforms(*v12, v16, v20, v17) )
-          {
-            v22 = v21;
-            if ( qword_140C50780 && (v21 & 0x10) == 0 )
-              v22 = v21 & ~qword_140C50780;
-            break;
-          }
-        }
-        v23 = (v22 >> 12) & 0xFFFFFFFFFFLL;
-        if ( v23 > qword_140C50840 )
-          continue;
-        break;
+        v23 = v22;
+        if ( qword_140C4DF40 && (v22 & 0x10) == 0 )
+          v23 = v22 & ~qword_140C4DF40;
+LABEL_26:
+        v24 = 48 * ((v23 >> 12) & 0xFFFFFFFFFLL);
+        if ( (*(_QWORD *)(v24 - 0x57FFFFFFFD8LL) & 0x4000000000000LL) != 0 )
+          break;
       }
-      v16 = 6 * v23;
-      if ( !_bittest64((const signed __int64 *)(48 * v23 - 0x21FFFFFFFFD8LL), 0x36u) )
-        continue;
-      break;
     }
-    v24 = 48 * v23 - 0x220000000000LL;
+    v25 = v24 - 0x58000000000LL;
     v43 = 0;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)(v24 + 24), 0x3FuLL) )
+    if ( _interlockedbittestandset64((volatile signed __int32 *)(v24 - 0x58000000000LL + 24), 0x3FuLL) )
     {
       do
       {
         do
-          KeYieldProcessorEx(&v43);
-        while ( *(__int64 *)(v24 + 24) < 0 );
+          KeYieldProcessorEx(&v43, i, v16, v17);
+        while ( *(__int64 *)(v25 + 24) < 0 );
       }
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(v24 + 24), 0x3FuLL) );
-      v20 = 0x7FFFFFFFFFFFFFFFLL;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v25 + 24), 0x3FuLL) );
+      i = 0x7FFFFFFFFFFFFFFFLL;
     }
-    if ( *v12 != v21 )
-    {
-      _InterlockedAnd64((volatile signed __int64 *)(v24 + 24), v20);
-      continue;
-    }
-    break;
+    if ( *v12 == v22 )
+      break;
   }
-  if ( (*(_DWORD *)(*(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(v24 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x100) != 0 )
+  if ( v24 == 0x58000000000LL )
   {
-    v24 = MiLockSpecialPurposeMemoryCachedPage(v24, 0LL);
-    v20 = 0x7FFFFFFFFFFFFFFFLL;
-  }
-  if ( !v24 )
+LABEL_38:
+    v3 = v38;
     goto LABEL_39;
-  v25 = (volatile signed __int64 *)(v24 + 24);
-  if ( (*(_BYTE *)v12 & 1) == 0 || (--v7, (*(_DWORD *)(v24 + 16) & 0x400LL) == 0) || (*(_BYTE *)(v24 + 35) & 0x40) != 0 )
-  {
-    _InterlockedAnd64(v25, v20);
-LABEL_39:
-    ++v12;
-    v13 += 8LL;
-    goto LABEL_40;
   }
-  if ( !(unsigned int)MiImagePageOk((__int64)(v13 << 25) >> 16, v24, v20, v42) )
+  if ( (*(_BYTE *)v12 & 1) == 0 || (--v8, (*(_DWORD *)(v25 + 16) & 0x400LL) == 0) || (*(_BYTE *)(v25 + 35) & 0x40) != 0 )
   {
-    _InterlockedAnd64(v25, 0x7FFFFFFFFFFFFFFFuLL);
-    goto LABEL_39;
+    _InterlockedAnd64((volatile signed __int64 *)(v25 + 24), i);
+    goto LABEL_38;
+  }
+  if ( !(unsigned int)MiImagePageOk((__int64)(v13 << 25) >> 16, v24 - 0x58000000000LL, v16, v38) )
+  {
+    _InterlockedAnd64((volatile signed __int64 *)(v25 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    goto LABEL_38;
   }
   v16 = 0x3FFFFFFFFFFFFFFFLL;
-  v26 = 0xAAAAAAAAAAAAAAABuLL * ((v24 + 0x220000000000LL) >> 4);
-  *v25 ^= (*v25 ^ (*v25 + 1)) & 0x3FFFFFFFFFFFFFFFLL;
-  _InterlockedAnd64(v25, 0x7FFFFFFFFFFFFFFFuLL);
-  if ( v26 == -1LL )
-    goto LABEL_39;
-  v27 = v36;
-  v45[v36] = v26;
-  if ( !v27 )
+  *(_QWORD *)(v25 + 24) ^= (*(_QWORD *)(v25 + 24) ^ (*(_QWORD *)(v25 + 24) + 1LL)) & 0x3FFFFFFFFFFFFFFFLL;
+  _InterlockedAnd64((volatile signed __int64 *)(v25 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  if ( v24 / 48 == -1 )
+    goto LABEL_38;
+  v26 = v36;
+  v27 = v13;
+  if ( v36 )
+    v27 = v37;
+  v45[v36] = v24 / 48;
+  v37 = v27;
+  v36 = v26 + 1;
+  if ( v26 != 15 )
+    goto LABEL_38;
+  MiUnlockProtoPoolPage(v41, v35[0]);
+  v35[0] = 17;
+  if ( (unsigned int)MiCompleteRestrictedImageFault(&v39, v27, v45) )
   {
-    v40 = v13;
-    v36 = 1;
-    goto LABEL_39;
-  }
-  v40 = v18;
-  v36 = v27 + 1;
-  if ( v27 != 15 )
-    goto LABEL_39;
-  MiUnlockProtoPoolPage(v37, v35[0]);
-  v37 = 0LL;
-  if ( (unsigned int)MiCompleteRestrictedImageFault(&v38, v18, v45, 16LL) )
-  {
+    v17 = 0LL;
+    v37 = v27;
     v36 = 0;
-    v40 = v18;
-    goto LABEL_39;
+    goto LABEL_38;
   }
-LABEL_66:
-  v32 = v39;
-  if ( v39 )
+LABEL_46:
+  if ( v40 )
   {
-    MiUnlockPageTableInternal(v41, v39);
-    v39 = 0LL;
+    MiUnlockPageTableInternal(v42, v40);
+    v40 = 0LL;
   }
-  LOBYTE(CurrentThread) = MiUnlockFaultWorkingSet((__int64 *)&v38, v32);
+  LOBYTE(CurrentThread) = MiUnlockFaultWorkingSet(&v39);
   return (char)CurrentThread;
 }

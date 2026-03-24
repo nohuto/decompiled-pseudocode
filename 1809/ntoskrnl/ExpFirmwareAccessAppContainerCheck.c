@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpFirmwareAccessAppContainerCheck @ 0x1408D0A30
+ * XREFs of ExpFirmwareAccessAppContainerCheck @ 0x1408D0A10
  * Callers:
- *     ExpGetSystemFirmwareTableInformation @ 0x1406B8020 (ExpGetSystemFirmwareTableInformation.c)
- *     NtQuerySystemEnvironmentValueEx @ 0x1406CAD20 (NtQuerySystemEnvironmentValueEx.c)
- *     NtSetSystemEnvironmentValueEx @ 0x1408D5BE0 (NtSetSystemEnvironmentValueEx.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1406B8000 (ExpGetSystemFirmwareTableInformation.c)
+ *     NtQuerySystemEnvironmentValueEx @ 0x1406CAD00 (NtQuerySystemEnvironmentValueEx.c)
+ *     NtSetSystemEnvironmentValueEx @ 0x1408D5BC0 (NtSetSystemEnvironmentValueEx.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
- *     RtlCheckTokenMembershipEx @ 0x1400DCB10 (RtlCheckTokenMembershipEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryInformationToken @ 0x1401B8590 (ZwQueryInformationToken.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
+ *     RtlCheckTokenMembershipEx @ 0x1400DCB30 (RtlCheckTokenMembershipEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryInformationToken @ 0x1401B85B0 (ZwQueryInformationToken.c)
  *     RtlRunOnceExecuteOnce @ 0x14060D910 (RtlRunOnceExecuteOnce.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
- *     ExpCapabilityCheck @ 0x1408CFC14 (ExpCapabilityCheck.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
+ *     ExpCapabilityCheck @ 0x1408CFBF4 (ExpCapabilityCheck.c)
  */
 
 bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)

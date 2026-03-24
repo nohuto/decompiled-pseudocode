@@ -1,12 +1,12 @@
 /*
- * XREFs of ?TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z @ 0x1C030DED0
+ * XREFs of ?TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z @ 0x1C0264F30
  * Callers:
  *     <none>
  * Callees:
- *     ?TdrValidateDebugMode@@YAXXZ @ 0x1C00500F4 (-TdrValidateDebugMode@@YAXXZ.c)
- *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030E0D0 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
- *     ?TdrCreateRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@XZ @ 0x1C030EF00 (-TdrCreateRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@XZ.c)
- *     TdrBugcheckOnTimeout @ 0x1C030FD40 (TdrBugcheckOnTimeout.c)
+ *     ?TdrValidateDebugMode@@YAXXZ @ 0x1C0045194 (-TdrValidateDebugMode@@YAXXZ.c)
+ *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0265110 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrCreateRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@XZ @ 0x1C0265FC0 (-TdrCreateRecoveryContext@@YAPEAU_TDR_RECOVERY_CONTEXT@@XZ.c)
+ *     TdrBugcheckOnTimeout @ 0x1C0266E00 (TdrBugcheckOnTimeout.c)
  */
 
 bool __fastcall TdrAllowToDebugEngineTimeout(struct _VIDSCH_NODE *a1, struct DXGADAPTER *a2)
@@ -15,26 +15,26 @@ bool __fastcall TdrAllowToDebugEngineTimeout(struct _VIDSCH_NODE *a1, struct DXG
   char v4; // al
   char v5; // bl
   struct _TDR_RECOVERY_CONTEXT *RecoveryContext; // rax
-  ULONG_PTR v8; // rbx
-  _QWORD *v9; // rdx
-  __int64 v10; // rax
-  int v11; // [rsp+38h] [rbp+10h] BYREF
+  ULONG_PTR v7; // rbx
+  _QWORD *v8; // rdx
+  __int64 v9; // rax
+  int v11; // [rsp+40h] [rbp+18h] BYREF
 
   v3 = a1;
-  if ( (dword_1C0142518 & 1) != 0 )
+  if ( (dword_1C00B4834 & 1) != 0 )
   {
-    v4 = byte_1C014251C;
+    v4 = byte_1C00B4838;
   }
   else
   {
     LOBYTE(a1) = 1;
-    dword_1C0142518 |= 1u;
+    dword_1C00B4834 |= 1u;
     v4 = (unsigned __int8)WdIsDebuggerPresent(a1) != 0;
-    byte_1C014251C = v4;
+    byte_1C00B4838 = v4;
   }
-  byte_1C0140A84 = v4;
+  byte_1C00B3174 = v4;
   TdrValidateDebugMode();
-  if ( (byte_1C0140A84 || (unsigned __int8)WdQueryDebugFlag(0LL)) && !g_TdrDebugMode )
+  if ( (byte_1C00B3174 || (unsigned __int8)WdQueryDebugFlag(0LL)) && !g_TdrDebugMode )
   {
     DbgPrintEx(
       0x65u,
@@ -73,28 +73,28 @@ bool __fastcall TdrAllowToDebugEngineTimeout(struct _VIDSCH_NODE *a1, struct DXG
     while ( (unsigned int)g_TdrDebugMode >= 4 );
     g_EngineTimeoutNode = 0LL;
   }
-  if ( !*((_BYTE *)a2 + 213) || g_TdrConfig == 1 )
+  if ( g_TdrConfig == 1 )
   {
     v11 = 1;
     RecoveryContext = TdrCreateRecoveryContext();
-    v8 = (ULONG_PTR)RecoveryContext;
+    v7 = (ULONG_PTR)RecoveryContext;
     if ( RecoveryContext )
     {
       *((_DWORD *)RecoveryContext + 4) = 6;
       *((_QWORD *)RecoveryContext + 1) = &v11;
       *((_QWORD *)RecoveryContext + 4) = a2;
-      _InterlockedAdd64((volatile signed __int64 *)a2 + 3, 1uLL);
+      _InterlockedIncrement64((volatile signed __int64 *)a2 + 3);
       *((_QWORD *)RecoveryContext + 5) = -1LL;
-      v9 = (_QWORD *)*((_QWORD *)RecoveryContext + 4);
-      *((_DWORD *)RecoveryContext + 36) = 65540;
-      *((_DWORD *)RecoveryContext + 37) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v9[27] + 64LL) + 40LL) + 28LL);
-      v10 = v9[74];
-      if ( !v10 )
-        v10 = v9[56];
-      *(_QWORD *)(v8 + 104) = v10;
-      TdrCollectDbgInfoStage1((struct _TDR_RECOVERY_CONTEXT *)v8, 1);
+      v8 = (_QWORD *)*((_QWORD *)RecoveryContext + 4);
+      *((_DWORD *)RecoveryContext + 34) = 49156;
+      *((_DWORD *)RecoveryContext + 35) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v8[27] + 64LL) + 40LL) + 28LL);
+      v9 = v8[63];
+      if ( !v9 )
+        v9 = v8[45];
+      *(_QWORD *)(v7 + 96) = v9;
+      TdrCollectDbgInfoStage1((struct _TDR_RECOVERY_CONTEXT *)v7, 1);
     }
-    TdrBugcheckOnTimeout(v8);
+    TdrBugcheckOnTimeout(v7);
   }
   return g_TdrDebugMode == 1;
 }

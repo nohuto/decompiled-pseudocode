@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIBuildProcessThermalZoneFailure @ 0x1C004AB30
+ * XREFs of ACPIBuildProcessThermalZoneFailure @ 0x1C004C030
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildProcessGenericComplete @ 0x1C0004900 (ACPIBuildProcessGenericComplete.c)
- *     WPP_RECORDER_SF_LLqss @ 0x1C000E000 (WPP_RECORDER_SF_LLqss.c)
+ *     ACPIBuildProcessGenericComplete @ 0x1C001D510 (ACPIBuildProcessGenericComplete.c)
+ *     WPP_RECORDER_SF_LLqss @ 0x1C0020B00 (WPP_RECORDER_SF_LLqss.c)
  */
 
 __int64 __fastcall ACPIBuildProcessThermalZoneFailure(PSLIST_ENTRY ListEntry)
@@ -18,18 +18,18 @@ __int64 __fastcall ACPIBuildProcessThermalZoneFailure(PSLIST_ENTRY ListEntry)
   int v9; // [rsp+20h] [rbp-38h]
 
   v1 = *((_QWORD *)&ListEntry[2].Next + 1);
-  v2 = &unk_1C006FB8B;
+  v2 = &unk_1C00701BA;
   v3 = 0LL;
-  v5 = &unk_1C006FB8B;
+  v5 = &unk_1C00701BA;
   if ( v1 )
   {
     v6 = *(_QWORD *)(v1 + 8);
     v3 = v1;
     if ( (v6 & 0x200000000000LL) != 0 )
     {
-      v2 = *(void **)(v1 + 608);
+      v2 = *(void **)(v1 + 568);
       if ( (v6 & 0x400000000000LL) != 0 )
-        v5 = *(void **)(v1 + 616);
+        v5 = *(void **)(v1 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -45,17 +45,17 @@ __int64 __fastcall ACPIBuildProcessThermalZoneFailure(PSLIST_ENTRY ListEntry)
       (__int64)v2,
       (__int64)v5);
   _InterlockedOr64((volatile signed __int64 *)(v1 + 8), 0x2000000000000uLL);
-  if ( *(_QWORD *)(v1 + 616) )
+  if ( *(_QWORD *)(v1 + 576) )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v1 + 8), 0xFFFEBFFFFFFFFFFFuLL);
-    ExFreePoolWithTag(*(PVOID *)(v1 + 616), 0);
-    *(_QWORD *)(v1 + 616) = 0LL;
+    ExFreePoolWithTag(*(PVOID *)(v1 + 576), 0);
+    *(_QWORD *)(v1 + 576) = 0LL;
   }
-  if ( *(_QWORD *)(v1 + 608) )
+  if ( *(_QWORD *)(v1 + 568) )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v1 + 8), 0xFFFF5FFFFFFFFFFFuLL);
-    ExFreePoolWithTag(*(PVOID *)(v1 + 608), 0);
-    *(_QWORD *)(v1 + 608) = 0LL;
+    ExFreePoolWithTag(*(PVOID *)(v1 + 568), 0);
+    *(_QWORD *)(v1 + 568) = 0LL;
   }
   v7 = *(void **)(v1 + 200);
   if ( v7 )

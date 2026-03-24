@@ -1,5 +1,5 @@
 /*
- * XREFs of MiIsPteInStore @ 0x1401417E8
+ * XREFs of MiIsPteInStore @ 0x140141808
  * Callers:
  *     MiComputeFaultCluster @ 0x14002B4B8 (MiComputeFaultCluster.c)
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
@@ -7,9 +7,9 @@
  *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
  *     MiResolveProtoCombine @ 0x14007BF74 (MiResolveProtoCombine.c)
  *     MiUpdatePfnPriority @ 0x140082AB8 (MiUpdatePfnPriority.c)
- *     MiResolvePageFileFault @ 0x140154B24 (MiResolvePageFileFault.c)
- *     MiCheckCommitReleaseFromVad @ 0x1402A38CC (MiCheckCommitReleaseFromVad.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4268 (MiMakeOutswappedPageResident.c)
+ *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1402A39CC (MiCheckCommitReleaseFromVad.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
  * Callees:
  *     <none>
  */

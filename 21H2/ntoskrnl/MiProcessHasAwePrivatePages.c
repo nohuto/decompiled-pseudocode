@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProcessHasAwePrivatePages @ 0x1405ABD04
+ * XREFs of MiProcessHasAwePrivatePages @ 0x14054D348
  * Callers:
- *     MiScrubProcesses @ 0x140983B80 (MiScrubProcesses.c)
+ *     MiScrubProcesses @ 0x1408DC010 (MiScrubProcesses.c)
  * Callees:
  *     <none>
  */
 
 _BOOL8 __fastcall MiProcessHasAwePrivatePages(__int64 a1)
 {
-  return *(_QWORD *)(*(_QWORD *)(a1 + 1680) + 376LL) != 0LL;
+  return *(_QWORD *)(*(_QWORD *)(a1 + 1680) + 392LL) != 0LL;
 }

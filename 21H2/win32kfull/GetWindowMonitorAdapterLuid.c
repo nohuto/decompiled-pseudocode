@@ -1,8 +1,8 @@
 /*
- * XREFs of GetWindowMonitorAdapterLuid @ 0x1C00EDD08
+ * XREFs of GetWindowMonitorAdapterLuid @ 0x1C0118E78
  * Callers:
- *     CreateOrGetRedirectionBitmap @ 0x1C001F528 (CreateOrGetRedirectionBitmap.c)
- *     WindowRedirectionBitmapMatchesMonitorAdapter @ 0x1C00ED8B4 (WindowRedirectionBitmapMatchesMonitorAdapter.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C00BF148 (CreateOrGetRedirectionBitmap.c)
+ *     WindowRedirectionBitmapMatchesMonitorAdapter @ 0x1C0118DEC (WindowRedirectionBitmapMatchesMonitorAdapter.c)
  * Callees:
  *     <none>
  */
@@ -19,6 +19,6 @@ __int64 __fastcall GetWindowMonitorAdapterLuid(__int64 a1, __int64 a2)
   v7 = 0;
   v5 = ValidateHmonitorNoRip(*(_QWORD *)(v2 + 256));
   if ( v5 )
-    return (unsigned int)DrvGetWDDMAdapterInfo(*(_QWORD *)(v5 + 80), 0LL, a2, &v7);
+    return (unsigned int)DrvGetWDDMAdapterInfo(*(_QWORD *)(v5 + 232), 0LL, a2, &v7);
   return v3;
 }

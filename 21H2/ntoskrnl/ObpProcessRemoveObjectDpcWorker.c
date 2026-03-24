@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpProcessRemoveObjectDpcWorker @ 0x1405C5D80
+ * XREFs of ObpProcessRemoveObjectDpcWorker @ 0x140564950
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
  */
 
 void ObpProcessRemoveObjectDpcWorker()

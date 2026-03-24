@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetHandledDeltaCurrentInteraction@CInteractionRoot@@UEAAXXZ @ 0x1801A6A00
+ * XREFs of ?SetHandledDeltaCurrentInteraction@CInteractionRoot@@UEAAXXZ @ 0x1802363C0
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 void __fastcall CInteractionRoot::SetHandledDeltaCurrentInteraction(CInteractionRoot *this)
 {
-  *((_BYTE *)this + 832) |= 7u;
-  *((_DWORD *)this + 202) = 2;
+  *((_BYTE *)this + 840) |= 7u;
+  *((_DWORD *)this + 204) = 2;
 }

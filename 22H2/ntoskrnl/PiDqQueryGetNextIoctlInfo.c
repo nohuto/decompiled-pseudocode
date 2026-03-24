@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqQueryGetNextIoctlInfo @ 0x1407FAA4C
+ * XREFs of PiDqQueryGetNextIoctlInfo @ 0x1406A7564
  * Callers:
- *     PiDqIrpQueryCreate @ 0x1407F97F8 (PiDqIrpQueryCreate.c)
- *     PiDqIrpQueryGetResult @ 0x1407FBCFC (PiDqIrpQueryGetResult.c)
- *     PiDqQueryCompletePendedIrp @ 0x1407FC910 (PiDqQueryCompletePendedIrp.c)
+ *     PiDqIrpQueryGetResult @ 0x1406A6E58 (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryCreate @ 0x1406A7E9C (PiDqIrpQueryCreate.c)
+ *     PiDqQueryCompletePendedIrp @ 0x140763064 (PiDqQueryCompletePendedIrp.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,8 @@
 __int64 __fastcall PiDqQueryGetNextIoctlInfo(__int64 a1, unsigned int a2, unsigned int a3, _DWORD *a4)
 {
   __int64 result; // rax
-  int v6; // ecx
+  int v5; // eax
+  unsigned int v6; // eax
   unsigned int v7; // ecx
 
   if ( !*(_QWORD *)(a1 + 184) && *(_QWORD *)(a1 + 192) == a1 + 192 && (*(_DWORD *)(a1 + 216) & 0x20) != 0 )
@@ -32,24 +33,24 @@ __int64 __fastcall PiDqQueryGetNextIoctlInfo(__int64 a1, unsigned int a2, unsign
     *a4 = 4653063;
     if ( (*(_DWORD *)(a1 + 216) & 0x20) != 0 )
     {
-      v6 = *(_DWORD *)(a1 + 208);
+      v5 = *(_DWORD *)(a1 + 208);
       if ( *(_QWORD *)(a1 + 184) )
-        ++v6;
+        ++v5;
     }
     else
     {
-      v6 = 4;
+      v5 = 4;
     }
     if ( a3 )
-      v7 = a3 * v6 + 16;
+      v6 = a3 * v5 + 16;
     else
-      v7 = v6 << 10;
-    a4[1] = v7;
-    if ( v7 > 0x10000 )
-    {
+      v6 = v5 << 10;
+    v7 = 0x10000;
+    a4[1] = v6;
+    if ( v6 > 0x10000 )
       a4[1] = 0x10000;
-      v7 = 0x10000;
-    }
+    else
+      v7 = v6;
     if ( v7 < a3 )
     {
       a4[1] = a3;

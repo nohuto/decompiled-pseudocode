@@ -3,9 +3,9 @@
  * Callers:
  *     ViKeRaiseIrqlSanityChecks @ 0x14093B048 (ViKeRaiseIrqlSanityChecks.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x1400CAB00 (RtlpGetStackLimits.c)
- *     KeGetCurrentStackPointer @ 0x1401BC280 (KeGetCurrentStackPointer.c)
- *     MiTrimAllSystemPagableMemory @ 0x1402B3A90 (MiTrimAllSystemPagableMemory.c)
+ *     RtlpGetStackLimits @ 0x1400CAB20 (RtlpGetStackLimits.c)
+ *     KeGetCurrentStackPointer @ 0x1401BC2A0 (KeGetCurrentStackPointer.c)
+ *     MiTrimAllSystemPagableMemory @ 0x1402B3B90 (MiTrimAllSystemPagableMemory.c)
  */
 
 char *MmVerifierTrimMemory()

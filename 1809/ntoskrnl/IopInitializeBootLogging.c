@@ -1,18 +1,18 @@
 /*
- * XREFs of IopInitializeBootLogging @ 0x14081A034
+ * XREFs of IopInitializeBootLogging @ 0x14081A014
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     IopVerifierExAllocatePool_0 @ 0x1400DD83C (IopVerifierExAllocatePool_0.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlFindMessage @ 0x14067BDF0 (RtlFindMessage.c)
- *     IopBootLog @ 0x1406CF254 (IopBootLog.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x14073253C (RtlCreateUnicodeStringFromAsciiz.c)
+ *     RtlFindMessage @ 0x14067BDD0 (RtlFindMessage.c)
+ *     IopBootLog @ 0x1406CF234 (IopBootLog.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14073251C (RtlCreateUnicodeStringFromAsciiz.c)
  */
 
 void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of CcCoherencyFlushAndPurgeCache @ 0x1402EF7D0
+ * XREFs of CcCoherencyFlushAndPurgeCache @ 0x14026FBD0
  * Callers:
  *     <none>
  * Callees:
- *     CcFlushCachePriv @ 0x14029CC14 (CcFlushCachePriv.c)
- *     MmTrimSection @ 0x1402EF8D8 (MmTrimSection.c)
- *     CcPurgeCacheSection @ 0x1402F07D0 (CcPurgeCacheSection.c)
- *     MmOnlySystemCacheViewsPresent @ 0x1402F0E2C (MmOnlySystemCacheViewsPresent.c)
+ *     CcFlushCachePriv @ 0x14022C510 (CcFlushCachePriv.c)
+ *     MmOnlySystemCacheViewsPresent @ 0x14026F294 (MmOnlySystemCacheViewsPresent.c)
+ *     MmTrimSection @ 0x14026FCC8 (MmTrimSection.c)
+ *     CcPurgeCacheSection @ 0x140270FA0 (CcPurgeCacheSection.c)
  */
 
 void __stdcall CcCoherencyFlushAndPurgeCache(
@@ -20,28 +20,38 @@ void __stdcall CcCoherencyFlushAndPurgeCache(
   __int64 v6; // rbp
   ULONG v10; // edi
   NTSTATUS v11; // edi
+  NTSTATUS Status; // ecx
+  BOOLEAN v13; // al
 
   v5 = 0;
   v6 = Length;
   v10 = (Flags >> 1) & 1 | 2;
-  if ( (Flags & 1) == 0 )
+  if ( (Flags & 1) != 0 )
+  {
+    if ( (Flags & 4) != 0 || MmOnlySystemCacheViewsPresent((__int64)SectionObjectPointer) )
+    {
+      v11 = 0;
+      goto LABEL_5;
+    }
+  }
+  else
   {
     v10 = (Flags >> 1) & 1;
-LABEL_3:
-    v11 = MmTrimSection(SectionObjectPointer, FileOffset, v6, v10);
-    goto LABEL_4;
   }
-  if ( (Flags & 4) == 0 && !(unsigned __int8)MmOnlySystemCacheViewsPresent(SectionObjectPointer) )
-    goto LABEL_3;
-  v11 = 0;
-LABEL_4:
+  v11 = MmTrimSection(SectionObjectPointer, FileOffset, v6, v10);
+LABEL_5:
   IoStatus->Status = v11;
-  CcFlushCachePriv(SectionObjectPointer, (__int64)FileOffset, v6, 0LL, 0, (__int128 *)&IoStatus->0, 0LL);
+  CcFlushCachePriv((__int64)SectionObjectPointer, FileOffset, v6, 0LL, 0, (__int128 *)&IoStatus->0);
+  Status = IoStatus->Status;
   if ( IoStatus->Status >= 0 )
   {
     if ( (Flags & 1) == 0 )
-      v5 = CcPurgeCacheSection(SectionObjectPointer, FileOffset, v6, 4u) == 0;
-    if ( IoStatus->Status >= 0 && (v11 == 277 || v5) )
+    {
+      v13 = CcPurgeCacheSection(SectionObjectPointer, FileOffset, v6, 4u);
+      Status = IoStatus->Status;
+      v5 = v13 == 0;
+    }
+    if ( Status >= 0 && (v11 == 277 || v5) )
       IoStatus->Status = 277;
   }
 }

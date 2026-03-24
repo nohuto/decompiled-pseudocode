@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsEmptyDrawing@CBrush@@UEBA_NXZ @ 0x1800DB5D0
+ * XREFs of ?IsEmptyDrawing@CBrush@@UEBA_NXZ @ 0x1800BE7A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CBrush::IsEmptyDrawing(CBrush *this)
@@ -15,7 +15,7 @@ char __fastcall CBrush::IsEmptyDrawing(CBrush *this)
   v1 = *(_QWORD *)this;
   v2 = 0;
   v4 = 0;
-  if ( !(*(unsigned __int8 (__fastcall **)(CBrush *, _QWORD, char *))(v1 + 288))(this, 0LL, &v4) || v4 )
+  if ( !(*(unsigned __int8 (__fastcall **)(CBrush *, _QWORD, char *))(v1 + 296))(this, 0LL, &v4) || v4 )
     return 1;
   return v2;
 }

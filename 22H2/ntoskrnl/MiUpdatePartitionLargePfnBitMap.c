@@ -1,33 +1,37 @@
 /*
- * XREFs of MiUpdatePartitionLargePfnBitMap @ 0x140A452F8
+ * XREFs of MiUpdatePartitionLargePfnBitMap @ 0x1408DB7C8
  * Callers:
- *     MiInsertPartitionPages @ 0x14065A4F0 (MiInsertPartitionPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4438C (MiAllocatePartitionPhysicalPages.c)
- *     MiHotAddPartitionMemory @ 0x140A44D10 (MiHotAddPartitionMemory.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DA9C8 (MiAllocatePartitionPhysicalPages.c)
+ *     MiHotAddPartitionMemory @ 0x1408DB2CC (MiHotAddPartitionMemory.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     MiLockDynamicMemoryExclusive @ 0x14061B614 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14061C01C (MiUnlockDynamicMemoryExclusive.c)
- *     MiActOnPartitionNodePages @ 0x1406580F0 (MiActOnPartitionNodePages.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x140303FA4 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140304364 (MiLockDynamicMemoryExclusive.c)
+ *     MiActOnPartitionNodePages @ 0x1405607E0 (MiActOnPartitionNodePages.c)
  */
 
-__int64 __fastcall MiUpdatePartitionLargePfnBitMap(__int16 *a1, _QWORD **a2)
+__int64 __fastcall MiUpdatePartitionLargePfnBitMap(__int64 a1, _QWORD **a2)
 {
-  unsigned int v4; // esi
   struct _KTHREAD *CurrentThread; // r14
+  unsigned int v4; // esi
   _QWORD *v6; // rax
   _QWORD *i; // rdi
   _QWORD **v8; // rax
-  __int64 v9; // r10
+  __int64 v9; // r9
   _QWORD *v10; // rcx
   _QWORD *v11; // rcx
-  __int16 *v13[10]; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v13; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v14; // [rsp+30h] [rbp-38h]
+  __int128 v15; // [rsp+40h] [rbp-28h]
+  __int64 v16; // [rsp+50h] [rbp-18h]
 
-  memset(v13, 0, 0x48uLL);
-  v13[0] = a1;
-  v4 = 0;
   CurrentThread = KeGetCurrentThread();
-  MiLockDynamicMemoryExclusive((__int64)a1, (__int64)CurrentThread);
+  v13 = 0LL;
+  v14 = 0LL;
+  v4 = 0;
+  v15 = 0LL;
+  v16 = 0LL;
+  *(_QWORD *)&v13 = a1;
+  MiLockDynamicMemoryExclusive(a1, (__int64)CurrentThread);
   v6 = *a2;
   i = 0LL;
   while ( v6 )
@@ -56,13 +60,13 @@ __int64 __fastcall MiUpdatePartitionLargePfnBitMap(__int16 *a1, _QWORD **a2)
         v10 = i;
       }
     }
-    MiActOnPartitionNodePages(v9, 5u, 0, v13);
-    if ( SLODWORD(v13[3]) < 0 )
+    MiActOnPartitionNodePages(v9, 3u, (__int16 **)&v13);
+    if ( SDWORD1(v14) < 0 )
     {
-      v4 = (unsigned int)v13[3];
+      v4 = DWORD1(v14);
       break;
     }
   }
-  MiUnlockDynamicMemoryExclusive((__int64)a1, (__int64)CurrentThread);
+  MiUnlockDynamicMemoryExclusive(a1, (__int64)CurrentThread);
   return v4;
 }

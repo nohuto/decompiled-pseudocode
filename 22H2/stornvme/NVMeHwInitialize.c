@@ -1,28 +1,28 @@
 /*
- * XREFs of NVMeHwInitialize @ 0x1C0008470
+ * XREFs of NVMeHwInitialize @ 0x1C000AD80
  * Callers:
  *     <none>
  * Callees:
- *     NVMeControllerInitPart2 @ 0x1C000DAA0 (NVMeControllerInitPart2.c)
- *     NVMeControllerInitPart3 @ 0x1C000DD8C (NVMeControllerInitPart3.c)
+ *     NVMeControllerInitPart2 @ 0x1C000DDD0 (NVMeControllerInitPart2.c)
+ *     NVMeControllerInitPart3 @ 0x1C000E014 (NVMeControllerInitPart3.c)
  */
 
 char __fastcall NVMeHwInitialize(__int64 a1)
 {
-  char v1; // bl
-  int v2; // edi
+  int v1; // ebx
+  char result; // al
 
-  v1 = 0;
-  v2 = a1;
-  if ( *(_BYTE *)(a1 + 20) )
+  v1 = a1;
+  if ( *(_BYTE *)(a1 + 16) )
   {
-    if ( !(unsigned int)NVMeControllerInitPart2(a1) )
-      return NVMeControllerInitPart3(v2);
+    result = NVMeControllerInitPart2(a1);
+    if ( result )
+      return NVMeControllerInitPart3(v1);
   }
   else
   {
     StorPortNotification(4096LL, a1, NVMeHwPassiveInitialize);
     return 0;
   }
-  return v1;
+  return result;
 }

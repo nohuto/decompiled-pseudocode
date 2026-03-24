@@ -1,17 +1,17 @@
 /*
- * XREFs of SiTranslateSymbolicLink @ 0x1407C0548
+ * XREFs of SiTranslateSymbolicLink @ 0x140687FDC
  * Callers:
- *     SiGetFirmwareSystemPartition @ 0x1407BFFB0 (SiGetFirmwareSystemPartition.c)
- *     SiGetBootDeviceName @ 0x1407C0094 (SiGetBootDeviceName.c)
- *     SiGetSystemDisk @ 0x140880EF0 (SiGetSystemDisk.c)
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140A60604 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     SiGetFirmwareSystemPartition @ 0x140687950 (SiGetFirmwareSystemPartition.c)
+ *     SiGetBootDeviceName @ 0x140687A74 (SiGetBootDeviceName.c)
+ *     SiGetSystemDisk @ 0x14077ACF0 (SiGetSystemDisk.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x14077AF54 (SiIsWinPeHardDiskZeroUfdBoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x14041CD60 (ZwOpenSymbolicLinkObject.c)
- *     ZwQuerySymbolicLinkObject @ 0x14041D3C0 (ZwQuerySymbolicLinkObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1403FBFE0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x1403FC600 (ZwQuerySymbolicLinkObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall SiTranslateSymbolicLink(PCWSTR SourceString, wchar_t **a2)
@@ -73,7 +73,7 @@ NTSTATUS __fastcall SiTranslateSymbolicLink(PCWSTR SourceString, wchar_t **a2)
         ExFreePoolWithTag(LinkTarget.Buffer, 0);
       LinkTarget.MaximumLength = ReturnedLength;
       v4 = ReturnedLength + 2;
-      Buffer = (wchar_t *)ExAllocatePool2(256LL, ReturnedLength + 2, 1263556947LL);
+      Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, ReturnedLength + 2, 0x4B505953u);
       LinkTarget.Buffer = Buffer;
     }
     while ( Buffer );

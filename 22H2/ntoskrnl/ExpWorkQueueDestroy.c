@@ -1,36 +1,39 @@
 /*
- * XREFs of ExpWorkQueueDestroy @ 0x140A00B74
+ * XREFs of ExpWorkQueueDestroy @ 0x1409560A8
  * Callers:
- *     ExpPartitionCreatePoolInternal @ 0x14084AA20 (ExpPartitionCreatePoolInternal.c)
- *     ExpPartitionDestroy @ 0x140A00998 (ExpPartitionDestroy.c)
+ *     ExpPartitionCreatePoolInternal @ 0x1407C2D70 (ExpPartitionCreatePoolInternal.c)
+ *     ExpPartitionDestroy @ 0x140955EC4 (ExpPartitionDestroy.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeRundownPriQueue @ 0x14057EAE0 (KeRundownPriQueue.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     KeRundownPriQueue @ 0x1405243AC (KeRundownPriQueue.c)
  */
 
-NTSTATUS __fastcall ExpWorkQueueDestroy(unsigned __int64 a1)
+char __fastcall ExpWorkQueueDestroy(unsigned __int64 a1)
 {
-  signed __int32 v2; // eax
-  signed __int32 v3; // ett
-  __int16 v4; // bx
-  NTSTATUS result; // eax
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  _DWORD *v4; // r9
+  signed __int32 v5; // eax
+  signed __int32 v6; // ett
+  __int16 v7; // bx
+  char result; // al
   struct _KEVENT Event; // [rsp+30h] [rbp-28h] BYREF
 
   memset(&Event, 0, sizeof(Event));
   KeInitializeEvent(&Event, NotificationEvent, 0);
   *(_QWORD *)(a1 + 728) = &Event;
   _m_prefetchw((const void *)(a1 + 712));
-  v2 = *(_DWORD *)(a1 + 712);
+  v5 = *(_DWORD *)(a1 + 712);
   do
   {
-    v3 = v2;
-    v2 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 712), v2 | 0x8000, v2);
+    v6 = v5;
+    v5 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 712), v5 | 0x8000, v5);
   }
-  while ( v3 != v2 );
-  v4 = v2;
-  result = KeRundownPriQueue(a1);
-  if ( (v4 & 0x3FFF) != 0 )
+  while ( v6 != v5 );
+  v7 = v5;
+  result = KeRundownPriQueue(a1, v2, v3, v4);
+  if ( (v7 & 0x3FFF) != 0 )
     return KeWaitForSingleObject(*(PVOID *)(a1 + 728), Executive, 0, 0, 0LL);
   return result;
 }

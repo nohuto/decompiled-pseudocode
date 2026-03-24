@@ -1,13 +1,13 @@
 /*
- * XREFs of ?FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z @ 0x1C0014B44
+ * XREFs of ?FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z @ 0x1C0061964
  * Callers:
- *     imp_WdfCollectionRemoveItem @ 0x1C0014890 (imp_WdfCollectionRemoveItem.c)
- *     ?Remove@FxCollectionInternal@@QEAAJK@Z @ 0x1C0021C84 (-Remove@FxCollectionInternal@@QEAAJK@Z.c)
- *     imp_WdfCmResourceListGetDescriptor @ 0x1C00310F0 (imp_WdfCmResourceListGetDescriptor.c)
- *     imp_WdfIoResourceListGetDescriptor @ 0x1C0031F80 (imp_WdfIoResourceListGetDescriptor.c)
- *     ?RemoveAndDelete@FxResourceCollection@@QEAAEK@Z @ 0x1C0034A84 (-RemoveAndDelete@FxResourceCollection@@QEAAEK@Z.c)
- *     imp_WdfIoResourceRequirementsListGetIoResList @ 0x1C0034C30 (imp_WdfIoResourceRequirementsListGetIoResList.c)
- *     imp_WdfIoResourceListUpdateDescriptor @ 0x1C0034D60 (imp_WdfIoResourceListUpdateDescriptor.c)
+ *     imp_WdfCmResourceListGetDescriptor @ 0x1C005C590 (imp_WdfCmResourceListGetDescriptor.c)
+ *     imp_WdfIoResourceListGetDescriptor @ 0x1C005C9D0 (imp_WdfIoResourceListGetDescriptor.c)
+ *     imp_WdfIoResourceListUpdateDescriptor @ 0x1C005CC80 (imp_WdfIoResourceListUpdateDescriptor.c)
+ *     imp_WdfIoResourceRequirementsListGetIoResList @ 0x1C005CE20 (imp_WdfIoResourceRequirementsListGetIoResList.c)
+ *     imp_WdfCollectionRemoveItem @ 0x1C005F380 (imp_WdfCollectionRemoveItem.c)
+ *     ?RemoveAndDelete@FxResourceCollection@@QEAAEK@Z @ 0x1C0061690 (-RemoveAndDelete@FxResourceCollection@@QEAAEK@Z.c)
+ *     ?Remove@FxCollectionInternal@@QEAAJK@Z @ 0x1C0061994 (-Remove@FxCollectionInternal@@QEAAJK@Z.c)
  * Callees:
  *     <none>
  */

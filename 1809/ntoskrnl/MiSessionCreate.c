@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSessionCreate @ 0x140715028
+ * XREFs of MiSessionCreate @ 0x140715008
  * Callers:
- *     MiMapProcessExecutable @ 0x140677C68 (MiMapProcessExecutable.c)
- *     MmInitializeProcessAddressSpace @ 0x1406798D8 (MmInitializeProcessAddressSpace.c)
+ *     MiMapProcessExecutable @ 0x140677C48 (MiMapProcessExecutable.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -11,22 +11,22 @@
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiMakeDemandZeroPte @ 0x140097EE0 (MiMakeDemandZeroPte.c)
- *     MiCreateSystemWsles @ 0x1400F3184 (MiCreateSystemWsles.c)
- *     ExInitializePagedLookasideListInternal @ 0x1400F38F0 (ExInitializePagedLookasideListInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     ExInitializeSessionHeapManager @ 0x140170098 (ExInitializeSessionHeapManager.c)
+ *     MiCreateSystemWsles @ 0x1400F31A4 (MiCreateSystemWsles.c)
+ *     ExInitializePagedLookasideListInternal @ 0x1400F3910 (ExInitializePagedLookasideListInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     ExInitializeSessionHeapManager @ 0x1401700B8 (ExInitializeSessionHeapManager.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiDereferenceSession @ 0x1406BF41C (MiDereferenceSession.c)
- *     MiSessionObjectCreate @ 0x1407152DC (MiSessionObjectCreate.c)
- *     MiInitializeSystemSpaceMap @ 0x14071557C (MiInitializeSystemSpaceMap.c)
- *     MiInitializeSpecialPool @ 0x1407155E8 (MiInitializeSpecialPool.c)
- *     MiInitializeSessionPool @ 0x1407156A4 (MiInitializeSessionPool.c)
- *     MiInitializeDynamicBitmap @ 0x140715740 (MiInitializeDynamicBitmap.c)
- *     MiInitializeSystemWorkingSetList @ 0x140715B68 (MiInitializeSystemWorkingSetList.c)
- *     MiSessionCreateInternal @ 0x140715C88 (MiSessionCreateInternal.c)
- *     MiInitializeSessionGlobals @ 0x140716224 (MiInitializeSessionGlobals.c)
+ *     MiDereferenceSession @ 0x1406BF3FC (MiDereferenceSession.c)
+ *     MiSessionObjectCreate @ 0x1407152BC (MiSessionObjectCreate.c)
+ *     MiInitializeSystemSpaceMap @ 0x14071555C (MiInitializeSystemSpaceMap.c)
+ *     MiInitializeSpecialPool @ 0x1407155C8 (MiInitializeSpecialPool.c)
+ *     MiInitializeSessionPool @ 0x140715684 (MiInitializeSessionPool.c)
+ *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140715B48 (MiInitializeSystemWorkingSetList.c)
+ *     MiSessionCreateInternal @ 0x140715C68 (MiSessionCreateInternal.c)
+ *     MiInitializeSessionGlobals @ 0x140716204 (MiInitializeSessionGlobals.c)
  */
 
 __int64 MiSessionCreate()

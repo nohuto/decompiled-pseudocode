@@ -1,51 +1,51 @@
 /*
- * XREFs of KsepSdbUnmapFromMemory @ 0x1406E09F8
+ * XREFs of KsepSdbUnmapFromMemory @ 0x14075643C
  * Callers:
- *     KseShimDatabaseClose @ 0x14075C588 (KseShimDatabaseClose.c)
- *     KseShimDatabaseOpen @ 0x14075C68C (KseShimDatabaseOpen.c)
+ *     KseShimDatabaseClose @ 0x140758D88 (KseShimDatabaseClose.c)
+ *     KseShimDatabaseOpen @ 0x14075B0E0 (KseShimDatabaseOpen.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x14026D048 (MiRemoveFromSystemSpace.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     SdbReleaseDatabase @ 0x1406E0A70 (SdbReleaseDatabase.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
+ *     SdbReleaseDatabase @ 0x140755FC8 (SdbReleaseDatabase.c)
  */
 
-void __fastcall KsepSdbUnmapFromMemory(__int64 a1)
+void __fastcall KsepSdbUnmapFromMemory(__int64 *a1)
 {
-  void *v2; // rcx
-  ULONG_PTR v3; // rcx
-  void *v4; // rcx
+  __int64 v2; // rcx
+  void *v3; // rcx
+  struct _DMA_ADAPTER *v4; // rcx
   void *v5; // rcx
   void *v6; // rcx
 
-  v2 = *(void **)a1;
+  v2 = *a1;
   if ( v2 )
   {
     SdbReleaseDatabase(v2);
-    *(_QWORD *)a1 = 0LL;
+    *a1 = 0LL;
   }
-  v3 = *(_QWORD *)(a1 + 8);
+  v3 = (void *)a1[1];
   if ( v3 )
   {
-    MiRemoveFromSystemSpace(v3, 1);
-    *(_QWORD *)(a1 + 8) = 0LL;
+    MmUnmapViewInSystemSpace(v3);
+    a1[1] = 0LL;
   }
-  v4 = *(void **)(a1 + 32);
+  v4 = (struct _DMA_ADAPTER *)a1[4];
   if ( v4 )
   {
-    ObfDereferenceObject(v4);
-    *(_QWORD *)(a1 + 32) = 0LL;
+    HalPutDmaAdapter(v4);
+    a1[4] = 0LL;
   }
-  v5 = *(void **)(a1 + 24);
+  v5 = (void *)a1[3];
   if ( v5 )
   {
     ZwClose(v5);
-    *(_QWORD *)(a1 + 24) = 0LL;
+    a1[3] = 0LL;
   }
-  v6 = *(void **)(a1 + 16);
+  v6 = (void *)a1[2];
   if ( v6 )
   {
     ZwClose(v6);
-    *(_QWORD *)(a1 + 16) = 0LL;
+    a1[2] = 0LL;
   }
 }

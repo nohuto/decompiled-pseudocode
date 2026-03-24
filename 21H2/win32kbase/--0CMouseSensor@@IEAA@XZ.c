@@ -1,20 +1,20 @@
 /*
- * XREFs of ??0CMouseSensor@@IEAA@XZ @ 0x1C005C8DC
+ * XREFs of ??0CMouseSensor@@IEAA@XZ @ 0x1C008AE50
  * Callers:
- *     ?CreateInstance@CMouseSensor@@SAJPEAPEAV1@@Z @ 0x1C005C858 (-CreateInstance@CMouseSensor@@SAJPEAPEAV1@@Z.c)
+ *     CMouseSensor_CreateInstance @ 0x1C008AD30 (CMouseSensor_CreateInstance.c)
  * Callees:
- *     ??0CBaseInput@@IEAA@KKW4_InputSensorName@@@Z @ 0x1C005CDE8 (--0CBaseInput@@IEAA@KKW4_InputSensorName@@@Z.c)
+ *     ??0CBaseInput@@IEAA@K@Z @ 0x1C008AEA8 (--0CBaseInput@@IEAA@K@Z.c)
  */
 
 CMouseSensor *__fastcall CMouseSensor::CMouseSensor(CMouseSensor *this)
 {
-  CBaseInput::CBaseInput(this, 1LL, 0LL, 0LL);
+  CBaseInput::CBaseInput(this, 1u);
   *(_QWORD *)this = &CMouseSensor::`vftable';
-  *((_QWORD *)this + 166) = 0LL;
-  *((_QWORD *)this + 219) = 0LL;
-  *((_QWORD *)this + 220) = 0LL;
-  *((_BYTE *)this + 1768) = 0;
-  *((_QWORD *)this + 222) = 0LL;
-  *((_QWORD *)this + 223) = 0LL;
+  *((_QWORD *)this + 161) = 0LL;
+  *((_QWORD *)this + 214) = 0LL;
+  *((_QWORD *)this + 215) = 0LL;
+  *((_BYTE *)this + 1728) = 0;
+  *((_QWORD *)this + 217) = 0LL;
+  *((_QWORD *)this + 218) = 0LL;
   return this;
 }

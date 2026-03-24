@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcpLookasidePacketCallbackRoutine @ 0x14010A840
+ * XREFs of AlpcpLookasidePacketCallbackRoutine @ 0x14010A860
  * Callers:
  *     <none>
  * Callees:
@@ -7,11 +7,11 @@
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     IoSetIoCompletionEx2 @ 0x1400FD5C8 (IoSetIoCompletionEx2.c)
- *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x14010AB7C (AlpcpDeferredFreeCompletionPacketLookaside.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290900 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1402909B8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     IoSetIoCompletionEx2 @ 0x1400FD5E8 (IoSetIoCompletionEx2.c)
+ *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x14010AB9C (AlpcpDeferredFreeCompletionPacketLookaside.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
 LONG_PTR __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2, __int64 a3)

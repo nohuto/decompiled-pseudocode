@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Process2FingerTap@CPTPEngine@@AEAAHPEAUPTPInput@@H@Z @ 0x1C0201AC8
+ * XREFs of ?Process2FingerTap@CPTPEngine@@AEAAHPEAUPTPInput@@H@Z @ 0x1C01C6488
  * Callers:
- *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C02007A8 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
- *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C020273C (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C01C51A4 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C709C (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
  * Callees:
- *     ?Send2FingerTap@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C0203798 (-Send2FingerTap@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ *     ?Send2FingerTap@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C80B0 (-Send2FingerTap@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
  */
 
 __int64 __fastcall CPTPEngine::Process2FingerTap(CPTPEngine *this, struct PTPInput *a2, int a3)
@@ -68,35 +68,35 @@ __int64 __fastcall CPTPEngine::Process2FingerTap(CPTPEngine *this, struct PTPInp
   v11 = *(_DWORD *)(v3 + 4);
   v12 = *((_DWORD *)this + 4);
   v13 = *(_DWORD *)(v3 + 12);
-  v14 = *((_DWORD *)this + 984);
-  v15 = 400LL * (v11 % v12);
+  v14 = *((_DWORD *)this + 958);
+  v15 = 392LL * (v11 % v12);
   if ( (v14 & 0x2000) == 0 )
   {
     if ( v4 != 2 )
       return 0LL;
     v23 = *(_DWORD *)(v34 + 12);
-    v24 = *(_QWORD *)((char *)this + v15 + 1280);
-    v25 = 400LL * (*(_DWORD *)(v34 + 4) % v12);
-    v26 = *(_QWORD *)((char *)this + v25 + 1280);
+    v24 = *(_QWORD *)((char *)this + v15 + 1224);
+    v25 = 392LL * (*(_DWORD *)(v34 + 4) % v12);
+    v26 = *(_QWORD *)((char *)this + v25 + 1224);
     v27 = v24 - v26;
     if ( v24 < v26 )
-      v27 = *(_QWORD *)((char *)this + v25 + 1280) - v24;
-    if ( v27 > *((_QWORD *)this + 12) * (unsigned __int64)*((unsigned int *)this + 43) / 0x3E8 )
+      v27 = *(_QWORD *)((char *)this + v25 + 1224) - v24;
+    if ( v27 > *((_QWORD *)this + 12) * (unsigned __int64)*((unsigned int *)this + 31) / 0x3E8 )
       return 0LL;
-    v28 = *(_DWORD *)((char *)this + v15 + 1208);
+    v28 = *(_DWORD *)((char *)this + v15 + 1160);
     if ( (v28 & 4) != 0 )
       return 0LL;
-    v29 = *(_DWORD *)((char *)this + v25 + 1208);
+    v29 = *(_DWORD *)((char *)this + v25 + 1160);
     if ( (v29 & 4) != 0 || (v28 & 8) != 0 || (v29 & 8) != 0 )
       return 0LL;
     if ( (v13 & v23 & 0x40000) != 0 )
     {
-      if ( (*((_DWORD *)this + 116) & 0x400) == 0 || (v14 & 0x10) != 0 )
+      if ( (*((_DWORD *)this + 104) & 0x400) == 0 || (v14 & 0x10) != 0 )
         return 1LL;
-      v30 = *(_QWORD *)((char *)this + v15 + 1216);
-      v31 = v30 - *(_QWORD *)((char *)this + v25 + 1216);
-      LODWORD(v30) = HIDWORD(v30) - HIDWORD(*(_QWORD *)((char *)this + v25 + 1216));
-      v20 = (int)v30 * (int)v30 + v31 * v31 <= (unsigned __int64)*((unsigned int *)this + 86);
+      v30 = *(_QWORD *)((char *)this + v15 + 1184);
+      v31 = v30 - *(_QWORD *)((char *)this + v25 + 1184);
+      LODWORD(v30) = HIDWORD(v30) - HIDWORD(*(_QWORD *)((char *)this + v25 + 1184));
+      v20 = (int)v30 * (int)v30 + v31 * v31 <= (unsigned __int64)*((unsigned int *)this + 74);
 LABEL_20:
       if ( v20 )
         CPTPEngine::Send2FingerTap(this, a2);
@@ -104,17 +104,17 @@ LABEL_20:
     }
     if ( !*((_DWORD *)a2 + 10) )
     {
-      *((_DWORD *)this + 984) = v14 | 0x2000;
+      *((_DWORD *)this + 958) = v14 | 0x2000;
       if ( (v13 & 0x40000) != 0 )
       {
-        v32 = *(_QWORD *)((char *)this + v15 + 1216);
+        v32 = *(_QWORD *)((char *)this + v15 + 1184);
 LABEL_46:
-        *((_QWORD *)this + 465) = v32;
+        *((_QWORD *)this + 453) = v32;
         return 1LL;
       }
       if ( (v23 & 0x40000) != 0 )
       {
-        v32 = *(_QWORD *)((char *)this + v25 + 1216);
+        v32 = *(_QWORD *)((char *)this + v25 + 1184);
         goto LABEL_46;
       }
     }
@@ -122,35 +122,35 @@ LABEL_46:
   }
   if ( v4 == 1 )
   {
-    if ( (v13 & 0x40000) != 0 && (*((_DWORD *)this + 984) & 1) == a3 )
+    if ( (v13 & 0x40000) != 0 && (*((_DWORD *)this + 958) & 1) == a3 )
     {
-      v16 = *(_DWORD *)((char *)this + v15 + 1208);
+      v16 = *(_DWORD *)((char *)this + v15 + 1160);
       if ( (v16 & 4) == 0
         && (v16 & 8) == 0
         && ((v16 & 0x80u) == 0
-         || *(_QWORD *)((char *)this + v15 + 1296) - *(_QWORD *)((char *)this + v15 + 1288) < *((_QWORD *)this + 12)
-                                                                                            * (unsigned __int64)*((unsigned int *)this + 39)
+         || *(_QWORD *)((char *)this + v15 + 1240) - *(_QWORD *)((char *)this + v15 + 1232) < *((_QWORD *)this + 12)
+                                                                                            * (unsigned __int64)*((unsigned int *)this + 27)
                                                                                             / 0x3E8) )
       {
         v17 = v14 & 0xFFFFDFFF;
-        v18 = (*((_DWORD *)this + 116) & 0x400) == 0;
-        *((_DWORD *)this + 984) = v17;
+        v18 = (*((_DWORD *)this + 104) & 0x400) == 0;
+        *((_DWORD *)this + 958) = v17;
         if ( v18 || (v17 & 0x10) != 0 )
           return 1LL;
-        v19 = *(_QWORD *)((char *)this + v15 + 1216);
-        v20 = (int)((HIDWORD(v19) - HIDWORD(*((_QWORD *)this + 465)))
-                  * (HIDWORD(v19) - HIDWORD(*((_QWORD *)this + 465)))
-                  + (v19 - *((_QWORD *)this + 465)) * (v19 - *((_QWORD *)this + 465))) <= (unsigned __int64)*((unsigned int *)this + 86);
+        v19 = *(_QWORD *)((char *)this + v15 + 1184);
+        v20 = (int)((HIDWORD(v19) - HIDWORD(*((_QWORD *)this + 453)))
+                  * (HIDWORD(v19) - HIDWORD(*((_QWORD *)this + 453)))
+                  + (v19 - *((_QWORD *)this + 453)) * (v19 - *((_QWORD *)this + 453))) <= (unsigned __int64)*((unsigned int *)this + 74);
         goto LABEL_20;
       }
     }
-    if ( (v13 & 0x20000) != 0 && (*((_DWORD *)this + 984) & 1) == a3 )
+    if ( (v13 & 0x20000) != 0 && (*((_DWORD *)this + 958) & 1) == a3 )
     {
-      v22 = *(_DWORD *)((char *)this + v15 + 1208);
+      v22 = *(_DWORD *)((char *)this + v15 + 1160);
       if ( (v22 & 4) == 0 && (v22 & 8) == 0 )
         return 1LL;
     }
   }
-  *((_DWORD *)this + 984) = v14 & 0xFFFFDFFF;
+  *((_DWORD *)this + 958) = v14 & 0xFFFFDFFF;
   return 0LL;
 }

@@ -1,14 +1,17 @@
 /*
- * XREFs of PnpSetDevicePropertyData @ 0x14080DA78
+ * XREFs of PnpSetDevicePropertyData @ 0x140746BDC
  * Callers:
- *     IoSetDevicePropertyData @ 0x14080D9D0 (IoSetDevicePropertyData.c)
+ *     IoSetDevicePropertyData @ 0x140746D80 (IoSetDevicePropertyData.c)
  * Callees:
- *     PnpSetDeviceInstancePropertyChangeEvent @ 0x1403A5358 (PnpSetDeviceInstancePropertyChangeEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PiPnpRtlSetObjectProperty @ 0x140771524 (PiPnpRtlSetObjectProperty.c)
- *     PnpSetInterruptInformation @ 0x14085ADDC (PnpSetInterruptInformation.c)
- *     RtlLCIDToCultureName @ 0x1409BB670 (RtlLCIDToCultureName.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpSetDeviceInstancePropertyChangeEvent @ 0x14037E63C (PnpSetDeviceInstancePropertyChangeEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PiPnpRtlSetObjectProperty @ 0x14074578C (PiPnpRtlSetObjectProperty.c)
+ *     PnpSetInterruptInformation @ 0x140772C50 (PnpSetInterruptInformation.c)
+ *     RtlLCIDToCultureName @ 0x140916020 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpSetDevicePropertyData(
@@ -21,47 +24,59 @@ __int64 __fastcall PnpSetDevicePropertyData(
         const wchar_t *a7)
 {
   __int64 v10; // rdi
-  const WCHAR *v11; // rdx
-  __int64 v12; // rcx
-  int v13; // ebx
-  __int64 v15; // rax
-  __int64 v16; // [rsp+50h] [rbp-F8h] BYREF
-  _BYTE *v17; // [rsp+58h] [rbp-F0h]
-  _BYTE v18[176]; // [rsp+60h] [rbp-E8h] BYREF
+  struct _KTHREAD *CurrentThread; // rax
+  int v12; // ebx
+  __int64 v14; // rax
+  __int64 v15; // [rsp+50h] [rbp-F8h] BYREF
+  _BYTE *v16; // [rsp+58h] [rbp-F0h]
+  _BYTE v17[176]; // [rsp+60h] [rbp-E8h] BYREF
 
-  memset(v18, 0, 0xAAuLL);
-  v16 = 0LL;
-  if ( !a1 || (v10 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL)) == 0 || (v11 = *(const WCHAR **)(v10 + 48)) == 0LL )
+  memset(v17, 0, 0xAAuLL);
+  v15 = 0LL;
+  if ( a1 )
+    v10 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
+  else
+    v10 = 0LL;
+  if ( !v10 || !*(_QWORD *)(v10 + 48) )
     return (unsigned int)-1073741808;
   if ( a3 )
   {
-    WORD1(v16) = 170;
-    v17 = v18;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v16) )
+    WORD1(v15) = 170;
+    v16 = v17;
+    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v15) )
       return (unsigned int)-1073741823;
-    v11 = *(const WCHAR **)(v10 + 48);
-    v12 = (__int64)v17;
   }
   else
   {
-    v12 = 0LL;
+    v16 = 0LL;
   }
-  v13 = PiPnpRtlSetObjectProperty(*(__int64 *)&PiPnpRtlCtx, v11, 1, 0LL, v12, a2, a5, a7, a6, 0);
-  if ( v13 >= 0 )
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquireResourceExclusiveLite(&PnpDevicePropertyLock, 1u);
+  v12 = PiPnpRtlSetObjectProperty(
+          *(__int64 *)&PiPnpRtlCtx,
+          *(const WCHAR **)(v10 + 48),
+          1,
+          0LL,
+          (__int64)v16,
+          a2,
+          a5,
+          a7,
+          a6,
+          0);
+  if ( v12 >= 0 && *(_DWORD *)(a2 + 16) == 2 )
   {
-    if ( *(_DWORD *)(a2 + 16) != 2 )
-      goto LABEL_8;
-    v15 = *(_QWORD *)a2 - *(_QWORD *)&INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data1;
+    v14 = *(_QWORD *)a2 - *(_QWORD *)&INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data1;
     if ( *(_QWORD *)a2 == *(_QWORD *)&INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data1 )
-      v15 = *(_QWORD *)(a2 + 8) - *(_QWORD *)INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data4;
-    if ( v15 )
-      goto LABEL_8;
-    v13 = PnpSetInterruptInformation(a1, a7, a6);
+      v14 = *(_QWORD *)(a2 + 8) - *(_QWORD *)INTERRUPT_CONNECTION_DATA_PKEY.fmtid.Data4;
+    if ( !v14 )
+      v12 = PnpSetInterruptInformation(a1, a7, a6);
   }
-  if ( v13 == -1073741275 )
-    v13 = -1073741772;
-LABEL_8:
-  if ( *(int *)(v10 + 300) >= 773 )
+  ExReleaseResourceLite(&PnpDevicePropertyLock);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( v12 == -1073741275 )
+    v12 = -1073741772;
+  if ( *(int *)(v10 + 300) >= 771 )
     PnpSetDeviceInstancePropertyChangeEvent(v10);
-  return (unsigned int)v13;
+  return (unsigned int)v12;
 }

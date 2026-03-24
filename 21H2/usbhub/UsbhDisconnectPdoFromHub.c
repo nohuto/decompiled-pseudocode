@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhDisconnectPdoFromHub @ 0x1C002990C
+ * XREFs of UsbhDisconnectPdoFromHub @ 0x1C002AC5C
  * Callers:
- *     UsbhDeletePdo @ 0x1C00537BC (UsbhDeletePdo.c)
+ *     UsbhDeletePdo @ 0x1C0054E1C (UsbhDeletePdo.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
  */
 
 _DWORD *__fastcall UsbhDisconnectPdoFromHub(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of DxgkNetDispQueryMiracastDisplayDeviceSupport @ 0x1C02D3960
+ * XREFs of DxgkNetDispQueryMiracastDisplayDeviceSupport @ 0x1C0174990
  * Callers:
  *     <none>
  * Callees:
- *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C020667C (DxgkMiracastQueryMiracastSupportInternal.c)
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C0174DC4 (DxgkMiracastQueryMiracastSupportInternal.c)
  */
 
 __int64 __fastcall DxgkNetDispQueryMiracastDisplayDeviceSupport(ULONG64 a1)
 {
-  int MiracastSupportInternal; // edx
+  int v2; // edx
   __int64 v4; // [rsp+20h] [rbp-38h]
   int v5; // [rsp+28h] [rbp-30h]
   __int128 v6; // [rsp+30h] [rbp-28h] BYREF
@@ -16,8 +16,8 @@ __int64 __fastcall DxgkNetDispQueryMiracastDisplayDeviceSupport(ULONG64 a1)
   LODWORD(v4) = 0;
   v5 = 0;
   v6 = 0LL;
-  MiracastSupportInternal = DxgkMiracastQueryMiracastSupportInternal((__int64)&v6);
-  if ( MiracastSupportInternal >= 0 )
+  v2 = DxgkMiracastQueryMiracastSupportInternal(&v6);
+  if ( v2 >= 0 )
   {
     HIDWORD(v4) = DWORD1(v6);
     LOBYTE(v4) = v6;
@@ -27,5 +27,5 @@ __int64 __fastcall DxgkNetDispQueryMiracastDisplayDeviceSupport(ULONG64 a1)
     *(_QWORD *)a1 = v4;
     *(_DWORD *)(a1 + 8) = v5;
   }
-  return (unsigned int)MiracastSupportInternal;
+  return (unsigned int)v2;
 }

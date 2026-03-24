@@ -1,26 +1,21 @@
 /*
- * XREFs of PnpBootPhaseComplete @ 0x140813690
+ * XREFs of PnpBootPhaseComplete @ 0x1407A3624
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14080CEA0 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x14079A330 (CmCompleteRegistryInitialization.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     PnpRequestDeviceAction @ 0x140358A44 (PnpRequestDeviceAction.c)
- *     PiDmaGuardInitialize @ 0x140375428 (PiDmaGuardInitialize.c)
- *     ExSubscribeWnfStateChange @ 0x1407DB2B0 (ExSubscribeWnfStateChange.c)
- *     PpDevCfgProcessDevices @ 0x140813294 (PpDevCfgProcessDevices.c)
- *     PiPnpRtlInit @ 0x140813794 (PiPnpRtlInit.c)
- *     Pdcv2ActivationClientRegister @ 0x14085B234 (Pdcv2ActivationClientRegister.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     PnpRequestDeviceAction @ 0x14036F614 (PnpRequestDeviceAction.c)
+ *     PiDmaGuardInitialize @ 0x1403B6CC8 (PiDmaGuardInitialize.c)
+ *     ExSubscribeWnfStateChange @ 0x140694970 (ExSubscribeWnfStateChange.c)
+ *     PpDevCfgProcessDevices @ 0x1407A36EC (PpDevCfgProcessDevices.c)
+ *     PiPnpRtlInit @ 0x1407A3780 (PiPnpRtlInit.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PnpBootPhaseComplete()
 {
   int v0; // ebx
-  __int64 v1; // rcx
-  void *v2; // rcx
-  struct _WORK_QUEUE_ITEM *Pool2; // rax
-  _QWORD v5[5]; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v6; // [rsp+70h] [rbp+8h] BYREF
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
 
   v0 = PiPnpRtlInit(2LL);
   if ( v0 >= 0 )
@@ -40,24 +35,17 @@ __int64 PnpBootPhaseComplete()
     v0 = PiDmaGuardInitialize(2);
     if ( v0 >= 0 )
     {
-      v5[2] = 0LL;
-      v5[0] = 1LL;
-      v5[1] = AlpcMessageDeleteProcedure;
-      Pdcv2ActivationClientRegister(v1, v5);
-      v6 = 0LL;
-      v2 = (void *)*((_QWORD *)IopRootDeviceNode + 4);
-      LODWORD(v6) = 39;
-      PnpRequestDeviceAction(v2, 2u, 0, &v6, 0LL, 0LL, 0LL);
+      PnpRequestDeviceAction(*((PVOID *)IopRootDeviceNode + 4), 2, 0, 39LL, 0LL, 0LL, 0LL);
       v0 = PpDevCfgProcessDevices();
       if ( v0 >= 0 )
       {
-        Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 32LL, 1852403792LL);
-        if ( Pool2 )
+        PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x6E697050u);
+        if ( PoolWithTag )
         {
-          Pool2->List.Flink = 0LL;
-          Pool2->WorkerRoutine = PipUpdateDeviceProducts;
-          Pool2->Parameter = Pool2;
-          ExQueueWorkItem(Pool2, NormalWorkQueue);
+          PoolWithTag->List.Flink = 0LL;
+          PoolWithTag->WorkerRoutine = PipUpdateDeviceProducts;
+          PoolWithTag->Parameter = PoolWithTag;
+          ExQueueWorkItem(PoolWithTag, NormalWorkQueue);
         }
         else
         {

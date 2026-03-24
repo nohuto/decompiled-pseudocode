@@ -1,268 +1,267 @@
 /*
- * XREFs of ?bExtraRectsToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z @ 0x1C02D9C50
+ * XREFs of ?bExtraRectsToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z @ 0x1C02BD200
  * Callers:
- *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z @ 0x1C010BA70 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z.c)
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0092300 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     ??1RFONTTMPOBJ@@QEAA@XZ @ 0x1C013E734 (--1RFONTTMPOBJ@@QEAA@XZ.c)
- *     ?GetLinkedRfontOnIndex@ESTROBJ@@QEAAPEAVRFONT@@JAEAVRFONTOBJ@@@Z @ 0x1C02D9838 (-GetLinkedRfontOnIndex@ESTROBJ@@QEAAPEAVRFONT@@JAEAVRFONTOBJ@@@Z.c)
- *     ?bAddPgmToPath@@YAHAEAVEPATHOBJ@@JJJJJJ@Z @ 0x1C02D9BC4 (-bAddPgmToPath@@YAHAEAVEPATHOBJ@@JJJJJJ@Z.c)
- *     ?bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z @ 0x1C02FD85C (-bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z.c)
- *     ?cGetGlyphDataCache@RFONTOBJ@@QEAAKKPEAU_GLYPHPOS@@@Z @ 0x1C02FDEC0 (-cGetGlyphDataCache@RFONTOBJ@@QEAAKKPEAU_GLYPHPOS@@@Z.c)
+ *     ??1RFONTTMPOBJ@@QEAA@XZ @ 0x1C00E7978 (--1RFONTTMPOBJ@@QEAA@XZ.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0137700 (--0CFixPred@Prediction@@QEAA@XZ.c)
+ *     ?bLinkedGlyphs@ESTROBJ@@QEBAHXZ @ 0x1C0298240 (-bLinkedGlyphs@ESTROBJ@@QEBAHXZ.c)
+ *     ?cGetGlyphData@RFONTOBJ@@QEAAKKPEAU_GLYPHPOS@@@Z @ 0x1C02A7224 (-cGetGlyphData@RFONTOBJ@@QEAAKKPEAU_GLYPHPOS@@@Z.c)
+ *     ?GetLinkedRfontOnIndex@ESTROBJ@@QEAAPEAVRFONT@@JAEAVRFONTOBJ@@@Z @ 0x1C02BCF78 (-GetLinkedRfontOnIndex@ESTROBJ@@QEAAPEAVRFONT@@JAEAVRFONTOBJ@@@Z.c)
+ *     ?bAddPgmToPath@@YAHAEAVEPATHOBJ@@JJJJJJ@Z @ 0x1C02BD174 (-bAddPgmToPath@@YAHAEAVEPATHOBJ@@JJJJJJ@Z.c)
  */
 
 __int64 __fastcall ESTROBJ::bExtraRectsToPath(ESTROBJ *this, struct EPATHOBJ *a2)
 {
-  struct EPATHOBJ *v3; // r10
-  unsigned int v4; // esi
-  _DWORD *v5; // r8
-  int v6; // ecx
-  int v7; // edx
-  int v8; // r9d
-  int v9; // r11d
-  int v10; // r13d
-  int v11; // ecx
-  int v12; // edx
-  int v13; // r9d
-  int v14; // r11d
-  int v15; // r13d
-  int v16; // eax
-  unsigned int v17; // ebx
-  unsigned int v18; // edi
-  unsigned int v20; // ecx
-  RFONTOBJ *v21; // r9
-  struct _GLYPHPOS *v22; // r13
-  unsigned int v23; // r12d
-  unsigned int GlyphDataCache; // r15d
-  int v25; // eax
-  __int64 v26; // r9
-  __int64 v27; // rdx
+  _DWORD *v4; // r8
+  int v5; // r11d
+  int v6; // r12d
+  int v7; // r13d
+  int v8; // ecx
+  int v9; // edx
+  int v10; // r9d
+  int v11; // r10d
+  int v12; // eax
+  unsigned int v13; // ebx
+  unsigned int v14; // edi
+  __int64 v16; // rbx
+  __int64 v17; // r10
+  unsigned int v18; // r9d
+  unsigned int v19; // r15d
+  unsigned int v20; // r12d
+  unsigned int v21; // r13d
+  unsigned int v22; // r9d
+  struct _GLYPHPOS *v23; // r10
+  struct _FONTOBJ **v24; // r11
+  __int64 v25; // rcx
+  __int64 v26; // rdx
+  int v27; // r9d
   __int64 v28; // r12
   _DWORD *v29; // rcx
   struct RFONT *LinkedRfontOnIndex; // rax
-  __int64 v31; // r9
+  unsigned int GlyphData; // eax
   _QWORD *v32; // rax
-  float *v33; // rdx
-  LONG x; // eax
-  LONG y; // ecx
-  float v36; // xmm3_4
-  GLYPHDEF *pgdf; // rbx
-  int pgb; // edi
-  float v39; // xmm2_4
-  unsigned int v40; // r8d
+  float *v33; // r8
+  int v34; // eax
+  int v35; // edx
+  __int64 v36; // rbx
+  float v37; // xmm3_4
+  int v38; // esi
+  int v39; // r9d
+  int v40; // edi
   int v41; // eax
   float v42; // xmm1_4
-  unsigned int v43; // r8d
+  float v43; // xmm2_4
   unsigned int v44; // r8d
-  struct EXFORMOBJ *v45; // [rsp+30h] [rbp-49h]
-  int v46; // [rsp+40h] [rbp-39h] BYREF
-  int v47; // [rsp+44h] [rbp-35h] BYREF
-  int v48; // [rsp+48h] [rbp-31h] BYREF
-  int v49; // [rsp+4Ch] [rbp-2Dh] BYREF
-  int v50; // [rsp+50h] [rbp-29h]
-  int v51; // [rsp+54h] [rbp-25h]
-  int v52; // [rsp+58h] [rbp-21h]
-  unsigned int v53; // [rsp+5Ch] [rbp-1Dh]
-  struct RFONT *v54; // [rsp+60h] [rbp-19h] BYREF
-  int v55; // [rsp+68h] [rbp-11h]
-  int v56; // [rsp+6Ch] [rbp-Dh]
-  int v57; // [rsp+70h] [rbp-9h]
-  int v58; // [rsp+74h] [rbp-5h]
-  int v59; // [rsp+78h] [rbp-1h]
-  int v60; // [rsp+7Ch] [rbp+3h]
-  float *v61; // [rsp+80h] [rbp+7h]
-  RFONTOBJ *v62; // [rsp+88h] [rbp+Fh]
-  unsigned int v63; // [rsp+E0h] [rbp+67h]
-  int v65; // [rsp+F0h] [rbp+77h]
-  int v66; // [rsp+F8h] [rbp+7Fh]
+  int v45; // eax
+  float v46; // xmm1_4
+  unsigned int v47; // r8d
+  unsigned int v48; // r8d
+  int v49; // ebx
+  int v50; // edi
+  struct EXFORMOBJ *v51; // [rsp+30h] [rbp-59h]
+  int v52; // [rsp+40h] [rbp-49h] BYREF
+  int v53; // [rsp+44h] [rbp-45h] BYREF
+  int v54; // [rsp+48h] [rbp-41h]
+  int v55; // [rsp+4Ch] [rbp-3Dh]
+  int v56; // [rsp+50h] [rbp-39h]
+  int v57; // [rsp+54h] [rbp-35h]
+  int v58; // [rsp+58h] [rbp-31h]
+  int v59; // [rsp+5Ch] [rbp-2Dh]
+  int v60; // [rsp+60h] [rbp-29h]
+  unsigned int v61; // [rsp+64h] [rbp-25h]
+  __int64 v62; // [rsp+68h] [rbp-21h]
+  int v63; // [rsp+70h] [rbp-19h]
+  int v64; // [rsp+74h] [rbp-15h]
+  int v65; // [rsp+78h] [rbp-11h]
+  struct RFONT *v66; // [rsp+80h] [rbp-9h] BYREF
+  float *v67; // [rsp+88h] [rbp-1h]
+  struct RFONT **v68; // [rsp+90h] [rbp+7h]
+  __int64 v69; // [rsp+98h] [rbp+Fh]
+  unsigned int v70; // [rsp+F0h] [rbp+67h]
+  int v72; // [rsp+100h] [rbp+77h] BYREF
+  int v73; // [rsp+108h] [rbp+7Fh] BYREF
 
-  v3 = a2;
-  v4 = 0;
-  v5 = (_DWORD *)**((_QWORD **)this + 7);
-  v6 = v5[70];
-  v7 = v5[71];
-  v8 = v5[74];
-  v9 = v5[75];
-  v10 = v5[72];
-  v50 = 16 * v5[73];
-  v52 = 16 * v5[76];
-  v11 = 16 * v6;
-  v12 = 16 * v7;
-  v13 = 16 * v8;
-  v14 = 16 * v9;
-  v15 = 16 * v10;
-  v51 = 16 * v5[77];
-  v16 = *((_DWORD *)this + 58);
-  v57 = v11;
-  v56 = v12;
-  v59 = v13;
-  v58 = v14;
-  v60 = v15;
-  if ( (v16 & 8) == 0 )
+  v4 = (_DWORD *)**((_QWORD **)this + 7);
+  v5 = 16 * v4[70];
+  v6 = 16 * v4[71];
+  v7 = 16 * v4[74];
+  v8 = 16 * v4[72];
+  v9 = 16 * v4[73];
+  v10 = 16 * v4[76];
+  v11 = 16 * v4[77];
+  v54 = 16 * v4[75];
+  v12 = *((_DWORD *)this + 58);
+  v64 = v5;
+  v63 = v6;
+  v65 = v7;
+  v58 = v8;
+  v57 = v9;
+  v60 = v10;
+  v59 = v11;
+  if ( (v12 & 8) != 0 )
   {
-    v17 = (*((_DWORD *)this + 18) + 8) & 0xFFFFFFF0;
-    v18 = (*((_DWORD *)this + 19) + 8) & 0xFFFFFFF0;
-    if ( (v16 & 0x20) == 0 )
-      goto LABEL_5;
-    LODWORD(v45) = v14;
-    if ( (unsigned int)bAddPgmToPath(v3, v11 + v17, v12 + v18, *((_DWORD *)this + 22), *((_DWORD *)this + 23), v13, v45) )
+    v16 = *((_QWORD *)this + 5);
+    v62 = *((_QWORD *)this + 8);
+    Prediction::CFixPred::CFixPred((Prediction::CFixPred *)&v66);
+    v18 = *(_DWORD *)this;
+    v19 = 0;
+    v68 = 0LL;
+    v70 = v18;
+    v20 = 0;
+    v21 = v18;
+    if ( v18 )
     {
-      v3 = a2;
-LABEL_5:
-      if ( (*((_DWORD *)this + 58) & 0x80u) != 0 )
+      while ( 1 )
       {
-        LODWORD(v45) = v51;
-        LOBYTE(v4) = (unsigned int)bAddPgmToPath(
-                                     v3,
-                                     v17 + v15,
-                                     v18 + v50,
-                                     *((_DWORD *)this + 22),
-                                     *((_DWORD *)this + 23),
-                                     v52,
-                                     v45) != 0;
-        return v4;
-      }
-      return 1LL;
-    }
-    return 0LL;
-  }
-  v20 = *(_DWORD *)this;
-  v21 = 0LL;
-  v22 = (struct _GLYPHPOS *)*((_QWORD *)this + 8);
-  v23 = 0;
-  v54 = 0LL;
-  GlyphDataCache = v20;
-  v62 = 0LL;
-  v63 = v20;
-  if ( v20 )
-  {
-    while ( 1 )
-    {
-      v25 = *((_DWORD *)this + 58);
-      if ( (v25 & 2) == 0 )
-      {
-        if ( (v25 & 0x1400) != 0 )
+        if ( (*((_DWORD *)this + 58) & 2) == 0 )
         {
-          if ( !v23 )
+          if ( ESTROBJ::bLinkedGlyphs(this) )
           {
-            v26 = *((_QWORD *)this + 26);
-            v27 = *(_DWORD *)this - v20;
-            v28 = (unsigned int)(v27 + 1);
-            if ( (unsigned int)v28 < *(_DWORD *)this )
+            if ( !v20 )
             {
-              v29 = (_DWORD *)(v26 + 4 * v28);
-              do
+              v25 = *((_QWORD *)this + 26);
+              v26 = *(_DWORD *)this - v22;
+              v27 = *(_DWORD *)(v25 + 4 * v26);
+              v28 = (unsigned int)(v26 + 1);
+              if ( (unsigned int)v28 < *(_DWORD *)this )
               {
-                if ( *v29 != *(_DWORD *)(v26 + 4 * v27) )
-                  break;
-                LODWORD(v28) = v28 + 1;
-                ++v29;
+                v29 = (_DWORD *)(v25 + 4 * v28);
+                do
+                {
+                  if ( *v29 != v27 )
+                    break;
+                  LODWORD(v28) = v28 + 1;
+                  ++v29;
+                }
+                while ( (unsigned int)v28 < *(_DWORD *)this );
               }
-              while ( (unsigned int)v28 < *(_DWORD *)this );
+              v20 = v28 - v26;
+              LinkedRfontOnIndex = ESTROBJ::GetLinkedRfontOnIndex(this, v26, *((struct RFONTOBJ **)this + 7));
+              v24 = (struct _FONTOBJ **)&v66;
+              v66 = LinkedRfontOnIndex;
+              v68 = &v66;
             }
-            v23 = v28 - v27;
-            LinkedRfontOnIndex = ESTROBJ::GetLinkedRfontOnIndex(this, v27, *((struct RFONTOBJ **)this + 7));
-            v21 = (RFONTOBJ *)&v54;
-            v54 = LinkedRfontOnIndex;
-            v62 = (RFONTOBJ *)&v54;
-          }
-          if ( (*(_DWORD *)(*(_QWORD *)v21 + 84LL) & 1) != 0 )
-          {
-            if ( v23 )
-              GlyphDataCache = RFONTOBJ::bInsertGlyphbitsLookaside(v21, v22, *(_DWORD *)(*(_QWORD *)v21 + 88LL)) != 0;
-            else
-              GlyphDataCache = 0;
+            GlyphData = RFONTOBJ::cGetGlyphData(v24, v20, v23);
+            v21 = GlyphData;
+            if ( !GlyphData )
+              goto LABEL_35;
+            v20 -= GlyphData;
           }
           else
           {
-            GlyphDataCache = RFONTOBJ::cGetGlyphDataCache(v21, v23, v22);
+            v21 = RFONTOBJ::cGetGlyphData(*((struct _FONTOBJ ***)this + 7), v22, v23);
+            if ( !v21 )
+              goto LABEL_35;
           }
-          if ( !GlyphDataCache )
-            goto LABEL_39;
-          v23 -= GlyphDataCache;
+          v17 = v62;
+          v18 = v70;
         }
-        else
+        v61 = 0;
+        v16 += 2LL * v21;
+        v32 = (_QWORD *)*((_QWORD *)this + 7);
+        v69 = v16;
+        v33 = (float *)(*v32 + 396LL);
+        v67 = v33;
+        if ( v21 )
+          break;
+LABEL_33:
+        v18 -= v21;
+        v70 = v18;
+        if ( !v18 )
+          goto LABEL_34;
+      }
+      while ( 1 )
+      {
+        v34 = *(_DWORD *)(v17 + 20);
+        v35 = *(_DWORD *)(v17 + 16);
+        v36 = *(_QWORD *)(v17 + 8);
+        v37 = *v33;
+        v38 = *((_DWORD *)this + 58);
+        v39 = 16 * v34;
+        v40 = *(_DWORD *)(v36 + 16);
+        v73 = 0;
+        if ( (v38 & 0x100) != 0 )
+          v39 = v34;
+        v41 = 16 * v35;
+        v42 = (float)v40;
+        if ( (v38 & 0x100) != 0 )
+          v41 = v35;
+        v55 = v39;
+        v56 = v41;
+        bFToL(v42 * v37, &v73, 0);
+        v72 = 0;
+        v43 = v67[1];
+        bFToL(v42 * v43, &v72, v44);
+        v45 = *(_DWORD *)(v36 + 20) - v40;
+        v53 = 0;
+        v46 = (float)v45;
+        bFToL((float)v45 * v37, &v53, v47);
+        v52 = 0;
+        bFToL(v46 * v43, &v52, v48);
+        v49 = v55;
+        v50 = v56;
+        if ( (v38 & 0x20) != 0 )
         {
-          v31 = *((_QWORD *)this + 7);
-          if ( (*(_DWORD *)(*(_QWORD *)v31 + 84LL) & 1) != 0 )
-            GlyphDataCache = RFONTOBJ::bInsertGlyphbitsLookaside(
-                               *((RFONTOBJ **)this + 7),
-                               v22,
-                               *(_DWORD *)(*(_QWORD *)v31 + 88LL)) != 0;
-          else
-            GlyphDataCache = RFONTOBJ::cGetGlyphDataCache(*((RFONTOBJ **)this + 7), v20, v22);
-          if ( !GlyphDataCache )
-            goto LABEL_39;
+          LODWORD(v51) = v54;
+          if ( !(unsigned int)bAddPgmToPath(a2, v56 + v73 + v64, v55 + v72 + v63, v53, v52, v65, v51) )
+            break;
         }
-        v20 = v63;
+        if ( (*((_DWORD *)this + 58) & 0x80u) != 0 )
+        {
+          LODWORD(v51) = v59;
+          if ( !(unsigned int)bAddPgmToPath(a2, v73 + v50 + v58, v57 + v49 + v72, v53, v52, v60, v51) )
+            break;
+        }
+        v33 = v67;
+        v17 = v62 + 24;
+        ++v61;
+        v62 += 24LL;
+        if ( v61 >= v21 )
+        {
+          v18 = v70;
+          v16 = v69;
+          goto LABEL_33;
+        }
       }
-      v32 = (_QWORD *)*((_QWORD *)this + 7);
-      v53 = 0;
-      v33 = (float *)(*v32 + 396LL);
-      v61 = v33;
-      if ( GlyphDataCache )
-        break;
-LABEL_37:
-      v20 -= GlyphDataCache;
-      v63 = v20;
-      if ( !v20 )
-        goto LABEL_41;
-      v21 = v62;
     }
-    while ( 1 )
+    else
     {
-      x = v22->ptl.x;
-      y = v22->ptl.y;
-      v65 = x;
-      v66 = y;
-      v55 = *((_DWORD *)this + 58);
-      if ( (v55 & 0x100) == 0 )
-      {
-        v66 = 16 * y;
-        v65 = 16 * x;
-      }
-      v36 = *v33;
-      pgdf = v22->pgdf;
-      v47 = 0;
-      pgb = (int)pgdf[2].pgb;
-      bFToL(v36 * (float)pgb, &v47, 0);
-      v46 = 0;
-      v39 = v61[1];
-      bFToL(v39 * (float)pgb, &v46, v40);
-      v41 = HIDWORD(pgdf[2].ppo) - pgb;
-      v49 = 0;
-      v42 = (float)v41;
-      bFToL(v36 * (float)v41, &v49, v43);
-      v48 = 0;
-      bFToL(v39 * v42, &v48, v44);
-      if ( (v55 & 0x20) != 0 )
-      {
-        LODWORD(v45) = v58;
-        if ( !(unsigned int)bAddPgmToPath(a2, v65 + v47 + v57, v66 + v46 + v56, v49, v48, v59, v45) )
-          break;
-      }
-      if ( (*((_DWORD *)this + 58) & 0x80u) != 0 )
-      {
-        LODWORD(v45) = v51;
-        if ( !(unsigned int)bAddPgmToPath(a2, v65 + v47 + v60, v66 + v46 + v50, v49, v48, v52, v45) )
-          break;
-      }
-      ++v22;
-      ++v53;
-      v33 = v61;
-      if ( v53 >= GlyphDataCache )
-      {
-        v20 = v63;
-        goto LABEL_37;
-      }
+LABEL_34:
+      v19 = 1;
     }
-LABEL_39:
-    RFONTTMPOBJ::~RFONTTMPOBJ((RFONTTMPOBJ *)&v54);
-    return 0LL;
+LABEL_35:
+    RFONTTMPOBJ::~RFONTTMPOBJ((RFONTTMPOBJ *)&v66);
+    return v19;
   }
-LABEL_41:
-  v54 = 0LL;
-  RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v54);
-  return 1LL;
+  else
+  {
+    v13 = (*((_DWORD *)this + 18) + 8) & 0xFFFFFFF0;
+    v14 = (*((_DWORD *)this + 19) + 8) & 0xFFFFFFF0;
+    if ( (v12 & 0x20) != 0 )
+    {
+      LODWORD(v51) = v54;
+      if ( !(unsigned int)bAddPgmToPath(a2, v5 + v13, v6 + v14, *((_DWORD *)this + 22), *((_DWORD *)this + 23), v7, v51) )
+        return 0LL;
+      v8 = v58;
+      v9 = v57;
+      v10 = v60;
+      v11 = v59;
+    }
+    if ( (*((_DWORD *)this + 58) & 0x80u) != 0 )
+    {
+      LODWORD(v51) = v11;
+      if ( !(unsigned int)bAddPgmToPath(
+                            a2,
+                            v13 + v8,
+                            v14 + v9,
+                            *((_DWORD *)this + 22),
+                            *((_DWORD *)this + 23),
+                            v10,
+                            v51) )
+        return 0LL;
+    }
+    return 1LL;
+  }
 }

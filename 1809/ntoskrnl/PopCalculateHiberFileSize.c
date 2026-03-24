@@ -1,13 +1,13 @@
 /*
- * XREFs of PopCalculateHiberFileSize @ 0x14071DFC4
+ * XREFs of PopCalculateHiberFileSize @ 0x14071DFA4
  * Callers:
- *     PopHiberInitializeResources @ 0x1406DF264 (PopHiberInitializeResources.c)
- *     PopAdjustHiberFile @ 0x1406DFC30 (PopAdjustHiberFile.c)
- *     PopEnableHiberFile @ 0x140745F9C (PopEnableHiberFile.c)
- *     PopSetHiberFileSize @ 0x14086BBE4 (PopSetHiberFileSize.c)
- *     PopSetHiberFileType @ 0x14086BCF0 (PopSetHiberFileType.c)
+ *     PopHiberInitializeResources @ 0x1406DF244 (PopHiberInitializeResources.c)
+ *     PopAdjustHiberFile @ 0x1406DFC10 (PopAdjustHiberFile.c)
+ *     PopEnableHiberFile @ 0x140745F7C (PopEnableHiberFile.c)
+ *     PopSetHiberFileSize @ 0x14086BBC4 (PopSetHiberFileSize.c)
+ *     PopSetHiberFileType @ 0x14086BCD0 (PopSetHiberFileType.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PopCalculateHiberFileSize(_QWORD *a1, unsigned __int8 *a2)

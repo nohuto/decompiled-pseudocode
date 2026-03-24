@@ -1,5 +1,5 @@
 /*
- * XREFs of ObpLookupDirectoryEntry @ 0x140729208
+ * XREFs of ObpLookupDirectoryEntry @ 0x1407291E8
  * Callers:
  *     ObInitSystem @ 0x1409B1964 (ObInitSystem.c)
  * Callees:

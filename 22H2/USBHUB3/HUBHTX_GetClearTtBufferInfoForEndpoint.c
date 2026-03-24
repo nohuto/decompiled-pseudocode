@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBHTX_GetClearTtBufferInfoForEndpoint @ 0x1C000696C
+ * XREFs of HUBHTX_GetClearTtBufferInfoForEndpoint @ 0x1C000625C
  * Callers:
- *     HUBHTX_ClearTTBuffer @ 0x1C0006BA0 (HUBHTX_ClearTTBuffer.c)
+ *     HUBHTX_ClearTTBuffer @ 0x1C0006480 (HUBHTX_ClearTTBuffer.c)
  * Callees:
  *     <none>
  */
@@ -9,20 +9,20 @@
 __int64 __fastcall HUBHTX_GetClearTtBufferInfoForEndpoint(__int64 a1, __int64 a2, char a3, _WORD *a4)
 {
   bool v5; // cc
-  unsigned int v7; // r10d
-  _QWORD *v8; // rdi
+  unsigned int v8; // r10d
+  _QWORD *v9; // r8
   _QWORD *i; // rax
-  _QWORD *v10; // rcx
-  unsigned int v11; // ebx
-  __int64 v12; // rax
-  _QWORD *v13; // rdx
-  __int64 v14; // rcx
-  __int16 v15; // dx
-  __int16 v16; // cx
+  _QWORD *v11; // rcx
+  unsigned int v12; // edi
+  __int64 v13; // rax
+  _QWORD *v14; // rdx
+  __int64 v15; // rcx
+  __int16 v16; // dx
+  __int16 v17; // cx
 
   v5 = *(_DWORD *)(a1 + 172) <= 1u;
-  v7 = -1073741823;
   *a4 = 0;
+  v8 = -1073741823;
   if ( v5 )
   {
     if ( a2 == *(_QWORD *)(a1 + 88) )
@@ -32,39 +32,39 @@ __int64 __fastcall HUBHTX_GetClearTtBufferInfoForEndpoint(__int64 a1, __int64 a2
     }
     else
     {
-      v8 = (_QWORD *)(*(_QWORD *)(a1 + 48) + 16LL);
-      for ( i = (_QWORD *)*v8; ; i = (_QWORD *)v10[1] )
+      v9 = (_QWORD *)(*(_QWORD *)(a1 + 48) + 16LL);
+      for ( i = (_QWORD *)*v9; ; i = (_QWORD *)v11[1] )
       {
-        v10 = i - 1;
-        if ( v8 == i )
+        v11 = i - 1;
+        if ( v9 == i )
           break;
-        v11 = *((_DWORD *)v10 + 6);
-        v12 = 0LL;
-        if ( v11 )
+        v12 = *((_DWORD *)v11 + 6);
+        v13 = 0LL;
+        if ( v12 )
         {
-          v13 = v10 + 5;
-          while ( *v13 != a2 )
+          v14 = v11 + 5;
+          while ( *v14 != a2 )
           {
-            v12 = (unsigned int)(v12 + 1);
-            v13 += 9;
-            if ( (unsigned int)v12 >= v11 )
+            v13 = (unsigned int)(v13 + 1);
+            v14 += 9;
+            if ( (unsigned int)v13 >= v12 )
               goto LABEL_10;
           }
-          v14 = v10[9 * v12 + 9];
-          if ( (*(_BYTE *)(v14 + 3) & 3) != 0 )
+          v15 = v11[9 * v13 + 9];
+          if ( (*(_BYTE *)(v15 + 3) & 3) != 0 )
           {
-            if ( (*(_BYTE *)(v14 + 3) & 3) != 2 )
-              return v7;
-            v15 = 4096;
+            if ( (*(_BYTE *)(v15 + 3) & 3) != 2 )
+              return v8;
+            v16 = 4096;
           }
           else
           {
-            v15 = 0;
+            v16 = 0;
           }
-          v16 = v15 | a3 & 0xF | (16 * (*(_WORD *)(a1 + 1648) & 0x7F));
-          *a4 = v16;
+          v17 = v16 | a3 & 0xF | (16 * (*(_WORD *)(a1 + 1648) & 0x7F));
+          *a4 = v17;
           if ( a3 < 0 )
-            *a4 = v16 | 0x8000;
+            *a4 = v17 | 0x8000;
           return 0;
         }
 LABEL_10:
@@ -72,5 +72,5 @@ LABEL_10:
       }
     }
   }
-  return v7;
+  return v8;
 }

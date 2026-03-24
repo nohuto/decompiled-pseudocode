@@ -5,7 +5,7 @@
  *     VfTargetDriversIsEnabled @ 0x140934AD4 (VfTargetDriversIsEnabled.c)
  *     VerifierMmBuildMdlForNonPagedPool @ 0x140944540 (VerifierMmBuildMdlForNonPagedPool.c)
  * Callees:
- *     VfTargetDriversGetNode @ 0x14030AC9C (VfTargetDriversGetNode.c)
+ *     VfTargetDriversGetNode @ 0x14030AD9C (VfTargetDriversGetNode.c)
  *     VfDriverIsKernelImageAddress @ 0x140928128 (VfDriverIsKernelImageAddress.c)
  */
 
@@ -21,10 +21,10 @@ __int64 __fastcall VfTargetDriversGetVerifierData(unsigned __int64 a1)
   }
   else if ( KernelVerifier )
   {
-    if ( dword_14040D768 < 2 )
+    if ( dword_14040D708 < 2 )
       return 0LL;
   }
-  else if ( !dword_14040D768 )
+  else if ( !dword_14040D708 )
   {
     return 0LL;
   }

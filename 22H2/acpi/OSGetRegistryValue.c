@@ -1,12 +1,13 @@
 /*
- * XREFs of OSGetRegistryValue @ 0x1C008DCBC
+ * XREFs of OSGetRegistryValue @ 0x1C0094F04
  * Callers:
- *     PcisuppGetRoutingInfo @ 0x1C0099C7C (PcisuppGetRoutingInfo.c)
- *     IrqPolicyGetDevicePolicy @ 0x1C009F8B4 (IrqPolicyGetDevicePolicy.c)
- *     ACPIInitGetPlatformOverrides @ 0x1C00A87F8 (ACPIInitGetPlatformOverrides.c)
- *     OSReadAcpiConfigurationData @ 0x1C00AA304 (OSReadAcpiConfigurationData.c)
- *     IrqPolicyConfigure @ 0x1C00AC2B4 (IrqPolicyConfigure.c)
- *     IrqPolicyGetDistributionDisposition @ 0x1C00AC3AC (IrqPolicyGetDistributionDisposition.c)
+ *     IrqPolicyGetDevicePolicy @ 0x1C0094A38 (IrqPolicyGetDevicePolicy.c)
+ *     PcisuppGetRoutingInfo @ 0x1C0094D70 (PcisuppGetRoutingInfo.c)
+ *     IsHypervisorCpcCapable @ 0x1C00B54B0 (IsHypervisorCpcCapable.c)
+ *     OSReadAcpiConfigurationData @ 0x1C00BC3BC (OSReadAcpiConfigurationData.c)
+ *     IrqPolicyConfigure @ 0x1C00BC884 (IrqPolicyConfigure.c)
+ *     ACPIInitGetPlatformOverrides @ 0x1C00BC920 (ACPIInitGetPlatformOverrides.c)
+ *     IrqPolicyGetDistributionDisposition @ 0x1C00BCAA0 (IrqPolicyGetDistributionDisposition.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +15,7 @@
 NTSTATUS __fastcall OSGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWORD *a3)
 {
   NTSTATUS result; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v7; // rbx
   NTSTATUS v8; // edi
   struct _UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF
@@ -26,22 +27,28 @@ NTSTATUS __fastcall OSGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWORD
   result = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformationAlign64, 0LL, 0, &ResultLength);
   if ( result >= 0 )
     return -1073741823;
-  if ( result == -2147483643 || result == -1073741789 )
+  if ( result == -1073741789 || result == -2147483643 )
   {
-    Pool2 = (void *)ExAllocatePool2(64LL, ResultLength, 1399874369LL);
-    v7 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, ResultLength, 0x53706341u);
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v8 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformationAlign64, Pool2, ResultLength, &ResultLength);
-      if ( v8 >= 0 )
-      {
-        *a3 = v7;
-        return 0;
-      }
-      else
+      v8 = ZwQueryValueKey(
+             KeyHandle,
+             &ValueName,
+             KeyValuePartialInformationAlign64,
+             PoolWithTag,
+             ResultLength,
+             &ResultLength);
+      if ( v8 < 0 )
       {
         ExFreePoolWithTag(v7, 0);
         return v8;
+      }
+      else
+      {
+        *a3 = v7;
+        return 0;
       }
     }
     else

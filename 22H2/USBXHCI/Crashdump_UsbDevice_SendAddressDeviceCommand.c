@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C0050B40
+ * XREFs of Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C004E070
  * Callers:
- *     Crashdump_UsbDevice_Configure @ 0x1C004FB34 (Crashdump_UsbDevice_Configure.c)
+ *     Crashdump_UsbDevice_Configure @ 0x1C004D05C (Crashdump_UsbDevice_Configure.c)
  * Callees:
- *     memset @ 0x1C0020600 (memset.c)
- *     Crashdump_Command_SendCommand @ 0x1C004EA8C (Crashdump_Command_SendCommand.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Crashdump_Command_SendCommand @ 0x1C004BFB0 (Crashdump_Command_SendCommand.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_SendAddressDeviceCommand(__int64 *a1)
@@ -33,7 +33,7 @@ __int64 __fastcall Crashdump_UsbDevice_SendAddressDeviceCommand(__int64 *a1)
   v4 = *(_DWORD *)(*(_QWORD *)a1[1] + 104LL) & 4;
   v5 = v4 != 0 ? 0x20 : 0;
   *(_DWORD *)(v5 + v3 + 32) ^= (*(_DWORD *)(v5 + v3 + 32) ^ *((_DWORD *)a1 + 20)) & 0xFFFFF;
-  v6 = *(_DWORD *)(v5 + v3 + 32) ^ (*((_DWORD *)a1 + 20) ^ *(_DWORD *)(v5 + v3 + 32)) & 0xF00000;
+  v6 = *(_DWORD *)(v5 + v3 + 32) ^ (*(_DWORD *)(v5 + v3 + 32) ^ *((_DWORD *)a1 + 20)) & 0xF00000;
   *(_DWORD *)(v5 + v3 + 32) = v6;
   *(_BYTE *)(v5 + v3 + 38) = *((_BYTE *)a1 + 86);
   *(_DWORD *)(v5 + v3 + 32) = v6 & 0x7FFFFFF | 0x8000000;

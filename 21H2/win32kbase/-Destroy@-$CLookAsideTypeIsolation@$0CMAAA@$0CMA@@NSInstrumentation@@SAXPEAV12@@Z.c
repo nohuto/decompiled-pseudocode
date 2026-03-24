@@ -1,16 +1,41 @@
 /*
- * XREFs of ?Destroy@?$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00BB490
+ * XREFs of ?Destroy@?$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00B7600
  * Callers:
- *     MultiUserNtGreCleanup @ 0x1C008F7E4 (MultiUserNtGreCleanup.c)
- *     ?Create@?$TypeIsolationFactory@V?$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@V?$CTypeIsolation@$0KAAA@$0KA@@2@V?$CTypeIsolation@$0MAAA@$0MA@@2@V?$CLookAsideTypeIsolation@$0JAAA@$0JA@@2@V?$CTypeIsolation@$0BEAAA@$0BEA@@2@V?$CTypeIsolation@$0NOAAA@$0NOA@@2@V?$CTypeIsolation@$0HAAA@$0HA@@2@V?$CTypeIsolation@$0DJAAA@$0DJA@@2@@@SA_NPEAPEAE@Z @ 0x1C00DB250 (-Create@-$TypeIsolationFactory@V-$CLookAsideTypeIsolation@$0CMAAA@$0CMA@@NSInstrumentation@@V-$C.c)
- *     ?Create@?$TypeIsolationFactory@V?$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V?$CTypeIsolation@$0BEAAA@$0BEA@@2@V?$CTypeIsolation@$0NOAAA@$0NOA@@2@V?$CTypeIsolation@$0HAAA@$0HA@@2@V?$CTypeIsolation@$0DJAAA@$0DJA@@2@@@SA_NPEAPEAE@Z @ 0x1C00DB300 (-Create@-$TypeIsolationFactory@V-$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V-$CTy.c)
+ *     MultiUserNtGreCleanup @ 0x1C007BDB8 (MultiUserNtGreCleanup.c)
  * Callees:
- *     ??1?$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAA@XZ @ 0x1C00BB4FC (--1-$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAA@XZ.c)
+ *     ?Destroy@?$CSectionEntry@$0MAAA@$0MA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00AFA14 (-Destroy@-$CSectionEntry@$0MAAA@$0MA@@NSInstrumentation@@SAXPEAV12@@Z.c)
  */
 
 void __fastcall NSInstrumentation::CLookAsideTypeIsolation<180224,704>::Destroy(char *P)
 {
+  struct _PAGED_LOOKASIDE_LIST *v2; // rcx
+  void *v3; // rcx
+  _QWORD *v4; // rcx
+  __int64 v5; // rdx
+  _QWORD *v6; // rax
+
   ExDeleteLookasideListEx((PLOOKASIDE_LIST_EX)(P + 48));
-  NSInstrumentation::CTypeIsolation<81920,160>::~CTypeIsolation<81920,160>(P);
+  v2 = (struct _PAGED_LOOKASIDE_LIST *)*((_QWORD *)P + 3);
+  if ( v2 )
+  {
+    ExDeletePagedLookasideList(v2);
+    ExFreePoolWithTag(*((PVOID *)P + 3), 0);
+    P[36] = 0;
+  }
+  v3 = (void *)*((_QWORD *)P + 2);
+  if ( v3 )
+    ExFreePoolWithTag(v3, 0);
+  while ( 1 )
+  {
+    v4 = *(_QWORD **)P;
+    if ( *(char **)P == P )
+      break;
+    v5 = *v4;
+    if ( *(_QWORD **)(*v4 + 8LL) != v4 || (v6 = (_QWORD *)v4[1], (_QWORD *)*v6 != v4) )
+      __fastfail(3u);
+    *v6 = v5;
+    *(_QWORD *)(v5 + 8) = v6;
+    NSInstrumentation::CSectionEntry<49152,192>::Destroy(v4);
+  }
   ExFreePoolWithTag(P, 0);
 }

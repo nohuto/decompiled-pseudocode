@@ -1,25 +1,15 @@
 /*
- * XREFs of MiIsFreeSlabPage @ 0x140657108
+ * XREFs of MiIsFreeSlabPage @ 0x140553278
  * Callers:
- *     MiIsPageSecured @ 0x1402EED30 (MiIsPageSecured.c)
- *     MiPurgeSlabEntries @ 0x14036B020 (MiPurgeSlabEntries.c)
+ *     MiIsPageSecured @ 0x14030C4B8 (MiIsPageSecured.c)
+ *     MiFreeSlabEntries @ 0x140312360 (MiFreeSlabEntries.c)
  * Callees:
- *     MiCheckSlabPfnBitmap @ 0x140324550 (MiCheckSlabPfnBitmap.c)
+ *     MiIsPfnFromSlabAllocation @ 0x140283570 (MiIsPfnFromSlabAllocation.c)
  */
 
-__int64 __fastcall MiIsFreeSlabPage(__int64 a1)
+_BOOL8 __fastcall MiIsFreeSlabPage(__int64 a1)
 {
-  int v2; // eax
-  unsigned int v3; // r8d
-  __int64 v4; // rcx
+  __int64 v1; // r8
 
-  v2 = MiCheckSlabPfnBitmap(a1, 1LL, 0);
-  v3 = 0;
-  if ( !v2 || (*(_BYTE *)(a1 + 34) & 7) != 5 )
-    return 0LL;
-  v4 = *(_QWORD *)(a1 + 8);
-  if ( v4 == -1 )
-    return 1LL;
-  LOBYTE(v3) = v4 == -2;
-  return v3;
+  return MiIsPfnFromSlabAllocation(a1) && (*(_BYTE *)(v1 + 34) & 7) == 5 && *(_QWORD *)(v1 + 8) >= 0xFFFFFFFFFFFFFFFEuLL;
 }

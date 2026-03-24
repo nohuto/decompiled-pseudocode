@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x1409EA738
+ * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x1405D09D0
  * Callers:
- *     IoCheckRedirectionTrustLevel @ 0x1403D09D0 (IoCheckRedirectionTrustLevel.c)
+ *     IoCheckRedirectionTrustLevel @ 0x1403F09C0 (IoCheckRedirectionTrustLevel.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     RtlWalkFrameChain @ 0x140227780 (RtlWalkFrameChain.c)
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14041AB00 (ZwQueryVirtualMemory.c)
- *     memset @ 0x140435400 (memset.c)
- *     EtwpQueryProcessCommandLine @ 0x1407550F8 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlWalkFrameChain @ 0x14021CE70 (RtlWalkFrameChain.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025EE64 (EtwpTiFillProcessIdentity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1403F9E80 (ZwQueryVirtualMemory.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
  */
 
 void __fastcall EtwTimLogRedirectionTrustPolicy(
@@ -27,10 +27,10 @@ void __fastcall EtwTimLogRedirectionTrustPolicy(
 {
   unsigned int v5; // edi
   PCEVENT_DESCRIPTOR v6; // r13
-  signed __int64 Keyword; // r15
+  signed __int64 Keyword; // r12
   UNICODE_STRING *v8; // rbx
   signed __int32 v9; // r14d
-  char v10; // r12
+  char v10; // r15
   ULONG v11; // eax
   unsigned __int16 v12; // si
   unsigned __int16 i; // cx
@@ -38,48 +38,48 @@ void __fastcall EtwTimLogRedirectionTrustPolicy(
   void *Pool2; // rax
   bool v16; // cf
   _DWORD *v17; // rcx
-  __int64 v18; // r15
-  _QWORD *v19; // r12
-  PVOID *v20; // rdi
+  char v18; // al
+  __int64 v19; // r15
+  void *v20; // rax
+  _QWORD *v21; // r12
+  PVOID *v22; // rdi
   wchar_t *p_Length; // r14
-  unsigned __int16 v22; // cx
-  __int64 *v23; // rax
-  __int64 *v24; // r14
+  unsigned __int16 v24; // cx
   __int64 *v25; // rax
+  __int64 *v26; // r14
+  __int64 *v27; // rax
   unsigned __int16 Length; // di
-  int v27; // eax
-  const wchar_t *v28; // rcx
   int v29; // eax
-  __int16 v30; // di
+  const wchar_t *v30; // rcx
   int v31; // eax
-  ULONG v32; // r9d
-  unsigned __int16 *v33; // r10
-  ULONGLONG v34; // r11
-  __int64 v35; // rcx
-  int v36; // r8d
-  unsigned int v37; // edx
-  ULONGLONG v38; // r15
-  unsigned int v39; // r8d
+  __int16 v32; // di
+  int v33; // eax
+  ULONG v34; // r9d
+  unsigned __int16 *v35; // r11
+  int v36; // edx
+  __int64 v37; // rcx
+  unsigned int v38; // r10d
+  const wchar_t *v39; // r8
   __int16 v40; // ax
-  __int64 v41; // rax
-  __int64 v42; // rdx
-  ULONG v43; // r10d
-  unsigned __int16 v44; // r14
-  wchar_t *v45; // r15
-  UNICODE_STRING *v46; // r11
-  ULONG v47; // r12d
-  __int64 v48; // rax
-  PVOID *v49; // r13
-  unsigned __int16 MaximumLength; // ax
-  const wchar_t *v51; // r9
-  int v52; // eax
-  __int64 v53; // r8
-  ULONG v54; // edi
+  unsigned int v41; // ecx
+  PVOID *v42; // r14
+  __int64 v43; // rax
+  __int64 v44; // rdx
+  UNICODE_STRING *v45; // r10
+  ULONG v46; // r11d
+  wchar_t *v47; // r15
+  unsigned int MaximumLength; // r13d
+  __int64 v49; // rax
+  unsigned __int16 v50; // di
+  ULONG v51; // r12d
+  const wchar_t *v52; // r9
+  int v53; // eax
+  ULONG v54; // r8d
   ULONG v55; // edx
   __int64 v56; // rax
   ULONG v57; // ecx
   __int64 v58; // rax
-  int v59; // r9d
+  unsigned __int16 v59; // r9
   UNICODE_STRING *p_DestinationString; // rcx
   UNICODE_STRING *v61; // rcx
   UNICODE_STRING *v62; // rcx
@@ -87,125 +87,129 @@ void __fastcall EtwTimLogRedirectionTrustPolicy(
   UNICODE_STRING *v64; // rcx
   UNICODE_STRING *v65; // rcx
   char v66; // [rsp+30h] [rbp-D0h]
-  unsigned __int16 v67; // [rsp+32h] [rbp-CEh] BYREF
-  _WORD v68[2]; // [rsp+34h] [rbp-CCh] BYREF
-  _WORD v69[2]; // [rsp+38h] [rbp-C8h] BYREF
-  __int16 v70; // [rsp+3Ch] [rbp-C4h] BYREF
-  int v71; // [rsp+40h] [rbp-C0h]
-  int v72; // [rsp+44h] [rbp-BCh] BYREF
-  int v73; // [rsp+48h] [rbp-B8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
-  ULONG v75; // [rsp+60h] [rbp-A0h]
-  int v76; // [rsp+64h] [rbp-9Ch] BYREF
-  PCEVENT_DESCRIPTOR EventDescriptor; // [rsp+68h] [rbp-98h]
+  _WORD v67[2]; // [rsp+34h] [rbp-CCh] BYREF
+  unsigned __int8 v68; // [rsp+38h] [rbp-C8h] BYREF
+  unsigned __int8 v69; // [rsp+39h] [rbp-C7h] BYREF
+  _WORD v70[2]; // [rsp+3Ch] [rbp-C4h] BYREF
+  __int16 v71; // [rsp+40h] [rbp-C0h] BYREF
+  int v72; // [rsp+44h] [rbp-BCh]
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG v74; // [rsp+58h] [rbp-A8h]
+  int v75; // [rsp+5Ch] [rbp-A4h] BYREF
+  int v76; // [rsp+60h] [rbp-A0h] BYREF
+  int v77; // [rsp+64h] [rbp-9Ch] BYREF
+  int v78; // [rsp+68h] [rbp-98h] BYREF
+  int v79; // [rsp+6Ch] [rbp-94h] BYREF
   PVOID P; // [rsp+70h] [rbp-90h]
-  __int64 v79; // [rsp+78h] [rbp-88h] BYREF
-  PVOID v80; // [rsp+80h] [rbp-80h]
-  UNICODE_STRING v81; // [rsp+88h] [rbp-78h] BYREF
-  unsigned __int64 v82; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v83; // [rsp+A8h] [rbp-58h] BYREF
-  PVOID v84; // [rsp+B0h] [rbp-50h] BYREF
-  PVOID v85; // [rsp+B8h] [rbp-48h] BYREF
-  PVOID v86; // [rsp+C0h] [rbp-40h] BYREF
-  PVOID v87; // [rsp+C8h] [rbp-38h] BYREF
-  PVOID v88; // [rsp+D0h] [rbp-30h] BYREF
-  UNICODE_STRING v89; // [rsp+D8h] [rbp-28h] BYREF
-  _OWORD MemoryInformation[3]; // [rsp+E8h] [rbp-18h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v91; // [rsp+120h] [rbp+20h] BYREF
-  __int64 *v92; // [rsp+140h] [rbp+40h]
-  __int64 v93; // [rsp+148h] [rbp+48h]
-  int *v94; // [rsp+150h] [rbp+50h]
-  __int64 v95; // [rsp+158h] [rbp+58h]
-  int *v96; // [rsp+160h] [rbp+60h]
-  __int64 v97; // [rsp+168h] [rbp+68h]
-  unsigned __int16 *v98; // [rsp+170h] [rbp+70h]
-  __int64 v99; // [rsp+178h] [rbp+78h]
-  _DWORD *v100; // [rsp+180h] [rbp+80h]
-  __int64 v101; // [rsp+188h] [rbp+88h]
-  wchar_t *v102; // [rsp+190h] [rbp+90h]
-  _DWORD v103[2]; // [rsp+198h] [rbp+98h] BYREF
-  PVOID *v104; // [rsp+1A0h] [rbp+A0h]
-  __int64 v105; // [rsp+1A8h] [rbp+A8h]
-  _DWORD *v106; // [rsp+1B0h] [rbp+B0h]
-  __int64 v107; // [rsp+1B8h] [rbp+B8h]
-  wchar_t *v108; // [rsp+1C0h] [rbp+C0h]
-  _DWORD v109[2]; // [rsp+1C8h] [rbp+C8h] BYREF
-  PVOID *v110; // [rsp+1D0h] [rbp+D0h]
-  __int64 v111; // [rsp+1D8h] [rbp+D8h]
-  _DWORD *v112; // [rsp+1E0h] [rbp+E0h]
-  __int64 v113; // [rsp+1E8h] [rbp+E8h]
-  wchar_t *v114; // [rsp+1F0h] [rbp+F0h]
-  _DWORD v115[2]; // [rsp+1F8h] [rbp+F8h] BYREF
-  PVOID *v116; // [rsp+200h] [rbp+100h]
-  __int64 v117; // [rsp+208h] [rbp+108h]
-  _DWORD *v118; // [rsp+210h] [rbp+110h]
-  __int64 v119; // [rsp+218h] [rbp+118h]
-  wchar_t *v120; // [rsp+220h] [rbp+120h]
-  _DWORD v121[2]; // [rsp+228h] [rbp+128h] BYREF
-  PVOID *v122; // [rsp+230h] [rbp+130h]
-  __int64 v123; // [rsp+238h] [rbp+138h]
-  _DWORD *v124; // [rsp+240h] [rbp+140h]
-  __int64 v125; // [rsp+248h] [rbp+148h]
-  wchar_t *v126; // [rsp+250h] [rbp+150h]
-  _DWORD v127[2]; // [rsp+258h] [rbp+158h] BYREF
-  PVOID *v128; // [rsp+260h] [rbp+160h]
-  __int64 v129; // [rsp+268h] [rbp+168h]
-  _DWORD *v130; // [rsp+270h] [rbp+170h]
-  __int64 v131; // [rsp+278h] [rbp+178h]
-  wchar_t *v132; // [rsp+280h] [rbp+180h]
-  _DWORD v133[2]; // [rsp+288h] [rbp+188h] BYREF
-  __int64 *v134; // [rsp+290h] [rbp+190h]
-  __int64 v135; // [rsp+298h] [rbp+198h]
-  struct _EVENT_DATA_DESCRIPTOR v136; // [rsp+2A0h] [rbp+1A0h] BYREF
-  __int64 *v137; // [rsp+2C0h] [rbp+1C0h]
-  __int64 v138; // [rsp+2C8h] [rbp+1C8h]
-  int *v139; // [rsp+2D0h] [rbp+1D0h]
-  __int64 v140; // [rsp+2D8h] [rbp+1D8h]
-  int *v141; // [rsp+2E0h] [rbp+1E0h]
-  __int64 v142; // [rsp+2E8h] [rbp+1E8h]
-  unsigned __int16 *v143; // [rsp+2F0h] [rbp+1F0h]
-  __int64 v144; // [rsp+2F8h] [rbp+1F8h]
-  _DWORD *v145; // [rsp+300h] [rbp+200h]
-  __int64 v146; // [rsp+308h] [rbp+208h]
-  wchar_t *v147; // [rsp+310h] [rbp+210h]
-  _DWORD v148[2]; // [rsp+318h] [rbp+218h] BYREF
-  PVOID Callers[16]; // [rsp+320h] [rbp+220h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+3A0h] [rbp+2A0h] BYREF
-  const wchar_t *v151; // [rsp+3B0h] [rbp+2B0h]
-  int v152; // [rsp+3B8h] [rbp+2B8h]
-  int v153; // [rsp+3BCh] [rbp+2BCh]
-  _WORD *v154; // [rsp+3C0h] [rbp+2C0h]
-  __int64 v155; // [rsp+3C8h] [rbp+2C8h]
-  wchar_t *Buffer; // [rsp+3D0h] [rbp+2D0h]
-  int v157; // [rsp+3D8h] [rbp+2D8h]
-  int v158; // [rsp+3DCh] [rbp+2DCh]
-  __int64 v159[84]; // [rsp+3E0h] [rbp+2E0h] BYREF
-  int v160; // [rsp+6E0h] [rbp+5E0h] BYREF
+  PCEVENT_DESCRIPTOR EventDescriptor; // [rsp+78h] [rbp-88h]
+  PVOID v82; // [rsp+80h] [rbp-80h]
+  UNICODE_STRING v83; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v84; // [rsp+98h] [rbp-68h] BYREF
+  PVOID v85; // [rsp+A0h] [rbp-60h] BYREF
+  PVOID v86; // [rsp+A8h] [rbp-58h] BYREF
+  PVOID v87; // [rsp+B0h] [rbp-50h] BYREF
+  PVOID v88; // [rsp+B8h] [rbp-48h] BYREF
+  PVOID v89; // [rsp+C0h] [rbp-40h] BYREF
+  PVOID v90; // [rsp+C8h] [rbp-38h] BYREF
+  __int64 v91; // [rsp+D0h] [rbp-30h] BYREF
+  unsigned __int64 v92; // [rsp+E0h] [rbp-20h] BYREF
+  UNICODE_STRING v93; // [rsp+E8h] [rbp-18h] BYREF
+  _OWORD MemoryInformation[3]; // [rsp+F8h] [rbp-8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v95; // [rsp+130h] [rbp+30h] BYREF
+  __int64 *v96; // [rsp+150h] [rbp+50h]
+  __int64 v97; // [rsp+158h] [rbp+58h]
+  int *v98; // [rsp+160h] [rbp+60h]
+  __int64 v99; // [rsp+168h] [rbp+68h]
+  int *v100; // [rsp+170h] [rbp+70h]
+  __int64 v101; // [rsp+178h] [rbp+78h]
+  unsigned __int8 *v102; // [rsp+180h] [rbp+80h]
+  __int64 v103; // [rsp+188h] [rbp+88h]
+  _DWORD *v104; // [rsp+190h] [rbp+90h]
+  __int64 v105; // [rsp+198h] [rbp+98h]
+  wchar_t *v106; // [rsp+1A0h] [rbp+A0h]
+  _DWORD v107[2]; // [rsp+1A8h] [rbp+A8h] BYREF
+  PVOID *v108; // [rsp+1B0h] [rbp+B0h]
+  __int64 v109; // [rsp+1B8h] [rbp+B8h]
+  _DWORD *v110; // [rsp+1C0h] [rbp+C0h]
+  __int64 v111; // [rsp+1C8h] [rbp+C8h]
+  wchar_t *v112; // [rsp+1D0h] [rbp+D0h]
+  _DWORD v113[2]; // [rsp+1D8h] [rbp+D8h] BYREF
+  PVOID *v114; // [rsp+1E0h] [rbp+E0h]
+  __int64 v115; // [rsp+1E8h] [rbp+E8h]
+  _DWORD *v116; // [rsp+1F0h] [rbp+F0h]
+  __int64 v117; // [rsp+1F8h] [rbp+F8h]
+  wchar_t *v118; // [rsp+200h] [rbp+100h]
+  _DWORD v119[2]; // [rsp+208h] [rbp+108h] BYREF
+  PVOID *v120; // [rsp+210h] [rbp+110h]
+  __int64 v121; // [rsp+218h] [rbp+118h]
+  _DWORD *v122; // [rsp+220h] [rbp+120h]
+  __int64 v123; // [rsp+228h] [rbp+128h]
+  wchar_t *v124; // [rsp+230h] [rbp+130h]
+  _DWORD v125[2]; // [rsp+238h] [rbp+138h] BYREF
+  PVOID *v126; // [rsp+240h] [rbp+140h]
+  __int64 v127; // [rsp+248h] [rbp+148h]
+  _DWORD *v128; // [rsp+250h] [rbp+150h]
+  __int64 v129; // [rsp+258h] [rbp+158h]
+  wchar_t *v130; // [rsp+260h] [rbp+160h]
+  _DWORD v131[2]; // [rsp+268h] [rbp+168h] BYREF
+  PVOID *v132; // [rsp+270h] [rbp+170h]
+  __int64 v133; // [rsp+278h] [rbp+178h]
+  _DWORD *v134; // [rsp+280h] [rbp+180h]
+  __int64 v135; // [rsp+288h] [rbp+188h]
+  wchar_t *v136; // [rsp+290h] [rbp+190h]
+  _DWORD v137[2]; // [rsp+298h] [rbp+198h] BYREF
+  PVOID *v138; // [rsp+2A0h] [rbp+1A0h]
+  __int64 v139; // [rsp+2A8h] [rbp+1A8h]
+  struct _EVENT_DATA_DESCRIPTOR v140; // [rsp+2B0h] [rbp+1B0h] BYREF
+  __int64 *v141; // [rsp+2D0h] [rbp+1D0h]
+  __int64 v142; // [rsp+2D8h] [rbp+1D8h]
+  int *v143; // [rsp+2E0h] [rbp+1E0h]
+  __int64 v144; // [rsp+2E8h] [rbp+1E8h]
+  int *v145; // [rsp+2F0h] [rbp+1F0h]
+  __int64 v146; // [rsp+2F8h] [rbp+1F8h]
+  unsigned __int8 *v147; // [rsp+300h] [rbp+200h]
+  __int64 v148; // [rsp+308h] [rbp+208h]
+  _DWORD *v149; // [rsp+310h] [rbp+210h]
+  __int64 v150; // [rsp+318h] [rbp+218h]
+  wchar_t *v151; // [rsp+320h] [rbp+220h]
+  _DWORD v152[2]; // [rsp+328h] [rbp+228h] BYREF
+  PVOID Callers[16]; // [rsp+330h] [rbp+230h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+3B0h] [rbp+2B0h] BYREF
+  const wchar_t *v155; // [rsp+3C0h] [rbp+2C0h]
+  int v156; // [rsp+3C8h] [rbp+2C8h]
+  int v157; // [rsp+3CCh] [rbp+2CCh]
+  _WORD *v158; // [rsp+3D0h] [rbp+2D0h]
+  __int64 v159; // [rsp+3D8h] [rbp+2D8h]
+  wchar_t *Buffer; // [rsp+3E0h] [rbp+2E0h]
+  int v161; // [rsp+3E8h] [rbp+2E8h]
+  int v162; // [rsp+3ECh] [rbp+2ECh]
+  __int64 v163[84]; // [rsp+3F0h] [rbp+2F0h] BYREF
+  int v164; // [rsp+6F0h] [rbp+5F0h] BYREF
 
-  v160 = a3;
+  v164 = a3;
   EventDescriptor = a2;
   v5 = 0;
-  v71 = a1;
+  v72 = a1;
   v6 = a2;
-  v82 = 0LL;
-  v68[0] = 0;
-  v69[0] = 0;
-  v70 = 0;
+  v92 = 0LL;
+  v67[0] = 0;
+  v70[0] = 0;
+  v71 = 0;
   P = a4;
-  v89 = 0LL;
+  v93 = 0LL;
   DestinationString = 0LL;
   memset(MemoryInformation, 0, sizeof(MemoryInformation));
   memset(Callers, 0, sizeof(Callers));
-  Keyword = v6[180].Keyword;
-  v76 = a5;
+  Keyword = v6[162].Keyword;
+  v75 = a5;
   v8 = 0LL;
   v66 = 0;
-  v80 = 0LL;
+  v82 = 0LL;
   v9 = 0;
   v10 = 1;
   v11 = RtlWalkFrameChain(Callers, 0x10u, 1u);
   v12 = v11;
-  v75 = v11;
+  v74 = v11;
   for ( i = 1; ; ++i )
   {
     v14 = 7;
@@ -217,366 +221,366 @@ void __fastcall EtwTimLogRedirectionTrustPolicy(
   }
   if ( !v9 )
     v9 = 1;
-  while ( 1 )
+  while ( Keyword )
   {
-    if ( !Keyword )
-    {
-      Pool2 = (void *)ExAllocatePool2(256LL, 40LL, 1853049172LL);
-      if ( !Pool2 )
-        return;
-      Keyword = _InterlockedCompareExchange64((volatile signed __int64 *)&v6[180].Keyword, (signed __int64)Pool2, 0LL);
-      if ( Keyword )
-        ExFreePoolWithTag(Pool2, 0);
-      else
-        Keyword = (signed __int64)Pool2;
-    }
+LABEL_13:
     v16 = v5 < 0xA;
     if ( v5 < 0xA )
     {
       v17 = (_DWORD *)(Keyword + 4LL * v5);
-      do
+      while ( *v17 )
       {
-        if ( !*v17 )
-          break;
         if ( *v17 == v9 )
-          return;
+        {
+          v10 = 0;
+          break;
+        }
         ++v5;
         ++v17;
+        if ( v5 >= 0xA )
+          break;
       }
-      while ( v5 < 0xA );
       v16 = v5 < 0xA;
     }
-    v10 = v16 ? v10 : 0;
-    if ( !v10 )
-      break;
-    if ( !_InterlockedCompareExchange((volatile signed __int32 *)(v6[180].Keyword + 4LL * v5), v9, 0) )
+    v18 = v16 ? v10 : 0;
+    v10 = v18;
+    if ( !v18 || !_InterlockedCompareExchange((volatile signed __int32 *)(v6[162].Keyword + 4LL * v5), v9, 0) )
     {
-      RtlInitUnicodeString(&DestinationString, L"Unknown");
-      if ( v12 )
-      {
-        v18 = v12;
-        v8 = (UNICODE_STRING *)ExAllocatePool2(256LL, 80LL * v12, 1853049172LL);
-        v19 = (_QWORD *)ExAllocatePool2(256LL, 538LL, 1853049172LL);
-        v80 = v19;
-        if ( v8 && v19 )
-        {
-          v20 = Callers;
-          p_Length = &v8[1].Length;
-          do
-          {
-            if ( ZwQueryVirtualMemory(
-                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-                   *v20,
-                   (MEMORY_INFORMATION_CLASS)2,
-                   v19,
-                   0x218uLL,
-                   0LL) < 0
-              || *(_WORD *)v19 <= 1u )
-            {
-              goto LABEL_34;
-            }
-            v22 = (*(_WORD *)v19 >> 1) - 1;
-            if ( *(_WORD *)v19 >> 1 != 1 )
-            {
-              while ( *(_WORD *)(v19[1] + 2LL * v22) != 92 )
-              {
-                if ( !--v22 )
-                  goto LABEL_32;
-              }
-              ++v22;
-            }
-LABEL_32:
-            RtlStringCbCopyW(p_Length, 0x40uLL, (NTSTRSAFE_PCWSTR)(v19[1] + 2LL * v22));
-            RtlInitUnicodeString((PUNICODE_STRING)p_Length - 1, p_Length);
-            if ( ZwQueryVirtualMemory(
-                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-                   *v20,
-                   MemoryBasicInformation,
-                   MemoryInformation,
-                   0x30uLL,
-                   0LL) < 0 )
-LABEL_34:
-              *v20 = 0LL;
-            else
-              *v20 = (char *)*v20 - *((_QWORD *)&MemoryInformation[0] + 1);
-            p_Length += 40;
-            ++v20;
-            --v18;
-          }
-          while ( v18 );
-          v12 = v75;
-          v6 = EventDescriptor;
-        }
-        else
-        {
-          memset(Callers, 0, 8LL * v12);
-        }
-      }
-      v23 = MITIGATION_AUDIT_REDIRECTION_TRUST_POLICY;
-      v24 = &EmptyUnicodeString;
-      if ( v71 != 1 )
-        v23 = MITIGATION_ENFORCE_REDIRECTION_TRUST_POLICY;
-      EventDescriptor = (PCEVENT_DESCRIPTOR)v23;
-      v25 = *(__int64 **)&v6[92].Id;
-      v81 = 0LL;
-      if ( v25 )
-        v24 = v25;
-      EtwpQueryProcessCommandLine((__int64)v6, (__int64)&v81);
-      Length = v81.Length;
-      if ( v81.Length )
-      {
-        v66 = 1;
-      }
-      else
-      {
-        RtlInitUnicodeString(&v81, L"Unknown");
-        Length = v81.Length;
-      }
-      if ( !P )
-        RtlInitUnicodeString(&v89, L"Unknown");
-      if ( v24 && *(_WORD *)v24 )
-      {
-        v68[0] = *(_WORD *)v24 >> 1;
-        UserData.Ptr = (ULONGLONG)v68;
-        *(_QWORD *)&UserData.Size = 2LL;
-        v27 = *(unsigned __int16 *)v24;
-        v28 = (const wchar_t *)v24[1];
-      }
-      else
-      {
-        v68[0] = 6;
-        UserData.Ptr = (ULONGLONG)v68;
-        v28 = L"(null)";
-        v27 = 12;
-        *(_QWORD *)&UserData.Size = 2LL;
-      }
-      v152 = v27;
-      P = v81.Buffer;
-      v151 = v28;
-      v153 = 0;
-      v155 = 2LL;
-      if ( Length )
-      {
-        Buffer = v81.Buffer;
-        v29 = Length;
-        v154 = v69;
-        v30 = Length >> 1;
-      }
-      else
-      {
-        Buffer = L"(null)";
-        v154 = v69;
-        v30 = 6;
-        v29 = 12;
-      }
-      v69[0] = v30;
-      v157 = v29;
-      v158 = 0;
-      v31 = EtwpTiFillProcessIdentity(v159, (__int64)v6, &v82);
-      v35 = 2LL * (unsigned int)(v31 + 4);
-      v36 = v31 + 4;
-      v37 = v31 + 5;
-      *(&UserData.Ptr + v35) = (ULONGLONG)&v160;
-      *((_QWORD *)&UserData.Size + v35) = 4LL;
-      if ( v33 && *v33 )
-      {
-        v38 = *((_QWORD *)v33 + 1);
-        v39 = v31 + 6;
-        v32 = *v33;
-        v40 = *v33 >> 1;
-      }
-      else
-      {
-        v40 = 6;
-        v39 = v36 + 2;
-        v38 = v34;
-      }
-      v70 = v40;
-      v41 = 16LL * v37;
-      v42 = 16LL * v39;
-      *(ULONGLONG *)((char *)&UserData.Ptr + v41) = (ULONGLONG)&v70;
-      v43 = v39 + 2;
-      *(ULONG *)((char *)&UserData.Size + v41) = 2;
-      *(ULONG *)((char *)&UserData.Reserved + v41) = 0;
-      v44 = 0;
-      *(ULONGLONG *)((char *)&UserData.Ptr + v42) = v38;
-      *(ULONG *)((char *)&UserData.Size + v42) = v32;
-      *(ULONG *)((char *)&UserData.Reserved + v42) = 0;
-      v45 = DestinationString.Buffer;
-      v46 = v8;
-      v47 = DestinationString.Length;
-      v48 = 2LL * (v39 + 1);
-      *((_QWORD *)&UserData.Size + v48) = 4LL;
-      v49 = Callers;
-      *(&UserData.Ptr + v48) = (ULONGLONG)&v76;
-      MaximumLength = DestinationString.MaximumLength;
-      v67 = DestinationString.MaximumLength;
-      do
-      {
-        if ( v44 < v12 && v8 )
-        {
-          if ( v46 && (v51 = v46->Buffer) != 0LL && (v52 = v46->Length, (_WORD)v52) )
-          {
-            v53 = 16LL * v43;
-            v54 = v52 + 2;
-            if ( v46->MaximumLength <= (unsigned int)(v52 + 1) )
-              v54 = v46->Length;
-          }
-          else
-          {
-            v51 = L"(null)";
-            v53 = 16LL * v43;
-            v54 = 14;
-          }
-          *(ULONGLONG *)((char *)&UserData.Ptr + v53) = (ULONGLONG)v51;
-          *(ULONG *)((char *)&UserData.Size + v53) = v54;
-          *(ULONG *)((char *)&UserData.Reserved + v53) = 0;
-        }
-        else if ( v45 && (_WORD)v47 )
-        {
-          v55 = v47 + 2;
-          if ( MaximumLength <= v47 + 1 )
-            v55 = v47;
-          *(&UserData.Size + 4 * v43) = v55;
-          *(&UserData.Ptr + 2 * v43) = (ULONGLONG)v45;
-          *(&UserData.Reserved + 4 * v43) = 0;
-        }
-        else
-        {
-          v56 = 2LL * v43;
-          *(&UserData.Ptr + v56) = (ULONGLONG)L"(null)";
-          *((_QWORD *)&UserData.Size + v56) = 14LL;
-        }
-        ++v44;
-        v46 += 5;
-        v57 = v43 + 1;
-        v43 += 2;
-        v58 = 2LL * v57;
-        *(&UserData.Ptr + v58) = (ULONGLONG)v49++;
-        *((_QWORD *)&UserData.Size + v58) = 8LL;
-        MaximumLength = v67;
-      }
-      while ( v44 < 0x10u );
-      EtwWrite(EtwSecurityMitigationsRegHandle, EventDescriptor, 0LL, v43, &UserData);
-      if ( v8 )
-      {
-        if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL) )
-        {
-          v83 = 0x2000000LL;
-          v92 = &v83;
-          v72 = v160;
-          v94 = &v72;
-          v73 = v71;
-          v96 = &v73;
-          LOBYTE(v67) = a5;
-          v98 = &v67;
-          v93 = 8LL;
-          v95 = (unsigned int)(v59 - 1);
-          v97 = v95;
-          v99 = (unsigned int)(v59 - 4);
-          if ( v12 <= (unsigned __int16)(v59 - 4) || (p_DestinationString = v8 + 5, !v8[5].Buffer) )
-            p_DestinationString = &DestinationString;
-          v103[1] = 0;
-          v100 = v103;
-          v102 = p_DestinationString->Buffer;
-          v103[0] = p_DestinationString->Length;
-          v84 = Callers[1];
-          v104 = &v84;
-          v101 = 2LL;
-          v105 = 8LL;
-          if ( v12 <= 2u || (v61 = v8 + 10, !v8[10].Buffer) )
-            v61 = &DestinationString;
-          v107 = 2LL;
-          v106 = v109;
-          v108 = v61->Buffer;
-          v109[0] = v61->Length;
-          v85 = Callers[2];
-          v110 = &v85;
-          v109[1] = 0;
-          v111 = 8LL;
-          if ( v12 <= 3u || (v62 = v8 + 15, !v8[15].Buffer) )
-            v62 = &DestinationString;
-          v113 = 2LL;
-          v112 = v115;
-          v114 = v62->Buffer;
-          v115[0] = v62->Length;
-          v86 = Callers[3];
-          v116 = &v86;
-          v115[1] = 0;
-          v117 = 8LL;
-          if ( v12 <= (unsigned __int16)(v59 - 1) || (v63 = v8 + 20, !v8[20].Buffer) )
-            v63 = &DestinationString;
-          v119 = 2LL;
-          v118 = v121;
-          v120 = v63->Buffer;
-          v121[0] = v63->Length;
-          v87 = Callers[4];
-          v122 = &v87;
-          v121[1] = 0;
-          v123 = 8LL;
-          if ( v12 <= (unsigned __int16)v59 || (v64 = v8 + 25, !v8[25].Buffer) )
-            v64 = &DestinationString;
-          v125 = 2LL;
-          v124 = v127;
-          v126 = v64->Buffer;
-          v127[0] = v64->Length;
-          v88 = Callers[5];
-          v128 = &v88;
-          v127[1] = 0;
-          v129 = 8LL;
-          if ( v12 <= 6u || (v65 = v8 + 30, !v8[30].Buffer) )
-            v65 = &DestinationString;
-          v131 = 2LL;
-          v130 = v133;
-          v132 = v65->Buffer;
-          v133[0] = v65->Length;
-          v79 = (__int64)Callers[6];
-          v134 = &v79;
-          v133[1] = 0;
-          v135 = 8LL;
-          tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140C066C0,
-            (unsigned __int8 *)byte_140035A28,
-            0LL,
-            0LL,
-            0x18u,
-            &v91);
-        }
-      }
-      else if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL) )
-      {
-        v79 = 0x2000000LL;
-        v137 = &v79;
-        v73 = v160;
-        v139 = &v73;
-        v72 = v71;
-        v141 = &v72;
-        LOBYTE(v67) = a5;
-        v143 = &v67;
-        v145 = v148;
-        v138 = 8LL;
-        v140 = 4LL;
-        v142 = 4LL;
-        v144 = 1LL;
-        v146 = 2LL;
-        v147 = v45;
-        v148[0] = v47;
-        v148[1] = 0;
-        tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C066C0,
-          (unsigned __int8 *)&dword_140035614,
-          0LL,
-          0LL,
-          8u,
-          &v136);
-      }
-      if ( v66 )
-        ExFreePoolWithTag(P, 0);
-      if ( v80 )
-        ExFreePoolWithTag(v80, 0);
-      if ( v8 )
-        ExFreePoolWithTag(v8, 0);
-      return;
+      LODWORD(Keyword) = 0;
+      goto LABEL_24;
     }
   }
+  Pool2 = (void *)ExAllocatePool2(256LL, 40LL, 1853049172LL);
+  if ( Pool2 )
+  {
+    Keyword = _InterlockedCompareExchange64((volatile signed __int64 *)&v6[162].Keyword, (signed __int64)Pool2, 0LL);
+    if ( Keyword )
+      ExFreePoolWithTag(Pool2, 0);
+    else
+      Keyword = (signed __int64)Pool2;
+    goto LABEL_13;
+  }
+  v18 = 0;
+LABEL_24:
+  if ( !v18 )
+    return;
+  RtlInitUnicodeString(&DestinationString, L"Unknown");
+  if ( !v12 )
+  {
+LABEL_49:
+    if ( (unsigned __int16)Keyword < v12 )
+      memset(Callers, 0, 8LL * v12);
+    goto LABEL_42;
+  }
+  v19 = v12;
+  v8 = (UNICODE_STRING *)ExAllocatePool2(256LL, 80LL * v12, 1853049172LL);
+  v20 = (void *)ExAllocatePool2(256LL, 538LL, 1853049172LL);
+  v82 = v20;
+  v21 = v20;
+  if ( !v8 || !v20 )
+  {
+    LODWORD(Keyword) = 0;
+    goto LABEL_49;
+  }
+  v22 = Callers;
+  p_Length = &v8[1].Length;
+  do
+  {
+    if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v22, (MEMORY_INFORMATION_CLASS)2, v21, 0x218uLL, 0LL) < 0
+      || *(_WORD *)v21 <= 1u )
+    {
+      goto LABEL_39;
+    }
+    v24 = (*(_WORD *)v21 >> 1) - 1;
+    if ( *(_WORD *)v21 >> 1 != 1 )
+    {
+      while ( *(_WORD *)(v21[1] + 2LL * v24) != 92 )
+      {
+        if ( !--v24 )
+          goto LABEL_37;
+      }
+      ++v24;
+    }
+LABEL_37:
+    RtlStringCbCopyW(p_Length, 0x40uLL, (NTSTRSAFE_PCWSTR)(v21[1] + 2LL * v24));
+    RtlInitUnicodeString((PUNICODE_STRING)p_Length - 1, p_Length);
+    if ( ZwQueryVirtualMemory(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           *v22,
+           MemoryBasicInformation,
+           MemoryInformation,
+           0x30uLL,
+           0LL) < 0 )
+LABEL_39:
+      *v22 = 0LL;
+    else
+      *v22 = (char *)*v22 - *((_QWORD *)&MemoryInformation[0] + 1);
+    p_Length += 40;
+    ++v22;
+    --v19;
+  }
+  while ( v19 );
+  v12 = v74;
+  v6 = EventDescriptor;
+  LODWORD(Keyword) = 0;
+LABEL_42:
+  v25 = MITIGATION_AUDIT_REDIRECTION_TRUST_POLICY;
+  v26 = &EmptyUnicodeString;
+  if ( v72 != 1 )
+    v25 = MITIGATION_ENFORCE_REDIRECTION_TRUST_POLICY;
+  EventDescriptor = (PCEVENT_DESCRIPTOR)v25;
+  v27 = *(__int64 **)&v6[92].Id;
+  v83 = 0LL;
+  if ( v27 )
+    v26 = v27;
+  EtwpQueryProcessCommandLine(v6, &v83);
+  Length = v83.Length;
+  if ( v83.Length )
+  {
+    v66 = 1;
+  }
+  else
+  {
+    RtlInitUnicodeString(&v83, L"Unknown");
+    Length = v83.Length;
+  }
+  if ( !P )
+    RtlInitUnicodeString(&v93, L"Unknown");
+  if ( v26 && *(_WORD *)v26 )
+  {
+    v67[0] = *(_WORD *)v26 >> 1;
+    UserData.Ptr = (ULONGLONG)v67;
+    *(_QWORD *)&UserData.Size = 2LL;
+    v29 = *(unsigned __int16 *)v26;
+    v30 = (const wchar_t *)v26[1];
+  }
+  else
+  {
+    v67[0] = 6;
+    UserData.Ptr = (ULONGLONG)v67;
+    v30 = L"(null)";
+    v29 = 12;
+    *(_QWORD *)&UserData.Size = 2LL;
+  }
+  v156 = v29;
+  P = v83.Buffer;
+  v155 = v30;
+  v157 = Keyword;
+  v159 = 2LL;
+  if ( Length )
+  {
+    Buffer = v83.Buffer;
+    v31 = Length;
+    v158 = v70;
+    v32 = Length >> 1;
+  }
+  else
+  {
+    Buffer = L"(null)";
+    v158 = v70;
+    v32 = 6;
+    v31 = 12;
+  }
+  v70[0] = v32;
+  v161 = v31;
+  v162 = Keyword;
+  v33 = EtwpTiFillProcessIdentity(v163, (__int64)v6, &v92);
+  v36 = v33 + 4;
+  v37 = 2LL * (unsigned int)(v33 + 4);
+  v38 = v33 + 5;
+  *(&UserData.Ptr + v37) = (ULONGLONG)&v164;
+  *((_QWORD *)&UserData.Size + v37) = 4LL;
+  if ( v35 && *v35 )
+  {
+    v39 = (const wchar_t *)*((_QWORD *)v35 + 1);
+    v34 = *v35;
+    v40 = *v35 >> 1;
+  }
+  else
+  {
+    v39 = L"(null)";
+    v40 = 6;
+  }
+  v71 = v40;
+  v41 = v36 + 2;
+  v42 = Callers;
+  v43 = 2LL * v38;
+  v44 = 2LL * (unsigned int)(v36 + 2);
+  ++v41;
+  *(&UserData.Ptr + v43) = (ULONGLONG)&v71;
+  v45 = v8;
+  *((_QWORD *)&UserData.Size + v43) = 2LL;
+  *(&UserData.Ptr + v44) = (ULONGLONG)v39;
+  v46 = v41 + 1;
+  *(&UserData.Size + 2 * v44) = v34;
+  *(&UserData.Reserved + 2 * v44) = Keyword;
+  v47 = DestinationString.Buffer;
+  MaximumLength = DestinationString.MaximumLength;
+  v49 = 2LL * v41;
+  *((_QWORD *)&UserData.Size + v49) = 4LL;
+  v50 = Keyword;
+  v51 = DestinationString.Length;
+  *(&UserData.Ptr + v49) = (ULONGLONG)&v75;
+  do
+  {
+    if ( v50 < v12 && v8 )
+    {
+      if ( v45 && (v52 = v45->Buffer) != 0LL && (v53 = v45->Length, (_WORD)v53) )
+      {
+        v54 = v53 + 2;
+        if ( v45->MaximumLength <= (unsigned int)(v53 + 1) )
+          v54 = v45->Length;
+      }
+      else
+      {
+        v54 = 14;
+        v52 = L"(null)";
+      }
+      *(&UserData.Ptr + 2 * v46) = (ULONGLONG)v52;
+      *(&UserData.Size + 4 * v46) = v54;
+      *(&UserData.Reserved + 4 * v46) = 0;
+    }
+    else if ( v47 && (_WORD)v51 )
+    {
+      v55 = v51 + 2;
+      if ( MaximumLength <= v51 + 1 )
+        v55 = v51;
+      *(&UserData.Reserved + 4 * v46) = 0;
+      *(&UserData.Ptr + 2 * v46) = (ULONGLONG)v47;
+      *(&UserData.Size + 4 * v46) = v55;
+    }
+    else
+    {
+      v56 = 2LL * v46;
+      *(&UserData.Ptr + v56) = (ULONGLONG)L"(null)";
+      *((_QWORD *)&UserData.Size + v56) = 14LL;
+    }
+    v57 = v46 + 1;
+    ++v50;
+    v46 += 2;
+    v58 = 2LL * v57;
+    v45 += 5;
+    *(&UserData.Ptr + v58) = (ULONGLONG)v42++;
+    *((_QWORD *)&UserData.Size + v58) = 8LL;
+  }
+  while ( v50 < 0x10u );
+  EtwWrite(EtwSecurityMitigationsRegHandle, EventDescriptor, 0LL, v46, &UserData);
+  if ( v8 )
+  {
+    if ( (unsigned int)dword_140C02BF0 > 5 && tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL) )
+    {
+      v84 = 0x2000000LL;
+      v96 = &v84;
+      v76 = v164;
+      v98 = &v76;
+      v77 = v72;
+      v100 = &v77;
+      v68 = a5;
+      v102 = &v68;
+      v97 = 8LL;
+      v99 = 4LL;
+      v101 = 4LL;
+      v103 = 1LL;
+      if ( v12 <= 1u || (p_DestinationString = v8 + 5, !v8[5].Buffer) )
+        p_DestinationString = &DestinationString;
+      v107[1] = 0;
+      v104 = v107;
+      v106 = p_DestinationString->Buffer;
+      v107[0] = p_DestinationString->Length;
+      v85 = Callers[1];
+      v108 = &v85;
+      v105 = 2LL;
+      v109 = 8LL;
+      if ( v12 <= 2u || (v61 = v8 + 10, !v8[10].Buffer) )
+        v61 = &DestinationString;
+      v111 = 2LL;
+      v110 = v113;
+      v112 = v61->Buffer;
+      v113[0] = v61->Length;
+      v86 = Callers[2];
+      v114 = &v86;
+      v113[1] = 0;
+      v115 = 8LL;
+      if ( v12 <= 3u || (v62 = v8 + 15, !v8[15].Buffer) )
+        v62 = &DestinationString;
+      v117 = 2LL;
+      v116 = v119;
+      v118 = v62->Buffer;
+      v119[0] = v62->Length;
+      v87 = Callers[3];
+      v120 = &v87;
+      v119[1] = 0;
+      v121 = 8LL;
+      if ( v12 <= 4u || (v63 = v8 + 20, !v8[20].Buffer) )
+        v63 = &DestinationString;
+      v123 = 2LL;
+      v122 = v125;
+      v124 = v63->Buffer;
+      v125[0] = v63->Length;
+      v88 = Callers[4];
+      v126 = &v88;
+      v125[1] = 0;
+      v127 = 8LL;
+      if ( v12 <= v59 || (v64 = v8 + 25, !v8[25].Buffer) )
+        v64 = &DestinationString;
+      v129 = 2LL;
+      v128 = v131;
+      v130 = v64->Buffer;
+      v131[0] = v64->Length;
+      v89 = Callers[5];
+      v132 = &v89;
+      v131[1] = 0;
+      v133 = 8LL;
+      if ( v12 <= 6u || (v65 = v8 + 30, !v8[30].Buffer) )
+        v65 = &DestinationString;
+      v135 = 2LL;
+      v134 = v137;
+      v136 = v65->Buffer;
+      v137[0] = v65->Length;
+      v90 = Callers[6];
+      v138 = &v90;
+      v137[1] = 0;
+      v139 = 8LL;
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140C02BF0,
+        (unsigned __int8 *)&byte_14002D5EF,
+        0LL,
+        0LL,
+        0x18u,
+        &v95);
+    }
+  }
+  else if ( (unsigned int)dword_140C02BF0 > 5 && tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL) )
+  {
+    v91 = 0x2000000LL;
+    v141 = &v91;
+    v78 = v164;
+    v143 = &v78;
+    v79 = v72;
+    v145 = &v79;
+    v69 = a5;
+    v147 = &v69;
+    v149 = v152;
+    v142 = 8LL;
+    v144 = 4LL;
+    v146 = 4LL;
+    v148 = 1LL;
+    v150 = 2LL;
+    v151 = v47;
+    v152[0] = v51;
+    v152[1] = 0;
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140C02BF0,
+      (unsigned __int8 *)&dword_14002D832 + 2,
+      0LL,
+      0LL,
+      8u,
+      &v140);
+  }
+  if ( v66 )
+    ExFreePoolWithTag(P, 0);
+  if ( v82 )
+    ExFreePoolWithTag(v82, 0);
+  if ( v8 )
+    ExFreePoolWithTag(v8, 0);
 }

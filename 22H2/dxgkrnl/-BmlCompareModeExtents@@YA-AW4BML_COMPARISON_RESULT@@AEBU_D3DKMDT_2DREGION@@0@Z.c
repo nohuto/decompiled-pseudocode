@@ -1,13 +1,13 @@
 /*
- * XREFs of ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C017AD14
+ * XREFs of ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C0147638
  * Callers:
- *     BmlDoesTargetModeObeyConstraint @ 0x1C017793C (BmlDoesTargetModeObeyConstraint.c)
- *     BmlFillPreferredMonitorMode @ 0x1C0177F70 (BmlFillPreferredMonitorMode.c)
- *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C0178168 (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
- *     BmlGetNextBestSourceMode @ 0x1C017A320 (BmlGetNextBestSourceMode.c)
- *     BmlDoesSourceModeObeyConstraint @ 0x1C017A8D0 (BmlDoesSourceModeObeyConstraint.c)
- *     BmlGetModeCategoryForRegion @ 0x1C017ACBC (BmlGetModeCategoryForRegion.c)
- *     BmlCompareSourceModes @ 0x1C03BCFB4 (BmlCompareSourceModes.c)
+ *     BmlFillPreferredMonitorMode @ 0x1C0143668 (BmlFillPreferredMonitorMode.c)
+ *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C014384C (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
+ *     BmlDoesTargetModeObeyConstraint @ 0x1C0144804 (BmlDoesTargetModeObeyConstraint.c)
+ *     BmlGetModeCategoryForRegion @ 0x1C0147138 (BmlGetModeCategoryForRegion.c)
+ *     BmlGetNextBestSourceMode @ 0x1C0147254 (BmlGetNextBestSourceMode.c)
+ *     BmlDoesSourceModeObeyConstraint @ 0x1C01474DC (BmlDoesSourceModeObeyConstraint.c)
+ *     BmlCompareSourceModesWithContentRes @ 0x1C02EBFDC (BmlCompareSourceModesWithContentRes.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ __int64 __fastcall BmlCompareModeExtents(int *a1, _DWORD *a2)
   v4 = a2[1];
   if ( v3 > v4 )
     return 1LL;
-  if ( v2 == *a2 )
-    return (unsigned int)-(v4 != v3);
+  if ( v2 == *a2 && v3 == v4 )
+    return 0LL;
   return 0xFFFFFFFFLL;
 }

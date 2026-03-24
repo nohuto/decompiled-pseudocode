@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetSystemServiceCallback @ 0x140962D90
+ * XREFs of KeSetSystemServiceCallback @ 0x1408BCDD0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KiGetSystemServiceTraceTable @ 0x140962F40 (KiGetSystemServiceTraceTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiGetSystemServiceTraceTable @ 0x1408BCF80 (KiGetSystemServiceTraceTable.c)
  */
 
 __int64 __fastcall KeSetSystemServiceCallback(_BYTE *a1, char a2, __int64 a3, __int64 a4)
@@ -40,7 +40,7 @@ __int64 __fastcall KeSetSystemServiceCallback(_BYTE *a1, char a2, __int64 a3, __
       for ( i = (_DWORD *)(SystemServiceTraceTable + 52); v10 != *i; i += 16 )
       {
         v11 = (unsigned int)(v11 + 1);
-        if ( (unsigned int)v11 >= 0x1E2 )
+        if ( (unsigned int)v11 >= 0x1D9 )
           return (unsigned int)-1073741275;
       }
       v13 = (v11 << 6) + SystemServiceTraceTable + 16;
@@ -82,7 +82,7 @@ __int64 __fastcall KeSetSystemServiceCallback(_BYTE *a1, char a2, __int64 a3, __
               0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(&KiSystemServiceTraceCallbackLock);
       KeAbPostRelease((ULONG_PTR)&KiSystemServiceTraceCallbackLock);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     }
     else
     {

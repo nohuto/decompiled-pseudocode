@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessCapturePointer@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_CAPTUREPOINTER@@@Z @ 0x1801F26D8
+ * XREFs of ?ProcessCapturePointer@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_CAPTUREPOINTER@@@Z @ 0x1801C67E8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x18006D8F4 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?NotifyCapturePointer@CManipulationManager@@QEAAJPEAVCInteraction@@I@Z @ 0x18017CB0C (-NotifyCapturePointer@CManipulationManager@@QEAAJPEAVCInteraction@@I@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x1800625D8 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?NotifyCapturePointer@CManipulationManager@@QEAAJPEAVCInteraction@@I@Z @ 0x18022525C (-NotifyCapturePointer@CManipulationManager@@QEAAJPEAVCInteraction@@I@Z.c)
  */
 
 __int64 __fastcall CInteraction::ProcessCapturePointer(
@@ -23,21 +23,21 @@ __int64 __fastcall CInteraction::ProcessCapturePointer(
   struct CManipulationManager *v12; // [rsp+48h] [rbp+10h] BYREF
 
   v12 = a2;
-  v3 = (CComposition *)*((_QWORD *)this + 2);
+  v3 = (CComposition *)*((_QWORD *)this + 3);
   v12 = 0LL;
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v12);
   ManipulationManager = CComposition::GetManipulationManager(v3, &v12);
   v8 = ManipulationManager;
   if ( ManipulationManager < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v7, 0LL, 0LL, ManipulationManager, 0x195u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v7, 0LL, 0, ManipulationManager, 0x1B5u, 0LL);
   }
   else
   {
     v9 = CManipulationManager::NotifyCapturePointer(v7, this, *((_DWORD *)a3 + 2));
     v8 = v9;
     if ( v9 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x197u);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x1B7u, 0LL);
   }
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v12);
   return v8;

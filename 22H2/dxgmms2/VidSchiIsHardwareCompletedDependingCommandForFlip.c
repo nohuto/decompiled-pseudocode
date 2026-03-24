@@ -1,98 +1,106 @@
 /*
- * XREFs of VidSchiIsHardwareCompletedDependingCommandForFlip @ 0x1C003A9A4
+ * XREFs of VidSchiIsHardwareCompletedDependingCommandForFlip @ 0x1C0003A90
  * Callers:
- *     ?VidSchiSubmitHwQueueMmIoFlipCommand@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0042F8C (-VidSchiSubmitHwQueueMmIoFlipCommand@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C0002FF0 (VidSchiSubmitMmIoFlipCommand.c)
+ *     ?VidSchiSubmitHwQueueMmIoFlipCommand@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C00386C4 (-VidSchiSubmitHwQueueMmIoFlipCommand@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
  * Callees:
- *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C0006920 (VidSchiUpdateLastCompletedPresentTimestamp.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C000D450 (VidSchiUpdateLastCompletedPresentTimestamp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall VidSchiIsHardwareCompletedDependingCommandForFlip(__int64 a1)
+__int64 __fastcall VidSchiIsHardwareCompletedDependingCommandForFlip(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
-  __int64 v1; // rdi
-  __int64 v3; // rdx
-  unsigned int v4; // ecx
+  __int64 v3; // rdi
   __int64 v5; // rdx
-  unsigned __int64 v6; // r8
-  unsigned __int64 *v7; // rax
-  unsigned int v9; // r8d
-  __int64 v10; // r9
-  _DWORD *v11; // rcx
-  __int64 v12; // rax
-  unsigned int v13; // r10d
-  unsigned int v14; // r11d
-  bool v15; // cc
+  __int64 v6; // r9
+  _DWORD *v7; // rcx
+  __int64 v8; // rax
+  unsigned int v9; // r10d
+  unsigned int v10; // r11d
+  bool v11; // cc
+  unsigned int v13; // ecx
+  __int64 v14; // rdx
+  unsigned __int64 *v15; // rax
   __int64 v16; // rcx
 
-  v1 = *(_QWORD *)(a1 + 1040);
-  if ( !*(_BYTE *)(v1 + 204) && !_InterlockedCompareExchange((volatile signed __int32 *)(v1 + 200), 0, 0) )
+  v3 = *(_QWORD *)(a1 + 1040);
+  if ( *(_BYTE *)(v3 + 204) || _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 200), 0, 0) )
+    return 1LL;
+  v5 = *(unsigned int *)(a1 + 1092);
+  if ( (*(_DWORD *)(a1 + 1136) & 0x4000) != 0 )
   {
-    v3 = *(unsigned int *)(a1 + 1092);
-    if ( (*(_DWORD *)(a1 + 1136) & 0x4000) != 0 )
+    v13 = 0;
+    if ( (_DWORD)v5 )
     {
-      v4 = 0;
-      if ( (_DWORD)v3 )
-      {
-        do
-        {
-          v5 = *(_QWORD *)(a1 + 8LL * v4);
-          v6 = *(_QWORD *)(a1 + 8LL * v4 + 512);
-          if ( !*(_BYTE *)(v5 + 28) )
-          {
-            v7 = *(unsigned __int64 **)(v5 + 64);
-            if ( *(_BYTE *)(v5 + 29) )
-            {
-              if ( *v7 < v6 )
-                return 0LL;
-            }
-            else if ( *(_DWORD *)v7 - (int)v6 < 0 )
-            {
-              return 0LL;
-            }
-          }
-          ++v4;
-        }
-        while ( v4 < *(_DWORD *)(a1 + 1092) );
-      }
-    }
-    else if ( (_DWORD)v3 )
-    {
-      v9 = 0;
-      v10 = *(_QWORD *)(a1 + 8LL * (unsigned int)(v3 - 1));
-      v11 = (_DWORD *)(a1 + 520);
       do
       {
-        v12 = *((_QWORD *)v11 - 65);
-        if ( v12 )
+        v14 = *(_QWORD *)(a1 + 8LL * v13);
+        a3 = *(_QWORD *)(a1 + 8LL * v13 + 512);
+        if ( !*(_BYTE *)(v14 + 28) )
         {
-          v13 = v11[1];
-          v14 = *(_DWORD *)(v12 + 164);
-          v15 = v13 <= v14;
-          if ( v13 == v14 )
+          v15 = *(unsigned __int64 **)(v14 + 64);
+          if ( *(_BYTE *)(v14 + 29) )
           {
-            if ( *v11 > *(_DWORD *)(v12 + 160) )
+            if ( *v15 < a3 )
               return 0LL;
-            v15 = v13 <= v14;
           }
-          if ( !v15 )
+          else if ( *(_DWORD *)v15 - (int)a3 < 0 )
+          {
             return 0LL;
+          }
         }
-        ++v9;
-        v11 += 2;
+        ++v13;
       }
-      while ( v9 < (unsigned int)v3 );
-      if ( v10 )
-      {
-        LOBYTE(v3) = 1;
-        VidSchiUpdateLastCompletedPresentTimestamp(v10, v3, 0);
-      }
+      while ( v13 < *(_DWORD *)(a1 + 1092) );
     }
+    goto LABEL_17;
+  }
+  if ( (_DWORD)v5 )
+    v6 = *(_QWORD *)(a1 + 8LL * (unsigned int)(v5 - 1));
+  else
+    v6 = 0LL;
+  a3 = 0LL;
+  if ( !(_DWORD)v5 )
+  {
+LABEL_15:
+    if ( v6 )
+    {
+      LOBYTE(v5) = 1;
+      VidSchiUpdateLastCompletedPresentTimestamp(v6, v5, 0LL);
+    }
+LABEL_17:
     if ( (*(_DWORD *)(a1 + 1136) & 0x8000) != 0 )
     {
-      v16 = *(_QWORD *)(v1 + 32);
+      v16 = *(_QWORD *)(v3 + 32);
       if ( *(_BYTE *)(v16 + 56) )
-        ((void (__fastcall *)(_QWORD))DxgCoreInterface[23])(*(_QWORD *)(v16 + 8));
+        ((void (__fastcall *)(_QWORD, __int64 (*)(void), unsigned __int64))DxgCoreInterface[22])(
+          *(_QWORD *)(v16 + 8),
+          DxgCoreInterface[0],
+          a3);
     }
+    return 1LL;
   }
-  return 1LL;
+  v7 = (_DWORD *)(a1 + 520);
+  while ( 1 )
+  {
+    v8 = *((_QWORD *)v7 - 65);
+    if ( v8 )
+    {
+      v9 = v7[1];
+      v10 = *(_DWORD *)(v8 + 164);
+      v11 = v9 <= v10;
+      if ( v9 == v10 )
+      {
+        if ( *v7 > *(_DWORD *)(v8 + 160) )
+          return 0LL;
+        v11 = v9 <= v10;
+      }
+      if ( !v11 )
+        return 0LL;
+    }
+    a3 = (unsigned int)(a3 + 1);
+    v7 += 2;
+    if ( (unsigned int)a3 >= (unsigned int)v5 )
+      goto LABEL_15;
+  }
 }

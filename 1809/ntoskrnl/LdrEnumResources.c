@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrEnumResources @ 0x140890BC0
+ * XREFs of LdrEnumResources @ 0x140890BA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     LdrpCompareResourceNamesWithValidation @ 0x1401B5E00 (LdrpCompareResourceNamesWithValidation.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     LdrpCompareResourceNamesWithValidation @ 0x1401B5E20 (LdrpCompareResourceNamesWithValidation.c)
  */
 
 NTSTATUS __stdcall LdrEnumResources(

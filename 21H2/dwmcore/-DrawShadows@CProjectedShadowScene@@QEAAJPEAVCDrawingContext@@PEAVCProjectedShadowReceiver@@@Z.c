@@ -1,13 +1,12 @@
 /*
- * XREFs of ?DrawShadows@CProjectedShadowScene@@QEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x1801149AC
+ * XREFs of ?DrawShadows@CProjectedShadowScene@@QEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x18000A07C
  * Callers:
- *     ?RenderProjectedShadows@CVisual@@QEAAXPEAVCDrawingContext@@W4Enum@ProjectedShadowDrawOrder@@@Z @ 0x1801F82CC (-RenderProjectedShadows@CVisual@@QEAAXPEAVCDrawingContext@@W4Enum@ProjectedShadowDrawOrder@@@Z.c)
+ *     ?RenderProjectedShadows@CVisual@@QEAAXPEAVCDrawingContext@@W4Enum@ProjectedShadowDrawOrder@@@Z @ 0x180009FC8 (-RenderProjectedShadows@CVisual@@QEAAXPEAVCDrawingContext@@W4Enum@ProjectedShadowDrawOrder@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$_Find_lower_bound@PEAVCProjectedShadowCaster@@@?$_Tree@V?$_Tmap_traits@PEAVCProjectedShadowCaster@@V?$com_ptr_t@VCProjectedShadow@@Uerr_returncode_policy@wil@@@wil@@U?$less@PEAVCProjectedShadowCaster@@@std@@V?$allocator@U?$pair@QEAVCProjectedShadowCaster@@V?$com_ptr_t@VCProjectedShadow@@Uerr_returncode_policy@wil@@@wil@@@std@@@5@$0A@@std@@@std@@IEBA?AU?$_Tree_find_result@PEAU?$_Tree_node@U?$pair@QEAVCProjectedShadowCaster@@V?$com_ptr_t@VCProjectedShadow@@Uerr_returncode_policy@wil@@@wil@@@std@@PEAX@std@@@1@AEBQEAVCProjectedShadowCaster@@@Z @ 0x18011495C (--$_Find_lower_bound@PEAVCProjectedShadowCaster@@@-$_Tree@V-$_Tmap_traits@PEAVCProjectedShadowCa.c)
- *     ?FindReceiverEntry@CProjectedShadowScene@@AEBAPEAUReceiverEntry@1@PEBVCProjectedShadowReceiver@@@Z @ 0x18023642C (-FindReceiverEntry@CProjectedShadowScene@@AEBAPEAUReceiverEntry@1@PEBVCProjectedShadowReceiver@@.c)
- *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180236944 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x18000A760 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?FindReceiverEntry@CProjectedShadowScene@@AEBAPEAUReceiverEntry@1@PEBVCProjectedShadowReceiver@@@Z @ 0x18000C188 (-FindReceiverEntry@CProjectedShadowScene@@AEBAPEAUReceiverEntry@1@PEBVCProjectedShadowReceiver@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CProjectedShadowScene::DrawShadows(
@@ -16,64 +15,68 @@ __int64 __fastcall CProjectedShadowScene::DrawShadows(
         struct CProjectedShadowReceiver *a3)
 {
   int v6; // eax
-  __int64 v7; // rcx
+  unsigned int v7; // ecx
   unsigned int v8; // edi
   struct CProjectedShadowScene::ReceiverEntry *ReceiverEntry; // rax
   _QWORD *v10; // rbx
   struct CProjectedShadowScene::ReceiverEntry *v11; // rbp
-  unsigned __int64 v12; // r10
-  __int64 v13; // rdx
-  __int64 v14; // rax
-  __int64 v15; // rcx
-  int v16; // eax
-  __int64 v17; // rcx
-  _BYTE v19[16]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+40h] [rbp-28h]
-  unsigned __int64 v21; // [rsp+88h] [rbp+20h] BYREF
+  unsigned __int64 v12; // r9
+  _QWORD *v13; // rdx
+  _QWORD *v14; // rcx
+  __int64 *v15; // rax
+  __int64 v16; // rcx
+  int v17; // eax
+  unsigned int v18; // ecx
 
   v6 = CProjectedShadowScene::PrepareShadows(this, a2, a3);
   v8 = v6;
   if ( v6 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x397u);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x397u, 0LL);
   }
   else
   {
     ReceiverEntry = CProjectedShadowScene::FindReceiverEntry(this, a3);
-    v10 = (_QWORD *)*((_QWORD *)this + 8);
+    v10 = (_QWORD *)*((_QWORD *)this + 7);
     v11 = ReceiverEntry;
     while ( 1 )
     {
       v10 = (_QWORD *)*v10;
-      if ( v10 == *((_QWORD **)this + 8) )
+      if ( v10 == *((_QWORD **)this + 7) )
         break;
-      v21 = v10[2];
-      std::_Tree<std::_Tmap_traits<CProjectedShadowCaster *,wil::com_ptr_t<CProjectedShadow,wil::err_returncode_policy>,std::less<CProjectedShadowCaster *>,std::allocator<std::pair<CProjectedShadowCaster * const,wil::com_ptr_t<CProjectedShadow,wil::err_returncode_policy>>>,0>>::_Find_lower_bound<CProjectedShadowCaster *>(
-        (__int64 *)v11 + 1,
-        (__int64)v19,
-        &v21);
-      v13 = v20;
-      if ( *(_BYTE *)(v20 + 25) || v12 < *(_QWORD *)(v20 + 32) )
+      v12 = v10[2];
+      v13 = (_QWORD *)*((_QWORD *)v11 + 1);
+      v14 = v13;
+      v15 = (__int64 *)v13[1];
+      while ( !*((_BYTE *)v15 + 25) )
       {
-        v13 = *((_QWORD *)v11 + 1);
-        v14 = v13;
+        if ( v15[4] < v12 )
+        {
+          v15 = (__int64 *)v15[2];
+        }
+        else
+        {
+          v13 = v15;
+          v15 = (__int64 *)*v15;
+        }
       }
-      else
+      if ( v13 == v14 || v12 < v13[4] )
       {
-        v14 = *((_QWORD *)v11 + 1);
+        v13 = (_QWORD *)*((_QWORD *)v11 + 1);
+        v14 = v13;
       }
       if ( v13 != v14 )
       {
-        v15 = *(_QWORD *)(v13 + 40) + 64LL + *(int *)(*(_QWORD *)(*(_QWORD *)(v13 + 40) + 64LL) + 8LL);
-        v16 = (*(__int64 (__fastcall **)(__int64, struct CDrawingContext *, __int64, _QWORD))(*(_QWORD *)v15 + 16LL))(
-                v15,
+        v16 = v13[5] + 56LL + *(int *)(*(_QWORD *)(v13[5] + 56LL) + 8LL);
+        v17 = (*(__int64 (__fastcall **)(__int64, struct CDrawingContext *, __int64, _QWORD))(*(_QWORD *)v16 + 16LL))(
+                v16,
                 a2,
-                *(_QWORD *)(v12 + 64) + 140LL,
+                *(_QWORD *)(v12 + 56) + 132LL,
                 0LL);
-        v8 = v16;
-        if ( v16 < 0 )
+        v8 = v17;
+        if ( v17 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, v16, 0x3ACu);
+          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x3ACu, 0LL);
           return v8;
         }
       }

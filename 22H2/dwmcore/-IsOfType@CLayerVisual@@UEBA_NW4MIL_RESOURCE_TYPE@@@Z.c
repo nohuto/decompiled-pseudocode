@@ -1,21 +1,18 @@
 /*
- * XREFs of ?IsOfType@CLayerVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C2B60
+ * XREFs of ?IsOfType@CLayerVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C1F50
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C2B90 (-IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     <none>
  */
 
-char __fastcall CLayerVisual::IsOfType(__int64 a1, int a2)
+bool __fastcall CLayerVisual::IsOfType(__int64 a1, int a2)
 {
-  char v2; // cl
-  char v4; // al
+  unsigned __int64 v2; // rax
+  __int64 v3; // rcx
+  bool result; // al
 
-  if ( a2 == 93 )
-    return 1;
-  v4 = CVisual::IsOfType();
-  v2 = 0;
-  if ( v4 )
-    return 1;
-  return v2;
+  v2 = (unsigned int)(a2 - 91);
+  result = (unsigned int)v2 <= 0x2A && (v3 = 0x40000200001LL, _bittest64(&v3, v2)) || a2 == 195;
+  return result;
 }

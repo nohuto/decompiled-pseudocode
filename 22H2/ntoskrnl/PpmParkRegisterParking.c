@@ -1,509 +1,538 @@
 /*
- * XREFs of PpmParkRegisterParking @ 0x14038FD40
+ * XREFs of PpmParkRegisterParking @ 0x1403C10C0
  * Callers:
- *     PpmCheckInitProcessors @ 0x14082FE14 (PpmCheckInitProcessors.c)
+ *     PpmCheckInitProcessors @ 0x1407BA2D8 (PpmCheckInitProcessors.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14023E430 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     PopExecuteOnTargetProcessors @ 0x1402BFAEC (PopExecuteOnTargetProcessors.c)
- *     KeQueryNodeActiveAffinity2 @ 0x14036B530 (KeQueryNodeActiveAffinity2.c)
- *     PpmHeteroIsMultiClassParkingEnabled @ 0x1403905EC (PpmHeteroIsMultiClassParkingEnabled.c)
- *     PpmParkApplyPolicy @ 0x140390A80 (PpmParkApplyPolicy.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     PpmParkFreeAllParkNodes @ 0x14067ECA8 (PpmParkFreeAllParkNodes.c)
- *     PpmIdleInitializeConcurrency @ 0x14082D954 (PpmIdleInitializeConcurrency.c)
- *     PpmParkParkingAvailable @ 0x14082E76C (PpmParkParkingAvailable.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopExecuteOnTargetProcessors @ 0x1403447EC (PopExecuteOnTargetProcessors.c)
+ *     KeQueryNodeActiveAffinity @ 0x1403544E0 (KeQueryNodeActiveAffinity.c)
+ *     PpmParkApplyPolicy @ 0x1403C18E4 (PpmParkApplyPolicy.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PpmParkParkingAvailable @ 0x1407BB1D0 (PpmParkParkingAvailable.c)
+ *     PpmIdleInitializeConcurrency @ 0x1407BB2E8 (PpmIdleInitializeConcurrency.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PpmParkRegisterParking()
 {
-  __m128i *v0; // r15
-  int v1; // r12d
-  __int64 v2; // r14
-  _BYTE *v3; // rbx
-  __int64 v4; // rdi
-  __int64 v5; // rcx
-  __int64 v6; // rdx
-  unsigned int v7; // r13d
-  unsigned int v8; // ebx
-  unsigned __int16 v9; // si
-  unsigned int v10; // edi
-  __int64 v11; // r9
-  unsigned int v12; // edx
-  _QWORD *v13; // r8
-  __int64 v14; // rax
-  unsigned int v15; // r12d
-  unsigned int v16; // edi
-  __int64 v17; // rdx
-  unsigned __int16 epi16; // r12
-  __int64 v19; // rcx
-  __int64 v20; // r15
-  unsigned int v21; // ecx
-  __int64 v22; // rbx
-  char *v23; // r13
-  unsigned __int8 v24; // al
-  __int64 v25; // rcx
-  unsigned __int8 v26; // si
-  unsigned int v27; // edi
-  __int64 v28; // rdi
+  __int64 v0; // r12
+  KIRQL v1; // al
+  __int64 v2; // rdi
+  __int64 v3; // r14
+  unsigned __int64 v4; // rbx
+  _BYTE *v5; // rbx
+  unsigned int v6; // esi
+  unsigned int v7; // ebx
+  char *PoolWithTag; // rax
+  char *v9; // r13
+  unsigned __int64 v10; // rbx
   __int64 Prcb; // rax
-  char v30; // cl
-  __int64 v31; // rcx
-  _BYTE *v32; // rax
-  unsigned __int8 v33; // cl
-  int v34; // r15d
-  unsigned int v35; // edx
-  __int64 v36; // rax
-  unsigned __int8 *v37; // rcx
-  __int64 v38; // rcx
-  __int64 v39; // rdx
-  __int64 v40; // r8
-  unsigned int v41; // edi
-  __int64 v42; // r12
-  __int64 v43; // rsi
-  int v44; // eax
-  __int64 v45; // rcx
-  __int64 v46; // rdx
-  __int64 v47; // r8
-  void *v48; // rax
-  void *v49; // rdi
-  unsigned int *v50; // rbx
-  __int64 v51; // r12
-  unsigned int v52; // eax
-  void *v53; // rcx
-  size_t v54; // r8
-  size_t v55; // rdi
-  size_t v56; // rdi
-  __int64 v57; // rcx
-  unsigned int i; // r15d
-  void *v59; // rcx
-  unsigned __int8 *v60; // rsi
+  unsigned __int64 v12; // rdx
+  unsigned int v13; // r15d
+  int v14; // edi
+  unsigned __int16 Group; // r14
+  __int64 v16; // rcx
+  unsigned __int64 v17; // rsi
+  char *v18; // rbx
+  unsigned __int8 v19; // di
+  __int64 v20; // r15
+  __int64 v21; // rax
+  char *v22; // rdi
+  unsigned int v23; // r14d
+  char v24; // al
+  __int64 v25; // rdx
+  unsigned int v26; // esi
+  unsigned __int8 *v27; // rcx
+  int v28; // eax
+  __int64 v29; // rcx
+  __int64 v30; // rdx
+  char *v31; // r8
+  unsigned __int8 v32; // cl
+  unsigned __int8 v33; // r8
+  SIZE_T v34; // rbx
+  PVOID v35; // rax
+  void *v36; // r15
+  void *v37; // rdi
+  unsigned int *v38; // rbx
+  __int64 v39; // r13
+  unsigned int v40; // eax
+  void *v41; // rcx
+  size_t v42; // r8
+  size_t v43; // rdi
+  size_t v44; // rdi
+  unsigned __int8 *v45; // r15
+  unsigned __int64 v46; // rbx
+  PVOID v47; // r15
+  PVOID *v48; // rbx
+  __int64 v49; // r14
+  __int64 v50; // rsi
+  PVOID *v51; // rdi
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v56; // eax
+  bool v57; // zf
+  __int64 v58; // rcx
+  __int64 v59; // rdx
+  __int64 *v60; // r15
   int v61; // eax
-  unsigned int v62; // eax
-  size_t v63; // r8
-  size_t v64; // rdi
-  size_t v65; // rdi
-  KIRQL v66; // r10
-  PVOID v67; // rbx
-  char v69; // [rsp+38h] [rbp-D0h]
-  _WORD v70[2]; // [rsp+3Ch] [rbp-CCh] BYREF
-  unsigned int v71; // [rsp+40h] [rbp-C8h]
-  unsigned __int16 v72; // [rsp+44h] [rbp-C4h]
-  unsigned __int16 v73; // [rsp+46h] [rbp-C2h]
-  unsigned int v74; // [rsp+48h] [rbp-C0h]
-  unsigned int v75; // [rsp+4Ch] [rbp-BCh] BYREF
-  int v76; // [rsp+50h] [rbp-B8h]
-  unsigned int v77; // [rsp+54h] [rbp-B4h]
-  __int64 v78; // [rsp+58h] [rbp-B0h]
-  __int64 Pool2; // [rsp+60h] [rbp-A8h]
-  PVOID v80; // [rsp+68h] [rbp-A0h]
-  char *v81; // [rsp+70h] [rbp-98h]
-  __int64 v82; // [rsp+78h] [rbp-90h]
-  PVOID P; // [rsp+80h] [rbp-88h]
-  PVOID v84; // [rsp+88h] [rbp-80h]
-  __int128 v85; // [rsp+90h] [rbp-78h] BYREF
-  __int64 v86; // [rsp+A0h] [rbp-68h]
-  __m128i v87; // [rsp+A8h] [rbp-60h]
-  _QWORD v88[34]; // [rsp+B8h] [rbp-50h] BYREF
+  __int64 v62; // rcx
+  __int64 v63; // rdx
+  char *v64; // r8
+  __int64 v65; // r12
+  unsigned int *v66; // r14
+  unsigned int *v67; // rsi
+  int v68; // eax
+  void *v69; // rcx
+  unsigned int v70; // eax
+  size_t v71; // r8
+  size_t v72; // rdi
+  size_t v73; // rdi
+  unsigned __int8 v74; // al
+  struct _KPRCB *v75; // r9
+  _DWORD *v76; // r8
+  int v77; // eax
+  PVOID *v78; // rbx
+  __int64 v79; // r14
+  __int64 v80; // rsi
+  PVOID *v81; // rdi
+  USHORT Count[2]; // [rsp+28h] [rbp-E0h] BYREF
+  unsigned int v83; // [rsp+2Ch] [rbp-DCh]
+  unsigned int v84; // [rsp+30h] [rbp-D8h] BYREF
+  unsigned int v85; // [rsp+34h] [rbp-D4h]
+  unsigned int v86; // [rsp+38h] [rbp-D0h]
+  unsigned int v87; // [rsp+3Ch] [rbp-CCh]
+  __int64 v88; // [rsp+40h] [rbp-C8h]
+  PVOID v89; // [rsp+48h] [rbp-C0h]
+  PVOID P; // [rsp+50h] [rbp-B8h]
+  char *v91; // [rsp+58h] [rbp-B0h]
+  PVOID v92; // [rsp+60h] [rbp-A8h]
+  PVOID v93[2]; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 Affinity; // [rsp+78h] [rbp-90h]
+  struct _GROUP_AFFINITY Affinity_8; // [rsp+80h] [rbp-88h] BYREF
+  _QWORD v96[22]; // [rsp+98h] [rbp-70h] BYREF
 
-  memset(v88, 0, 0x108uLL);
-  v86 = 0LL;
-  v0 = 0LL;
-  v1 = (unsigned __int8)PpmMaxCoreClasses;
-  v75 = 0;
+  memset(v96, 0, 0xA8uLL);
+  LODWORD(v0) = 0;
+  *(_OWORD *)v93 = 0LL;
+  Affinity = 0LL;
+  v84 = 0;
+  Affinity_8 = 0LL;
+  Count[0] = 0;
   P = 0LL;
-  v80 = 0LL;
-  if ( (unsigned __int8)PpmMaxCoreClasses < 2u )
-    v1 = 2;
-  v84 = 0LL;
-  v76 = v1;
-  v2 = 0LL;
-  v77 = 0;
-  v69 = 0;
-  v85 = 0LL;
+  v92 = 0LL;
+  v86 = 0;
   if ( PpmParkNodes )
   {
-    v80 = (PVOID)PpmParkNodes;
-    v84 = (PVOID)PpmParkHistograms;
-    v77 = PpmParkNumNodes;
-    if ( PpmParkNumNodes )
+    v1 = KeAcquireSpinLockRaiseToDpc(&PpmParkStateLock);
+    v2 = (unsigned int)PpmParkNumNodes;
+    v3 = PpmParkNodes;
+    v4 = v1;
+    v92 = (PVOID)PpmParkHistograms;
+    v86 = PpmParkNumNodes;
+    P = (PVOID)PpmParkNodes;
+    PpmParkNumNodes = 0;
+    PpmParkNodes = 0LL;
+    PpmParkHistograms = 0LL;
+    KxReleaseSpinLock(&PpmParkStateLock);
+    if ( KiIrqlFlags )
     {
-      v3 = (_BYTE *)(PpmParkNodes + 120);
-      v4 = (unsigned int)PpmParkNumNodes;
-      while ( 1 )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        if ( !*((_QWORD *)v3 - 9) || (*v3 & 8) == 0 )
-          goto LABEL_13;
-        LODWORD(v88[0]) = 2097153;
-        memset((char *)v88 + 4, 0, 0x104uLL);
-        v5 = *((unsigned __int16 *)v3 - 58);
-        v6 = *((_QWORD *)v3 - 13);
-        if ( !(_WORD)v5 )
-          goto LABEL_11;
-        if ( WORD1(v88[0]) > (unsigned __int16)v5 )
-          break;
-LABEL_12:
-        PopExecuteOnTargetProcessors((__int64)v88, (__int64)PpmIdleRemoveConcurrency, 0LL, 0LL);
-LABEL_13:
-        v3 += 192;
-        if ( !--v4 )
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
         {
-          LOBYTE(v1) = v76;
-          goto LABEL_15;
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v56 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+          v57 = (v56 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v56;
+          if ( v57 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
-      LOWORD(v88[0]) = v5 + 1;
-LABEL_11:
-      v88[v5 + 1] |= v6;
-      goto LABEL_12;
+    }
+    __writecr8(v4);
+    if ( (_DWORD)v2 )
+    {
+      v5 = (_BYTE *)(v3 + 146);
+      do
+      {
+        if ( *(_QWORD *)(v5 - 74) && (*v5 & 8) != 0 )
+        {
+          LODWORD(v96[0]) = 1310721;
+          memset((char *)v96 + 4, 0, 0xA4uLL);
+          v58 = *((unsigned __int16 *)v5 - 71);
+          v59 = *(_QWORD *)(v5 - 138);
+          if ( (_WORD)v58 )
+            LOWORD(v96[0]) = v58 + 1;
+          v96[v58 + 1] |= v59;
+          PopExecuteOnTargetProcessors((__int64)v96, (__int64)PpmIdleRemoveConcurrency, 0LL, 0LL);
+        }
+        v5 += 272;
+        --v2;
+      }
+      while ( v2 );
     }
   }
-LABEL_15:
+  v6 = 0;
+  v85 = 0;
   v7 = 0;
-  v8 = 0;
-  v70[0] = 0;
-  v9 = 0;
-  v73 = 0;
-  v10 = 0;
+  if ( KeNumberNodes )
+  {
+    do
+    {
+      KeQueryNodeActiveAffinity(v7, 0LL, Count);
+      if ( Count[0] )
+        ++v6;
+      ++v7;
+    }
+    while ( v7 < (unsigned __int16)KeNumberNodes );
+    v85 = v6;
+  }
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 272 * v6, 0x704D5050u);
+  v91 = PoolWithTag;
+  v9 = PoolWithTag;
+  v89 = 0LL;
+  if ( !PoolWithTag )
+    goto LABEL_64;
+  memset(PoolWithTag, 0, 272 * v6);
+  PpmParkGranularity = 1;
+  PpmParkCoreMask = PpmParkUseCoreGranularity != 0;
+  PpmParkUnparkCores = PpmParkUseCoreGranularity == 2;
+  if ( PpmParkUseCoreGranularity )
+  {
+    LODWORD(v10) = 0;
+    v93[1] = (PVOID)qword_140C113D8[0];
+    v93[0] = PpmCheckRegistered;
+    while ( !(unsigned int)KeEnumerateNextProcessor(&v84, (unsigned __int16 **)v93) )
+    {
+      Prcb = KeGetPrcb(v84);
+      v12 = *(_QWORD *)(Prcb + 33880) - ((*(_QWORD *)(Prcb + 33880) >> 1) & 0x5555555555555555LL);
+      if ( (_DWORD)v10 )
+      {
+        if ( (_DWORD)v10 != (unsigned int)((0x101010101010101LL
+                                          * (((v12 & 0x3333333333333333LL)
+                                            + ((v12 >> 2) & 0x3333333333333333LL)
+                                            + (((v12 & 0x3333333333333333LL) + ((v12 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24 )
+          PpmParkCoreMask = 0;
+      }
+      else
+      {
+        v10 = (0x101010101010101LL
+             * (((v12 & 0x3333333333333333LL)
+               + ((v12 >> 2) & 0x3333333333333333LL)
+               + (((v12 & 0x3333333333333333LL) + ((v12 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
+      }
+    }
+    v9 = v91;
+    if ( PpmParkCoreMask )
+      PpmParkGranularity = v10;
+  }
+  v83 = 0;
+  v13 = 0;
+  v14 = 0;
+  v87 = 0;
   if ( !KeNumberNodes )
   {
-LABEL_20:
-    Pool2 = ExAllocatePool2(64LL, 16LL * v9, 1884115024LL);
-    v0 = (__m128i *)Pool2;
-    if ( !Pool2 )
-      goto LABEL_103;
-    v82 = ExAllocatePool2(64LL, 192 * v8, 1884115024LL);
-    v2 = v82;
-    if ( !v82 )
-      goto LABEL_103;
-    v11 = ExAllocatePool2(64LL, 104 * v8 * (unsigned __int8)v1, 1884115024LL);
-    if ( !v11 )
-      goto LABEL_103;
-    v12 = 0;
-    if ( v8 )
+LABEL_53:
+    v34 = 8LL * v13;
+    v35 = ExAllocatePoolWithTag(NonPagedPoolNx, v34, 0x704D5050u);
+    v89 = v35;
+    v36 = v35;
+    if ( v35 )
     {
-      v13 = (_QWORD *)(v2 + 184);
-      do
+      memset(v35, 0, v34);
+      v37 = v36;
+      if ( v6 )
       {
-        v14 = v12 * (unsigned __int8)v1;
-        ++v12;
-        *v13 = v11 + 104 * v14;
-        v13 += 24;
-      }
-      while ( v12 < v8 );
-    }
-    v15 = 0;
-    v71 = v8;
-    v16 = 0;
-    v74 = 0;
-    v78 = 0LL;
-    if ( !KeNumberNodes )
-      goto LABEL_89;
-    while ( 1 )
-    {
-      if ( (int)KeQueryNodeActiveAffinity2(v16, (__int64)v0, v9, v70) < 0 )
-        goto LABEL_102;
-      v17 = 0LL;
-      v72 = 0;
-      if ( !v70[0] )
-        goto LABEL_87;
-      do
-      {
-        epi16 = _mm_extract_epi16(v0[(unsigned __int16)v17], 4);
-        v87 = v0[(unsigned __int16)v17];
-        if ( epi16 >= (unsigned __int16)PpmCheckRegistered )
-          v19 = 0LL;
-        else
-          v19 = qword_140C0BE68[epi16];
-        v20 = v19 & v87.m128i_i64[0];
-        if ( (v19 & v87.m128i_i64[0]) == 0 )
-          goto LABEL_85;
-        v21 = v78;
-        v22 = 192LL * (unsigned int)v78;
-        v87.m128i_i64[0] = v22;
-        *(_WORD *)(v22 + v2 + 4) = epi16;
-        *(_WORD *)(v22 + v2 + 6) = v16;
-        *(_WORD *)(v22 + v2 + 8) = v17;
-        *(_QWORD *)(v22 + v2 + 16) = v20;
-        if ( v21 >= v77
-          || (v23 = (char *)v80 + v22, v81 = (char *)v80 + v22, *(unsigned __int16 *)((char *)v80 + v22 + 6) != v16)
-          || *((_WORD *)v23 + 4) != (_WORD)v17 )
+        v38 = (unsigned int *)(v9 + 120);
+        v39 = v6;
+        v88 = v6;
+        do
         {
-          v23 = 0LL;
-          v81 = 0LL;
-        }
-        v24 = v76;
-        v25 = v21 + 1;
-        v26 = 0;
-        LODWORD(v78) = v25;
-        if ( (_BYTE)v76 )
-        {
-          do
+          v40 = *((unsigned __int8 *)v38 - 114);
+          v41 = v37;
+          *((_QWORD *)v38 - 5) = v37;
+          v42 = 8LL * ++v40;
+          v43 = (size_t)v37 + v42;
+          *v38 = v40;
+          *((_QWORD *)v38 - 4) = v43;
+          v44 = v42 + v43;
+          *((_QWORD *)v38 - 3) = v44;
+          v37 = (void *)(v42 + v44);
+          memmove(v41, (const void *)(*((_QWORD *)v38 - 6) + 32LL), v42);
+          memmove(*((void **)v38 - 4), (const void *)(*((_QWORD *)v38 - 6) + 32LL), 8LL * *v38);
+          v45 = (unsigned __int8 *)(v38 + 2);
+          *((_QWORD *)v38 - 2) = *(_QWORD *)(*((_QWORD *)v38 - 6) + 24LL);
+          *((_QWORD *)v38 - 1) = *(_QWORD *)(*((_QWORD *)v38 - 6) + 24LL);
+          if ( *((_BYTE *)v38 - 114) != *((_BYTE *)v38 + 8) )
           {
-            v27 = v26;
-            if ( v26 )
-            {
-              v17 = (unsigned int)PpmHeteroPolicy;
-              v25 = (unsigned int)-(PpmHeteroPolicy != 0);
-              v27 = PpmHeteroPolicy != 0 ? v26 : 0;
-              if ( PpmHeteroHgsParkingEnabled )
-              {
-                if ( PpmHeteroPolicy )
-                  v27 = 0;
-              }
-            }
-            if ( !(unsigned __int8)PpmHeteroIsMultiClassParkingEnabled(v25, v17, 0LL) )
-              v27 = v27 != 0;
-            LOWORD(v86) = epi16;
-            v28 = *(_QWORD *)(v22 + v2 + 184) + 104LL * v27;
-            *((_QWORD *)&v85 + 1) = v20;
-            *(_QWORD *)&v85 = 0LL;
-            if ( !(unsigned int)KeEnumerateNextProcessor(&v75, (unsigned __int16 **)&v85) )
-            {
-              do
-              {
-                Prcb = KeGetPrcb(v75);
-                if ( KeHeteroSystem )
-                  v30 = *(_BYTE *)(Prcb + 34056);
-                else
-                  v30 = *(_BYTE *)(Prcb + 34059);
-                if ( v30 == v26 )
-                {
-                  ++*(_BYTE *)v28;
-                  *(_QWORD *)(v28 + 16) |= *(_QWORD *)(Prcb + 200);
-                }
-              }
-              while ( !(unsigned int)KeEnumerateNextProcessor(&v75, (unsigned __int16 **)&v85) );
-              v2 = v82;
-              v22 = v87.m128i_i64[0];
-            }
-            v24 = v76;
-            ++v26;
-          }
-          while ( v26 < (unsigned __int8)v76 );
-          v23 = v81;
-        }
-        v31 = v24;
-        if ( v24 )
-        {
-          v32 = *(_BYTE **)(v22 + v2 + 184);
-          do
-          {
-            if ( *v32 )
-              ++*(_BYTE *)(v22 + v2 + 11);
-            v32 += 104;
-            --v31;
-          }
-          while ( v31 );
-        }
-        v33 = *(_BYTE *)(v22 + v2 + 11);
-        *(_BYTE *)(v22 + v2 + 121) = v33 > 1u;
-        if ( v33 <= 1u )
-          *(_BYTE *)(v22 + v2 + 120) |= 4u;
-        v34 = 0;
-        v35 = 0;
-        if ( v33 )
-        {
-          do
-          {
-            v36 = v35++;
-            v37 = (unsigned __int8 *)(*(_QWORD *)(v22 + v2 + 184) + 104 * v36);
-            LODWORD(v36) = *v37;
-            v34 += v36;
-            v37[3] = v36;
-            v37[4] = v36;
-            v37[5] = v36;
-          }
-          while ( v35 < *(unsigned __int8 *)(v22 + v2 + 11) );
-        }
-        LODWORD(v88[0]) = 2097153;
-        v74 += v34 + 2 * v34 + 3;
-        memset((char *)v88 + 4, 0, 0x104uLL);
-        v38 = *(unsigned __int16 *)(v22 + v2 + 4);
-        v39 = *(_QWORD *)(v22 + v2 + 16);
-        if ( !(_WORD)v38 )
-          goto LABEL_66;
-        if ( WORD1(v88[0]) > (unsigned __int16)v38 )
-        {
-          LOWORD(v88[0]) = v38 + 1;
-LABEL_66:
-          v88[v38 + 1] |= v39;
-        }
-        if ( v23 )
-          v40 = *((_QWORD *)v23 + 6);
-        else
-          v40 = 0LL;
-        if ( (int)PpmIdleInitializeConcurrency(v88, v22 + v2 + 48, v40) < 0 )
-        {
-LABEL_101:
-          v0 = (__m128i *)Pool2;
-          goto LABEL_102;
-        }
-        if ( *(_BYTE *)(v22 + v2 + 121) )
-        {
-          v41 = 0;
-          if ( *(_BYTE *)(v22 + v2 + 11) )
-          {
-            while ( 1 )
-            {
-              v42 = *(_QWORD *)(v22 + v2 + 184);
-              v43 = 104LL * v41;
-              v44 = *(unsigned __int8 *)(v43 + v42);
-              if ( !(_BYTE)v44 )
-                goto LABEL_83;
-              LODWORD(v88[0]) = 2097153;
-              v74 += v44 + 2 * v44 + 3;
-              memset((char *)v88 + 4, 0, 0x104uLL);
-              v45 = *(unsigned __int16 *)(v22 + v2 + 4);
-              v46 = *(_QWORD *)(v43 + v42 + 16);
-              if ( !(_WORD)v45 )
-                goto LABEL_77;
-              if ( WORD1(v88[0]) > (unsigned __int16)v45 )
-                break;
-LABEL_78:
-              if ( v23 && v41 < (unsigned __int8)v23[11] )
-                v47 = *(_QWORD *)(*((_QWORD *)v23 + 23) + v43 + 32);
-              else
-                v47 = 0LL;
-              if ( (int)PpmIdleInitializeConcurrency(v88, v43 + v42 + 32, v47) < 0 )
-                goto LABEL_101;
-LABEL_83:
-              if ( ++v41 >= *(unsigned __int8 *)(v22 + v2 + 11) )
-                goto LABEL_84;
-            }
-            LOWORD(v88[0]) = v45 + 1;
-LABEL_77:
-            v88[v45 + 1] |= v46;
-            goto LABEL_78;
-          }
-        }
-LABEL_84:
-        v17 = v72;
-        v16 = HIDWORD(v78);
-        *(_BYTE *)(v22 + v2 + 10) = v34;
-        *(_BYTE *)(v22 + v2 + 113) = v34;
-        *(_BYTE *)(v22 + v2 + 115) = v34;
-LABEL_85:
-        v0 = (__m128i *)Pool2;
-        LOWORD(v17) = v17 + 1;
-        v72 = v17;
-      }
-      while ( (unsigned __int16)v17 < v70[0] );
-      v9 = v73;
-LABEL_87:
-      HIDWORD(v78) = ++v16;
-      if ( v16 >= (unsigned __int16)KeNumberNodes )
-      {
-        v8 = v71;
-        v15 = v74;
-LABEL_89:
-        v48 = (void *)ExAllocatePool2(64LL, 8LL * v15, 1884115024LL);
-        P = v48;
-        if ( v48 )
-        {
-          v49 = v48;
-          if ( v8 )
-          {
-            v7 = v71;
-            v50 = (unsigned int *)(v2 + 104);
-            v51 = v71;
+            v65 = 2LL;
+            v66 = v38 + 8;
+            v67 = v38 + 22;
             do
             {
-              v52 = *((unsigned __int8 *)v50 - 94);
-              v53 = v49;
-              *((_QWORD *)v50 - 6) = v49;
-              v54 = 8LL * ++v52;
-              v55 = (size_t)v49 + v54;
-              *v50 = v52;
-              *((_QWORD *)v50 - 5) = v55;
-              v56 = v54 + v55;
-              *((_QWORD *)v50 - 4) = v56;
-              v49 = (void *)(v54 + v56);
-              memmove(v53, (const void *)(*((_QWORD *)v50 - 7) + 328LL), v54);
-              memmove(*((void **)v50 - 5), (const void *)(*((_QWORD *)v50 - 7) + 328LL), 8LL * *v50);
-              v57 = *((_QWORD *)v50 - 7);
-              *((_QWORD *)v50 - 3) = *(_QWORD *)(v57 + 24);
-              *((_QWORD *)v50 - 2) = *(_QWORD *)(v57 + 24);
-              if ( *((_BYTE *)v50 + 17) )
+              v68 = *v45;
+              v69 = v37;
+              if ( (_BYTE)v68 )
               {
-                for ( i = 0; i < *((unsigned __int8 *)v50 - 93); ++i )
-                {
-                  v59 = v49;
-                  v60 = (unsigned __int8 *)(*((_QWORD *)v50 + 10) + 104LL * i);
-                  v61 = *v60;
-                  if ( (_BYTE)v61 )
-                  {
-                    *((_QWORD *)v60 + 5) = v49;
-                    v62 = v61 + 1;
-                    v63 = 8LL * v62;
-                    v64 = (size_t)v49 + v63;
-                    *((_DWORD *)v60 + 22) = v62;
-                    *((_QWORD *)v60 + 6) = v64;
-                    v65 = v63 + v64;
-                    *((_QWORD *)v60 + 7) = v65;
-                    v49 = (void *)(v63 + v65);
-                    memmove(v59, (const void *)(*((_QWORD *)v60 + 4) + 328LL), v63);
-                    memmove(
-                      *((void **)v60 + 6),
-                      (const void *)(*((_QWORD *)v60 + 4) + 328LL),
-                      8LL * *((unsigned int *)v60 + 22));
-                    *((_QWORD *)v60 + 8) = *(_QWORD *)(*((_QWORD *)v60 + 4) + 24LL);
-                    *((_QWORD *)v60 + 9) = *(_QWORD *)(*((_QWORD *)v60 + 4) + 24LL);
-                  }
-                }
+                *((_QWORD *)v67 - 5) = v37;
+                v70 = v68 + 1;
+                v71 = 8LL * v70;
+                v72 = (size_t)v37 + v71;
+                *v67 = v70;
+                *((_QWORD *)v67 - 4) = v72;
+                v73 = v71 + v72;
+                *((_QWORD *)v67 - 3) = v73;
+                v37 = (void *)(v71 + v73);
+                memmove(v69, (const void *)(*(_QWORD *)v66 + 32LL), v71);
+                memmove(*((void **)v67 - 4), (const void *)(*(_QWORD *)v66 + 32LL), 8LL * *v67);
+                *((_QWORD *)v67 - 2) = *(_QWORD *)(*(_QWORD *)v66 + 24LL);
+                *((_QWORD *)v67 - 1) = *(_QWORD *)(*(_QWORD *)v66 + 24LL);
               }
-              v50 += 48;
-              --v51;
+              v66 += 2;
+              v67 += 12;
+              ++v45;
+              --v65;
             }
-            while ( v51 );
-            v2 = v82;
+            while ( v65 );
+            v39 = v88;
           }
-          else
-          {
-            v7 = v71;
-          }
-          v0 = (__m128i *)Pool2;
-          v69 = 1;
-          goto LABEL_103;
+          v38 += 68;
+          v88 = --v39;
         }
-LABEL_102:
-        v7 = v71;
-        goto LABEL_103;
+        while ( v39 );
+        v9 = v91;
+        v6 = v85;
+        v36 = v89;
       }
+      v46 = KeAcquireSpinLockRaiseToDpc(&PpmParkStateLock);
+      PpmParkNumNodes = v6;
+      PpmParkNodes = (__int64)v9;
+      PpmParkHistograms = (__int64)v36;
+      KxReleaseSpinLock(&PpmParkStateLock);
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          v74 = KeGetCurrentIrql();
+          if ( v74 <= 0xFu && (unsigned __int8)v46 <= 0xFu && v74 >= 2u )
+          {
+            v75 = KeGetCurrentPrcb();
+            v76 = v75->SchedulerAssist;
+            v77 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v46 + 1));
+            v57 = (v77 & v76[5]) == 0;
+            v76[5] &= v77;
+            if ( v57 )
+              KiRemoveSystemWorkPriorityKick(v75);
+          }
+        }
+      }
+      __writecr8(v46);
+      v9 = 0LL;
+      v36 = 0LL;
+    }
+    goto LABEL_61;
+  }
+  while ( 1 )
+  {
+    KeQueryNodeActiveAffinity(v0, &Affinity_8, 0LL);
+    Group = Affinity_8.Group;
+    v16 = Affinity_8.Group >= (unsigned int)PpmCheckRegistered[0]
+        ? 0LL
+        : *(_QWORD *)&PpmCheckRegistered[4 * Affinity_8.Group + 4];
+    v17 = v16 & Affinity_8.Mask;
+    Affinity_8.Mask &= v16;
+    if ( Affinity_8.Mask )
+      break;
+LABEL_51:
+    LODWORD(v0) = v0 + 1;
+    v87 = v0;
+    if ( (unsigned int)v0 >= (unsigned __int16)KeNumberNodes )
+    {
+      v6 = v85;
+      v13 = v83;
+      goto LABEL_53;
     }
   }
-  while ( (unsigned int)KeQueryNodeActiveAffinity2(v10, 0LL, 0, v70) == -1073741789 )
+  LODWORD(v88) = v14 + 1;
+  v18 = &v9[272 * v14];
+  v19 = 0;
+  *((_WORD *)v18 + 2) = Affinity_8.Group;
+  *((_QWORD *)v18 + 1) = v17;
+  do
   {
-    v8 += v70[0];
-    if ( v70[0] > v9 )
-      v9 = v70[0];
-    ++v10;
-    v73 = v9;
-    if ( v10 >= (unsigned __int16)KeNumberNodes )
-      goto LABEL_20;
+    v20 = v19;
+    if ( v19 )
+      v20 = PpmHeteroPolicy != 0 ? v19 : 0;
+    LOWORD(Affinity) = Group;
+    v93[1] = (PVOID)v17;
+    v93[0] = 0LL;
+    while ( !(unsigned int)KeEnumerateNextProcessor(&v84, (unsigned __int16 **)v93) )
+    {
+      v21 = KeGetPrcb(v84);
+      if ( *(_BYTE *)(v21 + 33208) == v19 )
+      {
+        ++v18[v20 + 128];
+        *(_QWORD *)&v18[8 * v20 + 16] |= *(_QWORD *)(v21 + 200);
+      }
+    }
+    ++v19;
   }
-LABEL_103:
-  v66 = KeAcquireSpinLockRaiseToDpc(&PpmParkStateLock);
-  v67 = 0LL;
-  if ( !v69 )
-    v67 = P;
-  PpmParkNumNodes = v69 != 0 ? v7 : 0;
-  PpmParkNodes = v2 & -(__int64)(v69 != 0);
-  PpmParkHistograms = (unsigned __int64)P & -(__int64)(v69 != 0);
-  KeReleaseSpinLock(&PpmParkStateLock, v66);
-  PpmParkFreeAllParkNodes(v80, v69);
-  if ( v67 )
-    ExFreePoolWithTag(v67, 0x704D5050u);
-  if ( v84 )
-    ExFreePoolWithTag(v84, 0x704D5050u);
-  if ( v0 )
-    ExFreePoolWithTag(v0, 0x704D5050u);
+  while ( v19 < 2u );
+  v0 = v87;
+  v22 = v18 + 128;
+  v9 = v91;
+  v23 = 0;
+  v24 = v18[129];
+  if ( !v18[128] )
+  {
+    *v22 = v24;
+    *((_QWORD *)v18 + 2) = *((_QWORD *)v18 + 3);
+    v24 = 0;
+    v18[129] = 0;
+    *((_QWORD *)v18 + 3) = 0LL;
+  }
+  if ( !v24 )
+    v18[146] |= 4u;
+  v25 = 2LL;
+  v26 = 0;
+  v27 = (unsigned __int8 *)(v18 + 128);
+  do
+  {
+    v28 = *v27;
+    v27[10] = v28;
+    v26 += v28;
+    v27[15] = v28;
+    ++v27;
+    --v25;
+  }
+  while ( v25 );
+  LODWORD(v96[0]) = 1310721;
+  v83 += v26 + 2 * v26 + 3;
+  memset((char *)v96 + 4, 0, 0xA4uLL);
+  v29 = *((unsigned __int16 *)v18 + 2);
+  v30 = *((_QWORD *)v18 + 1);
+  if ( (_WORD)v29 )
+    LOWORD(v96[0]) = v29 + 1;
+  v96[v29 + 1] |= v30;
+  if ( (unsigned int)v0 < v86 )
+    v31 = (char *)P + 272 * v0 + 72;
+  else
+    v31 = 0LL;
+  if ( (int)PpmIdleInitializeConcurrency(v96, v18 + 72, v31) < 0 )
+  {
+    v36 = 0LL;
+    goto LABEL_61;
+  }
+  if ( v26 == (unsigned __int8)*v22 )
+  {
+LABEL_48:
+    v32 = PpmParkGranularity;
+    v14 = v88;
+    v18[6] = v26;
+    v18[135] = v26;
+    v18[137] = v26;
+    v33 = v26 / (PpmParkMultiparkGranularity != 0);
+    if ( v33 < v32 )
+      v33 = v32;
+    v18[145] = v33;
+    goto LABEL_51;
+  }
+  v60 = (__int64 *)(v18 + 16);
+  while ( 1 )
+  {
+    v61 = (unsigned __int8)*v22;
+    if ( (_BYTE)v61 )
+    {
+      LODWORD(v96[0]) = 1310721;
+      v83 += v61 + 2 * v61 + 3;
+      memset((char *)v96 + 4, 0, 0xA4uLL);
+      v62 = *((unsigned __int16 *)v18 + 2);
+      v63 = *v60;
+      if ( (_WORD)v62 )
+        LOWORD(v96[0]) = v62 + 1;
+      v96[v62 + 1] |= v63;
+      v64 = (unsigned int)v0 >= v86 ? 0LL : (char *)P + 272 * v0 + 8 * v23 + 152;
+      if ( (int)PpmIdleInitializeConcurrency(v96, &v18[8 * v23 + 152], v64) < 0 )
+        break;
+    }
+    ++v60;
+    ++v23;
+    ++v22;
+    if ( v23 >= 2 )
+      goto LABEL_48;
+  }
+  v36 = v89;
+LABEL_61:
+  if ( v9 )
+  {
+    if ( v85 )
+    {
+      v78 = (PVOID *)(v9 + 72);
+      v79 = v85;
+      do
+      {
+        if ( *v78 )
+          ExFreePoolWithTag(*v78, 0x704D5050u);
+        v80 = 2LL;
+        v81 = v78 + 10;
+        do
+        {
+          if ( *v81 )
+            ExFreePoolWithTag(*v81, 0x704D5050u);
+          ++v81;
+          --v80;
+        }
+        while ( v80 );
+        v78 += 34;
+        --v79;
+      }
+      while ( v79 );
+    }
+    ExFreePoolWithTag(v9, 0x704D5050u);
+  }
+  if ( v36 )
+    ExFreePoolWithTag(v36, 0x704D5050u);
+LABEL_64:
+  v47 = P;
+  if ( P )
+  {
+    if ( v86 )
+    {
+      v48 = (PVOID *)((char *)P + 72);
+      v49 = v86;
+      do
+      {
+        if ( *v48 )
+          ExFreePoolWithTag(*v48, 0x704D5050u);
+        v50 = 2LL;
+        v51 = v48 + 10;
+        do
+        {
+          if ( *v51 )
+            ExFreePoolWithTag(*v51, 0x704D5050u);
+          ++v51;
+          --v50;
+        }
+        while ( v50 );
+        v48 += 34;
+        --v49;
+      }
+      while ( v49 );
+    }
+    ExFreePoolWithTag(v47, 0x704D5050u);
+  }
+  if ( v92 )
+    ExFreePoolWithTag(v92, 0x704D5050u);
   PpmParkApplyPolicy();
   return PpmParkParkingAvailable();
 }

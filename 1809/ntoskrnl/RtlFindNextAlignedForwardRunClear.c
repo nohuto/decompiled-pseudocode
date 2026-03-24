@@ -33,7 +33,7 @@ LABEL_4:
   {
     v11 = v4;
     v4 &= 0xFFFFFFE0;
-    v12 = *i | dword_140360B70[v11 & 0x1F];
+    v12 = *i | dword_140360C80[v11 & 0x1F];
     if ( (v8 & v12) != v8 )
     {
       v13 = 0;

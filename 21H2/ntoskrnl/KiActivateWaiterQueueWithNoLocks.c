@@ -1,57 +1,63 @@
 /*
- * XREFs of KiActivateWaiterQueueWithNoLocks @ 0x1402EE104
+ * XREFs of KiActivateWaiterQueueWithNoLocks @ 0x14029F4FC
  * Callers:
- *     KiSwitchQueue @ 0x140242498 (KiSwitchQueue.c)
- *     KiSwitchPriQueue @ 0x140259330 (KiSwitchPriQueue.c)
- *     KiPriQueueThreadPriorityChanged @ 0x140291EE4 (KiPriQueueThreadPriorityChanged.c)
- *     KiCommitThreadWait @ 0x1402B5240 (KiCommitThreadWait.c)
- *     KeTerminateThread @ 0x1402F00BC (KeTerminateThread.c)
+ *     KeTerminateThread @ 0x1402784F0 (KeTerminateThread.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x14029F3A0 (KiPriQueueThreadPriorityChanged.c)
+ *     KiSwitchQueue @ 0x14029F478 (KiSwitchQueue.c)
+ *     KiSwitchPriQueue @ 0x1402CEF3C (KiSwitchPriQueue.c)
+ *     KiCommitThreadWait @ 0x140345FB0 (KiCommitThreadWait.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KiActivateWaiterPriQueue @ 0x1402EC8A4 (KiActivateWaiterPriQueue.c)
- *     KiActivateWaiterKQueue @ 0x1402EE238 (KiActivateWaiterKQueue.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1403127E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiActivateWaiterKQueue @ 0x14029F630 (KiActivateWaiterKQueue.c)
+ *     KiActivateWaiterPriQueue @ 0x14029F6C4 (KiActivateWaiterPriQueue.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14031C8D0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiActivateWaiterQueueWithNoLocks(__int64 a1, unsigned __int64 a2, _QWORD *a3)
 {
   volatile LONG *v5; // rdi
-  volatile signed __int32 *v6; // rbx
-  __int64 v7; // rcx
-  _QWORD *v8; // rax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  volatile signed __int32 *v9; // rbx
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 v13; // rcx
+  _QWORD *v14; // rax
   struct _KPRCB *CurrentPrcb; // rdi
   _DWORD *SchedulerAssist; // rcx
-  __int64 v11; // rcx
-  int v12; // eax
-  _DWORD *v13; // rcx
-  int v14; // eax
-  int v15; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v17; // rcx
+  int v18; // eax
+  _DWORD *v19; // rcx
+  int v20; // eax
+  int v21; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = (volatile LONG *)((char *)&KiObjectRundownLocks + 64 * ((a2 >> 4) & 0x3F));
+  v5 = &KiObjectRundownLocks[16 * ((a2 >> 4) & 0x3F)];
   ExAcquireSpinLockSharedAtDpcLevel(v5);
-  v6 = *(volatile signed __int32 **)(a1 + 232);
-  if ( v6 )
+  v9 = *(volatile signed __int32 **)(a1 + 232);
+  if ( v9 )
   {
-    KiAcquireKobjectLockSafe(*(_QWORD *)(a1 + 232));
+    KiAcquireKobjectLockSafe(*(volatile signed __int32 **)(a1 + 232), v6, v7, v8);
     if ( !*(_QWORD *)(a1 + 232) )
     {
-      _InterlockedAnd(v6, 0xFFFFFF7F);
-      v6 = 0LL;
+      _InterlockedAnd(v9, 0xFFFFFF7F);
+      v9 = 0LL;
     }
   }
   ExReleaseSpinLockSharedFromDpcLevel(v5);
-  if ( v6 )
+  if ( v9 )
   {
     if ( a3 )
     {
-      if ( (*(_BYTE *)v6 & 0x7F) == 0x15 )
+      if ( (*(_BYTE *)v9 & 0x7F) == 0x15 )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v15 = 0;
+        v21 = 0;
         while ( 1 )
         {
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -59,49 +65,49 @@ void __fastcall KiActivateWaiterQueueWithNoLocks(__int64 a1, unsigned __int64 a2
           {
             if ( CurrentPrcb->NestingLevel <= 1u )
             {
-              v12 = SchedulerAssist[6];
-              SchedulerAssist[6] = v12 + 1;
-              if ( v12 == -1 )
+              v18 = SchedulerAssist[6];
+              SchedulerAssist[6] = v18 + 1;
+              if ( v18 == -1 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
           if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
             break;
-          v13 = CurrentPrcb->SchedulerAssist;
-          if ( v13 )
+          v19 = CurrentPrcb->SchedulerAssist;
+          if ( v19 )
           {
             if ( CurrentPrcb->NestingLevel <= 1u )
             {
-              v14 = v13[6] - 1;
-              v13[6] = v14;
-              if ( !v14 )
+              v20 = v19[6] - 1;
+              v19[6] = v20;
+              if ( !v20 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
           do
-            KeYieldProcessorEx(&v15);
+            KeYieldProcessorEx(&v21, v10, v11, v12);
           while ( *(_QWORD *)(a1 + 64) );
         }
-        v11 = (unsigned __int8)*(_DWORD *)(a1 + 540);
+        v17 = (unsigned __int8)*(_DWORD *)(a1 + 540);
         *(_DWORD *)(a1 + 540) = (unsigned __int8)*(_DWORD *)(a1 + 540) | 0x100;
-        _InterlockedDecrement(&v6[v11 + 134]);
+        _InterlockedDecrement(&v9[v17 + 134]);
         KiReleaseThreadLockSafe(a1);
       }
       else
       {
-        _InterlockedDecrement(v6 + 10);
+        _InterlockedDecrement(v9 + 10);
       }
-      v7 = *a3;
-      v8 = (_QWORD *)a3[1];
-      if ( *(_QWORD **)(*a3 + 8LL) != a3 || (_QWORD *)*v8 != a3 )
+      v13 = *a3;
+      v14 = (_QWORD *)a3[1];
+      if ( *(_QWORD **)(*a3 + 8LL) != a3 || (_QWORD *)*v14 != a3 )
         __fastfail(3u);
-      *v8 = v7;
-      *(_QWORD *)(v7 + 8) = v8;
+      *v14 = v13;
+      *(_QWORD *)(v13 + 8) = v14;
       *(_QWORD *)(a1 + 232) = 0LL;
     }
-    if ( (*(_BYTE *)v6 & 0x7F) == 0x15 )
-      KiActivateWaiterPriQueue((ULONG_PTR)v6);
+    if ( (*(_BYTE *)v9 & 0x7F) == 0x15 )
+      KiActivateWaiterPriQueue(v9);
     else
-      KiActivateWaiterKQueue(v6);
+      KiActivateWaiterKQueue(v9);
   }
 }

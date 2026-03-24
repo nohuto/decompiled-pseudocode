@@ -1,11 +1,11 @@
 /*
- * XREFs of EngCopyRgn @ 0x1C0177A00
+ * XREFs of EngCopyRgn @ 0x1C014B6B0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetObjectOwner @ 0x1C001F0C0 (GreGetObjectOwner.c)
- *     GreCombineRgn @ 0x1C006EFF0 (GreCombineRgn.c)
- *     ??0EngModeState@@QEAA@XZ @ 0x1C008EA90 (--0EngModeState@@QEAA@XZ.c)
+ *     GreGetObjectOwner @ 0x1C0031450 (GreGetObjectOwner.c)
+ *     GreCombineRgn @ 0x1C0039860 (GreCombineRgn.c)
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C00CB6DC (--0EngModeState@@QEAA@XZ.c)
  */
 
 INT __stdcall EngCopyRgn(HANDLE hrgnDst, HANDLE hrgnSrc)
@@ -24,6 +24,6 @@ INT __stdcall EngCopyRgn(HANDLE hrgnDst, HANDLE hrgnSrc)
     v4 = GreCombineRgn((HRGN)hrgnDst, (HRGN)hrgnSrc, 0LL, 5);
   }
   if ( v6 )
-    *(_DWORD *)(v6 + 328) &= ~0x10u;
+    *(_DWORD *)(v6 + 328) &= ~0x20u;
   return v4;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of __scrt_release_startup_lock @ 0x18010F3FC
+ * XREFs of __scrt_release_startup_lock @ 0x1800E7068
  * Callers:
- *     dllmain_crt_process_attach @ 0x18010F528 (dllmain_crt_process_attach.c)
- *     dllmain_crt_process_detach @ 0x18010F650 (dllmain_crt_process_detach.c)
+ *     dllmain_crt_process_attach @ 0x1800E7198 (dllmain_crt_process_attach.c)
+ *     dllmain_crt_process_detach @ 0x1800E72B4 (dllmain_crt_process_detach.c)
  * Callees:
- *     __scrt_is_ucrt_dll_in_use @ 0x18010FD20 (__scrt_is_ucrt_dll_in_use.c)
+ *     __scrt_is_ucrt_dll_in_use @ 0x1800E7B84 (__scrt_is_ucrt_dll_in_use.c)
  */
 
 __int64 __fastcall _scrt_release_startup_lock(char a1)

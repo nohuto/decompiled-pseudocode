@@ -6,7 +6,7 @@
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     PopEtGetNextEnergyTracker @ 0x140606AD4 (PopEtGetNextEnergyTracker.c)
- *     PopEtEnergyTrackerEnumSnapshotCallback @ 0x1406C4C80 (PopEtEnergyTrackerEnumSnapshotCallback.c)
+ *     PopEtEnergyTrackerEnumSnapshotCallback @ 0x1406C4C60 (PopEtEnergyTrackerEnumSnapshotCallback.c)
  */
 
 __int64 __fastcall PopEtEnumEnergyTrackers(__int64 a1, __int64 a2)

@@ -1,29 +1,26 @@
 /*
- * XREFs of CmpInvalidateSubtreeWorker @ 0x140682700
+ * XREFs of CmpInvalidateSubtreeWorker @ 0x140771C80
  * Callers:
  *     <none>
  * Callees:
- *     CmpRemoveLayerLinkForDiscardedKcb @ 0x14067F518 (CmpRemoveLayerLinkForDiscardedKcb.c)
- *     CmpMarkKeyUnbacked @ 0x1407108AC (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14071092C (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpCleanUpSubKeyInfo @ 0x14076AED4 (CmpCleanUpSubKeyInfo.c)
- *     CmpDiscardKcb @ 0x14076B218 (CmpDiscardKcb.c)
+ *     CmpRemoveLayerLinkForDiscardedKcb @ 0x1405CD088 (CmpRemoveLayerLinkForDiscardedKcb.c)
+ *     CmpCleanUpSubKeyInfo @ 0x1406E2E9C (CmpCleanUpSubKeyInfo.c)
+ *     CmpDiscardKcb @ 0x1406E5718 (CmpDiscardKcb.c)
+ *     CmpMarkKeyUnbacked @ 0x1406E5970 (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x1406E59F0 (CmpFlushNotifiesOnKeyBodyList.c)
  */
 
-__int64 __fastcall CmpInvalidateSubtreeWorker(ULONG_PTR BugCheckParameter4, unsigned int *a2)
+__int64 __fastcall CmpInvalidateSubtreeWorker(ULONG_PTR a1, unsigned int *a2)
 {
-  __int64 v3; // rsi
-
-  v3 = *((_QWORD *)a2 + 2);
-  if ( (*(_DWORD *)(BugCheckParameter4 + 8) & 0x20000) == 0 )
+  if ( (*(_DWORD *)(a1 + 8) & 0x20000) == 0 )
   {
-    CmpFlushNotifiesOnKeyBodyList(BugCheckParameter4, *a2, v3);
-    CmpCleanUpSubKeyInfo(*(_QWORD *)(BugCheckParameter4 + 72), 0LL);
-    CmpMarkKeyUnbacked(BugCheckParameter4, v3);
-    CmpDiscardKcb(BugCheckParameter4);
+    CmpFlushNotifiesOnKeyBodyList(a1, *a2, *((_QWORD *)a2 + 2), 1);
+    CmpCleanUpSubKeyInfo(*(_QWORD *)(a1 + 72), 0);
+    CmpMarkKeyUnbacked(a1);
+    CmpDiscardKcb(a1);
   }
   if ( (a2[2] & 1) != 0 )
-    CmpRemoveLayerLinkForDiscardedKcb(BugCheckParameter4);
+    CmpRemoveLayerLinkForDiscardedKcb(a1);
   ++a2[1];
   return 0LL;
 }

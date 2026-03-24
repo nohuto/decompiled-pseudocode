@@ -1,8 +1,8 @@
 /*
- * XREFs of NVMeCopyFirmwareRevision @ 0x1C000D0EC
+ * XREFs of NVMeCopyFirmwareRevision @ 0x1C0014264
  * Callers:
- *     NVMeGetRichDeviceDescription @ 0x1C000CE44 (NVMeGetRichDeviceDescription.c)
- *     FormInquiryStandardData @ 0x1C000CF58 (FormInquiryStandardData.c)
+ *     FormInquiryStandardData @ 0x1C0012348 (FormInquiryStandardData.c)
+ *     NVMeGetRichDeviceDescription @ 0x1C0015168 (NVMeGetRichDeviceDescription.c)
  * Callees:
  *     <none>
  */

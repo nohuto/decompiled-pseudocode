@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpSetupPageListIteration @ 0x14027A454
+ * XREFs of HvlpSetupPageListIteration @ 0x14027A554
  * Callers:
- *     HvlpStartPageListIteration @ 0x14027A4D8 (HvlpStartPageListIteration.c)
- *     HvlpStartSecurePageListIteration @ 0x14027A500 (HvlpStartSecurePageListIteration.c)
+ *     HvlpStartPageListIteration @ 0x14027A5D8 (HvlpStartPageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x14027A600 (HvlpStartSecurePageListIteration.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
  */
 
 int *__fastcall HvlpSetupPageListIteration(int a1, char a2)

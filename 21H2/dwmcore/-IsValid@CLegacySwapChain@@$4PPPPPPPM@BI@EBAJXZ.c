@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsValid@CLegacySwapChain@@$4PPPPPPPM@BI@EBAJXZ @ 0x18010A090
+ * XREFs of ?IsValid@CLegacySwapChain@@$4PPPPPPPM@BI@EBAJXZ @ 0x1800F7A90
  * Callers:
  *     <none>
  * Callees:

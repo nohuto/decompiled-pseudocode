@@ -1,33 +1,35 @@
 /*
- * XREFs of MiEmptyPte @ 0x140226E30
+ * XREFs of MiEmptyPte @ 0x140306480
  * Callers:
  *     <none>
  * Callees:
- *     MiEmptyWorkingSetHelper @ 0x140226EE0 (MiEmptyWorkingSetHelper.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiEmptyWorkingSetHelper @ 0x140306534 (MiEmptyWorkingSetHelper.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
 __int64 __fastcall MiEmptyPte(__int64 a1, __int64 a2, int a3)
 {
   int *v3; // rsi
   int v6; // ebx
-  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v7; // rax
+  __int64 v9; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = *(int **)(a1 + 168);
   v6 = *v3;
   if ( (*v3 & 2) != 0 )
   {
-    if ( !a3 )
-    {
-      v8 = MI_READ_PTE_LOCK_FREE(a2);
-      if ( *(__int64 *)(48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v8) >> 12) & 0xFFFFFFFFFFLL) - 0x21FFFFFFFFD8LL) >= 0 )
-        goto LABEL_3;
-    }
-  }
-  else if ( (v6 & 1) == 0 || !a3 )
-  {
-LABEL_3:
+    if ( a3 )
+      return 0LL;
+    v9 = MI_READ_PTE_LOCK_FREE(a2);
+    v7 = MI_READ_PTE_LOCK_FREE(&v9);
+    if ( (unsigned int)MI_PFN_IS_PROTO(48 * ((v7 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL) )
+      return 0LL;
+LABEL_7:
     MiEmptyWorkingSetHelper(*(_QWORD *)(a1 + 24), a2, v3 + 2, v6 & 4);
+    return 0LL;
   }
+  if ( (v6 & 1) == 0 || !a3 )
+    goto LABEL_7;
   return 0LL;
 }

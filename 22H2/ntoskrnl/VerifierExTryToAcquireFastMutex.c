@@ -1,12 +1,19 @@
 /*
- * XREFs of VerifierExTryToAcquireFastMutex @ 0x140ADE2A0
+ * XREFs of VerifierExTryToAcquireFastMutex @ 0x1409E4A40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5D8 (VfDeadlockAcquireResource.c)
+ *     ViExTryToAcquireFastMutexCommon @ 0x1409E4E80 (ViExTryToAcquireFastMutexCommon.c)
  */
 
-__int64 VerifierExTryToAcquireFastMutex()
+char __fastcall VerifierExTryToAcquireFastMutex(ULONG_PTR a1)
 {
-  return ((__int64 (*)(void))pXdvExTryToAcquireFastMutex)();
+  char v2; // bl
+  PVOID retaddr; // [rsp+38h] [rbp+0h]
+
+  v2 = ViExTryToAcquireFastMutexCommon(a1, ((unsigned int)MmVerifierData >> 17) & 1);
+  if ( v2 )
+    VfDeadlockAcquireResource(a1, 3, (__int64)KeGetCurrentThread(), 1u, retaddr);
+  return v2;
 }

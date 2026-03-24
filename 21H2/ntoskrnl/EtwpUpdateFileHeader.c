@@ -1,184 +1,212 @@
 /*
- * XREFs of EtwpUpdateFileHeader @ 0x1406F09A8
+ * XREFs of EtwpUpdateFileHeader @ 0x1406DFDA8
  * Callers:
- *     EtwpCreateLogFile @ 0x1406F0614 (EtwpCreateLogFile.c)
+ *     EtwpCreateLogFile @ 0x1406DFAAC (EtwpCreateLogFile.c)
  * Callees:
- *     EtwpInitializeBufferHeader @ 0x1402619C4 (EtwpInitializeBufferHeader.c)
- *     EtwpResetBufferHeader @ 0x1402E1C2C (EtwpResetBufferHeader.c)
- *     EtwpQueryUsedProcessorCount @ 0x1402E1C80 (EtwpQueryUsedProcessorCount.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwReadFile @ 0x14041B820 (ZwReadFile.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x14041B980 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x14041BC40 (ZwSetInformationFile.c)
- *     EtwpAddLogHeader @ 0x1406F120C (EtwpAddLogHeader.c)
- *     EtwpIsWow64Logger @ 0x1406F175C (EtwpIsWow64Logger.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140265E58 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpResetBufferHeader @ 0x140266374 (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x1402ED46C (EtwpInitializeBufferHeader.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1403FA460 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1403FA880 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1403FACC0 (ZwQueryVolumeInformationFile.c)
+ *     EtwpAddLogHeader @ 0x1406E03E8 (EtwpAddLogHeader.c)
+ *     EtwpIsWow64Logger @ 0x1406E092C (EtwpIsWow64Logger.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpUpdateFileHeader(__int64 a1, char a2, int a3)
+NTSTATUS __fastcall EtwpUpdateFileHeader(__int64 a1, char a2)
 {
+  void *v4; // rcx
+  NTSTATUS result; // eax
+  int v6; // r13d
   ULONG Length; // r12d
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   __int64 Buffer; // rsi
-  NTSTATUS v9; // ebx
-  LARGE_INTEGER v10; // rcx
-  void *v12; // rcx
+  NTSTATUS v10; // ebx
+  void *v11; // rcx
+  __int64 v12; // rdx
   char v13; // dl
   __int64 v14; // r15
   __int64 v15; // r14
-  signed __int64 v16; // rcx
-  LARGE_INTEGER FileInformation; // [rsp+50h] [rbp-29h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-21h] BYREF
-  struct _IO_STATUS_BLOCK v19; // [rsp+68h] [rbp-11h] BYREF
-  __int128 v20; // [rsp+78h] [rbp-1h] BYREF
-  __int64 v21; // [rsp+88h] [rbp+Fh]
+  LARGE_INTEGER v16; // rcx
+  signed __int64 v17; // rcx
+  LARGE_INTEGER FileInformation; // [rsp+58h] [rbp-29h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-21h] BYREF
+  struct _IO_STATUS_BLOCK v20; // [rsp+70h] [rbp-11h] BYREF
+  __int128 FsInformation; // [rsp+80h] [rbp-1h] BYREF
+  __int64 v22; // [rsp+90h] [rbp+Fh]
+  __int128 v23; // [rsp+98h] [rbp+17h] BYREF
+  __int64 v24; // [rsp+A8h] [rbp+27h]
 
-  v21 = 0LL;
-  v20 = 0LL;
+  v24 = 0LL;
+  v22 = 0LL;
+  v4 = *(void **)(a1 + 816);
+  v23 = 0LL;
+  FsInformation = 0LL;
   IoStatusBlock = 0LL;
-  if ( a2 )
-    Length = -a3 & (a3 + 383);
-  else
-    Length = *(_DWORD *)(a1 + 4);
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, (Length + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 1350005829LL);
-  Buffer = (__int64)Pool2;
-  if ( Pool2 )
+  result = ZwQueryVolumeInformationFile(v4, &IoStatusBlock, &FsInformation, 0x18u, FileFsSizeInformation);
+  if ( result >= 0 )
   {
+    v6 = HIDWORD(v22) - 1;
+    if ( a2 )
+    {
+      Length = ~v6 & (HIDWORD(v22) + 383);
+    }
+    else
+    {
+      Length = *(_DWORD *)(a1 + 4);
+      if ( (v6 & Length) != 0 )
+        return -1073741306;
+    }
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (Length + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
+    Buffer = (__int64)PoolWithTag;
+    if ( !PoolWithTag )
+      return -1073741801;
     if ( !a2 )
     {
-      EtwpInitializeBufferHeader((__int16 *)a1, Pool2);
+      EtwpInitializeBufferHeader((__int16 *)a1, PoolWithTag);
       EtwpResetBufferHeader(Buffer, 4);
       EtwpAddLogHeader(a1, Buffer);
-      v9 = ZwWriteFile(*(HANDLE *)(a1 + 800), 0LL, 0LL, 0LL, &IoStatusBlock, (PVOID)Buffer, Length, 0LL, 0LL);
-      if ( v9 >= 0 )
+      v10 = ZwWriteFile(*(HANDLE *)(a1 + 816), 0LL, 0LL, 0LL, &IoStatusBlock, (PVOID)Buffer, Length, 0LL, 0LL);
+      if ( v10 >= 0 )
       {
-        if ( (*(_DWORD *)(a1 + 12) & 0x20) == 0
-          || (v10.QuadPart = *(unsigned int *)(a1 + 292)
-                           * ((-(__int64)((*(_DWORD *)(a1 + 12) & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000),
-              v19 = 0LL,
-              FileInformation = v10,
-              v9 = ZwSetInformationFile(*(HANDLE *)(a1 + 800), &v19, &FileInformation, 8u, FileEndOfFileInformation),
-              v9 >= 0) )
+        if ( (*(_DWORD *)(a1 + 12) & 0x20) != 0 )
         {
-          *(_DWORD *)(a1 + 248) = 1;
-          *(_DWORD *)(a1 + 204) = 1;
-          *(_QWORD *)(a1 + 216) = Length;
+          v16.QuadPart = *(unsigned int *)(a1 + 308)
+                       * ((-(__int64)((*(_DWORD *)(a1 + 12) & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000);
+          v20 = 0LL;
+          FileInformation = v16;
+          v10 = ZwSetInformationFile(*(HANDLE *)(a1 + 816), &v20, &FileInformation, 8u, FileEndOfFileInformation);
+        }
+        if ( v10 >= 0 )
+        {
+          *(_DWORD *)(a1 + 264) = 1;
+          *(_DWORD *)(a1 + 220) = 1;
+          *(_QWORD *)(a1 + 232) = Length;
         }
       }
-      goto LABEL_9;
+      goto LABEL_11;
     }
-    v12 = *(void **)(a1 + 800);
+    v11 = *(void **)(a1 + 816);
     FileInformation.QuadPart = 0LL;
-    v9 = ZwReadFile(v12, 0LL, 0LL, 0LL, &IoStatusBlock, Pool2, Length, &FileInformation, 0LL);
-    if ( v9 >= 0 )
+    v10 = ZwReadFile(v11, 0LL, 0LL, 0LL, &IoStatusBlock, PoolWithTag, Length, &FileInformation, 0LL);
+    if ( v10 >= 0 )
     {
-      if ( (*(_DWORD *)(Buffer + 136) & 0x4000402) != 0 )
+      v12 = *(unsigned int *)(Buffer + 136);
+      if ( (v12 & 0x4000402) != 0 )
       {
-        v9 = -1073741811;
-        *(_DWORD *)(a1 + 44) = 1;
+        v10 = -1073741811;
+        *(_DWORD *)(a1 + 60) = 1;
       }
       else
       {
         if ( *(_BYTE *)(Buffer + 108) != 10 || *(_BYTE *)(Buffer + 109) )
         {
-          v9 = -1073741811;
-          *(_DWORD *)(a1 + 44) = 2;
-          goto LABEL_9;
+          v10 = -1073741811;
+          *(_DWORD *)(a1 + 60) = 2;
+          goto LABEL_11;
         }
-        if ( *(_DWORD *)(Buffer + 148) == ((unsigned __int8)EtwpIsWow64Logger(a1) != 0 ? 4 : 8) )
+        if ( *(_DWORD *)(Buffer + 148) == ((unsigned __int8)EtwpIsWow64Logger(a1, v12) != 0 ? 4 : 8) )
         {
           v14 = *(unsigned int *)(Buffer + 104);
           LODWORD(v15) = *(_DWORD *)(Buffer + 140);
-          if ( ((a3 - 1) & (unsigned int)v14) != 0 )
+          if ( (v6 & (unsigned int)v14) != 0 )
           {
-            v9 = -1073741306;
+            v10 = -1073741306;
           }
           else
           {
             if ( (unsigned int)(v14 - 1024) > 0xFFFC00 )
             {
-              v9 = -1073741811;
-              *(_DWORD *)(a1 + 44) = 4;
-              goto LABEL_9;
+              v10 = -1073741811;
+              *(_DWORD *)(a1 + 60) = 4;
+              goto LABEL_11;
             }
-            if ( (*(_DWORD *)(a1 + 816) & 2) == 0 || *(_DWORD *)(a1 + 4) == (_DWORD)v14 )
+            if ( (*(_DWORD *)(a1 + 832) & 2) == 0 || *(_DWORD *)(a1 + 4) == (_DWORD)v14 )
             {
               if ( !*(_QWORD *)(Buffer + 120) )
               {
                 if ( (v13 & 0x20) != 0 )
                 {
-                  v9 = -1073741811;
-                  *(_DWORD *)(a1 + 44) = 6;
-                  goto LABEL_9;
+                  v10 = -1073741811;
+                  *(_DWORD *)(a1 + 60) = 6;
+                  goto LABEL_11;
                 }
-                v9 = ZwQueryInformationFile(*(HANDLE *)(a1 + 800), &IoStatusBlock, &v20, 0x18u, FileStandardInformation);
-                if ( v9 < 0 )
+                v10 = ZwQueryInformationFile(
+                        *(HANDLE *)(a1 + 816),
+                        &IoStatusBlock,
+                        &v23,
+                        0x18u,
+                        FileStandardInformation);
+                if ( v10 < 0 )
                 {
-                  *(_DWORD *)(a1 + 44) = 7;
-                  goto LABEL_9;
+                  *(_DWORD *)(a1 + 60) = 7;
+                  goto LABEL_11;
                 }
-                v16 = *(unsigned int *)(a1 + 292)
+                v17 = *(unsigned int *)(a1 + 308)
                     * ((-(__int64)((*(_DWORD *)(a1 + 12) & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000);
-                if ( v16 && *((__int64 *)&v20 + 1) >= v16 )
+                if ( v17 && *((__int64 *)&v23 + 1) >= v17 )
                 {
-                  v9 = -1073741432;
-                  *(_DWORD *)(a1 + 44) = 8;
-                  goto LABEL_9;
+                  v10 = -1073741432;
+                  *(_DWORD *)(a1 + 60) = 8;
+                  goto LABEL_11;
                 }
-                v15 = *((_QWORD *)&v20 + 1) / v14;
+                v15 = *((_QWORD *)&v23 + 1) / v14;
               }
               if ( (_DWORD)v15 )
               {
                 if ( *(_DWORD *)(Buffer + 116) == (unsigned int)EtwpQueryUsedProcessorCount(a1) )
                 {
                   *(_QWORD *)(Buffer + 120) = 0LL;
-                  v9 = ZwWriteFile(
-                         *(HANDLE *)(a1 + 800),
-                         0LL,
-                         0LL,
-                         0LL,
-                         &IoStatusBlock,
-                         (PVOID)Buffer,
-                         Length,
-                         &FileInformation,
-                         0LL);
-                  if ( v9 >= 0 )
+                  v10 = ZwWriteFile(
+                          *(HANDLE *)(a1 + 816),
+                          0LL,
+                          0LL,
+                          0LL,
+                          &IoStatusBlock,
+                          (PVOID)Buffer,
+                          Length,
+                          &FileInformation,
+                          0LL);
+                  if ( v10 >= 0 )
                   {
-                    *(_DWORD *)(a1 + 248) = v15;
-                    *(_DWORD *)(a1 + 204) = v15;
+                    *(_DWORD *)(a1 + 264) = v15;
+                    *(_DWORD *)(a1 + 220) = v15;
                     *(_DWORD *)(a1 + 4) = v14;
-                    *(_QWORD *)(a1 + 216) = (unsigned int)(v14 * v15);
+                    *(_QWORD *)(a1 + 232) = (unsigned int)(v14 * v15);
                   }
                 }
                 else
                 {
-                  v9 = -1073741811;
-                  *(_DWORD *)(a1 + 44) = 10;
+                  v10 = -1073741811;
+                  *(_DWORD *)(a1 + 60) = 10;
                 }
               }
               else
               {
-                v9 = -1073741811;
-                *(_DWORD *)(a1 + 44) = 9;
+                v10 = -1073741811;
+                *(_DWORD *)(a1 + 60) = 9;
               }
-              goto LABEL_9;
+              goto LABEL_11;
             }
-            v9 = -1073741306;
-            *(_DWORD *)(a1 + 44) = 5;
+            v10 = -1073741306;
+            *(_DWORD *)(a1 + 60) = 5;
           }
         }
         else
         {
-          v9 = -1073741811;
-          *(_DWORD *)(a1 + 44) = 3;
+          v10 = -1073741811;
+          *(_DWORD *)(a1 + 60) = 3;
         }
       }
     }
-LABEL_9:
+LABEL_11:
     ExFreePoolWithTag((PVOID)Buffer, 0);
-    return (unsigned int)v9;
+    return v10;
   }
-  return 3221225495LL;
+  return result;
 }

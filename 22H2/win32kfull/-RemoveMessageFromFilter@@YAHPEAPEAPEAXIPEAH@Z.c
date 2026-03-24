@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C0050B34
+ * XREFs of ?RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C010BCBC
  * Callers:
- *     _ChangeWindowMessageFilter @ 0x1C004F62C (_ChangeWindowMessageFilter.c)
- *     _ChangeWindowMessageFilterEx @ 0x1C004F868 (_ChangeWindowMessageFilterEx.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C003F388 (_ChangeWindowMessageFilterEx.c)
+ *     _ChangeWindowMessageFilter @ 0x1C003F520 (_ChangeWindowMessageFilter.c)
  * Callees:
- *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C0050BB8 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
+ *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C010BDF4 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
  */
 
 __int64 __fastcall RemoveMessageFromFilter(void *const **a1, unsigned int a2, int *a3)

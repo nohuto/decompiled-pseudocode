@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ForwardRequestToParent@FxIoQueue@@QEAAJPEAV1@PEAVFxRequest@@PEAU_WDF_REQUEST_FORWARD_OPTIONS@@@Z @ 0x1C0081CAC
+ * XREFs of ?ForwardRequestToParent@FxIoQueue@@QEAAJPEAV1@PEAVFxRequest@@PEAU_WDF_REQUEST_FORWARD_OPTIONS@@@Z @ 0x1C00761A0
  * Callers:
- *     imp_WdfRequestForwardToParentDeviceIoQueue @ 0x1C0064550 (imp_WdfRequestForwardToParentDeviceIoQueue.c)
+ *     imp_WdfRequestForwardToParentDeviceIoQueue @ 0x1C004A290 (imp_WdfRequestForwardToParentDeviceIoQueue.c)
  * Callees:
- *     ?ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z @ 0x1C000A250 (-ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z.c)
- *     ?Vf_VerifyForwardRequestToParent@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAV1@PEAVFxRequest@@@Z @ 0x1C00C83D8 (-Vf_VerifyForwardRequestToParent@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAV1@PEAVFxRequest@@@Z.c)
+ *     ?ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z @ 0x1C000B944 (-ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z.c)
+ *     ?Vf_VerifyForwardRequestToParent@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAV1@PEAVFxRequest@@@Z @ 0x1C00C7300 (-Vf_VerifyForwardRequestToParent@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAV1@PEAVFxRequest@@@Z.c)
  */
 
 int __fastcall FxIoQueue::ForwardRequestToParent(
@@ -22,8 +22,11 @@ int __fastcall FxIoQueue::ForwardRequestToParent(
 
   m_ForwardRequestToParent = Request->m_ForwardRequestToParent;
   m_Globals = this->m_Globals;
-  if ( !m_Globals->FxVerifierOn
-    || (result = FxIoQueue::Vf_VerifyForwardRequestToParent(this, m_Globals, DestQueue, Request), result >= 0) )
+  if ( m_Globals->FxVerifierOn )
+    result = FxIoQueue::Vf_VerifyForwardRequestToParent(this, m_Globals, DestQueue, Request);
+  else
+    result = 0;
+  if ( result >= 0 )
   {
     CurrentStackLocation = Request->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation;
     *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&CurrentStackLocation->MajorFunction;

@@ -1,10 +1,10 @@
 /*
- * XREFs of PsIoRateControlReference @ 0x14020C8E8
+ * XREFs of PsIoRateControlReference @ 0x1402E0908
  * Callers:
- *     IoGetIoRateControl @ 0x14020C430 (IoGetIoRateControl.c)
+ *     IoGetIoRateControl @ 0x1402E0360 (IoGetIoRateControl.c)
  * Callees:
- *     PspIoRateEntryIoControlReference @ 0x14020C984 (PspIoRateEntryIoControlReference.c)
- *     PspJobIoRateVolumeEntryReference @ 0x1405A4600 (PspJobIoRateVolumeEntryReference.c)
+ *     PspIoRateEntryIoControlReference @ 0x1402E09A4 (PspIoRateEntryIoControlReference.c)
+ *     PspJobIoRateVolumeEntryReference @ 0x140582164 (PspJobIoRateVolumeEntryReference.c)
  */
 
 __int64 __fastcall PsIoRateControlReference(__int64 a1, __int64 a2, __int64 *a3, _QWORD *a4, _QWORD *a5)
@@ -13,22 +13,22 @@ __int64 __fastcall PsIoRateControlReference(__int64 a1, __int64 a2, __int64 *a3,
   __int64 v10; // rax
   __int64 result; // rax
 
-  v5 = a1 + 1616;
-  v10 = PspIoRateEntryIoControlReference(a1 + 1616);
+  v5 = a1 + 1400;
+  v10 = PspIoRateEntryIoControlReference(a1 + 1400);
   *a3 = v10;
   if ( v10 )
-    *a4 = *(_QWORD *)(a1 + 1568);
+    *a4 = *(_QWORD *)(a1 + 1352);
   else
     v5 = 0LL;
   *a5 = v5;
   a3[1] = 0LL;
   a5[1] = 0LL;
-  result = *(_QWORD *)(a1 + 1680);
-  if ( (*(_BYTE *)(a1 + 1688) & 1) != 0 )
+  result = *(_QWORD *)(a1 + 1464);
+  if ( (*(_BYTE *)(a1 + 1472) & 1) != 0 )
   {
     if ( !result )
       return result;
-    result ^= a1 + 1680;
+    result ^= a1 + 1464;
   }
   if ( result && a2 )
   {

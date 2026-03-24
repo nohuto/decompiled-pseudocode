@@ -3,8 +3,8 @@
  * Callers:
  *     MiInitializeTbFlushing @ 0x1409B9BB8 (MiInitializeTbFlushing.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiGetTbLeafInfo @ 0x1409F6CD0 (KiGetTbLeafInfo.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiGetTbLeafInfo @ 0x1409F6CE0 (KiGetTbLeafInfo.c)
  */
 
 __int64 KeGetTbSize()

@@ -1,12 +1,12 @@
 /*
- * XREFs of ??$make_unique_string_nothrow@V?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?FreeProcessHeap@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@@wil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?FreeProcessHeap@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@0@PEBG_K@Z @ 0x180026754
+ * XREFs of ??$make_unique_string_nothrow@V?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?FreeProcessHeap@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@wil@@@wil@@YA?AV?$unique_any_t@V?$unique_storage@U?$resource_policy@PEAGP6AXPEAX@Z$1?FreeProcessHeap@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAGPEAG$0A@$$T@details@wil@@@details@wil@@@0@PEBG_K@Z @ 0x1800B35D8
  * Callers:
- *     ?Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBG_N@Z @ 0x180026484 (-Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMs.c)
+ *     ?Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBG_N@Z @ 0x1800B32EC (-Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMs.c)
  * Callees:
- *     _invalid_parameter_noinfo @ 0x18010183E (_invalid_parameter_noinfo.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180177B90 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     _invalid_parameter_noinfo @ 0x1800E813E (_invalid_parameter_noinfo.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800E9464 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
  */
 
 _QWORD *__fastcall wil::make_unique_string_nothrow<wil::unique_any_t<wil::details::unique_storage<wil::details::resource_policy<unsigned short *,void (*)(void *),&void wil::details::FreeProcessHeap(void *),wistd::integral_constant<unsigned __int64,0>,unsigned short *,unsigned short *,0,std::nullptr_t>>>>(
@@ -24,15 +24,19 @@ _QWORD *__fastcall wil::make_unique_string_nothrow<wil::unique_any_t<wil::detail
   _WORD *v12; // rdi
   size_t v13; // rbx
   _QWORD *result; // rax
+  __int64 v15; // rcx
   wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
 
   v4 = a3;
   if ( !a2 && a3 == -1LL )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      (void *)0xCAF,
+      (void *)0xCAC,
       (unsigned int)"onecore\\internal\\sdk\\inc\\wil\\opensource/wil/resource.h",
       a4);
+    __debugbreak();
+  }
   v7 = a3;
   if ( a2 )
   {
@@ -63,7 +67,7 @@ _QWORD *__fastcall wil::make_unique_string_nothrow<wil::unique_any_t<wil::detail
         if ( 2 * v4 + 2 < v13 )
         {
           memset_0(v11, 0, 2 * v4 + 2);
-          *(_DWORD *)_o__errno() = 34;
+          *(_DWORD *)_o__errno(v15) = 34;
           invalid_parameter_noinfo();
         }
         else

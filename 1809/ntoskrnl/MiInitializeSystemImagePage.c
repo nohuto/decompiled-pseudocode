@@ -8,11 +8,11 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     MiInitializePfn @ 0x140109410 (MiInitializePfn.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KeSetPagePrivilege @ 0x14028DB20 (KeSetPagePrivilege.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     MiInitializePfn @ 0x140109430 (MiInitializePfn.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeSetPagePrivilege @ 0x14028DC20 (KeSetPagePrivilege.c)
  */
 
 char __fastcall MiInitializeSystemImagePage(ULONG_PTR a1, unsigned __int64 a2, unsigned __int64 a3)

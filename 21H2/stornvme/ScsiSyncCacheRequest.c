@@ -1,11 +1,11 @@
 /*
- * XREFs of ScsiSyncCacheRequest @ 0x1C000513C
+ * XREFs of ScsiSyncCacheRequest @ 0x1C0005848
  * Callers:
- *     ScsiToNVMe @ 0x1C0004650 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     GetNamespaceId @ 0x1C00051C8 (GetNamespaceId.c)
- *     SrbAssignQueueId @ 0x1C0005238 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
+ *     GetNamespaceId @ 0x1C00058D4 (GetNamespaceId.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 __int64 __fastcall ScsiSyncCacheRequest(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall ScsiSyncCacheRequest(__int64 a1, __int64 a2)
 
   SrbExtension = GetSrbExtension(a2);
   v6 = SrbExtension;
-  if ( (*(_BYTE *)(*(_QWORD *)(a1 + 1640) + 525LL) & 1) != 0 )
+  if ( (*(_BYTE *)(*(_QWORD *)(a1 + 1624) + 525LL) & 1) != 0 )
   {
     *(_BYTE *)(SrbExtension + 4253) &= 0xFCu;
     SrbAssignQueueId(a1, v5);

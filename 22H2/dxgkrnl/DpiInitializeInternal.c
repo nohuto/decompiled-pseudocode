@@ -1,14 +1,16 @@
 /*
- * XREFs of DpiInitializeInternal @ 0x1C0020C08
+ * XREFs of DpiInitializeInternal @ 0x1C0023BB8
  * Callers:
- *     DpiInitializeWin8 @ 0x1C0020BF0 (DpiInitializeWin8.c)
- *     DpiInitialize @ 0x1C005ECB0 (DpiInitialize.c)
+ *     DpiInitialize @ 0x1C0023AE0 (DpiInitialize.c)
+ *     DpiInitializeWin8 @ 0x1C0023B00 (DpiInitializeWin8.c)
  * Callees:
- *     DpiInitializeEx @ 0x1C021DD08 (DpiInitializeEx.c)
+ *     DpiInitializeEx @ 0x1C01992D8 (DpiInitializeEx.c)
  */
 
 __int64 __fastcall DpiInitializeInternal(void *a1, const UNICODE_STRING *a2, _QWORD *a3, char a4)
 {
+  __int64 v5; // rax
+
   if ( *(_DWORD *)a3 >= 0x104Eu
     && a3[1]
     && a3[2]
@@ -26,6 +28,8 @@ __int64 __fastcall DpiInitializeInternal(void *a1, const UNICODE_STRING *a2, _QW
   {
     return DpiInitializeEx(a1, a2, a3, a4);
   }
-  WdLogSingleEntry1(2LL, -1073741735LL);
+  v5 = WdLogNewEntry5_WdError(a1, a2);
+  *(_QWORD *)(v5 + 24) = -1073741735LL;
+  WdLogEvent5_WdError(v5);
   return 3221225561LL;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EngModifySurface @ 0x1C00AE7E0
+ * XREFs of EngModifySurface @ 0x1C009A680
  * Callers:
- *     ?MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C016EC50 (-MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ *     ?MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C0141D30 (-MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     HmgShareLockIgnoreStockBit @ 0x1C00AE0E0 (HmgShareLockIgnoreStockBit.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C016C500 (--0SURFREF@@QEAA@XZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
+ *     HmgShareLockIgnoreStockBit @ 0x1C00996F8 (HmgShareLockIgnoreStockBit.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C013F6E4 (--0SURFREF@@QEAA@XZ.c)
  */
 
 BOOL __stdcall EngModifySurface(
@@ -37,7 +37,7 @@ BOOL __stdcall EngModifySurface(
     || (v14 = pvReserved == 0LL, (flSurface & 0xFFFFFFF0) != 0) )
   {
     v19 = 0;
-    goto LABEL_22;
+    goto LABEL_24;
   }
   v15 = *(_DWORD *)(v12 + 112);
   if ( (v15 & 0x400000) == 0 && *(_WORD *)(v12 + 100) != 1 )
@@ -46,33 +46,32 @@ BOOL __stdcall EngModifySurface(
   if ( v16 && v16 != hdev )
     LODWORD(v14) = 0;
   v17 = flHooks & 0xFFFFB7FF;
-  if ( v15 < 0 && (((_DWORD)hdev[43] & 0x3B5EF) != v17 || ((_DWORD)hdev[10] & 0x400) == 0) )
+  if ( v15 < 0 && (((_DWORD)hdev[45] & 0x3B5EF) != v17 || ((_DWORD)hdev[10] & 0x400) == 0) )
     LODWORD(v14) = 0;
-  if ( pvScan0 && lDelta )
+  if ( !pvScan0 || !lDelta )
   {
-    v19 = 0;
-    if ( (v17 & 0x1000) != 0 || (flSurface & 1) == 0 )
-      v19 = v14;
+    v18 = 0;
+    if ( (v17 & 0x29) == 0x29 )
+      v18 = v14;
+    v19 = dhsurf != 0LL && (flSurface & 1) != 0 && v18;
+    if ( !v19 )
+      goto LABEL_14;
+    *(_QWORD *)(v13 + 80) = 0LL;
+    *(_QWORD *)(v22 + 72) = 0LL;
+    *(_DWORD *)(v22 + 88) = 0;
+    v13 = v22;
+    if ( *(_WORD *)(v22 + 100) == 1 )
+      goto LABEL_14;
+    *(_WORD *)(v22 + 100) = 3;
+LABEL_13:
+    v13 = v22;
+LABEL_14:
     if ( v19 )
     {
-      *(_QWORD *)(v13 + 80) = pvScan0;
-      *(_DWORD *)(v22 + 88) = lDelta;
-      *(_WORD *)(v22 + 100) = 0;
-      if ( lDelta <= 0 )
-      {
-        *(_QWORD *)(v22 + 72) = (char *)pvScan0 + lDelta * (*(_DWORD *)(v22 + 60) - 1);
-        *(_WORD *)(v22 + 102) &= ~1u;
-      }
-      else
-      {
-        *(_QWORD *)(v22 + 72) = pvScan0;
-        *(_WORD *)(v22 + 102) |= 1u;
-      }
-LABEL_13:
       if ( (flSurface & 1) != 0 )
-        *(_WORD *)(v22 + 102) |= 0x20u;
+        *(_WORD *)(v13 + 102) |= 0x20u;
       else
-        *(_WORD *)(v22 + 102) &= ~0x20u;
+        *(_WORD *)(v13 + 102) &= ~0x20u;
       if ( (flSurface & 2) != 0 )
         *(_DWORD *)(v22 + 112) |= 0x200u;
       else
@@ -88,27 +87,32 @@ LABEL_13:
       *(_QWORD *)(v22 + 24) = dhsurf;
       *(_QWORD *)(v22 + 136) = 0LL;
       *(_QWORD *)(v22 + 48) = hdev;
-      *(_QWORD *)(v22 + 40) = *((_QWORD *)hdev + 221);
+      *(_QWORD *)(v22 + 40) = *((_QWORD *)hdev + 225);
       *(_DWORD *)(v22 + 112) = v17 | *(_DWORD *)(v22 + 112) & 0xFFFC4A10;
     }
+    goto LABEL_24;
   }
-  else
+  v19 = 0;
+  if ( (v17 & 0x1000) != 0 || (flSurface & 1) == 0 )
+    v19 = v14;
+  if ( v19 )
   {
-    v18 = 0;
-    if ( (v17 & 0x29) == 0x29 )
-      v18 = v14;
-    v19 = dhsurf != 0LL && (flSurface & 1) != 0 && v18;
-    if ( v19 )
+    *(_QWORD *)(v13 + 80) = pvScan0;
+    *(_DWORD *)(v22 + 88) = lDelta;
+    *(_WORD *)(v22 + 100) = 0;
+    if ( lDelta <= 0 )
     {
-      *(_QWORD *)(v13 + 80) = 0LL;
-      *(_QWORD *)(v22 + 72) = 0LL;
-      *(_DWORD *)(v22 + 88) = 0;
-      if ( *(_WORD *)(v22 + 100) != 1 )
-        *(_WORD *)(v22 + 100) = 3;
-      goto LABEL_13;
+      *(_QWORD *)(v22 + 72) = (char *)pvScan0 + lDelta * (*(_DWORD *)(v22 + 60) - 1);
+      *(_WORD *)(v22 + 102) &= ~1u;
     }
+    else
+    {
+      *(_QWORD *)(v22 + 72) = pvScan0;
+      *(_WORD *)(v22 + 102) |= 1u;
+    }
+    goto LABEL_13;
   }
-LABEL_22:
+LABEL_24:
   SURFREF::~SURFREF((SURFREF *)v21);
   return v19;
 }

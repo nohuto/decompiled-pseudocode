@@ -1,25 +1,20 @@
 /*
- * XREFs of ?ldevBindDisplayStub@@YAPEAU_LDEV@@XZ @ 0x1C0078CE0
+ * XREFs of ?ldevBindDisplayStub@@YAPEAU_LDEV@@XZ @ 0x1C00A75EC
  * Callers:
- *     ldevLoadDriver @ 0x1C0075290 (ldevLoadDriver.c)
+ *     ldevLoadDriver @ 0x1C0015500 (ldevLoadDriver.c)
  * Callees:
- *     ?ldevFillTable@@YAHPEAU_LDEV@@PEAUtagDRVENABLEDATA@@W4_LDEVTYPE@@@Z @ 0x1C00792B8 (-ldevFillTable@@YAHPEAU_LDEV@@PEAUtagDRVENABLEDATA@@W4_LDEVTYPE@@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     ?ldevFillTable@@YAHPEAU_LDEV@@PEAUtagDRVENABLEDATA@@W4_LDEVTYPE@@@Z @ 0x1C00A76B8 (-ldevFillTable@@YAHPEAU_LDEV@@PEAUtagDRVENABLEDATA@@W4_LDEVTYPE@@@Z.c)
  */
 
 struct _LDEV *ldevBindDisplayStub(void)
 {
-  struct _LDEV *i; // rdi
-  PVOID v1; // rdi
-  __int64 Pool2; // rbx
-  struct _LDEV *v3; // rcx
-  __int64 v5; // rax
-  _DWORD v6[2]; // [rsp+20h] [rbp-B8h] BYREF
-  void *v7; // [rsp+28h] [rbp-B0h]
-  PVOID BackTrace[21]; // [rsp+30h] [rbp-A8h] BYREF
+  struct _LDEV *i; // rbx
+  struct _LDEV *v1; // rax
+  struct _LDEV *v2; // rax
+  _DWORD v4[2]; // [rsp+20h] [rbp-18h] BYREF
+  void *v5; // [rsp+28h] [rbp-10h]
 
   for ( i = gpldevDrivers; i; i = *(struct _LDEV **)i )
   {
@@ -29,70 +24,32 @@ struct _LDEV *ldevBindDisplayStub(void)
       return i;
     }
   }
-  v1 = gpLeakTrackingAllocator;
-  if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x76646C47) == 0x76646C47
-    && (v5 = 0LL, *((_DWORD *)gpLeakTrackingAllocator + 11)) )
+  v1 = (struct _LDEV *)PALLOCMEM2(0x388uLL, 1986292807LL, 1);
+  i = v1;
+  if ( v1 )
   {
-    while ( *((_DWORD *)gpLeakTrackingAllocator + v5) != 1986292807 )
+    *((_DWORD *)v1 + 8) |= 0xAu;
+    *((_DWORD *)v1 + 15) = 0;
+    *((_QWORD *)v1 + 112) = (char *)v1 + 64;
+    *((_DWORD *)v1 + 6) = 1;
+    *((_DWORD *)v1 + 7) = 1;
+    v5 = &unk_1C024B970;
+    v4[0] = 196864;
+    v4[1] = 16;
+    if ( (unsigned int)ldevFillTable(v1, v4) )
     {
-      if ( ++v5 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-        goto LABEL_6;
+      if ( gpldevDrivers )
+        *((_QWORD *)gpldevDrivers + 1) = i;
+      v2 = gpldevDrivers;
+      *((_QWORD *)i + 1) = 0LL;
+      *(_QWORD *)i = v2;
+      gpldevDrivers = i;
     }
-    Pool2 = ExAllocatePool2(260LL, 920LL);
-    if ( !Pool2 )
-      return 0LL;
-    memset(BackTrace, 0, 0xA0uLL);
-    RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-    if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
+    else
     {
-      if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                              v1,
-                              Pool2,
-                              BackTrace) )
-      {
-        i = (struct _LDEV *)Pool2;
-        goto LABEL_8;
-      }
-LABEL_24:
-      ExFreePoolWithTag((PVOID)Pool2, 0);
+      Win32FreePool((__int64)i);
       return 0LL;
     }
-    if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                             v1,
-                             Pool2,
-                             BackTrace) )
-      goto LABEL_24;
-    Pool2 += 16LL;
   }
-  else
-  {
-LABEL_6:
-    Pool2 = ExAllocatePool2(260LL, 904LL);
-  }
-  i = (struct _LDEV *)Pool2;
-  if ( !Pool2 )
-    return i;
-LABEL_8:
-  *(_DWORD *)(Pool2 + 32) |= 0xAu;
-  *(_DWORD *)(Pool2 + 60) = 0;
-  *(_QWORD *)(Pool2 + 896) = Pool2 + 64;
-  *(_DWORD *)(Pool2 + 24) = 1;
-  *(_DWORD *)(Pool2 + 28) = 1;
-  v6[0] = 196864;
-  v6[1] = 16;
-  v7 = &unk_1C028ED50;
-  if ( !(unsigned int)ldevFillTable(Pool2, v6) )
-  {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (void *)Pool2);
-    return 0LL;
-  }
-  if ( gpldevDrivers )
-    *((_QWORD *)gpldevDrivers + 1) = Pool2;
-  v3 = gpldevDrivers;
-  *(_QWORD *)(Pool2 + 8) = 0LL;
-  *(_QWORD *)Pool2 = v3;
-  gpldevDrivers = (struct _LDEV *)Pool2;
   return i;
 }

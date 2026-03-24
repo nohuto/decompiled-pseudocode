@@ -1,10 +1,9 @@
 /*
- * XREFs of ??1MxTimer@@QEAA@XZ @ 0x1C0016E64
+ * XREFs of ??1MxTimer@@QEAA@XZ @ 0x1C005351C
  * Callers:
- *     ?PowerEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_STATE@@@Z @ 0x1C0016A84 (-PowerEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_STATE@@@Z.c)
- *     ??1FxTimer@@UEAA@XZ @ 0x1C00186F8 (--1FxTimer@@UEAA@XZ.c)
- *     ??_GFxRequestTimer@@QEAAPEAXI@Z @ 0x1C00387A2 (--_GFxRequestTimer@@QEAAPEAXI@Z.c)
- *     ??1FxPowerIdleMachine@@QEAA@XZ @ 0x1C0089750 (--1FxPowerIdleMachine@@QEAA@XZ.c)
+ *     ??_GFxRequestTimer@@QEAAPEAXI@Z @ 0x1C005355C (--_GFxRequestTimer@@QEAAPEAXI@Z.c)
+ *     ??1FxTimer@@UEAA@XZ @ 0x1C0054330 (--1FxTimer@@UEAA@XZ.c)
+ *     ??1FxPowerPolicyOwnerSettings@@QEAA@XZ @ 0x1C00862EC (--1FxPowerPolicyOwnerSettings@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */

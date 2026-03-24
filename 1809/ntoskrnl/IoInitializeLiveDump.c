@@ -1,10 +1,10 @@
 /*
- * XREFs of IoInitializeLiveDump @ 0x1401936FC
+ * XREFs of IoInitializeLiveDump @ 0x14019371C
  * Callers:
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     EtwRegister @ 0x1406BE560 (EtwRegister.c)
- *     TraceLoggingRegisterEx @ 0x14071DC58 (TraceLoggingRegisterEx.c)
+ *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
+ *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
  */
 
 TLG_STATUS IoInitializeLiveDump()

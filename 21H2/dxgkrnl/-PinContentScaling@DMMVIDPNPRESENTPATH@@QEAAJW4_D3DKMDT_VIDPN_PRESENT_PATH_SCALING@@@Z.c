@@ -1,132 +1,91 @@
 /*
- * XREFs of ?PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C00109BC
+ * XREFs of ?PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0005D64
  * Callers:
- *     ??0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C006A0E8 (--0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_.c)
- *     ?PinPathContentScaling@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@_N@Z @ 0x1C01A77A0 (-PinPathContentScaling@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@.c)
- *     ?DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z @ 0x1C039CA5C (-DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z.c)
- *     ?PinPathContentScaling@VIDPN_MGR@@QEBAJQEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@_N@Z @ 0x1C039DE58 (-PinPathContentScaling@VIDPN_MGR@@QEBAJQEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SC.c)
+ *     ??0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C000CCE0 (--0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_.c)
+ *     ?PinPathContentScaling@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@_N@Z @ 0x1C0110C60 (-PinPathContentScaling@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@.c)
+ *     ?DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z @ 0x1C02DE764 (-DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z.c)
+ *     ?PinPathContentScaling@VIDPN_MGR@@QEBAJQEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@_N@Z @ 0x1C02DFB18 (-PinPathContentScaling@VIDPN_MGR@@QEBAJQEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SC.c)
  * Callees:
- *     ?IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0010A74 (-IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
- *     ?IsScalingTransformationSupported@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0010AC8 (-IsScalingTransformationSupported@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALIN.c)
- *     ?IsFunctionalContentScalingType@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0010B2C (-IsFunctionalContentScalingType@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?IsMiniportDriverCCDSupport@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C01A8508 (-IsMiniportDriverCCDSupport@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     ?IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0005AA0 (-IsValidContentScaling@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     ?IsScalingTransformationSupported@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0005E10 (-IsScalingTransformationSupported@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALIN.c)
+ *     ?IsFunctionalContentScalingType@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0005E80 (-IsFunctionalContentScalingType@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@.c)
+ *     ?IsMiniportDriverCCDSupport@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0110C04 (-IsMiniportDriverCCDSupport@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
  */
 
-__int64 __fastcall DMMVIDPNPRESENTPATH::PinContentScaling(
-        DMMVIDPNPRESENTPATH *this,
-        enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING a2)
+__int64 __fastcall DMMVIDPNPRESENTPATH::PinContentScaling(DMMVIDPNPRESENTPATH *this, __int64 a2)
 {
   __int64 v2; // rdi
-  int v4; // esi
-  int v6; // edx
-  int v7; // ecx
-  int v8; // r8d
-  int v9; // edx
-  int v10; // ecx
-  int v11; // r8d
-  int v12; // edx
-  int v13; // ecx
-  int v14; // r8d
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  int v12; // esi
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  _QWORD *v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  _QWORD *v21; // rax
 
-  v2 = a2;
-  if ( a2 == D3DKMDT_VPPS_RESERVED1 )
+  v2 = (int)a2;
+  if ( (_DWORD)a2 == 253 )
   {
-    WdLogSingleEntry2(
-      2LL,
-      *(unsigned int *)(*((_QWORD *)this + 11) + 24LL),
-      *(unsigned int *)(*((_QWORD *)this + 12) + 24LL));
+    v16 = (_QWORD *)WdLogNewEntry5_WdError(this, a2);
+    v16[3] = *(unsigned int *)(*((_QWORD *)this + 11) + 24LL);
+    v16[4] = *(unsigned int *)(*((_QWORD *)this + 12) + 24LL);
+LABEL_13:
+    WdLogEvent5_WdError(v16);
     return 3223192389LL;
   }
-  if ( DMMVIDPNPRESENTPATH::IsMiniportDriverCCDSupport(this) )
+  if ( DMMVIDPNPRESENTPATH::IsMiniportDriverCCDSupport(this) && (_DWORD)v2 == 255 )
   {
-    if ( (_DWORD)v2 == 255 )
-    {
-      WdLogSingleEntry1(1LL, 614LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v7,
-            v6,
-            v8,
-            0,
-            2,
-            -1,
-            (__int64)L"!this->IsMiniportDriverCCDSupport() || (i_ContentScaling != D3DKMDT_VPPS_NOTSPECIFIED)",
-            614LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
-    }
+    v18 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v18 + 24) = 614LL;
+    WdLogEvent5_WdAssertion(v18);
   }
   if ( !DMMVIDPNPRESENTPATH::IsMiniportDriverCCDSupport(this) && (_DWORD)v2 == 5 )
   {
-    WdLogSingleEntry1(1LL, 617LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v10,
-          v9,
-          v11,
-          0,
-          2,
-          -1,
-          (__int64)L"this->IsMiniportDriverCCDSupport() || (i_ContentScaling != D3DKMDT_VPPS_CUSTOM)",
-          617LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v19 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v19 + 24) = 617LL;
+    WdLogEvent5_WdAssertion(v19);
   }
   if ( !DMMVIDPNPRESENTPATH::IsMiniportDriverCCDSupport(this) && (_DWORD)v2 == 4 )
   {
-    WdLogSingleEntry1(1LL, 618LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v13,
-          v12,
-          v14,
-          0,
-          2,
-          -1,
-          (__int64)L"this->IsMiniportDriverCCDSupport() || (i_ContentScaling != D3DKMDT_VPPS_ASPECTRATIOCENTEREDMAX)",
-          618LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v20 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v20 + 24) = 618LL;
+    WdLogEvent5_WdAssertion(v20);
   }
   if ( !DMMVIDPNPRESENTPATH::IsFunctionalContentScalingType(this, (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING)v2) )
   {
-    WdLogSingleEntry3(
-      2LL,
-      v2,
-      *(unsigned int *)(*((_QWORD *)this + 11) + 24LL),
-      *(unsigned int *)(*((_QWORD *)this + 12) + 24LL));
-    return 3223192389LL;
+    v16 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+    v16[3] = v2;
+    v16[4] = *(unsigned int *)(*((_QWORD *)this + 11) + 24LL);
+    v16[5] = *(unsigned int *)(*((_QWORD *)this + 12) + 24LL);
+    goto LABEL_13;
   }
   if ( DMMVIDPNPRESENTPATH::IsScalingTransformationSupported(this, (enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING)v2) )
   {
-    v4 = *((_DWORD *)this + 28);
+    v12 = *((_DWORD *)this + 28);
     *((_DWORD *)this + 28) = v2;
     if ( DMMVIDPNPRESENTPATH::IsValidContentScaling(this) )
       return 0LL;
-    WdLogSingleEntry2(2LL, v2, this);
-    *((_DWORD *)this + 28) = v4;
+    v17 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v17 + 24) = v2;
+    *(_QWORD *)(v17 + 32) = this;
+    WdLogEvent5_WdError(v17);
+    *((_DWORD *)this + 28) = v12;
     return 3223192389LL;
   }
-  WdLogSingleEntry3(
-    3LL,
-    v2,
-    *(unsigned int *)(*((_QWORD *)this + 11) + 24LL),
-    *(unsigned int *)(*((_QWORD *)this + 12) + 24LL));
+  v21 = (_QWORD *)WdLogNewEntry5_WdWarning();
+  v21[3] = v2;
+  v21[4] = *(unsigned int *)(*((_QWORD *)this + 11) + 24LL);
+  v21[5] = *(unsigned int *)(*((_QWORD *)this + 12) + 24LL);
+  WdLogEvent5_WdWarning(v21);
   return 3223192326LL;
 }

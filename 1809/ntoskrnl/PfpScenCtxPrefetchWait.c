@@ -2,15 +2,15 @@
  * XREFs of PfpScenCtxPrefetchWait @ 0x1405669E0
  * Callers:
  *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
- *     PfpProcessScenarioPhase @ 0x14071BBDC (PfpProcessScenarioPhase.c)
+ *     PfpProcessScenarioPhase @ 0x14071BBBC (PfpProcessScenarioPhase.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     PfpScenCtxWaiterTimedOut @ 0x1401599F0 (PfpScenCtxWaiterTimedOut.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     PfpScenCtxWaiterTimedOut @ 0x140159A10 (PfpScenCtxWaiterTimedOut.c)
  */
 
 __int64 __fastcall PfpScenCtxPrefetchWait(ULONG_PTR BugCheckParameter2, int a2, unsigned int a3)

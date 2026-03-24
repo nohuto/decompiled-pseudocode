@@ -1,20 +1,20 @@
 /*
- * XREFs of ?IsCurrentConsoleSession@@YAEXZ @ 0x1C0043CBC
+ * XREFs of ?IsCurrentConsoleSession@@YAEXZ @ 0x1C0037830
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
- *     ?DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z @ 0x1C01F2964 (-DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z.c)
- *     ?IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ @ 0x1C02BC3EC (-IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
+ *     ?DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z @ 0x1C0178B68 (-DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z.c)
+ *     ?IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ @ 0x1C020DC5C (-IsDiagnosticAllowed@DXGADAPTER@@QEBAEXZ.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?GetSessionMgr@DXGGLOBAL@@QEAAPEAVDXGSESSIONMGR@@XZ @ 0x1C030A8A0 (-GetSessionMgr@DXGGLOBAL@@QEAAPEAVDXGSESSIONMGR@@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionMgr@DXGGLOBAL@@QEAAPEAVDXGSESSIONMGR@@XZ @ 0x1C0269D74 (-GetSessionMgr@DXGGLOBAL@@QEAAPEAVDXGSESSIONMGR@@XZ.c)
  */
 
-bool IsCurrentConsoleSession(void)
+bool __fastcall IsCurrentConsoleSession(__int64 a1, __int64 a2)
 {
   DXGGLOBAL *Global; // rax
-  struct DXGSESSIONMGR *SessionMgr; // rbx
+  int v3; // ebx
 
-  Global = DXGGLOBAL_GetGlobal();
-  SessionMgr = DXGGLOBAL::GetSessionMgr(Global);
-  return (unsigned int)PsGetCurrentProcessSessionId() == *((_DWORD *)SessionMgr + 36);
+  Global = DXGGLOBAL::GetGlobal(a1, a2);
+  v3 = *((_DWORD *)DXGGLOBAL::GetSessionMgr(Global) + 32);
+  return (unsigned int)PsGetCurrentProcessSessionId() == v3;
 }

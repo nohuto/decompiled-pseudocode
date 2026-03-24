@@ -1,61 +1,64 @@
 /*
- * XREFs of ?UpdateCurrentTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004E544
+ * XREFs of ?UpdateCurrentTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006E018
  * Callers:
- *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18004E180 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
- *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E9C8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
- *     ?Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x1800AF654 (-Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x180026DB0 (-Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18006DC30 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
+ *     ?WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x18006FAB0 (-WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x180070200 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
-void __fastcall CPartitionVerticalBlankScheduler::UpdateCurrentTime(LARGE_INTEGER *this)
+void __fastcall CPartitionVerticalBlankScheduler::UpdateCurrentTime(CPartitionVerticalBlankScheduler *this)
 {
-  unsigned __int64 *p_QuadPart; // r15
-  LARGE_INTEGER v3; // rbx
-  LARGE_INTEGER *v4; // rsi
-  unsigned __int64 v5; // rdi
-  unsigned __int64 QuadPart; // rbx
-  unsigned __int64 v7; // rbx
-  ULONG_PTR v8; // rax
+  unsigned __int64 *v1; // r15
+  LARGE_INTEGER *v3; // r12
+  __int64 v4; // rdi
+  __int64 v5; // rbx
+  unsigned __int64 v6; // rsi
+  LARGE_INTEGER v7; // rbx
+  unsigned __int64 v8; // rdi
   unsigned __int64 v9; // rbx
-  struct _EXCEPTION_RECORD pExceptionRecord; // [rsp+28h] [rbp-69h] BYREF
+  struct _EXCEPTION_RECORD pExceptionRecord; // [rsp+20h] [rbp-79h] BYREF
 
-  p_QuadPart = (unsigned __int64 *)&this[1168].QuadPart;
-  v3 = this[1168];
-  v4 = this + 1166;
-  v5 = (unsigned __int64)&this[1168] | ((_QWORD)(this + 1168) << 32);
-  if ( (v5 ^ this[1166].QuadPart) != v3.QuadPart )
+  v1 = (unsigned __int64 *)((char *)this + 15936);
+  v3 = (LARGE_INTEGER *)((char *)this + 15920);
+  v4 = *((_QWORD *)this + 1990);
+  v5 = ((_QWORD)this + 15936) << 32;
+  v6 = ((unsigned __int64)this + 15936) | v5;
+  if ( (v4 ^ v6) != *((_QWORD *)this + 1992) )
   {
     memset_0(&pExceptionRecord, 0, sizeof(pExceptionRecord));
-    v7 = v5 ^ v3.QuadPart;
-    pExceptionRecord.ExceptionInformation[0] = (int)HIDWORD(v4->QuadPart);
-    pExceptionRecord.ExceptionInformation[1] = v4->LowPart;
-    pExceptionRecord.ExceptionInformation[2] = SHIDWORD(v7);
-    pExceptionRecord.ExceptionInformation[3] = (unsigned int)v7;
     pExceptionRecord.ExceptionCode = -2003304320;
+    v9 = *v1 ^ ((unsigned __int64)v1 | v5);
     pExceptionRecord.NumberParameters = 4;
+    pExceptionRecord.ExceptionInformation[0] = SHIDWORD(v4);
+    pExceptionRecord.ExceptionInformation[1] = (unsigned int)v4;
+    pExceptionRecord.ExceptionInformation[2] = SHIDWORD(v9);
+    pExceptionRecord.ExceptionInformation[3] = (unsigned int)v9;
     RaiseFailFastException(&pExceptionRecord, 0LL, 0);
+    v4 = *((_QWORD *)this + 1990);
   }
-  this[1167] = *v4;
-  QueryPerformanceCounter(v4);
-  QuadPart = this[1167].QuadPart;
-  if ( v4->QuadPart < QuadPart )
+  *((_QWORD *)this + 1991) = v4;
+  QueryPerformanceCounter(v3);
+  v7 = *v3;
+  v8 = *((_QWORD *)this + 1991);
+  if ( v3->QuadPart < v8 )
   {
     memset_0(&pExceptionRecord, 0, sizeof(pExceptionRecord));
-    pExceptionRecord.ExceptionInformation[0] = (int)HIDWORD(v4->QuadPart);
-    pExceptionRecord.ExceptionInformation[1] = v4->LowPart;
-    pExceptionRecord.ExceptionInformation[2] = SHIDWORD(QuadPart);
-    v8 = (unsigned int)QuadPart;
-    v9 = QuadPart - v4->QuadPart;
-    pExceptionRecord.ExceptionInformation[3] = v8;
+    pExceptionRecord.ExceptionCode = -2003304293;
+    pExceptionRecord.ExceptionInformation[0] = v7.HighPart;
+    pExceptionRecord.ExceptionInformation[1] = v7.LowPart;
+    pExceptionRecord.ExceptionInformation[2] = SHIDWORD(v8);
+    pExceptionRecord.ExceptionInformation[3] = (unsigned int)v8;
     pExceptionRecord.ExceptionInformation[4] = g_qpcFrequency.HighPart;
     pExceptionRecord.ExceptionInformation[5] = g_qpcFrequency.LowPart;
-    pExceptionRecord.ExceptionCode = -2003304293;
     pExceptionRecord.NumberParameters = 8;
-    pExceptionRecord.ExceptionInformation[6] = (int)((1000 * v9 / g_qpcFrequency.QuadPart) >> 32);
-    pExceptionRecord.ExceptionInformation[7] = (unsigned int)(1000 * v9 / g_qpcFrequency.QuadPart);
+    pExceptionRecord.ExceptionInformation[6] = (int)((1000 * (v8 - v7.QuadPart) / g_qpcFrequency.QuadPart) >> 32);
+    pExceptionRecord.ExceptionInformation[7] = (unsigned int)(1000 * (v8 - v7.QuadPart) / g_qpcFrequency.QuadPart);
     RaiseFailFastException(&pExceptionRecord, 0LL, 0);
+    v7 = *(LARGE_INTEGER *)((char *)this + 15920);
   }
-  *p_QuadPart = v4->QuadPart ^ v5;
+  *v1 = v7.QuadPart ^ v6;
 }

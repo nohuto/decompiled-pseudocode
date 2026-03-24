@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInterruptSubDispatchNoLockNoEtw @ 0x1404214D0
+ * XREFs of KiInterruptSubDispatchNoLockNoEtw @ 0x1403FFE30
  * Callers:
- *     KiInterruptDispatchNoLockNoEtw @ 0x140421E60 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x140400720 (KiInterruptDispatchNoLockNoEtw.c)
  * Callees:
- *     KiEntropyQueueDpc @ 0x14024B080 (KiEntropyQueueDpc.c)
- *     KiCallInterruptServiceRoutine @ 0x140294110 (KiCallInterruptServiceRoutine.c)
- *     KiEndThreadAccountingPeriod @ 0x1402B9660 (KiEndThreadAccountingPeriod.c)
- *     KzSetIrqlUnsafe @ 0x140569E70 (KzSetIrqlUnsafe.c)
+ *     KiEndThreadAccountingPeriod @ 0x140231380 (KiEndThreadAccountingPeriod.c)
+ *     KiCallInterruptServiceRoutine @ 0x14027A9B0 (KiCallInterruptServiceRoutine.c)
+ *     KiEntropyQueueDpc @ 0x1402C4130 (KiEntropyQueueDpc.c)
+ *     KzSetIrqlUnsafe @ 0x140512C40 (KzSetIrqlUnsafe.c)
  */
 
 char __fastcall KiInterruptSubDispatchNoLockNoEtw()
@@ -20,7 +20,7 @@ char __fastcall KiInterruptSubDispatchNoLockNoEtw()
   unsigned int EntropyCount; // r11d
   unsigned int *v7; // r10
   __int64 CurrentThread; // r8
-  __int64 v9; // rax
+  unsigned __int64 v9; // rax
   __int64 v10; // rdx
   unsigned __int64 v11; // rdx
   int v12; // ecx
@@ -58,7 +58,7 @@ char __fastcall KiInterruptSubDispatchNoLockNoEtw()
     if ( HIDWORD(v11) )
       v12 = -1;
     *(_DWORD *)(CurrentThread + 80) = v12;
-    if ( (*(_BYTE *)(CurrentThread + 2) & 0xBE) != 0 )
+    if ( (*(_BYTE *)(CurrentThread + 2) & 0x3E) != 0 )
       KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), CurrentThread, v9);
   }
   _enable();

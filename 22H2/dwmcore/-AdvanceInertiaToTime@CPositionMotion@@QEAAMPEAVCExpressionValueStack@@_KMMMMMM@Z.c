@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z @ 0x18026F728
+ * XREFs of ?AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z @ 0x18020EF7C
  * Callers:
- *     ?CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180266B50 (-CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStac.c)
+ *     ?CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180205520 (-CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStac.c)
  * Callees:
- *     ?AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z @ 0x18026E7B0 (-AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z.c)
- *     ?AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ @ 0x18026F6D0 (-AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ.c)
+ *     ?AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z @ 0x18020E040 (-AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z.c)
+ *     ?AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ @ 0x18020EF24 (-AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ.c)
  */
 
 float __fastcall CPositionMotion::AdvanceInertiaToTime(
@@ -24,12 +24,12 @@ float __fastcall CPositionMotion::AdvanceInertiaToTime(
   float v13; // xmm4_4
   float result; // xmm0_4
 
-  *((float *)this + 30) = a7;
-  *((float *)this + 31) = a8;
-  *((float *)this + 32) = a9;
+  *((float *)this + 40) = a7;
+  *((float *)this + 41) = a8;
+  *((float *)this + 42) = a9;
   CPositionMotion::AdvanceDeltaDueToScale(this);
   result = CMotion::AdvanceInertiaToTime(v11, v10, v12, a5, a6, v13);
-  *((_DWORD *)this + 37) = *((_DWORD *)this + 30);
-  *((float *)this + 36) = result;
+  *((_DWORD *)this + 47) = *((_DWORD *)this + 40);
+  *((float *)this + 46) = result;
   return result;
 }

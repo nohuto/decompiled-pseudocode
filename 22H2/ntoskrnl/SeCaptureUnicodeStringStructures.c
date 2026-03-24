@@ -1,70 +1,68 @@
 /*
- * XREFs of SeCaptureUnicodeStringStructures @ 0x1406D4F2C
+ * XREFs of SeCaptureUnicodeStringStructures @ 0x140601730
  * Callers:
- *     SepCaptureUnicodeStringArray @ 0x1406D4D00 (SepCaptureUnicodeStringArray.c)
+ *     SepCaptureUnicodeStringArray @ 0x140601510 (SepCaptureUnicodeStringArray.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SeCaptureUnicodeStringStructures(ULONGLONG a1, unsigned int a2, char a3, _QWORD *a4)
+__int64 __fastcall SeCaptureUnicodeStringStructures(SIZE_T a1, unsigned int a2, char a3, _QWORD *a4)
 {
-  _OWORD *Pool2; // r10
-  NTSTATUS v8; // ebx
-  ULONGLONG v9; // r15
-  __int64 i; // rax
-  ULONGLONG pullResult; // [rsp+50h] [rbp+8h] BYREF
-  _QWORD *v13; // [rsp+68h] [rbp+20h]
+  unsigned int v7; // ebx
+  SIZE_T v8; // r14
+  int v9; // r15d
+  _OWORD *PoolWithTag; // rcx
 
-  v13 = a4;
-  Pool2 = 0LL;
-  pullResult = 0LL;
+  v7 = 0;
   *a4 = 0LL;
-  if ( !a1 && a2 )
-    goto LABEL_21;
   if ( !a1 )
-    goto LABEL_23;
-  if ( !a2 )
   {
-LABEL_21:
-    v8 = -1073741811;
-    goto LABEL_17;
+    if ( !a2 )
+      return 0;
+    return (unsigned int)-1073741811;
   }
+  if ( !a2 )
+    return (unsigned int)-1073741811;
   if ( !a3 )
   {
     *a4 = a1;
-LABEL_23:
-    v8 = 0;
-    goto LABEL_17;
+    return 0;
   }
-  v8 = RtlULongLongMult(0x10uLL, a2, &pullResult);
-  if ( v8 >= 0 )
+  v8 = 16LL * a2;
+  if ( is_mul_ok(0x10uLL, a2) )
   {
-    v9 = pullResult;
-    Pool2 = (_OWORD *)ExAllocatePool2(256LL, pullResult, 1934976339LL);
-    if ( Pool2 )
+    v9 = 0;
+  }
+  else
+  {
+    v8 = -1LL;
+    v9 = -1073741675;
+  }
+  if ( v9 >= 0 )
+  {
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x73556553u);
+    if ( PoolWithTag )
     {
-      if ( v9 )
+      if ( v8 )
       {
         if ( (a1 & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        if ( v9 + a1 > 0x7FFFFFFF0000LL || v9 + a1 < a1 )
+        if ( v8 + a1 > 0x7FFFFFFF0000LL || v8 + a1 < a1 )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
-      for ( i = 0LL; (unsigned int)i < a2; i = (unsigned int)(i + 1) )
-        Pool2[i] = *(_OWORD *)(a1 + 16 * i);
-      *a4 = Pool2;
-      Pool2 = 0LL;
+      while ( v7 < a2 )
+      {
+        PoolWithTag[v7] = *(_OWORD *)(a1 + 16LL * v7);
+        ++v7;
+      }
+      *a4 = PoolWithTag;
     }
     else
     {
-      v8 = -1073741670;
+      return (unsigned int)-1073741670;
     }
   }
-LABEL_17:
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)v8;
+  return (unsigned int)v9;
 }

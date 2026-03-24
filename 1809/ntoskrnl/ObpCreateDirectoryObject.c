@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpCreateDirectoryObject @ 0x1406ADCFC
+ * XREFs of ObpCreateDirectoryObject @ 0x1406ADCDC
  * Callers:
- *     NtCreateDirectoryObjectEx @ 0x1406ADCC0 (NtCreateDirectoryObjectEx.c)
- *     NtCreateDirectoryObject @ 0x1406ADCE0 (NtCreateDirectoryObject.c)
+ *     NtCreateDirectoryObjectEx @ 0x1406ADCA0 (NtCreateDirectoryObjectEx.c)
+ *     NtCreateDirectoryObject @ 0x1406ADCC0 (NtCreateDirectoryObject.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     RtlIsSandboxedToken @ 0x14064A350 (RtlIsSandboxedToken.c)
+ *     RtlIsSandboxedToken @ 0x14064A330 (RtlIsSandboxedToken.c)
  */
 
 __int64 __fastcall ObpCreateDirectoryObject(__int64 *a1, unsigned int a2, int a3, void *a4, int a5)

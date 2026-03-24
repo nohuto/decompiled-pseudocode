@@ -1,30 +1,33 @@
 /*
- * XREFs of PsRestoreImpersonation @ 0x140726090
+ * XREFs of PsRestoreImpersonation @ 0x140706540
  * Callers:
- *     NtOpenThreadTokenEx @ 0x140725A50 (NtOpenThreadTokenEx.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x14080B938 (CmpAddRemoveContainerToCLFSLog.c)
- *     CmpStartCLFSLog @ 0x14080CD20 (CmpStartCLFSLog.c)
+ *     NtOpenThreadTokenEx @ 0x140705F00 (NtOpenThreadTokenEx.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x14077C9DC (CmpAddRemoveContainerToCLFSLog.c)
+ *     CmpStartCLFSLog @ 0x14077D984 (CmpStartCLFSLog.c)
  * Callees:
- *     SeQueryTokenTrustLink @ 0x1402A487C (SeQueryTokenTrustLink.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     PspWriteTebImpersonationInfo @ 0x1407AF4B0 (PspWriteTebImpersonationInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     SeQueryTokenTrustLink @ 0x1403566F8 (SeQueryTokenTrustLink.c)
+ *     PspWriteTebImpersonationInfo @ 0x14065B280 (PspWriteTebImpersonationInfo.c)
  */
 
 void __stdcall PsRestoreImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE ImpersonationState)
 {
   struct _KTHREAD *CurrentThread; // r15
-  void *v3; // rbp
+  struct _DMA_ADAPTER *v3; // rbp
   __int64 Token; // rdi
   struct _KTHREAD *v6; // r13
   struct _KTHREAD *v7; // r12
   __int64 v9; // rcx
   unsigned __int64 v10; // rbx
   char v11; // bl
+  char v12; // al
+  __int64 v13; // r8
+  _DWORD *v14; // r9
 
   CurrentThread = KeGetCurrentThread();
   v3 = 0LL;
@@ -50,37 +53,36 @@ void __stdcall PsRestoreImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE I
   if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 8) != 0 )
   {
     v6 = Thread[1].WaitBlock[1].Thread;
-    v3 = (void *)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+    v3 = (struct _DMA_ADAPTER *)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
   }
   if ( ImpersonationState->Token )
   {
-    *($CCA5BBB6D199B5680204B8CF1C208784 *)((char *)&Thread[1].116 + 4) = ($CCA5BBB6D199B5680204B8CF1C208784)v10;
+    *($716DEF6A987B9E81ED436DA1BE78D38B *)((char *)&Thread[1].116 + 4) = ($716DEF6A987B9E81ED436DA1BE78D38B)v10;
     Thread[1].WaitBlock[1].Thread = v7;
     if ( ImpersonationState->CopyOnOpen )
       _InterlockedOr((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0x100u);
     else
       _InterlockedAnd((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0xFFFFFEFF);
     _InterlockedOr((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 8u);
-    goto LABEL_11;
   }
-  if ( !_interlockedbittestandreset((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 3u) )
+  else if ( _interlockedbittestandreset((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 3u) )
   {
-LABEL_11:
-    v11 = 0;
+    v11 = 1;
     goto LABEL_12;
   }
-  v11 = 1;
+  v11 = 0;
 LABEL_12:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&Thread[1].WaitBlockList, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+  v12 = _InterlockedExchangeAdd64((volatile signed __int64 *)&Thread[1].WaitBlockList, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v12 & 2) != 0 && (v12 & 4) == 0 )
     ExfTryToWakePushLock(&Thread[1].WaitBlockList);
   KeAbPostRelease((ULONG_PTR)&Thread[1].WaitBlockList);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v3 )
   {
-    ObfDereferenceObject(v3);
+    HalPutDmaAdapter(v3);
     if ( v6 )
-      ObfDereferenceObject(v6);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v6);
     if ( v11 )
-      PspWriteTebImpersonationInfo(Thread, CurrentThread);
+      PspWriteTebImpersonationInfo((__int64)Thread, (__int64)CurrentThread, v13, v14);
   }
 }

@@ -1,32 +1,41 @@
 /*
- * XREFs of DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C0024370
+ * XREFs of DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C0051C9C
  * Callers:
- *     DpiFdoHandleDevicePower @ 0x1C01F0950 (DpiFdoHandleDevicePower.c)
- *     DpiPowerArbiterThread @ 0x1C0217840 (DpiPowerArbiterThread.c)
- *     DpiLdaPowerUpAdapterInChain @ 0x1C03966BC (DpiLdaPowerUpAdapterInChain.c)
+ *     DpiFdoHandleDevicePower @ 0x1C01771F0 (DpiFdoHandleDevicePower.c)
+ *     DpiPowerArbiterThread @ 0x1C019D6B0 (DpiPowerArbiterThread.c)
+ *     DpiLdaPowerUpAdapterInChain @ 0x1C02D8058 (DpiLdaPowerUpAdapterInChain.c)
  * Callees:
- *     DxgkReportDevicePoweredOn @ 0x1C0024444 (DxgkReportDevicePoweredOn.c)
+ *     DxgkReportDevicePoweredOn @ 0x1C003C1C8 (DxgkReportDevicePoweredOn.c)
  */
 
 void __fastcall DpiSetDevicePowerTransitionStateAtPassiveLevel(__int64 a1, int a2, char a3)
 {
   __int64 v3; // rsi
   __int64 v6; // rdi
+  _QWORD *v7; // rax
+  _QWORD *v8; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v3 = a2;
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4080), &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4072), &LockHandle);
   v6 = 5LL;
-  if ( (_DWORD)v3 != 5 || *(_DWORD *)(a1 + 4144) == 4 )
+  if ( (_DWORD)v3 != 5 || *(_DWORD *)(a1 + 4136) == 4 )
   {
+    v7 = (_QWORD *)WdLogNewEntry5_WdPower();
     v6 = v3;
-    WdLogSingleEntry3(9LL, a1, v3, 0LL);
-    *(_DWORD *)(a1 + 4144) = v3;
+    v7[5] = 0LL;
+    v7[3] = a1;
+    v7[4] = v3;
+    WdLogEvent5_WdPower(v7);
+    *(_DWORD *)(a1 + 4136) = v3;
   }
-  if ( a3 && !*(_DWORD *)(a1 + 4148) )
+  if ( a3 && !*(_DWORD *)(a1 + 4140) )
   {
-    WdLogSingleEntry3(9LL, a1, v6, 1LL);
+    v8 = (_QWORD *)WdLogNewEntry5_WdPower();
+    v8[3] = a1;
+    v8[4] = v6;
+    v8[5] = 1LL;
+    WdLogEvent5_WdPower(v8);
     DxgkReportDevicePoweredOn(*(_QWORD *)(a1 + 3896));
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);

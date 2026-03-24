@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCompareUserSidHotPatchNodes @ 0x140972C84
+ * XREFs of MiCompareUserSidHotPatchNodes @ 0x1408C985C
  * Callers:
- *     MiFindUserSidHotPatchContext @ 0x14097339C (MiFindUserSidHotPatchContext.c)
- *     MiLoadHotPatchForUserSid @ 0x1409743A4 (MiLoadHotPatchForUserSid.c)
+ *     MiFindUserSidHotPatchContext @ 0x1408C9E4C (MiFindUserSidHotPatchContext.c)
+ *     MiLoadHotPatchForUserSid @ 0x1408CAF30 (MiLoadHotPatchForUserSid.c)
  * Callees:
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall MiCompareUserSidHotPatchNodes(_QWORD *a1, __int64 a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpFindSecondaryIcEntry @ 0x14051D24C
+ * XREFs of HalpFindSecondaryIcEntry @ 0x1404D0C58
  * Callers:
- *     HalpDisableSecondaryInterrupt @ 0x14051D1A0 (HalpDisableSecondaryInterrupt.c)
- *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x14051D410 (HalpHandleMaskUnmaskSecondaryInterrupt.c)
- *     HalpInterruptRequestSecondaryInterrupt @ 0x14051D768 (HalpInterruptRequestSecondaryInterrupt.c)
- *     HalpEnableSecondaryInterrupt @ 0x140909678 (HalpEnableSecondaryInterrupt.c)
- *     HalpQueryPrimaryInterruptInformation @ 0x140909764 (HalpQueryPrimaryInterruptInformation.c)
+ *     HalpDisableSecondaryInterrupt @ 0x1404D0BAC (HalpDisableSecondaryInterrupt.c)
+ *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x1404D0E1C (HalpHandleMaskUnmaskSecondaryInterrupt.c)
+ *     HalpInterruptRequestSecondaryInterrupt @ 0x1404D1174 (HalpInterruptRequestSecondaryInterrupt.c)
+ *     HalpEnableSecondaryInterrupt @ 0x1408654E4 (HalpEnableSecondaryInterrupt.c)
+ *     HalpQueryPrimaryInterruptInformation @ 0x1408655D0 (HalpQueryPrimaryInterruptInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpFindSecondaryIcEntry(unsigned int a1)

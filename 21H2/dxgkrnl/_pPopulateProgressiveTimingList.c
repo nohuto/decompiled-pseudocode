@@ -1,67 +1,72 @@
 /*
- * XREFs of _pPopulateProgressiveTimingList @ 0x1C03B4B78
+ * XREFs of _pPopulateProgressiveTimingList @ 0x1C02F8790
  * Callers:
- *     _pLoadAdditinalMode @ 0x1C01DC608 (_pLoadAdditinalMode.c)
+ *     _pLoadAdditinalMode @ 0x1C019AE40 (_pLoadAdditinalMode.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
-__int64 __fastcall pPopulateProgressiveTimingList(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+_DWORD *__fastcall pPopulateProgressiveTimingList(_DWORD *a1)
 {
-  unsigned int v4; // eax
-  unsigned int v5; // ebx
-  __int64 v7; // rdx
-  int v8; // esi
-  _DWORD *v9; // rcx
-  __int64 v10; // r8
-  bool v11; // zf
-  int v12; // eax
-  unsigned int v14; // r8d
-  __int64 v15; // r9
-  __int64 v16; // rcx
+  unsigned int v1; // eax
+  unsigned int v2; // ebx
+  _DWORD *v4; // rdx
+  int v5; // esi
+  _DWORD *v6; // rcx
+  __int64 v7; // r8
+  bool v8; // zf
+  int v9; // eax
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 v13; // rax
+  unsigned int v15; // r8d
+  __int64 v16; // r9
+  __int64 v17; // rcx
 
-  v4 = a1[4];
+  v1 = a1[4];
+  v2 = 0;
+  v4 = 0LL;
   v5 = 0;
-  v7 = 0LL;
-  v8 = 0;
-  if ( v4 )
+  if ( v1 )
   {
-    v9 = a1 + 7;
-    v10 = v4;
+    v6 = a1 + 7;
+    v7 = v1;
     do
     {
-      v11 = (*v9 & 0x10000000) == 0;
-      v12 = v8 + 1;
-      v9 += 7;
-      if ( !v11 )
-        v12 = v8;
-      v8 = v12;
-      --v10;
+      v8 = (*v6 & 0x10000000) == 0;
+      v9 = v5 + 1;
+      v6 += 7;
+      if ( !v8 )
+        v9 = v5;
+      v5 = v9;
+      --v7;
     }
-    while ( v10 );
-    if ( v12 )
+    while ( v7 );
+    if ( v9 )
     {
-      v7 = operator new[]((unsigned int)(28 * v12 + 20), 0x4D677844u, 256LL, a4);
-      if ( !v7 )
+      v4 = operator new[]((unsigned int)(28 * v9 + 20), 0x4D677844u, PagedPool);
+      if ( !v4 )
       {
-        WdLogSingleEntry0(6LL);
+        v13 = WdLogNewEntry5_WdLowResource(v10, 0LL, v11, v12);
+        WdLogEvent5_WdLowResource(v13);
         return 0LL;
       }
-      v14 = 0;
-      *(_DWORD *)(v7 + 8) = a1[2];
-      *(_BYTE *)(v7 + 12) = 1;
-      for ( *(_DWORD *)(v7 + 16) = v8; v14 < a1[4]; ++v14 )
+      v15 = 0;
+      v4[2] = a1[2];
+      *((_BYTE *)v4 + 12) = 1;
+      for ( v4[4] = v5; v15 < a1[4]; ++v15 )
       {
-        v15 = 7LL * v14;
-        if ( (a1[v15 + 7] & 0x10000000) == 0 )
+        v16 = 7LL * v15;
+        if ( (a1[v16 + 7] & 0x10000000) == 0 )
         {
-          v16 = 28LL * v5++;
-          *(_OWORD *)(v16 + v7 + 20) = *(_OWORD *)&a1[v15 + 5];
-          *(_QWORD *)(v16 + v7 + 36) = *(_QWORD *)&a1[v15 + 9];
-          *(_DWORD *)(v16 + v7 + 44) = a1[v15 + 11];
+          v17 = 7LL * v2++;
+          *(_OWORD *)&v4[v17 + 5] = *(_OWORD *)&a1[v16 + 5];
+          *(_QWORD *)&v4[v17 + 9] = *(_QWORD *)&a1[v16 + 9];
+          v4[v17 + 11] = a1[v16 + 11];
         }
       }
     }
   }
-  return v7;
+  return v4;
 }

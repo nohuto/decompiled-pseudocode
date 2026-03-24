@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C011D6EC
+ * XREFs of ?SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C013277C
  * Callers:
- *     UmfdSessionUninitialize @ 0x1C011D640 (UmfdSessionUninitialize.c)
+ *     UmfdSessionUninitialize @ 0x1C01326D0 (UmfdSessionUninitialize.c)
  * Callees:
  *     <none>
  */

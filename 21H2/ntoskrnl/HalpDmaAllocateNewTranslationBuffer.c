@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpDmaAllocateNewTranslationBuffer @ 0x140512EF0
+ * XREFs of HalpDmaAllocateNewTranslationBuffer @ 0x1404C6FD8
  * Callers:
- *     HalpDmaGetTranslationEntries @ 0x1403CE07C (HalpDmaGetTranslationEntries.c)
+ *     HalpDmaGetTranslationEntries @ 0x1403BBFE0 (HalpDmaGetTranslationEntries.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140215340 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x1404568E6 (HalpDmaAllocateScatterPagesFromScatterPool.c)
- *     HalpDmaReturnPageToOwner @ 0x140457800 (HalpDmaReturnPageToOwner.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x140505560 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x1404B8B74 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x1404B8BCC (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaReturnPageToOwner @ 0x1404C7F4C (HalpDmaReturnPageToOwner.c)
  */
 
 __int64 __fastcall HalpDmaAllocateNewTranslationBuffer(__int64 a1, unsigned int a2)
@@ -23,18 +23,18 @@ __int64 __fastcall HalpDmaAllocateNewTranslationBuffer(__int64 a1, unsigned int 
   unsigned int v9; // eax
   unsigned __int64 v10; // rsi
   __int64 v11; // rax
-  __int64 v12; // rsi
+  __int64 *v12; // rsi
   unsigned int v13; // r15d
   _QWORD *v14; // r12
-  __int64 *ScatterPagesFromScatterPool; // rbx
+  __int64 *v15; // rbx
   __int64 v16; // rdx
   unsigned __int64 v17; // rdx
   __int64 v18; // rax
   unsigned int v19; // eax
   __int64 v20; // r14
   __int64 v21; // rcx
-  __int64 v22; // rbx
-  ULONG v24; // [rsp+70h] [rbp+8h] BYREF
+  __int64 *v22; // rbx
+  unsigned int v24; // [rsp+70h] [rbp+8h] BYREF
   __int64 *v25; // [rsp+80h] [rbp+18h]
 
   v24 = 0;
@@ -71,18 +71,12 @@ __int64 __fastcall HalpDmaAllocateNewTranslationBuffer(__int64 a1, unsigned int 
   while ( a2 )
   {
     LOBYTE(v6) = 1;
-    ScatterPagesFromScatterPool = (__int64 *)HalpDmaAllocateScatterPagesFromScatterPool(
-                                               v4,
-                                               v3,
-                                               1LL,
-                                               v6,
-                                               0,
-                                               (__int64)&v24);
-    if ( !ScatterPagesFromScatterPool )
+    v15 = (__int64 *)HalpDmaAllocateScatterPagesFromScatterPool(v4, v3, 1LL, v6, 0, &v24);
+    if ( !v15 )
     {
       LOBYTE(v6) = 1;
-      ScatterPagesFromScatterPool = (__int64 *)HalpDmaAllocateScatterPagesFromContiguousPool(v4, v3, 1LL, v6, 0, &v24);
-      if ( !ScatterPagesFromScatterPool )
+      v15 = (__int64 *)HalpDmaAllocateScatterPagesFromContiguousPool(v4, v3, 1LL, v6, 0, &v24);
+      if ( !v15 )
       {
 LABEL_31:
         if ( v13 )
@@ -90,13 +84,13 @@ LABEL_31:
           v20 = v13;
           do
           {
-            v21 = *(_QWORD *)(v12 + 48);
+            v21 = v12[6];
             if ( (v21 & 0x10) != 0 )
             {
               MmUnmapIoSpace((PVOID)(v21 & 0xFFFFFFFFFFFFF000uLL), 0x1000uLL);
-              *(_QWORD *)(v12 + 48) = *(_DWORD *)(v12 + 48) & 0xFEF;
+              v12[6] &= 0xFEF;
             }
-            v22 = *(_QWORD *)(v12 + 8);
+            v22 = (__int64 *)v12[1];
             HalpDmaReturnPageToOwner(0LL, v3, v12);
             v12 = v22;
             --v20;
@@ -109,22 +103,22 @@ LABEL_31:
       }
     }
     if ( v12 )
-      v25[1] = (__int64)ScatterPagesFromScatterPool;
+      v25[1] = (__int64)v15;
     else
-      v12 = (__int64)ScatterPagesFromScatterPool;
-    v16 = ScatterPagesFromScatterPool[6];
+      v12 = v15;
+    v16 = v15[6];
     ++v13;
-    v25 = ScatterPagesFromScatterPool;
+    v25 = v15;
     v17 = v16 & 0xFFFFFFFFFFFFF000uLL;
     if ( !v17 )
     {
-      v18 = MmMapIoSpaceEx(*ScatterPagesFromScatterPool, 4096LL, 4u);
+      v18 = MmMapIoSpaceEx(*v15, 4096LL, 4u);
       v17 = v18;
       if ( !v18 )
         goto LABEL_31;
-      ScatterPagesFromScatterPool[6] |= 0x10uLL;
-      v4 = v18 | ScatterPagesFromScatterPool[6] & 0xFFF;
-      ScatterPagesFromScatterPool[6] = v4;
+      v15[6] |= 0x10uLL;
+      v4 = v18 | v15[6] & 0xFFF;
+      v15[6] = v4;
     }
     if ( v13 == 1 && v7 )
     {

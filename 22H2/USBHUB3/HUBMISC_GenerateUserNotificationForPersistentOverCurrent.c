@@ -1,23 +1,29 @@
 /*
- * XREFs of HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C008254C
+ * XREFs of HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C007CACC
  * Callers:
- *     HUBPSM20_NotifyingUserAboutPersistentOverCurrent @ 0x1C0012170 (HUBPSM20_NotifyingUserAboutPersistentOverCurrent.c)
+ *     HUBPSM20_NotifyingUserAboutPersistentOverCurrent @ 0x1C0010D50 (HUBPSM20_NotifyingUserAboutPersistentOverCurrent.c)
  * Callees:
- *     WPP_RECORDER_SF_qqd @ 0x1C000FC04 (WPP_RECORDER_SF_qqd.c)
- *     WMI_FireNotification @ 0x1C008B468 (WMI_FireNotification.c)
+ *     WPP_RECORDER_SF_qqd @ 0x1C000E808 (WPP_RECORDER_SF_qqd.c)
+ *     WMI_FireNotification @ 0x1C0084F0C (WMI_FireNotification.c)
  */
 
-__int64 __fastcall HUBMISC_GenerateUserNotificationForPersistentOverCurrent(_QWORD *a1)
+__int64 __fastcall HUBMISC_GenerateUserNotificationForPersistentOverCurrent(__int64 a1)
 {
-  unsigned __int16 *v2; // rdi
-  int v4; // [rsp+38h] [rbp-10h]
+  int v3; // [rsp+38h] [rbp-10h]
 
-  _InterlockedOr((volatile signed __int32 *)a1 + 334, 4u);
-  v2 = (unsigned __int16 *)(a1 + 25);
+  _InterlockedOr((volatile signed __int32 *)(a1 + 1336), 4u);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v4 = *v2;
-    WPP_RECORDER_SF_qqd(a1[179], 2u, 4u, 0x71u, (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids, *a1, a1, v4);
+    v3 = *(unsigned __int16 *)(a1 + 200);
+    WPP_RECORDER_SF_qqd(
+      *(_QWORD *)(a1 + 1432),
+      2u,
+      4u,
+      0x71u,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
+      *(_QWORD *)a1,
+      a1,
+      v3);
   }
-  return WMI_FireNotification(*a1, *v2, 3LL);
+  return WMI_FireNotification(*(_QWORD *)a1, *(unsigned __int16 *)(a1 + 200), 3LL);
 }

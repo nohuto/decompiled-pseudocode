@@ -1,57 +1,64 @@
 /*
- * XREFs of NtUserGetGestureExtArgs @ 0x1C01F4390
+ * XREFs of NtUserGetGestureExtArgs @ 0x1C01F9990
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     _FreeGestureInfo @ 0x1C0221710 (_FreeGestureInfo.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     _FreeGestureInfo @ 0x1C0227C40 (_FreeGestureInfo.c)
  */
 
-__int64 __fastcall NtUserGetGestureExtArgs(__int64 a1, unsigned int a2, volatile void *a3)
+__int64 __fastcall NtUserGetGestureExtArgs(unsigned __int64 a1, unsigned int a2, volatile void *a3)
 {
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // rbx
+  int v6; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // r8
   __int64 v9; // rcx
-  __int64 v10; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rdi
   __int64 CurrentProcessWow64Process; // rax
+  __int64 v14; // r8
+  __int64 v15; // r9
 
-  EnterCrit(0LL, 0LL);
+  v6 = 1;
+  EnterCrit(0LL, 1LL);
   if ( !a3 )
   {
-    v7 = 87LL;
+    v9 = 87LL;
 LABEL_3:
-    LODWORD(v8) = 0;
-    UserSetLastError(v7, v6);
-    goto LABEL_11;
+    v6 = 0;
+    UserSetLastError(v9, v7, v8);
+    goto LABEL_12;
   }
-  v10 = HMValidateHandle(a1, 0x15u);
-  v8 = v10;
-  if ( !v10 )
-    goto LABEL_11;
-  if ( *(_QWORD *)(v10 + 16) != gptiCurrent )
+  v11 = HMValidateHandle(a1, 0x15u);
+  v12 = v11;
+  if ( !v11 )
   {
-    v7 = 5LL;
+    v6 = 0;
+    goto LABEL_12;
+  }
+  if ( *(_QWORD *)(v11 + 16) != gptiCurrent )
+  {
+    v9 = 5LL;
     goto LABEL_3;
   }
-  if ( a2 < *(_DWORD *)(v10 + 80) )
+  if ( a2 < *(_DWORD *)(v11 + 80) )
   {
-    v7 = 122LL;
+    v9 = 122LL;
     goto LABEL_3;
   }
-  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v9);
-  ProbeForWrite(a3, *(unsigned int *)(v8 + 80), CurrentProcessWow64Process != 0 ? 1 : 4);
-  memmove((void *)a3, (const void *)(v8 + 88), *(unsigned int *)(v8 + 80));
-  LODWORD(v8) = 1;
-  v9 = *(_QWORD *)(gptiCurrent + 1104LL);
-  if ( v9 == a1 )
+  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v10);
+  ProbeForWrite(a3, *(unsigned int *)(v12 + 80), CurrentProcessWow64Process != 0 ? 1 : 4);
+  memmove((void *)a3, (const void *)(v12 + 88), *(unsigned int *)(v12 + 80));
+  v10 = *(_QWORD *)(gptiCurrent + 1080LL);
+  if ( v10 == a1 )
   {
-    FreeGestureInfo(v9, 1LL);
-    *(_QWORD *)(gptiCurrent + 1104LL) = 0LL;
+    FreeGestureInfo(v10, 1LL, v14, v15);
+    *(_QWORD *)(gptiCurrent + 1080LL) = 0LL;
   }
-LABEL_11:
-  UserSessionSwitchLeaveCrit(v9);
-  return (int)v8;
+LABEL_12:
+  UserSessionSwitchLeaveCrit(v10);
+  return v6;
 }

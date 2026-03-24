@@ -1,7 +1,12 @@
 /*
- * XREFs of ?OnPeerDisconnected@BamoConnection@dataprovider_AutoBamos@@MEAAJPEAVBamoPeer@2@_N@Z @ 0x1800FA940
+ * XREFs of ?OnPeerDisconnected@BamoConnection@dataprovider_AutoBamos@@MEAAJPEAVBamoPeer@2@_N@Z @ 0x1800E1CB0
  * Callers:
- *     <none>
+ *     ?AddOcclusionInformation@CShapeTree@@$4PPPPPPPM@A@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x1800F49D0 (-AddOcclusionInformation@CShapeTree@@$4PPPPPPPM@A@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z.c)
+ *     ?PreRender@COffScreenRenderTarget@@$4PPPPPPPM@BBI@EAAJXZ @ 0x1800F51D0 (-PreRender@COffScreenRenderTarget@@$4PPPPPPPM@BBI@EAAJXZ.c)
+ *     ?PreRender@COffScreenRenderTarget@@$4PPPPPPPM@GI@EAAJXZ @ 0x1800F51F0 (-PreRender@COffScreenRenderTarget@@$4PPPPPPPM@GI@EAAJXZ.c)
+ *     ?PreRender@COffScreenRenderTarget@@$4PPPPPPPM@NA@EAAJXZ @ 0x1800F5200 (-PreRender@COffScreenRenderTarget@@$4PPPPPPPM@NA@EAAJXZ.c)
+ *     ?PreRender@COffScreenRenderTarget@@$4PPPPPPPM@BAA@EAAJXZ @ 0x1800F5BA0 (-PreRender@COffScreenRenderTarget@@$4PPPPPPPM@BAA@EAAJXZ.c)
+ *     ?PreRender@COffScreenRenderTarget@@$4PPPPPPPM@DI@EAAJXZ @ 0x1800F6BA0 (-PreRender@COffScreenRenderTarget@@$4PPPPPPPM@DI@EAAJXZ.c)
  * Callees:
  *     <none>
  */

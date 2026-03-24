@@ -1,20 +1,20 @@
 /*
- * XREFs of Controller_UcxEvtStartTrackingForTimeSync @ 0x1C0034160
+ * XREFs of Controller_UcxEvtStartTrackingForTimeSync @ 0x1C0034050
  * Callers:
  *     <none>
  * Callees:
- *     DynamicLock_Release @ 0x1C0003E5C (DynamicLock_Release.c)
- *     DynamicLock_Acquire @ 0x1C0004248 (DynamicLock_Acquire.c)
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0013B7C (XilRegister_WriteUlong.c)
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     WPP_RECORDER_SF_dqd @ 0x1C0018BD4 (WPP_RECORDER_SF_dqd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0ptqqp_EtwWriteTransfer @ 0x1C003570C (McTemplateK0ptqqp_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_II @ 0x1C00357B8 (WPP_RECORDER_SF_II.c)
- *     Interrupter_QueryBusEdgeInformation @ 0x1C003C364 (Interrupter_QueryBusEdgeInformation.c)
+ *     DynamicLock_Release @ 0x1C0006D40 (DynamicLock_Release.c)
+ *     DynamicLock_Acquire @ 0x1C0007340 (DynamicLock_Acquire.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     WPP_RECORDER_SF_dqd @ 0x1C0019504 (WPP_RECORDER_SF_dqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ptqqp_EtwWriteTransfer @ 0x1C003546C (McTemplateK0ptqqp_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_II @ 0x1C0035518 (WPP_RECORDER_SF_II.c)
+ *     Interrupter_QueryBusEdgeInformation @ 0x1C003BDF0 (Interrupter_QueryBusEdgeInformation.c)
  */
 
 PDEVICE_OBJECT __fastcall Controller_UcxEvtStartTrackingForTimeSync(
@@ -23,203 +23,174 @@ PDEVICE_OBJECT __fastcall Controller_UcxEvtStartTrackingForTimeSync(
         unsigned __int64 a3,
         unsigned __int64 a4)
 {
-  int v8; // r12d
+  unsigned __int8 v7; // r13
+  char v8; // r12
   int v9; // edx
   __int64 v10; // rsi
   int v11; // r8d
   _BYTE *v12; // rdi
   int v13; // ebx
-  unsigned __int8 v14; // r14
+  __int64 v14; // r14
   unsigned __int64 v15; // rdi
   int v16; // edx
   PDEVICE_OBJECT result; // rax
-  int v18; // edx
+  unsigned __int64 v18; // r8
   int v19; // edx
-  __int64 v20; // rax
-  int v21; // edx
+  int v20; // edx
+  int v21; // r9d
   __int64 v22; // r14
-  __int64 v23; // rcx
+  int v23; // edx
   int v24; // edx
-  __int64 v25; // rcx
-  unsigned int *v26; // rbx
+  int v25; // r8d
+  int v26; // r9d
+  __int64 v27; // rcx
+  unsigned int *v28; // rbx
   int Ulong; // eax
-  __int64 *v28; // rcx
-  __int64 v29; // rdx
   int v30; // edx
-  __int64 v31; // [rsp+30h] [rbp-51h]
-  __int64 v32; // [rsp+40h] [rbp-41h]
-  char v33; // [rsp+48h] [rbp-39h] BYREF
-  unsigned __int64 v34; // [rsp+50h] [rbp-31h]
-  __int64 v35; // [rsp+58h] [rbp-29h] BYREF
-  __int64 *v36; // [rsp+60h] [rbp-21h] BYREF
-  __int64 v37; // [rsp+68h] [rbp-19h] BYREF
-  ULONG Seed[2]; // [rsp+70h] [rbp-11h] BYREF
-  _OWORD v39[2]; // [rsp+78h] [rbp-9h] BYREF
-  __int128 v40; // [rsp+98h] [rbp+17h]
-  void *v41; // [rsp+A8h] [rbp+27h]
-  char v42; // [rsp+100h] [rbp+7Fh]
+  int v31; // r8d
+  int v32; // r9d
+  int v33; // edx
+  int v34; // r8d
+  int v35; // r9d
+  __int64 *v36; // rcx
+  __int64 v37; // rdx
+  int v38; // edx
+  int v39; // r8d
+  int v40; // r9d
+  __int64 v41; // [rsp+48h] [rbp-31h] BYREF
+  __int64 *v42; // [rsp+50h] [rbp-29h] BYREF
+  __int64 v43; // [rsp+58h] [rbp-21h] BYREF
+  _OWORD v44[2]; // [rsp+60h] [rbp-19h] BYREF
+  __int128 v45; // [rsp+80h] [rbp+7h]
+  void *v46; // [rsp+90h] [rbp+17h]
+  char v48; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  v42 = 1;
-  LODWORD(v41) = 0;
-  v33 = 0;
-  v37 = 0LL;
-  v36 = 0LL;
-  v35 = 0LL;
-  v34 = 0LL;
-  memset(v39, 0, sizeof(v39));
-  v40 = 0LL;
-  v8 = (*(char (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 2240))(WdfDriverGlobals);
+  v46 = 0LL;
+  v48 = 0;
+  v43 = 0LL;
+  v7 = 1;
+  v42 = 0LL;
+  v41 = 0LL;
+  memset(v44, 0, sizeof(v44));
+  v45 = 0LL;
+  v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 2240))(WdfDriverGlobals);
   v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
           WdfDriverGlobals,
           a1,
-          off_1C0061428);
+          off_1C0060428);
   v12 = (_BYTE *)(v10 + 608);
   if ( a4 < 9 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      HIDWORD(v31) = 0;
-      WPP_RECORDER_SF_II(*(_QWORD *)(v10 + 72), v9, v11, 281);
-    }
-LABEL_4:
+      WPP_RECORDER_SF_II(*(_QWORD *)(v10 + 72), v9, v11, 280);
     v13 = -1073741811;
-LABEL_5:
-    v14 = v42;
-    goto LABEL_6;
+    goto LABEL_5;
   }
+  v18 = a4;
+  v14 = a2;
   v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, unsigned __int64, __int64 *, _QWORD))(WdfFunctions_01023 + 2152))(
           WdfDriverGlobals,
           a2,
-          a4,
-          &v37,
+          v18,
+          &v43,
           0LL);
   if ( v13 < 0 )
-    goto LABEL_5;
-  if ( *(_QWORD *)v37 )
+    goto LABEL_6;
+  if ( *(_QWORD *)v43 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v18) = 2;
-      WPP_RECORDER_SF_(*(_QWORD *)(v10 + 72), v18, 4, 282, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids);
+      LOBYTE(v19) = 2;
+      WPP_RECORDER_SF_(*(_QWORD *)(v10 + 72), v19, 4, 281, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
     }
-    goto LABEL_4;
+LABEL_23:
+    v13 = -1073741811;
+    goto LABEL_6;
   }
-  v14 = *(_BYTE *)(v37 + 8);
-  v42 = v14;
+  v7 = *(_BYTE *)(v43 + 8);
   if ( a3 < 9 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      HIDWORD(v31) = 0;
-      WPP_RECORDER_SF_II(*(_QWORD *)(v10 + 72), v18, v11, 283);
-    }
-    v13 = -1073741811;
-    goto LABEL_6;
+      WPP_RECORDER_SF_II(*(_QWORD *)(v10 + 72), v19, v11, 282);
+    goto LABEL_23;
   }
   v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, unsigned __int64, __int64 **, _QWORD))(WdfFunctions_01023 + 2160))(
           WdfDriverGlobals,
           a2,
           a3,
-          &v36,
+          &v42,
           0LL);
   if ( v13 < 0 )
+    goto LABEL_6;
+  if ( v8 == 1 )
   {
-LABEL_6:
-    v15 = v34;
-    goto LABEL_7;
-  }
-  if ( (_BYTE)v8 == 1 )
-  {
-    v35 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 2216))(WdfDriverGlobals, a2);
-    if ( !v35 )
-    {
-      v13 = -1073741811;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v19) = 2;
-        WPP_RECORDER_SF_d(
-          *(_QWORD *)(v10 + 72),
-          v19,
-          4,
-          284,
-          (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
-          116);
-      }
-      goto LABEL_6;
-    }
-    v20 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+    v41 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 2216))(WdfDriverGlobals, a2);
+    v22 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
             WdfDriverGlobals,
-            v35,
-            off_1C00613B0);
-    v22 = v20;
-    if ( *(_BYTE *)(v20 + 48) )
+            v41,
+            off_1C00603B0);
+    if ( *(_BYTE *)(v22 + 40) )
     {
       v13 = -1073741811;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v21) = 2;
+        LOBYTE(v20) = 2;
         WPP_RECORDER_SF_i(
           *(_QWORD *)(v10 + 72),
-          v21,
+          v20,
           4,
-          285,
-          (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
-          v35);
+          283,
+          (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
+          v41);
       }
       goto LABEL_5;
-    }
-    v23 = *(_QWORD *)(v20 + 24);
-    if ( !v23 )
-    {
-      *(_QWORD *)Seed = MEMORY[0xFFFFF78000000320];
-      v23 = ((RtlRandomEx(Seed) >> 2) + 4096) & 0xFFFFFFF8;
-      *(_QWORD *)(v22 + 24) = v23;
     }
   }
   else
   {
-    *(_QWORD *)((char *)&v39[1] + 4) = 0x100000000LL;
-    *((_QWORD *)&v40 + 1) = 0LL;
-    HIDWORD(v39[1]) = 1;
-    v41 = off_1C00613B0;
-    *(_OWORD *)((char *)v39 + 4) = 0LL;
-    LODWORD(v39[0]) = 56;
-    *(_QWORD *)&v40 = *(_QWORD *)(v10 + 632);
+    *(_QWORD *)((char *)&v44[1] + 4) = 0x100000000LL;
+    *((_QWORD *)&v45 + 1) = 0LL;
+    HIDWORD(v44[1]) = 1;
+    v46 = off_1C00603B0;
+    *(_OWORD *)((char *)v44 + 4) = 0LL;
+    LODWORD(v44[0]) = 56;
+    *(_QWORD *)&v45 = *(_QWORD *)(v10 + 632);
     v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _OWORD *, __int64 *))(WdfFunctions_01023 + 1656))(
             WdfDriverGlobals,
-            v39,
-            &v35);
+            v44,
+            &v41);
     if ( v13 < 0 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v24) = 2;
+        LOBYTE(v23) = 2;
         WPP_RECORDER_SF_d(
           *(_QWORD *)(v10 + 72),
-          v24,
+          v23,
           4,
-          286,
-          (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+          284,
+          (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
           v13);
       }
       goto LABEL_6;
     }
     v22 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
             WdfDriverGlobals,
-            v35,
-            off_1C00613B0);
-    *(_BYTE *)(v22 + 60) = 0;
-    *(_QWORD *)(v22 + 16) = v35;
-    *(_QWORD *)(v22 + 24) = 0LL;
-    v23 = v35;
+            v41,
+            off_1C00603B0);
+    *(_BYTE *)(v22 + 52) = 0;
+    *(_QWORD *)(v22 + 16) = v41;
   }
-  *v36 = v23;
   if ( *(_DWORD *)(v10 + 392) != 1 )
   {
     v13 = -1073741436;
-    goto LABEL_5;
+LABEL_5:
+    v14 = a2;
+LABEL_6:
+    v15 = 0LL;
+    goto LABEL_7;
   }
-  DynamicLock_Acquire(*(_QWORD *)(v10 + 616));
+  DynamicLock_Acquire(*(_QWORD *)(v10 + 616), v20, v11, v21);
   if ( !(*(unsigned int (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 112))(
           WdfDriverGlobals,
           *(_QWORD *)(v10 + 632)) )
@@ -229,105 +200,101 @@ LABEL_6:
       **(_QWORD **)(*(_QWORD *)(v10 + 128) + 40LL),
       Interrupter_ClearBusEdgeInformationRoutineWithIsrSync,
       v12);
-    v25 = *(_QWORD *)(v10 + 88);
-    v26 = *(unsigned int **)(v25 + 32);
-    Ulong = XilRegister_ReadUlong(v25, v26);
-    XilRegister_WriteUlong(*(_QWORD *)(v10 + 88), v26, Ulong | 0x400);
+    v27 = *(_QWORD *)(v10 + 88);
+    v28 = *(unsigned int **)(v27 + 32);
+    Ulong = XilRegister_ReadUlong(v27, v28);
+    XilRegister_WriteUlong(*(_QWORD *)(v10 + 88), v28, Ulong | 0x400);
     *v12 = 1;
   }
-  DynamicLock_Release(*(_QWORD *)(v10 + 616));
-  Interrupter_QueryBusEdgeInformation(*(_QWORD *)(v10 + 128), (_DWORD)v12, (unsigned int)&v33, 0, 0LL, 0LL, 0LL);
-  DynamicLock_Acquire(*(_QWORD *)(v10 + 616));
-  if ( !v33 )
+  DynamicLock_Release(*(_QWORD *)(v10 + 616), v24, v25, v26);
+  Interrupter_QueryBusEdgeInformation(*(_QWORD *)(v10 + 128), (_DWORD)v12, (unsigned int)&v48, 0, 0LL, 0LL, 0LL);
+  DynamicLock_Acquire(*(_QWORD *)(v10 + 616), v30, v31, v32);
+  if ( !v48 )
   {
-    if ( !v42 )
+    if ( !v7 )
     {
-      *(_QWORD *)(v22 + 32) = a2;
-      v28 = *(__int64 **)(v10 + 648);
-      if ( *v28 != v10 + 640 )
+      v33 = a2;
+      *(_QWORD *)(v22 + 24) = a2;
+      v36 = *(__int64 **)(v10 + 648);
+      if ( *v36 != v10 + 640 )
         __fastfail(3u);
       *(_QWORD *)v22 = v10 + 640;
-      *(_QWORD *)(v22 + 8) = v28;
-      *v28 = v22;
+      *(_QWORD *)(v22 + 8) = v36;
+      *v36 = v22;
       *(_QWORD *)(v10 + 648) = v22;
     }
     if ( !*(_BYTE *)(v10 + 664) )
     {
-      v29 = *(_QWORD *)(v10 + 656);
+      v37 = *(_QWORD *)(v10 + 656);
       *(_BYTE *)(v10 + 664) = 1;
-      (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 3040))(WdfDriverGlobals, v29);
+      (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 3040))(WdfDriverGlobals, v37);
     }
-    if ( !v42 )
+    if ( !v7 )
     {
       v13 = 259;
-LABEL_51:
-      DynamicLock_Release(*(_QWORD *)(v10 + 616));
+      *v42 = v41;
+LABEL_49:
+      DynamicLock_Release(*(_QWORD *)(v10 + 616), v33, v34, v35);
       goto LABEL_5;
     }
   }
-  DynamicLock_Release(*(_QWORD *)(v10 + 616));
-  DynamicLock_Acquire(*(_QWORD *)(v10 + 616));
+  DynamicLock_Release(*(_QWORD *)(v10 + 616), v33, v34, v35);
+  DynamicLock_Acquire(*(_QWORD *)(v10 + 616), v38, v39, v40);
   v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64))(WdfFunctions_01023 + 120))(
           WdfDriverGlobals,
           *(_QWORD *)(v10 + 632),
-          v35);
+          v41);
   if ( v13 < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v30) = 2;
+      LOBYTE(v33) = 2;
       WPP_RECORDER_SF_d(
         *(_QWORD *)(v10 + 72),
-        v30,
+        v33,
         4,
-        287,
-        (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+        285,
+        (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
         v13);
     }
-    goto LABEL_51;
+    goto LABEL_49;
   }
-  DynamicLock_Release(*(_QWORD *)(v10 + 616));
+  DynamicLock_Release(*(_QWORD *)(v10 + 616), v33, v34, v35);
+  *(_BYTE *)(v22 + 40) = 1;
   v15 = a3;
-  *(_BYTE *)(v22 + 48) = 1;
-  v14 = v42;
   v13 = 0;
+  v14 = a2;
+  *v42 = v41;
 LABEL_7:
-  v16 = v35;
+  v16 = v41;
   ++*(_DWORD *)(v10 + 760);
   if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) & 0x10) != 0 )
-    McTemplateK0ptqqp_EtwWriteTransfer(v14, v16, v11, *(_QWORD *)(v10 + 8), v14, v8, v13, v16);
+    McTemplateK0ptqqp_EtwWriteTransfer(v7, v16, v11, *(_QWORD *)(v10 + 8), v7, v8, v13, v16);
   result = (PDEVICE_OBJECT)&WPP_RECORDER_INITIALIZED;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     result = WPP_GLOBAL_Control;
     if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
     {
-      LODWORD(v32) = v8;
-      LODWORD(v31) = v13;
+      LOBYTE(v16) = 5;
       result = (PDEVICE_OBJECT)WPP_RECORDER_SF_dqd(
                                  *(_QWORD *)(v10 + 72),
-                                 5u,
-                                 4u,
-                                 0x120u,
-                                 (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
-                                 v31,
-                                 v35,
-                                 v32);
+                                 v16,
+                                 4,
+                                 286,
+                                 (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
+                                 v13,
+                                 v41,
+                                 v8);
     }
   }
-  if ( v13 >= 0 )
-  {
-    if ( v13 == 259 )
-      return result;
-  }
-  else if ( !(_BYTE)v8 )
-  {
-    if ( v35 )
-      (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 1664))(WdfDriverGlobals);
-  }
-  return (PDEVICE_OBJECT)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD, unsigned __int64))(WdfFunctions_01023 + 2120))(
-                           WdfDriverGlobals,
-                           a2,
-                           (unsigned int)v13,
-                           v15);
+  if ( v13 < 0 && !v8 && v41 )
+    result = (PDEVICE_OBJECT)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 1664))(WdfDriverGlobals);
+  if ( v13 != 259 )
+    return (PDEVICE_OBJECT)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD, unsigned __int64))(WdfFunctions_01023 + 2120))(
+                             WdfDriverGlobals,
+                             v14,
+                             (unsigned int)v13,
+                             v15);
+  return result;
 }

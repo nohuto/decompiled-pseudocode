@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIFixedFeatureButtonInitialize @ 0x1C003CBC8
+ * XREFs of ACPIFixedFeatureButtonInitialize @ 0x1C0031290
  * Callers:
- *     ACPIRootInitialize @ 0x1C0093778 (ACPIRootInitialize.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
  * Callees:
- *     ACPIBuildFixedButtonExtension @ 0x1C000D3DC (ACPIBuildFixedButtonExtension.c)
- *     ACPIInitReferenceDeviceExtension @ 0x1C002D5B4 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIBuildFixedButtonExtension @ 0x1C00312F0 (ACPIBuildFixedButtonExtension.c)
  */
 
 void ACPIFixedFeatureButtonInitialize()

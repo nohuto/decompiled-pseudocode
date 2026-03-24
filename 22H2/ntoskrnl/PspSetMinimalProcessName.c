@@ -1,28 +1,28 @@
 /*
- * XREFs of PspSetMinimalProcessName @ 0x1408540E4
+ * XREFs of PspSetMinimalProcessName @ 0x1407991C0
  * Callers:
- *     PsCreateMinimalProcess @ 0x140853DBC (PsCreateMinimalProcess.c)
+ *     PsCreateMinimalProcess @ 0x140798E60 (PsCreateMinimalProcess.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     PspSetProcessShortName @ 0x1407CE968 (PspSetProcessShortName.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PspSetProcessShortName @ 0x1407107D4 (PspSetProcessShortName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspSetMinimalProcessName(__int64 a1, const void **a2)
 {
-  __int64 Pool2; // rax
-  __int64 v5; // rdi
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v5; // rdi
   void *v6; // rcx
 
-  Pool2 = ExAllocatePool2(64LL, *(unsigned __int16 *)a2 + 16LL, 1850307408LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, *(unsigned __int16 *)a2 + 16LL, 0x6E497350u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225495LL;
-  *(_QWORD *)(Pool2 + 8) = Pool2 + 16;
-  *(_WORD *)Pool2 = *(_WORD *)a2;
-  *(_WORD *)(Pool2 + 2) = *(_WORD *)a2;
-  memmove((void *)(Pool2 + 16), a2[1], *(unsigned __int16 *)a2);
+  PoolWithTag[1] = PoolWithTag + 2;
+  *(_WORD *)PoolWithTag = *(_WORD *)a2;
+  *((_WORD *)PoolWithTag + 1) = *(_WORD *)a2;
+  memmove(PoolWithTag + 2, a2[1], *(unsigned __int16 *)a2);
   v6 = *(void **)(a1 + 1472);
   if ( v6 )
     ExFreePoolWithTag(v6, 0);

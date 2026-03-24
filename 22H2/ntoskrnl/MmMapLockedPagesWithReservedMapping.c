@@ -1,23 +1,23 @@
 /*
- * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1403A6C20
+ * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1403C8440
  * Callers:
- *     sub_1403F1410 @ 0x1403F1410 (sub_1403F1410.c)
- *     HalpDmaAcquireBufferMappings @ 0x14045B704 (HalpDmaAcquireBufferMappings.c)
- *     SmFpAllocate @ 0x14046592E (SmFpAllocate.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x140510F08 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x1405115E4 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     PnprCopyReservedMapping @ 0x140562C4C (PnprCopyReservedMapping.c)
- *     PspIumFreePhysicalPages @ 0x1405A60E0 (PspIumFreePhysicalPages.c)
- *     EtwpSavePersistedLogger @ 0x1409EDAF4 (EtwpSavePersistedLogger.c)
- *     PnprMapPhysicalPages @ 0x140A9CDA8 (PnprMapPhysicalPages.c)
+ *     SmFpAllocate @ 0x1403130C8 (SmFpAllocate.c)
+ *     sub_1403E9C70 @ 0x1403E9C70 (sub_1403E9C70.c)
+ *     HalpDmaAcquireBufferMappings @ 0x1404C64E8 (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x1404C76D0 (HalpDmaFlushBufferWithEmergencyResources.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x1404C84AC (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     PnprCopyReservedMapping @ 0x14050F080 (PnprCopyReservedMapping.c)
+ *     PspIumFreePhysicalPages @ 0x140583D0C (PspIumFreePhysicalPages.c)
+ *     EtwpSavePersistedLogger @ 0x140948CDC (EtwpSavePersistedLogger.c)
+ *     PnprMapPhysicalPages @ 0x1409ADD1C (PnprMapPhysicalPages.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402F14DC (MiLegitimatePageForDriversToMap.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     MiMapMdlCommon @ 0x1403A6DE0 (MiMapMdlCommon.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14028026C (MiLegitimatePageForDriversToMap.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMapMdlCommon @ 0x1403C8614 (MiMapMdlCommon.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall MmMapLockedPagesWithReservedMapping(
@@ -49,39 +49,41 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
   v7 = (((LODWORD(MemoryDescriptorList->StartVa) + MemoryDescriptorList->ByteOffset) & 0xFFF)
       + (unsigned __int64)MemoryDescriptorList->ByteCount
       + 4095) >> 12;
-  v9 = ExAcquireSpinLockShared(&dword_140C685C0);
-  v10 = qword_140C685C8;
+  v9 = ExAcquireSpinLockShared(&dword_140C4EBC0);
+  v10 = qword_140C4EBC8;
   v11 = (unsigned __int64)MappingAddress & 0xFFFFFFFFFFFFF000uLL;
   v12 = v9;
-  while ( v10 )
+  while ( 1 )
   {
-    v13 = *(_QWORD *)(v10 + 24);
-    if ( v11 < v13 )
+    while ( 1 )
     {
+      if ( !v10 )
+        KeBugCheckEx(0xDAu, 0x106uLL, (ULONG_PTR)MappingAddress, v5, 1uLL);
+      v13 = *(_QWORD *)(v10 + 24);
+      if ( v11 >= v13 )
+        break;
       v10 = *(_QWORD *)v10;
     }
-    else
-    {
-      if ( v11 < v13 + (*(_QWORD *)(v10 + 32) << 12) )
-        break;
-      v10 = *(_QWORD *)(v10 + 8);
-    }
+    if ( v11 < v13 + (*(_QWORD *)(v10 + 32) << 12) )
+      break;
+    v10 = *(_QWORD *)(v10 + 8);
   }
-  if ( !v10 )
-    KeBugCheckEx(0xDAu, 0x106uLL, (ULONG_PTR)MappingAddress, v5, 1uLL);
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C685C0);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4EBC0);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-      v25 = (v24 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v24;
-      if ( v25 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+        v25 = (v24 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v24;
+        if ( v25 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v12);
@@ -111,9 +113,9 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
     for ( i = MemoryDescriptorList + 1; ; i = (PMDL)((char *)i + 8) )
     {
       Next = i->Next;
-      if ( i->Next <= (struct _MDL *)qword_140C65CA0
-        && _bittest64((const signed __int64 *)(48LL * (_QWORD)Next - 0x21FFFFFFFFD8LL), 0x36u)
-        && (int)MiLegitimatePageForDriversToMap(48LL * (_QWORD)Next - 0x220000000000LL) < 0 )
+      if ( i->Next <= (struct _MDL *)0xFFFFFFFFFLL
+        && (*(_QWORD *)(48LL * (_QWORD)Next - 0x57FFFFFFFD8LL) & 0x4000000000000LL) != 0
+        && (int)MiLegitimatePageForDriversToMap(48LL * (_QWORD)Next - 0x58000000000LL) < 0 )
       {
         break;
       }

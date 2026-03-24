@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCToken@@UEAAPEAXI@Z @ 0x1C0078970
+ * XREFs of ??_GCToken@@UEAAPEAXI@Z @ 0x1C001BFF0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CToken@@UEAA@XZ @ 0x1C007890C (--1CToken@@UEAA@XZ.c)
+ *     ??1CToken@@UEAA@XZ @ 0x1C001C034 (--1CToken@@UEAA@XZ.c)
  */
 
 CToken *__fastcall CToken::`scalar deleting destructor'(CToken *P, char a2)

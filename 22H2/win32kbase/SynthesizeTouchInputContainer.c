@@ -1,27 +1,24 @@
 /*
- * XREFs of SynthesizeTouchInputContainer @ 0x1C01EFFC0
+ * XREFs of SynthesizeTouchInputContainer @ 0x1C01B3B90
  * Callers:
- *     ?OnTouchSynthesizeNotification@CHidInput@@EEAAJXZ @ 0x1C01E2D50 (-OnTouchSynthesizeNotification@CHidInput@@EEAAJXZ.c)
+ *     ?OnTouchSynthesizeNotification@CHidInput@@EEAAJXZ @ 0x1C01AA1F0 (-OnTouchSynthesizeNotification@CHidInput@@EEAAJXZ.c)
  * Callees:
- *     ?InjectInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4InputTracing_RimInjectionSource@@K@Z @ 0x1C00055C0 (-InjectInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4InputTracing_RimInjectionSource@@K@Z.c)
- *     HMValidateHandleNoSecure @ 0x1C00590FC (HMValidateHandleNoSecure.c)
- *     ?ProcessInjectedInput@CTouchProcessor@@QEAAXPEAX0_NK1@Z @ 0x1C01D0268 (-ProcessInjectedInput@CTouchProcessor@@QEAAXPEAX0_NK1@Z.c)
- *     ?CreateInjectionDevice@@YAHXZ @ 0x1C01EFB2C (-CreateInjectionDevice@@YAHXZ.c)
+ *     HMValidateHandleNoSecure @ 0x1C0046930 (HMValidateHandleNoSecure.c)
+ *     ?InjectInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4InputTracing_RimInjectionSource@@K@Z @ 0x1C0166948 (-InjectInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4InputTracing_RimInjectionSource@@K@Z.c)
+ *     ?ProcessInjectedInput@CTouchProcessor@@QEAAXPEAX0_NK1@Z @ 0x1C0199794 (-ProcessInjectedInput@CTouchProcessor@@QEAAXPEAX0_NK1@Z.c)
+ *     ?CreateInjectionDevice@@YAHXZ @ 0x1C01B3730 (-CreateInjectionDevice@@YAHXZ.c)
  */
 
-char __fastcall SynthesizeTouchInputContainer(struct RIMCOMPLETEFRAME *a1)
+char __fastcall SynthesizeTouchInputContainer(_QWORD *a1)
 {
   int InjectionDevice; // eax
   __int64 v3; // rax
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v6; // rdx
-  _QWORD *v7; // rcx
-  __int64 v8; // rax
+  CTouchProcessor *v4; // rcx
+  void *v5; // rdx
 
   if ( TouchExtensibility::ghInjectionDevice )
   {
-    if ( !HMValidateHandleNoSecure((int)TouchExtensibility::hDeviceUser, 19) )
+    if ( !HMValidateHandleNoSecure((unsigned __int64)TouchExtensibility::hDeviceUser, 19) )
       TouchExtensibility::ghInjectionDevice = 0LL;
     if ( TouchExtensibility::ghInjectionDevice )
       goto LABEL_6;
@@ -30,31 +27,12 @@ char __fastcall SynthesizeTouchInputContainer(struct RIMCOMPLETEFRAME *a1)
   if ( InjectionDevice )
   {
 LABEL_6:
-    v3 = HMValidateHandleNoSecure((int)TouchExtensibility::hDeviceUser, 19);
+    v3 = HMValidateHandleNoSecure((unsigned __int64)TouchExtensibility::hDeviceUser, 19);
     InputTraceLogging::RIM::InjectInput(v3);
-    v6 = 0LL;
-    v7 = (_QWORD *)*((_QWORD *)a1 + 29);
-    *((_QWORD *)a1 + 4) = TouchExtensibility::ghInjectionDevice;
-    *((_DWORD *)a1 + 48) = 1;
-    if ( *((_DWORD *)a1 + 6) )
-    {
-      v7 += 4;
-      do
-      {
-        v6 = (unsigned int)(v6 + 1);
-        *v7 = *((_QWORD *)a1 + 4);
-        v7 += 24;
-      }
-      while ( (unsigned int)v6 < *((_DWORD *)a1 + 6) );
-    }
-    v8 = SGDGetUserSessionState(v7, v6, v4, v5);
-    CTouchProcessor::ProcessInjectedInput(
-      *(struct _KTHREAD ***)(v8 + 3424),
-      (__int64)TouchExtensibility::ghInjectionDevice,
-      a1,
-      0,
-      0,
-      0);
+    v4 = TouchExtensibility::ghInjectionDevice;
+    a1[4] = TouchExtensibility::ghInjectionDevice;
+    *((_DWORD *)a1 + 20) = 1;
+    CTouchProcessor::ProcessInjectedInput(v4, v5, (struct RIMCOMPLETEFRAME *)a1, 0, 0, 0);
     LOBYTE(InjectionDevice) = 1;
   }
   return InjectionDevice;

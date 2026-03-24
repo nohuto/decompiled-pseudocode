@@ -1,31 +1,39 @@
 /*
- * XREFs of ?Create@CRegion@@SAJAEBUtagRECT@@PEAPEAV1@@Z @ 0x1C016D570
+ * XREFs of ?Create@CRegion@@SAJAEBUtagRECT@@PEAPEAV1@@Z @ 0x1C013EFD0
  * Callers:
- *     ?CreateRegionFromRect@@YAJAEBUtagRECT@@PEAPEAUIRegion@@@Z @ 0x1C016D620 (-CreateRegionFromRect@@YAJAEBUtagRECT@@PEAPEAUIRegion@@@Z.c)
+ *     ?CreateRegionFromRect@@YAJAEBUtagRECT@@PEAPEAUIRegion@@@Z @ 0x1C013F070 (-CreateRegionFromRect@@YAJAEBUtagRECT@@PEAPEAUIRegion@@@Z.c)
  * Callees:
- *     ?InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z @ 0x1C007E494 (-InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z @ 0x1C00288F0 (-InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRegion::Create(struct _RECTL *a1, struct CRegion **a2)
 {
   int v4; // edi
-  __int64 Pool2; // rax
-  struct CRegion *v6; // rbx
+  __int64 v5; // rax
+  CRegion *v6; // rbx
 
   *a2 = 0LL;
   v4 = -1073741801;
-  Pool2 = ExAllocatePool2(256LL, 24LL, 1852273223LL);
-  v6 = (struct CRegion *)Pool2;
-  if ( Pool2 )
+  v5 = Win32AllocPool(24LL, 0x6E677247u);
+  v6 = (CRegion *)v5;
+  if ( v5 )
   {
-    *(_DWORD *)(Pool2 + 12) = 0;
-    *(_QWORD *)(Pool2 + 16) = 0LL;
-    *(_QWORD *)Pool2 = &CRegion::`vftable';
-    *(_DWORD *)(Pool2 + 8) = 1;
-    v4 = CRegion::InitializeFromRect((CRegion *)Pool2, a1);
+    *(_DWORD *)(v5 + 12) = 0;
+    *(_QWORD *)(v5 + 16) = 0LL;
+    *(_QWORD *)v5 = &CRegion::`vftable';
+    *(_DWORD *)(v5 + 8) = 1;
+  }
+  else
+  {
+    v6 = 0LL;
+  }
+  if ( v6 )
+  {
+    v4 = CRegion::InitializeFromRect(v6, a1);
     if ( v4 < 0 )
-      (**(void (__fastcall ***)(struct CRegion *))v6)(v6);
+      (**(void (__fastcall ***)(CRegion *))v6)(v6);
     else
       *a2 = v6;
   }

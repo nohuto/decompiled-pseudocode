@@ -1,43 +1,44 @@
 /*
- * XREFs of ?StDmDeviceIoCompletion@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C5488
+ * XREFs of ?StDmDeviceIoCompletion@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14059ACD8
  * Callers:
- *     ?StDmEtaPerformIo@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x1405C58E0 (-StDmEtaPerformIo@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
- *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C701C (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
- *     ?StDmSinglePageRetrieveSync@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z @ 0x1405C7740 (-StDmSinglePageRetrieveSync@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z.c)
- *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C9744 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x140268360 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14026CB7C (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
+ *     ?StDmEtaPerformIo@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x14059B148 (-StDmEtaPerformIo@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
+ *     ?StDmSinglePageRetrieveSync@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z @ 0x14059C47C (-StDmSinglePageRetrieveSync@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAX1K@Z.c)
+ *     ?StStagingRegionIssueIo@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_STAGING_REGION@1@K@Z @ 0x14059CD84 (-StStagingRegionIssueIo@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_STAGING_REGION@1@.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     SmEtwEnabled @ 0x140342DF4 (SmEtwEnabled.c)
- *     ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x140345794 (-StDmCurrentRegionSet@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
- *     ?StDeviceIoIsFailed@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DEVICE_IO@1@PEAJ@Z @ 0x1405C4284 (-StDeviceIoIsFailed@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DEVICE_IO@1@PEAJ@Z.c)
- *     ?StDeviceWorkItemCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C4458 (-StDeviceWorkItemCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     ?StDmDeviceError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z @ 0x1405C52F0 (-StDmDeviceError@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z.c)
- *     ?StDmDeviceIoTransfer@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@PEAU_ST_DEVICE_IO@1@@Z @ 0x1405C57E4 (-StDmDeviceIoTransfer@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@PEAU_ST.c)
- *     ?StDmIsCurrentRegion@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z @ 0x1405C632C (-StDmIsCurrentRegion@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z.c)
- *     ?StRegionReadDereference@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x1405C939C (-StRegionReadDereference@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
- *     SmEtwLogRegionOp @ 0x1405CAF4C (SmEtwLogRegionOp.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     SmEtwEnabled @ 0x140268C58 (SmEtwEnabled.c)
+ *     ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x14034EC64 (-StDmCurrentRegionSet@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
+ *     ?StDeviceIoIsFailed@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DEVICE_IO@1@PEAJ@Z @ 0x14059A764 (-StDeviceIoIsFailed@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DEVICE_IO@1@PEAJ@Z.c)
+ *     ?StDeviceWorkItemCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14059A93C (-StDeviceWorkItemCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StDmDeviceError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z @ 0x14059ABA0 (-StDmDeviceError@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z.c)
+ *     ?StDmDeviceIoTransfer@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@PEAU_ST_DEVICE_IO@1@@Z @ 0x14059B04C (-StDmDeviceIoTransfer@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@PEAU_ST.c)
+ *     ?StDmIsCurrentRegion@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z @ 0x14059BB0C (-StDmIsCurrentRegion@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StRegionReadDereference@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14059CCDC (-StRegionReadDereference@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     SmEtwLogRegionOp @ 0x14059D830 (SmEtwLogRegionOp.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmDeviceIoCompletion(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r12
-  __int64 v5; // r15
+  __int64 v2; // r15
+  __int64 v5; // r12
   __int64 k; // rsi
   __int64 v7; // r13
   __int64 m; // rbp
   LARGE_INTEGER v9; // rax
   __int64 v10; // rcx
-  int v11; // r11d
+  int v11; // r10d
   int v12; // ebp
   _DWORD *v13; // rax
   __int16 v14; // r8
   int v15; // r13d
-  unsigned __int64 v16; // rax
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // r10
-  int v20; // r11d
+  ULONGLONG *v16; // rax
+  __int64 v17; // rdx
+  char v18; // r8
+  int v19; // r10d
+  unsigned int v20; // edi
   unsigned int IsCurrentRegion; // eax
   unsigned int v22; // eax
   __int64 v23; // rbp
@@ -48,16 +49,21 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmDeviceIoCompletion(__int64 a1, __int
   __int64 v28; // r9
   _DWORD *v29; // rax
   LARGE_INTEGER v30; // rax
-  __int64 v31; // r8
+  __int64 v31; // rdx
+  int v32; // ecx
+  __int64 v33; // rdx
+  unsigned __int64 v34; // rax
   __int64 j; // rcx
-  unsigned __int64 v33; // rax
-  __int64 v35; // [rsp+80h] [rbp+8h] BYREF
-  __int64 v36; // [rsp+88h] [rbp+10h]
+  unsigned int v37; // [rsp+80h] [rbp+8h]
+  __int64 v38; // [rsp+80h] [rbp+8h]
+  unsigned int v39; // [rsp+88h] [rbp+10h] BYREF
+  __int64 v40; // [rsp+90h] [rbp+18h]
 
   v2 = a2 + 8;
   v5 = (unsigned int)(*(_DWORD *)(a2 + 24) >> *(_DWORD *)(a1 + 812));
-  LODWORD(v35) = 0;
-  v36 = *(_QWORD *)(a1 + 1032);
+  v37 = *(_DWORD *)(a2 + 24) >> *(_DWORD *)(a1 + 812);
+  v39 = 0;
+  v40 = *(_QWORD *)(a1 + 1032);
   if ( *(_QWORD *)(a2 + 16) )
   {
     v22 = *(_DWORD *)(a2 + 28);
@@ -76,10 +82,10 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmDeviceIoCompletion(__int64 a1, __int
       }
       _InterlockedDecrement((volatile signed __int32 *)(v23 + 8));
     }
-    if ( (unsigned int)ST_STORE<SM_TRAITS>::StDeviceIoIsFailed(v2, &v35) )
+    if ( (unsigned int)ST_STORE<SM_TRAITS>::StDeviceIoIsFailed(v2, &v39) )
     {
-      v12 = v35;
-      ST_STORE<SM_TRAITS>::StDmDeviceError(a1, 1, v35);
+      v12 = v39;
+      ST_STORE<SM_TRAITS>::StDmDeviceError(a1, 1, v39);
     }
     else
     {
@@ -92,15 +98,18 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmDeviceIoCompletion(__int64 a1, __int
         if ( (*(_DWORD *)(a2 + 28) & 4) == 0 )
         {
           v30 = KeQueryPerformanceCounter(0LL);
-          v31 = *(_QWORD *)(a1 + 1816);
-          v35 = *(_QWORD *)(*(_QWORD *)(a2 + 16) + 4LL);
-          j = *(_QWORD *)(v31 + 1328);
-          v33 = v30.QuadPart - v35;
-          if ( *(_QWORD *)j < v33 || j != *(_QWORD *)(v31 + 1344) && *(_QWORD *)(j - 16) >= v33 )
+          v31 = *(_QWORD *)(a2 + 16);
+          LODWORD(v38) = *(_DWORD *)(v31 + 4);
+          v32 = *(_DWORD *)(v31 + 8);
+          v33 = *(_QWORD *)(a1 + 1816);
+          HIDWORD(v38) = v32;
+          v34 = v30.QuadPart - v38;
+          j = *(_QWORD *)(v33 + 1328);
+          if ( *(_QWORD *)j < v34 || j != *(_QWORD *)(v33 + 1344) && *(_QWORD *)(j - 16) >= v34 )
           {
-            for ( j = *(_QWORD *)(v31 + 1344); *(_QWORD *)j < v33; j += 16LL )
+            for ( j = *(_QWORD *)(v33 + 1344); *(_QWORD *)j < v34; j += 16LL )
               ;
-            *(_QWORD *)(v31 + 1328) = j;
+            *(_QWORD *)(v33 + 1328) = j;
           }
           ++*(_DWORD *)(j + 8);
         }
@@ -123,10 +132,10 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmDeviceIoCompletion(__int64 a1, __int
       *(_QWORD *)(m + 8) = (unsigned __int64)(v9.QuadPart + v10 - *(_QWORD *)(m + 16)) >> 3;
     }
     _InterlockedDecrement((volatile signed __int32 *)(v7 + 8));
-    if ( (unsigned int)ST_STORE<SM_TRAITS>::StDeviceIoIsFailed(v2, &v35) )
+    if ( (unsigned int)ST_STORE<SM_TRAITS>::StDeviceIoIsFailed(v2, &v39) )
     {
-      v12 = v35;
-      ST_STORE<SM_TRAITS>::StDmDeviceError(a1, 1, v35);
+      v12 = v39;
+      ST_STORE<SM_TRAITS>::StDmDeviceError(a1, 1, v39);
       v11 = 0;
     }
     else
@@ -136,7 +145,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmDeviceIoCompletion(__int64 a1, __int
       if ( v13 )
         ++*v13;
     }
-    v14 = *(_WORD *)(v36 + 2 * v5);
+    v14 = *(_WORD *)(v40 + 2 * v5);
     if ( v14 >= 0 )
     {
       if ( (*(_DWORD *)(a2 + 28) & 1) != 0 )
@@ -148,25 +157,30 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmDeviceIoCompletion(__int64 a1, __int
       {
         v15 = v11;
       }
-      ST_STORE<SM_TRAITS>::StRegionReadDereference(a1, (unsigned int)v5);
+      v20 = v37;
+      ST_STORE<SM_TRAITS>::StRegionReadDereference(a1, v37);
     }
     else
     {
       v15 = 1;
-      *(_WORD *)(v36 + 2 * v5) = v14 & 0x7FFF;
+      *(_WORD *)(v40 + 2 * v5) = v14 & 0x7FFF;
       v16 = SmEtwEnabled(0);
       if ( v16 )
       {
-        SmEtwLogRegionOp(v16, 4, a1, v5, v12, v17, *(_BYTE *)(*(_QWORD *)(a1 + 1048) + v5));
-        v19 = v36;
-        v20 = 0;
-        v18 = (unsigned int)v5;
+        SmEtwLogRegionOp((_DWORD)v16, 4, a1, v37, v12, v18, *(_BYTE *)(*(_QWORD *)(a1 + 1048) + v5));
+        v17 = v40;
+        v19 = 0;
       }
       if ( (*(_DWORD *)(a2 + 28) & 1) != 0 )
       {
         ++*(_DWORD *)(a1 + 1888);
-        if ( (*(_WORD *)(v19 + 2 * v18) & 0x1FFF) != 0 )
-          v15 = v20;
+        v20 = v37;
+        if ( (*(_WORD *)(v17 + 2 * v5) & 0x1FFF) != 0 )
+          v15 = v19;
+      }
+      else
+      {
+        v20 = v37;
       }
     }
     *(_OWORD *)v2 = 0LL;
@@ -181,9 +195,9 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmDeviceIoCompletion(__int64 a1, __int
       *(_OWORD *)k = 0LL;
       *(_QWORD *)(k + 16) = 0LL;
       *(_DWORD *)k = -1;
-      IsCurrentRegion = ST_STORE<SM_TRAITS>::StDmIsCurrentRegion(a1, (unsigned int)v5, v17, v18);
+      IsCurrentRegion = ST_STORE<SM_TRAITS>::StDmIsCurrentRegion(a1, v20);
       if ( IsCurrentRegion != 8 )
-        ST_STORE<SM_TRAITS>::StDmCurrentRegionSet(a1, IsCurrentRegion, 0xFFFFFFFF);
+        ST_STORE<SM_TRAITS>::StDmCurrentRegionSet(a1, IsCurrentRegion, 0xFFFFFFFFLL);
     }
   }
   return (unsigned int)v12;

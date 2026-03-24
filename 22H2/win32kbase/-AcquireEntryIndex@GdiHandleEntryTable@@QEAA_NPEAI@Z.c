@@ -1,36 +1,37 @@
 /*
- * XREFs of ?AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z @ 0x1C003FB68
+ * XREFs of ?AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z @ 0x1C002D0B0
  * Callers:
- *     ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C003FBE0 (-AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z.c)
+ *     ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C002CFC0 (-AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z.c)
  * Callees:
- *     ?Initialize@EntryDataLookupTable@GdiHandleEntryTable@@QEAA_NI@Z @ 0x1C003C41C (-Initialize@EntryDataLookupTable@GdiHandleEntryTable@@QEAA_NI@Z.c)
+ *     ?Initialize@EntryDataLookupTable@GdiHandleEntryTable@@QEAA_NI@Z @ 0x1C0092B40 (-Initialize@EntryDataLookupTable@GdiHandleEntryTable@@QEAA_NI@Z.c)
  */
 
-bool __fastcall GdiHandleEntryTable::AcquireEntryIndex(GdiHandleEntryTable *this, unsigned int *a2)
+char __fastcall GdiHandleEntryTable::AcquireEntryIndex(GdiHandleEntryTable *this, unsigned int *a2)
 {
-  __int64 v4; // rdi
-  bool result; // al
-  signed __int32 v6[10]; // [rsp+0h] [rbp-28h] BYREF
+  unsigned int v2; // r8d
+  __int64 v5; // rdi
+  signed __int32 v7[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  if ( *((_DWORD *)this + 4) < *((_DWORD *)this + 2) )
+  v2 = *((_DWORD *)this + 4);
+  if ( v2 < *((_DWORD *)this + 2) )
   {
-    v4 = *((unsigned int *)this + 3);
-    if ( (_DWORD)v4 != -1 )
+    v5 = *((unsigned int *)this + 3);
+    if ( (_DWORD)v5 != -1 )
     {
-      *((_DWORD *)this + 3) = *(_DWORD *)(*(_QWORD *)this + 24 * v4);
+      *((_DWORD *)this + 3) = *(_DWORD *)(*(_QWORD *)this + 24 * v5);
 LABEL_4:
-      ++*((_DWORD *)this + 4);
-      result = 1;
-      *a2 = v4;
-      return result;
+      *a2 = v5;
+      *((_DWORD *)this + 4) = v2 + 1;
+      return 1;
     }
-    LODWORD(v4) = *((_DWORD *)this + 5);
+    LODWORD(v5) = *((_DWORD *)this + 5);
     if ( GdiHandleEntryTable::EntryDataLookupTable::Initialize(
            *((GdiHandleEntryTable::EntryDataLookupTable **)this + 3),
-           v4) )
+           v5) )
     {
-      _InterlockedOr(v6, 0);
+      _InterlockedOr(v7, 0);
       ++*((_DWORD *)this + 5);
+      v2 = *((_DWORD *)this + 4);
       goto LABEL_4;
     }
   }

@@ -1,14 +1,13 @@
 /*
- * XREFs of VfAllocateDomainCommonBuffer @ 0x1405CE7E0
+ * XREFs of VfAllocateDomainCommonBuffer @ 0x1405A0DF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     ViGetAdapterInformation @ 0x140AC9E2C (ViGetAdapterInformation.c)
- *     ViGetRealDmaAdapter @ 0x140ACA158 (ViGetRealDmaAdapter.c)
- *     ViHalTrackDomainCommonBuffer @ 0x140ACA3E8 (ViHalTrackDomainCommonBuffer.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA60 (ViGetRealDmaOperation.c)
+ *     ViHalTrackDomainCommonBuffer @ 0x1409CED64 (ViHalTrackDomainCommonBuffer.c)
  */
 
 __int64 __fastcall VfAllocateDomainCommonBuffer(
@@ -22,42 +21,28 @@ __int64 __fastcall VfAllocateDomainCommonBuffer(
         _QWORD *a8,
         __int64 a9)
 {
-  _QWORD *Pool2; // rdi
-  __int64 RealDmaAdapter; // rbp
-  unsigned int v15; // ebx
-  int v16; // eax
+  _QWORD *PoolWithTag; // rbx
+  int v14; // edi
+  __int64 (__fastcall *RealDmaOperation)(__int64, __int64, __int64, _QWORD, int, __int64, int, _QWORD *, __int64); // rax
 
-  Pool2 = 0LL;
-  RealDmaAdapter = ViGetRealDmaAdapter(a1);
-  if ( !ViGetAdapterInformation(a1) || (Pool2 = (_QWORD *)ExAllocatePool2(64LL, 24LL, 1449943368LL)) != 0LL )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x566C6148u);
+  if ( PoolWithTag )
   {
-    v16 = (*(__int64 (__fastcall **)(__int64, __int64, __int64, _QWORD, int, __int64, int, _QWORD *, __int64))(*(_QWORD *)(RealDmaAdapter + 8) + 232LL))(
-            RealDmaAdapter,
-            a2,
-            a3,
-            a4,
-            a5,
-            a6,
-            a7,
-            a8,
-            a9);
-    v15 = v16;
-    if ( Pool2 )
+    RealDmaOperation = (__int64 (__fastcall *)(__int64, __int64, __int64, _QWORD, int, __int64, int, _QWORD *, __int64))ViGetRealDmaOperation(a1);
+    v14 = RealDmaOperation(a1, a2, a3, a4, a5, a6, a7, a8, a9);
+    if ( v14 < 0 )
     {
-      if ( v16 < 0 )
-      {
-        ExFreePoolWithTag(Pool2, 0);
-      }
-      else
-      {
-        Pool2[2] = *a8;
-        ViHalTrackDomainCommonBuffer(Pool2);
-      }
+      ExFreePoolWithTag(PoolWithTag, 0);
+    }
+    else
+    {
+      PoolWithTag[2] = *a8;
+      ViHalTrackDomainCommonBuffer(PoolWithTag);
     }
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v15;
+  return (unsigned int)v14;
 }

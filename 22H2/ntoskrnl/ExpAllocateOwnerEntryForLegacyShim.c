@@ -1,28 +1,32 @@
 /*
- * XREFs of ExpAllocateOwnerEntryForLegacyShim @ 0x1403C9224
+ * XREFs of ExpAllocateOwnerEntryForLegacyShim @ 0x14038F46C
  * Callers:
- *     ExpFastResourceLegacyAcquireShared @ 0x1403C8284 (ExpFastResourceLegacyAcquireShared.c)
- *     ExpFastResourceLegacyAcquireExclusive @ 0x1403C91C0 (ExpFastResourceLegacyAcquireExclusive.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14060A594 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     SeSecurityAttributePresent @ 0x14024E430 (SeSecurityAttributePresent.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x1402CE330 (ExEnterCriticalRegionAndAcquireResourceShared.c)
+ *     SepMandatoryIntegrityCheck @ 0x1402CEFB0 (SepMandatoryIntegrityCheck.c)
+ *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402F01D0 (ExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x14038DD64 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1405B485C (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _BYTE *ExpAllocateOwnerEntryForLegacyShim()
 {
-  _BYTE *Pool2; // rax
+  _BYTE *PoolWithTag; // rax
   _BYTE *v1; // rbx
   struct _KTHREAD *CurrentThread; // rcx
   _BYTE *result; // rax
 
   do
   {
-    Pool2 = (_BYTE *)ExAllocatePool2(64LL, 72LL, 1162826310LL);
-    v1 = Pool2;
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x48uLL, 0x454F5246u);
+    v1 = PoolWithTag;
   }
-  while ( !Pool2 );
-  memset(Pool2, 0, 0x48uLL);
+  while ( !PoolWithTag );
+  memset(PoolWithTag, 0, 0x48uLL);
   CurrentThread = KeGetCurrentThread();
   result = v1;
   v1[17] |= 2u;

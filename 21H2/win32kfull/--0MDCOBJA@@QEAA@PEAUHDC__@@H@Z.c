@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0091AE4
+ * XREFs of ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0017954
  * Callers:
- *     NtGdiDdDDICreateDCFromMemory @ 0x1C0091B20 (NtGdiDdDDICreateDCFromMemory.c)
- *     DxgkEngGetDC @ 0x1C0275120 (DxgkEngGetDC.c)
- *     DxgkEngLockVisRgn @ 0x1C0275320 (DxgkEngLockVisRgn.c)
- *     GreSetPaletteEntries @ 0x1C02B6290 (GreSetPaletteEntries.c)
- *     NtGdiResizePalette @ 0x1C02B6830 (NtGdiResizePalette.c)
+ *     NtGdiDdDDICreateDCFromMemory @ 0x1C0017990 (NtGdiDdDDICreateDCFromMemory.c)
+ *     DxgkEngGetDC @ 0x1C0277900 (DxgkEngGetDC.c)
+ *     DxgkEngLockVisRgn @ 0x1C0277B80 (DxgkEngLockVisRgn.c)
+ *     GreSetPaletteEntries @ 0x1C02B8130 (GreSetPaletteEntries.c)
+ *     NtGdiResizePalette @ 0x1C02B86F0 (NtGdiResizePalette.c)
  * Callees:
  *     <none>
  */

@@ -1,84 +1,69 @@
 /*
- * XREFs of ?Stop@ADAPTER_DISPLAY@@QEAAXE@Z @ 0x1C02C00A8
+ * XREFs of ?Stop@ADAPTER_DISPLAY@@QEAAXE@Z @ 0x1C0215938
  * Callers:
- *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C02BA418 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
+ *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C0210244 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0013C40 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
- *     ?DecrementDesktopVidPnCount@DXGSESSIONDATA@@QEAAXXZ @ 0x1C0017140 (-DecrementDesktopVidPnCount@DXGSESSIONDATA@@QEAAXXZ.c)
- *     ?ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C0195BF4 (-ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
- *     ?Stop@DXGPROTECTEDSESSION@@QEAAXXZ @ 0x1C03490A4 (-Stop@DXGPROTECTEDSESSION@@QEAAXXZ.c)
- *     ?CleanCachedIddDisplayConfigRequest@DXGSESSIONMGR@@QEAAJK@Z @ 0x1C0354D10 (-CleanCachedIddDisplayConfigRequest@DXGSESSIONMGR@@QEAAJK@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003700 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C000D994 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
+ *     ?ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C00E0464 (-ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ *     ?Stop@DXGPROTECTEDSESSION@@QEAAXXZ @ 0x1C0288FB0 (-Stop@DXGPROTECTEDSESSION@@QEAAXXZ.c)
+ *     ?CleanCachedIddDisplayConfigRequest@DXGSESSIONMGR@@QEAAJK@Z @ 0x1C029ED34 (-CleanCachedIddDisplayConfigRequest@DXGSESSIONMGR@@QEAAJK@Z.c)
  */
 
 void __fastcall ADAPTER_DISPLAY::Stop(ADAPTER_DISPLAY *this, struct _LUID *a2)
 {
+  PERESOURCE **v3; // rdx
+  __int64 v4; // rdx
   _DWORD *i; // rax
-  DXGPROTECTEDSESSION *j; // rbx
-  DXGADAPTER *v5; // rcx
+  __int64 v6; // rdx
+  DXGPROTECTEDSESSION *j; // rdi
+  DXGADAPTER *v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
   struct DXGGLOBAL *Global; // rax
-  int v7; // eax
-  __int64 v8; // rdi
-  __int64 v9; // rbx
-  unsigned int k; // ebx
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  DXGSESSIONDATA **v13; // rcx
-  unsigned int v14; // [rsp+78h] [rbp+10h] BYREF
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rdi
+  __int64 v16; // rax
+  unsigned int v17; // [rsp+48h] [rbp+10h] BYREF
 
   if ( !(_BYTE)a2 )
   {
-    ADAPTER_DISPLAY::ReleaseAllVidPnSourceOwners((PERESOURCE **)this, *(PERESOURCE ***)(*((_QWORD *)this + 2) + 2928LL));
-    DXGFASTMUTEX::Acquire((ADAPTER_DISPLAY *)((char *)this + 32));
-    for ( i = (_DWORD *)*((_QWORD *)this + 10); i != (_DWORD *)((char *)this + 80) && i; i = *(_DWORD **)i )
+    v3 = *(PERESOURCE ***)(*((_QWORD *)this + 2) + 2704LL);
+    if ( !v3 )
+      v3 = 0LL;
+    ADAPTER_DISPLAY::ReleaseAllVidPnSourceOwners((PERESOURCE **)this, v3);
+    DXGFASTMUTEX::Acquire((ADAPTER_DISPLAY *)((char *)this + 24));
+    for ( i = (_DWORD *)*((_QWORD *)this + 8); i != (_DWORD *)((char *)this + 64) && i; i = *(_DWORD **)i )
       i[14] = 0;
-    DXGFASTMUTEX::Release((struct _KTHREAD **)this + 4);
-    DXGFASTMUTEX::Acquire((ADAPTER_DISPLAY *)((char *)this + 664));
-    for ( j = (DXGPROTECTEDSESSION *)*((_QWORD *)this + 89);
-          j != (ADAPTER_DISPLAY *)((char *)this + 712) && j;
+    DXGFASTMUTEX::Release((struct _KTHREAD **)this + 3, v4);
+    DXGFASTMUTEX::Acquire((ADAPTER_DISPLAY *)((char *)this + 568));
+    for ( j = (DXGPROTECTEDSESSION *)*((_QWORD *)this + 76);
+          j != (ADAPTER_DISPLAY *)((char *)this + 608) && j;
           j = *(DXGPROTECTEDSESSION **)j )
     {
       DXGPROTECTEDSESSION::Stop(j);
     }
-    DXGFASTMUTEX::Release((struct _KTHREAD **)this + 83);
+    DXGFASTMUTEX::Release((struct _KTHREAD **)this + 71, v6);
   }
-  v5 = (DXGADAPTER *)*((_QWORD *)this + 2);
-  v14 = 0;
-  if ( (*((_DWORD *)v5 + 109) & 0x100) != 0 && DXGADAPTER::IsAdapterSessionized(v5, a2, &v14, 0LL) )
+  v8 = (DXGADAPTER *)*((_QWORD *)this + 2);
+  v17 = 0;
+  if ( (*((_DWORD *)v8 + 87) & 0x100) != 0 && DXGADAPTER::IsAdapterSessionized(v8, a2, &v17, 0LL) )
   {
-    Global = DXGGLOBAL::GetGlobal();
-    v7 = DXGSESSIONMGR::CleanCachedIddDisplayConfigRequest(*((DXGSESSIONMGR **)Global + 118), v14);
-    if ( v7 < 0 )
+    Global = DXGGLOBAL::GetGlobal(v10, v9);
+    v12 = DXGSESSIONMGR::CleanCachedIddDisplayConfigRequest(*((DXGSESSIONMGR **)Global + 102), v17);
+    v15 = v12;
+    if ( v12 < 0 )
     {
-      v8 = v14;
-      v9 = v7;
-      WdLogSingleEntry2(2LL, v14, v7);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to purge the cached IDD display config request for session 0x%I64x, (Status = 0x%I64x).",
-        v8,
-        v9,
-        0LL,
-        0LL,
-        0LL);
+      v16 = WdLogNewEntry5_WdError(v14, v13);
+      *(_QWORD *)(v16 + 24) = v17;
+      *(_QWORD *)(v16 + 32) = v15;
+      WdLogEvent5_WdError(v16);
     }
   }
-  for ( k = 0; k < *((_DWORD *)this + 24); ++k )
-  {
-    v11 = 4000LL * k;
-    v12 = *((_QWORD *)this + 16);
-    if ( *(_BYTE *)(v11 + v12 + 762) )
-    {
-      v13 = *(DXGSESSIONDATA ***)(v11 + v12 + 48);
-      if ( v13 )
-        DXGSESSIONDATA::DecrementDesktopVidPnCount(*v13);
-    }
-  }
-  KeCancelTimer((PKTIMER)((char *)this + 736));
+  KeCancelTimer((PKTIMER)((char *)this + 632));
   KeFlushQueuedDpcs();
 }

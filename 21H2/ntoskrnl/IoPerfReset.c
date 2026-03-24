@@ -1,13 +1,13 @@
 /*
- * XREFs of IoPerfReset @ 0x1405595B8
+ * XREFs of IoPerfReset @ 0x140507EDC
  * Callers:
- *     EtwpDisableKernelTrace @ 0x1406D56D0 (EtwpDisableKernelTrace.c)
- *     IoUnregisterIoTracking @ 0x140937F70 (IoUnregisterIoTracking.c)
+ *     EtwpDisableKernelTrace @ 0x14079846C (EtwpDisableKernelTrace.c)
+ *     IoUnregisterIoTracking @ 0x140895760 (IoUnregisterIoTracking.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     IopUpdateFunctionPointers @ 0x14055712C (IopUpdateFunctionPointers.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopUpdateFunctionPointers @ 0x140501958 (IopUpdateFunctionPointers.c)
  */
 
 __int64 __fastcall IoPerfReset(char a1)
@@ -22,9 +22,9 @@ __int64 __fastcall IoPerfReset(char a1)
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(&IopFunctionPointerLock, &LockHandle);
-  if ( (a1 & 1) != 0 && !--dword_140D018A4 )
+  if ( (a1 & 1) != 0 && !--dword_140CF56E4 )
     IopPerfStatus &= ~1u;
-  if ( (a1 & 2) != 0 && !--dword_140D018A8 )
+  if ( (a1 & 2) != 0 && !--dword_140CF56E8 )
     IopPerfStatus &= ~2u;
   if ( !IopPerfStatus )
     IopUpdateFunctionPointers(2, 0, 1);

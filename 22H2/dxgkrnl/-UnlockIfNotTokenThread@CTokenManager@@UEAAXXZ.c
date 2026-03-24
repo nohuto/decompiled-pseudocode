@@ -1,5 +1,5 @@
 /*
- * XREFs of ?UnlockIfNotTokenThread@CTokenManager@@UEAAXXZ @ 0x1C0017810
+ * XREFs of ?UnlockIfNotTokenThread@CTokenManager@@UEAAXXZ @ 0x1C0064010
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,9 @@
 
 void __fastcall CTokenManager::UnlockIfNotTokenThread(CTokenManager *this)
 {
-  if ( KeGetCurrentThread() != *((struct _KTHREAD **)this + 4) )
+  if ( KeGetCurrentThread() != *((struct _KTHREAD **)this + 3) )
   {
-    *((_QWORD *)this + 13) = 0LL;
-    ExReleasePushLockExclusiveEx((char *)this + 96, 0LL);
+    *((_QWORD *)this + 12) = 0LL;
+    ExReleasePushLockExclusiveEx((char *)this + 88, 0LL);
   }
 }

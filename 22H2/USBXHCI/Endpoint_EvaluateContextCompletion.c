@@ -1,14 +1,14 @@
 /*
- * XREFs of Endpoint_EvaluateContextCompletion @ 0x1C001B920
+ * XREFs of Endpoint_EvaluateContextCompletion @ 0x1C00168E0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     WPP_RECORDER_SF_dddL @ 0x1C0010908 (WPP_RECORDER_SF_dddL.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
- *     CommonBuffer_ReleaseBuffer @ 0x1C001E7A4 (CommonBuffer_ReleaseBuffer.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pppnnn_EtwWriteTransfer @ 0x1C004AF0C (McTemplateK0pppnnn_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_dddL @ 0x1C00103AC (WPP_RECORDER_SF_dddL.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pppnnn_EtwWriteTransfer @ 0x1C0048954 (McTemplateK0pppnnn_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Endpoint_EvaluateContextCompletion(__int64 a1, int a2)
@@ -36,7 +36,7 @@ __int64 __fastcall Endpoint_EvaluateContextCompletion(__int64 a1, int a2)
         v10,
         13,
         28,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(*(_QWORD *)v2 + 16LL) + 135LL),
         *(_DWORD *)(*(_QWORD *)v2 + 144LL));
     }
@@ -68,13 +68,13 @@ LABEL_12:
       v7,
       13,
       29,
-      (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
       *(_BYTE *)(*(_QWORD *)(*(_QWORD *)v2 + 16LL) + 135LL),
       *(_DWORD *)(*(_QWORD *)v2 + 144LL),
       *((_DWORD *)v2 + 4));
   }
   v5 = *(_QWORD **)v2;
-  if ( (WPP_MAIN_CB.AlignmentRequirement & 2) != 0 )
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc & 2) != 0 )
     McTemplateK0pppnnn_EtwWriteTransfer(
       (_DWORD)v5 + 103,
       (unsigned int)&USBXHCI_ETW_EVENT_ENDPOINT_UPDATE,

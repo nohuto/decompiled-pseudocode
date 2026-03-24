@@ -1,14 +1,14 @@
 /*
- * XREFs of AslPathClean @ 0x140A15610
+ * XREFs of AslPathClean @ 0x140754394
  * Callers:
- *     SdbpResolveMatchingFile @ 0x140A12DA0 (SdbpResolveMatchingFile.c)
+ *     SdbpResolveMatchingFile @ 0x1407539DC (SdbpResolveMatchingFile.c)
  * Callees:
- *     wcschr @ 0x1403E32C0 (wcschr.c)
- *     wcsncmp @ 0x1403E33F0 (wcsncmp.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     wcschr @ 0x1403D3F10 (wcschr.c)
+ *     wcsncmp @ 0x1403D4040 (wcsncmp.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
-__int64 __fastcall AslPathClean(const wchar_t *Src, void *a2, unsigned __int64 a3)
+__int64 __fastcall AslPathClean(wchar_t *Str, void *a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rbp
   unsigned int v5; // edi
@@ -18,45 +18,44 @@ __int64 __fastcall AslPathClean(const wchar_t *Src, void *a2, unsigned __int64 a
   unsigned __int64 i; // rdx
   wchar_t v11; // ax
   wchar_t v12; // ax
-  wchar_t v13; // r8
   wchar_t v14; // ax
-  __int16 v15; // ax
+  wchar_t v15; // r8
   __int16 v16; // ax
-  unsigned __int64 v17; // rax
+  __int16 v17; // ax
+  unsigned __int64 v18; // rax
 
   v3 = -1LL;
   v5 = 0;
   do
     ++v3;
-  while ( Src[v3] );
+  while ( Str[v3] );
   if ( a3 < v3 + 1 )
     return (unsigned int)-1073741789;
-  v7 = wcschr(Src, 0x3Au);
-  if ( v7 )
-    goto LABEL_10;
-  v8 = 4LL;
-  if ( wcsncmp(Src, L"\\??\\", 4uLL) )
+  v7 = wcschr(Str, 0x3Au);
+  if ( !v7 )
   {
-    if ( !wcsncmp(Src, L"\\\\", 2uLL) )
+    v8 = 4LL;
+    if ( !wcsncmp(Str, L"\\??\\", 4uLL) )
+      goto LABEL_6;
+    if ( !wcsncmp(Str, L"\\\\", 2uLL) )
     {
       v8 = 2LL;
-      goto LABEL_12;
+      goto LABEL_6;
     }
-    v7 = wcschr(Src, 0x5Cu);
+    v7 = wcschr(Str, 0x5Cu);
     if ( !v7 )
     {
       v8 = 1LL;
-      goto LABEL_12;
+      goto LABEL_6;
     }
-LABEL_10:
-    v8 = ((unsigned __int64)((char *)v7 - (char *)Src) >> 1) + 1;
   }
-LABEL_12:
-  memmove(a2, Src, 2 * v8);
+  v8 = ((unsigned __int64)((char *)v7 - (char *)Str) >> 1) + 1;
+LABEL_6:
+  memmove(a2, Str, 2 * v8);
   v9 = v8;
   for ( i = v8; i < v3; ++i )
   {
-    v11 = Src[i];
+    v11 = Str[i];
     if ( v11 == 92 || v11 == 47 )
     {
       if ( !v9 || *((_WORD *)a2 + v9 - 1) != 92 )
@@ -66,55 +65,61 @@ LABEL_12:
     {
       if ( i + 1 == v3 )
         break;
-      v12 = Src[i + 1];
-      if ( v12 == 92 || v12 == 47 )
+      v14 = Str[i + 1];
+      if ( v14 == 92 || v14 == 47 )
       {
         ++i;
       }
-      else if ( v12 == 46 )
+      else if ( v14 == 46 )
       {
-        if ( i + 2 == v3 || (v13 = Src[i + 2], v13 == 92) || v13 == 47 )
+        if ( i + 2 == v3 || (v15 = Str[i + 2], v15 == 92) || v15 == 47 )
         {
-          while ( v9 >= v8 )
+          if ( v9 >= v8 )
           {
-            v15 = *((_WORD *)a2 + v9);
-            *((_WORD *)a2 + v9) = 0;
-            if ( v15 == 92 )
+            do
             {
-              do
-              {
-                v16 = *((_WORD *)a2 + v9);
-                *((_WORD *)a2 + v9) = 0;
-                if ( v16 == 92 )
-                  break;
-                --v9;
-              }
-              while ( v9 >= v8 );
-              break;
+              v16 = *((_WORD *)a2 + v9);
+              *((_WORD *)a2 + v9) = 0;
+              if ( v16 == 92 )
+                break;
+              --v9;
             }
-            --v9;
+            while ( v9 >= v8 );
+            while ( v9 >= v8 )
+            {
+              v17 = *((_WORD *)a2 + v9);
+              *((_WORD *)a2 + v9) = 0;
+              if ( v17 == 92 )
+                break;
+              --v9;
+            }
           }
-          v17 = v9 + 1;
+          v18 = v9 + 1;
           ++i;
           if ( v9 >= v8 )
-            v17 = v9;
-          v9 = v17;
+            v18 = v9;
+          v9 = v18;
         }
       }
     }
     else
     {
-      while ( i < v3 )
+      if ( i < v3 )
       {
-        v14 = Src[i];
-        if ( v14 == 92 || v14 == 47 )
+        do
         {
-          if ( v9 >= 2 && *((_WORD *)a2 + v9 - 1) == 46 && *((_WORD *)a2 + v9 - 2) != 46 )
-            --v9;
-          break;
+          v12 = Str[i];
+          if ( v12 == 92 )
+            break;
+          if ( v12 == 47 )
+            break;
+          *((_WORD *)a2 + v9) = v12;
+          ++i;
+          ++v9;
         }
-        *((_WORD *)a2 + v9++) = v14;
-        ++i;
+        while ( i < v3 );
+        if ( i < v3 && v9 >= 2 && *((_WORD *)a2 + v9 - 1) == 46 && *((_WORD *)a2 + v9 - 2) != 46 )
+          --v9;
       }
       --i;
     }

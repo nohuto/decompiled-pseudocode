@@ -1,22 +1,22 @@
 /*
- * XREFs of PerfInfoLogUnexpectedInterrupt @ 0x140630480
+ * XREFs of PerfInfoLogUnexpectedInterrupt @ 0x1405AA440
  * Callers:
- *     KxIsrLinkage @ 0x140423360 (KxIsrLinkage.c)
+ *     KxIsrLinkage @ 0x140401B40 (KxIsrLinkage.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void __fastcall PerfInfoLogUnexpectedInterrupt(int a1)
+__int64 __fastcall PerfInfoLogUnexpectedInterrupt(int a1)
 {
-  int *v1; // [rsp+30h] [rbp-28h] BYREF
-  int v2; // [rsp+38h] [rbp-20h]
-  int v3; // [rsp+3Ch] [rbp-1Ch]
-  int v4; // [rsp+60h] [rbp+8h] BYREF
+  int *v2; // [rsp+30h] [rbp-28h] BYREF
+  int v3; // [rsp+38h] [rbp-20h]
+  int v4; // [rsp+3Ch] [rbp-1Ch]
+  int v5; // [rsp+60h] [rbp+8h] BYREF
 
-  v4 = a1;
-  v3 = 0;
-  v1 = &v4;
-  v2 = 2;
-  EtwTraceKernelEvent((__int64)&v1, 1u, 0x20004000u, 0xF5Cu, 0x400A02u);
+  v5 = a1;
+  v4 = 0;
+  v2 = &v5;
+  v3 = 2;
+  return EtwTraceKernelEvent((int)&v2, 1, 0x20004000u, 3932, 4196866);
 }

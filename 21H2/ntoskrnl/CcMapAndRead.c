@@ -1,102 +1,85 @@
 /*
- * XREFs of CcMapAndRead @ 0x140328510
+ * XREFs of CcMapAndRead @ 0x1403213E0
  * Callers:
- *     CcPrepareMdlWrite @ 0x140253190 (CcPrepareMdlWrite.c)
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
- *     CcMapData @ 0x1407BDE60 (CcMapData.c)
+ *     CcPrepareMdlWrite @ 0x1402CC660 (CcPrepareMdlWrite.c)
+ *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
+ *     CcMapData @ 0x1406EF810 (CcMapData.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     MmCheckCachedPageStates @ 0x140328690 (MmCheckCachedPageStates.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
  */
 
 __int64 __fastcall CcMapAndRead(unsigned int a1, int a2, char a3, __int64 a4)
 {
+  unsigned __int8 v4; // bp
+  int v5; // r11d
   struct _KTHREAD *CurrentThread; // rsi
-  __int64 v6; // rdi
-  unsigned int v8; // r8d
-  __int16 v9; // cx
-  unsigned __int8 v10; // bp
-  int v11; // r9d
-  int v12; // r11d
-  int v13; // r10d
-  unsigned __int64 v14; // r15
-  unsigned __int64 v15; // rdi
-  unsigned int v16; // ebx
-  int v17; // r14d
-  int v18; // eax
-  int v20; // eax
-  int v21; // [rsp+60h] [rbp+8h]
-  int v22; // [rsp+68h] [rbp+10h]
-  char v23; // [rsp+70h] [rbp+18h] BYREF
+  int v8; // edx
+  signed int v9; // r10d
+  unsigned __int64 v10; // r14
+  unsigned __int64 v11; // rbx
+  unsigned int v12; // edi
+  unsigned int v13; // r8d
+  int v14; // r15d
+  int v16; // eax
+  int v18; // [rsp+78h] [rbp+20h]
 
-  v22 = a2;
+  v4 = 0;
+  v5 = 1;
   CurrentThread = KeGetCurrentThread();
-  v6 = a1;
-  v8 = 0;
-  v9 = a4;
-  v10 = 0;
-  v11 = 2;
-  v12 = 1;
-  v23 = 1;
-  v13 = 0;
+  v8 = 2;
+  v9 = 0;
   if ( a3 )
-    v11 = 0;
-  v21 = v11;
-  v14 = a4 & 0xFFFFFFFFFFFFF000uLL;
-  v15 = ((unsigned __int64)(v9 & 0xFFF) + v6 + 4095) >> 12;
-  v16 = BYTE4(CurrentThread[1].Queue) + 2 * LODWORD(CurrentThread[1].WaitListEntry.Flink);
-  if ( (_DWORD)v15 )
+    v8 = 0;
+  v18 = v8;
+  v10 = a4 & 0xFFFFFFFFFFFFF000uLL;
+  v11 = ((a4 & 0xFFF) + (unsigned __int64)a1 + 4095) >> 12;
+  v12 = BYTE4(CurrentThread[1].Queue) + 4 * LODWORD(CurrentThread[1].WaitListEntry.Flink);
+  if ( (_DWORD)v11 )
   {
     while ( 1 )
     {
       BYTE4(CurrentThread[1].Queue) = 1;
-      if ( (unsigned int)(v15 - 1) > LODWORD(CurrentThread[1].WaitListEntry.Flink) )
+      if ( (unsigned int)(v11 - 1) > LODWORD(CurrentThread[1].WaitListEntry.Flink) )
       {
-        v20 = v15 - 1;
-        if ( (unsigned int)(v15 - 1) > 0xF )
-          v20 = 15;
-        LODWORD(CurrentThread[1].WaitListEntry.Flink) = v20;
+        v16 = v11 - 1;
+        if ( (unsigned int)(v11 - 1) > 0xF )
+          v16 = 15;
+        LODWORD(CurrentThread[1].WaitListEntry.Flink) = v16;
       }
+      v13 = 0;
       if ( a2 )
       {
-        v17 = 1;
-        if ( v12 == 2 )
-          v17 = v15 - 1;
+        v14 = 1;
+        if ( v5 == 2 )
+          v14 = v11 - 1;
       }
       else
       {
-        v17 = v15;
+        v14 = v11;
       }
-      LOBYTE(v8) = (v12 & a2) != 0;
-      v18 = MmCheckCachedPageStates(v14, (unsigned int)(v17 << 12), v11 | v8, &v23);
-      v13 = v18;
-      if ( !v23 && !a3 )
+      LOBYTE(v13) = (v5 & a2) != 0;
+      v9 = MmCheckCachedPageStates(v10, (unsigned int)(v14 << 12), v8 | v13);
+      if ( v9 < 0 )
         break;
-      if ( v18 < 0 )
-        goto LABEL_13;
-      v14 += (unsigned int)(v17 << 12);
-      LODWORD(v15) = v15 - v17;
-      v12 = 4;
-      if ( (_DWORD)v15 != 1 )
-        v12 = 2;
-      if ( !(_DWORD)v15 )
-        goto LABEL_12;
-      a2 = v22;
-      v8 = 0;
-      v11 = v21;
+      v8 = v18;
+      v10 += (unsigned int)(v14 << 12);
+      LODWORD(v11) = v11 - v14;
+      v5 = 4;
+      if ( (_DWORD)v11 != 1 )
+        v5 = 2;
+      if ( !(_DWORD)v11 )
+        goto LABEL_11;
     }
-    LODWORD(CurrentThread[1].WaitListEntry.Flink) = v16 >> 1;
-    BYTE4(CurrentThread[1].Queue) = v16 & 1;
   }
   else
   {
-LABEL_12:
-    v10 = 1;
-LABEL_13:
-    LODWORD(CurrentThread[1].WaitListEntry.Flink) = v16 >> 1;
-    BYTE4(CurrentThread[1].Queue) = v16 & 1;
-    if ( a3 && v13 < 0 )
-      RtlRaiseStatus(v13);
+LABEL_11:
+    v4 = 1;
   }
-  return v10;
+  LODWORD(CurrentThread[1].WaitListEntry.Flink) = v12 >> 2;
+  BYTE4(CurrentThread[1].Queue) = v12 & 3;
+  if ( a3 && v9 < 0 )
+    RtlRaiseStatus(v9);
+  return v4;
 }

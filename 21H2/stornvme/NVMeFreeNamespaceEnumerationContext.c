@@ -1,7 +1,7 @@
 /*
- * XREFs of NVMeFreeNamespaceEnumerationContext @ 0x1C000E910
+ * XREFs of NVMeFreeNamespaceEnumerationContext @ 0x1C000695C
  * Callers:
- *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C000EC00 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0006C40 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
  * Callees:
  *     <none>
  */

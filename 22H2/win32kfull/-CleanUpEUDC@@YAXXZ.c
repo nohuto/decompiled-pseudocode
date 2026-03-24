@@ -1,63 +1,54 @@
 /*
- * XREFs of ?CleanUpEUDC@@YAXXZ @ 0x1C008A954
+ * XREFs of ?CleanUpEUDC@@YAXXZ @ 0x1C00E6560
  * Callers:
- *     GdiMultiUserFontCleanup @ 0x1C008AAF0 (GdiMultiUserFontCleanup.c)
+ *     GdiMultiUserFontCleanup @ 0x1C00E6080 (GdiMultiUserFontCleanup.c)
  * Callees:
- *     GreEnableEUDC @ 0x1C008A748 (GreEnableEUDC.c)
- *     bUnloadEudcFont @ 0x1C0114E84 (bUnloadEudcFont.c)
- *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C0115160 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ *     bUnloadEudcFont @ 0x1C00A1D5C (bUnloadEudcFont.c)
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C00A1E64 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ *     GreEnableEUDC @ 0x1C00E9258 (GreEnableEUDC.c)
  */
 
-void __fastcall CleanUpEUDC(Gre::Base *a1)
+void CleanUpEUDC(void)
 {
-  struct Gre::Base::SESSION_GLOBALS *v1; // rdi
-  __int64 v2; // rcx
-  __int64 v3; // rbx
-  char v4; // al
-  void *v5; // rcx
-  void *v6; // rcx
-  void *v7; // rcx
-  unsigned int v8; // esi
-  __int64 v9; // rdi
+  char v0; // al
+  PFTOBJ *v1; // rcx
+  unsigned int v2; // edi
+  char *v3; // rbx
 
-  v1 = Gre::Base::Globals(a1);
-  v3 = *(_QWORD *)(SGDGetSessionState(v2) + 32);
-  if ( !*(_QWORD *)(v3 + 20272) || (v4 = 1, !*((_QWORD *)v1 + 6)) )
-    v4 = 0;
-  *(_DWORD *)(v3 + 13312) |= 2u;
-  if ( v4 )
+  if ( !gpPFTPublic || (v0 = 1, !ghsemPublicPFT) )
+    v0 = 0;
+  dword_1C033A0BC |= 2u;
+  if ( v0 )
     GreEnableEUDC(0LL);
-  v5 = *(void **)(v3 + 13872);
-  if ( v5 )
+  if ( qword_1C03398A8 )
   {
-    Win32FreePool(v5);
-    *(_QWORD *)(v3 + 13872) = 0LL;
+    Win32FreePool((void *)qword_1C03398A8);
+    qword_1C03398A8 = 0LL;
   }
-  v6 = *(void **)(v3 + 13888);
-  if ( v6 )
+  if ( qword_1C033C570 )
   {
-    Win32FreePool(v6);
-    *(_QWORD *)(v3 + 13888) = 0LL;
+    Win32FreePool((void *)qword_1C033C570);
+    qword_1C033C570 = 0LL;
   }
-  if ( *(_DWORD *)(v3 + 19360) )
+  if ( bFinallyInitializeFontAssocDefault )
   {
-    v8 = 0;
-    v9 = v3 + 14212;
+    v2 = 0;
+    v3 = (char *)&unk_1C0333ABC;
     do
     {
-      if ( *(_DWORD *)(v9 - 124) && *(_WORD *)v9 && *(_QWORD *)(v9 + 524) )
-        bUnloadEudcFont(v3 + 664LL * v8 + 14736);
-      ++v8;
-      v9 += 664LL;
+      if ( *((_DWORD *)v3 - 31) && *(_WORD *)v3 && *(_QWORD *)(v3 + 524) )
+        bUnloadEudcFont((__int64)&unk_1C0333CC8 + 664 * v2);
+      ++v2;
+      v3 += 664;
     }
-    while ( v8 < 7 );
+    while ( v2 < 7 );
   }
-  v7 = *(void **)(v3 + 19376);
-  if ( v7 )
+  v1 = pFontAssocSubs;
+  if ( pFontAssocSubs )
   {
-    Win32FreePool(v7);
-    *(_QWORD *)(v3 + 19376) = 0LL;
+    Win32FreePool(pFontAssocSubs);
+    pFontAssocSubs = 0LL;
   }
-  if ( *(_DWORD *)(v3 + 19352) )
-    PFTOBJ::bUnloadEUDCFont((PFTOBJ *)v7, (unsigned __int16 *)(v3 + 18748));
+  if ( gbSystemDBCSFontEnabled )
+    PFTOBJ::bUnloadEUDCFont(v1, &gawcSystemDBCSFontPath);
 }

@@ -1,114 +1,96 @@
 /*
- * XREFs of ?OnSwapChainCreated@COverlayContext@@QEAAJXZ @ 0x1800C91A4
+ * XREFs of ?OnSwapChainCreated@COverlayContext@@QEAAJXZ @ 0x180025178
  * Callers:
- *     ?EnsureSwapChain@CLegacyRenderTarget@@MEAAJPEA_N@Z @ 0x1800C8F30 (-EnsureSwapChain@CLegacyRenderTarget@@MEAAJPEA_N@Z.c)
- *     ?TryEnsureSwapChain@CDDisplayRenderTarget@@IEAAJXZ @ 0x1801E96B4 (-TryEnsureSwapChain@CDDisplayRenderTarget@@IEAAJXZ.c)
- *     ?EnsureSwapChain@CLegacyStereoRenderTarget@@MEAAJPEA_N@Z @ 0x1801F1300 (-EnsureSwapChain@CLegacyStereoRenderTarget@@MEAAJPEA_N@Z.c)
+ *     ?EnsureSwapChain@CLegacyRenderTarget@@MEAAJPEA_N@Z @ 0x180024F00 (-EnsureSwapChain@CLegacyRenderTarget@@MEAAJPEA_N@Z.c)
+ *     ?TryEnsureSwapChain@CDDisplayRenderTarget@@IEAAJXZ @ 0x18018D218 (-TryEnsureSwapChain@CDDisplayRenderTarget@@IEAAJXZ.c)
+ *     ?EnsureSwapChain@CLegacyStereoRenderTarget@@MEAAJPEA_N@Z @ 0x18018DA70 (-EnsureSwapChain@CLegacyStereoRenderTarget@@MEAAJPEA_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?UpdateMPOCaps@COverlayContext@@QEAAJXZ @ 0x1800C97B8 (-UpdateMPOCaps@COverlayContext@@QEAAJXZ.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIConversionSwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025380 (--1-$com_ptr_t@VIConversionSwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Reset@COverlayContext@@IEAAXXZ @ 0x18002E744 (-Reset@COverlayContext@@IEAAXXZ.c)
+ *     ?UpdateMPOCaps@COverlayContext@@QEAAJ_N@Z @ 0x18002F934 (-UpdateMPOCaps@COverlayContext@@QEAAJ_N@Z.c)
+ *     ?IsXbox@CD3DDevice@@QEBA_NXZ @ 0x180038FD4 (-IsXbox@CD3DDevice@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?IsIntelFullDesktopClipRequired@@YA_NI@Z @ 0x1800EBB4C (-IsIntelFullDesktopClipRequired@@YA_NI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall COverlayContext::OnSwapChainCreated(COverlayContext *this)
 {
-  __int64 v2; // rbx
-  __int64 (__fastcall ***v3)(_QWORD, _BYTE *); // rcx
-  __int64 v4; // rcx
-  __int64 v5; // rax
-  __int64 v6; // rcx
-  __int64 v7; // rbx
-  __int64 v8; // rax
-  __int64 v9; // rsi
+  __int64 v2; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rdi
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rsi
+  int (__fastcall *v8)(__int64, GUID *, __int64 *); // rbp
+  __int64 v9; // rcx
   __int64 v10; // rcx
   char v11; // al
-  int v12; // eax
-  _DWORD *v13; // rax
-  unsigned int v14; // ecx
-  char v15; // al
+  int v12; // r8d
+  int v13; // eax
   int updated; // eax
-  __int64 v17; // rcx
-  unsigned int v18; // ebx
-  __int64 v20; // rcx
-  __int64 v21; // [rsp+30h] [rbp-28h] BYREF
-  _BYTE v22[16]; // [rsp+38h] [rbp-20h] BYREF
+  unsigned int v15; // ecx
+  unsigned int v16; // edi
+  __int64 v18; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 176LL))(*(_QWORD *)this);
-  v3 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*(int *)(*(_QWORD *)(v2 + 8) + 8LL) + v2 + 8);
-  *((_DWORD *)this + 2) = *(_DWORD *)((**v3)(v3, v22) + 4);
-  v4 = v2 + 8 + *(int *)(*(_QWORD *)(v2 + 8) + 12LL);
-  v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
-  v6 = *(_QWORD *)this;
-  v7 = v5;
-  v21 = 0LL;
-  v8 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v6 + 176LL))(v6);
-  v9 = v8 + *(int *)(*(_QWORD *)(v8 + 8) + 4LL);
-  if ( (**(int (__fastcall ***)(__int64, GUID *, __int64 *))(v9 + 8))(
-         v9 + 8,
-         &GUID_cf12c0b8_aae0_4ef0_b8e3_97cd3b4d6f91,
-         &v21) >= 0 )
+  v2 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 192LL))(*(_QWORD *)this);
+  v3 = *(int *)(*(_QWORD *)(v2 + 8) + 12LL) + v2 + 8;
+  v4 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v3 + 8LL))(v3);
+  COverlayContext::s_bXbox |= CD3DDevice::IsXbox((CD3DDevice *)v4);
+  if ( *((_DWORD *)this + 2853) )
+    COverlayContext::Reset(this);
+  v5 = *(_QWORD *)this;
+  v18 = 0LL;
+  v6 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v5 + 192LL))(v5);
+  v7 = v6 + *(int *)(*(_QWORD *)(v6 + 8) + 4LL);
+  v8 = **(int (__fastcall ***)(__int64, GUID *, __int64 *))(v7 + 8);
+  if ( v18 )
   {
-    *((_BYTE *)this + 11297) = 1;
+    v9 = v18 + 8 + *(int *)(*(_QWORD *)(v18 + 8) + 4LL);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+  }
+  if ( v8(v7 + 8, &GUID_cf12c0b8_aae0_4ef0_b8e3_97cd3b4d6f91, &v18) >= 0 )
+  {
+    *((_BYTE *)this + 11417) = 1;
     v11 = 0;
   }
   else
   {
     v10 = *(_QWORD *)this;
-    *((_BYTE *)this + 11297) = 0;
-    v11 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v10 + 168LL))(v10);
+    *((_BYTE *)this + 11417) = 0;
+    v11 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v10 + 184LL))(v10);
   }
-  *((_BYTE *)this + 11308) = v11;
-  *((_DWORD *)this + 2821) = *(_DWORD *)(v7 + 588);
-  *((_BYTE *)this + 11299) = 0;
-  v12 = *(_DWORD *)(v7 + 856);
-  if ( v12 == 32902 )
+  *((_BYTE *)this + 11428) = v11;
+  v12 = *(_DWORD *)(v4 + 628);
+  *((_DWORD *)this + 2853) = v12;
+  *((_BYTE *)this + 11419) = 0;
+  *((_BYTE *)this + 11431) = 0;
+  v13 = *(_DWORD *)(v4 + 896);
+  if ( v13 == 32902 )
   {
-    if ( *(__int64 *)(v7 + 592) <= 0x140013000F112DLL )
-      *((_BYTE *)this + 11298) = 1;
-    v13 = &`IsIntelFullDesktopClipRequired'::`2'::s_deviceIds;
-    v14 = 0;
-    while ( *(_DWORD *)(v7 + 860) != *v13 )
-    {
-      ++v14;
-      ++v13;
-      if ( v14 >= 0x2B )
-      {
-        v15 = 0;
-        goto LABEL_11;
-      }
-    }
-    v15 = 1;
-LABEL_11:
-    *((_BYTE *)this + 11299) = v15;
+    if ( *(__int64 *)(v4 + 632) <= 0x140013000F112DLL )
+      *((_BYTE *)this + 11418) = 1;
+    *((_BYTE *)this + 11419) = IsIntelFullDesktopClipRequired(*(_DWORD *)(v4 + 900));
   }
-  else if ( v12 == 1297040209 && *(_DWORD *)(v7 + 860) == 1177957426 && *(__int64 *)(v7 + 592) <= 0xB001204360026LL )
+  else if ( v13 == 1297040209 && *(_DWORD *)(v4 + 900) == 1177957426 && *(__int64 *)(v4 + 632) <= 0xB001204360026LL )
   {
-    *((_BYTE *)this + 11300) = 1;
+    *((_BYTE *)this + 11420) = 1;
   }
-  if ( CCommonRegistryData::m_customRefreshRateMode == 1
-    && *((int *)this + 2821) >= 2200
-    && (*(_DWORD *)(v7 + 856) != 32902 || (unsigned __int16)(*(_WORD *)(v7 + 592) - 7011) > 0x139u) )
-  {
-    *((_BYTE *)this + 11301) = 1;
-  }
-  updated = COverlayContext::UpdateMPOCaps(this);
-  v18 = updated;
+  if ( v12 >= 2000 )
+    *((_BYTE *)this + 11421) = 1;
+  updated = COverlayContext::UpdateMPOCaps(this, 1);
+  v16 = updated;
   if ( updated < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, updated, 0x6Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, updated, 0x4Eu, 0LL);
   }
   else
   {
-    **((_DWORD **)this + 1397) = 0;
-    *((_DWORD *)this + 2818) = 0;
-    DynArrayImpl<0>::ShrinkToSize((char *)this + 11248, 16LL);
+    **((_DWORD **)this + 1413) = 0;
+    *((_DWORD *)this + 2850) = 0;
+    DynArrayImpl<0>::ShrinkToSize((char *)this + 11376, 16LL);
   }
-  if ( v21 )
-  {
-    v20 = *(int *)(*(_QWORD *)(v21 + 8) + 4LL) + v21 + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 16LL))(v20);
-  }
-  return v18;
+  wil::com_ptr_t<IConversionSwapChain,wil::err_returncode_policy>::~com_ptr_t<IConversionSwapChain,wil::err_returncode_policy>(&v18);
+  return v16;
 }

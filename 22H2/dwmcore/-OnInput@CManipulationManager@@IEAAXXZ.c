@@ -1,64 +1,61 @@
 /*
- * XREFs of ?OnInput@CManipulationManager@@IEAAXXZ @ 0x18019EE5C
+ * XREFs of ?OnInput@CManipulationManager@@IEAAXXZ @ 0x1802254F4
  * Callers:
- *     _lambda_19664e0b56b7920f045ba8c67b2f55c3_::_lambda_invoker_cdecl_ @ 0x180135070 (_lambda_19664e0b56b7920f045ba8c67b2f55c3_--_lambda_invoker_cdecl_.c)
- *     ?ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@@PEAX@Z @ 0x18019FEE8 (-ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@.c)
+ *     _lambda_19664e0b56b7920f045ba8c67b2f55c3_::_lambda_invoker_cdecl_ @ 0x180221170 (_lambda_19664e0b56b7920f045ba8c67b2f55c3_--_lambda_invoker_cdecl_.c)
+ *     ?ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@@PEAX@Z @ 0x18022619C (-ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@.c)
  * Callees:
- *     ??1PerfRegion@InputTraceLogging@@QEAA@XZ @ 0x180032978 (--1PerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     ??0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1800329A8 (--0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McTemplateU0qq_EventWriteTransfer @ 0x18012D476 (McTemplateU0qq_EventWriteTransfer.c)
- *     ?DequeueFrame@GestureTargeting@InputTraceLogging@@SAXPEAVCManipulationFrame@@@Z @ 0x18019E0C4 (-DequeueFrame@GestureTargeting@InputTraceLogging@@SAXPEAVCManipulationFrame@@@Z.c)
- *     ?ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18019FA48 (-ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
- *     ?Remove@?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@AEAA?AV?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@_NPEAI@Z @ 0x1801A0A0C (-Remove@-$CQueue@V-$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@AEAA-AV-$ComPtr@VCManipulation.c)
+ *     ??0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x18004EB68 (--0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1PerfRegion@InputTraceLogging@@QEAA@XZ @ 0x18004EBCC (--1PerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     ?Remove@?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@AEAA?AV?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@_NPEAI@Z @ 0x1800E6370 (-Remove@-$CQueue@V-$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@AEAA-AV-$ComPtr@VCManipulation.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0qq_EventWriteTransfer @ 0x1801526D8 (McTemplateU0qq_EventWriteTransfer.c)
+ *     ?DequeueFrame@GestureTargeting@InputTraceLogging@@SAXPEAVCManipulationFrame@@@Z @ 0x18022483C (-DequeueFrame@GestureTargeting@InputTraceLogging@@SAXPEAVCManipulationFrame@@@Z.c)
+ *     ?ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x180226008 (-ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
  */
 
 void __fastcall CManipulationManager::OnInput(CManipulationManager *this)
 {
-  __int64 v2; // rbx
-  int *v3; // r14
-  __int64 v4; // r8
-  int *v5; // rdi
+  int *v2; // rbx
+  int *v3; // rsi
+  int *v4; // rdi
+  __int64 v5; // rcx
   int v7; // [rsp+20h] [rbp-39h] BYREF
   struct CManipulationFrame *v8; // [rsp+28h] [rbp-31h] BYREF
-  __int64 v9; // [rsp+30h] [rbp-29h] BYREF
-  _BYTE v10[48]; // [rsp+38h] [rbp-21h] BYREF
-  _BYTE v11[48]; // [rsp+68h] [rbp+Fh] BYREF
+  _BYTE v9[48]; // [rsp+30h] [rbp-29h] BYREF
+  _BYTE v10[48]; // [rsp+60h] [rbp+7h] BYREF
 
-  InputTraceLogging::PerfRegion::PerfRegion((InputTraceLogging::PerfRegion *)v10, "GestureTargetingInput", 0LL);
+  InputTraceLogging::PerfRegion::PerfRegion((InputTraceLogging::PerfRegion *)v9, "GestureTargetingInput", 0LL);
   v2 = 0LL;
   v3 = &v7;
   do
   {
+    v4 = v2;
     InputTraceLogging::PerfRegion::PerfRegion(
-      (InputTraceLogging::PerfRegion *)v11,
+      (InputTraceLogging::PerfRegion *)v10,
       "GestureTargetingInputFrame",
-      (const struct InputTraceLogging::PerfRegion *)v10);
-    LOBYTE(v4) = 1;
-    CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>::Remove(&CManipulationManager::s_InputQueue, &v8, v4, v3);
-    v5 = (int *)v8;
+      (const struct InputTraceLogging::PerfRegion *)v9);
+    CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>::Remove(v5, &v8, 1, v3);
+    v2 = (int *)v8;
     v8 = 0LL;
-    v9 = v2;
-    v2 = (__int64)v5;
-    Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease(&v9);
-    Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease((__int64 *)&v8);
+    if ( v4 )
+      (*(void (__fastcall **)(int *))(*(_QWORD *)v4 + 8LL))(v4);
     v3 = 0LL;
-    if ( v5 )
+    if ( v2 )
     {
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x4000) != 0 )
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
         McTemplateU0qq_EventWriteTransfer(
-          (__int64)&Microsoft_Windows_Dwm_Core_Provider_Context,
-          (__int64)&MANIPULATION_FRAME_DEQUEUED,
-          v5[6],
-          v5[4]);
-      InputTraceLogging::GestureTargeting::DequeueFrame((struct CManipulationFrame *)v5);
-      CManipulationManager::ProcessManipulationInfo(this, (struct CManipulationFrame *)v5);
+          Microsoft_Windows_Dwm_Core_Provider_Context,
+          &MANIPULATION_FRAME_DEQUEUED,
+          v2[6],
+          v2[4]);
+      InputTraceLogging::GestureTargeting::DequeueFrame((struct CManipulationFrame *)v2);
+      CManipulationManager::ProcessManipulationInfo(this, (struct CManipulationFrame *)v2);
     }
-    InputTraceLogging::PerfRegion::~PerfRegion((InputTraceLogging::PerfRegion *)v11);
+    InputTraceLogging::PerfRegion::~PerfRegion((InputTraceLogging::PerfRegion *)v10);
   }
   while ( v7-- );
-  v9 = (__int64)v5;
-  Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease(&v9);
-  InputTraceLogging::PerfRegion::~PerfRegion((InputTraceLogging::PerfRegion *)v10);
+  if ( v2 )
+    (*(void (__fastcall **)(int *))(*(_QWORD *)v2 + 8LL))(v2);
+  InputTraceLogging::PerfRegion::~PerfRegion((InputTraceLogging::PerfRegion *)v9);
 }

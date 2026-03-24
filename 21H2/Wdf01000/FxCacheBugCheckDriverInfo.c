@@ -1,20 +1,20 @@
 /*
- * XREFs of FxCacheBugCheckDriverInfo @ 0x1C0027910
+ * XREFs of FxCacheBugCheckDriverInfo @ 0x1C0090508
  * Callers:
- *     FxInitialize @ 0x1C0027E24 (FxInitialize.c)
+ *     FxInitialize @ 0x1C00570B8 (FxInitialize.c)
  * Callees:
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
  */
 
 void __fastcall FxCacheBugCheckDriverInfo(_FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
-  KIRQL v2; // bp
-  _FX_DUMP_DRIVER_INFO_ENTRY *v3; // rdx
+  KIRQL v2; // si
+  unsigned int v3; // ebp
+  _FX_DUMP_DRIVER_INFO_ENTRY *PoolWithTag; // rax
+  _FX_DUMP_DRIVER_INFO_ENTRY *v5; // rdi
+  _FX_DUMP_DRIVER_INFO_ENTRY *BugCheckDriverInfo; // rcx
+  _FX_DUMP_DRIVER_INFO_ENTRY *v7; // rdx
   _WDF_BIND_INFO *WdfBindInfo; // rax
-  unsigned int v5; // r14d
-  _FX_DUMP_DRIVER_INFO_ENTRY *Pool2; // rax
-  _FX_DUMP_DRIVER_INFO_ENTRY *v7; // rsi
-  _FX_DUMP_DRIVER_INFO_ENTRY *BugCheckDriverInfo; // rbx
 
   FxDriverGlobals->BugCheckDriverInfoIndex = 0;
   if ( FxLibraryGlobals.BugCheckDriverInfo )
@@ -23,31 +23,31 @@ void __fastcall FxCacheBugCheckDriverInfo(_FX_DRIVER_GLOBALS *FxDriverGlobals)
     if ( FxLibraryGlobals.BugCheckDriverInfoIndex >= FxLibraryGlobals.BugCheckDriverInfoCount )
     {
       if ( FxLibraryGlobals.BugCheckDriverInfoCount > 0x23F )
-        goto $Done_18;
-      v5 = FxLibraryGlobals.BugCheckDriverInfoCount + 10;
-      Pool2 = (_FX_DUMP_DRIVER_INFO_ENTRY *)ExAllocatePool2(
-                                              64LL,
-                                              56LL * (FxLibraryGlobals.BugCheckDriverInfoCount + 10),
-                                              1917089862LL);
-      v7 = Pool2;
-      if ( !Pool2 )
-        goto $Done_18;
+        goto $Done_72;
+      v3 = FxLibraryGlobals.BugCheckDriverInfoCount + 10;
+      PoolWithTag = (_FX_DUMP_DRIVER_INFO_ENTRY *)ExAllocatePoolWithTag(
+                                                    ExDefaultNonPagedPoolType,
+                                                    56LL * (FxLibraryGlobals.BugCheckDriverInfoCount + 10),
+                                                    0x72447846u);
+      v5 = PoolWithTag;
+      if ( !PoolWithTag )
+        goto $Done_72;
+      memmove(PoolWithTag, FxLibraryGlobals.BugCheckDriverInfo, 56LL * FxLibraryGlobals.BugCheckDriverInfoCount);
       BugCheckDriverInfo = FxLibraryGlobals.BugCheckDriverInfo;
-      memmove(Pool2, FxLibraryGlobals.BugCheckDriverInfo, 56LL * FxLibraryGlobals.BugCheckDriverInfoCount);
-      FxLibraryGlobals.BugCheckDriverInfo = v7;
-      FxLibraryGlobals.BugCheckDriverInfoCount = v5;
+      FxLibraryGlobals.BugCheckDriverInfo = v5;
+      FxLibraryGlobals.BugCheckDriverInfoCount = v3;
       ExFreePoolWithTag(BugCheckDriverInfo, 0);
     }
-    v3 = &FxLibraryGlobals.BugCheckDriverInfo[FxLibraryGlobals.BugCheckDriverInfoIndex];
-    v3->FxDriverGlobals = FxDriverGlobals;
+    v7 = &FxLibraryGlobals.BugCheckDriverInfo[FxLibraryGlobals.BugCheckDriverInfoIndex];
+    v7->FxDriverGlobals = FxDriverGlobals;
     WdfBindInfo = FxDriverGlobals->WdfBindInfo;
-    *(_QWORD *)&v3->Version.Major = *(_QWORD *)&WdfBindInfo->Version.Major;
-    v3->Version.Build = WdfBindInfo->Version.Build;
-    *(_OWORD *)v3->DriverName = *(_OWORD *)FxDriverGlobals->Public.DriverName;
-    *(_OWORD *)&v3->DriverName[16] = *(_OWORD *)&FxDriverGlobals->Public.DriverName[16];
-    v3->DriverName[31] = 0;
+    *(_QWORD *)&v7->Version.Major = *(_QWORD *)&WdfBindInfo->Version.Major;
+    v7->Version.Build = WdfBindInfo->Version.Build;
+    *(_OWORD *)v7->DriverName = *(_OWORD *)FxDriverGlobals->Public.DriverName;
+    *(_OWORD *)&v7->DriverName[16] = *(_OWORD *)&FxDriverGlobals->Public.DriverName[16];
+    v7->DriverName[31] = 0;
     FxDriverGlobals->BugCheckDriverInfoIndex = FxLibraryGlobals.BugCheckDriverInfoIndex++;
-$Done_18:
+$Done_72:
     KeReleaseSpinLock(&FxLibraryGlobals.FxDriverGlobalsListLock.m_Lock, v2);
   }
 }

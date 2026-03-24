@@ -1,42 +1,46 @@
 /*
- * XREFs of CmpBlockHiveWrites @ 0x140A13854
+ * XREFs of CmpBlockHiveWrites @ 0x1406E8C40
  * Callers:
- *     CmpVEExecuteOpenLogic @ 0x1406DD580 (CmpVEExecuteOpenLogic.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x140A1A2B8 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A1A4B4 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteOpenLogic @ 0x1406CDD50 (CmpVEExecuteOpenLogic.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x1406E89F0 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870C78 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     CmpDeleteHive @ 0x14074EBE4 (CmpDeleteHive.c)
- *     CmpGetNextHive @ 0x14076A460 (CmpGetNextHive.c)
- *     CmpReferenceHive @ 0x14076AA9C (CmpReferenceHive.c)
- *     HvLockHiveFlusherExclusive @ 0x140AF6670 (HvLockHiveFlusherExclusive.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
+ *     CmpGetNextHive @ 0x1406E9BF4 (CmpGetNextHive.c)
+ *     CmpDeleteHive @ 0x14071BAC4 (CmpDeleteHive.c)
  */
 
-__int64 __fastcall CmpBlockHiveWrites(__int64 *a1, int a2, volatile signed __int32 **a3)
+__int64 __fastcall CmpBlockHiveWrites(volatile signed __int32 *a1, int a2, volatile signed __int32 **a3)
 {
   volatile signed __int32 *i; // rcx
-  __int64 *NextHive; // rax
+  __int64 NextHive; // rax
   volatile signed __int32 *v8; // rbx
 
   for ( i = 0LL; ; i = v8 )
   {
-    NextHive = CmpGetNextHive(i);
+    NextHive = CmpGetNextHive((PVOID)i);
     v8 = (volatile signed __int32 *)NextHive;
     if ( !NextHive )
-      return a1 != 0LL ? 0xC0000034 : 0;
-    if ( a1 == NextHive || !a1 )
+      break;
+    if ( a1 == (volatile signed __int32 *)NextHive || !a1 )
     {
-      if ( !a2 || (a2 & (_DWORD)NextHive[514]) == a2 || NextHive == (__int64 *)CmpMasterHive )
+      if ( !a2 || (a2 & *(_DWORD *)(NextHive + 4152)) == a2 || NextHive == CmpMasterHive )
       {
-        CmpReferenceHive((__int64)NextHive);
+        CmpReferenceHive(NextHive);
         if ( a3 )
           *a3 = v8;
-        HvLockHiveFlusherExclusive(v8);
+        ExAcquirePushLockExclusiveEx((ULONG_PTR)(v8 + 18), 0LL);
       }
-      if ( a1 == (__int64 *)v8 )
-        break;
+      if ( a1 == v8 )
+      {
+        if ( _InterlockedExchangeAdd(v8 + 1068, 0xFFFFFFFF) == 1 )
+          CmpDeleteHive((PVOID)v8);
+        return 0LL;
+      }
     }
   }
-  if ( _InterlockedExchangeAdd(v8 + 1058, 0xFFFFFFFF) == 1 )
-    CmpDeleteHive(v8);
-  return 0LL;
+  if ( !a1 )
+    return 0LL;
+  return 3221225524LL;
 }

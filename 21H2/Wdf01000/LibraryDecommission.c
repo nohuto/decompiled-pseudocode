@@ -1,9 +1,9 @@
 /*
- * XREFs of LibraryDecommission @ 0x1C0052CE0
+ * XREFs of LibraryDecommission @ 0x1C002E140
  * Callers:
  *     <none>
  * Callees:
- *     FxLibraryCommonDecommission @ 0x1C005FF88 (FxLibraryCommonDecommission.c)
+ *     FxLibraryCommonDecommission @ 0x1C00419C0 (FxLibraryCommonDecommission.c)
  */
 
 int __fastcall LibraryDecommission()

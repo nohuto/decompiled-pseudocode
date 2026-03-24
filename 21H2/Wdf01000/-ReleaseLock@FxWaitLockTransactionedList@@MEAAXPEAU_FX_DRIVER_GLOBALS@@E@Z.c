@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ReleaseLock@FxWaitLockTransactionedList@@MEAAXPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C0011440
+ * XREFs of ?ReleaseLock@FxWaitLockTransactionedList@@MEAAXPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00176C0
  * Callers:
  *     <none>
  * Callees:

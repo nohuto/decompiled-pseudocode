@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAllocateXStateContext @ 0x14012E7B0
+ * XREFs of KeAllocateXStateContext @ 0x14012E7D0
  * Callers:
- *     KeSaveExtendedAndSupervisorState @ 0x14012E58C (KeSaveExtendedAndSupervisorState.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14012E5AC (KeSaveExtendedAndSupervisorState.c)
  *     VfCtxInit @ 0x140941B04 (VfCtxInit.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

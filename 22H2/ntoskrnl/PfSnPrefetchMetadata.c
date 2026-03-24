@@ -1,47 +1,47 @@
 /*
- * XREFs of PfSnPrefetchMetadata @ 0x14075EAF4
+ * XREFs of PfSnPrefetchMetadata @ 0x1406324B0
  * Callers:
- *     PfSnAsyncPrefetchStep @ 0x14074D008 (PfSnAsyncPrefetchStep.c)
+ *     PfSnAsyncPrefetchStep @ 0x140680A0C (PfSnAsyncPrefetchStep.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     PfSnFindPrefetchVolumeInfoInList @ 0x14075CE24 (PfSnFindPrefetchVolumeInfoInList.c)
- *     NtCreateEvent @ 0x14075D290 (NtCreateEvent.c)
- *     PfpPrefetchEntireDirectory @ 0x14075EDDC (PfpPrefetchEntireDirectory.c)
- *     PfSnPrefetchFileMetadata @ 0x1407D831C (PfSnPrefetchFileMetadata.c)
- *     PfSnLogPrefetchMetadata @ 0x1407E1DFC (PfSnLogPrefetchMetadata.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PfpPrefetchEntireDirectory @ 0x140632798 (PfpPrefetchEntireDirectory.c)
+ *     PfSnFindPrefetchVolumeInfoInList @ 0x1406335BC (PfSnFindPrefetchVolumeInfoInList.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     NtCreateEvent @ 0x140651360 (NtCreateEvent.c)
+ *     PfSnPrefetchFileMetadata @ 0x1406928A8 (PfSnPrefetchFileMetadata.c)
+ *     PfSnLogPrefetchMetadata @ 0x14069C9A8 (PfSnLogPrefetchMetadata.c)
  */
 
 __int64 __fastcall PfSnPrefetchMetadata(__int64 *a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rdi
+  __int64 v3; // rbx
   int v4; // r12d
   unsigned int v6; // r13d
-  int Event; // ebx
+  int v7; // edi
   __int64 v8; // r15
   __int64 v9; // rax
-  _QWORD *v10; // rdx
-  unsigned int *v11; // rbx
-  _QWORD *PrefetchVolumeInfoInList; // rax
-  _QWORD *v13; // r14
-  _DWORD *v14; // rdx
-  unsigned int i; // ecx
-  __int64 v16; // rdx
-  int v17; // eax
-  int v18; // ecx
-  unsigned int v19; // ecx
-  _QWORD *v20; // rdx
-  unsigned int v21; // eax
-  unsigned __int16 *v22; // r13
-  unsigned int v23; // r12d
-  unsigned int v24; // eax
-  unsigned int *v25; // rbx
-  __int64 v26; // r15
-  unsigned int v28; // edi
-  __int64 v29; // rcx
-  __int64 v30; // xmm1_8
-  __int64 v31; // rdx
-  __int64 v32; // rax
+  unsigned int *v10; // rdi
+  __int64 PrefetchVolumeInfoInList; // rax
+  __int64 v12; // r14
+  _DWORD *v13; // rdx
+  unsigned int j; // ecx
+  __int64 v15; // rdx
+  int v16; // eax
+  int v17; // ecx
+  unsigned int v18; // ecx
+  _QWORD *v19; // rdx
+  unsigned int v20; // eax
+  unsigned __int16 *v21; // r13
+  unsigned int v22; // r12d
+  unsigned int v23; // eax
+  unsigned int *v24; // rdi
+  __int64 v25; // r15
+  unsigned int v27; // ebx
+  __int64 v28; // rcx
+  __int64 v29; // xmm1_8
+  __int64 v30; // rdx
+  __int64 v31; // rax
+  __int64 v32; // [rsp+20h] [rbp-69h]
   __int128 v33; // [rsp+30h] [rbp-59h] BYREF
   __int64 v34; // [rsp+40h] [rbp-49h]
   _DWORD v35[2]; // [rsp+48h] [rbp-41h] BYREF
@@ -56,7 +56,7 @@ __int64 __fastcall PfSnPrefetchMetadata(__int64 *a1, __int64 a2, __int64 a3)
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp+7h] BYREF
   unsigned int v45; // [rsp+F0h] [rbp+67h]
   unsigned int v46; // [rsp+F8h] [rbp+6Fh]
-  int v47; // [rsp+100h] [rbp+77h]
+  int i; // [rsp+100h] [rbp+77h]
   HANDLE Handle; // [rsp+108h] [rbp+7Fh] BYREF
 
   v46 = a2;
@@ -64,9 +64,9 @@ __int64 __fastcall PfSnPrefetchMetadata(__int64 *a1, __int64 a2, __int64 a3)
   v4 = 0;
   v35[1] = 0;
   v39 = 0;
-  v34 = 0LL;
   v42 = v3;
   Handle = 0LL;
+  v34 = 0LL;
   LOBYTE(a3) = 1;
   v6 = a2;
   DestinationString = 0LL;
@@ -79,121 +79,114 @@ __int64 __fastcall PfSnPrefetchMetadata(__int64 *a1, __int64 a2, __int64 a3)
     v38 = 512;
     p_DestinationString = 0LL;
     v40 = 0LL;
-    Event = NtCreateEvent((unsigned __int64)&Handle, 2031619, (__int64)v35, NotificationEvent, 0);
-    if ( Event >= 0 )
+    v7 = NtCreateEvent(&Handle, 2031619LL, v35, 0LL, 0);
+    if ( v7 >= 0 )
     {
       v8 = v3 + *(unsigned int *)(v3 + 108);
       v9 = 0LL;
       v43 = v8;
-      v47 = 0;
-      if ( *(_DWORD *)(v3 + 112) )
+      for ( i = 0; (unsigned int)v9 < *(_DWORD *)(v3 + 112); i = v9 )
       {
-        v10 = a1 + 5;
-        do
+        v10 = (unsigned int *)(v8 + 96 * v9);
+        PrefetchVolumeInfoInList = PfSnFindPrefetchVolumeInfoInList((wchar_t *)(v8 + *v10));
+        v12 = PrefetchVolumeInfoInList;
+        if ( PrefetchVolumeInfoInList && (*(_DWORD *)(PrefetchVolumeInfoInList + 108) & 1) != 0 )
         {
-          v11 = (unsigned int *)(v8 + 96 * v9);
-          PrefetchVolumeInfoInList = PfSnFindPrefetchVolumeInfoInList((wchar_t *)(v8 + *v11), v10, 1);
-          v13 = PrefetchVolumeInfoInList;
-          if ( PrefetchVolumeInfoInList && (*((_DWORD *)PrefetchVolumeInfoInList + 27) & 1) != 0 )
+          v13 = v10 + 9;
+          for ( j = 0; j < 7; ++j )
           {
-            v14 = v11 + 9;
-            for ( i = 0; i < 7; ++i )
-            {
-              if ( _bittest((const int *)&v6, i) )
-                v4 += *v14 + v14[7];
-              ++v14;
-            }
-            PfSnPrefetchFileMetadata(
-              a1,
-              PrefetchVolumeInfoInList[4],
-              v8 + v11[5],
-              *((unsigned int *)PrefetchVolumeInfoInList + 26),
-              v4,
-              Handle);
-            *((_DWORD *)v13 + 26) += v4;
-            v16 = a1[10];
-            v41 = v16;
-            *(_DWORD *)v16 = 4;
-            v17 = *((_DWORD *)a1 + 24);
-            v18 = *((_DWORD *)a1 + 25) & 7 | 8;
-            *(_DWORD *)(v16 + 4) = 768;
-            *(_QWORD *)(v16 + 8) = v17 & 7 | (unsigned __int64)(unsigned int)(8 * v18);
-            v19 = 0;
-            v20 = (_QWORD *)(v16 + 16);
-            do
-            {
-              v21 = v19++;
-              *v20++ = v21 << 12;
-            }
-            while ( v19 < 0x300 );
-            v22 = (unsigned __int16 *)v13[12];
-            v23 = 0;
-            v24 = v46;
-            v25 = v11 + 16;
-            v26 = v41;
-            v45 = 0;
-            do
-            {
-              if ( _bittest((const int *)&v24, v23) )
-              {
-                v28 = 0;
-                if ( *v25 )
-                {
-                  do
-                  {
-                    RtlInitUnicodeString(&DestinationString, &v22[*((unsigned int *)v13 + 6) + 2]);
-                    v29 = a1[1];
-                    v36 = v13[8];
-                    v35[0] = 48;
-                    p_DestinationString = &DestinationString;
-                    v38 = 576;
-                    v34 = 0LL;
-                    v40 = 0LL;
-                    v33 = 0LL;
-                    PfpPrefetchEntireDirectory(v29, v13 + 4, v26, &v33, v35);
-                    if ( (_QWORD)v33 && *((_DWORD *)a1 + 30) < *((_DWORD *)a1 + 31) )
-                    {
-                      v30 = v34;
-                      v31 = 3LL * *((unsigned int *)a1 + 30);
-                      v32 = a1[14];
-                      *(_OWORD *)(v32 + 8 * v31) = v33;
-                      *(_QWORD *)(v32 + 8 * v31 + 16) = v30;
-                      ++*((_DWORD *)a1 + 30);
-                    }
-                    ++v28;
-                    v22 += *v22 + 2;
-                  }
-                  while ( v28 < *v25 );
-                  v23 = v45;
-                  v24 = v46;
-                }
-              }
-              ++v23;
-              ++v25;
-              v45 = v23;
-            }
-            while ( v23 < 7 );
-            v3 = v42;
-            v4 = 0;
-            v8 = v43;
-            v13[12] = v22;
-            v6 = v46;
+            if ( _bittest((const int *)&v6, j) )
+              v4 += *v13 + v13[7];
+            ++v13;
           }
-          v10 = a1 + 5;
-          v9 = (unsigned int)(v47 + 1);
-          v47 = v9;
+          LODWORD(v32) = v4;
+          PfSnPrefetchFileMetadata(
+            a1,
+            *(_QWORD *)(PrefetchVolumeInfoInList + 32),
+            v8 + v10[5],
+            *(unsigned int *)(PrefetchVolumeInfoInList + 104),
+            v32,
+            Handle);
+          *(_DWORD *)(v12 + 104) += v4;
+          v15 = a1[10];
+          v41 = v15;
+          *(_DWORD *)v15 = 4;
+          v16 = *((_DWORD *)a1 + 24);
+          v17 = *((_DWORD *)a1 + 25) & 7 | 8;
+          *(_DWORD *)(v15 + 4) = 768;
+          *(_QWORD *)(v15 + 8) = v16 & 7 | (unsigned __int64)(unsigned int)(8 * v17);
+          v18 = 0;
+          v19 = (_QWORD *)(v15 + 16);
+          do
+          {
+            v20 = v18++;
+            *v19++ = v20 << 12;
+          }
+          while ( v18 < 0x300 );
+          v21 = *(unsigned __int16 **)(v12 + 96);
+          v22 = 0;
+          v23 = v46;
+          v24 = v10 + 16;
+          v25 = v41;
+          v45 = 0;
+          do
+          {
+            if ( _bittest((const int *)&v23, v22) )
+            {
+              v27 = 0;
+              if ( *v24 )
+              {
+                do
+                {
+                  RtlInitUnicodeString(&DestinationString, &v21[*(unsigned int *)(v12 + 24) + 2]);
+                  v28 = a1[1];
+                  v36 = *(_QWORD *)(v12 + 64);
+                  v35[0] = 48;
+                  p_DestinationString = &DestinationString;
+                  v38 = 576;
+                  v34 = 0LL;
+                  v40 = 0LL;
+                  v33 = 0LL;
+                  PfpPrefetchEntireDirectory(v28, v12 + 32, v25, &v33, v35);
+                  if ( (_QWORD)v33 && *((_DWORD *)a1 + 30) < *((_DWORD *)a1 + 31) )
+                  {
+                    v29 = v34;
+                    v30 = 3LL * *((unsigned int *)a1 + 30);
+                    v31 = a1[14];
+                    *(_OWORD *)(v31 + 8 * v30) = v33;
+                    *(_QWORD *)(v31 + 8 * v30 + 16) = v29;
+                    ++*((_DWORD *)a1 + 30);
+                  }
+                  ++v27;
+                  v21 += *v21 + 2;
+                }
+                while ( v27 < *v24 );
+                v22 = v45;
+                v23 = v46;
+              }
+            }
+            ++v22;
+            ++v24;
+            v45 = v22;
+          }
+          while ( v22 < 7 );
+          v3 = v42;
+          v4 = 0;
+          v8 = v43;
+          *(_QWORD *)(v12 + 96) = v21;
+          v6 = v46;
         }
-        while ( (unsigned int)v9 < *(_DWORD *)(v3 + 112) );
+        v9 = (unsigned int)(i + 1);
       }
-      Event = 0;
+      v7 = 0;
     }
     if ( Handle )
       NtClose(Handle);
   }
   else
   {
-    Event = -1073741811;
+    v7 = -1073741811;
   }
   PfSnLogPrefetchMetadata(v3, v6, 0LL);
-  return (unsigned int)Event;
+  return (unsigned int)v7;
 }

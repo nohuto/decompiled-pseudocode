@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpAllocateAtomTableEntry @ 0x1403547BC
+ * XREFs of RtlpAllocateAtomTableEntry @ 0x140264168
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x1402F1090 (RtlAddAtomToAtomTableEx.c)
+ *     RtlAddAtomToAtomTableEx @ 0x14025A350 (RtlAddAtomToAtomTableEx.c)
  * Callees:
- *     RtlpQueryLowBoxId @ 0x1402EF324 (RtlpQueryLowBoxId.c)
- *     RtlpFreeAtom @ 0x1406AB544 (RtlpFreeAtom.c)
- *     RtlpAllocateAtom @ 0x1407D454C (RtlpAllocateAtom.c)
+ *     RtlpQueryLowBoxId @ 0x14025ABE8 (RtlpQueryLowBoxId.c)
+ *     RtlpAllocateAtom @ 0x14062D000 (RtlpAllocateAtom.c)
+ *     RtlpFreeAtom @ 0x1406A156C (RtlpFreeAtom.c)
  */
 
 __int64 __fastcall RtlpAllocateAtomTableEntry(unsigned int a1, __int64 *a2, char a3)

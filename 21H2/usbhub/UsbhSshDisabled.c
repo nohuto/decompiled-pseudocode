@@ -1,16 +1,16 @@
 /*
- * XREFs of UsbhSshDisabled @ 0x1C00589F0
+ * XREFs of UsbhSshDisabled @ 0x1C005A0C0
  * Callers:
- *     UsbhAsyncStop @ 0x1C0041C0C (UsbhAsyncStop.c)
- *     UsbhFdoPnp_RemoveDevice @ 0x1C0042760 (UsbhFdoPnp_RemoveDevice.c)
- *     Usbh_FDO_WaitPnpStop @ 0x1C0043FE0 (Usbh_FDO_WaitPnpStop.c)
- *     UsbhSshEnableDisable @ 0x1C0058AEC (UsbhSshEnableDisable.c)
+ *     UsbhAsyncStop @ 0x1C0042EBC (UsbhAsyncStop.c)
+ *     UsbhFdoPnp_RemoveDevice @ 0x1C0043A10 (UsbhFdoPnp_RemoveDevice.c)
+ *     Usbh_FDO_WaitPnpStop @ 0x1C0045290 (Usbh_FDO_WaitPnpStop.c)
+ *     UsbhSshEnableDisable @ 0x1C005A1BC (UsbhSshEnableDisable.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDisableTimerObject @ 0x1C000B4D0 (UsbhDisableTimerObject.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhDisableTimerObject @ 0x1C0011260 (UsbhDisableTimerObject.c)
  */
 
 LONG __fastcall UsbhSshDisabled(__int64 a1, __int64 a2)

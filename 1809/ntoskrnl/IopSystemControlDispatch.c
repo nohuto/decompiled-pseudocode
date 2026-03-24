@@ -1,9 +1,9 @@
 /*
- * XREFs of IopSystemControlDispatch @ 0x140832C20
+ * XREFs of IopSystemControlDispatch @ 0x140832C00
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
  */
 
 __int64 __fastcall IopSystemControlDispatch(__int64 a1, IRP *a2)

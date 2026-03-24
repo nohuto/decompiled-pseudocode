@@ -1,36 +1,38 @@
 /*
- * XREFs of ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x180027C58
+ * XREFs of ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1800B2658
  * Callers:
- *     ?Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBG_N@Z @ 0x180026484 (-Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMs.c)
+ *     ?Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBG_N@Z @ 0x1800B32EC (-Join@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJPEAUIMessageSession@@PEAUIMessagePort@@UMs.c)
  * Callees:
- *     StringCopyWorkerW @ 0x180027CF8 (StringCopyWorkerW.c)
+ *     StringCopyWorkerW @ 0x1800B2724 (StringCopyWorkerW.c)
  */
 
-HRESULT __fastcall StringCchCatW(unsigned __int16 *a1, __int64 a2, const unsigned __int16 *a3)
+__int64 __fastcall StringCchCatW(unsigned __int16 *a1, __int64 a2, size_t *a3)
 {
-  __int64 v4; // r9
-  unsigned __int16 *v5; // rax
-  __int64 v6; // r8
-  HRESULT result; // eax
-  size_t v8; // [rsp+20h] [rbp-18h]
+  signed int v3; // r9d
+  __int64 v5; // rcx
+  unsigned __int16 *i; // rax
+  __int64 v7; // rax
+  size_t v9; // [rsp+20h] [rbp-18h]
 
+  v3 = 0;
   if ( (unsigned __int64)(a2 - 1) > 0x7FFFFFFE )
-    return -2147024809;
-  v4 = a2;
-  v5 = a1;
-  do
+    v3 = -2147024809;
+  if ( v3 < 0 )
+    goto LABEL_12;
+  v5 = a2;
+  for ( i = a1; v5; --v5 )
   {
-    if ( !*v5 )
+    if ( !*i )
       break;
-    ++v5;
-    --v4;
+    ++i;
   }
-  while ( v4 );
-  result = v4 == 0 ? 0x80070057 : 0;
-  if ( v4 )
-  {
-    v6 = (a2 - v4) & -(__int64)(v4 != 0);
-    return StringCopyWorkerW(&a1[v6], a2 - v6, (size_t *)v6, a3, v8);
-  }
-  return result;
+  v3 = v5 == 0 ? 0x80070057 : 0;
+  if ( v5 )
+    v7 = a2 - v5;
+  else
+LABEL_12:
+    v7 = 0LL;
+  if ( v3 >= 0 )
+    return (unsigned int)StringCopyWorkerW(&a1[v7], a2 - v7, a3, (STRSAFE_PCNZWCH)a3, v9);
+  return (unsigned int)v3;
 }

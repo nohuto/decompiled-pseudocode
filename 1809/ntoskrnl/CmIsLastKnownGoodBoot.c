@@ -3,8 +3,8 @@
  * Callers:
  *     PpLastGoodDoBootProcessing @ 0x1409DAB04 (PpLastGoodDoBootProcessing.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7660 (RtlQueryRegistryValuesEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7640 (RtlQueryRegistryValuesEx.c)
  */
 
 bool CmIsLastKnownGoodBoot()

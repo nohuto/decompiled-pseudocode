@@ -1,19 +1,21 @@
 /*
- * XREFs of ?CreateFormattingBuffer@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02C08F4
+ * XREFs of ?CreateFormattingBuffer@ADAPTER_RENDER@@QEAAXXZ @ 0x1C0215FF0
  * Callers:
- *     ?EnableFormattingBuffer@ADAPTER_RENDER@@QEAAXH@Z @ 0x1C02C11E0 (-EnableFormattingBuffer@ADAPTER_RENDER@@QEAAXH@Z.c)
+ *     ?EnableFormattingBuffer@ADAPTER_RENDER@@QEAAXH@Z @ 0x1C02167B8 (-EnableFormattingBuffer@ADAPTER_RENDER@@QEAAXH@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
-void __fastcall ADAPTER_RENDER::CreateFormattingBuffer(ADAPTER_RENDER *this)
+void __fastcall ADAPTER_RENDER::CreateFormattingBuffer(ADAPTER_RENDER *this, __int64 a2)
 {
-  if ( *((_QWORD *)this + 156) )
+  __int64 v3; // rax
+
+  if ( !*((_QWORD *)this + 139)
+    || (v3 = WdLogNewEntry5_WdAssertion(this, a2),
+        *(_QWORD *)(v3 + 24) = 3919LL,
+        WdLogEvent5_WdAssertion(v3),
+        !*((_QWORD *)this + 139)) )
   {
-    WdLogSingleEntry1(1LL, 4225LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_pFormattingBuffer == NULL", 4225LL, 0LL, 0LL, 0LL, 0LL);
+    *((_QWORD *)this + 139) = operator new[](0xFC00uLL, 0x4B677844u, (POOL_TYPE)512);
   }
-  if ( !*((_QWORD *)this + 156) )
-    *((_QWORD *)this + 156) = operator new[](0xFC00uLL, 0x4B677844u, 64LL);
 }

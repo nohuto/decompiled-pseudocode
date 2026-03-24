@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsEmptyDrawing@CShapeTree@@UEBA_NXZ @ 0x1800DC9E0
+ * XREFs of ?IsEmptyDrawing@CShapeTree@@UEBA_NXZ @ 0x18020C860
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CShapeTree::IsEmptyDrawing(CShapeTree *this)
 {
-  return !*((_BYTE *)this + 96) && *((_BYTE *)this + 97) == 0;
+  return *((_BYTE *)this + 89) == 0;
 }

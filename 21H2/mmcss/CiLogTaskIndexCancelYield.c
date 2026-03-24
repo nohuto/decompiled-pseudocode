@@ -1,9 +1,9 @@
 /*
- * XREFs of CiLogTaskIndexCancelYield @ 0x1C0004174
+ * XREFs of CiLogTaskIndexCancelYield @ 0x1C0003EC4
  * Callers:
- *     CiSchedulerCancelTaskIndexYield @ 0x1C0002D80 (CiSchedulerCancelTaskIndexYield.c)
+ *     CiSchedulerCancelTaskIndexYield @ 0x1C0002B50 (CiSchedulerCancelTaskIndexYield.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CiLogTaskIndexCancelYield(__int64 a1)

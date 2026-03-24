@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIFilterIrpQueryIdCompletion @ 0x1C0085F50
+ * XREFs of ACPIFilterIrpQueryIdCompletion @ 0x1C00AF8D0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPIBusAndFilterIrpQueryContainerId @ 0x1C0016120 (ACPIBusAndFilterIrpQueryContainerId.c)
- *     ACPIInternalSetFlags @ 0x1C002F088 (ACPIInternalSetFlags.c)
- *     ACPIEmQueryFailDeviceResetOnOpenHandles @ 0x1C00439FC (ACPIEmQueryFailDeviceResetOnOpenHandles.c)
- *     ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule @ 0x1C0097D4C (ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule.c)
+ *     ACPIInternalSetFlags @ 0x1C0002350 (ACPIInternalSetFlags.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIBusAndFilterIrpQueryContainerId @ 0x1C002E158 (ACPIBusAndFilterIrpQueryContainerId.c)
+ *     ACPIEmQueryFailDeviceResetOnOpenHandles @ 0x1C00609A0 (ACPIEmQueryFailDeviceResetOnOpenHandles.c)
+ *     ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule @ 0x1C00B61A0 (ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule.c)
  */
 
 __int64 __fastcall ACPIFilterIrpQueryIdCompletion(ULONG_PTR a1, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall ACPIFilterIrpQueryIdCompletion(ULONG_PTR a1, __int64 a2)
   const char *v15; // r8
   const char *v16; // r10
   __int64 v18; // [rsp+60h] [rbp-38h] BYREF
-  __int64 v19; // [rsp+68h] [rbp-30h] BYREF
+  SIZE_T v19; // [rsp+68h] [rbp-30h] BYREF
   int v20; // [rsp+A8h] [rbp+10h] BYREF
 
   v2 = *(_QWORD *)(a2 + 184);
@@ -40,51 +40,52 @@ __int64 __fastcall ACPIFilterIrpQueryIdCompletion(ULONG_PTR a1, __int64 a2)
   v18 = 0LL;
   v6 = *(_BYTE *)(v2 + 1);
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  if ( !DeviceExtension )
-    goto LABEL_21;
-  v9 = *(_WORD **)(a2 + 56);
-  v10 = *(_DWORD *)(*(_QWORD *)(a2 + 184) + 8LL);
-  if ( v10 == 5 )
+  if ( DeviceExtension )
   {
-    v11 = ACPIBusAndFilterIrpQueryContainerId(&v18, &v19, DeviceExtension);
-    v5 = v11;
-    if ( v11 >= 0 )
+    v9 = *(_WORD **)(a2 + 56);
+    v10 = *(_DWORD *)(*(_QWORD *)(a2 + 184) + 8LL);
+    if ( v10 == 5 && (v11 = ACPIBusAndFilterIrpQueryContainerId(&v18, &v19, DeviceExtension), v5 = v11, v11 >= 0) )
     {
       *(_QWORD *)(a2 + 56) = v18;
       *(_DWORD *)(a2 + 48) = v11;
       if ( v9 )
         ExFreePoolWithTag(v9, 0);
-      goto LABEL_22;
     }
-  }
-  if ( (AcpiOverrideAttributes & 0x100000) != 0 && (*(_DWORD *)(DeviceExtension + 1008) & 0x800000) == 0 && v10 - 1 <= 1 )
-  {
-    if ( v9 )
+    else
     {
-      v12 = ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule(v10, v9, &v20);
-      v5 = v12;
-      if ( v12 >= 0 && v20 == 2 )
-        ACPIInternalSetFlags((void *)(DeviceExtension + 1008), 0x800000uLL);
+      if ( (AcpiOverrideAttributes & 0x100000) != 0
+        && (*(_DWORD *)(DeviceExtension + 960) & 0x800000) == 0
+        && v10 - 1 <= 1 )
+      {
+        if ( v9 )
+        {
+          v12 = ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule(v10, v9, &v20);
+          v5 = v12;
+          if ( v12 >= 0 && v20 == 2 )
+            ACPIInternalSetFlags((void *)(DeviceExtension + 960), 0x800000uLL);
+        }
+      }
+      if ( (AcpiOverrideAttributes & 0x200000) != 0
+        && (*(_DWORD *)(DeviceExtension + 960) & 0x40000000) == 0
+        && v10 - 1 <= 1 )
+      {
+        if ( v9 )
+        {
+          FailDeviceResetOnOpenHandles = ACPIEmQueryFailDeviceResetOnOpenHandles(v10, v9);
+          v5 = FailDeviceResetOnOpenHandles;
+          if ( FailDeviceResetOnOpenHandles >= 0 && v20 == 2 )
+            ACPIInternalSetFlags((void *)(DeviceExtension + 960), 0x40000000uLL);
+        }
+      }
     }
   }
-  if ( (AcpiOverrideAttributes & 0x200000) == 0
-    || (*(_DWORD *)(DeviceExtension + 1008) & 0x40000000) != 0
-    || v10 - 1 > 1
-    || !v9
-    || (FailDeviceResetOnOpenHandles = ACPIEmQueryFailDeviceResetOnOpenHandles(v10, v9),
-        v5 = FailDeviceResetOnOpenHandles,
-        FailDeviceResetOnOpenHandles < 0)
-    || v20 != 2 )
+  if ( DeviceExtension )
   {
-LABEL_21:
-    if ( !DeviceExtension )
-      goto LABEL_23;
-    goto LABEL_22;
+    v7 = 0x200000000000LL;
+    v3 = DeviceExtension;
+    if ( (*(_QWORD *)(DeviceExtension + 8) & 0x200000000000LL) != 0 )
+      v7 = 0x400000000000LL;
   }
-  ACPIInternalSetFlags((void *)(DeviceExtension + 1008), 0x40000000uLL);
-LABEL_22:
-  v3 = DeviceExtension;
-LABEL_23:
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     IrpText = ACPIDebugGetIrpText(v7, v6);
@@ -93,13 +94,13 @@ LABEL_23:
       4u,
       5u,
       0x14u,
-      (__int64)&WPP_da1e537e7f723164eef71e38dd98447a_Traceguids,
+      (__int64)&WPP_22c0b63b2f1d30c22e2e761bc8912dea_Traceguids,
       a2,
-      (__int64)IrpText,
+      IrpText,
       v5,
       v3,
-      v16,
-      v15);
+      v15,
+      v16);
   }
   return 0LL;
 }

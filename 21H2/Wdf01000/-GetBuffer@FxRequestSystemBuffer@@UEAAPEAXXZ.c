@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBuffer@FxRequestSystemBuffer@@UEAAPEAXXZ @ 0x1C006B0A0
+ * XREFs of ?GetBuffer@FxRequestSystemBuffer@@UEAAPEAXXZ @ 0x1C0055BB0
  * Callers:
  *     <none>
  * Callees:

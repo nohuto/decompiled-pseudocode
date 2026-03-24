@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIFilterIrpStartDeviceCompletion @ 0x1C002CD50
+ * XREFs of ACPIFilterIrpStartDeviceCompletion @ 0x1C002EDE0
  * Callers:
  *     <none>
  * Callees:
@@ -18,11 +18,11 @@ void __fastcall ACPIFilterIrpStartDeviceCompletion(__int64 a1, IRP *a2, int a3)
   }
   else
   {
-    *(_DWORD *)(a1 + 368) = 2;
+    *(_DWORD *)(a1 + 328) = 2;
     v4->List.Flink = 0LL;
     v4->WorkerRoutine = (void (__fastcall *)(void *))ACPIFilterIrpStartDeviceWorker;
     v4->Parameter = v4;
-    v4[1].List.Flink = *(_LIST_ENTRY **)(a1 + 768);
+    v4[1].List.Flink = *(_LIST_ENTRY **)(a1 + 728);
     v4[1].List.Blink = (_LIST_ENTRY *)a2;
     ExQueueWorkItem(v4, DelayedWorkQueue);
   }

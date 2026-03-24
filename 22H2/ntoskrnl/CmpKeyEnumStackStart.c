@@ -1,37 +1,44 @@
 /*
- * XREFs of CmpKeyEnumStackStart @ 0x140A242EC
+ * XREFs of CmpKeyEnumStackStart @ 0x14072B04C
  * Callers:
- *     CmpSubtreeEnumeratorStart @ 0x140A207E0 (CmpSubtreeEnumeratorStart.c)
- *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x140A2444C (CmpKeyEnumStackStartFromKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorStart @ 0x14072AF4C (CmpSubtreeEnumeratorStart.c)
+ *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x14087AD78 (CmpKeyEnumStackStartFromKeyNodeStack.c)
  * Callees:
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     CmpStartKeyNodeStack @ 0x140A20348 (CmpStartKeyNodeStack.c)
- *     CmpKeyEnumStackEntryInitialize @ 0x140A23EFC (CmpKeyEnumStackEntryInitialize.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpKeyEnumStackEntryInitialize @ 0x14067E12C (CmpKeyEnumStackEntryInitialize.c)
+ *     CmpStartKeyNodeStack @ 0x14072B0A8 (CmpStartKeyNodeStack.c)
  */
 
-__int64 __fastcall CmpKeyEnumStackStart(__int64 a1, __int16 a2)
+__int64 __fastcall CmpKeyEnumStackStart(__int64 a1, __int16 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
-  __int64 v4; // rbp
-  __int64 Pool; // rax
-  __int64 v6; // rsi
+  __int64 v7; // rbp
+  PVOID TransientPoolWithTag; // rax
+  __int64 v9; // rsi
 
-  if ( a2 >= 2 )
+  if ( a2 < 2 )
   {
-    LOWORD(v4) = a2 - 1;
-    Pool = CmpAllocatePool(256LL, ((__int64)a2 << 7) - 128, 943082819LL);
-    v6 = 0LL;
-    *(_QWORD *)(a1 + 344) = Pool;
-    if ( !Pool )
-      return 3221225626LL;
-    v4 = (unsigned __int16)v4;
-    do
-    {
-      CmpKeyEnumStackEntryInitialize((_QWORD *)(v6 + *(_QWORD *)(a1 + 344)));
-      v6 += 128LL;
-      --v4;
-    }
-    while ( v4 );
+LABEL_2:
+    *(_WORD *)a1 = a2;
+    return CmpStartKeyNodeStack(a1 + 8, (unsigned __int16)a2);
   }
-  *(_WORD *)a1 = a2;
-  return CmpStartKeyNodeStack(a1 + 8, a2);
+  LOWORD(v7) = a2 - 1;
+  TransientPoolWithTag = CmpAllocateTransientPoolWithTag(PagedPool, (__int64)(__int16)(a2 - 1) << 7, 0x38364D43u, a4);
+  v9 = 0LL;
+  *(_QWORD *)(a1 + 344) = TransientPoolWithTag;
+  if ( TransientPoolWithTag )
+  {
+    if ( (__int16)v7 > 0 )
+    {
+      v7 = (unsigned __int16)v7;
+      do
+      {
+        CmpKeyEnumStackEntryInitialize(v9 + *(_QWORD *)(a1 + 344));
+        v9 += 128LL;
+        --v7;
+      }
+      while ( v7 );
+    }
+    goto LABEL_2;
+  }
+  return 3221225626LL;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of VidSchiCaptureProcessName @ 0x1C004450C
+ * XREFs of VidSchiCaptureProcessName @ 0x1C003C808
  * Callers:
- *     VidSchCollectDbgInfo @ 0x1C00F64B0 (VidSchCollectDbgInfo.c)
+ *     VidSchCollectDbgInfo @ 0x1C00D3C50 (VidSchCollectDbgInfo.c)
  * Callees:
  *     <none>
  */
@@ -16,30 +16,28 @@ __int64 __fastcall VidSchiCaptureProcessName(__int64 a1, _BYTE *a2)
   char v8; // al
 
   result = *(_QWORD *)(a1 + 32);
-  if ( a1 == *(_QWORD *)(result + 240) )
+  if ( a1 == *(_QWORD *)(result + 232) )
   {
     v4 = "System";
-    goto LABEL_9;
   }
-  v5 = *(_QWORD *)(a1 + 40);
-  if ( v5 && *(_QWORD *)(v5 + 8) )
+  else
   {
-    result = PsGetProcessImageFileName(*(_QWORD *)(v5 + 2656));
-    v4 = (const char *)result;
-    if ( !result )
+    v5 = *(_QWORD *)(a1 + 40);
+    if ( v5 && *(_QWORD *)(v5 + 8) )
     {
-LABEL_6:
+      result = PsGetProcessImageFileName(*(_QWORD *)(v5 + 2648));
+      v4 = (const char *)result;
+    }
+    else
+    {
+      v4 = "Unknown";
+    }
+    if ( !v4 || !*v4 )
+    {
       *a2 = 0;
       return result;
     }
   }
-  else
-  {
-    v4 = "Unknown";
-  }
-  if ( !*v4 )
-    goto LABEL_6;
-LABEL_9:
   v6 = 16LL;
   v7 = v4 - a2;
   do

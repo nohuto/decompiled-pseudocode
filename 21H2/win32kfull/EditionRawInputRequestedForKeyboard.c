@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionRawInputRequestedForKeyboard @ 0x1C0207C30
+ * XREFs of EditionRawInputRequestedForKeyboard @ 0x1C02075C0
  * Callers:
  *     <none>
  * Callees:
- *     HasHidTable @ 0x1C00ABFD0 (HasHidTable.c)
+ *     HasHidTable @ 0x1C0052630 (HasHidTable.c)
  */
 
 __int64 __fastcall EditionRawInputRequestedForKeyboard(__int64 a1)

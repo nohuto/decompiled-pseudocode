@@ -1,29 +1,23 @@
 /*
- * XREFs of BiConvertElementFormatToValueType @ 0x140807E7C
+ * XREFs of BiConvertElementFormatToValueType @ 0x140784A50
  * Callers:
- *     BcdSetElementDataWithFlags @ 0x14080669C (BcdSetElementDataWithFlags.c)
- *     BcdGetElementDataWithFlags @ 0x14080723C (BcdGetElementDataWithFlags.c)
+ *     BcdSetElementDataWithFlags @ 0x140783EDC (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x1407840C0 (BcdGetElementDataWithFlags.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall BiConvertElementFormatToValueType(int a1)
+__int64 __fastcall BiConvertElementFormatToValueType(unsigned int a1)
 {
-  int v1; // ecx
-  int v2; // ecx
-  int v4; // ecx
+  __int64 result; // rax
 
-  v1 = a1 - 1;
-  if ( !v1 )
-    return 3LL;
-  v2 = v1 - 1;
-  if ( !v2 )
-    return 1LL;
-  v4 = v2 - 1;
-  if ( !v4 )
-    return 1LL;
-  if ( v4 == 1 )
-    return 7LL;
-  else
-    return 3LL;
+  result = 1LL;
+  if ( a1 > 1 )
+  {
+    if ( a1 <= 3 )
+      return result;
+    if ( a1 == 4 )
+      return 7LL;
+  }
+  return 3LL;
 }

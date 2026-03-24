@@ -1,12 +1,12 @@
 /*
- * XREFs of AMLIValidateFirmwareMemoryAddress @ 0x1C0048ECC
+ * XREFs of AMLIValidateFirmwareMemoryAddress @ 0x1C0063804
  * Callers:
- *     AcpiValidatePepDeviceControlResources @ 0x1C008B814 (AcpiValidatePepDeviceControlResources.c)
+ *     AcpiValidatePepDeviceControlResources @ 0x1C00B1914 (AcpiValidatePepDeviceControlResources.c)
  * Callees:
- *     AmlpValidateFirmwareMemoryAddress @ 0x1C004AD68 (AmlpValidateFirmwareMemoryAddress.c)
+ *     AmlpValidateFirmwareMemoryAddress @ 0x1C002A10C (AmlpValidateFirmwareMemoryAddress.c)
  */
 
-__int64 AMLIValidateFirmwareMemoryAddress()
+__int64 __fastcall AMLIValidateFirmwareMemoryAddress(__int64 *a1, unsigned int a2)
 {
-  return AmlpValidateFirmwareMemoryAddress();
+  return AmlpValidateFirmwareMemoryAddress(a1, a2);
 }

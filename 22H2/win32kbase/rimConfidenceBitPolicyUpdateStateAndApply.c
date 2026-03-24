@@ -1,82 +1,67 @@
 /*
- * XREFs of rimConfidenceBitPolicyUpdateStateAndApply @ 0x1C01A7D40
+ * XREFs of rimConfidenceBitPolicyUpdateStateAndApply @ 0x1C0179220
  * Callers:
- *     rimApplyPointerDevicePolicies @ 0x1C00E2D30 (rimApplyPointerDevicePolicies.c)
+ *     rimApplyPointerDevicePolicies @ 0x1C0178FB0 (rimApplyPointerDevicePolicies.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00744D4 (WPP_RECORDER_AND_TRACE_SF_d.c)
- *     EtwTraceTouchPadConfidenceCleared @ 0x1C013B2E0 (EtwTraceTouchPadConfidenceCleared.c)
- *     RIMCmAddContactSuppressionReasons @ 0x1C01AFF90 (RIMCmAddContactSuppressionReasons.c)
- *     RIMCmIsContactDeliveringPointerData @ 0x1C01B0964 (RIMCmIsContactDeliveringPointerData.c)
- *     RIMCmRemoveContactSuppressionReasons @ 0x1C01B0A84 (RIMCmRemoveContactSuppressionReasons.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0047F78 (WPP_RECORDER_SF_d.c)
+ *     RIMCmAddContactSuppressionReasons @ 0x1C017FDC4 (RIMCmAddContactSuppressionReasons.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C0180324 (RIMCmIsContactDeliveringPointerData.c)
+ *     RIMCmRemoveContactSuppressionReasons @ 0x1C01804B8 (RIMCmRemoveContactSuppressionReasons.c)
+ *     ApiSetEtwTraceTouchPadConfidenceCleared @ 0x1C01CEB20 (ApiSetEtwTraceTouchPadConfidenceCleared.c)
  */
 
-__int64 __fastcall rimConfidenceBitPolicyUpdateStateAndApply(__int64 a1, int *a2, int a3)
+__int64 __fastcall rimConfidenceBitPolicyUpdateStateAndApply(__int64 a1, unsigned int *a2, int a3)
 {
+  unsigned int *v4; // rbx
   __int64 result; // rax
-  int IsContactDeliveringPointerData; // eax
-  BOOL v8; // edx
-  PDEVICE_OBJECT v9; // rcx
-  char v10; // dl
-  char v11; // r8
-  unsigned __int16 v12; // r9
+  BOOL v7; // esi
+  unsigned int IsContactDeliveringPointerData; // eax
+  int v9; // r9d
 
-  if ( a3 || (result = *(unsigned int *)(a1 + 360), (result & 4) != 0) && (a2[611] & 0x4000) == 0 )
+  v4 = a2;
+  if ( a3 || (result = *(unsigned int *)(a1 + 312), (result & 4) != 0) && (a2[605] & 0x4000) == 0 )
   {
     if ( *(_DWORD *)(a1 + 24) == 7 && (a2[2] & 0x10) == 0 )
     {
+      v7 = (a2[605] & 4) != 0 && (a2[665] & 4) == 0;
       IsContactDeliveringPointerData = RIMCmIsContactDeliveringPointerData(a2);
-      v8 = (a2[611] & 4) != 0 && (a2[671] & 4) == 0;
-      EtwTraceTouchPadConfidenceCleared(*a2, v8, IsContactDeliveringPointerData);
+      ApiSetEtwTraceTouchPadConfidenceCleared(*v4, v7, IsContactDeliveringPointerData);
     }
     if ( a3 )
     {
-      v9 = WPP_GLOBAL_Control;
-      v10 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-         && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-         && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      v11 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( !v10 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_29;
-      v12 = 41;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v9 = 41;
+LABEL_16:
+        LOBYTE(a2) = 4;
+        WPP_RECORDER_SF_d(
+          (_DWORD)gRimLog,
+          (_DWORD)a2,
+          1,
+          v9,
+          (__int64)&WPP_fa968752f5ee31807da3aa7ca7449649_Traceguids,
+          *v4);
+      }
     }
-    else
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v9 = WPP_GLOBAL_Control;
-      v10 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-         && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-         && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      v11 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( !v10 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_29;
-      v12 = 42;
+      v9 = 42;
+      goto LABEL_16;
     }
-    WPP_RECORDER_AND_TRACE_SF_d(
-      (__int64)v9->AttachedDevice,
-      v10,
-      v11,
-      (__int64)gRimLog,
-      4u,
-      1u,
-      v12,
-      (__int64)&WPP_acebe0338cf732913f05b3829fd55bbc_Traceguids,
-      *a2);
-LABEL_29:
-    result = RIMCmAddContactSuppressionReasons(a1, a2);
-    a2[611] |= 0x8000u;
+    result = RIMCmAddContactSuppressionReasons(a1, v4, 16LL);
+    v4[605] |= 0x8000u;
   }
   if ( *(_DWORD *)(a1 + 24) == 7 )
   {
-    result = (unsigned int)a2[2];
+    result = v4[2];
     if ( (result & 0x10) != 0 )
     {
-      result = a2[611] & 0x1004000;
+      result = v4[605] & 0x1004000;
       if ( (_DWORD)result == 16793600 )
       {
-        if ( (a2[8] & 1) == 0 )
-          return RIMCmRemoveContactSuppressionReasons(a1, a2, 16LL);
-        result = *(unsigned int *)(a1 + 360);
-        if ( (result & 8) != 0 )
-          return RIMCmRemoveContactSuppressionReasons(a1, a2, 16LL);
+        result = v4[8];
+        if ( (result & 1) == 0 )
+          return RIMCmRemoveContactSuppressionReasons(a1, v4, 16LL);
       }
     }
   }

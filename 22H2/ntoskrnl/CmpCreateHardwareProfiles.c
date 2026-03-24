@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpCreateHardwareProfiles @ 0x140B679AC
+ * XREFs of CmpCreateHardwareProfiles @ 0x140A58540
  * Callers:
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1403C448C (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     CmSetAcpiHwProfile @ 0x14084B574 (CmSetAcpiHwProfile.c)
- *     CmpOpenDevicesControlSet @ 0x14084BC14 (CmpOpenDevicesControlSet.c)
- *     CmDeleteKeyRecursive @ 0x140A0FE68 (CmDeleteKeyRecursive.c)
- *     CmpCloneHwProfile @ 0x140A10264 (CmpCloneHwProfile.c)
- *     CmpAddDockingInfo @ 0x140B67E3C (CmpAddDockingInfo.c)
- *     CmpAddAliasEntry @ 0x140B98E98 (CmpAddAliasEntry.c)
+ *     RtlUnicodeStringPrintf @ 0x14036E45C (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     CmSetAcpiHwProfile @ 0x1407A5D38 (CmSetAcpiHwProfile.c)
+ *     CmpOpenDevicesControlSet @ 0x1407A6B94 (CmpOpenDevicesControlSet.c)
+ *     CmDeleteKeyRecursive @ 0x140876DE0 (CmDeleteKeyRecursive.c)
+ *     CmpCloneHwProfile @ 0x1408771D4 (CmpCloneHwProfile.c)
+ *     CmpAddDockingInfo @ 0x140A589C8 (CmpAddDockingInfo.c)
+ *     CmpAddAliasEntry @ 0x140A8E43C (CmpAddAliasEntry.c)
  */
 
 __int64 __fastcall CmpCreateHardwareProfiles(__int64 a1)
@@ -29,104 +29,105 @@ __int64 __fastcall CmpCreateHardwareProfiles(__int64 a1)
   __int64 v7; // r14
   unsigned __int16 v8; // dx
   _WORD *v9; // r15
-  __int64 v10; // r8
+  __int64 v10; // r9
+  __int64 v11; // r8
   ULONG Length; // [rsp+28h] [rbp-E0h]
   ULONG Disposition; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned int Data; // [rsp+4Ch] [rbp-BCh] BYREF
-  __int64 v15; // [rsp+50h] [rbp-B8h] BYREF
+  unsigned int v15; // [rsp+4Ch] [rbp-BCh] BYREF
+  __int64 v16; // [rsp+50h] [rbp-B8h] BYREF
   HANDLE DestinationString; // [rsp+58h] [rbp-B0h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+60h] [rbp-A8h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes_8; // [rsp+70h] [rbp-98h] BYREF
-  HANDLE KeyHandle; // [rsp+A0h] [rbp-68h] BYREF
-  HANDLE v20; // [rsp+A8h] [rbp-60h] BYREF
-  HANDLE v21; // [rsp+B0h] [rbp-58h] BYREF
-  HANDLE v22; // [rsp+B8h] [rbp-50h] BYREF
+  HANDLE KeyHandle; // [rsp+70h] [rbp-98h] BYREF
+  OBJECT_ATTRIBUTES KeyHandle_8; // [rsp+78h] [rbp-90h] BYREF
+  HANDLE v21; // [rsp+A8h] [rbp-60h] BYREF
+  HANDLE v22; // [rsp+B0h] [rbp-58h] BYREF
+  HANDLE v23; // [rsp+B8h] [rbp-50h] BYREF
   ULONG ResultLength; // [rsp+C0h] [rbp-48h] BYREF
   HANDLE Handle; // [rsp+C8h] [rbp-40h] BYREF
   UNICODE_STRING String1; // [rsp+D0h] [rbp-38h] BYREF
-  HANDLE v26; // [rsp+E0h] [rbp-28h] BYREF
+  HANDLE v27; // [rsp+E0h] [rbp-28h] BYREF
   _DWORD KeyValueInformation[32]; // [rsp+E8h] [rbp-20h] BYREF
-  _BYTE v28[256]; // [rsp+168h] [rbp+60h] BYREF
-  int v29[64]; // [rsp+268h] [rbp+160h] BYREF
+  _BYTE v29[256]; // [rsp+168h] [rbp+60h] BYREF
+  int v30[64]; // [rsp+268h] [rbp+160h] BYREF
 
-  v21 = 0LL;
-  ResultLength = 0;
-  memset(&ObjectAttributes_8, 0, 44);
-  Disposition = 0;
-  v26 = 0LL;
-  String1 = 0LL;
-  KeyHandle = 0LL;
-  DestinationString_8 = 0LL;
-  v20 = 0LL;
   v22 = 0LL;
+  ResultLength = 0;
+  Disposition = 0;
+  memset(&KeyHandle_8, 0, sizeof(KeyHandle_8));
+  v27 = 0LL;
+  KeyHandle = 0LL;
+  v21 = 0LL;
+  String1 = 0LL;
+  v23 = 0LL;
+  DestinationString_8 = 0LL;
   DestinationString = 0LL;
-  Data = 0;
+  v15 = 0;
   v2 = 0;
-  v3 = CmpOpenDevicesControlSet(a1, &v26, &String1);
-  v4 = v26;
+  v3 = CmpOpenDevicesControlSet(a1, &v27, &String1);
+  v4 = v27;
   v5 = v3;
   if ( v3 < 0 )
-    goto LABEL_26;
-  ObjectAttributes_8.RootDirectory = v26;
-  ObjectAttributes_8.Attributes = 576;
-  ObjectAttributes_8.ObjectName = (PUNICODE_STRING)L"$&";
-  ObjectAttributes_8.Length = 48;
-  *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-  v6 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes_8);
+    goto LABEL_25;
+  KeyHandle_8.RootDirectory = v27;
+  KeyHandle_8.Attributes = 576;
+  KeyHandle_8.ObjectName = (PUNICODE_STRING)L"$&";
+  KeyHandle_8.Length = 48;
+  *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
+  v6 = ZwOpenKey(&KeyHandle, 0x20019u, &KeyHandle_8);
   v5 = v6;
   if ( v6 == -1073741772 )
   {
     if ( !CmStateSeparationEnabled )
-      goto LABEL_26;
-    ObjectAttributes_8.Length = 48;
-    ObjectAttributes_8.ObjectName = (PUNICODE_STRING)&CmpControlString;
-    ObjectAttributes_8.RootDirectory = v4;
-    ObjectAttributes_8.Attributes = 576;
-    *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-    v5 = ZwCreateKey(&v21, 0x20019u, &ObjectAttributes_8, 0, 0LL, 0, &Disposition);
+      goto LABEL_25;
+    KeyHandle_8.Length = 48;
+    KeyHandle_8.ObjectName = (PUNICODE_STRING)&CmpControlString;
+    KeyHandle_8.RootDirectory = v4;
+    KeyHandle_8.Attributes = 576;
+    *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
+    v5 = ZwCreateKey(&v22, 0x20019u, &KeyHandle_8, 0, 0LL, 0, &Disposition);
     if ( v5 < 0 )
-      goto LABEL_26;
-    ZwClose(v21);
-    v21 = 0LL;
-    ObjectAttributes_8.ObjectName = (PUNICODE_STRING)L"$&";
-    ObjectAttributes_8.Length = 48;
-    ObjectAttributes_8.RootDirectory = v4;
-    ObjectAttributes_8.Attributes = 576;
-    *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-    v5 = ZwCreateKey(&KeyHandle, 0x20019u, &ObjectAttributes_8, 0, 0LL, 0, &Disposition);
+      goto LABEL_25;
+    ZwClose(v22);
+    v22 = 0LL;
+    KeyHandle_8.ObjectName = (PUNICODE_STRING)L"$&";
+    KeyHandle_8.Length = 48;
+    KeyHandle_8.RootDirectory = v4;
+    KeyHandle_8.Attributes = 576;
+    *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
+    v5 = ZwCreateKey(&KeyHandle, 0x20019u, &KeyHandle_8, 0, 0LL, 0, &Disposition);
     if ( v5 < 0 )
-      goto LABEL_26;
-    ObjectAttributes_8.RootDirectory = KeyHandle;
-    ObjectAttributes_8.Length = 48;
-    ObjectAttributes_8.ObjectName = (PUNICODE_STRING)L"\"$";
-    ObjectAttributes_8.Attributes = 576;
-    *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-    v5 = ZwCreateKey(&v21, 0x20019u, &ObjectAttributes_8, 0, 0LL, 0, &Disposition);
+      goto LABEL_25;
+    KeyHandle_8.RootDirectory = KeyHandle;
+    KeyHandle_8.Length = 48;
+    KeyHandle_8.ObjectName = (PUNICODE_STRING)L"\"$";
+    KeyHandle_8.Attributes = 576;
+    *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
+    v5 = ZwCreateKey(&v22, 0x20019u, &KeyHandle_8, 0, 0LL, 0, &Disposition);
     if ( v5 < 0 )
-      goto LABEL_26;
+      goto LABEL_25;
     DestinationString_8.MaximumLength = 256;
-    DestinationString_8.Buffer = (wchar_t *)v28;
+    DestinationString_8.Buffer = (wchar_t *)v29;
     RtlUnicodeStringPrintf(&DestinationString_8, L"%04d", 0LL);
-    ObjectAttributes_8.RootDirectory = v21;
-    ObjectAttributes_8.Length = 48;
-    ObjectAttributes_8.ObjectName = &DestinationString_8;
-    ObjectAttributes_8.Attributes = 576;
-    *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-    v5 = ZwCreateKey(&v20, 0x20019u, &ObjectAttributes_8, 0, 0LL, 0, &Disposition);
+    KeyHandle_8.RootDirectory = v22;
+    KeyHandle_8.Length = 48;
+    KeyHandle_8.ObjectName = &DestinationString_8;
+    KeyHandle_8.Attributes = 576;
+    *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
+    v5 = ZwCreateKey(&v21, 0x20019u, &KeyHandle_8, 0, 0LL, 0, &Disposition);
+    ZwClose(v22);
+    v22 = 0LL;
+    if ( v5 < 0 )
+      goto LABEL_25;
     ZwClose(v21);
     v21 = 0LL;
+    v5 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpCurrentConfigString, 0, 4u, &v15, 4u);
     if ( v5 < 0 )
-      goto LABEL_26;
-    ZwClose(v20);
-    v20 = 0LL;
-    v5 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpCurrentConfigString, 0, 4u, &Data, 4u);
-    if ( v5 < 0 )
-      goto LABEL_26;
+      goto LABEL_25;
   }
   else
   {
     if ( v6 < 0 )
-      goto LABEL_26;
+      goto LABEL_25;
     v5 = ZwQueryValueKey(
            KeyHandle,
            (PUNICODE_STRING)&CmpCurrentConfigString,
@@ -135,40 +136,40 @@ __int64 __fastcall CmpCreateHardwareProfiles(__int64 a1)
            0x80u,
            &ResultLength);
     if ( v5 < 0 || KeyValueInformation[1] != 4 )
-      goto LABEL_26;
-    Data = *(_DWORD *)((char *)KeyValueInformation + KeyValueInformation[2]);
+      goto LABEL_25;
+    v15 = *(_DWORD *)((char *)KeyValueInformation + KeyValueInformation[2]);
   }
-  ObjectAttributes_8.Length = 48;
-  ObjectAttributes_8.ObjectName = (PUNICODE_STRING)L"\"$";
-  ObjectAttributes_8.RootDirectory = v4;
-  ObjectAttributes_8.Attributes = 576;
-  *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-  v5 = ZwOpenKey(&v22, 0x20019u, &ObjectAttributes_8);
+  KeyHandle_8.Length = 48;
+  KeyHandle_8.ObjectName = (PUNICODE_STRING)L"\"$";
+  KeyHandle_8.RootDirectory = v4;
+  KeyHandle_8.Attributes = 576;
+  *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
+  v5 = ZwOpenKey(&v23, 0x20019u, &KeyHandle_8);
   if ( v5 == -1073741772 )
   {
     if ( !CmStateSeparationEnabled )
-      goto LABEL_26;
-    v5 = ZwCreateKey(&v22, 0x20019u, &ObjectAttributes_8, 0, 0LL, 0, &Disposition);
+      goto LABEL_25;
+    v5 = ZwCreateKey(&v23, 0x20019u, &KeyHandle_8, 0, 0LL, 0, &Disposition);
   }
   if ( v5 < 0 )
-    goto LABEL_26;
+    goto LABEL_25;
   *(_QWORD *)&DestinationString_8.Length = 0x1000000LL;
-  DestinationString_8.Buffer = (wchar_t *)v28;
-  RtlUnicodeStringPrintf(&DestinationString_8, L"%04d", Data);
-  ObjectAttributes_8.RootDirectory = v22;
-  ObjectAttributes_8.Length = 48;
-  ObjectAttributes_8.ObjectName = &DestinationString_8;
-  ObjectAttributes_8.Attributes = 576;
-  *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-  v5 = ZwOpenKey(&v20, 0x2001Fu, &ObjectAttributes_8);
+  DestinationString_8.Buffer = (wchar_t *)v29;
+  RtlUnicodeStringPrintf(&DestinationString_8, L"%04d", v15);
+  KeyHandle_8.RootDirectory = v23;
+  KeyHandle_8.Length = 48;
+  KeyHandle_8.ObjectName = &DestinationString_8;
+  KeyHandle_8.Attributes = 576;
+  *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
+  v5 = ZwOpenKey(&v21, 0x2001Fu, &KeyHandle_8);
   if ( v5 == -1073741772 )
   {
     if ( !CmStateSeparationEnabled )
-      goto LABEL_26;
-    v5 = ZwCreateKey(&v20, 0x2001Fu, &ObjectAttributes_8, 0, 0LL, 0, &Disposition);
+      goto LABEL_25;
+    v5 = ZwCreateKey(&v21, 0x2001Fu, &KeyHandle_8, 0, 0LL, 0, &Disposition);
   }
   if ( v5 < 0 )
-    goto LABEL_26;
+    goto LABEL_25;
   v7 = *(_QWORD *)(a1 + 240);
   v8 = *(_WORD *)(v7 + 8);
   v9 = (_WORD *)(v7 + 4);
@@ -178,16 +179,16 @@ __int64 __fastcall CmpCreateHardwareProfiles(__int64 a1)
     *(_WORD *)(v7 + 8) = 1;
   }
   if ( *v9 == 1 )
-    goto LABEL_52;
+    goto LABEL_51;
   if ( *v9 == 2 )
   {
 LABEL_15:
-    ObjectAttributes_8.RootDirectory = KeyHandle;
-    ObjectAttributes_8.Length = 48;
-    ObjectAttributes_8.ObjectName = (PUNICODE_STRING)&CmpStrCurrentDockInfoString;
-    ObjectAttributes_8.Attributes = 576;
-    *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-    if ( ZwCreateKey(&DestinationString, 0x2001Fu, &ObjectAttributes_8, 0, 0LL, 1u, &Disposition) >= 0 )
+    KeyHandle_8.RootDirectory = KeyHandle;
+    KeyHandle_8.Length = 48;
+    KeyHandle_8.ObjectName = (PUNICODE_STRING)&CmpStrCurrentDockInfoString;
+    KeyHandle_8.Attributes = 576;
+    *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
+    if ( ZwCreateKey(&DestinationString, 0x2001Fu, &KeyHandle_8, 0, 0LL, 1u, &Disposition) >= 0 )
     {
       CmpAddDockingInfo((int)DestinationString);
       ZwClose(DestinationString);
@@ -200,27 +201,27 @@ LABEL_15:
   if ( *v9 != 3 )
   {
 LABEL_19:
-    ObjectAttributes_8.Length = 48;
-    ObjectAttributes_8.RootDirectory = v4;
-    ObjectAttributes_8.ObjectName = (PUNICODE_STRING)L"24";
-    ObjectAttributes_8.Attributes = 576;
-    *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-    if ( ZwOpenKey(&DestinationString, 0xF003Fu, &ObjectAttributes_8) >= 0 )
+    KeyHandle_8.Length = 48;
+    KeyHandle_8.RootDirectory = v4;
+    KeyHandle_8.ObjectName = (PUNICODE_STRING)L"24";
+    KeyHandle_8.Attributes = 576;
+    *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
+    if ( ZwOpenKey(&DestinationString, 0xF003Fu, &KeyHandle_8) >= 0 )
     {
-      CmDeleteKeyRecursive(DestinationString, 0LL, (__int64)v29, 256, Length);
+      CmDeleteKeyRecursive(DestinationString, 0LL, (__int64)v30, v10, Length);
       ZwClose(DestinationString);
       DestinationString = 0LL;
     }
-    v5 = ZwCreateKey(&DestinationString, 0x20u, &ObjectAttributes_8, 0, 0LL, 3u, &Disposition);
+    v5 = ZwCreateKey(&DestinationString, 0x20u, &KeyHandle_8, 0, 0LL, 3u, &Disposition);
     if ( v5 >= 0 )
     {
       *(_QWORD *)&DestinationString_8.Length = 0x1000000LL;
-      DestinationString_8.Buffer = (wchar_t *)v28;
+      DestinationString_8.Buffer = (wchar_t *)v29;
       RtlUnicodeStringPrintf(
         &DestinationString_8,
         L"\\Registry\\Machine\\%wZ\\CurrentControlSet\\Hardware Profiles\\%04d",
         &String1,
-        Data);
+        v15);
       v5 = ZwSetValueKey(
              DestinationString,
              &CmSymbolicLinkValueName,
@@ -233,22 +234,22 @@ LABEL_19:
         ZwClose(DestinationString);
         DestinationString = 0LL;
         *(_QWORD *)&DestinationString_8.Length = 0x1000000LL;
-        DestinationString_8.Buffer = (wchar_t *)v28;
+        DestinationString_8.Buffer = (wchar_t *)v29;
         RtlUnicodeStringPrintf(
           &DestinationString_8,
           L"\\Registry\\Machine\\%wZ\\CurrentControlSet\\%wZ",
           &CmpSystemHiveNameString,
           L"24");
-        ObjectAttributes_8.Length = 48;
-        ObjectAttributes_8.ObjectName = &DestinationString_8;
-        ObjectAttributes_8.RootDirectory = 0LL;
-        ObjectAttributes_8.Attributes = 576;
-        *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
-        v5 = ZwCreateKey(&DestinationString, 0x20u, &ObjectAttributes_8, 0, 0LL, 3u, &Disposition);
+        KeyHandle_8.Length = 48;
+        KeyHandle_8.ObjectName = &DestinationString_8;
+        KeyHandle_8.RootDirectory = 0LL;
+        KeyHandle_8.Attributes = 576;
+        *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
+        v5 = ZwCreateKey(&DestinationString, 0x20u, &KeyHandle_8, 0, 0LL, 3u, &Disposition);
         if ( v5 >= 0 )
         {
           *(_QWORD *)&DestinationString_8.Length = 0x1000000LL;
-          DestinationString_8.Buffer = (wchar_t *)v28;
+          DestinationString_8.Buffer = (wchar_t *)v29;
           RtlUnicodeStringPrintf(
             &DestinationString_8,
             L"\\Registry\\Machine\\%wZ\\CurrentControlSet\\%wZ",
@@ -267,42 +268,41 @@ LABEL_19:
     if ( v2 )
     {
       Handle = 0LL;
-      LOBYTE(v15) = 0;
-      LODWORD(v26) = 131073;
-      WORD2(v26) = 0;
+      LOBYTE(v16) = 0;
+      LODWORD(v27) = 131073;
+      WORD2(v27) = 0;
       v5 = CmSetAcpiHwProfile(
-             (unsigned __int16 *)&v26,
+             (unsigned __int16 *)&v27,
              (__int64 (__fastcall *)(PVOID, unsigned int *, _QWORD))CmpHwprofileDefaultSelect,
-             v10,
+             v11,
              &Handle,
-             &v15);
-      if ( v5 >= 0 )
-        ZwClose(Handle);
+             &v16);
+      ZwClose(Handle);
     }
-    goto LABEL_26;
+    goto LABEL_25;
   }
-  v5 = CmpCloneHwProfile(KeyHandle, v22, v20, Data, v8, &v20, &Data);
+  v5 = CmpCloneHwProfile(KeyHandle, v23, v21, v15, v8, &v21, &v15);
   if ( v5 < 0 )
   {
-    v20 = 0LL;
-    goto LABEL_26;
+    v21 = 0LL;
+    goto LABEL_25;
   }
-  v5 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpCurrentConfigString, 0, 4u, &Data, 4u);
+  v5 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpCurrentConfigString, 0, 4u, &v15, 4u);
   if ( v5 >= 0 )
   {
-LABEL_52:
-    CmpAddAliasEntry(KeyHandle, v7 + 4, Data);
+LABEL_51:
+    CmpAddAliasEntry(KeyHandle, v7 + 4, v15);
     goto LABEL_15;
   }
-LABEL_26:
+LABEL_25:
   if ( v4 )
     ZwClose(v4);
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  if ( v20 )
-    ZwClose(v20);
-  if ( v22 )
-    ZwClose(v22);
+  if ( v21 )
+    ZwClose(v21);
+  if ( v23 )
+    ZwClose(v23);
   if ( DestinationString )
     ZwClose(DestinationString);
   return (unsigned int)v5;

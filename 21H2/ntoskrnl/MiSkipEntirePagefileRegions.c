@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSkipEntirePagefileRegions @ 0x14026F050
+ * XREFs of MiSkipEntirePagefileRegions @ 0x140547750
  * Callers:
- *     MiQueryAddressState @ 0x140318330 (MiQueryAddressState.c)
+ *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
  * Callees:
- *     MiLocatePagefileSubsection @ 0x14026F0F0 (MiLocatePagefileSubsection.c)
+ *     MiLocatePagefileSubsection @ 0x140316CFC (MiLocatePagefileSubsection.c)
  */
 
 __int64 __fastcall MiSkipEntirePagefileRegions(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -15,14 +15,14 @@ __int64 __fastcall MiSkipEntirePagefileRegions(__int64 a1, __int64 a2, __int64 a
   __int64 v11; // rcx
   int v12; // edx
   unsigned __int64 v13; // rdx
-  __int64 v15; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v15; // [rsp+30h] [rbp+8h] BYREF
 
   v6 = *(unsigned __int8 *)(a1 + 32);
   v8 = *(_QWORD *)(a1 + 80);
   v9 = *(unsigned int *)(a1 + 24);
   v10 = *(_QWORD *)(a1 + 72);
   v15 = a2 + ((v8 - *(_QWORD *)(v10 + 8)) >> 3) - (v9 | (v6 << 32));
-  MiLocatePagefileSubsection(v10, &v15);
+  MiLocatePagefileSubsection((unsigned int *)v10, &v15);
   v11 = a5;
   if ( !*(_QWORD *)(a5 + 8) )
   {

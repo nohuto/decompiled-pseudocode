@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiForceUFIMapping @ 0x1C013C460
+ * XREFs of NtGdiForceUFIMapping @ 0x1C014FA10
  * Callers:
  *     <none>
  * Callees:
- *     GreForceUFIMapping @ 0x1C013C4B4 (GreForceUFIMapping.c)
+ *     GreForceUFIMapping @ 0x1C014FA64 (GreForceUFIMapping.c)
  */
 
 __int64 __fastcall NtGdiForceUFIMapping(HDC a1, __int64 a2)

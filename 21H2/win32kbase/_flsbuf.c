@@ -1,9 +1,9 @@
 /*
- * XREFs of _flsbuf @ 0x1C00D6538
+ * XREFs of _flsbuf @ 0x1C00C5744
  * Callers:
- *     _vsnprintf_l @ 0x1C00D5EB0 (_vsnprintf_l.c)
- *     _vsnwprintf_l @ 0x1C00D5F90 (_vsnwprintf_l.c)
- *     write_char @ 0x1C00D6D84 (write_char.c)
+ *     _vsnprintf_l @ 0x1C00C5108 (_vsnprintf_l.c)
+ *     _vsnwprintf_l @ 0x1C00C5254 (_vsnwprintf_l.c)
+ *     write_char @ 0x1C00C5F90 (write_char.c)
  * Callees:
  *     <none>
  */

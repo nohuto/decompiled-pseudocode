@@ -1,5 +1,5 @@
 /*
- * XREFs of MiMapLockedPagesInUserSpace @ 0x140695B44
+ * XREFs of MiMapLockedPagesInUserSpace @ 0x140695B24
  * Callers:
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
  * Callees:
@@ -8,20 +8,20 @@
  *     MiLockVad @ 0x1400769A4 (MiLockVad.c)
  *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
  *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
- *     MiIsPfn @ 0x1400A88C0 (MiIsPfn.c)
- *     MiReferenceIoPages @ 0x1400E5F8C (MiReferenceIoPages.c)
- *     MiSanitizePage @ 0x1400E63B4 (MiSanitizePage.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14010FC18 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiDereferenceIoPages @ 0x140123614 (MiDereferenceIoPages.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
+ *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
+ *     MiSanitizePage @ 0x1400E63D4 (MiSanitizePage.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14010FC38 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiDereferenceIoPages @ 0x140123634 (MiDereferenceIoPages.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
  *     MiSelectUserAddress @ 0x1405F2360 (MiSelectUserAddress.c)
  *     MiIsVaRangeAvailable @ 0x1405F49F0 (MiIsVaRangeAvailable.c)
- *     MiAdvanceVadHint @ 0x140695E30 (MiAdvanceVadHint.c)
- *     MiGetUserReservationHighestAddress @ 0x14069626C (MiGetUserReservationHighestAddress.c)
+ *     MiAdvanceVadHint @ 0x140695E10 (MiAdvanceVadHint.c)
+ *     MiGetUserReservationHighestAddress @ 0x14069624C (MiGetUserReservationHighestAddress.c)
  */
 
 unsigned __int64 MiMapLockedPagesInUserSpace(__int64 a1, __int16 a2, int a3, ...)

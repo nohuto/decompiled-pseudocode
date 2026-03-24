@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CKernelStackSwapAuto@@QEAA@XZ @ 0x1C013C7E4
+ * XREFs of ??1CKernelStackSwapAuto@@QEAA@XZ @ 0x1C0168F60
  * Callers:
- *     xxxInterSendMsgEx @ 0x1C004D920 (xxxInterSendMsgEx.c)
+ *     xxxInterSendMsgEx @ 0x1C005A250 (xxxInterSendMsgEx.c)
  * Callees:
- *     ?TryEnableStackSwap@CKernelStackSwap@@QEAAXXZ @ 0x1C013C800 (-TryEnableStackSwap@CKernelStackSwap@@QEAAXXZ.c)
+ *     ?TryEnableStackSwap@CKernelStackSwap@@QEAAXXZ @ 0x1C0169008 (-TryEnableStackSwap@CKernelStackSwap@@QEAAXXZ.c)
  */
 
 void __fastcall CKernelStackSwapAuto::~CKernelStackSwapAuto(CKernelStackSwapAuto *this)

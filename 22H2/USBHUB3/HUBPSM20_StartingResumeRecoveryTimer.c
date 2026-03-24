@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_StartingResumeRecoveryTimer @ 0x1C00125C0
+ * XREFs of HUBPSM20_StartingResumeRecoveryTimer @ 0x1C00111A0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_StartResumeRecoveryTimer @ 0x1C0032430 (HUBMISC_StartResumeRecoveryTimer.c)
+ *     HUBMISC_StartResumeRecoveryTimer @ 0x1C002F250 (HUBMISC_StartResumeRecoveryTimer.c)
  */
 
 __int64 __fastcall HUBPSM20_StartingResumeRecoveryTimer(__int64 a1)

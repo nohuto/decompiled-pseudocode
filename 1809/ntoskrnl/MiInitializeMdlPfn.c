@@ -2,8 +2,8 @@
  * XREFs of MiInitializeMdlPfn @ 0x1400113B8
  * Callers:
  *     MiInitializeMdlPages @ 0x140011258 (MiInitializeMdlPages.c)
- *     MmAllocateNonChargedSecurePages @ 0x1402AA20C (MmAllocateNonChargedSecurePages.c)
- *     MmAllocateSecureKernelPages @ 0x1402C2D4C (MmAllocateSecureKernelPages.c)
+ *     MmAllocateNonChargedSecurePages @ 0x1402AA30C (MmAllocateNonChargedSecurePages.c)
+ *     MmAllocateSecureKernelPages @ 0x1402C2E4C (MmAllocateSecureKernelPages.c)
  *     MiCreateEnclaveRegions @ 0x1409BA34C (MiCreateEnclaveRegions.c)
  * Callees:
  *     MiAbortCombineScan @ 0x140082668 (MiAbortCombineScan.c)

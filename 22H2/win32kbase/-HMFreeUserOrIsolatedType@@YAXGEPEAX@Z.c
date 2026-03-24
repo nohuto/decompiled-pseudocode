@@ -1,21 +1,22 @@
 /*
- * XREFs of ?HMFreeUserOrIsolatedType@@YAXGEPEAX@Z @ 0x1C00C3D50
+ * XREFs of ?HMFreeUserOrIsolatedType@@YAXGEPEAX@Z @ 0x1C002C1F4
  * Callers:
- *     HMAllocObjectEx @ 0x1C0012A1C (HMAllocObjectEx.c)
- *     HMFreeObject @ 0x1C004F310 (HMFreeObject.c)
+ *     HMFreeObject @ 0x1C0009390 (HMFreeObject.c)
+ *     HMAllocObject @ 0x1C0034080 (HMAllocObject.c)
  * Callees:
- *     ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C004FDA8 (-HMFreeIsolatedType@@YAXEPEAX@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C0029778 (-HMFreeIsolatedType@@YAXEPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
-void __fastcall HMFreeUserOrIsolatedType(__int16 a1, unsigned __int8 a2, void *a3)
+void __fastcall HMFreeUserOrIsolatedType(__int64 a1, char a2, void *a3)
 {
   if ( (a1 & 0x200) != 0 )
   {
-    HMFreeIsolatedType(a2, a3);
+    LOBYTE(a1) = a2;
+    HMFreeIsolatedType(a1, a3);
   }
-  else if ( a3 )
+  else
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)a3);
+    Win32FreePool(a3);
   }
 }

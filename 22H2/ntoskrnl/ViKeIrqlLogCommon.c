@@ -1,10 +1,19 @@
 /*
- * XREFs of ViKeIrqlLogCommon @ 0x140AC1682
+ * XREFs of ViKeIrqlLogCommon @ 0x1409DC0DC
  * Callers:
- *     VfKeIrqlLogLower @ 0x140AD6C84 (VfKeIrqlLogLower.c)
- *     VfKeIrqlLogRaise @ 0x140AD6CB0 (VfKeIrqlLogRaise.c)
+ *     VerifierKeReleaseQueuedSpinLock @ 0x1409D34E0 (VerifierKeReleaseQueuedSpinLock.c)
+ *     VerifierKeLowerIrql @ 0x1409DAE50 (VerifierKeLowerIrql.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockCommon @ 0x1409DB000 (VerifierKeReleaseInStackQueuedSpinLockCommon.c)
+ *     VerifierKeReleaseSpinLock @ 0x1409DB3E0 (VerifierKeReleaseSpinLock.c)
+ *     VerifierPortKeReleaseSpinLock @ 0x1409DB560 (VerifierPortKeReleaseSpinLock.c)
+ *     VerifierPortKeReleaseSpinLockNoXdv @ 0x1409DBC60 (VerifierPortKeReleaseSpinLockNoXdv.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DC28C (ViKeRaiseIrqlSanityChecks.c)
+ *     VerifierExAcquireFastMutex @ 0x1409E4720 (VerifierExAcquireFastMutex.c)
+ *     VerifierExAcquireFastMutexNoReboot @ 0x1409E47D0 (VerifierExAcquireFastMutexNoReboot.c)
+ *     VerifierExReleaseFastMutex @ 0x1409E4910 (VerifierExReleaseFastMutex.c)
+ *     ViExTryToAcquireFastMutexCommon @ 0x1409E4E80 (ViExTryToAcquireFastMutexCommon.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140227700 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CDE0 (RtlCaptureStackBackTrace.c)
  */
 
 void __fastcall ViKeIrqlLogCommon(__int64 a1, ULONG a2)

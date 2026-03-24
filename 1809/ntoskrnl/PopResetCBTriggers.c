@@ -1,10 +1,10 @@
 /*
- * XREFs of PopResetCBTriggers @ 0x140747C4C
+ * XREFs of PopResetCBTriggers @ 0x140747C2C
  * Callers:
- *     PopBatteryWorker @ 0x140719DA0 (PopBatteryWorker.c)
- *     PopApplyPolicy @ 0x1407476D4 (PopApplyPolicy.c)
+ *     PopBatteryWorker @ 0x140719D80 (PopBatteryWorker.c)
+ *     PopApplyPolicy @ 0x1407476B4 (PopApplyPolicy.c)
  * Callees:
- *     PopDiagTraceBatteryTriggerFlags @ 0x14071A404 (PopDiagTraceBatteryTriggerFlags.c)
+ *     PopDiagTraceBatteryTriggerFlags @ 0x14071A3E4 (PopDiagTraceBatteryTriggerFlags.c)
  */
 
 __int64 __fastcall PopResetCBTriggers(unsigned __int8 a1)

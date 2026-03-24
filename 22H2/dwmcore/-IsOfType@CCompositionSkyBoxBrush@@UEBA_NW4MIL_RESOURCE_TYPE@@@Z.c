@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CCompositionSkyBoxBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180225EE0
+ * XREFs of ?IsOfType@CCompositionSkyBoxBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801BBF20
  * Callers:
  *     <none>
  * Callees:
@@ -12,9 +12,9 @@ bool __fastcall CCompositionSkyBoxBrush::IsOfType(__int64 a1, unsigned __int64 a
   bool result; // al
 
   result = 0;
-  if ( (unsigned int)a2 <= 0x2F )
+  if ( (unsigned int)a2 <= 0x2D )
   {
-    v2 = 0x810000020000LL;
+    v2 = 0x204000004000LL;
     if ( _bittest64(&v2, a2) )
       return 1;
   }

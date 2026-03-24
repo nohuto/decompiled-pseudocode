@@ -1,20 +1,20 @@
 /*
- * XREFs of ?Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z @ 0x18003F7E4
+ * XREFs of ?Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z @ 0x1800C7444
  * Callers:
- *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x1800461F0 (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
+ *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x18009BC18 (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
  * Callees:
- *     ?Contains@CRgnData@Internal@FastRegion@@QEBA_NAEBUtagRECT@@@Z @ 0x18003E738 (-Contains@CRgnData@Internal@FastRegion@@QEBA_NAEBUtagRECT@@@Z.c)
- *     ?GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z @ 0x180041694 (-GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z.c)
- *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x180042744 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800DCA44 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x18009B7D4 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z @ 0x18009D684 (-GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800C47D0 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?Contains@CRgnData@Internal@FastRegion@@QEBA_NAEBUtagRECT@@@Z @ 0x1800C7520 (-Contains@CRgnData@Internal@FastRegion@@QEBA_NAEBUtagRECT@@@Z.c)
  */
 
-char __fastcall FastRegion::CRegion::Contains(FastRegion::CRegion *this, const struct CRegion *a2)
+char __fastcall FastRegion::CRegion::Contains(LONG **this, const struct CRegion *a2)
 {
-  FastRegion::CRegion *v3; // r10
+  LONG **v3; // r10
   FastRegion::Internal::CRgnData *v4; // r9
   __int64 v5; // rdx
-  FastRegion::Internal::CRgnData *v6; // rcx
+  LONG *v6; // rcx
   FastRegion::Internal::CRgnData *v7; // rcx
   struct tagRECT v9; // [rsp+20h] [rbp-50h] BYREF
   struct tagRECT v10; // [rsp+30h] [rbp-40h] BYREF
@@ -24,7 +24,7 @@ char __fastcall FastRegion::CRegion::Contains(FastRegion::CRegion *this, const s
   __int64 v14; // [rsp+58h] [rbp-18h]
   int v15; // [rsp+60h] [rbp-10h]
 
-  if ( **(_DWORD **)this )
+  if ( **this )
   {
     if ( !**(_DWORD **)a2 )
       return 1;
@@ -39,9 +39,9 @@ char __fastcall FastRegion::CRegion::Contains(FastRegion::CRegion *this, const s
         v10.bottom = v13[2];
         v5 = 2 * v15;
         v10.left = *(_DWORD *)(v14 + 4 * v5);
-        v6 = *(FastRegion::Internal::CRgnData **)this;
+        v6 = *this;
         v10.right = *(_DWORD *)(v14 + 4 * v5 + 4);
-        if ( !*(_DWORD *)v6 || !FastRegion::Internal::CRgnData::Contains(v6, &v10) )
+        if ( !*v6 || !FastRegion::Internal::CRgnData::Contains((FastRegion::Internal::CRgnData *)v6, &v10) )
           return 0;
         FastRegion::Internal::CRgnData::StepIterator(v7, (struct FastRegion::CRegion::Iterator *)v11);
       }

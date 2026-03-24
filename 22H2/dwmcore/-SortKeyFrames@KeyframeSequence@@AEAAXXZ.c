@@ -1,8 +1,7 @@
 /*
- * XREFs of ?SortKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x1800BD68C
+ * XREFs of ?SortKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x1800ACA78
  * Callers:
- *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180056390 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800BD560 (-Play@KeyframeSequence@@QEAAXXZ.c)
+ *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800AC998 (-Play@KeyframeSequence@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

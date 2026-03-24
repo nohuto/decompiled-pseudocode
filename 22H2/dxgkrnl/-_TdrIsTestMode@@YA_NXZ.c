@@ -1,7 +1,7 @@
 /*
- * XREFs of ?_TdrIsTestMode@@YA_NXZ @ 0x1C030FB0C
+ * XREFs of ?_TdrIsTestMode@@YA_NXZ @ 0x1C0266BCC
  * Callers:
- *     ?TdrDbgCtrl@@YAJW4_TDR_DBG_CTRL@@@Z @ 0x1C030EFB4 (-TdrDbgCtrl@@YAJW4_TDR_DBG_CTRL@@@Z.c)
+ *     ?TdrDbgCtrl@@YAJW4_TDR_DBG_CTRL@@@Z @ 0x1C0266068 (-TdrDbgCtrl@@YAJW4_TDR_DBG_CTRL@@@Z.c)
  * Callees:
  *     <none>
  */

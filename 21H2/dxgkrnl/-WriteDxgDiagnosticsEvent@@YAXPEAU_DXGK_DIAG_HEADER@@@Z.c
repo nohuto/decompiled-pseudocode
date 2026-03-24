@@ -1,201 +1,361 @@
 /*
- * XREFs of ?WriteDxgDiagnosticsEvent@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C00126E0
+ * XREFs of ?WriteDxgDiagnosticsEvent@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000AD7C
  * Callers:
- *     ?WriteDiagnosticEntryInternal@DXGDIAGNOSTICS@@AEBAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0012520 (-WriteDiagnosticEntryInternal@DXGDIAGNOSTICS@@AEBAJPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDiagnosticEntryInternal@DXGDIAGNOSTICS@@AEBAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000AB2C (-WriteDiagnosticEntryInternal@DXGDIAGNOSTICS@@AEBAJPEAU_DXGK_DIAG_HEADER@@@Z.c)
  * Callees:
- *     ?WriteDxgDiagnosticsEvent_QDC@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0011F40 (-WriteDxgDiagnosticsEvent_QDC@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_CODE_POINT_ADAPTERLUID@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0012028 (-WriteDxgDiagnosticsEvent_CODE_POINT_ADAPTERLUID@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_CODE_POINT@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C00127B4 (-WriteDxgDiagnosticsEvent_CODE_POINT@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_FUNCTIONALIZE_PACKET@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0012F7C (-WriteDxgDiagnosticsEvent_FUNCTIONALIZE_PACKET@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_CCD_DATABASE_ACCESS@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001305C (-WriteDxgDiagnosticsEvent_CCD_DATABASE_ACCESS@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_HPD@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001E424 (-WriteDxgDiagnosticsEvent_HPD@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_MONITOR_MGR@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001E898 (-WriteDxgDiagnosticsEvent_MONITOR_MGR@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_SDC@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001E9AC (-WriteDxgDiagnosticsEvent_SDC@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_BML_PACKET@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001EB28 (-WriteDxgDiagnosticsEvent_BML_PACKET@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_DRV_CDS@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001EC6C (-WriteDxgDiagnosticsEvent_DRV_CDS@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_USER_CDS@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001ECFC (-WriteDxgDiagnosticsEvent_USER_CDS@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_DISPLAYCHANGE_ORIGIN@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001ED8C (-WriteDxgDiagnosticsEvent_DISPLAYCHANGE_ORIGIN@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_SetTimingsFromVidPnSourceMasksPacket@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001F324 (-WriteDxgDiagnosticsEvent_SetTimingsFromVidPnSourceMasksPacket@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS_EX@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001F7F4 (-WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS_EX@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_ADAPTER_START2@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C002A918 (-WriteDxgDiagnosticsEvent_ADAPTER_START2@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?WriteDxgDiagnosticsEvent_CCD_CONNECTEDSET_NOT_FOUND@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0052F60 (-WriteDxgDiagnosticsEvent_CCD_CONNECTEDSET_NOT_FOUND@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_COMMIT_VIDPN_FAILED@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0052FF0 (-WriteDxgDiagnosticsEvent_COMMIT_VIDPN_FAILED@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_DRIVER_RECOMMEND_VIDPN@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0053150 (-WriteDxgDiagnosticsEvent_DRIVER_RECOMMEND_VIDPN@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C00531E0 (-WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START_DONE@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0053270 (-WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START_DONE@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START_DONE_EX2@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0053300 (-WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START_DONE_EX2@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS3@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0053390 (-WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS3@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0053420 (-WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_OUTPUTDUPL@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C00534B0 (-WriteDxgDiagnosticsEvent_OUTPUTDUPL@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
- *     ?WriteDxgDiagnosticsEvent_SDCDesktopCheckFailPacket@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0053584 (-WriteDxgDiagnosticsEvent_SDCDesktopCheckFailPacket@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_CODE_POINT_ADAPTERLUID@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000A950 (-WriteDxgDiagnosticsEvent_CODE_POINT_ADAPTERLUID@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_CODE_POINT@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000B0C0 (-WriteDxgDiagnosticsEvent_CODE_POINT@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     _tlgKeywordOn @ 0x1C000B1A8 (_tlgKeywordOn.c)
+ *     ?WriteDxgDiagnosticsEvent_QDC@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000B278 (-WriteDxgDiagnosticsEvent_QDC@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_HPD@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001A9D8 (-WriteDxgDiagnosticsEvent_HPD@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_MONITOR_MGR@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001AAEC (-WriteDxgDiagnosticsEvent_MONITOR_MGR@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_SDC@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C001AB3C (-WriteDxgDiagnosticsEvent_SDC@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U2@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@43333@Z @ 0x1C0045830 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U2@U1@U1@U1@U1@@-$_tlgWriteTemplate@$.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U_tlgWrapperBinary@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU_tlgWrapperBinary@@@Z @ 0x1C00459C8 (--$Write@U-$_tlgWrapperByVal@$03@@U_tlgWrapperBinary@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
+ *     ?WriteDxgDiagnosticsEvent_CCD_CONNECTEDSET_NOT_FOUND@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0045CEC (-WriteDxgDiagnosticsEvent_CCD_CONNECTEDSET_NOT_FOUND@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_COMMIT_VIDPN_FAILED@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0045D6C (-WriteDxgDiagnosticsEvent_COMMIT_VIDPN_FAILED@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_DRIVER_RECOMMEND_VIDPN@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0045EA4 (-WriteDxgDiagnosticsEvent_DRIVER_RECOMMEND_VIDPN@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0045F24 (-WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START_DONE@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0045FA4 (-WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START_DONE@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START_DONE_EX2@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0046024 (-WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START_DONE_EX2@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS3@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C00460A4 (-WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS3@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0046124 (-WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_OUTPUTDUPL@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C00461A4 (-WriteDxgDiagnosticsEvent_OUTPUTDUPL@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDxgDiagnosticsEvent_SDCDesktopCheckFailPacket@@YAXPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0046264 (-WriteDxgDiagnosticsEvent_SDCDesktopCheckFailPacket@@YAXPEAU_DXGK_DIAG_HEADER@@@Z.c)
  */
 
 void __fastcall WriteDxgDiagnosticsEvent(struct _DXGK_DIAG_HEADER *a1)
 {
-  __int64 v2; // rcx
+  __int64 v1; // rdx
   int v3; // edx
-  int v4; // r8d
+  int v4; // edx
   int v5; // edx
-  int v6; // r8d
+  int v6; // edx
   int v7; // edx
-  int v8; // r8d
+  int v8; // edx
+  int v9; // edx
+  int v10; // edx
+  __int64 v11; // rdx
+  __int64 v12; // rdx
+  __int64 v13; // rdx
+  __int64 v14; // rdx
+  __int64 v15; // rdx
+  __int64 v16; // rdx
+  int v17; // edx
+  int v18; // edx
+  void *v20; // rdx
+  __int64 v23; // rax
+  int v25; // ecx
+  int v26; // r8d
+  int v27; // r9d
+  char v29; // al
+  __int64 v30; // rdx
+  __int64 v32; // rax
+  char v33; // al
+  __int64 v34; // rdx
+  unsigned int v35; // r9d
+  int v36; // ecx
+  int v37; // r8d
+  __int64 v38; // rdx
+  int v39; // ecx
+  int v40; // r8d
+  int v41; // r9d
+  int v42; // [rsp+60h] [rbp+27h] BYREF
+  __int64 v43; // [rsp+68h] [rbp+2Fh] BYREF
+  struct _DXGK_DIAG_HEADER *v44; // [rsp+70h] [rbp+37h] BYREF
+  __int16 v45; // [rsp+78h] [rbp+3Fh]
+  int v46; // [rsp+A0h] [rbp+67h] BYREF
+  int v47; // [rsp+A8h] [rbp+6Fh] BYREF
+  int v48; // [rsp+B0h] [rbp+77h] BYREF
+  int v49; // [rsp+B8h] [rbp+7Fh] BYREF
 
-  v2 = *(int *)a1;
-  switch ( (int)v2 )
+  v1 = *(unsigned int *)a1;
+  if ( (int)v1 <= 24 )
   {
-    case 0:
-      WdLogSingleEntry1(1LL, 0LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            0,
-            v3,
-            v4,
-            0,
-            2,
-            -1,
-            (__int64)L"DXGK_DIAG_TYPE_NONE (0x%lx), being logged but it never should",
-            *(int *)a1,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
-      break;
-    case 1:
-    case 7:
-    case 11:
-    case 12:
-    case 13:
-    case 14:
-    case 17:
-    case 21:
-    case 22:
-    case 23:
-    case 31:
-    case 32:
-    case 33:
-    case 38:
-    case 39:
-    case 46:
-      WdLogSingleEntry1(1LL, v2);
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          0,
-          v5,
-          v6,
-          0,
-          2,
-          -1,
-          (__int64)L"Obsolete diag type 0x%lx, being logged",
-          *(int *)a1,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-      break;
-    case 2:
-      WriteDxgDiagnosticsEvent_HPD(a1);
-      break;
-    case 3:
-      WriteDxgDiagnosticsEvent_DISPLAYCHANGE_ORIGIN(a1);
-      break;
-    case 4:
-      WriteDxgDiagnosticsEvent_USER_CDS(a1);
-      break;
-    case 5:
-      WriteDxgDiagnosticsEvent_DRV_CDS(a1);
-      break;
-    case 6:
-      WriteDxgDiagnosticsEvent_CODE_POINT(a1);
-      break;
-    case 8:
-      WriteDxgDiagnosticsEvent_MONITOR_MGR(a1);
-      break;
-    case 9:
-      WriteDxgDiagnosticsEvent_CCD_CONNECTEDSET_NOT_FOUND(a1);
-      break;
-    case 10:
-    case 27:
-    case 28:
-    case 29:
-    case 42:
-    case 44:
-    case 51:
-      WdLogSingleEntry1(3LL, v2);
-      break;
-    case 15:
-      WriteDxgDiagnosticsEvent_OUTPUTDUPL(a1);
-      break;
-    case 16:
-      WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS(a1);
-      break;
-    case 18:
-      WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START_DONE(a1);
-      break;
-    case 19:
-      WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START(a1);
-      break;
-    case 24:
+    if ( (_DWORD)v1 == 24 )
+    {
       WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START_DONE_EX2(a1);
-      break;
-    case 25:
-      WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS_EX(a1);
-      break;
-    case 30:
+      return;
+    }
+    if ( (int)v1 <= 9 )
+    {
+      if ( (_DWORD)v1 == 9 )
+      {
+        WriteDxgDiagnosticsEvent_CCD_CONNECTEDSET_NOT_FOUND(a1);
+        return;
+      }
+      if ( !(_DWORD)v1 )
+        goto LABEL_64;
+      v1 = (unsigned int)(v1 - 1);
+      if ( !(_DWORD)v1 )
+        goto LABEL_64;
+      v3 = v1 - 1;
+      if ( !v3 )
+      {
+        WriteDxgDiagnosticsEvent_HPD(a1);
+        return;
+      }
+      v4 = v3 - 1;
+      if ( v4 )
+      {
+        v5 = v4 - 1;
+        if ( v5 )
+        {
+          v6 = v5 - 1;
+          if ( v6 )
+          {
+            v7 = v6 - 1;
+            if ( !v7 )
+            {
+              WriteDxgDiagnosticsEvent_CODE_POINT(a1);
+              return;
+            }
+            v1 = (unsigned int)(v7 - 1);
+            if ( (_DWORD)v1 == 1 )
+            {
+              WriteDxgDiagnosticsEvent_MONITOR_MGR(a1);
+              return;
+            }
+            goto LABEL_64;
+          }
+          if ( (unsigned int)dword_1C00B1A20 <= 4 )
+            return;
+          if ( !(unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, 0x200000000008LL) )
+            return;
+          if ( !(unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, v14) )
+            return;
+          v20 = &unk_1C007FB0C;
+        }
+        else
+        {
+          if ( (unsigned int)dword_1C00B1A20 <= 4 )
+            return;
+          if ( !(unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, 0x200000000008LL) )
+            return;
+          if ( !(unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, v15) )
+            return;
+          v20 = &unk_1C007FB32;
+        }
+      }
+      else
+      {
+        if ( (unsigned int)dword_1C00B1A20 <= 4 )
+          return;
+        if ( !(unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, 0x200000000004LL) )
+          return;
+        if ( !(unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, v16) )
+          return;
+        v20 = &unk_1C007FB59;
+      }
+LABEL_63:
+      v45 = *((_WORD *)a1 + 2);
+      v46 = 5;
+      v44 = a1;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperBinary>(
+        v25,
+        (_DWORD)v20,
+        v26,
+        v27,
+        (__int64)&v46,
+        (__int64)&v44);
+      return;
+    }
+    if ( (int)v1 > 17 )
+    {
+      if ( (_DWORD)v1 == 18 )
+      {
+        WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START_DONE(a1);
+        return;
+      }
+      if ( (_DWORD)v1 == 19 )
+      {
+        WriteDxgDiagnosticsEvent_MIRACAST_SESSION_START(a1);
+        return;
+      }
+      goto LABEL_64;
+    }
+    if ( (_DWORD)v1 == 17 )
+      goto LABEL_64;
+    if ( (_DWORD)v1 != 10 )
+    {
+      if ( (int)v1 > 14 )
+      {
+        if ( (_DWORD)v1 == 15 )
+          WriteDxgDiagnosticsEvent_OUTPUTDUPL(a1);
+        else
+          WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS(a1);
+        return;
+      }
+      goto LABEL_64;
+    }
+    goto LABEL_91;
+  }
+  if ( (int)v1 > 36 )
+  {
+    v8 = v1 - 37;
+    if ( !v8 )
+    {
+      WriteDxgDiagnosticsEvent_COMMIT_VIDPN_FAILED(a1);
+      return;
+    }
+    v9 = v8 - 1;
+    if ( !v9 )
+    {
+      WriteDxgDiagnosticsEvent_SDC(a1);
+      return;
+    }
+    v10 = v9 - 1;
+    if ( !v10 )
+    {
+      WriteDxgDiagnosticsEvent_QDC(a1);
+      return;
+    }
+    v17 = v10 - 1;
+    if ( !v17 )
+    {
+      WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS3(a1);
+      return;
+    }
+    v18 = v17 - 1;
+    if ( !v18 )
+    {
+      if ( (unsigned int)dword_1C00B1A20 > 4 )
+      {
+        v33 = tlgKeywordOn(&dword_1C00B1A20, 0x200000001000LL);
+        if ( v33 && (unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, v34) )
+        {
+          v45 = *((_WORD *)a1 + 2);
+          v44 = a1;
+          v46 = 6;
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperBinary>(
+            v36,
+            (unsigned int)&unk_1C007F374,
+            v37,
+            v35,
+            (__int64)&v46,
+            (__int64)&v44);
+          v35 = dword_1C00B1A20;
+        }
+        if ( v35 > 4
+          && (unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, 0x400000001000LL)
+          && *((int *)a1 + 12) < 0
+          && (unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, v38) )
+        {
+          v46 = *((_DWORD *)a1 + 18);
+          v47 = *((_DWORD *)a1 + 16);
+          v48 = *((_DWORD *)a1 + 13);
+          v43 = *((_QWORD *)a1 + 10);
+          v44 = (struct _DXGK_DIAG_HEADER *)*((_QWORD *)a1 + 7);
+          v49 = v41;
+          v42 = 6;
+          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+            v39,
+            (unsigned int)&unk_1C007F305,
+            v40,
+            v41,
+            (__int64)&v42,
+            (__int64)&v44,
+            (__int64)&v43,
+            (__int64)&v49,
+            (__int64)&v48,
+            (__int64)&v47,
+            (__int64)&v46);
+        }
+      }
+      return;
+    }
+    v1 = (unsigned int)(v18 - 1);
+    if ( (_DWORD)v1 )
+    {
+      v1 = (unsigned int)(v1 - 1);
+      if ( !(_DWORD)v1 )
+      {
+        WriteDxgDiagnosticsEvent_SDCDesktopCheckFailPacket(a1);
+        return;
+      }
+      if ( (_DWORD)v1 != 1 )
+        goto LABEL_64;
+    }
+    goto LABEL_91;
+  }
+  if ( (_DWORD)v1 == 36 )
+  {
+    if ( (unsigned int)dword_1C00B1A20 > 4 )
+    {
+      if ( (unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, 0x200000000800LL) )
+      {
+        if ( (unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, v12) )
+        {
+          v20 = &unk_1C007F3A0;
+          goto LABEL_63;
+        }
+      }
+    }
+    return;
+  }
+  if ( (_DWORD)v1 == 25 )
+  {
+    if ( (unsigned int)dword_1C00B1A20 > 4 )
+    {
+      v29 = tlgKeywordOn(&dword_1C00B1A20, 0x200000000020LL);
+      if ( v29 && (unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, v30) )
+      {
+        v20 = &unk_1C007F4E3;
+        goto LABEL_63;
+      }
+    }
+    return;
+  }
+  if ( (int)v1 <= 26 )
+    goto LABEL_64;
+  if ( (int)v1 <= 29 )
+  {
+LABEL_91:
+    v32 = WdLogNewEntry5_WdError(a1, v1);
+    *(_QWORD *)(v32 + 24) = *(int *)a1;
+    WdLogEvent5_WdError(v32);
+    return;
+  }
+  switch ( (_DWORD)v1 )
+  {
+    case 0x1E:
       WriteDxgDiagnosticsEvent_CODE_POINT_ADAPTERLUID(a1);
-      break;
-    case 34:
+      return;
+    case 0x20:
+      if ( (unsigned int)dword_1C00B1A20 > 4 )
+      {
+        if ( (unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, 0x200000000080LL) )
+        {
+          if ( (unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, v13) )
+          {
+            v20 = &unk_1C007F6B3;
+            goto LABEL_63;
+          }
+        }
+      }
+      return;
+    case 0x1F:
+    case 0x21:
+LABEL_64:
+      v23 = WdLogNewEntry5_WdAssertion(a1, v1);
+      *(_QWORD *)(v23 + 24) = *(int *)a1;
+      WdLogEvent5_WdAssertion(v23);
+      return;
+    case 0x22:
       WriteDxgDiagnosticsEvent_DRIVER_RECOMMEND_VIDPN(a1);
       break;
-    case 36:
-      WriteDxgDiagnosticsEvent_FUNCTIONALIZE_PACKET(a1);
-      break;
-    case 37:
-      WriteDxgDiagnosticsEvent_COMMIT_VIDPN_FAILED(a1);
-      break;
-    case 40:
-      WriteDxgDiagnosticsEvent_MONITOR_BRIGHTNESS3(a1);
-      break;
-    case 41:
-      WriteDxgDiagnosticsEvent_ADAPTER_START2(a1);
-      break;
-    case 43:
-      WriteDxgDiagnosticsEvent_SDCDesktopCheckFailPacket(a1);
-      break;
-    case 45:
-      WriteDxgDiagnosticsEvent_SetTimingsFromVidPnSourceMasksPacket(a1);
-      break;
-    case 47:
-      WriteDxgDiagnosticsEvent_SDC(a1);
-      break;
-    case 48:
-      WriteDxgDiagnosticsEvent_QDC(a1);
-      break;
-    case 49:
-      WriteDxgDiagnosticsEvent_CCD_DATABASE_ACCESS(a1);
-      break;
-    case 50:
-      WriteDxgDiagnosticsEvent_BML_PACKET(a1);
-      break;
     default:
-      WdLogSingleEntry1(1LL, v2);
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          0,
-          v7,
-          v8,
-          0,
-          2,
-          -1,
-          (__int64)L"Unrecognized diag type 0x%lx, being logged",
-          *(int *)a1,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+      if ( (unsigned int)dword_1C00B1A20 > 4 )
+      {
+        if ( (unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, 0x200000000040LL) )
+        {
+          if ( (unsigned __int8)tlgKeywordOn(&dword_1C00B1A20, v11) )
+          {
+            v20 = &unk_1C007F47F;
+            goto LABEL_63;
+          }
+        }
+      }
       break;
   }
 }

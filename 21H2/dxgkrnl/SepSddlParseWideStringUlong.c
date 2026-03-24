@@ -1,7 +1,7 @@
 /*
- * XREFs of SepSddlParseWideStringUlong @ 0x1C0385628
+ * XREFs of SepSddlParseWideStringUlong @ 0x1C02C493C
  * Callers:
- *     SepSddlGetAclForString @ 0x1C0385144 (SepSddlGetAclForString.c)
+ *     SepSddlGetAclForString @ 0x1C02C4444 (SepSddlGetAclForString.c)
  * Callees:
  *     <none>
  */

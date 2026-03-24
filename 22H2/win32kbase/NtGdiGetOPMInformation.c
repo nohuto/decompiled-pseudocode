@@ -1,46 +1,51 @@
 /*
- * XREFs of NtGdiGetOPMInformation @ 0x1C015CAD0
+ * XREFs of NtGdiGetOPMInformation @ 0x1C00BF700
  * Callers:
  *     <none>
  * Callees:
- *     SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_REQUESTED_INFORMATION_ @ 0x1C015AEB4 (SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_REQUESTED_INFORMATION_.c)
- *     SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_GET_INFO_PARAMETERS_ @ 0x1C015AFD0 (SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_GET_INFO_PARAMETERS_.c)
- *     ??1CAutoUnlockBuffer@?$COPMSimpleBufferPool@U_DXGKMDT_OPM_GET_INFO_PARAMETERS@@@@QEAA@XZ @ 0x1C015B134 (--1CAutoUnlockBuffer@-$COPMSimpleBufferPool@U_DXGKMDT_OPM_GET_INFO_PARAMETERS@@@@QEAA@XZ.c)
- *     ?AcquireBufferSafe@?$COPMSimpleBufferPool@U_DXGKMDT_OPM_REQUESTED_INFORMATION@@@@QEAA?AVCAutoUnlockBuffer@1@XZ @ 0x1C015B1E8 (-AcquireBufferSafe@-$COPMSimpleBufferPool@U_DXGKMDT_OPM_REQUESTED_INFORMATION@@@@QEAA-AVCAutoUnl.c)
- *     ?GetInformation@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@QEAU_DXGKMDT_OPM_REQUESTED_INFORMATION@@@Z @ 0x1C015BCF8 (-GetInformation@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@QEAU_DXGKMDT_OPM_REQUESTED_.c)
+ *     ??1CAutoUnlockBuffer@?$COPMSimpleBufferPool@U_DXGKMDT_OPM_GET_INFO_PARAMETERS@@@@QEAA@XZ @ 0x1C00BF7FC (--1CAutoUnlockBuffer@-$COPMSimpleBufferPool@U_DXGKMDT_OPM_GET_INFO_PARAMETERS@@@@QEAA@XZ.c)
+ *     SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_REQUESTED_INFORMATION_ @ 0x1C00BF85C (SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_REQUESTED_INFORMATION_.c)
+ *     ?GetInformation@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@QEAU_DXGKMDT_OPM_REQUESTED_INFORMATION@@@Z @ 0x1C00BF8B4 (-GetInformation@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_GET_INFO_PARAMETERS@@QEAU_DXGKMDT_OPM_REQUESTED_.c)
+ *     SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_GET_INFO_PARAMETERS_ @ 0x1C00BFB04 (SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_GET_INFO_PARAMETERS_.c)
+ *     ?AcquireBufferSafe@?$COPMSimpleBufferPool@U_DXGKMDT_OPM_REQUESTED_INFORMATION@@@@QEAA?AVCAutoUnlockBuffer@1@XZ @ 0x1C00BFB4C (-AcquireBufferSafe@-$COPMSimpleBufferPool@U_DXGKMDT_OPM_REQUESTED_INFORMATION@@@@QEAA-AVCAutoUnl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall NtGdiGetOPMInformation(unsigned __int64 a1, char *a2, void *a3)
+__int64 __fastcall NtGdiGetOPMInformation(void *a1, __int64 a2, void *a3)
 {
-  __int64 v6; // rbp
-  PLOOKASIDE_LIST_EX *v7; // rbx
-  struct _DXGKMDT_OPM_GET_INFO_PARAMETERS *v8; // rax
-  PLOOKASIDE_LIST_EX *v9; // rcx
-  struct _DXGKMDT_OPM_GET_INFO_PARAMETERS *v10; // rsi
+  OPM *v3; // rsi
+  __int64 v7; // rbx
+  struct _DXGKMDT_OPM_GET_INFO_PARAMETERS *v8; // rdi
+  struct _DXGKMDT_OPM_REQUESTED_INFORMATION *v9; // rsi
+  COPM *v10; // rcx
   int Information; // ebx
-  void *Src[2]; // [rsp+20h] [rbp-38h] BYREF
-  _QWORD v14[5]; // [rsp+30h] [rbp-28h] BYREF
+  void *Src[2]; // [rsp+30h] [rbp-38h] BYREF
+  _QWORD v14[2]; // [rsp+40h] [rbp-28h] BYREF
 
-  v6 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  v7 = *(PLOOKASIDE_LIST_EX **)(v6 + 3824);
-  v8 = (struct _DXGKMDT_OPM_GET_INFO_PARAMETERS *)ExAllocateFromLookasideListEx(*v7);
-  v9 = (PLOOKASIDE_LIST_EX *)(*(_QWORD *)(v6 + 3824) + 8LL);
-  v14[0] = v8;
-  v10 = v8;
-  v14[1] = v7;
-  COPMSimpleBufferPool<_DXGKMDT_OPM_REQUESTED_INFORMATION>::AcquireBufferSafe(v9, Src);
-  if ( v10 && Src[0] )
+  v3 = qword_1C0250C58;
+  v7 = *(_QWORD *)qword_1C0250C58;
+  ++*(_DWORD *)(v7 + 20);
+  v8 = (struct _DXGKMDT_OPM_GET_INFO_PARAMETERS *)ExpInterlockedPopEntrySList((PSLIST_HEADER)v7);
+  if ( !v8 )
   {
-    Information = SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_GET_INFO_PARAMETERS_(v10, a2);
+    ++*(_DWORD *)(v7 + 24);
+    v8 = (struct _DXGKMDT_OPM_GET_INFO_PARAMETERS *)(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v7 + 48))(
+                                                      *(unsigned int *)(v7 + 36),
+                                                      *(unsigned int *)(v7 + 44),
+                                                      *(unsigned int *)(v7 + 40),
+                                                      v7);
+  }
+  v14[0] = v8;
+  v14[1] = v3;
+  COPMSimpleBufferPool<_DXGKMDT_OPM_REQUESTED_INFORMATION>::AcquireBufferSafe((char *)qword_1C0250C58 + 8, Src);
+  if ( v8 && (v9 = (struct _DXGKMDT_OPM_REQUESTED_INFORMATION *)Src[0]) != 0LL )
+  {
+    Information = SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_GET_INFO_PARAMETERS_(v8, a2);
     if ( Information >= 0 )
     {
-      Information = COPM::GetInformation(
-                      *(void ***)(v6 + 3824),
-                      a1,
-                      v10,
-                      (struct _DXGKMDT_OPM_REQUESTED_INFORMATION *const)Src[0]);
+      Information = COPM::GetInformation(v10, a1, v8, v9);
       if ( Information >= 0 )
-        Information = SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_REQUESTED_INFORMATION_(a3, Src[0]);
+        Information = SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_REQUESTED_INFORMATION_(a3, v9);
     }
   }
   else
@@ -49,7 +54,7 @@ __int64 __fastcall NtGdiGetOPMInformation(unsigned __int64 a1, char *a2, void *a
   }
   if ( Information >= 0 )
     Information = 0;
-  COPMSimpleBufferPool<_DXGKMDT_OPM_GET_INFO_PARAMETERS>::CAutoUnlockBuffer::~CAutoUnlockBuffer((__int64)Src);
-  COPMSimpleBufferPool<_DXGKMDT_OPM_GET_INFO_PARAMETERS>::CAutoUnlockBuffer::~CAutoUnlockBuffer((__int64)v14);
+  COPMSimpleBufferPool<_DXGKMDT_OPM_GET_INFO_PARAMETERS>::CAutoUnlockBuffer::~CAutoUnlockBuffer(Src);
+  COPMSimpleBufferPool<_DXGKMDT_OPM_GET_INFO_PARAMETERS>::CAutoUnlockBuffer::~CAutoUnlockBuffer(v14);
   return (unsigned int)Information;
 }

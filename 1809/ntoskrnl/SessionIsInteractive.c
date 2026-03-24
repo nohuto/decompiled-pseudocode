@@ -3,7 +3,7 @@
  * Callers:
  *     NtSetThreadExecutionState @ 0x1405872F0 (NtSetThreadExecutionState.c)
  *     PopCreateUserPowerRequest @ 0x140588C2C (PopCreateUserPowerRequest.c)
- *     PopSetWin32kInputTimeout @ 0x1408791B8 (PopSetWin32kInputTimeout.c)
+ *     PopSetWin32kInputTimeout @ 0x140879198 (PopSetWin32kInputTimeout.c)
  * Callees:
  *     PsGetSiloBySessionId @ 0x140596B48 (PsGetSiloBySessionId.c)
  */

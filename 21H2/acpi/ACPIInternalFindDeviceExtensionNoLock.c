@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIInternalFindDeviceExtensionNoLock @ 0x1C000A724
+ * XREFs of ACPIInternalFindDeviceExtensionNoLock @ 0x1C001A750
  * Callers:
- *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C000A724 (ACPIInternalFindDeviceExtensionNoLock.c)
- *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C00228E4 (ACPIInternalInterruptPolarityCacheGetPolarity.c)
+ *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C000E31C (ACPIInternalInterruptPolarityCacheGetPolarity.c)
+ *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C001A750 (ACPIInternalFindDeviceExtensionNoLock.c)
  * Callees:
- *     ACPIExtListStartEnum @ 0x1C000990C (ACPIExtListStartEnum.c)
- *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C000A724 (ACPIInternalFindDeviceExtensionNoLock.c)
- *     ACPIExtListTestElement @ 0x1C000A7D4 (ACPIExtListTestElement.c)
- *     ACPIExtListEnumNext @ 0x1C000C1AC (ACPIExtListEnumNext.c)
+ *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C001A750 (ACPIInternalFindDeviceExtensionNoLock.c)
+ *     ACPIExtListTestElement @ 0x1C001A904 (ACPIExtListTestElement.c)
+ *     ACPIExtListStartEnum @ 0x1C001AD98 (ACPIExtListStartEnum.c)
+ *     ACPIExtListEnumNext @ 0x1C001B0F0 (ACPIExtListEnumNext.c)
  */
 
 __int64 __fastcall ACPIInternalFindDeviceExtensionNoLock(__int64 a1, __int64 a2)
@@ -24,11 +24,11 @@ __int64 __fastcall ACPIInternalFindDeviceExtensionNoLock(__int64 a1, __int64 a2)
 
   v12 = 0;
   v11 = 0;
-  v7 = a2 + 800;
-  v10 = 816LL;
+  v7 = a2 + 760;
+  v10 = 776LL;
   *(_OWORD *)NewIrql = 0LL;
   *(_OWORD *)SpinLock = 0LL;
-  for ( i = ACPIExtListStartEnum((__int64)&v7); ; i = ACPIExtListEnumNext(&v7) )
+  for ( i = ACPIExtListStartEnum(&v7); ; i = ACPIExtListEnumNext(&v7) )
   {
     LOBYTE(v4) = 1;
     DeviceExtensionNoLock = i;
@@ -40,7 +40,7 @@ __int64 __fastcall ACPIInternalFindDeviceExtensionNoLock(__int64 a1, __int64 a2)
         KeReleaseSpinLock(SpinLock[1], NewIrql[0]);
       return 0LL;
     }
-    if ( *(_QWORD *)(DeviceExtensionNoLock + 784) == a1 )
+    if ( *(_QWORD *)(DeviceExtensionNoLock + 744) == a1 )
       break;
     DeviceExtensionNoLock = ACPIInternalFindDeviceExtensionNoLock(a1, DeviceExtensionNoLock);
     if ( DeviceExtensionNoLock )

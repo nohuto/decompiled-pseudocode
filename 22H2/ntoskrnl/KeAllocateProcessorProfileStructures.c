@@ -1,15 +1,15 @@
 /*
- * XREFs of KeAllocateProcessorProfileStructures @ 0x1403A9A80
+ * XREFs of KeAllocateProcessorProfileStructures @ 0x1403B5E70
  * Callers:
- *     EmonCompleteInitializeProfiling @ 0x140A91210 (EmonCompleteInitializeProfiling.c)
+ *     EmonCompleteInitializeProfiling @ 0x14099F8E0 (EmonCompleteInitializeProfiling.c)
  * Callees:
- *     KiIsIntelPebsSupported @ 0x1403A9C40 (KiIsIntelPebsSupported.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MmCreateShadowMapping @ 0x140820130 (MmCreateShadowMapping.c)
- *     MmAllocateIndependentPages @ 0x14086C6F0 (MmAllocateIndependentPages.c)
- *     MmFreeIndependentPages @ 0x140880080 (MmFreeIndependentPages.c)
- *     MmDeleteShadowMapping @ 0x140A3C840 (MmDeleteShadowMapping.c)
+ *     KiIsIntelPebsSupported @ 0x1403B6028 (KiIsIntelPebsSupported.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MmAllocateIndependentPages @ 0x140762010 (MmAllocateIndependentPages.c)
+ *     MmFreeIndependentPages @ 0x140763BF0 (MmFreeIndependentPages.c)
+ *     MmCreateShadowMapping @ 0x1407A04DC (MmCreateShadowMapping.c)
+ *     MmDeleteShadowMapping @ 0x1408D19B4 (MmDeleteShadowMapping.c)
  */
 
 __int64 __fastcall KeAllocateProcessorProfileStructures(
@@ -18,32 +18,28 @@ __int64 __fastcall KeAllocateProcessorProfileStructures(
         _PROCESSOR_PROFILE_CONTROL_AREA **a3,
         char a4)
 {
-  unsigned __int8 CurrentIrql; // bl
+  unsigned __int8 CurrentIrql; // di
   struct _KPRCB *CurrentPrcb; // rcx
-  size_t v8; // rsi
-  char *IndependentPages; // rax
-  char *v10; // rdi
+  __int64 v8; // r12
+  size_t v9; // rsi
+  char *IndependentPages; // rbx
   __int64 v11; // r8
   _PROCESSOR_PROFILE_CONTROL_AREA *v12; // r10
   _PROCESSOR_PROFILE_CONTROL_AREA *v13; // rax
-  __int64 v14; // rcx
   unsigned __int64 *PebsGpCounterReset; // rax
-  unsigned int v16; // ebp
+  unsigned int v15; // r14d
   _DWORD *SchedulerAssist; // r9
-  __int64 v18; // rax
-  unsigned __int8 v19; // al
-  struct _KPRCB *v20; // r9
-  _DWORD *v21; // r8
-  int v22; // eax
-  bool v23; // zf
-  _DWORD *v24; // r9
-  __int64 v25; // rax
-  unsigned __int8 v26; // cl
-  struct _KPRCB *v27; // r9
-  _DWORD *v28; // r8
-  int v29; // eax
-  __int64 v30; // [rsp+20h] [rbp-48h]
-  char v33; // [rsp+88h] [rbp+20h]
+  unsigned __int8 v17; // al
+  struct _KPRCB *v18; // r9
+  _DWORD *v19; // r8
+  int v20; // eax
+  bool v21; // zf
+  _DWORD *v22; // r9
+  unsigned __int8 v23; // cl
+  struct _KPRCB *v24; // r9
+  _DWORD *v25; // r8
+  int v26; // eax
+  char v29; // [rsp+78h] [rbp+20h]
 
   CurrentIrql = KeGetCurrentIrql();
   if ( !a4 )
@@ -52,119 +48,117 @@ __int64 __fastcall KeAllocateProcessorProfileStructures(
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      LODWORD(v18) = 4;
-      if ( CurrentIrql != 2 )
-        v18 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v18;
+      SchedulerAssist[5] |= (-1LL << (CurrentIrql + 1)) & 4;
     }
     CurrentPrcb = KeGetCurrentPrcb();
     CurrentPrcb->ProcessorProfileControlArea = *a3;
     CurrentPrcb->ProfileEventIndexAddress = &(*a3)->PebsDsSaveArea.As64Bit.PebsIndex;
     if ( KiIrqlFlags )
     {
-      v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v20 = KeGetCurrentPrcb();
-        v21 = v20->SchedulerAssist;
-        v22 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v23 = (v22 & v21[5]) == 0;
-        v21[5] &= v22;
-        if ( v23 )
-          KiRemoveSystemWorkPriorityKick(v20);
+        v17 = KeGetCurrentIrql();
+        if ( v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+        {
+          v18 = KeGetCurrentPrcb();
+          v19 = v18->SchedulerAssist;
+          v20 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v21 = (v20 & v19[5]) == 0;
+          v19[5] &= v20;
+          if ( v21 )
+            KiRemoveSystemWorkPriorityKick(v18);
+        }
       }
     }
     __writecr8(CurrentIrql);
     return 0LL;
   }
   *a3 = 0LL;
-  v33 = 0;
-  v8 = a2 * a1 + 160LL * a1;
-  v30 = a1;
+  v29 = 0;
+  v8 = a1;
+  v9 = a2 * a1 + 160LL * a1;
   if ( KiKvaShadow )
-    v8 = (v8 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  IndependentPages = (char *)MmAllocateIndependentPages(v8, 0LL);
-  v10 = IndependentPages;
+    v9 = (v9 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+  IndependentPages = (char *)MmAllocateIndependentPages(v9, 0LL);
   if ( IndependentPages )
   {
-    memset(IndependentPages, 0, v8);
+    memset(IndependentPages, 0, v9);
     if ( !KiKvaShadow )
-      goto LABEL_14;
-    if ( (unsigned int)MmCreateShadowMapping(v10, v8) )
+      goto LABEL_11;
+    if ( (unsigned int)MmCreateShadowMapping(IndependentPages, v9) )
     {
-      v33 = 1;
-LABEL_14:
+      v29 = 1;
+LABEL_11:
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
-        v24 = KeGetCurrentPrcb()->SchedulerAssist;
-        LODWORD(v25) = 4;
-        if ( CurrentIrql != 2 )
-          v25 = (-1LL << (CurrentIrql + 1)) & 4;
-        v24[5] |= v25;
+        v22 = KeGetCurrentPrcb()->SchedulerAssist;
+        v22[5] |= (-1 << (CurrentIrql + 1)) & 4;
       }
       if ( (unsigned __int8)KiIsIntelPebsSupported(KeGetCurrentPrcb()) )
       {
-        v13 = *(_PROCESSOR_PROFILE_CONTROL_AREA **)(v11 + 34968);
+        v13 = *(_PROCESSOR_PROFILE_CONTROL_AREA **)(v11 + 33944);
         if ( v13 )
         {
           *a3 = v13;
-          v16 = -1073741302;
+          v15 = -1073741302;
         }
         else
         {
           if ( a1 )
           {
-            v14 = v30;
             PebsGpCounterReset = v12->PebsDsSaveArea.As32Bit.PebsGpCounterReset;
             do
             {
-              *PebsGpCounterReset = (unsigned __int64)v10;
-              v10 += a2;
+              *PebsGpCounterReset = (unsigned __int64)IndependentPages;
+              IndependentPages += a2;
               PebsGpCounterReset += 20;
-              --v14;
+              --v8;
             }
-            while ( v14 );
+            while ( v8 );
           }
-          v10 = 0LL;
+          IndependentPages = 0LL;
           *a3 = v12;
-          v16 = 0;
+          v15 = 0;
         }
       }
       else
       {
-        v16 = -1073741637;
+        v15 = -1073741637;
       }
-      goto LABEL_21;
+      goto LABEL_18;
     }
-    v16 = -1073741670;
+    v15 = -1073741670;
   }
   else
   {
-    v16 = -1073741801;
+    v15 = -1073741801;
   }
-LABEL_21:
+LABEL_18:
   if ( KiIrqlFlags )
   {
-    v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v27 = KeGetCurrentPrcb();
-      v28 = v27->SchedulerAssist;
-      v29 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v23 = (v29 & v28[5]) == 0;
-      v28[5] &= v29;
-      if ( v23 )
-        KiRemoveSystemWorkPriorityKick(v27);
+      v23 = KeGetCurrentIrql();
+      if ( v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+      {
+        v24 = KeGetCurrentPrcb();
+        v25 = v24->SchedulerAssist;
+        v26 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v21 = (v26 & v25[5]) == 0;
+        v25[5] &= v26;
+        if ( v21 )
+          KiRemoveSystemWorkPriorityKick(v24);
+      }
     }
   }
   __writecr8(CurrentIrql);
-  if ( v10 )
+  if ( IndependentPages )
   {
-    if ( v33 )
-      MmDeleteShadowMapping(v10, v8);
-    MmFreeIndependentPages(v10, v8);
+    if ( v29 )
+      MmDeleteShadowMapping(IndependentPages, v9);
+    MmFreeIndependentPages(IndependentPages, v9);
   }
-  return v16;
+  return v15;
 }

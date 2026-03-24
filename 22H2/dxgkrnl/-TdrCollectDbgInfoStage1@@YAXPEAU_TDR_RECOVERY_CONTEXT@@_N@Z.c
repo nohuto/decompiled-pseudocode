@@ -1,41 +1,42 @@
 /*
- * XREFs of ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030E0D0
+ * XREFs of ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0265110
  * Callers:
- *     ?TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z @ 0x1C030DED0 (-TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z.c)
- *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F310 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z @ 0x1C0264F30 (-TdrAllowToDebugEngineTimeout@@YA_NPEAU_VIDSCH_NODE@@PEAVDXGADAPTER@@@Z.c)
+ *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02663B0 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
  * Callees:
- *     ?AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z @ 0x1C0009784 (-AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z.c)
- *     ?ReleaseDdiSync@DXGADAPTER@@QEAAXXZ @ 0x1C000A858 (-ReleaseDdiSync@DXGADAPTER@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     DpiGetAdapterDebugData @ 0x1C005E5E8 (DpiGetAdapterDebugData.c)
- *     DpiGetDbgInfoAdapters @ 0x1C005E66C (DpiGetDbgInfoAdapters.c)
- *     DpiGetGlobalDebugData @ 0x1C005E75C (DpiGetGlobalDebugData.c)
- *     ?_DdiCollectDbgInfoNoLocks@DXGADAPTER@@QEAAJPEBU_DXGKARG_COLLECTDBGINFO@@@Z @ 0x1C02CD850 (-_DdiCollectDbgInfoNoLocks@DXGADAPTER@@QEAAJPEBU_DXGKARG_COLLECTDBGINFO@@@Z.c)
- *     ??0CTDR_DUMP_BUFFER@@QEAA@GPEAXK@Z @ 0x1C030D494 (--0CTDR_DUMP_BUFFER@@QEAA@GPEAXK@Z.c)
- *     ??0CTDR_DUMP_BUFFER_CANARY@@QEAA@PEAXK@Z @ 0x1C030D4FC (--0CTDR_DUMP_BUFFER_CANARY@@QEAA@PEAXK@Z.c)
- *     ?AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z @ 0x1C030D658 (-AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z.c)
- *     ?Check@CTDR_DUMP_BUFFER_CANARY@@QEBA_NXZ @ 0x1C030D6EC (-Check@CTDR_DUMP_BUFFER_CANARY@@QEBA_NXZ.c)
- *     ?ShrinkLastSegment@CTDR_DUMP_BUFFER@@AEAAXXZ @ 0x1C030DDD0 (-ShrinkLastSegment@CTDR_DUMP_BUFFER@@AEAAXXZ.c)
- *     ?TdrIsDisplayOnlyTdr@@YA_NW4_TDR_TIMEOUT_REASON@@@Z @ 0x1C030F2B4 (-TdrIsDisplayOnlyTdr@@YA_NW4_TDR_TIMEOUT_REASON@@@Z.c)
- *     ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030F850 (-TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z @ 0x1C0004C60 (-AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z.c)
+ *     ?ReleaseDdiSync@DXGADAPTER@@QEAAXXZ @ 0x1C0004D20 (-ReleaseDdiSync@DXGADAPTER@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DpiGetAdapterDebugData @ 0x1C0051454 (DpiGetAdapterDebugData.c)
+ *     DpiGetDbgInfoAdapters @ 0x1C00514D8 (DpiGetDbgInfoAdapters.c)
+ *     DpiGetGlobalDebugData @ 0x1C00515C8 (DpiGetGlobalDebugData.c)
+ *     ?_DdiCollectDbgInfoNoLocks@DXGADAPTER@@QEAAJPEBU_DXGKARG_COLLECTDBGINFO@@@Z @ 0x1C0221060 (-_DdiCollectDbgInfoNoLocks@DXGADAPTER@@QEAAJPEBU_DXGKARG_COLLECTDBGINFO@@@Z.c)
+ *     ??0CTDR_DUMP_BUFFER@@QEAA@GPEAXK@Z @ 0x1C0264524 (--0CTDR_DUMP_BUFFER@@QEAA@GPEAXK@Z.c)
+ *     ??0CTDR_DUMP_BUFFER_CANARY@@QEAA@PEAXK@Z @ 0x1C0264590 (--0CTDR_DUMP_BUFFER_CANARY@@QEAA@PEAXK@Z.c)
+ *     ?AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z @ 0x1C02646C8 (-AddSegment@CTDR_DUMP_BUFFER@@QEAAPEAXKK@Z.c)
+ *     ?Check@CTDR_DUMP_BUFFER_CANARY@@QEBA_NXZ @ 0x1C026475C (-Check@CTDR_DUMP_BUFFER_CANARY@@QEBA_NXZ.c)
+ *     ?ShrinkLastSegment@CTDR_DUMP_BUFFER@@AEAAXXZ @ 0x1C0264DAC (-ShrinkLastSegment@CTDR_DUMP_BUFFER@@AEAAXXZ.c)
+ *     ?TdrAllocatePool@@YAPEAX_KW4_POOL_TYPE@@@Z @ 0x1C0264EE0 (-TdrAllocatePool@@YAPEAX_KW4_POOL_TYPE@@@Z.c)
+ *     ?TdrIsDisplayOnlyTdr@@YA_NW4_TDR_TIMEOUT_REASON@@@Z @ 0x1C0266354 (-TdrIsDisplayOnlyTdr@@YA_NW4_TDR_TIMEOUT_REASON@@@Z.c)
+ *     ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0266910 (-TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
  */
 
 void __fastcall TdrCollectDbgInfoStage1(struct _TDR_RECOVERY_CONTEXT *a1, char a2)
 {
-  __int64 Pool2; // rax
+  PVOID Pool; // rax
   CTDR_DUMP_BUFFER *v5; // rax
   __int64 v6; // rdx
   unsigned int *v7; // rbx
   void *v8; // rcx
-  __int64 v9; // rax
+  PVOID v9; // rax
   void *v10; // rax
   void *v11; // rbx
   unsigned int *v12; // rbx
-  unsigned int v13; // esi
-  unsigned __int16 v14; // r14
+  unsigned __int16 v13; // r14
+  unsigned int v14; // esi
   unsigned int v15; // r12d
   unsigned int RecentEvents; // ebx
   void *v17; // rax
@@ -50,431 +51,488 @@ void __fastcall TdrCollectDbgInfoStage1(struct _TDR_RECOVERY_CONTEXT *a1, char a
   __int64 v26; // r8
   int v27; // ebx
   __int64 v28; // r8
-  unsigned int *v29; // rbx
-  char *v30; // rax
-  char *v31; // rbx
-  unsigned int v32; // r8d
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  _QWORD *v31; // rax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  _QWORD *v34; // rax
+  unsigned int *v35; // rbx
+  char *v36; // rax
+  char *v37; // rbx
+  unsigned int v38; // r8d
   int SmbiosInfo; // eax
-  unsigned int *v34; // rbx
-  char *v35; // rax
-  __int64 v36; // rbx
-  int AdapterDebugData; // eax
-  unsigned int *v38; // rbx
-  char IsDisplayOnlyTdr; // al
-  int v40; // ecx
-  int v41; // r15d
-  unsigned int v42; // esi
-  unsigned int v43; // ebx
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  _QWORD *v42; // rax
+  unsigned int *v43; // rbx
   char *v44; // rax
-  char *v45; // r14
-  __int64 v46; // r15
-  int v47; // ebx
-  unsigned int *v48; // rbx
-  __int64 v49; // rcx
-  CTDR_DUMP_BUFFER *v50; // rbx
-  unsigned int v51; // ebx
-  char *v52; // rax
-  char *v53; // rsi
-  __int64 v54; // rax
-  __int64 v55; // r9
-  unsigned int *v56; // rbx
-  char *v57; // rax
-  __int64 v58; // rbx
+  __int64 v45; // rbx
+  int AdapterDebugData; // eax
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  _QWORD *v49; // rax
+  unsigned int *v50; // rbx
+  char IsDisplayOnlyTdr; // al
+  int v52; // ecx
+  int v53; // r15d
+  unsigned int v54; // esi
+  unsigned int v55; // ebx
+  char *v56; // rax
+  char *v57; // r14
+  __int64 v58; // r15
+  int v59; // ebx
+  __int64 v60; // rdx
+  __int64 v61; // rcx
+  _QWORD *v62; // rax
+  unsigned int *v63; // rbx
+  __int64 v64; // rcx
+  CTDR_DUMP_BUFFER *v65; // rbx
+  unsigned int v66; // ebx
+  char *v67; // rax
+  char *v68; // rsi
+  __int64 v69; // rax
+  __int64 v70; // r9
+  __int64 v71; // rdx
+  __int64 v72; // rcx
+  _QWORD *v73; // rax
+  unsigned int *v74; // rbx
+  char *v75; // rax
+  __int64 v76; // rbx
   int GlobalDebugData; // eax
-  unsigned int *v60; // rbx
+  __int64 v78; // rdx
+  __int64 v79; // rcx
+  _QWORD *v80; // rax
+  unsigned int *v81; // rbx
   unsigned __int16 i; // si
-  int v62; // r15d
-  char *v63; // rax
-  char *v64; // rbx
-  int v65; // ecx
-  _DWORD *v66; // rax
-  unsigned int *v67; // rbx
-  _DWORD *v68; // [rsp+48h] [rbp-C0h] BYREF
-  _DWORD *v69; // [rsp+50h] [rbp-B8h] BYREF
-  _DWORD *v70; // [rsp+58h] [rbp-B0h] BYREF
-  _DXGKARG_COLLECTDBGINFO v71; // [rsp+60h] [rbp-A8h] BYREF
-  int v72; // [rsp+80h] [rbp-88h]
-  __int64 v73; // [rsp+84h] [rbp-84h]
-  _DWORD v74[28]; // [rsp+98h] [rbp-70h] BYREF
+  int v83; // r15d
+  char *v84; // rax
+  char *v85; // rbx
+  int v86; // ecx
+  __int64 v87; // rdx
+  __int64 v88; // rcx
+  _DWORD *v89; // rax
+  unsigned int *v90; // rbx
+  _QWORD *v91; // rax
+  _DWORD *v92; // [rsp+48h] [rbp-C0h] BYREF
+  _DWORD *v93; // [rsp+50h] [rbp-B8h] BYREF
+  _DWORD *v94; // [rsp+58h] [rbp-B0h] BYREF
+  _DXGKARG_COLLECTDBGINFO v95; // [rsp+60h] [rbp-A8h] BYREF
+  int v96; // [rsp+80h] [rbp-88h]
+  __int64 v97; // [rsp+84h] [rbp-84h]
+  _DWORD v98[28]; // [rsp+98h] [rbp-70h] BYREF
 
-  LODWORD(v69) = *((_DWORD *)a1 + 4);
-  if ( !*((_QWORD *)a1 + 356) )
+  LODWORD(v93) = *((_DWORD *)a1 + 4);
+  if ( !*((_QWORD *)a1 + 355) )
   {
-    Pool2 = ExAllocatePool2(256LL, 17172484LL, 1380209782LL);
-    *((_QWORD *)a1 + 356) = Pool2;
-    if ( Pool2 )
+    Pool = TdrAllocatePool(0x260804uLL, PagedPool);
+    *((_QWORD *)a1 + 355) = Pool;
+    if ( Pool )
     {
-      v5 = (CTDR_DUMP_BUFFER *)ExAllocatePool2(256LL, 32LL, 1380209782LL);
+      v5 = (CTDR_DUMP_BUFFER *)TdrAllocatePool(0x20uLL, PagedPool);
       if ( v5 )
-        v7 = (unsigned int *)CTDR_DUMP_BUFFER::CTDR_DUMP_BUFFER(v5, v6, *((_DWORD **)a1 + 356));
+        v7 = (unsigned int *)CTDR_DUMP_BUFFER::CTDR_DUMP_BUFFER(v5, v6, *((_DWORD **)a1 + 355));
       else
         v7 = 0LL;
-      *((_QWORD *)a1 + 358) = v7;
+      *((_QWORD *)a1 + 357) = v7;
       if ( v7 )
       {
         CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v7);
-        *((_QWORD *)a1 + 357) = v7[6];
-        v9 = ExAllocatePool2(256LL, 36LL, 1380209782LL);
-        *((_QWORD *)a1 + 359) = v9;
+        *((_QWORD *)a1 + 356) = v7[6];
+        v9 = TdrAllocatePool(0x24uLL, PagedPool);
+        *((_QWORD *)a1 + 358) = v9;
         if ( !v9 )
-          *((_DWORD *)a1 + 29) |= 2u;
-        *((_DWORD *)a1 + 38) = *((_DWORD *)a1 + 4);
-        *((_QWORD *)a1 + 20) = *((_QWORD *)a1 + 3);
-        *((_DWORD *)a1 + 42) = *((_DWORD *)a1 + 14);
-        *((_QWORD *)a1 + 22) = *((_QWORD *)a1 + 8);
-        *((_QWORD *)a1 + 23) = *((_QWORD *)a1 + 9);
-        *((_QWORD *)a1 + 24) = *((_QWORD *)a1 + 13);
-        memmove((char *)a1 + 200, &g_TdrHistory, 0xA18uLL);
-        v10 = CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 358), 0xFFFF, 0xAA8u);
+          *((_DWORD *)a1 + 27) |= 2u;
+        *((_DWORD *)a1 + 36) = *((_DWORD *)a1 + 4);
+        *((_QWORD *)a1 + 19) = *((_QWORD *)a1 + 3);
+        *((_DWORD *)a1 + 40) = *((_DWORD *)a1 + 14);
+        *((_QWORD *)a1 + 21) = *((_QWORD *)a1 + 8);
+        *((_QWORD *)a1 + 22) = *((_QWORD *)a1 + 9);
+        *((_QWORD *)a1 + 23) = *((_QWORD *)a1 + 12);
+        memmove((char *)a1 + 192, &g_TdrHistory, 0xA18uLL);
+        v10 = CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 357), 0xFFFF, 0xAA8u);
         v11 = v10;
         if ( v10 )
         {
-          memmove(v10, (char *)a1 + 112, 0xAA8uLL);
-          *((_QWORD *)a1 + 360) = v11;
+          memmove(v10, (char *)a1 + 104, 0xAA8uLL);
+          *((_QWORD *)a1 + 359) = v11;
         }
         else
         {
-          *((_DWORD *)a1 + 29) |= 0x80000000;
+          *((_DWORD *)a1 + 27) |= 0x80000000;
         }
-        v12 = (unsigned int *)*((_QWORD *)a1 + 358);
+        v12 = (unsigned int *)*((_QWORD *)a1 + 357);
         CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v12);
-        *((_QWORD *)a1 + 357) = v12[6];
-        *((_DWORD *)a1 + 35) = 0xFFFF;
+        *((_QWORD *)a1 + 356) = v12[6];
+        *((_DWORD *)a1 + 33) = 0xFFFF;
         if ( a2 )
           TdrUpdateDbgReport(a1, 1);
-        v71.Reason = 1;
-        *(&v71.Reason + 1) = 32;
+        *(&v95.Reason + 1) = 32;
+        v95.pBuffer = (void *)0x4000000020LL;
         v13 = 0;
-        v71.pBuffer = (void *)0x4000000020LL;
+        v95.pExtension = (DXGKARG_COLLECTDBGINFO_EXT *)0x4000000020LL;
+        v96 = 32;
         v14 = 0;
-        v71.pExtension = (DXGKARG_COLLECTDBGINFO_EXT *)0x4000000020LL;
-        v72 = 32;
-        v71.BufferSize = 0x4000000040LL;
-        v73 = 64LL;
+        v95.BufferSize = 0x4000000040LL;
+        v97 = 64LL;
+        v95.Reason = 1;
         do
         {
-          if ( v13 >= 0x5000 )
+          if ( v14 >= 0x5000 )
             break;
-          v15 = *(&v71.Reason + v14);
-          RecentEvents = WdLogGetRecentEvents(v14, v15, 0LL, 0LL);
-          if ( RecentEvents + v13 > 0x5000 )
-            RecentEvents = 20480 - v13;
+          v15 = *(&v95.Reason + v13);
+          RecentEvents = WdLogGetRecentEvents(v13, v15, 0LL, 0LL);
+          if ( RecentEvents + v14 > 0x5000 )
+            RecentEvents = 20480 - v14;
           if ( RecentEvents )
           {
-            v17 = CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 358), (unsigned int)v14 + 16, RecentEvents);
+            v17 = CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 357), (unsigned int)v13 + 16, RecentEvents);
             if ( v17 )
-              RecentEvents = WdLogGetRecentEvents(v14, v15, v17, RecentEvents);
+              RecentEvents = WdLogGetRecentEvents(v13, v15, v17, RecentEvents);
             else
-              *((_DWORD *)a1 + 29) |= 0x80000000;
+              *((_DWORD *)a1 + 27) |= 0x80000000;
           }
-          v13 += RecentEvents;
-          ++v14;
+          v14 += RecentEvents;
+          ++v13;
         }
-        while ( v14 < 0xBu );
-        v18 = (unsigned int *)*((_QWORD *)a1 + 358);
+        while ( v13 < 0xBu );
+        v18 = (unsigned int *)*((_QWORD *)a1 + 357);
         CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v18);
-        *((_QWORD *)a1 + 357) = v18[6];
-        *((_DWORD *)a1 + 35) = 27;
+        *((_QWORD *)a1 + 356) = v18[6];
+        *((_DWORD *)a1 + 33) = 27;
         if ( a2 )
           TdrUpdateDbgReport(a1, 1);
-        v19 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 358), 1, 0x1000004u);
+        v19 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 357), 1, 0x200004u);
         v20 = v19;
         if ( v19 )
         {
           v21 = *((_DWORD *)a1 + 4) == 6;
           v22 = 279;
           v23 = v19;
-          v71.pBuffer = v19;
+          v95.pBuffer = v19;
           if ( v21 )
             v22 = 321;
-          v71.Reason = v22;
-          *(&v71.Reason + 1) = 0;
-          v24 = (DXGKARG_COLLECTDBGINFO_EXT *)*((_QWORD *)a1 + 359);
-          v71.BufferSize = 0x1000000LL;
-          v71.pExtension = v24;
-          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v68, v23, 0x1000000);
-          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v70, *((char **)a1 + 359), 32);
+          v95.Reason = v22;
+          *(&v95.Reason + 1) = 0;
+          v24 = (DXGKARG_COLLECTDBGINFO_EXT *)*((_QWORD *)a1 + 358);
+          v95.BufferSize = 0x200000LL;
+          v95.pExtension = v24;
+          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v92, v23, 0x200000);
+          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v94, *((char **)a1 + 358), 32);
           v25 = (DXGADAPTER *)*((_QWORD *)a1 + 4);
           if ( (unsigned __int8)TdrIsDisplayOnlyTdr(*((unsigned int *)a1 + 4)) )
           {
-            v27 = DXGADAPTER::_DdiCollectDbgInfoNoLocks(v25, &v71, v26);
+            v27 = DXGADAPTER::_DdiCollectDbgInfoNoLocks(v25, &v95, v26);
           }
           else
           {
             DXGADAPTER::AcquireDdiSync((__int64)v25, 1);
-            v27 = DXGADAPTER::_DdiCollectDbgInfoNoLocks(v25, &v71, v28);
+            v27 = DXGADAPTER::_DdiCollectDbgInfoNoLocks(v25, &v95, v28);
             DXGADAPTER::ReleaseDdiSync(v25);
           }
           if ( v27 == -2147483643 )
           {
-            *((_DWORD *)a1 + 29) |= 0x40000000u;
+            *((_DWORD *)a1 + 27) |= 0x40000000u;
           }
           else if ( v27 == -1073741822 )
           {
-            *((_DWORD *)a1 + 29) |= 4u;
+            *((_DWORD *)a1 + 27) |= 4u;
           }
           else if ( v27 < 0 )
           {
-            *((_DWORD *)a1 + 29) |= 0x80000000;
+            *((_DWORD *)a1 + 27) |= 0x80000000;
           }
-          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v68) )
+          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v92) )
           {
-            *((_DWORD *)a1 + 29) |= 0x40000000u;
-            WdLogSingleEntry3(1LL, a1, v20, 0x1000000LL);
+            *((_DWORD *)a1 + 27) |= 0x40000000u;
+            v31 = (_QWORD *)WdLogNewEntry5_WdAssertion(v30, v29);
+            v31[3] = a1;
+            v31[4] = v20;
+            v31[5] = 0x200000LL;
+            WdLogEvent5_WdAssertion(v31);
           }
-          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v70) )
+          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v94) )
           {
-            *((_DWORD *)a1 + 29) |= 0x40000000u;
-            WdLogSingleEntry3(1LL, a1, *((_QWORD *)a1 + 359), 32LL);
+            *((_DWORD *)a1 + 27) |= 0x40000000u;
+            v34 = (_QWORD *)WdLogNewEntry5_WdAssertion(v33, v32);
+            v34[3] = a1;
+            v34[4] = *((_QWORD *)a1 + 358);
+            v34[5] = 32LL;
+            WdLogEvent5_WdAssertion(v34);
           }
-          if ( v70 )
-            *v70 = 0;
-          if ( v68 )
-            *v68 = 0;
+          if ( v94 )
+            *v94 = 0;
+          if ( v92 )
+            *v92 = 0;
         }
         else
         {
-          *((_DWORD *)a1 + 29) |= 0x80000000;
+          *((_DWORD *)a1 + 27) |= 0x80000000;
         }
-        v29 = (unsigned int *)*((_QWORD *)a1 + 358);
-        CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v29);
-        *((_QWORD *)a1 + 357) = v29[6];
-        *((_DWORD *)a1 + 35) = 1;
+        v35 = (unsigned int *)*((_QWORD *)a1 + 357);
+        CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v35);
+        *((_QWORD *)a1 + 356) = v35[6];
+        *((_DWORD *)a1 + 33) = 1;
         if ( a2 )
           TdrUpdateDbgReport(a1, 1);
-        v30 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 358), 2, 0x4004u);
-        v31 = v30;
-        if ( v30 )
+        v36 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 357), 2, 0x4004u);
+        v37 = v36;
+        if ( v36 )
         {
-          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v68, v30, 0x4000);
-          SmbiosInfo = DMgrGetSmbiosInfo(v31, v32);
+          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v92, v36, 0x4000);
+          SmbiosInfo = DMgrGetSmbiosInfo(v37, v38);
           if ( SmbiosInfo == -2147483643 )
           {
-            *((_DWORD *)a1 + 29) |= 0x40000000u;
+            *((_DWORD *)a1 + 27) |= 0x40000000u;
           }
           else if ( SmbiosInfo < 0 )
           {
-            *((_DWORD *)a1 + 29) |= 0x80000000;
+            *((_DWORD *)a1 + 27) |= 0x80000000;
           }
-          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v68) )
+          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v92) )
           {
-            *((_DWORD *)a1 + 29) |= 0x40000000u;
-            WdLogSingleEntry3(1LL, a1, v31, 0x4000LL);
+            *((_DWORD *)a1 + 27) |= 0x40000000u;
+            v42 = (_QWORD *)WdLogNewEntry5_WdAssertion(v41, v40);
+            v42[3] = a1;
+            v42[4] = v37;
+            v42[5] = 0x4000LL;
+            WdLogEvent5_WdAssertion(v42);
           }
-          if ( v68 )
-            *v68 = 0;
+          if ( v92 )
+            *v92 = 0;
         }
         else
         {
-          *((_DWORD *)a1 + 29) |= 0x80000000;
+          *((_DWORD *)a1 + 27) |= 0x80000000;
         }
-        v34 = (unsigned int *)*((_QWORD *)a1 + 358);
-        CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v34);
-        *((_QWORD *)a1 + 357) = v34[6];
-        *((_DWORD *)a1 + 35) = 2;
+        v43 = (unsigned int *)*((_QWORD *)a1 + 357);
+        CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v43);
+        *((_QWORD *)a1 + 356) = v43[6];
+        *((_DWORD *)a1 + 33) = 2;
         if ( a2 )
           TdrUpdateDbgReport(a1, 1);
-        v35 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 358), 6, 0x404u);
-        v36 = (__int64)v35;
-        if ( v35 )
+        v44 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 357), 6, 0x404u);
+        v45 = (__int64)v44;
+        if ( v44 )
         {
-          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v68, v35, 1024);
-          AdapterDebugData = DpiGetAdapterDebugData(*(_QWORD *)(*((_QWORD *)a1 + 4) + 216LL), v36);
+          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v92, v44, 1024);
+          AdapterDebugData = DpiGetAdapterDebugData(*(_QWORD *)(*((_QWORD *)a1 + 4) + 216LL), v45);
           if ( AdapterDebugData == -2147483643 )
           {
-            *((_DWORD *)a1 + 29) |= 0x40000000u;
+            *((_DWORD *)a1 + 27) |= 0x40000000u;
           }
           else if ( AdapterDebugData < 0 )
           {
-            *((_DWORD *)a1 + 29) |= 0x80000000;
+            *((_DWORD *)a1 + 27) |= 0x80000000;
           }
-          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v68) )
+          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v92) )
           {
-            *((_DWORD *)a1 + 29) |= 0x40000000u;
-            WdLogSingleEntry3(1LL, a1, v36, 1024LL);
+            *((_DWORD *)a1 + 27) |= 0x40000000u;
+            v49 = (_QWORD *)WdLogNewEntry5_WdAssertion(v48, v47);
+            v49[3] = a1;
+            v49[4] = v45;
+            v49[5] = 1024LL;
+            WdLogEvent5_WdAssertion(v49);
           }
-          if ( v68 )
-            *v68 = 0;
+          if ( v92 )
+            *v92 = 0;
         }
         else
         {
-          *((_DWORD *)a1 + 29) |= 0x80000000;
+          *((_DWORD *)a1 + 27) |= 0x80000000;
         }
-        v38 = (unsigned int *)*((_QWORD *)a1 + 358);
-        CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v38);
-        *((_QWORD *)a1 + 357) = v38[6];
-        *((_DWORD *)a1 + 35) = 6;
+        v50 = (unsigned int *)*((_QWORD *)a1 + 357);
+        CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v50);
+        *((_QWORD *)a1 + 356) = v50[6];
+        *((_DWORD *)a1 + 33) = 6;
         if ( a2 )
           TdrUpdateDbgReport(a1, 1);
         IsDisplayOnlyTdr = TdrIsDisplayOnlyTdr(*((unsigned int *)a1 + 4));
-        v41 = (int)v69;
-        if ( !IsDisplayOnlyTdr && (_DWORD)v69 != 6 )
+        v53 = (int)v93;
+        if ( !IsDisplayOnlyTdr && (_DWORD)v93 != 6 )
         {
-          v42 = 8;
-          if ( v40 != 3 )
-            v42 = 3;
-          v43 = 195072;
-          if ( v40 != 3 )
-            v43 = 0x2000;
-          v44 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 358), v42, v43 + 4);
-          v45 = v44;
-          if ( v44 )
+          v54 = 8;
+          if ( v52 != 3 )
+            v54 = 3;
+          v55 = 195072;
+          if ( v52 != 3 )
+            v55 = 0x2000;
+          v56 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 357), v54, v55 + 4);
+          v57 = v56;
+          if ( v56 )
           {
-            CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v68, v44, v43);
-            v46 = v43;
-            v47 = (*(__int64 (__fastcall **)(struct _TDR_RECOVERY_CONTEXT *, char *, _QWORD))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 4) + 2928LL) + 736LL) + 8LL)
+            CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v92, v56, v55);
+            v58 = v55;
+            v59 = (*(__int64 (__fastcall **)(struct _TDR_RECOVERY_CONTEXT *, char *, _QWORD))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 4) + 2704LL) + 616LL) + 8LL)
                                                                                             + 600LL))(
                     a1,
-                    v45,
-                    v43);
-            if ( v47 == -2147483643 )
+                    v57,
+                    v55);
+            if ( v59 == -2147483643 )
             {
-              *((_DWORD *)a1 + 29) |= 0x40000000u;
+              *((_DWORD *)a1 + 27) |= 0x40000000u;
             }
-            else if ( v47 < 0 )
+            else if ( v59 < 0 )
             {
-              *((_DWORD *)a1 + 29) |= 0x80000000;
+              *((_DWORD *)a1 + 27) |= 0x80000000;
             }
-            if ( CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v68) )
+            if ( CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v92) )
             {
-              if ( v47 < 0 )
-                *((_DWORD *)a1 + 29) |= 0x40000000u;
+              if ( v59 < 0 )
+                *((_DWORD *)a1 + 27) |= 0x40000000u;
             }
             else
             {
-              *((_DWORD *)a1 + 29) |= 0x40000000u;
-              WdLogSingleEntry4(1LL, a1, v45, v46, v42);
+              *((_DWORD *)a1 + 27) |= 0x40000000u;
+              v62 = (_QWORD *)WdLogNewEntry5_WdAssertion(v61, v60);
+              v62[6] = v54;
+              v62[3] = a1;
+              v62[4] = v57;
+              v62[5] = v58;
+              WdLogEvent5_WdAssertion(v62);
             }
-            v41 = (int)v69;
-            if ( v68 )
-              *v68 = 0;
+            v53 = (int)v93;
+            if ( v92 )
+              *v92 = 0;
           }
           else
           {
-            *((_DWORD *)a1 + 29) |= 0x80000000;
+            *((_DWORD *)a1 + 27) |= 0x80000000;
           }
-          v48 = (unsigned int *)*((_QWORD *)a1 + 358);
-          CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v48);
-          *((_QWORD *)a1 + 357) = v48[6];
-          *((_DWORD *)a1 + 35) = v42;
+          v63 = (unsigned int *)*((_QWORD *)a1 + 357);
+          CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v63);
+          *((_QWORD *)a1 + 356) = v63[6];
+          *((_DWORD *)a1 + 33) = v54;
           if ( a2 )
             TdrUpdateDbgReport(a1, 1);
         }
-        v49 = *((unsigned int *)a1 + 4);
-        if ( (_DWORD)v49 != 3 && !(unsigned __int8)TdrIsDisplayOnlyTdr(v49) && v41 != 6 )
+        v64 = *((unsigned int *)a1 + 4);
+        if ( (_DWORD)v64 != 3 && !(unsigned __int8)TdrIsDisplayOnlyTdr(v64) && v53 != 6 )
         {
-          v50 = (CTDR_DUMP_BUFFER *)*((_QWORD *)a1 + 358);
-          CTDR_DUMP_BUFFER::ShrinkLastSegment(v50);
-          v51 = *((_DWORD *)v50 + 4) - *((_DWORD *)v50 + 6) - 10248;
-          v52 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 358), 4, v51 + 4);
-          v53 = v52;
-          if ( v52 )
+          v65 = (CTDR_DUMP_BUFFER *)*((_QWORD *)a1 + 357);
+          CTDR_DUMP_BUFFER::ShrinkLastSegment(v65);
+          v66 = *((_DWORD *)v65 + 4) - *((_DWORD *)v65 + 6) - 10248;
+          v67 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 357), 4, v66 + 4);
+          v68 = v67;
+          if ( v67 )
           {
-            CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v68, v52, v51);
-            v54 = *((_QWORD *)a1 + 359);
-            if ( v54 )
-              v55 = *(unsigned int *)(v54 + 4);
+            CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v92, v67, v66);
+            v69 = *((_QWORD *)a1 + 358);
+            if ( v69 )
+              v70 = *(unsigned int *)(v69 + 4);
             else
-              v55 = 0LL;
-            if ( !(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, char *, _QWORD))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 4) + 2928LL) + 760LL) + 8LL)
-                                                                                             + 344LL))(
-                    *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 4) + 2928LL) + 768LL),
+              v70 = 0LL;
+            if ( !(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, char *, _QWORD))(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 4) + 2704LL) + 640LL) + 8LL)
+                                                                                             + 352LL))(
+                    *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 4) + 2704LL) + 648LL),
                     *((unsigned int *)a1 + 14),
                     *((_QWORD *)a1 + 8),
-                    v55,
-                    v53,
-                    v51) )
-              *((_DWORD *)a1 + 29) |= 0x40000000u;
-            if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v68) )
+                    v70,
+                    v68,
+                    v66) )
+              *((_DWORD *)a1 + 27) |= 0x40000000u;
+            if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v92) )
             {
-              *((_DWORD *)a1 + 29) |= 0x40000000u;
-              WdLogSingleEntry3(1LL, a1, v53, v51);
+              *((_DWORD *)a1 + 27) |= 0x40000000u;
+              v73 = (_QWORD *)WdLogNewEntry5_WdAssertion(v72, v71);
+              v73[3] = a1;
+              v73[4] = v68;
+              v73[5] = v66;
+              WdLogEvent5_WdAssertion(v73);
             }
-            if ( v68 )
-              *v68 = 0;
+            if ( v92 )
+              *v92 = 0;
           }
           else
           {
-            *((_DWORD *)a1 + 29) |= 0x80000000;
+            *((_DWORD *)a1 + 27) |= 0x80000000;
           }
-          v56 = (unsigned int *)*((_QWORD *)a1 + 358);
-          CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v56);
-          *((_QWORD *)a1 + 357) = v56[6];
-          *((_DWORD *)a1 + 35) = 4;
+          v74 = (unsigned int *)*((_QWORD *)a1 + 357);
+          CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v74);
+          *((_QWORD *)a1 + 356) = v74[6];
+          *((_DWORD *)a1 + 33) = 4;
           if ( a2 )
             TdrUpdateDbgReport(a1, 1);
         }
-        v57 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 358), 9, 0xCu);
-        v58 = (__int64)v57;
-        if ( v57 )
+        v75 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 357), 9, 0xCu);
+        v76 = (__int64)v75;
+        if ( v75 )
         {
-          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v68, v57, 8);
-          GlobalDebugData = DpiGetGlobalDebugData(v58);
+          CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v92, v75, 8);
+          GlobalDebugData = DpiGetGlobalDebugData(v76);
           if ( GlobalDebugData == -2147483643 )
           {
-            *((_DWORD *)a1 + 29) |= 0x40000000u;
+            *((_DWORD *)a1 + 27) |= 0x40000000u;
           }
           else if ( GlobalDebugData < 0 )
           {
-            *((_DWORD *)a1 + 29) |= 0x80000000;
+            *((_DWORD *)a1 + 27) |= 0x80000000;
           }
-          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v68) )
+          if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v92) )
           {
-            *((_DWORD *)a1 + 29) |= 0x40000000u;
-            WdLogSingleEntry3(1LL, a1, v58, 8LL);
+            *((_DWORD *)a1 + 27) |= 0x40000000u;
+            v80 = (_QWORD *)WdLogNewEntry5_WdAssertion(v79, v78);
+            v80[3] = a1;
+            v80[4] = v76;
+            v80[5] = 8LL;
+            WdLogEvent5_WdAssertion(v80);
           }
-          if ( v68 )
-            *v68 = 0;
+          if ( v92 )
+            *v92 = 0;
         }
         else
         {
-          *((_DWORD *)a1 + 29) |= 0x80000000;
+          *((_DWORD *)a1 + 27) |= 0x80000000;
         }
-        v60 = (unsigned int *)*((_QWORD *)a1 + 358);
-        CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v60);
-        *((_QWORD *)a1 + 357) = v60[6];
-        *((_DWORD *)a1 + 35) = 9;
+        v81 = (unsigned int *)*((_QWORD *)a1 + 357);
+        CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v81);
+        *((_QWORD *)a1 + 356) = v81[6];
+        *((_DWORD *)a1 + 33) = 9;
         if ( a2 )
           TdrUpdateDbgReport(a1, 1);
-        memset(v74, 0, sizeof(v74));
-        if ( (int)DpiGetDbgInfoAdapters((__int64)v74) >= 0 )
+        memset(v98, 0, sizeof(v98));
+        if ( (int)DpiGetDbgInfoAdapters((__int64)v98) >= 0 )
         {
           for ( i = 0; i < 7u; ++i )
           {
-            v62 = v74[4 * i];
-            if ( !v62 )
+            v83 = v98[4 * i];
+            if ( !v83 )
               break;
-            v63 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 358), (unsigned int)i + 32, 0x14u);
-            v64 = v63;
-            if ( !v63 )
+            v84 = (char *)CTDR_DUMP_BUFFER::AddSegment(*((CTDR_DUMP_BUFFER **)a1 + 357), (unsigned int)i + 32, 0x14u);
+            v85 = v84;
+            if ( !v84 )
             {
-              *((_DWORD *)a1 + 29) |= 0x80000000;
+              *((_DWORD *)a1 + 27) |= 0x80000000;
               return;
             }
-            CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v69, v63, 16);
-            *((_DWORD *)v64 + 1) = v74[4 * i + 1];
-            *((_DWORD *)v64 + 2) = v74[4 * i + 2];
-            v65 = (*((_DWORD *)v64 + 3) ^ v74[4 * i + 3]) & 3;
-            *(_DWORD *)v64 = v62;
-            *((_DWORD *)v64 + 3) ^= v65;
-            if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v69) )
+            CTDR_DUMP_BUFFER_CANARY::CTDR_DUMP_BUFFER_CANARY((CTDR_DUMP_BUFFER_CANARY *)&v93, v84, 16);
+            *((_DWORD *)v85 + 1) = v98[4 * i + 1];
+            *((_DWORD *)v85 + 2) = v98[4 * i + 2];
+            v86 = (*((_DWORD *)v85 + 3) ^ v98[4 * i + 3]) & 3;
+            *(_DWORD *)v85 = v83;
+            *((_DWORD *)v85 + 3) ^= v86;
+            if ( !CTDR_DUMP_BUFFER_CANARY::Check((const void **)&v93) )
             {
-              *((_DWORD *)a1 + 29) |= 0x40000000u;
-              WdLogSingleEntry3(1LL, a1, v64, 16LL);
-              if ( v69 )
-                *v69 = 0;
+              *((_DWORD *)a1 + 27) |= 0x40000000u;
+              v91 = (_QWORD *)WdLogNewEntry5_WdAssertion(v88, v87);
+              v91[3] = a1;
+              v91[4] = v85;
+              v91[5] = 16LL;
+              WdLogEvent5_WdAssertion(v91);
+              if ( v93 )
+                *v93 = 0;
               return;
             }
-            v66 = v69;
-            if ( v69 )
+            v89 = v93;
+            if ( v93 )
             {
-              v69 = 0LL;
-              *v66 = 0;
+              v93 = 0LL;
+              *v89 = 0;
             }
-            v67 = (unsigned int *)*((_QWORD *)a1 + 358);
-            CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v67);
-            *((_QWORD *)a1 + 357) = v67[6];
-            *((_DWORD *)a1 + 35) = i + 32;
+            v90 = (unsigned int *)*((_QWORD *)a1 + 357);
+            CTDR_DUMP_BUFFER::ShrinkLastSegment((CTDR_DUMP_BUFFER *)v90);
+            *((_QWORD *)a1 + 356) = v90[6];
+            *((_DWORD *)a1 + 33) = i + 32;
             if ( a2 )
               TdrUpdateDbgReport(a1, 1);
           }
@@ -482,16 +540,16 @@ void __fastcall TdrCollectDbgInfoStage1(struct _TDR_RECOVERY_CONTEXT *a1, char a
       }
       else
       {
-        *((_DWORD *)a1 + 29) |= 2u;
-        v8 = (void *)*((_QWORD *)a1 + 356);
+        *((_DWORD *)a1 + 27) |= 2u;
+        v8 = (void *)*((_QWORD *)a1 + 355);
         if ( v8 )
           ExFreePoolWithTag(v8, 0x52445476u);
-        *((_QWORD *)a1 + 356) = 0LL;
+        *((_QWORD *)a1 + 355) = 0LL;
       }
     }
     else
     {
-      *((_DWORD *)a1 + 29) |= 2u;
+      *((_DWORD *)a1 + 27) |= 2u;
     }
   }
 }

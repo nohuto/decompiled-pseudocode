@@ -1,11 +1,11 @@
 /*
- * XREFs of BgkSolidColorFill @ 0x14027DBB0
+ * XREFs of BgkSolidColorFill @ 0x14027DCB0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     BgkpAcquireConsole @ 0x14027DC28 (BgkpAcquireConsole.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x14027DD28 (BgkpAcquireConsole.c)
  */
 
 void __fastcall BgkSolidColorFill(int a1, int a2, int a3, int a4, unsigned int a5)

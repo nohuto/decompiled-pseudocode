@@ -1,7 +1,7 @@
 /*
- * XREFs of ?_SerializeMonitorPresentEvent@MONITOR_MGR@@QEAAJPEA_KPEAU_DMM_MONITORPRESENCEEVENTSET_SERIALIZATION@@@Z @ 0x1C03B495C
+ * XREFs of ?_SerializeMonitorPresentEvent@MONITOR_MGR@@QEAAJPEA_KPEAU_DMM_MONITORPRESENCEEVENTSET_SERIALIZATION@@@Z @ 0x1C02F2FFC
  * Callers:
- *     MonitorSerializeMonitorPresentEvents @ 0x1C03B0CE0 (MonitorSerializeMonitorPresentEvents.c)
+ *     MonitorSerializeMonitorPresentEvents @ 0x1C02F44E8 (MonitorSerializeMonitorPresentEvents.c)
  * Callees:
  *     <none>
  */
@@ -12,44 +12,48 @@ __int64 __fastcall MONITOR_MGR::_SerializeMonitorPresentEvent(
         struct _DMM_MONITORPRESENCEEVENTSET_SERIALIZATION *a3)
 {
   unsigned int v3; // ebx
-  unsigned int v7; // eax
-  unsigned int v8; // r8d
-  unsigned __int64 v9; // rax
-  _OWORD *v10; // rsi
-  unsigned int v11; // ecx
-  __int64 v12; // rcx
+  __int64 v7; // rax
+  unsigned int v8; // eax
+  unsigned int v9; // r8d
+  unsigned __int64 v10; // rax
+  _OWORD *v11; // rsi
+  unsigned int v12; // ecx
+  __int64 v13; // rax
 
   v3 = 0;
   if ( !a2 )
-    WdLogSingleEntry0(1LL);
-  v7 = *((_DWORD *)this + 44);
-  v8 = 20;
-  if ( v7 > 0x14 || (v8 = *((_DWORD *)this + 44), v7) )
-    v9 = 24LL * (v8 - 1) + 32;
-  else
-    v9 = 32LL;
-  if ( v9 <= *a2 && a3 )
   {
-    *(_BYTE *)a3 = v8;
-    if ( v8 )
+    v7 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    WdLogEvent5_WdAssertion(v7);
+  }
+  v8 = *((_DWORD *)this + 70);
+  v9 = 20;
+  if ( v8 > 0x14 || (v9 = *((_DWORD *)this + 70), v8) )
+    v10 = 24LL * (v9 - 1) + 32;
+  else
+    v10 = 32LL;
+  if ( v10 <= *a2 && a3 )
+  {
+    *(_BYTE *)a3 = v9;
+    if ( v9 )
     {
-      v10 = (_OWORD *)((char *)a3 + 8);
+      v11 = (_OWORD *)((char *)a3 + 8);
       do
       {
-        v11 = v3 + *((_DWORD *)this + 44) - v8;
+        v12 = v3 + *((_DWORD *)this + 70) - v9;
         ++v3;
-        v12 = 3LL * (v11 % 0x14);
-        *v10 = *(_OWORD *)((char *)this + 8 * v12 + 184);
-        v10 = (_OWORD *)((char *)v10 + 24);
-        *((_QWORD *)v10 - 1) = *((_QWORD *)this + v12 + 25);
+        v13 = v12 % 0x14 + 12LL;
+        *v11 = *(_OWORD *)((char *)this + 24 * v13);
+        v11 = (_OWORD *)((char *)v11 + 24);
+        *((_QWORD *)v11 - 1) = *((_QWORD *)this + 3 * v13 + 2);
       }
-      while ( v3 < v8 );
+      while ( v3 < v9 );
     }
     return 0LL;
   }
   else
   {
-    *a2 = v9;
+    *a2 = v10;
     return 3221225507LL;
   }
 }

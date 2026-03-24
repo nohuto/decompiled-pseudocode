@@ -1,12 +1,12 @@
 /*
- * XREFs of CreateNewEventEntry @ 0x14034F194
+ * XREFs of CreateNewEventEntry @ 0x14036DBA0
  * Callers:
- *     InsertEventEntryInLookUpTable @ 0x140212F80 (InsertEventEntryInLookUpTable.c)
+ *     InsertEventEntryInLookUpTable @ 0x14036D608 (InsertEventEntryInLookUpTable.c)
  * Callees:
- *     CBufferGetNextOffset @ 0x14034F3C8 (CBufferGetNextOffset.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     CBufferGetNextOffset @ 0x14036DDD8 (CBufferGetNextOffset.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CreateNewEventEntry(
@@ -19,26 +19,26 @@ __int64 __fastcall CreateNewEventEntry(
         __int64 *a7)
 {
   unsigned __int8 v7; // di
-  __int64 v8; // rsi
-  __int64 v11; // r9
+  __int64 v8; // rbp
+  __int64 v11; // r8
   __int64 v12; // r10
-  unsigned __int8 v13; // r8
+  unsigned __int8 v13; // r9
   unsigned int *v14; // rdx
   __int64 v15; // rcx
   __int64 v16; // rax
   SIZE_T v17; // r14
   PVOID PoolWithTag; // rax
-  PVOID v19; // rbp
+  PVOID v19; // rbx
   __int64 NextOffset; // r12
   unsigned int v21; // edx
   void *v22; // rbx
   __int64 v23; // rdx
   __int64 v24; // rdi
   __int128 v25; // xmm0
-  unsigned __int8 v26; // bp
-  const void **v27; // r14
+  unsigned __int8 v26; // r14
+  const void **v27; // rsi
   __int64 v28; // r12
-  __int64 v29; // rsi
+  __int64 v29; // rbp
   unsigned int v30; // edx
   void *v31; // rbx
   char *v32; // rdx
@@ -67,18 +67,19 @@ __int64 __fastcall CreateNewEventEntry(
       v11 = v16;
     }
     while ( v13 < (unsigned __int8)v8 );
-    if ( (unsigned __int64)(v12 + v16) > 0xFFFF )
-      return 3221225621LL;
   }
+  if ( (unsigned __int64)(v12 + v11) > 0xFFFF )
+    return 3221225621LL;
   v17 = v12 + 16 * v8 + 46;
   if ( !v17 )
     return 3221225495LL;
   PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)(a1 != 0 ? PagedPool : NonPagedPoolNx), v17, 0x47417254u);
   v19 = PoolWithTag;
-  if ( !PoolWithTag )
-    return 3221225495LL;
-  memset(PoolWithTag, 0, v17);
+  if ( PoolWithTag )
+    memset(PoolWithTag, 0, v17);
   v35[0] = v19;
+  if ( !v19 )
+    return 3221225495LL;
   v35[1] = v17;
   NextOffset = CBufferGetNextOffset(v35, 16 * v8);
   if ( a5 != -2 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HandlePointerCursorSideOp@@YAXXZ @ 0x1C00FDC68
+ * XREFs of ?HandlePointerCursorSideOp@@YAXXZ @ 0x1C0028388
  * Callers:
- *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C00FDC20 (-OnPointerCursorOperation@@YAXXZ.c)
+ *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C0028340 (-OnPointerCursorOperation@@YAXXZ.c)
  * Callees:
- *     TransitionCursorSuppressionState @ 0x1C0097DC0 (TransitionCursorSuppressionState.c)
- *     ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x1C00FDD1C (-xxxEnsureAllDpiCursors@@YAXXZ.c)
- *     ?xxxRestoreMouseCursors@Feedback@@YAXXZ @ 0x1C01D530C (-xxxRestoreMouseCursors@Feedback@@YAXXZ.c)
- *     ?xxxSwitchCursors@@YAXHH@Z @ 0x1C01D53B0 (-xxxSwitchCursors@@YAXHH@Z.c)
+ *     ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x1C0025B2C (-xxxEnsureAllDpiCursors@@YAXXZ.c)
+ *     TransitionCursorSuppressionState @ 0x1C0028D10 (TransitionCursorSuppressionState.c)
+ *     ?xxxRestoreMouseCursors@Feedback@@YAXXZ @ 0x1C01DAF0C (-xxxRestoreMouseCursors@Feedback@@YAXXZ.c)
+ *     ?xxxSwitchCursors@@YAXHH@Z @ 0x1C01DAFB0 (-xxxSwitchCursors@@YAXHH@Z.c)
  */
 
 void HandlePointerCursorSideOp(void)
@@ -14,7 +14,7 @@ void HandlePointerCursorSideOp(void)
   signed __int32 v0; // eax
   signed __int32 v1; // ett
   __int16 v2; // bx
-  unsigned int v3; // ecx
+  __int64 v3; // rcx
   __int64 v4; // rcx
   __int64 v5; // rcx
   Feedback *v6; // rcx
@@ -34,13 +34,13 @@ void HandlePointerCursorSideOp(void)
   v2 = v0;
   if ( (v0 & 1) != 0 )
   {
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
     Feedback::xxxRestoreMouseCursors(v6);
     UserSessionSwitchLeaveCrit(v7);
   }
   if ( (v2 & 0x700) != 0 )
   {
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
     if ( (v2 & 0x100) != 0 )
     {
       v8 = 1;
@@ -57,36 +57,36 @@ void HandlePointerCursorSideOp(void)
   }
   if ( (v2 & 2) != 0 )
   {
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
     if ( gCursorSuppressionState == 4 )
     {
-      v3 = 8;
+      v3 = 8LL;
     }
     else if ( gCursorSuppressionState == 5 )
     {
-      v3 = 1;
+      v3 = 1LL;
     }
     else
     {
       v4 = (unsigned int)(gCursorSuppressionState - 6);
       if ( gCursorSuppressionState == 6 )
       {
-        v3 = 2;
+        v3 = 2LL;
       }
       else
       {
         if ( gCursorSuppressionState != 7 )
           goto LABEL_10;
-        v3 = 3;
+        v3 = 3LL;
       }
     }
-    TransitionCursorSuppressionState(v3, 0);
+    TransitionCursorSuppressionState(v3, 0LL);
 LABEL_10:
     UserSessionSwitchLeaveCrit(v4);
   }
   if ( (v2 & 4) != 0 )
   {
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
     xxxEnsureAllDpiCursors();
     UserSessionSwitchLeaveCrit(v5);
   }

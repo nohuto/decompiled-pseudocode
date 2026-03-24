@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRollbackComplete @ 0x140194610
+ * XREFs of NtRollbackComplete @ 0x140194630
  * Callers:
  *     <none>
  * Callees:

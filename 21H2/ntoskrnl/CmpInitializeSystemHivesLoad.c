@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpInitializeSystemHivesLoad @ 0x1408337BC
+ * XREFs of CmpInitializeSystemHivesLoad @ 0x14078F594
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14082830C (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     CmpQueryHiveRedirectionFileList @ 0x1406DD50C (CmpQueryHiveRedirectionFileList.c)
- *     CmpCreateRegistryThread @ 0x1408339FC (CmpCreateRegistryThread.c)
- *     CmpBuildMachineHiveMountPoint @ 0x140833B08 (CmpBuildMachineHiveMountPoint.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x1406BAAB8 (CmpQueryHiveRedirectionFileList.c)
+ *     CmpCreateRegistryThread @ 0x14078F7D4 (CmpCreateRegistryThread.c)
+ *     CmpBuildMachineHiveMountPoint @ 0x14078F83C (CmpBuildMachineHiveMountPoint.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS CmpInitializeSystemHivesLoad()
@@ -35,14 +35,14 @@ NTSTATUS CmpInitializeSystemHivesLoad()
   char v15; // [rsp+50h] [rbp-98h] BYREF
 
   Handle = 0LL;
-  BYTE1(NlsMbOemCodePageTag) = 0;
+  BYTE1(NlsMbCodePageTag) = 0;
   KeInitializeEvent(&CmpLoadWorkerEvent, SynchronizationEvent, 0);
   KeInitializeEvent(&CmpLoadWorkerDebugEvent, SynchronizationEvent, 0);
   v0 = 0;
-  v1 = &unk_140C025E0;
+  v1 = &unk_140C00FC0;
   do
   {
-    v2 = 23LL * v0;
+    v2 = 25LL * v0;
     KeInitializeEvent((PRKEVENT)&CmpMachineHiveList[v2 + 8], NotificationEvent, 0);
     KeInitializeEvent((PRKEVENT)&CmpMachineHiveList[v2 + 11], SynchronizationEvent, 0);
     *(_QWORD *)&ValueName.Length = 0x800000LL;
@@ -54,29 +54,29 @@ NTSTATUS CmpInitializeSystemHivesLoad()
     *(_OWORD *)(v1 - 1) = 0LL;
     *v1 = PoolWithTag;
     *((_WORD *)v1 - 3) = 128;
-    v4 = (UNICODE_STRING *)&CmpMachineHiveList[v2 + 21];
+    v4 = (UNICODE_STRING *)&CmpMachineHiveList[v2 + 23];
     if ( !CmpQueryHiveRedirectionFileList(&ValueName, v4) || *((_WORD *)v1 - 4) == 2 )
     {
       *(_OWORD *)(v1 - 1) = 0LL;
       *v1 = PoolWithTag;
       *((_WORD *)v1 - 3) = 128;
       RtlAppendUnicodeToString(v4, L"\\SystemRoot\\System32\\Config\\");
-      RtlAppendUnicodeToString(v4, (PCWSTR)*(v1 - 22));
+      RtlAppendUnicodeToString(v4, (PCWSTR)*(v1 - 24));
     }
-    v1 += 23;
+    v1 += 25;
     ++v0;
   }
   while ( v0 < 7 );
-  v6 = &unk_140C02550;
-  if ( CmpShareSystemHives )
+  v6 = &unk_140C00F20;
+  if ( BYTE4(NlsMbCodePageTag) )
   {
-    v11 = &unk_140C02550;
+    v11 = &unk_140C00F20;
     v12 = 7LL;
     do
     {
       if ( *((_QWORD *)v11 - 4) )
         *v11 |= 0x8000u;
-      v11 += 46;
+      v11 += 50;
       --v12;
     }
     while ( v12 );
@@ -87,7 +87,7 @@ NTSTATUS CmpInitializeSystemHivesLoad()
     if ( (*v6 & 1) != 0 || CmpInitRmLogOnLoad || CmpForceSynchronousMachineHiveLoad || ((i - 2) & 0xFFFFFFFA) == 0 )
     {
       v8 = i;
-      KeSetEvent((struct _KEVENT *)((char *)&stru_140C02570 + 184 * i), 0, 0);
+      KeSetEvent((struct _KEVENT *)((char *)&stru_140C00F40 + 200 * i), 0, 0);
     }
     else
     {
@@ -97,7 +97,7 @@ NTSTATUS CmpInitializeSystemHivesLoad()
     if ( v9 < 0 )
       KeBugCheckEx(0x74u, 2uLL, 3uLL, i, v9);
     result = ZwClose(Handle);
-    v6 += 46;
+    v6 += 50;
   }
   return result;
 }

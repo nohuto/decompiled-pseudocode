@@ -1,24 +1,27 @@
 /*
- * XREFs of ?FlushEvictQueue@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_PAGING_QUEUE@@@Z @ 0x1C00ECFD0
+ * XREFs of ?FlushEvictQueue@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_PAGING_QUEUE@@@Z @ 0x1C00B7AC4
  * Callers:
- *     ?ProcessEvictQueues@VIDMM_WORKER_THREAD@@AEAA_NXZ @ 0x1C00ED568 (-ProcessEvictQueues@VIDMM_WORKER_THREAD@@AEAA_NXZ.c)
+ *     ?ProcessEvictQueues@VIDMM_WORKER_THREAD@@AEAAXPEA_N@Z @ 0x1C00B8154 (-ProcessEvictQueues@VIDMM_WORKER_THREAD@@AEAAXPEA_N@Z.c)
  * Callees:
- *     ?SubmitPacket@VIDMM_WORKER_THREAD@@AEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_PAGING_QUEUE_PACKET@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00ED808 (-SubmitPacket@VIDMM_WORKER_THREAD@@AEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_PAGING_QUEUE_PACKET@@_.c)
- *     ?ReclaimPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@@Z @ 0x1C00F0FA4 (-ReclaimPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@@Z.c)
+ *     ?SubmitPacket@VIDMM_WORKER_THREAD@@AEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_PAGING_QUEUE_PACKET@@_NPEA_NPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00B83D4 (-SubmitPacket@VIDMM_WORKER_THREAD@@AEAAJPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_PAGING_QUEUE_PACKET@@_.c)
+ *     ?ReclaimPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@@Z @ 0x1C00BA628 (-ReclaimPacket@VIDMM_PAGING_QUEUE@@QEAAXPEAUVIDMM_PAGING_QUEUE_PACKET@@@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_WORKER_THREAD::FlushEvictQueue(VIDMM_WORKER_THREAD *this, struct VIDMM_PAGING_QUEUE *a2)
 {
   char *v4; // r14
-  struct VIDMM_PAGING_QUEUE_PACKET *v5; // rbx
+  struct VIDMM_PAGING_QUEUE_PACKET *v5; // rdi
   __int64 v6; // rax
   int v7; // eax
-  bool v8; // zf
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  bool v11; // [rsp+50h] [rbp+8h] BYREF
-  struct VIDMM_ALLOC *v12; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r13
+  bool v11; // zf
+  __int64 v12; // r12
+  __int64 v13; // rbx
+  _QWORD *v14; // rax
+  bool v15; // [rsp+70h] [rbp+8h] BYREF
+  struct VIDMM_ALLOC *v16; // [rsp+78h] [rbp+10h] BYREF
 
   if ( g_IsInternalReleaseOrDbg )
     *(_QWORD *)(WdLogNewEntry5_WdTrace(this) + 24) = a2;
@@ -43,21 +46,28 @@ void __fastcall VIDMM_WORKER_THREAD::FlushEvictQueue(VIDMM_WORKER_THREAD *this, 
       *((_QWORD *)this + 19) = 0LL;
       ExReleasePushLockExclusiveEx((char *)this + 144, 0LL);
       KeLeaveCriticalRegion();
-      v12 = 0LL;
-      v11 = 0;
-      v7 = VIDMM_WORKER_THREAD::SubmitPacket(this, a2, v5, 0, &v11, &v12);
-      if ( v7 < 0 || v11 )
+      v15 = 0;
+      v16 = 0LL;
+      v7 = VIDMM_WORKER_THREAD::SubmitPacket(this, a2, v5, 0, &v15, &v16);
+      v10 = v7;
+      if ( v7 < 0 || v15 )
       {
         if ( *((_BYTE *)v5 + 24) )
-          v8 = *((_QWORD *)v5 + 9) == 0LL;
+          v11 = *((_QWORD *)v5 + 9) == 0LL;
         else
-          v8 = *((_QWORD *)v5 + 10) == 0LL;
-        v9 = *((int *)v5 + 12);
-        if ( v8 )
+          v11 = *((_QWORD *)v5 + 10) == 0LL;
+        v12 = *((int *)v5 + 12);
+        if ( v11 )
         {
-          v10 = *(_QWORD *)this;
-          g_DxgMmsBugcheckExportIndex = 1;
-          WdLogSingleEntry5(0LL, 270LL, 76LL, v7, v10, v9);
+          v13 = *(_QWORD *)this;
+          LOBYTE(v9) = !v11;
+          v14 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v9, v8);
+          v14[3] = 270LL;
+          v14[4] = 76LL;
+          v14[5] = v10;
+          v14[6] = v13;
+          v14[7] = v12;
+          WdLogEvent5_WdCriticalError(v14);
         }
       }
       VIDMM_PAGING_QUEUE::ReclaimPacket(a2, v5);

@@ -1,11 +1,11 @@
 /*
- * XREFs of InitSecurity @ 0x1C02E36BC
+ * XREFs of InitSecurity @ 0x1C02989B0
  * Callers:
- *     Win32UserInitialize @ 0x1C02E231C (Win32UserInitialize.c)
+ *     Win32UserInitialize @ 0x1C0298BBC (Win32UserInitialize.c)
  * Callees:
- *     CreateSecurityDescriptor @ 0x1C0032DE0 (CreateSecurityDescriptor.c)
- *     AllocAce @ 0x1C0058D40 (AllocAce.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     CreateSecurityDescriptor @ 0x1C00258E0 (CreateSecurityDescriptor.c)
+ *     AllocAce @ 0x1C0029FE0 (AllocAce.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 __int64 InitSecurity()
@@ -20,59 +20,55 @@ __int64 InitSecurity()
   char *v7; // rax
   char *v8; // rax
   char *v9; // rax
-  char *v10; // rdi
-  char *v12; // rdx
+  __int64 v10; // rdi
+  __int64 v12; // rcx
   ULONG AceListLength; // [rsp+40h] [rbp+8h] BYREF
 
   v0 = 0;
   AceListLength = 0;
-  v1 = (char *)AllocAce(0LL, 0, 14, 983935, SeExports->SeWorldSid, &AceListLength);
+  v1 = AllocAce(0LL, 0, 14, 983935, SeExports->SeWorldSid, &AceListLength);
   v2 = v1;
   if ( !v1 )
     return 0LL;
-  v3 = (char *)AllocAce(v1, 0, 14, 983935, SeExports->SeRestrictedSid, &AceListLength);
+  v3 = AllocAce(v1, 0, 14, 983935, SeExports->SeRestrictedSid, &AceListLength);
   v4 = v3;
   if ( !v3 )
-    goto LABEL_11;
-  v5 = (char *)AllocAce(v3, 0, 9, 0x10000000, SeExports->SeWorldSid, &AceListLength);
+    goto LABEL_10;
+  v5 = AllocAce(v3, 0, 9, 0x10000000, SeExports->SeWorldSid, &AceListLength);
   v2 = v5;
   if ( v5 )
   {
-    v6 = (char *)AllocAce(v5, 0, 9, 0x10000000, SeExports->SeRestrictedSid, &AceListLength);
+    v6 = AllocAce(v5, 0, 9, 0x10000000, SeExports->SeRestrictedSid, &AceListLength);
     v4 = v6;
     if ( !v6 )
-      goto LABEL_11;
-    v7 = (char *)AllocAce(v6, 0, 0, 5, SeExports->SeAliasAdminsSid, &AceListLength);
+      goto LABEL_10;
+    v7 = AllocAce(v6, 0, 0, 5, SeExports->SeAliasAdminsSid, &AceListLength);
     v2 = v7;
     if ( v7 )
     {
-      v8 = (char *)AllocAce(v7, 0, 0, 2, SeExports->SeWorldSid, &AceListLength);
+      v8 = AllocAce(v7, 0, 0, 2, SeExports->SeWorldSid, &AceListLength);
       v4 = v8;
       if ( v8 )
       {
-        v9 = (char *)AllocAce(v8, 0, 0, 2, SeExports->SeRestrictedSid, &AceListLength);
-        v10 = v9;
+        v9 = AllocAce(v8, 0, 0, 2, SeExports->SeRestrictedSid, &AceListLength);
+        v10 = (__int64)v9;
         if ( v9 )
         {
-          gpsdInitWinSta = CreateSecurityDescriptor(v9, AceListLength, 0);
-          NSInstrumentation::CLeakTrackingAllocator::Free(
-            (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-            v10);
-          LOBYTE(v0) = gpsdInitWinSta != 0LL;
+          gpsdInitWinSta = (__int64)CreateSecurityDescriptor(v9, AceListLength, 0);
+          Win32FreePool(v10);
+          LOBYTE(v0) = gpsdInitWinSta != 0;
           return v0;
         }
         goto LABEL_9;
       }
-LABEL_11:
-      v12 = v2;
-      goto LABEL_12;
+LABEL_10:
+      v12 = (__int64)v2;
+      goto LABEL_11;
     }
   }
 LABEL_9:
-  v12 = v4;
-LABEL_12:
-  NSInstrumentation::CLeakTrackingAllocator::Free(
-    (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-    v12);
+  v12 = (__int64)v4;
+LABEL_11:
+  Win32FreePool(v12);
   return 0LL;
 }

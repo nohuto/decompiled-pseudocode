@@ -1,8 +1,8 @@
 /*
- * XREFs of MNDestroyAnimationBitmap @ 0x1C021BBC8
+ * XREFs of MNDestroyAnimationBitmap @ 0x1C0221A98
  * Callers:
- *     xxxMNEndMenuStateInternal @ 0x1C021C050 (xxxMNEndMenuStateInternal.c)
- *     MNAnimate @ 0x1C0247828 (MNAnimate.c)
+ *     xxxMNEndMenuStateInternal @ 0x1C02223F0 (xxxMNEndMenuStateInternal.c)
+ *     MNAnimate @ 0x1C024C3EC (MNAnimate.c)
  * Callees:
  *     <none>
  */

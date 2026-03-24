@@ -1,10 +1,9 @@
 /*
- * XREFs of RtlLookupImageSectionByName @ 0x14035FAF4
+ * XREFs of RtlLookupImageSectionByName @ 0x14058CE44
  * Callers:
- *     KasanDriverLoadImage @ 0x14035FA60 (KasanDriverLoadImage.c)
- *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140B48EF0 (MiApplyRetpolineFixupsToKernelAndHal.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140A5054C (MiApplyRetpolineFixupsToKernelAndHal.c)
  * Callees:
- *     strncmp @ 0x1403D8830 (strncmp.c)
+ *     strncmp @ 0x1403D0E40 (strncmp.c)
  */
 
 const char *__fastcall RtlLookupImageSectionByName(__int64 a1, const char *a2)

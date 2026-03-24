@@ -1,73 +1,81 @@
 /*
- * XREFs of ?SetCofuncModeSet@DMMVIDPNSOURCE@@QEAAJPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C0001BB8
+ * XREFs of ?SetCofuncModeSet@DMMVIDPNSOURCE@@QEAAJPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000A6BC
  * Callers:
- *     ?AssignSourceModeSet@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPN__@@IQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@Z @ 0x1C016E6C0 (-AssignSourceModeSet@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPN__@@IQEAUD3DKMDT_HVIDPNS.c)
+ *     ?AssignSourceModeSet@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPN__@@IQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@Z @ 0x1C0141EE0 (-AssignSourceModeSet@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPN__@@IQEAUD3DKMDT_HVIDPNS.c)
  * Callees:
- *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C0001D80 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODESET@@@@@@QEAAEQEBVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C002335C (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U-$DoubleLinkedListElementDelete.c)
- *     ?FindByValue@?$Set@VDMMVIDPNSOURCEMODE@@@@QEBAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C006AA3C (-FindByValue@-$Set@VDMMVIDPNSOURCEMODE@@@@QEBAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
- *     ?PinMode@DMMVIDPNSOURCEMODESET@@QEAAJI@Z @ 0x1C019A94C (-PinMode@DMMVIDPNSOURCEMODESET@@QEAAJI@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000A974 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODESET@@@@@@QEAAEQEBVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C001A1D0 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U-$DoubleLinkedListElementDelete.c)
+ *     ?FindByValue@?$Set@VDMMVIDPNSOURCEMODE@@@@QEBAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C005D4AC (-FindByValue@-$Set@VDMMVIDPNSOURCEMODE@@@@QEBAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
+ *     ?PinMode@DMMVIDPNSOURCEMODESET@@QEAAJI@Z @ 0x1C012F420 (-PinMode@DMMVIDPNSOURCEMODESET@@QEAAJI@Z.c)
  */
 
 __int64 __fastcall DMMVIDPNSOURCE::SetCofuncModeSet(
         struct DMMVIDPNSOURCEMODESET **this,
         struct DMMVIDPNSOURCEMODESET **a2)
 {
-  char *v4; // rbp
-  _QWORD *v5; // rsi
-  struct DMMVIDPNSOURCEMODESET *v7; // r11
-  __int64 v8; // rdi
-  __int64 v9; // r11
-  _QWORD *v10; // rdx
-  _QWORD *v11; // rax
-  unsigned int v12; // esi
+  struct DMMVIDPNSOURCEMODESET **v4; // rsi
+  struct DMMVIDPNSOURCEMODESET *v5; // rax
+  struct DMMVIDPNSOURCEMODESET *v7; // r14
+  __int64 v8; // r11
+  _QWORD *v9; // rdx
+  _QWORD *v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
   __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
 
   if ( a2[6] == (struct DMMVIDPNSOURCEMODESET *)(a2 + 6) )
   {
-    v12 = -1071774968;
-LABEL_11:
-    WdLogSingleEntry2(2LL, a2, *((unsigned int *)this + 6));
-    return v12;
+    v11 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v11 + 24) = a2;
+    *(_QWORD *)(v11 + 32) = *((unsigned int *)this + 6);
+    WdLogEvent5_WdError(v11);
+    return 3223192328LL;
   }
-  v4 = (char *)(this + 15);
   if ( a2 != (struct DMMVIDPNSOURCEMODESET **)this[15] )
   {
-    v12 = -1071774928;
-    goto LABEL_11;
+    v12 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v12 + 24) = a2;
+    *(_QWORD *)(v12 + 32) = *((unsigned int *)this + 6);
+    WdLogEvent5_WdError(v12);
+    return 3223192368LL;
   }
-  v5 = this + 13;
-  if ( *((_QWORD *)this[13] + 18) )
+  v4 = this + 13;
+  v5 = this[13];
+  if ( *((_QWORD *)v5 + 18) )
   {
     v13 = Set<DMMVIDPNSOURCEMODE>::FindByValue(a2 + 3);
     if ( !v13 )
     {
-      WdLogSingleEntry0(2LL);
+      v16 = WdLogNewEntry5_WdError(v15, v14);
+      WdLogEvent5_WdError(v16);
       return 3223192338LL;
     }
     DMMVIDPNSOURCEMODESET::PinMode((DMMVIDPNSOURCEMODESET *)a2, *(_DWORD *)(v13 + 24));
+    v5 = *v4;
   }
-  *(_BYTE *)(*v5 + 136LL) = 0;
-  if ( (unsigned __int64)*(int *)(*v5 + 96LL) > 1 )
+  *((_BYTE *)v5 + 136) = 0;
+  if ( (unsigned __int64)*((int *)*v4 + 24) > 1 )
   {
-    v7 = this[14];
-    v8 = *v5;
+    v7 = *v4;
     if ( !(unsigned __int8)DoublyLinkedList<DMMVIDPNSOURCEMODESET,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODESET>>::ContainsByReference(
-                             v7,
-                             *v5) )
+                             this[14],
+                             *v4) )
     {
-      v10 = *(_QWORD **)(v9 + 24);
-      v11 = (_QWORD *)(v8 + 8);
-      if ( *v10 != v9 + 16 )
+      v9 = *(_QWORD **)(v8 + 24);
+      v10 = (_QWORD *)((char *)v7 + 8);
+      if ( *v9 != v8 + 16 )
         __fastfail(3u);
-      *v11 = v9 + 16;
-      *(_QWORD *)(v8 + 16) = v10;
-      *v10 = v11;
-      *(_QWORD *)(v9 + 24) = v11;
-      ++*(_QWORD *)(v9 + 32);
+      *v10 = v8 + 16;
+      *((_QWORD *)v7 + 2) = v9;
+      *v9 = v10;
+      *(_QWORD *)(v8 + 24) = v10;
+      ++*(_QWORD *)(v8 + 32);
     }
   }
-  auto_rc<DMMVIDPNSOURCEMODESET>::reset(v5, a2);
-  auto_rc<DMMVIDPNSOURCEMODESET>::reset(v4, 0LL);
+  auto_rc<DMMVIDPNSOURCEMODESET>::reset(v4, a2);
+  auto_rc<DMMVIDPNSOURCEMODESET>::reset(this + 15, 0LL);
   return 0LL;
 }

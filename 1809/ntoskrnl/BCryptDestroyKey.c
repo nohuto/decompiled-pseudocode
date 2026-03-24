@@ -1,13 +1,13 @@
 /*
- * XREFs of BCryptDestroyKey @ 0x1402FE360
+ * XREFs of BCryptDestroyKey @ 0x1402FE460
  * Callers:
- *     SecureDump_Init @ 0x140180D20 (SecureDump_Init.c)
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x140286338 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SmCrEncCleanup @ 0x1406A3740 (SmCrEncCleanup.c)
+ *     SecureDump_Init @ 0x140180D40 (SecureDump_Init.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x140286438 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SmCrEncCleanup @ 0x1406A3720 (SmCrEncCleanup.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x14010DBE4 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall BCryptDestroyKey(BCRYPT_KEY_HANDLE hKey)

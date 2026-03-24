@@ -1,41 +1,52 @@
 /*
- * XREFs of EtwpCovSampProcessCleanup @ 0x1409F2B58
+ * XREFs of EtwpCovSampProcessCleanup @ 0x140945750
  * Callers:
- *     EtwExitProcess @ 0x1407DF474 (EtwExitProcess.c)
- *     EtwpCovSampProcessEnsureContext @ 0x1408A9E90 (EtwpCovSampProcessEnsureContext.c)
- *     EtwpCovSampContextCleanup @ 0x1409F10F4 (EtwpCovSampContextCleanup.c)
- *     EtwpCoverageSamplerStop @ 0x1409F3774 (EtwpCoverageSamplerStop.c)
+ *     EtwExitProcess @ 0x140614368 (EtwExitProcess.c)
+ *     EtwpCovSampContextCleanup @ 0x1409430C4 (EtwpCovSampContextCleanup.c)
+ *     EtwpCovSampProcessEnsureContext @ 0x1409457F0 (EtwpCovSampProcessEnsureContext.c)
+ *     EtwpCoverageSamplerStop @ 0x1409474A8 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     EtwpCovSampModuleDereference @ 0x1408A9E10 (EtwpCovSampModuleDereference.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     EtwpCovSampModuleDereference @ 0x140945318 (EtwpCovSampModuleDereference.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCovSampProcessCleanup(__int64 a1, char a2)
 {
-  unsigned int i; // r8d
-  int v5; // r8d
-  __int64 v6; // rdx
+  void *v4; // rcx
+  unsigned int v5; // r9d
+  int v6; // r9d
+  __int64 v7; // rdx
 
-  if ( *(_QWORD *)(a1 + 24) )
+  v4 = *(void **)(a1 + 24);
+  if ( v4 )
   {
-    for ( i = 0; i < *(_DWORD *)(a1 + 32); i = v5 + 1 )
-      EtwpCovSampModuleDereference(*(_QWORD *)a1, *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL * i + 8));
-    ExFreePoolWithTag(*(PVOID *)(a1 + 24), 0x56777445u);
+    v5 = 0;
+    if ( *(_DWORD *)(a1 + 32) )
+    {
+      do
+      {
+        EtwpCovSampModuleDereference(*(_QWORD *)a1, *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL * v5 + 8));
+        v5 = v6 + 1;
+      }
+      while ( v5 < *(_DWORD *)(a1 + 32) );
+      v4 = *(void **)(a1 + 24);
+    }
+    ExFreePoolWithTag(v4, 0x56777445u);
     *(_QWORD *)(a1 + 24) = 0LL;
     *(_DWORD *)(a1 + 32) = 0;
     *(_DWORD *)(a1 + 36) = 0;
   }
-  v6 = *(_QWORD *)(a1 + 48);
-  if ( v6 )
+  v7 = *(_QWORD *)(a1 + 48);
+  if ( v7 )
   {
-    EtwpCovSampModuleDereference(*(_QWORD *)a1, v6);
+    EtwpCovSampModuleDereference(*(_QWORD *)a1, v7);
     *(_QWORD *)(a1 + 48) = 0LL;
   }
   if ( *(_QWORD *)a1 )
   {
     if ( a2 )
-      ObfDereferenceObject(**(PVOID **)a1);
+      HalPutDmaAdapter(**(PADAPTER_OBJECT **)a1);
     *(_QWORD *)a1 = 0LL;
   }
 }

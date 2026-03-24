@@ -8,9 +8,9 @@
  *     HvpRemapAndEnlistHiveBins @ 0x1405F96A0 (HvpRemapAndEnlistHiveBins.c)
  *     HvHiveCleanup @ 0x1405FB440 (HvHiveCleanup.c)
  *     CmpFree @ 0x1405FD200 (CmpFree.c)
- *     HvpDropPagedBins @ 0x1407365B4 (HvpDropPagedBins.c)
+ *     HvpDropPagedBins @ 0x140736594 (HvpDropPagedBins.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CmpReleaseGlobalQuota(unsigned int a1)

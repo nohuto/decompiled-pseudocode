@@ -1,27 +1,24 @@
 /*
- * XREFs of CcDereferencePartition @ 0x140276728
+ * XREFs of CcDereferencePartition @ 0x1402F6D2C
  * Callers:
- *     CcCompleteAsyncReadWorker @ 0x140242F10 (CcCompleteAsyncReadWorker.c)
- *     CcCachemapUninitWorkerThread @ 0x140275000 (CcCachemapUninitWorkerThread.c)
- *     CcDeleteSharedCacheMap @ 0x140275338 (CcDeleteSharedCacheMap.c)
- *     CcUninitializeCacheMap @ 0x1402761B0 (CcUninitializeCacheMap.c)
- *     CcFreeWorkQueueEntry @ 0x1402766A0 (CcFreeWorkQueueEntry.c)
- *     CcZeroData @ 0x14029BD20 (CcZeroData.c)
- *     CcWorkerThread @ 0x14035D970 (CcWorkerThread.c)
- *     CcForEachPartition @ 0x140363C8C (CcForEachPartition.c)
- *     CcAsyncReadWorker @ 0x1403C4AE0 (CcAsyncReadWorker.c)
- *     CcQueueLazyWriteScanThread @ 0x1403C7DE0 (CcQueueLazyWriteScanThread.c)
- *     CcInitializeAsyncReadForNodeHelper @ 0x1403D0750 (CcInitializeAsyncReadForNodeHelper.c)
- *     CcRemoveExternalCache @ 0x140539BC4 (CcRemoveExternalCache.c)
- *     CcDeferWrite @ 0x140539E20 (CcDeferWrite.c)
- *     CcPostDeferredWrites @ 0x14053A100 (CcPostDeferredWrites.c)
- *     CcUnmapInactiveViews @ 0x14053B3F8 (CcUnmapInactiveViews.c)
- *     CcDeletePrivateVolumeCacheMap @ 0x14053BFB8 (CcDeletePrivateVolumeCacheMap.c)
- *     CcQuickLazyWriteScanForVolume @ 0x14053D730 (CcQuickLazyWriteScanForVolume.c)
- *     CcDeletePartition @ 0x14053DAFC (CcDeletePartition.c)
- *     CcAsyncReadWorkerThread @ 0x14053E700 (CcAsyncReadWorkerThread.c)
+ *     CcCompleteAsyncReadWorker @ 0x1402CC2D0 (CcCompleteAsyncReadWorker.c)
+ *     CcZeroData @ 0x1402E82C0 (CcZeroData.c)
+ *     CcWorkerThread @ 0x1402F31F0 (CcWorkerThread.c)
+ *     CcCachemapUninitWorkerThread @ 0x1402F38A0 (CcCachemapUninitWorkerThread.c)
+ *     CcDeleteSharedCacheMap @ 0x1402F3DDC (CcDeleteSharedCacheMap.c)
+ *     CcUninitializeCacheMap @ 0x1402F68B0 (CcUninitializeCacheMap.c)
+ *     CcFreeWorkQueueEntry @ 0x1402F6CBC (CcFreeWorkQueueEntry.c)
+ *     CcForEachPartition @ 0x1402F8C10 (CcForEachPartition.c)
+ *     CcAsyncReadWorker @ 0x1403B7950 (CcAsyncReadWorker.c)
+ *     CcQueueLazyWriteScanThread @ 0x1403B93A0 (CcQueueLazyWriteScanThread.c)
+ *     CcInitializeAsyncRead @ 0x1403C2F70 (CcInitializeAsyncRead.c)
+ *     CcDeferWrite @ 0x1404EA040 (CcDeferWrite.c)
+ *     CcPostDeferredWrites @ 0x1404EA2F0 (CcPostDeferredWrites.c)
+ *     CcUnmapInactiveViews @ 0x1404EB3E0 (CcUnmapInactiveViews.c)
+ *     CcDeletePartition @ 0x1404EBC80 (CcDeletePartition.c)
+ *     CcAsyncReadWorkerThread @ 0x1404EC5C0 (CcAsyncReadWorkerThread.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
  */
 
 char __fastcall CcDereferencePartition(__int64 a1)
@@ -31,7 +28,7 @@ char __fastcall CcDereferencePartition(__int64 a1)
   bool v3; // cc
   signed __int64 v4; // rax
 
-  v1 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1232), 0xFFFFFFFFFFFFFFFFuLL);
+  v1 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 968), 0xFFFFFFFFFFFFFFFFuLL);
   v2 = 0;
   v3 = v1 <= 1;
   v4 = v1 - 1;
@@ -40,7 +37,7 @@ char __fastcall CcDereferencePartition(__int64 a1)
     if ( v4 )
       __fastfail(0xEu);
     v2 = 1;
-    KeSetEvent((PRKEVENT)(a1 + 1264), 0, 0);
+    KeSetEvent((PRKEVENT)(a1 + 1000), 0, 0);
   }
   return v2;
 }

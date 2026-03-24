@@ -1,278 +1,268 @@
 /*
- * XREFs of HalpTimerSelectRoles @ 0x14037A8FC
+ * XREFs of HalpTimerSelectRoles @ 0x1403B0F2C
  * Callers:
- *     HalpInitializeTimers @ 0x1403A39D4 (HalpInitializeTimers.c)
+ *     HalpInitializeTimers @ 0x1403B07C8 (HalpInitializeTimers.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403776B0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpTimerFindIdealWatchdog @ 0x14037A4AC (HalpTimerFindIdealWatchdog.c)
- *     HalpTimerMeasureFrequencies @ 0x14037A528 (HalpTimerMeasureFrequencies.c)
- *     HalpTimerInitialize @ 0x14037ABD0 (HalpTimerInitialize.c)
- *     HalpTimerPropagateQpcBiasUpdate @ 0x14037AD70 (HalpTimerPropagateQpcBiasUpdate.c)
- *     HalpTimerFindIdealClockSource @ 0x14037AF18 (HalpTimerFindIdealClockSource.c)
- *     HalpTimerFindBestAlwaysOnTimer @ 0x14037B3C0 (HalpTimerFindBestAlwaysOnTimer.c)
- *     HalpTimerFindIdealPerformanceCounterSource @ 0x14037B460 (HalpTimerFindIdealPerformanceCounterSource.c)
- *     HalpFindTimer @ 0x14037B658 (HalpFindTimer.c)
- *     HalpVpptTimerRegister @ 0x140509CD4 (HalpVpptTimerRegister.c)
- *     HalpTimerStopProfileInterrupt @ 0x14050A7C8 (HalpTimerStopProfileInterrupt.c)
+ *     HalpFindTimer @ 0x14039CD58 (HalpFindTimer.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A1C74 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x1403A566C (HalpTimerPropagateQpcBiasUpdate.c)
+ *     HalpTimerMeasureFrequencies @ 0x1403B0A68 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerInitialize @ 0x1403B11C4 (HalpTimerInitialize.c)
+ *     HalpTimerFindBestAlwaysOnTimer @ 0x1403B125C (HalpTimerFindBestAlwaysOnTimer.c)
+ *     HalpTimerFindIdealPerformanceCounterSource @ 0x1403B12FC (HalpTimerFindIdealPerformanceCounterSource.c)
+ *     HalpTimerFindIdealClockSource @ 0x1403B15B4 (HalpTimerFindIdealClockSource.c)
+ *     HalpTimerFindIdealWatchdog @ 0x1403B169C (HalpTimerFindIdealWatchdog.c)
+ *     HalpVpptTimerRegister @ 0x1404C0BD8 (HalpVpptTimerRegister.c)
+ *     HalpTimerStopProfileInterrupt @ 0x1404C1A1C (HalpTimerStopProfileInterrupt.c)
  */
 
 __int64 __fastcall HalpTimerSelectRoles(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx
-  __int64 v3; // rbp
-  __int64 v4; // rsi
-  __int64 v5; // rdx
-  __int64 Timer; // rdi
+  ULONG_PTR *v3; // rbp
+  ULONG_PTR *v4; // rsi
+  ULONG_PTR *Timer; // rdi
   __int64 IdealClockSource; // rax
-  __int64 v8; // rdx
-  ULONG_PTR v9; // rdi
+  ULONG_PTR v7; // rdi
   __int64 IdealPerformanceCounterSource; // rax
-  __int64 v11; // rdx
-  ULONG_PTR v12; // rdi
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  __int64 v15; // rdi
+  __int64 v9; // rdi
+  __int64 v10; // rcx
+  ULONG_PTR *v11; // rax
+  __int64 v12; // rdi
   __int64 BestAlwaysOnTimer; // rax
+  ULONG_PTR v14; // rdi
+  ULONG_PTR v15; // rcx
+  __int64 v16; // rax
   ULONG_PTR v17; // rdi
-  ULONG_PTR v18; // rcx
-  __int64 v19; // rax
-  __int64 v20; // rdx
-  ULONG_PTR v21; // rdi
-  __int64 v22; // rax
-  __int64 v23; // rdx
-  __int64 v24; // rdi
+  __int64 v18; // rax
+  __int64 v19; // rdi
   __int64 IdealWatchdog; // rax
-  __int64 v26; // rdx
-  __int64 v27; // rdi
-  ULONG_PTR *v29; // rcx
-  __int64 v30; // rax
-  __int64 v31; // rdx
-  ULONG_PTR v32; // rax
-  __int64 v33; // rax
-  __int64 v34; // rdx
-  __int64 v35; // rdi
+  __int64 v21; // rdi
+  ULONG_PTR *v23; // rcx
+  int v24; // edx
+  ULONG_PTR *v25; // rax
+  ULONG_PTR v26; // rax
+  ULONG_PTR *v27; // rax
+  ULONG_PTR *v28; // rdi
 
   v2 = 0;
   if ( HalpTimerFrequenciesMeasured )
-    goto LABEL_7;
+    goto LABEL_6;
   do
   {
     v3 = 0LL;
     v4 = 0LL;
     Timer = HalpFindTimer(1, 2, 24576, 0, 0);
-    if ( Timer || (Timer = HalpFindTimer(3, 2, 24576, 0, 0)) != 0 || (Timer = HalpFindTimer(2, 0, 0, 0, 0)) != 0 )
+    if ( Timer )
+      goto LABEL_3;
+    Timer = HalpFindTimer(3, 2, 24576, 0, 0);
+    if ( Timer )
+      goto LABEL_3;
+    Timer = HalpFindTimer(6, 2, 24576, 0, 0);
+    if ( Timer )
+      goto LABEL_3;
+    Timer = HalpFindTimer(2, 0, 0, 0, 0);
+    if ( Timer )
+      goto LABEL_3;
+    v23 = (ULONG_PTR *)HalpRegisteredTimers;
+    if ( (ULONG_PTR *)HalpRegisteredTimers == &HalpRegisteredTimers )
+      goto LABEL_57;
+    do
     {
-LABEL_3:
-      if ( !Timer )
-        goto LABEL_62;
+      Timer = v23;
+      v23 = (ULONG_PTR *)*v23;
+      v24 = *((_DWORD *)Timer + 46);
+      if ( (v24 & 1) == 0 )
+      {
+        if ( Timer[22] )
+          v3 = Timer;
+        if ( (Timer[28] & 2) != 0 && Timer[24] )
+        {
+          if ( (v24 & 8) == 0 )
+            goto LABEL_58;
+          if ( !v4 )
+            v4 = Timer;
+        }
+      }
+    }
+    while ( v23 != &HalpRegisteredTimers );
+    if ( v3 )
+    {
+      Timer = v3;
+      goto LABEL_58;
+    }
+    if ( !v4 )
+    {
+LABEL_57:
+      Timer = 0LL;
     }
     else
     {
-      v29 = (ULONG_PTR *)HalpRegisteredTimers;
-      if ( (ULONG_PTR *)HalpRegisteredTimers == &HalpRegisteredTimers )
-        goto LABEL_62;
-      do
-      {
-        Timer = (__int64)v29;
-        v29 = (ULONG_PTR *)*v29;
-        v5 = *(unsigned int *)(Timer + 184);
-        if ( (v5 & 1) == 0 )
-        {
-          if ( *(_QWORD *)(Timer + 176) )
-            v3 = Timer;
-          if ( (*(_DWORD *)(Timer + 224) & 2) != 0 && *(_QWORD *)(Timer + 192) )
-          {
-            if ( (v5 & 8) == 0 )
-              goto LABEL_3;
-            if ( !v4 )
-              v4 = Timer;
-          }
-        }
-      }
-      while ( v29 != &HalpRegisteredTimers );
-      if ( v3 )
-      {
-        Timer = v3;
-      }
-      else
-      {
-        if ( !v4 )
-        {
-LABEL_62:
-          HalpTimerLastProblem = 19;
-          return (unsigned int)-1073741823;
-        }
-        *(_DWORD *)(v4 + 184) &= ~8u;
-        Timer = v4;
-      }
+      *((_DWORD *)v4 + 46) &= ~8u;
+      Timer = v4;
     }
-    if ( (int)HalpTimerInitialize(Timer, v5) >= 0 )
+LABEL_58:
+    if ( !Timer )
     {
-      HalpTimerMeasureFrequencies(Timer, a2);
+      HalpTimerLastProblem = 19;
+      return (unsigned int)-1073741823;
+    }
+LABEL_3:
+    if ( (int)HalpTimerInitialize(Timer) >= 0 )
+    {
+      HalpTimerMeasureFrequencies((__int64)Timer);
       HalpTimerFrequenciesMeasured = 1;
     }
   }
   while ( !HalpTimerFrequenciesMeasured );
-LABEL_7:
+LABEL_6:
   while ( !HalpClockTimer )
   {
     IdealClockSource = HalpTimerFindIdealClockSource();
-    v9 = IdealClockSource;
+    v7 = IdealClockSource;
     if ( !IdealClockSource )
-      goto LABEL_64;
-    if ( (int)HalpTimerInitialize(IdealClockSource, v8) >= 0 )
+      goto LABEL_60;
+    if ( (int)HalpTimerInitialize(IdealClockSource) >= 0 )
     {
-      *(_DWORD *)(v9 + 184) |= 4u;
-      HalpClockTimer = v9;
+      *(_DWORD *)(v7 + 184) |= 4u;
+      HalpClockTimer = v7;
       break;
     }
   }
-  while ( 2 )
+  while ( !HalpPerformanceCounter
+       || (*(_DWORD *)(HalpPerformanceCounter + 184) & 4) == 0
+       || HalpPerformanceCounter == HalpClockTimer )
   {
-    if ( HalpPerformanceCounter
-      && (*(_DWORD *)(HalpPerformanceCounter + 184) & 4) != 0
-      && HalpPerformanceCounter != HalpClockTimer )
-    {
-      goto LABEL_16;
-    }
     IdealPerformanceCounterSource = HalpTimerFindIdealPerformanceCounterSource();
-    v12 = IdealPerformanceCounterSource;
+    v9 = IdealPerformanceCounterSource;
     if ( !IdealPerformanceCounterSource )
     {
       HalpTimerLastProblem = 21;
       return (unsigned int)-1073741823;
     }
-    if ( (int)HalpTimerInitialize(IdealPerformanceCounterSource, v11) < 0 )
-      continue;
-    break;
+    if ( (int)HalpTimerInitialize(IdealPerformanceCounterSource) >= 0 )
+    {
+      HalpPerformanceCounter = v9;
+      HalpTimerPropagateQpcBiasUpdate(v9);
+      *(_DWORD *)(v9 + 184) |= 4u;
+      break;
+    }
   }
-  HalpPerformanceCounter = v12;
-  HalpTimerPropagateQpcBiasUpdate(v12);
-  *(_DWORD *)(v12 + 184) |= 4u;
-LABEL_16:
-  v13 = HalpStallCounter;
+  v10 = HalpStallCounter;
   if ( (*(_DWORD *)(HalpStallCounter + 224) & 0x2000) != 0 || HalpStallCounter == HalpClockTimer )
   {
-    v13 = HalpPerformanceCounter;
+    v10 = HalpPerformanceCounter;
     HalpStallCounter = HalpPerformanceCounter;
   }
   else
   {
     *(_DWORD *)(HalpStallCounter + 184) |= 4u;
   }
-  if ( v13 != HalpOriginalStallTimer )
+  if ( v10 != HalpOriginalStallTimer )
     *(_DWORD *)(HalpOriginalStallTimer + 184) |= 4u;
   if ( !HalpAuxiliaryCounter )
   {
-    v14 = HalpFindTimer(14, 1048578, 24576, 0, 0);
-    v15 = v14;
-    if ( v14 )
+    v11 = HalpFindTimer(15, 1048578, 24576, 0, 0);
+    v12 = (__int64)v11;
+    if ( v11 )
     {
-      if ( *(_QWORD *)(v14 + 192) <= 0x3B9ACA00uLL && (int)HalpTimerInitialize(v14, a2) >= 0 )
+      if ( v11[24] <= 0x3B9ACA00 && (int)HalpTimerInitialize(v11) >= 0 )
       {
-        *(_DWORD *)(v15 + 184) |= 4u;
-        HalpAuxiliaryCounter = v15;
+        *(_DWORD *)(v12 + 184) |= 4u;
+        HalpAuxiliaryCounter = v12;
       }
     }
   }
   while ( !HalpAlwaysOnTimer )
   {
-    if ( _bittest((const signed __int32 *)(HalpClockTimer + 224), 0xFu) )
+    if ( (*(_DWORD *)(HalpClockTimer + 224) & 0x8000) != 0 )
       break;
     BestAlwaysOnTimer = HalpTimerFindBestAlwaysOnTimer(0LL);
-    v17 = BestAlwaysOnTimer;
+    v14 = BestAlwaysOnTimer;
     if ( !BestAlwaysOnTimer )
       break;
-    if ( (int)HalpTimerInitialize(BestAlwaysOnTimer, a2) >= 0 )
+    if ( (int)HalpTimerInitialize(BestAlwaysOnTimer) >= 0 )
+    {
+      *(_DWORD *)(v14 + 184) |= 4u;
+      HalpAlwaysOnTimer = v14;
+      break;
+    }
+  }
+  v15 = HalpClockTimer;
+  if ( (*(_DWORD *)(HalpClockTimer + 224) & 1) != 0 )
+    goto LABEL_26;
+  if ( (int)HalpVpptTimerRegister(HalpClockTimer, 0LL) < 0 )
+    v25 = 0LL;
+  else
+    v25 = HalpFindTimer(12, 32, 0, 3840, 0);
+  HalpClockTimer = (ULONG_PTR)v25;
+  if ( !v25 )
+  {
+LABEL_60:
+    HalpTimerLastProblem = 20;
+    return (unsigned int)-1073741823;
+  }
+  if ( (int)HalpTimerInitialize(v25) < 0 )
+  {
+    v26 = HalpClockTimer;
+    HalpTimerLastProblem = 20;
+    if ( HalpClockTimer )
+    {
+      *(_DWORD *)(HalpClockTimer + 252) = 20;
+      *(_QWORD *)(v26 + 264) = "minkernel\\hals\\lib\\timers\\common\\timer.c";
+      *(_DWORD *)(v26 + 256) = 2;
+      *(_DWORD *)(v26 + 272) = 3280;
+    }
+    return (unsigned int)-1073741823;
+  }
+  v15 = HalpClockTimer;
+  *(_DWORD *)(HalpClockTimer + 184) |= 4u;
+LABEL_26:
+  if ( HalpAlwaysOnTimer && (*(_DWORD *)(HalpAlwaysOnTimer + 224) & 1) == 0 && (*(_DWORD *)(v15 + 224) & 1) != 0 )
+  {
+    LOBYTE(a2) = 1;
+    if ( (int)HalpVpptTimerRegister(HalpAlwaysOnTimer, a2) < 0 )
+      v27 = 0LL;
+    else
+      v27 = HalpFindTimer(12, 32, 0, 3840, 0);
+    HalpAlwaysOnTimer = (ULONG_PTR)v27;
+    if ( !v27 )
+    {
+      HalpTimerLastProblem = 33;
+      return (unsigned int)-1073741823;
+    }
+    *((_DWORD *)v27 + 46) |= 4u;
+  }
+  while ( !HalpAlwaysOnCounter
+       && ((*(_DWORD *)(HalpPerformanceCounter + 224) & 0x8000) == 0
+        || (*(_DWORD *)(HalpStallCounter + 224) & 0x8000) == 0) )
+  {
+    LOBYTE(v15) = 1;
+    v16 = HalpTimerFindBestAlwaysOnTimer(v15);
+    v17 = v16;
+    if ( !v16 )
+      break;
+    if ( (int)HalpTimerInitialize(v16) >= 0 )
     {
       *(_DWORD *)(v17 + 184) |= 4u;
-      HalpAlwaysOnTimer = v17;
+      HalpAlwaysOnCounter = v17;
       break;
     }
   }
-  v18 = HalpClockTimer;
-  if ( (*(_DWORD *)(HalpClockTimer + 224) & 1) == 0 )
+  while ( !HalpProfileTimer && (__int64 (__fastcall **)())HalpProfileInterface[0] == DefaultProfileInterface )
   {
-    if ( (int)HalpVpptTimerRegister(HalpClockTimer, 0LL) < 0 )
-    {
-      HalpClockTimer = 0LL;
-      goto LABEL_64;
-    }
-    v30 = HalpFindTimer(11, 32, 0, 3840, 0);
-    HalpClockTimer = v30;
-    if ( v30 )
-    {
-      if ( (int)HalpTimerInitialize(v30, v31) >= 0 )
-      {
-        v18 = HalpClockTimer;
-        *(_DWORD *)(HalpClockTimer + 184) |= 4u;
-        goto LABEL_30;
-      }
-      v32 = HalpClockTimer;
-      HalpTimerLastProblem = 20;
-      if ( HalpClockTimer )
-      {
-        *(_DWORD *)(HalpClockTimer + 252) = 20;
-        *(_QWORD *)(v32 + 264) = "minkernel\\hals\\lib\\timers\\common\\timer.c";
-        *(_DWORD *)(v32 + 256) = 2;
-        *(_DWORD *)(v32 + 272) = 3280;
-      }
-    }
-    else
-    {
-LABEL_64:
-      HalpTimerLastProblem = 20;
-    }
-    return (unsigned int)-1073741823;
-  }
-LABEL_30:
-  if ( !HalpAlwaysOnTimer || (*(_DWORD *)(HalpAlwaysOnTimer + 224) & 1) != 0 || (*(_DWORD *)(v18 + 224) & 1) == 0 )
-    goto LABEL_31;
-  LOBYTE(a2) = 1;
-  if ( (int)HalpVpptTimerRegister(HalpAlwaysOnTimer, a2) < 0 )
-  {
-    HalpAlwaysOnTimer = 0LL;
-    goto LABEL_82;
-  }
-  v33 = HalpFindTimer(11, 32, 0, 3840, 0);
-  HalpAlwaysOnTimer = v33;
-  if ( !v33 )
-  {
-LABEL_82:
-    HalpTimerLastProblem = 33;
-    return (unsigned int)-1073741823;
-  }
-  *(_DWORD *)(v33 + 184) |= 4u;
-LABEL_31:
-  while ( !HalpAlwaysOnCounter
-       && (!_bittest((const signed __int32 *)(HalpPerformanceCounter + 224), 0xFu)
-        || !_bittest((const signed __int32 *)(HalpStallCounter + 224), 0xFu)) )
-  {
-    LOBYTE(v18) = 1;
-    v19 = HalpTimerFindBestAlwaysOnTimer(v18);
-    v21 = v19;
-    if ( !v19 )
-      break;
-    if ( (int)HalpTimerInitialize(v19, v20) >= 0 )
-    {
-      *(_DWORD *)(v21 + 184) |= 4u;
-      HalpAlwaysOnCounter = v21;
-      break;
-    }
-  }
-  while ( !HalpProfileTimer && HalpProfileInterface == &DefaultProfileInterface )
-  {
-    v35 = HalpFindTimer(0, 65, 0, 3840, 0);
-    if ( !v35
-      && ((unsigned int)HalpQueryMaximumRegisteredProcessorCount() != 1 || (v35 = HalpFindTimer(0, 64, 0, 3840, 0)) == 0) )
+    v28 = HalpFindTimer(0, 65, 0, 3840, 0);
+    if ( !v28
+      && ((unsigned int)HalpQueryMaximumRegisteredProcessorCount() != 1
+       || (v28 = HalpFindTimer(0, 64, 0, 3840, 0)) == 0LL) )
     {
       HalpTimerLastProblem = 23;
       break;
     }
-    if ( (int)HalpTimerInitialize(v35, v34) >= 0 )
+    if ( (int)HalpTimerInitialize(v28) >= 0 )
     {
-      *(_DWORD *)(v35 + 184) |= 4u;
-      HalpProfileTimer = v35;
+      *((_DWORD *)v28 + 46) |= 4u;
+      HalpProfileTimer = (__int64)v28;
       HalpTimerStopProfileInterrupt();
       break;
     }
@@ -281,17 +271,17 @@ LABEL_31:
   {
     while ( !HalpFallbackPerformanceCounter )
     {
-      v22 = HalpTimerFindIdealPerformanceCounterSource();
-      v24 = v22;
-      if ( !v22 )
+      v18 = HalpTimerFindIdealPerformanceCounterSource();
+      v19 = v18;
+      if ( !v18 )
       {
         HalpTimerLastProblem = 22;
         break;
       }
-      if ( (int)HalpTimerInitialize(v22, v23) >= 0 )
+      if ( (int)HalpTimerInitialize(v18) >= 0 )
       {
-        *(_DWORD *)(v24 + 184) |= 4u;
-        HalpFallbackPerformanceCounter = v24;
+        *(_DWORD *)(v19 + 184) |= 4u;
+        HalpFallbackPerformanceCounter = v19;
         break;
       }
     }
@@ -299,13 +289,13 @@ LABEL_31:
   if ( !HalpTimerWatchdogDisable )
   {
     IdealWatchdog = HalpTimerFindIdealWatchdog();
-    v27 = IdealWatchdog;
+    v21 = IdealWatchdog;
     if ( IdealWatchdog )
     {
-      if ( (int)HalpTimerInitialize(IdealWatchdog, v26) >= 0 )
+      if ( (int)HalpTimerInitialize(IdealWatchdog) >= 0 )
       {
-        *(_DWORD *)(v27 + 184) |= 4u;
-        HalpWatchdogTimer = v27;
+        *(_DWORD *)(v21 + 184) |= 4u;
+        HalpWatchdogTimer = v21;
       }
     }
   }

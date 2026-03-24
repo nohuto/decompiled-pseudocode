@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C00A1F0C
+ * XREFs of ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C0024D48
  * Callers:
- *     ?GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0025E68 (-GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
- *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C00A1E2C (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
- *     ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C016A77E (-_CleanupUnneededSystemCursorSizes@@YAXI@Z.c)
- *     NtUserLinkDpiCursor @ 0x1C01F8CB0 (NtUserLinkDpiCursor.c)
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0024C7C (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     ?GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0067074 (-GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C01D40B0 (-_CleanupUnneededSystemCursorSizes@@YAXI@Z.c)
+ *     NtUserLinkDpiCursor @ 0x1C01FE4C0 (NtUserLinkDpiCursor.c)
  * Callees:
  *     <none>
  */

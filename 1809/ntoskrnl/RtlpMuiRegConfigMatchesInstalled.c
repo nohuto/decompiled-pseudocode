@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpMuiRegConfigMatchesInstalled @ 0x140906A38
+ * XREFs of RtlpMuiRegConfigMatchesInstalled @ 0x140906A18
  * Callers:
- *     RtlpMuiRegValidateConfigNode @ 0x14032CD44 (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpMuiRegValidateConfigNode @ 0x14032CE44 (RtlpMuiRegValidateConfigNode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x14018254C (_MuiRegAllocArray.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x14018256C (_MuiRegAllocArray.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCultureNameToLCID @ 0x14073EF20 (RtlCultureNameToLCID.c)
- *     RtlLCIDToCultureName @ 0x140896610 (RtlLCIDToCultureName.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140906E58 (RtlpMuiRegGetInstalledLanguageIndex.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x1409071B0 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     RtlCultureNameToLCID @ 0x14073EF00 (RtlCultureNameToLCID.c)
+ *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140906E38 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x140907190 (RtlpMuiRegLangInfoMatchesSpec.c)
  */
 
 char __fastcall RtlpMuiRegConfigMatchesInstalled(

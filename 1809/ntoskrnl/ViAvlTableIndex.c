@@ -1,9 +1,9 @@
 /*
- * XREFs of ViAvlTableIndex @ 0x1400F5818
+ * XREFs of ViAvlTableIndex @ 0x1400F5838
  * Callers:
- *     VfAvlInsertReservedTreeNode @ 0x1400F56B8 (VfAvlInsertReservedTreeNode.c)
- *     VfAvlDeleteTreeNode @ 0x14016C358 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x14016C410 (VfAvlLookupTreeNode.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1400F56D8 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlDeleteTreeNode @ 0x14016C378 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
  * Callees:
  *     <none>
  */

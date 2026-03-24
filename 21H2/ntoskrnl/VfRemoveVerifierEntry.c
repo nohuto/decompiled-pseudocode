@@ -1,14 +1,14 @@
 /*
- * XREFs of VfRemoveVerifierEntry @ 0x140A9C7F8
+ * XREFs of VfRemoveVerifierEntry @ 0x1409ECBC4
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  * Callees:
- *     VfSuspectDriversRemove @ 0x140A9AC40 (VfSuspectDriversRemove.c)
+ *     VfSuspectDriversRemove @ 0x1409D9F30 (VfSuspectDriversRemove.c)
  */
 
 __int64 __fastcall VfRemoveVerifierEntry(const UNICODE_STRING *a1)
 {
-  if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
+  if ( ViVerifierDriverAddedThunkListHead )
     return VfSuspectDriversRemove(a1);
   else
     return 3221225659LL;

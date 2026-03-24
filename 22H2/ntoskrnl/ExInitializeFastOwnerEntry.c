@@ -1,28 +1,22 @@
 /*
- * XREFs of ExInitializeFastOwnerEntry @ 0x14033C980
+ * XREFs of ExInitializeFastOwnerEntry @ 0x140390550
  * Callers:
  *     <none>
  * Callees:
- *     ExInitializeFastOwnerEntry2 @ 0x14041306C (ExInitializeFastOwnerEntry2.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-struct _KTHREAD *__fastcall ExInitializeFastOwnerEntry(__int64 a1)
+struct _KTHREAD *__fastcall ExInitializeFastOwnerEntry(_QWORD *a1)
 {
-  struct _KTHREAD *result; // rax
   unsigned __int8 CurrentIrql; // al
+  struct _KTHREAD *result; // rax
 
-  if ( FeatureFastResource2 )
-    return (struct _KTHREAD *)ExInitializeFastOwnerEntry2();
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql > 2u )
     KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 2uLL, 0LL);
-  *(_OWORD *)a1 = 0LL;
-  *(_OWORD *)(a1 + 16) = 0LL;
-  *(_OWORD *)(a1 + 32) = 0LL;
-  *(_OWORD *)(a1 + 48) = 0LL;
-  *(_QWORD *)(a1 + 64) = 0LL;
+  memset(a1, 0, 0x48uLL);
   result = KeGetCurrentThread();
-  *(_QWORD *)(a1 + 32) = result;
+  a1[4] = result;
   return result;
 }

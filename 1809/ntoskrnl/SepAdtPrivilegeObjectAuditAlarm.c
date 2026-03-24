@@ -3,22 +3,22 @@
  * Callers:
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
- *     SeAuditHandleCreation @ 0x1406BCD90 (SeAuditHandleCreation.c)
- *     NtOpenObjectAuditAlarm @ 0x1406D93B0 (NtOpenObjectAuditAlarm.c)
- *     SePrivilegeObjectAuditAlarm @ 0x1407038A0 (SePrivilegeObjectAuditAlarm.c)
- *     NtPrivilegeObjectAuditAlarm @ 0x14071B430 (NtPrivilegeObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140761E00 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     SeAuditHandleCreation @ 0x1406BCD70 (SeAuditHandleCreation.c)
+ *     NtOpenObjectAuditAlarm @ 0x1406D9390 (NtOpenObjectAuditAlarm.c)
+ *     SePrivilegeObjectAuditAlarm @ 0x140703880 (SePrivilegeObjectAuditAlarm.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x14071B410 (NtPrivilegeObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x140761DE0 (SeOpenObjectAuditAlarmForNonObObject.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
  *     ObpIsKernelHandle @ 0x140088ED8 (ObpIsKernelHandle.c)
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
- *     SepAdtLogAuditRecord @ 0x140186DA0 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
+ *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepAdtAuditPrivilegeUseWithContext @ 0x1405BB990 (SepAdtAuditPrivilegeUseWithContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671E4 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671C4 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
  */
 
 char __fastcall SepAdtPrivilegeObjectAuditAlarm(

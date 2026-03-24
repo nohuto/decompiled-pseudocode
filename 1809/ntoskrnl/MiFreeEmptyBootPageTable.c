@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeEmptyBootPageTable @ 0x1409F7BE4
+ * XREFs of MiFreeEmptyBootPageTable @ 0x1409F7BF4
  * Callers:
  *     MxCreateFreePfns @ 0x1409BAD10 (MxCreateFreePfns.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockAndInsertPageInFreeList @ 0x140188BFC (MiLockAndInsertPageInFreeList.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140188C1C (MiLockAndInsertPageInFreeList.c)
  */
 
 __int64 __fastcall MiFreeEmptyBootPageTable(__int64 a1)

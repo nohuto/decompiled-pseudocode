@@ -1,7 +1,7 @@
 /*
- * XREFs of _tlgKeywordOn @ 0x1C00518A4
+ * XREFs of _tlgKeywordOn @ 0x1C0050C8C
  * Callers:
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00511BC (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00505B8 (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
  *     <none>
  */

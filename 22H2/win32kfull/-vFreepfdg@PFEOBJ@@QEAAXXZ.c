@@ -1,69 +1,67 @@
 /*
- * XREFs of ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C0080F14
+ * XREFs of ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C009EDA0
  * Callers:
- *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0080918 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
- *     ?bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z @ 0x1C00822BC (-bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z.c)
- *     ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C0083CD4 (-bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_.c)
- *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C0087828 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z.c)
- *     ?GreGetFontUnicodeRanges@@YAKPEAUHDC__@@PEAUtagGLYPHSET@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C028DCCC (-GreGetFontUnicodeRanges@@YAKPEAUHDC__@@PEAUtagGLYPHSET@@W4EntryPoint@RFONTOBJ@@@Z.c)
- *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C029F4D4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
- *     ?vDestroyFont@RFONTOBJ@@QEAAXH@Z @ 0x1C02B7298 (-vDestroyFont@RFONTOBJ@@QEAAXH@Z.c)
+ *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0099730 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
+ *     ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C009D950 (-bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_.c)
+ *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C009EE74 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z.c)
+ *     ?bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z @ 0x1C00A2D34 (-bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z.c)
+ *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C00FEBD4 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
+ *     GreGetFontUnicodeRanges @ 0x1C015BBC8 (GreGetFontUnicodeRanges.c)
+ *     ?vDestroyFont@RFONTOBJ@@QEAAXH@Z @ 0x1C02A8474 (-vDestroyFont@RFONTOBJ@@QEAAXH@Z.c)
  * Callees:
- *     UmfdTrueTypeFreeGlyphset @ 0x1C00B87C4 (UmfdTrueTypeFreeGlyphset.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     UmfdTrueTypeFreeGlyphset @ 0x1C009F498 (UmfdTrueTypeFreeGlyphset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall PFEOBJ::vFreepfdg(__int64 **this)
 {
   __int64 v2; // rdi
-  __int64 v3; // r14
-  __int64 v4; // rbp
-  __int64 v5; // rsi
-  __int64 *v6; // rcx
-  int v7; // eax
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 *v11; // rdx
-  _DWORD *v12; // rcx
+  __int64 v3; // rbp
+  __int64 v4; // rsi
+  int v5; // eax
+  __int64 *v6; // rdx
+  __int64 v7; // rax
+  __int64 v8; // rcx
+  _DWORD *v9; // rcx
 
   v2 = 0LL;
   v3 = 0LL;
   v4 = **this;
-  v5 = *(_QWORD *)(SGDGetSessionState(this) + 32);
-  GreAcquireSemaphore(*(_QWORD *)(v5 + 23640));
-  v6 = *this;
-  v7 = *((_DWORD *)*this + 34);
-  if ( v7 )
+  GreAcquireSemaphore(ghsemGlyphSet);
+  v5 = *((_DWORD *)*this + 34);
+  if ( v5 )
   {
-    *((_DWORD *)v6 + 34) = v7 - 1;
+    *((_DWORD *)*this + 34) = v5 - 1;
+    v6 = *this;
     if ( !*((_DWORD *)*this + 34) )
     {
-      v8 = SGDGetSessionState(v6);
-      v9 = *(_QWORD *)(v4 + 88);
-      if ( v9 == *(_QWORD *)(*(_QWORD *)(v8 + 32) + 23448LL) && (v10 = *(_QWORD *)(v4 + 80), !*(_DWORD *)(v10 + 8)) )
+      v7 = *(_QWORD *)(v4 + 88);
+      if ( (struct PDEV *)v7 != qword_1C0340AC0 || (v8 = *(_QWORD *)(v4 + 80), *(_DWORD *)(v8 + 8)) )
       {
-        UmfdTrueTypeFreeGlyphset(v10, *((unsigned int *)*this + 2), (*this)[2]);
-        (*this)[2] = 0LL;
+        if ( (*(_DWORD *)(v7 + 40) & 0x8000) != 0 && *(_QWORD *)(v7 + 3024) )
+        {
+          if ( *(_BYTE *)(v6[4] + 44) == 2 && (v9 = (_DWORD *)v6[2]) != 0LL && (v9[1] & 0x10) != 0 )
+          {
+            Win32FreePool(v9);
+            v6 = *this;
+          }
+          else
+          {
+            v2 = v6[2];
+            v3 = v6[3];
+          }
+          v6[2] = 0LL;
+          if ( v2 )
+            (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(v4 + 88) + 3024LL))(v2, v3);
+        }
       }
-      else if ( (*(_DWORD *)(v9 + 40) & 0x8000) != 0 && *(_QWORD *)(v9 + 3000) )
+      else
       {
-        v11 = *this;
-        if ( *(_BYTE *)((*this)[4] + 44) == 2 && (v12 = (_DWORD *)v11[2]) != 0LL && (v12[1] & 0x10) != 0 )
-        {
-          Win32FreePool(v12);
-        }
-        else
-        {
-          v2 = v11[2];
-          v3 = v11[3];
-        }
+        UmfdTrueTypeFreeGlyphset(v8, *((unsigned int *)v6 + 2), v6[2]);
         (*this)[2] = 0LL;
-        if ( v2 )
-          (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(v4 + 88) + 3000LL))(v2, v3);
       }
     }
   }
-  EtwTraceGreLockReleaseSemaphore(L"GreFullGlobals.hsemGlyphSet");
-  GreReleaseSemaphoreInternal(*(_QWORD *)(v5 + 23640));
+  EtwTraceGreLockReleaseSemaphore(L"ghsemGlyphSet", ghsemGlyphSet);
+  GreReleaseSemaphoreInternal(ghsemGlyphSet);
 }

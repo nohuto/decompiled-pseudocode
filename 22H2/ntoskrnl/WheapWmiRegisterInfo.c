@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapWmiRegisterInfo @ 0x1403AF03C
+ * XREFs of WheapWmiRegisterInfo @ 0x1403CC3DC
  * Callers:
- *     WheaWmiDispatch @ 0x1403AEFE0 (WheaWmiDispatch.c)
+ *     WheaWmiDispatch @ 0x1403CC380 (WheaWmiDispatch.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall WheapWmiRegisterInfo(__int64 a1, unsigned int a2, _DWORD *a3, int *a4)
@@ -15,22 +15,22 @@ __int64 __fastcall WheapWmiRegisterInfo(__int64 a1, unsigned int a2, _DWORD *a3,
   int v10; // eax
   __int64 result; // rax
 
-  v4 = 222;
-  if ( a2 < 0xDE )
+  v4 = 158;
+  if ( a2 < 0x9E )
   {
     if ( a2 >= 4 )
     {
-      *a3 = 222;
+      *a3 = 158;
       v4 = 4;
     }
     result = 3221225507LL;
   }
   else
   {
-    memset(a3, 0, 0xDEuLL);
-    v7 = 5LL;
-    v8 = &dword_140008DAC;
-    a3[4] = 5;
+    memset(a3, 0, 0x9EuLL);
+    v7 = 3LL;
+    v8 = &dword_140008ADC;
+    a3[4] = 3;
     v9 = a3 + 11;
     do
     {
@@ -39,17 +39,17 @@ __int64 __fastcall WheapWmiRegisterInfo(__int64 a1, unsigned int a2, _DWORD *a3,
       v8 += 4;
       *(v9 - 1) = v10;
       *v9 = *(v8 - 5);
-      v9[1] = 184;
+      v9[1] = 120;
       v9 += 8;
       --v7;
     }
     while ( v7 );
-    *((_WORD *)a3 + 92) = 36;
-    *(_OWORD *)((char *)a3 + 186) = *(_OWORD *)L"WHEA_WMI_PROVIDER";
-    *(_OWORD *)((char *)a3 + 202) = *(_OWORD *)L"_PROVIDER";
-    *(_DWORD *)((char *)a3 + 218) = *(_DWORD *)L"R";
+    *((_WORD *)a3 + 60) = 36;
+    *(_OWORD *)((char *)a3 + 122) = *(_OWORD *)L"WHEA_WMI_PROVIDER";
+    *(_OWORD *)((char *)a3 + 138) = *(_OWORD *)L"_PROVIDER";
+    *(_DWORD *)((char *)a3 + 154) = *(_DWORD *)L"R";
     result = 0LL;
-    *a3 = 222;
+    *a3 = 158;
   }
   *a4 = v4;
   return result;

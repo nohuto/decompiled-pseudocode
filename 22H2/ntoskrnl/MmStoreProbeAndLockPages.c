@@ -1,17 +1,17 @@
 /*
- * XREFs of MmStoreProbeAndLockPages @ 0x14065D30C
+ * XREFs of MmStoreProbeAndLockPages @ 0x14030EE40
  * Callers:
- *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x1405CAECC (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
+ *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x1403136BC (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
  * Callees:
- *     MiProbeAndLockPrepare @ 0x140234D90 (MiProbeAndLockPrepare.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiReferencePageForModifiedWrite @ 0x1403497E0 (MiReferencePageForModifiedWrite.c)
- *     MiUnlockProbePacketWorkingSet @ 0x14034B43C (MiUnlockProbePacketWorkingSet.c)
- *     MiProbeLeafFrame @ 0x1403D4FA4 (MiProbeLeafFrame.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiStoreMarkLockedPagesModified @ 0x14046D304 (MiStoreMarkLockedPagesModified.c)
- *     MiUnlockStoreLockedPages @ 0x14065CE80 (MiUnlockStoreLockedPages.c)
+ *     MiProbeAndLockPrepare @ 0x14020A2B0 (MiProbeAndLockPrepare.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiReferencePageForModifiedWrite @ 0x14025614C (MiReferencePageForModifiedWrite.c)
+ *     MiProbeLeafFrame @ 0x14027DEC0 (MiProbeLeafFrame.c)
+ *     MiStoreMarkLockedPagesModified @ 0x14030EFB0 (MiStoreMarkLockedPagesModified.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x14030F220 (MiUnlockProbePacketWorkingSet.c)
+ *     MiUnlockStoreLockedPages @ 0x140318E70 (MiUnlockStoreLockedPages.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall MmStoreProbeAndLockPages(ULONG_PTR BugCheckParameter4, int a2)
@@ -21,14 +21,16 @@ __int64 __fastcall MmStoreProbeAndLockPages(ULONG_PTR BugCheckParameter4, int a2
   unsigned int v6; // eax
   _QWORD *v7; // rcx
   int v8; // eax
-  int v9; // edi
-  ULONG_PTR v10; // rbx
-  ULONG_PTR v11; // rcx
-  signed __int32 BugCheckParameter4a; // [rsp+28h] [rbp-89h]
-  ULONG_PTR v14[22]; // [rsp+48h] [rbp-69h] BYREF
-  int v15; // [rsp+120h] [rbp+6Fh] BYREF
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  int v12; // edi
+  ULONG_PTR v13; // rbx
+  ULONG_PTR v14; // rcx
+  ULONG_PTR BugCheckParameter3[22]; // [rsp+48h] [rbp-69h] BYREF
+  int v17; // [rsp+120h] [rbp+6Fh] BYREF
 
-  memset(v14, 0, sizeof(v14));
+  memset(BugCheckParameter3, 0, 0xA8uLL);
   CurrentThread = KeGetCurrentThread();
   v5 = *((_DWORD *)&CurrentThread[1].SwapListEntry + 3);
   if ( a2 )
@@ -36,54 +38,53 @@ __int64 __fastcall MmStoreProbeAndLockPages(ULONG_PTR BugCheckParameter4, int a2
   else
     v6 = v5 & 0xFFFFFFF3 | 4;
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) = v6;
-  LOBYTE(BugCheckParameter4a) = 1;
   MiProbeAndLockPrepare(
-    (__int64)v14,
+    (__int64)BugCheckParameter3,
     BugCheckParameter4,
     *(_QWORD *)(BugCheckParameter4 + 32) + *(unsigned int *)(BugCheckParameter4 + 44),
-    *(unsigned int *)(BugCheckParameter4 + 40),
-    BugCheckParameter4a,
+    *(_DWORD *)(BugCheckParameter4 + 40),
+    1,
     0,
     0);
-  v7 = (_QWORD *)v14[7];
+  v7 = (_QWORD *)BugCheckParameter3[6];
   do
   {
     *v7 = -1LL;
-    v8 = MiProbeLeafFrame((__int64)v14);
-    v9 = v8;
+    v8 = MiProbeLeafFrame(BugCheckParameter3);
+    v12 = v8;
     if ( v8 == -1073741801 )
       break;
     if ( v8 < 0 )
-      KeBugCheckEx(0x1Au, 0x6001uLL, v8, v14[1], BugCheckParameter4);
-    v10 = 48 * v14[17] - 0x220000000000LL;
-    v15 = 0;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v10 + 24), 0x3FuLL) )
+      KeBugCheckEx(0x1Au, 0x6001uLL, v8, BugCheckParameter3[0], BugCheckParameter4);
+    v13 = 48 * BugCheckParameter3[16] - 0x58000000000LL;
+    v17 = 0;
+    while ( _interlockedbittestandset64((volatile signed __int32 *)(v13 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v15);
-      while ( *(__int64 *)(v10 + 24) < 0 );
+        KeYieldProcessorEx(&v17, v9, v10, v11);
+      while ( *(__int64 *)(v13 + 24) < 0 );
     }
-    if ( (*(_BYTE *)(v10 + 34) & 8) != 0 )
+    if ( (*(_BYTE *)(v13 + 34) & 8) != 0 )
     {
-      _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      v9 = -1073740749;
+      _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      v12 = -1073740749;
       break;
     }
-    MiReferencePageForModifiedWrite(v10, 13);
-    _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    v11 = v14[7];
-    v14[1] += 4096LL;
-    *(_QWORD *)v14[7] = v14[17];
-    v7 = (_QWORD *)(v11 + 8);
-    v14[7] = (ULONG_PTR)v7;
-    v14[3] += 8LL;
+    MiReferencePageForModifiedWrite(v13, 13);
+    _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    v14 = BugCheckParameter3[6];
+    BugCheckParameter3[0] += 4096LL;
+    *(_QWORD *)BugCheckParameter3[6] = BugCheckParameter3[16];
+    v7 = (_QWORD *)(v14 + 8);
+    BugCheckParameter3[6] = (ULONG_PTR)v7;
+    BugCheckParameter3[2] += 8LL;
   }
-  while ( v14[3] <= v14[4] );
-  MiUnlockProbePacketWorkingSet((__int64)v14);
-  if ( v9 >= 0 )
-    MiStoreMarkLockedPagesModified((_DWORD *)BugCheckParameter4);
-  else
+  while ( BugCheckParameter3[2] <= BugCheckParameter3[3] );
+  MiUnlockProbePacketWorkingSet(BugCheckParameter3);
+  if ( v12 < 0 )
     MiUnlockStoreLockedPages(BugCheckParameter4);
+  else
+    MiStoreMarkLockedPagesModified(BugCheckParameter4);
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) &= 0xFFFFFFF3;
-  return (unsigned int)v9;
+  return (unsigned int)v12;
 }

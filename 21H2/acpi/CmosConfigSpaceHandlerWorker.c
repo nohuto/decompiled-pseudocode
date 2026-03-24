@@ -1,26 +1,27 @@
 /*
- * XREFs of CmosConfigSpaceHandlerWorker @ 0x1C004E244
+ * XREFs of CmosConfigSpaceHandlerWorker @ 0x1C004F3E4
  * Callers:
- *     CmosConfigSpaceHandler @ 0x1C004E110 (CmosConfigSpaceHandler.c)
- *     CmosTranslatePNPIDToEnum @ 0x1C004E370 (CmosTranslatePNPIDToEnum.c)
+ *     CmosConfigSpaceHandler @ 0x1C004F2A0 (CmosConfigSpaceHandler.c)
+ *     CmosTranslatePNPIDToEnum @ 0x1C004F530 (CmosTranslatePNPIDToEnum.c)
  * Callees:
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CmosConfigSpaceHandlerWorker(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
+__int64 __fastcall CmosConfigSpaceHandlerWorker(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v5; // edi
+  void *v6; // rcx
 
   v5 = 259;
-  if ( *a4 )
+  if ( *(_DWORD *)a4 )
   {
-    if ( *a4 == 1 )
+    if ( *(_DWORD *)a4 == 1 )
       ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))AcpiWriteCmosRoutine)(
         (unsigned int)CmosDeviceType,
-        a4[4],
-        *((_QWORD *)a4 + 3),
-        a4[5]);
+        *((unsigned int *)a4 + 4),
+        a4[3],
+        *((unsigned int *)a4 + 5));
     else
       v5 = -1073741822;
   }
@@ -28,13 +29,16 @@ __int64 __fastcall CmosConfigSpaceHandlerWorker(__int64 a1, __int64 a2, __int64 
   {
     ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))AcpiReadCmosRoutine)(
       (unsigned int)CmosDeviceType,
-      a4[4],
-      *((_QWORD *)a4 + 3),
-      a4[5]);
+      *((unsigned int *)a4 + 4),
+      a4[3],
+      *((unsigned int *)a4 + 5));
   }
-  (*((void (__fastcall **)(_QWORD))a4 + 5))(*((_QWORD *)a4 + 6));
-  AMLIDereferenceHandleEx(*((volatile signed __int32 **)a4 + 1));
-  AMLIDereferenceHandleEx(*((volatile signed __int32 **)a4 + 7));
+  ((void (__fastcall *)(_QWORD))a4[5])(a4[6]);
+  AMLIDereferenceHandleEx(a4[1]);
+  AMLIDereferenceHandleEx(a4[7]);
+  v6 = (void *)a4[8];
+  if ( v6 )
+    ExFreePoolWithTag(v6, 0x53706341u);
   ExFreePoolWithTag(a4, 0);
   return v5;
 }

@@ -1,23 +1,38 @@
 /*
- * XREFs of ?ForceFullRender@CRenderTargetManager@@QEAAXXZ @ 0x1800F94A8
+ * XREFs of ?ForceFullRender@CRenderTargetManager@@QEAAXXZ @ 0x1800DB7D4
  * Callers:
- *     ?WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18005052C (-WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
- *     ?Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_FORCERENDER@@@Z @ 0x1800F9420 (-Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD.c)
- *     ?Partition_SwitchRemotingMode@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_SWITCHREMOTINGMODE@@@Z @ 0x180101798 (-Partition_SwitchRemotingMode@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUta.c)
- *     ?AdjustStereoEntityCount@CComposition@@QEAAX_N@Z @ 0x1801B48E4 (-AdjustStereoEntityCount@CComposition@@QEAAX_N@Z.c)
- *     ?UpdateDebugCounter@CComposition@@QEAAX_N@Z @ 0x1801B529C (-UpdateDebugCounter@CComposition@@QEAAX_N@Z.c)
+ *     ?WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006FEAC (-WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z @ 0x1800945D0 (-Render@CDrawListCache@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z.c)
+ *     ?Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_FORCERENDER@@@Z @ 0x1800DB75C (-Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD.c)
+ *     ?Partition_SwitchRemotingMode@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_SWITCHREMOTINGMODE@@@Z @ 0x1800DE65C (-Partition_SwitchRemotingMode@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUta.c)
+ *     ?UpdateDebugCounter@CComposition@@QEAAX_N@Z @ 0x180155CD8 (-UpdateDebugCounter@CComposition@@QEAAX_N@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     <none>
  */
 
 void __fastcall CRenderTargetManager::ForceFullRender(CRenderTargetManager *this)
 {
-  _QWORD *v2; // rsi
-  _QWORD *i; // rdi
+  __int64 v1; // rdx
+  __int64 *v2; // r8
+  unsigned __int64 v3; // r9
+  __int64 v4; // rax
 
-  *((_BYTE *)this + 576) = 1;
-  v2 = (_QWORD *)*((_QWORD *)this + 2);
-  for ( i = (_QWORD *)*((_QWORD *)this + 1); i != v2; ++i )
-    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)*i + 224LL))(*i);
+  *((_BYTE *)this + 128) = 1;
+  v1 = 0LL;
+  v2 = (__int64 *)*((_QWORD *)this + 1);
+  v3 = (unsigned __int64)(*((_QWORD *)this + 2) - (_QWORD)v2 + 7LL) >> 3;
+  if ( (unsigned __int64)v2 > *((_QWORD *)this + 2) )
+    v3 = 0LL;
+  if ( v3 )
+  {
+    do
+    {
+      v4 = *v2;
+      ++v1;
+      ++v2;
+      *(_BYTE *)(v4 + 129) = 1;
+    }
+    while ( v1 != v3 );
+  }
   CRenderTargetManager::EndTargetEnumeration(this);
 }

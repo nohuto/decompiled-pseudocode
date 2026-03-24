@@ -1,11 +1,9 @@
 /*
- * XREFs of HalpInterruptGetIdentifiers @ 0x14037D2B0
+ * XREFs of HalpInterruptGetIdentifiers @ 0x1403C9950
  * Callers:
- *     HalpNumaQueryProcessorNode @ 0x14037B940 (HalpNumaQueryProcessorNode.c)
- *     HalpConnectThermalInterrupt @ 0x14037C510 (HalpConnectThermalInterrupt.c)
- *     HalpNumaSwapP0NodeToFront @ 0x1403A4C58 (HalpNumaSwapP0NodeToFront.c)
- *     HalpMcLoadMicrocodeWorker @ 0x14051BB60 (HalpMcLoadMicrocodeWorker.c)
- *     Amd64InitializeCacheStatus @ 0x140529664 (Amd64InitializeCacheStatus.c)
+ *     HalpNumaSwapP0NodeToFront @ 0x1403BB674 (HalpNumaSwapP0NodeToFront.c)
+ *     HalpNumaQueryProcessorNode @ 0x1403C98E0 (HalpNumaQueryProcessorNode.c)
+ *     HalpConnectThermalInterrupt @ 0x1404D14F0 (HalpConnectThermalInterrupt.c)
  * Callees:
  *     <none>
  */
@@ -45,8 +43,7 @@ __int64 __fastcall HalpInterruptGetIdentifiers(int a1, _DWORD *a2, _DWORD *a3)
     if ( a3 )
     {
       v9 = *(_DWORD *)(v5 - 9);
-LABEL_25:
-      *a3 = v9;
+      goto LABEL_25;
     }
     return 0LL;
   }
@@ -65,11 +62,11 @@ LABEL_7:
           {
             if ( a2 )
               *a2 = *((_DWORD *)v7 - 3);
-            if ( a3 )
-            {
-              v9 = *((_DWORD *)v7 - 2);
-              goto LABEL_25;
-            }
+            if ( !a3 )
+              return 0LL;
+            v9 = *((_DWORD *)v7 - 2);
+LABEL_25:
+            *a3 = v9;
             return 0LL;
           }
           --v4;

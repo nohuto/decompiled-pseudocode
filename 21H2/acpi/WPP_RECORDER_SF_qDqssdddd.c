@@ -1,15 +1,15 @@
 /*
- * XREFs of WPP_RECORDER_SF_qDqssdddd @ 0x1C0021BE4
+ * XREFs of WPP_RECORDER_SF_qDqssdddd @ 0x1C00121FC
  * Callers:
- *     ACPIThermalDeviceControl @ 0x1C0020500 (ACPIThermalDeviceControl.c)
+ *     ACPIThermalDeviceControl @ 0x1C0012510 (ACPIThermalDeviceControl.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 WPP_RECORDER_SF_qDqssdddd(__int64 a1, _DWORD a2, _DWORD a3, unsigned __int16 a4, __int64 a5, ...)
+__int64 WPP_RECORDER_SF_qDqssdddd(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, int a5, ...)
 {
-  const char *v5; // rdi
-  const char *v6; // rsi
+  __int64 v5; // rdi
+  __int64 v6; // rsi
   __int64 v7; // rbx
   __int64 v10; // rax
   __int64 v12; // rcx
@@ -55,8 +55,8 @@ __int64 WPP_RECORDER_SF_qDqssdddd(__int64 a1, _DWORD a2, _DWORD a3, unsigned __i
   v29 = va_arg(va5, _QWORD);
   va_copy(va6, va5);
   v31 = va_arg(va6, _QWORD);
-  v5 = v26;
-  v6 = v25;
+  v5 = (__int64)v26;
+  v6 = (__int64)v25;
   v7 = -1LL;
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x8000) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
   {
@@ -93,7 +93,7 @@ __int64 WPP_RECORDER_SF_qDqssdddd(__int64 a1, _DWORD a2, _DWORD a3, unsigned __i
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, const char *, __int64, const char *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_bf1c19637c3439bdfb442f7739d79163_Traceguids,
+      &WPP_18eab87a8b67317afec152b8fbe84dda_Traceguids,
       a4,
       (__int64 *)va,
       8LL,
@@ -120,20 +120,20 @@ __int64 WPP_RECORDER_SF_qDqssdddd(__int64 a1, _DWORD a2, _DWORD a3, unsigned __i
     v10 = -1LL;
     do
       ++v10;
-    while ( v5[v10] );
+    while ( *(_BYTE *)(v5 + v10) );
   }
   if ( v6 )
   {
     do
       ++v7;
-    while ( v6[v7] );
+    while ( *(_BYTE *)(v6 + v7) );
   }
   LOWORD(v18) = a4;
   return WppAutoLogTrace(
            a1,
            4LL,
            16LL,
-           &WPP_bf1c19637c3439bdfb442f7739d79163_Traceguids,
+           &WPP_18eab87a8b67317afec152b8fbe84dda_Traceguids,
            v18,
            (__int64 *)va,
            8LL,

@@ -1,7 +1,7 @@
 /*
- * XREFs of SeQueryTokenTrustLink @ 0x1400CC26C
+ * XREFs of SeQueryTokenTrustLink @ 0x1400CC28C
  * Callers:
- *     PsRestoreImpersonation @ 0x140648D30 (PsRestoreImpersonation.c)
+ *     PsRestoreImpersonation @ 0x140648D10 (PsRestoreImpersonation.c)
  * Callees:
  *     <none>
  */

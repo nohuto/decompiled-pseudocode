@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepPoolAllocateNonPaged @ 0x14057D9D4
+ * XREFs of KsepPoolAllocateNonPaged @ 0x140527184
  * Callers:
- *     KseSetCompletionHook @ 0x14057D5E0 (KseSetCompletionHook.c)
- *     KseShimDriverIoCallbacks @ 0x14075ECF4 (KseShimDriverIoCallbacks.c)
+ *     KseSetCompletionHook @ 0x140526D90 (KseSetCompletionHook.c)
+ *     KseShimDriverIoCallbacks @ 0x140758524 (KseShimDriverIoCallbacks.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall KsepPoolAllocateNonPaged(size_t Size)
@@ -17,12 +17,12 @@ PVOID __fastcall KsepPoolAllocateNonPaged(size_t Size)
   v3 = PoolWithTag;
   if ( PoolWithTag )
   {
-    _InterlockedIncrement(&dword_140C2A1A8);
+    _InterlockedIncrement(&dword_140C2AA28);
     memset(PoolWithTag, 0, Size);
   }
   else
   {
-    _InterlockedIncrement(&dword_140C2A1B4);
+    _InterlockedIncrement(&dword_140C2AA34);
   }
   return v3;
 }

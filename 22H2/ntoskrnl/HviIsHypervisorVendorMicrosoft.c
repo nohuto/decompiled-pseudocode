@@ -1,17 +1,18 @@
 /*
- * XREFs of HviIsHypervisorVendorMicrosoft @ 0x140373BE0
+ * XREFs of HviIsHypervisorVendorMicrosoft @ 0x1403AA5F0
  * Callers:
- *     KiIsHyperVCr3RspErrataPresent @ 0x140579318 (KiIsHyperVCr3RspErrataPresent.c)
- *     HvipApertureDetectParameters @ 0x1405B5DA0 (HvipApertureDetectParameters.c)
- *     EtwpTraceSystemInitialization @ 0x140B381EC (EtwpTraceSystemInitialization.c)
+ *     KiIsHyperVCr3RspErrataPresent @ 0x1403F2DE0 (KiIsHyperVCr3RspErrataPresent.c)
+ *     HvipApertureDetectParameters @ 0x1405946C4 (HvipApertureDetectParameters.c)
+ *     HviGetDebugDeviceOptions @ 0x1405BEE70 (HviGetDebugDeviceOptions.c)
+ *     EtwpTraceSystemInitialization @ 0x140A41CF8 (EtwpTraceSystemInitialization.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140382EA0 (HviIsAnyHypervisorPresent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5310 (HviIsAnyHypervisorPresent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 bool HviIsHypervisorVendorMicrosoft()
 {
-  if ( !(unsigned __int8)HviIsAnyHypervisorPresent() )
+  if ( !HviIsAnyHypervisorPresent() )
     return 0;
   _RAX = 0x40000000LL;
   __asm { cpuid }

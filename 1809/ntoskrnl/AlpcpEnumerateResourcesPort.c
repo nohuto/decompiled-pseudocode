@@ -2,12 +2,12 @@
  * XREFs of AlpcpEnumerateResourcesPort @ 0x140617AE8
  * Callers:
  *     AlpcpLocateSectionView @ 0x140617A28 (AlpcpLocateSectionView.c)
- *     NtAlpcDeleteSectionView @ 0x1406AE3D0 (NtAlpcDeleteSectionView.c)
+ *     NtAlpcDeleteSectionView @ 0x1406AE3B0 (NtAlpcDeleteSectionView.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     AlpcpViewSearchCallbackFunction @ 0x1406A75EC (AlpcpViewSearchCallbackFunction.c)
+ *     AlpcpViewSearchCallbackFunction @ 0x1406A75CC (AlpcpViewSearchCallbackFunction.c)
  */
 
 __int64 __fastcall AlpcpEnumerateResourcesPort(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

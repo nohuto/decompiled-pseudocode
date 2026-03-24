@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0019388
+ * XREFs of ?PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C00134C8
  * Callers:
- *     ?InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0018C7C (-InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C00128B4 (-InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
  * Callees:
- *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C00190C0 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
- *     ?Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z @ 0x1C001946C (-Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z.c)
- *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C0019660 (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
+ *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C0012CB0 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
+ *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C0013350 (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
+ *     ?Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z @ 0x1C00135B0 (-Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CAdapterCollection::PopulateFromInfo(
@@ -15,8 +15,8 @@ __int64 __fastcall CAdapterCollection::PopulateFromInfo(
         unsigned int a4)
 {
   int v7; // edi
-  _QWORD *v8; // r14
-  __int64 v9; // rsi
+  _QWORD *v8; // rsi
+  __int64 v9; // r14
   unsigned int v10; // edx
   struct CAdapter *v11; // rax
   _QWORD *v12; // rcx
@@ -54,7 +54,7 @@ __int64 __fastcall CAdapterCollection::PopulateFromInfo(
       v12[1] = v13;
       *v13 = v12;
       *((_QWORD *)this + 4) = v12;
-      v16[v9] = (void *)*((_QWORD *)v11 + 6);
+      v16[v9] = (void *)*((_QWORD *)v11 + 5);
       v9 = (unsigned int)(v9 + 1);
       if ( (unsigned int)v9 >= a4 )
         goto LABEL_9;

@@ -1,5 +1,5 @@
 /*
- * XREFs of vSrcTranCopyS4D16 @ 0x1C0277920
+ * XREFs of vSrcTranCopyS4D16 @ 0x1C0279C30
  * Callers:
  *     <none>
  * Callees:
@@ -116,7 +116,7 @@ __int64 __fastcall vSrcTranCopyS4D16(
   v12 = a3;
   v13 = *(_QWORD *)(a11 + 128);
   if ( !v13 )
-    v13 = *(_QWORD *)(*(_QWORD *)(a11 + 48) + 1776LL);
+    v13 = *(_QWORD *)(*(_QWORD *)(a11 + 48) + 1808LL);
   v14 = *(_DWORD *)(v13 + 24);
   if ( (v14 & 2) != 0 )
   {
@@ -187,22 +187,22 @@ __int64 __fastcall vSrcTranCopyS4D16(
             v34 = v33 & v16;
             v35 = v31;
             v36 = v34 >> v99;
-            v37 = &unk_1C02E43F0;
+            v37 = &unk_1C02E63F0;
             if ( (int)(v104 - v36) >= 0 )
-              v37 = &unk_1C02E4430;
+              v37 = &unk_1C02E6430;
             v38 = v37[v35];
-            v39 = &unk_1C02E43F0;
+            v39 = &unk_1C02E63F0;
             v40 = v105 & (((v36 << 16) + (v104 - v36) * v38) >> 16 << v99);
             v41 = (v33 & (unsigned int)v18) >> v19;
             if ( (int)(v100 - v41) >= 0 )
-              v39 = &unk_1C02E4430;
+              v39 = &unk_1C02E6430;
             v42 = v39[v35];
-            v43 = &unk_1C02E43F0;
+            v43 = &unk_1C02E63F0;
             v44 = (v41 << 16) + (v100 - v41) * v42;
             v45 = (v33 & (unsigned int)v20) >> v21;
             v46 = v18 & (HIWORD(v44) << v19) | v40;
             if ( (int)(v92 - v45) >= 0 )
-              v43 = &unk_1C02E4430;
+              v43 = &unk_1C02E6430;
             v32 = v20 & (((v45 << 16) + (v92 - v45) * v43[v35]) >> 16 << v21) | v46;
           }
           *v26 = v32;
@@ -229,21 +229,21 @@ __int64 __fastcall vSrcTranCopyS4D16(
               v51 = (unsigned __int16)*v30;
               v52 = (v51 & (unsigned int)v105) >> v99;
               v53 = v49;
-              v54 = &unk_1C02E43F0;
+              v54 = &unk_1C02E63F0;
               if ( (int)(v104 - v52) >= 0 )
-                v54 = &unk_1C02E4430;
+                v54 = &unk_1C02E6430;
               v55 = (v51 & (unsigned int)v18) >> v19;
               v101 = v105 & (((v52 << 16) + (v104 - v52) * v54[v53]) >> 16 << v99);
-              v56 = &unk_1C02E43F0;
+              v56 = &unk_1C02E63F0;
               if ( (int)(v100 - v55) >= 0 )
-                v56 = &unk_1C02E4430;
+                v56 = &unk_1C02E6430;
               v57 = v56[v53];
-              v58 = &unk_1C02E43F0;
+              v58 = &unk_1C02E63F0;
               v59 = (v55 << 16) + (v100 - v55) * v57;
               v60 = (v51 & (unsigned int)v20) >> v21;
               v102 = v18 & (HIWORD(v59) << v19) | v101;
               if ( (int)(v92 - v60) >= 0 )
-                v58 = &unk_1C02E4430;
+                v58 = &unk_1C02E6430;
               v47 = v95;
               v50 = v20 & (((v60 << 16) + (v92 - v60) * v58[v53]) >> 16 << v21) | v102;
             }
@@ -260,24 +260,24 @@ __int64 __fastcall vSrcTranCopyS4D16(
             else
             {
               v64 = (unsigned __int16)*v61;
-              v65 = &unk_1C02E43F0;
+              v65 = &unk_1C02E63F0;
               v66 = v62;
               v67 = (v64 & (unsigned int)v105) >> v99;
               if ( (int)(v104 - v67) >= 0 )
-                v65 = &unk_1C02E4430;
+                v65 = &unk_1C02E6430;
               v68 = v65[v62];
-              v69 = &unk_1C02E43F0;
+              v69 = &unk_1C02E63F0;
               v70 = (v64 & (unsigned int)v18) >> v19;
               v71 = v105 & (((v67 << 16) + (v104 - v67) * v68) >> 16 << v99);
               if ( (int)(v100 - v70) >= 0 )
-                v69 = &unk_1C02E4430;
+                v69 = &unk_1C02E6430;
               v72 = v69[v66];
-              v73 = &unk_1C02E43F0;
+              v73 = &unk_1C02E63F0;
               v74 = (v70 << 16) + (v100 - v70) * v72;
               v75 = (v64 & (unsigned int)v20) >> v21;
               v76 = v18 & (HIWORD(v74) << v19) | v71;
               if ( (int)(v92 - v75) >= 0 )
-                v73 = &unk_1C02E4430;
+                v73 = &unk_1C02E6430;
               v63 = v20 & (((v75 << 16) + (v92 - v75) * v73[v66]) >> 16 << v21) | v76;
             }
             v47 = v95;
@@ -305,22 +305,22 @@ __int64 __fastcall vSrcTranCopyS4D16(
             v79 = (unsigned __int16)*v30;
             v80 = (v79 & (unsigned int)v105) >> v99;
             v81 = v77;
-            v82 = &unk_1C02E43F0;
+            v82 = &unk_1C02E63F0;
             if ( (int)(v104 - v80) >= 0 )
-              v82 = &unk_1C02E4430;
+              v82 = &unk_1C02E6430;
             v83 = v82[v81];
-            v84 = &unk_1C02E43F0;
+            v84 = &unk_1C02E63F0;
             v85 = v105 & (((v80 << 16) + (v104 - v80) * v83) >> 16 << v99);
             v86 = (v79 & (unsigned int)v18) >> v19;
             if ( (int)(v100 - v86) >= 0 )
-              v84 = &unk_1C02E4430;
+              v84 = &unk_1C02E6430;
             v87 = v84[v81];
-            v88 = &unk_1C02E43F0;
+            v88 = &unk_1C02E63F0;
             v89 = (v86 << 16) + (v100 - v86) * v87;
             v90 = (v79 & (unsigned int)v20) >> v21;
             v91 = v18 & (HIWORD(v89) << v19) | v85;
             if ( (int)(v92 - v90) >= 0 )
-              v88 = &unk_1C02E4430;
+              v88 = &unk_1C02E6430;
             v78 = v20 & (((v90 << 16) + (v92 - v90) * v88[v81]) >> 16 << v21) | v91;
           }
           *v30 = v78;

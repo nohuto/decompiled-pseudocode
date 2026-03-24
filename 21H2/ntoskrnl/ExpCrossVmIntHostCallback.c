@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCrossVmIntHostCallback @ 0x140A07DF0
+ * XREFs of ExpCrossVmIntHostCallback @ 0x14095C590
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x1403614E0 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x14029F2DC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall ExpCrossVmIntHostCallback(int a1, struct _EX_RUNDOWN_REF **a2)
@@ -13,8 +13,8 @@ void __fastcall ExpCrossVmIntHostCallback(int a1, struct _EX_RUNDOWN_REF **a2)
   struct _EX_RUNDOWN_REF *v2; // rbx
   int (__fastcall **ExtensionTable)(_QWORD, _QWORD, _QWORD); // rax
   int (__fastcall **v4)(_QWORD, _QWORD, _QWORD); // rdi
-  void (__fastcall *v5)(__int64 (__fastcall *)(__int64, __int64, __int64 *, int, const void *, unsigned int), _QWORD); // rax
-  void (__fastcall *v6)(__int64 (__fastcall *)(__int64, __int64, __int64 *, int, const void *, unsigned int), __int64); // rax
+  void (__fastcall *v5)(__int64 (__fastcall *)(__int64, __int64, __int64 *, int, __int64, unsigned int), _QWORD); // rax
+  void (__fastcall *v6)(__int64 (__fastcall *)(__int64, __int64, __int64 *, int, __int64, unsigned int), __int64); // rax
 
   if ( a1 == 1 )
   {
@@ -31,13 +31,13 @@ void __fastcall ExpCrossVmIntHostCallback(int a1, struct _EX_RUNDOWN_REF **a2)
       {
         if ( v2 == (struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostGuest )
         {
-          v5 = (void (__fastcall *)(__int64 (__fastcall *)(__int64, __int64, __int64 *, int, const void *, unsigned int), _QWORD))v4[16];
+          v5 = (void (__fastcall *)(__int64 (__fastcall *)(__int64, __int64, __int64 *, int, __int64, unsigned int), _QWORD))v4[16];
           if ( v5 )
             v5(ExWnfCrossVmCallback, 0LL);
         }
         if ( v2 == (struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostRoot )
         {
-          v6 = (void (__fastcall *)(__int64 (__fastcall *)(__int64, __int64, __int64 *, int, const void *, unsigned int), __int64))v4[16];
+          v6 = (void (__fastcall *)(__int64 (__fastcall *)(__int64, __int64, __int64 *, int, __int64, unsigned int), __int64))v4[16];
           if ( v6 )
             v6(ExWnfCrossVmCallback, 1LL);
         }

@@ -1,296 +1,285 @@
 /*
- * XREFs of RtlDispatchException @ 0x140295210
+ * XREFs of RtlDispatchException @ 0x140275570
  * Callers:
- *     RtlRaiseException @ 0x140294A60 (RtlRaiseException.c)
- *     KiDispatchException @ 0x140299280 (KiDispatchException.c)
+ *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
+ *     RtlRaiseException @ 0x140274220 (RtlRaiseException.c)
+ *     RtlRaiseNoncontinuableException @ 0x140408140 (RtlRaiseNoncontinuableException.c)
  * Callees:
- *     RtlVirtualUnwind @ 0x140294B90 (RtlVirtualUnwind.c)
- *     RtlpGetStackLimitsEx @ 0x140294D50 (RtlpGetStackLimitsEx.c)
- *     KeQueryCurrentStackInformation @ 0x140294D90 (KeQueryCurrentStackInformation.c)
- *     RtlGetExtendedContextLength2 @ 0x1402956D0 (RtlGetExtendedContextLength2.c)
- *     RtlpCopyContext @ 0x140295D00 (RtlpCopyContext.c)
- *     RtlVirtualUnwind2 @ 0x140296070 (RtlVirtualUnwind2.c)
- *     RtlInitializeExtendedContext2 @ 0x140297D10 (RtlInitializeExtendedContext2.c)
- *     RtlLookupFunctionEntry @ 0x140298010 (RtlLookupFunctionEntry.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     RtlpIsFrameInBounds @ 0x140389140 (RtlpIsFrameInBounds.c)
- *     RtlLookupExceptionHandler @ 0x1403A6A44 (RtlLookupExceptionHandler.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _alloca_probe @ 0x14042A4D0 (_alloca_probe.c)
- *     RtlpExecuteHandlerForException @ 0x14042AAA0 (RtlpExecuteHandlerForException.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpLogExceptionDispatch @ 0x1405E3748 (RtlpLogExceptionDispatch.c)
- *     RtlpLogExceptionHandler @ 0x1405E38F0 (RtlpLogExceptionHandler.c)
+ *     RtlpIsFrameInBounds @ 0x1402759A0 (RtlpIsFrameInBounds.c)
+ *     RtlVirtualUnwind @ 0x1402759C0 (RtlVirtualUnwind.c)
+ *     RtlpCopyContext @ 0x140275F40 (RtlpCopyContext.c)
+ *     RtlLookupFunctionEntry @ 0x140276100 (RtlLookupFunctionEntry.c)
+ *     RtlGetExtendedContextLength2 @ 0x1402765C0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140276FC0 (RtlInitializeExtendedContext2.c)
+ *     KeQueryCurrentStackInformation @ 0x140277230 (KeQueryCurrentStackInformation.c)
+ *     RtlpGetStackLimitsEx @ 0x140277280 (RtlpGetStackLimitsEx.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     RtlLookupExceptionHandler @ 0x1402D209C (RtlLookupExceptionHandler.c)
+ *     RtlpPopUserShadowStack @ 0x1402D23DC (RtlpPopUserShadowStack.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404084A0 (_alloca_probe.c)
+ *     RtlpExecuteHandlerForException @ 0x140408A20 (RtlpExecuteHandlerForException.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpLogExceptionDispatch @ 0x140584F40 (RtlpLogExceptionDispatch.c)
+ *     RtlpLogExceptionHandler @ 0x1405850E0 (RtlpLogExceptionHandler.c)
  */
 
-char __fastcall RtlDispatchException(ULONG_PTR a1, ULONG_PTR a2)
+__int64 __fastcall RtlDispatchException(__int64 a1, __int64 a2)
 {
-  ULONG_PTR v3; // r12
-  int v4; // r15d
-  ULONG_PTR v5; // rcx
-  unsigned int v6; // ebx
-  unsigned __int64 v7; // rcx
-  unsigned __int64 v8; // rcx
-  void *v9; // rsp
+  unsigned __int8 v4; // r13
+  __int64 v5; // r9
+  int v6; // esi
+  __int64 v7; // rcx
+  BOOL v8; // r15d
+  unsigned __int64 v9; // rax
   void *v10; // rsp
   __int64 v11; // rdi
-  _DWORD *v12; // rax
-  __int64 v13; // r14
-  __int64 v14; // r13
-  ULONG_PTR v15; // rbx
-  int v16; // r12d
-  ULONG_PTR v17; // rcx
-  __int64 v18; // r9
-  __int64 v19; // r14
-  _DWORD *v20; // rax
-  char v21; // r15
-  ULONG_PTR v22; // rdx
-  ULONG_PTR v23; // rbx
-  int v24; // edx
-  int v25; // ecx
-  int v26; // r8d
-  unsigned __int64 v27; // rcx
-  char v28; // al
-  bool v29; // zf
+  _DWORD *v12; // r12
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v17; // rbx
+  __int64 v18; // r13
+  __int64 v19; // rax
+  __int64 v20; // r15
+  __int64 v21; // rsi
+  __int64 v22; // rbx
+  int v23; // r8d
+  unsigned int v24; // ecx
+  bool v25; // zf
+  __int64 v26; // r10
+  __int64 v27; // rax
+  __int64 v28; // rdx
+  __int64 v29; // r15
   int v30; // edx
-  int v31; // ebx
-  int v32; // r11d
+  int v31; // ecx
+  int v32; // edx
   int v33; // r9d
-  unsigned __int64 v34; // r14
+  int v34; // r10d
+  int v35; // r9d
+  unsigned __int64 v36; // rax
+  char v37; // cl
+  int v38; // esi
+  __int64 v39; // rax
   char IsFrameInBounds; // al
-  char result; // al
-  __int64 v37; // rax
-  int v38; // [rsp+70h] [rbp+0h] BYREF
-  char v39; // [rsp+74h] [rbp+4h]
-  int v40; // [rsp+78h] [rbp+8h]
-  ULONG_PTR BugCheckParameter1; // [rsp+80h] [rbp+10h] BYREF
-  ULONG_PTR v42; // [rsp+88h] [rbp+18h] BYREF
-  ULONG_PTR v43; // [rsp+90h] [rbp+20h] BYREF
-  _DWORD *v44; // [rsp+98h] [rbp+28h] BYREF
-  __int64 v45; // [rsp+A0h] [rbp+30h] BYREF
-  __int64 v46; // [rsp+A8h] [rbp+38h] BYREF
-  __int64 v47; // [rsp+B0h] [rbp+40h] BYREF
-  __int64 v48; // [rsp+B8h] [rbp+48h] BYREF
-  unsigned __int64 v49; // [rsp+C0h] [rbp+50h]
-  ULONG_PTR v50; // [rsp+C8h] [rbp+58h]
-  ULONG_PTR v51; // [rsp+D0h] [rbp+60h]
-  _QWORD v52[10]; // [rsp+E0h] [rbp+70h] BYREF
-  _DWORD v53[2]; // [rsp+130h] [rbp+C0h] BYREF
-  __int64 v54; // [rsp+138h] [rbp+C8h]
-  __int64 v55; // [rsp+140h] [rbp+D0h]
-  _QWORD v56[25]; // [rsp+148h] [rbp+D8h] BYREF
+  int v42; // [rsp+40h] [rbp+0h] BYREF
+  int v43; // [rsp+44h] [rbp+4h] BYREF
+  char v44; // [rsp+48h] [rbp+8h]
+  char v45; // [rsp+49h] [rbp+9h]
+  unsigned int v46; // [rsp+4Ch] [rbp+Ch] BYREF
+  __int64 v47; // [rsp+50h] [rbp+10h] BYREF
+  __int64 v48; // [rsp+58h] [rbp+18h] BYREF
+  __int64 v49; // [rsp+60h] [rbp+20h] BYREF
+  __int64 v50; // [rsp+68h] [rbp+28h] BYREF
+  __int64 v51; // [rsp+70h] [rbp+30h] BYREF
+  __int64 v52; // [rsp+78h] [rbp+38h] BYREF
+  unsigned __int64 v53; // [rsp+80h] [rbp+40h]
+  __int64 v54; // [rsp+88h] [rbp+48h]
+  _QWORD v55[10]; // [rsp+90h] [rbp+50h] BYREF
+  __int64 v56; // [rsp+E0h] [rbp+A0h]
+  _DWORD v57[2]; // [rsp+F0h] [rbp+B0h] BYREF
+  __int64 v58; // [rsp+F8h] [rbp+B8h]
+  __int64 v59; // [rsp+100h] [rbp+C0h]
+  _QWORD v60[25]; // [rsp+108h] [rbp+C8h] BYREF
 
-  v51 = a2;
-  v50 = a1;
-  v3 = a1;
-  LODWORD(v44) = 0;
-  memset(v52, 0, sizeof(v52));
-  v39 = 0;
-  BugCheckParameter1 = 0LL;
-  v45 = 0LL;
+  v56 = a2;
+  v54 = a1;
+  v46 = 0;
+  v4 = 0;
+  memset(v55, 0, sizeof(v55));
+  v44 = 0;
   v47 = 0LL;
-  v42 = 0LL;
-  v46 = 0LL;
-  v43 = 0LL;
-  v38 = 0;
-  memset(v56, 0, 0xC0uLL);
+  v52 = 0LL;
+  v48 = 0LL;
+  v51 = 0LL;
+  v49 = 0LL;
+  v43 = 0;
+  memset(v60, 0, 0xC0uLL);
   if ( (NtGlobalFlag & 0x800000) != 0 )
   {
-    v39 = 1;
-    RtlpLogExceptionDispatch(v3, a2);
+    v44 = 1;
+    RtlpLogExceptionDispatch(a1, a2);
   }
-  v4 = *(_DWORD *)(v3 + 4) & 0x81;
-  v40 = v4;
-  KeQueryCurrentStackInformation((__int64)&v38, (__int64)&v43, (__int64)&v42);
-  v5 = *(_QWORD *)(a2 + 152);
-  v38 = v38 == 10;
-  if ( !(unsigned __int8)RtlpGetStackLimitsEx(v5, (__int64)&v43, (__int64)&v42, a2, v3) )
+  v6 = *(_DWORD *)(a1 + 4) & 1;
+  v42 = v6;
+  KeQueryCurrentStackInformation(&v43, &v49, &v48, v5);
+  v7 = *(_QWORD *)(a2 + 152);
+  v8 = v43 == 10;
+  v43 = v8;
+  if ( !(unsigned __int8)RtlpGetStackLimitsEx(v7, &v49, &v48) )
   {
-LABEL_48:
-    v4 |= 8u;
-LABEL_49:
-    result = 0;
-    *(_DWORD *)(v3 + 4) = v4;
-    return result;
+    *(_DWORD *)(a1 + 4) = v6 | 8;
+    return v4;
   }
-  v6 = 1048587;
-  if ( (_BYTE)KiKernelCetEnabled )
-    v6 = 1048715;
-  RtlGetExtendedContextLength2(v6, &v44, 0LL);
-  v7 = (unsigned int)v44 + 15LL;
-  if ( v7 <= (unsigned int)v44 )
-    v7 = 0xFFFFFFFFFFFFFF0LL;
-  v8 = v7 & 0xFFFFFFFFFFFFFFF0uLL;
-  v9 = alloca(v8);
-  v10 = alloca(v8);
-  RtlInitializeExtendedContext2(&v38, v6, &v48, 0LL);
-  RtlpCopyContext(&v38, a2);
+  RtlGetExtendedContextLength2(1048587LL, &v46, 0LL);
+  v9 = v46 + 15LL;
+  if ( v9 <= v46 )
+    v9 = 0xFFFFFFFFFFFFFF0LL;
+  v10 = alloca(v9 & 0xFFFFFFFFFFFFFFF0uLL);
+  RtlInitializeExtendedContext2(&v42, 1048587LL, &v50, 0LL);
+  RtlpCopyContext(&v42, a2);
   v11 = *(_QWORD *)(a2 + 248);
-  v12 = v53;
-  v44 = v53;
-  v49 = 0LL;
-  v53[0] = 0;
-  v53[1] = 0x1000000;
-  v54 = -1LL;
-  v55 = 0LL;
+  v53 = 0LL;
+  v12 = v57;
+  v57[0] = 0;
+  v59 = 0LL;
+  v57[1] = 0x1000000;
+  v58 = -1LL;
   while ( 1 )
   {
-    v13 = RtlLookupFunctionEntry(v11, &v46, v12);
-    v48 = v13;
-    v14 = v46;
-    if ( (int)RtlVirtualUnwind2(
-                1,
-                v46,
-                v11,
-                v13,
-                (__int64)&v38,
-                0LL,
-                (__int64)&v47,
-                (__int64)&BugCheckParameter1,
-                0LL,
-                0LL,
-                0LL,
-                (__int64)&v45,
-                0) < 0 )
-      goto LABEL_49;
-    v15 = BugCheckParameter1;
-    if ( (BugCheckParameter1 & 7) != 0 || BugCheckParameter1 < v43 || BugCheckParameter1 >= v42 )
+    v13 = RtlLookupFunctionEntry(v11, &v51, v12);
+    v17 = v13;
+    if ( !v13 )
     {
-      if ( (_BYTE)v38 == 1 )
+      if ( v11 == *(_QWORD *)v55[9] )
+        goto LABEL_52;
+      v60[6] = *(_QWORD *)v55[9];
+      v55[9] += 8LL;
+      RtlpPopUserShadowStack(&v42, v14, v15, v16);
+      goto LABEL_11;
+    }
+    v18 = v51;
+    v19 = RtlVirtualUnwind(1, v51, v11, v13, (__int64)&v42, (__int64)&v52, (__int64)&v47, 0LL);
+    v20 = v47;
+    v21 = v19;
+    if ( !(unsigned __int8)RtlpIsFrameInBounds(&v49, v47, &v48) )
+    {
+      if ( (_BYTE)v43 == 1 )
       {
-        LOBYTE(v38) = 2;
-        RtlpGetStackLimitsEx(BugCheckParameter1, (__int64)&v43, (__int64)&v42, v51, v3);
-        v15 = BugCheckParameter1;
+        LOBYTE(v43) = 2;
+        RtlpGetStackLimitsEx(v20, &v49, &v48);
+        v20 = v47;
       }
-      else if ( !(_BYTE)v38 )
+      else if ( !(_BYTE)v43 )
       {
-        goto LABEL_48;
+        v38 = v42 | 8;
+LABEL_53:
+        v4 = 0;
+        *(_DWORD *)(v54 + 4) = v38;
+        return v4;
       }
     }
-    if ( v45 )
+    if ( v21 )
       break;
-LABEL_14:
-    v11 = v56[4];
-    if ( (v52[5] & 7) == 0 && v52[5] >= v43 )
+LABEL_10:
+    v8 = v43;
+LABEL_11:
+    v22 = v55[9];
+    v11 = v60[6];
+    if ( !(unsigned __int8)RtlpIsFrameInBounds(&v49, v55[9], &v48) )
     {
-      v12 = v44;
-      if ( v52[5] < v42 )
-        continue;
+      if ( !v8 || (LOBYTE(v8) = 0, v43 = v8, !(unsigned __int8)RtlpGetStackLimitsEx(v22, &v49, &v48)) )
+      {
+LABEL_52:
+        v38 = v42;
+        goto LABEL_53;
+      }
     }
-    if ( (_BYTE)v38 != 1 )
-      goto LABEL_49;
-    LOBYTE(v38) = 0;
-    if ( !(unsigned __int8)RtlpGetStackLimitsEx(v52[5], (__int64)&v43, (__int64)&v42, v51, v3) )
-      goto LABEL_49;
-    v12 = v44;
   }
-  v16 = 0;
+  v23 = v42;
+  v24 = 0;
+  v46 = 0;
   while ( 1 )
   {
-    v17 = v50;
-    v18 = v45;
-    v52[2] = v13;
-    v19 = 0LL;
-    v52[7] = v47;
-    v20 = v44;
-    *(_DWORD *)(v50 + 4) = v4;
-    v21 = 0;
-    v52[0] = v11;
-    v52[1] = v14;
-    v52[3] = v15;
-    v52[5] = &v38;
-    v52[6] = v18;
-    v52[8] = v20;
-    LODWORD(v52[9]) = v16;
-    if ( v39 )
+    v25 = v44 == 0;
+    v26 = v54;
+    v27 = v52;
+    v45 = 0;
+    v55[0] = v11;
+    *(_DWORD *)(v54 + 4) = v23;
+    v55[1] = v18;
+    v55[2] = v17;
+    v55[3] = v20;
+    v55[5] = &v42;
+    v55[6] = v21;
+    v55[7] = v27;
+    v55[8] = v12;
+    LODWORD(v55[9]) = v24;
+    v50 = 0LL;
+    if ( !v25 )
     {
-      v37 = RtlpLogExceptionHandler(v17, &v38, v11);
-      v15 = BugCheckParameter1;
-      v19 = v37;
+      v39 = RtlpLogExceptionHandler(v26, &v42, v11, v21);
+      v20 = v47;
+      v50 = v39;
     }
-    v22 = v15;
-    v23 = v50;
-    v24 = RtlpExecuteHandlerForException(v50, v22, v51, v52);
-    if ( v19 )
-      *(_DWORD *)(v19 + 1396) = v24;
-    v25 = *(_DWORD *)(v23 + 4) & 1;
-    v15 = BugCheckParameter1;
-    v26 = v25 | v40;
-    v27 = v49;
-    v40 = v26;
-    if ( v49 == BugCheckParameter1 )
+    v28 = v20;
+    v29 = v54;
+    v30 = RtlpExecuteHandlerForException(v54, v28, v56, v55);
+    if ( v50 )
+      *(_DWORD *)(v50 + 1396) = v30;
+    v31 = *(_DWORD *)(v29 + 4) & 1;
+    v20 = v47;
+    v23 = v31 | v42;
+    v42 |= v31;
+    if ( v53 == v47 )
     {
-      v26 &= ~0x10u;
-      v27 = 0LL;
-      v40 = v26;
-      v49 = 0LL;
+      v23 &= ~0x10u;
+      v53 = 0LL;
+      v42 = v23;
     }
-    if ( v24 == 1 )
-      goto LABEL_26;
-    if ( !v24 )
-      break;
-    v30 = v24 - 2;
+    if ( v30 == 1 )
+      goto LABEL_21;
     if ( !v30 )
+      break;
+    v32 = v30 - 2;
+    if ( v32 )
     {
-      v34 = v52[3];
-      IsFrameInBounds = 1;
-      v40 = v26 | 0x10;
-      if ( (_BYTE)v38 )
+      if ( v32 != 1 )
+        RtlRaiseStatus(3221225510LL);
+      v11 = v55[0];
+      v51 = v55[1];
+      RtlpCopyContext(&v42, v55[5]);
+      v50 = RtlVirtualUnwind(1, v34, v11, v33, (__int64)&v42, (__int64)&v52, (__int64)&v47, 0LL);
+      v47 = v55[3];
+      v17 = RtlLookupFunctionEntry(v11, &v51, v12);
+      if ( v17 != v55[2]
+        || (v18 = v51, (int)RtlLookupExceptionHandler(v17, v51, 2, v35, (__int64)&v50, (__int64)&v52) < 0)
+        || (v21 = v50, v50 != v55[6])
+        || v52 != v55[7] )
       {
-        IsFrameInBounds = RtlpIsFrameInBounds(&v43, v52[3], &v42);
-        v27 = v49;
+        __fastfail(0x27u);
       }
-      if ( v34 > v27 || !IsFrameInBounds )
-        v49 = v34;
-LABEL_26:
-      v28 = v38;
-      v13 = v48;
-      goto LABEL_27;
+      v20 = v47;
+      v12 = (_DWORD *)v55[8];
+      v46 = v55[9];
+      v45 = 1;
+      if ( !(unsigned __int8)RtlpIsFrameInBounds(&v49, v47, &v48) && (_BYTE)v43 == 1 )
+      {
+        RtlpGetStackLimitsEx(v20, &v49, &v48);
+        v23 = v42;
+        v20 = v47;
+LABEL_45:
+        LOBYTE(v43) = 0;
+        goto LABEL_22;
+      }
+      v23 = v42;
     }
-    if ( v30 != 1 )
-      RtlRaiseStatus(3221225510LL);
-    v31 = v52[1];
-    v11 = v52[0];
-    v46 = v52[1];
-    RtlpCopyContext(&v38, v52[5]);
-    v45 = RtlVirtualUnwind(1, v31, v11, v32, (__int64)&v38, (__int64)&v47, (__int64)&BugCheckParameter1, 0LL);
-    BugCheckParameter1 = v52[3];
-    v13 = RtlLookupFunctionEntry(v11, &v46, v44);
-    v48 = v13;
-    if ( v13 != v52[2]
-      || (v14 = v46, (int)RtlLookupExceptionHandler(v13, v46, 2, v33, (__int64)&v45, (__int64)&v47) < 0)
-      || v45 != v52[6]
-      || v47 != v52[7] )
+    else
     {
-      __fastfail(0x27u);
+      v36 = v55[3];
+      v23 |= 0x10u;
+      v37 = 1;
+      v42 = v23;
+      if ( (_BYTE)v43 )
+      {
+        IsFrameInBounds = RtlpIsFrameInBounds(&v49, v55[3], &v48);
+        v23 = v42;
+        v37 = IsFrameInBounds;
+        v36 = v55[3];
+      }
+      if ( v36 > v53 || !v37 )
+        v53 = v36;
     }
-    v15 = BugCheckParameter1;
-    v16 = v52[9];
-    v44 = (_DWORD *)v52[8];
-    v21 = 1;
-    v29 = (unsigned __int8)RtlpIsFrameInBounds(&v43, BugCheckParameter1, &v42) == 0;
-    v28 = v38;
-    if ( v29 && (_BYTE)v38 == 1 )
-    {
-      RtlpGetStackLimitsEx(v15, (__int64)&v43, (__int64)&v42, v51, v50);
-      v15 = BugCheckParameter1;
-LABEL_40:
-      LOBYTE(v38) = 0;
-      goto LABEL_28;
-    }
-LABEL_27:
-    if ( v28 == 2 )
-      goto LABEL_40;
-LABEL_28:
-    v29 = v21 == 0;
-    v4 = v40;
-    if ( v29 )
-    {
-      v3 = v50;
-      goto LABEL_14;
-    }
+LABEL_21:
+    if ( (_BYTE)v43 == 2 )
+      goto LABEL_45;
+LABEL_22:
+    v24 = v46;
+    if ( !v45 )
+      goto LABEL_10;
   }
-  if ( (v26 & 1) != 0 )
+  if ( (v23 & 1) != 0 )
     RtlRaiseStatus(3221225509LL);
   return 1;
 }

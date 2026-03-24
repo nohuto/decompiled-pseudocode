@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCopyFromDirectMapExtent @ 0x140A339BC
+ * XREFs of MiCopyFromDirectMapExtent @ 0x1408CFFCC
  * Callers:
- *     MiReadImageHeaders @ 0x1406A79B8 (MiReadImageHeaders.c)
+ *     MiReadImageHeaders @ 0x1406FF22C (MiReadImageHeaders.c)
  * Callees:
- *     MiFillPageWithImageExtentContents @ 0x14063D100 (MiFillPageWithImageExtentContents.c)
+ *     MiFillPageWithImageExtentContents @ 0x140540A94 (MiFillPageWithImageExtentContents.c)
  */
 
 __int64 __fastcall MiCopyFromDirectMapExtent(char *BugCheckParameter3, __int64 a2, ULONG_PTR *a3, __int64 a4)
@@ -15,7 +15,7 @@ __int64 __fastcall MiCopyFromDirectMapExtent(char *BugCheckParameter3, __int64 a
   v7 = ((*(_DWORD *)(a2 + 24) & 0xFFF) + (unsigned __int64)*(unsigned int *)(a2 + 40) + 4095) >> 12;
   for ( *(_QWORD *)(a4 + 8) = v7 << 12; v7; --v7 )
   {
-    MiFillPageWithImageExtentContents(BugCheckParameter3, *v4, *a3, 0x1000u);
+    MiFillPageWithImageExtentContents(BugCheckParameter3, *v4, *a3, 0x1000u, 0);
     *a3 += 4096LL;
     ++v4;
   }

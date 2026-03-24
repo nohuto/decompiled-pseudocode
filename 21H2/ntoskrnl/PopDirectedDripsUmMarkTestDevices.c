@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDirectedDripsUmMarkTestDevices @ 0x14099F0A0
+ * XREFs of PopDirectedDripsUmMarkTestDevices @ 0x1408F87B8
  * Callers:
- *     PopDirectedDripsIdleResiliencyCallback @ 0x14098BD1C (PopDirectedDripsIdleResiliencyCallback.c)
+ *     PopDirectedDripsIdleResiliencyCallback @ 0x1408E3294 (PopDirectedDripsIdleResiliencyCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     RtlLookupElementGenericTableAvl @ 0x1402DF3F0 (RtlLookupElementGenericTableAvl.c)
- *     PopDirectedDripsNotify @ 0x140811764 (PopDirectedDripsNotify.c)
- *     IoLockUnlockPnpDeviceTree @ 0x140943144 (IoLockUnlockPnpDeviceTree.c)
- *     PopDirectedDripsMarkCandidateDevice @ 0x14098C094 (PopDirectedDripsMarkCandidateDevice.c)
+ *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PopDirectedDripsNotify @ 0x14078DB18 (PopDirectedDripsNotify.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x14089E41C (IoLockUnlockPnpDeviceTree.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x1408E35C0 (PopDirectedDripsMarkCandidateDevice.c)
  */
 
 void PopDirectedDripsUmMarkTestDevices()
@@ -37,7 +37,7 @@ void PopDirectedDripsUmMarkTestDevices()
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockSharedEx((ULONG_PTR)&PopDirectedDripsUmLock, 0LL);
     v8 = PopWnfCsEnterScenarioId;
-    PopDirectedDripsNotify(PopDirectedDripsUmTestPermissive != 0 ? 4 : 2, &v8);
+    PopDirectedDripsNotify(PopDirectedDripsUmTestPermissive != 0 ? 4 : 2, (char *)&v8);
     IoLockUnlockPnpDeviceTree(1);
     v3 = IopRootDeviceNode;
     for ( i = (_QWORD *)*((_QWORD *)IopRootDeviceNode + 1); i; i = (_QWORD *)i[1] )
@@ -68,7 +68,7 @@ void PopDirectedDripsUmMarkTestDevices()
       }
     }
     IoLockUnlockPnpDeviceTree(0);
-    PopDirectedDripsNotify(PopDirectedDripsUmTestPermissive != 0 ? 5 : 3, &v8);
+    PopDirectedDripsNotify(PopDirectedDripsUmTestPermissive != 0 ? 5 : 3, (char *)&v8);
     PopReleaseRwLock((ULONG_PTR)&PopDirectedDripsUmLock);
   }
 }

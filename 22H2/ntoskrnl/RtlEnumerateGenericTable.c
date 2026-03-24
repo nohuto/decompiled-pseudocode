@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlEnumerateGenericTable @ 0x1403B4CF0
+ * XREFs of RtlEnumerateGenericTable @ 0x140381AD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRealSuccessor @ 0x140326B10 (RtlRealSuccessor.c)
- *     RtlSplay @ 0x140327CF0 (RtlSplay.c)
+ *     RtlSplay @ 0x1402D9F50 (RtlSplay.c)
+ *     RtlRealSuccessor @ 0x1402F80C0 (RtlRealSuccessor.c)
  */
 
 PVOID __stdcall RtlEnumerateGenericTable(PRTL_GENERIC_TABLE Table, BOOLEAN Restart)

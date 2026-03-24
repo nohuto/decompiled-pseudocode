@@ -1,9 +1,9 @@
 /*
- * XREFs of GetContainerId @ 0x1C011AA14
+ * XREFs of GetContainerId @ 0x1C0121760
  * Callers:
- *     CheckForLegacyTouchPad @ 0x1C011A940 (CheckForLegacyTouchPad.c)
+ *     IsLegacyTouchPadDevice @ 0x1C01213A0 (IsLegacyTouchPadDevice.c)
  * Callees:
- *     GetPointerDevicePDO @ 0x1C011AB14 (GetPointerDevicePDO.c)
+ *     GetPointerDevicePDO @ 0x1C0121CD0 (GetPointerDevicePDO.c)
  */
 
 __int64 __fastcall GetContainerId(struct _DEVICE_OBJECT *a1, void *a2, _DWORD *a3)

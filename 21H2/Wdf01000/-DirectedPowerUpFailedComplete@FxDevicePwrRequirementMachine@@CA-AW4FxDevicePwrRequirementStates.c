@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DirectedPowerUpFailedComplete@FxDevicePwrRequirementMachine@@CA?AW4FxDevicePwrRequirementStates@@PEAV1@@Z @ 0x1C000C0D0
+ * XREFs of ?DirectedPowerUpFailedComplete@FxDevicePwrRequirementMachine@@CA?AW4FxDevicePwrRequirementStates@@PEAV1@@Z @ 0x1C000E030
  * Callers:
  *     <none>
  * Callees:

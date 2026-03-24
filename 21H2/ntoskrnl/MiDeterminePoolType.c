@@ -1,38 +1,33 @@
 /*
- * XREFs of MiDeterminePoolType @ 0x140366FB0
+ * XREFs of MiDeterminePoolType @ 0x1402FAD9C
  * Callers:
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
- *     ExGetHeapFromVA @ 0x140366C48 (ExGetHeapFromVA.c)
- *     MmFreePoolMemory @ 0x140366DA8 (MmFreePoolMemory.c)
- *     ExProtectPoolEx @ 0x140367008 (ExProtectPoolEx.c)
- *     MmDeterminePoolType @ 0x140367A44 (MmDeterminePoolType.c)
- *     ExReturnPoolQuota @ 0x140367A64 (ExReturnPoolQuota.c)
- *     ExpHpIsSpecialPoolHeap @ 0x140461DE4 (ExpHpIsSpecialPoolHeap.c)
- *     MiGenerateAccessViolation @ 0x1405A7258 (MiGenerateAccessViolation.c)
- *     ExQueryPoolBlockSize @ 0x14063B220 (ExQueryPoolBlockSize.c)
- *     ExAllocateHeapSpecialPool @ 0x140641F58 (ExAllocateHeapSpecialPool.c)
- *     ExpFreeHeapSpecialPool @ 0x1406423A4 (ExpFreeHeapSpecialPool.c)
- *     ExpSizeHeapPool @ 0x1406427C4 (ExpSizeHeapPool.c)
+ *     MmDeterminePoolType @ 0x1402D2AAC (MmDeterminePoolType.c)
+ *     MmFreePoolMemory @ 0x1402FA848 (MmFreePoolMemory.c)
+ *     ExGetHeapFromVA @ 0x1402FAC7C (ExGetHeapFromVA.c)
+ *     ExProtectPoolEx @ 0x140362BE8 (ExProtectPoolEx.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x1403CDD4C (ExpHpIsSpecialPoolHeap.c)
+ *     MiGenerateAccessViolation @ 0x140548560 (MiGenerateAccessViolation.c)
+ *     ExAllocateHeapSpecialPool @ 0x1405B9D7C (ExAllocateHeapSpecialPool.c)
+ *     ExpFreeHeapSpecialPool @ 0x1405BA0E0 (ExpFreeHeapSpecialPool.c)
+ *     ExpSizeHeapPool @ 0x1405BA330 (ExpSizeHeapPool.c)
  * Callees:
- *     <none>
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
  */
 
-__int64 __fastcall MiDeterminePoolType(unsigned __int64 a1)
+__int64 __fastcall MiDeterminePoolType(__int64 a1)
 {
-  char v1; // cl
+  int SystemRegionType; // eax
+  int v2; // ecx
+  __int64 result; // rax
 
-  if ( a1 >= 0xFFFF800000000000uLL )
-  {
-    v1 = byte_140C53F50[((a1 >> 39) & 0x1FF) - 256];
-    switch ( v1 )
-    {
-      case 1:
-        return 33LL;
-      case 5:
-        return 0LL;
-      case 6:
-        return 1LL;
-    }
-  }
-  return 32LL;
+  SystemRegionType = MiGetSystemRegionType(a1);
+  v2 = SystemRegionType;
+  if ( SystemRegionType == 1 )
+    return 33LL;
+  if ( SystemRegionType == 5 )
+    return 0LL;
+  result = 32LL;
+  if ( v2 == 6 )
+    return 1LL;
+  return result;
 }

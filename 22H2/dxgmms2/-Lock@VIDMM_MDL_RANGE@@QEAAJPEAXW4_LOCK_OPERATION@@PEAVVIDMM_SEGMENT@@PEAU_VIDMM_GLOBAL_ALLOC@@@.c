@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Lock@VIDMM_MDL_RANGE@@QEAAJPEAXW4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00A1F20
+ * XREFs of ?Lock@VIDMM_MDL_RANGE@@QEAAJPEAXW4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0075C58
  * Callers:
- *     ?LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@_K3@Z @ 0x1C00A1CA0 (-LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PE.c)
- *     ?UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z @ 0x1C00A2E40 (-UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z.c)
+ *     ?LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@_K3@Z @ 0x1C0075A94 (-LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PE.c)
+ *     ?UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z @ 0x1C0077CD8 (-UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?TrackAndValidatePagesOnLock@VIDMM_SEGMENT@@QEAAEPEAU_VIDMM_MDL@@_KPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0075D80 (-TrackAndValidatePagesOnLock@VIDMM_SEGMENT@@QEAAEPEAU_VIDMM_MDL@@_KPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  */
 
 __int64 __fastcall VIDMM_MDL_RANGE::Lock(
@@ -15,15 +15,13 @@ __int64 __fastcall VIDMM_MDL_RANGE::Lock(
         struct VIDMM_SEGMENT *a4,
         struct _VIDMM_GLOBAL_ALLOC *a5)
 {
-  char v7; // r15
+  char v7; // di
   struct _MDL *Mdl; // rax
-  __int64 v9; // rsi
-  unsigned __int64 v10; // r9
-  __int64 v11; // rbx
-  __int64 v12; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // rdx
-  unsigned int v16; // ecx
+  __int64 v9; // rcx
+  unsigned __int64 v10; // r8
+  __int64 v12; // rax
+  struct _MDL *v13; // rcx
+  _QWORD v14[5]; // [rsp+30h] [rbp-28h] BYREF
 
   v7 = 0;
   Mdl = IoAllocateMdl(a2, *((_DWORD *)this + 4) - *((_DWORD *)this + 2), 0, 0, 0LL);
@@ -34,45 +32,28 @@ __int64 __fastcall VIDMM_MDL_RANGE::Lock(
     v7 = 1;
     if ( !a4 )
       return 0LL;
-    v9 = *(_QWORD *)this + 48LL;
-    v10 = (((*(_DWORD *)(*(_QWORD *)this + 32LL) + *(_DWORD *)(*(_QWORD *)this + 44LL)) & 0xFFF)
-         + (unsigned __int64)*(unsigned int *)(*(_QWORD *)this + 40LL)
-         + 4095) >> 12;
-    v11 = 0LL;
-    if ( !v10 )
+    v14[0] = 0LL;
+    v14[2] = 0LL;
+    v14[1] = *(_QWORD *)this;
+    if ( VIDMM_SEGMENT::TrackAndValidatePagesOnLock(a4, (struct _VIDMM_MDL *)v14, v10, a5) )
       return 0LL;
-    while ( 1 )
-    {
-      v12 = *((_QWORD *)a4 + 31);
-      if ( v12 )
-      {
-        *(_QWORD *)(v12 + 16LL * *((unsigned int *)a4 + 61)) = *(_QWORD *)(v9 + 8 * v11);
-        *(_QWORD *)(*((_QWORD *)a4 + 31) + 16LL * (unsigned int)(*((_DWORD *)a4 + 61))++ + 8) = a5;
-        v16 = *((_DWORD *)a4 + 61);
-        if ( v16 >= *((_DWORD *)a4 + 60) )
-          v16 = 0;
-        *((_DWORD *)a4 + 61) = v16;
-      }
-      if ( *(_QWORD *)(v9 + 8 * v11) << 12 > *((_QWORD *)a4 + 15) )
-        break;
-      if ( ++v11 >= v10 )
-        return 0LL;
-    }
-    WdLogSingleEntry2(1LL, v11, *(_QWORD *)(v9 + 8 * v11));
-    v15 = 0x40000LL;
   }
   else
   {
     _InterlockedIncrement((volatile signed __int32 *)&gVidMmLowResourceAccumulated);
-    WdLogSingleEntry1(6LL, 5855LL);
-    v15 = 262145LL;
+    v12 = WdLogNewEntry5_WdLowResource(v9);
+    *(_QWORD *)(v12 + 24) = 5859LL;
+    WdLogEvent5_WdLowResource(v12);
   }
-  DxgkLogInternalTriageEvent(v14, v15);
+  v13 = *(struct _MDL **)this;
   if ( *(_QWORD *)this )
   {
     if ( v7 )
-      MmUnlockPages(*(PMDL *)this);
-    IoFreeMdl(*(PMDL *)this);
+    {
+      MmUnlockPages(v13);
+      v13 = *(struct _MDL **)this;
+    }
+    IoFreeMdl(v13);
     *(_QWORD *)this = 0LL;
   }
   return 3223191809LL;

@@ -1,174 +1,149 @@
 /*
- * XREFs of ExpRaiseHardError @ 0x140A00F68
+ * XREFs of ExpRaiseHardError @ 0x140956478
  * Callers:
- *     ExRaiseHardError @ 0x140A00C30 (ExRaiseHardError.c)
- *     NtRaiseHardError @ 0x140A01300 (NtRaiseHardError.c)
+ *     ExRaiseHardError @ 0x140956160 (ExRaiseHardError.c)
+ *     NtRaiseHardError @ 0x140956810 (NtRaiseHardError.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExpSystemErrorHandler @ 0x14042A720 (ExpSystemErrorHandler.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     PsCaptureExceptionPort @ 0x14076E8B0 (PsCaptureExceptionPort.c)
- *     LpcSendWaitReceivePort @ 0x1407E64C0 (LpcSendWaitReceivePort.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExpSystemErrorHandler @ 0x140408D90 (ExpSystemErrorHandler.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     LpcSendWaitReceivePort @ 0x140692F90 (LpcSendWaitReceivePort.c)
+ *     PsCaptureExceptionPort @ 0x1406C5868 (PsCaptureExceptionPort.c)
  */
 
 __int64 __fastcall ExpRaiseHardError(
-        unsigned int a1,
-        unsigned int a2,
-        int a3,
-        unsigned __int64 a4,
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        const void *a4,
         __int64 a5,
         int a6,
         unsigned int *a7)
 {
-  _KPROCESS **CurrentServerSiloGlobals; // r14
-  KPROCESSOR_MODE PreviousMode; // bl
-  unsigned int v12; // edx
-  char v14; // dl
+  unsigned int v7; // r13d
+  unsigned int v8; // r14d
+  void *CurrentServerSiloGlobals; // r15
+  KPROCESSOR_MODE PreviousMode; // di
+  unsigned int v11; // ebx
+  char v13; // dl
+  __int64 v14; // rdx
+  __int64 v15; // rcx
   _KPROCESS *Process; // r10
-  int v16; // r11d
-  _KPROCESS *v17; // rbx
-  char v18; // di
+  int v17; // r11d
+  struct _DMA_ADAPTER *v18; // rdi
+  char v19; // si
   struct _KTHREAD *CurrentThread; // rcx
   _BYTE *Teb; // rax
-  int v21; // eax
-  const void *v22; // r14
-  int v23; // esi
-  unsigned int v24; // ecx
-  unsigned int v25; // eax
-  bool v26; // zf
-  unsigned int v27; // ecx
-  unsigned int v28; // ecx
-  __int64 v29; // [rsp+20h] [rbp-358h]
-  unsigned __int64 v32[3]; // [rsp+68h] [rbp-310h] BYREF
-  __int128 v33[2]; // [rsp+80h] [rbp-2F8h] BYREF
-  unsigned int v34; // [rsp+A8h] [rbp-2D0h]
-  __int64 v35; // [rsp+B0h] [rbp-2C8h]
-  int v36; // [rsp+B8h] [rbp-2C0h]
-  unsigned int v37; // [rsp+BCh] [rbp-2BCh]
-  unsigned int v38; // [rsp+C0h] [rbp-2B8h]
-  int v39; // [rsp+C4h] [rbp-2B4h]
-  char v40[616]; // [rsp+C8h] [rbp-2B0h] BYREF
+  bool v22; // zf
+  int v23; // eax
+  unsigned int v24; // r15d
+  int v25; // r14d
+  __int64 v26; // [rsp+20h] [rbp-358h]
+  int v28; // [rsp+5Ch] [rbp-31Ch]
+  unsigned __int64 v30; // [rsp+78h] [rbp-300h] BYREF
+  __int128 v31[2]; // [rsp+80h] [rbp-2F8h] BYREF
+  unsigned int v32; // [rsp+A8h] [rbp-2D0h]
+  __int64 v33; // [rsp+B0h] [rbp-2C8h]
+  int v34; // [rsp+B8h] [rbp-2C0h]
+  unsigned int v35; // [rsp+BCh] [rbp-2BCh]
+  int v36; // [rsp+C0h] [rbp-2B8h]
+  unsigned int v37; // [rsp+C4h] [rbp-2B4h]
+  char v38[616]; // [rsp+C8h] [rbp-2B0h] BYREF
 
-  v32[0] = a4;
-  v32[1] = (unsigned __int64)a7;
-  CurrentServerSiloGlobals = (_KPROCESS **)PsGetCurrentServerSiloGlobals();
+  v7 = a2;
+  v8 = a1;
+  v28 = a2;
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals(a1, a2);
   PreviousMode = KeGetCurrentThread()->PreviousMode;
+  v11 = 0;
   *a7 = 0;
-  if ( v12 > 0x4D )
+  if ( v7 > 0x4D )
     return 3221225485LL;
-  v14 = 0;
+  v13 = 0;
   if ( a6 == 6 )
   {
     if ( !SeSinglePrivilegeCheck(SeShutdownPrivilege, PreviousMode) )
       return 3221225569LL;
-    if ( !PsIsCurrentThreadInServerSilo() )
+    if ( !PsIsCurrentThreadInServerSilo(v15, v14) )
       ExReadyForErrors = 0;
     *((_DWORD *)CurrentServerSiloGlobals + 224) = 2;
-    v14 = 1;
+    v13 = 1;
   }
   Process = KeGetCurrentThread()->ApcState.Process;
-  v16 = *(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x10;
-  if ( !v16 && (a1 & 0xC0000000) == 0xC0000000 && (!*((_DWORD *)CurrentServerSiloGlobals + 224) || v14) )
+  v17 = *(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x10;
+  if ( !v17 && (v8 & 0xC0000000) == 0xC0000000 && (!*((_DWORD *)CurrentServerSiloGlobals + 224) || v13) )
   {
-    LOBYTE(v29) = PreviousMode != 0;
-    ExpSystemErrorHandler(a1, a2, a3, a5, v29);
+    LOBYTE(v26) = PreviousMode != 0;
+    ExpSystemErrorHandler(v8, v7, a3, a5, v26);
     return 0LL;
   }
-  if ( Process == CurrentServerSiloGlobals[110] )
+  if ( Process == *((_KPROCESS **)CurrentServerSiloGlobals + 110) )
   {
-    if ( (a1 & 0xC0000000) == 0xC0000000 )
+    if ( (v8 & 0xC0000000) == 0xC0000000 )
     {
-      LOBYTE(v29) = PreviousMode != 0;
-      ExpSystemErrorHandler(a1, a2, a3, a5, v29);
+      LOBYTE(v26) = PreviousMode != 0;
+      ExpSystemErrorHandler(v8, v7, a3, a5, v26);
     }
 LABEL_37:
     *a7 = 0;
     return 0LL;
   }
-  v17 = 0LL;
-  v18 = 0;
-  if ( !v16 && ((Process[1].ActiveProcessors.StaticBitmap[9] & 1) != 0 || (a1 & 0x10000000) != 0) )
+  v18 = 0LL;
+  v19 = 0;
+  if ( !v17 && ((Process[1].ActiveProcessors.Bitmap[9] & 1) != 0 || (v8 & 0x10000000) != 0) )
   {
-    v17 = (_KPROCESS *)PsCaptureExceptionPort((__int64)Process);
-    if ( v17 )
-      v18 = 1;
+    v18 = (struct _DMA_ADAPTER *)PsCaptureExceptionPort((__int64)Process);
+    if ( v18 )
+      v19 = 1;
     else
-      v17 = CurrentServerSiloGlobals[111];
+      v18 = (struct _DMA_ADAPTER *)*((_QWORD *)CurrentServerSiloGlobals + 111);
   }
-  if ( v17
+  if ( v18
     && ((CurrentThread = KeGetCurrentThread(), (CurrentThread->MiscFlags & 0x400) != 0)
      || CurrentThread->ApcStateIndex == 1
       ? (Teb = 0LL)
       : (Teb = CurrentThread->Teb),
         Teb) )
   {
-    v26 = (Teb[5808] & 0x10) == 0;
-    v21 = 0;
-    if ( !v26 )
-      v21 = -1073741823;
-    v22 = (const void *)a4;
-    if ( v21 < 0 )
+    v22 = (Teb[5808] & 0x10) == 0;
+    v23 = 0;
+    if ( !v22 )
+      v23 = -1073741823;
+    v24 = a3;
+    if ( v23 < 0 )
     {
-      if ( v18 == 1 )
-        ObfDereferenceObject(v17);
-      v17 = 0LL;
+      if ( v19 == 1 )
+        HalPutDmaAdapter(v18);
+      v18 = 0LL;
     }
   }
   else
   {
-    v22 = (const void *)a4;
+    v24 = a3;
   }
-  if ( !v17 )
+  if ( !v18 )
     goto LABEL_37;
-  *(_QWORD *)&v33[0] = 0x900700048LL;
-  v34 = a1 & 0xEFFFFFFF;
-  v36 = a6;
-  v39 = a3;
-  v38 = a2;
-  if ( v22 )
-    memmove(v40, v22, 8LL * a2);
-  v35 = MEMORY[0xFFFFF78000000014];
-  v32[0] = 688LL;
-  v23 = LpcSendWaitReceivePort((__int64)v17, 0x20000, v33, (unsigned __int64)v33, v32, 0LL);
-  if ( v18 == 1 )
-    ObfDereferenceObject(v17);
-  if ( v23 >= 0 )
+  *(_QWORD *)&v31[0] = 0x900700048LL;
+  v32 = v8 & 0xEFFFFFFF;
+  v34 = a6;
+  v37 = v24;
+  v36 = v28;
+  if ( a4 )
+    memmove(v38, a4, 8LL * v7);
+  v33 = MEMORY[0xFFFFF78000000014];
+  v30 = 688LL;
+  v25 = LpcSendWaitReceivePort((__int64)v18, 0x20000, v31, (unsigned __int64)v31, &v30, 0LL);
+  if ( v19 == 1 )
+    HalPutDmaAdapter(v18);
+  if ( v25 >= 0 )
   {
-    v24 = v37;
-    v25 = v37;
-    if ( v37 > 5 )
-    {
-      v24 = v37 - 6;
-      v26 = v37 == 6;
-    }
-    else
-    {
-      if ( v37 == 5 )
-      {
-LABEL_52:
-        *a7 = v25;
-        return (unsigned int)v23;
-      }
-      v26 = v37 == 0;
-    }
-    if ( !v26 )
-    {
-      v27 = v24 - 1;
-      if ( v27 )
-      {
-        v28 = v27 - 1;
-        if ( v28 )
-        {
-          if ( v28 - 1 >= 2 )
-            v25 = 0;
-        }
-      }
-    }
-    goto LABEL_52;
+    if ( v35 <= 0xA )
+      v11 = v35;
+    *a7 = v11;
   }
-  return (unsigned int)v23;
+  return (unsigned int)v25;
 }

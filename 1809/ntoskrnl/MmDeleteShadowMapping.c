@@ -1,5 +1,5 @@
 /*
- * XREFs of MmDeleteShadowMapping @ 0x140858EEC
+ * XREFs of MmDeleteShadowMapping @ 0x140858ECC
  * Callers:
  *     KiShadowProcessorAllocation @ 0x140572D84 (KiShadowProcessorAllocation.c)
  *     KiUnshadowProcessorAllocation @ 0x14057BA9C (KiUnshadowProcessorAllocation.c)
@@ -12,10 +12,10 @@
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x1400EDB64 (MiInitializeTbFlushList.c)
- *     MiReadWriteAnyLevelShadowPte @ 0x14012B2DC (MiReadWriteAnyLevelShadowPte.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1400EDB84 (MiInitializeTbFlushList.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x14012B2FC (MiReadWriteAnyLevelShadowPte.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmDeleteShadowMapping(unsigned __int64 a1)

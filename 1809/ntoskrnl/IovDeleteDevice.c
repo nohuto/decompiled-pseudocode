@@ -1,7 +1,7 @@
 /*
  * XREFs of IovDeleteDevice @ 0x1409241B8
  * Callers:
- *     IoDeleteDevice @ 0x1400DAAC0 (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x1400DAAE0 (IoDeleteDevice.c)
  * Callees:
  *     VfIoDeleteDevice @ 0x140934128 (VfIoDeleteDevice.c)
  */

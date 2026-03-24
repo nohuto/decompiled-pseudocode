@@ -1,17 +1,23 @@
 /*
- * XREFs of ??0CDrawListBitmap@@QEAA@XZ @ 0x1800DFFA0
+ * XREFs of ??0CDrawListBitmap@@QEAA@XZ @ 0x180057F90
  * Callers:
- *     ??0CCommonRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@01@Z @ 0x1800929DC (--0CCommonRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@01@Z.c)
- *     ??$CreateRenderingEffectWorker@VCCommonRenderingEffect@@@CCommonRenderingEffectFactory@@SAJV?$span@PEBVCDrawListBrush@@$0?0@gsl@@PEAPEAVCRenderingEffect@@@Z @ 0x180093BB0 (--$CreateRenderingEffectWorker@VCCommonRenderingEffect@@@CCommonRenderingEffectFactory@@SAJV-$sp.c)
- *     ??0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V?$span@PEBVCDrawListBrush@@$0?0@gsl@@V?$span@_N$0?0@3@@Z @ 0x180095E9C (--0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V-$span@PEBVCDrawListBrush@@$0-0@gsl@@V-.c)
+ *     ??0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V?$span@PEBVCDrawListBrush@@$0?0@gsl@@V?$span@_N$0?0@3@@Z @ 0x18004F74C (--0CBrushRenderingEffect@@QEAA@PEAVCRenderingTechnique@@V-$span@PEBVCDrawListBrush@@$0-0@gsl@@V-.c)
+ *     ?CreateRenderingEffect@CCommonRenderingEffectFactory@@UEAAJV?$span@PEBVCDrawListBrush@@$0?0@gsl@@PEAPEAVCRenderingEffect@@@Z @ 0x1800547E0 (-CreateRenderingEffect@CCommonRenderingEffectFactory@@UEAAJV-$span@PEBVCDrawListBrush@@$0-0@gsl@.c)
  * Callees:
  *     <none>
  */
 
 CDrawListBitmap *__fastcall CDrawListBitmap::CDrawListBitmap(CDrawListBitmap *this)
 {
+  CDrawListBitmap *result; // rax
+
   *(_QWORD *)this = 0LL;
   *((_QWORD *)this + 1) = 0LL;
-  *((_BYTE *)this + 16) = 0;
-  return this;
+  *(_QWORD *)((char *)this + 28) = 0LL;
+  *((_DWORD *)this + 9) = 0;
+  *((_QWORD *)this + 2) = 0LL;
+  result = this;
+  *((_DWORD *)this + 6) = 0;
+  *((_BYTE *)this + 40) = 0;
+  return result;
 }

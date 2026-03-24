@@ -8,7 +8,7 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpGetHandleExtraInfo @ 0x1408CE130 (ExpGetHandleExtraInfo.c)
+ *     ExpGetHandleExtraInfo @ 0x1408CE110 (ExpGetHandleExtraInfo.c)
  */
 
 __int64 __fastcall ExpFreeHandleTableEntry(__int64 a1, __int64 a2, __int64 a3)

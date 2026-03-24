@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiInterpreterPausedSignalEventCallback @ 0x1C005C1D0
+ * XREFs of AcpiInterpreterPausedSignalEventCallback @ 0x1C005B310
  * Callers:
  *     <none>
  * Callees:

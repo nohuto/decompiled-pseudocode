@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x140A6A1EC
+ * XREFs of _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x14097BF74
  * Callers:
- *     _CmSetInterfaceClassMappedProperty @ 0x140A6A0A8 (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x14097BE30 (_CmSetInterfaceClassMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _PnpOpenPropertiesKey @ 0x1406CDCF0 (_PnpOpenPropertiesKey.c)
- *     _CmOpenInterfaceClassRegKey @ 0x140787DB0 (_CmOpenInterfaceClassRegKey.c)
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x1406B3774 (_CmOpenInterfaceClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406BE2A4 (_PnpOpenPropertiesKey.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
         __int64 a1,
         int a2,
-        __int64 a3,
+        HANDLE a3,
         __int64 a4,
         int a5,
         void *a6,
@@ -38,7 +38,7 @@ __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
   if ( v7 < 2 )
     return (unsigned int)-1073741264;
   v12 = 0;
-  v13 = &off_140A77B28;
+  v13 = &off_1409836F8;
   do
   {
     v14 = *v13;
@@ -77,9 +77,9 @@ LABEL_24:
             ZwClose(v21[0]);
           return (unsigned int)v8;
         }
-        LODWORD(a3) = v21[0];
+        a3 = v21[0];
       }
-      v8 = PnpOpenPropertiesKey(a1, a3, 0LL, 2, 1, v20, &Handle);
+      v8 = PnpOpenPropertiesKey(a1, (__int64)a3, 0LL, 2u, 1, v20, &Handle);
       if ( v8 >= 0 )
       {
         v18 = RegRtlSetValue(Handle, L"Default", 1u, a6, a7);

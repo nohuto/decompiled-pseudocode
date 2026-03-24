@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Reset@MousePerfSummary@@AEAAXXZ @ 0x1C01FEC00
+ * XREFs of ?Reset@MousePerfSummary@@AEAAXXZ @ 0x1C01C2CCC
  * Callers:
- *     ?SendMousePerfSummaryTelemetry@MousePerfSummary@@AEAAXXZ @ 0x1C00E6B7A (-SendMousePerfSummaryTelemetry@MousePerfSummary@@AEAAXXZ.c)
+ *     ?SendMousePerfSummaryTelemetry@MousePerfSummary@@AEAAXXZ @ 0x1C01C2FAC (-SendMousePerfSummaryTelemetry@MousePerfSummary@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */

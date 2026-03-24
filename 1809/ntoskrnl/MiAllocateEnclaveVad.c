@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAllocateEnclaveVad @ 0x140859178
+ * XREFs of MiAllocateEnclaveVad @ 0x140859158
  * Callers:
- *     MiCreateEnclave @ 0x140859AC8 (MiCreateEnclave.c)
+ *     MiCreateEnclave @ 0x140859AA8 (MiCreateEnclave.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
@@ -11,14 +11,14 @@
  *     MiLockVad @ 0x1400769A4 (MiLockVad.c)
  *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
  *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140088CD8 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
  *     MiSelectUserAddress @ 0x1405F2360 (MiSelectUserAddress.c)
  *     MiIsVaRangeAvailable @ 0x1405F49F0 (MiIsVaRangeAvailable.c)
- *     MiAdvanceVadHint @ 0x140695E30 (MiAdvanceVadHint.c)
- *     MiGetUserReservationHighestAddress @ 0x14069626C (MiGetUserReservationHighestAddress.c)
+ *     MiAdvanceVadHint @ 0x140695E10 (MiAdvanceVadHint.c)
+ *     MiGetUserReservationHighestAddress @ 0x14069624C (MiGetUserReservationHighestAddress.c)
  */
 
 __int64 __fastcall MiAllocateEnclaveVad(int a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4, __int64 *a5)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PoEnergyContextStart @ 0x140673B4C
+ * XREFs of PoEnergyContextStart @ 0x140697F38
  * Callers:
- *     PspInsertThread @ 0x140701218 (PspInsertThread.c)
- *     PopEtInit @ 0x140B27E7C (PopEtInit.c)
+ *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
+ *     PopEtInit @ 0x140A6D9A4 (PopEtInit.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PopEtGetProcessAppId @ 0x140673C3C (PopEtGetProcessAppId.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PopEtGetProcessAppId @ 0x140698028 (PopEtGetProcessAppId.c)
  */
 
 __int64 __fastcall PoEnergyContextStart(ULONG_PTR BugCheckParameter1)
@@ -29,7 +29,7 @@ __int64 __fastcall PoEnergyContextStart(ULONG_PTR BugCheckParameter1)
     v4 = (struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112);
     if ( KeGetCurrentThread()->ApcState.Process != (_KPROCESS *)BugCheckParameter1 )
     {
-      if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
+      if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
         return (unsigned int)-1073741558;
       KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v8, v5);
       v3 = 1;
@@ -39,8 +39,8 @@ __int64 __fastcall PoEnergyContextStart(ULONG_PTR BugCheckParameter1)
       ProcessAppId = 0;
     if ( v3 )
     {
-      KiUnstackDetachProcess((__int64)v8, 0LL);
-      ExReleaseRundownProtection(v4);
+      KiUnstackDetachProcess((__int64)v8, 0);
+      ExReleaseRundownProtection_0(v4);
     }
   }
   else

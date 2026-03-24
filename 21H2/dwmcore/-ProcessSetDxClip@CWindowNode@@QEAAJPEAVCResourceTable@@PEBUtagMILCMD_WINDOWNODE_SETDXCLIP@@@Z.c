@@ -1,19 +1,19 @@
 /*
- * XREFs of ?ProcessSetDxClip@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETDXCLIP@@@Z @ 0x1802443C8
+ * XREFs of ?ProcessSetDxClip@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETDXCLIP@@@Z @ 0x1801F3B4C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x180048C04 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
- *     ?IsAxisAlignedRectangle@CShapePtr@@QEBA_NXZ @ 0x18006367C (-IsAxisAlignedRectangle@CShapePtr@@QEBA_NXZ.c)
- *     ?IsEquivalentTo@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18006767C (-IsEquivalentTo@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x18009AF00 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800D36F8 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?GetGeometryBounds@CWindowNode@@AEAAJPEAVCGeometry@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1802442B0 (-GetGeometryBounds@CWindowNode@@AEAAJPEAVCGeometry@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMi.c)
+ *     ?IsAxisAlignedRectangle@CShapePtr@@QEBA_NXZ @ 0x180011B38 (-IsAxisAlignedRectangle@CShapePtr@@QEBA_NXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180087600 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009F678 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     ?IsEquivalentTo@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800A0A34 (-IsEquivalentTo@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C891C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?GetGeometryBounds@CWindowNode@@AEAAJPEAVCGeometry@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801F39B4 (-GetGeometryBounds@CWindowNode@@AEAAJPEAVCGeometry@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMi.c)
  */
 
 __int64 __fastcall CWindowNode::ProcessSetDxClip(
@@ -45,7 +45,7 @@ __int64 __fastcall CWindowNode::ProcessSetDxClip(
   Resource = 0LL;
   if ( !v5 || (Resource = (CGeometry *)CResourceTable::GetResource((__int64)a2, v5, 0x41u)) != 0LL )
   {
-    v9 = (CGeometry *)*((_QWORD *)this + 112);
+    v9 = (CGeometry *)*((_QWORD *)this + 107);
     if ( Resource == v9 )
       return v4;
     v20 = 0LL;
@@ -57,25 +57,25 @@ __int64 __fastcall CWindowNode::ProcessSetDxClip(
     {
       ShapeData = CGeometry::GetShapeData(
                     Resource,
-                    (const struct D2D_SIZE_F *)((char *)this + 140),
+                    (const struct D2D_SIZE_F *)((char *)this + 132),
                     (struct CShapePtr *)&v20);
       v4 = ShapeData;
       if ( ShapeData < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, ShapeData, 0x245u);
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, ShapeData, 0x28Fu, 0LL);
 LABEL_19:
         CShapePtr::Release((CShapePtr *)&v18);
         CShapePtr::Release((CShapePtr *)&v20);
         return v4;
       }
-      v9 = (CGeometry *)*((_QWORD *)this + 112);
+      v9 = (CGeometry *)*((_QWORD *)this + 107);
     }
     if ( v9
-      && (v13 = CGeometry::GetShapeData(v9, (const struct D2D_SIZE_F *)((char *)this + 140), (struct CShapePtr *)&v18),
+      && (v13 = CGeometry::GetShapeData(v9, (const struct D2D_SIZE_F *)((char *)this + 132), (struct CShapePtr *)&v18),
           v4 = v13,
           v13 < 0) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x24Au);
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x294u, 0LL);
     }
     else
     {
@@ -84,7 +84,7 @@ LABEL_19:
         v23 = 0LL;
         v22 = 0LL;
         CWindowNode::GetGeometryBounds((__int64)this, Resource);
-        CWindowNode::GetGeometryBounds((__int64)this, *((CGeometry **)this + 112));
+        CWindowNode::GetGeometryBounds((__int64)this, *((CGeometry **)this + 107));
         v10 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEquivalentTo(
                 (float *)&v23,
                 (float *)&v22) != 0;
@@ -93,12 +93,12 @@ LABEL_19:
       v4 = v15;
       if ( v15 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, v15, 0x25Cu);
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x2A6u, 0LL);
       }
       else
       {
-        CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 112));
-        *((_QWORD *)this + 112) = Resource;
+        CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 107));
+        *((_QWORD *)this + 107) = Resource;
         if ( !v10 )
         {
           *((_BYTE *)this + 912) = 0;
@@ -109,6 +109,6 @@ LABEL_19:
     goto LABEL_19;
   }
   v4 = -2003303421;
-  MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, -2003303421, 0x233u);
+  MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0x27Au, 0LL);
   return v4;
 }

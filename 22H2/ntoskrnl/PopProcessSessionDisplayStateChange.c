@@ -1,32 +1,23 @@
 /*
- * XREFs of PopProcessSessionDisplayStateChange @ 0x1407A9788
+ * XREFs of PopProcessSessionDisplayStateChange @ 0x1408F0278
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopMonitorInvocation @ 0x1407A94DC (PopMonitorInvocation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140410BB4 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
- *     TtmIsEnabled @ 0x1407A65A0 (TtmIsEnabled.c)
- *     PopTriggerMonitorPowerEvent @ 0x1407A97EC (PopTriggerMonitorPowerEvent.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x1407AA5CC (PopDisarmIdlePhaseWatchdog.c)
- *     PopArmIdlePhaseWatchdog @ 0x140883D44 (PopArmIdlePhaseWatchdog.c)
+ *     PopArmIdlePhaseWatchdog @ 0x1408EFC58 (PopArmIdlePhaseWatchdog.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1408EFD7C (PopDisarmIdlePhaseWatchdog.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1408F0C74 (PopTriggerMonitorPowerEvent.c)
  */
 
 __int64 __fastcall PopProcessSessionDisplayStateChange(char a1, unsigned int a2)
 {
-  unsigned int v2; // ebx
-  __int64 v5; // rcx
+  __int64 v4; // rcx
 
-  v2 = 0;
-  if ( !PopPlatformAoAc )
-    Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage();
   if ( a1 )
     PopDisarmIdlePhaseWatchdog();
   else
     PopArmIdlePhaseWatchdog(a2);
-  if ( !TtmIsEnabled() )
-  {
-    LOBYTE(v5) = a1;
-    return (unsigned int)PopTriggerMonitorPowerEvent(v5, a2);
-  }
-  return v2;
+  if ( TtmpEnabled == 1 )
+    return 3221225659LL;
+  LOBYTE(v4) = a1;
+  return PopTriggerMonitorPowerEvent(v4, a2);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiUEventBroadcastHardwareProfilesChangedEvent @ 0x1408287F0
+ * XREFs of PiUEventBroadcastHardwareProfilesChangedEvent @ 0x1408287D0
  * Callers:
- *     PiUEventBroadcastEventWorker @ 0x140702FD0 (PiUEventBroadcastEventWorker.c)
+ *     PiUEventBroadcastEventWorker @ 0x140702FB0 (PiUEventBroadcastEventWorker.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  */
 
 LONG_PTR __fastcall PiUEventBroadcastHardwareProfilesChangedEvent(unsigned int a1, __int64 a2)

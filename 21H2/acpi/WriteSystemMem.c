@@ -1,11 +1,12 @@
 /*
- * XREFs of WriteSystemMem @ 0x1C001B408
+ * XREFs of WriteSystemMem @ 0x1C0024A34
  * Callers:
- *     WriteBuffField @ 0x1C001B368 (WriteBuffField.c)
+ *     AccessBaseField @ 0x1C0001970 (AccessBaseField.c)
+ *     WriteBuffField @ 0x1C0024994 (WriteBuffField.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 void __fastcall WriteSystemMem(unsigned __int64 Src, size_t Size, __int64 a3, __int64 a4)
@@ -47,7 +48,7 @@ void __fastcall WriteSystemMem(unsigned __int64 Src, size_t Size, __int64 a3, __
       {
         if ( v13(0LL, Src, &Srca, (unsigned int)Size, &v18) < 0 )
         {
-LABEL_30:
+LABEL_26:
           v5 = Srca;
           goto LABEL_3;
         }
@@ -64,7 +65,7 @@ LABEL_30:
              v8,
              &v18) >= 0 )
         return;
-      goto LABEL_30;
+      goto LABEL_26;
     }
   }
 LABEL_3:

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDmaGuardQueueFlush @ 0x14095EB04
+ * XREFs of PiDmaGuardQueueFlush @ 0x1408B9154
  * Callers:
- *     PipDmgFlushQueueAndRestartDevices @ 0x140956ADC (PipDmgFlushQueueAndRestartDevices.c)
+ *     PipDmgFlushQueueAndRestartDevices @ 0x1408B1468 (PipDmgFlushQueueAndRestartDevices.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
  */
 
-void __fastcall PiDmaGuardQueueFlush(__int64 a1)
+_QWORD *__fastcall PiDmaGuardQueueFlush(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v3; // rax
@@ -20,15 +20,15 @@ void __fastcall PiDmaGuardQueueFlush(__int64 a1)
   ExAcquireResourceExclusiveLite(&PipDgqListLock, 1u);
   while ( 1 )
   {
-    v3 = *(PBOOLEAN *)((char *)&KdDebuggerEnabled + 7);
-    if ( *(PBOOLEAN *)((char *)&KdDebuggerEnabled + 7) == (PBOOLEAN)((char *)&KdDebuggerEnabled + 7) )
+    v3 = *(PBOOLEAN *)((char *)&KdDebuggerNotPresent + 7);
+    if ( *(PBOOLEAN *)((char *)&KdDebuggerNotPresent + 7) == (PBOOLEAN)((char *)&KdDebuggerNotPresent + 7) )
       break;
-    if ( (*(PBOOLEAN ***)((char *)&KdDebuggerEnabled + 7))[1] != (PBOOLEAN *)((char *)&KdDebuggerEnabled + 7)
-      || (v4 = **(_QWORD **)((char *)&KdDebuggerEnabled + 7),
-          *(PBOOLEAN *)(**(_QWORD **)((char *)&KdDebuggerEnabled + 7) + 8LL) != *(PBOOLEAN *)((char *)&KdDebuggerEnabled
-                                                                                            + 7))
-      || (*(PBOOLEAN *)((char *)&KdDebuggerEnabled + 7) = **(PBOOLEAN **)((char *)&KdDebuggerEnabled + 7),
-          *(_QWORD *)(v4 + 8) = (char *)&KdDebuggerEnabled + 7,
+    if ( (*(PBOOLEAN ***)((char *)&KdDebuggerNotPresent + 7))[1] != (PBOOLEAN *)((char *)&KdDebuggerNotPresent + 7)
+      || (v4 = **(_QWORD **)((char *)&KdDebuggerNotPresent + 7),
+          *(PBOOLEAN *)(**(_QWORD **)((char *)&KdDebuggerNotPresent + 7) + 8LL) != *(PBOOLEAN *)((char *)&KdDebuggerNotPresent
+                                                                                               + 7))
+      || (*(PBOOLEAN *)((char *)&KdDebuggerNotPresent + 7) = **(PBOOLEAN **)((char *)&KdDebuggerNotPresent + 7),
+          *(_QWORD *)(v4 + 8) = (char *)&KdDebuggerNotPresent + 7,
           v5 = *(_QWORD **)(a1 + 8),
           *v5 != a1) )
     {
@@ -40,5 +40,5 @@ void __fastcall PiDmaGuardQueueFlush(__int64 a1)
     *(_QWORD *)(a1 + 8) = v3;
   }
   ExReleaseResourceLite(&PipDgqListLock);
-  KeLeaveCriticalRegion();
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

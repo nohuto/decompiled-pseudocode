@@ -1,20 +1,20 @@
 /*
- * XREFs of UsbhPdoPnp_QueryInterface @ 0x1C00552A0
+ * XREFs of UsbhPdoPnp_QueryInterface @ 0x1C0056940
  * Callers:
  *     <none>
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     UsbhDerefPdoDeviceHandle @ 0x1C0003470 (UsbhDerefPdoDeviceHandle.c)
- *     UsbhRefPdoDeviceHandle @ 0x1C00036C0 (UsbhRefPdoDeviceHandle.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhBusifGetLocationInterface @ 0x1C004BA3C (UsbhBusifGetLocationInterface.c)
- *     UsbhBusifGetSSHub @ 0x1C004BAC0 (UsbhBusifGetSSHub.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0015C80 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0016670 (UsbhDerefPdoDeviceHandle.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhBusifGetLocationInterface @ 0x1C004CE3C (UsbhBusifGetLocationInterface.c)
+ *     UsbhBusifGetSSHub @ 0x1C004CEC0 (UsbhBusifGetSSHub.c)
  */
 
 __int64 __fastcall UsbhPdoPnp_QueryInterface(__int64 a1, IRP *a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of AslpFileGetPeExportNameExeWrapper @ 0x140A58D50
+ * XREFs of AslpFileGetPeExportNameExeWrapper @ 0x14096B930
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x1407592F8 (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B2904 (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x140759400 (AslFileMappingEnsure.c)
- *     AslStringXmlSanitize @ 0x140759A90 (AslStringXmlSanitize.c)
- *     AslpFileGetExeWrapper @ 0x140A583F4 (AslpFileGetExeWrapper.c)
- *     AslpFileGetExportName @ 0x140A58594 (AslpFileGetExportName.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x1407B2D08 (AslFileMappingEnsure.c)
+ *     AslStringXmlSanitize @ 0x1407B3190 (AslStringXmlSanitize.c)
+ *     AslpFileGetExeWrapper @ 0x14096B000 (AslpFileGetExeWrapper.c)
+ *     AslpFileGetExportName @ 0x14096B194 (AslpFileGetExportName.c)
  */
 
 __int64 __fastcall AslpFileGetPeExportNameExeWrapper(__int64 a1, __int64 a2)
 {
   int v4; // edi
   int v6; // eax
-  wchar_t *v7; // rsi
+  __int64 v7; // rcx
   __int64 v8; // rax
   unsigned int v9; // [rsp+60h] [rbp+18h] BYREF
   wchar_t *v10; // [rsp+68h] [rbp+20h] BYREF
@@ -43,9 +43,8 @@ LABEL_5:
     *(_QWORD *)(a1 + 808) = 4LL;
   }
   *(_DWORD *)(a1 + 824) |= v6;
-  if ( (int)AslpFileGetExportName(&v10) < 0 )
+  if ( (int)AslpFileGetExportName(&v10, a2) < 0 )
     goto LABEL_5;
-  v7 = v10;
   v4 = AslStringXmlSanitize(v10);
   if ( v4 >= 0 )
   {
@@ -53,7 +52,7 @@ LABEL_5:
     v8 = -1LL;
     do
       ++v8;
-    while ( v7[v8] );
+    while ( *(_WORD *)(v7 + 2 * v8) );
     *(_DWORD *)(a1 + 760) |= 5u;
     *(_QWORD *)(a1 + 744) = v8;
     *(_QWORD *)(a1 + 752) = v7;

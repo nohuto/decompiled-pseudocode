@@ -1,74 +1,41 @@
 /*
- * XREFs of ?AddPoolBuffer@CFlipManager@@QEAAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@@Z @ 0x1C00828D0
+ * XREFs of ?AddPoolBuffer@CFlipManager@@QEAAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@@Z @ 0x1C006ABB4
  * Callers:
- *     ?AddPoolBuffer@FlipManagerObject@@QEAAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@@Z @ 0x1C007FC9C (-AddPoolBuffer@FlipManagerObject@@QEAAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@@Z.c)
+ *     ?AddPoolBuffer@FlipManagerObject@@QEAAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@@Z @ 0x1C00684B0 (-AddPoolBuffer@FlipManagerObject@@QEAAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@@Z.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?Create@CPoolBufferResource@@SAJPEAVCFlipManager@@_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@PEAPEAVCPoolBufferResourceState@@@Z @ 0x1C0085984 (-Create@CPoolBufferResource@@SAJPEAVCFlipManager@@_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@PEAPEAV.c)
- *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C0086440 (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C006C72C (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ *     ?Create@CPoolBufferResource@@SAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@PEAPEAVCPoolBufferResourceState@@@Z @ 0x1C006DBEC (-Create@CPoolBufferResource@@SAJ_KPEAXAEBU_LUID@@PEAVCFlipPropertySet@@PEAPEAVCPoolBufferResourc.c)
  */
 
-__int64 __fastcall CFlipManager::AddPoolBuffer(
+int __fastcall CFlipManager::AddPoolBuffer(
         CFlipManager *this,
         unsigned __int64 a2,
         void *a3,
         const struct _LUID *a4,
         struct CFlipPropertySet *a5)
 {
-  char *v5; // rsi
-  __int64 v7; // rbx
-  unsigned __int64 v9; // rdx
-  const struct _LUID *v10; // r11
-  int v11; // edi
-  struct CPoolBufferResourceState *v12; // rbp
-  char **v13; // rcx
-  char *v14; // rax
-  struct DXGGLOBAL *Global; // rax
-  __int64 v16; // rdx
-  __int64 v17; // r9
-  void (__fastcall *v18)(_QWORD, __int64, __int64); // rax
-  __int64 v19; // r9
-  __int64 v20; // r8
-  struct CPoolBufferResourceState *v22; // [rsp+50h] [rbp+8h] BYREF
+  char *v5; // rbx
+  unsigned __int64 v8; // r11
+  int result; // eax
+  char **v10; // rcx
+  char *v11; // r8
+  struct CPoolBufferResourceState *v12; // [rsp+40h] [rbp+8h] BYREF
 
+  v12 = 0LL;
   v5 = (char *)this + 56;
-  v7 = 0LL;
-  v22 = 0LL;
   if ( CEndpointResourceStateManager::FindResourceState(this, a2, (struct _LIST_ENTRY *)((char *)this + 56)) )
+    return -1073741811;
+  result = CPoolBufferResource::Create(v8, a3, a4, a5, &v12);
+  if ( result >= 0 )
   {
-    return (unsigned int)-1073741811;
+    v10 = (char **)*((_QWORD *)v5 + 1);
+    v11 = (char *)(((unsigned __int64)v12 + 8) & -(__int64)(v12 != 0LL));
+    if ( *v10 != v5 )
+      __fastfail(3u);
+    *(_QWORD *)v11 = v5;
+    *((_QWORD *)v11 + 1) = v10;
+    *v10 = v11;
+    *((_QWORD *)v5 + 1) = v11;
   }
-  else
-  {
-    v11 = CPoolBufferResource::Create(this, v9, a3, v10, a5, &v22);
-    if ( v11 >= 0 )
-    {
-      v12 = v22;
-      v13 = (char **)*((_QWORD *)v5 + 1);
-      v14 = (char *)(((unsigned __int64)v22 + 8) & -(__int64)(v22 != 0LL));
-      if ( *v13 != v5 )
-        __fastfail(3u);
-      *(_QWORD *)v14 = v5;
-      *((_QWORD *)v14 + 1) = v13;
-      *v13 = v14;
-      *((_QWORD *)v5 + 1) = v14;
-      Global = DXGGLOBAL::GetGlobal();
-      v16 = *((_QWORD *)v12 + 3);
-      v17 = *(_QWORD *)(v16 + 64);
-      v18 = *(void (__fastcall **)(_QWORD, __int64, __int64))(*((_QWORD *)Global + 38069) + 240LL);
-      if ( v17 )
-      {
-        v19 = *(_QWORD *)(v17 + 16);
-        if ( v19 )
-        {
-          v20 = *(_QWORD *)(v19 + 136);
-          if ( v20 != v19 + 136 && v20 == *(_QWORD *)(v19 + 144) )
-            v7 = *(_QWORD *)(v20 - 40);
-        }
-      }
-      v18(*((unsigned int *)this + 83), v16, v7);
-    }
-  }
-  return (unsigned int)v11;
+  return result;
 }

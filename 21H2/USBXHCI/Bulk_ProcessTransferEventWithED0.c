@@ -1,21 +1,21 @@
 /*
- * XREFs of Bulk_ProcessTransferEventWithED0 @ 0x1C000AE90
+ * XREFs of Bulk_ProcessTransferEventWithED0 @ 0x1C000DBF8
  * Callers:
- *     Endpoint_TransferEventHandler @ 0x1C0003980 (Endpoint_TransferEventHandler.c)
- *     Bulk_EP_TransferEventHandler @ 0x1C000E0B0 (Bulk_EP_TransferEventHandler.c)
- *     TR_TransferEventHandler @ 0x1C003FED4 (TR_TransferEventHandler.c)
+ *     Endpoint_TransferEventHandler @ 0x1C0006860 (Endpoint_TransferEventHandler.c)
+ *     Bulk_EP_TransferEventHandler @ 0x1C000BE90 (Bulk_EP_TransferEventHandler.c)
+ *     TR_TransferEventHandler @ 0x1C003F6C0 (TR_TransferEventHandler.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     Endpoint_HaltedCompletionCode @ 0x1C0006D5C (Endpoint_HaltedCompletionCode.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C000B300 (WPP_RECORDER_SF_DDDD.c)
- *     Bulk_ProcessTransferEventWithStoppedCompletion @ 0x1C000B3F8 (Bulk_ProcessTransferEventWithStoppedCompletion.c)
- *     Bulk_Stage_CalculateBytesTransferred @ 0x1C000B48C (Bulk_Stage_CalculateBytesTransferred.c)
- *     Bulk_FindStage @ 0x1C000B5B0 (Bulk_FindStage.c)
- *     WPP_RECORDER_SF_dddqLddi @ 0x1C000B724 (WPP_RECORDER_SF_dddqLddi.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031C54 (Controller_HwVerifierBreakIfEnabled.c)
- *     WPP_RECORDER_SF_DDDDD @ 0x1C003FF60 (WPP_RECORDER_SF_DDDDD.c)
- *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0044A5C (Bulk_ProcessTransferEventWithHaltedCompletion.c)
- *     Bulk_ValidateED0TrbPointerOnMismatch @ 0x1C0044C48 (Bulk_ValidateED0TrbPointerOnMismatch.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     Bulk_FindStage @ 0x1C000BD10 (Bulk_FindStage.c)
+ *     Endpoint_HaltedCompletionCode @ 0x1C000DE20 (Endpoint_HaltedCompletionCode.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     Bulk_ProcessTransferEventWithStoppedCompletion @ 0x1C000E178 (Bulk_ProcessTransferEventWithStoppedCompletion.c)
+ *     Bulk_Stage_CalculateBytesTransferred @ 0x1C000E20C (Bulk_Stage_CalculateBytesTransferred.c)
+ *     WPP_RECORDER_SF_dddqLddi @ 0x1C000E32C (WPP_RECORDER_SF_dddqLddi.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C003F810 (WPP_RECORDER_SF_DDDDD.c)
+ *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C004445C (Bulk_ProcessTransferEventWithHaltedCompletion.c)
+ *     Bulk_ValidateED0TrbPointerOnMismatch @ 0x1C0044778 (Bulk_ValidateED0TrbPointerOnMismatch.c)
  */
 
 char __fastcall Bulk_ProcessTransferEventWithED0(__int64 a1, __int64 a2)
@@ -45,7 +45,7 @@ char __fastcall Bulk_ProcessTransferEventWithED0(__int64 a1, __int64 a2)
   if ( (unsigned __int8)(*(_BYTE *)(a1 + 11) - 26) <= 2u && (*(_DWORD *)(*(_QWORD *)(a2 + 56) + 32LL) & 0x40) != 0 )
     return 1;
   *(_BYTE *)(a2 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 96));
-  if ( !(unsigned __int8)Bulk_FindStage(a2, *(_QWORD *)a1, &v16, &v15) )
+  if ( !Bulk_FindStage(a2, *(_QWORD *)a1, &v16, &v15) )
   {
     if ( !*(_DWORD *)(a2 + 64) )
       Bulk_ValidateED0TrbPointerOnMismatch(a2, a1);
@@ -78,7 +78,7 @@ char __fastcall Bulk_ProcessTransferEventWithED0(__int64 a1, __int64 a2)
   }
   v7 = 0;
 LABEL_8:
-  if ( Endpoint_HaltedCompletionCode(*(__m128i ***)(a2 + 56), *(unsigned __int8 *)(a1 + 11)) )
+  if ( (unsigned __int8)Endpoint_HaltedCompletionCode(*(_QWORD *)(a2 + 56), *(unsigned __int8 *)(a1 + 11)) )
   {
     KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 96), *(_BYTE *)(a2 + 104));
     if ( v6 )
@@ -96,7 +96,7 @@ LABEL_19:
   {
     v10 = *(unsigned __int8 *)(*(_QWORD *)(a2 + 48) + 135LL);
     LOBYTE(v10) = 4;
-    WPP_RECORDER_SF_DDDD(
+    WPP_RECORDER_SF_dddd(
       *(_QWORD *)(*(_QWORD *)(a2 + 56) + 80LL),
       v10,
       14,

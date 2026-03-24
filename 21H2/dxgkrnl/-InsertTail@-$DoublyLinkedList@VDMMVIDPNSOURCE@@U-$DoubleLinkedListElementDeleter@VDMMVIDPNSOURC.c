@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InsertTail@?$DoublyLinkedList@VDMMVIDPNSOURCE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCE@@@@@@QEAAEQEAVDMMVIDPNSOURCE@@@Z @ 0x1C00116D8
+ * XREFs of ?InsertTail@?$DoublyLinkedList@VDMMVIDPNSOURCE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCE@@@@@@QEAAEQEAVDMMVIDPNSOURCE@@@Z @ 0x1C00093E0
  * Callers:
- *     ?AddSource@DMMVIDPNSOURCESET@@QEAAJV?$auto_ptr@VDMMVIDPNSOURCE@@@@@Z @ 0x1C01A9A24 (-AddSource@DMMVIDPNSOURCESET@@QEAAJV-$auto_ptr@VDMMVIDPNSOURCE@@@@@Z.c)
+ *     ?AddSource@DMMVIDPNSOURCESET@@QEAAJV?$auto_ptr@VDMMVIDPNSOURCE@@@@@Z @ 0x1C0126AE0 (-AddSource@DMMVIDPNSOURCESET@@QEAAJV-$auto_ptr@VDMMVIDPNSOURCE@@@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -23,15 +23,15 @@ char __fastcall DoublyLinkedList<DMMVIDPNSOURCE,DoubleLinkedListElementDeleter<D
     v4 = 0LL;
     if ( (_QWORD *)*v3 != v3 )
       v4 = *v3 - 8LL;
-    while ( v4 )
+    while ( v4 && v4 != a2 )
     {
-      if ( v4 == a2 )
-        return 0;
       v8 = *(_QWORD **)(v4 + 8);
       v4 = (__int64)(v8 - 1);
       if ( v8 == v3 )
         v4 = 0LL;
     }
+    if ( v4 )
+      return 0;
   }
   v5 = (_QWORD *)(a2 + 8);
   v6 = (_QWORD *)a1[3];

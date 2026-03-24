@@ -1,32 +1,32 @@
 /*
- * XREFs of MmOnlySystemCacheViewsPresent @ 0x1402F0E2C
+ * XREFs of MmOnlySystemCacheViewsPresent @ 0x14026F294
  * Callers:
- *     CcCoherencyFlushAndPurgeCache @ 0x1402EF7D0 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x14026FBD0 (CcCoherencyFlushAndPurgeCache.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x1402100E8 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x14033D954 (MiLockSectionControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall MmOnlySystemCacheViewsPresent(_QWORD *a1)
+char __fastcall MmOnlySystemCacheViewsPresent(__int64 a1)
 {
   __int64 v1; // rax
   bool v2; // di
-  KIRQL v3; // bl
+  unsigned __int8 v3; // bl
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v8; // eax
   bool v9; // zf
-  KIRQL v10; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int8 v10; // [rsp+30h] [rbp+8h] BYREF
 
   v10 = 0;
-  v1 = MiLockSectionControlArea(a1, 1, &v10);
+  v1 = MiLockSectionControlArea(a1, 1LL, &v10);
   if ( !v1 )
     return 1;
   v2 = *(_QWORD *)(v1 + 40) == *(unsigned int *)(v1 + 88);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 72));
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
   {
     v3 = v10;
     if ( v10 <= 0xFu && CurrentIrql >= 2u )

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWnfDeleteStateData @ 0x1407C9F6C
+ * XREFs of ExpWnfDeleteStateData @ 0x1406115D4
  * Callers:
- *     ExpWnfDeleteNameInstance @ 0x1407C9BD0 (ExpWnfDeleteNameInstance.c)
- *     ExpNtDeleteWnfStateData @ 0x14085C35C (ExpNtDeleteWnfStateData.c)
+ *     ExpWnfDeleteNameInstance @ 0x140611230 (ExpWnfDeleteNameInstance.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407CD72C (ExpNtDeleteWnfStateData.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140273310 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpWnfDeleteStateData(__int64 a1)
@@ -19,12 +19,12 @@ void __fastcall ExpWnfDeleteStateData(__int64 a1)
   void *v5; // rdi
 
   v1 = (unsigned __int64 *)(a1 + 80);
-  v3 = KeAbPreAcquire(a1 + 80, 0LL);
+  v3 = KeAbPreAcquire(a1 + 80, 0LL, 0LL);
   v4 = v3;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v1, v3, (__int64)v1);
+    ExfAcquirePushLockExclusiveEx(v1, v3, (ULONG_PTR)v1);
   if ( v4 )
-    *(_BYTE *)(v4 + 18) = 1;
+    *(_BYTE *)(v4 + 26) |= 1u;
   v5 = *(void **)(a1 + 88);
   *(_QWORD *)(a1 + 88) = 0LL;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

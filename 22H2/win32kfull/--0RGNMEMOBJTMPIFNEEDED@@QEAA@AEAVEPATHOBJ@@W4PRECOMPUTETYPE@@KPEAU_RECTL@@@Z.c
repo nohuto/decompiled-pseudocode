@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0RGNMEMOBJTMPIFNEEDED@@QEAA@AEAVEPATHOBJ@@W4PRECOMPUTETYPE@@KPEAU_RECTL@@@Z @ 0x1C0284BDC
+ * XREFs of ??0RGNMEMOBJTMPIFNEEDED@@QEAA@AEAVEPATHOBJ@@W4PRECOMPUTETYPE@@KPEAU_RECTL@@@Z @ 0x1C01477B4
  * Callers:
- *     EngFillPath @ 0x1C0289380 (EngFillPath.c)
- *     EngStrokeAndFillPath @ 0x1C0289760 (EngStrokeAndFillPath.c)
+ *     EngFillPath @ 0x1C01472B0 (EngFillPath.c)
+ *     EngStrokeAndFillPath @ 0x1C014BD00 (EngStrokeAndFillPath.c)
  * Callees:
  *     <none>
  */
@@ -14,43 +14,46 @@ RGNMEMOBJ *__fastcall RGNMEMOBJTMPIFNEEDED::RGNMEMOBJTMPIFNEEDED(
         unsigned int a4,
         struct _RECTL *a5)
 {
-  __int64 v7; // rax
-  struct _RECTL *v8; // r9
-  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v9; // rax
+  __int64 v11; // [rsp+20h] [rbp-18h] BYREF
+  int v12; // [rsp+28h] [rbp-10h]
 
-  *(_QWORD *)a1 = 0LL;
-  *((_DWORD *)a1 + 2) = 0;
+  RGNMEMOBJ::RGNMEMOBJ(a1, 0, 0);
+  *((_DWORD *)a1 + 4) = 0;
   if ( a3 )
   {
-    if ( a3 != 1 )
-    {
-LABEL_10:
-      v10 = 0LL;
-      v8 = a5;
-      *((_DWORD *)a1 + 2) = 1;
-      RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v10, a2, a4, v8);
-      *(_QWORD *)a1 = v10;
-      RGNMEMOBJ::vPushThreadGuardedObject(a1);
-      return a1;
-    }
-    if ( (*(_DWORD *)a2 & 0x10) != 0 )
-    {
-      if ( a4 == 2 )
-        v7 = *((_QWORD *)a2 + 4);
-      else
-        v7 = *((_QWORD *)a2 + 3);
-    }
-    else
-    {
-      v7 = *((_QWORD *)a2 + 2);
-    }
+    v9 = *(_QWORD *)a1;
   }
   else
   {
-    v7 = *((_QWORD *)a2 + 5);
+    v9 = *((_QWORD *)a2 + 5);
+    *(_QWORD *)a1 = v9;
   }
-  *(_QWORD *)a1 = v7;
-  if ( !v7 )
-    goto LABEL_10;
+  if ( a3 == 1 )
+  {
+    if ( (*(_DWORD *)a2 & 0x10) != 0 )
+    {
+      if ( a4 == 2 )
+        v9 = *((_QWORD *)a2 + 4);
+      else
+        v9 = *((_QWORD *)a2 + 3);
+    }
+    else
+    {
+      v9 = *((_QWORD *)a2 + 2);
+    }
+    *(_QWORD *)a1 = v9;
+  }
+  if ( !v9 )
+  {
+    v11 = 0LL;
+    v12 = 0;
+    *((_DWORD *)a1 + 4) = 1;
+    RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v11, a2, a4, a5);
+    *(_QWORD *)a1 = v11;
+    RGNMEMOBJ::vPushThreadGuardedObject(a1);
+    if ( v12 == 1 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v11);
+  }
   return a1;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIThermalUpdateTemperature @ 0x1C002167C
+ * XREFs of ACPIThermalUpdateTemperature @ 0x1C0013534
  * Callers:
- *     ACPIThermalTMPCallback @ 0x1C00204A0 (ACPIThermalTMPCallback.c)
- *     ACPIThermalReadTemperatureComplete @ 0x1C0060E60 (ACPIThermalReadTemperatureComplete.c)
- *     ACPIThermalReadTemperature @ 0x1C00B4F68 (ACPIThermalReadTemperature.c)
+ *     ACPIThermalTMPCallback @ 0x1C00124B0 (ACPIThermalTMPCallback.c)
+ *     ACPIThermalReadTemperatureComplete @ 0x1C0060090 (ACPIThermalReadTemperatureComplete.c)
+ *     ACPIThermalReadTemperature @ 0x1C00B5898 (ACPIThermalReadTemperature.c)
  * Callees:
- *     ACPIThermalLoop @ 0x1C00209C0 (ACPIThermalLoop.c)
- *     WPP_RECORDER_SF_ddqssdddd @ 0x1C002129C (WPP_RECORDER_SF_ddqssdddd.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     ACPIThermalLoop @ 0x1C0012A10 (ACPIThermalLoop.c)
+ *     WPP_RECORDER_SF_ddqssdddd @ 0x1C00132EC (WPP_RECORDER_SF_ddqssdddd.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void __fastcall ACPIThermalUpdateTemperature(__int64 a1, int a2)

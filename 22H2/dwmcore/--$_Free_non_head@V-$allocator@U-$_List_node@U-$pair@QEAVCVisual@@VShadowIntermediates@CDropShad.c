@@ -1,11 +1,10 @@
 /*
- * XREFs of ??$_Free_non_head@V?$allocator@U?$_List_node@U?$pair@QEAVCVisual@@VShadowIntermediates@CDropShadow@@@std@@PEAX@std@@@std@@@?$_List_node@U?$pair@QEAVCVisual@@VShadowIntermediates@CDropShadow@@@std@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@U?$pair@QEAVCVisual@@VShadowIntermediates@CDropShadow@@@std@@PEAX@std@@@1@PEAU01@@Z @ 0x1800F8CF0
+ * XREFs of ??$_Free_non_head@V?$allocator@U?$_List_node@U?$pair@QEAVCVisual@@VShadowIntermediates@CDropShadow@@@std@@PEAX@std@@@std@@@?$_List_node@U?$pair@QEAVCVisual@@VShadowIntermediates@CDropShadow@@@std@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@U?$pair@QEAVCVisual@@VShadowIntermediates@CDropShadow@@@std@@PEAX@std@@@1@PEAU01@@Z @ 0x1800E4FD0
  * Callers:
- *     ??1CDropShadow@@UEAA@XZ @ 0x1800F8988 (--1CDropShadow@@UEAA@XZ.c)
- *     ?clear@?$_Hash@V?$_Umap_traits@PEAVCVisual@@VShadowIntermediates@CDropShadow@@V?$_Uhash_compare@PEAVCVisual@@U?$hash@PEAVCVisual@@@std@@U?$equal_to@PEAVCVisual@@@3@@std@@V?$allocator@U?$pair@QEAVCVisual@@VShadowIntermediates@CDropShadow@@@std@@@5@$0A@@std@@@std@@QEAAXXZ @ 0x1800F8D20 (-clear@-$_Hash@V-$_Umap_traits@PEAVCVisual@@VShadowIntermediates@CDropShadow@@V-$_Uhash_compare@.c)
+ *     ??1CDropShadow@@UEAA@XZ @ 0x1800E4EC4 (--1CDropShadow@@UEAA@XZ.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??1ShadowIntermediates@CDropShadow@@QEAA@XZ @ 0x1800F8D4C (--1ShadowIntermediates@CDropShadow@@QEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??1ShadowIntermediates@CDropShadow@@QEAA@XZ @ 0x1800E5000 (--1ShadowIntermediates@CDropShadow@@QEAA@XZ.c)
  */
 
 void __fastcall std::_List_node<std::pair<CVisual * const,CDropShadow::ShadowIntermediates>,void *>::_Free_non_head<std::allocator<std::_List_node<std::pair<CVisual * const,CDropShadow::ShadowIntermediates>,void *>>>(
@@ -23,7 +22,7 @@ void __fastcall std::_List_node<std::pair<CVisual * const,CDropShadow::ShadowInt
     {
       v3 = (_QWORD *)*v2;
       CDropShadow::ShadowIntermediates::~ShadowIntermediates((CDropShadow::ShadowIntermediates *)(v2 + 3));
-      std::_Deallocate<16,0>(v2, 0x60uLL);
+      std::_Deallocate<16,0>(v2, 0x58uLL);
       v2 = v3;
     }
     while ( v3 );

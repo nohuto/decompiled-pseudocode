@@ -1,15 +1,19 @@
 /*
- * XREFs of ?CitEtwEnableCallback@@YAXPEBU_GUID@@I_K@Z @ 0x1C0233B0C
+ * XREFs of ?CitEtwEnableCallback@@YAXPEBU_GUID@@I_K@Z @ 0x1C01FD324
  * Callers:
- *     W32kEtwEnableCallback @ 0x1C00AF6CC (W32kEtwEnableCallback.c)
- *     ?W32kTraceLoggingEnableCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C00C5070 (-W32kTraceLoggingEnableCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
+ *     W32kEtwEnableCallback @ 0x1C0069A3C (W32kEtwEnableCallback.c)
+ *     ?W32kTraceLoggingEnableCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C00B8560 (-W32kTraceLoggingEnableCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
  * Callees:
- *     ?CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z @ 0x1C007A2C0 (-CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z.c)
- *     ?CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C00A3B84 (-CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
- *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00A3D44 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?CitpContextReinitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C0233C40 (-CitpContextReinitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
- *     ?CitpResetTracking@@YAJXZ @ 0x1C0234774 (-CitpResetTracking@@YAJXZ.c)
+ *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C004B234 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
+ *     ?CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008D970 (-CitpPostUpdateUseInfoLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpDPDataLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C008DCFC (-CitpDPDataLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpPostUpdateUseInfoLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C008DF28 (-CitpPostUpdateUseInfoLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
+ *     ?CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z @ 0x1C008F18C (-CitpInteractionSummariesFlush@@YAXPEAU_CIT_IMPACT_CONTEXT@@_N@Z.c)
+ *     ?CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C0090C9C (-CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?CitpContextReinitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C01FD4A8 (-CitpContextReinitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
+ *     ?CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C01FD714 (-CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpResetTracking@@YAJXZ @ 0x1C01FE900 (-CitpResetTracking@@YAJXZ.c)
  */
 
 void __fastcall CitEtwEnableCallback(const struct _GUID *a1, int a2, __int64 a3)
@@ -19,7 +23,7 @@ void __fastcall CitEtwEnableCallback(const struct _GUID *a1, int a2, __int64 a3)
   unsigned __int64 v5; // rbx
   __int128 v6; // [rsp+30h] [rbp-28h]
 
-  if ( (_BYTE)g_CompatImpact && !byte_1C0293D11 && a2 == 2 && a3 == 2048 && a1 )
+  if ( (_BYTE)g_CompatImpact && !byte_1C0254561 && a2 == 2 && a3 == 2048 && a1 )
   {
     v6 = (__int128)*a1;
     LODWORD(v6) = 0;
@@ -28,23 +32,35 @@ void __fastcall CitEtwEnableCallback(const struct _GUID *a1, int a2, __int64 a3)
     v4 = v6 - *(_QWORD *)&CitControlGuid.Data1;
     if ( (_QWORD)v6 == *(_QWORD *)&CitControlGuid.Data1 )
       v4 = *((_QWORD *)&v6 + 1) - *(_QWORD *)CitControlGuid.Data4;
-    if ( !v4 && xmmword_1C0293D30 )
+    if ( !v4 && xmmword_1C0254590 )
     {
       v5 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
       switch ( v3 )
       {
         case 1:
-          CitpContextFlush(xmmword_1C0293D30, v5);
+          CitpContextFlush(xmmword_1C0254590, v5);
           break;
         case 2:
-          CitpSetForegroundProcess(xmmword_1C0293D30, v5, 0LL, 0LL, 0LL);
-          CitpContextReinitialize(xmmword_1C0293D30, v5);
+          CitpSetForegroundProcess(xmmword_1C0254590, v5, 0LL, 0LL, 0LL);
+          CitpContextReinitialize(xmmword_1C0254590, v5);
           break;
-        case 12:
+        case 14:
           CitpResetTracking();
           break;
-        case 13:
-          CitpInteractionSummariesFlush(xmmword_1C0293D30, 0);
+        case 15:
+          CitpInteractionSummariesFlush(xmmword_1C0254590, 0);
+          break;
+        case 11:
+          CitpPostUpdateUseInfoLoad(xmmword_1C0254590);
+          break;
+        case 12:
+          CitpPostUpdateUseInfoLog(xmmword_1C0254590, 2);
+          break;
+        case 16:
+          CitpDPDataLoad(xmmword_1C0254590);
+          break;
+        case 17:
+          CitpDPDataLog(xmmword_1C0254590);
           break;
       }
     }

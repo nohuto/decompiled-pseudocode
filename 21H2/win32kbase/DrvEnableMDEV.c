@@ -1,38 +1,39 @@
 /*
- * XREFs of DrvEnableMDEV @ 0x1C00783A4
+ * XREFs of DrvEnableMDEV @ 0x1C0014C28
  * Callers:
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C00760D4 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
- *     SafeEnableMDEV @ 0x1C00D44A0 (SafeEnableMDEV.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0012620 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     SafeEnableMDEV @ 0x1C00C4D90 (SafeEnableMDEV.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     ?bDisabled@PDEVOBJ@@QEAAHH@Z @ 0x1C00616E4 (-bDisabled@PDEVOBJ@@QEAAHH@Z.c)
- *     UserNotifyDisplayChange @ 0x1C0078BB0 (UserNotifyDisplayChange.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     GreIncrementDisplaySettingsUniqueness @ 0x1C00C1E50 (GreIncrementDisplaySettingsUniqueness.c)
- *     DrvDxgkDisplayOnOff @ 0x1C00C4110 (DrvDxgkDisplayOnOff.c)
- *     ?DrvEnableDisplay@@YAHPEAUHDEV__@@@Z @ 0x1C00D3B90 (-DrvEnableDisplay@@YAHPEAUHDEV__@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     IsDrvRealizeHalftonePaletteSupported @ 0x1C023DA44 (IsDrvRealizeHalftonePaletteSupported.c)
+ *     ?bDisabled@PDEVOBJ@@QEAAHH@Z @ 0x1C000D904 (-bDisabled@PDEVOBJ@@QEAAHH@Z.c)
+ *     UserNotifyDisplayChange @ 0x1C00150E0 (UserNotifyDisplayChange.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     GreIncrementDisplaySettingsUniqueness @ 0x1C00B2FB0 (GreIncrementDisplaySettingsUniqueness.c)
+ *     DrvDxgkDisplayOnOff @ 0x1C00B61C0 (DrvDxgkDisplayOnOff.c)
+ *     ?DrvEnableDisplay@@YAHPEAUHDEV__@@@Z @ 0x1C00C4308 (-DrvEnableDisplay@@YAHPEAUHDEV__@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     IsDrvRealizeHalftonePaletteSupported @ 0x1C01FBCB4 (IsDrvRealizeHalftonePaletteSupported.c)
  */
 
 __int64 __fastcall DrvEnableMDEV(__int64 *a1, int a2, unsigned int a3)
 {
+  __int64 v3; // r15
   unsigned int v4; // r14d
-  __int64 v7; // rdx
-  __int64 v8; // rbx
-  unsigned int v9; // esi
-  __int64 v10; // rcx
-  HDEV v11; // rbp
-  __int64 v12; // rax
-  unsigned int v13; // r8d
-  struct _ERESOURCE *v14; // rcx
-  __int64 v15; // rcx
-  __int64 v16; // rcx
-  __int64 v17; // rcx
-  struct _ERESOURCE *v18; // rcx
-  __int64 v19; // rcx
-  __int64 v20; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rbx
+  unsigned int v10; // esi
+  __int64 v11; // rcx
+  HDEV v12; // rbp
+  __int64 v13; // rax
+  unsigned int v14; // r8d
+  struct _ERESOURCE *v15; // rcx
+  struct _ERESOURCE *v16; // rcx
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  HSEMAPHORE v20; // rcx
   void (__fastcall *v22)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD); // r10
   unsigned int v23; // ecx
   __int64 *v24; // rdx
@@ -42,106 +43,111 @@ __int64 __fastcall DrvEnableMDEV(__int64 *a1, int a2, unsigned int a3)
   __int64 i; // [rsp+70h] [rbp+8h] BYREF
   __int64 v29; // [rsp+88h] [rbp+20h] BYREF
 
+  v3 = a2;
   v4 = 1;
-  WdLogSingleEntry2(4LL, a1, a2);
-  v8 = *a1;
-  v9 = 0;
-  for ( i = *a1; v9 < *((_DWORD *)a1 + 5); ++v9 )
+  v7 = WdLogNewEntry5_WdEvent();
+  *(_QWORD *)(v7 + 24) = a1;
+  *(_QWORD *)(v7 + 32) = v3;
+  WdLogEvent5_WdEvent(v7);
+  v9 = *a1;
+  v10 = 0;
+  for ( i = *a1; v10 < *((_DWORD *)a1 + 5); ++v10 )
   {
-    v10 = 7LL * v9;
-    v11 = (HDEV)a1[v10 + 5];
-    if ( a2 )
+    v11 = 7LL * v10;
+    v12 = (HDEV)a1[v11 + 5];
+    if ( (_DWORD)v3 )
     {
-      LOBYTE(v7) = 1;
-      DrvDxgkDisplayOnOff(a1[v10 + 5], v7, a3);
-      DrvEnableDisplay(v11);
+      LOBYTE(v8) = 1;
+      DrvDxgkDisplayOnOff(a1[v11 + 5], v8, a3);
+      DrvEnableDisplay(v12);
     }
   }
-  EngAcquireSemaphore((HSEMAPHORE)ghsemDynamicModeChange);
+  EngAcquireSemaphore(ghsemDynamicModeChange);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDynamicModeChange", ghsemDynamicModeChange, 1LL);
-  EngAcquireSemaphore(*(HSEMAPHORE *)(v8 + 56));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"poParent.hsemPointer()", *(_QWORD *)(v8 + 56), 4LL);
-  EngAcquireSemaphore((HSEMAPHORE)ghsemSprite);
+  EngAcquireSemaphore(*(HSEMAPHORE *)(v9 + 64));
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"poParent.hsemPointer()", *(_QWORD *)(v9 + 64), 4LL);
+  EngAcquireSemaphore(ghsemSprite);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemSprite", ghsemSprite, 5LL);
   EngAcquireSemaphore(ghsemHT);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemHT", ghsemHT, 6LL);
-  EngAcquireSemaphore(*(HSEMAPHORE *)(v8 + 48));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"poParent.hsemDevLock()", *(_QWORD *)(v8 + 48), 11LL);
-  if ( a2 )
+  EngAcquireSemaphore(*(HSEMAPHORE *)(v9 + 48));
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"poParent.hsemDevLock()", *(_QWORD *)(v9 + 48), 11LL);
+  if ( (_DWORD)v3 )
     PDEVOBJ::bDisabled((PDEVOBJ *)&i, 0);
-  v12 = *(_QWORD *)(v8 + 1776);
-  v29 = v12;
-  if ( (*(_DWORD *)(v12 + 24) & 0x800) != 0 )
+  v13 = *(_QWORD *)(v9 + 1808);
+  v29 = v13;
+  if ( (*(_DWORD *)(v13 + 24) & 0x800) != 0 )
   {
-    v22 = *(void (__fastcall **)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))(v8 + 2840);
+    v22 = *(void (__fastcall **)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))(v9 + 2864);
     if ( v22 )
-      v22(*(_QWORD *)(v8 + 1768), &v29, 0LL, 0LL, *(_DWORD *)(v12 + 28));
+      v22(*(_QWORD *)(v9 + 1800), &v29, 0LL, 0LL, *(_DWORD *)(v13 + 28));
     else
       v4 = 0;
   }
   else
   {
-    v13 = *((_DWORD *)a1 + 5);
-    if ( v13 > 1 )
+    v14 = *((_DWORD *)a1 + 5);
+    if ( v14 > 1 )
     {
       v23 = 0;
       v24 = a1 + 5;
       while ( 1 )
       {
         v25 = (_QWORD *)*v24;
-        if ( (*(_DWORD *)(*v24 + 2140) & 0x100) != 0 )
+        if ( (*(_DWORD *)(*v24 + 2172) & 0x100) != 0 )
           break;
         ++v23;
         v24 += 7;
-        if ( v23 >= v13 )
+        if ( v23 >= v14 )
           goto LABEL_9;
       }
-      v26 = (void (__fastcall *)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))v25[217];
-      v27 = v25[222];
+      v26 = (void (__fastcall *)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))v25[221];
+      v27 = v25[226];
       i = v27;
       if ( v26 )
-        v26(*(_QWORD *)(v25[3] + 1768LL), &i, 0LL, 0LL, *(_DWORD *)(v27 + 28));
+        v26(*(_QWORD *)(v25[3] + 1800LL), &i, 0LL, 0LL, *(_DWORD *)(v27 + 28));
       else
         v4 = 0;
-      if ( (int)IsDrvRealizeHalftonePaletteSupported() >= 0 && qword_1C029B108 )
-        qword_1C029B108(v25, 1LL);
+      if ( (int)IsDrvRealizeHalftonePaletteSupported() >= 0 && qword_1C0256388 )
+        qword_1C0256388(v25, 1LL);
     }
   }
 LABEL_9:
-  EtwTraceGreLockReleaseSemaphore(L"poParent.hsemDevLock()", *(_QWORD *)(v8 + 48));
-  v14 = *(struct _ERESOURCE **)(v8 + 48);
-  if ( v14 )
+  EtwTraceGreLockReleaseSemaphore(L"poParent.hsemDevLock()", *(_QWORD *)(v9 + 48));
+  v15 = *(struct _ERESOURCE **)(v9 + 48);
+  if ( v15 )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(v14);
-    PsLeavePriorityRegion(v15);
+    ExReleaseResourceAndLeaveCriticalRegion(v15);
+    PsLeavePriorityRegion();
   }
   EtwTraceGreLockReleaseSemaphore(L"ghsemHT", ghsemHT);
   if ( ghsemHT )
   {
     ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemHT);
-    PsLeavePriorityRegion(v16);
+    PsLeavePriorityRegion();
   }
   EtwTraceGreLockReleaseSemaphore(L"ghsemSprite", ghsemSprite);
   if ( ghsemSprite )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemSprite);
-    PsLeavePriorityRegion(v17);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemSprite);
+    PsLeavePriorityRegion();
   }
-  EtwTraceGreLockReleaseSemaphore(L"poParent.hsemPointer()", *(_QWORD *)(v8 + 56));
-  v18 = *(struct _ERESOURCE **)(v8 + 56);
-  if ( v18 )
+  EtwTraceGreLockReleaseSemaphore(L"poParent.hsemPointer()", *(_QWORD *)(v9 + 64));
+  v16 = *(struct _ERESOURCE **)(v9 + 64);
+  if ( v16 )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(v18);
-    PsLeavePriorityRegion(v19);
+    ExReleaseResourceAndLeaveCriticalRegion(v16);
+    PsLeavePriorityRegion();
   }
   EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+  v20 = ghsemDynamicModeChange;
   if ( ghsemDynamicModeChange )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemDynamicModeChange);
-    PsLeavePriorityRegion(v20);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
+    PsLeavePriorityRegion();
   }
-  if ( a2 )
-    GreIncrementDisplaySettingsUniqueness();
+  if ( (_DWORD)v3 )
+    GreIncrementDisplaySettingsUniqueness(v20, v17, v18, v19);
   if ( !gProtocolType )
     UserNotifyDisplayChange();
   return v4;

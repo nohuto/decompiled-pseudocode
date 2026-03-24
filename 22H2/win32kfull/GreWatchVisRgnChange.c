@@ -1,10 +1,10 @@
 /*
- * XREFs of GreWatchVisRgnChange @ 0x1C02A8B7C
+ * XREFs of GreWatchVisRgnChange @ 0x1C029F010
  * Callers:
- *     ?xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C0156B26 (-xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     xxxRedrawHungWindow @ 0x1C0240D14 (xxxRedrawHungWindow.c)
  * Callees:
- *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C00A6820 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C00F2608 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreWatchVisRgnChange(HDC a1, int a2)
@@ -27,7 +27,7 @@ __int64 __fastcall GreWatchVisRgnChange(HDC a1, int a2)
       v3 = *v5;
       HmgDecrementShareReferenceCountEx(v5, &v7);
       if ( v7 )
-        GrepDeleteDC(v3, 0x2000000LL);
+        bDeleteDCInternalEx(v3, 0LL);
     }
   }
   return UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v6);

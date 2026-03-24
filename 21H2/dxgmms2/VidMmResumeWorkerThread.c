@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmResumeWorkerThread @ 0x1C0018860
+ * XREFs of VidMmResumeWorkerThread @ 0x1C0015F60
  * Callers:
  *     <none>
  * Callees:
- *     ?ResumeWorkerThread@VIDMM_GLOBAL@@QEAAXE@Z @ 0x1C00A6898 (-ResumeWorkerThread@VIDMM_GLOBAL@@QEAAXE@Z.c)
+ *     ?ResumeWorkerThread@VIDMM_GLOBAL@@QEAAXE@Z @ 0x1C008AFD4 (-ResumeWorkerThread@VIDMM_GLOBAL@@QEAAXE@Z.c)
  */
 
 void __fastcall VidMmResumeWorkerThread(VIDMM_GLOBAL *a1, unsigned __int8 a2)

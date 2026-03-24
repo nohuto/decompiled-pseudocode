@@ -1,19 +1,19 @@
 /*
- * XREFs of PiGetDefaultMessageString @ 0x1407537FC
+ * XREFs of PiGetDefaultMessageString @ 0x1407537DC
  * Callers:
- *     PiNormalizeDeviceText @ 0x1406FDD60 (PiNormalizeDeviceText.c)
+ *     PiNormalizeDeviceText @ 0x1406FDD40 (PiNormalizeDeviceText.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlCreateUnicodeString @ 0x14065AA30 (RtlCreateUnicodeString.c)
- *     RtlFindMessage @ 0x14067BDF0 (RtlFindMessage.c)
- *     IopGetDriverNameFromKeyNode @ 0x140680360 (IopGetDriverNameFromKeyNode.c)
- *     IopReferenceDriverObjectByName @ 0x140709494 (IopReferenceDriverObjectByName.c)
+ *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
+ *     RtlFindMessage @ 0x14067BDD0 (RtlFindMessage.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140680340 (IopGetDriverNameFromKeyNode.c)
+ *     IopReferenceDriverObjectByName @ 0x140709474 (IopReferenceDriverObjectByName.c)
  */
 
 __int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, ULONG MessageId, _QWORD *a3)

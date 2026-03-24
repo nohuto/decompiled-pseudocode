@@ -1,77 +1,100 @@
 /*
- * XREFs of ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C001E5CC
+ * XREFs of ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C00B5E80
  * Callers:
- *     GreGradientFill @ 0x1C0001610 (GreGradientFill.c)
- *     NtGdiFastPolyPolyline @ 0x1C000C9F0 (NtGdiFastPolyPolyline.c)
- *     ?ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@AEBUTag@RFONTOBJ@@@Z @ 0x1C001E16C (-ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@AEBUTag@RFONTOBJ@@@Z.c)
- *     ?GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z @ 0x1C002C900 (-GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z.c)
- *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00DC33C (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
- *     ?GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIHPEAX@Z @ 0x1C00DD3B0 (-GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIH.c)
- *     ?GreStretchDIBitsInternalImpl@@YAHPEAUHDC__@@HHHHHHHHAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KKIPEAX@Z @ 0x1C00DF680 (-GreStretchDIBitsInternalImpl@@YAHPEAUHDC__@@HHHHHHHHAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KKIPEAX.c)
- *     ?NtGdiDrawStreamInternal@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_RECTL@@4JPEADPEAU_DRAWSTREAMINFO@@@Z @ 0x1C00F3A70 (-NtGdiDrawStreamInternal@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_RECTL@@.c)
- *     NtGdiAlphaBlend @ 0x1C00FADC0 (NtGdiAlphaBlend.c)
- *     ?bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z @ 0x1C00FE090 (-bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z.c)
- *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z @ 0x1C010BA70 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z.c)
- *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEBU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0285B9C (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEBU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
- *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028EBA0 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
- *     NtGdiTransparentBlt @ 0x1C0297970 (NtGdiTransparentBlt.c)
- *     ?NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C02A8594 (-NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z.c)
- *     NtGdiFillRgn @ 0x1C02A8FD0 (NtGdiFillRgn.c)
- *     NtGdiFrameRgn @ 0x1C02A9590 (NtGdiFrameRgn.c)
- *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C02AA938 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
- *     NtGdiUpdateColors @ 0x1C02D2A60 (NtGdiUpdateColors.c)
- *     NtGdiExtFloodFill @ 0x1C02D4500 (NtGdiExtFloodFill.c)
- *     NtGdiSetPixel @ 0x1C02D6E10 (NtGdiSetPixel.c)
+ *     ?NtGdiDrawStreamInternal@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_RECTL@@4JPEADPEAU_DRAWSTREAMINFO@@@Z @ 0x1C00846A0 (-NtGdiDrawStreamInternal@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_RECTL@@.c)
+ *     NtGdiAlphaBlend @ 0x1C0085150 (NtGdiAlphaBlend.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     GreStretchDIBitsInternal @ 0x1C00ADD74 (GreStretchDIBitsInternal.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF240 (GreSetDIBitsToDeviceInternal.c)
+ *     ?GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z @ 0x1C00B34A4 (-GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z.c)
+ *     ?ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@@Z @ 0x1C00B42C0 (-ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@@Z.c)
+ *     GreGradientFill @ 0x1C00B6084 (GreGradientFill.c)
+ *     ?bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z @ 0x1C00B6B38 (-bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z.c)
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00B853C (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     NtGdiFrameRgn @ 0x1C013E790 (NtGdiFrameRgn.c)
+ *     NtGdiFastPolyPolyline @ 0x1C01429F0 (NtGdiFastPolyPolyline.c)
+ *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C0144F14 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
+ *     NtGdiFillRgn @ 0x1C01462A0 (NtGdiFillRgn.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C01468E4 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     ?NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C0148958 (-NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z.c)
+ *     NtGdiSetPixel @ 0x1C0155820 (NtGdiSetPixel.c)
+ *     NtGdiTransparentBlt @ 0x1C0155C50 (NtGdiTransparentBlt.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028B248 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     NtGdiUpdateColors @ 0x1C02B7DC0 (NtGdiUpdateColors.c)
+ *     NtGdiExtFloodFill @ 0x1C02B97B0 (NtGdiExtFloodFill.c)
  * Callees:
- *     ??_5ERECTL@@QEAAXAEBU_RECTL@@@Z @ 0x1C001E740 (--_5ERECTL@@QEAAXAEBU_RECTL@@@Z.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00D5ED4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B94F8 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall XDCOBJ::vAccumulateTight(XDCOBJ *this, struct ECLIPOBJ *a2, __m128i *a3)
 {
-  __m128i v3; // xmm0
-  _DWORD *v5; // rcx
-  __int64 v6; // rdx
-  struct _RECTL *v7; // rcx
-  __int64 v8; // [rsp+20h] [rbp-30h] BYREF
-  __int64 v9; // [rsp+28h] [rbp-28h] BYREF
-  __int64 v10; // [rsp+30h] [rbp-20h] BYREF
-  struct _RECTL v11; // [rsp+38h] [rbp-18h] BYREF
+  _DWORD *v3; // rdx
+  __m128i v5; // xmm0
+  __int64 v6; // rax
+  LONG v7; // r9d
+  int v8; // ecx
+  int v9; // r8d
+  LONG v10; // r10d
+  __int64 v11; // [rsp+20h] [rbp-40h] BYREF
+  _QWORD v12[2]; // [rsp+28h] [rbp-38h] BYREF
+  _QWORD v13[2]; // [rsp+38h] [rbp-28h] BYREF
+  __m128i v14; // [rsp+48h] [rbp-18h] BYREF
 
-  v3 = *a3;
-  v5 = *(_DWORD **)this;
-  v11 = (struct _RECTL)v3;
-  v6 = v5[10] & 1;
-  v11.left = _mm_cvtsi128_si32(v3) - v5[2 * v6 + 254];
-  v11.right = v3.m128i_i32[2] - v5[2 * v6 + 254];
-  v11.top = v3.m128i_i32[1] - v5[2 * v6 + 255];
-  v11.bottom = v3.m128i_i32[3] - v5[2 * v6 + 255];
-  if ( (v5[9] & 0x40) != 0 )
+  v3 = *(_DWORD **)this;
+  v5 = *a3;
+  v14 = v5;
+  v6 = v3[10] & 1;
+  v7 = _mm_cvtsi128_si32(v5) - v3[2 * v6 + 254];
+  v14.m128i_i32[0] = v7;
+  v8 = v5.m128i_i32[2] - v3[2 * v6 + 254];
+  v14.m128i_i32[2] = v8;
+  v9 = v5.m128i_i32[1] - v3[2 * v6 + 255];
+  v14.m128i_i32[1] = v9;
+  v14.m128i_i32[3] = v5.m128i_i32[3] - v3[2 * v6 + 255];
+  if ( (v3[9] & 0x40) != 0 )
   {
-    if ( (unsigned int)ERECTL::bEmpty((ERECTL *)(v5 + 270)) )
-      *v7 = v11;
-    else
-      ERECTL::operator|=(v7, &v11);
-    v10 = *(_QWORD *)(*(_QWORD *)this + 1184LL);
-    if ( v10 )
+    v10 = v3[270];
+    if ( v10 == v3[272] || v3[271] == v3[273] )
     {
-      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v9);
-      RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v9);
-      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v8);
-      RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v8);
-      if ( v9 && v8 )
+      *(__m128i *)(v3 + 270) = v14;
+    }
+    else
+    {
+      if ( v7 < v10 )
       {
-        RGNOBJ::vSet((RGNOBJ *)&v8, &v11);
-        if ( RGNOBJ::bMerge((RGNOBJ *)&v9, (struct RGNOBJ *)&v10, (struct RGNOBJ *)&v8, 0xEu) )
+        v3[270] = v7;
+        v8 = v14.m128i_i32[2];
+        v9 = v14.m128i_i32[1];
+      }
+      if ( v9 < v3[271] )
+      {
+        v3[271] = v9;
+        v8 = v14.m128i_i32[2];
+      }
+      if ( v8 > v3[272] )
+        v3[272] = v8;
+      if ( v14.m128i_i32[3] > v3[273] )
+        v3[273] = v14.m128i_i32[3];
+    }
+    v11 = *(_QWORD *)(*(_QWORD *)this + 1192LL);
+    if ( v11 )
+    {
+      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v13);
+      RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v13);
+      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v12);
+      RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v12);
+      if ( v13[0] && v12[0] )
+      {
+        RGNOBJ::vSet((RGNOBJ *)v12, (struct _RECTL *)&v14);
+        if ( RGNOBJ::bMerge((RGNOBJ *)v13, (struct RGNOBJ *)&v11, (struct RGNOBJ *)v12, 0xEu) )
         {
-          RGNOBJ::vSwap((RGNOBJ *)&v10, (struct RGNOBJ *)&v9);
-          *(_QWORD *)(*(_QWORD *)this + 1184LL) = v10;
+          RGNOBJ::vSwap((RGNOBJ *)&v11, (struct RGNOBJ *)v13);
+          *(_QWORD *)(*(_QWORD *)this + 1192LL) = v11;
         }
       }
-      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v8);
-      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v9);
+      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v12);
+      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v13);
     }
   }
 }

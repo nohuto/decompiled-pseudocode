@@ -1,13 +1,13 @@
 /*
  * XREFs of PipForDeviceNodeSubtree @ 0x140585750
  * Callers:
- *     PpProcessClearProblem @ 0x14016CF9C (PpProcessClearProblem.c)
+ *     PpProcessClearProblem @ 0x14016CFBC (PpProcessClearProblem.c)
  *     PnpGetSystemPdoList @ 0x140585678 (PnpGetSystemPdoList.c)
- *     PiMarkDeviceTreeForReenumeration @ 0x1406FC480 (PiMarkDeviceTreeForReenumeration.c)
- *     PpDevCfgProcessDevices @ 0x14073A4AC (PpDevCfgProcessDevices.c)
- *     PnpDiagRundownRegisterCallback @ 0x1408271D0 (PnpDiagRundownRegisterCallback.c)
- *     PiProfileUpdateDeviceTreeWorker @ 0x140832580 (PiProfileUpdateDeviceTreeWorker.c)
- *     PpResetProblemDevices @ 0x14083A72C (PpResetProblemDevices.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x1406FC460 (PiMarkDeviceTreeForReenumeration.c)
+ *     PpDevCfgProcessDevices @ 0x14073A48C (PpDevCfgProcessDevices.c)
+ *     PnpDiagRundownRegisterCallback @ 0x1408271B0 (PnpDiagRundownRegisterCallback.c)
+ *     PiProfileUpdateDeviceTreeWorker @ 0x140832560 (PiProfileUpdateDeviceTreeWorker.c)
+ *     PpResetProblemDevices @ 0x14083A70C (PpResetProblemDevices.c)
  * Callees:
  *     PipForAllChildDeviceNodes @ 0x1405857D8 (PipForAllChildDeviceNodes.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)

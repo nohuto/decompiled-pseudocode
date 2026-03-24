@@ -2,12 +2,12 @@
  * XREFs of PspGetNextSilo @ 0x140600968
  * Callers:
  *     EtwpAdjustTraceBuffers @ 0x14008F670 (EtwpAdjustTraceBuffers.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1406C55B8 (EtwpUpdateGlobalGroupMasks.c)
- *     PsStartSiloMonitor @ 0x140755710 (PsStartSiloMonitor.c)
- *     PsFreeSiloContextSlot @ 0x140886670 (PsFreeSiloContextSlot.c)
- *     PsRootSiloInformation @ 0x140886980 (PsRootSiloInformation.c)
- *     PsShutdownSystem @ 0x14088AFC4 (PsShutdownSystem.c)
- *     PsUnregisterSiloMonitor @ 0x14088BAA0 (PsUnregisterSiloMonitor.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1406C5598 (EtwpUpdateGlobalGroupMasks.c)
+ *     PsStartSiloMonitor @ 0x1407556F0 (PsStartSiloMonitor.c)
+ *     PsFreeSiloContextSlot @ 0x140886650 (PsFreeSiloContextSlot.c)
+ *     PsRootSiloInformation @ 0x140886960 (PsRootSiloInformation.c)
+ *     PsShutdownSystem @ 0x14088AFA4 (PsShutdownSystem.c)
+ *     PsUnregisterSiloMonitor @ 0x14088BA80 (PsUnregisterSiloMonitor.c)
  * Callees:
  *     PsIsServerSilo @ 0x14008FD60 (PsIsServerSilo.c)
  *     PspGetNextJob @ 0x1406009A0 (PspGetNextJob.c)

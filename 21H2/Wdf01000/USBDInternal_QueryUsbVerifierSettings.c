@@ -1,10 +1,10 @@
 /*
- * XREFs of USBDInternal_QueryUsbVerifierSettings @ 0x1C009011C
+ * XREFs of USBDInternal_QueryUsbVerifierSettings @ 0x1C008F410
  * Callers:
- *     USBD_CreateHandle @ 0x1C00903A8 (USBD_CreateHandle.c)
+ *     USBD_CreateHandle @ 0x1C008F69C (USBD_CreateHandle.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 void __fastcall USBDInternal_QueryUsbVerifierSettings(
@@ -79,11 +79,11 @@ void __fastcall USBDInternal_QueryUsbVerifierSettings(
     if ( !SystemRoutineAddress )
       SystemRoutineAddress = (__int64 (__fastcall *)(__int64, wchar_t *, _QWORD *))RtlQueryRegistryValues;
     v13 = SystemRoutineAddress(1LL, RelativeServicePath, v11);
-    if ( v13 < 0 && LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+    if ( v13 < 0 && g_EnableDbgPrints )
       DbgPrintEx(0x4Du, 0, "RtlQueryRegistrySettings failed, ignoring this error0x%x\n", v13);
     ExFreePoolWithTag(v11, PoolTag);
   }
-  else if ( LOBYTE(WPP_GLOBAL_WDF_Control.Dpc.DeferredContext) )
+  else if ( g_EnableDbgPrints )
   {
     DbgPrintEx(0x4Du, 0, "ExAllocatePoolWithTag for USBDInternal_QueryUsbVerifierSettings failed\n");
   }

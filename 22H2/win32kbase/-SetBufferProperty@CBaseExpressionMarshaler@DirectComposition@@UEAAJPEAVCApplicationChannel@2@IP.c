@@ -1,11 +1,10 @@
 /*
- * XREFs of ?SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0030DF0
+ * XREFs of ?SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0095630
  * Callers:
- *     ?SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00306E0 (-SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
- *     ?SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0030D20 (-SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2.c)
+ *     ?SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0095560 (-SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2.c)
+ *     ?SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01EAB60 (-SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
  * Callees:
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002C184 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     DirectComposition::Memory::Allocate_0 @ 0x1C00E786A (DirectComposition--Memory--Allocate_0.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
  */
 
 __int64 __fastcall DirectComposition::CBaseExpressionMarshaler::SetBufferProperty(
@@ -17,7 +16,7 @@ __int64 __fastcall DirectComposition::CBaseExpressionMarshaler::SetBufferPropert
         bool *a6)
 {
   unsigned int v6; // ebx
-  __int64 Quota; // rax
+  __int64 v10; // rax
   _OWORD *v11; // rax
 
   v6 = 0;
@@ -29,12 +28,12 @@ __int64 __fastcall DirectComposition::CBaseExpressionMarshaler::SetBufferPropert
   {
     if ( *a4 != 1 )
       return (unsigned int)-1073741811;
-    Quota = NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(this, 260LL, 0xCuLL, 0x6D654344u);
-    if ( Quota )
+    v10 = Win32AllocPoolWithQuota(12LL, 0x6D654344u);
+    if ( v10 )
     {
-      *((_QWORD *)this + 11) = Quota;
-      *(_QWORD *)Quota = *(_QWORD *)a4;
-      *(_DWORD *)(Quota + 8) = a4[2];
+      *((_QWORD *)this + 11) = v10;
+      *(_QWORD *)v10 = *(_QWORD *)a4;
+      *(_DWORD *)(v10 + 8) = a4[2];
       goto LABEL_6;
     }
     return (unsigned int)-1073741801;
@@ -43,7 +42,7 @@ __int64 __fastcall DirectComposition::CBaseExpressionMarshaler::SetBufferPropert
   {
     if ( *a4 != 2 )
       return (unsigned int)-1073741811;
-    v11 = (_OWORD *)DirectComposition::Memory::Allocate_0(0x10uLL);
+    v11 = (_OWORD *)Win32AllocPoolWithQuota(16LL, 0x6D654344u);
     if ( v11 )
     {
       *((_QWORD *)this + 11) = v11;

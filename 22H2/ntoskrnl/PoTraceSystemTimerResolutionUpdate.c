@@ -1,11 +1,11 @@
 /*
- * XREFs of PoTraceSystemTimerResolutionUpdate @ 0x1403B5CD0
+ * XREFs of PoTraceSystemTimerResolutionUpdate @ 0x14035E260
  * Callers:
- *     ExpUpdateTimerResolution @ 0x14036489C (ExpUpdateTimerResolution.c)
+ *     ExpUpdateTimerResolution @ 0x14035DEFC (ExpUpdateTimerResolution.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 BOOLEAN PoTraceSystemTimerResolutionUpdate()
@@ -15,8 +15,8 @@ BOOLEAN PoTraceSystemTimerResolutionUpdate()
   int v2; // [rsp+40h] [rbp-28h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-20h] BYREF
 
-  result = KePseudoHrTimeIncrement;
-  v2 = KePseudoHrTimeIncrement;
+  result = KeTimeIncrement;
+  v2 = KeTimeIncrement;
   if ( PopDiagHandleRegistered )
   {
     v1 = PopDiagHandle;

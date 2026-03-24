@@ -1,17 +1,20 @@
 /*
- * XREFs of SetConnectedState @ 0x1C00C5A50
+ * XREFs of SetConnectedState @ 0x1C00B0980
  * Callers:
- *     <none>
+ *     xxxRemoteConnect @ 0x1C01177E0 (xxxRemoteConnect.c)
  * Callees:
- *     PowerConnectionEvent @ 0x1C007AD94 (PowerConnectionEvent.c)
+ *     PowerConnectionEvent @ 0x1C00B0A0C (PowerConnectionEvent.c)
  */
 
-void __fastcall SetConnectedState(int a1, int a2)
+__int64 __fastcall SetConnectedState(int a1, int a2)
 {
+  __int64 result; // rax
+
   gbConnected = a1;
   if ( a2 != gbConnectCompleted )
   {
     gbConnectCompleted = a2;
-    PowerConnectionEvent();
+    return PowerConnectionEvent();
   }
+  return result;
 }

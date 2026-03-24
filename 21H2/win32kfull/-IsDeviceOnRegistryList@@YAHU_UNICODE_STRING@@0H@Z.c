@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z @ 0x1C01160C4
+ * XREFs of ?IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z @ 0x1C01219CC
  * Callers:
- *     IsMouseDeviceOnIgnoreList @ 0x1C0115FD0 (IsMouseDeviceOnIgnoreList.c)
- *     ?IsMouseDeviceOnWhiteList@@YAHPEAUDEVICEINFO@@PEAU_DEVICE_OBJECT@@H@Z @ 0x1C01CFFA0 (-IsMouseDeviceOnWhiteList@@YAHPEAUDEVICEINFO@@PEAU_DEVICE_OBJECT@@H@Z.c)
+ *     IsMouseDeviceOnIgnoreList @ 0x1C0121860 (IsMouseDeviceOnIgnoreList.c)
+ *     ?IsMouseDeviceOnWhiteList@@YAHPEAUDEVICEINFO@@PEAU_DEVICE_OBJECT@@H@Z @ 0x1C0220C50 (-IsMouseDeviceOnWhiteList@@YAHPEAUDEVICEINFO@@PEAU_DEVICE_OBJECT@@H@Z.c)
  * Callees:
- *     ?CompareDeviceVIDPID@@YAHU_UNICODE_STRING@@PEAU_KEY_VALUE_FULL_INFORMATION@@K@Z @ 0x1C01CFD84 (-CompareDeviceVIDPID@@YAHU_UNICODE_STRING@@PEAU_KEY_VALUE_FULL_INFORMATION@@K@Z.c)
+ *     ?CompareDeviceVIDPID@@YAHU_UNICODE_STRING@@PEAU_KEY_VALUE_FULL_INFORMATION@@K@Z @ 0x1C0220BA8 (-CompareDeviceVIDPID@@YAHU_UNICODE_STRING@@PEAU_KEY_VALUE_FULL_INFORMATION@@K@Z.c)
  */
 
 _BOOL8 __fastcall IsDeviceOnRegistryList(struct _UNICODE_STRING *a1, struct _UNICODE_STRING *a2, int a3)
@@ -71,7 +71,7 @@ _BOOL8 __fastcall IsDeviceOnRegistryList(struct _UNICODE_STRING *a1, struct _UNI
     }
     else
     {
-      v9 = Win32AllocPoolZInit(ResultLength, 2019914581LL);
+      v9 = Win32AllocPool(ResultLength, 2019914581LL);
       if ( v9 )
       {
         if ( ZwQueryValueKey(KeyHandle, a2, KeyValuePartialInformation, (PVOID)v9, ResultLength, &ResultLength) >= 0
@@ -79,7 +79,7 @@ _BOOL8 __fastcall IsDeviceOnRegistryList(struct _UNICODE_STRING *a1, struct _UNI
         {
           v5 = (unsigned __int8)(*(_BYTE *)(v9 + 12) - 1) <= 2u;
         }
-        Win32FreePool(v9);
+        Win32FreePool((void *)v9);
       }
     }
     ZwClose(KeyHandle);

@@ -1,20 +1,20 @@
 /*
- * XREFs of wcstoxq @ 0x1403E3A4C
+ * XREFs of wcstoxq @ 0x1403D46CC
  * Callers:
- *     _wcstoi64 @ 0x1403E3A1C (_wcstoi64.c)
- *     LocalpConvertStringSidToSid @ 0x140843D74 (LocalpConvertStringSidToSid.c)
- *     RtlUnicodeStringToInt64 @ 0x1409BA570 (RtlUnicodeStringToInt64.c)
- *     GetOperandValue @ 0x1409D0A60 (GetOperandValue.c)
- *     LocalGetRelativeAttributeForString @ 0x1409D23E8 (LocalGetRelativeAttributeForString.c)
+ *     _wcstoi64 @ 0x1403D469C (_wcstoi64.c)
+ *     LocalpConvertStringSidToSid @ 0x1407B7BB0 (LocalpConvertStringSidToSid.c)
+ *     RtlUnicodeStringToInt64 @ 0x140914F80 (RtlUnicodeStringToInt64.c)
+ *     GetOperandValue @ 0x140927504 (GetOperandValue.c)
+ *     LocalGetRelativeAttributeForString @ 0x1409285E0 (LocalGetRelativeAttributeForString.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     _iswctype_l @ 0x1403E3CB0 (_iswctype_l.c)
- *     _wchartodigit @ 0x1403E5624 (_wchartodigit.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
+ *     _iswctype_l @ 0x1403D493C (_iswctype_l.c)
+ *     _wchartodigit @ 0x1403D61C4 (_wchartodigit.c)
  */
 
-unsigned __int64 __fastcall wcstoxq(__int64 a1, wint_t *a2, wint_t **a3, unsigned int a4, int a5, _DWORD *a6)
+unsigned __int64 __fastcall wcstoxq(__int64 a1, wint_t *a2, wint_t **a3, int a4, int a5, _DWORD *a6)
 {
-  unsigned int v6; // r14d
+  int v6; // r14d
   wint_t v9; // bp
   wint_t *v10; // rbx
   unsigned __int64 v11; // rsi
@@ -30,7 +30,7 @@ unsigned __int64 __fastcall wcstoxq(__int64 a1, wint_t *a2, wint_t **a3, unsigne
   v6 = a4;
   if ( a3 )
     *a3 = a2;
-  if ( !a2 || a4 && a4 - 2 > 0x22 )
+  if ( !a2 || a4 && (unsigned int)(a4 - 2) > 0x22 )
   {
     xHalTimerWatchdogStop();
     return 0LL;
@@ -55,18 +55,14 @@ LABEL_13:
   if ( v9 == 43 )
     goto LABEL_13;
 LABEL_14:
-  if ( v6 && v6 - 2 > 0x22 )
+  if ( v6 && (unsigned int)(v6 - 2) > 0x22 )
   {
     if ( a3 )
       *a3 = a2;
     return 0LL;
   }
   if ( v6 )
-  {
-    if ( v6 != 16 )
-      goto LABEL_28;
-    goto LABEL_25;
-  }
+    goto LABEL_24;
   if ( !(unsigned int)wchartodigit(v9) )
   {
     if ( ((*v10 - 88) & 0xFFDF) != 0 )
@@ -75,8 +71,8 @@ LABEL_14:
       goto LABEL_28;
     }
     v6 = 16;
-LABEL_25:
-    if ( !(unsigned int)wchartodigit(v9) && ((*v10 - 88) & 0xFFDF) == 0 )
+LABEL_24:
+    if ( v6 == 16 && !(unsigned int)wchartodigit(v9) && ((*v10 - 88) & 0xFFDF) == 0 )
     {
       v9 = v10[1];
       v10 += 2;
@@ -126,19 +122,21 @@ LABEL_46:
     if ( (v13 & 4) == 0 )
     {
       if ( (v13 & 1) != 0 )
-        goto LABEL_58;
+        goto LABEL_59;
       if ( (v13 & 2) != 0 )
       {
         if ( v11 <= 0x8000000000000000uLL )
-          goto LABEL_58;
+          goto LABEL_59;
       }
       else if ( v11 <= 0x7FFFFFFFFFFFFFFFLL )
       {
-        goto LABEL_58;
+        goto LABEL_59;
       }
     }
     if ( a6 )
       *a6 = 34;
+    else
+      gbl_errno = 34;
     if ( (v13 & 1) != 0 )
       v11 = -1LL;
     else
@@ -150,7 +148,7 @@ LABEL_46:
       v18 = a2;
     v11 = 0LL;
   }
-LABEL_58:
+LABEL_59:
   if ( a3 )
     *a3 = v18;
   result = -(__int64)v11;

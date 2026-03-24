@@ -1,13 +1,13 @@
 /*
- * XREFs of ExSetTimerResolution @ 0x1403B46D0
+ * XREFs of ExSetTimerResolution @ 0x1405B22D0
  * Callers:
- *     DifExSetTimerResolutionWrapper @ 0x1405D9E90 (DifExSetTimerResolutionWrapper.c)
+ *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x140340704 (PoTraceSystemTimerResolutionKernel.c)
- *     ExpUpdateTimerResolution @ 0x14036489C (ExpUpdateTimerResolution.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x1402F0908 (PoTraceSystemTimerResolutionKernel.c)
+ *     ExpUpdateTimerResolution @ 0x14035DEFC (ExpUpdateTimerResolution.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 ULONG __stdcall ExSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution)
@@ -16,54 +16,61 @@ ULONG __stdcall ExSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution)
   ULONG v5; // ebp
   ULONG v6; // ebx
   KIRQL v7; // si
-  int v9; // ecx
+  int v8; // ecx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v13; // eax
-  bool v14; // zf
+  int v12; // eax
+  bool v13; // zf
   KIRQL v15; // [rsp+48h] [rbp+10h] BYREF
 
   PoTraceSystemTimerResolutionKernel(SetResolution != 0 ? DesiredTime : 0, 1381258053, 0);
   v4 = KeAcquireSpinLockRaiseToDpc(&ExpKernelResolutionLock);
-  v5 = KeNonHrTimeIncrement;
+  v5 = KeTimeIncrement;
   v6 = 0;
   v15 = v4;
   v7 = v4;
-  if ( !SetResolution )
+  if ( SetResolution )
   {
-    v9 = ExpKernelResolutionCount;
-    if ( !ExpKernelResolutionCount )
-      goto LABEL_10;
-    --ExpKernelResolutionCount;
-    if ( v9 != 1 )
-      goto LABEL_10;
-    KeNonHrTimeIncrement = KeMaximumIncrement;
-LABEL_4:
-    ExpKernelRequestedTimerResolution = v6;
-    return ExpUpdateTimerResolution(SetResolution, v6, &v15);
+    if ( ++ExpKernelResolutionCount == 1 || DesiredTime < ExpKernelRequestedTimerResolution )
+    {
+      KeNonHrTimeIncrement = DesiredTime;
+      v6 = DesiredTime;
+      goto LABEL_16;
+    }
   }
-  if ( ++ExpKernelResolutionCount == 1 || DesiredTime < ExpKernelRequestedTimerResolution )
+  else
   {
-    KeNonHrTimeIncrement = DesiredTime;
-    v6 = DesiredTime;
-    goto LABEL_4;
+    v8 = ExpKernelResolutionCount;
+    if ( ExpKernelResolutionCount )
+    {
+      --ExpKernelResolutionCount;
+      if ( v8 == 1 )
+      {
+        KeNonHrTimeIncrement = KeMaximumIncrement;
+LABEL_16:
+        ExpKernelRequestedTimerResolution = v6;
+        return ExpUpdateTimerResolution(SetResolution, v6, &v15);
+      }
+    }
   }
-LABEL_10:
-  KxReleaseSpinLock((volatile signed __int64 *)&ExpKernelResolutionLock);
+  KxReleaseSpinLock(&ExpKernelResolutionLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v7 = v15;
-      v13 = ~(unsigned __int16)(-1LL << (v15 + 1));
-      v14 = (v13 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v13;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v7 = v15;
+        v12 = ~(unsigned __int16)(-1LL << (v15 + 1));
+        v13 = (v12 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v12;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v7);

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceLeapSecondDataUpdate @ 0x1408549E8
+ * XREFs of EtwTraceLeapSecondDataUpdate @ 0x1407A98BC
  * Callers:
- *     ExpReadLeapSecondData @ 0x140854624 (ExpReadLeapSecondData.c)
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
+ *     ExpReadLeapSecondData @ 0x1407A95E8 (ExpReadLeapSecondData.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
@@ -54,9 +54,9 @@ char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
   v40 = a3;
   v39 = a2;
   v38 = a1;
-  if ( (unsigned int)dword_140C066C0 > 5 )
+  if ( (unsigned int)dword_140C02BF0 > 5 )
   {
-    LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL);
+    LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL);
     if ( (_BYTE)v4 )
     {
       v27 = 0;
@@ -76,8 +76,8 @@ char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
       v32 = 4;
       v35 = 4;
       LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140C066C0,
-                     (unsigned __int8 *)byte_140034970,
+                     (__int64)&dword_140C02BF0,
+                     (unsigned __int8 *)byte_14002D0B3,
                      0LL,
                      0LL,
                      6u,

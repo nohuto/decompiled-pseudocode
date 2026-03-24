@@ -1,14 +1,14 @@
 /*
- * XREFs of ?RegisterExpression@CExpressionManager@@QEAAJPEAVCBaseExpression@@@Z @ 0x1800997B0
+ * XREFs of ?RegisterExpression@CExpressionManager@@QEAAJPEAVCBaseExpression@@@Z @ 0x180064F58
  * Callers:
- *     ?TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ @ 0x18009B3CC (-TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ.c)
+ *     ?TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ @ 0x180064DF8 (-TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ.c)
  * Callees:
- *     ?AddMultipleAndSet@?$DynArrayImpl@$00@@IEAAJIIPEBX@Z @ 0x18002727C (-AddMultipleAndSet@-$DynArrayImpl@$00@@IEAAJIIPEBX@Z.c)
- *     ?InsertExpressionIntoTargetMap@CExpressionManager@@AEAAJAEAVCTargetMapEntry@@PEAVCBaseExpression@@PEAVSubchannelMaskInfo@@@Z @ 0x1800998E8 (-InsertExpressionIntoTargetMap@CExpressionManager@@AEAAJAEAVCTargetMapEntry@@PEAVCBaseExpression.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetSourceAnimationsForProperty@CResource@@QEAAPEAV?$DynArray@PEAVCBaseExpression@@$0A@@@I@Z @ 0x1800F04E4 (-GetSourceAnimationsForProperty@CResource@@QEAAPEAV-$DynArray@PEAVCBaseExpression@@$0A@@@I@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ?Remove@?$DynArray@PEAVCBaseExpression@@$00@@QEAAHAEBQEAVCBaseExpression@@@Z @ 0x180217074 (-Remove@-$DynArray@PEAVCBaseExpression@@$00@@QEAAHAEBQEAVCBaseExpression@@@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$00@@IEAAJIIPEBX@Z @ 0x1800368F8 (-AddMultipleAndSet@-$DynArrayImpl@$00@@IEAAJIIPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetSourceAnimationsForProperty@CResource@@QEAAPEAV?$DynArray@PEAVCBaseExpression@@$0A@@@I@Z @ 0x1800639C0 (-GetSourceAnimationsForProperty@CResource@@QEAAPEAV-$DynArray@PEAVCBaseExpression@@$0A@@@I@Z.c)
+ *     ??1CTargetMapEntry@@QEAA@XZ @ 0x180065088 (--1CTargetMapEntry@@QEAA@XZ.c)
+ *     ?InsertExpressionIntoTargetMap@CExpressionManager@@AEAAJAEAVCTargetMapEntry@@PEAVCBaseExpression@@PEAVSubchannelMaskInfo@@@Z @ 0x1800650A8 (-InsertExpressionIntoTargetMap@CExpressionManager@@AEAAJAEAVCTargetMapEntry@@PEAVCBaseExpression.c)
+ *     ?Remove@?$DynArray@PEAVCBaseExpression@@$00@@QEAAHAEBQEAVCBaseExpression@@@Z @ 0x1801AB020 (-Remove@-$DynArray@PEAVCBaseExpression@@$00@@QEAAHAEBQEAVCBaseExpression@@@Z.c)
  */
 
 __int64 __fastcall CExpressionManager::RegisterExpression(CExpressionManager *this, struct CBaseExpression *a2)
@@ -17,94 +17,81 @@ __int64 __fastcall CExpressionManager::RegisterExpression(CExpressionManager *th
   unsigned int v5; // eax
   unsigned int v6; // edx
   int inserted; // eax
-  unsigned int v8; // ecx
-  unsigned int v9; // esi
-  void *v10; // rbx
-  __int64 v12; // rcx
-  __int64 v13; // rcx
+  __int64 v8; // rcx
+  int v9; // ebx
+  __int64 v10; // rcx
   __int64 SourceAnimationsForProperty; // rax
-  int v15; // eax
-  unsigned int v16; // ecx
-  int v17; // ebx
-  unsigned int v18; // ecx
-  void *v19; // rcx
-  __int64 v20; // [rsp+30h] [rbp-20h] BYREF
-  unsigned int v21; // [rsp+38h] [rbp-18h]
-  void *v22; // [rsp+40h] [rbp-10h]
-  struct CBaseExpression *v23; // [rsp+68h] [rbp+18h] BYREF
+  int v13; // eax
+  __int64 v14; // rcx
+  __int64 v15; // [rsp+30h] [rbp-20h] BYREF
+  int v16; // [rsp+38h] [rbp-18h]
+  __int64 v17; // [rsp+40h] [rbp-10h]
+  struct CBaseExpression *v18; // [rsp+68h] [rbp+18h] BYREF
 
-  v23 = a2;
-  v20 = 0LL;
-  v21 = 0;
-  v22 = 0LL;
+  v18 = a2;
+  v15 = 0LL;
+  v16 = 0;
+  v17 = 0LL;
   v4 = (char *)this + 32 * *((unsigned int *)this + 41);
   v5 = *((_DWORD *)v4 + 48);
   v6 = v5 + 1;
   if ( v5 + 1 < v5 )
   {
-    v17 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147024362, 0xB5u, 0LL);
     v9 = -2147024362;
-    goto LABEL_18;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024362, 0xB5u, 0LL);
   }
-  if ( v6 <= *((_DWORD *)v4 + 47) )
+  else
   {
-    *(_QWORD *)(*((_QWORD *)v4 + 21) + 8LL * v5) = a2;
-    *((_DWORD *)v4 + 48) = v6;
-    goto LABEL_4;
+    if ( v6 <= *((_DWORD *)v4 + 47) )
+    {
+      *(_QWORD *)(*((_QWORD *)v4 + 21) + 8LL * v5) = a2;
+      *((_DWORD *)v4 + 48) = v6;
+      goto LABEL_4;
+    }
+    v13 = DynArrayImpl<1>::AddMultipleAndSet((__int64)(v4 + 168), 8u, (__int64)v4, &v18);
+    v9 = v13;
+    if ( v13 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0xC0u, 0LL);
   }
-  v15 = DynArrayImpl<1>::AddMultipleAndSet((__int64)(v4 + 168), 8u, (__int64)v4, &v23);
-  v17 = v15;
-  v9 = v15;
-  if ( v15 < 0 )
+  if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0xC0u, 0LL);
-LABEL_18:
-    MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x50u, 0LL);
-    goto LABEL_7;
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v9, 0x50u, 0LL);
+    goto LABEL_11;
   }
 LABEL_4:
-  v20 = *((_QWORD *)v23 + 23);
-  v21 = *((_DWORD *)v23 + 48);
+  v15 = *((_QWORD *)v18 + 22);
+  v16 = *((_DWORD *)v18 + 46);
   inserted = CExpressionManager::InsertExpressionIntoTargetMap(
                this,
-               (struct CTargetMapEntry *)&v20,
-               v23,
-               *((struct SubchannelMaskInfo **)v23 + 25));
+               (struct CTargetMapEntry *)&v15,
+               v18,
+               *((struct SubchannelMaskInfo **)v18 + 24));
   v9 = inserted;
   if ( inserted < 0 )
   {
     MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, inserted, 0x5Bu, 0LL);
-    DynArray<CBaseExpression *,1>::Remove((char *)this + 32 * *((unsigned int *)this + 41) + 168, &v23);
+    DynArray<CBaseExpression *,1>::Remove((char *)this + 32 * *((unsigned int *)this + 41) + 168, &v18);
   }
   else
   {
-    if ( (*((_BYTE *)this + 448) & 4) == 0 )
+    if ( (*((_BYTE *)this + 416) & 4) == 0 )
     {
-      v12 = *((_QWORD *)v23 + 23);
-      if ( v12 )
+      v10 = *((_QWORD *)v18 + 22);
+      if ( v10 )
+        v10 = *(_QWORD *)(v10 + 16);
+      if ( v10 )
       {
-        v13 = *(_QWORD *)(v12 + 16);
-        if ( v13 )
+        SourceAnimationsForProperty = CResource::GetSourceAnimationsForProperty(v10);
+        if ( SourceAnimationsForProperty )
         {
-          SourceAnimationsForProperty = CResource::GetSourceAnimationsForProperty(v13, v21);
-          if ( SourceAnimationsForProperty )
-          {
-            if ( *(_DWORD *)(SourceAnimationsForProperty + 24) )
-              *((_BYTE *)this + 448) |= 4u;
-          }
+          if ( *(_DWORD *)(SourceAnimationsForProperty + 24) )
+            *((_BYTE *)this + 416) |= 4u;
         }
       }
     }
     v9 = 0;
   }
-LABEL_7:
-  v10 = v22;
-  while ( v10 )
-  {
-    v19 = v10;
-    v10 = (void *)*((_QWORD *)v10 + 2);
-    operator delete(v19, 0x18uLL);
-  }
-  return v9;
+LABEL_11:
+  CTargetMapEntry::~CTargetMapEntry((CTargetMapEntry *)&v15);
+  return (unsigned int)v9;
 }

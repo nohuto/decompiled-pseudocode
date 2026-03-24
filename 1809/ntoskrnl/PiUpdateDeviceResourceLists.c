@@ -1,14 +1,14 @@
 /*
- * XREFs of PiUpdateDeviceResourceLists @ 0x140841658
+ * XREFs of PiUpdateDeviceResourceLists @ 0x140841638
  * Callers:
- *     PiProcessQueryDeviceState @ 0x1406E9C64 (PiProcessQueryDeviceState.c)
+ *     PiProcessQueryDeviceState @ 0x1406E9C44 (PiProcessQueryDeviceState.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PnpCopyResourceList @ 0x14083AA24 (PnpCopyResourceList.c)
- *     IopQueryBusResourceUpdateInterface @ 0x14083AFE0 (IopQueryBusResourceUpdateInterface.c)
+ *     PnpCopyResourceList @ 0x14083AA04 (PnpCopyResourceList.c)
+ *     IopQueryBusResourceUpdateInterface @ 0x14083AFC0 (IopQueryBusResourceUpdateInterface.c)
  */
 
 __int64 __fastcall PiUpdateDeviceResourceLists(__int64 a1)

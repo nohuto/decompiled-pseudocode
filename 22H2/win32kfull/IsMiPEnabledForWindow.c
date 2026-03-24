@@ -1,14 +1,13 @@
 /*
- * XREFs of IsMiPEnabledForWindow @ 0x1C0150E7A
+ * XREFs of IsMiPEnabledForWindow @ 0x1C01E18C8
  * Callers:
- *     xxxCapture @ 0x1C00117FC (xxxCapture.c)
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C011E780 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     ?ShouldGenerateMipMessage@@YA_NPEAUtagTHREADINFO@@PEBUtagQMSG@@PEAUtagWND@@H@Z @ 0x1C0150A62 (-ShouldGenerateMipMessage@@YA_NPEAUtagTHREADINFO@@PEBUtagQMSG@@PEAUtagWND@@H@Z.c)
- *     ?MiPIdleTimerFunc@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01B54F0 (-MiPIdleTimerFunc@@YAXPEAUtagWND@@I_K_J@Z.c)
- *     PostMousePointerLeaveAndCleanup @ 0x1C01B6970 (PostMousePointerLeaveAndCleanup.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C00549A0 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     xxxCapture @ 0x1C00C02CC (xxxCapture.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?MiPIdleTimerFunc@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E05B0 (-MiPIdleTimerFunc@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     PostMousePointerLeaveAndCleanup @ 0x1C01E1AE0 (PostMousePointerLeaveAndCleanup.c)
  * Callees:
  *     <none>
  */
@@ -21,13 +20,13 @@ _BOOL8 __fastcall IsMiPEnabledForWindow(__int64 a1)
   int v4; // ecx
 
   v1 = *(_QWORD *)(a1 + 16);
-  v2 = *(_DWORD *)(v1 + 1272);
-  result = (*(_BYTE *)(*(_QWORD *)(v1 + 424) + 816LL) & 4) != 0 || (v2 & 0x2000000) != 0;
+  v2 = *(_DWORD *)(v1 + 1232);
+  result = (*(_BYTE *)(*(_QWORD *)(v1 + 424) + 820LL) & 4) != 0 || (v2 & 0x2000000) != 0;
   if ( (v2 & 0x4000000) != 0 )
   {
-    v4 = *(_DWORD *)(a1 + 320);
-    if ( (v4 & 0x10) != 0 )
-      return ((unsigned __int8)v4 >> 3) & 1;
+    v4 = *(_DWORD *)(a1 + 324);
+    if ( (v4 & 0x20) != 0 )
+      return ((unsigned __int8)v4 >> 4) & 1;
   }
   return result;
 }

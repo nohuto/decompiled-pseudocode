@@ -1,16 +1,21 @@
 /*
- * XREFs of GetInputTransformList @ 0x1C01CBB30
+ * XREFs of GetInputTransformList @ 0x1C01F52B0
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     ?GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z @ 0x1C0153928 (-GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     ?GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z @ 0x1C01F506C (-GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z.c)
  */
 
-InputTransform *__fastcall GetInputTransformList(int a1, unsigned int a2, __int64 a3, char a4, unsigned __int64 *a5)
+InputTransform *__fastcall GetInputTransformList(
+        unsigned __int64 a1,
+        unsigned int a2,
+        __int64 a3,
+        char a4,
+        unsigned __int64 *a5)
 {
   InputTransform *result; // rax
-  struct tagINPUT_TRANSFORM *v9; // [rsp+20h] [rbp-18h]
+  struct tagINPUT_TRANSFORM *v9; // [rsp+20h] [rbp-38h]
 
   result = (InputTransform *)HMValidateHandleNoSecure(a1, 1);
   if ( result )

@@ -1,42 +1,35 @@
 /*
- * XREFs of Amd64RestartProfiling @ 0x140A98D80
+ * XREFs of Amd64RestartProfiling @ 0x1409A99A0
  * Callers:
  *     <none>
  * Callees:
- *     Amd64ConfigureCounter @ 0x140528FD0 (Amd64ConfigureCounter.c)
+ *     Amd64ConfigureCounter @ 0x1404DD74C (Amd64ConfigureCounter.c)
  */
 
-__int64 (__fastcall **Amd64RestartProfiling())()
+unsigned __int64 Amd64RestartProfiling()
 {
-  __int64 (__fastcall **result)(); // rax
-  __int64 v1; // rdi
-  __int64 i; // rbx
-  __int64 v3; // r8
-  int v4; // eax
+  int v0; // ebx
+  unsigned __int64 v1; // rdi
+  int v2; // eax
+  unsigned __int64 result; // rax
 
-  result = &DefaultProfileInterface;
-  if ( HalpProfileInterface == &DefaultProfileInterface )
+  v0 = 0;
+  v1 = Amd64CounterStatus + ((unsigned __int64)KeGetPcr()->Prcb.Number << 6) + 8;
+  do
   {
-    v1 = HalpCounterStatus;
-  }
-  else
-  {
-    result = (__int64 (__fastcall **)())HalpCounterStatus;
-    v1 = HalpCounterStatus + 8LL * HalpNumberOfCounters * KeGetPcr()->Prcb.Number;
-  }
-  for ( i = 0LL; (unsigned int)i < Amd64NumberCounters; i = (unsigned int)(i + 1) )
-  {
-    v3 = *(_QWORD *)(v1 + 8 * i);
-    v4 = *(_DWORD *)(v3 + 24);
-    if ( v4 >= 2 )
+    v2 = *(_DWORD *)(v1 - 8);
+    if ( v2 >= 2 )
     {
       result = 0LL;
-      __writemsr(*((_DWORD *)&Amd64EventSelectRegisters + i), 0LL);
+      __writemsr(v0 - 1073676288, 0LL);
     }
     else
     {
-      result = (__int64 (__fastcall **)())Amd64ConfigureCounter(i, 1, *(_QWORD *)v3, **(_QWORD **)(v3 + 16), v4 != 1);
+      result = Amd64ConfigureCounter(v0, 1, *(_DWORD *)v1, *(_DWORD *)(v1 + 4), v2 != 1);
     }
+    ++v0;
+    v1 += 16LL;
   }
+  while ( v0 < 4 );
   return result;
 }

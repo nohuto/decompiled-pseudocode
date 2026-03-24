@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpFailLogging @ 0x140365E7C
+ * XREFs of EtwpFailLogging @ 0x14036C474
  * Callers:
- *     EtwpEventWriteFull @ 0x140258450 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x1406F41F0 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14025D7C0 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140627FE0 (EtwpWriteUserEvent.c)
  * Callees:
- *     EtwpReleaseTraceBuffer @ 0x1402276B8 (EtwpReleaseTraceBuffer.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     EtwpLevelKeywordEnabled @ 0x140258400 (EtwpLevelKeywordEnabled.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259BB0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140321C20 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     EtwpUpdateEventsLostCount @ 0x140366014 (EtwpUpdateEventsLostCount.c)
- *     EtwpTraceLostEvent @ 0x1405FC434 (EtwpTraceLostEvent.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwpLevelKeywordEnabled @ 0x140220B40 (EtwpLevelKeywordEnabled.c)
+ *     EtwpReleaseTraceBuffer @ 0x14025D4A0 (EtwpReleaseTraceBuffer.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x14026D960 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402DEA70 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpUpdateEventsLostCount @ 0x14036C6C8 (EtwpUpdateEventsLostCount.c)
+ *     EtwpTraceLostEvent @ 0x1405AA714 (EtwpTraceLostEvent.c)
  */
 
 void __fastcall EtwpFailLogging(
@@ -19,86 +19,70 @@ void __fastcall EtwpFailLogging(
         __int64 a3,
         __int64 a4,
         unsigned __int8 a5,
-        int a6,
-        char a7,
-        __int64 a8,
-        char a9,
-        int a10,
-        __int64 a11,
-        char a12)
+        unsigned int a6,
+        __int64 a7,
+        char a8)
 {
-  __int64 v12; // r15
-  unsigned int v14; // esi
-  unsigned __int8 v16; // r9
-  unsigned __int8 v17; // si
+  __int64 v9; // rbp
+  unsigned __int8 v10; // dl
+  __int64 v13; // rdi
+  unsigned int *v14; // rsi
+  unsigned __int8 v15; // si
   bool i; // zf
-  __int64 v19; // rcx
-  __int64 v20; // rcx
-  __int64 v21; // rdi
-  __int64 v22; // rbx
-  __int64 v23; // rdi
-  __int64 v24; // rax
-  __int64 v25; // rbx
-  unsigned int *v26; // rdi
-  __int64 v28; // [rsp+98h] [rbp+10h]
+  __int64 v17; // rcx
+  __int64 v18; // rcx
+  __int64 v19; // rbx
+  __int64 v20; // rdi
+  __int64 v21; // rbx
 
-  v28 = a2;
-  v12 = *(_QWORD *)(a3 + 392);
-  v14 = 0;
-  v16 = a1;
+  v9 = *(_QWORD *)(a3 + 392);
+  v10 = a1;
   if ( *(_DWORD *)(a4 + 384) )
   {
-    v24 = 0LL;
+    v13 = 0LL;
     do
     {
-      v25 = 6 * v24;
-      v26 = *(unsigned int **)(a4 + 48 * v24);
-      if ( (v26[3] & 0x8000000) == 0 )
+      v14 = *(unsigned int **)(a4 + 48 * v13);
+      if ( (v14[3] & 0x8000000) == 0 )
       {
-        *(_WORD *)(*(_QWORD *)(a4 + 48 * v24 + 8) + 2LL) = -16371;
-        EtwpUpdateEventsLostCount(v26);
+        **(_DWORD **)(a4 + 48 * v13 + 8) = v14[7] | **(_DWORD **)(a4 + 48 * v13 + 8) & v14[8];
+        EtwpUpdateEventsLostCount(v14);
         if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_EVENT) )
-          EtwpTraceLostEvent(a3 + 40, a8, (_DWORD)v26 + 136, a6, a7, a10, a11, a9, a12);
+          EtwpTraceLostEvent(a3 + 40, a7, v14 + 38, a6);
       }
-      EtwpReleaseTraceBuffer((signed __int64 *)(a4 + 16 + 8 * v25));
-      if ( a9 )
-        ExReleaseRundownProtectionCacheAwareEx(
-          *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v12 + 448) + 8LL * *v26),
-          1u);
-      v24 = ++v14;
+      EtwpReleaseTraceBuffer((signed __int64 *)(a4 + 16 + 48 * v13));
+      if ( a8 )
+        ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v9 + 448) + 8LL * *v14), 1u);
+      v13 = (unsigned int)(v13 + 1);
     }
-    while ( v14 < *(_DWORD *)(a4 + 384) );
-    a2 = v28;
-    v16 = a1;
+    while ( (unsigned int)v13 < *(_DWORD *)(a4 + 384) );
+    v10 = a1;
   }
-  v17 = a5;
-  for ( i = !_BitScanForward((unsigned int *)&v19, a5); !i; i = !_BitScanForward((unsigned int *)&v19, v17) )
+  v15 = a5;
+  for ( i = !_BitScanForward((unsigned int *)&v17, a5); !i; i = !_BitScanForward((unsigned int *)&v17, v15) )
   {
-    v17 &= v17 - 1;
-    if ( EtwpLevelKeywordEnabled(a3 + 32 * (v19 + 4), v16, a2) )
+    v15 &= v15 - 1;
+    if ( EtwpLevelKeywordEnabled(a3 + 32 * (v17 + 4), v10, a2) )
     {
-      v21 = *(unsigned __int16 *)(v20 + 6);
-      v22 = v21;
-      if ( !a9
-        || ExAcquireRundownProtectionCacheAwareEx(
-             *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v12 + 448) + 8 * v21),
-             1u) )
+      v19 = *(unsigned __int16 *)(v18 + 6);
+      v20 = v19;
+      if ( !a8
+        || ExAcquireRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v9 + 448) + 8 * v19), 1u) )
       {
-        if ( (unsigned int)v21 < *(_DWORD *)(v12 + 16) )
+        if ( (unsigned int)v19 >= *(_DWORD *)(v9 + 16) )
+          v21 = 1LL;
+        else
+          v21 = *(_QWORD *)(*(_QWORD *)(v9 + 456) + 8 * v19);
+        if ( (v21 & 1) == 0 )
         {
-          v23 = *(_QWORD *)(*(_QWORD *)(v12 + 456) + 8 * v21);
-          if ( (v23 & 1) == 0 )
-          {
-            EtwpUpdateEventsLostCount(v23);
-            if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_EVENT) )
-              EtwpTraceLostEvent(a3 + 40, a8, v23 + 136, a6, a7, a10, a11, a9, a12);
-          }
+          EtwpUpdateEventsLostCount(v21);
+          if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_EVENT) )
+            EtwpTraceLostEvent(a3 + 40, a7, v21 + 152, a6);
         }
-        if ( a9 )
-          ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v12 + 448) + 8 * v22), 1u);
+        if ( a8 )
+          ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v9 + 448) + 8 * v20), 1u);
       }
     }
-    a2 = v28;
-    v16 = a1;
+    v10 = a1;
   }
 }

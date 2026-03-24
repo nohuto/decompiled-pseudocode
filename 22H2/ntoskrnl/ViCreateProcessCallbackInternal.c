@@ -1,32 +1,27 @@
 /*
- * XREFs of ViCreateProcessCallbackInternal @ 0x140AD7224
+ * XREFs of ViCreateProcessCallbackInternal @ 0x1409DCAB4
  * Callers:
- *     ViCreateProcessCallback @ 0x140465E20 (ViCreateProcessCallback.c)
+ *     ViCreateProcessCallback @ 0x140325710 (ViCreateProcessCallback.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PsLookupProcessByProcessId @ 0x1406FA420 (PsLookupProcessByProcessId.c)
- *     PsGetAllocatedFullProcessImageName @ 0x140742CB8 (PsGetAllocatedFullProcessImageName.c)
- *     RtlUpcaseUnicodeString @ 0x140774000 (RtlUpcaseUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ViFaultsGetBaseImageName @ 0x140AD7750 (ViFaultsGetBaseImageName.c)
- *     ViFaultsIsAppTarget @ 0x140AD7A00 (ViFaultsIsAppTarget.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x1402E0C70 (KeReleaseSpinLock.c)
+ *     PsLookupProcessByProcessId @ 0x140625CA0 (PsLookupProcessByProcessId.c)
+ *     RtlUpcaseUnicodeString @ 0x14062F0C0 (RtlUpcaseUnicodeString.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x14062F20C (PsGetAllocatedFullProcessImageName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ViFaultsGetBaseImageName @ 0x1409DCF88 (ViFaultsGetBaseImageName.c)
+ *     ViFaultsIsAppTarget @ 0x1409DD234 (ViFaultsIsAppTarget.c)
  */
 
 void __fastcall ViCreateProcessCallbackInternal(void *a1, char a2)
 {
-  PEPROCESS v2; // rbx
-  unsigned __int64 v3; // rdi
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v7; // eax
-  bool v8; // zf
+  volatile signed __int32 *p_Lock; // rbx
+  PVOID v3; // rdi
+  KIRQL v4; // si
   UNICODE_STRING SourceString; // [rsp+20h] [rbp-10h] BYREF
-  PVOID P; // [rsp+50h] [rbp+20h] BYREF
-  PEPROCESS Process; // [rsp+58h] [rbp+28h] BYREF
+  PEPROCESS Process; // [rsp+60h] [rbp+30h] BYREF
+  PVOID P; // [rsp+68h] [rbp+38h] BYREF
 
   if ( a2 )
   {
@@ -35,33 +30,23 @@ void __fastcall ViCreateProcessCallbackInternal(void *a1, char a2)
     SourceString = 0LL;
     if ( PsLookupProcessByProcessId(a1, &Process) >= 0 )
     {
-      v2 = Process;
-      if ( (int)PsGetAllocatedFullProcessImageName((__int64)Process, (__int64 *)&P) >= 0 )
+      p_Lock = &Process->Header.Lock;
+      if ( (int)PsGetAllocatedFullProcessImageName((__int64)Process, &P) >= 0 )
       {
+        v3 = P;
         ViFaultsGetBaseImageName(P, &SourceString);
         RtlUpcaseUnicodeString(&SourceString, &SourceString, 0);
-        v3 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
+        v4 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
         if ( (unsigned int)ViFaultsIsAppTarget(&SourceString) )
-          _InterlockedOr((volatile signed __int32 *)&v2[1].DirectoryTableBase, 0x10000u);
-        KxReleaseSpinLock((volatile signed __int64 *)&ViFaultInjectionLock);
-        if ( KiIrqlFlags )
         {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
-          {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-            v8 = (v7 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v7;
-            if ( v8 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-          }
+          _InterlockedOr(p_Lock + 280, 0x10000u);
+          p_Lock = &Process->Header.Lock;
+          v3 = P;
         }
-        __writecr8(v3);
-        ExFreePoolWithTag(P, 0);
+        KeReleaseSpinLock(&ViFaultInjectionLock, v4);
+        ExFreePoolWithTag(v3, 0);
       }
-      ObfDereferenceObjectWithTag(Process, 0x746C6644u);
+      ObfDereferenceObjectWithTag((PVOID)p_Lock, 0x746C6644u);
     }
   }
 }

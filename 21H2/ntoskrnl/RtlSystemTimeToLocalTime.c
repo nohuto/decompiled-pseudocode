@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlSystemTimeToLocalTime @ 0x14085CBB0
+ * XREFs of RtlSystemTimeToLocalTime @ 0x1407CDB20
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041BE20 (ZwQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
  */
 
 __int64 __fastcall RtlSystemTimeToLocalTime(_QWORD *a1, _QWORD *a2)

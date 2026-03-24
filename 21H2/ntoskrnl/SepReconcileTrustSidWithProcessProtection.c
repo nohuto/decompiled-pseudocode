@@ -1,49 +1,55 @@
 /*
- * XREFs of SepReconcileTrustSidWithProcessProtection @ 0x1402F8EF0
+ * XREFs of SepReconcileTrustSidWithProcessProtection @ 0x14027DE60
  * Callers:
- *     SepReferenceTokenUsingPseudoHandle @ 0x14023B484 (SepReferenceTokenUsingPseudoHandle.c)
- *     SeCreateClientSecurity @ 0x1407271D0 (SeCreateClientSecurity.c)
- *     SeCreateClientSecurityEx @ 0x1407275D0 (SeCreateClientSecurityEx.c)
+ *     SeCreateClientSecurity @ 0x14065DD70 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurityEx @ 0x14065DF60 (SeCreateClientSecurityEx.c)
  * Callees:
- *     RtlIsValidProcessTrustLabelSid @ 0x1402324B4 (RtlIsValidProcessTrustLabelSid.c)
- *     SepSidFromProcessProtection @ 0x1402F9578 (SepSidFromProcessProtection.c)
+ *     SepSidFromProcessProtection @ 0x14027DEE0 (SepSidFromProcessProtection.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x14027E770 (RtlIsValidProcessTrustLabelSid.c)
  */
 
-char __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, __int64 a2, _BYTE *a3, _QWORD *a4)
+__int64 __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, __int64 a2, _BYTE *a3, _QWORD *a4)
 {
-  __int64 v5; // rax
-  __int64 v6; // r10
-  _QWORD *v7; // r9
-  __int64 v8; // r11
+  __int64 result; // rax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  _QWORD *v8; // r9
   __int64 v9; // r10
+  __int64 v10; // r11
+  __int64 v11; // r10
 
   *a3 = 0;
   *a4 = 0LL;
-  v5 = SepSidFromProcessProtection(a2);
-  if ( v5 )
+  result = SepSidFromProcessProtection(a2);
+  if ( result )
   {
-    LOBYTE(v5) = RtlIsValidProcessTrustLabelSid(v5);
-    if ( !(_BYTE)v5 )
+    result = RtlIsValidProcessTrustLabelSid(result, v6, v7, v8);
+    if ( !(_BYTE)result )
       goto LABEL_12;
   }
-  if ( !v6 )
-    return v5;
-  LOBYTE(v5) = RtlIsValidProcessTrustLabelSid(v6);
-  if ( !(_BYTE)v5 )
-    goto LABEL_12;
-  if ( !v8 )
+  if ( v9 )
   {
-    if ( !*(_DWORD *)(v9 + 8) )
-      return v5;
-    goto LABEL_12;
-  }
-  LODWORD(v5) = *(_DWORD *)(v9 + 8);
-  if ( *(_DWORD *)(v8 + 8) < (unsigned int)v5
-    || (LODWORD(v5) = *(_DWORD *)(v9 + 12), *(_DWORD *)(v8 + 12) < (unsigned int)v5) )
-  {
+    result = RtlIsValidProcessTrustLabelSid(v9, v6, v7, v8);
+    if ( (_BYTE)result )
+    {
+      if ( v10 )
+      {
+        result = *(unsigned int *)(v11 + 8);
+        if ( *(_DWORD *)(v10 + 8) >= (unsigned int)result )
+        {
+          result = *(unsigned int *)(v11 + 12);
+          if ( *(_DWORD *)(v10 + 12) >= (unsigned int)result )
+            return result;
+        }
+      }
+      else if ( !*(_DWORD *)(v11 + 8) )
+      {
+        return result;
+      }
+    }
 LABEL_12:
     *a3 = 1;
-    *v7 = v8;
+    *v8 = v10;
   }
-  return v5;
+  return result;
 }

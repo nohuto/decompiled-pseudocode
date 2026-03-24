@@ -1,32 +1,32 @@
 /*
- * XREFs of VfFreeAdapterChannel @ 0x140AC7030
+ * XREFs of VfFreeAdapterChannel @ 0x1409CB960
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViRemoveChannelWcb @ 0x1405CEBEC (ViRemoveChannelWcb.c)
- *     DECREMENT_ADAPTER_CHANNELS @ 0x140AC5290 (DECREMENT_ADAPTER_CHANNELS.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140AC558C (SUBTRACT_MAP_REGISTERS.c)
- *     VF_ASSERT_IRQL @ 0x140AC56AC (VF_ASSERT_IRQL.c)
- *     ViFreeMapRegisterFile @ 0x140AC9A90 (ViFreeMapRegisterFile.c)
- *     ViGetAdapterInformationInternal @ 0x140AC9E44 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140ACA158 (ViGetRealDmaAdapter.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViRemoveChannelWcb @ 0x1405A11F8 (ViRemoveChannelWcb.c)
+ *     DECREMENT_ADAPTER_CHANNELS @ 0x1409C9CE0 (DECREMENT_ADAPTER_CHANNELS.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x1409C9FDC (SUBTRACT_MAP_REGISTERS.c)
+ *     VF_ASSERT_IRQL @ 0x1409CA0FC (VF_ASSERT_IRQL.c)
+ *     ViFreeMapRegisterFile @ 0x1409CE3D4 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CE758 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x1409CEA60 (ViGetRealDmaOperation.c)
  */
 
-void __fastcall VfFreeAdapterChannel(int a1)
+void __fastcall VfFreeAdapterChannel(__int64 a1)
 {
-  __int64 AdapterInformationInternal; // rdi
-  __int64 RealDmaAdapter; // rax
+  void (__fastcall *RealDmaOperation)(__int64); // rbx
+  __int64 AdapterInformationInternal; // rsi
   __int64 v4; // rbx
 
   VF_ASSERT_IRQL(2u);
+  RealDmaOperation = (void (__fastcall *)(__int64))ViGetRealDmaOperation(a1);
   AdapterInformationInternal = ViGetAdapterInformationInternal(a1);
-  RealDmaAdapter = ViGetRealDmaAdapter(a1);
-  (*(void (__fastcall **)(__int64))(*(_QWORD *)(RealDmaAdapter + 8) + 48LL))(RealDmaAdapter);
+  RealDmaOperation(a1);
   if ( AdapterInformationInternal )
   {
-    _InterlockedExchange((volatile __int32 *)(AdapterInformationInternal + 220), 0);
+    _InterlockedExchange((volatile __int32 *)(AdapterInformationInternal + 188), 0);
     v4 = ViRemoveChannelWcb(AdapterInformationInternal, 0LL, 0LL);
     if ( v4 )
     {

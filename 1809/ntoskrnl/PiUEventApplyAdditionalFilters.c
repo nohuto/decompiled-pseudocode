@@ -2,9 +2,9 @@
  * XREFs of PiUEventApplyAdditionalFilters @ 0x14058FB68
  * Callers:
  *     PiUEventNotifyTargetDeviceChange @ 0x14058F668 (PiUEventNotifyTargetDeviceChange.c)
- *     PiUEventNotifyDeviceInstanceChange @ 0x1406FEEF4 (PiUEventNotifyDeviceInstanceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x14070EC84 (PiUEventNotifyDeviceInstancePropertyChange.c)
- *     PiUEventNotifyDeviceInterfaceChange @ 0x14071006C (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x1406FEED4 (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x14070EC64 (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x14071004C (PiUEventNotifyDeviceInterfaceChange.c)
  * Callees:
  *     PiAuVerifyAccessToObject @ 0x140595360 (PiAuVerifyAccessToObject.c)
  *     PiPnpRtlApplyMandatoryFilters @ 0x140595FCC (PiPnpRtlApplyMandatoryFilters.c)

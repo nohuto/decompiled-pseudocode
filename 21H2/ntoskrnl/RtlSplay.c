@@ -1,189 +1,176 @@
 /*
- * XREFs of RtlSplay @ 0x14021ECC0
+ * XREFs of RtlSplay @ 0x140359770
  * Callers:
- *     FsRtlCheckNoExclusiveConflict @ 0x14021DC48 (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlPrivateInsertSharedLock @ 0x14021E6C4 (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x14021E818 (FsRtlPrivateCheckForSharedLockAccess.c)
- *     RtlInsertElementGenericTableFull @ 0x14021EAA0 (RtlInsertElementGenericTableFull.c)
- *     RtlDelete @ 0x14021EBA0 (RtlDelete.c)
- *     RtlLookupElementGenericTable @ 0x14021EC40 (RtlLookupElementGenericTable.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x14021F198 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     FsRtlCheckNoSharedConflict @ 0x1403750E4 (FsRtlCheckNoSharedConflict.c)
- *     RtlEnumerateGenericTable @ 0x1403B6980 (RtlEnumerateGenericTable.c)
- *     RtlLookupElementGenericTableFull @ 0x1405EB310 (RtlLookupElementGenericTableFull.c)
- *     RtlInsertUnicodePrefix @ 0x140694730 (RtlInsertUnicodePrefix.c)
- *     RtlFindUnicodePrefix @ 0x140694880 (RtlFindUnicodePrefix.c)
- *     PfxFindPrefix @ 0x1409B7900 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x1409B7A00 (PfxInsertPrefix.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402ADB54 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     RtlInsertElementGenericTableFull @ 0x1402B8E50 (RtlInsertElementGenericTableFull.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x140359518 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x14035966C (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     RtlLookupElementGenericTable @ 0x1403596F0 (RtlLookupElementGenericTable.c)
+ *     RtlDelete @ 0x140359960 (RtlDelete.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x14036BC98 (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlCheckNoSharedConflict @ 0x14036C880 (FsRtlCheckNoSharedConflict.c)
+ *     RtlEnumerateGenericTable @ 0x140382190 (RtlEnumerateGenericTable.c)
+ *     RtlLookupElementGenericTableFull @ 0x14058BC90 (RtlLookupElementGenericTableFull.c)
+ *     RtlInsertUnicodePrefix @ 0x140693770 (RtlInsertUnicodePrefix.c)
+ *     RtlFindUnicodePrefix @ 0x1406938D0 (RtlFindUnicodePrefix.c)
+ *     PfxFindPrefix @ 0x140911CE0 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x140911DE0 (PfxInsertPrefix.c)
  * Callees:
  *     <none>
  */
 
 PRTL_SPLAY_LINKS __stdcall RtlSplay(PRTL_SPLAY_LINKS Links)
 {
-  _RTL_SPLAY_LINKS *i; // rax
+  _RTL_SPLAY_LINKS *Parent; // rax
   RTL_SPLAY_LINKS *LeftChild; // r8
-  _RTL_SPLAY_LINKS *Parent; // rdx
-  _RTL_SPLAY_LINKS *v5; // r8
-  _RTL_SPLAY_LINKS *v6; // r8
-  _RTL_SPLAY_LINKS **p_LeftChild; // r8
+  _RTL_SPLAY_LINKS *v4; // rdx
+  _RTL_SPLAY_LINKS *RightChild; // rdx
+  _RTL_SPLAY_LINKS *v6; // rdx
+  _RTL_SPLAY_LINKS *v7; // r8
   _RTL_SPLAY_LINKS *v8; // r8
-  _RTL_SPLAY_LINKS **v9; // r8
+  _RTL_SPLAY_LINKS *v9; // r8
   _RTL_SPLAY_LINKS *v10; // r8
   _RTL_SPLAY_LINKS *v11; // r8
-  _RTL_SPLAY_LINKS **v12; // r8
+  _RTL_SPLAY_LINKS **p_RightChild; // r8
   _RTL_SPLAY_LINKS *v13; // r8
   _RTL_SPLAY_LINKS *v14; // r8
-  _RTL_SPLAY_LINKS **p_RightChild; // r8
-  _RTL_SPLAY_LINKS *RightChild; // rdx
-  _RTL_SPLAY_LINKS *v17; // rdx
+  _RTL_SPLAY_LINKS **v15; // r8
+  _RTL_SPLAY_LINKS **p_LeftChild; // r8
+  _RTL_SPLAY_LINKS **v17; // r8
 
-  for ( i = Links->Parent; Links->Parent != Links; i = Links->Parent )
+  while ( 1 )
   {
-    LeftChild = i->LeftChild;
-    Parent = i->Parent;
+    Parent = Links->Parent;
+    if ( Links->Parent == Links )
+      return Links;
+    LeftChild = Parent->LeftChild;
+    v4 = Parent->Parent;
     if ( LeftChild == Links )
     {
-      if ( Parent == i )
+      if ( v4 == Parent )
       {
         RightChild = Links->RightChild;
-        i->LeftChild = RightChild;
+        Parent->LeftChild = RightChild;
         if ( RightChild )
-          RightChild->Parent = i;
-        Links->RightChild = i;
-        i->Parent = Links;
-        Links->Parent = Links;
+          RightChild->Parent = Parent;
+        Links->RightChild = Parent;
+        goto LABEL_8;
       }
-      else if ( Parent->LeftChild == i )
+      if ( v4->LeftChild == Parent )
       {
-        v5 = Links->RightChild;
-        i->LeftChild = v5;
-        if ( v5 )
-          v5->Parent = i;
-        v6 = i->RightChild;
-        Parent->LeftChild = v6;
-        if ( v6 )
-          v6->Parent = Parent;
-        if ( Parent->Parent == Parent )
+        v7 = Links->RightChild;
+        Parent->LeftChild = v7;
+        if ( v7 )
+          v7->Parent = Parent;
+        v8 = Parent->RightChild;
+        v4->LeftChild = v8;
+        if ( v8 )
+          v8->Parent = v4;
+        if ( v4->Parent == v4 )
         {
           Links->Parent = Links;
         }
         else
         {
-          Links->Parent = Parent->Parent;
-          p_LeftChild = &Parent->Parent->LeftChild;
-          if ( *p_LeftChild != Parent )
-            p_LeftChild = &Parent->Parent->RightChild;
+          Links->Parent = v4->Parent;
+          p_LeftChild = &v4->Parent->LeftChild;
+          if ( *p_LeftChild != v4 )
+            p_LeftChild = &v4->Parent->RightChild;
           *p_LeftChild = Links;
         }
-        Links->RightChild = i;
-        i->Parent = Links;
-        i->RightChild = Parent;
-        Parent->Parent = i;
+        Links->RightChild = Parent;
+        Parent->RightChild = v4;
+        goto LABEL_21;
       }
-      else
-      {
-        v13 = Links->LeftChild;
-        Parent->RightChild = v13;
-        if ( v13 )
-          v13->Parent = Parent;
-        v14 = Links->RightChild;
-        i->LeftChild = v14;
-        if ( v14 )
-          v14->Parent = i;
-        if ( Parent->Parent == Parent )
-        {
-          Links->Parent = Links;
-          Links->LeftChild = Parent;
-          Parent->Parent = Links;
-          Links->RightChild = i;
-          i->Parent = Links;
-        }
-        else
-        {
-          Links->Parent = Parent->Parent;
-          p_RightChild = &Parent->Parent->LeftChild;
-          if ( *p_RightChild != Parent )
-            p_RightChild = &Parent->Parent->RightChild;
-          *p_RightChild = Links;
-          Links->LeftChild = Parent;
-          Parent->Parent = Links;
-          Links->RightChild = i;
-          i->Parent = Links;
-        }
-      }
-    }
-    else if ( Parent == i )
-    {
-      v17 = Links->LeftChild;
-      i->RightChild = v17;
-      if ( v17 )
-        v17->Parent = i;
-      Links->LeftChild = i;
-      i->Parent = Links;
-      Links->Parent = Links;
-    }
-    else if ( Parent->RightChild == i )
-    {
-      Parent->RightChild = LeftChild;
-      if ( LeftChild )
-        LeftChild->Parent = Parent;
-      v8 = Links->LeftChild;
-      i->RightChild = v8;
-      if ( v8 )
-        v8->Parent = i;
-      if ( Parent->Parent == Parent )
-      {
-        Links->Parent = Links;
-        Links->LeftChild = i;
-        i->Parent = Links;
-        i->LeftChild = Parent;
-        Parent->Parent = i;
-      }
-      else
-      {
-        Links->Parent = Parent->Parent;
-        v9 = &Parent->Parent->LeftChild;
-        if ( *v9 != Parent )
-          v9 = &Parent->Parent->RightChild;
-        *v9 = Links;
-        Links->LeftChild = i;
-        i->Parent = Links;
-        i->LeftChild = Parent;
-        Parent->Parent = i;
-      }
-    }
-    else
-    {
       v10 = Links->LeftChild;
-      i->RightChild = v10;
+      v4->RightChild = v10;
       if ( v10 )
-        v10->Parent = i;
+        v10->Parent = v4;
       v11 = Links->RightChild;
       Parent->LeftChild = v11;
       if ( v11 )
         v11->Parent = Parent;
-      if ( Parent->Parent == Parent )
+      if ( v4->Parent == v4 )
       {
         Links->Parent = Links;
-        Links->LeftChild = i;
-        i->Parent = Links;
-        Links->RightChild = Parent;
-        Parent->Parent = Links;
       }
       else
       {
-        Links->Parent = Parent->Parent;
-        v12 = &Parent->Parent->LeftChild;
-        if ( *v12 != Parent )
-          v12 = &Parent->Parent->RightChild;
-        *v12 = Links;
-        Links->LeftChild = i;
-        i->Parent = Links;
-        Links->RightChild = Parent;
-        Parent->Parent = Links;
+        Links->Parent = v4->Parent;
+        p_RightChild = &v4->Parent->LeftChild;
+        if ( *p_RightChild != v4 )
+          p_RightChild = &v4->Parent->RightChild;
+        *p_RightChild = Links;
       }
+      Links->LeftChild = v4;
+      v4->Parent = Links;
+      Links->RightChild = Parent;
+      Parent->Parent = Links;
+    }
+    else if ( v4 == Parent )
+    {
+      v6 = Links->LeftChild;
+      Parent->RightChild = v6;
+      if ( v6 )
+        v6->Parent = Parent;
+      Links->LeftChild = Parent;
+LABEL_8:
+      Parent->Parent = Links;
+      Links->Parent = Links;
+    }
+    else if ( v4->RightChild == Parent )
+    {
+      v4->RightChild = LeftChild;
+      if ( LeftChild )
+        LeftChild->Parent = v4;
+      v9 = Links->LeftChild;
+      Parent->RightChild = v9;
+      if ( v9 )
+        v9->Parent = Parent;
+      if ( v4->Parent == v4 )
+      {
+        Links->Parent = Links;
+      }
+      else
+      {
+        Links->Parent = v4->Parent;
+        v17 = &v4->Parent->LeftChild;
+        if ( *v17 != v4 )
+          v17 = &v4->Parent->RightChild;
+        *v17 = Links;
+      }
+      Links->LeftChild = Parent;
+      Parent->LeftChild = v4;
+LABEL_21:
+      Parent->Parent = Links;
+      v4->Parent = Parent;
+    }
+    else
+    {
+      v13 = Links->LeftChild;
+      Parent->RightChild = v13;
+      if ( v13 )
+        v13->Parent = Parent;
+      v14 = Links->RightChild;
+      v4->LeftChild = v14;
+      if ( v14 )
+        v14->Parent = v4;
+      if ( v4->Parent == v4 )
+      {
+        Links->Parent = Links;
+      }
+      else
+      {
+        Links->Parent = v4->Parent;
+        v15 = &v4->Parent->LeftChild;
+        if ( *v15 != v4 )
+          v15 = &v4->Parent->RightChild;
+        *v15 = Links;
+      }
+      Links->LeftChild = Parent;
+      Parent->Parent = Links;
+      Links->RightChild = v4;
+      v4->Parent = Links;
     }
   }
-  return Links;
 }

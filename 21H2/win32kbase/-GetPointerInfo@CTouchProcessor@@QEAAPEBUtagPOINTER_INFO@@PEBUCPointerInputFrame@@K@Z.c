@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetPointerInfo@CTouchProcessor@@QEAAPEBUtagPOINTER_INFO@@PEBUCPointerInputFrame@@K@Z @ 0x1C01CB070
+ * XREFs of ?GetPointerInfo@CTouchProcessor@@QEAAPEBUtagPOINTER_INFO@@PEBUCPointerInputFrame@@K@Z @ 0x1C0193B40
  * Callers:
- *     ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01E625C (-ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
+ *     ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01AD228 (-ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
  * Callees:
- *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C0088D40 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C0088D80 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01CE868 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C007B3E0 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
+ *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCAC0 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01971B4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
  */
 
 const struct tagPOINTER_INFO *__fastcall CTouchProcessor::GetPointerInfo(
@@ -17,17 +17,15 @@ const struct tagPOINTER_INFO *__fastcall CTouchProcessor::GetPointerInfo(
   int IsValid; // eax
   __int64 v6; // rcx
   __int64 v7; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  CInpLockGuard *v11[7]; // [rsp+20h] [rbp-38h] BYREF
+  CInpLockGuard *v9[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v4 = a3;
   CInpLockGuardExclusive::CInpLockGuardExclusive(
-    (CInpLockGuardExclusive *)v11,
-    (CTouchProcessor *)((char *)this + 32),
+    (CInpLockGuardExclusive *)v9,
+    (CTouchProcessor *)((char *)this + 40),
     0LL);
-  IsValid = CPointerInfoNode::IsValid((CPointerInfoNode *)(*((_QWORD *)a2 + 30) + 480 * v4));
+  IsValid = CPointerInfoNode::IsValid((CPointerInfoNode *)(*((_QWORD *)a2 + 17) + 480 * v4));
   v7 = (v6 + 168) & -(__int64)(IsValid != 0);
-  CInpLockGuardExclusive::~CInpLockGuardExclusive(v11, v8, v9);
+  CInpLockGuardExclusive::~CInpLockGuardExclusive(v9);
   return (const struct tagPOINTER_INFO *)v7;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of GreUnlockVisRgn @ 0x1C002E140
+ * XREFs of GreUnlockVisRgn @ 0x1C0038AB0
  * Callers:
- *     NtUserGetDC @ 0x1C00295D0 (NtUserGetDC.c)
- *     ReleaseCacheDC @ 0x1C002A470 (ReleaseCacheDC.c)
- *     _GetDCEx @ 0x1C002B0A0 (_GetDCEx.c)
- *     xxxUserProcessCallout @ 0x1C00369B0 (xxxUserProcessCallout.c)
- *     DelayedDestroyCacheDC @ 0x1C005197C (DelayedDestroyCacheDC.c)
- *     DestroyCacheDCEntries @ 0x1C0051A48 (DestroyCacheDCEntries.c)
- *     DestroyCacheDC @ 0x1C0051AF0 (DestroyCacheDC.c)
- *     DestroyMonitorDCs @ 0x1C005D530 (DestroyMonitorDCs.c)
- *     InitUserScreen @ 0x1C006C88C (InitUserScreen.c)
- *     xxxEnumDisplayMonitors @ 0x1C006E680 (xxxEnumDisplayMonitors.c)
- *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C006FB60 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
- *     UserGetMonitorDC @ 0x1C0071A64 (UserGetMonitorDC.c)
- *     GreSuspendDirectDraw @ 0x1C0074F80 (GreSuspendDirectDraw.c)
- *     ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C0075534 (-DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z.c)
- *     GreRestoreDCInternal @ 0x1C00BEFB0 (GreRestoreDCInternal.c)
+ *     DelayedDestroyCacheDC @ 0x1C000737C (DelayedDestroyCacheDC.c)
+ *     DestroyCacheDCEntries @ 0x1C0007448 (DestroyCacheDCEntries.c)
+ *     DestroyCacheDC @ 0x1C00074F0 (DestroyCacheDC.c)
+ *     ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C00106D8 (-DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z.c)
+ *     GreSuspendDirectDraw @ 0x1C0010790 (GreSuspendDirectDraw.c)
+ *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C0010D28 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
+ *     UserGetMonitorDC @ 0x1C00211C8 (UserGetMonitorDC.c)
+ *     NtUserGetDC @ 0x1C00356D0 (NtUserGetDC.c)
+ *     ReleaseCacheDC @ 0x1C00366B0 (ReleaseCacheDC.c)
+ *     _GetDCEx @ 0x1C0036C00 (_GetDCEx.c)
+ *     xxxUserProcessCallout @ 0x1C003BE30 (xxxUserProcessCallout.c)
+ *     InitUserScreen @ 0x1C006A78C (InitUserScreen.c)
+ *     xxxEnumDisplayMonitors @ 0x1C006FE90 (xxxEnumDisplayMonitors.c)
+ *     DestroyMonitorDCs @ 0x1C00C3150 (DestroyMonitorDCs.c)
+ *     GreRestoreDCInternal @ 0x1C00CC090 (GreRestoreDCInternal.c)
  * Callees:
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0178D70 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CA60 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall GreUnlockVisRgn(int a1, __int64 a2, int a3)
@@ -36,7 +36,7 @@ __int64 __fastcall GreUnlockVisRgn(int a1, __int64 a2, int a3)
   v3 = (int)ghsemDCVisRgn;
   if ( ghsemDCVisRgn )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemDCVisRgn);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDCVisRgn);
     result = PsLeavePriorityRegion();
   }
   if ( gbLockEtw && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
@@ -49,7 +49,7 @@ __int64 __fastcall GreUnlockVisRgn(int a1, __int64 a2, int a3)
   v5 = (int)ghsemGreLock;
   if ( ghsemGreLock )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemGreLock);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemGreLock);
     result = PsLeavePriorityRegion();
   }
   if ( gbLockEtw && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
@@ -61,7 +61,7 @@ __int64 __fastcall GreUnlockVisRgn(int a1, __int64 a2, int a3)
                (__int64)L"ghsemDynamicModeChange");
   if ( ghsemDynamicModeChange )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(ghsemDynamicModeChange);
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
     return PsLeavePriorityRegion();
   }
   return result;

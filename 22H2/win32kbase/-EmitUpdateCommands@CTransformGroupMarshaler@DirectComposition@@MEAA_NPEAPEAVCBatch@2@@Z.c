@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CTransformGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000D680
+ * XREFs of ?EmitUpdateCommands@CTransformGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0003DF0
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00293EC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@Z @ 0x1C009BD78 (-Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@.c)
+ *     ?EmitSetChildrenCommand@CTransformGroupMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0003E3C (-EmitSetChildrenCommand@CTransformGroupMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062DEC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 bool __fastcall DirectComposition::CTransformGroupMarshaler::EmitUpdateCommands(
@@ -15,13 +15,6 @@ bool __fastcall DirectComposition::CTransformGroupMarshaler::EmitUpdateCommands(
 
   v4 = 0;
   if ( DirectComposition::CPropertyChangeResourceMarshaler::EmitUpdateCommands(this, a2) )
-    return (unsigned __int8)DirectComposition::CResourceMarshalerArrayBase::Marshal(
-                              (char *)this + 72,
-                              a2,
-                              *((unsigned int *)this + 8),
-                              (char *)this + 16,
-                              128,
-                              696,
-                              697) != 0;
+    return DirectComposition::CTransformGroupMarshaler::EmitSetChildrenCommand(this, a2);
   return v4;
 }

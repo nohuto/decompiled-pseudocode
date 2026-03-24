@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpTimerWatchdogWakeSetDueTime @ 0x1403D3E6C
+ * XREFs of HalpTimerWatchdogWakeSetDueTime @ 0x1403933BC
  * Callers:
- *     HalpTimerWatchdogResetCountdown @ 0x1403D3E10 (HalpTimerWatchdogResetCountdown.c)
- *     HalpTimerWatchdogStart @ 0x14050B7A0 (HalpTimerWatchdogStart.c)
+ *     HalpTimerWatchdogResetCountdown @ 0x140393360 (HalpTimerWatchdogResetCountdown.c)
+ *     HalpTimerWatchdogStart @ 0x1404C25B0 (HalpTimerWatchdogStart.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ void HalpTimerWatchdogWakeSetDueTime()
   if ( !HalpWatchdogTimer || (*(_DWORD *)(HalpWatchdogTimer + 224) & 0x80000) == 0 )
   {
     v0 = HalpTimerWatchdogTimeout;
-    if ( HalpWatchdogTimer && *(_DWORD *)(HalpWatchdogTimer + 228) == 7 )
+    if ( HalpWatchdogTimer && *(_DWORD *)(HalpWatchdogTimer + 228) == 8 )
       v0 = (unsigned __int64)HalpTimerWatchdogTimeout >> 1;
     if ( v0 <= 0x2FAF0800 )
       v1 = v0 >> 1;

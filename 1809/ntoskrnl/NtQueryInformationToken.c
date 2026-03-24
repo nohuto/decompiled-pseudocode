@@ -1,8 +1,8 @@
 /*
  * XREFs of NtQueryInformationToken @ 0x14062A760
  * Callers:
- *     RtlGetAppContainerNamedObjectPath @ 0x1402EDCD0 (RtlGetAppContainerNamedObjectPath.c)
- *     RtlpGetTokenNamedObjectPath @ 0x140894DCC (RtlpGetTokenNamedObjectPath.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x1402EDDD0 (RtlGetAppContainerNamedObjectPath.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x140894DAC (RtlpGetTokenNamedObjectPath.c)
  * Callees:
  *     SepDeReferenceLogonSessionDirect @ 0x1400140A0 (SepDeReferenceLogonSessionDirect.c)
  *     SeQueryMandatoryPolicyToken @ 0x14001428C (SeQueryMandatoryPolicyToken.c)
@@ -14,12 +14,12 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     SepCopyTokenIntegrity @ 0x140091E20 (SepCopyTokenIntegrity.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x1400A6AA8 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     AuthzBasepQuerySecurityAttributesToken @ 0x1400A6B50 (AuthzBasepQuerySecurityAttributesToken.c)
- *     SepReferenceTokenByHandle @ 0x1400A8D60 (SepReferenceTokenByHandle.c)
- *     KeEnterCriticalRegion @ 0x1400B9BE0 (KeEnterCriticalRegion.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1400A6AC8 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1400A6B70 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     SepReferenceTokenByHandle @ 0x1400A8D80 (SepReferenceTokenByHandle.c)
+ *     KeEnterCriticalRegion @ 0x1400B9C00 (KeEnterCriticalRegion.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     SepReferenceLogonSessionSilo @ 0x1405BD728 (SepReferenceLogonSessionSilo.c)
  *     SepCopyTokenAccessInformation @ 0x1405BF0C8 (SepCopyTokenAccessInformation.c)
  *     SepGetTokenAccessInformationBufferSize @ 0x1405BF4A0 (SepGetTokenAccessInformationBufferSize.c)
@@ -28,11 +28,11 @@
  *     ObInsertObject @ 0x14061B280 (ObInsertObject.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  *     RtlCopySidAndAttributesArray @ 0x14062CDA0 (RtlCopySidAndAttributesArray.c)
- *     RtlCopySid @ 0x1406491B0 (RtlCopySid.c)
- *     SepDuplicateToken @ 0x1406494A0 (SepDuplicateToken.c)
- *     RtlIsElevatedRid @ 0x140654EF0 (RtlIsElevatedRid.c)
- *     SeQuerySessionIdToken @ 0x14069E480 (SeQuerySessionIdToken.c)
- *     AuthzBasepQueryClaimAttributesToken @ 0x1406B3428 (AuthzBasepQueryClaimAttributesToken.c)
+ *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
+ *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
+ *     RtlIsElevatedRid @ 0x140654ED0 (RtlIsElevatedRid.c)
+ *     SeQuerySessionIdToken @ 0x14069E460 (SeQuerySessionIdToken.c)
+ *     AuthzBasepQueryClaimAttributesToken @ 0x1406B3408 (AuthzBasepQueryClaimAttributesToken.c)
  */
 
 NTSTATUS __stdcall NtQueryInformationToken(

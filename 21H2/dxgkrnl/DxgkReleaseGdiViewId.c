@@ -1,26 +1,26 @@
 /*
- * XREFs of DxgkReleaseGdiViewId @ 0x1C03496C8
+ * XREFs of DxgkReleaseGdiViewId @ 0x1C02A01B4
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
- *     DpiGdoDestroyGdiObjects @ 0x1C039834C (DpiGdoDestroyGdiObjects.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
+ *     DpiGdoDestroyGdiObjects @ 0x1C02D9DC0 (DpiGdoDestroyGdiObjects.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?ReleaseSessionGdiViewId@DXGSESSIONDATA@@QEAAXKE@Z @ 0x1C03483AC (-ReleaseSessionGdiViewId@DXGSESSIONDATA@@QEAAXKE@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?ReleaseSessionGdiViewId@DXGSESSIONDATA@@QEAAXKE@Z @ 0x1C029F1CC (-ReleaseSessionGdiViewId@DXGSESSIONDATA@@QEAAXKE@Z.c)
  */
 
-void __fastcall DxgkReleaseGdiViewId(char a1, __int64 a2, unsigned __int32 a3, char a4)
+void __fastcall DxgkReleaseGdiViewId(__int64 a1, __int64 a2, unsigned __int32 a3, char a4)
 {
   unsigned int v6; // esi
   struct DXGGLOBAL *Global; // rax
   DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
 
   v6 = a2;
-  if ( a1 )
+  if ( (_BYTE)a1 )
   {
-    Global = DXGGLOBAL_GetGlobal();
+    Global = DXGGLOBAL::GetGlobal(a1, a2);
     SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
-                                       *((DXGSESSIONMGR **)Global + 122),
+                                       *((DXGSESSIONMGR **)Global + 102),
                                        v6);
     if ( SessionDataForSpecifiedSession )
       DXGSESSIONDATA::ReleaseSessionGdiViewId(SessionDataForSpecifiedSession, a3, a4);

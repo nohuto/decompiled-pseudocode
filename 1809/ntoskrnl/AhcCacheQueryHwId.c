@@ -1,15 +1,15 @@
 /*
- * XREFs of AhcCacheQueryHwId @ 0x140905268
+ * XREFs of AhcCacheQueryHwId @ 0x140905248
  * Callers:
- *     NtApphelpCacheControl @ 0x140661D10 (NtApphelpCacheControl.c)
+ *     NtApphelpCacheControl @ 0x140661CF0 (NtApphelpCacheControl.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     ExGetPreviousMode @ 0x1400DDC50 (ExGetPreviousMode.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     ExGetPreviousMode @ 0x1400DDC70 (ExGetPreviousMode.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     KseLookupHardwareId @ 0x140848A54 (KseLookupHardwareId.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     KseLookupHardwareId @ 0x140848A34 (KseLookupHardwareId.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall AhcCacheQueryHwId(unsigned __int64 a1)

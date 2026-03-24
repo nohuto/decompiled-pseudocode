@@ -1,11 +1,11 @@
 /*
- * XREFs of ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1C0378690
+ * XREFs of ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1C037C5D0
  * Callers:
  *     <none>
  * Callees:
- *     EnableFlushTimer @ 0x1C0259BE4 (EnableFlushTimer.c)
- *     LookUpTableFlushComplete @ 0x1C0377D4C (LookUpTableFlushComplete.c)
- *     LookUpTableFlushPartial @ 0x1C0378610 (LookUpTableFlushPartial.c)
+ *     EnableFlushTimer @ 0x1C025CEF4 (EnableFlushTimer.c)
+ *     LookUpTableFlushComplete @ 0x1C037BCC4 (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x1C037C550 (LookUpTableFlushPartial.c)
  */
 
 void __fastcall TlgAggregateInternalFlushWorkItemRoutineKernelMode(__int64 a1)

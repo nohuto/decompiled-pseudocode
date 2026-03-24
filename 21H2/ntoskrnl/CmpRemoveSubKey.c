@@ -1,43 +1,34 @@
 /*
- * XREFs of CmpRemoveSubKey @ 0x140716ED0
+ * XREFs of CmpRemoveSubKey @ 0x14066B95C
  * Callers:
- *     CmpFreeKeyByCell @ 0x1407164DC (CmpFreeKeyByCell.c)
+ *     CmpFreeKeyByCell @ 0x14066B280 (CmpFreeKeyByCell.c)
  * Callees:
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpRemoveSubKeyFromList @ 0x140716F80 (CmpRemoveSubKeyFromList.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpRemoveSubKeyFromList @ 0x14066B670 (CmpRemoveSubKeyFromList.c)
  */
 
-char __fastcall CmpRemoveSubKey(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, unsigned int a3)
+char __fastcall CmpRemoveSubKey(ULONG_PTR a1, __int64 a2, unsigned int a3)
 {
-  unsigned __int64 v4; // rdi
-  __int64 CellFlat; // rax
-  __int64 v6; // rsi
-  unsigned __int64 v7; // rbp
-  char v8; // di
-  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v5; // rax
+  __int64 v6; // rbp
+  unsigned __int64 v7; // rdi
+  char v8; // bl
+  int v10; // [rsp+30h] [rbp+8h] BYREF
+  int v11; // [rsp+34h] [rbp+Ch]
 
-  v10 = 0xFFFFFFFFLL;
-  v4 = a3;
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(BugCheckParameter3, a2, &v10);
-  else
-    CellFlat = HvpGetCellPaged(BugCheckParameter3);
-  v6 = CellFlat;
-  if ( !CellFlat )
+  v10 = -1;
+  v11 = 0;
+  v5 = (*(__int64 (__fastcall **)(ULONG_PTR, __int64, int *))(a1 + 8))(a1, a2, &v10);
+  v6 = v5;
+  if ( !v5 )
     return 0;
-  v7 = v4 >> 31;
-  v8 = CmpRemoveSubKeyFromList(BugCheckParameter3);
+  v7 = (unsigned __int64)a3 >> 31;
+  v8 = CmpRemoveSubKeyFromList(a1, (int *)(v5 + 4 * v7 + 28), a3);
   if ( v8 )
   {
     --*(_DWORD *)(v6 + 4 * v7 + 20);
     v8 = 1;
   }
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, &v10);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, &v10);
+  (*(void (__fastcall **)(ULONG_PTR, int *))(a1 + 16))(a1, &v10);
   return v8;
 }

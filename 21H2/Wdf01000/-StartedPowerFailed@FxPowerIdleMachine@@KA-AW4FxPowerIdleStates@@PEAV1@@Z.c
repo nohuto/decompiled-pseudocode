@@ -1,14 +1,13 @@
 /*
- * XREFs of ?StartedPowerFailed@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C0089820
+ * XREFs of ?StartedPowerFailed@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C000DE60
  * Callers:
  *     <none>
  * Callees:
- *     ?SendD0Notification@FxPowerIdleMachine@@IEAAXXZ @ 0x1C0011F68 (-SendD0Notification@FxPowerIdleMachine@@IEAAXXZ.c)
+ *     <none>
  */
 
 __int64 __fastcall FxPowerIdleMachine::StartedPowerFailed(FxPowerIdleMachine *This)
 {
   This->m_Flags |= 0x10u;
-  FxPowerIdleMachine::SendD0Notification(This);
-  return 35LL;
+  return 2LL;
 }

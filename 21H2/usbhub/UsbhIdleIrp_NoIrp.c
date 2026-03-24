@@ -1,21 +1,21 @@
 /*
- * XREFs of UsbhIdleIrp_NoIrp @ 0x1C0057830
+ * XREFs of UsbhIdleIrp_NoIrp @ 0x1C0058F00
  * Callers:
- *     UsbhIdleIrp_Event @ 0x1C00576A8 (UsbhIdleIrp_Event.c)
+ *     UsbhIdleIrp_Event @ 0x1C0058D78 (UsbhIdleIrp_Event.c)
  * Callees:
- *     UsbhSetIdleIrpState @ 0x1C0001418 (UsbhSetIdleIrpState.c)
- *     UsbhSetPdoIdleReady @ 0x1C0004C18 (UsbhSetPdoIdleReady.c)
- *     UsbhQueueWorkItemWithRetry @ 0x1C0005F10 (UsbhQueueWorkItemWithRetry.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhEtwLogDeviceIrpEvent @ 0x1C000E150 (UsbhEtwLogDeviceIrpEvent.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     UsbhIdleIrp_ReleaseIrp @ 0x1C0057B74 (UsbhIdleIrp_ReleaseIrp.c)
+ *     UsbhQueueWorkItemWithRetry @ 0x1C000BEB0 (UsbhQueueWorkItemWithRetry.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSetPdoIdleReady @ 0x1C0012EFC (UsbhSetPdoIdleReady.c)
+ *     UsbhEtwLogDeviceIrpEvent @ 0x1C0013F80 (UsbhEtwLogDeviceIrpEvent.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhSetIdleIrpState @ 0x1C0018E80 (UsbhSetIdleIrpState.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhIdleIrp_ReleaseIrp @ 0x1C0059244 (UsbhIdleIrp_ReleaseIrp.c)
  */
 
-__int64 __fastcall UsbhIdleIrp_NoIrp(_LIST_ENTRY *a1, _LIST_ENTRY *a2, IRP *a3, int a4, int a5, KIRQL NewIrql)
+__int64 __fastcall UsbhIdleIrp_NoIrp(ULONG_PTR a1, __int64 a2, IRP *a3, int a4, int a5, KIRQL NewIrql)
 {
   __int64 v7; // rbx
   _DWORD *v10; // r14
@@ -28,38 +28,38 @@ __int64 __fastcall UsbhIdleIrp_NoIrp(_LIST_ENTRY *a1, _LIST_ENTRY *a2, IRP *a3, 
   __int64 v18; // rcx
 
   v7 = a4;
-  v10 = PdoExt((__int64)a2);
-  v11 = FdoExt((__int64)a1);
-  Log((__int64)a1, 0x10000, 1936936521, (__int64)a2, (__int64)a3);
-  Log((__int64)a1, 0x10000, 1936936498, 0LL, v7);
+  v10 = PdoExt(a2);
+  v11 = FdoExt(a1);
+  Log(a1, 0x10000, 1936936521, a2, (__int64)a3);
+  Log(a1, 0x10000, 1936936498, 0LL, v7);
   if ( (_DWORD)v7 == 1 )
   {
     UsbhEtwLogDeviceIrpEvent((__int64)v10, (__int64)a3, &USBHUB_ETW_EVENT_DEVICE_IDLE_NOTIFICATION_DISPATCH, v13);
     if ( (v10[355] & 2) != 0 || v11[820] == 6 )
     {
-      UsbhSetIdleIrpState(v17, (__int64)a2, 1, 1, NewIrql);
+      UsbhSetIdleIrpState(v17, a2, 1, 1, NewIrql);
       v15 = 1768180017;
       goto LABEL_23;
     }
-    if ( (_LIST_ENTRY *)UsbhLatchPdo((__int64)a1, *((_WORD *)v10 + 714), (__int64)v10, 0x656C6449u) == a2 )
+    if ( UsbhLatchPdo(a1, *((_WORD *)v10 + 714), (__int64)v10, 0x656C6449u) == a2 )
     {
-      UsbhSetIdleIrpState(v18, (__int64)a2, 1, 1, NewIrql);
+      UsbhSetIdleIrpState(v18, a2, 1, 1, NewIrql);
       v10[360] = 0;
       a3->Tail.Overlay.CurrentStackLocation->Control |= 1u;
       Log(*((_QWORD *)v10 + 148), 16, 1768180018, 0LL, (__int64)a3);
       IoCsqInsertIrp((PIO_CSQ)(v10 + 366), a3, 0LL);
-      UsbhQueueWorkItemWithRetry(a1, (__int64)(v10 + 386), (_LIST_ENTRY *)UsbhPdoIdleCC_Worker, 0, a2, 0, 1766871891);
+      UsbhQueueWorkItemWithRetry(a1, (__int64)(v10 + 386), (int)UsbhPdoIdleCC_Worker, 0, a2, 0, 1766871891);
       return 259;
     }
     if ( a3 )
     {
-      UsbhSetIdleIrpState(v18, (__int64)a2, 1, 0, NewIrql);
-      Log((__int64)a1, 0x10000, 1768180019, (__int64)a2, (__int64)a3);
+      UsbhSetIdleIrpState(v18, a2, 1, 0, NewIrql);
+      Log(a1, 0x10000, 1768180019, a2, (__int64)a3);
       v14 = 3221225486LL;
       return (unsigned int)UsbhIdleIrp_ReleaseIrp(a1, a2, a3, v14);
     }
 LABEL_19:
-    UsbhTrapFatal_Dbg((__int64)a1, (ULONG_PTR)a1);
+    UsbhTrapFatal_Dbg(a1, a1);
   }
   if ( (_DWORD)v7 != 3 )
   {
@@ -68,7 +68,7 @@ LABEL_19:
       case 5:
         if ( a3 )
         {
-          UsbhSetIdleIrpState(v12, (__int64)a2, 5, v13, NewIrql);
+          UsbhSetIdleIrpState(v12, a2, 5, v13, NewIrql);
           v14 = (unsigned int)v10[360];
           return (unsigned int)UsbhIdleIrp_ReleaseIrp(a1, a2, a3, v14);
         }
@@ -76,7 +76,7 @@ LABEL_19:
       case 6:
         if ( a3 )
         {
-          UsbhSetIdleIrpState(v12, (__int64)a2, 6, v13, NewIrql);
+          UsbhSetIdleIrpState(v12, a2, 6, v13, NewIrql);
           v14 = 3221225760LL;
           return (unsigned int)UsbhIdleIrp_ReleaseIrp(a1, a2, a3, v14);
         }
@@ -84,8 +84,8 @@ LABEL_19:
       case 7:
         if ( a3 )
         {
-          UsbhSetIdleIrpState(v12, (__int64)a2, 7, 5, NewIrql);
-          UsbhSetPdoIdleReady((__int64)a1, (__int64)a2, (__int64)a3);
+          UsbhSetIdleIrpState(v12, a2, 7, 5, NewIrql);
+          UsbhSetPdoIdleReady(a1, a2, (__int64)a3);
           v15 = 1768180020;
 LABEL_23:
           a3->Tail.Overlay.CurrentStackLocation->Control |= 1u;
@@ -95,12 +95,12 @@ LABEL_23:
         }
         break;
       default:
-        UsbhSetIdleIrpState(v12, (__int64)a2, v7, a5, NewIrql);
+        UsbhSetIdleIrpState(v12, a2, v7, a5, NewIrql);
         v14 = 3221225473LL;
         return (unsigned int)UsbhIdleIrp_ReleaseIrp(a1, a2, a3, v14);
     }
     goto LABEL_19;
   }
-  UsbhSetIdleIrpState(v12, (__int64)a2, 3, v13, NewIrql);
+  UsbhSetIdleIrpState(v12, a2, 3, v13, NewIrql);
   return 0;
 }

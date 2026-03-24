@@ -1,40 +1,40 @@
 /*
- * XREFs of EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409EB298
+ * XREFs of EtwTimLogUserCetSetContextIpValidationFailure @ 0x1405D1528
  * Callers:
- *     KiLogUserCetSetContextIpValidationFailureWorker @ 0x140975760 (KiLogUserCetSetContextIpValidationFailureWorker.c)
+ *     KiLogUserCetSetContextIpValidationFailureWorker @ 0x1405CEFB0 (KiLogUserCetSetContextIpValidationFailureWorker.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14041AB00 (ZwQueryVirtualMemory.c)
- *     EtwpQueryProcessCommandLine @ 0x1407550F8 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025EE64 (EtwpTiFillProcessIdentity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1403F9E80 (ZwQueryVirtualMemory.c)
+ *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
  */
 
 void __fastcall EtwTimLogUserCetSetContextIpValidationFailure(int a1, __int64 a2, void *a3, int a4, int a5)
 {
+  __int64 *v5; // rax
   __int64 *v6; // rsi
-  __int64 *v7; // rax
-  ULONG v8; // r13d
+  const wchar_t *v7; // r13
   unsigned __int16 v9; // ax
-  int v10; // eax
-  const wchar_t *v11; // rcx
-  int v12; // r12d
+  ULONG v10; // r12d
+  int v11; // eax
+  const wchar_t *v12; // rcx
   PVOID v13; // r15
-  __int16 v14; // ax
-  int v15; // ecx
+  int v14; // ecx
+  __int16 v15; // ax
   unsigned int v16; // r14d
   unsigned __int16 *Pool2; // rax
   unsigned __int16 *v18; // rbx
-  __int64 v19; // rax
-  const wchar_t *v20; // rcx
+  unsigned __int16 v19; // ax
+  __int64 v20; // rax
   __int64 v21; // rax
   __int64 v22; // rax
-  unsigned int v23; // r9d
-  const EVENT_DESCRIPTOR *v24; // rdx
+  const EVENT_DESCRIPTOR *v23; // rdx
+  unsigned int v24; // r9d
   int v25; // r14d
   __int64 v26; // rax
   __int64 v27; // rax
@@ -43,7 +43,7 @@ void __fastcall EtwTimLogUserCetSetContextIpValidationFailure(int a1, __int64 a2
   unsigned __int16 *v30; // r9
   _WORD v31[2]; // [rsp+30h] [rbp-D0h] BYREF
   _WORD v32[2]; // [rsp+34h] [rbp-CCh] BYREF
-  __int16 v33; // [rsp+38h] [rbp-C8h] BYREF
+  _WORD v33[2]; // [rsp+38h] [rbp-C8h] BYREF
   int v34; // [rsp+3Ch] [rbp-C4h] BYREF
   int v35; // [rsp+40h] [rbp-C0h] BYREF
   PVOID BaseAddress; // [rsp+48h] [rbp-B8h] BYREF
@@ -78,128 +78,129 @@ void __fastcall EtwTimLogUserCetSetContextIpValidationFailure(int a1, __int64 a2
   const wchar_t *v65; // [rsp+160h] [rbp+60h]
   int v66; // [rsp+168h] [rbp+68h]
   int v67; // [rsp+16Ch] [rbp+6Ch]
-  __int16 *v68; // [rsp+170h] [rbp+70h]
+  _WORD *v68; // [rsp+170h] [rbp+70h]
   __int64 v69; // [rsp+178h] [rbp+78h]
   const wchar_t *v70; // [rsp+180h] [rbp+80h]
   int v71; // [rsp+188h] [rbp+88h]
   int v72; // [rsp+18Ch] [rbp+8Ch]
-  __int64 v73[20]; // [rsp+190h] [rbp+90h] BYREF
+  _QWORD v73[20]; // [rsp+190h] [rbp+90h] BYREF
   int v74; // [rsp+298h] [rbp+198h] BYREF
 
   v74 = a4;
-  v34 = a1;
-  BaseAddress = a3;
+  v5 = *(__int64 **)(a2 + 1472);
   v6 = &EmptyUnicodeString;
+  v35 = a1;
   v37 = 0LL;
-  v7 = *(__int64 **)(a2 + 1472);
+  BaseAddress = a3;
+  if ( v5 )
+    v6 = v5;
+  v7 = L"(null)";
   *(_OWORD *)P = 0LL;
-  if ( v7 )
-    v6 = v7;
-  v8 = 12;
   v9 = *(_WORD *)v6;
+  v10 = 12;
   *(_QWORD *)&UserData.Size = 2LL;
   if ( v9 )
   {
     v31[0] = v9 >> 1;
     UserData.Ptr = (ULONGLONG)v31;
-    v10 = *(unsigned __int16 *)v6;
-    v11 = (const wchar_t *)v6[1];
+    v11 = *(unsigned __int16 *)v6;
+    v12 = (const wchar_t *)v6[1];
   }
   else
   {
     v31[0] = 6;
     UserData.Ptr = (ULONGLONG)v31;
-    v11 = L"(null)";
-    v10 = 12;
+    v12 = L"(null)";
+    v11 = 12;
   }
-  v65 = v11;
+  v65 = v12;
+  v66 = v11;
   v67 = 0;
-  v66 = v10;
-  EtwpQueryProcessCommandLine(a2, (__int64)P);
-  v12 = LOWORD(P[0]);
+  EtwpQueryProcessCommandLine(a2, P);
   v13 = P[1];
+  LOWORD(v34) = P[0];
   v69 = 2LL;
-  v68 = &v33;
   if ( LOWORD(P[0]) )
   {
     v70 = (const wchar_t *)P[1];
-    v14 = LOWORD(P[0]) >> 1;
-    v15 = LOWORD(P[0]);
+    v68 = v33;
+    v14 = LOWORD(P[0]);
+    v15 = LOWORD(P[0]) >> 1;
   }
   else
   {
     v70 = L"(null)";
-    v15 = 12;
-    v14 = 6;
+    v68 = v33;
+    v14 = 12;
+    v15 = 6;
   }
-  v71 = v15;
+  v71 = v14;
+  v33[0] = v15;
   v72 = 0;
-  v33 = v14;
   v16 = EtwpTiFillProcessIdentity(v73, a2, &v37) + 4;
   Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, 512LL, 1853049172LL);
   v18 = Pool2;
-  if ( !Pool2 )
-    goto LABEL_14;
-  if ( ZwQueryVirtualMemory(
-         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-         BaseAddress,
-         (MEMORY_INFORMATION_CLASS)2,
-         Pool2,
-         0x200uLL,
-         0LL) < 0 )
-    *v18 = 0;
-  if ( *v18 )
+  if ( Pool2
+    && (ZwQueryVirtualMemory(
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          BaseAddress,
+          (MEMORY_INFORMATION_CLASS)2,
+          Pool2,
+          0x200uLL,
+          0LL) >= 0
+      ? (v19 = *v18)
+      : (*v18 = 0, v19 = 0),
+        v19) )
   {
-    v32[0] = *v18 >> 1;
-    v19 = 2LL * v16;
-    *(&UserData.Ptr + v19) = (ULONGLONG)v32;
-    *((_QWORD *)&UserData.Size + v19) = 2LL;
-    v8 = *v18;
-    v20 = (const wchar_t *)*((_QWORD *)v18 + 1);
+    v32[0] = v19 >> 1;
+    v20 = 2LL * v16;
+    *(&UserData.Ptr + v20) = (ULONGLONG)v32;
+    *((_QWORD *)&UserData.Size + v20) = 2LL;
+    v10 = *v18;
+    v7 = (const wchar_t *)*((_QWORD *)v18 + 1);
   }
   else
   {
-LABEL_14:
     v32[0] = 6;
     v21 = 2LL * v16;
     *(&UserData.Ptr + v21) = (ULONGLONG)v32;
-    v20 = L"(null)";
     *((_QWORD *)&UserData.Size + v21) = 2LL;
   }
-  v22 = 16LL * (v16 + 1);
-  v23 = v16 + 2;
-  v24 = (const EVENT_DESCRIPTOR *)MITIGATION_AUDIT_USER_CET_SET_CONTEXT_IP_VALIDATION_FAILURE;
-  *(ULONGLONG *)((char *)&UserData.Ptr + v22) = (ULONGLONG)v20;
-  *(ULONG *)((char *)&UserData.Size + v22) = v8;
-  *(ULONG *)((char *)&UserData.Reserved + v22) = 0;
-  v25 = v34;
-  v26 = 2LL * v23++;
+  v22 = 2LL * (v16 + 1);
+  v23 = (const EVENT_DESCRIPTOR *)MITIGATION_AUDIT_USER_CET_SET_CONTEXT_IP_VALIDATION_FAILURE;
+  v24 = v16 + 2;
+  *(&UserData.Ptr + v22) = (ULONGLONG)v7;
+  *(&UserData.Size + 2 * v22) = v10;
+  *(&UserData.Reserved + 2 * v22) = 0;
+  v25 = v35;
+  v26 = 2LL * v24++;
   *(&UserData.Ptr + v26) = (ULONGLONG)&v74;
   *((_QWORD *)&UserData.Size + v26) = 4LL;
-  v27 = 2LL * v23;
-  v28 = v23 + 1;
+  v27 = 2LL * v24;
+  v28 = v24 + 1;
   *(&UserData.Ptr + v27) = (ULONGLONG)&a5;
   v29 = EtwSecurityMitigationsRegHandle;
   *((_QWORD *)&UserData.Size + v27) = 4LL;
   if ( v25 != 1 )
-    v24 = &MITIGATION_ENFORCE_USER_CET_SET_CONTEXT_IP_VALIDATION_FAILURE;
-  EtwWrite(v29, v24, 0LL, v28, &UserData);
-  if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL) )
+    v23 = &MITIGATION_ENFORCE_USER_CET_SET_CONTEXT_IP_VALIDATION_FAILURE;
+  EtwWrite(v29, v23, 0LL, v28, &UserData);
+  if ( (unsigned int)dword_140C02BF0 > 5 && tlgKeywordOn((__int64)&dword_140C02BF0, 0x400000000000LL) )
   {
-    v34 = v25;
-    v42 = &v34;
+    v35 = v25;
+    v42 = &v35;
     v43 = 4LL;
     v44 = v47;
     v46 = v6[1];
     v47[0] = *(unsigned __int16 *)v6;
     v48 = v51;
+    v51[0] = (unsigned __int16)v34;
     v38 = v37;
     v52 = &v38;
     v54 = v57;
     v56 = *((_QWORD *)v30 + 1);
     v57[0] = *v30;
-    v35 = v74;
-    v58 = &v35;
+    v34 = v74;
+    v58 = &v34;
     LODWORD(BaseAddress) = a5;
     p_BaseAddress = &BaseAddress;
     v62 = &v39;
@@ -207,7 +208,6 @@ LABEL_14:
     v47[1] = 0;
     v49 = 2LL;
     v50 = v13;
-    v51[0] = v12;
     v51[1] = 0;
     v53 = 8LL;
     v55 = 2LL;
@@ -217,8 +217,8 @@ LABEL_14:
     v39 = 0x1000000LL;
     v63 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C066C0,
-      (unsigned __int8 *)byte_140035CA0,
+      (__int64)&dword_140C02BF0,
+      (unsigned __int8 *)&byte_14002D477,
       0LL,
       0LL,
       0xDu,

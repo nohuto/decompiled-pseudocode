@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiGetCurrentDpiInfo @ 0x1C00A6F70
+ * XREFs of NtGdiGetCurrentDpiInfo @ 0x1C000F360
  * Callers:
  *     <none>
  * Callees:
- *     DrvGetCurrentDpiInfo @ 0x1C00A7004 (DrvGetCurrentDpiInfo.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     DrvGetCurrentDpiInfo @ 0x1C000F3F4 (DrvGetCurrentDpiInfo.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall NtGdiGetCurrentDpiInfo(__int64 a1, _OWORD *a2)

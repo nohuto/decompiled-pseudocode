@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDripsWatchdogDfxCallback @ 0x14086E2E0
+ * XREFs of PopDripsWatchdogDfxCallback @ 0x14086E2C0
  * Callers:
  *     <none>
  * Callees:
- *     PopFxBuildDripsBlockingDeviceList @ 0x1402D74D0 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxIsDirectedPowerTransitionSupported @ 0x1402D8364 (PopFxIsDirectedPowerTransitionSupported.c)
- *     PopDeviceConstraintsEnforced @ 0x1402E7058 (PopDeviceConstraintsEnforced.c)
- *     PopDirectedDripsNotify @ 0x14071E768 (PopDirectedDripsNotify.c)
- *     PopDirectedDripsMarkCandidateDevice @ 0x140867FA4 (PopDirectedDripsMarkCandidateDevice.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140869614 (PopFxDestroyDripsBlockingDeviceList.c)
- *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x1408796AC (PopDripsWatchdogInvokeDeviceCallbacks.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1402D75D0 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x1402D8464 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDeviceConstraintsEnforced @ 0x1402E7158 (PopDeviceConstraintsEnforced.c)
+ *     PopDirectedDripsNotify @ 0x14071E748 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x140867F84 (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x1408695F4 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x14087968C (PopDripsWatchdogInvokeDeviceCallbacks.c)
  */
 
 void __fastcall PopDripsWatchdogDfxCallback(int *a1)
@@ -51,7 +51,7 @@ void __fastcall PopDripsWatchdogDfxCallback(int *a1)
       }
       while ( v6 != v5 );
       if ( (v5 & 1) != 0 && PopDirectedDripsEnableV2 )
-        dword_140419188 = 0;
+        dword_140419168 = 0;
     }
     for ( i = (_QWORD *)v11[0]; i != v11; i = (_QWORD *)*i )
     {

@@ -1,31 +1,28 @@
 /*
- * XREFs of PspLockQuotaExpansion @ 0x1402084CC
+ * XREFs of PspLockQuotaExpansion @ 0x140318B90
  * Callers:
- *     PspReturnResourceQuota @ 0x140208380 (PspReturnResourceQuota.c)
- *     PspExpandQuota @ 0x140208400 (PspExpandQuota.c)
- *     PspInsertExpansionEntry @ 0x1403AE244 (PspInsertExpansionEntry.c)
- *     PspExpandLimit @ 0x1405A3C48 (PspExpandLimit.c)
+ *     PspReturnResourceQuota @ 0x140318838 (PspReturnResourceQuota.c)
+ *     PspExpandQuota @ 0x1403188B8 (PspExpandQuota.c)
+ *     PspInsertExpansionEntry @ 0x1403CB554 (PspInsertExpansionEntry.c)
+ *     PspExpandLimit @ 0x14058117C (PspExpandLimit.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
-KIRQL __fastcall PspLockQuotaExpansion(__int64 a1, KIRQL *a2)
+void __fastcall PspLockQuotaExpansion(__int64 a1, KIRQL *a2)
 {
-  KIRQL result; // al
   struct _KTHREAD *CurrentThread; // rax
 
   if ( *(_DWORD *)a1 )
   {
-    result = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 16));
-    *a2 = result;
+    *a2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 16));
   }
   else
   {
     CurrentThread = KeGetCurrentThread();
     *a2 = 0;
     --CurrentThread->SpecialApcDisable;
-    return ExAcquirePushLockExclusiveEx(a1 + 16, 0LL);
+    ExAcquirePushLockExclusiveEx(a1 + 16, 0LL);
   }
-  return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockPoolCommitWs @ 0x140286420
+ * XREFs of MiUnlockPoolCommitWs @ 0x14028BE88
  * Callers:
- *     MiFillPoolCommitPageTable @ 0x140285270 (MiFillPoolCommitPageTable.c)
- *     MiCommitPoolMemory @ 0x140285D10 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x14028B8AC (MiCommitPoolMemory.c)
+ *     MiFillPoolCommitPageTable @ 0x14028C060 (MiFillPoolCommitPageTable.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x1402DB460 (MiUnlockPageTableInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockPoolCommitWs(__int64 a1)
@@ -24,23 +24,24 @@ __int64 __fastcall MiUnlockPoolCommitWs(__int64 a1)
     MiUnlockPageTableInternal(*(_QWORD *)(a1 + 48), v1);
     *(_QWORD *)(a1 + 64) = 0LL;
   }
-  result = MiUnlockWorkingSetShared(*(_QWORD *)(a1 + 48), 2u);
+  MiUnlockWorkingSetShared(*(_QWORD *)(a1 + 48), 2u);
+  result = (unsigned int)KiIrqlFlags;
   v4 = *(unsigned __int8 *)(a1 + 76);
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v4 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-      v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v7 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v4 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v7 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v4);

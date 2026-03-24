@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProcessor@CMouseSensor@@EEAAPEAVCBaseProcessor@@XZ @ 0x1C0098CE0
+ * XREFs of ?GetProcessor@CMouseSensor@@EEAAPEAVCBaseProcessor@@XZ @ 0x1C00BBFA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,5 @@
 
 struct CBaseProcessor *__fastcall CMouseSensor::GetProcessor(CMouseSensor *this)
 {
-  if ( gbInMitRitHandOff )
-    return 0LL;
-  else
-    return (struct CBaseProcessor *)*((_QWORD *)this + 168);
+  return (struct CBaseProcessor *)*((_QWORD *)this + 218);
 }

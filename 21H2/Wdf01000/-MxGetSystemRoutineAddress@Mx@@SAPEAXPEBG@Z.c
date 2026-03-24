@@ -1,8 +1,8 @@
 /*
- * XREFs of ?MxGetSystemRoutineAddress@Mx@@SAPEAXPEBG@Z @ 0x1C002ECC4
+ * XREFs of ?MxGetSystemRoutineAddress@Mx@@SAPEAXPEBG@Z @ 0x1C0056B10
  * Callers:
- *     FxLibraryGlobalsCommission @ 0x1C002E278 (FxLibraryGlobalsCommission.c)
- *     FxLibraryGlobalsVerifyVersion @ 0x1C002EBEC (FxLibraryGlobalsVerifyVersion.c)
+ *     FxLibraryGlobalsCommission @ 0x1C00571F0 (FxLibraryGlobalsCommission.c)
+ *     FxLibraryGlobalsVerifyVersion @ 0x1C00579B8 (FxLibraryGlobalsVerifyVersion.c)
  * Callees:
  *     <none>
  */

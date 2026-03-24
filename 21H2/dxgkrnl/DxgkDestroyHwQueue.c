@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkDestroyHwQueue @ 0x1C0312ED0
+ * XREFs of DxgkDestroyHwQueue @ 0x1C0271850
  * Callers:
  *     <none>
  * Callees:
- *     DxgkDestroyHwQueueInternal @ 0x1C0312EE8 (DxgkDestroyHwQueueInternal.c)
+ *     DxgkDestroyHwQueueInternal @ 0x1C0271868 (DxgkDestroyHwQueueInternal.c)
  */
 
 __int64 __fastcall DxgkDestroyHwQueue(__int64 a1, __int64 a2)

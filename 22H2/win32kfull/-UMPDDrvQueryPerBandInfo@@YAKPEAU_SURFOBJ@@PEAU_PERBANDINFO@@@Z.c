@@ -1,17 +1,17 @@
 /*
- * XREFs of ?UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z @ 0x1C02BCA40
+ * XREFs of ?UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z @ 0x1C01541F0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C0298EE8 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C0299658 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
- *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C0299CDC (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
- *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B7860 (--0XUMPDOBJ@@QEAA@XZ.c)
- *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B78D8 (--1XUMPDOBJ@@QEAA@XZ.c)
- *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02B8264 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
- *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02BEC8C (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
- *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C02BEF94 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DE74 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C001ED70 (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C001F0E8 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C001F424 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00A16C0 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C00A190C (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C00A1984 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C02AC618 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
  */
 
 __int64 __fastcall UMPDDrvQueryPerBandInfo(struct _SURFOBJ *a1, struct _PERBANDINFO *a2)
@@ -20,10 +20,10 @@ __int64 __fastcall UMPDDrvQueryPerBandInfo(struct _SURFOBJ *a1, struct _PERBANDI
   unsigned int v4; // esi
   int v5; // r14d
   UMPDOBJ *v7; // rbx
-  unsigned int v8; // eax
-  char *v9; // rax
+  void *v8; // rax
   char *KernelPtr; // rax
-  char *v11; // rax
+  char *v10; // rax
+  unsigned int v12; // eax
   size_t Size; // [rsp+20h] [rbp-49h]
   unsigned int v14; // [rsp+40h] [rbp-29h] BYREF
   int v15; // [rsp+44h] [rbp-25h] BYREF
@@ -50,34 +50,34 @@ __int64 __fastcall UMPDDrvQueryPerBandInfo(struct _SURFOBJ *a1, struct _PERBANDI
   *(_OWORD *)v21 = 0LL;
   if ( v19 )
   {
-    if ( !*((_DWORD *)v19 + 110)
+    if ( !*((_DWORD *)v19 + 106)
       || (v14 = 72,
-          v8 = UMPDOBJ::bThunkLargeBitmap(v19, a1, &v17, &v18, &v16, &v15, &v14),
+          v12 = UMPDOBJ::bThunkLargeBitmap(v19, a1, &v17, &v18, &v16, &v15, &v14),
           v5 = v15,
-          v4 = v8,
-          (v14 = v8) != 0) )
+          v4 = v12,
+          (v14 = v12) != 0) )
     {
       *(_QWORD *)&v20 = 0x4B00000028LL;
       v21[0] = *(struct _SURFOBJ **)v7;
       v21[1] = a1;
       if ( (unsigned int)UMPDOBJ::pso(v7, (UMPDOBJ *)((char *)v7 + 64), &v21[1]) )
       {
-        v9 = UMPDOBJ::_AllocUserMem(v7, 0x14u, 0);
-        v22 = v9;
-        if ( v9 )
+        v8 = UMPDOBJ::_AllocUserMem(v7, 0x14u, 0);
+        v22 = v8;
+        if ( v8 )
         {
           if ( a2 )
           {
-            KernelPtr = UMPDOBJ::GetKernelPtr((char **)v7, v9);
+            KernelPtr = UMPDOBJ::GetKernelPtr(v7, (char *)v8);
             *(_OWORD *)KernelPtr = *(_OWORD *)&a2->bRepeatThisBand;
             *((_DWORD *)KernelPtr + 4) = a2->ulVertRes;
           }
           LODWORD(Size) = 4;
           if ( (unsigned int)UMPDOBJ::Thunk(v7, &v20, 0x28u, &v14, Size) != -1 && a2 )
           {
-            v11 = UMPDOBJ::GetKernelPtr((char **)v7, (char *)v22);
-            *(_OWORD *)&a2->bRepeatThisBand = *(_OWORD *)v11;
-            a2->ulVertRes = *((_DWORD *)v11 + 4);
+            v10 = UMPDOBJ::GetKernelPtr(v7, (char *)v22);
+            *(_OWORD *)&a2->bRepeatThisBand = *(_OWORD *)v10;
+            a2->ulVertRes = *((_DWORD *)v10 + 4);
           }
           v4 = v14;
         }

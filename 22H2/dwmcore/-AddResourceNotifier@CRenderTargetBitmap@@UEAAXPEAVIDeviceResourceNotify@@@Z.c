@@ -1,31 +1,29 @@
 /*
- * XREFs of ?AddResourceNotifier@CRenderTargetBitmap@@UEAAXPEAVIDeviceResourceNotify@@@Z @ 0x1800F8FA0
+ * XREFs of ?AddResourceNotifier@CRenderTargetBitmap@@UEAAXPEAVIDeviceResourceNotify@@@Z @ 0x1800DCE3C
  * Callers:
- *     ?AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@A@EAAXPEAVIDeviceResourceNotify@@@Z @ 0x180122780 (-AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@A@EAAXPEAVIDeviceResourceNotify@@@Z.c)
- *     ?AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@7EAAXPEAVIDeviceResourceNotify@@@Z @ 0x180123440 (-AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@7EAAXPEAVIDeviceResourceNotify@@@Z.c)
- *     ?AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@BI@EAAXPEAVIDeviceResourceNotify@@@Z @ 0x1801238C0 (-AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@BI@EAAXPEAVIDeviceResourceNotify@@@Z.c)
- *     ?AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@CA@EAAXPEAVIDeviceResourceNotify@@@Z @ 0x180123C80 (-AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@CA@EAAXPEAVIDeviceResourceNotify@@@Z.c)
+ *     ?AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@A@EAAXPEAVIDeviceResourceNotify@@@Z @ 0x1800F5710 (-AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@A@EAAXPEAVIDeviceResourceNotify@@@Z.c)
+ *     ?AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@7EAAXPEAVIDeviceResourceNotify@@@Z @ 0x1800F8B70 (-AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@7EAAXPEAVIDeviceResourceNotify@@@Z.c)
+ *     ?AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@CA@EAAXPEAVIDeviceResourceNotify@@@Z @ 0x1800F8CB0 (-AddResourceNotifier@CRenderTargetBitmap@@$4PPPPPPPM@CA@EAAXPEAVIDeviceResourceNotify@@@Z.c)
  * Callees:
- *     ??$_Emplace_reallocate@AEBQEAVIDeviceResourceNotify@@@?$vector@PEAVIDeviceResourceNotify@@V?$allocator@PEAVIDeviceResourceNotify@@@std@@@std@@QEAAPEAPEAVIDeviceResourceNotify@@QEAPEAV2@AEBQEAV2@@Z @ 0x1800B9B84 (--$_Emplace_reallocate@AEBQEAVIDeviceResourceNotify@@@-$vector@PEAVIDeviceResourceNotify@@V-$all.c)
+ *     ??$_Emplace_reallocate@PEBUShaderLinkingBody@@@?$vector@PEBUShaderLinkingBody@@V?$allocator@PEBUShaderLinkingBody@@@std@@@std@@QEAAPEAPEBUShaderLinkingBody@@QEAPEBU2@$$QEAPEBU2@@Z @ 0x180045444 (--$_Emplace_reallocate@PEBUShaderLinkingBody@@@-$vector@PEBUShaderLinkingBody@@V-$allocator@PEBU.c)
  */
 
 void __fastcall CRenderTargetBitmap::AddResourceNotifier(CRenderTargetBitmap *this, struct IDeviceResourceNotify *a2)
 {
-  _BYTE *v3; // rdx
-  struct IDeviceResourceNotify *v4; // [rsp+30h] [rbp+8h] BYREF
+  char *v2; // rcx
+  _BYTE *v4; // rdx
+  struct IDeviceResourceNotify *v5; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = a2;
-  v3 = (_BYTE *)*((_QWORD *)this - 11);
-  if ( v3 == *((_BYTE **)this - 10) )
+  v2 = (char *)this - 96;
+  v5 = a2;
+  v4 = (_BYTE *)*((_QWORD *)v2 + 1);
+  if ( *((_BYTE **)v2 + 2) == v4 )
   {
-    std::vector<IDeviceResourceNotify *>::_Emplace_reallocate<IDeviceResourceNotify * const &>(
-      (const void **)this - 12,
-      v3,
-      &v4);
+    std::vector<ShaderLinkingBody const *>::_Emplace_reallocate<ShaderLinkingBody const *>((const void **)v2, v4, &v5);
   }
   else
   {
-    *(_QWORD *)v3 = a2;
-    *((_QWORD *)this - 11) += 8LL;
+    *(_QWORD *)v4 = a2;
+    *((_QWORD *)v2 + 1) += 8LL;
   }
 }

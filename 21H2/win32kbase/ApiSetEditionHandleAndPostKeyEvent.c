@@ -1,12 +1,12 @@
 /*
- * XREFs of ApiSetEditionHandleAndPostKeyEvent @ 0x1C003D6FC
+ * XREFs of ApiSetEditionHandleAndPostKeyEvent @ 0x1C004CE34
  * Callers:
- *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C003DC00 (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C004C1F0 (xxxUpdateGlobalsAndSendKeyEvent.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C003B6C4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
- *     EditionHandleAndPostKeyEvent @ 0x1C003D918 (EditionHandleAndPostKeyEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C004CFF4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
+ *     EditionHandleAndPostKeyEvent @ 0x1C004D648 (EditionHandleAndPostKeyEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ApiSetEditionHandleAndPostKeyEvent(
@@ -27,61 +27,48 @@ __int64 __fastcall ApiSetEditionHandleAndPostKeyEvent(
         __int16 a15,
         __int64 a16)
 {
-  int v17; // r14d
   int v18; // ebx
-  char v20; // di
+  __int64 *v20; // rax
   int v21; // edx
-  int v22; // r8d
-  unsigned int v23; // esi
+  unsigned int v22; // edi
+  int v23; // eax
+  __int64 v25; // [rsp+80h] [rbp-28h] BYREF
 
-  v17 = a3;
   v18 = a2;
-  v20 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
       a2,
-      a3,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
       10,
-      422,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  InputExtensibilityCallout::CoreMsgSendMessage(gpqForeground, 4);
-  v23 = 0;
-  if ( qword_1C029D130 && (int)qword_1C029D130() >= 0 )
-    v23 = EditionHandleAndPostKeyEvent(a1, v18, v17, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(v21) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    LOBYTE(v21) = 0;
+      416,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v20 = 0;
-  if ( (_BYTE)v21 || v20 )
+  v25 = 0LL;
+  if ( gpqForeground )
   {
-    LOBYTE(v22) = v20;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
+    v20 = *(__int64 **)(gpqForeground + 112);
+    if ( v20 || (v20 = *(__int64 **)(gpqForeground + 120)) != 0LL )
+      v25 = *v20;
+  }
+  InputExtensibilityCallout::CoreMsgSendMessage(gpqForeground, 4LL, &v25);
+  v22 = 0;
+  if ( qword_1C0258518 )
+    v23 = qword_1C0258518();
+  else
+    v23 = -1073741637;
+  if ( v23 >= 0 )
+    v22 = EditionHandleAndPostKeyEvent(a1, v18, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(v21) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
       v21,
-      v22,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
       10,
-      423,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+      417,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  return v23;
+  return v22;
 }

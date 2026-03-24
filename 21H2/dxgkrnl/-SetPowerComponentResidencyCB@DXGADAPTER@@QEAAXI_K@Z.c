@@ -1,22 +1,22 @@
 /*
- * XREFs of ?SetPowerComponentResidencyCB@DXGADAPTER@@QEAAXI_K@Z @ 0x1C0026BA8
+ * XREFs of ?SetPowerComponentResidencyCB@DXGADAPTER@@QEAAXI_K@Z @ 0x1C0039C90
  * Callers:
- *     DxgkSetPowerComponentResidencyCB @ 0x1C004C1B0 (DxgkSetPowerComponentResidencyCB.c)
- *     ?InitializePowerManagement@DXGADAPTER@@AEAAJXZ @ 0x1C0200238 (-InitializePowerManagement@DXGADAPTER@@AEAAJXZ.c)
+ *     DxgkSetPowerComponentResidencyCB @ 0x1C0043360 (DxgkSetPowerComponentResidencyCB.c)
+ *     ?InitializePowerManagement@DXGADAPTER@@AEAAJXZ @ 0x1C01862B0 (-InitializePowerManagement@DXGADAPTER@@AEAAJXZ.c)
  * Callees:
- *     McTemplateK0pqx_EtwWriteTransfer @ 0x1C00453AC (McTemplateK0pqx_EtwWriteTransfer.c)
+ *     McTemplateK0pqx_EtwWriteTransfer @ 0x1C003A89C (McTemplateK0pqx_EtwWriteTransfer.c)
  */
 
 void __fastcall DXGADAPTER::SetPowerComponentResidencyCB(DXGADAPTER *this, unsigned int a2, __int64 a3)
 {
   unsigned int v5; // edi
 
-  if ( *((_BYTE *)this + 3337) )
+  if ( *((_BYTE *)this + 3241) )
   {
-    v5 = (unsigned __int16)a2 + *((unsigned __int16 *)this + ((unsigned __int64)a2 >> 16) + 1456);
+    v5 = (unsigned __int16)a2 + *((unsigned __int16 *)this + ((unsigned __int64)a2 >> 16) + 1408);
     if ( bTracingEnabled )
     {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
         McTemplateK0pqx_EtwWriteTransfer(
           (_DWORD)this,
           (unsigned int)&Dxgk_SetPowerComponentResidencyCB,
@@ -25,7 +25,7 @@ void __fastcall DXGADAPTER::SetPowerComponentResidencyCB(DXGADAPTER *this, unsig
           v5,
           a3);
     }
-    *(_QWORD *)(520LL * v5 + *((_QWORD *)this + 362) + 376) = a3;
-    PoFxSetComponentResidency(*((_QWORD *)this + 363), v5, a3);
+    *(_QWORD *)(520LL * v5 + *((_QWORD *)this + 350) + 376) = a3;
+    PoFxSetComponentResidency(*((_QWORD *)this + 351), v5, a3);
   }
 }

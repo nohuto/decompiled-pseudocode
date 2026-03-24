@@ -1,54 +1,32 @@
 /*
- * XREFs of rimAbCreateGlobalPenDeadzone @ 0x1C017B54C
+ * XREFs of rimAbCreateGlobalPenDeadzone @ 0x1C0158890
  * Callers:
- *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C017CDA4 (rimAbUpdateDeadzonesAndResurrectContacts.c)
+ *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C0159C24 (rimAbUpdateDeadzonesAndResurrectContacts.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C000A528 (WPP_RECORDER_AND_TRACE_SF_dd.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_SF_Dd @ 0x1C013732C (WPP_RECORDER_SF_Dd.c)
  */
 
-_UNKNOWN **__fastcall rimAbCreateGlobalPenDeadzone(__int64 a1, _OWORD *a2, _OWORD *a3, __int64 a4)
+_UNKNOWN **__fastcall rimAbCreateGlobalPenDeadzone(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v7; // rdi
-  char v8; // dl
+  unsigned __int64 v4; // rsi
   _UNKNOWN **result; // rax
 
-  v7 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-  if ( !*(_DWORD *)(SGDGetUserSessionState(0xFFFFF78000000004uLL, a2, a3, a4) + 436) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 114);
+  v4 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+  if ( !gDeviceArbitrationType )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 112);
+  *(_QWORD *)(a1 + 496) = a2;
   *(_DWORD *)(a1 + 492) = 1;
-  *(_DWORD *)(a1 + 704) = v7 + 250;
-  *(_OWORD *)(a1 + 496) = *a2;
-  *(_OWORD *)(a1 + 512) = a2[1];
-  *(_OWORD *)(a1 + 528) = a2[2];
-  *(_OWORD *)(a1 + 544) = a2[3];
-  *(_OWORD *)(a1 + 560) = a2[4];
-  *(_OWORD *)(a1 + 576) = a2[5];
-  *(_OWORD *)(a1 + 592) = a2[6];
-  *(_OWORD *)(a1 + 608) = *a3;
-  *(_OWORD *)(a1 + 624) = a3[1];
-  *(_OWORD *)(a1 + 640) = a3[2];
-  *(_OWORD *)(a1 + 656) = a3[3];
-  *(_OWORD *)(a1 + 672) = a3[4];
-  *(_OWORD *)(a1 + 688) = a3[5];
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (v8 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v8 = 0;
-  }
+  *(_DWORD *)(a1 + 504) = v4 + 250;
   result = &WPP_RECORDER_INITIALIZED;
-  if ( v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    return (_UNKNOWN **)WPP_RECORDER_AND_TRACE_SF_dd(
-                          (__int64)WPP_GLOBAL_Control->AttachedDevice,
-                          v8,
-                          WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    return (_UNKNOWN **)WPP_RECORDER_SF_Dd(
                           (__int64)gRimLog,
                           4u,
                           1u,
                           0xAu,
-                          (__int64)&WPP_d0136f6132203aac44a878359d3f87a2_Traceguids,
-                          *(_DWORD *)(a1 + 648),
-                          *(_DWORD *)(a1 + 652));
+                          (__int64)&WPP_1df71edf843731ddcb2b607f62e3e01f_Traceguids,
+                          a2,
+                          *(_DWORD *)(a1 + 500));
   return result;
 }

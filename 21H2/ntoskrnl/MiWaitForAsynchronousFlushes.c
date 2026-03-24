@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWaitForAsynchronousFlushes @ 0x1405983C0
+ * XREFs of MiWaitForAsynchronousFlushes @ 0x14053D5E0
  * Callers:
- *     MiFlushSectionInternal @ 0x140329730 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
  * Callees:
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiWaitForAsynchronousFlushes(unsigned int *a1)
@@ -30,7 +30,7 @@ __int64 __fastcall MiWaitForAsynchronousFlushes(unsigned int *a1)
   v4 = 0;
   do
   {
-    if ( !*((_QWORD *)a1 + 2) || a1[13] )
+    if ( !*((_QWORD *)a1 + 2) || a1[13] == 1 )
     {
       a1 += 66;
     }

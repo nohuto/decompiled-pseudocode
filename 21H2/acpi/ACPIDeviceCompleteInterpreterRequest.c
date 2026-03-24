@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIDeviceCompleteInterpreterRequest @ 0x1C004F4B0
+ * XREFs of ACPIDeviceCompleteInterpreterRequest @ 0x1C00506A0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDeviceCompleteGenericPhase @ 0x1C000EB80 (ACPIDeviceCompleteGenericPhase.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001FEE0 (ACPIDeviceCompleteGenericPhase.c)
  */
 
 void __fastcall ACPIDeviceCompleteInterpreterRequest(__int64 a1)

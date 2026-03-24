@@ -1,134 +1,152 @@
 /*
- * XREFs of PiCMGetObjectProperty @ 0x1406D0A84
+ * XREFs of PiCMGetObjectProperty @ 0x1406AD91C
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0810 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406AD630 (PiCMHandleIoctl.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     PiCMReturnBufferResultData @ 0x1406D06BC (PiCMReturnBufferResultData.c)
- *     PiCMReleasePropertyInputData @ 0x1406D0CE0 (PiCMReleasePropertyInputData.c)
- *     PiCMCapturePropertyInputData @ 0x1406D0D34 (PiCMCapturePropertyInputData.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PiCMCapturePropertyInputData @ 0x1406ADBB4 (PiCMCapturePropertyInputData.c)
+ *     PiCMReleasePropertyInputData @ 0x1406ADE74 (PiCMReleasePropertyInputData.c)
+ *     PiCMReturnBufferResultData @ 0x1406B0564 (PiCMReturnBufferResultData.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetObjectProperty(
         __int64 a1,
         unsigned int a2,
-        _DWORD *a3,
+        __int64 a3,
         unsigned int a4,
         unsigned int a5,
         _DWORD *a6)
 {
-  void *Pool2; // rsi
-  signed int ObjectProperty; // edi
-  __int64 v12; // r12
-  unsigned int v13; // ebx
-  unsigned int v14; // r14d
-  signed int v15; // eax
-  int v17; // [rsp+60h] [rbp-79h] BYREF
-  unsigned int v18; // [rsp+64h] [rbp-75h] BYREF
-  _DWORD *v19; // [rsp+68h] [rbp-71h]
-  _QWORD v20[10]; // [rsp+80h] [rbp-59h] BYREF
+  _DWORD *v6; // r14
+  PVOID PoolWithTag; // rsi
+  int v12; // eax
+  __int64 v13; // rdx
+  int v14; // ebx
+  int v15; // r12d
+  int v16; // edi
+  int v17; // ecx
+  int ObjectProperty; // eax
+  int v19; // eax
+  unsigned int v21; // [rsp+60h] [rbp-69h] BYREF
+  unsigned int v22; // [rsp+64h] [rbp-65h] BYREF
+  _DWORD *v23; // [rsp+68h] [rbp-61h]
+  _QWORD v24[10]; // [rsp+70h] [rbp-59h] BYREF
 
-  v19 = a6;
-  memset(v20, 0, 0x48uLL);
+  v6 = a6;
+  v23 = a6;
+  memset(v24, 0, 0x48uLL);
   *a6 = 0;
-  Pool2 = 0LL;
-  v17 = 0;
-  v18 = 0;
-  ObjectProperty = PiCMCapturePropertyInputData(a1, a2, a5, v20);
-  if ( ObjectProperty < 0 )
-    goto LABEL_25;
-  v12 = v20[2];
-  if ( !v20[2] || HIDWORD(v20[0]) || v20[7] || LODWORD(v20[8]) || LODWORD(v20[6]) || !a3 || a4 < 0x14 )
-    goto LABEL_42;
-  v13 = 6;
-  if ( SLODWORD(v20[1]) > 6 )
+  PoolWithTag = 0LL;
+  v21 = 0;
+  v22 = 0;
+  v12 = PiCMCapturePropertyInputData(a1, a2, a5, v24);
+  v13 = 0LL;
+  v14 = v12;
+  if ( v12 < 0 )
+    goto LABEL_29;
+  v15 = v24[2];
+  if ( v24[2] && !HIDWORD(v24[0]) && !v24[7] && !LODWORD(v24[8]) && !LODWORD(v24[6]) )
   {
-    switch ( LODWORD(v20[1]) )
+    if ( !a3 || a4 < 0x14 )
+    {
+      v14 = -1073741811;
+      goto LABEL_34;
+    }
+    v16 = 0;
+    if ( SLODWORD(v24[1]) <= 6 )
+    {
+      switch ( LODWORD(v24[1]) )
+      {
+        case 6:
+          v16 = 6;
+LABEL_19:
+          if ( v14 < 0 )
+            goto LABEL_34;
+          if ( a4 != 20 )
+          {
+            PoolWithTag = ExAllocatePoolWithTag(PagedPool, a4 - 20, 0x34706E50u);
+            if ( !PoolWithTag )
+              v14 = -1073741670;
+          }
+          if ( v14 < 0 )
+            goto LABEL_34;
+          ObjectProperty = PnpGetObjectProperty(
+                             PiPnpRtlCtx,
+                             v15,
+                             v16,
+                             0,
+                             0LL,
+                             (__int64)&v24[3] + 4,
+                             (__int64)&v21,
+                             (__int64)PoolWithTag,
+                             a4 - 20,
+                             (__int64)&v22,
+                             0);
+          v6 = v23;
+          v14 = ObjectProperty;
+          goto LABEL_25;
+        case 1:
+          v16 = 1;
+          goto LABEL_19;
+        case 2:
+          v16 = 2;
+          goto LABEL_19;
+        case 3:
+          v16 = 4;
+          goto LABEL_19;
+        case 4:
+          v16 = 3;
+          goto LABEL_19;
+        case 5:
+          v16 = 5;
+          goto LABEL_19;
+      }
+LABEL_17:
+      if ( !v16 )
+        v14 = -1073741811;
+      goto LABEL_19;
+    }
+    switch ( LODWORD(v24[1]) )
     {
       case 0x10001:
-        v13 = 7;
+        v17 = 7;
         break;
       case 0x10002:
-        v13 = 8;
+        v17 = 8;
         break;
       case 0x10003:
-        v13 = 9;
+        v17 = 9;
         break;
       case 0x10004:
-        v13 = 10;
+        v17 = 10;
         break;
       case 0x10005:
-        v13 = 11;
+        v17 = 11;
         break;
       default:
-        goto LABEL_42;
-    }
-    if ( PiDrvDbCtx )
-      goto LABEL_17;
-LABEL_42:
-    ObjectProperty = -1073741811;
-LABEL_22:
-    v15 = PiCMReturnBufferResultData(ObjectProperty, v18, v17, 0LL, 0, SHIDWORD(v20[8]), a3, a4, v19);
-    goto LABEL_23;
-  }
-  if ( LODWORD(v20[1]) == 6 )
-    goto LABEL_17;
-  if ( LODWORD(v20[1]) == 1 )
-  {
-    v13 = 1;
-    goto LABEL_17;
-  }
-  if ( LODWORD(v20[1]) != 2 )
-  {
-    switch ( LODWORD(v20[1]) )
-    {
-      case 3:
-        v13 = 4;
-        goto LABEL_17;
-      case 4:
-        v13 = 3;
-        goto LABEL_17;
-      case 5:
-        v13 = 5;
         goto LABEL_17;
     }
-    goto LABEL_42;
+    v16 = PiDrvDbCtx != 0 ? v17 : 0;
+    goto LABEL_17;
   }
-  v13 = 2;
-LABEL_17:
-  v14 = a4 - 20;
-  if ( a4 != 20 )
-  {
-    Pool2 = (void *)ExAllocatePool2(256LL, v14, 879783504LL);
-    if ( !Pool2 )
-      ObjectProperty = -1073741670;
-    if ( ObjectProperty < 0 )
-      goto LABEL_22;
-  }
-  ObjectProperty = PnpGetObjectProperty(
-                     *(__int64 *)&PiPnpRtlCtx,
-                     v12,
-                     v13,
-                     0LL,
-                     0LL,
-                     (__int64)&v20[3] + 4,
-                     (__int64)&v17,
-                     (__int64)Pool2,
-                     v14,
-                     (__int64)&v18,
-                     0);
-  if ( ObjectProperty < 0 )
-    goto LABEL_22;
-  v15 = PiCMReturnBufferResultData(ObjectProperty, v18, v17, Pool2, v18, SHIDWORD(v20[8]), a3, a4, v19);
-LABEL_23:
-  ObjectProperty = v15;
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x34706E50u);
+  v14 = -1073741811;
 LABEL_25:
-  PiCMReleasePropertyInputData(v20);
-  return (unsigned int)ObjectProperty;
+  if ( v14 >= 0 )
+  {
+    v19 = PiCMReturnBufferResultData((unsigned int)v14, v22, v21, PoolWithTag, v22, HIDWORD(v24[8]), a3, a4, v6);
+    goto LABEL_27;
+  }
+LABEL_34:
+  v19 = PiCMReturnBufferResultData((unsigned int)v14, v22, v21, 0LL, 0, HIDWORD(v24[8]), a3, a4, v23);
+LABEL_27:
+  v14 = v19;
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x34706E50u);
+LABEL_29:
+  PiCMReleasePropertyInputData(v24, v13);
+  return (unsigned int)v14;
 }

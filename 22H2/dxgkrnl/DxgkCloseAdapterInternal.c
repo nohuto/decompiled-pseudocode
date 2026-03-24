@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkCloseAdapterInternal @ 0x1C01EEAA0
+ * XREFs of DxgkCloseAdapterInternal @ 0x1C0157058
  * Callers:
- *     ??1CAdapter@@IEAA@XZ @ 0x1C00192E0 (--1CAdapter@@IEAA@XZ.c)
+ *     ??1CAdapter@@IEAA@XZ @ 0x1C0013424 (--1CAdapter@@IEAA@XZ.c)
  * Callees:
- *     DxgkCloseAdapterImpl @ 0x1C01A96B0 (DxgkCloseAdapterImpl.c)
+ *     DxgkCloseAdapterImpl @ 0x1C0124D90 (DxgkCloseAdapterImpl.c)
  */
 
 __int64 __fastcall DxgkCloseAdapterInternal(__int64 a1, __int64 a2, __int64 a3)

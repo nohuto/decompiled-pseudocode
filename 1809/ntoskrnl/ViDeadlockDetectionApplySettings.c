@@ -4,8 +4,8 @@
  *     VfDeadlockInitialize @ 0x14093BE0C (VfDeadlockInitialize.c)
  *     VfSettingsCheckForChanges @ 0x14093DEE8 (VfSettingsCheckForChanges.c)
  * Callees:
- *     ViLowerIrql @ 0x14030B40C (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x14030B468 (ViRaiseIrqlToDpcLevel.c)
+ *     ViLowerIrql @ 0x14030B50C (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x14030B568 (ViRaiseIrqlToDpcLevel.c)
  *     ViDeadlockDetectionLock @ 0x14093D1AC (ViDeadlockDetectionLock.c)
  *     ViDeadlockDetectionUnlock @ 0x14093D1E4 (ViDeadlockDetectionUnlock.c)
  *     ViDeadlockEmptyDatabase @ 0x14093D214 (ViDeadlockEmptyDatabase.c)

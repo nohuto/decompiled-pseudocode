@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceInputSuppressionActionUpdate @ 0x1409928C0
+ * XREFs of PopTraceInputSuppressionActionUpdate @ 0x1408EC430
  * Callers:
- *     PopEvaluateInputSuppressionAction @ 0x140994374 (PopEvaluateInputSuppressionAction.c)
+ *     PopEvaluateInputSuppressionAction @ 0x1408EEBC4 (PopEvaluateInputSuppressionAction.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PopTraceInputSuppressionActionUpdate(
@@ -46,9 +46,9 @@ void __fastcall PopTraceInputSuppressionActionUpdate(
   __int64 *v33; // [rsp+E0h] [rbp+1Fh]
   __int64 v34; // [rsp+E8h] [rbp+27h]
 
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
     {
       v10 = PopIgnoreLidStateForInputSuppression;
       v20 = 1LL;
@@ -75,8 +75,8 @@ void __fastcall PopTraceInputSuppressionActionUpdate(
       v32 = 4LL;
       v34 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03950,
-        (unsigned __int8 *)byte_14002E5E8,
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)&dword_14002737C,
         0LL,
         0LL,
         0xAu,

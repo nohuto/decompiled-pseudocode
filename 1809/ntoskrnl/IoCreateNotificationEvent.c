@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCreateNotificationEvent @ 0x14075E490
+ * XREFs of IoCreateNotificationEvent @ 0x14075E470
  * Callers:
- *     IoCaptureLiveDump @ 0x14081EFA4 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x14081EF84 (IoCaptureLiveDump.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ZwCreateEvent @ 0x1401B8A70 (ZwCreateEvent.c)
+ *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

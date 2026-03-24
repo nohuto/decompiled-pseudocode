@@ -1,10 +1,11 @@
 /*
- * XREFs of ?DecomposeMatrixIntoScaleAndRemaining@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1PEAU2@@Z @ 0x180059A10
+ * XREFs of ?DecomposeMatrixIntoScaleAndRemaining@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1PEAU2@@Z @ 0x180007B6C
  * Callers:
- *     ?Initialize@CNineGridDrawListBrush@@AEAAJXZ @ 0x180059A5C (-Initialize@CNineGridDrawListBrush@@AEAAJXZ.c)
+ *     ?Initialize@CNineGridDrawListBrush@@AEAAJXZ @ 0x18000773C (-Initialize@CNineGridDrawListBrush@@AEAAJXZ.c)
+ *     ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBVMatrix3x2F@D2D1@@@Z @ 0x180095BB0 (-AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAtt.c)
  * Callees:
- *     ?GetScaleDimensions@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1@Z @ 0x180053CDC (-GetScaleDimensions@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1@Z.c)
- *     ?TryDecomposeMatrixIntoScaleAndRemaining_NumericallyStable@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3X2_F@@PEAM1PEAU2@@Z @ 0x180059980 (-TryDecomposeMatrixIntoScaleAndRemaining_NumericallyStable@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3.c)
+ *     ?TryDecomposeMatrixIntoScaleAndRemaining_NumericallyStable@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3X2_F@@PEAM1PEAU2@@Z @ 0x180007BB8 (-TryDecomposeMatrixIntoScaleAndRemaining_NumericallyStable@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3.c)
+ *     ?GetScaleDimensions@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1@Z @ 0x18021F534 (-GetScaleDimensions@D2DMatrixHelper@@YAXAEBUD2D_MATRIX_3X2_F@@PEAM1@Z.c)
  */
 
 void __fastcall D2DMatrixHelper::DecomposeMatrixIntoScaleAndRemaining(
@@ -13,33 +14,33 @@ void __fastcall D2DMatrixHelper::DecomposeMatrixIntoScaleAndRemaining(
         float *a3,
         float *a4)
 {
-  const struct D2D_MATRIX_3X2_F *v8; // rdx
-  D2DMatrixHelper *v9; // rcx
-  float *v10; // r8
-  float *v11; // r9
-  int v12; // xmm0_4
-  float v13; // xmm4_4
-  float v14; // xmm5_4
-  int v15; // xmm1_4
-  float v16; // xmm3_4
-  float v17; // xmm2_4
-  float v18; // xmm5_4
+  D2DMatrixHelper *v8; // rcx
+  float *v9; // r8
+  float *v10; // r9
+  int v11; // xmm0_4
+  float v12; // xmm4_4
+  float v13; // xmm5_4
+  int v14; // xmm1_4
+  float v15; // xmm3_4
+  float v16; // xmm2_4
+  float v17; // xmm5_4
+  struct D2D_MATRIX_3X2_F *v18; // [rsp+20h] [rbp-8h]
 
-  if ( !D2DMatrixHelper::TryDecomposeMatrixIntoScaleAndRemaining_NumericallyStable(this, a2, a3, a4) )
+  if ( !D2DMatrixHelper::TryDecomposeMatrixIntoScaleAndRemaining_NumericallyStable(this, a2, a3, a4, v18) )
   {
-    D2DMatrixHelper::GetScaleDimensions(v9, v8, v10, v11);
-    v12 = *((_DWORD *)this + 4);
-    v13 = 1.0 / a2->m11;
-    v14 = 1.0 / *a3;
-    v15 = *((_DWORD *)this + 5);
-    v16 = v13 * *((float *)this + 1);
-    v17 = v14 * *((float *)this + 2);
-    v18 = v14 * *((float *)this + 3);
-    *a4 = v13 * *(float *)this;
-    a4[1] = v16;
-    a4[2] = v17;
-    a4[3] = v18;
-    *((_DWORD *)a4 + 4) = v12;
-    *((_DWORD *)a4 + 5) = v15;
+    D2DMatrixHelper::GetScaleDimensions(v8, a2, v9, v10);
+    v11 = *((_DWORD *)this + 4);
+    v12 = 1.0 / a2->m11;
+    v13 = 1.0 / *a3;
+    v14 = *((_DWORD *)this + 5);
+    v15 = v12 * *((float *)this + 1);
+    v16 = v13 * *((float *)this + 2);
+    v17 = v13 * *((float *)this + 3);
+    *a4 = v12 * *(float *)this;
+    a4[1] = v15;
+    a4[2] = v16;
+    a4[3] = v17;
+    *((_DWORD *)a4 + 4) = v11;
+    *((_DWORD *)a4 + 5) = v14;
   }
 }

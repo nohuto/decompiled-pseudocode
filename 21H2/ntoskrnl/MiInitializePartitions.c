@@ -1,7 +1,8 @@
 /*
- * XREFs of MiInitializePartitions @ 0x140AF50EC
+ * XREFs of MiInitializePartitions @ 0x140A4399C
  * Callers:
- *     MiCreatePfnDatabase @ 0x140AF4DB0 (MiCreatePfnDatabase.c)
+ *     MiCreatePfnDatabase @ 0x140A436BC (MiCreatePfnDatabase.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -13,16 +14,16 @@ __int64 __fastcall MiInitializePartitions(int a1)
   result = 1LL;
   if ( !a1 )
   {
-    qword_140C51F00 = 0LL;
-    qword_140C51F08 = 0LL;
-    qword_140C51F28 = (PRTL_BITMAP)&dword_140C51F30;
-    dword_140C51F30 = 1;
-    qword_140C51F38 = (__int64)dword_140C51F10;
-    dword_140C51F10[0] |= 1u;
-    qword_140C51F20 = (__int64)&qword_140C51F18;
-    qword_140C51F18 = (__int64)&qword_140C51F18;
-    qword_140C51F40 = (__int64)&MiSystemPartition;
-    qword_140C51F48 = (__int64)&qword_140C51F40;
+    qword_140C4E600 = 0LL;
+    qword_140C4E608 = 0LL;
+    qword_140C4E628 = (PRTL_BITMAP)&dword_140C4E630;
+    dword_140C4E630 = 1;
+    qword_140C4E638 = (__int64)dword_140C4E610;
+    dword_140C4E610[0] |= 1u;
+    qword_140C4E620 = (__int64)&qword_140C4E618;
+    qword_140C4E618 = (__int64)&qword_140C4E618;
+    qword_140C4E640 = (__int64)&MiSystemPartition;
+    qword_140C4E648 = (__int64)&qword_140C4E640;
   }
   return result;
 }

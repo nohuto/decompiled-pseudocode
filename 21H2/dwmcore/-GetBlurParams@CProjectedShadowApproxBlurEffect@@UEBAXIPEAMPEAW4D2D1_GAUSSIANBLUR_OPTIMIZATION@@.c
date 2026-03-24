@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBlurParams@CProjectedShadowApproxBlurEffect@@UEBAXIPEAMPEAW4D2D1_GAUSSIANBLUR_OPTIMIZATION@@PEAW4D2D1_BORDER_MODE@@@Z @ 0x1800FCE70
+ * XREFs of ?GetBlurParams@CProjectedShadowApproxBlurEffect@@UEBAXIPEAMPEAW4D2D1_GAUSSIANBLUR_OPTIMIZATION@@PEAW4D2D1_BORDER_MODE@@@Z @ 0x1800E3C40
  * Callers:
  *     <none>
  * Callees:

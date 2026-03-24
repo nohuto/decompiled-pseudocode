@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_VfWdfTimerStop @ 0x1C00C4180
+ * XREFs of imp_VfWdfTimerStop @ 0x1C00C3180
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall imp_VfWdfTimerStop(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFTIMER__ *Timer, __int64 Wait)

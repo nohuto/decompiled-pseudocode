@@ -1,35 +1,49 @@
 /*
- * XREFs of ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140650E68
+ * XREFs of ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x1405C6C08
  * Callers:
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1406515E8 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
- *     IoCreateDisk @ 0x140930510 (IoCreateDisk.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C7284 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     IoCreateDisk @ 0x14088DA90 (IoCreateDisk.c)
  * Callees:
- *     ?CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14064FAD0 (-CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140651824 (-CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z @ 0x1406518D8 (-Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z.c)
- *     ?CreatePartitionTable@SC_RAW@@QEAAJXZ @ 0x14065246C (-CreatePartitionTable@SC_RAW@@QEAAJXZ.c)
+ *     ?CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x1405C74C0 (-CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z @ 0x1405C7574 (-Initialize@SC_MBR@@QEAAXPEAVSC_DISK@@@Z.c)
+ *     ?CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x1405C7C5C (-CreatePartitionTable@SC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?CreatePartitionTable@SC_RAW@@QEAAJXZ @ 0x1405C9104 (-CreatePartitionTable@SC_RAW@@QEAAJXZ.c)
  */
 
 __int64 __fastcall SC_DISK::CreatePartitionTable(SC_DISK *this, struct _CREATE_DISK *a2)
 {
-  struct _CREATE_DISK *v3; // r9
-  SC_DISK *v4; // [rsp+38h] [rbp+10h] BYREF
+  PARTITION_STYLE PartitionStyle; // r8d
+  __int32 v3; // r8d
+  struct _CREATE_DISK *v5; // r9
+  SC_DISK *v6; // [rsp+38h] [rbp+10h] BYREF
 
+  PartitionStyle = PARTITION_STYLE_RAW;
   if ( a2 )
+    PartitionStyle = a2->PartitionStyle;
+  if ( PartitionStyle )
   {
-    if ( a2->PartitionStyle == PARTITION_STYLE_MBR )
+    v3 = PartitionStyle - 1;
+    if ( v3 )
     {
-      SC_MBR::Initialize((SC_MBR *)&v4, this);
-      return SC_MBR::CreatePartitionTable((SC_MBR *)&v4, v3);
+      if ( v3 == 1 )
+      {
+        v6 = this;
+        return SC_RAW::CreatePartitionTable((SC_RAW *)&v6);
+      }
+      else
+      {
+        return 3221225659LL;
+      }
     }
-    if ( a2->PartitionStyle == PARTITION_STYLE_GPT )
+    else
     {
-      v4 = this;
-      return SC_GPT::CreatePartitionTable((SC_GPT *)&v4, a2);
+      v6 = this;
+      return SC_GPT::CreatePartitionTable((SC_GPT *)&v6, a2);
     }
-    if ( a2->PartitionStyle != PARTITION_STYLE_RAW )
-      return 3221225659LL;
   }
-  v4 = this;
-  return SC_RAW::CreatePartitionTable((SC_RAW *)&v4);
+  else
+  {
+    SC_MBR::Initialize((SC_MBR *)&v6, this);
+    return SC_MBR::CreatePartitionTable((SC_MBR *)&v6, v5);
+  }
 }

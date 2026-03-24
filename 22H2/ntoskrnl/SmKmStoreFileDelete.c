@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmStoreFileDelete @ 0x1409D9ED8
+ * XREFs of SmKmStoreFileDelete @ 0x14092C78C
  * Callers:
- *     SmKmStoreFileCreate @ 0x1409D9774 (SmKmStoreFileCreate.c)
- *     SmKmStoreFileCreateForIoType @ 0x1409D9C28 (SmKmStoreFileCreateForIoType.c)
- *     SmcCacheCleanup @ 0x1409DAB94 (SmcCacheCleanup.c)
+ *     SmKmStoreFileCreate @ 0x14092C02C (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14092C4DC (SmKmStoreFileCreateForIoType.c)
+ *     SmcCacheCleanup @ 0x14092D438 (SmcCacheCleanup.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ZwSetInformationFile @ 0x14041AB80 (ZwSetInformationFile.c)
+ *     IoSetThreadHardErrorMode @ 0x14024FB60 (IoSetThreadHardErrorMode.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ZwSetInformationFile @ 0x1403F9F00 (ZwSetInformationFile.c)
  */
 
 __int64 __fastcall SmKmStoreFileDelete(__int64 a1)

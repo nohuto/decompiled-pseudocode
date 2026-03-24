@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_DwmGetRemoteSessionOcclusionState @ 0x1801109E7
+ * XREFs of __imp_load_DwmGetRemoteSessionOcclusionState @ 0x1800E866F
  * Callers:
  *     <none>
  * Callees:

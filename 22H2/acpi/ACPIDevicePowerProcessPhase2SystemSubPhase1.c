@@ -1,21 +1,22 @@
 /*
- * XREFs of ACPIDevicePowerProcessPhase2SystemSubPhase1 @ 0x1C001F7A0
+ * XREFs of ACPIDevicePowerProcessPhase2SystemSubPhase1 @ 0x1C0050FF0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C001B528 (WPP_RECORDER_SF_qD.c)
- *     ACPIDeviceCompleteGenericPhase @ 0x1C001C560 (ACPIDeviceCompleteGenericPhase.c)
- *     AMLIAsyncEvalObject @ 0x1C0047908 (AMLIAsyncEvalObject.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
- *     AMLIGetParent @ 0x1C0048744 (AMLIGetParent.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001FEE0 (ACPIDeviceCompleteGenericPhase.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00525D8 (WPP_RECORDER_SF_qd.c)
  */
 
 __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase1(__int64 a1)
 {
   __int64 v1; // rdi
-  int v2; // r14d
-  __int64 v3; // rbp
+  unsigned int v2; // r14d
+  __int64 *v3; // rbp
   const ULONG_PTR *v4; // rdx
   int v5; // r15d
   int v6; // r13d
@@ -31,37 +32,37 @@ __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase1(__int64 a1)
   bool v16; // al
   __int64 v17; // rax
   __int64 v18; // rsi
-  __int64 v19; // rbx
+  __int64 *v19; // rbx
   __int64 v20; // rax
-  int v21; // edx
   __int64 result; // rax
+  __int64 v22; // [rsp+30h] [rbp-88h]
   __int128 v23; // [rsp+48h] [rbp-70h] BYREF
   __int128 v24; // [rsp+58h] [rbp-60h]
   __int64 v25; // [rsp+68h] [rbp-50h]
   int v27; // [rsp+D0h] [rbp+18h]
 
   v1 = a1;
-  v2 = 0;
   v25 = 0LL;
-  v3 = 0LL;
+  v2 = 0;
   v23 = 0LL;
+  v3 = 0LL;
   *(_DWORD *)(a1 + 212) = 4;
   v24 = 0LL;
-  v4 = &WPP_afb93ce9a898342faba18bc7242ff62e_Traceguids;
+  v4 = &WPP_095c070a05c4368bad966ca54a81e920_Traceguids;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v4) = 4;
-    WPP_RECORDER_SF_qD(
+    WPP_RECORDER_SF_qd(
       WPP_GLOBAL_Control->DeviceExtension,
       (_DWORD)v4,
       10,
       62,
-      (__int64)&WPP_afb93ce9a898342faba18bc7242ff62e_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a1,
       4);
   }
   v5 = *(_DWORD *)(v1 + 104);
-  v6 = *(_DWORD *)(v1 + 112);
+  v6 = *(_DWORD *)(v1 + 108);
   v27 = v6;
   if ( v5 != 6 || (v7 = 1, v6 != 5) )
     v7 = 0;
@@ -86,12 +87,12 @@ __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase1(__int64 a1)
           v14 = (__int64 *)*v14;
           if ( !v12 )
           {
-            v9 = _InterlockedCompareExchange((volatile signed __int32 *)(v15 + 736), 0, 0);
+            v9 = _InterlockedCompareExchange((volatile signed __int32 *)(v15 + 696), 0, 0);
             v12 = v9 != 0;
           }
-          if ( v5 == 1 && _bittest64((const signed __int64 *)(v15 + 1008), 0x33u) )
+          if ( v5 == 1 && (*(_QWORD *)(v15 + 960) & 0x8000000000000LL) != 0 )
           {
-            *(_BYTE *)(v15 + 665) = 1;
+            *(_BYTE *)(v15 + 625) = 1;
             v13 = 1;
           }
         }
@@ -105,8 +106,11 @@ __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase1(__int64 a1)
       v16 = v5 == 5 || v6 == 3;
       if ( v9 && v16 || v7 == 1 )
       {
-        if ( (v10[2] & 0x40) != 0 )
-          goto LABEL_29;
+        if ( (v11[2] & 0x40) != 0 )
+        {
+          _InterlockedAnd64(v11 + 2, 0xFFFFFFFFFFFFFFBFuLL);
+          goto LABEL_36;
+        }
       }
       else
       {
@@ -114,24 +118,24 @@ __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase1(__int64 a1)
         if ( *((_DWORD *)v11 + 11) < v5 )
         {
           if ( (v17 & 0x200) == 0 )
-            _InterlockedOr64(v10 + 2, 0x40uLL);
-          goto LABEL_35;
+            _InterlockedOr64(v11 + 2, 0x40uLL);
+          goto LABEL_36;
         }
         if ( (v17 & 0x40) != 0 )
         {
-LABEL_29:
           _InterlockedAnd64(v10 + 2, 0xFFFFFFFFFFFFFFBFuLL);
-LABEL_35:
+LABEL_36:
           if ( _InterlockedCompareExchange((volatile signed __int32 *)v11 + 16, 3, 0) == 1 )
             *((_DWORD *)v11 + 17) = 3;
-          goto LABEL_37;
+          goto LABEL_38;
         }
         if ( (v17 & 0x2000) != 0 )
-          goto LABEL_35;
+          goto LABEL_36;
       }
-LABEL_37:
+LABEL_38:
       if ( v8 == &AcpiPowerNodeList )
       {
+        v3 = 0LL;
         v1 = a1;
         v2 = 0;
         break;
@@ -141,35 +145,35 @@ LABEL_37:
   v18 = (unsigned int)AcpiMostRecentSleepState;
   KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
   if ( v5 != 1 )
-    goto LABEL_47;
-  v19 = AMLIGetParent(*(_QWORD *)(*(_QWORD *)(v1 + 40) + 760LL));
-  v3 = AMLIGetNamedChild(v19, 1262573407LL);
-  AMLIDereferenceHandleEx(v19);
+    goto LABEL_48;
+  v19 = (__int64 *)AMLIGetParent(*(_QWORD *)(*(_QWORD *)(v1 + 40) + 720LL));
+  v3 = AMLIGetNamedChild(v19, 1262573407);
+  AMLIDereferenceHandleEx((__int64)v19);
   if ( !v3 )
-    goto LABEL_47;
+    goto LABEL_48;
   WORD1(v23) = 1;
   v20 = (unsigned int)v18 < 7 ? (unsigned int)AcpiSystemStateTranslation[v18] : 0xFFFFFFFFLL;
   *(_QWORD *)&v24 = v20;
-  v2 = AMLIAsyncEvalObject(v3, 0, 1, (unsigned int)&v23, (__int64)ACPIDeviceCompleteGenericPhase, v1);
-  AMLIDereferenceHandleEx(v3);
+  v2 = AMLIAsyncEvalObject(v3, 0LL, 1u, &v23, ACPIDeviceCompleteGenericPhase, v1);
+  AMLIDereferenceHandleEx((__int64)v3);
   v3 = 0LL;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v21) = 4;
+    LODWORD(v22) = v2;
     WPP_RECORDER_SF_qD(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v21,
-      10,
-      63,
-      (__int64)&WPP_afb93ce9a898342faba18bc7242ff62e_Traceguids,
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      0xAu,
+      0x3Fu,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       v1,
-      v2);
+      v22);
   }
   result = 259LL;
   if ( v2 != 259 )
   {
-LABEL_47:
-    ACPIDeviceCompleteGenericPhase(v3, v2, 0LL, v1);
+LABEL_48:
+    ACPIDeviceCompleteGenericPhase((__int64)v3, v2, 0LL, v1);
     return 0LL;
   }
   return result;

@@ -1,111 +1,126 @@
 /*
- * XREFs of ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180057590
+ * XREFs of ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800AC434
  * Callers:
- *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180056390 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800AB420 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ?Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z @ 0x180057730 (-Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z.c)
- *     ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800BB448 (-GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ.c)
- *     ?OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z @ 0x1800BD5D4 (-OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z.c)
- *     ?PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z @ 0x1800BD760 (-PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetIsComplete@Timer@@QEBA_NXZ @ 0x1800E9E30 (-GetIsComplete@Timer@@QEBA_NXZ.c)
- *     ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x1800F9EE8 (-Repeat@KeyframeSequence@@QEAAXH@Z.c)
+ *     ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x1800187AC (-Repeat@KeyframeSequence@@QEAAXH@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800AA37C (-GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ.c)
+ *     ?Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z @ 0x1800ABEF0 (-Calculate@KeyframeSequence@@QEAAXPEAVCExpressionValueStack@@@Z.c)
+ *     ?GetIsComplete@Timer@@QEBA_NXZ @ 0x1800AC604 (-GetIsComplete@Timer@@QEBA_NXZ.c)
+ *     ?OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z @ 0x1800AC820 (-OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z.c)
+ *     ?PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z @ 0x1800ACE0C (-PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::Calculate(CKeyframeAnimation *this, struct CExpressionValueStack *a2)
 {
-  char v5; // al
-  __int64 v6; // rcx
+  __int64 v4; // r8
+  unsigned int v5; // edi
   int v7; // eax
-  unsigned int v8; // ecx
-  unsigned int v9; // ebx
-  int v10; // r10d
-  int v11; // r11d
-  float v12; // xmm0_4
+  __int64 v8; // rcx
+  int v9; // eax
+  __int64 v10; // rcx
+  int v11; // r9d
+  int v12; // r11d
   float v13; // xmm0_4
-  int v14; // eax
-  int v15; // ecx
-  bool v16; // sf
-  int v17; // r10d
-  __m128 v18; // xmm2
-  __m128 v19; // rt1
+  float v14; // xmm0_4
+  int v15; // eax
+  int v16; // ecx
+  bool v17; // sf
+  int v18; // r11d
+  __m128 v19; // xmm2
+  __m128 v20; // rt1
 
-  if ( *((char *)this + 580) >= 0 )
-    return 0LL;
-  v5 = *((_BYTE *)this + 581);
-  if ( (v5 & 4) != 0 )
-    *((_BYTE *)this + 581) = v5 & 0xFB;
-  KeyframeSequence::Calculate(*((KeyframeSequence **)this + 49), a2);
-  v6 = *((_QWORD *)this + 49);
-  if ( (*(_BYTE *)(v6 + 140) & 3) != 1 || !Timer::GetIsComplete((Timer *)(v6 + 80)) || *((_DWORD *)this + 143) == 4 )
-    return 0LL;
-  *((_BYTE *)this + 581) |= 4u;
-  if ( !*((_DWORD *)this + 137) )
-    goto LABEL_9;
-  v12 = CKeyframeAnimation::GetAnimationTimeLength(this) * 1000.0;
-  if ( (LODWORD(v12) & 0x7FFFFFFFu) > 0x497FFFF0 )
+  if ( *((char *)this + 548) >= 0 )
+    return 0;
+  if ( (*((_BYTE *)this + 549) & 4) != 0 )
   {
-    v18 = 0LL;
-    v18.m128_f32[0] = (float)(int)v12 - v12;
-    v19.m128_f32[0] = FLOAT_N0_5;
-    v14 = (int)v12 - _mm_cmple_ss(v18, v19).m128_u32[0];
+    v9 = CKeyframeAnimation::OnAnimationEvent(this, 32LL, a2);
+    v5 = v9;
+    if ( v9 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xB07u, 0LL);
+      return v5;
+    }
+    *((_BYTE *)this + 549) &= ~4u;
+  }
+  KeyframeSequence::Calculate(*((KeyframeSequence **)this + 45), a2);
+  v4 = *((_QWORD *)this + 45);
+  if ( (*(_BYTE *)(v4 + 140) & 3) != 1 || !Timer::GetIsComplete((Timer *)(v4 + 80)) || *((_DWORD *)this + 135) == 4 )
+    return 0;
+  *((_BYTE *)this + 549) |= 4u;
+  if ( !*((_DWORD *)this + 129) )
+    goto LABEL_9;
+  v13 = CKeyframeAnimation::GetAnimationTimeLength(this) * 1000.0;
+  if ( (LODWORD(v13) & 0x7FFFFFFFu) > 0x497FFFF0 )
+  {
+    v19 = 0LL;
+    v19.m128_f32[0] = (float)(int)v13 - v13;
+    v20.m128_f32[0] = FLOAT_N0_5;
+    v15 = (int)v13 - _mm_cmple_ss(v19, v20).m128_u32[0];
   }
   else
   {
-    v13 = v12 + 6291456.25;
-    v14 = (int)(LODWORD(v13) << 10) >> 11;
+    v14 = v13 + 6291456.25;
+    v15 = (int)(LODWORD(v14) << 10) >> 11;
   }
-  v15 = 0;
+  v16 = 0;
   do
   {
-    ++v15;
-    if ( v10 < 0 )
+    while ( 1 )
     {
-      v10 += v14;
-LABEL_28:
-      v16 = v10 < 0;
-      continue;
-    }
-    if ( v10 > v14 )
-    {
-      v10 -= v14;
-      goto LABEL_28;
-    }
-    v16 = v10 < 0;
-    if ( !v10 )
-    {
-      if ( *((float *)this + 132) >= 0.0 )
+      ++v16;
+      if ( v12 < 0 )
+      {
+        v12 += v15;
+        goto LABEL_34;
+      }
+      if ( v12 > v15 )
+      {
+        v12 -= v15;
+        goto LABEL_34;
+      }
+      v17 = v12 < 0;
+      if ( !v12 )
         break;
-      v10 = v14;
-      goto LABEL_28;
+LABEL_19:
+      if ( !v17 )
+        goto LABEL_20;
     }
-  }
-  while ( v16 || v10 > v14 );
-  if ( v15 > v11 )
-  {
-    if ( v11 <= 0 )
-      goto LABEL_21;
-    *((_DWORD *)this + 137) = 0;
-    goto LABEL_9;
-  }
-  *((_DWORD *)this + 137) = v11 - v15;
-LABEL_21:
-  if ( !v15 )
-  {
-LABEL_9:
-    *((_BYTE *)this + 580) &= ~0x80u;
-    *((_BYTE *)this + 581) |= 2u;
-    v7 = CKeyframeAnimation::OnAnimationEvent(this, 1LL, a2);
-    v9 = v7;
-    if ( v7 < 0 )
+    if ( *((float *)this + 124) < 0.0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xC71u, 0LL);
-      return v9;
+      v12 = v15;
+LABEL_34:
+      v17 = v12 < 0;
+      goto LABEL_19;
     }
-    return 0LL;
+LABEL_20:
+    ;
   }
-  *((_DWORD *)this + 135) += v15;
-  CKeyframeAnimation::PrepareSequenceForIteration(this, *((_DWORD *)this + 135));
-  KeyframeSequence::Repeat(*((KeyframeSequence **)this + 49), v17);
-  return 0LL;
+  while ( v12 > v15 );
+  if ( v16 <= v11 )
+  {
+    *((_DWORD *)this + 129) = v11 - v16;
+  }
+  else if ( v11 > 0 )
+  {
+    v16 = 0;
+    *((_DWORD *)this + 129) = 0;
+  }
+  if ( v16 )
+  {
+    *((_DWORD *)this + 127) += v16;
+    CKeyframeAnimation::PrepareSequenceForIteration(this, *((_DWORD *)this + 127));
+    KeyframeSequence::Repeat(*((KeyframeSequence **)this + 45), v18);
+    return 0;
+  }
+LABEL_9:
+  *((_BYTE *)this + 548) &= ~0x80u;
+  *((_BYTE *)this + 549) |= 2u;
+  v7 = CKeyframeAnimation::OnAnimationEvent(this, 1LL, a2);
+  v5 = v7;
+  if ( v7 >= 0 )
+    return 0;
+  MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xBA7u, 0LL);
+  return v5;
 }

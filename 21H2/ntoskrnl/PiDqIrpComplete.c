@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqIrpComplete @ 0x140776880
+ * XREFs of PiDqIrpComplete @ 0x14062F050
  * Callers:
- *     PiDqQueryCompletePendedIrp @ 0x1406E5854 (PiDqQueryCompletePendedIrp.c)
- *     PiDqIrpQueryGetResult @ 0x1407735A0 (PiDqIrpQueryGetResult.c)
- *     PiDqIrpQueryCreate @ 0x1407768EC (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryGetResult @ 0x14062E070 (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
+ *     PiDqQueryCompletePendedIrp @ 0x140763A44 (PiDqQueryCompletePendedIrp.c)
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
  */
 
 void __fastcall PiDqIrpComplete(IRP *a1, int a2, unsigned int a3, _OWORD *a4)

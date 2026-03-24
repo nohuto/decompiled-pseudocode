@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CHolographicDisplay@@IEAA@PEAVCComposition@@@Z @ 0x1802982D4
+ * XREFs of ??0CHolographicDisplay@@IEAA@PEAVCComposition@@@Z @ 0x1802563E4
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
  *     <none>
  */
@@ -18,15 +18,15 @@ CHolographicDisplay *__fastcall CHolographicDisplay::CHolographicDisplay(
   *((_QWORD *)this + 5) = 0LL;
   *((_DWORD *)this + 8) = 0;
   *(_QWORD *)this = &CHolographicDisplay::`vftable'{for `CNotificationResource'};
-  *((_QWORD *)this + 9) = &CHolographicDisplay::`vftable'{for `IHolographicDisplayInfo'};
-  *((_DWORD *)this + 22) = 0;
-  *(_OWORD *)((char *)this + 92) = 0LL;
+  *((_QWORD *)this + 8) = &CHolographicDisplay::`vftable'{for `IHolographicDisplayInfo'};
+  *((_DWORD *)this + 20) = 0;
+  *(_OWORD *)((char *)this + 84) = 0LL;
+  *(_QWORD *)((char *)this + 100) = 0LL;
   *(_QWORD *)((char *)this + 108) = 0LL;
-  *(_QWORD *)((char *)this + 116) = 0LL;
-  *((_BYTE *)this + 124) = 0;
-  InitializeSRWLock((PSRWLOCK)this + 16);
-  *((_DWORD *)this + 22) = _InterlockedIncrement(&CHolographicDisplay::s_displayIdCounter);
+  *((_BYTE *)this + 116) = 0;
+  InitializeSRWLock((PSRWLOCK)this + 15);
+  *((_DWORD *)this + 20) = _InterlockedIncrement(&CHolographicDisplay::s_displayIdCounter);
   result = this;
-  *((_QWORD *)this + 10) = *(_QWORD *)(*((_QWORD *)this + 2) + 264LL);
+  *((_QWORD *)this + 9) = *(_QWORD *)(*((_QWORD *)this + 2) + 136LL);
   return result;
 }

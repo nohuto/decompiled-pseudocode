@@ -1,21 +1,21 @@
 /*
- * XREFs of NtQuerySystemEnvironmentValue @ 0x140A00DB0
+ * XREFs of NtQuerySystemEnvironmentValue @ 0x1409549F0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitString @ 0x14036B950 (RtlInitString.c)
- *     HalGetEnvironmentVariable @ 0x140508580 (HalGetEnvironmentVariable.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     RtlxUnicodeStringToOemSize @ 0x140759A50 (RtlxUnicodeStringToOemSize.c)
- *     RtlUnicodeStringToAnsiString @ 0x140759C40 (RtlUnicodeStringToAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     HalGetEnvironmentVariable @ 0x1404BBB10 (HalGetEnvironmentVariable.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     RtlxUnicodeStringToAnsiSize @ 0x14075DB90 (RtlxUnicodeStringToAnsiSize.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall NtQuerySystemEnvironmentValue(
@@ -76,7 +76,7 @@ __int64 __fastcall NtQuerySystemEnvironmentValue(
   {
     UnicodeString = *a1;
   }
-  v11 = RtlxUnicodeStringToOemSize(&UnicodeString);
+  v11 = RtlxUnicodeStringToAnsiSize(&UnicodeString);
   v12 = v11;
   v21 = v11;
   DestinationString.Buffer = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v11, 0x72766E45u);
@@ -96,7 +96,7 @@ __int64 __fastcall NtQuerySystemEnvironmentValue(
       ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
       EnvironmentVariable = HalGetEnvironmentVariable(DestinationString.Buffer, 0x400u, (char *)PoolWithTag);
       ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       ExFreePoolWithTag(DestinationString.Buffer, 0);
       if ( EnvironmentVariable )
       {
@@ -105,7 +105,7 @@ __int64 __fastcall NtQuerySystemEnvironmentValue(
       }
       else
       {
-        RtlInitString(&DestinationString, (PCSZ)PoolWithTag);
+        RtlInitAnsiString(&DestinationString, (PCSZ)PoolWithTag);
         UnicodeString.Buffer = (wchar_t *)a2;
         UnicodeString.MaximumLength = a3;
         UnicodeString.Length = 0;

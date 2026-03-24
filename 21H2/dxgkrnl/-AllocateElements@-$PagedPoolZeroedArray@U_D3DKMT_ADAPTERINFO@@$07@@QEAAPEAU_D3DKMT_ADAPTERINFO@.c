@@ -1,36 +1,34 @@
 /*
- * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_ADAPTERINFO@@$07@@QEAAPEAU_D3DKMT_ADAPTERINFO@@I@Z @ 0x1C01C0250
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_ADAPTERINFO@@$07@@QEAAPEAU_D3DKMT_ADAPTERINFO@@I@Z @ 0x1C0134298
  * Callers:
- *     ?DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z @ 0x1C01BEDD0 (-DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z.c)
- *     ?DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z @ 0x1C01BFB40 (-DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z.c)
+ *     ?DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z @ 0x1C0132E80 (-DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z.c)
+ *     ?DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z @ 0x1C0174E30 (-DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
-__int64 __fastcall PagedPoolZeroedArray<_D3DKMT_ADAPTERINFO,8>::AllocateElements(
-        __int64 *a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+PVOID __fastcall PagedPoolZeroedArray<_D3DKMT_ADAPTERINFO,8>::AllocateElements(_DWORD *a1, unsigned int a2)
 {
-  __int64 result; // rax
-  void *v7; // rcx
+  __int64 v2; // rsi
+  PVOID result; // rax
 
+  v2 = a2;
   if ( a2 <= 8 )
   {
-    v7 = a1 + 1;
-    *a1 = (__int64)v7;
-    if ( a2 )
-      memset(v7, 0, 20LL * a2);
-    goto LABEL_4;
+    result = a1 + 2;
   }
-  if ( 0xFFFFFFFFFFFFFFFFuLL / a2 >= 0x14 )
+  else
   {
-    *a1 = ExAllocatePool2(256LL, 20LL * a2, 1265072196LL, a4);
-LABEL_4:
-    result = *a1;
-    *((_DWORD *)a1 + 42) = a2;
-    return result;
+    if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 0x14 )
+      return 0LL;
+    result = ExAllocatePoolWithTag(PagedPool, 20LL * a2, 0x4B677844u);
   }
-  return 0LL;
+  *(_QWORD *)a1 = result;
+  a1[42] = v2;
+  if ( result )
+  {
+    memset(result, 0, 20 * v2);
+    return *(PVOID *)a1;
+  }
+  return result;
 }

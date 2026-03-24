@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCoverageEnsureUserModeView @ 0x1406B402C
+ * XREFs of EtwpCoverageEnsureUserModeView @ 0x1406B400C
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x1406B3FA0 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1406B3F80 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     MiUnmapViewOfSection @ 0x1406171B0 (MiUnmapViewOfSection.c)
- *     MmMapViewOfSection @ 0x140678B80 (MmMapViewOfSection.c)
+ *     MmMapViewOfSection @ 0x140678B60 (MmMapViewOfSection.c)
  */
 
 __int64 __fastcall EtwpCoverageEnsureUserModeView(__int64 a1)

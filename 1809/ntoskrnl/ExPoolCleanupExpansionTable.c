@@ -1,12 +1,12 @@
 /*
- * XREFs of ExPoolCleanupExpansionTable @ 0x140141F40
+ * XREFs of ExPoolCleanupExpansionTable @ 0x140141F60
  * Callers:
- *     ExpInsertPoolTrackerExpansion @ 0x140104290 (ExpInsertPoolTrackerExpansion.c)
- *     MiCheckSessionPoolAllocations @ 0x1406E0824 (MiCheckSessionPoolAllocations.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x1401042B0 (ExpInsertPoolTrackerExpansion.c)
+ *     MiCheckSessionPoolAllocations @ 0x1406E0804 (MiCheckSessionPoolAllocations.c)
  * Callees:
- *     ExpRemovePoolTrackerExpansion @ 0x140107660 (ExpRemovePoolTrackerExpansion.c)
- *     ExFreeHeapPages @ 0x14015B254 (ExFreeHeapPages.c)
- *     EtwTracePool @ 0x1401B71C8 (EtwTracePool.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140107680 (ExpRemovePoolTrackerExpansion.c)
+ *     ExFreeHeapPages @ 0x14015B274 (ExFreeHeapPages.c)
+ *     EtwTracePool @ 0x1401B71E8 (EtwTracePool.c)
  */
 
 __int64 __fastcall ExPoolCleanupExpansionTable(__int64 a1, __int64 a2)

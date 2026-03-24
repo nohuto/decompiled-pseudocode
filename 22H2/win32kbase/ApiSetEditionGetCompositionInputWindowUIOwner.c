@@ -1,18 +1,38 @@
 /*
- * XREFs of ApiSetEditionGetCompositionInputWindowUIOwner @ 0x1C020619C
+ * XREFs of ApiSetEditionGetCompositionInputWindowUIOwner @ 0x1C01CB874
  * Callers:
- *     ?DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z @ 0x1C0059464 (-DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z.c)
- *     ?DoesBelongToForegroundThread@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z @ 0x1C01B54E4 (-DoesBelongToForegroundThread@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z.c)
+ *     ?DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z @ 0x1C0045898 (-DoesBelongToForeground@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z.c)
+ *     ?DoesBelongToForegroundThread@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z @ 0x1C0182C64 (-DoesBelongToForegroundThread@CInputDest@@QEBA_NW4ForegroundCheck@1@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ApiSetEditionGetCompositionInputWindowUIOwner(__int64 a1)
 {
-  __int64 v1; // rbx
+  __int64 v2; // rbx
+  int v3; // eax
 
-  v1 = 0LL;
-  if ( qword_1C02965B0 && (int)qword_1C02965B0() >= 0 && qword_1C02965B8 )
-    return qword_1C02965B8(a1);
-  return v1;
+  v2 = 0LL;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      134,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  if ( qword_1C0257328 )
+    v3 = qword_1C0257328();
+  else
+    v3 = -1073741637;
+  if ( v3 >= 0 && qword_1C0257330 )
+    v2 = qword_1C0257330(a1);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      135,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  return v2;
 }

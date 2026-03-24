@@ -1,29 +1,28 @@
 /*
- * XREFs of IopEjectDevice @ 0x14096CDC8
+ * XREFs of IopEjectDevice @ 0x1408B2A10
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     IoAllocateIrp @ 0x14022E630 (IoAllocateIrp.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x140302C00 (IoGetAttachedDeviceReferenceWithTag.c)
- *     IovUtilWatermarkIrp @ 0x140302C64 (IovUtilWatermarkIrp.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     PnpQueuePendingEject @ 0x14095930C (PnpQueuePendingEject.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     IovUtilWatermarkIrp @ 0x1403615A4 (IovUtilWatermarkIrp.c)
+ *     IoAllocateIrp @ 0x1403616C0 (IoAllocateIrp.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x1403616F0 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PnpQueuePendingEject @ 0x1408A2654 (PnpQueuePendingEject.c)
  */
 
-__int64 __fastcall IopEjectDevice(_QWORD *Object, __int64 a2)
+__int64 __fastcall IopEjectDevice(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
   __int64 v3; // rcx
-  struct _DEVICE_OBJECT *AttachedDeviceReferenceWithTag; // r14
-  PIRP Irp; // rax
-  IRP *v8; // rbp
-  unsigned int v9; // ebx
+  PDEVICE_OBJECT AttachedDeviceReferenceWithTag; // r14
+  PIRP Irp; // rbp
+  unsigned int v8; // ebx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  struct _IO_STACK_LOCATION *v12; // rax
+  struct _IO_STACK_LOCATION *v11; // rax
 
   v3 = *(_QWORD *)(a2 + 96);
   if ( *(_DWORD *)(a2 + 92) == 1 )
@@ -35,31 +34,30 @@ __int64 __fastcall IopEjectDevice(_QWORD *Object, __int64 a2)
       if ( *(_BYTE *)(a2 + 89) )
         *(_BYTE *)(a2 + 89) = 0;
     }
-    AttachedDeviceReferenceWithTag = (struct _DEVICE_OBJECT *)IoGetAttachedDeviceReferenceWithTag(Object, 0x69706E50u);
+    AttachedDeviceReferenceWithTag = IoGetAttachedDeviceReferenceWithTag(DeviceObject, 0x69706E50u);
     Irp = IoAllocateIrp(AttachedDeviceReferenceWithTag->StackSize, 0);
-    v8 = Irp;
     if ( Irp )
     {
-      IovUtilWatermarkIrp((__int64)Irp, 1LL);
-      CurrentStackLocation = v8->Tail.Overlay.CurrentStackLocation;
-      v8->IoStatus.Information = 0LL;
+      IovUtilWatermarkIrp();
+      CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
+      Irp->IoStatus.Information = 0LL;
       --CurrentStackLocation;
-      v8->IoStatus.Status = -1073741637;
+      Irp->IoStatus.Status = -1073741637;
       memset(CurrentStackLocation, 0, sizeof(struct _IO_STACK_LOCATION));
       *(_WORD *)&CurrentStackLocation->MajorFunction = 4379;
       CurrentThread = KeGetCurrentThread();
-      v8->UserIosb = 0LL;
-      v8->UserEvent = 0LL;
-      v8->Tail.Overlay.Thread = CurrentThread;
-      v8->RequestorMode = 0;
+      Irp->UserIosb = 0LL;
+      Irp->UserEvent = 0LL;
+      Irp->Tail.Overlay.Thread = CurrentThread;
+      Irp->RequestorMode = 0;
       *(_DWORD *)(a2 + 80) = 0;
-      *(_QWORD *)(a2 + 72) = v8;
+      *(_QWORD *)(a2 + 72) = Irp;
       PnpQueuePendingEject((_QWORD *)a2);
-      v12 = v8->Tail.Overlay.CurrentStackLocation;
-      v12[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)IopDeviceEjectComplete;
-      v12[-1].Context = (PVOID)a2;
-      v12[-1].Control = -32;
-      v9 = IofCallDriver(AttachedDeviceReferenceWithTag, v8);
+      v11 = Irp->Tail.Overlay.CurrentStackLocation;
+      v11[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)IopDeviceEjectComplete;
+      v11[-1].Context = (PVOID)a2;
+      v11[-1].Control = -32;
+      v8 = IofCallDriver(AttachedDeviceReferenceWithTag, Irp);
     }
     else
     {
@@ -71,10 +69,10 @@ __int64 __fastcall IopEjectDevice(_QWORD *Object, __int64 a2)
       *(_QWORD *)(a2 + 32) = PnpProcessCompletedEject;
       *(_QWORD *)(a2 + 40) = a2;
       ExQueueWorkItem((PWORK_QUEUE_ITEM)(a2 + 16), DelayedWorkQueue);
-      v9 = -1073741670;
+      v8 = -1073741670;
     }
     ObfDereferenceObjectWithTag(AttachedDeviceReferenceWithTag, 0x69706E50u);
-    return v9;
+    return v8;
   }
   else
   {

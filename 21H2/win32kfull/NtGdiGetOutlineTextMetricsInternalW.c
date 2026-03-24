@@ -1,26 +1,28 @@
 /*
- * XREFs of NtGdiGetOutlineTextMetricsInternalW @ 0x1C0017E90
+ * XREFs of NtGdiGetOutlineTextMetricsInternalW @ 0x1C009BED0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetOutlineTextMetricsInternalW @ 0x1C0018120 (GreGetOutlineTextMetricsInternalW.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     GreGetOutlineTextMetricsInternalW @ 0x1C009BA88 (GreGetOutlineTextMetricsInternalW.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
-__int64 __fastcall NtGdiGetOutlineTextMetricsInternalW(HDC a1, unsigned int a2, void *a3, unsigned __int64 a4)
+__int64 __fastcall NtGdiGetOutlineTextMetricsInternalW(HDC a1, size_t Size, char *a3, unsigned __int64 a4)
 {
   size_t v6; // rsi
   void *v8; // rdi
   unsigned int OutlineTextMetricsInternalW; // r15d
-  ULONG64 v10; // rax
+  char *v10; // rax
+  __int64 v12[4]; // [rsp+28h] [rbp-20h] BYREF
 
-  v6 = a2;
+  v6 = (unsigned int)Size;
   v8 = 0LL;
-  if ( a2 && a3 )
+  v12[0] = 0LL;
+  if ( (_DWORD)Size && a3 )
   {
-    if ( a2 <= 0x2710000 )
-      v8 = (void *)AllocFreeTmpBuffer(a2);
+    if ( (unsigned int)Size <= 0x2710000 )
+      v8 = (void *)AllocFreeTmpBuffer((unsigned int)Size);
     if ( !v8 )
       return 0LL;
     memset(v8, 0, v6);
@@ -29,18 +31,18 @@ __int64 __fastcall NtGdiGetOutlineTextMetricsInternalW(HDC a1, unsigned int a2, 
   {
     LODWORD(v6) = 0;
   }
-  OutlineTextMetricsInternalW = GreGetOutlineTextMetricsInternalW(a1, (unsigned int)v6, v8);
+  OutlineTextMetricsInternalW = GreGetOutlineTextMetricsInternalW(a1, (unsigned int)v6, (char *)v8, v12);
   if ( OutlineTextMetricsInternalW == -1 )
     OutlineTextMetricsInternalW = 0;
   if ( OutlineTextMetricsInternalW )
   {
     if ( a4 + 8 > MmUserProbeAddress || a4 + 8 <= a4 || (a4 & 3) != 0 )
       *(_BYTE *)MmUserProbeAddress = 0;
-    *(_QWORD *)a4 = 0LL;
+    *(_QWORD *)a4 = v12[0];
     if ( (_DWORD)v6 )
     {
-      v10 = (ULONG64)a3 + (unsigned int)v6;
-      if ( v10 > MmUserProbeAddress || v10 <= (unsigned __int64)a3 || ((unsigned __int8)a3 & 3) != 0 )
+      v10 = &a3[(unsigned int)v6];
+      if ( (unsigned __int64)v10 > MmUserProbeAddress || v10 <= a3 || ((unsigned __int8)a3 & 3) != 0 )
         *(_BYTE *)MmUserProbeAddress = 0;
       memmove(a3, v8, (unsigned int)v6);
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetCacheInformation @ 0x140A59724
+ * XREFs of KiSetCacheInformation @ 0x14099E73C
  * Callers:
- *     KiInitializeKernel @ 0x140A580F0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
  * Callees:
- *     KeBugCheck @ 0x14041F3B0 (KeBugCheck.c)
- *     KiSetCacheInformationIntel @ 0x140A59810 (KiSetCacheInformationIntel.c)
- *     KiSetCacheInformationAmd @ 0x140A69A2C (KiSetCacheInformationAmd.c)
+ *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
+ *     KiSetCacheInformationIntel @ 0x14099E82C (KiSetCacheInformationIntel.c)
+ *     KiSetCacheInformationAmd @ 0x1409AF93C (KiSetCacheInformationAmd.c)
  */
 
 __int64 KiSetCacheInformation()
@@ -16,7 +16,7 @@ __int64 KiSetCacheInformation()
   __int64 result; // rax
   unsigned int v4; // esi
   _CACHE_DESCRIPTOR *Cache; // r8
-  int v6; // r10d
+  unsigned int i; // r10d
   unsigned __int8 Associativity; // r9
 
   Pcr = KeGetPcr();
@@ -35,38 +35,26 @@ __int64 KiSetCacheInformation()
   v4 = 0;
   Cache = CurrentPrcb->Cache;
   Pcr->SecondLevelCacheSize = 0;
-  v6 = 0;
-  if ( CurrentPrcb->CacheCount )
+  for ( i = 0; i < CurrentPrcb->CacheCount; ++i )
   {
-    while ( Cache->Level < 2u || (Cache->Type & 0xFFFFFFFD) != 0 )
+    if ( Cache->Level >= 2u && (Cache->Type & 0xFFFFFFFD) == 0 )
     {
-LABEL_15:
-      ++Cache;
-      if ( ++v6 >= CurrentPrcb->CacheCount )
-        return result;
-    }
-    Associativity = Cache->Associativity;
-    if ( Associativity == 0xFF )
-    {
-      Associativity = 16;
-    }
-    else if ( !Associativity )
-    {
-LABEL_11:
+      Associativity = Cache->Associativity;
+      if ( Associativity == 0xFF )
+        Associativity = 16;
+      if ( Associativity && Cache->Size / Associativity > v4 )
+      {
+        v4 = Cache->Size / Associativity;
+        Pcr->SecondLevelCacheSize = Cache->Size;
+        Pcr->SecondLevelCacheAssociativity = Associativity;
+      }
       if ( Cache->LineSize > (unsigned int)KeLargestCacheLine )
         KeLargestCacheLine = Cache->LineSize;
       result = Cache->Size;
       if ( (unsigned int)result > KiLargestCacheSize )
         KiLargestCacheSize = Cache->Size;
-      goto LABEL_15;
     }
-    if ( Cache->Size / Associativity > v4 )
-    {
-      v4 = Cache->Size / Associativity;
-      Pcr->SecondLevelCacheSize = Cache->Size;
-      Pcr->SecondLevelCacheAssociativity = Associativity;
-    }
-    goto LABEL_11;
+    ++Cache;
   }
   return result;
 }

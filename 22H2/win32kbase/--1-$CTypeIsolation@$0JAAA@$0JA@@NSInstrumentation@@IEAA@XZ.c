@@ -1,19 +1,19 @@
 /*
- * XREFs of ??1?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAA@XZ @ 0x1C0091920
+ * XREFs of ??1?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAA@XZ @ 0x1C00B1578
  * Callers:
- *     ?Create@?$TypeIsolationFactory@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V?$CTypeIsolation@$0KAAA@$0KA@@2@V?$CTypeIsolation@$0BFAAA@$0BFA@@2@V?$CTypeIsolation@$0BEAAA@$0KA@@2@V?$CTypeIsolation@$0GAAA@$0GA@@2@V?$CTypeIsolation@$0HAAA@$0HA@@2@@@SA_NPEAPEAE@Z @ 0x1C008CCC8 (-Create@-$TypeIsolationFactory@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V-$CTypeIsolati.c)
- *     ?Destroy@?$TypeIsolationFactory@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V?$CTypeIsolation@$0KAAA@$0KA@@2@V?$CTypeIsolation@$0BFAAA@$0BFA@@2@V?$CTypeIsolation@$0BEAAA@$0KA@@2@V?$CTypeIsolation@$0GAAA@$0GA@@2@V?$CTypeIsolation@$0HAAA@$0HA@@2@@@SAXPEAPEAE@Z @ 0x1C0091404 (-Destroy@-$TypeIsolationFactory@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V-$CTypeIsolat.c)
- *     ?Destroy@?$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C0091650 (-Destroy@-$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     ?Create@?$TypeIsolationFactory@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V?$CTypeIsolation@$0KAAA@$0KA@@2@V?$CTypeIsolation@$0BFAAA@$0BFA@@2@V?$CTypeIsolation@$0BEAAA@$0KA@@2@V?$CTypeIsolation@$0GAAA@$0GA@@2@V?$CTypeIsolation@$0HAAA@$0HA@@2@@@SA_NPEAPEAE@Z @ 0x1C00AEFCC (-Create@-$TypeIsolationFactory@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V-$CTypeIsolati.c)
+ *     ?Destroy@?$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00B1038 (-Destroy@-$CLookAsideTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     ?Destroy@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00B154C (-Destroy@-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@SAXPEAV12@@Z.c)
  * Callees:
- *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C0091344 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
+ *     ?Destroy@?$CSectionEntry@$0MAAA@$0MA@@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00AFD54 (-Destroy@-$CSectionEntry@$0MAAA@$0MA@@NSInstrumentation@@SAXPEAV12@@Z.c)
  */
 
 void __fastcall NSInstrumentation::CTypeIsolation<36864,144>::~CTypeIsolation<36864,144>(__int64 a1)
 {
   struct _PAGED_LOOKASIDE_LIST *v2; // rcx
   void *v3; // rcx
-  _QWORD *v4; // rbx
-  __int64 v5; // rcx
+  _QWORD *v4; // rcx
+  __int64 v5; // rdx
   _QWORD *v6; // rax
 
   v2 = *(struct _PAGED_LOOKASIDE_LIST **)(a1 + 24);
@@ -24,12 +24,10 @@ void __fastcall NSInstrumentation::CTypeIsolation<36864,144>::~CTypeIsolation<36
     *(_BYTE *)(a1 + 36) = 0;
   }
   v3 = *(void **)(a1 + 16);
-  if ( !v3 )
-    goto LABEL_5;
+  if ( v3 )
+    ExFreePoolWithTag(v3, 0);
   while ( 1 )
   {
-    ExFreePoolWithTag(v3, 0);
-LABEL_5:
     v4 = *(_QWORD **)a1;
     if ( *(_QWORD *)a1 == a1 )
       break;
@@ -38,7 +36,6 @@ LABEL_5:
       __fastfail(3u);
     *v6 = v5;
     *(_QWORD *)(v5 + 8) = v6;
-    NSInstrumentation::CSectionEntry<24576,96>::~CSectionEntry<24576,96>(v4);
-    v3 = v4;
+    NSInstrumentation::CSectionEntry<49152,192>::Destroy(v4);
   }
 }

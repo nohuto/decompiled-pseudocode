@@ -1,16 +1,16 @@
 /*
- * XREFs of PsGetProcessSessionId @ 0x14028AF60
+ * XREFs of PsGetProcessSessionId @ 0x140252EB0
  * Callers:
- *     ExpWnfGetCurrentScopeInstance @ 0x14066A68C (ExpWnfGetCurrentScopeInstance.c)
- *     PspEstablishJobHierarchy @ 0x1406822EC (PspEstablishJobHierarchy.c)
- *     EtwpInitStateChangeInfo @ 0x140711E3C (EtwpInitStateChangeInfo.c)
- *     EtwQueryProcessTelemetryInfo @ 0x140711F48 (EtwQueryProcessTelemetryInfo.c)
- *     EtwpWriteProcessStarted @ 0x1407136E8 (EtwpWriteProcessStarted.c)
- *     MiLogReserveVaFailed @ 0x14096B308 (MiLogReserveVaFailed.c)
- *     MiLogCommitRequestFailed @ 0x14097F2B0 (MiLogCommitRequestFailed.c)
- *     PspTerminateSiloSubsystemProcesses @ 0x1409ACBA0 (PspTerminateSiloSubsystemProcesses.c)
+ *     ExpWnfGetCurrentScopeInstance @ 0x14060FC5C (ExpWnfGetCurrentScopeInstance.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x140611214 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpInitStateChangeInfo @ 0x1406134BC (EtwpInitStateChangeInfo.c)
+ *     EtwpWriteProcessStarted @ 0x14062B670 (EtwpWriteProcessStarted.c)
+ *     PspEstablishJobHierarchy @ 0x14071FA0C (PspEstablishJobHierarchy.c)
+ *     MiLogReserveVaFailed @ 0x1408C6C54 (MiLogReserveVaFailed.c)
+ *     MiLogCommitRequestFailed @ 0x1408D73E4 (MiLogCommitRequestFailed.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x140906DE4 (PspTerminateSiloSubsystemProcesses.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
  */
 
 __int64 __fastcall PsGetProcessSessionId(__int64 a1)

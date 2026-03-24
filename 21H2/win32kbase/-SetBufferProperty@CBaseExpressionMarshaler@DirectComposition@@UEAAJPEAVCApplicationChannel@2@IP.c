@@ -1,11 +1,10 @@
 /*
- * XREFs of ?SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00A8F60
+ * XREFs of ?SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0094870
  * Callers:
- *     ?SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00A8E90 (-SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2.c)
- *     ?SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022AB30 (-SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
- *     ?SetBufferProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0234390 (-SetBufferProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@.c)
+ *     ?SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00947A0 (-SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2.c)
+ *     ?SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01EAC30 (-SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
  * Callees:
- *     DirectComposition::Memory::Allocate_1 @ 0x1C00EA21C (DirectComposition--Memory--Allocate_1.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
  */
 
 __int64 __fastcall DirectComposition::CBaseExpressionMarshaler::SetBufferProperty(
@@ -23,16 +22,16 @@ __int64 __fastcall DirectComposition::CBaseExpressionMarshaler::SetBufferPropert
   v6 = 0;
   if ( a3 != 5 )
     return (unsigned int)-1073741811;
-  if ( *((_QWORD *)this + 12) )
+  if ( *((_QWORD *)this + 11) )
     return (unsigned int)-1073741790;
   if ( a5 == 12 )
   {
     if ( *a4 != 1 )
       return (unsigned int)-1073741811;
-    v10 = DirectComposition::Memory::Allocate_1(0xCuLL);
+    v10 = Win32AllocPoolWithQuota(12LL, 0x6D654344u);
     if ( v10 )
     {
-      *((_QWORD *)this + 12) = v10;
+      *((_QWORD *)this + 11) = v10;
       *(_QWORD *)v10 = *(_QWORD *)a4;
       *(_DWORD *)(v10 + 8) = a4[2];
       goto LABEL_6;
@@ -43,10 +42,10 @@ __int64 __fastcall DirectComposition::CBaseExpressionMarshaler::SetBufferPropert
   {
     if ( *a4 != 2 )
       return (unsigned int)-1073741811;
-    v11 = (_OWORD *)DirectComposition::Memory::Allocate_1(0x10uLL);
+    v11 = (_OWORD *)Win32AllocPoolWithQuota(16LL, 0x6D654344u);
     if ( v11 )
     {
-      *((_QWORD *)this + 12) = v11;
+      *((_QWORD *)this + 11) = v11;
       *v11 = *(_OWORD *)a4;
       goto LABEL_6;
     }

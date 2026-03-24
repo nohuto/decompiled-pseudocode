@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpMarkCurrentProfileDirty @ 0x140730DA4
+ * XREFs of CmpMarkCurrentProfileDirty @ 0x140730D84
  * Callers:
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
  *     CmpFindNameInList @ 0x1405D062C (CmpFindNameInList.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpOpenDevicesControlSet @ 0x140731CD4 (CmpOpenDevicesControlSet.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpOpenDevicesControlSet @ 0x140731CB4 (CmpOpenDevicesControlSet.c)
  */
 
 NTSTATUS __fastcall CmpMarkCurrentProfileDirty(__int64 a1)

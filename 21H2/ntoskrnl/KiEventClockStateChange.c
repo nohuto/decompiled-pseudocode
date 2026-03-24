@@ -1,14 +1,14 @@
 /*
- * XREFs of KiEventClockStateChange @ 0x14022FA04
+ * XREFs of KiEventClockStateChange @ 0x140293778
  * Callers:
- *     KiSetClockTickRate @ 0x14022F6A4 (KiSetClockTickRate.c)
- *     KeClockInterruptNotify @ 0x140305780 (KeClockInterruptNotify.c)
- *     KeResumeClockTimerFromIdle @ 0x140308240 (KeResumeClockTimerFromIdle.c)
- *     KePrepareClockTimerForIdle @ 0x140353FB0 (KePrepareClockTimerForIdle.c)
- *     KiResumeClockTimer @ 0x14038BFAC (KiResumeClockTimer.c)
+ *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
+ *     KeResumeClockTimerFromIdle @ 0x140224BE0 (KeResumeClockTimerFromIdle.c)
+ *     KiSetClockTickRate @ 0x1402931B0 (KiSetClockTickRate.c)
+ *     KePrepareClockTimerForIdle @ 0x140293310 (KePrepareClockTimerForIdle.c)
+ *     KiResumeClockTimer @ 0x140383480 (KiResumeClockTimer.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiEventClockStateChange(int a1, char a2, _QWORD *a3, __int64 *a4)

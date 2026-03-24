@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlxRemoveInvertedFunctionTable @ 0x140369664
+ * XREFs of RtlxRemoveInvertedFunctionTable @ 0x140373098
  * Callers:
- *     RtlRemoveInvertedFunctionTable @ 0x140369610 (RtlRemoveInvertedFunctionTable.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x140373044 (RtlRemoveInvertedFunctionTable.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 void __fastcall RtlxRemoveInvertedFunctionTable(__int64 a1, __int64 a2)
@@ -16,21 +16,25 @@ void __fastcall RtlxRemoveInvertedFunctionTable(__int64 a1, __int64 a2)
   if ( PsInvertedFunctionTable[0] != 1 )
   {
     v3 = &PsInvertedFunctionTable[6 * v2 + 6];
-    while ( a2 != *(_QWORD *)v3 )
+    do
     {
+      if ( a2 == *(_QWORD *)v3 )
+        break;
       v3 -= 6;
       v4 = (_DWORD)v2 == 1;
       v2 = (unsigned int)(v2 - 1);
-      if ( v4 )
-        return;
     }
-    _InterlockedIncrement(&dword_140E00028);
+    while ( !v4 );
+  }
+  if ( (_DWORD)v2 )
+  {
+    _InterlockedIncrement(&dword_140E00018);
     if ( PsInvertedFunctionTable[0] != 2 )
       memmove(
         &PsInvertedFunctionTable[4 * v2 + 4 + 2 * v2],
         &PsInvertedFunctionTable[4 * (unsigned int)(v2 + 1) + 4 + 2 * (unsigned int)(v2 + 1)],
         24LL * (unsigned int)(PsInvertedFunctionTable[0] - v2 - 1));
     --PsInvertedFunctionTable[0];
-    _InterlockedIncrement(&dword_140E00028);
+    _InterlockedIncrement(&dword_140E00018);
   }
 }

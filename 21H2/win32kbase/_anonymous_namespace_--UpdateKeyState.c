@@ -1,9 +1,9 @@
 /*
- * XREFs of _anonymous_namespace_::UpdateKeyState @ 0x1C009C5FC
+ * XREFs of _anonymous_namespace_::UpdateKeyState @ 0x1C0092E50
  * Callers:
- *     UpdateKeyStateForMessage @ 0x1C009C520 (UpdateKeyStateForMessage.c)
+ *     UpdateKeyStateForMessage @ 0x1C0092D70 (UpdateKeyStateForMessage.c)
  * Callees:
- *     _anonymous_namespace_::ApplyKeyStateToQueue @ 0x1C009C694 (_anonymous_namespace_--ApplyKeyStateToQueue.c)
+ *     _anonymous_namespace_::ApplyKeyStateToQueue @ 0x1C0092EE8 (_anonymous_namespace_--ApplyKeyStateToQueue.c)
  */
 
 unsigned __int64 __fastcall anonymous_namespace_::UpdateKeyState(__int64 a1, __int64 a2, __int64 a3, char a4)

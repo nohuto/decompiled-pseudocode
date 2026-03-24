@@ -1,11 +1,11 @@
 /*
- * XREFs of PsGetBaseIoPriorityThread @ 0x1400B6DA0
+ * XREFs of PsGetBaseIoPriorityThread @ 0x1400B6DC0
  * Callers:
  *     KiAbSetMinimumThreadPriority @ 0x1400245F0 (KiAbSetMinimumThreadPriority.c)
  *     ExpAcquireResourceSharedLite @ 0x140050960 (ExpAcquireResourceSharedLite.c)
- *     IopCallDriverReference @ 0x1400B6B90 (IopCallDriverReference.c)
- *     ExpApplyPriorityBoost @ 0x1400CEA00 (ExpApplyPriorityBoost.c)
- *     ExpBoostIoAfterAcquire @ 0x140108250 (ExpBoostIoAfterAcquire.c)
+ *     IopCallDriverReference @ 0x1400B6BB0 (IopCallDriverReference.c)
+ *     ExpApplyPriorityBoost @ 0x1400CEA20 (ExpApplyPriorityBoost.c)
+ *     ExpBoostIoAfterAcquire @ 0x140108270 (ExpBoostIoAfterAcquire.c)
  * Callees:
  *     <none>
  */

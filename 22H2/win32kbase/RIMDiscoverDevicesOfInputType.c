@@ -1,17 +1,17 @@
 /*
- * XREFs of RIMDiscoverDevicesOfInputType @ 0x1C0074D88
+ * XREFs of RIMDiscoverDevicesOfInputType @ 0x1C0053D04
  * Callers:
- *     RIMRegisterForInputWithCallbacks @ 0x1C0071A40 (RIMRegisterForInputWithCallbacks.c)
- *     rimDoScheduledUserModeRimPnpRegistration @ 0x1C00CA3A0 (rimDoScheduledUserModeRimPnpRegistration.c)
- *     RIMDirectStartDeviceClassNotifications @ 0x1C00CB2F0 (RIMDirectStartDeviceClassNotifications.c)
- *     RIMAddInputOfType @ 0x1C0175990 (RIMAddInputOfType.c)
+ *     rimDoScheduledUserModeRimPnpRegistration @ 0x1C0053530 (rimDoScheduledUserModeRimPnpRegistration.c)
+ *     RIMRegisterForInputWithCallbacks @ 0x1C00893D0 (RIMRegisterForInputWithCallbacks.c)
+ *     RIMDirectStartDeviceClassNotifications @ 0x1C00C4490 (RIMDirectStartDeviceClassNotifications.c)
+ *     RIMAddInputOfType @ 0x1C0154CB0 (RIMAddInputOfType.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     DeviceTypeToRimInputType @ 0x1C00750D0 (DeviceTypeToRimInputType.c)
- *     RIMApiSetIsRemoteConnection @ 0x1C0075764 (RIMApiSetIsRemoteConnection.c)
- *     RIMChildInputTypeIsVirtualized @ 0x1C0075E94 (RIMChildInputTypeIsVirtualized.c)
- *     RIMRegisterForDeviceClassNotifications @ 0x1C007632C (RIMRegisterForDeviceClassNotifications.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ApiSetIsRemoteConnection @ 0x1C00550CC (ApiSetIsRemoteConnection.c)
+ *     DeviceTypeToRimInputType @ 0x1C0055500 (DeviceTypeToRimInputType.c)
+ *     RIMChildInputTypeIsVirtualized @ 0x1C0056848 (RIMChildInputTypeIsVirtualized.c)
+ *     RIMRegisterForDeviceClassNotifications @ 0x1C005732C (RIMRegisterForDeviceClassNotifications.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall RIMDiscoverDevicesOfInputType(unsigned int *Object)
@@ -21,13 +21,12 @@ __int64 __fastcall RIMDiscoverDevicesOfInputType(unsigned int *Object)
   _QWORD *v4; // r14
   _QWORD *v5; // rbp
   int v6; // edx
-  int v7; // r8d
-  __int64 v9; // rdx
+  __int64 v8; // rdx
 
   v2 = -1073741811;
   if ( (unsigned __int8)RIMChildInputTypeIsVirtualized(Object[21]) )
     return 0LL;
-  if ( (unsigned int)RIMApiSetIsRemoteConnection() || !*((_QWORD *)Object + 15) )
+  if ( (unsigned int)ApiSetIsRemoteConnection() || !*((_QWORD *)Object + 15) )
   {
     return 0;
   }
@@ -42,24 +41,10 @@ __int64 __fastcall RIMDiscoverDevicesOfInputType(unsigned int *Object)
       {
         if ( *(v5 - 11) )
         {
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-            || (LOBYTE(v6) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LOBYTE(v6) = 0;
-          }
-          if ( (_BYTE)v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v6,
-              v7,
-              (_DWORD)gRimLog,
-              3,
-              1,
-              10,
-              (__int64)&WPP_e6afa386b7683a2c6333e851e06c64d1_Traceguids);
+            LOBYTE(v6) = 3;
+            WPP_RECORDER_SF_((_DWORD)gRimLog, v6, 1, 10, (__int64)&WPP_df94dad8867032b8c081d01056e0c1c5_Traceguids);
           }
         }
         else
@@ -69,7 +54,7 @@ __int64 __fastcall RIMDiscoverDevicesOfInputType(unsigned int *Object)
           v2 = ObReferenceObjectByPointer(Object, 3u, ExRawInputManagerObjectType, 0);
           if ( v2 >= 0 )
           {
-            v2 = RIMRegisterForDeviceClassNotifications(&Object[2 * v3 + 56], v9, *v4, *((_QWORD *)Object + 15));
+            v2 = RIMRegisterForDeviceClassNotifications(&Object[2 * v3 + 56], v8, *v4, *((_QWORD *)Object + 15));
             if ( v2 < 0 )
               ObfDereferenceObject(Object);
           }

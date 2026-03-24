@@ -1,146 +1,140 @@
 /*
- * XREFs of MiSessionRemoveImage @ 0x1402009A8
+ * XREFs of MiSessionRemoveImage @ 0x14038A8F8
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
  * Callees:
- *     MiSessionLookupImage @ 0x14020AB88 (MiSessionLookupImage.c)
- *     MiGetSessionVm @ 0x14020B13C (MiGetSessionVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     MmLockLoadedModuleListExclusive @ 0x140290AF8 (MmLockLoadedModuleListExclusive.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiHandleDriverNonPagedSections @ 0x140705BF8 (MiHandleDriverNonPagedSections.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     MiGetSessionVm @ 0x14029281C (MiGetSessionVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiSessionLookupImage @ 0x140328A98 (MiSessionLookupImage.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140372D48 (MmLockLoadedModuleListExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MiHandleDriverNonPagedSections @ 0x14075C100 (MiHandleDriverNonPagedSections.c)
  */
 
-__int64 __fastcall MiSessionRemoveImage(ULONG_PTR BugCheckParameter2, __int64 a2)
+unsigned __int64 *__fastcall MiSessionRemoveImage(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
-  ULONG_PTR v2; // rdi
+  unsigned __int64 v2; // rdi
   unsigned __int64 v5; // r14
-  __int64 SessionVm; // r15
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 SharedVm; // rbx
-  KIRQL v11; // al
-  KIRQL v12; // r12
-  __int64 v13; // rax
-  __int64 v14; // rbx
-  bool v15; // zf
-  __int64 v16; // rdx
-  unsigned __int8 v17; // di
-  _QWORD *v19; // rcx
-  _QWORD *v20; // rdx
-  __int64 i; // rcx
-  __int64 v22; // rax
-  unsigned __int64 v23; // rcx
-  unsigned __int64 v24; // rdx
-  __int64 k; // rcx
+  unsigned __int64 SessionVm; // r15
+  LONG *SharedVm; // rbx
+  KIRQL v8; // al
+  unsigned __int8 v9; // r12
+  unsigned __int64 *v10; // rax
+  unsigned __int64 *v11; // rbx
+  bool v12; // zf
+  unsigned __int8 v13; // di
+  unsigned __int64 *v15; // rcx
+  unsigned __int64 *v16; // rdx
+  unsigned __int64 i; // rcx
+  unsigned __int64 v18; // rax
+  unsigned __int64 v19; // rcx
+  unsigned __int64 v20; // rdx
+  unsigned __int64 k; // rcx
   _QWORD *j; // rax
-  unsigned __int64 v27; // rax
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int64 v23; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v31; // eax
-  unsigned __int8 v32; // [rsp+60h] [rbp+8h] BYREF
+  int v27; // eax
+  unsigned __int8 v28; // [rsp+60h] [rbp+8h] BYREF
 
   v2 = *(_QWORD *)(BugCheckParameter2 + 48);
-  v32 = 0;
+  v28 = 0;
   *(_OWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 16) = 0LL;
-  v5 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25];
+  v5 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
   SessionVm = MiGetSessionVm();
-  SharedVm = MiGetSharedVm(SessionVm, v7, v8, v9);
-  v11 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)SharedVm);
-  *(_DWORD *)(SharedVm + 4) = 0;
-  v12 = v11;
-  MmLockLoadedModuleListExclusive(&v32);
-  v13 = MiSessionLookupImage(v2);
-  v14 = v13;
-  if ( !v13 )
+  SharedVm = MiGetSharedVm(SessionVm);
+  v8 = ExAcquireSpinLockExclusive(SharedVm);
+  SharedVm[1] = 0;
+  v9 = v8;
+  MmLockLoadedModuleListExclusive(&v28);
+  v10 = MiSessionLookupImage(v2);
+  v11 = v10;
+  if ( !v10 )
     KeBugCheckEx(0x1Au, 0x2100uLL, BugCheckParameter2, v2, 0LL);
-  v15 = (*(_DWORD *)(v13 + 60))-- == 1;
-  if ( v15 )
+  v12 = (*((_DWORD *)v10 + 15))-- == 1;
+  if ( v12 )
   {
-    v19 = *(_QWORD **)v13;
-    v20 = (_QWORD *)v13;
-    if ( *(_QWORD *)v13 )
+    v15 = (unsigned __int64 *)*v10;
+    v16 = v10;
+    if ( *v10 )
     {
-      for ( ; v19[1]; v19 = (_QWORD *)v19[1] )
+      for ( ; v15[1]; v15 = (unsigned __int64 *)v15[1] )
         ;
     }
     else
     {
-      for ( i = *(_QWORD *)(v13 + 16); ; i = v19[2] )
+      for ( i = v10[2]; ; i = v15[2] )
       {
-        v19 = (_QWORD *)(i & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !v19 || (_QWORD *)v19[1] == v20 )
+        v15 = (unsigned __int64 *)(i & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !v15 || (unsigned __int64 *)v15[1] == v16 )
+          break;
+        v16 = v15;
+      }
+    }
+    if ( v15 )
+      v18 = v15[6];
+    else
+      v18 = 0LL;
+    v19 = v11[1];
+    v20 = (unsigned __int64)v11;
+    *(_QWORD *)a2 = v18;
+    if ( v19 )
+    {
+      for ( j = *(_QWORD **)v19; j; j = (_QWORD *)*j )
+        v19 = (unsigned __int64)j;
+    }
+    else
+    {
+      for ( k = v11[2]; ; k = *(_QWORD *)(v19 + 16) )
+      {
+        v19 = k & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( !v19 || *(_QWORD *)v19 == v20 )
           break;
         v20 = v19;
       }
     }
     if ( v19 )
-      v22 = v19[6];
+      v23 = *(_QWORD *)(v19 + 40) & 0xFFFFFFFFFFFFFFFCuLL;
     else
-      v22 = 0LL;
-    v23 = *(_QWORD *)(v14 + 8);
-    v24 = v14;
-    *(_QWORD *)a2 = v22;
-    if ( v23 )
-    {
-      for ( j = *(_QWORD **)v23; j; j = (_QWORD *)*j )
-        v23 = (unsigned __int64)j;
-    }
-    else
-    {
-      for ( k = *(_QWORD *)(v14 + 16); ; k = *(_QWORD *)(v23 + 16) )
-      {
-        v23 = k & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !v23 || *(_QWORD *)v23 == v24 )
-          break;
-        v24 = v23;
-      }
-    }
-    if ( v23 )
-      v27 = *(_QWORD *)(v23 + 40) & 0xFFFFFFFFFFFFFFFCuLL;
-    else
-      v27 = 0LL;
-    *(_QWORD *)(a2 + 8) = v27;
-    RtlAvlRemoveNode(v5 + 64, v14);
-    *(_QWORD *)(a2 + 16) = *(_QWORD *)(v14 + 72);
+      v23 = 0LL;
+    *(_QWORD *)(a2 + 8) = v23;
+    RtlAvlRemoveNode((unsigned __int64 *)(v5 + 88), v11);
+    *(_QWORD *)(a2 + 16) = v11[9];
   }
   else
   {
-    v14 = 0LL;
+    v11 = 0LL;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
   {
-    v17 = v32;
-    if ( v32 <= 0xFu && CurrentIrql >= 2u )
+    v13 = v28;
+    if ( v28 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v17 = v32;
-      v16 = -1LL << (v32 + 1);
-      v31 = ~(unsigned __int16)v16;
-      v15 = (v31 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v31;
-      if ( v15 )
+      v13 = v28;
+      v27 = ~(unsigned __int16)(-1LL << (v28 + 1));
+      v12 = (v27 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v27;
+      if ( v12 )
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
   }
   else
   {
-    v17 = v32;
+    v13 = v28;
   }
-  __writecr8(v17);
-  LOBYTE(v16) = v12;
-  MiUnlockWorkingSetExclusive(SessionVm, v16);
-  if ( v14 && *(_BYTE *)(v14 + 64) == 1 )
+  __writecr8(v13);
+  MiUnlockWorkingSetExclusive(SessionVm, v9);
+  if ( v11 && *((_BYTE *)v11 + 64) == 1 )
     MiHandleDriverNonPagedSections(BugCheckParameter2, 0LL, 0LL);
-  return v14;
+  return v11;
 }

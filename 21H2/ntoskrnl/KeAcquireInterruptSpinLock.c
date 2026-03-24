@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAcquireInterruptSpinLock @ 0x1402511A0
+ * XREFs of KeAcquireInterruptSpinLock @ 0x1402C5790
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 KIRQL __stdcall KeAcquireInterruptSpinLock(PKINTERRUPT Interrupt)

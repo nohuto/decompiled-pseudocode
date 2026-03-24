@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepEvaluateAttribute @ 0x14034F6A0
+ * XREFs of AuthzBasepEvaluateAttribute @ 0x14024EA0C
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14022BF60 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14024D5F0 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
  *     <none>
  */
@@ -9,50 +9,43 @@
 __int64 __fastcall AuthzBasepEvaluateAttribute(__int64 a1)
 {
   unsigned int v1; // edx
-  unsigned int v3; // eax
-  int v4; // ecx
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
-  _QWORD *v9; // rax
+  unsigned int v2; // eax
+  unsigned __int16 v3; // ax
+  _QWORD *v4; // rax
 
   v1 = 0;
-  if ( !a1 )
-    return (unsigned int)-1;
-  v3 = *(_DWORD *)(a1 + 40);
-  if ( v3 )
+  if ( a1 )
   {
-    if ( v3 <= 1 )
+    v2 = *(_DWORD *)(a1 + 40);
+    if ( v2 )
     {
-      v4 = *(unsigned __int16 *)(a1 + 32) - 1;
-      if ( !v4 || (v5 = v4 - 1) == 0 )
+      if ( v2 > 1 )
+        return 1;
+      v3 = *(_WORD *)(a1 + 32);
+      if ( v3 )
       {
-LABEL_9:
-        v9 = *(_QWORD **)(a1 + 48);
-        if ( v9 && *v9 )
-          return 1;
-        return v1;
+        if ( v3 == 6 || v3 <= 2u )
+        {
+          v4 = *(_QWORD **)(a1 + 48);
+          if ( v4 && *v4 )
+            return 1;
+        }
+        else
+        {
+          if ( v3 == 3 )
+          {
+            LOBYTE(v1) = **(_WORD **)(a1 + 48) != 0;
+            return v1;
+          }
+          if ( (v3 == 5 || v3 == 16) && *(_DWORD *)(*(_QWORD *)(a1 + 48) + 8LL) )
+            return 1;
+        }
       }
-      v6 = v5 - 1;
-      if ( !v6 )
-      {
-        LOBYTE(v1) = **(_WORD **)(a1 + 48) != 0;
-        return v1;
-      }
-      v7 = v6 - 2;
-      if ( v7 )
-      {
-        v8 = v7 - 1;
-        if ( !v8 )
-          goto LABEL_9;
-        if ( v8 != 10 )
-          return v1;
-      }
-      if ( !*(_DWORD *)(*(_QWORD *)(a1 + 48) + 8LL) )
-        return v1;
     }
-    return 1;
+  }
+  else
+  {
+    return (unsigned int)-1;
   }
   return v1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetRequestorSessionId @ 0x14025E650
+ * XREFs of IoGetRequestorSessionId @ 0x1402D2BA0
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
  */
 
 NTSTATUS __stdcall IoGetRequestorSessionId(PIRP Irp, PULONG pSessionId)

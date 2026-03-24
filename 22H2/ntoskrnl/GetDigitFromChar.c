@@ -1,13 +1,13 @@
 /*
- * XREFs of GetDigitFromChar @ 0x1409D34E8
+ * XREFs of GetDigitFromChar @ 0x1409273C4
  * Callers:
- *     GetOperandValue @ 0x1409D367C (GetOperandValue.c)
- *     LocalGetRelativeAttributeForString @ 0x1409D50B4 (LocalGetRelativeAttributeForString.c)
+ *     GetOperandValue @ 0x140927554 (GetOperandValue.c)
+ *     LocalGetRelativeAttributeForString @ 0x140928630 (LocalGetRelativeAttributeForString.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall GetDigitFromChar(unsigned __int16 a1, _BYTE *a2)
+char __fastcall GetDigitFromChar(__int16 a1, _BYTE *a2)
 {
   char v2; // cl
 
@@ -23,18 +23,15 @@ LABEL_3:
     v2 = a1 - 55;
     goto LABEL_3;
   }
-  if ( a1 < 0x61u )
-  {
-    if ( a1 == 35 )
-    {
-      *a2 = 0;
-      return 1;
-    }
-  }
-  else if ( a1 <= 0x66u )
+  if ( (unsigned __int16)(a1 - 97) <= 5u )
   {
     v2 = a1 - 87;
     goto LABEL_3;
+  }
+  if ( a1 == 35 )
+  {
+    *a2 = 0;
+    return 1;
   }
   return 0;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiSetFontEnumeration @ 0x1C029F7A0
+ * XREFs of NtGdiSetFontEnumeration @ 0x1C02A0C70
  * Callers:
  *     <none>
  * Callees:

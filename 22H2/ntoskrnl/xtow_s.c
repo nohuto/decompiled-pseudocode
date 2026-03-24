@@ -1,25 +1,23 @@
 /*
- * XREFs of xtow_s @ 0x1403DE2FC
+ * XREFs of xtow_s @ 0x1403D6760
  * Callers:
- *     _itow_s @ 0x1403DE140 (_itow_s.c)
- *     _ultow_s @ 0x1403DE190 (_ultow_s.c)
+ *     _itow_s @ 0x1403D65B0 (_itow_s.c)
+ *     _ultow_s @ 0x1403D6600 (_ultow_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
  */
 
 __int64 __fastcall xtow_s(unsigned int a1, __int16 *a2, unsigned __int64 a3, unsigned int a4, int a5)
 {
-  unsigned int v8; // r11d
-  unsigned __int64 v10; // rsi
-  __int16 *v11; // rdi
-  __int16 *v12; // r8
+  unsigned __int64 v9; // rdi
+  __int16 *v10; // rbx
+  __int16 *v11; // r8
+  _WORD *v12; // rsi
   __int16 *v13; // r9
-  unsigned int v14; // ecx
-  _WORD *v15; // rdx
-  __int16 v16; // ax
-  __int16 v17; // cx
+  unsigned int v14; // edx
+  __int16 v15; // ax
+  __int16 v16; // cx
 
-  v8 = a1;
   if ( !a2 || !a3 )
     goto LABEL_18;
   *a2 = 0;
@@ -31,45 +29,45 @@ LABEL_4:
   }
   if ( a4 - 2 <= 0x22 )
   {
-    v10 = 0LL;
-    v11 = a2;
+    v9 = 0LL;
+    v10 = a2;
     if ( a5 )
     {
-      v11 = a2 + 1;
+      v10 = a2 + 1;
       *a2 = 45;
-      v8 = -a1;
-      v10 = 1LL;
+      a1 = -a1;
+      v9 = 1LL;
     }
-    v12 = v11;
+    v11 = v10;
     do
     {
-      v13 = v11;
-      v14 = v8 % a4;
-      v15 = v11 + 1;
-      v8 /= a4;
-      v16 = 87;
+      v12 = v10 + 1;
+      v13 = v10;
+      v14 = a1 % a4;
+      a1 /= a4;
+      v15 = 87;
       if ( v14 <= 9 )
-        v16 = 48;
-      ++v10;
-      *v11 = v14 + v16;
-      if ( !v8 )
+        v15 = 48;
+      ++v9;
+      *v10 = v14 + v15;
+      if ( !a1 )
         break;
-      ++v11;
+      ++v10;
     }
-    while ( v10 < a3 );
-    if ( v10 >= a3 )
+    while ( v9 < a3 );
+    if ( v9 >= a3 )
     {
       *a2 = 0;
       goto LABEL_4;
     }
-    *v15 = 0;
+    *v12 = 0;
     do
     {
-      v17 = *v13;
-      *v13-- = *v12;
-      *v12++ = v17;
+      v16 = *v13;
+      *v13-- = *v11;
+      *v11++ = v16;
     }
-    while ( v12 < v13 );
+    while ( v11 < v13 );
     return 0LL;
   }
   else

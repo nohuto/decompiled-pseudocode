@@ -1,23 +1,26 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CTransform3DGroupMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C02204D0
+ * XREFs of ?SetRemarshalingFlags@CTransform3DGroupMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFA40
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C020EFCC (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DFAE4 (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CTransform3DGroupMarshaler::SetRemarshalingFlags(
         DirectComposition::CTransform3DGroupMarshaler *this)
 {
-  char v1; // bl
-  _DWORD *v2; // rdi
+  char v1; // di
 
   v1 = 0;
-  v2 = (_DWORD *)((char *)this + 16);
-  *((_QWORD *)this + 9) = 0LL;
-  if ( *((_QWORD *)this + 11) )
-    *v2 |= 0x80u;
-  if ( DirectComposition::CPropertyChangeResourceMarshaler::SetRemarshalingFlags(this) || (*v2 & 0x80u) != 0 )
+  if ( *((_QWORD *)this + 10) )
+  {
+    *((_DWORD *)this + 4) |= 0x80u;
+    *((_DWORD *)this + 24) = 0;
+  }
+  if ( DirectComposition::CPropertyChangeResourceMarshaler::SetRemarshalingFlags(this)
+    || (*((_DWORD *)this + 4) & 0x80u) != 0 )
+  {
     return 1;
+  }
   return v1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRegUtilUcValueGetFullBuffer @ 0x1C0398448
+ * XREFs of CmRegUtilUcValueGetFullBuffer @ 0x1C02C5AC0
  * Callers:
- *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C0397C84 (PiRegStateReadStackCreationSettingsFromKey.c)
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C02C5300 (PiRegStateReadStackCreationSettingsFromKey.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     <none>
  */
 
 __int64 __fastcall CmRegUtilUcValueGetFullBuffer(
@@ -16,10 +16,9 @@ __int64 __fastcall CmRegUtilUcValueGetFullBuffer(
   int v5; // edi
   _QWORD *v7; // rsi
   ULONG Length; // edi
-  _DWORD *PoolWithTag; // rax
-  _DWORD *v11; // rbx
-  NTSTATUS v12; // edi
-  _DWORD *v14; // rax
+  _DWORD *PoolWithTag; // rbx
+  NTSTATUS v11; // edi
+  _DWORD *v13; // rax
   ULONG ResultLength; // [rsp+68h] [rbp+20h] BYREF
 
   ResultLength = a4;
@@ -29,38 +28,35 @@ __int64 __fastcall CmRegUtilUcValueGetFullBuffer(
   Length = (v5 + 31) & 0xFFFFFFF8;
   *a5 = 0LL;
   PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, Length, 0x62527050u);
-  v11 = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225626LL;
-  memset(PoolWithTag, 0, Length);
-  v12 = ZwQueryValueKey(KeyHandle, ValueName, KeyValueFullInformation, v11, Length, &ResultLength);
-  if ( v12 < 0 )
+  v11 = ZwQueryValueKey(KeyHandle, ValueName, KeyValueFullInformation, PoolWithTag, Length, &ResultLength);
+  if ( v11 < 0 )
   {
-    ExFreePoolWithTag(v11, 0);
-    if ( v12 != -2147483643 && v12 != -1073741789 )
-      return (unsigned int)v12;
-    v14 = ExAllocatePoolWithTag((POOL_TYPE)512, ResultLength, 0x62527050u);
-    v11 = v14;
-    if ( v14 )
+    ExFreePoolWithTag(PoolWithTag, 0);
+    if ( v11 != -2147483643 && v11 != -1073741789 )
+      return (unsigned int)v11;
+    v13 = ExAllocatePoolWithTag((POOL_TYPE)512, ResultLength, 0x62527050u);
+    PoolWithTag = v13;
+    if ( v13 )
     {
-      memset(v14, 0, ResultLength);
-      v12 = ZwQueryValueKey(KeyHandle, ValueName, KeyValueFullInformation, v11, ResultLength, &ResultLength);
-      if ( v12 < 0 )
+      v11 = ZwQueryValueKey(KeyHandle, ValueName, KeyValueFullInformation, v13, ResultLength, &ResultLength);
+      if ( v11 < 0 )
       {
 LABEL_10:
-        ExFreePoolWithTag(v11, 0);
-        return (unsigned int)v12;
+        ExFreePoolWithTag(PoolWithTag, 0);
+        return (unsigned int)v11;
       }
       goto LABEL_8;
     }
     return 3221225626LL;
   }
 LABEL_8:
-  if ( v11[1] != 3 )
+  if ( PoolWithTag[1] != 3 )
   {
-    v12 = -1073741788;
+    v11 = -1073741788;
     goto LABEL_10;
   }
-  *v7 = v11;
+  *v7 = PoolWithTag;
   return 0LL;
 }

@@ -1,30 +1,30 @@
 /*
- * XREFs of ViDdiDispatchWmiQueryAllData @ 0x140AC4C04
+ * XREFs of ViDdiDispatchWmiQueryAllData @ 0x1409C808C
  * Callers:
- *     ViDdiDispatchWmi @ 0x140AC4BA0 (ViDdiDispatchWmi.c)
+ *     ViDdiDispatchWmi @ 0x1409C8020 (ViDdiDispatchWmi.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     VfIrpLogLockDatabase @ 0x140ADD844 (VfIrpLogLockDatabase.c)
- *     VfIrpLogRetrieveWmiData @ 0x140ADDB50 (VfIrpLogRetrieveWmiData.c)
- *     VfIrpLogUnlockDatabase @ 0x140ADDE30 (VfIrpLogUnlockDatabase.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     VfIrpLogLockDatabase @ 0x1409E37F4 (VfIrpLogLockDatabase.c)
+ *     VfIrpLogRetrieveWmiData @ 0x1409E3AF8 (VfIrpLogRetrieveWmiData.c)
+ *     VfIrpLogUnlockDatabase @ 0x1409E3DEC (VfIrpLogUnlockDatabase.c)
  */
 
 __int64 __fastcall ViDdiDispatchWmiQueryAllData(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rdi
+  __int64 v2; // rbx
   __int64 result; // rax
   unsigned int v6; // r12d
-  unsigned int *v7; // r14
-  __int64 v8; // rdi
-  int WmiData; // r15d
-  unsigned int v10; // esi
+  unsigned int *v7; // rsi
+  __int64 v8; // rbx
+  int WmiData; // r14d
+  unsigned int v10; // edi
   int v11; // r12d
   int v12; // eax
   unsigned int v13; // eax
-  unsigned int v14; // [rsp+80h] [rbp+48h] BYREF
-  int v15; // [rsp+88h] [rbp+50h] BYREF
-  int v16; // [rsp+90h] [rbp+58h] BYREF
-  int v17; // [rsp+98h] [rbp+60h] BYREF
+  unsigned int v14; // [rsp+70h] [rbp+40h] BYREF
+  int v15; // [rsp+78h] [rbp+48h] BYREF
+  int v16; // [rsp+80h] [rbp+50h] BYREF
+  int v17; // [rsp+88h] [rbp+58h] BYREF
 
   v2 = *(_QWORD *)(a2 + 184);
   v17 = 0;
@@ -69,8 +69,9 @@ __int64 __fastcall ViDdiDispatchWmiQueryAllData(__int64 a1, __int64 a2)
       {
         *(_DWORD *)v8 = 72;
         v10 = 72;
-        *(_QWORD *)(v8 + 56) = 0LL;
+        *(_DWORD *)(v8 + 60) = 0;
         *(_DWORD *)(v8 + 48) = 0;
+        *(_DWORD *)(v8 + 56) = 0;
       }
       else
       {

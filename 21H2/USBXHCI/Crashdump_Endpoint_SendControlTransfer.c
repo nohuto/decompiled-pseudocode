@@ -1,15 +1,15 @@
 /*
- * XREFs of Crashdump_Endpoint_SendControlTransfer @ 0x1C004D3D8
+ * XREFs of Crashdump_Endpoint_SendControlTransfer @ 0x1C004C954
  * Callers:
- *     Crashdump_SendUrb @ 0x1C004AD80 (Crashdump_SendUrb.c)
- *     Crashdump_SendUrbAsync @ 0x1C004AE70 (Crashdump_SendUrbAsync.c)
- *     Crashdump_UsbDevice_ChangePortFeature @ 0x1C004D914 (Crashdump_UsbDevice_ChangePortFeature.c)
- *     Crashdump_UsbDevice_Configure @ 0x1C004DAE0 (Crashdump_UsbDevice_Configure.c)
- *     Crashdump_UsbDevice_GetDeviceDescriptor @ 0x1C004E100 (Crashdump_UsbDevice_GetDeviceDescriptor.c)
- *     Crashdump_UsbDevice_GetPortStatus @ 0x1C004E294 (Crashdump_UsbDevice_GetPortStatus.c)
- *     Crashdump_UsbDevice_SuspendPort @ 0x1C004EFA4 (Crashdump_UsbDevice_SuspendPort.c)
+ *     Crashdump_SendUrb @ 0x1C004A2F0 (Crashdump_SendUrb.c)
+ *     Crashdump_SendUrbAsync @ 0x1C004A3E0 (Crashdump_SendUrbAsync.c)
+ *     Crashdump_UsbDevice_ChangePortFeature @ 0x1C004CE90 (Crashdump_UsbDevice_ChangePortFeature.c)
+ *     Crashdump_UsbDevice_Configure @ 0x1C004D05C (Crashdump_UsbDevice_Configure.c)
+ *     Crashdump_UsbDevice_GetDeviceDescriptor @ 0x1C004D67C (Crashdump_UsbDevice_GetDeviceDescriptor.c)
+ *     Crashdump_UsbDevice_GetPortStatus @ 0x1C004D810 (Crashdump_UsbDevice_GetPortStatus.c)
+ *     Crashdump_UsbDevice_SuspendPort @ 0x1C004E528 (Crashdump_UsbDevice_SuspendPort.c)
  * Callees:
- *     Crashdump_Endpoint_SendTransferAndPollForCompletion @ 0x1C004D5BC (Crashdump_Endpoint_SendTransferAndPollForCompletion.c)
+ *     Crashdump_Endpoint_SendTransferAndPollForCompletion @ 0x1C004CB38 (Crashdump_Endpoint_SendTransferAndPollForCompletion.c)
  */
 
 __int64 __fastcall Crashdump_Endpoint_SendControlTransfer(__int64 a1, _QWORD *a2, int a3, _QWORD *a4)

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFinishLastForkPageTable @ 0x1402C9CF0
+ * XREFs of MiFinishLastForkPageTable @ 0x1402C9DF0
  * Callers:
- *     MiDoneWithThisPageGetAnother @ 0x1402C97E0 (MiDoneWithThisPageGetAnother.c)
- *     MiFreeForkMaps @ 0x1402C9F5C (MiFreeForkMaps.c)
+ *     MiDoneWithThisPageGetAnother @ 0x1402C98E0 (MiDoneWithThisPageGetAnother.c)
+ *     MiFreeForkMaps @ 0x1402CA05C (MiFreeForkMaps.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
@@ -12,9 +12,9 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFinishLastForkPageTable(__int64 a1, __int64 a2)

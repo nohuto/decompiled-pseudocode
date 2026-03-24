@@ -1,5 +1,5 @@
 /*
- * XREFs of PiCMGetObjectPropertyKeys @ 0x140838244
+ * XREFs of PiCMGetObjectPropertyKeys @ 0x140838224
  * Callers:
  *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
  * Callees:
@@ -8,7 +8,7 @@
  *     PiCMReturnBufferResultData @ 0x140599DD4 (PiCMReturnBufferResultData.c)
  *     PiCMReleaseObjectInputData @ 0x14059D6AC (PiCMReleaseObjectInputData.c)
  *     PiCMCaptureObjectInputData @ 0x14059D6DC (PiCMCaptureObjectInputData.c)
- *     _PnpGetObjectPropertyKeys @ 0x1408FA194 (_PnpGetObjectPropertyKeys.c)
+ *     _PnpGetObjectPropertyKeys @ 0x1408FA174 (_PnpGetObjectPropertyKeys.c)
  */
 
 __int64 __fastcall PiCMGetObjectPropertyKeys(

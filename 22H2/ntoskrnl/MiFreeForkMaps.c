@@ -1,31 +1,31 @@
 /*
- * XREFs of MiFreeForkMaps @ 0x140664800
+ * XREFs of MiFreeForkMaps @ 0x14055A874
  * Callers:
- *     MiCloneVads @ 0x1406632E8 (MiCloneVads.c)
+ *     MiCloneVads @ 0x140559268 (MiCloneVads.c)
  * Callees:
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiFinishLastForkPageTable @ 0x14066456C (MiFinishLastForkPageTable.c)
+ *     MiUnmapSinglePage @ 0x14036AA14 (MiUnmapSinglePage.c)
+ *     MiFinishLastForkPageTable @ 0x14055A5E0 (MiFinishLastForkPageTable.c)
  */
 
-unsigned __int64 __fastcall MiFreeForkMaps(__int64 a1)
+unsigned __int64 __fastcall MiFreeForkMaps(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int64 v1; // rdx
+  unsigned __int64 v5; // rcx
   unsigned __int64 result; // rax
-  __int64 *v4; // rbx
-  __int64 v5; // rdi
+  __int64 *v7; // rbx
+  __int64 v8; // rdi
 
-  v1 = *(_QWORD *)(a1 + 56);
-  if ( v1 )
-    result = MiReleasePtes((__int64)&qword_140C69A40, (__int64 *)(((v1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL), 1u);
-  v4 = (__int64 *)(a1 + 8);
-  v5 = 3LL;
+  v5 = *(_QWORD *)(a1 + 56);
+  if ( v5 )
+    result = MiUnmapSinglePage(v5);
+  v7 = (__int64 *)(a1 + 8);
+  v8 = 3LL;
   do
   {
-    if ( *v4 != -1 )
-      result = MiFinishLastForkPageTable(a1, *v4);
-    ++v4;
-    --v5;
+    if ( *v7 != -1 )
+      result = MiFinishLastForkPageTable(v5, *v7, a3, a4);
+    ++v7;
+    --v8;
   }
-  while ( v5 );
+  while ( v8 );
   return result;
 }

@@ -1,82 +1,67 @@
 /*
- * XREFs of TR_ValidateSecureTransferType @ 0x1C00124A8
+ * XREFs of TR_ValidateSecureTransferType @ 0x1C000D364
  * Callers:
- *     Bulk_RetrieveNextStage @ 0x1C001200C (Bulk_RetrieveNextStage.c)
+ *     Bulk_RetrieveNextStage @ 0x1C000CD50 (Bulk_RetrieveNextStage.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C001F214 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     WPP_RECORDER_SF_DDi @ 0x1C0041F7C (WPP_RECORDER_SF_DDi.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
  */
 
 __int64 __fastcall TR_ValidateSecureTransferType(__int64 a1, __int64 a2)
 {
-  unsigned int v2; // r9d
-  char v3; // di
-  unsigned int v5; // r8d
+  unsigned __int16 v2; // ax
+  unsigned int v3; // ebx
+  char v4; // r10
   int v6; // edx
-  int v7; // r8d
-  int v8; // edx
-  char v10; // [rsp+38h] [rbp-10h]
+  __int64 v7; // rdx
+  int v8; // r8d
+  __int64 v9; // rcx
+  int v10; // edx
+  char v11; // [rsp+38h] [rbp-10h]
 
-  v2 = 0;
-  v3 = a2;
-  if ( *(_WORD *)(a2 + 2) != 8
-    && *(_WORD *)(a2 + 2) != 9
-    && *(_WORD *)(a2 + 2) != 10
-    && *(_WORD *)(a2 + 2) != 50
-    && *(_WORD *)(a2 + 2) != 55
-    && *(_WORD *)(a2 + 2) != 56 )
+  v2 = *(_WORD *)(a2 + 2);
+  v3 = 0;
+  v4 = a2;
+  if ( v2 > 0x38u && v2 <= 0x3Au )
   {
-    v5 = *(unsigned __int16 *)(a2 + 2) - 57;
-    if ( v5 <= 1 )
+    if ( *(_BYTE *)(a1 + 280) )
     {
-      if ( *(_BYTE *)(a1 + 280) )
+      v7 = *(_QWORD *)(a1 + 48);
+      if ( !*(_BYTE *)(v7 + 672) && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        if ( !*(_BYTE *)(*(_QWORD *)(a1 + 48) + 672LL) )
-        {
-          wil_details_FeatureReporting_ReportUsageToService(
-            (unsigned int)&Feature_SecureUSBDeviceFirmwareHashCheck__private_reporting,
-            18714103,
-            0,
-            0,
-            (__int64)&Feature_SplitTransactionHSIIWorkaround_logged_traits,
-            1);
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            v8 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
-            LOBYTE(v8) = 2;
-            WPP_RECORDER_SF_DDi(
-              *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
-              v8,
-              v7,
-              31,
-              (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids,
-              *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
-              *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
-              v3);
-          }
-          return (unsigned int)-1073741790;
-        }
-      }
-      else
-      {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          v10 = a2;
-          v6 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
-          LOBYTE(v6) = 2;
-          WPP_RECORDER_SF_DDi(
-            *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
-            v6,
-            v5,
-            30,
-            (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids,
-            *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
-            *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
-            v10);
-        }
-        return (unsigned int)-1073741811;
+        v8 = *(unsigned __int8 *)(v7 + 135);
+        v9 = *(_QWORD *)(a1 + 56);
+        v10 = *(_DWORD *)(v9 + 144);
+        LOBYTE(v10) = 3;
+        WPP_RECORDER_SF_DDi(
+          *(_QWORD *)(v9 + 80),
+          v10,
+          v8,
+          32,
+          (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
+          v8,
+          *(_DWORD *)(v9 + 144),
+          v4);
       }
     }
+    else
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v11 = a2;
+        v6 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
+        LOBYTE(v6) = 2;
+        WPP_RECORDER_SF_DDi(
+          *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
+          v6,
+          a1,
+          30,
+          (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
+          *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
+          *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
+          v11);
+      }
+      return (unsigned int)-1073741811;
+    }
   }
-  return v2;
+  return v3;
 }

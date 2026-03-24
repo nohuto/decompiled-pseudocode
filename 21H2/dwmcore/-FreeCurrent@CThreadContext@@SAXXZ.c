@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FreeCurrent@CThreadContext@@SAXXZ @ 0x18002550C
+ * XREFs of ?FreeCurrent@CThreadContext@@SAXXZ @ 0x1800B2AC4
  * Callers:
- *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x180025470 (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
+ *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800B297C (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1CThreadContext@@AEAA@XZ @ 0x180261A1C (--1CThreadContext@@AEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CThreadContext@@AEAA@XZ @ 0x180210B30 (--1CThreadContext@@AEAA@XZ.c)
  */
 
 void CThreadContext::FreeCurrent(void)
@@ -17,7 +17,7 @@ void CThreadContext::FreeCurrent(void)
   if ( Value )
   {
     CThreadContext::~CThreadContext(Value);
-    operator delete(v1, 0x150uLL);
+    operator delete(v1);
     TlsSetValue(CThreadContext::s_dwTlsIndex, 0LL);
   }
 }

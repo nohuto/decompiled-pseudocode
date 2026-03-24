@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetInteractionTreeRoot@CManipulationContext@@UEBAPEAUIInteractionResource@@XZ @ 0x18012D8C0
+ * XREFs of ?GetInteractionTreeRoot@CManipulationContext@@UEBAPEAUIInteractionResource@@XZ @ 0x1800E3160
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct IInteractionResource *__fastcall CManipulationContext::GetInteractionTreeRoot(CManipulationContext *this)
 {
-  return (struct IInteractionResource *)((*((_QWORD *)this + 6) + 64LL) & -(__int64)(*((_QWORD *)this + 6) != 0LL));
+  return (struct IInteractionResource *)*((_QWORD *)this + 6);
 }

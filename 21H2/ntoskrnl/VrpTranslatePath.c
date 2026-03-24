@@ -1,28 +1,28 @@
 /*
- * XREFs of VrpTranslatePath @ 0x14077E628
+ * XREFs of VrpTranslatePath @ 0x1405D4E34
  * Callers:
- *     VrpPreOpenOrCreate @ 0x14077E168 (VrpPreOpenOrCreate.c)
+ *     VrpPreOpenOrCreate @ 0x1405D4868 (VrpPreOpenOrCreate.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     VrpFindNamespaceNode @ 0x14077EA04 (VrpFindNamespaceNode.c)
- *     VrpGetNextToken @ 0x14077EBE0 (VrpGetNextToken.c)
- *     VrpStripTrailingCharacters @ 0x14077ECD0 (VrpStripTrailingCharacters.c)
- *     VrpBuildKeyPath @ 0x14077FB68 (VrpBuildKeyPath.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     VrpFindNamespaceNode @ 0x1405D4CE4 (VrpFindNamespaceNode.c)
+ *     VrpGetNextToken @ 0x1405D52F4 (VrpGetNextToken.c)
+ *     VrpStripTrailingCharacters @ 0x1405D53E4 (VrpStripTrailingCharacters.c)
+ *     VrpBuildKeyPath @ 0x1405D5420 (VrpBuildKeyPath.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpTranslatePath(
-        signed __int64 *Object,
+        PVOID Object,
         void *a2,
         __int64 a3,
         UNICODE_STRING *a4,
@@ -32,14 +32,14 @@ __int64 __fastcall VrpTranslatePath(
         int *a8,
         _DWORD *a9)
 {
-  signed __int64 *v9; // r14
-  signed __int64 *v10; // rbx
-  int v11; // eax
+  int v9; // eax
+  PVOID v10; // r14
+  PVOID v11; // rbx
   int v12; // r12d
   UNICODE_STRING v13; // xmm0
   struct _KTHREAD *CurrentThread; // rax
   __int64 NamespaceNode; // r13
-  __int64 v16; // rdi
+  unsigned __int64 v16; // rdi
   unsigned __int64 v17; // rcx
   wchar_t *Buffer; // r14
   __int16 v19; // r15
@@ -63,30 +63,30 @@ __int64 __fastcall VrpTranslatePath(
   int v38; // [rsp+40h] [rbp-A9h]
   UNICODE_STRING v39; // [rsp+48h] [rbp-A1h] BYREF
   HANDLE KeyHandle[3]; // [rsp+58h] [rbp-91h] BYREF
-  __int64 v41; // [rsp+70h] [rbp-79h] BYREF
+  unsigned __int64 v41; // [rsp+70h] [rbp-79h] BYREF
   PVOID v42; // [rsp+78h] [rbp-71h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-61h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-51h] BYREF
   int v47; // [rsp+148h] [rbp+5Fh]
 
   v41 = 0LL;
-  v9 = Object;
-  memset(&ObjectAttributes, 0, 44);
+  v9 = *(unsigned __int16 *)(a3 + 32);
   v10 = Object;
-  v11 = *(unsigned __int16 *)(a3 + 32);
+  v11 = Object;
   v12 = 0;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   memset(KeyHandle, 0, sizeof(KeyHandle));
-  v13 = *a4;
-  v47 = v11;
-  DestinationString = 0LL;
+  v47 = v9;
   LOBYTE(v38) = 0;
+  v13 = *a4;
+  DestinationString = 0LL;
   v39 = v13;
   while ( 1 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockSharedEx((ULONG_PTR)(v10 + 2), 0LL);
-    NamespaceNode = VrpFindNamespaceNode((_DWORD)v10, (unsigned int)&v39, 1, 0, (__int64)&v41);
+    ExAcquirePushLockSharedEx((ULONG_PTR)v11 + 16, 0LL);
+    NamespaceNode = VrpFindNamespaceNode((unsigned __int64 *)v11, (__int64)&v39, 1, 0LL, &v41);
     if ( !NamespaceNode )
       break;
     v16 = v41;
@@ -118,7 +118,7 @@ __int64 __fastcall VrpTranslatePath(
     RtlInitUnicodeString(&DestinationString, 0LL);
     v22 = *(_DWORD *)(NamespaceNode + 56);
     v23 = v22 & 4 | v12;
-    if ( v10 == Object )
+    if ( v11 == Object )
       v23 |= v22 & 2;
     v24 = *(unsigned __int16 *)(NamespaceNode + 64);
     v25 = v23 | 0x20000000;
@@ -155,7 +155,7 @@ __int64 __fastcall VrpTranslatePath(
               v20 < 0) )
         {
 LABEL_29:
-          v9 = Object;
+          v10 = Object;
           goto LABEL_30;
         }
 LABEL_19:
@@ -208,23 +208,23 @@ LABEL_19:
       goto LABEL_29;
     }
     ObfReferenceObjectWithTag(v26, 0x67655256u);
-    if ( _InterlockedCompareExchange64(v10 + 2, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared(v10 + 2);
-    KeAbPostRelease((ULONG_PTR)(v10 + 2));
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-    v9 = Object;
-    if ( v10 != Object )
-      ObfDereferenceObjectWithTag(v10, 0x67655256u);
-    v10 = (signed __int64 *)v26;
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)v11 + 2, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)v11 + 2);
+    KeAbPostRelease((ULONG_PTR)v11 + 16);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    v10 = Object;
+    if ( v11 != Object )
+      ObfDereferenceObjectWithTag(v11, 0x67655256u);
+    v11 = v26;
   }
   v20 = -1073741772;
 LABEL_30:
-  if ( _InterlockedCompareExchange64(v10 + 2, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared(v10 + 2);
-  KeAbPostRelease((ULONG_PTR)(v10 + 2));
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  if ( v10 && v10 != v9 )
-    ObfDereferenceObjectWithTag(v10, 0x67655256u);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)v11 + 2, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)v11 + 2);
+  KeAbPostRelease((ULONG_PTR)v11 + 16);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( v11 && v11 != v10 )
+    ObfDereferenceObjectWithTag(v11, 0x67655256u);
   if ( v39.Buffer && v39.Buffer != a4->Buffer )
     ExFreePoolWithTag(v39.Buffer, 0);
   if ( KeyHandle[0] )

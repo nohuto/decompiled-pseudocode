@@ -1,17 +1,17 @@
 /*
- * XREFs of UpdatesLockedForDwm @ 0x1C00976E0
+ * XREFs of UpdatesLockedForDwm @ 0x1C0085390
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall UpdatesLockedForDwm(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall UpdatesLockedForDwm(__int64 a1, __int64 a2)
 {
-  unsigned int v4; // ebx
+  unsigned int v2; // ebx
 
-  v4 = 0;
+  v2 = 0;
   if ( g_bLockUpdatesForDwm )
-    return PsGetCurrentProcess(a1, a2, a3, a4) != (_QWORD)g_pepDwm;
-  return v4;
+    return PsGetCurrentProcess(a1, a2) != (_QWORD)g_pepDwm;
+  return v2;
 }

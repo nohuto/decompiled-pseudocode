@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CCubeMapRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@PEAUID3D11ShaderResourceView@@@Z @ 0x1802AAA24
+ * XREFs of ??0CCubeMapRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@PEAUID3D11ShaderResourceView@@@Z @ 0x180268B08
  * Callers:
- *     ?BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuilder@@@Z @ 0x18020E450 (-BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuil.c)
+ *     ?BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuilder@@@Z @ 0x1801BB7F0 (-BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuil.c)
  * Callees:
- *     ??0CDrawListBitmap@@QEAA@AEBV0@@Z @ 0x180056BCC (--0CDrawListBitmap@@QEAA@AEBV0@@Z.c)
+ *     ??0CDrawListBitmap@@QEAA@AEBV0@@Z @ 0x180051C98 (--0CDrawListBitmap@@QEAA@AEBV0@@Z.c)
  */
 
 __int64 __fastcall CCubeMapRenderingEffect::CCubeMapRenderingEffect(
@@ -19,10 +19,10 @@ __int64 __fastcall CCubeMapRenderingEffect::CCubeMapRenderingEffect(
   *(_QWORD *)a1 = &CCubeMapRenderingEffect::`vftable';
   CDrawListBitmap::CDrawListBitmap((CDrawListBitmap *)(a1 + 16), a2);
   v7 = *a3;
-  *(_WORD *)(a1 + 41) = 257;
-  *(_WORD *)(a1 + 40) = v7;
-  *(_BYTE *)(a1 + 42) = *((_BYTE *)a3 + 2);
+  *(_WORD *)(a1 + 65) = 257;
+  *(_WORD *)(a1 + 64) = v7;
+  *(_BYTE *)(a1 + 66) = *((_BYTE *)a3 + 2);
   result = a1;
-  *(_QWORD *)(a1 + 48) = a4;
+  *(_QWORD *)(a1 + 72) = a4;
   return result;
 }

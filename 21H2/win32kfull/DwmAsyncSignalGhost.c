@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmAsyncSignalGhost @ 0x1C0144A30
+ * XREFs of DwmAsyncSignalGhost @ 0x1C0003998
  * Callers:
- *     ?SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z @ 0x1C01449F8 (-SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z.c)
+ *     ?SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z @ 0x1C0003960 (-SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncSignalGhost(PVOID Object, __int128 *a2)
@@ -26,7 +26,7 @@ __int64 __fastcall DwmAsyncSignalGhost(PVOID Object, __int128 *a2)
     v9[19] = v7;
     *(_OWORD *)&v9[15] = v6;
     v9[0] = 5242920;
-    v9[10] = 1073741877;
+    v9[10] = 1073741876;
     v4 = LpcRequestPort(Object, v9);
     ObfDereferenceObject(Object);
   }

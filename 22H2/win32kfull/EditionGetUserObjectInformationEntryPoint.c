@@ -1,12 +1,12 @@
 /*
- * XREFs of EditionGetUserObjectInformationEntryPoint @ 0x1C0093B70
+ * XREFs of EditionGetUserObjectInformationEntryPoint @ 0x1C0068110
  * Callers:
  *     <none>
  * Callees:
- *     _GetUserObjectInformation @ 0x1C0093DC4 (_GetUserObjectInformation.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _GetUserObjectInformation @ 0x1C0069D04 (_GetUserObjectInformation.c)
  */
 
 __int64 __fastcall EditionGetUserObjectInformationEntryPoint(
@@ -16,82 +16,48 @@ __int64 __fastcall EditionGetUserObjectInformationEntryPoint(
         unsigned int a4,
         _DWORD *a5)
 {
-  SIZE_T v5; // rdi
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  PERESOURCE *v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 CurrentThreadWin32Thread; // rax
-  ULONG v19; // r8d
-  _DWORD *v20; // rdx
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  unsigned int UserObjectInformation; // edi
-  PVOID v24; // rcx
-  __int64 v25; // rax
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // r9
-  PVOID Object; // [rsp+50h] [rbp-58h] BYREF
-  __int64 v32[7]; // [rsp+58h] [rbp-50h] BYREF
+  ULONG v9; // r8d
+  _DWORD *v10; // rdx
+  unsigned int UserObjectInformation; // ebx
+  __int64 v12; // rcx
+  __int64 v14[3]; // [rsp+30h] [rbp-58h] BYREF
+  PVOID Object; // [rsp+48h] [rbp-40h] BYREF
+  _BYTE v16[24]; // [rsp+58h] [rbp-30h] BYREF
 
-  v5 = a4;
-  LODWORD(v32[0]) = 0;
-  EnterCrit(0LL, 0LL);
-  if ( !*(_QWORD *)(SGDGetUserSessionState(v9) + 8)
-    || (v14 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(v11, v10, v12, v13),
-        !ExIsResourceAcquiredSharedLite(*v14)) )
-  {
-    LODWORD(Object) = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 226LL);
-    if ( (gdwExtraInstrumentations & 1) != 0 )
-      KeBugCheckEx(0x164u, 0x2AuLL, 0LL, 0LL, 0LL);
-    DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 42LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
-  }
-  CurrentThreadWin32Thread = PsGetCurrentThreadWin32Thread(v16, v15, v17);
-  ++*(_DWORD *)(CurrentThreadWin32Thread + 48);
-  v19 = 4;
+  LODWORD(v14[0]) = 0;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v16);
+  v9 = 4;
   if ( a2 != 1 )
-    v19 = 2;
-  ProbeForWrite(a3, v5, v19);
+    v9 = 2;
+  ProbeForWrite(a3, a4, v9);
   if ( a5 )
   {
-    v20 = a5;
+    v10 = a5;
     if ( (unsigned __int64)a5 >= MmUserProbeAddress )
-      v20 = (_DWORD *)MmUserProbeAddress;
-    *v20 = *v20;
+      v10 = (_DWORD *)MmUserProbeAddress;
+    *v10 = *v10;
   }
   Object = 0LL;
-  if ( ObReferenceObjectByHandle(Handle, 0, 0LL, 1, &Object, 0LL) >= 0 )
+  if ( ObReferenceObjectByHandle(Handle, 0, 0LL, 1, &Object, 0LL) < 0 )
   {
-    if ( (unsigned int)SetHandleFlag(Handle, 2LL, 1LL) )
-    {
-      UserObjectInformation = GetUserObjectInformation(Handle, (__int64)v32);
-      SetHandleFlag(Handle, 2LL, 0LL);
-      if ( a5 )
-        *a5 = v32[0];
-    }
-    else
-    {
-      UserObjectInformation = 0;
-      UserSetLastError(8LL);
-    }
+    UserObjectInformation = 0;
+  }
+  else if ( (unsigned int)SetHandleFlag(Handle, 2LL, 1LL) )
+  {
+    UserObjectInformation = GetUserObjectInformation(Handle, (__int64)v14);
+    SetHandleFlag(Handle, 2LL, 0LL);
+    if ( a5 )
+      *a5 = v14[0];
   }
   else
   {
     UserObjectInformation = 0;
+    UserSetLastError(8LL);
   }
-  v24 = Object;
   if ( Object )
     ObfDereferenceObject(Object);
-  v25 = PsGetCurrentThreadWin32Thread(v24, v21, v22);
-  --*(_DWORD *)(v25 + 48);
-  UserSessionSwitchLeaveCrit(v27, v26, v28, v29);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v16);
+  UserSessionSwitchLeaveCrit(v12);
   return UserObjectInformation;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ClipInitHandles @ 0x1403C54B0
+ * XREFs of ClipInitHandles @ 0x1403B8180
  * Callers:
- *     ExInitLicenseData @ 0x14082D3F8 (ExInitLicenseData.c)
+ *     ExInitLicenseData @ 0x1407AAD08 (ExInitLicenseData.c)
  * Callees:
- *     sub_14082E638 @ 0x14082E638 (sub_14082E638.c)
+ *     sub_1407ABDF4 @ 0x1407ABDF4 (sub_1407ABDF4.c)
  */
 
 __int64 ClipInitHandles()
 {
-  qword_140D3B460 = (__int64)ExUpdateLicenseData;
-  qword_140D3B468 = (__int64)ntoskrnl_27;
-  qword_140D3B470 = (__int64)ExUpdateOsPfnInRegistry;
-  qword_140D3B478 = (__int64)SeExports;
+  qword_140D2D490 = (__int64)ExUpdateLicenseData;
+  qword_140D2D498 = (__int64)ntoskrnl_27;
+  qword_140D2D4A0 = (__int64)ExUpdateOsPfnInRegistry;
+  qword_140D2D4A8 = (__int64)SeExports;
   ClipSpInitialize(0LL, &g_kernelCallbacks);
-  return sub_14082E638();
+  return sub_1407ABDF4();
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?DrvChangeDisplayFallback@@YAJPEAXEEPEAU_MDEV@@PEAPEAU1@PEAW4_DXGK_DIAG_SDC_STAGE@@PEAEPEAJ@Z @ 0x1C00C2744
+ * XREFs of ?DrvChangeDisplayFallback@@YAJPEAXEEPEAU_MDEV@@PEAPEAU1@PEAW4_DXGK_DIAG_SDC_STAGE@@PEAEPEAJ@Z @ 0x1C00B404C
  * Callers:
- *     DrvSetDisplayConfig @ 0x1C0065F30 (DrvSetDisplayConfig.c)
+ *     DrvSetDisplayConfig @ 0x1C0019050 (DrvSetDisplayConfig.c)
  * Callees:
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C00760D4 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0012620 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
  */
 
 __int64 __fastcall DrvChangeDisplayFallback(
         struct _ERESOURCE *a1,
-        unsigned __int8 a2,
+        __int64 a2,
         char a3,
         struct _MDEV *a4,
         struct _MDEV **a5,
@@ -16,43 +16,59 @@ __int64 __fastcall DrvChangeDisplayFallback(
         bool *a7,
         int *a8)
 {
-  int v10; // esi
+  int v10; // edi
   int v12; // eax
-  int v13; // ebx
-  unsigned int v14; // r8d
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  int v15; // ebx
+  unsigned int v16; // r8d
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
 
-  v10 = a2;
+  v10 = (unsigned __int8)a2;
   if ( gForceDisconnect )
-    WdLogSingleEntry0(1LL);
+  {
+    v18 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v18);
+  }
   if ( a3 )
     gForceDisconnect = 1;
   if ( gOldModeChange )
-    WdLogSingleEntry0(1LL);
+  {
+    v19 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v19);
+  }
   gOldModeChange = 1;
-  v12 = DrvChangeDisplaySettingsInternal(0LL, 0LL, 0LL, a1, 0, 1, a4, (void **)a5, 0, 1, v10, 1, 0);
+  v12 = DrvChangeDisplaySettingsInternal(0LL, 0LL, 0LL, a1, 0, 1, a4, a5, 0, 1, v10, 1, 0);
   gOldModeChange = 0;
-  v13 = v12;
+  v15 = v12;
   switch ( v12 )
   {
     case 0:
       goto LABEL_8;
     case 2:
       if ( (_BYTE)v10 || *a5 )
-        WdLogSingleEntry0(1LL);
+      {
+        v21 = WdLogNewEntry5_WdAssertion(v14, v13);
+        WdLogEvent5_WdAssertion(v21);
+      }
 LABEL_8:
-      v14 = 0;
+      v16 = 0;
       *(_DWORD *)a6 = 18;
-      *a7 = v13 == 2;
+      *a7 = v15 == 2;
       goto LABEL_9;
     case 3:
-      WdLogSingleEntry0(1LL);
+      v20 = WdLogNewEntry5_WdAssertion(v14, v13);
+      WdLogEvent5_WdAssertion(v20);
       break;
   }
-  v14 = -1073741823;
-  *(_DWORD *)a6 = 54;
+  v16 = -1073741823;
+  *(_DWORD *)a6 = 16;
 LABEL_9:
   gForceDisconnect = 0;
   if ( a8 )
-    *a8 = v13;
-  return v14;
+    *a8 = v15;
+  return v16;
 }

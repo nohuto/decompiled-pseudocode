@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeClonePool @ 0x1402C9EE8
+ * XREFs of MiFreeClonePool @ 0x1402C9FE8
  * Callers:
- *     MiProcessDereferenceList @ 0x140154030 (MiProcessDereferenceList.c)
- *     MiDereferenceSegmentThread @ 0x140187580 (MiDereferenceSegmentThread.c)
- *     MiDeletePartitionResources @ 0x1402D0EAC (MiDeletePartitionResources.c)
+ *     MiProcessDereferenceList @ 0x140154050 (MiProcessDereferenceList.c)
+ *     MiDereferenceSegmentThread @ 0x1401875A0 (MiDereferenceSegmentThread.c)
+ *     MiDeletePartitionResources @ 0x1402D0FAC (MiDeletePartitionResources.c)
  * Callees:
- *     MiUnlockPagedAddress @ 0x14013A2A8 (MiUnlockPagedAddress.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
+ *     MiUnlockPagedAddress @ 0x14013A2C8 (MiUnlockPagedAddress.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlSplitLocks @ 0x14012EFD4
+ * XREFs of FsRtlSplitLocks @ 0x14012EFF4
  * Callers:
  *     FsRtlFastUnlockSingleShared @ 0x14008C1C8 (FsRtlFastUnlockSingleShared.c)
  *     FsRtlPrivateInsertSharedLock @ 0x14008D22C (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14012EC44 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14012EC64 (FsRtlPrivateFastUnlockAll.c)
  * Callees:
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRealSuccessor @ 0x14012EF40 (RtlRealSuccessor.c)
+ *     RtlRealSuccessor @ 0x14012EF60 (RtlRealSuccessor.c)
  */
 
 void __fastcall FsRtlSplitLocks(__int64 a1, _RTL_SPLAY_LINKS *a2, unsigned __int64 *a3, _RTL_SPLAY_LINKS **a4)

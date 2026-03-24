@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpIommuSupportEnabled @ 0x1403AE3C0
+ * XREFs of HalpIommuSupportEnabled @ 0x1403CB090
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool HalpIommuSupportEnabled()
 {
-  return (unsigned int)HalpIommuPolicy <= 1 || HalpIommuPolicy == 3;
+  return HalpIommuPolicy >= 0 && (HalpIommuPolicy <= 1 || HalpIommuPolicy == 3);
 }

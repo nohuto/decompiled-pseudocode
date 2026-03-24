@@ -1,14 +1,14 @@
 /*
- * XREFs of ?RefreshDpiKMMetricsCacheNode@@YAXPEAUtagDpiKMMetricsCacheNode@@@Z @ 0x1C01E49C8
+ * XREFs of ?RefreshDpiKMMetricsCacheNode@@YAXPEAUtagDpiKMMetricsCacheNode@@@Z @ 0x1C01EA238
  * Callers:
- *     GetDPIMETRICSForDpiUnsafe @ 0x1C00BF124 (GetDPIMETRICSForDpiUnsafe.c)
+ *     GetDPIMETRICSForDpiUnsafe @ 0x1C00481B0 (GetDPIMETRICSForDpiUnsafe.c)
  * Callees:
- *     CreateScaledFont @ 0x1C01E4B98 (CreateScaledFont.c)
+ *     CreateScaledFont @ 0x1C01EA410 (CreateScaledFont.c)
  */
 
 void __fastcall RefreshDpiKMMetricsCacheNode(struct tagDpiKMMetricsCacheNode *a1)
 {
-  _QWORD *v2; // rsi
+  HSURF *v2; // rsi
   int v3; // ecx
   int v4; // eax
   int v5; // ecx
@@ -21,7 +21,7 @@ void __fastcall RefreshDpiKMMetricsCacheNode(struct tagDpiKMMetricsCacheNode *a1
 
   if ( *((_WORD *)a1 + 1) )
   {
-    v2 = (_QWORD *)Get96DpiMetrics();
+    v2 = (HSURF *)Get96DpiMetrics();
     CreateScaledFont(v2[4], (__int64)a1 + 56, (__int64)a1 + 60, 0LL);
     *(_OWORD *)v7 = 0LL;
     v10 = 0LL;

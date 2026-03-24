@@ -1,128 +1,110 @@
 /*
- * XREFs of ?VmBusReclaimAllocations@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C03847D0
+ * XREFs of ?VmBusReclaimAllocations@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0246510
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B864 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_RELEASEKEY.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     DxgkReclaimAllocations2 @ 0x1C01D3300 (DxgkReclaimAllocations2.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1C0005218 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage @ 0x1C00261B0 (Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0040684 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC@@@@YAPEAUDXGKVMB_COMMAND_RELEASEKEY.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     DxgkReclaimAllocations2 @ 0x1C0117190 (DxgkReclaimAllocations2.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusReclaimAllocations(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // di
-  __int64 v4; // rbx
-  __int128 *v5; // rsi
-  __int64 v6; // r14
-  unsigned __int64 v7; // r8
-  unsigned int v8; // r12d
-  unsigned __int64 v9; // rdx
-  int v10; // eax
-  _D3DKMT_RECLAIMALLOCATIONS2 v12; // [rsp+50h] [rbp-29h] BYREF
-  _BYTE v13[8]; // [rsp+78h] [rbp-1h] BYREF
-  DXGPUSHLOCK *v14; // [rsp+80h] [rbp+7h]
-  int v15; // [rsp+88h] [rbp+Fh]
-  __int128 v16; // [rsp+90h] [rbp+17h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // bl
+  __int64 v6; // rax
+  unsigned __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rdi
+  __int128 *v10; // rsi
+  __int64 v11; // r14
+  unsigned __int64 v12; // r8
+  unsigned int v13; // r12d
+  __int64 v14; // rcx
+  __int64 v15; // r9
+  __int64 v16; // rax
+  int v17; // eax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  struct _D3DKMT_RECLAIMALLOCATIONS2 v22; // [rsp+20h] [rbp-60h] BYREF
+  _BYTE v23[8]; // [rsp+48h] [rbp-38h] BYREF
+  DXGPUSHLOCK *v24; // [rsp+50h] [rbp-30h]
+  int v25; // [rsp+58h] [rbp-28h]
+  __int128 v26; // [rsp+60h] [rbp-20h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v13, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v14);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 0;
-  v15 = 1;
-  if ( *(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v23, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v24);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 0;
+  v25 = 1;
+  if ( !*(_BYTE *)(v4 + 165) )
   {
-    v4 = CastToVmBusCommand<DXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC>((__int64)a1);
-    if ( v4 )
-    {
-      v5 = &v16;
-      LODWORD(v6) = -1073741811;
-      v16 = 0LL;
-      v7 = *(unsigned int *)(v4 + 32);
-      v8 = 16;
-      memset(&v12, 0, sizeof(v12));
-      if ( (_DWORD)v7
-        && (v9 = ((unsigned __int64)*((unsigned int *)a1 + 36) - 44) % v7,
-            ((unsigned __int64)*((unsigned int *)a1 + 36) - 44) / v7 >= 4) )
-      {
-        if ( !*(_BYTE *)(v4 + 37)
-          || (unsigned int)v7 <= 1
-          || (v8 = 4 * v7 + 12, (v5 = (__int128 *)operator new[](v8, 0x4B677844u, 64LL)) != 0LL) )
-        {
-          *(_QWORD *)&v12.hPagingQueue = *(_QWORD *)(v4 + 28);
-          if ( *(_BYTE *)(v4 + 36) )
-            v12.pResources = (D3DKMT_HANDLE *)(v4 + 40);
-          else
-            v12.HandleList = (const D3DKMT_HANDLE *)(v4 + 40);
-          if ( *(_BYTE *)(v4 + 37) )
-            v12.pDiscarded = (BOOL *)v5 + 3;
-          v10 = DxgkReclaimAllocations2(&v12, v9, v7);
-          v6 = v10;
-          if ( v10 < 0 )
-          {
-            WdLogSingleEntry1(2LL, v10);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"DxgkReclaimAllocations failed: 0x%I64x",
-              v6,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-          }
-        }
-        else
-        {
-          WdLogSingleEntry1(6LL, 1651LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262145,
-            -1,
-            (__int64)L"Failed to allocate memory for reclaim results",
-            1651LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          LODWORD(v6) = -1073741801;
-        }
-      }
-      else
-      {
-        WdLogSingleEntry1(2LL, 1641LL);
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid packet size", 1641LL, 0LL, 0LL, 0LL, 0LL);
-      }
-      *(_QWORD *)v5 = v12.PagingFenceValue;
-      *((_DWORD *)v5 + 2) = v6;
-      VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), v5, v8);
-      if ( v5 != &v16 )
-        operator delete(v5);
-      v3 = 1;
-    }
+    v6 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v6 + 24) = 1273LL;
+    WdLogEvent5_WdError(v6);
+    goto LABEL_24;
   }
-  else
+  v9 = CastToVmBusCommand<DXGKVMB_COMMAND_RELEASEKEYEDMUTEXSYNC>((__int64)a1);
+  if ( !v9 )
+    goto LABEL_24;
+  v10 = &v26;
+  LODWORD(v11) = -1073741811;
+  v26 = 0LL;
+  v12 = *(unsigned int *)(v9 + 32);
+  v13 = 16;
+  memset(&v22, 0, sizeof(v22));
+  if ( !(_DWORD)v12
+    || (v7 = ((unsigned __int64)*((unsigned int *)a1 + 22) - 44) % v12,
+        ((unsigned __int64)*((unsigned int *)a1 + 22) - 44) / v12 < 4) )
   {
-    WdLogSingleEntry1(2LL, 1628LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The adapter is already closed by the guest",
-      1628LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v20 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v20 + 24) = 1286LL;
+LABEL_18:
+    WdLogEvent5_WdError(v20);
+    goto LABEL_19;
   }
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v13);
-  return v3;
+  if ( !*(_BYTE *)(v9 + 37)
+    || (unsigned int)v12 <= 1
+    || (v13 = 4 * v12 + 12, (v10 = (__int128 *)operator new(v13, 0x4B677844u, 1, (POOL_TYPE)512)) != 0LL) )
+  {
+    *(_QWORD *)&v22.hPagingQueue = *(_QWORD *)(v9 + 28);
+    if ( *(_BYTE *)(v9 + 36) )
+      v22.pResources = (D3DKMT_HANDLE *)(v9 + 40);
+    else
+      v22.HandleList = (const D3DKMT_HANDLE *)(v9 + 40);
+    if ( *(_BYTE *)(v9 + 37) )
+      v22.pDiscarded = (BOOL *)v10 + 3;
+    v17 = DxgkReclaimAllocations2(&v22, v7, v12);
+    v11 = v17;
+    if ( v17 >= 0 )
+      goto LABEL_19;
+    v20 = WdLogNewEntry5_WdError(v19, v18);
+    *(_QWORD *)(v20 + 24) = v11;
+    goto LABEL_18;
+  }
+  v16 = WdLogNewEntry5_WdLowResource(v14, v7, v12, v15);
+  *(_QWORD *)(v16 + 24) = 1296LL;
+  WdLogEvent5_WdLowResource(v16);
+  LODWORD(v11) = -1073741801;
+LABEL_19:
+  *((_DWORD *)v10 + 2) = v11;
+  if ( (unsigned int)Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage() )
+    *(_QWORD *)v10 = v22.PagingFenceValue;
+  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), v10, v13);
+  if ( v10 != &v26 )
+    operator delete[](v10);
+  v5 = 1;
+LABEL_24:
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v23);
+  return v5;
 }

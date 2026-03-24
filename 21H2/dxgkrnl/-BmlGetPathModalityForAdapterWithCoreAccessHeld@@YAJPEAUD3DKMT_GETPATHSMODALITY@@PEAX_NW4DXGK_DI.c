@@ -1,12 +1,12 @@
 /*
- * XREFs of ?BmlGetPathModalityForAdapterWithCoreAccessHeld@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAX_NW4DXGK_DIAG_CCD_BML_ORIGIN@@IPEAPEAUD3DKMDT_HVIDPN__@@@Z @ 0x1C01BD1A4
+ * XREFs of ?BmlGetPathModalityForAdapterWithCoreAccessHeld@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAX_NW4DXGK_DIAG_CCD_BML_ORIGIN@@IPEAPEAUD3DKMDT_HVIDPN__@@@Z @ 0x1C013DAC0
  * Callers:
- *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01BBB3C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
- *     ?BmlGetPathModalityForAdapter@@YAJPEAUD3DKMT_GETPATHSMODALITY@@AEAU_LUID@@_NW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C01BC760 (-BmlGetPathModalityForAdapter@@YAJPEAUD3DKMT_GETPATHSMODALITY@@AEAU_LUID@@_NW4DXGK_DIAG_CCD_BML_.c)
- *     ?PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_KPEAU_DXGK_DISPLAYMODE_INFO@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EEPEAPEAU2@@Z @ 0x1C02F765C (-PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM.c)
+ *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0142C1C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ *     ?BmlGetPathModalityForAdapter@@YAJPEAUD3DKMT_GETPATHSMODALITY@@AEAU_LUID@@_NW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C01690F4 (-BmlGetPathModalityForAdapter@@YAJPEAUD3DKMT_GETPATHSMODALITY@@AEAU_LUID@@_NW4DXGK_DIAG_CCD_BML_.c)
+ *     ?PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM_VIDPN_INTERFACE@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@I_KPEAU_D3DKMT_DISPLAYMODE@@W4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@EEPEAPEAU2@@Z @ 0x1C025D2E4 (-PinPresentPathModalityFromMode@@YAJPEBU_DXGDMM_INTERFACE@@QEAXPEAUD3DKMDT_HVIDPN__@@QEBU_DXGDMM.c)
  * Callees:
- *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C00123E4 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
- *     _BmlGetPathModalityForAdapter @ 0x1C01BD268 (_BmlGetPathModalityForAdapter.c)
+ *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C000A9FC (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
+ *     _BmlGetPathModalityForAdapter @ 0x1C013DB84 (_BmlGetPathModalityForAdapter.c)
  */
 
 __int64 __fastcall BmlGetPathModalityForAdapterWithCoreAccessHeld(
@@ -24,34 +24,36 @@ __int64 __fastcall BmlGetPathModalityForAdapterWithCoreAccessHeld(
   int PathModalityForAdapter; // eax
   __int64 v15; // rdx
   __int64 v16; // rcx
-  __int64 v17; // rbx
-  __int64 v18; // rax
-  int v20; // [rsp+20h] [rbp-68h]
-  char v21[16]; // [rsp+50h] [rbp-38h] BYREF
+  __int64 v17; // r8
+  __int64 v18; // r9
+  __int64 v19; // rbx
+  __int64 v20; // rax
+  int v22; // [rsp+20h] [rbp-68h]
+  char v23[16]; // [rsp+50h] [rbp-38h] BYREF
 
-  v6 = (unsigned __int16 *)&unk_1C0130138;
+  v6 = (unsigned __int16 *)&unk_1C00B1FD8;
   v11 = 0;
   do
   {
     v12 = v6[1];
     v13 = *v6;
-    LOBYTE(v20) = a3;
-    v21[0] = 1;
-    PathModalityForAdapter = BmlGetPathModalityForAdapter(v13, v12, a1, a2, v20, a4, a5, a6, v21);
-    v17 = PathModalityForAdapter;
+    LOBYTE(v22) = a3;
+    v23[0] = 1;
+    PathModalityForAdapter = BmlGetPathModalityForAdapter(v13, v12, a1, a2, v22, a4, a5, a6, v23);
+    v19 = PathModalityForAdapter;
     if ( PathModalityForAdapter != -1071774970 )
       break;
-    if ( !v21[0] )
-      return (unsigned int)v17;
-    DxgkLogCodePointPacket(0x17u, v11++, *v6, 0xC01E0306, *(_QWORD *)(a2 + 404));
+    if ( !v23[0] )
+      return (unsigned int)v19;
+    DxgkLogCodePointPacket(0x17u, v11++, *v6, 0xC01E0306, *(_QWORD *)(a2 + 316));
     v6 += 2;
   }
   while ( v11 < 5 );
-  if ( (int)v17 >= 0 )
+  if ( (int)v19 >= 0 )
   {
-    v18 = WdLogNewEntry5_WdTrace(v16, v15);
-    *(_QWORD *)(v18 + 24) = v17;
-    *(_QWORD *)(v18 + 32) = v11;
+    v20 = WdLogNewEntry5_WdTrace(v16, v15, v17, v18);
+    *(_QWORD *)(v20 + 24) = v19;
+    *(_QWORD *)(v20 + 32) = v11;
   }
-  return (unsigned int)v17;
+  return (unsigned int)v19;
 }

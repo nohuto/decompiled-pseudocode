@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateK0piixqq_EtwWriteTransfer @ 0x1C0037CA4
+ * XREFs of McTemplateK0piixqq_EtwWriteTransfer @ 0x1C002D1A0
  * Callers:
- *     VidSchiUpdateContextStatus @ 0x1C000BE10 (VidSchiUpdateContextStatus.c)
- *     VidSchiInsertCommandToSoftwareQueue @ 0x1C000C490 (VidSchiInsertCommandToSoftwareQueue.c)
- *     VidSchiSendToExecutionQueue @ 0x1C000C930 (VidSchiSendToExecutionQueue.c)
- *     VidSchiUpdateContextRunningTimeAtISR @ 0x1C000F4F0 (VidSchiUpdateContextRunningTimeAtISR.c)
- *     VidSchiResetContextQuantumAtISR @ 0x1C0016DA0 (VidSchiResetContextQuantumAtISR.c)
- *     VidSchiStartContextRunningTimeAtISR @ 0x1C0016E40 (VidSchiStartContextRunningTimeAtISR.c)
+ *     VidSchiUpdateContextStatus @ 0x1C0007130 (VidSchiUpdateContextStatus.c)
+ *     VidSchiInsertCommandToSoftwareQueue @ 0x1C0008880 (VidSchiInsertCommandToSoftwareQueue.c)
+ *     VidSchiSendToExecutionQueue @ 0x1C0008B50 (VidSchiSendToExecutionQueue.c)
+ *     VidSchiUpdateContextRunningTimeAtISR @ 0x1C000E670 (VidSchiUpdateContextRunningTimeAtISR.c)
+ *     VidSchiResetContextQuantumAtISR @ 0x1C00141D0 (VidSchiResetContextQuantumAtISR.c)
+ *     VidSchiStartContextRunningTimeAtISR @ 0x1C0014270 (VidSchiStartContextRunningTimeAtISR.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0piixqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

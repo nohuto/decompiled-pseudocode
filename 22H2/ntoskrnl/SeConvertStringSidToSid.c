@@ -1,13 +1,13 @@
 /*
- * XREFs of SeConvertStringSidToSid @ 0x14020BA40
+ * XREFs of SeConvertStringSidToSid @ 0x1403BFFE0
  * Callers:
- *     ExWnfHiveUnloaded @ 0x140699814 (ExWnfHiveUnloaded.c)
+ *     <none>
  * Callees:
- *     SddlpFree @ 0x1406834B8 (SddlpFree.c)
- *     LocalpConvertStringSidToSid @ 0x14069A428 (LocalpConvertStringSidToSid.c)
- *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     LookupSidInTable @ 0x1406C3710 (LookupSidInTable.c)
- *     RtlCopySid @ 0x140715020 (RtlCopySid.c)
+ *     RtlCopySid @ 0x140654560 (RtlCopySid.c)
+ *     LookupSidInTable @ 0x1406ED11C (LookupSidInTable.c)
+ *     SddlpAlloc @ 0x1406ED338 (SddlpAlloc.c)
+ *     LocalpConvertStringSidToSid @ 0x1407B8370 (LocalpConvertStringSidToSid.c)
+ *     SddlpFree @ 0x140926A20 (SddlpFree.c)
  */
 
 __int64 __fastcall SeConvertStringSidToSid(wchar_t *Str1, __int64 *a2)
@@ -81,7 +81,7 @@ __int64 __fastcall SeConvertStringSidToSid(wchar_t *Str1, __int64 *a2)
       {
         v4 = -1073741704;
       }
-      goto LABEL_25;
+      goto LABEL_26;
     }
   }
   if ( !v17 )
@@ -95,7 +95,7 @@ __int64 __fastcall SeConvertStringSidToSid(wchar_t *Str1, __int64 *a2)
     *a2 = v17;
     return 0;
   }
-LABEL_25:
+LABEL_26:
   if ( v6 )
     SddlpFree(v6);
   return (unsigned int)v4;

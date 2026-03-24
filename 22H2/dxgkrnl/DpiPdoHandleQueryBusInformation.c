@@ -1,5 +1,5 @@
 /*
- * XREFs of DpiPdoHandleQueryBusInformation @ 0x1C0228FA0
+ * XREFs of DpiPdoHandleQueryBusInformation @ 0x1C019EB90
  * Callers:
  *     <none>
  * Callees:
@@ -8,20 +8,20 @@
 
 __int64 __fastcall DpiPdoHandleQueryBusInformation(__int64 a1, __int64 a2)
 {
-  unsigned int v3; // ebx
-  __int64 Pool2; // rax
+  unsigned int v2; // ebx
+  GUID *PoolWithTag; // rax
 
-  v3 = 0;
-  Pool2 = ExAllocatePool2(256LL, 24LL, 1953656900LL);
-  if ( Pool2 )
+  v2 = 0;
+  PoolWithTag = (GUID *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x74727044u);
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(Pool2 + 16) = 15LL;
-    *(_QWORD *)(a2 + 56) = Pool2;
-    *(GUID *)Pool2 = GUID_BUS_TYPE_DISPLAY;
+    *(_QWORD *)&PoolWithTag[1].Data1 = 15LL;
+    *PoolWithTag = GUID_BUS_TYPE_DISPLAY;
+    *(_QWORD *)(a2 + 56) = PoolWithTag;
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return v3;
+  return v2;
 }

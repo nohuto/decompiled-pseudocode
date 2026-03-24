@@ -1,34 +1,31 @@
 /*
- * XREFs of _GetProcessDefaultLayout @ 0x1C01B3438
+ * XREFs of _GetProcessDefaultLayout @ 0x1C0131B90
  * Callers:
- *     NtUserGetProcessDefaultLayout @ 0x1C01D34C0 (NtUserGetProcessDefaultLayout.c)
+ *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall GetProcessDefaultLayout(_DWORD *a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx
-  _DWORD *v5; // rdx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v7; // rdx
+  __int64 CurrentProcess; // rdx
+  __int64 v6; // r8
+  _DWORD *v7; // rdx
 
   v4 = 0;
-  if ( PsGetCurrentProcess(a1, a2, a3) == gpepCSRSS )
+  CurrentProcess = PsGetCurrentProcess(a1, a2, a3);
+  if ( CurrentProcess == gpepCSRSS )
   {
-    UserSetLastError(12);
+    UserSetLastError(12LL, CurrentProcess, v6);
   }
   else
   {
-    v5 = a1;
+    v7 = a1;
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-      v5 = (_DWORD *)MmUserProbeAddress;
-    *v5 = *v5;
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(MmUserProbeAddress);
-    v7 = CurrentProcessWin32Process;
-    if ( CurrentProcessWin32Process )
-      v7 = CurrentProcessWin32Process & -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-    *a1 = *(_DWORD *)(v7 + 840);
+      v7 = (_DWORD *)MmUserProbeAddress;
+    *v7 = *v7;
+    *a1 = *(_DWORD *)(PsGetCurrentProcessWin32Process(MmUserProbeAddress) + 824);
     return 1;
   }
   return v4;

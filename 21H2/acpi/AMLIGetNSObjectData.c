@@ -1,7 +1,7 @@
 /*
- * XREFs of AMLIGetNSObjectData @ 0x1C00647D0
+ * XREFs of AMLIGetNSObjectData @ 0x1C0063524
  * Callers:
- *     EnableDisableIPMIRegions @ 0x1C00AF540 (EnableDisableIPMIRegions.c)
+ *     EnableDisableIPMIRegions @ 0x1C00B0090 (EnableDisableIPMIRegions.c)
  * Callees:
  *     <none>
  */

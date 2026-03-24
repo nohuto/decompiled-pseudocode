@@ -1,29 +1,31 @@
 /*
- * XREFs of NtUserShowSystemCursor @ 0x1C01DED10
+ * XREFs of NtUserShowSystemCursor @ 0x1C02031E0
  * Callers:
  *     <none>
  * Callees:
- *     CheckWinstaAttributeAccess @ 0x1C00438D0 (CheckWinstaAttributeAccess.c)
- *     EditionShowSystemCursor @ 0x1C00E11B0 (EditionShowSystemCursor.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     GreHidePointer @ 0x1C0028DC0 (GreHidePointer.c)
+ *     CheckWinstaAttributeAccess @ 0x1C0033350 (CheckWinstaAttributeAccess.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
-_BOOL8 __fastcall NtUserShowSystemCursor(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserShowSystemCursor(int a1)
 {
-  unsigned int v3; // edi
-  BOOL v4; // ebx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  int v4; // ebx
+  __int64 v5; // rcx
 
-  v3 = a1;
-  EnterSharedCrit(a1, a2, a3);
+  EnterSharedCrit(0LL, 1LL);
   v4 = 0;
   if ( (unsigned int)CheckWinstaAttributeAccess(16LL) )
-    v4 = EditionShowSystemCursor((CursorApiRouter *)v3);
+  {
+    LOBYTE(v4) = a1 == 0;
+    v4 = GreHidePointer(v4);
+  }
   else
-    UserSetLastError(5);
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
+  {
+    UserSetLastError(5LL, v2, v3);
+  }
+  UserSessionSwitchLeaveCrit(v5);
   return v4;
 }

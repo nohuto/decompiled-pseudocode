@@ -1,12 +1,12 @@
 /*
- * XREFs of MiJumpStack @ 0x140590CD0
+ * XREFs of MiJumpStack @ 0x140536030
  * Callers:
  *     <none>
  * Callees:
- *     KeGenericCallDpc @ 0x140217420 (KeGenericCallDpc.c)
+ *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
  */
 
-__int64 __fastcall MiJumpStack(__int64 a1)
+char __fastcall MiJumpStack(__int64 a1)
 {
   return KeGenericCallDpc((__int64)MiDoStackCopy, a1);
 }

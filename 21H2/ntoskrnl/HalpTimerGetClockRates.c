@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerGetClockRates @ 0x1403DD4C8
+ * XREFs of HalpTimerGetClockRates @ 0x1403CE544
  * Callers:
- *     HalpTimerFindIdealWatchdog @ 0x1403BBD58 (HalpTimerFindIdealWatchdog.c)
- *     HalpTimerGetClockConfiguration @ 0x1403DD420 (HalpTimerGetClockConfiguration.c)
- *     HalpTimerInitializeSystemWatchdog @ 0x14050E930 (HalpTimerInitializeSystemWatchdog.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14050EB80 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     HalpTimerFindIdealWatchdog @ 0x1403AA50C (HalpTimerFindIdealWatchdog.c)
+ *     HalpTimerGetClockConfiguration @ 0x1403CE490 (HalpTimerGetClockConfiguration.c)
+ *     HalpTimerInitializeSystemWatchdog @ 0x1404C24E0 (HalpTimerInitializeSystemWatchdog.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C2760 (HalpTimerWatchdogTriggerSystemReset.c)
  * Callees:
  *     <none>
  */

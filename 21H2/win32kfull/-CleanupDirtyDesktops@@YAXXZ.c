@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CleanupDirtyDesktops@@YAXXZ @ 0x1C01E3CBC
+ * XREFs of ?CleanupDirtyDesktops@@YAXXZ @ 0x1C01E9620
  * Callers:
- *     xxxCreateDesktopEx @ 0x1C00CFDF4 (xxxCreateDesktopEx.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
  * Callees:
  *     <none>
  */

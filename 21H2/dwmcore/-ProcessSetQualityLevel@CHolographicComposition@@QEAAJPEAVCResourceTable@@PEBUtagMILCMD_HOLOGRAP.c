@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetQualityLevel@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOSITION_SETQUALITYLEVEL@@@Z @ 0x1802981B4
+ * XREFs of ?ProcessSetQualityLevel@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOSITION_SETQUALITYLEVEL@@@Z @ 0x1802562C4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18029CF8C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A950 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 __int64 __fastcall CHolographicComposition::ProcessSetQualityLevel(
@@ -14,19 +14,19 @@ __int64 __fastcall CHolographicComposition::ProcessSetQualityLevel(
   struct IUnknownVtbl *lpVtbl; // rdx
   CHolographicInteropTaskQueue *QueryInterface; // rax
 
-  lpVtbl = this[11].lpVtbl;
+  lpVtbl = this[10].lpVtbl;
   if ( lpVtbl )
   {
-    if ( BYTE5(this[14].lpVtbl) )
+    if ( BYTE5(this[13].lpVtbl) )
     {
-      LODWORD(this[14].lpVtbl) = *((_DWORD *)a3 + 2);
-      if ( BYTE4(this[14].lpVtbl) )
+      LODWORD(this[13].lpVtbl) = *((_DWORD *)a3 + 2);
+      if ( BYTE4(this[13].lpVtbl) )
       {
         QueryInterface = (CHolographicInteropTaskQueue *)lpVtbl[2].QueryInterface;
         if ( QueryInterface )
         {
           if ( LOBYTE(lpVtbl[10].QueryInterface) )
-            CHolographicInteropTaskQueue::PostMessageW(QueryInterface, 0xBu, this + 9, 0LL, 0LL, 0LL, 0LL);
+            CHolographicInteropTaskQueue::PostMessageW(QueryInterface, 0xBu, this + 8, 0LL, 0LL, 0LL, 0LL);
         }
       }
     }

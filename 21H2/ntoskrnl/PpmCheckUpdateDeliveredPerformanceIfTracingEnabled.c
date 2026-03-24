@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmCheckUpdateDeliveredPerformanceIfTracingEnabled @ 0x14025D540
+ * XREFs of PpmCheckUpdateDeliveredPerformanceIfTracingEnabled @ 0x14037E600
  * Callers:
  *     <none>
  * Callees:
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140304A20 (PpmCheckSnapAllDeliveredPerformance.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x140220BD0 (PpmCheckSnapAllDeliveredPerformance.c)
  */
 
 char PpmCheckUpdateDeliveredPerformanceIfTracingEnabled()

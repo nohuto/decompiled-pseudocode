@@ -1,13 +1,12 @@
 /*
- * XREFs of PopUmpoSendLegacyEvent @ 0x1407FE938
+ * XREFs of PopUmpoSendLegacyEvent @ 0x140774E88
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     PopDirectedDripsSendSuspendResumeNotification @ 0x14098C390 (PopDirectedDripsSendSuspendResumeNotification.c)
- *     PopSendSuspendResumeServiceNotification @ 0x14098FFD0 (PopSendSuspendResumeServiceNotification.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     PopDirectedDripsSendSuspendResumeNotification @ 0x1408E39AC (PopDirectedDripsSendSuspendResumeNotification.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x14036AF00 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PfPowerActionNotify @ 0x140A49250 (PfPowerActionNotify.c)
+ *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PfPowerActionNotify @ 0x1409909B4 (PfPowerActionNotify.c)
  */
 
 __int64 __fastcall PopUmpoSendLegacyEvent(__int128 *a1)
@@ -16,7 +15,7 @@ __int64 __fastcall PopUmpoSendLegacyEvent(__int128 *a1)
   __int128 v3; // xmm0
   _QWORD Src[11]; // [rsp+20h] [rbp-58h] BYREF
 
-  memset(Src, 0, 0x44uLL);
+  memset(Src, 0, 0x48uLL);
   v2 = *((_BYTE *)a1 + 12) == 0;
   v3 = *a1;
   LODWORD(Src[0]) = 7;

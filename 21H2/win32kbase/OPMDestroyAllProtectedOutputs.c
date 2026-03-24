@@ -1,10 +1,10 @@
 /*
- * XREFs of OPMDestroyAllProtectedOutputs @ 0x1C009AA20
+ * XREFs of OPMDestroyAllProtectedOutputs @ 0x1C0086F20
  * Callers:
  *     <none>
  * Callees:
- *     ?DestroyAllHandlesFromAdapter@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LUID@@PEAVCMutex@2@@Z @ 0x1C009AA74 (-DestroyAllHandlesFromAdapter@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LU.c)
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C009ABA0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?DestroyAllHandlesFromAdapter@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LUID@@PEAVCMutex@2@@Z @ 0x1C0086F74 (-DestroyAllHandlesFromAdapter@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LU.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00870E0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
  */
 
 LONG OPMDestroyAllProtectedOutputs()
@@ -13,8 +13,8 @@ LONG OPMDestroyAllProtectedOutputs()
   LONG result; // eax
   struct _KMUTANT *v2; // rcx
 
-  v0 = qword_1C0296A08;
-  OPM::CMutex::Lock((OPM *)((char *)qword_1C0296A08 + 56));
+  v0 = qword_1C0251C30;
+  OPM::CMutex::Lock((OPM *)((char *)qword_1C0251C30 + 56));
   result = OPM::CMonitorHandleTable<COPMProtectedOutput,void *>::DestroyAllHandlesFromAdapter(
              (char *)v0 + 24,
              0LL,

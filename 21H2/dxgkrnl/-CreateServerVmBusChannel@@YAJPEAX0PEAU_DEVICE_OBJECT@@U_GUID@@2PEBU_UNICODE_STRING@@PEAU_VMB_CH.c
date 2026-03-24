@@ -1,16 +1,15 @@
 /*
- * XREFs of ?CreateServerVmBusChannel@@YAJPEAX0PEAU_DEVICE_OBJECT@@U_GUID@@2PEBU_UNICODE_STRING@@PEAU_VMB_CHANNEL_STATE_CHANGE_CALLBACKS@@P6AXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMPLETION__@@0II@ZP6AX5I@ZIPEAPEAU5@@Z @ 0x1C0361784
+ * XREFs of ?CreateServerVmBusChannel@@YAJPEAX0PEAU_DEVICE_OBJECT@@U_GUID@@2PEBU_UNICODE_STRING@@PEAU_VMB_CHANNEL_STATE_CHANGE_CALLBACKS@@P6AXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMPLETION__@@0II@ZP6AX5I@ZIPEAPEAU5@@Z @ 0x1C0237CB8
  * Callers:
- *     ?CreateVmBusChannel@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAXPEAVDXGPROCESSVMWP@@@Z @ 0x1C0362008 (-CreateVmBusChannel@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAXPEAVDXGPROCESSVMWP@@@Z.c)
- *     ?CreateVmBusChannel@DXG_HOST_VIRTUALGPU_VMBUS@@QEAAJPEAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z @ 0x1C03621B0 (-CreateVmBusChannel@DXG_HOST_VIRTUALGPU_VMBUS@@QEAAJPEAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z.c)
+ *     ?CreateVmBusChannel@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAXPEAVDXGPROCESSVMWP@@@Z @ 0x1C02383C8 (-CreateVmBusChannel@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAXPEAVDXGPROCESSVMWP@@@Z.c)
+ *     ?CreateVmBusChannel@DXG_HOST_VIRTUALGPU_VMBUS@@QEAAJPEAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z @ 0x1C023853C (-CreateVmBusChannel@DXG_HOST_VIRTUALGPU_VMBUS@@QEAAJPEAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?EnsureServerVmBusInterface@@YAJXZ @ 0x1C0364620 (-EnsureServerVmBusInterface@@YAJXZ.c)
- *     ?VmBusInterfaceDereference@@YAXXZ @ 0x1C036F034 (-VmBusInterfaceDereference@@YAXXZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureServerVmBusInterface@@YAJXZ @ 0x1C023A140 (-EnsureServerVmBusInterface@@YAJXZ.c)
+ *     ?VmBusInterfaceDereference@@YAXXZ @ 0x1C0242560 (-VmBusInterfaceDereference@@YAXXZ.c)
  */
 
 __int64 __fastcall CreateServerVmBusChannel(
@@ -27,129 +26,115 @@ __int64 __fastcall CreateServerVmBusChannel(
         struct VMBCHANNEL__ **a11)
 {
   __int64 v15; // rdx
-  __int64 v16; // rsi
-  int v17; // eax
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  struct VMBCHANNEL__ *v21; // [rsp+58h] [rbp-49h] BYREF
-  __int128 v22; // [rsp+68h] [rbp-39h] BYREF
-  __int128 v23; // [rsp+78h] [rbp-29h] BYREF
-  int v24; // [rsp+88h] [rbp-19h] BYREF
-  __int64 v25; // [rsp+90h] [rbp-11h]
-  char v26; // [rsp+98h] [rbp-9h]
+  __int64 v16; // rbx
+  __int64 v17; // rcx
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  struct VMBCHANNEL__ *v26; // [rsp+20h] [rbp-50h] BYREF
+  __int128 v27; // [rsp+30h] [rbp-40h] BYREF
+  __int128 v28; // [rsp+40h] [rbp-30h] BYREF
+  int v29; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v30; // [rsp+58h] [rbp-18h]
+  char v31; // [rsp+60h] [rbp-10h]
 
-  v24 = -1;
-  v25 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v29 = -1;
+  v30 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v26 = 1;
-    v24 = 2135;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v31 = 1;
+    v29 = 2135;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, (__int64)a3, 2135);
   }
   else
   {
-    v26 = 0;
+    v31 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v24, 2135);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v29, 2135LL);
   *a11 = 0LL;
   LODWORD(v16) = EnsureServerVmBusInterface();
+  if ( (int)v16 < 0 )
+    goto LABEL_22;
+  v26 = 0LL;
+  LOBYTE(v15) = 1;
+  LODWORD(v16) = ((__int64 (__fastcall *)(struct _DEVICE_OBJECT *, __int64, struct VMBCHANNEL__ **))qword_1C00B4290)(
+                   a3,
+                   v15,
+                   &v26);
+  if ( (int)v16 < 0 )
+  {
+LABEL_21:
+    VmBusInterfaceDereference();
+    goto LABEL_22;
+  }
+  LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, __int64))qword_1C00B4518)(v26, a1);
+  if ( (int)v16 < 0 )
+    goto LABEL_19;
+  LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, __int64))qword_1C00B4300)(v26, 0x20000LL);
+  if ( (int)v16 < 0 )
+    goto LABEL_19;
+  ((void (__fastcall *)(struct VMBCHANNEL__ *, void *))qword_1C00B4358)(v26, a2);
+  v28 = (__int128)*a4;
+  v27 = (__int128)*a5;
+  LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, __int128 *, __int128 *))qword_1C00B4508)(
+                   v26,
+                   &v28,
+                   &v27);
+  if ( (int)v16 < 0 )
+    goto LABEL_19;
+  LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, struct _VMB_CHANNEL_STATE_CHANGE_CALLBACKS *))qword_1C00B4310)(
+                   v26,
+                   a7);
+  if ( (int)v16 < 0 )
+    goto LABEL_19;
+  LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, void (*)(struct VMBCHANNEL__ *, struct VMBPACKETCOMPLETION__ *, void *, unsigned int, unsigned int), void (*)(struct VMBCHANNEL__ *, unsigned int)))qword_1C00B4308)(
+                   v26,
+                   a8,
+                   a9);
+  if ( (int)v16 < 0 )
+    goto LABEL_19;
+  ((void (__fastcall *)(struct VMBCHANNEL__ *, __int64))qword_1C00B44F0)(v26, 2LL);
+  ((void (__fastcall *)(struct VMBCHANNEL__ *, const struct _UNICODE_STRING *))qword_1C00B42F0)(v26, a6);
+  if ( a10
+    && (v18 = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, _QWORD, _QWORD))qword_1C00B44F8)(
+                v26,
+                (unsigned __int16)a10,
+                0LL),
+        v16 = v18,
+        v18 < 0) )
+  {
+    v21 = WdLogNewEntry5_WdError(v20, v19);
+    *(_QWORD *)(v21 + 24) = v16;
+    WdLogEvent5_WdError(v21);
+  }
+  else
+  {
+    LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *))qword_1C00B42C0)(v26);
+    if ( (int)v16 < 0 )
+      goto LABEL_19;
+    ((void (__fastcall *)(struct VMBCHANNEL__ *))qword_1C00B4370)(v26);
+  }
   if ( (int)v16 >= 0 )
   {
-    LOBYTE(v15) = 1;
-    v21 = 0LL;
-    LODWORD(v16) = ((__int64 (__fastcall *)(struct _DEVICE_OBJECT *, __int64, struct VMBCHANNEL__ **))qword_1C0131BA0)(
-                     a3,
-                     v15,
-                     &v21);
-    if ( (int)v16 < 0 )
-      goto LABEL_16;
-    LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, __int64))qword_1C0131E28)(v21, a1);
-    if ( (int)v16 >= 0 )
-    {
-      LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, __int64))qword_1C0131C10)(v21, 0x20000LL);
-      if ( (int)v16 >= 0 )
-      {
-        ((void (__fastcall *)(struct VMBCHANNEL__ *, void *))qword_1C0131C68)(v21, a2);
-        v23 = (__int128)*a4;
-        v22 = (__int128)*a5;
-        LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, __int128 *, __int128 *))qword_1C0131E18)(
-                         v21,
-                         &v23,
-                         &v22);
-        if ( (int)v16 >= 0 )
-        {
-          LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, struct _VMB_CHANNEL_STATE_CHANGE_CALLBACKS *))qword_1C0131C20)(
-                           v21,
-                           a7);
-          if ( (int)v16 >= 0 )
-          {
-            LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, void (*)(struct VMBCHANNEL__ *, struct VMBPACKETCOMPLETION__ *, void *, unsigned int, unsigned int), void (*)(struct VMBCHANNEL__ *, unsigned int)))qword_1C0131C18)(
-                             v21,
-                             a8,
-                             a9);
-            if ( (int)v16 >= 0 )
-            {
-              ((void (__fastcall *)(struct VMBCHANNEL__ *, __int64))qword_1C0131E00)(v21, 2LL);
-              ((void (__fastcall *)(struct VMBCHANNEL__ *, const struct _UNICODE_STRING *))qword_1C0131C00)(v21, a6);
-              if ( a10
-                && (v17 = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *, _QWORD, _QWORD))qword_1C0131E08)(
-                            v21,
-                            (unsigned __int16)a10,
-                            0LL),
-                    v16 = v17,
-                    v17 < 0) )
-              {
-                WdLogSingleEntry1(2LL, v17);
-                DxgkLogInternalTriageEvent(
-                  0LL,
-                  0x40000,
-                  -1,
-                  (__int64)L"Failed to reserve IO space: 0x%I64x",
-                  v16,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL);
-              }
-              else
-              {
-                LODWORD(v16) = ((__int64 (__fastcall *)(struct VMBCHANNEL__ *))qword_1C0131BD0)(v21);
-                if ( (int)v16 >= 0 )
-                {
-                  ((void (__fastcall *)(struct VMBCHANNEL__ *))qword_1C0131C80)(v21);
-                  *a11 = v21;
-                  goto LABEL_17;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    WdLogSingleEntry1(2LL, (int)v16);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to create Host VmBus channel 0x%I64x",
-      (int)v16,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    ((void (__fastcall *)(struct VMBCHANNEL__ *))qword_1C0131BA8)(v21);
-    if ( (int)v16 < 0 )
-LABEL_16:
-      VmBusInterfaceDereference();
+    *a11 = v26;
+    goto LABEL_20;
   }
-LABEL_17:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v24);
-  if ( v26 )
-  {
-    LOBYTE(v18) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v18, &EventProfilerExit, v19, v24);
-  }
+LABEL_19:
+  v22 = WdLogNewEntry5_WdError(v17, v15);
+  *(_QWORD *)(v22 + 24) = (int)v16;
+  WdLogEvent5_WdError(v22);
+  ((void (__fastcall *)(struct VMBCHANNEL__ *))qword_1C00B4298)(v26);
+LABEL_20:
+  if ( (int)v16 < 0 )
+    goto LABEL_21;
+LABEL_22:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v29, v15);
+  if ( v31 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v23, &EventProfilerExit, v24, v29);
   return (unsigned int)v16;
 }

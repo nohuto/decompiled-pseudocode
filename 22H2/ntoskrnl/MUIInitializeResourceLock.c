@@ -1,21 +1,21 @@
 /*
- * XREFs of MUIInitializeResourceLock @ 0x14085F71C
+ * XREFs of MUIInitializeResourceLock @ 0x1407CFA8C
  * Callers:
- *     NtGetMUIRegistryInfo @ 0x1407CAB20 (NtGetMUIRegistryInfo.c)
- *     NtFlushInstallUILanguage @ 0x14085F640 (NtFlushInstallUILanguage.c)
- *     NtMapCMFModule @ 0x140A032C0 (NtMapCMFModule.c)
+ *     NtGetMUIRegistryInfo @ 0x140681030 (NtGetMUIRegistryInfo.c)
+ *     NtFlushInstallUILanguage @ 0x1407CF9B0 (NtFlushInstallUILanguage.c)
+ *     NtMapCMFModule @ 0x140959B70 (NtMapCMFModule.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExDeleteResourceLite @ 0x1402A8CA0 (ExDeleteResourceLite.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     ExDeleteResourceLite @ 0x140275720 (ExDeleteResourceLite.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MUIInitializeResourceLock(volatile signed __int64 *a1)
 {
-  struct _ERESOURCE *Pool2; // rax
-  struct _ERESOURCE *v3; // rbx
-  unsigned int v4; // edi
+  struct _ERESOURCE *PoolWithTag; // rax
+  struct _ERESOURCE *v3; // rdi
+  unsigned int v4; // ebx
 
   if ( a1 )
   {
@@ -25,20 +25,20 @@ __int64 __fastcall MUIInitializeResourceLock(volatile signed __int64 *a1)
     }
     else
     {
-      Pool2 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL, 1836411216LL);
-      v3 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (struct _ERESOURCE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x68uLL, 0x6D756950u);
+      v3 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        v4 = ExInitializeResourceLite(Pool2);
-        if ( (v4 & 0xC0000000) == 0xC0000000 )
-          goto LABEL_11;
-        if ( _InterlockedCompareExchange64(a1, (signed __int64)v3, 0LL) )
-          ExDeleteResourceLite(v3);
-        else
-          v3 = 0LL;
-        v4 = 0;
+        v4 = ExInitializeResourceLite(PoolWithTag);
+        if ( (v4 & 0xC0000000) != 0xC0000000 )
+        {
+          if ( _InterlockedCompareExchange64(a1, (signed __int64)v3, 0LL) )
+            ExDeleteResourceLite(v3);
+          else
+            v3 = 0LL;
+          v4 = 0;
+        }
         if ( v3 )
-LABEL_11:
           ExFreePoolWithTag(v3, 0);
       }
       else

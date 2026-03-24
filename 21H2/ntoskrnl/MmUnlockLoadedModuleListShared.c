@@ -1,13 +1,16 @@
 /*
- * XREFs of MmUnlockLoadedModuleListShared @ 0x1402DC05C
+ * XREFs of MmUnlockLoadedModuleListShared @ 0x14031C754
  * Callers:
- *     RtlpxLookupFunctionTable @ 0x140297AE0 (RtlpxLookupFunctionTable.c)
- *     MmIsSessionExecutionValid @ 0x1402DBFAC (MmIsSessionExecutionValid.c)
- *     RtlPcToFileName @ 0x1403D6E30 (RtlPcToFileName.c)
- *     MiIsAddressInDriverView @ 0x140595F4C (MiIsAddressInDriverView.c)
+ *     RtlpxLookupFunctionTable @ 0x14021EBB0 (RtlpxLookupFunctionTable.c)
+ *     MmIsSessionExecutionValid @ 0x1402CF5C0 (MmIsSessionExecutionValid.c)
+ *     MiLookupDataTableEntry @ 0x1402E776C (MiLookupDataTableEntry.c)
+ *     MiLockPagableImageSection @ 0x14031C4F0 (MiLockPagableImageSection.c)
+ *     MiIsDriverPage @ 0x14031C6C0 (MiIsDriverPage.c)
+ *     RtlPcToFileName @ 0x1403CC630 (RtlPcToFileName.c)
+ *     MiIsAddressInDriverView @ 0x14053A828 (MiIsAddressInDriverView.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MmUnlockLoadedModuleListShared(unsigned __int8 a1)

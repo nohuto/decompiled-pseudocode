@@ -1,20 +1,20 @@
 /*
- * XREFs of MiUpdateMirrorBitmaps @ 0x140A2F168
+ * XREFs of MiUpdateMirrorBitmaps @ 0x140774684
  * Callers:
- *     MmDuplicateMemory @ 0x140AAC90C (MmDuplicateMemory.c)
- *     MiInitializeMirroring @ 0x140B49630 (MiInitializeMirroring.c)
+ *     MmDuplicateMemory @ 0x1409907AC (MmDuplicateMemory.c)
+ *     MiInitializeMirroring @ 0x140A54728 (MiInitializeMirroring.c)
  * Callees:
- *     MiActOnMirrorBitmap @ 0x140A2F068 (MiActOnMirrorBitmap.c)
+ *     MiActOnMirrorBitmap @ 0x1407746C4 (MiActOnMirrorBitmap.c)
  */
 
 __int64 MiUpdateMirrorBitmaps()
 {
-  int v0; // ebx
+  unsigned int v0; // ebx
 
   v0 = 0;
-  while ( (unsigned int)MiActOnMirrorBitmap((__int64)&xmmword_140C67F90[v0], 0) )
+  while ( (unsigned int)MiActOnMirrorBitmap(&qword_140C4E710[2 * v0], 0LL) )
   {
-    if ( (unsigned int)++v0 >= 2 )
+    if ( ++v0 >= 2 )
       return 1LL;
   }
   return 0LL;

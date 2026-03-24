@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwOpenTransactionManager @ 0x14041DE60
+ * XREFs of ZwOpenTransactionManager @ 0x1403FC9E0
  * Callers:
- *     DifZwOpenTransactionManagerWrapper @ 0x140622ED0 (DifZwOpenTransactionManagerWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

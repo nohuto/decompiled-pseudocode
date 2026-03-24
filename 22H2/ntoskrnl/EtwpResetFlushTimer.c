@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpResetFlushTimer @ 0x14031034C
+ * XREFs of EtwpResetFlushTimer @ 0x14031D6A0
  * Callers:
- *     EtwpLogger @ 0x140773610 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1406BE4D0 (EtwpLogger.c)
  * Callees:
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
  */
 
 char __fastcall EtwpResetFlushTimer(__int64 a1, char a2)
 {
   int v2; // eax
 
-  v2 = *(_DWORD *)(a1 + 824);
+  v2 = *(_DWORD *)(a1 + 836);
   if ( (v2 & 0x400) != 0 )
   {
     if ( a2 )
-      LOBYTE(v2) = KeCancelTimer((PKTIMER)(a1 + 504));
-    _interlockedbittestandreset((volatile signed __int32 *)(a1 + 824), 0xAu);
+      LOBYTE(v2) = KeCancelTimer((PKTIMER)(a1 + 520));
+    _interlockedbittestandreset((volatile signed __int32 *)(a1 + 836), 0xAu);
   }
   return v2;
 }

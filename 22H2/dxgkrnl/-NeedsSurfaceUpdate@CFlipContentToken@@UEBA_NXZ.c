@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NeedsSurfaceUpdate@CFlipContentToken@@UEBA_NXZ @ 0x1C001A340
+ * XREFs of ?NeedsSurfaceUpdate@CFlipContentToken@@UEBA_NXZ @ 0x1C001BB40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CFlipContentToken::NeedsSurfaceUpdate(CFlipContentToken *this)
 {
-  return *((_BYTE *)this + 212) & 1;
+  return (*((_BYTE *)this + 224) & 8) != 0;
 }

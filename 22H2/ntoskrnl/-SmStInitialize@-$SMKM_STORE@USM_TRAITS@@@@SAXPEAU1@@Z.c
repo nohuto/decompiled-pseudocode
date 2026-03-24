@@ -1,53 +1,47 @@
 /*
- * XREFs of ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140343E8C
+ * XREFs of ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140351C48
  * Callers:
- *     SmProcessCreateRequest @ 0x1407B7C2C (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x1406FD1F0 (SmProcessCreateRequest.c)
  * Callees:
- *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140343F94 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     memset @ 0x140435400 (memset.c)
+ *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140351D54 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-char *__fastcall SMKM_STORE<SM_TRAITS>::SmStInitialize(char *a1)
+__int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStInitialize(__int64 a1)
 {
-  char *v1; // rbx
-  _QWORD *v2; // rax
-  char *result; // rax
+  __int64 result; // rax
 
-  v1 = a1;
-  memset(a1, 0, 0x1A60uLL);
-  v1[6020] = 2;
-  ST_STORE<SM_TRAITS>::StInitialize(v1);
-  *((_QWORD *)v1 + 757) = v1 + 6048;
-  *((_QWORD *)v1 + 756) = 0LL;
-  *((_QWORD *)v1 + 759) = v1 + 6064;
-  *((_QWORD *)v1 + 758) = 0LL;
-  *((_QWORD *)v1 + 761) = v1 + 6080;
-  *((_QWORD *)v1 + 760) = 0LL;
-  *((_QWORD *)v1 + 755) = 0LL;
-  *((_QWORD *)v1 + 771) = v1 + 6160;
-  *((_QWORD *)v1 + 770) = v1 + 6160;
-  *((_WORD *)v1 + 3076) = 0;
-  v1[6154] = 6;
-  *((_DWORD *)v1 + 1539) = 0;
-  *((_QWORD *)v1 + 768) = v1 + 6136;
-  *((_QWORD *)v1 + 767) = v1 + 6136;
-  v2 = v1 + 6184;
-  *((_WORD *)v1 + 3064) = 0;
-  v1[6130] = 6;
-  *((_DWORD *)v1 + 1533) = 0;
-  *((_WORD *)v1 + 3088) = 1;
-  v1[6178] = 6;
-  *((_DWORD *)v1 + 1545) = 0;
-  v1 += 6608;
-  v2[1] = v2;
-  *v2 = v2;
-  memset(v1, 0, 0x78uLL);
-  result = v1 + 16;
-  *((_WORD *)v1 + 4) = 1;
-  v1[10] = 6;
-  *((_DWORD *)v1 + 3) = 0;
-  *((_QWORD *)v1 + 3) = v1 + 16;
-  *((_QWORD *)v1 + 2) = v1 + 16;
-  *((_QWORD *)v1 + 4) = 0LL;
+  memset((void *)a1, 0, 0x1A50uLL);
+  *(_BYTE *)(a1 + 6020) = 2;
+  ST_STORE<SM_TRAITS>::StInitialize(a1);
+  *(_QWORD *)(a1 + 6056) = a1 + 6048;
+  *(_QWORD *)(a1 + 6048) = 0LL;
+  *(_QWORD *)(a1 + 6072) = a1 + 6064;
+  *(_QWORD *)(a1 + 6064) = 0LL;
+  *(_QWORD *)(a1 + 6088) = a1 + 6080;
+  *(_QWORD *)(a1 + 6080) = 0LL;
+  *(_QWORD *)(a1 + 6040) = 0LL;
+  *(_QWORD *)(a1 + 6168) = a1 + 6160;
+  *(_QWORD *)(a1 + 6160) = a1 + 6160;
+  *(_WORD *)(a1 + 6152) = 0;
+  *(_BYTE *)(a1 + 6154) = 6;
+  *(_DWORD *)(a1 + 6156) = 0;
+  *(_QWORD *)(a1 + 6144) = a1 + 6136;
+  *(_QWORD *)(a1 + 6136) = a1 + 6136;
+  *(_WORD *)(a1 + 6128) = 0;
+  *(_BYTE *)(a1 + 6130) = 6;
+  *(_DWORD *)(a1 + 6132) = 0;
+  *(_QWORD *)(a1 + 6192) = a1 + 6184;
+  *(_QWORD *)(a1 + 6184) = a1 + 6184;
+  *(_WORD *)(a1 + 6176) = 1;
+  *(_BYTE *)(a1 + 6178) = 6;
+  *(_DWORD *)(a1 + 6180) = 0;
+  memset((void *)(a1 + 6608), 0, 0x70uLL);
+  result = a1 + 6624;
+  *(_WORD *)(a1 + 6616) = 1;
+  *(_BYTE *)(a1 + 6618) = 6;
+  *(_DWORD *)(a1 + 6620) = 0;
+  *(_QWORD *)(a1 + 6632) = a1 + 6624;
+  *(_QWORD *)(a1 + 6624) = a1 + 6624;
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateDirectInkFactory@CD2DGenericInk@@SAJPEAUID2D1DeviceContext@@PEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x18029D080
+ * XREFs of ?CreateDirectInkFactory@CD2DGenericInk@@SAJPEAUID2D1DeviceContext@@PEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x18024CF6C
  * Callers:
- *     ?LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ @ 0x180287BB8 (-LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ.c)
+ *     ?LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ @ 0x18023CCBC (-LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     GetLPCreateDCompositionDirectInkFactoryPartner @ 0x18029D10C (GetLPCreateDCompositionDirectInkFactoryPartner.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     GetLPCreateDCompositionDirectInkFactoryPartner @ 0x18024CFEC (GetLPCreateDCompositionDirectInkFactoryPartner.c)
  */
 
 __int64 __fastcall CD2DGenericInk::CreateDirectInkFactory(

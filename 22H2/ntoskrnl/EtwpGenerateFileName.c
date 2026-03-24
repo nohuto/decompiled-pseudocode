@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpGenerateFileName @ 0x1407E9820
+ * XREFs of EtwpGenerateFileName @ 0x14068EAAC
  * Callers:
- *     EtwpFlushBufferToLogfile @ 0x1406BB3D0 (EtwpFlushBufferToLogfile.c)
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpIncrementTraceFile @ 0x1409E7FE0 (EtwpIncrementTraceFile.c)
+ *     EtwpFlushBufferToLogfile @ 0x14068E954 (EtwpFlushBufferToLogfile.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
+ *     EtwpIncrementTraceFile @ 0x140934C34 (EtwpIncrementTraceFile.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     wcsrchr @ 0x1403DB4B0 (wcsrchr.c)
- *     wcsstr @ 0x1403DB540 (wcsstr.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     wcsrchr @ 0x1403D3A00 (wcsrchr.c)
+ *     wcsstr @ 0x1403D3A90 (wcsstr.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpGenerateFileName(unsigned __int16 *a1, volatile signed __int32 *a2, UNICODE_STRING *a3)
@@ -22,8 +22,9 @@ __int64 __fastcall EtwpGenerateFileName(unsigned __int16 *a1, volatile signed __
   wchar_t *v7; // rdi
   signed __int32 v8; // ebp
   __int64 v9; // r14
-  wchar_t *Pool2; // rax
-  WCHAR *v11; // rdi
+  unsigned __int32 v10; // ebp
+  wchar_t *PoolWithTag; // rax
+  WCHAR *v12; // rdi
 
   v5 = (const wchar_t *)*((_QWORD *)a1 + 1);
   if ( !v5 )
@@ -33,18 +34,19 @@ __int64 __fastcall EtwpGenerateFileName(unsigned __int16 *a1, volatile signed __
   {
     v8 = _InterlockedExchangeAdd(a2, 1u);
     v9 = a1[1];
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, v9 + 64, 1350005829LL);
-    v11 = Pool2;
-    if ( !Pool2 )
+    v10 = v8 + 1;
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v9 + 64, 0x50777445u);
+    v12 = PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225495LL;
-    if ( !RtlStringCbPrintfW(Pool2, v9 + 64, *((NTSTRSAFE_PCWSTR *)a1 + 1), (unsigned int)(v8 + 1))
-      && memcmp(*((const void **)a1 + 1), v11, *a1) )
+    if ( !RtlStringCbPrintfW(PoolWithTag, v9 + 64, *((NTSTRSAFE_PCWSTR *)a1 + 1), v10)
+      && memcmp(*((const void **)a1 + 1), v12, *a1) )
     {
-      RtlFreeUnicodeString(a3);
-      RtlInitUnicodeString(a3, v11);
+      RtlFreeAnsiString(a3);
+      RtlInitUnicodeString(a3, v12);
       return 0LL;
     }
-    ExFreePoolWithTag(v11, 0);
+    ExFreePoolWithTag(v12, 0);
     return 3221225520LL;
   }
   return 3221225523LL;

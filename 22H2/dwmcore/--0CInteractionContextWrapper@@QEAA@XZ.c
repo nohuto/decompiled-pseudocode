@@ -1,13 +1,12 @@
 /*
- * XREFs of ??0CInteractionContextWrapper@@QEAA@XZ @ 0x180039BA8
+ * XREFs of ??0CInteractionContextWrapper@@QEAA@XZ @ 0x1800B5F28
  * Callers:
- *     ?Initialize@CInteraction@@MEAAJXZ @ 0x180039A90 (-Initialize@CInteraction@@MEAAJXZ.c)
- *     ?Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z @ 0x18020C1A4 (-Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z.c)
+ *     ?Initialize@CInteraction@@MEAAJXZ @ 0x1800B5E30 (-Initialize@CInteraction@@MEAAJXZ.c)
+ *     ?Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z @ 0x1801C6124 (-Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z.c)
  * Callees:
- *     ??0QpcTimeConverter@@QEAA@XZ @ 0x180039C78 (--0QpcTimeConverter@@QEAA@XZ.c)
- *     ??0CInteractionContextTransformHelper@@QEAA@XZ @ 0x180039CCC (--0CInteractionContextTransformHelper@@QEAA@XZ.c)
- *     ?ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z @ 0x180039DD0 (-ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
+ *     ?ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z @ 0x1800B6048 (-ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z.c)
+ *     ??0QpcTimeConverter@@QEAA@XZ @ 0x1800B60A8 (--0QpcTimeConverter@@QEAA@XZ.c)
+ *     ??0CInteractionContextTransformHelper@@QEAA@XZ @ 0x1800B60FC (--0CInteractionContextTransformHelper@@QEAA@XZ.c)
  */
 
 CInteractionContextWrapper *__fastcall CInteractionContextWrapper::CInteractionContextWrapper(
@@ -15,28 +14,39 @@ CInteractionContextWrapper *__fastcall CInteractionContextWrapper::CInteractionC
 {
   CInteractionContextWrapper *result; // rax
 
-  *((_QWORD *)this + 27) = 1LL;
-  *((_DWORD *)this + 2) = 0;
-  *(_QWORD *)this = &CInteractionContextWrapper::`vftable';
-  *((_QWORD *)this + 2) = 0LL;
-  *((_DWORD *)this + 53) = 0;
-  *((_QWORD *)this + 28) = 0LL;
-  CMILMatrix::SetToIdentity((CInteractionContextWrapper *)((char *)this + 248));
-  *((_DWORD *)this + 79) = 0;
-  *((_DWORD *)this + 80) = 16843008;
-  CInteractionContextTransformHelper::CInteractionContextTransformHelper((CInteractionContextWrapper *)((char *)this + 328));
-  *((_BYTE *)this + 528) = 0;
-  *((_DWORD *)this + 138) = 0;
-  *((_BYTE *)this + 556) = 0;
-  *((_QWORD *)this + 68) = (char *)this + 536;
-  *((_QWORD *)this + 67) = (char *)this + 536;
-  InitializeCriticalSection((LPCRITICAL_SECTION)this + 14);
-  *((_QWORD *)this + 75) = 0LL;
+  *((_QWORD *)this + 28) = 1LL;
+  *(_QWORD *)this = &CInteractionContextWrapper::`vftable'{for `IInteractionContextWrapper'};
+  *((_DWORD *)this + 4) = 0;
+  *((_QWORD *)this + 1) = &CInteractionContextWrapper::`vftable'{for `CMILRefCountBase'};
+  *((_QWORD *)this + 3) = 0LL;
+  *((_DWORD *)this + 55) = 0;
+  *((_QWORD *)this + 29) = 0LL;
+  *((_QWORD *)this + 32) = 1065353216LL;
+  *((_QWORD *)this + 33) = 0LL;
+  *((_DWORD *)this + 68) = 0;
+  *(_QWORD *)((char *)this + 276) = 1065353216LL;
+  *(_QWORD *)((char *)this + 284) = 0LL;
+  *((_DWORD *)this + 73) = 0;
+  *((_QWORD *)this + 37) = 1065353216LL;
+  *((_QWORD *)this + 38) = 0LL;
+  *((_DWORD *)this + 78) = 0;
+  *((_DWORD *)this + 79) = 1065353216;
+  *((_WORD *)this + 160) = 32085;
+  *((_DWORD *)this + 81) = 0;
+  *((_DWORD *)this + 82) = 16843008;
+  CInteractionContextTransformHelper::CInteractionContextTransformHelper((CInteractionContextWrapper *)((char *)this + 336));
+  *((_BYTE *)this + 536) = 0;
+  *((_DWORD *)this + 140) = 0;
+  *((_BYTE *)this + 564) = 0;
+  *((_QWORD *)this + 69) = (char *)this + 544;
+  *((_QWORD *)this + 68) = (char *)this + 544;
+  InitializeCriticalSection((LPCRITICAL_SECTION)((char *)this + 568));
   *((_QWORD *)this + 76) = 0LL;
-  QpcTimeConverter::QpcTimeConverter((CInteractionContextWrapper *)((char *)this + 616));
+  *((_QWORD *)this + 77) = 0LL;
+  QpcTimeConverter::QpcTimeConverter((CInteractionContextWrapper *)((char *)this + 624));
   CInteractionContextWrapper::ResetCachedInteractionOutput(this, 0);
   result = this;
-  *((_BYTE *)this + 84) = 0;
-  *((_BYTE *)this + 148) = 0;
+  *((_BYTE *)this + 92) = 0;
+  *((_BYTE *)this + 156) = 0;
   return result;
 }

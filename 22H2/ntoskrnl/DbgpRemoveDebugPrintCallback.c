@@ -1,36 +1,35 @@
 /*
- * XREFs of DbgpRemoveDebugPrintCallback @ 0x1405A7A38
+ * XREFs of DbgpRemoveDebugPrintCallback @ 0x1405856DC
  * Callers:
- *     DbgSetDebugPrintCallback @ 0x1405A7870 (DbgSetDebugPrintCallback.c)
+ *     DbgSetDebugPrintCallback @ 0x140585520 (DbgSetDebugPrintCallback.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025ABF0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14029CF60 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgpRemoveDebugPrintCallback(void *a1)
 {
   unsigned __int8 CurrentIrql; // bl
-  unsigned int v3; // esi
+  unsigned int v3; // edi
   _DWORD *SchedulerAssist; // r9
-  __int64 v5; // rdx
-  void **i; // rdi
-  struct _EX_RUNDOWN_REF *v7; // r14
-  unsigned __int8 v8; // al
+  _UNKNOWN **i; // rdx
+  struct _EX_RUNDOWN_REF *v6; // rsi
+  unsigned __int8 v7; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v10; // r8
-  int v11; // eax
-  bool v12; // zf
-  void **v14; // rdx
-  void **v15; // rax
-  unsigned __int8 v16; // al
-  struct _KPRCB *v17; // r9
-  _DWORD *v18; // r8
-  int v19; // eax
+  _DWORD *v9; // r8
+  int v10; // eax
+  bool v11; // zf
+  unsigned __int64 Count; // rdx
+  struct _EX_RUNDOWN_REF **v14; // rax
+  unsigned __int8 v15; // al
+  struct _KPRCB *v16; // r9
+  _DWORD *v17; // r8
+  int v18; // eax
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
@@ -38,70 +37,72 @@ __int64 __fastcall DbgpRemoveDebugPrintCallback(void *a1)
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 12 )
-      LODWORD(v5) = 4096;
-    else
-      v5 = (-1LL << (CurrentIrql + 1)) & 0x1FFC;
-    SchedulerAssist[5] |= v5;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
   }
   ExAcquireSpinLockSharedAtDpcLevel(&RtlpDebugPrintCallbackLock);
-  for ( i = (void **)RtlpDebugPrintCallbackList; ; i = (void **)*i )
+  for ( i = (_UNKNOWN **)RtlpDebugPrintCallbackList; ; i = (_UNKNOWN **)*i )
   {
-    if ( i == (void **)&RtlpDebugPrintCallbackList )
+    if ( i == &RtlpDebugPrintCallbackList )
     {
       ExReleaseSpinLockSharedFromDpcLevel(&RtlpDebugPrintCallbackLock);
       if ( KiIrqlFlags )
       {
-        v8 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v10 = CurrentPrcb->SchedulerAssist;
-          v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v12 = (v11 & v10[5]) == 0;
-          v10[5] &= v11;
-          if ( v12 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          v7 = KeGetCurrentIrql();
+          if ( v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v9 = CurrentPrcb->SchedulerAssist;
+            v10 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v11 = (v10 & v9[5]) == 0;
+            v9[5] &= v10;
+            if ( v11 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(CurrentIrql);
       return (unsigned int)-1073741275;
     }
-    v7 = (struct _EX_RUNDOWN_REF *)(i - 3);
+    v6 = (struct _EX_RUNDOWN_REF *)(i - 3);
     if ( *(i - 1) == a1 )
     {
-      _m_prefetchw(v7);
-      if ( (_InterlockedOr((volatile signed __int32 *)v7, 1u) & 1) == 0 )
+      _m_prefetchw(v6);
+      if ( (_InterlockedOr((volatile signed __int32 *)v6, 1u) & 1) == 0 )
         break;
     }
   }
   ExReleaseSpinLockSharedFromDpcLevel(&RtlpDebugPrintCallbackLock);
-  ExWaitForRundownProtectionRelease(v7 + 1);
+  ExWaitForRundownProtectionRelease(v6 + 1);
   ExAcquireSpinLockExclusiveAtDpcLevel(&RtlpDebugPrintCallbackLock);
-  v14 = (void **)*i;
-  v15 = (void **)i[1];
-  if ( *((void ***)*i + 1) != i || *v15 != i )
+  Count = v6[3].Count;
+  v14 = (struct _EX_RUNDOWN_REF **)v6[4].Count;
+  if ( *(struct _EX_RUNDOWN_REF **)(Count + 8) != &v6[3] || *v14 != &v6[3] )
     __fastfail(3u);
-  *v15 = v14;
-  v14[1] = v15;
-  if ( v15 == v14 )
+  *v14 = (struct _EX_RUNDOWN_REF *)Count;
+  *(_QWORD *)(Count + 8) = v14;
+  if ( v14 == (struct _EX_RUNDOWN_REF **)Count )
     RtlpDebugPrintCallbacksActive = 0;
   ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpDebugPrintCallbackLock);
   if ( KiIrqlFlags )
   {
-    v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v17 = KeGetCurrentPrcb();
-      v18 = v17->SchedulerAssist;
-      v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v12 = (v19 & v18[5]) == 0;
-      v18[5] &= v19;
-      if ( v12 )
-        KiRemoveSystemWorkPriorityKick((__int64)v17);
+      v15 = KeGetCurrentIrql();
+      if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      {
+        v16 = KeGetCurrentPrcb();
+        v17 = v16->SchedulerAssist;
+        v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v11 = (v18 & v17[5]) == 0;
+        v17[5] &= v18;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick((__int64)v16);
+      }
     }
   }
   __writecr8(CurrentIrql);
-  ExFreePoolWithTag(i - 3, 0);
+  ExFreePoolWithTag(v6, 0);
   return v3;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdatePageFileList @ 0x140394280
+ * XREFs of MiUpdatePageFileList @ 0x1403BF708
  * Callers:
- *     MiIncreaseCommitLimits @ 0x1403944E4 (MiIncreaseCommitLimits.c)
- *     MiInsertPageFileInList @ 0x140835BE0 (MiInsertPageFileInList.c)
- *     MiDeletePagefile @ 0x140A32870 (MiDeletePagefile.c)
+ *     MiIncreaseCommitLimits @ 0x1403BF408 (MiIncreaseCommitLimits.c)
+ *     MiInsertPageFileInList @ 0x1407B7790 (MiInsertPageFileInList.c)
+ *     MiDeletePagefile @ 0x1408D04DC (MiDeletePagefile.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14028AE30 (RtlAvlRemoveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x140234490 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiUpdatePageFileList(__int64 a1, int a2)
@@ -29,46 +29,49 @@ void __fastcall MiUpdatePageFileList(__int64 a1, int a2)
   if ( !*(_QWORD *)(a1 + 56) )
     return;
   v4 = (unsigned __int64 *)(a1 + 256);
-  v5 = ExAcquireSpinLockExclusive(&dword_140C69748);
+  v5 = ExAcquireSpinLockExclusive(&dword_140C4ECB8);
   if ( !a2 )
   {
-    RtlAvlRemoveNode((unsigned __int64 *)&qword_140C69740, v4);
-    goto LABEL_8;
+    RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4ECB0, v4);
+    goto LABEL_5;
   }
   v6 = *(_QWORD *)(a1 + 56);
   *(_WORD *)(a1 + 204) |= 0x100u;
   v7 = 0;
-  v8 = (_QWORD *)qword_140C69740;
-  if ( !qword_140C69740 )
-    goto LABEL_7;
+  v8 = (_QWORD *)qword_140C4ECB0;
+  if ( !qword_140C4ECB0 )
+    goto LABEL_4;
   while ( v6 < *(v8 - 25) )
   {
     v9 = (_QWORD *)*v8;
     if ( !*v8 )
-      goto LABEL_7;
-LABEL_6:
+      goto LABEL_4;
+LABEL_10:
     v8 = v9;
   }
   v9 = (_QWORD *)v8[1];
   if ( v9 )
-    goto LABEL_6;
+    goto LABEL_10;
   v7 = 1;
-LABEL_7:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C69740, (unsigned __int64)v8, v7, (unsigned __int64)v4);
-LABEL_8:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C69748);
+LABEL_4:
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4ECB0, (unsigned __int64)v8, v7, v4);
+LABEL_5:
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4ECB8);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v14 = (v13 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v13;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v14 = (v13 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v13;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v5);

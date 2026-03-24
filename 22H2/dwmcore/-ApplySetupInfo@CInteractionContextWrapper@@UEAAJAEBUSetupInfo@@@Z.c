@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ApplySetupInfo@CInteractionContextWrapper@@UEAAJAEBUSetupInfo@@@Z @ 0x180135090
+ * XREFs of ?ApplySetupInfo@CInteractionContextWrapper@@UEAAJAEBUSetupInfo@@@Z @ 0x18022FCB0
  * Callers:
  *     <none>
  * Callees:
- *     ?ConfigureInteractionContext@CInteractionContextWrapper@@AEAAJPEAUHINTERACTIONCONTEXT__@@AEBUSetupInfo@@@Z @ 0x18028400C (-ConfigureInteractionContext@CInteractionContextWrapper@@AEAAJPEAUHINTERACTIONCONTEXT__@@AEBUSet.c)
- *     ?EnsureInteractionContext@CInteractionContextWrapper@@AEAAJXZ @ 0x1802844D0 (-EnsureInteractionContext@CInteractionContextWrapper@@AEAAJXZ.c)
+ *     ?ConfigureInteractionContext@CInteractionContextWrapper@@AEAAJPEAUHINTERACTIONCONTEXT__@@AEBUSetupInfo@@@Z @ 0x18022FE64 (-ConfigureInteractionContext@CInteractionContextWrapper@@AEAAJPEAUHINTERACTIONCONTEXT__@@AEBUSet.c)
+ *     ?EnsureInteractionContext@CInteractionContextWrapper@@AEAAJXZ @ 0x180230290 (-EnsureInteractionContext@CInteractionContextWrapper@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CInteractionContextWrapper::ApplySetupInfo(
@@ -15,6 +15,6 @@ __int64 __fastcall CInteractionContextWrapper::ApplySetupInfo(
 
   result = CInteractionContextWrapper::EnsureInteractionContext((CInteractionContextWrapper *)this);
   if ( (int)result >= 0 )
-    return CInteractionContextWrapper::ConfigureInteractionContext((CInteractionContextWrapper *)this, this[2], a2);
+    return CInteractionContextWrapper::ConfigureInteractionContext((CInteractionContextWrapper *)this, this[3], a2);
   return result;
 }

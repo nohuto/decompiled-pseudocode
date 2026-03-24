@@ -1,9 +1,9 @@
 /*
- * XREFs of SetDpiSetting @ 0x1C00869F0
+ * XREFs of SetDpiSetting @ 0x1C0008EE0
  * Callers:
  *     <none>
  * Callees:
- *     SetDpiAllHWProfileSetting @ 0x1C0086720 (SetDpiAllHWProfileSetting.c)
+ *     SetDpiAllHWProfileSetting @ 0x1C0008CF4 (SetDpiAllHWProfileSetting.c)
  */
 
 __int64 __fastcall SetDpiSetting(int a1, int a2)

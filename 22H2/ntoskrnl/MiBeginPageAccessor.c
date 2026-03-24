@@ -1,72 +1,47 @@
 /*
- * XREFs of MiBeginPageAccessor @ 0x1402E8034
+ * XREFs of MiBeginPageAccessor @ 0x1402954C8
  * Callers:
- *     MiGetFreeLargePage @ 0x1402D8720 (MiGetFreeLargePage.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A088C (MiTryUnlinkNodeLargePages.c)
- *     MiGetHugeRangeFromNode @ 0x1403C4A84 (MiGetHugeRangeFromNode.c)
+ *     MiGetSinglePageToZero @ 0x1403651D4 (MiGetSinglePageToZero.c)
+ *     MiUnlinkNodeLargePages @ 0x1403F6768 (MiUnlinkNodeLargePages.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIsFreeZeroPfnCold @ 0x1402E85D0 (MiIsFreeZeroPfnCold.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
-__int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2, int a3)
+__int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2)
 {
-  bool v3; // bl
-  __int64 v5; // r9
+  volatile LONG *v4; // rbp
   struct _KTHREAD *CurrentThread; // rsi
-  __int64 v8; // rax
-  volatile LONG *v9; // rbp
+  char v6; // bl
+  char v7; // al
+  bool v8; // zf
+  __int64 v9; // r8
   _QWORD *v10; // rdx
   _QWORD *v11; // rax
   __int64 *v12; // rcx
   _QWORD *v13; // rax
 
-  v3 = 0;
-  *(_BYTE *)(a1 + 72) = 0;
-  if ( !a3 )
-  {
-    if ( (*(_BYTE *)(a2 + 34) & 8) == 0 )
-    {
-      *(_QWORD *)(a1 + 24) = a2;
-      *(_BYTE *)(a2 + 34) |= 8u;
-      if ( (unsigned int)MiIsFreeZeroPfnCold(a2) )
-        *(_BYTE *)(a1 + 72) = 1;
-      *(_QWORD *)(v5 + 16) = a1;
-      goto LABEL_6;
-    }
+  if ( (*(_BYTE *)(a2 + 34) & 8) != 0 )
     return 0LL;
-  }
-  if ( (*(_QWORD *)a2 & 0x800000000000000LL) != 0 )
-    return 0LL;
-  v8 = *(_QWORD *)a2 | 0x800000000000000LL;
-  *(_BYTE *)(a1 + 68) = 1;
   *(_QWORD *)(a1 + 24) = a2;
-  *(_QWORD *)a2 = v8;
-LABEL_6:
+  v4 = &dword_140C4E570;
   CurrentThread = KeGetCurrentThread();
+  v6 = 0;
   *(_QWORD *)(a1 + 56) = CurrentThread;
+  v7 = *(_BYTE *)(a2 + 34);
+  *(_QWORD *)(a2 + 16) = a1;
+  *(_BYTE *)(a2 + 34) = v7 | 8;
+  v8 = *(_BYTE *)(a1 + 71) == 0;
   *(_QWORD *)(a1 + 32) = 0LL;
-  *(_WORD *)(a1 + 70) = 0;
-  if ( *(_BYTE *)(a1 + 73) )
+  *(_WORD *)(a1 + 69) = 0;
+  if ( !v8 )
+    v4 = &dword_140C4E560;
+  ExAcquireSpinLockExclusiveAtDpcLevel(v4);
+  if ( *(_BYTE *)(a1 + 71) )
   {
-    v9 = &dword_140C67360;
-  }
-  else
-  {
-    if ( !a3 )
-    {
-      *(_BYTE *)(a1 + 69) = 1;
-      return 1LL;
-    }
-    v9 = &dword_140C67370;
-  }
-  ExAcquireSpinLockExclusiveAtDpcLevel(v9);
-  if ( *(_BYTE *)(a1 + 73) )
-  {
-    v10 = (_QWORD *)qword_140C67368;
-    if ( qword_140C67368 )
+    v10 = (_QWORD *)qword_140C4E568;
+    if ( qword_140C4E568 )
     {
       while ( 1 )
       {
@@ -75,7 +50,7 @@ LABEL_6:
           v13 = (_QWORD *)v10[1];
           if ( !v13 )
           {
-            v3 = 1;
+            v6 = 1;
             break;
           }
         }
@@ -88,29 +63,30 @@ LABEL_6:
         v10 = v13;
       }
     }
-    v12 = &qword_140C67368;
-    goto LABEL_27;
+    v12 = &qword_140C4E568;
+    goto LABEL_14;
   }
-  v10 = (_QWORD *)qword_140C67378;
-  if ( !qword_140C67378 )
-    goto LABEL_19;
+  v10 = (_QWORD *)qword_140C4E578;
+  if ( !qword_140C4E578 )
+    goto LABEL_13;
   while ( a1 < (unsigned __int64)v10 )
   {
     v11 = (_QWORD *)*v10;
     if ( !*v10 )
-      goto LABEL_19;
-LABEL_22:
+      goto LABEL_13;
+LABEL_9:
     v10 = v11;
   }
   v11 = (_QWORD *)v10[1];
   if ( v11 )
-    goto LABEL_22;
-  v3 = 1;
-LABEL_19:
-  v12 = &qword_140C67378;
-LABEL_27:
-  RtlAvlInsertNodeEx((unsigned __int64 *)v12, (unsigned __int64)v10, v3, a1);
-  *(_BYTE *)(a1 + 69) = 1;
-  ExReleaseSpinLockExclusiveFromDpcLevel(v9);
+    goto LABEL_9;
+  v6 = 1;
+LABEL_13:
+  v12 = &qword_140C4E578;
+LABEL_14:
+  LOBYTE(v9) = v6;
+  RtlAvlInsertNodeEx(v12, v10, v9, a1);
+  *(_BYTE *)(a1 + 68) = 1;
+  ExReleaseSpinLockExclusiveFromDpcLevel(v4);
   return 1LL;
 }

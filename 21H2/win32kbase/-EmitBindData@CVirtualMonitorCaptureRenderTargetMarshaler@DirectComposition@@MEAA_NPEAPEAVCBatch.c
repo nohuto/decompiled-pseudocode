@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitBindData@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0235DC0
+ * XREFs of ?EmitBindData@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5510
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::EmitBindData(
@@ -24,13 +24,13 @@ char __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::
     *(_OWORD *)(v3 + 20) = 0LL;
     *(_OWORD *)(v3 + 36) = 0LL;
     *(_QWORD *)(v3 + 52) = 0LL;
-    *((_DWORD *)v3 + 1) = 394;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *(_QWORD *)(v3 + 12) = *((_QWORD *)this + 24);
-    *(_OWORD *)(v3 + 20) = *((_OWORD *)this + 10);
-    v3[36] = *((_BYTE *)this + 204);
-    *((_DWORD *)v3 + 10) = *((_DWORD *)this + 50);
-    *(_OWORD *)(v3 + 44) = *((_OWORD *)this + 11);
+    *((_DWORD *)v3 + 1) = 398;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *(_QWORD *)(v3 + 12) = *((_QWORD *)this + 23);
+    *(_OWORD *)(v3 + 20) = *(_OWORD *)((char *)this + 152);
+    v3[36] = *((_BYTE *)this + 196);
+    *((_DWORD *)v3 + 10) = *((_DWORD *)this + 48);
+    *(_OWORD *)(v3 + 44) = *(_OWORD *)((char *)this + 168);
     *((_DWORD *)this + 4) &= 0xFFFF9FFF;
     return 1;
   }

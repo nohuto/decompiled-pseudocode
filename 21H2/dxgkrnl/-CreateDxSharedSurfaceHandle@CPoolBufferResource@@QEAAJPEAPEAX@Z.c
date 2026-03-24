@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CreateDxSharedSurfaceHandle@CPoolBufferResource@@QEAAJPEAPEAX@Z @ 0x1C007F294
+ * XREFs of ?CreateDxSharedSurfaceHandle@CPoolBufferResource@@QEAAJPEAPEAX@Z @ 0x1C006DDFC
  * Callers:
- *     ?ConsumerQueryBufferInfo@FlipManagerObject@@QEAAJ_KPEAU_LUID@@PEAPEAX@Z @ 0x1C0079D70 (-ConsumerQueryBufferInfo@FlipManagerObject@@QEAAJ_KPEAU_LUID@@PEAPEAX@Z.c)
+ *     ?ConsumerQueryBufferInfo@FlipManagerObject@@QEAAJ_KPEAU_LUID@@PEAPEAX@Z @ 0x1C00686C0 (-ConsumerQueryBufferInfo@FlipManagerObject@@QEAAJ_KPEAU_LUID@@PEAPEAX@Z.c)
  * Callees:
- *     DxgkGetSharedAllocationObjectType @ 0x1C0161E10 (DxgkGetSharedAllocationObjectType.c)
+ *     DxgkGetSharedAllocationObjectType @ 0x1C0154580 (DxgkGetSharedAllocationObjectType.c)
  */
 
 NTSTATUS __fastcall CPoolBufferResource::CreateDxSharedSurfaceHandle(PVOID *this, void **a2)
@@ -11,5 +11,5 @@ NTSTATUS __fastcall CPoolBufferResource::CreateDxSharedSurfaceHandle(PVOID *this
   struct _OBJECT_TYPE *ObjectType; // rax
 
   ObjectType = (struct _OBJECT_TYPE *)DxgkGetSharedAllocationObjectType();
-  return ObOpenObjectByPointer(this[7], 0, 0LL, 0xF0000u, ObjectType, 0, a2);
+  return ObOpenObjectByPointer(this[6], 0, 0LL, 0xF0000u, ObjectType, 0, a2);
 }

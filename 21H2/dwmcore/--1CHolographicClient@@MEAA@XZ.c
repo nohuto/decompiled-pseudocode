@@ -1,18 +1,18 @@
 /*
- * XREFs of ??1CHolographicClient@@MEAA@XZ @ 0x18029D2C0
+ * XREFs of ??1CHolographicClient@@MEAA@XZ @ 0x18025AC30
  * Callers:
- *     ??_ECHolographicClient@@MEAAPEAXI@Z @ 0x18029D4F0 (--_ECHolographicClient@@MEAAPEAXI@Z.c)
+ *     ??_ECHolographicClient@@MEAAPEAXI@Z @ 0x18025AE00 (--_ECHolographicClient@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?ResetEvent@details@wil@@YAXPEAX@Z @ 0x18002BBBC (-ResetEvent@details@wil@@YAXPEAX@Z.c)
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D0F68 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@UIHolographicExclusiveModeManagerProxy@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@UIHolographicExclusiveModeManagerProxy@@Uerr_returncode_policy@wil@@@wil@@QEAV12@AEAV?$allocator@V?$com_ptr_t@UIHolographicExclusiveModeManagerProxy@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x180192054 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@UIHolographicExclusiveModeManagerProxy@@Uerr_returnc.c)
- *     ??$ReleaseInterface@VCHolographicInteropTaskQueue@@@@YAXAEAPEAVCHolographicInteropTaskQueue@@@Z @ 0x180294AE4 (--$ReleaseInterface@VCHolographicInteropTaskQueue@@@@YAXAEAPEAVCHolographicInteropTaskQueue@@@Z.c)
- *     ?ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z @ 0x18029CDF0 (-ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z.c)
- *     ?ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z @ 0x18029D08C (-ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800C0048 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@0AEAV?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x180169180 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@s.c)
+ *     ??$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z @ 0x180199724 (--$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z.c)
+ *     ?ResetEvent@details@wil@@YAXPEAX@Z @ 0x1801A69D8 (-ResetEvent@details@wil@@YAXPEAX@Z.c)
+ *     ?ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z @ 0x18025A7D0 (-ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z.c)
+ *     ?ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z @ 0x18025AA50 (-ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z.c)
  */
 
 void __fastcall CHolographicClient::~CHolographicClient(CHolographicClient *this)
@@ -28,9 +28,9 @@ void __fastcall CHolographicClient::~CHolographicClient(CHolographicClient *this
   union _SLIST_HEADER *v10; // rbp
   struct MESSAGE *v11; // rbx
   void *v12; // rcx
-  __int64 *v13; // rcx
+  void *v13; // rbx
 
-  *(_QWORD *)this = &CHolographicClient::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)this = &CHolographicClient::`vftable'{for `CMILCOMBase'};
   v2 = (__int64 *)((char *)this + 32);
   *((_QWORD *)this + 2) = &CHolographicClient::`vftable'{for `IHolographicCompositorHost'};
   v3 = *((_QWORD *)this + 4);
@@ -59,31 +59,30 @@ void __fastcall CHolographicClient::~CHolographicClient(CHolographicClient *this
     }
     while ( v9 );
   }
-  ReleaseInterface<CHolographicInteropTaskQueue>((__int64 *)this + 33);
-  ReleaseInterface<CHolographicInteropTaskQueue>((__int64 *)this + 34);
+  ReleaseInterface<CPolygon>((__int64 *)this + 33);
+  ReleaseInterface<CPolygon>((__int64 *)this + 34);
   v12 = (void *)*((_QWORD *)this + 32);
   if ( v12 )
     CloseHandle(v12);
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 28);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 224);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 26);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 25);
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 20);
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 16);
-  v13 = (__int64 *)*((_QWORD *)this + 13);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 160);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 128);
+  v13 = (void *)*((_QWORD *)this + 13);
   if ( v13 )
   {
-    std::_Destroy_range<std::allocator<wil::com_ptr_t<IHolographicExclusiveModeManagerProxy,wil::err_returncode_policy>>>(
-      v13,
+    std::_Destroy_range<std::allocator<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>>(
+      *((__int64 **)this + 13),
       *((__int64 **)this + 14));
-    std::_Deallocate<16,0>(
-      *((void **)this + 13),
-      (*((_QWORD *)this + 15) - *((_QWORD *)this + 13)) & 0xFFFFFFFFFFFFFFF8uLL);
+    std::_Deallocate<16,0>(v13, (*((_QWORD *)this + 15) - (_QWORD)v13) & 0xFFFFFFFFFFFFFFF8uLL);
     *((_QWORD *)this + 13) = 0LL;
     *((_QWORD *)this + 14) = 0LL;
     *((_QWORD *)this + 15) = 0LL;
   }
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 9);
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 5);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 72);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 40);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v2);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 3);
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
 }

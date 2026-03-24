@@ -1,9 +1,10 @@
 /*
- * XREFs of PopAcquirePowerRequestSpinLock @ 0x1405C6B2C
+ * XREFs of PopAcquirePowerRequestSpinLock @ 0x14056540C
  * Callers:
- *     PopApplyLegacyPowerRequestFlags @ 0x1403698C4 (PopApplyLegacyPowerRequestFlags.c)
+ *     PoClearPowerRequestInternal @ 0x140281F9C (PoClearPowerRequestInternal.c)
+ *     PoSetPowerRequestInternal @ 0x140282160 (PoSetPowerRequestInternal.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall PopAcquirePowerRequestSpinLock(PKLOCK_QUEUE_HANDLE LockHandle)

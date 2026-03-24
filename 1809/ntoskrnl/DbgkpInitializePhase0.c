@@ -3,11 +3,11 @@
  * Callers:
  *     DbgkInitialize @ 0x1409AEA1C (DbgkInitialize.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlRunOnceInitialize @ 0x1406DA190 (RtlRunOnceInitialize.c)
- *     DbgkpGetServerSiloState @ 0x140727D8C (DbgkpGetServerSiloState.c)
- *     DbgkpInitializePhase0SiloState @ 0x140727DA8 (DbgkpInitializePhase0SiloState.c)
- *     ObCreateObjectType @ 0x1407289E0 (ObCreateObjectType.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlRunOnceInitialize @ 0x1406DA170 (RtlRunOnceInitialize.c)
+ *     DbgkpGetServerSiloState @ 0x140727D6C (DbgkpGetServerSiloState.c)
+ *     DbgkpInitializePhase0SiloState @ 0x140727D88 (DbgkpInitializePhase0SiloState.c)
+ *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
  */
 
 void DbgkpInitializePhase0()

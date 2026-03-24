@@ -1,10 +1,10 @@
 /*
- * XREFs of HsaGetBlockedDomain @ 0x14053006C
+ * XREFs of HsaGetBlockedDomain @ 0x1404E3670
  * Callers:
- *     HsaUpdateDeviceTableEntry @ 0x140530DD0 (HsaUpdateDeviceTableEntry.c)
- *     HsaInitializeIommu @ 0x140A99320 (HsaInitializeIommu.c)
+ *     HsaUpdateDeviceTableEntry @ 0x1404E4338 (HsaUpdateDeviceTableEntry.c)
+ *     HsaInitializeIommu @ 0x1409AA730 (HsaInitializeIommu.c)
  * Callees:
- *     HalpHsaFindReservedDomain @ 0x14052E31C (HalpHsaFindReservedDomain.c)
+ *     HalpHsaFindReservedDomain @ 0x1404E15D8 (HalpHsaFindReservedDomain.c)
  */
 
 __int64 __fastcall HsaGetBlockedDomain(__int64 a1, int *a2, unsigned __int64 *a3)

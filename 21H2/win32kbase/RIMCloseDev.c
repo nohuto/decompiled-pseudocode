@@ -1,12 +1,11 @@
 /*
- * XREFs of RIMCloseDev @ 0x1C004E108
+ * XREFs of RIMCloseDev @ 0x1C00ABE4C
  * Callers:
- *     RIMUnregisterForInput @ 0x1C0047ED0 (RIMUnregisterForInput.c)
- *     rimOnPnpArrived @ 0x1C004A09C (rimOnPnpArrived.c)
- *     rimOnPnpRemoveComplete @ 0x1C004A6A4 (rimOnPnpRemoveComplete.c)
- *     RIMOpenDev @ 0x1C004AC3C (RIMOpenDev.c)
- *     rimFakePnpRemoveComplete @ 0x1C01A18E4 (rimFakePnpRemoveComplete.c)
- *     rimOnPnpQueryRemove @ 0x1C01A1AA4 (rimOnPnpQueryRemove.c)
+ *     rimOnPnpRemoveComplete @ 0x1C0051D38 (rimOnPnpRemoveComplete.c)
+ *     RIMUnregisterForInput @ 0x1C0053610 (RIMUnregisterForInput.c)
+ *     rimOnPnpArrived @ 0x1C0055904 (rimOnPnpArrived.c)
+ *     rimFakePnpRemoveComplete @ 0x1C00ABC9C (rimFakePnpRemoveComplete.c)
+ *     rimOnPnpQueryRemove @ 0x1C016DC78 (rimOnPnpQueryRemove.c)
  * Callees:
  *     <none>
  */

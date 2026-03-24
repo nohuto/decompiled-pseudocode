@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampContextRemoveAndFreeModule @ 0x1409F21C4
+ * XREFs of EtwpCovSampContextRemoveAndFreeModule @ 0x140944834
  * Callers:
- *     EtwpCovSampContextCleanup @ 0x1409F10F4 (EtwpCovSampContextCleanup.c)
+ *     EtwpCovSampContextCleanup @ 0x1409430C4 (EtwpCovSampContextCleanup.c)
  * Callees:
- *     EtwpCovSampModuleCleanup @ 0x1409F2758 (EtwpCovSampModuleCleanup.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwpCovSampModuleCleanup @ 0x1409452C8 (EtwpCovSampModuleCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCovSampContextRemoveAndFreeModule(__int64 a1, __int64 *a2)
@@ -23,8 +23,8 @@ void __fastcall EtwpCovSampContextRemoveAndFreeModule(__int64 a1, __int64 *a2)
   a2[8] = 0LL;
   if ( v2 )
   {
-    v11 = a2[1] & (-1LL << (*(_DWORD *)(a1 + 1196) & 0x1F));
-    for ( i = (__int64 *)(*(_QWORD *)(a1 + 1200)
+    v11 = a2[1] & (-1LL << (*(_DWORD *)(a1 + 684) & 0x1F));
+    for ( i = (__int64 *)(*(_QWORD *)(a1 + 688)
                         + 8LL
                         * ((37
                           * (BYTE6(v11)
@@ -35,14 +35,14 @@ void __fastcall EtwpCovSampContextRemoveAndFreeModule(__int64 a1, __int64 *a2)
                              + 37
                              * (BYTE3(v11)
                               + 37 * (BYTE2(v11) + 37 * (BYTE1(v11) + 37 * ((unsigned __int8)v11 + 11623883)))))))
-                          + HIBYTE(v11)) & (unsigned int)((*(_DWORD *)(a1 + 1196) >> 5) - 1)));
+                          + HIBYTE(v11)) & (unsigned int)((*(_DWORD *)(a1 + 684) >> 5) - 1)));
           (*i & 1) == 0;
           i = (__int64 *)*i )
     {
       if ( (__int64 *)*i == a2 )
       {
         *i = *a2;
-        --*(_DWORD *)(a1 + 1192);
+        --*(_DWORD *)(a1 + 680);
         break;
       }
     }
@@ -51,8 +51,8 @@ void __fastcall EtwpCovSampContextRemoveAndFreeModule(__int64 a1, __int64 *a2)
   v6 = a2 + 2;
   if ( a2[2] )
   {
-    v12 = a2[3] & (-1LL << (*(_DWORD *)(a1 + 1212) & 0x1F));
-    for ( j = (_QWORD *)(*(_QWORD *)(a1 + 1216)
+    v12 = a2[3] & (-1LL << (*(_DWORD *)(a1 + 700) & 0x1F));
+    for ( j = (_QWORD *)(*(_QWORD *)(a1 + 704)
                        + 8LL
                        * ((37
                          * (BYTE6(v12)
@@ -63,14 +63,14 @@ void __fastcall EtwpCovSampContextRemoveAndFreeModule(__int64 a1, __int64 *a2)
                             + 37
                             * (BYTE3(v12)
                              + 37 * (BYTE2(v12) + 37 * (BYTE1(v12) + 37 * ((unsigned __int8)v12 + 11623883)))))))
-                         + HIBYTE(v12)) & (unsigned int)((*(_DWORD *)(a1 + 1212) >> 5) - 1)));
+                         + HIBYTE(v12)) & (unsigned int)((*(_DWORD *)(a1 + 700) >> 5) - 1)));
           (*j & 1) == 0;
           j = (_QWORD *)*j )
     {
       if ( (_QWORD *)*j == v6 )
       {
         *j = *v6;
-        --*(_DWORD *)(a1 + 1208);
+        --*(_DWORD *)(a1 + 696);
         break;
       }
     }
@@ -84,7 +84,7 @@ void __fastcall EtwpCovSampContextRemoveAndFreeModule(__int64 a1, __int64 *a2)
   *(_QWORD *)(v9 + 8) = v10;
   a2[10] = (__int64)(a2 + 9);
   *v8 = v8;
-  --*(_DWORD *)(a1 + 1240);
+  --*(_DWORD *)(a1 + 728);
   EtwpCovSampModuleCleanup(a2);
   ExFreePoolWithTag(a2, 0x56777445u);
 }

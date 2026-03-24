@@ -1,11 +1,11 @@
 /*
- * XREFs of ProcessorDeleteDeviceIdtAssignment @ 0x1C005E010
+ * XREFs of ProcessorDeleteDeviceIdtAssignment @ 0x1C000FC64
  * Callers:
- *     IrqLibAllocateMessageTarget @ 0x1C0098FB0 (IrqLibAllocateMessageTarget.c)
- *     IrqLibFreeMessageTarget @ 0x1C0099260 (IrqLibFreeMessageTarget.c)
- *     IrqArbAddAllocation @ 0x1C009C4C0 (IrqArbAddAllocation.c)
- *     IrqArbBacktrackAllocation @ 0x1C009CE30 (IrqArbBacktrackAllocation.c)
- *     IrqArbpUnreferenceArbitrationList @ 0x1C009E8A0 (IrqArbpUnreferenceArbitrationList.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IrqArbpUnreferenceArbitrationList @ 0x1C0093FBC (IrqArbpUnreferenceArbitrationList.c)
+ *     IrqLibAllocateMessageTarget @ 0x1C00B6480 (IrqLibAllocateMessageTarget.c)
+ *     IrqLibFreeMessageTarget @ 0x1C00B6730 (IrqLibFreeMessageTarget.c)
+ *     IrqArbBacktrackAllocation @ 0x1C00B6F40 (IrqArbBacktrackAllocation.c)
  * Callees:
  *     <none>
  */

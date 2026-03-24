@@ -1,29 +1,25 @@
 /*
- * XREFs of DxgkEngVisRgnUniq @ 0x1C000EDA0
+ * XREFs of DxgkEngVisRgnUniq @ 0x1C0004CE0
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C0041790 (EtwTraceGreLockAcquireSemaphoreShared.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C00804B0 (EtwTraceGreLockAcquireSemaphoreShared.c)
  */
 
 __int64 DxgkEngVisRgnUniq()
 {
-  __int64 v0; // rbx
-  unsigned int v1; // edi
-  struct _ERESOURCE *v2; // rcx
+  unsigned int v0; // ebx
 
-  v0 = *(_QWORD *)(SGDGetSessionState() + 24);
-  if ( *(_QWORD *)(v0 + 96) )
+  if ( ghsemVisRgnUniqueness )
     ExEnterPriorityRegionAndAcquireResourceShared();
-  EtwTraceGreLockAcquireSemaphoreShared(L"GreBaseGlobals.hsemVisRgnUniqueness", *(_QWORD *)(v0 + 96));
-  v1 = *(_DWORD *)(v0 + 6480) + *(_DWORD *)(v0 + 6516);
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemVisRgnUniqueness", *(_QWORD *)(v0 + 96));
-  v2 = *(struct _ERESOURCE **)(v0 + 96);
-  if ( v2 )
+  EtwTraceGreLockAcquireSemaphoreShared(L"ghsemVisRgnUniqueness", ghsemVisRgnUniqueness);
+  v0 = giVisRgnUniqueness + giSpriteUniqueness;
+  EtwTraceGreLockReleaseSemaphore(L"ghsemVisRgnUniqueness", ghsemVisRgnUniqueness);
+  if ( ghsemVisRgnUniqueness )
   {
-    ExReleaseResourceAndLeaveCriticalRegion(v2);
+    ExReleaseResourceAndLeaveCriticalRegion(ghsemVisRgnUniqueness);
     PsLeavePriorityRegion();
   }
-  return v1;
+  return v0;
 }

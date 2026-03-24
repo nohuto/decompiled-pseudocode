@@ -1,7 +1,7 @@
 /*
- * XREFs of SmKmKeyGenKeyDelete @ 0x1408ACECC
+ * XREFs of SmKmKeyGenKeyDelete @ 0x1408ACEAC
  * Callers:
- *     SmKmKeyGenGenerate @ 0x1408ACDBC (SmKmKeyGenGenerate.c)
+ *     SmKmKeyGenGenerate @ 0x1408ACD9C (SmKmKeyGenGenerate.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)

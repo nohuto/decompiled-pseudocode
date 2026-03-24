@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1CAutoMutex@OPM@@QEAA@XZ @ 0x1C00ABDC0
+ * XREFs of ??1CAutoMutex@OPM@@QEAA@XZ @ 0x1C0098E30
  * Callers:
- *     <none>
+ *     ?Configure@COPMProtectedOutput@@QEAAJQEAU_DXGKMDT_OPM_CONFIGURE_PARAMETERS@@KPEBE@Z @ 0x1C013FD5C (-Configure@COPMProtectedOutput@@QEAAJQEAU_DXGKMDT_OPM_CONFIGURE_PARAMETERS@@KPEBE@Z.c)
  * Callees:
  *     <none>
  */

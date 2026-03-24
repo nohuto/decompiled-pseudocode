@@ -1,11 +1,11 @@
 /*
- * XREFs of AMLICreateOverrideObjectDep @ 0x1C0065F88
+ * XREFs of AMLICreateOverrideObjectDep @ 0x1C0064D04
  * Callers:
- *     AMLIAddNextNamespaceOverrideObject @ 0x1C0065C08 (AMLIAddNextNamespaceOverrideObject.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C006498C (AMLIAddNextNamespaceOverrideObject.c)
  * Callees:
- *     NewObjData @ 0x1C0015D5C (NewObjData.c)
- *     FreeObjData @ 0x1C0018AA0 (FreeObjData.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     FreeObjData @ 0x1C00033D0 (FreeObjData.c)
+ *     NewObjData @ 0x1C000A9E8 (NewObjData.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall AMLICreateOverrideObjectDep(_BYTE *Src, unsigned int a2, __int64 a3)
@@ -16,17 +16,17 @@ __int64 __fastcall AMLICreateOverrideObjectDep(_BYTE *Src, unsigned int a2, __in
   unsigned int i; // ecx
   _BYTE *v9; // rdx
   __int64 v10; // rax
-  _SLIST_ENTRY *v11; // rax
-  _SLIST_ENTRY *v12; // r15
+  _DWORD *v11; // rax
+  _DWORD *v12; // r15
   __int64 v13; // rdi
-  _SLIST_ENTRY *v14; // r14
+  unsigned int *v14; // r14
   __int64 v15; // rax
-  _SLIST_ENTRY *v16; // rax
+  void *v16; // rax
   __int128 v17; // xmm1
-  _SLIST_ENTRY *v18; // xmm0_8
+  _DWORD *v18; // xmm0_8
   __int128 v20; // [rsp+20h] [rbp-48h] BYREF
   __int128 v21; // [rsp+30h] [rbp-38h]
-  _SLIST_ENTRY *v22; // [rsp+40h] [rbp-28h]
+  _DWORD *v22; // [rsp+40h] [rbp-28h]
 
   v3 = 0;
   v4 = 0;
@@ -53,32 +53,32 @@ __int64 __fastcall AMLICreateOverrideObjectDep(_BYTE *Src, unsigned int a2, __in
     }
     WORD1(v20) = 4;
     DWORD2(v21) = 40 * v4 + 48;
-    v11 = NewObjData((struct _SLIST_ENTRY *)gpheapGlobal, (__int64)&v20);
+    v11 = (_DWORD *)NewObjData((struct _SLIST_ENTRY *)gpheapGlobal, (__int64)&v20);
     v22 = v11;
     v12 = v11;
     if ( v11 )
     {
       LODWORD(v13) = 0;
-      LODWORD(v11->Next) = v4;
+      *v11 = v4;
       if ( v4 )
       {
-        v14 = v11 + 2;
+        v14 = v11 + 8;
         while ( 1 )
         {
-          *((_WORD *)&v14[-2].Next + 5) = 2;
+          *((_WORD *)v14 - 11) = 2;
           v15 = -1LL;
           do
             ++v15;
           while ( v7[v15] );
-          LODWORD(v14->Next) = v15 + 1;
-          v16 = NewObjData((struct _SLIST_ENTRY *)gpheapGlobal, (__int64)(&v14[-2].Next + 1));
-          *((_QWORD *)&v14->Next + 1) = v16;
+          *v14 = v15 + 1;
+          v16 = (void *)NewObjData((struct _SLIST_ENTRY *)gpheapGlobal, (__int64)(v14 - 6));
+          *((_QWORD *)v14 + 1) = v16;
           if ( !v16 )
             break;
-          memmove(v16, v7, LODWORD(v14->Next));
+          memmove(v16, v7, *v14);
           LODWORD(v13) = v13 + 1;
-          v7 += LODWORD(v14->Next);
-          v14 = (_SLIST_ENTRY *)((char *)v14 + 40);
+          v7 += *v14;
+          v14 += 10;
           if ( (unsigned int)v13 >= v4 )
             goto LABEL_17;
         }
@@ -86,7 +86,7 @@ __int64 __fastcall AMLICreateOverrideObjectDep(_BYTE *Src, unsigned int a2, __in
         while ( (_DWORD)v13 )
         {
           v13 = (unsigned int)(v13 - 1);
-          FreeObjData((__int64)(&v12[2 * v13].Next + (unsigned int)v13 + 1));
+          FreeObjData((__int64)&v12[8 * v13 + 2 + 2 * (unsigned int)v13]);
         }
         FreeObjData((__int64)&v20);
       }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetConstructionStatus@DMMVIDPNTARGET@@UEAAXW4ConstructionStatusType@FallibleConstruction@@@Z @ 0x1C0019FC0
+ * XREFs of ?SetConstructionStatus@DMMVIDPNTARGET@@UEAAXW4ConstructionStatusType@FallibleConstruction@@@Z @ 0x1C001B7B0
  * Callers:
  *     <none>
  * Callees:

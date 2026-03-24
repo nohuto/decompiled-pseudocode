@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetResourceMarshaler@CBaseAnimationMarshaler@DirectComposition@@UEAAPEAVCResourceMarshaler@2@XZ @ 0x1C00B07A0
+ * XREFs of ?GetResourceMarshaler@CBaseAnimationMarshaler@DirectComposition@@UEAAPEAVCResourceMarshaler@2@XZ @ 0x1C00A2250
  * Callers:
  *     <none>
  * Callees:

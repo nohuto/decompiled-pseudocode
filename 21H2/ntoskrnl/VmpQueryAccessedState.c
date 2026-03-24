@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpQueryAccessedState @ 0x14062B7FC
+ * XREFs of VmpQueryAccessedState @ 0x1405A4BEC
  * Callers:
- *     MiQueryEPTAccessedState @ 0x14045BCA2 (MiQueryEPTAccessedState.c)
+ *     MiQueryEPTAccessedState @ 0x14053BA00 (MiQueryEPTAccessedState.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     VmpProcessContextLockShared @ 0x14045F804 (VmpProcessContextLockShared.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x140629368 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     VmpProcessAccessedBatch @ 0x14062B464 (VmpProcessAccessedBatch.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405A2E80 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpProcessAccessedBatch @ 0x1405A4840 (VmpProcessAccessedBatch.c)
+ *     VmpProcessContextLockShared @ 0x1405A49D4 (VmpProcessContextLockShared.c)
  */
 
 unsigned __int64 __fastcall VmpQueryAccessedState(PEX_SPIN_LOCK SpinLock, unsigned __int64 *a2, int a3, int a4)
@@ -30,39 +30,44 @@ unsigned __int64 __fastcall VmpQueryAccessedState(PEX_SPIN_LOCK SpinLock, unsign
   _DWORD *v19; // r8
   int v20; // eax
   unsigned __int64 result; // rax
-  unsigned __int64 v23; // [rsp+38h] [rbp-C8h]
-  __int128 v24; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int64 v25; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v26; // [rsp+58h] [rbp-A8h]
-  __int128 v27; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v28; // [rsp+70h] [rbp-90h]
-  _QWORD v29[32]; // [rsp+80h] [rbp-80h] BYREF
+  __int128 v23; // [rsp+38h] [rbp-C8h] BYREF
+  unsigned __int64 v24; // [rsp+48h] [rbp-B8h]
+  __int128 v25; // [rsp+50h] [rbp-B0h] BYREF
+  __int128 v26; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v27; // [rsp+70h] [rbp-90h]
+  _QWORD v28[32]; // [rsp+80h] [rbp-80h] BYREF
 
-  v28 = 0LL;
+  v27 = 0LL;
   v4 = a2;
-  v24 = 0LL;
+  v23 = 0LL;
   v6 = 0LL;
   v7 = 0LL;
   v8 = &a2[a3];
-  v23 = (unsigned __int64)v8;
-  v27 = 0LL;
+  v24 = (unsigned __int64)v8;
+  v25 = 0LL;
+  v26 = 0LL;
   v9 = VmpProcessContextLockShared(SpinLock);
   if ( v4 < v8 )
   {
     do
     {
-      v25 = *v4 >> 12;
-      v26 = 1LL;
+      *(_QWORD *)&v23 = *v4 >> 12;
+      *((_QWORD *)&v23 + 1) = 1LL;
       v10 = v6;
-      VmpConvertPortionVpnRangeToGpnRange((__int64)SpinLock, &v25, 0xFFFFFFFFFFFFFFFFuLL, (__int64 *)&v27, &v24, 0);
-      if ( *((_QWORD *)&v24 + 1) )
+      VmpConvertPortionVpnRangeToGpnRange(
+        (__int64)SpinLock,
+        (unsigned __int64 *)&v23,
+        0xFFFFFFFFFFFFFFFFuLL,
+        &v26,
+        &v25);
+      if ( *((_QWORD *)&v25 + 1) )
       {
         v6 = v4;
-        v29[v7] = v24;
+        v28[v7] = v25;
         v7 = (unsigned int)(v7 + 1);
         if ( (_DWORD)v7 != 1 )
           v6 = v10;
-        if ( v26 )
+        if ( *((_QWORD *)&v23 + 1) )
         {
           --v4;
 LABEL_10:
@@ -86,13 +91,13 @@ LABEL_10:
             }
           }
           __writecr8(v9);
-          VmpProcessAccessedBatch((__int64)SpinLock, (__int64)v29, v7, v6, a4);
+          VmpProcessAccessedBatch((__int64)SpinLock, (__int64)v28, v7, v6, a4);
           v7 = 0LL;
           v9 = VmpProcessContextLockShared(SpinLock);
           if ( v11 != *((_QWORD *)SpinLock + 5) )
           {
+            v26 = 0LL;
             v27 = 0LL;
-            v28 = 0LL;
           }
           goto LABEL_19;
         }
@@ -108,7 +113,7 @@ LABEL_10:
 LABEL_19:
       ++v4;
     }
-    while ( (unsigned __int64)v4 < v23 );
+    while ( (unsigned __int64)v4 < v24 );
   }
   ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
   if ( KiIrqlFlags )
@@ -131,6 +136,6 @@ LABEL_19:
   result = v9;
   __writecr8(v9);
   if ( (_DWORD)v7 )
-    return VmpProcessAccessedBatch((__int64)SpinLock, (__int64)v29, v7, &v4[-(unsigned int)v7], a4);
+    return VmpProcessAccessedBatch((__int64)SpinLock, (__int64)v28, v7, &v4[-(unsigned int)v7], a4);
   return result;
 }

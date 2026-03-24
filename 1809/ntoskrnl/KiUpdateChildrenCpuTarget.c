@@ -1,11 +1,11 @@
 /*
- * XREFs of KiUpdateChildrenCpuTarget @ 0x14029B734
+ * XREFs of KiUpdateChildrenCpuTarget @ 0x14029B834
  * Callers:
- *     KiUpdateCpuTargetByWeight @ 0x140115F44 (KiUpdateCpuTargetByWeight.c)
- *     KiUpdateCpuTargetByRate @ 0x140116228 (KiUpdateCpuTargetByRate.c)
+ *     KiUpdateCpuTargetByWeight @ 0x140115F64 (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x140116248 (KiUpdateCpuTargetByRate.c)
  * Callees:
- *     KiUpdateCpuTargetByWeight @ 0x140115F44 (KiUpdateCpuTargetByWeight.c)
- *     KiUpdateCpuTargetByRate @ 0x140116228 (KiUpdateCpuTargetByRate.c)
+ *     KiUpdateCpuTargetByWeight @ 0x140115F64 (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x140116248 (KiUpdateCpuTargetByRate.c)
  */
 
 char __fastcall KiUpdateChildrenCpuTarget(_QWORD **a1, __int64 a2, __int64 a3)

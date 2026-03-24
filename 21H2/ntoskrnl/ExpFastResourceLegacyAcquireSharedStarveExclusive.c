@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14063CD9C
+ * XREFs of ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1405B491C
  * Callers:
- *     ExAcquireSharedStarveExclusive @ 0x1402339A0 (ExAcquireSharedStarveExclusive.c)
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
+ *     ExAcquireSharedStarveExclusive @ 0x14031E520 (ExAcquireSharedStarveExclusive.c)
+ *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
  * Callees:
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x14039BA90 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x14039C618 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x14038F0B0 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x14038FB6C (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall ExpFastResourceLegacyAcquireSharedStarveExclusive(ULONG_PTR BugCheckParameter2, char a2)

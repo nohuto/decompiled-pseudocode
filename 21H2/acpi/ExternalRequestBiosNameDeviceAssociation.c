@@ -1,16 +1,16 @@
 /*
- * XREFs of ExternalRequestBiosNameDeviceAssociation @ 0x1C00AE324
+ * XREFs of ExternalRequestBiosNameDeviceAssociation @ 0x1C00AF6D4
  * Callers:
- *     AcpiExternalTranslateBiosToNtResources @ 0x1C00ADE20 (AcpiExternalTranslateBiosToNtResources.c)
+ *     AcpiExternalTranslateBiosToNtResources @ 0x1C00AF1D0 (AcpiExternalTranslateBiosToNtResources.c)
  * Callees:
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNameSpaceObject @ 0x1C0018260 (AMLIGetNameSpaceObject.c)
- *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C0030C38 (ACPIInternalGetDeviceFromNSOBJ.c)
- *     WPP_RECORDER_SF_qSD @ 0x1C0054568 (WPP_RECORDER_SF_qSD.c)
- *     WPP_RECORDER_SF_qsD @ 0x1C00546EC (WPP_RECORDER_SF_qsD.c)
- *     AMLISetNSObjectNotifyFlag @ 0x1C0064A78 (AMLISetNSObjectNotifyFlag.c)
- *     ACPIInitUnicodeString @ 0x1C009257C (ACPIInitUnicodeString.c)
- *     AcpiExternalAddBiosNameDeviceAssociation @ 0x1C00ADCD4 (AcpiExternalAddBiosNameDeviceAssociation.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     WPP_RECORDER_SF_qSD @ 0x1C0054E38 (WPP_RECORDER_SF_qSD.c)
+ *     WPP_RECORDER_SF_qsD @ 0x1C0054FBC (WPP_RECORDER_SF_qsD.c)
+ *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C0056ECC (ACPIInternalGetDeviceFromNSOBJ.c)
+ *     AMLISetNSObjectNotifyFlag @ 0x1C00637F4 (AMLISetNSObjectNotifyFlag.c)
+ *     ACPIInitUnicodeString @ 0x1C0099D70 (ACPIInitUnicodeString.c)
+ *     AcpiExternalAddBiosNameDeviceAssociation @ 0x1C00AF084 (AcpiExternalAddBiosNameDeviceAssociation.c)
  */
 
 __int64 __fastcall ExternalRequestBiosNameDeviceAssociation(char *a1, __int64 a2, char a3)
@@ -35,7 +35,7 @@ __int64 __fastcall ExternalRequestBiosNameDeviceAssociation(char *a1, __int64 a2
   v5 = 0LL;
   v18 = 0LL;
   *(_OWORD *)P = 0LL;
-  v7 = AMLIGetNameSpaceObject(a1, 0LL, &v17, 0);
+  v7 = AMLIGetNameSpaceObject(a1, 0LL, (unsigned __int64 *)&v17, 0);
   if ( v7 >= 0 )
   {
     AMLISetNSObjectNotifyFlag(v17);
@@ -63,7 +63,7 @@ __int64 __fastcall ExternalRequestBiosNameDeviceAssociation(char *a1, __int64 a2
       }
       if ( (a3 & 4) == 0 )
       {
-        v7 = IoReserveDependency(*(_QWORD *)(a2 + 784), P, 2LL);
+        v7 = IoReserveDependency(*(_QWORD *)(a2 + 744), P, 2LL);
         if ( v7 < 0 )
         {
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -81,6 +81,6 @@ __int64 __fastcall ExternalRequestBiosNameDeviceAssociation(char *a1, __int64 a2
   if ( v5 )
     ObfDereferenceObject(v5);
   if ( v17 )
-    AMLIDereferenceHandleEx((volatile signed __int32 *)v17);
+    AMLIDereferenceHandleEx((__int64)v17);
   return (unsigned int)v7;
 }

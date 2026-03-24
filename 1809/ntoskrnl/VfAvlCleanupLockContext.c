@@ -1,9 +1,9 @@
 /*
- * XREFs of VfAvlCleanupLockContext @ 0x1400F5668
+ * XREFs of VfAvlCleanupLockContext @ 0x1400F5688
  * Callers:
- *     VfTargetDriversAdd @ 0x1400F5584 (VfTargetDriversAdd.c)
- *     VfTargetDriversRemove @ 0x14016C1C0 (VfTargetDriversRemove.c)
- *     VfTargetDriversGetNode @ 0x14030AC9C (VfTargetDriversGetNode.c)
+ *     VfTargetDriversAdd @ 0x1400F55A4 (VfTargetDriversAdd.c)
+ *     VfTargetDriversRemove @ 0x14016C1E0 (VfTargetDriversRemove.c)
+ *     VfTargetDriversGetNode @ 0x14030AD9C (VfTargetDriversGetNode.c)
  *     VfDevObjIsDeviceRemoved @ 0x140933FC8 (VfDevObjIsDeviceRemoved.c)
  *     VfDevObjMarkDeviceRemoved @ 0x140934034 (VfDevObjMarkDeviceRemoved.c)
  *     ViDevObjAdd @ 0x140934340 (ViDevObjAdd.c)
@@ -30,8 +30,8 @@
  *     VfCheckForResource @ 0x14093FECC (VfCheckForResource.c)
  *     VerifierIoWMIRegistrationControl @ 0x140945DC0 (VerifierIoWMIRegistrationControl.c)
  * Callees:
- *     ViAvlReleaseTableLockFromDpcLevel @ 0x1400F5754 (ViAvlReleaseTableLockFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x1400F5774 (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int8 __fastcall VfAvlCleanupLockContext(__int64 a1)

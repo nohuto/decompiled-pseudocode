@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpReleaseResourcesInternal @ 0x14072DDE0
+ * XREFs of PnpReleaseResourcesInternal @ 0x14072DDC0
  * Callers:
- *     IopReleaseResources @ 0x14072D148 (IopReleaseResources.c)
- *     PnpReallocateResources @ 0x14083B374 (PnpReallocateResources.c)
+ *     IopReleaseResources @ 0x14072D128 (IopReleaseResources.c)
+ *     PnpReallocateResources @ 0x14083B354 (PnpReallocateResources.c)
  * Callees:
- *     IopWriteAllocatedResourcesToRegistry @ 0x14072E0BC (IopWriteAllocatedResourcesToRegistry.c)
- *     IopFindLegacyBusDeviceNode @ 0x14072F8F0 (IopFindLegacyBusDeviceNode.c)
- *     IopCallArbiter @ 0x14072F950 (IopCallArbiter.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x14072E09C (IopWriteAllocatedResourcesToRegistry.c)
+ *     IopFindLegacyBusDeviceNode @ 0x14072F8D0 (IopFindLegacyBusDeviceNode.c)
+ *     IopCallArbiter @ 0x14072F930 (IopCallArbiter.c)
  */
 
 __int64 __fastcall PnpReleaseResourcesInternal(_QWORD *a1)

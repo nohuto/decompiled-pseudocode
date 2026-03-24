@@ -1,40 +1,32 @@
 /*
- * XREFs of Device @ 0x1C001A250
+ * XREFs of Device @ 0x1C0022980
  * Callers:
  *     <none>
  * Callees:
- *     CreateNameSpaceObject @ 0x1C0013250 (CreateNameSpaceObject.c)
- *     PushScope @ 0x1C0018570 (PushScope.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     PushScope @ 0x1C0022A38 (PushScope.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall Device(__int64 a1, __int64 a2)
+__int64 __fastcall Device(__int64 a1, _QWORD *a2)
 {
   __int64 *v2; // rdi
   __int64 result; // rax
 
-  v2 = (__int64 *)(a2 + 64);
+  v2 = a2 + 8;
   result = CreateNameSpaceObject(
              *(_QWORD *)(a1 + 320),
-             *(unsigned __int8 **)(*(_QWORD *)(a2 + 80) + 32LL),
+             *(unsigned __int8 **)(a2[10] + 32LL),
              *(_QWORD *)(a1 + 80),
              *(struct _EX_RUNDOWN_REF **)(a1 + 88),
-             (__int64 *)(a2 + 64),
+             a2 + 8,
              0);
   if ( !(_DWORD)result )
   {
     *(_WORD *)(*v2 + 66) = 6;
     if ( ghCreate )
       ghCreate(6LL, *v2 + 120);
-    return PushScope(
-             a1,
-             *(_QWORD *)(a1 + 120),
-             *(_SLIST_ENTRY **)(a2 + 40),
-             0LL,
-             *v2,
-             *(_QWORD *)(a1 + 88),
-             *(_QWORD *)(a1 + 320),
-             *(_QWORD *)(a2 + 88));
+    return PushScope(a1, *(_QWORD *)(a1 + 120), a2[5], 0, *v2, *(_QWORD *)(a1 + 88), *(_QWORD *)(a1 + 320), a2[11]);
   }
   return result;
 }

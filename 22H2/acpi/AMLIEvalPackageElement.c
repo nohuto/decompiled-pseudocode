@@ -1,106 +1,107 @@
 /*
- * XREFs of AMLIEvalPackageElement @ 0x1C0047D84
+ * XREFs of AMLIEvalPackageElement @ 0x1C0012380
  * Callers:
- *     NotifyHalWithMachineStatesAndRetrieveInterruptModel @ 0x1C00A7C0C (NotifyHalWithMachineStatesAndRetrieveInterruptModel.c)
+ *     NotifyHalWithMachineStatesAndRetrieveInterruptModel @ 0x1C00BDF8C (NotifyHalWithMachineStatesAndRetrieveInterruptModel.c)
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
- *     GetBaseObject @ 0x1C004B938 (GetBaseObject.c)
- *     GetObjectPath @ 0x1C004BB90 (GetObjectPath.c)
- *     GetObjectTypeName @ 0x1C004BD70 (GetObjectTypeName.c)
- *     AMLIDebugger @ 0x1C004D650 (AMLIDebugger.c)
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
- *     EvalPackageElement @ 0x1C004F704 (EvalPackageElement.c)
- *     SyncEvalObject @ 0x1C0054EAC (SyncEvalObject.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     SyncEvalObject @ 0x1C0004490 (SyncEvalObject.c)
+ *     EvalPackageElement @ 0x1C001246C (EvalPackageElement.c)
+ *     GetBaseObject @ 0x1C001477C (GetBaseObject.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
+ *     AMLIDebugger @ 0x1C0065C80 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
  */
 
 __int64 __fastcall AMLIEvalPackageElement(__int64 *a1, unsigned int a2, __int64 a3)
 {
   __int64 v6; // rcx
-  unsigned int v7; // ebx
   __int64 BaseObject; // rdi
+  __int16 v8; // ax
+  __int64 *v9; // rcx
+  unsigned int v10; // ebx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r9
   __int64 ObjectPath; // rax
   unsigned int CurrentThread; // edx
-  void *v11; // r8
-  void *v12; // rbx
-  __int16 v13; // ax
-  __int64 *v14; // rcx
+  void *v18; // r8
+  void *v19; // rbx
   int ObjectTypeName; // eax
-  int v16; // ecx
-  __int64 v17; // rdx
-  _OWORD v19[2]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+50h] [rbp-18h] BYREF
+  int v21; // ecx
+  _OWORD v22[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v23; // [rsp+50h] [rbp-18h] BYREF
 
-  dword_1C006F938 = 0;
+  dword_1C0082908 = 0;
   pszDest = 0;
   if ( (gDebugger & 0x1000) != 0 )
   {
     ConPrintf("\nProcess AML Debugger Request.\n");
     _InterlockedAnd(&gDebugger, 0xFFFFEFFF);
-    AMLIDebugger();
+    AMLIDebugger(v13, v12, v14, v15);
   }
   v6 = *a1;
   if ( (*(_BYTE *)(*a1 + 64) & 4) != 0 )
     return (unsigned int)-1073741738;
   *(_OWORD *)a3 = 0LL;
-  v20 = 0LL;
+  v23 = 0LL;
   *(_OWORD *)(a3 + 16) = 0LL;
   *(_QWORD *)(a3 + 32) = 0LL;
-  memset(v19, 0, sizeof(v19));
+  memset(v22, 0, sizeof(v22));
   BaseObject = GetBaseObject(v6);
   if ( (gDebugger & 8) != 0 )
   {
     ObjectPath = GetObjectPath(BaseObject);
     CurrentThread = (unsigned int)KeGetCurrentThread();
-    v11 = &unk_1C00622D0;
-    v12 = (void *)ObjectPath;
+    v18 = &unk_1C00701BA;
+    v19 = (void *)ObjectPath;
     if ( ObjectPath )
-      LODWORD(v11) = ObjectPath;
-    PrintDebugMessage(46, CurrentThread, (_DWORD)v11, a2, 0LL);
-    if ( v12 )
-      ExFreePoolWithTag(v12, 0);
+      LODWORD(v18) = ObjectPath;
+    PrintDebugMessage(46, CurrentThread, (_DWORD)v18, a2, 0LL);
+    if ( v19 )
+      ExFreePoolWithTag(v19, 0);
   }
-  v13 = *(_WORD *)(BaseObject + 66);
-  if ( v13 != 8 )
+  v8 = *(_WORD *)(BaseObject + 66);
+  if ( v8 == 8 )
   {
-    if ( v13 == 4 )
+    v10 = SyncEvalObject(BaseObject, (int)v22, 0, 0);
+    if ( v10 )
+      goto LABEL_9;
+    if ( WORD1(v22[0]) == 4 )
     {
-      v14 = (__int64 *)(BaseObject + 96);
-      goto LABEL_17;
+      v9 = &v23;
+      goto LABEL_8;
     }
-    v7 = -1072431095;
+    v10 = -1072431095;
     LogError(3222536201LL);
-    AcpiDiagTraceAmlError(0LL, -1072431095);
+    AcpiDiagTraceAmlError(0LL, 3222536201LL);
+    ObjectTypeName = GetObjectTypeName(WORD1(v22[0]));
+    v21 = 48;
+LABEL_23:
+    PrintDebugMessage(v21, ObjectTypeName, 0, 0, 0LL);
+    goto LABEL_9;
+  }
+  if ( v8 != 4 )
+  {
+    v10 = -1072431095;
+    LogError(3222536201LL);
+    AcpiDiagTraceAmlError(0LL, 3222536201LL);
     ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(BaseObject + 66));
-    v16 = 47;
-LABEL_19:
-    PrintDebugMessage(v16, ObjectTypeName, 0, 0, 0LL);
-    goto LABEL_20;
+    v21 = 47;
+    goto LABEL_23;
   }
-  v7 = SyncEvalObject(BaseObject, v19, 0LL, 0LL);
-  if ( !v7 )
-  {
-    if ( WORD1(v19[0]) == 4 )
-    {
-      v14 = &v20;
-LABEL_17:
-      v7 = EvalPackageElement(*v14, a2, a3);
-      goto LABEL_20;
-    }
-    v7 = -1072431095;
-    LogError(3222536201LL);
-    AcpiDiagTraceAmlError(0LL, -1072431095);
-    ObjectTypeName = GetObjectTypeName(WORD1(v19[0]));
-    v16 = 48;
-    goto LABEL_19;
-  }
-LABEL_20:
-  FreeDataBuffs(v19, 1LL);
-  if ( v7 == 32772 )
-    v7 = 259;
-  DereferenceObjectEx(BaseObject, v17);
-  return v7;
+  v9 = (__int64 *)(BaseObject + 96);
+LABEL_8:
+  v10 = EvalPackageElement(*v9, a2, a3);
+LABEL_9:
+  FreeDataBuffs((__int64)v22, 1u);
+  if ( v10 == 32772 )
+    v10 = 259;
+  DereferenceObjectEx(BaseObject);
+  return v10;
 }

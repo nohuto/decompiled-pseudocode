@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxNotifyPreDIrpCompletion @ 0x14028DE9C
+ * XREFs of PopFxNotifyPreDIrpCompletion @ 0x1403A5504
  * Callers:
- *     PopRequestCompletion @ 0x14028DFA0 (PopRequestCompletion.c)
+ *     PopRequestCompletion @ 0x14037A370 (PopRequestCompletion.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x140589C08 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x14056A6F4 (PopFxDerefAndCompleteDirectedPowerTransition.c)
  */
 
 __int64 __fastcall PopFxNotifyPreDIrpCompletion(ULONG_PTR BugCheckParameter3, __int64 a2, int a3)
@@ -43,19 +43,22 @@ __int64 __fastcall PopFxNotifyPreDIrpCompletion(ULONG_PTR BugCheckParameter3, __
       v8 = *(_DWORD *)(BugCheckParameter3 + 1180) & 0xFFFFFFFC | 2;
       *(_DWORD *)(BugCheckParameter3 + 1176) = a3;
       *(_DWORD *)(BugCheckParameter3 + 1180) = v8;
-      KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter3 + 1152));
+      KxReleaseSpinLock((PKSPIN_LOCK)(BugCheckParameter3 + 1152));
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-          v13 = (v12 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v12;
-          if ( v13 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+            v13 = (v12 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v12;
+            if ( v13 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(v7);

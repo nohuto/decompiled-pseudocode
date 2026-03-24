@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateEnclave @ 0x14041BC20
+ * XREFs of ZwCreateEnclave @ 0x1403FAF40
  * Callers:
  *     <none>
  * Callees:

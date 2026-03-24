@@ -1,15 +1,15 @@
 /*
- * XREFs of ?DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z @ 0x1800D9854
+ * XREFs of ?DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z @ 0x18005EE38
  * Callers:
- *     ?CreateSharedResource@CChannel@@UEAAJW4Enum@DwmResourceType@@PEAIPEAPEAX@Z @ 0x1800D9670 (-CreateSharedResource@CChannel@@UEAAJW4Enum@DwmResourceType@@PEAIPEAPEAX@Z.c)
- *     ?DuplicateSharedResource@CChannel@@UEAAJPEAXW4Enum@DwmResourceType@@PEAI@Z @ 0x1800D9780 (-DuplicateSharedResource@CChannel@@UEAAJPEAXW4Enum@DwmResourceType@@PEAI@Z.c)
+ *     ?DuplicateSharedResource@CChannel@@UEAAJPEAXW4Enum@DwmResourceType@@PEAI@Z @ 0x18005F650 (-DuplicateSharedResource@CChannel@@UEAAJPEAXW4Enum@DwmResourceType@@PEAI@Z.c)
+ *     ?CreateSharedResource@CChannel@@UEAAJW4Enum@DwmResourceType@@PEAIPEAPEAX@Z @ 0x1800D05E0 (-CreateSharedResource@CChannel@@UEAAJW4Enum@DwmResourceType@@PEAIPEAPEAX@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x1800BD3B4 (-GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     ?GetEntry@CHandleTable@@AEBAPEAUHANDLE_ENTRY@1@I@Z @ 0x1800BDE28 (-GetEntry@CHandleTable@@AEBAPEAUHANDLE_ENTRY@1@I@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?GetEntry@CHandleTable@@AEBAPEAUHANDLE_ENTRY@1@I@Z @ 0x18005DAE4 (-GetEntry@CHandleTable@@AEBAPEAUHANDLE_ENTRY@1@I@Z.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x18005DE74 (-GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 __int64 __fastcall CHandleTable::DuplicateHandleOnTarget(__int64 a1, int a2, int a3, int a4, CChannel *a5, _DWORD *a6)
@@ -37,7 +37,7 @@ __int64 __fastcall CHandleTable::DuplicateHandleOnTarget(__int64 a1, int a2, int
   v12 = NewEntry;
   if ( NewEntry < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, NewEntry, 0xAEu);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, NewEntry, 0xADu, 0LL);
   }
   else
   {
@@ -45,15 +45,15 @@ __int64 __fastcall CHandleTable::DuplicateHandleOnTarget(__int64 a1, int a2, int
     Entry = CHandleTable::GetEntry((CChannel *)((char *)v9 + 16), v22);
     if ( Entry )
     {
-      v21[0] = 46;
+      v21[0] = 47;
       v21[1] = a2;
       v21[2] = a3;
       v21[3] = v13;
-      v16 = CChannel::SendCommand((CDataStreamWriter **)v9, v21, 0x10u);
+      v16 = CChannel::SendCommand(v9, v21, 0x10u);
       v12 = v16;
       if ( v16 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, v16, 0xCCu);
+        MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0xCBu, 0LL);
         memset_0(
           (void *)(*((_QWORD *)v9 + 5) + (unsigned int)(v13 * *((_DWORD *)v9 + 6))),
           0,
@@ -69,7 +69,7 @@ __int64 __fastcall CHandleTable::DuplicateHandleOnTarget(__int64 a1, int a2, int
     else
     {
       v12 = -2147024890;
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, -2147024890, 0xB7u);
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024890, 0xB6u, 0LL);
     }
   }
   CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v20);

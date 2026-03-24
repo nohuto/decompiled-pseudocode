@@ -1,15 +1,15 @@
 /*
- * XREFs of BiQueryBootOptions @ 0x140A2089C
+ * XREFs of BiQueryBootOptions @ 0x140972934
  * Callers:
- *     BiBindEfiBootManager @ 0x140A1E354 (BiBindEfiBootManager.c)
- *     BiExportEfiBootManager @ 0x140A1FB1C (BiExportEfiBootManager.c)
+ *     BiBindEfiBootManager @ 0x1409703EC (BiBindEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x140971BC0 (BiExportEfiBootManager.c)
  * Callees:
- *     ZwQueryBootOptions @ 0x14041E040 (ZwQueryBootOptions.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiReleasePrivilege @ 0x140813B50 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140813BA8 (BiAcquirePrivilege.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ZwQueryBootOptions @ 0x1403FCBC0 (ZwQueryBootOptions.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x140785C38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785C90 (BiAcquirePrivilege.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiQueryBootOptions(_QWORD *a1, _DWORD *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CBrightnessEffect@@MEBAAEBU_GUID@@XZ @ 0x1800F9D00
+ * XREFs of ?GetEffectGuid@CBrightnessEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E1F90
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwNotifyChangeMultipleKeys @ 0x1401BA3F0
+ * XREFs of ZwNotifyChangeMultipleKeys @ 0x1401BA410
  * Callers:
  *     <none>
  * Callees:

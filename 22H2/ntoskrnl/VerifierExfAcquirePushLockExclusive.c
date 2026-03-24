@@ -1,12 +1,15 @@
 /*
- * XREFs of VerifierExfAcquirePushLockExclusive @ 0x140ADE2C0
+ * XREFs of VerifierExfAcquirePushLockExclusive @ 0x1409E4AC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViExCheckAPCsDisabled @ 0x1409E4DD4 (ViExCheckAPCsDisabled.c)
  */
 
-__int64 VerifierExfAcquirePushLockExclusive()
+__int64 __fastcall VerifierExfAcquirePushLockExclusive(ULONG_PTR a1)
 {
-  return ((__int64 (*)(void))pXdvExfAcquirePushLockExclusive)();
+  if ( (MmVerifierData & 0x800) != 0 )
+    ViExCheckAPCsDisabled(0xEAuLL, a1);
+  return ((__int64 (__fastcall *)(ULONG_PTR))pXdvExfAcquirePushLockExclusive)(a1);
 }

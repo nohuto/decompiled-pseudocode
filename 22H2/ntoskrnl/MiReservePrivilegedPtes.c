@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReservePrivilegedPtes @ 0x140696B28
+ * XREFs of MiReservePrivilegedPtes @ 0x14075E2C0
  * Callers:
- *     MiGetSystemAddressForImage @ 0x140696090 (MiGetSystemAddressForImage.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49BD4 (MiMapSystemImageWithLargePage.c)
+ *     MiGetSystemAddressForImage @ 0x14075E09C (MiGetSystemAddressForImage.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA420 (MiMapSystemImageWithLargePage.c)
  * Callees:
- *     KeReservePrivilegedPages @ 0x1403D6A90 (KeReservePrivilegedPages.c)
+ *     KeReservePrivilegedPages @ 0x140394DA0 (KeReservePrivilegedPages.c)
  */
 
 __int64 MiReservePrivilegedPtes()
 {
-  if ( (MiFlags & 0x4000) != 0 )
+  if ( (MiFlags & 0x8000) != 0 )
     return KeReservePrivilegedPages();
   else
     return 0LL;

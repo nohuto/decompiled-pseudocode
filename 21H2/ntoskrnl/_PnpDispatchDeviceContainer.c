@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpDispatchDeviceContainer @ 0x14076D160
+ * XREFs of _PnpDispatchDeviceContainer @ 0x1406A9F00
  * Callers:
  *     <none>
  * Callees:
- *     _CmSetDeviceContainerMappedProperty @ 0x1406E7A78 (_CmSetDeviceContainerMappedProperty.c)
- *     _CmGetDeviceContainerMappedProperty @ 0x14076D2BC (_CmGetDeviceContainerMappedProperty.c)
- *     _CmOpenDeviceContainerRegKey @ 0x14076D390 (_CmOpenDeviceContainerRegKey.c)
- *     _CmValidateDeviceContainerName @ 0x14076D788 (_CmValidateDeviceContainerName.c)
- *     _CmGetMatchingDeviceContainerList @ 0x14083DD34 (_CmGetMatchingDeviceContainerList.c)
- *     _CmGetDeviceContainerMappedPropertyKeys @ 0x140A263D8 (_CmGetDeviceContainerMappedPropertyKeys.c)
- *     _CmGetDeviceContainerMappedPropertyLocales @ 0x140A26464 (_CmGetDeviceContainerMappedPropertyLocales.c)
+ *     _CmGetDeviceContainerMappedProperty @ 0x1406AA05C (_CmGetDeviceContainerMappedProperty.c)
+ *     _CmOpenDeviceContainerRegKey @ 0x1406AA130 (_CmOpenDeviceContainerRegKey.c)
+ *     _CmValidateDeviceContainerName @ 0x1406AA520 (_CmValidateDeviceContainerName.c)
+ *     _CmGetDeviceContainerMappedPropertyKeys @ 0x14072BF40 (_CmGetDeviceContainerMappedPropertyKeys.c)
+ *     _CmSetDeviceContainerMappedProperty @ 0x14072C150 (_CmSetDeviceContainerMappedProperty.c)
+ *     _CmGetMatchingDeviceContainerList @ 0x1407B02B4 (_CmGetMatchingDeviceContainerList.c)
+ *     _CmGetDeviceContainerMappedPropertyLocales @ 0x1409761B8 (_CmGetDeviceContainerMappedPropertyLocales.c)
  */
 
 __int64 __fastcall PnpDispatchDeviceContainer(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, __int64 a5)
@@ -32,7 +32,7 @@ __int64 __fastcall PnpDispatchDeviceContainer(__int64 a1, __int64 (__fastcall *a
   v16 = 0LL;
   v7 = a4 - 1;
   if ( !v7 )
-    return CmValidateDeviceContainerName(a1, v5);
+    return CmValidateDeviceContainerName(a1, v5, 0LL);
   v8 = v7 - 1;
   if ( !v8 )
     return CmOpenDeviceContainerRegKey(
@@ -63,7 +63,7 @@ __int64 __fastcall PnpDispatchDeviceContainer(__int64 a1, __int64 (__fastcall *a
         if ( v14 )
         {
           if ( v14 == 1 )
-            return CmSetDeviceContainerMappedProperty(a1, 0LL, 0LL, *(_QWORD *)(a5 + 8), *(_QWORD *)(a5 + 16));
+            return CmSetDeviceContainerMappedProperty(a1, 0, 0, *(_QWORD *)(a5 + 8), *(_QWORD *)(a5 + 16));
           else
             return 3221225485LL;
         }

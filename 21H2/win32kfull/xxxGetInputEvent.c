@@ -1,13 +1,12 @@
 /*
- * XREFs of xxxGetInputEvent @ 0x1C00A5800
+ * XREFs of xxxGetInputEvent @ 0x1C00530F0
  * Callers:
- *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C00A52B0 (NtUserMsgWaitForMultipleObjectsEx.c)
- *     NtUserGetInputEvent @ 0x1C01F4A90 (NtUserGetInputEvent.c)
+ *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C0052BA0 (NtUserMsgWaitForMultipleObjectsEx.c)
  * Callees:
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C004DAF8 (-xxxCallHook@@YAHH_K_JH@Z.c)
- *     zzzCalcStartCursorHide @ 0x1C0073330 (zzzCalcStartCursorHide.c)
- *     ?CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z @ 0x1C00A5F14 (-CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z.c)
- *     xxxHandleHealthyThread @ 0x1C0144560 (xxxHandleHealthyThread.c)
+ *     xxxHandleHealthyThread @ 0x1C00034F0 (xxxHandleHealthyThread.c)
+ *     ?CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z @ 0x1C0038F48 (-CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B900 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     zzzCalcStartCursorHide @ 0x1C007FC90 (zzzCalcStartCursorHide.c)
  */
 
 __int64 __fastcall xxxGetInputEvent(unsigned int a1)
@@ -34,18 +33,18 @@ __int64 __fastcall xxxGetInputEvent(unsigned int a1)
   v3 = *(_QWORD *)(gptiCurrent + 448LL);
   v4 = BYTE2(a1) & 4;
   if ( (a1 & 0x40000) != 0 )
-    v5 = *(_WORD *)(v3 + 8);
+    v5 = *(_WORD *)(v3 + 6);
   else
     v5 = 0;
   if ( ((unsigned __int16)(v5 | *(_WORD *)(v3 + 4)) & v1) != 0
-    || (v6 = *(_DWORD *)(gptiCurrent + 1256LL), (v6 & 0x400) != 0 || (v2 & 8) != 0) && (v6 & 0x200) != 0
+    || (v6 = *(_DWORD *)(gptiCurrent + 1232LL), (v6 & 0x400) != 0 || (v2 & 8) != 0) && (v6 & 0x200) != 0
     || (v7 = *(_QWORD *)(gptiCurrent + 432LL), *(_QWORD *)(v7 + 64) == gptiCurrent)
     && (*(_DWORD *)(v7 + 388) & 0x400) == 0
     && *(_QWORD *)(v7 + 72) == 1LL
     && *(_QWORD *)(gptiCurrent + 576LL) == 1LL
     && (v1 & 0x1C07) != 0 )
   {
-LABEL_39:
+LABEL_40:
     KeSetEvent(*(PRKEVENT *)(gptiCurrent + 736LL), 2, 0);
     goto LABEL_23;
   }
@@ -112,12 +111,12 @@ LABEL_17:
   }
   v12 = *(_QWORD *)(gptiCurrent + 448LL);
   if ( v4 )
-    v13 = *(_WORD *)(v12 + 8);
+    v13 = *(_WORD *)(v12 + 6);
   else
     v13 = 0;
   if ( ((unsigned __int16)(v13 | *(_WORD *)(v12 + 4)) & v1) != 0 )
-    goto LABEL_39;
-  _InterlockedExchange((volatile __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 16LL), v1 | 0x2000);
+    goto LABEL_40;
+  *(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 10LL) = v1 | 0x2000;
   KeClearEvent(*(PRKEVENT *)(gptiCurrent + 736LL));
   *(_QWORD *)(*(_QWORD *)(gptiCurrent + 480LL) + 8LL) = 0LL;
   if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x400) != 0 && (int)CheckProcessForeground(gptiCurrent) < 0 )
@@ -127,10 +126,10 @@ LABEL_23:
   if ( v14 && ((v1 & 7) == 7 || (v1 & 6) != 0 && *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 104LL)) )
   {
     EtwTraceMessageCheckDelay(gptiCurrent);
-    *(_DWORD *)(gptiCurrent + 1200LL) = 0;
+    *(_DWORD *)(gptiCurrent + 1176LL) = 0;
     if ( *(int *)(gptiCurrent + 488LL) < 0 )
       xxxHandleHealthyThread(gptiCurrent);
-    *(_QWORD *)(gptiCurrent + 1256LL) &= ~0x200000000uLL;
+    *(_QWORD *)(gptiCurrent + 1232LL) &= ~0x400000000uLL;
     EtwTraceProcessWindowInfo(gptiCurrent);
   }
   return v14;

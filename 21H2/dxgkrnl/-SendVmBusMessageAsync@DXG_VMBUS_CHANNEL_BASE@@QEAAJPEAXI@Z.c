@@ -1,32 +1,37 @@
 /*
- * XREFs of ?SendVmBusMessageAsync@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAXI@Z @ 0x1C0365648
+ * XREFs of ?SendVmBusMessageAsync@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAXI@Z @ 0x1C023ABEC
  * Callers:
- *     ?DxgkpSendTestVmBusCommand@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_VMBUS_COMMAND@@@Z @ 0x1C0362D5C (-DxgkpSendTestVmBusCommand@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_VMBUS_COMMAND@@@Z.c)
+ *     ?DxgkpSendTestVmBusCommand@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_VMBUS_COMMAND@@@Z @ 0x1C0238F80 (-DxgkpSendTestVmBusCommand@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_VMBUS_COMMAND@@@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?CheckDebugBreak@DXGGLOBAL@@QEAAXXZ @ 0x1C005BD10 (-CheckDebugBreak@DXGGLOBAL@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?CheckDebugBreak@DXGGLOBAL@@QEAAXXZ @ 0x1C0040C90 (-CheckDebugBreak@DXGGLOBAL@@QEAAXXZ.c)
  */
 
 __int64 __fastcall DXG_VMBUS_CHANNEL_BASE::SendVmBusMessageAsync(struct _KTHREAD **this, void *a2, unsigned int a3)
 {
-  unsigned int v6; // ebx
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // rax
+  unsigned int v9; // ebx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
   DXGGLOBAL *Global; // rax
-  _BYTE v9[8]; // [rsp+50h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v10; // [rsp+58h] [rbp-20h]
-  int v11; // [rsp+60h] [rbp-18h]
+  _BYTE v14[8]; // [rsp+50h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v15; // [rsp+58h] [rbp-20h]
+  int v16; // [rsp+60h] [rbp-18h]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v9, this + 2, 0);
-  DXGPUSHLOCK::AcquireShared(v10);
-  v11 = 1;
-  if ( *((_BYTE *)this + 68) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v14, this + 1, 0);
+  DXGPUSHLOCK::AcquireShared(v15);
+  v16 = 1;
+  if ( *((_BYTE *)this + 56) )
   {
     if ( a3 <= 0x20000 )
     {
-      v6 = ((__int64 (__fastcall *)(struct _KTHREAD *, void *, _QWORD, _QWORD, _DWORD, _QWORD, _QWORD, _QWORD))qword_1C0131C50)(
+      v9 = ((__int64 (__fastcall *)(struct _KTHREAD *, void *, _QWORD, _QWORD, _DWORD, _QWORD, _QWORD, _QWORD))qword_1C00B4340)(
              *this,
              a2,
              a3,
@@ -35,14 +40,16 @@ __int64 __fastcall DXG_VMBUS_CHANNEL_BASE::SendVmBusMessageAsync(struct _KTHREAD
              0LL,
              0LL,
              0LL);
-      Global = DXGGLOBAL_GetGlobal();
+      Global = DXGGLOBAL::GetGlobal(v12, v11);
       DXGGLOBAL::CheckDebugBreak(Global);
       goto LABEL_5;
     }
-    WdLogSingleEntry1(3LL, 15409LL);
+    v8 = WdLogNewEntry5_WdWarning(0LL, v6, v7);
+    *(_QWORD *)(v8 + 24) = 13577LL;
+    WdLogEvent5_WdWarning(v8);
   }
-  v6 = -1073741811;
+  v9 = -1073741811;
 LABEL_5:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v9);
-  return v6;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v14);
+  return v9;
 }

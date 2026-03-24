@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CLegacyAnimationTrigger@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C56D0
+ * XREFs of ?IsOfType@CLegacyAnimationTrigger@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001FDF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CLegacyAnimationTrigger::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 94;
+  return a2 == 92;
 }

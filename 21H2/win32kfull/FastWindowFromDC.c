@@ -1,7 +1,7 @@
 /*
- * XREFs of FastWindowFromDC @ 0x1C00C1474
+ * XREFs of FastWindowFromDC @ 0x1C00FCF90
  * Callers:
- *     _ScrollDC @ 0x1C00C08AC (_ScrollDC.c)
+ *     _ScrollDC @ 0x1C00FCE74 (_ScrollDC.c)
  * Callees:
  *     <none>
  */

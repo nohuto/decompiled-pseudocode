@@ -1,7 +1,7 @@
 /*
- * XREFs of UsbhHubDereferenceProcessChangeWorkItem @ 0x1C003333C
+ * XREFs of UsbhHubDereferenceProcessChangeWorkItem @ 0x1C00346A0
  * Callers:
- *     Usbh_PCE_Close_Action @ 0x1C0034E08 (Usbh_PCE_Close_Action.c)
+ *     Usbh_PCE_Close_Action @ 0x1C00360C4 (Usbh_PCE_Close_Action.c)
  * Callees:
  *     <none>
  */

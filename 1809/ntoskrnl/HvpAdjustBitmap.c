@@ -4,9 +4,9 @@
  *     HvpAdjustHiveFreeDisplay @ 0x1405A4FA8 (HvpAdjustHiveFreeDisplay.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall HvpAdjustBitmap(__int64 a1, unsigned int a2, unsigned int *a3)

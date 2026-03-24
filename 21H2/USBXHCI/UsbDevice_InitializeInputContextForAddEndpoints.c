@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbDevice_InitializeInputContextForAddEndpoints @ 0x1C00045DC
+ * XREFs of UsbDevice_InitializeInputContextForAddEndpoints @ 0x1C0007D58
  * Callers:
- *     UsbDevice_InitializeInputContextForAddDropEndpoints @ 0x1C0001F74 (UsbDevice_InitializeInputContextForAddDropEndpoints.c)
+ *     UsbDevice_InitializeInputContextForAddDropEndpoints @ 0x1C0005AC0 (UsbDevice_InitializeInputContextForAddDropEndpoints.c)
  * Callees:
- *     WPP_RECORDER_SF_ddddd @ 0x1C00048E4 (WPP_RECORDER_SF_ddddd.c)
- *     UsbDevice_InitializeEndpointContext @ 0x1C00049B4 (UsbDevice_InitializeEndpointContext.c)
- *     Endpoint_Disable @ 0x1C0004D70 (Endpoint_Disable.c)
- *     Endpoint_Enable @ 0x1C0004FA0 (Endpoint_Enable.c)
- *     WPP_RECORDER_SF_dqq @ 0x1C0011570 (WPP_RECORDER_SF_dqq.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ddddd @ 0x1C0007F24 (WPP_RECORDER_SF_ddddd.c)
+ *     UsbDevice_InitializeEndpointContext @ 0x1C0007FF4 (UsbDevice_InitializeEndpointContext.c)
+ *     Endpoint_Enable @ 0x1C00083B0 (Endpoint_Enable.c)
+ *     Endpoint_Disable @ 0x1C000AB88 (Endpoint_Disable.c)
+ *     WPP_RECORDER_SF_dqq @ 0x1C0010C04 (WPP_RECORDER_SF_dqq.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UsbDevice_InitializeInputContextForAddEndpoints(__int64 a1, __int64 a2)
@@ -38,7 +38,7 @@ __int64 __fastcall UsbDevice_InitializeInputContextForAddEndpoints(__int64 a1, _
   v23 = (_BYTE *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
                    WdfDriverGlobals,
                    *(_QWORD *)(a1 + 440),
-                   off_1C0061090);
+                   off_1C0060090);
   v5 = 0;
   v6 = *(_QWORD *)((*(_BYTE *)(a1 + 657) != 0 ? 8 : 0) + a1 + 640);
   if ( v6 )
@@ -54,7 +54,7 @@ __int64 __fastcall UsbDevice_InitializeInputContextForAddEndpoints(__int64 a1, _
       v22 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
               WdfDriverGlobals,
               *(_QWORD *)(*(_QWORD *)(a2 + 32) + v9),
-              off_1C00611A8);
+              off_1C00601A8);
       v10 = Endpoint_Enable(v22);
       v5 = v10;
       if ( v10 < 0 )
@@ -69,10 +69,10 @@ __int64 __fastcall UsbDevice_InitializeInputContextForAddEndpoints(__int64 a1, _
             v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
                     WdfDriverGlobals,
                     *(_QWORD *)(*(_QWORD *)(a2 + 32) + 8LL * v4),
-                    off_1C00611A8);
+                    off_1C00601A8);
             v14 = *(_DWORD *)(v13 + 144);
             v15 = (unsigned int)(v14 - 1) + 2LL;
-            if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 88LL) + 100LL) & 4) != 0 )
+            if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 88LL) + 104LL) & 4) != 0 )
               v16 = v15 << 6;
             else
               v16 = 32 * v15;
@@ -107,7 +107,7 @@ __int64 __fastcall UsbDevice_InitializeInputContextForAddEndpoints(__int64 a1, _
         v19,
         12,
         39,
-        (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
         *(_BYTE *)(a1 + 135),
         *(_DWORD *)(v22 + 144),
         v10);
@@ -118,7 +118,7 @@ __int64 __fastcall UsbDevice_InitializeInputContextForAddEndpoints(__int64 a1, _
       v20 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
               WdfDriverGlobals,
               *(_QWORD *)(*(_QWORD *)(a2 + 32) + v9),
-              off_1C00611A8);
+              off_1C00601A8);
       Endpoint_Disable(v20, 0LL);
     }
     if ( *(_DWORD *)(a2 + 40) )

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAcpiAccessSecureAddress @ 0x14045E2A0
+ * XREFs of HalpAcpiAccessSecureAddress @ 0x1404D2AB0
  * Callers:
  *     <none>
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     HalpPciHandleSecureAccess @ 0x14045E130 (HalpPciHandleSecureAccess.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     HalpPciHandleSecureAccess @ 0x1404D265C (HalpPciHandleSecureAccess.c)
  */
 
 __int64 __fastcall HalpAcpiAccessSecureAddress(char a1, void *a2, void *a3, unsigned int a4, unsigned int *a5)

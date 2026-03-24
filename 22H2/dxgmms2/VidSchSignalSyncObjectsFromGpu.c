@@ -1,931 +1,735 @@
 /*
- * XREFs of VidSchSignalSyncObjectsFromGpu @ 0x1C0007CC0
+ * XREFs of VidSchSignalSyncObjectsFromGpu @ 0x1C0007C30
  * Callers:
- *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C008ACF0 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
- *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00ABE50 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
- *     VidSchSignalPagingFences @ 0x1C00B5360 (VidSchSignalPagingFences.c)
- *     ?UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00E88A4 (-UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@.c)
+ *     VidSchSignalPagingFences @ 0x1C0067DDC (VidSchSignalPagingFences.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006C260 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C006DDC0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00B39A8 (-UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@.c)
  * Callees:
- *     VidSchiComputeWorkerThreadPriority @ 0x1C0001160 (VidSchiComputeWorkerThreadPriority.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C00032E4 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00033A8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     VidSchiFreeQueuePacket @ 0x1C00044A4 (VidSchiFreeQueuePacket.c)
- *     VidSchiCompleteSignalSyncObject @ 0x1C0007250 (VidSchiCompleteSignalSyncObject.c)
- *     VidSchiReleaseSyncObjectReference @ 0x1C0007C30 (VidSchiReleaseSyncObjectReference.c)
- *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C000A3C0 (--1HwQueueStagingList@@QEAA@XZ.c)
- *     VidSchiProfilePerformanceTick @ 0x1C000AA30 (VidSchiProfilePerformanceTick.c)
- *     VidSchiInsertCommandToSoftwareQueue @ 0x1C000C490 (VidSchiInsertCommandToSoftwareQueue.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CC9C (-VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C001DB3E (VidSchiSubmitCommandPacketToHwQueue.c)
- *     ??1?$NonPagedPoolZeroedArray@PEAU_VIDSCH_SYNC_OBJECT@@$01$0DIGBGJFG@@@QEAA@XZ @ 0x1C002D670 (--1-$NonPagedPoolZeroedArray@PEAU_VIDSCH_SYNC_OBJECT@@$01$0DIGBGJFG@@@QEAA@XZ.c)
- *     VidSchiEnsureVSyncEnabled @ 0x1C00ADC00 (VidSchiEnsureVSyncEnabled.c)
- *     ?EnsureSchedulable@VIDMM_DEVICE@@QEAAX_N@Z @ 0x1C00ADDF0 (-EnsureSchedulable@VIDMM_DEVICE@@QEAAX_N@Z.c)
- *     VidSchiAllocateQueuePacket @ 0x1C00ADF10 (VidSchiAllocateQueuePacket.c)
- *     VidSchiAllocateHwQueuePacket @ 0x1C00C4732 (VidSchiAllocateHwQueuePacket.c)
+ *     VidSchiSignalSyncObject @ 0x1C0008710 (VidSchiSignalSyncObject.c)
+ *     VidSchiInsertCommandToSoftwareQueue @ 0x1C0008880 (VidSchiInsertCommandToSoftwareQueue.c)
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C000B000 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C000B6D0 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiReleaseSyncObjectReference @ 0x1C000CA08 (VidSchiReleaseSyncObjectReference.c)
+ *     VidSchiCompleteSignalSyncObject @ 0x1C000CBA0 (VidSchiCompleteSignalSyncObject.c)
+ *     VidSchiFreeQueuePacket @ 0x1C0011024 (VidSchiFreeQueuePacket.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011E50 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00128EC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0037A00 (-VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C003C024 (VidSchiSubmitCommandPacketToHwQueue.c)
+ *     ?EnsureSchedulable@VIDMM_DEVICE@@QEAAX_N@Z @ 0x1C007E800 (-EnsureSchedulable@VIDMM_DEVICE@@QEAAX_N@Z.c)
+ *     VidSchiAllocateQueuePacket @ 0x1C007E910 (VidSchiAllocateQueuePacket.c)
+ *     VidSchiEnsureVSyncEnabled @ 0x1C007EA50 (VidSchiEnsureVSyncEnabled.c)
+ *     VidSchiAllocateHwQueuePacket @ 0x1C00D209C (VidSchiAllocateHwQueuePacket.c)
  */
 
 __int64 __fastcall VidSchSignalSyncObjectsFromGpu(
-        unsigned int a1,
+        __int64 a1,
         __int64 a2,
-        KPRIORITY a3,
+        __int64 a3,
         _QWORD *a4,
         unsigned int a5,
         __int64 a6,
         int a7,
-        unsigned __int64 *a8,
-        unsigned __int8 a9)
+        unsigned __int64 *a8)
 {
-  unsigned int v9; // edx
-  __int64 v10; // r12
-  unsigned int v11; // r15d
-  KSPIN_LOCK *v12; // rax
-  unsigned __int64 *v13; // r13
-  __int64 v14; // rsi
+  int v8; // ebx
+  unsigned int v9; // esi
+  unsigned int v10; // edx
+  __int64 v11; // r13
+  unsigned int v12; // r12d
+  KSPIN_LOCK *v13; // rcx
+  unsigned int v14; // r14d
   unsigned __int64 *v15; // rdi
   __int64 v16; // rcx
   int v17; // edx
-  unsigned __int64 v18; // r9
-  bool v19; // r8
+  unsigned __int64 v18; // rax
+  char v19; // r8
   unsigned __int64 v20; // rcx
-  __int64 v21; // rdi
-  _QWORD **Pool2; // rsi
-  unsigned int v23; // r14d
-  KSPIN_LOCK *v24; // rcx
-  __int64 v25; // rax
-  _QWORD **v26; // rdx
-  _DWORD *v27; // r8
-  __int64 v28; // r14
-  __int64 v29; // r12
-  unsigned __int64 *v30; // rsi
-  __int64 v31; // rdi
-  int v32; // edx
-  unsigned __int64 v33; // rcx
-  unsigned __int64 v34; // rdx
+  __int64 v21; // rcx
+  _QWORD **v22; // rdi
+  __int64 v23; // r14
+  _QWORD *v24; // rax
+  unsigned int v25; // r15d
+  KSPIN_LOCK *v26; // rcx
   __int64 HwQueuePacket; // rax
-  __int64 *v36; // r8
-  __int64 v37; // rcx
-  unsigned __int64 *v38; // r9
-  __int64 v39; // r13
-  char *v40; // r9
-  __int64 v41; // r8
-  _DWORD *v42; // rcx
-  __int64 v43; // rax
-  unsigned int v44; // ecx
-  unsigned int v45; // eax
-  _QWORD *v46; // r8
-  unsigned __int64 *v47; // r14
-  __int64 v48; // r13
-  KPRIORITY v49; // r9d
-  __int64 v50; // rdi
-  int v51; // r8d
-  __int64 v52; // rdx
-  unsigned __int64 v53; // rcx
-  unsigned __int64 v54; // rdx
-  struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *v55; // rdx
-  bool v56; // zf
-  struct _KLOCK_QUEUE_HANDLE *v57; // rcx
-  __int64 v59; // r12
-  __int64 v60; // rdi
-  struct _VIDSCH_QUEUE_PACKET *v61; // rcx
-  __int64 v62; // r15
-  __int64 v63; // rax
-  _QWORD *v64; // r13
-  __int64 v65; // r14
-  __int64 v66; // rcx
-  __int64 v67; // rbx
-  __int64 v68; // rbx
+  __int64 *v28; // rdx
+  _DWORD **v29; // r8
+  __int64 v30; // rcx
+  __int64 v31; // r14
+  __int64 v32; // r9
+  _QWORD *v33; // rcx
+  __int64 v34; // rax
+  KSPIN_LOCK *v35; // rcx
+  unsigned int v36; // r15d
+  _QWORD *v37; // rax
+  unsigned int v38; // r14d
+  unsigned int v39; // r15d
+  __int64 v40; // r12
+  __int64 v41; // r14
+  struct _VIDSCH_QUEUE_PACKET *v42; // rcx
+  __int64 v43; // r15
+  __int64 v44; // r13
+  KSPIN_LOCK *v45; // rbx
+  __int64 v46; // rbx
+  ULONG TimeIncrement; // eax
+  _QWORD *v48; // rcx
+  int v49; // r8d
+  struct _KEVENT *v50; // r13
+  __int64 v51; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  int v70; // edi
+  int v53; // r14d
+  __int64 v54; // rax
+  VIDMM_DEVICE *v55; // rcx
+  unsigned int v57; // edi
+  int v58; // eax
+  int v59; // esi
+  PVOID *v60; // r15
+  int v61; // r8d
+  bool v62; // zf
+  struct _KLOCK_QUEUE_HANDLE *v63; // rcx
+  char v64; // r13
+  int v65; // eax
+  KSPIN_LOCK *v66; // r8
+  __int64 v67; // rax
+  int v68; // ecx
+  unsigned int v69; // eax
+  CCHAR MostSignificantBit; // al
   __int64 v71; // rax
-  VIDMM_DEVICE *v72; // rcx
-  unsigned __int64 v73; // rax
-  unsigned __int64 v74; // r8
-  unsigned __int64 v75; // r8
-  unsigned __int64 v76; // r9
-  const wchar_t *v77; // r9
-  unsigned __int64 v78; // r8
-  unsigned int v79; // eax
-  unsigned __int64 v80; // r8
-  char v81; // r13
-  int v82; // eax
-  __int64 v83; // rbx
-  struct _VIDSCH_QUEUE_PACKET *v84; // rdx
-  unsigned __int64 v85; // r15
-  unsigned __int64 v86; // r8
-  unsigned int v87; // eax
-  unsigned __int64 v88; // r15
-  unsigned __int64 v89; // r8
-  struct VIDSCH_HW_QUEUE *v90; // [rsp+50h] [rbp-B0h]
-  unsigned int v91; // [rsp+50h] [rbp-B0h]
-  __int64 *v92; // [rsp+58h] [rbp-A8h]
-  int v93; // [rsp+58h] [rbp-A8h]
-  __int64 v94; // [rsp+58h] [rbp-A8h]
-  __int64 v95; // [rsp+58h] [rbp-A8h]
-  __int64 v96; // [rsp+58h] [rbp-A8h]
-  __int64 v97; // [rsp+58h] [rbp-A8h]
-  PKSPIN_LOCK SpinLock; // [rsp+60h] [rbp-A0h]
-  KSPIN_LOCK *SpinLocka; // [rsp+60h] [rbp-A0h]
-  PKSPIN_LOCK SpinLockb; // [rsp+60h] [rbp-A0h]
-  _QWORD **v101; // [rsp+68h] [rbp-98h]
-  unsigned __int64 v102; // [rsp+68h] [rbp-98h]
-  unsigned __int64 v103; // [rsp+68h] [rbp-98h]
-  __int64 v104; // [rsp+70h] [rbp-90h]
-  _QWORD *v105; // [rsp+70h] [rbp-90h]
-  int v106; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v107; // [rsp+80h] [rbp-80h]
-  _DWORD *v108; // [rsp+88h] [rbp-78h]
-  _QWORD *v109; // [rsp+90h] [rbp-70h] BYREF
-  PVOID P; // [rsp+98h] [rbp-68h] BYREF
-  _BYTE v111[16]; // [rsp+A0h] [rbp-60h] BYREF
-  int v112; // [rsp+B0h] [rbp-50h]
-  __int64 v113; // [rsp+B8h] [rbp-48h]
-  struct _KLOCK_QUEUE_HANDLE v114; // [rsp+C0h] [rbp-40h] BYREF
-  __int16 v115; // [rsp+D8h] [rbp-28h]
-  KSPIN_LOCK *v116; // [rsp+E0h] [rbp-20h]
-  struct _KLOCK_QUEUE_HANDLE v117; // [rsp+E8h] [rbp-18h] BYREF
-  __int16 v118; // [rsp+100h] [rbp+0h]
-  KSPIN_LOCK *v119; // [rsp+108h] [rbp+8h]
-  struct _KLOCK_QUEUE_HANDLE v120; // [rsp+110h] [rbp+10h] BYREF
-  __int16 v121; // [rsp+128h] [rbp+28h]
-  _QWORD v122[2]; // [rsp+130h] [rbp+30h] BYREF
-  char v123; // [rsp+140h] [rbp+40h]
-  KSPIN_LOCK *v124; // [rsp+148h] [rbp+48h] BYREF
+  __int64 v72; // rcx
+  __int64 v73; // rax
+  _QWORD **PoolWithTag; // rax
+  __int64 v75; // rax
+  __int64 v76; // rbx
+  struct _VIDSCH_QUEUE_PACKET *v77; // rdx
+  unsigned int v78; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned __int64 v79; // [rsp+48h] [rbp-B8h]
+  _QWORD *v80; // [rsp+50h] [rbp-B0h]
+  PVOID v81; // [rsp+58h] [rbp-A8h]
+  unsigned __int64 v82; // [rsp+60h] [rbp-A0h]
+  __int64 v83; // [rsp+68h] [rbp-98h]
+  struct VIDSCH_HW_QUEUE *v84; // [rsp+70h] [rbp-90h]
+  _DWORD **v85; // [rsp+78h] [rbp-88h]
+  int v86; // [rsp+80h] [rbp-80h]
+  KSPIN_LOCK *v87; // [rsp+88h] [rbp-78h]
+  _QWORD v88[2]; // [rsp+90h] [rbp-70h] BYREF
+  struct _KLOCK_QUEUE_HANDLE v89; // [rsp+A0h] [rbp-60h] BYREF
+  __int16 v90; // [rsp+B8h] [rbp-48h]
+  char *v91; // [rsp+C0h] [rbp-40h]
+  struct _KLOCK_QUEUE_HANDLE v92; // [rsp+C8h] [rbp-38h] BYREF
+  __int16 v93; // [rsp+E0h] [rbp-20h]
+  PVOID P; // [rsp+E8h] [rbp-18h]
+  _BYTE v95[16]; // [rsp+F0h] [rbp-10h] BYREF
+  int v96; // [rsp+100h] [rbp+0h]
+  KSPIN_LOCK *v97; // [rsp+108h] [rbp+8h]
+  struct _KLOCK_QUEUE_HANDLE v98; // [rsp+110h] [rbp+10h] BYREF
+  __int16 v99; // [rsp+128h] [rbp+28h]
+  _QWORD v100[2]; // [rsp+130h] [rbp+30h] BYREF
+  char v101; // [rsp+140h] [rbp+40h]
+  KSPIN_LOCK *v102; // [rsp+148h] [rbp+48h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+150h] [rbp+50h] BYREF
-  __int16 v126; // [rsp+168h] [rbp+68h]
-  KSPIN_LOCK *v127; // [rsp+170h] [rbp+70h]
-  struct _KLOCK_QUEUE_HANDLE v128; // [rsp+178h] [rbp+78h] BYREF
-  __int16 v129; // [rsp+190h] [rbp+90h]
-  _QWORD v130[4]; // [rsp+198h] [rbp+98h] BYREF
-  __int16 v131; // [rsp+1B8h] [rbp+B8h]
-  struct _KLOCK_QUEUE_HANDLE v132; // [rsp+1C0h] [rbp+C0h] BYREF
-  struct _KLOCK_QUEUE_HANDLE v133; // [rsp+1D8h] [rbp+D8h] BYREF
-  struct _KLOCK_QUEUE_HANDLE v134; // [rsp+1F0h] [rbp+F0h] BYREF
-  struct _KLOCK_QUEUE_HANDLE v135; // [rsp+208h] [rbp+108h] BYREF
-  _QWORD v136[4]; // [rsp+220h] [rbp+120h] BYREF
-  __int16 v137; // [rsp+240h] [rbp+140h]
-  KPRIORITY Priority; // [rsp+2B0h] [rbp+1B0h]
-  KPRIORITY Prioritya; // [rsp+2B0h] [rbp+1B0h]
-  KPRIORITY Priorityb; // [rsp+2B0h] [rbp+1B0h]
-  char Priorityc; // [rsp+2B0h] [rbp+1B0h]
-  KPRIORITY Priorityd; // [rsp+2B0h] [rbp+1B0h]
+  __int16 v104; // [rsp+168h] [rbp+68h]
+  __int64 v105; // [rsp+170h] [rbp+70h] BYREF
+  struct _KLOCK_QUEUE_HANDLE v106; // [rsp+178h] [rbp+78h] BYREF
+  __int16 v107; // [rsp+190h] [rbp+90h]
+  __int64 *v108; // [rsp+198h] [rbp+98h]
+  char *v109; // [rsp+1A0h] [rbp+A0h]
+  struct _KLOCK_QUEUE_HANDLE v110; // [rsp+1A8h] [rbp+A8h] BYREF
+  __int16 v111; // [rsp+1C0h] [rbp+C0h]
+  _QWORD v112[4]; // [rsp+1C8h] [rbp+C8h] BYREF
+  __int16 v113; // [rsp+1E8h] [rbp+E8h]
+  unsigned int v114; // [rsp+240h] [rbp+140h]
+  KPRIORITY Priority; // [rsp+250h] [rbp+150h]
+  KPRIORITY Prioritya; // [rsp+250h] [rbp+150h]
+  char Priorityb; // [rsp+250h] [rbp+150h]
+  KPRIORITY Priorityc; // [rsp+250h] [rbp+150h]
 
   Priority = a3;
-  v9 = a1;
-  v109 = 0LL;
-  if ( a3 || a1 )
+  v114 = a1;
+  v8 = a7;
+  v9 = 0;
+  v86 = a7;
+  v10 = a1;
+  v88[0] = 0LL;
+  if ( (_DWORD)a3 || (_DWORD)a1 )
   {
-    v10 = a6;
+    v11 = a6;
     if ( a6 )
     {
-      v11 = a5;
+      v12 = a5;
       if ( a5 )
         goto LABEL_4;
     }
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    v77 = L"NULL pointer in pVidSchContext or other required pointer, returning 0x%I64x";
-LABEL_152:
-    ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      v77,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+LABEL_135:
+    v71 = WdLogNewEntry5_WdAssertion(a1, (unsigned int)a1, a3);
+    *(_QWORD *)(v71 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v71);
     return 3221225485LL;
   }
-  v10 = a6;
-  if ( !a6 || (v11 = a5) == 0 )
-  {
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    v77 = L"NULL VIDSCH_CONTEXT pointer, returning 0x%I64x";
-    goto LABEL_152;
-  }
+  v11 = a6;
+  if ( !a6 )
+    goto LABEL_135;
+  v12 = a5;
+  if ( !a5 )
+    goto LABEL_135;
   Priority = 1;
-  v109 = *(_QWORD **)(*(_QWORD *)(*(_QWORD *)a6 + 8LL) + 248LL);
-  a4 = &v109;
+  v88[0] = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a6 + 8LL) + 240LL);
+  a4 = v88;
 LABEL_4:
-  v12 = *(KSPIN_LOCK **)(*(_QWORD *)v10 + 8LL);
-  v13 = a8;
-  SpinLock = v12;
+  v13 = *(KSPIN_LOCK **)(*(_QWORD *)v11 + 8LL);
+  v81 = v13;
   if ( (a7 & 0x80000004) != 0 )
-    goto LABEL_25;
-  v126 = 0;
-  v124 = v12 + 216;
-  KeAcquireInStackQueuedSpinLock(v12 + 216, &LockHandle);
-  v14 = 0LL;
-  LOBYTE(v126) = 1;
-  if ( !v11 )
-    goto LABEL_21;
-  v15 = a8;
-  do
   {
-    v16 = *(unsigned __int64 *)((char *)v15 + v10 - (_QWORD)a8);
-    v17 = *(_DWORD *)(v16 + 48);
-    if ( (unsigned int)(v17 - 4) <= 1 && !*(_BYTE *)(v16 + 28) )
+LABEL_22:
+    v22 = 0LL;
+    v23 = v10 + Priority;
+    P = 0LL;
+    v96 = 0;
+    LODWORD(v82) = v23;
+    if ( (unsigned int)v23 > 2 )
     {
-      v18 = *v15;
-      v19 = *(_BYTE *)(v16 + 29) != 0;
-      if ( *(_BYTE *)(v16 + 27) )
+      if ( 0xFFFFFFFFFFFFFFFFuLL / (v10 + Priority) < 8 )
       {
-        v20 = *(_QWORD *)(*(_QWORD *)(v16 + 208) + 40LL);
+LABEL_157:
+        v9 = -1073741801;
+        goto LABEL_91;
       }
-      else if ( v17 == 2 )
+      PoolWithTag = (_QWORD **)ExAllocatePoolWithTag((POOL_TYPE)512, 8 * v23, 0x38616956u);
+      v10 = v114;
+      v22 = PoolWithTag;
+      P = PoolWithTag;
+    }
+    else
+    {
+      v22 = (_QWORD **)v95;
+      P = v95;
+    }
+    v96 = v23;
+    if ( !v22 )
+      goto LABEL_157;
+    if ( (_DWORD)v23 )
+    {
+      memset(v22, 0, 8 * v23);
+      v10 = v114;
+      v22 = (_QWORD **)P;
+    }
+    if ( !v22 )
+      goto LABEL_157;
+    Prioritya = 0;
+    v24 = 0LL;
+    v80 = 0LL;
+    v25 = 0;
+    if ( !(_DWORD)v23 )
+      goto LABEL_54;
+    v26 = (KSPIN_LOCK *)((char *)v81 + 1712);
+    v83 = 0LL;
+    v87 = (KSPIN_LOCK *)((char *)v81 + 1712);
+    v85 = (_DWORD **)v22;
+    while ( 1 )
+    {
+      v79 = 0LL;
+      v84 = 0LL;
+      if ( v25 < v10 )
       {
-        v20 = *(_QWORD *)(v16 + 64);
-      }
-      else
-      {
-        v20 = *(_QWORD *)(v16 + 88);
-      }
-      if ( !v19 )
-      {
-        if ( (_DWORD)v20 == (_DWORD)v18 )
+        v112[0] = v26;
+        v113 = 0;
+        v84 = *(struct VIDSCH_HW_QUEUE **)((char *)v24 + a2);
+        AcquireSpinLock::Acquire((AcquireSpinLock *)v112);
+        if ( *((struct VIDSCH_HW_QUEUE **)v84 + 20) == (struct VIDSCH_HW_QUEUE *)((char *)v84 + 160) )
         {
-          WdLogSingleEntry1(3LL, (unsigned int)v18);
-          goto LABEL_19;
+          AcquireSpinLock::Release((AcquireSpinLock *)v112);
+          v29 = v85;
+          goto LABEL_52;
         }
-        if ( (int)v20 - (int)v18 <= 0 )
-          goto LABEL_19;
-        WdLogSingleEntry2(3LL, (unsigned int)v18, (unsigned int)v20);
-LABEL_155:
-        WdLogSingleEntry2(2LL, a8[v14], -1073741811LL);
-        ((void (*)(_QWORD, __int64, __int64, const wchar_t *, ...))DxgCoreInterface[86])(
-          0LL,
-          0x40000LL,
-          0xFFFFFFFFLL,
-          L"Invalid monitored fence value 0x%I64x, returning 0x%I64x",
-          a8[v14],
-          -1073741811LL,
-          0LL,
-          0LL,
-          0LL);
-        AcquireSpinLock::Release((AcquireSpinLock *)&v124);
-        return 3221225485LL;
+        AcquireSpinLock::Release((AcquireSpinLock *)v112);
+        if ( v84 )
+        {
+          HwQueuePacket = VidSchiAllocateHwQueuePacket(v84, 0LL);
+          goto LABEL_36;
+        }
       }
-      if ( v18 < v20 )
-      {
-        WdLogSingleEntry2(3LL, *v15, v20);
-        goto LABEL_155;
-      }
-      if ( v18 == v20 )
-        WdLogSingleEntry1(3LL, *v15);
-    }
-LABEL_19:
-    v14 = (unsigned int)(v14 + 1);
-    ++v15;
-  }
-  while ( (unsigned int)v14 < v11 );
-  if ( (_BYTE)v126 )
-  {
-LABEL_21:
-    if ( HIBYTE(v126) )
-      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    else
-      KeReleaseInStackQueuedSpinLock(&LockHandle);
-    LOBYTE(v126) = 0;
-  }
-  v9 = a1;
-LABEL_25:
-  v21 = v9 + Priority;
-  P = 0LL;
-  v112 = 0;
-  if ( (unsigned int)v21 <= 2 )
-  {
-    Pool2 = (_QWORD **)v111;
-    P = v111;
-    if ( (_DWORD)v21 )
-    {
-      memset(v111, 0, 8LL * (unsigned int)v21);
-      Pool2 = (_QWORD **)P;
-      goto LABEL_28;
-    }
-    goto LABEL_29;
-  }
-  if ( 0xFFFFFFFFFFFFFFFFuLL / (unsigned int)v21 < 8 )
-    goto LABEL_159;
-  Pool2 = (_QWORD **)ExAllocatePool2(64LL, 8 * v21, 945908054LL);
-  P = Pool2;
-LABEL_28:
-  v9 = a1;
-LABEL_29:
-  v112 = v21;
-  if ( !Pool2 )
-  {
-LABEL_159:
-    WdLogSingleEntry0(3LL);
-LABEL_160:
-    NonPagedPoolZeroedArray<_VIDSCH_SYNC_OBJECT *,2,945908054>::~NonPagedPoolZeroedArray<_VIDSCH_SYNC_OBJECT *,2,945908054>(&P);
-    return 3221225495LL;
-  }
-  v23 = 0;
-  v24 = SpinLock + 216;
-  Prioritya = 0;
-  v108 = 0LL;
-  if ( !(_DWORD)v21 )
-    goto LABEL_39;
-  v25 = 0LL;
-  SpinLocka = SpinLock + 216;
-  v104 = 0LL;
-  v101 = Pool2;
-  while ( 2 )
-  {
-    v107 = 0LL;
-    v90 = 0LL;
-    if ( v23 < v9 )
-    {
-      v136[0] = v24;
-      v137 = 0;
-      v90 = *(struct VIDSCH_HW_QUEUE **)(v25 + a2);
-      AcquireSpinLock::Acquire((Acquire *)v136);
-      if ( *((struct VIDSCH_HW_QUEUE **)v90 + 20) == (struct VIDSCH_HW_QUEUE *)((char *)v90 + 160) )
-      {
-        AcquireSpinLock::Release((AcquireSpinLock *)v136);
-        v26 = v101;
-        v27 = v108;
-        goto LABEL_37;
-      }
-      AcquireSpinLock::Release((AcquireSpinLock *)v136);
-      if ( !v90 )
-        goto LABEL_49;
-      HwQueuePacket = VidSchiAllocateHwQueuePacket(v90, 0LL);
-    }
-    else
-    {
-      _mm_lfence();
-      v119 = v24;
-      v121 = 0;
-      v107 = a4[v23 - v9];
-      KeAcquireInStackQueuedSpinLock(v24, &v120);
-      LOBYTE(v121) = 1;
-      if ( *(_QWORD *)(v107 + 664) == v107 + 664 )
-      {
-        if ( HIBYTE(v121) )
-          KeReleaseInStackQueuedSpinLockFromDpcLevel(&v120);
-        else
-          KeReleaseInStackQueuedSpinLock(&v120);
-        v26 = v101;
-        v27 = v108;
-        LOBYTE(v121) = 0;
-        goto LABEL_37;
-      }
-      if ( HIBYTE(v121) )
-        KeReleaseInStackQueuedSpinLockFromDpcLevel(&v120);
       else
-        KeReleaseInStackQueuedSpinLock(&v120);
-      LOBYTE(v121) = 0;
-LABEL_49:
-      HwQueuePacket = VidSchiAllocateQueuePacket(v107, *(_DWORD *)(v107 + 796) == 0);
-    }
-    v36 = (__int64 *)&Pool2[v104];
-    v92 = v36;
-    *v36 = HwQueuePacket;
-    if ( !HwQueuePacket )
-    {
-      WdLogSingleEntry2(3LL, -1073741801LL, 11485LL);
-      if ( v23 )
       {
-        v83 = v23;
+        _mm_lfence();
+        v97 = v26;
+        v99 = 0;
+        v79 = a4[v25 - v10];
+        KeAcquireInStackQueuedSpinLock(v26, &v98);
+        LOBYTE(v99) = 1;
+        if ( *(_QWORD *)(v79 + 664) == v79 + 664 )
+        {
+          if ( HIBYTE(v99) )
+            KeReleaseInStackQueuedSpinLockFromDpcLevel(&v98);
+          else
+            KeReleaseInStackQueuedSpinLock(&v98);
+          v29 = v85;
+          LOBYTE(v99) = 0;
+          goto LABEL_52;
+        }
+        if ( HIBYTE(v99) )
+          KeReleaseInStackQueuedSpinLockFromDpcLevel(&v98);
+        else
+          KeReleaseInStackQueuedSpinLock(&v98);
+        LOBYTE(v99) = 0;
+      }
+      HwQueuePacket = VidSchiAllocateQueuePacket(v79, *(_DWORD *)(v79 + 796) == 0);
+LABEL_36:
+      v28 = (__int64 *)((char *)v22 + v83);
+      v108 = v28;
+      *v28 = HwQueuePacket;
+      if ( !HwQueuePacket )
+      {
+        v75 = WdLogNewEntry5_WdWarning();
+        *(_QWORD *)(v75 + 24) = -1073741801LL;
+        *(_QWORD *)(v75 + 32) = 11190LL;
+        WdLogEvent5_WdWarning(v75);
+        if ( v25 )
+        {
+          v76 = v25;
+          do
+          {
+            v77 = (struct _VIDSCH_QUEUE_PACKET *)*v22;
+            if ( *v22 )
+            {
+              if ( *((_QWORD *)v77 + 12) )
+                VidSchiFreeQueuePacket(v84, v77);
+              else
+                VidSchiFreeQueuePacket(v79);
+            }
+            ++v22;
+            --v76;
+          }
+          while ( v76 );
+        }
+        v22 = (_QWORD **)P;
+        goto LABEL_157;
+      }
+      v29 = v85;
+      Prioritya = v25;
+      **v85 = 895576406;
+      (*v29)[12] = 5;
+      *((_QWORD *)*v29 + 7) = MEMORY[0xFFFFF78000000320];
+      (*v29)[13] = 2;
+      v30 = *v28;
+      if ( v84 )
+        *(_QWORD *)(v30 + 96) = v84;
+      else
+        *(_QWORD *)(v30 + 88) = v79;
+      *((_QWORD *)*v29 + 13) = KeGetCurrentThread();
+      *((_QWORD *)*v29 + 9) = 0LL;
+      (*v29)[68] ^= ((*v29)[68] ^ v8) & 1;
+      if ( (v8 & 4) != 0 )
+        (*v29)[68] |= 4u;
+      if ( *(_DWORD *)(*(_QWORD *)v11 + 44LL) == 2 )
+        *((_QWORD *)*v29 + 67) = *a8;
+      if ( v12 )
+      {
+        v31 = v12;
+        v32 = v11;
         do
         {
-          v84 = (struct _VIDSCH_QUEUE_PACKET *)*Pool2;
-          if ( *Pool2 )
-          {
-            if ( *((_QWORD *)v84 + 12) )
-              VidSchiFreeQueuePacket(v90, v84);
-            else
-              VidSchiFreeQueuePacket(v107, (__int64)v84);
-          }
-          ++Pool2;
-          --v83;
+          *(_QWORD *)((char *)*v29 + 280 - v11 + v32) = *(_QWORD *)v32;
+          if ( (unsigned int)(*(_DWORD *)(*(_QWORD *)v32 + 44LL) - 4) <= 1 )
+            *(_QWORD *)((char *)*v29 + 536 - v11 + v32) = *(unsigned __int64 *)((char *)a8 + v32 - v11);
+          v32 += 8LL;
+          --v31;
         }
-        while ( v83 );
+        while ( v31 );
+        v8 = v86;
+        LODWORD(v23) = v82;
       }
-      goto LABEL_160;
-    }
-    v26 = v101;
-    Prioritya = v23;
-    *(_DWORD *)*v101 = 895576406;
-    *((_DWORD *)*v101 + 12) = 5;
-    (*v101)[7] = MEMORY[0xFFFFF78000000320];
-    *((_DWORD *)*v101 + 13) = 2;
-    v37 = *v36;
-    if ( v90 )
-      *(_QWORD *)(v37 + 96) = v90;
-    else
-      *(_QWORD *)(v37 + 88) = v107;
-    (*v101)[13] = KeGetCurrentThread();
-    (*v101)[9] = 0LL;
-    *((_DWORD *)*v101 + 68) ^= (*((_DWORD *)*v101 + 68) ^ a7) & 1;
-    *((_DWORD *)*v101 + 68) ^= (*((_DWORD *)*v101 + 68) ^ (16 * a9)) & 0x10;
-    if ( (a7 & 4) != 0 )
-      *((_DWORD *)*v101 + 68) |= 4u;
-    if ( *(_DWORD *)(*(_QWORD *)v10 + 48LL) == 2 )
-      (*v101)[67] = *v13;
-    if ( v11 )
-    {
-      v38 = v13;
-      v39 = v11;
-      v40 = (char *)v38 - v10;
-      v41 = v10;
-      do
+      v33 = v80;
+      (*v29)[69] = v12;
+      *((_QWORD *)*v29 + 99) = 0LL;
+      v34 = *v108;
+      if ( v33 )
       {
-        *(_QWORD *)((char *)*v101 + 280 - v10 + v41) = *(_QWORD *)v41;
-        if ( (unsigned int)(*(_DWORD *)(*(_QWORD *)v41 + 48LL) - 4) <= 1 )
-          *(_QWORD *)((char *)*v101 + 536 - v10 + v41) = *(_QWORD *)&v40[v41];
-        v41 += 8LL;
-        --v39;
+        *(_QWORD *)(v34 + 800) = v33;
+        v33[99] = *v29;
       }
-      while ( v39 );
-      v13 = a8;
-      v36 = v92;
-    }
-    v42 = v108;
-    *((_DWORD *)*v101 + 69) = v11;
-    (*v101)[99] = 0LL;
-    v43 = *v36;
-    if ( v42 )
-    {
-      *(_QWORD *)(v43 + 800) = v42;
-      *((_QWORD *)v42 + 99) = *v101;
-    }
-    else
-    {
-      *(_QWORD *)(v43 + 800) = 0LL;
-    }
-    v27 = *v101;
-    v108 = *v101;
-LABEL_37:
-    v24 = SpinLocka;
-    v25 = v104 * 8 + 8;
-    ++v23;
-    v101 = v26 + 1;
-    v9 = a1;
-    ++v104;
-    if ( v23 < (unsigned int)v21 )
-      continue;
-    break;
-  }
-  if ( !v27 )
-  {
-LABEL_39:
-    v127 = v24;
-    v129 = 0;
-    KeAcquireInStackQueuedSpinLock(v24, &v128);
-    LOBYTE(v129) = 1;
-    v122[1] = v122;
-    v122[0] = v122;
-    v123 = 0;
-    if ( !v11 )
-    {
-LABEL_86:
-      HwQueueStagingList::~HwQueueStagingList((HwQueueStagingList *)v122);
-      if ( (_BYTE)v129 )
+      else
       {
-        v56 = HIBYTE(v129) == 0;
-        v57 = &v128;
-LABEL_88:
-        if ( v56 )
-          KeReleaseInStackQueuedSpinLock(v57);
-        else
-          KeReleaseInStackQueuedSpinLockFromDpcLevel(v57);
+        *(_QWORD *)(v34 + 800) = 0LL;
       }
-      goto LABEL_90;
-    }
-    v28 = v11;
-    v29 = v10 - (_QWORD)v13;
-    v30 = v13;
-    while ( 2 )
-    {
-      v31 = *(unsigned __int64 *)((char *)v13 + v29);
-      v32 = *(_DWORD *)(v31 + 48);
-      if ( v32 == 4 )
+      v80 = *v29;
+LABEL_52:
+      v10 = v114;
+      v24 = (_QWORD *)(v83 + 8);
+      v26 = v87;
+      ++v25;
+      v83 += 8LL;
+      v85 = v29 + 1;
+      if ( v25 >= (unsigned int)v23 )
       {
-LABEL_42:
-        if ( *(_BYTE *)(v31 + 28) )
-          goto LABEL_85;
-        if ( *(_BYTE *)(v31 + 27) )
+        v24 = v80;
+LABEL_54:
+        v35 = (KSPIN_LOCK *)((char *)v81 + 1712);
+        if ( v24 )
         {
-          v88 = *v13;
-          v97 = *(_QWORD *)(v31 + 208);
-          memset(&v135, 0, sizeof(v135));
-          KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v97 + 8), &v135);
-          v89 = *(_QWORD *)(v97 + 40);
-          if ( v89 >= v88 )
-            WdLogSingleEntry3(3LL, *(_QWORD *)(v31 + 16), v89, v88);
-          else
-            *(_QWORD *)(v97 + 40) = v88;
-          KeReleaseInStackQueuedSpinLockFromDpcLevel(&v135);
-          goto LABEL_85;
-        }
-        if ( (a7 & 4) != 0 )
-          goto LABEL_83;
-        v33 = *v13;
-        v34 = *(_QWORD *)(v31 + 88);
-        if ( *(_BYTE *)(v31 + 29) )
-        {
-          if ( v33 >= v34 )
+          v91 = (char *)v81 + 1712;
+          v93 = 0;
+          KeAcquireInStackQueuedSpinLock(v35, &v92);
+          v36 = Prioritya;
+          v37 = v22;
+          v80 = v22;
+          v38 = 0;
+          LOBYTE(v93) = 1;
+          v78 = 0;
+          do
           {
-            if ( v33 == v34 )
-              WdLogSingleEntry1(3LL, *v13);
-LABEL_83:
-            *(_QWORD *)(v31 + 88) = *v13;
-LABEL_84:
-            WdLogSingleEntry4(4LL, v31, **(_QWORD **)(v31 + 64), *v13, *(unsigned __int8 *)(v31 + 28));
-LABEL_85:
-            _InterlockedIncrement((volatile signed __int32 *)(v31 + 36));
-            VidSchiCompleteSignalSyncObject((__int64)v122, v31, (a7 & 4) != 0, v30, 1);
-            VidSchiReleaseSyncObjectReference((char *)v31, v55);
-            ++v30;
-            ++v13;
-            if ( !--v28 )
-              goto LABEL_86;
-            continue;
-          }
-          WdLogSingleEntry2(3LL, *v13, v34);
-        }
-        else
-        {
-          if ( (_DWORD)v34 == (_DWORD)v33 )
-          {
-            WdLogSingleEntry1(3LL, (unsigned int)v33);
-            goto LABEL_83;
-          }
-          if ( (int)v34 - (int)v33 <= 0 )
-            goto LABEL_83;
-          WdLogSingleEntry2(3LL, (unsigned int)v33, (unsigned int)v34);
-        }
-        WdLogSingleEntry3(3LL, *(_QWORD *)(v31 + 16), *(_QWORD *)(v31 + 88), *v13);
-        goto LABEL_84;
-      }
-      break;
-    }
-    if ( v32 )
-    {
-      switch ( v32 )
-      {
-        case 1:
-          v87 = *(_DWORD *)(v31 + 64);
-          if ( v87 >= *(_DWORD *)(v31 + 60) )
-            WdLogSingleEntry1(3LL, *(_QWORD *)(v31 + 16));
-          else
-            *(_DWORD *)(v31 + 64) = v87 + 1;
-          break;
-        case 2:
-          if ( *(_BYTE *)(v31 + 27) )
-          {
-            v85 = *v13;
-            v96 = *(_QWORD *)(v31 + 208);
-            memset(&v134, 0, sizeof(v134));
-            KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v96 + 8), &v134);
-            v86 = *(_QWORD *)(v96 + 40);
-            if ( v86 >= v85 )
-              WdLogSingleEntry3(3LL, *(_QWORD *)(v31 + 16), v86, v85);
-            else
-              *(_QWORD *)(v96 + 40) = v85;
-            KeReleaseInStackQueuedSpinLockFromDpcLevel(&v134);
-          }
-          else
-          {
-            v75 = *(_QWORD *)(v31 + 64);
-            v76 = *v13;
-            if ( v75 >= *v13 )
-              WdLogSingleEntry3(3LL, *(_QWORD *)(v31 + 16), v75, v76);
-            else
-              *(_QWORD *)(v31 + 64) = v76;
-          }
-          break;
-        case 5:
-          goto LABEL_42;
-      }
-    }
-    else
-    {
-      if ( !*(_QWORD *)(v31 + 64) )
-        WdLogSingleEntry1(3LL, *(_QWORD *)(v31 + 16));
-      *(_QWORD *)(v31 + 64) = 0LL;
-    }
-    goto LABEL_85;
-  }
-  v116 = SpinLocka;
-  v118 = 0;
-  KeAcquireInStackQueuedSpinLock(SpinLocka, &v117);
-  v44 = Prioritya;
-  v45 = 0;
-  v91 = 0;
-  v46 = Pool2;
-  LOBYTE(v118) = 1;
-  v105 = Pool2;
-  while ( 2 )
-  {
-    if ( *v46 && v11 )
-    {
-      v47 = v13;
-      v48 = v10 - (_QWORD)v13;
-      SpinLockb = (PKSPIN_LOCK)v11;
-      while ( 1 )
-      {
-        Priorityb = v44;
-        v49 = v44;
-        if ( v45 != v44 )
-        {
-          v52 = *(unsigned __int64 *)((char *)v47 + v48);
-          goto LABEL_101;
-        }
-        v50 = *(unsigned __int64 *)((char *)v47 + v48);
-        v51 = *(_DWORD *)(v50 + 48);
-        if ( v51 != 4 )
-        {
-          v52 = *(unsigned __int64 *)((char *)v47 + v48);
-          switch ( v51 )
-          {
-            case 0:
-              if ( !*(_QWORD *)(v50 + 64) )
+            if ( *v37 )
+            {
+              v39 = 0;
+              if ( v12 )
               {
-                WdLogSingleEntry1(3LL, *(_QWORD *)(v50 + 16));
-                v49 = Priorityb;
-              }
-              v45 = v91;
-              v52 = v50;
-              *(_QWORD *)(v50 + 64) = 0LL;
-              v44 = v49;
-              goto LABEL_101;
-            case 1:
-              v79 = *(_DWORD *)(v50 + 64);
-              if ( v79 < *(_DWORD *)(v50 + 60) )
-              {
-                *(_DWORD *)(v50 + 64) = v79 + 1;
-LABEL_139:
-                v45 = v91;
-                v52 = v50;
-                v44 = v49;
-                goto LABEL_101;
-              }
-              WdLogSingleEntry1(3LL, *(_QWORD *)(v50 + 16));
-LABEL_179:
-              v49 = Priorityb;
-              goto LABEL_139;
-            case 2:
-              v73 = *v47;
-              if ( !*(_BYTE *)(v50 + 27) )
-              {
-                v74 = *(_QWORD *)(v50 + 64);
-                if ( v74 >= v73 )
+                if ( v38 == Prioritya )
                 {
-                  WdLogSingleEntry3(3LL, *(_QWORD *)(v50 + 16), v74, *v47);
-                  v52 = v50;
-                  v45 = v91;
-                  v44 = Priorityb;
-                  goto LABEL_101;
+                  do
+                    VidSchiSignalSyncObject(v39++, v11, v8, (_DWORD)a8, 1);
+                  while ( v39 < v12 );
+                  v38 = v78;
                 }
-                *(_QWORD *)(v50 + 64) = v73;
-                goto LABEL_139;
+                else
+                {
+                  do
+                    VidSchiSignalSyncObject(v39++, v11, v8, (_DWORD)a8, 0);
+                  while ( v39 < v12 );
+                  v9 = 0;
+                }
+                v37 = v80;
               }
-              v102 = *v47;
-              v94 = *(_QWORD *)(v50 + 208);
-              memset(&v132, 0, sizeof(v132));
-              KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v94 + 8), &v132);
-              v78 = *(_QWORD *)(v94 + 40);
-              if ( v78 >= v102 )
-                WdLogSingleEntry3(3LL, *(_QWORD *)(v50 + 16), v78, v102);
-              else
-                *(_QWORD *)(v94 + 40) = v102;
-              KeReleaseInStackQueuedSpinLockFromDpcLevel(&v132);
-              goto LABEL_179;
-          }
-          v45 = v91;
-          if ( v51 != 5 )
-            goto LABEL_101;
-        }
-        v52 = *(unsigned __int64 *)((char *)v47 + v48);
-        if ( !*(_BYTE *)(v50 + 28) )
-          break;
-LABEL_101:
-        _InterlockedIncrement((volatile signed __int32 *)(v52 + 36));
-        ++v47;
-        SpinLockb = (PKSPIN_LOCK)((char *)SpinLockb - 1);
-        if ( !SpinLockb )
-        {
-          v13 = a8;
-          v46 = v105;
-          Prioritya = v44;
-          goto LABEL_103;
-        }
-      }
-      if ( *(_BYTE *)(v50 + 27) )
-      {
-        v103 = *v47;
-        v95 = *(_QWORD *)(v50 + 208);
-        memset(&v133, 0, sizeof(v133));
-        KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v95 + 8), &v133);
-        v80 = *(_QWORD *)(v95 + 40);
-        if ( v80 >= v103 )
-          WdLogSingleEntry3(3LL, *(_QWORD *)(v50 + 16), v80, v103);
-        else
-          *(_QWORD *)(v95 + 40) = v103;
-        KeReleaseInStackQueuedSpinLockFromDpcLevel(&v133);
-        v44 = Priorityb;
-        v52 = v50;
-        v45 = v91;
-        goto LABEL_101;
-      }
-      if ( (a7 & 4) != 0 )
-      {
-LABEL_99:
-        *(_QWORD *)(v50 + 88) = *v47;
-      }
-      else
-      {
-        v53 = *v47;
-        v54 = *(_QWORD *)(v50 + 88);
-        if ( *(_BYTE *)(v50 + 29) )
-        {
-          if ( v53 >= v54 )
-          {
-            if ( v53 == v54 )
-              WdLogSingleEntry1(3LL, *v47);
-            goto LABEL_99;
-          }
-          WdLogSingleEntry2(3LL, *v47, v54);
-        }
-        else
-        {
-          if ( (_DWORD)v54 == (_DWORD)v53 )
-          {
-            WdLogSingleEntry1(3LL, (unsigned int)v53);
-            goto LABEL_99;
-          }
-          if ( (int)v54 - (int)v53 <= 0 )
-            goto LABEL_99;
-          WdLogSingleEntry2(3LL, (unsigned int)v53, (unsigned int)v54);
-        }
-        WdLogSingleEntry3(3LL, *(_QWORD *)(v50 + 16), *(_QWORD *)(v50 + 88), *v47);
-      }
-      WdLogSingleEntry4(4LL, v50, **(_QWORD **)(v50 + 64), *v47, *(unsigned __int8 *)(v50 + 28));
-      v44 = Priorityb;
-      v52 = v50;
-      v45 = v91;
-      goto LABEL_101;
-    }
-LABEL_103:
-    ++v45;
-    ++v46;
-    v91 = v45;
-    v105 = v46;
-    if ( v45 <= v44 )
-      continue;
-    break;
-  }
-  if ( (_BYTE)v118 )
-  {
-    if ( HIBYTE(v118) )
-      KeReleaseInStackQueuedSpinLockFromDpcLevel(&v117);
-    else
-      KeReleaseInStackQueuedSpinLock(&v117);
-    v44 = Prioritya;
-    LOBYTE(v118) = 0;
-  }
-  v59 = v44 + 1;
-  while ( 2 )
-  {
-    v60 = (__int64)*Pool2;
-    if ( *Pool2 )
-    {
-      v61 = (struct _VIDSCH_QUEUE_PACKET *)*Pool2;
-      if ( *(_QWORD *)(v60 + 96) )
-      {
-        VidSchiSubmitCommandPacketToHwQueue(v61);
-      }
-      else
-      {
-        v62 = *(_QWORD *)(v60 + 88);
-        v63 = *(_QWORD *)(v62 + 96);
-        v109 = *(_QWORD **)(v62 + 104);
-        v64 = v109;
-        v93 = v63;
-        v65 = *(_QWORD *)(v63 + 24);
-        VidSchiEnsureVSyncEnabled(v61, v109);
-        v115 = 0;
-        v113 = v65 + 1728;
-        KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v65 + 1728), &v114);
-        LOBYTE(v115) = 1;
-        v66 = *(_QWORD *)(v62 + 144);
-        *(_QWORD *)(v62 + 144) = v66 + 1;
-        *(_QWORD *)(v60 + 112) = v66;
-        v67 = MEMORY[0xFFFFF78000000320];
-        v64[24] = v67 * KeQueryTimeIncrement();
-        if ( !*(_DWORD *)(v60 + 48) )
-        {
-          *(_QWORD *)(v62 + 176) = *(_QWORD *)(v60 + 112);
-          ++v64[199];
-        }
-        VidSchiProfilePerformanceTick(4, v65, v93, 0, 0LL, v60, 0LL, 0LL);
-        v106 = 0;
-        VidSchiInsertCommandToSoftwareQueue(v60, &v106);
-        if ( (_BYTE)v115 )
-        {
-          if ( HIBYTE(v115) )
-            KeReleaseInStackQueuedSpinLockFromDpcLevel(&v114);
-          else
-            KeReleaseInStackQueuedSpinLock(&v114);
-          LOBYTE(v115) = 0;
-        }
-        v68 = *(_QWORD *)(*(_QWORD *)(v62 + 96) + 24LL);
-        if ( (*(_DWORD *)(v68 + 2536) & 0x20) != 0 )
-        {
-          CurrentThread = KeGetCurrentThread();
-          if ( CurrentThread == *(struct _KTHREAD **)(v68 + 168) || CurrentThread == *(struct _KTHREAD **)(v68 + 176) )
-          {
-            Priorityc = 1;
-            if ( !*(_DWORD *)(v62 + 780) )
-            {
-              v70 = 16;
-              goto LABEL_197;
+              v36 = Prioritya;
             }
+            ++v38;
+            ++v37;
+            v78 = v38;
+            v80 = v37;
           }
-          else
+          while ( v38 <= v36 );
+          if ( (_BYTE)v93 )
           {
-            Priorityc = 0;
-            if ( KeQueryPriorityThread(KeGetCurrentThread()) + 1 >= 31 )
-            {
-              v70 = 31;
-            }
+            if ( HIBYTE(v93) )
+              KeReleaseInStackQueuedSpinLockFromDpcLevel(&v92);
             else
+              KeReleaseInStackQueuedSpinLock(&v92);
+            LOBYTE(v93) = 0;
+          }
+          v40 = v36 + 1;
+          v83 = v40;
+          while ( 1 )
+          {
+            v41 = (__int64)*v22;
+            if ( *v22 )
             {
-              v70 = KeQueryPriorityThread(KeGetCurrentThread()) + 1;
-              if ( v70 <= 16 )
-                goto LABEL_122;
+              v42 = (struct _VIDSCH_QUEUE_PACKET *)*v22;
+              if ( !*(_QWORD *)(v41 + 96) )
+              {
+                v43 = *(_QWORD *)(v41 + 88);
+                v44 = *(_QWORD *)(v43 + 96);
+                v80 = *(_QWORD **)(v43 + 104);
+                v81 = *(PVOID *)(v44 + 24);
+                v45 = (KSPIN_LOCK *)v81;
+                VidSchiEnsureVSyncEnabled(v42, v80);
+                v90 = 0;
+                v88[1] = v45 + 214;
+                KeAcquireInStackQueuedSpinLock(v45 + 214, &v89);
+                LOBYTE(v90) = 1;
+                *(_QWORD *)(v41 + 112) = (*(_QWORD *)(v43 + 144))++;
+                v46 = MEMORY[0xFFFFF78000000320];
+                TimeIncrement = KeQueryTimeIncrement();
+                v48 = v80;
+                v80[24] = v46 * TimeIncrement;
+                if ( !*(_DWORD *)(v41 + 48) )
+                {
+                  *(_QWORD *)(v43 + 176) = *(_QWORD *)(v41 + 112);
+                  ++v48[199];
+                }
+                v49 = v44;
+                v50 = (struct _KEVENT *)v81;
+                VidSchiProfilePerformanceTick(4, (_DWORD)v81, v49, 0, 0LL, v41, 0LL, 0LL);
+                v78 = 0;
+                VidSchiInsertCommandToSoftwareQueue(v41, &v78);
+                if ( (_BYTE)v90 )
+                {
+                  if ( HIBYTE(v90) )
+                    KeReleaseInStackQueuedSpinLockFromDpcLevel(&v89);
+                  else
+                    KeReleaseInStackQueuedSpinLock(&v89);
+                  LOBYTE(v90) = 0;
+                }
+                v51 = *(_QWORD *)(*(_QWORD *)(v43 + 96) + 24LL);
+                if ( (*(_DWORD *)(v51 + 2448) & 0x20) == 0 )
+                  goto LABEL_82;
+                CurrentThread = KeGetCurrentThread();
+                if ( CurrentThread == *(struct _KTHREAD **)(v51 + 160)
+                  || CurrentThread == *(struct _KTHREAD **)(v51 + 168) )
+                {
+                  Priorityb = 1;
+                  if ( *(_DWORD *)(v43 + 780) )
+                    goto LABEL_82;
+                  v53 = 16;
+                }
+                else
+                {
+                  Priorityb = 0;
+                  if ( KeQueryPriorityThread(KeGetCurrentThread()) + 1 >= 31 )
+                  {
+                    v53 = 31;
+                  }
+                  else
+                  {
+                    v53 = KeQueryPriorityThread(KeGetCurrentThread()) + 1;
+                    if ( v53 <= 16 )
+                    {
+LABEL_82:
+                      if ( v78 )
+                      {
+                        v50[50].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000320];
+                        KeSetEvent(v50 + 49, 0, 0);
+                      }
+                      v54 = v80[1];
+                      if ( v54 )
+                      {
+                        v55 = *(VIDMM_DEVICE **)(v54 + 760);
+                        if ( v55 )
+                          VIDMM_DEVICE::EnsureSchedulable(v55, 1);
+                      }
+                      if ( (_BYTE)v90 )
+                      {
+                        if ( HIBYTE(v90) )
+                          KeReleaseInStackQueuedSpinLockFromDpcLevel(&v89);
+                        else
+                          KeReleaseInStackQueuedSpinLock(&v89);
+                      }
+                      goto LABEL_88;
+                    }
+                  }
+                }
+                v107 = 0;
+                v105 = v51 + 2376;
+                KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v51 + 2376), &v106);
+                v64 = Priorityb;
+                LOBYTE(v107) = 1;
+                while ( 1 )
+                {
+                  v65 = *(_DWORD *)(v43 + 780);
+                  if ( v64 )
+                  {
+                    if ( v65 )
+                      break;
+                  }
+                  else if ( !v65 )
+                  {
+                    break;
+                  }
+                  v66 = *(KSPIN_LOCK **)(*(_QWORD *)(v43 + 96) + 24LL);
+                  v87 = v66;
+                  v67 = *(int *)(v43 + 392);
+                  if ( (_DWORD)v67 != v53 )
+                  {
+                    v68 = 0;
+                    if ( (int)v67 > 16 )
+                    {
+                      v62 = (*((_DWORD *)v66 + v67 + 580))-- == 1;
+                      if ( v62 )
+                      {
+                        v68 = 1;
+                        *((_DWORD *)v66 + 596) &= ~(1 << *(_DWORD *)(v43 + 392));
+                      }
+                    }
+                    if ( v53 > 16 && ++*((_DWORD *)v66 + v53 + 580) == 1 )
+                    {
+                      v68 = 1;
+                      *((_DWORD *)v66 + 596) |= 1 << v53;
+                    }
+                    *(_DWORD *)(v43 + 392) = v53;
+                    if ( v68 )
+                    {
+                      v69 = *((_DWORD *)v66 + 596);
+                      if ( v69 )
+                      {
+                        MostSignificantBit = RtlFindMostSignificantBit(v69);
+                        v66 = v87;
+                        *((_DWORD *)v87 + 53) = MostSignificantBit;
+                      }
+                      else
+                      {
+                        *((_DWORD *)v66 + 53) = 16;
+                      }
+                    }
+                  }
+                  Priorityc = *((_DWORD *)v66 + 53);
+                  if ( Priorityc == KeQueryPriorityThread(*(PKTHREAD *)(v51 + 160)) )
+                    break;
+                  AcquireSpinLock::Release((AcquireSpinLock *)&v105);
+                  KeSetPriorityThread(*(PKTHREAD *)(v51 + 160), Priorityc);
+                  AcquireSpinLock::Acquire((AcquireSpinLock *)&v105);
+                }
+                v40 = v83;
+                v50 = (struct _KEVENT *)v81;
+                if ( (_BYTE)v107 )
+                {
+                  if ( HIBYTE(v107) )
+                    KeReleaseInStackQueuedSpinLockFromDpcLevel(&v106);
+                  else
+                    KeReleaseInStackQueuedSpinLock(&v106);
+                }
+                goto LABEL_82;
+              }
+              VidSchiSubmitCommandPacketToHwQueue(v42);
             }
-LABEL_197:
-            v131 = 0;
-            v130[0] = v68 + 2464;
-            AcquireSpinLock::Acquire((Acquire *)v130);
-            v81 = Priorityc;
-            while ( 1 )
+LABEL_88:
+            ++v22;
+            v83 = --v40;
+            if ( !v40 )
             {
-              v82 = *(_DWORD *)(v62 + 780);
-              if ( v81 )
-              {
-                if ( v82 )
-                  break;
-              }
-              else if ( !v82 )
-              {
-                break;
-              }
-              Priorityd = VidSchiComputeWorkerThreadPriority(v62, v70);
-              if ( Priorityd == KeQueryPriorityThread(*(PKTHREAD *)(v68 + 168)) )
-                break;
-              AcquireSpinLock::Release((AcquireSpinLock *)v130);
-              KeSetPriorityThread(*(PKTHREAD *)(v68 + 168), Priorityd);
-              AcquireSpinLock::Acquire((Acquire *)v130);
+              if ( !(_BYTE)v93 )
+                goto LABEL_90;
+              v62 = HIBYTE(v93) == 0;
+              v63 = &v92;
+LABEL_109:
+              if ( v62 )
+                KeReleaseInStackQueuedSpinLock(v63);
+              else
+                KeReleaseInStackQueuedSpinLockFromDpcLevel(v63);
+              goto LABEL_90;
             }
-            AcquireSpinLock::Release((AcquireSpinLock *)v130);
-            v64 = v109;
           }
         }
-LABEL_122:
-        if ( v106 )
+        v109 = (char *)v81 + 1712;
+        v111 = 0;
+        KeAcquireInStackQueuedSpinLock(v35, &v110);
+        LOBYTE(v111) = 1;
+        v100[1] = v100;
+        v100[0] = v100;
+        v57 = 0;
+        v101 = 0;
+        if ( v12 )
         {
-          *(_QWORD *)(v65 + 1224) = MEMORY[0xFFFFF78000000320];
-          KeSetEvent((PRKEVENT)(v65 + 1192), 0, 0);
+          v58 = (int)a8;
+          v59 = (int)a8;
+          v60 = (PVOID *)v11;
+          do
+          {
+            v81 = *v60;
+            VidSchiSignalSyncObject(v57, v11, v8, v58, 1);
+            if ( (v8 & 4) != 0 )
+              LOBYTE(v61) = 1;
+            else
+              v61 = 0;
+            VidSchiCompleteSignalSyncObject((unsigned int)v100, (_DWORD)v81, v61, v59, 1);
+            VidSchiReleaseSyncObjectReference(v81);
+            v58 = (int)a8;
+            ++v57;
+            v59 += 8;
+            ++v60;
+          }
+          while ( v57 < v12 );
+          v9 = 0;
         }
-        v71 = v64[1];
-        if ( v71 )
+        HwQueueStagingList::~HwQueueStagingList((HwQueueStagingList *)v100);
+        if ( (_BYTE)v111 )
         {
-          v72 = *(VIDMM_DEVICE **)(v71 + 792);
-          if ( v72 )
-            VIDMM_DEVICE::EnsureSchedulable(v72, 1);
+          v62 = HIBYTE(v111) == 0;
+          v63 = &v110;
+          goto LABEL_109;
         }
-        if ( (_BYTE)v115 )
+LABEL_90:
+        v22 = (_QWORD **)P;
+LABEL_91:
+        if ( v22 != (_QWORD **)v95 )
         {
-          if ( HIBYTE(v115) )
-            KeReleaseInStackQueuedSpinLockFromDpcLevel(&v114);
-          else
-            KeReleaseInStackQueuedSpinLock(&v114);
+          if ( v22 )
+            ExFreePoolWithTag(v22, 0);
         }
+        return v9;
       }
     }
-    ++Pool2;
-    if ( --v59 )
-      continue;
-    break;
   }
-  if ( (_BYTE)v118 )
+  v104 = 0;
+  v102 = v13 + 214;
+  KeAcquireInStackQueuedSpinLock(v13 + 214, &LockHandle);
+  LOBYTE(v104) = 1;
+  v14 = 0;
+  if ( !v12 )
+    goto LABEL_18;
+  v15 = a8;
+  while ( 1 )
   {
-    v56 = HIBYTE(v118) == 0;
-    v57 = &v117;
-    goto LABEL_88;
+    v16 = *(unsigned __int64 *)((char *)v15 + v11 - (_QWORD)a8);
+    v17 = *(_DWORD *)(v16 + 44);
+    if ( (unsigned int)(v17 - 4) > 1 || *(_BYTE *)(v16 + 28) )
+      goto LABEL_16;
+    v18 = *v15;
+    v19 = *(_BYTE *)(v16 + 29);
+    v82 = *v15;
+    if ( *(_BYTE *)(v16 + 27) )
+    {
+      v20 = *(_QWORD *)(*(_QWORD *)(v16 + 208) + 40LL);
+      v18 = v82;
+    }
+    else if ( v17 == 2 )
+    {
+      v20 = *(_QWORD *)(v16 + 64);
+    }
+    else
+    {
+      v20 = *(_QWORD *)(v16 + 88);
+    }
+    v79 = v20;
+    if ( v19 )
+    {
+      if ( v18 < v20 )
+      {
+        v72 = WdLogNewEntry5_WdWarning();
+        *(_QWORD *)(v72 + 24) = v82;
+        *(_QWORD *)(v72 + 32) = v79;
+        goto LABEL_138;
+      }
+      if ( v18 != v20 )
+        goto LABEL_16;
+      v21 = WdLogNewEntry5_WdWarning();
+      *(_QWORD *)(v21 + 24) = v82;
+      goto LABEL_15;
+    }
+    if ( (int)v20 - (int)v18 > 0 )
+      break;
+    if ( (_DWORD)v20 != (_DWORD)v18 )
+      goto LABEL_16;
+    v21 = WdLogNewEntry5_WdWarning();
+    *(_QWORD *)(v21 + 24) = (unsigned int)v82;
+LABEL_15:
+    WdLogEvent5_WdWarning(v21);
+LABEL_16:
+    ++v14;
+    ++v15;
+    if ( v14 >= v12 )
+    {
+      if ( !(_BYTE)v104 )
+      {
+LABEL_21:
+        v10 = v114;
+        goto LABEL_22;
+      }
+LABEL_18:
+      if ( HIBYTE(v104) )
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      else
+        KeReleaseInStackQueuedSpinLock(&LockHandle);
+      LOBYTE(v104) = 0;
+      goto LABEL_21;
+    }
   }
-LABEL_90:
-  if ( P != v111 )
-  {
-    if ( P )
-      ExFreePoolWithTag(P, 0);
-  }
-  return 0LL;
+  v72 = WdLogNewEntry5_WdWarning();
+  *(_QWORD *)(v72 + 24) = (unsigned int)v82;
+  *(_QWORD *)(v72 + 32) = (unsigned int)v79;
+LABEL_138:
+  WdLogEvent5_WdWarning(v72);
+  v73 = WdLogNewEntry5_WdError();
+  *(_QWORD *)(v73 + 24) = a8[v14];
+  *(_QWORD *)(v73 + 32) = -1073741811LL;
+  WdLogEvent5_WdError(v73);
+  AcquireSpinLock::Release((AcquireSpinLock *)&v102);
+  return 3221225485LL;
 }

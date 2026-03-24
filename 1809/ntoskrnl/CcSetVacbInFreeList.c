@@ -3,11 +3,11 @@
  * Callers:
  *     CcGetVacbMiss @ 0x1400216E0 (CcGetVacbMiss.c)
  *     CcUnmapVacbArray @ 0x1400798E0 (CcUnmapVacbArray.c)
- *     CcInitializePartitionVacbs @ 0x14018AE8C (CcInitializePartitionVacbs.c)
- *     CcUnmapInactiveViewsInternal @ 0x14026A9AC (CcUnmapInactiveViewsInternal.c)
- *     CcUninitializePartitionVacbs @ 0x14026B704 (CcUninitializePartitionVacbs.c)
+ *     CcInitializePartitionVacbs @ 0x14018AEAC (CcInitializePartitionVacbs.c)
+ *     CcUnmapInactiveViewsInternal @ 0x14026AAAC (CcUnmapInactiveViewsInternal.c)
+ *     CcUninitializePartitionVacbs @ 0x14026B804 (CcUninitializePartitionVacbs.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall CcSetVacbInFreeList(__int64 a1, _QWORD *a2, char a3)

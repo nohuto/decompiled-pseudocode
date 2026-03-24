@@ -1,15 +1,14 @@
 /*
- * XREFs of ?GetDisplayDeviceAndTarget@CDDisplayManager@@AEAAJU_LUID@@PEAXIPEAUDDisplayTargetResources@@@Z @ 0x1802952F0
+ * XREFs of ?GetDisplayDeviceAndTarget@CDDisplayManager@@AEAAJU_LUID@@PEAXIPEAUDDisplayTargetResources@@@Z @ 0x180244AB4
  * Callers:
- *     ?CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@IPEAXPEAPEAVCDDisplaySwapChain@@@Z @ 0x180293C28 (-CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatI.c)
+ *     ?CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@IPEAXPEAPEAVCDDisplaySwapChain@@@Z @ 0x180243534 (-CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJAEBVRenderTargetInfo@@IAEBUPixelFormatI.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??1DDisplayTargetResources@@QEAA@XZ @ 0x180288B7C (--1DDisplayTargetResources@@QEAA@XZ.c)
- *     ??4DDisplayTargetResources@@QEAAAEAU0@$$QEAU0@@Z @ 0x180292AF8 (--4DDisplayTargetResources@@QEAAAEAU0@$$QEAU0@@Z.c)
- *     ?EnsureDevice@CDDisplayManager@@AEAAJAEBU_LUID@@PEAUIDisplayAdapter@Core@Display@Devices@Windows@@PEAPEAUIDisplayDevice@4567@@Z @ 0x180294B54 (-EnsureDevice@CDDisplayManager@@AEAAJAEBU_LUID@@PEAUIDisplayAdapter@Core@Display@Devices@Windows.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5D20 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??1DDisplayTargetResources@@QEAA@XZ @ 0x180242620 (--1DDisplayTargetResources@@QEAA@XZ.c)
+ *     ??4DDisplayTargetResources@@QEAAAEAU0@$$QEAU0@@Z @ 0x180242924 (--4DDisplayTargetResources@@QEAAAEAU0@$$QEAU0@@Z.c)
  */
 
 __int64 __fastcall CDDisplayManager::GetDisplayDeviceAndTarget(
@@ -34,277 +33,202 @@ __int64 __fastcall CDDisplayManager::GetDisplayDeviceAndTarget(
   __int64 v19; // rcx
   int v20; // eax
   __int64 v21; // rcx
-  __int64 v22; // rax
-  int v23; // eax
-  __int64 v24; // rcx
-  int v25; // eax
-  __int64 v26; // rcx
-  CDDisplayManager *v27; // rcx
+  int v22; // eax
+  __int64 v23; // rcx
+  int v24; // eax
+  __int64 v25; // rcx
+  __int64 v26; // rdi
+  __int64 (__fastcall *v27)(__int64, __int64, __int128 *); // rbx
   int v28; // eax
   __int64 v29; // rcx
-  __int64 v30; // rcx
-  __int64 v31; // rdi
-  __int64 (__fastcall *v32)(__int64, void *, GUID *, __int128 *); // rbx
-  unsigned int v34; // [rsp+28h] [rbp-91h]
-  __int64 *v35; // [rsp+38h] [rbp-81h] BYREF
-  struct Windows::Devices::Display::Core::IDisplayAdapter *v36; // [rsp+40h] [rbp-79h] BYREF
-  __int64 v37; // [rsp+48h] [rbp-71h] BYREF
-  __int64 v38; // [rsp+50h] [rbp-69h] BYREF
-  struct Windows::Devices::Display::Core::IDisplayDevice *v39[2]; // [rsp+58h] [rbp-61h] BYREF
-  __int128 v40; // [rsp+68h] [rbp-51h] BYREF
-  __int64 v41[2]; // [rsp+78h] [rbp-41h] BYREF
-  __int128 v42; // [rsp+88h] [rbp-31h] BYREF
-  __int128 v43; // [rsp+98h] [rbp-21h] BYREF
-  int v44; // [rsp+A8h] [rbp-11h] BYREF
-  int v45; // [rsp+ACh] [rbp-Dh]
-  int v46; // [rsp+B8h] [rbp-1h] BYREF
-  __int64 v47; // [rsp+C0h] [rbp+7h] BYREF
-  GUID v48; // [rsp+C8h] [rbp+Fh] BYREF
-  CDDisplayManager *v49; // [rsp+118h] [rbp+5Fh] BYREF
-  struct _LUID v50; // [rsp+120h] [rbp+67h] BYREF
+  int v30; // eax
+  __int64 v31; // rcx
+  int v32; // eax
+  __int64 v33; // rcx
+  int v34; // eax
+  __int64 v35; // rcx
+  __int64 v36; // rdi
+  __int64 (__fastcall *v37)(__int64, void *, GUID *, __int64 *); // rbx
+  int v38; // eax
+  __int64 v39; // rcx
+  int v40; // eax
+  __int64 v41; // rcx
+  __int64 v43; // [rsp+38h] [rbp-61h] BYREF
+  __int64 v44; // [rsp+40h] [rbp-59h] BYREF
+  __int64 v45; // [rsp+48h] [rbp-51h] BYREF
+  int v46; // [rsp+50h] [rbp-49h] BYREF
+  __int128 v47; // [rsp+58h] [rbp-41h] BYREF
+  __int128 v48; // [rsp+68h] [rbp-31h] BYREF
+  __int64 v49; // [rsp+78h] [rbp-21h]
+  __int64 v50; // [rsp+80h] [rbp-19h] BYREF
+  _BYTE v51[8]; // [rsp+88h] [rbp-11h] BYREF
+  _QWORD v52[3]; // [rsp+90h] [rbp-9h] BYREF
+  GUID v53; // [rsp+A8h] [rbp+Fh] BYREF
+  CDDisplayManager *v54; // [rsp+F8h] [rbp+5Fh] BYREF
+  struct _LUID v55; // [rsp+100h] [rbp+67h]
 
-  v50 = a2;
-  v49 = this;
+  v55 = a2;
+  v54 = this;
   LowPart = a2.LowPart;
   v8 = *(_QWORD *)g_DDisplayManager;
-  v38 = 0LL;
-  v9 = (*(__int64 (__fastcall **)(_QWORD, __int64 *))(v8 + 48))(g_DDisplayManager, &v38);
+  v45 = 0LL;
+  v9 = (*(__int64 (__fastcall **)(_QWORD, __int64 *))(v8 + 48))(g_DDisplayManager, &v45);
   v11 = v9;
   if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x102u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x81u, 0LL);
   }
   else
   {
-    v12 = (*(__int64 (__fastcall **)(__int64, CDDisplayManager **))(*(_QWORD *)v38 + 56LL))(v38, &v49);
+    v12 = (*(__int64 (__fastcall **)(__int64, CDDisplayManager **))(*(_QWORD *)v45 + 56LL))(v45, &v54);
     v11 = v12;
     if ( v12 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x103u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x82u, 0LL);
     }
     else
     {
       v14 = 0;
-      if ( (_DWORD)v49 )
+      if ( (_DWORD)v54 )
       {
-        HighPart = v50.HighPart;
+        HighPart = v55.HighPart;
         while ( 1 )
         {
-          v16 = v38;
-          v35 = 0LL;
-          v17 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(*(_QWORD *)v38 + 48LL);
-          wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v35);
-          v18 = v17(v16, v14, (__int64 *)&v35);
+          v16 = v45;
+          v43 = 0LL;
+          v17 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(*(_QWORD *)v45 + 48LL);
+          wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(&v43);
+          v18 = v17(v16, v14, &v43);
           v11 = v18;
           if ( v18 < 0 )
             break;
-          v20 = (*(__int64 (__fastcall **)(__int64 *, int *))(*v35 + 64))(v35, &v46);
+          v20 = (*(__int64 (__fastcall **)(__int64, int *))(*(_QWORD *)v43 + 64LL))(v43, &v46);
           v11 = v20;
           if ( v20 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x10Du, 0LL);
-            goto LABEL_50;
+            MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x8Cu, 0LL);
+            goto LABEL_35;
           }
           if ( a4 == v46 )
           {
-            v22 = *v35;
-            v36 = 0LL;
-            v23 = (*(__int64 (__fastcall **)(__int64 *, struct Windows::Devices::Display::Core::IDisplayAdapter **))(v22 + 48))(
-                    v35,
-                    &v36);
-            v11 = v23;
-            if ( v23 < 0 )
+            v44 = 0LL;
+            v22 = (*(__int64 (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v43 + 48LL))(v43, &v44);
+            v11 = v22;
+            if ( v22 < 0 )
             {
-              MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0x116u, 0LL);
-              goto LABEL_47;
+              MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x95u, 0LL);
+              goto LABEL_32;
             }
-            v25 = (*(__int64 (__fastcall **)(struct Windows::Devices::Display::Core::IDisplayAdapter *, __int64 *))(*(_QWORD *)v36 + 48LL))(
-                    v36,
-                    &v47);
-            v11 = v25;
-            if ( v25 < 0 )
+            v24 = (*(__int64 (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)v44 + 48LL))(v44, v52);
+            v11 = v24;
+            if ( v24 < 0 )
             {
-              MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x117u, 0LL);
-              goto LABEL_47;
+              MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0x96u, 0LL);
+LABEL_32:
+              wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v44);
+              goto LABEL_35;
             }
-            v37 = v47;
-            *(_QWORD *)&v48.Data1 = __PAIR64__(HighPart, LowPart);
-            if ( __PAIR64__(HighPart, LowPart) == v47 )
+            v52[1] = v52[0];
+            *(_QWORD *)&v53.Data1 = __PAIR64__(HighPart, LowPart);
+            if ( __PAIR64__(HighPart, LowPart) == v52[0] )
             {
-              v41[0] = 0LL;
-              *(_OWORD *)v39 = 0LL;
-              v40 = 0LL;
-              v42 = 0LL;
-              v43 = 0LL;
-              v44 = -1;
-              v45 = -1;
-              v41[1] = (__int64)v35;
-              if ( v35 )
-                (*(void (__fastcall **)(__int64 *))(*v35 + 8))(v35);
-              wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)v39);
-              v28 = CDDisplayManager::EnsureDevice(v27, &v50, v36, v39);
+              v50 = 0LL;
+              v49 = v43;
+              v47 = 0LL;
+              v48 = 0LL;
+              if ( v43 )
+                (*(void (__fastcall **)(__int64))(*(_QWORD *)v43 + 8LL))(v43);
+              v26 = g_DDisplayManager;
+              v27 = *(__int64 (__fastcall **)(__int64, __int64, __int128 *))(*(_QWORD *)g_DDisplayManager + 112LL);
+              wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v47);
+              v28 = v27(v26, v44, &v47);
               v11 = v28;
               if ( v28 < 0 )
               {
-                v34 = 287;
+                MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0x9Eu, 0LL);
               }
               else
               {
-                wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v39[1]);
-                v28 = (**(__int64 (__fastcall ***)(struct Windows::Devices::Display::Core::IDisplayDevice *, GUID *, struct Windows::Devices::Display::Core::IDisplayDevice **))v39[0])(
-                        v39[0],
-                        &GUID_3fefe50c_0940_54bd_a02f_f9c7a536ad60,
-                        &v39[1]);
-                v11 = v28;
-                if ( v28 < 0 )
+                wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v47 + 1);
+                v30 = (**(__int64 (__fastcall ***)(_QWORD, GUID *, char *))v47)(
+                        v47,
+                        &GUID_b05f4700_43c3_5bd7_942b_cc833a1ef83c,
+                        (char *)&v47 + 8);
+                v11 = v30;
+                if ( v30 < 0 )
                 {
-                  v34 = 288;
+                  MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0x9Fu, 0LL);
                 }
                 else
                 {
-                  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v40);
-                  v28 = (**(__int64 (__fastcall ***)(struct Windows::Devices::Display::Core::IDisplayDevice *, GUID *, __int128 *))v39[0])(
-                          v39[0],
-                          &GUID_54e1a93c_3c52_5efb_957e_4bf25c4bd20e,
-                          &v40);
-                  v11 = v28;
-                  if ( v28 < 0 )
+                  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v48);
+                  v32 = (**(__int64 (__fastcall ***)(_QWORD, GUID *, __int128 *))v47)(
+                          v47,
+                          &GUID_64338358_366a_471b_bd56_dd8ef48e439b,
+                          &v48);
+                  v11 = v32;
+                  if ( v32 < 0 )
                   {
-                    v34 = 289;
+                    MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, v32, 0xA0u, 0LL);
                   }
                   else
                   {
-                    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v40 + 1);
-                    v28 = (**(__int64 (__fastcall ***)(struct Windows::Devices::Display::Core::IDisplayDevice *, GUID *, char *))v39[0])(
-                            v39[0],
-                            &GUID_64338358_366a_471b_bd56_dd8ef48e439b,
-                            (char *)&v40 + 8);
-                    v11 = v28;
-                    if ( v28 < 0 )
+                    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v48 + 1);
+                    v34 = (**(__int64 (__fastcall ***)(_QWORD, GUID *, char *))v47)(
+                            v47,
+                            &GUID_4824eb1d_6525_4522_bae1_f7bad7168a94,
+                            (char *)&v48 + 8);
+                    v11 = v34;
+                    if ( v34 < 0 )
                     {
-                      v34 = 290;
+                      MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0, v34, 0xA1u, 0LL);
                     }
                     else
                     {
-                      wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(v41);
-                      v28 = (**(__int64 (__fastcall ***)(struct Windows::Devices::Display::Core::IDisplayDevice *, GUID *, __int64 *))v39[0])(
-                              v39[0],
-                              &GUID_4824eb1d_6525_4522_bae1_f7bad7168a94,
-                              v41);
-                      v11 = v28;
-                      if ( v28 < 0 )
+                      v36 = v48;
+                      v37 = *(__int64 (__fastcall **)(__int64, void *, GUID *, __int64 *))(*(_QWORD *)v48 + 32LL);
+                      wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(&v50);
+                      v53 = GUID_ecd15fc1_eadc_51bc_971d_3bc628db2dd4;
+                      v38 = v37(v36, a3, &v53, &v50);
+                      v11 = v38;
+                      if ( v38 < 0 )
                       {
-                        v34 = 291;
+                        MilInstrumentationCheckHR_MaybeFailFast(v39, 0LL, 0, v38, 0xA6u, 0LL);
                       }
                       else
                       {
-                        v30 = *((_QWORD *)&v43 + 1);
-                        *((_QWORD *)&v43 + 1) = 0LL;
-                        if ( v30 )
-                          (*(void (__fastcall **)(__int64))(*(_QWORD *)v30 + 16LL))(v30);
-                        v28 = (**(__int64 (__fastcall ***)(struct Windows::Devices::Display::Core::IDisplayDevice *, GUID *, char *))v39[0])(
-                                v39[0],
-                                &GUID_89887184_7ca9_4645_b0ce_5b51a741fc80,
-                                (char *)&v43 + 8);
-                        v11 = v28;
-                        if ( v28 < 0 )
+                        v40 = (*(__int64 (__fastcall **)(__int64, _BYTE *))(*(_QWORD *)v50 + 56LL))(v50, v51);
+                        v11 = v40;
+                        if ( v40 < 0 )
                         {
-                          v34 = 292;
+                          MilInstrumentationCheckHR_MaybeFailFast(v41, 0LL, 0, v40, 0xA9u, 0LL);
                         }
                         else
                         {
-                          v31 = *((_QWORD *)&v40 + 1);
-                          v32 = *(__int64 (__fastcall **)(__int64, void *, GUID *, __int128 *))(**((_QWORD **)&v40 + 1)
-                                                                                              + 32LL);
-                          wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v42);
-                          v48 = GUID_ecd15fc1_eadc_51bc_971d_3bc628db2dd4;
-                          v28 = v32(v31, a3, &v48, &v42);
-                          v11 = v28;
-                          if ( v28 < 0 )
-                          {
-                            v34 = 303;
-                          }
-                          else
-                          {
-                            wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v42 + 1);
-                            v28 = (**(__int64 (__fastcall ***)(_QWORD, GUID *, char *))v42)(
-                                    v42,
-                                    &GUID_71e18952_b321_5af4_bfe8_03fbea31e40d,
-                                    (char *)&v42 + 8);
-                            v11 = v28;
-                            if ( v28 < 0 )
-                            {
-                              v34 = 306;
-                            }
-                            else
-                            {
-                              wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v43);
-                              v28 = (**(__int64 (__fastcall ***)(_QWORD, GUID *, __int128 *))v42)(
-                                      v42,
-                                      &GUID_c1696df6_9f38_5d52_ad5f_462a1d6926ed,
-                                      &v43);
-                              v11 = v28;
-                              if ( v28 < 0 )
-                              {
-                                v34 = 309;
-                              }
-                              else
-                              {
-                                v28 = (*(__int64 (__fastcall **)(_QWORD, __int64 *))(**((_QWORD **)&v42 + 1) + 48LL))(
-                                        *((_QWORD *)&v42 + 1),
-                                        &v37);
-                                v11 = v28;
-                                if ( v28 < 0 )
-                                {
-                                  v34 = 314;
-                                }
-                                else
-                                {
-                                  if ( (_DWORD)v37 )
-                                  {
-                                    v11 = -2003304309;
-                                    MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, -2003304309, 0x13Du, 0LL);
-                                    goto LABEL_44;
-                                  }
-                                  v28 = (*(__int64 (__fastcall **)(_QWORD, int *))(*(_QWORD *)v42 + 56LL))(v42, &v44);
-                                  v11 = v28;
-                                  if ( v28 >= 0 )
-                                  {
-                                    v45 = a4;
-                                    DDisplayTargetResources::operator=((__int64)a5, (__int64)v39);
-                                    goto LABEL_44;
-                                  }
-                                  v34 = 321;
-                                }
-                              }
-                            }
-                          }
+                          DDisplayTargetResources::operator=((__int64)a5, (__int64)&v47);
+                          ++dword_18034B650;
                         }
                       }
                     }
                   }
                 }
               }
-              MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, v34, 0LL);
-LABEL_44:
-              DDisplayTargetResources::~DDisplayTargetResources((DDisplayTargetResources *)v39);
-LABEL_47:
-              wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v36);
-              goto LABEL_50;
+              DDisplayTargetResources::~DDisplayTargetResources((DDisplayTargetResources *)&v47);
+              goto LABEL_32;
             }
-            wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v36);
+            wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v44);
           }
-          wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v35);
-          if ( ++v14 >= (unsigned int)v49 )
-            goto LABEL_53;
+          wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v43);
+          if ( ++v14 >= (unsigned int)v54 )
+            goto LABEL_38;
         }
-        MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x10Cu, 0LL);
-LABEL_50:
-        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v35);
+        MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x8Bu, 0LL);
+LABEL_35:
+        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v43);
       }
     }
   }
-LABEL_53:
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v38);
+LABEL_38:
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v45);
   return v11;
 }

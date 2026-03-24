@@ -1,11 +1,11 @@
 /*
- * XREFs of SmKmStoreHelperSendCommand @ 0x140237628
+ * XREFs of SmKmStoreHelperSendCommand @ 0x1402E0224
  * Callers:
- *     SmKmStoreHelperCleanup @ 0x1402375D8 (SmKmStoreHelperCleanup.c)
- *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1403795D4 (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
+ *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1402DFE94 (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
+ *     SmKmStoreHelperCleanup @ 0x14035AE74 (SmKmStoreHelperCleanup.c)
  * Callees:
- *     SmKmStoreHelperCheckWaitCommand @ 0x1402376A4 (SmKmStoreHelperCheckWaitCommand.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
+ *     SmKmStoreHelperCheckWaitCommand @ 0x1402E02A0 (SmKmStoreHelperCheckWaitCommand.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
  */
 
 __int64 __fastcall SmKmStoreHelperSendCommand(__int64 a1, __int16 a2, _OWORD *a3, unsigned int a4)

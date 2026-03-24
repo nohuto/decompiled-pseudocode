@@ -1,21 +1,17 @@
 /*
- * XREFs of SdbGetDatabaseMatchEx @ 0x1407571D0
+ * XREFs of SdbGetDatabaseMatchEx @ 0x1407591F8
  * Callers:
- *     KsepDbGetDriverShimsInternal @ 0x140694B7C (KsepDbGetDriverShimsInternal.c)
- *     KsepDbCacheReadDeviceInternal @ 0x14080AB88 (KsepDbCacheReadDeviceInternal.c)
+ *     KsepDbCacheReadDeviceInternal @ 0x140755564 (KsepDbCacheReadDeviceInternal.c)
+ *     KsepDbGetDriverShimsInternal @ 0x14075867C (KsepDbGetDriverShimsInternal.c)
  * Callees:
- *     wcsrchr @ 0x1403DB4B0 (wcsrchr.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpCheckKObject @ 0x140757368 (SdbpCheckKObject.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x1407575F8 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x140758F00 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x1407CB8AC (SdbFindFirstStringIndexedTag.c)
- *     SdbFindNextStringIndexedTag @ 0x14084B144 (SdbFindNextStringIndexedTag.c)
- *     SdbTagIDToTagRef @ 0x1408567B0 (SdbTagIDToTagRef.c)
- *     SdbpFindFirstTagWithoutIndex @ 0x140A50B50 (SdbpFindFirstTagWithoutIndex.c)
- *     SdbpFindFirstWildcardTagWithoutIndex @ 0x140A50BF8 (SdbpFindFirstWildcardTagWithoutIndex.c)
- *     SdbpFindNextTagWithoutIndex @ 0x140A50CA4 (SdbpFindNextTagWithoutIndex.c)
- *     SdbpFindNextWildcardTagWithoutIndex @ 0x140A50D20 (SdbpFindNextWildcardTagWithoutIndex.c)
+ *     wcsrchr @ 0x1403D3A00 (wcsrchr.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140752DDC (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpCheckKObject @ 0x14075454C (SdbpCheckKObject.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140758F78 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x1407593F0 (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindNextStringIndexedTag @ 0x1407C14DC (SdbFindNextStringIndexedTag.c)
+ *     SdbTagIDToTagRef @ 0x1407CD480 (SdbTagIDToTagRef.c)
  */
 
 __int64 __fastcall SdbGetDatabaseMatchEx(
@@ -25,108 +21,77 @@ __int64 __fastcall SdbGetDatabaseMatchEx(
         __int64 a4,
         __int64 a5,
         __int64 a6,
-        __int64 a7)
+        _QWORD *a7)
 {
-  unsigned __int16 v9; // r15
-  int v10; // r12d
-  wchar_t *v11; // rax
-  const wchar_t *v12; // rbx
-  __int64 v13; // rsi
-  __int64 v14; // r13
-  void *v15; // rsi
-  unsigned int k; // eax
-  unsigned int v17; // r14d
-  unsigned int m; // eax
-  unsigned int v19; // ebx
+  void *v7; // rsi
+  unsigned __int16 v10; // r14
+  __int64 v11; // r15
+  wchar_t *v12; // rax
+  __int64 v13; // rbx
+  unsigned int FirstStringIndexedTag; // eax
+  __int64 v15; // r8
+  __int64 v16; // r9
+  _QWORD *v17; // r12
+  __int64 v18; // r13
+  unsigned int v19; // edi
   unsigned int i; // eax
-  unsigned int v22; // r14d
-  unsigned int j; // eax
-  unsigned int v24; // r14d
-  __int64 v25[2]; // [rsp+40h] [rbp-30h] BYREF
-  __int128 v26; // [rsp+50h] [rbp-20h]
-  __int64 v27; // [rsp+60h] [rbp-10h]
-  unsigned int v28; // [rsp+A8h] [rbp+38h] BYREF
+  __int64 v21; // r9
+  unsigned int v22; // ebx
+  _OWORD v24[2]; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v25; // [rsp+60h] [rbp-38h]
+  unsigned int v26; // [rsp+A8h] [rbp+10h] BYREF
 
-  v27 = 0LL;
-  *(_OWORD *)v25 = 0LL;
-  v26 = 0LL;
+  v7 = *(void **)(a1 + 8);
+  memset(v24, 0, sizeof(v24));
+  v25 = 0LL;
   if ( a2 )
   {
-    v9 = 28698;
-    v10 = 0;
+    v10 = 28698;
+    v11 = 0LL;
+    goto LABEL_10;
   }
-  else
+  v10 = 28700;
+  v11 = (__int64)a3;
+  v12 = wcsrchr(a3, 0x5Cu);
+  if ( !v12 )
   {
-    v9 = 28700;
-    v10 = (int)a3;
-    v11 = wcsrchr(a3, 0x5Cu);
-    if ( v11 )
-    {
-      v12 = v11 + 1;
-      goto LABEL_4;
-    }
+LABEL_10:
+    v13 = (__int64)a3;
+    goto LABEL_4;
   }
-  v12 = a3;
+  v13 = (__int64)(v12 + 1);
 LABEL_4:
-  v28 = 0;
-  v13 = *(_QWORD *)(a1 + 16);
-  v14 = a7;
-  if ( v13 )
+  v26 = 0;
+  FirstStringIndexedTag = SdbFindFirstStringIndexedTag(v7, v10, 24577LL, v13, v24);
+  v17 = a7;
+  v18 = a6;
+  while ( 1 )
   {
-    for ( i = SdbpFindFirstTagWithoutIndex(v13, (__int64)v25); ; i = SdbpFindNextTagWithoutIndex(v13) )
+    v19 = FirstStringIndexedTag;
+    if ( !FirstStringIndexedTag )
     {
-      v22 = i;
-      if ( !i )
+      for ( i = SdbpFindFirstIndexedWildCardTag(v7, v10, v15, v13, (unsigned int *)v24);
+            ;
+            i = SdbpFindNextIndexedWildCardTag((__int64)v7, (unsigned int *)v24) )
       {
-        for ( j = SdbpFindFirstWildcardTagWithoutIndex(v13, (__int64)v25); ; j = SdbpFindNextWildcardTagWithoutIndex(v13) )
+        v22 = i;
+        if ( !i )
+          break;
+        if ( (unsigned int)SdbpCheckKObject(a1, i, v11, v21, a5, v18, v17) )
         {
-          v24 = j;
-          if ( !j )
-            break;
-          if ( (unsigned int)SdbpCheckKObject(a1, v13, j, v10, -1LL, a5, a6, v14) )
-          {
-            if ( (unsigned int)SdbTagIDToTagRef(a1, v13, v24, &v28) )
-              return v28;
-            goto LABEL_32;
-          }
+          if ( (unsigned int)SdbTagIDToTagRef(a1, v7, v22, &v26) )
+            return v26;
+          goto LABEL_18;
         }
-        goto LABEL_5;
       }
-      if ( (unsigned int)SdbpCheckKObject(a1, v13, i, v10, -1LL, a5, a6, v14) )
-        break;
+      return v26;
     }
-    if ( !(unsigned int)SdbTagIDToTagRef(a1, v13, v22, &v28) )
-LABEL_32:
-      AslLogCallPrintf(1LL);
+    if ( (unsigned int)SdbpCheckKObject(a1, FirstStringIndexedTag, v11, v16, a5, v18, v17) )
+      break;
+    FirstStringIndexedTag = SdbFindNextStringIndexedTag(v7, v24);
   }
-  else
-  {
-LABEL_5:
-    v15 = *(void **)(a1 + 8);
-    for ( k = SdbFindFirstStringIndexedTag(v15, v9, 24577LL, v12, v25); ; k = SdbFindNextStringIndexedTag(v15, v25) )
-    {
-      v17 = k;
-      if ( !k )
-      {
-        for ( m = SdbpFindFirstIndexedWildCardTag(v15, (__int64)v25); ; m = SdbpFindNextIndexedWildCardTag(v15, v25) )
-        {
-          v19 = m;
-          if ( !m )
-            break;
-          if ( (unsigned int)SdbpCheckKObject(a1, (_DWORD)v15, m, v10, -1LL, a5, a6, v14) )
-          {
-            if ( (unsigned int)SdbTagIDToTagRef(a1, v15, v19, &v28) )
-              return v28;
-            goto LABEL_32;
-          }
-        }
-        return v28;
-      }
-      if ( (unsigned int)SdbpCheckKObject(a1, (_DWORD)v15, k, v10, -1LL, a5, a6, v14) )
-        break;
-    }
-    if ( !(unsigned int)SdbTagIDToTagRef(a1, v15, v17, &v28) )
-      goto LABEL_32;
-  }
-  return v28;
+  if ( !(unsigned int)SdbTagIDToTagRef(a1, v7, v19, &v26) )
+LABEL_18:
+    AslLogCallPrintf(1LL);
+  return v26;
 }

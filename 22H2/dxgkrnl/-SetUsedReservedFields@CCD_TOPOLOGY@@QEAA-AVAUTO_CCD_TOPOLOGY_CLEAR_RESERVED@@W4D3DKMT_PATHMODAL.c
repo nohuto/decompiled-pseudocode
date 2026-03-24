@@ -1,30 +1,29 @@
 /*
- * XREFs of ?SetUsedReservedFields@CCD_TOPOLOGY@@QEAA?AVAUTO_CCD_TOPOLOGY_CLEAR_RESERVED@@W4D3DKMT_PATHMODALITY_RESERVED_FIELD@@@Z @ 0x1C017F98C
+ * XREFs of ?SetUsedReservedFields@CCD_TOPOLOGY@@QEAA?AVAUTO_CCD_TOPOLOGY_CLEAR_RESERVED@@W4D3DKMT_PATHMODALITY_RESERVED_FIELD@@@Z @ 0x1C013C828
  * Callers:
- *     ?CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z @ 0x1C017F8E8 (-CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z.c)
- *     ?RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C01E872C (-RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z.c)
- *     ?CollectPathsFromLegacyVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJPEAVDMMVIDPN@@@Z @ 0x1C03BC790 (-CollectPathsFromLegacyVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJPEAVDMMVIDPN@@@Z.c)
+ *     ?CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z @ 0x1C013A4AC (-CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z.c)
+ *     ?RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C016BFBC (-RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z.c)
+ *     ?CollectPathsFromLegacyVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJPEAVDMMVIDPN@@@Z @ 0x1C02ED4FC (-CollectPathsFromLegacyVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJPEAVDMMVIDPN@@@Z.c)
  * Callees:
  *     <none>
  */
 
 _QWORD *__fastcall CCD_TOPOLOGY::SetUsedReservedFields(__int64 a1, _QWORD *a2, int a3)
 {
-  __int64 v3; // r10
-  unsigned int i; // r11d
+  unsigned int i; // r10d
   _QWORD *result; // rax
-  __int64 v7; // rax
-  __int64 v8; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  __int64 v8; // rax
 
-  v3 = *(_QWORD *)(a1 + 64);
-  for ( i = 0; i < *(unsigned __int16 *)(v3 + 20); v3 = *(_QWORD *)(a1 + 64) )
+  for ( i = 0; i < *(unsigned __int16 *)(*(_QWORD *)(a1 + 64) + 20LL); *(_DWORD *)(v7 + *(_QWORD *)(a1 + 64) + 280) = a3 )
   {
-    v7 = i++;
-    v8 = 296 * v7;
-    *(_OWORD *)(v8 + v3 + 312) = 0LL;
-    *(_OWORD *)(v8 + v3 + 328) = 0LL;
-    *(_QWORD *)(v8 + v3 + 344) = 0LL;
-    *(_DWORD *)(*(_QWORD *)(a1 + 64) + v8 + 312) = a3;
+    v6 = i++;
+    v7 = 272 * v6;
+    v8 = *(_QWORD *)(a1 + 64);
+    *(_OWORD *)(v7 + v8 + 280) = 0LL;
+    *(_OWORD *)(v7 + v8 + 296) = 0LL;
+    *(_QWORD *)(v7 + v8 + 312) = 0LL;
   }
   *(_DWORD *)(a1 + 88) = a3;
   result = a2;

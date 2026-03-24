@@ -1,65 +1,71 @@
 /*
- * XREFs of PfSnCleanupPrefetchHeader @ 0x14075D3C0
+ * XREFs of PfSnCleanupPrefetchHeader @ 0x140633648
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x14074E1B0 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x14062E400 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     PfpPrefetchSharedDeref @ 0x140684A38 (PfpPrefetchSharedDeref.c)
- *     PfpPrefetchSharedCleanup @ 0x140684B04 (PfpPrefetchSharedCleanup.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x14075D4C8 (PfSnCleanupPrefetchSectionInfo.c)
- *     PfpOpenHandleClose @ 0x14075D734 (PfpOpenHandleClose.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x140633754 (PfSnCleanupPrefetchSectionInfo.c)
+ *     PfpOpenHandleClose @ 0x1406339C0 (PfpOpenHandleClose.c)
+ *     PfpPrefetchSharedDeref @ 0x14070BCAC (PfpPrefetchSharedDeref.c)
+ *     PfpPrefetchSharedCleanup @ 0x14070BCDC (PfpPrefetchSharedCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PfSnCleanupPrefetchHeader(__int64 a1)
+void __fastcall PfSnCleanupPrefetchHeader(_QWORD *a1)
 {
-  unsigned int i; // edi
-  _QWORD **v3; // rsi
-  _QWORD *v4; // rdi
-  _QWORD *v5; // rax
-  void *v6; // rcx
+  void *v2; // rcx
+  unsigned int v3; // edi
+  _QWORD **v4; // rsi
+  _QWORD *v5; // rdi
+  _QWORD *v6; // rax
   void *v7; // rcx
   void *v8; // rcx
-  ULONG_PTR v9; // rcx
+  void *v9; // rcx
   void *v10; // rcx
 
-  if ( *(_QWORD *)(a1 + 56) )
+  v2 = (void *)a1[7];
+  if ( v2 )
   {
-    if ( *(_QWORD *)a1 )
+    if ( *a1 )
     {
-      for ( i = 0; i < *(_DWORD *)(*(_QWORD *)a1 + 88LL); ++i )
-        PfSnCleanupPrefetchSectionInfo(*(_QWORD *)(a1 + 56) + 56LL * i, a1, 0LL);
+      v3 = 0;
+      if ( *(_DWORD *)(*a1 + 88LL) )
+      {
+        do
+          PfSnCleanupPrefetchSectionInfo(a1[7] + 56LL * v3++, a1, 0LL);
+        while ( v3 < *(_DWORD *)(*a1 + 88LL) );
+        v2 = (void *)a1[7];
+      }
     }
-    ExFreePoolWithTag(*(PVOID *)(a1 + 56), 0);
+    ExFreePoolWithTag(v2, 0);
   }
-  v3 = (_QWORD **)(a1 + 40);
+  v4 = (_QWORD **)(a1 + 5);
   while ( 1 )
   {
-    v4 = *v3;
-    if ( *v3 == v3 )
+    v5 = *v4;
+    if ( *v4 == v4 )
       break;
-    if ( (_QWORD **)v4[1] != v3 || (v5 = (_QWORD *)*v4, *(_QWORD **)(*v4 + 8LL) != v4) )
+    if ( (_QWORD **)v5[1] != v4 || (v6 = (_QWORD *)*v5, *(_QWORD **)(*v5 + 8LL) != v5) )
       __fastfail(3u);
-    *v3 = v5;
-    v5[1] = v3;
-    PfpOpenHandleClose(v4 + 8, *(_QWORD *)(a1 + 8));
-    PfpOpenHandleClose(v4 + 4, *(_QWORD *)(a1 + 8));
+    *v4 = v6;
+    v6[1] = v4;
+    PfpOpenHandleClose(v5 + 8, a1[1]);
+    PfpOpenHandleClose(v5 + 4, a1[1]);
   }
-  v6 = *(void **)(a1 + 16);
-  if ( v6 )
-    ExFreePoolWithTag(v6, 0);
-  v7 = *(void **)(a1 + 80);
+  v7 = (void *)a1[2];
   if ( v7 )
     ExFreePoolWithTag(v7, 0);
-  v8 = *(void **)(a1 + 88);
+  v8 = (void *)a1[10];
   if ( v8 )
     ExFreePoolWithTag(v8, 0);
-  v9 = *(_QWORD *)(a1 + 8);
+  v9 = (void *)a1[11];
   if ( v9 )
+    ExFreePoolWithTag(v9, 0);
+  if ( a1[1] )
   {
-    PfpPrefetchSharedCleanup(v9);
-    PfpPrefetchSharedDeref(*(volatile signed __int64 **)(a1 + 8));
+    PfpPrefetchSharedCleanup();
+    PfpPrefetchSharedDeref(a1[1]);
   }
-  v10 = *(void **)(a1 + 112);
+  v10 = (void *)a1[14];
   if ( v10 )
     ExFreePoolWithTag(v10, 0);
 }

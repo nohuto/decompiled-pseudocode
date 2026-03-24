@@ -1,7 +1,7 @@
 /*
- * XREFs of DriverEntry @ 0x1C02E710C
+ * XREFs of DriverEntry @ 0x1C029B764
  * Callers:
- *     GsDriverEntry @ 0x1C02E2010 (GsDriverEntry.c)
+ *     GsDriverEntry @ 0x1C0298010 (GsDriverEntry.c)
  * Callees:
  *     <none>
  */

@@ -3,9 +3,9 @@
  * Callers:
  *     MiWaitForInPageComplete @ 0x14001B7E0 (MiWaitForInPageComplete.c)
  * Callees:
- *     PfLogEvent @ 0x1400D53D8 (PfLogEvent.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     EtwTraceSiloTimedEvent @ 0x1403104B8 (EtwTraceSiloTimedEvent.c)
+ *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     EtwTraceSiloTimedEvent @ 0x1403105B8 (EtwTraceSiloTimedEvent.c)
  */
 
 struct _KTHREAD *__fastcall PfHardFaultLog(_QWORD *a1, int a2, int a3)

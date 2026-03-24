@@ -1,17 +1,17 @@
 /*
- * XREFs of AslComputeCrc32 @ 0x140A540BC
+ * XREFs of AslComputeCrc32 @ 0x140967B28
  * Callers:
- *     AslpFileGetCrcChecksum @ 0x140A58358 (AslpFileGetCrcChecksum.c)
- *     AslpFileLargeGetCrcChecksum @ 0x140A598D0 (AslpFileLargeGetCrcChecksum.c)
+ *     AslpFileGetCrcChecksum @ 0x14096AF5C (AslpFileGetCrcChecksum.c)
+ *     AslpFileLargeGetCrcChecksum @ 0x14096C270 (AslpFileLargeGetCrcChecksum.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall AslComputeCrc32(int a1, _BYTE *a2, unsigned int a3)
 {
-  unsigned int v4; // ecx
-  __int64 v5; // r10
-  __int64 v6; // rax
+  unsigned int v4; // r9d
+  __int64 v5; // r11
+  unsigned __int8 v6; // dl
 
   v4 = ~a1;
   if ( a3 )
@@ -19,8 +19,8 @@ __int64 __fastcall AslComputeCrc32(int a1, _BYTE *a2, unsigned int a3)
     v5 = a3;
     do
     {
-      v6 = (unsigned __int8)(*a2++ ^ v4);
-      v4 = *((_DWORD *)AslpCrc32Table + v6) ^ (v4 >> 8);
+      v6 = *a2++ ^ v4;
+      v4 = (v4 >> 8) ^ *((_DWORD *)AslpCrc32Table + v6);
       --v5;
     }
     while ( v5 );

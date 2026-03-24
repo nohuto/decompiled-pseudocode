@@ -1,172 +1,179 @@
 /*
- * XREFs of NtGdiHLSurfSetInformation @ 0x1C007ADC0
+ * XREFs of NtGdiHLSurfSetInformation @ 0x1C0014D90
  * Callers:
  *     <none>
  * Callees:
- *     GreSfmCloseCompositorRef @ 0x1C0079C9C (GreSfmCloseCompositorRef.c)
- *     GreSetRedirectionSurfaceSignaling @ 0x1C007A4F0 (GreSetRedirectionSurfaceSignaling.c)
- *     GreSfmOpenCompositorRef @ 0x1C007B044 (GreSfmOpenCompositorRef.c)
- *     GreSfmRegisterLogicalSurfaceForSignaling @ 0x1C00B2A18 (GreSfmRegisterLogicalSurfaceForSignaling.c)
- *     GreHLsurfSetPresentFlags @ 0x1C0267ADC (GreHLsurfSetPresentFlags.c)
- *     GreHLsurfSetUpdateId @ 0x1C0267C44 (GreHLsurfSetUpdateId.c)
- *     GreSfmGenerateMoveData @ 0x1C02AE328 (GreSfmGenerateMoveData.c)
+ *     GreSfmRegisterLogicalSurfaceForSignaling @ 0x1C00149D4 (GreSfmRegisterLogicalSurfaceForSignaling.c)
+ *     GreSfmOpenCompositorRef @ 0x1C001502C (GreSfmOpenCompositorRef.c)
+ *     GreSfmCloseCompositorRef @ 0x1C0015168 (GreSfmCloseCompositorRef.c)
+ *     GreSetRedirectionSurfaceSignaling @ 0x1C0017708 (GreSetRedirectionSurfaceSignaling.c)
+ *     GreHLsurfSetPresentFlags @ 0x1C026F47C (GreHLsurfSetPresentFlags.c)
+ *     GreHLsurfSetUpdateId @ 0x1C026F5F0 (GreHLsurfSetUpdateId.c)
+ *     GreSfmGenerateMoveData @ 0x1C02A0A14 (GreSfmGenerateMoveData.c)
  */
 
-__int64 __fastcall NtGdiHLSurfSetInformation(HLSURF a1, int a2, _QWORD *a3, unsigned int a4)
+__int64 __fastcall NtGdiHLSurfSetInformation(HLSURF a1, int a2, ULONG64 a3, unsigned int a4)
 {
   NTSTATUS v5; // ebx
-  int v6; // edx
-  int v7; // edx
+  unsigned int v6; // edi
+  int v7; // eax
   int v8; // edx
   int v9; // edx
-  __int64 v10; // rcx
+  int v10; // edx
+  int v11; // edx
+  __int64 v12; // rcx
   NTSTATUS updated; // eax
-  unsigned int v12; // edi
-  __int64 HDEV; // rax
-  int v15; // edx
-  HDEV v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rcx
-  ULONG v19; // eax
-  int v20[6]; // [rsp+38h] [rbp-40h] BYREF
+  int HDEV; // eax
+  int v16; // edx
+  HDEV v17; // rax
+  ULONG v18; // eax
+  __int64 v19; // rcx
+  __int64 v20; // rcx
+  int v21[6]; // [rsp+38h] [rbp-40h] BYREF
 
   v5 = -1073741811;
-  memset(v20, 0, sizeof(v20));
+  memset(v21, 0, sizeof(v21));
   if ( a2 >= 11 )
   {
     v5 = -1073741821;
-    goto LABEL_58;
+    v6 = 0;
+    goto LABEL_60;
   }
   switch ( a2 )
   {
     case 1:
+      v6 = 0;
       if ( !a3 )
-        goto LABEL_47;
+        goto LABEL_51;
       if ( a4 < 4 )
       {
         v5 = -1073741306;
-        goto LABEL_47;
+        goto LABEL_51;
       }
+      if ( a3 >= MmUserProbeAddress )
+        a3 = MmUserProbeAddress;
+      v7 = *(_DWORD *)a3;
       break;
     case 2:
+      v6 = 0;
       if ( !a3 )
-        goto LABEL_47;
+        goto LABEL_51;
       if ( a4 < 8 )
       {
         v5 = -1073741306;
-        goto LABEL_47;
+        goto LABEL_51;
       }
-      if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-        a3 = (_QWORD *)MmUserProbeAddress;
-      *(_QWORD *)v20 = *a3;
-      goto LABEL_41;
+      if ( a3 >= MmUserProbeAddress )
+        a3 = MmUserProbeAddress;
+      *(_QWORD *)v21 = *(_QWORD *)a3;
+      goto LABEL_45;
     case 5:
+      v6 = 0;
       if ( !a3 )
-        goto LABEL_47;
+        goto LABEL_51;
       if ( a4 < 0x18 )
       {
         v5 = -1073741306;
-        goto LABEL_47;
+        goto LABEL_51;
       }
-      if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-        a3 = (_QWORD *)MmUserProbeAddress;
-      *(_OWORD *)v20 = *(_OWORD *)a3;
-      *(_QWORD *)&v20[4] = a3[2];
-      goto LABEL_41;
+      if ( a3 >= MmUserProbeAddress )
+        a3 = MmUserProbeAddress;
+      *(_OWORD *)v21 = *(_OWORD *)a3;
+      *(_QWORD *)&v21[4] = *(_QWORD *)(a3 + 16);
+      goto LABEL_45;
     case 7:
+      v6 = 0;
       if ( a3 )
-        goto LABEL_47;
+        goto LABEL_51;
       if ( a4 )
       {
         v5 = -1073741306;
-        goto LABEL_47;
+        goto LABEL_51;
       }
-      goto LABEL_41;
+      goto LABEL_45;
     case 8:
+      v6 = 0;
       if ( a3 )
-        goto LABEL_47;
+        goto LABEL_51;
       if ( a4 )
       {
         v5 = -1073741306;
-        goto LABEL_47;
+        goto LABEL_51;
       }
-      goto LABEL_41;
+      goto LABEL_45;
     case 10:
+      v6 = 0;
       if ( !a3 )
-        goto LABEL_47;
+        goto LABEL_51;
       if ( a4 < 4 )
       {
         v5 = -1073741306;
-        goto LABEL_47;
+        goto LABEL_51;
       }
+      if ( a3 >= MmUserProbeAddress )
+        a3 = MmUserProbeAddress;
+      v7 = *(_DWORD *)a3;
       break;
     default:
       v5 = -1073741821;
-      goto LABEL_47;
+      v6 = 0;
+      goto LABEL_51;
   }
-  if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-    a3 = (_QWORD *)MmUserProbeAddress;
-  v20[0] = *(_DWORD *)a3;
-LABEL_41:
-  v6 = a2 - 1;
-  if ( !v6 )
-  {
-    UserGetHDEV();
-    updated = GreHLsurfSetPresentFlags(v18, a1, (unsigned int)v20[0]);
-    goto LABEL_46;
-  }
-  v7 = v6 - 1;
-  if ( !v7 )
-  {
-    UserGetHDEV();
-    updated = GreHLsurfSetUpdateId(v17, a1, *(_QWORD *)v20);
-    goto LABEL_46;
-  }
-  v8 = v7 - 3;
+  v21[0] = v7;
+LABEL_45:
+  v8 = a2 - 1;
   if ( !v8 )
   {
-    if ( *(_OWORD *)&v20[2] == 0LL )
+    UserGetHDEV();
+    updated = GreHLsurfSetPresentFlags(v20, a1, (unsigned int)v21[0]);
+    goto LABEL_50;
+  }
+  v9 = v8 - 1;
+  if ( !v9 )
+  {
+    UserGetHDEV();
+    updated = GreHLsurfSetUpdateId(v19, a1, *(_QWORD *)v21);
+    goto LABEL_50;
+  }
+  v10 = v9 - 3;
+  if ( !v10 )
+  {
+    if ( *(_OWORD *)&v21[2] == 0LL )
     {
-      updated = GreSfmRegisterLogicalSurfaceForSignaling(a1, v20[0]);
+      updated = GreSfmRegisterLogicalSurfaceForSignaling(a1, v21[0]);
     }
     else
     {
       HDEV = UserGetHDEV();
-      updated = GreSetRedirectionSurfaceSignaling(HDEV, (__int64)a1, *(__int64 *)&v20[4], *(__int64 *)&v20[2], v20[0]);
+      updated = GreSetRedirectionSurfaceSignaling(HDEV, (_DWORD)a1, v21[4], v21[2], v21[0]);
     }
-    goto LABEL_46;
+    goto LABEL_50;
   }
-  v9 = v8 - 2;
-  if ( !v9 )
+  v11 = v10 - 2;
+  if ( !v11 )
   {
     UserGetHDEV();
-    updated = GreSfmOpenCompositorRef(v10, a1);
-LABEL_46:
+    updated = GreSfmOpenCompositorRef(v12, a1);
+LABEL_50:
     v5 = updated;
-    goto LABEL_47;
+    goto LABEL_51;
   }
-  v15 = v9 - 1;
-  if ( !v15 )
+  v16 = v11 - 1;
+  if ( !v16 )
   {
-    v16 = (HDEV)UserGetHDEV();
-    updated = GreSfmCloseCompositorRef(v16, a1);
-    goto LABEL_46;
+    v17 = (HDEV)UserGetHDEV();
+    updated = GreSfmCloseCompositorRef(v17, a1);
+    goto LABEL_50;
   }
-  if ( v15 == 2 )
-    GreSfmGenerateMoveData((unsigned int)v20[0]);
-LABEL_47:
-  if ( v5 >= 0 )
+  if ( v16 == 2 )
+    GreSfmGenerateMoveData((unsigned int)v21[0]);
+LABEL_51:
+  if ( v5 < 0 )
   {
-    v12 = 1;
-    goto LABEL_49;
+LABEL_60:
+    v18 = RtlNtStatusToDosError(v5);
+    EngSetLastError(v18);
+    return v6;
   }
-LABEL_58:
-  v12 = 0;
-LABEL_49:
-  if ( !v12 )
-  {
-    v19 = RtlNtStatusToDosError(v5);
-    EngSetLastError(v19);
-  }
-  return v12;
+  return 1;
 }

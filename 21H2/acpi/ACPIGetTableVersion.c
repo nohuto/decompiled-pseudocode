@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIGetTableVersion @ 0x1C00248C0
+ * XREFs of ACPIGetTableVersion @ 0x1C0001E10
  * Callers:
- *     ACPIInternalInterruptHonorBiosPolarities @ 0x1C002486C (ACPIInternalInterruptHonorBiosPolarities.c)
- *     ACPIInitialize @ 0x1C00BE48C (ACPIInitialize.c)
+ *     ACPIInternalInterruptHonorBiosPolarities @ 0x1C0026CA8 (ACPIInternalInterruptHonorBiosPolarities.c)
+ *     ACPIInitialize @ 0x1C00BED6C (ACPIInitialize.c)
  * Callees:
  *     <none>
  */

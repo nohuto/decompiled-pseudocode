@@ -1,15 +1,14 @@
 /*
- * XREFs of KiSwInterruptPresent @ 0x140B373F0
+ * XREFs of KiSwInterruptPresent @ 0x140A41820
  * Callers:
- *     KiVerifyXcpt15 @ 0x140B18320 (KiVerifyXcpt15.c)
- *     KeCheckedKernelInitialize @ 0x140B18B50 (KeCheckedKernelInitialize.c)
- *     KeFreeInitializationCode @ 0x140B18BF4 (KeFreeInitializationCode.c)
- *     KiFilterFiberContext @ 0x140B18C30 (KiFilterFiberContext.c)
- *     sub_140B1A730 @ 0x140B1A730 (sub_140B1A730.c)
- *     ExpLicenseWatchInitWorker @ 0x140B3734C (ExpLicenseWatchInitWorker.c)
- *     KeInitAmd64SpecificState @ 0x140B739B0 (KeInitAmd64SpecificState.c)
+ *     KiVerifyXcpt15 @ 0x140A1B320 (KiVerifyXcpt15.c)
+ *     KeFreeInitializationCode @ 0x140A1BB5C (KeFreeInitializationCode.c)
+ *     KiFilterFiberContext @ 0x140A1BBA0 (KiFilterFiberContext.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
+ *     ExpLicenseWatchInitWorker @ 0x140A41774 (ExpLicenseWatchInitWorker.c)
+ *     KeInitAmd64SpecificState @ 0x140A5F0D4 (KeInitAmd64SpecificState.c)
  * Callees:
- *     HvlQueryVsmConnection @ 0x14033FE98 (HvlQueryVsmConnection.c)
+ *     HvlQueryVsmConnection @ 0x140340478 (HvlQueryVsmConnection.c)
  */
 
 __int64 KiSwInterruptPresent()

@@ -1,12 +1,12 @@
 /*
- * XREFs of GreSetLayout @ 0x1C00C2AA0
+ * XREFs of GreSetLayout @ 0x1C0093E60
  * Callers:
- *     GreCreateCompatibleDC @ 0x1C003BC40 (GreCreateCompatibleDC.c)
- *     _GetDCEx @ 0x1C004A820 (_GetDCEx.c)
+ *     _GetDCEx @ 0x1C0038070 (_GetDCEx.c)
+ *     GreCreateCompatibleDC @ 0x1C003C7B0 (GreCreateCompatibleDC.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003BD24 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003BD68 (--1DCOBJ@@QEAA@XZ.c)
- *     ?dwSetLayout@DC@@QEAAKJK@Z @ 0x1C00C2B00 (-dwSetLayout@DC@@QEAAKJK@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C003C8E8 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003C948 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?dwSetLayout@DC@@QEAAKJK@Z @ 0x1C0093EC0 (-dwSetLayout@DC@@QEAAKJK@Z.c)
  */
 
 __int64 __fastcall GreSetLayout(HDC a1, int a2, unsigned int a3)

@@ -1,35 +1,35 @@
 /*
- * XREFs of ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01BF100
+ * XREFs of ?ApplyTopologyWorker@CCD_TOPOLOGY@@AEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0133190
  * Callers:
- *     ?ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01C07FC (-ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0163848 (-ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?IsMatchingSource@CCD_TOPOLOGY@@SA_NAEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@0@Z @ 0x1C00138AC (-IsMatchingSource@CCD_TOPOLOGY@@SA_NAEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@0@Z.c)
- *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00138D4 (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DxgIsSessionUsingWddmMonitors@@YAHXZ @ 0x1C01A4390 (-DxgIsSessionUsingWddmMonitors@@YAHXZ.c)
- *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C01AB974 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
- *     ?BuildPrimaryPathIndexFromCloneGroupId@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C01ABA6C (-BuildPrimaryPathIndexFromCloneGroupId@CCD_TOPOLOGY@@QEAAXXZ.c)
- *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C01ADE34 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
- *     ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C01ADEA8 (-Reserve@CCD_TOPOLOGY@@QEAAGG@Z.c)
- *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C01AEBD8 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
- *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01BBB3C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
- *     ?GetMaximumAdapterCountInSession@DXGGLOBAL@@QEAAKXZ @ 0x1C01BFEEC (-GetMaximumAdapterCountInSession@DXGGLOBAL@@QEAAKXZ.c)
- *     ?CleanupPrimaryPathIndex@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C01C02B8 (-CleanupPrimaryPathIndex@CCD_TOPOLOGY@@QEAAXXZ.c)
- *     ?InvalidateCache@QDC_CACHE@@QEAAX_N@Z @ 0x1C01C02FC (-InvalidateCache@QDC_CACHE@@QEAAX_N@Z.c)
- *     _CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PrimaryClonePathIndex3012::__AUTO_USING_PM_PrimaryClonePathIndex3012 @ 0x1C01C0394 (_CCD_TOPOLOGY--ApplyTopologyWorker_--_2_--_AUTO_USING_PM_PrimaryClonePathIndex3012--__AUTO_USING.c)
- *     _CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PathChanged3014::__AUTO_USING_PM_PathChanged3014 @ 0x1C01C03D0 (_CCD_TOPOLOGY--ApplyTopologyWorker_--_2_--_AUTO_USING_PM_PathChanged3014--__AUTO_USING_PM_PathCh.c)
- *     DxgkCreateSessionViewForCurrentSession @ 0x1C01C040C (DxgkCreateSessionViewForCurrentSession.c)
- *     DxgkRemoveAllSessionViewForCurrentSession @ 0x1C01C0654 (DxgkRemoveAllSessionViewForCurrentSession.c)
- *     ?CheckAdapterViewSessionOwnership@CCD_TOPOLOGY@@AEAAJK@Z @ 0x1C01C0738 (-CheckAdapterViewSessionOwnership@CCD_TOPOLOGY@@AEAAJK@Z.c)
- *     DxgkStatusChangeNotify @ 0x1C01C26A0 (DxgkStatusChangeNotify.c)
- *     ?RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z @ 0x1C0203160 (-RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z.c)
- *     ?IsSameCloneGroup@CCD_TOPOLOGY@@QEBA_NII_N@Z @ 0x1C03A97A4 (-IsSameCloneGroup@CCD_TOPOLOGY@@QEBA_NII_N@Z.c)
- *     ?MarkPathsApplyFailure@CCD_TOPOLOGY@@AEAAXAEBU_LUID@@IJ@Z @ 0x1C03A98E0 (-MarkPathsApplyFailure@CCD_TOPOLOGY@@AEAAXAEBU_LUID@@IJ@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C000D12C (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ?IsMatchingSource@CCD_TOPOLOGY@@SA_NAEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@0@Z @ 0x1C001AA28 (-IsMatchingSource@CCD_TOPOLOGY@@SA_NAEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DxgkCreateSessionViewForCurrentSession @ 0x1C00E02D4 (DxgkCreateSessionViewForCurrentSession.c)
+ *     DxgkRemoveAllSessionViewForCurrentSession @ 0x1C00E0508 (DxgkRemoveAllSessionViewForCurrentSession.c)
+ *     ?InvalidateCache@QDC_CACHE@@QEAAX_N@Z @ 0x1C00E2438 (-InvalidateCache@QDC_CACHE@@QEAAX_N@Z.c)
+ *     ?DxgIsSessionUsingWddmMonitors@@YAHXZ @ 0x1C01141D0 (-DxgIsSessionUsingWddmMonitors@@YAHXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C0131E04 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
+ *     ?GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C0133BB0 (-GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ?BuildPrimaryPathIndexFromCloneGroupId@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C0134E60 (-BuildPrimaryPathIndexFromCloneGroupId@CCD_TOPOLOGY@@QEAAXXZ.c)
+ *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C0135980 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
+ *     ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C01359F0 (-Reserve@CCD_TOPOLOGY@@QEAAGG@Z.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C0136844 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     ?CleanupPrimaryPathIndex@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C0137F14 (-CleanupPrimaryPathIndex@CCD_TOPOLOGY@@QEAAXXZ.c)
+ *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0142C1C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ *     DxgkStatusChangeNotify @ 0x1C01450A0 (DxgkStatusChangeNotify.c)
+ *     ?CheckAdapterViewSessionOwnership@CCD_TOPOLOGY@@AEAAJK@Z @ 0x1C016BB18 (-CheckAdapterViewSessionOwnership@CCD_TOPOLOGY@@AEAAJK@Z.c)
+ *     _CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PathChanged2734::__AUTO_USING_PM_PathChanged2734 @ 0x1C016D67C (_CCD_TOPOLOGY--ApplyTopologyWorker_--_2_--_AUTO_USING_PM_PathChanged2734--__AUTO_USING_PM_PathCh.c)
+ *     _CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PrimaryClonePathIndex2732::__AUTO_USING_PM_PrimaryClonePathIndex2732 @ 0x1C016D6B8 (_CCD_TOPOLOGY--ApplyTopologyWorker_--_2_--_AUTO_USING_PM_PrimaryClonePathIndex2732--__AUTO_USING.c)
+ *     ?RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z @ 0x1C018942C (-RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z.c)
+ *     ?IsSameCloneGroup@CCD_TOPOLOGY@@QEBA_NII_N@Z @ 0x1C02EADF8 (-IsSameCloneGroup@CCD_TOPOLOGY@@QEBA_NII_N@Z.c)
+ *     ?MarkPathsApplyFailure@CCD_TOPOLOGY@@AEAAXAEBU_LUID@@IJ@Z @ 0x1C02EAF6C (-MarkPathsApplyFailure@CCD_TOPOLOGY@@AEAAXAEBU_LUID@@IJ@Z.c)
  */
 
 __int64 __fastcall CCD_TOPOLOGY::ApplyTopologyWorker(
@@ -37,719 +37,796 @@ __int64 __fastcall CCD_TOPOLOGY::ApplyTopologyWorker(
         DWORD a2,
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a3)
 {
-  unsigned __int16 v4; // si
-  __int64 v5; // rbx
-  __int64 v6; // rcx
-  DXGSESSIONMGR *v7; // r14
-  unsigned int v8; // eax
+  unsigned int v3; // r14d
+  unsigned __int16 v5; // bx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  DXGSESSIONMGR *v10; // rsi
+  unsigned int CurrentProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
+  __int64 v13; // rsi
   __int64 v14; // rdx
   __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  struct DXGPROCESS *v18; // r12
-  __int64 v19; // r8
-  __int64 v20; // r9
-  int v21; // eax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  struct DXGPROCESS *v18; // r13
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rdx
   __int64 v22; // rcx
-  __int64 v23; // rsi
-  unsigned int v24; // edx
-  _DWORD *v25; // rax
-  __int64 v26; // rcx
-  unsigned int v27; // ecx
-  _DWORD *v28; // rax
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  unsigned int v31; // edx
-  _DWORD *v32; // rax
-  __int64 v33; // rcx
-  unsigned int v34; // ecx
-  _DWORD *v35; // rax
-  __int64 v36; // rdx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  int v25; // eax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // rcx
+  __int64 v29; // rsi
+  unsigned int v30; // edx
+  _DWORD *v31; // rax
+  __int64 v32; // rcx
+  unsigned int v33; // ecx
+  _DWORD *v34; // rax
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  unsigned int v37; // edx
+  _DWORD *v38; // rax
+  __int64 v39; // rcx
+  unsigned int v40; // ecx
+  _DWORD *v41; // rax
+  __int64 v42; // rdx
+  __int64 v43; // rdx
+  __int64 v44; // rcx
   DXGGLOBAL *Global; // rax
-  unsigned __int64 v38; // rax
-  __int64 v39; // r9
-  unsigned __int64 MaximumAdapterCountInSession; // kr00_8
-  __int64 v41; // rax
-  DXGGLOBAL *v42; // rax
-  __int64 v43; // rbx
-  unsigned __int16 v44; // ax
-  unsigned __int16 v45; // r10
-  unsigned __int16 v46; // cx
-  unsigned __int16 v47; // r9
-  __int64 v48; // r8
-  __int64 v49; // rbx
-  __int64 v50; // rdx
-  __int16 v51; // r9
-  unsigned __int16 v52; // r11
-  __int64 v53; // r11
-  __int64 v54; // r8
-  unsigned __int16 v55; // r10
-  __int64 v56; // rdx
-  unsigned __int16 v57; // cx
-  __int64 v58; // r9
-  unsigned __int16 v59; // r8
-  __int64 v60; // rdx
-  unsigned __int16 v61; // r11
-  __int64 v62; // rcx
-  unsigned __int16 v63; // r11
-  unsigned __int16 v64; // ax
-  unsigned int v65; // r8d
-  unsigned int v66; // r9d
-  __int64 v67; // r8
-  __int64 v68; // r10
-  int v69; // edx
-  __int64 v70; // rax
-  unsigned __int16 v71; // r15
-  unsigned __int16 v72; // ax
-  __int64 v73; // rdx
-  __int64 v74; // rax
-  __int64 v75; // rcx
-  unsigned int v76; // r9d
-  __int64 v77; // r10
-  __int64 v78; // r8
-  __int64 v79; // rbx
-  __int64 v80; // rsi
+  SIZE_T v46; // rax
+  unsigned __int64 MaximumAdapterCount; // kr00_8
+  PVOID v48; // rax
+  __int64 v49; // rdx
+  __int64 v50; // r8
+  __int64 v51; // r9
+  __int64 v52; // rcx
+  __int64 v53; // rax
+  DXGGLOBAL *v54; // rax
+  __int64 v55; // rdx
+  __int64 v56; // rcx
+  __int64 v57; // rbx
+  __int64 v58; // rcx
+  unsigned __int16 v59; // ax
+  unsigned int v60; // r14d
+  unsigned __int16 v61; // r10
+  unsigned __int16 v62; // r9
+  __int64 v63; // r8
+  __int64 v64; // rbx
+  __int64 v65; // rdx
+  __int16 v66; // r9
+  unsigned __int16 v67; // r11
+  __int64 v68; // r11
+  __int64 v69; // r8
+  unsigned __int16 v70; // r10
+  __int64 v71; // rdx
+  __int64 v72; // r9
+  unsigned __int16 v73; // r8
+  __int64 v74; // rdx
+  unsigned __int16 v75; // r11
+  __int64 v76; // rcx
+  unsigned __int16 v77; // r11
+  unsigned __int16 v78; // ax
+  unsigned int v79; // r8d
+  unsigned int v80; // r9d
   __int64 v81; // r8
-  int v82; // edx
-  __int64 v83; // rax
-  unsigned int v84; // edx
-  __int64 v85; // rax
-  int v86; // eax
-  unsigned int v87; // ebx
-  char v88; // r13
+  __int64 v82; // r10
+  int v83; // edx
+  __int64 v84; // rax
+  unsigned __int16 v85; // r15
+  unsigned __int16 v86; // ax
+  __int64 v87; // rdx
+  __int64 v88; // rax
+  __int64 v89; // rcx
+  unsigned int v90; // r9d
+  __int64 v91; // r10
+  __int64 v92; // r8
+  __int64 v93; // rbx
+  __int64 v94; // rsi
+  __int64 v95; // r8
+  int v96; // edx
+  __int64 v97; // rax
+  unsigned int v98; // edx
+  __int64 v99; // rax
+  int v100; // eax
+  unsigned int v101; // ebx
+  char v102; // r12
   DWORD LowPart; // r15d
-  int v90; // eax
-  __int64 v91; // rsi
-  int v92; // r14d
-  int v93; // eax
-  struct DXGGLOBAL *v94; // rax
-  __int64 v95; // rcx
-  unsigned __int16 v96; // si
-  __int64 v97; // rdx
-  __int64 v98; // rbx
-  unsigned int v99; // r15d
-  __int64 v100; // rax
-  LONG v101; // ecx
-  int v102; // eax
-  int v103; // r12d
-  __int64 v104; // rdx
-  int v105; // r10d
-  unsigned int v106; // r8d
-  unsigned int v107; // r9d
-  __int64 v108; // rdx
-  __int64 v109; // rcx
+  int v104; // eax
+  __int64 v105; // rdx
+  __int64 v106; // rsi
+  __int64 v107; // r14
+  int v108; // eax
+  __int64 v109; // r14
   struct DXGGLOBAL *v110; // rax
-  __int64 v111; // rcx
-  struct DXGGLOBAL *v112; // rsi
-  unsigned __int16 j; // bx
-  __int64 v114; // rdx
-  int v115; // eax
-  __int64 CurrentProcessSessionId; // rdx
-  __int64 v118; // rbx
-  __int64 v119; // r11
-  __int64 v120; // r10
-  __int64 v121; // rbx
+  __int64 v111; // r8
+  __int64 v112; // r9
+  __int64 v113; // rcx
+  unsigned __int16 v114; // si
+  __int64 v115; // rdx
+  __int64 v116; // rbx
+  unsigned int v117; // r15d
+  __int64 v118; // rax
+  LONG v119; // ecx
+  int v120; // eax
+  __int64 v121; // rdx
   __int64 v122; // rcx
-  int v123; // eax
-  __int64 v124; // rdx
+  __int64 v123; // r13
+  __int64 v124; // rcx
+  __int64 v125; // rdx
+  int v126; // r10d
+  unsigned int v127; // r8d
+  unsigned int v128; // r9d
+  struct DXGGLOBAL *v129; // rax
+  __int64 v130; // rcx
+  struct DXGGLOBAL *v131; // rsi
+  unsigned __int16 j; // bx
+  __int64 v133; // rdx
+  int v134; // eax
+  __int64 v136; // rdx
+  __int64 v137; // rcx
+  __int64 v138; // rbx
+  __int64 v139; // rdx
+  __int64 v140; // rcx
+  __int64 v141; // rcx
+  __int64 v142; // rax
+  __int64 v143; // rax
+  __int64 v144; // rax
+  __int64 v145; // rbx
+  __int64 v146; // r11
+  __int64 v147; // r10
+  __int64 v148; // rbx
+  __int64 v149; // rcx
+  _QWORD *v150; // rax
+  _QWORD *v151; // rax
+  __int64 v152; // rax
+  __int64 v153; // rax
+  _QWORD *v154; // rax
+  int v155; // eax
+  __int64 v156; // rbx
+  __int64 v157; // rax
+  __int64 v158; // rdx
+  __int64 v159; // rax
   unsigned __int16 i; // [rsp+30h] [rbp-D0h] BYREF
   struct _LUID Luid; // [rsp+38h] [rbp-C8h] BYREF
-  struct tagRECT v127; // [rsp+40h] [rbp-C0h] BYREF
+  struct tagRECT v162; // [rsp+40h] [rbp-C0h] BYREF
   struct DXGPROCESS *Current; // [rsp+50h] [rbp-B0h]
-  __int64 v129; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned int v130; // [rsp+60h] [rbp-A0h]
-  __int64 v131; // [rsp+68h] [rbp-98h] BYREF
-  unsigned int v132; // [rsp+70h] [rbp-90h]
-  __int64 v133; // [rsp+78h] [rbp-88h] BYREF
-  unsigned int v134; // [rsp+80h] [rbp-80h]
-  __int64 v135; // [rsp+88h] [rbp-78h] BYREF
-  unsigned int v136; // [rsp+90h] [rbp-70h]
-  _BYTE v137[64]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v138; // [rsp+E0h] [rbp-20h]
-  int v139; // [rsp+F4h] [rbp-Ch]
-  struct _KAPC_STATE ApcState; // [rsp+110h] [rbp+10h] BYREF
-  char v141; // [rsp+140h] [rbp+40h]
+  __int64 v164; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned int v165; // [rsp+60h] [rbp-A0h]
+  __int64 v166; // [rsp+68h] [rbp-98h] BYREF
+  unsigned int v167; // [rsp+70h] [rbp-90h]
+  __int64 v168; // [rsp+78h] [rbp-88h] BYREF
+  unsigned int v169; // [rsp+80h] [rbp-80h]
+  __int64 v170; // [rsp+88h] [rbp-78h] BYREF
+  unsigned int v171; // [rsp+90h] [rbp-70h]
+  _BYTE v172[64]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v173; // [rsp+E0h] [rbp-20h]
+  int v174; // [rsp+F4h] [rbp-Ch]
+  struct _KAPC_STATE ApcState; // [rsp+100h] [rbp+0h] BYREF
+  char v176; // [rsp+130h] [rbp+30h]
 
-  *(_QWORD *)&v127.left = a3;
+  v3 = 0;
+  *(_QWORD *)&v162.left = a3;
   Luid.LowPart = a2;
-  v141 = 0;
-  v4 = 8;
-  CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v137, 8u, 0);
-  v5 = -1073741811LL;
-  v7 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-  if ( !v7
-    || (v8 = PsGetCurrentProcessSessionId(v6),
-        SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v7, v8),
-        LODWORD(v7) = 0,
-        !SessionDataForSpecifiedSession) )
+  v176 = 0;
+  v5 = 8;
+  CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v172, 8u, 0);
+  v10 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v7, v6) + 102);
+  if ( v10 )
   {
-    CurrentProcessSessionId = (unsigned int)PsGetCurrentProcessSessionId(v6);
-    goto LABEL_163;
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v9, v8);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v10, CurrentProcessSessionId);
   }
-  CPROCESSATTACHHELPER::Attach(&ApcState, *((PRKPROCESS *)SessionDataForSpecifiedSession + 2331));
-  Current = DXGPROCESS::GetCurrent(v11, v10, v12, v13);
+  else
+  {
+    SessionDataForSpecifiedSession = 0LL;
+  }
+  LODWORD(v13) = -1073741811;
+  if ( !SessionDataForSpecifiedSession )
+  {
+    v138 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v138 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v140, v139);
+    v141 = v138;
+    *(_QWORD *)(v138 + 32) = -1073741811LL;
+LABEL_133:
+    WdLogEvent5_WdError(v141);
+    goto LABEL_118;
+  }
+  CPROCESSATTACHHELPER::Attach(&ApcState, *((PRKPROCESS *)SessionDataForSpecifiedSession + 2329));
+  Current = DXGPROCESS::GetCurrent(v15, v14);
   v18 = Current;
   if ( !Current )
   {
-    WdLogSingleEntry0(2LL);
-    goto LABEL_119;
+    v142 = WdLogNewEntry5_WdError(v17, v16);
+LABEL_132:
+    v141 = v142;
+    goto LABEL_133;
   }
-  if ( !(unsigned int)DxgIsSessionUsingWddmMonitors(v15, v14, v16, v17) )
+  if ( (unsigned int)DxgIsSessionUsingWddmMonitors() )
   {
-    WdLogSingleEntry1(2LL, Current);
-    LODWORD(v5) = -1073741790;
-    goto LABEL_119;
-  }
-  for ( i = 8; ; v4 = i )
-  {
-    if ( (unsigned __int16)CCD_TOPOLOGY::Reserve((CCD_TOPOLOGY *)v137, v4, v19, v20) < v4 )
+    for ( i = 8; ; v5 = i )
     {
-      WdLogSingleEntry2(6LL, *((_QWORD *)this + 8), v4);
-      LODWORD(v5) = -1073741801;
-      goto LABEL_119;
-    }
-    v139 |= 3u;
-    v21 = CCD_TOPOLOGY::RetrieveActive((CCD_TOPOLOGY *)v137, 0, 1, 1, &i);
-    v5 = v21;
-    if ( v21 != -1073741789 )
-      break;
-  }
-  if ( v21 < 0 )
-  {
-    CurrentProcessSessionId = *((_QWORD *)this + 8);
-LABEL_163:
-    WdLogSingleEntry2(2LL, CurrentProcessSessionId, v5);
-    goto LABEL_119;
-  }
-  v22 = *((_QWORD *)this + 8);
-  v23 = v138;
-  v24 = *(unsigned __int16 *)(v22 + 20);
-  v135 = v22 + 56;
-  v136 = v24;
-  if ( v24 )
-  {
-    v25 = (_DWORD *)(v22 + 312);
-    v26 = v24;
-    do
-    {
-      *v25 |= 4u;
-      v25[3] = 0;
-      v25 += 74;
-      --v26;
-    }
-    while ( v26 );
-  }
-  v27 = *(unsigned __int16 *)(v23 + 20);
-  v133 = v23 + 56;
-  v134 = v27;
-  if ( v27 )
-  {
-    v28 = (_DWORD *)(v23 + 312);
-    v29 = v27;
-    do
-    {
-      *v28 |= 4u;
-      v28[3] = 0;
-      v28 += 74;
-      --v29;
-    }
-    while ( v29 );
-  }
-  v30 = *((_QWORD *)this + 8);
-  v31 = *(unsigned __int16 *)(v30 + 20);
-  v131 = v30 + 56;
-  v132 = v31;
-  if ( v31 )
-  {
-    v32 = (_DWORD *)(v30 + 312);
-    v33 = v31;
-    do
-    {
-      *v32 |= 0x10u;
-      v32[4] = 0;
-      v32 += 74;
-      --v33;
-    }
-    while ( v33 );
-  }
-  v34 = *(unsigned __int16 *)(v23 + 20);
-  v129 = v23 + 56;
-  v130 = v34;
-  if ( v34 )
-  {
-    v35 = (_DWORD *)(v23 + 312);
-    v36 = v34;
-    do
-    {
-      *v35 |= 0x10u;
-      v35[4] = 0;
-      v35 += 74;
-      --v36;
-    }
-    while ( v36 );
-  }
-  CCD_TOPOLOGY::BuildPrimaryPathIndexFromCloneGroupId(this);
-  CCD_TOPOLOGY::BuildPrimaryPathIndexFromCloneGroupId((CCD_TOPOLOGY *)v137);
-  Global = DXGGLOBAL_GetGlobal();
-  MaximumAdapterCountInSession = DXGGLOBAL::GetMaximumAdapterCountInSession(Global);
-  v38 = 340 * MaximumAdapterCountInSession;
-  if ( !is_mul_ok(MaximumAdapterCountInSession, 0x154uLL) )
-    v38 = -1LL;
-  *(_QWORD *)(*((_QWORD *)this + 8) + 48LL) = operator new[](v38, 0x63644356u, 256LL, v39);
-  v41 = *((_QWORD *)this + 8);
-  if ( !*(_QWORD *)(v41 + 48) )
-  {
-    WdLogSingleEntry2(6LL, this, *((_QWORD *)this + 8));
-    LODWORD(v5) = -1073741801;
-    goto LABEL_118;
-  }
-  *(_WORD *)(v41 + 28) = 0;
-  while ( 1 )
-  {
-    v42 = DXGGLOBAL_GetGlobal();
-    if ( (unsigned int)v7 >= DXGGLOBAL::GetMaximumAdapterCountInSession(v42) )
-      break;
-    v43 = 340LL * (unsigned int)v7;
-    memset((void *)(v43 + *(_QWORD *)(*((_QWORD *)this + 8) + 48LL)), 0, 0x154uLL);
-    memset((void *)(v43 + *(_QWORD *)(*((_QWORD *)this + 8) + 48LL) + 8LL), 255, 0x40uLL);
-    LODWORD(v7) = (_DWORD)v7 + 1;
-  }
-  DxgkRemoveAllSessionViewForCurrentSession();
-  v44 = *(_WORD *)(v23 + 20);
-  LODWORD(v7) = 0;
-  v45 = 0;
-  if ( v44 )
-  {
-    v46 = 0;
-    do
-    {
-      v47 = 0;
-      v48 = v23 + 296LL * v46;
-      *(_DWORD *)(v48 + 328) = 0;
-      v49 = *((_QWORD *)this + 8);
-      if ( *(_WORD *)(v49 + 20) )
+      if ( CCD_TOPOLOGY::Reserve((CCD_TOPOLOGY *)v172, v5) < v5 )
       {
-        while ( !CCD_TOPOLOGY::IsMatchingSource(
-                   (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v48 + 56),
-                   (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(296LL * v47 + v49 + 56))
-             || *(_DWORD *)(v48 + 84) != *(_DWORD *)(v50 + 28) )
-        {
-          v47 = v51 + 1;
-          if ( v47 >= v52 )
-            goto LABEL_34;
-        }
-        if ( !CCD_TOPOLOGY::IsMatchingSource(
-                (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(296LL * *(unsigned int *)(v48 + 324) + v23 + 56),
-                (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(296LL * *(unsigned int *)(v50 + 268) + v49 + 56)) )
-        {
-          *(_DWORD *)(v53 + v23 + 328) = 1;
-          *(_QWORD *)(296LL * *(unsigned int *)(v48 + 324) + v23 + 252) = 0LL;
-        }
+        v159 = WdLogNewEntry5_WdLowResource(v22, v21, v23, v24);
+        *(_QWORD *)(v159 + 24) = *((_QWORD *)this + 8);
+        *(_QWORD *)(v159 + 32) = v5;
+        WdLogEvent5_WdLowResource(v159);
+        LODWORD(v13) = -1073741801;
+        goto LABEL_118;
       }
-LABEL_34:
-      if ( v47 >= *(_WORD *)(*((_QWORD *)this + 8) + 20LL) )
-      {
-        *(_DWORD *)(296LL * *(unsigned int *)(v48 + 324) + v23 + 328) = 1;
-        *(_QWORD *)(296LL * *(unsigned int *)(v48 + 324) + v23 + 252) = 0LL;
-      }
-      v44 = *(_WORD *)(v23 + 20);
-      v46 = ++v45;
-    }
-    while ( v45 < v44 );
-  }
-  v54 = *((_QWORD *)this + 8);
-  v55 = 0;
-  v56 = v54;
-  if ( *(_WORD *)(v54 + 20) )
-  {
-    v57 = 0;
-    do
-    {
-      v58 = v54 + 296LL * v57;
-      v59 = 0;
-      *(_DWORD *)(v58 + 328) = 0;
-      if ( *(_WORD *)(v23 + 20) )
-      {
-        while ( !CCD_TOPOLOGY::IsMatchingSource(
-                   (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v58 + 56),
-                   (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(296LL * v59 + v23 + 56))
-             || *(_DWORD *)(v60 + 28) != *(_DWORD *)(v58 + 84) )
-        {
-          if ( ++v59 >= v61 )
-            goto LABEL_45;
-        }
-        v62 = *(unsigned int *)(v60 + 268);
-        if ( (_DWORD)v62 == v59 && *(_DWORD *)(v58 + 324) == v55 )
-        {
-          *(_QWORD *)(v58 + 252) = *(_QWORD *)(v60 + 196);
-        }
-        else
-        {
-          v118 = *((_QWORD *)this + 8);
-          if ( !CCD_TOPOLOGY::IsMatchingSource(
-                  (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(296LL * *(unsigned int *)(v58 + 324) + v118 + 56),
-                  (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(296 * v62 + v23 + 56)) )
-          {
-            *(_DWORD *)(v119 + v118 + 328) = 1;
-            *(_QWORD *)(296LL * *(unsigned int *)(v58 + 324) + *((_QWORD *)this + 8) + 252) = 0LL;
-          }
-        }
-      }
-LABEL_45:
-      v44 = *(_WORD *)(v23 + 20);
-      if ( v59 >= v44 )
-      {
-        *(_DWORD *)(296LL * *(unsigned int *)(v58 + 324) + *((_QWORD *)this + 8) + 328) = 1;
-        *(_QWORD *)(296LL * *(unsigned int *)(v58 + 324) + *((_QWORD *)this + 8) + 252) = 0LL;
-        v44 = *(_WORD *)(v23 + 20);
-      }
-      v54 = *((_QWORD *)this + 8);
-      v57 = ++v55;
-      v56 = v54;
-    }
-    while ( v55 < *(_WORD *)(v54 + 20) );
-  }
-  v63 = 0;
-  if ( v44 )
-  {
-    v64 = 0;
-    do
-    {
-      v65 = *(_DWORD *)(v56 + 40);
-      v66 = 0;
-      if ( v65 )
-      {
-        v120 = *(_QWORD *)(v56 + 48);
-        v121 = 296LL * v64;
-        do
-        {
-          v122 = 340LL * v66;
-          if ( *(_DWORD *)(v121 + v23 + 72) == *(_DWORD *)(v122 + v120)
-            && *(_DWORD *)(v121 + v23 + 76) == *(_DWORD *)(v122 + v120 + 4) )
-          {
-            break;
-          }
-          ++v66;
-        }
-        while ( v66 < v65 );
-        LODWORD(v7) = 0;
-      }
-      v67 = 340LL * v66;
-      v68 = 296LL * v63;
-      *(_DWORD *)(*(_QWORD *)(v56 + 48) + v67 + 80) |= 1 << *(_DWORD *)(v68 + v23 + 80);
-      if ( _bittest64((const signed __int64 *)(v68 + v23 + 56), 0x24u) )
-        v69 = 1 << *(_DWORD *)(v68 + v23 + 80);
-      else
-        v69 = 0;
-      *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 8) + 48LL) + v67 + 232) |= v69;
-      if ( *(_DWORD *)(v68 + v23 + 328) == 1 )
-        *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 8) + 48LL) + v67 + 140) |= 1 << *(_DWORD *)(v68 + v23 + 80);
-      v54 = *((_QWORD *)this + 8);
-      v56 = v54;
-      v70 = *(unsigned int *)(v54 + 40);
-      if ( v66 >= (unsigned int)v70 )
-      {
-        *(_QWORD *)(340 * v70 + *(_QWORD *)(v54 + 48)) = *(_QWORD *)(v68 + v23 + 72);
-        ++*(_DWORD *)(*((_QWORD *)this + 8) + 40LL);
-        v54 = *((_QWORD *)this + 8);
-        v56 = v54;
-      }
-      v64 = ++v63;
-    }
-    while ( v63 < *(_WORD *)(v23 + 20) );
-  }
-  v71 = 0;
-  if ( *(_WORD *)(v54 + 20) )
-  {
-    v72 = 0;
-    while ( 1 )
-    {
-      v73 = 296LL * v72;
-      v74 = *(_QWORD *)(v54 + v73 + 56);
-      if ( (v74 & 0x187) != 0 )
-      {
-        *(_QWORD *)(v54 + v73 + 56) = v74 | 0x40000000000000LL;
-        *(_QWORD *)(v73 + *((_QWORD *)this + 8) + 64) |= *(_DWORD *)(v73 + *((_QWORD *)this + 8) + 56) & 0x187;
-        v54 = *((_QWORD *)this + 8);
-      }
-      *(_DWORD *)(v54 + v73 + 248) = 0;
-      v75 = *((_QWORD *)this + 8);
-      v76 = *(_DWORD *)(v75 + 40);
-      if ( v76 )
-      {
-        v77 = *(_QWORD *)(v75 + 48);
-        do
-        {
-          v78 = 340LL * (unsigned int)v7;
-          if ( *(_DWORD *)(v73 + v75 + 72) == *(_DWORD *)(v78 + v77)
-            && *(_DWORD *)(v73 + v75 + 76) == *(_DWORD *)(v78 + v77 + 4) )
-          {
-            break;
-          }
-          LODWORD(v7) = (_DWORD)v7 + 1;
-        }
-        while ( (unsigned int)v7 < v76 );
-      }
-      v79 = 296LL * v71;
-      v80 = 340LL * (unsigned int)v7;
-      *(_DWORD *)(*(_QWORD *)(v75 + 48) + v80 + 84) |= 1 << *(_DWORD *)(v79 + v75 + 80);
-      v81 = *((_QWORD *)this + 8);
-      if ( _bittest64((const signed __int64 *)(v81 + v79 + 56), 0x24u) )
-        v82 = 1 << *(_DWORD *)(v81 + v79 + 80);
-      else
-        v82 = 0;
-      *(_DWORD *)(*(_QWORD *)(v81 + 48) + v80 + 232) |= v82;
-      v83 = *((_QWORD *)this + 8);
-      v84 = *(_DWORD *)(v83 + v79 + 324);
-      if ( v84 == v71 )
-      {
-        *(_DWORD *)(*(_QWORD *)(v83 + 48) + v80 + 72) |= 1 << *(_DWORD *)(v83 + v79 + 80);
-      }
-      else if ( CCD_TOPOLOGY::IsSameCloneGroup(this, v84, v71, 1) )
-      {
-        goto LABEL_71;
-      }
-      *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 8) + 48LL)
-                + 4 * (85LL * (unsigned int)v7 + *(unsigned int *)(v79 + *((_QWORD *)this + 8) + 80))
-                + 8) = v71;
-LABEL_71:
-      v54 = *((_QWORD *)this + 8);
-      if ( *(_DWORD *)(v79 + v54 + 328) == 1 )
-      {
-        *(_DWORD *)(*(_QWORD *)(v54 + 48) + v80 + 140) |= 1 << *(_DWORD *)(v79 + v54 + 80);
-        v54 = *((_QWORD *)this + 8);
-      }
-      v85 = *(unsigned int *)(v54 + 40);
-      if ( (unsigned int)v7 >= (unsigned int)v85 )
-      {
-        *(_QWORD *)(340 * v85 + *(_QWORD *)(v54 + 48)) = *(_QWORD *)(v54 + v79 + 72);
-        ++*(_DWORD *)(*((_QWORD *)this + 8) + 40LL);
-        v54 = *((_QWORD *)this + 8);
-      }
-      ++v71;
-      LODWORD(v7) = 0;
-      v72 = v71;
-      if ( v71 >= *(_WORD *)(v54 + 20) )
-      {
-        v18 = Current;
+      v174 |= 3u;
+      v25 = CCD_TOPOLOGY::RetrieveActive((CCD_TOPOLOGY *)v172, 0, 1, 1, &i);
+      v13 = v25;
+      if ( v25 != -1073741789 )
         break;
-      }
     }
-  }
-  v86 = *(_DWORD *)(v54 + 40);
-  v87 = 0;
-  v88 = v86 != 0;
-  LOBYTE(i) = v86 != 0;
-  if ( !v86 )
-    goto LABEL_85;
-  LowPart = Luid.LowPart;
-  while ( 2 )
-  {
-    v90 = CCD_TOPOLOGY::CheckAdapterViewSessionOwnership(this, v87);
-    v91 = 340LL * v87;
-    v92 = v90;
-    if ( v90 < 0 )
+    if ( v25 < 0 )
     {
-      WdLogSingleEntry4(
-        2LL,
-        *(int *)(*(_QWORD *)(*((_QWORD *)this + 8) + 48LL) + 340LL * v87 + 4),
-        *(unsigned int *)(*(_QWORD *)(*((_QWORD *)this + 8) + 48LL) + 340LL * v87),
-        *((_QWORD *)this + 8),
-        v90);
-      CCD_TOPOLOGY::MarkPathsApplyFailure(
-        this,
-        (const struct _LUID *)(v91 + *(_QWORD *)(*((_QWORD *)this + 8) + 48LL)),
-        0xFFFFFFFF,
-        v92);
-      goto LABEL_149;
+      v142 = WdLogNewEntry5_WdError(v27, v26);
+      *(_QWORD *)(v142 + 24) = *((_QWORD *)this + 8);
+      *(_QWORD *)(v142 + 32) = v13;
+      goto LABEL_132;
     }
-    if ( !*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 8) + 48LL) + v91 + 80) )
+    v28 = *((_QWORD *)this + 8);
+    v29 = v173;
+    v30 = *(unsigned __int16 *)(v28 + 20);
+    v170 = v28 + 48;
+    v171 = v30;
+    if ( v30 )
     {
-LABEL_149:
-      LOBYTE(v7) = 0;
-      goto LABEL_83;
-    }
-    v93 = CCD_TOPOLOGY::ApplyTopologyOnAdapter(
-            this,
-            v18,
-            LowPart,
-            v87,
-            *(struct _DXGK_DISPLAY_SCENARIO_CONTEXT **)&v127.left);
-    LOBYTE(v7) = 0;
-    if ( v93 < 0 )
-      WdLogSingleEntry4(
-        2LL,
-        *(int *)(*(_QWORD *)(*((_QWORD *)this + 8) + 48LL) + 340LL * v87 + 4),
-        *(unsigned int *)(*(_QWORD *)(*((_QWORD *)this + 8) + 48LL) + 340LL * v87),
-        *((_QWORD *)this + 8),
-        v93);
-    else
-      v88 = 0;
-LABEL_83:
-    if ( ++v87 < *(_DWORD *)(*((_QWORD *)this + 8) + 40LL) )
-      continue;
-    break;
-  }
-  LOBYTE(i) = v88;
-LABEL_85:
-  v94 = DXGGLOBAL_GetGlobal();
-  QDC_CACHE::InvalidateCache(*((QDC_CACHE **)v94 + 191), 0);
-  v95 = *((_QWORD *)this + 8);
-  if ( !*(_WORD *)(v95 + 20) )
-    goto LABEL_99;
-  v96 = 0;
-  v97 = *((_QWORD *)this + 8);
-  while ( 2 )
-  {
-    v98 = 296LL * v96;
-    v99 = *(_DWORD *)(v98 + v95 + 324);
-    if ( *(int *)(v98 + v95 + 248) >= 0 )
-    {
-      if ( v99 == v96 )
+      v31 = (_DWORD *)(v28 + 280);
+      v32 = v30;
+      do
       {
-LABEL_89:
-        v100 = *(_QWORD *)(v97 + v98 + 56);
-        if ( (v100 & 0x800) == 0 || (v100 & 0x20000) == 0 )
+        *v31 |= 4u;
+        v31[3] = 0;
+        v31 += 68;
+        --v32;
+      }
+      while ( v32 );
+    }
+    v33 = *(unsigned __int16 *)(v29 + 20);
+    v168 = v29 + 48;
+    v169 = v33;
+    if ( v33 )
+    {
+      v34 = (_DWORD *)(v29 + 280);
+      v35 = v33;
+      do
+      {
+        *v34 |= 4u;
+        v34[3] = 0;
+        v34 += 68;
+        --v35;
+      }
+      while ( v35 );
+    }
+    v36 = *((_QWORD *)this + 8);
+    v37 = *(unsigned __int16 *)(v36 + 20);
+    v166 = v36 + 48;
+    v167 = v37;
+    if ( v37 )
+    {
+      v38 = (_DWORD *)(v36 + 280);
+      v39 = v37;
+      do
+      {
+        *v38 |= 0x10u;
+        v38[4] = 0;
+        v38 += 68;
+        --v39;
+      }
+      while ( v39 );
+    }
+    v40 = *(unsigned __int16 *)(v29 + 20);
+    v164 = v29 + 48;
+    v165 = v40;
+    if ( v40 )
+    {
+      v41 = (_DWORD *)(v29 + 280);
+      v42 = v40;
+      do
+      {
+        *v41 |= 0x10u;
+        v41[4] = 0;
+        v41 += 68;
+        --v42;
+      }
+      while ( v42 );
+    }
+    CCD_TOPOLOGY::BuildPrimaryPathIndexFromCloneGroupId(this);
+    CCD_TOPOLOGY::BuildPrimaryPathIndexFromCloneGroupId((CCD_TOPOLOGY *)v172);
+    Global = DXGGLOBAL::GetGlobal(v44, v43);
+    MaximumAdapterCount = DXGGLOBAL::GetMaximumAdapterCount(Global);
+    v46 = 336 * MaximumAdapterCount;
+    if ( !is_mul_ok(MaximumAdapterCount, 0x150uLL) )
+      v46 = -1LL;
+    v48 = operator new[](v46, 0x63644356u, PagedPool);
+    v52 = *((_QWORD *)this + 8);
+    *(_QWORD *)(v52 + 40) = v48;
+    v53 = *((_QWORD *)this + 8);
+    if ( *(_QWORD *)(v53 + 40) )
+    {
+      *(_WORD *)(v53 + 28) = 0;
+      while ( 1 )
+      {
+        v54 = DXGGLOBAL::GetGlobal(v52, v49);
+        if ( v3 >= DXGGLOBAL::GetMaximumAdapterCount(v54) )
+          break;
+        v57 = 336LL * v3;
+        memset((void *)(v57 + *(_QWORD *)(*((_QWORD *)this + 8) + 40LL)), 0, 0x150uLL);
+        memset((void *)(v57 + *(_QWORD *)(*((_QWORD *)this + 8) + 40LL) + 8LL), 255, 0x40uLL);
+        ++v3;
+      }
+      DxgkRemoveAllSessionViewForCurrentSession(v56, v55);
+      v59 = *(_WORD *)(v29 + 20);
+      v60 = 0;
+      v61 = 0;
+      if ( v59 )
+      {
+        LOWORD(v58) = 0;
+        do
         {
-          WdLogSingleEntry0(1LL);
-          v97 = *((_QWORD *)this + 8);
+          v62 = 0;
+          v63 = v29 + 272LL * (unsigned __int16)v58;
+          *(_DWORD *)(v63 + 296) = 0;
+          v64 = *((_QWORD *)this + 8);
+          if ( *(_WORD *)(v64 + 20) )
+          {
+            while ( !CCD_TOPOLOGY::IsMatchingSource(
+                       (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v63 + 48),
+                       (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(272LL * v62 + v64 + 48))
+                 || *(_DWORD *)(v63 + 76) != *(_DWORD *)(v65 + 28) )
+            {
+              v62 = v66 + 1;
+              if ( v62 >= v67 )
+                goto LABEL_35;
+            }
+            if ( !CCD_TOPOLOGY::IsMatchingSource(
+                    (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(272LL * *(unsigned int *)(v63 + 292) + v29 + 48),
+                    (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(272LL * *(unsigned int *)(v65 + 244) + v64 + 48)) )
+            {
+              *(_DWORD *)(v68 + v29 + 296) = 1;
+              *(_QWORD *)(272LL * *(unsigned int *)(v63 + 292) + v29 + 244) = 0LL;
+            }
+          }
+LABEL_35:
+          if ( v62 >= *(_WORD *)(*((_QWORD *)this + 8) + 20LL) )
+          {
+            *(_DWORD *)(272LL * *(unsigned int *)(v63 + 292) + v29 + 296) = 1;
+            *(_QWORD *)(272LL * *(unsigned int *)(v63 + 292) + v29 + 244) = 0LL;
+          }
+          v59 = *(_WORD *)(v29 + 20);
+          v58 = ++v61;
         }
-        v127.left = *(_DWORD *)(v98 + v97 + 200);
-        v127.right = *(_DWORD *)(v98 + v97 + 208) + v127.left;
-        v127.top = *(_DWORD *)(v98 + v97 + 204);
-        v101 = *(_DWORD *)(v98 + v97 + 212) + v127.top;
-        Luid = 0LL;
-        v127.bottom = v101;
-        if ( *(_DWORD *)(v98 + v97 + 252) || *(_DWORD *)(v98 + v97 + 256) )
+        while ( v61 < v59 );
+      }
+      v69 = *((_QWORD *)this + 8);
+      v70 = 0;
+      v71 = v69;
+      if ( *(_WORD *)(v69 + 20) )
+      {
+        LOWORD(v58) = 0;
+        do
         {
-          Luid = *(struct _LUID *)(v98 + v97 + 252);
+          v72 = v69 + 272LL * (unsigned __int16)v58;
+          v73 = 0;
+          *(_DWORD *)(v72 + 296) = 0;
+          if ( *(_WORD *)(v29 + 20) )
+          {
+            while ( !CCD_TOPOLOGY::IsMatchingSource(
+                       (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(v72 + 48),
+                       (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(272LL * v73 + v29 + 48))
+                 || *(_DWORD *)(v74 + 28) != *(_DWORD *)(v72 + 76) )
+            {
+              if ( ++v73 >= v75 )
+                goto LABEL_46;
+            }
+            v76 = *(unsigned int *)(v74 + 244);
+            if ( (_DWORD)v76 == v73 && *(_DWORD *)(v72 + 292) == v70 )
+            {
+              *(_QWORD *)(v72 + 244) = *(_QWORD *)(v74 + 196);
+            }
+            else
+            {
+              v145 = *((_QWORD *)this + 8);
+              if ( !CCD_TOPOLOGY::IsMatchingSource(
+                      (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(272LL * *(unsigned int *)(v72 + 292) + v145 + 48),
+                      (struct D3DKMT_PATHMODALITY_DESCRIPTOR *)(272 * v76 + v29 + 48)) )
+              {
+                *(_DWORD *)(v146 + v145 + 296) = 1;
+                *(_QWORD *)(272LL * *(unsigned int *)(v72 + 292) + *((_QWORD *)this + 8) + 244) = 0LL;
+              }
+            }
+          }
+LABEL_46:
+          v59 = *(_WORD *)(v29 + 20);
+          if ( v73 >= v59 )
+          {
+            *(_DWORD *)(272LL * *(unsigned int *)(v72 + 292) + *((_QWORD *)this + 8) + 296) = 1;
+            *(_QWORD *)(272LL * *(unsigned int *)(v72 + 292) + *((_QWORD *)this + 8) + 244) = 0LL;
+            v59 = *(_WORD *)(v29 + 20);
+          }
+          v69 = *((_QWORD *)this + 8);
+          v58 = ++v70;
+          v71 = v69;
+        }
+        while ( v70 < *(_WORD *)(v69 + 20) );
+      }
+      v77 = 0;
+      if ( v59 )
+      {
+        v78 = 0;
+        do
+        {
+          v79 = *(_DWORD *)(v71 + 36);
+          v80 = 0;
+          if ( v79 )
+          {
+            v147 = *(_QWORD *)(v71 + 40);
+            v148 = 272LL * v78;
+            do
+            {
+              v149 = 336LL * v80;
+              if ( *(_DWORD *)(v148 + v29 + 64) == *(_DWORD *)(v149 + v147)
+                && *(_DWORD *)(v148 + v29 + 68) == *(_DWORD *)(v149 + v147 + 4) )
+              {
+                break;
+              }
+              ++v80;
+            }
+            while ( v80 < v79 );
+            v60 = 0;
+          }
+          v81 = 336LL * v80;
+          v82 = 272LL * v77;
+          *(_DWORD *)(*(_QWORD *)(v71 + 40) + v81 + 80) |= 1 << *(_DWORD *)(v82 + v29 + 72);
+          if ( (*(_QWORD *)(v82 + v29 + 48) & 0x1000000000LL) != 0 )
+            v83 = 1 << *(_DWORD *)(v82 + v29 + 72);
+          else
+            v83 = 0;
+          v58 = *(_QWORD *)(*((_QWORD *)this + 8) + 40LL);
+          *(_DWORD *)(v58 + v81 + 228) |= v83;
+          if ( *(_DWORD *)(v82 + v29 + 296) == 1 )
+          {
+            v58 = *(unsigned int *)(v82 + v29 + 72);
+            *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 8) + 40LL) + v81 + 136) |= 1 << v58;
+          }
+          v69 = *((_QWORD *)this + 8);
+          v71 = v69;
+          v84 = *(unsigned int *)(v69 + 36);
+          if ( v80 >= (unsigned int)v84 )
+          {
+            v58 = *(_QWORD *)(v69 + 40);
+            *(_QWORD *)(336 * v84 + v58) = *(_QWORD *)(v82 + v29 + 64);
+            ++*(_DWORD *)(*((_QWORD *)this + 8) + 36LL);
+            v69 = *((_QWORD *)this + 8);
+            v71 = v69;
+          }
+          v78 = ++v77;
+        }
+        while ( v77 < *(_WORD *)(v29 + 20) );
+      }
+      v85 = 0;
+      if ( *(_WORD *)(v69 + 20) )
+      {
+        v86 = 0;
+        while ( 1 )
+        {
+          v87 = 272LL * v86;
+          v88 = *(_QWORD *)(v87 + v69 + 48);
+          if ( (v88 & 0x187) != 0 )
+          {
+            *(_QWORD *)(v87 + v69 + 48) = v88 | 0x40000000000000LL;
+            *(_QWORD *)(v87 + *((_QWORD *)this + 8) + 56) |= *(_DWORD *)(v87 + *((_QWORD *)this + 8) + 48) & 0x187;
+            v69 = *((_QWORD *)this + 8);
+          }
+          *(_DWORD *)(v87 + v69 + 240) = 0;
+          v89 = *((_QWORD *)this + 8);
+          v90 = *(_DWORD *)(v89 + 36);
+          if ( v90 )
+          {
+            v91 = *(_QWORD *)(v89 + 40);
+            do
+            {
+              v92 = 336LL * v60;
+              if ( *(_DWORD *)(v89 + v87 + 64) == *(_DWORD *)(v92 + v91)
+                && *(_DWORD *)(v89 + v87 + 68) == *(_DWORD *)(v92 + v91 + 4) )
+              {
+                break;
+              }
+              ++v60;
+            }
+            while ( v60 < v90 );
+          }
+          v93 = 272LL * v85;
+          v94 = 336LL * v60;
+          *(_DWORD *)(*(_QWORD *)(v89 + 40) + v94 + 84) |= 1 << *(_DWORD *)(v93 + v89 + 72);
+          v95 = *((_QWORD *)this + 8);
+          if ( (*(_QWORD *)(v95 + v93 + 48) & 0x1000000000LL) != 0 )
+            v96 = 1 << *(_DWORD *)(v95 + v93 + 72);
+          else
+            v96 = 0;
+          *(_DWORD *)(*(_QWORD *)(v95 + 40) + v94 + 228) |= v96;
+          v97 = *((_QWORD *)this + 8);
+          v98 = *(_DWORD *)(v93 + v97 + 292);
+          if ( v98 == v85 )
+          {
+            *(_DWORD *)(*(_QWORD *)(v97 + 40) + v94 + 72) |= 1 << *(_DWORD *)(v93 + v97 + 72);
+          }
+          else if ( CCD_TOPOLOGY::IsSameCloneGroup(this, v98, v85, 1) )
+          {
+            goto LABEL_72;
+          }
+          v58 = *((_QWORD *)this + 8);
+          v71 = 84LL * v60 + *(unsigned int *)(v93 + v58 + 72);
+          *(_DWORD *)(*(_QWORD *)(v58 + 40) + 4 * v71 + 8) = v85;
+LABEL_72:
+          v69 = *((_QWORD *)this + 8);
+          if ( *(_DWORD *)(v93 + v69 + 296) == 1 )
+          {
+            v58 = *(unsigned int *)(v93 + v69 + 72);
+            v71 = *(_QWORD *)(v69 + 40);
+            *(_DWORD *)(v71 + v94 + 136) |= 1 << v58;
+            v69 = *((_QWORD *)this + 8);
+          }
+          v99 = *(unsigned int *)(v69 + 36);
+          if ( v60 >= (unsigned int)v99 )
+          {
+            v58 = *(_QWORD *)(v69 + 40);
+            v71 = 336 * v99;
+            *(_QWORD *)(336 * v99 + v58) = *(_QWORD *)(v93 + v69 + 64);
+            ++*(_DWORD *)(*((_QWORD *)this + 8) + 36LL);
+            v69 = *((_QWORD *)this + 8);
+          }
+          ++v85;
+          v60 = 0;
+          v86 = v85;
+          if ( v85 >= *(_WORD *)(v69 + 20) )
+          {
+            v18 = Current;
+            break;
+          }
+        }
+      }
+      v100 = *(_DWORD *)(v69 + 36);
+      v101 = 0;
+      v102 = v100 != 0;
+      LOBYTE(i) = v100 != 0;
+      if ( v100 )
+      {
+        LowPart = Luid.LowPart;
+        do
+        {
+          v104 = CCD_TOPOLOGY::CheckAdapterViewSessionOwnership(this, v101);
+          v58 = v101;
+          v106 = 336LL * v101;
+          v107 = v104;
+          if ( v104 < 0 )
+          {
+            v150 = (_QWORD *)WdLogNewEntry5_WdError(v101, v105);
+            v150[3] = *(int *)(*(_QWORD *)(*((_QWORD *)this + 8) + 40LL) + v106 + 4);
+            v150[4] = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)this + 8) + 40LL) + 336LL * v101);
+            v150[5] = *((_QWORD *)this + 8);
+            v150[6] = v107;
+            WdLogEvent5_WdError(v150);
+            CCD_TOPOLOGY::MarkPathsApplyFailure(
+              this,
+              (const struct _LUID *)(v106 + *(_QWORD *)(*((_QWORD *)this + 8) + 40LL)),
+              0xFFFFFFFF,
+              v107);
+          }
+          else
+          {
+            v71 = *(_QWORD *)(*((_QWORD *)this + 8) + 40LL);
+            if ( *(_QWORD *)(v71 + v106 + 80) )
+            {
+              v108 = CCD_TOPOLOGY::ApplyTopologyOnAdapter(
+                       this,
+                       v18,
+                       LowPart,
+                       v101,
+                       *(struct _DXGK_DISPLAY_SCENARIO_CONTEXT **)&v162.left);
+              v109 = v108;
+              if ( v108 < 0 )
+              {
+                v151 = (_QWORD *)WdLogNewEntry5_WdError(v58, v71);
+                v151[3] = *(int *)(*(_QWORD *)(*((_QWORD *)this + 8) + 40LL) + v106 + 4);
+                v151[4] = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)this + 8) + 40LL) + 336LL * v101);
+                v151[5] = *((_QWORD *)this + 8);
+                v151[6] = v109;
+                WdLogEvent5_WdError(v151);
+              }
+              else
+              {
+                v102 = 0;
+              }
+            }
+          }
+          ++v101;
+        }
+        while ( v101 < *(_DWORD *)(*((_QWORD *)this + 8) + 36LL) );
+        LOBYTE(i) = v102;
+      }
+      v110 = DXGGLOBAL::GetGlobal(v58, v71);
+      QDC_CACHE::InvalidateCache(*((struct DXGFASTMUTEX *const **)v110 + 172), 0LL, v111, v112);
+      v113 = *((_QWORD *)this + 8);
+      if ( *(_WORD *)(v113 + 20) )
+      {
+        v114 = 0;
+        v115 = *((_QWORD *)this + 8);
+        while ( 1 )
+        {
+          v116 = 272LL * v114;
+          v117 = *(_DWORD *)(v116 + v113 + 292);
+          if ( *(int *)(v116 + v113 + 240) >= 0 )
+          {
+            if ( v117 == v114 )
+              goto LABEL_90;
+            if ( !CCD_TOPOLOGY::IsSameCloneGroup(this, v117, v114, 1) )
+              break;
+          }
+LABEL_97:
+          v113 = *((_QWORD *)this + 8);
+          ++v114;
+          v115 = v113;
+          if ( v114 >= *(_WORD *)(v113 + 20) )
+          {
+            v102 = i;
+            goto LABEL_99;
+          }
+        }
+        v115 = *((_QWORD *)this + 8);
+LABEL_90:
+        v118 = *(_QWORD *)(v116 + v115 + 48);
+        if ( (v118 & 0x800) == 0 || (v118 & 0x20000) == 0 )
+        {
+          v152 = WdLogNewEntry5_WdAssertion(v113, v115);
+          WdLogEvent5_WdAssertion(v152);
+          v115 = *((_QWORD *)this + 8);
+        }
+        v162.left = *(_DWORD *)(v116 + v115 + 192);
+        v162.right = *(_DWORD *)(v116 + v115 + 200) + v162.left;
+        v162.top = *(_DWORD *)(v116 + v115 + 196);
+        v119 = *(_DWORD *)(v116 + v115 + 204) + v162.top;
+        Luid = 0LL;
+        v162.bottom = v119;
+        if ( *(_DWORD *)(v116 + v115 + 244) || *(_DWORD *)(v116 + v115 + 248) )
+        {
+          Luid = *(struct _LUID *)(v116 + v115 + 244);
         }
         else
         {
           if ( ZwAllocateLocallyUniqueId(&Luid) < 0 )
-            WdLogSingleEntry0(1LL);
-          v97 = *((_QWORD *)this + 8);
+          {
+            v153 = WdLogNewEntry5_WdAssertion(v137, v136);
+            WdLogEvent5_WdAssertion(v153);
+          }
+          v115 = *((_QWORD *)this + 8);
         }
-        v102 = DxgkCreateSessionViewForCurrentSession(
-                 (struct _LUID *)(v98 + v97 + 72),
-                 *(_DWORD *)(v98 + v97 + 80),
-                 &v127,
-                 v99 == v96,
+        v120 = DxgkCreateSessionViewForCurrentSession(
+                 (struct _LUID *)(v116 + v115 + 64),
+                 *(unsigned int *)(v116 + v115 + 72),
+                 &v162,
+                 v117 == v114,
                  &Luid);
-        v103 = v102;
-        if ( v102 < 0 )
+        v123 = v120;
+        if ( v120 < 0 )
         {
-          WdLogSingleEntry4(
-            2LL,
-            *(int *)(v98 + *((_QWORD *)this + 8) + 76),
-            *(unsigned int *)(v98 + *((_QWORD *)this + 8) + 72),
-            *(unsigned int *)(v98 + *((_QWORD *)this + 8) + 80),
-            v102);
-          *(_DWORD *)(v98 + *((_QWORD *)this + 8) + 248) = v103;
+          v154 = (_QWORD *)WdLogNewEntry5_WdError(v122, v121);
+          v154[3] = *(int *)(v116 + *((_QWORD *)this + 8) + 68);
+          v154[4] = *(unsigned int *)(v116 + *((_QWORD *)this + 8) + 64);
+          v154[5] = *(unsigned int *)(v116 + *((_QWORD *)this + 8) + 72);
+          v154[6] = v123;
+          WdLogEvent5_WdError(v154);
+          *(_DWORD *)(v116 + *((_QWORD *)this + 8) + 240) = v123;
         }
-        else if ( v99 == v96 )
+        else if ( v117 == v114 )
         {
           ++*(_WORD *)(*((_QWORD *)this + 8) + 28LL);
         }
+        goto LABEL_97;
       }
-      else if ( !CCD_TOPOLOGY::IsSameCloneGroup(this, v99, v96, 1) )
-      {
-        v97 = *((_QWORD *)this + 8);
-        goto LABEL_89;
-      }
-      LOBYTE(v7) = 0;
-    }
-    v95 = *((_QWORD *)this + 8);
-    ++v96;
-    v97 = v95;
-    if ( v96 < *(_WORD *)(v95 + 20) )
-      continue;
-    break;
-  }
-  v88 = i;
 LABEL_99:
-  CCD_TOPOLOGY::CleanupPrimaryPathIndex(this);
-  CCD_TOPOLOGY::CleanupPrimaryPathIndex((CCD_TOPOLOGY *)v137);
-  v104 = *((_QWORD *)this + 8);
-  v105 = 0;
-  v106 = 0;
-  v107 = *(_DWORD *)(v104 + 40);
-  if ( v107 )
-  {
-    v108 = *(_QWORD *)(v104 + 48);
-    while ( 1 )
-    {
-      v109 = 340LL * v106;
-      if ( *(_DWORD *)(v109 + v108 + 96) || *(_DWORD *)(v109 + v108 + 88) )
-        break;
-      if ( *(_DWORD *)(v109 + v108 + 92)
-        || *(_DWORD *)(v109 + v108 + 124)
-        || *(_DWORD *)(v109 + v108 + 120)
-        || *(_DWORD *)(v109 + v108 + 132) )
+      CCD_TOPOLOGY::CleanupPrimaryPathIndex(this);
+      CCD_TOPOLOGY::CleanupPrimaryPathIndex((CCD_TOPOLOGY *)v172);
+      v125 = *((_QWORD *)this + 8);
+      v126 = 0;
+      v127 = 0;
+      v128 = *(_DWORD *)(v125 + 36);
+      if ( v128 )
       {
-        v105 = 1;
-      }
-      if ( ++v106 >= v107 )
-      {
-        if ( v105 )
+        v125 = *(_QWORD *)(v125 + 40);
+        while ( 1 )
         {
-          v127 = 0LL;
-          v127.left = 11;
-          v123 = DxgkStatusChangeNotify(&v127);
-          if ( v123 < 0 )
-            WdLogSingleEntry1(2LL, v123);
+          v124 = 336LL * v127;
+          if ( *(_DWORD *)(v124 + v125 + 96) || *(_DWORD *)(v124 + v125 + 88) )
+            break;
+          if ( *(_DWORD *)(v124 + v125 + 92) || *(_DWORD *)(v124 + v125 + 124) || *(_DWORD *)(v124 + v125 + 120) )
+            v126 = 1;
+          if ( ++v127 >= v128 )
+            goto LABEL_107;
         }
-        break;
+        v126 = 0;
+LABEL_107:
+        if ( v126 )
+        {
+          v162 = 0LL;
+          v162.left = 11;
+          v155 = DxgkStatusChangeNotify(&v162);
+          v156 = v155;
+          if ( v155 < 0 )
+          {
+            v157 = WdLogNewEntry5_WdError(v124, v125);
+            *(_QWORD *)(v157 + 24) = v156;
+            WdLogEvent5_WdError(v157);
+          }
+        }
       }
+      v129 = DXGGLOBAL::GetGlobal(v124, v125);
+      v130 = *((_QWORD *)this + 8);
+      v131 = v129;
+      if ( *(_WORD *)(v130 + 20) > 1u )
+      {
+        DXGGLOBAL::RecordFeatureUsage(v129, 0LL, 1LL);
+        v130 = *((_QWORD *)this + 8);
+      }
+      if ( *(_WORD *)(v130 + 20) )
+      {
+        for ( j = 0; j < *(_WORD *)(v130 + 20); ++j )
+        {
+          v133 = 272LL * j;
+          if ( *(int *)(v133 + v130 + 240) >= 0 )
+          {
+            v134 = *(_DWORD *)(v133 + v130 + 256);
+            if ( v134 == 12 )
+            {
+              v158 = 4LL;
+LABEL_164:
+              DXGGLOBAL::RecordFeatureUsage(v131, v158, 1LL);
+              goto LABEL_115;
+            }
+            if ( v134 == 30 )
+            {
+              v158 = 5LL;
+              goto LABEL_164;
+            }
+          }
+LABEL_115:
+          v130 = *((_QWORD *)this + 8);
+        }
+      }
+      LODWORD(v13) = v102 != 0 ? 0xC0000001 : 0;
     }
-  }
-  v110 = DXGGLOBAL_GetGlobal();
-  v111 = *((_QWORD *)this + 8);
-  v112 = v110;
-  if ( *(_WORD *)(v111 + 20) > 1u )
-  {
-    DXGGLOBAL::RecordFeatureUsage(v110, 0LL, 1LL);
-    v111 = *((_QWORD *)this + 8);
-  }
-  if ( *(_WORD *)(v111 + 20) )
-  {
-    for ( j = 0; j < *(_WORD *)(v111 + 20); ++j )
+    else
     {
-      v114 = 296LL * j;
-      if ( *(int *)(v114 + v111 + 248) >= 0 )
-      {
-        v115 = *(_DWORD *)(v114 + v111 + 264);
-        if ( v115 == 12 )
-        {
-          v124 = 4LL;
-LABEL_160:
-          DXGGLOBAL::RecordFeatureUsage(v112, v124, 1LL);
-          goto LABEL_116;
-        }
-        if ( v115 == 30 )
-        {
-          v124 = 5LL;
-          goto LABEL_160;
-        }
-      }
-LABEL_116:
-      v111 = *((_QWORD *)this + 8);
+      v144 = WdLogNewEntry5_WdLowResource(v52, v49, v50, v51);
+      *(_QWORD *)(v144 + 24) = this;
+      *(_QWORD *)(v144 + 32) = *((_QWORD *)this + 8);
+      WdLogEvent5_WdLowResource(v144);
+      LODWORD(v13) = -1073741801;
     }
+    CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PathChanged2734::__AUTO_USING_PM_PathChanged2734(&v164);
+    CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PathChanged2734::__AUTO_USING_PM_PathChanged2734(&v166);
+    CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PrimaryClonePathIndex2732::__AUTO_USING_PM_PrimaryClonePathIndex2732(&v168);
+    CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PrimaryClonePathIndex2732::__AUTO_USING_PM_PrimaryClonePathIndex2732(&v170);
   }
-  LODWORD(v5) = v88 != 0 ? 0xC0000001 : 0;
+  else
+  {
+    v143 = WdLogNewEntry5_WdError(v20, v19);
+    *(_QWORD *)(v143 + 24) = Current;
+    WdLogEvent5_WdError(v143);
+    LODWORD(v13) = -1073741790;
+  }
 LABEL_118:
-  CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PathChanged3014::__AUTO_USING_PM_PathChanged3014(&v129);
-  CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PathChanged3014::__AUTO_USING_PM_PathChanged3014(&v131);
-  CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PrimaryClonePathIndex3012::__AUTO_USING_PM_PrimaryClonePathIndex3012(&v133);
-  CCD_TOPOLOGY::ApplyTopologyWorker_::_2_::_AUTO_USING_PM_PrimaryClonePathIndex3012::__AUTO_USING_PM_PrimaryClonePathIndex3012(&v135);
-LABEL_119:
-  CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v137);
-  if ( v141 != (_BYTE)v7 )
+  CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v172);
+  if ( v176 )
     KeUnstackDetachProcess(&ApcState);
-  return (unsigned int)v5;
+  return (unsigned int)v13;
 }

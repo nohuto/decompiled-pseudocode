@@ -1,20 +1,24 @@
 /*
- * XREFs of ??1FxPowerPolicyOwnerSettings@@QEAA@XZ @ 0x1C008A700
+ * XREFs of ??1FxPowerPolicyOwnerSettings@@QEAA@XZ @ 0x1C00862EC
  * Callers:
- *     ??1FxPowerPolicyMachine@@QEAA@XZ @ 0x1C001FCC0 (--1FxPowerPolicyMachine@@QEAA@XZ.c)
+ *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C007EEF0 (--1FxPkgPnp@@MEAA@XZ.c)
  * Callees:
- *     ??1FxPowerIdleMachine@@QEAA@XZ @ 0x1C0089750 (--1FxPowerIdleMachine@@QEAA@XZ.c)
- *     ??1IdleTimeoutManagement@@QEAA@XZ @ 0x1C008A754 (--1IdleTimeoutManagement@@QEAA@XZ.c)
- *     ??_GFxUsbIdleInfo@@QEAAPEAXI@Z @ 0x1C008A79C (--_GFxUsbIdleInfo@@QEAAPEAXI@Z.c)
- *     ?CleanupPowerCallback@FxPowerPolicyOwnerSettings@@QEAAXXZ @ 0x1C008A810 (-CleanupPowerCallback@FxPowerPolicyOwnerSettings@@QEAAXXZ.c)
- *     ??1FxPoxInterface@@QEAA@XZ @ 0x1C008EDE0 (--1FxPoxInterface@@QEAA@XZ.c)
+ *     ??1MxTimer@@QEAA@XZ @ 0x1C005351C (--1MxTimer@@QEAA@XZ.c)
+ *     ??_GFxTagTracker@@QEAAPEAXI@Z @ 0x1C0059B9C (--_GFxTagTracker@@QEAAPEAXI@Z.c)
+ *     ??_GFxUsbIdleInfo@@QEAAPEAXI@Z @ 0x1C0086394 (--_GFxUsbIdleInfo@@QEAAPEAXI@Z.c)
+ *     ?CleanupPowerCallback@FxPowerPolicyOwnerSettings@@QEAAXXZ @ 0x1C00863CC (-CleanupPowerCallback@FxPowerPolicyOwnerSettings@@QEAAXXZ.c)
+ *     ??_GFxWakeInterruptMachine@@QEAAPEAXI@Z @ 0x1C00890E0 (--_GFxWakeInterruptMachine@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall FxPowerPolicyOwnerSettings::~FxPowerPolicyOwnerSettings(FxPowerPolicyOwnerSettings *this)
 {
-  unsigned int v2; // edx
+  __int64 v2; // rdx
   FxUsbIdleInfo *m_UsbIdle; // rcx
-  __int64 v4; // rdx
+  _POX_SETTINGS *m_PoxSettings; // r8
+  _PO_FX_COMPONENT_V1 *Component; // rax
+  unsigned int v6; // ecx
+  FxDevicePwrRequirementMachine *m_DevicePowerRequirementMachine; // rcx
+  FxTagTracker *m_TagTracker; // rcx
 
   FxPowerPolicyOwnerSettings::CleanupPowerCallback(this);
   m_UsbIdle = this->m_UsbIdle;
@@ -23,7 +27,26 @@ void __fastcall FxPowerPolicyOwnerSettings::~FxPowerPolicyOwnerSettings(FxPowerP
     FxUsbIdleInfo::`scalar deleting destructor'(m_UsbIdle, v2);
     this->m_UsbIdle = 0LL;
   }
-  IdleTimeoutManagement::~IdleTimeoutManagement(&this->m_IdleSettings.m_TimeoutMgmt);
-  FxPoxInterface::~FxPoxInterface(&this->m_PoxInterface);
-  FxPowerIdleMachine::~FxPowerIdleMachine(&this->m_PowerIdleMachine, v4);
+  m_PoxSettings = this->m_IdleSettings.m_TimeoutMgmt.m_PoxSettings;
+  if ( m_PoxSettings )
+  {
+    Component = m_PoxSettings->Component;
+    if ( Component )
+      v6 = 24 * Component->IdleStateCount + 32;
+    else
+      v6 = 0;
+    ExFreePoolWithTag((char *)m_PoxSettings - v6, 0);
+  }
+  m_DevicePowerRequirementMachine = this->m_PoxInterface.m_DevicePowerRequirementMachine;
+  if ( m_DevicePowerRequirementMachine )
+    FxWakeInterruptMachine::`scalar deleting destructor'(m_DevicePowerRequirementMachine, v2);
+  this->m_PoxInterface.m_DevicePowerRequiredLock.m_DbgFlagIsInitialized = 0;
+  m_TagTracker = this->m_PowerIdleMachine.m_TagTracker;
+  if ( m_TagTracker )
+  {
+    FxTagTracker::`scalar deleting destructor'(m_TagTracker);
+    this->m_PowerIdleMachine.m_TagTracker = 0LL;
+  }
+  MxTimer::~MxTimer(&this->m_PowerIdleMachine.m_PowerTimeoutTimer, v2);
+  this->m_PowerIdleMachine.m_Lock.m_DbgFlagIsInitialized = 0;
 }

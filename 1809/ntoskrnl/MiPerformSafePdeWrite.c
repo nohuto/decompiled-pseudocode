@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPerformSafePdeWrite @ 0x1401604F8
+ * XREFs of MiPerformSafePdeWrite @ 0x140160518
  * Callers:
  *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
  *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
  *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
- *     MiGetWsAndMakePageTablesNx @ 0x140191B80 (MiGetWsAndMakePageTablesNx.c)
- *     MiValidVirtualizationFault @ 0x1402BC660 (MiValidVirtualizationFault.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x140191BA0 (MiGetWsAndMakePageTablesNx.c)
+ *     MiValidVirtualizationFault @ 0x1402BC760 (MiValidVirtualizationFault.c)
  * Callees:
  *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
  */

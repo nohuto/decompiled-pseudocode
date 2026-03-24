@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDqDispatch @ 0x1407F9510
+ * XREFs of PiDqDispatch @ 0x1406A79D0
  * Callers:
- *     PiDaDispatch @ 0x1407BCAD0 (PiDaDispatch.c)
+ *     PiDaDispatch @ 0x1406820D0 (PiDaDispatch.c)
  * Callees:
- *     IoIs32bitProcess @ 0x14022BA40 (IoIs32bitProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     wcscmp @ 0x1403DB2F0 (wcscmp.c)
- *     PiDqQueryRelease @ 0x14078773C (PiDqQueryRelease.c)
- *     PiDqQueryCreate @ 0x1407F9734 (PiDqQueryCreate.c)
- *     PiDqIrpQueryCreate @ 0x1407F97F8 (PiDqIrpQueryCreate.c)
- *     PiDqQueryGetObjectManager @ 0x1407FA5D4 (PiDqQueryGetObjectManager.c)
- *     PiDqObjectManagerUnregisterQuery @ 0x1407FB79C (PiDqObjectManagerUnregisterQuery.c)
- *     PiDqIrpQueryGetResult @ 0x1407FBCFC (PiDqIrpQueryGetResult.c)
- *     PiDqIrpPropertySet @ 0x140800484 (PiDqIrpPropertySet.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     IoIs32bitProcess @ 0x14032D650 (IoIs32bitProcess.c)
+ *     wcscmp @ 0x1403D3840 (wcscmp.c)
+ *     PiDqIrpQueryGetResult @ 0x1406A6E58 (PiDqIrpQueryGetResult.c)
+ *     PiDqObjectManagerUnregisterQuery @ 0x1406A7408 (PiDqObjectManagerUnregisterQuery.c)
+ *     PiDqQueryRelease @ 0x1406A747C (PiDqQueryRelease.c)
+ *     PiDqQueryGetObjectManager @ 0x1406A761C (PiDqQueryGetObjectManager.c)
+ *     PiDqQueryCreate @ 0x1406A7BF8 (PiDqQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x1406A7E9C (PiDqIrpQueryCreate.c)
+ *     PiDqIrpPropertySet @ 0x14072653C (PiDqIrpPropertySet.c)
  */
 
 __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)
@@ -25,13 +25,13 @@ __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)
   PFILE_OBJECT FileObject; // rcx
   UCHAR MajorFunction; // al
   PVOID *p_FsContext2; // r15
-  PVOID FsContext2; // rsi
-  IRP *v9; // rcx
+  __int64 FsContext2; // rsi
+  unsigned int LowPart; // eax
   const wchar_t *Buffer; // rsi
   __int64 v13; // rcx
   struct _KTHREAD *CurrentThread; // rax
   IRP *v15; // rbx
-  __int64 ObjectManager; // rbp
+  struct _ERESOURCE *ObjectManager; // rbp
   struct _KTHREAD *v17; // rax
   __int64 v18; // rcx
 
@@ -40,64 +40,47 @@ __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)
   FileObject = CurrentStackLocation->FileObject;
   MajorFunction = CurrentStackLocation->MajorFunction;
   p_FsContext2 = &FileObject->FsContext2;
-  FsContext2 = FileObject->FsContext2;
+  FsContext2 = (__int64)FileObject->FsContext2;
   if ( CurrentStackLocation->MajorFunction )
   {
-    switch ( MajorFunction )
+    if ( MajorFunction != 14 )
     {
-      case 0xEu:
-        if ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart == 4653056 )
-        {
-          return (unsigned int)PiDqIrpQueryCreate(a2);
-        }
-        else if ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart == 4653063
-               || CurrentStackLocation->Parameters.Read.ByteOffset.LowPart == 4653064 )
-        {
-          return (unsigned int)PiDqIrpQueryGetResult(a2);
-        }
-        else
-        {
-          v9 = a2;
-          if ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart != 4653068 )
-          {
-            Status = -1073741637;
-            a2->IoStatus.Status = -1073741637;
-            goto LABEL_8;
-          }
-          return (unsigned int)PiDqIrpPropertySet(a2);
-        }
-      case 2u:
+      if ( MajorFunction == 2 )
+      {
         if ( FsContext2 )
         {
           PiDqQueryRelease(FileObject->FsContext2);
           CurrentStackLocation->FileObject->FsContext2 = 0LL;
         }
-        break;
-      case 0x12u:
+      }
+      else
+      {
+        if ( MajorFunction != 18 )
+          return Status;
         if ( FsContext2 )
         {
           CurrentThread = KeGetCurrentThread();
           v15 = 0LL;
           ObjectManager = 0LL;
           --CurrentThread->KernelApcDisable;
-          ExAcquirePushLockExclusiveEx((ULONG_PTR)FsContext2 + 64, 0LL);
-          if ( (*((_DWORD *)FsContext2 + 54) & 4) != 0 )
+          ExAcquirePushLockExclusiveEx(FsContext2 + 64, 0LL);
+          if ( (*(_DWORD *)(FsContext2 + 216) & 4) != 0 )
             ObjectManager = PiDqQueryGetObjectManager(FsContext2);
-          ExReleasePushLockEx((__int64 *)FsContext2 + 8, 0LL);
+          ExReleasePushLockEx(FsContext2 + 64, 0LL);
           KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           if ( ObjectManager )
-            PiDqObjectManagerUnregisterQuery(ObjectManager, FsContext2);
+            PiDqObjectManagerUnregisterQuery((__int64)ObjectManager, (__int64 *)FsContext2);
           v17 = KeGetCurrentThread();
           --v17->KernelApcDisable;
-          ExAcquirePushLockExclusiveEx((ULONG_PTR)FsContext2 + 64, 0LL);
-          v18 = *((_QWORD *)FsContext2 + 22);
-          *((_DWORD *)FsContext2 + 54) |= 8u;
+          ExAcquirePushLockExclusiveEx(FsContext2 + 64, 0LL);
+          v18 = *(_QWORD *)(FsContext2 + 176);
+          *(_DWORD *)(FsContext2 + 216) |= 8u;
           if ( v18 && _InterlockedExchange64((volatile __int64 *)(v18 + 104), 0LL) )
           {
-            v15 = (IRP *)*((_QWORD *)FsContext2 + 22);
-            *((_QWORD *)FsContext2 + 22) = 0LL;
+            v15 = *(IRP **)(FsContext2 + 176);
+            *(_QWORD *)(FsContext2 + 176) = 0LL;
           }
-          ExReleasePushLockEx((__int64 *)FsContext2 + 8, 0LL);
+          ExReleasePushLockEx(FsContext2 + 64, 0LL);
           KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
           if ( v15 )
           {
@@ -106,12 +89,23 @@ __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)
             IofCompleteRequest(v15, 0);
           }
         }
-        break;
-      default:
-        return Status;
+      }
+      Status = 0;
+      a2->IoStatus.Status = 0;
+      goto LABEL_7;
     }
-    Status = 0;
-    a2->IoStatus.Status = 0;
+    LowPart = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
+    if ( LowPart == 4653056 )
+      return (unsigned int)PiDqIrpQueryCreate(a2);
+    if ( LowPart > 0x470006 )
+    {
+      if ( LowPart <= 0x470008 )
+        return (unsigned int)PiDqIrpQueryGetResult((__int64)a2);
+      if ( LowPart == 4653068 )
+        return (unsigned int)PiDqIrpPropertySet(a2);
+    }
+    Status = -1073741637;
+    a2->IoStatus.Status = -1073741637;
   }
   else
   {
@@ -132,8 +126,7 @@ __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)
     }
     a2->IoStatus.Status = Status;
   }
-  v9 = a2;
-LABEL_8:
-  IofCompleteRequest(v9, 0);
+LABEL_7:
+  IofCompleteRequest(a2, 0);
   return Status;
 }

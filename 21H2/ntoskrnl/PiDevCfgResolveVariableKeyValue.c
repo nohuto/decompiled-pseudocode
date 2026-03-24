@@ -1,134 +1,133 @@
 /*
- * XREFs of PiDevCfgResolveVariableKeyValue @ 0x140804E80
+ * XREFs of PiDevCfgResolveVariableKeyValue @ 0x1408AA260
  * Callers:
  *     <none>
  * Callees:
- *     PnpValidateRegistryString @ 0x1402D199C (PnpValidateRegistryString.c)
- *     PnpValidateRegistryValue @ 0x1403965A0 (PnpValidateRegistryValue.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     PiDevCfgResolveVariable @ 0x14069A1F8 (PiDevCfgResolveVariable.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x140805024 (PiDevCfgResolveVariableKeyHandle.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PnpValidateRegistryString @ 0x14036EF3C (PnpValidateRegistryString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     PnpValidateRegistryValue @ 0x14050E628 (PnpValidateRegistryValue.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     PiDevCfgResolveVariable @ 0x14077B570 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x1408A9A8C (PiDevCfgResolveVariableKeyHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDevCfgResolveVariableKeyValue(__int64 a1, void *a2, __int64 a3)
+__int64 __fastcall PiDevCfgResolveVariableKeyValue(_QWORD *a1, void *a2, __int64 a3)
 {
   __int64 v3; // r13
   int v6; // ebx
   NTSTATUS RegistryValue; // eax
   unsigned int *v8; // rsi
   const WCHAR *v9; // rdi
-  NTSTATUS v10; // eax
-  NTSTATUS v11; // eax
-  _DWORD *v12; // rdi
-  unsigned int v13; // r15d
-  int v14; // r12d
-  void *Pool2; // rax
-  void *v16; // r14
-  int v18; // eax
-  unsigned int v19; // ecx
+  int v10; // eax
+  unsigned int v11; // ecx
+  NTSTATUS v12; // eax
+  NTSTATUS v13; // eax
+  _DWORD *v14; // rdi
+  SIZE_T v15; // r15
+  int v16; // r12d
+  PVOID PoolWithTag; // rax
+  PVOID v18; // r14
   HANDLE Handle; // [rsp+20h] [rbp-10h] BYREF
-  PVOID P; // [rsp+28h] [rbp-8h] BYREF
-  _DWORD *v23; // [rsp+88h] [rbp+58h] BYREF
+  PVOID v21; // [rsp+28h] [rbp-8h] BYREF
+  PVOID P; // [rsp+88h] [rbp+58h] BYREF
 
-  P = 0LL;
+  v21 = 0LL;
   v3 = a3;
-  v23 = 0LL;
+  P = 0LL;
   Handle = 0LL;
   v6 = PiDevCfgResolveVariableKeyHandle(a1, a2, &Handle);
   if ( v6 < 0 )
-    goto LABEL_19;
-  RegistryValue = IopGetRegistryValue(a2, L"ValueName", 0, &P);
-  v8 = (unsigned int *)P;
+    goto LABEL_31;
+  RegistryValue = IopGetRegistryValue(a2, L"ValueName", 0, &v21);
+  v8 = (unsigned int *)v21;
   v6 = RegistryValue;
   if ( RegistryValue >= 0 )
   {
-    if ( PnpValidateRegistryString(P) )
-    {
-      v9 = (const WCHAR *)((char *)v8 + v8[2]);
-      if ( *v9 != 36 )
-        goto LABEL_5;
-      P = 0LL;
-      v18 = PiDevCfgResolveVariable(a1, v9 + 1, (__int64 *)&P);
-      v6 = v18;
-      if ( v18 >= 0 )
-      {
-        v19 = *((_DWORD *)P + 8);
-        if ( v19 && (v19 <= 2 || v19 == 7) )
-          v9 = (const WCHAR *)*((_QWORD *)P + 5);
-LABEL_5:
-        v10 = IopGetRegistryValue(Handle, v9, 0, &v23);
-        v6 = v10;
-        if ( v10 < 0 )
-        {
-          if ( v10 != -1073741772 )
-            goto LABEL_32;
-          v11 = IopGetRegistryValue(a2, L"DefaultValue", 0, &v23);
-          v6 = v11;
-          if ( v11 < 0 )
-          {
-            if ( v11 == -1073741772 )
-            {
-              v6 = 0;
-              v12 = 0LL;
-LABEL_10:
-              if ( !v12 )
-              {
-                v14 = 0;
-                v13 = 0;
-                v16 = 0LL;
-                goto LABEL_14;
-              }
-              if ( PnpValidateRegistryValue(v12) )
-              {
-                v13 = v12[3];
-                v14 = v12[1];
-                Pool2 = (void *)ExAllocatePool2(256LL, v13, 1667526736LL);
-                v16 = Pool2;
-                if ( Pool2 )
-                {
-                  memmove(Pool2, (char *)v12 + (unsigned int)v12[2], v13);
-                  v3 = a3;
-LABEL_14:
-                  *(_DWORD *)(v3 + 32) = v14;
-                  *(_DWORD *)(v3 + 36) = v13;
-                  *(_QWORD *)(v3 + 40) = v16;
-                  goto LABEL_15;
-                }
-                v6 = -1073741670;
-              }
-              else
-              {
-                v6 = -1073741823;
-              }
-LABEL_15:
-              if ( v12 )
-                ExFreePoolWithTag(v12, 0);
-              goto LABEL_17;
-            }
-LABEL_32:
-            v12 = v23;
-            goto LABEL_15;
-          }
-        }
-        v12 = v23;
-        goto LABEL_10;
-      }
-      if ( v18 == -1073741772 )
-        goto LABEL_5;
-    }
-    else
+    if ( !PnpValidateRegistryString(v21) )
     {
       v6 = -1073741823;
+      goto LABEL_29;
     }
-  }
+    v9 = (const WCHAR *)((char *)v8 + v8[2]);
+    if ( *v9 != 36 )
+    {
+LABEL_12:
+      v12 = IopGetRegistryValue(Handle, v9, 0, &P);
+      v6 = v12;
+      if ( v12 < 0 )
+      {
+        if ( v12 != -1073741772 )
+          goto LABEL_17;
+        v13 = IopGetRegistryValue(a2, L"DefaultValue", 0, &P);
+        v6 = v13;
+        if ( v13 < 0 )
+        {
+          if ( v13 == -1073741772 )
+          {
+            v6 = 0;
+            v14 = 0LL;
+            goto LABEL_19;
+          }
 LABEL_17:
+          v14 = P;
+          goto LABEL_27;
+        }
+      }
+      v14 = P;
+LABEL_19:
+      if ( v14 )
+      {
+        if ( !PnpValidateRegistryValue(v14) )
+        {
+          v6 = -1073741823;
+          goto LABEL_27;
+        }
+        v15 = (unsigned int)v14[3];
+        v16 = v14[1];
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v15, 0x63647050u);
+        v18 = PoolWithTag;
+        if ( !PoolWithTag )
+        {
+          v6 = -1073741670;
+          goto LABEL_27;
+        }
+        memmove(PoolWithTag, (char *)v14 + (unsigned int)v14[2], v15);
+        v3 = a3;
+      }
+      else
+      {
+        v16 = 0;
+        LODWORD(v15) = 0;
+        v18 = 0LL;
+      }
+      *(_DWORD *)(v3 + 32) = v16;
+      *(_DWORD *)(v3 + 36) = v15;
+      *(_QWORD *)(v3 + 40) = v18;
+LABEL_27:
+      if ( v14 )
+        ExFreePoolWithTag(v14, 0);
+      goto LABEL_29;
+    }
+    v21 = 0LL;
+    v10 = PiDevCfgResolveVariable((__int64)a1, v9 + 1, &v21);
+    v6 = v10;
+    if ( v10 >= 0 )
+    {
+      v11 = *((_DWORD *)v21 + 8);
+      if ( v11 && (v11 <= 2 || v11 == 7) )
+        v9 = (const WCHAR *)*((_QWORD *)v21 + 5);
+      goto LABEL_12;
+    }
+    if ( v10 == -1073741772 )
+      goto LABEL_12;
+  }
+LABEL_29:
   if ( v8 )
     ExFreePoolWithTag(v8, 0);
-LABEL_19:
+LABEL_31:
   if ( Handle )
     ZwClose(Handle);
   return (unsigned int)v6;

@@ -1,73 +1,82 @@
 /*
- * XREFs of VidSchCreateProcess @ 0x1C0082310
+ * XREFs of VidSchCreateProcess @ 0x1C007A390
  * Callers:
  *     <none>
  * Callees:
- *     ?GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C0001868 (-GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000188C (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
+ *     ?GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C00024B4 (-GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00024D8 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
  */
 
-__int64 __fastcall VidSchCreateProcess(__int64 a1)
+__int64 __fastcall VidSchCreateProcess(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v1; // rdi
-  __int64 Pool2; // rax
-  __int64 v4; // rbx
+  PVOID PoolWithTag; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rbx
   DXGGLOBAL *Global; // rax
-  unsigned int MaximumGlobalAdapterCount; // ebp
-  __int64 v7; // rax
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  int v10; // eax
+  unsigned int MaximumAdapterCount; // ebp
+  PVOID v10; // rax
+  __int64 v11; // rdx
   __int64 v12; // rcx
+  PVOID v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
 
-  v1 = 0LL;
   if ( !a1 )
   {
-    WdLogSingleEntry0(1LL);
-    DxgkLogInternalTriageEvent(v12, 0x40000LL);
+    v18 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+    WdLogEvent5_WdAssertion(v18);
     return 0LL;
   }
-  Pool2 = ExAllocatePool2(64LL, 2832LL, 845244758LL);
-  v4 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0xAB8uLL, 0x32616956u);
+  v7 = (__int64)PoolWithTag;
+  if ( !PoolWithTag )
   {
-    WdLogSingleEntry0(3LL);
+    v20 = WdLogNewEntry5_WdWarning(v6, v5);
+    WdLogEvent5_WdWarning(v20);
     return 0LL;
   }
-  *(_DWORD *)Pool2 = 845244758;
-  *(_QWORD *)(Pool2 + 2664) = 0LL;
-  *(_QWORD *)(Pool2 + 8) = a1;
-  *(_QWORD *)(Pool2 + 16) = *(_QWORD *)(a1 + 64);
-  *(_DWORD *)(Pool2 + 24) = (*(_DWORD *)(a1 + 424) & 2) != 0 ? 5 : 2;
-  TdrHistoryInit((struct _TDR_HISTORY *)(Pool2 + 40));
+  memset(PoolWithTag, 0, 0xAB8uLL);
+  *(_DWORD *)v7 = 845244758;
+  *(_QWORD *)(v7 + 8) = a1;
+  *(_DWORD *)(v7 + 16) = *(_BYTE *)(a1 + 345) != 0 ? 5 : 2;
+  TdrHistoryInit((struct _TDR_HISTORY *)(v7 + 32));
   Global = DXGGLOBAL::GetGlobal();
-  MaximumGlobalAdapterCount = DXGGLOBAL::GetMaximumGlobalAdapterCount(Global);
-  v7 = ExAllocatePool2(256LL, 4 * ((unsigned __int64)(MaximumGlobalAdapterCount + 31) >> 5), 845244758LL);
-  *(_QWORD *)(v4 + 2624) = v7;
-  if ( !v7 )
+  MaximumAdapterCount = DXGGLOBAL::GetMaximumAdapterCount(Global);
+  v10 = ExAllocatePoolWithTag(PagedPool, 4 * ((unsigned __int64)(MaximumAdapterCount + 31) >> 5), 0x32616956u);
+  *(_QWORD *)(v7 + 2616) = v10;
+  if ( !v10 )
   {
-    WdLogSingleEntry0(3LL);
-LABEL_12:
-    ExFreePoolWithTag((PVOID)v4, 0);
+    v19 = WdLogNewEntry5_WdWarning(v12, v11);
+    WdLogEvent5_WdWarning(v19);
+LABEL_13:
+    ExFreePoolWithTag((PVOID)v7, 0);
     return 0LL;
   }
-  v8 = ExAllocatePool2(64LL, 8LL * MaximumGlobalAdapterCount, 845244758LL);
-  *(_QWORD *)(v4 + 32) = v8;
-  if ( !v8 )
+  memset(v10, 0, 4 * ((unsigned __int64)(MaximumAdapterCount + 31) >> 5));
+  v13 = ExAllocatePoolWithTag((POOL_TYPE)512, 8LL * MaximumAdapterCount, 0x32616956u);
+  *(_QWORD *)(v7 + 24) = v13;
+  if ( !v13 )
   {
-    WdLogSingleEntry0(3LL);
-    ExFreePoolWithTag(*(PVOID *)(v4 + 2624), 0);
-    goto LABEL_12;
+    v21 = WdLogNewEntry5_WdWarning(v15, v14);
+    WdLogEvent5_WdWarning(v21);
+    ExFreePoolWithTag(*(PVOID *)(v7 + 2616), 0);
+    goto LABEL_13;
   }
-  v9 = *(_QWORD *)(a1 + 64);
-  *(_QWORD *)(v4 + 2640) = *(_QWORD *)(v9 + 80);
-  *(_QWORD *)(v4 + 2656) = *(_QWORD *)(a1 + 56);
-  if ( v9 )
-    v1 = *(_QWORD *)(v9 + 88);
-  v10 = *(_DWORD *)(a1 + 424);
-  *(_QWORD *)(v4 + 2648) = v1;
-  if ( (v10 & 2) != 0 )
-    g_pVidSchSystemProcess = v4;
-  return v4;
+  memset(v13, 0, 8LL * MaximumAdapterCount);
+  *(_QWORD *)(v7 + 2632) = *(_QWORD *)(*(_QWORD *)(a1 + 64) + 72LL);
+  *(_QWORD *)(v7 + 2648) = *(_QWORD *)(a1 + 56);
+  v16 = *(_QWORD *)(a1 + 64);
+  if ( v16 )
+    v16 = *(_QWORD *)(v16 + 80);
+  *(_QWORD *)(v7 + 2640) = v16;
+  if ( *(_BYTE *)(a1 + 345) )
+    g_pVidSchSystemProcess = v7;
+  return v7;
 }

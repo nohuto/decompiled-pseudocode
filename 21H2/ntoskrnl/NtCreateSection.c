@@ -1,10 +1,10 @@
 /*
- * XREFs of NtCreateSection @ 0x1406FD0D0
+ * XREFs of NtCreateSection @ 0x1407077C0
  * Callers:
- *     PfpFileBuildReadSupport @ 0x1407DEE78 (PfpFileBuildReadSupport.c)
- *     PfSnGetSectionObject @ 0x1407DF794 (PfSnGetSectionObject.c)
+ *     PfpFileBuildReadSupport @ 0x1406C85E0 (PfpFileBuildReadSupport.c)
+ *     PfSnGetSectionObject @ 0x1406C8EA8 (PfSnGetSectionObject.c)
  * Callees:
- *     MiCreateSectionCommon @ 0x1406FD140 (MiCreateSectionCommon.c)
+ *     MiCreateSectionCommon @ 0x140707430 (MiCreateSectionCommon.c)
  */
 
 NTSTATUS __stdcall NtCreateSection(
@@ -19,29 +19,30 @@ NTSTATUS __stdcall NtCreateSection(
   ULONG v7; // r10d
   int v8; // r11d
   __int128 *Address; // rbx
-  __int128 v11; // [rsp+50h] [rbp-18h] BYREF
+  ULONGLONG ullMultiplicand; // [rsp+40h] [rbp-28h]
+  __int128 v12; // [rsp+50h] [rbp-18h] BYREF
 
   v7 = AllocationAttributes;
   v8 = 0;
   Address = 0LL;
-  v11 = 0LL;
+  v12 = 0LL;
   if ( (AllocationAttributes & 0x7F) != 0 )
   {
     v7 = AllocationAttributes & 0xFFFFFF80;
-    *(_QWORD *)&v11 = 2LL;
-    *((_QWORD *)&v11 + 1) = (AllocationAttributes & 0x7F) - 1;
-    Address = &v11;
+    *(_QWORD *)&v12 = 2LL;
+    *((_QWORD *)&v12 + 1) = (AllocationAttributes & 0x7F) - 1;
+    Address = &v12;
     v8 = 1;
   }
+  LODWORD(ullMultiplicand) = v8;
   return MiCreateSectionCommon(
-           (int)SectionHandle,
+           (unsigned __int64)SectionHandle,
            DesiredAccess,
            (int)ObjectAttributes,
-           (int)MaximumSize,
+           (__int64 *)MaximumSize,
            SectionPageProtection,
            v7,
            (__int64)FileHandle,
            Address,
-           v8,
-           1);
+           ullMultiplicand);
 }

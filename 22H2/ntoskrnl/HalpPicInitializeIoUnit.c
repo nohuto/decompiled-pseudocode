@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpPicInitializeIoUnit @ 0x1403B2F80
+ * XREFs of HalpPicInitializeIoUnit @ 0x1403A6EE0
  * Callers:
  *     <none>
  * Callees:
@@ -17,8 +17,8 @@ __int64 __fastcall HalpPicInitializeIoUnit(int *a1)
   v2 = 32;
   if ( *a1 != 45056 )
     v2 = 160;
-  v3 = 33;
   __outbyte(v2, 0x11u);
+  v3 = 33;
   if ( v1 != 45056 )
     v3 = 161;
   __outbyte(v3, 0xD8u);

@@ -1,1 +1,15 @@
-/*\n * XREFs of MouseClassCreateWaitWakeIrpWorker @ 0x1C000CF10\n * Callers:\n *     <none>\n * Callees:\n *     MouseClassCreateWaitWakeIrp @ 0x1C000BCF4 (MouseClassCreateWaitWakeIrp.c)\n */\n\nvoid __fastcall MouseClassCreateWaitWakeIrpWorker(PDEVICE_OBJECT DeviceObject, PVOID Context)\n{\n  MouseClassCreateWaitWakeIrp(*((char **)Context + 1));\n  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(*((_QWORD *)Context + 1) + 32LL), Context, 0x20u);\n  IoFreeWorkItem(*((PIO_WORKITEM *)Context + 2));\n  ExFreePoolWithTag(Context, 0);\n}\n
+/*
+ * XREFs of MouseClassCreateWaitWakeIrpWorker @ 0x1C000CF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MouseClassCreateWaitWakeIrp @ 0x1C000BCF4 (MouseClassCreateWaitWakeIrp.c)
+ */
+
+void __fastcall MouseClassCreateWaitWakeIrpWorker(PDEVICE_OBJECT DeviceObject, PVOID Context)
+{
+  MouseClassCreateWaitWakeIrp(*((char **)Context + 1));
+  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(*((_QWORD *)Context + 1) + 32LL), Context, 0x20u);
+  IoFreeWorkItem(*((PIO_WORKITEM *)Context + 2));
+  ExFreePoolWithTag(Context, 0);
+}

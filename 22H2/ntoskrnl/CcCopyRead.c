@@ -1,12 +1,11 @@
 /*
- * XREFs of CcCopyRead @ 0x1407E8AC0
+ * XREFs of CcCopyRead @ 0x1406A44C0
  * Callers:
  *     <none>
  * Callees:
- *     CcCopyReadEx @ 0x140261C40 (CcCopyReadEx.c)
+ *     CcCopyReadEx @ 0x1402A0DB0 (CcCopyReadEx.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 BOOLEAN __stdcall CcCopyRead(
         PFILE_OBJECT FileObject,
         PLARGE_INTEGER FileOffset,
@@ -15,5 +14,5 @@ BOOLEAN __stdcall CcCopyRead(
         PVOID Buffer,
         PIO_STATUS_BLOCK IoStatus)
 {
-  return CcCopyReadEx(FileObject, (__int64 *)FileOffset, *(__int64 *)&Length, Wait, Buffer, IoStatus, 0LL);
+  return CcCopyReadEx((_SLIST_ENTRY *)FileObject, (__int64 *)FileOffset, Length, Wait, Buffer, IoStatus, 0LL);
 }

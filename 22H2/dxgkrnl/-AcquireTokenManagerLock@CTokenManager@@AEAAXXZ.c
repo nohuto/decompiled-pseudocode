@@ -1,25 +1,22 @@
 /*
- * XREFs of ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C00121F0
+ * XREFs of ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C0012E50
  * Callers:
- *     ?ResetAdapterCollection@CTokenManager@@MEAAXXZ @ 0x1C0017760 (-ResetAdapterCollection@CTokenManager@@MEAAXXZ.c)
- *     ?LockIfNotTokenThread@CTokenManager@@UEAAXXZ @ 0x1C00177E0 (-LockIfNotTokenThread@CTokenManager@@UEAAXXZ.c)
- *     ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0017A20 (-DeleteAllTokens@CTokenManager@@UEAAXXZ.c)
- *     ?ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z @ 0x1C0018038 (-ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z.c)
- *     ?InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0018C7C (-InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
- *     ?ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ @ 0x1C001BC5C (-ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ.c)
- *     ?AddDisableScanoutToken@CTokenManager@@UEAAJAEAPEAVCDisableScanoutToken@@@Z @ 0x1C0076F70 (-AddDisableScanoutToken@CTokenManager@@UEAAJAEAPEAVCDisableScanoutToken@@@Z.c)
- *     ?AddUnBindToken@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C0077110 (-AddUnBindToken@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z.c)
- *     ?ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ @ 0x1C00771E0 (-ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ.c)
- *     ?ConfirmOutstandingAnalogToken@CTokenManager@@UEAAXXZ @ 0x1C0077770 (-ConfirmOutstandingAnalogToken@CTokenManager@@UEAAXXZ.c)
- *     ?EnsureTokenQueueForPresent@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C0077A00 (-EnsureTokenQueueForPresent@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z.c)
- *     ?GetAnalogExclusiveTokenEvent@CTokenManager@@UEAAJPEAPEAX@Z @ 0x1C0077B40 (-GetAnalogExclusiveTokenEvent@CTokenManager@@UEAAJPEAPEAX@Z.c)
- *     ?GetAnalogSurfaceUpdates@CTokenManager@@UEAAHIIPEAUCSM_SURFACE_UPDATE_@@PEAI@Z @ 0x1C0077C10 (-GetAnalogSurfaceUpdates@CTokenManager@@UEAAHIIPEAUCSM_SURFACE_UPDATE_@@PEAI@Z.c)
+ *     ?InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C00128B4 (-InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z @ 0x1C0012DCC (-ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z.c)
+ *     ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0013120 (-DeleteAllTokens@CTokenManager@@UEAAXXZ.c)
+ *     ?ResetAdapterCollection@CTokenManager@@MEAAXXZ @ 0x1C0013790 (-ResetAdapterCollection@CTokenManager@@MEAAXXZ.c)
+ *     ?AddUnBindToken@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C001BCD0 (-AddUnBindToken@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z.c)
+ *     ?ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ @ 0x1C0063990 (-ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ.c)
+ *     ?ConfirmOutstandingAnalogToken@CTokenManager@@UEAAXXZ @ 0x1C0063B20 (-ConfirmOutstandingAnalogToken@CTokenManager@@UEAAXXZ.c)
+ *     ?GetAnalogExclusiveTokenEvent@CTokenManager@@UEAAJPEAPEAX@Z @ 0x1C0063BA0 (-GetAnalogExclusiveTokenEvent@CTokenManager@@UEAAJPEAPEAX@Z.c)
+ *     ?GetAnalogSurfaceUpdates@CTokenManager@@UEAAHIIPEAUCSM_SURFACE_UPDATE@@PEAI@Z @ 0x1C0063C70 (-GetAnalogSurfaceUpdates@CTokenManager@@UEAAHIIPEAUCSM_SURFACE_UPDATE@@PEAI@Z.c)
+ *     ?LockIfNotTokenThread@CTokenManager@@UEAAXXZ @ 0x1C0063E30 (-LockIfNotTokenThread@CTokenManager@@UEAAXXZ.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CTokenManager::AcquireTokenManagerLock(CTokenManager *this)
 {
-  ExAcquirePushLockExclusiveEx((char *)this + 96, 0LL);
-  *((_QWORD *)this + 13) = KeGetCurrentThread();
+  ExAcquirePushLockExclusiveEx((char *)this + 88, 0LL);
+  *((_QWORD *)this + 12) = KeGetCurrentThread();
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerAggregatorExecuteDirectedDripsCallback @ 0x140875BB0
+ * XREFs of PopPowerAggregatorExecuteDirectedDripsCallback @ 0x140875B90
  * Callers:
  *     <none>
  * Callees:
- *     PopDirectedDripsEngagePs4 @ 0x140867BB0 (PopDirectedDripsEngagePs4.c)
- *     PopDirectedDripsTriggerTransition @ 0x1408687A0 (PopDirectedDripsTriggerTransition.c)
- *     PopDiagStopCsSleepStudySession @ 0x14087059C (PopDiagStopCsSleepStudySession.c)
+ *     PopDirectedDripsEngagePs4 @ 0x140867B90 (PopDirectedDripsEngagePs4.c)
+ *     PopDirectedDripsTriggerTransition @ 0x140868780 (PopDirectedDripsTriggerTransition.c)
+ *     PopDiagStopCsSleepStudySession @ 0x14087057C (PopDiagStopCsSleepStudySession.c)
  */
 
 __int64 __fastcall PopPowerAggregatorExecuteDirectedDripsCallback(__int64 a1, __int64 a2)

@@ -18,12 +18,12 @@
  *     HvHiveCleanup @ 0x1405FB440 (HvHiveCleanup.c)
  *     HvpRemoveFreeCellHint @ 0x1405FBB90 (HvpRemoveFreeCellHint.c)
  *     HvpSetRangeProtection @ 0x1405FBD30 (HvpSetRangeProtection.c)
- *     HvTrimHive @ 0x1406BDD40 (HvTrimHive.c)
- *     HvpDropPagedBins @ 0x1407365B4 (HvpDropPagedBins.c)
- *     HvpCopyModifiedData @ 0x1407F78C8 (HvpCopyModifiedData.c)
- *     HvWriteExternal @ 0x1407FAD94 (HvWriteExternal.c)
- *     HvSnapshotHiveToOffsetArray @ 0x140805D00 (HvSnapshotHiveToOffsetArray.c)
- *     HvpShrinkMap @ 0x140806020 (HvpShrinkMap.c)
+ *     HvTrimHive @ 0x1406BDD20 (HvTrimHive.c)
+ *     HvpDropPagedBins @ 0x140736594 (HvpDropPagedBins.c)
+ *     HvpCopyModifiedData @ 0x1407F78A8 (HvpCopyModifiedData.c)
+ *     HvWriteExternal @ 0x1407FAD74 (HvWriteExternal.c)
+ *     HvSnapshotHiveToOffsetArray @ 0x140805CE0 (HvSnapshotHiveToOffsetArray.c)
+ *     HvpShrinkMap @ 0x140806000 (HvpShrinkMap.c)
  * Callees:
  *     <none>
  */

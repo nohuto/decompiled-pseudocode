@@ -1,9 +1,9 @@
 /*
- * XREFs of SepBuildDefaultCape @ 0x14019084C
+ * XREFs of SepBuildDefaultCape @ 0x14019086C
  * Callers:
- *     SepBuildDefaultCap @ 0x14075C9CC (SepBuildDefaultCap.c)
+ *     SepBuildDefaultCap @ 0x14075C9AC (SepBuildDefaultCap.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

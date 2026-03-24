@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepEngineReadFlags @ 0x140B64DDC
+ * XREFs of KsepEngineReadFlags @ 0x140A6A47C
  * Callers:
- *     KsepEngineInitialize @ 0x140B64D18 (KsepEngineInitialize.c)
+ *     KsepEngineInitialize @ 0x140A6A168 (KsepEngineInitialize.c)
  * Callees:
- *     KsepLogError @ 0x14020A5CC (KsepLogError.c)
- *     KsepLogInfo @ 0x140374700 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x140580D64 (KsepDebugPrint.c)
- *     RtlAssert @ 0x1405AA150 (RtlAssert.c)
- *     KsepRegistryOpenKey @ 0x1406944C4 (KsepRegistryOpenKey.c)
- *     KsepRegistryQueryDWORD @ 0x140846368 (KsepRegistryQueryDWORD.c)
- *     KsepRegistryCloseKey @ 0x1408465B8 (KsepRegistryCloseKey.c)
+ *     KsepLogInfo @ 0x140371F88 (KsepLogInfo.c)
+ *     KsepLogError @ 0x140372754 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140526E28 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x140588750 (RtlAssert.c)
+ *     KsepRegistryOpenKey @ 0x14075AC54 (KsepRegistryOpenKey.c)
+ *     KsepRegistryCloseKey @ 0x1407BEFF4 (KsepRegistryCloseKey.c)
+ *     KsepRegistryQueryDWORD @ 0x1407BF018 (KsepRegistryQueryDWORD.c)
  */
 
 __int64 __fastcall KsepEngineReadFlags(int *a1)
@@ -23,7 +23,7 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
   __int64 v9; // rax
   __int64 v10; // rax
   __int64 v11; // rax
-  int v12; // ecx
+  int v12; // eax
   __int64 v13; // rax
   int v14; // [rsp+60h] [rbp+38h] BYREF
   int v15; // [rsp+68h] [rbp+40h] BYREF
@@ -36,7 +36,7 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
   if ( !a1 )
   {
     v8 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C40844[2 * v8] = -1073740768;
+    dword_140C2AB04[2 * v8] = -1073740768;
     KsepHistoryErrors[2 * v8] = 262244;
     if ( (KsepDebugFlag & 4) != 0 )
       RtlAssert("Engine != NULL", "minkernel\\ntos\\kshim\\kseregistry.c", 0x64u, 0LL);
@@ -70,7 +70,7 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
     LODWORD(KsepHistoryMessages[v9]) = 262275;
     if ( (KsepDebugFlag & 1) != 0 )
       KsepDebugPrint(0LL, "KSE: Engine has group policy flags: %08x\n", v1);
-    KsepLogInfo(0, "KSE: Engine has group policy flags: %08x\n", v1);
+    KsepLogInfo(0LL, (__int64)"KSE: Engine has group policy flags: %08x\n", v1);
     KsepRegistryCloseKey(KeyHandle);
     KeyHandle = 0LL;
   }
@@ -84,11 +84,11 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
   if ( v4 < 0 )
   {
     v10 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C40844[2 * v10] = v5;
+    dword_140C2AB04[2 * v10] = v5;
     KsepHistoryErrors[2 * v10] = 262304;
     if ( (KsepDebugFlag & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: Error reading compatibility key: status: %08x\n", v5);
-    KsepLogError(0LL, (__int64)"KSE: Error reading compatibility key: status: %08x\n", v5);
+    KsepLogError(0, "KSE: Error reading compatibility key: status: %08x\n", v5);
   }
   else
   {
@@ -112,16 +112,16 @@ LABEL_8:
       LODWORD(KsepHistoryMessages[v13]) = 262343;
       if ( (KsepDebugFlag & 1) != 0 )
         KsepDebugPrint(0LL, "KSE: Engine initialized with registry flags: %08x\n", *a1);
-      KsepLogInfo(0, "KSE: Engine initialized with registry flags: %08x\n", *a1);
+      KsepLogInfo(0LL, (__int64)"KSE: Engine initialized with registry flags: %08x\n", *a1);
     }
     else
     {
       v11 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      dword_140C40844[2 * v11] = v5;
+      dword_140C2AB04[2 * v11] = v5;
       KsepHistoryErrors[2 * v11] = 262326;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(0LL, "KSE: Error reading compatibility value [%ws]: status: %08x\n", L"DisableFlags", v5);
-      KsepLogError(0LL, (__int64)"KSE: Error reading compatibility value [%ws]: status: %08x\n", L"DisableFlags", v5);
+      KsepLogError(0, "KSE: Error reading compatibility value [%ws]: status: %08x\n", L"DisableFlags", v5);
     }
   }
 LABEL_9:
@@ -131,7 +131,7 @@ LABEL_9:
   LODWORD(KsepHistoryMessages[v6]) = 262354;
   if ( (KsepDebugFlag & 1) != 0 )
     KsepDebugPrint(0LL, "KSE: Engine flags (after registry/group policy): %08x\n", *a1);
-  KsepLogInfo(0, "KSE: Engine flags (after registry/group policy): %08x\n", *a1);
+  KsepLogInfo(0LL, (__int64)"KSE: Engine flags (after registry/group policy): %08x\n", *a1);
   KsepRegistryCloseKey(KeyHandle);
   return v5;
 }

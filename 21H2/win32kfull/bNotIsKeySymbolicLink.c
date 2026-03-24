@@ -1,11 +1,11 @@
 /*
- * XREFs of bNotIsKeySymbolicLink @ 0x1C01195E0
+ * XREFs of bNotIsKeySymbolicLink @ 0x1C00E7194
  * Callers:
- *     bReadUserSystemEUDCRegistry @ 0x1C01194E4 (bReadUserSystemEUDCRegistry.c)
- *     bAddAllFlEntry @ 0x1C015E414 (bAddAllFlEntry.c)
- *     bWriteUserSystemEUDCRegistry @ 0x1C0296CB4 (bWriteUserSystemEUDCRegistry.c)
+ *     bAddAllFlEntry @ 0x1C00E6C58 (bAddAllFlEntry.c)
+ *     bReadUserSystemEUDCRegistry @ 0x1C00E7068 (bReadUserSystemEUDCRegistry.c)
+ *     bWriteUserSystemEUDCRegistry @ 0x1C029888C (bWriteUserSystemEUDCRegistry.c)
  * Callees:
- *     IsRegNameEqual @ 0x1C0295FA4 (IsRegNameEqual.c)
+ *     IsRegNameEqual @ 0x1C02984D0 (IsRegNameEqual.c)
  */
 
 _BOOL8 __fastcall bNotIsKeySymbolicLink(PCWSTR SourceString, PHANDLE KeyHandle, PHANDLE a3)

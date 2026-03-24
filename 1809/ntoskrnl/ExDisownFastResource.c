@@ -1,18 +1,18 @@
 /*
- * XREFs of ExDisownFastResource @ 0x140165650
+ * XREFs of ExDisownFastResource @ 0x140165670
  * Callers:
  *     <none>
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     ExpRotateFastOwnerEntrySublistHead @ 0x140165124 (ExpRotateFastOwnerEntrySublistHead.c)
- *     ExpFindFastOwnerEntryForThread @ 0x140166064 (ExpFindFastOwnerEntryForThread.c)
- *     KeAbMarkCrossThreadReleasable @ 0x1401660C0 (KeAbMarkCrossThreadReleasable.c)
- *     ExpAddFastOwnerEntryToThreadList @ 0x140166118 (ExpAddFastOwnerEntryToThreadList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x140165144 (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x140166084 (ExpFindFastOwnerEntryForThread.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1401660E0 (KeAbMarkCrossThreadReleasable.c)
+ *     ExpAddFastOwnerEntryToThreadList @ 0x140166138 (ExpAddFastOwnerEntryToThreadList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 LONG_PTR __fastcall ExDisownFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, __int64 a3)

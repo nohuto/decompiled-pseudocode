@@ -1,31 +1,32 @@
 /*
- * XREFs of PopAccumulateNonActivatedCpuTime @ 0x140599910
+ * XREFs of PopAccumulateNonActivatedCpuTime @ 0x1405763CC
  * Callers:
- *     PopUpdateNonAttributedCpuTimeReference @ 0x140599978 (PopUpdateNonAttributedCpuTimeReference.c)
- *     PopPdcIdleResiliencyCallback @ 0x14099812C (PopPdcIdleResiliencyCallback.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x14099C994 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x140576798 (PopUpdateNonAttributedCpuTimeReference.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x1408EF770 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F009C (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     PpmParkSnapNodeIdleTime @ 0x14059D488 (PpmParkSnapNodeIdleTime.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     PpmParkSnapNodeIdleTime @ 0x14057DAB8 (PpmParkSnapNodeIdleTime.c)
  */
 
-__int64 __fastcall PopAccumulateNonActivatedCpuTime(__int64 a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall PopAccumulateNonActivatedCpuTime(char a1, _QWORD *a2, _QWORD *a3)
 {
-  char v5; // bl
+  __int64 Prcb; // rax
   __int64 result; // rax
-  __int64 v7; // rcx
-  __int64 v8; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v9; // [rsp+48h] [rbp+20h] BYREF
+  __int64 v8; // rcx
+  __int64 v9; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+48h] [rbp+20h] BYREF
 
-  v8 = 0LL;
   v9 = 0LL;
-  v5 = a1;
-  result = PpmParkSnapNodeIdleTime(a1, a2, &v9, &v8);
-  v7 = v9;
-  if ( !v5 )
+  v10 = 0LL;
+  Prcb = KeGetPrcb(0);
+  result = PpmParkSnapNodeIdleTime(Prcb, &v10, &v9);
+  v8 = v10;
+  if ( !a1 )
   {
-    result = v9 - *a2 - v8;
+    result = v10 - *a2 - v9;
     *a3 += result;
   }
-  *a2 = v7 - v8;
+  *a2 = v8 - v9;
   return result;
 }

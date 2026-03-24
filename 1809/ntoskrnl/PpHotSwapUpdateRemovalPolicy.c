@@ -1,11 +1,11 @@
 /*
- * XREFs of PpHotSwapUpdateRemovalPolicy @ 0x140700340
+ * XREFs of PpHotSwapUpdateRemovalPolicy @ 0x140700320
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
  * Callees:
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     PiHotSwapGetDetachableNode @ 0x14070044C (PiHotSwapGetDetachableNode.c)
- *     PiHotSwapGetDefaultBusRemovalPolicy @ 0x140757DC0 (PiHotSwapGetDefaultBusRemovalPolicy.c)
+ *     PiHotSwapGetDetachableNode @ 0x14070042C (PiHotSwapGetDetachableNode.c)
+ *     PiHotSwapGetDefaultBusRemovalPolicy @ 0x140757DA0 (PiHotSwapGetDefaultBusRemovalPolicy.c)
  */
 
 __int64 __fastcall PpHotSwapUpdateRemovalPolicy(__int64 a1)

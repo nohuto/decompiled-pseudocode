@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmUpdateIdleVeto @ 0x1402D6180
+ * XREFs of PpmUpdateIdleVeto @ 0x1402D6280
  * Callers:
- *     PpmUpdatePlatformIdleVeto @ 0x1402D63E0 (PpmUpdatePlatformIdleVeto.c)
- *     PpmUpdateProcessorIdleVeto @ 0x1402D6610 (PpmUpdateProcessorIdleVeto.c)
+ *     PpmUpdatePlatformIdleVeto @ 0x1402D64E0 (PpmUpdatePlatformIdleVeto.c)
+ *     PpmUpdateProcessorIdleVeto @ 0x1402D6710 (PpmUpdateProcessorIdleVeto.c)
  * Callees:
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopUpdateNonAttributedCpuTimeReference @ 0x1402DE40C (PopUpdateNonAttributedCpuTimeReference.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x1402DE50C (PopUpdateNonAttributedCpuTimeReference.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

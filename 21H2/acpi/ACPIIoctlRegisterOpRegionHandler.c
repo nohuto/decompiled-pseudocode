@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIIoctlRegisterOpRegionHandler @ 0x1C0029204
+ * XREFs of ACPIIoctlRegisterOpRegionHandler @ 0x1C002C0C8
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001410 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     RegisterOperationRegionHandler @ 0x1C009F5F8 (RegisterOperationRegionHandler.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     RegisterOperationRegionHandler @ 0x1C00A1CB0 (RegisterOperationRegionHandler.c)
  */
 
 __int64 __fastcall ACPIIoctlRegisterOpRegionHandler(ULONG_PTR a1, IRP *a2, __int64 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall ACPIIoctlRegisterOpRegionHandler(ULONG_PTR a1, IRP *a2, __int
   v12 = 0LL;
   v4 = *(_DWORD *)(a3 + 16);
   v5 = *(_DWORD *)(a3 + 8);
-  v6 = *(_QWORD *)(ACPIInternalGetDeviceExtension(a1) + 760);
+  v6 = *(_QWORD *)(ACPIInternalGetDeviceExtension(a1) + 720);
   a2->IoStatus.Information = 32LL;
   if ( v4 < 0x20 )
   {

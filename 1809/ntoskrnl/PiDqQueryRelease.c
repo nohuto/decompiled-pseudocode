@@ -3,9 +3,9 @@
  * Callers:
  *     PiDqObjectManagerUnregisterQuery @ 0x140590038 (PiDqObjectManagerUnregisterQuery.c)
  *     PiDqDispatch @ 0x140590640 (PiDqDispatch.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x1406F7500 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1406F74E0 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
- *     McTemplateK0p @ 0x140288B30 (McTemplateK0p.c)
+ *     McTemplateK0p @ 0x140288C30 (McTemplateK0p.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiDqQueryFreeActiveData @ 0x140590124 (PiDqQueryFreeActiveData.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)

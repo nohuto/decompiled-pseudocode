@@ -1,20 +1,20 @@
 /*
- * XREFs of GreWindowResizeComplete @ 0x1C026E008
+ * XREFs of GreWindowResizeComplete @ 0x1C0270430
  * Callers:
- *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C020C464 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ *     xxxDrawDragRectEx @ 0x1C0211504 (xxxDrawDragRectEx.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C0022938 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
- *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C0022A50 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C0041980 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00495DC (--1DWMSPRITELOCK@@QEAA@XZ.c)
- *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C0084F94 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
- *     ?AdapterLuid@SFMLOGICALSURFACE@@QEAA?AU_LUID@@XZ @ 0x1C0150434 (-AdapterLuid@SFMLOGICALSURFACE@@QEAA-AU_LUID@@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026B550 (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
+ *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C0017620 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2C64 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00BDAE4 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00BE388 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00BE4A0 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
+ *     ?AdapterLuid@SFMLOGICALSURFACE@@QEAA?AU_LUID@@XZ @ 0x1C015FD58 (-AdapterLuid@SFMLOGICALSURFACE@@QEAA-AU_LUID@@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026D7D4 (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
  */
 
 __int64 __fastcall GreWindowResizeComplete(__int64 a1, HWND a2)
@@ -56,53 +56,53 @@ __int64 __fastcall GreWindowResizeComplete(__int64 a1, HWND a2)
     {
       v7 = *((_DWORD *)v16 + 29);
       v8 = 0;
-      v9 = (SFMLOGICALSURFACE *)*((_QWORD *)v16 + 18);
+      v9 = (SFMLOGICALSURFACE *)*((_QWORD *)v16 + 21);
       if ( v7 >= 1 )
       {
         if ( v7 == 2 )
         {
-          if ( !(unsigned int)SFMLOGICALSURFACE::bDeviceBitmap(*((SFMLOGICALSURFACE **)v16 + 18)) )
-            goto LABEL_17;
-          DLODCOBJ::DLODCOBJ((DLODCOBJ *)v21);
-          v24 = 0LL;
-          v23 = 0LL;
-          v21[0] = 0LL;
-          v10 = *(_DWORD *)(a1 + 40);
-          v18 = 0LL;
-          v20 = 1;
-          if ( (v10 & 1) != 0 )
+          if ( (unsigned int)SFMLOGICALSURFACE::bDeviceBitmap(*((SFMLOGICALSURFACE **)v16 + 21)) )
           {
-            *(_QWORD *)&v18 = *(_QWORD *)(a1 + 48);
-            v19 = a1;
-            GreAcquireSemaphore(v18);
-            EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v18, 11LL);
-          }
-          v11 = *(__int64 (__fastcall **)(_QWORD, _QWORD))(a1 + 3488);
-          if ( v11 )
-          {
-            if ( (*(_DWORD *)(a1 + 40) & 0x4000000) != 0 )
+            DLODCOBJ::DLODCOBJ((DLODCOBJ *)v21);
+            v24 = 0LL;
+            v23 = 0LL;
+            v21[0] = 0LL;
+            v10 = *(_DWORD *)(a1 + 40);
+            v18 = 0LL;
+            v20 = 1;
+            if ( (v10 & 1) != 0 )
             {
-              v12 = (_QWORD *)SFMLOGICALSURFACE::AdapterLuid(v9, &v17);
-              v13 = *(_QWORD *)(a1 + 1768);
-              if ( v13 )
-              {
-                *(_QWORD *)(v13 + 104) = *v12;
-                v11 = *(__int64 (__fastcall **)(_QWORD, _QWORD))(a1 + 3488);
-              }
+              *(_QWORD *)&v18 = *(_QWORD *)(a1 + 48);
+              v19 = a1;
+              GreAcquireSemaphore(v18);
+              EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v18, 11LL);
             }
-            v8 = v11(*(_QWORD *)(a1 + 1768), *(_QWORD *)v9);
+            v11 = *(__int64 (__fastcall **)(_QWORD, _QWORD))(a1 + 3512);
+            if ( v11 )
+            {
+              if ( (*(_DWORD *)(a1 + 40) & 0x4000000) != 0 )
+              {
+                v12 = (_QWORD *)SFMLOGICALSURFACE::AdapterLuid(v9, &v17);
+                v13 = *(_QWORD *)(a1 + 1800);
+                if ( v13 )
+                {
+                  *(_QWORD *)(v13 + 104) = *v12;
+                  v11 = *(__int64 (__fastcall **)(_QWORD, _QWORD))(a1 + 3512);
+                }
+              }
+              v8 = v11(*(_QWORD *)(a1 + 1800), *(_QWORD *)v9);
+            }
+            DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v18);
+            if ( v21[0] )
+              DLODCOBJ::vUnlock((DLODCOBJ *)v21);
+            UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v22);
           }
-          DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v18);
-          if ( v21[0] )
-            DLODCOBJ::vUnlock((DLODCOBJ *)v21);
-          UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v22);
           if ( v8 )
           {
             *((_DWORD *)v6 + 29) = 3;
           }
           else
           {
-LABEL_17:
             *((_DWORD *)v6 + 29) = 1;
             CheckAndProcessWindowResizeComplete(v6, 0, 0LL);
           }

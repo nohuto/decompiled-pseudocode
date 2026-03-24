@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIommuUpdatePageWalkCapability @ 0x1403B6450
+ * XREFs of HalpIommuUpdatePageWalkCapability @ 0x1403A72F4
  * Callers:
- *     HalpIommuInitializeAll @ 0x140A543D8 (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x14099B3D4 (HalpIommuInitializeAll.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ __int64 HalpIommuUpdatePageWalkCapability()
   HalpIommuPageTableCacheCoherent = 1;
   while ( (__int64 *)v0 != &HalpIommuList )
   {
-    result = *(_DWORD *)(v0 + 472) & 0x900;
+    result = *(_DWORD *)(v0 + 456) & 0x900;
     if ( (_DWORD)result == 256 )
     {
       HalpIommuPageTableCacheCoherent = 0;

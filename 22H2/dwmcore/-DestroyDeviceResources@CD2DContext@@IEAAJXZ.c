@@ -1,103 +1,98 @@
 /*
- * XREFs of ?DestroyDeviceResources@CD2DContext@@IEAAJXZ @ 0x1800D1920
+ * XREFs of ?DestroyDeviceResources@CD2DContext@@IEAAJXZ @ 0x18002CC20
  * Callers:
- *     ?DestroyAllResources@CD3DDevice@@AEAAXXZ @ 0x1800EEE1C (-DestroyAllResources@CD3DDevice@@AEAAXXZ.c)
- *     ??1CD2DContext@@UEAA@XZ @ 0x1800EEE88 (--1CD2DContext@@UEAA@XZ.c)
+ *     ?DestroyAllResources@CD3DDevice@@AEAAXXZ @ 0x18002A8C4 (-DestroyAllResources@CD3DDevice@@AEAAXXZ.c)
+ *     ??1CD2DContext@@UEAA@XZ @ 0x18002A8F8 (--1CD2DContext@@UEAA@XZ.c)
  * Callees:
- *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003D334 (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
- *     ?ReleaseEffectTable@CD2DContext@@AEAAXXZ @ 0x1800D16A0 (-ReleaseEffectTable@CD2DContext@@AEAAXXZ.c)
- *     ?ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ @ 0x1800D1A9C (-ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ.c)
- *     ?DestroyDeviceResources@CDrawListBatchManager@@IEAAXXZ @ 0x1800D1BF0 (-DestroyDeviceResources@CDrawListBatchManager@@IEAAXXZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?MarkInvalid@CD2DResource@@IEAAXXZ @ 0x18028C19C (-MarkInvalid@CD2DResource@@IEAAXXZ.c)
+ *     ?MarkAllResourcesInvalid@CD2DResourceManager@@QEAAXXZ @ 0x18002A94C (-MarkAllResourcesInvalid@CD2DResourceManager@@QEAAXXZ.c)
+ *     ?DestroyDeviceResources@CDrawListBatchManager@@IEAAXXZ @ 0x18002CD90 (-DestroyDeviceResources@CDrawListBatchManager@@IEAAXXZ.c)
+ *     ?ReleaseEffectTable@CD2DContext@@AEAAXXZ @ 0x18002CE9C (-ReleaseEffectTable@CD2DContext@@AEAAXXZ.c)
+ *     ?ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ @ 0x18002CED8 (-ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CD2DContext::DestroyDeviceResources(CD2DContext *this)
+__int64 __fastcall CD2DContext::DestroyDeviceResources(CD2DResourceManager **this)
 {
-  __int64 v2; // rsi
-  void *v3; // rcx
-  __int64 v4; // rcx
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rcx
-  __int64 v8; // rcx
-  __int64 v9; // rcx
-  __int64 i; // rbx
-  _QWORD *v12; // rbx
-  _QWORD *v13; // rax
-  __int64 v14; // r14
-  __int64 v15; // rcx
+  CD2DResourceManager *v2; // rcx
+  CD2DResourceManager *v3; // rcx
+  CD2DResourceManager *v4; // rcx
+  CD2DResourceManager *v5; // rcx
+  CD2DResourceManager *v6; // rcx
+  CD2DResourceManager *v7; // rcx
+  CD2DResourceManager *v8; // rcx
+  CD2DResourceManager *v9; // rcx
+  CD2DResourceManager *v10; // rcx
+  __int64 i; // rdi
+  CD2DResourceManager *v13; // r14
+  __int64 v14; // rcx
 
-  CD2DContext::ReleaseCachedD2DTarget(this);
-  v2 = *((_QWORD *)this + 21);
+  CD2DContext::ReleaseCachedD2DTarget((CD2DContext *)this);
+  v2 = this[26];
   if ( v2 )
   {
-    while ( *(_QWORD *)v2 != v2 )
-    {
-      v12 = *(_QWORD **)(v2 + 8);
-      if ( *v12 != v2 || (v13 = (_QWORD *)v12[1], (_QWORD *)*v13 != v12) )
-        __fastfail(3u);
-      *(_QWORD *)(v2 + 8) = v13;
-      *v13 = v2;
-      CD2DResourceManager::UnmanageResource((CD2DContext **)v2, (struct CD2DResource *)(v12 - 5));
-      CD2DResource::MarkInvalid((CD2DResource *)(v12 - 5));
-    }
-    v3 = (void *)*((_QWORD *)this + 21);
+    CD2DResourceManager::MarkAllResourcesInvalid(v2);
+    v3 = this[26];
     if ( v3 )
     {
       operator delete(v3, 0x20uLL);
-      *((_QWORD *)this + 21) = 0LL;
+      this[26] = 0LL;
     }
   }
-  CD2DContext::ReleaseEffectTable(this);
-  v4 = *((_QWORD *)this + 39);
+  CD2DContext::ReleaseEffectTable((CD2DContext *)this);
+  v4 = this[44];
   if ( v4 )
   {
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
-    *((_QWORD *)this + 39) = 0LL;
+    (*(void (__fastcall **)(CD2DResourceManager *))(*(_QWORD *)v4 + 8LL))(v4);
+    this[44] = 0LL;
   }
-  v5 = *((_QWORD *)this + 26);
+  v5 = this[45];
   if ( v5 )
   {
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
-    *((_QWORD *)this + 26) = 0LL;
+    (*(void (__fastcall **)(CD2DResourceManager *))(*(_QWORD *)v5 + 16LL))(v5);
+    this[45] = 0LL;
   }
-  v6 = *((_QWORD *)this + 25);
+  v6 = this[31];
   if ( v6 )
   {
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
-    *((_QWORD *)this + 25) = 0LL;
+    (*(void (__fastcall **)(CD2DResourceManager *))(*(_QWORD *)v6 + 16LL))(v6);
+    this[31] = 0LL;
   }
-  v7 = *((_QWORD *)this + 23);
+  v7 = this[30];
   if ( v7 )
   {
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
-    *((_QWORD *)this + 23) = 0LL;
+    (*(void (__fastcall **)(CD2DResourceManager *))(*(_QWORD *)v7 + 16LL))(v7);
+    this[30] = 0LL;
   }
-  v8 = *((_QWORD *)this + 24);
+  v8 = this[28];
   if ( v8 )
   {
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
-    *((_QWORD *)this + 24) = 0LL;
+    (*(void (__fastcall **)(CD2DResourceManager *))(*(_QWORD *)v8 + 16LL))(v8);
+    this[28] = 0LL;
   }
-  v9 = *((_QWORD *)this + 40);
+  v9 = this[29];
   if ( v9 )
   {
-    *((_QWORD *)this + 40) = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+    (*(void (__fastcall **)(CD2DResourceManager *))(*(_QWORD *)v9 + 16LL))(v9);
+    this[29] = 0LL;
   }
-  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 76); i = (unsigned int)(i + 1) )
+  v10 = this[46];
+  if ( v10 )
   {
-    v14 = *((_QWORD *)this + 35);
-    v15 = *(_QWORD *)(v14 + 8 * i);
-    if ( v15 )
+    this[46] = 0LL;
+    (*(void (__fastcall **)(CD2DResourceManager *))(*(_QWORD *)v10 + 16LL))(v10);
+  }
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 86); i = (unsigned int)(i + 1) )
+  {
+    v13 = this[40];
+    v14 = *((_QWORD *)v13 + i);
+    if ( v14 )
     {
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 16LL))(v15);
-      *(_QWORD *)(v14 + 8 * i) = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
+      *((_QWORD *)v13 + i) = 0LL;
     }
   }
-  *((_DWORD *)this + 76) = 0;
-  CDrawListBatchManager::DestroyDeviceResources((CD2DContext *)((char *)this + 8));
+  *((_DWORD *)this + 86) = 0;
+  CDrawListBatchManager::DestroyDeviceResources((CDrawListBatchManager *)(this + 1));
   return 0LL;
 }

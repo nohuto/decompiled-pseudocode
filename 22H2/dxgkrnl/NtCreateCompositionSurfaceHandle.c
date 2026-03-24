@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateCompositionSurfaceHandle @ 0x1C00143B0
+ * XREFs of NtCreateCompositionSurfaceHandle @ 0x1C0019220
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJPEAV1@PEAXPEAPEAVIDxgkCompositionObject@@@Z3PEAPEAX@Z @ 0x1C001416C (-Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJP.c)
+ *     ?Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJPEAV1@PEAXPEAPEAVIDxgkCompositionObject@@@Z3PEAPEAX@Z @ 0x1C0018EDC (-Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJP.c)
  */
 
 __int64 __fastcall NtCreateCompositionSurfaceHandle(__int64 a1, ACCESS_MASK a2, HANDLE *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall NtCreateCompositionSurfaceHandle(__int64 a1, ACCESS_MASK a2, 
          a2,
          v7,
          1,
-         160,
+         144,
          (__int64 (__fastcall *)(PVOID, __int64, char *))CompositionSurfaceObject::ObjectInit,
          0LL,
          &Handle);

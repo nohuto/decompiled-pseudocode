@@ -1,5 +1,5 @@
 /*
- * XREFs of KiConfigureHeteroProcessorsTarget @ 0x14028D100
+ * XREFs of KiConfigureHeteroProcessorsTarget @ 0x14028D200
  * Callers:
  *     <none>
  * Callees:

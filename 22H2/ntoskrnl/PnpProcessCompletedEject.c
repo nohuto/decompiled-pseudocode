@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpProcessCompletedEject @ 0x1409590A0
+ * XREFs of PnpProcessCompletedEject @ 0x1408A2500
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     PnpCompleteDeviceEvent @ 0x140784280 (PnpCompleteDeviceEvent.c)
- *     PnpDisableAndFreeEventWatchdog @ 0x140785A5C (PnpDisableAndFreeEventWatchdog.c)
- *     IopFreeRelationList @ 0x14086898C (IopFreeRelationList.c)
- *     PnpInvalidateRelationsInList @ 0x140881998 (PnpInvalidateRelationsInList.c)
- *     PpProfileMarkAllTransitioningDocksEjected @ 0x140963E84 (PpProfileMarkAllTransitioningDocksEjected.c)
- *     PnpSetDeviceRemovalSafe @ 0x140964750 (PnpSetDeviceRemovalSafe.c)
- *     PnpTrackQueryRemoveDevices @ 0x140964B1C (PnpTrackQueryRemoveDevices.c)
- *     IopWarmEjectDevice @ 0x14096F1EC (IopWarmEjectDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PnpCompleteDeviceEvent @ 0x140634B74 (PnpCompleteDeviceEvent.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     PnpDisableWatchdog @ 0x1406F02D0 (PnpDisableWatchdog.c)
+ *     PnpTrackQueryRemoveDevices @ 0x140734820 (PnpTrackQueryRemoveDevices.c)
+ *     IopFreeRelationList @ 0x14074A6C8 (IopFreeRelationList.c)
+ *     PnpInvalidateRelationsInList @ 0x14074AF10 (PnpInvalidateRelationsInList.c)
+ *     PpProfileMarkAllTransitioningDocksEjected @ 0x1408AB73C (PpProfileMarkAllTransitioningDocksEjected.c)
+ *     PnpSetDeviceRemovalSafe @ 0x1408ABEF4 (PnpSetDeviceRemovalSafe.c)
+ *     IopWarmEjectDevice @ 0x1408B4660 (IopWarmEjectDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpProcessCompletedEject(PVOID P)
@@ -26,7 +26,9 @@ void __fastcall PnpProcessCompletedEject(PVOID P)
   PVOID *v5; // rax
   __int64 v6; // rax
   __int64 v7; // rdi
-  void *v8; // rdi
+  __int64 *v8; // rcx
+  _QWORD *v9; // rdi
+  __int64 v10; // rcx
 
   v1 = 0;
   if ( *((_DWORD *)P + 23) > 1u )
@@ -51,12 +53,16 @@ void __fastcall PnpProcessCompletedEject(PVOID P)
     v7 = *(_QWORD *)(*(_QWORD *)(v6 + 312) + 40LL);
   else
     v7 = 0LL;
-  if ( *((_QWORD *)P + 8) )
+  v8 = (__int64 *)*((_QWORD *)P + 8);
+  if ( v8 )
   {
     if ( *((_BYTE *)P + 88) )
+    {
       PpProfileMarkAllTransitioningDocksEjected();
-    PnpInvalidateRelationsInList(*((unsigned int ***)P + 8), 4u, 0, 1);
-    PnpTrackQueryRemoveDevices(*((_QWORD *)P + 8), 0LL);
+      v8 = (__int64 *)*((_QWORD *)P + 8);
+    }
+    PnpInvalidateRelationsInList(v8, 4u, 0, 1);
+    PnpTrackQueryRemoveDevices(*((_QWORD *)P + 8), 0);
     IopFreeRelationList(*((_QWORD **)P + 8));
     *(_QWORD *)(v7 + 696) = 0LL;
   }
@@ -65,14 +71,19 @@ void __fastcall PnpProcessCompletedEject(PVOID P)
     *((_BYTE *)P + 89) = 0;
   }
   PpDevNodeUnlockTree(1);
-  v8 = (void *)*((_QWORD *)P + 6);
-  if ( v8 )
+  v9 = (_QWORD *)*((_QWORD *)P + 6);
+  if ( v9 )
   {
-    PnpDisableAndFreeEventWatchdog(*((_QWORD *)P + 6));
-    PnpCompleteDeviceEvent(v8, v1);
+    v10 = v9[13];
+    if ( v10 )
+    {
+      PnpDisableWatchdog(v10);
+      v9[13] = 0LL;
+    }
+    PnpCompleteDeviceEvent(v9, v1);
   }
   if ( *((_BYTE *)P + 89) )
     PnpSetDeviceRemovalSafe(*((PVOID *)P + 7));
-  ObfDereferenceObject(*((PVOID *)P + 7));
+  HalPutDmaAdapter(*((PADAPTER_OBJECT *)P + 7));
   ExFreePoolWithTag(P, 0);
 }

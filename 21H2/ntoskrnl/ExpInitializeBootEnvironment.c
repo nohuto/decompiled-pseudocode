@@ -1,15 +1,18 @@
 /*
- * XREFs of ExpInitializeBootEnvironment @ 0x140B29088
+ * XREFs of ExpInitializeBootEnvironment @ 0x140A74038
  * Callers:
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
+ *     <none>
  */
 
-char __fastcall ExpInitializeBootEnvironment(__int64 a1)
+__int64 __fastcall ExpInitializeBootEnvironment(__int64 a1)
 {
-  dword_140C15C70 = ((*(_BYTE *)(a1 + 264) & 1) != 0) + 1;
-  *(_OWORD *)&ExpBootEnvironmentInformation = *(_OWORD *)(*(_QWORD *)(a1 + 240) + 256LL);
-  qword_140C15C78 = *(_QWORD *)(*(_QWORD *)(a1 + 240) + 2648LL);
-  return IoAddTriageDumpDataBlock((ULONG)&ExpBootEnvironmentInformation, (PVOID)0x20);
+  __int64 result; // rax
+
+  dword_140C19850 = ((*(_BYTE *)(a1 + 264) & 1) != 0) + 1;
+  ExpBootEnvironmentInformation = *(_OWORD *)(*(_QWORD *)(a1 + 240) + 256LL);
+  result = *(_QWORD *)(a1 + 240);
+  qword_140C19858 = *(_QWORD *)(result + 2616);
+  return result;
 }

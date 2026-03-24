@@ -1,12 +1,12 @@
 /*
- * XREFs of ulIndexToRGB @ 0x1C007F6B0
+ * XREFs of ulIndexToRGB @ 0x1C0066D70
  * Callers:
- *     GreGetNearestColor @ 0x1C0062D20 (GreGetNearestColor.c)
- *     ulColorRefToRGB @ 0x1C00D0590 (ulColorRefToRGB.c)
+ *     GreGetNearestColor @ 0x1C00202A0 (GreGetNearestColor.c)
+ *     ulColorRefToRGB @ 0x1C00C0C30 (ulColorRefToRGB.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C002E800 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?ulIndexToRGB@XEPALOBJ@@QEAAKK@Z @ 0x1C007F700 (-ulIndexToRGB@XEPALOBJ@@QEAAKK@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0038B54 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     ?ulIndexToRGB@XEPALOBJ@@QEAAKK@Z @ 0x1C0066DC0 (-ulIndexToRGB@XEPALOBJ@@QEAAKK@Z.c)
  */
 
 unsigned int __fastcall ulIndexToRGB(struct _ERESOURCE *a1, __int64 a2, unsigned int a3)

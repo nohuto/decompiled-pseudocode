@@ -1,21 +1,20 @@
 /*
- * XREFs of MiLogVirtualRotateEvent @ 0x14096D0B8
+ * XREFs of MiLogVirtualRotateEvent @ 0x1408C8634
  * Callers:
- *     MmRotatePhysicalView @ 0x140660170 (MmRotatePhysicalView.c)
- *     MiReplaceRotateWithDemandZero @ 0x14096D10C (MiReplaceRotateWithDemandZero.c)
+ *     MmRotatePhysicalView @ 0x140682910 (MmRotatePhysicalView.c)
  * Callees:
- *     MiLogPerfMemoryEvent @ 0x140583E7C (MiLogPerfMemoryEvent.c)
+ *     MiLogPerfMemoryEvent @ 0x140530600 (MiLogPerfMemoryEvent.c)
  */
 
-void __fastcall MiLogVirtualRotateEvent(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall MiLogVirtualRotateEvent(__int64 a1, __int64 a2, char a3)
 {
-  _QWORD v3[2]; // [rsp+30h] [rbp-28h] BYREF
-  int v4; // [rsp+40h] [rbp-18h]
-  int v5; // [rsp+44h] [rbp-14h]
+  _QWORD v4[2]; // [rsp+30h] [rbp-28h] BYREF
+  int v5; // [rsp+40h] [rbp-18h]
+  int v6; // [rsp+44h] [rbp-14h]
 
-  v3[0] = a1;
-  v5 = 0;
-  v3[1] = a2;
-  v4 = a3 & 0xF;
-  MiLogPerfMemoryEvent(0x27Fu, 0x20008000u, (__int64)v3, 20, 4200706);
+  v4[0] = a1;
+  v6 = 0;
+  v4[1] = a2;
+  v5 = a3 & 0xF;
+  return MiLogPerfMemoryEvent(639, 0x20008000u, (__int64)v4, 20, 4200706);
 }

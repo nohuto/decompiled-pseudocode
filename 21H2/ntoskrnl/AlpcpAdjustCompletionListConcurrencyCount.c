@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpAdjustCompletionListConcurrencyCount @ 0x1407F7428
+ * XREFs of AlpcpAdjustCompletionListConcurrencyCount @ 0x1406930B0
  * Callers:
- *     NtAlpcSetInformation @ 0x1407D5A10 (NtAlpcSetInformation.c)
+ *     NtAlpcSetInformation @ 0x1406D1BB0 (NtAlpcSetInformation.c)
  * Callees:
- *     AlpcpQueueIoCompletionPort @ 0x14035AB2C (AlpcpQueueIoCompletionPort.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1402ACB74 (AlpcpQueueIoCompletionPort.c)
  */
 
-__int64 __fastcall AlpcpAdjustCompletionListConcurrencyCount(_QWORD *a1, unsigned __int32 a2)
+__int64 __fastcall AlpcpAdjustCompletionListConcurrencyCount(__int64 a1, unsigned __int32 a2)
 {
   __int64 result; // rax
   __int64 v3; // rsi
@@ -16,7 +16,7 @@ __int64 __fastcall AlpcpAdjustCompletionListConcurrencyCount(_QWORD *a1, unsigne
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = (__int64)&retaddr;
-  v3 = a1[45];
+  v3 = *(_QWORD *)(a1 + 360);
   _m_prefetchw((const void *)(v3 + 144));
   v6 = *(_DWORD *)(v3 + 144);
   while ( v6 != a2 )
@@ -26,7 +26,7 @@ __int64 __fastcall AlpcpAdjustCompletionListConcurrencyCount(_QWORD *a1, unsigne
     v6 = result;
     if ( (_DWORD)result == v7 )
     {
-      if ( !a1[4] )
+      if ( !*(_QWORD *)(a1 + 32) )
         return result;
       if ( v7 < a2 )
       {

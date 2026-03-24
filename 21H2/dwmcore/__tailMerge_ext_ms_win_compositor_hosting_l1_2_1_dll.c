@@ -1,10 +1,10 @@
 /*
- * XREFs of __tailMerge_ext_ms_win_compositor_hosting_l1_2_1_dll @ 0x18010208C
+ * XREFs of __tailMerge_ext_ms_win_compositor_hosting_l1_2_1_dll @ 0x1800E863C
  * Callers:
- *     __imp_load_NotifyInputSinkRemoved @ 0x180102080 (__imp_load_NotifyInputSinkRemoved.c)
- *     __imp_load_NotifyInputSinkParented @ 0x18010210B (__imp_load_NotifyInputSinkParented.c)
+ *     __imp_load_NotifyInputSinkParented @ 0x1800E8630 (__imp_load_NotifyInputSinkParented.c)
+ *     __imp_load_NotifyInputSinkRemoved @ 0x1800E8F28 (__imp_load_NotifyInputSinkRemoved.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_ext_ms_win_compositor_hosting_l1_2_1_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

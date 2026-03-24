@@ -1,5 +1,5 @@
 /*
- * XREFs of IopCompareReqAlternativePriority @ 0x14085D9A0
+ * XREFs of IopCompareReqAlternativePriority @ 0x1407CEE30
  * Callers:
  *     <none>
  * Callees:
@@ -14,11 +14,14 @@ __int64 __fastcall IopCompareReqAlternativePriority(_DWORD **a1, _DWORD **a2)
 
   v2 = *a1;
   v3 = *a2;
-  if ( **a2 != *v2 )
-    return *v3 < *v2 ? 1 : -1;
-  v4 = v2[1];
-  if ( v4 > v3[1] || v4 >= v3[1] && v2 >= v3 )
+  if ( *v2 == **a2 )
+  {
+    v4 = v2[1];
+    if ( v4 <= v3[1] && (v4 < v3[1] || v2 < v3) )
+      return 0xFFFFFFFFLL;
     return 1LL;
-  else
-    return 0xFFFFFFFFLL;
+  }
+  if ( *v2 > *v3 )
+    return 1LL;
+  return 0xFFFFFFFFLL;
 }

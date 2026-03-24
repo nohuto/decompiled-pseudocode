@@ -1,35 +1,35 @@
 /*
- * XREFs of NtSetEventBoostPriority @ 0x1409FB810
+ * XREFs of NtSetEventBoostPriority @ 0x14094F420
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeSetEventBoostPriority @ 0x14056EA10 (KeSetEventBoostPriority.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeSetEventBoostPriority @ 0x140518C60 (KeSetEventBoostPriority.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtSetEventBoostPriority(void *a1)
 {
   NTSTATUS v1; // edi
-  PVOID v2; // rbx
-  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
+  struct _DMA_ADAPTER *v2; // rbx
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
 
-  Object = 0LL;
+  DmaAdapter = 0LL;
   v1 = ObReferenceObjectByHandle(
          a1,
          2u,
          (POBJECT_TYPE)ExEventObjectType,
          KeGetCurrentThread()->PreviousMode,
-         &Object,
+         (PVOID *)&DmaAdapter,
          0LL);
   if ( v1 >= 0 )
   {
-    v2 = Object;
-    if ( (*(_BYTE *)Object & 0x7F) != 0 )
-      KeSetEventBoostPriority((volatile signed __int32 *)Object, 0LL);
+    v2 = DmaAdapter;
+    if ( (DmaAdapter->Version & 0x7F) != 0 )
+      KeSetEventBoostPriority((__int64)DmaAdapter, 0LL);
     else
       v1 = -1073741788;
-    ObfDereferenceObject(v2);
+    HalPutDmaAdapter(v2);
   }
   return (unsigned int)v1;
 }

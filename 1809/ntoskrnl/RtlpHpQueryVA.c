@@ -6,8 +6,8 @@
  *     RtlpHpLargeAlloc @ 0x140009ED8 (RtlpHpLargeAlloc.c)
  *     RtlpHpSegSegmentInitialize @ 0x14000DC20 (RtlpHpSegSegmentInitialize.c)
  *     RtlpHpGetOwnerHeap @ 0x14000E6C0 (RtlpHpGetOwnerHeap.c)
- *     RtlpHpSegMgrRelease @ 0x14015472C (RtlpHpSegMgrRelease.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x1402FCD00 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrRelease @ 0x14015474C (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x1402FCE00 (RtlpHpSegMgrVaCtxFree.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  * Callees:
  *     RtlpHpVaMgrCtxQuery @ 0x14000CAF4 (RtlpHpVaMgrCtxQuery.c)

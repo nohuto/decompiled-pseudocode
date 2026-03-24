@@ -1,16 +1,16 @@
 /*
- * XREFs of IoReadPartitionTable @ 0x1409306C0
+ * XREFs of IoReadPartitionTable @ 0x14088DC40
  * Callers:
- *     DifIoReadPartitionTableWrapper @ 0x140610400 (DifIoReadPartitionTableWrapper.c)
+ *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ??0SC_DISK@@QEAA@XZ @ 0x140650C18 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x140650D38 (--1SC_DISK@@UEAA@XZ.c)
- *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140651304 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140930388 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x1405C69D4 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1405C6AE4 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C6FA8 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088D908 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoReadPartitionTable(
@@ -31,11 +31,11 @@ NTSTATUS __stdcall IoReadPartitionTable(
   __int64 v15; // rcx
   unsigned int v16; // eax
   int v17; // r10d
-  PVOID P; // [rsp+20h] [rbp-1B8h] BYREF
-  _QWORD v20[48]; // [rsp+30h] [rbp-1A8h] BYREF
+  PVOID P; // [rsp+20h] [rbp-1A8h] BYREF
+  _QWORD v20[46]; // [rsp+30h] [rbp-198h] BYREF
 
   SC_DISK::SC_DISK((SC_DISK *)v20);
-  v20[47] = 0LL;
+  v20[44] = 0LL;
   P = 0LL;
   *v6 = 0LL;
   v20[0] = &NT_DISK::`vftable';

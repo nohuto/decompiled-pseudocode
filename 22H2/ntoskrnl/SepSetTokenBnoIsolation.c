@@ -1,10 +1,10 @@
 /*
- * XREFs of SepSetTokenBnoIsolation @ 0x140224BC8
+ * XREFs of SepSetTokenBnoIsolation @ 0x1402511C8
  * Callers:
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x140603E44 (SeSubProcessToken.c)
  * Callees:
- *     SepDereferenceCachedHandlesEntry @ 0x1407EF89C (SepDereferenceCachedHandlesEntry.c)
- *     SepSetTokenCachedHandles @ 0x1407F4B10 (SepSetTokenCachedHandles.c)
+ *     SepDereferenceCachedHandlesEntry @ 0x140635720 (SepDereferenceCachedHandlesEntry.c)
+ *     SepSetTokenCachedHandles @ 0x14070EDA4 (SepSetTokenCachedHandles.c)
  */
 
 __int64 __fastcall SepSetTokenBnoIsolation(__int64 a1, char a2, __int128 *a3, unsigned int a4, __int64 a5)
@@ -12,10 +12,11 @@ __int64 __fastcall SepSetTokenBnoIsolation(__int64 a1, char a2, __int128 *a3, un
   unsigned int v5; // ebx
   __int64 v10; // rsi
   __int128 v12; // xmm0
-  _DWORD v13[14]; // [rsp+20h] [rbp-38h] BYREF
+  _DWORD v13[2]; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v14; // [rsp+28h] [rbp-30h]
 
   v5 = 0;
-  memset(v13, 0, 24);
+  v13[1] = 0;
   if ( a2 )
   {
     if ( (*(_DWORD *)(a1 + 200) & 0x4000) != 0 )
@@ -52,7 +53,7 @@ LABEL_5:
   {
     v12 = *a3;
     v13[0] = 1;
-    *(_OWORD *)&v13[2] = v12;
+    v14 = v12;
     return (unsigned int)((__int64 (__fastcall *)(__int64, _DWORD *, _QWORD, __int64))SepSetTokenCachedHandles)(
                            a1,
                            v13,

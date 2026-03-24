@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C016B258
+ * XREFs of ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C013E3C8
  * Callers:
- *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C016B330 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
+ *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C013E4A0 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
  * Callees:
- *     bFToL @ 0x1C009B150 (bFToL.c)
+ *     bFToL @ 0x1C0081930 (bFToL.c)
  */
 
 void __fastcall ERECTL::vScale(ERECTL *this, const struct POINTFL *a2)

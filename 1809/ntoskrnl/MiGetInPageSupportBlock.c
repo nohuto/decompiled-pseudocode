@@ -3,13 +3,13 @@
  * Callers:
  *     MiAllocateInPageSupport @ 0x14002C548 (MiAllocateInPageSupport.c)
  *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MiPrivateFixup @ 0x140125E20 (MiPrivateFixup.c)
- *     MiPfAllocateMdls @ 0x1406982C0 (MiPfAllocateMdls.c)
- *     MiCreateRotateView @ 0x1406CA9E4 (MiCreateRotateView.c)
- *     MiGetReadyInPageBlock @ 0x14084F30C (MiGetReadyInPageBlock.c)
+ *     MiPrivateFixup @ 0x140125E40 (MiPrivateFixup.c)
+ *     MiPfAllocateMdls @ 0x1406982A0 (MiPfAllocateMdls.c)
+ *     MiCreateRotateView @ 0x1406CA9C4 (MiCreateRotateView.c)
+ *     MiGetReadyInPageBlock @ 0x14084F2EC (MiGetReadyInPageBlock.c)
  * Callees:
  *     MiInitializeInPageSupport @ 0x14002C6B0 (MiInitializeInPageSupport.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,75 +1,64 @@
 /*
- * XREFs of xxxMNSwitchToAlternateMenu @ 0x1C0233F20
+ * XREFs of xxxMNSwitchToAlternateMenu @ 0x1C023B8F4
  * Callers:
- *     xxxHandleMenuMessages @ 0x1C022D700 (xxxHandleMenuMessages.c)
- *     xxxMNChar @ 0x1C02309F8 (xxxMNChar.c)
- *     xxxMNKeyDown @ 0x1C0231A20 (xxxMNKeyDown.c)
- *     xxxMNMouseMove @ 0x1C0232340 (xxxMNMouseMove.c)
- *     xxxMNKeyFilter @ 0x1C024D9FC (xxxMNKeyFilter.c)
+ *     xxxHandleMenuMessages @ 0x1C0233F78 (xxxHandleMenuMessages.c)
+ *     xxxMNChar @ 0x1C02378A4 (xxxMNChar.c)
+ *     xxxMNKeyDown @ 0x1C0238A98 (xxxMNKeyDown.c)
+ *     xxxMNMouseMove @ 0x1C02396FC (xxxMNMouseMove.c)
+ *     xxxMNKeyFilter @ 0x1C0250A2C (xxxMNKeyFilter.c)
  * Callees:
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     xxxMNSelectItem @ 0x1C02334EC (xxxMNSelectItem.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     xxxMNSelectItem @ 0x1C023AB7C (xxxMNSelectItem.c)
  */
 
 __int64 __fastcall xxxMNSwitchToAlternateMenu(__int64 **a1, __int64 a2)
 {
-  __int64 *v2; // rax
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // rcx
+  __int64 v4; // rsi
+  __int64 ThreadWin32Thread; // rax
+  __int64 v6; // rcx
   __int64 *v8; // rax
-  __int64 v9; // rcx
-  int v10; // ecx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  _QWORD v15[2]; // [rsp+30h] [rbp-50h] BYREF
-  _QWORD v16[2]; // [rsp+40h] [rbp-40h] BYREF
-  _QWORD v17[2]; // [rsp+50h] [rbp-30h] BYREF
-  __int128 v18; // [rsp+60h] [rbp-20h] BYREF
-  __int64 v19; // [rsp+70h] [rbp-10h]
-  __int64 v20; // [rsp+90h] [rbp+10h] BYREF
+  __int64 v9; // rax
+  int v10; // r8d
+  __int64 v11; // rcx
+  _QWORD v12[2]; // [rsp+38h] [rbp-9h] BYREF
+  _QWORD v13[2]; // [rsp+48h] [rbp+7h] BYREF
+  __int128 v14; // [rsp+58h] [rbp+17h]
+  __int128 v15; // [rsp+68h] [rbp+27h] BYREF
+  _QWORD v16[4]; // [rsp+78h] [rbp+37h] BYREF
+  __int64 v17; // [rsp+A8h] [rbp+67h] BYREF
 
-  v20 = 0LL;
-  v19 = 0LL;
-  v2 = *a1;
-  v18 = 0LL;
-  if ( (*(_DWORD *)*v2 & 1) == 0 || !*(_QWORD *)(**a1 + 48) || (*(_DWORD *)**a1 & 0x8000) != 0 )
+  v17 = 0LL;
+  v16[2] = 0LL;
+  if ( (*(_DWORD *)**a1 & 1) == 0 || !*(_QWORD *)(**a1 + 48) || (*(_DWORD *)**a1 & 0x8000) != 0 || !a2 )
     return 0LL;
-  if ( !*(_QWORD *)(**a1 + 16) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM();
-  if ( !a2 )
-  {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM();
-    return 0LL;
-  }
-  ThreadLock(*(_QWORD *)(**a1 + 8), (__int64 *)&v18);
+  v4 = *(_QWORD *)(**a1 + 8);
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v16[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v16;
+  v16[1] = v4;
+  if ( v4 )
+    HMLockObject(v4);
   xxxMNSelectItem(a1, a2, -1);
-  v7 = **a1;
-  if ( !*(_QWORD *)(v7 + 48) || (*(_BYTE *)(_HMPheFromObject(*(_QWORD *)(**a1 + 48)) + 25) & 1) != 0 )
+  v6 = **a1;
+  if ( !*(_QWORD *)(v6 + 48) )
   {
-    ThreadUnlock1(v7, v5, v6);
+    ThreadUnlock1(v6);
     return 0LL;
-  }
-  if ( !*(_QWORD *)(**a1 + 40)
-    || *(_QWORD *)(*(_QWORD *)(**a1 + 40) + 80LL) != *(_QWORD *)(*(_QWORD *)(**a1 + 48) + 80LL) )
-  {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM();
   }
   v8 = *a1;
-  v15[0] = &v20;
-  v15[1] = *(_QWORD *)(*v8 + 48);
-  HMAssignmentLock(v15, 0LL);
-  v9 = **a1 + 48;
-  v16[1] = *(_QWORD *)(**a1 + 40);
-  v16[0] = v9;
-  HMAssignmentLock(v16, 0LL);
-  v17[0] = **a1 + 40;
-  v17[1] = v20;
-  HMAssignmentLock(v17, 0LL);
-  HMAssignmentUnlock(&v20);
+  v12[0] = &v17;
+  v12[1] = *(_QWORD *)(*v8 + 48);
+  HMAssignmentLock(v12);
+  v9 = *(_QWORD *)(**a1 + 40);
+  v13[0] = **a1 + 48;
+  v13[1] = v9;
+  HMAssignmentLock(v13);
+  *(_QWORD *)&v14 = **a1 + 40;
+  *((_QWORD *)&v14 + 1) = v17;
+  v15 = v14;
+  HMAssignmentLock(&v15);
+  HMAssignmentUnlock(&v17);
   if ( !*(_QWORD *)(**a1 + 8) || (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(**a1 + 8) + 40LL) + 30LL) & 8) != 0 )
   {
     if ( *(_QWORD *)(**a1 + 8) && *(_QWORD *)(*(_QWORD *)(**a1 + 8) + 160LL) )
@@ -91,6 +80,6 @@ __int64 __fastcall xxxMNSwitchToAlternateMenu(__int64 **a1, __int64 a2)
   *(_DWORD *)**a1 ^= (*(_DWORD *)**a1 ^ (2 * *(_DWORD *)(a2 + 8))) & 4;
   xxxWindowEvent(5u, *(struct tagWND **)(**a1 + 8), ~(*(_DWORD *)**a1 >> 1) | 0xFFFFFFFD, 0, 0);
   xxxWindowEvent(4u, *(struct tagWND **)(**a1 + 8), (*(_DWORD *)**a1 >> 1) | 0xFFFFFFFD, 0, 0);
-  ThreadUnlock1(v12, v11, v13);
+  ThreadUnlock1(v11);
   return 1LL;
 }

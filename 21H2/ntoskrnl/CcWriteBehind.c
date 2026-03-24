@@ -1,104 +1,84 @@
 /*
- * XREFs of CcWriteBehind @ 0x140275FC0
+ * XREFs of CcWriteBehind @ 0x1402F6160
  * Callers:
- *     CcWaitForUninitializeCacheMap @ 0x14023AFD8 (CcWaitForUninitializeCacheMap.c)
- *     CcCachemapUninitWorkerThread @ 0x140275000 (CcCachemapUninitWorkerThread.c)
- *     CcWorkerThread @ 0x14035D970 (CcWorkerThread.c)
+ *     CcWaitForUninitializeCacheMap @ 0x1402B87C0 (CcWaitForUninitializeCacheMap.c)
+ *     CcWorkerThread @ 0x1402F31F0 (CcWorkerThread.c)
+ *     CcCachemapUninitWorkerThread @ 0x1402F38A0 (CcCachemapUninitWorkerThread.c)
  * Callees:
- *     CcFreeWorkQueueEntry @ 0x1402766A0 (CcFreeWorkQueueEntry.c)
- *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x1402768B4 (CcIsWriteBehindThreadpoolAtLowPriority.c)
- *     CcAllocateWorkQueueEntry @ 0x1402768E4 (CcAllocateWorkQueueEntry.c)
- *     CcWriteBehindInternal @ 0x140288760 (CcWriteBehindInternal.c)
- *     CcGetCurrentNumaNode @ 0x14029E3A0 (CcGetCurrentNumaNode.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExQueueWorkItemToPartition @ 0x1402EF060 (ExQueueWorkItemToPartition.c)
- *     ExAllocatePoolWithTagFromNode @ 0x140349670 (ExAllocatePoolWithTagFromNode.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     CcWriteBehindInternal @ 0x14022DA70 (CcWriteBehindInternal.c)
+ *     CcAllocateWorkQueueEntry @ 0x1402F67D0 (CcAllocateWorkQueueEntry.c)
+ *     CcFreeWorkQueueEntry @ 0x1402F6CBC (CcFreeWorkQueueEntry.c)
+ *     ExQueueWorkItemToPartition @ 0x1402F78AC (ExQueueWorkItemToPartition.c)
+ *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall CcWriteBehind(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall CcWriteBehind(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rsi
-  void *v4; // r14
-  __int64 CurrentNumaNode; // r15
-  __int64 v8; // r13
-  int v9; // eax
-  __int64 v10; // r8
-  _QWORD *v11; // rdi
-  __int64 v12; // rdx
-  __int64 v13; // r9
-  ULONG_PTR PoolWithTagFromNode; // rax
-  _QWORD v15[20]; // [rsp+38h] [rbp-69h] BYREF
-  __int64 v16; // [rsp+108h] [rbp+67h] BYREF
+  void *v3; // rsi
+  __int64 Partition; // rbx
+  int v6; // eax
+  _QWORD *v7; // rdi
+  _QWORD *PoolWithTag; // rax
+  _QWORD v9[18]; // [rsp+30h] [rbp-59h] BYREF
+  __int64 v10; // [rsp+100h] [rbp+77h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 528);
-  v4 = 0LL;
-  v16 = 0LL;
-  CurrentNumaNode = a3;
-  if ( !a3 )
-    CurrentNumaNode = CcGetCurrentNumaNode(v3, a1);
-  v8 = *(_QWORD *)(a1 + 592);
-  v9 = CcAllocateWorkQueueEntry(v3, v8, CurrentNumaNode, &v16);
-  v11 = (_QWORD *)v16;
-  if ( v9 < 0 )
-    goto LABEL_5;
-  *(_BYTE *)(v16 + 128) = 2;
-  v11[1] = 0LL;
-  *v11 = 0LL;
-  v11[2] = a1;
-  v11[3] = a2;
-  if ( !(unsigned __int8)CcIsWriteBehindThreadpoolAtLowPriority(v3, 0LL, v10) )
-    goto LABEL_5;
-  if ( *(_QWORD *)(v3 + 1192) == v12
-    && *(_DWORD *)(a1 + 516) == (_DWORD)v12
-    && (*(_DWORD *)(a1 + 152) & 0x10000) == 0
-    && *(_BYTE *)(v3 + 1230) == (_BYTE)v12
-    && (v13 = *(unsigned int *)(CurrentNumaNode + 24),
-        LODWORD(v13) = v13 | 0x80000000,
-        PoolWithTagFromNode = ExAllocatePoolWithTagFromNode(512LL, 80LL, 1901552451LL, v13),
-        (v4 = (void *)PoolWithTagFromNode) != 0LL) )
+  v3 = 0LL;
+  v10 = 0LL;
+  Partition = CcGetPartition(a1);
+  v6 = CcAllocateWorkQueueEntry(Partition, &v10);
+  v7 = (_QWORD *)v10;
+  if ( v6 < 0
+    || (*(_BYTE *)(v10 + 120) = 2,
+        v7[1] = 0LL,
+        *v7 = 0LL,
+        v7[2] = a1,
+        v7[3] = a2,
+        *(_DWORD *)(Partition + 960) >= *(_DWORD *)(Partition + 200))
+    || *(_QWORD *)(Partition + 928)
+    || *(_DWORD *)(a1 + 516)
+    || (*(_DWORD *)(a1 + 152) & 0x10000) != 0
+    || *(_BYTE *)(Partition + 966)
+    || (PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x71576343u), (v3 = PoolWithTag) == 0LL) )
   {
-    *(_QWORD *)(PoolWithTagFromNode + 56) = v3;
-    *(_DWORD *)(PoolWithTagFromNode + 32) = 1;
-    *(_QWORD *)(PoolWithTagFromNode + 64) = v8;
-    *(_QWORD *)(PoolWithTagFromNode + 72) = CurrentNumaNode;
-    *((_BYTE *)v11 + 56) = 1;
-    v11[6] = v11 + 5;
-    v11[5] = v11 + 5;
-    *((_WORD *)v11 + 16) = 1;
-    *((_BYTE *)v11 + 34) = 6;
-    *((_DWORD *)v11 + 9) = 0;
-    *(_QWORD *)(PoolWithTagFromNode + 16) = CcWriteBehindInternal;
-    *(_QWORD *)(PoolWithTagFromNode + 24) = v11;
-    *(_QWORD *)PoolWithTagFromNode = 0LL;
-    ExQueueWorkItemToPartition(PoolWithTagFromNode);
-    KeWaitForSingleObject(v11 + 4, Executive, 0, 0, 0LL);
+    memset(v9, 0, 0x88uLL);
+    if ( !v7 )
+    {
+      v9[16] = Partition;
+      v7 = v9;
+      LOBYTE(v9[15]) = 2;
+      v9[1] = 0LL;
+      v9[0] = 0LL;
+      v9[2] = a1;
+      v9[3] = a2;
+      LOBYTE(v9[7]) = 0;
+    }
+    *((_BYTE *)v7 + 56) = 0;
+    CcWriteBehindInternal((__int64)v7);
+    if ( v7 == v9 )
+      v7 = 0LL;
   }
   else
   {
-LABEL_5:
-    memset(v15, 0, sizeof(v15));
-    if ( !v11 )
-    {
-      v15[17] = v3;
-      v11 = v15;
-      v15[18] = v8;
-      v15[1] = 0LL;
-      v15[0] = 0LL;
-      LOBYTE(v15[7]) = 0;
-      v15[19] = CurrentNumaNode;
-      LOBYTE(v15[16]) = 2;
-      v15[2] = a1;
-      v15[3] = a2;
-    }
-    *((_BYTE *)v11 + 56) = 0;
-    CcWriteBehindInternal(v11);
-    if ( v11 == v15 )
-      v11 = 0LL;
+    PoolWithTag[7] = Partition;
+    *((_DWORD *)PoolWithTag + 8) = 1;
+    *((_BYTE *)v7 + 56) = 1;
+    v7[6] = v7 + 5;
+    v7[5] = v7 + 5;
+    *((_WORD *)v7 + 16) = 1;
+    *((_BYTE *)v7 + 34) = 6;
+    *((_DWORD *)v7 + 9) = 0;
+    PoolWithTag[2] = CcWriteBehindInternal;
+    PoolWithTag[3] = v7;
+    *PoolWithTag = 0LL;
+    ExQueueWorkItemToPartition((ULONG_PTR)PoolWithTag);
+    KeWaitForSingleObject(v7 + 4, Executive, 0, 0, 0LL);
   }
-  if ( v11 )
-    CcFreeWorkQueueEntry((PSLIST_ENTRY)v11);
-  if ( v4 )
-    ExFreePoolWithTag(v4, 0x71576343u);
+  if ( v7 )
+    CcFreeWorkQueueEntry((PSLIST_ENTRY)v7);
+  if ( v3 )
+    ExFreePoolWithTag(v3, 0x71576343u);
 }

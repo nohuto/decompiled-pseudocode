@@ -1,65 +1,60 @@
 /*
- * XREFs of ?VailSendWnfToDwm@DXGSESSIONDATA@@QEAAJH@Z @ 0x1C0364268
+ * XREFs of ?VailSendWnfToDwm@DXGSESSIONDATA@@QEAAJH@Z @ 0x1C02B88C8
  * Callers:
- *     ?NotifyVailSessionCallback@DXGVAILOBJECT@@SAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z @ 0x1C0362130 (-NotifyVailSessionCallback@DXGVAILOBJECT@@SAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z.c)
+ *     ?NotifyVailSessionCallback@DXGVAILOBJECT@@SAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z @ 0x1C02B5EE0 (-NotifyVailSessionCallback@DXGVAILOBJECT@@SAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
  */
 
 __int64 __fastcall DXGSESSIONDATA::VailSendWnfToDwm(DXGSESSIONDATA *this, int a2)
 {
   __int64 v3; // rdi
-  struct _KPROCESS *v4; // rcx
+  __int64 v4; // rdx
+  struct _KPROCESS *v5; // rcx
   HANDLE ProcessId; // rax
-  NTSTATUS v6; // eax
-  struct _CLIENT_ID ClientId; // [rsp+50h] [rbp-9h] BYREF
-  _BYTE v9[16]; // [rsp+60h] [rbp+7h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+17h] BYREF
-  void *ProcessHandle; // [rsp+C0h] [rbp+67h] BYREF
-  int v12; // [rsp+C8h] [rbp+6Fh] BYREF
+  NTSTATUS v7; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  struct _CLIENT_ID ClientId; // [rsp+48h] [rbp+7h] BYREF
+  _BYTE v13[16]; // [rsp+58h] [rbp+17h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+27h] BYREF
+  void *ProcessHandle; // [rsp+A8h] [rbp+67h] BYREF
+  int v16; // [rsp+B0h] [rbp+6Fh] BYREF
 
-  v12 = a2;
+  v16 = a2;
   LODWORD(v3) = 0;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v9, (DXGSESSIONDATA *)((char *)this + 18664), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v9);
-  v4 = (struct _KPROCESS *)*((_QWORD *)this + 2339);
-  if ( v4 )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v13, (DXGSESSIONDATA *)((char *)this + 18648), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v13);
+  v5 = (struct _KPROCESS *)*((_QWORD *)this + 2336);
+  if ( v5 )
   {
     ClientId.UniqueThread = 0LL;
-    ProcessId = PsGetProcessId(v4);
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
-    ClientId.UniqueProcess = ProcessId;
-    *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-    ObjectAttributes.RootDirectory = 0LL;
-    ObjectAttributes.ObjectName = 0LL;
-    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    ProcessId = PsGetProcessId(v5);
+    memset(&ObjectAttributes.Length + 1, 0, 20);
+    memset(&ObjectAttributes.Attributes + 1, 0, 20);
     ProcessHandle = 0LL;
-    v6 = ZwOpenProcess(&ProcessHandle, 0x2000000u, &ObjectAttributes, &ClientId);
-    v3 = v6;
-    if ( v6 < 0 )
+    ClientId.UniqueProcess = ProcessId;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 576;
+    v7 = ZwOpenProcess(&ProcessHandle, 0x2000000u, &ObjectAttributes, &ClientId);
+    v3 = v7;
+    if ( v7 < 0 )
     {
-      WdLogSingleEntry2(2LL, ClientId.UniqueProcess, v6);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to open process handle for process id 0x%I64x, return 0x%I64x",
-        (__int64)ClientId.UniqueProcess,
-        v3,
-        0LL,
-        0LL,
-        0LL);
+      v10 = WdLogNewEntry5_WdError(v9, v8);
+      *(_QWORD *)(v10 + 24) = ClientId.UniqueProcess;
+      *(_QWORD *)(v10 + 32) = v3;
+      WdLogEvent5_WdError(v10);
     }
     else
     {
-      LODWORD(v3) = ZwUpdateWnfStateData(&WNF_DX_VAIL_CHANGE_NOTIFICATION, &v12, 4LL, 0LL, ProcessHandle, 0, 0);
+      LODWORD(v3) = ZwUpdateWnfStateData(&WNF_DX_VAIL_CHANGE_NOTIFICATION, &v16, 4LL, 0LL, ProcessHandle, 0, 0);
       ZwClose(ProcessHandle);
     }
   }
-  if ( v9[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v9);
+  if ( v13[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v13, v4);
   return (unsigned int)v3;
 }

@@ -1,37 +1,37 @@
 /*
- * XREFs of ?AddToMoveList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@@Z @ 0x1C03315A8
+ * XREFs of ?AddToMoveList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@@Z @ 0x1C02A0B9C
  * Callers:
- *     ?ProcessMoveAgainstMoveList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@PEAUtagRECT@@@Z @ 0x1C0332CB8 (-ProcessMoveAgainstMoveList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@PEAUtagRECT@@@Z.c)
+ *     ?ProcessMoveAgainstMoveList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@PEAUtagRECT@@@Z @ 0x1C02A1E68 (-ProcessMoveAgainstMoveList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@PEAUtagRECT@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C01E93B0 (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
- *     ?ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C0332E8C (-ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z.c)
+ *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C016D17C (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
+ *     ?ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C02A2008 (-ProcessNewDirtyRects@DDAMetaData@@AEAAHPEAU_D3DKMT_PRESENT_RGNS@@@Z.c)
  */
 
 __int64 __fastcall DDAMetaData::AddToMoveList(DDAMetaData *this, struct _D3DKMT_MOVE_RECT *a2)
 {
-  unsigned int v2; // esi
+  unsigned int v2; // ebx
   unsigned int v4; // ecx
-  unsigned int v6; // esi
+  unsigned int v6; // ebx
   _QWORD *Buffer; // rdx
-  __int64 v8; // rbx
-  const wchar_t *v9; // r9
+  __int64 v8; // rcx
+  __int64 v9; // rcx
   __int64 v11; // rcx
-  struct _D3DKMT_PRESENT_RGNS v12; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  struct _D3DKMT_PRESENT_RGNS v14; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = *((_DWORD *)this + 11);
   v4 = *((_DWORD *)this + 10);
   if ( v2 >= v4 )
   {
-    *(&v12.DirtyRectCount + 1) = 0;
-    v12.pDirtyRects = &a2->DestRect;
-    v12.DirtyRectCount = 1;
-    *(_OWORD *)&v12.MoveRectCount = 0LL;
-    if ( !(unsigned int)DDAMetaData::ProcessNewDirtyRects(this, &v12) )
+    *(&v14.DirtyRectCount + 1) = 0;
+    v14.pDirtyRects = &a2->DestRect;
+    v14.DirtyRectCount = 1;
+    *(_OWORD *)&v14.MoveRectCount = 0LL;
+    if ( !(unsigned int)DDAMetaData::ProcessNewDirtyRects(this, &v14) )
     {
-      v8 = 1016LL;
-      WdLogSingleEntry1(2LL, 1016LL);
-      v9 = L"Failed to add new move to dirty list";
+      v9 = WdLogNewEntry5_WdError(v13, v12);
+      *(_QWORD *)(v9 + 24) = 1013LL;
       goto LABEL_9;
     }
   }
@@ -47,14 +47,13 @@ __int64 __fastcall DDAMetaData::AddToMoveList(DDAMetaData *this, struct _D3DKMT_
     {
       v6 = v2 + 1;
     }
-    Buffer = AUTOEXPANDALLOCATION::GetBuffer(*((const void ***)this + 6), 24 * v6, 1);
+    Buffer = AUTOEXPANDALLOCATION::GetBuffer(*((AUTOEXPANDALLOCATION **)this + 6), 24 * v6, 1);
     if ( !Buffer )
     {
-      v8 = v6;
-      WdLogSingleEntry1(2LL, v6);
-      v9 = L"Failed to expand move list to 0x%I64x move";
+      v9 = WdLogNewEntry5_WdError(v8, 0LL);
+      *(_QWORD *)(v9 + 24) = v6;
 LABEL_9:
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v9, v8, 0LL, 0LL, 0LL, 0LL);
+      WdLogEvent5_WdError(v9);
       return 0LL;
     }
     v11 = 3LL * *((unsigned int *)this + 11);

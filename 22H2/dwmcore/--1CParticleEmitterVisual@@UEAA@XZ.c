@@ -1,38 +1,42 @@
 /*
- * XREFs of ??1CParticleEmitterVisual@@UEAA@XZ @ 0x180243AB4
+ * XREFs of ??1CParticleEmitterVisual@@UEAA@XZ @ 0x1801DE3D0
  * Callers:
- *     ??_ECParticleEmitterVisual@@UEAAPEAXI@Z @ 0x180243ED0 (--_ECParticleEmitterVisual@@UEAAPEAXI@Z.c)
+ *     ??_ECParticleEmitterVisual@@UEAAPEAXI@Z @ 0x1801DE810 (--_ECParticleEmitterVisual@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??R?$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z @ 0x1801C288C (--R-$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z.c)
- *     ??1ParticleCollection@CParticleEmitterVisual@@QEAA@XZ @ 0x180243B74 (--1ParticleCollection@CParticleEmitterVisual@@QEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$UnRegisterNotifier@PEAVCVisualReference@@@CResource@@QEAAXAEAPEAVCVisualReference@@@Z @ 0x180168A30 (--$UnRegisterNotifier@PEAVCVisualReference@@@CResource@@QEAAXAEAPEAVCVisualReference@@@Z.c)
+ *     ??R?$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z @ 0x18016C51C (--R-$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z.c)
+ *     ??1ParticleCollection@CParticleEmitterVisual@@QEAA@XZ @ 0x1801DE4AC (--1ParticleCollection@CParticleEmitterVisual@@QEAA@XZ.c)
  */
 
-void __fastcall CParticleEmitterVisual::~CParticleEmitterVisual(CParticleEmitterVisual *this)
+void __fastcall CParticleEmitterVisual::~CParticleEmitterVisual(struct CResource **this)
 {
-  __int64 v1; // rdx
-  void *v3; // rcx
-  void *v4; // rcx
+  __int64 v2; // rcx
+  __int64 v3; // rdx
+  struct CResource *v4; // rcx
+  struct CResource *v5; // rcx
 
-  v1 = *((_QWORD *)this + 800);
-  if ( v1 )
-    std::default_delete<EmitterShapes::CSpawner>::operator()((__int64)this, v1);
-  v3 = (void *)*((_QWORD *)this + 170);
+  *this = (struct CResource *)&CParticleEmitterVisual::`vftable';
+  CResource::UnRegisterNotifier<CVisualReference *>((CResource *)this, this + 89);
+  v3 = (__int64)this[789];
   if ( v3 )
-  {
-    std::_Deallocate<16,0>(v3, (*((_QWORD *)this + 172) - (_QWORD)v3) & 0xFFFFFFFFFFFFFFFCuLL);
-    *((_QWORD *)this + 170) = 0LL;
-    *((_QWORD *)this + 171) = 0LL;
-    *((_QWORD *)this + 172) = 0LL;
-  }
-  v4 = (void *)*((_QWORD *)this + 167);
+    std::default_delete<EmitterShapes::CSpawner>::operator()(v2, v3);
+  v4 = this[159];
   if ( v4 )
   {
-    std::_Deallocate<16,0>(v4, 16 * ((__int64)(*((_QWORD *)this + 169) - (_QWORD)v4) >> 4));
-    *((_QWORD *)this + 167) = 0LL;
-    *((_QWORD *)this + 168) = 0LL;
-    *((_QWORD *)this + 169) = 0LL;
+    std::_Deallocate<16,0>(v4, (this[161] - v4) & 0xFFFFFFFFFFFFFFF8uLL);
+    this[159] = 0LL;
+    this[160] = 0LL;
+    this[161] = 0LL;
   }
-  CParticleEmitterVisual::ParticleCollection::~ParticleCollection((CParticleEmitterVisual *)((char *)this + 872));
-  CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisual>::~CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisual>(this);
+  v5 = this[156];
+  if ( v5 )
+  {
+    std::_Deallocate<16,0>(v5, 48 * ((this[158] - v5) / 48));
+    this[156] = 0LL;
+    this[157] = 0LL;
+    this[158] = 0LL;
+  }
+  CParticleEmitterVisual::ParticleCollection::~ParticleCollection((CParticleEmitterVisual::ParticleCollection *)(this + 98));
+  CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisual>::~CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisual>((CVisual *)this);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_CheckIfDeviceShouldBeDisabledOnRemove @ 0x1C002DA9C
+ * XREFs of HUBMISC_CheckIfDeviceShouldBeDisabledOnRemove @ 0x1C002D410
  * Callers:
- *     HUBDSM_CheckingIfDeviceShouldBeDisabled @ 0x1C001CB80 (HUBDSM_CheckingIfDeviceShouldBeDisabled.c)
+ *     HUBDSM_CheckingIfDeviceShouldBeDisabled @ 0x1C001C640 (HUBDSM_CheckingIfDeviceShouldBeDisabled.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBMISC_CheckIfDeviceShouldBeDisabledOnRemove(_DWORD *a1)
@@ -15,7 +15,7 @@ __int64 __fastcall HUBMISC_CheckIfDeviceShouldBeDisabledOnRemove(_DWORD *a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   if ( (a1[411] & 8) == 0 )
     return 4061LL;
   if ( (*(_DWORD *)(*(_QWORD *)a1 + 40LL) & 0x40000000) == 0 )

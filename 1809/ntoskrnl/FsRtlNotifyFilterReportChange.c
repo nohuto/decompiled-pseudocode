@@ -1,24 +1,24 @@
 /*
- * XREFs of FsRtlNotifyFilterReportChange @ 0x1406A0220
+ * XREFs of FsRtlNotifyFilterReportChange @ 0x1406A0200
  * Callers:
- *     FsRtlNotifyFullReportChange @ 0x140816B70 (FsRtlNotifyFullReportChange.c)
- *     FsRtlNotifyReportChange @ 0x140816BD0 (FsRtlNotifyReportChange.c)
+ *     FsRtlNotifyFullReportChange @ 0x140816B50 (FsRtlNotifyFullReportChange.c)
+ *     FsRtlNotifyReportChange @ 0x140816BB0 (FsRtlNotifyReportChange.c)
  * Callees:
  *     RtlUIntAdd @ 0x140001568 (RtlUIntAdd.c)
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
  *     PsReturnProcessPagedPoolQuota @ 0x140090290 (PsReturnProcessPagedPoolQuota.c)
- *     PsChargePoolQuota @ 0x14011B090 (PsChargePoolQuota.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F230 (FsRtlIsNtstatusExpected.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsChargePoolQuota @ 0x14011B0B0 (PsChargePoolQuota.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     FsRtlNotifyCompleteIrpList @ 0x1406A13CC (FsRtlNotifyCompleteIrpList.c)
- *     FsRtlNotifyUpdateBuffer @ 0x1406A1AD4 (FsRtlNotifyUpdateBuffer.c)
- *     RtlxOemStringToUnicodeSize @ 0x1406F71D0 (RtlxOemStringToUnicodeSize.c)
+ *     FsRtlNotifyCompleteIrpList @ 0x1406A13AC (FsRtlNotifyCompleteIrpList.c)
+ *     FsRtlNotifyUpdateBuffer @ 0x1406A1AB4 (FsRtlNotifyUpdateBuffer.c)
+ *     RtlxOemStringToUnicodeSize @ 0x1406F71B0 (RtlxOemStringToUnicodeSize.c)
  */
 
 void __stdcall FsRtlNotifyFilterReportChange(

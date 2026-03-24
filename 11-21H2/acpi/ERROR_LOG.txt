@@ -1,6 +1,6 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000016AB15A7700>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000016AAF86AFC0>) 
- 
+[EXCEPTION] AcpiPccRingDoorbell @ 0x1C005B060: Hex-Rays returned no pseudocode for 0x1C005B060
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C005B060'), <traceback object at 0x00000194089AA340>)
+
+[EXCEPTION] AcpiPccWatchdog @ 0x1C005B210: Hex-Rays returned no pseudocode for 0x1C005B210
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C005B210'), <traceback object at 0x00000194089BAF80>)
+

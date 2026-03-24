@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBDTX_DisarmDeviceForWakeUsingControlTransfer @ 0x1C0027F44
+ * XREFs of HUBDTX_DisarmDeviceForWakeUsingControlTransfer @ 0x1C0027A94
  * Callers:
- *     HUBDSM_DisarmingDeviceForWakeOnD0Entry @ 0x1C0021AD0 (HUBDSM_DisarmingDeviceForWakeOnD0Entry.c)
- *     HUBDSM_DisarmingDeviceForWakeOnPortResumed @ 0x1C0021B00 (HUBDSM_DisarmingDeviceForWakeOnPortResumed.c)
+ *     HUBDSM_DisarmingDeviceForWakeOnD0Entry @ 0x1C0021680 (HUBDSM_DisarmingDeviceForWakeOnD0Entry.c)
+ *     HUBDSM_DisarmingDeviceForWakeOnPortResumed @ 0x1C00216B0 (HUBDSM_DisarmingDeviceForWakeOnPortResumed.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBDTX_DisarmDeviceForWakeUsingControlTransfer(__int64 a1)
@@ -22,6 +22,7 @@ __int64 __fastcall HUBDTX_DisarmDeviceForWakeUsingControlTransfer(__int64 a1)
   _InterlockedAnd((volatile signed __int32 *)(*(_QWORD *)(a1 + 16) + 32LL), 0xFFFFFFFD);
   v2 = *(_BYTE *)(a1 + 400) & 0x1F;
   *(_WORD *)(a1 + 406) = 0;
+  *(_BYTE *)(a1 + 400) = v2;
   v3 = (*(_DWORD *)(a1 + 1456) & 0x800) == 0;
   *(_WORD *)(a1 + 404) = 0;
   if ( v3 )
@@ -59,7 +60,7 @@ __int64 __fastcall HUBDTX_DisarmDeviceForWakeUsingControlTransfer(__int64 a1)
         2u,
         5u,
         0x23u,
-        (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v8);
     }
     return HUBSM_AddEvent(a1 + 504, 4004);

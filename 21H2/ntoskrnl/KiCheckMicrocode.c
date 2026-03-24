@@ -1,11 +1,11 @@
 /*
- * XREFs of KiCheckMicrocode @ 0x140A54238
+ * XREFs of KiCheckMicrocode @ 0x14099B100
  * Callers:
- *     KiRestoreFeatureBits @ 0x14038D164 (KiRestoreFeatureBits.c)
- *     KiInitializeKernel @ 0x140A580F0 (KiInitializeKernel.c)
+ *     KiRestoreFeatureBits @ 0x140383D30 (KiRestoreFeatureBits.c)
+ *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void __fastcall KiCheckMicrocode(__int64 a1)
@@ -45,7 +45,7 @@ void __fastcall KiCheckMicrocode(__int64 a1)
       v11 = __readmsr(0x17u);
     }
     v12 = 0LL;
-    for ( i = (char *)&unk_140D07254; ; i += 24 )
+    for ( i = (char *)&unk_140CFCC84; ; i += 24 )
     {
       if ( !*((_DWORD *)i - 1) )
       {

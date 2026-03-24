@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptMapParkedPage @ 0x14051DEB0
+ * XREFs of HalpInterruptMapParkedPage @ 0x1404D1900
  * Callers:
- *     HalpInterruptParseMadt @ 0x1403B8644 (HalpInterruptParseMadt.c)
+ *     HalpInterruptParseMadt @ 0x1403A8C04 (HalpInterruptParseMadt.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     HalpMap @ 0x1403BF3B8 (HalpMap.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     HalpMap @ 0x1403BB938 (HalpMap.c)
  */
 
 __int64 __fastcall HalpInterruptMapParkedPage(__int64 a1, __int64 a2)

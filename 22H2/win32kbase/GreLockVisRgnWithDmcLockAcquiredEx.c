@@ -1,19 +1,16 @@
 /*
- * XREFs of GreLockVisRgnWithDmcLockAcquiredEx @ 0x1C016A790
+ * XREFs of GreLockVisRgnWithDmcLockAcquiredEx @ 0x1C014B800
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
  */
 
-__int64 __fastcall GreLockVisRgnWithDmcLockAcquiredEx(__int64 a1)
+__int64 GreLockVisRgnWithDmcLockAcquiredEx()
 {
-  __int64 v1; // rbx
-
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  EngAcquireSemaphore(*(HSEMAPHORE *)(v1 + 120));
-  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"GreBaseGlobals.hsemGreLock", *(_QWORD *)(v1 + 120), 2);
-  EngAcquireSemaphore(*(HSEMAPHORE *)(v1 + 88));
-  return EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"GreBaseGlobals.hsemDCVisRgn", *(_QWORD *)(v1 + 88), 3);
+  EngAcquireSemaphore(ghsemGreLock);
+  EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemGreLock", (int)ghsemGreLock, 2);
+  EngAcquireSemaphore(ghsemDCVisRgn);
+  return EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDCVisRgn", (int)ghsemDCVisRgn, 3);
 }

@@ -1,35 +1,35 @@
 /*
- * XREFs of EngHTBlt @ 0x1C009247C
+ * XREFs of EngHTBlt @ 0x1C0019F38
  * Callers:
- *     EngAlphaBlend @ 0x1C002D3E0 (EngAlphaBlend.c)
- *     ?EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C002FC4C (-EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
- *     ?EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C0091710 (-EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
- *     ?EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAH@Z @ 0x1C028C190 (-EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
+ *     ?EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C0019280 (-EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
+ *     EngAlphaBlend @ 0x1C00ACD70 (EngAlphaBlend.c)
+ *     ?EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C00B174C (-EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
+ *     ?EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAH@Z @ 0x1C028E4F0 (-EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
  * Callees:
- *     EngBitBlt @ 0x1C0005C00 (EngBitBlt.c)
- *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C0008914 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C0009024 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C0009AF4 (-bUMPDSecurityGateEx@@YAHXZ.c)
- *     EngCopyBits @ 0x1C0028BB0 (EngCopyBits.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C002C6B0 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ?bIsSourceBGRA@@YAHPEAVSURFACE@@@Z @ 0x1C002D3AC (-bIsSourceBGRA@@YAHPEAVSURFACE@@@Z.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0031090 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00398B0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C00921F8 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
- *     ?bSetHTSrcSurfInfo@@YAHPEAU_SURFOBJ@@VXEPALOBJ@@PEAU_HTSURFACEINFO@@PEAU_XLATEOBJ@@@Z @ 0x1C009222C (-bSetHTSrcSurfInfo@@YAHPEAU_SURFOBJ@@VXEPALOBJ@@PEAU_HTSURFACEINFO@@PEAU_XLATEOBJ@@@Z.c)
- *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C0092E30 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
- *     ?vRelease@HTSEMOBJ@@QEAAXXZ @ 0x1C0092EC8 (-vRelease@HTSEMOBJ@@QEAAXXZ.c)
- *     ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C0092F14 (-ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z.c)
- *     HT_HalftoneBitmap @ 0x1C0092FAC (HT_HalftoneBitmap.c)
- *     ?bSetHTSurfInfo@@YAHPEAU_SURFOBJ@@PEAU_HTSURFACEINFO@@J@Z @ 0x1C009537C (-bSetHTSurfInfo@@YAHPEAU_SURFOBJ@@PEAU_HTSURFACEINFO@@J@Z.c)
- *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C0096C18 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
- *     ?bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z @ 0x1C009700C (-bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z.c)
- *     ?bEqualEntries@XEPALOBJ@@QEAAHV1@@Z @ 0x1C009726C (-bEqualEntries@XEPALOBJ@@QEAAHV1@@Z.c)
- *     ??1?$AutoResource@$1?FreeTmpBuffer@@YAXPEAX@Z@@QEAA@XZ @ 0x1C01083BC (--1-$AutoResource@$1-FreeTmpBuffer@@YAXPEAX@Z@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C0019C48 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?bSetHTSrcSurfInfo@@YAHPEAU_SURFOBJ@@VXEPALOBJ@@PEAU_HTSURFACEINFO@@PEAU_XLATEOBJ@@@Z @ 0x1C0019C7C (-bSetHTSrcSurfInfo@@YAHPEAU_SURFOBJ@@VXEPALOBJ@@PEAU_HTSURFACEINFO@@PEAU_XLATEOBJ@@@Z.c)
+ *     ?bSetHTSurfInfo@@YAHPEAU_SURFOBJ@@PEAU_HTSURFACEINFO@@J@Z @ 0x1C0019EDC (-bSetHTSurfInfo@@YAHPEAU_SURFOBJ@@PEAU_HTSURFACEINFO@@J@Z.c)
+ *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C001A8F0 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
+ *     ?vRelease@HTSEMOBJ@@QEAAXXZ @ 0x1C001A9A8 (-vRelease@HTSEMOBJ@@QEAAXXZ.c)
+ *     ?ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z @ 0x1C001A9F4 (-ppalGetFromXlate@@YAPEAVPALETTE@@PEAVSURFACE@@0PEAVXLATE@@IH@Z.c)
+ *     HT_HalftoneBitmap @ 0x1C001AA8C (HT_HalftoneBitmap.c)
+ *     EngCopyBits @ 0x1C007EB40 (EngCopyBits.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084EE0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?bIsSourceBGRA@@YAHPEAVSURFACE@@@Z @ 0x1C00ACD38 (-bIsSourceBGRA@@YAHPEAVSURFACE@@@Z.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B157C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B59BC (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     EngBitBlt @ 0x1C00CB5E0 (EngBitBlt.c)
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00CE750 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEEF0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00CFBA8 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C01122B8 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
+ *     ?bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z @ 0x1C01131AC (-bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z.c)
+ *     ?bEqualEntries@XEPALOBJ@@QEAAHV1@@Z @ 0x1C0113400 (-bEqualEntries@XEPALOBJ@@QEAAHV1@@Z.c)
+ *     ??1?$AutoResource@$1?FreeTmpBuffer@@YAXPEAX@Z@@QEAA@XZ @ 0x1C011BBD4 (--1-$AutoResource@$1-FreeTmpBuffer@@YAXPEAX@Z@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall EngHTBlt(
@@ -47,56 +47,57 @@ __int64 __fastcall EngHTBlt(
         XLATEOBJ *a12)
 {
   struct SURFACE *v15; // rdx
-  int *v17; // r8
-  __int64 v18; // rbx
-  unsigned int v19; // r14d
-  unsigned int v20; // r12d
-  __int64 v21; // rax
-  int v22; // r15d
-  bool v23; // zf
-  int v24; // esi
+  __int64 v16; // rbx
+  unsigned int v17; // r14d
+  unsigned int v18; // r12d
+  __int64 v19; // rax
+  int v20; // r15d
+  bool v21; // zf
+  int v22; // esi
+  int v23; // edx
+  int v24; // edx
   int v25; // edx
   int v26; // edx
   int v27; // edx
-  int v28; // edx
-  int v29; // edx
-  LONG v30; // eax
-  int v31; // r13d
-  struct SURFACE *v32; // rdx
-  struct XLATE *v33; // r8
-  struct PALETTE *v34; // rax
-  __int64 v35; // rbx
-  __int64 v36; // rdi
-  int v37; // r13d
-  __int16 v38; // dx
-  __int16 v39; // r9
-  struct SURFACE *v40; // r8
-  __int128 v41; // xmm0
-  int v42; // eax
-  CLIPOBJ *v43; // rdx
+  LONG v28; // eax
+  int v29; // r13d
+  struct SURFACE *v30; // rdx
+  struct XLATE *v31; // r8
+  struct PALETTE *v32; // rax
+  __int64 v33; // rbx
+  struct PALETTE *v34; // rdi
+  int v35; // r13d
+  __int16 v36; // dx
+  __int16 v37; // r9
+  struct SURFACE *v38; // r8
+  __int128 v39; // xmm0
+  int v40; // eax
+  CLIPOBJ *v41; // rdx
   BYTE iDComplexity; // bl
-  struct SURFACE *v45; // rcx
-  int v46; // r11d
+  struct SURFACE *v43; // rcx
+  int v44; // r11d
   RECTL *p_rclBounds; // r12
-  unsigned __int64 v48; // rax
+  unsigned __int64 v46; // rax
   int right; // r8d
   int left; // edx
-  int v51; // ecx
-  int v52; // r10d
+  int v49; // ecx
+  int v50; // r10d
   int top; // edx
   int bottom; // ecx
-  int v55; // r8d
-  int v56; // ecx
-  unsigned __int64 v57; // rax
-  int v58; // edx
-  int v59; // eax
-  struct SURFACE *v60; // r12
-  XLATEOBJ *v61; // r13
-  HPALETTE *v62; // rax
-  XLATEOBJ *v63; // rbx
-  __int64 *v64; // rax
-  struct PALETTE *v65; // rbx
-  int v66; // ebx
+  int v53; // r8d
+  int v54; // ecx
+  unsigned __int64 v55; // rax
+  int v56; // edx
+  int v57; // eax
+  struct SURFACE *v58; // r12
+  XLATEOBJ *v59; // r13
+  HPALETTE *v60; // rax
+  XLATEOBJ *v61; // rbx
+  SURFOBJ *v62; // rax
+  struct PALETTE *v63; // rbx
+  __int64 v64; // rdx
+  int v65; // ebx
+  __int64 v66; // rdx
   SURFOBJ *v67; // rdi
   __int64 v68; // r12
   _OWORD *v69; // r11
@@ -112,7 +113,7 @@ __int64 __fastcall EngHTBlt(
   int v80; // eax
   LONG v81; // eax
   LONG v82; // r12d
-  int v83; // ebx
+  char v83; // bl
   int v84; // r12d
   int v85; // r13d
   ULONG iBitmapFormat; // ecx
@@ -123,474 +124,476 @@ __int64 __fastcall EngHTBlt(
   _DWORD *v91; // rax
   LONG v92; // eax
   int v93; // eax
+  __int64 v94; // rdx
   unsigned int cEntries; // ecx
-  _BYTE *v95; // r8
-  __int64 v96; // r10
-  __int64 v97; // r9
-  char v98; // cl
-  __int64 v99; // rax
-  char *v100; // rdi
-  int v101; // esi
-  int v102; // eax
-  unsigned int v103; // r12d
-  int v104; // [rsp+60h] [rbp-A0h]
-  BYTE v105; // [rsp+64h] [rbp-9Ch]
-  int v106; // [rsp+68h] [rbp-98h]
-  unsigned int v107; // [rsp+70h] [rbp-90h]
-  __int64 v108; // [rsp+78h] [rbp-88h] BYREF
-  struct SURFACE *v109; // [rsp+80h] [rbp-80h]
-  int v110; // [rsp+88h] [rbp-78h] BYREF
+  _BYTE *v96; // r8
+  __int64 v97; // r10
+  __int64 v98; // r9
+  char v99; // cl
+  __int64 v100; // rax
+  unsigned int *v101; // rdi
+  int v102; // esi
+  int v103; // eax
+  unsigned int v104; // r12d
+  POINTL *v105; // [rsp+30h] [rbp-D0h]
+  int pptlMask; // [rsp+38h] [rbp-C8h]
+  int pbo; // [rsp+40h] [rbp-C0h]
+  int pptlBrush; // [rsp+48h] [rbp-B8h]
+  ROP4 rop4; // [rsp+50h] [rbp-B0h]
+  int v110; // [rsp+60h] [rbp-A0h]
+  BYTE v111; // [rsp+64h] [rbp-9Ch]
+  char v112; // [rsp+68h] [rbp-98h]
+  unsigned int v113; // [rsp+70h] [rbp-90h]
+  __int64 v114; // [rsp+78h] [rbp-88h] BYREF
+  struct SURFACE *v115; // [rsp+80h] [rbp-80h]
+  int v116; // [rsp+88h] [rbp-78h] BYREF
   POINTL pptlSrc; // [rsp+90h] [rbp-70h] BYREF
-  struct SURFACE *v112; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v113; // [rsp+A0h] [rbp-60h] BYREF
+  struct SURFACE *v118; // [rsp+98h] [rbp-68h] BYREF
+  __int64 v119; // [rsp+A0h] [rbp-60h] BYREF
   CLIPOBJ *pco; // [rsp+A8h] [rbp-58h]
-  SURFOBJ *v115; // [rsp+B0h] [rbp-50h] BYREF
-  struct SURFACE *v116; // [rsp+B8h] [rbp-48h]
-  struct tagCOLORADJUSTMENT *v117; // [rsp+C0h] [rbp-40h]
-  XLATEOBJ *v118; // [rsp+C8h] [rbp-38h] BYREF
-  _OWORD *v119; // [rsp+D0h] [rbp-30h]
-  struct XLATE *v120; // [rsp+D8h] [rbp-28h]
+  SURFOBJ *v121; // [rsp+B0h] [rbp-50h] BYREF
+  struct SURFACE *v122; // [rsp+B8h] [rbp-48h]
+  struct tagCOLORADJUSTMENT *v123; // [rsp+C0h] [rbp-40h]
+  XLATEOBJ *v124; // [rsp+C8h] [rbp-38h] BYREF
+  _OWORD *v125; // [rsp+D0h] [rbp-30h]
+  struct XLATE *v126; // [rsp+D8h] [rbp-28h]
   SURFOBJ *psoDest; // [rsp+E0h] [rbp-20h]
-  int v122; // [rsp+E8h] [rbp-18h]
-  __int64 v123; // [rsp+F0h] [rbp-10h]
-  __int64 v124; // [rsp+F8h] [rbp-8h] BYREF
-  __int128 v125; // [rsp+100h] [rbp+0h] BYREF
-  _OWORD *v126; // [rsp+110h] [rbp+10h] BYREF
-  char v127; // [rsp+118h] [rbp+18h]
-  int v128; // [rsp+11Ch] [rbp+1Ch]
-  _QWORD *v129; // [rsp+120h] [rbp+20h]
-  struct SURFACE *v130; // [rsp+128h] [rbp+28h] BYREF
-  char v131; // [rsp+130h] [rbp+30h]
-  int v132; // [rsp+134h] [rbp+34h]
-  __int64 v133; // [rsp+138h] [rbp+38h] BYREF
-  int v134; // [rsp+140h] [rbp+40h]
-  __int128 v135; // [rsp+148h] [rbp+48h] BYREF
-  _BYTE *v136; // [rsp+158h] [rbp+58h]
-  _DWORD v137[4]; // [rsp+160h] [rbp+60h] BYREF
-  __int64 v138; // [rsp+170h] [rbp+70h]
-  int v139; // [rsp+178h] [rbp+78h]
-  int v140; // [rsp+17Ch] [rbp+7Ch]
-  struct PALETTE *v141; // [rsp+180h] [rbp+80h]
-  _DWORD v142[4]; // [rsp+188h] [rbp+88h] BYREF
-  __int64 v143; // [rsp+198h] [rbp+98h]
-  int v144; // [rsp+1A0h] [rbp+A0h]
-  int v145; // [rsp+1A4h] [rbp+A4h]
-  _OWORD v146[2]; // [rsp+1A8h] [rbp+A8h] BYREF
-  __int64 v147; // [rsp+1C8h] [rbp+C8h]
-  _OWORD v148[2]; // [rsp+1D0h] [rbp+D0h] BYREF
-  __int128 *v149; // [rsp+1F0h] [rbp+F0h]
-  _OWORD v150[2]; // [rsp+1F8h] [rbp+F8h] BYREF
-  __int64 v151; // [rsp+218h] [rbp+118h]
+  int v128; // [rsp+E8h] [rbp-18h]
+  __int64 v129; // [rsp+F0h] [rbp-10h]
+  __int64 v130; // [rsp+F8h] [rbp-8h] BYREF
+  __int128 v131; // [rsp+100h] [rbp+0h] BYREF
+  _OWORD *v132; // [rsp+110h] [rbp+10h] BYREF
+  char v133; // [rsp+118h] [rbp+18h]
+  int v134; // [rsp+11Ch] [rbp+1Ch]
+  _QWORD *v135; // [rsp+120h] [rbp+20h]
+  struct SURFACE *v136; // [rsp+128h] [rbp+28h] BYREF
+  char v137; // [rsp+130h] [rbp+30h]
+  int v138; // [rsp+134h] [rbp+34h]
+  __int64 v139; // [rsp+138h] [rbp+38h] BYREF
+  int v140; // [rsp+140h] [rbp+40h]
+  __int128 v141; // [rsp+148h] [rbp+48h] BYREF
+  _BYTE *v142; // [rsp+158h] [rbp+58h]
+  _DWORD v143[4]; // [rsp+160h] [rbp+60h] BYREF
+  __int64 v144; // [rsp+170h] [rbp+70h]
+  int v145; // [rsp+178h] [rbp+78h]
+  int v146; // [rsp+17Ch] [rbp+7Ch]
+  struct PALETTE *v147; // [rsp+180h] [rbp+80h]
+  _DWORD v148[4]; // [rsp+188h] [rbp+88h] BYREF
+  __int64 v149; // [rsp+198h] [rbp+98h]
+  int v150; // [rsp+1A0h] [rbp+A0h]
+  int v151; // [rsp+1A4h] [rbp+A4h]
+  _OWORD v152[2]; // [rsp+1A8h] [rbp+A8h] BYREF
+  __int64 v153; // [rsp+1C8h] [rbp+C8h]
+  _OWORD v154[2]; // [rsp+1D0h] [rbp+D0h] BYREF
+  __int128 *v155; // [rsp+1F0h] [rbp+F0h]
+  _OWORD v156[2]; // [rsp+1F8h] [rbp+F8h] BYREF
+  __int64 v157; // [rsp+218h] [rbp+118h]
   _OWORD prclDest[7]; // [rsp+220h] [rbp+120h] BYREF
   RECTL prclTrg; // [rsp+290h] [rbp+190h] BYREF
-  RECTL v154; // [rsp+2A0h] [rbp+1A0h] BYREF
-  _BYTE v155[256]; // [rsp+2B0h] [rbp+1B0h] BYREF
+  RECTL v160; // [rsp+2A0h] [rbp+1A0h] BYREF
+  _BYTE v161[256]; // [rsp+2B0h] [rbp+1B0h] BYREF
 
-  v120 = a5;
-  v117 = a6;
+  v126 = a5;
+  v123 = a6;
   pptlSrc = a7;
-  v129 = a10;
-  v118 = a12;
+  v135 = a10;
+  v124 = a12;
   psoDest = a1;
   *(_QWORD *)&prclTrg.left = a2;
   pco = a4;
-  v124 = a3;
+  v130 = a3;
   v15 = (struct SURFACE *)((unsigned __int64)&a1[-1].pvScan0 & -(__int64)(a1 != 0LL));
-  v17 = (int *)a9;
-  v112 = a9;
-  v116 = v15;
-  v18 = (unsigned __int64)&a2[-1].pvScan0 & -(__int64)(a2 != 0LL);
-  v109 = (struct SURFACE *)v18;
-  memset(v148, 0, sizeof(v148));
-  v19 = 0;
-  v20 = 0;
-  v123 = (a3 - 24) & -(__int64)(a3 != 0);
-  v149 = 0LL;
-  v147 = 0LL;
-  v151 = 0LL;
-  v136 = 0LL;
-  memset(v146, 0, sizeof(v146));
-  memset(v150, 0, sizeof(v150));
-  v135 = 0LL;
+  v118 = a9;
+  v122 = v15;
+  v16 = (unsigned __int64)&a2[-1].pvScan0 & -(__int64)(a2 != 0LL);
+  v115 = (struct SURFACE *)v16;
+  memset(v154, 0, sizeof(v154));
+  v17 = 0;
+  v18 = 0;
+  v129 = (a3 - 24) & -(__int64)(a3 != 0);
+  v155 = 0LL;
+  v153 = 0LL;
+  v157 = 0LL;
+  v142 = 0LL;
+  memset(v152, 0, sizeof(v152));
+  memset(v156, 0, sizeof(v156));
+  v141 = 0LL;
   if ( v15 )
   {
-    v21 = *(_QWORD *)(((unsigned __int64)&a1[-1].pvScan0 & -(__int64)(a1 != 0LL)) + 0x30);
-    v108 = v21;
+    v19 = *(_QWORD *)(((unsigned __int64)&a1[-1].pvScan0 & -(__int64)(a1 != 0LL)) + 0x30);
+    v114 = v19;
+    if ( !v19 )
+      return v17;
+    v20 = 1;
+    v21 = (*(_DWORD *)(v19 + 40) & 1) == 0;
+    v22 = *(_DWORD *)(v19 + 40) & 1;
+    v128 = v22;
+    v116 = v22;
     if ( !v21 )
-      return v19;
-    v22 = 1;
-    v23 = (*(_DWORD *)(v21 + 40) & 1) == 0;
-    v24 = *(_DWORD *)(v21 + 40) & 1;
-    v122 = v24;
-    v110 = v24;
-    if ( !v23 )
     {
       GreAcquireSemaphore(ghsemHT);
-      v21 = v108;
-      v15 = v116;
-      v17 = (int *)v112;
+      v19 = v114;
+      v15 = v122;
     }
     if ( a1->iType )
     {
-      v31 = *(_DWORD *)(v21 + 2344);
-      if ( v31 )
+      v29 = *(_DWORD *)(v19 + 2376);
+      if ( v29 )
       {
-        switch ( v31 )
+        switch ( v29 )
         {
           case 2:
-            v104 = 2;
-            v106 = 2;
+            v110 = 2;
+            v112 = 2;
             break;
           case 3:
-            v106 = 255;
-            v104 = 2;
+            v112 = -1;
+            v110 = 2;
             break;
           case 4:
-            v106 = 254;
-            v104 = 3;
+            v112 = -2;
+            v110 = 3;
             break;
           case 5:
-            v106 = 253;
-            v104 = 4;
+            v112 = -3;
+            v110 = 4;
             break;
           case 6:
-            v106 = 5;
-            v104 = 5;
+            v112 = 5;
+            v110 = 5;
             break;
           case 7:
-            v106 = 6;
-            v104 = 6;
+            v112 = 6;
+            v110 = 6;
             break;
           default:
-            goto LABEL_95;
+            goto LABEL_96;
         }
         goto LABEL_12;
       }
     }
     else
     {
-      v25 = *((_DWORD *)v15 + 24) - 1;
-      if ( v25 )
+      v23 = *((_DWORD *)v15 + 24) - 1;
+      if ( v23 )
       {
-        v26 = v25 - 1;
-        if ( v26 )
+        v24 = v23 - 1;
+        if ( v24 )
         {
-          v27 = v26 - 1;
-          if ( v27 )
+          v25 = v24 - 1;
+          if ( v25 )
           {
-            v28 = v27 - 1;
-            if ( v28 )
+            v26 = v25 - 1;
+            if ( v26 )
             {
-              v29 = v28 - 1;
-              if ( v29 )
+              v27 = v26 - 1;
+              if ( v27 )
               {
-                if ( v29 != 1 )
-                  goto LABEL_95;
+                if ( v27 != 1 )
+                  goto LABEL_96;
                 cx = a1->sizlBitmap.cx;
-                v31 = 7;
-                v20 = 4 * cx;
-                v106 = 6;
-                v104 = 6;
+                v29 = 7;
+                v18 = 4 * cx;
+                v112 = 6;
+                v110 = 6;
               }
               else
               {
-                v30 = a1->sizlBitmap.cx;
-                v31 = 6;
-                v106 = 5;
-                v104 = 5;
-                v20 = (3 * (v30 + 1)) & 0xFFFFFFFC;
+                v28 = a1->sizlBitmap.cx;
+                v29 = 6;
+                v112 = 5;
+                v110 = 5;
+                v18 = (3 * (v28 + 1)) & 0xFFFFFFFC;
               }
             }
             else
             {
               v81 = a1->sizlBitmap.cx;
-              v31 = 5;
-              v106 = 253;
-              v104 = 4;
-              v20 = (2 * v81 + 2) & 0xFFFFFFFC;
+              v29 = 5;
+              v112 = -3;
+              v110 = 4;
+              v18 = (2 * v81 + 2) & 0xFFFFFFFC;
             }
           }
           else
           {
             v82 = a1->sizlBitmap.cx;
-            v31 = 4;
-            v106 = 254;
-            v20 = (v82 + 3) & 0xFFFFFFFC;
-            v104 = 3;
+            v29 = 4;
+            v112 = -2;
+            v18 = (v82 + 3) & 0xFFFFFFFC;
+            v110 = 3;
           }
         }
         else
         {
           v83 = 2;
           v84 = a1->sizlBitmap.cx + 7;
-          v104 = 2;
+          v110 = 2;
           v85 = 0;
-          v20 = (v84 >> 1) & 0xFFFFFFFC;
-          if ( *(_DWORD *)(v21 + 2344) != 2 )
-            v83 = 255;
-          LOBYTE(v85) = *(_DWORD *)(v21 + 2344) != 2;
-          v106 = v83;
-          v31 = v85 + 2;
-          v18 = (__int64)v109;
+          v18 = (v84 >> 1) & 0xFFFFFFFC;
+          if ( *(_DWORD *)(v19 + 2376) != 2 )
+            v83 = -1;
+          LOBYTE(v85) = *(_DWORD *)(v19 + 2376) != 2;
+          v112 = v83;
+          v29 = v85 + 2;
+          v16 = (__int64)v115;
         }
 LABEL_12:
-        v154.right = a2->sizlBitmap.cx;
-        v154.bottom = a2->sizlBitmap.cy;
-        *(_QWORD *)&v154.left = 0LL;
-        ERECTL::operator*=(&v154.left, v17);
-        if ( ERECTL::bEmpty((ERECTL *)&v154) )
+        v160.right = a2->sizlBitmap.cx;
+        v160.bottom = a2->sizlBitmap.cy;
+        *(_QWORD *)&v160.left = 0LL;
+        ERECTL::operator*=(&v160);
+        if ( (unsigned int)ERECTL::bEmpty((ERECTL *)&v160) )
         {
-LABEL_132:
-          v19 = v22;
-          goto LABEL_95;
+LABEL_133:
+          v17 = v20;
+          goto LABEL_96;
         }
-        if ( !PDEVOBJ::pDevHTInfo((PDEVOBJ *)&v108) && !(unsigned int)PDEVOBJ::bEnableHalftone((PDEVOBJ *)&v108, v117) )
+        if ( !PDEVOBJ::pDevHTInfo((PDEVOBJ *)&v114) && !(unsigned int)PDEVOBJ::bEnableHalftone((PDEVOBJ *)&v114, v123) )
         {
-          v22 = -1;
-          goto LABEL_132;
+          v20 = -1;
+          goto LABEL_133;
         }
-        v126 = 0LL;
-        v127 = 0;
-        v128 = 0;
-        HTSEMOBJ::vRelease((HTSEMOBJ *)&v110);
-        if ( !v18 )
-          goto LABEL_143;
-        if ( (*(_DWORD *)(v18 + 112) & 0x1000) != 0 )
+        v132 = 0LL;
+        v133 = 0;
+        v134 = 0;
+        HTSEMOBJ::vRelease((HTSEMOBJ *)&v116);
+        if ( !v16 )
+          goto LABEL_144;
+        if ( (*(_DWORD *)(v16 + 112) & 0x1000) != 0 )
         {
-          v115 = *(SURFOBJ **)(v18 + 48);
-          PDEVOBJ::vSync((PDEVOBJ *)&v115, a2, 0LL, 0);
+          v121 = *(SURFOBJ **)(v16 + 48);
+          PDEVOBJ::vSync((PDEVOBJ *)&v121, a2, 0LL, 0);
         }
         if ( a2->iType || a2->iBitmapFormat - 7 <= 1 )
         {
           iBitmapFormat = a2->iBitmapFormat;
-          v137[1] = a2->sizlBitmap.cx;
-          v137[2] = a2->sizlBitmap.cy;
-          v87 = *(_DWORD *)(v18 + 112) & 0x40000;
-          v137[3] = 0;
-          v139 = v87;
-          v140 = 0;
-          v138 = 0LL;
+          v143[1] = a2->sizlBitmap.cx;
+          v143[2] = a2->sizlBitmap.cy;
+          v87 = *(_DWORD *)(v16 + 112) & 0x40000;
+          v143[3] = 0;
+          v145 = v87;
+          v146 = 0;
+          v144 = 0LL;
           if ( iBitmapFormat == 7 )
           {
-            v137[0] = 2;
+            v143[0] = 2;
           }
           else if ( iBitmapFormat == 8 )
           {
-            v137[0] = 3;
+            v143[0] = 3;
           }
           else
           {
-            v137[0] = iBitmapFormat;
+            v143[0] = iBitmapFormat;
           }
-          if ( !SURFMEM::bCreateDIB((SURFMEM *)&v126, (struct _DEVBITMAPINFO *)v137, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0)
+          if ( !SURFMEM::bCreateDIB((SURFMEM *)&v132, (struct _DEVBITMAPINFO *)v143, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0)
             || !EngCopyBits(
-                  (SURFOBJ *)(-(__int64)(v126 != 0LL) & ((unsigned __int64)v126 + 24)),
+                  (SURFOBJ *)(-(__int64)(v132 != 0LL) & ((unsigned __int64)v132 + 24)),
                   a2,
                   0LL,
                   xloIdent,
-                  &v154,
-                  (POINTL *)&v154) )
+                  &v160,
+                  (POINTL *)&v160) )
           {
-            if ( v24 )
+            if ( v22 )
               GreAcquireSemaphore(ghsemHT);
-            goto LABEL_143;
+            goto LABEL_144;
           }
-          v119 = v126;
+          v125 = v132;
         }
         else
         {
-          v119 = (_OWORD *)v18;
+          v125 = (_OWORD *)v16;
         }
-        if ( v24 )
+        if ( v22 )
           GreAcquireSemaphore(ghsemHT);
-        if ( PDEVOBJ::pDevHTInfo((PDEVOBJ *)&v108) || (unsigned int)PDEVOBJ::bEnableHalftone((PDEVOBJ *)&v108, v117) )
+        if ( PDEVOBJ::pDevHTInfo((PDEVOBJ *)&v114) || (unsigned int)PDEVOBJ::bEnableHalftone((PDEVOBJ *)&v114, v123) )
         {
-          v141 = ppalGetFromXlate((struct SURFACE *)v18, v116, v120, 1u, 1);
-          if ( !v141 )
+          v147 = ppalGetFromXlate((struct SURFACE *)v16, v122, v126, 1u, 1);
+          if ( !v147 )
           {
-LABEL_94:
-            SURFMEM::~SURFMEM((SURFMEM *)&v126);
 LABEL_95:
-            HTSEMOBJ::vRelease((HTSEMOBJ *)&v110);
-            return v19;
+            SURFMEM::~SURFMEM((SURFMEM *)&v132);
+LABEL_96:
+            HTSEMOBJ::vRelease((HTSEMOBJ *)&v116);
+            return v17;
           }
-          v34 = ppalGetFromXlate((struct SURFACE *)v18, v32, v33, 2u, 1);
-          v35 = v108;
-          v36 = (__int64)v34;
-          v134 = 0;
-          v133 = 0LL;
-          v115 = 0LL;
-          if ( v31 == *(_DWORD *)(v108 + 2344) )
+          v32 = ppalGetFromXlate((struct SURFACE *)v16, v30, v31, 2u, 1);
+          v33 = v114;
+          v34 = v32;
+          v140 = 0;
+          v139 = 0LL;
+          v121 = 0LL;
+          if ( v29 == *(_DWORD *)(v114 + 2376) )
           {
-            v37 = *(_DWORD *)(v108 + 40) & 0x200;
+            v35 = *(_DWORD *)(v114 + 40) & 0x200;
           }
           else
           {
-            if ( !(unsigned int)PALMEMOBJ::bCreateHTPalette((PALMEMOBJ *)&v133, v31, (struct _GDIINFO *)(v108 + 2104)) )
-              goto LABEL_112;
-            v115 = (SURFOBJ *)&v133;
-            v80 = XEPALOBJ::bEqualEntries(&v133, v36);
-            v35 = v108;
-            v37 = v80;
+            if ( !(unsigned int)PALMEMOBJ::bCreateHTPalette((PALMEMOBJ *)&v139, v29, (struct _GDIINFO *)(v114 + 2136)) )
+              goto LABEL_113;
+            v121 = (SURFOBJ *)&v139;
+            v80 = XEPALOBJ::bEqualEntries(&v139, v34);
+            v33 = v114;
+            v35 = v80;
           }
-          LODWORD(v113) = v37;
+          LODWORD(v119) = v35;
           memset(prclDest, 0, 0x68uLL);
-          v38 = a11;
-          v125 = 0LL;
+          v36 = a11;
+          v131 = 0LL;
           if ( a11 != 512 )
             goto LABEL_27;
-          iUniq = v118->iUniq;
-          if ( (unsigned __int8)v118->iUniq )
+          iUniq = v124->iUniq;
+          if ( (unsigned __int8)v124->iUniq )
           {
-            v38 = 0;
+            v36 = 0;
             a11 = 0;
             goto LABEL_27;
           }
-          BYTE1(v125) = BYTE2(v118->iUniq);
+          BYTE1(v131) = BYTE2(v124->iUniq);
           if ( HIBYTE(iUniq) != 1 || BYTE2(iUniq) != 0xFF )
           {
             v89 = 1;
-LABEL_152:
-            LOBYTE(v125) = v89;
-            if ( v36 )
+LABEL_153:
+            LOBYTE(v131) = v89;
+            if ( v34 )
             {
-              *((_QWORD *)&v125 + 1) = *(_QWORD *)(v36 + 112);
-              WORD1(v125) = *(_WORD *)(v36 + 28);
-              v90 = *(_DWORD *)(v36 + 24);
+              *((_QWORD *)&v131 + 1) = *((_QWORD *)v34 + 14);
+              WORD1(v131) = *((_WORD *)v34 + 14);
+              v90 = *((_DWORD *)v34 + 6);
               if ( (v90 & 8) != 0
                 || (v90 & 2) != 0
-                && (v91 = *(_DWORD **)(v36 + 112), *v91 == 16711680)
+                && (v91 = (_DWORD *)*((_QWORD *)v34 + 14), *v91 == 16711680)
                 && v91[1] == 65280
                 && v91[2] == 255 )
               {
-                LOBYTE(v125) = v89 | 2;
+                LOBYTE(v131) = v89 | 2;
               }
             }
-            *((_QWORD *)&prclDest[0] + 1) = &v125;
+            *((_QWORD *)&prclDest[0] + 1) = &v131;
 LABEL_27:
-            v39 = v38;
-            v40 = v112;
-            LOWORD(prclDest[0]) = v38;
-            v41 = *(_OWORD *)v112;
+            v37 = v36;
+            v38 = v118;
+            LOWORD(prclDest[0]) = v36;
+            v39 = *(_OWORD *)v118;
             prclDest[2] = *a8;
             *(_QWORD *)&prclDest[5] = **(_QWORD **)&pptlSrc;
-            prclDest[1] = v41;
-            BYTE3(prclDest[0]) = *(_BYTE *)(v35 + 2336);
-            if ( v120 )
+            prclDest[1] = v39;
+            BYTE3(prclDest[0]) = *(_BYTE *)(v33 + 2368);
+            if ( v126 )
+              v40 = *((_DWORD *)v126 + 18);
+            else
+              LOBYTE(v40) = 0;
+            if ( (v40 & 4) != 0 || (v40 & 0x20) == 0 && (v40 & 3) != 0 )
             {
-              v42 = *((_DWORD *)v120 + 18);
-              if ( (v42 & 4) != 0 || (v42 & 0x20) == 0 && (v42 & 3) != 0 )
-              {
-                v39 = v38 | 0x80;
-                LOWORD(prclDest[0]) = v38 | 0x80;
-              }
+              v37 = v36 | 0x80;
+              LOWORD(prclDest[0]) = v36 | 0x80;
             }
-            v43 = pco;
+            v41 = pco;
             iDComplexity = 0;
-            v45 = v116;
-            v112 = v116;
-            v130 = 0LL;
-            v131 = 0;
-            v132 = 0;
-            LODWORD(v109) = 0;
+            v43 = v122;
+            v118 = v122;
+            v136 = 0LL;
+            v137 = 0;
+            v138 = 0;
+            LODWORD(v115) = 0;
             if ( pco )
               iDComplexity = pco->iDComplexity;
-            v46 = v104;
-            v105 = iDComplexity;
-            if ( !psoDest->iType && psoDest->lDelta == v20 && (v104 == 3 || v37) && iDComplexity != 3 )
+            v44 = v110;
+            v111 = iDComplexity;
+            if ( !psoDest->iType && psoDest->lDelta == v18 && (v110 == 3 || v35) && iDComplexity != 3 )
             {
               if ( psoDest != *(SURFOBJ **)&prclTrg.left )
               {
-                v60 = v116;
-                goto LABEL_56;
+                v58 = v122;
+                goto LABEL_57;
               }
               p_rclBounds = a8;
-              if ( !(unsigned int)bIntersect(v40, a8) )
+              if ( !(unsigned int)bIntersect(v38, a8) )
               {
-                v60 = v112;
-LABEL_56:
-                v61 = xloIdent;
+                v58 = v118;
+LABEL_57:
+                v59 = xloIdent;
                 pptlSrc = (POINTL)xloIdent;
-                v112 = 0LL;
                 v118 = 0LL;
-                v62 = (HPALETTE *)PDEVOBJ::pDevHTInfo((PDEVOBJ *)&v108);
-                v63 = xloIdent;
-                if ( (_DWORD)v113 )
-                  goto LABEL_67;
-                EPALOBJ::EPALOBJ((EPALOBJ *)&v113, *v62);
-                v64 = &v113;
-                if ( v115 )
-                  v64 = (__int64 *)v115;
-                *(_QWORD *)&prclTrg.left = v64;
-                if ( !v120 || (v65 = (struct PALETTE *)*((_QWORD *)v120 + 7)) == 0LL )
-                  v65 = ppalDefault;
-                if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
-                                     (__int64 *)&v112,
-                                     0LL,
-                                     0,
-                                     *v64,
-                                     v36,
-                                     (__int64)v65,
-                                     (__int64)v65,
-                                     0,
-                                     0xFFFFFF,
-                                     0xFFFFFF,
-                                     0) )
+                v124 = 0LL;
+                v60 = (HPALETTE *)PDEVOBJ::pDevHTInfo((PDEVOBJ *)&v114);
+                v61 = xloIdent;
+                if ( (_DWORD)v119 )
+                  goto LABEL_68;
+                EPALOBJ::EPALOBJ((EPALOBJ *)&v119, *v60);
+                v62 = (SURFOBJ *)&v119;
+                if ( v121 )
+                  v62 = v121;
+                *(_QWORD *)&prclTrg.left = v62;
+                if ( !v126 || (v63 = (struct PALETTE *)*((_QWORD *)v126 + 7)) == 0LL )
+                  v63 = ppalDefault;
+                rop4 = 0;
+                pptlBrush = 0xFFFFFF;
+                pbo = 0xFFFFFF;
+                pptlMask = 0;
+                v105 = (POINTL *)v63;
+                if ( (unsigned int)EXLATEOBJ::bInitXlateObj(&v118, 0LL, 0LL) )
                 {
-                  v61 = (XLATEOBJ *)v112;
-                  pptlSrc = (POINTL)v112;
-                  if ( !v123 && a11 != 512 || !(_DWORD)v109 )
+                  v59 = (XLATEOBJ *)v118;
+                  pptlSrc = (POINTL)v118;
+                  if ( !v129 && a11 != 512 || !(_DWORD)v115 )
                   {
-                    v63 = xloIdent;
-                    goto LABEL_65;
+                    v61 = xloIdent;
+                    goto LABEL_66;
                   }
-                  if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
-                                       (__int64 *)&v118,
-                                       0LL,
-                                       0,
-                                       v36,
-                                       **(_QWORD **)&prclTrg.left,
-                                       (__int64)v65,
-                                       (__int64)v65,
-                                       0,
-                                       0xFFFFFF,
-                                       0xFFFFFF,
-                                       0) )
+                  rop4 = 0;
+                  pptlBrush = 0xFFFFFF;
+                  pbo = 0xFFFFFF;
+                  pptlMask = 0;
+                  v105 = (POINTL *)v63;
+                  if ( (unsigned int)EXLATEOBJ::bInitXlateObj(&v124, 0LL, 0LL) )
                   {
-                    v63 = v118;
-LABEL_65:
-                    if ( v113 )
-                      DEC_SHARE_REF_CNT(v113);
-LABEL_67:
-                    HTSEMOBJ::vRelease((HTSEMOBJ *)&v110);
-                    PDEVOBJ::vSync((PDEVOBJ *)&v108, psoDest, 0LL, 0);
-                    if ( v123 || a11 == 512 )
+                    v61 = v124;
+LABEL_66:
+                    if ( v119 )
+                      DEC_SHARE_REF_CNT(v119, v64);
+LABEL_68:
+                    HTSEMOBJ::vRelease((HTSEMOBJ *)&v116);
+                    PDEVOBJ::vSync((PDEVOBJ *)&v114, psoDest, 0LL, 0);
+                    if ( v129 || a11 == 512 )
                     {
-                      if ( (_DWORD)v109 )
+                      if ( (_DWORD)v115 )
                       {
-                        v92 = *((_DWORD *)v60 + 14);
-                        ++*((_DWORD *)v60 + 23);
+                        v92 = *((_DWORD *)v58 + 14);
+                        ++*((_DWORD *)v58 + 23);
                         prclTrg.right = v92;
-                        prclTrg.bottom = *((_DWORD *)v60 + 15);
+                        prclTrg.bottom = *((_DWORD *)v58 + 15);
                         *(_QWORD *)&prclTrg.left = 0LL;
-                        v93 = (*((_DWORD *)v116 + 28) & 0x400) != 0
-                            ? (*(__int64 (__fastcall **)(__int64, SURFOBJ *, _QWORD, XLATEOBJ *, RECTL *, _OWORD *))(v108 + 2816))(
-                                (__int64)v60 + 24,
+                        v93 = (*((_DWORD *)v122 + 28) & 0x400) != 0
+                            ? (*(__int64 (__fastcall **)(__int64, SURFOBJ *, _QWORD, XLATEOBJ *, RECTL *, _OWORD *, POINTL *, int, int, int, ROP4))(v114 + 2840))(
+                                (__int64)v58 + 24,
                                 psoDest,
                                 0LL,
-                                v63,
+                                v61,
                                 &prclTrg,
-                                &prclDest[4])
-                            : ((__int64 (__fastcall *)(char *, SURFOBJ *, _QWORD, XLATEOBJ *, RECTL *, _OWORD *))EngCopyBits)(
-                                (char *)v60 + 24,
+                                &prclDest[4],
+                                v105,
+                                pptlMask,
+                                pbo,
+                                pptlBrush,
+                                rop4)
+                            : ((__int64 (__fastcall *)(char *, SURFOBJ *, _QWORD, XLATEOBJ *, RECTL *, _OWORD *, POINTL *, int, int, int, ROP4))EngCopyBits)(
+                                (char *)v58 + 24,
                                 psoDest,
                                 0LL,
-                                v63,
+                                v61,
                                 &prclTrg,
-                                &prclDest[4]);
+                                &prclDest[4],
+                                v105,
+                                pptlMask,
+                                pbo,
+                                pptlBrush,
+                                rop4);
                         if ( !v93
                           && !EngBitBlt(
-                                (SURFOBJ *)((char *)v60 + 24),
+                                (SURFOBJ *)((char *)v58 + 24),
                                 0LL,
                                 0LL,
                                 0LL,
@@ -602,177 +605,177 @@ LABEL_67:
                                 0LL,
                                 0xFFFFu) )
                         {
-                          if ( v24 )
+                          if ( v22 )
                             GreAcquireSemaphore(ghsemHT);
-LABEL_189:
-                          v19 = -1;
-LABEL_91:
-                          EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v118);
-                          EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v112);
+LABEL_191:
+                          v17 = -1;
 LABEL_92:
-                          SURFMEM::~SURFMEM((SURFMEM *)&v130);
+                          EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v124);
+                          EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v118);
 LABEL_93:
-                          PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v133);
-                          goto LABEL_94;
+                          SURFMEM::~SURFMEM((SURFMEM *)&v136);
+LABEL_94:
+                          PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v139);
+                          goto LABEL_95;
                         }
                       }
                     }
-                    if ( v24 )
+                    if ( v22 )
                       GreAcquireSemaphore(ghsemHT);
-                    if ( !PDEVOBJ::pDevHTInfo((PDEVOBJ *)&v108)
-                      && !(unsigned int)PDEVOBJ::bEnableHalftone((PDEVOBJ *)&v108, v117) )
+                    if ( !PDEVOBJ::pDevHTInfo((PDEVOBJ *)&v114)
+                      && !(unsigned int)PDEVOBJ::bEnableHalftone((PDEVOBJ *)&v114, v123) )
                     {
-                      goto LABEL_189;
+                      goto LABEL_191;
                     }
-                    v66 = 0;
-                    v107 = (unsigned int)PDEVOBJ::pDevHTInfo((PDEVOBJ *)&v108);
+                    v65 = 0;
+                    v113 = (unsigned int)PDEVOBJ::pDevHTInfo((PDEVOBJ *)&v114);
                     if ( !(unsigned int)bSetHTSrcSurfInfo(
-                                          ((unsigned __int64)v119 + 24) & -(__int64)(v119 != 0LL),
-                                          (__int64)v141,
-                                          (__int64)v146,
-                                          (__int64)v120)
-                      || (v67 = (SURFOBJ *)(((unsigned __int64)v60 + 24) & -(__int64)(v60 != 0LL)),
-                          v115 = v67,
-                          !(unsigned int)bSetHTSurfInfo(v67, (struct _HTSURFACEINFO *)v148, v106))
-                      || (v68 = v123) != 0
+                                          ((unsigned __int64)v125 + 24) & -(__int64)(v125 != 0LL),
+                                          (__int64)v147,
+                                          (__int64)v152,
+                                          (__int64)v126)
+                      || (v67 = (SURFOBJ *)(((unsigned __int64)v58 + 24) & -(__int64)(v58 != 0LL)),
+                          v121 = v67,
+                          !(unsigned int)bSetHTSurfInfo(v67, (struct _HTSURFACEINFO *)v154, v112))
+                      || (v68 = v129) != 0
                       && !(unsigned int)bSetHTSurfInfo(
-                                          (struct _SURFOBJ *)(v123 + 24),
-                                          (struct _HTSURFACEINFO *)v150,
-                                          *(_DWORD *)(v124 + 72)) )
+                                          (struct _SURFOBJ *)(v129 + 24),
+                                          (struct _HTSURFACEINFO *)v156,
+                                          *(_DWORD *)(v130 + 72)) )
                     {
-LABEL_88:
-                      if ( v147 )
-                        FreeThreadBufferWithTag(v147);
-                      v19 = v66 != 0 ? 1 : -1;
-                      goto LABEL_91;
+LABEL_89:
+                      if ( v153 )
+                        FreeThreadBufferWithTag(v153, v66);
+                      v17 = v65 != 0 ? 1 : -1;
+                      goto LABEL_92;
                     }
-                    v119 = 0LL;
+                    v125 = 0LL;
                     LODWORD(v69) = 0;
                     if ( v68 )
                     {
-                      if ( bUMPDSecurityGateEx() && !v129 )
+                      if ( (unsigned int)bUMPDSecurityGateEx() && !v135 )
                       {
                         if ( gfUMPDDebug )
                           DbgPrint(
                             "clientcore\\windows\\core\\ntgdi\\gre\\windows\\htblt.cxx:%d:EngHTBlt:pptlMask == NULL\n",
                             1063);
-                        if ( v147 )
-                          FreeThreadBufferWithTag(v147);
-                        goto LABEL_189;
+                        if ( v153 )
+                          FreeThreadBufferWithTag(v153, v94);
+                        goto LABEL_191;
                       }
-                      v69 = v150;
-                      *((_QWORD *)&prclDest[5] + 1) = *v129;
-                      v119 = v150;
+                      v69 = v156;
+                      *((_QWORD *)&prclDest[5] + 1) = *v135;
+                      v125 = v156;
                     }
                     v70 = prclDest[0];
                     v71 = 256;
-                    if ( (*(_DWORD *)(v108 + 2348) & 0x100) == 0 )
+                    if ( (*(_DWORD *)(v114 + 2380) & 0x100) == 0 )
                     {
                       v70 = LOWORD(prclDest[0]) | 2;
                       LOWORD(prclDest[0]) |= 2u;
                     }
-                    if ( v104 == 3 )
+                    if ( v110 == 3 )
                     {
-                      *(_WORD *)((char *)&v135 + 1) = 257;
-                      v149 = &v135;
-                      v136 = v155;
-                      BYTE3(v135) = 0;
-                      *(_QWORD *)((char *)&v135 + 4) = 0x100000000FFLL;
-                      cEntries = v61->cEntries;
-                      if ( cEntries > 0x100 || (v71 = v61->cEntries, cEntries) )
+                      *(_WORD *)((char *)&v141 + 1) = 257;
+                      v155 = &v141;
+                      v142 = v161;
+                      BYTE3(v141) = 0;
+                      *(_QWORD *)((char *)&v141 + 4) = 0x100000000FFLL;
+                      cEntries = v59->cEntries;
+                      if ( cEntries > 0x100 || (v71 = v59->cEntries, cEntries) )
                       {
-                        v95 = v155;
-                        v96 = v71;
-                        v97 = 0LL;
+                        v96 = v161;
+                        v97 = v71;
+                        v98 = 0LL;
                         do
                         {
-                          v98 = v61->pulXlate[v97++];
-                          *v95++ = v98;
-                          --v96;
+                          v99 = v59->pulXlate[v98++];
+                          *v96++ = v99;
+                          --v97;
                         }
-                        while ( v96 );
+                        while ( v97 );
                       }
-                      v61 = xloIdent;
+                      v59 = xloIdent;
                       pptlSrc = (POINTL)xloIdent;
                     }
                     v72 = pco;
-                    if ( v105 )
+                    if ( v111 )
                     {
                       LOWORD(prclDest[0]) = v70 | 1;
-                      if ( v105 != 1 )
+                      if ( v111 != 1 )
                       {
                         XCLIPOBJ::cEnumStart((XCLIPOBJ *)pco, 0, 0, 4u, 0x14u);
-                        v66 = 1;
-                        v99 = AllocFreeTmpBuffer(324LL);
-                        v100 = (char *)v99;
-                        if ( v99 )
+                        v65 = 1;
+                        v100 = AllocFreeTmpBuffer(324LL);
+                        v101 = (unsigned int *)v100;
+                        if ( v100 )
                         {
-                          v101 = (int)v119;
-                          v124 = v99;
+                          v102 = (int)v125;
+                          v130 = v100;
                           do
                           {
-                            v102 = XCLIPOBJ::bEnum((XCLIPOBJ *)v72, 0x144u, v100, 0LL);
-                            v103 = 0;
-                            LODWORD(v113) = v102;
-                            if ( *(_DWORD *)v100 )
+                            v103 = XCLIPOBJ::bEnum((XCLIPOBJ *)v72, 0x144u, v101, 0LL);
+                            v104 = 0;
+                            LODWORD(v119) = v103;
+                            if ( *v101 )
                             {
                               do
                               {
-                                prclDest[3] = *(_OWORD *)&v100[16 * v103++ + 4];
-                                v66 = ((int)HT_HalftoneBitmap(
-                                              v107,
-                                              (_DWORD)v117,
-                                              (unsigned int)v146,
-                                              v101,
-                                              (__int64)v148,
-                                              (__int64)prclDest) >= 0) & (unsigned __int8)v66;
+                                prclDest[3] = *(_OWORD *)&v101[4 * v104++ + 1];
+                                v65 = ((int)HT_HalftoneBitmap(
+                                              v113,
+                                              (_DWORD)v123,
+                                              (unsigned int)v152,
+                                              v102,
+                                              (__int64)v154,
+                                              (__int64)prclDest) >= 0) & (unsigned __int8)v65;
                               }
-                              while ( v103 < *(_DWORD *)v100 );
-                              v102 = v113;
+                              while ( v104 < *v101 );
+                              v103 = v119;
                             }
-                            if ( !v102 )
+                            if ( !v103 )
                               break;
                             v72 = pco;
                           }
-                          while ( v66 );
-                          AutoResource<&void FreeTmpBuffer(void *)>::~AutoResource<&void FreeTmpBuffer(void *)>(&v124);
-                          v24 = v122;
-                          v61 = (XLATEOBJ *)pptlSrc;
-                          v67 = v115;
+                          while ( v65 );
+                          AutoResource<&void FreeTmpBuffer(void *)>::~AutoResource<&void FreeTmpBuffer(void *)>(&v130);
+                          v22 = v128;
+                          v59 = (XLATEOBJ *)pptlSrc;
+                          v67 = v121;
                           v72 = pco;
                         }
                         else
                         {
-                          v67 = v115;
-                          v66 = 0;
+                          v67 = v121;
+                          v65 = 0;
                         }
-                        goto LABEL_81;
+                        goto LABEL_82;
                       }
                       prclDest[3] = pco->rclBounds;
                     }
-                    LOBYTE(v66) = (int)HT_HalftoneBitmap(
-                                         v107,
-                                         (_DWORD)v117,
-                                         (unsigned int)v146,
+                    LOBYTE(v65) = (int)HT_HalftoneBitmap(
+                                         v113,
+                                         (_DWORD)v123,
+                                         (unsigned int)v152,
                                          (_DWORD)v69,
-                                         (__int64)v148,
+                                         (__int64)v154,
                                          (__int64)prclDest) >= 0;
-LABEL_81:
-                    HTSEMOBJ::vRelease((HTSEMOBJ *)&v110);
-                    if ( (_DWORD)v109 && v66 )
+LABEL_82:
+                    HTSEMOBJ::vRelease((HTSEMOBJ *)&v116);
+                    if ( (_DWORD)v115 && v65 )
                     {
-                      v73 = v116;
+                      v73 = v122;
                       v74 = psoDest;
                       pptlSrc = 0LL;
-                      ++*((_DWORD *)v116 + 23);
+                      ++*((_DWORD *)v122 + 23);
                       if ( v74->iType )
                       {
                         if ( (*((_DWORD *)v73 + 28) & 0x400) != 0 )
-                          v75 = (*(__int64 (__fastcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, _OWORD *, POINTL *))(v108 + 2816))(
+                          v75 = (*(__int64 (__fastcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, _OWORD *, POINTL *))(v114 + 2840))(
                                   v74,
                                   v67,
                                   v72,
-                                  v61,
+                                  v59,
                                   &prclDest[4],
                                   &pptlSrc);
                         else
@@ -780,45 +783,45 @@ LABEL_81:
                                   v74,
                                   v67,
                                   v72,
-                                  v61,
+                                  v59,
                                   &prclDest[4],
                                   &pptlSrc);
                       }
                       else
                       {
-                        v75 = EngCopyBits(v74, v67, v72, v61, (RECTL *)&prclDest[4], &pptlSrc);
+                        v75 = EngCopyBits(v74, v67, v72, v59, (RECTL *)&prclDest[4], &pptlSrc);
                       }
-                      v66 = v75;
+                      v65 = v75;
                     }
-                    if ( v24 )
+                    if ( v22 )
                       GreAcquireSemaphore(ghsemHT);
-                    goto LABEL_88;
+                    goto LABEL_89;
                   }
                 }
-                if ( v113 )
-                  DEC_SHARE_REF_CNT(v113);
-                goto LABEL_189;
+                if ( v119 )
+                  DEC_SHARE_REF_CNT(v119, v64);
+                goto LABEL_191;
               }
-              v39 = prclDest[0];
-              v46 = v104;
-              v45 = v116;
-              v43 = pco;
+              v37 = prclDest[0];
+              v44 = v110;
+              v43 = v122;
+              v41 = pco;
             }
             else
             {
               p_rclBounds = a8;
             }
-            LODWORD(v109) = 1;
+            LODWORD(v115) = 1;
             if ( iDComplexity )
             {
-              v105 = 0;
+              v111 = 0;
               v77 = 0LL;
-              p_rclBounds = &v43->rclBounds;
+              p_rclBounds = &v41->rclBounds;
               if ( iDComplexity != 1 )
-                v77 = v43;
+                v77 = v41;
               pco = v77;
             }
-            v48 = *((_QWORD *)v45 + 7);
+            v46 = *((_QWORD *)v43 + 7);
             right = p_rclBounds->right;
             left = p_rclBounds->left;
             if ( right <= p_rclBounds->left )
@@ -826,47 +829,47 @@ LABEL_81:
               right = p_rclBounds->left;
               left = p_rclBounds->right;
             }
-            v51 = 0;
+            v49 = 0;
             if ( left >= 0 )
-              v51 = left;
-            if ( right > (int)v48 )
-              right = v48;
-            v52 = right - v51;
-            if ( right - v51 > 0 )
+              v49 = left;
+            if ( right > (int)v46 )
+              right = v46;
+            v50 = right - v49;
+            if ( right - v49 > 0 )
             {
               top = p_rclBounds->top;
-              LODWORD(prclDest[4]) = v51;
+              LODWORD(prclDest[4]) = v49;
               bottom = p_rclBounds->bottom;
               DWORD2(prclDest[4]) = right;
-              v55 = bottom;
+              v53 = bottom;
               if ( bottom <= top )
               {
-                v55 = top;
+                v53 = top;
                 top = bottom;
               }
-              v56 = 0;
+              v54 = 0;
               if ( top >= 0 )
-                v56 = top;
-              v57 = HIDWORD(v48);
-              if ( v55 <= (int)v57 )
-                LODWORD(v57) = v55;
-              v58 = v57 - v56;
-              if ( (int)v57 - v56 > 0 )
+                v54 = top;
+              v55 = HIDWORD(v46);
+              if ( v53 <= (int)v55 )
+                LODWORD(v55) = v53;
+              v56 = v55 - v54;
+              if ( (int)v55 - v54 > 0 )
               {
-                HIDWORD(prclDest[4]) = v57;
-                DWORD1(prclDest[4]) = v56;
-                v59 = *((_DWORD *)v116 + 28) & 0x40000;
-                LOWORD(prclDest[0]) = v39 | 0x10;
-                v142[2] = v58;
-                v144 = v59;
-                v142[3] = 0;
-                v145 = 0;
-                v142[1] = v52;
-                v143 = 0LL;
-                v142[0] = v46;
+                HIDWORD(prclDest[4]) = v55;
+                DWORD1(prclDest[4]) = v54;
+                v57 = *((_DWORD *)v122 + 28) & 0x40000;
+                LOWORD(prclDest[0]) = v37 | 0x10;
+                v148[2] = v56;
+                v150 = v57;
+                v148[3] = 0;
+                v151 = 0;
+                v148[1] = v50;
+                v149 = 0LL;
+                v148[0] = v44;
                 if ( SURFMEM::bCreateDIB(
-                       (SURFMEM *)&v130,
-                       (struct _DEVBITMAPINFO *)v142,
+                       (SURFMEM *)&v136,
+                       (struct _DEVBITMAPINFO *)v148,
                        0LL,
                        0LL,
                        0,
@@ -877,35 +880,35 @@ LABEL_81:
                        0,
                        0) )
                 {
-                  v60 = v130;
-                  goto LABEL_56;
+                  v58 = v136;
+                  goto LABEL_57;
                 }
-                v22 = -1;
+                v20 = -1;
               }
             }
-            v19 = v22;
-            goto LABEL_92;
+            v17 = v20;
+            goto LABEL_93;
           }
-          if ( (unsigned int)bIsSourceBGRA(v109) )
+          if ( (unsigned int)bIsSourceBGRA(v115) )
           {
-            v38 = 512;
+            v36 = 512;
             v89 = 4;
-            goto LABEL_152;
+            goto LABEL_153;
           }
-LABEL_112:
-          v19 = -1;
-          goto LABEL_93;
+LABEL_113:
+          v17 = -1;
+          goto LABEL_94;
         }
-LABEL_143:
-        v19 = -1;
-        goto LABEL_94;
+LABEL_144:
+        v17 = -1;
+        goto LABEL_95;
       }
       v79 = a1->sizlBitmap.cx;
-      v31 = 0;
-      v20 = ((v79 + 31) >> 3) & 0xFFFFFFFC;
+      v29 = 0;
+      v18 = ((v79 + 31) >> 3) & 0xFFFFFFFC;
     }
-    v106 = 1;
-    v104 = 1;
+    v112 = 1;
+    v110 = 1;
     goto LABEL_12;
   }
   return 0xFFFFFFFFLL;

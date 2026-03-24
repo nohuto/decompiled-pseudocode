@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfApplyLatencyHint @ 0x1402254C0
+ * XREFs of PpmPerfApplyLatencyHint @ 0x14037C594
  * Callers:
- *     PpmPerfApplyLatencyHints @ 0x140225440 (PpmPerfApplyLatencyHints.c)
+ *     PpmPerfApplyLatencyHints @ 0x1402B7BE0 (PpmPerfApplyLatencyHints.c)
  * Callees:
- *     PpmGetPerfPolicyClass @ 0x140225C88 (PpmGetPerfPolicyClass.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     PpmGetPerfPolicyClass @ 0x1402A0C5C (PpmGetPerfPolicyClass.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PpmPerfApplyLatencyHint(__int64 a1)
@@ -21,8 +21,8 @@ __int64 __fastcall PpmPerfApplyLatencyHint(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 8);
   v2 = *(_QWORD *)(v1 + 8);
-  v3 = &PpmCurrentProfile[534 * dword_140C232CC];
-  PerfPolicyClass = (unsigned __int8)PpmGetPerfPolicyClass(a1);
+  v3 = &PpmCurrentProfile[342 * dword_140C23E8C];
+  PerfPolicyClass = (unsigned __int8)PpmGetPerfPolicyClass((_BYTE *)a1);
   result = (unsigned int)(v5 - 1);
   v8 = *((unsigned __int8 *)v3 + PerfPolicyClass + 117);
   if ( (result & 0xFFFFFFFD) != 0 )
@@ -35,13 +35,13 @@ __int64 __fastcall PpmPerfApplyLatencyHint(__int64 a1)
   }
   else
   {
-    v9 = *(_DWORD *)(v6 + 444);
+    v9 = *(_DWORD *)(v6 + 320);
   }
   if ( (unsigned int)v8 >= v9 )
     v8 = v9;
   if ( (unsigned int)v8 > *(_DWORD *)(v1 + 56) )
   {
-    result = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD))(v6 + 376))(v2, v8, *(unsigned int *)(v6 + 452));
+    result = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD))(v6 + 280))(v2, v8, *(unsigned int *)(v6 + 328));
     *(_DWORD *)(v1 + 56) = result;
   }
   return result;

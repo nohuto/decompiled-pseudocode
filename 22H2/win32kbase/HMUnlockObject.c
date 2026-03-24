@@ -1,217 +1,120 @@
 /*
- * XREFs of HMUnlockObject @ 0x1C0056D70
+ * XREFs of HMUnlockObject @ 0x1C002EA10
  * Callers:
- *     ?ProcessInput@CKeyboardProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_INPUT_DATA@@K_N@Z @ 0x1C0002364 (-ProcessInput@CKeyboardProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_I.c)
- *     NtUserToUnicodeEx @ 0x1C00026F0 (NtUserToUnicodeEx.c)
- *     NtMITSynthesizeKeyboardInput @ 0x1C0009460 (NtMITSynthesizeKeyboardInput.c)
- *     NtUserSetKeyboardState @ 0x1C0009A80 (NtUserSetKeyboardState.c)
- *     ?Enter@EnterLeaveCritMitRitHandOffHazard@@AEAAXXZ @ 0x1C000AB30 (-Enter@EnterLeaveCritMitRitHandOffHazard@@AEAAXXZ.c)
- *     NtUserReportInertia @ 0x1C000E690 (NtUserReportInertia.c)
- *     NtUserDestroyActivationObject @ 0x1C000EB80 (NtUserDestroyActivationObject.c)
- *     UserPowerInfoCallout @ 0x1C000FBD4 (UserPowerInfoCallout.c)
- *     ?DxgkEngSetDisplayModeCallback@@YAJU_LUID@@I@Z @ 0x1C0018EB0 (-DxgkEngSetDisplayModeCallback@@YAJU_LUID@@I@Z.c)
- *     NtUserCitSetInfo @ 0x1C00334B0 (NtUserCitSetInfo.c)
- *     ?xxxCheckProcessAndSessionState@@YAJPEAU_W32PROCESS@@@Z @ 0x1C003772C (-xxxCheckProcessAndSessionState@@YAJPEAU_W32PROCESS@@@Z.c)
- *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00385C4 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
- *     EnterCrit @ 0x1C0048270 (EnterCrit.c)
- *     ?HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C004EC70 (-HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z.c)
- *     HMFreeObject @ 0x1C004F310 (HMFreeObject.c)
- *     xxxUserProcessCallout @ 0x1C0050580 (xxxUserProcessCallout.c)
- *     UserThreadCallout @ 0x1C0050B50 (UserThreadCallout.c)
- *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0052A60 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
- *     ?OnDispatcherObjectSignaled@CBaseInput@@AEAAJPEAX@Z @ 0x1C0053374 (-OnDispatcherObjectSignaled@CBaseInput@@AEAAJPEAX@Z.c)
- *     HMAssignmentUnlockWorker @ 0x1C0056D3C (HMAssignmentUnlockWorker.c)
- *     _lambda_0f9e2a8fc479216b45af02f10e3c5bbd_::_lambda_invoker_cdecl_ @ 0x1C00589A0 (_lambda_0f9e2a8fc479216b45af02f10e3c5bbd_--_lambda_invoker_cdecl_.c)
- *     hdcOpenDCW @ 0x1C005ADC0 (hdcOpenDCW.c)
- *     NtUserLockCursor @ 0x1C005E230 (NtUserLockCursor.c)
- *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0065068 (--1LeaveEnterCrit@@QEAA@XZ.c)
- *     NtUserLoadKeyboardLayoutEx @ 0x1C0067DD0 (NtUserLoadKeyboardLayoutEx.c)
- *     UserProcessThawCallout @ 0x1C00681D0 (UserProcessThawCallout.c)
- *     UserProcessFreezeCallout @ 0x1C0068894 (UserProcessFreezeCallout.c)
- *     NtMITCoreMsgKOpenConnectionTo @ 0x1C0068C80 (NtMITCoreMsgKOpenConnectionTo.c)
- *     NtUserActivateKeyboardLayout @ 0x1C0069830 (NtUserActivateKeyboardLayout.c)
- *     ?WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ @ 0x1C006F160 (-WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ.c)
- *     ?UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ @ 0x1C006F340 (-UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ.c)
- *     NtRIMOnPnpNotification @ 0x1C0070810 (NtRIMOnPnpNotification.c)
- *     NtKSTInitialize @ 0x1C0083F60 (NtKSTInitialize.c)
- *     ?xxxDwmProcessShutdown@@YAJH@Z @ 0x1C0084BF8 (-xxxDwmProcessShutdown@@YAJH@Z.c)
- *     ?Close@IOCPDispatcher@@QEAAX_N@Z @ 0x1C0084D10 (-Close@IOCPDispatcher@@QEAAX_N@Z.c)
- *     PowerResumeSuspendEvent @ 0x1C0084F90 (PowerResumeSuspendEvent.c)
- *     NtUserRegisterSessionPort @ 0x1C0085F50 (NtUserRegisterSessionPort.c)
- *     NtMITActivateInputProcessing @ 0x1C0087520 (NtMITActivateInputProcessing.c)
- *     DestroyExclusiveUserCritDeferredUnlockList @ 0x1C0088180 (DestroyExclusiveUserCritDeferredUnlockList.c)
- *     NtUserSetProcessDpiAwarenessContext @ 0x1C008C4A0 (NtUserSetProcessDpiAwarenessContext.c)
- *     NtUserSetSysColors @ 0x1C00919E0 (NtUserSetSysColors.c)
- *     ??1CHMRefHwndByHandle@@QEAA@XZ @ 0x1C0094660 (--1CHMRefHwndByHandle@@QEAA@XZ.c)
- *     ?SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C009C214 (-SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z.c)
- *     ?DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z @ 0x1C00ACC98 (-DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z.c)
- *     NtUserSetInputServiceState @ 0x1C00AD930 (NtUserSetInputServiceState.c)
- *     ?UserInitialize@@YAJXZ @ 0x1C00AE3AC (-UserInitialize@@YAJXZ.c)
- *     W32kEtwEnableCallback @ 0x1C00AF6CC (W32kEtwEnableCallback.c)
- *     NtMITSetInputCallbacks @ 0x1C00B0AF0 (NtMITSetInputCallbacks.c)
- *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C00B1AE4 (-Win32kNtUserCleanup@@YAHXZ.c)
- *     NtUserCreateSystemThreads @ 0x1C00B2720 (NtUserCreateSystemThreads.c)
- *     xxxCreateSystemThreads @ 0x1C00B27C0 (xxxCreateSystemThreads.c)
- *     ?HandleTSRequest@CBaseInput@@QEAAXW4InputTSRequest@@@Z @ 0x1C00B30F0 (-HandleTSRequest@CBaseInput@@QEAAXW4InputTSRequest@@@Z.c)
- *     HMRemoveHandleForObject @ 0x1C00B3CF0 (HMRemoveHandleForObject.c)
- *     NtUserCreateActivationObject @ 0x1C00B4080 (NtUserCreateActivationObject.c)
- *     ?DxgkEngEnterUserCrit@@YAXH@Z @ 0x1C00B44F0 (-DxgkEngEnterUserCrit@@YAXH@Z.c)
- *     InitSystemThread @ 0x1C00B46F0 (InitSystemThread.c)
- *     UserSessionSwitchEnterCrit @ 0x1C00B4DD0 (UserSessionSwitchEnterCrit.c)
- *     NtUserEnableMouseInPointer @ 0x1C00B6E50 (NtUserEnableMouseInPointer.c)
- *     ChangeAcquireResourceType @ 0x1C00B84C0 (ChangeAcquireResourceType.c)
- *     NtUserConfigureActivationObject @ 0x1C00B8B40 (NtUserConfigureActivationObject.c)
- *     NtUserRegisterLogonProcess @ 0x1C00BDF70 (NtUserRegisterLogonProcess.c)
- *     NtMITUpdateInputGlobals @ 0x1C00BFA50 (NtMITUpdateInputGlobals.c)
- *     NtUserRegisterTouchPadCapable @ 0x1C00C1410 (NtUserRegisterTouchPadCapable.c)
- *     NtUserRegisterManipulationThread @ 0x1C00C1790 (NtUserRegisterManipulationThread.c)
- *     UserEnterUserCritSec @ 0x1C00C4B00 (UserEnterUserCritSec.c)
- *     ?W32kTraceLoggingEnableCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C00C5070 (-W32kTraceLoggingEnableCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
- *     DrvSetWddmDeviceMonitorPowerState @ 0x1C00CAA74 (DrvSetWddmDeviceMonitorPowerState.c)
- *     VideoPortCalloutThread @ 0x1C00CCFE8 (VideoPortCalloutThread.c)
- *     ?xxxWaitForVideoPortCalloutReady@@YAXEEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00CD1D4 (-xxxWaitForVideoPortCalloutReady@@YAXEEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     VideoPortCallout @ 0x1C00CD3B0 (VideoPortCallout.c)
- *     ??1DirectLeaveEnterCrit@@QEAA@XZ @ 0x1C00D01E0 (--1DirectLeaveEnterCrit@@QEAA@XZ.c)
- *     W32CalloutDispatch @ 0x1C00DE840 (W32CalloutDispatch.c)
- *     ?OnReadNotification@CBaseInput@@AEAAJXZ @ 0x1C00E4DD0 (-OnReadNotification@CBaseInput@@AEAAJXZ.c)
- *     HMUnlockDestroyObject @ 0x1C012CAA0 (HMUnlockDestroyObject.c)
- *     UserProcessTimerDelayCallout @ 0x1C012D56C (UserProcessTimerDelayCallout.c)
- *     UserProcessTimerStatisticsCallout @ 0x1C012D690 (UserProcessTimerStatisticsCallout.c)
- *     ??$SyncMessage@$07@DispBrokerClient@DispBroker@@QEAAJPEAU?$AlpcRequest@$07@1@PEAU?$AlpcReply@$07@1@@Z @ 0x1C012F274 (--$SyncMessage@$07@DispBrokerClient@DispBroker@@QEAAJPEAU-$AlpcRequest@$07@1@PEAU-$AlpcReply@$07.c)
- *     NtMapVisualRelativePoints @ 0x1C0131660 (NtMapVisualRelativePoints.c)
- *     ?SetInputMode@@YAXW4_WIN32K_INPUT_MODE@@@Z @ 0x1C01329F8 (-SetInputMode@@YAXW4_WIN32K_INPUT_MODE@@@Z.c)
- *     ?UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C01332D0 (-UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
- *     ?DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C0134330 (-DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z.c)
- *     xxxDisplayDiagBlackScreenDetected @ 0x1C0136B00 (xxxDisplayDiagBlackScreenDetected.c)
- *     ?EtwCaptureStateCallback@@YAXXZ @ 0x1C013833C (-EtwCaptureStateCallback@@YAXXZ.c)
- *     NtConfigureInputSpace @ 0x1C0140880 (NtConfigureInputSpace.c)
- *     NtMITAccessibilityTimerNotification @ 0x1C0140E90 (NtMITAccessibilityTimerNotification.c)
- *     NtMITConfigureVirtualTouchpad @ 0x1C0140F90 (NtMITConfigureVirtualTouchpad.c)
- *     NtMITDeactivateInputProcessing @ 0x1C01412E0 (NtMITDeactivateInputProcessing.c)
- *     NtMITDisableMouseIntercept @ 0x1C01413E0 (NtMITDisableMouseIntercept.c)
- *     NtMITEnableMouseIntercept @ 0x1C01414F0 (NtMITEnableMouseIntercept.c)
- *     NtMITInitMinuserThread @ 0x1C0141620 (NtMITInitMinuserThread.c)
- *     NtMITMinuserWindowDestroyed @ 0x1C0141880 (NtMITMinuserWindowDestroyed.c)
- *     NtMITPostMouseInputMessage @ 0x1C0141970 (NtMITPostMouseInputMessage.c)
- *     NtMITPostThreadEventMessage @ 0x1C0141B80 (NtMITPostThreadEventMessage.c)
- *     NtMITPostWindowEventMessage @ 0x1C0141D60 (NtMITPostWindowEventMessage.c)
- *     NtMITSetInputDelegationMode @ 0x1C0141F60 (NtMITSetInputDelegationMode.c)
- *     NtMITSynthesizeMouseInput @ 0x1C0142240 (NtMITSynthesizeMouseInput.c)
- *     NtMITSynthesizeTouchInput @ 0x1C01424C0 (NtMITSynthesizeTouchInput.c)
- *     NtMITUninitMinuserThread @ 0x1C01426E0 (NtMITUninitMinuserThread.c)
- *     NtSetCursorInputSpace @ 0x1C0142810 (NtSetCursorInputSpace.c)
- *     NtSetPointerDeviceInputSpace @ 0x1C0142970 (NtSetPointerDeviceInputSpace.c)
- *     NtSetShellCursorState @ 0x1C0142BE0 (NtSetShellCursorState.c)
- *     NtUserChangeDisplaySettings @ 0x1C0143000 (NtUserChangeDisplaySettings.c)
- *     NtUserClipCursor @ 0x1C0143210 (NtUserClipCursor.c)
- *     NtUserCreateBaseWindow @ 0x1C0143470 (NtUserCreateBaseWindow.c)
- *     NtUserCreatePalmRejectionDelayZone @ 0x1C0143570 (NtUserCreatePalmRejectionDelayZone.c)
- *     NtUserDestroyPalmRejectionDelayZone @ 0x1C0143790 (NtUserDestroyPalmRejectionDelayZone.c)
- *     NtUserDisplayConfigSetDeviceInfo @ 0x1C0143890 (NtUserDisplayConfigSetDeviceInfo.c)
- *     NtUserDownlevelTouchpad @ 0x1C0143C90 (NtUserDownlevelTouchpad.c)
- *     NtUserEnableTouchPad @ 0x1C0143E70 (NtUserEnableTouchPad.c)
- *     NtUserGetInputContainerId @ 0x1C01447E0 (NtUserGetInputContainerId.c)
- *     NtUserGetPrecisionTouchPadConfiguration @ 0x1C0145720 (NtUserGetPrecisionTouchPadConfiguration.c)
- *     NtUserPostKeyboardInputMessage @ 0x1C0149D10 (NtUserPostKeyboardInputMessage.c)
- *     NtUserSetDisplayConfig @ 0x1C014A770 (NtUserSetDisplayConfig.c)
- *     NtUserSetForegroundRedirectionForActivationObject @ 0x1C014B490 (NtUserSetForegroundRedirectionForActivationObject.c)
- *     NtUserSetManipulationInputTarget @ 0x1C014B660 (NtUserSetManipulationInputTarget.c)
- *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C014BA50 (NtUserSetPrecisionTouchPadConfiguration.c)
- *     NtUserSetProcessMousewheelRoutingMode @ 0x1C014BD00 (NtUserSetProcessMousewheelRoutingMode.c)
- *     NtUserStopAndEndInertia @ 0x1C014C1E0 (NtUserStopAndEndInertia.c)
- *     NtUserSystemParametersInfo @ 0x1C014C300 (NtUserSystemParametersInfo.c)
- *     NtUserUnloadKeyboardLayout @ 0x1C014D840 (NtUserUnloadKeyboardLayout.c)
- *     NtUserUnregisterSessionPort @ 0x1C014D950 (NtUserUnregisterSessionPort.c)
- *     NtRIMEnableMonitorMappingForDevice @ 0x1C0174CC0 (NtRIMEnableMonitorMappingForDevice.c)
- *     NtRIMOnTimerNotification @ 0x1C0174F10 (NtRIMOnTimerNotification.c)
- *     NtRIMUnregisterForInput @ 0x1C0175680 (NtRIMUnregisterForInput.c)
- *     RIMOnAsyncPnpWorkNotification @ 0x1C0179C70 (RIMOnAsyncPnpWorkNotification.c)
- *     ?xxxMKMouseMove@@YAHG@Z @ 0x1C01B69F0 (-xxxMKMouseMove@@YAHG@Z.c)
- *     ?xxxMKMoveAccelCursorTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01B6B80 (-xxxMKMoveAccelCursorTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
- *     ?xxxMKMoveConstCursorTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01B6D00 (-xxxMKMoveConstCursorTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
- *     ?OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01E27C0 (-OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ.c)
- *     ?OnPTPTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01E2970 (-OnPTPTimerNotification@CHidInput@@EEAAJXZ.c)
- *     ?OnRIMDeviceDestroyed@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C01E2C40 (-OnRIMDeviceDestroyed@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z.c)
- *     ?ProcessPTPInertiaActions@CHidInput@@QEAA_NPEAX_K@Z @ 0x1C01E3098 (-ProcessPTPInertiaActions@CHidInput@@QEAA_NPEAX_K@Z.c)
- *     ProcessKeyboardInputWorker @ 0x1C01EA900 (ProcessKeyboardInputWorker.c)
- *     ?SendIVWorkerThreadRequest@@YAJPEAU_IVWORKER_INIT@@@Z @ 0x1C01ED844 (-SendIVWorkerThreadRequest@@YAJPEAU_IVWORKER_INIT@@@Z.c)
- *     ?ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EDA10 (-ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManage.c)
- *     ?ivHandleKeyboardStatesPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EDB80 (-ivHandleKeyboardStatesPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject.c)
- *     ?ivOnNonInputPacketReceived@@YA_NPEBXKKPEAX1@Z @ 0x1C01EE480 (-ivOnNonInputPacketReceived@@YA_NPEBXKKPEAX1@Z.c)
- *     IVWorkerThread @ 0x1C01EEA6C (IVWorkerThread.c)
- *     ?Extensibility_SynthesizeMouseInput@CMouseProcessor@@QEAA?AW4_SYNTHESIZED_MOUSE_PROCESSING_RESULT@@PEAU_ExtensibilityMouseInputData@@W4_MOUSEPROCESSOR_PROCESSING_OPTIONS@@PEAU_SYNTHESIZE_MOUSE_EXTRA_PAYLOAD@@@Z @ 0x1C01F6B68 (-Extensibility_SynthesizeMouseInput@CMouseProcessor@@QEAA-AW4_SYNTHESIZED_MOUSE_PROCESSING_RESUL.c)
- *     ?DwmInputThread@CInputManager@@IEAAJPEAX0H@Z @ 0x1C0230CC4 (-DwmInputThread@CInputManager@@IEAAJPEAX0H@Z.c)
- *     Win32UserInitialize @ 0x1C02DBF90 (Win32UserInitialize.c)
- *     Win32kBaseDriverEntry @ 0x1C02DEBC0 (Win32kBaseDriverEntry.c)
+ *     ChangeAcquireResourceType @ 0x1C0007820 (ChangeAcquireResourceType.c)
+ *     NtUserActivateKeyboardLayout @ 0x1C000A590 (NtUserActivateKeyboardLayout.c)
+ *     ?DxgkEngSetDisplayModeCallback@@YAJU_LUID@@I@Z @ 0x1C000D900 (-DxgkEngSetDisplayModeCallback@@YAJU_LUID@@I@Z.c)
+ *     NtUserChangeDisplaySettings @ 0x1C0018E30 (NtUserChangeDisplaySettings.c)
+ *     EnterCrit @ 0x1C002FF70 (EnterCrit.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003A724 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     xxxUserProcessCallout @ 0x1C003D2A0 (xxxUserProcessCallout.c)
+ *     UserThreadCallout @ 0x1C003DA00 (UserThreadCallout.c)
+ *     NtUserGetKeyboardLayout @ 0x1C003E7C0 (NtUserGetKeyboardLayout.c)
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C00423C4 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     ?OnDispatcherObjectSignaled@CBaseInput@@AEAAJPEAX@Z @ 0x1C0045998 (-OnDispatcherObjectSignaled@CBaseInput@@AEAAJPEAX@Z.c)
+ *     ?UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ @ 0x1C0049F30 (-UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ.c)
+ *     ?WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ @ 0x1C004A4C0 (-WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ.c)
+ *     W32CalloutDispatch @ 0x1C004EFB0 (W32CalloutDispatch.c)
+ *     UserPowerInfoCallout @ 0x1C004FC50 (UserPowerInfoCallout.c)
+ *     UserProcessFreezeCallout @ 0x1C00525C8 (UserProcessFreezeCallout.c)
+ *     UserProcessThawCallout @ 0x1C0052A10 (UserProcessThawCallout.c)
+ *     NtRIMOnPnpNotification @ 0x1C00538C0 (NtRIMOnPnpNotification.c)
+ *     ?SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C0059400 (-SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z.c)
+ *     ?UserInitialize@@YAJXZ @ 0x1C0068D34 (-UserInitialize@@YAJXZ.c)
+ *     W32kEtwEnableCallback @ 0x1C0069A3C (W32kEtwEnableCallback.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0072710 (--1LeaveEnterCrit@@QEAA@XZ.c)
+ *     ?CheckProcessAndSessionState@@YAJPEAU_W32PROCESS@@@Z @ 0x1C0073324 (-CheckProcessAndSessionState@@YAJPEAU_W32PROCESS@@@Z.c)
+ *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C00743A8 (-Win32kNtUserCleanup@@YAHXZ.c)
+ *     ?xxxDwmProcessShutdown@@YAJH@Z @ 0x1C00761B8 (-xxxDwmProcessShutdown@@YAJH@Z.c)
+ *     NtMITSetInputCallbacks @ 0x1C0076A90 (NtMITSetInputCallbacks.c)
+ *     NtUserRegisterSessionPort @ 0x1C0076E00 (NtUserRegisterSessionPort.c)
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C0078210 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     ?UserSessionSwitchBlock_End@@YAXXZ @ 0x1C0079384 (-UserSessionSwitchBlock_End@@YAXXZ.c)
+ *     ?UserSessionSwitchBlock_Start@@YAJXZ @ 0x1C0079638 (-UserSessionSwitchBlock_Start@@YAJXZ.c)
+ *     xxxCreateSystemThreads @ 0x1C007DC20 (xxxCreateSystemThreads.c)
+ *     InitSystemThread @ 0x1C0085D20 (InitSystemThread.c)
+ *     UserSessionSwitchEnterCrit @ 0x1C0087EE0 (UserSessionSwitchEnterCrit.c)
+ *     NtUserSetProcessDpiAwarenessContext @ 0x1C0094C20 (NtUserSetProcessDpiAwarenessContext.c)
+ *     NtMITSetInputDelegationMode @ 0x1C0096C10 (NtMITSetInputDelegationMode.c)
+ *     NtUserSetInputServiceState @ 0x1C009B910 (NtUserSetInputServiceState.c)
+ *     ?DxgkEngEnterUserCrit@@YAXH@Z @ 0x1C00A3C30 (-DxgkEngEnterUserCrit@@YAXH@Z.c)
+ *     NtMITUpdateInputGlobals @ 0x1C00A7450 (NtMITUpdateInputGlobals.c)
+ *     ?HandleTSRequest@CBaseInput@@QEAAXW4InputTSRequest@@@Z @ 0x1C00A7EC0 (-HandleTSRequest@CBaseInput@@QEAAXW4InputTSRequest@@@Z.c)
+ *     UserEnterUserCritSec @ 0x1C00A8370 (UserEnterUserCritSec.c)
+ *     NtUserEnableMouseInPointer @ 0x1C00A87B0 (NtUserEnableMouseInPointer.c)
+ *     ?Close@IOCPDispatcher@@QEAAX_N@Z @ 0x1C00A8F60 (-Close@IOCPDispatcher@@QEAAX_N@Z.c)
+ *     NtUserRegisterTouchPadCapable @ 0x1C00AA170 (NtUserRegisterTouchPadCapable.c)
+ *     NtUserRegisterManipulationThread @ 0x1C00B5B60 (NtUserRegisterManipulationThread.c)
+ *     ?OnRIMDeviceDestroyed@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C00B8370 (-OnRIMDeviceDestroyed@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z.c)
+ *     ?W32kTraceLoggingEnableCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C00B8560 (-W32kTraceLoggingEnableCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
+ *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00C1188 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
+ *     PowerResumeSuspendEvent @ 0x1C00C1EC0 (PowerResumeSuspendEvent.c)
+ *     PowerOffMonitor @ 0x1C00C2200 (PowerOffMonitor.c)
+ *     xxxSendWinlogonPowerMessage @ 0x1C00C2720 (xxxSendWinlogonPowerMessage.c)
+ *     DrvSetWddmDeviceMonitorPowerState @ 0x1C00C3960 (DrvSetWddmDeviceMonitorPowerState.c)
+ *     ??1DwmHitTestLeaveEnterCrit@@QEAA@XZ @ 0x1C0114E40 (--1DwmHitTestLeaveEnterCrit@@QEAA@XZ.c)
+ *     ??$SyncMessage@$07@DispBrokerClient@DispBroker@@QEAAJPEAU?$AlpcRequest@$07@1@PEAU?$AlpcReply@$07@1@@Z @ 0x1C0115A10 (--$SyncMessage@$07@DispBrokerClient@DispBroker@@QEAAJPEAU-$AlpcRequest@$07@1@PEAU-$AlpcReply@$07.c)
+ *     ?SetInputMode@@YAXW4_WIN32K_INPUT_MODE@@@Z @ 0x1C0118B28 (-SetInputMode@@YAXW4_WIN32K_INPUT_MODE@@@Z.c)
+ *     ?UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C01192AC (-UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
+ *     ?xxxWaitForVideoPortCalloutReady@@YAXEEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0119C84 (-xxxWaitForVideoPortCalloutReady@@YAXEEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     VideoPortCallout @ 0x1C011A560 (VideoPortCallout.c)
+ *     VideoPortCalloutThread @ 0x1C011B084 (VideoPortCalloutThread.c)
+ *     ?DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C011BA30 (-DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z.c)
+ *     UserProcessTimerDelayCallout @ 0x1C011CCAC (UserProcessTimerDelayCallout.c)
+ *     UserProcessTimerStatisticsCallout @ 0x1C011D1FC (UserProcessTimerStatisticsCallout.c)
+ *     xxxDisplayDiagBlackScreenDetected @ 0x1C011ECA0 (xxxDisplayDiagBlackScreenDetected.c)
+ *     ?EtwCaptureStateCallback@@YAXXZ @ 0x1C0120DF8 (-EtwCaptureStateCallback@@YAXXZ.c)
+ *     NtMITAccessibilityTimerNotification @ 0x1C01292A0 (NtMITAccessibilityTimerNotification.c)
+ *     NtMITDeactivateInputProcessing @ 0x1C0129820 (NtMITDeactivateInputProcessing.c)
+ *     NtMITDisableMouseIntercept @ 0x1C0129D90 (NtMITDisableMouseIntercept.c)
+ *     NtMITEnableMouseIntercept @ 0x1C012A320 (NtMITEnableMouseIntercept.c)
+ *     NtMITMinuserWindowCreated @ 0x1C012AAD0 (NtMITMinuserWindowCreated.c)
+ *     NtMITMinuserWindowDestroyed @ 0x1C012AFF0 (NtMITMinuserWindowDestroyed.c)
+ *     NtMITUninitMinuserThread @ 0x1C012C480 (NtMITUninitMinuserThread.c)
+ *     NtSetCursorInputSpace @ 0x1C012CA20 (NtSetCursorInputSpace.c)
+ *     NtUserDestroyPalmRejectionDelayZone @ 0x1C012D780 (NtUserDestroyPalmRejectionDelayZone.c)
+ *     NtUserEnableTouchPad @ 0x1C012E0C0 (NtUserEnableTouchPad.c)
+ *     NtUserInjectGenericHidInput @ 0x1C0130DF0 (NtUserInjectGenericHidInput.c)
+ *     NtUserRemoveInjectionDevice @ 0x1C0132F20 (NtUserRemoveInjectionDevice.c)
+ *     NtUserSetMouseInputRateLimitingTimer @ 0x1C0134280 (NtUserSetMouseInputRateLimitingTimer.c)
+ *     NtUserSetProcessMousewheelRoutingMode @ 0x1C01349C0 (NtUserSetProcessMousewheelRoutingMode.c)
+ *     NtUserStopAndEndInertia @ 0x1C0134F30 (NtUserStopAndEndInertia.c)
+ *     NtUserUnloadKeyboardLayout @ 0x1C01366A0 (NtUserUnloadKeyboardLayout.c)
+ *     NtUserUnregisterSessionPort @ 0x1C0136BC0 (NtUserUnregisterSessionPort.c)
+ *     UserFindBaseWindowHandle @ 0x1C0139564 (UserFindBaseWindowHandle.c)
+ *     NtRIMEnableMonitorMappingForDevice @ 0x1C0153130 (NtRIMEnableMonitorMappingForDevice.c)
+ *     NtRIMOnTimerNotification @ 0x1C0153890 (NtRIMOnTimerNotification.c)
+ *     NtRIMUnregisterForInput @ 0x1C0154190 (NtRIMUnregisterForInput.c)
+ *     ?xxxMKMouseMove@@YAHG@Z @ 0x1C0183E30 (-xxxMKMouseMove@@YAHG@Z.c)
+ *     ?xxxMKMoveAccelCursorTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0184420 (-xxxMKMoveAccelCursorTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxMKMoveConstCursorTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0184A10 (-xxxMKMoveConstCursorTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?ProcessInput@CKeyboardProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_INPUT_DATA@@K_N@Z @ 0x1C01A2068 (-ProcessInput@CKeyboardProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_I.c)
+ *     ?CallUserModeWithLock@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z @ 0x1C01A2F80 (-CallUserModeWithLock@InputExtensibilityCallout@@QEAAXPEAU_CLIENT_DEVICE_NOTIFICATION@@@Z.c)
+ *     ?OnReadNotification@CBaseInput@@AEAAJXZ @ 0x1C01A3E70 (-OnReadNotification@CBaseInput@@AEAAJXZ.c)
+ *     ?xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z @ 0x1C01A7C5C (-xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z.c)
+ *     ?OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01A96E0 (-OnPTPInertiaTimerNotification@CHidInput@@EEAAJXZ.c)
+ *     ?OnPTPTimerNotification@CHidInput@@EEAAJXZ @ 0x1C01A9C90 (-OnPTPTimerNotification@CHidInput@@EEAAJXZ.c)
+ *     ?ProcessPTPInertiaActions@CHidInput@@QEAA_NPEAX_K@Z @ 0x1C01AA4F4 (-ProcessPTPInertiaActions@CHidInput@@QEAA_NPEAX_K@Z.c)
+ *     ProcessKeyboardInputWorker @ 0x1C01B0810 (ProcessKeyboardInputWorker.c)
+ *     ?ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B7A10 (-ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManage.c)
+ *     ?ivHandleKeyboardStatesPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B8170 (-ivHandleKeyboardStatesPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject.c)
+ *     ?ivHandleSettingsPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B8E90 (-ivHandleSettingsPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
+ *     ?ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z @ 0x1C01B9620 (-ivOnChildLifetimeNotification@CBaseInput@@MEAAJPEAX@Z.c)
+ *     ?Extensibility_SynthesizeMouseInput@CMouseProcessor@@QEAA?AW4_SYNTHESIZED_MOUSE_PROCESSING_RESULT@@PEAU_ExtensibilityMouseInputData@@W4_MOUSEPROCESSOR_PROCESSING_OPTIONS@@PEAU_SYNTHESIZE_MOUSE_EXTRA_PAYLOAD@@@Z @ 0x1C01BF960 (-Extensibility_SynthesizeMouseInput@CMouseProcessor@@QEAA-AW4_SYNTHESIZED_MOUSE_PROCESSING_RESUL.c)
+ *     ApiSetSendPTPAsMouse @ 0x1C01D06D0 (ApiSetSendPTPAsMouse.c)
+ *     ?DwmInputThread@CInputManager@@IEAAJPEAX0H@Z @ 0x1C01F9F74 (-DwmInputThread@CInputManager@@IEAAJPEAX0H@Z.c)
+ *     Win32UserInitialize @ 0x1C0297BBC (Win32UserInitialize.c)
+ *     Win32kBaseDriverEntry @ 0x1C029A770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     ?HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C004EC10 (-HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z.c)
- *     ?IS_USERCRIT_OWNED_SHAREDONLY@@YA_NXZ @ 0x1C0056F4C (-IS_USERCRIT_OWNED_SHAREDONLY@@YA_NXZ.c)
- *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0059AE0 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
- *     ?LockExclusive@tagDomLock@@QEBAXXZ @ 0x1C005CD30 (-LockExclusive@tagDomLock@@QEBAXXZ.c)
- *     LockIntoExclusiveUserCritDeferredUnlockList @ 0x1C00C16A4 (LockIntoExclusiveUserCritDeferredUnlockList.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     LockIntoSharedUserCritDeferredUnlockList @ 0x1C012CAC8 (LockIntoSharedUserCritDeferredUnlockList.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0031520 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     HMUnlockObjectInternal @ 0x1C0046AB0 (HMUnlockObjectInternal.c)
  */
 
 __int64 __fastcall HMUnlockObject(__int64 a1)
 {
-  struct _HANDLEENTRY *v2; // rdi
-  char v3; // al
-  char *v5; // rdi
-  int v6; // esi
-  tagDomLock *v7; // rcx
-  PERESOURCE *DomainLockRef; // [rsp+20h] [rbp-48h]
-  char v9; // [rsp+28h] [rbp-40h] BYREF
-  void *v10; // [rsp+30h] [rbp-38h]
-  char v11; // [rsp+38h] [rbp-30h]
-  __int64 v12; // [rsp+40h] [rbp-28h]
-  char v13; // [rsp+48h] [rbp-20h]
-
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 8), 0xFFFFFFFF) != 1 )
-    return a1;
-  v2 = (struct _HANDLEENTRY *)((char *)qword_1C028FE68 + dword_1C028FE70 * (unsigned int)(unsigned __int16)*(_DWORD *)a1);
-  v3 = *((_BYTE *)v2 + 25);
-  if ( (v3 & 1) == 0 || (v3 & 2) != 0 )
-    return a1;
-  if ( IS_USERCRIT_OWNED_SHAREDONLY() )
-  {
-    DomainLockRef = (PERESOURCE *)GetDomainLockRef(12LL);
-    v5 = &v9;
-    v9 = 1;
-    v10 = &gDomainDummyLock;
-    v12 = 0LL;
-    v6 = 0;
-    v13 = 0;
-    v11 = 0;
-    do
-    {
-      v7 = (tagDomLock *)*((_QWORD *)v5 - 1);
-      if ( v7 )
-      {
-        if ( *v5 )
-          tagDomLock::LockExclusive(v7);
-        else
-          ExEnterCriticalRegionAndAcquireResourceShared(*(PERESOURCE *)v7);
-      }
-      ++v6;
-      v5 += 16;
-    }
-    while ( !v6 );
-    v13 = 1;
-    LockIntoSharedUserCritDeferredUnlockList(a1);
-    if ( v13 && DomainLockRef )
-      ExReleaseResourceAndLeaveCriticalRegion(*DomainLockRef);
-  }
-  else if ( !gphePrimaryDestroyTarget
-         || v2 == gphePrimaryDestroyTarget
-         || gbInDestroyExclusiveUserCritDeferredUnlockList )
-  {
-    HMDestroyUnlockedObjectWorker(v2);
-  }
+  GetDomainLockRef(14LL);
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 8), 0xFFFFFFFF) == 1 )
+    return HMUnlockObjectInternal(a1);
   else
-  {
-    ++gcSecondaryDestroyTargets;
-    LockIntoExclusiveUserCritDeferredUnlockList(a1);
-  }
-  return 0LL;
+    return a1;
 }

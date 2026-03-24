@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDevCfgResolveVariableDeviceProperty @ 0x1406F6DD0
+ * XREFs of PiDevCfgResolveVariableDeviceProperty @ 0x1406F6DB0
  * Callers:
  *     <none>
  * Callees:
- *     PnpValidateRegistryString @ 0x14015D92C (PnpValidateRegistryString.c)
- *     PnpValidateMultiSzData @ 0x14015D964 (PnpValidateMultiSzData.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     PnpValidateRegistryString @ 0x14015D94C (PnpValidateRegistryString.c)
+ *     PnpValidateMultiSzData @ 0x14015D984 (PnpValidateMultiSzData.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  *     PnpGetObjectProperty @ 0x140599EC8 (PnpGetObjectProperty.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
- *     PnpRegSzToString @ 0x1406F5B94 (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     PnpRegSzToString @ 0x1406F5B74 (PnpRegSzToString.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, __int64 a3)

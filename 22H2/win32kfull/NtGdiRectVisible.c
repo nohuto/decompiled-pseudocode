@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiRectVisible @ 0x1C00DC2E0
+ * XREFs of NtGdiRectVisible @ 0x1C00B84E0
  * Callers:
  *     <none>
  * Callees:
- *     GreRectVisible @ 0x1C00DB850 (GreRectVisible.c)
+ *     GreRectVisible @ 0x1C00B8180 (GreRectVisible.c)
  */
 
 __int64 __fastcall NtGdiRectVisible(HDC a1, struct _RECTL *a2)

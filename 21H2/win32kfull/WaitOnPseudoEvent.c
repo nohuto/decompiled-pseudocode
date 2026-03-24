@@ -1,7 +1,7 @@
 /*
- * XREFs of WaitOnPseudoEvent @ 0x1C010E8E8
+ * XREFs of WaitOnPseudoEvent @ 0x1C012CF24
  * Callers:
- *     xxxWaitForInputIdle @ 0x1C010E54C (xxxWaitForInputIdle.c)
+ *     xxxWaitForInputIdle @ 0x1C012CB70 (xxxWaitForInputIdle.c)
  * Callees:
  *     <none>
  */

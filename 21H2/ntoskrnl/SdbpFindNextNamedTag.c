@@ -1,22 +1,24 @@
 /*
- * XREFs of SdbpFindNextNamedTag @ 0x140A1311C
+ * XREFs of SdbpFindNextNamedTag @ 0x1409660D0
  * Callers:
- *     SdbpSearchDB @ 0x14075BB10 (SdbpSearchDB.c)
+ *     SdbpSearchDB @ 0x14077E7B4 (SdbpSearchDB.c)
  * Callees:
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbFindFirstTag @ 0x140792CCC (SdbFindFirstTag.c)
- *     SdbGetNextChild @ 0x140792D40 (SdbGetNextChild.c)
- *     SdbGetTagFromTagID @ 0x14079499C (SdbGetTagFromTagID.c)
- *     SdbGetStringTagPtr @ 0x140842A24 (SdbGetStringTagPtr.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
+ *     SdbGetNextChild @ 0x14075A1F8 (SdbGetNextChild.c)
+ *     SdbGetTagFromTagID @ 0x14075A3F4 (SdbGetTagFromTagID.c)
  */
 
 __int64 __fastcall SdbpFindNextNamedTag(__int64 a1, unsigned int a2, unsigned int a3, __int16 a4, wchar_t *Str1)
 {
   unsigned int v7; // edi
   unsigned int v9; // ebx
+  __int64 v10; // r9
   __int16 TagFromTagID; // r15
   unsigned int FirstTag; // eax
+  __int64 v14; // r8
   const wchar_t *StringTagPtr; // rax
   unsigned int NextChild; // eax
 
@@ -27,7 +29,7 @@ __int64 __fastcall SdbpFindNextNamedTag(__int64 a1, unsigned int a2, unsigned in
   {
     while ( 1 )
     {
-      NextChild = SdbGetNextChild(a1, a2, v7);
+      NextChild = SdbGetNextChild(a1, a2, v7, v10);
       v7 = NextChild;
       if ( !NextChild )
         break;
@@ -36,7 +38,7 @@ __int64 __fastcall SdbpFindNextNamedTag(__int64 a1, unsigned int a2, unsigned in
         FirstTag = SdbFindFirstTag(a1, v7, a4);
         if ( FirstTag )
         {
-          StringTagPtr = (const wchar_t *)SdbGetStringTagPtr(a1, FirstTag);
+          StringTagPtr = (const wchar_t *)SdbGetStringTagPtr(a1, FirstTag, v14, v10);
           if ( !StringTagPtr )
           {
             AslLogCallPrintf(1LL);

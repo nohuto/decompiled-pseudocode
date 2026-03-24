@@ -1,5 +1,5 @@
 /*
- * XREFs of WheapCorrectErrorSourceDeviceDriver @ 0x140372580
+ * XREFs of WheapCorrectErrorSourceDeviceDriver @ 0x1403656A0
  * Callers:
  *     <none>
  * Callees:

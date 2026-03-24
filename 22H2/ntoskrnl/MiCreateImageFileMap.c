@@ -1,612 +1,652 @@
 /*
- * XREFs of MiCreateImageFileMap @ 0x1406A8928
+ * XREFs of MiCreateImageFileMap @ 0x140700CC4
  * Callers:
- *     MiCreateNewSection @ 0x140746A00 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x140700490 (MiCreateNewSection.c)
  * Callees:
- *     MiInitializeImageHeaderPage @ 0x14020DCC0 (MiInitializeImageHeaderPage.c)
- *     MiLegacyImageArchitecture @ 0x14020EC88 (MiLegacyImageArchitecture.c)
- *     IoIsDeviceEjectable @ 0x14020ECB0 (IoIsDeviceEjectable.c)
- *     MiCopyHeaderIfResident @ 0x14020ECD0 (MiCopyHeaderIfResident.c)
- *     MiFlushDataSection @ 0x14020EEA0 (MiFlushDataSection.c)
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     MiInitializeImageProtos @ 0x14021A220 (MiInitializeImageProtos.c)
- *     MiUpdateSystemProtoPtesTree @ 0x14021BF50 (MiUpdateSystemProtoPtesTree.c)
- *     MiChargeCommit @ 0x1402763A0 (MiChargeCommit.c)
- *     CcZeroEndOfLastPage @ 0x1402A21C8 (CcZeroEndOfLastPage.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     PsIsCurrentThreadPrefetching @ 0x1403471B0 (PsIsCurrentThreadPrefetching.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     MiEnableImageDirectMap @ 0x14063CCC0 (MiEnableImageDirectMap.c)
- *     MiDeleteImageCreationMdls @ 0x1406A7448 (MiDeleteImageCreationMdls.c)
- *     MiReadImageHeaders @ 0x1406A79B8 (MiReadImageHeaders.c)
- *     MiCreateMdl @ 0x1406A8F3C (MiCreateMdl.c)
- *     MiVerifyImageHeader @ 0x1406A9074 (MiVerifyImageHeader.c)
- *     MiBuildImageControlArea @ 0x1406A9D30 (MiBuildImageControlArea.c)
- *     FsRtlGetFileSize @ 0x1406AA1A0 (FsRtlGetFileSize.c)
- *     MiLogCreateImageFileMapFailure @ 0x140A2F594 (MiLogCreateImageFileMapFailure.c)
- *     MiAllocateEntireImageFileExtents @ 0x140A32F94 (MiAllocateEntireImageFileExtents.c)
- *     MiDeleteFileExtentList @ 0x140A33E80 (MiDeleteFileExtentList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiChargeCommit @ 0x14021AA90 (MiChargeCommit.c)
+ *     ObFastReplaceObject @ 0x140277500 (ObFastReplaceObject.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x1402788E0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     CcZeroEndOfLastPage @ 0x1402D78AC (CcZeroEndOfLastPage.c)
+ *     PsIsCurrentThreadPrefetching @ 0x1402FFBC0 (PsIsCurrentThreadPrefetching.c)
+ *     MiInitializeImageProtos @ 0x140336F8C (MiInitializeImageProtos.c)
+ *     MiInitializeImageHeaderPage @ 0x1403590BC (MiInitializeImageHeaderPage.c)
+ *     MiCopyHeaderIfResident @ 0x14035A290 (MiCopyHeaderIfResident.c)
+ *     MiFlushDataSection @ 0x14035A4B0 (MiFlushDataSection.c)
+ *     IoIsDeviceEjectable @ 0x14035AC1C (IoIsDeviceEjectable.c)
+ *     MiLegacyImageArchitecture @ 0x14035AC3C (MiLegacyImageArchitecture.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiReadImageHeaders @ 0x1406FF22C (MiReadImageHeaders.c)
+ *     MiCreateMdl @ 0x140701344 (MiCreateMdl.c)
+ *     FsRtlGetFileSize @ 0x140702130 (FsRtlGetFileSize.c)
+ *     MiDeleteImageCreationMdls @ 0x1407027A4 (MiDeleteImageCreationMdls.c)
+ *     MiBuildImageControlArea @ 0x140702908 (MiBuildImageControlArea.c)
+ *     MiVerifyImageHeader @ 0x1407036FC (MiVerifyImageHeader.c)
+ *     MiLogCreateImageFileMapFailure @ 0x1408C7744 (MiLogCreateImageFileMapFailure.c)
+ *     MiAllocateEntireImageFileExtents @ 0x1408CF2F4 (MiAllocateEntireImageFileExtents.c)
+ *     MiDeleteImageExtentList @ 0x1408D0060 (MiDeleteImageExtentList.c)
+ *     MiInitializeImageExtents @ 0x1408D00BC (MiInitializeImageExtents.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall MiCreateImageFileMap(
         PFILE_OBJECT FileObject,
-        unsigned __int64 a2,
+        __int64 a2,
         unsigned int a3,
         unsigned int a4,
-        PVOID **a5,
-        __int64 *a6,
+        __int64 *a5,
+        struct _MDL **a6,
         __int64 a7,
         __int128 *a8)
 {
-  unsigned int *v9; // r12
+  ULONG_PTR v8; // r12
   NTSTATUS result; // eax
-  unsigned __int64 v14; // rdi
-  __int64 *v15; // r15
+  unsigned __int64 v13; // rdi
+  __int64 v14; // r15
+  PVOID *v15; // r13
   __int64 Mdl; // rax
-  __int64 v17; // r13
   int ImageHeaders; // r14d
-  struct _FILE_OBJECT *v19; // r14
-  ULONG LowPart; // edx
-  unsigned __int64 v21; // r9
-  unsigned int *v22; // rdx
-  __int64 v23; // rcx
-  unsigned __int64 v24; // rax
-  __int64 v25; // r14
-  __int64 v26; // rdi
-  unsigned __int64 v27; // r9
-  __int64 v28; // r11
-  unsigned int v29; // r9d
-  __int128 v30; // xmm0
-  int v31; // edx
-  unsigned __int64 v32; // r14
-  __int64 v33; // r8
-  unsigned __int64 v34; // rcx
-  unsigned int v35; // r10d
-  __int64 v36; // r10
-  PFILE_OBJECT v37; // rdi
-  int v38; // eax
-  __int64 v39; // r8
-  char v40; // r14
-  unsigned int v41; // eax
-  __int16 v42; // si
-  __int64 v43; // rdx
-  char v44; // r9
-  unsigned __int64 v45; // rax
-  int v46; // edx
+  ULONG LowPart; // r14d
+  unsigned __int64 v19; // r9
+  struct _MDL *v20; // r13
+  ULONG_PTR StartVa; // rdx
+  __int64 v22; // rcx
+  unsigned __int64 v23; // rax
+  int v24; // r13d
+  unsigned __int64 v25; // rdi
+  unsigned __int64 v26; // r9
+  unsigned int v27; // edx
+  __int128 *v28; // rcx
+  __int64 v29; // r11
+  unsigned int v30; // r9d
+  __int128 v31; // xmm0
+  int v32; // r8d
+  __int64 v33; // rax
+  unsigned __int64 v34; // r13
+  __int64 v35; // rdx
+  unsigned __int64 v36; // rcx
+  unsigned int v37; // r10d
+  __int64 v38; // r13
+  struct _FILE_OBJECT *v39; // rdi
+  int v40; // eax
+  __int64 v41; // r8
+  char v42; // si
+  struct _MDL *v43; // r13
+  unsigned int v44; // eax
+  __int64 v45; // r9
+  unsigned __int16 v46; // di
   __int64 v47; // rdx
-  unsigned __int8 v48; // al
-  __int64 v49; // rsi
-  PVOID *v50; // rbx
-  LARGE_INTEGER v51; // rdx
-  int v52; // eax
-  __int64 v53; // rax
-  unsigned __int64 v54; // rcx
-  __int64 *v55; // rax
+  unsigned __int16 v48; // r10
+  unsigned __int64 v49; // rax
+  int v50; // edx
+  __int64 v51; // rdx
+  char v52; // al
+  __int64 v53; // rbx
+  __int64 v54; // r14
+  __int64 v55; // rdi
   __int64 v56; // rcx
-  unsigned int v57; // edi
-  __int64 v58; // rcx
-  __int64 v59; // rdx
-  __int64 v60; // rax
-  bool v61; // zf
-  __int128 *v62; // rax
-  unsigned __int64 v63; // rdi
-  __int64 *v64; // rax
+  LARGE_INTEGER v57; // rdx
+  int v58; // eax
+  unsigned __int64 v59; // rax
+  unsigned __int64 v60; // r14
+  struct _MDL *v61; // rax
+  __int64 v62; // rcx
+  unsigned int v63; // edi
+  __int64 v64; // r13
   __int64 v65; // rcx
-  unsigned __int64 v66; // rdx
-  int v67; // eax
-  __int64 DeviceObject; // rcx
+  __int64 v66; // rax
+  bool v67; // zf
+  __int128 *v68; // rax
+  unsigned __int64 v69; // rdi
+  struct _MDL *v70; // rcx
+  unsigned __int64 v71; // rdx
+  PDEVICE_OBJECT DeviceObject; // rcx
   bool IsDeviceEjectable; // al
-  __int64 v70; // rcx
-  char v71; // [rsp+40h] [rbp-C0h]
-  PVOID *P; // [rsp+50h] [rbp-B0h]
-  unsigned int v74; // [rsp+58h] [rbp-A8h]
-  unsigned int v75; // [rsp+58h] [rbp-A8h]
-  LARGE_INTEGER FileSize; // [rsp+70h] [rbp-90h] BYREF
-  unsigned int *v78; // [rsp+78h] [rbp-88h] BYREF
-  int v79; // [rsp+80h] [rbp-80h] BYREF
-  signed __int64 v80; // [rsp+88h] [rbp-78h]
-  PVOID v81[2]; // [rsp+90h] [rbp-70h] BYREF
-  unsigned int *v82; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v83; // [rsp+A8h] [rbp-58h]
-  __int128 v84; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v85; // [rsp+C0h] [rbp-40h]
-  __int128 v86; // [rsp+C8h] [rbp-38h] BYREF
-  int v87; // [rsp+D8h] [rbp-28h]
-  unsigned int *v88; // [rsp+E0h] [rbp-20h] BYREF
-  ULONG_PTR v89; // [rsp+E8h] [rbp-18h]
-  __int128 v90; // [rsp+F0h] [rbp-10h] BYREF
-  unsigned __int64 v91; // [rsp+100h] [rbp+0h]
-  PVOID **v92; // [rsp+108h] [rbp+8h]
-  __int64 *v93; // [rsp+110h] [rbp+10h]
-  __int128 *v94; // [rsp+118h] [rbp+18h] BYREF
-  int v95; // [rsp+120h] [rbp+20h]
-  int v96; // [rsp+124h] [rbp+24h]
+  unsigned int v74; // edx
+  __int64 v75; // rsi
+  int v76; // ebx
+  int v77; // edx
+  __int64 v78; // rdx
+  char v79; // [rsp+40h] [rbp-C0h]
+  __int64 v80; // [rsp+48h] [rbp-B8h]
+  struct _MDL *MemoryDescriptorList; // [rsp+58h] [rbp-A8h]
+  __int64 v84; // [rsp+68h] [rbp-98h] BYREF
+  unsigned int v85; // [rsp+70h] [rbp-90h]
+  __int64 v86; // [rsp+78h] [rbp-88h]
+  LARGE_INTEGER FileSize; // [rsp+80h] [rbp-80h] BYREF
+  ULONG_PTR v88; // [rsp+88h] [rbp-78h] BYREF
+  int v89; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v90; // [rsp+98h] [rbp-68h] BYREF
+  ULONG_PTR v91; // [rsp+A0h] [rbp-60h] BYREF
+  __int128 v92; // [rsp+A8h] [rbp-58h] BYREF
+  signed __int64 v93; // [rsp+B8h] [rbp-48h]
+  __int64 v94; // [rsp+C0h] [rbp-40h]
+  unsigned __int64 v95; // [rsp+C8h] [rbp-38h]
+  __int128 v96; // [rsp+D0h] [rbp-30h] BYREF
+  int v97; // [rsp+E0h] [rbp-20h]
+  ULONG_PTR v98; // [rsp+E8h] [rbp-18h] BYREF
+  ULONG_PTR v99; // [rsp+F0h] [rbp-10h]
+  __int128 v100; // [rsp+F8h] [rbp-8h] BYREF
+  __int64 *v101; // [rsp+108h] [rbp+8h]
+  struct _MDL **v102; // [rsp+110h] [rbp+10h]
+  __int128 *v103; // [rsp+118h] [rbp+18h] BYREF
+  int v104; // [rsp+120h] [rbp+20h]
+  int v105; // [rsp+124h] [rbp+24h]
 
-  v92 = a5;
-  v9 = 0LL;
-  v93 = a6;
-  v94 = a8;
-  v87 = 0;
-  v86 = 0LL;
-  v79 = 0;
-  v84 = 0LL;
+  v8 = 0LL;
+  v101 = a5;
+  v102 = a6;
+  v86 = a7;
+  v103 = a8;
+  v89 = 0;
+  v92 = 0LL;
   FileSize.QuadPart = 0LL;
-  v90 = 0LL;
+  v100 = 0LL;
   result = FsRtlGetFileSize(FileObject, &FileSize);
   if ( result >= 0 )
   {
     if ( FileSize.HighPart )
     {
-      dword_140C65910 = 34;
+      dword_140C4CC18 = 34;
       return -1073741792;
     }
-    v85 = 0LL;
-    v14 = 1LL;
+    v94 = 0LL;
+    v13 = 1LL;
+    v93 = 0LL;
+    v90 = 0LL;
     v80 = 0LL;
-    v81[0] = 0LL;
-    P = 0LL;
-    v78 = 0LL;
+    v14 = 0LL;
+    v88 = 0LL;
     v15 = 0LL;
     Mdl = MiCreateMdl(a2, a3, 4096LL, 1LL);
-    v17 = Mdl;
+    MemoryDescriptorList = (struct _MDL *)Mdl;
     if ( !Mdl )
     {
-      dword_140C65910 = 35;
+      dword_140C4CC18 = 35;
       return -1073741670;
     }
     *(_QWORD *)(Mdl + 16) = 0LL;
-    v89 = *(_QWORD *)(Mdl + 48);
+    v99 = *(_QWORD *)(Mdl + 48);
     CcZeroEndOfLastPage(FileObject);
-    ImageHeaders = MiFlushDataSection((__int64)FileObject, &v79);
+    ImageHeaders = MiFlushDataSection((__int64)FileObject, &v89);
     if ( ImageHeaders == -1073741740 )
     {
-      dword_140C65910 = 36;
-LABEL_86:
-      v50 = 0LL;
-LABEL_154:
-      v49 = a2;
-      goto LABEL_155;
+      dword_140C4CC18 = 36;
+      goto LABEL_82;
     }
-    v71 = 0;
-    if ( v79 )
-      a4 |= 0x200000u;
-    if ( (a4 & 0x200080) != 0 )
+    v79 = 0;
+    if ( v89 == 1 )
+      a4 |= 0x100000u;
+    if ( (a4 & 0x100080) != 0 )
     {
-      v71 = 1;
+      v79 = 1;
       if ( PsIsCurrentThreadPrefetching() )
       {
-        dword_140C65910 = 37;
+        dword_140C4CC18 = 37;
         ImageHeaders = -1073740749;
-        goto LABEL_86;
+        goto LABEL_82;
       }
     }
+    LowPart = FileSize.LowPart;
     if ( (a4 & 0x10000) != 0 )
     {
-      v51 = FileSize;
-      if ( (a4 & 0x80000) != 0 )
-        v51.QuadPart = 4096LL;
-      v52 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))MiAllocateEntireImageFileExtents)(
+      v57 = FileSize;
+      if ( (a4 & 0x40000) != 0 )
+        v57.QuadPart = 4096LL;
+      v58 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))MiAllocateEntireImageFileExtents)(
               FileObject,
-              (LARGE_INTEGER)v51.QuadPart,
+              (LARGE_INTEGER)v57.QuadPart,
               0LL,
-              &v78);
-      v9 = v78;
-      ImageHeaders = v52;
-      if ( v52 < 0 )
+              &v88);
+      v8 = v88;
+      ImageHeaders = v58;
+      if ( v58 < 0 )
       {
-        dword_140C65910 = 38;
-        goto LABEL_94;
+        dword_140C4CC18 = 38;
+        goto LABEL_171;
       }
-      v19 = FileObject;
-      goto LABEL_14;
+      LowPart = FileSize.LowPart;
     }
-    v19 = FileObject;
-    if ( (unsigned int)MiCopyHeaderIfResident((__int64)FileObject, v89) )
+    if ( (a4 & 0x10000) != 0 )
+      goto LABEL_15;
+    if ( (unsigned int)MiCopyHeaderIfResident((__int64)FileObject, v99) == 1 )
     {
-      v21 = 4096LL;
-      *((_QWORD *)&v84 + 1) = 4096LL;
-      goto LABEL_17;
+      v19 = 4096LL;
+      *((_QWORD *)&v92 + 1) = 4096LL;
     }
-    if ( !v71 )
+    else
     {
-      if ( (a4 & 0x20) != 0 )
+      if ( !v79
+        && ((a4 & 0x20) != 0 || (a4 & 0x400) != 0 && LowPart <= 0x20000)
+        && !FileObject->SectionObjectPointer->DataSectionObject )
       {
-        LowPart = FileSize.LowPart;
-      }
-      else
-      {
-        if ( (a4 & 0x400) == 0 )
-          goto LABEL_14;
-        LowPart = FileSize.LowPart;
-        if ( FileSize.LowPart > 0x20000 )
-          goto LABEL_14;
-      }
-      if ( !FileObject->SectionObjectPointer->DataSectionObject )
-      {
-        v14 = ((unsigned __int64)LowPart + 4095) >> 12;
-        if ( v14 > 1 )
+        v13 = ((unsigned __int64)LowPart + 4095) >> 12;
+        if ( v13 > 1 )
         {
-          v85 = MiCreateMdl(a2, a3, v14 << 12, 0LL);
-          if ( v85 )
+          v94 = MiCreateMdl(a2, a3, v13 << 12, 0LL);
+          v54 = v94;
+          if ( v94 )
           {
-            MiDeleteImageCreationMdls((PMDL)v17, 1);
-            v17 = v85;
-            *(_QWORD *)(v85 + 16) = 0LL;
+            MiDeleteImageCreationMdls(MemoryDescriptorList);
+            *(_QWORD *)(v54 + 16) = 0LL;
+            MemoryDescriptorList = (struct _MDL *)v54;
           }
           else
           {
-            v14 = 1LL;
+            v13 = 1LL;
           }
         }
       }
-    }
-LABEL_14:
-    v21 = *((_QWORD *)&v84 + 1);
-    if ( !*((_QWORD *)&v84 + 1) )
-    {
-      ImageHeaders = MiReadImageHeaders(v19, (ULONG_PTR)v9, v17, (__int64)&v84);
-      if ( ImageHeaders < 0 )
+      v19 = *((_QWORD *)&v92 + 1);
+      if ( !*((_QWORD *)&v92 + 1) )
       {
-        dword_140C65910 = 40;
-        goto LABEL_94;
-      }
-      v21 = *((_QWORD *)&v84 + 1);
-      if ( *((_QWORD *)&v84 + 1) != v14 << 12 && *((_QWORD *)&v84 + 1) < 0x40uLL )
-      {
-        ImageHeaders = -1073741521;
-        dword_140C65910 = 41;
-LABEL_94:
-        v50 = 0LL;
-        goto LABEL_154;
-      }
-    }
-LABEL_17:
-    if ( (*(_BYTE *)(v17 + 10) & 4) != 0 )
-      v22 = *(unsigned int **)(v17 + 32);
-    else
-      v22 = *(unsigned int **)(v17 + 24);
-    v82 = v22;
-    if ( *(_WORD *)v22 != 23117 )
-    {
-      ImageHeaders = -1073741521;
-      goto LABEL_94;
-    }
-    v23 = v22[15];
-    v74 = v23;
-    if ( (int)v23 + 264 < (unsigned int)v23 )
-    {
-      ImageHeaders = -1073741520;
-      dword_140C65910 = 42;
-      goto LABEL_94;
-    }
-    v24 = v23 + 264;
-    v25 = (unsigned int)v23;
-    if ( (unsigned __int64)(v23 + 264) > FileSize.QuadPart )
-    {
-      ImageHeaders = -1073741520;
-      dword_140C65910 = 43;
-      goto LABEL_94;
-    }
-    if ( v24 > v14 << 12 )
-    {
-      v53 = 0x2000LL;
-      v54 = (FileSize.QuadPart - ((unsigned int)v23 & 0xFFFFF000) + 4095) & 0xFFFFFFFFFFFFF000uLL;
-      v91 = (FileSize.QuadPart - (v25 & 0xFFFFFFFFFFFFF000uLL) + 4095) & 0xFFFFFFFFFFFFF000uLL;
-      if ( v54 < 0x2000 )
-        v53 = v54;
-      v83 = v53;
-      v55 = (__int64 *)MiCreateMdl(a2, a3, v53, 1LL);
-      v56 = (__int64)v55;
-      if ( !v55 )
-      {
-        ImageHeaders = -1073741670;
-        dword_140C65910 = 44;
-        goto LABEL_94;
-      }
-      *v55 = v17;
-      v57 = v25 & 0xFFFFF000;
-      v17 = (__int64)v55;
-      v55[2] = ((unsigned int)v25 & 0xFFFFF000) / 4096LL;
-      if ( (a4 & 0x80000) != 0 )
-      {
-        v88 = 0LL;
-        ImageHeaders = MiAllocateEntireImageFileExtents(FileObject, v91, v9, &v88);
+LABEL_15:
+        v20 = MemoryDescriptorList;
+        ImageHeaders = MiReadImageHeaders(FileObject, v8, (__int64)MemoryDescriptorList, (__int64)&v92);
         if ( ImageHeaders < 0 )
         {
-          dword_140C65910 = 128;
-          goto LABEL_94;
+          dword_140C4CC18 = 40;
+          goto LABEL_171;
         }
-        v9 = v88;
-        v56 = v17;
-        v78 = v88;
-      }
-      ImageHeaders = MiReadImageHeaders(FileObject, (ULONG_PTR)v9, v56, (__int64)&v84);
-      if ( ImageHeaders < 0 )
-      {
-        dword_140C65910 = 45;
-        goto LABEL_94;
-      }
-      v58 = v74 & 0xFFF;
-      if ( *((_QWORD *)&v84 + 1) != (unsigned int)v83 && *((_QWORD *)&v84 + 1) < (unsigned __int64)(v58 + 264) )
-      {
-        ImageHeaders = -1073741520;
-        dword_140C65910 = 46;
-        goto LABEL_94;
-      }
-      v27 = *((_QWORD *)&v84 + 1) - v58;
-      v83 = v58 + *(_QWORD *)(v17 + 24);
-      v59 = v57 + *((_QWORD *)&v84 + 1);
-      v26 = v83;
-      *((_QWORD *)&v84 + 1) = v59;
-      v22 = v82;
-    }
-    else
-    {
-      if ( v24 > v21 )
-      {
-        ImageHeaders = -1073741520;
-        dword_140C65910 = 47;
-        goto LABEL_94;
-      }
-      v26 = (__int64)v22 + (unsigned int)v23;
-      v27 = v21 - (unsigned int)v23;
-    }
-    ImageHeaders = MiVerifyImageHeader(a7, v26, v22, v27);
-    if ( ImageHeaders )
-    {
-      v50 = 0LL;
-      v80 = 0LL;
-      if ( ImageHeaders < 0 )
-        goto LABEL_154;
-LABEL_56:
-      if ( v9 )
-        MiDeleteFileExtentList(v9);
-      return ImageHeaders;
-    }
-    v28 = a7;
-    *(_DWORD *)v94 = v74;
-    v29 = *(_DWORD *)(a7 + 16);
-    if ( !((v29 >> 12) + ((v29 & 0xFFF) != 0)) )
-    {
-      ImageHeaders = -1073741701;
-      dword_140C65910 = 49;
-      goto LABEL_94;
-    }
-    v30 = *(_OWORD *)(v26 + 4);
-    v87 = *(_DWORD *)(v26 + 20);
-    v31 = (unsigned __int16)v87 + 24;
-    v86 = v30;
-    if ( v74 + v31 + 40 * WORD1(v30) <= v74 )
-    {
-      ImageHeaders = -1073741701;
-      dword_140C65910 = 50;
-      goto LABEL_94;
-    }
-    v32 = v31 + v74;
-    v33 = 40LL * WORD1(v30);
-    v34 = v33 + v32;
-    v83 = v32;
-    v35 = 40 * WORD1(v30) + v31 + v74;
-    if ( *(unsigned int *)(a7 + 24) >= v33 + v32 )
-      v35 = *(_DWORD *)(a7 + 24);
-    v75 = v35;
-    if ( v35 > v29 )
-    {
-      ImageHeaders = -1073741701;
-      dword_140C65910 = 48;
-      goto LABEL_94;
-    }
-    if ( v34 > *((_QWORD *)&v84 + 1) )
-    {
-      v60 = ((_WORD)v26 + (_WORD)v31) & 0xFFF;
-      v61 = v33 + v60 == 0;
-      v62 = (__int128 *)(v33 + v60);
-      v94 = v62;
-      if ( v61 || (v63 = ((unsigned __int64)v62 + 4095) & 0xFFFFFFFFFFFFF000uLL, (unsigned __int64)v62 > v63) )
-      {
-        ImageHeaders = -1073741701;
-        dword_140C65910 = 51;
-        goto LABEL_94;
-      }
-      v64 = (__int64 *)MiCreateMdl(a2, a3, ((unsigned __int64)v62 + 4095) & 0xFFFFFFFFFFFFF000uLL, 1LL);
-      v65 = (__int64)v64;
-      if ( !v64 )
-      {
-        ImageHeaders = -1073741670;
-        dword_140C65910 = 52;
-        goto LABEL_94;
-      }
-      *v64 = v17;
-      v17 = (__int64)v64;
-      v64[2] = v32 >> 12;
-      if ( (a4 & 0x80000) != 0 )
-      {
-        v82 = 0LL;
-        v66 = v63;
-        v37 = FileObject;
-        ImageHeaders = MiAllocateEntireImageFileExtents(FileObject, v66, v9, &v82);
-        if ( ImageHeaders < 0 )
+        v19 = *((_QWORD *)&v92 + 1);
+        if ( *((_QWORD *)&v92 + 1) != v13 << 12 && *((_QWORD *)&v92 + 1) < 0x40uLL )
         {
-          dword_140C65910 = 129;
-          goto LABEL_94;
-        }
-        v9 = v82;
-        v65 = v17;
-        v78 = v82;
-      }
-      else
-      {
-        v37 = FileObject;
-      }
-      ImageHeaders = MiReadImageHeaders(v37, (ULONG_PTR)v9, v65, (__int64)&v84);
-      if ( ImageHeaders < 0 )
-      {
-        dword_140C65910 = 53;
-        goto LABEL_94;
-      }
-      if ( *((_QWORD *)&v84 + 1) < (unsigned __int64)v94 )
-      {
-        ImageHeaders = -1073741701;
-        dword_140C65910 = 54;
-        goto LABEL_94;
-      }
-      v28 = a7;
-      v36 = *(_QWORD *)(v17 + 24) + (v83 & 0xFFF);
-    }
-    else
-    {
-      LODWORD(v36) = v26 + v31;
-      v37 = FileObject;
-    }
-    if ( *(_DWORD *)(v28 + 12) < 0x1000u )
-    {
-      if ( (a4 & 0x100000) != 0 )
-      {
-        ImageHeaders = -1073741701;
-        MiLogCreateImageFileMapFailure(v34, v37, *(unsigned int *)(v28 + 64), DWORD1(v86));
-        if ( qword_140C37A98 )
-          qword_140C37A98(v37, *(unsigned int *)(a7 + 64), DWORD1(v86));
-        dword_140C65910 = 55;
-        goto LABEL_94;
-      }
-      if ( !MiLegacyImageArchitecture(v86) )
-      {
-        ImageHeaders = -1073741701;
-        dword_140C65910 = 56;
-        goto LABEL_94;
-      }
-      a4 |= 0x400000u;
-    }
-    v38 = MiBuildImageControlArea(a3, v36, v28, (unsigned int)&v86, a4, (__int64)&FileSize, (__int64)v81);
-    v15 = (__int64 *)v81[0];
-    ImageHeaders = v38;
-    if ( v38 >= 0 )
-    {
-      *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v81[0] + 56LL) + 64LL) = v75;
-      *((_WORD *)v15 + 30) ^= (*(_WORD *)a2 ^ *((_WORD *)v15 + 30)) & 0x3FF;
-      if ( (a4 & 0x200) != 0 )
-        *(_BYTE *)(*(_QWORD *)(*v15 + 56) + 51LL) |= 0x10u;
-      v39 = *v15;
-      v40 = 0;
-      P = (PVOID *)*v15;
-      if ( !v85 && !*(_QWORD *)v17 && (a4 & 0x410000) == 0 )
-      {
-        v41 = *(_DWORD *)(a7 + 24);
-        if ( v41 < 0x1000 )
-        {
-          if ( (v41 & 0x1FF) != 0 )
-            ++*(_QWORD *)(v39 + 16);
-          v40 = 1;
-        }
-      }
-      v42 = HIWORD(v87);
-      if ( !v71
-        && (IoIsDeviceEjectable((__int64)v37->DeviceObject)
-         || (v42 & 0x400) != 0 && ((unsigned __int8)*(_DWORD *)(v43 + 52) & (unsigned __int8)v44) != 0
-         || (v42 & 0x800) != 0 && (*(_DWORD *)(v43 + 52) & 0x10) != 0) )
-      {
-        v71 = v44;
-      }
-      v45 = *(_QWORD *)(v39 + 16);
-      v80 = v45;
-      if ( v45 )
-      {
-        v49 = a2;
-        if ( !(unsigned int)MiChargeCommit(a2, v45, 0LL) )
-        {
-          v50 = P;
-          v80 = 0LL;
-          ImageHeaders = -1073741523;
-          dword_140C65910 = 57;
-LABEL_155:
-          MiDeleteImageCreationMdls((PMDL)v17, 1);
-          v70 = v80;
-          if ( v80 )
+          dword_140C4CC18 = 41;
+LABEL_80:
+          ImageHeaders = -1073741521;
+LABEL_81:
+          v15 = 0LL;
+LABEL_82:
+          v55 = a2;
+LABEL_83:
+          MiDeleteImageCreationMdls(MemoryDescriptorList);
+          v56 = v93;
+          if ( v93 )
           {
-            _InterlockedExchangeAdd64((volatile signed __int64 *)(v49 + 17848), -v80);
-            MiReturnCommit(v49, v70);
-            v15 = (__int64 *)v81[0];
-            v9 = v78;
+            _InterlockedExchangeAdd64((volatile signed __int64 *)(v55 + 7624), -v93);
+            MiReturnCommit(v55, v56);
+            v14 = v90;
+            v8 = v88;
           }
-          if ( v15 )
+          if ( v14 )
           {
-            MiUpdateSystemProtoPtesTree(v15[12], 0);
-            ExFreePoolWithTag(v50[8], 0);
-            ExFreePoolWithTag(v50, 0);
+            MiUpdateSystemProtoPtesTree(*(unsigned __int64 **)(v14 + 96), 0);
+            ExFreePoolWithTag(v15[8], 0);
             ExFreePoolWithTag(v15, 0);
+            ExFreePoolWithTag((PVOID)v14, 0);
           }
-          goto LABEL_56;
+          goto LABEL_62;
         }
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 17848), v80);
-        v15 = (__int64 *)v81[0];
-        v42 = HIWORD(v87);
-        v9 = v78;
-      }
-      v46 = *((_DWORD *)v15 + 14);
-      if ( (a4 & 0x400000) == 0 && (v46 & 0x20000) != 0 && (*(_DWORD *)(a7 + 20) & 0x1000000) == 0 )
-        *((_DWORD *)v15 + 14) = v46 | 0x8000000;
-      if ( v85 )
-        MiInitializeImageProtos((__int64)v15, v85);
-      if ( v40 )
-        MiInitializeImageHeaderPage(v89, *(unsigned int *)(a7 + 24));
-      v47 = a7;
-      if ( *(_WORD *)(a7 + 48) == 267 )
-        *((_BYTE *)P + 14) |= 0x40u;
-      v48 = v71;
-      if ( v71 )
-      {
-        v67 = *((_DWORD *)v15 + 14) | 0x800;
-        *((_DWORD *)v15 + 14) = v67;
-        if ( (a4 & 0x200080) != 0 )
-          *((_DWORD *)v15 + 14) = v67 | 0x40000;
-        if ( (PerfGlobalGroupMask & 4) != 0 )
+LABEL_17:
+        if ( (v20->MdlFlags & 4) != 0 )
+          StartVa = (ULONG_PTR)v20->StartVa;
+        else
+          StartVa = (ULONG_PTR)v20->MappedSystemVa;
+        v91 = StartVa;
+        if ( *(_WORD *)StartVa != 23117 )
+          goto LABEL_80;
+        v22 = *(unsigned int *)(StartVa + 60);
+        v85 = v22;
+        if ( (int)v22 + 264 < (unsigned int)v22 )
         {
-          DeviceObject = (__int64)v37->DeviceObject;
-          *(_QWORD *)&v90 = v37->FsContext;
-          WORD6(v90) = v42;
-          DWORD2(v90) = *(_DWORD *)(DeviceObject + 52);
-          IsDeviceEjectable = IoIsDeviceEjectable(DeviceObject);
-          v96 = 0;
-          v95 = 16;
-          HIWORD(v90) = (a4 >> 21) & 1 | (2 * ((2 * ((a4 >> 7) & 1)) | IsDeviceEjectable));
-          v94 = &v90;
-          EtwTraceKernelEvent((int)&v94, 1, 4u, 617, 4200450);
-          v47 = a7;
+          ImageHeaders = -1073741520;
+          dword_140C4CC18 = 42;
+          goto LABEL_81;
         }
-        v48 = v71;
-      }
-      if ( (a4 & 0x10000) == 0 )
-        goto LABEL_55;
-      ImageHeaders = MiEnableImageDirectMap(
-                       (__int64)v37,
-                       v15,
-                       v47,
-                       (unsigned __int64)v9,
-                       (a4 >> 18) & 1,
-                       (a4 >> 19) & 1,
-                       v48);
-      if ( ImageHeaders >= 0 )
-      {
-        v9 = 0LL;
-        if ( (*((_BYTE *)v15 + 62) & 0xC) == 4 )
+        v23 = v22 + 264;
+        v24 = v22;
+        if ( (unsigned __int64)(v22 + 264) > FileSize.QuadPart )
         {
-          MiDeleteImageCreationMdls((PMDL)v17, 1);
-          v17 = 0LL;
+          ImageHeaders = -1073741520;
+          dword_140C4CC18 = 43;
+          goto LABEL_81;
         }
-LABEL_55:
-        ImageHeaders = 0;
-        *v92 = P;
-        *v93 = v17;
-        goto LABEL_56;
+        if ( v23 > v13 << 12 )
+        {
+          v55 = a2;
+          v59 = 0x2000LL;
+          v60 = (FileSize.QuadPart - ((unsigned int)v22 & 0xFFFFF000) + 4095) & 0xFFFFFFFFFFFFF000uLL;
+          if ( v60 < 0x2000 )
+            v59 = (FileSize.QuadPart - ((unsigned int)v22 & 0xFFFFF000) + 4095) & 0xFFFFFFFFFFFFF000uLL;
+          v95 = v59;
+          v61 = (struct _MDL *)MiCreateMdl(a2, a3, v59, 1LL);
+          v84 = (__int64)v61;
+          v62 = (__int64)v61;
+          if ( !v61 )
+          {
+            ImageHeaders = -1073741670;
+            dword_140C4CC18 = 44;
+            v15 = 0LL;
+            goto LABEL_83;
+          }
+          v61->Next = MemoryDescriptorList;
+          v63 = v24 & 0xFFFFF000;
+          MemoryDescriptorList = v61;
+          v61->Process = (struct _EPROCESS *)((v24 & 0xFFFFF000) / 4096LL);
+          if ( (a4 & 0x40000) != 0 )
+          {
+            v98 = 0LL;
+            ImageHeaders = MiAllocateEntireImageFileExtents(FileObject, v60, v8, &v98);
+            if ( ImageHeaders < 0 )
+            {
+              dword_140C4CC18 = 128;
+              goto LABEL_171;
+            }
+            v8 = v98;
+            v62 = v84;
+            v88 = v98;
+          }
+          ImageHeaders = MiReadImageHeaders(FileObject, v8, v62, (__int64)&v92);
+          if ( ImageHeaders < 0 )
+          {
+            dword_140C4CC18 = 45;
+            goto LABEL_171;
+          }
+          v64 = v24 & 0xFFF;
+          if ( *((_QWORD *)&v92 + 1) != (unsigned int)v95 && *((_QWORD *)&v92 + 1) < (unsigned __int64)(v64 + 264) )
+          {
+            ImageHeaders = -1073741520;
+            dword_140C4CC18 = 46;
+            goto LABEL_81;
+          }
+          v26 = *((_QWORD *)&v92 + 1) - v64;
+          v65 = v63 + *((_QWORD *)&v92 + 1);
+          v95 = v64 + *(_QWORD *)(v84 + 24);
+          v25 = v95;
+          *((_QWORD *)&v92 + 1) = v65;
+          StartVa = v91;
+        }
+        else
+        {
+          if ( v23 > v19 )
+          {
+            ImageHeaders = -1073741520;
+            dword_140C4CC18 = 47;
+            goto LABEL_81;
+          }
+          v25 = StartVa + (unsigned int)v22;
+          v26 = v19 - (unsigned int)v22;
+        }
+        ImageHeaders = MiVerifyImageHeader(v86, v25, StartVa, v26);
+        if ( ImageHeaders )
+          goto LABEL_171;
+        v27 = v85;
+        v28 = v103;
+        v29 = v86;
+        *(_DWORD *)v103 = v85 + 48;
+        if ( *(_WORD *)(v29 + 48) == 267 )
+          *(_DWORD *)v28 = v27 + 52;
+        v30 = *(_DWORD *)(v29 + 16);
+        if ( !((v30 >> 12) + ((v30 & 0xFFF) != 0)) )
+        {
+          ImageHeaders = -1073741701;
+          dword_140C4CC18 = 49;
+          goto LABEL_81;
+        }
+        v31 = *(_OWORD *)(v25 + 4);
+        v97 = *(_DWORD *)(v25 + 20);
+        v32 = (unsigned __int16)v97 + 24;
+        v96 = v31;
+        if ( v27 + v32 + 40 * WORD1(v31) <= v27 )
+        {
+          ImageHeaders = -1073741701;
+          dword_140C4CC18 = 50;
+          goto LABEL_81;
+        }
+        v33 = v32 + v27;
+        v34 = (unsigned int)v33;
+        v35 = 40LL * WORD1(v31);
+        v36 = v35 + v33;
+        v37 = v35 + v33;
+        if ( *(unsigned int *)(v29 + 24) >= (unsigned __int64)(v35 + v33) )
+          v37 = *(_DWORD *)(v29 + 24);
+        v85 = v37;
+        if ( v37 > v30 )
+        {
+          ImageHeaders = -1073741701;
+          dword_140C4CC18 = 48;
+          goto LABEL_81;
+        }
+        if ( v36 > *((_QWORD *)&v92 + 1) )
+        {
+          v66 = ((int)v25 + v32) & 0xFFFLL;
+          v67 = v35 + v66 == 0;
+          v68 = (__int128 *)(v35 + v66);
+          v103 = v68;
+          if ( v67 || (v69 = ((unsigned __int64)v68 + 4095) & 0xFFFFFFFFFFFFF000uLL, (unsigned __int64)v68 > v69) )
+          {
+            ImageHeaders = -1073741701;
+            dword_140C4CC18 = 51;
+LABEL_171:
+            if ( ImageHeaders >= 0 )
+              goto LABEL_62;
+LABEL_172:
+            v15 = (PVOID *)v80;
+            goto LABEL_82;
+          }
+          v84 = MiCreateMdl(a2, a3, ((unsigned __int64)v68 + 4095) & 0xFFFFFFFFFFFFF000uLL, 1LL);
+          v70 = (struct _MDL *)v84;
+          if ( !v84 )
+          {
+            ImageHeaders = -1073741670;
+            dword_140C4CC18 = 52;
+            goto LABEL_81;
+          }
+          *(_QWORD *)(v84 + 16) = v34 >> 12;
+          v70->Next = MemoryDescriptorList;
+          MemoryDescriptorList = v70;
+          if ( (a4 & 0x40000) != 0 )
+          {
+            v91 = 0LL;
+            v71 = v69;
+            v39 = FileObject;
+            ImageHeaders = MiAllocateEntireImageFileExtents(FileObject, v71, v8, &v91);
+            if ( ImageHeaders < 0 )
+            {
+              dword_140C4CC18 = 129;
+              goto LABEL_171;
+            }
+            v8 = v91;
+            v70 = (struct _MDL *)v84;
+            v88 = v91;
+          }
+          else
+          {
+            v39 = FileObject;
+          }
+          ImageHeaders = MiReadImageHeaders(v39, v8, (__int64)v70, (__int64)&v92);
+          if ( ImageHeaders < 0 )
+          {
+            dword_140C4CC18 = 53;
+            goto LABEL_171;
+          }
+          if ( *((_QWORD *)&v92 + 1) < (unsigned __int64)v103 )
+          {
+            ImageHeaders = -1073741701;
+            dword_140C4CC18 = 54;
+            goto LABEL_81;
+          }
+          v29 = v86;
+          v38 = *(_QWORD *)(v84 + 24) + (v34 & 0xFFF);
+        }
+        else
+        {
+          LODWORD(v38) = v25 + v32;
+          v39 = FileObject;
+        }
+        if ( *(_DWORD *)(v29 + 12) < 0x1000u )
+        {
+          if ( (a4 & 0x80000) != 0 )
+          {
+            ImageHeaders = -1073741701;
+            MiLogCreateImageFileMapFailure(v36, v39, *(unsigned int *)(v29 + 64), DWORD1(v96));
+            dword_140C4CC18 = 55;
+            goto LABEL_81;
+          }
+          if ( !MiLegacyImageArchitecture(v96) )
+          {
+            ImageHeaders = -1073741701;
+            dword_140C4CC18 = 56;
+            goto LABEL_81;
+          }
+          a4 |= 0x200000u;
+        }
+        v40 = MiBuildImageControlArea(a3, v38, v29, (unsigned int)&v96, a4, (__int64)&FileSize, (__int64)&v90);
+        v14 = v90;
+        ImageHeaders = v40;
+        if ( v40 < 0 )
+          goto LABEL_172;
+        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v90 + 56LL) + 64LL) = v85;
+        *(_WORD *)(v14 + 60) ^= (*(_WORD *)(v14 + 60) ^ *(_WORD *)a2) & 0x3FF;
+        if ( (a4 & 0x200) != 0 )
+          *(_BYTE *)(*(_QWORD *)(*(_QWORD *)v14 + 56LL) + 51LL) |= 0x10u;
+        v41 = *(_QWORD *)v14;
+        v42 = 0;
+        v43 = MemoryDescriptorList;
+        v80 = *(_QWORD *)v14;
+        if ( v94 || MemoryDescriptorList->Next || (a4 & 0x210000) != 0 )
+        {
+          v45 = 1LL;
+        }
+        else
+        {
+          v44 = *(_DWORD *)(v86 + 24);
+          v45 = 1LL;
+          if ( v44 < 0x1000 )
+          {
+            if ( (v44 & 0x1FF) != 0 )
+              ++*(_QWORD *)(v41 + 16);
+            v42 = 1;
+          }
+        }
+        v46 = HIWORD(v97);
+        if ( !v79
+          && (IoIsDeviceEjectable((__int64)FileObject->DeviceObject)
+           || (v46 & 0x400) != 0 && ((unsigned __int8)*(_DWORD *)(v47 + 52) & (unsigned __int8)v45) != 0
+           || (v46 & v48) != 0 && (*(_DWORD *)(v47 + 52) & 0x10) != 0) )
+        {
+          v79 = v45;
+        }
+        v49 = *(_QWORD *)(v41 + 16);
+        v93 = v49;
+        if ( v49 )
+        {
+          v55 = a2;
+          if ( !(unsigned int)MiChargeCommit(a2, v49, 0) )
+          {
+            v15 = (PVOID *)v80;
+            v93 = 0LL;
+            ImageHeaders = -1073741523;
+            dword_140C4CC18 = 57;
+            goto LABEL_83;
+          }
+          _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 7624), v93);
+          v14 = v90;
+          v46 = HIWORD(v97);
+          v8 = v88;
+        }
+        v50 = *(_DWORD *)(v14 + 56);
+        if ( (v50 & 0x20000) != 0 && (a4 & 0x200000) == 0 && (*(_DWORD *)(v86 + 20) & 0x1000000) == 0 )
+          *(_DWORD *)(v14 + 56) = v50 | 0x4000000;
+        if ( v94 )
+          MiInitializeImageProtos(v14, v94);
+        v51 = 1LL;
+        if ( v42 == 1 )
+        {
+          MiInitializeImageHeaderPage(v99, *(unsigned int *)(v86 + 24), v41, v45);
+          v51 = 1LL;
+        }
+        if ( *(_WORD *)(v86 + 48) == 267 )
+          *(_BYTE *)(v80 + 14) |= 0x40u;
+        v52 = v79;
+        if ( v79 )
+        {
+          *(_DWORD *)(v14 + 56) |= 0x800u;
+          if ( (a4 & 0x100080) != 0 )
+            *(_DWORD *)(v14 + 56) |= 0x40000u;
+          if ( (PerfGlobalGroupMask & 4) != 0 )
+          {
+            DeviceObject = FileObject->DeviceObject;
+            *(_QWORD *)&v100 = FileObject->FsContext;
+            WORD6(v100) = v46;
+            DWORD2(v100) = DeviceObject->Characteristics;
+            IsDeviceEjectable = IoIsDeviceEjectable((__int64)DeviceObject);
+            v105 = 0;
+            v104 = 16;
+            HIWORD(v100) = v74 & (a4 >> 20) | (2 * ((2 * (v74 & (a4 >> 7))) | (unsigned __int8)v74 & IsDeviceEjectable));
+            v103 = &v100;
+            EtwTraceKernelEvent((__int64)&v103, v74, 4u, 0x269u, 0x401802u);
+          }
+          v52 = v79;
+        }
+        if ( (a4 & 0x10000) == 0 )
+          goto LABEL_60;
+        v75 = *(_QWORD *)(v14 + 96);
+        if ( !v52 && (MiFlags & 0x2000) == 0 && (a4 & 0x20000) == 0 )
+          *(_DWORD *)(v14 + 56) |= 0x40000000u;
+        v76 = a4 & 0x40000;
+        if ( v76 )
+          *(_QWORD *)(v75 + 48) |= 1uLL;
+        if ( (*(_DWORD *)(v14 + 56) & 0x40000000) != 0 )
+        {
+          *(_QWORD *)(v14 + 64) = FileObject;
+          ImageHeaders = MiInitializeImageExtents(v14, v51, v41, v45);
+          ObFastReplaceObject((volatile __int64 *)(v14 + 64), 0LL);
+          if ( ImageHeaders < 0 )
+          {
+            if ( ImageHeaders != -1073741800 )
+            {
+              dword_140C4CC18 = 58;
+              goto LABEL_171;
+            }
+            *(_DWORD *)(v14 + 56) &= ~0x40000000u;
+          }
+          else
+          {
+            MiDeleteImageCreationMdls(MemoryDescriptorList);
+            v43 = 0LL;
+            MemoryDescriptorList = 0LL;
+          }
+          if ( (*(_DWORD *)(v14 + 56) & 0x40000000) != 0 )
+          {
+LABEL_60:
+            v53 = v80;
+LABEL_61:
+            ImageHeaders = 0;
+            *v101 = v53;
+            *v102 = v43;
+LABEL_62:
+            if ( v8 )
+              MiDeleteImageExtentList((PVOID)v8);
+            return ImageHeaders;
+          }
+        }
+        v67 = v76 == 0;
+        v53 = v80;
+        if ( !v67 )
+        {
+          v77 = *(_DWORD *)(v80 + 8);
+          v84 = 0LL;
+          v78 = (unsigned int)(v77 << 12);
+          FileSize.QuadPart = (unsigned int)v78;
+          ImageHeaders = MiAllocateEntireImageFileExtents(FileObject, v78, v8, &v84);
+          if ( ImageHeaders < 0 )
+          {
+            dword_140C4CC18 = 91;
+            goto LABEL_171;
+          }
+          v8 = v84;
+        }
+        *(_QWORD *)(v75 + 48) |= v8;
+        v8 = 0LL;
+        goto LABEL_61;
       }
-      dword_140C65910 = 58;
     }
-    v50 = P;
-    goto LABEL_154;
+    v20 = MemoryDescriptorList;
+    goto LABEL_17;
   }
-  dword_140C65910 = 33;
+  dword_140C4CC18 = 33;
   if ( result == -1073741638 )
     return -1073741792;
   return result;

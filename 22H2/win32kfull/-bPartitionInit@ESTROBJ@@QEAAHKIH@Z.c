@@ -1,32 +1,31 @@
 /*
- * XREFs of ?bPartitionInit@ESTROBJ@@QEAAHKIH@Z @ 0x1C015C470
+ * XREFs of ?bPartitionInit@ESTROBJ@@QEAAHKIH@Z @ 0x1C00E90CC
  * Callers:
- *     ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C02B3E3C (-FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z.c)
- *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C02B5CA8 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
+ *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C00E7118 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
+ *     ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C00E7408 (-FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall ESTROBJ::bPartitionInit(ESTROBJ *this, unsigned int a2, unsigned int a3, int a4)
 {
-  __int64 *v4; // rdi
-  __int64 v6; // rsi
-  size_t v8; // r8
-  char *v9; // rcx
-  unsigned int v10; // esi
-  __int64 v11; // rax
+  __int64 v6; // rdi
+  size_t v7; // r8
+  char *v8; // rcx
+  int v9; // eax
+  __int64 result; // rax
 
   *((_DWORD *)this + 1) &= 0xFFFFFFCF;
-  v4 = (__int64 *)((char *)this + 264);
   v6 = a3;
   if ( (*((_DWORD *)this + 58) & 0x1000) == 0 )
   {
-    v8 = 4LL * a2;
-    v9 = (char *)(*((_QWORD *)this + 8) + 24LL * a2);
-    *((_QWORD *)this + 26) = v9;
-    *((_QWORD *)this + 25) = &v9[v8];
-    memset_0(v9, 0, v8);
-    *v4 = 0LL;
+    v7 = 4LL * a2;
+    v8 = (char *)(*((_QWORD *)this + 8) + 24LL * a2);
+    *((_QWORD *)this + 26) = v8;
+    *((_QWORD *)this + 25) = &v8[v7];
+    memset(v8, 0, v7);
+    *((_QWORD *)this + 33) = 0LL;
     *((_DWORD *)this + 63) = 0;
     *((_DWORD *)this + 64) = 0;
     *((_DWORD *)this + 62) = 0;
@@ -36,22 +35,19 @@ __int64 __fastcall ESTROBJ::bPartitionInit(ESTROBJ *this, unsigned int a2, unsig
     return 1LL;
   if ( (unsigned int)v6 < 0xA )
   {
-    *v4 = (__int64)this + 272;
-    memset_0((char *)this + 272, 0, 4 * v6);
-    goto LABEL_11;
+    *((_QWORD *)this + 33) = (char *)this + 272;
+    memset((char *)this + 272, 0, 4 * v6);
+    v9 = *((_DWORD *)this + 58);
+LABEL_6:
+    *((_DWORD *)this + 58) = v9 | 0x400;
+    return 1LL;
   }
-  v10 = 4 * v6;
-  if ( !v10 )
+  result = (__int64)PALLOCMEM2((unsigned int)(4 * v6), 1718382187LL, 1);
+  *((_QWORD *)this + 33) = result;
+  if ( result )
   {
-    *v4 = 0LL;
-    return 0LL;
+    v9 = *((_DWORD *)this + 58) | 0x800;
+    goto LABEL_6;
   }
-  v11 = Win32AllocPoolZInit(v10, 1718382187LL);
-  *v4 = v11;
-  if ( !v11 )
-    return 0LL;
-  *((_DWORD *)this + 58) |= 0x800u;
-LABEL_11:
-  *((_DWORD *)this + 58) |= 0x400u;
-  return 1LL;
+  return result;
 }

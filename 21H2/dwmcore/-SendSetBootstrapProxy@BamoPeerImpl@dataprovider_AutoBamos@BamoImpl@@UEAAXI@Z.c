@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SendSetBootstrapProxy@BamoPeerImpl@dataprovider_AutoBamos@BamoImpl@@UEAAXI@Z @ 0x1800F13C0
+ * XREFs of ?SendSetBootstrapProxy@BamoPeerImpl@dataprovider_AutoBamos@BamoImpl@@UEAAXI@Z @ 0x1800DC280
  * Callers:
  *     <none>
  * Callees:
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180195110 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18016479C (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 void __fastcall BamoImpl::dataprovider_AutoBamos::BamoPeerImpl::SendSetBootstrapProxy(
@@ -18,14 +18,17 @@ void __fastcall BamoImpl::dataprovider_AutoBamos::BamoPeerImpl::SendSetBootstrap
 
   v1 = *(_QWORD *)(*((_QWORD *)this + 3) + 32LL);
   v5[0] = *((unsigned int *)this + 9);
-  v2 = *(_QWORD *)(v1 + 72);
+  v2 = *(_QWORD *)(v1 + 64);
   v5[1] = *((unsigned int *)this + 10);
-  v3 = CoreUICallSend(v2, v5, 2LL, 6LL, 8, &unk_1803434A5);
+  v3 = CoreUICallSend(v2, v5, 2LL, 6LL, 8, &unk_1802D082D);
   if ( v3 < 0 )
+  {
     wil::details::in1diag3::FailFast_Hr(
       retaddr,
-      (void *)0x2EEA,
-      (unsigned int)"onecoreuap\\Windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
+      (void *)0x290F,
+      (unsigned int)"onecoreuap\\windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
       (const char *)(unsigned int)v3,
       v4);
+    __debugbreak();
+  }
 }

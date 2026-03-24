@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_SortPathsModalityByPriorityOrderQSortCallback@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@CAHPEBX0@Z @ 0x1C01DC280
+ * XREFs of ?_SortPathsModalityByPriorityOrderQSortCallback@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@CAHPEBX0@Z @ 0x1C0160B60
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1C0028100 (memcmp.c)
+ *     memcmp @ 0x1C0028BC0 (memcmp.c)
  */
 
 int __fastcall CCD_BTL_ACTIVE_PATHS_COLLECTOR::_SortPathsModalityByPriorityOrderQSortCallback(_DWORD *a1, _DWORD *a2)
@@ -21,10 +21,10 @@ int __fastcall CCD_BTL_ACTIVE_PATHS_COLLECTOR::_SortPathsModalityByPriorityOrder
       return -1;
     return 1;
   }
-  v5 = a1[69];
-  if ( v5 > a2[69] )
+  v5 = a1[63];
+  if ( v5 > a2[63] )
     return 1;
-  if ( v5 < a2[69] )
+  if ( v5 < a2[63] )
     return -1;
   v6 = a1[7];
   if ( v6 > a2[7] )
@@ -35,9 +35,9 @@ int __fastcall CCD_BTL_ACTIVE_PATHS_COLLECTOR::_SortPathsModalityByPriorityOrder
   if ( !result )
   {
     v8 = a1[6];
-    if ( v8 <= a2[6] )
-      return -(v8 < a2[6]);
-    return 1;
+    if ( v8 < a2[6] )
+      return -1;
+    return v8 > a2[6];
   }
   return result;
 }

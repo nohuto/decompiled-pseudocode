@@ -1,98 +1,109 @@
 /*
- * XREFs of MmSetPfnListInfo @ 0x1403C4E98
+ * XREFs of MmSetPfnListInfo @ 0x140372BE4
  * Callers:
- *     PfpPfnPrioRequest @ 0x140739F40 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x1406F2BB0 (PfpPfnPrioRequest.c)
  * Callees:
- *     MiColdPageSizeSupported @ 0x14023073C (MiColdPageSizeSupported.c)
- *     MiRelinkStandbyPage @ 0x1402323E8 (MiRelinkStandbyPage.c)
- *     MiGetPfnPriority @ 0x140273234 (MiGetPfnPriority.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     MiIdentifyPfn @ 0x1402B1E40 (MiIdentifyPfn.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiAddPageToHeatRanges @ 0x1405B7574 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x1405B7E7C (MiNotifyPageHeat.c)
- *     MiSetActivePfnHeat @ 0x1405B80F8 (MiSetActivePfnHeat.c)
+ *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
+ *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
+ *     MiSetNonResidentPteHeat @ 0x14023E7B0 (MiSetNonResidentPteHeat.c)
+ *     MiRelinkStandbyPage @ 0x140271FD8 (MiRelinkStandbyPage.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAddPageToHeatList @ 0x1403F7C88 (MiAddPageToHeatList.c)
+ *     MiColdPageSizeSupported @ 0x1403F7D58 (MiColdPageSizeSupported.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiNotifyPageHeat @ 0x14055FDC4 (MiNotifyPageHeat.c)
  */
 
-__int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall MmSetPfnListInfo(__int64 a1, _QWORD *a2, int a3)
 {
-  unsigned __int64 v6; // r13
-  struct _KTHREAD *CurrentThread; // r15
-  unsigned int v8; // r12d
-  __int64 v9; // rdx
+  _QWORD *v7; // r13
+  struct _KTHREAD *CurrentThread; // r12
+  unsigned int v9; // r15d
   __int64 v10; // r8
   _DWORD *SchedulerAssist; // r9
-  int v12; // r15d
+  int v12; // r12d
   unsigned __int64 v13; // r14
   __m128i *v14; // rbx
   unsigned __int64 v15; // rsi
   int PfnPriority; // eax
-  ULONG_PTR v17; // rcx
-  bool v18; // zf
-  __int64 v20; // xmm1_8
-  unsigned __int8 v21; // al
-  struct _KPRCB *v22; // r10
-  int v23; // eax
-  unsigned __int64 v24; // rax
-  unsigned __int64 v25; // rax
-  unsigned __int8 v26; // dl
-  unsigned __int8 v27; // al
-  struct _KPRCB *v28; // r11
-  _DWORD *v29; // r10
-  int v30; // eax
+  int v17; // edx
+  ULONG_PTR v18; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  int v33; // eax
+  int v21; // eax
+  bool v22; // zf
+  unsigned __int64 v23; // rax
+  unsigned __int64 v24; // rax
+  unsigned __int8 v25; // dl
+  unsigned __int8 v26; // al
+  struct _KPRCB *v27; // r11
+  _DWORD *v28; // r10
+  int v29; // eax
+  unsigned __int8 v30; // al
+  struct _KPRCB *v31; // r10
+  int v32; // eax
+  __int64 v33; // xmm1_8
   __int128 v34; // [rsp+30h] [rbp-91h] BYREF
   __int64 v35; // [rsp+40h] [rbp-81h]
   struct _KTHREAD *v36; // [rsp+48h] [rbp-79h]
   __int64 v37; // [rsp+58h] [rbp-69h] BYREF
   int v38; // [rsp+60h] [rbp-61h]
-  _DWORD v39[32]; // [rsp+64h] [rbp-5Dh] BYREF
+  _BYTE v39[132]; // [rsp+64h] [rbp-5Dh] BYREF
 
   v35 = 0LL;
   v34 = 0LL;
   memset(v39, 0, sizeof(v39));
-  if ( a3 && !(unsigned int)MiColdPageSizeSupported(1u) )
+  if ( a3 && !(unsigned int)MiColdPageSizeSupported(1LL) )
     return 3221225659LL;
   v37 = 0LL;
   v38 = 16;
-  v6 = a2 + 24 * a1;
+  v7 = &a2[3 * a1];
   CurrentThread = KeGetCurrentThread();
-  v8 = 0;
+  v9 = 0;
   v36 = CurrentThread;
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_140C55040, 0LL);
-  if ( a2 >= v6 )
-    goto LABEL_17;
+  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_140C50E40, 0LL);
+  if ( a2 >= v7 )
+    goto LABEL_53;
   v12 = a3;
   do
   {
-    v13 = *(_QWORD *)(a2 + 8);
-    if ( v13 > qword_140C50840 || (*(_QWORD *)(48 * v13 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0 )
+    v13 = a2[1];
+    if ( v13 > 0xFFFFFFFFFLL || (*(_QWORD *)(48 * v13 - 0x57FFFFFFFD8LL) & 0x4000000000000LL) == 0 )
     {
-      v8 = -1073741584;
-      goto LABEL_15;
+      v9 = -1073741584;
+      goto LABEL_51;
     }
     *(_QWORD *)&v34 = 0LL;
-    v14 = (__m128i *)(48 * v13 - 0x220000000000LL);
+    v14 = (__m128i *)(48 * v13 - 0x58000000000LL);
     v35 = 0LL;
     *((_QWORD *)&v34 + 1) = v13;
-    v15 = (unsigned __int8)MiLockPageInline((__int64)v14);
-    MiIdentifyPfn(v14, &v34);
-    if ( v35 != *(_QWORD *)(a2 + 16)
-      || (((unsigned __int64)v34 ^ *(_QWORD *)a2) & 0x1FFFFFFFFFFFE00LL) != 0
-      || (LOBYTE(v10) = v14[2].m128i_i8[2] & 7, (_BYTE)v10 != 6) && (unsigned __int8)(v10 - 2) > 2u )
+    v15 = (unsigned __int8)MiLockPageInline((__int64)v14, 0x4000000000000LL, v10, SchedulerAssist);
+    MiIdentifyPfn(v14, (unsigned __int64 *)&v34);
+    if ( v35 != a2[2] )
+      goto LABEL_42;
+    if ( (((unsigned __int64)v34 ^ *a2) & 0x1FFFFFFFFFFFE00LL) != 0 )
+      goto LABEL_42;
+    LOBYTE(v10) = v14[2].m128i_i8[2] & 7;
+    if ( (_BYTE)v10 != 6 && (unsigned __int8)(v10 - 2) > 2u )
+      goto LABEL_42;
+    if ( !v12 )
     {
-LABEL_27:
-      v9 = 1LL;
-LABEL_28:
+      PfnPriority = MiGetPfnPriority(48 * v13 - 0x58000000000LL);
+      if ( v17 != PfnPriority )
+      {
+        if ( (_BYTE)v10 == 2 )
+          MiRelinkStandbyPage(v18, v17);
+        else
+          v14[2].m128i_i8[3] = v17 | v14[2].m128i_i8[3] & 0xF8;
+      }
       _InterlockedAnd64(&v14[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);
       if ( KiIrqlFlags )
       {
@@ -102,110 +113,87 @@ LABEL_28:
           if ( CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
-            v9 = -1LL << ((unsigned __int8)v15 + 1);
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v33 = ~(unsigned __int16)v9;
-            v18 = (v33 & SchedulerAssist[5]) == 0;
-            v10 = (unsigned int)v33 & SchedulerAssist[5];
+            v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
+            v22 = (v21 & SchedulerAssist[5]) == 0;
+            v10 = (unsigned int)v21 & SchedulerAssist[5];
             SchedulerAssist[5] = v10;
-            if ( v18 )
+            if ( v22 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
       }
       __writecr8(v15);
-      v35 |= 2uLL;
-      v8 = -1073741788;
-      v20 = v35;
-      *(_OWORD *)a2 = v34;
-      *(_QWORD *)(a2 + 16) = v20;
-      goto LABEL_15;
+      goto LABEL_51;
     }
-    if ( v12 )
+    if ( (*a2 & 0x80u) != 0LL
+      && (_BYTE)v10 == 2
+      && !v14[2].m128i_i16[0]
+      && ((unsigned int)MiColdPageSizeSupported(3LL) || MiIsPfnFileOnly(48 * v13 - 0x58000000000LL))
+      && ((v23 = v14[1].m128i_u64[0], (v23 & 0x400) != 0) ? (v24 = v23 >> 11) : (v24 = v23 >> 3), (v24 & 1) == 0) )
     {
-      if ( (*(_QWORD *)a2 & 0x80u) == 0LL
-        || (_BYTE)v10 != 2
-        || v14[2].m128i_i16[0]
-        || !(unsigned int)MiColdPageSizeSupported(3u) && !_bittest64(&v14[2].m128i_i64[1], 0x35u) )
-      {
-        goto LABEL_27;
-      }
-      v24 = v14[1].m128i_u64[0];
-      if ( (v24 & 0x400) != 0 )
-        v25 = v24 >> 11;
-      else
-        v25 = v24 >> 3;
-      v9 = 1LL;
-      if ( (v25 & 1) != 0 )
-        goto LABEL_28;
-      MiSetActivePfnHeat(48 * v13 - 0x220000000000LL);
+      MiSetNonResidentPteHeat((unsigned __int64 *)&v14[1], 1);
       _InterlockedAnd64(&v14[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);
       if ( KiIrqlFlags )
       {
-        if ( ((unsigned __int8)KiIrqlFlags & v26) != 0 )
+        if ( ((unsigned __int8)KiIrqlFlags & v25) != 0 )
         {
-          v27 = KeGetCurrentIrql();
-          if ( v27 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v27 >= 2u )
+          v26 = KeGetCurrentIrql();
+          if ( v26 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v26 >= 2u )
           {
-            v28 = KeGetCurrentPrcb();
-            v29 = v28->SchedulerAssist;
-            v30 = ~(unsigned __int16)(-1LL << (v26 + (unsigned __int8)v15));
-            v18 = (v30 & v29[5]) == 0;
-            v29[5] &= v30;
-            if ( v18 )
-              KiRemoveSystemWorkPriorityKick(v28);
+            v27 = KeGetCurrentPrcb();
+            v28 = v27->SchedulerAssist;
+            v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
+            v22 = (v29 & v28[5]) == 0;
+            v28[5] &= v29;
+            if ( v22 )
+              KiRemoveSystemWorkPriorityKick(v27);
           }
         }
       }
       __writecr8(v15);
-      if ( (unsigned int)MiAddPageToHeatRanges(&v37, v13, 3LL) )
-        MiNotifyPageHeat(&v37, v9, v10, SchedulerAssist);
+      MiAddPageToHeatList(&v37, v13, 3LL);
     }
     else
     {
-      PfnPriority = MiGetPfnPriority(48 * v13 - 0x220000000000LL);
-      if ( (_DWORD)v9 != PfnPriority )
-      {
-        if ( (_BYTE)v10 == 2 )
-          MiRelinkStandbyPage(v17, v9);
-        else
-          v14[2].m128i_i8[3] = v9 | v14[2].m128i_i8[3] & 0xF8;
-      }
+LABEL_42:
       _InterlockedAnd64(&v14[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v21 = KeGetCurrentIrql();
-          if ( v21 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v21 >= 2u )
+          v30 = KeGetCurrentIrql();
+          if ( v30 <= 0xFu && (unsigned __int8)v15 <= 0xFu && v30 >= 2u )
           {
-            v22 = KeGetCurrentPrcb();
-            v9 = -1LL << ((unsigned __int8)v15 + 1);
-            SchedulerAssist = v22->SchedulerAssist;
-            v23 = ~(unsigned __int16)v9;
-            v18 = (v23 & SchedulerAssist[5]) == 0;
-            v10 = (unsigned int)v23 & SchedulerAssist[5];
+            v31 = KeGetCurrentPrcb();
+            SchedulerAssist = v31->SchedulerAssist;
+            v32 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
+            v22 = (v32 & SchedulerAssist[5]) == 0;
+            v10 = (unsigned int)v32 & SchedulerAssist[5];
             SchedulerAssist[5] = v10;
-            if ( v18 )
-              KiRemoveSystemWorkPriorityKick(v22);
+            if ( v22 )
+              KiRemoveSystemWorkPriorityKick(v31);
           }
         }
       }
       __writecr8(v15);
+      v35 |= 2uLL;
+      v9 = -1073741788;
+      v33 = v35;
+      *(_OWORD *)a2 = v34;
+      a2[2] = v33;
     }
-LABEL_15:
-    a2 += 24LL;
+LABEL_51:
+    a2 += 3;
   }
-  while ( a2 < v6 );
+  while ( a2 < v7 );
   CurrentThread = v36;
-LABEL_17:
+LABEL_53:
   if ( HIDWORD(v37) )
-    MiNotifyPageHeat(&v37, v9, v10, SchedulerAssist);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C55040, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_140C55040);
-  KeAbPostRelease((ULONG_PTR)&qword_140C55040);
-  v18 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v18 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-  return v8;
+    MiNotifyPageHeat(&v37);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C50E40, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_140C50E40);
+  KeAbPostRelease((ULONG_PTR)&qword_140C50E40);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  return v9;
 }

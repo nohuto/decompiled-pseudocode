@@ -1,119 +1,124 @@
 /*
- * XREFs of ?PanEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C029BFA0
+ * XREFs of ?PanEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C0294E80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C029CB80 (-PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z.c)
- *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C029DFE0 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ?PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C0295AF0 (-PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z.c)
+ *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C0296EF8 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
  */
 
-HSURF __fastcall PanEnableSurface(SIZEL *a1)
+HSURF __fastcall PanEnableSurface(struct DHPDEV__ *a1)
 {
-  LONG cx; // r8d
-  LONG cy; // edx
+  int v1; // r9d
+  int v3; // r8d
   int v4; // eax
-  int v5; // ecx
-  LONG v6; // eax
-  HSEMAPHORE v7; // rcx
-  HSURF v8; // rax
-  SURFOBJ *v9; // rax
-  SURFOBJ *v10; // rsi
-  struct DHPDEV__ *v11; // rdx
-  LONG v12; // r14d
-  ULONG v13; // r8d
-  HSURF DeviceSurface; // rax
-  HSURF v15; // rdi
-  HDEV v16; // rdx
+  int v5; // edx
+  HSURF v6; // rax
+  SURFOBJ *v7; // rax
+  SURFOBJ *v8; // rsi
+  DHPDEV v9; // rcx
+  LONG v10; // r14d
+  HSURF DeviceSurface; // rdi
+  HDEV v12; // rdx
   HBITMAP Bitmap; // r14
-  SURFOBJ *v18; // rax
-  SURFOBJ *v19; // r15
-  HDEV v20; // rdx
-  SIZEL sizl; // [rsp+80h] [rbp+38h] BYREF
-  SIZEL v23; // [rsp+88h] [rbp+40h] BYREF
-  SIZEL v24; // [rsp+90h] [rbp+48h] BYREF
-  HSEMAPHORE v25; // [rsp+98h] [rbp+50h] BYREF
+  SURFOBJ *v14; // rax
+  SURFOBJ *v15; // r15
+  HDEV v16; // rdx
+  __int64 v18; // [rsp+40h] [rbp-30h] BYREF
+  int v19; // [rsp+48h] [rbp-28h]
+  __int64 v20; // [rsp+50h] [rbp-20h] BYREF
+  int v21; // [rsp+58h] [rbp-18h]
+  __int64 v22; // [rsp+60h] [rbp-10h] BYREF
+  int v23; // [rsp+68h] [rbp-8h]
+  SIZEL sizl; // [rsp+A0h] [rbp+30h]
+  HSEMAPHORE v25; // [rsp+A8h] [rbp+38h] BYREF
 
-  cx = a1->cx;
-  cy = a1->cy;
-  v4 = a1[1].cx - a1->cx;
-  sizl = 0LL;
-  v4 >>= 1;
-  a1[2].cx = v4;
-  v5 = a1[1].cy - cy;
-  a1[3].cx = cx + v4;
+  v1 = *(_DWORD *)a1;
+  v3 = *((_DWORD *)a1 + 1);
+  v4 = (*((_DWORD *)a1 + 2) - *(_DWORD *)a1) >> 1;
+  v5 = *((_DWORD *)a1 + 3) - v3;
+  *((_DWORD *)a1 + 4) = v4;
   v5 >>= 1;
-  a1[2].cy = v5;
-  v6 = v5 + cy;
-  v25 = (HSEMAPHORE)a1[14];
-  v7 = v25;
-  a1[3].cy = v6;
-  EngAcquireSemaphore(v7);
-  v8 = (HSURF)((__int64 (__fastcall *)(_QWORD))a1[102])(*(_QWORD *)&a1[4]);
-  if ( !v8 )
-    goto LABEL_16;
-  v9 = EngLockSurface(v8);
-  v10 = v9;
-  if ( !v9 )
+  *((_DWORD *)a1 + 6) = v1 + v4;
+  *((_DWORD *)a1 + 5) = v5;
+  *((_DWORD *)a1 + 7) = v5 + v3;
+  v25 = (HSEMAPHORE)*((_QWORD *)a1 + 14);
+  EngAcquireSemaphore(v25);
+  v6 = (HSURF)(*((__int64 (__fastcall **)(_QWORD))a1 + 102))(*((_QWORD *)a1 + 4));
+  if ( !v6 )
+    goto LABEL_26;
+  v7 = EngLockSurface(v6);
+  v8 = v7;
+  if ( !v7 )
   {
-LABEL_15:
+LABEL_25:
     PANDEVLOCK::vUnLock((PANDEVLOCK *)&v25);
-    ((void (__fastcall *)(_QWORD))a1[103])(*(_QWORD *)&a1[4]);
-LABEL_16:
-    v15 = 0LL;
-    goto LABEL_17;
+    (*((void (__fastcall **)(_QWORD))a1 + 103))(*((_QWORD *)a1 + 4));
+LABEL_26:
+    DeviceSurface = 0LL;
+    goto LABEL_27;
   }
-  LODWORD(v9[1].hsurf) &= ~0x1000u;
-  v11 = (struct DHPDEV__ *)a1[4];
-  a1[9] = (SIZEL)v9;
-  SURFACE::dhpdev((SURFACE *)&v9[-1].pvScan0, v11);
-  v12 = a1[1].cx;
-  v13 = a1[5].cx;
-  sizl.cy = a1[1].cy;
-  sizl.cx = v12;
-  DeviceSurface = EngCreateDeviceSurface(0LL, sizl, v13);
-  v15 = DeviceSurface;
+  LODWORD(v7[1].hsurf) &= ~0x1000u;
+  v9 = (DHPDEV)*((_QWORD *)a1 + 4);
+  *((_QWORD *)a1 + 9) = v7;
+  v7->dhpdev = v9;
+  v10 = *((_DWORD *)a1 + 2);
+  sizl = (SIZEL)*((_QWORD *)a1 + 1);
+  DeviceSurface = EngCreateDeviceSurface(0LL, sizl, *((_DWORD *)a1 + 10));
   if ( !DeviceSurface )
   {
-LABEL_14:
-    EngUnlockSurface(v10);
-    goto LABEL_15;
+LABEL_24:
+    EngUnlockSurface(v8);
+    goto LABEL_25;
   }
-  v16 = (HDEV)a1[6];
-  a1[7] = (SIZEL)DeviceSurface;
-  if ( !EngModifySurface(DeviceSurface, v16, 0x394ABu, 3u, (DHSURF)&a1[7], 0LL, 0, 0LL) )
+  v12 = (HDEV)*((_QWORD *)a1 + 6);
+  *((_QWORD *)a1 + 7) = DeviceSurface;
+  if ( !EngModifySurface(DeviceSurface, v12, 0x394ABu, 3u, (DHSURF)a1 + 14, 0LL, 0, 0LL) )
   {
-LABEL_13:
-    EngDeleteSurface(v15);
-    goto LABEL_14;
+LABEL_23:
+    EngDeleteSurface(DeviceSurface);
+    goto LABEL_24;
   }
-  Bitmap = EngCreateBitmap(sizl, v12, a1[5].cx, 1u, 0LL);
-  v18 = EngLockSurface((HSURF)Bitmap);
-  v19 = v18;
-  if ( !v18 || (v20 = (HDEV)a1[6], a1[8] = (SIZEL)v18, !EngAssociateSurface((HSURF)Bitmap, v20, 0)) )
+  Bitmap = EngCreateBitmap(sizl, v10, *((_DWORD *)a1 + 10), 1u, 0LL);
+  v14 = EngLockSurface((HSURF)Bitmap);
+  v15 = v14;
+  if ( !v14 || (v16 = (HDEV)*((_QWORD *)a1 + 6), *((_QWORD *)a1 + 8) = v14, !EngAssociateSurface((HSURF)Bitmap, v16, 0)) )
   {
-LABEL_12:
-    EngUnlockSurface(v19);
+LABEL_22:
+    EngUnlockSurface(v15);
     EngDeleteSurface((HSURF)Bitmap);
-    goto LABEL_13;
+    goto LABEL_23;
   }
-  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v23);
-  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&sizl);
-  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v24);
-  if ( !*(_QWORD *)&sizl || !*(_QWORD *)&v23 || !*(_QWORD *)&v24 )
+  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v20);
+  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v18);
+  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v22);
+  if ( !v18 || !v20 || !v22 )
   {
-    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&sizl);
-    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v23);
-    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v24);
-    goto LABEL_12;
+    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v18);
+    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v20);
+    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v22);
+    if ( v23 == 1 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v22);
+    if ( v19 == 1 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v18);
+    if ( v21 == 1 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v20);
+    goto LABEL_22;
   }
-  RGNOBJ::vSet((RGNOBJ *)&v23);
-  RGNOBJ::vSet((RGNOBJ *)&sizl);
-  a1[10] = v23;
-  a1[11] = sizl;
-  a1[12] = v24;
-  PanSynchronize((struct DHPDEV__ *)a1, 0LL);
-LABEL_17:
+  RGNOBJ::vSet((RGNOBJ *)&v20);
+  RGNOBJ::vSet((RGNOBJ *)&v18);
+  *((_QWORD *)a1 + 10) = v20;
+  *((_QWORD *)a1 + 11) = v18;
+  *((_QWORD *)a1 + 12) = v22;
+  PanSynchronize(a1, 0LL);
+  if ( v23 == 1 )
+    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v22);
+  if ( v19 == 1 )
+    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v18);
+  if ( v21 == 1 )
+    RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v20);
+LABEL_27:
   PANDEVLOCK::vUnLock((PANDEVLOCK *)&v25);
-  return v15;
+  return DeviceSurface;
 }

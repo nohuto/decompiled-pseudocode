@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUpdateRetpolineImportFixups @ 0x1402DB0B8
+ * XREFs of MiUpdateRetpolineImportFixups @ 0x140397A50
  * Callers:
- *     MiUpdateImagePfnImportRelocations @ 0x1402DAEB0 (MiUpdateImagePfnImportRelocations.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x140397874 (MiUpdateImagePfnImportRelocations.c)
  * Callees:
- *     RtlApplyImportRelocationToPage @ 0x1402DB190 (RtlApplyImportRelocationToPage.c)
+ *     RtlApplyImportRelocationToPage @ 0x14029C5EC (RtlApplyImportRelocationToPage.c)
  */
 
-__int64 __fastcall MiUpdateRetpolineImportFixups(int a1, __int64 a2, unsigned int a3)
+__int64 __fastcall MiUpdateRetpolineImportFixups(__int64 a1, __int64 a2, unsigned int a3)
 {
   int v3; // r14d
   BOOL v5; // ebp
   unsigned __int16 *v6; // rsi
   int v7; // ebx
-  unsigned __int64 v8; // rdi
+  _DWORD *v8; // rdi
   unsigned __int64 v9; // rsi
   __int64 result; // rax
 
@@ -27,18 +27,15 @@ __int64 __fastcall MiUpdateRetpolineImportFixups(int a1, __int64 a2, unsigned in
                  a1,
                  v7,
                  a2,
-                 (_DWORD)Base,
-                 (__int64)(v6 + 4),
+                 (int)Base,
+                 (_DWORD *)v6 + 2,
                  1,
                  1,
                  (KiSpeculationFeatures & 0x20000000000LL) == 0);
-    v8 = (unsigned __int64)(v6 + 6);
+    v8 = v6 + 6;
     v9 = (unsigned __int64)v6 + *v6 + 12;
-    while ( v8 < v9 )
-    {
-      result = RtlApplyImportRelocationToPage(a1, v7, v3, (_DWORD)Base, v8, 1, 0, v5);
-      v8 += 4LL;
-    }
+    while ( (unsigned __int64)v8 < v9 )
+      result = RtlApplyImportRelocationToPage(a1, v7, v3, (int)Base, v8++, 1, 0, v5);
   }
   return result;
 }

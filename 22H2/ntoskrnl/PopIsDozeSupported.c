@@ -1,21 +1,22 @@
 /*
- * XREFs of PopIsDozeSupported @ 0x140980BB4
+ * XREFs of PopIsDozeSupported @ 0x1406F4118
  * Callers:
- *     PopIdleArmAoAcDozeS4Timer @ 0x14059E208 (PopIdleArmAoAcDozeS4Timer.c)
- *     PopUpdateSystemIdleContext @ 0x1408258D8 (PopUpdateSystemIdleContext.c)
- *     PopDeferDoze @ 0x14098B6C4 (PopDeferDoze.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14057C158 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopPolicySystemIdle @ 0x1406F2890 (PopPolicySystemIdle.c)
+ *     PopInitSIdle @ 0x14078C9A8 (PopInitSIdle.c)
+ *     PopDeferDoze @ 0x1408F0498 (PopDeferDoze.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopIsHibernateSupported @ 0x140873AD4 (PopIsHibernateSupported.c)
+ *     PopIsHibernateSupported @ 0x1406F4158 (PopIsHibernateSupported.c)
  */
 
-char __fastcall PopIsDozeSupported(_BYTE *a1)
+char __fastcall PopIsDozeSupported(__int64 a1)
 {
   __int64 v1; // rcx
   int v2; // r8d
   char v3; // al
 
-  if ( PopIsHibernateSupported(a1) || PopPromoteHibernateToShutdown != v2 )
+  if ( (unsigned __int8)PopIsHibernateSupported(a1) || PopPromoteHibernateToShutdown != v2 )
   {
     v3 = v2;
     if ( *(_BYTE *)(v1 + 7) != (_BYTE)v2 )

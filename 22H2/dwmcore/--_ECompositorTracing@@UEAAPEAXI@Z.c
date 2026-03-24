@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ECompositorTracing@@UEAAPEAXI@Z @ 0x18019DB80
+ * XREFs of ??_ECompositorTracing@@UEAAPEAXI@Z @ 0x180221D80
  * Callers:
- *     ?_lambda_invoker_cdecl_@_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_@@CA@XZ @ 0x1802A4260 (-_lambda_invoker_cdecl_@_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_@@CA@XZ.c)
+ *     ?_lambda_invoker_cdecl_@_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_@@CAXXZ @ 0x180252290 (-_lambda_invoker_cdecl_@_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_@@CAXXZ.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ??1TraceLoggingProvider@wil@@MEAA@XZ @ 0x18019DA00 (--1TraceLoggingProvider@wil@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??1TraceLoggingProvider@wil@@MEAA@XZ @ 0x180221D00 (--1TraceLoggingProvider@wil@@MEAA@XZ.c)
  */
 
 CompositorTracing *__fastcall CompositorTracing::`vector deleting destructor'(CompositorTracing *this, char a2)

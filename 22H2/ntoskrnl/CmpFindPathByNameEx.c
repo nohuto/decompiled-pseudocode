@@ -1,187 +1,172 @@
 /*
- * XREFs of CmpFindPathByNameEx @ 0x14067EED0
+ * XREFs of CmpFindPathByNameEx @ 0x1405CC874
  * Callers:
- *     CmpVEExecuteOpenLogic @ 0x1406DD580 (CmpVEExecuteOpenLogic.c)
- *     CmpFindPathByName @ 0x140A19690 (CmpFindPathByName.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A1A4B4 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteOpenLogic @ 0x1406CDD50 (CmpVEExecuteOpenLogic.c)
+ *     CmpFindPathByName @ 0x1406E8C18 (CmpFindPathByName.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870C78 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x1408264D0 (CmpFindSubKeyByNameWithStatus.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407ACD38 (CmpFindSubKeyByNameWithStatus.c)
  */
 
-char __fastcall CmpFindPathByNameEx(
-        __int64 a1,
-        __m128i *a2,
-        UNICODE_STRING *a3,
-        int a4,
-        unsigned int *a5,
-        ULONG_PTR *a6)
+char __fastcall CmpFindPathByNameEx(__int64 a1, __m128i *a2, UNICODE_STRING *a3, int a4, unsigned int *a5, __int64 *a6)
 {
-  unsigned int *v6; // r12
+  unsigned int *v6; // r13
   unsigned __int16 v7; // r14
-  ULONG_PTR *v10; // rcx
-  __m128i v11; // xmm0
-  unsigned __int16 v12; // bx
-  unsigned __int16 MaximumLength; // r15
-  ULONG_PTR v15; // rsi
-  unsigned int v16; // ecx
-  wchar_t *Buffer; // rdi
-  _BYTE *v18; // r13
-  __int64 CellFlat; // rax
-  ULONG_PTR v20; // rcx
-  unsigned int v21; // r12d
+  __int64 *v11; // rcx
+  __m128i v12; // xmm0
+  unsigned __int16 v13; // bx
+  __int16 v15; // si
+  __int64 v16; // r15
+  unsigned int v17; // ecx
+  wchar_t *v18; // rdi
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 *v22; // rax
   unsigned __int64 v23; // rax
-  _DWORD v24[2]; // [rsp+20h] [rbp-30h] BYREF
-  UNICODE_STRING v25; // [rsp+28h] [rbp-28h]
-  __int64 v26; // [rsp+38h] [rbp-18h]
-  wchar_t *v27; // [rsp+40h] [rbp-10h]
-  UNICODE_STRING *v28; // [rsp+A0h] [rbp+50h]
+  UNICODE_STRING v24; // [rsp+20h] [rbp-20h]
+  _QWORD v25[2]; // [rsp+30h] [rbp-10h] BYREF
+  int v26; // [rsp+88h] [rbp+48h] BYREF
+  int v27; // [rsp+8Ch] [rbp+4Ch]
+  int v28; // [rsp+98h] [rbp+58h]
 
-  v28 = a3;
+  v28 = a4;
   v6 = a5;
   v7 = 0;
-  v26 = 0LL;
-  v24[0] = -1;
+  v25[0] = 0LL;
+  v26 = -1;
   *a5 = -1;
-  v10 = a6;
-  v24[1] = 0;
+  v11 = a6;
+  v27 = 0;
   *a6 = 0LL;
   if ( a3 )
   {
     RtlInitUnicodeString(a3, 0LL);
-    a3 = v28;
-    v10 = a6;
+    v11 = a6;
   }
-  v11 = *a2;
-  v12 = _mm_cvtsi128_si32(*a2);
-  v25 = (UNICODE_STRING)v11;
-  if ( v12 )
+  v12 = *a2;
+  v13 = _mm_cvtsi128_si32(*a2);
+  v24 = (UNICODE_STRING)v12;
+  v24.Length = v13;
+  if ( v13 )
   {
-    MaximumLength = v25.MaximumLength;
+    v15 = v12.m128i_i16[1];
     if ( a1 )
     {
-      v15 = *(_QWORD *)(a1 + 32);
-      *v10 = v15;
-      v16 = *(_DWORD *)(a1 + 40);
-      Buffer = v25.Buffer;
-      *a5 = v16;
+      v16 = *(_QWORD *)(a1 + 32);
+      *v11 = v16;
+      v17 = *(_DWORD *)(a1 + 40);
+      v18 = (wchar_t *)v12.m128i_i64[1];
+      *v6 = v17;
     }
     else
     {
-      v15 = CmpMasterHive;
-      Buffer = v25.Buffer;
-      v16 = *(_DWORD *)(*(_QWORD *)(CmpMasterHive + 64) + 36LL);
+      v16 = CmpMasterHive;
+      v18 = (wchar_t *)v12.m128i_i64[1];
+      v17 = *(_DWORD *)(*(_QWORD *)(CmpMasterHive + 64) + 36LL);
       do
       {
-        if ( *Buffer != 92 )
+        if ( *v18 != 92 )
           break;
-        v12 -= 2;
-        ++Buffer;
-        MaximumLength -= 2;
-        v25.Length = v12;
+        v13 -= 2;
+        ++v18;
+        v15 -= 2;
+        v24.Length = v13;
       }
-      while ( v12 );
-      v25.Buffer = Buffer;
-      v25.MaximumLength = MaximumLength;
-      if ( !v12 )
+      while ( v13 );
+      v24.Buffer = v18;
+      v24.MaximumLength = v15;
+      if ( !v13 )
         goto LABEL_20;
       do
       {
-        if ( *Buffer == 92 )
+        if ( *v18 == 92 )
           break;
-        v12 -= 2;
-        ++Buffer;
-        MaximumLength -= 2;
-        v25.Length = v12;
+        v13 -= 2;
+        ++v18;
+        v15 -= 2;
+        v24.Length = v13;
       }
-      while ( v12 );
-      v25.Buffer = Buffer;
-      v25.MaximumLength = MaximumLength;
+      while ( v13 );
+      v24.Buffer = v18;
+      v24.MaximumLength = v15;
     }
     while ( 1 )
     {
-      if ( v12 )
+      if ( v13 )
       {
         do
         {
-          if ( *Buffer != 92 )
+          if ( *v18 != 92 )
             break;
-          v12 -= 2;
-          ++Buffer;
-          MaximumLength -= 2;
-          v25.Length = v12;
+          v13 -= 2;
+          ++v18;
+          v15 -= 2;
+          v24.Length = v13;
         }
-        while ( v12 );
-        v25.Buffer = Buffer;
-        v25.MaximumLength = MaximumLength;
+        while ( v13 );
+        v24.Buffer = v18;
+        v24.MaximumLength = v15;
       }
 LABEL_20:
       if ( a3 )
-        *a3 = v25;
-      if ( !v12 )
+        *a3 = v24;
+      if ( !v13 )
         break;
-      v18 = (_BYTE *)(v15 + 140);
-      if ( (*(_BYTE *)(v15 + 140) & 1) != 0 )
-        CellFlat = HvpGetCellFlat(v15, v16);
-      else
-        CellFlat = HvpGetCellPaged(v15);
-      if ( !CellFlat )
+      v19 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(v16 + 8))(v16, v17, &v26);
+      v20 = v19;
+      if ( !v19 )
         return 0;
-      v27 = Buffer;
-      LOWORD(v26) = 0;
+      v25[1] = v18;
+      LOWORD(v25[0]) = 0;
       do
       {
-        if ( Buffer[(unsigned __int64)v7 >> 1] == 92 )
+        if ( v18[(unsigned __int64)v7 >> 1] == 92 )
           break;
         v7 += 2;
       }
-      while ( v7 < v12 );
-      LOWORD(v26) = v7;
-      if ( (*(_BYTE *)(CellFlat + 2) & 2) != 0 )
+      while ( v7 < v13 );
+      LOWORD(v25[0]) = v7;
+      if ( (*(_BYTE *)(v19 + 2) & 2) != 0 )
       {
-        v20 = v15;
-        v15 = *(_QWORD *)(CellFlat + 36);
-        v21 = *(_DWORD *)(CellFlat + 28);
-        if ( (*v18 & 1) != 0 )
-          HvpReleaseCellFlat(v20, v24);
-        else
-          HvpReleaseCellPaged(v20, v24);
-        if ( v15 != CmpMasterHive && a4 && (a4 & *(_DWORD *)(v15 + 4112)) == 0 )
+        v21 = v16;
+        v16 = *(_QWORD *)(v19 + 36);
+        LODWORD(a5) = *(_DWORD *)(v19 + 28);
+        (*(void (__fastcall **)(__int64, int *, __int64))(v21 + 16))(v21, &v26, 2LL);
+        if ( v16 != CmpMasterHive && v28 && (v28 & *(_DWORD *)(v16 + 4152)) == 0 )
           return 0;
-        if ( !((*(_BYTE *)(v15 + 140) & 1) != 0 ? HvpGetCellFlat(v15, v21) : HvpGetCellPaged(v15)) )
+        v20 = (*(__int64 (__fastcall **)(__int64, _QWORD, int *))(v16 + 8))(v16, (unsigned int)a5, &v26);
+        if ( !v20 )
           return 0;
-        v6 = a5;
       }
-      CmpFindSubKeyByNameWithStatus(v15);
-      if ( (*(_BYTE *)(v15 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v15, v24);
-      else
-        HvpReleaseCellPaged(v15, v24);
-      v16 = 0;
-      MaximumLength -= v7;
-      v12 -= v7;
-      *v6 = 0;
-      v25.MaximumLength = MaximumLength;
-      v25.Length = v12;
-      *a6 = v15;
+      LODWORD(a5) = 0;
+      CmpFindSubKeyByNameWithStatus(v16, v20, v25, &a5);
+      (*(void (__fastcall **)(__int64, int *))(v16 + 16))(v16, &v26);
+      v17 = (unsigned int)a5;
+      if ( (_DWORD)a5 == -1 )
+        return 0;
+      v22 = a6;
+      v15 -= v7;
+      v13 -= v7;
+      *v6 = (unsigned int)a5;
+      v24.MaximumLength = v15;
+      v24.Length = v13;
+      *v22 = v16;
       v23 = v7;
       v7 = 0;
-      Buffer += v23 >> 1;
-      v25.Buffer = Buffer;
-      if ( !v12 )
+      v18 += v23 >> 1;
+      v24.Buffer = v18;
+      if ( !v13 )
         return 1;
-      a3 = v28;
     }
     return 1;
   }
   if ( a1 )
   {
-    *v10 = *(_QWORD *)(a1 + 32);
-    *a5 = *(_DWORD *)(a1 + 40);
+    *v11 = *(_QWORD *)(a1 + 32);
+    *v6 = *(_DWORD *)(a1 + 40);
     return 1;
   }
   return 0;

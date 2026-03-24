@@ -1,58 +1,58 @@
 /*
- * XREFs of IndexField @ 0x1C0050760
+ * XREFs of IndexField @ 0x1C00237F0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     CreateNameSpaceObject @ 0x1C004F12C (CreateNameSpaceObject.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
- *     GetNameSpaceObject @ 0x1C004F748 (GetNameSpaceObject.c)
- *     ParseFieldList @ 0x1C005B250 (ParseFieldList.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
+ *     ParseFieldList @ 0x1C0021C38 (ParseFieldList.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall IndexField(__int64 a1, _QWORD *a2)
+__int64 __fastcall IndexField(__int64 a1, unsigned __int64 *a2)
 {
-  __int64 v4; // rcx
-  __int64 v5; // rdi
+  unsigned __int64 v4; // rcx
+  unsigned __int64 v5; // rdi
   unsigned int NameSpaceObject; // eax
-  __int64 v7; // rbp
+  unsigned __int64 v7; // r15
   unsigned int v8; // ebx
-  _QWORD *v10; // r14
-  __int64 v11; // rax
-  __int64 *v12; // rcx
-  __int64 v13; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v14; // [rsp+68h] [rbp+10h] BYREF
+  __int64 *v9; // r14
+  __int64 v10; // rax
+  unsigned __int64 *v11; // rcx
+  unsigned __int64 v13; // [rsp+60h] [rbp+8h] BYREF
+  unsigned __int64 v14; // [rsp+68h] [rbp+10h] BYREF
 
   v14 = 0LL;
   v4 = a2[10];
   v5 = 0LL;
   v13 = 0LL;
-  NameSpaceObject = GetNameSpaceObject(*(_BYTE **)(v4 + 32), *(_QWORD *)(a1 + 80), (__int64)&v14, 0x80000000);
+  NameSpaceObject = GetNameSpaceObject(*(_BYTE **)(v4 + 32), *(_QWORD *)(a1 + 80), (__int64 *)&v14, 0x80000000);
   v7 = v14;
   v8 = NameSpaceObject;
   if ( NameSpaceObject )
-    goto LABEL_6;
-  v8 = GetNameSpaceObject(*(_BYTE **)(a2[10] + 72LL), *(_QWORD *)(a1 + 80), (__int64)&v13, 0x80000000);
+    goto LABEL_11;
+  v8 = GetNameSpaceObject(*(_BYTE **)(a2[10] + 72), *(_QWORD *)(a1 + 80), (__int64 *)&v13, 0x80000000);
   if ( v8 )
-    goto LABEL_5;
+    goto LABEL_10;
   if ( *(_WORD *)(v7 + 66) != 5 )
   {
     v8 = -1072431095;
-    LogError(-1072431095);
-    AcpiDiagTraceAmlError(a1, -1072431095);
-    PrintDebugMessage(64, *(const void **)(a2[10] + 32LL), 0LL, 0LL, 0LL);
-LABEL_5:
+    LogError(3222536201LL);
+    AcpiDiagTraceAmlError(a1, 3222536201LL);
+    PrintDebugMessage(64, *(_QWORD *)(a2[10] + 32), 0, 0, 0LL);
+LABEL_10:
     v5 = v13;
-    goto LABEL_6;
+    goto LABEL_11;
   }
   v5 = v13;
   if ( *(_WORD *)(v13 + 66) == 5 )
   {
-    v10 = a2 + 8;
+    v9 = (__int64 *)(a2 + 8);
     v8 = CreateNameSpaceObject(
            *(_QWORD *)(a1 + 320),
            0LL,
@@ -62,37 +62,37 @@ LABEL_5:
            0);
     if ( !v8 )
     {
-      *(_WORD *)(*v10 + 66LL) = 132;
-      *(_DWORD *)(*v10 + 88LL) = 16;
-      v11 = HeapAlloc(*(_QWORD *)(a1 + 320), 1180191048, *(_DWORD *)(*v10 + 88LL));
-      *(_QWORD *)(*v10 + 96LL) = v11;
-      if ( v11 )
+      *(_WORD *)(*v9 + 66) = 132;
+      *(_DWORD *)(*v9 + 88) = 16;
+      v10 = HeapAlloc(*(struct _SLIST_ENTRY **)(a1 + 320), 1180191048, *(_DWORD *)(*v9 + 88));
+      *(_QWORD *)(*v9 + 96) = v10;
+      if ( v10 )
       {
-        memset(*(void **)(*v10 + 96LL), 0, *(unsigned int *)(*v10 + 88LL));
-        v12 = *(__int64 **)(*v10 + 96LL);
-        *v12 = v7;
-        v12[1] = v5;
-        v8 = ParseFieldList(a1, a2[5], *v10, *(_DWORD *)(a2[10] + 96LL), -1);
+        memset(*(void **)(*v9 + 96), 0, *(unsigned int *)(*v9 + 88));
+        v11 = *(unsigned __int64 **)(*v9 + 96);
+        *v11 = v7;
+        v11[1] = v5;
+        v8 = ParseFieldList(a1, a2[5], *v9, *(unsigned int *)(a2[10] + 96), 0xFFFFFFFF);
         if ( !v8 )
           return v8;
       }
       else
       {
         v8 = -1073741670;
-        LogError(-1073741670);
-        AcpiDiagTraceAmlError(a1, -1073741670);
-        PrintDebugMessage(63, 0LL, 0LL, 0LL, 0LL);
+        LogError(3221225626LL);
+        AcpiDiagTraceAmlError(a1, 3221225626LL);
+        PrintDebugMessage(63, 0, 0, 0, 0LL);
       }
     }
   }
   else
   {
     v8 = -1072431095;
-    LogError(-1072431095);
-    AcpiDiagTraceAmlError(a1, -1072431095);
-    PrintDebugMessage(62, *(const void **)(a2[10] + 72LL), 0LL, 0LL, 0LL);
+    LogError(3222536201LL);
+    AcpiDiagTraceAmlError(a1, 3222536201LL);
+    PrintDebugMessage(62, *(_QWORD *)(a2[10] + 72), 0, 0, 0LL);
   }
-LABEL_6:
+LABEL_11:
   if ( v7 )
     DereferenceObjectEx(v7);
   if ( v5 )

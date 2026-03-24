@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxDuplicateUniqueId @ 0x1403958CC
+ * XREFs of PopFxDuplicateUniqueId @ 0x1403BE79C
  * Callers:
- *     PopFxCreateDeviceCommon @ 0x1403956A4 (PopFxCreateDeviceCommon.c)
+ *     PopFxCreateDeviceCommon @ 0x1403BE568 (PopFxCreateDeviceCommon.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxDuplicateUniqueId(const void **a1, __int64 a2)
 {
   __int64 v2; // rsi
   unsigned __int16 v5; // si
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   unsigned int v7; // ebx
-  void *v8; // rbp
+  PVOID v8; // rbp
 
   v2 = *(unsigned __int16 *)a1;
   if ( *((unsigned __int16 *)a1 + 1) < (unsigned __int64)(v2 + 2) )
@@ -23,12 +23,12 @@ __int64 __fastcall PopFxDuplicateUniqueId(const void **a1, __int64 a2)
   else
   {
     v5 = v2 + 2;
-    Pool2 = (void *)ExAllocatePool2(64LL, v5, 1297630800LL);
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v5, 0x4D584650u);
     v7 = 0;
-    v8 = Pool2;
-    if ( Pool2 )
+    v8 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memmove(Pool2, a1[1], v5);
+      memmove(PoolWithTag, a1[1], v5);
       *(_WORD *)a2 = *(_WORD *)a1;
       *(_QWORD *)(a2 + 8) = v8;
       *(_WORD *)(a2 + 2) = v5;

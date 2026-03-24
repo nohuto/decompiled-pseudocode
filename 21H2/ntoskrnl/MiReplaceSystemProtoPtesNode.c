@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReplaceSystemProtoPtesNode @ 0x1405C350C
+ * XREFs of MiReplaceSystemProtoPtesNode @ 0x140557EB0
  * Callers:
- *     MiAllocateFileExtents @ 0x14096F8CC (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
  * Callees:
- *     MiObtainProtoBaseFromNode @ 0x14026EBC4 (MiObtainProtoBaseFromNode.c)
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     MiObtainProtoBaseFromNode @ 0x1402F8350 (MiObtainProtoBaseFromNode.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReplaceSystemProtoPtesNode(unsigned __int64 *a1, _QWORD *a2)
@@ -16,100 +16,51 @@ __int64 __fastcall MiReplaceSystemProtoPtesNode(unsigned __int64 *a1, _QWORD *a2
   unsigned __int64 v4; // rbp
   unsigned __int64 v5; // rdi
   bool v6; // r8
-  _QWORD *v7; // rdx
-  unsigned __int64 v8; // rax
-  int v9; // eax
-  int v10; // eax
-  int v11; // eax
-  unsigned __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rax
-  _QWORD *v16; // rax
+  _QWORD *v7; // r10
+  _QWORD *v8; // rax
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v20; // zf
-  __int64 v21; // [rsp+30h] [rbp+8h] BYREF
+  bool v12; // zf
+  __int64 v13; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v14; // [rsp+48h] [rbp+10h] BYREF
 
-  v21 = 0LL;
-  v4 = MiObtainProtoBaseFromNode(a1, &v21);
-  v5 = ExAcquireSpinLockExclusive(&dword_140C4F2F8);
-  RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4F2F0, a1);
+  v13 = 0LL;
+  v4 = MiObtainProtoBaseFromNode(a1, &v13);
+  v5 = ExAcquireSpinLockExclusive(&dword_140C4CB40);
+  RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4CB38, a1);
   a1[3] &= ~8uLL;
   v6 = 0;
-  v7 = (_QWORD *)qword_140C4F2F0;
-  if ( qword_140C4F2F0 )
+  v7 = (_QWORD *)qword_140C4CB38;
+  if ( qword_140C4CB38 )
   {
     while ( 1 )
     {
-      v8 = v7[3] & 7LL;
-      if ( v8 > 4 )
-        goto LABEL_15;
-      if ( !(_DWORD)v8 )
-      {
-        v12 = *(v7 - 14);
-        goto LABEL_16;
-      }
-      v9 = v8 - 1;
-      if ( !v9 )
-      {
-        v12 = *(v7 - 6);
-        goto LABEL_16;
-      }
-      v10 = v9 - 1;
-      if ( v10 )
-        break;
-      v13 = *(v7 - 7) + 128LL;
       v14 = 0LL;
-      v12 = *(_QWORD *)(*(v7 - 7) + 136LL);
-      do
+      if ( v4 < MiObtainProtoBaseFromNode(v7, &v14) )
       {
-        v15 = *(unsigned int *)(v13 + 44);
-        v13 = *(_QWORD *)(v13 + 16);
-        v14 += v15;
-      }
-      while ( v13 );
-LABEL_16:
-      if ( v4 >= v12 )
-      {
-        v16 = (_QWORD *)v7[1];
-        if ( !v16 )
+        v8 = (_QWORD *)*v7;
+        if ( !*v7 )
         {
-          v6 = 1;
-          goto LABEL_22;
+          v6 = 0;
+          break;
         }
       }
       else
       {
-        v16 = (_QWORD *)*v7;
-        if ( !*v7 )
+        v8 = (_QWORD *)v7[1];
+        if ( !v8 )
         {
-          v6 = 0;
-          goto LABEL_22;
+          v6 = 1;
+          break;
         }
       }
-      v7 = v16;
+      v7 = v8;
     }
-    v11 = v10 - 1;
-    if ( !v11 )
-    {
-      v12 = v7[6];
-      goto LABEL_16;
-    }
-    if ( v11 == 1 )
-    {
-      v12 = v7[4];
-      goto LABEL_16;
-    }
-LABEL_15:
-    v12 = 0LL;
-    goto LABEL_16;
   }
-LABEL_22:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4F2F0, (unsigned __int64)v7, v6, a2);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4CB38, (unsigned __int64)v7, v6, a2);
   a2[3] |= 8uLL;
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4F2F8);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4CB40);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
@@ -121,9 +72,9 @@ LABEL_22:
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
         result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-        v20 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v20 )
+        if ( v12 )
           result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }

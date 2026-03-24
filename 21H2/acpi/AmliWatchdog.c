@@ -1,9 +1,9 @@
 /*
- * XREFs of AmliWatchdog @ 0x1C0064280
+ * XREFs of AmliWatchdog @ 0x1C0062F50
  * Callers:
  *     <none>
  * Callees:
- *     AmliWatchdogTimeoutAction @ 0x1C0064394 (AmliWatchdogTimeoutAction.c)
+ *     AmliWatchdogTimeoutAction @ 0x1C0063064 (AmliWatchdogTimeoutAction.c)
  */
 
 void __fastcall AmliWatchdog(struct _KDPC *Dpc, PVOID DeferredContext, PVOID SystemArgument1, PVOID SystemArgument2)

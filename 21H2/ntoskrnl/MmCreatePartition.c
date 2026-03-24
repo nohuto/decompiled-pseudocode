@@ -1,109 +1,102 @@
 /*
- * XREFs of MmCreatePartition @ 0x1403D981C
+ * XREFs of MmCreatePartition @ 0x1403CA974
  * Callers:
- *     DifGetAvailableSystemPages @ 0x1406289C8 (DifGetAvailableSystemPages.c)
- *     PspAllocatePartition @ 0x14085BD34 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x1407CC2B4 (PspAllocatePartition.c)
+ *     VfUtilGetAvailableSystemPages @ 0x1409C66E0 (VfUtilGetAvailableSystemPages.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MiPopulateFreeKernelShadowStackCacheEntries @ 0x1403B72B4 (MiPopulateFreeKernelShadowStackCacheEntries.c)
- *     MiGetPartitionLargePageListCount @ 0x1403B7A60 (MiGetPartitionLargePageListCount.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x1403DADE0 (MiInitializeWorkingSetManagerParameters.c)
- *     MiDeletePartition @ 0x14058DDC0 (MiDeletePartition.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x14074D200 (ExAllocateCacheAwareRundownProtection.c)
- *     MiInitializePartition @ 0x14081D450 (MiInitializePartition.c)
- *     MiCreatePfnBitMaps @ 0x14082ACF0 (MiCreatePfnBitMaps.c)
- *     MiInitializeMemoryEvents @ 0x14082BD64 (MiInitializeMemoryEvents.c)
- *     MiAllocatePartitionId @ 0x14096C1B0 (MiAllocatePartitionId.c)
- *     MiInitializePartitionThreads @ 0x14096C3A8 (MiInitializePartitionThreads.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1403CBD04 (MiInitializeWorkingSetManagerParameters.c)
+ *     MiGetPartitionLargePageListCount @ 0x1403F6A98 (MiGetPartitionLargePageListCount.c)
+ *     MiDeletePartition @ 0x1405356DC (MiDeletePartition.c)
+ *     MiSizeMemoryListLocks @ 0x1406C3F48 (MiSizeMemoryListLocks.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x14071BDB0 (ExAllocateCacheAwareRundownProtection.c)
+ *     MiInitializePartition @ 0x14079C65C (MiInitializePartition.c)
+ *     MiInitializeMemoryEvents @ 0x1407A06D4 (MiInitializeMemoryEvents.c)
+ *     MiCreatePfnBitMaps @ 0x1407B94E4 (MiCreatePfnBitMaps.c)
+ *     MiAllocatePartitionId @ 0x1408C7A9C (MiAllocatePartitionId.c)
+ *     MiInitializePartitionThreads @ 0x1408C7C54 (MiInitializePartitionThreads.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
+__int64 __fastcall MmCreatePartition(_QWORD *a1, char a2)
 {
   __int64 result; // rax
+  __int64 v4; // rbx
   unsigned int PartitionLargePageListCount; // eax
-  __int64 v6; // r11
-  __int64 v7; // r10
-  __int64 v8; // r15
-  __int64 v9; // rdi
-  __int64 v10; // r14
-  union _SLIST_HEADER *Pool; // rax
-  union _SLIST_HEADER *v12; // rbx
-  __int64 v13; // r8
-  __int64 v14; // rdx
-  unsigned __int64 v15; // r8
-  unsigned __int64 v16; // rcx
-  unsigned __int64 v17; // rcx
-  unsigned __int64 v18; // r14
+  __int64 v6; // r10
+  __int64 v7; // rbp
+  __int64 v8; // r11
+  _QWORD *Pool; // rax
+  _QWORD *v10; // rdi
+  __int64 v11; // r8
+  __int64 v12; // rdx
+  unsigned __int64 v13; // r8
+  unsigned __int64 v14; // rcx
+  unsigned __int64 v15; // rcx
   unsigned __int16 PartitionId; // ax
+  int v17; // ebx
   PEX_RUNDOWN_REF_CACHE_AWARE CacheAwareRundownProtection; // rax
-  int v21; // edi
 
   if ( (a2 & 1) != 0 )
   {
-    *a1 = (union _SLIST_HEADER *)&MiSystemPartition;
+    *a1 = &MiSystemPartition;
     result = 0LL;
-    qword_140C55030 = (__int64)a1;
+    qword_140C50E30 = (__int64)a1;
     return result;
   }
+  v4 = MiSizeMemoryListLocks();
   PartitionLargePageListCount = MiGetPartitionLargePageListCount();
-  v8 = 24576 * v7;
-  v9 = v7 * (16LL * (unsigned int)dword_140C507C0[0] + 8);
-  v10 = 24LL * PartitionLargePageListCount;
-  Pool = (union _SLIST_HEADER *)MiAllocatePool(
-                                  64,
-                                  24576 * v7 + ((v9 + v10 + v6 + 15) & 0xFFFFFFFFFFFFFFF0uLL),
-                                  0x6150694Du);
-  v12 = Pool;
+  v7 = 3LL * PartitionLargePageListCount;
+  Pool = MiAllocatePool(
+           64,
+           ((4544 * v6 + 11535 + 40 * v8) & 0xFFFFFFFFFFFFFFF0uLL)
+         + 24LL * PartitionLargePageListCount
+         + 16 * (v8 + v6 * (unsigned int)dword_140C4DF80[0])
+         + v4
+         + 8,
+           0x6150694Du);
+  v10 = Pool;
   if ( !Pool )
     return 3221225626LL;
-  Pool[1].Alignment = (unsigned __int64)&Pool[1340];
-  v13 = (__int64)&Pool[1532 * (unsigned __int16)KeNumberNodes + 1340];
-  Pool[152].Alignment = v13;
-  v14 = v13 + 88LL * (unsigned int)dword_140C5073C;
-  Pool[152].Region = v14;
-  v15 = (v14 + 88LL * (unsigned int)dword_140C5073C + 15) & 0xFFFFFFFFFFFFFFF0uLL;
-  Pool[413].Region = v15;
-  v16 = v15 + 16LL * (unsigned int)dword_140C5073C;
-  Pool[414].Alignment = v16;
-  v17 = 16LL * (unsigned int)dword_140C5073C + v16;
-  Pool[11].Alignment = (unsigned __int64)a1;
-  v18 = v17 + v10;
-  Pool[990].Region = v17;
-  Pool[999].Alignment = v18;
+  Pool[2] = Pool + 1440;
+  v11 = (__int64)&Pool[568 * (unsigned __int16)KeNumberNodes + 1440];
+  Pool[272] = v11;
+  v12 = v11 + 40LL * (unsigned int)dword_140C4DEFC;
+  Pool[273] = v12;
+  v13 = (v12 + 40LL * (unsigned int)dword_140C4DEFC + 15) & 0xFFFFFFFFFFFFFFF0uLL;
+  Pool[525] = v13;
+  v14 = v13 + 16LL * (unsigned int)dword_140C4DEFC;
+  Pool[526] = v14;
+  v15 = 16LL * (unsigned int)dword_140C4DEFC + v14;
+  Pool[612] = 0LL;
+  Pool[629] = v15;
+  Pool[22] = a1;
+  Pool[637] = v15 + v4;
+  Pool[770] = v15 + v4 + 8 * v7;
   PartitionId = MiAllocatePartitionId(Pool);
   if ( !PartitionId )
   {
-    ExFreePoolWithTag(v12, 0);
+    ExFreePoolWithTag(v10, 0);
     return 3221225495LL;
   }
-  MiInitializePartition(v12, PartitionId);
-  MiPopulateFreeKernelShadowStackCacheEntries(v12, (struct _SLIST_ENTRY *)((v18 + v9 + 15) & 0xFFFFFFFFFFFFFFF0uLL), v8);
-  if ( !(unsigned int)MiInitializeMemoryEvents(v12)
-    || !(unsigned int)MiCreatePfnBitMaps(v12, 0LL)
-    || !(unsigned int)MiInitializeWorkingSetManagerParameters(v12)
-    || (CacheAwareRundownProtection = ExAllocateCacheAwareRundownProtection(NonPagedPoolNx, 0x7270694Du),
-        (v12[148].Alignment = (unsigned __int64)CacheAwareRundownProtection) == 0) )
+  MiInitializePartition(v10, PartitionId);
+  if ( (unsigned int)MiInitializeMemoryEvents(v10)
+    && (unsigned int)MiCreatePfnBitMaps(v10, 0LL)
+    && (unsigned int)MiInitializeWorkingSetManagerParameters(v10)
+    && (CacheAwareRundownProtection = ExAllocateCacheAwareRundownProtection(NonPagedPoolNx, 0x7270694Du),
+        (v10[268] = CacheAwareRundownProtection) != 0LL) )
   {
-    v21 = -1073741670;
-    goto LABEL_14;
+    v17 = MiInitializePartitionThreads((__int64)v10);
+    if ( v17 >= 0 )
+    {
+      *a1 = v10;
+      return (unsigned int)v17;
+    }
   }
-  v21 = MiInitializePartitionThreads(v12);
-  if ( v21 < 0 )
+  else
   {
-LABEL_14:
-    MiDeletePartition(v12);
-    goto LABEL_15;
+    v17 = -1073741670;
   }
-  *a1 = v12;
-LABEL_15:
-  if ( (a2 & 2) != 0 )
-  {
-    *((_DWORD *)&v12->HeaderX64 + 1) |= 0x100u;
-    v12[1039] = 0LL;
-    v12[1040] = 0LL;
-    v12[1041] = 0LL;
-    v12[1042].Alignment = 0LL;
-  }
-  return (unsigned int)v21;
+  MiDeletePartition(v10);
+  return (unsigned int)v17;
 }

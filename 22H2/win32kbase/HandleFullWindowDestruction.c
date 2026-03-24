@@ -1,40 +1,33 @@
 /*
- * XREFs of HandleFullWindowDestruction @ 0x1C0052F30
+ * XREFs of HandleFullWindowDestruction @ 0x1C0043B70
  * Callers:
  *     <none>
  * Callees:
- *     HandleInputDestDestruction @ 0x1C0052E4C (HandleInputDestDestruction.c)
- *     INPUTDEST_FROM_PWND @ 0x1C0052FA0 (INPUTDEST_FROM_PWND.c)
+ *     HandleInputDestDestruction @ 0x1C0043C1C (HandleInputDestDestruction.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
-void __fastcall HandleFullWindowDestruction(__int64 a1)
+__int64 __fastcall HandleFullWindowDestruction(__int64 a1)
 {
-  _OWORD *v1; // rax
-  __int128 v2; // xmm1
-  __int128 v3; // xmm0
-  __int128 v4; // xmm1
-  __int128 v5; // xmm0
-  __int128 v6; // xmm1
-  __int128 v7; // xmm0
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  _OWORD v11[7]; // [rsp+20h] [rbp-E8h] BYREF
-  __int64 v12; // [rsp+90h] [rbp-78h] BYREF
+  __int64 v2; // rax
+  _OWORD v4[7]; // [rsp+20h] [rbp-89h] BYREF
+  _OWORD v5[7]; // [rsp+90h] [rbp-19h] BYREF
 
-  v1 = (_OWORD *)INPUTDEST_FROM_PWND(&v12, a1);
-  v2 = v1[1];
-  v11[0] = *v1;
-  v3 = v1[2];
-  v11[1] = v2;
-  v4 = v1[3];
-  v11[2] = v3;
-  v5 = v1[4];
-  v11[3] = v4;
-  v6 = v1[5];
-  v11[4] = v5;
-  v7 = v1[6];
-  v11[5] = v6;
-  v11[6] = v7;
-  HandleInputDestDestruction((__int64)v11, v8, v9, v10);
+  memset(v4, 0, sizeof(v4));
+  if ( a1 )
+  {
+    v2 = *(_QWORD *)(a1 + 16);
+    LODWORD(v4[0]) = 4;
+    *(_QWORD *)&v4[5] = a1;
+    HIDWORD(v4[5]) = 2;
+    HIDWORD(v4[6]) = *(_DWORD *)(*(_QWORD *)(v2 + 424) + 1088LL);
+  }
+  v5[0] = v4[0];
+  v5[1] = v4[1];
+  v5[2] = v4[2];
+  v5[3] = v4[3];
+  v5[4] = v4[4];
+  v5[5] = v4[5];
+  v5[6] = v4[6];
+  return HandleInputDestDestruction((struct tagINPUTDEST *)v5);
 }

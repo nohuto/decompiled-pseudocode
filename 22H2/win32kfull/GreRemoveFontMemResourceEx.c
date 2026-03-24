@@ -1,39 +1,35 @@
 /*
- * XREFs of GreRemoveFontMemResourceEx @ 0x1C028E564
+ * XREFs of GreRemoveFontMemResourceEx @ 0x1C028AE28
  * Callers:
- *     NtGdiAddFontMemResourceEx @ 0x1C02C1CF0 (NtGdiAddFontMemResourceEx.c)
- *     NtGdiRemoveFontMemResourceEx @ 0x1C02C4570 (NtGdiRemoveFontMemResourceEx.c)
+ *     NtGdiAddFontMemResourceEx @ 0x1C02ADA00 (NtGdiAddFontMemResourceEx.c)
+ *     NtGdiRemoveFontMemResourceEx @ 0x1C02AF660 (NtGdiRemoveFontMemResourceEx.c)
  * Callees:
- *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C01149B0 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
- *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C0159ACA (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C00A20A8 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C0160C1C (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
  */
 
-__int64 __fastcall GreRemoveFontMemResourceEx(Gre::Base *a1)
+__int64 __fastcall GreRemoveFontMemResourceEx(unsigned int a1)
 {
-  unsigned int v1; // edi
-  unsigned int v2; // esi
-  struct Gre::Base::SESSION_GLOBALS *v3; // rbx
-  struct PFT *v4; // rcx
+  unsigned int v2; // ebx
   struct PFF *PFFFromId; // rax
-  struct PFT *v7; // [rsp+20h] [rbp-18h] BYREF
-  struct PFF **v8; // [rsp+48h] [rbp+10h] BYREF
+  struct PFF **v5; // [rsp+38h] [rbp+10h] BYREF
+  struct PFT **v6; // [rsp+40h] [rbp+18h] BYREF
 
-  v1 = 0;
-  v2 = (unsigned int)a1;
-  v8 = 0LL;
-  v3 = Gre::Base::Globals(a1);
-  GreAcquireSemaphore(*((_QWORD *)v3 + 6));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemPublicPFT", *((_QWORD *)v3 + 6), 14LL);
-  v4 = (struct PFT *)*((_QWORD *)v3 + 796);
-  v7 = v4;
-  if ( v4 && (PFFFromId = GetPFFFromId(v4, v2, &v8)) != 0LL && (*((_DWORD *)PFFFromId + 13) & 0x10) != 0 )
+  v2 = 0;
+  v5 = 0LL;
+  GreAcquireSemaphore(ghsemPublicPFT);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemPublicPFT", ghsemPublicPFT, 15LL);
+  v6 = gpPFTPrivate;
+  if ( gpPFTPrivate
+    && (PFFFromId = GetPFFFromId(gpPFTPrivate, a1, &v5)) != 0LL
+    && (*((_DWORD *)PFFFromId + 13) & 0x10) != 0 )
   {
-    return PFTOBJ::bUnloadWorkhorse((PFTOBJ *)&v7, PFFFromId, v8, 0x30u);
+    return (unsigned int)PFTOBJ::bUnloadWorkhorse((PFTOBJ *)&v6, PFFFromId, v5, 0x30u);
   }
   else
   {
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemPublicPFT");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v3 + 6));
+    EtwTraceGreLockReleaseSemaphore(L"ghsemPublicPFT", ghsemPublicPFT);
+    GreReleaseSemaphoreInternal(ghsemPublicPFT);
   }
-  return v1;
+  return v2;
 }

@@ -1,24 +1,26 @@
 /*
- * XREFs of DpQueueDpc @ 0x1C00163C0
+ * XREFs of DpQueueDpc @ 0x1C0014EE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-BOOLEAN __fastcall DpQueueDpc(__int64 a1)
+BOOLEAN __fastcall DpQueueDpc(__int64 a1, __int64 a2)
 {
-  __int64 v1; // rcx
+  __int64 v3; // rax
 
   if ( a1 )
   {
-    v1 = *(_QWORD *)(a1 + 64);
-    if ( v1 )
+    a1 = *(_QWORD *)(a1 + 64);
+    if ( a1 )
     {
-      if ( *(_DWORD *)(v1 + 16) == 1953656900 && (unsigned int)(*(_DWORD *)(v1 + 20) - 2) <= 1 )
-        return KeInsertQueueDpc((PRKDPC)(v1 + 1384), 0LL, 0LL);
+      if ( *(_DWORD *)(a1 + 16) == 1953656900 && (unsigned int)(*(_DWORD *)(a1 + 20) - 2) <= 1 )
+        return KeInsertQueueDpc((PRKDPC)(a1 + 1384), 0LL, 0LL);
     }
   }
-  WdLogSingleEntry1(2LL, -1073741811LL);
+  v3 = WdLogNewEntry5_WdError(a1, a2);
+  *(_QWORD *)(v3 + 24) = -1073741811LL;
+  WdLogEvent5_WdError(v3);
   return 0;
 }

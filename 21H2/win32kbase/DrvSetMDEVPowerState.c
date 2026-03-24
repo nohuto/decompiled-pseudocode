@@ -1,25 +1,26 @@
 /*
- * XREFs of DrvSetMDEVPowerState @ 0x1C00D41D0
+ * XREFs of DrvSetMDEVPowerState @ 0x1C00C4970
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DrvSetMDEVPowerState(__int64 a1, int a2)
+void __fastcall DrvSetMDEVPowerState(__int64 a1, int a2)
 {
   unsigned int i; // r9d
-  __int64 result; // rax
-  __int64 v4; // r8
+  __int64 v3; // r8
+  int v4; // eax
+  unsigned int v5; // eax
 
-  for ( i = 0; i < *(_DWORD *)(a1 + 20); ++i )
+  for ( i = 0; i < *(_DWORD *)(a1 + 20); *(_DWORD *)(v3 + 160) = v5 )
   {
-    result = *(_QWORD *)(56LL * i + a1 + 40);
-    v4 = *(_QWORD *)(result + 2552);
+    v3 = *(_QWORD *)(*(_QWORD *)(56LL * i + a1 + 40) + 2576LL);
+    v4 = *(_DWORD *)(v3 + 160);
     if ( a2 )
-      *(_DWORD *)(v4 + 160) &= ~0x80000000;
+      v5 = v4 & 0x7FFFFFFF;
     else
-      *(_DWORD *)(v4 + 160) |= 0x80000000;
+      v5 = v4 | 0x80000000;
+    ++i;
   }
-  return result;
 }

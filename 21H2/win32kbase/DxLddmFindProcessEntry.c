@@ -1,7 +1,7 @@
 /*
- * XREFs of DxLddmFindProcessEntry @ 0x1C006FF20
+ * XREFs of DxLddmFindProcessEntry @ 0x1C0011190
  * Callers:
- *     ?DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z @ 0x1C006FEC8 (-DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z.c)
+ *     ?DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z @ 0x1C001113C (-DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,51 +1,47 @@
 /*
- * XREFs of EtwUnregister @ 0x1406B7470
+ * XREFs of EtwUnregister @ 0x1407601D0
  * Callers:
- *     BapdWriteEtwEvents @ 0x1403B6E4C (BapdWriteEtwEvents.c)
- *     HvlPhase2Initialize @ 0x1403DE4F0 (HvlPhase2Initialize.c)
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
- *     CarLoggingExit @ 0x1406030C8 (CarLoggingExit.c)
- *     McGenEventUnregister_EtwUnregister @ 0x140603264 (McGenEventUnregister_EtwUnregister.c)
- *     DifEtwUnregisterWrapper @ 0x140606760 (DifEtwUnregisterWrapper.c)
- *     WmipGECleanup @ 0x140804E40 (WmipGECleanup.c)
- *     PopBootLoaderTraceProcess @ 0x1408087A4 (PopBootLoaderTraceProcess.c)
- *     WmipLegacyEtwWorker @ 0x140855120 (WmipLegacyEtwWorker.c)
- *     WmipProcessLegacyEtwRegister @ 0x140855238 (WmipProcessLegacyEtwRegister.c)
- *     VrpRegistryUnload @ 0x140926260 (VrpRegistryUnload.c)
- *     DbgkpStartSystemErrorHandler @ 0x14092A77C (DbgkpStartSystemErrorHandler.c)
- *     DbgkCaptureLiveDump @ 0x14092AC5C (DbgkCaptureLiveDump.c)
- *     SSHSupportEtwUnregister @ 0x1409A0CB8 (SSHSupportEtwUnregister.c)
- *     PsShutdownSystem @ 0x1409B1074 (PsShutdownSystem.c)
- *     BapdRecordFirmwareBootStats @ 0x140A5464C (BapdRecordFirmwareBootStats.c)
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
- *     PerfDiagInitialize @ 0x140B1A3F4 (PerfDiagInitialize.c)
- *     BapdpRecordIumStatus @ 0x140B1CB28 (BapdpRecordIumStatus.c)
- *     VslpIumInitializeTelemetry @ 0x140B2E584 (VslpIumInitializeTelemetry.c)
- *     ObpShutdownTraceLoggingProvider @ 0x140B52C84 (ObpShutdownTraceLoggingProvider.c)
+ *     BapdWriteEtwEvents @ 0x14039B028 (BapdWriteEtwEvents.c)
+ *     HvlPhase2Initialize @ 0x1403CF0B8 (HvlPhase2Initialize.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     WmipGECleanup @ 0x140772700 (WmipGECleanup.c)
+ *     PopBootLoaderTraceProcess @ 0x14077A118 (PopBootLoaderTraceProcess.c)
+ *     WmipLegacyEtwWorker @ 0x1407C4FC0 (WmipLegacyEtwWorker.c)
+ *     WmipProcessLegacyEtwRegister @ 0x1407C5120 (WmipProcessLegacyEtwRegister.c)
+ *     TraceLoggingUnregister_EtwUnregister @ 0x140882730 (TraceLoggingUnregister_EtwUnregister.c)
+ *     DbgkpStartSystemErrorHandler @ 0x140887850 (DbgkpStartSystemErrorHandler.c)
+ *     DbgkCaptureLiveDump @ 0x140887D1C (DbgkCaptureLiveDump.c)
+ *     SSHSupportEtwUnregister @ 0x1408FBAB8 (SSHSupportEtwUnregister.c)
+ *     PsShutdownSystem @ 0x14090A9F4 (PsShutdownSystem.c)
+ *     BapdRecordFirmwareBootStats @ 0x140999260 (BapdRecordFirmwareBootStats.c)
+ *     BapdpRecordIumStatus @ 0x140A41AAC (BapdpRecordIumStatus.c)
+ *     PerfDiagInitialize @ 0x140A42BBC (PerfDiagInitialize.c)
+ *     VslpIumInitializeTelemetry @ 0x140A72D90 (VslpIumInitializeTelemetry.c)
+ *     SshpUninitialize @ 0x140A935A4 (SshpUninitialize.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     EtwpUnreferenceGuidEntry @ 0x140796B04 (EtwpUnreferenceGuidEntry.c)
- *     EtwpReleaseProviderTraitsReference @ 0x1407973D0 (EtwpReleaseProviderTraitsReference.c)
- *     EtwpEventWriteTemplateSessAndProv @ 0x140882EB0 (EtwpEventWriteTemplateSessAndProv.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpReleaseProviderTraitsReference @ 0x140699A88 (EtwpReleaseProviderTraitsReference.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x140939DA0 (EtwpEventWriteTemplateSessAndProv.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall EtwUnregister(REGHANDLE RegHandle)
 {
+  struct _KTHREAD *v2; // rax
+  __int64 v3; // rcx
+  _QWORD *v4; // rax
+  __int64 v5; // rdx
+  _QWORD *v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 *v10; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  struct _KTHREAD *v3; // rax
-  __int64 v4; // rcx
-  _QWORD *v5; // rax
-  __int64 v6; // rdx
-  _QWORD *v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  void *v11; // rcx
 
   if ( !RegHandle )
     return -1073741816;
@@ -58,42 +54,42 @@ NTSTATUS __stdcall EtwUnregister(REGHANDLE RegHandle)
     ExAcquirePushLockExclusiveEx(*(_QWORD *)(RegHandle + 40) + 408LL, 0LL);
     *(_QWORD *)(*(_QWORD *)(RegHandle + 40) + 416LL) = KeGetCurrentThread();
   }
-  v3 = KeGetCurrentThread();
-  --v3->KernelApcDisable;
+  v2 = KeGetCurrentThread();
+  --v2->KernelApcDisable;
   ExAcquirePushLockExclusiveEx(*(_QWORD *)(RegHandle + 32) + 408LL, 0LL);
   *(_QWORD *)(*(_QWORD *)(RegHandle + 32) + 416LL) = KeGetCurrentThread();
-  v4 = *(_QWORD *)RegHandle;
+  v3 = *(_QWORD *)RegHandle;
   if ( *(_QWORD *)(*(_QWORD *)RegHandle + 8LL) != RegHandle
-    || (v5 = *(_QWORD **)(RegHandle + 8), *v5 != RegHandle)
-    || (*v5 = v4, *(_QWORD *)(v4 + 8) = v5, v6 = *(_QWORD *)(RegHandle + 16), *(_QWORD *)(v6 + 8) != RegHandle + 16)
-    || (v7 = *(_QWORD **)(RegHandle + 24), *v7 != RegHandle + 16) )
+    || (v4 = *(_QWORD **)(RegHandle + 8), *v4 != RegHandle)
+    || (*v4 = v3, *(_QWORD *)(v3 + 8) = v4, v5 = *(_QWORD *)(RegHandle + 16), *(_QWORD *)(v5 + 8) != RegHandle + 16)
+    || (v6 = *(_QWORD **)(RegHandle + 24), *v6 != RegHandle + 16) )
   {
     __fastfail(3u);
   }
-  *v7 = v6;
-  *(_QWORD *)(v6 + 8) = v7;
+  *v6 = v5;
+  *(_QWORD *)(v5 + 8) = v6;
   *(_QWORD *)(*(_QWORD *)(RegHandle + 32) + 416LL) = 0LL;
   ExReleasePushLockEx(*(_QWORD *)(RegHandle + 32) + 408LL, 0LL);
   KeLeaveCriticalRegion();
-  v8 = *(_QWORD *)(RegHandle + 40);
-  if ( v8 )
+  v7 = *(_QWORD *)(RegHandle + 40);
+  if ( v7 )
   {
-    *(_QWORD *)(v8 + 416) = 0LL;
+    *(_QWORD *)(v7 + 416) = 0LL;
     ExReleasePushLockEx(*(_QWORD *)(RegHandle + 40) + 408LL, 0LL);
     KeLeaveCriticalRegion();
   }
   if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_PROVIDER_UNREGISTERS) )
     EtwpEventWriteTemplateSessAndProv(
-      v9,
+      v8,
       &ETW_EVENT_PROVIDER_UNREGISTERS,
-      v10,
+      v9,
       1LL,
       0LL,
       *(_QWORD *)(RegHandle + 32) + 40LL);
-  EtwpUnreferenceGuidEntry(*(PVOID *)(RegHandle + 32));
-  v11 = *(void **)(RegHandle + 40);
-  if ( v11 )
-    EtwpUnreferenceGuidEntry(v11);
+  EtwpUnreferenceGuidEntry(*(__int64 **)(RegHandle + 32));
+  v10 = *(__int64 **)(RegHandle + 40);
+  if ( v10 )
+    EtwpUnreferenceGuidEntry(v10);
   EtwpReleaseProviderTraitsReference(RegHandle);
   ExFreePoolWithTag((PVOID)RegHandle, 0);
   return 0;

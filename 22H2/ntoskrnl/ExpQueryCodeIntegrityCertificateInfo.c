@@ -1,43 +1,42 @@
 /*
- * XREFs of ExpQueryCodeIntegrityCertificateInfo @ 0x1409F6910
+ * XREFs of ExpQueryCodeIntegrityCertificateInfo @ 0x14094A6EC
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14041ABA0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14041ABE0 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x14041AFE0 (ZwCreateSection.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     FsRtlGetFileSize @ 0x1406AA1A0 (FsRtlGetFileSize.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140947050 (IoConvertFileHandleToKernelHandle.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1403F9F20 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403F9F60 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x1403FA360 (ZwCreateSection.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     FsRtlGetFileSize @ 0x140702130 (FsRtlGetFileSize.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14072B380 (IoConvertFileHandleToKernelHandle.c)
  */
 
 __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(void *a1, int a2)
 {
-  PVOID v2; // rsi
-  HANDLE FileHandle; // r14
+  struct _DMA_ADAPTER *DmaOperations; // rsi
+  void *FileHandle; // r14
   unsigned int v4; // r12d
   NTSTATUS v5; // edi
   NTSTATUS v6; // eax
   LARGE_INTEGER v7; // rbx
-  HANDLE Handle; // [rsp+50h] [rbp-19h] BYREF
-  PVOID Object; // [rsp+58h] [rbp-11h] BYREF
+  struct _DMA_ADAPTER Handle; // [rsp+50h] [rbp-19h] BYREF
   LARGE_INTEGER FileSize; // [rsp+60h] [rbp-9h] BYREF
   ULONG_PTR ViewSize; // [rsp+68h] [rbp-1h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
   PVOID BaseAddress; // [rsp+E0h] [rbp+77h] BYREF
   HANDLE SectionHandle; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v2 = 0LL;
   FileSize.QuadPart = 0LL;
-  FileHandle = 0LL;
+  DmaOperations = 0LL;
   ViewSize = 0LL;
-  Handle = 0LL;
+  FileHandle = 0LL;
+  *(_QWORD *)&Handle.Version = 0LL;
   SectionHandle = 0LL;
   BaseAddress = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   if ( a2 )
   {
     if ( a2 == 1 )
@@ -58,23 +57,29 @@ __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(void *a1, int a2)
   {
     v4 = 1;
   }
-  v5 = IoConvertFileHandleToKernelHandle(a1, KeGetCurrentThread()->PreviousMode, 1, 0, &Handle);
+  v5 = IoConvertFileHandleToKernelHandle(a1, KeGetCurrentThread()->PreviousMode, 1u, 0, &Handle);
   if ( v5 >= 0 )
   {
-    FileHandle = Handle;
-    Object = 0LL;
-    v6 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL);
-    v2 = Object;
+    FileHandle = *(void **)&Handle.Version;
+    Handle.DmaOperations = 0LL;
+    v6 = ObReferenceObjectByHandle(
+           *(HANDLE *)&Handle.Version,
+           1u,
+           (POBJECT_TYPE)IoFileObjectType,
+           0,
+           (PVOID *)&Handle.DmaOperations,
+           0LL);
+    DmaOperations = (struct _DMA_ADAPTER *)Handle.DmaOperations;
     v5 = v6;
     if ( v6 >= 0 )
     {
-      if ( *((_BYTE *)Object + 78) || *((_BYTE *)Object + 75) )
+      if ( BYTE6(Handle.DmaOperations->GetDmaAlignment) || BYTE3(Handle.DmaOperations->GetDmaAlignment) )
       {
         v5 = -1073741757;
       }
       else
       {
-        v5 = FsRtlGetFileSize((PFILE_OBJECT)Object, &FileSize);
+        v5 = FsRtlGetFileSize((PFILE_OBJECT)Handle.DmaOperations, &FileSize);
         if ( v5 >= 0 )
         {
           ObjectAttributes.Length = 48;
@@ -103,8 +108,8 @@ __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(void *a1, int a2)
               BaseAddress = 0LL;
               goto LABEL_24;
             }
-            if ( qword_140C37A08 )
-              v5 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C37A08)(
+            if ( qword_140C1DB28 )
+              v5 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C1DB28)(
                      v4,
                      BaseAddress,
                      (LARGE_INTEGER)v7.QuadPart);
@@ -120,7 +125,7 @@ __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(void *a1, int a2)
     }
     else
     {
-      v2 = 0LL;
+      DmaOperations = 0LL;
     }
   }
 LABEL_22:
@@ -129,8 +134,8 @@ LABEL_22:
 LABEL_24:
   if ( SectionHandle )
     ZwClose(SectionHandle);
-  if ( v2 )
-    ObfDereferenceObject(v2);
+  if ( DmaOperations )
+    HalPutDmaAdapter(DmaOperations);
   if ( FileHandle )
     ZwClose(FileHandle);
   return (unsigned int)v5;

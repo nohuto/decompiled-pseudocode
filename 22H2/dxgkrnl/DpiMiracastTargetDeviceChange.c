@@ -1,169 +1,182 @@
 /*
- * XREFs of DpiMiracastTargetDeviceChange @ 0x1C0061330
+ * XREFs of DpiMiracastTargetDeviceChange @ 0x1C00548C0
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0015C20 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0060B60 (DpiMiracastReleaseMiracastDeviceContext.c)
- *     DpiMiracastStopMiracastSessionSync @ 0x1C0060D90 (DpiMiracastStopMiracastSessionSync.c)
- *     DpiMiracastTearDownAssociation @ 0x1C0061800 (DpiMiracastTearDownAssociation.c)
- *     DxgkFreeUnicodeString @ 0x1C021D03C (DxgkFreeUnicodeString.c)
- *     DpiMiracastBroadcastDeviceStateChange @ 0x1C039E7EC (DpiMiracastBroadcastDeviceStateChange.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000C8D0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C00540A0 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C00542F0 (DpiMiracastStopMiracastSessionSync.c)
+ *     DpiMiracastTearDownAssociation @ 0x1C0054DA8 (DpiMiracastTearDownAssociation.c)
+ *     DxgkFreeUnicodeString @ 0x1C0196230 (DxgkFreeUnicodeString.c)
+ *     DpiMiracastBroadcastDeviceStateChange @ 0x1C02CDE08 (DpiMiracastBroadcastDeviceStateChange.c)
  */
 
 __int64 __fastcall DpiMiracastTargetDeviceChange(char *NotificationStructure, char *Context)
 {
   __int64 v3; // rbp
-  unsigned int v4; // ebx
-  __int64 v5; // rax
-  void *v6; // rcx
-  __int64 v7; // rax
+  __int64 v4; // rax
+  __int64 v5; // rbx
+  __int64 v6; // rax
+  void *v7; // rcx
+  __int64 v8; // rax
   NTSTATUS DeviceObjectPointer; // eax
-  __int64 v10; // rax
-  char *v11; // r14
-  void *v12; // rbx
-  int v13; // r15d
-  void *v14; // rcx
-  NTSTATUS v15; // eax
-  int v16; // eax
-  _QWORD *v17; // rcx
-  PVOID *v18; // rax
-  char **v19; // rax
-  void *v20; // rcx
-  void *v21; // rcx
-  void *v22; // rcx
-  void *v23; // rcx
-  void *v24; // rcx
-  void *v25; // rcx
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
-  union _LARGE_INTEGER Timeout; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v14; // rax
+  char *v15; // r14
+  void *v16; // rbx
+  int v17; // r15d
+  void *v18; // rcx
+  NTSTATUS v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rbx
+  __int64 v23; // rax
+  int v24; // eax
+  _QWORD *v25; // rcx
+  PVOID *v26; // rax
+  char **v27; // rax
+  void *v28; // rcx
+  void *v29; // rcx
+  void *v30; // rcx
+  void *v31; // rcx
+  void *v32; // rcx
+  void *v33; // rcx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-48h] BYREF
+  union _LARGE_INTEGER Timeout; // [rsp+80h] [rbp+8h] BYREF
 
   LODWORD(v3) = 0;
-  memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !NotificationStructure )
   {
-    v4 = -1073741585;
-    WdLogSingleEntry1(2LL, -1073741585LL);
-    return v4;
+    v4 = WdLogNewEntry5_WdError(0LL, Context);
+    v5 = -1073741585LL;
+LABEL_46:
+    *(_QWORD *)(v4 + 24) = v5;
+    WdLogEvent5_WdError(v4);
+    return (unsigned int)v5;
   }
   if ( !Context || *((_DWORD *)Context + 4) != 1953656900 || *((_DWORD *)Context + 5) != 14 )
   {
-    v4 = -1073741584;
-    WdLogSingleEntry1(2LL, -1073741584LL);
-    return v4;
+    v4 = WdLogNewEntry5_WdError(NotificationStructure, Context);
+    v5 = -1073741584LL;
+    goto LABEL_46;
   }
-  v5 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_QUERY_REMOVE.Data1;
-  if ( !v5 )
-    v5 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_QUERY_REMOVE.Data4;
-  if ( v5 )
+  v6 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_QUERY_REMOVE.Data1;
+  if ( !v6 )
+    v6 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_QUERY_REMOVE.Data4;
+  if ( v6 )
   {
-    v7 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_CANCELLED.Data1;
-    if ( !v7 )
-      v7 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_CANCELLED.Data4;
-    if ( v7 )
+    v8 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_CANCELLED.Data1;
+    if ( !v8 )
+      v8 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_CANCELLED.Data4;
+    if ( v8 )
     {
-      v10 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data1;
-      if ( !v10 )
-        v10 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data4;
-      if ( v10 )
+      v14 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data1;
+      if ( !v14 )
+        v14 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data4;
+      if ( v14 )
       {
         LODWORD(v3) = -1073741811;
       }
       else
       {
-        v11 = Context + 32;
+        v15 = Context + 32;
         ExEnterCriticalRegionAndAcquireFastMutexUnsafe(Context + 32);
-        v12 = (void *)*((_QWORD *)Context + 50);
-        v13 = *((_DWORD *)Context + 102);
+        v16 = (void *)*((_QWORD *)Context + 50);
+        v17 = *((_DWORD *)Context + 102);
         *((_QWORD *)Context + 50) = 0LL;
         *((_QWORD *)Context + 11) = 0LL;
-        ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(v11);
-        if ( v12 )
+        ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(v15);
+        if ( v16 )
         {
-          IoUnregisterPlugPlayNotificationEx(v12);
+          IoUnregisterPlugPlayNotificationEx(v16);
           IoSetDeviceInterfaceState((PUNICODE_STRING)Context + 8, 0);
-          if ( v13 )
+          if ( v17 )
           {
             DpiMiracastStopMiracastSessionSync(Context, 0, 0LL, 0LL, 0x87u, 0);
-            v14 = (void *)*((_QWORD *)Context + 58);
+            v18 = (void *)*((_QWORD *)Context + 58);
             Timeout.QuadPart = -300000000LL;
-            v15 = KeWaitForSingleObject(v14, Executive, 0, 0, &Timeout);
-            if ( v15 )
+            v19 = KeWaitForSingleObject(v18, Executive, 0, 0, &Timeout);
+            v22 = v19;
+            if ( v19 )
             {
-              WdLogSingleEntry1(2LL, v15);
+              v23 = WdLogNewEntry5_WdError(v21, v20);
+              *(_QWORD *)(v23 + 24) = v22;
+              WdLogEvent5_WdError(v23);
               DpiMiracastTearDownAssociation(Context, 0);
             }
           }
           AcquireMiniportListMutex();
-          ExEnterCriticalRegionAndAcquireFastMutexUnsafe(v11);
+          ExEnterCriticalRegionAndAcquireFastMutexUnsafe(v15);
           *((_QWORD *)Context + 11) = KeGetCurrentThread();
-          v16 = *((_DWORD *)Context + 102);
-          if ( v16 )
+          v24 = *((_DWORD *)Context + 102);
+          if ( v24 )
           {
-            *((_DWORD *)Context + 103) = v16;
+            *((_DWORD *)Context + 103) = v24;
             *((_DWORD *)Context + 102) = 0;
             DpiMiracastBroadcastDeviceStateChange(Context);
           }
           KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-          v17 = *(_QWORD **)Context;
+          v25 = *(_QWORD **)Context;
           if ( *(char **)(*(_QWORD *)Context + 8LL) != Context
-            || (v18 = (PVOID *)*((_QWORD *)Context + 1), *v18 != Context)
-            || (*v18 = v17,
-                v17[1] = v18,
-                v19 = (char **)qword_1C01408B8,
-                *(__int64 **)qword_1C01408B8 != &qword_1C01408B0) )
+            || (v26 = (PVOID *)*((_QWORD *)Context + 1), *v26 != Context)
+            || (*v26 = v25,
+                v25[1] = v26,
+                v27 = (char **)qword_1C00B2F30,
+                *(__int64 **)qword_1C00B2F30 != &qword_1C00B2F28) )
           {
             __fastfail(3u);
           }
-          *(_QWORD *)Context = &qword_1C01408B0;
-          *((_QWORD *)Context + 1) = v19;
-          *v19 = Context;
-          qword_1C01408B8 = (__int64)Context;
+          *(_QWORD *)Context = &qword_1C00B2F28;
+          *((_QWORD *)Context + 1) = v27;
+          *v27 = Context;
+          qword_1C00B2F30 = (__int64)Context;
           KeReleaseInStackQueuedSpinLock(&LockHandle);
-          v20 = (void *)*((_QWORD *)Context + 22);
-          if ( v20 )
+          v28 = (void *)*((_QWORD *)Context + 22);
+          if ( v28 )
           {
-            ObfDereferenceObject(v20);
+            ObfDereferenceObject(v28);
             *((_QWORD *)Context + 22) = 0LL;
             *((_QWORD *)Context + 23) = 0LL;
           }
           DxgkFreeUnicodeString(Context + 160);
-          v21 = (void *)*((_QWORD *)Context + 42);
-          if ( v21 )
+          v29 = (void *)*((_QWORD *)Context + 42);
+          if ( v29 )
           {
-            ExFreePoolWithTag(v21, 0);
+            ExFreePoolWithTag(v29, 0);
             *((_QWORD *)Context + 42) = 0LL;
           }
-          v22 = (void *)*((_QWORD *)Context + 43);
-          if ( v22 )
+          v30 = (void *)*((_QWORD *)Context + 43);
+          if ( v30 )
           {
-            ExFreePoolWithTag(v22, 0);
+            ExFreePoolWithTag(v30, 0);
             *((_QWORD *)Context + 43) = 0LL;
           }
-          v23 = (void *)*((_QWORD *)Context + 44);
-          if ( v23 )
+          v31 = (void *)*((_QWORD *)Context + 44);
+          if ( v31 )
           {
-            ExFreePoolWithTag(v23, 0);
+            ExFreePoolWithTag(v31, 0);
             *((_QWORD *)Context + 44) = 0LL;
           }
-          v24 = (void *)*((_QWORD *)Context + 45);
-          if ( v24 )
+          v32 = (void *)*((_QWORD *)Context + 45);
+          if ( v32 )
           {
-            ExFreePoolWithTag(v24, 0);
+            ExFreePoolWithTag(v32, 0);
             *((_QWORD *)Context + 45) = 0LL;
           }
-          v25 = (void *)*((_QWORD *)Context + 46);
-          if ( v25 )
+          v33 = (void *)*((_QWORD *)Context + 46);
+          if ( v33 )
           {
-            ExFreePoolWithTag(v25, 0);
+            ExFreePoolWithTag(v33, 0);
             *((_QWORD *)Context + 46) = 0LL;
           }
           RtlFreeUnicodeString((PUNICODE_STRING)Context + 8);
           *((_QWORD *)Context + 11) = 0LL;
-          ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(v11);
-          _InterlockedExchange64(&qword_1C01404D8, 0LL);
+          ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(v15);
+          _InterlockedExchange64(&qword_1C00B2B50, 0LL);
           KeReleaseMutex(Mutex, 0);
-          DpiMiracastReleaseMiracastDeviceContext((int *)Context, 0);
+          DpiMiracastReleaseMiracastDeviceContext((int *)Context, 0LL);
         }
       }
     }
@@ -180,18 +193,22 @@ __int64 __fastcall DpiMiracastTargetDeviceChange(char *NotificationStructure, ch
       v3 = DeviceObjectPointer;
       ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(Context + 32);
       if ( (int)v3 < 0 )
-        WdLogSingleEntry1(2LL, v3);
+      {
+        v12 = WdLogNewEntry5_WdError(v11, v10);
+        *(_QWORD *)(v12 + 24) = v3;
+        WdLogEvent5_WdError(v12);
+      }
     }
   }
   else
   {
     DpiMiracastStopMiracastSessionSync(Context, 0, 0LL, 0LL, 0x84u, 0);
     ExEnterCriticalRegionAndAcquireFastMutexUnsafe(Context + 32);
-    v6 = (void *)*((_QWORD *)Context + 22);
+    v7 = (void *)*((_QWORD *)Context + 22);
     *((_QWORD *)Context + 11) = KeGetCurrentThread();
-    if ( v6 )
+    if ( v7 )
     {
-      ObfDereferenceObject(v6);
+      ObfDereferenceObject(v7);
       *((_QWORD *)Context + 22) = 0LL;
       *((_QWORD *)Context + 23) = 0LL;
     }

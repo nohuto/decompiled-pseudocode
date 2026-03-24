@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CNineGridDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x1800EF820
+ * XREFs of ?IsOfType@CNineGridDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x180018420
  * Callers:
  *     <none>
  * Callees:

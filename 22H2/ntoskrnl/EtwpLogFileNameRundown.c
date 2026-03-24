@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpLogFileNameRundown @ 0x1409EECE0
+ * XREFs of EtwpLogFileNameRundown @ 0x14093DBDC
  * Callers:
- *     EtwpEnableDisableSpecialGuids @ 0x14078128C (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x1407166EC (EtwpEnableDisableSpecialGuids.c)
  * Callees:
- *     EtwpCheckGuidAccess @ 0x140782074 (EtwpCheckGuidAccess.c)
- *     WmiTraceRundownNotify @ 0x14084A048 (WmiTraceRundownNotify.c)
+ *     EtwpCheckGuidAccess @ 0x140716B20 (EtwpCheckGuidAccess.c)
+ *     WmiTraceRundownNotify @ 0x1407C1D04 (WmiTraceRundownNotify.c)
  */
 
 __int64 __fastcall EtwpLogFileNameRundown(__int64 *a1, int a2)

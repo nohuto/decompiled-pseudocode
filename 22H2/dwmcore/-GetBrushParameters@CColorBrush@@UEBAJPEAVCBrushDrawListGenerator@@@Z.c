@@ -1,17 +1,20 @@
 /*
- * XREFs of ?GetBrushParameters@CColorBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x180095E30
+ * XREFs of ?GetBrushParameters@CColorBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x1800D2C80
  * Callers:
  *     <none>
  * Callees:
- *     ?Reset@CBrushDrawListGenerator@@QEAAXXZ @ 0x180094774 (-Reset@CBrushDrawListGenerator@@QEAAXXZ.c)
+ *     ?Reset@CBrushDrawListGenerator@@QEAAXXZ @ 0x180094D28 (-Reset@CBrushDrawListGenerator@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CColorBrush::GetBrushParameters(CColorBrush *this, struct CBrushDrawListGenerator *a2)
 {
+  __int128 v4; // xmm0
   __int64 result; // rax
 
   CBrushDrawListGenerator::Reset(a2);
+  v4 = *((_OWORD *)this + 5);
   result = 0LL;
-  *(_OWORD *)((char *)a2 + 20) = *(_OWORD *)((char *)this + 88);
+  *((_BYTE *)a2 + 76) = 0;
+  *(_OWORD *)((char *)a2 + 20) = v4;
   return result;
 }

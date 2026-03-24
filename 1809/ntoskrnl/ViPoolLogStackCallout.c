@@ -4,7 +4,7 @@
  *     IovpLogStackTrace @ 0x140924998 (IovpLogStackTrace.c)
  *     ViPoolLogStackTrace @ 0x140938198 (ViPoolLogStackTrace.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1400CCC90 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
  */
 
 void __fastcall ViPoolLogStackCallout(PVOID *Parameter)

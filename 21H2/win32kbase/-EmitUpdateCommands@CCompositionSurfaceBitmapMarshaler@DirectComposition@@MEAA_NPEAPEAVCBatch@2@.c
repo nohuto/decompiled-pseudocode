@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitUpdateCommands@CCompositionSurfaceBitmapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AE9C0
+ * XREFs of ?EmitUpdateCommands@CCompositionSurfaceBitmapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0064550
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CCompositionSurfaceBitmapMarshaler::EmitUpdateCommands(
@@ -19,7 +19,7 @@ char __fastcall DirectComposition::CCompositionSurfaceBitmapMarshaler::EmitUpdat
   if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x1CuLL, &v7) )
     return 0;
   v6 = 0LL;
-  v3 = (void *)*((_QWORD *)this + 8);
+  v3 = (void *)*((_QWORD *)this + 7);
   if ( !v3 || (int)DxgkOpenDwmHandleForCompositionObjectReference(v3, &v6) < 0 )
     v6 = 0LL;
   v4 = (char *)v7;
@@ -27,9 +27,9 @@ char __fastcall DirectComposition::CCompositionSurfaceBitmapMarshaler::EmitUpdat
   *(_OWORD *)(v4 + 4) = 0LL;
   *(_QWORD *)(v4 + 20) = 0LL;
   *((_DWORD *)v4 + 1) = 118;
-  *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
   *(_QWORD *)(v4 + 12) = v6;
-  v4[20] = *((_BYTE *)this + 72);
-  v4[21] = *((_BYTE *)this + 73);
+  v4[20] = *((_BYTE *)this + 64);
+  v4[21] = *((_BYTE *)this + 65);
   return 1;
 }

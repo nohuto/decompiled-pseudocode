@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedReadInteractionMarshaler @ 0x1C00A6B40
+ * XREFs of CreateSharedReadInteractionMarshaler @ 0x1C0093320
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedReadInteractionMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C00A6B80 (-Create@CSharedReadInteractionMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEA.c)
+ *     ?Create@CSharedReadInteractionMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C0093360 (-Create@CSharedReadInteractionMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEA.c)
  */
 
 __int64 __fastcall CreateSharedReadInteractionMarshaler(

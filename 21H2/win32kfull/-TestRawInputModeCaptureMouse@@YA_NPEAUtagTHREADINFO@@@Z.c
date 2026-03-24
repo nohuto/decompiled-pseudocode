@@ -1,33 +1,17 @@
 /*
- * XREFs of ?TestRawInputModeCaptureMouse@@YA_NPEAUtagTHREADINFO@@@Z @ 0x1C0073900
+ * XREFs of ?TestRawInputModeCaptureMouse@@YA_NPEAUtagTHREADINFO@@@Z @ 0x1C01D3FC0
  * Callers:
- *     zzzUpdateCursorImage @ 0x1C00734A0 (zzzUpdateCursorImage.c)
- *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C00B2D30 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
+ *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C002A4E0 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
  * Callees:
- *     <none>
+ *     HasHidTable @ 0x1C0052630 (HasHidTable.c)
  */
 
 bool __fastcall TestRawInputModeCaptureMouse(struct tagTHREADINFO *a1)
 {
-  char v2; // al
-  char v3; // dl
-  __int64 v4; // rax
-  __int64 v5; // rcx
+  char v2; // bl
 
-  v2 = IsSpatialDelegationEnabledForThread();
-  v3 = 0;
-  if ( !v2 )
-  {
-    if ( a1 )
-    {
-      v4 = *((_QWORD *)a1 + 53);
-      if ( v4 )
-      {
-        v5 = *(_QWORD *)(v4 + 832);
-        if ( v5 )
-          return (*(_DWORD *)(v5 + 100) & 0x100) != 0;
-      }
-    }
-  }
-  return v3;
+  v2 = 0;
+  if ( !(unsigned __int8)IsSpatialDelegationEnabledForThread(a1) && (unsigned int)HasHidTable((__int64)a1) )
+    return (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 53) + 832LL) + 100LL) & 0x100) != 0;
+  return v2;
 }

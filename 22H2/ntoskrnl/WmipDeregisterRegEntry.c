@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipDeregisterRegEntry @ 0x1403D4480
+ * XREFs of WmipDeregisterRegEntry @ 0x140371974
  * Callers:
- *     WmipRegisterDevice @ 0x14086C458 (WmipRegisterDevice.c)
- *     WmipDeregisterDevice @ 0x140882A38 (WmipDeregisterDevice.c)
+ *     WmipDeregisterDevice @ 0x140754674 (WmipDeregisterDevice.c)
+ *     WmipRegisterDevice @ 0x1407547F8 (WmipRegisterDevice.c)
  * Callees:
- *     WmipUnreferenceRegEntry @ 0x14022AAD4 (WmipUnreferenceRegEntry.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     WmipRemoveDS @ 0x140882AD8 (WmipRemoveDS.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     WmipUnreferenceRegEntry @ 0x14032E244 (WmipUnreferenceRegEntry.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     WmipRemoveDS @ 0x140754A8C (WmipRemoveDS.c)
  */
 
 void __fastcall WmipDeregisterRegEntry(char *Entry)
@@ -45,19 +45,22 @@ void __fastcall WmipDeregisterRegEntry(char *Entry)
   *((_QWORD *)Entry + 5) = Object;
   _m_prefetchw(Entry + 48);
   v3 = _InterlockedOr((volatile signed __int32 *)Entry + 12, 0xA0000000);
-  KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
+  KxReleaseSpinLock(&WmipRegistrationSpinLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v13 = (v12 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v12;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v13 = (v12 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v12;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);
@@ -74,19 +77,22 @@ void __fastcall WmipDeregisterRegEntry(char *Entry)
     __fastfail(3u);
   *v5 = v7;
   v7[1] = v5;
-  KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
+  KxReleaseSpinLock(&WmipRegistrationSpinLock);
   if ( KiIrqlFlags )
   {
-    v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v14 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v15 = KeGetCurrentPrcb();
-      v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v17 = v15->SchedulerAssist;
-      v13 = (v16 & v17[5]) == 0;
-      v17[5] &= v16;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick(v15);
+      v14 = KeGetCurrentIrql();
+      if ( v14 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v14 >= 2u )
+      {
+        v15 = KeGetCurrentPrcb();
+        v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v17 = v15->SchedulerAssist;
+        v13 = (v16 & v17[5]) == 0;
+        v17[5] &= v16;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick(v15);
+      }
     }
   }
   __writecr8(v6);

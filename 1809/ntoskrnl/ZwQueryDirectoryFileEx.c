@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryDirectoryFileEx @ 0x1401BA8D0
+ * XREFs of ZwQueryDirectoryFileEx @ 0x1401BA8F0
  * Callers:
  *     <none>
  * Callees:

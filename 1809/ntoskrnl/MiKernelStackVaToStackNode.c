@@ -1,12 +1,12 @@
 /*
- * XREFs of MiKernelStackVaToStackNode @ 0x140155AA0
+ * XREFs of MiKernelStackVaToStackNode @ 0x140155AC0
  * Callers:
- *     MiInPageSingleKernelStack @ 0x14013D480 (MiInPageSingleKernelStack.c)
- *     MiResolvePageFileFault @ 0x140154B24 (MiResolvePageFileFault.c)
+ *     MiInPageSingleKernelStack @ 0x14013D4A0 (MiInPageSingleKernelStack.c)
+ *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1)

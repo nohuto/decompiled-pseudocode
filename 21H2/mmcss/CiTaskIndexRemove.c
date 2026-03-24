@@ -1,7 +1,7 @@
 /*
- * XREFs of CiTaskIndexRemove @ 0x1C000B780
+ * XREFs of CiTaskIndexRemove @ 0x1C000BD00
  * Callers:
- *     CiTaskIndexDereference @ 0x1C0002070 (CiTaskIndexDereference.c)
+ *     CiTaskIndexDereference @ 0x1C0001B60 (CiTaskIndexDereference.c)
  * Callees:
  *     <none>
  */

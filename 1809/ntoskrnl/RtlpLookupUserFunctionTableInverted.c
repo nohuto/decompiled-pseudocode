@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpLookupUserFunctionTableInverted @ 0x140133FE8
+ * XREFs of RtlpLookupUserFunctionTableInverted @ 0x140134008
  * Callers:
- *     RtlpLookupUserFunctionTable @ 0x140133C78 (RtlpLookupUserFunctionTable.c)
+ *     RtlpLookupUserFunctionTable @ 0x140133C98 (RtlpLookupUserFunctionTable.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 unsigned __int64 __fastcall RtlpLookupUserFunctionTableInverted(unsigned __int64 a1, __int64 a2)

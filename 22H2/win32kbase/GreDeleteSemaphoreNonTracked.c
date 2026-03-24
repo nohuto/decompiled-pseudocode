@@ -1,7 +1,7 @@
 /*
- * XREFs of GreDeleteSemaphoreNonTracked @ 0x1C00C4B38
+ * XREFs of GreDeleteSemaphoreNonTracked @ 0x1C007E2B0
  * Callers:
- *     ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C0077CD4 (-MultiUserGreCleanupEngResources@@YAXXZ.c)
+ *     ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C007E0FC (-MultiUserGreCleanupEngResources@@YAXXZ.c)
  * Callees:
  *     <none>
  */

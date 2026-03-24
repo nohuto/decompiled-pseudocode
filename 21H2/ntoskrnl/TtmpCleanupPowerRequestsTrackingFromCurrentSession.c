@@ -1,47 +1,66 @@
 /*
- * XREFs of TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x1409A536C
+ * XREFs of TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x1408FF75C
  * Callers:
- *     TtmCleanupCurrentSession @ 0x1409A40F8 (TtmCleanupCurrentSession.c)
+ *     TtmCleanupCurrentSession @ 0x1408FE4EC (TtmCleanupCurrentSession.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall TtmpCleanupPowerRequestsTrackingFromCurrentSession(__int64 a1)
 {
-  _QWORD **v1; // rdi
-  unsigned __int64 v3; // rbx
-  unsigned __int64 *v4; // rcx
-  void *v5; // rcx
-  _QWORD **v6; // r14
-  _QWORD *i; // rcx
-  _QWORD **v8; // rsi
+  _QWORD *v1; // r14
+  _QWORD *v3; // rbx
+  _QWORD *v4; // rcx
+  _QWORD *i; // rdx
+  _QWORD **v6; // rbp
+  _QWORD *j; // rcx
+  _QWORD **v8; // rdi
   _QWORD *v9; // rcx
   _QWORD *v10; // rax
+  void *v11; // rcx
 
-  v1 = *(_QWORD ***)(a1 + 280);
-  v3 = (unsigned __int64)v1;
+  v1 = *(_QWORD **)(a1 + 280);
+  v3 = v1;
   while ( 1 )
   {
-    v4 = (unsigned __int64 *)v3;
     if ( !v3 )
-      break;
-    v3 = *(_QWORD *)v3;
-    if ( (v3 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
-      v3 = *v4;
-    if ( (v3 & 1) != 0 )
-      break;
-LABEL_13:
-    if ( !v3 )
-      goto LABEL_10;
-    v6 = (_QWORD **)v3;
-    for ( i = v1; (*i & 1) == 0; i = (_QWORD *)*i )
+      goto LABEL_7;
+    v4 = (_QWORD *)*v3;
+    if ( (*v3 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
+      v4 = (_QWORD *)*v3;
+    if ( ((unsigned __int8)v4 & 1) != 0 )
     {
-      if ( *i == v3 )
+LABEL_7:
+      for ( i = v1 + 1; ; ++i )
       {
-        *i = *(_QWORD *)v3;
+        if ( (unsigned __int64)i >= *(_QWORD *)(a1 + 280) + 8 * ((unsigned __int64)*(unsigned int *)(a1 + 276) >> 5) )
+        {
+          v4 = 0LL;
+          goto LABEL_12;
+        }
+        if ( (*i & 1) == 0 )
+          break;
+      }
+      v3 = (_QWORD *)*i;
+      v1 = i;
+      v4 = (_QWORD *)*i;
+    }
+    else
+    {
+      v3 = v4;
+    }
+LABEL_12:
+    if ( !v4 )
+      break;
+    v6 = (_QWORD **)v3;
+    for ( j = v1; (*j & 1) == 0; j = (_QWORD *)*j )
+    {
+      if ( (_QWORD *)*j == v3 )
+      {
+        *j = *v3;
         --*(_DWORD *)(a1 + 272);
-        *(_QWORD *)v3 |= 0x8000000000000002uLL;
-        v3 = (unsigned __int64)i;
+        *v3 |= 0x8000000000000002uLL;
+        v3 = j;
         goto LABEL_20;
       }
     }
@@ -61,14 +80,7 @@ LABEL_20:
     }
     ExFreePoolWithTag(v6, 0x52507454u);
   }
-  for ( ++v1; (unsigned __int64)v1 < *(_QWORD *)(a1 + 280) + 8 * ((unsigned __int64)*(unsigned int *)(a1 + 276) >> 5); ++v1 )
-  {
-    v3 = (unsigned __int64)*v1;
-    if ( ((unsigned __int8)*v1 & 1) == 0 )
-      goto LABEL_13;
-  }
-LABEL_10:
-  v5 = *(void **)(a1 + 280);
-  if ( v5 )
-    ExFreePoolWithTag(v5, 0x52507454u);
+  v11 = *(void **)(a1 + 280);
+  if ( v11 )
+    ExFreePoolWithTag(v11, 0x52507454u);
 }

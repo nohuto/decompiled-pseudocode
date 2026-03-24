@@ -1,28 +1,28 @@
 /*
- * XREFs of ACPIBuildProcessThermalZoneCheckType @ 0x1C002DD10
+ * XREFs of ACPIBuildProcessThermalZoneCheckType @ 0x1C00300B0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_Dqss @ 0x1C0004A40 (WPP_RECORDER_SF_Dqss.c)
- *     ACPIBuildCompleteMustSucceed @ 0x1C000A4C0 (ACPIBuildCompleteMustSucceed.c)
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C002A488 (ACPIVerifyAndCopyFirmwareDependencies.c)
- *     ACPIBuildDelayedDependencyRequest @ 0x1C002AC6C (ACPIBuildDelayedDependencyRequest.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C0015D80 (ACPIBuildCompleteMustSucceed.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C002EB38 (ACPIVerifyAndCopyFirmwareDependencies.c)
+ *     ACPIBuildDelayedDependencyRequest @ 0x1C0030590 (ACPIBuildDelayedDependencyRequest.c)
  */
 
 __int64 __fastcall ACPIBuildProcessThermalZoneCheckType(__int64 a1)
 {
   __int64 v1; // rdi
   void *v2; // r14
-  volatile signed __int32 *v4; // rbp
+  ULONG_PTR v4; // rbp
   __int64 v5; // rax
   void **v6; // r15
   __int64 *v7; // rbx
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   _DWORD *v9; // rax
   unsigned int v10; // ebx
   __int64 v11; // rcx
@@ -39,43 +39,43 @@ __int64 __fastcall ACPIBuildProcessThermalZoneCheckType(__int64 a1)
   const char *v23; // rdx
   const char *v24; // rcx
   __int64 *v25; // rax
-  volatile signed __int32 *v26; // rcx
+  __int64 v26; // rcx
   char v27; // al
   unsigned int v28; // eax
   char v29; // al
 
   v1 = *(_QWORD *)(a1 + 40);
-  v2 = &unk_1C006FB8B;
+  v2 = &unk_1C00701BA;
   v4 = 0LL;
-  v5 = *(_QWORD *)(v1 + 1000);
-  v6 = (void **)(v1 + 608);
+  v5 = *(_QWORD *)(v1 + 960);
+  v6 = (void **)(v1 + 568);
   if ( (v5 & 0x20) != 0 )
   {
-    if ( *(_QWORD *)(v1 + 648) && (v5 & 0x40) == 0 )
+    if ( *(_QWORD *)(v1 + 608) && (v5 & 0x40) == 0 )
       *(_DWORD *)(a1 + 20) |= 0x20u;
   }
   else
   {
-    v14 = ACPIVerifyAndCopyFirmwareDependencies(*(__int64 **)(v1 + 760), a1 + 80, (__int64 *)(v1 + 648));
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
+    v14 = ACPIVerifyAndCopyFirmwareDependencies(*(__int64 **)(v1 + 720), a1 + 80, (_QWORD *)(v1 + 608));
+    dword_1C0082908 = 0;
+    pszDest = 0;
     v15 = v14;
     FreeDataBuffs(a1 + 80, 1u);
     if ( v15 >= 0 )
     {
-      _InterlockedOr64((volatile signed __int64 *)(v1 + 1000), 0x20uLL);
+      _InterlockedOr64((volatile signed __int64 *)(v1 + 960), 0x20uLL);
       *(_DWORD *)(a1 + 20) |= 0x20u;
     }
     else
     {
       v16 = *(_QWORD *)(v1 + 8);
-      v17 = &unk_1C006FB8B;
-      v18 = &unk_1C006FB8B;
+      v17 = &unk_1C00701BA;
+      v18 = &unk_1C00701BA;
       if ( (v16 & 0x200000000000LL) != 0 )
       {
         v17 = *v6;
         if ( (v16 & 0x400000000000LL) != 0 )
-          v18 = *(void **)(v1 + 616);
+          v18 = *(void **)(v1 + 576);
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_Lqss(
@@ -83,7 +83,7 @@ __int64 __fastcall ACPIBuildProcessThermalZoneCheckType(__int64 a1)
           2u,
           6u,
           0x4Cu,
-          (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+          (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
           v15,
           v1,
           (__int64)v17,
@@ -93,138 +93,149 @@ __int64 __fastcall ACPIBuildProcessThermalZoneCheckType(__int64 a1)
   if ( (*(_DWORD *)(a1 + 20) & 0x20) != 0 )
   {
     _InterlockedOr64((volatile signed __int64 *)(v1 + 8), 0x200000000000uLL);
-    return (unsigned int)ACPIBuildDelayedDependencyRequest(a1, (__int64)&AcpiBuildThermalZoneList);
+    return (unsigned int)ACPIBuildDelayedDependencyRequest(a1, &AcpiBuildThermalZoneList);
+  }
+  v7 = AMLIGetNamedChild(*(__int64 **)(v1 + 720), 1145653343);
+  if ( v7 )
+  {
+    v25 = AMLIGetNamedChild(*(__int64 **)(v1 + 720), 1145656671);
+    v26 = *(_QWORD *)(a1 + 56);
+    v4 = (ULONG_PTR)v25;
+    if ( v25 )
+    {
+      *(_DWORD *)(a1 + 32) = 6;
+      if ( v26 )
+        AMLIDereferenceHandleEx(v26);
+      v27 = gdwfAMLI;
+      *(_QWORD *)(a1 + 56) = v4;
+      dword_1C0082908 = 0;
+      pszDest = 0;
+      if ( (v27 & 4) != 0 )
+        _InterlockedIncrement((volatile signed __int32 *)(v4 + 8));
+      v28 = ACPIGet(
+              (__int64 *)v1,
+              1145656671,
+              671613062,
+              0LL,
+              0,
+              (__int64)ACPIBuildCompleteMustSucceed,
+              a1,
+              v1 + 576,
+              0LL);
+    }
+    else
+    {
+      *(_DWORD *)(a1 + 32) = 7;
+      if ( v26 )
+        AMLIDereferenceHandleEx(v26);
+      v29 = gdwfAMLI;
+      *(_QWORD *)(a1 + 56) = v7;
+      dword_1C0082908 = 0;
+      pszDest = 0;
+      if ( (v29 & 4) != 0 )
+        _InterlockedIncrement((volatile signed __int32 *)v7 + 2);
+      v4 = (ULONG_PTR)v7;
+      v28 = ACPIGet(
+              (__int64 *)v1,
+              1145653343,
+              671612966,
+              0LL,
+              0,
+              (__int64)ACPIBuildCompleteMustSucceed,
+              a1,
+              v1 + 568,
+              0LL);
+    }
+    v10 = v28;
+    goto LABEL_8;
+  }
+  _InterlockedOr64((volatile signed __int64 *)(v1 + 8), 0x20000uLL);
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x11uLL, 0x53706341u);
+  *v6 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    strcpy(PoolWithTag, "ACPI\\ThermalZone");
+    v9 = ExAllocatePoolWithTag(NonPagedPoolNx, 5uLL, 0x53706341u);
+    *(_QWORD *)(v1 + 576) = v9;
+    if ( v9 )
+    {
+      *v9 = *(_DWORD *)(**(_QWORD **)(v1 + 720) + 40LL);
+      *(_BYTE *)(*(_QWORD *)(v1 + 576) + 4LL) = 0;
+      _InterlockedOr64((volatile signed __int64 *)(v1 + 8), 0x1E00000000000uLL);
+      *(_DWORD *)(a1 + 32) = 0;
+      v10 = 0;
+      goto LABEL_8;
+    }
+    v22 = *(_QWORD *)(v1 + 8);
+    v23 = (const char *)&unk_1C00701BA;
+    v24 = (const char *)&unk_1C00701BA;
+    if ( (v22 & 0x200000000000LL) != 0 )
+    {
+      v23 = (const char *)*v6;
+      if ( (v22 & 0x400000000000LL) != 0 )
+        v24 = *(const char **)(v1 + 576);
+    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_Dqss(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        2u,
+        6u,
+        0x4Eu,
+        (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
+        5,
+        v1,
+        v23,
+        v24);
   }
   else
   {
-    v7 = AMLIGetNamedChild(*(__int64 **)(v1 + 760), 1145653343);
-    if ( v7 )
+    v19 = *(_QWORD *)(v1 + 8);
+    v20 = (const char *)&unk_1C00701BA;
+    v21 = (const char *)&unk_1C00701BA;
+    if ( (v19 & 0x200000000000LL) != 0 )
     {
-      v25 = AMLIGetNamedChild(*(__int64 **)(v1 + 760), 1145656671);
-      v26 = *(volatile signed __int32 **)(a1 + 56);
-      v4 = (volatile signed __int32 *)v25;
-      if ( v25 )
-      {
-        *(_DWORD *)(a1 + 32) = 6;
-        if ( v26 )
-          AMLIDereferenceHandleEx(v26);
-        v27 = gdwfAMLI;
-        *(_QWORD *)(a1 + 56) = v4;
-        dword_1C0081AC8 = 0;
-        byte_1C0081ACC = 0;
-        if ( (v27 & 4) != 0 )
-          _InterlockedIncrement(v4 + 2);
-        v28 = ACPIGet(v1, 1145656671, 671613062, 0LL, 0, (__int64)ACPIBuildCompleteMustSucceed, a1, v1 + 616, 0LL);
-      }
-      else
-      {
-        *(_DWORD *)(a1 + 32) = 7;
-        if ( v26 )
-          AMLIDereferenceHandleEx(v26);
-        v29 = gdwfAMLI;
-        *(_QWORD *)(a1 + 56) = v7;
-        dword_1C0081AC8 = 0;
-        byte_1C0081ACC = 0;
-        if ( (v29 & 4) != 0 )
-          _InterlockedIncrement((volatile signed __int32 *)v7 + 2);
-        v4 = (volatile signed __int32 *)v7;
-        v28 = ACPIGet(v1, 1145653343, 671612966, 0LL, 0, (__int64)ACPIBuildCompleteMustSucceed, a1, v1 + 608, 0LL);
-      }
-      v10 = v28;
-    }
-    else
-    {
-      _InterlockedOr64((volatile signed __int64 *)(v1 + 8), 0x20000uLL);
-      Pool2 = (char *)ExAllocatePool2(64LL, 17LL, 1399874369LL);
-      *v6 = Pool2;
-      if ( Pool2 )
-      {
-        strcpy(Pool2, "ACPI\\ThermalZone");
-        v9 = (_DWORD *)ExAllocatePool2(64LL, 5LL, 1399874369LL);
-        *(_QWORD *)(v1 + 616) = v9;
-        if ( v9 )
-        {
-          *v9 = *(_DWORD *)(**(_QWORD **)(v1 + 760) + 40LL);
-          *(_BYTE *)(*(_QWORD *)(v1 + 616) + 4LL) = 0;
-          _InterlockedOr64((volatile signed __int64 *)(v1 + 8), 0x1E00000000000uLL);
-          *(_DWORD *)(a1 + 32) = 0;
-          v10 = 0;
-        }
-        else
-        {
-          v22 = *(_QWORD *)(v1 + 8);
-          v23 = (const char *)&unk_1C006FB8B;
-          v24 = (const char *)&unk_1C006FB8B;
-          if ( (v22 & 0x200000000000LL) != 0 )
-          {
-            v23 = (const char *)*v6;
-            if ( (v22 & 0x400000000000LL) != 0 )
-              v24 = *(const char **)(v1 + 616);
-          }
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_Dqss(
-              (__int64)WPP_GLOBAL_Control->DeviceExtension,
-              2u,
-              6u,
-              0x4Eu,
-              (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
-              5,
-              v1,
-              v23,
-              v24);
-          v10 = -1073741670;
-        }
-      }
-      else
-      {
-        v19 = *(_QWORD *)(v1 + 8);
-        v20 = (const char *)&unk_1C006FB8B;
-        v21 = (const char *)&unk_1C006FB8B;
-        if ( (v19 & 0x200000000000LL) != 0 )
-        {
-          v20 = 0LL;
-          if ( (v19 & 0x400000000000LL) != 0 )
-            v21 = *(const char **)(v1 + 616);
-        }
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_Dqss(
-            (__int64)WPP_GLOBAL_Control->DeviceExtension,
-            2u,
-            6u,
-            0x4Du,
-            (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
-            17,
-            v1,
-            v20,
-            v21);
-        v10 = -1073741670;
-      }
-    }
-    v11 = *(_QWORD *)(v1 + 8);
-    v12 = &unk_1C006FB8B;
-    if ( (v11 & 0x200000000000LL) != 0 )
-    {
-      v2 = *v6;
-      if ( (v11 & 0x400000000000LL) != 0 )
-        v12 = *(void **)(v1 + 616);
+      v20 = 0LL;
+      if ( (v19 & 0x400000000000LL) != 0 )
+        v21 = *(const char **)(v1 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_Lqss(
+      WPP_RECORDER_SF_Dqss(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        4u,
+        2u,
         6u,
-        0x4Fu,
-        (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
-        v10,
+        0x4Du,
+        (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
+        17,
         v1,
-        (__int64)v2,
-        (__int64)v12);
-    if ( v10 == 259 )
-      v10 = 0;
-    else
-      ACPIBuildCompleteMustSucceed((ULONG_PTR)v4, v10, 0LL, a1);
-    if ( v4 )
-      AMLIDereferenceHandleEx(v4);
+        v20,
+        v21);
   }
+  v10 = -1073741670;
+LABEL_8:
+  v11 = *(_QWORD *)(v1 + 8);
+  v12 = &unk_1C00701BA;
+  if ( (v11 & 0x200000000000LL) != 0 )
+  {
+    v2 = *v6;
+    if ( (v11 & 0x400000000000LL) != 0 )
+      v12 = *(void **)(v1 + 576);
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_Lqss(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      6u,
+      0x4Fu,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
+      v10,
+      v1,
+      (__int64)v2,
+      (__int64)v12);
+  if ( v10 == 259 )
+    v10 = 0;
+  else
+    ACPIBuildCompleteMustSucceed(v4, v10, 0LL, a1);
+  if ( v4 )
+    AMLIDereferenceHandleEx(v4);
   return v10;
 }

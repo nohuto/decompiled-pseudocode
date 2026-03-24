@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCreateKernelStackNode @ 0x14062CC38
+ * XREFs of MiCreateKernelStackNode @ 0x140535C88
  * Callers:
- *     MiOutPageSingleKernelStack @ 0x14021B5A0 (MiOutPageSingleKernelStack.c)
+ *     MiOutPageSingleKernelStack @ 0x1402638B0 (MiOutPageSingleKernelStack.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlInsertNodeEx @ 0x140287FA0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x140296BD0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
 {
   _QWORD *result; // rax
-  unsigned __int64 v5; // rbx
+  _QWORD *v5; // rbx
   KIRQL v6; // al
   _QWORD *v7; // rdx
   bool v8; // r8
@@ -27,19 +27,19 @@ _QWORD *__fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
   bool v16; // zf
 
   result = MiAllocatePool(64, 0x30uLL, 0x734B694Du);
-  v5 = (unsigned __int64)result;
+  v5 = result;
   if ( result )
   {
     result[3] = *a2 - 1LL;
     result[4] = a2[1];
     *((_WORD *)result + 20) = *a1;
-    v6 = ExAcquireSpinLockExclusive(&dword_140C685E0);
-    v7 = (_QWORD *)qword_140C685D8;
+    v6 = ExAcquireSpinLockExclusive(&dword_140C4EBE0);
+    v7 = (_QWORD *)qword_140C4EBD8;
     v8 = 0;
     v9 = v6;
-    if ( qword_140C685D8 )
+    if ( qword_140C4EBD8 )
     {
-      v10 = *(_QWORD *)(v5 + 24);
+      v10 = v5[3];
       while ( 1 )
       {
         if ( v10 > v7[3] || v10 >= v7[4] )
@@ -60,24 +60,27 @@ _QWORD *__fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
         v7 = v11;
       }
     }
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C685D8, (unsigned __int64)v7, v8, v5);
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C685E0);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4EBD8, (unsigned __int64)v7, v8, v5);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EBE0);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v16 = (v15 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v15;
-        if ( v16 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v16 = (v15 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v15;
+          if ( v16 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v9);
-    return (_QWORD *)v5;
+    return v5;
   }
   return result;
 }

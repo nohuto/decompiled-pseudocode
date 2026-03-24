@@ -1,9 +1,10 @@
 /*
- * XREFs of ?DisplayID_GetColorDataRaw@@YAJPEBUDisplayIDObj@@PEAUDISPLAY_COLOR_DATA_RAW@@PEAW4DISPLAY_NATIVE_COLOR_DEPTH@@PEA_N@Z @ 0x1C007328C
+ * XREFs of ?DisplayID_GetColorDataRaw@@YAJPEBUDisplayIDObj@@PEAUDISPLAY_COLOR_DATA_RAW@@PEAW4DISPLAY_NATIVE_COLOR_DEPTH@@PEA_N@Z @ 0x1C0060FEC
  * Callers:
- *     ?GetColorDataRaw@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_COLOR_DATA_RAW@@@Z @ 0x1C03D0690 (-GetColorDataRaw@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_COLOR_DATA_RAW@@@Z.c)
+ *     ?_DispatchInternalIOCtrl@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C0166938 (-_DispatchInternalIOCtrl@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z.c)
+ *     ?_ParseDisplayIDForHDRParams@DXGMONITOR@@AEAAJXZ @ 0x1C02FAC74 (-_ParseDisplayIDForHDRParams@DXGMONITOR@@AEAAJXZ.c)
  * Callees:
- *     ?DisplayID_GetBlock@@YAJAEBUDisplayIDObj@@W4_DISPLAYID_DATA_BLOCK_TYPE@@AEAPEBU_DISPLAYID_BLOCK_HEADER@@@Z @ 0x1C00736CC (-DisplayID_GetBlock@@YAJAEBUDisplayIDObj@@W4_DISPLAYID_DATA_BLOCK_TYPE@@AEAPEBU_DISPLAYID_BLOCK_.c)
+ *     ?DisplayID_GetBlock@@YAJAEBUDisplayIDObj@@W4_DISPLAYID_DATA_BLOCK_TYPE@@AEAPEAU_DISPLAYID_BLOCK_HEADER@@@Z @ 0x1C0060354 (-DisplayID_GetBlock@@YAJAEBUDisplayIDObj@@W4_DISPLAYID_DATA_BLOCK_TYPE@@AEAPEAU_DISPLAYID_BLOCK_.c)
  */
 
 __int64 __fastcall DisplayID_GetColorDataRaw(
@@ -20,7 +21,7 @@ __int64 __fastcall DisplayID_GetColorDataRaw(
     if ( !*((_BYTE *)a1 + 16) )
       return 3223126019LL;
     v9 = 0LL;
-    if ( (int)DisplayID_GetBlock(a1, 33LL, &v9) < 0 )
+    if ( (int)DisplayID_GetBlock((__int64 *)a1, 33, &v9) < 0 )
       return 3221226021LL;
     v8 = v9;
     if ( *v9 == 33 && v9[2] == 29 )

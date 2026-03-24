@@ -1,29 +1,29 @@
 /*
- * XREFs of AdtpInitializeDriveLetters @ 0x140843C80
+ * XREFs of AdtpInitializeDriveLetters @ 0x14079EDE8
  * Callers:
- *     AdtpInitializeAuditingCommon @ 0x1408439E4 (AdtpInitializeAuditingCommon.c)
+ *     AdtpInitializeAuditingCommon @ 0x14079E8B0 (AdtpInitializeAuditingCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     StringCopyWorkerW @ 0x14039F26C (StringCopyWorkerW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     NtQuerySymbolicLinkObject @ 0x1407AAB70 (NtQuerySymbolicLinkObject.c)
- *     NtOpenSymbolicLinkObject @ 0x1407AB090 (NtOpenSymbolicLinkObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     StringCopyWorkerW @ 0x1403B4690 (StringCopyWorkerW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     NtOpenSymbolicLinkObject @ 0x140666020 (NtOpenSymbolicLinkObject.c)
+ *     NtQuerySymbolicLinkObject @ 0x140666310 (NtQuerySymbolicLinkObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpInitializeDriveLetters(__int64 a1, size_t a2, size_t *a3, const wchar_t *a4)
 {
   unsigned int v4; // edi
   wchar_t *Buffer; // r13
-  unsigned int i; // esi
+  int v6; // esi
   int SymbolicLinkObject; // ebx
   unsigned int v8; // ebx
   char v9; // r14
   UNICODE_STRING *v10; // rsi
   char *v12; // r14
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v14; // r15
   HANDLE v15; // rcx
   size_t v16; // [rsp+28h] [rbp-69h]
@@ -45,41 +45,48 @@ __int64 __fastcall AdtpInitializeDriveLetters(__int64 a1, size_t a2, size_t *a3,
   StringCopyWorkerW(pszDest, a2, a3, a4, v16);
   RtlInitUnicodeString(&DestinationString, pszDest);
   Buffer = DestinationString.Buffer;
-  for ( i = 0; i < 0x1A; ++i )
+  v6 = 0;
+  while ( 1 )
   {
     v18[0] = 48;
-    Buffer[12] = i + 65;
+    Buffer[12] = v6 + 65;
     v19 = 0LL;
     p_DestinationString = &DestinationString;
     v21 = 576;
     v23 = 0LL;
     SymbolicLinkObject = NtOpenSymbolicLinkObject((unsigned __int64)&Handle, 1, (__int64)v18);
     if ( SymbolicLinkObject >= 0 )
-    {
-      *((_WORD *)&DriveMappingArray + 12 * v4) = Buffer[12];
-      v12 = (char *)&DriveMappingArray + 24 * v4;
-      Pool2 = ExAllocatePool2(256LL, 256LL, 1799447891LL);
-      v14 = (void *)Pool2;
-      if ( !Pool2 )
-        return (unsigned int)-1073741801;
-      v15 = Handle;
-      *((_DWORD *)v12 + 2) = 0x1000000;
-      *((_QWORD *)v12 + 2) = Pool2;
-      SymbolicLinkObject = NtQuerySymbolicLinkObject(v15, (unsigned __int64)(v12 + 8), 0LL);
-      NtClose(Handle);
-      if ( SymbolicLinkObject < 0 )
-      {
-        ExFreePoolWithTag(v14, 0);
-        RtlInitUnicodeString((PUNICODE_STRING)(v12 + 8), 0LL);
-      }
-      else
-      {
-        ++v4;
-      }
-    }
+      break;
+LABEL_3:
+    if ( (unsigned int)++v6 >= 0x1A )
+      goto LABEL_4;
   }
+  *((_WORD *)&DriveMappingArray + 12 * v4) = Buffer[12];
+  v12 = (char *)&DriveMappingArray + 24 * v4;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x100uLL, 0x6B416553u);
+  v14 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    v15 = Handle;
+    *((_DWORD *)v12 + 2) = 0x1000000;
+    *((_QWORD *)v12 + 2) = PoolWithTag;
+    SymbolicLinkObject = NtQuerySymbolicLinkObject(v15, (unsigned __int64)(v12 + 8), 0LL);
+    NtClose(Handle);
+    if ( SymbolicLinkObject < 0 )
+    {
+      ExFreePoolWithTag(v14, 0);
+      RtlInitUnicodeString((PUNICODE_STRING)(v12 + 8), 0LL);
+    }
+    else
+    {
+      ++v4;
+    }
+    goto LABEL_3;
+  }
+  SymbolicLinkObject = -1073741801;
+LABEL_4:
   if ( SymbolicLinkObject == -1073741801 )
-    return (unsigned int)SymbolicLinkObject;
+    return 3221225495LL;
   v8 = 0;
   while ( v8 < v4 )
   {

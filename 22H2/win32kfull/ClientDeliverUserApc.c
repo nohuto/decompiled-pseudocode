@@ -1,34 +1,28 @@
 /*
- * XREFs of ClientDeliverUserApc @ 0x1C0089DDC
+ * XREFs of ClientDeliverUserApc @ 0x1C0124350
  * Callers:
- *     ?xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z @ 0x1C00517F0 (-xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z.c)
- *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0125FC0 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0058830 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     ?xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z @ 0x1C012C934 (-xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z.c)
  * Callees:
- *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C0089E68 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ *     <none>
  */
 
-__int64 ClientDeliverUserApc()
+__int64 __fastcall ClientDeliverUserApc(__int64 a1)
 {
-  unsigned int Count; // eax
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  int v6; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v7; // [rsp+68h] [rbp+10h] BYREF
+  int v2; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v3; // [rsp+48h] [rbp+10h] BYREF
 
-  v7 = 0LL;
-  v6 = 0;
-  Count = AtomicExecutionCheck::GetCount();
-  if ( Count )
+  v3 = 0LL;
+  v2 = 0;
+  if ( gdwInAtomicOperation )
   {
+    a1 = gdwExtraInstrumentations;
     if ( (gdwExtraInstrumentations & 1) != 0 )
-      KeBugCheckEx(0x160u, Count, 0LL, 0LL, 0LL);
-    DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 37LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
+      KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
   }
-  UserSessionSwitchLeaveCrit(v2, v1, v3, v4);
+  UserSessionSwitchLeaveCrit(a1);
   EtwTraceBeginCallback(85LL);
-  KeUserModeCallback(85LL, 0LL, 0LL, &v7, &v6);
+  KeUserModeCallback(85LL, 0LL, 0LL, &v3, &v2);
   EtwTraceEndCallback(85LL);
-  return EnterCrit(1LL, 0LL);
+  return EnterCrit(0LL, 1LL);
 }

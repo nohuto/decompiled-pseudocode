@@ -1,35 +1,28 @@
 /*
- * XREFs of rimRemoveFromObTrackList @ 0x1C00736B0
+ * XREFs of rimRemoveFromObTrackList @ 0x1C0052CC0
  * Callers:
- *     RIMUnregisterForInput @ 0x1C0071570 (RIMUnregisterForInput.c)
- *     RawInputManagerObjectDelete @ 0x1C007267C (RawInputManagerObjectDelete.c)
+ *     RawInputManagerObjectDelete @ 0x1C005287C (RawInputManagerObjectDelete.c)
+ *     RIMUnregisterForInput @ 0x1C0054610 (RIMUnregisterForInput.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
  */
 
-void __fastcall rimRemoveFromObTrackList(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall rimRemoveFromObTrackList(__int64 a1)
 {
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  _QWORD *v9; // rbx
-  __int64 v10; // rcx
-  _QWORD *v11; // rax
-  __int64 v12; // rax
+  _QWORD *v2; // rbx
+  __int64 v3; // rdx
+  _QWORD *v4; // rax
 
-  v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-  RIMLockExclusive(v5 + 240);
-  v9 = (_QWORD *)(a1 + 16);
-  v10 = *v9;
-  if ( *(_QWORD **)(*v9 + 8LL) != v9 || (v11 = (_QWORD *)v9[1], (_QWORD *)*v11 != v9) )
+  RIMLockExclusive((__int64)&gObListLock);
+  v2 = (_QWORD *)(a1 + 16);
+  v3 = *v2;
+  if ( *(_QWORD **)(*v2 + 8LL) != v2 || (v4 = (_QWORD *)v2[1], (_QWORD *)*v4 != v2) )
     __fastfail(3u);
-  *v11 = v10;
-  *(_QWORD *)(v10 + 8) = v11;
-  v9[1] = v9;
-  *v9 = v9;
-  v12 = SGDGetUserSessionState(v10, v6, v7, v8);
-  *(_QWORD *)(v12 + 248) = 0LL;
-  ExReleasePushLockExclusiveEx(v12 + 240, 0LL);
+  *v4 = v3;
+  *(_QWORD *)(v3 + 8) = v4;
+  v2[1] = v2;
+  *v2 = v2;
+  qword_1C0254458 = 0LL;
+  ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
   KeLeaveCriticalRegion();
 }

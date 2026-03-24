@@ -1,13 +1,13 @@
 /*
- * XREFs of imp_WdfWaitLockCreate @ 0x1C0023340
+ * XREFs of imp_WdfWaitLockCreate @ 0x1C005EF30
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C0005890 (-FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTE.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     ?_Create@FxWaitLock@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@EPEAPEAUWDFWAITLOCK__@@@Z @ 0x1C00233E4 (-_Create@FxWaitLock@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@EPEAPE.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000CFA4 (-FxValidateObjectAttributesForParentHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTE.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?_Create@FxWaitLock@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@EPEAPEAUWDFWAITLOCK__@@@Z @ 0x1C00622F0 (-_Create@FxWaitLock@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@EPEAPE.c)
  */
 
 int __fastcall imp_WdfWaitLockCreate(
@@ -15,22 +15,25 @@ int __fastcall imp_WdfWaitLockCreate(
         _WDF_OBJECT_ATTRIBUTES *LockAttributes,
         WDFWAITLOCK__ **Lock)
 {
-  _FX_DRIVER_GLOBALS *m_Globals; // rbx
+  _FX_DRIVER_GLOBALS *DriverName; // rbx
   int result; // eax
-  void *retaddr; // [rsp+38h] [rbp+0h]
+  ULONG_PTR retaddr; // [rsp+38h] [rbp+0h]
   FxObject *parent; // [rsp+40h] [rbp+8h] BYREF
 
   parent = 0LL;
-  m_Globals = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
-  if ( (int)FxValidateObjectAttributesForParentHandle((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], LockAttributes, 0) >= 0 )
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
+  if ( (int)FxValidateObjectAttributesForParentHandle(
+              (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+              LockAttributes,
+              0) >= 0 )
   {
-    FxObjectHandleGetPtr(m_Globals, (unsigned __int64)LockAttributes->ParentObject, 0x1000u, (void **)&parent);
-    m_Globals = parent->m_Globals;
+    FxObjectHandleGetPtr(DriverName, (unsigned __int64)LockAttributes->ParentObject, 0x1000u, (void **)&parent);
+    DriverName = parent->m_Globals;
   }
   if ( !Lock )
-    FxVerifierNullBugCheck(m_Globals, retaddr);
-  result = FxValidateObjectAttributes(m_Globals, LockAttributes, 0);
+    FxVerifierNullBugCheck(DriverName, retaddr);
+  result = FxValidateObjectAttributes(DriverName, LockAttributes, 0);
   if ( result >= 0 )
-    return FxWaitLock::_Create(m_Globals, LockAttributes, parent, 1u, Lock);
+    return FxWaitLock::_Create(DriverName, LockAttributes, parent, 1u, Lock);
   return result;
 }

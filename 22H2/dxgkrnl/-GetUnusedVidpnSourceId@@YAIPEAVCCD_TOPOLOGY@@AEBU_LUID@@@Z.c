@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetUnusedVidpnSourceId@@YAIPEAVCCD_TOPOLOGY@@AEBU_LUID@@@Z @ 0x1C02FAC08
+ * XREFs of ?GetUnusedVidpnSourceId@@YAIPEAVCCD_TOPOLOGY@@AEBU_LUID@@@Z @ 0x1C029666C
  * Callers:
- *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02FAD5C (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
+ *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02967CC (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
  * Callees:
- *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C0180B78 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
- *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C0180EE4 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C019F020 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
- *     ?RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z @ 0x1C03BCB0C (-RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013D77C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C013DE80 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C013E924 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     ?RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z @ 0x1C02ED8BC (-RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z.c)
  */
 
 __int64 __fastcall GetUnusedVidpnSourceId(struct CCD_TOPOLOGY *this, const struct _LUID *a2)
@@ -16,25 +16,24 @@ __int64 __fastcall GetUnusedVidpnSourceId(struct CCD_TOPOLOGY *this, const struc
   bool v6; // r8
   unsigned int i; // ebx
   unsigned int j; // edi
-  __int64 v9; // rax
-  unsigned __int16 v10; // cx
+  __int64 v9; // rcx
+  unsigned __int16 v10; // ax
   const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rcx
-  __int64 v12; // rax
-  unsigned __int16 v13; // cx
+  unsigned __int16 v12; // ax
   unsigned int k; // esi
-  __int64 v15; // rcx
-  unsigned __int16 v16; // ax
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v17; // rcx
-  __int64 v18; // rax
-  unsigned __int16 v19; // dx
-  unsigned __int16 v20; // ax
-  _BYTE v22[64]; // [rsp+20h] [rbp-78h] BYREF
-  __int64 v23; // [rsp+60h] [rbp-38h]
-  int v24; // [rsp+74h] [rbp-24h]
+  __int64 v14; // rcx
+  unsigned __int16 v15; // ax
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v16; // rcx
+  __int64 v17; // rax
+  unsigned __int16 v18; // dx
+  unsigned __int16 v19; // ax
+  _BYTE v21[64]; // [rsp+20h] [rbp-68h] BYREF
+  __int64 v22; // [rsp+60h] [rbp-28h]
+  int v23; // [rsp+74h] [rbp-14h]
 
-  CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v22, 8u, 0);
-  v24 |= 1u;
-  CCD_BTL::RetrieveActiveTopologyNoRetryNeeded(v5, v4, v6, (struct CCD_TOPOLOGY *)v22);
+  CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v21, 8u, 0);
+  v23 |= 1u;
+  CCD_BTL::RetrieveActiveTopologyNoRetryNeeded(v5, v4, v6, (struct CCD_TOPOLOGY *)v21);
   for ( i = 0; i < 0x10; ++i )
   {
     for ( j = 0; ; ++j )
@@ -48,42 +47,42 @@ __int64 __fastcall GetUnusedVidpnSourceId(struct CCD_TOPOLOGY *this, const struc
         && *((_DWORD *)PathDescriptor + 5) == a2->HighPart
         && i == *((_DWORD *)PathDescriptor + 6) )
       {
+        v9 = *((_QWORD *)this + 8);
         break;
       }
     }
-    v12 = *((_QWORD *)this + 8);
-    if ( v12 )
-      v13 = *(_WORD *)(v12 + 20);
+    if ( v9 )
+      v12 = *(_WORD *)(v9 + 20);
     else
-      v13 = 0;
-    if ( j >= v13 )
+      v12 = 0;
+    if ( j >= v12 )
     {
       for ( k = 0; ; ++k )
       {
-        v15 = v23;
-        v16 = v23 ? *(_WORD *)(v23 + 20) : 0;
-        if ( k >= v16 )
+        v14 = v22;
+        v15 = v22 ? *(_WORD *)(v22 + 20) : 0;
+        if ( k >= v15 )
           break;
-        v17 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v22, k);
-        if ( _bittest64((const signed __int64 *)v17, 0x24u)
-          && *((_DWORD *)v17 + 4) == a2->LowPart
-          && *((_DWORD *)v17 + 5) == a2->HighPart
-          && i == *((_DWORD *)v17 + 6) )
+        v16 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v21, k);
+        if ( (*(_QWORD *)v16 & 0x1000000000LL) != 0
+          && *((_DWORD *)v16 + 4) == a2->LowPart
+          && *((_DWORD *)v16 + 5) == a2->HighPart
+          && i == *((_DWORD *)v16 + 6) )
         {
-          v15 = v23;
+          v14 = v22;
           break;
         }
       }
-      v18 = *((_QWORD *)this + 8);
-      v19 = v18 ? *(_WORD *)(v18 + 20) : 0;
-      if ( j >= v19 )
+      v17 = *((_QWORD *)this + 8);
+      v18 = v17 ? *(_WORD *)(v17 + 20) : 0;
+      if ( j >= v18 )
       {
-        v20 = v15 ? *(_WORD *)(v15 + 20) : 0;
-        if ( k >= v20 )
+        v19 = v14 ? *(_WORD *)(v14 + 20) : 0;
+        if ( k >= v19 )
           break;
       }
     }
   }
-  CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v22);
+  CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v21);
   return i;
 }

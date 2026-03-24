@@ -1,105 +1,116 @@
 /*
- * XREFs of RIMFreeSpecificDevWorker @ 0x1C0071424
+ * XREFs of RIMFreeSpecificDevWorker @ 0x1C00BBC8C
  * Callers:
- *     RawInputManagerObjectDelete @ 0x1C007267C (RawInputManagerObjectDelete.c)
- *     ?dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C00C1EDC (-dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z.c)
- *     RIMCreateDev @ 0x1C00C874C (RIMCreateDev.c)
- *     RIMVirtCreateDev @ 0x1C0171148 (RIMVirtCreateDev.c)
+ *     RawInputManagerObjectDelete @ 0x1C005287C (RawInputManagerObjectDelete.c)
+ *     RIMCreateDev @ 0x1C0055530 (RIMCreateDev.c)
+ *     ?dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C0075DA8 (-dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z.c)
+ *     RIMVirtCreateDev @ 0x1C014FC98 (RIMVirtCreateDev.c)
  * Callees:
- *     RIMIDEFreeInjectedInfo @ 0x1C0071540 (RIMIDEFreeInjectedInfo.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMFreeHidDesc @ 0x1C01810B4 (RIMFreeHidDesc.c)
- *     RIMReleasePointerDeviceInfo @ 0x1C018B398 (RIMReleasePointerDeviceInfo.c)
- *     RIMFreeHidTLCInfo @ 0x1C0191810 (RIMFreeHidTLCInfo.c)
- *     RIMHidTLCActive @ 0x1C0191934 (RIMHidTLCActive.c)
- *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C019BD24 (-Release@RIMDeadzone@@QEAAXXZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     RIMHidTLCActive @ 0x1C00567C4 (RIMHidTLCActive.c)
+ *     RIMFreeHidDesc @ 0x1C0057658 (RIMFreeHidDesc.c)
+ *     RIMFreeHidTLCInfo @ 0x1C00AC710 (RIMFreeHidTLCInfo.c)
+ *     RIMIDEFreeInjectedInfo @ 0x1C00B19E0 (RIMIDEFreeInjectedInfo.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMReleasePointerDeviceInfo @ 0x1C015F348 (RIMReleasePointerDeviceInfo.c)
+ *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C016E63C (-Release@RIMDeadzone@@QEAAXXZ.c)
  */
 
-__int64 __fastcall RIMFreeSpecificDevWorker(__int64 a1, __int64 a2)
+void __fastcall RIMFreeSpecificDevWorker(__int64 a1, __int64 a2)
 {
-  void *v4; // rdx
-  void *v5; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rcx
   __int64 v6; // rax
-  void *v7; // rdx
-  void *v8; // rdx
-  void *v10; // rdx
-  RIMDeadzone **v12; // rdi
-  __int64 v13; // rsi
+  __int64 v8; // rcx
+  RIMDeadzone **v9; // rdi
+  __int64 v10; // rsi
+  RIMDeadzone *v11; // rcx
+  char v12; // al
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  __int64 v15; // rcx
 
   if ( *(_QWORD *)(a2 + 40) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 659LL);
-  if ( *(_QWORD *)(a2 + 192) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 660LL);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 438LL);
   if ( *(_QWORD *)(a2 + 104) != a2 + 104 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 664LL);
-  v4 = *(void **)(a2 + 216);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 442LL);
+  v4 = *(_QWORD *)(a2 + 216);
   if ( v4 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
-  v5 = *(void **)(a2 + 320);
+    Win32FreePool(v4);
+  v5 = *(_QWORD *)(a2 + 320);
   if ( v5 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v5);
+    Win32FreePool(v5);
   if ( (unsigned __int8)(*(_BYTE *)(a2 + 48) - 2) <= 1u )
   {
-    v6 = *(_QWORD *)(a2 + 464);
+    v6 = *(_QWORD *)(a2 + 472);
     if ( v6 )
     {
-      if ( (*(_DWORD *)(v6 + 20))-- == 1 && !(unsigned int)RIMHidTLCActive(*(_QWORD *)(a2 + 464)) )
-        RIMFreeHidTLCInfo(*(void **)(a2 + 464));
+      if ( (*(_DWORD *)(v6 + 20))-- == 1 && !(unsigned int)RIMHidTLCActive(*(_DWORD **)(a2 + 472)) )
+        RIMFreeHidTLCInfo(*(_QWORD *)(a2 + 472));
     }
-    if ( *(_QWORD *)(a2 + 456) )
+    v8 = *(_QWORD *)(a2 + 464);
+    if ( v8 )
     {
       if ( (*(_DWORD *)(a2 + 200) & 0x80u) != 0 )
       {
-        if ( *(_DWORD *)(a2 + 448) )
+        if ( *(_DWORD *)(a2 + 456) )
         {
-          v12 = (RIMDeadzone **)(a2 + 408);
-          v13 = 5LL;
+          v9 = (RIMDeadzone **)(a2 + 416);
+          v10 = 5LL;
           do
           {
-            if ( *v12 )
+            if ( *v9 )
             {
-              RIMDeadzone::Release(*v12);
-              if ( *((_DWORD *)*v12 + 1) )
-                MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 708LL);
-              if ( *v12 )
-                NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, *v12);
-              *v12 = 0LL;
-              --*(_DWORD *)(a2 + 448);
+              RIMDeadzone::Release(*v9);
+              v11 = *v9;
+              if ( *((_DWORD *)*v9 + 1) )
+              {
+                MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 486LL);
+                v11 = *v9;
+              }
+              Win32FreePool((__int64)v11);
+              *v9 = 0LL;
+              --*(_DWORD *)(a2 + 456);
             }
-            ++v12;
-            --v13;
+            ++v9;
+            --v10;
           }
-          while ( v13 );
-          if ( *(_DWORD *)(a2 + 448) )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 715LL);
+          while ( v10 );
+          if ( *(_DWORD *)(a2 + 456) )
+            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 493LL);
         }
         RIMReleasePointerDeviceInfo(a1, a2);
+        v8 = *(_QWORD *)(a2 + 464);
       }
-      RIMFreeHidDesc(*(void **)(a2 + 456));
-      *(_QWORD *)(a2 + 456) = 0LL;
+      RIMFreeHidDesc(v8);
+      *(_QWORD *)(a2 + 464) = 0LL;
     }
   }
-  if ( *(_BYTE *)(a2 + 48) == 3 && *(_QWORD *)(a2 + 464) )
+  v12 = *(_BYTE *)(a2 + 48);
+  if ( v12 == 3 )
   {
-    RIMFreeHidDesc(*(void **)(a2 + 456));
-    *(_QWORD *)(a2 + 456) = 0LL;
+    if ( !*(_QWORD *)(a2 + 472) )
+      goto LABEL_33;
+    RIMFreeHidDesc(*(_QWORD *)(a2 + 464));
+    v12 = *(_BYTE *)(a2 + 48);
+    *(_QWORD *)(a2 + 464) = 0LL;
   }
-  if ( !*(_BYTE *)(a2 + 48) )
+  if ( !v12 )
   {
-    v10 = *(void **)(a2 + 896);
-    if ( v10 )
+    v13 = *(_QWORD *)(a2 + 904);
+    if ( v13 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v10);
-      *(_QWORD *)(a2 + 896) = 0LL;
-      *(_WORD *)(a2 + 890) = 0;
+      Win32FreePool(v13);
+      *(_QWORD *)(a2 + 904) = 0LL;
+      *(_WORD *)(a2 + 898) = 0;
     }
   }
-  v7 = *(void **)(a2 + 352);
-  if ( v7 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v7);
-  v8 = *(void **)(a2 + 376);
-  if ( v8 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v8);
-  return RIMIDEFreeInjectedInfo(a2);
+LABEL_33:
+  v14 = *(_QWORD *)(a2 + 352);
+  if ( v14 )
+    Win32FreePool(v14);
+  v15 = *(_QWORD *)(a2 + 376);
+  if ( v15 )
+    Win32FreePool(v15);
+  RIMIDEFreeInjectedInfo(a2);
 }

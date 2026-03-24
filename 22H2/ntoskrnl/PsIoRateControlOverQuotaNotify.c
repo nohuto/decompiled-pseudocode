@@ -1,54 +1,67 @@
 /*
- * XREFs of PsIoRateControlOverQuotaNotify @ 0x140368868
+ * XREFs of PsIoRateControlOverQuotaNotify @ 0x1402012D8
  * Callers:
- *     IoNotifyQuotaState @ 0x1403687A0 (IoNotifyQuotaState.c)
+ *     IoNotifyQuotaState @ 0x140201210 (IoNotifyQuotaState.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall PsIoRateControlOverQuotaNotify(__int64 a1, int a2, int a3, int a4, int a5)
+__int64 __fastcall PsIoRateControlOverQuotaNotify(__int64 a1, int a2, int a3, int a4, int a5)
 {
+  __int64 v8; // rbx
   __int64 UnbiasedInterruptTime; // rsi
-  unsigned __int64 v10; // rdi
+  KIRQL v10; // al
   __int64 v11; // rcx
-  unsigned __int8 CurrentIrql; // al
+  unsigned __int64 v12; // rdi
+  __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // eax
   bool v16; // zf
 
+  v8 = a1;
   if ( a5 )
-    UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
-  else
-    UnbiasedInterruptTime = 0LL;
-  v10 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1672));
-  if ( a4 != *(_DWORD *)(a1 + 1716) )
   {
-    v11 = *(_QWORD *)(a1 + 1696);
-    ++*(_DWORD *)(a1 + 1704);
-    *(_QWORD *)(a1 + 1696) = 2 * v11;
+    LOBYTE(a1) = 1;
+    UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(a1);
   }
-  *(_DWORD *)(a1 + 1712) = a3;
-  *(_QWORD *)(a1 + 1696) |= a2 != 0;
+  else
+  {
+    UnbiasedInterruptTime = 0LL;
+  }
+  v10 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v8 + 1456));
+  v11 = *(_QWORD *)(v8 + 1480);
+  v12 = v10;
+  if ( a4 != *(_DWORD *)(v8 + 1500) )
+  {
+    ++*(_DWORD *)(v8 + 1488);
+    v11 *= 2LL;
+  }
+  *(_DWORD *)(v8 + 1496) = a3;
+  *(_QWORD *)(v8 + 1480) = v11 | (a2 != 0);
   if ( a5 )
-    *(_QWORD *)(a1 + 1720) = UnbiasedInterruptTime;
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1672));
+    *(_QWORD *)(v8 + 1504) = UnbiasedInterruptTime;
+  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v8 + 1456));
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-      v16 = (v15 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v12 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+        v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v16 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
-  __writecr8(v10);
+  __writecr8(v12);
+  return result;
 }

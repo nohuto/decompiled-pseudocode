@@ -1,11 +1,10 @@
 /*
- * XREFs of ??1CToken@@UEAA@XZ @ 0x1C007890C
+ * XREFs of ??1CToken@@UEAA@XZ @ 0x1C001C034
  * Callers:
- *     ??_GCToken@@UEAAPEAXI@Z @ 0x1C0078970 (--_GCToken@@UEAAPEAXI@Z.c)
- *     ??1CFlipToken@@MEAA@XZ @ 0x1C007938C (--1CFlipToken@@MEAA@XZ.c)
- *     ??1CFlipContentToken@@UEAA@XZ @ 0x1C0089E80 (--1CFlipContentToken@@UEAA@XZ.c)
+ *     ??_GCToken@@UEAAPEAXI@Z @ 0x1C001BFF0 (--_GCToken@@UEAAPEAXI@Z.c)
+ *     ??1CFlipContentToken@@UEAA@XZ @ 0x1C006FCA0 (--1CFlipContentToken@@UEAA@XZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CToken::~CToken(CToken *this)

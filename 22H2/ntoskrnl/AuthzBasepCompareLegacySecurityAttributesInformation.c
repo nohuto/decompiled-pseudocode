@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1407C79F4
+ * XREFs of AuthzBasepCompareLegacySecurityAttributesInformation @ 0x14070E8B4
  * Callers:
- *     NtCompareTokens @ 0x1407C7650 (NtCompareTokens.c)
+ *     NtCompareTokens @ 0x14070E3A0 (NtCompareTokens.c)
  * Callees:
- *     AuthzBasepFindSecurityAttribute @ 0x14022D0E0 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepIsCompareRelevantAttribute @ 0x1407C7ABC (AuthzBasepIsCompareRelevantAttribute.c)
- *     AuthzBasepCompareSecurityAttribute @ 0x1407C7AF0 (AuthzBasepCompareSecurityAttribute.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x14024E560 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepIsCompareRelevantAttribute @ 0x14070E980 (AuthzBasepIsCompareRelevantAttribute.c)
+ *     AuthzBasepCompareSecurityAttribute @ 0x14070E9B4 (AuthzBasepCompareSecurityAttribute.c)
  */
 
 bool __fastcall AuthzBasepCompareLegacySecurityAttributesInformation(int *a1, __int64 a2)
@@ -16,7 +16,9 @@ bool __fastcall AuthzBasepCompareLegacySecurityAttributesInformation(int *a1, __
   __int64 *v6; // r14
   const UNICODE_STRING *i; // rdi
   const UNICODE_STRING *SecurityAttribute; // rax
-  _QWORD *j; // rdi
+  _QWORD *v10; // rdi
+  char IsCompareRelevantAttribute; // al
+  int v12; // ecx
 
   v2 = *a1;
   v3 = 0;
@@ -39,10 +41,15 @@ bool __fastcall AuthzBasepCompareLegacySecurityAttributesInformation(int *a1, __
       --v2;
     }
   }
-  for ( j = *(_QWORD **)(a2 + 8); j != (_QWORD *)(a2 + 8); j = (_QWORD *)*j )
+  v10 = *(_QWORD **)(a2 + 8);
+  while ( v10 != (_QWORD *)(a2 + 8) )
   {
-    if ( !(unsigned __int8)AuthzBasepIsCompareRelevantAttribute(j) )
-      --v4;
+    IsCompareRelevantAttribute = AuthzBasepIsCompareRelevantAttribute(v10);
+    v10 = (_QWORD *)*v10;
+    v12 = v4 - 1;
+    if ( IsCompareRelevantAttribute )
+      v12 = v4;
+    v4 = v12;
   }
   return v2 == v4;
 }

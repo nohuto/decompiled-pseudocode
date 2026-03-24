@@ -1,24 +1,24 @@
 /*
- * XREFs of ?GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z @ 0x1C01363DC
+ * XREFs of ?GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z @ 0x1C0038568
  * Callers:
- *     CalcForegroundInsertAfter @ 0x1C00EC140 (CalcForegroundInsertAfter.c)
- *     ?ValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C00F23B0 (-ValidateZorder@@YAHPEAUtagCVR@@@Z.c)
+ *     ?ValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C00372FC (-ValidateZorder@@YAHPEAUtagCVR@@@Z.c)
+ *     CalcForegroundInsertAfter @ 0x1C0038ADC (CalcForegroundInsertAfter.c)
  * Callees:
  *     <none>
  */
 
 struct tagWND *__fastcall GetLastNonBottomMostWindow(struct tagWND *a1, int a2)
 {
-  struct tagWND *v2; // r10
-  struct tagWND *i; // r9
+  __int64 v2; // r10
+  __int64 i; // r9
 
   v2 = 0LL;
-  for ( i = *(struct tagWND **)(*((_QWORD *)a1 + 13) + 112LL);
-        i && (*(_BYTE *)(*((_QWORD *)i + 5) + 20LL) & 0x20) == 0;
-        i = (struct tagWND *)*((_QWORD *)i + 11) )
+  for ( i = *(_QWORD *)(*((_QWORD *)a1 + 13) + 112LL);
+        i && (*(_BYTE *)(*(_QWORD *)(i + 40) + 20LL) & 0x20) == 0;
+        i = *(_QWORD *)(i + 88) )
   {
-    if ( !a2 || a1 != i )
+    if ( !a2 || a1 != (struct tagWND *)i )
       v2 = i;
   }
-  return v2;
+  return (struct tagWND *)v2;
 }

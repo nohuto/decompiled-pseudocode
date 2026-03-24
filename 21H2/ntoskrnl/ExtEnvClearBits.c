@@ -1,9 +1,9 @@
 /*
- * XREFs of ExtEnvClearBits @ 0x140522654
+ * XREFs of ExtEnvClearBits @ 0x1404D5384
  * Callers:
- *     HsaInitializeInterruptRemapping @ 0x140A64868 (HsaInitializeInterruptRemapping.c)
+ *     HsaInitializeInterruptRemapping @ 0x1409AA448 (HsaInitializeInterruptRemapping.c)
  * Callees:
- *     RtlClearBits @ 0x140347580 (RtlClearBits.c)
+ *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
  */
 
 void __fastcall ExtEnvClearBits(RTL_BITMAP *a1, ULONG a2, ULONG a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopResetRangeEnum @ 0x14025E8D8
+ * XREFs of PopResetRangeEnum @ 0x1402D3FD4
  * Callers:
- *     PopSaveHiberContext @ 0x140A4B9E0 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x1409937A0 (PopSaveHiberContext.c)
  * Callees:
  *     <none>
  */

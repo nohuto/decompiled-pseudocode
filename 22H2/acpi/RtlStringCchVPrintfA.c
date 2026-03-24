@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCchVPrintfA @ 0x1C0047280
+ * XREFs of RtlStringCchVPrintfA @ 0x1C0063134
  * Callers:
- *     CatError @ 0x1C004D748 (CatError.c)
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
+ *     CatError @ 0x1C0065CD0 (CatError.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
  * Callees:
  *     <none>
  */
@@ -13,14 +13,22 @@ NTSTATUS __stdcall RtlStringCchVPrintfA(
         NTSTRSAFE_PCSTR pszFormat,
         va_list argList)
 {
-  NTSTATUS v5; // ebx
-  size_t v6; // rdi
+  NTSTATUS v4; // esi
+  size_t v6; // rbx
   int v7; // eax
 
-  if ( cchDest - 1 <= 0x7FFFFFFE )
+  v4 = 0;
+  if ( cchDest - 1 > 0x7FFFFFFE )
+    v4 = -1073741811;
+  if ( v4 < 0 )
+  {
+    if ( cchDest )
+      *pszDest = 0;
+  }
+  else
   {
     v6 = cchDest - 1;
-    v5 = 0;
+    v4 = 0;
     v7 = _vsnprintf(pszDest, cchDest - 1, pszFormat, argList);
     if ( v7 < 0 || v7 > v6 )
     {
@@ -32,11 +40,5 @@ NTSTATUS __stdcall RtlStringCchVPrintfA(
       pszDest[v6] = 0;
     }
   }
-  else
-  {
-    v5 = -1073741811;
-    if ( cchDest )
-      *pszDest = 0;
-  }
-  return v5;
+  return v4;
 }

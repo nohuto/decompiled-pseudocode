@@ -1,35 +1,35 @@
 /*
- * XREFs of ACPIGetUniqueId @ 0x1C00AF8F0
+ * XREFs of ACPIGetUniqueId @ 0x1C00B0440
  * Callers:
  *     <none>
  * Callees:
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ACPIGetUniqueId(__int64 a1, _QWORD *a2)
 {
   __int64 *v3; // rcx
   __int64 *v4; // rax
-  volatile signed __int32 *v5; // rsi
+  __int64 v5; // rsi
   int v7; // ebx
   __int128 v8; // [rsp+20h] [rbp-38h] BYREF
   __int128 v9; // [rsp+30h] [rbp-28h]
   void *Src; // [rsp+40h] [rbp-18h]
 
   *a2 = 0LL;
-  v3 = *(__int64 **)(a1 + 760);
+  v3 = *(__int64 **)(a1 + 720);
   v8 = 0LL;
   Src = 0LL;
   v9 = 0LL;
   v4 = AMLIGetNamedChild(v3, 1145656671);
-  v5 = (volatile signed __int32 *)v4;
+  v5 = (__int64)v4;
   if ( !v4 )
     return 3221226021LL;
-  v7 = AMLIEvalNameSpaceObject(v4, (__int64)&v8, 0, 0LL);
+  v7 = AMLIEvalNameSpaceObject((unsigned __int64 *)v4, (__int64)&v8, 0, 0LL);
   AMLIDereferenceHandleEx(v5);
   if ( v7 >= 0 )
   {

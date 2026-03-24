@@ -1,9 +1,9 @@
 /*
- * XREFs of PopRecorderInit @ 0x140B28664
+ * XREFs of PopRecorderInit @ 0x140A6DBE0
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x14024AE50 (KeRegisterBugCheckReasonCallback.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14039E660 (KeRegisterBugCheckReasonCallback.c)
  */
 
 BOOLEAN PopRecorderInit()

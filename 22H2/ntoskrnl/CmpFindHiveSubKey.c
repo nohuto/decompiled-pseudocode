@@ -1,36 +1,28 @@
 /*
- * XREFs of CmpFindHiveSubKey @ 0x140B5C068
+ * XREFs of CmpFindHiveSubKey @ 0x140A5F704
  * Callers:
- *     CmpGetStateSepKeysRedirectionPathValue @ 0x140B5DD4C (CmpGetStateSepKeysRedirectionPathValue.c)
- *     CmpGetKnownHivePathNode @ 0x140B99EFC (CmpGetKnownHivePathNode.c)
+ *     CmpGetStateSepKeysRedirectionPathValue @ 0x140A61390 (CmpGetStateSepKeysRedirectionPathValue.c)
+ *     CmpGetKnownHivePathNode @ 0x140A8EBCC (CmpGetKnownHivePathNode.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpWalkUnicodeStringPath @ 0x140826710 (CmpWalkUnicodeStringPath.c)
- *     CmpGetNextName @ 0x1408267D4 (CmpGetNextName.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     CmpWalkUnicodeStringPath @ 0x1407ACB78 (CmpWalkUnicodeStringPath.c)
+ *     CmpGetNextName @ 0x1407ACC24 (CmpGetNextName.c)
  */
 
-bool __fastcall CmpFindHiveSubKey(
-        ULONG_PTR BugCheckParameter3,
-        ULONG_PTR BugCheckParameter4,
-        __int128 *a3,
-        __int64 *a4,
-        unsigned int *a5)
+bool __fastcall CmpFindHiveSubKey(__int64 a1, unsigned int a2, __int128 *a3, __int64 *a4, __int64 a5)
 {
   char v5; // bl
-  unsigned int v8; // r14d
   unsigned int v10; // edi
   __int128 *v11; // r8
-  ULONG_PTR v12; // rdx
-  __int64 CellFlat; // rax
+  unsigned int v12; // edx
+  __int64 v14; // rax
   UNICODE_STRING String2; // [rsp+20h] [rbp-38h] BYREF
   __int16 v16[20]; // [rsp+30h] [rbp-28h] BYREF
   bool v17; // [rsp+60h] [rbp+8h] BYREF
 
   v5 = 0;
-  v8 = BugCheckParameter4;
-  v10 = *(_DWORD *)(*(_QWORD *)(BugCheckParameter3 + 64) + 36LL);
+  v10 = *(_DWORD *)(*(_QWORD *)(a1 + 64) + 36LL);
   String2 = 0LL;
   if ( a3 && *(_WORD *)a3 )
   {
@@ -40,23 +32,20 @@ bool __fastcall CmpFindHiveSubKey(
     if ( RtlEqualUnicodeString(&CmpCCSString, &String2, 1u) )
     {
       v11 = (__int128 *)v16;
-      v12 = v8;
+      v12 = a2;
     }
     else
     {
       v11 = a3;
       v12 = v10;
     }
-    v10 = CmpWalkUnicodeStringPath(BugCheckParameter3, v12, v11);
+    v10 = CmpWalkUnicodeStringPath(a1, v12, v11);
   }
   if ( v10 != -1 )
   {
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      CellFlat = HvpGetCellFlat(BugCheckParameter3, v10, a5);
-    else
-      CellFlat = HvpGetCellPaged(BugCheckParameter3, v10, a5);
-    *a4 = CellFlat;
-    return CellFlat != 0;
+    v14 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(a1 + 8))(a1, v10, a5);
+    *a4 = v14;
+    return v14 != 0;
   }
   return v5;
 }

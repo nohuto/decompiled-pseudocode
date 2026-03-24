@@ -1,54 +1,60 @@
 /*
- * XREFs of RtlStringCchCopyNA @ 0x1C0020438
+ * XREFs of RtlStringCchCopyNA @ 0x1C00288C8
  * Callers:
- *     ACPIGetConvertToHardwareIDWide @ 0x1C001D6EC (ACPIGetConvertToHardwareIDWide.c)
- *     ACPIGetProcessorIDWide @ 0x1C001E2B0 (ACPIGetProcessorIDWide.c)
- *     LoadDDB @ 0x1C00225B8 (LoadDDB.c)
- *     DumpObject @ 0x1C0068B08 (DumpObject.c)
- *     ProcessLoadTable @ 0x1C006A9B0 (ProcessLoadTable.c)
- *     AMLILoadDDB @ 0x1C00BD7A8 (AMLILoadDDB.c)
+ *     ACPIGetConvertToHardwareIDWide @ 0x1C000C70C (ACPIGetConvertToHardwareIDWide.c)
+ *     LoadDDB @ 0x1C002372C (LoadDDB.c)
+ *     ACPIGetProcessorIDWide @ 0x1C00276E0 (ACPIGetProcessorIDWide.c)
+ *     DumpObject @ 0x1C0067738 (DumpObject.c)
+ *     ProcessLoadTable @ 0x1C006A1F0 (ProcessLoadTable.c)
+ *     AMLILoadDDB @ 0x1C00BE388 (AMLILoadDDB.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall RtlStringCchCopyNA(NTSTRSAFE_PSTR pszDest, size_t cchDest, STRSAFE_PCNZCH pszSrc, size_t cchToCopy)
 {
-  size_t v4; // r9
-  signed __int64 v5; // r8
-  char v6; // al
-  NTSTRSAFE_PSTR v7; // rax
-  NTSTATUS result; // eax
+  NTSTATUS v4; // r10d
+  size_t v5; // r9
+  signed __int64 v6; // r8
+  char v7; // al
+  NTSTRSAFE_PSTR v8; // rax
 
+  v4 = 0;
   if ( cchDest - 1 > 0x7FFFFFFE )
+    v4 = -1073741811;
+  if ( v4 < 0 )
   {
-    result = -1073741811;
     if ( !cchDest )
-      return result;
-LABEL_13:
+      return v4;
+LABEL_16:
     *pszDest = 0;
-    return result;
+    return v4;
   }
   if ( cchToCopy > 0x7FFFFFFE )
   {
-    result = -1073741811;
-    goto LABEL_13;
+    v4 = -1073741811;
+    goto LABEL_16;
   }
-  v4 = cchToCopy - cchDest;
-  v5 = pszSrc - pszDest;
-  do
-  {
-    if ( !(v4 + cchDest) )
-      break;
-    v6 = pszDest[v5];
-    if ( !v6 )
-      break;
-    *pszDest++ = v6;
-    --cchDest;
-  }
-  while ( cchDest );
-  v7 = pszDest - 1;
   if ( cchDest )
-    v7 = pszDest;
-  *v7 = 0;
-  return cchDest == 0 ? 0x80000005 : 0;
+  {
+    v5 = cchToCopy - cchDest;
+    v6 = pszSrc - pszDest;
+    do
+    {
+      if ( !(v5 + cchDest) )
+        break;
+      v7 = pszDest[v6];
+      if ( !v7 )
+        break;
+      *pszDest++ = v7;
+      --cchDest;
+    }
+    while ( cchDest );
+  }
+  v8 = pszDest - 1;
+  if ( cchDest )
+    v8 = pszDest;
+  v4 = cchDest == 0 ? 0x80000005 : 0;
+  *v8 = 0;
+  return v4;
 }

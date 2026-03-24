@@ -1,21 +1,20 @@
 /*
- * XREFs of ?DxgkGetMonitorDeviceObject@@YAJPEBU_LUID@@IPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0165640
+ * XREFs of ?DxgkGetMonitorDeviceObject@@YAJPEBU_LUID@@IPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C012BEC0
  * Callers:
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C02FF2BC (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025F574 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C000BD4C (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     MonitorGetDeviceObject @ 0x1C01657A8 (MonitorGetDeviceObject.c)
- *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C01658E0 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01A442C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C011F70C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ *     MonitorGetDeviceObject @ 0x1C012BDB8 (MonitorGetDeviceObject.c)
+ *     DxgkConvertLegacyQDCAdapterAndIdToActual @ 0x1C012D920 (DxgkConvertLegacyQDCAdapterAndIdToActual.c)
  */
 
 __int64 __fastcall DxgkGetMonitorDeviceObject(
@@ -24,119 +23,123 @@ __int64 __fastcall DxgkGetMonitorDeviceObject(
         struct _FILE_OBJECT **a3,
         struct _DEVICE_OBJECT **a4)
 {
-  __int64 v7; // rdi
-  int v8; // eax
-  __int64 v9; // rsi
+  __int64 v7; // r15
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  DXGADAPTER *v14; // rbx
   DXGGLOBAL *Global; // rax
-  struct DXGADAPTER *v11; // rax
-  __int64 v12; // rbx
-  struct DXGADAPTER *const v13; // rdx
-  DXGADAPTER *v14; // rdx
-  int v15; // eax
-  int v16; // edi
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  unsigned int v20; // [rsp+50h] [rbp-B0h] BYREF
-  struct _LUID v21; // [rsp+58h] [rbp-A8h] BYREF
-  int v22; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v23; // [rsp+68h] [rbp-98h]
-  char v24; // [rsp+70h] [rbp-90h]
-  unsigned __int64 v25; // [rsp+78h] [rbp-88h] BYREF
-  _BYTE v26[8]; // [rsp+80h] [rbp-80h] BYREF
-  _BYTE v27[64]; // [rsp+88h] [rbp-78h] BYREF
-  _BYTE v28[72]; // [rsp+C8h] [rbp-38h] BYREF
+  struct DXGADAPTER *v16; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // rdi
+  __int64 v27; // rdx
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  _QWORD *v32; // rax
+  _QWORD *v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rax
+  unsigned int v36; // [rsp+20h] [rbp-A9h] BYREF
+  struct _LUID v37; // [rsp+28h] [rbp-A1h] BYREF
+  int v38; // [rsp+30h] [rbp-99h] BYREF
+  __int64 v39; // [rsp+38h] [rbp-91h]
+  char v40; // [rsp+40h] [rbp-89h]
+  unsigned __int64 v41; // [rsp+48h] [rbp-81h] BYREF
+  _BYTE v42[144]; // [rsp+50h] [rbp-79h] BYREF
 
-  v22 = -1;
-  v23 = 0LL;
+  v38 = -1;
+  v39 = 0LL;
   v7 = a2;
-  if ( (qword_1C012F870 & 2) != 0 )
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v24 = 1;
-    v22 = 2166;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v40 = 1;
+    v38 = 2166;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, (__int64)a3, 2166);
   }
   else
   {
-    v24 = 0;
+    v40 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v22, 2166);
-  v20 = 0;
-  if ( a1 && a3 && a4 )
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v38, 2166LL);
+  v36 = 0;
+  if ( !a1 || !a3 || !a4 )
   {
-    v21 = *a1;
-    v8 = DxgkConvertLegacyQDCAdapterAndIdToActual(&v21, (unsigned int)v7, &v21, &v20);
-    v9 = v8;
-    if ( v8 < 0 )
+    v33 = (_QWORD *)WdLogNewEntry5_WdWarning(v9, v8, v10);
+    LODWORD(v14) = -1073741811;
+    v33[3] = -1073741811LL;
+LABEL_21:
+    WdLogEvent5_WdWarning(v33);
+    goto LABEL_12;
+  }
+  v37 = *a1;
+  v11 = DxgkConvertLegacyQDCAdapterAndIdToActual(&v37, (unsigned int)v7, &v37, &v36);
+  v14 = (DXGADAPTER *)v11;
+  if ( v11 >= 0 )
+  {
+    Global = DXGGLOBAL::GetGlobal(v13, v12);
+    v16 = DXGGLOBAL::ReferenceAdapterByLuid(Global, v37, &v41);
+    v14 = v16;
+    if ( v16 )
     {
-      WdLogSingleEntry4(2LL, a1->LowPart, a1->HighPart, v7, v8);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to find the real target ID from Adapter LUID (0x%I64x, 0x%I64x) target ID 0x%I64x, returning 0x%I64x",
-        a1->LowPart,
-        a1->HighPart,
-        v7,
-        v9,
-        0LL);
-    }
-    else
-    {
-      Global = DXGGLOBAL_GetGlobal();
-      v11 = DXGGLOBAL::ReferenceAdapterByLuid(Global, v21, &v25);
-      v12 = (__int64)v11;
-      if ( v11 )
+      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v42, v16, 0LL);
+      DXGADAPTER::ReleaseReference(v14);
+      if ( *((_QWORD *)v14 + 337) )
       {
-        v26[1] = 0;
-        COREACCESS::COREACCESS((COREACCESS *)v27, v11);
-        COREACCESS::COREACCESS((COREACCESS *)v28, v13);
-        DXGADAPTER::ReleaseReference(v14);
-        if ( *(_QWORD *)(v12 + 2792) )
+        v22 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v42, 0LL);
+        v26 = v22;
+        if ( v22 < 0 )
         {
-          v15 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v26, 0LL);
-          v16 = v15;
-          if ( v15 < 0 )
-          {
-            WdLogSingleEntry2(3LL, v12, v15);
-            LODWORD(v9) = v16;
-          }
-          else
-          {
-            LODWORD(v9) = MonitorGetDeviceObject(v12, v20, a3, a4);
-          }
+          v35 = WdLogNewEntry5_WdWarning(v24, v23, v25);
+          *(_QWORD *)(v35 + 24) = v14;
+          *(_QWORD *)(v35 + 32) = v26;
+          WdLogEvent5_WdWarning(v35);
+          LODWORD(v14) = v26;
         }
         else
         {
-          LODWORD(v9) = -1073741811;
-          WdLogSingleEntry2(2LL, v12, -1073741811LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"DxgkGetMonitorDeviceObject is called on the non-display adapter 0x%I64x, returning 0x%I64x.",
-            v12,
-            -1073741811LL,
-            0LL,
-            0LL,
-            0LL);
+          LODWORD(v14) = MonitorGetDeviceObject(v14, v36, a3, a4);
         }
-        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v26);
       }
       else
       {
-        LODWORD(v9) = -1073741811;
-        WdLogSingleEntry3(3LL, v21.LowPart, v21.HighPart, -1073741811LL);
+        v34 = WdLogNewEntry5_WdError(v21, v20);
+        *(_QWORD *)(v34 + 24) = v14;
+        LODWORD(v14) = -1073741811;
+        *(_QWORD *)(v34 + 32) = -1073741811LL;
+        WdLogEvent5_WdError(v34);
       }
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v42, v27);
+      goto LABEL_12;
     }
+    v33 = (_QWORD *)WdLogNewEntry5_WdWarning(v18, v17, v19);
+    LODWORD(v14) = -1073741811;
+    v33[3] = v37.LowPart;
+    v33[4] = v37.HighPart;
+    v33[5] = -1073741811LL;
+    goto LABEL_21;
   }
-  else
-  {
-    LODWORD(v9) = -1073741811;
-    WdLogSingleEntry1(3LL, -1073741811LL);
-  }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v22);
-  if ( v24 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v17, &EventProfilerExit, v18, v22);
-  return (unsigned int)v9;
+  v32 = (_QWORD *)WdLogNewEntry5_WdError(v13, v12);
+  v32[3] = a1->LowPart;
+  v32[4] = a1->HighPart;
+  v32[5] = v7;
+  v32[6] = v14;
+  WdLogEvent5_WdError(v32);
+LABEL_12:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v38, v28);
+  if ( v40 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v29, &EventProfilerExit, v30, v38);
+  return (unsigned int)v14;
 }

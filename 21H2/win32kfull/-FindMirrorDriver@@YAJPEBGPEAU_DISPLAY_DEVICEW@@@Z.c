@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FindMirrorDriver@@YAJPEBGPEAU_DISPLAY_DEVICEW@@@Z @ 0x1C021F844
+ * XREFs of ?FindMirrorDriver@@YAJPEBGPEAU_DISPLAY_DEVICEW@@@Z @ 0x1C0225FA4
  * Callers:
- *     xxxRemoteConsoleShadowStart @ 0x1C0220350 (xxxRemoteConsoleShadowStart.c)
+ *     xxxRemoteConsoleShadowStart @ 0x1C0226A10 (xxxRemoteConsoleShadowStart.c)
  * Callees:
- *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00D28E0 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C000CCB4 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall FindMirrorDriver(PCWSTR SourceString, struct _DISPLAY_DEVICEW *a2)
@@ -15,12 +15,12 @@ __int64 __fastcall FindMirrorDriver(PCWSTR SourceString, struct _DISPLAY_DEVICEW
   __int64 v5; // rax
   unsigned __int64 i; // rax
   char *v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  signed __int64 v10; // r9
-  __int16 v11; // ax
-  char *v12; // rax
-  __int64 v14; // r8
+  signed int v8; // r8d
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  signed __int64 v11; // r9
+  __int16 v12; // ax
+  char *v13; // rax
   UNICODE_STRING String1; // [rsp+30h] [rbp-D0h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+50h] [rbp-B0h] BYREF
@@ -37,15 +37,16 @@ __int64 __fastcall FindMirrorDriver(PCWSTR SourceString, struct _DISPLAY_DEVICEW
   _BYTE v28[256]; // [rsp+1D0h] [rbp+D0h] BYREF
 
   v3 = 0;
+  v4 = 0;
   String1 = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  v4 = 1;
   a2->cb = 840;
-  if ( (int)DrvEnumDisplayDevices(0LL, *(_QWORD *)(*(_QWORD *)(gpDispInfo + 96LL) + 80LL), 0LL, a2, 0, 0) >= 0 )
+  if ( (int)DrvEnumDisplayDevices(0LL, *(_QWORD *)(*(_QWORD *)(gpDispInfo + 96LL) + 232LL), 0LL, a2, 0, 0) >= 0 )
   {
-    do
+    while ( 1 )
     {
+      ++v4;
       if ( (a2->StateFlags & 8) != 0
         && (int)RtlStringCchCopyNW((char *)Path, 133LL, (char *)a2->DeviceKey, 0x80uLL) >= 0 )
       {
@@ -59,67 +60,74 @@ __int64 __fastcall FindMirrorDriver(PCWSTR SourceString, struct _DISPLAY_DEVICEW
             goto LABEL_11;
         }
         if ( *(_WORD *)i != 92 )
-          goto LABEL_25;
+          goto LABEL_27;
 LABEL_11:
         QueryTable.QueryRoutine = 0LL;
         QueryTable.Name = L"Service";
         v7 = (char *)(i + 2);
         QueryTable.Flags = 288;
         QueryTable.EntryContext = &String1;
+        v8 = 0;
         QueryTable.DefaultType = 16777217;
-        v8 = (__int64)&v27[-i - 2] >> 1;
         QueryTable.DefaultData = 0LL;
+        v9 = (__int64)&v27[-i - 2] >> 1;
         QueryTable.DefaultLength = 0;
         v18 = 0LL;
         v19 = 0;
         v20 = 0LL;
         v21 = 0LL;
         v22 = 0;
+        if ( (unsigned __int64)(v9 - 1) > 0x7FFFFFFE )
+          v8 = -1073741811;
         v23 = 0LL;
         v24 = 0;
-        if ( (unsigned __int64)(v8 - 1) > 0x7FFFFFFE )
+        if ( v8 < 0 )
         {
-          if ( v8 )
+          if ( v9 )
             *(_WORD *)v7 = 0;
         }
         else
         {
-          v9 = 2147483646 - v8;
-          v10 = (char *)L"Video" - v7;
-          do
+          if ( v9 )
           {
-            if ( !(v9 + v8) )
-              break;
-            v11 = *(_WORD *)&v7[v10];
-            if ( !v11 )
-              break;
-            *(_WORD *)v7 = v11;
-            v7 += 2;
-            --v8;
-          }
-          while ( v8 );
-          v12 = v7 - 2;
-          if ( v8 )
-            v12 = v7;
-          *(_WORD *)v12 = 0;
-          if ( v8 )
-          {
-            memset(v28, 0, sizeof(v28));
-            *(_DWORD *)&String1.Length = 0x1000000;
-            String1.Buffer = (PWSTR)v28;
-            if ( RtlQueryRegistryValues(0, Path, &QueryTable, 0LL, 0LL) >= 0
-              && !RtlCompareUnicodeString(&String1, &DestinationString, 1u) )
+            v10 = 2147483646 - v9;
+            v11 = (char *)L"Video" - v7;
+            do
             {
-              v3 = 1;
-              return v3 == 0 ? 0xC0000001 : 0;
+              if ( !(v10 + v9) )
+                break;
+              v12 = *(_WORD *)&v7[v11];
+              if ( !v12 )
+                break;
+              *(_WORD *)v7 = v12;
+              v7 += 2;
+              --v9;
             }
+            while ( v9 );
+          }
+          v13 = v7 - 2;
+          if ( v9 )
+            v13 = v7;
+          v8 = v9 == 0 ? 0x80000005 : 0;
+          *(_WORD *)v13 = 0;
+        }
+        if ( v8 >= 0 )
+        {
+          memset(v28, 0, sizeof(v28));
+          *(_DWORD *)&String1.Length = 0x1000000;
+          String1.Buffer = (PWSTR)v28;
+          if ( RtlQueryRegistryValues(0, Path, &QueryTable, 0LL, 0LL) >= 0
+            && !RtlCompareUnicodeString(&String1, &DestinationString, 1u) )
+          {
+            break;
           }
         }
       }
-LABEL_25:
-      v14 = v4++;
+LABEL_27:
+      if ( (int)DrvEnumDisplayDevices(0LL, *(_QWORD *)(*(_QWORD *)(gpDispInfo + 96LL) + 232LL), v4, a2, 0, 0) < 0 )
+        return v3 == 0 ? 0xC0000001 : 0;
     }
-    while ( (int)DrvEnumDisplayDevices(0LL, *(_QWORD *)(*(_QWORD *)(gpDispInfo + 96LL) + 80LL), v14, a2, 0, 0) >= 0 );
+    v3 = 1;
   }
   return v3 == 0 ? 0xC0000001 : 0;
 }

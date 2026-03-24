@@ -4,14 +4,14 @@
  *     CmpDelayDerefKCBWorker @ 0x1405B10B0 (CmpDelayDerefKCBWorker.c)
  *     CmpDoFlushNextHive @ 0x1405B1330 (CmpDoFlushNextHive.c)
  *     CmReleaseLoadKeyContext @ 0x1405B7C30 (CmReleaseLoadKeyContext.c)
- *     CmpDeleteKeyObject @ 0x14063F520 (CmpDeleteKeyObject.c)
- *     CmpRunDownDelayDerefKCBEngine @ 0x140692DF4 (CmpRunDownDelayDerefKCBEngine.c)
+ *     CmpDeleteKeyObject @ 0x14063F500 (CmpDeleteKeyObject.c)
+ *     CmpRunDownDelayDerefKCBEngine @ 0x140692DD4 (CmpRunDownDelayDerefKCBEngine.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     CmpReferenceHive @ 0x1405D16FC (CmpReferenceHive.c)
- *     CmWorkerEngineQueueWorkItem @ 0x1406C749C (CmWorkerEngineQueueWorkItem.c)
+ *     CmWorkerEngineQueueWorkItem @ 0x1406C747C (CmWorkerEngineQueueWorkItem.c)
  */
 
 __int64 __fastcall CmpDoQueueLateUnloadWorker(__int64 a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpStdExtendLowerWatermark @ 0x1405E4A4C
+ * XREFs of RtlpStdExtendLowerWatermark @ 0x140585F1C
  * Callers:
- *     RtlpStdGetSpaceForTrace @ 0x1405E4E04 (RtlpStdGetSpaceForTrace.c)
+ *     RtlpStdGetSpaceForTrace @ 0x1405862D0 (RtlpStdGetSpaceForTrace.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ZwAllocateVirtualMemory @ 0x14041BA60 (ZwAllocateVirtualMemory.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
  */
 
 KSPIN_LOCK __fastcall RtlpStdExtendLowerWatermark(KSPIN_LOCK *SpinLock, __int64 a2)
 {
-  KSPIN_LOCK v4; // r14
+  KSPIN_LOCK v4; // rbp
   KSPIN_LOCK v5; // rdi
   char v6; // dl
   void *v7; // rcx

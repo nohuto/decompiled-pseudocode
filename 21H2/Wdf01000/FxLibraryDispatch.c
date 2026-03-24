@@ -1,5 +1,5 @@
 /*
- * XREFs of FxLibraryDispatch @ 0x1C0035410
+ * XREFs of FxLibraryDispatch @ 0x1C002E0C0
  * Callers:
  *     <none>
  * Callees:
@@ -15,7 +15,7 @@ __int64 __fastcall FxLibraryDispatch(_DEVICE_OBJECT *DeviceObject, _IRP *Irp)
   MajorFunction = Irp->Tail.Overlay.CurrentStackLocation->MajorFunction;
   if ( MajorFunction )
   {
-    if ( MajorFunction == 18 || MajorFunction == 2 )
+    if ( MajorFunction == 2 || MajorFunction == 18 )
       v2 = 0;
   }
   else

@@ -1,11 +1,13 @@
 /*
- * XREFs of ?GetD2DGeometry@CRoundedRectangleShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x1800D3750
+ * XREFs of ?GetD2DGeometry@CRoundedRectangleShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x180017250
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?TransformGeometry@CTransformedGeometryHelper@@SAJPEBVCMILMatrix@@PEAUID2D1Geometry@@PEAPEAU3@@Z @ 0x1800D39AC (-TransformGeometry@CTransformedGeometryHelper@@SAJPEBVCMILMatrix@@PEAUID2D1Geometry@@PEAPEAU3@@Z.c)
- *     ?EnsureD2DGeometry@CRoundedRectangleShape@@AEBAJXZ @ 0x1800D3A48 (-EnsureD2DGeometry@CRoundedRectangleShape@@AEBAJXZ.c)
+ *     ??4?$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@QEAAAEAV012@PEAUID2D1Geometry@@@Z @ 0x180017304 (--4-$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@QEAAAEAV012@PEAUID2D1Geometry@@@Z.c)
+ *     ?BuildRoundedRectangleShape@CRoundedRectangleShape@@AEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x18001735C (-BuildRoundedRectangleShape@CRoundedRectangleShape@@AEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C915C (-InternalRelease@-$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRoundedRectangleShape::GetD2DGeometry(
@@ -13,24 +15,42 @@ __int64 __fastcall CRoundedRectangleShape::GetD2DGeometry(
         const struct CMILMatrix *a2,
         struct ID2D1Geometry **a3)
 {
-  int v6; // eax
-  __int64 v7; // rcx
-  unsigned int v8; // ebx
+  unsigned int v3; // edi
+  struct ID2D1Geometry *v7; // rax
   int v9; // eax
-  __int64 v10; // rcx
+  unsigned int v10; // ecx
+  struct ID2D1Geometry *v11; // [rsp+58h] [rbp+10h] BYREF
 
-  v6 = CRoundedRectangleShape::EnsureD2DGeometry(this);
-  v8 = v6;
-  if ( v6 < 0 )
+  v3 = 0;
+  v11 = 0LL;
+  if ( !a2 && *((_QWORD *)this + 9) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xCBu, 0LL);
+LABEL_3:
+    Microsoft::WRL::ComPtr<ID2D1Geometry>::operator=(&v11);
+    goto LABEL_4;
   }
-  else
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease(&v11);
+  v9 = CRoundedRectangleShape::BuildRoundedRectangleShape(this, a2, &v11);
+  v3 = v9;
+  if ( v9 < 0 )
   {
-    v9 = CTransformedGeometryHelper::TransformGeometry(a2, *(struct ID2D1Geometry **)(*((_QWORD *)this + 2) + 72LL), a3);
-    v8 = v9;
-    if ( v9 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xCCu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x36u, 0LL);
+    goto LABEL_5;
   }
-  return v8;
+  if ( !a2 )
+  {
+    if ( !_InterlockedCompareExchange64((volatile signed __int64 *)this + 9, (signed __int64)v11, 0LL) )
+    {
+      (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 9) + 8LL))(*((_QWORD *)this + 9));
+      goto LABEL_4;
+    }
+    goto LABEL_3;
+  }
+LABEL_4:
+  v7 = v11;
+  v11 = 0LL;
+  *a3 = v7;
+LABEL_5:
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease(&v11);
+  return v3;
 }

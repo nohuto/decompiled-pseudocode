@@ -1,21 +1,16 @@
 /*
- * XREFs of IoIsOperationSynchronous @ 0x1402A2FA0
+ * XREFs of IoIsOperationSynchronous @ 0x14029C470
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x14071C610 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
  *     <none>
  */
 
 BOOLEAN __stdcall IoIsOperationSynchronous(PIRP Irp)
 {
-  ULONG Flags; // eax
-  bool v2; // dl
-  bool v3; // cl
-  int v4; // eax
+  ULONG v1; // eax
 
-  Flags = Irp->Flags;
-  v2 = (Irp->Tail.Overlay.CurrentStackLocation->FileObject->Flags & 2) == 0;
-  v3 = (Flags & 4) == 0;
-  v4 = Flags & 0x42;
-  return (!v2 || !v3 || v4 == 66) && v4 != 2;
+  v1 = Irp->Flags & 0x42;
+  return ((Irp->Tail.Overlay.CurrentStackLocation->FileObject->Flags & 2) != 0 || (Irp->Flags & 4) != 0 || v1 == 66)
+      && v1 != 2;
 }

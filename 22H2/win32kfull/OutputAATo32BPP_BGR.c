@@ -1,5 +1,5 @@
 /*
- * XREFs of OutputAATo32BPP_BGR @ 0x1C02584D0
+ * XREFs of OutputAATo32BPP_BGR @ 0x1C0264330
  * Callers:
  *     <none>
  * Callees:

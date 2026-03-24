@@ -1,9 +1,9 @@
 /*
- * XREFs of ?xxxShiftLock@@YAHPEAUtagKE@@@Z @ 0x1C01EA604
+ * XREFs of ?xxxShiftLock@@YAHPEAUtagKE@@@Z @ 0x1C01B162C
  * Callers:
- *     xxxKELocaleProcs @ 0x1C00AF9AC (xxxKELocaleProcs.c)
+ *     xxxKELocaleProcs @ 0x1C009D008 (xxxKELocaleProcs.c)
  * Callees:
- *     xxxKeyEventEx @ 0x1C003D9F0 (xxxKeyEventEx.c)
+ *     xxxKeyEventEx @ 0x1C004BFD0 (xxxKeyEventEx.c)
  */
 
 __int64 __fastcall xxxShiftLock(struct tagKE *a1)

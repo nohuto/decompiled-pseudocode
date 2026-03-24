@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ComputePartialIntermediate@CShapeTree@@CA_NAEBVCMILMatrix@@AEBUD2D_VECTOR_2F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@2PEAV4@@Z @ 0x18026B96C
+ * XREFs of ?ComputePartialIntermediate@CShapeTree@@CA_NAEBVCMILMatrix@@AEBUD2D_VECTOR_2F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@2PEAV4@@Z @ 0x18020B894
  * Callers:
- *     ?GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18026BB30 (-GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18020BCE0 (-GenerateDrawList@CShapeTree@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?Inflate@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z @ 0x180075B5C (-Inflate@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z.c)
- *     ?GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z @ 0x1800E0678 (-GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ??$SetToBoundsOfUnorderedPointSet@VCMilPoint2F@@@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXV?$span@$$CBVCMilPoint2F@@$0?0@gsl@@@Z @ 0x18026B7A4 (--$SetToBoundsOfUnorderedPointSet@VCMilPoint2F@@@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@.c)
+ *     ?Inflate@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z @ 0x18006AEEC (-Inflate@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z.c)
+ *     ?GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z @ 0x1800C7068 (-GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ??$SetToBoundsOfUnorderedPointSet@VCMilPoint2F@@@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXV?$span@$$CBVCMilPoint2F@@$0?0@gsl@@@Z @ 0x18020B62C (--$SetToBoundsOfUnorderedPointSet@VCMilPoint2F@@@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@.c)
  */
 
 char __fastcall CShapeTree::ComputePartialIntermediate(struct CMILMatrix *a1, float *a2, float *a3, int *a4, float *a5)
@@ -19,12 +19,11 @@ char __fastcall CShapeTree::ComputePartialIntermediate(struct CMILMatrix *a1, fl
   int v12; // r9d
   float v13; // xmm2_4
   float v14; // xmm7_4
-  float v15; // xmm4_4
+  float v15; // xmm6_4
   float v16; // xmm5_4
   float v17; // xmm0_4
-  float v18; // xmm6_4
-  float v19; // xmm1_4
-  float v20; // xmm3_4
+  float v18; // xmm3_4
+  float v19; // xmm4_4
   char result; // al
   unsigned __int64 v22[2]; // [rsp+28h] [rbp-31h] BYREF
   __int128 v23; // [rsp+38h] [rbp-21h] BYREF
@@ -80,26 +79,22 @@ char __fastcall CShapeTree::ComputePartialIntermediate(struct CMILMatrix *a1, fl
     v17 = v15;
   }
   v18 = *((float *)&v23 + 2);
-  v19 = *((float *)&v23 + 2);
   if ( *((float *)&v23 + 2) > a3[2] )
-  {
     v18 = a3[2];
-    v19 = v18;
-  }
-  v20 = *((float *)&v23 + 3);
+  v19 = *((float *)&v23 + 3);
   if ( *((float *)&v23 + 3) > a3[3] )
-    v20 = a3[3];
-  if ( v19 <= v13 || v20 <= v17 )
+    v19 = a3[3];
+  if ( v18 <= v13 || v19 <= v17 )
   {
     v13 = 0.0;
-    v18 = 0.0;
     v15 = 0.0;
-    v20 = 0.0;
+    v18 = 0.0;
+    v19 = 0.0;
   }
   result = 1;
   *a5 = (float)(COERCE_FLOAT(LODWORD(v14) ^ _xmm) + v13) * *a2;
   a5[1] = (float)(COERCE_FLOAT(LODWORD(v16) ^ _xmm) + v15) * a2[1];
-  a5[2] = (float)(COERCE_FLOAT(LODWORD(v14) ^ _xmm) + v18) * *a2;
-  a5[3] = (float)(v20 + COERCE_FLOAT(LODWORD(v16) ^ _xmm)) * a2[1];
+  a5[2] = (float)(v18 + COERCE_FLOAT(LODWORD(v14) ^ _xmm)) * *a2;
+  a5[3] = (float)(v19 + COERCE_FLOAT(LODWORD(v16) ^ _xmm)) * a2[1];
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of Bulk_Stage_Acquire @ 0x1C000ECDC
+ * XREFs of Bulk_Stage_Acquire @ 0x1C000D0A4
  * Callers:
- *     Bulk_RetrieveNextStage @ 0x1C000E980 (Bulk_RetrieveNextStage.c)
+ *     Bulk_RetrieveNextStage @ 0x1C000CD50 (Bulk_RetrieveNextStage.c)
  * Callees:
- *     Bulk_Stage_Initialize @ 0x1C000ED0C (Bulk_Stage_Initialize.c)
- *     StageQueue_Acquire @ 0x1C000ED90 (StageQueue_Acquire.c)
+ *     Bulk_Stage_Initialize @ 0x1C000D0D4 (Bulk_Stage_Initialize.c)
+ *     StageQueue_Acquire @ 0x1C000D158 (StageQueue_Acquire.c)
  */
 
 __int64 __fastcall Bulk_Stage_Acquire(__int64 a1)

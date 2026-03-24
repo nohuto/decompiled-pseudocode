@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDoBuildVirtualStack @ 0x1407F2A38
+ * XREFs of CmpDoBuildVirtualStack @ 0x1407F2A18
  * Callers:
- *     CmpReplicateKeyToVirtual @ 0x1407F37B8 (CmpReplicateKeyToVirtual.c)
+ *     CmpReplicateKeyToVirtual @ 0x1407F3798 (CmpReplicateKeyToVirtual.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     SeCreateAccessStateFromSubjectContext @ 0x140582A30 (SeCreateAccessStateFromSubjectContext.c)
  *     CmpUnlockHashEntryByKcb @ 0x1405AA470 (CmpUnlockHashEntryByKcb.c)
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
@@ -18,14 +18,14 @@
  *     CmpDetachFromRegistryProcess @ 0x1405D1AE8 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
  *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
- *     CmpCleanupKcbStack @ 0x140643FD0 (CmpCleanupKcbStack.c)
- *     CmpStartKcbStack @ 0x140643FF0 (CmpStartKcbStack.c)
- *     CmpUnlockKcbStack @ 0x1406440E0 (CmpUnlockKcbStack.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406441C0 (CmpDereferenceKeyControlBlock.c)
- *     CmpUnlockTwoSecurityCaches @ 0x1406FFD24 (CmpUnlockTwoSecurityCaches.c)
- *     CmpLockTwoSecurityCachesExclusiveShared @ 0x1406FFD54 (CmpLockTwoSecurityCachesExclusiveShared.c)
- *     CmpCopySaclToVirtualKey @ 0x1407F4B70 (CmpCopySaclToVirtualKey.c)
- *     HvMarkCellDirty @ 0x140800FD4 (HvMarkCellDirty.c)
+ *     CmpCleanupKcbStack @ 0x140643FB0 (CmpCleanupKcbStack.c)
+ *     CmpStartKcbStack @ 0x140643FD0 (CmpStartKcbStack.c)
+ *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406441A0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpUnlockTwoSecurityCaches @ 0x1406FFD04 (CmpUnlockTwoSecurityCaches.c)
+ *     CmpLockTwoSecurityCachesExclusiveShared @ 0x1406FFD34 (CmpLockTwoSecurityCachesExclusiveShared.c)
+ *     CmpCopySaclToVirtualKey @ 0x1407F4B50 (CmpCopySaclToVirtualKey.c)
+ *     HvMarkCellDirty @ 0x140800FB4 (HvMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpDoBuildVirtualStack(__int64 a1, unsigned int a2, unsigned __int64 a3, __int64 a4, __int64 a5)

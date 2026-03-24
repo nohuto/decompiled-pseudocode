@@ -1,27 +1,29 @@
 /*
- * XREFs of ?GetPointerDownFrame@CTouchProcessor@@QEAAK_K@Z @ 0x1C01C8910
+ * XREFs of ?GetPointerDownFrame@CTouchProcessor@@QEAAK_K@Z @ 0x1C0192EE0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C00B9418 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00B9500 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ?GetPointerCaptureData@CTouchProcessor@@AEAAPEAUCPointerCaptureData@@_K@Z @ 0x1C01C751C (-GetPointerCaptureData@CTouchProcessor@@AEAAPEAUCPointerCaptureData@@_K@Z.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCC60 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C0187408 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
  */
 
-__int64 __fastcall CTouchProcessor::GetPointerDownFrame(CTouchProcessor *this, void *a2)
+__int64 __fastcall CTouchProcessor::GetPointerDownFrame(struct _KTHREAD **this, _QWORD *a2)
 {
-  struct CPointerCaptureData *PointerCaptureData; // rax
-  unsigned int v5; // ebx
-  CInpLockGuard *v7[9]; // [rsp+20h] [rbp-48h] BYREF
+  unsigned int v4; // edi
+  __int64 v5; // rax
+  CInpLockGuard *v7[8]; // [rsp+20h] [rbp-48h] BYREF
 
   CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
     (CInpLockGuardExclusiveIfNeeded *)v7,
-    (CTouchProcessor *)((char *)this + 32),
+    (struct CInpLockGuard *)(this + 5),
     a2);
-  PointerCaptureData = CTouchProcessor::GetPointerCaptureData(this, (__int64)a2);
-  v5 = 0;
-  if ( PointerCaptureData )
-    v5 = *((_DWORD *)PointerCaptureData + 6);
+  v4 = 0;
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10191);
+  v5 = a2[5];
+  if ( v5 )
+    v4 = *(_DWORD *)(v5 + 24);
   CInpLockGuardExclusiveIfNeeded::~CInpLockGuardExclusiveIfNeeded(v7);
-  return v5;
+  return v4;
 }

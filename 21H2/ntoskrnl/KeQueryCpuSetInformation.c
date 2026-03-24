@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryCpuSetInformation @ 0x14085634C
+ * XREFs of KeQueryCpuSetInformation @ 0x1407C7088
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     KiGetCpuSetData @ 0x14025E698 (KiGetCpuSetData.c)
- *     RtlTryEndReadTickLock @ 0x1402929F0 (RtlTryEndReadTickLock.c)
- *     RtlBeginReadTickLock @ 0x140292B8C (RtlBeginReadTickLock.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KiGetCpuSetData @ 0x1402D3DB4 (KiGetCpuSetData.c)
+ *     RtlTryEndReadTickLock @ 0x1402EBB4C (RtlTryEndReadTickLock.c)
+ *     RtlBeginReadTickLock @ 0x1402EBB60 (RtlBeginReadTickLock.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall KeQueryCpuSetInformation(void *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -103,7 +103,7 @@ LABEL_11:
     LODWORD(v11) = v11 + 1;
     if ( (unsigned int)v11 < (unsigned __int16)KiActiveGroups )
     {
-      v13 = KiGroupBlock[4 * (unsigned int)v11];
+      v13 = KiGroupBlock[2 * (unsigned int)v11];
       goto LABEL_11;
     }
 LABEL_22:

@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchiProcessFlipPendingContextList @ 0x1C001BEAA
+ * XREFs of VidSchiProcessFlipPendingContextList @ 0x1C00300AC
  * Callers:
- *     VidSchiClearFlipDevice @ 0x1C00025D8 (VidSchiClearFlipDevice.c)
- *     VidSchiScheduleCommandToRun @ 0x1C000A430 (VidSchiScheduleCommandToRun.c)
+ *     VidSchiScheduleCommandToRun @ 0x1C000B0A0 (VidSchiScheduleCommandToRun.c)
+ *     VidSchiClearFlipDevice @ 0x1C0011B88 (VidSchiClearFlipDevice.c)
  * Callees:
- *     ?VidSchiUpdateFlipContextStatus@@YAHPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0037820 (-VidSchiUpdateFlipContextStatus@@YAHPEAU_VIDSCH_CONTEXT@@@Z.c)
+ *     ?VidSchiUpdateFlipContextStatus@@YAHPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C002CDC8 (-VidSchiUpdateFlipContextStatus@@YAHPEAU_VIDSCH_CONTEXT@@@Z.c)
  */
 
 __int64 __fastcall VidSchiProcessFlipPendingContextList(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall VidSchiProcessFlipPendingContextList(__int64 a1, __int64 a2)
   _QWORD *v11; // rax
   _QWORD *v12; // rdx
 
-  v3 = (_QWORD **)(a2 + 3520);
+  v3 = (_QWORD **)(a2 + 3416);
   for ( i = 0; ; i |= VidSchiUpdateFlipContextStatus((struct _VIDSCH_CONTEXT *)(v6 - 5)) )
   {
     v6 = *v3;
@@ -33,7 +33,7 @@ LABEL_13:
     v6[1] = 0LL;
     *v6 = 0LL;
   }
-  v8 = (_QWORD **)(a2 + 3536);
+  v8 = (_QWORD **)(a2 + 3432);
   while ( 1 )
   {
     v9 = *v8;

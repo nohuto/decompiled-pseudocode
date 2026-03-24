@@ -1,7 +1,7 @@
 /*
- * XREFs of VidSchiAddSyncObjectToAdapterList @ 0x1C003870C
+ * XREFs of VidSchiAddSyncObjectToAdapterList @ 0x1C002EFA0
  * Callers:
- *     VidSchCreateSyncObject @ 0x1C0099A90 (VidSchCreateSyncObject.c)
+ *     VidSchCreateSyncObject @ 0x1C0083960 (VidSchCreateSyncObject.c)
  * Callees:
  *     <none>
  */
@@ -13,9 +13,8 @@ void __fastcall VidSchiAddSyncObjectToAdapterList(__int64 a1, __int64 a2)
   __int64 v6; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 3184), &LockHandle);
-  v4 = (__int64 *)(a1 + 1704);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 3088), &LockHandle);
+  v4 = (__int64 *)(a1 + 1688);
   v5 = (_QWORD *)(a2 + 192);
   v6 = *v4;
   if ( *(__int64 **)(*v4 + 8) != v4 )

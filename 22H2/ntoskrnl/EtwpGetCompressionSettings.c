@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpGetCompressionSettings @ 0x140602968
+ * XREFs of EtwpGetCompressionSettings @ 0x1405AD2D4
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
  */
 
 __int64 __fastcall EtwpGetCompressionSettings(unsigned __int16 *a1, unsigned int *a2)
@@ -22,17 +22,17 @@ __int64 __fastcall EtwpGetCompressionSettings(unsigned __int16 *a1, unsigned int
 
   v2 = *a1;
   v4 = 0;
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals((__int64)a1, (__int64)a2);
   v6 = EtwpAcquireLoggerContextByLoggerId(CurrentServerSiloGlobals[108], v2, 0LL);
   v7 = (_DWORD *)v6;
   if ( v6 )
   {
     *a2 = v2;
-    v8 = (signed __int64 *)(v6 + 1144);
-    ExAcquirePushLockSharedEx(v6 + 1144, 0LL);
-    a2[1] = v7[294];
-    a2[2] = v7[293];
-    a2[3] = v7[295];
+    v8 = (signed __int64 *)(v6 + 1128);
+    ExAcquirePushLockSharedEx(v6 + 1128, 0LL);
+    a2[1] = v7[290];
+    a2[2] = v7[289];
+    a2[3] = v7[291];
     if ( _InterlockedCompareExchange64(v8, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v8);
     KeAbPostRelease((ULONG_PTR)v8);

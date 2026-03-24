@@ -1,9 +1,9 @@
 /*
- * XREFs of PopMonitorAlpcCallback @ 0x140877870
+ * XREFs of PopMonitorAlpcCallback @ 0x140877850
  * Callers:
  *     <none>
  * Callees:
- *     PopMonitorProcessLoop @ 0x140760538 (PopMonitorProcessLoop.c)
+ *     PopMonitorProcessLoop @ 0x140760518 (PopMonitorProcessLoop.c)
  */
 
 void __fastcall PopMonitorAlpcCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)

@@ -1,87 +1,88 @@
 /*
- * XREFs of MxCopyPage @ 0x140B9A540
+ * XREFs of MxCopyPage @ 0x140A568CC
  * Callers:
- *     MiInitializeSystemPageTable @ 0x1402E45A8 (MiInitializeSystemPageTable.c)
+ *     MiCreateSystemPageTable @ 0x140356770 (MiCreateSystemPageTable.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KeCopyPage @ 0x140424020 (KeCopyPage.c)
- *     MxGetPhase0Mapping @ 0x140B5BDAC (MxGetPhase0Mapping.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     KeFlushSingleTb @ 0x140334A18 (KeFlushSingleTb.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KeCopyPage @ 0x1404024D0 (KeCopyPage.c)
+ *     MxGetPhase0Mapping @ 0x140A57438 (MxGetPhase0Mapping.c)
  */
 
-__int64 __fastcall MxCopyPage(ULONG_PTR BugCheckParameter2, __int64 a2)
+char __fastcall MxCopyPage(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   unsigned __int64 Phase0Mapping; // rax
-  unsigned __int64 v5; // rsi
-  _QWORD *v6; // rdi
+  __int64 v5; // r9
+  unsigned __int64 v6; // rsi
+  _QWORD *v7; // rdi
   unsigned __int64 ValidPte; // rbx
-  int v8; // ebp
-  __int64 v9; // r8
-  BOOL v10; // r15d
-  __int64 v11; // rdx
-  bool v12; // zf
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  bool v15; // zf
+  int v9; // ebp
+  __int64 v10; // r8
+  BOOL v11; // r15d
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v15; // rdx
+  bool v16; // zf
+  bool v17; // zf
 
   Phase0Mapping = MxGetPhase0Mapping();
-  v5 = Phase0Mapping;
+  v6 = Phase0Mapping;
   if ( !Phase0Mapping )
     KeBugCheckEx(0x1Au, 0x3030305uLL, BugCheckParameter2, 0LL, 0LL);
-  v6 = (_QWORD *)(((Phase0Mapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  ValidPte = MiMakeValidPte((unsigned __int64)v6, BugCheckParameter2, 2684354564LL);
-  v8 = 0;
-  v10 = MiPteInShadowRange((unsigned __int64)v6);
-  if ( v10 )
+  v7 = (_QWORD *)(((Phase0Mapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+  ValidPte = MiMakeValidPte((unsigned __int64)v7, BugCheckParameter2, 2684354564LL, v5);
+  v9 = 0;
+  v11 = MiPteInShadowRange((unsigned __int64)v7);
+  if ( v11 )
   {
-    if ( MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow() )
     {
-      v8 = 1;
-      if ( HIBYTE(word_140C66DFC) )
-        goto LABEL_11;
-      v12 = (ValidPte & 1) == 0;
+      v9 = 1;
+      if ( HIBYTE(word_140C4E008) )
+        goto LABEL_3;
+      v16 = (ValidPte & 1) == 0;
     }
     else
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
-        goto LABEL_11;
-      v12 = (ValidPte & 1) == 0;
+        goto LABEL_3;
+      v16 = (ValidPte & 1) == 0;
     }
-    if ( !v12 )
-      ValidPte |= v11;
+    if ( !v16 )
+      ValidPte |= v15;
   }
-LABEL_11:
-  *v6 = ValidPte;
-  if ( v8 )
-    MiWritePteShadow((__int64)v6, ValidPte, v9);
-  KeCopyPage(v5, a2);
-  v13 = ZeroPte;
-  v14 = 0LL;
-  if ( v10 )
+LABEL_3:
+  *v7 = ValidPte;
+  if ( v9 )
+    MiWritePteShadow((__int64)v7, ValidPte, v10);
+  KeCopyPage(v6, a2);
+  v12 = ZeroPte;
+  v13 = 0LL;
+  if ( v11 )
   {
-    if ( MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow() )
     {
-      v14 = 1LL;
-      if ( HIBYTE(word_140C66DFC) )
-        goto LABEL_21;
-      v15 = (v13 & 1) == 0;
+      v13 = 1LL;
+      if ( HIBYTE(word_140C4E008) )
+        goto LABEL_6;
+      v17 = (v12 & 1) == 0;
     }
     else
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
-        goto LABEL_21;
-      v15 = (v13 & 1) == 0;
+        goto LABEL_6;
+      v17 = (v12 & 1) == 0;
     }
-    if ( !v15 )
-      v13 |= 0x8000000000000000uLL;
+    if ( !v17 )
+      v12 |= 0x8000000000000000uLL;
   }
-LABEL_21:
-  *v6 = v13;
-  if ( (_DWORD)v14 )
-    MiWritePteShadow((__int64)v6, v13, v14);
-  return KeFlushSingleTb(v5, 0, 1u);
+LABEL_6:
+  *v7 = v12;
+  if ( (_DWORD)v13 )
+    MiWritePteShadow((__int64)v7, v12, v13);
+  return KeFlushSingleTb(v6, 0, 1u);
 }

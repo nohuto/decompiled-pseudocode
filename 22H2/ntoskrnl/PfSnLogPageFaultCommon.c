@@ -1,12 +1,14 @@
 /*
- * XREFs of PfSnLogPageFaultCommon @ 0x140313118
+ * XREFs of PfSnLogPageFaultCommon @ 0x14029B6DC
  * Callers:
- *     PfSnLogFileDataAccess @ 0x1402E245C (PfSnLogFileDataAccess.c)
- *     PfSnLogPageFault @ 0x1402E2510 (PfSnLogPageFault.c)
+ *     MiCompleteRestrictedImageFault @ 0x14029D730 (MiCompleteRestrictedImageFault.c)
+ *     PfFileInfoNotify @ 0x14029DC90 (PfFileInfoNotify.c)
+ *     MiMakeSystemCacheRangeValid @ 0x14029F220 (MiMakeSystemCacheRangeValid.c)
+ *     PfSnLogPageFault @ 0x1402F38B4 (PfSnLogPageFault.c)
  * Callees:
- *     PfSnGetFileInformation @ 0x1403140E0 (PfSnGetFileInformation.c)
- *     PfSnCheckLogSequenceNumber @ 0x140314500 (PfSnCheckLogSequenceNumber.c)
- *     PfSnTraceGetLogEntry @ 0x1403147FC (PfSnTraceGetLogEntry.c)
+ *     PfSnTraceGetLogEntry @ 0x14029AF20 (PfSnTraceGetLogEntry.c)
+ *     PfSnCheckLogSequenceNumber @ 0x14029B804 (PfSnCheckLogSequenceNumber.c)
+ *     PfSnGetFileInformation @ 0x14029C120 (PfSnGetFileInformation.c)
  */
 
 __int64 __fastcall PfSnLogPageFaultCommon(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4, char a5)
@@ -18,7 +20,7 @@ __int64 __fastcall PfSnLogPageFaultCommon(__int64 a1, __int64 a2, unsigned __int
   __int64 *v12; // [rsp+40h] [rbp+8h] BYREF
 
   v12 = 0LL;
-  PfSnGetFileInformation(a1, a2);
+  PfSnGetFileInformation(a1, a2, a3, a4);
   if ( (*(_BYTE *)(a1 + 484) & 1) == 0 && *(_BYTE *)(*(_QWORD *)(a1 + 352) + 1850LL) == 2 )
     _InterlockedOr16((volatile signed __int16 *)(a1 + 484), 1u);
   if ( a4 >= 0x20000000000LL )
@@ -31,7 +33,7 @@ __int64 __fastcall PfSnLogPageFaultCommon(__int64 a1, __int64 a2, unsigned __int
   PfSnCheckLogSequenceNumber(a1);
   if ( v9 || (v12 = *(__int64 **)(a1 + 408), (unsigned __int64)*v12 >> 3 != v8) || v12[1] != a3 )
   {
-    result = PfSnTraceGetLogEntry(a1, 1LL, &v12);
+    result = PfSnTraceGetLogEntry(a1, 1u, &v12);
     if ( (int)result < 0 )
       return result;
     v11 = (unsigned __int64 *)v12;

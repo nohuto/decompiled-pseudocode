@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpInsertCompletionListEntry @ 0x1408A56A0
+ * XREFs of AlpcpInsertCompletionListEntry @ 0x1405E3AAC
  * Callers:
- *     AlpcpCompleteDispatchMessage @ 0x14073A390 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall AlpcpInsertCompletionListEntry(__int64 a1, int a2)
@@ -19,10 +19,10 @@ __int64 __fastcall AlpcpInsertCompletionListEntry(__int64 a1, int a2)
   unsigned __int64 v9; // rdi
   signed __int64 v10; // rax
   volatile signed __int64 *v11; // rsi
-  unsigned __int64 v12; // rdx
   unsigned __int64 v13; // rdx
-  __int64 v14; // r8
-  signed __int64 v15; // rax
+  unsigned __int64 v14; // rdx
+  __int64 v15; // r8
+  signed __int64 v16; // rax
   __int64 v17; // rdi
 
   v2 = *(_QWORD *)(a1 + 360);
@@ -57,10 +57,10 @@ __int64 __fastcall AlpcpInsertCompletionListEntry(__int64 a1, int a2)
       else
       {
         if ( (v8 & 0xFFFFFF) >= v7
-          || (v12 = (v8 >> 24) & 0xFFFFFF, v12 >= v7)
-          || (v13 = v8 ^ (v8 ^ (((v12 + 1) % v7) << 24)) & 0xFFFFFF000000LL,
-              v14 = (v13 >> 24) & 0xFFFFFF,
-              v14 == (v13 & 0xFFFFFF)) )
+          || (v13 = (v8 >> 24) & 0xFFFFFF, v13 >= v7)
+          || (v14 = v8 ^ (v8 ^ (((v13 + 1) % v7) << 24)) & 0xFFFFFF000000LL,
+              v15 = (v14 >> 24) & 0xFFFFFF,
+              v15 == (v14 & 0xFFFFFF)) )
         {
           v17 = *(_QWORD *)(a1 + 360);
           if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v17 + 24), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -68,10 +68,10 @@ __int64 __fastcall AlpcpInsertCompletionListEntry(__int64 a1, int a2)
           KeAbPostRelease(v17 + 24);
           return 0LL;
         }
-        *(_DWORD *)(*(_QWORD *)(v2 + 88) + 4 * v14) = v4;
-        v15 = _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 64), v13, v8);
+        *(_DWORD *)(*(_QWORD *)(v2 + 88) + 4 * v15) = v4;
+        v16 = _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 64), v14, v8);
         v11 = (volatile signed __int64 *)(*(_QWORD *)(a1 + 360) + 24LL);
-        if ( v15 == v8 )
+        if ( v16 == v8 )
         {
           if ( (_InterlockedExchangeAdd64(v11, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
             ExfTryToWakePushLock(v11);

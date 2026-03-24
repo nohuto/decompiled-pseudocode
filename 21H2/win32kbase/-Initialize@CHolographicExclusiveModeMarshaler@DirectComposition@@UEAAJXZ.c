@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJXZ @ 0x1C022D950
+ * XREFs of ?Initialize@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01EE040
  * Callers:
  *     <none>
  * Callees:
@@ -9,6 +9,6 @@
 __int64 __fastcall DirectComposition::CHolographicExclusiveModeMarshaler::Initialize(
         DirectComposition::CHolographicExclusiveModeMarshaler *this)
 {
-  *((_DWORD *)this + 17) = 1065353216;
+  *((_DWORD *)this + 15) = 1065353216;
   return 0LL;
 }

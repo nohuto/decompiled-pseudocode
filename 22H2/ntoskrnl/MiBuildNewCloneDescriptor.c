@@ -1,15 +1,15 @@
 /*
- * XREFs of MiBuildNewCloneDescriptor @ 0x140A48868
+ * XREFs of MiBuildNewCloneDescriptor @ 0x1408D8F54
  * Callers:
- *     MiCloneVads @ 0x1406632E8 (MiCloneVads.c)
- *     MiCloneProcessAddressSpace @ 0x140A489C4 (MiCloneProcessAddressSpace.c)
+ *     MiCloneVads @ 0x140559268 (MiCloneVads.c)
+ *     MiCloneProcessAddressSpace @ 0x1408D90B0 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     PsChargeProcessNonPagedPoolQuota @ 0x140289A20 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14028B210 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiGetVmPartition @ 0x140629460 (MiGetVmPartition.c)
- *     MiLockPagedRange @ 0x140748850 (MiLockPagedRange.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140297040 (PsChargeProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140298A60 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiGetVmPartition @ 0x140535660 (MiGetVmPartition.c)
+ *     MiLockPagedRange @ 0x140727A20 (MiLockPagedRange.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall MiBuildNewCloneDescriptor(struct _KPROCESS *a1, __int64 a2, __int64 a3)
@@ -58,7 +58,7 @@ LABEL_8:
     v13 = (void *)v11;
     goto LABEL_8;
   }
-  VmPartition = MiGetVmPartition((__int64)&a1[1].ActiveProcessors.StaticBitmap[26]);
+  VmPartition = MiGetVmPartition((__int64)&a1[1].ActiveProcessorsPadding[6]);
   *v12 = a2;
   v12[1] = 1LL;
   v12[2] = v11;
@@ -69,7 +69,7 @@ LABEL_8:
   Pool[7] = v12;
   Pool[8] = v7;
   Pool[12] = a3;
-  _InterlockedIncrement64((volatile signed __int64 *)(VmPartition + 1432));
+  _InterlockedIncrement64((volatile signed __int64 *)(VmPartition + 1368));
   v12[3] = VmPartition;
   return Pool;
 }

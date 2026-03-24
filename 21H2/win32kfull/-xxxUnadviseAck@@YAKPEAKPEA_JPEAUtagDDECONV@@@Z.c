@@ -1,55 +1,36 @@
 /*
- * XREFs of ?xxxUnadviseAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C0217490
+ * XREFs of ?xxxUnadviseAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021C820
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?PopState@@YAXPEAUtagDDECONV@@@Z @ 0x1C02151E0 (-PopState@@YAXPEAUtagDDECONV@@@Z.c)
- *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C0216170 (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
- *     ?xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C02176C8 (-xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
+ *     ?PopState@@YAXPEAUtagDDECONV@@@Z @ 0x1C021AEA4 (-PopState@@YAXPEAUtagDDECONV@@@Z.c)
+ *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C021BA1C (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
+ *     ?xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021C9C0 (-xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
  */
 
 unsigned int __fastcall xxxUnadviseAck(unsigned int *a1, void **a2, struct tagDDECONV *a3)
 {
-  int v3; // ebx
-  struct tagDDECONV *v4; // rdi
-  bool v5; // zf
-  void **v6; // rbp
-  int v9; // esi
-  struct tagINTDDEINFO *v10; // [rsp+50h] [rbp+8h] BYREF
+  bool v4; // zf
+  void **v5; // rsi
+  int v8; // edi
+  struct tagINTDDEINFO *v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = 0;
-  v4 = a3;
-  v5 = *a1 == 996;
-  v6 = a2;
-  v10 = 0LL;
-  if ( !v5 )
+  v4 = *a1 == 996;
+  v5 = a2;
+  v9 = 0LL;
+  if ( !v4 )
     return xxxUnexpectedServerPost(a1, (__int64 *)a2, a3);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(a2) = 0;
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)a1, (_DWORD)a2, 14, 38, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
   }
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)a2,
-      (_DWORD)a3,
-      38,
-      4,
-      14,
-      38,
-      (__int64)&WPP_b8232c44b11d3b42055fa312fd74cb4b_Traceguids);
-  }
-  v9 = xxxCopyAckIn(a1, v6, v4, &v10);
-  if ( (*(_BYTE *)(_HMPheFromObject(v4) + 25) & 1) != 0 )
-    return v3;
-  v3 = v9;
-  if ( v9 != 2 )
-    return v3;
-  PopState(v4);
+  v8 = xxxCopyAckIn(a1, v5, a3, &v9);
+  if ( (*(_BYTE *)(_HMPheFromObject(a3) + 25) & 1) != 0 )
+    v8 = 0;
+  if ( v8 != 2 )
+    return v8;
+  PopState(a3);
   return 2;
 }

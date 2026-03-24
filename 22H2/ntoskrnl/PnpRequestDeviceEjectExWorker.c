@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpRequestDeviceEjectExWorker @ 0x140957240
+ * XREFs of PnpRequestDeviceEjectExWorker @ 0x1408A0560
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14096E100 (PnpQueueQueryAndRemoveEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14072F89C (PnpQueueQueryAndRemoveEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PnpRequestDeviceEjectExWorker(WCHAR *P)
+void __fastcall PnpRequestDeviceEjectExWorker(PVOID P)
 {
   unsigned int v2; // eax
   void (__fastcall *v3)(_QWORD, _QWORD); // r8
@@ -19,15 +19,9 @@ void __fastcall PnpRequestDeviceEjectExWorker(WCHAR *P)
   int v6; // [rsp+50h] [rbp+8h] BYREF
 
   DestinationString = 0LL;
-  RtlInitUnicodeString(&DestinationString, P + 32);
+  RtlInitUnicodeString(&DestinationString, (PCWSTR)P + 32);
   v6 = 1024;
-  v2 = PnpQueueQueryAndRemoveEvent(
-         (unsigned int)&DestinationString,
-         (int)P + 464,
-         (int)P + 468,
-         (unsigned int)&v6,
-         8,
-         1);
+  v2 = PnpQueueQueryAndRemoveEvent(&DestinationString.Length, (char *)P + 464, (_WORD *)P + 234, &v6, 8, 1);
   v3 = *(void (__fastcall **)(_QWORD, _QWORD))P;
   *((_DWORD *)P + 6) = v2;
   if ( v3 )

@@ -1,30 +1,29 @@
 /*
- * XREFs of PpmReinitializeHeteroEngine @ 0x140830CF8
+ * XREFs of PpmReinitializeHeteroEngine @ 0x1407BA2A8
  * Callers:
- *     PpmPerfClearBootOverrides @ 0x14036D1E4 (PpmPerfClearBootOverrides.c)
- *     PpmHeteroHgsBackupInit @ 0x1403ABBD4 (PpmHeteroHgsBackupInit.c)
- *     PpmHeteroHgsUpdateWorker @ 0x14059E910 (PpmHeteroHgsUpdateWorker.c)
- *     PpmEnableProfile @ 0x14082D878 (PpmEnableProfile.c)
- *     PpmCheckInitProcessors @ 0x14082FE14 (PpmCheckInitProcessors.c)
- *     PpmRegisterPerfStates @ 0x14083009C (PpmRegisterPerfStates.c)
- *     PopPpmHeteroPolicyCallback @ 0x1408646F0 (PopPpmHeteroPolicyCallback.c)
- *     PpmUpdatePerfStates @ 0x140986D70 (PpmUpdatePerfStates.c)
- *     PpmDisableProfile @ 0x14099D234 (PpmDisableProfile.c)
+ *     PpmPerfClearBootOverrides @ 0x1403A2C00 (PpmPerfClearBootOverrides.c)
+ *     PpmHeteroHgsBackupInit @ 0x1403CD504 (PpmHeteroHgsBackupInit.c)
+ *     PpmHeteroHgsUpdateWorker @ 0x140577AE0 (PpmHeteroHgsUpdateWorker.c)
+ *     PpmCheckInitProcessors @ 0x1407BA2D8 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x1407BA4A0 (PpmRegisterPerfStates.c)
+ *     PpmEnableProfile @ 0x1407C63D4 (PpmEnableProfile.c)
+ *     PopPpmHeteroPolicyCallback @ 0x1407D3B20 (PopPpmHeteroPolicyCallback.c)
+ *     PopSetupHighPerfPowerRequest @ 0x1407D4960 (PopSetupHighPerfPowerRequest.c)
+ *     PpmUpdatePerfStates @ 0x1408E65E0 (PpmUpdatePerfStates.c)
+ *     PpmDisableProfile @ 0x1408F5CB8 (PpmDisableProfile.c)
  * Callees:
- *     PpmReapplyPerfPolicy @ 0x14082E210 (PpmReapplyPerfPolicy.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAEC0 (PpmReapplyPerfPolicy.c)
  */
 
-void __fastcall PpmReinitializeHeteroEngine(char a1, char a2)
+__int64 __fastcall PpmReinitializeHeteroEngine(char a1)
 {
-  int v2; // eax
+  int v1; // eax
   int v3; // [rsp+30h] [rbp+8h] BYREF
 
   if ( a1 )
-    v2 = 2048;
+    v1 = 2048;
   else
-    v2 = 4096;
-  v3 = v2;
-  if ( a2 )
-    v3 = v2 | 0x4000;
-  PpmReapplyPerfPolicy(&v3);
+    v1 = 4096;
+  v3 = v1;
+  return PpmReapplyPerfPolicy(&v3);
 }

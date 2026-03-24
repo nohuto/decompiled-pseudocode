@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpLogCapabilityCheckLatency @ 0x1407ED150
+ * XREFs of RtlpLogCapabilityCheckLatency @ 0x14091B6C4
  * Callers:
- *     RtlCapabilityCheck @ 0x1407ED2D0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x1409133A0 (RtlCapabilityCheck.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlRunOnceExecuteOnce @ 0x1407582A0 (RtlRunOnceExecuteOnce.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x14066F550 (RtlRunOnceExecuteOnce.c)
  */
 
 signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, char a4, char a5, char a6)
@@ -31,7 +31,11 @@ signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, 
   char *v27; // [rsp+A8h] [rbp+27h]
   __int64 v28; // [rsp+B0h] [rbp+2Fh]
 
-  result = RtlRunOnceExecuteOnce(&RtlpCapChkTelemetryRunOnceCtx, RtlpCapChkTelemetryRunOnce, 0LL, 0LL);
+  result = RtlRunOnceExecuteOnce(
+             &RtlpCapChkTelemetryRunOnceCtx,
+             (PRTL_RUN_ONCE_INIT_FN)RtlpCapChkTelemetryRunOnce,
+             0LL,
+             0LL);
   if ( a1 )
   {
     if ( a2 )
@@ -45,9 +49,9 @@ signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, 
             result = _InterlockedDecrement16(&TelemetryEventThrottle);
             if ( !result )
             {
-              if ( (unsigned int)dword_140C042A0 > 5 )
+              if ( (unsigned int)dword_140C0EF10 > 5 )
               {
-                if ( tlgKeywordOn((__int64)&dword_140C042A0, 0x200000000000LL) )
+                if ( tlgKeywordOn((__int64)&dword_140C0EF10, 0x200000000000LL) )
                 {
                   v12 = 1000000LL * (*a2 - *a1);
                   v20 = 8LL;
@@ -66,8 +70,8 @@ signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, 
                   v26 = 1LL;
                   v28 = 1LL;
                   tlgWriteTransfer_EtwWriteTransfer(
-                    (__int64)&dword_140C042A0,
-                    (unsigned __int8 *)word_140034252,
+                    (__int64)&dword_140C0EF10,
+                    (unsigned __int8 *)byte_14002C2A1,
                     0LL,
                     v11,
                     7u,

@@ -1,15 +1,15 @@
 /*
- * XREFs of NewNameSpaceObject @ 0x1C004FE10
+ * XREFs of NewNameSpaceObject @ 0x1C002BD38
  * Callers:
- *     InitializeNativeNamespace @ 0x1C0049FF4 (InitializeNativeNamespace.c)
- *     AMLIAddNamespaceOverride @ 0x1C004A2C8 (AMLIAddNamespaceOverride.c)
- *     CreateNameSpaceObject @ 0x1C004F12C (CreateNameSpaceObject.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     InitializeNativeNamespace @ 0x1C0023AF0 (InitializeNativeNamespace.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-_QWORD *__fastcall NewNameSpaceObject(__int64 a1)
+_QWORD *__fastcall NewNameSpaceObject(struct _SLIST_ENTRY *a1)
 {
   _QWORD *v1; // rax
   _QWORD *v2; // rbx

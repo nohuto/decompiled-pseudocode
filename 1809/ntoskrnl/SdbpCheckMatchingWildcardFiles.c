@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpCheckMatchingWildcardFiles @ 0x1408E6A00
+ * XREFs of SdbpCheckMatchingWildcardFiles @ 0x1408E69E0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SdbFindFirstTag @ 0x14067D1A0 (SdbFindFirstTag.c)
- *     AslFileMappingCreate @ 0x14067E49C (AslFileMappingCreate.c)
- *     AslFileMappingDelete @ 0x14067E984 (AslFileMappingDelete.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     SdbpCheckAllAttributes @ 0x140720364 (SdbpCheckAllAttributes.c)
- *     SdbGetStringTagPtr @ 0x140721730 (SdbGetStringTagPtr.c)
- *     SdbpResolveMatchingFile @ 0x140721A94 (SdbpResolveMatchingFile.c)
- *     SdbpInitializeSearchDBContext @ 0x140722598 (SdbpInitializeSearchDBContext.c)
- *     AslPathWildcardFindClose @ 0x1408EA4C8 (AslPathWildcardFindClose.c)
- *     AslPathWildcardFindFirst @ 0x1408EA508 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x1408EAAE4 (AslPathWildcardFindNext.c)
+ *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
+ *     AslFileMappingCreate @ 0x14067E47C (AslFileMappingCreate.c)
+ *     AslFileMappingDelete @ 0x14067E964 (AslFileMappingDelete.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbpCheckAllAttributes @ 0x140720344 (SdbpCheckAllAttributes.c)
+ *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
+ *     SdbpResolveMatchingFile @ 0x140721A74 (SdbpResolveMatchingFile.c)
+ *     SdbpInitializeSearchDBContext @ 0x140722578 (SdbpInitializeSearchDBContext.c)
+ *     AslPathWildcardFindClose @ 0x1408EA4A8 (AslPathWildcardFindClose.c)
+ *     AslPathWildcardFindFirst @ 0x1408EA4E8 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x1408EAAC4 (AslPathWildcardFindNext.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingWildcardFiles(

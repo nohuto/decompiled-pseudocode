@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlQueryActiveProcessors @ 0x1405400A0
+ * XREFs of HvlQueryActiveProcessors @ 0x1404F1E90
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */
@@ -10,10 +10,11 @@ __int64 __fastcall HvlQueryActiveProcessors(unsigned int *a1, int *a2)
 {
   __int64 result; // rax
   unsigned int v5; // edx
-  unsigned int v6; // r10d
-  int *v7; // rcx
-  __int64 v8; // rdx
-  int v9; // eax
+  unsigned int v6; // ecx
+  unsigned int v7; // r10d
+  int *v8; // rcx
+  __int64 v9; // rdx
+  int v10; // eax
 
   if ( (HvlpFlags & 2) == 0 )
     return 3221225506LL;
@@ -23,24 +24,26 @@ __int64 __fastcall HvlQueryActiveProcessors(unsigned int *a1, int *a2)
   if ( a2 )
   {
     v6 = *a1;
-    if ( HvlpActiveProcessorCount < *a1 )
-      v6 = HvlpActiveProcessorCount;
-    if ( v6 )
+    v7 = v6;
+    if ( *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 7) < v6 )
+      v7 = *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 7);
+    if ( v7 )
     {
-      v7 = dword_140D2A9B4;
-      v8 = v6;
+      v8 = dword_140D042E4;
+      v9 = v7;
       do
       {
-        v9 = *v7;
-        v7 += 30;
-        *a2++ = v9;
-        --v8;
+        v10 = *v8;
+        v8 += 30;
+        *a2++ = v10;
+        --v9;
       }
-      while ( v8 );
+      while ( v9 );
+      v6 = *a1;
     }
-    v5 = *a1 < HvlpActiveProcessorCount ? 0xC0000023 : 0;
+    v5 = v6 < *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 7) ? 0xC0000023 : 0;
   }
   result = v5;
-  *a1 = HvlpActiveProcessorCount;
+  *a1 = *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 7);
   return result;
 }

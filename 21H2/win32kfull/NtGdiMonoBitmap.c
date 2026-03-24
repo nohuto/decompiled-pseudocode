@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiMonoBitmap @ 0x1C02B5DC0
+ * XREFs of NtGdiMonoBitmap @ 0x1C02B7CB0
  * Callers:
  *     <none>
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0028338 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ?bIsMonochrome@XEPALOBJ@@QEBAHXZ @ 0x1C00FDBF8 (-bIsMonochrome@XEPALOBJ@@QEBAHXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C008393C (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?bIsMonochrome@XEPALOBJ@@QEBAHXZ @ 0x1C011D6A4 (-bIsMonochrome@XEPALOBJ@@QEBAHXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiMonoBitmap(HSURF a1)
@@ -22,7 +22,7 @@ __int64 __fastcall NtGdiMonoBitmap(HSURF a1)
   {
     v6 = *(_QWORD *)(v5 + 128);
     IsMonochrome = XEPALOBJ::bIsMonochrome((XEPALOBJ *)&v6);
-    DEC_SHARE_REF_CNT(v2);
+    DEC_SHARE_REF_CNT(v2, v2);
   }
   UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v4);
   return IsMonochrome;

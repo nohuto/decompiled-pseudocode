@@ -8,11 +8,11 @@
  *     KiGetNextTimerExpirationDueTime @ 0x140061FF0 (KiGetNextTimerExpirationDueTime.c)
  *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PpmGetIdleConstrainedMask @ 0x1402D3E3C (PpmGetIdleConstrainedMask.c)
- *     ExGetNextWakeTimeForDeepSleep @ 0x14031C4BC (ExGetNextWakeTimeForDeepSleep.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PpmGetIdleConstrainedMask @ 0x1402D3F3C (PpmGetIdleConstrainedMask.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x14031C5BC (ExGetNextWakeTimeForDeepSleep.c)
  */
 
 __int64 __fastcall PpmIdlePrepare(
@@ -207,7 +207,7 @@ LABEL_12:
       *(_DWORD *)(v9 + 528) = v19;
       if ( PpmIdleRespectIdleStateMax )
       {
-        v20 = BYTE2(PpmCurrentProfile[341 * dword_14041810C + 24]);
+        v20 = BYTE2(PpmCurrentProfile[341 * dword_1404180CC + 24]);
         *(_BYTE *)(v9 + 542) = v20;
         if ( v20 )
           *(_WORD *)(v9 + 48) |= 0x4000u;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopChangeCapability @ 0x1407471C4
+ * XREFs of PopChangeCapability @ 0x1407471A4
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
- *     PopResetCurrentPolicies @ 0x14074760C (PopResetCurrentPolicies.c)
+ *     PopResetCurrentPolicies @ 0x1407475EC (PopResetCurrentPolicies.c)
  */
 
 __int64 __fastcall PopChangeCapability(_BYTE *a1, __int64 a2)

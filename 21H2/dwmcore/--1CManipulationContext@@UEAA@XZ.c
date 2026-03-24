@@ -1,13 +1,13 @@
 /*
- * XREFs of ??1CManipulationContext@@UEAA@XZ @ 0x180181C00
+ * XREFs of ??1CManipulationContext@@UEAA@XZ @ 0x180233808
  * Callers:
- *     ??_GCManipulationContext@@UEAAPEAXI@Z @ 0x180181E08 (--_GCManipulationContext@@UEAAPEAXI@Z.c)
+ *     ??_GCManipulationContext@@UEAAPEAXI@Z @ 0x1802339B8 (--_GCManipulationContext@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??_G?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z @ 0x180181D6C (--_G-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z.c)
- *     ??_GTargetingInfo@@QEAAPEAXI@Z @ 0x180181E54 (--_GTargetingInfo@@QEAAPEAXI@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??_G?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z @ 0x180221764 (--_G-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z.c)
+ *     ??_GTargetingInfo@@QEAAPEAXI@Z @ 0x180233A04 (--_GTargetingInfo@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall CManipulationContext::~CManipulationContext(CManipulationContext *this)
@@ -23,15 +23,15 @@ void __fastcall CManipulationContext::~CManipulationContext(CManipulationContext
   __int64 v10; // rcx
 
   *(_QWORD *)this = &CManipulationContext::`vftable'{for `IManipulationContext'};
-  *((_QWORD *)this + 1) = &CManipulationContext::`vftable'{for `CMILRefCountBaseT<IMILRefCount>'};
+  *((_QWORD *)this + 1) = &CManipulationContext::`vftable'{for `CMILRefCountBase'};
   v2 = *((_QWORD *)this + 17);
   if ( v2 )
   {
     *((_QWORD *)this + 17) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 8LL))(v2);
   }
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)this + 16);
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)this + 14);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 16);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)this + 14);
   v4 = (void *)*((_QWORD *)this + 10);
   if ( v4 )
   {
@@ -43,13 +43,13 @@ void __fastcall CManipulationContext::~CManipulationContext(CManipulationContext
       while ( v5 < *((_DWORD *)this + 24) );
       v4 = (void *)*((_QWORD *)this + 10);
     }
-    DefaultHeap::Free(v4);
+    operator delete(v4);
     *((_QWORD *)this + 10) = 0LL;
   }
   v6 = (void *)*((_QWORD *)this + 11);
   if ( v6 )
   {
-    DefaultHeap::Free(v6);
+    operator delete(v6);
     *((_QWORD *)this + 11) = 0LL;
   }
   *((_DWORD *)this + 24) = 0;
@@ -60,17 +60,17 @@ void __fastcall CManipulationContext::~CManipulationContext(CManipulationContext
     if ( *((int *)this + 18) > 0 )
     {
       do
-        Microsoft::WRL::ComPtr<CInteraction>::`scalar deleting destructor'(*((_QWORD *)this + 8) + 8LL * v8++);
+        Microsoft::WRL::ComPtr<CInteraction>::`scalar deleting destructor'((__int64 *)(*((_QWORD *)this + 8) + 8LL * v8++));
       while ( v8 < *((_DWORD *)this + 18) );
       v7 = (void *)*((_QWORD *)this + 7);
     }
-    DefaultHeap::Free(v7);
+    operator delete(v7);
     *((_QWORD *)this + 7) = 0LL;
   }
   v9 = (void *)*((_QWORD *)this + 8);
   if ( v9 )
   {
-    DefaultHeap::Free(v9);
+    operator delete(v9);
     *((_QWORD *)this + 8) = 0LL;
   }
   *((_DWORD *)this + 18) = 0;
@@ -78,6 +78,6 @@ void __fastcall CManipulationContext::~CManipulationContext(CManipulationContext
   if ( v10 )
   {
     *((_QWORD *)this + 6) = 0LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 16LL))(v10);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 8LL))(v10);
   }
 }

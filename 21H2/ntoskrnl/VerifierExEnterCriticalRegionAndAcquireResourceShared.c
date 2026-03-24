@@ -1,18 +1,29 @@
 /*
- * XREFs of VerifierExEnterCriticalRegionAndAcquireResourceShared @ 0x140AA12B0
+ * XREFs of VerifierExEnterCriticalRegionAndAcquireResourceShared @ 0x1409E2060
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfDeadlockAcquireResource @ 0x140A97900 (VfDeadlockAcquireResource.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
  */
 
-__int64 __fastcall VerifierExEnterCriticalRegionAndAcquireResourceShared(LONG *a1)
+__int64 __fastcall VerifierExEnterCriticalRegionAndAcquireResourceShared(ULONG_PTR a1)
 {
-  __int64 v2; // rbx
-  PVOID retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v2; // rdi
+  void *v4; // [rsp+20h] [rbp-18h]
+  void *retaddr; // [rsp+38h] [rbp+0h]
 
   v2 = ((__int64 (*)(void))pXdvExEnterCriticalRegionAndAcquireResourceShared)();
-  VfDeadlockAcquireResource(a1, 8, (__int64)KeGetCurrentThread(), 0, retaddr);
+  if ( (MmVerifierData & 0x400000) == 0 )
+  {
+    v4 = retaddr;
+    goto LABEL_5;
+  }
+  if ( ViDeadlockDetectionEnabled )
+  {
+    v4 = retaddr;
+LABEL_5:
+    VfDeadlockAcquireResource(a1, 8, (__int64)KeGetCurrentThread(), 0, v4);
+  }
   return v2;
 }

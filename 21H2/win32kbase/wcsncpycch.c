@@ -1,8 +1,8 @@
 /*
- * XREFs of wcsncpycch @ 0x1C0051368
+ * XREFs of wcsncpycch @ 0x1C006B1A8
  * Callers:
- *     ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C0050970 (-LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z.c)
- *     _GetKeyNameText @ 0x1C0051280 (_GetKeyNameText.c)
+ *     ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C0069760 (-LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z.c)
+ *     _GetKeyNameText @ 0x1C006B0C0 (_GetKeyNameText.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Release@BamoDataSourceProxy@@W7EAAKXZ @ 0x180106D90
+ * XREFs of ?Release@BamoDataSourceProxy@@W7EAAKXZ @ 0x1800F5870
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned int __fastcall BamoDataSourceProxy::Release(__int64 a1)
+__int64 __fastcall BamoDataSourceProxy::Release(__int64 a1)
 {
-  return BamoDataSourceProxy::Release((BamoDataSourceProxy *)(a1 - 8));
+  return BamoDataProviderRegistrarPrincipal::Release((BamoDataProviderRegistrarPrincipal *)(a1 - 8));
 }

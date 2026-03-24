@@ -1,130 +1,134 @@
 /*
- * XREFs of PspWow64GetContextThread @ 0x1407A069C
+ * XREFs of PspWow64GetContextThread @ 0x14067A4EC
  * Callers:
- *     NtQueryInformationThread @ 0x14079FBE0 (NtQueryInformationThread.c)
- *     WbGetWowTrapFrame @ 0x140A4DA28 (WbGetWowTrapFrame.c)
- *     WbSetWowTrapFrame @ 0x140A4DCB0 (WbSetWowTrapFrame.c)
+ *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
+ *     WbGetWowTrapFrame @ 0x140963B2C (WbGetWowTrapFrame.c)
+ *     WbSetWowTrapFrame @ 0x140963C2C (WbSetWowTrapFrame.c)
  * Callees:
- *     RtlInitializeExtendedContext @ 0x14030D1D0 (RtlInitializeExtendedContext.c)
- *     RtlGetExtendedContextLength @ 0x14030D250 (RtlGetExtendedContextLength.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140429450 (_alloca_probe.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpReadExtendedContext @ 0x1407703F0 (RtlpReadExtendedContext.c)
- *     RtlCopyContext @ 0x1407709E0 (RtlCopyContext.c)
- *     PspGetContextThreadInternal @ 0x140770CE4 (PspGetContextThreadInternal.c)
- *     RtlpWow64SanitizeContextFlags @ 0x1407A0CF8 (RtlpWow64SanitizeContextFlags.c)
- *     PspWow64ReadOrWriteThreadCpuArea @ 0x1407A0D54 (PspWow64ReadOrWriteThreadCpuArea.c)
- *     RtlpWriteExtendedContext @ 0x1407A11A4 (RtlpWriteExtendedContext.c)
- *     RtlpWow64GetContextOnAmd64 @ 0x1407A1270 (RtlpWow64GetContextOnAmd64.c)
+ *     RtlGetExtendedContextLength @ 0x14033F480 (RtlGetExtendedContextLength.c)
+ *     RtlInitializeExtendedContext @ 0x14033F500 (RtlInitializeExtendedContext.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140407B20 (_alloca_probe.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlpWriteExtendedContext @ 0x14067A7B8 (RtlpWriteExtendedContext.c)
+ *     RtlpWow64GetContextOnAmd64 @ 0x14067A874 (RtlpWow64GetContextOnAmd64.c)
+ *     RtlpWow64SanitizeContextFlags @ 0x14067AC30 (RtlpWow64SanitizeContextFlags.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x14067AC88 (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     PspGetContextThreadInternal @ 0x1406C0C14 (PspGetContextThreadInternal.c)
+ *     RtlCopyContext @ 0x1406C0EA8 (RtlCopyContext.c)
+ *     RtlpReadExtendedContext @ 0x1406C0FC0 (RtlpReadExtendedContext.c)
  */
 
-__int64 __fastcall PspWow64GetContextThread(struct _KTHREAD *a1, int *a2, int a3, char a4)
+__int64 __fastcall PspWow64GetContextThread(__int64 a1, unsigned int *a2, int a3, char a4)
 {
   __int64 v8; // rdx
-  ULONG_PTR Process; // rdi
+  ULONG_PTR v9; // rdi
   __int64 v10; // rax
+  __int64 v11; // rax
   __int64 result; // rax
-  unsigned int v12; // ebx
-  unsigned __int64 v13; // rax
-  void *v14; // rsp
-  int *v15; // r15
-  __int64 v16; // rcx
-  __int64 v17; // r13
-  unsigned __int64 v18; // rcx
+  unsigned int v13; // ebx
+  unsigned __int64 v14; // rax
+  void *v15; // rsp
+  unsigned int *v16; // r15
+  int v17; // ecx
+  __int64 v18; // r13
   unsigned __int64 v19; // rcx
-  void *v20; // rsp
+  unsigned __int64 v20; // rcx
   void *v21; // rsp
-  int v22; // ecx
-  _DWORD *v23; // r10
-  int v24; // [rsp+20h] [rbp-30h]
-  int v25; // [rsp+28h] [rbp-28h]
-  _BYTE v26[4]; // [rsp+50h] [rbp+0h] BYREF
-  unsigned int v27; // [rsp+54h] [rbp+4h] BYREF
-  _DWORD v28[2]; // [rsp+58h] [rbp+8h] BYREF
-  __int64 v29; // [rsp+60h] [rbp+10h] BYREF
-  __int64 v30; // [rsp+68h] [rbp+18h] BYREF
-  struct _KTHREAD *v31; // [rsp+70h] [rbp+20h]
-  int v32[4]; // [rsp+78h] [rbp+28h] BYREF
-  __int128 v33; // [rsp+88h] [rbp+38h]
-  _BYTE v34[720]; // [rsp+A0h] [rbp+50h] BYREF
+  void *v22; // rsp
+  int v23; // r9d
+  _DWORD *v24; // r10
+  int v25; // ecx
+  int v26; // [rsp+20h] [rbp-30h]
+  int v27; // [rsp+28h] [rbp-28h]
+  _BYTE v28[4]; // [rsp+50h] [rbp+0h] BYREF
+  unsigned int v29; // [rsp+54h] [rbp+4h] BYREF
+  _DWORD v30[2]; // [rsp+58h] [rbp+8h] BYREF
+  __int64 v31; // [rsp+60h] [rbp+10h] BYREF
+  __int64 v32; // [rsp+68h] [rbp+18h] BYREF
+  __int64 v33; // [rsp+70h] [rbp+20h]
+  int v34[4]; // [rsp+78h] [rbp+28h] BYREF
+  __int64 v35; // [rsp+88h] [rbp+38h]
+  _BYTE v36[720]; // [rsp+90h] [rbp+40h] BYREF
 
-  v31 = a1;
-  v30 = 0LL;
-  memset(v34, 0, 0x2CCuLL);
+  v33 = a1;
+  v32 = 0LL;
+  memset(v36, 0, 0x2CCuLL);
+  v30[0] = 0;
+  v31 = 0LL;
   v28[0] = 0;
-  v29 = 0LL;
-  v26[0] = 0;
-  *(_OWORD *)v32 = 0LL;
-  v33 = 0LL;
+  *(_OWORD *)v34 = 0LL;
+  v35 = 0LL;
   if ( a3 != 716 )
     return 3221225476LL;
-  Process = (ULONG_PTR)a1->Process;
-  if ( !*(_QWORD *)(Process + 1408) || *(_WORD *)(Process + 2412) != 332 )
+  v9 = *(_QWORD *)(a1 + 544);
+  v10 = *(_QWORD *)(v9 + 1408);
+  if ( !v10 || *(_WORD *)(v10 + 8) != 332 )
     return 3221225485LL;
   if ( a4 )
   {
-    v10 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v10 = (__int64)a2;
-    v27 = *(_DWORD *)v10;
+    v11 = (__int64)a2;
+    if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+      v11 = 0x7FFFFFFF0000LL;
+    v29 = *(_DWORD *)v11;
   }
   else
   {
-    v27 = *a2;
+    v29 = *a2;
   }
   LOBYTE(v8) = a4;
-  result = RtlpWow64SanitizeContextFlags(&v27, v8);
+  result = RtlpWow64SanitizeContextFlags(&v29, v8);
   if ( (int)result >= 0 )
   {
-    v12 = v27;
+    v13 = v29;
     if ( !a4 )
     {
-      v15 = a2;
-      v17 = (__int64)(a2 + 179);
+      v16 = a2;
+      v18 = (__int64)(a2 + 179);
 LABEL_15:
-      result = PspWow64ReadOrWriteThreadCpuArea(Process, v24, v25, 0LL, (__int64)v26);
+      result = PspWow64ReadOrWriteThreadCpuArea(v9, v26, v27, 0LL, (__int64)v28);
       if ( (int)result >= 0 )
       {
-        if ( v26[0] && (v12 & 0x10040) == 0x10040 )
+        if ( v28[0] && (v13 & 0x10040) == 0x10040 )
         {
           return 3221225659LL;
         }
         else
         {
-          result = RtlGetExtendedContextLength(1074790431LL, (__int64)v28);
+          result = RtlGetExtendedContextLength(1074790431LL, (__int64)v30);
           if ( (int)result >= 0 )
           {
-            v18 = v28[0] + 15LL;
-            if ( v18 <= v28[0] )
-              v18 = 0xFFFFFFFFFFFFFF0LL;
-            v19 = v18 & 0xFFFFFFFFFFFFFFF0uLL;
-            v20 = alloca(v19);
-            v21 = alloca(v19);
-            result = RtlInitializeExtendedContext((__int64)v26, 0x4010001Fu, (__int64)&v30);
+            v19 = v30[0] + 15LL;
+            if ( v19 <= v30[0] )
+              v19 = 0xFFFFFFFFFFFFFF0LL;
+            v20 = v19 & 0xFFFFFFFFFFFFFFF0uLL;
+            v21 = alloca(v20);
+            v22 = alloca(v20);
+            result = RtlInitializeExtendedContext((__int64)v28, 0x4010001Fu, (__int64)&v32);
             if ( (int)result >= 0 )
             {
-              if ( (v12 & 0x10040) == 0x10040 )
+              if ( (v13 & 0x10040) == 0x10040 )
               {
-                v32[2] |= 0x100040u;
-                v23 = (_DWORD *)v30;
-                *(_QWORD *)(v30 + 16) = *(_QWORD *)(v17 + 16);
-                v23[4] += v17 - (_DWORD)v23;
-                v23[1] = v23[4] + v23[5] - *v23;
+                v34[2] |= 0x100040u;
+                v24 = (_DWORD *)v32;
+                *(_QWORD *)(v32 + 16) = *(_QWORD *)(v18 + 16);
+                v24[4] += v18 - (_DWORD)v24;
+                v24[1] = v24[4] + v24[5] - *v24;
               }
-              result = PspGetContextThreadInternal(v31, (__int64)v26, 0, 1, 1);
+              LOBYTE(v23) = 1;
+              result = PspGetContextThreadInternal(v33, (unsigned int)v28, 0, v23, 1);
               if ( (int)result >= 0 )
               {
-                if ( v26[0] )
-                  result = RtlCopyContext((__int64)v15, *v15, (__int64)v34);
+                if ( v28[0] )
+                  result = RtlCopyContext(v16, *v16, v36);
                 else
-                  result = RtlpWow64GetContextOnAmd64(v34, v26, v15);
+                  result = RtlpWow64GetContextOnAmd64(v36, v28, v16);
                 if ( (int)result >= 0 )
                 {
                   if ( a4 )
                   {
-                    result = RtlpWriteExtendedContext(v22, (int)a2 + 716, (unsigned int)v32, v12, v17);
-                    v28[1] = result;
+                    result = RtlpWriteExtendedContext(v25, (int)a2 + 716, (unsigned int)v34, v13, v18);
+                    v30[1] = result;
                   }
                 }
               }
@@ -134,20 +138,20 @@ LABEL_15:
       }
       return result;
     }
-    result = RtlGetExtendedContextLength(v27, (__int64)v28);
+    result = RtlGetExtendedContextLength(v29, (__int64)v30);
     if ( (int)result >= 0 )
     {
-      v13 = v28[0] + 15LL;
-      if ( v13 <= v28[0] )
-        v13 = 0xFFFFFFFFFFFFFF0LL;
-      v14 = alloca(v13 & 0xFFFFFFFFFFFFFFF0uLL);
-      v15 = (int *)v26;
-      memset(v26, 0, v28[0]);
-      result = RtlInitializeExtendedContext((__int64)v26, v12, (__int64)&v29);
+      v14 = v30[0] + 15LL;
+      if ( v14 <= v30[0] )
+        v14 = 0xFFFFFFFFFFFFFF0LL;
+      v15 = alloca(v14 & 0xFFFFFFFFFFFFFFF0uLL);
+      v16 = (unsigned int *)v28;
+      memset(v28, 0, v30[0]);
+      result = RtlInitializeExtendedContext((__int64)v28, v13, (__int64)&v31);
       if ( (int)result >= 0 )
       {
-        v17 = v29;
-        result = RtlpReadExtendedContext(v16, 0, v29, v12, (__int64)a2, v32);
+        v18 = v31;
+        result = RtlpReadExtendedContext(v17, 0, v31, v13, (__int64)a2, (__int64)v34);
         if ( (int)result >= 0 )
           goto LABEL_15;
       }

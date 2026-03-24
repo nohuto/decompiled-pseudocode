@@ -1,14 +1,14 @@
 /*
- * XREFs of ViDeadlockAddResource @ 0x140A98ACC
+ * XREFs of ViDeadlockAddResource @ 0x1409DE838
  * Callers:
- *     VfDeadlockAcquireResource @ 0x140A97900 (VfDeadlockAcquireResource.c)
- *     VfDeadlockInitializeResource @ 0x140A98420 (VfDeadlockInitializeResource.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockInitializeResource @ 0x1409DE1B4 (VfDeadlockInitializeResource.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x1405FFA20 (VfReportIssueWithOptions.c)
- *     VfUtilAddressRangeAdd @ 0x140A81A04 (VfUtilAddressRangeAdd.c)
- *     ViDeadlockPreprocessOptions @ 0x140A99A38 (ViDeadlockPreprocessOptions.c)
- *     ViDeadlockRemoveResource @ 0x140A99C74 (ViDeadlockRemoveResource.c)
- *     ViDeadlockSearchResource @ 0x140A99F58 (ViDeadlockSearchResource.c)
+ *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
+ *     VfUtilAddressRangeAdd @ 0x1409C62CC (VfUtilAddressRangeAdd.c)
+ *     ViDeadlockPreprocessOptions @ 0x1409DF818 (ViDeadlockPreprocessOptions.c)
+ *     ViDeadlockRemoveResource @ 0x1409DFA4C (ViDeadlockRemoveResource.c)
+ *     ViDeadlockSearchResource @ 0x1409DFD30 (ViDeadlockSearchResource.c)
  */
 
 __int64 __fastcall ViDeadlockAddResource(
@@ -41,13 +41,13 @@ __int64 __fastcall ViDeadlockAddResource(
   {
     if ( (ViDeadlockResourceTypeInfo[v6] & 8) == 0 )
     {
-      ViDeadlockPreprocessOptions(byte_140C0D9E4, "Re-initializing active lock 0x%p.", (const void *)0x1005);
-      VfReportIssueWithOptions(0xC4u, 0x1005uLL, a1, v11, 0LL, byte_140C0D9E4);
+      ViDeadlockPreprocessOptions(byte_140C12F74, "Re-initializing active lock 0x%p.", (const void *)0x1005);
+      VfReportIssueWithOptions(0xC4u, 0x1005uLL, a1, v11, 0LL, byte_140C12F74);
     }
     if ( *(_QWORD *)(v11 + 16) )
     {
-      ViDeadlockPreprocessOptions(byte_140C0D9E8, "Re-initializing active lock 0x%p.", (const void *)0x1005);
-      VfReportIssueWithOptions(0xC4u, 0x1005uLL, a1, v11, 1uLL, byte_140C0D9E8);
+      ViDeadlockPreprocessOptions(byte_140C12F70, "Re-initializing active lock 0x%p.", (const void *)0x1005);
+      VfReportIssueWithOptions(0xC4u, 0x1005uLL, a1, v11, 1uLL, byte_140C12F70);
     }
     ViDeadlockRemoveResource(v11);
     *a5 = v11;

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateLargePageSectionPfn @ 0x1402AADBC
+ * XREFs of MiUpdateLargePageSectionPfn @ 0x1402AAEBC
  * Callers:
  *     MiCreatePagingFileMap @ 0x14061EB18 (MiCreatePagingFileMap.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdateLargePageSectionPfn(__int64 a1, __int64 a2, __int64 a3)

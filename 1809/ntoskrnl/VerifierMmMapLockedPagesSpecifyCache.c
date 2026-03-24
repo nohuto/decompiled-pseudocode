@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
  *     VfCheckPagePriority @ 0x1409274A0 (VfCheckPagePriority.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  *     ViTargetAddToCounter @ 0x140934E3C (ViTargetAddToCounter.c)

@@ -1,100 +1,89 @@
 /*
- * XREFs of ?ReleaseTargetOwnershipNoDmm@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@I@Z @ 0x1C02FE2C0
+ * XREFs of ?ReleaseTargetOwnershipNoDmm@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@I@Z @ 0x1C02B1FAC
  * Callers:
- *     ?DmmClearDisplayManagerReferencesForAdapter@@YAJPEBVDXGADAPTER@@@Z @ 0x1C01E5C3C (-DmmClearDisplayManagerReferencesForAdapter@@YAJPEBVDXGADAPTER@@@Z.c)
+ *     ?DmmClearDisplayManagerReferencesForAdapter@@YAJPEBVDXGADAPTER@@@Z @ 0x1C016A974 (-DmmClearDisplayManagerReferencesForAdapter@@YAJPEBVDXGADAPTER@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNTARGETMODESET@@@@@@QEAAEQEBVDMMVIDPNTARGETMODESET@@@Z @ 0x1C004C674 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U-$DoubleLinkedListElementDelete.c)
- *     ?FindByValue@?$Set@VDXGTARGETENTRY@@@@QEBAPEAVDXGTARGETENTRY@@QEBV2@@Z @ 0x1C004C6C4 (-FindByValue@-$Set@VDXGTARGETENTRY@@@@QEBAPEAVDXGTARGETENTRY@@QEBV2@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNTARGETMODESET@@@@@@QEAAEQEBVDMMVIDPNTARGETMODESET@@@Z @ 0x1C004D670 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNTARGETMODESET@@U-$DoubleLinkedListElementDelete.c)
+ *     ?FindByValue@?$Set@VDXGTARGETENTRY@@@@QEBAPEAVDXGTARGETENTRY@@QEBV2@@Z @ 0x1C004D6DC (-FindByValue@-$Set@VDXGTARGETENTRY@@@@QEBAPEAVDXGTARGETENTRY@@QEBV2@@Z.c)
  */
 
 __int64 __fastcall DXGDISPLAYMANAGEROBJECT::ReleaseTargetOwnershipNoDmm(
-        DXGDISPLAYMANAGEROBJECT *this,
+        struct DXGFASTMUTEX *const *this,
         struct _LUID a2,
         unsigned int a3)
 {
   __int64 v4; // rsi
-  unsigned int v6; // ebx
-  __int64 v7; // r11
-  __int64 v8; // rdi
-  __int64 v9; // r11
-  _QWORD *v10; // rcx
-  __int64 v11; // rdx
-  _QWORD *v12; // rax
-  _BYTE v14[16]; // [rsp+50h] [rbp-48h] BYREF
-  void **v15; // [rsp+60h] [rbp-38h]
-  __int128 v16; // [rsp+68h] [rbp-30h]
-  struct _LUID v17; // [rsp+78h] [rbp-20h]
-  int v18; // [rsp+80h] [rbp-18h]
-  LONG HighPart; // [rsp+ACh] [rbp+14h]
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  unsigned int v10; // ebx
+  __int64 v11; // r11
+  __int64 v12; // rdi
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r11
+  _QWORD *v16; // rcx
+  __int64 v17; // rdx
+  __int64 *v18; // rax
+  _QWORD *v19; // rax
+  _BYTE v21[16]; // [rsp+20h] [rbp-40h] BYREF
+  void **v22; // [rsp+30h] [rbp-30h]
+  __int128 v23; // [rsp+38h] [rbp-28h]
+  struct _LUID v24; // [rsp+48h] [rbp-18h]
+  int v25; // [rsp+50h] [rbp-10h]
+  LONG HighPart; // [rsp+7Ch] [rbp+1Ch]
 
   HighPart = a2.HighPart;
   v4 = a3;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v14, (DXGDISPLAYMANAGEROBJECT *)((char *)this + 16), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v14);
-  if ( *((_QWORD *)this + 9) )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v21, this[2], 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v21);
+  if ( *((_QWORD *)this + 4) )
   {
-    v17 = a2;
-    v18 = v4;
-    v15 = &SetElement::`vftable';
-    v16 = 0LL;
-    v8 = Set<DXGTARGETENTRY>::FindByValue((__int64)this + 80);
-    if ( !DoublyLinkedList<DMMVIDPNTARGETMODESET,DoubleLinkedListElementDeleter<DMMVIDPNTARGETMODESET>>::ContainsByReference(
-            v7 + 8,
-            v8) )
-      goto LABEL_9;
-    v10 = (_QWORD *)(v8 + 8);
-    v11 = *(_QWORD *)(v8 + 8);
-    if ( *(_QWORD *)(v11 + 8) != v8 + 8 || (v12 = *(_QWORD **)(v8 + 16), (_QWORD *)*v12 != v10) )
-      __fastfail(3u);
-    *v12 = v11;
-    *(_QWORD *)(v11 + 8) = v12;
-    *v10 = 0LL;
-    *(_QWORD *)(v8 + 16) = 0LL;
-    --*(_QWORD *)(v9 + 40);
-    if ( v8 )
+    v24 = a2;
+    v25 = v4;
+    v22 = &SetElement::`vftable';
+    v23 = 0LL;
+    v12 = Set<DXGTARGETENTRY>::FindByValue((__int64)(this + 5));
+    if ( DoublyLinkedList<DMMVIDPNTARGETMODESET,DoubleLinkedListElementDeleter<DMMVIDPNTARGETMODESET>>::ContainsByReference(
+           v11 + 8,
+           v12) )
     {
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v14);
-      (**(void (__fastcall ***)(__int64, __int64))v8)(v8, 1LL);
-      v6 = 0;
+      v16 = (_QWORD *)(v12 + 8);
+      v17 = *(_QWORD *)(v12 + 8);
+      if ( *(_QWORD *)(v17 + 8) != v12 + 8 || (v18 = *(__int64 **)(v12 + 16), (_QWORD *)*v18 != v16) )
+        __fastfail(3u);
+      *v18 = v17;
+      *(_QWORD *)(v17 + 8) = v18;
+      *v16 = 0LL;
+      *(_QWORD *)(v12 + 16) = 0LL;
+      --*(_QWORD *)(v15 + 40);
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v21, v17);
+      (**(void (__fastcall ***)(__int64, __int64))v12)(v12, 1LL);
+      v10 = 0;
     }
     else
     {
-LABEL_9:
-      WdLogSingleEntry3(2LL, v4, HighPart, a2.LowPart);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to find owned target 0x%I64x on adapter 0x%I64x-%I64x",
-        v4,
-        HighPart,
-        a2.LowPart,
-        0LL,
-        0LL);
-      v6 = -1073741275;
+      v19 = (_QWORD *)WdLogNewEntry5_WdError(v14, v13);
+      v19[4] = HighPart;
+      v19[5] = a2.LowPart;
+      v19[3] = v4;
+      WdLogEvent5_WdError(v19);
+      v10 = -1073741275;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 192LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DispMgr object called after being invalidated.",
-      192LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v6 = -2147483611;
+    v8 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v8 + 24) = 194LL;
+    WdLogEvent5_WdError(v8);
+    v10 = -2147483611;
   }
-  if ( v14[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v14);
-  return v6;
+  if ( v21[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v21, v9);
+  return v10;
 }

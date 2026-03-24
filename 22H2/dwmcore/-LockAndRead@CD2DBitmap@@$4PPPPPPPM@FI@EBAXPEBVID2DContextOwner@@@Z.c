@@ -1,5 +1,5 @@
 /*
- * XREFs of ?LockAndRead@CD2DBitmap@@$4PPPPPPPM@FI@EBAXPEBVID2DContextOwner@@@Z @ 0x180123800
+ * XREFs of ?LockAndRead@CD2DBitmap@@$4PPPPPPPM@FI@EBAXPEBVID2DContextOwner@@@Z @ 0x1800F5B10
  * Callers:
  *     <none>
  * Callees:

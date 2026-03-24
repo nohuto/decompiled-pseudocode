@@ -1,12 +1,12 @@
 /*
- * XREFs of AmlpValidateFirmwareMemoryAddress @ 0x1C00256B8
+ * XREFs of AmlpValidateFirmwareMemoryAddress @ 0x1C002A10C
  * Callers:
- *     MapPhysMem @ 0x1C0025610 (MapPhysMem.c)
- *     AMLIValidateFirmwareMemoryAddress @ 0x1C0064A88 (AMLIValidateFirmwareMemoryAddress.c)
+ *     MapPhysMem @ 0x1C002A064 (MapPhysMem.c)
+ *     AMLIValidateFirmwareMemoryAddress @ 0x1C0063804 (AMLIValidateFirmwareMemoryAddress.c)
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
 __int64 __fastcall AmlpValidateFirmwareMemoryAddress(__int64 *a1, unsigned int a2)

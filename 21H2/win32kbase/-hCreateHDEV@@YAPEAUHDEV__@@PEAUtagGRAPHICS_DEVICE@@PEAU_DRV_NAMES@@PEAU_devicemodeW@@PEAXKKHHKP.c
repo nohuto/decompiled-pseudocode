@@ -1,47 +1,44 @@
 /*
- * XREFs of ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C00771B8
+ * XREFs of ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C0013658
  * Callers:
- *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0073714 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C00760D4 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0011478 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0012620 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
  * Callees:
- *     HmgShareLockCheck @ 0x1C0020DC0 (HmgShareLockCheck.c)
- *     ?DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z @ 0x1C0021290 (-DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z.c)
- *     Win32FreePool @ 0x1C0026670 (Win32FreePool.c)
- *     PALLOCNOZ @ 0x1C0027CFC (PALLOCNOZ.c)
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     GreReleaseSemaphoreInternal @ 0x1C002E950 (GreReleaseSemaphoreInternal.c)
- *     ?bDisabled@PDEVOBJ@@QEAAHH@Z @ 0x1C00616E4 (-bDisabled@PDEVOBJ@@QEAAHH@Z.c)
- *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C00717F0 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
- *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0072044 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
- *     ldevUnloadImage @ 0x1C0075120 (ldevUnloadImage.c)
- *     ldevLoadDriver @ 0x1C0075290 (ldevLoadDriver.c)
- *     ?DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z @ 0x1C0077CD4 (-DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z.c)
- *     ?DrvDisableMDEVChildren@@YAHPEAU_MDEV@@HK@Z @ 0x1C007865C (-DrvDisableMDEVChildren@@YAHPEAU_MDEV@@HK@Z.c)
- *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C007FCA0 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     PALLOCMEM @ 0x1C0086980 (PALLOCMEM.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C008DCA0 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
- *     ?IncrementClientReferenceCount@PDEV@@QEAAXXZ @ 0x1C008DD40 (-IncrementClientReferenceCount@PDEV@@QEAAXXZ.c)
- *     ldevLoadInternal @ 0x1C00C1F50 (ldevLoadInternal.c)
- *     ?DrvUpdateAttachFlag@@YAXPEAUtagGRAPHICS_DEVICE@@K@Z @ 0x1C00C2588 (-DrvUpdateAttachFlag@@YAXPEAUtagGRAPHICS_DEVICE@@K@Z.c)
- *     ?DevmodeEqualEx@@YAHPEBU_devicemodeW@@0@Z @ 0x1C00C41BC (-DevmodeEqualEx@@YAHPEBU_devicemodeW@@0@Z.c)
- *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C00C8640 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
- *     ?DrvEnableDisplay@@YAHPEAUHDEV__@@@Z @ 0x1C00D3B90 (-DrvEnableDisplay@@YAHPEAUHDEV__@@@Z.c)
- *     ?Feature_3101493560__private_IsEnabled@@YAHXZ @ 0x1C00D8CC0 (-Feature_3101493560__private_IsEnabled@@YAHXZ.c)
- *     ??0?$HmgShareLockResult@VBRUSH@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C00DAF28 (--0-$HmgShareLockResult@VBRUSH@@@@QEAA@PEAU_BASEOBJECT@@@Z.c)
- *     ??1?$HmgShareLockResult@VBRUSH@@@@QEAA@XZ @ 0x1C00DAF80 (--1-$HmgShareLockResult@VBRUSH@@@@QEAA@XZ.c)
- *     memcmp @ 0x1C00DD6E0 (memcmp.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     ?bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z @ 0x1C016AE70 (-bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z.c)
+ *     ?bDisabled@PDEVOBJ@@QEAAHH@Z @ 0x1C000D904 (-bDisabled@PDEVOBJ@@QEAAHH@Z.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0010CB4 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C0010F60 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     ?IncrementClientReferenceCount@PDEV@@QEAAXXZ @ 0x1C0011000 (-IncrementClientReferenceCount@PDEV@@QEAAXXZ.c)
+ *     ?DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z @ 0x1C0014504 (-DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z.c)
+ *     ?DrvDisableMDEVChildren@@YAHPEAU_MDEV@@HK@Z @ 0x1C0014EEC (-DrvDisableMDEVChildren@@YAHPEAU_MDEV@@HK@Z.c)
+ *     ldevUnloadImage @ 0x1C00153B0 (ldevUnloadImage.c)
+ *     ldevLoadDriver @ 0x1C0015500 (ldevLoadDriver.c)
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C00218E0 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     HmgShareLockCheck @ 0x1C002DBE0 (HmgShareLockCheck.c)
+ *     GreReleaseSemaphoreInternal @ 0x1C0038C70 (GreReleaseSemaphoreInternal.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C0066F20 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     ldevLoadInternal @ 0x1C00A74C0 (ldevLoadInternal.c)
+ *     ?DrvUpdateAttachFlag@@YAXPEAUtagGRAPHICS_DEVICE@@K@Z @ 0x1C00B3804 (-DrvUpdateAttachFlag@@YAXPEAUtagGRAPHICS_DEVICE@@K@Z.c)
+ *     ?DevmodeEqualEx@@YAHPEBU_devicemodeW@@0@Z @ 0x1C00B422C (-DevmodeEqualEx@@YAHPEBU_devicemodeW@@0@Z.c)
+ *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C00B8D20 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
+ *     ?DrvEnableDisplay@@YAHPEAUHDEV__@@@Z @ 0x1C00C4308 (-DrvEnableDisplay@@YAHPEAUHDEV__@@@Z.c)
+ *     ??0?$HmgShareLockResult@VBRUSH@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C00CA7F8 (--0-$HmgShareLockResult@VBRUSH@@@@QEAA@PEAU_BASEOBJECT@@@Z.c)
+ *     ??1?$HmgShareLockResult@VBRUSH@@@@QEAA@XZ @ 0x1C00CA83C (--1-$HmgShareLockResult@VBRUSH@@@@QEAA@XZ.c)
+ *     memcmp @ 0x1C00CE7B0 (memcmp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
+ *     ?bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z @ 0x1C013DEC0 (-bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z.c)
  */
 
 struct PDEV *__fastcall hCreateHDEV(
         struct tagGRAPHICS_DEVICE *a1,
         struct _DRV_NAMES *a2,
         struct _devicemodeW *a3,
-        void *a4,
+        HDEV a4,
         unsigned int a5,
         unsigned int a6,
         int a7,
@@ -49,362 +46,381 @@ struct PDEV *__fastcall hCreateHDEV(
         unsigned int a9,
         HDEV *a10)
 {
-  struct tagGRAPHICS_DEVICE *v11; // r14
-  HDEV v12; // rbx
-  BOOL v13; // r12d
-  struct PDEV *v14; // rdi
-  unsigned int v15; // r15d
-  struct tagGRAPHICS_DEVICE *v16; // rcx
-  HDEV v17; // rsi
-  const struct _devicemodeW *v18; // rdx
-  int v19; // ecx
-  int v20; // eax
-  int v21; // r8d
-  int v22; // r8d
-  __int64 v24; // rdi
-  struct _DRV_NAMES *v25; // rdx
-  unsigned int v26; // esi
-  unsigned int v27; // r8d
-  char *v28; // rbx
-  int v29; // edx
+  struct _DRV_NAMES *v12; // r14
+  _QWORD *v14; // rax
+  __int64 v15; // r10
+  __int64 v16; // r9
+  __int64 v17; // rdx
+  HDEV v18; // rcx
+  unsigned int v19; // edi
+  HDEV v20; // rbx
+  BOOL v21; // r15d
+  struct PDEV *v22; // rdi
+  struct tagGRAPHICS_DEVICE *v23; // rcx
+  HDEV v24; // rsi
+  const struct _devicemodeW *v25; // rdx
+  int v26; // ecx
+  int v27; // r8d
+  int v28; // r14d
+  HDEV v29; // rax
+  HDEV v30; // r14
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // rax
+  __int64 v35; // rsi
+  __int64 v36; // rcx
+  char *v37; // rbx
   struct _LDEV *Internal; // rax
-  __int64 *v31; // r14
-  int v32; // r8d
-  struct PDEV *v33; // rax
-  __int64 v34; // rsi
-  __int64 v35; // rax
-  __int64 v36; // rax
-  struct HOBJ__ **v37; // rbx
-  bool v38; // zf
-  void *v39; // rcx
-  void *v40; // rcx
-  int v41; // r8d
-  struct PDEV *v42; // [rsp+78h] [rbp-39h] BYREF
-  struct PDEV *v43; // [rsp+80h] [rbp-31h] BYREF
-  _QWORD v44[12]; // [rsp+88h] [rbp-29h] BYREF
-  struct tagGRAPHICS_DEVICE *v45; // [rsp+F8h] [rbp+47h] BYREF
-  struct _DRV_NAMES *v46; // [rsp+100h] [rbp+4Fh]
-  void *v47; // [rsp+110h] [rbp+5Fh]
+  struct _LDEV *v39; // r14
+  __int64 v40; // rax
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  __int64 v43; // rax
+  __int64 v44; // rdx
+  __int64 v45; // rax
+  struct PDEV *v46; // rax
+  PDRIVER_CONTROL DeviceRoutine; // rcx
+  __int64 v48; // rax
+  __int64 v49; // rax
+  bool v50; // zf
+  HDEV v51; // rcx
+  void *v52; // rcx
+  int v53; // eax
+  __int64 v54; // rdx
+  __int64 v55; // rcx
+  __int64 v56; // rax
+  HDEV v57; // [rsp+78h] [rbp-29h] BYREF
+  _QWORD v58[11]; // [rsp+80h] [rbp-21h] BYREF
+  struct PDEV *v59; // [rsp+E8h] [rbp+47h] BYREF
+  struct _DRV_NAMES *v60; // [rsp+F0h] [rbp+4Fh]
+  HDEV v61; // [rsp+100h] [rbp+5Fh] BYREF
 
-  v47 = a4;
-  v46 = a2;
-  v45 = a1;
-  v11 = a1;
-  WdLogSingleEntry5(4LL, a1, a4, a5, a6, a9);
-  v12 = 0LL;
-  v13 = 0;
+  v61 = a4;
+  v60 = a2;
+  v12 = a2;
+  v14 = (_QWORD *)WdLogNewEntry5_WdEvent();
+  v15 = a5;
+  v16 = a6;
+  v14[7] = a9;
+  v14[3] = a1;
+  v14[4] = a4;
+  v14[5] = v15;
+  v14[6] = v16;
+  WdLogEvent5_WdEvent(v14);
+  v19 = 0;
+  v20 = 0LL;
+  v21 = 0;
   *a10 = 0LL;
-  if ( v11 != (struct tagGRAPHICS_DEVICE *)-4LL )
+  if ( a1 != (struct tagGRAPHICS_DEVICE *)-4LL )
   {
     if ( !a3 )
-    {
-      WdLogSingleEntry0(5LL);
-      return 0LL;
-    }
+      goto LABEL_69;
     EngAcquireSemaphore(ghsemDriverMgmt);
     EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
-    v14 = gppdevList;
+    v22 = gppdevList;
     if ( gppdevList )
     {
-      v15 = a6;
       while ( 1 )
       {
-        v16 = (struct tagGRAPHICS_DEVICE *)*((_QWORD *)v14 + 319);
-        v42 = v14;
-        if ( (((unsigned __int64)v16 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0 && v11 == v16 )
+        v23 = (struct tagGRAPHICS_DEVICE *)*((_QWORD *)v22 + 322);
+        v59 = v22;
+        if ( (((unsigned __int64)v23 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0 && a1 == v23 )
           break;
-        v14 = *(struct PDEV **)v14;
-LABEL_37:
-        if ( !v14 )
-          goto LABEL_38;
-      }
-      PDEV::IncrementClientReferenceCount(v14);
-      EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
-      GreReleaseSemaphoreInternal((struct _ERESOURCE *)ghsemDriverMgmt);
-      EngAcquireSemaphore((HSEMAPHORE)ghsemDynamicModeChange);
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDynamicModeChange", ghsemDynamicModeChange, 1LL);
-      EngAcquireSemaphore(*((HSEMAPHORE *)v14 + 6));
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", *((_QWORD *)v14 + 6), 11LL);
-      v17 = 0LL;
-      v43 = 0LL;
-      if ( (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v42) )
-        v19 = DevmodeEqualEx(a3, v18);
-      else
-        v19 = memcmp(a3, v18, 0xDCuLL) == 0;
-      v20 = *((_DWORD *)v14 + 10);
-      if ( (v20 & 0x80000) != 0
-        || *((void **)v14 + 318) != v47
-        || *((_DWORD *)v14 + 646) != a5
-        || *((_DWORD *)v14 + 647) != v15
-        || !v19
-        || a8 )
-      {
-        if ( a7 == 1 )
-          v13 = 1;
-        else
-          v17 = (HDEV)v14;
-        goto LABEL_25;
-      }
-      if ( v12 )
-      {
-        if ( (v20 & 0x400) != 0 )
-        {
-LABEL_21:
-          v43 = (struct PDEV *)v17;
-LABEL_25:
-          EtwTraceGreLockReleaseSemaphore(L"po.hsemDevLock()", *((_QWORD *)v14 + 6));
-          GreReleaseSemaphoreInternal(*((struct _ERESOURCE **)v14 + 6));
-          if ( v17 )
-          {
-            if ( gbDeferredInvalidateDualView )
-            {
-              gbDeferredInvalidateDualView = 0;
-              v13 = DrvDisableMDEVChildren(gbDeferredOrgMdev, 0, 0) == 0;
-            }
-            EngAcquireSemaphore(*((HSEMAPHORE *)v17 + 6));
-            EtwTraceGreLockAcquireSemaphoreExclusive(L"poDisable.hsemDevLock()", *((_QWORD *)v17 + 6), 11LL);
-            if ( ((_DWORD)v17[10] & 0x400) == 0 )
-            {
-              if ( (unsigned int)DrvDisableDisplay(v17, 0) )
-                *a10 = v17;
-              else
-                v13 = 1;
-            }
-            EtwTraceGreLockReleaseSemaphore(L"poDisable.hsemDevLock()", *((_QWORD *)v17 + 6));
-            GreReleaseSemaphoreInternal(*((struct _ERESOURCE **)v17 + 6));
-          }
-          EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
-          GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
-          EngAcquireSemaphore(ghsemDriverMgmt);
-          EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
-          if ( v43 )
-            PDEVOBJ::vUnreferencePdev(&v43, 0, v21);
-          v14 = *(struct PDEV **)v14;
-          PDEVOBJ::vUnreferencePdev(&v42, 0, v21);
-          goto LABEL_37;
-        }
-        v17 = v12;
-      }
-      PDEVOBJ::vReferencePdev((PDEVOBJ *)&v42);
-      v12 = (HDEV)v14;
-      goto LABEL_21;
-    }
+        v22 = *(struct PDEV **)v22;
 LABEL_38:
-    EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
-    GreReleaseSemaphoreInternal((struct _ERESOURCE *)ghsemDriverMgmt);
-    if ( v13 )
-    {
-      if ( v12 )
-      {
-        v45 = (struct tagGRAPHICS_DEVICE *)v12;
-        PDEVOBJ::vUnreferencePdev(&v45, 0, v22);
+        if ( !v22 )
+        {
+          v12 = v60;
+          goto LABEL_40;
+        }
       }
-      goto LABEL_67;
+      PDEV::IncrementClientReferenceCount(v22);
+      EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
+      GreReleaseSemaphoreInternal(ghsemDriverMgmt);
+      EngAcquireSemaphore(ghsemDynamicModeChange);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDynamicModeChange", ghsemDynamicModeChange, 1LL);
+      EngAcquireSemaphore(*((HSEMAPHORE *)v22 + 6));
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", *((_QWORD *)v22 + 6), 11LL);
+      v24 = 0LL;
+      v57 = 0LL;
+      if ( (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v59) )
+        v26 = DevmodeEqualEx(a3, v25);
+      else
+        v26 = memcmp(a3, v25, 0xDCuLL) == 0;
+      if ( (*((_DWORD *)v22 + 10) & 0x80000) == 0
+        && *((HDEV *)v22 + 321) == v61
+        && *((_DWORD *)v22 + 652) == a5
+        && *((_DWORD *)v22 + 653) == a6
+        && v26
+        && !a8 )
+      {
+        if ( v20 )
+        {
+          v28 = *((_DWORD *)v22 + 10) & 0x400;
+          if ( !v28 )
+            PDEVOBJ::vReferencePdev((PDEVOBJ *)&v59, 0LL, v27);
+          v24 = v20;
+          v29 = (HDEV)v22;
+          if ( v28 )
+          {
+            v29 = v20;
+            v24 = 0LL;
+          }
+          v20 = v29;
+        }
+        else
+        {
+          PDEVOBJ::vReferencePdev((PDEVOBJ *)&v59, 0LL, v27);
+          v20 = (HDEV)v22;
+        }
+      }
+      else
+      {
+        if ( a7 != 1 )
+        {
+          v30 = v57;
+          v24 = (HDEV)v22;
+          goto LABEL_26;
+        }
+        v21 = 1;
+      }
+      v30 = v24;
+LABEL_26:
+      EtwTraceGreLockReleaseSemaphore(L"po.hsemDevLock()", *((_QWORD *)v22 + 6));
+      GreReleaseSemaphoreInternal(*((_QWORD *)v22 + 6));
+      if ( v24 )
+      {
+        if ( gbDeferredInvalidateDualView )
+        {
+          gbDeferredInvalidateDualView = 0;
+          v21 = DrvDisableMDEVChildren(gbDeferredOrgMdev, 0, 0) == 0;
+        }
+        EngAcquireSemaphore(*((HSEMAPHORE *)v24 + 6));
+        EtwTraceGreLockAcquireSemaphoreExclusive(L"poDisable.hsemDevLock()", *((_QWORD *)v24 + 6), 11LL);
+        if ( ((_DWORD)v24[10] & 0x400) == 0 )
+        {
+          if ( (unsigned int)DrvDisableDisplay(v24, 0) )
+            *a10 = v24;
+          else
+            v21 = 1;
+        }
+        EtwTraceGreLockReleaseSemaphore(L"poDisable.hsemDevLock()", *((_QWORD *)v24 + 6));
+        GreReleaseSemaphoreInternal(*((_QWORD *)v24 + 6));
+      }
+      EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+      GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
+      EngAcquireSemaphore(ghsemDriverMgmt);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
+      if ( v30 )
+      {
+        v57 = v30;
+        PDEVOBJ::vUnreferencePdev(&v57, 0LL);
+      }
+      v22 = *(struct PDEV **)v22;
+      PDEVOBJ::vUnreferencePdev(&v59, 0LL);
+      goto LABEL_38;
     }
-    if ( v12 )
+LABEL_40:
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
+    GreReleaseSemaphoreInternal(ghsemDriverMgmt);
+    v19 = 0;
+    if ( v21 )
+    {
+      if ( v20 )
+      {
+        v61 = v20;
+        PDEVOBJ::vUnreferencePdev(&v61, 0LL);
+      }
+      goto LABEL_69;
+    }
+    if ( v20 )
     {
       EngAcquireSemaphore(ghsemDriverMgmt);
       EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
-      *((_QWORD *)v12 + 4) = 0LL;
+      *((_QWORD *)v20 + 4) = 0LL;
       EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
-      GreReleaseSemaphoreInternal((struct _ERESOURCE *)ghsemDriverMgmt);
-      EngAcquireSemaphore((HSEMAPHORE)ghsemDynamicModeChange);
+      GreReleaseSemaphoreInternal(ghsemDriverMgmt);
+      EngAcquireSemaphore(ghsemDynamicModeChange);
       EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDynamicModeChange", ghsemDynamicModeChange, 1LL);
-      EngAcquireSemaphore(*((HSEMAPHORE *)v12 + 6));
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", *((_QWORD *)v12 + 6), 11LL);
+      EngAcquireSemaphore(*((HSEMAPHORE *)v20 + 6));
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", *((_QWORD *)v20 + 6), 11LL);
       EngAcquireSemaphore(ghsemDriverMgmt);
       EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
-      ++*((_DWORD *)v12 + 3);
-      if ( ((_DWORD)v12[10] & 0x400) != 0 )
+      ++*((_DWORD *)v20 + 3);
+      if ( ((_DWORD)v20[10] & 0x400) != 0 )
       {
         EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
-        GreReleaseSemaphoreInternal((struct _ERESOURCE *)ghsemDriverMgmt);
-        DrvEnableDisplay(v12);
+        GreReleaseSemaphoreInternal(ghsemDriverMgmt);
+        DrvEnableDisplay(v20);
         EngAcquireSemaphore(ghsemDriverMgmt);
         EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
       }
       EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
-      GreReleaseSemaphoreInternal((struct _ERESOURCE *)ghsemDriverMgmt);
-      EtwTraceGreLockReleaseSemaphore(L"po.hsemDevLock()", *((_QWORD *)v12 + 6));
-      GreReleaseSemaphoreInternal(*((struct _ERESOURCE **)v12 + 6));
+      GreReleaseSemaphoreInternal(ghsemDriverMgmt);
+      EtwTraceGreLockReleaseSemaphore(L"po.hsemDevLock()", *((_QWORD *)v20 + 6));
+      GreReleaseSemaphoreInternal(*((_QWORD *)v20 + 6));
       EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
       GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
-      WdLogSingleEntry1(5LL, v12);
-      return (struct PDEV *)v12;
+      v33 = WdLogNewEntry5_WdTrace(v32, v31);
+      *(_QWORD *)(v33 + 24) = v20;
+      WdLogEvent5_WdTrace(v33);
+      return (struct PDEV *)v20;
     }
     if ( gbDeferredInvalidateDualView )
     {
       gbDeferredInvalidateDualView = 0;
-      EngAcquireSemaphore((HSEMAPHORE)ghsemDynamicModeChange);
+      EngAcquireSemaphore(ghsemDynamicModeChange);
       EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDynamicModeChange", ghsemDynamicModeChange, 1LL);
-      v13 = DrvDisableMDEVChildren(gbDeferredOrgMdev, 0, 0) == 0;
+      v21 = DrvDisableMDEVChildren(gbDeferredOrgMdev, 0, 0) == 0;
       EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
       GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
-      if ( v13 )
-        goto LABEL_65;
+      if ( v21 )
+        goto LABEL_67;
     }
   }
-  v24 = PALLOCMEM(2144LL, 1886221383LL);
-  if ( !v24 )
-    goto LABEL_65;
-  v25 = v46;
-  v26 = 0;
-  if ( !*(_DWORD *)v46 )
-    goto LABEL_64;
+  v35 = PALLOCMEM2(0x868uLL);
+  if ( !v35 )
+    goto LABEL_67;
+  if ( !*(_DWORD *)v12 )
+    goto LABEL_66;
   while ( a9 != 1 )
   {
     if ( a9 == 2 )
     {
-      v28 = (char *)v25 + 16 * v26;
-      Internal = (struct _LDEV *)ldevLoadInternal(*((_QWORD *)v28 + 2), 3LL);
-      goto LABEL_56;
+      v37 = (char *)v12 + 16 * v19;
+      Internal = (struct _LDEV *)ldevLoadInternal(*((_QWORD *)v37 + 2), 3LL);
+      goto LABEL_57;
     }
+    v36 = a9 - 3;
     if ( a9 == 4 )
-    {
-      v27 = 1;
-      v28 = (char *)v25 + 16 * v26;
-      v29 = 4;
-      goto LABEL_55;
-    }
-LABEL_58:
-    WdLogSingleEntry0(5LL);
-LABEL_63:
-    v25 = v46;
-    if ( ++v26 >= *(_DWORD *)v46 )
-      goto LABEL_64;
+      break;
+LABEL_59:
+    v40 = WdLogNewEntry5_WdTrace(v36, v17);
+    WdLogEvent5_WdTrace(v40);
+LABEL_65:
+    if ( ++v19 >= *(_DWORD *)v12 )
+      goto LABEL_66;
   }
-  v28 = (char *)v25 + 16 * v26;
-  v29 = 1;
-  v27 = (*((_DWORD *)v11 + 40) & 0x4000000 | 0x2000000u) >> 25;
-LABEL_55:
-  Internal = ldevLoadDriver(*((PCWSTR *)v28 + 2), v29, v27);
-LABEL_56:
-  v31 = (__int64 *)Internal;
+  v37 = (char *)v12 + 16 * v19;
+  Internal = (struct _LDEV *)ldevLoadDriver(*((PCWSTR *)v37 + 2));
+LABEL_57:
+  v36 = 0LL;
+  v39 = Internal;
   if ( !Internal )
   {
-    v11 = v45;
-    goto LABEL_58;
+    v12 = v60;
+    goto LABEL_59;
   }
   PDEVOBJ::PDEVOBJ(
-    (PDEVOBJ *)&v42,
+    (PDEVOBJ *)&v59,
     Internal,
     a3,
     0LL,
     0LL,
-    *((unsigned __int16 **)v28 + 2),
-    *((void **)v28 + 1),
+    *((unsigned __int16 **)v37 + 2),
+    *((void **)v37 + 1),
     0LL,
     0LL,
     0LL,
     0,
     a5,
     a6);
-  if ( !v42 )
+  if ( !v59 )
   {
-    WdLogSingleEntry0(5LL);
-    ldevUnloadImage(v31);
-    v11 = v45;
-    goto LABEL_63;
+    v43 = WdLogNewEntry5_WdTrace(v42, v41);
+    WdLogEvent5_WdTrace(v43);
+    ldevUnloadImage(v39);
+LABEL_64:
+    v12 = v60;
+    goto LABEL_65;
   }
-  v11 = v45;
-  *((_QWORD *)v42 + 319) = v45;
-  if ( !(unsigned int)PDEVOBJ::bMakeSurface((PDEVOBJ *)&v42, 0LL) )
+  *((_QWORD *)v59 + 322) = a1;
+  if ( !(unsigned int)PDEVOBJ::bMakeSurface((PDEVOBJ *)&v59, 0LL) )
   {
-    PDEVOBJ::vUnreferencePdev(&v42, 0, v32);
-    goto LABEL_63;
+    PDEVOBJ::vUnreferencePdev(&v59, 0LL);
+    goto LABEL_64;
   }
-  v33 = v42;
-  *((_QWORD *)v42 + 196) = 0LL;
-  *((_QWORD *)v33 + 193) = 0LL;
-  *((_DWORD *)v33 + 388) = 0;
-  v34 = v24 + 544;
-  if ( (unsigned int)Feature_3101493560__private_IsEnabled() )
-  {
-    v35 = HmgShareLockCheck(WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters, 16);
-    HmgShareLockResult<BRUSH>::HmgShareLockResult<BRUSH>(v44, v35);
-    *(_QWORD *)(v24 + 976) = v34;
-    *(_DWORD *)(v24 + 728) = 0;
-    *(_DWORD *)(*(_QWORD *)(v24 + 976) + 176LL) = 0xFFFFFF;
-    *(_DWORD *)(v24 + 120) = 0;
-    *(_QWORD *)(*(_QWORD *)(v24 + 976) + 248LL) = 0LL;
-    EBRUSHOBJ::vInitBrush(
-      (char *)v42 + 1536,
-      v24,
-      v44[0],
-      ppalDefault,
-      *(_QWORD *)(*((_QWORD *)v42 + 316) + 128LL),
-      *((_QWORD *)v42 + 316),
-      1);
-    HmgShareLockResult<BRUSH>::~HmgShareLockResult<BRUSH>(v44);
-  }
-  else
-  {
-    v36 = HmgShareLockCheck(WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters, 16);
-    *(_QWORD *)(v24 + 976) = v34;
-    v37 = (struct HOBJ__ **)v36;
-    *(_DWORD *)(v24 + 728) = 0;
-    *(_DWORD *)(*(_QWORD *)(v24 + 976) + 176LL) = 0xFFFFFF;
-    *(_DWORD *)(v24 + 120) = 0;
-    *(_QWORD *)(*(_QWORD *)(v24 + 976) + 248LL) = 0LL;
-    EBRUSHOBJ::vInitBrush(
-      (char *)v42 + 1536,
-      v24,
-      v36,
-      ppalDefault,
-      *(_QWORD *)(*((_QWORD *)v42 + 316) + 128LL),
-      *((_QWORD *)v42 + 316),
-      1);
-    DEC_SHARE_REF_CNT_LAZY0(v37);
-  }
+  v46 = v59;
+  DeviceRoutine = WPP_MAIN_CB.Queue.Wcb.DeviceRoutine;
+  LOBYTE(v44) = 16;
+  *((_QWORD *)v59 + 197) = 0LL;
+  *((_QWORD *)v46 + 194) = 0LL;
+  *((_DWORD *)v46 + 390) = 0;
+  v48 = HmgShareLockCheck(DeviceRoutine, v44);
+  HmgShareLockResult<BRUSH>::HmgShareLockResult<BRUSH>(v58, v48);
+  *(_QWORD *)(v35 + 976) = v35 + 544;
+  *(_DWORD *)(v35 + 728) = 0;
+  *(_DWORD *)(*(_QWORD *)(v35 + 976) + 176LL) = 0xFFFFFF;
+  v49 = *(_QWORD *)(v35 + 976);
+  *(_DWORD *)(v35 + 120) = 0;
+  *(_QWORD *)(v49 + 248) = 0LL;
+  EBRUSHOBJ::vInitBrush(
+    (char *)v59 + 1544,
+    v35,
+    v58[0],
+    ppalDefault,
+    *(_QWORD *)(*((_QWORD *)v59 + 319) + 128LL),
+    *((_QWORD *)v59 + 319),
+    1);
+  HmgShareLockResult<BRUSH>::~HmgShareLockResult<BRUSH>(v58);
   if ( !*((_QWORD *)SURFACE::pdibDefault + 6) )
-    *((_QWORD *)SURFACE::pdibDefault + 6) = v42;
-  v38 = a9 == 2;
-  v39 = v47;
-  *((_QWORD *)v42 + 319) = v11;
-  *((_QWORD *)v42 + 318) = v39;
-  if ( !v38 )
+    *((_QWORD *)SURFACE::pdibDefault + 6) = v59;
+  v50 = a9 == 2;
+  v51 = v61;
+  *((_QWORD *)v59 + 322) = a1;
+  *((_QWORD *)v59 + 321) = v51;
+  if ( !v50 )
   {
-    *((_QWORD *)v42 + 321) = PALLOCNOZ(a3->dmSize + (unsigned int)a3->dmDriverExtra, 0x76656447u);
-    v40 = (void *)*((_QWORD *)v42 + 321);
-    if ( v40 )
+    *((_QWORD *)v59 + 324) = PALLOCMEM2(a3->dmSize + (unsigned int)a3->dmDriverExtra);
+    v52 = (void *)*((_QWORD *)v59 + 324);
+    if ( v52 )
     {
-      memmove(v40, a3, a3->dmSize + (unsigned __int64)a3->dmDriverExtra);
-      *(_DWORD *)(*((_QWORD *)v42 + 321) + 72LL) |= 0x20u;
-      DrvUpdateAttachFlag(v11, 1u);
+      memmove(v52, a3, a3->dmSize + (unsigned __int64)a3->dmDriverExtra);
+      *(_DWORD *)(*((_QWORD *)v59 + 324) + 72LL) |= 0x20u;
+      DrvUpdateAttachFlag(a1, 1u);
     }
     else
     {
-      v13 = 1;
+      v21 = 1;
     }
   }
-  PDEVOBJ::bDisabled((PDEVOBJ *)&v42, 0);
-  if ( (*((_DWORD *)v42 + 10) & 0x20000) == 0 )
+  PDEVOBJ::bDisabled((PDEVOBJ *)&v59, 0);
+  if ( (*((_DWORD *)v59 + 10) & 0x20000) == 0 )
   {
-    if ( (*(_DWORD *)(*((_QWORD *)v42 + 319) + 160LL) & 0x800000) != 0 )
+    if ( (*(_DWORD *)(*((_QWORD *)v59 + 322) + 160LL) & 0x800000) != 0 )
     {
-      *((_DWORD *)v42 + 11) |= 4u;
+      *((_DWORD *)v59 + 11) |= 4u;
     }
-    else if ( qword_1C029B120 && (int)qword_1C029B120() >= 0 && qword_1C029B128 )
+    else
     {
-      qword_1C029B128(&v42);
+      if ( qword_1C02563A0 )
+        v53 = qword_1C02563A0();
+      else
+        v53 = -1073741637;
+      if ( v53 >= 0 && qword_1C02563A8 )
+        qword_1C02563A8(&v59);
     }
   }
-  if ( v13 )
+  if ( v21 )
   {
-    PDEVOBJ::vUnreferencePdev(&v42, 0, v41);
-LABEL_64:
-    Win32FreePool((char *)v24);
-LABEL_65:
-    if ( *a10 )
-      DrvEnableDisplay(*a10);
+    PDEVOBJ::vUnreferencePdev(&v59, 0LL);
+LABEL_66:
+    Win32FreePool(v35);
 LABEL_67:
-    WdLogSingleEntry0(5LL);
+    v18 = *a10;
+    if ( *a10 )
+      DrvEnableDisplay(v18);
+LABEL_69:
+    v45 = WdLogNewEntry5_WdTrace(v18, v17);
+    WdLogEvent5_WdTrace(v45);
     return 0LL;
   }
   else
   {
-    Win32FreePool((char *)v24);
-    WdLogSingleEntry1(5LL, v42);
-    return v42;
+    Win32FreePool(v35);
+    v56 = WdLogNewEntry5_WdTrace(v55, v54);
+    *(_QWORD *)(v56 + 24) = v59;
+    WdLogEvent5_WdTrace(v56);
+    return v59;
   }
 }

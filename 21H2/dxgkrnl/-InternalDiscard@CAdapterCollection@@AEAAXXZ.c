@@ -1,12 +1,12 @@
 /*
- * XREFs of ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C0002ACC
+ * XREFs of ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C0012760
  * Callers:
- *     ?ResetAdapterCollection@CTokenManager@@MEAAXXZ @ 0x1C0002A50 (-ResetAdapterCollection@CTokenManager@@MEAAXXZ.c)
- *     ??1CTokenManager@@AEAA@XZ @ 0x1C0002B3C (--1CTokenManager@@AEAA@XZ.c)
- *     ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0008030 (-UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
- *     ?PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C001BFAC (-PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0011D60 (-UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C00128D8 (-PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?ResetAdapterCollection@CTokenManager@@MEAAXXZ @ 0x1C0012BA0 (-ResetAdapterCollection@CTokenManager@@MEAAXXZ.c)
+ *     ??1CTokenManager@@AEAA@XZ @ 0x1C0012C1C (--1CTokenManager@@AEAA@XZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CAdapterCollection::InternalDiscard(CAdapterCollection *this)

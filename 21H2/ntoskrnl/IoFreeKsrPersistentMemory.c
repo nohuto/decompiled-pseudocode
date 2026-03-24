@@ -1,11 +1,11 @@
 /*
- * XREFs of IoFreeKsrPersistentMemory @ 0x1409409A0
+ * XREFs of IoFreeKsrPersistentMemory @ 0x14089BDA0
  * Callers:
  *     <none>
  * Callees:
- *     MmUnmapLockedPages @ 0x1402BB4E0 (MmUnmapLockedPages.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoFreeKsrPersistentMemory(char *P, __int64 a2, __int64 a3)

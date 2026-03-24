@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ImageLegacyMilBrushUpdate@CChannel@@UEAAJINAEBUMilRectF@@0IIIW4Enum@MilBrushMappingMode@@1IIW43MilStretch@@W43MilTileMode@@W43MilHorizontalAlignment@@W43MilVerticalAlignment@@I@Z @ 0x18006F7C0
+ * XREFs of ?ImageLegacyMilBrushUpdate@CChannel@@UEAAJINAEBUMilRectF@@0IIIW4Enum@MilBrushMappingMode@@1IIW43MilStretch@@W43MilTileMode@@W43MilHorizontalAlignment@@W43MilVerticalAlignment@@I@Z @ 0x1800D60D0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180070B20 (-CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E524 (-CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 __int64 __fastcall CChannel::ImageLegacyMilBrushUpdate(
@@ -50,27 +50,27 @@ __int64 __fastcall CChannel::ImageLegacyMilBrushUpdate(
   int v37; // [rsp+78h] [rbp-29h]
   int v38; // [rsp+7Ch] [rbp-25h]
   int v39; // [rsp+8Ch] [rbp-15h]
-  __int64 v41; // [rsp+F8h] [rbp+57h] BYREF
+  struct _RTL_CRITICAL_SECTION *v41; // [rsp+F8h] [rbp+57h] BYREF
   __int128 *v42; // [rsp+100h] [rbp+5Fh]
 
   v42 = a4;
   v17 = a1;
-  v41 = a1 + 168;
+  v41 = (struct _RTL_CRITICAL_SECTION *)(a1 + 168);
   EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 168));
-  CChannel::CheckHandle(v17, a2, 82LL);
+  CChannel::CheckHandle(v17, a2, 82);
   v19 = a6;
-  CChannel::CheckOptionalHandle(v17, a6, 60LL);
+  CChannel::CheckOptionalHandle(v17, a6, 60);
   v20 = a7;
-  CChannel::CheckOptionalHandle(v17, a7, 185LL);
+  CChannel::CheckOptionalHandle(v17, a7, 185);
   v21 = a8;
-  CChannel::CheckOptionalHandle(v17, a8, 185LL);
+  CChannel::CheckOptionalHandle(v17, a8, 185);
   v22 = a11;
-  CChannel::CheckOptionalHandle(v17, a11, 139LL);
+  CChannel::CheckOptionalHandle(v17, a11, 140);
   v23 = a12;
-  CChannel::CheckOptionalHandle(v17, a12, 139LL);
+  CChannel::CheckOptionalHandle(v17, a12, 140);
   LODWORD(v17) = a17;
-  CChannel::CheckOptionalHandle(a1, a17, 83LL);
-  v29 = 482;
+  CChannel::CheckOptionalHandle(a1, a17, 83);
+  v29 = 487;
   memset_0(v30, 0, 0x64uLL);
   v24 = a3;
   v30[0] = a2;

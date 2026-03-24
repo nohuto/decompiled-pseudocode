@@ -2,15 +2,15 @@
  * XREFs of IopFileUtilRename @ 0x1409DAC58
  * Callers:
  *     PpLastGoodDoBootProcessing @ 0x1409DAB04 (PpLastGoodDoBootProcessing.c)
- *     PiLastGoodRevertCopyCallback @ 0x1409F5770 (PiLastGoodRevertCopyCallback.c)
+ *     PiLastGoodRevertCopyCallback @ 0x1409F5780 (PiLastGoodRevertCopyCallback.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetInformationFile @ 0x1401B8650 (ZwSetInformationFile.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1401B8670 (ZwSetInformationFile.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopFileUtilClearAttributes @ 0x14083CCE8 (IopFileUtilClearAttributes.c)
+ *     IopFileUtilClearAttributes @ 0x14083CCC8 (IopFileUtilClearAttributes.c)
  */
 
 __int64 __fastcall IopFileUtilRename(UNICODE_STRING *a1, UNICODE_STRING *a2, char a3)

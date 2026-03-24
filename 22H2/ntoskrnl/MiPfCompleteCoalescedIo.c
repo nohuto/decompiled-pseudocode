@@ -1,43 +1,44 @@
 /*
- * XREFs of MiPfCompleteCoalescedIo @ 0x140631C10
+ * XREFs of MiPfCompleteCoalescedIo @ 0x140538FCC
  * Callers:
- *     MiPfCompletePrefetchIos @ 0x1402A3920 (MiPfCompletePrefetchIos.c)
+ *     MiPfCompletePrefetchIos @ 0x14027D180 (MiPfCompletePrefetchIos.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     MiPfCompleteInPageSupport @ 0x1402A39CC (MiPfCompleteInPageSupport.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MiRetardMdl @ 0x14061CA30 (MiRetardMdl.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiPfCompleteInPageSupport @ 0x14027D218 (MiPfCompleteInPageSupport.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MiRetardMdl @ 0x140530C30 (MiRetardMdl.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiPfCompleteCoalescedIo(char *P, char *a2)
+__int64 __fastcall MiPfCompleteCoalescedIo(char *P, __int64 a2)
 {
   unsigned int v2; // ebp
-  unsigned int *v5; // r14
+  __int16 v5; // ax
   ULONG_PTR v6; // r9
   ULONG_PTR v7; // r8
-  ULONG_PTR *v8; // rsi
-  ULONG_PTR v9; // rdi
-  ULONG_PTR v10; // rax
+  __int64 *v8; // rsi
+  __int64 v9; // rdi
+  __int64 v10; // rax
   __int64 v11; // rax
-  unsigned int v12; // ecx
+  int v12; // eax
 
   v2 = 0;
   KeWaitForSingleObject(P + 32, WrPageIn, 0, 0, 0LL);
-  v5 = (unsigned int *)(P + 80);
-  if ( _bittest16((const signed __int16 *)P + 141, 9u) )
+  v5 = *((_WORD *)P + 141);
+  if ( (v5 & 0x200) != 0 )
   {
     MiRetardMdl((__int64)(P + 272));
     *((_QWORD *)P + 11) = 0LL;
-    *v5 = -1073741670;
+    v5 = *((_WORD *)P + 141);
+    *((_DWORD *)P + 20) = -1073741670;
   }
-  if ( (P[282] & 1) != 0 )
+  if ( (v5 & 1) != 0 )
     MmUnmapLockedPages(*((PVOID *)P + 37), (PMDL)(P + 272));
-  if ( (*v5 & 0x80000000) != 0 )
+  if ( *((int *)P + 20) < 0 )
   {
-    v2 = *v5;
+    v2 = *((_DWORD *)P + 20);
   }
   else
   {
@@ -46,25 +47,25 @@ __int64 __fastcall MiPfCompleteCoalescedIo(char *P, char *a2)
     if ( v7 != v6 )
       KeBugCheckEx(0x7Au, 5uLL, v7, v6, (ULONG_PTR)P);
   }
-  v8 = (ULONG_PTR *)(P + 16);
+  v8 = (__int64 *)(P + 16);
   while ( 1 )
   {
     v9 = *v8;
-    if ( (ULONG_PTR *)*v8 == v8 )
+    if ( (__int64 *)*v8 == v8 )
       break;
-    if ( *(ULONG_PTR **)(v9 + 8) != v8 || (v10 = *(_QWORD *)v9, *(_QWORD *)(*(_QWORD *)v9 + 8LL) != v9) )
+    if ( *(__int64 **)(v9 + 8) != v8 || (v10 = *(_QWORD *)v9, *(_QWORD *)(*(_QWORD *)v9 + 8LL) != v9) )
       __fastfail(3u);
     *v8 = v10;
     *(_QWORD *)(v10 + 8) = v8;
-    *(_DWORD *)(v9 + 80) = *v5;
-    if ( (*v5 & 0x80000000) != 0 )
+    *(_DWORD *)(v9 + 80) = *((_DWORD *)P + 20);
+    if ( *((int *)P + 20) < 0 )
       v11 = 0LL;
     else
       v11 = *(unsigned int *)(v9 + 184);
     *(_QWORD *)(v9 + 88) = v11;
     KeSetEvent((PRKEVENT)(v9 + 32), 0, 0);
     v12 = MiPfCompleteInPageSupport(v9, a2);
-    if ( ((v12 + 0x80000000) & 0x80000000) == 0 && v12 != -1073740748 )
+    if ( v12 < 0 && v12 != -1073740748 )
       v2 = v12;
   }
   ExFreePoolWithTag(P, 0);

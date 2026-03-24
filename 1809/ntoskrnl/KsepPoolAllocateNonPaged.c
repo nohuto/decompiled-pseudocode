@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepPoolAllocateNonPaged @ 0x14029FE10
+ * XREFs of KsepPoolAllocateNonPaged @ 0x14029FF10
  * Callers:
- *     KseSetCompletionHook @ 0x14029F9F0 (KseSetCompletionHook.c)
- *     KseShimDriverIoCallbacks @ 0x14068091C (KseShimDriverIoCallbacks.c)
+ *     KseSetCompletionHook @ 0x14029FAF0 (KseSetCompletionHook.c)
+ *     KseShimDriverIoCallbacks @ 0x1406808FC (KseShimDriverIoCallbacks.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

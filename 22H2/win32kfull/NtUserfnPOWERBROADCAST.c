@@ -1,64 +1,65 @@
 /*
- * XREFs of NtUserfnPOWERBROADCAST @ 0x1C0020540
+ * XREFs of NtUserfnPOWERBROADCAST @ 0x1C011A830
  * Callers:
  *     <none>
  * Callees:
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0024460 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall NtUserfnPOWERBROADCAST(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4, __int64 a5, char a6)
 {
-  _DWORD *v10; // rdi
+  _DWORD *v6; // rsi
+  __int64 v10; // rdi
   unsigned int v11; // r14d
   __int64 v12; // rax
-  __int64 v13; // rbx
-  __int128 v15; // [rsp+48h] [rbp-50h]
-  __int128 v16; // [rsp+58h] [rbp-40h] BYREF
-  __int64 v17; // [rsp+68h] [rbp-30h]
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // rbx
+  __int128 v17; // [rsp+48h] [rbp-50h]
+  __int128 v18; // [rsp+58h] [rbp-40h] BYREF
+  __int64 v19; // [rsp+68h] [rbp-30h]
 
+  v6 = a4;
   v10 = 0LL;
-  v16 = 0LL;
-  v17 = 0LL;
-  PtiCurrentShared();
+  v18 = 0LL;
+  v19 = 0LL;
   if ( (a3 & 0x8000) != 0 && a4 )
   {
     ProbeForRead(a4, 0x14uLL, 1u);
-    v15 = *(_OWORD *)a4;
-    v11 = a4[4];
+    v17 = *(_OWORD *)v6;
+    v11 = v6[4];
     if ( v11 + 20 < v11 )
     {
-      v13 = 0LL;
+      v15 = 0LL;
       goto LABEL_9;
     }
-    ProbeForRead(a4, v11 + 20, 1u);
-    v12 = Win32AllocPoolWithQuotaZInit(v11 + 20, 1651536725LL);
-    v10 = (_DWORD *)v12;
+    ProbeForRead(v6, v11 + 20, 1u);
+    v12 = Win32AllocPoolWithQuota(v11 + 20, 1651536725LL);
+    v10 = v12;
     if ( !v12 )
     {
-      UserSetLastError(8LL);
-      v13 = 0LL;
+      UserSetLastError(8LL, v13, v14);
+      v15 = 0LL;
       goto LABEL_9;
     }
-    PushW32ThreadLock(v12, &v16, Win32FreePool);
-    *(_OWORD *)v10 = v15;
-    v10[4] = v11;
-    memmove(v10 + 5, a4 + 5, v11);
-    a4 = v10;
+    PushW32ThreadLock(v12, &v18, (__int64)Win32FreePool);
+    *(_OWORD *)v10 = v17;
+    *(_DWORD *)(v10 + 16) = v11;
+    memmove((void *)(v10 + 20), v6 + 5, v11);
+    v6 = (_DWORD *)v10;
   }
-  v13 = (*((__int64 (__fastcall **)(__int64, _QWORD, __int64, _DWORD *, __int64))&WPP_MAIN_CB.SectorSize
-         + ((a6 + 6) & 0x1F)))(
+  v15 = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, _DWORD *, __int64))mpFnidPfn[(a6 + 6) & 0x1F])(
           a1,
           a2,
           a3,
-          a4,
+          v6,
           a5);
 LABEL_9:
   if ( v10 )
-    PopAndFreeAlwaysW32ThreadLock(&v16);
-  return v13;
+    PopAndFreeAlwaysW32ThreadLock((__int64)&v18);
+  return v15;
 }

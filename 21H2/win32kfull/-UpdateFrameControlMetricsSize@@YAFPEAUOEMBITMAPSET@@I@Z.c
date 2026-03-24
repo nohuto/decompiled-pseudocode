@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UpdateFrameControlMetricsSize@@YAFPEAUOEMBITMAPSET@@I@Z @ 0x1C00C5E6C
+ * XREFs of ?UpdateFrameControlMetricsSize@@YAFPEAUOEMBITMAPSET@@I@Z @ 0x1C010779C
  * Callers:
- *     ?EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z @ 0x1C00C3180 (-EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z.c)
+ *     ?EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z @ 0x1C01074EC (-EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z.c)
  * Callees:
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     GetDPIMETRICSForDpi @ 0x1C00BF104 (GetDPIMETRICSForDpi.c)
+ *     GetDPIMETRICSForDpi @ 0x1C0048190 (GetDPIMETRICSForDpi.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
  */
 
 __int64 __fastcall UpdateFrameControlMetricsSize(struct OEMBITMAPSET *a1, unsigned int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall UpdateFrameControlMetricsSize(struct OEMBITMAPSET *a1, unsign
   __int64 v20; // rcx
   int v21; // eax
 
-  v2 = (unsigned __int16 *)&unk_1C02E8A00;
+  v2 = (unsigned __int16 *)&unk_1C02EBF50;
   v3 = 0;
   v4 = (_WORD *)((char *)a1 + 22);
   for ( i = 0; i < 0x5D; ++i )

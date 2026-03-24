@@ -1,9 +1,10 @@
 /*
- * XREFs of ?AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z @ 0x1C0213B08
+ * XREFs of ?AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z @ 0x1C0233604
  * Callers:
- *     xxxHandleMenuMessages @ 0x1C0213DC8 (xxxHandleMenuMessages.c)
+ *     xxxHandleMenuMessages @ 0x1C02339B8 (xxxHandleMenuMessages.c)
  * Callees:
- *     PhysicalToLogicalInPlacePointWithParent @ 0x1C0151E50 (PhysicalToLogicalInPlacePointWithParent.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     PhysicalToLogicalInPlacePointWithParent @ 0x1C01E550C (PhysicalToLogicalInPlacePointWithParent.c)
  */
 
 void __fastcall AdjustMouseCoordinates(struct tagWND *a1, __int64 *a2)
@@ -13,7 +14,7 @@ void __fastcall AdjustMouseCoordinates(struct tagWND *a1, __int64 *a2)
 
   if ( *((_QWORD *)a1 + 27)
     && (*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) & 0xF) == 1
-    && (W32GetCurrentThreadDpiAwarenessContext(a1) & 0xF) == 2
+    && (W32GetCurrentThreadDpiAwarenessContext((__int64)a1) & 0xF) == 2
     && *(_DWORD *)(gptiCurrent + 764LL) == *(_DWORD *)(gptiCurrent + 776LL)
     && *(_DWORD *)(gptiCurrent + 768LL) == *(_DWORD *)(gptiCurrent + 780LL) )
   {

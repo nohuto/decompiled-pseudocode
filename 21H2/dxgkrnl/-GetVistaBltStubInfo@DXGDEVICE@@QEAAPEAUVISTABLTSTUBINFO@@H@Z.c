@@ -1,45 +1,31 @@
 /*
- * XREFs of ?GetVistaBltStubInfo@DXGDEVICE@@QEAAPEAUVISTABLTSTUBINFO@@H@Z @ 0x1C0057434
+ * XREFs of ?GetVistaBltStubInfo@DXGDEVICE@@QEAAPEAUVISTABLTSTUBINFO@@H@Z @ 0x1C0048198
  * Callers:
- *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1C03304A4 (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
+ *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1C027FF20 (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
-struct VISTABLTSTUBINFO *__fastcall DXGDEVICE::GetVistaBltStubInfo(DXGDEVICE *this, int a2, __int64 a3, __int64 a4)
+struct VISTABLTSTUBINFO *__fastcall DXGDEVICE::GetVistaBltStubInfo(DXGDEVICE *this, int a2)
 {
-  __int64 v5; // rax
-  int v6; // edx
-  int v7; // ecx
-  int v8; // r8d
+  PVOID v3; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  __int64 v8; // rax
 
   if ( a2 )
   {
     if ( !*((_QWORD *)this + 239) )
     {
-      v5 = operator new[](0x10uLL, 0x4B677844u, 256LL, a4);
-      *((_QWORD *)this + 239) = v5;
-      if ( !v5 )
+      v3 = operator new[](0x10uLL, 0x4B677844u, PagedPool);
+      *((_QWORD *)this + 239) = v3;
+      if ( !v3 )
       {
-        WdLogSingleEntry1(6LL, 1087LL);
-        if ( bTracingEnabled )
-        {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-            McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-              v7,
-              v6,
-              v8,
-              0LL,
-              1,
-              -1,
-              L"Failed to allocate Vista BLT stub info",
-              1087LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-        }
+        v8 = WdLogNewEntry5_WdLowResource(v5, v4, v6, v7);
+        *(_QWORD *)(v8 + 24) = 1083LL;
+        WdLogEvent5_WdLowResource(v8);
       }
     }
   }

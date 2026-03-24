@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpUnlockMountableDevice @ 0x1403D502C
+ * XREFs of PnpUnlockMountableDevice @ 0x140393718
  * Callers:
- *     IopRemoveDevice @ 0x140869E38 (IopRemoveDevice.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140882FB8 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PiIrpQueryRemoveDevice @ 0x14096D1CC (PiIrpQueryRemoveDevice.c)
- *     PnpCancelStopDeviceNode @ 0x14096E4A4 (PnpCancelStopDeviceNode.c)
- *     PipProcessRestartPhase1 @ 0x14096F3EC (PipProcessRestartPhase1.c)
+ *     PiIrpQueryRemoveDevice @ 0x14073463C (PiIrpQueryRemoveDevice.c)
+ *     IopRemoveDevice @ 0x14074B778 (IopRemoveDevice.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x14074C7F0 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PipProcessRestartPhase1 @ 0x1408B52BC (PipProcessRestartPhase1.c)
+ *     PnpCancelStopDeviceNode @ 0x1408B8334 (PnpCancelStopDeviceNode.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
  */
 
 void __fastcall PnpUnlockMountableDevice(__int64 a1)

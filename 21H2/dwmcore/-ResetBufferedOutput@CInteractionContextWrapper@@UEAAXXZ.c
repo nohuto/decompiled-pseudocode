@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ResetBufferedOutput@CInteractionContextWrapper@@UEAAXXZ @ 0x1802740B0
+ * XREFs of ?ResetBufferedOutput@CInteractionContextWrapper@@UEAAXXZ @ 0x180231350
  * Callers:
- *     ??1CInteractionContextWrapper@@EEAA@XZ @ 0x18002BE34 (--1CInteractionContextWrapper@@EEAA@XZ.c)
+ *     ??1CInteractionContextWrapper@@UEAA@XZ @ 0x1800B5F14 (--1CInteractionContextWrapper@@UEAA@XZ.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CInteractionContextWrapper::ResetBufferedOutput(CInteractionContextWrapper *this)
@@ -18,9 +18,9 @@ void __fastcall CInteractionContextWrapper::ResetBufferedOutput(CInteractionCont
   __int64 v8; // rcx
   unsigned int *v9; // rax
 
-  if ( *((_DWORD *)this + 138) )
+  if ( *((_DWORD *)this + 140) )
   {
-    v2 = (char *)this + 536;
+    v2 = (char *)this + 544;
     do
     {
       v3 = 0LL;
@@ -37,29 +37,29 @@ void __fastcall CInteractionContextWrapper::ResetBufferedOutput(CInteractionCont
         --*((_DWORD *)v2 + 4);
       }
       LeaveCriticalSection((LPCRITICAL_SECTION)(v2 + 24));
-      DefaultHeap::Free(v3);
+      operator delete(v3);
     }
-    while ( *((_DWORD *)this + 138) );
+    while ( *((_DWORD *)this + 140) );
   }
   v6 = 0;
-  if ( *((int *)this + 152) > 0 )
+  if ( *((int *)this + 154) > 0 )
   {
     v7 = 0LL;
     do
     {
-      v8 = *((_QWORD *)this + 75);
+      v8 = *((_QWORD *)this + 76);
       v9 = *(unsigned int **)(v7 + v8);
       if ( *((_BYTE *)v9 + 4) )
       {
         NtDCompositionUpdatePointerCapture(0LL, *v9);
-        v8 = *((_QWORD *)this + 75);
+        v8 = *((_QWORD *)this + 76);
       }
-      DefaultHeap::Free(*(void **)(v7 + v8));
+      operator delete(*(void **)(v7 + v8));
       ++v6;
-      *(_QWORD *)(v7 + *((_QWORD *)this + 75)) = 0LL;
+      *(_QWORD *)(v7 + *((_QWORD *)this + 76)) = 0LL;
       v7 += 8LL;
     }
-    while ( v6 < *((_DWORD *)this + 152) );
+    while ( v6 < *((_DWORD *)this + 154) );
   }
-  CArray<CBufferedOutputPointer *,CArrayEqualHelper<CBufferedOutputPointer *>>::RemoveAll((__int64)this + 600);
+  CArray<CBufferedOutputPointer *,CArrayEqualHelper<CBufferedOutputPointer *>>::RemoveAll((__int64)this + 608);
 }

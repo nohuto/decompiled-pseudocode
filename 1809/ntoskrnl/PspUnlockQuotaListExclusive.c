@@ -1,8 +1,8 @@
 /*
- * XREFs of PspUnlockQuotaListExclusive @ 0x140193AE8
+ * XREFs of PspUnlockQuotaListExclusive @ 0x140193B08
  * Callers:
- *     PspLookupProcessQuotaBlock @ 0x14065A320 (PspLookupProcessQuotaBlock.c)
- *     PspRemoveQuotaBlock @ 0x1408882B4 (PspRemoveQuotaBlock.c)
+ *     PspLookupProcessQuotaBlock @ 0x14065A300 (PspLookupProcessQuotaBlock.c)
+ *     PspRemoveQuotaBlock @ 0x140888294 (PspRemoveQuotaBlock.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -11,7 +11,7 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall PspUnlockQuotaListExclusive(__int64 a1, unsigned __int64 a2)

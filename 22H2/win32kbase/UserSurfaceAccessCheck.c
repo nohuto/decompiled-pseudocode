@@ -1,38 +1,82 @@
 /*
- * XREFs of UserSurfaceAccessCheck @ 0x1C0096C50
+ * XREFs of UserSurfaceAccessCheck @ 0x1C007CB20
  * Callers:
- *     UserScreenAccessCheck @ 0x1C0096C20 (UserScreenAccessCheck.c)
+ *     <none>
  * Callees:
- *     ApiSetIsCurrentProcessWinstaLocked @ 0x1C0096D0C (ApiSetIsCurrentProcessWinstaLocked.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UserSurfaceAccessCheck(__int64 a1)
 {
-  unsigned int v2; // ebx
-  __int64 v3; // rdi
+  struct _KTHREAD *CurrentThread; // r14
+  unsigned int v2; // edi
+  __int64 v3; // rsi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   __int64 *ThreadWin32Thread; // rax
-  _QWORD *v5; // rcx
-  __int64 v6; // rax
-  _QWORD *v7; // rax
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v9; // rdx
+  _QWORD *v8; // rcx
+  __int64 v9; // rax
+  _QWORD *v10; // rax
+  int v11; // edx
+  int v12; // ecx
+  int v13; // ebx
+  int v14; // eax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
 
+  CurrentThread = KeGetCurrentThread();
   v2 = 0;
   v3 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v3 = *ThreadWin32Thread;
-  if ( !a1
-    || (v6 = *(_QWORD *)(v3 + 456)) != 0 && (v7 = *(_QWORD **)(v6 + 8), v5 = (_QWORD *)*v7, *(_QWORD *)*v7 == a1)
-    || (*(_DWORD *)(v3 + 488) & 8) != 0
-    || (*(_DWORD *)(v3 + 1272) & 4) != 0 )
+  if ( !(unsigned __int8)KeIsAttachedProcess()
+    || (CurrentProcess = PsGetCurrentProcess(v6, v5),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
   {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v5);
-    v9 = CurrentProcessWin32Process;
-    if ( CurrentProcessWin32Process )
-      v9 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-    if ( (*(_DWORD *)(v9 + 12) & 0x40010) == 0x40010 && !(unsigned int)ApiSetIsCurrentProcessWinstaLocked() )
-      return 1;
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v3 = *ThreadWin32Thread;
+  }
+  if ( !a1
+    || (v9 = *(_QWORD *)(v3 + 456)) != 0 && (v10 = *(_QWORD **)(v9 + 8), v8 = (_QWORD *)*v10, *(_QWORD *)*v10 == a1)
+    || (*(_DWORD *)(v3 + 488) & 8) != 0
+    || (*(_DWORD *)(v3 + 1232) & 4) != 0 )
+  {
+    v12 = *(_DWORD *)(PsGetCurrentProcessWin32Process(v8) + 12);
+    if ( (v12 & 0x10) != 0 && (v12 & 0x40000) != 0 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      {
+        LOBYTE(v11) = 5;
+        WPP_RECORDER_SF_(
+          WPP_GLOBAL_Control->DeviceExtension,
+          v11,
+          10,
+          470,
+          (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+      }
+      v13 = 0;
+      if ( qword_1C0255F28 )
+        v14 = qword_1C0255F28();
+      else
+        v14 = -1073741637;
+      if ( v14 >= 0 && qword_1C0255F30 )
+        v13 = qword_1C0255F30();
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      {
+        LOBYTE(v11) = 5;
+        WPP_RECORDER_SF_(
+          WPP_GLOBAL_Control->DeviceExtension,
+          v11,
+          10,
+          471,
+          (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+      }
+      if ( !v13 )
+        return 1;
+    }
   }
   return v2;
 }

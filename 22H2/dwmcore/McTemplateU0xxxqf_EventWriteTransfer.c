@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateU0xxxqf_EventWriteTransfer @ 0x1801322BE
+ * XREFs of McTemplateU0xxxqf_EventWriteTransfer @ 0x1801B652C
  * Callers:
- *     ?UpdateAnimateValues@CAnimation@@UEAA_NXZ @ 0x1800C5C00 (-UpdateAnimateValues@CAnimation@@UEAA_NXZ.c)
+ *     ?UpdateAnimateValues@CAnimation@@UEAAXXZ @ 0x1800BB420 (-UpdateAnimateValues@CAnimation@@UEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 McTemplateU0xxxqf_EventWriteTransfer(__int64 a1, __int64 a2, ...)
+ULONG McTemplateU0xxxqf_EventWriteTransfer(__int64 a1, __int64 a2, ...)
 {
-  _BYTE v3[16]; // [rsp+30h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+30h] [rbp-31h] BYREF
   va_list v4; // [rsp+40h] [rbp-21h]
   __int64 v5; // [rsp+48h] [rbp-19h]
   va_list v6; // [rsp+50h] [rbp-11h]
@@ -53,9 +53,9 @@ __int64 McTemplateU0xxxqf_EventWriteTransfer(__int64 a1, __int64 a2, ...)
   va_copy(v12, va4);
   v13 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_DCOMPEVENT_ANIMATION_UPDATE_VALUE,
            v15,
-           6LL,
-           v3);
+           6u,
+           &v3);
 }

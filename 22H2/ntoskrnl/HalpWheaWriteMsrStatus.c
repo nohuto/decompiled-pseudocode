@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpWheaWriteMsrStatus @ 0x140380AA8
+ * XREFs of HalpWheaWriteMsrStatus @ 0x1403A0770
  * Callers:
- *     HalpMcaClearError @ 0x1405030A0 (HalpMcaClearError.c)
- *     HalpMcaReadError @ 0x1405035C0 (HalpMcaReadError.c)
- *     HalpMcaReadErrorUncorrectedAMD @ 0x140506148 (HalpMcaReadErrorUncorrectedAMD.c)
- *     HalpMcaSetProcessorConfig @ 0x140A8B414 (HalpMcaSetProcessorConfig.c)
+ *     HalpMcaClearError @ 0x1404BA238 (HalpMcaClearError.c)
+ *     HalpMcaReadErrorUncorrectedAMD @ 0x1404BD390 (HalpMcaReadErrorUncorrectedAMD.c)
+ *     HalpMcaReadErrorUncorrectedUnknown @ 0x1404BD3EC (HalpMcaReadErrorUncorrectedUnknown.c)
+ *     HalpMcaSetProcessorConfig @ 0x140999E38 (HalpMcaSetProcessorConfig.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x140380C44 (HalpGetCpuVendor.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpGetCpuVendor @ 0x1403A083C (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpWheaWriteMsrStatus(__int64 a1, int a2)
@@ -18,5 +18,5 @@ __int64 __fastcall HalpWheaWriteMsrStatus(__int64 a1, int a2)
     v4 = (unsigned int)(16 * a2 - 1073733631);
   else
     v4 = (unsigned int)(4 * a2 + 1025);
-  return ((__int64 (__fastcall *)(__int64, __int64, _QWORD))HalpWheaWriteMsr)(a1, v4, 0LL);
+  return HalpWheaWriteMsr(a1, v4, 0LL);
 }

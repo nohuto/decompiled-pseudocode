@@ -1,13 +1,13 @@
 /*
- * XREFs of ?AddResponseRef@CResponseItem@@UEAAXXZ @ 0x1801B9880
+ * XREFs of ?AddResponseRef@CResponseItem@@UEAAXXZ @ 0x1800E1D70
  * Callers:
  *     <none>
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     <none>
  */
 
 void __fastcall CResponseItem::AddResponseRef(CResponseItem *this)
 {
-  CMILRefCountImpl::AddReference((CResponseItem *)((char *)this + 8));
+  _InterlockedIncrement((volatile signed __int32 *)this + 2);
   ++*((_DWORD *)this + 4);
 }

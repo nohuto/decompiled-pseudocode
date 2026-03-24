@@ -1,28 +1,74 @@
 /*
- * XREFs of MiGetSystemCacheReverseMap @ 0x1403295C0
+ * XREFs of MiGetSystemCacheReverseMap @ 0x140311FB0
  * Callers:
- *     MiSynchronizeSystemVa @ 0x140279DB0 (MiSynchronizeSystemVa.c)
- *     MiTrimSharedPageFromViews @ 0x14027B820 (MiTrimSharedPageFromViews.c)
- *     MmMapViewInSystemCache @ 0x140285D90 (MmMapViewInSystemCache.c)
- *     MiReleaseSystemCacheView @ 0x1402864A0 (MiReleaseSystemCacheView.c)
- *     MiProbeAndLockPrepare @ 0x140319F70 (MiProbeAndLockPrepare.c)
- *     MiComputePxeWalkAction @ 0x14031B1C0 (MiComputePxeWalkAction.c)
- *     MmUnmapViewInSystemCache @ 0x140335870 (MmUnmapViewInSystemCache.c)
- *     MmSetAddressRangeModifiedEx @ 0x14033D860 (MmSetAddressRangeModifiedEx.c)
- *     MmHardFaultBytesRequired @ 0x1407BE190 (MmHardFaultBytesRequired.c)
- *     MmFreeSystemCacheReserveView @ 0x14096CA00 (MmFreeSystemCacheReserveView.c)
+ *     MiProbeAndLockPrepare @ 0x14020A2F0 (MiProbeAndLockPrepare.c)
+ *     MiComputePxeWalkAction @ 0x14020CA50 (MiComputePxeWalkAction.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14030F640 (MmSetAddressRangeModifiedEx.c)
+ *     MiReleaseSystemCacheView @ 0x14030FCFC (MiReleaseSystemCacheView.c)
+ *     MmMapViewInSystemCache @ 0x140310DE0 (MmMapViewInSystemCache.c)
+ *     MiSynchronizeSystemVa @ 0x140311C40 (MiSynchronizeSystemVa.c)
+ *     MmUnmapViewInSystemCache @ 0x140313AE0 (MmUnmapViewInSystemCache.c)
+ *     MmFreeSystemCacheReserveView @ 0x1408C8420 (MmFreeSystemCacheReserveView.c)
  * Callees:
- *     <none>
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiGetSystemCacheReverseMap(unsigned __int64 a1)
 {
-  __int64 v1; // rdx
+  unsigned __int64 v2; // rdx
+  unsigned __int64 v3; // rbx
+  __int64 v4; // rcx
+  struct _LIST_ENTRY *v6; // rdx
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  struct _LIST_ENTRY *Flink; // rax
+  __int64 v10; // rax
+  unsigned __int64 v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(48 * ((*(_QWORD *)(((a1 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFFLL)
-                 - 0x21FFFFFFFFF0LL);
-  if ( v1 )
-    return v1 + 40 * ((a1 >> 18) & 7);
+  v2 = ((a1 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
+  v3 = *(_QWORD *)v2;
+  if ( v2 >= 0xFFFFF6FB7DBED000uLL
+    && v2 <= 0xFFFFF6FB7DBED7F8uLL
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v3 & 1) != 0
+    && ((v3 & 0x20) == 0 || (v3 & 0x42) == 0) )
+  {
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
+    {
+      v10 = *((_QWORD *)&Flink->Flink + ((v2 >> 3) & 0x1FF));
+      v2 = v3 | 0x20;
+      if ( (v10 & 0x20) == 0 )
+        v2 = v3;
+      v3 = v2;
+      if ( (v10 & 0x42) != 0 )
+        v3 = v2 | 0x42;
+    }
+  }
+  v11 = v3;
+  if ( (unsigned int)MiPteInShadowRange(&v11, v2)
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v3 & 1) != 0
+    && ((v3 & 0x20) == 0 || (v3 & 0x42) == 0) )
+  {
+    v6 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( v6 )
+    {
+      v7 = *((_QWORD *)&v6->Flink + (((unsigned __int64)&v11 >> 3) & 0x1FF));
+      v8 = v3 | 0x20;
+      if ( (v7 & 0x20) == 0 )
+        v8 = v3;
+      v3 = v8;
+      if ( (v7 & 0x42) != 0 )
+        v3 = v8 | 0x42;
+    }
+  }
+  v4 = *(_QWORD *)(48 * ((v3 >> 12) & 0xFFFFFFFFFLL) - 0x57FFFFFFFF0LL);
+  if ( v4 )
+    return v4 + 40 * ((a1 >> 18) & 7);
   else
     return 0LL;
 }

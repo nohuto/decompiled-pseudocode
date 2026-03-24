@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindRange_0 @ 0x1C002F21F
+ * XREFs of RtlFindRange_0 @ 0x1C0031D5F
  * Callers:
- *     ArbFindSuitableRange @ 0x1C009D5B0 (ArbFindSuitableRange.c)
+ *     ArbFindSuitableRange @ 0x1C0091950 (ArbFindSuitableRange.c)
  * Callees:
  *     <none>
  */

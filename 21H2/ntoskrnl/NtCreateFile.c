@@ -1,12 +1,11 @@
 /*
- * XREFs of NtCreateFile @ 0x1407E0BC0
+ * XREFs of NtCreateFile @ 0x14060B430
  * Callers:
- *     DifNtCreateFileWrapper @ 0x140617C10 (DifNtCreateFileWrapper.c)
- *     PfpVolumeOpenAndVerify @ 0x1406AECC0 (PfpVolumeOpenAndVerify.c)
- *     PfSnIsVolumeMounted @ 0x1407E0A98 (PfSnIsVolumeMounted.c)
- *     RtlCreateSystemVolumeInformationFolder @ 0x1407F7F00 (RtlCreateSystemVolumeInformationFolder.c)
+ *     PfpVolumeOpenAndVerify @ 0x1406C5DFC (PfpVolumeOpenAndVerify.c)
+ *     PfSnIsVolumeMounted @ 0x1406C7944 (PfSnIsVolumeMounted.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x140731C60 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     IopCreateFile @ 0x1407ADB90 (IopCreateFile.c)
+ *     IopCreateFile @ 0x14060B4C0 (IopCreateFile.c)
  */
 
 NTSTATUS __stdcall NtCreateFile(
@@ -22,21 +21,18 @@ NTSTATUS __stdcall NtCreateFile(
         PVOID EaBuffer,
         ULONG EaLength)
 {
-  size_t Size; // [rsp+50h] [rbp-38h]
-
-  LODWORD(Size) = EaLength;
   return IopCreateFile(
-           FileHandle,
+           (int)FileHandle,
            DesiredAccess,
-           (_SLIST_ENTRY *)ObjectAttributes,
-           (NTSTATUS *)&IoStatusBlock->0,
-           (HANDLE *)AllocationSize,
+           (int)ObjectAttributes,
+           (int)IoStatusBlock,
+           (__int64)AllocationSize,
            FileAttributes,
            ShareAccess,
            CreateDisposition,
            CreateOptions,
-           (ULONG *)EaBuffer,
-           Size,
+           (__int64)EaBuffer,
+           EaLength,
            0,
            0LL,
            0,

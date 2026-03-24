@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepEvntLogShimsApplied @ 0x14057D77C
+ * XREFs of KsepEvntLogShimsApplied @ 0x140526F2C
  * Callers:
- *     KseDriverLoadImage @ 0x14075CCC8 (KseDriverLoadImage.c)
+ *     KseDriverLoadImage @ 0x14075B560 (KseDriverLoadImage.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1402D84BC (KsepPoolAllocatePaged.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     KsepPoolAllocatePaged @ 0x14037174C (KsepPoolAllocatePaged.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsigned int a3)
@@ -112,12 +112,12 @@ LABEL_18:
         }
       }
       ExFreePoolWithTag(v9, 0x6145534Bu);
-      _InterlockedIncrement(&dword_140C2A1A4);
+      _InterlockedIncrement(&dword_140C2AA24);
     }
     if ( Destination.Buffer )
     {
       ExFreePoolWithTag(Destination.Buffer, 0x6145534Bu);
-      _InterlockedIncrement(&dword_140C2A1A4);
+      _InterlockedIncrement(&dword_140C2AA24);
     }
   }
 }

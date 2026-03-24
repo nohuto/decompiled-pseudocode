@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmCheckResumePpmEngineFromSx @ 0x1401428D8
+ * XREFs of PpmCheckResumePpmEngineFromSx @ 0x1401428F8
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:

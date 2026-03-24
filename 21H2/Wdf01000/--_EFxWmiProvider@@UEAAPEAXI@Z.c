@@ -1,26 +1,29 @@
 /*
- * XREFs of ??_EFxWmiProvider@@UEAAPEAXI@Z @ 0x1C005DFD0
+ * XREFs of ??_EFxWmiProvider@@UEAAPEAXI@Z @ 0x1C003E030
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
  */
 
-FxWmiProvider *__fastcall FxWmiProvider::`vector deleting destructor'(FxWmiProvider *this, unsigned int a2)
+FxWmiProvider *__fastcall FxWmiProvider::`vector deleting destructor'(
+        FxWmiProvider *this,
+        unsigned int a2,
+        unsigned int a3)
 {
-  char v2; // bl
-  FxWmiProvider *v4; // rcx
+  char v3; // bl
+  FxWmiProvider *v5; // rcx
 
-  v2 = a2;
+  v3 = a2;
   this->__vftable = (FxWmiProvider_vtbl *)FxWmiProvider::`vftable';
-  FxNonPagedObject::~FxNonPagedObject(this, a2);
-  if ( (v2 & 1) != 0 )
+  FxNonPagedObject::~FxNonPagedObject(this, a2, a3);
+  if ( (v3 & 1) != 0 )
   {
-    v4 = (FxWmiProvider *)((char *)this - 48);
+    v5 = (FxWmiProvider *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      v4 = this;
-    FxPoolFree((FX_POOL_TRACKER *)v4);
+      v5 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v5);
   }
   return this;
 }

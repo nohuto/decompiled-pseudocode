@@ -1,17 +1,17 @@
 /*
- * XREFs of PspIumAllocatePhysicalPages @ 0x1405E22E8
+ * XREFs of PspIumAllocatePhysicalPages @ 0x140583854
  * Callers:
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x1402BB4E0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     MmAllocateSecureKernelPages @ 0x1405B1A10 (MmAllocateSecureKernelPages.c)
- *     MmFreeSecureKernelPages @ 0x1405B1D98 (MmFreeSecureKernelPages.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     MmAllocateSecureKernelPages @ 0x1405533D4 (MmAllocateSecureKernelPages.c)
+ *     MmFreeSecureKernelPages @ 0x140553704 (MmFreeSecureKernelPages.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PspIumAllocatePhysicalPages(int a1, ULONG_PTR **a2, int a3, ULONG_PTR *a4, _DWORD *a5)
+__int64 __fastcall PspIumAllocatePhysicalPages(int a1, ULONG_PTR **a2, unsigned int a3, ULONG_PTR *a4, _DWORD *a5)
 {
   ULONG_PTR *SecureKernelPages; // rax
   unsigned int v8; // ebx

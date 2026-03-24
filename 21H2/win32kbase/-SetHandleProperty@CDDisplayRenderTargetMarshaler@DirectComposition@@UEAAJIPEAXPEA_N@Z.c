@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetHandleProperty@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C022E960
+ * XREFs of ?SetHandleProperty@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C01EEF60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::SetHandleProperty(
@@ -24,17 +24,17 @@ __int64 __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::SetHandleP
   {
     v8 = 0LL;
     if ( !a3
-      || (v9 = (struct _OBJECT_TYPE *)((__int64 (*)(void))qword_1C0296850)(),
+      || (v9 = (struct _OBJECT_TYPE *)((__int64 (*)(void))qword_1C0251A68)(),
           Object = 0LL,
           v10 = ObReferenceObjectByHandle(a3, 0x1F0000u, v9, 1, &Object, 0LL),
           v8 = Object,
           v4 = v10,
           v10 >= 0) )
     {
-      v11 = (void *)*((_QWORD *)this + 11);
+      v11 = (void *)*((_QWORD *)this + 10);
       if ( v11 )
         DxgkReleaseCompositionObjectReference(v11);
-      *((_QWORD *)this + 11) = v8;
+      *((_QWORD *)this + 10) = v8;
     }
     *((_DWORD *)this + 4) |= 0x20u;
     *a4 = 1;

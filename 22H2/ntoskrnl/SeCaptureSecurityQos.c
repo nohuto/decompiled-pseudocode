@@ -1,36 +1,43 @@
 /*
- * XREFs of SeCaptureSecurityQos @ 0x140735DE0
+ * XREFs of SeCaptureSecurityQos @ 0x140652C94
  * Callers:
- *     NtCreateTokenEx @ 0x1406BB530 (NtCreateTokenEx.c)
- *     NtDuplicateToken @ 0x1407358C0 (NtDuplicateToken.c)
+ *     NtCreateTokenEx @ 0x1405DC930 (NtCreateTokenEx.c)
+ *     NtDuplicateToken @ 0x1406527E0 (NtDuplicateToken.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     SeValidateSecurityQos @ 0x140652D70 (SeValidateSecurityQos.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall SeCaptureSecurityQos(__int64 a1, char a2, _BYTE *a3, __int64 a4)
+__int64 __fastcall SeCaptureSecurityQos(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4)
 {
   _DWORD *v4; // rax
+  __int64 result; // rax
   _DWORD *v6; // rax
 
   *a3 = 0;
-  if ( a2 )
+  if ( (_BYTE)a2 )
   {
-    if ( !a1 )
-      goto LABEL_6;
-    if ( (a1 & 3) != 0 )
-      goto LABEL_17;
-    v6 = *(_DWORD **)(a1 + 40);
-    if ( !v6 )
-      goto LABEL_6;
-    if ( ((unsigned __int8)v6 & 3) != 0 )
-LABEL_17:
+    if ( a1 )
+    {
+      if ( (a1 & 3) == 0 )
+      {
+        a2 = 0x7FFFFFFF0000LL;
+        v6 = *(_DWORD **)(a1 + 40);
+        if ( !v6 )
+          goto LABEL_6;
+        if ( ((unsigned __int8)v6 & 3) == 0 )
+        {
+          if ( *v6 != 12 )
+            return 3221225485LL;
+          *a3 = 1;
+          *(_QWORD *)a4 = *(_QWORD *)v6;
+          *(_DWORD *)(a4 + 8) = v6[2];
+          *(_DWORD *)a4 = 12;
+          goto LABEL_6;
+        }
+      }
       ExRaiseDatatypeMisalignment();
-    if ( *v6 != 12 )
-      return 3221225485LL;
-    *a3 = 1;
-    *(_QWORD *)a4 = *(_QWORD *)v6;
-    *(_DWORD *)(a4 + 8) = v6[2];
-    *(_DWORD *)a4 = 12;
+    }
   }
   else if ( a1 && *(_QWORD *)(a1 + 40) )
   {
@@ -44,9 +51,8 @@ LABEL_17:
 LABEL_6:
   if ( !*a3 )
     return 0LL;
-  if ( *(_BYTE *)(a4 + 8) >= 2u )
-    return 3221225485LL;
-  if ( *(_DWORD *)(a4 + 4) <= 3u )
+  result = SeValidateSecurityQos(a4, a2, a3, a4);
+  if ( (int)result >= 0 )
     return 0LL;
-  return 3221225637LL;
+  return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of AslpFileGetClrVersion @ 0x140A57FF0
+ * XREFs of AslpFileGetClrVersion @ 0x14096ABF8
  * Callers:
- *     AslpFileGetClrVersionAttribute @ 0x140A581C8 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetClrVersionAttribute @ 0x14096ADD0 (AslpFileGetClrVersionAttribute.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslpFileGetImageNtHeader @ 0x140A58B00 (AslpFileGetImageNtHeader.c)
- *     AslpImageRvaToVa @ 0x140A594C0 (AslpImageRvaToVa.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslpFileGetImageNtHeader @ 0x14096B6B4 (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x14096BEC8 (AslpImageRvaToVa.c)
  */
 
 __int64 __fastcall AslpFileGetClrVersion(_BYTE *a1, __int64 a2)
@@ -24,7 +24,7 @@ __int64 __fastcall AslpFileGetClrVersion(_BYTE *a1, __int64 a2)
   v13 = 0LL;
   v4 = 0LL;
   *a1 = 0;
-  ImageNtHeader = AslpFileGetImageNtHeader(&v13, a2);
+  ImageNtHeader = AslpFileGetImageNtHeader(&v13);
   if ( ImageNtHeader < 0 )
     goto LABEL_2;
   v6 = v13;

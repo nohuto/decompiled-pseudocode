@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReadyFlushMdlToWrite @ 0x1402394EC
+ * XREFs of MiReadyFlushMdlToWrite @ 0x14031C3A8
  * Callers:
- *     MiFlushSectionInternal @ 0x140329730 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
  * Callees:
- *     MiStartingOffset @ 0x1403342D0 (MiStartingOffset.c)
- *     MiEndingOffsetWithLock @ 0x14033DFC0 (MiEndingOffsetWithLock.c)
+ *     MiEndingOffsetWithLock @ 0x14031C790 (MiEndingOffsetWithLock.c)
+ *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
  */
 
 __int64 __fastcall MiReadyFlushMdlToWrite(__int64 a1, __int64 a2, char a3)
@@ -13,7 +13,7 @@ __int64 __fastcall MiReadyFlushMdlToWrite(__int64 a1, __int64 a2, char a3)
   __int64 v7; // rbp
   __int16 v8; // cx
 
-  v6 = *(_QWORD *)(48LL * *(_QWORD *)(a1 + 48) - 0x21FFFFFFFFF8LL);
+  v6 = *(_QWORD *)(48LL * *(_QWORD *)(a1 + 48) - 0x57FFFFFFFF8LL);
   *(_DWORD *)(a1 + 44) = 0;
   v7 = MiStartingOffset(a2, v6 | 0x8000000000000000uLL, 0xFFFFFFFFLL);
   MiEndingOffsetWithLock(a2);

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiProtectEnclavePages @ 0x1402BE020
+ * XREFs of MiProtectEnclavePages @ 0x1402BE120
  * Callers:
  *     MmProtectVirtualMemory @ 0x1405EDFD0 (MmProtectVirtualMemory.c)
  * Callees:
@@ -11,17 +11,17 @@
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
  *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeCanChangeEnclavePageProtection @ 0x14028F884 (KeCanChangeEnclavePageProtection.c)
- *     KeChangeEnclavePageProtection @ 0x14028F94C (KeChangeEnclavePageProtection.c)
- *     KeTrackEnclaveTbFlush @ 0x14028FB74 (KeTrackEnclaveTbFlush.c)
- *     MiFlushEnclaveTb @ 0x1402BDC0C (MiFlushEnclaveTb.c)
- *     MiUpdateEnclavePfnProtection @ 0x1402BE894 (MiUpdateEnclavePfnProtection.c)
- *     MiWriteEnclavePte @ 0x1402BE928 (MiWriteEnclavePte.c)
- *     VslDebugProtectSecureProcessMemory @ 0x1408182D0 (VslDebugProtectSecureProcessMemory.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeCanChangeEnclavePageProtection @ 0x14028F984 (KeCanChangeEnclavePageProtection.c)
+ *     KeChangeEnclavePageProtection @ 0x14028FA4C (KeChangeEnclavePageProtection.c)
+ *     KeTrackEnclaveTbFlush @ 0x14028FC74 (KeTrackEnclaveTbFlush.c)
+ *     MiFlushEnclaveTb @ 0x1402BDD0C (MiFlushEnclaveTb.c)
+ *     MiUpdateEnclavePfnProtection @ 0x1402BE994 (MiUpdateEnclavePfnProtection.c)
+ *     MiWriteEnclavePte @ 0x1402BEA28 (MiWriteEnclavePte.c)
+ *     VslDebugProtectSecureProcessMemory @ 0x1408182B0 (VslDebugProtectSecureProcessMemory.c)
  */
 
 __int64 __fastcall MiProtectEnclavePages(

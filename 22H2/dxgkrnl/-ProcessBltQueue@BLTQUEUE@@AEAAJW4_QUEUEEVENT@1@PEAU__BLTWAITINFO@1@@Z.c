@@ -1,212 +1,187 @@
 /*
- * XREFs of ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01D3F70
+ * XREFs of ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C015D654
  * Callers:
- *     ?BltQueueWorker@BLTQUEUE@@QEAAXXZ @ 0x1C01D38A0 (-BltQueueWorker@BLTQUEUE@@QEAAXXZ.c)
+ *     ?BltQueueWorker@BLTQUEUE@@QEAAXXZ @ 0x1C0127404 (-BltQueueWorker@BLTQUEUE@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C0014FAC (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C0040FDC (McTemplateK0pqq_EtwWriteTransfer.c)
- *     ?SignalVSyncEvent@BLTQUEUE@@AEAAXXZ @ 0x1C01D4100 (-SignalVSyncEvent@BLTQUEUE@@AEAAXXZ.c)
- *     ?FinishCommand@BLTQUEUE@@AEAAXJ@Z @ 0x1C01D4330 (-FinishCommand@BLTQUEUE@@AEAAXJ@Z.c)
- *     ?InsertQueueHead@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@W4BltQueueEntryAddReason@1@@Z @ 0x1C0233836 (-InsertQueueHead@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@W4BltQueueEntryAddReason@1@@Z.c)
- *     ?AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ @ 0x1C02D723C (-AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ.c)
- *     ?Blt@BLTENTRY@@QEAAJXZ @ 0x1C03D0B34 (-Blt@BLTENTRY@@QEAAJXZ.c)
- *     ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1C03D1940 (-DiscardPendingPresent@BLTQUEUE@@AEAAXXZ.c)
- *     ?IndirectBlt@BLTENTRY@@QEAAJXZ @ 0x1C03D1B9C (-IndirectBlt@BLTENTRY@@QEAAJXZ.c)
- *     ?InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@W4BltQueueEntryAddReason@1@@Z @ 0x1C03D1C28 (-InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@W4BltQueueEntryAddReason@1@@Z.c)
- *     ?ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z @ 0x1C03D3680 (-ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z.c)
- *     ?ReleaseRenderingDoneEvent@BLTENTRY@@QEAAXXZ @ 0x1C03D36CC (-ReleaseRenderingDoneEvent@BLTENTRY@@QEAAXXZ.c)
- *     ?UpdatePresentStats@BLTQUEUE@@AEAAXPEAVBLTENTRY@@PEAU__BLTWAITINFO@1@@Z @ 0x1C03D4C40 (-UpdatePresentStats@BLTQUEUE@@AEAAXPEAVBLTENTRY@@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C001AC14 (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
+ *     ?SignalVSyncEvent@BLTQUEUE@@AEAAXXZ @ 0x1C00DDEE4 (-SignalVSyncEvent@BLTQUEUE@@AEAAXXZ.c)
+ *     ?RemoveQueueHead@BLTQUEUE@@AEAAPEAVBLTENTRY@@PEAU_LIST_ENTRY@@@Z @ 0x1C015D77C (-RemoveQueueHead@BLTQUEUE@@AEAAPEAVBLTENTRY@@PEAU_LIST_ENTRY@@@Z.c)
+ *     ?FinishCommand@BLTQUEUE@@AEAAXJ@Z @ 0x1C015D80C (-FinishCommand@BLTQUEUE@@AEAAXJ@Z.c)
+ *     ?AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ @ 0x1C0227FD8 (-AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ.c)
+ *     ?Blt@BLTENTRY@@QEAAJXZ @ 0x1C02FCED4 (-Blt@BLTENTRY@@QEAAJXZ.c)
+ *     ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1C02FDAF0 (-DiscardPendingPresent@BLTQUEUE@@AEAAXXZ.c)
+ *     ?IndirectBlt@BLTENTRY@@QEAAJXZ @ 0x1C02FDD50 (-IndirectBlt@BLTENTRY@@QEAAJXZ.c)
+ *     ?InsertQueueHead@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@@Z @ 0x1C02FDDD0 (-InsertQueueHead@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@@Z.c)
+ *     ?InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@@Z @ 0x1C02FDE94 (-InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@@Z.c)
+ *     ?ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z @ 0x1C02FF670 (-ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z.c)
+ *     ?UpdatePresentStats@BLTQUEUE@@AEAAXPEAVBLTENTRY@@PEAU__BLTWAITINFO@1@@Z @ 0x1C03007D4 (-UpdatePresentStats@BLTQUEUE@@AEAAXPEAVBLTENTRY@@PEAU__BLTWAITINFO@1@@Z.c)
  */
 
 __int64 __fastcall BLTQUEUE::ProcessBltQueue(__int64 a1, int a2, __int64 a3)
 {
   int v3; // r12d
-  struct BLTQUEUE::__BLTWAITINFO *v4; // rbx
-  int v5; // ebp
+  int v5; // r13d
   int v7; // eax
-  __int64 *v8; // r15
-  __int64 v9; // r8
-  __int64 *v10; // rax
-  char v11; // cl
-  char v12; // al
-  __int64 v14; // rbx
-  __int64 *v15; // r13
-  __int64 v16; // rcx
-  _DWORD *v17; // rsi
-  bool v18; // zf
-  int v19; // eax
-  PLARGE_INTEGER Timeout; // [rsp+20h] [rbp-68h]
-  __int64 v21; // [rsp+28h] [rbp-60h]
-  struct _KEVENT *v22; // [rsp+90h] [rbp+8h]
+  struct _LIST_ENTRY *v8; // rdi
+  int v9; // ebx
+  struct BLTENTRY *v10; // rax
+  struct BLTENTRY *v11; // rbp
+  char v12; // cl
+  char v13; // al
+  __int64 v15; // rbx
+  void *v16; // rcx
+  struct _KEVENT *v17; // rdi
+  __int64 v18; // rcx
+  __int64 v19; // rdx
+  __int64 v20; // rax
+  bool v21; // zf
+  int v22; // eax
 
   v3 = 0;
-  v4 = (struct BLTQUEUE::__BLTWAITINFO *)a3;
   v5 = a2;
-  if ( *(int *)(a1 + 956) < 0 )
+  if ( *(int *)(a1 + 940) < 0 )
   {
     if ( a2 == 1 )
       BLTQUEUE::SignalVSyncEvent((BLTQUEUE *)a1);
     BLTQUEUE::DiscardPendingPresent((BLTQUEUE *)a1);
-    return *(unsigned int *)(a1 + 956);
+    return *(unsigned int *)(a1 + 940);
   }
   if ( a2 == 1 )
   {
-    v7 = *(_DWORD *)(a1 + 488);
+    v7 = *(_DWORD *)(a1 + 480);
     if ( v7 )
-      *(_DWORD *)(a1 + 488) = v7 - 1;
+      *(_DWORD *)(a1 + 480) = v7 - 1;
   }
-  v8 = (__int64 *)(a1 + 216);
+  v8 = (struct _LIST_ENTRY *)(a1 + 216);
+  v9 = 2;
   while ( 1 )
   {
-    if ( *(_DWORD *)(a1 + 488) )
-      *(_DWORD *)v4 |= 2u;
-    KeWaitForSingleObject((PVOID)(a1 + 160), Executive, 0, 0, 0LL);
-    v10 = (__int64 *)*v8;
-    if ( (__int64 *)*v8 == v8 )
-    {
-      KeReleaseMutex((PRKMUTEX)(a1 + 160), 0);
-LABEL_10:
-      v11 = *(_BYTE *)(a1 + 573);
-      v12 = *(_BYTE *)(a1 + 574);
-      if ( v11 )
-      {
-        if ( v12 )
-        {
-          *(_DWORD *)(a1 + 944) |= 2u;
-          goto LABEL_17;
-        }
-      }
-      else if ( !v12 )
-      {
-        goto LABEL_12;
-      }
-      *(_DWORD *)(a1 + 944) &= ~2u;
-      if ( !v11 )
-      {
-LABEL_18:
-        *(_WORD *)(a1 + 573) = 0;
-        BLTQUEUE::FinishCommand((BLTQUEUE *)a1, 0);
-        goto LABEL_12;
-      }
-LABEL_17:
-      v14 = *(unsigned int *)(a1 + 856);
-      *(LARGE_INTEGER *)(a1 + 40 * v14 + 872) = KeQueryPerformanceCounter(0LL);
-      *(_DWORD *)(a1 + 40 * v14 + 880) = v5;
-      goto LABEL_18;
-    }
-    if ( (__int64 *)v10[1] != v8 || (v16 = *v10, *(__int64 **)(*v10 + 8) != v10) )
-      __fastfail(3u);
-    *v8 = v16;
-    *(_QWORD *)(v16 + 8) = v8;
-    v15 = v10 - 1;
-    if ( v10 == (__int64 *)8 || (Microsoft_Windows_DxgKrnlEnableBits & 0x100) == 0 )
-    {
-      KeReleaseMutex((PRKMUTEX)(a1 + 160), 0);
-      if ( !v15 )
-        goto LABEL_10;
-    }
-    else
-    {
-      LODWORD(v21) = *((_DWORD *)v10 + 13);
-      LODWORD(Timeout) = *(_DWORD *)(a1 + 260);
-      McTemplateK0pqq_EtwWriteTransfer(v16, &EventBltQueueRemoveEntry, v9, *(_QWORD *)(a1 + 248), Timeout, v21);
-      KeReleaseMutex((PRKMUTEX)(a1 + 160), 0);
-    }
-    v17 = v15 + 65;
+    if ( *(_DWORD *)(a1 + 480) )
+      *(_DWORD *)a3 |= 2u;
+    v10 = BLTQUEUE::RemoveQueueHead((BLTQUEUE *)a1, v8);
+    v11 = v10;
+    if ( !v10 )
+      break;
     if ( v5 == 2 )
     {
-      *v17 |= 1u;
-      BLTENTRY::ReleaseRenderingDoneEvent((BLTENTRY *)v15);
+      v16 = (void *)*((_QWORD *)v10 + 5);
+      *((_DWORD *)v10 + 130) |= 1u;
+      ObfDereferenceObject(v16);
+      *((_QWORD *)v11 + 5) = 0LL;
     }
-    if ( (*v17 & 1) != 0 )
-      goto LABEL_35;
-    v22 = (struct _KEVENT *)v15[5];
-    if ( KeReadStateEvent(v22) )
+    if ( (*((_DWORD *)v11 + 130) & 1) == 0 )
     {
-      *v17 |= 1u;
-      BLTENTRY::ReleaseRenderingDoneEvent((BLTENTRY *)v15);
-LABEL_35:
-      v4 = (struct BLTQUEUE::__BLTWAITINFO *)a3;
-      goto LABEL_36;
+      v17 = (struct _KEVENT *)*((_QWORD *)v11 + 5);
+      if ( KeReadStateEvent(v17) )
+      {
+        *((_DWORD *)v11 + 130) |= 1u;
+        goto LABEL_29;
+      }
+      *(_DWORD *)a3 |= 1u;
+      HIDWORD(v19) = 0;
+      *(_QWORD *)(a3 + 8) = v17;
+      ++*((_DWORD *)v11 + 131);
+      LODWORD(v19) = (unsigned int)(5 * *(_DWORD *)(a1 + 360)) % *(_DWORD *)(a1 + 364);
+      if ( *((_DWORD *)v11 + 131) > (unsigned int)(5 * *(_DWORD *)(a1 + 360)) / *(_DWORD *)(a1 + 364) )
+      {
+        *((_DWORD *)v11 + 130) |= 3u;
+        *(_DWORD *)(a1 + 936) |= 4u;
+        v20 = WdLogNewEntry5_WdError(v18, v19);
+        *(_QWORD *)(v20 + 24) = a1;
+        WdLogEvent5_WdError(v20);
+        *(_DWORD *)a3 &= ~1u;
+LABEL_29:
+        ObfDereferenceObject(*((PVOID *)v11 + 5));
+        *((_QWORD *)v11 + 5) = 0LL;
+      }
+      v8 = (struct _LIST_ENTRY *)(a1 + 216);
     }
-    v4 = (struct BLTQUEUE::__BLTWAITINFO *)a3;
-    *(_DWORD *)a3 |= 1u;
-    *(_QWORD *)(a3 + 8) = v22;
-    if ( ++*((_DWORD *)v15 + 131) > (unsigned int)(5 * *(_DWORD *)(a1 + 368)) / *(_DWORD *)(a1 + 372) )
+    if ( v5 != 1
+      && (*((_DWORD *)v11 + 130) & 1) != 0
+      && !*(_DWORD *)(a1 + 480)
+      && *((_DWORD *)v11 + 14)
+      && !*(_BYTE *)(a1 + 344) )
     {
-      *v17 |= 1u;
-      *v17 |= 2u;
-      *(_DWORD *)(a1 + 952) |= 4u;
-      WdLogSingleEntry1(2LL, a1);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"BLTQUEUE 0x%I64x : rendering timeout hit",
-        a1,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      *(_DWORD *)a3 &= ~1u;
-      BLTENTRY::ReleaseRenderingDoneEvent((BLTENTRY *)v15);
+      *(_DWORD *)a3 |= 2u;
     }
-LABEL_36:
-    if ( v5 != 1 && (*v17 & 1) != 0 && !*(_DWORD *)(a1 + 488) && *((_DWORD *)v15 + 14) && !*(_BYTE *)(a1 + 352) )
-      *(_DWORD *)v4 |= 2u;
-    if ( (*(_DWORD *)v4 & 2) != 0 || (*(_DWORD *)v4 & 1) != 0 )
-      break;
-    KeWaitForSingleObject((PVOID)(a1 + 264), Executive, 0, 0, 0LL);
-    BLTQUEUE::UpdatePresentStats((BLTQUEUE *)a1, (struct BLTENTRY *)v15, v4);
+    if ( (*(_DWORD *)a3 & 2) != 0 || (*(_DWORD *)a3 & 1) != 0 )
+    {
+      BLTQUEUE::InsertQueueHead((BLTQUEUE *)a1, v8, v11);
+      goto LABEL_11;
+    }
+    KeWaitForSingleObject((PVOID)(a1 + 256), Executive, 0, 0, 0LL);
+    BLTQUEUE::UpdatePresentStats((BLTQUEUE *)a1, v11, (struct BLTQUEUE::__BLTWAITINFO *)a3);
     if ( v5 == 1 )
       BLTQUEUE::SignalVSyncEvent((BLTQUEUE *)a1);
-    if ( (*(_DWORD *)v4 & 2) != 0 )
+    if ( (*(_DWORD *)a3 & 2) != 0 )
     {
-      BLTQUEUE::InsertQueueHead(a1, v8, v15, 2LL);
-      KeReleaseMutex((PRKMUTEX)(a1 + 264), 0);
-      goto LABEL_12;
+      BLTQUEUE::InsertQueueHead((BLTQUEUE *)a1, (struct _LIST_ENTRY *)(a1 + 216), v11);
+      KeReleaseMutex((PRKMUTEX)(a1 + 256), 0);
+      goto LABEL_11;
     }
     v5 = -1;
-    if ( (*((_DWORD *)DXGDODPRESENT::GetAdapter(*(DXGDODPRESENT **)a1) + 109) & 0x100) != 0 )
+    if ( (*((_DWORD *)DXGDODPRESENT::GetAdapter(*(DXGDODPRESENT **)a1) + 87) & 0x100) != 0 )
     {
-      KeWaitForSingleObject((PVOID)(a1 + 2720), Executive, 0, 0, 0LL);
-      v3 = BLTENTRY::IndirectBlt((BLTENTRY *)v15);
-      KeReleaseMutex((PRKMUTEX)(a1 + 2720), 0);
-      v4 = (struct BLTQUEUE::__BLTWAITINFO *)a3;
+      KeWaitForSingleObject((PVOID)(a1 + 2704), Executive, 0, 0, 0LL);
+      v3 = BLTENTRY::IndirectBlt(v11);
+      KeReleaseMutex((PRKMUTEX)(a1 + 2704), 0);
+      v9 = 2;
     }
     else
     {
-      v3 = BLTENTRY::Blt((BLTENTRY *)v15);
-      BLTENTRY::ReleasePresentDoneEvent((BLTENTRY *)v15, 1u);
+      v3 = BLTENTRY::Blt(v11);
+      BLTENTRY::ReleasePresentDoneEvent(v11, 1u);
     }
     if ( v3 >= 0 )
     {
-      v18 = *(_BYTE *)(a1 + 352) == 0;
-      *(_DWORD *)(a1 + 484) = *((_DWORD *)v15 + 14);
-      if ( v18 )
-        v19 = *((_DWORD *)v15 + 14);
+      v21 = *(_BYTE *)(a1 + 344) == 0;
+      *(_DWORD *)(a1 + 476) = *((_DWORD *)v11 + 14);
+      if ( v21 )
+        v22 = *((_DWORD *)v11 + 14);
       else
-        v19 = 0;
-      *(_DWORD *)(a1 + 488) = v19;
+        v22 = 0;
+      *(_DWORD *)(a1 + 480) = v22;
     }
-    DXGALLOCATIONREFERENCE::AssignNull((DXGALLOCATIONREFERENCE *)(v15 + 4));
-    BLTQUEUE::InsertQueueTail(a1, a1 + 232, v15, 1LL);
-    if ( *(_BYTE *)(a1 + 574) )
+    DXGALLOCATIONREFERENCE::AssignNull((struct BLTENTRY *)((char *)v11 + 32));
+    BLTQUEUE::InsertQueueTail((BLTQUEUE *)a1, (struct _LIST_ENTRY *)(a1 + 232), v11);
+    if ( *(_BYTE *)(a1 + 566) )
     {
-      *(_BYTE *)(a1 + 574) = 0;
+      *(_BYTE *)(a1 + 566) = 0;
       BLTQUEUE::FinishCommand((BLTQUEUE *)a1, v3);
     }
-    KeReleaseMutex((PRKMUTEX)(a1 + 264), 0);
+    KeReleaseMutex((PRKMUTEX)(a1 + 256), 0);
     if ( v3 < 0 )
     {
       BLTQUEUE::DiscardPendingPresent((BLTQUEUE *)a1);
-      *(_DWORD *)(a1 + 956) = v3;
+      *(_DWORD *)(a1 + 940) = v3;
       return (unsigned int)v3;
     }
+    v8 = (struct _LIST_ENTRY *)(a1 + 216);
   }
-  BLTQUEUE::InsertQueueHead(a1, v8, v15, 2LL);
-LABEL_12:
+  v12 = *(_BYTE *)(a1 + 565);
+  v13 = *(_BYTE *)(a1 + 566);
+  if ( v12 )
+  {
+    if ( !v13 )
+      goto LABEL_15;
+  }
+  else
+  {
+    if ( !v13 )
+      goto LABEL_11;
+LABEL_15:
+    v9 = 0;
+  }
+  *(_DWORD *)(a1 + 928) = v9 | *(_DWORD *)(a1 + 928) & 0xFFFFFFFD;
+  if ( v12 )
+  {
+    v15 = 5LL * *(unsigned int *)(a1 + 840);
+    *(LARGE_INTEGER *)(a1 + 8 * v15 + 856) = KeQueryPerformanceCounter(0LL);
+    *(_DWORD *)(a1 + 8 * v15 + 864) = v5;
+  }
+  *(_WORD *)(a1 + 565) = 0;
+  BLTQUEUE::FinishCommand((BLTQUEUE *)a1, 0);
+LABEL_11:
   if ( v5 == 1 )
     BLTQUEUE::SignalVSyncEvent((BLTQUEUE *)a1);
   return (unsigned int)v3;

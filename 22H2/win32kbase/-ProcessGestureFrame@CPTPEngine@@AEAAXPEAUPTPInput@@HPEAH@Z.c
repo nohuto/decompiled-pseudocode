@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessGestureFrame@CPTPEngine@@AEAAXPEAUPTPInput@@HPEAH@Z @ 0x1C0202194
+ * XREFs of ?ProcessGestureFrame@CPTPEngine@@AEAAXPEAUPTPInput@@HPEAH@Z @ 0x1C01C6840
  * Callers:
- *     ?DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z @ 0x1C01FF470 (-DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z.c)
+ *     ?DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z @ 0x1C01C3CC4 (-DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?FixupGestureContact@CPTPEngine@@AEAAXPEAUPTPEnginePointerNode@@H@Z @ 0x1C00E70A2 (-FixupGestureContact@CPTPEngine@@AEAAXPEAUPTPEnginePointerNode@@H@Z.c)
- *     ?SendGestureOutput@CBasePTPEngine@@IEAAXW4Action@Gesture@Payload@PTPEngineOutput@@HIPEAUPTPEnginePointerNode@@@Z @ 0x1C00E71E2 (-SendGestureOutput@CBasePTPEngine@@IEAAXW4Action@Gesture@Payload@PTPEngineOutput@@HIPEAUPTPEngin.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?FixupGestureContact@CPTPEngine@@AEAAXPEAUPTPEnginePointerNode@@H@Z @ 0x1C01C5F64 (-FixupGestureContact@CPTPEngine@@AEAAXPEAUPTPEnginePointerNode@@H@Z.c)
+ *     ?SendGestureOutput@CBasePTPEngine@@IEAAXW4Action@Gesture@Payload@PTPEngineOutput@@HIPEAUPTPEnginePointerNode@@@Z @ 0x1C01C80B4 (-SendGestureOutput@CBasePTPEngine@@IEAAXW4Action@Gesture@Payload@PTPEngineOutput@@HIPEAUPTPEngin.c)
  */
 
-void __fastcall CPTPEngine::ProcessGestureFrame(CPTPEngine *this, struct PTPInput *a2, int a3, int *a4)
+void __fastcall CPTPEngine::ProcessGestureFrame(CPTPEngine *this, struct PTPInput *a2, unsigned int a3, int *a4)
 {
   __int64 v4; // rax
   CPTPEngine *v6; // r10
@@ -21,39 +21,42 @@ void __fastcall CPTPEngine::ProcessGestureFrame(CPTPEngine *this, struct PTPInpu
   __int128 v14; // xmm0
   __int128 v15; // xmm1
   __int64 v16; // rax
-  _BYTE *v17; // rbp
+  _BYTE *v17; // r14
   __int128 v18; // xmm1
   _DWORD *v19; // r9
   int v20; // edi
   _BYTE *v21; // r8
   __int128 v22; // xmm0
-  __int128 v23; // xmm1
-  __int128 v24; // xmm0
-  __int128 v25; // xmm1
-  __int128 v26; // xmm0
-  unsigned int v27; // ebx
-  __int64 v28; // r11
-  __int64 v29; // r11
-  bool v30; // si
+  char v23; // r15
+  __int128 v24; // xmm1
+  __int128 v25; // xmm0
+  __int128 v26; // xmm1
+  __int128 v27; // xmm0
+  unsigned int v28; // r11d
+  __int64 v29; // rbx
+  __int64 v30; // r8
   char v31; // bp
-  char v32; // r8
-  char v33; // r11
-  char v34; // di
-  unsigned int v35; // esi
-  char *v36; // r9
-  __int64 v37; // rbx
-  int v38; // ecx
-  int v39; // eax
+  bool v32; // si
+  __int64 v33; // rbx
+  char v34; // r14
+  char v35; // r8
+  bool v36; // bl
+  unsigned int v37; // edi
+  char *v38; // r9
+  __int64 v39; // r11
   int v40; // ecx
-  BOOL v41; // r8d
-  __int64 v42; // [rsp+40h] [rbp-2C8h] BYREF
-  __int64 v43; // [rsp+70h] [rbp-298h]
-  _BYTE v44[12]; // [rsp+78h] [rbp-290h] BYREF
-  char v45; // [rsp+84h] [rbp-284h] BYREF
+  int v41; // eax
+  unsigned int v42; // ecx
+  BOOL v43; // r8d
+  __int64 v44; // r11
+  __int64 v45; // [rsp+40h] [rbp-2C8h] BYREF
+  __int64 v46; // [rsp+70h] [rbp-298h]
+  _BYTE v47[12]; // [rsp+78h] [rbp-290h] BYREF
+  char v48; // [rsp+84h] [rbp-284h] BYREF
 
   v4 = 4LL;
   v6 = this;
-  v8 = &v42;
+  v8 = &v45;
   do
   {
     v9 = *((_OWORD *)a2 + 1);
@@ -82,106 +85,113 @@ void __fastcall CPTPEngine::ProcessGestureFrame(CPTPEngine *this, struct PTPInpu
   v19 = 0LL;
   v20 = 0;
   *(_OWORD *)v8 = *(_OWORD *)a2;
-  v21 = v44;
+  v21 = v47;
   v22 = *((_OWORD *)a2 + 2);
+  v23 = 1;
   *((_OWORD *)v8 + 1) = v18;
-  v23 = *((_OWORD *)a2 + 3);
+  v24 = *((_OWORD *)a2 + 3);
   *((_OWORD *)v8 + 2) = v22;
-  v24 = *((_OWORD *)a2 + 4);
-  *((_OWORD *)v8 + 3) = v23;
-  v25 = *((_OWORD *)a2 + 5);
-  *((_OWORD *)v8 + 4) = v24;
-  v26 = *((_OWORD *)a2 + 6);
-  *((_OWORD *)v8 + 5) = v25;
-  *((_OWORD *)v8 + 6) = v26;
+  v25 = *((_OWORD *)a2 + 4);
+  *((_OWORD *)v8 + 3) = v24;
+  v26 = *((_OWORD *)a2 + 5);
+  *((_OWORD *)v8 + 4) = v25;
+  v27 = *((_OWORD *)a2 + 6);
+  *((_OWORD *)v8 + 5) = v26;
+  *((_OWORD *)v8 + 6) = v27;
   v8[14] = v16;
-  v27 = v43;
-  if ( (_DWORD)v43 )
+  v28 = v46;
+  if ( (_DWORD)v46 )
   {
-    v28 = (unsigned int)v43;
+    v29 = (unsigned int)v46;
     do
     {
-      v19 = (_DWORD *)((char *)v6 + 400 * (unsigned int)(*((_DWORD *)v21 + 1) % *((_DWORD *)v6 + 4)) + 1208);
+      v19 = (_DWORD *)((char *)v6 + 392 * (unsigned int)(*((_DWORD *)v21 + 1) % *((_DWORD *)v6 + 4)) + 1160);
       if ( (*v19 & 1) != 0 && (*v19 & 0x400) == 0 )
       {
         ++v20;
         v17 = v21;
       }
       v21 += 96;
-      --v28;
+      --v29;
     }
-    while ( v28 );
+    while ( v29 );
   }
-  v29 = v42;
-  v30 = !a3
-     && *((_DWORD *)v6 + 907) > 2u
-     && v42 - *((_QWORD *)v6 + 481) < *((_QWORD *)v6 + 12) * (unsigned __int64)*((unsigned int *)v6 + 99) / 0x3E8;
+  v30 = v45;
+  v31 = 0;
+  v32 = !a3
+     && *((_DWORD *)v6 + 883) > 2u
+     && v45 - *((_QWORD *)v6 + 468) < *((_QWORD *)v6 + 12) * (unsigned __int64)*((unsigned int *)v6 + 87) / 0x3E8;
   if ( v20 != 1 || (*((_DWORD *)v17 + 3) & 0x40000) != 0 )
   {
-    v31 = 0;
-    v32 = 1;
+    v23 = 0;
   }
   else
   {
-    v31 = 1;
-    if ( (*v19 & 0x20000) == 0 )
+    if ( (*v19 & 0x8000) != 0 )
     {
-      *v19 |= 0x20000u;
-      *((_QWORD *)v6 + 479) = v29;
+      v33 = *((_QWORD *)v6 + 466);
     }
-    v32 = 1;
-    if ( v29 - *((_QWORD *)v6 + 479) >= *((_QWORD *)v6 + 12) * (unsigned __int64)*((unsigned int *)v6 + 61) / 0x3E8 )
+    else
     {
-      *v19 &= ~0x20000u;
-      v33 = 0;
-LABEL_20:
-      v34 = 1;
-      goto LABEL_21;
+      v33 = v45;
+      *v19 |= 0x8000u;
+      *((_QWORD *)v6 + 466) = v30;
+    }
+    if ( v30 - v33 >= *((_QWORD *)v6 + 12) * (unsigned __int64)*((unsigned int *)v6 + 49) / 0x3E8 )
+    {
+      *v19 &= ~0x8000u;
+      v31 = 1;
     }
   }
-  v33 = 0;
-  if ( v30 )
-    goto LABEL_20;
   v34 = 0;
-LABEL_21:
-  v35 = 0;
-  if ( v27 )
+  v35 = 1;
+  v36 = v31 || v32;
+  v37 = 0;
+  if ( v28 )
   {
-    v36 = &v45;
+    v38 = &v48;
     do
     {
-      v37 = 400LL * (unsigned int)(*((_DWORD *)v36 - 2) % *((_DWORD *)v6 + 4));
-      v38 = *(_DWORD *)((char *)v6 + v37 + 1208);
-      v39 = v38;
-      if ( (v38 & 1) != 0 && v34 && (v38 & 2) != 0 )
+      v39 = 392LL * (unsigned int)(*((_DWORD *)v38 - 2) % *((_DWORD *)v6 + 4));
+      v40 = *(_DWORD *)((char *)v6 + v39 + 1160);
+      v41 = v40;
+      if ( (v40 & 1) != 0 && v36 && (v40 & 2) != 0 )
       {
-        v39 = v38 | 0x400;
-        *(_DWORD *)((char *)v6 + v37 + 1208) = v38 | 0x400;
+        v41 = v40 | 0x400;
+        *(_DWORD *)((char *)v6 + v39 + 1160) = v40 | 0x400;
       }
-      if ( (v39 & 1) == 0 || (v39 & 0x400) != 0 )
+      if ( (v41 & 1) == 0 || (v41 & 0x400) != 0 )
       {
-        *(_DWORD *)v36 = 0;
-        *(_QWORD *)(v36 + 28) = 0LL;
+        *(_DWORD *)v38 = 0;
+        *(_QWORD *)(v38 + 28) = 0LL;
       }
       else
       {
-        v40 = *(_DWORD *)v36;
-        v41 = v39 < 0 || (v40 & 0x2000) != 0;
-        if ( (v39 & 2) != 0 )
-          *(_DWORD *)v36 = v40 & 0xFFFCFFFF | 0x10000;
-        if ( v34 )
-          *(_DWORD *)v36 = 0x40000;
-        CPTPEngine::FixupGestureContact(v6, (struct PTPEnginePointerNode *)(v36 - 12), v41);
-        v32 = 0;
-        if ( !v31 )
-          *(_DWORD *)((char *)v6 + v37 + 1208) &= ~0x20000u;
+        v42 = *(_DWORD *)v38;
+        v43 = (v41 & 0x20000000) != 0 || (v42 & 0x2000) != 0;
+        if ( (v41 & 2) != 0 )
+        {
+          v42 = v42 & 0xFFFCFFFF | 0x10000;
+          *(_DWORD *)v38 = v42;
+        }
+        if ( v36 )
+        {
+          *(_DWORD *)v38 = 0x40000;
+          v42 = 0x40000;
+        }
+        if ( (v42 & 0x40000) == 0 )
+          v34 = 1;
+        CPTPEngine::FixupGestureContact(v6, (struct PTPEnginePointerNode *)(v38 - 12), v43);
+        v35 = 0;
+        if ( !v23 )
+          *(_DWORD *)((char *)v6 + v44 + 1160) &= ~0x8000u;
       }
-      v27 = v43;
-      ++v35;
-      v36 += 96;
+      v28 = v46;
+      ++v37;
+      v38 += 96;
     }
-    while ( v35 < (unsigned int)v43 );
+    while ( v37 < (unsigned int)v46 );
   }
-  if ( !v34 && !v32 && v33 || (*a4 = 1, !v32) )
-    CBasePTPEngine::SendGestureOutput((__int64)v6, 3, a3, v27, v44);
+  if ( !v36 && !v35 && v34 || (*a4 = 1, !v35) )
+    CBasePTPEngine::SendGestureOutput(v6, 3LL, a3, v28, v47);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpWheaWriteMsrControl @ 0x140380AF0
+ * XREFs of HalpWheaWriteMsrControl @ 0x1403A07E8
  * Callers:
- *     HalpMcaSetProcessorConfig @ 0x140A8B414 (HalpMcaSetProcessorConfig.c)
+ *     HalpMcaSetProcessorConfig @ 0x140999E38 (HalpMcaSetProcessorConfig.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x140380C44 (HalpGetCpuVendor.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpGetCpuVendor @ 0x1403A083C (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpWheaWriteMsrControl(__int64 a1, int a2, __int64 a3)
@@ -15,5 +15,5 @@ __int64 __fastcall HalpWheaWriteMsrControl(__int64 a1, int a2, __int64 a3)
     v6 = (unsigned int)(16 * a2 - 1073733632);
   else
     v6 = (unsigned int)(4 * a2 + 1024);
-  return ((__int64 (__fastcall *)(__int64, __int64, __int64))HalpWheaWriteMsr)(a1, v6, a3);
+  return HalpWheaWriteMsr(a1, v6, a3);
 }

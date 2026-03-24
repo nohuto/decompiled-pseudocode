@@ -1,11 +1,11 @@
 /*
- * XREFs of Controller_ReferenceTrustletProcess @ 0x1C00328D8
+ * XREFs of Controller_ReferenceTrustletProcess @ 0x1C0032858
  * Callers:
- *     Controller_Create @ 0x1C00702D4 (Controller_Create.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_ReferenceTrustletProcess(_QWORD *a1)
@@ -32,19 +32,19 @@ __int64 __fastcall Controller_ReferenceTrustletProcess(_QWORD *a1)
       v2 = -1073741436;
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return v2;
-      v4 = 268;
+      v4 = 267;
     }
     else
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         return v2;
-      v4 = 267;
+      v4 = 266;
     }
     LOBYTE(v3) = 2;
-    WPP_RECORDER_SF_d(a1[9], v3, 4, v4, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v2);
+    WPP_RECORDER_SF_d(a1[9], v3, 4, v4, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v2);
     return v2;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(a1[9], 2, 4, 266, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids);
+    WPP_RECORDER_SF_(a1[9], 2, 4, 265, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
   return (unsigned int)-1073741436;
 }

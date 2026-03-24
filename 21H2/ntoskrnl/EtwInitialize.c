@@ -1,84 +1,62 @@
 /*
- * XREFs of EtwInitialize @ 0x14082AB94
+ * XREFs of EtwInitialize @ 0x140798D94
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14082830C (CmCompleteRegistryInitialization.c)
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
- *     IoInitSystemPreDrivers @ 0x140AFE7A0 (IoInitSystemPreDrivers.c)
+ *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
+ *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x140244120 (ObGetCurrentIrql.c)
- *     EtwpBuffersFlushRequired @ 0x14025116C (EtwpBuffersFlushRequired.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x1402F69F0 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402FE2A0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
+ *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
+ *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
+ *     EtwpBuffersFlushRequired @ 0x1402C7BAC (EtwpBuffersFlushRequired.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140360770 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x1403609B0 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
  */
 
-void __fastcall EtwInitialize(unsigned int a1, __int64 a2)
+void __fastcall EtwInitialize(unsigned int a1)
 {
-  __int64 v3; // rdi
-  __int64 v4; // rdi
-  __int64 v5; // rax
-  __int64 v6; // rdi
-  __int64 v7; // rax
-  __int64 v8; // rbx
+  __int64 v1; // rax
+  __int64 v2; // rdi
+  __int64 v3; // rbx
 
-  if ( a2 && (v3 = *(_QWORD *)(a2 + 240)) != 0 && *(_QWORD *)(v3 + 3680) && *(_QWORD *)(v3 + 3688) )
-    v4 = v3 + 3672;
-  else
-    v4 = 0LL;
-  if ( a1 )
+  if ( a1 >= 2 )
   {
-    if ( a1 < 3 )
+    if ( a1 == 2 )
     {
-      while ( (unsigned __int8)EtwpBootPhase <= a1 )
-        EtwpInitialize((unsigned __int8)EtwpBootPhase, a1, v4);
-    }
-    else if ( a1 == 3 )
-    {
-      v5 = EtwpHostSiloState;
-      v6 = 0LL;
-      ++EtwpBootPhase;
-      if ( *(_DWORD *)(EtwpHostSiloState + 16) )
+      v1 = EtwpHostSiloState;
+      v2 = 0LL;
+      for ( EtwpFileSystemReady = 1; (unsigned int)v2 < *(_DWORD *)(EtwpHostSiloState + 16); v2 = (unsigned int)(v2 + 1) )
       {
-        do
+        if ( ExAcquireRundownProtectionCacheAwareEx(
+               *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v1 + 448) + 8 * v2),
+               1u) )
         {
-          if ( ExAcquireRundownProtectionCacheAwareEx(
-                 *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v5 + 448) + 8 * v6),
-                 1u) )
+          if ( (unsigned int)v2 >= *(_DWORD *)(EtwpHostSiloState + 16) )
+            v3 = 1LL;
+          else
+            v3 = *(_QWORD *)(*(_QWORD *)(EtwpHostSiloState + 456) + 8 * v2);
+          if ( (v3 & 1) == 0 && (*(_DWORD *)(v3 + 12) & 0x400) == 0 && EtwpBuffersFlushRequired((_DWORD *)v3) )
           {
-            if ( (unsigned int)v6 < *(_DWORD *)(EtwpHostSiloState + 16) )
+            if ( ObGetCurrentIrql() > 2u )
             {
-              v7 = *(_QWORD *)(EtwpHostSiloState + 456);
-              v8 = *(_QWORD *)(v7 + 8 * v6);
-              if ( (v8 & 1) == 0
-                && (*(_DWORD *)(v8 + 12) & 0x400) == 0
-                && EtwpBuffersFlushRequired(*(_DWORD **)(v7 + 8 * v6)) )
-              {
-                if ( ObGetCurrentIrql() > 2u )
-                {
-                  if ( !_interlockedbittestandset((volatile signed __int32 *)(v8 + 824), 8u) )
-                    KeInsertQueueDpc((PRKDPC)(v8 + 568), 0LL, 0LL);
-                }
-                else
-                {
-                  KeSetEvent((PRKEVENT)(v8 + 480), 0, 0);
-                }
-              }
+              if ( !_interlockedbittestandset((volatile signed __int32 *)(v3 + 836), 8u) )
+                KeInsertQueueDpc((PRKDPC)(v3 + 584), 0LL, 0LL);
             }
-            ExReleaseRundownProtectionCacheAwareEx(
-              *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(EtwpHostSiloState + 448) + 8 * v6),
-              1u);
+            else
+            {
+              KeSetEvent((PRKEVENT)(v3 + 496), 0, 0);
+            }
           }
-          v5 = EtwpHostSiloState;
-          v6 = (unsigned int)(v6 + 1);
+          ExReleaseRundownProtectionCacheAwareEx(
+            *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(EtwpHostSiloState + 448) + 8 * v2),
+            1u);
         }
-        while ( (unsigned int)v6 < *(_DWORD *)(EtwpHostSiloState + 16) );
+        v1 = EtwpHostSiloState;
       }
     }
   }
-  else if ( v4 && *(_QWORD *)(v4 + 8) != v4 + 8 )
+  else
   {
-    EtwpInitialize((unsigned __int8)EtwpBootPhase, 0LL, v4);
+    EtwpInitialize();
   }
 }

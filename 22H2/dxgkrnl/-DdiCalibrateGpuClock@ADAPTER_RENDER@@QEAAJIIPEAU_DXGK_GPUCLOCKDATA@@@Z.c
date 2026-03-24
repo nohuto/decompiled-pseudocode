@@ -1,18 +1,18 @@
 /*
- * XREFs of ?DdiCalibrateGpuClock@ADAPTER_RENDER@@QEAAJIIPEAU_DXGK_GPUCLOCKDATA@@@Z @ 0x1C00431C4
+ * XREFs of ?DdiCalibrateGpuClock@ADAPTER_RENDER@@QEAAJIIPEAU_DXGK_GPUCLOCKDATA@@@Z @ 0x1C003C27C
  * Callers:
- *     ?PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ @ 0x1C0042B7C (-PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ.c)
- *     ?ADAPTER_RENDER_DdiCalibrateGpuClock@@YAJPEAVADAPTER_RENDER@@IIPEAU_DXGK_GPUCLOCKDATA@@@Z @ 0x1C0048B70 (-ADAPTER_RENDER_DdiCalibrateGpuClock@@YAJPEAVADAPTER_RENDER@@IIPEAU_DXGK_GPUCLOCKDATA@@@Z.c)
- *     ?DxgkQueryClockCalibrationInternal@@YAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@PEAVDXGADAPTER@@@Z @ 0x1C02CEFF4 (-DxgkQueryClockCalibrationInternal@@YAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@PEAVDX.c)
+ *     ?PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ @ 0x1C003BE9C (-PerformClockCalibration@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ?ADAPTER_RENDER_DdiCalibrateGpuClock@@YAJPEAVADAPTER_RENDER@@IIPEAU_DXGK_GPUCLOCKDATA@@@Z @ 0x1C0042220 (-ADAPTER_RENDER_DdiCalibrateGpuClock@@YAJPEAVADAPTER_RENDER@@IIPEAU_DXGK_GPUCLOCKDATA@@@Z.c)
+ *     ?DxgkQueryClockCalibrationInternal@@YAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@PEAVDXGADAPTER@@@Z @ 0x1C00D6980 (-DxgkQueryClockCalibrationInternal@@YAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYCLOCKCALIBRATION@@PEAVDX.c)
+ *     DxgkQueryClockCalibration @ 0x1C0225A30 (DxgkQueryClockCalibration.c)
  * Callees:
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ??0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C000B2C0 (--0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01CA0D0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C0004DC0 (--0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01059F0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER::DdiCalibrateGpuClock(
@@ -23,96 +23,107 @@ __int64 __fastcall ADAPTER_RENDER::DdiCalibrateGpuClock(
 {
   unsigned int v5; // edi
   __int64 v7; // r13
-  KIRQL CurrentIrql; // al
-  __int64 v9; // r14
-  struct DXGTHREAD *v10; // rbx
+  unsigned __int8 CurrentIrql; // r14
+  struct DXGTHREAD *v9; // rbx
   struct DXGTHREAD *Current; // rax
-  int v12; // esi
+  int v11; // esi
+  __int64 v12; // rdx
   __int64 v13; // rdi
-  KIRQL v14; // al
-  int v15; // edx
-  int v16; // ecx
-  int v17; // r8d
+  __int64 v14; // rcx
+  _QWORD *v15; // rax
+  unsigned __int8 v16; // cl
+  _QWORD *v17; // rax
   __int64 v18; // rcx
-  __int64 v19; // r8
-  unsigned int v21; // [rsp+60h] [rbp-49h]
-  int v22; // [rsp+68h] [rbp-41h] BYREF
-  __int64 v23; // [rsp+70h] [rbp-39h]
-  char v24; // [rsp+78h] [rbp-31h]
-  _BYTE v25[8]; // [rsp+80h] [rbp-29h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+88h] [rbp-21h] BYREF
+  _QWORD *v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  unsigned int v27; // [rsp+30h] [rbp-49h]
+  int v28; // [rsp+38h] [rbp-41h] BYREF
+  __int64 v29; // [rsp+40h] [rbp-39h]
+  char v30; // [rsp+48h] [rbp-31h]
+  _BYTE v31[8]; // [rsp+50h] [rbp-29h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+58h] [rbp-21h] BYREF
 
-  v22 = -1;
-  v23 = 0LL;
+  v28 = -1;
+  v29 = 0LL;
   v5 = a3;
-  v21 = a3;
+  v27 = a3;
   v7 = a2;
-  if ( (qword_1C013F870 & 2) != 0 )
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v24 = 1;
-    v22 = 5056;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v30 = 1;
+    v28 = 5056;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, a3, 5056);
   }
   else
   {
-    v24 = 0;
+    v30 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v22, 5056);
-  _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4612LL));
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v28, 5056LL);
+  _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4364LL));
   CurrentIrql = KeGetCurrentIrql();
-  v9 = CurrentIrql;
-  v10 = 0LL;
-  if ( CurrentIrql < 2u && (Current = DXGTHREAD::GetCurrent(), (v10 = Current) != 0LL) )
-    v12 = *((_DWORD *)Current + 12);
+  v9 = 0LL;
+  if ( CurrentIrql < 2u && (Current = DXGTHREAD::GetCurrent(), (v9 = Current) != 0LL) )
+    v11 = *((_DWORD *)Current + 8);
   else
-    v12 = 0;
+    v11 = 0;
   DXGVALIDATIONPROCESSATTACH::DXGVALIDATIONPROCESSATTACH(
-    (DXGVALIDATIONPROCESSATTACH *)v25,
+    (DXGVALIDATIONPROCESSATTACH *)v31,
     *((struct DXGADAPTER **)this + 2));
-  v13 = (*(int (__fastcall **)(_QWORD, _QWORD, _QWORD, struct _DXGK_GPUCLOCKDATA *))(*((_QWORD *)this + 2) + 904LL))(
-          *(_QWORD *)(*((_QWORD *)this + 2) + 280LL),
+  v13 = (*(int (__fastcall **)(_QWORD, _QWORD, _QWORD, struct _DXGK_GPUCLOCKDATA *))(*((_QWORD *)this + 2) + 816LL))(
+          *(_QWORD *)(*((_QWORD *)this + 2) + 272LL),
           (unsigned int)v7,
           v5,
           a4);
-  if ( v25[0] )
+  if ( v31[0] )
     KeUnstackDetachProcess(&ApcState);
-  if ( (_BYTE)v9 != KeGetCurrentIrql() )
+  v14 = KeGetCurrentIrql();
+  if ( CurrentIrql != (_BYTE)v14 )
   {
-    v14 = KeGetCurrentIrql();
-    WdLogSingleEntry5(0LL, 275LL, 16LL, this, v9, v14);
+    v15 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v14, v12);
+    v15[3] = 275LL;
+    v15[4] = 16LL;
+    v15[5] = this;
+    v15[6] = CurrentIrql;
+    v16 = KeGetCurrentIrql();
+    v15[7] = v16;
+    WdLogEvent5_WdCriticalError(v15);
   }
-  if ( v10 && *((_DWORD *)v10 + 12) != v12 )
-    WdLogSingleEntry5(0LL, 275LL, 38LL, *((int *)v10 + 12), v12, 0LL);
-  _InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4612LL));
-  WdLogSingleEntry4(4LL, v13, v7, v21, a4->GpuFrequency);
-  WdLogSingleEntry2(4LL, a4->GpuClockCounter, a4->CpuClockCounter);
-  if ( (_DWORD)v13 != -1073741811 )
+  if ( v9 && *((_DWORD *)v9 + 8) != v11 )
   {
-    if ( (_DWORD)v13 )
-    {
-      WdLogSingleEntry1(2LL, v13);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v16,
-            v15,
-            v17,
-            0LL,
-            0,
-            -1,
-            L"Driver returned an invalid NTSTATUS code: 0x%I64x",
-            v13,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
-    }
+    v17 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v14, v12);
+    v17[3] = 275LL;
+    v17[4] = 38LL;
+    v18 = *((int *)v9 + 8);
+    v17[7] = 0LL;
+    v17[5] = v18;
+    v17[6] = v11;
+    WdLogEvent5_WdCriticalError(v17);
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v22);
-  if ( v24 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v18, &EventProfilerExit, v19, v22);
+  _InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4364LL));
+  v19 = (_QWORD *)WdLogNewEntry5_WdEvent();
+  v19[5] = v27;
+  v19[3] = v13;
+  v19[4] = v7;
+  v19[6] = a4->GpuFrequency;
+  WdLogEvent5_WdEvent(v19);
+  v20 = WdLogNewEntry5_WdEvent();
+  *(_QWORD *)(v20 + 24) = a4->GpuClockCounter;
+  *(_QWORD *)(v20 + 32) = a4->CpuClockCounter;
+  WdLogEvent5_WdEvent(v20);
+  if ( (_DWORD)v13 != -1073741811 && (_DWORD)v13 )
+  {
+    v23 = WdLogNewEntry5_WdError(v22, v21);
+    *(_QWORD *)(v23 + 24) = v13;
+    WdLogEvent5_WdError(v23);
+  }
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v28, v21);
+  if ( v30 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v24, &EventProfilerExit, v25, v28);
   return (unsigned int)v13;
 }

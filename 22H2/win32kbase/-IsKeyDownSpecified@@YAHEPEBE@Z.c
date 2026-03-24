@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsKeyDownSpecified@@YAHEPEBE@Z @ 0x1C01E9D84
+ * XREFs of ?IsKeyDownSpecified@@YAHEPEBE@Z @ 0x1C01AFD9C
  * Callers:
- *     ?MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z @ 0x1C01E9F78 (-MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z.c)
+ *     ?MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z @ 0x1C01AFF00 (-MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z.c)
  * Callees:
  *     <none>
  */

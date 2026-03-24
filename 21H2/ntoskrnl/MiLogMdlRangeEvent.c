@@ -1,62 +1,62 @@
 /*
- * XREFs of MiLogMdlRangeEvent @ 0x140589DDC
+ * XREFs of MiLogMdlRangeEvent @ 0x140534098
  * Callers:
- *     MiFreePagesFromMdl @ 0x140221A30 (MiFreePagesFromMdl.c)
- *     MiAllocatePagesForMdl @ 0x140265428 (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x1402E33F4 (MiAllocatePagesForMdl.c)
+ *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MiGetPfnPidSafe @ 0x14058CAA0 (MiGetPfnPidSafe.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     MiGetLeafPfnBuddy @ 0x140380A4C (MiGetLeafPfnBuddy.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void __fastcall MiLogMdlRangeEvent(_QWORD *a1, unsigned __int16 a2, __int64 a3)
+__int64 __fastcall MiLogMdlRangeEvent(_QWORD *a1, __int16 a2, __int64 a3)
 {
   _QWORD *v3; // rbx
   __int64 v4; // rsi
-  __int64 v6; // rcx
-  __int64 PfnPidSafe; // rdi
-  int v8; // edx
-  __int64 v9; // rax
-  __int64 v10; // rdi
-  _QWORD *v11; // rcx
-  _QWORD v12[3]; // [rsp+30h] [rbp-48h] BYREF
-  _QWORD *v13; // [rsp+48h] [rbp-30h] BYREF
-  int v14; // [rsp+50h] [rbp-28h]
-  int v15; // [rsp+54h] [rbp-24h]
+  _QWORD *v6; // rcx
+  unsigned __int64 LeafPfnBuddy; // rdi
+  __int64 result; // rax
+  __int64 v9; // rdi
+  _QWORD *v10; // rcx
+  _QWORD v11[3]; // [rsp+30h] [rbp-48h] BYREF
+  _QWORD *v12; // [rsp+48h] [rbp-30h] BYREF
+  int v13; // [rsp+50h] [rbp-28h]
+  int v14; // [rsp+54h] [rbp-24h]
 
   v3 = a1;
   v4 = a3;
-  v6 = 48LL * *a1 - 0x220000000000LL;
-  if ( ((*(_QWORD *)(v6 + 40) >> 60) & 7) == 1 )
+  v6 = (_QWORD *)(48LL * *a1 - 0x58000000000LL);
+  if ( ((v6[5] >> 60) & 7) == 1 )
   {
-    PfnPidSafe = (unsigned int)MiGetPfnPidSafe(v6, 1LL, a3);
-    v9 = (unsigned int)(v8 + 8);
+    LeafPfnBuddy = MiGetLeafPfnBuddy(v6);
+    result = 9LL;
   }
   else
   {
-    PfnPidSafe = 0LL;
-    v9 = 10LL;
+    LeafPfnBuddy = 0LL;
+    result = 10LL;
   }
   if ( a3 )
   {
-    v10 = v9 | (16 * PfnPidSafe);
+    v9 = result | (16 * (LeafPfnBuddy & 0xFFFFFFFFFFFFLL));
     do
     {
-      v11 = v3;
-      v12[1] = *v3;
-      v12[0] = v10;
+      v10 = v3;
+      v11[1] = *v3;
+      v11[0] = v9;
       do
       {
         ++v3;
         --v4;
       }
       while ( v4 && *v3 == *(v3 - 1) + 1LL );
-      v15 = 0;
-      v14 = 24;
-      v12[2] = v3 - v11;
-      v13 = v12;
-      EtwTraceKernelEvent((__int64)&v13, 1u, 0x20000001u, a2, 0x11401B04u);
+      v14 = 0;
+      v13 = 24;
+      v11[2] = v3 - v10;
+      v12 = v11;
+      result = EtwTraceKernelEvent((int)&v12, 1, 0x20000001u, a2, 289413890);
     }
     while ( v4 );
   }
+  return result;
 }

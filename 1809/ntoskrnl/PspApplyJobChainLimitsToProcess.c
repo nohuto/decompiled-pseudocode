@@ -6,10 +6,10 @@
  * Callees:
  *     RtlInterlockedSetClearBits @ 0x14008F8E0 (RtlInterlockedSetClearBits.c)
  *     PsUpdateComponentPower @ 0x14008F910 (PsUpdateComponentPower.c)
- *     PspNotifyProcessBackgroundTransition @ 0x1401314A8 (PspNotifyProcessBackgroundTransition.c)
+ *     PspNotifyProcessBackgroundTransition @ 0x1401314C8 (PspNotifyProcessBackgroundTransition.c)
  *     PspRequestProcessExecutionState @ 0x140604508 (PspRequestProcessExecutionState.c)
  *     PspApplyJobLimitsToProcess @ 0x140604550 (PspApplyJobLimitsToProcess.c)
- *     PspSetProcessSchedulingGroup @ 0x14068D5B8 (PspSetProcessSchedulingGroup.c)
+ *     PspSetProcessSchedulingGroup @ 0x14068D598 (PspSetProcessSchedulingGroup.c)
  */
 
 __int64 __fastcall PspApplyJobChainLimitsToProcess(__int64 a1, __int64 a2, volatile signed __int32 *a3)

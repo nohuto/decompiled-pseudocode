@@ -1,96 +1,98 @@
 /*
- * XREFs of BiOpenKey @ 0x140807650
+ * XREFs of BiOpenKey @ 0x140784304
  * Callers:
- *     BiOpenStoreKeyFromObject @ 0x1403744EC (BiOpenStoreKeyFromObject.c)
- *     BiAddStoreFromFile @ 0x140804BEC (BiAddStoreFromFile.c)
- *     BiCreateObject @ 0x14080581C (BiCreateObject.c)
- *     BiOpenSystemStore @ 0x140805A48 (BiOpenSystemStore.c)
- *     BiDeleteElement @ 0x140805C00 (BiDeleteElement.c)
- *     BiDeleteKey @ 0x140805E5C (BiDeleteKey.c)
- *     BiSetRegistryValue @ 0x140805FA0 (BiSetRegistryValue.c)
- *     BcdSetElementDataWithFlags @ 0x14080669C (BcdSetElementDataWithFlags.c)
- *     BiBuildIdentifierList @ 0x140806BE8 (BiBuildIdentifierList.c)
- *     BiGetObjectDescription @ 0x14080716C (BiGetObjectDescription.c)
- *     BcdGetElementDataWithFlags @ 0x14080723C (BcdGetElementDataWithFlags.c)
- *     BcdOpenObject @ 0x1408074C4 (BcdOpenObject.c)
- *     BiGetRegistryValue @ 0x1408079C4 (BiGetRegistryValue.c)
- *     BiDeleteRegistryValue @ 0x1408097F4 (BiDeleteRegistryValue.c)
- *     BiCleanupLoadedStores @ 0x14080A164 (BiCleanupLoadedStores.c)
- *     BcdEnumerateObjects @ 0x140A5C4A0 (BcdEnumerateObjects.c)
- *     BiIsPortableWorkspaceBoot @ 0x140A5D71C (BiIsPortableWorkspaceBoot.c)
+ *     BiOpenStoreKeyFromObject @ 0x1405C3990 (BiOpenStoreKeyFromObject.c)
+ *     BiDeleteKey @ 0x140779860 (BiDeleteKey.c)
+ *     BiAddStoreFromFile @ 0x140781CD8 (BiAddStoreFromFile.c)
+ *     BiGetObjectDescription @ 0x140781ED8 (BiGetObjectDescription.c)
+ *     BiCleanupLoadedStores @ 0x140781FA8 (BiCleanupLoadedStores.c)
+ *     BiDeleteRegistryValue @ 0x1407820E4 (BiDeleteRegistryValue.c)
+ *     BiDeleteElement @ 0x14078309C (BiDeleteElement.c)
+ *     BiOpenSystemStore @ 0x14078371C (BiOpenSystemStore.c)
+ *     BcdOpenObject @ 0x140783940 (BcdOpenObject.c)
+ *     BiGetRegistryValue @ 0x140783CF8 (BiGetRegistryValue.c)
+ *     BcdSetElementDataWithFlags @ 0x140783EDC (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x1407840C0 (BcdGetElementDataWithFlags.c)
+ *     BiSetRegistryValue @ 0x140784964 (BiSetRegistryValue.c)
+ *     BcdEnumerateObjects @ 0x14096ED5C (BcdEnumerateObjects.c)
+ *     BiCreateObject @ 0x14096F018 (BiCreateObject.c)
+ *     BiIsPortableWorkspaceBoot @ 0x14096F8F8 (BiIsPortableWorkspaceBoot.c)
+ *     BiBuildIdentifierList @ 0x140970978 (BiBuildIdentifierList.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     BiSanitizeHandle @ 0x14036937C (BiSanitizeHandle.c)
- *     BiZwOpenKey @ 0x14037440C (BiZwOpenKey.c)
- *     BiZwSetSecurityObject @ 0x140374434 (BiZwSetSecurityObject.c)
- *     CmSiCloseSection @ 0x140374450 (CmSiCloseSection.c)
- *     BiCreateKeySecurityDescriptor @ 0x140807830 (BiCreateKeySecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     CmSiCloseSection @ 0x140321658 (CmSiCloseSection.c)
+ *     BiSanitizeHandle @ 0x14032C5AC (BiSanitizeHandle.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     BiZwOpenKey @ 0x14039AE84 (BiZwOpenKey.c)
+ *     BiZwSetSecurityObject @ 0x14039AEAC (BiZwSetSecurityObject.c)
+ *     BiCreateKeySecurityDescriptor @ 0x1407844E0 (BiCreateKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiOpenKey(__int64 a1, const WCHAR *a2, ACCESS_MASK a3, _QWORD *a4)
 {
-  unsigned int i; // esi
+  unsigned int i; // edi
   void *KeySecurityDescriptor; // r14
-  ACCESS_MASK v10; // edx
-  NTSTATUS v11; // ebx
-  __int64 v13; // rdx
-  HANDLE v14; // [rsp+28h] [rbp-90h] BYREF
-  HANDLE v15; // [rsp+30h] [rbp-88h] BYREF
+  void *v10; // rax
+  ACCESS_MASK v11; // edx
+  NTSTATUS v12; // ebx
+  __int64 v14; // rdx
+  HANDLE v15; // [rsp+28h] [rbp-90h] BYREF
+  HANDLE v16; // [rsp+30h] [rbp-88h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-80h] BYREF
-  OBJECT_ATTRIBUTES v17[2]; // [rsp+48h] [rbp-70h] BYREF
-  void *v18; // [rsp+C0h] [rbp+8h]
+  OBJECT_ATTRIBUTES v18[2]; // [rsp+48h] [rbp-70h] BYREF
+  __int64 v19; // [rsp+C0h] [rbp+8h]
 
-  v15 = 0LL;
+  v16 = 0LL;
   DestinationString = 0LL;
-  *(&v17[0].Length + 1) = 0;
-  *(&v17[0].Attributes + 1) = 0;
+  *(&v18[0].Length + 1) = 0;
+  *(&v18[0].Attributes + 1) = 0;
   for ( i = 0; ; ++i )
   {
-    v14 = 0LL;
+    v15 = 0LL;
     KeySecurityDescriptor = 0LL;
     RtlInitUnicodeString(&DestinationString, a2);
-    v18 = (void *)BiSanitizeHandle(a1);
+    v10 = (void *)BiSanitizeHandle(a1);
+    v19 = (__int64)v10;
     a3 |= 0x40000u;
-    v17[0].Length = 48;
-    v17[0].RootDirectory = v18;
-    v17[0].Attributes = 576;
-    v17[0].ObjectName = &DestinationString;
-    *(_OWORD *)&v17[0].SecurityDescriptor = 0LL;
-    v10 = 0x40000;
-    if ( (a3 & 0x60019) == a3 )
-      v10 = a3;
-    v11 = BiZwOpenKey(&v14, v10, v17);
-    if ( v11 >= 0 )
+    v11 = a3;
+    if ( (a3 & 0x60019) != a3 )
+      v11 = 0x40000;
+    v18[0].Length = 48;
+    v18[0].RootDirectory = v10;
+    v18[0].Attributes = 576;
+    v18[0].ObjectName = &DestinationString;
+    *(_OWORD *)&v18[0].SecurityDescriptor = 0LL;
+    v12 = BiZwOpenKey(&v15, v11, v18);
+    if ( v12 >= 0 )
     {
       if ( (a3 & 0x60019) == a3 )
         goto LABEL_6;
       KeySecurityDescriptor = (void *)BiCreateKeySecurityDescriptor(983103);
-      v11 = BiZwSetSecurityObject(v14, v13, KeySecurityDescriptor);
-      if ( v11 >= 0 )
+      v12 = BiZwSetSecurityObject(v15, v14, KeySecurityDescriptor);
+      if ( v12 >= 0 )
       {
-        v11 = BiZwOpenKey(&v15, a3, v17);
-        if ( v11 >= 0 )
+        v12 = BiZwOpenKey(&v16, a3, v18);
+        if ( v12 >= 0 )
         {
-          CmSiCloseSection(v14);
-          v14 = v15;
+          CmSiCloseSection(v15);
+          v15 = v16;
 LABEL_6:
-          *a4 = v14;
+          *a4 = v15;
         }
       }
     }
-    if ( v11 < 0 && v14 )
-      CmSiCloseSection(v14);
+    if ( v12 < 0 && v15 )
+      CmSiCloseSection(v15);
     if ( KeySecurityDescriptor )
       ExFreePoolWithTag(KeySecurityDescriptor, 0x4B444342u);
-    if ( v11 == -1073741443 )
+    if ( v12 == -1073741443 )
     {
       __debugbreak();
-      a1 = (__int64)v18;
+      a1 = v19;
       if ( i < 5 )
         continue;
     }
     break;
   }
-  return (unsigned int)v11;
+  return (unsigned int)v12;
 }

@@ -1,24 +1,25 @@
 /*
- * XREFs of ?UnmapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1T_LARGE_INTEGER@@H@Z @ 0x1C0086610
+ * XREFs of ?UnmapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1T_LARGE_INTEGER@@H@Z @ 0x1C00B30BC
  * Callers:
- *     ?UnmapApertureRange@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K11PEAU_MDL@@H@Z @ 0x1C0086D20 (-UnmapApertureRange@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K11PEAU_MDL@@H@Z.c)
+ *     ?UnmapVideoApertureSegment@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@I_K11T_LARGE_INTEGER@@H@Z @ 0x1C00B3070 (-UnmapVideoApertureSegment@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@I_K11T_LARGE_INTEGER@@H@Z.c)
+ *     ?ValidateApertureUnmapToDummyPage@VIDMM_APERTURE_SEGMENT@@UEAAJPEAVVIDMM_SEGMENT@@_K@Z @ 0x1C00C2D20 (-ValidateApertureUnmapToDummyPage@VIDMM_APERTURE_SEGMENT@@UEAAJPEAVVIDMM_SEGMENT@@_K@Z.c)
  * Callees:
- *     ?DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C00053BC (-DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0005BC0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006770 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0089B4C (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
- *     ?SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0091F60 (-SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BU.c)
- *     ?CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@JHPEAX@Z @ 0x1C0092140 (-CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_B.c)
- *     ?SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0092384 (-SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGING.c)
- *     ?BeginVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00E0684 (-BeginVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?EndVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00E1BE0 (-EndVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0001CF0 (-DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006090 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000613C (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0060630 (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0063C58 (-SetupForBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BU.c)
+ *     ?SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0063E34 (-SetupForBuildPagingBuffer@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGING.c)
+ *     ?CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@JHPEAX@Z @ 0x1C0074148 (-CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_B.c)
+ *     ?BeginVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00AC91C (-BeginVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?EndVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00ADDAC (-EndVirtualCopyExclusiveAccess@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::UnmapVideoApertureSegmentInternal(
         VIDMM_GLOBAL *this,
         unsigned int a2,
-        struct _VIDMM_GLOBAL_ALLOC *a3,
+        DXGFASTMUTEX **a3,
         UINT a4,
         unsigned __int64 a5,
         SIZE_T a6,
@@ -29,52 +30,69 @@ void __fastcall VIDMM_GLOBAL::UnmapVideoApertureSegmentInternal(
   char v13; // r12
   struct _VIDMM_GLOBAL_ALLOC *v14; // r8
   SIZE_T v15; // rax
-  int v16; // edi
-  struct _LIST_ENTRY v17; // [rsp+48h] [rbp-C0h] BYREF
-  _DXGKARG_BUILDPAGINGBUFFER v18; // [rsp+58h] [rbp-B0h] BYREF
+  DXGFASTMUTEX *v16; // rax
+  struct _KTHREAD **v17; // rcx
+  __int64 v18; // rdx
+  int v19; // edi
+  __int64 v20; // r8
+  struct _LIST_ENTRY v21; // [rsp+48h] [rbp-C0h] BYREF
+  struct _DXGKARG_BUILDPAGINGBUFFER v22; // [rsp+58h] [rbp-B0h] BYREF
 
-  v8 = (*((_BYTE *)this + 40937) & 0x40) == 0;
-  v17 = 0LL;
+  v8 = (*((_BYTE *)this + 40937) & 0x10) == 0;
+  v21 = 0LL;
   if ( !v8 )
   {
-    v17.Blink = &v17;
-    v17.Flink = &v17;
-    VIDMM_GLOBAL::BeginVirtualCopyExclusiveAccess(this, &v17);
+    v21.Blink = &v21;
+    v21.Flink = &v21;
+    VIDMM_GLOBAL::BeginVirtualCopyExclusiveAccess(this, &v21);
   }
   v13 = 0;
-  memset(&v18, 0, sizeof(v18));
-  VIDMM_GLOBAL::SetupForBuildPagingBuffer(this, a2, v14, &v18);
+  memset(&v22, 0, sizeof(v22));
+  VIDMM_GLOBAL::SetupForBuildPagingBuffer(this, a2, v14, &v22);
   do
   {
-    VIDMM_GLOBAL::SetupForBuildPagingBufferIteration(this, a2, a3, &v18);
-    v18.Operation = DXGK_OPERATION_UNMAP_APERTURE_SEGMENT;
+    VIDMM_GLOBAL::SetupForBuildPagingBufferIteration(this, a2, (struct _VIDMM_GLOBAL_ALLOC *)a3, &v22);
+    v22.Operation = DXGK_OPERATION_UNMAP_APERTURE_SEGMENT;
     if ( a3 )
-      v15 = *(_QWORD *)(*((_QWORD *)a3 + 67) + 40LL);
-    else
-      v15 = 0LL;
-    v18.UpdateContextAllocation.ContextAllocation = 0LL;
-    v18.Fill.FillSize = v15;
-    v18.MapApertureSegment.OffsetInPages = a6;
-    v18.Transfer.Source.SegmentAddress.QuadPart = a5;
-    v18.Fill.FillPattern = a4;
-    v18.UnmapApertureSegment.DummyPage = a7;
-    if ( a3 && *((_QWORD *)a3 + 11) && (**((_DWORD **)a3 + 67) & 0x10000000) == 0 && (*((_DWORD *)a3 + 19) & 4) == 0 )
     {
-      DXGFASTMUTEX::Acquire((struct _VIDMM_GLOBAL_ALLOC *)((char *)a3 + 296));
-      v18.UpdateContextAllocation.ContextAllocation = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a3 + 11) + 40LL)
-                                                                                        - 32LL)
-                                                                            + 24LL)
-                                                                + 616LL);
-      DXGFASTMUTEX::Release((struct _KTHREAD **)a3 + 37);
+      v16 = a3[5];
+      if ( v16 )
+        v15 = *((_QWORD *)v16 + 2);
+      else
+        v15 = (SIZE_T)a3[6];
     }
-    v16 = ADAPTER_RENDER::DdiBuildPagingBuffer(
-            *((ADAPTER_RENDER **)this + 2),
-            (struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *)&v18);
-    v13 |= VIDMM_GLOBAL::CompleteBuildPagingBufferIteration(this, a2, a3, &v18, v16, a8, 0LL);
+    else
+    {
+      v15 = 0LL;
+    }
+    v22.UpdateContextAllocation.ContextAllocation = 0LL;
+    v22.Fill.FillSize = v15;
+    v22.MapApertureSegment.OffsetInPages = a6;
+    v22.Transfer.Source.SegmentAddress.QuadPart = a5;
+    v22.Fill.FillPattern = a4;
+    v22.UnmapApertureSegment.DummyPage = a7;
+    if ( a3 && a3[12] && (*(_DWORD *)a3[62] & 0x10000000) == 0 && (*((_DWORD *)a3 + 21) & 4) == 0 )
+    {
+      DXGFASTMUTEX::Acquire(a3[39]);
+      v17 = (struct _KTHREAD **)a3[39];
+      v22.UpdateContextAllocation.ContextAllocation = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a3[12] + 5) - 32LL)
+                                                                            + 24LL)
+                                                                + 584LL);
+      DXGFASTMUTEX::Release(v17, v18);
+    }
+    v19 = ADAPTER_RENDER::DdiBuildPagingBuffer(*((ADAPTER_RENDER **)this + 2), &v22);
+    v13 |= VIDMM_GLOBAL::CompleteBuildPagingBufferIteration(
+             this,
+             a2,
+             (struct _VIDMM_GLOBAL_ALLOC *)a3,
+             &v22,
+             v19,
+             a8,
+             0LL);
   }
-  while ( v16 == -1071775743 );
+  while ( v19 == -1071775743 );
   if ( v13 )
     VIDMM_GLOBAL::WaitForAllPagingEnginesIdle(this, a2);
-  if ( (*((_BYTE *)this + 40937) & 0x40) != 0 )
-    VIDMM_GLOBAL::EndVirtualCopyExclusiveAccess(this, &v17);
+  if ( (*((_BYTE *)this + 40937) & 0x10) != 0 )
+    VIDMM_GLOBAL::EndVirtualCopyExclusiveAccess(this, &v21, v20);
 }

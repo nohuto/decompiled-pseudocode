@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0CScrollKeyframeAnimation@@QEAA@PEAVCComposition@@PEAVCInteractionTracker@@@Z @ 0x18025F444
+ * XREFs of ??0CScrollKeyframeAnimation@@QEAA@PEAVCComposition@@PEAVCInteractionTracker@@@Z @ 0x18020EB94
  * Callers:
- *     ?CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4DCOMPOSITION_EXPRESSION_TYPE@@AEBUD2DVector4@@MPEAPEAVCScrollKeyframeAnimation@@@Z @ 0x18021A18C (-CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4.c)
- *     ??0CScrollPositionKeyframeAnimation@@QEAA@PEAVCComposition@@PEAVCInteractionTracker@@@Z @ 0x18025519C (--0CScrollPositionKeyframeAnimation@@QEAA@PEAVCComposition@@PEAVCInteractionTracker@@@Z.c)
+ *     ?CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4DCOMPOSITION_EXPRESSION_TYPE@@AEBUD2DVector4@@MPEAPEAVCScrollKeyframeAnimation@@@Z @ 0x1801C8FC8 (-CreateAndStartKeyframeAnimation@CInteractionTracker@@AEAAJW4Enum@InteractionTrackerProperty@@W4.c)
+ *     ??0CScrollPositionKeyframeAnimation@@QEAA@PEAVCComposition@@PEAVCInteractionTracker@@@Z @ 0x18020491C (--0CScrollPositionKeyframeAnimation@@QEAA@PEAVCComposition@@PEAVCInteractionTracker@@@Z.c)
  * Callees:
- *     ??0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z @ 0x180046514 (--0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ??0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1800D1E24 (--0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 CScrollKeyframeAnimation *__fastcall CScrollKeyframeAnimation::CScrollKeyframeAnimation(
@@ -16,17 +16,17 @@ CScrollKeyframeAnimation *__fastcall CScrollKeyframeAnimation::CScrollKeyframeAn
   CScrollKeyframeAnimation *result; // rax
 
   CKeyframeAnimation::CKeyframeAnimation(this, a2);
-  *((_QWORD *)this + 72) = a3;
+  *((_QWORD *)this + 69) = a3;
   *(_QWORD *)this = &CScrollKeyframeAnimation::`vftable';
-  memset_0((char *)this + 584, 0, 0x40uLL);
-  *((_QWORD *)this + 81) = 0LL;
-  *((_DWORD *)this + 164) = 18;
-  *((_BYTE *)this + 660) = 0;
-  memset_0((char *)this + 664, 0, 0x40uLL);
-  *((_QWORD *)this + 91) = 0LL;
+  memset_0((char *)this + 560, 0, 0x40uLL);
+  *((_QWORD *)this + 78) = 0LL;
+  *((_DWORD *)this + 158) = 18;
+  *((_BYTE *)this + 636) = 0;
+  memset_0((char *)this + 640, 0, 0x40uLL);
+  *((_QWORD *)this + 88) = 0LL;
   result = this;
-  *((_DWORD *)this + 184) = 18;
-  *((_BYTE *)this + 740) = 0;
-  *((_DWORD *)this + 53) = 88;
+  *((_DWORD *)this + 178) = 18;
+  *((_BYTE *)this + 716) = 0;
+  *((_DWORD *)this + 51) = 88;
   return result;
 }

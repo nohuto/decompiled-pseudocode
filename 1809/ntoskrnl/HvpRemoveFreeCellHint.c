@@ -8,7 +8,7 @@
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  *     RtlFindSetBits @ 0x14008BE50 (RtlFindSetBits.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
  */
 

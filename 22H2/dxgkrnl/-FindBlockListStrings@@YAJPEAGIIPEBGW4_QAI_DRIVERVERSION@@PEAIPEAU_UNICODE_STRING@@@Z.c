@@ -1,18 +1,18 @@
 /*
- * XREFs of ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C021C7DC
+ * XREFs of ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C01923A8
  * Callers:
- *     ?CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C021C410 (-CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
- *     ?CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C021C49C (-CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
+ *     ?CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C019231C (-CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
+ *     ?CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C0192A24 (-CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0003734 (_tlgKeywordOn.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     wcscmp_0 @ 0x1C00281E8 (wcscmp_0.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U1@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@34@Z @ 0x1C005E9EC (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U1@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgP.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U1@U2@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@343@Z @ 0x1C005EAF8 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U1@U2@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_t.c)
- *     DxgkRetrieveStringFromRegistry @ 0x1C01FC710 (DxgkRetrieveStringFromRegistry.c)
- *     ?ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z @ 0x1C021CBF8 (-ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     _tlgKeywordOn @ 0x1C000C284 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     wcscmp_0 @ 0x1C0028CA8 (wcscmp_0.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U1@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@34@Z @ 0x1C0052270 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U1@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgP.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@G@@U1@U2@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@G@@343@Z @ 0x1C005237C (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@G@@U1@U2@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_t.c)
+ *     ?ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z @ 0x1C01927C4 (-ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z.c)
+ *     DxgkRetrieveStringFromRegistry @ 0x1C01943B0 (DxgkRetrieveStringFromRegistry.c)
  */
 
 __int64 __fastcall FindBlockListStrings(
@@ -30,12 +30,12 @@ __int64 __fastcall FindBlockListStrings(
   unsigned int v10; // r14d
   NTSTATUS v11; // r12d
   int v12; // ebx
-  __int64 v13; // r13
+  unsigned __int16 *v13; // r13
   ULONG v14; // eax
   ULONG v15; // ecx
   unsigned __int16 *v16; // r9
   unsigned __int64 v17; // rax
-  NTSTATUS v19; // eax
+  int v19; // eax
   int v20; // r10d
   __int64 v21; // r15
   unsigned int v22; // edi
@@ -66,7 +66,7 @@ __int64 __fastcall FindBlockListStrings(
   int v47; // eax
   char v48; // r9
   unsigned int v49; // edi
-  __int64 v50; // rbx
+  char *v50; // rbx
   enum _QAI_DRIVERVERSION v51; // esi
   __int64 v52; // rcx
   __int64 v53; // r8
@@ -125,7 +125,7 @@ __int64 __fastcall FindBlockListStrings(
     if ( (_DWORD)v79 )
     {
       v12 = DWORD1(v79) + 18;
-      v13 = operator new[]((unsigned int)(DWORD1(v79) + 18), 0x4B677844u, 256LL);
+      v13 = (unsigned __int16 *)operator new[]((unsigned int)(DWORD1(v79) + 18), 0x4B677844u, PagedPool);
       if ( v13 )
       {
         v14 = 0;
@@ -136,23 +136,23 @@ __int64 __fastcall FindBlockListStrings(
           v70 = v12 - 2;
           do
           {
-            v11 = ZwEnumerateValueKey(KeyHandle, v14, KeyValueBasicInformation, (PVOID)v13, v15, &ResultLength);
-            if ( v11 >= 0 && *(_DWORD *)(v13 + 4) == 7 )
+            v11 = ZwEnumerateValueKey(KeyHandle, v14, KeyValueBasicInformation, v13, v15, &ResultLength);
+            if ( v11 >= 0 && *((_DWORD *)v13 + 1) == 7 )
             {
               v16 = v71;
-              v17 = (unsigned __int64)*(unsigned int *)(v13 + 8) >> 1;
+              v17 = (unsigned __int64)*((unsigned int *)v13 + 2) >> 1;
               v59[0] = 0;
-              *(_WORD *)(v13 + 2 * v17 + 12) = 0;
-              v11 = ParseAndCompareBlockListCondition((const unsigned __int16 *)(v13 + 12), v8, v10, v16, a5, v59);
+              v13[v17 + 6] = 0;
+              v11 = ParseAndCompareBlockListCondition(v13 + 6, v8, v10, v16, a5, v59);
               if ( v11 >= 0 )
               {
                 if ( v59[0] )
                 {
                   ValueName = 0LL;
-                  RtlInitUnicodeString(&ValueName, (PCWSTR)(v13 + 12));
+                  RtlInitUnicodeString(&ValueName, v13 + 6);
                   if ( *v7 < 0x14 )
                   {
-                    v19 = DxgkRetrieveStringFromRegistry(KeyHandle, &ValueName, (__int64)&v9[*v7]);
+                    v19 = DxgkRetrieveStringFromRegistry(KeyHandle, &ValueName);
                     LOBYTE(v20) = 0;
                     v11 = v19;
                     if ( v19 >= 0 )
@@ -254,23 +254,23 @@ LABEL_31:
                       v48 = 0;
 LABEL_44:
                       if ( (v39 || v48)
-                        && (unsigned int)dword_1C013F918 > 5
-                        && tlgKeywordOn((__int64)&dword_1C013F918, 0x400000000200LL) )
+                        && (unsigned int)dword_1C00B1A90 > 5
+                        && tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000000200LL) )
                       {
                         if ( !(_BYTE)v54 || (v55 = 1, v39) )
                           v55 = v20;
                         v49 = v60;
-                        v50 = v13 + 12;
+                        v50 = (char *)(v13 + 6);
                         v51 = v61;
                         v69 = v55;
                         v62 = a5;
                         *(_QWORD *)&v68.Length = v71;
-                        v73 = (unsigned __int16 *)(v13 + 12);
+                        v73 = v13 + 6;
                         v63 = v60;
                         v64 = v61;
                         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>>(
                           v52,
-                          byte_1C00A96B9,
+                          byte_1C008089E,
                           v53,
                           v54,
                           (__int64)&v64,
@@ -284,12 +284,12 @@ LABEL_44:
                       else
                       {
                         v49 = v60;
-                        v50 = v13 + 12;
+                        v50 = (char *)(v13 + 6);
                         v51 = v61;
                       }
-                      if ( v59[0] != (_BYTE)v20 && (unsigned int)dword_1C013F918 > 5 )
+                      if ( v59[0] != (_BYTE)v20 && (unsigned int)dword_1C00B1A90 > 5 )
                       {
-                        if ( tlgKeywordOn((__int64)&dword_1C013F918, 0x400000001000LL) )
+                        if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000001000LL) )
                         {
                           v64 = a5;
                           v73 = v71;
@@ -298,7 +298,7 @@ LABEL_44:
                           v62 = v51;
                           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
                             v56,
-                            byte_1C00A9655,
+                            byte_1C008083A,
                             v57,
                             v58,
                             (__int64)&v62,
@@ -324,7 +324,7 @@ LABEL_44:
           }
           while ( v14 < (unsigned int)v79 );
         }
-        operator delete((void *)v13);
+        operator delete[](v13);
       }
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AnimateSingle@CParticleAttractor@@UEBAXMAEAV?$span@M$0?0@gsl@@0@Z @ 0x180229890
+ * XREFs of ?AnimateSingle@CParticleAttractor@@UEBAXMAEAV?$span@M$0?0@gsl@@0@Z @ 0x1801DAB00
  * Callers:
  *     <none>
  * Callees:
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
  */
 
 void __fastcall CParticleAttractor::AnimateSingle(__int64 a1, float a2, __int64 a3, __int64 a4)
@@ -26,7 +26,7 @@ void __fastcall CParticleAttractor::AnimateSingle(__int64 a1, float a2, __int64 
   v7 = *(float *)&v15 - *v4;
   v8 = *((float *)&v15 + 1) - v4[1];
   v9 = *(float *)(a1 - 16) - v4[2];
-  v10 = fmaxf(o_sqrtf_0((float)((float)(v8 * v8) + (float)(v7 * v7)) + (float)(v9 * v9)), 0.001);
+  v10 = fmaxf(sqrtf_0((float)((float)(v8 * v8) + (float)(v7 * v7)) + (float)(v9 * v9)), 0.001);
   if ( *(float *)(a1 - 12) > v10 )
   {
     v11 = a2 * *(float *)(a1 - 8);

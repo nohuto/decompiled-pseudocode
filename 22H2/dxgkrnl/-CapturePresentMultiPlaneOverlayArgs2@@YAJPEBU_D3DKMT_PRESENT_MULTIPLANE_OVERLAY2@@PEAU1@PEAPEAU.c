@@ -1,12 +1,11 @@
 /*
- * XREFs of ?CapturePresentMultiPlaneOverlayArgs2@@YAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY2@@PEAU1@PEAPEAU_D3DKMT_MULTIPLANE_OVERLAY2@@PEAPEAUtagRECT@@@Z @ 0x1C0323804
+ * XREFs of ?CapturePresentMultiPlaneOverlayArgs2@@YAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY2@@PEAU1@PEAPEAU_D3DKMT_MULTIPLANE_OVERLAY2@@PEAPEAUtagRECT@@@Z @ 0x1C02A35E0
  * Callers:
- *     DxgkPresentMultiPlaneOverlay2 @ 0x1C03259E0 (DxgkPresentMultiPlaneOverlay2.c)
+ *     DxgkPresentMultiPlaneOverlay2 @ 0x1C02A82B0 (DxgkPresentMultiPlaneOverlay2.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     memmove @ 0x1C0028340 (memmove.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
  */
 
 __int64 __fastcall CapturePresentMultiPlaneOverlayArgs2(
@@ -18,26 +17,35 @@ __int64 __fastcall CapturePresentMultiPlaneOverlayArgs2(
   _OWORD *v7; // rax
   __int64 v8; // r14
   __int64 v9; // rdx
-  unsigned __int64 v10; // rcx
-  __int64 v11; // rsi
-  unsigned int v12; // edi
-  unsigned __int64 v13; // rax
+  __int64 v10; // rdi
+  unsigned __int64 v11; // rdi
+  SIZE_T v12; // rax
+  __int64 v13; // rdx
   __int64 v14; // rcx
-  struct _D3DKMT_MULTIPLANE_OVERLAY2 *v15; // rdi
-  __int64 v16; // rax
-  void *v18; // rdx
-  _OWORD *v19; // rax
-  __int64 v20; // rbx
-  __int64 CurrentProcess; // rax
-  __int64 v22; // rcx
-  __int64 v23; // rax
-  _BYTE v24[284]; // [rsp+60h] [rbp-148h] BYREF
-  unsigned int v25; // [rsp+17Ch] [rbp-2Ch]
-  void *Src; // [rsp+180h] [rbp-28h]
+  struct _D3DKMT_MULTIPLANE_OVERLAY2 *v15; // rsi
+  __int64 v16; // r8
+  __int64 v17; // rbx
+  unsigned int v18; // edi
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  void *v23; // rdx
+  char *v24; // rcx
+  _OWORD *v25; // rax
+  __int64 v27; // rax
+  _QWORD *v28; // rbx
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  __int64 v32; // r9
+  _BYTE v33[284]; // [rsp+30h] [rbp-148h] BYREF
+  unsigned int v34; // [rsp+14Ch] [rbp-2Ch]
+  void *Src; // [rsp+150h] [rbp-28h]
 
   if ( (unsigned __int64)a1 >= MmUserProbeAddress )
     a1 = (const struct _D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 *)MmUserProbeAddress;
-  v7 = v24;
+  v7 = v33;
   v8 = 2LL;
   v9 = 2LL;
   do
@@ -58,77 +66,68 @@ __int64 __fastcall CapturePresentMultiPlaneOverlayArgs2(
   *v7 = *(_OWORD *)&a1->hAdapter;
   v7[1] = *(_OWORD *)&a1->BroadcastContext[1];
   v7[2] = *(_OWORD *)&a1->BroadcastContext[5];
-  if ( v25 - 1 > 6 )
+  v10 = v34;
+  if ( v34 - 1 > 6 )
   {
-    v20 = v25;
-    CurrentProcess = PsGetCurrentProcess(v25);
-    v12 = -1073741811;
-    WdLogSingleEntry3(2LL, v20, -1073741811LL, CurrentProcess);
-    v23 = PsGetCurrentProcess(v22);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Presenting multi plane overlay plane count (0x%I64x) is invalid, returing 0x%I64x at 0x%I64x",
-      v20,
-      -1073741811LL,
-      v23,
-      0LL,
-      0LL);
-    return v12;
+    v28 = (_QWORD *)WdLogNewEntry5_WdError(a1, 0LL);
+    v28[3] = v10;
+    v18 = -1073741811;
+    v28[4] = -1073741811LL;
+    v28[5] = PsGetCurrentProcess(v30, v29, v31, v32);
+    WdLogEvent5_WdError(v28);
+    return v18;
   }
-  v10 = 120LL * v25;
-  v11 = 0xFFFFFFFFLL;
-  if ( v10 <= 0xFFFFFFFF )
-    v11 = (unsigned int)v10;
-  v12 = v10 > 0xFFFFFFFF ? 0xC0000095 : 0;
-  if ( v10 > 0xFFFFFFFF )
+  v11 = 120LL * v34;
+  if ( v11 > 0xFFFFFFFF )
   {
-    WdLogSingleEntry1(3LL, 186LL);
-    return v12;
+    v27 = WdLogNewEntry5_WdWarning(v34, 0LL, a3);
+    *(_QWORD *)(v27 + 24) = 186LL;
+    WdLogEvent5_WdWarning(v27);
+    return 3221225621LL;
   }
-  v13 = 120LL * v25;
-  if ( !is_mul_ok(v25, 0x78uLL) )
-    v13 = -1LL;
-  v15 = (struct _D3DKMT_MULTIPLANE_OVERLAY2 *)operator new[](v13, 0x4B677844u, 256LL);
-  if ( v15 )
+  v12 = 120LL * v34;
+  if ( !is_mul_ok(v34, 0x78uLL) )
+    v12 = -1LL;
+  v15 = (struct _D3DKMT_MULTIPLANE_OVERLAY2 *)operator new[](v12, 0x4B677844u, PagedPool);
+  if ( !v15 )
   {
-    v18 = Src;
-    if ( (char *)Src + v11 < Src || (unsigned __int64)Src + v11 > MmUserProbeAddress )
-      *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(v15, v18, (unsigned int)v11);
-    Src = v15;
-    v19 = v24;
-    do
-    {
-      *(_OWORD *)&a2->hAdapter = *v19;
-      *(_OWORD *)&a2->BroadcastContext[1] = v19[1];
-      *(_OWORD *)&a2->BroadcastContext[5] = v19[2];
-      *(_OWORD *)&a2->BroadcastContext[9] = v19[3];
-      *(_OWORD *)&a2->BroadcastContext[13] = v19[4];
-      *(_OWORD *)&a2->BroadcastContext[17] = v19[5];
-      *(_OWORD *)&a2->BroadcastContext[21] = v19[6];
-      a2 = (struct _D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 *)((char *)a2 + 128);
-      *(_OWORD *)&a2[-1].pPresentPlanes = v19[7];
-      v19 += 8;
-      --v8;
-    }
-    while ( v8 );
-    *(_OWORD *)&a2->hAdapter = *v19;
-    *(_OWORD *)&a2->BroadcastContext[1] = v19[1];
-    *(_OWORD *)&a2->BroadcastContext[5] = v19[2];
-    *a3 = v15;
-    *a4 = 0LL;
-    operator delete(0LL);
-    operator delete(0LL);
-    return 0LL;
+    v17 = WdLogNewEntry5_WdWarning(v14, v13, v16);
+    v18 = -1073741801;
+    *(_QWORD *)(v17 + 24) = -1073741801LL;
+    *(_QWORD *)(v17 + 32) = PsGetCurrentProcess(v20, v19, v21, v22);
+    WdLogEvent5_WdWarning(v17);
+    operator delete[](0LL);
+    operator delete[](0LL);
+    return v18;
   }
-  else
+  v23 = Src;
+  v24 = (char *)Src + (unsigned int)v11;
+  if ( v24 < Src || (unsigned __int64)v24 > MmUserProbeAddress )
+    *(_BYTE *)MmUserProbeAddress = 0;
+  memmove(v15, v23, (unsigned int)v11);
+  Src = v15;
+  v25 = v33;
+  do
   {
-    v16 = PsGetCurrentProcess(v14);
-    WdLogSingleEntry2(3LL, -1073741801LL, v16);
-    operator delete(0LL);
-    operator delete(0LL);
-    return 3221225495LL;
+    *(_OWORD *)&a2->hAdapter = *v25;
+    *(_OWORD *)&a2->BroadcastContext[1] = v25[1];
+    *(_OWORD *)&a2->BroadcastContext[5] = v25[2];
+    *(_OWORD *)&a2->BroadcastContext[9] = v25[3];
+    *(_OWORD *)&a2->BroadcastContext[13] = v25[4];
+    *(_OWORD *)&a2->BroadcastContext[17] = v25[5];
+    *(_OWORD *)&a2->BroadcastContext[21] = v25[6];
+    a2 = (struct _D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 *)((char *)a2 + 128);
+    *(_OWORD *)&a2[-1].pPresentPlanes = v25[7];
+    v25 += 8;
+    --v8;
   }
+  while ( v8 );
+  *(_OWORD *)&a2->hAdapter = *v25;
+  *(_OWORD *)&a2->BroadcastContext[1] = v25[1];
+  *(_OWORD *)&a2->BroadcastContext[5] = v25[2];
+  *a3 = v15;
+  *a4 = 0LL;
+  operator delete[](0LL);
+  operator delete[](0LL);
+  return 0LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAdjustGroupsToken @ 0x14041B420
+ * XREFs of ZwAdjustGroupsToken @ 0x1403FA7A0
  * Callers:
  *     <none>
  * Callees:

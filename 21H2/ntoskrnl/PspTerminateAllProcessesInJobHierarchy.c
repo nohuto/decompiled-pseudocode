@@ -1,14 +1,14 @@
 /*
- * XREFs of PspTerminateAllProcessesInJobHierarchy @ 0x1406D78E0
+ * XREFs of PspTerminateAllProcessesInJobHierarchy @ 0x1406B5B68
  * Callers:
- *     NtTerminateJobObject @ 0x1406D7770 (NtTerminateJobObject.c)
- *     PspJobClose @ 0x1406D77F0 (PspJobClose.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1406FFA80 (PspEnforceLimitsJobPostCallback.c)
- *     PsTerminateServerSilo @ 0x1409AB9B0 (PsTerminateServerSilo.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618320 (PspEnforceLimitsJobPostCallback.c)
+ *     PspJobClose @ 0x1406B5A00 (PspJobClose.c)
+ *     NtTerminateJobObject @ 0x1406B5AF0 (NtTerminateJobObject.c)
+ *     PsTerminateServerSilo @ 0x140905D00 (PsTerminateServerSilo.c)
  * Callees:
- *     PspEvaluateAndNotifyEmptyJob @ 0x140683DF0 (PspEvaluateAndNotifyEmptyJob.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FF880 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     EtwTraceJob @ 0x1409E21EC (EtwTraceJob.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x140604FA0 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     EtwTraceJob @ 0x140935D48 (EtwTraceJob.c)
  */
 
 char __fastcall PspTerminateAllProcessesInJobHierarchy(PRKEVENT Event, unsigned int a2, char a3)
@@ -19,10 +19,10 @@ char __fastcall PspTerminateAllProcessesInJobHierarchy(PRKEVENT Event, unsigned 
 
   v3 = 0;
   v8 = 0LL;
-  _InterlockedOr(&Event[63].Header.Lock, 0x80u);
+  _InterlockedOr(&Event[55].Header.Lock, 0x80u);
   LODWORD(v8) = a2;
   BYTE4(v8) = a3 != 0;
-  PspEnumJobsAndProcessesInJobHierarchy(Event, (__int64)&v8, 2);
+  PspEnumJobsAndProcessesInJobHierarchy(Event, 0, (int)PspTerminateProcessesJobCallback, 0, (__int64)&v8, 2);
   v6 = BYTE4(v8);
   if ( (v8 & 0x200000000LL) != 0 )
   {
@@ -33,7 +33,7 @@ char __fastcall PspTerminateAllProcessesInJobHierarchy(PRKEVENT Event, unsigned 
     PspEvaluateAndNotifyEmptyJob(Event, 0, 0);
     v6 = BYTE4(v8);
   }
-  if ( (PerfGlobalGroupMask[0] & 0x80000) != 0 )
+  if ( (PerfGlobalGroupMask & 0x80000) != 0 )
     EtwTraceJob(Event, v6, a2, 1825LL);
   return v3;
 }

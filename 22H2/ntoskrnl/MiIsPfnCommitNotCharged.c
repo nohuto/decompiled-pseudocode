@@ -1,13 +1,14 @@
 /*
- * XREFs of MiIsPfnCommitNotCharged @ 0x1402DC180
+ * XREFs of MiIsPfnCommitNotCharged @ 0x1402A7960
  * Callers:
- *     MiUnlockImageSection @ 0x14025A340 (MiUnlockImageSection.c)
- *     MiMigratePfn @ 0x140262FC0 (MiMigratePfn.c)
- *     MiCanBatchHardFaultPages @ 0x1402CDC60 (MiCanBatchHardFaultPages.c)
- *     MiCheckProtoPtePageState @ 0x1402DBE30 (MiCheckProtoPtePageState.c)
- *     MiChargeForLockedPage @ 0x1402DC320 (MiChargeForLockedPage.c)
- *     MiWriteCompletePfn @ 0x1402F4750 (MiWriteCompletePfn.c)
- *     MiHardFaultPageRelease @ 0x140334C08 (MiHardFaultPageRelease.c)
+ *     MiMigratePfn @ 0x1402185B0 (MiMigratePfn.c)
+ *     MiFinishHardFault @ 0x140239200 (MiFinishHardFault.c)
+ *     MiUnlockImageSection @ 0x14029B0C0 (MiUnlockImageSection.c)
+ *     MmCheckCachedPageStates @ 0x1402A1C20 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x1402A4700 (MiMakePageAvoidRead.c)
+ *     MiWriteCompletePfn @ 0x1402A6310 (MiWriteCompletePfn.c)
+ *     MiChargeForLockedPage @ 0x1402A9130 (MiChargeForLockedPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402A9250 (MiRemoveLockedPageChargeAndDecRef.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,20 @@
 /*
- * XREFs of ?PowerPolTimerExpiredWakeSucceeded@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C008C3E0
+ * XREFs of ?PowerPolTimerExpiredWakeSucceeded@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C00882E0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?InvokeStateless@FxPrePostCallback@@QEAAJXZ @ 0x1C000D528 (-InvokeStateless@FxPrePostCallback@@QEAAJXZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?Invoke@FxPowerDeviceDisarmWakeFromS0@@QEAAJPEAUWDFDEVICE__@@@Z @ 0x1C001BB54 (-Invoke@FxPowerDeviceDisarmWakeFromS0@@QEAAJPEAUWDFDEVICE__@@@Z.c)
  */
 
 __int64 __fastcall FxPkgPnp::PowerPolTimerExpiredWakeSucceeded(FxPkgPnp *This)
 {
-  unsigned __int64 ObjectHandleUnchecked; // rax
+  WDFDEVICE__ *ObjectHandleUnchecked; // rax
   __int64 v2; // rdx
 
-  ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(This->m_DeviceBase);
-  *(_QWORD *)(v2 + 568) = ObjectHandleUnchecked;
-  FxPrePostCallback::InvokeStateless((FxPrePostCallback *)(v2 + 536));
+  ObjectHandleUnchecked = (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked(This->m_DeviceBase);
+  FxPowerDeviceDisarmWakeFromS0::Invoke(
+    (FxPowerDeviceWakeFromSxTriggered *)(*(_QWORD *)(v2 + 888) + 536LL),
+    ObjectHandleUnchecked);
   return 1349LL;
 }

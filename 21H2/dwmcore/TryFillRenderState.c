@@ -1,62 +1,58 @@
 /*
- * XREFs of TryFillRenderState @ 0x1801A86B8
+ * XREFs of TryFillRenderState @ 0x180195E14
  * Callers:
- *     ?TryDrawSuperWetLocal@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x1801A8404 (-TryDrawSuperWetLocal@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_.c)
- *     ?TryRegisterSuperWetForDrawHost@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x1801A89B4 (-TryRegisterSuperWetForDrawHost@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingConte.c)
- *     ?TryRegisterSuperWetForDrawLocal@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x1801A8B44 (-TryRegisterSuperWetForDrawLocal@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingCont.c)
+ *     ?TryRegisterSuperWetForDrawHost@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x180195FDC (-TryRegisterSuperWetForDrawHost@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingConte.c)
+ *     ?TryRegisterSuperWetForDrawLocal@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x180196120 (-TryRegisterSuperWetForDrawLocal@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingCont.c)
  * Callees:
- *     ??$IsAffine@$00@CMILMatrix@@AEBA_N_N@Z @ 0x180096590 (--$IsAffine@$00@CMILMatrix@@AEBA_N_N@Z.c)
- *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800DD36C (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?IsHDRTarget@CDrawingContext@@QEBA_NXZ @ 0x1801A7C04 (-IsHDRTarget@CDrawingContext@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?GetWorldTransform@CDrawingContext@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800EBC7C (-GetWorldTransform@CDrawingContext@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     ?IsHDRTarget@CDrawingContext@@QEBA_NXZ @ 0x18019589C (-IsHDRTarget@CDrawingContext@@QEBA_NXZ.c)
+ *     ??$Is2DTransformExceptForZTranslation@$00@CMILMatrix@@AEBA_NXZ @ 0x180210DA0 (--$Is2DTransformExceptForZTranslation@$00@CMILMatrix@@AEBA_NXZ.c)
  */
 
-bool __fastcall TryFillRenderState(CDrawingContext *this, unsigned __int8 a2, char a3, __int64 a4)
+char __fastcall TryFillRenderState(CDrawingContext *a1, unsigned __int8 a2, __int64 a3)
 {
-  int v4; // esi
-  bool result; // al
-  unsigned __int64 v8; // xmm1_8
+  int v3; // edi
+  char result; // al
+  __int64 v6; // r11
+  unsigned __int64 v7; // xmm1_8
+  int v8; // xmm0_4
   int v9; // eax
-  int v10; // xmm0_4
-  int v11; // xmm1_4
-  int IsHDRTarget; // ecx
-  _QWORD v13[6]; // [rsp+20h] [rbp-29h] BYREF
-  __int64 v14; // [rsp+50h] [rbp+7h]
-  int v15; // [rsp+60h] [rbp+17h]
-  __int128 v16; // [rsp+70h] [rbp+27h]
+  int v10; // xmm1_4
+  _QWORD v11[6]; // [rsp+20h] [rbp-19h] BYREF
+  __int64 v12; // [rsp+50h] [rbp+17h]
+  int v13; // [rsp+60h] [rbp+27h]
+  __int128 v14; // [rsp+70h] [rbp+37h]
 
-  v4 = a2;
-  *(_OWORD *)a4 = 0LL;
-  v14 = 0LL;
-  *(_OWORD *)(a4 + 16) = 0LL;
-  *(_OWORD *)(a4 + 32) = 0LL;
-  *(_QWORD *)(a4 + 48) = v14;
-  if ( !a3 )
+  v3 = a2;
+  *(_OWORD *)a3 = 0LL;
+  v13 = 0;
+  *(_OWORD *)(a3 + 16) = 0LL;
+  v12 = 0LL;
+  *(_OWORD *)(a3 + 32) = 0LL;
+  *(_QWORD *)(a3 + 48) = v12;
+  CDrawingContext::GetWorldTransform(a1, (struct CMILMatrix *)v11);
+  result = CMILMatrix::Is2DTransformExceptForZTranslation<1>(v11);
+  if ( result )
   {
-    v15 = 0;
-    CMatrixStack::Top((__int64)this + 368, (__int64)v13);
-    result = CMILMatrix::IsAffine<1>((__int64)v13, 1);
-    if ( !result )
-      return result;
-    *(_QWORD *)&v16 = v13[0];
-    *((_QWORD *)&v16 + 1) = v13[2];
-    v8 = _mm_unpacklo_ps((__m128)(unsigned int)v14, (__m128)HIDWORD(v14)).m128_u64[0];
-    *(_OWORD *)a4 = v16;
-    *(_QWORD *)(a4 + 16) = v8;
+    *(_QWORD *)&v14 = v11[0];
+    *((_QWORD *)&v14 + 1) = v11[2];
+    v7 = _mm_unpacklo_ps((__m128)(unsigned int)v12, (__m128)HIDWORD(v12)).m128_u64[0];
+    *(_OWORD *)a3 = v14;
+    v8 = (int)FLOAT_1_0;
+    *(_QWORD *)(a3 + 16) = v7;
+    v9 = *(_DWORD *)(v6 + 3232);
+    if ( v9 )
+      v10 = *(_DWORD *)(*(_QWORD *)(v6 + 3248) + 4LL * (unsigned int)(v9 - 1));
+    else
+      v10 = (int)FLOAT_1_0;
+    *(_DWORD *)(a3 + 24) = v10;
+    if ( *(float *)(v6 + 72) != 0.0 )
+      v8 = *(_DWORD *)(v6 + 72);
+    *(_DWORD *)(a3 + 44) = v8;
+    *(_DWORD *)(a3 + 48) = (unsigned __int8)CDrawingContext::IsHDRTarget((CDrawingContext *)v6);
+    result = 1;
+    *(_DWORD *)(a3 + 52) = v3;
   }
-  v9 = *((_DWORD *)this + 776);
-  v10 = (int)FLOAT_1_0;
-  if ( v9 )
-    v11 = *(_DWORD *)(*((_QWORD *)this + 390) + 4LL * (unsigned int)(v9 - 1));
-  else
-    v11 = (int)FLOAT_1_0;
-  *(_DWORD *)(a4 + 24) = v11;
-  if ( *((float *)this + 18) != 0.0 )
-    v10 = *((_DWORD *)this + 18);
-  *(_DWORD *)(a4 + 44) = v10;
-  IsHDRTarget = (unsigned __int8)CDrawingContext::IsHDRTarget(this);
-  result = 1;
-  *(_DWORD *)(a4 + 48) = IsHDRTarget;
-  *(_DWORD *)(a4 + 52) = v4;
   return result;
 }

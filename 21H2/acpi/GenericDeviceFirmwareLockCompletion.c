@@ -1,9 +1,9 @@
 /*
- * XREFs of GenericDeviceFirmwareLockCompletion @ 0x1C004ED30
+ * XREFs of GenericDeviceFirmwareLockCompletion @ 0x1C004FF00
  * Callers:
- *     AcceptDeviceFirmwareLockCompletion @ 0x1C004E790 (AcceptDeviceFirmwareLockCompletion.c)
+ *     AcceptDeviceFirmwareLockCompletion @ 0x1C004F960 (AcceptDeviceFirmwareLockCompletion.c)
  * Callees:
- *     AMLIRestartContext @ 0x1C00648F4 (AMLIRestartContext.c)
+ *     AMLIRestartContext @ 0x1C0063670 (AMLIRestartContext.c)
  */
 
 LONG __fastcall GenericDeviceFirmwareLockCompletion(__int64 a1, int a2)

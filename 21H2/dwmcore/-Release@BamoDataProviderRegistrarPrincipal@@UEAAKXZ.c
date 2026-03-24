@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Release@BamoDataProviderRegistrarPrincipal@@UEAAKXZ @ 0x1800F8DE0
+ * XREFs of ?Release@BamoDataProviderRegistrarPrincipal@@UEAAKXZ @ 0x1800E0680
  * Callers:
- *     ?Release@BamoDataProviderRegistrarPrincipal@@W7EAAKXZ @ 0x180106D10 (-Release@BamoDataProviderRegistrarPrincipal@@W7EAAKXZ.c)
+ *     ?Release@BamoDataSourceProxy@@W7EAAKXZ @ 0x1800F5870 (-Release@BamoDataSourceProxy@@W7EAAKXZ.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall BamoDataProviderRegistrarPrincipal::Release(BamoDataProviderRegistrarPrincipal *this)
 {
-  return (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this + 2) + 8LL))((char *)this + 16);
+  return (**((__int64 (__fastcall ***)(char *))this + 2))((char *)this + 16);
 }

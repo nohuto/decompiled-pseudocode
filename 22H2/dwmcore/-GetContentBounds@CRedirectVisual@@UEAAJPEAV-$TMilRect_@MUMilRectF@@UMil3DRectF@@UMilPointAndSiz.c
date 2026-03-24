@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetContentBounds@CRedirectVisual@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18001D340
+ * XREFs of ?GetContentBounds@CRedirectVisual@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800DB310
  * Callers:
  *     <none>
  * Callees:
- *     ?ComputeBounds@CRedirectedVisualContent@@QEAAXXZ @ 0x18001D3B0 (-ComputeBounds@CRedirectedVisualContent@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ComputeBounds@CRedirectedVisualContent@@QEAAXXZ @ 0x1800DB374 (-ComputeBounds@CRedirectedVisualContent@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRedirectVisual::GetContentBounds(__int64 a1, _QWORD *a2)
@@ -13,11 +13,11 @@ __int64 __fastcall CRedirectVisual::GetContentBounds(__int64 a1, _QWORD *a2)
   void (__fastcall ***v4)(_QWORD, char *, _QWORD *); // rcx
   char v6; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 256);
+  v2 = *(_QWORD *)(a1 + 248);
   if ( v2 )
   {
-    CRedirectedVisualContent::ComputeBounds(*(CRedirectedVisualContent **)(a1 + 256));
-    v4 = (void (__fastcall ***)(_QWORD, char *, _QWORD *))(v2 + *(int *)(*(_QWORD *)(v2 + 64) + 8LL) + 64LL);
+    CRedirectedVisualContent::ComputeBounds(*(CRedirectedVisualContent **)(a1 + 248));
+    v4 = (void (__fastcall ***)(_QWORD, char *, _QWORD *))(v2 + *(int *)(*(_QWORD *)(v2 + 56) + 8LL) + 56LL);
     (**v4)(v4, &v6, a2);
   }
   else

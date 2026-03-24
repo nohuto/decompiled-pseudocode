@@ -1,9 +1,9 @@
 /*
- * XREFs of TouchTargetingRankForRegion @ 0x1C025D124
+ * XREFs of TouchTargetingRankForRegion @ 0x1C0260414
  * Callers:
- *     ?BasicTargetingHitTest@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@PEAGPEAU3@HPEAUtagRECT@@W4tagTARGETING_PROPERTY@@HKH@Z @ 0x1C020440C (-BasicTargetingHitTest@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@PEAGPEAU3@HPEAUt.c)
+ *     ?BasicTargetingHitTest@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@PEAGPEAU3@HPEAUtagRECT@@W4tagTARGETING_PROPERTY@@HKH@Z @ 0x1C0214A70 (-BasicTargetingHitTest@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@PEAGPEAU3@HPEAUt.c)
  * Callees:
- *     TouchTargetingRankForRect @ 0x1C025CA20 (TouchTargetingRankForRect.c)
+ *     TouchTargetingRankForRect @ 0x1C025FD60 (TouchTargetingRankForRect.c)
  */
 
 __int64 __fastcall TouchTargetingRankForRegion(__int64 a1, struct tagRECT *a2, int *a3, _QWORD *a4, unsigned int a5)
@@ -12,15 +12,15 @@ __int64 __fastcall TouchTargetingRankForRegion(__int64 a1, struct tagRECT *a2, i
   unsigned int RegionData; // eax
   unsigned int v11; // edi
   __int64 v12; // rax
-  __int64 v13; // rbx
+  __int128 *v13; // rbx
   int v14; // eax
-  struct tagRECT *v15; // rdi
+  __int128 *v15; // rdi
   __int64 v16; // rsi
-  struct tagRECT v17; // xmm1
+  __int128 v17; // xmm1
   unsigned __int16 v18; // cx
   int v20[4]; // [rsp+30h] [rbp-58h] BYREF
   struct tagRECT v21; // [rsp+40h] [rbp-48h] BYREF
-  struct tagRECT v22; // [rsp+50h] [rbp-38h] BYREF
+  __int128 v22; // [rsp+50h] [rbp-38h] BYREF
 
   *(_QWORD *)v20 = 0LL;
   v9 = 4094;
@@ -28,14 +28,14 @@ __int64 __fastcall TouchTargetingRankForRegion(__int64 a1, struct tagRECT *a2, i
   v11 = RegionData;
   if ( RegionData )
   {
-    v12 = Win32AllocPoolZInit((int)RegionData, 1920103253LL);
-    v13 = v12;
+    v12 = Win32AllocPool((int)RegionData, 1920103253LL);
+    v13 = (__int128 *)v12;
     if ( v12 )
     {
       if ( (unsigned int)GreGetRegionData(a1, v11, v12) )
       {
-        v14 = *(_DWORD *)(v13 + 8);
-        v15 = (struct tagRECT *)(v13 + 32);
+        v14 = *((_DWORD *)v13 + 2);
+        v15 = v13 + 2;
         if ( v14 > 0 )
         {
           v16 = (unsigned int)v14;
@@ -44,7 +44,7 @@ __int64 __fastcall TouchTargetingRankForRegion(__int64 a1, struct tagRECT *a2, i
             v17 = *v15;
             v21 = *a2;
             v22 = v17;
-            v18 = TouchTargetingRankForRect(&v22, &v21, a3, 0LL, v20, a5);
+            v18 = TouchTargetingRankForRect((int *)&v22, &v21, a3, 0LL, v20, a5);
             if ( v18 < v9 )
             {
               v9 = v18;

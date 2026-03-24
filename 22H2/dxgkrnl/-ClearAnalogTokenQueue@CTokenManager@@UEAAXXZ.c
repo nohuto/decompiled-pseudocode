@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ @ 0x1C00771E0
+ * XREFs of ?ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ @ 0x1C0063990
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C00121F0 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
- *     ?DeleteAllTokens@CTokenQueue@@AEAAXXZ @ 0x1C0017994 (-DeleteAllTokens@CTokenQueue@@AEAAXXZ.c)
+ *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C0012E50 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
+ *     ?DeleteAllTokens@CTokenQueue@@AEAAXXZ @ 0x1C0013220 (-DeleteAllTokens@CTokenQueue@@AEAAXXZ.c)
  */
 
 void __fastcall CTokenManager::ClearAnalogTokenQueue(CTokenManager *this)
 {
   CTokenManager::AcquireTokenManagerLock(this);
-  CTokenQueue::DeleteAllTokens((CTokenManager *)((char *)this + 344));
-  *((_QWORD *)this + 13) = 0LL;
-  ExReleasePushLockExclusiveEx((char *)this + 96, 0LL);
+  CTokenQueue::DeleteAllTokens((CTokenManager *)((char *)this + 320));
+  *((_QWORD *)this + 12) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 88, 0LL);
 }

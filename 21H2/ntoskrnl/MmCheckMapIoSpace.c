@@ -1,10 +1,10 @@
 /*
- * XREFs of MmCheckMapIoSpace @ 0x140A815FC
+ * XREFs of MmCheckMapIoSpace @ 0x1409C5EA8
  * Callers:
- *     VerifierMmMapIoSpace @ 0x140A9FE70 (VerifierMmMapIoSpace.c)
+ *     VerifierMmMapIoSpace @ 0x1409E69A0 (VerifierMmMapIoSpace.c)
  * Callees:
- *     MiIsPfn @ 0x1402B2E00 (MiIsPfn.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     MiIsPfn @ 0x140349150 (MiIsPfn.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall MmCheckMapIoSpace(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -20,16 +20,11 @@ __int64 __fastcall MmCheckMapIoSpace(ULONG_PTR BugCheckParameter2, ULONG_PTR Bug
   do
   {
     result = MiIsPfn(v2);
-    if ( (_DWORD)result )
+    if ( (_DWORD)result == 1 )
     {
-      result = 0xFFFFDE0000000020uLL;
-      if ( !*(_WORD *)(v6 - 0x21FFFFFFFFE0LL) )
-        result = VerifierBugCheckIfAppropriate(
-                   0xC4u,
-                   0x83uLL,
-                   BugCheckParameter2,
-                   BugCheckParameter3,
-                   0xAAAAAAAAAAAAAAABuLL * (v6 >> 4));
+      result = 0xFFFFFA8000000020uLL;
+      if ( !*(_WORD *)(v6 - 0x57FFFFFFFE0LL) )
+        result = VerifierBugCheckIfAppropriate(0xC4u, 0x83uLL, BugCheckParameter2, BugCheckParameter3, v6 / 48);
     }
     v6 += 48LL;
     ++v2;

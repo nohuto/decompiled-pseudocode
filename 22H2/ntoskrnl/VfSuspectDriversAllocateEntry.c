@@ -1,25 +1,24 @@
 /*
- * XREFs of VfSuspectDriversAllocateEntry @ 0x140ADB394
+ * XREFs of VfSuspectDriversAllocateEntry @ 0x1409D9838
  * Callers:
- *     VfDriverEnableVerifierForAll @ 0x140ACB618 (VfDriverEnableVerifierForAll.c)
- *     VfSuspectDriversLoadCallback @ 0x140ADB704 (VfSuspectDriversLoadCallback.c)
- *     VfAddVerifierEntry @ 0x140ADE630 (VfAddVerifierEntry.c)
- *     VfVolatileApplyDifVerification @ 0x140ADEA10 (VfVolatileApplyDifVerification.c)
- *     VfSuspectDriversParseRegistryString @ 0x140B97D8C (VfSuspectDriversParseRegistryString.c)
- *     VfTriageAddDrivers @ 0x140B980A8 (VfTriageAddDrivers.c)
+ *     VfDriverEnableVerifierForAll @ 0x1409C87C8 (VfDriverEnableVerifierForAll.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409D9BA8 (VfSuspectDriversLoadCallback.c)
+ *     VfAddVerifierEntry @ 0x1409EC9E8 (VfAddVerifierEntry.c)
+ *     VfTriageAddDrivers @ 0x140A93974 (VfTriageAddDrivers.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140A93DD8 (VfSuspectDriversParseRegistryString.c)
  * Callees:
- *     RtlUShortAdd @ 0x1403223E4 (RtlUShortAdd.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlUShortAdd @ 0x140309CBC (RtlUShortAdd.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall VfSuspectDriversAllocateEntry(const void **a1)
+void **__fastcall VfSuspectDriversAllocateEntry(const void **a1)
 {
   USHORT v2; // cx
   USHORT v3; // di
-  __int64 Pool2; // rax
-  __int64 v5; // rbx
+  void **PoolWithTag; // rax
+  void **v5; // rbx
   USHORT v7; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *((_WORD *)a1 + 1);
@@ -28,17 +27,17 @@ __int64 __fastcall VfSuspectDriversAllocateEntry(const void **a1)
     v3 = -1;
   else
     v3 = v7;
-  Pool2 = ExAllocatePool2(64LL, v3 + 40LL, 0x44536656u);
-  v5 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (void **)ExAllocatePoolWithTag(NonPagedPoolNx, v3 + 40LL, 0x44536656u);
+  v5 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 16) = 0;
-    *(_DWORD *)(Pool2 + 20) = 0;
-    *(_QWORD *)(Pool2 + 32) = Pool2 + 40;
-    *(_WORD *)(Pool2 + 24) = *(_WORD *)a1;
-    *(_WORD *)(Pool2 + 26) = v3;
-    memset((void *)(Pool2 + 40), 0, v3);
-    memmove(*(void **)(v5 + 32), a1[1], *(unsigned __int16 *)a1);
+    *((_DWORD *)PoolWithTag + 4) = 0;
+    *((_DWORD *)PoolWithTag + 5) = 0;
+    PoolWithTag[4] = PoolWithTag + 5;
+    *((_WORD *)PoolWithTag + 12) = *(_WORD *)a1;
+    *((_WORD *)PoolWithTag + 13) = v3;
+    memset(PoolWithTag + 5, 0, v3);
+    memmove(v5[4], a1[1], *(unsigned __int16 *)a1);
   }
   return v5;
 }

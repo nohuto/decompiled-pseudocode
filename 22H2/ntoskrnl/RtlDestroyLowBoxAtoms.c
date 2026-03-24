@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlDestroyLowBoxAtoms @ 0x140363F5C
+ * XREFs of RtlDestroyLowBoxAtoms @ 0x1403157B4
  * Callers:
- *     ExRemoveLowBoxAtomReferences @ 0x140363F44 (ExRemoveLowBoxAtomReferences.c)
+ *     ExRemoveLowBoxAtomReferences @ 0x140315784 (ExRemoveLowBoxAtomReferences.c)
  * Callees:
- *     RtlpDereferenceAtom @ 0x14020BD18 (RtlpDereferenceAtom.c)
- *     RtlpFreeAtom @ 0x14069EC78 (RtlpFreeAtom.c)
- *     RtlpUnlockAtomTable @ 0x140717CC8 (RtlpUnlockAtomTable.c)
- *     RtlpLockAtomTable @ 0x140718140 (RtlpLockAtomTable.c)
+ *     RtlpDereferenceAtom @ 0x140315888 (RtlpDereferenceAtom.c)
+ *     RtlpUnlockAtomTable @ 0x14061A87C (RtlpUnlockAtomTable.c)
+ *     RtlpLockAtomTable @ 0x14061BE34 (RtlpLockAtomTable.c)
+ *     RtlpFreeAtom @ 0x1406862EC (RtlpFreeAtom.c)
  */
 
 __int64 __fastcall RtlDestroyLowBoxAtoms(__int64 a1, int a2)
 {
   __int64 result; // rax
   unsigned int v5; // ebp
-  _QWORD **i; // r14
+  _QWORD **i; // r15
   _QWORD *v7; // rsi
-  _QWORD *j; // rdi
-  __int64 v9; // r13
+  _QWORD *j; // rbx
+  _QWORD *v9; // r13
   _QWORD *v10; // rcx
   _QWORD *v11; // rdx
   _QWORD *v12; // rax
@@ -30,11 +30,11 @@ __int64 __fastcall RtlDestroyLowBoxAtoms(__int64 a1, int a2)
       v7 = *i++;
       while ( 1 )
       {
-        v9 = (__int64)v7;
+        v9 = v7;
         if ( !v7 )
           break;
         v7 = (_QWORD *)*v7;
-        for ( j = *(_QWORD **)(v9 + 16); j != (_QWORD *)(v9 + 16); j = (_QWORD *)*j )
+        for ( j = (_QWORD *)v9[2]; j != v9 + 2; j = (_QWORD *)*j )
         {
           v10 = j;
           if ( *((_DWORD *)j + 4) == a2 )
@@ -47,7 +47,7 @@ __int64 __fastcall RtlDestroyLowBoxAtoms(__int64 a1, int a2)
             *v12 = v11;
             v11[1] = v12;
             RtlpFreeAtom(v10);
-            if ( RtlpDereferenceAtom(v9, (__int64 *)(v9 + 16), a1) )
+            if ( (unsigned __int8)RtlpDereferenceAtom(v9, v9 + 2, a1) )
               break;
           }
         }

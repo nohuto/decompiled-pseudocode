@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlDrainNonVolatileFlush @ 0x1405E4710
+ * XREFs of RtlDrainNonVolatileFlush @ 0x140585BE0
  * Callers:
- *     RtlFlushNonVolatileMemory @ 0x1405E4740 (RtlFlushNonVolatileMemory.c)
- *     RtlFlushNonVolatileMemoryRanges @ 0x1405EC3D0 (RtlFlushNonVolatileMemoryRanges.c)
+ *     RtlFlushNonVolatileMemory @ 0x140585C10 (RtlFlushNonVolatileMemory.c)
+ *     RtlFlushNonVolatileMemoryRanges @ 0x14058CD80 (RtlFlushNonVolatileMemoryRanges.c)
  * Callees:
  *     <none>
  */

@@ -1,51 +1,51 @@
 /*
- * XREFs of ?EvictAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00D6C0C
+ * XREFs of ?EvictAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00AF854
  * Callers:
- *     ?ReferenceAllocationForPreparation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAE@Z @ 0x1C0087B5C (-ReferenceAllocationForPreparation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAE@Z.c)
- *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0093DF0 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006BD00 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?ReferenceAllocationForPreparation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAE@Z @ 0x1C006F668 (-ReferenceAllocationForPreparation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAE@Z.c)
  * Callees:
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00039B0 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003A80 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?NotifyAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_NPEA_K2@Z @ 0x1C00A0A9C (-NotifyAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_NPEA_K2@Z.c)
- *     ?NotifyAllocationReclaimed@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@H@Z @ 0x1C00D8948 (-NotifyAllocationReclaimed@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@H@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006030 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00060DC (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     ?NotifyAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_NPEA_K2@Z @ 0x1C0073DC0 (-NotifyAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_NPEA_K2@Z.c)
+ *     ?NotifyAllocationReclaimed@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@H@Z @ 0x1C00B1DAC (-NotifyAllocationReclaimed@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@H@Z.c)
  */
 
-void __fastcall VIDMM_GLOBAL::EvictAllocation(VIDMM_GLOBAL *this, __int64 **a2, __int64 a3, __int64 a4)
+void __fastcall VIDMM_GLOBAL::EvictAllocation(VIDMM_GLOBAL *this, __int64 **a2)
 {
-  __int64 v5; // rsi
-  _QWORD *v6; // rbx
-  _QWORD *v7; // r15
-  _QWORD **v8; // r15
-  _QWORD *v9; // rdi
-  VIDMM_DEVICE **v10; // rdx
+  __int64 v3; // rsi
+  __int64 v4; // rdx
+  _QWORD *v5; // rbx
+  _QWORD *v6; // r15
+  _QWORD **v7; // r15
+  _QWORD *v8; // rdi
 
-  v5 = **a2;
+  v3 = **a2;
   if ( g_IsInternalReleaseOrDbg )
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2, a3, a4) + 24) = a2;
-  DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(v5 + 296));
-  v6 = *(_QWORD **)(v5 + 272);
-  while ( v6 != (_QWORD *)(v5 + 272) )
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(this) + 24) = a2;
+  DXGFASTMUTEX::Acquire(*(DXGFASTMUTEX **)(v3 + 312));
+  v5 = *(_QWORD **)(v3 + 288);
+  while ( v5 != (_QWORD *)(v3 + 288) )
   {
-    v7 = v6;
-    v6 = (_QWORD *)*v6;
-    v8 = (_QWORD **)(v7 - 2);
-    v9 = *v8;
-    while ( v9 != v8 )
+    v6 = v5;
+    v5 = (_QWORD *)*v5;
+    v7 = (_QWORD **)(v6 - 2);
+    v8 = *v7;
+    while ( v8 != v7 )
     {
-      v10 = (VIDMM_DEVICE **)(v9 - 5);
-      v9 = (_QWORD *)*v9;
-      if ( (*((_BYTE *)v10 + 28) & 3) == 2 )
-        VIDMM_GLOBAL::NotifyAllocationEviction(this, v10, 0LL, 0LL, 0LL);
+      v4 = (__int64)(v8 - 5);
+      v8 = (_QWORD *)*v8;
+      if ( (*(_BYTE *)(v4 + 28) & 3) == 2 )
+        VIDMM_GLOBAL::NotifyAllocationEviction(this, (VIDMM_DEVICE **)v4, 0, 0LL, 0LL);
     }
   }
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v5 + 296));
-  (*(void (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD))(**(_QWORD **)(v5 + 120) + 24LL))(
-    *(_QWORD *)(v5 + 120),
-    v5,
-    *(_QWORD *)(v5 + 136),
-    *(_QWORD *)(v5 + 16));
-  *(_QWORD *)(v5 + 136) = 0LL;
-  *(_DWORD *)(v5 + 112) = 1;
-  VIDMM_GLOBAL::NotifyAllocationReclaimed(this, (struct _VIDMM_GLOBAL_ALLOC *)v5, 0);
+  DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v3 + 312), v4);
+  (*(void (__fastcall **)(_QWORD, __int64, _QWORD, _QWORD))(**(_QWORD **)(v3 + 128) + 24LL))(
+    *(_QWORD *)(v3 + 128),
+    v3,
+    *(_QWORD *)(v3 + 144),
+    *(_QWORD *)(v3 + 16));
+  *(_QWORD *)(v3 + 144) = 0LL;
+  *(_DWORD *)(v3 + 120) = 1;
+  VIDMM_GLOBAL::NotifyAllocationReclaimed(this, (struct _VIDMM_GLOBAL_ALLOC *)v3, 0);
 }

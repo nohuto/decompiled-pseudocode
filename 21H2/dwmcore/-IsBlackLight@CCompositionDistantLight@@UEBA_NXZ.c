@@ -1,15 +1,12 @@
 /*
- * XREFs of ?IsBlackLight@CCompositionDistantLight@@UEBA_NXZ @ 0x1800EA350
+ * XREFs of ?IsBlackLight@CCompositionDistantLight@@UEBA_NXZ @ 0x1800C2520
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall CCompositionDistantLight::IsBlackLight(CCompositionDistantLight *this)
+bool __fastcall CCompositionDistantLight::IsBlackLight(struct _D3DCOLORVALUE *this)
 {
-  return CCompositionLight::IsBlackColor(
-           this,
-           (const struct _D3DCOLORVALUE *)((char *)this + 264),
-           *((float *)this + 73));
+  return CCompositionLight::IsBlackColor((CCompositionLight *)this, this + 16, this[17].a);
 }

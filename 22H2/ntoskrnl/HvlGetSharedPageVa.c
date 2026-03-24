@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlGetSharedPageVa @ 0x140364604
+ * XREFs of HvlGetSharedPageVa @ 0x14035FBB0
  * Callers:
- *     RtlGetMultiTimePrecise @ 0x140364430 (RtlGetMultiTimePrecise.c)
- *     MiInitializeSharedUserData @ 0x140B6CD50 (MiInitializeSharedUserData.c)
+ *     RtlGetMultiTimePrecise @ 0x14035F9E0 (RtlGetMultiTimePrecise.c)
+ *     MiInitializeSharedUserData @ 0x140A579E0 (MiInitializeSharedUserData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 PVOID HvlGetSharedPageVa()
@@ -13,6 +13,6 @@ PVOID HvlGetSharedPageVa()
 
   result = HvlpReferenceTscPage;
   if ( !HvlpReferenceTscPage )
-    return (PVOID)off_140C01E10();
+    return (PVOID)off_140C00A00();
   return result;
 }

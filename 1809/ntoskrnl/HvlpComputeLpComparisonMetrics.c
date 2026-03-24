@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpComputeLpComparisonMetrics @ 0x14027191C
+ * XREFs of HvlpComputeLpComparisonMetrics @ 0x140271A1C
  * Callers:
- *     HvlpSelectLpSet @ 0x140272350 (HvlpSelectLpSet.c)
- *     HvlpSelectVpSet @ 0x140272794 (HvlpSelectVpSet.c)
+ *     HvlpSelectLpSet @ 0x140272450 (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x140272894 (HvlpSelectVpSet.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvlpComputeLpComparisonMetrics(unsigned int a1, __int64 a2, unsigned int a3)

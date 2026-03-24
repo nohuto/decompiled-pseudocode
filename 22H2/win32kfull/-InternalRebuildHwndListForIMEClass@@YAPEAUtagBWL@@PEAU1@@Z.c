@@ -1,87 +1,71 @@
 /*
- * XREFs of ?InternalRebuildHwndListForIMEClass@@YAPEAUtagBWL@@PEAU1@@Z @ 0x1C00D2EE0
+ * XREFs of ?InternalRebuildHwndListForIMEClass@@YAPEAUtagBWL@@PEAU1@@Z @ 0x1C01D1CC0
  * Callers:
- *     BuildHwndList @ 0x1C00D2540 (BuildHwndList.c)
+ *     BuildHwndList @ 0x1C006CAC0 (BuildHwndList.c)
  * Callees:
- *     <none>
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
  */
 
 struct tagBWL *__fastcall InternalRebuildHwndListForIMEClass(struct tagBWL *a1)
 {
-  struct tagBWL *v1; // r13
-  _QWORD *v2; // r12
+  _QWORD *v2; // rdi
   _QWORD *v3; // r15
-  _QWORD *v4; // rbx
-  __int64 *v5; // rsi
-  __int64 v6; // rdi
-  __int64 v7; // rbp
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 *v11; // r14
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // rax
-  _QWORD *v15; // rcx
-  __int64 i; // rax
+  char *v4; // rbx
+  unsigned __int64 v5; // rax
+  __int64 *v6; // r14
+  __int64 v7; // rdx
+  bool i; // zf
+  __int64 v9; // r8
+  __int64 v10; // rax
+  __int64 *v11; // rax
+  __int64 v12; // rcx
+  signed __int64 v13; // rbx
 
-  v1 = a1;
-  v2 = (_QWORD *)Win32AllocPoolZInit(*((_QWORD *)a1 + 2) - (_QWORD)a1 + 8LL, 1819767637LL);
+  v2 = (_QWORD *)Win32AllocPool(*((_QWORD *)a1 + 2) - (_QWORD)a1 + 8LL, 1819767637LL);
   v3 = v2;
-  if ( !v2 )
-    return v1;
-  v4 = (_QWORD *)((char *)v1 + 32);
-  v5 = (__int64 *)((char *)v1 + 32);
-  v6 = *((_QWORD *)v1 + 4);
-  if ( v6 == 1 )
-    goto LABEL_15;
-  do
+  if ( v2 )
   {
-    PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( (unsigned __int64)(unsigned __int16)v6 >= *(_QWORD *)(gpsi + 8LL)
-      || (v7 = gSharedInfo[1] + LODWORD(gSharedInfo[2]) * (unsigned int)(unsigned __int16)v6,
-          v11 = (__int64 *)HMPkheFromPhe(v7),
-          LOWORD(v6) = WORD1(v6) & 0x7FFF,
-          (WORD1(v6) & 0x7FFF) != *(_WORD *)(v7 + 26))
-      && (_WORD)v6 != 0x7FFF
-      && ((_WORD)v6 || !PsGetCurrentProcessWow64Process(v9, v8, v10))
-      || (*(_BYTE *)(v7 + 25) & 1) != 0
-      || *(_BYTE *)(v7 + 24) != 1
-      || (v12 = *v11) == 0 )
+    v4 = (char *)a1 + 32;
+    v5 = *((_QWORD *)a1 + 4);
+    v6 = (__int64 *)((char *)a1 + 32);
+    while ( v5 != 1 )
     {
-LABEL_11:
-      v14 = *v5;
-LABEL_12:
-      *v4++ = v14;
-      goto LABEL_13;
+      v7 = HMValidateHandleNoSecure(v5, 1);
+      for ( i = v7 == 0; !i; i = v7 == 0 )
+      {
+        v9 = *(_QWORD *)(*(_QWORD *)(v7 + 136) + 8LL);
+        if ( (*(_BYTE *)(v9 + 10) & 1) != 0 || *(_WORD *)v9 == *(_WORD *)(gpsi + 898LL) )
+          goto LABEL_9;
+        v7 = *(_QWORD *)(v7 + 120);
+      }
+      v7 = 0LL;
+LABEL_9:
+      v10 = *v6;
+      if ( v7 )
+      {
+        *v3++ = v10;
+      }
+      else
+      {
+        *(_QWORD *)v4 = v10;
+        v4 += 8;
+      }
+      v5 = *++v6;
     }
-    while ( 1 )
+    *v3 = 0LL;
+    v11 = v2;
+    v12 = *v2;
+    if ( *v2 )
     {
-      v13 = *(_QWORD *)(*(_QWORD *)(v12 + 136) + 8LL);
-      if ( (*(_BYTE *)(v13 + 10) & 1) != 0 || *(_WORD *)v13 == *(_WORD *)(gpsi + 898LL) )
-        break;
-      v12 = *(_QWORD *)(v12 + 120);
-      if ( !v12 )
-        goto LABEL_11;
+      v13 = v4 - (char *)v2;
+      do
+      {
+        *(__int64 *)((char *)v11++ + v13) = v12;
+        v12 = *v11;
+      }
+      while ( *v11 );
     }
-    v14 = *v5;
-    if ( !v12 )
-      goto LABEL_12;
-    *v3++ = v14;
-LABEL_13:
-    v6 = v5[1];
-    ++v5;
+    Win32FreePool(v2);
   }
-  while ( v6 != 1 );
-  v1 = a1;
-LABEL_15:
-  v15 = v2;
-  *v3 = 0LL;
-  for ( i = *v2; *v15; ++v4 )
-  {
-    *v4 = i;
-    i = *++v15;
-  }
-  Win32FreePool(v2);
-  return v1;
+  return a1;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpAllocateMessageLog @ 0x14084A294
+ * XREFs of AlpcpAllocateMessageLog @ 0x14084A274
  * Callers:
- *     AlpcpEnterAllocationEventMessageLog @ 0x14084A484 (AlpcpEnterAllocationEventMessageLog.c)
+ *     AlpcpEnterAllocationEventMessageLog @ 0x14084A464 (AlpcpEnterAllocationEventMessageLog.c)
  * Callees:
  *     <none>
  */

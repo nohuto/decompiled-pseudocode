@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionSetProcessWindowStationEntryPoint @ 0x1C00EC400
+ * XREFs of EditionSetProcessWindowStationEntryPoint @ 0x1C01004C0
  * Callers:
  *     <none>
  * Callees:
- *     xxxSetProcessWindowStation @ 0x1C00EC4A0 (xxxSetProcessWindowStation.c)
+ *     xxxSetProcessWindowStation @ 0x1C0100560 (xxxSetProcessWindowStation.c)
  */
 
 __int64 __fastcall EditionSetProcessWindowStationEntryPoint(HANDLE SourceHandle)
@@ -15,7 +15,7 @@ __int64 __fastcall EditionSetProcessWindowStationEntryPoint(HANDLE SourceHandle)
   __int64 CurrentProcessWin32Process; // rax
 
   v2 = 1;
-  EnterCrit(1LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v4 = *(_QWORD *)(PsGetCurrentProcessWin32Process(v3) + 672);
   if ( (int)xxxSetProcessWindowStation(SourceHandle) < 0 )
   {

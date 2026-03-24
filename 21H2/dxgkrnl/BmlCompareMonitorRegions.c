@@ -1,27 +1,31 @@
 /*
- * XREFs of BmlCompareMonitorRegions @ 0x1C03AAF7C
+ * XREFs of BmlCompareMonitorRegions @ 0x1C02EB99C
  * Callers:
- *     BmlCompareTargetModes @ 0x1C01B5A18 (BmlCompareTargetModes.c)
+ *     BmlCompareTargetModes @ 0x1C013B4E4 (BmlCompareTargetModes.c)
  * Callees:
- *     ?DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z @ 0x1C0013758 (-DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z.c)
- *     BmlCompareModeRegions @ 0x1C01B2B94 (BmlCompareModeRegions.c)
- *     ??$BmlCompareValues@I@@YA?AW4BML_COMPARISON_RESULT@@II@Z @ 0x1C01B2BD8 (--$BmlCompareValues@I@@YA-AW4BML_COMPARISON_RESULT@@II@Z.c)
+ *     ?DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z @ 0x1C001A2FC (-DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z.c)
+ *     ??$BmlCompareValues@I@@YA?AW4BML_COMPARISON_RESULT@@II@Z @ 0x1C0139A28 (--$BmlCompareValues@I@@YA-AW4BML_COMPARISON_RESULT@@II@Z.c)
+ *     BmlCompareModeRegions @ 0x1C016C1D0 (BmlCompareModeRegions.c)
  */
 
 __int64 __fastcall BmlCompareMonitorRegions(unsigned int *a1, unsigned int *a2)
 {
+  __int64 v4; // rax
   __int64 result; // rax
-  unsigned int v5; // eax
-  unsigned int v6; // r9d
+  unsigned int v6; // eax
+  unsigned int v7; // r9d
 
   if ( a1 == a2 )
-    WdLogSingleEntry0(1LL);
+  {
+    v4 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v4);
+  }
   result = BmlCompareModeRegions(a1 + 21, a2 + 21);
   if ( !(_DWORD)result )
   {
     DMMVIDEOSIGNALMODE::DivideAndRound(a2[23], a2[24]);
-    v5 = DMMVIDEOSIGNALMODE::DivideAndRound(a1[23], a1[24]);
-    return BmlCompareValues<unsigned int>(v5, v6);
+    v6 = DMMVIDEOSIGNALMODE::DivideAndRound(a1[23], a1[24]);
+    return BmlCompareValues<unsigned int>(v6, v7);
   }
   return result;
 }

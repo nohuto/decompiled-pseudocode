@@ -1,66 +1,68 @@
 /*
- * XREFs of LkmdTelCreateReport @ 0x140A36E2C
+ * XREFs of LkmdTelCreateReport @ 0x140982DD8
  * Callers:
- *     WheapReportLiveDump @ 0x140A09E34 (WheapReportLiveDump.c)
+ *     WheapReportLiveDump @ 0x14095E294 (WheapReportLiveDump.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlCaptureContext @ 0x1404299A0 (RtlCaptureContext.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KeCapturePersistentThreadState @ 0x1405558E0 (KeCapturePersistentThreadState.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlCaptureContext @ 0x140407A50 (RtlCaptureContext.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KeCapturePersistentThreadState @ 0x140505040 (KeCapturePersistentThreadState.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall LkmdTelCreateReport(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   char *v9; // rbx
-  __int64 v10; // rax
+  PVOID v10; // rax
   int v11; // eax
-  int v12; // eax
+  int v12; // edi
   int v13; // eax
+  int v14; // eax
   int v15; // eax
-  __int64 v16; // [rsp+48h] [rbp-C0h] BYREF
-  __int64 v17; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 v18; // [rsp+50h] [rbp-B8h] BYREF
   struct _CONTEXT ContextRecord; // [rsp+58h] [rbp-B0h] BYREF
 
   memset(&ContextRecord, 0, sizeof(ContextRecord));
-  v17 = 0LL;
-  LODWORD(v16) = 0;
-  Pool2 = (char *)ExAllocatePool2(64LL, 136LL, 1952531540LL);
-  v9 = Pool2;
-  if ( Pool2 )
+  v18 = 0LL;
+  LODWORD(v17) = 0;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x88uLL, 0x74614454u);
+  v9 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, 0x88uLL);
-    v10 = ExAllocatePool2(64LL, 0x40000LL, 1952531540LL);
+    memset(PoolWithTag, 0, 0x88uLL);
+    v10 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40000uLL, 0x74614454u);
     *(_QWORD *)v9 = v10;
     if ( v10 && RtlStringCbPrintfW((NTSTRSAFE_PWSTR)v9 + 52, 0x20uLL, L"%ws", L"WHEA") >= 0 )
     {
-      LODWORD(v16) = 1;
-      v11 = WerLiveKernelCreateReport(v9 + 104, &v16, &v17);
-      if ( v11 >= 0 )
+      LODWORD(v17) = 1;
+      v11 = WerLiveKernelCreateReport(v9 + 104, &v17, &v18);
+      v12 = v11;
+      if ( v11 < 0 )
       {
-        if ( (_DWORD)v16 )
+        DbgPrintEx(5u, 0, "LKMDTEL: WerLiveKernelCreateReport failed with status 0x%X\n", v11);
+        goto LABEL_10;
+      }
+      if ( (_DWORD)v17 )
+      {
+        *((_QWORD *)v9 + 12) = v18;
+        RtlCaptureContext(&ContextRecord);
+        v13 = KeCapturePersistentThreadState((__int64)&ContextRecord, 0LL, 292, a3, a4, a5, a6, *(_QWORD *)v9);
+        if ( v13 )
         {
-          *((_QWORD *)v9 + 12) = v17;
-          RtlCaptureContext(&ContextRecord);
-          v15 = KeCapturePersistentThreadState((__int64)&ContextRecord, 0LL, 292, a3, a4, a5, a6, *(_QWORD *)v9);
-          if ( v15 )
-          {
-            *((_DWORD *)v9 + 2) = v15;
+          *((_DWORD *)v9 + 2) = v13;
+LABEL_10:
+          if ( v12 >= 0 )
             return v9;
-          }
-        }
-        else
-        {
-          DbgPrintEx(5u, 1u, "LKMDTEL: WerPolicy is WerLiveKernelPolicyNoDump, no dump is allowed.\n");
         }
       }
       else
       {
-        DbgPrintEx(5u, 0, "LKMDTEL: WerLiveKernelCreateReport failed with status 0x%X\n", v11);
+        DbgPrintEx(5u, 1u, "LKMDTEL: WerPolicy is WerLiveKernelPolicyNoDump, no dump is allowed.\n");
       }
     }
     if ( *(_QWORD *)v9 )
@@ -68,14 +70,14 @@ char *__fastcall LkmdTelCreateReport(__int64 a1, __int64 a2, __int64 a3, __int64
     ExFreePoolWithTag(v9, 0x74614454u);
     v9 = 0LL;
   }
-  if ( v17 )
+  if ( v18 )
   {
-    v12 = WerLiveKernelCancelReport();
-    if ( v12 < 0 )
-      DbgPrintEx(5u, 1u, "LKMDTEL: WerLiveCancelReport failed, status 0x%X\n", v12);
-    v13 = WerLiveKernelCloseHandle(v17);
-    if ( v13 < 0 )
-      DbgPrintEx(5u, 1u, "LKMDTEL: WerLiveCancelReport failed, status 0x%X\n", v13);
+    v14 = WerLiveKernelCancelReport();
+    if ( v14 < 0 )
+      DbgPrintEx(5u, 1u, "LKMDTEL: WerLiveCancelReport failed, status 0x%X\n", v14);
+    v15 = WerLiveKernelCloseHandle(v18);
+    if ( v15 < 0 )
+      DbgPrintEx(5u, 1u, "LKMDTEL: WerLiveCancelReport failed, status 0x%X\n", v15);
   }
   return v9;
 }

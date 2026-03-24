@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpCaptureIdMessage @ 0x14071D0B0
+ * XREFs of AlpcpCaptureIdMessage @ 0x1405E9E40
  * Callers:
- *     NtAlpcQueryInformationMessage @ 0x14071AA80 (NtAlpcQueryInformationMessage.c)
- *     NtAlpcImpersonateClientOfPort @ 0x14071CC10 (NtAlpcImpersonateClientOfPort.c)
- *     NtAlpcImpersonateClientContainerOfPort @ 0x140978B50 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1405E9A10 (NtAlpcImpersonateClientOfPort.c)
+ *     NtAlpcQueryInformationMessage @ 0x140664160 (NtAlpcQueryInformationMessage.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x1408C2580 (NtAlpcImpersonateClientContainerOfPort.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall AlpcpCaptureIdMessage(__int64 a1, _DWORD *a2, _DWORD *a3)
@@ -16,7 +16,7 @@ __int64 __fastcall AlpcpCaptureIdMessage(__int64 a1, _DWORD *a2, _DWORD *a3)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode && (a1 & 3) != 0 )
     goto LABEL_8;
-  if ( _bittest16((const signed __int16 *)(a1 + 4), 0xCu) )
+  if ( (*(_WORD *)(a1 + 4) & 0x1000) != 0 )
   {
     *a2 = *(_DWORD *)(a1 + 16);
     result = *(unsigned int *)(a1 + 20);

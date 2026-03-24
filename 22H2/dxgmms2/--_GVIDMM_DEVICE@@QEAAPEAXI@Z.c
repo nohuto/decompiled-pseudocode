@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_GVIDMM_DEVICE@@QEAAPEAXI@Z @ 0x1C00024CC
+ * XREFs of ??_GVIDMM_DEVICE@@QEAAPEAXI@Z @ 0x1C0011FAC
  * Callers:
- *     VidMmTerminateDevice @ 0x1C0001F20 (VidMmTerminateDevice.c)
- *     ?DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C0087C8C (-DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ.c)
- *     ?DestroyPagingProcess@VIDMM_PAGING_PROCESS@@QEAAXXZ @ 0x1C00F1D88 (-DestroyPagingProcess@VIDMM_PAGING_PROCESS@@QEAAXXZ.c)
+ *     VidMmTerminateDevice @ 0x1C0011F90 (VidMmTerminateDevice.c)
+ *     ?DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C0084888 (-DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ.c)
+ *     ?DestroyPagingProcess@VIDMM_PAGING_PROCESS@@QEAAXXZ @ 0x1C00BB664 (-DestroyPagingProcess@VIDMM_PAGING_PROCESS@@QEAAXXZ.c)
  * Callees:
- *     ??1VIDMM_DEVICE@@QEAA@XZ @ 0x1C008A340 (--1VIDMM_DEVICE@@QEAA@XZ.c)
+ *     ??1VIDMM_DEVICE@@QEAA@XZ @ 0x1C00813FC (--1VIDMM_DEVICE@@QEAA@XZ.c)
  */
 
 VIDMM_DEVICE *__fastcall VIDMM_DEVICE::`scalar deleting destructor'(VIDMM_DEVICE *P)

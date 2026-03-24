@@ -1,10 +1,10 @@
 /*
- * XREFs of SepFindMatchingLuidEntry @ 0x1409D1138
+ * XREFs of SepFindMatchingLuidEntry @ 0x140924918
  * Callers:
- *     SepIsValidProcUniqueLuid @ 0x1409D11D4 (SepIsValidProcUniqueLuid.c)
+ *     SepIsValidProcUniqueLuid @ 0x1409249B4 (SepIsValidProcUniqueLuid.c)
  * Callees:
- *     RtlGetNextEntryHashTable @ 0x140337E80 (RtlGetNextEntryHashTable.c)
- *     RtlLookupEntryHashTable @ 0x140370A30 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x1402FAD50 (RtlGetNextEntryHashTable.c)
+ *     RtlLookupEntryHashTable @ 0x14035F6E0 (RtlLookupEntryHashTable.c)
  */
 
 unsigned __int64 __fastcall SepFindMatchingLuidEntry(

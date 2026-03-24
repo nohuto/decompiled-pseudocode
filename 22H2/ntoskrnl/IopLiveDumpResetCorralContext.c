@@ -1,7 +1,7 @@
 /*
- * XREFs of IopLiveDumpResetCorralContext @ 0x140A9C5D8
+ * XREFs of IopLiveDumpResetCorralContext @ 0x1409AD678
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14094C61C (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140896C0C (IopLiveDumpAllocAndInitResources.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopCloneRange @ 0x140A4FAC4
+ * XREFs of PopCloneRange @ 0x140996A18
  * Callers:
- *     PopSetRange @ 0x14038DDD4 (PopSetRange.c)
+ *     PopSetRange @ 0x140388200 (PopSetRange.c)
  * Callees:
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall PopCloneRange(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -71,6 +71,10 @@ LABEL_12:
   if ( v8 )
   {
 LABEL_14:
+    *v8 = 0LL;
+    v8[1] = 0LL;
+    *((_DWORD *)v8 + 5) = 0;
+    v8[5] = 0LL;
     *((_DWORD *)v8 + 4) = a4;
     v8[3] = v7;
     v8[4] = v10;
@@ -87,7 +91,7 @@ LABEL_25:
   else
   {
 LABEL_13:
-    result = (_QWORD *)ExAllocatePool2(64LL, 48LL, 1885433160LL);
+    result = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x70616D48u);
     v8 = result;
     if ( result )
       goto LABEL_14;

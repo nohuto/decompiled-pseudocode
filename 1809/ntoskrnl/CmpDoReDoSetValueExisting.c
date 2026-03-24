@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDoReDoSetValueExisting @ 0x1408075B0
+ * XREFs of CmpDoReDoSetValueExisting @ 0x140807590
  * Callers:
- *     CmpDoReDoRecord @ 0x140807354 (CmpDoReDoRecord.c)
+ *     CmpDoReDoRecord @ 0x140807334 (CmpDoReDoRecord.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     CmpDoReOpenTransKey @ 0x14080761C (CmpDoReOpenTransKey.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     CmpDoReOpenTransKey @ 0x1408075FC (CmpDoReOpenTransKey.c)
  */
 
 __int64 __fastcall CmpDoReDoSetValueExisting(__int64 a1, __int64 a2)

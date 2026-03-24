@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetContent@CSceneVisual@@MEAAJPEAVCContent@@@Z @ 0x1800FB1A0
+ * XREFs of ?SetContent@CSceneVisual@@MEAAJPEAVCContent@@@Z @ 0x1800E1CC0
  * Callers:
  *     <none>
  * Callees:

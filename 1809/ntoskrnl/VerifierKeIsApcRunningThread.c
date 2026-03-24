@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeIsApcRunningThread @ 0x140294B10 (KeIsApcRunningThread.c)
+ *     KeIsApcRunningThread @ 0x140294C10 (KeIsApcRunningThread.c)
  */
 
 __int64 __fastcall VerifierKeIsApcRunningThread(__int64 a1)

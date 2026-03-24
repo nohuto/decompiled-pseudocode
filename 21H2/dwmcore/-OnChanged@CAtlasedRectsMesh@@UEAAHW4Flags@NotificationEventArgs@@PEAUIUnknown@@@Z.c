@@ -1,5 +1,5 @@
 /*
- * XREFs of ?OnChanged@CAtlasedRectsMesh@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800FB2E0
+ * XREFs of ?OnChanged@CAtlasedRectsMesh@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800E2960
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 __int64 __fastcall CAtlasedRectsMesh::OnChanged(__int64 a1)
 {
-  *(_BYTE *)(a1 + 136) = 1;
+  *(_BYTE *)(a1 + 128) = 1;
   return 1LL;
 }

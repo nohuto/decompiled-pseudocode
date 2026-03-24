@@ -1,22 +1,22 @@
 /*
- * XREFs of ?Start@CMit@@QEAAJXZ @ 0x18002DF18
+ * XREFs of ?Start@CMit@@QEAAJXZ @ 0x1800B5190
  * Callers:
- *     ?Reset@CMit@@QEAAJXZ @ 0x18002DEC8 (-Reset@CMit@@QEAAJXZ.c)
+ *     ?Reset@CMit@@QEAAJXZ @ 0x1800B5140 (-Reset@CMit@@QEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CMit::Start(HANDLE *this)
 {
   HANDLE v2; // rax
-  unsigned int v3; // ecx
+  __int64 v3; // rcx
   unsigned int v4; // ebx
   DWORD ThreadId; // [rsp+40h] [rbp+8h] BYREF
 
   if ( *((_BYTE *)this + 32) )
   {
     v4 = -2147467260;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, &dword_180345798, 2u, -2147467260, 0x5Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_1802DD038, 2u, -2147467260, 0x5Du, 0LL);
   }
   else
   {
@@ -32,7 +32,7 @@ __int64 __fastcall CMit::Start(HANDLE *this)
     else
     {
       v4 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v3, &dword_180345798, 2u, -2147024882, 0x6Du, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v3, &dword_1802DD038, 2u, -2147024882, 0x6Fu, 0LL);
     }
   }
   return v4;

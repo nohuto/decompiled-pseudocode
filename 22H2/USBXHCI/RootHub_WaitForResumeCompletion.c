@@ -1,13 +1,12 @@
 /*
- * XREFs of RootHub_WaitForResumeCompletion @ 0x1C0010514
+ * XREFs of RootHub_WaitForResumeCompletion @ 0x1C000AF28
  * Callers:
- *     RootHub_HandleResumedPorts @ 0x1C0010250 (RootHub_HandleResumedPorts.c)
+ *     RootHub_HandleResumedPorts @ 0x1C000AE10 (RootHub_HandleResumedPorts.c)
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     WPP_RECORDER_SF_dD @ 0x1C00181D4 (WPP_RECORDER_SF_dD.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C00532B4 (MicrosoftTelemetryAssertTriggeredMsgKM.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C0050588 (MicrosoftTelemetryAssertTriggeredMsgKM.c)
  */
 
 __int64 __fastcall RootHub_WaitForResumeCompletion(_QWORD *a1, int a2, int *a3)
@@ -16,51 +15,50 @@ __int64 __fastcall RootHub_WaitForResumeCompletion(_QWORD *a1, int a2, int *a3)
   __int64 v6; // r13
   __int64 v7; // r12
   __int64 v8; // r15
-  int Ulong; // eax
+  __int64 result; // rax
   void *v10; // rdx
   int v11; // ebx
   unsigned int v12; // esi
-  __int64 result; // rax
-  int v14; // eax
+  int v13; // ecx
+  int v14; // ecx
   int v15; // edx
-  __int64 v16; // rax
+  int v16; // edx
+  __int64 v17; // rax
 
   v3 = a2;
   v6 = *(_QWORD *)(a1[1] + 88LL);
-  v7 = a1[6] + 120LL * (unsigned int)(a2 - 1);
+  v7 = a1[6] + 112LL * (unsigned int)(a2 - 1);
   v8 = a1[5] + 16LL * (unsigned int)(a2 - 1);
-  Ulong = XilRegister_ReadUlong(v6, v8);
-  *a3 = Ulong;
-  v10 = &WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids;
+  result = XilRegister_ReadUlong(v6, v8);
+  *a3 = result;
+  v10 = &WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v10) = 4;
-    WPP_RECORDER_SF_dD(
-      *(_QWORD *)(a1[1] + 72LL),
-      (_DWORD)v10,
-      11,
-      227,
-      (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-      v3,
-      Ulong);
-    v10 = &WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids;
+    result = WPP_RECORDER_SF_dd(
+               *(_QWORD *)(a1[1] + 72LL),
+               (_DWORD)v10,
+               11,
+               224,
+               (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+               v3,
+               result);
+    v10 = &WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids;
   }
   v11 = *a3;
   v12 = 0;
+  v13 = *a3;
   while ( 1 )
   {
-    result = (unsigned int)*a3;
-    if ( (_DWORD)result == -1
+    if ( v13 == -1
       || !*(_BYTE *)(v7 + 18)
-      || (result & 0x20203) != 0x203
-      || (result &= 0x1E0u, (_DWORD)result == 128)
-      || (_DWORD)result != 480 && (_DWORD)result != 256 )
+      || (result = v13 & 0x20203, (_DWORD)result != 515)
+      || (v14 = v13 & 0x1E0, v14 != 256) && v14 != 480 )
     {
       if ( v12 > 0x4B0 )
       {
         result = a1[1];
         ++*(_DWORD *)(result + 488);
-        ++*(_DWORD *)(result + 532);
         *(_BYTE *)(result + 472) = 1;
       }
       return result;
@@ -74,51 +72,47 @@ __int64 __fastcall RootHub_WaitForResumeCompletion(_QWORD *a1, int a2, int *a3)
         *(_QWORD *)(a1[1] + 72LL),
         (_DWORD)v10,
         11,
-        229,
-        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
+        226,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         v3,
         v12);
     }
     ++v12;
     KeStallExecutionProcessor(0xAu);
-    v14 = XilRegister_ReadUlong(v6, v8);
-    *a3 = v14;
-    v10 = &WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids;
-    if ( v14 != v11 )
+    result = XilRegister_ReadUlong(v6, v8);
+    *a3 = result;
+    v13 = result;
+    if ( (_DWORD)result != v11 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v10 = &WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids;
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v10) = 4;
-        WPP_RECORDER_SF_dD(
-          *(_QWORD *)(a1[1] + 72LL),
-          (_DWORD)v10,
-          11,
-          230,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v3,
-          v14);
-        v10 = &WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids;
-      }
+      LOBYTE(v15) = 4;
+      result = WPP_RECORDER_SF_dd(
+                 *(_QWORD *)(a1[1] + 72LL),
+                 v15,
+                 11,
+                 227,
+                 (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+                 v3,
+                 result);
+      v13 = *a3;
     }
+    v10 = &WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids;
   }
   MicrosoftTelemetryAssertTriggeredMsgKM(
     "HW_COMPLIANCE: Port %2d Resume failed to complete before timeout",
-    (unsigned int)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids);
-  v16 = a1[1];
-  ++*(_DWORD *)(v16 + 484);
-  ++*(_DWORD *)(v16 + 528);
-  *(_BYTE *)(v16 + 472) = 1;
+    (unsigned int)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids);
+  v17 = a1[1];
+  ++*(_DWORD *)(v17 + 484);
+  *(_BYTE *)(v17 + 472) = 1;
   result = (__int64)&WPP_RECORDER_INITIALIZED;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v15) = 2;
+    LOBYTE(v16) = 2;
     return WPP_RECORDER_SF_d(
              *(_QWORD *)(a1[1] + 72LL),
-             v15,
+             v16,
              11,
-             228,
-             (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
+             225,
+             (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
              v3);
   }
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MmTryIdentifyPage @ 0x14058CAEC
+ * XREFs of MmTryIdentifyPage @ 0x140534868
  * Callers:
- *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A67430 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1409ACFE0 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
  * Callees:
- *     MiIsPageSecured @ 0x14026C720 (MiIsPageSecured.c)
- *     MiIsPageOnBadList @ 0x140273354 (MiIsPageOnBadList.c)
- *     MiIdentifyPfn @ 0x1402B1E40 (MiIdentifyPfn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIsPageSecured @ 0x1402B4D68 (MiIsPageSecured.c)
+ *     MiIsPageOnBadList @ 0x14030356C (MiIsPageOnBadList.c)
+ *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmTryIdentifyPage(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall MmTryIdentifyPage(__int64 a1, __int64 a2)
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
   __int64 v6; // rcx
-  _QWORD *v7; // r10
+  unsigned __int64 *v7; // r10
   unsigned __int8 v8; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *v10; // r9
@@ -26,7 +26,7 @@ __int64 __fastcall MmTryIdentifyPage(__int64 a1, __int64 a2)
   *(_OWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 16) = 0LL;
   v2 = 1;
-  v3 = (__m128i *)(48 * a1 - 0x220000000000LL);
+  v3 = (__m128i *)(48 * a1 - 0x58000000000LL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )

@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiArblibCommitResources @ 0x1C00ABCE8
+ * XREFs of AcpiArblibCommitResources @ 0x1C00ACFF4
  * Callers:
- *     ACPIBusIrpStartDevice @ 0x1C0090AA0 (ACPIBusIrpStartDevice.c)
+ *     ACPIBusIrpStartDevice @ 0x1C0090F10 (ACPIBusIrpStartDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall AcpiArblibCommitResources(__int64 a1, __int64 a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpCovSampModuleReference @ 0x1408A9E52
+ * XREFs of EtwpCovSampModuleReference @ 0x1409454C8
  * Callers:
- *     ProcessForExeModule @ 0x14046A11A (ProcessForExeModule.c)
- *     EtwpCovSampProcessAddModule @ 0x1409F2914 (EtwpCovSampProcessAddModule.c)
+ *     ProcessForExeModule @ 0x1405B01B8 (ProcessForExeModule.c)
+ *     EtwpCovSampProcessAddModule @ 0x140945508 (EtwpCovSampProcessAddModule.c)
  * Callees:
  *     <none>
  */
@@ -15,6 +15,6 @@ __int64 __fastcall EtwpCovSampModuleReference(__int64 a1, __int64 a2)
   if ( result <= 1 )
     __fastfail(0xEu);
   if ( *(_QWORD *)(a2 + 64) == 2LL && !*(_DWORD *)(a2 + 132) )
-    _InterlockedDecrement((volatile signed __int32 *)(a1 + 1636));
+    _InterlockedDecrement((volatile signed __int32 *)(a1 + 1124));
   return result;
 }

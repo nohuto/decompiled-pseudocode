@@ -1,19 +1,17 @@
 /*
- * XREFs of GreSetPaletteOwner @ 0x1C016CEB0
+ * XREFs of GreSetPaletteOwner @ 0x1C00A9B10
  * Callers:
- *     <none>
+ *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C00B9020 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
  * Callees:
- *     HmgSetOwner @ 0x1C003E5F0 (HmgSetOwner.c)
+ *     HmgSetOwner @ 0x1C00368E0 (HmgSetOwner.c)
  */
 
-__int64 __fastcall GreSetPaletteOwner(__int64 a1, int a2)
+__int64 __fastcall GreSetPaletteOwner(void *a1, int a2)
 {
-  unsigned int v3; // edi
-  unsigned int v4; // ebx
+  unsigned int v2; // r8d
 
-  v3 = a1;
-  v4 = 0;
-  if ( a1 != *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 3168LL) + 120LL) )
-    return (unsigned int)HmgSetOwner(v3, a2, 8);
-  return v4;
+  v2 = 0;
+  if ( a1 != gahStockObjects[15] )
+    return (unsigned int)HmgSetOwner((__int64)a1, a2, 8);
+  return v2;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?_UpdateReportDescriptor@@YAXUtagRECT@@KK@Z @ 0x1C01B215C
+ * XREFs of ?_UpdateReportDescriptor@@YAXUtagRECT@@KK@Z @ 0x1C01DD85C
  * Callers:
- *     CreatePseudoDigitizerDevice @ 0x1C01B2264 (CreatePseudoDigitizerDevice.c)
+ *     CreatePseudoDigitizerDevice @ 0x1C01DD964 (CreatePseudoDigitizerDevice.c)
  * Callees:
  *     <none>
  */
@@ -14,37 +14,37 @@ void __fastcall _UpdateReportDescriptor(struct tagRECT *a1, __int16 a2, unsigned
   char v6; // dl
   int v7; // ecx
 
-  byte_1C035A322 = a3;
+  byte_1C0333262 = a3;
   v3 = a3 >> 8;
-  byte_1C035A394 = a3;
-  byte_1C035A406 = a3;
-  byte_1C035A478 = a3;
+  byte_1C03332D4 = a3;
+  byte_1C0333346 = a3;
+  byte_1C03333B8 = a3;
   v4 = (a1->right - a1->left) >> 8;
   v5 = LOBYTE(a1->right) - LOBYTE(a1->left);
-  word_1C035A31D = a2;
-  word_1C035A38F = a2;
-  word_1C035A401 = a2;
-  word_1C035A473 = a2;
+  word_1C033325D = a2;
+  word_1C03332CF = a2;
+  word_1C0333341 = a2;
+  word_1C03333B3 = a2;
   v6 = LOBYTE(a1->bottom) - LOBYTE(a1->top);
-  byte_1C035A323 = v3;
-  byte_1C035A395 = v3;
-  byte_1C035A407 = v3;
-  byte_1C035A479 = v3;
+  byte_1C0333263 = v3;
+  byte_1C03332D5 = v3;
+  byte_1C0333347 = v3;
+  byte_1C03333B9 = v3;
   v7 = a1->bottom - a1->top;
-  byte_1C035A310 = v5;
-  byte_1C035A326 = BYTE1(v7);
-  byte_1C035A398 = BYTE1(v7);
-  byte_1C035A40A = BYTE1(v7);
-  byte_1C035A47C = BYTE1(v7);
-  byte_1C035A311 = v4;
-  byte_1C035A325 = v6;
-  byte_1C035A382 = v5;
-  byte_1C035A383 = v4;
-  byte_1C035A397 = v6;
-  byte_1C035A3F4 = v5;
-  byte_1C035A3F5 = v4;
-  byte_1C035A409 = v6;
-  byte_1C035A466 = v5;
-  byte_1C035A467 = v4;
-  byte_1C035A47B = v6;
+  byte_1C0333250 = v5;
+  byte_1C0333266 = BYTE1(v7);
+  byte_1C03332D8 = BYTE1(v7);
+  byte_1C033334A = BYTE1(v7);
+  byte_1C03333BC = BYTE1(v7);
+  byte_1C0333251 = v4;
+  byte_1C0333265 = v6;
+  byte_1C03332C2 = v5;
+  byte_1C03332C3 = v4;
+  byte_1C03332D7 = v6;
+  byte_1C0333334 = v5;
+  byte_1C0333335 = v4;
+  byte_1C0333349 = v6;
+  byte_1C03333A6 = v5;
+  byte_1C03333A7 = v4;
+  byte_1C03333BB = v6;
 }

@@ -8,8 +8,8 @@
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     ObpGetWaitObject @ 0x14006311C (ObpGetWaitObject.c)
  *     KeDeregisterObjectNotification @ 0x14008DF20 (KeDeregisterObjectNotification.c)
- *     KeRemoveQueueEntry @ 0x14012C8F0 (KeRemoveQueueEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRemoveQueueEntry @ 0x14012C910 (KeRemoveQueueEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall IopCancelWaitCompletionPacket(_QWORD *Object, char a2, unsigned __int8 a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?UnregisterChannel@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@_N@Z @ 0x1C00805D0
+ * XREFs of ?UnregisterChannel@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@_N@Z @ 0x1C00599C8
  * Callers:
- *     ?Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C0080410 (-Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ.c)
+ *     ?Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C0059810 (-Shutdown@CApplicationChannel@DirectComposition@@MEAAXXZ.c)
  * Callees:
- *     ?PostBatch@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@0@Z @ 0x1C0013BAC (-PostBatch@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@0@Z.c)
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0013C00 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C00163FC (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
- *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C0080AA4 (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00568CC (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ *     ?PostBatch@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@0@Z @ 0x1C0059770 (-PostBatch@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@0@Z.c)
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0059A80 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005C370 (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
  */
 
 void __fastcall DirectComposition::CConnection::UnregisterChannel(
@@ -15,7 +15,6 @@ void __fastcall DirectComposition::CConnection::UnregisterChannel(
         char a3)
 {
   struct _ERESOURCE *v6; // rbx
-  unsigned int v7; // edx
 
   if ( a3 )
     _InterlockedIncrement((volatile signed __int32 *)this);
@@ -30,5 +29,5 @@ void __fastcall DirectComposition::CConnection::UnregisterChannel(
   ExReleaseResourceLite(*((PERESOURCE *)this + 1));
   KeLeaveCriticalRegion();
   if ( a3 )
-    DirectComposition::CConnection::Release(this, v7);
+    DirectComposition::CConnection::Release(this);
 }

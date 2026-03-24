@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVaMgrRangeFind @ 0x14036004C
+ * XREFs of RtlpHpVaMgrRangeFind @ 0x1402FD938
  * Callers:
- *     RtlpHpVaMgrAlloc @ 0x14030FCEC (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpVaMgrAlloc @ 0x1402FC8A0 (RtlpHpVaMgrAlloc.c)
  * Callees:
- *     RtlSparseArrayElementAllocated @ 0x14024FAFC (RtlSparseArrayElementAllocated.c)
+ *     RtlSparseArrayElementAllocated @ 0x140289B6C (RtlSparseArrayElementAllocated.c)
  */
 
 unsigned __int64 __fastcall RtlpHpVaMgrRangeFind(__int64 a1, unsigned __int16 a2, unsigned __int16 a3, _QWORD *a4)
@@ -39,7 +39,7 @@ unsigned __int64 __fastcall RtlpHpVaMgrRangeFind(__int64 a1, unsigned __int16 a2
     else
     {
       if ( a2 <= *(_WORD *)(i + 24) )
-        goto LABEL_13;
+        goto LABEL_15;
       v11 = *(_QWORD *)(i + 8);
     }
     if ( v9 && v11 )
@@ -48,7 +48,7 @@ unsigned __int64 __fastcall RtlpHpVaMgrRangeFind(__int64 a1, unsigned __int16 a2
       i = v11;
   }
   i = v10;
-LABEL_13:
+LABEL_15:
   if ( i )
   {
     if ( (unsigned __int16)v6 > 1u )

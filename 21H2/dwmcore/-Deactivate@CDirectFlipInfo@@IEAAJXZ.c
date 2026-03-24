@@ -1,22 +1,28 @@
 /*
- * XREFs of ?Deactivate@CDirectFlipInfo@@IEAAJXZ @ 0x1801DF3C8
+ * XREFs of ?Deactivate@CDirectFlipInfo@@IEAAJXZ @ 0x180184244
  * Callers:
- *     ?Reset@CDirectFlipInfo@@QEAAXXZ @ 0x1800BCA94 (-Reset@CDirectFlipInfo@@QEAAXXZ.c)
+ *     ?Reset@CDirectFlipInfo@@QEAAXXZ @ 0x1800932D0 (-Reset@CDirectFlipInfo@@QEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?IsIndependentFlip@CDirectFlipInfo@@QEBA_NXZ @ 0x18018455C (-IsIndependentFlip@CDirectFlipInfo@@QEBA_NXZ.c)
  */
 
-__int64 __fastcall CDirectFlipInfo::Deactivate(CDirectFlipInfo *this, __int64 a2, __int64 a3)
+__int64 __fastcall CDirectFlipInfo::Deactivate(CDirectFlipInfo *this)
 {
   __int64 result; // rax
 
-  LOBYTE(a3) = *((_BYTE *)this + 125);
-  (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(**((_QWORD **)this + 2) + 248LL))(
-    *((_QWORD *)this + 2),
-    *((_QWORD *)this + 3),
-    a3);
+  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 216LL))(*((_QWORD *)this + 2));
+  if ( CDirectFlipInfo::IsIndependentFlip(this) )
+    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD, int))(**((_QWORD **)this + 2) + 272LL))(
+      *((_QWORD *)this + 2),
+      0LL,
+      0LL,
+      0LL,
+      0,
+      -1);
+  *((_DWORD *)this + 12) = ((*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 176LL))(*((_QWORD *)this + 2)) != 0)
+                         + 2;
   result = 0LL;
-  *((_DWORD *)this + 12) = 2;
-  *((_BYTE *)this + 124) = 0;
+  *((_BYTE *)this + 114) = 0;
   return result;
 }

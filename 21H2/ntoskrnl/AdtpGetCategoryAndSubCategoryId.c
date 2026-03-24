@@ -1,8 +1,8 @@
 /*
- * XREFs of AdtpGetCategoryAndSubCategoryId @ 0x140844FB8
+ * XREFs of AdtpGetCategoryAndSubCategoryId @ 0x1407B8A28
  * Callers:
- *     AdtpWriteToEtwEx @ 0x14064B24C (AdtpWriteToEtwEx.c)
- *     AdtpWriteToEtw @ 0x140844C0C (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtwEx @ 0x1405C2164 (AdtpWriteToEtwEx.c)
+ *     AdtpWriteToEtw @ 0x1407B86D8 (AdtpWriteToEtw.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall AdtpGetCategoryAndSubCategoryId(int a1, unsigned int *a2, _DW
 
   v3 = 0;
   v4 = a1 - 100;
-  if ( v4 > 0x3A || !a2 && !a3 )
+  if ( v4 > 0x3B || !a2 && !a3 )
     return 3221225485LL;
   v6 = 0;
   for ( i = AdtpPerCategoryCount; ; i = (__int64 *)((char *)i + 2) )

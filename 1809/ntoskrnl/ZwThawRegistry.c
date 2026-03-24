@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwThawRegistry @ 0x1401BB8B0
+ * XREFs of ZwThawRegistry @ 0x1401BB8D0
  * Callers:
  *     <none>
  * Callees:

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DrvGetNumberOfPhysicalMonitors@@YAJPEAUtagGRAPHICS_DEVICE@@PEAK@Z @ 0x1C006A010
+ * XREFs of ?DrvGetNumberOfPhysicalMonitors@@YAJPEAUtagGRAPHICS_DEVICE@@PEAK@Z @ 0x1C00B01DC
  * Callers:
- *     DrvGetSuggestedPhysicalMonitorArraySize @ 0x1C0069F80 (DrvGetSuggestedPhysicalMonitorArraySize.c)
- *     DrvCreatePhysicalMonitorObjects @ 0x1C00CF400 (DrvCreatePhysicalMonitorObjects.c)
+ *     DrvGetSuggestedPhysicalMonitorArraySize @ 0x1C00B0150 (DrvGetSuggestedPhysicalMonitorArraySize.c)
+ *     DrvCreatePhysicalMonitorObjects @ 0x1C00BFAC0 (DrvCreatePhysicalMonitorObjects.c)
  * Callees:
  *     <none>
  */

@@ -1,27 +1,77 @@
 /*
- * XREFs of ?RemoveResourceDebugInfo@CAnimationLoggingManager@@QEAAXPEAVCResource@@@Z @ 0x180042844
+ * XREFs of ?RemoveResourceDebugInfo@CAnimationLoggingManager@@QEAAXPEAVCResource@@@Z @ 0x1800C4478
  * Callers:
- *     ?DetachFromChannel@CNotificationResource@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180042790 (-DetachFromChannel@CNotificationResource@@UEAAXPEAVCChannelContext@@_N@Z.c)
- *     ??1CResource@@MEAA@XZ @ 0x180049CEC (--1CResource@@MEAA@XZ.c)
- *     ?ProcessSetComment@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOGGINGMANAGER_SETCOMMENT@@PEBXI@Z @ 0x1800618DC (-ProcessSetComment@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOG.c)
- *     ?DetachFromChannel@CResource@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1800E13C0 (-DetachFromChannel@CResource@@UEAAXPEAVCChannelContext@@_N@Z.c)
- *     ?ProcessSetDiagnosticItemId@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOGGINGMANAGER_SETDIAGNOSTICITEMID@@@Z @ 0x1801FD1E8 (-ProcessSetDiagnosticItemId@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANI.c)
+ *     ?ProcessSetComment@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOGGINGMANAGER_SETCOMMENT@@PEBXI@Z @ 0x180035048 (-ProcessSetComment@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOG.c)
+ *     ??1CResource@@MEAA@XZ @ 0x1800A0EAC (--1CResource@@MEAA@XZ.c)
+ *     ?DetachFromChannel@CNotificationResource@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1800C43E0 (-DetachFromChannel@CNotificationResource@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ?DetachFromChannel@CResource@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1800CCCD0 (-DetachFromChannel@CResource@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ?ProcessSetDiagnosticItemId@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOGGINGMANAGER_SETDIAGNOSTICITEMID@@@Z @ 0x1801B13C8 (-ProcessSetDiagnosticItemId@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANI.c)
  * Callees:
- *     ?_Unchecked_erase@?$_Hash@V?$_Umap_traits@PEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@V?$_Uhash_compare@PEAVCResource@@U?$hash@PEAVCResource@@@std@@U?$equal_to@PEAVCResource@@@3@@std@@V?$allocator@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@5@$0A@@std@@@std@@AEAAPEAU?$_List_node@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@PEAX@2@PEAU32@@Z @ 0x1800428A0 (-_Unchecked_erase@-$_Hash@V-$_Umap_traits@PEAVCResource@@UResourceDebugInfo@CAnimationLoggingMan.c)
- *     ??$find@X@?$_Hash@V?$_Umap_traits@PEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@V?$_Uhash_compare@PEAVCResource@@U?$hash@PEAVCResource@@@std@@U?$equal_to@PEAVCResource@@@3@@std@@V?$allocator@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@5@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@std@@@std@@@1@AEBQEAVCResource@@@Z @ 0x180042948 (--$find@X@-$_Hash@V-$_Umap_traits@PEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@V-.c)
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800C3A14 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     ?erase@?$list@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@V?$allocator@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@2@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@std@@@std@@@2@V?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@@std@@@std@@@2@@Z @ 0x1800CE8F4 (-erase@-$list@U-$pair@QEAVCResource@@UResourceDebugInfo@CAnimationLoggingManager@@@std@@V-$alloc.c)
  */
 
 void __fastcall CAnimationLoggingManager::RemoveResourceDebugInfo(CAnimationLoggingManager *this, struct CResource *a2)
 {
-  __int64 v4; // [rsp+30h] [rbp+8h] BYREF
-  struct CResource *v5; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v4; // r8
+  unsigned __int64 i; // r9
+  __int64 v6; // rax
+  __int64 v7; // rbx
+  __int64 *v8; // rsi
+  __int64 v9; // rcx
+  __int64 *j; // r11
+  __int64 *v11; // rax
+  __int64 appended; // rax
+  _QWORD *v13; // r11
+  __int64 v14; // rdx
+  struct CResource *v15; // [rsp+48h] [rbp+10h] BYREF
 
-  v5 = a2;
-  std::_Hash<std::_Umap_traits<CResource *,CAnimationLoggingManager::ResourceDebugInfo,std::_Uhash_compare<CResource *,std::hash<CResource *>,std::equal_to<CResource *>>,std::allocator<std::pair<CResource * const,CAnimationLoggingManager::ResourceDebugInfo>>,0>>::find<void>(
-    (char *)this + 96,
-    &v4,
-    &v5);
-  if ( v4 != *((_QWORD *)this + 13) )
-    std::_Hash<std::_Umap_traits<CResource *,CAnimationLoggingManager::ResourceDebugInfo,std::_Uhash_compare<CResource *,std::hash<CResource *>,std::equal_to<CResource *>>,std::allocator<std::pair<CResource * const,CAnimationLoggingManager::ResourceDebugInfo>>,0>>::_Unchecked_erase((char *)this + 96);
+  v15 = a2;
+  v4 = 0xCBF29CE484222325uLL;
+  for ( i = 0LL; i < 8; ++i )
+  {
+    v6 = *((unsigned __int8 *)&v15 + i);
+    v4 = 0x100000001B3LL * (v6 ^ v4);
+  }
+  v7 = *((_QWORD *)this + 14);
+  v8 = (__int64 *)*((_QWORD *)this + 12);
+  v9 = 2 * (v4 & *((_QWORD *)this + 17));
+  for ( j = *(__int64 **)(v7 + 16 * (v4 & *((_QWORD *)this + 17))); ; j = (__int64 *)*j )
+  {
+    v11 = *(__int64 **)(v7 + 16 * (v4 & *((_QWORD *)this + 17))) == v8
+        ? (__int64 *)*((_QWORD *)this + 12)
+        : **(__int64 ***)(v7 + 16 * (v4 & *((_QWORD *)this + 17)) + 8);
+    if ( j == v11 )
+      break;
+    if ( (struct CResource *)j[2] == a2 )
+      goto LABEL_8;
+  }
+  j = (__int64 *)*((_QWORD *)this + 12);
+LABEL_8:
+  if ( j != v8 )
+  {
+    appended = std::_Fnv1a_append_bytes(v9, (const unsigned __int8 *const)j + 16, 8uLL);
+    v14 = 2 * (*((_QWORD *)this + 17) & appended);
+    if ( *(_QWORD **)(v7 + 16 * (*((_QWORD *)this + 17) & appended) + 8) == v13 )
+    {
+      if ( *(_QWORD **)(v7 + 16 * (*((_QWORD *)this + 17) & appended)) == v13 )
+      {
+        *(_QWORD *)(v7 + 16 * (*((_QWORD *)this + 17) & appended)) = v8;
+        *(_QWORD *)(*((_QWORD *)this + 14) + 8 * v14 + 8) = *((_QWORD *)this + 12);
+      }
+      else
+      {
+        *(_QWORD *)(v7 + 16 * (*((_QWORD *)this + 17) & appended) + 8) = v13[1];
+      }
+    }
+    else if ( *(_QWORD **)(v7 + 16 * (*((_QWORD *)this + 17) & appended)) == v13 )
+    {
+      *(_QWORD *)(v7 + 16 * (*((_QWORD *)this + 17) & appended)) = *v13;
+    }
+    std::list<std::pair<CResource * const,CAnimationLoggingManager::ResourceDebugInfo>>::erase(
+      (char *)this + 96,
+      &v15,
+      v13);
+  }
   *((_DWORD *)a2 + 8) &= ~0x10u;
 }

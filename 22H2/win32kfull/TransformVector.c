@@ -1,14 +1,15 @@
 /*
- * XREFs of TransformVector @ 0x1C01E6D28
+ * XREFs of TransformVector @ 0x1C0216FBC
  * Callers:
- *     GetNewMonitor @ 0x1C010B39C (GetNewMonitor.c)
- *     TransformVectorWithInputTargetPrecedence @ 0x1C0150FD8 (TransformVectorWithInputTargetPrecedence.c)
- *     PhysicalToLogicalPointForWindow @ 0x1C01B9D9C (PhysicalToLogicalPointForWindow.c)
- *     ?ApplyWindowTransform@@YAXPEBU_D3DMATRIX@@PEAUtagPOINT@@PEAUtagTOUCHTARGETINGCONTACT@@H@Z @ 0x1C01E3AF8 (-ApplyWindowTransform@@YAXPEBU_D3DMATRIX@@PEAUtagPOINT@@PEAUtagTOUCHTARGETINGCONTACT@@H@Z.c)
- *     ?TransformRect@@YAXPEBU_D3DMATRIX@@PEAUtagRECT@@H@Z @ 0x1C01E4830 (-TransformRect@@YAXPEBU_D3DMATRIX@@PEAUtagRECT@@H@Z.c)
- *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01EEA38 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
+ *     GetNewMonitor @ 0x1C006BEBC (GetNewMonitor.c)
+ *     TransformVectorWithInputTargetPrecedence @ 0x1C00F2968 (TransformVectorWithInputTargetPrecedence.c)
+ *     LogicalToPhysicalPointForWindow @ 0x1C01E54D0 (LogicalToPhysicalPointForWindow.c)
+ *     PhysicalToLogicalPointForWindow @ 0x1C01E55F0 (PhysicalToLogicalPointForWindow.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z @ 0x1C020E968 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z.c)
+ *     ?ApplyWindowTransform@@YAXPEBU_D3DMATRIX@@PEAUtagPOINT@@PEAUtagTOUCHTARGETINGCONTACT@@H@Z @ 0x1C02143DC (-ApplyWindowTransform@@YAXPEBU_D3DMATRIX@@PEAUtagPOINT@@PEAUtagTOUCHTARGETINGCONTACT@@H@Z.c)
+ *     ?TransformRect@@YAXPEBU_D3DMATRIX@@PEAUtagRECT@@H@Z @ 0x1C021529C (-TransformRect@@YAXPEBU_D3DMATRIX@@PEAUtagRECT@@H@Z.c)
  * Callees:
- *     FixedPointSubPixel @ 0x1C0151E1E (FixedPointSubPixel.c)
+ *     FixedPointSubPixel @ 0x1C01E507C (FixedPointSubPixel.c)
  */
 
 __int64 __fastcall TransformVector(float *a1, int *a2, int *a3, int *a4, int a5)

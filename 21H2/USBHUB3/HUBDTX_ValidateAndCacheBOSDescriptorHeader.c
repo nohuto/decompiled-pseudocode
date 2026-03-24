@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBDTX_ValidateAndCacheBOSDescriptorHeader @ 0x1C0028A40
+ * XREFs of HUBDTX_ValidateAndCacheBOSDescriptorHeader @ 0x1C0028598
  * Callers:
- *     HUBDSM_ValidatingAlternateBOSDescriptorHeader @ 0x1C0020810 (HUBDSM_ValidatingAlternateBOSDescriptorHeader.c)
+ *     HUBDSM_ValidatingAlternateBOSDescriptorHeader @ 0x1C0020400 (HUBDSM_ValidatingAlternateBOSDescriptorHeader.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBDESC_InternalValidateBOSDescriptor @ 0x1C00391A4 (HUBDESC_InternalValidateBOSDescriptor.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDESC_InternalValidateBOSDescriptor @ 0x1C0038930 (HUBDESC_InternalValidateBOSDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBDTX_ValidateAndCacheBOSDescriptorHeader(__int64 a1)
@@ -30,16 +30,15 @@ __int64 __fastcall HUBDTX_ValidateAndCacheBOSDescriptorHeader(__int64 a1)
   int v18; // [rsp+C8h] [rbp+1Fh]
   int v19; // [rsp+CCh] [rbp+23h]
   _OWORD *v20; // [rsp+D0h] [rbp+27h]
-  int v21; // [rsp+D8h] [rbp+2Fh]
-  __int16 v22; // [rsp+DCh] [rbp+33h]
-  int v23; // [rsp+110h] [rbp+67h] BYREF
+  __int64 v21; // [rsp+D8h] [rbp+2Fh]
+  int v22; // [rsp+110h] [rbp+67h] BYREF
 
   v1 = a1 + 1732;
   v3 = 4077;
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   v6 = *(_QWORD *)(a1 + 8);
   *((_QWORD *)&v13[0] + 1) = 0LL;
   *(_QWORD *)&v13[3] = 0LL;
@@ -62,11 +61,10 @@ __int64 __fastcall HUBDTX_ValidateAndCacheBOSDescriptorHeader(__int64 a1)
   {
     v11 = *(_QWORD *)(v6 + 1432);
     v19 = 0;
-    v21 = 0;
-    v22 = 0;
+    v21 = 0LL;
     v18 = v9;
     v14[0] = v13[0];
-    v23 = 0;
+    v22 = 0;
     v14[1] = v13[1];
     v14[2] = v13[2];
     v15 = *(_QWORD *)&v13[3];
@@ -74,7 +72,7 @@ __int64 __fastcall HUBDTX_ValidateAndCacheBOSDescriptorHeader(__int64 a1)
     v17 = v1 + v9;
     memset(v13, 0, sizeof(v13));
     v20 = v13;
-    if ( (unsigned __int8)HUBDESC_InternalValidateBOSDescriptor(v1, (unsigned int)v14, (unsigned int)&v23, 0, v11) )
+    if ( (unsigned __int8)HUBDESC_InternalValidateBOSDescriptor(v1, (unsigned int)v14, (unsigned int)&v22, 0, v11) )
       return v3;
     *(_DWORD *)(a1 + 2432) = 1073807378;
   }
@@ -82,12 +80,12 @@ __int64 __fastcall HUBDTX_ValidateAndCacheBOSDescriptorHeader(__int64 a1)
   {
     *(_DWORD *)(a1 + 2432) = 1073807378;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dD(
         *(_QWORD *)(v6 + 1432),
         2u,
         5u,
         0x3Cu,
-        (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v9,
         5);
   }

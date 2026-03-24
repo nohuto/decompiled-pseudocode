@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Release@CEffectCompilationTask@@UEAAKXZ @ 0x1800D9D10
+ * XREFs of ?Release@CEffectCompilationTask@@UEAAKXZ @ 0x1800CA640
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?TryAddDeadTask@CEffectCompilationService@@AEAA_NPEAVCEffectCompilationTask@@@Z @ 0x1800DA0EC (-TryAddDeadTask@CEffectCompilationService@@AEAA_NPEAVCEffectCompilationTask@@@Z.c)
- *     ??1CEffectCompilationTask@@QEAA@XZ @ 0x1801BF5DC (--1CEffectCompilationTask@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?TryAddDeadTask@CEffectCompilationService@@AEAA_NPEAVCEffectCompilationTask@@@Z @ 0x1800CA738 (-TryAddDeadTask@CEffectCompilationService@@AEAA_NPEAVCEffectCompilationTask@@@Z.c)
+ *     ??1CEffectCompilationTask@@QEAA@XZ @ 0x180182E58 (--1CEffectCompilationTask@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CEffectCompilationTask::Release(CEffectCompilationTask *this)
@@ -22,7 +22,7 @@ __int64 __fastcall CEffectCompilationTask::Release(CEffectCompilationTask *this)
     else
     {
       CEffectCompilationTask::~CEffectCompilationTask(this);
-      DefaultHeap::Free(this);
+      operator delete(this);
     }
   }
   return v2;

@@ -1,1 +1,67 @@
-/*\n * XREFs of MouseToggleWaitWakeWorker @ 0x1C00046D0\n * Callers:\n *     MouseToggleWaitWake @ 0x1C000458C (MouseToggleWaitWake.c)\n * Callees:\n *     MouseClassCreateWaitWakeIrp @ 0x1C000CFF4 (MouseClassCreateWaitWakeIrp.c)\n */\n\nvoid __fastcall MouseToggleWaitWakeWorker(PDEVICE_OBJECT DeviceObject, PVOID Context)\n{\n  __int64 v2; // rbx\n  IRP *v3; // rdi\n  char v4; // r15\n  char v5; // r14\n  bool v7; // bp\n  KIRQL v8; // al\n  char v9; // cl\n  IRP *v10; // rcx\n  struct _DEVICE_OBJECT *v11; // rcx\n  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF\n  BOOL Data; // [rsp+78h] [rbp+10h] BYREF\n  void *DeviceRegKey; // [rsp+80h] [rbp+18h] BYREF\n\n  v2 = *((_QWORD *)Context + 1);\n  v3 = 0LL;\n  v4 = *((_BYTE *)Context + 24);\n  v5 = 0;\n  v7 = v4 != 0;\n  v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v2 + 72));\n  v9 = *(_BYTE *)(v2 + 345);\n  if ( (v4 != 0) != v9 )\n  {\n    v5 = 1;\n    if ( v9 )\n    {\n      v10 = *(IRP **)(v2 + 280);\n      if ( v10 )\n      {\n        if ( !*(_BYTE *)(v2 + 288) )\n        {\n          *(_BYTE *)(v2 + 288) = 1;\n          v3 = v10;\n        }\n      }\n    }\n    *(_BYTE *)(v2 + 345) = v7;\n  }\n  KeReleaseSpinLock((PKSPIN_LOCK)(v2 + 72), v8);\n  if ( v5 )\n  {\n    v11 = *(struct _DEVICE_OBJECT **)(v2 + 24);\n    Data = v7;\n    if ( IoOpenDeviceRegistryKey(v11, 1u, 0x1F0000u, &DeviceRegKey) >= 0 )\n    {\n      RtlInitUnicodeString(&DestinationString, L"WaitWakeEnabled");\n      ZwSetValueKey(DeviceRegKey, &DestinationString, 0, 4u, &Data, 4u);\n      ZwClose(DeviceRegKey);\n    }\n    if ( v4 )\n      MouseClassCreateWaitWakeIrp((PVOID)v2);\n  }\n  if ( v3 )\n    IoCancelIrp(v3);\n  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 32), MouseToggleWaitWakeWorker, 0x20u);\n  IoFreeWorkItem(*((PIO_WORKITEM *)Context + 2));\n  ExFreePoolWithTag(Context, 0);\n}\n
+/*
+ * XREFs of MouseToggleWaitWakeWorker @ 0x1C00046D0
+ * Callers:
+ *     MouseToggleWaitWake @ 0x1C000458C (MouseToggleWaitWake.c)
+ * Callees:
+ *     MouseClassCreateWaitWakeIrp @ 0x1C000CFF4 (MouseClassCreateWaitWakeIrp.c)
+ */
+
+void __fastcall MouseToggleWaitWakeWorker(PDEVICE_OBJECT DeviceObject, PVOID Context)
+{
+  __int64 v2; // rbx
+  IRP *v3; // rdi
+  char v4; // r15
+  char v5; // r14
+  bool v7; // bp
+  KIRQL v8; // al
+  char v9; // cl
+  IRP *v10; // rcx
+  struct _DEVICE_OBJECT *v11; // rcx
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
+  BOOL Data; // [rsp+78h] [rbp+10h] BYREF
+  void *DeviceRegKey; // [rsp+80h] [rbp+18h] BYREF
+
+  v2 = *((_QWORD *)Context + 1);
+  v3 = 0LL;
+  v4 = *((_BYTE *)Context + 24);
+  v5 = 0;
+  v7 = v4 != 0;
+  v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v2 + 72));
+  v9 = *(_BYTE *)(v2 + 345);
+  if ( (v4 != 0) != v9 )
+  {
+    v5 = 1;
+    if ( v9 )
+    {
+      v10 = *(IRP **)(v2 + 280);
+      if ( v10 )
+      {
+        if ( !*(_BYTE *)(v2 + 288) )
+        {
+          *(_BYTE *)(v2 + 288) = 1;
+          v3 = v10;
+        }
+      }
+    }
+    *(_BYTE *)(v2 + 345) = v7;
+  }
+  KeReleaseSpinLock((PKSPIN_LOCK)(v2 + 72), v8);
+  if ( v5 )
+  {
+    v11 = *(struct _DEVICE_OBJECT **)(v2 + 24);
+    Data = v7;
+    if ( IoOpenDeviceRegistryKey(v11, 1u, 0x1F0000u, &DeviceRegKey) >= 0 )
+    {
+      RtlInitUnicodeString(&DestinationString, L"WaitWakeEnabled");
+      ZwSetValueKey(DeviceRegKey, &DestinationString, 0, 4u, &Data, 4u);
+      ZwClose(DeviceRegKey);
+    }
+    if ( v4 )
+      MouseClassCreateWaitWakeIrp((PVOID)v2);
+  }
+  if ( v3 )
+    IoCancelIrp(v3);
+  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 32), MouseToggleWaitWakeWorker, 0x20u);
+  IoFreeWorkItem(*((PIO_WORKITEM *)Context + 2));
+  ExFreePoolWithTag(Context, 0);
+}

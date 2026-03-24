@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnParametersVerify @ 0x140848934
+ * XREFs of PfSnParametersVerify @ 0x1407C00F0
  * Callers:
- *     PfSnParametersRead @ 0x1408482F8 (PfSnParametersRead.c)
+ *     PfSnParametersRead @ 0x1407BFAB4 (PfSnParametersRead.c)
  * Callees:
- *     towupper @ 0x1403DB170 (towupper.c)
+ *     towupper @ 0x1403D36D0 (towupper.c)
  */
 
 __int64 __fastcall PfSnParametersVerify(_DWORD *a1)

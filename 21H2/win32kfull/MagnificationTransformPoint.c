@@ -1,9 +1,9 @@
 /*
- * XREFs of MagnificationTransformPoint @ 0x1C02127D4
+ * XREFs of MagnificationTransformPoint @ 0x1C0214004
  * Callers:
- *     TransformForInputMagnification @ 0x1C016A6E0 (TransformForInputMagnification.c)
- *     ApplyMagInputTransform @ 0x1C01CBBD0 (ApplyMagInputTransform.c)
- *     EditionMagnificationMousePosition @ 0x1C02126C0 (EditionMagnificationMousePosition.c)
+ *     ApplyMagInputTransform @ 0x1C01CF2B0 (ApplyMagInputTransform.c)
+ *     TransformForInputMagnification @ 0x1C01CF690 (TransformForInputMagnification.c)
+ *     EditionMagnificationMousePosition @ 0x1C0213EF0 (EditionMagnificationMousePosition.c)
  * Callees:
  *     <none>
  */

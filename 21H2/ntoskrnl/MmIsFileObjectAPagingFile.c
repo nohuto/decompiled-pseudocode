@@ -1,14 +1,14 @@
 /*
- * XREFs of MmIsFileObjectAPagingFile @ 0x140374EA8
+ * XREFs of MmIsFileObjectAPagingFile @ 0x14031C454
  * Callers:
- *     IoAsynchronousPageWrite @ 0x14020C810 (IoAsynchronousPageWrite.c)
- *     IoSynchronousPageWriteEx @ 0x140340130 (IoSynchronousPageWriteEx.c)
- *     IoPageReadEx @ 0x140342C50 (IoPageReadEx.c)
- *     FsRtlIsSystemPagingFile @ 0x140374E90 (FsRtlIsSystemPagingFile.c)
+ *     IoAsynchronousPageWrite @ 0x1402CB1EC (IoAsynchronousPageWrite.c)
+ *     IoSynchronousPageWriteEx @ 0x14031BE0C (IoSynchronousPageWriteEx.c)
+ *     IoPageReadEx @ 0x14031C130 (IoPageReadEx.c)
+ *     FsRtlIsSystemPagingFile @ 0x14036C980 (FsRtlIsSystemPagingFile.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmIsFileObjectAPagingFile(unsigned __int64 a1)
@@ -23,8 +23,8 @@ __int64 __fastcall MmIsFileObjectAPagingFile(unsigned __int64 a1)
   bool v10; // zf
 
   v2 = 0;
-  v3 = ExAcquireSpinLockShared(&dword_140C531C8);
-  v4 = (_QWORD *)qword_140C531C0;
+  v3 = ExAcquireSpinLockShared(&dword_140C4ECB8);
+  v4 = (_QWORD *)qword_140C4ECB0;
   while ( v4 )
   {
     if ( a1 < *(v4 - 25) )
@@ -41,7 +41,7 @@ __int64 __fastcall MmIsFileObjectAPagingFile(unsigned __int64 a1)
       v4 = (_QWORD *)v4[1];
     }
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C531C8);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4ECB8);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

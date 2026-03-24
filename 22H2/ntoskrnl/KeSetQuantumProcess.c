@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetQuantumProcess @ 0x14035062C
+ * XREFs of KeSetQuantumProcess @ 0x14035B384
  * Callers:
- *     KeSetPriorityAndQuantumProcess @ 0x14034FB90 (KeSetPriorityAndQuantumProcess.c)
- *     PspApplyJobLimitsToProcess @ 0x1406A6EC4 (PspApplyJobLimitsToProcess.c)
- *     PsChangeQuantumTable @ 0x1407C09D4 (PsChangeQuantumTable.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x14035AEA4 (KeSetPriorityAndQuantumProcess.c)
+ *     PspApplyJobLimitsToProcess @ 0x14060596C (PspApplyJobLimitsToProcess.c)
+ *     PsChangeQuantumTable @ 0x14078C6B8 (PsChangeQuantumTable.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KeSetQuantumProcess(__int64 a1, char a2)
@@ -17,12 +17,11 @@ void __fastcall KeSetQuantumProcess(__int64 a1, char a2)
   _QWORD **v6; // rdi
   _QWORD *i; // rax
   _DWORD *SchedulerAssist; // r9
-  __int64 v9; // rax
-  unsigned __int8 v10; // al
+  unsigned __int8 v9; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v12; // r8
-  int v13; // eax
-  bool v14; // zf
+  _DWORD *v11; // r8
+  int v12; // eax
+  bool v13; // zf
 
   if ( *(_BYTE *)(a1 + 641) != a2 )
   {
@@ -31,10 +30,7 @@ void __fastcall KeSetQuantumProcess(__int64 a1, char a2)
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      LODWORD(v9) = 4;
-      if ( CurrentIrql != 2 )
-        v9 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v9;
+      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     v5 = (volatile LONG *)(a1 + 64);
     ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
@@ -45,16 +41,19 @@ void __fastcall KeSetQuantumProcess(__int64 a1, char a2)
     ExReleaseSpinLockExclusiveFromDpcLevel(v5);
     if ( KiIrqlFlags )
     {
-      v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v12 = CurrentPrcb->SchedulerAssist;
-        v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v14 = (v13 & v12[5]) == 0;
-        v12[5] &= v13;
-        if ( v14 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v9 = KeGetCurrentIrql();
+        if ( v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v11 = CurrentPrcb->SchedulerAssist;
+          v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v13 = (v12 & v11[5]) == 0;
+          v11[5] &= v12;
+          if ( v13 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(CurrentIrql);

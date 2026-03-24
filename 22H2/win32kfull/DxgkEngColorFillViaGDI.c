@@ -1,12 +1,12 @@
 /*
- * XREFs of DxgkEngColorFillViaGDI @ 0x1C026FAC0
+ * XREFs of DxgkEngColorFillViaGDI @ 0x1C0276F60
  * Callers:
  *     <none>
  * Callees:
- *     NtGdiPatBlt @ 0x1C00DBEF0 (NtGdiPatBlt.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     NtGdiPatBlt @ 0x1C00B3F50 (NtGdiPatBlt.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall DxgkEngColorFillViaGDI(HDC a1, _DWORD *a2, __int64 a3, unsigned int a4, int a5)
@@ -16,7 +16,7 @@ __int64 __fastcall DxgkEngColorFillViaGDI(HDC a1, _DWORD *a2, __int64 a3, unsign
   __int64 SolidBrush; // rax
   __int64 v11; // r15
   __int64 v12; // r14
-  int *v13; // rdi
+  LONG *v13; // rdi
   unsigned int v14; // eax
   unsigned int v15; // eax
   _QWORD v17[2]; // [rsp+30h] [rbp-48h] BYREF
@@ -36,7 +36,7 @@ __int64 __fastcall DxgkEngColorFillViaGDI(HDC a1, _DWORD *a2, __int64 a3, unsign
         v12 = GreSelectBrush(a1, SolidBrush);
         if ( (_DWORD)v6 )
         {
-          v13 = (int *)(a3 + 4);
+          v13 = (LONG *)(a3 + 4);
           if ( a2 )
           {
             do
@@ -65,8 +65,7 @@ __int64 __fastcall DxgkEngColorFillViaGDI(HDC a1, _DWORD *a2, __int64 a3, unsign
         GreDeleteObject(v11);
       }
     }
-    if ( v17[0] )
-      XDCOBJ::vUnlockFast((XDCOBJ *)v17);
+    MDCOBJ::~MDCOBJ((MDCOBJ *)v17);
     UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v18);
   }
   return v5;

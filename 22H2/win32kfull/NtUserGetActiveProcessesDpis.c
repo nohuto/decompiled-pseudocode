@@ -1,34 +1,30 @@
 /*
- * XREFs of NtUserGetActiveProcessesDpis @ 0x1C00B3F10
+ * XREFs of NtUserGetActiveProcessesDpis @ 0x1C012C000
  * Callers:
  *     <none>
  * Callees:
- *     GetDpiCacheSlot @ 0x1C00EDB50 (GetDpiCacheSlot.c)
+ *     GetDpiCacheSlot @ 0x1C006148C (GetDpiCacheSlot.c)
  */
 
-__int64 __fastcall NtUserGetActiveProcessesDpis(__int64 a1, __int64 a2, __int64 a3)
+__int64 NtUserGetActiveProcessesDpis()
 {
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  unsigned int v7; // ebx
-  __int64 i; // r10
+  __int64 v0; // rcx
+  unsigned int v1; // ebx
+  __int64 i; // r11
   unsigned int DpiCacheSlot; // eax
-  __int64 v10; // r10
+  __int64 v4; // r11
 
-  EnterSharedCrit(a1, a2, a3);
-  v7 = 0;
-  for ( i = gppiList; i; i = *(_QWORD *)(v10 + 368) )
+  EnterCrit(0LL, 1LL);
+  v1 = 0;
+  for ( i = gppiList; i; i = *(_QWORD *)(v4 + 376) )
   {
     DpiCacheSlot = GetDpiCacheSlot(*(unsigned __int16 *)(i + 284));
     if ( DpiCacheSlot != -1 )
     {
-      v4 = DpiCacheSlot;
-      v3 = (unsigned int)(1 << DpiCacheSlot);
-      v7 |= v3;
+      v0 = DpiCacheSlot;
+      v1 |= 1 << DpiCacheSlot;
     }
   }
-  UserSessionSwitchLeaveCrit(v4, v3, v5, v6);
-  return v7;
+  UserSessionSwitchLeaveCrit(v0);
+  return v1;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of MiUnlockEntireDriver @ 0x140A345B0
+ * XREFs of MiUnlockEntireDriver @ 0x1408D0DC4
  * Callers:
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x140640958 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MmRemoveImportOptimizationForDriverVerifier @ 0x14054446C (MmRemoveImportOptimizationForDriverVerifier.c)
  * Callees:
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiUnlockDriverPages @ 0x140875FFC (MiUnlockDriverPages.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
+ *     MiUnlockDriverPages @ 0x1408C4E10 (MiUnlockDriverPages.c)
  */
 
-void __fastcall MiUnlockEntireDriver(__int64 *a1, __int64 a2)
+void __fastcall MiUnlockEntireDriver(unsigned __int64 *a1, __int64 a2)
 {
-  __int64 *PteAddress; // rax
+  _QWORD *PteAddress; // rax
   unsigned int v5; // r8d
 
   if ( a2 )
   {
     if ( (*(_BYTE *)(a2 + 10) & 1) != 0 )
     {
-      PteAddress = (__int64 *)MiGetPteAddress(*(_QWORD *)(a2 + 24));
-      MiReleasePtes((__int64)&qword_140C69A40, PteAddress, v5);
+      PteAddress = (_QWORD *)MiGetPteAddress(*(_QWORD *)(a2 + 24));
+      MiReleasePtes((__int64)&qword_140C4EF40, PteAddress, v5);
       *(_WORD *)(a2 + 10) &= ~1u;
     }
     IoFreeMdl((PMDL)a2);

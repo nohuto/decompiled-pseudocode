@@ -1,9 +1,9 @@
 /*
- * XREFs of PoStartPartitionReplace @ 0x140989758
+ * XREFs of PoStartPartitionReplace @ 0x1408E7708
  * Callers:
- *     PnprQuiesceDevices @ 0x140A9D3C4 (PnprQuiesceDevices.c)
+ *     PnprQuiesceDevices @ 0x1409AE350 (PnprQuiesceDevices.c)
  * Callees:
- *     PopDispatchStateCallout @ 0x140682AC8 (PopDispatchStateCallout.c)
+ *     PopDispatchStateCallout @ 0x140725A94 (PopDispatchStateCallout.c)
  */
 
 __int64 __fastcall PoStartPartitionReplace(_DWORD *a1, int a2)

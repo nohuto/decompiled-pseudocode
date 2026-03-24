@@ -1,12 +1,12 @@
 /*
- * XREFs of MmOutPageKernelStack @ 0x140299F34
+ * XREFs of MmOutPageKernelStack @ 0x1402E4954
  * Callers:
- *     KiOutSwapKernelStacks @ 0x140299FBC (KiOutSwapKernelStacks.c)
+ *     KiOutSwapKernelStacks @ 0x1402E4740 (KiOutSwapKernelStacks.c)
  * Callees:
- *     KeEnumerateKernelStackSegments @ 0x140298A3C (KeEnumerateKernelStackSegments.c)
- *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeEnumerateKernelStackSegments @ 0x1402E4A8C (KeEnumerateKernelStackSegments.c)
+ *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall MmOutPageKernelStack(__int64 a1)
@@ -20,10 +20,7 @@ __int64 __fastcall MmOutPageKernelStack(__int64 a1)
   {
     v3[3] = 0LL;
     LODWORD(v3[1]) = 20;
-    KeEnumerateKernelStackSegments(
-      a1,
-      (__int64 (__fastcall *)(__int64, _OWORD *, __int64))MiOutPageSingleKernelStack,
-      (__int64)v3);
+    KeEnumerateKernelStackSegments(a1, MiOutPageSingleKernelStack, v3);
     return MiFlushTbList(v3);
   }
   return result;

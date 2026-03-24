@@ -1,9 +1,9 @@
 /*
- * XREFs of BvgaAcquireDisplayOwnership @ 0x140551760
+ * XREFs of BvgaAcquireDisplayOwnership @ 0x1404FFAF0
  * Callers:
- *     BvgaNotifyDisplayOwnershipChange @ 0x1405519D0 (BvgaNotifyDisplayOwnershipChange.c)
+ *     BvgaNotifyDisplayOwnershipChange @ 0x1404FFD60 (BvgaNotifyDisplayOwnershipChange.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *BvgaAcquireDisplayOwnership())(_QWORD)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSerializedSuperWetStrokeSize@CSuperWetInkScribbleBase@@UEBAIXZ @ 0x1802AB6D0
+ * XREFs of ?GetSerializedSuperWetStrokeSize@CSuperWetInkScribbleBase@@UEBAIXZ @ 0x180269370
  * Callers:
  *     <none>
  * Callees:

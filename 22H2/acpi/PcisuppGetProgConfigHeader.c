@@ -1,10 +1,10 @@
 /*
- * XREFs of PcisuppGetProgConfigHeader @ 0x1C0099B60
+ * XREFs of PcisuppGetProgConfigHeader @ 0x1C0091F04
  * Callers:
- *     LinkNodeCrackPrt @ 0x1C005CEBC (LinkNodeCrackPrt.c)
- *     PcisuppIsPciDevice @ 0x1C0099F78 (PcisuppIsPciDevice.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
+ *     PcisuppIsPciDevice @ 0x1C0093BD0 (PcisuppIsPciDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall PcisuppGetProgConfigHeader(__int64 a1, __int64 a2)

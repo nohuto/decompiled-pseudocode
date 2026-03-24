@@ -1,23 +1,23 @@
 /*
- * XREFs of MiIncrementSubsectionViewCount @ 0x140286EC0
+ * XREFs of MiIncrementSubsectionViewCount @ 0x140315DE0
  * Callers:
- *     MiSetSubsectionBase @ 0x14022CD50 (MiSetSubsectionBase.c)
- *     MiRetainSubsection @ 0x140251340 (MiRetainSubsection.c)
- *     MiCreatePrototypePtes @ 0x14026E564 (MiCreatePrototypePtes.c)
- *     MiPrepareSegmentForDeletion @ 0x140270274 (MiPrepareSegmentForDeletion.c)
- *     MmPurgeSection @ 0x14027F360 (MmPurgeSection.c)
- *     MiReferenceSubsection @ 0x140286D4C (MiReferenceSubsection.c)
- *     MiReferenceActiveSubsection @ 0x140286DE0 (MiReferenceActiveSubsection.c)
- *     MiFlushSectionInternal @ 0x140329730 (MiFlushSectionInternal.c)
- *     MiExtendSection @ 0x1406A3A68 (MiExtendSection.c)
+ *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
+ *     MmPurgeSection @ 0x140238BA0 (MmPurgeSection.c)
+ *     MiSetSubsectionBase @ 0x1402A1874 (MiSetSubsectionBase.c)
+ *     MiRetainSubsection @ 0x1402C9564 (MiRetainSubsection.c)
+ *     MiPrepareSegmentForDeletion @ 0x1402F7D04 (MiPrepareSegmentForDeletion.c)
+ *     MiCreatePrototypePtes @ 0x1402F7DF8 (MiCreatePrototypePtes.c)
+ *     MiReferenceSubsection @ 0x14031555C (MiReferenceSubsection.c)
+ *     MiReferenceActiveSubsection @ 0x140315D00 (MiReferenceActiveSubsection.c)
+ *     MiExtendSection @ 0x140689798 (MiExtendSection.c)
  * Callees:
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14022CF78 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140287428 (MiControlAreaExemptFromCrossPartitionCharges.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1405C4C6C (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14025C6E4 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140315ED0 (MiControlAreaExemptFromCrossPartitionCharges.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1405551CC (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
-__int64 __fastcall MiIncrementSubsectionViewCount(_QWORD *BugCheckParameter2, char a2)
+__int64 __fastcall MiIncrementSubsectionViewCount(_QWORD *BugCheckParameter2, __int64 a2)
 {
   __int64 v2; // r9
   ULONG_PTR v3; // r10
@@ -31,7 +31,8 @@ __int64 __fastcall MiIncrementSubsectionViewCount(_QWORD *BugCheckParameter2, ch
   v2 = *BugCheckParameter2;
   v3 = (ULONG_PTR)BugCheckParameter2;
   v4 = 2;
-  if ( (a2 & 8) != 0 && !(unsigned int)MiControlAreaExemptFromCrossPartitionCharges(*BugCheckParameter2) )
+  if ( (a2 & 8) != 0
+    && !(unsigned int)MiControlAreaExemptFromCrossPartitionCharges(*BugCheckParameter2, a2, (unsigned int)a2, v2) )
   {
     if ( (v7 & 0x80u) != 0 )
     {
@@ -39,22 +40,21 @@ __int64 __fastcall MiIncrementSubsectionViewCount(_QWORD *BugCheckParameter2, ch
     }
     else if ( (v7 & 0x100) != 0 )
     {
-      v8 = *(ULONG_PTR **)(qword_140C51F48
+      v8 = *(ULONG_PTR **)(qword_140C4E648
                          + 8LL
-                         * *(unsigned __int16 *)(KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25]
-                                               + 366));
+                         * *(unsigned __int16 *)(KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5] + 430));
     }
     else
     {
       v8 = (v7 & 0x10) != 0
          ? 0LL
-         : *(ULONG_PTR **)(qword_140C51F48 + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessor[25]);
+         : *(ULONG_PTR **)(qword_140C4E648 + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessorPadding[5]);
     }
-    if ( v8 != *(ULONG_PTR **)(qword_140C51F48 + 8LL * (*(_WORD *)(v2 + 60) & 0x3FF)) )
+    if ( v8 != *(ULONG_PTR **)(qword_140C4E648 + 8LL * (*(_WORD *)(v2 + 60) & 0x3FF)) )
     {
       if ( (((v7 & 0x200) == 0) & *(_BYTE *)(v2 + 62)) != 0 )
       {
-        ++dword_140C52950;
+        ++dword_140C4E658;
         return 0LL;
       }
       SubsectionHoldingCrossPartitionReferences = MiGetSubsectionHoldingCrossPartitionReferences(v3);

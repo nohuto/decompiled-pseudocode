@@ -1,73 +1,68 @@
 /*
- * XREFs of ?MonitorCoordComp@@YAHPEBX0@Z @ 0x1C01F59C0
+ * XREFs of ?MonitorCoordComp@@YAHPEBX0@Z @ 0x1C021DED0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MonitorCoordComp(__int64 *a1, __int64 *a2)
+__int64 __fastcall MonitorCoordComp(_QWORD *a1, _QWORD *a2)
 {
-  __int64 v2; // r9
-  unsigned int v3; // r8d
-  __int64 v4; // r10
-  int v5; // edi
-  int v6; // r11d
-  int v7; // ebx
-  int v8; // r9d
+  __int64 v2; // r8
+  __int64 v3; // r9
+  int v4; // r11d
+  int v5; // r10d
+  int v6; // r8d
+  int v7; // eax
 
-  v2 = *a1;
-  v3 = 0;
-  v4 = *a2;
-  if ( *(_QWORD *)(*a1 + 96) )
+  v2 = a1[2];
+  v3 = a2[2];
+  if ( *(_QWORD *)(v2 + 280) )
   {
-    v5 = *(_DWORD *)(v2 + 96);
+    v4 = *(_DWORD *)(v2 + 280);
   }
   else
   {
-    v5 = *(_DWORD *)(*(_QWORD *)(v2 + 40) + 28LL)
+    v4 = *(_DWORD *)(*(_QWORD *)(v2 + 40) + 28LL)
        + (*(_DWORD *)(*(_QWORD *)(v2 + 40) + 36LL) - *(_DWORD *)(*(_QWORD *)(v2 + 40) + 28LL)) / 2;
-    *(_QWORD *)(v2 + 96) = v5;
+    *(_QWORD *)(v2 + 280) = v4;
   }
-  if ( *(_QWORD *)(v2 + 104) )
+  if ( *(_QWORD *)(v2 + 288) )
   {
-    v6 = *(_DWORD *)(v2 + 104);
+    v5 = *(_DWORD *)(v2 + 288);
   }
   else
   {
-    v6 = *(_DWORD *)(*(_QWORD *)(v2 + 40) + 32LL)
+    v5 = *(_DWORD *)(*(_QWORD *)(v2 + 40) + 32LL)
        + (*(_DWORD *)(*(_QWORD *)(v2 + 40) + 40LL) - *(_DWORD *)(*(_QWORD *)(v2 + 40) + 32LL)) / 2;
-    *(_QWORD *)(v2 + 104) = v6;
+    *(_QWORD *)(v2 + 288) = v5;
   }
-  if ( *(_QWORD *)(v4 + 96) )
+  if ( *(_QWORD *)(v3 + 280) )
   {
-    v7 = *(_DWORD *)(v4 + 96);
-  }
-  else
-  {
-    v7 = *(_DWORD *)(*(_QWORD *)(v4 + 40) + 28LL)
-       + (*(_DWORD *)(*(_QWORD *)(v4 + 40) + 36LL) - *(_DWORD *)(*(_QWORD *)(v4 + 40) + 28LL)) / 2;
-    *(_QWORD *)(v4 + 96) = v7;
-  }
-  if ( *(_QWORD *)(v4 + 104) )
-  {
-    v8 = *(_DWORD *)(v4 + 104);
+    v6 = *(_DWORD *)(v3 + 280);
   }
   else
   {
-    v8 = *(_DWORD *)(*(_QWORD *)(v4 + 40) + 32LL)
-       + (*(_DWORD *)(*(_QWORD *)(v4 + 40) + 40LL) - *(_DWORD *)(*(_QWORD *)(v4 + 40) + 32LL)) / 2;
-    *(_QWORD *)(v4 + 104) = v8;
+    v6 = *(_DWORD *)(*(_QWORD *)(v3 + 40) + 28LL)
+       + (*(_DWORD *)(*(_QWORD *)(v3 + 40) + 36LL) - *(_DWORD *)(*(_QWORD *)(v3 + 40) + 28LL)) / 2;
+    *(_QWORD *)(v3 + 280) = v6;
   }
-  if ( v5 >= v7 )
+  if ( *(_QWORD *)(v3 + 288) )
   {
-    if ( v5 != v7 )
+    v7 = *(_DWORD *)(v3 + 288);
+  }
+  else
+  {
+    v7 = *(_DWORD *)(*(_QWORD *)(v3 + 40) + 32LL)
+       + (*(_DWORD *)(*(_QWORD *)(v3 + 40) + 40LL) - *(_DWORD *)(*(_QWORD *)(v3 + 40) + 32LL)) / 2;
+    *(_QWORD *)(v3 + 288) = v7;
+  }
+  if ( v4 >= v6 )
+  {
+    if ( v4 != v6 )
       return 1LL;
-    if ( v6 >= v8 )
-    {
-      LOBYTE(v3) = v6 != v8;
-      return v3;
-    }
+    if ( v5 >= v7 )
+      return v5 != v7;
   }
   return 0xFFFFFFFFLL;
 }

@@ -1,243 +1,180 @@
 /*
- * XREFs of rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C017CDA4
+ * XREFs of rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C0159C24
  * Callers:
- *     RIMAbArbitratePointerDeviceFrame @ 0x1C017D324 (RIMAbArbitratePointerDeviceFrame.c)
+ *     RIMAbArbitratePointerDeviceFrame @ 0x1C015A07C (RIMAbArbitratePointerDeviceFrame.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMCmActiveContactsBegin @ 0x1C00E34D4 (RIMCmActiveContactsBegin.c)
- *     RIMCmActiveContactsEnd @ 0x1C00E3530 (RIMCmActiveContactsEnd.c)
- *     RIMCmIsContactSuppressed @ 0x1C00E35A6 (RIMCmIsContactSuppressed.c)
- *     RIMCmIsContactSuppressedByArbitrationOnly @ 0x1C00E35F8 (RIMCmIsContactSuppressedByArbitrationOnly.c)
- *     rimAbCreateGlobalPenDeadzone @ 0x1C017B54C (rimAbCreateGlobalPenDeadzone.c)
- *     rimAbIsPointInGlobalPenDeadzone @ 0x1C017B7B0 (rimAbIsPointInGlobalPenDeadzone.c)
- *     rimAbIsPointerSuppressedByOtherActiveDevicesContacts @ 0x1C017BB94 (rimAbIsPointerSuppressedByOtherActiveDevicesContacts.c)
- *     rimAbRemoveGlobalPenDeadzone @ 0x1C017C1A0 (rimAbRemoveGlobalPenDeadzone.c)
- *     WPP_RECORDER_AND_TRACE_SF_dDD @ 0x1C017E0B0 (WPP_RECORDER_AND_TRACE_SF_dDD.c)
- *     RIMCmActiveContactsNext @ 0x1C01AFE8C (RIMCmActiveContactsNext.c)
- *     RIMCmIsContactDeliveringPointerData @ 0x1C01B0964 (RIMCmIsContactDeliveringPointerData.c)
- *     RIMCmIsSuppressedContactMarkedForDelivery @ 0x1C01B09B0 (RIMCmIsSuppressedContactMarkedForDelivery.c)
- *     RIMCmRemoveContactSuppressionReasons @ 0x1C01B0A84 (RIMCmRemoveContactSuppressionReasons.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimAbCreateGlobalPenDeadzone @ 0x1C0158890 (rimAbCreateGlobalPenDeadzone.c)
+ *     rimAbIsPointInGlobalPenDeadzone @ 0x1C01589FC (rimAbIsPointInGlobalPenDeadzone.c)
+ *     rimAbIsPointerSuppressedByOtherActiveDevicesContacts @ 0x1C0158CFC (rimAbIsPointerSuppressedByOtherActiveDevicesContacts.c)
+ *     rimAbRemoveGlobalPenDeadzone @ 0x1C01592A8 (rimAbRemoveGlobalPenDeadzone.c)
+ *     WPP_RECORDER_SF_dDD @ 0x1C015A79C (WPP_RECORDER_SF_dDD.c)
+ *     RIMCmActiveContactsBegin @ 0x1C017FB48 (RIMCmActiveContactsBegin.c)
+ *     RIMCmActiveContactsEnd @ 0x1C017FC4C (RIMCmActiveContactsEnd.c)
+ *     RIMCmActiveContactsNext @ 0x1C017FCBC (RIMCmActiveContactsNext.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C0180324 (RIMCmIsContactDeliveringPointerData.c)
+ *     RIMCmIsContactSuppressed @ 0x1C0180370 (RIMCmIsContactSuppressed.c)
+ *     RIMCmIsContactSuppressedByArbitrationOnly @ 0x1C01803C4 (RIMCmIsContactSuppressedByArbitrationOnly.c)
+ *     RIMCmIsSuppressedContactMarkedForDelivery @ 0x1C01803E4 (RIMCmIsSuppressedContactMarkedForDelivery.c)
+ *     RIMCmRemoveContactSuppressionReasons @ 0x1C01804B8 (RIMCmRemoveContactSuppressionReasons.c)
  */
 
-__int64 __fastcall rimAbUpdateDeadzonesAndResurrectContacts(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall rimAbUpdateDeadzonesAndResurrectContacts(__int64 a1, __int64 a2)
 {
-  __int64 v4; // r14
+  __int64 v2; // rdi
   __int64 active; // rax
-  __int64 v8; // xmm1_8
-  __int64 v9; // rax
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int128 v12; // xmm1
-  __int64 v13; // xmm0_8
-  __int64 v14; // rax
+  __int64 v6; // xmm1_8
+  __int64 v7; // rax
+  __int128 v8; // xmm1
+  __int64 v9; // xmm0_8
+  __int64 v10; // rax
   __int64 result; // rax
-  int v16; // ecx
-  __int64 v17; // rbx
-  __int64 v18; // rdx
-  int v19; // edx
-  int v20; // r8d
-  int v21; // edx
-  int v22; // r8d
-  __int64 v23; // rcx
-  int v24; // r8d
-  __int64 v25; // r9
-  int v26; // ecx
-  int v27; // edx
-  int v28; // edi
-  int v29; // r8d
-  int v30; // [rsp+28h] [rbp-71h]
-  __int128 v31; // [rsp+78h] [rbp-21h] BYREF
-  __int64 v32; // [rsp+88h] [rbp-11h]
-  __int128 v33; // [rsp+90h] [rbp-9h] BYREF
-  __int64 v34; // [rsp+A0h] [rbp+7h]
-  _BYTE v35[72]; // [rsp+A8h] [rbp+Fh] BYREF
+  __int64 v12; // rbx
+  int v13; // ecx
+  int v14; // edx
+  __int64 v15; // r8
+  int v16; // edx
+  int v17; // edx
+  __int64 v18; // rcx
+  int v19; // r8d
+  int v20; // ecx
+  int v21; // r8d
+  __int128 v22; // [rsp+58h] [rbp-51h] BYREF
+  __int64 v23; // [rsp+68h] [rbp-41h]
+  __int128 v24; // [rsp+70h] [rbp-39h]
+  __int64 v25; // [rsp+80h] [rbp-29h]
+  __int128 v26; // [rsp+90h] [rbp-19h] BYREF
+  _BYTE v27[24]; // [rsp+A0h] [rbp-9h] BYREF
+  _BYTE v28[72]; // [rsp+B8h] [rbp+Fh] BYREF
 
-  v4 = *(_QWORD *)(a2 + 472);
-  if ( !*(_DWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 436) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 715);
-  active = RIMCmActiveContactsBegin((__int64)&v33, v4);
-  v8 = *(_QWORD *)(active + 16);
-  v31 = *(_OWORD *)active;
-  v32 = v8;
+  v2 = *(_QWORD *)(a2 + 480);
+  if ( !gDeviceArbitrationType )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 708);
+  active = RIMCmActiveContactsBegin(v27, v2);
+  v6 = *(_QWORD *)(active + 16);
+  v22 = *(_OWORD *)active;
+  v23 = v6;
   while ( 1 )
   {
-    v9 = RIMCmActiveContactsEnd((__int64)v35, v4);
-    v12 = *(_OWORD *)v9;
-    v13 = *(_QWORD *)(v9 + 16);
-    v14 = *(_QWORD *)v9;
-    v34 = v13;
-    v33 = v12;
-    if ( (_QWORD)v31 == v14 )
+    v7 = RIMCmActiveContactsEnd(v28, v2);
+    v8 = *(_OWORD *)v7;
+    v9 = *(_QWORD *)(v7 + 16);
+    v10 = *(_QWORD *)v7;
+    v25 = v9;
+    v24 = v8;
+    if ( (_QWORD)v22 == v10 )
     {
-      result = DWORD2(v33);
-      if ( DWORD2(v31) == DWORD2(v33) && v32 == v34 )
+      result = DWORD2(v24);
+      if ( DWORD2(v22) == DWORD2(v24) && v23 == v25 )
         return result;
     }
-    v16 = *(_DWORD *)(v32 + 16);
-    v17 = v32 - 16;
-    if ( (v16 & 2) == 0 )
+    v12 = v23 - 16;
+    if ( (*(_DWORD *)(v23 + 16) & 2) == 0 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 722);
+    if ( (*(_DWORD *)(v12 + 2340) & 1) != 0 )
     {
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 729);
-      v16 = *(_DWORD *)(v17 + 32);
-    }
-    if ( (*(_DWORD *)(v17 + 2364) & 1) == 0 )
-      goto LABEL_74;
-    v18 = *(unsigned int *)(v4 + 24);
-    if ( (unsigned int)(v18 - 5) <= 1 )
-    {
-      if ( (v16 & 4) != 0 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 740);
-      if ( (*(_DWORD *)(v17 + 2444) & 2) != 0 )
+      v13 = *(_DWORD *)(v2 + 24);
+      if ( (unsigned int)(v13 - 5) > 1 )
       {
-        if ( *(_DWORD *)(a1 + 492) )
+        if ( (unsigned int)(v13 - 1) <= 3 )
         {
-          rimAbRemoveGlobalPenDeadzone(a1, v18, v10, v11);
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-            || (LOBYTE(v21) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+          if ( (*(_DWORD *)(v12 + 32) & 4) != 0 )
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 753);
+          v15 = *(_QWORD *)(v12 + 72);
+          v26 = *(_OWORD *)(*(_QWORD *)(a2 + 480) + 176LL);
+          if ( (unsigned int)rimAbIsPointInGlobalPenDeadzone(a1, &v26, v15) )
           {
-            LOBYTE(v21) = 0;
-          }
-          if ( (_BYTE)v21 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(v22) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v21,
-              v22,
-              (_DWORD)gRimLog,
-              4,
-              1,
-              21,
-              (__int64)&WPP_d0136f6132203aac44a878359d3f87a2_Traceguids);
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v16) = 4;
+              WPP_RECORDER_SF_((_DWORD)gRimLog, v16, 1, 22, (__int64)&WPP_1df71edf843731ddcb2b607f62e3e01f_Traceguids);
+            }
+            if ( !*(_DWORD *)(a1 + 492) )
+              MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 763);
+            *(_DWORD *)(a1 + 504) = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)
+                                  + 250;
           }
         }
       }
       else
       {
-        rimAbCreateGlobalPenDeadzone(a1, (_OWORD *)(v4 + 156), (_OWORD *)(v17 + 2432), v11);
+        if ( (*(_DWORD *)(v12 + 32) & 4) != 0 )
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 733);
+        if ( (*(_DWORD *)(v12 + 2420) & 2) != 0 )
+        {
+          if ( *(_DWORD *)(a1 + 492) )
+          {
+            rimAbRemoveGlobalPenDeadzone(a1);
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              LOBYTE(v14) = 4;
+              WPP_RECORDER_SF_((_DWORD)gRimLog, v14, 1, 21, (__int64)&WPP_1df71edf843731ddcb2b607f62e3e01f_Traceguids);
+            }
+          }
+        }
+        else
+        {
+          rimAbCreateGlobalPenDeadzone(a1, *(_QWORD *)(v12 + 72));
+        }
       }
-    }
-    else if ( (unsigned int)(v18 - 1) <= 3 )
-    {
-      if ( (v16 & 4) != 0 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 761);
-      if ( (unsigned int)rimAbIsPointInGlobalPenDeadzone(a1, *(_QWORD *)(a2 + 472) + 156LL, v17 + 2432, v11) )
+      if ( (unsigned int)RIMCmIsContactSuppressedByArbitrationOnly(v12) )
       {
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-          || (LOBYTE(v19) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+        v20 = *(_DWORD *)(v12 + 2420);
+        if ( (v20 & 2) == 0 )
         {
-          LOBYTE(v19) = 0;
-        }
-        if ( (_BYTE)v19 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v20) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          WPP_RECORDER_AND_TRACE_SF_(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v19,
-            v20,
-            (_DWORD)gRimLog,
-            4,
-            1,
-            22,
-            (__int64)&WPP_d0136f6132203aac44a878359d3f87a2_Traceguids);
-        }
-        if ( !*(_DWORD *)(a1 + 492) )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 771);
-        *(_DWORD *)(a1 + 704) = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)
-                              + 250;
-      }
-    }
-    if ( (unsigned int)RIMCmIsContactSuppressedByArbitrationOnly(v17) )
-    {
-      v26 = *(_DWORD *)(v17 + 2444);
-      v27 = 2;
-      v28 = 0;
-      if ( (v26 & 2) == 0 )
-      {
-        if ( (unsigned int)RIMCmIsContactDeliveringPointerData(v17) && (*(_DWORD *)(v17 + 32) & 4) == 0 )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 809);
-LABEL_58:
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-          || (LOBYTE(v27) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-        {
-          LOBYTE(v27) = 0;
-        }
-        if ( (_BYTE)v27 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v24) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          WPP_RECORDER_AND_TRACE_SF_dDD(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v27,
-            v24,
-            24,
-            4,
-            v30,
-            24,
-            (__int64)&WPP_d0136f6132203aac44a878359d3f87a2_Traceguids,
-            *(_DWORD *)v17,
-            *(_DWORD *)(v17 + 8),
-            *(_DWORD *)(v17 + 2684));
-        }
-        if ( (unsigned int)RIMCmIsContactDeliveringPointerData(v17) && (*(_DWORD *)(v17 + 32) & 4) == 0 )
-        {
-          v29 = 825;
-          goto LABEL_68;
-        }
-        goto LABEL_69;
-      }
-      if ( (unsigned int)(*(_DWORD *)(v4 + 24) - 5) <= 1 )
-      {
-        if ( (v26 & 4) != 0 )
+          if ( (unsigned int)RIMCmIsContactDeliveringPointerData(v12) && (*(_DWORD *)(v12 + 32) & 4) == 0 )
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 801);
+LABEL_41:
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v17) = 4;
+            WPP_RECORDER_SF_dDD(
+              v20,
+              v17,
+              v19,
+              24,
+              (__int64)&WPP_1df71edf843731ddcb2b607f62e3e01f_Traceguids,
+              *(_DWORD *)v12,
+              *(_DWORD *)(v12 + 8),
+              *(_DWORD *)(v12 + 2660));
+          }
+          if ( (unsigned int)RIMCmIsContactDeliveringPointerData(v12) && (*(_DWORD *)(v12 + 32) & 4) == 0 )
+          {
+            v21 = 817;
+            goto LABEL_50;
+          }
           goto LABEL_51;
-        if ( (*(_DWORD *)(v17 + 32) & 4) != 0 )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 795);
-        if ( !(unsigned int)rimAbIsPointerSuppressedByOtherActiveDevicesContacts(a1, v4, v17 + 2432, v25) )
-        {
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-            || (LOBYTE(v27) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-          {
-            LOBYTE(v27) = 0;
-          }
-          if ( (_BYTE)v27 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(v24) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v27,
-              v24,
-              (_DWORD)gRimLog,
-              4,
-              1,
-              23,
-              (__int64)&WPP_d0136f6132203aac44a878359d3f87a2_Traceguids);
-          }
-LABEL_51:
-          v28 = 1;
         }
+        if ( (unsigned int)(*(_DWORD *)(v2 + 24) - 5) > 1 )
+          goto LABEL_41;
+        if ( (v20 & 4) == 0 )
+        {
+          if ( (*(_DWORD *)(v12 + 32) & 4) != 0 )
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 787);
+          if ( (unsigned int)rimAbIsPointerSuppressedByOtherActiveDevicesContacts(a1, v2, v12 + 2408) )
+            goto LABEL_41;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v17) = 4;
+            WPP_RECORDER_SF_((_DWORD)gRimLog, v17, 1, 23, (__int64)&WPP_1df71edf843731ddcb2b607f62e3e01f_Traceguids);
+          }
+        }
+        RIMCmRemoveContactSuppressionReasons(v2, v12, 1LL);
+        if ( (unsigned int)RIMCmIsContactSuppressed(v12) )
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 807);
       }
-      if ( !v28 )
-        goto LABEL_58;
-      RIMCmRemoveContactSuppressionReasons(v4, v17, 1LL);
-      if ( (unsigned int)RIMCmIsContactSuppressed(v17) )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 815);
-      goto LABEL_74;
+      else if ( (unsigned int)RIMCmIsContactSuppressed(v18)
+             && !(unsigned int)RIMCmIsContactDeliveringPointerData(v12)
+             && !(unsigned int)RIMCmIsSuppressedContactMarkedForDelivery(v12) )
+      {
+        v21 = 831;
+LABEL_50:
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, v21);
+LABEL_51:
+        *(_DWORD *)(v12 + 2340) &= ~1u;
+      }
     }
-    if ( (unsigned int)RIMCmIsContactSuppressed(v23)
-      && !(unsigned int)RIMCmIsContactDeliveringPointerData(v17)
-      && !(unsigned int)RIMCmIsSuppressedContactMarkedForDelivery(v17) )
-    {
-      v29 = 839;
-LABEL_68:
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, v29);
-LABEL_69:
-      *(_DWORD *)(v17 + 2364) &= ~1u;
-    }
-LABEL_74:
-    RIMCmActiveContactsNext(v4, &v31);
+    RIMCmActiveContactsNext(v2, &v22);
   }
 }

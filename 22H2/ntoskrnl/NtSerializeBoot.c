@@ -1,10 +1,10 @@
 /*
- * XREFs of NtSerializeBoot @ 0x140861B20
+ * XREFs of NtSerializeBoot @ 0x1407D28B0
  * Callers:
  *     <none>
  * Callees:
- *     PnpSerializeBoot @ 0x1403B2500 (PnpSerializeBoot.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
+ *     PnpSerializeBoot @ 0x1403CE390 (PnpSerializeBoot.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
  */
 
 NTSTATUS NtSerializeBoot()

@@ -1,19 +1,19 @@
 /*
- * XREFs of PopThermalReadCounters @ 0x14098AF64
+ * XREFs of PopThermalReadCounters @ 0x1408E7CC0
  * Callers:
- *     PoThermalCounterSetCallback @ 0x14098AC90 (PoThermalCounterSetCallback.c)
+ *     PoThermalCounterSetCallback @ 0x1408E7A10 (PoThermalCounterSetCallback.c)
  * Callees:
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KeWaitForMultipleObjects @ 0x140310FC0 (KeWaitForMultipleObjects.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     IoCancelIrp @ 0x140351890 (IoCancelIrp.c)
+ *     KeWaitForMultipleObjects @ 0x14024B500 (KeWaitForMultipleObjects.c)
+ *     IoCancelIrp @ 0x140314120 (IoCancelIrp.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PopThermalReadCounters(__int64 a1, char a2, unsigned int *a3)
 {
   unsigned int v3; // esi
-  __int64 *v6; // rdi
+  ULONG_PTR v6; // rdi
   IRP *v7; // rcx
   PVOID Object[3]; // [rsp+40h] [rbp-18h] BYREF
 
@@ -22,7 +22,7 @@ __int64 __fastcall PopThermalReadCounters(__int64 a1, char a2, unsigned int *a3)
     goto LABEL_5;
   if ( (a2 & 9) == 0 )
     goto LABEL_5;
-  v6 = (__int64 *)(a1 + 432);
+  v6 = a1 + 432;
   PopAcquireRwLockExclusive(a1 + 432);
   KeResetEvent((PRKEVENT)(a1 + 472));
   v7 = *(IRP **)(a1 + 56);
@@ -43,7 +43,7 @@ LABEL_5:
     a3[3] = *(_DWORD *)(a1 + 128);
     a3[1] = *(_DWORD *)(a1 + 80);
     a3[2] = *(_DWORD *)(a1 + 212);
-    PopReleaseRwLock((__int64 *)(a1 + 432));
+    PopReleaseRwLock(a1 + 432);
   }
   return v3;
 }

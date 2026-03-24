@@ -1,5 +1,5 @@
 /*
- * XREFs of AcpiPccReleaseSubspace @ 0x1C005AF80
+ * XREFs of AcpiPccReleaseSubspace @ 0x1C005A120
  * Callers:
  *     <none>
  * Callees:
@@ -17,10 +17,10 @@ __int64 __fastcall AcpiPccReleaseSubspace(__int64 a1)
   __int64 v8; // rcx
   unsigned int v9; // edx
 
-  v1 = (KSPIN_LOCK *)(a1 + 648);
+  v1 = (KSPIN_LOCK *)(a1 + 640);
   v3 = -1073741823;
   v4 = 0LL;
-  v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 648));
+  v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 640));
   if ( (*(_BYTE *)(a1 + 4) & 0x1E) == 0xA )
   {
     v6 = (_QWORD *)(a1 + 232);

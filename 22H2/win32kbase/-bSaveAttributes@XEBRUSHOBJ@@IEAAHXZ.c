@@ -1,25 +1,23 @@
 /*
- * XREFs of ?bSaveAttributes@XEBRUSHOBJ@@IEAAHXZ @ 0x1C0099E1C
+ * XREFs of ?bSaveAttributes@XEBRUSHOBJ@@IEAAHXZ @ 0x1C0081214
  * Callers:
- *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C00604A0 (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
+ *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C001E1E8 (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall XEBRUSHOBJ::bSaveAttributes(XEBRUSHOBJ *this)
 {
-  __int64 v2; // rdx
-  _QWORD *v3; // rcx
-  _QWORD *v5; // rdx
+  _QWORD *v1; // r9
+  _QWORD *v3; // r8
 
-  v2 = *(_QWORD *)this;
-  v3 = *(_QWORD **)(*(_QWORD *)this + 48LL);
-  if ( v3 != (_QWORD *)(v2 + 72) )
+  v1 = *(_QWORD **)(*(_QWORD *)this + 48LL);
+  if ( v1 != (_QWORD *)(*(_QWORD *)this + 72LL) )
   {
-    v5 = (_QWORD *)(v2 + 64);
-    if ( v3 != v5 )
+    v3 = (_QWORD *)(*(_QWORD *)this + 64LL);
+    if ( v1 != v3 )
     {
-      *v5 = *v3;
+      *v3 = *v1;
       *(_QWORD *)(*(_QWORD *)this + 56LL) = *(_QWORD *)(*(_QWORD *)this + 48LL);
       *(_QWORD *)(*(_QWORD *)this + 48LL) = *(_QWORD *)this + 64LL;
       *((_DWORD *)this + 2) = 1;

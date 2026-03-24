@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CNotificationResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801BF8A0
+ * XREFs of ?IsOfType@CNotificationResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180183120
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of PiUEventHandleUnregisterClient @ 0x1406CE82C
+ * XREFs of PiUEventHandleUnregisterClient @ 0x1406CE80C
  * Callers:
  *     PiUEventHandleIoctl @ 0x14059FE4C (PiUEventHandleIoctl.c)
  * Callees:

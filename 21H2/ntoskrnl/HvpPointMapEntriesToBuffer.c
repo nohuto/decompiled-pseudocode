@@ -1,15 +1,15 @@
 /*
- * XREFs of HvpPointMapEntriesToBuffer @ 0x14068CEA0
+ * XREFs of HvpPointMapEntriesToBuffer @ 0x14072305C
  * Callers:
- *     HvpRemapAndEnlistHiveBins @ 0x14068C544 (HvpRemapAndEnlistHiveBins.c)
- *     HvpAddBin @ 0x14068C820 (HvpAddBin.c)
- *     HvpDropPagedBins @ 0x14083D244 (HvpDropPagedBins.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x1408410FC (HvpBuildMapForMemoryBackedHive.c)
- *     HvpAddDummyBinToHive @ 0x14091A928 (HvpAddDummyBinToHive.c)
- *     HvpMapHiveImage @ 0x14091AB6C (HvpMapHiveImage.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x14070999C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
+ *     HvpDropPagedBins @ 0x14079F728 (HvpDropPagedBins.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407B1EFC (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpAddDummyBinToHive @ 0x140873C48 (HvpAddDummyBinToHive.c)
+ *     HvpMapHiveImage @ 0x140873E94 (HvpMapHiveImage.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     HvpGetCellMap @ 0x140AB44C0 (HvpGetCellMap.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
  */
 
 void __fastcall HvpPointMapEntriesToBuffer(
@@ -25,9 +25,8 @@ void __fastcall HvpPointMapEntriesToBuffer(
   unsigned int v11; // r8d
   unsigned int v12; // r10d
   unsigned int v13; // r11d
-  __int64 v14; // rcx
-  unsigned int v15; // edx
-  __int64 v16; // rdx
+  unsigned int v14; // ecx
+  __int64 v15; // rcx
 
   if ( a3 )
   {
@@ -36,33 +35,30 @@ void __fastcall HvpPointMapEntriesToBuffer(
     {
       CellMap = HvpGetCellMap(BugCheckParameter2, v9 + a4);
       if ( !CellMap )
-        KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v11, 0x406uLL);
+        KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v11, 0x20AuLL);
       *(_QWORD *)(CellMap + 8) = a2;
-      v14 = a2;
       if ( v12 )
       {
-        v15 = 0;
+        v14 = 0;
       }
       else
       {
-        v14 = a2 | 1;
-        v15 = v13;
         *(_QWORD *)(CellMap + 8) = a2 | 1;
+        v14 = v13;
       }
-      *(_DWORD *)(CellMap + 16) = v15;
+      *(_DWORD *)(CellMap + 16) = v14;
       if ( a6 )
       {
-        v14 |= 2uLL;
-        v16 = a6;
-        *(_QWORD *)(CellMap + 8) = v14;
+        *(_QWORD *)(CellMap + 8) |= 2uLL;
+        v15 = a6;
       }
       else
       {
-        v16 = v12;
+        v15 = v12;
       }
-      *(_QWORD *)CellMap = v16;
+      *(_QWORD *)CellMap = v15;
       if ( a5 )
-        *(_QWORD *)(CellMap + 8) = v14 | 8;
+        *(_QWORD *)(CellMap + 8) |= 8uLL;
       v9 = v12 + 4096;
     }
     while ( v9 < v13 );

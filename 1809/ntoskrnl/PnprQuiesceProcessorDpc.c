@@ -4,15 +4,15 @@
  *     <none>
  * Callees:
  *     KeGetProcessorNumberFromIndex @ 0x1400897F0 (KeGetProcessorNumberFromIndex.c)
- *     KeSaveExtendedAndSupervisorState @ 0x14012E58C (KeSaveExtendedAndSupervisorState.c)
- *     KeRestoreExtendedAndSupervisorState @ 0x14012F7A4 (KeRestoreExtendedAndSupervisorState.c)
- *     KeRestoreIptStateAfterProcessorComesOnline @ 0x140143688 (KeRestoreIptStateAfterProcessorComesOnline.c)
- *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x1401436A4 (KeSaveIptStateBeforeProcessorGoesOffline.c)
- *     KeRestoreProcessorSpecificFeatures @ 0x140143724 (KeRestoreProcessorSpecificFeatures.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PnprGetStackLimits @ 0x14028A2E8 (PnprGetStackLimits.c)
- *     KeResumeClockTimerSafe @ 0x14028E804 (KeResumeClockTimerSafe.c)
- *     KeSuspendClockTimerSafe @ 0x14028E8A0 (KeSuspendClockTimerSafe.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14012E5AC (KeSaveExtendedAndSupervisorState.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x14012F7C4 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x1401436A8 (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x1401436C4 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140143744 (KeRestoreProcessorSpecificFeatures.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PnprGetStackLimits @ 0x14028A3E8 (PnprGetStackLimits.c)
+ *     KeResumeClockTimerSafe @ 0x14028E904 (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x14028E9A0 (KeSuspendClockTimerSafe.c)
  *     PnprMirrorMarkedPages @ 0x140579FFC (PnprMirrorMarkedPages.c)
  */
 

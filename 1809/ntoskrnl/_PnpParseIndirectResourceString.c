@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpParseIndirectResourceString @ 0x140695814
+ * XREFs of _PnpParseIndirectResourceString @ 0x1406957F4
  * Callers:
  *     _CmGetDeviceMappedPropertyFromRegProp @ 0x14059BFC8 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _PnpRegQueryValueIndirect @ 0x1406A2FE0 (_PnpRegQueryValueIndirect.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406F110C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _PnpRegQueryValueIndirect @ 0x1406A2FC0 (_PnpRegQueryValueIndirect.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406F10EC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  * Callees:
  *     RtlUnalignedStringCchLengthW @ 0x140015DA0 (RtlUnalignedStringCchLengthW.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlUnicodeStringToInteger @ 0x140695970 (RtlUnicodeStringToInteger.c)
+ *     RtlUnicodeStringToInteger @ 0x140695950 (RtlUnicodeStringToInteger.c)
  */
 
 char PnpParseIndirectResourceString(__int64 a1, __int64 a2, __int64 a3, ...)

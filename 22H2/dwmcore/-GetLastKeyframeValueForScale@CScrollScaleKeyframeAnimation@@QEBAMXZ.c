@@ -1,16 +1,16 @@
 /*
- * XREFs of ?GetLastKeyframeValueForScale@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x180266698
+ * XREFs of ?GetLastKeyframeValueForScale@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x18020508C
  * Callers:
- *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x180231608 (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
- *     ?GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA?AUD2DVector3@@AEBU2@@Z @ 0x180232E04 (-GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA-AUD2DVector3@@AEBU2@@Z.c)
- *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x1802337D8 (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
+ *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x1801C820C (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
+ *     ?GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA?AUD2DVector3@@AEBU2@@Z @ 0x1801C9A00 (-GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA-AUD2DVector3@@AEBU2@@Z.c)
+ *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x1801CA380 (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1801986D8 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B76D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ @ 0x180239D60 (-GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ.c)
- *     ?GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x180267600 (-GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x18014CF54 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801643CC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ @ 0x1801D1194 (-GetLastKeyframeValue@CKeyframeAnimation@@QEBAPEBVKeyframeValue@@XZ.c)
+ *     ?GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z @ 0x18020607C (-GetValue@KeyframeValue@@QEBAJPEAVCExpressionValueStack@@PEAVCExpressionValue@@@Z.c)
  */
 
 float __fastcall CScrollScaleKeyframeAnimation::GetLastKeyframeValueForScale(CScrollScaleKeyframeAnimation *this)
@@ -18,33 +18,37 @@ float __fastcall CScrollScaleKeyframeAnimation::GetLastKeyframeValueForScale(CSc
   KeyframeValue *LastKeyframeValue; // rbx
   int Value; // eax
   const char *v3; // r9
-  float v4; // xmm6_4
-  int v6[16]; // [rsp+20h] [rbp-68h] BYREF
-  __int64 v7; // [rsp+60h] [rbp-28h] BYREF
-  int v8; // [rsp+68h] [rbp-20h]
-  char v9; // [rsp+6Ch] [rbp-1Ch]
-  wil::details::in1diag3 *retaddr; // [rsp+88h] [rbp+0h]
+  _DWORD v5[16]; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v6; // [rsp+60h] [rbp-18h]
+  int v7; // [rsp+68h] [rbp-10h]
+  char v8; // [rsp+6Ch] [rbp-Ch]
+  wil::details::in1diag3 *retaddr; // [rsp+78h] [rbp+0h]
 
   LastKeyframeValue = CKeyframeAnimation::GetLastKeyframeValue(this);
-  memset_0(v6, 0, sizeof(v6));
-  v7 = 0LL;
-  v8 = 18;
-  v9 = 0;
-  Value = KeyframeValue::GetValue(LastKeyframeValue, 0LL, (struct CExpressionValue *)v6);
+  memset_0(v5, 0, sizeof(v5));
+  v6 = 0LL;
+  v7 = 18;
+  v8 = 0;
+  Value = KeyframeValue::GetValue(LastKeyframeValue, 0LL, (struct CExpressionValue *)v5);
   if ( Value < 0 )
+  {
     wil::details::in1diag3::FailFast_Hr(
       retaddr,
-      47LL,
+      (void *)0x2F,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollscalekeyframeanimation.cpp",
-      (const char *)(unsigned int)Value,
-      v6[0]);
-  if ( v8 != 18 )
+      (const char *)(unsigned int)Value);
+    __debugbreak();
+  }
+  if ( v7 != 18 )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      48LL,
+      (void *)0x30,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollscalekeyframeanimation.cpp",
       v3);
-  v4 = *(float *)v6;
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v7);
-  return v4;
+    __debugbreak();
+  }
+  if ( v6 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+  return *(float *)v5;
 }

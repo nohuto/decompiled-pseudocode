@@ -1,75 +1,77 @@
 /*
- * XREFs of HalpDmaInitMemory @ 0x140AF9CC8
+ * XREFs of HalpDmaInitMemory @ 0x140A648D4
  * Callers:
- *     HalpDmaInitDiscard @ 0x140B1D7D0 (HalpDmaInitDiscard.c)
+ *     HalpDmaInitDiscard @ 0x140A63AC0 (HalpDmaInitDiscard.c)
  * Callees:
- *     HalpAllocPhysicalMemory @ 0x140AF9E94 (HalpAllocPhysicalMemory.c)
+ *     HalpAllocPhysicalMemory @ 0x140A64AC0 (HalpAllocPhysicalMemory.c)
  */
 
-__int64 __fastcall HalpDmaInitMemory(__int64 a1)
+__int64 __fastcall HalpDmaInitMemory(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v2; // ebx
-  unsigned int v3; // edi
-  unsigned int v4; // ebp
-  __int64 v5; // rax
-  unsigned int v6; // ebx
+  __int64 v5; // r9
+  __int64 v6; // r9
+  unsigned int v7; // ebx
+  unsigned int v8; // edi
+  unsigned int v9; // ebp
+  __int64 v10; // rax
+  unsigned int i; // ebx
+  __int64 v12; // rax
   __int64 result; // rax
-  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v14; // [rsp+48h] [rbp+10h] BYREF
 
   HalpDmaAdapterListLock = 0LL;
-  qword_140C4E2E8 = (__int64)&HalpDmaAdapterList;
+  qword_140C4BEB8 = (__int64)&HalpDmaAdapterList;
   HalpDmaAdapterList = (__int64)&HalpDmaAdapterList;
   LOWORD(HalpNewAdapter.Header.Lock) = 1;
+  LOBYTE(a4) = 1;
   HalpNewAdapter.Header.Size = 6;
   HalpNewAdapter.Header.SignalState = 1;
   HalpNewAdapter.Header.WaitListHead.Blink = &HalpNewAdapter.Header.WaitListHead;
   HalpNewAdapter.Header.WaitListHead.Flink = &HalpNewAdapter.Header.WaitListHead;
-  v8 = 0x1000000LL;
-  qword_140C4DF40 = HalpAllocPhysicalMemory(a1, &v8, 16LL, 0x10000LL);
-  dword_140C4DF38 = qword_140C4DF40 != 0 ? 0x10000 : 0;
-  qword_140C4E100 = HalpAllocPhysicalMemory(a1, &v8, 16LL, 0x10000LL);
-  v2 = 32;
-  dword_140C4E0F8 = qword_140C4E100 != 0 ? 0x10000 : 0;
-  v3 = (unsigned __int64)HalpMaximumPhysicalMemoryAddress < 0x100000000LL ? 0x10000 : 196608;
-  v4 = v3 >> 12;
+  v14 = 0x1000000LL;
+  qword_140C4BD80 = HalpAllocPhysicalMemory(a1, &v14, 16LL, a4);
+  LOBYTE(v5) = 1;
+  dword_140C4BD78 = qword_140C4BD80 != 0 ? 0x10000 : 0;
+  qword_140C4BBC0 = HalpAllocPhysicalMemory(a1, &v14, 16LL, v5);
+  v7 = 32;
+  dword_140C4BBB8 = qword_140C4BBC0 != 0 ? 0x10000 : 0;
+  v8 = (unsigned __int64)HalpMaximumPhysicalMemoryAddress < 0x100000000LL ? 0x10000 : 196608;
+  v9 = v8 >> 12;
   do
   {
-    v8 = (1LL << v2) - 1;
-    v5 = HalpAllocPhysicalMemory(a1, &v8, v4, 0x10000LL);
-    if ( v5 )
+    LOBYTE(v6) = 1;
+    v14 = (1LL << v7) - 1;
+    v10 = HalpAllocPhysicalMemory(a1, &v14, v9, v6);
+    if ( v10 )
       break;
-    ++v2;
+    ++v7;
   }
-  while ( v2 <= 0x20 );
-  qword_140C4E020 = v5;
-  dword_140C4E018 = v5 != 0 ? v3 : 0;
-  if ( v2 >= 0x40 )
-    qword_140C4DFE8 = -1LL;
+  while ( v7 <= 0x20 );
+  qword_140C4BE60 = v10;
+  dword_140C4BE58 = v10 != 0 ? v8 : 0;
+  if ( v7 >= 0x40 )
+    qword_140C4BE28 = -1LL;
   else
-    qword_140C4DFE8 = (1LL << v2) - 1;
-  v6 = 32;
-  while ( 1 )
+    qword_140C4BE28 = (1LL << v7) - 1;
+  for ( i = 32; i <= 0x20; ++i )
   {
-    v8 = (1LL << v6) - 1;
-    result = HalpAllocPhysicalMemory(a1, &v8, v4, 0x10000LL);
-    if ( result )
+    LOBYTE(v6) = 1;
+    v14 = (1LL << i) - 1;
+    v12 = HalpAllocPhysicalMemory(a1, &v14, v9, v6);
+    if ( v12 )
       break;
-    if ( ++v6 > 0x20 )
-    {
-      v3 = 0;
-      break;
-    }
   }
-  qword_140C4E1E0 = result;
-  dword_140C4E1D8 = v3;
-  if ( v6 >= 0x40 )
+  qword_140C4BCA0 = v12;
+  result = -v12;
+  dword_140C4BC98 = result != 0 ? v8 : 0;
+  if ( i >= 0x40 )
   {
-    qword_140C4E1A8 = -1LL;
+    qword_140C4BC68 = -1LL;
   }
   else
   {
-    result = (1LL << v6) - 1;
-    qword_140C4E1A8 = result;
+    result = (1LL << i) - 1;
+    qword_140C4BC68 = result;
   }
   return result;
 }

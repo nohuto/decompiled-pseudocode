@@ -1,16 +1,18 @@
 /*
- * XREFs of ?CommitMousePosAndMoveCursor@CMouseProcessor@@AEAAXPEAVMouseInputDataEx@1@UtagPOINT@@AEAU_MousePacketPerf@@@Z @ 0x1C00E5EBA
+ * XREFs of ?CommitMousePosAndMoveCursor@CMouseProcessor@@AEAAXPEAVMouseInputDataEx@1@UtagPOINT@@AEAU_MousePacketPerf@@@Z @ 0x1C009D694
  * Callers:
- *     ?ProcessMouseInputData@CMouseProcessor@@AEAA?AUtagPOINT@@PEAVMouseInputDataEx@1@U2@AEAU_MousePacketPerf@@PEBU_MOUSE_INPUT_DATA@@PEBUtagUIPI_INFO_INT@@@Z @ 0x1C0054478 (-ProcessMouseInputData@CMouseProcessor@@AEAA-AUtagPOINT@@PEAVMouseInputDataEx@1@U2@AEAU_MousePac.c)
+ *     ?ProcessMouseInputData@CMouseProcessor@@AEAA?AUtagPOINT@@PEAVMouseInputDataEx@1@U2@AEAU_MousePacketPerf@@PEBU_MOUSE_INPUT_DATA@@PEBUtagUIPI_INFO_INT@@@Z @ 0x1C0041A14 (-ProcessMouseInputData@CMouseProcessor@@AEAA-AUtagPOINT@@PEAVMouseInputDataEx@1@U2@AEAU_MousePac.c)
  * Callees:
- *     ?TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@@@Z @ 0x1C0054BE8 (-TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?IsUMSuppressed@CBaseProcessor@@QEBA_NXZ @ 0x1C00E5CDE (-IsUMSuppressed@CBaseProcessor@@QEBA_NXZ.c)
- *     ?DropMove@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C00E60DA (-DropMove@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
- *     ?CommitPosition@Mouse@InputTraceLogging@@SAX_KAEBUtagPOINT@@W4_CommitMousePosAndMoveResult@@@Z @ 0x1C01F5728 (-CommitPosition@Mouse@InputTraceLogging@@SAX_KAEBUtagPOINT@@W4_CommitMousePosAndMoveResult@@@Z.c)
- *     ?TestCommitMouseAndCursorPositionResult@MouseInputDataEx@CMouseProcessor@@QEBA_NW4_CommitMousePosAndMoveResult@@@Z @ 0x1C01FB4A4 (-TestCommitMouseAndCursorPositionResult@MouseInputDataEx@CMouseProcessor@@QEBA_NW4_CommitMousePo.c)
- *     ApiSetEditionCommitMousePosAndMove @ 0x1C0205CA0 (ApiSetEditionCommitMousePosAndMove.c)
+ *     ?TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@@@Z @ 0x1C00420AC (-TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ?TestCommitMouseAndCursorPositionResult@MouseInputDataEx@CMouseProcessor@@QEBA_NW4_CommitMousePosAndMoveResult@@@Z @ 0x1C009D844 (-TestCommitMouseAndCursorPositionResult@MouseInputDataEx@CMouseProcessor@@QEBA_NW4_CommitMousePo.c)
+ *     ApiSetEditionCommitMousePosAndMove @ 0x1C009D884 (ApiSetEditionCommitMousePosAndMove.c)
+ *     ?DropMove@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C00B0FDC (-DropMove@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsUMSuppressed@CBaseProcessor@@QEBA_NXZ @ 0x1C01BB020 (-IsUMSuppressed@CBaseProcessor@@QEBA_NXZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01BE3AC (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U-$_tlgWrapSz@D@@@-$_tlgWriteTempl.c)
+ *     ?CommitMousePosAndMoveResultToString@InputTraceLogging@@CAPEBDW4_CommitMousePosAndMoveResult@@@Z @ 0x1C01BEEB8 (-CommitMousePosAndMoveResultToString@InputTraceLogging@@CAPEBDW4_CommitMousePosAndMoveResult@@@Z.c)
  */
 
 void __fastcall CMouseProcessor::CommitMousePosAndMoveCursor(
@@ -19,80 +21,91 @@ void __fastcall CMouseProcessor::CommitMousePosAndMoveCursor(
         struct tagPOINT a3,
         struct _MousePacketPerf *a4)
 {
-  __int64 v7; // r8
-  unsigned int v8; // ebx
-  __int64 v9; // rdx
-  _QWORD *v10; // r15
+  BOOL v7; // esi
+  BOOL v8; // edi
+  BOOL v9; // ebx
+  bool v10; // al
   unsigned int v11; // eax
-  __int64 v12; // rdx
-  BOOL v13; // esi
-  BOOL v14; // edi
-  BOOL v15; // ebx
-  bool v16; // al
-  struct tagPOINT v17; // [rsp+68h] [rbp-11h] BYREF
-  _WORD v18[4]; // [rsp+70h] [rbp-9h] BYREF
-  int v19; // [rsp+78h] [rbp-1h]
-  int v20; // [rsp+7Ch] [rbp+3h]
-  int v21; // [rsp+80h] [rbp+7h]
-  int v22; // [rsp+84h] [rbp+Bh]
+  unsigned int v12; // ebx
+  __int64 v13; // rdx
+  LONG y; // [rsp+60h] [rbp-29h] BYREF
+  LONG x; // [rsp+64h] [rbp-25h] BYREF
+  struct tagPOINT v16; // [rsp+68h] [rbp-21h] BYREF
+  __int64 v17; // [rsp+70h] [rbp-19h] BYREF
+  __int64 v18; // [rsp+78h] [rbp-11h] BYREF
+  _WORD v19[4]; // [rsp+80h] [rbp-9h] BYREF
+  int v20; // [rsp+88h] [rbp-1h]
+  int v21; // [rsp+8Ch] [rbp+3h]
+  int v22; // [rsp+90h] [rbp+7h]
+  int v23; // [rsp+94h] [rbp+Bh]
 
-  v17 = a3;
+  v16 = a3;
   if ( !CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)a2, 16) && CBaseProcessor::IsUMSuppressed(this) )
   {
-    v8 = 0;
-    v9 = 4LL;
-    v10 = (_QWORD *)((char *)a2 + 56);
-LABEL_9:
-    InputTraceLogging::Mouse::DropMove(*v10, v9, v7);
-    goto LABEL_10;
+    v12 = 0;
+    v13 = 4LL;
+    goto LABEL_15;
   }
   if ( *((_DWORD *)a2 + 22) )
   {
-    v11 = ApiSetEditionCommitMousePosAndMove((unsigned int)&v17, 0, 0, (int)a2 + 24, 0, 0LL, 0, 1, 1, 0, (__int64)a4);
-    v10 = (_QWORD *)((char *)a2 + 56);
+    v11 = ApiSetEditionCommitMousePosAndMove((unsigned int)&v16, 0, 0, (int)a2 + 24, 0, 0LL, 0, 1, 1, 0, (__int64)a4);
   }
   else
   {
-    v18[1] = *((_WORD *)a2 + 1);
-    v18[2] = *((_WORD *)a2 + 2);
-    v18[3] = *((_WORD *)a2 + 3);
-    v20 = *((_DWORD *)a2 + 3);
-    v21 = *((_DWORD *)a2 + 4);
-    v22 = *((_DWORD *)a2 + 5);
-    v19 = *((_DWORD *)a2 + 2);
-    v18[0] = 0;
-    v13 = CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)a2, 16);
-    v14 = !CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)a2, 2);
-    v15 = !CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)a2, 0x2000);
-    v16 = CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)a2, 0x10000);
-    v10 = (_QWORD *)((char *)a2 + 56);
+    v19[1] = *((_WORD *)a2 + 1);
+    v19[2] = *((_WORD *)a2 + 2);
+    v19[3] = *((_WORD *)a2 + 3);
+    v21 = *((_DWORD *)a2 + 3);
+    v22 = *((_DWORD *)a2 + 4);
+    v23 = *((_DWORD *)a2 + 5);
+    v20 = *((_DWORD *)a2 + 2);
+    v19[0] = 0;
+    v7 = CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)a2, 16);
+    v8 = !CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)a2, 2);
+    v9 = !CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)a2, 0x2000);
+    v10 = CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)a2, 0x10000);
     v11 = ApiSetEditionCommitMousePosAndMove(
-            (unsigned int)&v17,
+            (unsigned int)&v16,
             *((_DWORD *)a2 + 5),
-            (unsigned int)v18,
+            (unsigned int)v19,
             (int)a2 + 24,
             *((_DWORD *)a2 + 12),
             *((_QWORD *)a2 + 7),
-            v13,
-            v14,
-            v15,
-            v16,
+            v7,
+            v8,
+            v9,
+            v10,
             (__int64)a4);
   }
-  v8 = v11;
+  v12 = v11;
   if ( !v11 )
   {
-    v9 = 2LL;
-    goto LABEL_9;
+    v13 = 2LL;
+LABEL_15:
+    InputTraceLogging::Mouse::DropMove(*((_QWORD *)a2 + 7), v13);
   }
-LABEL_10:
-  InputTraceLogging::Mouse::CommitPosition(*v10, v12, v8);
-  if ( v8 && (v8 & 1) == 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2370);
-  *((_DWORD *)a2 + 19) = v8;
+  if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 64LL) )
+  {
+    v17 = InputTraceLogging::CommitMousePosAndMoveResultToString(v12);
+    y = gptCursorAsync.y;
+    x = gptCursorAsync.x;
+    v18 = *((_QWORD *)a2 + 7);
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>>(
+      (int)&dword_1C024AA90,
+      (__int64)&v18,
+      (__int64)&x,
+      (__int64)&y,
+      (__int64)&v17);
+  }
+  if ( v12 && (v12 & 1) == 0 )
+  {
+    y = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2274LL);
+  }
+  *((_DWORD *)a2 + 19) = v12;
   if ( (unsigned __int8)CMouseProcessor::MouseInputDataEx::TestCommitMouseAndCursorPositionResult(a2, 1LL) )
   {
-    *((_OWORD *)this + 221) = *((_OWORD *)a2 + 3);
-    *((_QWORD *)this + 444) = *((_QWORD *)a2 + 8);
+    *(_OWORD *)((char *)this + 3528) = *((_OWORD *)a2 + 3);
+    *((_QWORD *)this + 443) = *((_QWORD *)a2 + 8);
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of NotifyObjectDestruction @ 0x1C004C44C
+ * XREFs of NotifyObjectDestruction @ 0x1C00655B8
  * Callers:
- *     ParseUnload @ 0x1C005CB40 (ParseUnload.c)
+ *     ParseUnload @ 0x1C006BE10 (ParseUnload.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     MarkNativeObjectsDefunct @ 0x1C004A0B4 (MarkNativeObjectsDefunct.c)
- *     MigrateDefunctObjectsToNewOwner @ 0x1C004C0FC (MigrateDefunctObjectsToNewOwner.c)
- *     NewObjOwner @ 0x1C004C344 (NewObjOwner.c)
+ *     NewObjOwner @ 0x1C0023628 (NewObjOwner.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     MarkNativeObjectsDefunct @ 0x1C006468C (MarkNativeObjectsDefunct.c)
+ *     MigrateDefunctObjectsToNewOwner @ 0x1C00654F8 (MigrateDefunctObjectsToNewOwner.c)
  */
 
 __int64 __fastcall NotifyObjectDestruction(__int64 a1)
@@ -14,81 +14,79 @@ __int64 __fastcall NotifyObjectDestruction(__int64 a1)
   __int64 result; // rax
   KIRQL v3; // al
   __int64 v4; // rbx
-  KIRQL v5; // dl
-  __int16 v6; // ax
-  __int64 v7; // rdi
-  KIRQL v8; // al
-  __int64 v9; // rcx
-  KIRQL v10; // r12
-  __int64 *v11; // rbx
-  __int16 v12; // ax
-  __int64 *v13; // rbp
-  __int64 v14; // rax
-  __int64 *v15; // rcx
-  __int64 **v16; // rax
+  __int16 v5; // cx
+  __int64 v6; // rdi
+  KIRQL v7; // al
+  __int64 v8; // rcx
+  KIRQL v9; // r12
+  __int64 *v10; // rbx
+  __int16 v11; // ax
+  __int64 *v12; // rbp
+  __int64 v13; // rax
+  __int64 *v14; // rcx
+  __int64 **v15; // rax
   __int64 *i; // rdi
-  char v18; // [rsp+58h] [rbp+10h] BYREF
-  struct _EX_RUNDOWN_REF *v19; // [rsp+60h] [rbp+18h] BYREF
+  char v17; // [rsp+58h] [rbp+10h] BYREF
+  struct _EX_RUNDOWN_REF *v18; // [rsp+60h] [rbp+18h] BYREF
 
-  v19 = 0LL;
-  v18 = 0;
-  result = NewObjOwner(gpheapGlobal, &v19);
+  v18 = 0LL;
+  v17 = 0;
+  result = NewObjOwner((struct _SLIST_ENTRY *)gpheapGlobal, &v18);
   if ( (int)result >= 0 )
   {
     v3 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
     v4 = *(_QWORD *)(a1 + 24);
-    v5 = v3;
     if ( v4 )
     {
       do
       {
-        v6 = *(_WORD *)(v4 + 66);
-        v7 = *(_QWORD *)(v4 + 56);
-        if ( v6 == 6 || (unsigned __int16)(v6 - 11) <= 2u )
+        v5 = *(_WORD *)(v4 + 66);
+        v6 = *(_QWORD *)(v4 + 56);
+        if ( v5 == 6 || (unsigned __int16)(v5 - 11) <= 2u )
         {
-          ExReleaseSpinLockExclusive(&ACPINamespaceLock, v5);
+          ExReleaseSpinLockExclusive(&ACPINamespaceLock, v3);
           ((void (__fastcall *)(__int64, __int64, _QWORD))ghDestroyObj)(6LL, v4 + 120, *(unsigned __int16 *)(v4 + 66));
-          v5 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
+          v3 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
         }
-        v4 = v7;
+        v4 = v6;
       }
-      while ( v7 );
+      while ( v6 );
     }
-    ExReleaseSpinLockExclusive(&ACPINamespaceLock, v5);
-    ((void (__fastcall *)(__int64, char *))ghDestroyObj)(1LL, &v18);
-    v8 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
-    v9 = *(_QWORD *)(a1 + 24);
-    v10 = v8;
-    while ( v9 )
+    ExReleaseSpinLockExclusive(&ACPINamespaceLock, v3);
+    ((void (__fastcall *)(__int64, char *))ghDestroyObj)(1LL, &v17);
+    v7 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
+    v8 = *(_QWORD *)(a1 + 24);
+    v9 = v7;
+    while ( v8 )
     {
-      *(_WORD *)(v9 + 64) |= 4u;
-      v9 = *(_QWORD *)(v9 + 56);
+      *(_WORD *)(v8 + 64) |= 4u;
+      v8 = *(_QWORD *)(v8 + 56);
     }
     MarkNativeObjectsDefunct(0LL, a1);
-    MigrateDefunctObjectsToNewOwner(gpNativeNameSpaceOwner, v19);
-    MigrateDefunctObjectsToNewOwner((__int64)v19, (struct _EX_RUNDOWN_REF *)a1);
+    MigrateDefunctObjectsToNewOwner(gpNativeNameSpaceOwner, v18);
+    MigrateDefunctObjectsToNewOwner((__int64)v18, (struct _EX_RUNDOWN_REF *)a1);
     KeAcquireSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 40));
     *(_DWORD *)(a1 + 48) = 0;
     KeReleaseSpinLockFromDpcLevel((PKSPIN_LOCK)(a1 + 40));
-    v11 = *(__int64 **)(a1 + 24);
-    if ( v11 )
+    v10 = *(__int64 **)(a1 + 24);
+    if ( v10 )
     {
       do
       {
-        v12 = *((_WORD *)v11 + 33);
-        v13 = (__int64 *)v11[7];
-        if ( v12 == 6 || (unsigned __int16)(v12 - 11) <= 2u )
+        v11 = *((_WORD *)v10 + 33);
+        v12 = (__int64 *)v10[7];
+        if ( v11 == 6 || (unsigned __int16)(v11 - 11) <= 2u )
         {
-          if ( v11[2] )
+          if ( v10[2] )
           {
-            v15 = (__int64 *)*v11;
-            if ( *(__int64 **)(*v11 + 8) != v11 || (v16 = (__int64 **)v11[1], *v16 != v11) )
+            v14 = (__int64 *)*v10;
+            if ( *(__int64 **)(*v10 + 8) != v10 || (v15 = (__int64 **)v10[1], *v15 != v10) )
               __fastfail(3u);
-            *v16 = v15;
-            v15[1] = (__int64)v16;
-            v11[2] = 0LL;
+            *v15 = v14;
+            v14[1] = (__int64)v15;
+            v10[2] = 0LL;
           }
-          for ( i = (__int64 *)v11[3]; v11 + 3 != i; i = (__int64 *)*i )
+          for ( i = (__int64 *)v10[3]; v10 + 3 != i; i = (__int64 *)*i )
           {
             if ( (i[8] & 4) == 0 )
               ((void (__fastcall *)(__int64, __int64 *))ghDestroyObj)(4LL, i);
@@ -96,25 +94,25 @@ __int64 __fastcall NotifyObjectDestruction(__int64 a1)
           KeAcquireSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 40));
           _InterlockedIncrement((volatile signed __int32 *)(a1 + 48));
           KeReleaseSpinLockFromDpcLevel((PKSPIN_LOCK)(a1 + 40));
-          ExReleaseSpinLockExclusive(&ACPINamespaceLock, v10);
+          ExReleaseSpinLockExclusive(&ACPINamespaceLock, v9);
           ((void (__fastcall *)(__int64, __int64 *, _QWORD))ghDestroyObj)(
             2LL,
-            v11 + 15,
-            *((unsigned __int16 *)v11 + 33));
-          v10 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
+            v10 + 15,
+            *((unsigned __int16 *)v10 + 33));
+          v9 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
         }
         else
         {
-          v14 = v11[2];
-          if ( !v14 || (*(_BYTE *)(v14 + 64) & 4) == 0 && !_bittest16((const signed __int16 *)v11 + 32, 0xBu) )
-            ((void (__fastcall *)(__int64, __int64 *))ghDestroyObj)(5LL, v11);
+          v13 = v10[2];
+          if ( !v13 || (*(_BYTE *)(v13 + 64) & 4) == 0 && (v10[8] & 0x800) == 0 )
+            ((void (__fastcall *)(__int64, __int64 *))ghDestroyObj)(5LL, v10);
         }
-        v11 = v13;
+        v10 = v12;
       }
-      while ( v13 );
+      while ( v12 );
     }
-    ExReleaseSpinLockExclusive(&ACPINamespaceLock, v10);
-    return ((__int64 (__fastcall *)(__int64, char *))ghDestroyObj)(3LL, &v18);
+    ExReleaseSpinLockExclusive(&ACPINamespaceLock, v9);
+    return ((__int64 (__fastcall *)(__int64, char *))ghDestroyObj)(3LL, &v17);
   }
   return result;
 }

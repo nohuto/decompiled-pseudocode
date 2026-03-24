@@ -1,25 +1,25 @@
 /*
- * XREFs of ??_GFxUsbPipe@@MEAAPEAXI@Z @ 0x1C0079520
+ * XREFs of ??_GFxUsbPipe@@MEAAPEAXI@Z @ 0x1C006C990
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxUsbPipe@@MEAA@XZ @ 0x1C0079308 (--1FxUsbPipe@@MEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxUsbPipe@@MEAA@XZ @ 0x1C006C77C (--1FxUsbPipe@@MEAA@XZ.c)
  */
 
-FxUsbPipe *__fastcall FxUsbPipe::`scalar deleting destructor'(FxUsbPipe *this, unsigned int a2)
+FxUsbPipe *__fastcall FxUsbPipe::`scalar deleting destructor'(FxUsbPipe *this, unsigned int a2, unsigned int a3)
 {
-  char v2; // bl
-  FxUsbPipe *v4; // rcx
+  char v3; // bl
+  FxUsbPipe *v5; // rcx
 
-  v2 = a2;
-  FxUsbPipe::~FxUsbPipe(this, a2);
-  if ( (v2 & 1) != 0 )
+  v3 = a2;
+  FxUsbPipe::~FxUsbPipe(this, a2, a3);
+  if ( (v3 & 1) != 0 )
   {
-    v4 = (FxUsbPipe *)((char *)this - 48);
+    v5 = (FxUsbPipe *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
-      v4 = this;
-    FxPoolFree((FX_POOL_TRACKER *)v4);
+      v5 = this;
+    FxPoolFree((FX_POOL_TRACKER *)v5);
   }
   return this;
 }

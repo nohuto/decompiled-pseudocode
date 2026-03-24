@@ -1,143 +1,146 @@
 /*
- * XREFs of SshpSendSessionData @ 0x140809BEC
+ * XREFs of SshpSendSessionData @ 0x1408FACA8
  * Callers:
- *     SshpWnfCallback @ 0x1408097A0 (SshpWnfCallback.c)
+ *     SshpWnfCallback @ 0x1408FBB50 (SshpWnfCallback.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     CmpFreeTransientPoolWithTag @ 0x140346D64 (CmpFreeTransientPoolWithTag.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14036C0A0 (SSHSupportReleasePushLockExclusive.c)
- *     SshpQueryBlockerPendingDelete @ 0x14039630C (SshpQueryBlockerPendingDelete.c)
- *     SshpWriteBlocker @ 0x140399BC4 (SshpWriteBlocker.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SshpDereferenceBlocker @ 0x1407F1648 (SshpDereferenceBlocker.c)
- *     SshpFlushBlockerDataCache @ 0x140807088 (SshpFlushBlockerDataCache.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402C98E8 (SSHSupportReleasePushLockExclusive.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SshpQueryBlockerPendingDelete @ 0x14057FD9C (SshpQueryBlockerPendingDelete.c)
+ *     SshpWriteBlocker @ 0x1405801CC (SshpWriteBlocker.c)
+ *     SSHSupportQueryInterruptTime @ 0x140580D2C (SSHSupportQueryInterruptTime.c)
+ *     SshpDereferenceBlocker @ 0x1406B7B14 (SshpDereferenceBlocker.c)
+ *     SshpFlushBlockerDataCache @ 0x1408FAA00 (SshpFlushBlockerDataCache.c)
  */
 
-void SshpSendSessionData()
+__int64 **SshpSendSessionData()
 {
-  PVOID v0; // rsi
+  __int64 InterruptTime; // rax
   __int64 v1; // rdi
-  __int64 *v2; // rbx
-  __int64 *v3; // rax
-  ULONG_PTR *v4; // rdi
-  __int64 v5; // rdx
-  __int64 **v6; // rcx
+  unsigned __int64 v2; // r12
+  ULONG_PTR v3; // r15
   __int64 **i; // rbx
-  __int64 ***v8; // rsi
-  __int64 **v9; // rax
-  __int64 ***v10; // rcx
-  _QWORD *v11; // rax
-  __int64 v12; // rax
-  __int64 *j; // rbx
-  unsigned int k; // esi
-  __int64 v15; // r13
-  __int64 v16; // r15
-  void *v17; // rcx
-  __int64 *v18; // [rsp+28h] [rbp-E0h] BYREF
-  __int64 **v19; // [rsp+30h] [rbp-D8h]
-  __int64 v20; // [rsp+38h] [rbp-D0h] BYREF
-  PVOID v21; // [rsp+40h] [rbp-C8h] BYREF
-  _QWORD v22[52]; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 ***v5; // rsi
+  __int64 **v6; // rax
+  __int64 ***v7; // rcx
+  _QWORD *v8; // rax
+  __int64 v9; // rax
+  __int64 *v10; // rbx
+  unsigned int j; // esi
+  __int64 v12; // r13
+  __int64 v13; // r15
+  void *v14; // rcx
+  __int64 *v15; // rbx
+  __int64 **result; // rax
+  __int64 *v17; // rax
+  ULONG_PTR *v18; // rdi
+  __int64 v19; // rdx
+  __int64 **v20; // rcx
+  __int64 *v21; // [rsp+28h] [rbp-E0h] BYREF
+  __int64 **v22; // [rsp+30h] [rbp-D8h]
+  _QWORD v23[52]; // [rsp+38h] [rbp-D0h] BYREF
 
-  memset(v22, 0, 0x198uLL);
-  v0 = 0LL;
-  LODWORD(v20) = 0;
-  v19 = &v18;
-  v21 = 0LL;
-  v18 = (__int64 *)&v18;
+  memset(v23, 0, 0x198uLL);
+  v22 = &v21;
+  v21 = (__int64 *)&v21;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&SshpLibraryListLock, 0LL);
+  InterruptTime = SSHSupportQueryInterruptTime();
   v1 = SshpLibraryList;
-  if ( (__int64 *)SshpLibraryList != &SshpLibraryList )
+  v2 = InterruptTime - SshpSessionStartTime;
+  while ( (__int64 *)v1 != &SshpLibraryList )
   {
-    do
+    v3 = v1 + 16;
+    ExAcquirePushLockExclusiveEx(v1 + 16, 0LL);
+    LODWORD(v23[0]) = *(_DWORD *)(v1 + 24);
+    for ( i = *(__int64 ***)(v1 + 40); i != (__int64 **)(v1 + 40); i = (__int64 **)*i )
     {
-      ExAcquirePushLockExclusiveEx(v1 + 16, 0LL);
-      LODWORD(v22[0]) = *(_DWORD *)(v1 + 24);
-      for ( i = *(__int64 ***)(v1 + 40); i != (__int64 **)(v1 + 40); i = (__int64 **)*i )
+      v5 = (__int64 ***)i;
+      SshpWriteBlocker((__int64)i[13], v2);
+      if ( SshpQueryBlockerPendingDelete((PKSPIN_LOCK)i[13]) )
       {
-        v8 = (__int64 ***)i;
-        SshpWriteBlocker((PKSPIN_LOCK)i[15], &v21, (unsigned int *)&v20);
-        if ( SshpQueryBlockerPendingDelete((PKSPIN_LOCK)i[15]) )
+        v6 = (__int64 **)*i;
+        v7 = (__int64 ***)(i + 1);
+        i = (__int64 **)i[1];
+        if ( (*v5)[1] != (__int64 *)v5
+          || *i != (__int64 *)v5
+          || (*i = (__int64 *)v6, v6[1] = (__int64 *)i, v8 = v22, *v22 != (__int64 *)&v21) )
         {
-          v9 = (__int64 **)*i;
-          v10 = (__int64 ***)(i + 1);
-          i = (__int64 **)i[1];
-          if ( (*v8)[1] != (__int64 *)v8
-            || *i != (__int64 *)v8
-            || (*i = (__int64 *)v9, v9[1] = (__int64 *)i, v11 = v19, *v19 != (__int64 *)&v18) )
-          {
-LABEL_37:
-            __fastfail(3u);
-          }
-          *v10 = v19;
-          *v8 = &v18;
-          *v11 = v8;
-          v19 = (__int64 **)v8;
+LABEL_34:
+          __fastfail(3u);
         }
+        *v7 = v22;
+        *v5 = &v21;
+        *v8 = v5;
+        v22 = (__int64 **)v5;
       }
-      v12 = SshpSessionGuid - *(_QWORD *)&GUID_SPM_LOW_POWER_CS.Data1;
-      if ( (_QWORD)SshpSessionGuid == *(_QWORD *)&GUID_SPM_LOW_POWER_CS.Data1 )
-        v12 = *((_QWORD *)&SshpSessionGuid + 1) - *(_QWORD *)GUID_SPM_LOW_POWER_CS.Data4;
-      if ( !v12 )
+    }
+    v9 = SshpSessionGuid - *(_QWORD *)&GUID_SPM_LOW_POWER_CS.Data1;
+    if ( (_QWORD)SshpSessionGuid == *(_QWORD *)&GUID_SPM_LOW_POWER_CS.Data1 )
+      v9 = *((_QWORD *)&SshpSessionGuid + 1) - *(_QWORD *)GUID_SPM_LOW_POWER_CS.Data4;
+    if ( !v9 )
+    {
+      v10 = *(__int64 **)(v1 + 56);
+      if ( v10 != (__int64 *)(v1 + 56) )
       {
-        for ( j = *(__int64 **)(v1 + 56); j != (__int64 *)(v1 + 56); j = (__int64 *)*j )
+        do
         {
-          for ( k = 0; k < *((_DWORD *)j + 10); ++k )
+          for ( j = 0; j < *((_DWORD *)v10 + 10); ++j )
           {
-            v15 = (__int64)&j[4 * k + 6];
-            if ( LODWORD(v22[2]) >= 0x10 )
-              SshpFlushBlockerDataCache((ULONG *)v22);
-            v16 = 3LL * LODWORD(v22[2]);
-            v22[v16 + 3] = v15;
-            *(_OWORD *)&v22[v16 + 4] = 0LL;
-            if ( (*(int (__fastcall **)(_QWORD))(v15 + 24))(*(_QWORD *)(v15 + 16)) < 0 )
+            v12 = (__int64)&v10[4 * j + 6];
+            if ( LODWORD(v23[2]) >= 0x10 )
+              SshpFlushBlockerDataCache((ULONG *)v23);
+            v13 = 3LL * LODWORD(v23[2]);
+            v23[v13 + 3] = v12;
+            *(_OWORD *)&v23[v13 + 4] = 0LL;
+            if ( (*(int (__fastcall **)(_QWORD))(v12 + 24))(*(_QWORD *)(v12 + 16)) < 0 )
             {
-              v17 = (void *)v22[v16 + 5];
-              if ( v17 )
-                CmpFreeTransientPoolWithTag(v17, v22[0]);
+              v14 = (void *)v23[v13 + 5];
+              if ( v14 )
+                CmpFreeTransientPoolWithTag(v14, v23[0]);
             }
             else
             {
-              ++LODWORD(v22[2]);
+              ++LODWORD(v23[2]);
             }
           }
+          v10 = (__int64 *)*v10;
         }
-        SshpFlushBlockerDataCache((ULONG *)v22);
+        while ( v10 != (__int64 *)(v1 + 56) );
+        v3 = v1 + 16;
       }
-      SSHSupportReleasePushLockExclusive(v1 + 16);
-      v1 = *(_QWORD *)v1;
+      SshpFlushBlockerDataCache((ULONG *)v23);
     }
-    while ( (__int64 *)v1 != &SshpLibraryList );
-    v0 = v21;
+    SSHSupportReleasePushLockExclusive(v3);
+    v1 = *(_QWORD *)v1;
   }
   SSHSupportReleasePushLockExclusive((ULONG_PTR)&SshpLibraryListLock);
   while ( 1 )
   {
-    v2 = v18;
-    if ( v18 == (__int64 *)&v18 )
-      break;
-    if ( (__int64 **)v18[1] != &v18 )
-      goto LABEL_37;
-    v3 = (__int64 *)*v18;
-    if ( *(__int64 **)(*v18 + 8) != v18 )
-      goto LABEL_37;
-    v18 = (__int64 *)*v18;
-    v3[1] = (__int64)&v18;
-    v4 = &SshpBlockerCollections + 4 * *((int *)v2 + 10);
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)v4, 0LL);
-    v5 = v2[2];
-    if ( *(__int64 **)(v5 + 8) != v2 + 2 )
-      goto LABEL_37;
-    v6 = (__int64 **)v2[3];
-    if ( *v6 != v2 + 2 )
-      goto LABEL_37;
-    *v6 = (__int64 *)v5;
-    *(_QWORD *)(v5 + 8) = v6;
-    SSHSupportReleasePushLockExclusive((ULONG_PTR)v4);
-    SshpDereferenceBlocker((_QWORD *)v2[15]);
+    v15 = v21;
+    result = &v21;
+    if ( v21 == (__int64 *)&v21 )
+      return result;
+    if ( (__int64 **)v21[1] != &v21 )
+      goto LABEL_34;
+    v17 = (__int64 *)*v21;
+    if ( *(__int64 **)(*v21 + 8) != v21 )
+      goto LABEL_34;
+    v21 = (__int64 *)*v21;
+    v17[1] = (__int64)&v21;
+    v18 = &SshpBlockerCollections + 4 * *((int *)v15 + 10);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)v18, 0LL);
+    v19 = v15[2];
+    if ( *(__int64 **)(v19 + 8) != v15 + 2 )
+      goto LABEL_34;
+    v20 = (__int64 **)v15[3];
+    if ( *v20 != v15 + 2 )
+      goto LABEL_34;
+    *v20 = (__int64 *)v19;
+    *(_QWORD *)(v19 + 8) = v20;
+    SSHSupportReleasePushLockExclusive((ULONG_PTR)v18);
+    SshpDereferenceBlocker((_QWORD *)v15[13]);
   }
-  if ( v0 )
-    CmpFreeTransientPoolWithTag(v0, 0x70687373u);
 }

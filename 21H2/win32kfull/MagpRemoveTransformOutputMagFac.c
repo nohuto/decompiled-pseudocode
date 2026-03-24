@@ -1,10 +1,10 @@
 /*
- * XREFs of MagpRemoveTransformOutputMagFac @ 0x1C00FF758
+ * XREFs of MagpRemoveTransformOutputMagFac @ 0x1C0110508
  * Callers:
- *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C00AD78C (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
- *     RemoveMagnificationOutputTransform @ 0x1C00FF740 (RemoveMagnificationOutputTransform.c)
+ *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C01102C0 (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
+ *     RemoveMagnificationOutputTransform @ 0x1C01104F0 (RemoveMagnificationOutputTransform.c)
  * Callees:
- *     memcmp @ 0x1C0159400 (memcmp.c)
+ *     memcmp @ 0x1C0165DD0 (memcmp.c)
  */
 
 int __fastcall MagpRemoveTransformOutputMagFac(float *a1)

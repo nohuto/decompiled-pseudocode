@@ -1,5 +1,5 @@
 /*
- * XREFs of vAlphaPerPixelAndConst @ 0x1C0001010
+ * XREFs of vAlphaPerPixelAndConst @ 0x1C00D5430
  * Callers:
  *     <none>
  * Callees:
@@ -11,10 +11,10 @@ void __fastcall vAlphaPerPixelAndConst(unsigned int *a1, __int64 a2, int a3, uns
   unsigned int v4; // r9d
   int v5; // r11d
   unsigned int *v6; // r10
-  __int64 v7; // rdi
+  __int64 v7; // rsi
   unsigned int v8; // edx
   unsigned int v9; // eax
-  int v10; // esi
+  int v10; // edi
   int v11; // ebx
   int v12; // r8d
   int v13; // edx

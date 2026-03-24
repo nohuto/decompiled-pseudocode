@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUnicodeToMultiByteN_0 @ 0x1C00CFDC4
+ * XREFs of RtlUnicodeToMultiByteN_0 @ 0x1C00C70BB
  * Callers:
- *     _wctomb_s_l @ 0x1C00CFC14 (_wctomb_s_l.c)
+ *     _wctomb_s_l @ 0x1C00C6E94 (_wctomb_s_l.c)
  * Callees:
  *     <none>
  */

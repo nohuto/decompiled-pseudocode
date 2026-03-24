@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpRemoveDeviceActionRequestFromQueue @ 0x140289850
+ * XREFs of PnpRemoveDeviceActionRequestFromQueue @ 0x140289950
  * Callers:
  *     PiControlGetSetDeviceStatus @ 0x14059BD40 (PiControlGetSetDeviceStatus.c)
- *     PiQueueDeviceRequest @ 0x14083C808 (PiQueueDeviceRequest.c)
+ *     PiQueueDeviceRequest @ 0x14083C7E8 (PiQueueDeviceRequest.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     PnpDeleteDeviceActionRequest @ 0x14015F85C (PnpDeleteDeviceActionRequest.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PnpDeleteDeviceActionRequest @ 0x14015F87C (PnpDeleteDeviceActionRequest.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PnpRemoveDeviceActionRequestFromQueue(volatile signed __int32 *a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z @ 0x1C03160FC
+ * XREFs of ?FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFA3C
  * Callers:
- *     ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C0316668 (-UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFF48 (-UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
  * Callees:
- *     ?CalcDpi@Win81@@YAIII@Z @ 0x1C0315D40 (-CalcDpi@Win81@@YAIII@Z.c)
- *     ?FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z @ 0x1C031621C (-FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z.c)
- *     ?SatisfyMinResolutionBarForScaleIdx@Win81@@YAKHUtagSIZE@@QEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z @ 0x1C03165B0 (-SatisfyMinResolutionBarForScaleIdx@Win81@@YAKHUtagSIZE@@QEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z.c)
+ *     ?CalcDpi@Win81@@YAIII@Z @ 0x1C02AF70C (-CalcDpi@Win81@@YAIII@Z.c)
+ *     ?FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFB5C (-FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?SatisfyMinResolutionBarForScaleIdx@Win81@@YAKHUtagSIZE@@QEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z @ 0x1C02AFE9C (-SatisfyMinResolutionBarForScaleIdx@Win81@@YAKHUtagSIZE@@QEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z.c)
  */
 
 void __fastcall Win81::FillDpiInfo(
@@ -18,41 +18,43 @@ void __fastcall Win81::FillDpiInfo(
 {
   unsigned int v8; // ebx
   int v10; // r15d
-  struct tagSIZE v12; // r8
-  _DWORD *v13; // rcx
-  unsigned int v14; // edx
-  struct _DPI_INFORMATION *v15; // r9
-  __int64 v16; // [rsp+68h] [rbp+30h]
+  __int64 v12; // rdx
+  struct tagSIZE v13; // r8
+  _DWORD *v14; // rcx
+  unsigned int v15; // edx
+  struct _DPI_INFORMATION *v16; // r9
   __int64 v17; // [rsp+68h] [rbp+30h]
+  __int64 v18; // [rsp+68h] [rbp+30h]
 
   v8 = 0;
   v10 = (int)a3;
   *(_QWORD *)(a6 + 24) = *(_QWORD *)this;
   *(struct tagSIZE *)(a6 + 32) = *a2;
-  if ( *(_DWORD *)this && *((_DWORD *)this + 1) )
+  v12 = *(unsigned int *)this;
+  if ( (_DWORD)v12 && *((_DWORD *)this + 1) )
   {
-    LODWORD(v16) = Win81::CalcDpi((Win81 *)(unsigned int)a2->cx, *(_DWORD *)this);
-    HIDWORD(v16) = Win81::CalcDpi((Win81 *)(unsigned int)a2->cy, *((_DWORD *)this + 1));
-    *(_QWORD *)(a6 + 40) = v16;
+    LODWORD(v17) = Win81::CalcDpi((Win81 *)(unsigned int)a2->cx, v12);
+    HIDWORD(v17) = Win81::CalcDpi((Win81 *)(unsigned int)a2->cy, *((unsigned int *)this + 1));
+    *(_QWORD *)(a6 + 40) = v17;
   }
   *(_DWORD *)(a6 + 64) = v10;
-  LODWORD(v17) = 100 * v10 * *(_DWORD *)(a6 + 40) / 0x6900u;
-  v12 = (struct tagSIZE)(100 * v10 * *(_DWORD *)(a6 + 44) / 0x6900u);
-  HIDWORD(v17) = 100 * v10 * *(_DWORD *)(a6 + 44) / 0x6900u;
-  *(_QWORD *)(a6 + 56) = v17;
-  v13 = &unk_1C0094678;
+  LODWORD(v18) = 100 * v10 * *(_DWORD *)(a6 + 40) / 0x6900u;
+  v13 = (struct tagSIZE)(100 * v10 * *(_DWORD *)(a6 + 44) / 0x6900u);
+  HIDWORD(v18) = 100 * v10 * *(_DWORD *)(a6 + 44) / 0x6900u;
+  *(_QWORD *)(a6 + 56) = v18;
+  v14 = &unk_1C007C070;
   do
   {
-    if ( (unsigned int)(((int)v17 + v12.cx) / 2) < *v13 )
+    if ( (unsigned int)(((int)v18 + v13.cx) / 2) < *v14 )
       break;
     ++v8;
-    ++v13;
+    ++v14;
   }
   while ( v8 < 4 );
   *(_DWORD *)(a6 + 12) = Win81::SatisfyMinResolutionBarForScaleIdx(
                            (Win81 *)v8,
                            (int)*a2,
-                           v12,
-                           (const struct Win81::DPI_SCALE_FACTOR_COLLECTION *const)(unsigned int)v17);
-  Win81::FillOverridesAndAdjustedScaleFactor((Win81 *)a4, v14, a6, v15);
+                           v13,
+                           (const struct Win81::DPI_SCALE_FACTOR_COLLECTION *const)(unsigned int)v18);
+  Win81::FillOverridesAndAdjustedScaleFactor((Win81 *)a4, v15, a6, v16);
 }

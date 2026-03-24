@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSharedReadVisualReferenceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C0238F20
+ * XREFs of ?IsOfType@CSharedReadVisualReferenceMarshaler@DirectComposition@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1C01F8490
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall DirectComposition::CSharedReadVisualReferenceMarshaler::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 199;
+  return a2 == 198;
 }

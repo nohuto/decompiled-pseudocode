@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfEnableU2NeedsToBeUpdated @ 0x1C0024E10
+ * XREFs of HUBDSM_CheckingIfEnableU2NeedsToBeUpdated @ 0x1C0022630
  * Callers:
  *     <none>
  * Callees:
@@ -13,14 +13,9 @@ __int64 __fastcall HUBDSM_CheckingIfEnableU2NeedsToBeUpdated(__int64 a1)
 
   v1 = 4077;
   v2 = *(_DWORD *)(*(_QWORD *)(a1 + 960) + 2216LL);
-  if ( (v2 & 0x20) != 0 )
-  {
-    if ( (v2 & 8) == 0 )
-      return 4013;
-  }
-  else if ( (v2 & 8) != 0 )
-  {
-    return 4009;
-  }
+  if ( (v2 & 0x20) == 0 && (v2 & 8) != 0 )
+    v1 = 4009;
+  if ( (v2 & 0x20) != 0 && (v2 & 8) == 0 )
+    return 4013;
   return v1;
 }

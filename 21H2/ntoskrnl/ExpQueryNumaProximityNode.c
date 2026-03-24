@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpQueryNumaProximityNode @ 0x1409F7240
+ * XREFs of ExpQueryNumaProximityNode @ 0x14094AEBC
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExpQueryNumaProximityNode(unsigned int *a1, unsigned int a2, _DWORD *a3)
@@ -28,7 +28,7 @@ __int64 __fastcall ExpQueryNumaProximityNode(unsigned int *a1, unsigned int a2, 
         v7 = 0;
         if ( KeNumberNodes )
         {
-          while ( *(_WORD *)KeNodeBlock[v7] != v9 )
+          while ( *(_WORD *)(KeNodeBlock[v7] + 146) != v9 )
           {
             if ( ++v7 >= (unsigned __int16)KeNumberNodes )
               goto LABEL_10;

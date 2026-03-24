@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CSharedVisualReferenceControllerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0238F80
+ * XREFs of ?ReleaseAllReferences@CSharedVisualReferenceControllerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F84F0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseAllReferences@CVisualReferenceControllerMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C000AB60 (-ReleaseAllReferences@CVisualReferenceControllerMarshaler@DirectComposition@@UEAAXPEAVCApplicati.c)
+ *     ?ReleaseAllReferences@CVisualReferenceControllerMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00ABF40 (-ReleaseAllReferences@CVisualReferenceControllerMarshaler@DirectComposition@@UEAAXPEAVCApplicati.c)
  */
 
 void __fastcall DirectComposition::CSharedVisualReferenceControllerMarshaler::ReleaseAllReferences(
@@ -12,11 +12,11 @@ void __fastcall DirectComposition::CSharedVisualReferenceControllerMarshaler::Re
 {
   __int64 v4; // rcx
 
-  v4 = *((_QWORD *)this + 9);
+  v4 = *((_QWORD *)this + 8);
   if ( v4 )
   {
     ObfDereferenceObject((PVOID)(v4 - 24));
-    *((_QWORD *)this + 9) = 0LL;
+    *((_QWORD *)this + 8) = 0LL;
   }
   DirectComposition::CVisualReferenceControllerMarshaler::ReleaseAllReferences(this, a2);
 }

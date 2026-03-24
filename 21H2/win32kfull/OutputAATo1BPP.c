@@ -1,5 +1,5 @@
 /*
- * XREFs of OutputAATo1BPP @ 0x1C0001DC0
+ * XREFs of OutputAATo1BPP @ 0x1C0004A70
  * Callers:
  *     <none>
  * Callees:
@@ -17,7 +17,7 @@ char __fastcall OutputAATo1BPP(
         int a8,
         int a9)
 {
-  int v11; // edx
+  int v10; // edx
   int v14; // eax
   __int16 *v15; // r10
   char v16; // dl
@@ -30,10 +30,10 @@ char __fastcall OutputAATo1BPP(
   __int16 v23; // ax
   unsigned int v24; // ecx
   int v25; // eax
-  int v27; // [rsp+8h] [rbp+8h]
-  int v28; // [rsp+8h] [rbp+8h]
+  int v27; // [rsp+10h] [rbp+10h]
+  int v28; // [rsp+10h] [rbp+10h]
 
-  v11 = (unsigned __int8)a9;
+  v10 = (unsigned __int8)a9;
   if ( (_BYTE)a9 )
   {
     v27 = 0;
@@ -42,14 +42,14 @@ char __fastcall OutputAATo1BPP(
       v18 = *(_BYTE *)(a2 + 7);
       a2 += 4LL;
       LOBYTE(v27) = v18;
-      --v11;
+      --v10;
       v19 = a6[1];
       a6 += 3;
       v27 = (2 * v27) | (((unsigned __int16)~*(_WORD *)a2 >> 4) - v19) & 0x10000;
       if ( (unsigned __int64)a6 >= a7 )
         a6 = (unsigned __int16 *)((char *)a6 + a8);
     }
-    while ( v11 );
+    while ( v10 );
     LOBYTE(v27) = 0;
     *a4 = *a4 & ~((unsigned __int16)(v27 << SBYTE2(a9)) >> 8) | ((unsigned __int16)(v27 << SBYTE2(a9)) >> 8) & (BYTE1(a9) ^ ((unsigned int)(v27 << SBYTE2(a9)) >> 16));
     ++a4;

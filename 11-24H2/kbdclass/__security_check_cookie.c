@@ -1,1 +1,30 @@
-/*\n * XREFs of __security_check_cookie @ 0x1C0007290\n * Callers:\n *     sub_1C0001F70 @ 0x1C0001F70 (sub_1C0001F70.c)\n *     sub_1C0005A40 @ 0x1C0005A40 (sub_1C0005A40.c)\n *     sub_1C000714C @ 0x1C000714C (sub_1C000714C.c)\n *     DriverReinitializationRoutine @ 0x1C000E010 (DriverReinitializationRoutine.c)\n *     sub_1C000EA78 @ 0x1C000EA78 (sub_1C000EA78.c)\n *     sub_1C000FD50 @ 0x1C000FD50 (sub_1C000FD50.c)\n *     sub_1C00102E0 @ 0x1C00102E0 (sub_1C00102E0.c)\n *     sub_1C0011080 @ 0x1C0011080 (sub_1C0011080.c)\n *     sub_1C00119A0 @ 0x1C00119A0 (sub_1C00119A0.c)\n * Callees:\n *     <none>\n */\n\nvoid __cdecl _security_check_cookie(uintptr_t StackCookie)\n{\n  __int64 v1; // rcx\n\n  if ( StackCookie != _security_cookie )\nReportFailure:\n    _report_gsfailure(StackCookie);\n  v1 = __ROL8__(StackCookie, 16);\n  if ( (_WORD)v1 )\n  {\n    StackCookie = __ROR8__(v1, 16);\n    goto ReportFailure;\n  }\n}\n
+/*
+ * XREFs of __security_check_cookie @ 0x1C0007290
+ * Callers:
+ *     KeyboardStart @ 0x1C0001F70 (KeyboardStart.c)
+ *     KbdClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C0005A40 (KbdClassTraceLoggingDeniedCreateForReadWithSFAC.c)
+ *     __GSHandlerCheckCommon @ 0x1C000714C (__GSHandlerCheckCommon.c)
+ *     KeyboardClassFindMorePorts @ 0x1C000E010 (KeyboardClassFindMorePorts.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C000EA78 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     KbdCreateClassObject @ 0x1C000FD50 (KbdCreateClassObject.c)
+ *     KeyboardClassGetWaitWakeEnableState @ 0x1C00102E0 (KeyboardClassGetWaitWakeEnableState.c)
+ *     DriverEntry @ 0x1C0011080 (DriverEntry.c)
+ *     KbdConfiguration @ 0x1C00119A0 (KbdConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+void __cdecl _security_check_cookie(uintptr_t StackCookie)
+{
+  __int64 v1; // rcx
+
+  if ( StackCookie != _security_cookie )
+ReportFailure:
+    _report_gsfailure(StackCookie);
+  v1 = __ROL8__(StackCookie, 16);
+  if ( (_WORD)v1 )
+  {
+    StackCookie = __ROR8__(v1, 16);
+    goto ReportFailure;
+  }
+}

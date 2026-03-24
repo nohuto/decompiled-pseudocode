@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBUCX_CancelUCXIoctl @ 0x1C00264D0
+ * XREFs of HUBUCX_CancelUCXIoctl @ 0x1C0023B48
  * Callers:
- *     HUBDSM_CancellingAcquiringAddress0OnDetachInEnum @ 0x1C0020770 (HUBDSM_CancellingAcquiringAddress0OnDetachInEnum.c)
- *     HUBDSM_WaitingForUCXIoctlOnStopSuspend @ 0x1C0020970 (HUBDSM_WaitingForUCXIoctlOnStopSuspend.c)
+ *     HUBDSM_CancellingAcquiringAddress0OnDetachInEnum @ 0x1C001DD50 (HUBDSM_CancellingAcquiringAddress0OnDetachInEnum.c)
+ *     HUBDSM_WaitingForUCXIoctlOnStopSuspend @ 0x1C001E0D0 (HUBDSM_WaitingForUCXIoctlOnStopSuspend.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 _UNKNOWN **__fastcall HUBUCX_CancelUCXIoctl(__int64 a1)
@@ -24,7 +24,7 @@ _UNKNOWN **__fastcall HUBUCX_CancelUCXIoctl(__int64 a1)
                             2u,
                             5u,
                             0x14u,
-                            (__int64)&WPP_e357673766b030573709eddce5304229_Traceguids);
+                            (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids);
   }
   return result;
 }

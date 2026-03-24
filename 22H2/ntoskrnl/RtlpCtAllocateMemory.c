@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCtAllocateMemory @ 0x1409C2148
+ * XREFs of RtlpCtAllocateMemory @ 0x1409194A8
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1405B1030 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x14058E520 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RtlpCtAllocateMemory(__int64 a1)
+PVOID __fastcall RtlpCtAllocateMemory(SIZE_T NumberOfBytes)
 {
-  return ExAllocatePool2(256LL, a1, 1735672676LL);
+  return ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x67744364u);
 }

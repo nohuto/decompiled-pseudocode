@@ -1,84 +1,87 @@
 /*
- * XREFs of EtwpTraceFileName @ 0x140280F60
+ * XREFs of EtwpTraceFileName @ 0x1403B8EE0
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140281380 (EtwTraceSiloKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     PsGetThreadServerSilo @ 0x140347690 (PsGetThreadServerSilo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
+ *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2D24 (KeIsExecutingInArbitraryThreadContext.c)
  */
 
-__int64 __fastcall EtwpTraceFileName(__int64 a1, __int64 a2, unsigned __int16 *a3, __int64 a4, int a5, __int16 a6)
+void __fastcall EtwpTraceFileName(
+        __int64 a1,
+        __int64 a2,
+        unsigned __int16 *a3,
+        __int64 a4,
+        unsigned int a5,
+        __int16 a6)
 {
-  __int64 ThreadServerSilo; // r14
+  __int64 ThreadServerSilo; // rdi
   unsigned int v10; // ecx
-  __int64 result; // rax
+  _QWORD *v11; // rax
   __int64 v12; // rdx
-  const EVENT_DESCRIPTOR *v13; // rdx
-  __int16 v14; // [rsp+40h] [rbp-29h] BYREF
-  _QWORD v15[2]; // [rsp+48h] [rbp-21h] BYREF
+  __int16 v13; // [rsp+40h] [rbp-29h] BYREF
+  _QWORD v14[2]; // [rsp+48h] [rbp-21h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-11h] BYREF
-  __int64 v17; // [rsp+68h] [rbp-1h]
-  unsigned int v18; // [rsp+70h] [rbp+7h]
-  int v19; // [rsp+74h] [rbp+Bh]
-  __int16 *v20; // [rsp+78h] [rbp+Fh]
-  __int64 v21; // [rsp+80h] [rbp+17h]
+  __int64 v16; // [rsp+68h] [rbp-1h]
+  unsigned int v17; // [rsp+70h] [rbp+7h]
+  int v18; // [rsp+74h] [rbp+Bh]
+  __int16 *v19; // [rsp+78h] [rbp+Fh]
+  __int64 v20; // [rsp+80h] [rbp+17h]
 
-  v15[1] = 0LL;
-  v14 = 0;
+  v14[1] = 0LL;
+  v13 = 0;
   if ( a1 )
+  {
     ThreadServerSilo = *(_QWORD *)(a1 + 2160);
+  }
+  else if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(0LL, a2) )
+  {
+    ThreadServerSilo = 0LL;
+  }
   else
-    ThreadServerSilo = PsGetThreadServerSilo(KeGetCurrentThread());
+  {
+    ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread());
+  }
   v10 = *a3;
-  v15[0] = a2;
+  v14[0] = a2;
   if ( v10 > 0x2000 )
     v10 = 0x2000;
   *(_QWORD *)&UserData.Size = 8LL;
-  v18 = v10;
-  UserData.Ptr = (ULONGLONG)v15;
-  v17 = *((_QWORD *)a3 + 1);
-  v20 = &v14;
-  v19 = 0;
-  v21 = 2LL;
-  result = EtwpHostSiloState + 4540;
-  if ( EtwpHostSiloState != -4540 )
+  v17 = v10;
+  UserData.Ptr = (ULONGLONG)v14;
+  v16 = *((_QWORD *)a3 + 1);
+  v19 = &v13;
+  v18 = 0;
+  v20 = 2LL;
+  if ( EtwpHostSiloState != -4516 && (*(_DWORD *)(EtwpHostSiloState + 4516) & 0x200) != 0 )
   {
-    result = *(unsigned int *)result;
-    if ( (result & 0x200) != 0 )
+    if ( a6 == 1056 )
     {
-      if ( a6 == 1056 )
-      {
-        v13 = (const EVENT_DESCRIPTOR *)KFileEvt_NameCreate;
-      }
-      else
-      {
-        result = 1059LL;
-        if ( a6 != 1059 )
-          goto LABEL_7;
-        v13 = &KFileEvt_NameDelete;
-      }
-      EtwWriteEx(EtwpFileProvRegHandle, v13, 0LL, 0, 0LL, 0LL, 3u, &UserData);
-      return EtwTraceSiloKernelEvent(ThreadServerSilo, (unsigned int)&UserData, 3, 512, a6, 4200450);
+      EtwWriteEx(EtwpFileProvRegHandle, &KFileEvt_NameCreate, 0LL, 0, 0LL, 0LL, 3u, &UserData);
+LABEL_12:
+      EtwTraceSiloKernelEvent(ThreadServerSilo, (int)&UserData, 3, 0x200u, a6, 4200450);
+      return;
     }
+    if ( a6 == 1059 )
+      EtwWriteEx(EtwpFileProvRegHandle, &KFileEvt_NameDelete, 0LL, 0, 0LL, 0LL, 3u, &UserData);
   }
-LABEL_7:
   if ( a6 != 1060 )
-    return EtwTraceSiloKernelEvent(ThreadServerSilo, (unsigned int)&UserData, 3, 512, a6, 4200450);
+    goto LABEL_12;
   if ( a4 )
   {
     if ( a4 != ThreadServerSilo )
-      return result;
-    result = *(_QWORD *)(a4 + 1464);
+      return;
+    v11 = *(_QWORD **)(a4 + 1272);
   }
   else
   {
-    result = (__int64)&PspHostSiloGlobals;
+    v11 = &PspHostSiloGlobals;
   }
-  v12 = *(_QWORD *)(result + 864);
+  v12 = v11[108];
   if ( v12 )
-    return EtwpLogKernelEvent((unsigned int)&UserData, v12, a5, 3, 1060, 4200450);
-  return result;
+    EtwpLogKernelEvent((__int64)&UserData, v12, a5, 3u, 0x424u, 0x401802u);
 }

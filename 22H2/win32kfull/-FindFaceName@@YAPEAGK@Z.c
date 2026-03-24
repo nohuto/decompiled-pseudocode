@@ -1,29 +1,21 @@
 /*
- * XREFs of ?FindFaceName@@YAPEAGK@Z @ 0x1C0098AD0
+ * XREFs of ?FindFaceName@@YAPEAGK@Z @ 0x1C00FFE90
  * Callers:
- *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C0098960 (-bGetFaceName@MAPPER@@AEAAHXZ.c)
+ *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C00FFD2C (-bGetFaceName@MAPPER@@AEAAHXZ.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int16 *__fastcall FindFaceName(__int64 a1)
+unsigned __int16 *__fastcall FindFaceName(int a1)
 {
-  int v1; // ebx
-  __int64 v2; // rdx
-  unsigned __int64 v3; // r8
-  unsigned __int64 v4; // r9
+  unsigned int *i; // r8
 
-  v1 = a1;
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  v3 = *(_QWORD *)(v2 + 19512);
-  v4 = *(_QWORD *)(v2 + 19520);
-  while ( 1 )
+  for ( i = MAPPER::SignatureTable; ; ++i )
   {
-    if ( v3 >= v4 )
-      return (unsigned __int16 *)&word_1C030D60C;
-    if ( (unsigned __int16)*(_DWORD *)v3 == v1 )
+    if ( i >= (unsigned int *)MAPPER::FaceNameTable )
+      return (unsigned __int16 *)&word_1C02E497C;
+    if ( (unsigned __int16)*i == a1 )
       break;
-    v3 += 4LL;
   }
-  return (unsigned __int16 *)(v4 + 2LL * *(unsigned __int16 *)(v3 + 2));
+  return &MAPPER::FaceNameTable[*((unsigned __int16 *)i + 1)];
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceTripPointExceeded @ 0x1408746DC
+ * XREFs of PopDiagTraceTripPointExceeded @ 0x1408746BC
  * Callers:
- *     PopDiagTraceUsermodeTripPointExceeded @ 0x1408748C0 (PopDiagTraceUsermodeTripPointExceeded.c)
- *     PopDiagTraceZoneCriticalTripPointExceeded @ 0x140874938 (PopDiagTraceZoneCriticalTripPointExceeded.c)
- *     PopDiagTraceZoneS4TripPointExceeded @ 0x140874A34 (PopDiagTraceZoneS4TripPointExceeded.c)
+ *     PopDiagTraceUsermodeTripPointExceeded @ 0x1408748A0 (PopDiagTraceUsermodeTripPointExceeded.c)
+ *     PopDiagTraceZoneCriticalTripPointExceeded @ 0x140874918 (PopDiagTraceZoneCriticalTripPointExceeded.c)
+ *     PopDiagTraceZoneS4TripPointExceeded @ 0x140874A14 (PopDiagTraceZoneS4TripPointExceeded.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceTripPointExceeded(unsigned __int16 a1, __int64 a2, int a3, const EVENT_DESCRIPTOR *a4)

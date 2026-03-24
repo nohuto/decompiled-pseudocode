@@ -2,7 +2,7 @@
  * XREFs of DeleteNodeFromTree @ 0x140006D50
  * Callers:
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvlEx @ 0x140141B00 (RtlDeleteElementGenericTableAvlEx.c)
+ *     RtlDeleteElementGenericTableAvlEx @ 0x140141B20 (RtlDeleteElementGenericTableAvlEx.c)
  * Callees:
  *     RebalanceNode @ 0x14000709C (RebalanceNode.c)
  */

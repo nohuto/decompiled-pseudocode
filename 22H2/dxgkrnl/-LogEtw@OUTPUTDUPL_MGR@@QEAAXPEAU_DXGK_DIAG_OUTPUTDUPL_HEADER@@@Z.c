@@ -1,18 +1,18 @@
 /*
- * XREFs of ?LogEtw@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z @ 0x1C032CA64
+ * XREFs of ?LogEtw@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z @ 0x1C029AEC4
  * Callers:
- *     ?LogEtwAndDiagnostics@OUTPUTDUPL_MGR@@QEAAXHPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@H@Z @ 0x1C032CE88 (-LogEtwAndDiagnostics@OUTPUTDUPL_MGR@@QEAAXHPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@H@Z.c)
+ *     ?LogEtwAndDiagnostics@OUTPUTDUPL_MGR@@QEAAXHPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@H@Z @ 0x1C029B300 (-LogEtwAndDiagnostics@OUTPUTDUPL_MGR@@QEAAXHPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@H@Z.c)
  * Callees:
- *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C004284C (McTemplateK0qqqqq_EtwWriteTransfer.c)
- *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C00543C0 (McTemplateK0qqq_EtwWriteTransfer.c)
- *     McTemplateK0qqqddt_EtwWriteTransfer @ 0x1C005443C (McTemplateK0qqqddt_EtwWriteTransfer.c)
- *     McTemplateK0qqqiiqttddtqq_EtwWriteTransfer @ 0x1C00544FC (McTemplateK0qqqiiqttddtqq_EtwWriteTransfer.c)
- *     McTemplateK0qqqq_EtwWriteTransfer @ 0x1C0054648 (McTemplateK0qqqq_EtwWriteTransfer.c)
- *     McTemplateK0qqqqqqqDR6qDR8_EtwWriteTransfer @ 0x1C00546E8 (McTemplateK0qqqqqqqDR6qDR8_EtwWriteTransfer.c)
- *     McTemplateK0qqqqqqqdd_EtwWriteTransfer @ 0x1C00547F4 (McTemplateK0qqqqqqqdd_EtwWriteTransfer.c)
- *     McTemplateK0qqqqqqqddqq_EtwWriteTransfer @ 0x1C00548E8 (McTemplateK0qqqqqqqddqq_EtwWriteTransfer.c)
- *     McTemplateK0qqqqqqqqqDR8_EtwWriteTransfer @ 0x1C0054A00 (McTemplateK0qqqqqqqqqDR8_EtwWriteTransfer.c)
- *     McTemplateK0qqqqqtqtq_EtwWriteTransfer @ 0x1C0054B04 (McTemplateK0qqqqqtqtq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqq_EtwWriteTransfer @ 0x1C003BB30 (McTemplateK0qqqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C004A724 (McTemplateK0qqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqddt_EtwWriteTransfer @ 0x1C004A7A4 (McTemplateK0qqqddt_EtwWriteTransfer.c)
+ *     McTemplateK0qqqiiqttddtqq_EtwWriteTransfer @ 0x1C004A864 (McTemplateK0qqqiiqttddtqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C004A9B0 (McTemplateK0qqqqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqqqDR6qDR8_EtwWriteTransfer @ 0x1C004AA58 (McTemplateK0qqqqqqqDR6qDR8_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqqqdd_EtwWriteTransfer @ 0x1C004AB64 (McTemplateK0qqqqqqqdd_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqqqddqq_EtwWriteTransfer @ 0x1C004AC58 (McTemplateK0qqqqqqqddqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqqqqqDR8_EtwWriteTransfer @ 0x1C004AD70 (McTemplateK0qqqqqqqqqDR8_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqtqtq_EtwWriteTransfer @ 0x1C004AE74 (McTemplateK0qqqqqtqtq_EtwWriteTransfer.c)
  */
 
 void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_OUTPUTDUPL_HEADER *a2, __int64 a3)
@@ -44,17 +44,17 @@ void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_O
           v10 = (unsigned int)(v9 - 1);
           if ( (_DWORD)v10 )
           {
-            if ( (_DWORD)v10 == 1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+            if ( (_DWORD)v10 == 1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
               McTemplateK0qqqq_EtwWriteTransfer(
                 v10,
-                (__int64)a2,
+                &Dxgk_Diag_OutputDupl_Release_Frame,
                 a3,
                 *((_DWORD *)a2 + 10),
                 *((_DWORD *)a2 + 11),
                 *((_DWORD *)a2 + 13),
                 *((_DWORD *)a2 + 14));
           }
-          else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+          else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
           {
             McTemplateK0qqqqqqqddqq_EtwWriteTransfer(
               v10,
@@ -79,7 +79,7 @@ void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_O
           v12 = *((unsigned int *)a2 + 16);
           if ( v11 )
           {
-            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
               McTemplateK0qqqqqqqqqDR8_EtwWriteTransfer(
                 (__int64)a2 + 72,
                 &Dxgk_Diag_OutputDupl_Get_Meta_Data_Move,
@@ -95,7 +95,7 @@ void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_O
                 6 * (v12 / 0x18),
                 (__int64)a2 + 72);
           }
-          else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+          else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
           {
             McTemplateK0qqqqqqqqqDR8_EtwWriteTransfer(
               4 * ((unsigned int)v12 >> 4),
@@ -114,7 +114,7 @@ void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_O
           }
         }
       }
-      else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+      else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       {
         McTemplateK0qqqiiqttddtqq_EtwWriteTransfer(
           v8,
@@ -135,7 +135,7 @@ void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_O
           *((_DWORD *)a2 + 25));
       }
     }
-    else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     {
       McTemplateK0qqqqqtqtq_EtwWriteTransfer(
         v7,
@@ -154,10 +154,10 @@ void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_O
   }
   else if ( (_DWORD)v3 == 5 )
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       McTemplateK0qqq_EtwWriteTransfer(
         v3,
-        &Dxgk_Diag_OutputDupl_High_Level_Update_Start,
+        (__int64)a2,
         a3,
         *((_DWORD *)a2 + 10),
         *((_DWORD *)a2 + 11),
@@ -174,7 +174,7 @@ void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_O
         v6 = (unsigned int)(v5 - 1);
         if ( (_DWORD)v6 )
         {
-          if ( (_DWORD)v6 == 1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+          if ( (_DWORD)v6 == 1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
             McTemplateK0qqqddt_EtwWriteTransfer(
               v6,
               (__int64)a2,
@@ -186,7 +186,7 @@ void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_O
               *((_DWORD *)a2 + 15),
               *((_DWORD *)a2 + 16));
         }
-        else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+        else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
         {
           McTemplateK0qqqqqqqdd_EtwWriteTransfer(
             v6,
@@ -203,7 +203,7 @@ void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_O
             *((_DWORD *)a2 + 19));
         }
       }
-      else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+      else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       {
         v13 = (char *)a2 + 16 * *((unsigned int *)a2 + 15) + 72;
         McTemplateK0qqqqqqqDR6qDR8_EtwWriteTransfer(
@@ -222,7 +222,7 @@ void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_O
           (__int64)v13);
       }
     }
-    else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     {
       McTemplateK0qqqqq_EtwWriteTransfer(
         v4,
@@ -235,7 +235,7 @@ void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_O
         *((_DWORD *)a2 + 15));
     }
   }
-  else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
   {
     McTemplateK0qqqqq_EtwWriteTransfer(
       v3,

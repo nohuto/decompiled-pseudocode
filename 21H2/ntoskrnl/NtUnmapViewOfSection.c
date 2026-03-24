@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUnmapViewOfSection @ 0x1406F7A50
+ * XREFs of NtUnmapViewOfSection @ 0x14061A960
  * Callers:
  *     <none>
  * Callees:
- *     NtUnmapViewOfSectionEx @ 0x1406F8C60 (NtUnmapViewOfSectionEx.c)
+ *     NtUnmapViewOfSectionEx @ 0x14061E020 (NtUnmapViewOfSectionEx.c)
  */
 
 __int64 __fastcall NtUnmapViewOfSection(__int64 a1, __int64 a2)

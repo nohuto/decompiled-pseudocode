@@ -1,67 +1,66 @@
 /*
- * XREFs of PoCreateThermalRequest @ 0x14084ED90
+ * XREFs of PoCreateThermalRequest @ 0x14079AB80
  * Callers:
  *     <none>
  * Callees:
- *     PoCaptureReasonContext @ 0x140209BF8 (PoCaptureReasonContext.c)
- *     PoDestroyReasonContext @ 0x14032D130 (PoDestroyReasonContext.c)
- *     PopAssociateThermalRequest @ 0x14084EE80 (PopAssociateThermalRequest.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PoDestroyReasonContext @ 0x14034BC54 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x14034C66C (PoCaptureReasonContext.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopAssociateThermalRequest @ 0x14079AC80 (PopAssociateThermalRequest.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PoCreateThermalRequest(_QWORD *a1, __int64 a2, __int64 a3, unsigned __int64 a4, int a5)
 {
-  _QWORD *v6; // rbx
-  _QWORD *v7; // rcx
-  int v9; // edi
-  __int64 Pool2; // rax
-  int v11; // r8d
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  _QWORD *v15; // [rsp+40h] [rbp+8h] BYREF
+  _QWORD *v5; // rbx
+  int v8; // edi
+  _QWORD *PoolWithTag; // rax
+  int v10; // r8d
+  __int64 v11; // rax
+  PVOID P; // [rsp+40h] [rbp+8h] BYREF
 
-  v6 = 0LL;
-  v7 = 0LL;
-  v15 = 0LL;
+  P = 0LL;
+  v5 = 0LL;
   *a1 = 0LL;
-  if ( a2 && a3 && a4 )
+  if ( !a2 || !a3 || !a4 )
   {
-    v9 = PoCaptureReasonContext(a4, 0, a3, 1, 0LL, (__int64 *)&v15);
-    if ( v9 >= 0 )
+    v8 = -1073741811;
+LABEL_8:
+    if ( v8 >= 0 )
+      return (unsigned int)v8;
+    goto LABEL_11;
+  }
+  v8 = PoCaptureReasonContext(a4, 0LL, a3, 1, 0LL, &P);
+  if ( v8 >= 0 )
+  {
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x240uLL, 0x6C6F4350u);
+    v5 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      Pool2 = ExAllocatePool2(256LL, 576LL, 1819231056LL);
-      v6 = (_QWORD *)Pool2;
-      if ( Pool2 )
+      memset(PoolWithTag, 0, 0x240uLL);
+      v10 = a5;
+      v5[3] = P;
+      *((_BYTE *)v5 + 16) = 100;
+      v11 = MEMORY[0xFFFFF78000000008];
+      v5[6] = MEMORY[0xFFFFF78000000008];
+      v5[7] = v11;
+      v8 = PopAssociateThermalRequest(v5, a2, v10 >= 0);
+      if ( v8 >= 0 )
       {
-        v11 = a5;
-        v12 = Pool2;
-        *(_QWORD *)(Pool2 + 24) = v15;
-        *(_BYTE *)(Pool2 + 16) = 100;
-        v13 = MEMORY[0xFFFFF78000000008];
-        v6[6] = MEMORY[0xFFFFF78000000008];
-        v6[7] = v13;
-        v9 = PopAssociateThermalRequest(v12, a2, v11 >= 0);
-        if ( v9 >= 0 )
-        {
-          *a1 = v6;
-          return (unsigned int)v9;
-        }
-      }
-      else
-      {
-        v9 = -1073741670;
+        *a1 = v5;
+        goto LABEL_8;
       }
     }
-    v7 = v15;
+    else
+    {
+      v8 = -1073741670;
+    }
   }
-  else
-  {
-    v9 = -1073741811;
-  }
-  if ( v7 )
-    PoDestroyReasonContext(v7, a2, a3, a4);
-  if ( v6 )
-    ExFreePoolWithTag(v6, 0x6C6F4350u);
-  return (unsigned int)v9;
+LABEL_11:
+  if ( P )
+    PoDestroyReasonContext(P);
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0x6C6F4350u);
+  return (unsigned int)v8;
 }

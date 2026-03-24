@@ -1,7 +1,7 @@
 /*
- * XREFs of AcpiKsrRestorePersistentContext @ 0x1C00B090C
+ * XREFs of AcpiKsrRestorePersistentContext @ 0x1C00B166C
  * Callers:
- *     ACPIKsrSupportInitialize @ 0x1C0024810 (ACPIKsrSupportInitialize.c)
+ *     ACPIKsrSupportInitialize @ 0x1C0026C50 (ACPIKsrSupportInitialize.c)
  * Callees:
  *     <none>
  */

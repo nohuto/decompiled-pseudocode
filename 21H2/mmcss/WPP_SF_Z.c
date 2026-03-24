@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_SF_Z @ 0x1C0004764
+ * XREFs of WPP_SF_Z @ 0x1C00044B4
  * Callers:
- *     CiDispatchCreate @ 0x1C000A010 (CiDispatchCreate.c)
+ *     CiDispatchCreate @ 0x1C000A340 (CiDispatchCreate.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00033D0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00031A0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_SF_Z(__int64 a1, __int64 a2, __int64 a3, const wchar_t *a4)
@@ -31,7 +31,7 @@ LABEL_6:
   return ((__int64 (__fastcall *)(__int64, __int64, void *, __int64, const wchar_t *, __int64, const wchar_t *, __int64, _QWORD))pfnWppTraceMessage)(
            a1,
            43LL,
-           &WPP_0f75fd9923be30bc1807a9ff104f69db_Traceguids,
+           &WPP_f2567f649f8e330a8ddb4ba7f0878bc2_Traceguids,
            10LL,
            a4,
            2LL,

@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpCompleteDeferSignalRequestAndWait @ 0x1407A69D4
+ * XREFs of AlpcpCompleteDeferSignalRequestAndWait @ 0x14069989C
  * Callers:
- *     AlpcpReceiveMessagePort @ 0x1407A8B00 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveMessagePort @ 0x1405E8BC0 (AlpcpReceiveMessagePort.c)
  * Callees:
- *     AlpcpWaitForSingleObject @ 0x1402F5DDC (AlpcpWaitForSingleObject.c)
- *     AlpcpSignalAndWait @ 0x1402F63D0 (AlpcpSignalAndWait.c)
+ *     AlpcpSignalAndWait @ 0x140205180 (AlpcpSignalAndWait.c)
+ *     AlpcpWaitForSingleObject @ 0x1402B6BF8 (AlpcpWaitForSingleObject.c)
  */
 
 __int64 __fastcall AlpcpCompleteDeferSignalRequestAndWait(

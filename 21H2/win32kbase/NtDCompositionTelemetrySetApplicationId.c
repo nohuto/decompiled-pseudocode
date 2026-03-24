@@ -1,14 +1,14 @@
 /*
- * XREFs of NtDCompositionTelemetrySetApplicationId @ 0x1C00AFA10
+ * XREFs of NtDCompositionTelemetrySetApplicationId @ 0x1C005A8D0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0010268 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     ?SetApplicationId@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z @ 0x1C00AF298 (-SetApplicationId@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005DB28 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     ?SetApplicationId@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z @ 0x1C00991B8 (-SetApplicationId@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall NtDCompositionTelemetrySetApplicationId(unsigned int a1, size_t a2, char *a3)
+__int64 __fastcall NtDCompositionTelemetrySetApplicationId(unsigned int a1, unsigned __int64 a2, char *a3)
 {
   int v5; // ebx
   struct DirectComposition::CApplicationChannel *v6; // r14
@@ -31,7 +31,10 @@ __int64 __fastcall NtDCompositionTelemetrySetApplicationId(unsigned int a1, size
     v6 = v8;
     if ( v5 >= 0 )
     {
-      v5 = DirectComposition::CTelemetryInfo::SetApplicationId((DirectComposition::CTelemetryInfo ***)v8 + 194, a2, a3);
+      v5 = DirectComposition::CTelemetryInfo::SetApplicationId(
+             (struct DirectComposition::CApplicationChannel *)((char *)v8 + 528),
+             a2,
+             a3);
       (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v6)(v6);
     }
   }

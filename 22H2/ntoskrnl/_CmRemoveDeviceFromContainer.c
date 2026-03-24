@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmRemoveDeviceFromContainer @ 0x140A646AC
+ * XREFs of _CmRemoveDeviceFromContainer @ 0x14072C9AC
  * Callers:
- *     PiDcUpdateDeviceContainerMembership @ 0x14079BAD0 (PiDcUpdateDeviceContainerMembership.c)
- *     PiDcResetChildDeviceContainers @ 0x14095B530 (PiDcResetChildDeviceContainers.c)
- *     _CmDeleteDeviceWorker @ 0x140A6244C (_CmDeleteDeviceWorker.c)
- *     _CmMoveBaseContainer @ 0x140A645C8 (_CmMoveBaseContainer.c)
+ *     _CmDeleteDeviceWorker @ 0x14072D948 (_CmDeleteDeviceWorker.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14075875C (PiDcUpdateDeviceContainerMembership.c)
+ *     PiDcResetChildDeviceContainers @ 0x1408A3928 (PiDcResetChildDeviceContainers.c)
+ *     _CmMoveBaseContainer @ 0x140976504 (_CmMoveBaseContainer.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _PnpObjectRaiseDevicesChangeEvent @ 0x140882850 (_PnpObjectRaiseDevicesChangeEvent.c)
- *     _CmRemoveDeviceFromContainerWorker @ 0x140A647EC (_CmRemoveDeviceFromContainerWorker.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x14072CAE0 (_CmRemoveDeviceFromContainerWorker.c)
+ *     _PnpObjectRaiseDevicesChangeEvent @ 0x140755470 (_PnpObjectRaiseDevicesChangeEvent.c)
  */
 
 __int64 __fastcall CmRemoveDeviceFromContainer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -52,13 +52,13 @@ __int64 __fastcall CmRemoveDeviceFromContainer(__int64 a1, __int64 a2, __int64 a
       if ( v12 != -1073741536 )
       {
         if ( !v12 )
-          goto LABEL_8;
+          goto LABEL_9;
         return (unsigned int)-1073741595;
       }
       return LODWORD(v14[0]);
     }
   }
-LABEL_8:
+LABEL_9:
   if ( !LOBYTE(v14[4]) )
     PnpObjectRaiseDevicesChangeEvent(a1, a2, 5LL);
   return v11;

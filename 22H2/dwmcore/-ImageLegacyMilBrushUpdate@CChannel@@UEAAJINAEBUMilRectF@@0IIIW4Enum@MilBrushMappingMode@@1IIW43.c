@@ -1,21 +1,21 @@
 /*
- * XREFs of ?ImageLegacyMilBrushUpdate@CChannel@@UEAAJINAEBUMilRectF@@0IIIW4Enum@MilBrushMappingMode@@1IIW43MilStretch@@W43MilTileMode@@W43MilHorizontalAlignment@@W43MilVerticalAlignment@@I@Z @ 0x180043150
+ * XREFs of ?ImageLegacyMilBrushUpdate@CChannel@@UEAAJINAEBUMilRectF@@0IIIW4Enum@MilBrushMappingMode@@1IIW43MilStretch@@W43MilTileMode@@W43MilHorizontalAlignment@@W43MilVerticalAlignment@@I@Z @ 0x1800D5ED0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180044038 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005E108 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E530 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005EA34 (-CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 __int64 __fastcall CChannel::ImageLegacyMilBrushUpdate(
-        struct CChannel *a1,
+        __int64 a1,
         unsigned int a2,
         double a3,
-        _OWORD *a4,
-        _OWORD *a5,
+        __int128 *a4,
+        __int128 *a5,
         unsigned int a6,
         unsigned int a7,
         unsigned int a8,
@@ -29,191 +29,69 @@ __int64 __fastcall CChannel::ImageLegacyMilBrushUpdate(
         int a16,
         unsigned int a17)
 {
-  float v19; // xmm0_4
-  int v20; // eax
-  unsigned int v21; // ebx
-  __int64 v23; // rdx
-  int v24; // [rsp+20h] [rbp-40h] BYREF
-  _BYTE v25[20]; // [rsp+24h] [rbp-3Ch]
-  _BYTE v26[24]; // [rsp+38h] [rbp-28h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+88h] [rbp+28h]
+  __int64 v17; // rsi
+  unsigned int v19; // r12d
+  unsigned int v20; // r15d
+  unsigned int v21; // r14d
+  unsigned int v22; // edi
+  unsigned int v23; // ebx
+  float v24; // xmm0_4
+  __int128 v25; // xmm1
+  __int128 v26; // xmm0
+  unsigned int v27; // ebx
+  int v29; // [rsp+28h] [rbp-79h] BYREF
+  _DWORD v30[7]; // [rsp+2Ch] [rbp-75h] BYREF
+  __int128 v31; // [rsp+48h] [rbp-59h]
+  unsigned int v32; // [rsp+58h] [rbp-49h]
+  __int128 v33; // [rsp+5Ch] [rbp-45h]
+  unsigned int v34; // [rsp+6Ch] [rbp-35h]
+  int v35; // [rsp+70h] [rbp-31h]
+  int v36; // [rsp+74h] [rbp-2Dh]
+  int v37; // [rsp+78h] [rbp-29h]
+  int v38; // [rsp+7Ch] [rbp-25h]
+  int v39; // [rsp+8Ch] [rbp-15h]
+  struct _RTL_CRITICAL_SECTION *v41; // [rsp+F8h] [rbp+57h] BYREF
+  __int128 *v42; // [rsp+100h] [rbp+5Fh]
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v26, a1);
-  CChannel::CheckHandle(a1, a2, 84LL);
-  if ( a6 )
-    CChannel::CheckHandle(a1, a6, 62LL);
-  if ( a7 )
-    CChannel::CheckHandle(a1, a7, 186LL);
-  if ( a8 )
-    CChannel::CheckHandle(a1, a8, 186LL);
-  if ( a11 )
-    CChannel::CheckHandle(a1, a11, 140LL);
-  if ( a12 )
-    CChannel::CheckHandle(a1, a12, 140LL);
-  if ( a17 )
-    CChannel::CheckHandle(a1, a17, 85LL);
-  v24 = 535;
-  *(_DWORD *)v25 = a2;
-  v19 = a3;
-  *(float *)&v25[4] = v19;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3039LL;
-LABEL_33:
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)v23,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-      (const char *)(unsigned int)v20,
-      v24);
-    goto LABEL_29;
-  }
-  v24 = 523;
-  *(_OWORD *)v25 = 0LL;
-  *(_DWORD *)v25 = a2;
-  *(_OWORD *)&v25[4] = *a4;
-  v20 = CChannel::SendCommand(a1, &v24, 0x18u);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3046LL;
-    goto LABEL_33;
-  }
-  v24 = 525;
-  *(_OWORD *)v25 = 0LL;
-  *(_DWORD *)v25 = a2;
-  *(_OWORD *)&v25[4] = *a5;
-  v20 = CChannel::SendCommand(a1, &v24, 0x18u);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3053LL;
-    goto LABEL_33;
-  }
-  v24 = 536;
-  *(_DWORD *)&v25[4] = a6;
-  *(_DWORD *)v25 = a2;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3060LL;
-    goto LABEL_33;
-  }
-  v24 = 537;
-  *(_DWORD *)&v25[4] = a7;
-  *(_DWORD *)v25 = a2;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3067LL;
-    goto LABEL_33;
-  }
-  v24 = 538;
-  *(_DWORD *)v25 = a2;
-  *(_DWORD *)&v25[4] = a8;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3074LL;
-    goto LABEL_33;
-  }
-  v24 = 521;
-  *(_DWORD *)&v25[4] = a9;
-  *(_DWORD *)v25 = a2;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3081LL;
-    goto LABEL_33;
-  }
-  v24 = 522;
-  *(_DWORD *)&v25[4] = a10;
-  *(_DWORD *)v25 = a2;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3088LL;
-    goto LABEL_33;
-  }
-  v24 = 524;
-  *(_DWORD *)v25 = a2;
-  *(_DWORD *)&v25[4] = a11;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3095LL;
-    goto LABEL_33;
-  }
-  v24 = 526;
-  *(_DWORD *)v25 = a2;
-  *(_DWORD *)&v25[4] = a12;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3102LL;
-    goto LABEL_33;
-  }
-  v24 = 527;
-  *(_DWORD *)&v25[4] = a13;
-  *(_DWORD *)v25 = a2;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3109LL;
-    goto LABEL_33;
-  }
-  v24 = 528;
-  *(_DWORD *)&v25[4] = a14;
-  *(_DWORD *)v25 = a2;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3116LL;
-    goto LABEL_33;
-  }
-  v24 = 529;
-  *(_DWORD *)&v25[4] = a15;
-  *(_DWORD *)v25 = a2;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3123LL;
-    goto LABEL_33;
-  }
-  v24 = 530;
-  *(_DWORD *)&v25[4] = a16;
-  *(_DWORD *)v25 = a2;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3130LL;
-    goto LABEL_33;
-  }
-  v24 = 534;
-  *(_DWORD *)&v25[4] = a17;
-  *(_DWORD *)v25 = a2;
-  v20 = CChannel::SendCommand(a1, &v24, 0xCu);
-  v21 = v20;
-  if ( v20 < 0 )
-  {
-    v23 = 3137LL;
-    goto LABEL_33;
-  }
-  v21 = 0;
-LABEL_29:
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v26);
-  return v21;
+  v42 = a4;
+  v17 = a1;
+  v41 = (struct _RTL_CRITICAL_SECTION *)(a1 + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 168));
+  CChannel::CheckHandle(v17, a2, 82);
+  v19 = a6;
+  CChannel::CheckOptionalHandle(v17, a6, 60);
+  v20 = a7;
+  CChannel::CheckOptionalHandle(v17, a7, 185);
+  v21 = a8;
+  CChannel::CheckOptionalHandle(v17, a8, 185);
+  v22 = a11;
+  CChannel::CheckOptionalHandle(v17, a11, 140);
+  v23 = a12;
+  CChannel::CheckOptionalHandle(v17, a12, 140);
+  LODWORD(v17) = a17;
+  CChannel::CheckOptionalHandle(a1, a17, 83);
+  v29 = 487;
+  memset_0(v30, 0, 0x64uLL);
+  v24 = a3;
+  v30[0] = a2;
+  v30[2] = v19;
+  v30[3] = v20;
+  v30[4] = v21;
+  v25 = *v42;
+  *(float *)&v30[1] = v24;
+  v31 = v25;
+  v32 = v22;
+  v26 = *a5;
+  v30[5] = a9;
+  v30[6] = a10;
+  v35 = a13;
+  v36 = a14;
+  v37 = a15;
+  v38 = a16;
+  v33 = v26;
+  v34 = v23;
+  v39 = v17;
+  v27 = CChannel::SendCommand((CChannel *)a1, &v29, 0x68u);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v41);
+  return v27;
 }

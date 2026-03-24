@@ -1,9 +1,9 @@
 /*
- * XREFs of CcRemapBcb @ 0x140333A50
+ * XREFs of CcRemapBcb @ 0x1402EF9F0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall CcRemapBcb(PVOID Bcb)
@@ -22,14 +22,14 @@ PVOID __stdcall CcRemapBcb(PVOID Bcb)
     v1 = *(_QWORD *)(v1 + 56);
   }
   if ( !*(_WORD *)(v1 + 16) )
-    KeBugCheckEx(0x34u, 0x25C6uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+    KeBugCheckEx(0x34u, 0x203CuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   v2 = *(_QWORD *)(v1 + 8);
   if ( !*(_DWORD *)(v2 + 4) )
-    KeBugCheckEx(0x34u, 0x25C7uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+    KeBugCheckEx(0x34u, 0x203DuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   v3 = _InterlockedIncrement((volatile signed __int32 *)(v1 + 16));
   if ( !v3 )
-    KeBugCheckEx(0x34u, 0xAECuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+    KeBugCheckEx(0x34u, 0x9FFuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   if ( v3 == 1 )
-    _InterlockedIncrement((volatile signed __int32 *)(v2 + 552));
+    _InterlockedIncrement((volatile signed __int32 *)(v2 + 544));
   return (PVOID)(v1 | 1);
 }

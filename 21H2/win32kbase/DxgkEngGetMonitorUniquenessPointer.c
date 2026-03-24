@@ -1,5 +1,5 @@
 /*
- * XREFs of DxgkEngGetMonitorUniquenessPointer @ 0x1C00CA3F0
+ * XREFs of DxgkEngGetMonitorUniquenessPointer @ 0x1C00BB870
  * Callers:
  *     <none>
  * Callees:

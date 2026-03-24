@@ -1,38 +1,38 @@
 /*
- * XREFs of EtwTraceJobAssignProcess @ 0x1409E5498
+ * XREFs of EtwTraceJobAssignProcess @ 0x140935E78
  * Callers:
- *     NtAssignProcessToJobObject @ 0x14069FE70 (NtAssignProcessToJobObject.c)
- *     PspAssignProcessToJobList @ 0x1409B0F60 (PspAssignProcessToJobList.c)
+ *     NtAssignProcessToJobObject @ 0x14071E680 (NtAssignProcessToJobObject.c)
+ *     PspAssignProcessToJobList @ 0x140909F3C (PspAssignProcessToJobList.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     EtwpCopyJobGuidSafe @ 0x1408A7024 (EtwpCopyJobGuidSafe.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     EtwpCopyJobGuidSafe @ 0x140936A24 (EtwpCopyJobGuidSafe.c)
  */
 
-__int64 __fastcall EtwTraceJobAssignProcess(__int64 a1)
+void __fastcall EtwTraceJobAssignProcess(__int64 a1)
 {
   __int64 v1; // rdx
   int v2; // r8d
   int v3; // r9d
-  __int128 v5; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v6; // [rsp+40h] [rbp-30h]
-  int v7; // [rsp+48h] [rbp-28h]
-  __int128 *v8; // [rsp+50h] [rbp-20h] BYREF
-  int v9; // [rsp+58h] [rbp-18h]
-  int v10; // [rsp+5Ch] [rbp-14h]
+  __int128 v4; // [rsp+30h] [rbp-40h] BYREF
+  __int64 v5; // [rsp+40h] [rbp-30h]
+  int v6; // [rsp+48h] [rbp-28h]
+  __int128 *v7; // [rsp+50h] [rbp-20h] BYREF
+  int v8; // [rsp+58h] [rbp-18h]
+  int v9; // [rsp+5Ch] [rbp-14h]
 
-  v6 = 0LL;
-  v7 = 0;
   v5 = 0LL;
-  EtwpCopyJobGuidSafe(&v5, a1);
+  v6 = 0;
+  v4 = 0LL;
+  EtwpCopyJobGuidSafe(&v4, a1);
   if ( v1 )
-    LODWORD(v6) = *(_DWORD *)(v1 + 1452);
+    LODWORD(v5) = *(_DWORD *)(v1 + 1236);
   else
-    LODWORD(v6) = 0;
-  v10 = 0;
-  HIDWORD(v6) = v3;
-  v7 = v2;
-  v8 = &v5;
-  v9 = 28;
-  return EtwTraceKernelEvent((int)&v8, 1, 0x80000u, 1827, 5249284);
+    LODWORD(v5) = 0;
+  v9 = 0;
+  HIDWORD(v5) = v3;
+  v6 = v2;
+  v7 = &v4;
+  v8 = 28;
+  EtwTraceKernelEvent((__int64)&v7, 1u, 0x80000u, 0x723u, 0x501904u);
 }

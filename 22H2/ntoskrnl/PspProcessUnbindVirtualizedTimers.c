@@ -1,20 +1,20 @@
 /*
- * XREFs of PspProcessUnbindVirtualizedTimers @ 0x1402F6478
+ * XREFs of PspProcessUnbindVirtualizedTimers @ 0x14026DF04
  * Callers:
- *     PspExitProcess @ 0x140751944 (PspExitProcess.c)
+ *     PspExitProcess @ 0x14062FC1C (PspExitProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     ExpTimerResume @ 0x14036AA50 (ExpTimerResume.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpTimerResume @ 0x14031EA1C (ExpTimerResume.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PspProcessUnbindVirtualizedTimers(__int64 a1)
 {
   __int64 result; // rax
-  volatile signed __int64 *v3; // rbp
+  KSPIN_LOCK *v3; // rbp
   unsigned __int64 v4; // rdi
   __int64 **v5; // rbx
   __int64 *v6; // rcx
@@ -28,7 +28,7 @@ __int64 __fastcall PspProcessUnbindVirtualizedTimers(__int64 a1)
   result = *(unsigned int *)(a1 + 632);
   if ( (result & 0x10) != 0 )
   {
-    v3 = (volatile signed __int64 *)(a1 + 2440);
+    v3 = (KSPIN_LOCK *)(a1 + 2440);
     v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 2440));
     v5 = (__int64 **)(a1 + 2448);
     while ( 1 )
@@ -47,25 +47,26 @@ __int64 __fastcall PspProcessUnbindVirtualizedTimers(__int64 a1)
       v8[35] = 0LL;
       if ( (v8[38] & 2) != 0 )
         ExpTimerResume((PKTIMER)v8);
-      KxReleaseSpinLock(v8 + 8);
+      KxReleaseSpinLock((PKSPIN_LOCK)v8 + 8);
       ObfDereferenceObjectWithTag(v9, 0x54567350u);
     }
-    result = KxReleaseSpinLock(v3);
+    KxReleaseSpinLock(v3);
+    result = (unsigned int)KiIrqlFlags;
     if ( KiIrqlFlags )
     {
-      result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)result <= 0xFu
-        && (unsigned __int8)v4 <= 0xFu
-        && (unsigned __int8)result >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-        v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
-        if ( v12 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KeGetCurrentIrql();
+        if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v4 <= 0xFu && (unsigned __int8)result >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+          v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= result;
+          if ( v12 )
+            result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v4);

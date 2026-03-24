@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhFdoCreateDeviceInterfaceForBillBoard @ 0x1C0029ADC
+ * XREFs of UsbhFdoCreateDeviceInterfaceForBillBoard @ 0x1C002AE2C
  * Callers:
- *     UsbhPublishBillboardDetails @ 0x1C00568B4 (UsbhPublishBillboardDetails.c)
+ *     UsbhPublishBillboardDetails @ 0x1C0057F80 (UsbhPublishBillboardDetails.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     memset @ 0x1C001F800 (memset.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 __int64 __fastcall UsbhFdoCreateDeviceInterfaceForBillBoard(

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrefetchReleasePreallocatedPages @ 0x140594F80
+ * XREFs of MiPrefetchReleasePreallocatedPages @ 0x1405399A0
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x140284EB0 (MiPrefetchVirtualMemory.c)
- *     MiPrefetchPreallocatePages @ 0x140594C08 (MiPrefetchPreallocatePages.c)
+ *     MiPrefetchVirtualMemory @ 0x140274EA0 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchPreallocatePages @ 0x140539620 (MiPrefetchPreallocatePages.c)
  * Callees:
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     MiFreePageChain @ 0x1403936C0 (MiFreePageChain.c)
+ *     MiFreePageChain @ 0x14028BED4 (MiFreePageChain.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
  */
 
 void __fastcall MiPrefetchReleasePreallocatedPages(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -60,7 +60,7 @@ void __fastcall MiPrefetchReleasePreallocatedPages(__int64 a1, __int64 a2, __int
     }
     if ( v9 )
 LABEL_15:
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a3 + 16960), v9);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(a3 + 7168), v9);
 LABEL_16:
     *(_DWORD *)(a1 + 16) = 0;
   }

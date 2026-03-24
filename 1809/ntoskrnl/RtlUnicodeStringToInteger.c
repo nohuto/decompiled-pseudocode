@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlUnicodeStringToInteger @ 0x140695970
+ * XREFs of RtlUnicodeStringToInteger @ 0x140695950
  * Callers:
- *     RtlpMuiRegAddAlternateCodePage @ 0x14018265C (RtlpMuiRegAddAlternateCodePage.c)
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140182840 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x14018267C (RtlpMuiRegAddAlternateCodePage.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140182860 (RtlpMuiRegCreateKernelRegistryInfo.c)
  *     RtlGetIntegerAtom @ 0x1405F53D0 (RtlGetIntegerAtom.c)
- *     _PnpParseIndirectResourceString @ 0x140695814 (_PnpParseIndirectResourceString.c)
- *     PspReadIFEONodeOptions @ 0x1406BB050 (PspReadIFEONodeOptions.c)
- *     PspReadIFEOPerfOptions @ 0x1406BB1D0 (PspReadIFEOPerfOptions.c)
- *     RtlQueryImageFileKeyOption @ 0x1406BB3C0 (RtlQueryImageFileKeyOption.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1406FA568 (_PnpGetGenericStorePropertyKeys.c)
- *     ExpSetCurrentUserUILanguage @ 0x14071A914 (ExpSetCurrentUserUILanguage.c)
- *     ExpGetCurrentUserUILanguage @ 0x14071AED0 (ExpGetCurrentUserUILanguage.c)
- *     ExpGetUILanguagePolicy @ 0x14071B000 (ExpGetUILanguagePolicy.c)
- *     CmpGetAcpiProfileInformation @ 0x1407315B4 (CmpGetAcpiProfileInformation.c)
- *     PspIsDfssEnabled @ 0x140733E00 (PspIsDfssEnabled.c)
- *     PiDcInitUpdateProperties @ 0x14073AEA4 (PiDcInitUpdateProperties.c)
- *     WdipSemLoadNextEndEvent @ 0x140743868 (WdipSemLoadNextEndEvent.c)
- *     WdipSemLoadNextScenario @ 0x1407441C0 (WdipSemLoadNextScenario.c)
- *     PopDetectSimulatedHeteroProcessors @ 0x14074FE04 (PopDetectSimulatedHeteroProcessors.c)
- *     PiCMDeleteDeviceKey @ 0x1408375AC (PiCMDeleteDeviceKey.c)
+ *     _PnpParseIndirectResourceString @ 0x1406957F4 (_PnpParseIndirectResourceString.c)
+ *     PspReadIFEONodeOptions @ 0x1406BB030 (PspReadIFEONodeOptions.c)
+ *     PspReadIFEOPerfOptions @ 0x1406BB1B0 (PspReadIFEOPerfOptions.c)
+ *     RtlQueryImageFileKeyOption @ 0x1406BB3A0 (RtlQueryImageFileKeyOption.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1406FA548 (_PnpGetGenericStorePropertyKeys.c)
+ *     ExpSetCurrentUserUILanguage @ 0x14071A8F4 (ExpSetCurrentUserUILanguage.c)
+ *     ExpGetCurrentUserUILanguage @ 0x14071AEB0 (ExpGetCurrentUserUILanguage.c)
+ *     ExpGetUILanguagePolicy @ 0x14071AFE0 (ExpGetUILanguagePolicy.c)
+ *     CmpGetAcpiProfileInformation @ 0x140731594 (CmpGetAcpiProfileInformation.c)
+ *     PspIsDfssEnabled @ 0x140733DE0 (PspIsDfssEnabled.c)
+ *     PiDcInitUpdateProperties @ 0x14073AE84 (PiDcInitUpdateProperties.c)
+ *     WdipSemLoadNextEndEvent @ 0x140743848 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemLoadNextScenario @ 0x1407441A0 (WdipSemLoadNextScenario.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x14074FDE4 (PopDetectSimulatedHeteroProcessors.c)
+ *     PiCMDeleteDeviceKey @ 0x14083758C (PiCMDeleteDeviceKey.c)
  * Callees:
  *     <none>
  */

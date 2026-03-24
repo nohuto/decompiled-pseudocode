@@ -1,14 +1,14 @@
 /*
- * XREFs of KiCreateCpuSetForProcessor @ 0x140A58F00
+ * XREFs of KiCreateCpuSetForProcessor @ 0x14099E2CC
  * Callers:
- *     KiCompleteKernelInit @ 0x140A58CF8 (KiCompleteKernelInit.c)
- *     KiAllocateCpuSetData @ 0x140B3023C (KiAllocateCpuSetData.c)
+ *     KiCompleteKernelInit @ 0x14099E0E0 (KiCompleteKernelInit.c)
+ *     KiAllocateCpuSetData @ 0x140A40960 (KiAllocateCpuSetData.c)
  * Callees:
- *     RtlWriteAcquireTickLock @ 0x14020F26C (RtlWriteAcquireTickLock.c)
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     RtlWriteReleaseTickLock @ 0x1403B65D8 (RtlWriteReleaseTickLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     RtlWriteAcquireTickLock @ 0x1402AB51C (RtlWriteAcquireTickLock.c)
+ *     RtlWriteReleaseTickLock @ 0x1403A73F4 (RtlWriteReleaseTickLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _UNKNOWN **__fastcall KiCreateCpuSetForProcessor(__int64 a1)
@@ -52,7 +52,7 @@ _UNKNOWN **__fastcall KiCreateCpuSetForProcessor(__int64 a1)
     *((_QWORD *)KiCpuSetAffinitiesShadow + v8) = *(_QWORD *)(a1 + 200);
     KiSystemAllowedCpuSets[2 * (unsigned int)v6] |= 1LL << v5;
     KiNonParkedCpuSets[v6] |= 1LL << v5;
-    v9 = &PsInitialSystemProcess[2].Affinity.StaticBitmap[16];
+    v9 = &PsInitialSystemProcess[2].Affinity.Bitmap[16];
     if ( (HIDWORD(PsInitialSystemProcess[2].Header.WaitListHead.Flink) & 0x80u) != 0 )
       v9 = (unsigned __int64 *)*v9;
     v9[v6] |= 1LL << v5;

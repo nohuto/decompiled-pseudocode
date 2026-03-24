@@ -1,105 +1,99 @@
 /*
- * XREFs of SmProcessStoreMemoryPriorityRequest @ 0x1407E83A4
+ * XREFs of SmProcessStoreMemoryPriorityRequest @ 0x1406A13E4
  * Callers:
- *     SmSetStoreInformation @ 0x1407E82F4 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406A1334 (SmSetStoreInformation.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     SmpKeyedStoreEntryGet @ 0x1403445F4 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     SmpKeyedStoreEntryGet @ 0x140264198 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     SmRereferenceProcessObject @ 0x140329A40 (SmRereferenceProcessObject.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall SmProcessStoreMemoryPriorityRequest(unsigned __int64 a1, int a2, KPROCESSOR_MODE a3)
+__int64 __fastcall SmProcessStoreMemoryPriorityRequest(unsigned __int64 a1, __int64 a2, KPROCESSOR_MODE a3)
 {
-  _KPROCESS *v4; // rdi
-  int v5; // esi
-  __int64 v6; // rcx
-  NTSTATUS v7; // ebx
-  __int64 ProcessPartition; // r14
-  __int64 v10; // rcx
-  __int64 v11; // rax
-  PVOID Object; // [rsp+30h] [rbp-68h] BYREF
-  __int64 v13; // [rsp+38h] [rbp-60h] BYREF
-  HANDLE Handle[2]; // [rsp+40h] [rbp-58h]
-  PVOID v15; // [rsp+50h] [rbp-48h]
-  $115DCDF994C6370D29323EAB0E0C9502 v16; // [rsp+58h] [rbp-40h] BYREF
+  __int128 *v3; // r9
+  int v4; // edi
+  NTSTATUS v5; // ebx
+  _DWORD *v6; // r9
+  __int64 v8; // rax
+  PADAPTER_OBJECT DmaAdapter; // [rsp+20h] [rbp-68h] BYREF
+  int v10; // [rsp+28h] [rbp-60h]
+  PADAPTER_OBJECT v11; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v12; // [rsp+38h] [rbp-50h]
+  _OWORD v13[3]; // [rsp+48h] [rbp-40h] BYREF
 
-  memset(&v16, 0, sizeof(v16));
-  v13 = 0LL;
-  v4 = 0LL;
-  v15 = 0LL;
-  v5 = 0;
-  *(_OWORD *)Handle = 0LL;
-  if ( a2 == 16 )
+  v3 = (__int128 *)a1;
+  memset(v13, 0, sizeof(v13));
+  v11 = 0LL;
+  DmaAdapter = 0LL;
+  v4 = 0;
+  v10 = 0;
+  v12 = 0LL;
+  if ( (_DWORD)a2 == 16 )
   {
     if ( a3 )
     {
       if ( (a1 & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      v6 = 0x7FFFFFFF0000LL;
-      if ( a1 < 0x7FFFFFFF0000LL )
-        v6 = a1;
-      *(_BYTE *)v6 = *(_BYTE *)v6;
-      *(_BYTE *)(v6 + 15) = *(_BYTE *)(v6 + 15);
+      if ( a1 >= 0x7FFFFFFF0000LL )
+        a1 = 0x7FFFFFFF0000LL;
+      *(_BYTE *)a1 = *(_BYTE *)a1;
+      *(_BYTE *)(a1 + 15) = *(_BYTE *)(a1 + 15);
     }
-    *(_OWORD *)Handle = *(_OWORD *)a1;
-    if ( LOBYTE(Handle[0]) == 1 )
+    v12 = *v3;
+    if ( (_BYTE)v12 == 1 )
     {
-      if ( ((__int64)Handle[0] & 0xFFFFFC00) != 0 )
+      if ( (v12 & 0xFFFFFC00) != 0 )
       {
-        v7 = -1073741811;
+        v5 = -1073741811;
       }
-      else if ( ((__int64)Handle[0] & 0x100) != 0 )
+      else if ( (v12 & 0x100) != 0 )
       {
-        Object = 0LL;
-        v7 = ObReferenceObjectByHandle(Handle[1], 0x2000u, (POBJECT_TYPE)PsProcessType, a3, &Object, 0LL);
-        v4 = (_KPROCESS *)Object;
-        if ( v7 >= 0 )
+        v5 = SmRereferenceProcessObject(*((void **)&v12 + 1), a2, a3, &DmaAdapter);
+        if ( v5 >= 0 )
         {
-          _InterlockedOr((volatile signed __int32 *)Object + 543, 0x40000u);
-          if ( ((__int64)Handle[0] & 0x200) != 0 )
+          _InterlockedOr((volatile signed __int32 *)&DmaAdapter[135].DmaOperations + 1, 0x40000u);
+          if ( (v12 & 0x200) != 0 )
           {
-            if ( KeGetCurrentThread()->ApcState.Process != v4 )
+            if ( (PADAPTER_OBJECT)KeGetCurrentThread()->ApcState.Process != DmaAdapter )
             {
-              v5 = 1;
-              KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)&v16);
+              v4 = 1;
+              KiStackAttachProcess((_KPROCESS *)DmaAdapter, 0LL, (__int64)v13, v6);
             }
-            ProcessPartition = SmpGetProcessPartition((__int64)Object);
-            v13 = v10;
-            v11 = SmpKeyedStoreEntryGet(ProcessPartition + 2072, &v13, 0, 0);
-            if ( v11 )
-              *(_BYTE *)(*(_QWORD *)SmKmStoreRefFromStoreIndex(ProcessPartition, *(_WORD *)(v11 + 16) & 0x3FF) + 6023LL) = 1;
+            v11 = DmaAdapter;
+            v8 = SmpKeyedStoreEntryGet((ULONG_PTR)qword_140D24188, &v11, 0, 0);
+            if ( v8 )
+              *(_BYTE *)(*(_QWORD *)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, *(_WORD *)(v8 + 16) & 0x3FF) + 6023LL) = 1;
             else
-              v7 = -1073741632;
+              v5 = -1073741632;
           }
           else
           {
-            v7 = 0;
+            v5 = 0;
           }
         }
       }
       else
       {
-        v7 = -1073741637;
+        v5 = -1073741637;
       }
     }
     else
     {
-      v7 = -1073741735;
+      v5 = -1073741735;
     }
   }
   else
   {
-    v7 = -1073741306;
+    v5 = -1073741306;
   }
-  if ( v5 )
-    KiUnstackDetachProcess(&v16);
   if ( v4 )
-    ObfDereferenceObject(v4);
-  return (unsigned int)v7;
+    KiUnstackDetachProcess((__int64)v13, 0);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+  return (unsigned int)v5;
 }

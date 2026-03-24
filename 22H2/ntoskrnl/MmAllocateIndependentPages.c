@@ -1,14 +1,13 @@
 /*
- * XREFs of MmAllocateIndependentPages @ 0x14086C6F0
+ * XREFs of MmAllocateIndependentPages @ 0x140762010
  * Callers:
- *     KeAllocateInterrupt @ 0x14032065C (KeAllocateInterrupt.c)
- *     HvlStartBootLogicalProcessors @ 0x140376790 (HvlStartBootLogicalProcessors.c)
- *     KiAllocateProcessorStateInitializationParameters @ 0x14037709C (KiAllocateProcessorStateInitializationParameters.c)
- *     KeAllocateProcessorProfileStructures @ 0x1403A9A80 (KeAllocateProcessorProfileStructures.c)
- *     HvlpInitializeHvCrashdump @ 0x140548094 (HvlpInitializeHvCrashdump.c)
- *     KiInitializePrcbContext @ 0x140A89784 (KiInitializePrcbContext.c)
+ *     KeAllocateInterrupt @ 0x14037718C (KeAllocateInterrupt.c)
+ *     KeAllocateProcessorProfileStructures @ 0x1403B5E70 (KeAllocateProcessorProfileStructures.c)
+ *     HvlStartBootLogicalProcessors @ 0x1403B62E8 (HvlStartBootLogicalProcessors.c)
+ *     HvlpInitializeHvCrashdump @ 0x1404F901C (HvlpInitializeHvCrashdump.c)
+ *     KiInitializePrcbContext @ 0x14099F0D8 (KiInitializePrcbContext.c)
  * Callees:
- *     MmAllocateIndependentPagesEx @ 0x14086C70C (MmAllocateIndependentPagesEx.c)
+ *     MmAllocateIndependentPagesEx @ 0x14076202C (MmAllocateIndependentPagesEx.c)
  */
 
 __int64 __fastcall MmAllocateIndependentPages(__int64 a1, __int64 a2)

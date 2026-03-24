@@ -1,22 +1,21 @@
 /*
- * XREFs of AuthzBasepCompareUnicodeStringOperands @ 0x14030C028
+ * XREFs of AuthzBasepCompareUnicodeStringOperands @ 0x14024EE90
  * Callers:
- *     AuthzBasepEvaluateExpression @ 0x14030BD74 (AuthzBasepEvaluateExpression.c)
- *     AuthzBasepValueInSet @ 0x14030BE18 (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateExpression @ 0x14024EC90 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepValueInSet @ 0x14024F7D8 (AuthzBasepValueInSet.c)
  * Callees:
- *     AuthzBasepUnicodeStringFromOperandValue @ 0x14022D1B0 (AuthzBasepUnicodeStringFromOperandValue.c)
- *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x14030C1D0 (AuthzBasepGetOperandStringCaseForEvaluation.c)
- *     RtlIsNameInExpression @ 0x14030C230 (RtlIsNameInExpression.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140361A30 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     AuthzBasepCompareUnicodeStringCaseSensitive @ 0x14066F76C (AuthzBasepCompareUnicodeStringCaseSensitive.c)
- *     RtlCompareUnicodeString @ 0x1406DA1F0 (RtlCompareUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x14024E730 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     RtlIsNameInExpression @ 0x14024F160 (RtlIsNameInExpression.c)
+ *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x14024F780 (AuthzBasepGetOperandStringCaseForEvaluation.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x14024F9DC (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     AuthzBasepCompareUnicodeStringCaseSensitive @ 0x1405C1C70 (AuthzBasepCompareUnicodeStringCaseSensitive.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall AuthzBasepCompareUnicodeStringOperands(unsigned __int8 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall AuthzBasepCompareUnicodeStringOperands(char a1, __int64 a2, _DWORD *a3)
 {
-  int v5; // esi
   wchar_t **p_Buffer; // rax
   __int64 v7; // rcx
   int OperandStringCaseForEvaluation; // eax
@@ -30,9 +29,9 @@ __int64 __fastcall AuthzBasepCompareUnicodeStringOperands(unsigned __int8 a1, __
   unsigned int v16; // r14d
   __int64 v17; // rdi
   wchar_t **v18; // rsi
-  unsigned int v20; // eax
-  BOOL v21; // eax
-  BOOLEAN v22; // al
+  BOOLEAN v20; // al
+  unsigned int v21; // eax
+  BOOL v22; // eax
   _WORD v23[2]; // [rsp+20h] [rbp-48h] BYREF
   int v24; // [rsp+24h] [rbp-44h]
   UNICODE_STRING *v25; // [rsp+28h] [rbp-40h]
@@ -40,7 +39,6 @@ __int64 __fastcall AuthzBasepCompareUnicodeStringOperands(unsigned __int8 a1, __
   UNICODE_STRING Expression; // [rsp+40h] [rbp-28h] BYREF
   char v28; // [rsp+88h] [rbp+20h] BYREF
 
-  v5 = a1;
   v23[0] = 0;
   v28 = 0;
   p_Buffer = &Name.Buffer;
@@ -96,61 +94,64 @@ LABEL_9:
     v25 = ++p_Name;
   }
   while ( v9 < 2 );
-  if ( v5 == 128 || v5 == 129 )
+  if ( (unsigned __int8)(a1 + 0x80) > 1u )
   {
-    if ( *(_DWORD *)(a2 + 12) == 2 || *(_DWORD *)(a2 + 52) == 2 )
+    if ( v28 )
+      v21 = AuthzBasepCompareUnicodeStringCaseSensitive(&Name, &Expression);
+    else
+      v21 = RtlCompareUnicodeString(&Name, &Expression, 1u);
+    *a3 = v21;
+    if ( a1 != -126 )
     {
-      if ( *(_DWORD *)(a2 + 52) == 1 )
+      if ( a1 == -125 )
       {
-        v13 = &Name;
-        p_Expression = &Expression;
+        v22 = *a3 <= 0;
+LABEL_40:
+        *a3 = v22;
+LABEL_43:
+        v16 = v24;
+        goto LABEL_19;
       }
-      else
+      if ( a1 == -124 )
       {
-        v13 = &Expression;
-        p_Expression = &Name;
+        v22 = *a3 > 0;
+        goto LABEL_40;
       }
-      IsNameInExpression = RtlIsNameInExpression(p_Expression, v13, v28 == 0, 0LL);
-      *a3 = IsNameInExpression;
+      if ( a1 != -123 )
+        goto LABEL_43;
+      v21 = ~*a3;
+    }
+    v22 = v21 >> 31;
+    goto LABEL_40;
+  }
+  if ( *(_DWORD *)(a2 + 12) == 2 || *(_DWORD *)(a2 + 52) == 2 )
+  {
+    if ( *(_DWORD *)(a2 + 52) == 1 )
+    {
+      v13 = &Name;
+      p_Expression = &Expression;
     }
     else
     {
-      if ( v28 )
-        v22 = AuthzBasepEqualUnicodeStringCaseSensitive(&Name, &Expression);
-      else
-        v22 = RtlEqualUnicodeString(&Name, &Expression, 1u);
-      IsNameInExpression = v22;
-      *a3 = v22;
+      v13 = &Expression;
+      p_Expression = &Name;
     }
-    v16 = v24;
-    if ( (_BYTE)v5 == 0x81 )
-      *a3 = IsNameInExpression != 1;
-    goto LABEL_19;
+    IsNameInExpression = RtlIsNameInExpression(p_Expression, v13, v28 == 0, 0LL);
+    *a3 = IsNameInExpression;
   }
-  if ( v28 )
-    v20 = AuthzBasepCompareUnicodeStringCaseSensitive(&Name, &Expression);
   else
-    v20 = RtlCompareUnicodeString(&Name, &Expression, 1u);
-  *a3 = v20;
-  switch ( (_BYTE)v5 )
   {
-    case 0x82:
-LABEL_34:
-      v21 = v20 >> 31;
-LABEL_36:
-      *a3 = v21;
-      break;
-    case 0x83:
-      v21 = *a3 <= 0;
-      goto LABEL_36;
-    case 0x84:
-      v21 = *a3 > 0;
-      goto LABEL_36;
-    case 0x85:
-      v20 = ~*a3;
-      goto LABEL_34;
+    if ( v28 )
+      v20 = AuthzBasepEqualUnicodeStringCaseSensitive(&Name, &Expression);
+    else
+      v20 = RtlEqualUnicodeString(&Name, &Expression, 1u);
+    IsNameInExpression = v20;
+    *a3 = v20;
   }
+  v12 = a1 == -127;
   v16 = v24;
+  if ( v12 )
+    *a3 = IsNameInExpression != 1;
 LABEL_19:
   v17 = 0LL;
   v18 = &Name.Buffer;

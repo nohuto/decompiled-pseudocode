@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessClearCasters@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_CLEARCASTERS@@@Z @ 0x18024BE44
+ * XREFs of ?ProcessClearCasters@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_CLEARCASTERS@@@Z @ 0x1801E4A80
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?ClearCasters@CProjectedShadowScene@@AEAAXXZ @ 0x1800045A8 (-ClearCasters@CProjectedShadowScene@@AEAAXXZ.c)
+ *     ?ClearCasters@CProjectedShadowScene@@AEAAXXZ @ 0x18000CED4 (-ClearCasters@CProjectedShadowScene@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CProjectedShadowScene::ProcessClearCasters(

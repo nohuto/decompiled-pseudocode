@@ -1,142 +1,147 @@
 /*
- * XREFs of CmpSetVersionData @ 0x14080E008
+ * XREFs of CmpSetVersionData @ 0x1407A825C
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x14080D490 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A76E0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     sprintf_s @ 0x1403DF0C0 (sprintf_s.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     PsWow64IsMachineSupported @ 0x14076F670 (PsWow64IsMachineSupported.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     CmpRestampVersion @ 0x14080E4E0 (CmpRestampVersion.c)
- *     CmpHiveRootSecurityDescriptor @ 0x14080E690 (CmpHiveRootSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExFreePool @ 0x140AAFCC0 (ExFreePool.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1403D74F0 (sprintf_s.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsWow64IsMachineSupported @ 0x1406C7650 (PsWow64IsMachineSupported.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     CmpQueryEditionVersion @ 0x1407A8760 (CmpQueryEditionVersion.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x1407A884C (CmpHiveRootSecurityDescriptor.c)
+ *     CmpRestampVersion @ 0x140867940 (CmpRestampVersion.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void CmpSetVersionData()
 {
-  wchar_t **v0; // rdi
+  ULONG v0; // edx
   void *v1; // rsi
-  __int16 v2; // cx
+  __int16 *i; // rdi
   const WCHAR *v3; // rdx
   NTSTATUS Key; // ebx
-  UNICODE_STRING *v5; // rax
+  HANDLE v5; // rax
   NTSTATUS v6; // ebx
   NTSTATUS v7; // ebx
   __int64 v8; // rax
   PVOID *ServerSiloGlobals; // rax
+  ULONG v10; // edx
   HANDLE KeyHandle; // [rsp+48h] [rbp-C0h] BYREF
   int Data; // [rsp+50h] [rbp-B8h] BYREF
   UNICODE_STRING Data_8; // [rsp+58h] [rbp-B0h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v14; // [rsp+98h] [rbp-70h]
+  HANDLE ObjectAttributes[7]; // [rsp+68h] [rbp-A0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-68h] BYREF
   STRING SourceString; // [rsp+B0h] [rbp-58h] BYREF
   char DstBuf[128]; // [rsp+C8h] [rbp-40h] BYREF
   _BYTE v18[256]; // [rsp+148h] [rbp+40h] BYREF
 
   KeyHandle = 0LL;
-  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  memset(ObjectAttributes, 0, sizeof(ObjectAttributes));
   SourceString = 0LL;
-  DestinationString = 0LL;
-  LODWORD(v14) = 0;
-  Data_8 = 0LL;
   Data = 0;
-  v0 = &VersionDataKeys;
+  DestinationString = 0LL;
+  Data_8 = 0LL;
+  memset(&CmpEditionVersion, 0, 0x238uLL);
   v1 = (void *)CmpHiveRootSecurityDescriptor();
   if ( VersionDataKeys )
   {
-    do
+    for ( i = (__int16 *)&unk_140C04440; *((_QWORD *)i - 2); i += 12 )
     {
-      v2 = *((_WORD *)v0 + 8);
-      if ( v2 == -31132 || (unsigned int)PsWow64IsMachineSupported(v2) )
+      if ( *i == -31132 || (unsigned int)PsWow64IsMachineSupported(*i) )
       {
-        RtlInitUnicodeString(&DestinationString, *v0);
-        LODWORD(ObjectAttributes.RootDirectory) = 48;
-        ObjectAttributes.ObjectName = 0LL;
-        LODWORD(ObjectAttributes.SecurityDescriptor) = 576;
-        *(_QWORD *)&ObjectAttributes.Attributes = &DestinationString;
-        ObjectAttributes.SecurityQualityOfService = v1;
-        v14 = 0LL;
+        RtlInitUnicodeString(&DestinationString, *((PCWSTR *)i - 2));
+        LODWORD(ObjectAttributes[1]) = 48;
+        ObjectAttributes[2] = 0LL;
+        LODWORD(ObjectAttributes[4]) = 576;
+        ObjectAttributes[3] = &DestinationString;
+        ObjectAttributes[5] = v1;
+        ObjectAttributes[6] = 0LL;
         if ( ZwCreateKey(
                &KeyHandle,
                4u,
-               (POBJECT_ATTRIBUTES)&ObjectAttributes.RootDirectory,
+               (POBJECT_ATTRIBUTES)&ObjectAttributes[1],
                0,
                (PUNICODE_STRING)&nullclass,
                0,
                0LL) < 0 )
-          goto LABEL_24;
-        v3 = v0[1];
+          goto LABEL_27;
+        v3 = (const WCHAR *)*((_QWORD *)i - 1);
         if ( v3 )
         {
           RtlInitUnicodeString(&DestinationString, v3);
-          ObjectAttributes.ObjectName = (PUNICODE_STRING)KeyHandle;
-          LODWORD(ObjectAttributes.RootDirectory) = 48;
-          LODWORD(ObjectAttributes.SecurityDescriptor) = 576;
-          *(_QWORD *)&ObjectAttributes.Attributes = &DestinationString;
-          ObjectAttributes.SecurityQualityOfService = v1;
-          v14 = 0LL;
+          ObjectAttributes[2] = KeyHandle;
+          LODWORD(ObjectAttributes[1]) = 48;
+          LODWORD(ObjectAttributes[4]) = 576;
+          ObjectAttributes[3] = &DestinationString;
+          ObjectAttributes[5] = v1;
+          ObjectAttributes[6] = 0LL;
           Key = ZwCreateKey(
-                  (PHANDLE)&ObjectAttributes,
+                  ObjectAttributes,
                   2u,
-                  (POBJECT_ATTRIBUTES)&ObjectAttributes.RootDirectory,
+                  (POBJECT_ATTRIBUTES)&ObjectAttributes[1],
                   0,
                   (PUNICODE_STRING)&nullclass,
                   0,
                   0LL);
           ZwClose(KeyHandle);
           if ( Key < 0 )
-            goto LABEL_24;
-          v5 = *(UNICODE_STRING **)&ObjectAttributes.Length;
-          KeyHandle = *(HANDLE *)&ObjectAttributes.Length;
+            goto LABEL_27;
+          v5 = ObjectAttributes[0];
+          KeyHandle = ObjectAttributes[0];
         }
         else
         {
-          v5 = (UNICODE_STRING *)KeyHandle;
+          v5 = KeyHandle;
         }
-        ObjectAttributes.ObjectName = v5;
-        LODWORD(ObjectAttributes.RootDirectory) = 48;
-        LODWORD(ObjectAttributes.SecurityDescriptor) = 576;
-        *(_QWORD *)&ObjectAttributes.Attributes = &CmpWindowsNtString;
-        ObjectAttributes.SecurityQualityOfService = v1;
-        v14 = 0LL;
+        ObjectAttributes[2] = v5;
+        LODWORD(ObjectAttributes[1]) = 48;
+        LODWORD(ObjectAttributes[4]) = 576;
+        ObjectAttributes[3] = &CmpWindowsNtString;
+        ObjectAttributes[5] = v1;
+        ObjectAttributes[6] = 0LL;
         v6 = ZwCreateKey(
-               (PHANDLE)&ObjectAttributes,
+               ObjectAttributes,
                2u,
-               (POBJECT_ATTRIBUTES)&ObjectAttributes.RootDirectory,
+               (POBJECT_ATTRIBUTES)&ObjectAttributes[1],
                0,
                (PUNICODE_STRING)&nullclass,
                0,
                0LL);
         ZwClose(KeyHandle);
         if ( v6 < 0 )
-          goto LABEL_24;
-        ObjectAttributes.ObjectName = *(PUNICODE_STRING *)&ObjectAttributes.Length;
-        *(_QWORD *)&ObjectAttributes.Attributes = &CmpCurrentVersionString;
-        LODWORD(ObjectAttributes.RootDirectory) = 48;
-        LODWORD(ObjectAttributes.SecurityDescriptor) = 576;
-        ObjectAttributes.SecurityQualityOfService = v1;
-        v14 = 0LL;
+          goto LABEL_27;
+        ObjectAttributes[2] = ObjectAttributes[0];
+        ObjectAttributes[3] = (HANDLE)&CmpCurrentVersionString;
+        LODWORD(ObjectAttributes[1]) = 48;
+        LODWORD(ObjectAttributes[4]) = 576;
+        ObjectAttributes[5] = v1;
+        ObjectAttributes[6] = 0LL;
         v7 = ZwCreateKey(
                &KeyHandle,
                3u,
-               (POBJECT_ATTRIBUTES)&ObjectAttributes.RootDirectory,
+               (POBJECT_ATTRIBUTES)&ObjectAttributes[1],
                0,
                (PUNICODE_STRING)&nullclass,
                0,
                0LL);
-        ZwClose(*(HANDLE *)&ObjectAttributes.Length);
+        ZwClose(ObjectAttributes[0]);
         if ( v7 < 0 )
-          goto LABEL_24;
+          goto LABEL_27;
+        if ( *i == -31132 && (int)CmpQueryEditionVersion(&CmpEditionVersion) >= 0 )
+        {
+          NtBuildNumber = CmpEditionVersion | 0xF0000000;
+          MEMORY[0xFFFFF78000000260] = CmpEditionVersion;
+          NtBuildQfe = dword_140C48564;
+        }
         ZwSetValueKey(
           KeyHandle,
           (PUNICODE_STRING)&CmpCurrentVersionString,
@@ -149,7 +154,7 @@ void CmpSetVersionData()
         Data = 0;
         ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpCurrentMinorVersionString, 0, 4u, &Data, 4u);
         Data = 0;
-        if ( CmpEditionVersion && *(_DWORD *)(CmpEditionVersion + 8) )
+        if ( CmpEditionVersion )
           CmpRestampVersion(KeyHandle);
         sprintf_s(DstBuf, 0x80uLL, "%s %s", "Multiprocessor", "Free");
         RtlInitAnsiString(&SourceString, DstBuf);
@@ -168,7 +173,7 @@ void CmpSetVersionData()
               CmCSDVersionString.Buffer,
               CmCSDVersionString.Length + 2);
             if ( CmCSDVersionString.Buffer )
-              ExFreePool(CmCSDVersionString.Buffer);
+              ExFreePoolWithTag(CmCSDVersionString.Buffer, v10);
             RtlInitUnicodeString(&CmCSDVersionString, 0LL);
           }
           else
@@ -189,24 +194,22 @@ void CmpSetVersionData()
         {
           ZwDeleteValueKey(KeyHandle, (PUNICODE_STRING)&CmpCsdBuildNumberString);
         }
-        v8 = PdcCreateWatchdogAroundClientCall();
+        v8 = HalSystemVectorDispatchEntry();
         ServerSiloGlobals = (PVOID *)PsGetServerSiloGlobals(v8);
         ZwSetValueKey(
           KeyHandle,
           (PUNICODE_STRING)&CmpSystemRootString,
           0,
           1u,
-          ServerSiloGlobals[159],
-          *((unsigned __int16 *)ServerSiloGlobals + 632) + 2);
+          ServerSiloGlobals[135],
+          *((unsigned __int16 *)ServerSiloGlobals + 536) + 2);
         ZwClose(KeyHandle);
       }
-      v0 += 3;
     }
-    while ( *v0 );
   }
   if ( CmCSDVersionString.Buffer )
-    ExFreePool(CmCSDVersionString.Buffer);
+    ExFreePoolWithTag(CmCSDVersionString.Buffer, v0);
   RtlInitUnicodeString(&CmCSDVersionString, 0LL);
-LABEL_24:
+LABEL_27:
   ExFreePoolWithTag(v1, 0);
 }

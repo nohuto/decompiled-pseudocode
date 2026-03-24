@@ -1,7 +1,7 @@
 /*
- * XREFs of ExDisableHandleTracing @ 0x140319AB8
+ * XREFs of ExDisableHandleTracing @ 0x140319BB8
  * Callers:
- *     PsSetProcessHandleTracingInformation @ 0x140888774 (PsSetProcessHandleTracingInformation.c)
+ *     PsSetProcessHandleTracingInformation @ 0x140888754 (PsSetProcessHandleTracingInformation.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -11,8 +11,8 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     ExDereferenceHandleDebugInfo @ 0x1408CDC34 (ExDereferenceHandleDebugInfo.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExDereferenceHandleDebugInfo @ 0x1408CDC14 (ExDereferenceHandleDebugInfo.c)
  */
 
 _QWORD *__fastcall ExDisableHandleTracing(__int64 a1)

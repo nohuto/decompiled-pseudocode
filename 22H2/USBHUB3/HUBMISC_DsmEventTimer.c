@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_DsmEventTimer @ 0x1C002E810
+ * XREFs of HUBMISC_DsmEventTimer @ 0x1C002B750
  * Callers:
  *     <none>
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 __int64 __fastcall HUBMISC_DsmEventTimer(__int64 a1, __int64 a2)

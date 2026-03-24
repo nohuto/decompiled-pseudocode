@@ -1,31 +1,31 @@
 /*
- * XREFs of SepAdtPrivilegeObjectAuditAlarm @ 0x1406C341C
+ * XREFs of SepAdtPrivilegeObjectAuditAlarm @ 0x140627D4C
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
- *     SePrivilegeObjectAuditAlarm @ 0x1406C33C0 (SePrivilegeObjectAuditAlarm.c)
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
- *     SeAuditHandleCreation @ 0x1407DCE08 (SeAuditHandleCreation.c)
- *     NtOpenObjectAuditAlarm @ 0x1407DFA00 (NtOpenObjectAuditAlarm.c)
- *     NtPrivilegeObjectAuditAlarm @ 0x140846050 (NtPrivilegeObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140862CC0 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SePrivilegeObjectAuditAlarm @ 0x140627CF0 (SePrivilegeObjectAuditAlarm.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
+ *     NtOpenObjectAuditAlarm @ 0x14068BC10 (NtOpenObjectAuditAlarm.c)
+ *     SeAuditHandleCreation @ 0x140694128 (SeAuditHandleCreation.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x14078B920 (NtPrivilegeObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x1407D2660 (SeOpenObjectAuditAlarmForNonObObject.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     ObpIsKernelHandle @ 0x1402BEB24 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x14039B490 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x1406C34DC (SepAdtAuditPrivilegeUseWithContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObpIsKernelHandle @ 0x1402C8F50 (ObpIsKernelHandle.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     SepAdtLogAuditRecord @ 0x1403C20B4 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x140627E10 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 char __fastcall SepAdtPrivilegeObjectAuditAlarm(
         const int *a1,
         unsigned __int16 *a2,
         unsigned __int16 *a3,
-        __int64 a4,
+        unsigned __int64 a4,
         __int64 a5,
         __int64 a6,
         __int64 a7,
@@ -34,12 +34,12 @@ char __fastcall SepAdtPrivilegeObjectAuditAlarm(
         char a10)
 {
   unsigned __int16 *v10; // r12
-  unsigned __int16 *v11; // r15
+  unsigned __int16 *v11; // rsi
   PSID *v13; // rax
   unsigned __int8 *v14; // r13
   _KPROCESS *CurrentThreadProcess; // rax
   int AllocatedFullProcessImageName; // eax
-  const int *v17; // r14
+  const int *v17; // r15
   __int64 v18; // rbx
   int v19; // eax
   int v20; // ecx
@@ -57,7 +57,7 @@ char __fastcall SepAdtPrivilegeObjectAuditAlarm(
   __int64 v32; // [rsp+38h] [rbp-D0h] BYREF
   PVOID P; // [rsp+40h] [rbp-C8h] BYREF
   const int *v34; // [rsp+48h] [rbp-C0h]
-  __int64 v35; // [rsp+50h] [rbp-B8h]
+  unsigned __int64 v35; // [rsp+50h] [rbp-B8h]
   _QWORD Src[132]; // [rsp+58h] [rbp-B0h] BYREF
 
   v34 = a1;

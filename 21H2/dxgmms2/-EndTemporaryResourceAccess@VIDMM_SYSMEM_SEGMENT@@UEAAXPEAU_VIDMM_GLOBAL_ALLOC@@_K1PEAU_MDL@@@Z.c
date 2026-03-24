@@ -1,37 +1,32 @@
 /*
- * XREFs of ?EndTemporaryResourceAccess@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00A8C20
+ * XREFs of ?EndTemporaryResourceAccess@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C008DE00
  * Callers:
  *     <none>
  * Callees:
- *     ?SysMmGetLogicalAddress@@YA_KQEAX@Z @ 0x1C00027A0 (-SysMmGetLogicalAddress@@YA_KQEAX@Z.c)
+ *     <none>
  */
 
 void __fastcall VIDMM_SYSMEM_SEGMENT::EndTemporaryResourceAccess(
         VIDMM_SYSMEM_SEGMENT *this,
-        void *const *a2,
+        struct _VIDMM_GLOBAL_ALLOC *a2,
         __int64 a3,
         __int64 a4,
         struct _MDL *a5)
 {
-  _QWORD *v9; // rax
-  unsigned __int64 LogicalAddress; // rax
+  __int64 v9; // rcx
+  _QWORD *v10; // rax
 
   if ( g_IsInternalReleaseOrDbg )
   {
-    v9 = (_QWORD *)WdLogNewEntry5_WdTrace(this, a2, a3, a4);
-    v9[3] = a2;
-    v9[4] = a3;
-    v9[5] = a4;
+    v10 = (_QWORD *)WdLogNewEntry5_WdTrace(this);
+    v10[3] = a2;
+    v10[4] = a3;
+    v10[5] = a4;
   }
-  if ( *(_BYTE *)(*((_QWORD *)this + 1) + 40179LL) && a5 != *(struct _MDL **)(*((_QWORD *)this + 33) + 8LL) )
+  v9 = *((_QWORD *)this + 1);
+  if ( *(_BYTE *)(v9 + 40171) )
   {
-    LogicalAddress = SysMmGetLogicalAddress(a2[65]);
-    if ( LogicalAddress )
-      LogicalAddress += a3;
-    SysMmUnmapIommuRange(
-      *(struct SYSMM_ADAPTER **)(*(_QWORD *)(*((_QWORD *)this + 1) + 24LL) + 224LL),
-      LogicalAddress,
-      a5,
-      0);
+    if ( a5 != *(struct _MDL **)(*((_QWORD *)this + 33) + 8LL) )
+      DpiUnmapIommuIdentityRange(*(_QWORD *)(*(_QWORD *)(v9 + 24) + 216LL), a5, 0LL, 2LL, a2);
   }
 }

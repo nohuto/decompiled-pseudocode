@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DisplayID_GetNumberOfTimingDescriptors@@YAXAEBUDisplayIDObj@@AEAG1@Z @ 0x1C007283C
+ * XREFs of ?DisplayID_GetNumberOfTimingDescriptors@@YAXAEBUDisplayIDObj@@AEAG1@Z @ 0x1C0060444
  * Callers:
- *     ?DisplayID_GetSupportedModes@@YAJPEBUDisplayIDObj@@PEAK1PEAU_VideoModeDescriptor@@@Z @ 0x1C0072AE4 (-DisplayID_GetSupportedModes@@YAJPEBUDisplayIDObj@@PEAK1PEAU_VideoModeDescriptor@@@Z.c)
+ *     ?DisplayID_GetSupportedModes@@YAJPEBUDisplayIDObj@@PEAK1PEAU_VideoModeDescriptor@@@Z @ 0x1C00606E8 (-DisplayID_GetSupportedModes@@YAJPEBUDisplayIDObj@@PEAK1PEAU_VideoModeDescriptor@@@Z.c)
  * Callees:
- *     ?IsValidBlock@DisplayID_Type7Timing_Parser@@QEBA_NXZ @ 0x1C00732B8 (-IsValidBlock@DisplayID_Type7Timing_Parser@@QEBA_NXZ.c)
+ *     ?IsValidBlock@DisplayID_Type7Timing_Parser@@QEBA_NXZ @ 0x1C0060EE4 (-IsValidBlock@DisplayID_Type7Timing_Parser@@QEBA_NXZ.c)
  */
 
 void __fastcall DisplayID_GetNumberOfTimingDescriptors(
@@ -14,11 +14,11 @@ void __fastcall DisplayID_GetNumberOfTimingDescriptors(
   int v3; // eax
   __int64 v4; // r11
   __int64 v6; // rdi
-  unsigned int v7; // r8d
-  unsigned int v8; // r10d
+  unsigned __int8 v7; // r8
+  int v8; // r10d
   _BYTE *v9; // r9
   unsigned __int64 v10; // rcx
-  signed int v11; // ebx
+  int v11; // ebx
   unsigned __int64 v12; // rbp
   _BYTE *v13; // [rsp+20h] [rbp-18h] BYREF
   char v14; // [rsp+28h] [rbp-10h]
@@ -32,18 +32,18 @@ void __fastcall DisplayID_GetNumberOfTimingDescriptors(
     v6 = (unsigned int)v3;
     do
     {
-      v7 = *(unsigned __int8 *)(v4 + 1);
+      v7 = *(_BYTE *)(v4 + 1);
       v8 = v7;
-      if ( v7 >= 3 )
+      if ( v7 )
       {
-        v9 = (_BYTE *)((v4 + 4) & -(__int64)((_BYTE)v7 != 0));
+        v9 = (_BYTE *)((v4 + 4) & -(__int64)(v7 != 0));
         do
         {
           if ( !*v9 )
             break;
           v10 = (unsigned __int8)v9[2];
           v11 = v10 + 3;
-          if ( v8 < 3 || (int)v8 < v11 )
+          if ( (unsigned int)v8 < 3 || v8 < v11 )
             break;
           if ( *v9 == 34 )
           {
@@ -56,7 +56,7 @@ void __fastcall DisplayID_GetNumberOfTimingDescriptors(
           v8 -= v11;
           v9 += (unsigned int)v11;
         }
-        while ( v8 >= 3 );
+        while ( v8 > 0 );
       }
       v4 += (unsigned __int8)(v7 + 5);
       --v6;

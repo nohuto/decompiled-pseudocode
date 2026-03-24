@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateVadEventBitmap @ 0x1406BFC4C
+ * XREFs of MiCreateVadEventBitmap @ 0x14069F4CC
  * Callers:
- *     MiCreateWriteWatchView @ 0x1406BF94C (MiCreateWriteWatchView.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1406BF9AC (MiAllocateNewSubAllocatedRegion.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x14069F198 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiCreateWriteWatchView @ 0x14069F46C (MiCreateWriteWatchView.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x14030B700 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiInsertVadEvent @ 0x14030BA20 (MiInsertVadEvent.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiInsertVadEvent @ 0x14025B9BC (MiInsertVadEvent.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1403169C0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateVadEventBitmap(struct _KPROCESS *a1, __int64 a2, unsigned __int64 a3, int a4)
@@ -31,7 +31,7 @@ __int64 __fastcall MiCreateVadEventBitmap(struct _KPROCESS *a1, __int64 a2, unsi
     *((_DWORD *)Pool + 16) = a4;
     *((_QWORD *)Pool + 2) = Pool + 72;
     *((_QWORD *)Pool + 1) = a3;
-    MiInsertVadEvent(a2, (unsigned __int64 *)Pool, 1);
+    MiInsertVadEvent(a2, Pool, 1);
     return 0LL;
   }
 }

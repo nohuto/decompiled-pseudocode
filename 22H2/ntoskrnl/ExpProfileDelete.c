@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpProfileDelete @ 0x140A042B0
+ * XREFs of ExpProfileDelete @ 0x14095AAD0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     KeStopProfile @ 0x1405740BC (KeStopProfile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     MmUnmapLockedPages @ 0x14029D0C0 (MmUnmapLockedPages.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeStopProfile @ 0x14051BC20 (KeStopProfile.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpProfileDelete(__int64 a1)

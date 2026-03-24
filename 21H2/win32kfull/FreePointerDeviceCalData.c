@@ -1,49 +1,47 @@
 /*
- * XREFs of FreePointerDeviceCalData @ 0x1C01E8DC0
+ * XREFs of FreePointerDeviceCalData @ 0x1C01EE7C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall FreePointerDeviceCalData(__int64 *a1)
+void __fastcall FreePointerDeviceCalData(__int64 a1)
 {
-  __int64 v2; // rcx
-  __int64 result; // rax
-  __int64 v4; // rcx
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rcx
+  void *v2; // rcx
+  void *v3; // rcx
+  void *v4; // rcx
+  void *v5; // rcx
+  void *v6; // rcx
 
-  v2 = *a1;
+  v2 = *(void **)a1;
   if ( v2 )
   {
-    result = Win32FreePool(v2);
-    *a1 = 0LL;
+    Win32FreePool(v2);
+    *(_QWORD *)a1 = 0LL;
   }
-  v4 = a1[2];
+  v3 = *(void **)(a1 + 16);
+  if ( v3 )
+  {
+    Win32FreePool(v3);
+    *(_QWORD *)(a1 + 16) = 0LL;
+  }
+  v4 = *(void **)(a1 + 32);
   if ( v4 )
   {
-    result = Win32FreePool(v4);
-    a1[2] = 0LL;
+    Win32FreePool(v4);
+    *(_QWORD *)(a1 + 32) = 0LL;
   }
-  v5 = a1[4];
+  v5 = *(void **)(a1 + 48);
   if ( v5 )
   {
-    result = Win32FreePool(v5);
-    a1[4] = 0LL;
+    Win32FreePool(v5);
+    *(_QWORD *)(a1 + 48) = 0LL;
   }
-  v6 = a1[6];
+  v6 = *(void **)(a1 + 64);
   if ( v6 )
   {
-    result = Win32FreePool(v6);
-    a1[6] = 0LL;
+    Win32FreePool(v6);
+    *(_QWORD *)(a1 + 64) = 0LL;
   }
-  v7 = a1[8];
-  if ( v7 )
-  {
-    result = Win32FreePool(v7);
-    a1[8] = 0LL;
-  }
-  return result;
 }

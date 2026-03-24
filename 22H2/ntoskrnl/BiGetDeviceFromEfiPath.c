@@ -1,30 +1,30 @@
 /*
- * XREFs of BiGetDeviceFromEfiPath @ 0x1408083D4
+ * XREFs of BiGetDeviceFromEfiPath @ 0x1409720A4
  * Callers:
- *     BiUpdateBcdObject @ 0x140806888 (BiUpdateBcdObject.c)
- *     BiCreateMergedBootEntry @ 0x140A5E03C (BiCreateMergedBootEntry.c)
+ *     BiCreateMergedBootEntry @ 0x140971504 (BiCreateMergedBootEntry.c)
+ *     BiUpdateBcdObject @ 0x140972EE0 (BiUpdateBcdObject.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     BiTranslateFilePath @ 0x140808558 (BiTranslateFilePath.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     BiTranslateFilePath @ 0x140972D78 (BiTranslateFilePath.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, _DWORD *a3)
 {
   char v3; // al
+  unsigned int v6; // ebx
   char *i; // rbx
-  unsigned int v7; // ebx
-  char *Pool2; // rax
-  char *v9; // rsi
-  int v10; // eax
-  char *v11; // rdi
-  unsigned int v12; // ebx
-  unsigned int v14; // ebp
-  _DWORD *v15; // rax
-  _DWORD *v16; // r14
-  _QWORD *v17; // rax
+  unsigned int v8; // ebx
+  char *PoolWithTag; // rax
+  char *v10; // rsi
+  int v11; // eax
+  char *v12; // rdi
+  unsigned int v13; // ebp
+  _DWORD *v14; // rax
+  _DWORD *v15; // r14
+  _QWORD *v16; // rax
   PVOID P; // [rsp+60h] [rbp+8h] BYREF
   _QWORD *v19; // [rsp+68h] [rbp+10h]
 
@@ -43,46 +43,46 @@ __int64 __fastcall BiGetDeviceFromEfiPath(char *Src, _QWORD *a2, _DWORD *a3)
     {
       ;
     }
-    v7 = (_DWORD)i - (_DWORD)Src;
-    Pool2 = (char *)ExAllocatePool2(258LL, v7 + 16, 1262764866LL);
-    v9 = Pool2;
-    if ( Pool2 )
+    v8 = (_DWORD)i - (_DWORD)Src;
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v8 + 16, 0x4B444342u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_DWORD *)Pool2 = 1;
-      *((_DWORD *)Pool2 + 1) = v7 + 16;
-      *((_DWORD *)Pool2 + 2) = 4;
-      memmove(Pool2 + 12, Src, v7);
-      *(_DWORD *)&v9[v7 + 12] = 327551;
-      v10 = BiTranslateFilePath(v9, 3LL, &P);
-      v11 = (char *)P;
-      v12 = v10;
-      if ( v10 >= 0 )
+      *(_DWORD *)PoolWithTag = 1;
+      *((_DWORD *)PoolWithTag + 1) = v8 + 16;
+      *((_DWORD *)PoolWithTag + 2) = 4;
+      memmove(PoolWithTag + 12, Src, v8);
+      *(_DWORD *)&v10[v8 + 12] = 327551;
+      v11 = BiTranslateFilePath(v10, 3LL, &P);
+      v12 = (char *)P;
+      v6 = v11;
+      if ( v11 >= 0 )
       {
-        v14 = *((_DWORD *)P + 1) - 12;
-        v15 = (_DWORD *)ExAllocatePool2(258LL, v14 + 20, 1262764866LL);
-        v16 = v15;
-        if ( v15 )
+        v13 = *((_DWORD *)P + 1) - 12;
+        v14 = ExAllocatePoolWithTag(PagedPool, v13 + 20, 0x4B444342u);
+        v15 = v14;
+        if ( v14 )
         {
-          memset(v15, 0, v14 + 20);
-          *v16 = 2;
-          memmove(v16 + 5, v11 + 12, v14);
-          v17 = v19;
-          *a3 = v14 + 20;
-          *v17 = v16;
+          memset(v14, 0, v13 + 20);
+          *v15 = 2;
+          memmove(v15 + 5, v12 + 12, v13);
+          v16 = v19;
+          *a3 = v13 + 20;
+          *v16 = v15;
         }
         else
         {
-          v12 = -1073741670;
+          v6 = -1073741670;
         }
       }
-      if ( v11 )
-        ExFreePoolWithTag(v11, 0x4B444342u);
-      ExFreePoolWithTag(v9, 0x4B444342u);
+      if ( v12 )
+        ExFreePoolWithTag(v12, 0x4B444342u);
+      ExFreePoolWithTag(v10, 0x4B444342u);
     }
     else
     {
       return (unsigned int)-1073741670;
     }
   }
-  return v12;
+  return v6;
 }

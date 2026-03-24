@@ -1,113 +1,235 @@
 /*
- * XREFs of ACPIThermalGetSensorDevice @ 0x1C0040BD0
+ * XREFs of ACPIThermalGetSensorDevice @ 0x1C0011B70
  * Callers:
- *     ACPIThermalStartDevice @ 0x1C0095DE0 (ACPIThermalStartDevice.c)
+ *     ACPIThermalStartDevice @ 0x1C009A540 (ACPIThermalStartDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     ACPIInternalDecrementIrpReferenceCount @ 0x1C002E548 (ACPIInternalDecrementIrpReferenceCount.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C0047BBC (AMLIEvalNameSpaceObject.c)
- *     AMLIGetNameSpaceObject @ 0x1C00483D8 (AMLIGetNameSpaceObject.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
- *     ACPIAmliEvaluateDsm @ 0x1C007C66C (ACPIAmliEvaluateDsm.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C000E778 (ACPIInternalDecrementIrpReferenceCount.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C0099F08 (ACPIAmliEvaluateDsm.c)
  */
 
-__int64 __fastcall ACPIThermalGetSensorDevice(_QWORD *a1)
+__int64 __fastcall ACPIThermalGetSensorDevice(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v1; // rdi
-  __int64 v3; // rcx
-  __int64 v4; // rax
-  int v5; // ebx
-  __int64 v6; // rcx
-  int v7; // eax
-  void **v8; // r15
-  int v9; // eax
-  PVOID Object; // [rsp+60h] [rbp-A0h]
-  ULONG BufferLength; // [rsp+68h] [rbp-98h]
-  __int64 v13; // [rsp+70h] [rbp-90h]
-  void *FileHandle; // [rsp+78h] [rbp-88h]
-  PVOID P[2]; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v16; // [rsp+90h] [rbp-70h]
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+C8h] [rbp-38h]
-  _OWORD v19[2]; // [rsp+E0h] [rbp-20h] BYREF
-  _OWORD v20[2]; // [rsp+100h] [rbp+0h] BYREF
-  __int64 v21; // [rsp+120h] [rbp+20h]
-  __int128 v22; // [rsp+128h] [rbp+28h] BYREF
-  __int128 v23; // [rsp+138h] [rbp+38h]
-  __int128 v24; // [rsp+148h] [rbp+48h]
+  __int64 v4; // rdi
+  __int64 v6; // rsi
+  struct _DEVICE_OBJECT *v7; // r14
+  __int64 v8; // rcx
+  IRP *Irp; // r12
+  PDEVICE_OBJECT AttachedDeviceReference; // r15
+  unsigned __int64 *v11; // rax
+  NTSTATUS DeviceProperty; // ebx
+  __int64 v14; // rcx
+  int v15; // eax
+  _OWORD *v16; // r13
+  PVOID PoolWithTag; // r13
+  NTSTATUS v18; // eax
+  KIRQL v19; // r8
+  ULONG BufferLength; // [rsp+68h] [rbp-98h] BYREF
+  PVOID P; // [rsp+70h] [rbp-90h]
+  __int64 v22; // [rsp+78h] [rbp-88h] BYREF
+  void *FileHandle; // [rsp+80h] [rbp-80h] BYREF
+  PVOID v24; // [rsp+88h] [rbp-78h] BYREF
+  PVOID Context; // [rsp+90h] [rbp-70h]
+  PVOID Object; // [rsp+98h] [rbp-68h] BYREF
+  unsigned __int64 *v27; // [rsp+A0h] [rbp-60h]
+  struct _UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-58h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp-48h] BYREF
+  __int128 v30; // [rsp+F0h] [rbp-10h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+100h] [rbp+0h] BYREF
+  _OWORD v32[2]; // [rsp+110h] [rbp+10h] BYREF
+  __int64 v33; // [rsp+130h] [rbp+30h]
+  _OWORD v34[3]; // [rsp+138h] [rbp+38h] BYREF
 
-  v1 = a1[25];
-  P[0] = 0LL;
-  Object = 0LL;
+  v4 = a1[25];
+  v24 = 0LL;
+  P = 0LL;
   FileHandle = 0LL;
-  v13 = 0LL;
-  BufferLength = 0;
-  P[1] = a1;
-  v3 = a1[95];
-  DestinationString = 0LL;
-  *(_QWORD *)&v24 = 0LL;
   v22 = 0LL;
-  DWORD2(v24) = 0;
-  v23 = 0LL;
-  v19[1] = 0LL;
-  memset(&ObjectAttributes, 0, 44);
-  v21 = 0LL;
-  memset(v20, 0, sizeof(v20));
-  v4 = AMLIGetNamedChild(v3, 1314083935LL);
-  v16 = v4;
-  if ( v4 )
+  BufferLength = 0;
+  v6 = 0LL;
+  Context = a1;
+  v7 = 0LL;
+  v8 = a1[90];
+  Irp = 0LL;
+  DestinationString = 0LL;
+  v33 = 0LL;
+  AttachedDeviceReference = 0LL;
+  IoStatusBlock = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  memset(v32, 0, sizeof(v32));
+  v11 = (unsigned __int64 *)AMLIGetNamedChild(v8, 1314083935LL, a3, a4);
+  v27 = v11;
+  if ( v11 )
   {
-    v7 = AMLIEvalNameSpaceObject(v4, v20, 0LL, 0LL);
-    v8 = (void **)v20;
+    v15 = AMLIEvalNameSpaceObject(v11, (__int64)v32, 0, 0LL);
+    v16 = v32;
   }
   else
   {
-    if ( (*(_DWORD *)(v1 + 128) & 4) == 0 )
+    if ( (*(_DWORD *)(v4 + 128) & 4) == 0 )
     {
-      v5 = 0;
-      *(_QWORD *)(v1 + 208) = *(_QWORD *)(v1 + 192);
-      *(_QWORD *)(v1 + 216) = *(_QWORD *)(v1 + 200);
-      goto LABEL_15;
+      DeviceProperty = 0;
+      *(_QWORD *)(v4 + 208) = *(_QWORD *)(v4 + 192);
+      *(_QWORD *)(v4 + 216) = *(_QWORD *)(v4 + 200);
+      goto LABEL_4;
     }
-    v22 = 0LL;
-    v6 = a1[95];
-    v23 = 0LL;
-    v24 = 0LL;
-    v19[0] = THRM_EXTENSIONS_DSM_UUID;
-    v7 = ACPIAmliEvaluateDsm(v6, (unsigned int)v19, 0, 2, (__int64)&v22, (__int64)P);
-    v8 = (void **)P[0];
+    memset(v34, 0, sizeof(v34));
+    v14 = a1[90];
+    v30 = THRM_EXTENSIONS_DSM_UUID;
+    v15 = ACPIAmliEvaluateDsm(v14, (unsigned int)&v30, 0, 2, (__int64)v34, (__int64)&v24);
+    v16 = v24;
   }
-  v5 = v7;
-  if ( v7 >= 0 )
+  DeviceProperty = v15;
+  if ( v15 < 0 )
+    goto LABEL_17;
+  if ( *((_WORD *)v16 + 1) != 2 )
   {
-    if ( *((_WORD *)v8 + 1) == 2 )
+    dword_1C0082908 = 0;
+    pszDest = 0;
+    DeviceProperty = -1072431095;
+    FreeDataBuffs((__int64)v16, 1u);
+LABEL_16:
+    AttachedDeviceReference = 0LL;
+LABEL_17:
+    PoolWithTag = P;
+    goto LABEL_18;
+  }
+  v18 = AMLIGetNameSpaceObject(*((_BYTE **)v16 + 4), *((__int64 **)Context + 90), (unsigned __int64 *)&v22, 0);
+  dword_1C0082908 = 0;
+  pszDest = 0;
+  DeviceProperty = v18;
+  FreeDataBuffs((__int64)v16, 1u);
+  if ( DeviceProperty < 0 )
+    goto LABEL_16;
+  if ( !v22 )
+  {
+LABEL_37:
+    DeviceProperty = -1073741810;
+    goto LABEL_16;
+  }
+  v19 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+  v6 = *(_QWORD *)(*(_QWORD *)v22 + 104LL);
+  if ( !v6 || (*(_BYTE *)(v6 + 8) & 4) != 0 )
+  {
+    v6 = 0LL;
+    KeReleaseSpinLock(&AcpiDeviceTreeLock, v19);
+    goto LABEL_37;
+  }
+  _InterlockedAdd((volatile signed __int32 *)(v6 + 688), 1u);
+  KeReleaseSpinLock(&AcpiDeviceTreeLock, v19);
+  v7 = *(struct _DEVICE_OBJECT **)(v6 + 744);
+  if ( !v7 )
+  {
+    DeviceProperty = -1073741810;
+    AttachedDeviceReference = 0LL;
+    goto LABEL_17;
+  }
+  ObfReferenceObject(*(PVOID *)(v6 + 744));
+  ACPIInternalDecrementIrpReferenceCount(v6);
+  v6 = 0LL;
+  if ( IoGetDeviceProperty(v7, DevicePropertyPhysicalDeviceObjectName, 0, 0LL, &BufferLength) != -1073741789 )
+  {
+    DeviceProperty = -1073741823;
+    goto LABEL_16;
+  }
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, BufferLength, 0x54706341u);
+  if ( PoolWithTag )
+  {
+    DeviceProperty = IoGetDeviceProperty(
+                       v7,
+                       DevicePropertyPhysicalDeviceObjectName,
+                       BufferLength,
+                       PoolWithTag,
+                       &BufferLength);
+    if ( DeviceProperty >= 0 )
     {
-      v9 = AMLIGetNameSpaceObject(v8[4]);
-      dword_1C006F938 = 0;
-      pszDest = 0;
-      v5 = v9;
-      FreeDataBuffs(v8, 1LL);
-      if ( v5 >= 0 )
-        v5 = -1073741810;
-    }
-    else
-    {
-      dword_1C006F938 = 0;
-      pszDest = 0;
-      v5 = -1072431095;
-      FreeDataBuffs(v8, 1LL);
+      RtlInitUnicodeString(&DestinationString, (PCWSTR)PoolWithTag);
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 576;
+      ObjectAttributes.ObjectName = &DestinationString;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      DeviceProperty = ZwCreateFile(
+                         &FileHandle,
+                         0x1F01FFu,
+                         &ObjectAttributes,
+                         &IoStatusBlock,
+                         0LL,
+                         0,
+                         3u,
+                         1u,
+                         0,
+                         0LL,
+                         0);
+      if ( DeviceProperty < 0 )
+      {
+        FileHandle = 0LL;
+      }
+      else
+      {
+        Object = 0LL;
+        DeviceProperty = ObReferenceObjectByHandle(FileHandle, 0, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL);
+        if ( DeviceProperty >= 0 )
+        {
+          AttachedDeviceReference = IoGetAttachedDeviceReference(v7);
+          Irp = IoAllocateIrp(AttachedDeviceReference->StackSize, 0);
+          if ( Irp )
+          {
+            DeviceProperty = IoRegisterPlugPlayNotification(
+                               EventCategoryTargetDeviceChange,
+                               0,
+                               Object,
+                               v7->DriverObject,
+                               AcpiThermalDeviceTargetChange,
+                               Context,
+                               (PVOID *)(v4 + 240));
+            if ( DeviceProperty >= 0 )
+            {
+              *(_QWORD *)(v4 + 208) = Irp;
+              Irp = 0LL;
+              *(_QWORD *)(v4 + 216) = AttachedDeviceReference;
+              AttachedDeviceReference = 0LL;
+              DeviceProperty = 0;
+            }
+          }
+          else
+          {
+            DeviceProperty = -1073741670;
+          }
+          goto LABEL_18;
+        }
+      }
     }
   }
-  if ( v16 )
-    AMLIDereferenceHandleEx(v16);
-  if ( v13 )
-    AMLIDereferenceHandleEx(v13);
-LABEL_15:
+  else
+  {
+    DeviceProperty = -1073741670;
+  }
+  AttachedDeviceReference = 0LL;
+LABEL_18:
+  if ( v27 )
+    AMLIDereferenceHandleEx((__int64)v27);
+  if ( v22 )
+    AMLIDereferenceHandleEx(v22);
+  if ( v7 )
+    ObfDereferenceObject(v7);
+  if ( AttachedDeviceReference )
+    ObfDereferenceObject(AttachedDeviceReference);
+  if ( v6 )
+    ACPIInternalDecrementIrpReferenceCount(v6);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x54706341u);
+LABEL_4:
   if ( FileHandle )
     ZwClose(FileHandle);
-  if ( P[0] )
-    ExFreePoolWithTag(P[0], 0x52706341u);
-  return (unsigned int)v5;
+  if ( Irp )
+    IoFreeIrp(Irp);
+  if ( v24 )
+    ExFreePoolWithTag(v24, 0x52706341u);
+  return (unsigned int)DeviceProperty;
 }

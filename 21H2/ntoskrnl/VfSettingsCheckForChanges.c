@@ -1,69 +1,80 @@
 /*
- * XREFs of VfSettingsCheckForChanges @ 0x140A9AFDC
+ * XREFs of VfSettingsCheckForChanges @ 0x1409E047C
  * Callers:
- *     VfSetVerifierInformation @ 0x140A9C820 (VfSetVerifierInformation.c)
+ *     VfSetVerifierInformation @ 0x1409ECBEC (VfSetVerifierInformation.c)
  * Callees:
- *     ViHalApplySettings @ 0x140A887D4 (ViHalApplySettings.c)
- *     VfPendingCheckForChanges @ 0x140A90E38 (VfPendingCheckForChanges.c)
- *     VfKeCheckForChanges @ 0x140A967D0 (VfKeCheckForChanges.c)
- *     ViDeadlockDetectionApplySettings @ 0x140A99478 (ViDeadlockDetectionApplySettings.c)
- *     ViDeadlockEmptyDatabase @ 0x140A9952C (ViDeadlockEmptyDatabase.c)
- *     VfSettingsApplyMiscellaneousChecks @ 0x140A9AF9C (VfSettingsApplyMiscellaneousChecks.c)
- *     ViSettingsEnableKernelHandleChecking @ 0x140A9B0FC (ViSettingsEnableKernelHandleChecking.c)
- *     ViSettingsIoCheckForChanges @ 0x140A9B158 (ViSettingsIoCheckForChanges.c)
+ *     ViHalApplySettings @ 0x1409CEAEC (ViHalApplySettings.c)
+ *     VfPendingCheckForChanges @ 0x1409D56EC (VfPendingCheckForChanges.c)
+ *     VfKeCheckForChanges @ 0x1409DBCF8 (VfKeCheckForChanges.c)
+ *     ViDeadlockDetectionApplySettings @ 0x1409DF25C (ViDeadlockDetectionApplySettings.c)
+ *     VfSettingsApplyMiscellaneousChecks @ 0x1409E0440 (VfSettingsApplyMiscellaneousChecks.c)
+ *     ViSettingsEnableKernelHandleChecking @ 0x1409E05A4 (ViSettingsEnableKernelHandleChecking.c)
+ *     ViSettingsIoCheckForChanges @ 0x1409E0600 (ViSettingsIoCheckForChanges.c)
  */
 
-void __fastcall VfSettingsCheckForChanges(unsigned int a1, __int16 a2, int a3, unsigned int a4)
+void __fastcall VfSettingsCheckForChanges(unsigned int a1, __int16 a2, unsigned __int16 a3, unsigned int a4)
 {
-  __int64 v8; // rdx
-  int v9; // ebx
-  _BOOL8 v10; // rcx
+  BOOL v8; // eax
+  char v9; // si
+  BOOL v10; // edi
+  BOOL v11; // ecx
 
   VfKeCheckForChanges(a4);
+  v8 = 0;
+  v9 = a3 & a1;
+  v10 = 1;
   if ( (a2 & 8) != 0 )
   {
-    if ( (a1 & 8) == 0 )
-      MmTrackLockedPages = 1;
+    v8 = ((a1 >> 3) & 1) == 0;
+    v11 = v8;
   }
-  else if ( ((unsigned __int8)a3 & (unsigned __int8)a1 & 8) != 0 )
+  else
   {
-    MmTrackLockedPages |= 0x10000000u;
+    v11 = (v9 & 8) != 0;
+  }
+  if ( v11 )
+  {
+    if ( v8 )
+      MmTrackLockedPages = 1;
+    else
+      MmTrackLockedPages |= 0x10000000u;
   }
   ViSettingsIoCheckForChanges(a4);
   if ( (a2 & 0x20) != 0 )
   {
-    if ( (a1 & 0x20) == 0 )
-      ViDeadlockDetectionApplySettings(1);
+    if ( (a1 & 0x20) != 0 )
+      goto LABEL_13;
   }
-  else if ( (a3 & 0x20) != 0 && (a1 & 0x20) != 0 )
+  else if ( (v9 & 0x20) == 0 )
   {
-    ViDeadlockEmptyDatabase();
+    goto LABEL_13;
   }
+  ViDeadlockDetectionApplySettings();
+LABEL_13:
   if ( (a2 & 0x80u) == 0 )
   {
-    v8 = a3 & a1;
-    if ( ((unsigned __int8)a3 & (unsigned __int8)a1 & 0x80) != 0 )
-      ViHalApplySettings();
+    if ( (v9 & 0x80) == 0 )
+      goto LABEL_18;
   }
-  else
+  else if ( (a1 & 0x80) != 0 )
   {
-    if ( (a1 & 0x80) == 0 )
-      ViHalApplySettings();
-    v8 = a3 & a1;
+    goto LABEL_18;
   }
+  ViHalApplySettings();
+LABEL_18:
   if ( (a2 & 0x800) != 0 )
   {
-    v9 = a1 & 0x800;
-    v10 = v9 == 0;
-    if ( (v9 & 0x800) == 0 )
-      goto LABEL_23;
+    v10 = ((a1 >> 11) & 1) == 0;
   }
-  else if ( (v8 & 0x800) != 0 )
+  else if ( (a3 & (unsigned __int16)a1 & 0x800) == 0 )
   {
-    v10 = 0LL;
-LABEL_23:
-    ViSettingsEnableKernelHandleChecking(v10, v8);
-    VfSettingsApplyMiscellaneousChecks();
+    goto LABEL_23;
   }
+  if ( v10 )
+  {
+    ViSettingsEnableKernelHandleChecking();
+    VfSettingsApplyMiscellaneousChecks(~a3 & (a2 | a1));
+  }
+LABEL_23:
   VfPendingCheckForChanges(a4);
 }

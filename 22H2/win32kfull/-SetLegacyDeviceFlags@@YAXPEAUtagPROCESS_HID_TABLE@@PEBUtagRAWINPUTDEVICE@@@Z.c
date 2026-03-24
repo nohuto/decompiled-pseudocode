@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetLegacyDeviceFlags@@YAXPEAUtagPROCESS_HID_TABLE@@PEBUtagRAWINPUTDEVICE@@@Z @ 0x1C009FFE4
+ * XREFs of ?SetLegacyDeviceFlags@@YAXPEAUtagPROCESS_HID_TABLE@@PEBUtagRAWINPUTDEVICE@@@Z @ 0x1C0005510
  * Callers:
- *     ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C009F724 (-SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@.c)
+ *     ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C01083D8 (-SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@.c)
  * Callees:
  *     <none>
  */
@@ -9,13 +9,12 @@
 void __fastcall SetLegacyDeviceFlags(struct tagPROCESS_HID_TABLE *a1, const struct tagRAWINPUTDEVICE *a2)
 {
   int v3; // eax
-  int v4; // r8d
-  unsigned int v5; // r8d
+  int v4; // ecx
+  unsigned int v5; // ecx
   int v6; // eax
-  int v7; // ecx
+  unsigned int v7; // ecx
   int v8; // eax
-  int v9; // r8d
-  unsigned int v10; // r8d
+  int v9; // ecx
 
   v3 = *((_DWORD *)a2 + 1) & 0xF0;
   if ( (!v3 || v3 == 48) && *(_WORD *)a2 == 1 )
@@ -31,7 +30,7 @@ void __fastcall SetLegacyDeviceFlags(struct tagPROCESS_HID_TABLE *a1, const stru
       *((_DWORD *)a1 + 25) = v6;
       v7 = v6 ^ (*((_DWORD *)a2 + 1) ^ v6) & 0x400;
       *((_DWORD *)a1 + 25) = v7;
-      v8 = ((unsigned __int16)v7 ^ (unsigned __int16)(*((_DWORD *)a2 + 1) >> 2)) & 0x1000;
+      v8 = ((unsigned __int16)v7 ^ (unsigned __int16)(*((_DWORD *)a2 + 1) >> 3)) & 0x800;
 LABEL_7:
       *((_DWORD *)a1 + 25) = v7 ^ v8;
       return;
@@ -41,11 +40,9 @@ LABEL_7:
       v9 = 0;
       if ( v3 == 48 )
         v9 = 2;
-      v10 = *((_DWORD *)a1 + 25) & 0xFFFFFFFD | v9;
-      *((_DWORD *)a1 + 25) = v10;
-      v7 = v10 ^ ((unsigned __int16)v10 ^ (unsigned __int16)(*((_DWORD *)a2 + 1) >> 1)) & 0x100;
+      v7 = *((_DWORD *)a1 + 25) & 0xFFFFFFFD | v9;
       *((_DWORD *)a1 + 25) = v7;
-      v8 = ((unsigned __int16)v7 ^ (unsigned __int16)(*((_DWORD *)a2 + 1) >> 4)) & 0x800;
+      v8 = ((unsigned __int16)v7 ^ (unsigned __int16)(*((_DWORD *)a2 + 1) >> 1)) & 0x100;
       goto LABEL_7;
     }
   }

@@ -1,58 +1,55 @@
 /*
- * XREFs of PpmParkClearForcedMask @ 0x14099A004
+ * XREFs of PpmParkClearForcedMask @ 0x1408F93F4
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     PpmParkApplyPolicy @ 0x140390A80 (PpmParkApplyPolicy.c)
- *     PpmCheckApplyParkConstraints @ 0x1403914DC (PpmCheckApplyParkConstraints.c)
- *     PpmParkParkingAvailable @ 0x14082E76C (PpmParkParkingAvailable.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     PpmParkApplyPolicy @ 0x1403C18E4 (PpmParkApplyPolicy.c)
+ *     PpmCheckApplyParkConstraints @ 0x1403C1CA8 (PpmCheckApplyParkConstraints.c)
+ *     PpmParkParkingAvailable @ 0x1407BB1D0 (PpmParkParkingAvailable.c)
  */
 
-__int64 __fastcall PpmParkClearForcedMask(__int16 *a1)
+__int64 __fastcall PpmParkClearForcedMask(_WORD *a1)
 {
-  __int64 v2; // rcx
-  __int16 v3; // dx
-  unsigned int v4; // ebx
-  unsigned int v6; // r10d
-  char v7; // r9
-  unsigned __int16 i; // r8
-  char v9; // al
+  unsigned int v2; // ebx
+  unsigned int v4; // r9d
+  char v5; // r8
+  unsigned __int16 i; // cx
+  __int64 v7; // rdx
+  char v8; // al
 
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-  v3 = *a1;
-  if ( (unsigned __int16)*a1 < 0x20u )
+  if ( *a1 < 0x14u )
   {
-    v6 = PpmParkNumNodes;
-    v4 = 0;
-    v7 = 0;
-    for ( i = 0; i < v6; ++i )
+    v4 = PpmParkNumNodes;
+    v2 = 0;
+    v5 = 0;
+    for ( i = 0; i < v4; ++i )
     {
-      v2 = PpmParkNodes + 192LL * i;
-      if ( *(_WORD *)(v2 + 4) == v3 )
+      v7 = PpmParkNodes + 272LL * i;
+      if ( *(_WORD *)(v7 + 4) == *a1 )
       {
-        v9 = *(_BYTE *)(v2 + 120);
-        if ( (v9 & 1) != 0 )
+        v8 = *(_BYTE *)(v7 + 146);
+        if ( (v8 & 1) != 0 )
         {
-          v7 = 1;
-          *(_BYTE *)(v2 + 120) = v9 & 0xFE;
-          v3 = *a1;
+          v5 = 1;
+          *(_BYTE *)(v7 + 146) = v8 & 0xFE;
         }
       }
     }
-    if ( v7 )
+    if ( v5 )
     {
-      PpmParkApplyPolicy(v2);
+      PpmParkApplyPolicy();
       PpmParkParkingAvailable();
       PpmCheckApplyParkConstraints();
-      return v4;
+      return v2;
     }
   }
   else
   {
-    v4 = -1073741811;
+    v2 = -1073741811;
   }
   PpmReleaseLock(&PpmPerfPolicyLock);
-  return v4;
+  return v2;
 }

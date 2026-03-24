@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpAdjustFileCFSafety @ 0x140419130
+ * XREFs of CmpAdjustFileCFSafety @ 0x1403EFE7C
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x1402F634C (CmpRecheckHiveVolumePolicy.c)
- *     CmpCmdHiveClose @ 0x14068B0E4 (CmpCmdHiveClose.c)
- *     CmpCreateHive @ 0x14070247C (CmpCreateHive.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x140361750 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpCmdHiveClose @ 0x14071C1E4 (CmpCmdHiveClose.c)
+ *     CmpCreateHive @ 0x14071D9E8 (CmpCreateHive.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x14041A8C0 (ZwQueryInformationFile.c)
- *     RtlIsCloudFilesPlaceholder @ 0x140463D30 (RtlIsCloudFilesPlaceholder.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     FsRtlSetKernelEaFile @ 0x1407D5EE0 (FsRtlSetKernelEaFile.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1403F9C40 (ZwQueryInformationFile.c)
+ *     RtlIsCloudFilesPlaceholder @ 0x14058D800 (RtlIsCloudFilesPlaceholder.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     FsRtlSetKernelEaFile @ 0x140669B30 (FsRtlSetKernelEaFile.c)
  */
 
 __int64 __fastcall CmpAdjustFileCFSafety(HANDLE FileHandle, char a2)
@@ -70,6 +70,6 @@ LABEL_10:
   }
 LABEL_11:
   if ( Object )
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   return (unsigned int)v4;
 }

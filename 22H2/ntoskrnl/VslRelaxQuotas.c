@@ -1,23 +1,23 @@
 /*
- * XREFs of VslRelaxQuotas @ 0x140942EB8
+ * XREFs of VslRelaxQuotas @ 0x1408901CC
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x14033FE98 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x140340478 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 VslRelaxQuotas()
+NTSTATUS VslRelaxQuotas()
 {
   char v0; // cl
   _BYTE v2[112]; // [rsp+20h] [rbp-88h] BYREF
 
   memset(v2, 0, 0x68uLL);
   if ( !HvlQueryVsmConnection(0LL) )
-    return 3224698910LL;
+    return -1070268386;
   if ( (_BYTE)KdDebuggerEnabled == v0 )
-    return 3221226324LL;
-  return VslpEnterIumSecureMode(2u, 53, 0, (__int64)v2);
+    return -1073740972;
+  return VslpEnterIumSecureMode(2u, 52, 0, (__int64)v2);
 }

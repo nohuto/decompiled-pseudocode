@@ -1,20 +1,20 @@
 /*
- * XREFs of MmEnumerateAddressSpaceAndReferenceImages @ 0x1406F71A0
+ * XREFs of MmEnumerateAddressSpaceAndReferenceImages @ 0x14061E590
  * Callers:
- *     EtwpEnumerateAddressSpace @ 0x1406F6CA4 (EtwpEnumerateAddressSpace.c)
- *     EtwpCovSampEnumerateProcess @ 0x1409F1110 (EtwpCovSampEnumerateProcess.c)
+ *     EtwpEnumerateAddressSpace @ 0x14061A45C (EtwpEnumerateAddressSpace.c)
+ *     EtwpCovSampEnumerateProcess @ 0x140944A80 (EtwpCovSampEnumerateProcess.c)
  * Callees:
- *     MiUnlockVadShared @ 0x140280EF8 (MiUnlockVadShared.c)
- *     MiReferenceControlAreaFile @ 0x140281750 (MiReferenceControlAreaFile.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14030EA00 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14030EB30 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadDeleted @ 0x14030EB80 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x14030EBA0 (MiLockVadShared.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MiFillMapFileInfo @ 0x14096CB14 (MiFillMapFileInfo.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiUnlockVadShared @ 0x14025B10C (MiUnlockVadShared.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025B210 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x14025B344 (MiLockVadShared.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiFillMapFileInfo @ 0x1408C456C (MiFillMapFileInfo.c)
  */
 
 PVOID __fastcall MmEnumerateAddressSpaceAndReferenceImages(__int64 BugCheckParameter1, char a2, __int64 a3, _DWORD *a4)
@@ -45,9 +45,9 @@ PVOID __fastcall MmEnumerateAddressSpaceAndReferenceImages(__int64 BugCheckParam
   int v31; // r8d
   int v32; // eax
   int v33; // ecx
-  unsigned __int64 v34; // rax
-  unsigned __int64 v35; // rcx
-  __int64 v36; // rax
+  unsigned __int64 v34; // rcx
+  __int64 v35; // rax
+  unsigned __int64 v36; // rax
   int v37; // [rsp+20h] [rbp-68h]
   _OWORD v38[3]; // [rsp+28h] [rbp-60h] BYREF
 
@@ -119,9 +119,9 @@ PVOID __fastcall MmEnumerateAddressSpaceAndReferenceImages(__int64 BugCheckParam
               }
             }
             MiLockVadShared((__int64)CurrentThread, v19);
-            if ( (unsigned int)MiVadDeleted(v19) || v24 == 1 )
+            if ( (unsigned int)MiVadDeleted(v19) == 1 || v24 == 1 )
               goto LABEL_15;
-            if ( (v22 & 0x200000) == 0 )
+            if ( (v22 & 0x100000) == 0 )
               break;
             if ( v10 >= 4 )
             {
@@ -150,14 +150,14 @@ PVOID __fastcall MmEnumerateAddressSpaceAndReferenceImages(__int64 BugCheckParam
                 {
                   v32 = *(_DWORD *)(v19 + 48);
                   v33 = 0x2000;
-                  if ( (v32 & 0x200000) != 0 && ((v32 & 0x800000) != 0 || (v32 & 0x180000u) >= 0x100000) )
+                  if ( (v32 & 0x100000) != 0 && ((v32 & 0x400000) != 0 || (v32 & 0xC0000u) >= 0x80000) )
                   {
                     *((_DWORD *)v16 + 5) = 536879104;
                     v33 = 536879104;
                   }
                 }
               }
-              else if ( (*(_DWORD *)(v19 + 48) & 0x6200000) == 0x4200000 )
+              else if ( (*(_DWORD *)(v19 + 48) & 0x3100000) == 0x2100000 )
               {
                 v33 = 0x2000;
               }
@@ -166,10 +166,10 @@ PVOID __fastcall MmEnumerateAddressSpaceAndReferenceImages(__int64 BugCheckParam
                 *((_DWORD *)v16 + 5) = 4202496;
                 v33 = 4202496;
               }
-              if ( (*(_DWORD *)(v19 + 48) & 0x600000) == 0x600000 )
+              if ( (*(_DWORD *)(v19 + 48) & 0x300000) == 0x300000 )
                 *((_DWORD *)v16 + 5) = v33 | 0x200000;
-              v34 = *v16 & 0xFFFFFFFFFFFFFFFCuLL | 2;
-              goto LABEL_59;
+              v36 = *v16 & 0xFFFFFFFFFFFFFFFCuLL | 2;
+              goto LABEL_58;
             }
 LABEL_15:
             MiUnlockVadShared((__int64)CurrentThread, v19);
@@ -179,9 +179,9 @@ LABEL_15:
             if ( (v10 & 2) != 0 )
             {
               MiFillMapFileInfo(v23, v16);
-              v34 = *v16 & 0xFFFFFFFFFFFFFFFCuLL | 1;
-LABEL_59:
-              *v16 = v34;
+              v36 = *v16 & 0xFFFFFFFFFFFFFFFCuLL | 1;
+LABEL_58:
+              *v16 = v36;
               goto LABEL_33;
             }
             goto LABEL_15;
@@ -207,12 +207,12 @@ LABEL_59:
           v16[1] = v27;
           if ( (v10 & 2) != 0 )
           {
-            v35 = HIBYTE(*(_DWORD *)(v19 + 64)) & 1 | v16[1] & 0xFFFFFFFFFFFFFFFEuLL;
-            v16[1] = v35;
-            v16[1] = v35 ^ ((unsigned __int8)v35 ^ (unsigned __int8)((unsigned __int64)*(unsigned int *)(v19 + 48) >> 6)) & 0x3E;
-            v36 = *(unsigned int *)(v19 + 52);
-            LODWORD(v36) = v36 & 0x7FFFFFFF;
-            v16[4] = (v36 | ((unsigned __int64)*(unsigned __int8 *)(v19 + 34) << 31)) << 12;
+            v34 = HIBYTE(*(_DWORD *)(v19 + 64)) & 1 | v16[1] & 0xFFFFFFFFFFFFFFFEuLL;
+            v16[1] = v34;
+            v16[1] = v34 ^ ((unsigned __int8)v34 ^ (unsigned __int8)((unsigned __int64)*(unsigned int *)(v19 + 48) >> 6)) & 0x3E;
+            v35 = *(unsigned int *)(v19 + 52);
+            LODWORD(v35) = v35 & 0x7FFFFFFF;
+            v16[4] = (v35 | ((unsigned __int64)*(unsigned __int8 *)(v19 + 34) << 31)) << 12;
           }
 LABEL_33:
           MiUnlockVadShared((__int64)CurrentThread, v19);
@@ -223,7 +223,7 @@ LABEL_33:
   }
 LABEL_38:
   UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, BugCheckParameter1);
-  if ( v37 )
-    KiUnstackDetachProcess((__int64)v38, 0LL);
+  if ( v37 == 1 )
+    KiUnstackDetachProcess((__int64)v38, 0);
   return v11;
 }

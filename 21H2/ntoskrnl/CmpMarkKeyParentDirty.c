@@ -1,48 +1,40 @@
 /*
- * XREFs of CmpMarkKeyParentDirty @ 0x14091F9DC
+ * XREFs of CmpMarkKeyParentDirty @ 0x140879204
  * Callers:
- *     CmpCopySyncTree2 @ 0x14091EEC4 (CmpCopySyncTree2.c)
+ *     CmpCopySyncTree2 @ 0x140878590 (CmpCopySyncTree2.c)
  * Callees:
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpMarkIndexDirty @ 0x140715A2C (CmpMarkIndexDirty.c)
- *     HvpMarkCellDirty @ 0x14071F300 (HvpMarkCellDirty.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpMarkIndexDirty @ 0x14066C5EC (CmpMarkIndexDirty.c)
+ *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
  */
 
-__int64 __fastcall CmpMarkKeyParentDirty(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
+bool __fastcall CmpMarkKeyParentDirty(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
-  unsigned int v2; // edi
-  __int64 CellFlat; // rax
-  int v5; // edi
-  unsigned int v6; // ebp
-  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v2; // ebp
+  __int64 v4; // rax
+  bool v5; // bl
+  unsigned int v6; // esi
+  int v8; // [rsp+30h] [rbp+8h] BYREF
+  int v9; // [rsp+34h] [rbp+Ch]
 
-  v8 = 0xFFFFFFFFLL;
+  v8 = -1;
   v2 = a2;
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(BugCheckParameter3, a2, &v8);
-  else
-    CellFlat = HvpGetCellPaged(BugCheckParameter3, a2, (unsigned int *)&v8);
-  if ( (*(_BYTE *)(CellFlat + 2) & 4) != 0 )
+  v9 = 0;
+  v4 = (*(__int64 (__fastcall **)(ULONG_PTR, __int64, int *))(BugCheckParameter2 + 8))(BugCheckParameter2, a2, &v8);
+  v5 = 0;
+  if ( v4 )
   {
-    v5 = 0;
-  }
-  else
-  {
-    v6 = *(_DWORD *)(CellFlat + 16);
-    v5 = CmpMarkIndexDirty(BugCheckParameter3, v6, v2);
-    if ( v5 >= 0 )
+    if ( (*(_BYTE *)(v4 + 2) & 4) != 0 )
     {
-      v5 = HvpMarkCellDirty(BugCheckParameter3, v6, 0);
-      if ( v5 >= 0 )
-        v5 = 0;
+      v5 = 1;
     }
+    else
+    {
+      v6 = *(_DWORD *)(v4 + 16);
+      if ( CmpMarkIndexDirty(BugCheckParameter2, v6, v2) )
+        v5 = HvpMarkCellDirty(BugCheckParameter2, v6, 0) != 0;
+    }
+    (*(void (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v8);
   }
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, &v8);
-  else
-    HvpReleaseCellPaged(BugCheckParameter3, (unsigned int *)&v8);
-  return (unsigned int)v5;
+  return v5;
 }

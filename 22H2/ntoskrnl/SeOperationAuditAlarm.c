@@ -1,34 +1,35 @@
 /*
- * XREFs of SeOperationAuditAlarm @ 0x1409CB54C
+ * XREFs of SeOperationAuditAlarm @ 0x14091E80C
  * Callers:
- *     ObpAuditObjectAccess @ 0x14097C1C4 (ObpAuditObjectAccess.c)
+ *     ObpAuditObjectAccess @ 0x1408DCB14 (ObpAuditObjectAccess.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     ObpIsKernelHandle @ 0x1402BEB24 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x14039B490 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SepCheckAndCopySelfRelativeSD @ 0x1405B8D48 (SepCheckAndCopySelfRelativeSD.c)
- *     SepSecurityDescriptorStrictLength @ 0x14070DA6C (SepSecurityDescriptorStrictLength.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepQueryNameString @ 0x1407F555C (SepQueryNameString.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x1408A6618 (SepAdtClassifyObjectIntoSubCategory.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObpIsKernelHandle @ 0x1402C8F50 (ObpIsKernelHandle.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1403C20B4 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x140596C68 (SepCheckAndCopySelfRelativeSD.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SepQueryNameString @ 0x14070F83C (SepQueryNameString.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x1409209D0 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SepSecurityDescriptorStrictLength @ 0x140924E2C (SepSecurityDescriptorStrictLength.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeOperationAuditAlarm(
         __int64 a1,
-        char *a2,
-        __int64 a3,
-        const UNICODE_STRING *a4,
+        __int64 a2,
+        unsigned __int64 a3,
+        unsigned __int16 *a4,
         unsigned int a5,
         int a6,
         void *a7)
 {
   PVOID v7; // rbx
+  unsigned __int64 v10; // rdi
   int v11; // r14d
   _KPROCESS *CurrentThreadProcess; // rax
   struct _LIST_ENTRY *Flink; // r13
@@ -48,7 +49,7 @@ void __fastcall SeOperationAuditAlarm(
   _BYTE v27[4]; // [rsp+20h] [rbp-E0h] BYREF
   ULONG v28; // [rsp+24h] [rbp-DCh] BYREF
   PVOID P; // [rsp+28h] [rbp-D8h] BYREF
-  PVOID v30; // [rsp+30h] [rbp-D0h]
+  PVOID v30; // [rsp+30h] [rbp-D0h] BYREF
   PVOID v31; // [rsp+38h] [rbp-C8h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+40h] [rbp-C0h] BYREF
   _QWORD Src[132]; // [rsp+60h] [rbp-A0h] BYREF
@@ -57,13 +58,15 @@ void __fastcall SeOperationAuditAlarm(
   P = a7;
   v30 = 0LL;
   v31 = 0LL;
+  v10 = a3;
   v28 = 0;
   v27[0] = 0;
+  LOBYTE(a3) = 1;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  v11 = (unsigned __int16)SepAdtClassifyObjectIntoSubCategory((__int64)a2, a4, 1, 0);
+  v11 = (unsigned __int16)SepAdtClassifyObjectIntoSubCategory(a2, a4, a3, 0LL);
   CurrentThreadProcess = PsGetCurrentThreadProcess();
   Flink = CurrentThreadProcess[1].Header.WaitListHead.Flink;
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&v30);
   if ( AllocatedFullProcessImageName < 0 )
   {
 LABEL_24:
@@ -90,7 +93,7 @@ LABEL_24:
   else
     v17 = *((_QWORD *)SubjectContext.PrimaryToken + 3);
   Src[12] = v17;
-  v18 = a4->Length + 16;
+  v18 = *a4 + 16;
   Src[15] = 0x2000000001LL;
   LODWORD(Src[19]) = 1;
   HIDWORD(Src[19]) = v18;
@@ -106,14 +109,14 @@ LABEL_24:
     HIDWORD(Src[23]) = v19 + 16;
   }
   Src[27] = 0x80000000BLL;
-  if ( ObpIsKernelHandle(a3, 0) )
-    a3 ^= 0xFFFFFFFF80000000uLL;
+  if ( ObpIsKernelHandle(v10, 0) )
+    v10 ^= 0xFFFFFFFF80000000uLL;
   Src[33] = 4LL;
   Src[32] = a5;
   Src[36] = a5;
   Src[46] = v30;
   v24 = *(unsigned __int16 *)v30 + 16;
-  Src[28] = a3 & 0xFFFFFFFFFFFFFFFCuLL;
+  Src[28] = v10 & 0xFFFFFFFFFFFFFFFCuLL;
   Src[31] = 0x400000007LL;
   Src[35] = 0x40000000ALL;
   Src[39] = __PAIR64__(v20, v21);
@@ -127,7 +130,7 @@ LABEL_24:
   if ( v25 >= 0 )
   {
     LODWORD(Src[47]) = 31;
-    v26 = SepSecurityDescriptorStrictLength((__int64)P);
+    v26 = SepSecurityDescriptorStrictLength(P);
     Src[49] = 0LL;
     HIDWORD(Src[47]) = v26;
     Src[50] = v7;

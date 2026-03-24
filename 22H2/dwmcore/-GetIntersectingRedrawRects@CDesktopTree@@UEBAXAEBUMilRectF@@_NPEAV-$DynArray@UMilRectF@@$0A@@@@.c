@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetIntersectingRedrawRects@CDesktopTree@@UEBAXAEBUMilRectF@@_NPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x1801C45C0
+ * XREFs of ?GetIntersectingRedrawRects@CDesktopTree@@UEBAXAEBUMilRectF@@_NPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x18016E530
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CDesktopTree::GetIntersectingRedrawRects(__int64 a1)
 {
-  return CDirtyRegion::GetIntersectingRedrawRects(a1 + 104);
+  return CDirtyRegion::GetIntersectingRedrawRects(a1 + 1264);
 }

@@ -1,43 +1,30 @@
 /*
- * XREFs of DrvDbRegisterDatabase @ 0x140814ED8
+ * XREFs of DrvDbRegisterDatabase @ 0x1407A4600
  * Callers:
- *     PiDrvDbRegisterNode @ 0x140813CBC (PiDrvDbRegisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x1407A3CA8 (PiDrvDbRegisterNode.c)
  * Callees:
- *     DrvDbCreateDatabaseNode @ 0x140815840 (DrvDbCreateDatabaseNode.c)
- *     DrvDbFindDatabaseNode @ 0x140877BE4 (DrvDbFindDatabaseNode.c)
+ *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
+ *     DrvDbCreateDatabaseNode @ 0x1407A4698 (DrvDbCreateDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbRegisterDatabase(
         __int64 a1,
-        __int64 a2,
+        const WCHAR *a2,
         __int64 a3,
         __int64 a4,
-        __int64 a5,
-        char a6,
-        __int64 a7,
-        __int64 a8)
+        char a5,
+        __int64 a6,
+        __int64 a7)
 {
-  __int64 v8; // rsi
-  __int64 v10; // rdi
-  __int64 result; // rax
-  int v13; // edx
-  __int64 v14; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v7; // rdi
+  bool v10; // cf
+  const UNICODE_STRING *v12; // [rsp+50h] [rbp+8h] BYREF
 
-  v8 = PiDrvDbCtx;
-  a7 = 0LL;
-  v10 = 0LL;
-  v14 = 0LL;
-  if ( (int)DrvDbFindDatabaseNode(PiDrvDbCtx, a2, &a7) >= 0 )
+  v7 = PiDrvDbCtx;
+  v12 = 0LL;
+  if ( (int)DrvDbFindDatabaseNode(PiDrvDbCtx, a2, &v12) >= 0 )
     return 0x40000000LL;
-  if ( a3 )
-  {
-    result = DrvDbFindDatabaseNode(v8, a3, &v14);
-    if ( (int)result < 0 )
-      return result;
-    v10 = v14;
-  }
-  v13 = (8 * (a6 & 2)) | 0x20;
-  if ( (a6 & 1) == 0 )
-    v13 = 8 * (a6 & 2);
-  return DrvDbCreateDatabaseNode(v8, a2, v10, 0LL, a5, v13, PiDrvDbNodeActionCallback, a8, &a7);
+  v10 = a5 != 0;
+  a5 = -a5;
+  return DrvDbCreateDatabaseNode(v7, a2, 0LL, a4, v10 ? 0x10 : 0, PiDrvDbNodeActionCallback, a7, &v12);
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpAppendSection @ 0x140B5E7E0
+ * XREFs of CmpAppendSection @ 0x140A6273C
  * Callers:
- *     CmpParseInfBuffer @ 0x140B5E10C (CmpParseInfBuffer.c)
+ *     CmpParseInfBuffer @ 0x140A6206C (CmpParseInfBuffer.c)
  * Callees:
- *     _stricmp @ 0x1403D90F0 (_stricmp.c)
- *     _strnicmp @ 0x1403D91A0 (_strnicmp.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _stricmp @ 0x1403D16D0 (_stricmp.c)
+ *     _strnicmp @ 0x1403D1780 (_strnicmp.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CmpAppendSection(__int64 a1, __int64 a2, char a3)
 {
   _QWORD *v6; // rbx
   const char *v7; // rcx
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v9; // rax
   char result; // al
 
@@ -40,16 +40,16 @@ char __fastcall CmpAppendSection(__int64 a1, __int64 a2, char a3)
         goto LABEL_11;
       }
     }
-    Pool2 = ExAllocatePool2(256LL, 0x20uLL, 0x69704D43u);
-    v6 = (_QWORD *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x69704D43u);
+    v6 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_QWORD *)Pool2 = 0LL;
-      *(_QWORD *)(Pool2 + 16) = 0LL;
-      *(_QWORD *)(Pool2 + 8) = a2;
-      *(_BYTE *)(Pool2 + 24) = a3;
-      *(_QWORD *)Pool2 = *(_QWORD *)a1;
-      *(_QWORD *)a1 = Pool2;
+      *PoolWithTag = 0LL;
+      PoolWithTag[2] = 0LL;
+      PoolWithTag[1] = a2;
+      *((_BYTE *)PoolWithTag + 24) = a3;
+      *PoolWithTag = *(_QWORD *)a1;
+      *(_QWORD *)a1 = PoolWithTag;
       if ( !strnicmp((const char *)a2, "Strings", 7uLL) && (*(_BYTE *)(a2 + 7) == 0) > *(int *)(a1 + 32) )
         *(_QWORD *)(a1 + 40) = v6;
       v9 = 0LL;

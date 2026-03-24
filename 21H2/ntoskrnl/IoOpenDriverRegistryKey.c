@@ -1,132 +1,160 @@
 /*
- * XREFs of IoOpenDriverRegistryKey @ 0x14067A670
+ * XREFs of IoOpenDriverRegistryKey @ 0x1407C4790
  * Callers:
- *     DifIoOpenDriverRegistryKeyWrapper @ 0x140610040 (DifIoOpenDriverRegistryKeyWrapper.c)
+ *     <none>
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     PipOpenServiceEnumKeys @ 0x14067B470 (PipOpenServiceEnumKeys.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     IopApplyMutableTagToRegistryKey @ 0x1406C55CC (IopApplyMutableTagToRegistryKey.c)
- *     PiCreateServiceStateKey @ 0x1406DF14C (PiCreateServiceStateKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x1406A51CC (IopApplyMutableTagToRegistryKey.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     PipOpenServiceEnumKeys @ 0x140742BEC (PipOpenServiceEnumKeys.c)
+ *     PiCreateDriverRedirectedStateKey @ 0x1407C4A84 (PiCreateDriverRedirectedStateKey.c)
+ *     PiAuGetServiceStateSecurityObject @ 0x1408A3D20 (PiAuGetServiceStateSecurityObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoOpenDriverRegistryKey(__int64 a1, int a2, ACCESS_MASK a3, int a4, _QWORD *a5)
 {
-  HANDLE v8; // r15
-  __int64 v9; // rax
-  _QWORD *v10; // r12
-  int v11; // eax
-  NTSTATUS v12; // ebx
-  int RegistryValue; // eax
-  int v14; // r14d
-  int v15; // eax
-  HANDLE v16; // rax
-  int v18; // [rsp+20h] [rbp-50h]
-  HANDLE Handle; // [rsp+38h] [rbp-38h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
-  HANDLE KeyHandle; // [rsp+A0h] [rbp+30h] BYREF
+  PVOID v7; // rdi
+  HANDLE v8; // r14
+  void *v9; // r12
+  HANDLE v10; // r15
+  __int64 v11; // rax
+  int v12; // eax
+  NTSTATUS v13; // ebx
+  NTSTATUS RegistryValue; // eax
+  int DriverRedirectedStateKey; // eax
+  NTSTATUS v16; // eax
+  int ServiceStateSecurityObject; // eax
+  HANDLE v18; // rax
+  PVOID P; // [rsp+40h] [rbp-31h] BYREF
+  void *v21; // [rsp+48h] [rbp-29h] BYREF
+  void *v22; // [rsp+50h] [rbp-21h]
+  HANDLE Handle; // [rsp+58h] [rbp-19h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-11h] BYREF
+  HANDLE KeyHandle; // [rsp+D0h] [rbp+5Fh] BYREF
+  int v26; // [rsp+D8h] [rbp+67h]
 
+  v26 = a2;
   KeyHandle = 0LL;
-  Handle = 0LL;
+  P = 0LL;
+  v22 = 0LL;
+  v7 = 0LL;
+  v21 = 0LL;
   v8 = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  Handle = 0LL;
+  v9 = 0LL;
+  v10 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   if ( !a1 )
-    goto LABEL_29;
-  v9 = *(_QWORD *)(a1 + 48);
-  if ( !v9 )
-    goto LABEL_29;
-  if ( !*(_QWORD *)(v9 + 32) )
-    goto LABEL_29;
-  if ( !*(_WORD *)(v9 + 24) )
-    goto LABEL_29;
-  if ( a4 )
-    goto LABEL_29;
-  v10 = a5;
-  if ( !a5 )
-    goto LABEL_29;
-  v11 = PipOpenServiceEnumKeys(v9 + 24, 131101LL, &Handle, 0LL, 0);
-  v8 = Handle;
-  v12 = v11;
-  if ( v11 < 0 )
-    goto LABEL_30;
-  RegistryValue = IopGetRegistryValue(Handle);
-  v12 = RegistryValue;
+    goto LABEL_34;
+  v11 = *(_QWORD *)(a1 + 48);
+  if ( !v11 || !*(_QWORD *)(v11 + 32) || !*(_WORD *)(v11 + 24) || a4 || !a5 )
+    goto LABEL_34;
+  v12 = PipOpenServiceEnumKeys((UNICODE_STRING *)(v11 + 24), 0x2001Du, &Handle, 0LL, 0);
+  v10 = Handle;
+  v13 = v12;
+  if ( v12 < 0 )
+    goto LABEL_37;
+  RegistryValue = IopGetRegistryValue(Handle, L"Type", 0, &P);
+  v7 = P;
+  v13 = RegistryValue;
   if ( RegistryValue == -1073741772 )
-    goto LABEL_29;
+    goto LABEL_34;
   if ( RegistryValue < 0 )
-    goto LABEL_30;
-  if ( MEMORY[4] != 4 || MEMORY[0xC] != 4 )
+    goto LABEL_35;
+  if ( *((_DWORD *)P + 1) != 4 || *((_DWORD *)P + 3) != 4 )
   {
-    v12 = -1073741492;
-    goto LABEL_30;
+    v13 = -1073741492;
+    goto LABEL_35;
   }
-  if ( (*(_DWORD *)MEMORY[8] & 0xB) == 0 )
-    goto LABEL_29;
-  if ( a2 )
+  if ( (*(_DWORD *)((_BYTE *)P + *((unsigned int *)P + 2)) & 0xB) == 0 )
+    goto LABEL_34;
+  if ( !v26 )
   {
-    v14 = a2 - 1;
-    if ( !v14 )
+    if ( (a3 & 0x2000000) != 0 )
+      a3 = a3 & 0xFDFDFFE6 | 0x20019;
+    if ( (a3 & 0x7FFDFFE6) == 0 )
     {
-      LOBYTE(v18) = 0;
-      v15 = PiCreateServiceStateKey(
-              *(_QWORD *)(a1 + 48) + 24LL,
-              v8,
-              &PiDriverRegKeyPersistentStateName,
-              a3,
-              v18,
-              &KeyHandle);
-      goto LABEL_18;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)&PiDriverRegKeyParametersName;
+      ObjectAttributes.RootDirectory = v10;
+      ObjectAttributes.Attributes = 576;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v13 = ZwOpenKey(&KeyHandle, a3, &ObjectAttributes);
+      goto LABEL_28;
     }
-    if ( v14 == 1 )
-    {
-      LOBYTE(v18) = 1;
-      v15 = PiCreateServiceStateKey(
-              *(_QWORD *)(a1 + 48) + 24LL,
-              v8,
-              &PiDriverRegKeySharedStateName,
-              a3,
-              v18,
-              &KeyHandle);
-LABEL_18:
-      v12 = v15;
-      if ( v15 < 0 )
-        goto LABEL_30;
-      v16 = KeyHandle;
-      if ( !KeyHandle )
-        goto LABEL_27;
-      IopApplyMutableTagToRegistryKey(KeyHandle);
-LABEL_26:
-      v16 = KeyHandle;
-LABEL_27:
-      KeyHandle = 0LL;
-      *v10 = v16;
-      goto LABEL_30;
-    }
-LABEL_29:
-    v12 = -1073741811;
-    goto LABEL_30;
+    v13 = -1073741790;
+    goto LABEL_35;
   }
-  if ( (a3 & 0x2000000) != 0 )
-    a3 = a3 & 0xFDFDFFE6 | 0x20019;
-  if ( (a3 & 0x7FFDFFE6) != 0 )
+  if ( v26 != 1 )
   {
-    v12 = -1073741790;
-    goto LABEL_30;
+LABEL_34:
+    v13 = -1073741811;
+    goto LABEL_35;
+  }
+  DriverRedirectedStateKey = PiCreateDriverRedirectedStateKey((unsigned int)*(_QWORD *)(a1 + 48) + 24);
+  v13 = DriverRedirectedStateKey;
+  if ( DriverRedirectedStateKey == -1073741772 )
+  {
+    v8 = v10;
+  }
+  else
+  {
+    v8 = v22;
+    if ( DriverRedirectedStateKey < 0 )
+      goto LABEL_35;
   }
   ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&PiDriverRegKeyParametersName;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&PiDriverRegKeyPersistentStateName;
   ObjectAttributes.RootDirectory = v8;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v12 = ZwOpenKey(&KeyHandle, a3, &ObjectAttributes);
-  if ( v12 >= 0 )
-    goto LABEL_26;
-LABEL_30:
+  v16 = ZwOpenKey(&KeyHandle, a3, &ObjectAttributes);
+  v13 = v16;
+  if ( v16 == -1073741772 )
+  {
+    ServiceStateSecurityObject = PiAuGetServiceStateSecurityObject(&v21);
+    v9 = v21;
+    v13 = ServiceStateSecurityObject;
+    if ( ServiceStateSecurityObject < 0 )
+      goto LABEL_35;
+    ObjectAttributes.SecurityQualityOfService = 0LL;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = v8;
+    ObjectAttributes.Attributes = 576;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&PiDriverRegKeyPersistentStateName;
+    ObjectAttributes.SecurityDescriptor = v21;
+    v16 = ZwCreateKey(&KeyHandle, a3, &ObjectAttributes, 0, 0LL, 0, 0LL);
+    v13 = v16;
+  }
+  if ( v16 >= 0 )
+  {
+LABEL_28:
+    if ( v13 >= 0 )
+    {
+      v18 = KeyHandle;
+      if ( v26 == 1 && KeyHandle )
+      {
+        IopApplyMutableTagToRegistryKey(KeyHandle);
+        v18 = KeyHandle;
+      }
+      KeyHandle = 0LL;
+      *a5 = v18;
+    }
+  }
+LABEL_35:
+  if ( v7 )
+    ExFreePoolWithTag(v7, 0);
+LABEL_37:
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  if ( v8 )
+  if ( v8 && v8 != v10 )
     ZwClose(v8);
-  return (unsigned int)v12;
+  if ( v10 )
+    ZwClose(v10);
+  if ( v9 )
+    ExFreePoolWithTag(v9, 0);
+  return (unsigned int)v13;
 }

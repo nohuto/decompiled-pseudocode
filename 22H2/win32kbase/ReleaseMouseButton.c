@@ -1,20 +1,18 @@
 /*
- * XREFs of ReleaseMouseButton @ 0x1C01E8A10
+ * XREFs of ReleaseMouseButton @ 0x1C01AEDA0
  * Callers:
  *     <none>
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C005304C (_anonymous_namespace_--GetMouseProcessor.c)
- *     ?AccessibilityReleaseMouseButton@CMouseProcessor@@QEAAXW4MouseKeyButton@@@Z @ 0x1C01F5058 (-AccessibilityReleaseMouseButton@CMouseProcessor@@QEAAXW4MouseKeyButton@@@Z.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0043E8C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     ?AccessibilityReleaseMouseButton@CMouseProcessor@@QEAAXW4MouseKeyButton@@@Z @ 0x1C01BE9D0 (-AccessibilityReleaseMouseButton@CMouseProcessor@@QEAAXW4MouseKeyButton@@@Z.c)
  */
 
-__int64 __fastcall ReleaseMouseButton(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall ReleaseMouseButton(unsigned int a1)
 {
-  unsigned int v4; // ebx
   __int64 result; // rax
 
-  v4 = a1;
-  result = anonymous_namespace_::GetMouseProcessor(a1, a2, a3, a4);
+  result = anonymous_namespace_::GetMouseProcessor();
   if ( result )
-    return CMouseProcessor::AccessibilityReleaseMouseButton(result, v4);
+    return CMouseProcessor::AccessibilityReleaseMouseButton(result, a1);
   return result;
 }

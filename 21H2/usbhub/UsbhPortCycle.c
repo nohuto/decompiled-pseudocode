@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhPortCycle @ 0x1C004CBE0
+ * XREFs of UsbhPortCycle @ 0x1C004DFF0
  * Callers:
- *     UsbhReset2CycleDevice @ 0x1C004DB10 (UsbhReset2CycleDevice.c)
+ *     UsbhReset2CycleDevice @ 0x1C004EF20 (UsbhReset2CycleDevice.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhSignalResumeEvent @ 0x1C001B0E8 (UsbhSignalResumeEvent.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhQueueSoftConnectChange @ 0x1C00345D4 (UsbhQueueSoftConnectChange.c)
- *     UsbhPortDisconnect @ 0x1C004CDA0 (UsbhPortDisconnect.c)
+ *     UsbhSignalResumeEvent @ 0x1C00015A0 (UsbhSignalResumeEvent.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0035938 (UsbhQueueSoftConnectChange.c)
+ *     UsbhPortDisconnect @ 0x1C004E1B0 (UsbhPortDisconnect.c)
  */
 
 __int64 __fastcall UsbhPortCycle(__int64 a1, __int64 a2, __int64 a3)

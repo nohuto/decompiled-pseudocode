@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpiCmResourceToBiosAddressQuad @ 0x1C00930D8
+ * XREFs of PnpiCmResourceToBiosAddressQuad @ 0x1C00B4C18
  * Callers:
- *     PnpCmResourcesToBiosResources @ 0x1C0092830 (PnpCmResourcesToBiosResources.c)
+ *     PnpCmResourcesToBiosResources @ 0x1C0090950 (PnpCmResourcesToBiosResources.c)
  * Callees:
  *     <none>
  */
@@ -10,11 +10,12 @@ __int64 __fastcall PnpiCmResourceToBiosAddressQuad(__int64 a1, __int64 a2)
 {
   unsigned int v4; // r8d
   int v5; // ecx
-  __int64 i; // rbx
-  char v7; // al
-  __int16 v8; // cx
-  ULONGLONG v9; // rax
-  unsigned __int64 v10; // rax
+  struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *i; // rdi
+  __int16 v7; // cx
+  unsigned __int16 Flags; // ax
+  char v9; // al
+  ULONGLONG v10; // rax
+  unsigned __int64 v11; // rax
   unsigned __int64 Start; // [rsp+30h] [rbp+8h] BYREF
 
   Start = 0LL;
@@ -24,33 +25,39 @@ __int64 __fastcall PnpiCmResourceToBiosAddressQuad(__int64 a1, __int64 a2)
   v5 = 0;
   if ( v4 )
   {
-    for ( i = a2 + 20; ((*(_BYTE *)i - 3) & 0xFB) != 0; i += 20LL )
+    for ( i = (struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *)(a2 + 20); ((i->Type - 3) & 0xFB) != 0; ++i )
     {
       if ( ++v5 >= v4 )
         return 0LL;
     }
     *(_BYTE *)(a1 + 5) = 0;
-    v7 = (*(_BYTE *)(i + 2) & 3) == 0;
-    *(_BYTE *)(a1 + 5) = v7;
-    v8 = *(_WORD *)(i + 2);
-    if ( (v8 & 0x20) != 0 )
+    v7 = i->Flags & 3;
+    *(_BYTE *)(a1 + 5) = v7 == 0;
+    Flags = i->Flags;
+    if ( (Flags & 0x20) != 0 )
     {
-      v7 |= 2u;
+      v9 = 3 - (v7 != 0);
     }
-    else if ( (v8 & 8) != 0 )
+    else if ( (Flags & 8) != 0 )
     {
-      v7 |= 4u;
+      v9 = 5 - (v7 != 0);
     }
-    else if ( (v8 & 4) != 0 )
+    else
     {
-      v7 |= 6u;
+      if ( (Flags & 4) == 0 )
+      {
+LABEL_15:
+        v10 = RtlCmDecodeMemIoResource(i, &Start);
+        v11 = Start + v10 - 1;
+        *(_QWORD *)(a1 + 14) = Start;
+        *(_QWORD *)(a1 + 22) = v11;
+        i->Type = 0;
+        return 0LL;
+      }
+      v9 = 7 - (v7 != 0);
     }
-    *(_BYTE *)(a1 + 5) = v7;
-    v9 = RtlCmDecodeMemIoResource((PCM_PARTIAL_RESOURCE_DESCRIPTOR)i, &Start);
-    v10 = Start + v9 - 1;
-    *(_QWORD *)(a1 + 14) = Start;
-    *(_QWORD *)(a1 + 22) = v10;
-    *(_BYTE *)i = 0;
+    *(_BYTE *)(a1 + 5) = v9;
+    goto LABEL_15;
   }
   return 0LL;
 }

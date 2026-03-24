@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_EBamoConnection@dataprovider_AutoBamos@@UEAAPEAXI@Z @ 0x180196610
+ * XREFs of ??_EBamoConnection@dataprovider_AutoBamos@@UEAAPEAXI@Z @ 0x180165C00
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1BaseBamoConnectionImpl@BamoImpl@Microsoft@@MEAA@XZ @ 0x18019632C (--1BaseBamoConnectionImpl@BamoImpl@Microsoft@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1BaseBamoConnectionImpl@BamoImpl@Microsoft@@MEAA@XZ @ 0x180165AF8 (--1BaseBamoConnectionImpl@BamoImpl@Microsoft@@MEAA@XZ.c)
  */
 
 dataprovider_AutoBamos::BamoConnection *__fastcall dataprovider_AutoBamos::BamoConnection::`vector deleting destructor'(

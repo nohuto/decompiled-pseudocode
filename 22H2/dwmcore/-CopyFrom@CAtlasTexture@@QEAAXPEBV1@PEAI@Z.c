@@ -1,148 +1,114 @@
 /*
- * XREFs of ?CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z @ 0x1800186E4
+ * XREFs of ?CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z @ 0x18024BFEC
  * Callers:
- *     ?MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z @ 0x180018438 (-MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z.c)
- *     ?CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z @ 0x1800FB55C (-CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z.c)
+ *     ?CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z @ 0x18024BC10 (-CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z.c)
+ *     ?MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z @ 0x18024BDBC (-MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z.c)
  * Callees:
- *     ?IsInUseEntryInRow@CAtlasTexture@@QEBA_NI@Z @ 0x1800189AC (-IsInUseEntryInRow@CAtlasTexture@@QEBA_NI@Z.c)
- *     ?IsFreeEntryInRow@CAtlasTexture@@QEBA_NI@Z @ 0x1800189DC (-IsFreeEntryInRow@CAtlasTexture@@QEBA_NI@Z.c)
- *     ?CopySubresourceRegion@CD3DDevice@@QEAAXPEAUID3D11Resource@@IAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@0IIII@Z @ 0x180018A0C (-CopySubresourceRegion@CD3DDevice@@QEAAXPEAUID3D11Resource@@IAEBV-$TMilRect@IUMilRectU@@UMil3DRe.c)
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??0CRegion@@QEAA@AEBUMilRectU@@@Z @ 0x1800461B0 (--0CRegion@@QEAA@AEBUMilRectU@@@Z.c)
- *     ?GetDeviceTexture@CAtlasTexture@@AEBAXPEAPEAVIDeviceTexture@@@Z @ 0x1800B7DC4 (-GetDeviceTexture@CAtlasTexture@@AEBAXPEAPEAVIDeviceTexture@@@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?CopySubresourceRegion@CD3DDevice@@QEAAXPEAUID3D11Resource@@IAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@0IIII@Z @ 0x18023D978 (-CopySubresourceRegion@CD3DDevice@@QEAAXPEAUID3D11Resource@@IAEBV-$TMilRect@IUMilRectU@@UMil3DRe.c)
+ *     ?GetDeviceTexture@CAtlasTexture@@QEBAXPEAPEAVIDeviceTexture@@@Z @ 0x18024B694 (-GetDeviceTexture@CAtlasTexture@@QEBAXPEAPEAVIDeviceTexture@@@Z.c)
+ *     ?GetDevice@CAtlasTexture@@QEBAPEAVCD3DDevice@@XZ @ 0x18024C3F8 (-GetDevice@CAtlasTexture@@QEBAPEAVCD3DDevice@@XZ.c)
+ *     ?IsFreeEntryInRow@CAtlasTexture@@QEBA_NI@Z @ 0x18024C5B8 (-IsFreeEntryInRow@CAtlasTexture@@QEBA_NI@Z.c)
+ *     ?IsInUseEntryInRow@CAtlasTexture@@QEBA_NI@Z @ 0x18024C5E8 (-IsInUseEntryInRow@CAtlasTexture@@QEBA_NI@Z.c)
  */
 
 void __fastcall CAtlasTexture::CopyFrom(CAtlasTexture *this, const struct CAtlasTexture *a2, unsigned int *a3)
 {
   const struct CAtlasTexture *v3; // rbx
   unsigned int *v5; // rdi
-  unsigned int v6; // r14d
+  unsigned int v6; // eax
   unsigned int v7; // esi
-  unsigned int v8; // r10d
-  unsigned int v9; // r11d
-  unsigned int v10; // r15d
-  unsigned int v11; // eax
-  unsigned int i; // r12d
-  unsigned int v13; // edx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  int v16; // edi
-  __int64 v17; // rbx
-  int v18; // eax
-  __int64 v19; // rdi
-  void (__fastcall *v20)(__int64, CRegion *); // rbx
-  CRegion *v21; // rax
-  unsigned int v22; // eax
-  unsigned int v23; // r8d
-  unsigned __int64 v24; // r10
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  unsigned int v27; // [rsp+54h] [rbp-85h]
-  unsigned int v28; // [rsp+5Ch] [rbp-7Dh]
-  struct IDeviceTexture *v29; // [rsp+60h] [rbp-79h] BYREF
-  struct IDeviceTexture *v30; // [rsp+68h] [rbp-71h] BYREF
-  __int64 v31; // [rsp+70h] [rbp-69h] BYREF
-  __int64 v32; // [rsp+78h] [rbp-61h]
-  const struct CAtlasTexture *v33; // [rsp+80h] [rbp-59h]
-  unsigned int *v34; // [rsp+88h] [rbp-51h]
-  __int64 v35; // [rsp+90h] [rbp-49h] BYREF
-  __int64 v36; // [rsp+98h] [rbp-41h]
-  _BYTE v37[80]; // [rsp+A0h] [rbp-39h] BYREF
+  unsigned int v8; // r14d
+  unsigned int v9; // r10d
+  unsigned int v10; // r12d
+  unsigned int i; // r13d
+  int v12; // r10d
+  struct CD3DDevice *Device; // rdi
+  __int64 v14; // rbx
+  __int64 v15; // rax
+  unsigned int v16; // ecx
+  unsigned int v17; // esi
+  unsigned int v18; // r8d
+  __int64 v19; // r9
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  struct IDeviceTexture *v22; // [rsp+50h] [rbp-28h] BYREF
+  struct IDeviceTexture *v23; // [rsp+58h] [rbp-20h] BYREF
+  int v24; // [rsp+60h] [rbp-18h] BYREF
+  unsigned int v25; // [rsp+64h] [rbp-14h]
+  int v26; // [rsp+68h] [rbp-10h]
+  unsigned int v27; // [rsp+6Ch] [rbp-Ch]
+  unsigned int v30; // [rsp+D8h] [rbp+60h]
 
-  v30 = 0LL;
+  v23 = 0LL;
   v3 = a2;
-  v33 = a2;
-  v34 = a3;
   v5 = a3;
-  CAtlasTexture::GetDeviceTexture(a2, &v30);
-  v29 = 0LL;
-  CAtlasTexture::GetDeviceTexture(this, &v29);
-  v6 = *v5;
-  v28 = *((_DWORD *)v3 + 6) + 1;
-  v31 = 0LL;
-  v32 = 2048LL;
-  v35 = 0LL;
-  v36 = 2048LL;
-  if ( v6 < v28 )
+  CAtlasTexture::GetDeviceTexture(a2, &v23);
+  v22 = 0LL;
+  CAtlasTexture::GetDeviceTexture(this, &v22);
+  v6 = *((_DWORD *)v3 + 6) + 1;
+  v24 = 0;
+  v25 = 0;
+  v27 = 0;
+  v7 = *v5;
+  v30 = v6;
+  v26 = 2048;
+  if ( v7 < v6 )
   {
-    v7 = v6 != 0;
+    v8 = v7 != 0;
     while ( 1 )
     {
-      if ( CAtlasTexture::IsInUseEntryInRow(v3, v6) )
+      if ( CAtlasTexture::IsInUseEntryInRow(v3, v7) )
       {
-        while ( v7 < v8 && !CAtlasTexture::IsFreeEntryInRow(this, v7) )
-          ++v7;
-        v10 = v9;
-        v11 = v6 - v7;
-        for ( i = v7; ; ++i )
-        {
-          v27 = v11 + i;
-          if ( !CAtlasTexture::IsInUseEntryInRow(v3, v11 + i) )
-          {
-            i = v10 + v7;
-            goto LABEL_12;
-          }
-          if ( !CAtlasTexture::IsFreeEntryInRow(this, i) )
-            break;
-          v11 = v6 - v7;
+        while ( v8 < v9 && !CAtlasTexture::IsFreeEntryInRow(this, v8) )
+          ++v8;
+        v10 = 0;
+        for ( i = v7; CAtlasTexture::IsInUseEntryInRow(v3, i) && CAtlasTexture::IsFreeEntryInRow(this, v12 + i); ++i )
           ++v10;
-        }
-        v13 = v27;
-LABEL_12:
         if ( !v10 )
         {
-LABEL_18:
-          v5 = v34;
+LABEL_6:
+          v5 = a3;
           break;
         }
-        HIDWORD(v32) = v13;
-        v14 = *((_QWORD *)this + 1);
-        HIDWORD(v31) = v6;
-        HIDWORD(v35) = v7;
-        HIDWORD(v36) = i;
-        v15 = v14 + 8 + *(int *)(*(_QWORD *)(v14 + 8) + 8LL);
-        v16 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v15 + 8LL))(v15);
-        v17 = (**(__int64 (__fastcall ***)(struct IDeviceTexture *))v29)(v29);
-        v18 = (**(__int64 (__fastcall ***)(struct IDeviceTexture *))v30)(v30);
-        CD3DDevice::CopySubresourceRegion(v16, v18, 0, (unsigned int)&v31, v17, 0, 0, v7, 1);
-        v19 = *((_QWORD *)this + 1) + *(int *)(*(_QWORD *)(*((_QWORD *)this + 1) + 8LL) + 16LL);
-        v20 = *(void (__fastcall **)(__int64, CRegion *))(*(_QWORD *)(v19 + 8) + 32LL);
-        v21 = CRegion::CRegion((CRegion *)v37, (const struct MilRectU *)&v35);
-        v20(v19 + 8, v21);
-        FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)v37);
-        v3 = v33;
-        v22 = v6 == 0;
-        if ( v22 < v10 )
+        v25 = v7;
+        v27 = i;
+        Device = CAtlasTexture::GetDevice(this);
+        v14 = (**(__int64 (__fastcall ***)(struct IDeviceTexture *))v22)(v22);
+        v15 = (**(__int64 (__fastcall ***)(struct IDeviceTexture *))v23)(v23);
+        CD3DDevice::CopySubresourceRegion((__int64)Device, v15, 0, &v24, v14, 0, 0, v8, 1);
+        v3 = a2;
+        v16 = v7 == 0;
+        if ( v16 < v10 )
         {
-          v23 = v22 + v7;
-          v24 = (__PAIR64__(v10, v6) - 1) >> 32;
+          v17 = v7 - v8;
+          v18 = v16 + v8;
+          v19 = v10 - v16;
           do
           {
-            v25 = *(_QWORD *)(*((_QWORD *)v3 + 2) + 8LL * (v23 + v6 - v7 - 1));
-            v26 = v23 - 1;
-            *(_DWORD *)(v25 + 16) = v23++;
-            *(_QWORD *)v25 = this;
-            *(_QWORD *)(*((_QWORD *)this + 2) + 8 * v26) = v25;
+            v20 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 8LL * (v17 + v18 - 1));
+            v21 = v18 - 1;
+            *(_DWORD *)(v20 + 16) = v18++;
+            *(_QWORD *)v20 = this;
+            *(_QWORD *)(*((_QWORD *)this + 2) + 8 * v21) = v20;
             --*((_DWORD *)this + 7);
-            --v24;
+            --v19;
           }
-          while ( v24 );
+          while ( v19 );
         }
-        v6 = v27;
         v7 = i;
+        v8 += v10;
       }
       else
       {
-        ++v6;
+        ++v7;
       }
-      if ( v6 >= v28 )
-        goto LABEL_18;
+      if ( v7 >= v30 )
+        goto LABEL_6;
     }
   }
-  *v5 = v6;
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(&v29);
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(&v30);
+  *v5 = v7;
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v22);
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v23);
 }

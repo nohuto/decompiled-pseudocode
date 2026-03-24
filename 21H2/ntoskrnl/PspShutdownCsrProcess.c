@@ -1,26 +1,26 @@
 /*
- * XREFs of PspShutdownCsrProcess @ 0x1409AC388
+ * XREFs of PspShutdownCsrProcess @ 0x140906650
  * Callers:
- *     PspTerminateSiloSubsystemProcesses @ 0x1409ACBA0 (PspTerminateSiloSubsystemProcesses.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x140906DE4 (PspTerminateSiloSubsystemProcesses.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     PsDetachSiloFromCurrentThread @ 0x1402D7F90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x1402D7FB0 (PsAttachSiloToCurrentThread.c)
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x14041B7E0 (ZwWaitForSingleObject.c)
- *     ZwSetEvent @ 0x14041B920 (ZwSetEvent.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenEvent @ 0x14041BF60 (ZwOpenEvent.c)
- *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)
- *     PsInvokeWin32Callout @ 0x1406F83A0 (PsInvokeWin32Callout.c)
- *     PsTerminateProcess @ 0x1407D80A4 (PsTerminateProcess.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1403FA420 (ZwWaitForSingleObject.c)
+ *     ZwSetEvent @ 0x1403FA560 (ZwSetEvent.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenEvent @ 0x1403FABA0 (ZwOpenEvent.c)
+ *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
+ *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
+ *     PsTerminateProcess @ 0x1406BC4B8 (PsTerminateProcess.c)
+ *     PspWaitForUsermodeExit @ 0x14090B2EC (PspWaitForUsermodeExit.c)
  */
 
-NTSTATUS __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a2, _KPROCESS *a3)
+__int64 __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a2, _KPROCESS *a3)
 {
   struct _LIST_ENTRY *v5; // rdi
   NTSTATUS v6; // eax
@@ -28,7 +28,7 @@ NTSTATUS __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a
   _DWORD *v8; // r9
   int v9; // ebx
   HANDLE v10; // rcx
-  NTSTATUS result; // eax
+  __int64 result; // rax
   HANDLE Handle; // [rsp+30h] [rbp-D0h] BYREF
   HANDLE EventHandle; // [rsp+38h] [rbp-C8h] BYREF
   unsigned int v14; // [rsp+40h] [rbp-C0h] BYREF
@@ -67,8 +67,8 @@ NTSTATUS __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a
   Handle = v7;
   PsDetachSiloFromCurrentThread(v5);
   KiStackAttachProcess(a3, 0LL, (__int64)v17, v8);
-  v9 = PsInvokeWin32Callout(31, 0LL, 1, &v14);
-  KiUnstackDetachProcess((__int64)v17, 0LL);
+  v9 = PsInvokeWin32Callout(31, 0LL, 1, (__int64)&v14);
+  KiUnstackDetachProcess((__int64)v17, 0);
   if ( EventHandle )
   {
     ZwSetEvent(EventHandle, 0LL);
@@ -86,8 +86,8 @@ NTSTATUS __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a
     ZwClose(v10);
     Handle = 0LL;
   }
-  result = PsTerminateProcess((__int64)a3, 0xC00002EB);
-  if ( result >= 0 )
-    return KeWaitForSingleObject(a3, Executive, 0, 0, 0LL);
+  result = PsTerminateProcess((ULONG_PTR)a3);
+  if ( (int)result >= 0 )
+    return PspWaitForUsermodeExit(a3);
   return result;
 }

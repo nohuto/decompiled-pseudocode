@@ -1,9 +1,9 @@
 /*
- * XREFs of ?QueryForReenumerationInterface@FxPkgPdo@@EEAAJXZ @ 0x1C00297F0
+ * XREFs of ?QueryForReenumerationInterface@FxPkgPdo@@EEAAJXZ @ 0x1C00797A0
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateWorkItemForSetDeviceFailed@FxPkgPnp@@IEAAJXZ @ 0x1C00298B0 (-AllocateWorkItemForSetDeviceFailed@FxPkgPnp@@IEAAJXZ.c)
+ *     ?AllocateWorkItemForSetDeviceFailed@FxPkgPnp@@IEAAJXZ @ 0x1C007F7FC (-AllocateWorkItemForSetDeviceFailed@FxPkgPnp@@IEAAJXZ.c)
  */
 
 int __fastcall FxPkgPdo::QueryForReenumerationInterface(FxPkgPdo *this)

@@ -1,7 +1,7 @@
 /*
- * XREFs of SeSetAccessStateGenericMapping @ 0x14063CB10
+ * XREFs of SeSetAccessStateGenericMapping @ 0x14063CAF0
  * Callers:
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSystemErrorHandler @ 0x14042A720
+ * XREFs of ExpSystemErrorHandler @ 0x140408D90
  * Callers:
- *     ExpRaiseHardError @ 0x140A00F68 (ExpRaiseHardError.c)
+ *     ExpRaiseHardError @ 0x140956478 (ExpRaiseHardError.c)
  * Callees:
- *     KiSaveProcessorControlState @ 0x14041E6E0 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x140428910 (RtlCaptureContext.c)
- *     ExpSystemErrorHandler2 @ 0x140AAB210 (ExpSystemErrorHandler2.c)
+ *     KiSaveProcessorControlState @ 0x1403FD8C0 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x1404070D0 (RtlCaptureContext.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3140 (ExpSystemErrorHandler2.c)
  */
 
-__int64 __fastcall ExpSystemErrorHandler(unsigned __int64 a1, int a2, int a3, int a4, __int64 a5)
+__int64 __fastcall ExpSystemErrorHandler(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 v5; // rax
   __int64 CurrentIrql; // rax

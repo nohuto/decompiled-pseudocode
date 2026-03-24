@@ -1,9 +1,9 @@
 /*
- * XREFs of RemoveCountFromEndOfArray_AxisWithType_ @ 0x180111954
+ * XREFs of RemoveCountFromEndOfArray_AxisWithType_ @ 0x18023743C
  * Callers:
- *     ?ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionResource@@W4InputType@@PEAUInteractionAxisGroup@@3PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@PEAUInteractionAxis@@PEAW4InteractionState@@PEAPEAU3@7@Z @ 0x180186AAC (-ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionR.c)
+ *     ?ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionResource@@W4InputType@@PEAUInteractionAxisGroup@@3PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@PEAUInteractionAxis@@PEAW4InteractionState@@PEAPEAU3@7@Z @ 0x180237D94 (-ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionR.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 void __fastcall RemoveCountFromEndOfArray_AxisWithType_(int a1, __int64 a2)
@@ -22,7 +22,7 @@ void __fastcall RemoveCountFromEndOfArray_AxisWithType_(int a1, __int64 a2)
       if ( v4 )
         *(_DWORD *)(a2 + 24) = v5;
       else
-        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, -2147024809, 0x19Cu);
+        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024809, 0x19Cu, 0LL);
       --v3;
     }
     while ( v3 );

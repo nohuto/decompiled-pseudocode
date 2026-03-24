@@ -1,12 +1,12 @@
 /*
- * XREFs of MmTrimSection @ 0x1400E96D0
+ * XREFs of MmTrimSection @ 0x1400E96F0
  * Callers:
- *     CcPurgeCacheSection @ 0x1400E7A80 (CcPurgeCacheSection.c)
- *     CcCoherencyFlushAndPurgeCache @ 0x1400E95D0 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x1400E95F0 (CcCoherencyFlushAndPurgeCache.c)
  * Callees:
  *     MiComputeFlushRange @ 0x14002015C (MiComputeFlushRange.c)
  *     MiFlushRelease @ 0x1400792CC (MiFlushRelease.c)
- *     MiTrimSection @ 0x1400EAB84 (MiTrimSection.c)
+ *     MiTrimSection @ 0x1400EABA4 (MiTrimSection.c)
  */
 
 __int64 __fastcall MmTrimSection(__int64 a1, __int64 *a2, int a3, char a4)

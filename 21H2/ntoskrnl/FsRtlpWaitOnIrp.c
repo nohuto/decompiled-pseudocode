@@ -1,23 +1,24 @@
 /*
- * XREFs of FsRtlpWaitOnIrp @ 0x140249470
+ * XREFs of FsRtlpWaitOnIrp @ 0x1404F0CF0
  * Callers:
- *     FsRtlpOplockBreakToII @ 0x14024A5B4 (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakToNone @ 0x140256F58 (FsRtlpOplockBreakToNone.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402A4E10 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakNotify @ 0x14092EA08 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlpOplockBreakToII @ 0x1402C4AAC (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x140354E00 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockBreakToNone @ 0x14036D3C8 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpOplockBreakNotify @ 0x14088BF98 (FsRtlpOplockBreakNotify.c)
  * Callees:
- *     IoCancelIrp @ 0x14022D160 (IoCancelIrp.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14024E884 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     FsRtlpCancelWaitingIrp @ 0x14054276C (FsRtlpCancelWaitingIrp.c)
- *     FsRtlCancellableWaitForSingleObject @ 0x1406CA740 (FsRtlCancellableWaitForSingleObject.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     FsRtlpCancelWaitingIrp @ 0x1404F07D8 (FsRtlpCancelWaitingIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1404F0C4C (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlCancellableWaitForSingleObject @ 0x1406B2C90 (FsRtlCancellableWaitForSingleObject.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall FsRtlpWaitOnIrp(
@@ -35,48 +36,47 @@ __int64 __fastcall FsRtlpWaitOnIrp(
 {
   char v15; // r13
   _BYTE *v16; // rcx
-  __int64 Pool2; // rsi
+  _QWORD *PoolWithTag; // rsi
   __int64 v18; // rax
   bool v19; // cl
-  __int64 *v20; // rcx
-  __int64 v21; // rdx
-  unsigned int v22; // edi
-  bool v23; // r12
-  NTSTATUS v24; // eax
+  _QWORD *v20; // rcx
+  unsigned int v21; // edi
+  bool v22; // r12
+  NTSTATUS v23; // eax
   _QWORD *i; // rax
-  _BYTE v27[7]; // [rsp+31h] [rbp-57h] BYREF
-  _BYTE *v28; // [rsp+38h] [rbp-50h]
-  __int128 v29; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v30; // [rsp+50h] [rbp-38h]
-  __int64 v31; // [rsp+58h] [rbp-30h]
+  _BYTE v26[7]; // [rsp+31h] [rbp-57h] BYREF
+  _BYTE *v27; // [rsp+38h] [rbp-50h]
+  __int128 v28; // [rsp+40h] [rbp-48h] BYREF
+  __int128 v29; // [rsp+50h] [rbp-38h]
 
   v15 = 1;
-  v16 = v27;
+  v16 = v26;
   if ( a11 )
     v16 = a11;
-  v28 = v16;
+  v27 = v16;
   *v16 = 0;
-  Pool2 = ExAllocatePool2(288LL, 64LL, 1869763398LL, a4);
-  a11 = (_BYTE *)Pool2;
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)17, 0x40uLL, 0x6F725346u);
+  a11 = PoolWithTag;
+  memset(PoolWithTag, 0, 0x40uLL);
   if ( a2 )
   {
     v18 = *(_QWORD *)(a2 + 184);
-    *(_QWORD *)(Pool2 + 16) = a2;
-    *(_DWORD *)(Pool2 + 48) = *(_DWORD *)(a2 + 56);
+    PoolWithTag[2] = a2;
+    *((_DWORD *)PoolWithTag + 12) = *(_DWORD *)(a2 + 56);
     v19 = *(_BYTE *)v18 == 13 && *(_DWORD *)(v18 + 24) == 589844;
-    *(_BYTE *)(Pool2 + 53) = v19;
-    *(_QWORD *)(Pool2 + 56) = *(_QWORD *)(v18 + 48);
+    *((_BYTE *)PoolWithTag + 53) = v19;
+    PoolWithTag[7] = *(_QWORD *)(v18 + 48);
   }
-  *(_BYTE *)(Pool2 + 52) = a7;
+  *((_BYTE *)PoolWithTag + 52) = a7;
   if ( a4 )
   {
-    *(_QWORD *)(Pool2 + 24) = a4;
-    *(_QWORD *)(Pool2 + 32) = a3;
+    PoolWithTag[3] = a4;
+    PoolWithTag[4] = a3;
   }
   else
   {
-    *(_QWORD *)(Pool2 + 24) = FsRtlpOplockWaitCompleteRoutine;
-    *(_QWORD *)(Pool2 + 32) = Object;
+    PoolWithTag[3] = FsRtlpOplockWaitCompleteRoutine;
+    PoolWithTag[4] = Object;
     *(_WORD *)Object = 0;
     Object[2] = 6;
     *((_DWORD *)Object + 1) = 0;
@@ -85,13 +85,13 @@ __int64 __fastcall FsRtlpWaitOnIrp(
   }
   if ( a5 )
     a5(a3, a2);
-  v20 = *(__int64 **)(a1 + 96);
+  v20 = *(_QWORD **)(a1 + 96);
   if ( *v20 != a1 + 88 )
     __fastfail(3u);
-  *(_QWORD *)Pool2 = a1 + 88;
-  *(_QWORD *)(Pool2 + 8) = v20;
-  *v20 = Pool2;
-  *(_QWORD *)(a1 + 96) = Pool2;
+  *PoolWithTag = a1 + 88;
+  PoolWithTag[1] = v20;
+  *v20 = PoolWithTag;
+  *(_QWORD *)(a1 + 96) = PoolWithTag;
   if ( a2 )
   {
     *(_DWORD *)(a2 + 48) = 0;
@@ -102,63 +102,61 @@ __int64 __fastcall FsRtlpWaitOnIrp(
       if ( a4 )
       {
         *(_BYTE *)(*(_QWORD *)(a2 + 184) + 3LL) |= 1u;
-        v22 = 259;
+        v21 = 259;
       }
       else
       {
-        v22 = -1073741536;
+        v21 = -1073741536;
       }
-      *(_DWORD *)&v27[3] = v22;
-      LOBYTE(v21) = 1;
-      FsRtlpCancelWaitingIrp(a2, v21);
+      *(_DWORD *)&v26[3] = v21;
+      FsRtlpCancelWaitingIrp(a2, 1);
       goto LABEL_51;
     }
     _InterlockedExchange64((volatile __int64 *)(a2 + 104), (__int64)FsRtlpWaitingIrpCancelRoutine);
     KeReleaseQueuedSpinLock(7uLL, *(_BYTE *)(a2 + 69));
     v15 = 1;
-    Pool2 = (__int64)a11;
+    PoolWithTag = a11;
   }
   if ( a4 )
   {
     if ( a2 )
       *(_BYTE *)(*(_QWORD *)(a2 + 184) + 3LL) |= 1u;
-    v22 = 259;
-    *(_DWORD *)&v27[3] = 259;
+    v21 = 259;
+    *(_DWORD *)&v26[3] = 259;
   }
   else
   {
-    v23 = a8 && a10;
+    v22 = a8 && a10;
     LOBYTE(a11) = 0;
+    v28 = 0LL;
     v29 = 0LL;
-    v30 = 0LL;
-    LODWORD(v31) = 0;
     ExReleaseFastMutexUnsafe(*(PFAST_MUTEX *)(a1 + 152));
     v15 = 0;
     while ( 1 )
     {
-      v24 = FsRtlCancellableWaitForSingleObject(
+      v23 = FsRtlCancellableWaitForSingleObject(
               Object,
-              (PLARGE_INTEGER)((unsigned __int64)&a8 & -(__int64)v23),
+              (PLARGE_INTEGER)((unsigned __int64)&a8 & -(__int64)v22),
               (PIRP)a2);
-      v22 = v24;
-      *(_DWORD *)&v27[3] = v24;
-      if ( !v23 || v24 != 258 )
+      v21 = v23;
+      *(_DWORD *)&v26[3] = v23;
+      if ( !v22 || v23 != 258 )
         break;
-      v23 = 0;
-      *(_QWORD *)&v29 = 0LL;
-      *((_QWORD *)&v29 + 1) = a9;
-      v30 = a2;
-      v31 = 258LL;
-      a10(&v29);
+      v22 = 0;
+      *(_QWORD *)&v28 = 0LL;
+      *((_QWORD *)&v28 + 1) = a9;
+      *(_QWORD *)&v29 = a2;
+      *((_QWORD *)&v29 + 1) = 258LL;
+      a10(&v28);
       LOBYTE(a11) = 1;
     }
     if ( (_BYTE)a11 )
     {
-      LODWORD(v29) = 1;
-      LODWORD(v31) = v24;
-      a10(&v29);
+      LODWORD(v28) = 1;
+      DWORD2(v29) = v23;
+      a10(&v28);
     }
-    if ( v22 == -1073741749 || v22 == -1073741536 )
+    if ( v21 == -1073741749 || v21 == -1073741536 )
     {
       if ( a2 )
       {
@@ -169,7 +167,7 @@ __int64 __fastcall FsRtlpWaitOnIrp(
         ExAcquireFastMutex(*(PFAST_MUTEX *)(a1 + 152));
         for ( i = *(_QWORD **)(a1 + 88); i != (_QWORD *)(a1 + 88); i = (_QWORD *)*i )
         {
-          if ( (_QWORD *)Pool2 == i )
+          if ( PoolWithTag == i )
           {
             FsRtlpRemoveAndCompleteWaitingIrp(i);
             break;
@@ -178,20 +176,20 @@ __int64 __fastcall FsRtlpWaitOnIrp(
         KeReleaseGuardedMutex(*(PKGUARDED_MUTEX *)(a1 + 152));
       }
       KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
-      *v28 = 0;
+      *v27 = 0;
     }
     else
     {
       if ( a2 )
       {
-        v22 = *(_DWORD *)(a2 + 48);
-        *(_DWORD *)&v27[3] = v22;
+        v21 = *(_DWORD *)(a2 + 48);
+        *(_DWORD *)&v26[3] = v21;
       }
-      *v28 = 1;
+      *v27 = 1;
     }
   }
 LABEL_51:
   if ( v15 )
     ExReleaseFastMutexUnsafe(*(PFAST_MUTEX *)(a1 + 152));
-  return v22;
+  return v21;
 }

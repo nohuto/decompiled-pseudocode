@@ -1,10 +1,10 @@
 /*
- * XREFs of SepSDContainsAttributeACE @ 0x1409D1338
+ * XREFs of SepSDContainsAttributeACE @ 0x140924DD4
  * Callers:
- *     SepAdtOpenObjectAuditAlarm @ 0x1409CC218 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F4E8 (SepAdtOpenObjectAuditAlarm.c)
  * Callees:
- *     RtlFindAceByType @ 0x1402AD1C0 (RtlFindAceByType.c)
- *     RtlGetSaclSecurityDescriptor @ 0x140711850 (RtlGetSaclSecurityDescriptor.c)
+ *     RtlFindAceByType @ 0x1402D29C0 (RtlFindAceByType.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1406111D0 (RtlGetSaclSecurityDescriptor.c)
  */
 
 bool __fastcall SepSDContainsAttributeACE(void *a1)

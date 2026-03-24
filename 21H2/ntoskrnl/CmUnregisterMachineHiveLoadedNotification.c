@@ -1,44 +1,44 @@
 /*
- * XREFs of CmUnregisterMachineHiveLoadedNotification @ 0x140910120
+ * XREFs of CmUnregisterMachineHiveLoadedNotification @ 0x14086A0A0
  * Callers:
  *     <none>
  * Callees:
- *     ExRundownCompleted @ 0x1402095E0 (ExRundownCompleted.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall CmUnregisterMachineHiveLoadedNotification(unsigned int *P)
+void __fastcall CmUnregisterMachineHiveLoadedNotification(PVOID **P)
 {
-  ULONG_PTR v1; // r8
-  __int64 v3; // rcx
-  char *v4; // rbx
-  struct _KTHREAD *v5; // rax
-  PVOID *v6; // rcx
+  char *v2; // rdi
+  PVOID *v3; // rax
+  PVOID *v4; // rcx
 
   if ( P )
   {
-    v1 = P[26];
-    v3 = 184 * v1;
-    if ( *((struct _KTHREAD **)P + 12) == KeGetCurrentThread() )
-      KeBugCheckEx(0x51u, 0x28uLL, v1, 0LL, 0LL);
-    v4 = (char *)&unk_140C025C0 + v3;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&unk_140C025C0 + v3, 0LL);
-    if ( *((_BYTE *)P + 109) )
+    v2 = (char *)&unk_140C00F90 + 200 * *((unsigned int *)P + 8);
+    while ( 1 )
     {
-      v5 = *(struct _KTHREAD **)P;
-      if ( *(unsigned int **)(*(_QWORD *)P + 8LL) != P || (v6 = (PVOID *)*((_QWORD *)P + 1), *v6 != P) )
-        __fastfail(3u);
-      *v6 = v5;
-      v5->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v6;
-      *((_BYTE *)P + 109) = 0;
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)v2, 0LL);
+      if ( !*((_BYTE *)P + 36) )
+        break;
+      *((_BYTE *)P + 38) = 1;
+      KeResetEvent(&CmpMachineHiveCallbackEvent);
+      ExReleasePushLockEx((ULONG_PTR)v2, 0LL);
+      KeWaitForSingleObject(&CmpMachineHiveCallbackEvent, Executive, 0, 0, 0LL);
     }
-    ExReleasePushLockEx((ULONG_PTR)v4, 0LL);
-    ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)P + 6);
-    ExRundownCompleted((PEX_RUNDOWN_REF)P + 6);
+    if ( *((_BYTE *)P + 37) )
+    {
+      v3 = *P;
+      if ( (*P)[1] != P || (v4 = P[1], *v4 != P) )
+        __fastfail(3u);
+      *v4 = v3;
+      v3[1] = v4;
+      *((_BYTE *)P + 37) = 0;
+    }
+    ExReleasePushLockEx((ULONG_PTR)v2, 0LL);
     ExFreePoolWithTag(P, 0);
   }
 }

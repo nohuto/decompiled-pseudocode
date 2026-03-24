@@ -1,23 +1,23 @@
 /*
- * XREFs of HUBMUX_ReleaseInterruptReference @ 0x1C0010CC8
+ * XREFs of HUBMUX_ReleaseInterruptReference @ 0x1C000F89C
  * Callers:
- *     HUBPSM30_CancellingResetOnSurpriseRemove @ 0x1C00119C0 (HUBPSM30_CancellingResetOnSurpriseRemove.c)
- *     HUBPSM20_DetachingDeviceFromPortOnDisconnectWithTimer @ 0x1C0011B30 (HUBPSM20_DetachingDeviceFromPortOnDisconnectWithTimer.c)
- *     HUBPSM20_DetachingDeviceFromPortOnOverCurrentClearWithTimer @ 0x1C0011B60 (HUBPSM20_DetachingDeviceFromPortOnOverCurrentClearWithTimer.c)
- *     HUBPSM20_IssuingResumedToDeviceSM @ 0x1C00120F0 (HUBPSM20_IssuingResumedToDeviceSM.c)
- *     HUBPSM20_QueueingPortResumeTimedOut @ 0x1C0012260 (HUBPSM20_QueueingPortResumeTimedOut.c)
- *     HUBPSM20_ReleasingInterruptReferenceAndIssuingPortResetTimedOutToDSM @ 0x1C0012360 (HUBPSM20_ReleasingInterruptReferenceAndIssuingPortResetTimedOutToDSM.c)
- *     HUBPSM20_ReleasingInterruptReferenceAndStoppingTimer @ 0x1C00123A0 (HUBPSM20_ReleasingInterruptReferenceAndStoppingTimer.c)
- *     HUBPSM20_ReleasingInterruptReferenceOnResetTransferFailure @ 0x1C00123F0 (HUBPSM20_ReleasingInterruptReferenceOnResetTransferFailure.c)
- *     HUBPSM20_ReleasingInterruptReferenceOnSuccessfulReset @ 0x1C0012430 (HUBPSM20_ReleasingInterruptReferenceOnSuccessfulReset.c)
- *     HUBPSM30_IssuingHubResetOnTimedOut @ 0x1C0013230 (HUBPSM30_IssuingHubResetOnTimedOut.c)
- *     HUBPSM30_QueueingPortResumeTimedOut @ 0x1C0013400 (HUBPSM30_QueueingPortResumeTimedOut.c)
- *     HUBPSM30_ReleasingInterruptReferenceOnTransferFailureInResuming @ 0x1C0013480 (HUBPSM30_ReleasingInterruptReferenceOnTransferFailureInResuming.c)
- *     HUBPSM30_ReleasingInterruptReferenceOnResetTransferFailure @ 0x1C00134B0 (HUBPSM30_ReleasingInterruptReferenceOnResetTransferFailure.c)
+ *     HUBPSM30_CancellingResetOnSurpriseRemove @ 0x1C00105A0 (HUBPSM30_CancellingResetOnSurpriseRemove.c)
+ *     HUBPSM20_DetachingDeviceFromPortOnDisconnectWithTimer @ 0x1C0010710 (HUBPSM20_DetachingDeviceFromPortOnDisconnectWithTimer.c)
+ *     HUBPSM20_DetachingDeviceFromPortOnOverCurrentClearWithTimer @ 0x1C0010740 (HUBPSM20_DetachingDeviceFromPortOnOverCurrentClearWithTimer.c)
+ *     HUBPSM20_IssuingResumedToDeviceSM @ 0x1C0010CD0 (HUBPSM20_IssuingResumedToDeviceSM.c)
+ *     HUBPSM20_QueueingPortResumeTimedOut @ 0x1C0010E40 (HUBPSM20_QueueingPortResumeTimedOut.c)
+ *     HUBPSM20_ReleasingInterruptReferenceAndIssuingPortResetTimedOutToDSM @ 0x1C0010F40 (HUBPSM20_ReleasingInterruptReferenceAndIssuingPortResetTimedOutToDSM.c)
+ *     HUBPSM20_ReleasingInterruptReferenceAndStoppingTimer @ 0x1C0010F80 (HUBPSM20_ReleasingInterruptReferenceAndStoppingTimer.c)
+ *     HUBPSM20_ReleasingInterruptReferenceOnResetTransferFailure @ 0x1C0010FD0 (HUBPSM20_ReleasingInterruptReferenceOnResetTransferFailure.c)
+ *     HUBPSM20_ReleasingInterruptReferenceOnSuccessfulReset @ 0x1C0011010 (HUBPSM20_ReleasingInterruptReferenceOnSuccessfulReset.c)
+ *     HUBPSM30_IssuingHubResetOnTimedOut @ 0x1C0011D10 (HUBPSM30_IssuingHubResetOnTimedOut.c)
+ *     HUBPSM30_QueueingPortResumeTimedOut @ 0x1C0011EE0 (HUBPSM30_QueueingPortResumeTimedOut.c)
+ *     HUBPSM30_ReleasingInterruptReferenceOnTransferFailureInResuming @ 0x1C0011F60 (HUBPSM30_ReleasingInterruptReferenceOnTransferFailureInResuming.c)
+ *     HUBPSM30_ReleasingInterruptReferenceOnResetTransferFailure @ 0x1C0011F90 (HUBPSM30_ReleasingInterruptReferenceOnResetTransferFailure.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBMISC_DbgBreak @ 0x1C0032E3C (HUBMISC_DbgBreak.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_DbgBreak @ 0x1C002FC54 (HUBMISC_DbgBreak.c)
  */
 
 void __fastcall HUBMUX_ReleaseInterruptReference(volatile signed __int32 *a1)

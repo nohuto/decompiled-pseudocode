@@ -1,32 +1,20 @@
 /*
- * XREFs of ?xxxMS_FlushWigglies@@YAXXZ @ 0x1C01EE980
+ * XREFs of ?xxxMS_FlushWigglies@@YAXXZ @ 0x1C020E8F0
  * Callers:
- *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01EC5FC (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
- *     ?xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z @ 0x1C01ED858 (-xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z.c)
+ *     xxxDrawDragRectEx @ 0x1C0210F44 (xxxDrawDragRectEx.c)
+ *     xxxInitializeMoveSizeData @ 0x1C021184C (xxxInitializeMoveSizeData.c)
  * Callees:
- *     xxxInternalGetMessage @ 0x1C006A4F0 (xxxInternalGetMessage.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     xxxInternalGetMessage @ 0x1C00D9C60 (xxxInternalGetMessage.c)
  */
 
-void xxxMS_FlushWigglies(void)
+void __fastcall xxxMS_FlushWigglies(int a1)
 {
-  bool v0; // dl
-  _OWORD v1[3]; // [rsp+40h] [rbp-38h] BYREF
+  _OWORD v1[3]; // [rsp+30h] [rbp-38h] BYREF
 
   memset(v1, 0, sizeof(v1));
-  v0 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v0 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v0,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      10,
-      4,
-      1,
-      10,
-      (__int64)&WPP_4ca377e5e46c35452bc0f5425c96fcc9_Traceguids);
-  while ( (unsigned int)xxxInternalGetMessage(v1, 0LL, 512, 512, 3, 0) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_(a1, 4, 1, 15, (__int64)&WPP_44fe173a72dc32ad3264e41cf6895406_Traceguids);
+  while ( (unsigned int)xxxInternalGetMessage(v1, 0LL, 0x200u, 0x200u, 3, 0) )
     ;
 }

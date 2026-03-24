@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CachedVisualImageUpdate@CChannel@@UEAAJIAEBUMilRectF@@AEBUMilSizeD@@IIIW4Enum@MilBrushMappingMode@@W44MilStretch@@@Z @ 0x18006E8E0
+ * XREFs of ?CachedVisualImageUpdate@CChannel@@UEAAJIAEBUMilRectF@@AEBUMilSizeD@@IIIW4Enum@MilBrushMappingMode@@W44MilStretch@@@Z @ 0x1800D7B50
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180070B20 (-CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E524 (-CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 __int64 __fastcall CChannel::CachedVisualImageUpdate(
@@ -36,17 +36,17 @@ __int64 __fastcall CChannel::CachedVisualImageUpdate(
   unsigned int v26; // [rsp+50h] [rbp-20h]
   int v27; // [rsp+54h] [rbp-1Ch]
   int v28; // [rsp+64h] [rbp-Ch]
-  __int64 v29; // [rsp+A0h] [rbp+30h] BYREF
+  struct _RTL_CRITICAL_SECTION *v29; // [rsp+A0h] [rbp+30h] BYREF
 
-  v29 = a1 + 168;
+  v29 = (struct _RTL_CRITICAL_SECTION *)(a1 + 168);
   EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 168));
-  CChannel::CheckHandle(a1, a2, 16LL);
+  CChannel::CheckHandle(a1, a2, 15);
   v13 = a5;
-  CChannel::CheckOptionalHandle(a1, a5, 139LL);
+  CChannel::CheckOptionalHandle(a1, a5, 140);
   v14 = a6;
-  CChannel::CheckOptionalHandle(a1, a6, 171LL);
+  CChannel::CheckOptionalHandle(a1, a6, 172);
   v15 = a7;
-  CChannel::CheckOptionalHandle(a1, a7, 195LL);
+  CChannel::CheckOptionalHandle(a1, a7, 195);
   v20 = 31;
   memset_0(&v21, 0, 0x44uLL);
   v16 = *a3;

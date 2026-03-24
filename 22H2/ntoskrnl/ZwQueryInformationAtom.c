@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryInformationAtom @ 0x14041D0A0
+ * XREFs of ZwQueryInformationAtom @ 0x1403FC320
  * Callers:
  *     <none>
  * Callees:

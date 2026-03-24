@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HasTransform@CGeometry@@MEBA_NXZ @ 0x1800D2230
+ * XREFs of ?HasTransform@CGeometry@@MEBA_NXZ @ 0x1800C27C0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CGeometry::HasTransform(CGeometry *this)
 {
-  return *((_QWORD *)this + 10) != 0LL;
+  return *((_QWORD *)this + 9) != 0LL;
 }

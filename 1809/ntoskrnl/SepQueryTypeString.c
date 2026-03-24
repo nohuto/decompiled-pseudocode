@@ -1,15 +1,15 @@
 /*
- * XREFs of SepQueryTypeString @ 0x14089F998
+ * XREFs of SepQueryTypeString @ 0x14089F978
  * Callers:
  *     SeOpenObjectAuditAlarmWithTransaction @ 0x140596850 (SeOpenObjectAuditAlarmWithTransaction.c)
  *     SeSecurityDescriptorChangedAuditAlarm @ 0x1405BA094 (SeSecurityDescriptorChangedAuditAlarm.c)
  *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1405BC394 (SeTokenDefaultDaclChangedAuditAlarm.c)
- *     SepAdtObjectReferenceAuditAlarm @ 0x14089E4CC (SepAdtObjectReferenceAuditAlarm.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A0AA0 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SepAdtObjectReferenceAuditAlarm @ 0x14089E4AC (SepAdtObjectReferenceAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A0A80 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObQueryTypeName @ 0x140862730 (ObQueryTypeName.c)
+ *     ObQueryTypeName @ 0x140862710 (ObQueryTypeName.c)
  */
 
 __int64 __fastcall SepQueryTypeString(__int64 a1, PVOID *a2)

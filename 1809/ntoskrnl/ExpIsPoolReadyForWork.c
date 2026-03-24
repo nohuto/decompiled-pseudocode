@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpIsPoolReadyForWork @ 0x1400B75D0
+ * XREFs of ExpIsPoolReadyForWork @ 0x1400B75F0
  * Callers:
- *     ExpQueueWorkItem @ 0x1400B7300 (ExpQueueWorkItem.c)
- *     ExpTryQueueWorkItem @ 0x1400D170C (ExpTryQueueWorkItem.c)
+ *     ExpQueueWorkItem @ 0x1400B7320 (ExpQueueWorkItem.c)
+ *     ExpTryQueueWorkItem @ 0x1400D172C (ExpTryQueueWorkItem.c)
  * Callees:
  *     <none>
  */

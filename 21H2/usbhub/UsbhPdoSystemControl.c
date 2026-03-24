@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhPdoSystemControl @ 0x1C00565B0
+ * XREFs of UsbhPdoSystemControl @ 0x1C0057C70
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhIncPdoIoCount @ 0x1C000EF40 (UsbhIncPdoIoCount.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhIncPdoIoCount @ 0x1C0014F6C (UsbhIncPdoIoCount.c)
  */
 
 __int64 __fastcall UsbhPdoSystemControl(struct _DEVICE_OBJECT *BugCheckParameter3, IRP *BugCheckParameter4)

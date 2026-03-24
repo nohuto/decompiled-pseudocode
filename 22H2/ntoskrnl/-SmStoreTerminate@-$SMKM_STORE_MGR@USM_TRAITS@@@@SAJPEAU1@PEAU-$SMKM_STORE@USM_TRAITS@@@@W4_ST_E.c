@@ -1,52 +1,52 @@
 /*
- * XREFs of ?SmStoreTerminate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_ST_ETW_TERMINATION_REASON@@J@Z @ 0x1405CD288
+ * XREFs of ?SmStoreTerminate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_ST_ETW_TERMINATION_REASON@@J@Z @ 0x14059F7B8
  * Callers:
- *     ?StDmDeviceError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z @ 0x1405C52F0 (-StDmDeviceError@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z.c)
+ *     ?StDmDeviceError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z @ 0x14059ABA0 (-StDmDeviceError@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@W4_ST_DEVICE_FAIL_TYPE@1@J@Z.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     SmKmStoreReference @ 0x140344B20 (SmKmStoreReference.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     SmKmStoreReference @ 0x1402672A8 (SmKmStoreReference.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmStoreTerminate(__int64 a1, __int64 a2, int a3, int a4)
 {
-  unsigned int v8; // edi
-  __int64 Pool2; // rbx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  int v12; // edx
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rbx
+  unsigned int v9; // edi
+  int v10; // eax
 
-  v8 = 0;
-  Pool2 = ExAllocatePool2(64LL, 64LL, 1834249587LL);
-  if ( Pool2 )
+  PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x6D546D73u);
+  if ( PoolWithTag )
   {
-    if ( SmKmStoreReference(a1, *(_DWORD *)(a2 + 6016), v10, v11) )
+    if ( SmKmStoreReference(a1, *(_DWORD *)(a2 + 6016)) )
     {
-      *(_QWORD *)(Pool2 + 8) = 0LL;
-      *(_QWORD *)(Pool2 + 48) = 0LL;
-      *(_QWORD *)(Pool2 + 56) = 0LL;
-      *(_QWORD *)(Pool2 + 16) = SmKmStoreTerminateWorker;
-      *(_QWORD *)(Pool2 + 24) = Pool2;
-      *(_QWORD *)Pool2 = 0LL;
-      *(_QWORD *)(Pool2 + 40) = a2 + 6216;
-      *(_QWORD *)(Pool2 + 32) = a1;
-      *(_DWORD *)(Pool2 + 48) = *(_DWORD *)(a2 + 6016);
-      v12 = *(_DWORD *)(a1 + 1856) & 1;
-      *(_DWORD *)(Pool2 + 56) = a3;
-      *(_DWORD *)(Pool2 + 52) = v12;
-      *(_DWORD *)(Pool2 + 60) = a4;
-      ExQueueWorkItem((PWORK_QUEUE_ITEM)Pool2, CriticalWorkQueue);
+      PoolWithTag->List.Blink = 0LL;
+      PoolWithTag[1].WorkerRoutine = 0LL;
+      PoolWithTag[1].Parameter = 0LL;
+      PoolWithTag->List.Flink = 0LL;
+      PoolWithTag->WorkerRoutine = SmKmStoreTerminateWorker;
+      PoolWithTag->Parameter = PoolWithTag;
+      PoolWithTag[1].List.Blink = (struct _LIST_ENTRY *)(a2 + 6216);
+      PoolWithTag[1].List.Flink = (struct _LIST_ENTRY *)a1;
+      LODWORD(PoolWithTag[1].WorkerRoutine) = *(_DWORD *)(a2 + 6016);
+      v10 = *(_DWORD *)(a1 + 1840) & 1;
+      LODWORD(PoolWithTag[1].Parameter) = a3;
+      HIDWORD(PoolWithTag[1].WorkerRoutine) = v10;
+      HIDWORD(PoolWithTag[1].Parameter) = a4;
+      ExQueueWorkItem(PoolWithTag, CriticalWorkQueue);
+      PoolWithTag = 0LL;
+      v9 = 0;
     }
     else
     {
-      v8 = -1073741431;
-      ExFreePoolWithTag((PVOID)Pool2, 0);
+      v9 = -1073741431;
     }
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v8;
+  return v9;
 }

@@ -1,72 +1,51 @@
 /*
- * XREFs of ?EnsureClientInfo@CDesktopTree@@MEAAXXZ @ 0x1800CB3D0
+ * XREFs of ?EnsureClientInfo@CDesktopTree@@MEAAXXZ @ 0x1800C60F0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?clear@?$vector_facade@PEAVCVisual@@V?$buffer_impl@PEAVCVisual@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18008E754 (-clear@-$vector_facade@PEAVCVisual@@V-$buffer_impl@PEAVCVisual@@$0BA@$00Vliberal_expansion_polic.c)
- *     ?UpdateClientBounds@CVisualTree@@IEAAXXZ @ 0x1800CB560 (-UpdateClientBounds@CVisualTree@@IEAAXXZ.c)
- *     ?reserve_region@?$vector_facade@PEAVCOverlayContext@@V?$buffer_impl@PEAVCOverlayContext@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAPEAVCOverlayContext@@_K0@Z @ 0x1800CB6E8 (-reserve_region@-$vector_facade@PEAVCOverlayContext@@V-$buffer_impl@PEAVCOverlayContext@@$03$00V.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?UpdateClientBounds@CVisualTree@@IEAAXXZ @ 0x1800C6210 (-UpdateClientBounds@CVisualTree@@IEAAXXZ.c)
+ *     ?clear@?$vector_facade@PEAVCOverlayContext@@V?$buffer_impl@PEAVCOverlayContext@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x1800C63BC (-clear@-$vector_facade@PEAVCOverlayContext@@V-$buffer_impl@PEAVCOverlayContext@@$03$00Vliberal_e.c)
+ *     ?reserve_region@?$vector_facade@PEAVCOverlayContext@@V?$buffer_impl@PEAVCOverlayContext@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAPEAVCOverlayContext@@_K0@Z @ 0x1800C63E4 (-reserve_region@-$vector_facade@PEAVCOverlayContext@@V-$buffer_impl@PEAVCOverlayContext@@$03$00V.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDesktopTree::EnsureClientInfo(CDesktopTree *this)
 {
   _QWORD *v2; // rsi
-  _QWORD *v3; // rbx
-  _QWORD *v4; // r14
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // rbp
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  int v10; // eax
-  __int64 v11; // rcx
-  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v3; // rbx
+  __int64 v4; // r14
+  int (__fastcall ***v5)(_QWORD, GUID *, __int64 *); // rcx
+  __int64 v6; // rbp
+  __int64 v7; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( *((_BYTE *)this + 4712) )
+  if ( *((_BYTE *)this + 5893) )
   {
-    v2 = (_QWORD *)((char *)this + 4752);
-    detail::vector_facade<CVisual *,detail::buffer_impl<CVisual *,16,1,detail::liberal_expansion_policy>>::clear((_QWORD *)this + 594);
-    *((_QWORD *)this + 601) = 0LL;
-    v3 = (_QWORD *)*((_QWORD *)this + 567);
-    v4 = (_QWORD *)*((_QWORD *)this + 568);
+    v2 = (_QWORD *)((char *)this + 5920);
+    detail::vector_facade<COverlayContext *,detail::buffer_impl<COverlayContext *,4,1,detail::liberal_expansion_policy>>::clear((char *)this + 5920);
+    v3 = *((_QWORD *)this + 716);
+    v4 = *((_QWORD *)this + 717);
     while ( v3 != v4 )
     {
-      v5 = *v3 + 8LL;
-      v6 = *(int *)(*(_QWORD *)v5 + 4LL);
-      v12 = 0LL;
-      if ( (**(int (__fastcall ***)(__int64, GUID *, __int64 *))(v5 + v6))(
-             v5 + v6,
-             &GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9,
-             &v12) >= 0 )
+      v7 = 0LL;
+      v5 = (int (__fastcall ***)(_QWORD, GUID *, __int64 *))(*(_QWORD *)v3
+                                                           + 8LL
+                                                           + *(int *)(*(_QWORD *)(*(_QWORD *)v3 + 8LL) + 4LL));
+      if ( (**v5)(v5, &GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9, &v7) >= 0 )
       {
-        v7 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v12 + 40LL))(v12);
-        if ( v7 )
+        v6 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v7 + 24LL))(v7);
+        if ( v6 )
           *(_QWORD *)detail::vector_facade<COverlayContext *,detail::buffer_impl<COverlayContext *,4,1,detail::liberal_expansion_policy>>::reserve_region(
                        v2,
-                       (__int64)(v2[1] - *v2) >> 3) = v7;
+                       (__int64)(v2[1] - *v2) >> 3) = v6;
       }
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v12);
-      v8 = *v3 + 8LL;
-      v9 = *(int *)(*(_QWORD *)v8 + 4LL);
-      v13 = 0LL;
-      v10 = (**(__int64 (__fastcall ***)(__int64, GUID *, __int64 *))(v8 + v9))(
-              v8 + v9,
-              &GUID_7c976d93_9dfd_4286_b10c_4603653cf4d3,
-              &v13);
-      v11 = v13;
-      if ( v10 >= 0 )
-        *((_QWORD *)this + 601) = v13;
-      if ( v11 )
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
-      ++v3;
+      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v7);
+      v3 += 8LL;
     }
-    if ( *((_BYTE *)this + 4712) )
+    if ( *((_BYTE *)this + 5893) )
     {
       CVisualTree::UpdateClientBounds(this);
-      *((_BYTE *)this + 4712) = 0;
+      *((_BYTE *)this + 5893) = 0;
     }
   }
 }

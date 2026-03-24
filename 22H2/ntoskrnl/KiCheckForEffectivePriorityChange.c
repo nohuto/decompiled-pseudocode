@@ -1,67 +1,50 @@
 /*
- * XREFs of KiCheckForEffectivePriorityChange @ 0x1402064E4
+ * XREFs of KiCheckForEffectivePriorityChange @ 0x1402DE540
  * Callers:
- *     KiUpdateCpuTargetByWeight @ 0x14020572C (KiUpdateCpuTargetByWeight.c)
- *     KiUpdateCpuTargetByRate @ 0x1402058E8 (KiUpdateCpuTargetByRate.c)
- *     KeSetSchedulingGroupRankBias @ 0x140205AD8 (KeSetSchedulingGroupRankBias.c)
- *     KiComputeGroupSchedulingRank @ 0x140305708 (KiComputeGroupSchedulingRank.c)
+ *     KiComputeGroupSchedulingRank @ 0x1402594A0 (KiComputeGroupSchedulingRank.c)
+ *     KiUpdateCpuTargetByWeight @ 0x1402DDDA8 (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x1402DE080 (KiUpdateCpuTargetByRate.c)
+ *     KeSetSchedulingGroupRankBias @ 0x1402DE278 (KeSetSchedulingGroupRankBias.c)
  * Callees:
- *     KiIsThreadRankNonZero @ 0x140308EB0 (KiIsThreadRankNonZero.c)
- *     KiSetSchedulerAssistPriority @ 0x14040FC2C (KiSetSchedulerAssistPriority.c)
+ *     KiIsThreadRankNonZero @ 0x14024CDC0 (KiIsThreadRankNonZero.c)
+ *     KiSetSchedulerAssistPriority @ 0x140520894 (KiSetSchedulerAssistPriority.c)
  */
 
-void __fastcall KiCheckForEffectivePriorityChange(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall KiCheckForEffectivePriorityChange(struct _KPRCB *a1, __int64 a2)
 {
-  __int64 v3; // rdi
-  __int64 v5; // rdx
-  char *v6; // r14
-  char v7; // bl
-  char v8; // al
-  char v9; // bl
-  __int64 v10; // rcx
-  bool v11; // zf
-  char v12; // al
-  __int64 v13; // rdx
+  __int64 NextThread; // rbx
+  __int64 v4; // r8
+  bool IsThreadRankNonZero; // al
+  char v6; // cl
+  __int64 v7; // rdx
 
-  v3 = *(_QWORD *)(a1 + 16);
-  if ( !v3 )
-    v3 = *(_QWORD *)(a1 + 8);
-  v5 = *(_QWORD *)(v3 + 104);
-  if ( v5 )
+  NextThread = (__int64)a1->NextThread;
+  if ( !NextThread )
+    NextThread = (__int64)a1->CurrentThread;
+  v4 = *(_QWORD *)(NextThread + 104);
+  if ( v4 )
   {
-    for ( v5 += *(unsigned int *)(a1 + 216); v5; v5 = *(_QWORD *)(v5 + 408) )
+    for ( v4 += a1->ScbOffset; v4; v4 = *(_QWORD *)(v4 + 408) )
     {
-      if ( v5 == a3 )
-        goto LABEL_10;
+      if ( v4 == a2 )
+        goto LABEL_9;
     }
   }
-  if ( v5 == a3 )
+  if ( v4 == a2 )
   {
-LABEL_10:
-    v6 = *(char **)(a1 + 56);
-    v7 = *v6;
-    if ( (*(_BYTE *)(v3 + 2) & 4) != 0 )
+LABEL_9:
+    if ( (*(_BYTE *)(NextThread + 2) & 4) == 0
+      || (IsThreadRankNonZero = KiIsThreadRankNonZero(NextThread, a1), v6 = 1, !IsThreadRankNonZero) )
     {
-      v11 = (unsigned __int8)KiIsThreadRankNonZero(v3, a1) == 0;
-      v12 = 1;
-      if ( v11 )
-        v12 = *(_BYTE *)(v3 + 195);
-      v8 = v7 ^ v12;
+      v6 = *(_BYTE *)(NextThread + 195);
     }
-    else
+    *a1->PriorityState = v6;
+    if ( a1->SchedulerAssist )
     {
-      v8 = *(_BYTE *)(v3 + 195) ^ v7;
-    }
-    v9 = v8 & 0x7F ^ v7;
-    *v6 = v9;
-    v10 = *(_QWORD *)(a1 + 35000);
-    if ( v10 )
-    {
-      if ( v3 == *(_QWORD *)(a1 + 24) )
-        v13 = (unsigned int)KiVpThreadSystemWorkPriority;
-      else
-        v13 = v9 & 0x7F;
-      KiSetSchedulerAssistPriority(v10, v13, 0LL);
+      v7 = (unsigned int)KiVpThreadSystemWorkPriority;
+      if ( (_KTHREAD *)NextThread != a1->IdleThread )
+        v7 = (unsigned int)v6;
+      KiSetSchedulerAssistPriority(a1->SchedulerAssist, v7, 0LL);
     }
   }
 }

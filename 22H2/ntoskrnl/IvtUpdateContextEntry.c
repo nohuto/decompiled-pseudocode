@@ -1,94 +1,95 @@
 /*
- * XREFs of IvtUpdateContextEntry @ 0x14052DA34
+ * XREFs of IvtUpdateContextEntry @ 0x1404E0AFC
  * Callers:
- *     IvtUpdateTranslationStructures @ 0x14052E18C (IvtUpdateTranslationStructures.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1404DF508 (IvtAttachDeviceDomainInternal.c)
+ *     IvtProcessDeviceExceptions @ 0x1409AA2C8 (IvtProcessDeviceExceptions.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x1409AADE8 (HalpIvtpInitializeReservedDomain.c)
  * Callees:
- *     IvtGetBlockedDomain @ 0x14052CA68 (IvtGetBlockedDomain.c)
- *     IvtInvalidateContextEntry @ 0x14052D434 (IvtInvalidateContextEntry.c)
+ *     IvtGetBlockedDomain @ 0x1404DFE5C (IvtGetBlockedDomain.c)
+ *     IvtGetContextEntryType @ 0x1404DFEB0 (IvtGetContextEntryType.c)
+ *     IvtInvalidateContextEntry @ 0x1404E05E0 (IvtInvalidateContextEntry.c)
  */
 
-__int64 __fastcall IvtUpdateContextEntry(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4, int a5)
+__int64 *__fastcall IvtUpdateContextEntry(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4, int a5, __int64 *a6)
 {
-  __int64 v5; // r10
   unsigned int v7; // edx
-  _QWORD *v9; // rax
-  char v10; // r14
-  unsigned __int16 v11; // r15
-  __int64 v12; // rdi
-  int v13; // eax
-  unsigned __int64 v14; // rdx
-  __int16 BlockedDomain; // ax
-  int v16; // ebx
-  __int64 v17; // rcx
-  unsigned __int64 v18; // rdx
-  unsigned int v19; // ecx
-  unsigned __int64 v20; // r9
-  __int64 result; // rax
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r9
-  unsigned __int64 v25; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v9; // r8
+  _QWORD *v11; // rax
+  char v12; // bp
+  char v13; // r12
+  __int64 v14; // rdi
+  int v15; // r14d
+  __int64 v16; // r15
+  int v17; // eax
+  char ContextEntryType; // al
+  __int64 v19; // r10
+  unsigned int v20; // ecx
+  __int64 v21; // r8
+  unsigned int v22; // edx
+  __int64 i; // r9
+  unsigned int v24; // edi
+  unsigned int v25; // ebp
+  __int64 *result; // rax
+  unsigned __int64 v27; // [rsp+70h] [rbp+8h] BYREF
 
-  v5 = *(_QWORD *)(a1 + 32);
   v7 = *a2;
-  if ( *(_BYTE *)(a1 + 320) )
-    v9 = (_QWORD *)(v5 + 8 * (2 * ((unsigned __int64)v7 >> 8) + ((unsigned __int8)((unsigned __int8)v7 >> 3) >= 0x10u)));
+  v9 = *(_QWORD *)(a1 + 32);
+  if ( (*(_DWORD *)(a1 + 184) & 0x1000000) != 0 )
+    v11 = (_QWORD *)(v9 + 8 * (2 * ((unsigned __int64)v7 >> 8) + ((unsigned __int8)((unsigned __int8)v7 >> 3) >= 0x10u)));
   else
-    v9 = (_QWORD *)(v5 + 16 * ((unsigned __int64)v7 >> 8));
-  v10 = 0;
-  v11 = 0;
-  v12 = *v9 + 16LL * (unsigned __int8)v7;
-  if ( (*(_OWORD *)v12 & 1) != 0 && !a5 )
+    v11 = (_QWORD *)(v9 + 16 * ((unsigned __int64)v7 >> 8));
+  v12 = 0;
+  v13 = 0;
+  v14 = *v11 + 16LL * (unsigned __int8)v7;
+  LOWORD(v15) = 0;
+  v16 = 0x10000LL;
+  if ( (*(_OWORD *)v14 & 1) != 0 && !a5 )
   {
-    v10 = 1;
-    v11 = (unsigned int)*(_QWORD *)(v12 + 8) >> 8;
+    v12 = 1;
+    v16 = (unsigned __int16)((unsigned int)*(_QWORD *)(v14 + 8) >> 8);
   }
-  v13 = *(_DWORD *)(a3 + 4);
-  v14 = 0LL;
-  v25 = 0LL;
-  if ( v13 == 1 )
+  v17 = *(_DWORD *)(a3 + 4);
+  v27 = 0LL;
+  if ( v17 == 1 )
   {
-    BlockedDomain = IvtGetBlockedDomain(a1, a2, &v25);
-    v14 = v25;
-    LOWORD(v16) = BlockedDomain;
-    v17 = 0LL;
+    v13 = 1;
+    LOWORD(v15) = IvtGetBlockedDomain(a1, a2, &v27);
   }
-  else
+  else if ( v17 )
   {
-    v16 = *(_DWORD *)(a3 + 48);
-    if ( v13 )
+    v13 = 1;
+    v15 = *(_DWORD *)(a3 + 24);
+    v27 = *(_QWORD *)(a3 + 16) >> 12;
+  }
+  ContextEntryType = IvtGetContextEntryType(0, v13);
+  v20 = a2[1];
+  v22 = 0;
+  for ( i = (4 * ((v21 << 10) | ContextEntryType & 3)) | 1; v22 < v20; v14 += 16LL * a2[2] )
+  {
+    *(_QWORD *)(v14 + 8) = v19;
+    *(_QWORD *)v14 = i;
+    ++v22;
+    v20 = a2[1];
+  }
+  if ( v12 )
+  {
+    v24 = *a2;
+    v25 = 0;
+    if ( v20 )
     {
-      v14 = *(_QWORD *)(a3 + 40) >> 12;
-      v25 = v14;
-      v17 = 0LL;
-    }
-    else
-    {
-      v17 = 2LL;
+      do
+      {
+        IvtInvalidateContextEntry(a1, v24, v16, i, 1);
+        if ( v13 )
+          IvtInvalidateContextEntry(a1, v24, v15, i, 1);
+        v24 += a2[2];
+        ++v25;
+      }
+      while ( v25 < a2[1] );
     }
   }
-  v18 = v17 | (v14 << 10);
-  v19 = a2[1];
-  v20 = ((unsigned __int64)(unsigned __int16)v16 << 8) | *(_DWORD *)(a1 + 248) & 7;
-  result = 3 - v19;
-  v22 = (4 * v18) | 1;
-  if ( 1 << v19 )
-  {
-    result = 16LL * (unsigned int)(1 << (3 - v19));
-    v23 = (unsigned int)(1 << v19);
-    do
-    {
-      *(_QWORD *)(v12 + 8) = v20;
-      *(_QWORD *)v12 = v22;
-      v12 += result;
-      --v23;
-    }
-    while ( v23 );
-  }
-  if ( v10 )
-  {
-    IvtInvalidateContextEntry(a1, (int *)a2, v11, v20, 1);
-    return IvtInvalidateContextEntry(a1, (int *)a2, v16, v24, 1);
-  }
+  result = a6;
+  if ( a6 )
+    *a6 = v16;
   return result;
 }

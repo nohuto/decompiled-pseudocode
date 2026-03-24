@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInvokeBugCheckEntryCallbacks @ 0x140292B00
+ * XREFs of KiInvokeBugCheckEntryCallbacks @ 0x140292C00
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140292180 (KeValidateBugCheckCallbackRecord.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140292280 (KeValidateBugCheckCallbackRecord.c)
  */
 
 void KiInvokeBugCheckEntryCallbacks()

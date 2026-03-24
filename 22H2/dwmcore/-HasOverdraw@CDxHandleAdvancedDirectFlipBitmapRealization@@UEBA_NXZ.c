@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HasOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@UEBA_NXZ @ 0x180135AC0
+ * XREFs of ?HasOverdraw@CDxHandleAdvancedDirectFlipBitmapRealization@@UEBA_NXZ @ 0x180263C70
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of BgkpUnlockBgfxCodeSection @ 0x140AF02E0
+ * XREFs of BgkpUnlockBgfxCodeSection @ 0x1409F13F0
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1403AD4F0 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkResumeFinished @ 0x140A99AF8 (BgkResumeFinished.c)
- *     BgkResumePrepare @ 0x140A99B34 (BgkResumePrepare.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14039B440 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkResumeFinished @ 0x1409905DC (BgkResumeFinished.c)
+ *     BgkResumePrepare @ 0x1409961C8 (BgkResumePrepare.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmUnlockPagableImageSection @ 0x14025A320 (MmUnlockPagableImageSection.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MmUnlockPagableImageSection @ 0x14029B0A0 (MmUnlockPagableImageSection.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
 _QWORD *BgkpUnlockBgfxCodeSection()
@@ -19,15 +19,15 @@ _QWORD *BgkpUnlockBgfxCodeSection()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C70D20, 0LL);
-  if ( !--dword_140C6AC84 )
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C53FB0, 0LL);
+  if ( !--dword_140C50BA0 )
   {
     MmUnlockPagableImageSection(ImageSectionHandle);
     ImageSectionHandle = 0LL;
   }
-  v1 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C70D20, 0xFFFFFFFFFFFFFFFFuLL);
+  v1 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C53FB0, 0xFFFFFFFFFFFFFFFFuLL);
   if ( (v1 & 2) != 0 && (v1 & 4) == 0 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C70D20);
-  KeAbPostRelease((ULONG_PTR)&qword_140C70D20);
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C53FB0);
+  KeAbPostRelease((ULONG_PTR)&qword_140C53FB0);
   return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

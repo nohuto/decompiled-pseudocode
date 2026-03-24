@@ -1,61 +1,64 @@
 /*
- * XREFs of MiDrainZeroLookasides @ 0x1403BBB48
+ * XREFs of MiDrainZeroLookasides @ 0x140310AE0
  * Callers:
- *     MiProcessWorkingSets @ 0x14021FA30 (MiProcessWorkingSets.c)
- *     MiTradePage @ 0x1403BA300 (MiTradePage.c)
- *     MiReturnPartitionPagesToParent @ 0x14065B4C8 (MiReturnPartitionPagesToParent.c)
- *     MiTransferPartitionPageRun @ 0x14065B674 (MiTransferPartitionPageRun.c)
+ *     MiProcessWorkingSets @ 0x140207B60 (MiProcessWorkingSets.c)
+ *     MiTradePage @ 0x140281260 (MiTradePage.c)
+ *     MiReturnPartitionPagesToParent @ 0x140562C04 (MiReturnPartitionPagesToParent.c)
+ *     MiTransferPartitionPageRun @ 0x140562D50 (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14028551C (MiUpdatePageFileHighInPte.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     RtlpInterlockedFlushSList @ 0x140428870 (RtlpInterlockedFlushSList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234880 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUpdatePageFileHighInPte @ 0x14023D6F0 (MiUpdatePageFileHighInPte.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedFlushSList @ 0x140407030 (RtlpInterlockedFlushSList.c)
  */
 
 _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
 {
   unsigned int v4; // r13d
   unsigned int v6; // ebx
-  unsigned int v7; // r15d
+  unsigned int v7; // ebp
   _QWORD *result; // rax
   __int64 v9; // rcx
   __int64 v10; // rdx
-  unsigned int v11; // r12d
+  unsigned int v11; // r14d
   _WORD *v12; // rsi
   PSLIST_ENTRY v13; // rdi
-  unsigned __int8 v14; // di
-  unsigned __int8 CurrentIrql; // cl
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  _DWORD *v16; // r9
+  unsigned __int8 v17; // di
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v18; // eax
-  bool v19; // zf
-  unsigned int v20; // [rsp+20h] [rbp-68h]
-  __int64 v21; // [rsp+28h] [rbp-60h]
-  _QWORD *v22; // [rsp+30h] [rbp-58h]
-  __int64 v23; // [rsp+38h] [rbp-50h]
-  unsigned __int64 v24; // [rsp+40h] [rbp-48h]
+  int v21; // eax
+  bool v22; // zf
+  unsigned int v23; // [rsp+20h] [rbp-68h]
+  __int64 v24; // [rsp+28h] [rbp-60h]
+  _QWORD *v25; // [rsp+30h] [rbp-58h]
+  __int64 v26; // [rsp+38h] [rbp-50h]
+  unsigned __int64 v27; // [rsp+40h] [rbp-48h]
   struct _SLIST_ENTRY *Next; // [rsp+48h] [rbp-40h]
-  unsigned __int8 v26; // [rsp+98h] [rbp+10h]
-  unsigned int v27; // [rsp+A0h] [rbp+18h]
+  unsigned __int8 v29; // [rsp+98h] [rbp+10h]
+  unsigned int v30; // [rsp+A0h] [rbp+18h]
 
-  v4 = dword_140C65BFC;
+  v4 = dword_140C4DEFC;
   if ( a2 )
     v4 = a4 + 1;
-  v27 = v4;
+  v30 = v4;
   v6 = 513;
   v7 = a2 != 0 ? a4 : 0;
-  v20 = v7;
-  v24 = a2 + 48 * a3;
-  result = (_QWORD *)(a1 + 6808);
+  v23 = v7;
+  v27 = a2 + 48 * a3;
+  result = (_QWORD *)(a1 + 4200);
   v9 = 2LL;
-  v22 = result;
-  v23 = 2LL;
+  v25 = result;
+  v26 = 2LL;
   do
   {
     v10 = *result;
     v11 = v7;
-    v21 = *result;
+    v24 = *result;
     if ( v7 < v4 )
     {
       v12 = (_WORD *)(v10 + 16LL * v7);
@@ -69,52 +72,52 @@ _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
             do
             {
               Next = v13->Next;
-              if ( a2 && ((unsigned __int64)v13 < a2 || (unsigned __int64)v13 >= v24) )
+              if ( a2 && ((unsigned __int64)v13 < a2 || (unsigned __int64)v13 >= v27) )
                 v6 &= ~0x40u;
               else
                 v6 |= 0x40u;
               v13[1].Next = (_SLIST_ENTRY *)MiUpdatePageFileHighInPte((__int64)v13[1].Next, 0LL);
-              v26 = MiLockPageInline((__int64)v13);
-              MiInsertPageInFreeOrZeroedList(0xAAAAAAAAAAAAAAABuLL * ((__int64)&v13[0x22000000000LL] >> 4), v6);
+              v29 = MiLockPageInline((__int64)v13, v14, v15, v16);
+              MiInsertPageInFreeOrZeroedList((__int64)&v13[0x5800000000LL] / 48, v6);
               _InterlockedAnd64((volatile signed __int64 *)&v13[1].Next + 1, 0x7FFFFFFFFFFFFFFFuLL);
-              if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
               {
-                v14 = v26;
-                if ( v26 <= 0xFu && CurrentIrql >= 2u )
+                v17 = v29;
+                if ( v29 <= 0xFu && CurrentIrql >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                  v18 = ~(unsigned __int16)(-1LL << (v26 + 1));
-                  v19 = (v18 & SchedulerAssist[5]) == 0;
-                  SchedulerAssist[5] &= v18;
-                  if ( v19 )
+                  v21 = ~(unsigned __int16)(-1LL << (v29 + 1));
+                  v22 = (v21 & SchedulerAssist[5]) == 0;
+                  SchedulerAssist[5] &= v21;
+                  if ( v22 )
                     KiRemoveSystemWorkPriorityKick(CurrentPrcb);
                 }
               }
               else
               {
-                v14 = v26;
+                v17 = v29;
               }
-              __writecr8(v14);
+              __writecr8(v17);
               v13 = Next;
             }
             while ( Next );
-            v4 = v27;
+            v4 = v30;
           }
-          v10 = v21;
+          v10 = v24;
         }
         ++v11;
         v12 += 8;
       }
       while ( v11 < v4 );
-      v7 = v20;
-      result = v22;
-      v9 = v23;
+      v7 = v23;
+      result = v25;
+      v9 = v26;
     }
     ++result;
     v6 = v6 & 0xFFFFFFFC | 2;
-    v22 = result;
-    v23 = --v9;
+    v25 = result;
+    v26 = --v9;
   }
   while ( v9 );
   return result;

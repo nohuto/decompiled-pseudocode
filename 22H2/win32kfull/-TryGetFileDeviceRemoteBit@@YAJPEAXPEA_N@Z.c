@@ -1,7 +1,7 @@
 /*
- * XREFs of ?TryGetFileDeviceRemoteBit@@YAJPEAXPEA_N@Z @ 0x1C00793DC
+ * XREFs of ?TryGetFileDeviceRemoteBit@@YAJPEAXPEA_N@Z @ 0x1C00A8AE4
  * Callers:
- *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C0078E78 (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00A85CC (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
  * Callees:
  *     <none>
  */

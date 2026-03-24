@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CheckIndependentFlipSupport@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x180108CF0
+ * XREFs of ?CheckIndependentFlipSupport@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F7480
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmMergeFilterLists @ 0x140A694FC
+ * XREFs of _CmMergeFilterLists @ 0x14097B7BC
  * Callers:
- *     _CmGetDeviceCompoundFiltersWorker @ 0x140A67E7C (_CmGetDeviceCompoundFiltersWorker.c)
- *     _CmGetInstallerClassCompoundFiltersWorker @ 0x140A68754 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ *     _CmGetDeviceCompoundFiltersWorker @ 0x14097A02C (_CmGetDeviceCompoundFiltersWorker.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14097A940 (_CmGetInstallerClassCompoundFiltersWorker.c)
  * Callees:
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     _PnpMultiSzAppend @ 0x14083B05C (_PnpMultiSzAppend.c)
- *     _CmFindFilterListInflectionPoint @ 0x140A67B80 (_CmFindFilterListInflectionPoint.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     _CmFindFilterListInflectionPoint @ 0x140979B18 (_CmFindFilterListInflectionPoint.c)
+ *     _PnpMultiSzAppend @ 0x14097C23C (_PnpMultiSzAppend.c)
  */
 
 __int64 __fastcall CmMergeFilterLists(
@@ -39,12 +39,11 @@ __int64 __fastcall CmMergeFilterLists(
   __int64 v25; // rax
   int v26; // edi
   unsigned int v27; // r14d
-  wchar_t *v29; // [rsp+20h] [rbp-18h] BYREF
+  wchar_t *v29; // [rsp+20h] [rbp-18h]
   const wchar_t *v30; // [rsp+28h] [rbp-10h]
   wchar_t *Str1a; // [rsp+80h] [rbp+48h]
   wchar_t *v32; // [rsp+88h] [rbp+50h]
   wchar_t *Str2; // [rsp+90h] [rbp+58h]
-  unsigned int v34; // [rsp+98h] [rbp+60h] BYREF
 
   Str2 = a3;
   v32 = a2;
@@ -84,8 +83,7 @@ __int64 __fastcall CmMergeFilterLists(
           v15 = 2 * v14 + 2;
           if ( v9 )
           {
-            v34 = v11;
-            if ( PnpMultiSzAppend(v9, &v34, v13, &v29) )
+            if ( (unsigned __int8)PnpMultiSzAppend(v9) )
             {
               v9 = v29;
             }
@@ -131,8 +129,7 @@ __int64 __fastcall CmMergeFilterLists(
         v20 = 2 * v19 + 2;
         if ( v9 )
         {
-          v34 = v11;
-          if ( PnpMultiSzAppend(v9, &v34, i, &v29) )
+          if ( (unsigned __int8)PnpMultiSzAppend(v9) )
           {
             v9 = v29;
           }
@@ -180,8 +177,7 @@ __int64 __fastcall CmMergeFilterLists(
       v6 = Str1a;
       if ( v9 )
       {
-        v34 = v11;
-        if ( PnpMultiSzAppend(v9, &v34, FilterListInflectionPoint, &v29) )
+        if ( (unsigned __int8)PnpMultiSzAppend(v9) )
         {
           v9 = v29;
         }

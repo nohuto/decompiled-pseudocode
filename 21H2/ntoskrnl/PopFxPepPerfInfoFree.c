@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxPepPerfInfoFree @ 0x14098DA38
+ * XREFs of PopFxPepPerfInfoFree @ 0x1408E50EC
  * Callers:
- *     PopFxPepPerfInfoQuery @ 0x14098DAB8 (PopFxPepPerfInfoQuery.c)
- *     PopFxRegisterComponentPerfStates @ 0x14098DCC4 (PopFxRegisterComponentPerfStates.c)
+ *     PopFxPepPerfInfoQuery @ 0x1408E516C (PopFxPepPerfInfoQuery.c)
+ *     PopFxRegisterComponentPerfStates @ 0x1408E5384 (PopFxRegisterComponentPerfStates.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopFxPepPerfInfoFree(_QWORD *P)

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopResurrectDriver @ 0x14036DED0
+ * XREFs of IopResurrectDriver @ 0x1403A6B30
  * Callers:
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
  */
 
 __int64 __fastcall IopResurrectDriver(__int64 a1)

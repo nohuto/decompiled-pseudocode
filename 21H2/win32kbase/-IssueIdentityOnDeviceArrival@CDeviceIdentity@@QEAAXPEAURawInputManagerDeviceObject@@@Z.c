@@ -1,52 +1,57 @@
 /*
- * XREFs of ?IssueIdentityOnDeviceArrival@CDeviceIdentity@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C00C1EA4
+ * XREFs of ?IssueIdentityOnDeviceArrival@CDeviceIdentity@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C00B3950
  * Callers:
- *     RIMCreateDev @ 0x1C0045A34 (RIMCreateDev.c)
- *     RIMVirtCreateDev @ 0x1C017C948 (RIMVirtCreateDev.c)
+ *     RIMCreateDev @ 0x1C0054530 (RIMCreateDev.c)
+ *     RIMVirtCreateDev @ 0x1C014FD68 (RIMVirtCreateDev.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0043E30 (RawInputManagerDeviceObjectResolveHandle.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0057C60 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CDeviceIdentity::IssueIdentityOnDeviceArrival(
         CDeviceIdentity *this,
-        struct RawInputManagerDeviceObject *a2,
-        __int64 a3)
+        struct RawInputManagerDeviceObject *a2)
 {
-  _DWORD *v4; // rsi
-  int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  char *v9; // rcx
-  PVOID v10; // rcx
-  PVOID Object; // [rsp+30h] [rbp+8h] BYREF
+  struct CDeviceIdentity *v2; // rsi
+  int v4; // ebx
+  char *v5; // rcx
+  PVOID v6; // rcx
+  PVOID Object; // [rsp+40h] [rbp+8h] BYREF
 
   Object = this;
-  v4 = gpDeviceIdentity;
+  v2 = gpDeviceIdentity;
   if ( *((_DWORD *)a2 + 18) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
+  {
+    LODWORD(Object) = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 88LL);
+  }
   if ( *((_DWORD *)a2 + 19) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
-  RIMLockExclusive((__int64)v4);
-  v5 = v4[4];
-  v4[4] = v5 + 1;
-  *((_QWORD *)v4 + 1) = 0LL;
-  ExReleasePushLockExclusiveEx(v4, 0LL);
+  {
+    LODWORD(Object) = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 89LL);
+  }
+  RIMLockExclusive((__int64)v2);
+  v4 = *((_DWORD *)v2 + 4);
+  *((_DWORD *)v2 + 4) = v4 + 1;
+  *((_QWORD *)v2 + 1) = 0LL;
+  ExReleasePushLockExclusiveEx(v2, 0LL);
   KeLeaveCriticalRegion();
-  *((_DWORD *)a2 + 18) = v5;
-  if ( !v5 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v7, v6, v8);
-  v9 = (char *)*((_QWORD *)a2 + 177);
-  if ( v9 )
+  *((_DWORD *)a2 + 18) = v4;
+  if ( !v4 )
+  {
+    LODWORD(Object) = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 93LL);
+  }
+  v5 = (char *)*((_QWORD *)a2 + 178);
+  if ( v5 )
   {
     Object = 0LL;
-    if ( (int)RawInputManagerDeviceObjectResolveHandle(v9, 3u, 1, &Object) >= 0 )
+    if ( (int)RawInputManagerDeviceObjectResolveHandle(v5, 3u, 1, &Object) >= 0 )
     {
-      v10 = Object;
+      v6 = Object;
       *((_DWORD *)a2 + 19) = *((_DWORD *)Object + 18);
-      ObfDereferenceObject(v10);
+      ObfDereferenceObject(v6);
     }
   }
   *((_QWORD *)a2 + 10) = lambda_fdb4fbfabcbae4b7f8e3309af96f3b1a_::_lambda_invoker_cdecl_;

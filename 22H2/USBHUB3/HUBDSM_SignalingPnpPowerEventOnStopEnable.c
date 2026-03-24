@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_SignalingPnpPowerEventOnStopEnable @ 0x1C0020460
+ * XREFs of HUBDSM_SignalingPnpPowerEventOnStopEnable @ 0x1C001DA40
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_SignalPnpPowerEvent @ 0x1C0019754 (HUBPDO_SignalPnpPowerEvent.c)
+ *     HUBPDO_SignalPnpPowerEvent @ 0x1C001810C (HUBPDO_SignalPnpPowerEvent.c)
  */
 
 __int64 __fastcall HUBDSM_SignalingPnpPowerEventOnStopEnable(__int64 a1)

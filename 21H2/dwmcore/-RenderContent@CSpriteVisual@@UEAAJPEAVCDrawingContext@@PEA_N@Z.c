@@ -1,17 +1,17 @@
 /*
- * XREFs of ?RenderContent@CSpriteVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18008CA50
+ * XREFs of ?RenderContent@CSpriteVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x1800B7F40
  * Callers:
  *     <none>
  * Callees:
- *     ?RenderContentWorker@CVisual@@KAJPEAV1@PEAVCContent@@IIPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x18001493C (-RenderContentWorker@CVisual@@KAJPEAV1@PEAVCContent@@IIPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
- *     ?GetDropShadow@CSpriteVisual@@IEBAPEAVCDropShadow@@XZ @ 0x1800159FC (-GetDropShadow@CSpriteVisual@@IEBAPEAVCDropShadow@@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18008CB20 (-RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
- *     ?GetContentAsBrushNoRef@CVisual@@QEBA_NPEAPEAVCBrush@@@Z @ 0x1800B5B8C (-GetContentAsBrushNoRef@CVisual@@QEBA_NPEAPEAVCBrush@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HasProtectedContent@CVisual@@QEBA_NXZ @ 0x1801B2C98 (-HasProtectedContent@CVisual@@QEBA_NXZ.c)
- *     ?SetOcclusionRect@CDropShadow@@QEAAXAEBUD2D_RECT_F@@@Z @ 0x180212A4C (-SetOcclusionRect@CDropShadow@@QEAAXAEBUD2D_RECT_F@@@Z.c)
+ *     ?RenderContentWorker@CVisual@@KAJPEAV1@PEAVCContent@@IIPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x1800155C0 (-RenderContentWorker@CVisual@@KAJPEAV1@PEAVCContent@@IIPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetContentAsBrushNoRef@CVisual@@QEBA_NPEAPEAVCBrush@@@Z @ 0x18009D904 (-GetContentAsBrushNoRef@CVisual@@QEBA_NPEAPEAVCBrush@@@Z.c)
+ *     ?RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x1800B8010 (-RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ *     ?GetDropShadow@CSpriteVisual@@AEBAPEAVCDropShadow@@XZ @ 0x1800B828C (-GetDropShadow@CSpriteVisual@@AEBAPEAVCDropShadow@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?HasProtectedContent@CVisual@@QEBA_NXZ @ 0x1801778A0 (-HasProtectedContent@CVisual@@QEBA_NXZ.c)
+ *     ?SetOcclusionRect@CDropShadow@@QEAAXAEBUD2D_RECT_F@@@Z @ 0x1801BF5A8 (-SetOcclusionRect@CDropShadow@@QEAAXAEBUD2D_RECT_F@@@Z.c)
  */
 
 __int64 __fastcall CSpriteVisual::RenderContent(CSpriteVisual *this, struct CDrawingContext *a2, bool *a3)
@@ -30,27 +30,27 @@ __int64 __fastcall CSpriteVisual::RenderContent(CSpriteVisual *this, struct CDra
   v6 = 0;
   if ( CVisual::HasProtectedContent(this) )
   {
-    if ( *(_BYTE *)(*((_QWORD *)this + 2) + 1274LL) )
+    if ( *(_BYTE *)(*((_QWORD *)this + 2) + 1129LL) )
     {
       *a3 = 1;
       return v6;
     }
-    *((_BYTE *)a2 + 7964) = 1;
+    *((_BYTE *)a2 + 5948) = 1;
   }
-  if ( (**((_DWORD **)this + 29) & 0x10000) != 0 )
+  if ( (**((_DWORD **)this + 28) & 0x10000) != 0 )
   {
     *(_QWORD *)&v16.left = 0LL;
     if ( CVisual::GetContentAsBrushNoRef(this, (struct CBrush **)&v16) )
     {
-      v13 = *((_DWORD *)a2 + 776);
+      v13 = *((_DWORD *)a2 + 808);
       if ( v13 )
-        v14 = *(float *)(*((_QWORD *)a2 + 390) + 4LL * (unsigned int)(v13 - 1));
+        v14 = *(float *)(*((_QWORD *)a2 + 406) + 4LL * (unsigned int)(v13 - 1));
       else
         v14 = *(float *)&FLOAT_1_0;
       if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(v14 - 1.0) & _xmm) >= 0.0000011920929
-        || !(*(unsigned __int8 (__fastcall **)(_QWORD, char *, struct D2D_RECT_F *))(**(_QWORD **)&v16.left + 296LL))(
+        || !(*(unsigned __int8 (__fastcall **)(_QWORD, char *, struct D2D_RECT_F *))(**(_QWORD **)&v16.left + 304LL))(
               *(_QWORD *)&v16.left,
-              (char *)this + 140,
+              (char *)this + 132,
               &v16) )
       {
         v16 = 0LL;
@@ -64,6 +64,6 @@ __int64 __fastcall CSpriteVisual::RenderContent(CSpriteVisual *this, struct CDra
   v7 = CVisual::RenderContent(this, a2, a3);
   v6 = v7;
   if ( v7 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0xB9u);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xBAu, 0LL);
   return v6;
 }

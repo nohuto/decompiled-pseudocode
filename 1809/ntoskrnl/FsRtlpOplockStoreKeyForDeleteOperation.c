@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlpOplockStoreKeyForDeleteOperation @ 0x1400B8710
+ * XREFs of FsRtlpOplockStoreKeyForDeleteOperation @ 0x1400B8730
  * Callers:
- *     FsRtlCheckOplock @ 0x1400B7BB0 (FsRtlCheckOplock.c)
- *     FsRtlCheckOplockEx @ 0x1400B7C60 (FsRtlCheckOplockEx.c)
+ *     FsRtlCheckOplock @ 0x1400B7BD0 (FsRtlCheckOplock.c)
+ *     FsRtlCheckOplockEx @ 0x1400B7C80 (FsRtlCheckOplockEx.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)

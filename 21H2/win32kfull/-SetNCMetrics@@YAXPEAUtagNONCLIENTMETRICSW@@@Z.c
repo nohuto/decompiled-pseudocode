@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00C77B4
+ * XREFs of ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00DB810
  * Callers:
- *     xxxSetWindowNCMetrics @ 0x1C00C7060 (xxxSetWindowNCMetrics.c)
+ *     xxxSetWindowNCMetrics @ 0x1C00E262C (xxxSetWindowNCMetrics.c)
  * Callees:
- *     SortMonitorsInSpatialOrder @ 0x1C00C7FB0 (SortMonitorsInSpatialOrder.c)
- *     bSetDevDragWidth @ 0x1C00C8184 (bSetDevDragWidth.c)
+ *     bSetDevDragWidth @ 0x1C00DB7BC (bSetDevDragWidth.c)
+ *     UpdateDesktopThresholds @ 0x1C00DC370 (UpdateDesktopThresholds.c)
  */
 
 void __fastcall SetNCMetrics(struct tagNONCLIENTMETRICSW *a1)
@@ -138,6 +138,6 @@ void __fastcall SetNCMetrics(struct tagNONCLIENTMETRICSW *a1)
                              + 2 * (v27 + 2 + 2 * *(_DWORD *)(v11 + 16));
   *(_DWORD *)(gpsi + 2472LL) = *(_DWORD *)(gpsi + 2412LL) + 2 * v28;
   *(_DWORD *)(gpsi + 2128LL) = *(_DWORD *)(gpsi + 2336LL) + 6;
-  bSetDevDragWidth(*(_QWORD *)(gpDispInfo + 40LL), (unsigned int)(*((_DWORD *)a1 + 1) + 3));
-  SortMonitorsInSpatialOrder();
+  bSetDevDragWidth(*(_QWORD *)(gpDispInfo + 40LL), *((_DWORD *)a1 + 1) + 3);
+  UpdateDesktopThresholds();
 }

@@ -1,17 +1,12 @@
 /*
- * XREFs of LeavePowerCrit @ 0x1C00A0000
+ * XREFs of LeavePowerCrit @ 0x1C0079330
  * Callers:
- *     QueuePowerRequest @ 0x1C00108E0 (QueuePowerRequest.c)
- *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C009E7F8 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
- *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C009F448 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall LeavePowerCrit(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 LeavePowerCrit()
 {
-  __int64 v4; // rax
-
-  v4 = SGDGetUserSessionState(a1, a2, a3, a4);
-  return ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(*(_QWORD *)(v4 + 696));
+  return ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(gpPowerRequestMutex);
 }

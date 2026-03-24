@@ -1,38 +1,35 @@
 /*
- * XREFs of ?_CheckPortraitFirstMonitorFromEDID@DXGMONITOR@@AEAAJXZ @ 0x1C020B394
+ * XREFs of ?_CheckPortraitFirstMonitorFromEDID@DXGMONITOR@@AEAAJXZ @ 0x1C0181C68
  * Callers:
- *     ?_InitializeMonitorWithDriver@DXGMONITOR@@QEAAJPEAV1@AEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020B164 (-_InitializeMonitorWithDriver@DXGMONITOR@@QEAAJPEAV1@AEAVIMonitorDeferredEventSource@DxgMonitor@.c)
- *     ?OnDescriptorUpdated@DXGMONITOR@@QEAAJAEAVIMonitorDeferredEventSource@DxgMonitor@@_N@Z @ 0x1C020B9D4 (-OnDescriptorUpdated@DXGMONITOR@@QEAAJAEAVIMonitorDeferredEventSource@DxgMonitor@@_N@Z.c)
+ *     ?_UpdateEDIDBaseBlock@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C018156C (-_UpdateEDIDBaseBlock@DXGMONITOR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?_InitializeMonitor@DXGMONITOR@@AEAAJIPEAU_DEVICE_OBJECT@@EEW4_DMM_VIDPN_MONITOR_TYPE@@PEAV1@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0183AE8 (-_InitializeMonitor@DXGMONITOR@@AEAAJIPEAU_DEVICE_OBJECT@@EEW4_DMM_VIDPN_MONITOR_TYPE@@PEAV1@PEA.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?EDID_V1_GetPreferredMode@@YAJPEBEPEAUDISPLAY_PREFERRED_MODE_INFO@@@Z @ 0x1C000D44C (-EDID_V1_GetPreferredMode@@YAJPEBEPEAUDISPLAY_PREFERRED_MODE_INFO@@@Z.c)
+ *     ?_GetEdidBaseBlockPtr@DXGMONITOR@@QEBAPEBXXZ @ 0x1C0133DD0 (-_GetEdidBaseBlockPtr@DXGMONITOR@@QEBAPEBXXZ.c)
  */
 
 __int64 __fastcall DXGMONITOR::_CheckPortraitFirstMonitorFromEDID(DXGMONITOR *this)
 {
-  __int64 v2; // rcx
+  unsigned __int8 *EdidBaseBlockPtr; // rax
   unsigned int v3; // eax
-  char v4; // cl
-  char v5; // cl
-  __int64 v7; // [rsp+20h] [rbp-28h] BYREF
-  int v8; // [rsp+28h] [rbp-20h]
+  int v4; // ecx
+  unsigned int v5; // ecx
+  __int64 v7; // [rsp+20h] [rbp-18h] BYREF
+  int v8; // [rsp+28h] [rbp-10h]
 
   v7 = 0LL;
   v8 = 0;
-  v2 = *(_QWORD *)(*((_QWORD *)this + 27) + 160LL);
-  if ( !v2 || (*(int (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v2 + 184LL))(v2, &v7) < 0 )
+  EdidBaseBlockPtr = (unsigned __int8 *)DXGMONITOR::_GetEdidBaseBlockPtr(this);
+  if ( (int)EDID_V1_GetPreferredMode(EdidBaseBlockPtr, (struct DISPLAY_PREFERRED_MODE_INFO *)&v7) < 0 )
     return 3221226021LL;
   v3 = v7;
-  v4 = *((_BYTE *)this + 177);
+  v4 = *((_DWORD *)this + 10);
   if ( (unsigned int)v7 < HIDWORD(v7) )
-  {
-    v5 = v4 | 1;
-  }
+    v5 = v4 | 0x100;
   else
-  {
+    v5 = v4 & 0xFFFFFEFF;
+  if ( (unsigned int)v7 >= HIDWORD(v7) )
     v3 = HIDWORD(v7);
-    v5 = v4 & 0xFE;
-  }
-  *((_BYTE *)this + 177) = v5 & 0xFD | (v3 < 0x400 ? 2 : 0);
+  *((_DWORD *)this + 10) = v5 & 0xFFFFFDFF | (v3 < 0x400 ? 0x200 : 0);
   return 0LL;
 }

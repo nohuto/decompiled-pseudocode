@@ -1,30 +1,28 @@
 /*
- * XREFs of SeOpenObjectAuditAlarmWithTransaction @ 0x140669A90
+ * XREFs of SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20
  * Callers:
- *     CmpCheckCreateAccess @ 0x140668AEC (CmpCheckCreateAccess.c)
- *     SeOpenObjectAuditAlarm @ 0x140669A30 (SeOpenObjectAuditAlarm.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
- *     CmpCheckKeyBodyAccess @ 0x1407F7AD0 (CmpCheckKeyBodyAccess.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
+ *     SeOpenObjectAuditAlarm @ 0x1405D99E0 (SeOpenObjectAuditAlarm.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     SeMaximumAuditMask @ 0x1405F4040 (SeMaximumAuditMask.c)
- *     SepQueryNameString @ 0x140696CCC (SepQueryNameString.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x14072427C (SepAdtAuditPrivilegeUseWithContext.c)
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x140882966 (SepAdtClassifyObjectIntoSubCategory.c)
- *     SeExamineGlobalSacl @ 0x140882A70 (SeExamineGlobalSacl.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409C8EE8 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1409C9C64 (SepAdtStagingEvent.c)
- *     SepQueryTypeString @ 0x1409CA168 (SepQueryTypeString.c)
- *     SeExamineSacl @ 0x1409CAE50 (SeExamineSacl.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1409CE4F8 (SeMaximumAuditMaskFromGlobalSacl.c)
- *     SepAuditFailed @ 0x1409CF1A0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     SeMaximumAuditMask @ 0x140595E74 (SeMaximumAuditMask.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x1406279F0 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SepQueryNameString @ 0x14071869C (SepQueryNameString.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F498 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x140920200 (SepAdtStagingEvent.c)
+ *     SepQueryTypeString @ 0x140920704 (SepQueryTypeString.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x140920980 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SeExamineSacl @ 0x140921420 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x140924A18 (SeExamineGlobalSacl.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x140924B38 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __stdcall SeOpenObjectAuditAlarmWithTransaction(
@@ -40,439 +38,406 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
         PBOOLEAN GenerateOnClose)
 {
   unsigned __int16 v10; // di
-  PUNICODE_STRING v11; // r10
-  UNICODE_STRING *v12; // rbx
-  const UNICODE_STRING *v13; // r11
+  PSECURITY_DESCRIPTOR v11; // r11
+  PUNICODE_STRING v12; // r10
+  UNICODE_STRING *v13; // r14
   _BYTE *ClientToken; // rdx
+  __int64 *p_SubjectSecurityContext; // rbx
   char *AuxData; // r12
-  SECURITY_SUBJECT_CONTEXT *p_SubjectSecurityContext; // r14
   PACCESS_TOKEN PrimaryToken; // rsi
-  int v18; // ebx
-  char v19; // di
-  BOOLEAN v20; // r14
-  SECURITY_SUBJECT_CONTEXT *v21; // rbx
-  BOOLEAN v22; // r10
-  unsigned __int8 v23; // al
-  char v24; // al
-  _DWORD *v25; // rcx
-  char v26; // al
-  unsigned int v27; // r8d
-  __int16 v28; // r10
-  __int16 v29; // r11
-  int v30; // r9d
-  ACCESS_MASK v31; // edi
-  __int16 v32; // ax
-  ACL *v33; // rdx
-  ACL *v34; // rcx
-  __int64 v35; // rcx
-  __int64 v36; // rax
+  BOOLEAN v18; // r15
+  bool v19; // r14
+  int v20; // ebx
+  char v21; // di
+  BOOLEAN v22; // bl
+  SECURITY_SUBJECT_CONTEXT *v23; // r9
+  __int64 v24; // r8
+  BOOLEAN v25; // r10
+  unsigned __int8 v26; // al
+  char v27; // al
+  _DWORD *v28; // rcx
+  BOOLEAN v29; // al
+  char v30; // al
+  SECURITY_SUBJECT_CONTEXT *p_SubjectContext; // r15
+  __int16 v32; // r10
+  __int16 v33; // r11
+  unsigned int i; // r8d
+  int v35; // r9d
+  ACCESS_MASK v36; // edi
   __int16 v37; // ax
   ACL *v38; // rdx
-  __int64 v39; // rax
-  __int16 v40; // ax
-  __int64 v41; // rcx
-  __int64 v42; // rax
-  const UNICODE_STRING *v43; // rsi
-  PVOID v44; // rcx
-  int v45; // eax
-  GUID *v46; // rax
-  __int64 v47; // rdx
+  ACL *v39; // rcx
+  __int64 v40; // rcx
+  __int64 v41; // rax
+  __int16 v42; // ax
+  ACL *v43; // rdx
+  __int64 v44; // rax
+  __int16 v45; // ax
+  char *v46; // rcx
+  __int64 v47; // rax
+  const UNICODE_STRING *v48; // rdx
+  PVOID v49; // rcx
+  int v50; // esi
+  PUNICODE_STRING v51; // rsi
+  int v52; // eax
+  GUID *v53; // rax
   wchar_t *Buffer; // rcx
-  wchar_t *Pool2; // rax
-  wchar_t *v50; // rcx
-  wchar_t *v51; // rax
-  const UNICODE_STRING *v52; // rdx
-  int v53; // [rsp+48h] [rbp-D8h]
-  BOOLEAN GenerateAudit; // [rsp+A0h] [rbp-80h] BYREF
-  BOOLEAN GenerateAlarm[7]; // [rsp+A1h] [rbp-7Fh] BYREF
-  PCUNICODE_STRING v56; // [rsp+A8h] [rbp-78h]
-  __int16 v57[2]; // [rsp+B0h] [rbp-70h] BYREF
-  int v58; // [rsp+B4h] [rbp-6Ch]
-  int v59; // [rsp+B8h] [rbp-68h]
-  const UNICODE_STRING *v60; // [rsp+C0h] [rbp-60h] BYREF
-  const UNICODE_STRING *v61; // [rsp+C8h] [rbp-58h]
-  PVOID P; // [rsp+D0h] [rbp-50h] BYREF
-  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+D8h] [rbp-48h] BYREF
-  PUNICODE_STRING SourceString; // [rsp+160h] [rbp+40h]
-  unsigned int *v67; // [rsp+168h] [rbp+48h]
-  unsigned __int8 AccessModea; // [rsp+188h] [rbp+68h]
+  wchar_t *PoolWithTag; // rax
+  const UNICODE_STRING *v56; // rdx
+  wchar_t *v57; // rcx
+  wchar_t *v58; // rax
+  int v59; // [rsp+50h] [rbp-D8h]
+  BOOLEAN GenerateAudit; // [rsp+A8h] [rbp-80h] BYREF
+  BOOLEAN GenerateAlarm[3]; // [rsp+A9h] [rbp-7Fh] BYREF
+  __int16 v62; // [rsp+ACh] [rbp-7Ch] BYREF
+  int v63; // [rsp+B0h] [rbp-78h]
+  PCUNICODE_STRING SourceString; // [rsp+B8h] [rbp-70h]
+  UNICODE_STRING *v65; // [rsp+C0h] [rbp-68h] BYREF
+  PVOID P; // [rsp+C8h] [rbp-60h] BYREF
+  UNICODE_STRING *v67; // [rsp+D0h] [rbp-58h]
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+D8h] [rbp-50h] BYREF
+  unsigned __int16 AccessModea[4]; // [rsp+180h] [rbp+58h]
 
-  v67 = (unsigned int *)SecurityDescriptor;
-  SourceString = AbsoluteObjectName;
   v10 = 999;
-  v11 = ObjectTypeName;
-  v12 = 0LL;
+  v11 = SecurityDescriptor;
+  v12 = ObjectTypeName;
   GenerateAudit = 0;
   v13 = 0LL;
   GenerateAlarm[0] = 0;
   P = 0LL;
-  v60 = 0LL;
-  v61 = 0LL;
-  v56 = 0LL;
-  v58 = 0;
-  v57[0] = 999;
+  v65 = 0LL;
+  SourceString = 0LL;
+  v67 = 0LL;
+  v63 = 0;
+  v62 = 999;
   if ( !AccessMode )
     return;
   ClientToken = AccessState->SubjectSecurityContext.ClientToken;
+  p_SubjectSecurityContext = (__int64 *)&AccessState->SubjectSecurityContext;
   AuxData = (char *)AccessState->AuxData;
-  p_SubjectSecurityContext = &AccessState->SubjectSecurityContext;
   if ( ClientToken )
     PrimaryToken = AccessState->SubjectSecurityContext.ClientToken;
   else
     PrimaryToken = AccessState->SubjectSecurityContext.PrimaryToken;
+  v18 = AccessGranted;
   if ( !SecurityDescriptor )
-    goto LABEL_23;
-  v10 = 118;
-  v59 = 118;
-  v57[0] = 118;
+    goto LABEL_22;
+  v10 = 119;
+  v62 = 119;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  LOBYTE(AbsoluteObjectName) = AccessGranted == 0;
-  v18 = (AccessGranted != 0 ? 3 : 0) | 0x30;
-  AccessModea = AccessGranted == 0;
+  v19 = AccessGranted == 0;
+  v20 = (AccessGranted != 0 ? 3 : 0) | 0x30;
   if ( AccessGranted )
-    v18 = AccessGranted != 0 ? 3 : 0;
-  if ( !dword_140C1B348 )
+    v20 = AccessGranted != 0 ? 3 : 0;
+  if ( !dword_140C1D568 )
   {
-    v20 = GenerateAudit;
-    v21 = &AccessState->SubjectSecurityContext;
-    goto LABEL_13;
-  }
-  if ( (v18 & dword_140C1B348) == 0 )
-  {
-    v19 = 0;
-    if ( !dword_140C1B508 )
-    {
-      v20 = GenerateAudit;
-LABEL_11:
-      v21 = &AccessState->SubjectSecurityContext;
-LABEL_12:
-      v10 = v59;
-      goto LABEL_13;
-    }
-    if ( AccessState == (PACCESS_STATE)-32LL )
-    {
-      p_SubjectSecurityContext = &SubjectContext;
-      SeCaptureSubjectContext(&SubjectContext);
-      ClientToken = SubjectContext.ClientToken;
-      SecurityDescriptor = v67;
-      AbsoluteObjectName = (PUNICODE_STRING)AccessModea;
-      v13 = v56;
-      v11 = ObjectTypeName;
-    }
-    if ( ClientToken || (ClientToken = p_SubjectSecurityContext->PrimaryToken) != 0LL )
-    {
-      if ( ClientToken[118] != 2 )
-      {
-LABEL_56:
-        v21 = &AccessState->SubjectSecurityContext;
-        if ( AccessState == (PACCESS_STATE)-32LL )
-        {
-          SeReleaseSubjectContext(p_SubjectSecurityContext);
-          SecurityDescriptor = v67;
-          AbsoluteObjectName = (PUNICODE_STRING)AccessModea;
-          v13 = v56;
-          v11 = ObjectTypeName;
-        }
-        if ( !v19 )
-        {
-          v20 = GenerateAudit;
-          goto LABEL_12;
-        }
-        p_SubjectSecurityContext = &AccessState->SubjectSecurityContext;
-        goto LABEL_58;
-      }
-      v27 = 16;
-      v28 = 0;
-      v29 = 0;
-      do
-      {
-        v30 = (unsigned __int8)ClientToken[((unsigned __int64)v27 >> 1) + 88] >> (4 * (v27 & 1));
-        if ( (v30 & 1) != 0 )
-        {
-          if ( (v18 & 2) != 0 )
-            goto LABEL_54;
-          ++v28;
-        }
-        if ( (v30 & 4) != 0 )
-        {
-          if ( (v18 & 0x20) != 0 )
-            goto LABEL_54;
-          ++v29;
-        }
-        ++v27;
-      }
-      while ( v27 < 0x1E );
-      if ( (v18 & 1) != 0 && v28 == 14 || (v18 & 0x10) != 0 && v29 == 14 )
-LABEL_54:
-        v19 = 1;
-    }
-    else
-    {
-      SepAuditFailed(3221225596LL);
-    }
-    v11 = ObjectTypeName;
-    v13 = v56;
-    AbsoluteObjectName = (PUNICODE_STRING)AccessModea;
-    SecurityDescriptor = v67;
-    goto LABEL_56;
-  }
-LABEL_58:
-  v10 = SepAdtClassifyObjectIntoSubCategory(Object, v11, AccessGranted, (unsigned __int8)AbsoluteObjectName);
-  v59 = v10;
-  v57[0] = v10;
-  if ( (unsigned __int8)SepAdtAuditThisEventWithContext(v10, AccessGranted, AccessModea, p_SubjectSecurityContext) )
-  {
-    v31 = AccessState->RemainingDesiredAccess | AccessState->PreviouslyGrantedAccess;
-    v32 = *((_WORD *)v67 + 1);
-    if ( (v32 & 0x10) != 0 )
-    {
-      if ( v32 >= 0 )
-      {
-        v33 = (ACL *)*((_QWORD *)v67 + 3);
-      }
-      else
-      {
-        v35 = v67[3];
-        if ( (_DWORD)v35 )
-          v33 = (ACL *)((char *)v67 + v35);
-        else
-          v33 = 0LL;
-      }
-      if ( v32 >= 0 )
-      {
-        v34 = (ACL *)*((_QWORD *)v67 + 3);
-      }
-      else
-      {
-        v36 = v67[3];
-        if ( (_DWORD)v36 )
-          v34 = (ACL *)((char *)v67 + v36);
-        else
-          v34 = 0LL;
-      }
-    }
-    else
-    {
-      v33 = 0LL;
-      v34 = 0LL;
-    }
-    SeExamineSacl(v34, v33, PrimaryToken, v31, AccessGranted, &GenerateAudit, GenerateAlarm);
-    v37 = *((_WORD *)v67 + 1);
-    if ( (v37 & 0x10) != 0 )
-    {
-      if ( v37 >= 0 )
-      {
-        v38 = (ACL *)*((_QWORD *)v67 + 3);
-      }
-      else
-      {
-        v39 = v67[3];
-        if ( (_DWORD)v39 )
-          v38 = (ACL *)((char *)v67 + v39);
-        else
-          v38 = 0LL;
-      }
-    }
-    else
-    {
-      v38 = 0LL;
-    }
-    SeExamineGlobalSacl(ObjectTypeName, v38, PrimaryToken, v31, AccessGranted, &GenerateAudit, GenerateAlarm);
-    v20 = GenerateAudit;
-    if ( GenerateAudit )
-    {
-      *GenerateOnClose = 1;
-      if ( AccessGranted )
-      {
-        v40 = *((_WORD *)v67 + 1);
-        if ( (v40 & 0x10) != 0 )
-        {
-          if ( v40 >= 0 )
-          {
-            v41 = *((_QWORD *)v67 + 3);
-          }
-          else
-          {
-            v42 = v67[3];
-            if ( (_DWORD)v42 )
-              v41 = (__int64)v67 + v42;
-            else
-              v41 = 0LL;
-          }
-        }
-        else
-        {
-          v41 = 0LL;
-        }
-        SeMaximumAuditMask(v41, v31, (__int64)PrimaryToken, (_DWORD *)AuxData + 7);
-        SeMaximumAuditMaskFromGlobalSacl(ObjectTypeName, v31, PrimaryToken, (PACCESS_MASK)AuxData + 7);
-      }
-    }
-    SecurityDescriptor = v67;
-    AbsoluteObjectName = (PUNICODE_STRING)AccessModea;
-    v13 = v56;
+    v22 = GenerateAudit;
     goto LABEL_11;
   }
-  v20 = GenerateAudit;
-  v21 = &AccessState->SubjectSecurityContext;
-  SecurityDescriptor = v67;
-  AbsoluteObjectName = (PUNICODE_STRING)AccessModea;
-  v13 = v56;
-LABEL_13:
-  if ( (AccessState->OriginalDesiredAccess & 0x2000000) != 0 )
-    LOBYTE(AbsoluteObjectName) = 1;
-  v22 = 0;
-  if ( (AccessState->OriginalDesiredAccess & 0x2000000) == 0 )
-    v22 = AccessGranted;
-  v23 = 0;
-  while ( *((int *)AccessState->AuxData + v23 + 22) >= 0 )
+  if ( (v20 & dword_140C1D568) != 0 )
   {
-    if ( ++v23 >= 0x20u )
+LABEL_58:
+    v10 = SepAdtClassifyObjectIntoSubCategory(Object, v12, v18, v19);
+    AccessModea[0] = v10;
+    v62 = v10;
+    if ( (unsigned __int8)SepAdtAuditThisEventWithContext(v10, v18, v19, &AccessState->SubjectSecurityContext) )
     {
-      v24 = 0;
-      goto LABEL_21;
+      v36 = AccessState->RemainingDesiredAccess | AccessState->PreviouslyGrantedAccess;
+      v37 = *((_WORD *)SecurityDescriptor + 1);
+      if ( (v37 & 0x10) != 0 )
+      {
+        if ( v37 >= 0 )
+        {
+          v38 = (ACL *)*((_QWORD *)SecurityDescriptor + 3);
+        }
+        else
+        {
+          v40 = *((unsigned int *)SecurityDescriptor + 3);
+          if ( (_DWORD)v40 )
+            v38 = (ACL *)((char *)SecurityDescriptor + v40);
+          else
+            v38 = 0LL;
+        }
+        if ( v37 >= 0 )
+        {
+          v39 = (ACL *)*((_QWORD *)SecurityDescriptor + 3);
+        }
+        else
+        {
+          v41 = *((unsigned int *)SecurityDescriptor + 3);
+          if ( (_DWORD)v41 )
+            v39 = (ACL *)((char *)SecurityDescriptor + v41);
+          else
+            v39 = 0LL;
+        }
+      }
+      else
+      {
+        v38 = 0LL;
+        v39 = 0LL;
+      }
+      SeExamineSacl(v39, v38, PrimaryToken, v36, v18, &GenerateAudit, GenerateAlarm);
+      v42 = *((_WORD *)SecurityDescriptor + 1);
+      if ( (v42 & 0x10) != 0 )
+      {
+        if ( v42 >= 0 )
+        {
+          v43 = (ACL *)*((_QWORD *)SecurityDescriptor + 3);
+        }
+        else
+        {
+          v44 = *((unsigned int *)SecurityDescriptor + 3);
+          if ( (_DWORD)v44 )
+            v43 = (ACL *)((char *)SecurityDescriptor + v44);
+          else
+            v43 = 0LL;
+        }
+      }
+      else
+      {
+        v43 = 0LL;
+      }
+      SeExamineGlobalSacl(ObjectTypeName, v43, PrimaryToken, v36, v18, &GenerateAudit, GenerateAlarm);
+      v22 = GenerateAudit;
+      if ( !GenerateAudit || (*GenerateOnClose = 1, !v18) )
+      {
+        v10 = AccessModea[0];
+        goto LABEL_89;
+      }
+      v45 = *((_WORD *)SecurityDescriptor + 1);
+      if ( (v45 & 0x10) != 0 )
+      {
+        if ( v45 >= 0 )
+        {
+          v46 = (char *)*((_QWORD *)SecurityDescriptor + 3);
+        }
+        else
+        {
+          v47 = *((unsigned int *)SecurityDescriptor + 3);
+          if ( (_DWORD)v47 )
+            v46 = (char *)SecurityDescriptor + v47;
+          else
+            v46 = 0LL;
+        }
+      }
+      else
+      {
+        v46 = 0LL;
+      }
+      SeMaximumAuditMask((__int64)v46, v36, (__int64)PrimaryToken, (_DWORD *)AuxData + 7);
+      SeMaximumAuditMaskFromGlobalSacl(ObjectTypeName, v36, PrimaryToken, (PACCESS_MASK)AuxData + 7);
+      v10 = AccessModea[0];
+    }
+    v22 = GenerateAudit;
+LABEL_89:
+    v11 = SecurityDescriptor;
+    goto LABEL_11;
+  }
+  v21 = 0;
+  if ( !dword_140C1D728 )
+  {
+    v22 = GenerateAudit;
+    v10 = 119;
+LABEL_11:
+    v23 = &AccessState->SubjectSecurityContext;
+    goto LABEL_12;
+  }
+  p_SubjectContext = &AccessState->SubjectSecurityContext;
+  if ( AccessState == (PACCESS_STATE)-32LL )
+  {
+    p_SubjectContext = &SubjectContext;
+    SeCaptureSubjectContext(&SubjectContext);
+    ClientToken = SubjectContext.ClientToken;
+    v11 = SecurityDescriptor;
+    v12 = ObjectTypeName;
+  }
+  if ( ClientToken || (ClientToken = p_SubjectContext->PrimaryToken) != 0LL )
+  {
+    if ( ClientToken[119] != 2 )
+      goto LABEL_56;
+    v32 = 0;
+    v33 = 0;
+    for ( i = 17; i < 0x1F; ++i )
+    {
+      v35 = (unsigned __int8)ClientToken[((unsigned __int64)i >> 1) + 88] >> (4 * (i & 1));
+      if ( (v35 & 1) != 0 )
+      {
+        if ( (v20 & 2) != 0 )
+          goto LABEL_54;
+        ++v32;
+      }
+      if ( (v35 & 4) != 0 )
+      {
+        if ( (v20 & 0x20) != 0 )
+          goto LABEL_54;
+        ++v33;
+      }
+    }
+    if ( (v20 & 1) != 0 && v32 == 14 || (v20 & 0x10) != 0 && v33 == 14 )
+LABEL_54:
+      v21 = 1;
+  }
+  else
+  {
+    SepAuditFailed(3221225596LL);
+  }
+  v12 = ObjectTypeName;
+  v11 = SecurityDescriptor;
+LABEL_56:
+  v23 = &AccessState->SubjectSecurityContext;
+  if ( AccessState == (PACCESS_STATE)-32LL )
+  {
+    SeReleaseSubjectContext(p_SubjectContext);
+    v11 = SecurityDescriptor;
+    v23 = 0LL;
+    v12 = ObjectTypeName;
+  }
+  v18 = AccessGranted;
+  if ( v21 )
+    goto LABEL_58;
+  v22 = GenerateAudit;
+  v10 = 119;
+LABEL_12:
+  v24 = v19;
+  if ( (AccessState->OriginalDesiredAccess & 0x2000000) != 0 )
+    v24 = 1LL;
+  v25 = 0;
+  if ( (AccessState->OriginalDesiredAccess & 0x2000000) == 0 )
+    v25 = v18;
+  v26 = 0;
+  while ( *((int *)AccessState->AuxData + v26 + 22) >= 0 )
+  {
+    if ( ++v26 >= 0x20u )
+    {
+      v27 = 0;
+      goto LABEL_20;
     }
   }
-  v24 = SepAdtAuditThisEventWithContext(129LL, v22, AbsoluteObjectName, v21);
-  SecurityDescriptor = v67;
-  v13 = v56;
-LABEL_21:
-  AuxData[216] = v24;
-  if ( v20 )
-    goto LABEL_91;
-  v12 = (UNICODE_STRING *)v60;
-  p_SubjectSecurityContext = &AccessState->SubjectSecurityContext;
-LABEL_23:
-  if ( AccessGranted )
+  v27 = SepAdtAuditThisEventWithContext(130LL, v25, v24, v23);
+  v11 = SecurityDescriptor;
+LABEL_20:
+  AuxData[216] = v27;
+  if ( v22 )
+    goto LABEL_92;
+  v13 = v65;
+  p_SubjectSecurityContext = (__int64 *)&AccessState->SubjectSecurityContext;
+LABEL_22:
+  if ( v18 )
   {
-    v25 = *(_DWORD **)AuxData;
+    v28 = *(_DWORD **)AuxData;
     if ( *(_QWORD *)AuxData )
     {
-      if ( *v25 )
+      if ( *v28 )
       {
-        v26 = SepAdtAuditPrivilegeUseWithContext(
-                (_DWORD)v25,
-                AccessGranted,
-                0,
-                (_DWORD)p_SubjectSecurityContext,
-                (__int64)v57);
-        v10 = v57[0];
-        SecurityDescriptor = v67;
-        v13 = v56;
-        if ( v26 )
+        v30 = SepAdtAuditPrivilegeUseWithContext((_DWORD)v28, v18, 0, (_DWORD)p_SubjectSecurityContext, (__int64)&v62);
+        v10 = v62;
+        v11 = SecurityDescriptor;
+        if ( v30 )
         {
           AccessState->AuditPrivileges = 1;
-          goto LABEL_91;
+          goto LABEL_92;
         }
       }
     }
   }
   if ( GenerateAlarm[0] )
   {
-LABEL_91:
-    v12 = (UNICODE_STRING *)v60;
-    p_SubjectSecurityContext = &AccessState->SubjectSecurityContext;
-    AccessState->GenerateAudit = 1;
-    goto LABEL_92;
-  }
-  AccessState->GenerateAudit = 0;
-  if ( !AuxData[216] )
-    return;
 LABEL_92:
-  v43 = SourceString;
-  if ( SourceString && SourceString->Length )
-  {
-    v44 = Object;
+    v13 = v65;
+    p_SubjectSecurityContext = (__int64 *)&AccessState->SubjectSecurityContext;
+    v29 = 1;
+    goto LABEL_27;
   }
-  else
+  v29 = 0;
+LABEL_27:
+  AccessState->GenerateAudit = v29;
+  if ( !v29 && !AuxData[216] )
+    return;
+  v48 = AbsoluteObjectName;
+  if ( AbsoluteObjectName && AbsoluteObjectName->Length )
   {
-    v44 = Object;
-    if ( Object )
-    {
-      v45 = SepQueryNameString(Object, &P, AbsoluteObjectName, SecurityDescriptor);
-      v58 = v45;
-      if ( v45 < 0 )
-        goto LABEL_130;
-      SecurityDescriptor = v67;
-      v13 = v56;
-      if ( P )
-      {
-        v43 = v61;
-        if ( *((_WORD *)P + 1) != (_WORD)v61 )
-          v43 = (const UNICODE_STRING *)P;
-        v44 = Object;
-      }
-      else
-      {
-        v44 = Object;
-        v43 = v56;
-      }
-    }
-    else
-    {
-      v43 = v61;
-    }
+    SourceString = AbsoluteObjectName;
+LABEL_96:
+    v49 = Object;
+    goto LABEL_104;
   }
+  v49 = Object;
+  if ( Object )
+  {
+    v63 = SepQueryNameString(Object, &P);
+    v50 = v63;
+    if ( v63 < 0 )
+      goto LABEL_130;
+    v48 = SourceString;
+    v11 = SecurityDescriptor;
+    if ( P )
+    {
+      if ( *((_WORD *)P + 1) != (_WORD)SourceString )
+        v48 = (const UNICODE_STRING *)P;
+      v49 = Object;
+      SourceString = v48;
+      goto LABEL_104;
+    }
+    goto LABEL_96;
+  }
+  v48 = SourceString;
+LABEL_104:
   if ( ObjectTypeName && ObjectTypeName->Length )
   {
-    v13 = ObjectTypeName;
-    v56 = ObjectTypeName;
-LABEL_111:
-    if ( AccessGranted )
+    v51 = ObjectTypeName;
+LABEL_113:
+    if ( v18 )
     {
-      if ( v43 )
+      if ( v48 )
       {
         Buffer = AccessState->ObjectName.Buffer;
         if ( Buffer )
         {
           ExFreePoolWithTag(Buffer, 0);
+          v48 = SourceString;
           *(_DWORD *)&AccessState->ObjectName.Length = 0;
         }
-        Pool2 = (wchar_t *)ExAllocatePool2(256LL, v43->MaximumLength, 538994003LL);
-        AccessState->ObjectName.Buffer = Pool2;
-        if ( Pool2 )
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v48->MaximumLength, 0x20206553u);
+        AccessState->ObjectName.Buffer = PoolWithTag;
+        if ( PoolWithTag )
         {
-          AccessState->ObjectName.MaximumLength = v43->MaximumLength;
-          RtlCopyUnicodeString(&AccessState->ObjectName, v43);
+          v56 = SourceString;
+          AccessState->ObjectName.MaximumLength = SourceString->MaximumLength;
+          RtlCopyUnicodeString(&AccessState->ObjectName, v56);
         }
-        v13 = v56;
-        v12 = (UNICODE_STRING *)v60;
       }
-      if ( v13 )
+      if ( v51 )
       {
-        v50 = AccessState->ObjectTypeName.Buffer;
-        if ( v50 )
+        v57 = AccessState->ObjectTypeName.Buffer;
+        if ( v57 )
         {
-          ExFreePoolWithTag(v50, 0);
-          v13 = v56;
+          ExFreePoolWithTag(v57, 0);
           *(_DWORD *)&AccessState->ObjectTypeName.Length = 0;
         }
-        v51 = (wchar_t *)ExAllocatePool2(256LL, v13->MaximumLength, 538994003LL);
-        AccessState->ObjectTypeName.Buffer = v51;
-        if ( v51 )
+        v58 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v51->MaximumLength, 0x20206553u);
+        AccessState->ObjectTypeName.Buffer = v58;
+        if ( v58 )
         {
-          v52 = v56;
-          AccessState->ObjectTypeName.MaximumLength = v56->MaximumLength;
-          RtlCopyUnicodeString(&AccessState->ObjectTypeName, v52);
+          AccessState->ObjectTypeName.MaximumLength = v51->MaximumLength;
+          RtlCopyUnicodeString(&AccessState->ObjectTypeName, v51);
         }
-        v12 = (UNICODE_STRING *)v60;
       }
       if ( TransactionId )
         *((GUID *)AuxData + 2) = *TransactionId;
     }
     else
     {
-      v46 = TransactionId;
+      v53 = TransactionId;
       if ( !TransactionId )
-        v46 = (GUID *)(AuxData + 32);
+        v53 = (GUID *)(AuxData + 32);
       SepAdtOpenObjectAuditAlarm(
         v10,
         (int)&SeSubsystemName,
         0,
-        (int)v13,
-        (__int64)v43,
-        SecurityDescriptor,
-        (__int64)p_SubjectSecurityContext->ClientToken,
+        (int)v51,
+        (__int64)v48,
+        v11,
+        *p_SubjectSecurityContext,
         (__int64)AccessState->SubjectSecurityContext.PrimaryToken,
         AccessState->OriginalDesiredAccess,
         AccessState->PreviouslyGrantedAccess,
@@ -483,51 +448,49 @@ LABEL_111:
         0LL,
         0,
         0LL,
-        (__int64)v46,
+        (__int64)v53,
         (__int64)AccessState);
-      LOBYTE(v53) = 0;
+      LOBYTE(v59) = 0;
       SepAdtStagingEvent(
         v10,
-        v47,
+        SourceString,
         0LL,
-        v56,
-        v43,
-        p_SubjectSecurityContext->ClientToken,
+        v51,
+        SourceString,
+        *p_SubjectSecurityContext,
         AccessState->SubjectSecurityContext.PrimaryToken,
         AccessState->OriginalDesiredAccess,
         AccessState->PreviouslyGrantedAccess,
-        v53,
+        v59,
         0LL,
         AccessState);
     }
-    v45 = v58;
+    v50 = v63;
     goto LABEL_130;
   }
-  if ( !v44 )
-    goto LABEL_111;
-  v45 = SepQueryTypeString(v44, &v60, AbsoluteObjectName, SecurityDescriptor);
-  v12 = (UNICODE_STRING *)v60;
-  v58 = v45;
-  if ( v45 >= 0 )
+  if ( !v49 )
   {
-    v13 = v56;
-    SecurityDescriptor = v67;
-    if ( v60 )
-      v13 = v60;
-    v56 = v13;
-    goto LABEL_111;
+    v51 = v67;
+    goto LABEL_113;
+  }
+  v52 = SepQueryTypeString(v49, &v65);
+  v13 = v65;
+  v50 = v52;
+  v63 = v52;
+  if ( v52 >= 0 )
+  {
+    v51 = v67;
+    v11 = SecurityDescriptor;
+    v48 = SourceString;
+    if ( v65 )
+      v51 = v65;
+    goto LABEL_113;
   }
 LABEL_130:
   if ( P )
-  {
     ExFreePoolWithTag(P, 0);
-    v45 = v58;
-  }
-  if ( v12 )
-  {
-    ExFreePoolWithTag(v12, 0);
-    v45 = v58;
-  }
-  if ( v45 < 0 )
-    SepAuditFailed((unsigned int)v45);
+  if ( v13 )
+    ExFreePoolWithTag(v13, 0);
+  if ( v50 < 0 )
+    SepAuditFailed((unsigned int)v50);
 }

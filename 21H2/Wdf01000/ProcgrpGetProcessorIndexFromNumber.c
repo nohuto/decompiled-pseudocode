@@ -1,5 +1,5 @@
 /*
- * XREFs of ProcgrpGetProcessorIndexFromNumber @ 0x1C0091D90
+ * XREFs of ProcgrpGetProcessorIndexFromNumber @ 0x1C0091EB0
  * Callers:
  *     <none>
  * Callees:

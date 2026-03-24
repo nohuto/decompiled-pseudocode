@@ -1,15 +1,15 @@
 /*
- * XREFs of KseShimDatabaseBootRelease @ 0x1407503E4
+ * XREFs of KseShimDatabaseBootRelease @ 0x1407503C4
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x14018B1B4 (PnpCompleteSystemStartProcess.c)
- *     KseShimDatabaseClose @ 0x14067D9AC (KseShimDatabaseClose.c)
+ *     PnpCompleteSystemStartProcess @ 0x14018B1D4 (PnpCompleteSystemStartProcess.c)
+ *     KseShimDatabaseClose @ 0x14067D98C (KseShimDatabaseClose.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KsepPoolFreePaged @ 0x1400F4C94 (KsepPoolFreePaged.c)
- *     SdbReleaseDatabase @ 0x140680AFC (SdbReleaseDatabase.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
+ *     SdbReleaseDatabase @ 0x140680ADC (SdbReleaseDatabase.c)
  */
 
 _QWORD *KseShimDatabaseBootRelease()

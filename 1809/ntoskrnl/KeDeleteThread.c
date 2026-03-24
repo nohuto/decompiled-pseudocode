@@ -1,13 +1,13 @@
 /*
- * XREFs of KeDeleteThread @ 0x14013D3A4
+ * XREFs of KeDeleteThread @ 0x14013D3C4
  * Callers:
- *     PspReaper @ 0x14013D220 (PspReaper.c)
+ *     PspReaper @ 0x14013D240 (PspReaper.c)
  * Callees:
  *     KiDecrementProcessStackCount @ 0x1400174F0 (KiDecrementProcessStackCount.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiWaitForContextSwap @ 0x14013D450 (KiWaitForContextSwap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiWaitForContextSwap @ 0x14013D470 (KiWaitForContextSwap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeDeleteThread(__int64 *a1)

@@ -1,8 +1,7 @@
 /*
- * XREFs of MiSetPfnOriginalPte @ 0x14040EA60
+ * XREFs of MiSetPfnOriginalPte @ 0x14054F35C
  * Callers:
- *     SymCryptModExpWindowed @ 0x140408D20 (SymCryptModExpWindowed.c)
- *     MmFreeNonCachedMemory @ 0x140A2DB70 (MmFreeNonCachedMemory.c)
+ *     MmFreeNonCachedMemory @ 0x1408C6930 (MmFreeNonCachedMemory.c)
  * Callees:
  *     <none>
  */

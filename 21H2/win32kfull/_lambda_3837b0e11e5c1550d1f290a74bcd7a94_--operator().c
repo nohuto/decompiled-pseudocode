@@ -1,10 +1,10 @@
 /*
- * XREFs of _lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator() @ 0x1C00103BC
+ * XREFs of _lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator() @ 0x1C00A6E4C
  * Callers:
- *     UmfdLoadFontFileView @ 0x1C0010120 (UmfdLoadFontFileView.c)
+ *     UmfdLoadFontFileView @ 0x1C00A6BF0 (UmfdLoadFontFileView.c)
  * Callees:
- *     ?LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z @ 0x1C000CD68 (-LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z.c)
- *     ?MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z @ 0x1C000FA44 (-MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z.c)
+ *     ?MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z @ 0x1C00A4EDC (-MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z.c)
+ *     ?LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z @ 0x1C00A5980 (-LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z.c)
  */
 
 __int64 __fastcall lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator()(__int64 a1, char a2, unsigned int a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_FlushingPnpEventsWithPortOff @ 0x1C0021910
+ * XREFs of HUBDSM_FlushingPnpEventsWithPortOff @ 0x1C00214C0
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_SignalPnpPowerFailureEvent @ 0x1C0018660 (HUBPDO_SignalPnpPowerFailureEvent.c)
+ *     HUBPDO_SignalPnpPowerFailureEvent @ 0x1C0018160 (HUBPDO_SignalPnpPowerFailureEvent.c)
  */
 
 __int64 __fastcall HUBDSM_FlushingPnpEventsWithPortOff(__int64 a1)

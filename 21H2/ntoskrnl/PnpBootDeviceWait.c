@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpBootDeviceWait @ 0x1403C5C64
+ * XREFs of PnpBootDeviceWait @ 0x1403B83B4
  * Callers:
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
- *     VhdInitialize @ 0x140B30860 (VhdInitialize.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     VhdInitialize @ 0x140A73778 (VhdInitialize.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     HeadlessKernelAddLogEntry @ 0x1402D26C0 (HeadlessKernelAddLogEntry.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     IopOpenRegistryKeyEx @ 0x14082EF44 (IopOpenRegistryKeyEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     HeadlessKernelAddLogEntry @ 0x14036F610 (HeadlessKernelAddLogEntry.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKeyEx @ 0x1407AC650 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpBootDeviceWait(
@@ -23,8 +23,8 @@ __int64 __fastcall PnpBootDeviceWait(
 {
   int v4; // edi
   unsigned int v8; // ebx
-  int RegistryValue; // esi
-  int v10; // r14d
+  int RegistryValue; // r14d
+  int v10; // esi
   PVOID P; // [rsp+30h] [rbp-30h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-28h] BYREF
   _QWORD v14[3]; // [rsp+48h] [rbp-18h] BYREF
@@ -66,7 +66,7 @@ __int64 __fastcall PnpBootDeviceWait(
     ZwClose(Handle);
   }
   P = (PVOID)-2000000LL;
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&UnicodeString);
   v10 = a3(a1, a4, &UnicodeString);
   if ( v10 < 0 )
   {
@@ -75,17 +75,19 @@ __int64 __fastcall PnpBootDeviceWait(
     do
     {
       if ( v4 <= 0 )
-      {
-        HeadlessKernelAddLogEntry();
-        KeBugCheckEx(0x7Bu, (ULONG_PTR)&UnicodeString, v10, 0LL, a2);
-      }
+        break;
       KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&P);
       v4 -= 200;
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
       v10 = a3(a1, a4, &UnicodeString);
     }
     while ( v10 < 0 );
+    if ( v10 < 0 )
+    {
+      HeadlessKernelAddLogEntry();
+      KeBugCheckEx(0x7Bu, (ULONG_PTR)&UnicodeString, v10, 0LL, a2);
+    }
   }
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&UnicodeString);
   return 0LL;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of IoReadPartitionTable @ 0x140940820
+ * XREFs of IoReadPartitionTable @ 0x14088DC90
  * Callers:
- *     DifIoReadPartitionTableWrapper @ 0x1405E0950 (DifIoReadPartitionTableWrapper.c)
+ *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ??0SC_DISK@@QEAA@XZ @ 0x1406753D8 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x140675500 (--1SC_DISK@@UEAA@XZ.c)
- *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140675B6C (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1409404E8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x1405C6914 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1405C6A24 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C6EE8 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088D958 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoReadPartitionTable(
@@ -27,15 +27,15 @@ NTSTATUS __stdcall IoReadPartitionTable(
   SIZE_T v11; // rbp
   struct _DRIVE_LAYOUT_INFORMATION *PoolWithTag; // rax
   __int64 v13; // r8
-  struct _DRIVE_LAYOUT_INFORMATION *v14; // r10
+  struct _DRIVE_LAYOUT_INFORMATION *v14; // r9
   __int64 v15; // rcx
-  ULONG *v16; // r9
-  char v17; // al
-  PVOID P; // [rsp+20h] [rbp-1C8h] BYREF
-  _QWORD v20[50]; // [rsp+30h] [rbp-1B8h] BYREF
+  unsigned int v16; // eax
+  int v17; // r10d
+  PVOID P; // [rsp+20h] [rbp-1A8h] BYREF
+  _QWORD v20[46]; // [rsp+30h] [rbp-198h] BYREF
 
   SC_DISK::SC_DISK((SC_DISK *)v20);
-  v20[49] = 0LL;
+  v20[44] = 0LL;
   P = 0LL;
   *v6 = 0LL;
   v20[0] = &NT_DISK::`vftable';
@@ -65,18 +65,21 @@ NTSTATUS __stdcall IoReadPartitionTable(
           {
             v14 = *PartitionBuffer;
             v15 = (unsigned int)v13;
-            v16 = &v10[36 * v13];
             if ( ReturnRecognizedPartitions )
             {
-              v17 = *((_BYTE *)v16 + 80);
-              if ( !v17 || v17 == 5 || v17 == 15 )
-                continue;
+              v16 = LOBYTE(v10[36 * v13 + 20]);
+              if ( (unsigned __int8)v16 <= 0xFu )
+              {
+                v17 = 32801;
+                if ( _bittest(&v17, v16) )
+                  continue;
+              }
             }
             v14->PartitionEntry[v15].StartingOffset.QuadPart = *(_QWORD *)&v10[36 * v13 + 14];
             v14->PartitionEntry[v15].PartitionLength.QuadPart = *(_QWORD *)&v10[36 * v13 + 16];
             v14->PartitionEntry[v15].HiddenSectors = v10[36 * v13 + 21];
             v14->PartitionEntry[v15].PartitionNumber = v10[36 * v13 + 18];
-            v14->PartitionEntry[v15].PartitionType = *((_BYTE *)v16 + 80);
+            v14->PartitionEntry[v15].PartitionType = v10[36 * v13 + 20];
             v14->PartitionEntry[v15].BootIndicator = BYTE1(v10[36 * v13 + 20]);
             v14->PartitionEntry[v15].RecognizedPartition = BYTE2(v10[36 * v13 + 20]);
             v14->PartitionEntry[v15].RewritePartition = v10[36 * v13 + 19];

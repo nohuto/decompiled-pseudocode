@@ -1,11 +1,11 @@
 /*
- * XREFs of IrqPolicyGetDistributionDisposition @ 0x1C00BDE8C
+ * XREFs of IrqPolicyGetDistributionDisposition @ 0x1C00BCAA0
  * Callers:
- *     AcpiIrqLibSetupSciInterrupt @ 0x1C009D86C (AcpiIrqLibSetupSciInterrupt.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0097104 (AcpiIrqLibSetupSciInterrupt.c)
  * Callees:
- *     OSOpenUnicodeHandle @ 0x1C008EC0C (OSOpenUnicodeHandle.c)
- *     OSGetRegistryValue @ 0x1C009B014 (OSGetRegistryValue.c)
- *     IrqArbIrqFromGsiv @ 0x1C00B690C (IrqArbIrqFromGsiv.c)
+ *     OSOpenUnicodeHandle @ 0x1C008FC50 (OSOpenUnicodeHandle.c)
+ *     OSGetRegistryValue @ 0x1C0094F04 (OSGetRegistryValue.c)
+ *     IrqArbIrqFromGsiv @ 0x1C00B70AC (IrqArbIrqFromGsiv.c)
  */
 
 __int64 __fastcall IrqPolicyGetDistributionDisposition(__int64 a1, __int64 a2)

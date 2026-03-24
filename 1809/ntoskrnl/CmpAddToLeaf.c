@@ -3,8 +3,8 @@
  * Callers:
  *     CmpAddSubKeyToList @ 0x1405AECF4 (CmpAddSubKeyToList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     HvReallocateCell @ 0x1405AD9CC (HvReallocateCell.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  *     CmpHashUnicodeComponent @ 0x1405AF2C4 (CmpHashUnicodeComponent.c)

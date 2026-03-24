@@ -1,16 +1,18 @@
 /*
- * XREFs of ?DxgkEnableClockCalibration@@YAXE@Z @ 0x1C0309BB0
+ * XREFs of ?DxgkEnableClockCalibration@@YAXE@Z @ 0x1C02690D8
  * Callers:
- *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C0029028 (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
+ *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C002372C (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?EnableClockCalibration@DXGGLOBAL@@QEAAXE@Z @ 0x1C0309C38 (-EnableClockCalibration@DXGGLOBAL@@QEAAXE@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?EnableClockCalibration@DXGGLOBAL@@QEAAXE@Z @ 0x1C0269160 (-EnableClockCalibration@DXGGLOBAL@@QEAAXE@Z.c)
  */
 
-void __fastcall DxgkEnableClockCalibration(unsigned __int8 a1)
+void __fastcall DxgkEnableClockCalibration(__int64 a1, __int64 a2)
 {
+  unsigned __int8 v2; // bl
   DXGGLOBAL *Global; // rax
 
-  Global = DXGGLOBAL_GetGlobal();
-  DXGGLOBAL::EnableClockCalibration(Global, a1);
+  v2 = a1;
+  Global = DXGGLOBAL::GetGlobal(a1, a2);
+  DXGGLOBAL::EnableClockCalibration(Global, v2);
 }

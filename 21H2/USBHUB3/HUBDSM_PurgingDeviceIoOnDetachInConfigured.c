@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_PurgingDeviceIoOnDetachInConfigured @ 0x1C001D490
+ * XREFs of HUBDSM_PurgingDeviceIoOnDetachInConfigured @ 0x1C001CF50
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_NotifyDeviceDisconnected @ 0x1C00162B4 (HUBPDO_NotifyDeviceDisconnected.c)
- *     HUBUCX_PurgeDeviceIoUsingUCXIoctl @ 0x1C002674C (HUBUCX_PurgeDeviceIoUsingUCXIoctl.c)
+ *     HUBPDO_NotifyDeviceDisconnected @ 0x1C0015DEC (HUBPDO_NotifyDeviceDisconnected.c)
+ *     HUBUCX_PurgeDeviceIoUsingUCXIoctl @ 0x1C002629C (HUBUCX_PurgeDeviceIoUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBDSM_PurgingDeviceIoOnDetachInConfigured(__int64 a1)

@@ -1,38 +1,40 @@
 /*
- * XREFs of KiOutSwapProcesses @ 0x140210EA0
+ * XREFs of KiOutSwapProcesses @ 0x14024A2B0
  * Callers:
- *     KeSwapProcessOrStack @ 0x1403C6D20 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x1403B4090 (KeSwapProcessOrStack.c)
  * Callees:
- *     MmOutSwapProcess @ 0x140211108 (MmOutSwapProcess.c)
- *     KiReadyOutSwappedThreads @ 0x1402112F8 (KiReadyOutSwappedThreads.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReadyOutSwappedThreads @ 0x140248460 (KiReadyOutSwappedThreads.c)
+ *     MmOutSwapProcess @ 0x14024A494 (MmOutSwapProcess.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiOutSwapProcesses(_QWORD *a1)
+char __fastcall KiOutSwapProcesses(_QWORD *a1)
 {
   _QWORD *v2; // rbx
-  unsigned __int8 CurrentIrql; // si
-  _QWORD *v4; // rdi
+  unsigned __int8 CurrentIrql; // bp
+  _QWORD *v4; // rsi
   _QWORD *v5; // r8
-  bool v6; // bp
-  unsigned __int8 v7; // cl
-  unsigned int v8; // eax
-  __int64 result; // rax
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rax
+  int v8; // eax
+  char v9; // r15
+  unsigned __int8 v10; // cl
+  unsigned int v11; // eax
+  signed __int64 *v12; // rdx
+  signed __int64 v13; // rax
+  signed __int64 v14; // rcx
   _DWORD *SchedulerAssist; // r9
-  _DWORD *v11; // r9
-  _QWORD *v12; // rdx
-  _QWORD *v13; // rax
-  signed __int64 *v14; // rdx
-  signed __int64 v15; // rax
-  signed __int64 v16; // rcx
-  bool v17; // zf
-  unsigned __int8 v18; // al
+  unsigned __int8 v16; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v20; // r9
-  int v21; // eax
+  _DWORD *v18; // r9
+  int v19; // eax
+  bool v20; // zf
+  _DWORD *v21; // r9
   struct _KPRCB *v22; // r10
   _DWORD *v23; // r9
+  int v25; // [rsp+50h] [rbp+8h] BYREF
 
   do
   {
@@ -45,7 +47,13 @@ __int64 __fastcall KiOutSwapProcesses(_QWORD *a1)
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
-    KiAcquireKobjectLockSafe(v2);
+    v25 = 0;
+    while ( _interlockedbittestandset((volatile signed __int32 *)v2, 7u) )
+    {
+      do
+        KeYieldProcessorEx(&v25);
+      while ( (*(_DWORD *)v2 & 0x80u) != 0 );
+    }
     v4 = v2 + 43;
     v5 = (_QWORD *)v2[43];
     if ( v5 == v2 + 43 || (v2[105] & 7) == 6 )
@@ -56,73 +64,73 @@ __int64 __fastcall KiOutSwapProcesses(_QWORD *a1)
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v18 = KeGetCurrentIrql();
-          if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+          v16 = KeGetCurrentIrql();
+          if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
-            v20 = CurrentPrcb->SchedulerAssist;
-            v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-            v17 = (v21 & v20[5]) == 0;
-            v20[5] &= v21;
-            if ( v17 )
+            v18 = CurrentPrcb->SchedulerAssist;
+            v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v20 = (v19 & v18[5]) == 0;
+            v18[5] &= v19;
+            if ( v20 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
       }
       __writecr8(CurrentIrql);
       MmOutSwapProcess(v2);
-      v6 = 0;
-      v7 = KeGetCurrentIrql();
+      v9 = 0;
+      v10 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v7 <= 0xFu )
+      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v10 <= 0xFu )
       {
-        v11 = KeGetCurrentPrcb()->SchedulerAssist;
-        v11[5] |= (-1 << (v7 + 1)) & 4;
+        v21 = KeGetCurrentPrcb()->SchedulerAssist;
+        v21[5] |= (-1 << (v10 + 1)) & 4;
       }
       KiAcquireKobjectLockSafe(v2);
       if ( (_QWORD *)*v4 == v4 )
       {
-        v8 = 4;
+        v11 = 4;
       }
       else
       {
-        v14 = v2 + 45;
+        v12 = v2 + 45;
         _m_prefetchw(&KiProcessInSwapListHead);
-        v15 = KiProcessInSwapListHead;
+        v13 = KiProcessInSwapListHead;
         do
         {
-          *v14 = v15;
-          v16 = v15;
-          v15 = _InterlockedCompareExchange64(&KiProcessInSwapListHead, (signed __int64)v14, v15);
+          *v12 = v13;
+          v14 = v13;
+          v13 = _InterlockedCompareExchange64(&KiProcessInSwapListHead, (signed __int64)v12, v13);
         }
-        while ( v15 != v16 );
-        v17 = v15 == 0;
-        v8 = 7;
-        v6 = v17;
+        while ( v13 != v14 );
+        if ( !v13 )
+          v9 = 1;
+        v11 = 7;
       }
-      _InterlockedXor((volatile signed __int32 *)v2 + 210, v8);
+      _InterlockedXor((volatile signed __int32 *)v2 + 210, v11);
       _InterlockedAnd((volatile signed __int32 *)v2, 0xFFFFFF7F);
-      if ( v6 )
+      if ( v9 )
       {
         KiAcquireKobjectLockSafe(&KiSwapEvent);
         KiSwapEvent.Header.SignalState = 1;
         _InterlockedAnd((volatile signed __int32 *)&KiSwapEvent, 0xFFFFFF7F);
       }
-      result = (unsigned int)KiIrqlFlags;
+      LOBYTE(v8) = KiIrqlFlags;
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          result = KeGetCurrentIrql();
-          if ( (unsigned __int8)result <= 0xFu && CurrentIrql <= 0xFu && (unsigned __int8)result >= 2u )
+          LOBYTE(v8) = KeGetCurrentIrql();
+          if ( (unsigned __int8)v8 <= 0xFu && CurrentIrql <= 0xFu && (unsigned __int8)v8 >= 2u )
           {
             v22 = KeGetCurrentPrcb();
             v23 = v22->SchedulerAssist;
-            result = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-            v17 = ((unsigned int)result & v23[5]) == 0;
-            v23[5] &= result;
-            if ( v17 )
-              result = KiRemoveSystemWorkPriorityKick(v22);
+            v8 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v20 = (v8 & v23[5]) == 0;
+            v23[5] &= v8;
+            if ( v20 )
+              LOBYTE(v8) = KiRemoveSystemWorkPriorityKick(v22);
           }
         }
       }
@@ -130,20 +138,19 @@ __int64 __fastcall KiOutSwapProcesses(_QWORD *a1)
     }
     else
     {
-      v12 = (_QWORD *)*v4;
-      v13 = (_QWORD *)v2[44];
-      if ( *(_QWORD **)(*v4 + 8LL) != v4 || (_QWORD *)*v13 != v4 )
+      v6 = (_QWORD *)*v4;
+      v7 = (_QWORD *)v2[44];
+      if ( *(_QWORD **)(*v4 + 8LL) != v4 || (_QWORD *)*v7 != v4 )
         __fastfail(3u);
-      *v13 = v12;
-      v12[1] = v13;
+      *v7 = v6;
+      v6[1] = v7;
       v2[44] = v2 + 43;
       *v4 = v4;
       _InterlockedXor((volatile signed __int32 *)v2 + 210, 3u);
       _InterlockedAnd((volatile signed __int32 *)v2, 0xFFFFFF7F);
-      LOBYTE(v12) = CurrentIrql;
-      result = KiReadyOutSwappedThreads(v5, v12);
+      LOBYTE(v8) = KiReadyOutSwappedThreads(v5, CurrentIrql);
     }
   }
   while ( a1 );
-  return result;
+  return v8;
 }

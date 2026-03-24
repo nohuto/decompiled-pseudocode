@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIBusIrpSetSystemPowerComplete @ 0x1C00496F0
+ * XREFs of ACPIBusIrpSetSystemPowerComplete @ 0x1C004AC30
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIDeviceIrpCompleteRequest @ 0x1C002E7C0 (ACPIDeviceIrpCompleteRequest.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDeviceIrpCompleteRequest @ 0x1C000E200 (ACPIDeviceIrpCompleteRequest.c)
  */
 
 void __fastcall ACPIBusIrpSetSystemPowerComplete(

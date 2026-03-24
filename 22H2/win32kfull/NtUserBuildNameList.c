@@ -1,61 +1,57 @@
 /*
- * XREFs of NtUserBuildNameList @ 0x1C00AD100
+ * XREFs of NtUserBuildNameList @ 0x1C0116CA0
  * Callers:
  *     <none>
  * Callees:
- *     _BuildNameList @ 0x1C00AD210 (_BuildNameList.c)
+ *     _BuildNameList @ 0x1C0116DB4 (_BuildNameList.c)
  */
 
-__int64 __fastcall NtUserBuildNameList(__int64 a1, __int64 a2, _WORD *a3, _DWORD *a4)
+__int64 __fastcall NtUserBuildNameList(__int64 a1, unsigned int a2, _WORD *a3, _DWORD *a4)
 {
-  unsigned int v6; // r14d
-  __int64 v8; // rdx
-  PVOID v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  _DWORD *v12; // rdx
-  int v13; // ebx
+  PVOID v8; // rcx
+  _DWORD *v9; // rdx
+  __int64 v10; // rdx
+  int v11; // ebx
   PVOID Object[7]; // [rsp+20h] [rbp-38h] BYREF
-  int v16; // [rsp+68h] [rbp+10h] BYREF
+  int v14; // [rsp+68h] [rbp+10h] BYREF
 
-  v6 = a2;
-  v16 = 0;
+  v14 = 0;
   Object[0] = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  if ( v6 < 0xC )
+  EnterSharedCrit(0LL, 1LL);
+  if ( a2 < 0xC )
   {
-    v13 = -1073741816;
+    v11 = -1073741816;
   }
   else
   {
-    v12 = a4;
+    v9 = a4;
     if ( (unsigned __int64)a4 >= MmUserProbeAddress )
-      v12 = (_DWORD *)MmUserProbeAddress;
-    *v12 = *v12;
-    ProbeForWrite(a3, v6, 4u);
+      v9 = (_DWORD *)MmUserProbeAddress;
+    *v9 = *v9;
+    ProbeForWrite(a3, a2, 4u);
     if ( a1 )
     {
-      LOBYTE(v8) = 1;
-      v13 = ValidateHwinsta(a1, v8, 1LL, Object);
+      LOBYTE(v10) = 1;
+      v11 = ValidateHwinsta(a1, v10, 1LL, Object);
     }
     else
     {
-      v13 = 0;
+      v11 = 0;
     }
-    if ( v13 < 0 )
+    if ( v11 < 0 )
     {
       a3[4] = 0;
       *(_DWORD *)a3 = 1;
     }
     else
     {
-      v13 = BuildNameList(Object[0], a3, v6, &v16);
-      *a4 = v16;
-      v9 = Object[0];
+      v11 = BuildNameList(Object[0], a3, a2, &v14);
+      *a4 = v14;
+      v8 = Object[0];
       if ( Object[0] )
         ObfDereferenceObject(Object[0]);
     }
   }
-  UserSessionSwitchLeaveCrit(v9, v8, v10, v11);
-  return (unsigned int)v13;
+  UserSessionSwitchLeaveCrit(v8);
+  return (unsigned int)v11;
 }

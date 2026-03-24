@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcMessageDestroyProcedure @ 0x1406988C0
+ * XREFs of AlpcMessageDestroyProcedure @ 0x1406988A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
  *     PsReturnSharedPoolQuota @ 0x1405CACA8 (PsReturnSharedPoolQuota.c)
  *     AlpcpReleasePagedPoolQuota @ 0x140616D14 (AlpcpReleasePagedPoolQuota.c)
  *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
- *     AlpcpEnterFreeEventMessageLog @ 0x14084A550 (AlpcpEnterFreeEventMessageLog.c)
+ *     AlpcpEnterFreeEventMessageLog @ 0x14084A530 (AlpcpEnterFreeEventMessageLog.c)
  */
 
 __int64 __fastcall AlpcMessageDestroyProcedure(__int64 a1)

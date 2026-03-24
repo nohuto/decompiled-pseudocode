@@ -3,13 +3,13 @@
  * Callers:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     KiCommitThreadWait @ 0x140055AD0 (KiCommitThreadWait.c)
- *     KiSuspendThread @ 0x1400F2388 (KiSuspendThread.c)
- *     KiOutSwapKernelStacks @ 0x14013CF98 (KiOutSwapKernelStacks.c)
- *     KeDeleteThread @ 0x14013D3A4 (KeDeleteThread.c)
+ *     KiSuspendThread @ 0x1400F23A8 (KiSuspendThread.c)
+ *     KiOutSwapKernelStacks @ 0x14013CFB8 (KiOutSwapKernelStacks.c)
+ *     KeDeleteThread @ 0x14013D3C4 (KeDeleteThread.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBDF0 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiDecrementProcessStackCount(__int64 a1)

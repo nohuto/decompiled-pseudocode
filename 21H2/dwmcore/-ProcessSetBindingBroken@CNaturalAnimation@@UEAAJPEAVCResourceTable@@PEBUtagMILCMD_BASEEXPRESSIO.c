@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x180227110
+ * XREFs of ?ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x1801D8A00
  * Callers:
  *     <none>
  * Callees:
- *     ?SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z @ 0x180019498 (-SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z.c)
- *     ?NotifyAnimationDisconnected@CBaseExpression@@QEAAJXZ @ 0x1800420D8 (-NotifyAnimationDisconnected@CBaseExpression@@QEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ?ExpressionValueFromInternalValue@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValue@@@Z @ 0x1802261CC (-ExpressionValueFromInternalValue@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValue@.c)
- *     ?GetStopValue@CNaturalAnimation@@AEAA?ATInternalValue@1@XZ @ 0x180226920 (-GetStopValue@CNaturalAnimation@@AEAA-ATInternalValue@1@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyAnimationDisconnected@CBaseExpression@@QEAAJXZ @ 0x1800ACCE4 (-NotifyAnimationDisconnected@CBaseExpression@@QEAAJXZ.c)
+ *     ?SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z @ 0x1800E2CF0 (-SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?ExpressionValueFromInternalValue@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValue@@@Z @ 0x1801D7B48 (-ExpressionValueFromInternalValue@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValue@.c)
+ *     ?GetStopValue@CNaturalAnimation@@AEAA?ATInternalValue@1@XZ @ 0x1801D8254 (-GetStopValue@CNaturalAnimation@@AEAA-ATInternalValue@1@XZ.c)
  */
 
 __int64 __fastcall CNaturalAnimation::ProcessSetBindingBroken(
@@ -29,18 +29,18 @@ __int64 __fastcall CNaturalAnimation::ProcessSetBindingBroken(
   int v14; // [rsp+40h] [rbp-21h]
   _BYTE v15[16]; // [rsp+48h] [rbp-19h] BYREF
   _BYTE v16[64]; // [rsp+58h] [rbp-9h] BYREF
-  __int64 v17; // [rsp+98h] [rbp+37h] BYREF
+  __int64 v17; // [rsp+98h] [rbp+37h]
   int v18; // [rsp+A0h] [rbp+3Fh]
   char v19; // [rsp+A4h] [rbp+43h]
 
   v3 = 0;
-  if ( (*((_BYTE *)this + 216) & 2) != 0 )
+  if ( (*((_BYTE *)this + 208) & 2) != 0 )
   {
     v6 = CBaseExpression::NotifyAnimationDisconnected(this);
     v3 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x216u);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x210u, 0LL);
     }
     else if ( *((_BYTE *)a3 + 8) )
     {
@@ -57,8 +57,9 @@ __int64 __fastcall CNaturalAnimation::ProcessSetBindingBroken(
       v10 = CBaseExpression::SetOutputValue(this, (const struct CExpressionValue *)v16);
       v3 = v10;
       if ( v10 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x21Cu);
-      Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v17);
+        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x216u, 0LL);
+      if ( v17 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v17 + 16LL))(v17);
     }
   }
   return v3;

@@ -1,115 +1,124 @@
 /*
- * XREFs of _CmOpenDeviceRegKey @ 0x1406CE174
+ * XREFs of _CmOpenDeviceRegKey @ 0x1406BA950
  * Callers:
- *     IoOpenDeviceRegistryKey @ 0x140687CA0 (IoOpenDeviceRegistryKey.c)
- *     PipCallDriverAddDevice @ 0x1406C82E4 (PipCallDriverAddDevice.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA46C (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1406CC880 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _PnpDispatchDevice @ 0x1406CD0C0 (_PnpDispatchDevice.c)
- *     _CmGetDeviceRegPropWorker @ 0x1406CD68C (_CmGetDeviceRegPropWorker.c)
- *     _CmOpenDeviceRegKeyWorker @ 0x1406CE2A4 (_CmOpenDeviceRegKeyWorker.c)
- *     PiQueryAndAllocateBootResources @ 0x14078FF34 (PiQueryAndAllocateBootResources.c)
- *     IopQueryDeviceResources @ 0x140790134 (IopQueryDeviceResources.c)
- *     PnpGetDeviceResourcesFromRegistry @ 0x1407904EC (PnpGetDeviceResourcesFromRegistry.c)
- *     PiQueryResourceRequirements @ 0x140790854 (PiQueryResourceRequirements.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x140798CA4 (PnpDeviceObjectToDeviceInstance.c)
- *     PnpCheckDeviceIdsChanged @ 0x140798D00 (PnpCheckDeviceIdsChanged.c)
- *     PiCMOpenDeviceKey @ 0x1407BEE44 (PiCMOpenDeviceKey.c)
- *     PpForEachDeviceInstanceDriver @ 0x1407CFCF8 (PpForEachDeviceInstanceDriver.c)
- *     _CmCreateDeviceWorker @ 0x1407D7D8C (_CmCreateDeviceWorker.c)
- *     PnpIsDeviceInstanceEnabled @ 0x1407D8E64 (PnpIsDeviceInstanceEnabled.c)
- *     PnpGetDeviceInstanceCsConfigFlags @ 0x1407D8FDC (PnpGetDeviceInstanceCsConfigFlags.c)
- *     _CmGetDeviceCompoundFilters @ 0x1407FDB00 (_CmGetDeviceCompoundFilters.c)
- *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14080C9B4 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
- *     IopGetRootDevices @ 0x1408144D8 (IopGetRootDevices.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x1408186D4 (IopWriteAllocatedResourcesToRegistry.c)
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     IopIsReportedAlready @ 0x140837110 (IopIsReportedAlready.c)
- *     PiDevCfgProcessDeviceCallback @ 0x1408446E0 (PiDevCfgProcessDeviceCallback.c)
- *     PipApplyFunctionToServiceInstances @ 0x14084A26C (PipApplyFunctionToServiceInstances.c)
- *     IopReleaseDeviceResources @ 0x140869C4C (IopReleaseDeviceResources.c)
- *     _CmSetDeviceRegPropWorker @ 0x14086CE70 (_CmSetDeviceRegPropWorker.c)
- *     PipMakeGloballyUniqueId @ 0x140870EF0 (PipMakeGloballyUniqueId.c)
- *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x14087C0D0 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
- *     PiDevCfgInitDeviceContext @ 0x14087CCD8 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgEnumDeviceKeys @ 0x14087D4F4 (PiDevCfgEnumDeviceKeys.c)
- *     PnpGetDeviceInstanceRegistryValue @ 0x140957A30 (PnpGetDeviceInstanceRegistryValue.c)
- *     PiUEventBroadcastPortsChangedEvent @ 0x140959BEC (PiUEventBroadcastPortsChangedEvent.c)
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14095E6F8 (PiDevCfgInitDriverDatabaseCallback.c)
- *     PiDevCfgResetDeviceDriverSettings @ 0x14095FC00 (PiDevCfgResetDeviceDriverSettings.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x140961B9C (PiDevCfgResolveVariableKeyHandle.c)
- *     PiCMCreateDevice @ 0x1409684E0 (PiCMCreateDevice.c)
- *     PiInitializeDevice @ 0x14096DB94 (PiInitializeDevice.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x140A61F64 (_CmDeleteDeviceRegKeyWorker.c)
- *     _CmDeleteDeviceWorker @ 0x140A6244C (_CmDeleteDeviceWorker.c)
- *     _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x140A67510 (_CmDeleteDeviceMappedPropertyFromDriverKeyRegValue.c)
- *     _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A67674 (_CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue.c)
- *     _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A697D8 (_CmSetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     IoOpenDeviceRegistryKey @ 0x140688170 (IoOpenDeviceRegistryKey.c)
+ *     PiCMOpenDeviceKey @ 0x1406A8AF8 (PiCMOpenDeviceKey.c)
+ *     _PnpDispatchDevice @ 0x1406B51F0 (_PnpDispatchDevice.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406B558C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1406B7BD8 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceRegPropWorker @ 0x1406BA3CC (_CmGetDeviceRegPropWorker.c)
+ *     _CmOpenDeviceRegKeyWorker @ 0x1406BAA90 (_CmOpenDeviceRegKeyWorker.c)
+ *     _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x1407282BC (_CmDeleteDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     _CmDeleteDeviceWorker @ 0x14072D948 (_CmDeleteDeviceWorker.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x14072DF0C (_CmDeleteDeviceRegKeyWorker.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x1407308D4 (PiDevCfgResetDeviceDriverSettings.c)
+ *     _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140733E9C (_CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmGetDeviceCompoundFilters @ 0x140735568 (_CmGetDeviceCompoundFilters.c)
+ *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x140736C30 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     PiDevCfgInitDeviceContext @ 0x140737ED8 (PiDevCfgInitDeviceContext.c)
+ *     PipCallDriverAddDevice @ 0x14073DE28 (PipCallDriverAddDevice.c)
+ *     _CmSetDeviceRegPropWorker @ 0x140740618 (_CmSetDeviceRegPropWorker.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x140743594 (PnpDeviceObjectToDeviceInstance.c)
+ *     PpForEachDeviceInstanceDriver @ 0x140748444 (PpForEachDeviceInstanceDriver.c)
+ *     _CmCreateDeviceWorker @ 0x1407491D4 (_CmCreateDeviceWorker.c)
+ *     IopReleaseDeviceResources @ 0x14074B5CC (IopReleaseDeviceResources.c)
+ *     IopGetRootDevices @ 0x14074E2DC (IopGetRootDevices.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x14074EE3C (IopWriteAllocatedResourcesToRegistry.c)
+ *     PiQueryAndAllocateBootResources @ 0x14074FA7C (PiQueryAndAllocateBootResources.c)
+ *     IopQueryDeviceResources @ 0x14074FC5C (IopQueryDeviceResources.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x140750014 (PnpGetDeviceResourcesFromRegistry.c)
+ *     PiQueryResourceRequirements @ 0x140750384 (PiQueryResourceRequirements.c)
+ *     PnpIsDeviceInstanceEnabled @ 0x14075240C (PnpIsDeviceInstanceEnabled.c)
+ *     PnpGetDeviceInstanceCsConfigFlags @ 0x14075256C (PnpGetDeviceInstanceCsConfigFlags.c)
+ *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140752610 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     PiDevCfgEnumDeviceKeys @ 0x1407670D8 (PiDevCfgEnumDeviceKeys.c)
+ *     PnpCheckDeviceIdsChanged @ 0x140769CA8 (PnpCheckDeviceIdsChanged.c)
+ *     PipMakeGloballyUniqueId @ 0x14076BBCC (PipMakeGloballyUniqueId.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
+ *     IopIsReportedAlready @ 0x1407AF208 (IopIsReportedAlready.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x1407BE4D0 (PiDevCfgProcessDeviceCallback.c)
+ *     PipApplyFunctionToServiceInstances @ 0x1407C16F0 (PipApplyFunctionToServiceInstances.c)
+ *     PnpGetDeviceInstanceRegistryValue @ 0x1408A0EE0 (PnpGetDeviceInstanceRegistryValue.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x1408A2BDC (PiUEventBroadcastPortsChangedEvent.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x1408A6AE8 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x1408A9ADC (PiDevCfgResolveVariableKeyHandle.c)
+ *     PiCMCreateDevice @ 0x1408AF490 (PiCMCreateDevice.c)
+ *     PiInitializeDevice @ 0x1408B3CBC (PiInitializeDevice.c)
+ *     _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14097BA98 (_CmSetDeviceMappedPropertyFromInstanceKeyRegValue.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _CmOpenDeviceRegKeyWorker @ 0x1406CE2A4 (_CmOpenDeviceRegKeyWorker.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmOpenDeviceRegKeyWorker @ 0x1406BAA90 (_CmOpenDeviceRegKeyWorker.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmOpenDeviceRegKey(__int64 a1, __int64 a2, int a3, int a4, int a5, char a6, __int64 a7, _DWORD *a8)
 {
-  __int64 (__fastcall *v8)(__int64, __int64, __int64); // rbp
-  __int64 Pool2; // rax
-  char *v14; // rdi
+  __int64 (__fastcall *v8)(__int64, __int64, __int64); // rsi
+  PVOID PoolWithTag; // rax
+  void *v14; // rdi
   int v15; // eax
-  int v16; // ebx
-  _DWORD *v17; // rax
-  int v19; // ecx
+  int v16; // eax
+  int v17; // ebx
+  int v19; // eax
+  int v20; // ecx
+  int v21; // eax
 
   v8 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 504);
-  Pool2 = ExAllocatePool2(256LL, 88LL, 1380994640LL);
-  v14 = (char *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x58uLL, 0x52504E50u);
+  v14 = PoolWithTag;
+  if ( !PoolWithTag )
     return (unsigned int)-1073741801;
-  *(_DWORD *)(Pool2 + 16) = a3;
-  *(_DWORD *)(Pool2 + 20) = a4;
-  *(_DWORD *)(Pool2 + 24) = a5;
-  *(_BYTE *)(Pool2 + 28) = a6;
-  *(_QWORD *)(Pool2 + 32) = a7;
-  if ( v8 )
+  memset(PoolWithTag, 0, 0x58uLL);
+  *((_DWORD *)v14 + 6) = a5;
+  *((_BYTE *)v14 + 28) = a6;
+  *((_DWORD *)v14 + 4) = a3;
+  *((_QWORD *)v14 + 4) = a7;
+  *((_DWORD *)v14 + 5) = a4;
+  if ( !v8 )
+    goto LABEL_5;
+  v15 = v8(a1, a2, 1LL);
+  switch ( v15 )
   {
-    v15 = v8(a1, a2, 1LL);
-    if ( v15 == -1073741822 )
-    {
+    case -1073741822:
       v8 = 0LL;
-    }
-    else
-    {
-      if ( v15 == -1073741536 )
+      goto LABEL_5;
+    case -1073741536:
+      goto LABEL_15;
+    case 0:
+LABEL_5:
+      v16 = CmOpenDeviceRegKeyWorker(
+              a1,
+              a2,
+              *((_DWORD *)v14 + 4),
+              *((_DWORD *)v14 + 5),
+              *((_DWORD *)v14 + 6),
+              *((_BYTE *)v14 + 28),
+              *((_QWORD *)v14 + 4),
+              (__int64)v14 + 40);
+      v17 = v16;
+      if ( !v8 || (*(_DWORD *)v14 = v16, v19 = v8(a1, a2, 1LL), v20 = v19, v19 == -1073741822) )
       {
-        v16 = *(_DWORD *)v14;
-        v17 = v14 + 40;
+LABEL_6:
+        if ( v17 >= 0 && a8 )
+          *a8 = *((_DWORD *)v14 + 10);
+        goto LABEL_9;
+      }
+      if ( v19 != -1073741536 )
+      {
+        v21 = v17;
+        if ( v20 )
+          v21 = -1073741595;
+        v17 = v21;
         goto LABEL_6;
       }
-      if ( v15 )
-        goto LABEL_15;
-    }
-  }
-  v16 = CmOpenDeviceRegKeyWorker(a1, *((_DWORD *)v14 + 6), v14[28], *((_QWORD *)v14 + 4), (__int64)(v14 + 40));
-  v17 = v14 + 40;
-  if ( !v8 || (*(_DWORD *)v14 = v16, v19 = v8(a1, a2, 1LL), v17 = v14 + 40, v19 == -1073741822) )
-  {
-LABEL_6:
-    if ( v16 >= 0 && a8 )
-      *a8 = *v17;
-    goto LABEL_9;
-  }
-  if ( v19 == -1073741536 )
-  {
-    v16 = *(_DWORD *)v14;
-    goto LABEL_6;
-  }
-  if ( !v19 )
-    goto LABEL_6;
 LABEL_15:
-  v16 = -1073741595;
+      v17 = *(_DWORD *)v14;
+      goto LABEL_6;
+  }
+  v17 = -1073741595;
 LABEL_9:
   ExFreePoolWithTag(v14, 0);
-  return (unsigned int)v16;
+  return (unsigned int)v17;
 }

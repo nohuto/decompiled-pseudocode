@@ -1,11 +1,11 @@
 /*
- * XREFs of TdrTimedOperationWaitForSingleObject @ 0x1C030FE50
+ * XREFs of TdrTimedOperationWaitForSingleObject @ 0x1C0266F10
  * Callers:
  *     <none>
  * Callees:
- *     ?_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z @ 0x1C0050134 (-_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z.c)
- *     TdrTimedOperationAllowToDebugTimeout @ 0x1C005019C (TdrTimedOperationAllowToDebugTimeout.c)
- *     TdrTimedOperationBugcheckOnTimeout @ 0x1C0050328 (TdrTimedOperationBugcheckOnTimeout.c)
+ *     ?_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z @ 0x1C00451D4 (-_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z.c)
+ *     TdrTimedOperationAllowToDebugTimeout @ 0x1C004523C (TdrTimedOperationAllowToDebugTimeout.c)
+ *     TdrTimedOperationBugcheckOnTimeout @ 0x1C00453C8 (TdrTimedOperationBugcheckOnTimeout.c)
  */
 
 __int64 __fastcall TdrTimedOperationWaitForSingleObject(
@@ -14,34 +14,22 @@ __int64 __fastcall TdrTimedOperationWaitForSingleObject(
         KWAIT_REASON WaitReason,
         KPROCESSOR_MODE WaitMode,
         BOOLEAN Alertable,
-        union _LARGE_INTEGER *a6)
+        __int64 *a6)
 {
-  __int64 QuadPart; // rdx
-  union _LARGE_INTEGER v11; // rcx
-  unsigned int v12; // edi
-  union _LARGE_INTEGER v14; // [rsp+30h] [rbp-18h] BYREF
+  unsigned int v10; // edi
+  union _LARGE_INTEGER v12; // [rsp+30h] [rbp-18h] BYREF
   union _LARGE_INTEGER Timeout; // [rsp+38h] [rbp-10h] BYREF
 
-  v14.QuadPart = 0LL;
-  _TdrTimedOperationGetRelativeTimeLeft(a1, &v14);
-  if ( v14.QuadPart )
+  v12.QuadPart = 0LL;
+  _TdrTimedOperationGetRelativeTimeLeft(a1, &v12);
+  if ( v12.QuadPart )
   {
-    if ( !a6 )
-      goto LABEL_7;
-    QuadPart = a6->QuadPart;
-    if ( !a6->QuadPart )
-      goto LABEL_7;
-    v11.QuadPart = -QuadPart;
-    if ( QuadPart <= 0 )
-      v11 = *a6;
-    Timeout = v11;
-    if ( v11.QuadPart < v14.QuadPart )
-LABEL_7:
-      Timeout = v14;
-    v12 = KeWaitForSingleObject(Object, WaitReason, WaitMode, Alertable, &Timeout);
-    _TdrTimedOperationGetRelativeTimeLeft(a1, &v14);
-    if ( v14.QuadPart )
-      return v12;
+    if ( !a6 || !*a6 || (Timeout.QuadPart = -(__int64)abs64(*a6), Timeout.QuadPart < v12.QuadPart) )
+      Timeout = v12;
+    v10 = KeWaitForSingleObject(Object, WaitReason, WaitMode, Alertable, &Timeout);
+    _TdrTimedOperationGetRelativeTimeLeft(a1, &v12);
+    if ( v12.QuadPart )
+      return v10;
   }
   a1->TimeoutTriggered = 1;
   if ( (unsigned int)TdrTimedOperationAllowToDebugTimeout(a1) )

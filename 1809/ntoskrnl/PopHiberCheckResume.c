@@ -1,15 +1,15 @@
 /*
  * XREFs of PopHiberCheckResume @ 0x14056B320
  * Callers:
- *     PopSaveHiberContextWrapper @ 0x1401C51C0 (PopSaveHiberContextWrapper.c)
+ *     PopSaveHiberContextWrapper @ 0x1401C51E0 (PopSaveHiberContextWrapper.c)
  * Callees:
- *     MmMapMemoryDumpMdlEx @ 0x140144400 (MmMapMemoryDumpMdlEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x140270AA8 (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlRestoreEnlightenment @ 0x140271018 (HvlRestoreEnlightenment.c)
- *     HvlNotifyDebugDeviceAvailable @ 0x1402749E0 (HvlNotifyDebugDeviceAvailable.c)
- *     HvlNotifyAcpiReenabled @ 0x140276B0C (HvlNotifyAcpiReenabled.c)
+ *     MmMapMemoryDumpMdlEx @ 0x140144420 (MmMapMemoryDumpMdlEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x140270BA8 (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlRestoreEnlightenment @ 0x140271118 (HvlRestoreEnlightenment.c)
+ *     HvlNotifyDebugDeviceAvailable @ 0x140274AE0 (HvlNotifyDebugDeviceAvailable.c)
+ *     HvlNotifyAcpiReenabled @ 0x140276C0C (HvlNotifyAcpiReenabled.c)
  *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
  *     KdInitSystem @ 0x140915140 (KdInitSystem.c)
  */
@@ -89,7 +89,7 @@ char PopHiberCheckResume()
     }
     v5 = &qword_140417B98;
     v6 = 3LL;
-    qword_140409DD8 = *(_QWORD *)(v2 + 904);
+    qword_140409D98 = *(_QWORD *)(v2 + 904);
     v7 = (_OWORD *)(v2 + 136);
     do
     {

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddWaitToContext@CAdapter@@UEAAJII_K@Z @ 0x1C0078E20
+ * XREFs of ?AddWaitToContext@CAdapter@@UEAAJII_K@Z @ 0x1C0064820
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
- *     DxgkKernelModeWaitForSynchronizationObjectFromGpu @ 0x1C0354920 (DxgkKernelModeWaitForSynchronizationObjectFromGpu.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DxgkKernelModeWaitForSynchronizationObjectFromGpu @ 0x1C00F38FC (DxgkKernelModeWaitForSynchronizationObjectFromGpu.c)
  */
 
 __int64 __fastcall CAdapter::AddWaitToContext(CAdapter *this, unsigned int a2, int a3, __int64 a4)

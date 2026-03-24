@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRundownThermalRequests @ 0x1409834A0
+ * XREFs of PopRundownThermalRequests @ 0x1406F8AD8
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140862C00 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x1406F7FA0 (PopDiagTraceControlCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopDiagTraceThermalRequest @ 0x140860C54 (PopDiagTraceThermalRequest.c)
- *     PopDiagTraceCoolingExtension @ 0x1408616BC (PopDiagTraceCoolingExtension.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceThermalRequest @ 0x1406A46F4 (PopDiagTraceThermalRequest.c)
+ *     PopDiagTraceCoolingExtension @ 0x1406A4BE0 (PopDiagTraceCoolingExtension.c)
  */
 
 void PopRundownThermalRequests()
@@ -26,8 +26,8 @@ void PopRundownThermalRequests()
         if ( *(_BYTE *)(j + 18) )
           PopDiagTraceThermalRequest(j, (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_THERMAL_REQUEST_RUNDOWN);
       }
-      PopReleaseRwLock((__int64 *)(i + 32));
+      PopReleaseRwLock(i + 32);
     }
   }
-  PopReleaseRwLock(&PopCoolingExtensionLock);
+  PopReleaseRwLock((ULONG_PTR)&PopCoolingExtensionLock);
 }

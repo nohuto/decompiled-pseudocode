@@ -1,13 +1,13 @@
 /*
  * XREFs of CmpCreateEvent @ 0x1405B487C
  * Callers:
- *     CmpDoFileRead @ 0x1401342F4 (CmpDoFileRead.c)
+ *     CmpDoFileRead @ 0x140134314 (CmpDoFileRead.c)
  *     CmpGetVolumeClusterSize @ 0x1405A4094 (CmpGetVolumeClusterSize.c)
  *     CmpDoFileWrite @ 0x1405B3A60 (CmpDoFileWrite.c)
  *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateEvent @ 0x1401B8A70 (ZwCreateEvent.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

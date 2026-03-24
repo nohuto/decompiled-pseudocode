@@ -1,31 +1,36 @@
 /*
- * XREFs of ?xxxUnadviseAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FADF0
+ * XREFs of ?xxxUnadviseAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021C260
  * Callers:
  *     <none>
  * Callees:
- *     ?PopState@@YAXPEAUtagDDECONV@@@Z @ 0x1C01F9B74 (-PopState@@YAXPEAUtagDDECONV@@@Z.c)
- *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C01FA300 (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
- *     ?xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FAF30 (-xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     ?PopState@@YAXPEAUtagDDECONV@@@Z @ 0x1C021A8E4 (-PopState@@YAXPEAUtagDDECONV@@@Z.c)
+ *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C021B45C (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
+ *     ?xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C021C400 (-xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
  */
 
-unsigned int __fastcall xxxUnadviseAck(unsigned int *a1, __int64 *a2, struct tagDDECONV *a3)
+unsigned int __fastcall xxxUnadviseAck(unsigned int *a1, void **a2, struct tagDDECONV *a3)
 {
-  int v3; // ebx
-  bool v5; // zf
-  int v7; // esi
-  struct tagINTDDEINFO *v8; // [rsp+30h] [rbp+8h] BYREF
+  bool v4; // zf
+  void **v5; // rsi
+  int v8; // edi
+  struct tagINTDDEINFO *v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = 0;
-  v5 = *a1 == 996;
-  v8 = 0LL;
-  if ( !v5 )
-    return xxxUnexpectedServerPost(a1, a2, a3);
-  v7 = xxxCopyAckIn(a1, (void **)a2, a3, &v8);
+  v4 = *a1 == 996;
+  v5 = a2;
+  v9 = 0LL;
+  if ( !v4 )
+    return xxxUnexpectedServerPost(a1, (__int64 *)a2, a3);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)a1, (_DWORD)a2, 14, 38, (__int64)&WPP_f1cc8f74ab813689ed40e0048036585e_Traceguids);
+  }
+  v8 = xxxCopyAckIn(a1, v5, a3, &v9);
   if ( (*(_BYTE *)(_HMPheFromObject(a3) + 25) & 1) != 0 )
-    return v3;
-  v3 = v7;
-  if ( v7 != 2 )
-    return v3;
+    v8 = 0;
+  if ( v8 != 2 )
+    return v8;
   PopState(a3);
   return 2;
 }

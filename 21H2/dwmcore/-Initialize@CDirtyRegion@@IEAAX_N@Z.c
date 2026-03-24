@@ -1,53 +1,57 @@
 /*
- * XREFs of ?Initialize@CDirtyRegion@@IEAAX_N@Z @ 0x1800A5860
+ * XREFs of ?Initialize@CDirtyRegion@@IEAAX_N@Z @ 0x180090270
  * Callers:
- *     ?BeginPreCompute@CVisualTree@@QEAAXXZ @ 0x18008DA94 (-BeginPreCompute@CVisualTree@@QEAAXXZ.c)
- *     ?CleanTrees@CComposition@@IEAAJXZ @ 0x1800A24D0 (-CleanTrees@CComposition@@IEAAJXZ.c)
- *     ?SetFullDirty@CDirtyRegion@@QEAAXXZ @ 0x1800E8D60 (-SetFullDirty@CDirtyRegion@@QEAAXXZ.c)
+ *     ?PreCompute@CVisualTree@@IEAAJXZ @ 0x18008F4E8 (-PreCompute@CVisualTree@@IEAAJXZ.c)
+ *     ?CleanTree@CVisualTree@@UEAAJXZ @ 0x180090720 (-CleanTree@CVisualTree@@UEAAJXZ.c)
+ *     ?SetFullDirty@CDirtyRegion@@QEAAXXZ @ 0x1800D5F10 (-SetFullDirty@CDirtyRegion@@QEAAXXZ.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 void __fastcall CDirtyRegion::Initialize(CDirtyRegion *this, char a2)
 {
-  __int64 v4; // rax
-  _QWORD **v5; // rdi
-  __int64 v6; // rcx
-  _QWORD *v7; // rax
-  _QWORD *v8; // rcx
-  _QWORD *v9; // rax
+  _DWORD *v4; // rcx
+  int v5; // edx
+  _QWORD **v6; // rdi
+  __int64 v7; // rcx
+  _QWORD *v8; // rax
+  _QWORD *v9; // rcx
+  _QWORD *v10; // rax
 
-  *((_OWORD *)this + 98) = 0LL;
-  *((_OWORD *)this + 99) = 0LL;
-  *((_OWORD *)this + 100) = 0LL;
-  *((_OWORD *)this + 101) = 0LL;
-  *((_OWORD *)this + 102) = 0LL;
-  *((_OWORD *)this + 103) = 0LL;
-  *((_OWORD *)this + 104) = 0LL;
-  *((_OWORD *)this + 105) = 0LL;
-  memset_0((char *)this + 2080, 0, 0x120uLL);
-  v4 = *(_QWORD *)this;
+  memset_0((char *)this + 1600, 0, 0x80uLL);
+  memset_0((char *)this + 2112, 0, 0x120uLL);
+  v4 = *(_DWORD **)this;
   *((_QWORD *)this + 1) = 0LL;
-  *((_DWORD *)this + 1105) = 1065353216;
-  *(_WORD *)((char *)this + 4425) = 0;
-  *((_DWORD *)this + 1100) = 0;
-  *((_DWORD *)this + 705) = 0;
-  *((_WORD *)this + 2214) = 0;
-  *((_BYTE *)this + 4424) = a2;
-  *(_OWORD *)((char *)this + 4404) = *(_OWORD *)(v4 + 4592);
-  if ( *((_BYTE *)this + 4427) )
+  *((_DWORD *)this + 1113) = 1065353216;
+  *(_WORD *)((char *)this + 4457) = 0;
+  *((_DWORD *)this + 1108) = 0;
+  *((_DWORD *)this + 713) = 0;
+  *((_WORD *)this + 2230) = 0;
+  *((_BYTE *)this + 4456) = a2;
+  v5 = v4[1446];
+  if ( (v5 > (int)TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::sc_rcInfinite
+     || v4[1448] < SDWORD2(TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::sc_rcInfinite))
+    && (v4[1447] > SDWORD1(TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::sc_rcInfinite)
+     || v4[1449] < SHIDWORD(TMilRect<int,tagRECT,MilPointAndSizeL,RectUniqueness::_CMilRectL_>::sc_rcInfinite)) )
+  {
+    *((float *)this + 1109) = (float)v5;
+    *((float *)this + 1110) = (float)(int)v4[1447];
+    *((float *)this + 1111) = (float)(int)v4[1448];
+    *((float *)this + 1112) = (float)(int)v4[1449];
+  }
+  else
+  {
+    *(_OWORD *)((char *)this + 4436) = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
+  }
+  if ( *((_BYTE *)this + 4459) )
   {
     if ( a2 )
-      goto LABEL_7;
-    *((_BYTE *)this + 4427) = 0;
+      goto LABEL_10;
+    *((_BYTE *)this + 4459) = 0;
   }
-  *((_QWORD *)this + 229) = (char *)this + 1824;
-  v5 = (_QWORD **)((char *)this + 2824);
-  *((_QWORD *)this + 228) = (char *)this + 1824;
-  *((_QWORD *)this + 231) = (char *)this + 1840;
-  *((_QWORD *)this + 230) = (char *)this + 1840;
   *((_QWORD *)this + 233) = (char *)this + 1856;
+  v6 = (_QWORD **)((char *)this + 2856);
   *((_QWORD *)this + 232) = (char *)this + 1856;
   *((_QWORD *)this + 235) = (char *)this + 1872;
   *((_QWORD *)this + 234) = (char *)this + 1872;
@@ -59,51 +63,41 @@ void __fastcall CDirtyRegion::Initialize(CDirtyRegion *this, char a2)
   *((_QWORD *)this + 240) = (char *)this + 1920;
   *((_QWORD *)this + 243) = (char *)this + 1936;
   *((_QWORD *)this + 242) = (char *)this + 1936;
-  v6 = *((_QWORD *)this + 354);
-  if ( *(CDirtyRegion **)v6 != (CDirtyRegion *)((char *)this + 2824) || (v7 = *(_QWORD **)(v6 + 8), *v7 != v6) )
-LABEL_11:
+  *((_QWORD *)this + 245) = (char *)this + 1952;
+  *((_QWORD *)this + 244) = (char *)this + 1952;
+  *((_QWORD *)this + 247) = (char *)this + 1968;
+  *((_QWORD *)this + 246) = (char *)this + 1968;
+  v7 = *((_QWORD *)this + 358);
+  if ( *(CDirtyRegion **)v7 != (CDirtyRegion *)((char *)this + 2856) || (v8 = *(_QWORD **)(v7 + 8), *v8 != v7) )
+LABEL_16:
     __fastfail(3u);
-  *((_QWORD *)this + 354) = v7;
-  *v7 = v5;
+  *((_QWORD *)this + 358) = v8;
+  *v8 = v6;
   while ( 1 )
   {
-    v8 = *v5;
-    if ( *v5 == v5 )
+    v9 = *v6;
+    if ( *v6 == v6 )
       break;
-    if ( (_QWORD **)v8[1] != v5 )
-      goto LABEL_11;
-    v9 = (_QWORD *)*v8;
-    if ( *(_QWORD **)(*v8 + 8LL) != v8 )
-      goto LABEL_11;
-    *v5 = v9;
-    v9[1] = v5;
-    operator delete(v8, 0x610uLL);
+    if ( (_QWORD **)v9[1] != v6 )
+      goto LABEL_16;
+    v10 = (_QWORD *)*v9;
+    if ( *(_QWORD **)(*v9 + 8LL) != v9 )
+      goto LABEL_16;
+    *v6 = v10;
+    v10[1] = v6;
+    operator delete(v9);
   }
-  *((_QWORD *)this + 355) = (char *)this + 2824;
-  *((_QWORD *)this + 356) = (char *)this + 2824;
-  *((_QWORD *)this + 354) = (char *)this + 2840;
-  *((_QWORD *)this + 353) = (char *)this + 2840;
-  *((_DWORD *)this + 1098) = 0;
-LABEL_7:
-  *((_QWORD *)this + 213) = 0LL;
-  *((_QWORD *)this + 212) = 0LL;
-  *(_QWORD *)((char *)this + 1956) = 0LL;
-  *((_DWORD *)this + 488) = 0;
-  *((_BYTE *)this + 1964) = 1;
-  *((_QWORD *)this + 197) = 0LL;
-  *((_QWORD *)this + 196) = 0LL;
-  *((_QWORD *)this + 215) = 0LL;
-  *((_QWORD *)this + 214) = 0LL;
-  *((_BYTE *)this + 1980) = 1;
-  *(_QWORD *)((char *)this + 1972) = 0LL;
-  *((_DWORD *)this + 492) = 0;
-  *((_QWORD *)this + 199) = 0LL;
-  *((_QWORD *)this + 198) = 0LL;
+  *((_QWORD *)this + 359) = (char *)this + 2856;
+  *((_QWORD *)this + 360) = (char *)this + 2856;
+  *((_QWORD *)this + 358) = (char *)this + 2872;
+  *((_QWORD *)this + 357) = (char *)this + 2872;
+  *((_DWORD *)this + 1106) = 0;
+LABEL_10:
   *((_QWORD *)this + 217) = 0LL;
   *((_QWORD *)this + 216) = 0LL;
-  *((_BYTE *)this + 1996) = 1;
   *(_QWORD *)((char *)this + 1988) = 0LL;
   *((_DWORD *)this + 496) = 0;
+  *((_BYTE *)this + 1996) = 1;
   *((_QWORD *)this + 201) = 0LL;
   *((_QWORD *)this + 200) = 0LL;
   *((_QWORD *)this + 219) = 0LL;
@@ -141,4 +135,18 @@ LABEL_7:
   *((_DWORD *)this + 516) = 0;
   *((_QWORD *)this + 211) = 0LL;
   *((_QWORD *)this + 210) = 0LL;
+  *((_QWORD *)this + 229) = 0LL;
+  *((_QWORD *)this + 228) = 0LL;
+  *((_BYTE *)this + 2092) = 1;
+  *(_QWORD *)((char *)this + 2084) = 0LL;
+  *((_DWORD *)this + 520) = 0;
+  *((_QWORD *)this + 213) = 0LL;
+  *((_QWORD *)this + 212) = 0LL;
+  *((_QWORD *)this + 231) = 0LL;
+  *((_QWORD *)this + 230) = 0LL;
+  *((_BYTE *)this + 2108) = 1;
+  *(_QWORD *)((char *)this + 2100) = 0LL;
+  *((_DWORD *)this + 524) = 0;
+  *((_QWORD *)this + 215) = 0LL;
+  *((_QWORD *)this + 214) = 0LL;
 }

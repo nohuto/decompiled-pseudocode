@@ -1,31 +1,24 @@
 /*
- * XREFs of ?_Calculate_growth@?$vector@DV?$allocator@D@std@@@std@@AEBA_K_K@Z @ 0x1800B6FF8
+ * XREFs of ?_Calculate_growth@?$vector@DV?$allocator@D@std@@@std@@AEBA_K_K@Z @ 0x18004ABE8
  * Callers:
- *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@EV?$allocator@E@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1800B6A5C (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@EV-$allocator@E@std@@@std@@AEAAX_KAEBU_Val.c)
- *     ??$insert@V?$span_iterator@$$CBE@details@gsl@@$0A@@?$vector@EV?$allocator@E@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@E@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@E@std@@@std@@@1@V?$span_iterator@$$CBE@details@gsl@@1@Z @ 0x1800CE938 (--$insert@V-$span_iterator@$$CBE@details@gsl@@$0A@@-$vector@EV-$allocator@E@std@@@std@@QEAA-AV-$.c)
- *     ??$_Emplace_reallocate@E@?$vector@EV?$allocator@E@std@@@std@@QEAAPEAEQEAE$$QEAE@Z @ 0x1800CEAFC (--$_Emplace_reallocate@E@-$vector@EV-$allocator@E@std@@@std@@QEAAPEAEQEAE$$QEAE@Z.c)
- *     ??$_Emplace_reallocate@AEBE@?$vector@EV?$allocator@E@std@@@std@@QEAAPEAEQEAEAEBE@Z @ 0x1800CEBC0 (--$_Emplace_reallocate@AEBE@-$vector@EV-$allocator@E@std@@@std@@QEAAPEAEQEAEAEBE@Z.c)
- *     ??$_Insert_range@PEAD@?$vector@DV?$allocator@D@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@1@PEAD1Uforward_iterator_tag@1@@Z @ 0x1800E818C (--$_Insert_range@PEAD@-$vector@DV-$allocator@D@std@@@std@@AEAAXV-$_Vector_const_iterator@V-$_Vec.c)
- *     ??$_Emplace_reallocate@D@?$vector@DV?$allocator@D@std@@@std@@QEAAPEADQEAD$$QEAD@Z @ 0x1800E82C0 (--$_Emplace_reallocate@D@-$vector@DV-$allocator@D@std@@@std@@QEAAPEADQEAD$$QEAD@Z.c)
- *     ?_Clear_and_reserve_geometric@?$vector@EV?$allocator@E@std@@@std@@AEAAX_K@Z @ 0x180241D54 (-_Clear_and_reserve_geometric@-$vector@EV-$allocator@E@std@@@std@@AEAAX_K@Z.c)
+ *     ??$_Insert_range@PEAD@?$vector@DV?$allocator@D@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@1@PEAD1Uforward_iterator_tag@1@@Z @ 0x180049588 (--$_Insert_range@PEAD@-$vector@DV-$allocator@D@std@@@std@@AEAAXV-$_Vector_const_iterator@V-$_Vec.c)
+ *     ??$_Emplace_reallocate@D@?$vector@DV?$allocator@D@std@@@std@@QEAAPEADQEAD$$QEAD@Z @ 0x18004AAC0 (--$_Emplace_reallocate@D@-$vector@DV-$allocator@D@std@@@std@@QEAAPEADQEAD$$QEAD@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall std::vector<char>::_Calculate_growth(_QWORD *a1, unsigned __int64 a2)
+unsigned __int64 __fastcall std::vector<char>::_Calculate_growth(_QWORD *a1, unsigned __int64 a2)
 {
-  __int64 result; // rax
-  unsigned __int64 v3; // r8
-  unsigned __int64 v4; // r9
+  unsigned __int64 v2; // r8
+  unsigned __int64 v3; // rcx
+  unsigned __int64 result; // rax
 
-  result = 0x7FFFFFFFFFFFFFFFLL;
-  v3 = a1[2] - *a1;
-  v4 = v3 >> 1;
-  if ( v3 <= 0x7FFFFFFFFFFFFFFFLL - (v3 >> 1) )
-  {
-    result = v4 + v3;
-    if ( v4 + v3 < a2 )
-      return a2;
-  }
+  v2 = a1[2] - *a1;
+  v3 = v2 >> 1;
+  if ( v2 > 0x7FFFFFFFFFFFFFFFLL - (v2 >> 1) )
+    return a2;
+  result = v3 + v2;
+  if ( v3 + v2 < a2 )
+    return a2;
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of rimObsIsObserverTarget @ 0x1C01B2DF8
+ * XREFs of rimObsIsObserverTarget @ 0x1C017D368
  * Callers:
- *     rimObsCheckForRegistrationConflicts @ 0x1C01B2B84 (rimObsCheckForRegistrationConflicts.c)
+ *     rimObsCheckForRegistrationConflicts @ 0x1C017D1E8 (rimObsCheckForRegistrationConflicts.c)
  * Callees:
  *     <none>
  */

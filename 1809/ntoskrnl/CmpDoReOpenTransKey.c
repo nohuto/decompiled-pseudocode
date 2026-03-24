@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpDoReOpenTransKey @ 0x14080761C
+ * XREFs of CmpDoReOpenTransKey @ 0x1408075FC
  * Callers:
  *     CmpDoReDoSetEntireSecurityDescriptor @ 0x1405818F0 (CmpDoReDoSetEntireSecurityDescriptor.c)
- *     CmpDoReDoCreateKey @ 0x140807234 (CmpDoReDoCreateKey.c)
- *     CmpDoReDoDeleteValue @ 0x140807300 (CmpDoReDoDeleteValue.c)
- *     CmpDoReDoRecord @ 0x140807354 (CmpDoReDoRecord.c)
- *     CmpDoReDoRenameKey @ 0x140807430 (CmpDoReDoRenameKey.c)
- *     CmpDoReDoSetKeyUserFlags @ 0x140807484 (CmpDoReDoSetKeyUserFlags.c)
- *     CmpDoReDoSetLastWriteTime @ 0x1408074EC (CmpDoReDoSetLastWriteTime.c)
- *     CmpDoReDoSetSecurityDescriptor @ 0x140807554 (CmpDoReDoSetSecurityDescriptor.c)
- *     CmpDoReDoSetValueExisting @ 0x1408075B0 (CmpDoReDoSetValueExisting.c)
+ *     CmpDoReDoCreateKey @ 0x140807214 (CmpDoReDoCreateKey.c)
+ *     CmpDoReDoDeleteValue @ 0x1408072E0 (CmpDoReDoDeleteValue.c)
+ *     CmpDoReDoRecord @ 0x140807334 (CmpDoReDoRecord.c)
+ *     CmpDoReDoRenameKey @ 0x140807410 (CmpDoReDoRenameKey.c)
+ *     CmpDoReDoSetKeyUserFlags @ 0x140807464 (CmpDoReDoSetKeyUserFlags.c)
+ *     CmpDoReDoSetLastWriteTime @ 0x1408074CC (CmpDoReDoSetLastWriteTime.c)
+ *     CmpDoReDoSetSecurityDescriptor @ 0x140807534 (CmpDoReDoSetSecurityDescriptor.c)
+ *     CmpDoReDoSetValueExisting @ 0x140807590 (CmpDoReDoSetValueExisting.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ExIsResourceAcquiredSharedLite @ 0x1400B9AC0 (ExIsResourceAcquiredSharedLite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x1400B9AE0 (ExIsResourceAcquiredSharedLite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpSplitParentKeyName @ 0x1405811A0 (CmpSplitParentKeyName.c)
  *     CmpCleanupParseContext @ 0x1405B5FC4 (CmpCleanupParseContext.c)
  *     ObOpenObjectByName @ 0x1405B9290 (ObOpenObjectByName.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpDoReOpenTransKey(__int64 a1, __m128i *a2, int a3, _QWORD *a4)

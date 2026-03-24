@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpInitializeCallbacks @ 0x140B6C95C
+ * XREFs of ExpInitializeCallbacks @ 0x140A6E368
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140B4D6E4 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3C2EC (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     memset @ 0x140435400 (memset.c)
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     ExCreateCallback @ 0x1407DC8B0 (ExCreateCallback.c)
- *     NtCreateDirectoryObject @ 0x1407F1B70 (NtCreateDirectoryObject.c)
- *     ObCreateObjectType @ 0x140821750 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     NtCreateDirectoryObject @ 0x1406868C0 (NtCreateDirectoryObject.c)
+ *     ExCreateCallback @ 0x1406A0050 (ExCreateCallback.c)
+ *     ObCreateObjectType @ 0x140790760 (ObCreateObjectType.c)
  */
 
 char ExpInitializeCallbacks()
@@ -27,7 +27,7 @@ char ExpInitializeCallbacks()
   Handle = 0LL;
   DestinationString = 0LL;
   ExpCallbackListLock = 0LL;
-  qword_140C2D6F8 = (__int64)&ExpCallbackListHead;
+  qword_140C19448 = (__int64)&ExpCallbackListHead;
   ExpCallbackListHead = (__int64)&ExpCallbackListHead;
   RtlInitUnicodeString(&DestinationString, L"Callback");
   memset(v7, 0, 0x78uLL);

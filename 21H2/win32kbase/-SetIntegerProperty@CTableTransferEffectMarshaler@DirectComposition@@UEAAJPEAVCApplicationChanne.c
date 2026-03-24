@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CTableTransferEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0218280
+ * XREFs of ?SetIntegerProperty@CTableTransferEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E2010
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0215D90 (-SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
+ *     ?SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01DFF40 (-SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
  */
 
 __int64 __fastcall DirectComposition::CTableTransferEffectMarshaler::SetIntegerProperty(
@@ -24,36 +24,36 @@ __int64 __fastcall DirectComposition::CTableTransferEffectMarshaler::SetIntegerP
   switch ( a3 )
   {
     case 4:
-      *a5 = v6 ^ *((_BYTE *)this + 184) & 1;
-      v9 = *((_BYTE *)this + 184) & 0xFE;
+      *a5 = v6 ^ *((_BYTE *)this + 176) & 1;
+      v9 = *((_BYTE *)this + 176) & 0xFE;
       break;
     case 5:
-      v12 = v6 ^ ((*((_BYTE *)this + 184) & 2) != 0);
+      v12 = v6 ^ ((*((_BYTE *)this + 176) & 2) != 0);
       v6 *= 2;
       *a5 = v12;
-      v9 = *((_BYTE *)this + 184) & 0xFD;
+      v9 = *((_BYTE *)this + 176) & 0xFD;
       break;
     case 6:
-      v11 = v6 ^ ((*((_BYTE *)this + 184) & 4) != 0);
+      v11 = v6 ^ ((*((_BYTE *)this + 176) & 4) != 0);
       v6 *= 4;
       *a5 = v11;
-      v9 = *((_BYTE *)this + 184) & 0xFB;
+      v9 = *((_BYTE *)this + 176) & 0xFB;
       break;
     case 7:
-      v10 = v6 ^ ((*((_BYTE *)this + 184) & 8) != 0);
+      v10 = v6 ^ ((*((_BYTE *)this + 176) & 8) != 0);
       v6 *= 8;
       *a5 = v10;
-      v9 = *((_BYTE *)this + 184) & 0xF7;
+      v9 = *((_BYTE *)this + 176) & 0xF7;
       break;
     case 8:
-      v8 = v6 ^ ((*((_BYTE *)this + 184) & 0x10) != 0);
+      v8 = v6 ^ ((*((_BYTE *)this + 176) & 0x10) != 0);
       v6 *= 16;
       *a5 = v8;
-      v9 = *((_BYTE *)this + 184) & 0xEF;
+      v9 = *((_BYTE *)this + 176) & 0xEF;
       break;
     default:
       return DirectComposition::CFilterEffectMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
   }
-  *((_BYTE *)this + 184) = v9 | v6;
+  *((_BYTE *)this + 176) = v9 | v6;
   return 0LL;
 }

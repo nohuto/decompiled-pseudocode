@@ -1,23 +1,23 @@
 /*
- * XREFs of MiFlushTbListEarly @ 0x140269FA8
+ * XREFs of MiFlushTbListEarly @ 0x140289258
  * Callers:
- *     MiDeleteEmptyPageTable @ 0x140227360 (MiDeleteEmptyPageTable.c)
- *     MiReplenishBitMap @ 0x1402697F0 (MiReplenishBitMap.c)
- *     MiDeleteVa @ 0x140330730 (MiDeleteVa.c)
- *     MiResetAccessBitPteWorker @ 0x1403C49DC (MiResetAccessBitPteWorker.c)
- *     MiBuildForkPte @ 0x1405B88D8 (MiBuildForkPte.c)
+ *     MiReplenishBitMap @ 0x140288BB0 (MiReplenishBitMap.c)
+ *     MiDeleteVa @ 0x140337A80 (MiDeleteVa.c)
+ *     MiSharePages @ 0x140368360 (MiSharePages.c)
+ *     MiDeleteEmptyPageTable @ 0x1403F49E0 (MiDeleteEmptyPageTable.c)
+ *     MiResetAccessBitPteWorker @ 0x14053BA80 (MiResetAccessBitPteWorker.c)
  * Callees:
- *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
+ *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
  */
 
 __int64 __fastcall MiFlushTbListEarly(__int64 a1, char a2)
 {
   unsigned __int64 v2; // r9
 
-  v2 = qword_140C507D0;
+  v2 = qword_140C4DF90;
   if ( (*(_BYTE *)(a1 + 4) & 2) == 0
     && *(_DWORD *)a1 == 1
-    && KeGetCurrentThread()->ApcState.Process[2].Affinity.StaticBitmap[5] )
+    && KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[5] )
   {
     v2 = -1LL;
   }

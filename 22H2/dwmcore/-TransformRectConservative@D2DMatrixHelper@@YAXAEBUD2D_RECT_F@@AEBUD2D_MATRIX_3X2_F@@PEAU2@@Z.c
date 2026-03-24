@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TransformRectConservative@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@PEAU2@@Z @ 0x180013C48
+ * XREFs of ?TransformRectConservative@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@PEAU2@@Z @ 0x180008620
  * Callers:
- *     ?Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z @ 0x180013920 (-Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z.c)
+ *     ?Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z @ 0x1800081D0 (-Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 void __fastcall D2DMatrixHelper::TransformRectConservative(
@@ -15,59 +15,53 @@ void __fastcall D2DMatrixHelper::TransformRectConservative(
   float v4; // xmm1_4
   float v5; // xmm2_4
   float bottom; // xmm3_4
-  float v7; // xmm4_4
-  float v8; // xmm0_4
-  float v9; // xmm4_4
-  float v10; // xmm3_4
-  int v11; // xmm0_4
-  float *v12; // rcx
-  float v13; // xmm6_4
-  float v14; // xmm3_4
-  float v15; // xmm5_4
-  float v16; // xmm2_4
-  float v17; // xmm1_4
-  int v18; // [rsp+0h] [rbp-38h]
-  _DWORD v19[2]; // [rsp+4h] [rbp-34h] BYREF
-  int v20; // [rsp+Ch] [rbp-2Ch]
-  float v21; // [rsp+10h] [rbp-28h]
-  int v22; // [rsp+14h] [rbp-24h]
-  __int64 v23; // [rsp+18h] [rbp-20h] BYREF
+  float v7; // xmm0_4
+  float v8; // xmm4_4
+  float v9; // xmm3_4
+  unsigned int v10; // xmm0_4
+  float *v11; // rcx
+  float v12; // xmm6_4
+  float v13; // xmm3_4
+  float v14; // xmm5_4
+  float v15; // xmm2_4
+  float v16; // xmm1_4
+  __int128 v17; // [rsp+0h] [rbp-30h] BYREF
+  float v18; // [rsp+10h] [rbp-20h]
+  int v19; // [rsp+14h] [rbp-1Ch]
+  __int64 v20; // [rsp+18h] [rbp-18h] BYREF
 
   v4 = *((float *)this + 1);
   v5 = *(float *)this;
   bottom = a2->bottom;
-  v7 = (float)(a2->right * v4) + (float)(a2->left * *(float *)this);
-  *(float *)v19 = v4;
-  v8 = a2->top * v5;
-  v9 = v7 + a2[1].left;
-  v20 = *((_DWORD *)this + 3);
-  v10 = (float)(bottom * v4) + v8;
-  v21 = v5;
-  v11 = *((_DWORD *)this + 2);
-  v12 = (float *)v19;
-  v18 = v11;
-  v19[1] = v11;
-  v13 = v9;
-  v22 = v20;
-  v14 = v10 + a2[1].top;
-  v15 = v14;
+  v7 = a2->top * *(float *)this;
+  v8 = (float)((float)(a2->right * v4) + (float)(a2->left * *(float *)this)) + a2[1].left;
+  HIDWORD(v17) = *((_DWORD *)this + 3);
+  v9 = (float)(bottom * v4) + v7;
+  v18 = v5;
+  v10 = *((_DWORD *)this + 2);
+  v11 = (float *)&v17 + 1;
+  *(_QWORD *)&v17 = __PAIR64__(LODWORD(v4), v10);
+  DWORD2(v17) = v10;
+  v12 = v8;
+  v19 = HIDWORD(v17);
+  v13 = v9 + a2[1].top;
+  v14 = v13;
   do
   {
-    v16 = (float)((float)(a2->left * *(v12 - 1)) + (float)(a2->right * *v12)) + a2[1].left;
-    v17 = (float)((float)(a2->top * *(v12 - 1)) + (float)(a2->bottom * *v12)) + a2[1].top;
-    if ( v16 <= v9 )
-      v9 = (float)((float)(a2->left * *(v12 - 1)) + (float)(a2->right * *v12)) + a2[1].left;
-    if ( v17 <= v14 )
-      v14 = (float)((float)(a2->top * *(v12 - 1)) + (float)(a2->bottom * *v12)) + a2[1].top;
-    if ( v13 <= v16 )
-      v13 = (float)((float)(a2->left * *(v12 - 1)) + (float)(a2->right * *v12)) + a2[1].left;
-    if ( v15 <= v17 )
-      v15 = (float)((float)(a2->top * *(v12 - 1)) + (float)(a2->bottom * *v12)) + a2[1].top;
-    v12 += 2;
+    v15 = (float)((float)(a2->left * *(v11 - 1)) + (float)(a2->right * *v11)) + a2[1].left;
+    v16 = (float)((float)(a2->top * *(v11 - 1)) + (float)(a2->bottom * *v11)) + a2[1].top;
+    if ( v15 <= v8 )
+      v8 = (float)((float)(a2->left * *(v11 - 1)) + (float)(a2->right * *v11)) + a2[1].left;
+    if ( v16 <= v13 )
+      v13 = (float)((float)(a2->top * *(v11 - 1)) + (float)(a2->bottom * *v11)) + a2[1].top;
+    if ( v12 <= v15 )
+      v12 = (float)((float)(a2->left * *(v11 - 1)) + (float)(a2->right * *v11)) + a2[1].left;
+    if ( v14 <= v16 )
+      v14 = (float)((float)(a2->top * *(v11 - 1)) + (float)(a2->bottom * *v11)) + a2[1].top;
+    v11 += 2;
   }
-  while ( v12 - 1 != (float *)&v23 );
-  a3->m11 = v9;
-  a3->m12 = v14;
-  a3->m21 = v13;
-  a3->m22 = v15;
+  while ( v11 - 1 != (float *)&v20 );
+  *(_QWORD *)&v17 = __PAIR64__(LODWORD(v13), LODWORD(v8));
+  *((_QWORD *)&v17 + 1) = __PAIR64__(LODWORD(v14), LODWORD(v12));
+  *(_OWORD *)&a3->m11 = v17;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AcquireDcVisRgnExclusive@DC@@QEAA@XZ @ 0x1C0140C40
+ * XREFs of ?AcquireDcVisRgnExclusive@DC@@QEAA@XZ @ 0x1C016D958
  * Callers:
- *     ?bSaveRegion@@YAHAEAVXDCOBJ@@J@Z @ 0x1C011B878 (-bSaveRegion@@YAHAEAVXDCOBJ@@J@Z.c)
+ *     ?bSaveRegion@@YAHAEAVDCOBJ@@J@Z @ 0x1C00B2680 (-bSaveRegion@@YAHAEAVDCOBJ@@J@Z.c)
  * Callees:
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00B8B48 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C012CC7C (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
  */
 
 __int64 __fastcall DC::AcquireDcVisRgnExclusive(DC *this, __int64 a2)

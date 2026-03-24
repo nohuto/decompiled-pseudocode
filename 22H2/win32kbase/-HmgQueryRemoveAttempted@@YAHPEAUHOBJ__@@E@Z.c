@@ -1,39 +1,38 @@
 /*
- * XREFs of ?HmgQueryRemoveAttempted@@YAHPEAUHOBJ__@@E@Z @ 0x1C0158E5C
+ * XREFs of ?HmgQueryRemoveAttempted@@YAHPEAUHOBJ__@@E@Z @ 0x1C013F100
  * Callers:
- *     GrepDeleteDC @ 0x1C003B5E0 (GrepDeleteDC.c)
- *     ?GrepDeleteDCOBJ@@YAHAEAVXDCOBJ@@KPEAH@Z @ 0x1C00AFFC8 (-GrepDeleteDCOBJ@@YAHAEAVXDCOBJ@@KPEAH@Z.c)
+ *     ?bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z @ 0x1C003C98C (-bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z.c)
  * Callees:
- *     GreReleaseHmgrSemaphore @ 0x1C00427F0 (GreReleaseHmgrSemaphore.c)
- *     GreAcquireHmgrSemaphore @ 0x1C0042870 (GreAcquireHmgrSemaphore.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0043330 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0043570 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
- *     ?pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ @ 0x1C00440F0 (-pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0030700 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0030A00 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C003A090 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C003A1E0 (GreAcquireHmgrSemaphore.c)
  */
 
-__int64 __fastcall HmgQueryRemoveAttempted(struct HOBJ__ *a1)
+__int64 __fastcall HmgQueryRemoveAttempted(struct HOBJ__ *a1, int a2, int a3)
 {
-  unsigned int v1; // edi
-  unsigned int v2; // ebx
-  __int64 v3; // rcx
-  __int64 v5; // [rsp+30h] [rbp-28h] BYREF
-  int v6; // [rsp+38h] [rbp-20h]
+  unsigned int v3; // edi
+  unsigned int v4; // ebx
+  __int64 v5; // rdx
+  int v6; // ecx
+  int v7; // r8d
+  __int64 v9; // [rsp+30h] [rbp-28h] BYREF
+  int v10; // [rsp+38h] [rbp-20h]
 
-  v1 = (unsigned int)a1;
-  v2 = 0;
-  GreAcquireHmgrSemaphore((__int64)a1);
-  v5 = 0LL;
-  v6 = 0;
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v5, (unsigned __int16)v1 | (v1 >> 8) & 0xFF0000, 1, 0, 0);
-  if ( v6 )
+  v3 = (unsigned int)a1;
+  v4 = 0;
+  GreAcquireHmgrSemaphore((__int64)a1, a2, a3);
+  v9 = 0LL;
+  v10 = 0;
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v9, (unsigned __int16)v3 | (v3 >> 8) & 0xFF0000, 1, 0, 0);
+  if ( v10 )
   {
-    HANDLELOCK::pObj((HANDLELOCK *)&v5);
-    if ( *(_BYTE *)(v5 + 14) == 1 && *(_WORD *)(v5 + 12) == HIWORD(v1) )
-      v2 = (*(unsigned __int8 *)(v5 + 15) >> 3) & 1;
-    HANDLELOCK::vUnlock((HANDLELOCK *)&v5);
-    if ( v6 )
-      HANDLELOCK::vUnlock((HANDLELOCK *)&v5);
+    if ( *(_BYTE *)(v9 + 14) == 1 && *(_WORD *)(v9 + 12) == HIWORD(v3) )
+      v4 = (*(unsigned __int8 *)(v9 + 15) >> 3) & 1;
+    HANDLELOCK::vUnlock((HANDLELOCK *)&v9);
+    if ( v10 )
+      HANDLELOCK::vUnlock((HANDLELOCK *)&v9);
   }
-  GreReleaseHmgrSemaphore(v3);
-  return v2;
+  GreReleaseHmgrSemaphore(v6, v5, v7);
+  return v4;
 }

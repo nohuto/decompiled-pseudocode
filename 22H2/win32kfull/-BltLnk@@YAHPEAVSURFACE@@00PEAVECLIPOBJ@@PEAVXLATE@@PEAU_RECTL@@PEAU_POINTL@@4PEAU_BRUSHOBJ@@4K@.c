@@ -1,17 +1,17 @@
 /*
- * XREFs of ?BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C0090588
+ * XREFs of ?BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C00CCF10
  * Callers:
- *     EngBitBlt @ 0x1C002D4C0 (EngBitBlt.c)
- *     ?vExpandAndCopyText@@YAXPEAVSURFACE@@PEAU_FONTOBJ@@PEAU_GLYPHPOS@@KPEAEKK00PEAU_RECTL@@4HHK44KPEAU_BRUSHOBJ@@PEAU_POINTL@@@Z @ 0x1C0055DA0 (-vExpandAndCopyText@@YAXPEAVSURFACE@@PEAU_FONTOBJ@@PEAU_GLYPHPOS@@KPEAEKK00PEAU_RECTL@@4HHK44KPE.c)
+ *     EngBitBlt @ 0x1C00CB280 (EngBitBlt.c)
+ *     ?vExpandAndCopyText@@YAXPEAVSURFACE@@PEAU_FONTOBJ@@PEAU_GLYPHPOS@@KPEAEKK00PEAU_RECTL@@4HHK44KPEAU_BRUSHOBJ@@PEAU_POINTL@@@Z @ 0x1C00CC220 (-vExpandAndCopyText@@YAXPEAVSURFACE@@PEAU_FONTOBJ@@PEAU_GLYPHPOS@@KPEAEKK00PEAU_RECTL@@4HHK44KPE.c)
  * Callees:
- *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C0003828 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
- *     EngCopyBits @ 0x1C0030980 (EngCopyBits.c)
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00541A0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     ?pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C0086D7C (-pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z.c)
- *     ?BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z @ 0x1C0090C20 (-BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z.c)
- *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C0091438 (-bUMPDSecurityGateEx@@YAHXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     EngCopyBits @ 0x1C007EAA0 (EngCopyBits.c)
+ *     ?BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z @ 0x1C00CD750 (-BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z.c)
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00CE400 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEBA0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ?pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C00CECC8 (-pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00CF858 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall BltLnk(
@@ -19,7 +19,7 @@ __int64 __fastcall BltLnk(
         struct SURFACE *a2,
         struct SURFACE *a3,
         struct ECLIPOBJ *a4,
-        struct XLATE *a5,
+        XLATEOBJ *a5,
         struct _RECTL *a6,
         struct _POINTL *a7,
         struct _POINTL *a8,
@@ -27,407 +27,344 @@ __int64 __fastcall BltLnk(
         struct _POINTL *a10,
         unsigned int a11)
 {
-  struct _RECTL *v12; // r12
-  struct SURFACE *v15; // r10
-  struct _BRUSHOBJ *v16; // rbx
-  unsigned __int64 v17; // rcx
-  struct _RECTL v18; // xmm0
-  int v19; // edx
-  char v20; // r15
-  char v21; // r14
-  char v22; // di
-  char v23; // si
+  struct _RECTL *v11; // r13
+  XLATEOBJ *v13; // rbx
+  struct SURFACE *v14; // r8
+  struct _BRUSHOBJ *v15; // rdi
+  struct _RECTL v16; // xmm0
+  struct SURFACE *v17; // r9
+  unsigned int v18; // ebx
+  int v19; // r10d
+  char v20; // r12
+  char v21; // r15
+  char v22; // si
+  char v23; // r14
   int v24; // r11d
   int v25; // edx
-  LONG x; // r9d
   LONG y; // ecx
-  int v28; // eax
-  int v29; // r8d
-  PVOID v30; // rdi
+  int v27; // eax
+  unsigned int v28; // r9d
+  int v29; // r10d
+  __int64 v30; // rsi
   struct _POINTL *v31; // rdx
   XCLIPOBJ *v32; // r10
   struct _RECTL v33; // xmm0
-  int v34; // esi
-  unsigned int v35; // r15d
+  int v34; // r14d
+  unsigned int v35; // r14d
   LONG left; // eax
-  struct _RECTL *v37; // rbx
-  LONG v38; // ecx
-  LONG right; // edi
-  LONG v40; // edx
-  LONG v41; // eax
-  LONG v42; // r8d
+  __int64 v37; // rdi
+  LONG *v38; // r12
+  LONG v39; // ecx
+  LONG right; // esi
+  LONG v41; // r8d
+  LONG v42; // eax
   LONG v43; // eax
-  LONG bottom; // eax
-  LONG v45; // edx
-  LONG v46; // r14d
-  unsigned int v48; // ecx
-  int v49; // r10d
-  int v50; // r8d
-  int v51; // r9d
-  int v52; // eax
-  struct Gre::Base::SESSION_GLOBALS *v53; // rax
+  LONG bottom; // edx
+  int v45; // r15d
   struct _BRUSHOBJ *EngRbrush; // rax
-  LONG top; // r8d
-  int v56; // eax
-  int v57; // ecx
-  POINTL v58; // rdi
-  LONG v59; // eax
-  struct Gre::Base::SESSION_GLOBALS *v60; // rax
   ULONG iSolidColor; // ecx
+  int v49; // ecx
+  struct SURFACE *v50; // r14
+  unsigned int v51; // ecx
+  int x; // r10d
+  int v53; // r8d
+  int v54; // r9d
+  int v55; // eax
+  int v56; // edx
+  int v57; // edx
+  int v58; // edx
+  int v59; // edx
+  LONG top; // r10d
+  int v61; // eax
   int v62; // ecx
-  int v63; // edx
-  int v64; // edx
-  int v65; // edx
-  int v66; // edx
-  int v67; // r9d
-  int v68; // ecx
-  unsigned int v69; // r10d
-  signed int v70; // r8d
-  int flColorType; // ebx
-  unsigned __int8 v72; // [rsp+60h] [rbp-A0h]
-  unsigned __int8 v73; // [rsp+61h] [rbp-9Fh]
-  unsigned int v74; // [rsp+64h] [rbp-9Ch]
-  int v75; // [rsp+64h] [rbp-9Ch]
-  int v76; // [rsp+68h] [rbp-98h]
-  int v77; // [rsp+74h] [rbp-8Ch]
-  unsigned int v78; // [rsp+74h] [rbp-8Ch]
-  BOOL v80; // [rsp+80h] [rbp-80h]
-  POINTL pptlSrc; // [rsp+88h] [rbp-78h] BYREF
-  struct _POINTL *v82; // [rsp+90h] [rbp-70h]
-  __int64 v83; // [rsp+98h] [rbp-68h] BYREF
-  char v84; // [rsp+A0h] [rbp-60h]
-  int v85; // [rsp+A4h] [rbp-5Ch]
-  BOOL v86; // [rsp+A8h] [rbp-58h]
-  BOOL v87; // [rsp+ACh] [rbp-54h]
-  BOOL v88; // [rsp+B0h] [rbp-50h]
-  BOOL v89; // [rsp+B4h] [rbp-4Ch]
-  BOOL v90; // [rsp+B8h] [rbp-48h]
-  BOOL v91; // [rsp+BCh] [rbp-44h]
-  XCLIPOBJ *v92; // [rsp+C0h] [rbp-40h]
-  POINTL *v93; // [rsp+C8h] [rbp-38h]
-  struct _POINTL *v94; // [rsp+D0h] [rbp-30h]
-  struct _BRUSHOBJ *v95; // [rsp+D8h] [rbp-28h]
-  int v96; // [rsp+E0h] [rbp-20h] BYREF
-  LONG v97; // [rsp+E4h] [rbp-1Ch]
-  LONG v98; // [rsp+E8h] [rbp-18h]
-  int v99; // [rsp+ECh] [rbp-14h]
-  __int64 v100; // [rsp+F0h] [rbp-10h]
-  __int64 v101; // [rsp+F8h] [rbp-8h]
-  struct _RECTL *v102; // [rsp+100h] [rbp+0h]
-  struct _RECTL v103; // [rsp+110h] [rbp+10h] BYREF
-  struct SURFACE *v104; // [rsp+120h] [rbp+20h]
-  struct SURFACE *v105; // [rsp+128h] [rbp+28h]
-  struct SURFACE *v106; // [rsp+130h] [rbp+30h]
-  struct ECLIPOBJ *v107; // [rsp+138h] [rbp+38h]
-  struct XLATE *v108; // [rsp+140h] [rbp+40h]
-  struct _BRUSHOBJ *v109; // [rsp+148h] [rbp+48h]
-  __int64 v110; // [rsp+150h] [rbp+50h]
-  __int64 v111; // [rsp+158h] [rbp+58h]
-  PVOID v112; // [rsp+160h] [rbp+60h]
-  PVOID pvRbrush; // [rsp+168h] [rbp+68h]
-  unsigned int v114; // [rsp+170h] [rbp+70h]
-  int v115; // [rsp+174h] [rbp+74h]
-  int v116; // [rsp+178h] [rbp+78h]
-  int v117; // [rsp+17Ch] [rbp+7Ch]
-  int v118; // [rsp+180h] [rbp+80h]
-  int v119; // [rsp+184h] [rbp+84h]
-  int v120; // [rsp+188h] [rbp+88h]
-  int v121; // [rsp+18Ch] [rbp+8Ch]
-  int v122; // [rsp+190h] [rbp+90h]
-  int v123; // [rsp+194h] [rbp+94h]
-  int v124; // [rsp+198h] [rbp+98h]
-  unsigned __int64 v125; // [rsp+19Ch] [rbp+9Ch]
-  int v126; // [rsp+1A4h] [rbp+A4h]
-  int v127; // [rsp+1A8h] [rbp+A8h]
-  ULONG v128; // [rsp+1ACh] [rbp+ACh]
-  LONG v129; // [rsp+1B0h] [rbp+B0h]
-  LONG v130; // [rsp+1B4h] [rbp+B4h]
-  unsigned int v131; // [rsp+1B8h] [rbp+B8h]
-  int v132; // [rsp+1BCh] [rbp+BCh]
-  int v133; // [rsp+1C0h] [rbp+C0h]
-  int v134; // [rsp+1C4h] [rbp+C4h]
-  unsigned int v135; // [rsp+1DCh] [rbp+DCh]
-  int v136; // [rsp+1E0h] [rbp+E0h]
-  BOOL v137; // [rsp+1E4h] [rbp+E4h]
-  BOOL v138; // [rsp+1E8h] [rbp+E8h]
-  BOOL v139; // [rsp+1ECh] [rbp+ECh]
-  BOOL v140; // [rsp+1F0h] [rbp+F0h]
-  char v141; // [rsp+1F4h] [rbp+F4h]
-  char v142; // [rsp+1F5h] [rbp+F5h]
-  RECTL prclDest; // [rsp+200h] [rbp+100h] BYREF
-  unsigned int v144; // [rsp+210h] [rbp+110h] BYREF
-  _OWORD v145[20]; // [rsp+214h] [rbp+114h] BYREF
+  LONG v63; // eax
+  int v64; // r9d
+  int v65; // ecx
+  unsigned int v66; // r10d
+  signed int v67; // r8d
+  int flColorType; // edi
+  unsigned __int8 v69; // [rsp+60h] [rbp-A0h]
+  unsigned __int8 v70; // [rsp+61h] [rbp-9Fh]
+  int v71; // [rsp+64h] [rbp-9Ch]
+  int v72; // [rsp+68h] [rbp-98h]
+  int v73; // [rsp+68h] [rbp-98h]
+  unsigned int v74; // [rsp+70h] [rbp-90h]
+  POINTL pptlSrc; // [rsp+78h] [rbp-88h] BYREF
+  BOOL v76; // [rsp+80h] [rbp-80h]
+  struct SURFACE *v77; // [rsp+88h] [rbp-78h]
+  struct _POINTL *v78; // [rsp+90h] [rbp-70h]
+  __int64 v79; // [rsp+98h] [rbp-68h]
+  BOOL v80; // [rsp+A0h] [rbp-60h]
+  __int64 v81; // [rsp+A4h] [rbp-5Ch]
+  BOOL v82; // [rsp+ACh] [rbp-54h]
+  struct SURFACE *v83; // [rsp+B0h] [rbp-50h]
+  XCLIPOBJ *v84; // [rsp+B8h] [rbp-48h]
+  __int64 v85; // [rsp+C0h] [rbp-40h] BYREF
+  char v86; // [rsp+C8h] [rbp-38h]
+  int v87; // [rsp+CCh] [rbp-34h]
+  struct _POINTL *v88; // [rsp+D0h] [rbp-30h]
+  struct SURFACE *v89; // [rsp+D8h] [rbp-28h]
+  struct _POINTL *v90; // [rsp+E0h] [rbp-20h]
+  struct _BRUSHOBJ *v91; // [rsp+E8h] [rbp-18h]
+  int v92; // [rsp+F0h] [rbp-10h] BYREF
+  LONG v93; // [rsp+F4h] [rbp-Ch]
+  LONG v94; // [rsp+F8h] [rbp-8h]
+  int v95; // [rsp+FCh] [rbp-4h]
+  __int64 v96; // [rsp+100h] [rbp+0h]
+  __int64 v97; // [rsp+108h] [rbp+8h]
+  struct _RECTL *v98; // [rsp+110h] [rbp+10h]
+  _OWORD v99[15]; // [rsp+120h] [rbp+20h] BYREF
+  RECTL prclDest; // [rsp+210h] [rbp+110h] BYREF
+  _DWORD v101[84]; // [rsp+220h] [rbp+120h] BYREF
 
-  v12 = a6;
-  v94 = a8;
-  v93 = a7;
-  v82 = a10;
-  pptlSrc = (POINTL)a2;
-  v92 = a4;
-  v102 = a6;
-  v95 = a9;
-  v76 = 0;
-  memset_0(&v103, 0, 0xE8uLL);
-  memset_0(&v144, 0, 0x144uLL);
-  v15 = a1;
-  v16 = 0LL;
-  v83 = 0LL;
-  v84 = 0;
-  v85 = 0;
-  v17 = (unsigned int)(*((_DWORD *)a1 + 24) - 1);
-  if ( *((_DWORD *)a1 + 24) == 1 )
+  v11 = a6;
+  v13 = a5;
+  v77 = a1;
+  v90 = a8;
+  v88 = a7;
+  v78 = a10;
+  v89 = a3;
+  v83 = a2;
+  v84 = a4;
+  v98 = a6;
+  v91 = a9;
+  v71 = 0;
+  memset(v99, 0, 0xE8uLL);
+  memset(v101, 0, 0x144uLL);
+  v14 = v77;
+  v15 = 0LL;
+  v85 = 0LL;
+  v86 = 0;
+  v87 = 0;
+  switch ( *((_DWORD *)v77 + 24) )
   {
-    v76 = 1986;
+    case 1:
+      v71 = 1986;
+      break;
+    case 2:
+      v71 = 498;
+      break;
+    case 3:
+      v71 = 250;
+      break;
+    case 4:
+      v71 = 126;
+      break;
+    case 5:
+      v71 = 83;
+      break;
+    case 6:
+      v71 = 64;
+      break;
   }
-  else
-  {
-    v17 = (unsigned int)(*((_DWORD *)a1 + 24) - 2);
-    if ( *((_DWORD *)a1 + 24) == 2 )
-    {
-      v76 = 498;
-    }
-    else
-    {
-      v17 = (unsigned int)(*((_DWORD *)a1 + 24) - 3);
-      if ( *((_DWORD *)a1 + 24) == 3 )
-      {
-        v76 = 250;
-      }
-      else
-      {
-        v17 = (unsigned int)(*((_DWORD *)a1 + 24) - 4);
-        if ( *((_DWORD *)a1 + 24) == 4 )
-        {
-          v76 = 126;
-        }
-        else
-        {
-          v17 = (unsigned int)(*((_DWORD *)a1 + 24) - 5);
-          if ( *((_DWORD *)a1 + 24) == 5 )
-          {
-            v76 = 83;
-          }
-          else if ( *((_DWORD *)a1 + 24) == 6 )
-          {
-            v76 = 64;
-          }
-        }
-      }
-    }
-  }
-  if ( a5 )
-  {
-    v108 = a5;
-  }
-  else
-  {
-    v53 = Gre::Base::Globals((Gre::Base *)v17);
-    v15 = a1;
-    v108 = (struct Gre::Base::SESSION_GLOBALS *)((char *)v53 + 6896);
-  }
-  v18 = *a6;
-  v105 = a2;
-  v107 = a4;
-  v104 = v15;
-  v109 = v95;
+  v16 = *a6;
+  if ( !a5 )
+    v13 = xloIdent;
+  v17 = v83;
+  *((_QWORD *)&v99[2] + 1) = a4;
+  *(_QWORD *)&v99[3] = v13;
   v74 = a11 >> 8;
-  v72 = a11 & 0xA5 | (8 * (a11 & 0xA)) | ((unsigned __int8)a11 >> 3) & 0xA;
-  v73 = BYTE1(a11) & 0xA5 | (8 * (BYTE1(a11) & 0xA)) | (BYTE1(a11) >> 3) & 0xA;
-  v103 = v18;
-  v88 = (a11 & 0xF) != (unsigned __int8)a11 >> 4;
-  v91 = (BYTE1(a11) & 0xF) != BYTE1(a11) >> 4;
+  *(_QWORD *)&v99[1] = v77;
+  *((_QWORD *)&v99[1] + 1) = v83;
+  *((_QWORD *)&v99[3] + 1) = v91;
+  v69 = a11 & 0xA5 | (8 * (a11 & 0xA)) | ((unsigned __int8)a11 >> 3) & 0xA;
+  v70 = BYTE1(a11) & 0xA5 | (8 * (BYTE1(a11) & 0xA)) | (BYTE1(a11) >> 3) & 0xA;
+  v76 = (unsigned __int8)a11 != a11 >> 8;
+  v99[0] = v16;
+  v80 = (a11 & 0xF) != (unsigned __int8)a11 >> 4;
+  v82 = (BYTE1(a11) & 0xF) != BYTE1(a11) >> 4;
+  v18 = 1;
   if ( (a11 & 0xF) != (unsigned __int8)a11 >> 4 || (v19 = 0, (BYTE1(a11) & 0xF) != BYTE1(a11) >> 4) )
     v19 = 1;
-  v77 = v19;
+  v72 = v19;
   v20 = (unsigned __int8)(a11 & 0xC3 | (4 * (a11 & 0xC)) | ((unsigned __int8)a11 >> 2) & 0xC) >> 4;
   v21 = a11 & 3 | (4 * (a11 & 0xC)) & 0xF | ((unsigned __int8)a11 >> 2) & 0xC;
   v22 = BYTE1(a11) & 3 | (4 * (BYTE1(a11) & 0xC)) & 0xF | (BYTE1(a11) >> 2) & 0xC;
-  v86 = v21 != v20;
+  LODWORD(v79) = v21 != v20;
   v23 = (unsigned __int8)(BYTE1(a11) & 0xC3 | (4 * (BYTE1(a11) & 0xC)) | (BYTE1(a11) >> 2) & 0xC) >> 4;
-  v89 = v22 != v23;
-  v80 = v21 != v20 || v22 != v23;
-  v87 = (v72 & 0xF) != v72 >> 4;
-  v90 = (v73 & 0xF) != v73 >> 4;
-  if ( v19 || (unsigned __int8)a11 != a11 >> 8 && !a3 )
+  LODWORD(v81) = v22 != v23;
+  pptlSrc.x = v21 != v20 || v22 != v23;
+  HIDWORD(v79) = (v69 & 0xF) != v69 >> 4;
+  HIDWORD(v81) = (v70 & 0xF) != v70 >> 4;
+  if ( v19 || (unsigned __int8)a11 != v74 && !v89 )
   {
-    if ( v95 && v95->iSolidColor == -1 )
+    if ( v91 && v91->iSolidColor == -1 )
     {
-      EngRbrush = (struct _BRUSHOBJ *)pvGetEngRbrush(v95);
-      v15 = a1;
-      v16 = EngRbrush;
+      EngRbrush = (struct _BRUSHOBJ *)pvGetEngRbrush(v91);
+      v14 = v77;
+      v15 = EngRbrush;
+      v17 = v83;
     }
     else
     {
-      v16 = v95;
+      v15 = v91;
     }
   }
   v24 = 1;
-  v116 = 1;
-  v115 = 1;
-  v114 = 4;
-  if ( v80 )
+  *(_QWORD *)((char *)&v99[6] + 4) = 0x100000001LL;
+  LODWORD(v99[6]) = 4;
+  if ( pptlSrc.x )
   {
-    v25 = *(_DWORD *)(*(_QWORD *)&pptlSrc + 88LL);
-    v110 = *(_QWORD *)(*(_QWORD *)&pptlSrc + 80LL);
-    v117 = v25;
-    x = v93->x;
-    y = v93->y;
-    v125 = __PAIR64__(y, v93->x);
-    if ( v110 == *((_QWORD *)v15 + 10) )
+    v25 = *((_DWORD *)v17 + 22);
+    *(_QWORD *)&v99[4] = *((_QWORD *)v17 + 10);
+    pptlSrc.x = v88->x;
+    HIDWORD(v99[8]) = pptlSrc.x;
+    y = v88->y;
+    LODWORD(v99[9]) = y;
+    HIDWORD(v99[6]) = v25;
+    if ( *(_QWORD *)&v99[4] != *((_QWORD *)v14 + 10) )
+      goto LABEL_18;
+    top = a6->top;
+    if ( y < top )
     {
-      top = a6->top;
-      if ( y >= top )
-      {
-        v56 = 1;
-        v115 = 1;
-        if ( y == top )
-        {
-          if ( x < a6->left )
-            v56 = -1;
-          v115 = v56;
-        }
-      }
-      else
-      {
-        v24 = -1;
-        v116 = -1;
-        v114 = 2;
-        v56 = 1;
-        v115 = 1;
-      }
-      if ( (unsigned __int8)a11 != v74 && v21 != v20 && v22 != v23
-        || (v56 == -1 || v24 == -1) && a6->right - a6->left > v76 )
-      {
-        v57 = a6->right - a6->left;
-        v58 = pptlSrc;
-        v96 = *(_DWORD *)(*(_QWORD *)&pptlSrc + 96LL);
-        v59 = a6->bottom - top;
-        v97 = v57;
-        v98 = v59;
-        v99 = 0;
-        v101 = 1LL;
-        v100 = 0LL;
-        SURFMEM::bCreateDIB((SURFMEM *)&v83, (struct _DEVBITMAPINFO *)&v96, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
-        if ( !v83 )
-          goto LABEL_103;
-        *(_QWORD *)&prclDest.left = 0LL;
-        pptlSrc = *v93;
-        prclDest.right = v97;
-        prclDest.bottom = v98;
-        v60 = Gre::Base::Globals((Gre::Base *)v93);
-        if ( !EngCopyBits(
-                (SURFOBJ *)((v83 + 24) & -(__int64)(v83 != 0)),
-                (SURFOBJ *)(*(_QWORD *)&v58 + 24LL),
-                0LL,
-                (XLATEOBJ *)((char *)v60 + 6896),
-                &prclDest,
-                &pptlSrc) )
-          goto LABEL_103;
-        v24 = v116;
-        v15 = a1;
-        v110 = *(_QWORD *)(v83 + 80);
-        v25 = *(_DWORD *)(v83 + 88);
-        v117 = v25;
-        v125 = 0LL;
-      }
-      if ( v24 != 1 )
-        v25 = -v25;
+      v24 = -1;
+      DWORD2(v99[6]) = -1;
+      LODWORD(v99[6]) = 2;
     }
-    v121 = v25;
+    v61 = 1;
+    DWORD1(v99[6]) = 1;
+    if ( y == top )
+    {
+      if ( pptlSrc.x < a6->left )
+        v61 = -1;
+      DWORD1(v99[6]) = v61;
+    }
+    if ( (unsigned __int8)a11 != v74 && v21 != v20 && v22 != v23
+      || (v61 == -1 || v24 == -1) && a6->right - a6->left > v71 )
+    {
+      v62 = a6->right - a6->left;
+      v92 = *((_DWORD *)v17 + 24);
+      v63 = a6->bottom - top;
+      v93 = v62;
+      v95 = 0;
+      v97 = 1LL;
+      v94 = v63;
+      v96 = 0LL;
+      SURFMEM::bCreateDIB((SURFMEM *)&v85, (struct _DEVBITMAPINFO *)&v92, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
+      if ( !v85 )
+        goto LABEL_97;
+      *(_QWORD *)&prclDest.left = 0LL;
+      pptlSrc = *v88;
+      prclDest.right = v93;
+      prclDest.bottom = v94;
+      if ( !EngCopyBits(
+              (SURFOBJ *)(v85 + 24),
+              (SURFOBJ *)(((unsigned __int64)v83 + 24) & -(__int64)(v83 != 0LL)),
+              0LL,
+              xloIdent,
+              &prclDest,
+              &pptlSrc) )
+        goto LABEL_97;
+      v24 = DWORD2(v99[6]);
+      v14 = v77;
+      *(_QWORD *)&v99[4] = *(_QWORD *)(v85 + 80);
+      v25 = *(_DWORD *)(v85 + 88);
+      HIDWORD(v99[6]) = v25;
+      *(_QWORD *)((char *)&v99[8] + 12) = 0LL;
+    }
+    if ( v24 == 1 )
+LABEL_18:
+      HIDWORD(v99[7]) = v25;
+    else
+      HIDWORD(v99[7]) = -v25;
   }
   else
   {
-    v110 = 0LL;
+    *(_QWORD *)&v99[4] = 0LL;
   }
-  v111 = *((_QWORD *)v15 + 10);
-  v28 = *((_DWORD *)v15 + 22);
-  v118 = v28;
+  *((_QWORD *)&v99[4] + 1) = *((_QWORD *)v14 + 10);
+  v27 = *((_DWORD *)v14 + 22);
+  LODWORD(v99[7]) = v27;
   if ( v24 != 1 )
-    v28 = -v28;
+    v27 = -v27;
+  v28 = a11 >> 8;
   v29 = (unsigned __int8)a11;
-  v122 = v28;
-  if ( (unsigned __int8)a11 == v74 || !a3 )
+  LODWORD(v99[8]) = v27;
+  if ( (unsigned __int8)a11 == v74 || (v50 = v89) == 0LL )
   {
-    v106 = 0LL;
+    *(_QWORD *)&v99[2] = 0LL;
     v30 = 0LL;
-    v112 = 0LL;
+    *(_QWORD *)&v99[5] = 0LL;
   }
   else
   {
-    if ( (unsigned int)bUMPDSecurityGateEx() && !v94 )
-      goto LABEL_103;
-    v48 = *((_DWORD *)a3 + 14);
-    v49 = v94->x;
-    v30 = (PVOID)*((_QWORD *)a3 + 10);
-    v50 = *((_DWORD *)a3 + 15);
-    v51 = v94->y;
-    v112 = v30;
-    v106 = a3;
-    v131 = v48;
-    v132 = v50;
-    v133 = v49;
-    v134 = v51;
-    if ( v49 >= (int)v48 )
+    if ( (unsigned int)bUMPDSecurityGateEx() && !v90 )
     {
-      v133 = v49 % v48;
+      if ( gfUMPDDebug )
+        DbgPrint("clientcore\\windows\\core\\ntgdi\\gre\\windows\\bltlnk.cxx:%d:BltLnk:pptlMask == NULL\n", 619);
+      goto LABEL_97;
     }
-    else if ( v49 < 0 )
+    v51 = *((_DWORD *)v50 + 14);
+    x = v90->x;
+    v30 = *((_QWORD *)v50 + 10);
+    v53 = *((_DWORD *)v50 + 15);
+    v54 = v90->y;
+    *(_QWORD *)&v99[5] = v30;
+    *(_QWORD *)&v99[2] = v50;
+    *((_QWORD *)&v99[10] + 1) = __PAIR64__(v53, v51);
+    *(_QWORD *)&v99[11] = __PAIR64__(v54, x);
+    if ( x >= (int)v51 )
     {
-      v133 = v48 - (-1 - v49) % v48 - 1;
+      LODWORD(v99[11]) = x % v51;
     }
-    if ( v51 >= v50 )
+    else if ( x < 0 )
     {
-      v134 = v51 % v50;
+      LODWORD(v99[11]) = v51 - (-1 - x) % v51 - 1;
     }
-    else if ( v51 < 0 )
+    if ( v54 >= v53 )
     {
-      v134 = v50 - ~v51 % v50 - 1;
+      DWORD1(v99[11]) = v54 % v53;
     }
-    v24 = v116;
-    v52 = *((_DWORD *)a3 + 22);
-    v15 = a1;
+    else if ( v54 < 0 )
+    {
+      DWORD1(v99[11]) = v53 - ~v54 % v53 - 1;
+    }
+    v24 = DWORD2(v99[6]);
+    v55 = *((_DWORD *)v50 + 22);
+    v14 = v77;
+    v28 = a11 >> 8;
     v29 = (unsigned __int8)a11;
-    v120 = v52;
-    if ( v116 != 1 )
-      v52 = -v52;
-    v124 = v52;
+    DWORD2(v99[7]) = v55;
+    if ( DWORD2(v99[6]) != 1 )
+      v55 = -v55;
+    DWORD2(v99[8]) = v55;
   }
-  if ( !v77 )
+  if ( !v72 )
   {
-    pvRbrush = 0LL;
+    *((_QWORD *)&v99[5] + 1) = 0LL;
 LABEL_25:
-    v31 = v82;
+    v31 = v78;
     goto LABEL_26;
   }
-  if ( !v95 )
-    goto LABEL_103;
-  iSolidColor = v95->iSolidColor;
-  if ( v95->iSolidColor != -1 )
+  if ( !v91 )
+    goto LABEL_97;
+  iSolidColor = v91->iSolidColor;
+  if ( v91->iSolidColor != -1 )
   {
-    v63 = *((_DWORD *)v15 + 24);
-    pvRbrush = 0LL;
-    v64 = v63 - 1;
-    if ( !v64 )
+    v56 = *((_DWORD *)v14 + 24);
+    *((_QWORD *)&v99[5] + 1) = 0LL;
+    v57 = v56 - 1;
+    if ( !v57 )
     {
       if ( iSolidColor )
         iSolidColor = -1;
-      goto LABEL_123;
+      goto LABEL_96;
     }
-    v65 = v64 - 1;
-    if ( v65 )
+    v58 = v57 - 1;
+    if ( v58 )
     {
-      v66 = v65 - 1;
-      if ( v66 )
+      v59 = v58 - 1;
+      if ( v59 )
       {
-        if ( v66 != 1 )
+        if ( v59 != 1 )
         {
-LABEL_123:
-          v126 = iSolidColor;
+LABEL_96:
+          DWORD1(v99[9]) = iSolidColor;
           goto LABEL_25;
         }
-LABEL_120:
+LABEL_102:
         iSolidColor |= iSolidColor << 16;
-        goto LABEL_123;
+        goto LABEL_96;
       }
     }
     else
@@ -435,189 +372,177 @@ LABEL_120:
       iSolidColor |= 16 * iSolidColor;
     }
     iSolidColor |= iSolidColor << 8;
-    goto LABEL_120;
+    goto LABEL_102;
   }
-  if ( !v16 )
-    goto LABEL_103;
-  v126 = -1;
-  if ( !v16[1].pvRbrush )
+  if ( !v15 )
+    goto LABEL_97;
+  DWORD1(v99[9]) = -1;
+  if ( !v15[1].pvRbrush )
     goto LABEL_25;
-  v62 = *(&v16[1].iSolidColor + 1);
-  v31 = v82;
-  v119 = v62;
-  pvRbrush = v16[1].pvRbrush;
-  v127 = *(&v16->flColorType + 1);
-  v128 = v16[1].iSolidColor;
-  v129 = v82->x;
-  v130 = v82->y;
+  v49 = *(&v15[1].iSolidColor + 1);
+  v31 = v78;
+  DWORD1(v99[7]) = v49;
+  *((_QWORD *)&v99[5] + 1) = v15[1].pvRbrush;
+  *((_QWORD *)&v99[9] + 1) = *(_QWORD *)(&v15->flColorType + 1);
+  *(struct _POINTL *)&v99[10] = *v78;
   if ( v24 != 1 )
-    v62 = -v62;
-  v123 = v62;
+    v49 = -v49;
+  DWORD1(v99[8]) = v49;
 LABEL_26:
-  if ( v29 != v74 && !v30 )
+  if ( v29 != v28 && !v30 )
   {
-    if ( v16 && v16[2].pvRbrush )
+    if ( !v15 || !v15[2].pvRbrush )
+      goto LABEL_97;
+    v64 = a6->left - v31->x;
+    v65 = a6->top - v31->y;
+    *(_QWORD *)&v99[5] = v15[2].pvRbrush;
+    v66 = *(&v15[1].flColorType + 1);
+    DWORD2(v99[10]) = v66;
+    v67 = v15[2].iSolidColor;
+    HIDWORD(v99[10]) = v67;
+    flColorType = v15[2].flColorType;
+    DWORD2(v99[7]) = flColorType;
+    *(_QWORD *)&v99[11] = __PAIR64__(v65, v64);
+    if ( v64 < (int)v66 )
     {
-      v30 = v16[2].pvRbrush;
-      v67 = a6->left - v31->x;
-      v68 = a6->top - v31->y;
-      v112 = v30;
-      v69 = *(&v16[1].flColorType + 1);
-      v131 = v69;
-      v70 = v16[2].iSolidColor;
-      v132 = v70;
-      flColorType = v16[2].flColorType;
-      v120 = flColorType;
-      v133 = v67;
-      v134 = v68;
-      if ( v67 < (int)v69 )
-      {
-        if ( v67 < 0 )
-          v133 = v69 - ~v67 % v69 - 1;
-      }
-      else
-      {
-        v133 = v67 % v69;
-      }
-      if ( v68 < v70 )
-      {
-        if ( v68 < 0 )
-          v134 = v70 - ~v68 % v70 - 1;
-      }
-      else
-      {
-        v134 = v68 % v70;
-      }
-      if ( v24 != 1 )
-        flColorType = -flColorType;
-      v124 = flColorType;
+      if ( v64 < 0 )
+        LODWORD(v99[11]) = v66 - ~v64 % v66 - 1;
     }
-    if ( !v30 )
-      goto LABEL_103;
-  }
-  v32 = v92;
-  if ( v92 && *((_BYTE *)v92 + 20) )
-  {
-    if ( *((_BYTE *)v92 + 20) == 1 )
+    else
     {
-      v33 = *(struct _RECTL *)((char *)v92 + 4);
+      LODWORD(v99[11]) = v64 % v66;
+    }
+    if ( v65 < v67 )
+    {
+      if ( v65 < 0 )
+        DWORD1(v99[11]) = v67 - ~v65 % v67 - 1;
+    }
+    else
+    {
+      DWORD1(v99[11]) = v65 % v67;
+    }
+    if ( v24 != 1 )
+      flColorType = -flColorType;
+    DWORD2(v99[8]) = flColorType;
+  }
+  v32 = v84;
+  if ( v84 && *((_BYTE *)v84 + 20) )
+  {
+    if ( *((_BYTE *)v84 + 20) == 1 )
+    {
+      v33 = *(struct _RECTL *)((char *)v84 + 4);
       goto LABEL_30;
     }
-    if ( *((_BYTE *)v92 + 20) == 3 )
+    if ( *((_BYTE *)v84 + 20) == 3 )
     {
-      v75 = 1;
+      v73 = 1;
       v34 = 1;
-      XCLIPOBJ::cEnumStart(v92, 0, 0, v114, 0x14u);
-      v32 = v92;
+      XCLIPOBJ::cEnumStart(v84, 0, 0, v99[6], 0x14u);
+      v32 = v84;
       goto LABEL_31;
     }
-LABEL_103:
-    SURFMEM::~SURFMEM((SURFMEM *)&v83);
-    return 0LL;
+LABEL_97:
+    v18 = 0;
+    goto LABEL_54;
   }
   v33 = *a6;
 LABEL_30:
   v34 = 0;
-  v75 = 0;
-  v144 = 1;
-  v145[0] = v33;
+  v73 = 0;
+  v101[0] = 1;
+  *(struct _RECTL *)&v101[1] = v33;
 LABEL_31:
   if ( v34 )
-    goto LABEL_143;
+    goto LABEL_100;
   while ( 1 )
   {
-    v35 = 0;
-    v78 = 0;
-    if ( v144 )
+    pptlSrc.x = 0;
+    if ( v101[0] )
     {
+      v35 = 0;
       do
       {
-        left = v12->left;
-        v37 = (struct _RECTL *)&v145[v35];
-        v38 = v37->left;
-        if ( v37->left < v12->left )
+        left = v11->left;
+        v37 = 4LL * v35;
+        v38 = &v101[v37 + 1];
+        v39 = v101[v37 + 1];
+        if ( v39 < v11->left )
         {
-          v37->left = left;
-          v38 = left;
+          *v38 = left;
+          v39 = left;
         }
-        right = v37->right;
-        v40 = right;
-        v41 = v12->right;
-        if ( right > v41 )
+        right = v11->right;
+        if ( v101[4 * v35 + 3] > right )
+          v101[4 * v35 + 3] = right;
+        else
+          right = v101[4 * v35 + 3];
+        v41 = v101[4 * v35 + 2];
+        v42 = v11->top;
+        if ( v41 < v42 )
         {
-          v37->right = v41;
-          right = v41;
-          v40 = v41;
+          v101[4 * v35 + 2] = v42;
+          v41 = v42;
         }
-        v42 = v37->top;
-        v43 = v12->top;
-        if ( v42 < v43 )
+        v43 = v101[4 * v35 + 4];
+        bottom = v11->bottom;
+        if ( v43 > bottom )
         {
-          v37->top = v43;
-          right = v40;
-          v42 = v43;
+          v101[4 * v35 + 4] = bottom;
+          v43 = bottom;
         }
-        bottom = v37->bottom;
-        v45 = v12->bottom;
-        if ( bottom > v45 )
-        {
-          v37->bottom = v45;
-          bottom = v45;
-        }
-        if ( v42 < bottom && right - v38 > 0 )
+        if ( v41 < v43 && right - v39 > 0 )
         {
           do
           {
-            v46 = right;
-            if ( right - v38 > v76 )
+            v45 = right;
+            if ( right - v39 > v71 )
             {
-              v46 = v38 + v76;
-              v37->right = v38 + v76;
+              v45 = v39 + v71;
+              v101[4 * v35 + 3] = v39 + v71;
             }
             if ( (_BYTE)a11 != 0xAA )
             {
-              v141 = a11;
-              v136 = v72;
-              v137 = v86;
-              v138 = v87;
-              v139 = v88;
-              v140 = (unsigned __int8)a11 != a11 >> 8;
-              v135 = a11 & 0xC3 | (unsigned __int8)((4 * (a11 & 0xC)) | ((unsigned __int8)a11 >> 2) & 0xC);
-              v142 = 0;
-              BltLnkRect((struct _BLTLNKINFO *)&v103, v37);
+              WORD2(v99[14]) = (unsigned __int8)a11;
+              HIDWORD(v99[12]) = a11 & 0xC3 | (unsigned __int8)((4 * (a11 & 0xC)) | ((unsigned __int8)a11 >> 2) & 0xC);
+              LODWORD(v99[13]) = v69;
+              *(_QWORD *)((char *)&v99[13] + 4) = v79;
+              HIDWORD(v99[13]) = v80;
+              LODWORD(v99[14]) = v76;
+              BltLnkRect((struct _BLTLNKINFO *)v99, (struct _RECTL *)&v101[v37 + 1]);
             }
-            if ( (unsigned __int8)a11 != a11 >> 8 && BYTE1(a11) != 0xAA )
+            if ( (unsigned __int8)a11 != v74 && BYTE1(a11) != 0xAA )
             {
-              v135 = BYTE1(a11) & 0xC3 | (unsigned __int8)((4 * (BYTE1(a11) & 0xC)) | (BYTE1(a11) >> 2) & 0xC);
-              v136 = v73;
-              v137 = v89;
-              v138 = v90;
-              v139 = v91;
-              v140 = (unsigned __int8)a11 != a11 >> 8;
-              v141 = BYTE1(a11);
-              v142 = -1;
-              BltLnkRect((struct _BLTLNKINFO *)&v103, v37);
+              HIDWORD(v99[12]) = BYTE1(a11) & 0xC3 | (unsigned __int8)((4 * (BYTE1(a11) & 0xC)) | (BYTE1(a11) >> 2) & 0xC);
+              LODWORD(v99[13]) = v70;
+              *(_QWORD *)((char *)&v99[13] + 4) = v81;
+              HIDWORD(v99[13]) = v82;
+              LODWORD(v99[14]) = v76;
+              BYTE4(v99[14]) = BYTE1(a11);
+              BYTE5(v99[14]) = -1;
+              BltLnkRect((struct _BLTLNKINFO *)v99, (struct _RECTL *)&v101[v37 + 1]);
             }
-            v37->left = v46;
-            v37->right = right;
-            v38 = v46;
+            *v38 = v45;
+            v101[4 * v35 + 3] = right;
+            v39 = v45;
           }
-          while ( right - v46 > 0 );
-          v35 = v78;
-          v12 = v102;
+          while ( right - v45 > 0 );
+          v11 = v98;
+          v18 = 1;
+          v35 = pptlSrc.x;
         }
-        v78 = ++v35;
+        pptlSrc.x = ++v35;
       }
-      while ( v35 < v144 );
-      v34 = v75;
+      while ( v35 < v101[0] );
+      v34 = v73;
     }
-    v32 = v92;
+    v32 = v84;
     if ( !v34 )
       break;
-LABEL_143:
-    v34 = XCLIPOBJ::bEnum(v32, 0x144u, (char *)&v144, 0LL);
-    v75 = v34;
+LABEL_100:
+    v34 = XCLIPOBJ::bEnum(v32, 0x144u, v101, 0LL);
+    v73 = v34;
   }
-  SURFMEM::~SURFMEM((SURFMEM *)&v83);
-  return 1LL;
+LABEL_54:
+  SURFMEM::~SURFMEM((SURFMEM *)&v85);
+  return v18;
 }

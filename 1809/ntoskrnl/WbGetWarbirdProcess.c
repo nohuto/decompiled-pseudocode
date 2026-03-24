@@ -12,8 +12,8 @@
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     sub_140625234 @ 0x140625234 (sub_140625234.c)
  *     sub_14062554C @ 0x14062554C (sub_14062554C.c)
- *     sub_14069176C @ 0x14069176C (sub_14069176C.c)
- *     WbCreateWarbirdProcess @ 0x1406CFA88 (WbCreateWarbirdProcess.c)
+ *     sub_14069174C @ 0x14069174C (sub_14069174C.c)
+ *     WbCreateWarbirdProcess @ 0x1406CFA68 (WbCreateWarbirdProcess.c)
  */
 
 __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, volatile signed __int64 **a3)
@@ -62,7 +62,7 @@ __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, volatile signed __int
     if ( v15 )
       *(_BYTE *)(v15 + 26) |= 1u;
     v16 = v18;
-    v9 = sub_14069176C((unsigned int)&dword_14043FA10, (_DWORD)v18, v13, *v18, 8, -1);
+    v9 = sub_14069174C((unsigned int)&dword_14043FA10, (_DWORD)v18, v13, *v18, 8, -1);
     if ( v9 >= 0 )
       _InterlockedIncrement64(v16 + 29);
     v17 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043FA38, 0xFFFFFFFFFFFFFFFFuLL);

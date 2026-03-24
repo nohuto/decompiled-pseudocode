@@ -1,15 +1,12 @@
 /*
- * XREFs of ?IsBlackLight@CCompositionPointLight@@UEBA_NXZ @ 0x180224E30
+ * XREFs of ?IsBlackLight@CCompositionPointLight@@UEBA_NXZ @ 0x1801BAEB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall CCompositionPointLight::IsBlackLight(CCompositionPointLight *this)
+bool __fastcall CCompositionPointLight::IsBlackLight(struct _D3DCOLORVALUE *this)
 {
-  return CCompositionLight::IsBlackColor(
-           this,
-           (const struct _D3DCOLORVALUE *)((char *)this + 264),
-           *((float *)this + 78));
+  return CCompositionLight::IsBlackColor((CCompositionLight *)this, this + 16, this[19].r);
 }

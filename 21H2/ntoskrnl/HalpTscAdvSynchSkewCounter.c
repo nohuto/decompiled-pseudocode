@@ -1,19 +1,17 @@
 /*
- * XREFs of HalpTscAdvSynchSkewCounter @ 0x14050DA5C
+ * XREFs of HalpTscAdvSynchSkewCounter @ 0x1404C1114
  * Callers:
- *     HalpTscAdvSynchToTarget @ 0x140398190 (HalpTscAdvSynchToTarget.c)
- *     HalpTscAdvSynchTarget @ 0x1403ACD34 (HalpTscAdvSynchTarget.c)
+ *     HalpTscAdvSynchTarget @ 0x14039D1EC (HalpTscAdvSynchTarget.c)
+ *     HalpTscAdvSynchToTarget @ 0x1404C1368 (HalpTscAdvSynchToTarget.c)
  * Callees:
- *     <none>
+ *     HalpProcessorFence @ 0x1403F9CC0 (HalpProcessorFence.c)
  */
 
 unsigned __int64 __fastcall HalpTscAdvSynchSkewCounter(__int64 a1)
 {
-  unsigned __int64 v1; // rax
   unsigned __int64 result; // rax
 
-  v1 = __readcr2();
-  __writecr2(v1);
+  HalpProcessorFence();
   result = a1 + __rdtsc();
   __writemsr(0x10u, result);
   return result;

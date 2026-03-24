@@ -1,20 +1,19 @@
 /*
- * XREFs of RtlUnicodeStringToInteger @ 0x140698DE0
+ * XREFs of RtlUnicodeStringToInteger @ 0x140684670
  * Callers:
- *     RtlpMuiRegAddAlternateCodePage @ 0x1403C5EDC (RtlpMuiRegAddAlternateCodePage.c)
- *     _PnpParseIndirectResourceString @ 0x1406974B8 (_PnpParseIndirectResourceString.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140698AAC (_PnpGetGenericStorePropertyKeys.c)
- *     RtlQueryImageFileKeyOption @ 0x1406CC700 (RtlQueryImageFileKeyOption.c)
- *     RtlGetIntegerAtom @ 0x1407A0DF0 (RtlGetIntegerAtom.c)
- *     PspReadIFEOPerfOptions @ 0x1407F6CE0 (PspReadIFEOPerfOptions.c)
- *     PiDcInitUpdateProperties @ 0x140826EF0 (PiDcInitUpdateProperties.c)
- *     PspIsDfssEnabled @ 0x140835590 (PspIsDfssEnabled.c)
- *     CmpGetAcpiProfileInformation @ 0x1408386A0 (CmpGetAcpiProfileInformation.c)
- *     WdipSemLoadNextEndEvent @ 0x14083F908 (WdipSemLoadNextEndEvent.c)
- *     WdipSemLoadNextScenario @ 0x14084028C (WdipSemLoadNextScenario.c)
- *     PopDetectSimulatedHeteroProcessors @ 0x14084A618 (PopDetectSimulatedHeteroProcessors.c)
- *     RtlpQueryNlsSystemCodePages @ 0x14085AB8C (RtlpQueryNlsSystemCodePages.c)
- *     PiCMDeleteDeviceKey @ 0x140955274 (PiCMDeleteDeviceKey.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x1403ACD90 (RtlpMuiRegAddAlternateCodePage.c)
+ *     RtlGetIntegerAtom @ 0x14061B6E0 (RtlGetIntegerAtom.c)
+ *     _PnpParseIndirectResourceString @ 0x140684510 (_PnpParseIndirectResourceString.c)
+ *     PspReadIFEOPerfOptions @ 0x1406AED10 (PspReadIFEOPerfOptions.c)
+ *     RtlQueryImageFileKeyOption @ 0x1406AEF00 (RtlQueryImageFileKeyOption.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x140767F80 (_PnpGetGenericStorePropertyKeys.c)
+ *     WdipSemLoadNextEndEvent @ 0x1407993F4 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemLoadNextScenario @ 0x140799D84 (WdipSemLoadNextScenario.c)
+ *     PiDcInitUpdateProperties @ 0x1407A3C28 (PiDcInitUpdateProperties.c)
+ *     CmpGetAcpiProfileInformation @ 0x1407A601C (CmpGetAcpiProfileInformation.c)
+ *     PspIsDfssEnabled @ 0x1407A8CA0 (PspIsDfssEnabled.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x1407BB808 (PopDetectSimulatedHeteroProcessors.c)
+ *     PiCMDeleteDeviceKey @ 0x1408AFF68 (PiCMDeleteDeviceKey.c)
  * Callees:
  *     <none>
  */
@@ -38,7 +37,7 @@ NTSTATUS __stdcall RtlUnicodeStringToInteger(PCUNICODE_STRING String, ULONG Base
   v6 = 0;
   Length = String->Length;
   if ( !(_WORD)Length || (Length & 1) != 0 )
-    goto LABEL_39;
+    goto LABEL_38;
   Buffer = String->Buffer;
   v9 = Length >> 1;
   v10 = 0;
@@ -83,7 +82,7 @@ NTSTATUS __stdcall RtlUnicodeStringToInteger(PCUNICODE_STRING String, ULONG Base
     if ( v11 == 48 )
     {
       if ( !v9 )
-        goto LABEL_41;
+        goto LABEL_40;
       --v9;
       v17 = *Buffer++;
       switch ( v17 )
@@ -112,7 +111,7 @@ NTSTATUS __stdcall RtlUnicodeStringToInteger(PCUNICODE_STRING String, ULONG Base
       }
       else
       {
-LABEL_41:
+LABEL_40:
         v11 = 0;
       }
     }
@@ -132,9 +131,9 @@ LABEL_41:
         v14 = 0;
         goto LABEL_9;
     }
-LABEL_39:
+LABEL_38:
     v6 = -1073741811;
-    goto LABEL_21;
+    goto LABEL_22;
   }
   v14 = 4;
 LABEL_9:
@@ -142,15 +141,15 @@ LABEL_9:
   {
     if ( (unsigned __int16)(v11 - 48) > 9u )
     {
-      if ( (unsigned __int16)(v11 - 65) > 5u )
+      if ( (unsigned __int16)(v11 - 65) <= 5u )
+      {
+        v15 = v11 - 55;
+      }
+      else
       {
         if ( (unsigned __int16)(v11 - 97) > 5u )
           break;
         v15 = v11 - 87;
-      }
-      else
-      {
-        v15 = v11 - 55;
       }
     }
     else
@@ -167,7 +166,7 @@ LABEL_9:
   }
   if ( v10 == 45 )
     v5 = -v5;
-LABEL_21:
+LABEL_22:
   *Value = v5;
   return v6;
 }

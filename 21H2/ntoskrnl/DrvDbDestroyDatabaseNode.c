@@ -1,54 +1,41 @@
 /*
- * XREFs of DrvDbDestroyDatabaseNode @ 0x140A30510
+ * XREFs of DrvDbDestroyDatabaseNode @ 0x14097E86C
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x140788A80 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbOpenContext @ 0x140827238 (DrvDbOpenContext.c)
- *     DrvDbCreateDatabaseNode @ 0x1408274C4 (DrvDbCreateDatabaseNode.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140859460 (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbUnregisterDatabase @ 0x140A304B4 (DrvDbUnregisterDatabase.c)
+ *     DrvDbDispatchDriverDatabase @ 0x14063BE70 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140735A04 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbOpenContext @ 0x1407A400C (DrvDbOpenContext.c)
+ *     DrvDbUnregisterDatabase @ 0x14097E810 (DrvDbUnregisterDatabase.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x14028A7C0 (ExDeleteResourceLite.c)
- *     DrvDbUnloadDatabaseNode @ 0x1406C59F0 (DrvDbUnloadDatabaseNode.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     DrvDbUnloadDatabaseNode @ 0x14063E670 (DrvDbUnloadDatabaseNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall DrvDbDestroyDatabaseNode(__int64 a1, void *a2)
+__int64 __fastcall DrvDbDestroyDatabaseNode(__int64 a1, void ***a2)
 {
-  int v4; // esi
+  int v3; // esi
+  void **v4; // rcx
   void **v5; // rdx
-  void **v6; // rcx
-  void *v7; // rax
-  void *v8; // rdi
+  void **v6; // rdi
 
-  v4 = DrvDbUnloadDatabaseNode(a1, (__int64)a2);
-  if ( v4 >= 0 )
+  v3 = DrvDbUnloadDatabaseNode(a1, (__int64)a2);
+  if ( v3 >= 0 )
   {
-    v5 = *(void ***)a2;
-    if ( *(_QWORD *)a2 )
+    v4 = *a2;
+    if ( (*a2)[1] != a2 || (v5 = a2[1], *v5 != a2) )
+      __fastfail(3u);
+    *v5 = v4;
+    v4[1] = v5;
+    v6 = a2[18];
+    if ( v6 )
     {
-      if ( v5[1] != a2 || (v6 = (void **)*((_QWORD *)a2 + 1), *v6 != a2) )
-        __fastfail(3u);
-      *v6 = v5;
-      v5[1] = v6;
+      ExDeleteResourceLite((PERESOURCE)a2[18]);
+      ExFreePoolWithTag(v6, 0);
     }
-    v7 = *(void **)(a1 + 32);
-    if ( v7 == a2 )
-    {
-      *(_QWORD *)(a1 + 32) = 0LL;
-      v7 = 0LL;
-    }
-    if ( *(void **)(a1 + 40) == a2 )
-      *(_QWORD *)(a1 + 40) = v7;
-    v8 = (void *)*((_QWORD *)a2 + 19);
-    if ( v8 )
-    {
-      ExDeleteResourceLite(*((PERESOURCE *)a2 + 19));
-      ExFreePoolWithTag(v8, 0);
-    }
-    RtlFreeUnicodeString((PUNICODE_STRING)a2 + 1);
-    RtlFreeUnicodeString((PUNICODE_STRING)a2 + 3);
+    RtlFreeAnsiString((PUNICODE_STRING)a2 + 1);
+    RtlFreeAnsiString((PUNICODE_STRING)(a2 + 5));
     ExFreePoolWithTag(a2, 0);
   }
-  return (unsigned int)v4;
+  return (unsigned int)v3;
 }

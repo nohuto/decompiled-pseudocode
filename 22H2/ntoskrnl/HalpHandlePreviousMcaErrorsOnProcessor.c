@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A951E4
+ * XREFs of HalpHandlePreviousMcaErrorsOnProcessor @ 0x1409A6F34
  * Callers:
- *     HalpInitializeMce @ 0x140A8B600 (HalpInitializeMce.c)
- *     HalpHandlePreviousMcaErrors @ 0x140A950A4 (HalpHandlePreviousMcaErrors.c)
+ *     HalpInitializeMce @ 0x1409A0A8C (HalpInitializeMce.c)
+ *     HalpHandlePreviousMcaErrors @ 0x1409A6DF4 (HalpHandlePreviousMcaErrors.c)
  * Callees:
- *     HalpMcaReadErrorPresence @ 0x140380B74 (HalpMcaReadErrorPresence.c)
- *     HalpMcaClearError @ 0x1405030A0 (HalpMcaClearError.c)
- *     HalpMcaReadError @ 0x1405035C0 (HalpMcaReadError.c)
- *     HalpMcaReportError @ 0x140503858 (HalpMcaReportError.c)
- *     HalpMceInitializeErrorPacketContents @ 0x140A8B3A8 (HalpMceInitializeErrorPacketContents.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalpMcaReadErrorPresence @ 0x1403A0698 (HalpMcaReadErrorPresence.c)
+ *     HalpMcaClearError @ 0x1404BA238 (HalpMcaClearError.c)
+ *     HalpMcaReadError @ 0x1404BA760 (HalpMcaReadError.c)
+ *     HalpMcaReportError @ 0x1404BA9E0 (HalpMcaReportError.c)
+ *     HalpMceInitializeErrorPacketContents @ 0x1409A0DBC (HalpMceInitializeErrorPacketContents.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall HalpHandlePreviousMcaErrorsOnProcessor(__int64 a1, GUID *a2, __int64 a3)
 {
   char v5; // r14
   GUID *v6; // rdi
-  GUID *Pool2; // rax
+  GUID *PoolWithTag; // rax
   int v8; // [rsp+68h] [rbp+20h] BYREF
 
   v8 = 0;
@@ -30,11 +30,11 @@ void __fastcall HalpHandlePreviousMcaErrorsOnProcessor(__int64 a1, GUID *a2, __i
     }
     else
     {
-      Pool2 = (GUID *)ExAllocatePool2(64LL, 372LL, 1466720584LL);
-      v6 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = (GUID *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x160uLL, 0x206C6148u);
+      v6 = PoolWithTag;
+      if ( !PoolWithTag )
         return;
-      HalpMceInitializeErrorPacketContents(Pool2);
+      HalpMceInitializeErrorPacketContents(PoolWithTag);
     }
     while ( (int)HalpMcaReadError(17, (__int64)&v6[5], &v8, 0LL, a3) >= 0 )
     {
@@ -47,6 +47,6 @@ void __fastcall HalpHandlePreviousMcaErrorsOnProcessor(__int64 a1, GUID *a2, __i
       HalpMcaClearError((__int64)&v6[5], a3);
     }
     if ( !a2 )
-      ExFreePoolWithTag(v6, 0x576C6148u);
+      ExFreePoolWithTag(v6, 0x206C6148u);
   }
 }

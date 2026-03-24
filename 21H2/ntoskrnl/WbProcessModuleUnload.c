@@ -1,12 +1,12 @@
 /*
- * XREFs of WbProcessModuleUnload @ 0x1406D5B38
+ * XREFs of WbProcessModuleUnload @ 0x1406A2680
  * Callers:
- *     WbDispatchOperation @ 0x1407E2B70 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x14064EE24 (WbDispatchOperation.c)
  * Callees:
- *     WbInPlaceEncryptionUnloadModule @ 0x1406D5C1C (WbInPlaceEncryptionUnloadModule.c)
- *     WbHeapExecutionUnloadModule @ 0x1406D5CF8 (WbHeapExecutionUnloadModule.c)
- *     WbAlloc @ 0x1407E3010 (WbAlloc.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     WbAlloc @ 0x14064DC04 (WbAlloc.c)
+ *     WbInPlaceEncryptionUnloadModule @ 0x1406A2768 (WbInPlaceEncryptionUnloadModule.c)
+ *     WbHeapExecutionUnloadModule @ 0x1406A287C (WbHeapExecutionUnloadModule.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WbProcessModuleUnload(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -20,7 +20,7 @@ __int64 __fastcall WbProcessModuleUnload(__int64 a1, _QWORD *a2, unsigned int a3
   P = 0LL;
   if ( a3 >= 0x10 && *a2 == 9LL )
   {
-    v5 = WbAlloc(16LL, &P);
+    v5 = WbAlloc(0x10uLL, &P);
     if ( v5 >= 0 )
     {
       v6 = (_OWORD *)a2[1];
@@ -48,6 +48,6 @@ __int64 __fastcall WbProcessModuleUnload(__int64 a1, _QWORD *a2, unsigned int a3
     v5 = -1073741811;
   }
   if ( P )
-    ExFreePoolWithTag(P, 0);
+    ExFreePoolWithTag(P, 0x42524157u);
   return (unsigned int)v5;
 }

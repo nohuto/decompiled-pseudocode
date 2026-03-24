@@ -1,36 +1,30 @@
 /*
- * XREFs of PnpNewDeviceNodeDependencyCheck @ 0x14076BB10
+ * XREFs of PnpNewDeviceNodeDependencyCheck @ 0x14074B494
  * Callers:
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PipNotifyDeviceDependencyList @ 0x14076BB84 (PipNotifyDeviceDependencyList.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14076BC20 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipAddtoRebuildPowerRelationsQueue @ 0x14076BD4C (PipAddtoRebuildPowerRelationsQueue.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1407756F4 (PnpAcquireDependencyRelationsLock.c)
- *     PiPnpRtlEndOperation @ 0x140779A50 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140779DC4 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x140639C1C (PnpAcquireDependencyRelationsLock.c)
+ *     PipNotifyDeviceDependencyList @ 0x14074B4FC (PipNotifyDeviceDependencyList.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x14074B56C (PipProcessRebuildPowerRelationsQueue.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x14074B6A0 (PnpReleaseDependencyRelationsLock.c)
+ *     PipAddtoRebuildPowerRelationsQueue @ 0x14074B6C4 (PipAddtoRebuildPowerRelationsQueue.c)
  */
 
-__int64 __fastcall PnpNewDeviceNodeDependencyCheck(__int64 a1)
+void __fastcall PnpNewDeviceNodeDependencyCheck(__int64 a1)
 {
-  __int64 v1; // rbx
-  __int64 result; // rax
+  __int64 v2; // rcx
   PVOID P; // [rsp+30h] [rbp+8h] BYREF
 
   P = 0LL;
-  v1 = a1;
-  LOBYTE(a1) = 1;
-  PnpAcquireDependencyRelationsLock(a1);
-  PipAddtoRebuildPowerRelationsQueue(*(_QWORD *)(v1 + 32));
-  ExReleaseResourceLite(&PiDependencyRelationsLock);
-  PpDevNodeUnlockTree(0LL);
-  PipProcessRebuildPowerRelationsQueue();
+  PnpAcquireDependencyRelationsLock(1);
+  PipAddtoRebuildPowerRelationsQueue(*(_QWORD *)(a1 + 32));
+  PnpReleaseDependencyRelationsLock();
+  PipProcessRebuildPowerRelationsQueue(v2);
   PiPnpRtlBeginOperation(&P);
-  PipNotifyDeviceDependencyList(v1, 0LL);
-  result = PipNotifyDeviceDependencyList(v1, 1LL);
+  PipNotifyDeviceDependencyList(a1, 0LL);
+  PipNotifyDeviceDependencyList(a1, 1LL);
   if ( P )
-    return PiPnpRtlEndOperation(P);
-  return result;
+    PiPnpRtlEndOperation((PVOID **)P);
 }

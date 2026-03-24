@@ -1,18 +1,18 @@
 /*
- * XREFs of SepCleanupMarkedForDeletionEntries @ 0x1400D99A0
+ * XREFs of SepCleanupMarkedForDeletionEntries @ 0x1400D99C0
  * Callers:
- *     SepAddLuidToIndexEntry @ 0x14064EFCC (SepAddLuidToIndexEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x14064EFAC (SepAddLuidToIndexEntry.c)
  * Callees:
  *     AuthzBasepFreeSecurityAttributesList @ 0x140021130 (AuthzBasepFreeSecurityAttributesList.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlEnumerateEntryHashTable @ 0x1400D9AA0 (RtlEnumerateEntryHashTable.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x1400D9BB0 (SepGetSingletonEntryFromIndexNumber.c)
- *     RtlRemoveEntryHashTable @ 0x1400D9C40 (RtlRemoveEntryHashTable.c)
- *     RtlInitEnumerationHashTable @ 0x1400DA260 (RtlInitEnumerationHashTable.c)
- *     RtlEndEnumerationHashTable @ 0x14012F740 (RtlEndEnumerationHashTable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlEnumerateEntryHashTable @ 0x1400D9AC0 (RtlEnumerateEntryHashTable.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x1400D9BD0 (SepGetSingletonEntryFromIndexNumber.c)
+ *     RtlRemoveEntryHashTable @ 0x1400D9C60 (RtlRemoveEntryHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x1400DA280 (RtlInitEnumerationHashTable.c)
+ *     RtlEndEnumerationHashTable @ 0x14012F760 (RtlEndEnumerationHashTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

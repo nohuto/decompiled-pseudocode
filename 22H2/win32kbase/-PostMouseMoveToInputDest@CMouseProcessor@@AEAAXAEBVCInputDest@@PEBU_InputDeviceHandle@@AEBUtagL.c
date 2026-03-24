@@ -1,36 +1,36 @@
 /*
- * XREFs of ?PostMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@PEBU_InputDeviceHandle@@AEBUtagLOGICALPOINT@@W4PostMouseMoveOptions@@PEAU_mouseCursorEvent@@@Z @ 0x1C0009088
+ * XREFs of ?PostMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@PEBU_InputDeviceHandle@@AEBUtagLOGICALPOINT@@W4PostMouseMoveOptions@@PEAU_mouseCursorEvent@@@Z @ 0x1C0049068
  * Callers:
- *     ?DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@AEBVCMoveEvent@1@PEAU_mouseCursorEvent@@@Z @ 0x1C0056FE0 (-DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@.c)
- *     ?PostPendingMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@@Z @ 0x1C01F8FD0 (-PostPendingMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@@Z.c)
+ *     ?DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@AEBVCMoveEvent@1@PEAU_mouseCursorEvent@@@Z @ 0x1C0045EF8 (-DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@.c)
+ *     ?PostPendingMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@@Z @ 0x1C004CC3C (-PostPendingMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@@Z.c)
  * Callees:
- *     ?GetInputMessageSource@QHelper@@YAPEAUtagINPUT_MESSAGE_SOURCE@@AEBVCInputDest@@@Z @ 0x1C00091F0 (-GetInputMessageSource@QHelper@@YAPEAUtagINPUT_MESSAGE_SOURCE@@AEBVCInputDest@@@Z.c)
- *     _anonymous_namespace_::InMouseRawInputMode @ 0x1C000921C (_anonymous_namespace_--InMouseRawInputMode.c)
- *     ?GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z @ 0x1C00572B4 (-GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z.c)
- *     ?EnsureMoveTime@MouseMoveTimes@CMouseProcessor@@QEAAXXZ @ 0x1C009BBEC (-EnsureMoveTime@MouseMoveTimes@CMouseProcessor@@QEAAXXZ.c)
- *     ApiSetEditionPostInputMessage @ 0x1C00C9B0C (ApiSetEditionPostInputMessage.c)
+ *     QHelper::_anonymous_namespace_::GetQ @ 0x1C00458F4 (QHelper--_anonymous_namespace_--GetQ.c)
+ *     ?EnsureMoveTime@MouseMoveTimes@CMouseProcessor@@QEAAXXZ @ 0x1C0046D7C (-EnsureMoveTime@MouseMoveTimes@CMouseProcessor@@QEAAXXZ.c)
+ *     ?GetInputMessageSource@QHelper@@YAPEAUtagINPUT_MESSAGE_SOURCE@@AEBVCInputDest@@@Z @ 0x1C0049040 (-GetInputMessageSource@QHelper@@YAPEAUtagINPUT_MESSAGE_SOURCE@@AEBVCInputDest@@@Z.c)
+ *     _anonymous_namespace_::InMouseRawInputMode @ 0x1C00491D4 (_anonymous_namespace_--InMouseRawInputMode.c)
+ *     ApiSetEditionPostInputMessage @ 0x1C004950C (ApiSetEditionPostInputMessage.c)
  */
 
 struct tagINPUT_MESSAGE_SOURCE *__fastcall CMouseProcessor::PostMouseMoveToInputDest(
-        __int64 *a1,
+        LARGE_INTEGER *a1,
         __int64 a2,
         __int64 a3,
         unsigned __int16 *a4,
         char a5,
         __int64 a6)
 {
-  __int64 *v6; // rsi
+  LARGE_INTEGER *v6; // rsi
   const struct CInputDest *v11; // rdx
   __int64 v12; // rbp
   struct tagINPUT_MESSAGE_SOURCE *InputMessageSource; // rax
   int v14; // r9d
-  __int64 Queue; // rax
+  __int64 v15; // rax
   const struct CInputDest *v16; // rdx
   struct tagINPUT_MESSAGE_SOURCE *result; // rax
   _QWORD v18[4]; // [rsp+60h] [rbp-48h] BYREF
 
-  v6 = a1 + 442;
-  CMouseProcessor::MouseMoveTimes::EnsureMoveTime((CMouseProcessor::MouseMoveTimes *)(a1 + 442));
+  v6 = a1 + 441;
+  CMouseProcessor::MouseMoveTimes::EnsureMoveTime(a1 + 441);
   if ( !(unsigned __int8)anonymous_namespace_::InMouseRawInputMode(a2, 0LL, 1LL) )
   {
     if ( (a5 & 2) != 0 && *(_DWORD *)(a2 + 92) == 2 )
@@ -50,21 +50,21 @@ struct tagINPUT_MESSAGE_SOURCE *__fastcall CMouseProcessor::PostMouseMoveToInput
       512,
       0,
       *a4 | (a4[2] << 16),
-      *(_DWORD *)v6,
-      a1[443],
-      a1[432],
+      v6->LowPart,
+      a1[442].QuadPart,
+      a1[431].QuadPart,
       v14,
       (__int64)InputMessageSource,
       (__int64)v18);
   }
-  Queue = CInputDest::GetQueue(a2, 2LL);
-  if ( Queue )
-    *(_DWORD *)(Queue + 396) &= ~0x20u;
+  v15 = QHelper::_anonymous_namespace_::GetQ(a2);
+  if ( v15 )
+    *(_DWORD *)(v15 + 388) &= ~0x20u;
   result = QHelper::GetInputMessageSource((QHelper *)a2, v16);
   if ( result )
     *(_QWORD *)result = 0LL;
-  *v6 = 0LL;
-  v6[1] = 0LL;
-  v6[2] = 0LL;
+  v6->QuadPart = 0LL;
+  v6[1].QuadPart = 0LL;
+  v6[2].QuadPart = 0LL;
   return result;
 }

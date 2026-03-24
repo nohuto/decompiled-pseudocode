@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwGetContextThread @ 0x1401B9EF0
+ * XREFs of ZwGetContextThread @ 0x1401B9F10
  * Callers:
  *     <none>
  * Callees:

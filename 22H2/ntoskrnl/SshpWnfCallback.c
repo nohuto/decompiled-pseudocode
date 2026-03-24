@@ -1,12 +1,13 @@
 /*
- * XREFs of SshpWnfCallback @ 0x140878D70
+ * XREFs of SshpWnfCallback @ 0x1408FBBA0
  * Callers:
  *     <none>
  * Callees:
- *     SSHSupportQueryInterruptTime @ 0x14032D1E0 (SSHSupportQueryInterruptTime.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1407E2740 (ExQueryWnfStateData.c)
- *     SshpSendSessionData @ 0x1408786FC (SshpSendSessionData.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     SSHSupportQueryInterruptTime @ 0x140580C6C (SSHSupportQueryInterruptTime.c)
+ *     ExQueryWnfStateData @ 0x14069E4C0 (ExQueryWnfStateData.c)
+ *     SshpQueryRegistryValues @ 0x140791780 (SshpQueryRegistryValues.c)
+ *     SshpSendSessionData @ 0x1408FACF8 (SshpSendSessionData.c)
  */
 
 __int64 __fastcall SshpWnfCallback(__int64 a1, _QWORD *a2)
@@ -28,7 +29,8 @@ __int64 __fastcall SshpWnfCallback(__int64 a1, _QWORD *a2)
       SshpSendSessionData();
       SshpSessionId = v7;
       SshpSessionGuid = v6;
-      SSHSupportQueryInterruptTime();
+      SshpSessionStartTime = SSHSupportQueryInterruptTime();
+      SshpQueryRegistryValues();
     }
   }
   else

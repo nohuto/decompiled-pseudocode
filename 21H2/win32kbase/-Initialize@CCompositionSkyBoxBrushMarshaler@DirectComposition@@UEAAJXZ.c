@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0235150
+ * XREFs of ?Initialize@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01F48B0
  * Callers:
  *     <none>
  * Callees:
@@ -11,9 +11,9 @@ __int64 __fastcall DirectComposition::CCompositionSkyBoxBrushMarshaler::Initiali
 {
   __int64 result; // rax
 
-  *((_DWORD *)this + 24) = 63;
+  *((_DWORD *)this + 22) = 63;
   result = 0LL;
-  *((_BYTE *)this + 116) = 0;
-  *((_DWORD *)this + 28) = 1120403456;
+  *((_BYTE *)this + 108) = 0;
+  *((_DWORD *)this + 26) = 1120403456;
   return result;
 }

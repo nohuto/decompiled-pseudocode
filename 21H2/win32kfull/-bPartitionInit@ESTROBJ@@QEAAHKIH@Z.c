@@ -1,10 +1,11 @@
 /*
- * XREFs of ?bPartitionInit@ESTROBJ@@QEAAHKIH@Z @ 0x1C0151214
+ * XREFs of ?bPartitionInit@ESTROBJ@@QEAAHKIH@Z @ 0x1C00E941C
  * Callers:
- *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C012451C (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
- *     ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C0150B6C (-FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z.c)
+ *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1C00E7468 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
+ *     ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C00E7758 (-FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall ESTROBJ::bPartitionInit(ESTROBJ *this, unsigned int a2, unsigned int a3, int a4)
@@ -14,7 +15,6 @@ __int64 __fastcall ESTROBJ::bPartitionInit(ESTROBJ *this, unsigned int a2, unsig
   char *v8; // rcx
   int v9; // eax
   __int64 result; // rax
-  unsigned int v11; // edi
 
   *((_DWORD *)this + 1) &= 0xFFFFFFCF;
   v6 = a3;
@@ -42,11 +42,7 @@ LABEL_6:
     *((_DWORD *)this + 58) = v9 | 0x400;
     return 1LL;
   }
-  v11 = 4 * v6;
-  if ( v11 )
-    result = Win32AllocPoolZInit(v11, 1718382187LL);
-  else
-    result = 0LL;
+  result = (__int64)PALLOCMEM2((unsigned int)(4 * v6), 1718382187LL, 1);
   *((_QWORD *)this + 33) = result;
   if ( result )
   {

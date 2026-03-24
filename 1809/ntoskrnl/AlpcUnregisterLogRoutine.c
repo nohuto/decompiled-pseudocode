@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcUnregisterLogRoutine @ 0x14084B6A8
+ * XREFs of AlpcUnregisterLogRoutine @ 0x14084B688
  * Callers:
- *     EtwpDisableKernelTrace @ 0x1406C5A4C (EtwpDisableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x1406C5A2C (EtwpDisableKernelTrace.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

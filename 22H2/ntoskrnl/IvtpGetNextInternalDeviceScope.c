@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtpGetNextInternalDeviceScope @ 0x14037FA8C
+ * XREFs of IvtpGetNextInternalDeviceScope @ 0x1404E7B54
  * Callers:
- *     IvtFindDevice @ 0x14037F9F0 (IvtFindDevice.c)
- *     IvtCreateDevice @ 0x14037FF50 (IvtCreateDevice.c)
+ *     IvtCreateDevice @ 0x1404E7970 (IvtCreateDevice.c)
+ *     IvtFindDevice @ 0x1404E7AC0 (IvtFindDevice.c)
  * Callees:
- *     DmrGetNextDeviceScope @ 0x14037FAC0 (DmrGetNextDeviceScope.c)
+ *     DmrGetNextDeviceScope @ 0x1404E8514 (DmrGetNextDeviceScope.c)
  */
 
 __int64 __fastcall IvtpGetNextInternalDeviceScope(__int64 a1, __int64 a2)
@@ -12,10 +12,10 @@ __int64 __fastcall IvtpGetNextInternalDeviceScope(__int64 a1, __int64 a2)
   unsigned __int64 v2; // rax
   unsigned __int64 v4; // rdx
 
-  v2 = *(_QWORD *)(a1 + 280);
-  v4 = v2 + *(unsigned int *)(a1 + 256);
-  if ( v4 <= v2 )
-    return 0LL;
-  else
+  v2 = *(_QWORD *)(a1 + 232);
+  v4 = v2 + *(unsigned int *)(a1 + 216);
+  if ( v4 > v2 )
     return DmrGetNextDeviceScope(v2, v4, a2);
+  else
+    return 0LL;
 }

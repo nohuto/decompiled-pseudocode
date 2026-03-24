@@ -1,12 +1,11 @@
 /*
- * XREFs of ?EmitUpdateCommands@CAnimationTriggerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00BAFC0
+ * XREFs of ?EmitUpdateCommands@CAnimationTriggerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DABC0
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00293EC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@Z @ 0x1C009BD78 (-Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@.c)
- *     ?EmitSetConditionCommand@CAnimationTriggerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00BB060 (-EmitSetConditionCommand@CAnimationTriggerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062DEC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetAnimationsCommand@CAnimationTriggerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D627C (-EmitSetAnimationsCommand@CAnimationTriggerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetConditionCommand@CAnimationTriggerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D743C (-EmitSetConditionCommand@CAnimationTriggerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CAnimationTriggerMarshaler::EmitUpdateCommands(
@@ -14,60 +13,14 @@ char __fastcall DirectComposition::CAnimationTriggerMarshaler::EmitUpdateCommand
         struct DirectComposition::CBatch ***a2)
 {
   char v4; // bl
-  int *v5; // r14
-  int v6; // eax
-  char *v8; // rcx
-  char *v9; // rcx
-  void *v10; // [rsp+70h] [rbp+18h] BYREF
 
   v4 = 0;
   if ( DirectComposition::CPropertyChangeResourceMarshaler::EmitUpdateCommands(
          this,
          (struct DirectComposition::CBatch **)a2)
-    && DirectComposition::CAnimationTriggerMarshaler::EmitSetConditionCommand(
-         this,
-         (struct DirectComposition::CBatch **)a2) )
+    && DirectComposition::CAnimationTriggerMarshaler::EmitSetConditionCommand(this, a2) )
   {
-    v5 = (int *)((char *)this + 16);
-    if ( DirectComposition::CResourceMarshalerArrayBase::Marshal(
-           (_QWORD *)this + 10,
-           a2,
-           *((_DWORD *)this + 8),
-           (_DWORD *)this + 4,
-           256,
-           483,
-           484) )
-    {
-      v6 = *v5;
-      if ( (*v5 & 0x200) != 0 )
-      {
-        v10 = 0LL;
-        if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x14uLL, &v10) )
-          return v4;
-        v8 = (char *)v10;
-        *(_DWORD *)v10 = 20;
-        *(_OWORD *)(v8 + 4) = 0LL;
-        *((_DWORD *)v8 + 1) = 485;
-        *((_DWORD *)v8 + 2) = *((_DWORD *)this + 8);
-        *(_QWORD *)(v8 + 12) = *((_QWORD *)this + 13);
-        *v5 &= ~0x200u;
-        v6 = *v5;
-      }
-      if ( (v6 & 0x400) != 0 )
-      {
-        v10 = 0LL;
-        if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x14uLL, &v10) )
-          return v4;
-        v9 = (char *)v10;
-        *(_DWORD *)v10 = 20;
-        *(_OWORD *)(v9 + 4) = 0LL;
-        *((_DWORD *)v9 + 1) = 486;
-        *((_DWORD *)v9 + 2) = *((_DWORD *)this + 8);
-        *(_QWORD *)(v9 + 12) = *((_QWORD *)this + 14);
-        *v5 &= ~0x400u;
-      }
-      return 1;
-    }
+    return DirectComposition::CAnimationTriggerMarshaler::EmitSetAnimationsCommand(this, a2);
   }
   return v4;
 }

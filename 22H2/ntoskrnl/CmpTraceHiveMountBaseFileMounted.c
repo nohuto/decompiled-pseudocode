@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpTraceHiveMountBaseFileMounted @ 0x14074EF04
+ * XREFs of CmpTraceHiveMountBaseFileMounted @ 0x140722838
  * Callers:
- *     HvLoadHive @ 0x14074F254 (HvLoadHive.c)
+ *     HvLoadHive @ 0x140721B18 (HvLoadHive.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmpQueryNameString @ 0x140684F94 (CmpQueryNameString.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     CmpQueryNameString @ 0x14070D9E0 (CmpQueryNameString.c)
  */
 
 void __fastcall CmpTraceHiveMountBaseFileMounted(void *a1, int a2)
@@ -40,7 +40,7 @@ void __fastcall CmpTraceHiveMountBaseFileMounted(void *a1, int a2)
       v8 = 2LL;
       v10 = 4LL;
       EtwWrite(EtwpRegTraceHandle, &EventDescriptor, 0LL, 3u, &UserData);
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
     }
   }
 }

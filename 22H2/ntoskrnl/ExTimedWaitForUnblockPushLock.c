@@ -1,24 +1,25 @@
 /*
- * XREFs of ExTimedWaitForUnblockPushLock @ 0x140348290
+ * XREFs of ExTimedWaitForUnblockPushLock @ 0x1402F4C80
  * Callers:
- *     ExpUnblockPushLock @ 0x140209468 (ExpUnblockPushLock.c)
- *     ExBlockOnAddressPushLock @ 0x1403481B0 (ExBlockOnAddressPushLock.c)
- *     ExWaitForUnblockPushLock @ 0x140609B80 (ExWaitForUnblockPushLock.c)
+ *     ExBlockOnAddressPushLock @ 0x1402F4BA0 (ExBlockOnAddressPushLock.c)
+ *     ExpUnblockPushLock @ 0x1402F4D68 (ExpUnblockPushLock.c)
+ *     ExWaitForUnblockPushLock @ 0x1405B3F70 (ExWaitForUnblockPushLock.c)
  * Callees:
- *     ExpUnblockPushLock @ 0x140209468 (ExpUnblockPushLock.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ExpUnblockPushLock @ 0x1402F4D68 (ExpUnblockPushLock.c)
  */
 
-__int64 __fastcall ExTimedWaitForUnblockPushLock(volatile __int64 *a1, char *a2, LARGE_INTEGER *a3)
+__int64 __fastcall ExTimedWaitForUnblockPushLock(__int64 a1, char *a2, LARGE_INTEGER *a3)
 {
   volatile signed __int32 *v3; // r9
   __int64 v4; // rbx
   int v8; // edx
   unsigned int v9; // ebx
-  unsigned __int64 v11; // r8
-  unsigned __int64 v12; // r10
-  unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // rax
+  __int64 v10; // r8
+  unsigned __int64 v12; // r8
+  unsigned __int64 v13; // r10
+  unsigned __int64 v14; // rcx
+  unsigned __int64 v15; // rax
 
   *(_WORD *)a2 = 0;
   *((_DWORD *)a2 + 1) = 0;
@@ -34,7 +35,10 @@ LABEL_8:
     {
       v9 = KeWaitForSingleObject(a2, WrPushLock, 0, 0, a3);
       if ( v9 )
-        ExpUnblockPushLock(a1, a2, 1);
+      {
+        LOBYTE(v10) = 1;
+        ExpUnblockPushLock(a1, a2, v10);
+      }
     }
     else
     {
@@ -46,17 +50,17 @@ LABEL_8:
   {
     if ( a2 != (char *)-52LL && MEMORY[0xFFFFF78000000297] )
     {
-      v11 = __rdtsc();
-      v12 = v11 + v4;
+      v12 = __rdtsc();
+      v13 = v12 + v4;
       while ( 1 )
       {
         __asm { monitorx rax, rcx, rdx }
         if ( (*v3 & 2) == 0 )
           break;
-        v13 = v11;
-        v14 = __rdtsc();
-        v11 = v14;
-        if ( v14 <= v13 || v14 >= v12 )
+        v14 = v12;
+        v15 = __rdtsc();
+        v12 = v15;
+        if ( v15 <= v14 || v15 >= v13 )
           goto LABEL_8;
         __asm { mwaitx  rax, rcx, rbx }
       }

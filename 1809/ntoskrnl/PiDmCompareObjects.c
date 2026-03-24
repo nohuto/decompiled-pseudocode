@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDmCompareObjects @ 0x14069B240
+ * XREFs of PiDmCompareObjects @ 0x14069B220
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  */
 
 __int64 __fastcall PiDmCompareObjects(struct _RTL_AVL_TABLE *Table, __int64 *FirstStruct, __int64 *SecondStruct)

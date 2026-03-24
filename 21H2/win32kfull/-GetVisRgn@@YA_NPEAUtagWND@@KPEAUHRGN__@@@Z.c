@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z @ 0x1C00B4348
+ * XREFs of ?GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z @ 0x1C0039300
  * Callers:
- *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C00B4534 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
+ *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C00394E8 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
  * Callees:
- *     _GetTopLevelWindow @ 0x1C0075BF0 (_GetTopLevelWindow.c)
- *     ?GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z @ 0x1C00B4AAC (-GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z.c)
- *     _GhostWindowFromHungWindow @ 0x1C00B4C0C (_GhostWindowFromHungWindow.c)
- *     _GetClientRect @ 0x1C00F2600 (_GetClientRect.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z @ 0x1C0039934 (-GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z.c)
+ *     _GhostWindowFromHungWindow @ 0x1C003B5B0 (_GhostWindowFromHungWindow.c)
+ *     _GetTopLevelWindow @ 0x1C006FCC0 (_GetTopLevelWindow.c)
+ *     _GetClientRect @ 0x1C00FFC48 (_GetClientRect.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 char __fastcall GetVisRgn(struct tagWND *a1, unsigned int a2, HRGN a3)
@@ -36,7 +36,7 @@ char __fastcall GetVisRgn(struct tagWND *a1, unsigned int a2, HRGN a3)
   v15 = 0LL;
   if ( (unsigned int)GreGetRgnBox(a3, &v15) == 1 )
   {
-    TopLevelWindow = GetTopLevelWindow((__int64)a1);
+    TopLevelWindow = GetTopLevelWindow(a1);
     if ( TopLevelWindow )
       return GhostWindowFromHungWindow(TopLevelWindow, v8, v9, v10) != 0;
   }

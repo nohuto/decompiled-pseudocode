@@ -1,7 +1,7 @@
 /*
- * XREFs of ?MapVGA@@YAEEEE@Z @ 0x1C0299F40
+ * XREFs of ?MapVGA@@YAEEEE@Z @ 0x1C029B670
  * Callers:
- *     ?MakeITableVGA@@YAHPEAE@Z @ 0x1C0299ED0 (-MakeITableVGA@@YAHPEAE@Z.c)
+ *     ?MakeITableVGA@@YAHPEAE@Z @ 0x1C029B600 (-MakeITableVGA@@YAHPEAE@Z.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ unsigned __int8 __fastcall MapVGA(unsigned __int8 a1, unsigned __int8 a2, unsign
   v3 = a1;
   v4 = a3;
   v5 = a2;
-  v6 = (unsigned __int16)word_1C02F8FB0[(2 * (a1 & 0x18u)) | ((a2 & 0x18 | ((unsigned __int64)a3 >> 2) & 6) >> 1)];
+  v6 = (unsigned __int16)word_1C02FB890[(2 * (a1 & 0x18u)) | ((a2 & 0x18 | ((unsigned __int64)a3 >> 2) & 6) >> 1)];
   if ( (v6 & 0xFFF0) == 0 )
     return v6 & 0xF;
   v7 = 0;
@@ -32,9 +32,9 @@ unsigned __int8 __fastcall MapVGA(unsigned __int8 a1, unsigned __int8 a2, unsign
   {
     v9 = v6 & 0xF;
     v10 = v6 & 0xF;
-    v11 = (unsigned __int8)byte_1C0330FC1[4 * v9];
-    v12 = (unsigned __int8)byte_1C0330FC0[4 * v9] - v3;
-    LODWORD(v9) = (unsigned __int8)byte_1C0330FC2[4 * v9] - v4;
+    v11 = (unsigned __int8)byte_1C0335C71[4 * v9];
+    v12 = (unsigned __int8)byte_1C0335C70[4 * v9] - v3;
+    LODWORD(v9) = (unsigned __int8)byte_1C0335C72[4 * v9] - v4;
     v13 = v12 * v12 + v9 * v9 + (v11 - v5) * (v11 - v5);
     if ( v13 >= v8 )
       v10 = v7;

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InputToInfo@ParticleCollection@CParticleEmitterVisual@@QEAA?AUParticleStreamInfo@Particles@@W4ParticleInputSource@4Composition@UI@Windows@@@Z @ 0x180245EBC
+ * XREFs of ?InputToInfo@ParticleCollection@CParticleEmitterVisual@@QEAA?AUParticleStreamInfo@Particles@@W4ParticleInputSource@4Composition@UI@Windows@@@Z @ 0x1801E090C
  * Callers:
- *     ?ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z @ 0x1802441F4 (-ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z.c)
+ *     ?ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z @ 0x1801DEB14 (-ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z.c)
  * Callees:
  *     <none>
  */

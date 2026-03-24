@@ -1,22 +1,21 @@
 /*
- * XREFs of ?xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z @ 0x1C0229580
+ * XREFs of ?xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z @ 0x1C024469C
  * Callers:
- *     xxxSBWndProc @ 0x1C022AA50 (xxxSBWndProc.c)
+ *     xxxSBWndProc @ 0x1C0245BA0 (xxxSBWndProc.c)
  * Callees:
- *     IsVisible @ 0x1C00C719C (IsVisible.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
- *     safe_cast_fnid_to_PSBWND @ 0x1C01BB0C0 (safe_cast_fnid_to_PSBWND.c)
- *     xxxInvalidateRect @ 0x1C021519C (xxxInvalidateRect.c)
+ *     IsVisible @ 0x1C00680C4 (IsVisible.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
+ *     safe_cast_fnid_to_PSBWND @ 0x1C01D4208 (safe_cast_fnid_to_PSBWND.c)
+ *     xxxInvalidateRect @ 0x1C0234D7C (xxxInvalidateRect.c)
  */
 
 __int64 __fastcall xxxEnableSBCtlArrows(struct tagWND *a1, int a2)
 {
   __int64 v4; // rax
-  __int64 v5; // rdi
-  int v6; // esi
-  unsigned int v7; // edx
+  __int64 v5; // rsi
+  int v6; // ebp
+  unsigned int v7; // ebx
   struct tagWND *v8; // rcx
-  int v9; // edi
 
   v4 = safe_cast_fnid_to_PSBWND((__int64)a1);
   v5 = v4;
@@ -25,16 +24,18 @@ __int64 __fastcall xxxEnableSBCtlArrows(struct tagWND *a1, int a2)
   v6 = *(_DWORD *)(v4 + 12);
   v7 = v6 & 0xFFFFFFFC;
   if ( a2 )
-    v7 = a2 | *(_DWORD *)(v4 + 12);
+    v7 = v6 | a2;
   *(_DWORD *)(v4 + 12) = v7;
   if ( v6 == v7 )
     return 0LL;
   if ( (unsigned int)IsVisible((__int64)a1) )
+  {
     xxxInvalidateRect(v8, 0LL, 1);
-  v9 = *(_DWORD *)(v5 + 12);
-  if ( (((unsigned __int8)v6 ^ (unsigned __int8)v9) & 1) != 0 )
-    xxxWindowEvent(0x800Au, a1, -4, 1u, 1);
-  if ( (((unsigned __int8)v6 ^ (unsigned __int8)v9) & 2) != 0 )
-    xxxWindowEvent(0x800Au, a1, -4, 5u, 1);
+    v7 = *(_DWORD *)(v5 + 12);
+  }
+  if ( (((unsigned __int8)v6 ^ (unsigned __int8)v7) & 1) != 0 )
+    xxxWindowEvent(0x800Au, a1, -4, 1u, 1u);
+  if ( (((unsigned __int8)v6 ^ (unsigned __int8)v7) & 2) != 0 )
+    xxxWindowEvent(0x800Au, a1, -4, 5u, 1u);
   return 1LL;
 }

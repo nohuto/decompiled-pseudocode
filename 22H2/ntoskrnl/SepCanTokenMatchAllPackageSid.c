@@ -1,21 +1,21 @@
 /*
- * XREFs of SepCanTokenMatchAllPackageSid @ 0x14022C7BC
+ * XREFs of SepCanTokenMatchAllPackageSid @ 0x14024DF44
  * Callers:
- *     SepMatchPackage @ 0x14022C730 (SepMatchPackage.c)
- *     SeQueryInformationToken @ 0x140719710 (SeQueryInformationToken.c)
+ *     SepMatchPackage @ 0x14024DEB8 (SepMatchPackage.c)
+ *     SeQueryInformationToken @ 0x1406CF990 (SeQueryInformationToken.c)
  * Callees:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14022C8A4 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14024E028 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 bool __fastcall SepCanTokenMatchAllPackageSid(__int64 a1)
 {
   char v2; // si
-  bool v3; // di
+  bool v3; // bl
   struct _KTHREAD *CurrentThread; // rax
   __int128 v6; // [rsp+20h] [rbp-78h]
   _OWORD v7[5]; // [rsp+30h] [rbp-68h] BYREF

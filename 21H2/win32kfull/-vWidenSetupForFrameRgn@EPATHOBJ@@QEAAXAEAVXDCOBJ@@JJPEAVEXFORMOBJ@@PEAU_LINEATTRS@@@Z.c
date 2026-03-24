@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vWidenSetupForFrameRgn@EPATHOBJ@@QEAAXAEAVXDCOBJ@@JJPEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C012FDBC
+ * XREFs of ?vWidenSetupForFrameRgn@EPATHOBJ@@QEAAXAEAVXDCOBJ@@JJPEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C0141F88
  * Callers:
- *     NtGdiFrameRgn @ 0x1C0132220 (NtGdiFrameRgn.c)
+ *     NtGdiFrameRgn @ 0x1C013EC70 (NtGdiFrameRgn.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017E64 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0098748 (-bIsZero@EFLOAT@@QEBAHXZ.c)
  */
 
 void __fastcall EPATHOBJ::vWidenSetupForFrameRgn(

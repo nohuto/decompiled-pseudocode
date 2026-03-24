@@ -1,19 +1,21 @@
 /*
- * XREFs of MiWriteWsle @ 0x14026ED30
+ * XREFs of MiWriteWsle @ 0x1402C0ED0
  * Callers:
- *     MiRemoveWsleList @ 0x140218310 (MiRemoveWsleList.c)
- *     MiSetWsleProtection @ 0x14026ECFC (MiSetWsleProtection.c)
- *     MiDeleteSystemPagableVm @ 0x14027E810 (MiDeleteSystemPagableVm.c)
- *     MiSetPagingOfDriver @ 0x1402D8F30 (MiSetPagingOfDriver.c)
- *     MiUnmapRetpolineStubs @ 0x1405A2A48 (MiUnmapRetpolineStubs.c)
- *     MiClearDriverHotPatchPtes @ 0x1405A2F88 (MiClearDriverHotPatchPtes.c)
- *     MmFreeLoaderBlock @ 0x140B190F0 (MmFreeLoaderBlock.c)
- *     MiCreatePteWsle @ 0x140B1A250 (MiCreatePteWsle.c)
+ *     MiSetPagingOfDriver @ 0x14026DB1C (MiSetPagingOfDriver.c)
+ *     MiRemoveWsleList @ 0x14028EBD0 (MiRemoveWsleList.c)
+ *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
+ *     MiSetWsleProtection @ 0x14036B220 (MiSetWsleProtection.c)
+ *     MiUnmapRetpolineStubs @ 0x140544248 (MiUnmapRetpolineStubs.c)
+ *     MmFreeLoaderBlock @ 0x140A4C7D0 (MmFreeLoaderBlock.c)
+ *     MiCreatePteWsle @ 0x140A66A80 (MiCreatePteWsle.c)
  * Callees:
- *     MiWriteValidPteVolatile @ 0x14033A510 (MiWriteValidPteVolatile.c)
+ *     MiWriteValidPteVolatile @ 0x140241370 (MiWriteValidPteVolatile.c)
  */
 
-__int64 __fastcall MiWriteWsle(__int64 a1, unsigned __int64 a2)
+signed __int64 __fastcall MiWriteWsle(__int64 a1, unsigned __int64 a2, unsigned __int8 a3)
 {
-  return MiWriteValidPteVolatile(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 0x80000000LL);
+  return MiWriteValidPteVolatile(
+           (volatile signed __int64 *)(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL),
+           0x80000000,
+           a3);
 }

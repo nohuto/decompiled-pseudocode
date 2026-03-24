@@ -1,11 +1,11 @@
 /*
- * XREFs of IopQueryDeviceState @ 0x1406E9DF8
+ * XREFs of IopQueryDeviceState @ 0x1406E9DD8
  * Callers:
- *     PiProcessQueryDeviceState @ 0x1406E9C64 (PiProcessQueryDeviceState.c)
- *     PiProcessCanceledRemoveForReset @ 0x14083FFF8 (PiProcessCanceledRemoveForReset.c)
- *     PiRestartRemovalRelations @ 0x1408403E4 (PiRestartRemovalRelations.c)
+ *     PiProcessQueryDeviceState @ 0x1406E9C44 (PiProcessQueryDeviceState.c)
+ *     PiProcessCanceledRemoveForReset @ 0x14083FFD8 (PiProcessCanceledRemoveForReset.c)
+ *     PiRestartRemovalRelations @ 0x1408403C4 (PiRestartRemovalRelations.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     IopSynchronousCall @ 0x1405A2CE0 (IopSynchronousCall.c)
  */
 

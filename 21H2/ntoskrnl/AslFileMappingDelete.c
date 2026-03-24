@@ -1,18 +1,18 @@
 /*
- * XREFs of AslFileMappingDelete @ 0x14075E448
+ * XREFs of AslFileMappingDelete @ 0x140756368
  * Callers:
- *     SdbCloseDatabaseRead @ 0x1406E0BB8 (SdbCloseDatabaseRead.c)
- *     AslFileMappingCreate @ 0x14075E160 (AslFileMappingCreate.c)
- *     SdbGetDatabaseMatch @ 0x14075E2D8 (SdbGetDatabaseMatch.c)
- *     SdbpCheckMatchingFiles @ 0x1408414E0 (SdbpCheckMatchingFiles.c)
- *     AslFileMappingCreateFromImageView @ 0x140842D98 (AslFileMappingCreateFromImageView.c)
- *     SdbpCheckKObject @ 0x140843160 (SdbpCheckKObject.c)
- *     SdbOpenDatabaseEx @ 0x140A108BC (SdbOpenDatabaseEx.c)
- *     SdbpCheckMatchingTextEntry @ 0x140A11614 (SdbpCheckMatchingTextEntry.c)
- *     SdbpCheckMatchingWildcardFiles @ 0x140A11A00 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x1407544C0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckKObject @ 0x140754D5C (SdbpCheckKObject.c)
+ *     SdbCloseDatabaseRead @ 0x14075620C (SdbCloseDatabaseRead.c)
+ *     AslFileMappingCreate @ 0x1407589F8 (AslFileMappingCreate.c)
+ *     SdbGetDatabaseMatch @ 0x14077E648 (SdbGetDatabaseMatch.c)
+ *     AslFileMappingCreateFromImageView @ 0x1407B3798 (AslFileMappingCreateFromImageView.c)
+ *     SdbOpenDatabaseEx @ 0x14096408C (SdbOpenDatabaseEx.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140964C94 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140965080 (SdbpCheckMatchingWildcardFiles.c)
  * Callees:
- *     RtlFileMapFree @ 0x1402D89E8 (RtlFileMapFree.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlFileMapFree @ 0x1403714EC (RtlFileMapFree.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AslFileMappingDelete(PVOID *P)

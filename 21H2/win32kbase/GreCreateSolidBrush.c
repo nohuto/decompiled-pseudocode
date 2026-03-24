@@ -1,12 +1,12 @@
 /*
- * XREFs of GreCreateSolidBrush @ 0x1C0062880
+ * XREFs of GreCreateSolidBrush @ 0x1C00B69E0
  * Callers:
  *     <none>
  * Callees:
- *     hCreateSolidBrushInternal @ 0x1C0063600 (hCreateSolidBrushInternal.c)
+ *     hCreateSolidBrushInternal @ 0x1C001BB90 (hCreateSolidBrushInternal.c)
  */
 
-__int64 __fastcall GreCreateSolidBrush(unsigned int a1)
+HBRUSH __fastcall GreCreateSolidBrush(unsigned int a1)
 {
-  return hCreateSolidBrushInternal(a1, 0, 0LL);
+  return hCreateSolidBrushInternal(a1, 0, 0LL, 0);
 }

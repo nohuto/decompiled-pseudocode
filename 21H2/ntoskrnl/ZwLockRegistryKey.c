@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwLockRegistryKey @ 0x14041D9C0
+ * XREFs of ZwLockRegistryKey @ 0x1403FC540
  * Callers:
- *     NtLockProductActivationKeys @ 0x14080D370 (NtLockProductActivationKeys.c)
- *     SepZwLockRegistryKey @ 0x140865540 (SepZwLockRegistryKey.c)
+ *     NtLockProductActivationKeys @ 0x1407B40D0 (NtLockProductActivationKeys.c)
+ *     SepZwLockRegistryKey @ 0x1407D57D0 (SepZwLockRegistryKey.c)
  * Callees:
  *     <none>
  */

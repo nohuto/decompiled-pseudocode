@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuInitializeDmarPageTable @ 0x14052995C
+ * XREFs of HalpIommuInitializeDmarPageTable @ 0x1404DBC9C
  * Callers:
- *     HalpIommuCreateDmarPageTable @ 0x140529654 (HalpIommuCreateDmarPageTable.c)
+ *     HalpIommuCreateDmarPageTable @ 0x1404DB9BC (HalpIommuCreateDmarPageTable.c)
  * Callees:
- *     KeInvalidateRangeAllCachesNoIpi @ 0x140268B50 (KeInvalidateRangeAllCachesNoIpi.c)
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x140529428 (HalpIommuAllocateAndZeroPageTable.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1403038F0 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x1404DB798 (HalpIommuAllocateAndZeroPageTable.c)
  */
 
 __int64 __fastcall HalpIommuInitializeDmarPageTable(
@@ -19,7 +19,7 @@ __int64 __fastcall HalpIommuInitializeDmarPageTable(
         __int64 a6,
         char *a7)
 {
-  __int64 (__fastcall **v11)(); // rax
+  __int64 (__fastcall **v10)(); // rax
   unsigned int v12; // edx
   int v13; // r9d
   const char *v14; // rcx
@@ -37,24 +37,17 @@ __int64 __fastcall HalpIommuInitializeDmarPageTable(
   memset(a7, 0, 0x60uLL);
   if ( a1 )
   {
-    if ( a1 == 2 )
-    {
-      v11 = HsaFlPhyPteInterface;
-    }
-    else
-    {
-      if ( a1 != 3 )
-        return 3221225485LL;
-      v11 = HsaSlPhyPteInterface;
-    }
+    if ( a1 != 3 )
+      return 3221225485LL;
+    v10 = HsaSlPhyPteInterface;
   }
   else
   {
-    v11 = IvtSlPhyPteInterface;
+    v10 = IvtSlPhyPteInterface;
   }
-  v12 = 0;
   *((_DWORD *)a7 + 7) = 3;
-  *((_QWORD *)a7 + 11) = v11;
+  v12 = 0;
+  *((_QWORD *)a7 + 11) = v10;
   *(_DWORD *)a7 = a1;
   *((_DWORD *)a7 + 6) = a3;
   v13 = 12;
@@ -81,7 +74,7 @@ __int64 __fastcall HalpIommuInitializeDmarPageTable(
     v19 = a3 - a2;
     if ( a3 == a2 )
     {
-LABEL_18:
+LABEL_16:
       *((_QWORD *)a7 + 1) = 0LL;
       return 0LL;
     }
@@ -102,7 +95,7 @@ LABEL_18:
       ++v20;
       ++v18;
       if ( v21 >= v19 )
-        goto LABEL_18;
+        goto LABEL_16;
     }
   }
   return 3221225626LL;

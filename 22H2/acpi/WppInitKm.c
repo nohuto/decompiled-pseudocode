@@ -1,9 +1,9 @@
 /*
- * XREFs of WppInitKm @ 0x1C007C1B4
+ * XREFs of WppInitKm @ 0x1C00905E4
  * Callers:
- *     DriverEntry @ 0x1C00A7310 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00BB98C (DriverEntry.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall WppInitKm(__int64 a1, __int64 a2)

@@ -1,23 +1,50 @@
 /*
- * XREFs of ExpCopyProcessInfo @ 0x1407428D0
+ * XREFs of ExpCopyProcessInfo @ 0x140618E80
  * Callers:
- *     ExpGetProcessInformation @ 0x1407432D0 (ExpGetProcessInformation.c)
- *     ExProcessCounterSetCallback @ 0x1409F5E80 (ExProcessCounterSetCallback.c)
+ *     ExpGetProcessInformation @ 0x14063E980 (ExpGetProcessInformation.c)
  * Callees:
- *     ObGetProcessHandleCount @ 0x140742AE8 (ObGetProcessHandleCount.c)
- *     PsQueryStatisticsProcess @ 0x1407430C0 (PsQueryStatisticsProcess.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     PsQueryStatisticsProcess @ 0x140619120 (PsQueryStatisticsProcess.c)
+ *     ExHandleTableQuery @ 0x140619330 (ExHandleTableQuery.c)
  */
 
 __int64 __fastcall ExpCopyProcessInfo(__int64 a1, __int64 a2, char a3, _QWORD *a4)
 {
-  unsigned __int64 v8; // rdx
-  unsigned __int64 v9; // rcx
-  __int64 v11; // [rsp+30h] [rbp-38h]
-  __int64 v12; // [rsp+30h] [rbp-38h]
-  __int64 v13; // [rsp+40h] [rbp-28h]
+  __int64 v8; // rbx
+  int v9; // eax
+  unsigned __int64 v10; // rcx
+  unsigned __int64 v11; // rax
+  int v13; // [rsp+24h] [rbp-54h] BYREF
+  __int64 v14; // [rsp+28h] [rbp-50h]
+  __int64 v15; // [rsp+30h] [rbp-48h]
+  __int64 v16; // [rsp+38h] [rbp-40h]
+  __int64 v17; // [rsp+40h] [rbp-38h]
+  unsigned __int64 v18; // [rsp+50h] [rbp-28h]
+  unsigned __int64 v19; // [rsp+58h] [rbp-20h]
 
+  v15 = 0LL;
+  v14 = 0LL;
   PsQueryStatisticsProcess(a2, a4);
-  *(_DWORD *)(a1 + 96) = ObGetProcessHandleCount(a2, 0LL);
+  v13 = 0;
+  v16 = 0LL;
+  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112)) )
+  {
+    v8 = *(_QWORD *)(a2 + 1392);
+    v16 = v8;
+    if ( v8 )
+    {
+      ExHandleTableQuery(v8, &v13, 0LL);
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112));
+      v9 = v13;
+      goto LABEL_4;
+    }
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112));
+  }
+  v9 = 0;
+  v13 = 0;
+LABEL_4:
+  *(_DWORD *)(a1 + 96) = v9;
   *(_QWORD *)(a1 + 32) = *(_QWORD *)(a2 + 1128);
   *(_DWORD *)(a1 + 72) = *(char *)(a2 + 640);
   *(_QWORD *)(a1 + 80) = *(_QWORD *)(a2 + 1088);
@@ -28,22 +55,26 @@ __int64 __fastcall ExpCopyProcessInfo(__int64 a1, __int64 a2, char a3, _QWORD *a
   *(_DWORD *)(a1 + 128) = *(_DWORD *)(a2 + 1668);
   *(_DWORD *)(a1 + 16) = *(_DWORD *)(a2 + 1832);
   *(_QWORD *)(a1 + 136) = *(_QWORD *)(a2 + 1824) << 12;
-  v8 = *(_QWORD *)(a2 + 1792) << 12;
-  v9 = *(_QWORD *)(a2 + 1800) << 12;
-  *(_QWORD *)(a1 + 144) = v8;
-  if ( v9 >= v8 )
-    v9 = v8;
-  *(_QWORD *)(a1 + 8) = v9;
-  v11 = *(_QWORD *)(a2 + 1160);
-  *(_QWORD *)(a1 + 160) = *(_QWORD *)(a2 + 1144);
-  *(_QWORD *)(a1 + 152) = v11;
-  v12 = *(_QWORD *)(a2 + 1152);
-  *(_QWORD *)(a1 + 176) = *(_QWORD *)(a2 + 1136);
-  *(_QWORD *)(a1 + 168) = v12;
-  v13 = *(_QWORD *)(a2 + 1608) << 12;
-  *(_QWORD *)(a1 + 184) = v13;
+  v10 = *(_QWORD *)(a2 + 1784) << 12;
+  v18 = v10;
+  v19 = *(_QWORD *)(a2 + 1792) << 12;
+  v11 = v19;
+  *(_QWORD *)(a1 + 144) = v10;
+  if ( v11 >= v10 )
+    v11 = v10;
+  *(_QWORD *)(a1 + 8) = v11;
+  v14 = *(_QWORD *)(a2 + 1144);
+  v15 = *(_QWORD *)(a2 + 1160);
+  *(_QWORD *)(a1 + 160) = v14;
+  *(_QWORD *)(a1 + 152) = v15;
+  v14 = *(_QWORD *)(a2 + 1136);
+  v15 = *(_QWORD *)(a2 + 1152);
+  *(_QWORD *)(a1 + 176) = v14;
+  *(_QWORD *)(a1 + 168) = v15;
+  v17 = *(_QWORD *)(a2 + 1608) << 12;
+  *(_QWORD *)(a1 + 184) = v17;
   *(_QWORD *)(a1 + 192) = *(_QWORD *)(a2 + 1616) << 12;
-  *(_QWORD *)(a1 + 200) = v13;
+  *(_QWORD *)(a1 + 200) = v17;
   *(_QWORD *)(a1 + 24) = a4[3];
   *(_QWORD *)(a1 + 40) = a4[1];
   *(_QWORD *)(a1 + 48) = *a4;

@@ -1,15 +1,15 @@
 /*
- * XREFs of imp_WdfCxDeviceInitSetPnpPowerEventCallbacks @ 0x1C00659C0
+ * XREFs of imp_WdfCxDeviceInitSetPnpPowerEventCallbacks @ 0x1C004B760
  * Callers:
  *     <none>
  * Callees:
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_DDd @ 0x1C0052E4C (WPP_IFR_SF_DDd.c)
- *     FxValiateCx @ 0x1C0065314 (FxValiateCx.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_DDd @ 0x1C002E6DC (WPP_IFR_SF_DDd.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     FxValiateCx @ 0x1C004B104 (FxValiateCx.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 void __fastcall imp_WdfCxDeviceInitSetPnpPowerEventCallbacks(
@@ -17,7 +17,7 @@ void __fastcall imp_WdfCxDeviceInitSetPnpPowerEventCallbacks(
         WDFCXDEVICE_INIT *CxDeviceInit,
         _WDFCX_PNPPOWER_EVENT_CALLBACKS *CxPnpPowerCallbacks)
 {
-  _FX_DRIVER_GLOBALS *v3; // rcx
+  _FX_DRIVER_GLOBALS *DriverName; // rcx
   _FX_DRIVER_GLOBALS *ClientDriverGlobals; // rbx
   unsigned int _a2; // eax
   unsigned __int16 v8; // r9
@@ -25,11 +25,11 @@ void __fastcall imp_WdfCxDeviceInitSetPnpPowerEventCallbacks(
   int (__fastcall *EvtCxDevicePreSelfManagedIoRestartEx)(WDFDEVICE__ *, _WDF_POWER_DEVICE_STATE); // rax
   void *retaddr; // [rsp+48h] [rbp+0h]
 
-  v3 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   if ( !CxDeviceInit )
-    FxVerifierNullBugCheck(v3, retaddr);
+    FxVerifierNullBugCheck(DriverName, retaddr);
   ClientDriverGlobals = CxDeviceInit->ClientDriverGlobals;
-  if ( (int)FxValiateCx(ClientDriverGlobals, v3) >= 0 )
+  if ( (int)FxValiateCx(ClientDriverGlobals, DriverName) >= 0 )
   {
     if ( !CxPnpPowerCallbacks )
       FxVerifierNullBugCheck(ClientDriverGlobals, retaddr);
@@ -37,7 +37,7 @@ void __fastcall imp_WdfCxDeviceInitSetPnpPowerEventCallbacks(
     if ( CxPnpPowerCallbacks->Size != 280 && _a2 != 200 )
     {
       WPP_IFR_SF_DDd(ClientDriverGlobals, 0xC8u, 0x12u, 0x13u, WPP_FxCxDeviceInitApi_cpp_Traceguids, _a2, 200, 280);
-LABEL_9:
+LABEL_7:
       FxVerifierDbgBreakPoint(ClientDriverGlobals);
       return;
     }
@@ -45,26 +45,26 @@ LABEL_9:
       && CxPnpPowerCallbacks->EvtCxDevicePrePrepareHardwareFailedCleanup )
     {
       v8 = 20;
-LABEL_13:
+LABEL_11:
       WPP_IFR_SF_(ClientDriverGlobals, 2u, 0x12u, v8, WPP_FxCxDeviceInitApi_cpp_Traceguids);
-      goto LABEL_9;
+      goto LABEL_7;
     }
     if ( !CxPnpPowerCallbacks->EvtCxDevicePreD0Entry && CxPnpPowerCallbacks->EvtCxDevicePreD0EntryFailedCleanup )
     {
       v8 = 21;
-      goto LABEL_13;
+      goto LABEL_11;
     }
     if ( !CxPnpPowerCallbacks->EvtCxDevicePreSelfManagedIoInit
       && CxPnpPowerCallbacks->EvtCxDevicePreSelfManagedIoInitFailedCleanup )
     {
       v8 = 22;
-      goto LABEL_13;
+      goto LABEL_11;
     }
     EvtCxDevicePreSelfManagedIoRestart = CxPnpPowerCallbacks->EvtCxDevicePreSelfManagedIoRestart;
     if ( !EvtCxDevicePreSelfManagedIoRestart && CxPnpPowerCallbacks->EvtCxDevicePreSelfManagedIoRestartFailedCleanup )
     {
       v8 = 23;
-      goto LABEL_13;
+      goto LABEL_11;
     }
     if ( _a2 > 0xC8 )
     {
@@ -73,7 +73,7 @@ LABEL_13:
         && CxPnpPowerCallbacks->EvtCxDevicePreSelfManagedIoRestartExFailedCleanup )
       {
         v8 = 24;
-        goto LABEL_13;
+        goto LABEL_11;
       }
       if ( (EvtCxDevicePreSelfManagedIoRestart
          || CxPnpPowerCallbacks->EvtCxDevicePostSelfManagedIoRestart
@@ -83,7 +83,7 @@ LABEL_13:
          || CxPnpPowerCallbacks->EvtCxDevicePreSelfManagedIoRestartExFailedCleanup) )
       {
         v8 = 25;
-        goto LABEL_13;
+        goto LABEL_11;
       }
       if ( (CxPnpPowerCallbacks->EvtCxDevicePreSelfManagedIoSuspend
          || CxPnpPowerCallbacks->EvtCxDevicePostSelfManagedIoSuspend)
@@ -91,13 +91,13 @@ LABEL_13:
          || CxPnpPowerCallbacks->EvtCxDevicePostSelfManagedIoSuspendEx) )
       {
         v8 = 26;
-        goto LABEL_13;
+        goto LABEL_11;
       }
       if ( !CxPnpPowerCallbacks->EvtCxDevicePreD0EntryPostHardwareEnabled
         && CxPnpPowerCallbacks->EvtCxDevicePreD0EntryPostHardwareEnabledFailedCleanup )
       {
         v8 = 27;
-        goto LABEL_13;
+        goto LABEL_11;
       }
     }
     CxDeviceInit->PnpPowerCallbacks.Set = 1;

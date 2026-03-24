@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vTighten@RGNOBJ@@QEAAXXZ @ 0x1C007E640
+ * XREFs of ?vTighten@RGNOBJ@@QEAAXXZ @ 0x1C0026740
  * Callers:
- *     GreExtCreateRegion @ 0x1C007C890 (GreExtCreateRegion.c)
- *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0157530 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ *     GreExtCreateRegion @ 0x1C0024210 (GreExtCreateRegion.c)
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0026170 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,62 +10,58 @@
 void __fastcall RGNOBJ::vTighten(RGNOBJ *this)
 {
   __int64 v1; // r9
-  int v2; // r10d
-  int v3; // r8d
-  signed int v4; // r11d
-  int *v5; // rdx
-  int v6; // ebx
-  int v7; // ecx
-  __int128 v8; // xmm0
-  __int128 v9; // [rsp+0h] [rbp-18h]
+  int v2; // r8d
+  int v3; // r11d
+  int *v4; // r10
+  signed int v5; // ebx
+  int v6; // edi
+  __int128 v7; // [rsp+0h] [rbp-18h]
 
   v1 = *(_QWORD *)this;
-  v2 = *(_DWORD *)(*(_QWORD *)this + 52LL);
+  v2 = *(_DWORD *)(*(_QWORD *)this + 84LL);
   if ( v2 == 1 )
   {
-    v8 = 0LL;
+    *(_DWORD *)(v1 + 96) = 0;
+    *(_DWORD *)(*(_QWORD *)this + 108LL) = 0;
+    *(_DWORD *)(*(_QWORD *)this + 104LL) = 0;
+    *(_DWORD *)(*(_QWORD *)this + 100LL) = 0;
   }
   else
   {
     v3 = 0x7FFFFFFF;
-    LODWORD(v9) = 0x7FFFFFFF;
-    v4 = 0x80000000;
-    v5 = *(int **)(v1 + 32);
-    DWORD1(v9) = v5[2];
+    v4 = *(int **)(v1 + 88);
+    v5 = 0x80000000;
+    LODWORD(v7) = 0x7FFFFFFF;
+    DWORD2(v7) = 0x80000000;
+    DWORD1(v7) = v4[2];
     if ( !v2 )
       goto LABEL_13;
     do
     {
-      v6 = *v5;
+      v6 = *v4;
       --v2;
-      v7 = v3;
-      if ( *v5 )
+      if ( *v4 )
       {
-        v3 = v5[3];
-        if ( v7 <= v3 )
-          v3 = v7;
-        LODWORD(v9) = v3;
-        if ( v4 < v5[v6 - 1 + 3] )
-        {
-          v4 = v5[v6 - 1 + 3];
-          LODWORD(v9) = v3;
-        }
+        if ( v3 > v4[3] )
+          v3 = v4[3];
+        LODWORD(v7) = v3;
+        if ( v5 < v4[v6 - 1 + 3] )
+          v5 = v4[v6 - 1 + 3];
+        DWORD2(v7) = v5;
       }
-      v5 = (int *)((char *)v5 + (unsigned int)(4 * v6 + 16));
+      v4 = (int *)((char *)v4 + (unsigned int)(4 * v6 + 16));
     }
     while ( v2 );
-    DWORD2(v9) = v4;
-    if ( v3 >= v4 )
+    if ( v3 >= v5 )
     {
 LABEL_13:
-      LODWORD(v9) = 0;
-      DWORD2(v9) = 0;
+      LODWORD(v7) = 0;
+      DWORD2(v7) = 0;
     }
-    HIDWORD(v9) = *(_DWORD *)(*(_QWORD *)(v1 + 40)
+    HIDWORD(v7) = *(_DWORD *)(*(_QWORD *)(v1 + 40)
                             - 4LL
                             - (unsigned int)(4 * *(_DWORD *)(*(_QWORD *)(v1 + 40) - 4LL) + 16)
                             + 8);
-    v8 = v9;
+    *(_OWORD *)(v1 + 96) = v7;
   }
-  *(_OWORD *)(v1 + 56) = v8;
 }

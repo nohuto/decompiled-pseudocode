@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SkipContinuations@CBatchOptimizer@@AEBAHH@Z @ 0x180013544
+ * XREFs of ?SkipContinuations@CBatchOptimizer@@AEBAHH@Z @ 0x1800153F8
  * Callers:
- *     ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x18008E4D0 (-TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ.c)
+ *     ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x1800C0170 (-TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ.c)
  * Callees:
  *     <none>
  */

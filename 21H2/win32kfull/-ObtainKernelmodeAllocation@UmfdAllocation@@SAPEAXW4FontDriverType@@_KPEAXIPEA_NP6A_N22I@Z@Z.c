@@ -1,17 +1,17 @@
 /*
- * XREFs of ?ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z @ 0x1C00DDA68
+ * XREFs of ?ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z @ 0x1C00D20EC
  * Callers:
- *     ?CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ @ 0x1C00DD778 (-CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ.c)
- *     ?CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z @ 0x1C00DD940 (-CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z.c)
- *     ?CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ @ 0x1C013A7AC (-CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ.c)
+ *     ?CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z @ 0x1C00D1B70 (-CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ @ 0x1C00D1F60 (-CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ.c)
+ *     ?CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ @ 0x1C014CABC (-CaptureKerningPairs@QueryFontTreeRequest@@AEAAXXZ.c)
  * Callees:
- *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C000B670 (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
- *     ?_ValidateAllocationPair@UmfdAllocation@@CA_NW4FontDriverType@@_KPEAV1@PEAXIP6A_N33I@Z@Z @ 0x1C00DD590 (-_ValidateAllocationPair@UmfdAllocation@@CA_NW4FontDriverType@@_KPEAV1@PEAXIP6A_N33I@Z@Z.c)
- *     ?_FindAndReferenceExistingKernelmodeAllocation@UmfdAllocation@@CAPEAV1@PEAX@Z @ 0x1C00DDC54 (-_FindAndReferenceExistingKernelmodeAllocation@UmfdAllocation@@CAPEAV1@PEAX@Z.c)
- *     unique_ptr_UmfdAllocation__lambda_e063d8fab83c87fda3b4c41002095086___::_unique_ptr_UmfdAllocation__lambda_e063d8fab83c87fda3b4c41002095086___ @ 0x1C00DDD7C (unique_ptr_UmfdAllocation__lambda_e063d8fab83c87fda3b4c41002095086___--_unique_ptr_UmfdAllocatio.c)
- *     ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C00DDDA0 (-Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z.c)
- *     ?TryCopyMemoryFromProbedPointer@@YA_NPEAX0I@Z @ 0x1C00DDF8C (-TryCopyMemoryFromProbedPointer@@YA_NPEAX0I@Z.c)
- *     ?TryProbeForRead@@YA_NPEAXII@Z @ 0x1C00DDFAC (-TryProbeForRead@@YA_NPEAXII@Z.c)
+ *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C009F5AC (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
+ *     ?_ValidateAllocationPair@UmfdAllocation@@CA_NW4FontDriverType@@_KPEAV1@PEAXIP6A_N33I@Z@Z @ 0x1C00D19EC (-_ValidateAllocationPair@UmfdAllocation@@CA_NW4FontDriverType@@_KPEAV1@PEAXIP6A_N33I@Z@Z.c)
+ *     ?_FindAndReferenceExistingKernelmodeAllocation@UmfdAllocation@@CAPEAV1@PEAX@Z @ 0x1C00D22D4 (-_FindAndReferenceExistingKernelmodeAllocation@UmfdAllocation@@CAPEAV1@PEAX@Z.c)
+ *     unique_ptr_UmfdAllocation__lambda_e063d8fab83c87fda3b4c41002095086___::_unique_ptr_UmfdAllocation__lambda_e063d8fab83c87fda3b4c41002095086___ @ 0x1C00D23D8 (unique_ptr_UmfdAllocation__lambda_e063d8fab83c87fda3b4c41002095086___--_unique_ptr_UmfdAllocatio.c)
+ *     ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C00D23FC (-Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z.c)
+ *     ?TryCopyMemoryFromProbedPointer@@YA_NPEAX0I@Z @ 0x1C00D25E4 (-TryCopyMemoryFromProbedPointer@@YA_NPEAX0I@Z.c)
+ *     ?TryProbeForRead@@YA_NPEAXII@Z @ 0x1C00D2604 (-TryProbeForRead@@YA_NPEAXII@Z.c)
  */
 
 char *__fastcall UmfdAllocation::ObtainKernelmodeAllocation(
@@ -29,9 +29,8 @@ char *__fastcall UmfdAllocation::ObtainKernelmodeAllocation(
   _DWORD *v14; // rdi
   PVOID v15; // rbx
   struct UmfdAllocation *v16; // rax
-  NSInstrumentation::CPointerHashTable *v17; // rcx
-  char *v18; // rdi
-  _DWORD *v20; // [rsp+30h] [rbp-38h] BYREF
+  char *v17; // rdi
+  _DWORD *v19; // [rsp+30h] [rbp-38h] BYREF
 
   v6 = UmfdAllocation::s_allocationLookupLock;
   KeEnterCriticalRegion();
@@ -50,7 +49,7 @@ char *__fastcall UmfdAllocation::ObtainKernelmodeAllocation(
   else if ( TryProbeForRead(a3, a4, v12) && a4 + 28 >= a4 )
   {
     v13 = EngAllocMem(0, a4 + 28, 0x61646647u);
-    v20 = v13;
+    v19 = v13;
     v14 = v13;
     if ( !v13
       || (v13[1] = a1,
@@ -60,10 +59,10 @@ char *__fastcall UmfdAllocation::ObtainKernelmodeAllocation(
           *((_QWORD *)v13 + 2) = a3,
           !TryCopyMemoryFromProbedPointer(v13 + 7, a3, a4)) )
     {
-      v18 = 0LL;
+      v17 = 0LL;
 LABEL_13:
-      unique_ptr_UmfdAllocation__lambda_e063d8fab83c87fda3b4c41002095086___::_unique_ptr_UmfdAllocation__lambda_e063d8fab83c87fda3b4c41002095086___(&v20);
-      return v18;
+      unique_ptr_UmfdAllocation__lambda_e063d8fab83c87fda3b4c41002095086___::_unique_ptr_UmfdAllocation__lambda_e063d8fab83c87fda3b4c41002095086___(&v19);
+      return v17;
     }
     v15 = UmfdAllocation::s_allocationLookupLock;
     KeEnterCriticalRegion();
@@ -71,7 +70,7 @@ LABEL_13:
     v16 = UmfdAllocation::_FindAndReferenceExistingKernelmodeAllocation(a3);
     if ( v16 )
     {
-      v18 = (char *)v16 + 28;
+      v17 = (char *)v16 + 28;
       if ( UmfdAllocation::_ValidateAllocationPair(a1, a2, (__int64)v16, a3, a4, a6) )
       {
 LABEL_22:
@@ -79,19 +78,22 @@ LABEL_22:
         KeLeaveCriticalRegion();
         goto LABEL_13;
       }
-      UmfdAllocation::ReleaseKernelmodeAllocation(v18);
+      UmfdAllocation::ReleaseKernelmodeAllocation(v17);
     }
-    else if ( NSInstrumentation::CPointerHashTable::Insert(v17, a3, v14 + 7) )
+    else if ( NSInstrumentation::CPointerHashTable::Insert(
+                (NSInstrumentation::CPointerHashTable *)UmfdAllocation::s_allocationLookup,
+                a3,
+                v14 + 7) )
     {
       ExReleasePushLockExclusiveEx(v15, 0LL);
       KeLeaveCriticalRegion();
-      v20 = 0LL;
+      v19 = 0LL;
       if ( a5 )
         *a5 = 1;
-      v18 = (char *)(v14 + 7);
+      v17 = (char *)(v14 + 7);
       goto LABEL_13;
     }
-    v18 = 0LL;
+    v17 = 0LL;
     goto LABEL_22;
   }
   return 0LL;

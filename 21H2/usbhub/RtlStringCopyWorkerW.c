@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCopyWorkerW @ 0x1C004E400
+ * XREFs of RtlStringCopyWorkerW @ 0x1C004F824
  * Callers:
- *     RtlStringCbCatW @ 0x1C004E394 (RtlStringCbCatW.c)
- *     UsbhBuildContainerID @ 0x1C004EB84 (UsbhBuildContainerID.c)
+ *     RtlStringCbCatW @ 0x1C004F7A4 (RtlStringCbCatW.c)
+ *     UsbhBuildContainerID @ 0x1C0050024 (UsbhBuildContainerID.c)
  * Callees:
  *     <none>
  */

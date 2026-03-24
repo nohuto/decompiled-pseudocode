@@ -1,5 +1,5 @@
 /*
- * XREFs of DpiFdoDispatchSystemControl @ 0x1C039B220
+ * XREFs of DpiFdoDispatchSystemControl @ 0x1C02CA120
  * Callers:
  *     <none>
  * Callees:
@@ -14,10 +14,10 @@ __int64 __fastcall DpiFdoDispatchSystemControl(PDEVICE_OBJECT DeviceObject, PIRP
 
   v3 = -1073741637;
   DeviceExtension = (char *)DeviceObject->DeviceExtension;
-  if ( DeviceExtension[3736] == 1 )
+  if ( DeviceExtension[3720] == 1 )
   {
     IrpDisposition = IrpProcessed;
-    v3 = WmiSystemControl((PWMILIB_CONTEXT)(DeviceExtension + 3744), DeviceObject, Irp, &IrpDisposition);
+    v3 = WmiSystemControl((PWMILIB_CONTEXT)(DeviceExtension + 3728), DeviceObject, Irp, &IrpDisposition);
     if ( IrpDisposition )
     {
       if ( IrpDisposition == IrpNotCompleted )

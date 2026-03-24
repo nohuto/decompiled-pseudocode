@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeProtoPfn @ 0x1402C4A5C
+ * XREFs of MiInitializeProtoPfn @ 0x1402C4B5C
  * Callers:
- *     MiFillPerSessionProtos @ 0x14085C41C (MiFillPerSessionProtos.c)
+ *     MiFillPerSessionProtos @ 0x14085C3FC (MiFillPerSessionProtos.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
@@ -10,9 +10,9 @@
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiInitializePfn @ 0x140109410 (MiInitializePfn.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiInitializePfn @ 0x140109430 (MiInitializePfn.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiInitializeProtoPfn(__int64 a1, __int64 *a2, unsigned int a3, int a4)

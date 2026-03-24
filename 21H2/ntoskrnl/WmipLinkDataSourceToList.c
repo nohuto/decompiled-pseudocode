@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipLinkDataSourceToList @ 0x14075DEAC
+ * XREFs of WmipLinkDataSourceToList @ 0x140757EF0
  * Callers:
- *     WmipAddDataSource @ 0x14075D1B4 (WmipAddDataSource.c)
- *     WmipUpdateAddGuid @ 0x1409DE730 (WmipUpdateAddGuid.c)
+ *     WmipAddDataSource @ 0x1407568A8 (WmipAddDataSource.c)
+ *     WmipUpdateAddGuid @ 0x140933818 (WmipUpdateAddGuid.c)
  * Callees:
- *     WmipAllocGuidEntry @ 0x14075DFE4 (WmipAllocGuidEntry.c)
- *     WmipFindGEByGuid @ 0x140783CD8 (WmipFindGEByGuid.c)
- *     WmipRegisterEtwProvider @ 0x1408577B0 (WmipRegisterEtwProvider.c)
+ *     WmipFindGEByGuid @ 0x14063F1D0 (WmipFindGEByGuid.c)
+ *     WmipAllocGuidEntry @ 0x140758028 (WmipAllocGuidEntry.c)
+ *     WmipRegisterEtwProvider @ 0x1407C77B8 (WmipRegisterEtwProvider.c)
  */
 
 __int64 __fastcall WmipLinkDataSourceToList(__int64 a1, char a2, __int64 a3)
@@ -15,7 +15,7 @@ __int64 __fastcall WmipLinkDataSourceToList(__int64 a1, char a2, __int64 a3)
   _QWORD *v5; // r14
   unsigned int v8; // esi
   _QWORD *v9; // rdi
-  __int64 GEByGuid; // rcx
+  _QWORD *GEByGuid; // rcx
   _QWORD *v11; // rdx
   __int64 v12; // rax
   __int64 v13; // rdx
@@ -30,32 +30,32 @@ __int64 __fastcall WmipLinkDataSourceToList(__int64 a1, char a2, __int64 a3)
     v9 = v5 - 5;
     if ( (*(_DWORD *)(v5 - 3) & 8) != 0 )
     {
-      GEByGuid = WmipFindGEByGuid(v9[7], 0LL);
+      GEByGuid = WmipFindGEByGuid((_QWORD *)v9[7], 0);
       if ( !GEByGuid )
       {
-        GEByGuid = WmipAllocGuidEntry();
+        GEByGuid = (_QWORD *)WmipAllocGuidEntry();
         if ( !GEByGuid )
           return (unsigned int)-1073741670;
         v12 = WmipGEHeadPtr;
-        *(_OWORD *)(GEByGuid + 72) = *(_OWORD *)v9[7];
+        *(_OWORD *)(GEByGuid + 9) = *(_OWORD *)v9[7];
         v13 = *(_QWORD *)v12;
         if ( *(_QWORD *)(*(_QWORD *)v12 + 8LL) != v12 )
           goto LABEL_16;
-        *(_QWORD *)GEByGuid = v13;
-        *(_QWORD *)(GEByGuid + 8) = v12;
+        *GEByGuid = v13;
+        GEByGuid[1] = v12;
         *(_QWORD *)(v13 + 8) = GEByGuid;
         *(_QWORD *)v12 = GEByGuid;
       }
       *((_DWORD *)v9 + 4) &= ~8u;
       v9[7] = GEByGuid;
-      v11 = *(_QWORD **)(GEByGuid + 64);
-      if ( *v11 != GEByGuid + 56 )
+      v11 = (_QWORD *)GEByGuid[8];
+      if ( (_QWORD *)*v11 != GEByGuid + 7 )
         goto LABEL_16;
-      *v9 = GEByGuid + 56;
+      *v9 = GEByGuid + 7;
       v9[1] = v11;
       *v11 = v9;
-      *(_QWORD *)(GEByGuid + 64) = v9;
-      ++*(_DWORD *)(GEByGuid + 36);
+      GEByGuid[8] = v9;
+      ++*((_DWORD *)GEByGuid + 9);
       if ( (v9[2] & 0x80000) != 0 )
         WmipRegisterEtwProvider(v5 - 5, a3);
     }

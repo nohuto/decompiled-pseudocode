@@ -1,22 +1,19 @@
 /*
- * XREFs of MiLockSectionControlArea @ 0x1402100E8
+ * XREFs of MiLockSectionControlArea @ 0x14033D954
  * Callers:
- *     MmUpdateSectionIoAttribution @ 0x14020EB08 (MmUpdateSectionIoAttribution.c)
- *     MiCopyHeaderIfResident @ 0x14020ECD0 (MiCopyHeaderIfResident.c)
- *     MiFlushDataSection @ 0x14020EEA0 (MiFlushDataSection.c)
- *     MmDisableModifiedWriteOfSection @ 0x14020EF90 (MmDisableModifiedWriteOfSection.c)
- *     MiReferenceExistingControlArea @ 0x14020F000 (MiReferenceExistingControlArea.c)
- *     MmGetImageFileSignatureInformation @ 0x14020F0D0 (MmGetImageFileSignatureInformation.c)
- *     MmEnoughMemoryForWrite @ 0x140210020 (MmEnoughMemoryForWrite.c)
- *     MmOnlySystemCacheViewsPresent @ 0x1402F0E2C (MmOnlySystemCacheViewsPresent.c)
- *     MmChangeSectionBackingFile @ 0x14035E968 (MmChangeSectionBackingFile.c)
- *     MiForceSectionClosed @ 0x14035F070 (MiForceSectionClosed.c)
- *     MmIsFileSectionActive @ 0x1403C52F0 (MmIsFileSectionActive.c)
+ *     MmOnlySystemCacheViewsPresent @ 0x14026F294 (MmOnlySystemCacheViewsPresent.c)
+ *     MmUpdateSectionIoAttribution @ 0x1402E00D8 (MmUpdateSectionIoAttribution.c)
+ *     MmDisableModifiedWriteOfSection @ 0x14033AA50 (MmDisableModifiedWriteOfSection.c)
+ *     MmGetImageFileSignatureInformation @ 0x14033D350 (MmGetImageFileSignatureInformation.c)
+ *     MiReferenceExistingControlArea @ 0x14033D3F4 (MiReferenceExistingControlArea.c)
+ *     MmEnoughMemoryForWrite @ 0x14033D628 (MmEnoughMemoryForWrite.c)
+ *     MiComputeFlushRange @ 0x14033D8A0 (MiComputeFlushRange.c)
+ *     MiFlushDataSection @ 0x14035A4B0 (MiFlushDataSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312010 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1402610E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, KIRQL *a3)
@@ -37,48 +34,54 @@ __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, KIRQL *a3)
 
   while ( 1 )
   {
-    v6 = ExAcquireSpinLockExclusive(&dword_140C65640);
+    v6 = ExAcquireSpinLockExclusive(&dword_140C4C980);
     v7 = v6;
     *a3 = v6;
-    v8 = a2 ? *a1 : a1[2];
+    v8 = a2 == 1 ? *a1 : a1[2];
     if ( !v8 )
       break;
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(v8 + 72) )
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v8 + 72)) )
     {
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
       return v8;
     }
     v10 = *a3;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-        v15 = (v14 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v14;
-        if ( v15 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+          v15 = (v14 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v14;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v10);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
   if ( KiIrqlFlags )
   {
-    v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v17 = KeGetCurrentPrcb();
-      v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v19 = v17->SchedulerAssist;
-      v15 = (v18 & v19[5]) == 0;
-      v19[5] &= v18;
-      if ( v15 )
-        KiRemoveSystemWorkPriorityKick(v17);
+      v16 = KeGetCurrentIrql();
+      if ( v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
+      {
+        v17 = KeGetCurrentPrcb();
+        v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v19 = v17->SchedulerAssist;
+        v15 = (v18 & v19[5]) == 0;
+        v19[5] &= v18;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick(v17);
+      }
     }
   }
   __writecr8(v7);

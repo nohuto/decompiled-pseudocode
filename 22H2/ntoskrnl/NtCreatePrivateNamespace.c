@@ -1,50 +1,55 @@
 /*
- * XREFs of NtCreatePrivateNamespace @ 0x1407C8E30
+ * XREFs of NtCreatePrivateNamespace @ 0x140718720
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     ObpVerifyCreatorAccessCheck @ 0x1407C9098 (ObpVerifyCreatorAccessCheck.c)
- *     ObpCaptureBoundaryDescriptor @ 0x1407C9244 (ObpCaptureBoundaryDescriptor.c)
- *     ObpRegisterPrivateNamespace @ 0x1407C96E0 (ObpRegisterPrivateNamespace.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x140718990 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x140718B6C (ObpCaptureBoundaryDescriptor.c)
+ *     ObpRegisterPrivateNamespace @ 0x140718E48 (ObpRegisterPrivateNamespace.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, __int64 a3, void *a4)
+__int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, ACCESS_MASK a2, int a3, void *a4)
 {
   char PreviousMode; // si
   __int64 v8; // rcx
   __int64 result; // rax
-  int v10; // ebx
-  unsigned __int64 v11; // rbx
-  int v12; // eax
-  _QWORD *v13; // r14
-  unsigned __int64 v14; // rbx
-  size_t v15; // r8
-  __int64 v16; // rcx
+  _QWORD *v10; // rdi
+  int v11; // ebx
+  unsigned __int64 v12; // rbx
+  int v13; // eax
+  _QWORD *v14; // r14
+  unsigned __int64 v15; // rbx
+  size_t v16; // r8
+  __int64 v17; // rcx
   int inserted; // edi
-  void *CurrentServerSiloGlobals; // rsi
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  _DWORD *CurrentServerSiloGlobals; // rsi
   struct _KTHREAD *CurrentThread; // rcx
-  _QWORD *v20; // rax
-  __int64 v21; // rcx
-  _QWORD *v22; // rax
-  __int64 v23; // rdx
-  _QWORD *v24; // rax
-  __int64 v25; // [rsp+20h] [rbp-68h]
+  _QWORD *v23; // rax
+  __int64 v24; // rcx
+  _QWORD *v25; // rax
+  __int64 v26; // rdx
+  _QWORD *v27; // rax
+  char *v28; // [rsp+20h] [rbp-68h]
   PVOID Object; // [rsp+58h] [rbp-30h] BYREF
-  __int64 v27; // [rsp+60h] [rbp-28h] BYREF
+  PVOID P; // [rsp+60h] [rbp-28h]
+  __int64 v31; // [rsp+68h] [rbp-20h] BYREF
 
   Object = 0LL;
-  v27 = 0LL;
+  v31 = 0LL;
+  P = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
@@ -56,110 +61,111 @@ __int64 __fastcall NtCreatePrivateNamespace(__int64 *a1, int a2, __int64 a3, voi
   result = ObpCaptureBoundaryDescriptor(a4);
   if ( (int)result >= 0 )
   {
-    v10 = ObpVerifyCreatorAccessCheck(48LL);
-    if ( v10 >= 0 )
+    v10 = P;
+    v11 = ObpVerifyCreatorAccessCheck((char *)P + 48);
+    if ( v11 >= 0 )
     {
-      v11 = (unsigned int)(MEMORY[0x18] + 392);
-      if ( v11 < MEMORY[0x18] )
+      v12 = (unsigned int)(*((_DWORD *)P + 6) + 392);
+      if ( v12 < *((_QWORD *)P + 3) )
       {
-        v10 = -1073741811;
+        v11 = -1073741811;
       }
       else
       {
-        v12 = ObCreateObjectEx(
+        v13 = ObCreateObjectEx(
                 PreviousMode,
                 ObpDirectoryObjectType,
                 a3,
                 PreviousMode,
-                v25,
-                MEMORY[0x18] + 392,
+                v28,
+                *((_DWORD *)P + 6) + 392,
                 0,
                 0,
                 &Object,
                 0LL);
-        if ( v12 >= 0 )
+        if ( v13 >= 0 )
         {
-          v13 = Object;
-          memset(Object, 0, (unsigned int)v11);
-          v14 = ((unsigned __int64)v13 + 351) & 0xFFFFFFFFFFFFFFF8uLL;
-          *(_QWORD *)(v14 + 8) = v14;
-          *(_QWORD *)v14 = v14;
-          v15 = MEMORY[0x18];
-          *(_QWORD *)(v14 + 24) = MEMORY[0x18];
-          *(_QWORD *)(v14 + 16) = 0LL;
-          *(_BYTE *)(v14 + 40) = MEMORY[0x28];
-          memmove((void *)(v14 + 48), (const void *)0x30, v15);
-          ExFreePoolWithTag(0LL, 0x534E624Fu);
-          v13[37] = 0LL;
-          *((_DWORD *)v13 + 85) = -1;
-          *((_DWORD *)v13 + 84) = 1;
-          if ( (*((_BYTE *)v13 - 22) & 2) != 0 )
-            v16 = (__int64)v13 - ObpInfoMaskToOffset[*((_BYTE *)v13 - 22) & 3] - 48;
+          v14 = Object;
+          memset(Object, 0, (unsigned int)v12);
+          v15 = ((unsigned __int64)v14 + 351) & 0xFFFFFFFFFFFFFFF8uLL;
+          *(_QWORD *)(v15 + 8) = v15;
+          *(_QWORD *)v15 = v15;
+          v16 = v10[3];
+          *(_QWORD *)(v15 + 24) = v16;
+          *(_QWORD *)(v15 + 16) = 0LL;
+          *(_BYTE *)(v15 + 40) = *((_BYTE *)v10 + 40);
+          memmove((void *)(v15 + 48), v10 + 6, v16);
+          ExFreePoolWithTag(v10, 0x534E624Fu);
+          v14[37] = 0LL;
+          *((_DWORD *)v14 + 85) = -1;
+          *((_DWORD *)v14 + 84) = 1;
+          if ( (*((_BYTE *)v14 - 22) & 2) != 0 )
+            v17 = (__int64)v14 - ObpInfoMaskToOffset[*((_BYTE *)v14 - 22) & 3] - 48;
           else
-            v16 = 0LL;
-          if ( v16 )
+            v17 = 0LL;
+          if ( v17 )
           {
             inserted = -1073741773;
           }
           else
           {
-            inserted = ObpRegisterPrivateNamespace(((unsigned __int64)v13 + 351) & 0xFFFFFFFFFFFFFFF8uLL);
+            inserted = ObpRegisterPrivateNamespace(((unsigned __int64)v14 + 351) & 0xFFFFFFFFFFFFFFF8uLL);
             if ( inserted >= 0 )
             {
-              ObfReferenceObject(v13);
-              inserted = ObInsertObjectEx((char *)v13, 0LL, a2, 0, 0, 0LL, &v27);
-              CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
+              ObfReferenceObject(v14);
+              inserted = ObInsertObjectEx((PADAPTER_OBJECT)v14, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&v31);
+              CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals(v20, v19);
               CurrentThread = KeGetCurrentThread();
               --CurrentThread->KernelApcDisable;
-              ExAcquirePushLockExclusiveEx((ULONG_PTR)CurrentServerSiloGlobals + 720, 0LL);
+              ExAcquirePushLockExclusiveEx((ULONG_PTR)(CurrentServerSiloGlobals + 180), 0LL);
               if ( inserted < 0 )
               {
-                v21 = *(_QWORD *)v14;
-                v22 = *(_QWORD **)(v14 + 8);
-                if ( *(_QWORD *)(*(_QWORD *)v14 + 8LL) == v14 && *v22 == v14 )
+                v24 = *(_QWORD *)v15;
+                v25 = *(_QWORD **)(v15 + 8);
+                if ( *(_QWORD *)(*(_QWORD *)v15 + 8LL) == v15 && *v25 == v15 )
                 {
-                  *v22 = v21;
-                  *(_QWORD *)(v21 + 8) = v22;
+                  *v25 = v24;
+                  *(_QWORD *)(v24 + 8) = v25;
 LABEL_32:
-                  --*((_DWORD *)CurrentServerSiloGlobals + 182);
-                  ObfDereferenceObject(Object);
+                  --CurrentServerSiloGlobals[182];
+                  HalPutDmaAdapter((PADAPTER_OBJECT)Object);
 LABEL_16:
-                  ExReleasePushLockEx((__int64 *)CurrentServerSiloGlobals + 90, 0LL);
+                  ExReleasePushLockEx((ULONG_PTR)(CurrentServerSiloGlobals + 180), 0LL);
                   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
                   if ( inserted >= 0 )
-                    *a1 = v27;
+                    *a1 = v31;
                   return (unsigned int)inserted;
                 }
               }
               else
               {
-                if ( (v13[42] & 2) == 0 )
+                if ( (v14[42] & 2) == 0 )
                 {
-                  v20 = Object;
-                  *(_QWORD *)(v14 + 16) = Object;
-                  v20[40] = v14;
+                  v23 = Object;
+                  *(_QWORD *)(v15 + 16) = Object;
+                  v23[40] = v15;
                   goto LABEL_16;
                 }
-                v23 = *(_QWORD *)v14;
-                v24 = *(_QWORD **)(v14 + 8);
-                if ( *(_QWORD *)(*(_QWORD *)v14 + 8LL) == v14 && *v24 == v14 )
+                v26 = *(_QWORD *)v15;
+                v27 = *(_QWORD **)(v15 + 8);
+                if ( *(_QWORD *)(*(_QWORD *)v15 + 8LL) == v15 && *v27 == v15 )
                 {
-                  *v24 = v23;
-                  *(_QWORD *)(v23 + 8) = v24;
+                  *v27 = v26;
+                  *(_QWORD *)(v26 + 8) = v27;
                   goto LABEL_32;
                 }
               }
               __fastfail(3u);
             }
           }
-          ObfDereferenceObject(v13);
+          HalPutDmaAdapter((PADAPTER_OBJECT)v14);
           return (unsigned int)inserted;
         }
-        v10 = v12;
+        v11 = v13;
       }
     }
-    ExFreePoolWithTag(0LL, 0x534E624Fu);
-    return (unsigned int)v10;
+    ExFreePoolWithTag(v10, 0x534E624Fu);
+    return (unsigned int)v11;
   }
   return result;
 }

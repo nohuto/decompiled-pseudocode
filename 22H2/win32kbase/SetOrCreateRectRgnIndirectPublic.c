@@ -1,146 +1,144 @@
 /*
- * XREFs of SetOrCreateRectRgnIndirectPublic @ 0x1C003EDB0
+ * XREFs of SetOrCreateRectRgnIndirectPublic @ 0x1C0035990
  * Callers:
- *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0060D08 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     ?GetMonitorRegionForDpi@@YAPEAUHRGN__@@PEAUtagMONITOR@@G@Z @ 0x1C0070490 (-GetMonitorRegionForDpi@@YAPEAUHRGN__@@PEAUtagMONITOR@@G@Z.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C77F4 (-zzzUpdateUserScreen@@YAJXZ.c)
  * Callees:
- *     HmgSetOwner @ 0x1C003E5F0 (HmgSetOwner.c)
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C003F148 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     GreCreateRectRgnIndirect @ 0x1C003F2F0 (GreCreateRectRgnIndirect.c)
- *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00D2140 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     GreCreateRectRgnIndirect @ 0x1C00357D0 (GreCreateRectRgnIndirect.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0035D10 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     HmgSetOwner @ 0x1C00368E0 (HmgSetOwner.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00C9240 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
  */
 
 __int64 __fastcall SetOrCreateRectRgnIndirectPublic(HRGN *a1, struct _RECTL *a2)
 {
   unsigned int v2; // ebx
-  LONG right; // esi
-  LONG top; // edi
-  LONG bottom; // ebp
+  LONG bottom; // esi
+  LONG right; // edi
+  LONG top; // ebp
   LONG left; // r14d
-  LONG v8; // r11d
-  LONG v9; // r15d
-  __int64 RectRgnIndirect; // rax
-  unsigned int v12; // esi
-  _DWORD *v13; // r9
-  _QWORD *v14; // r8
-  _OWORD *v15; // rcx
-  _DWORD *v16; // rax
-  int **v17; // rdx
-  int *v18; // rax
-  bool v19; // zf
-  int *v20; // r10
-  _DWORD *v21; // r10
-  char *v22; // r10
-  int v23; // eax
-  _DWORD *v24; // r10
-  int *v25; // r10
-  int v26; // eax
-  __int128 v27; // [rsp+20h] [rbp-68h]
-  _QWORD v28[11]; // [rsp+30h] [rbp-58h] BYREF
+  __int64 v8; // rdx
+  LONG v9; // r9d
+  LONG v10; // r10d
+  struct HOBJ__ *RectRgnIndirect; // rax
+  struct HOBJ__ *v13; // rsi
+  __int64 v14; // r8
+  __int64 v15; // rax
+  bool v16; // zf
+  int *v17; // r8
+  int v18; // eax
+  _DWORD *v19; // r8
+  int *v20; // r8
+  int v21; // eax
+  char *v22; // rcx
+  _DWORD *v23; // r8
+  char *v24; // r8
+  __int128 v25; // [rsp+20h] [rbp-58h]
+  _QWORD v26[8]; // [rsp+30h] [rbp-48h] BYREF
 
   v2 = 0;
   if ( *a1 )
   {
+    bottom = a2->bottom;
     right = a2->right;
     top = a2->top;
-    bottom = a2->bottom;
     left = a2->left;
-    RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v28, *a1, 0, 0);
-    if ( v28[0] )
+    RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v26, *a1, 0, 0);
+    v8 = v26[0];
+    if ( v26[0] )
     {
-      *(_QWORD *)&v27 = __PAIR64__(top, left);
-      v8 = left;
-      *((_QWORD *)&v27 + 1) = __PAIR64__(bottom, right);
-      v9 = top;
+      *(_QWORD *)&v25 = __PAIR64__(top, left);
+      v9 = left;
+      *((_QWORD *)&v25 + 1) = __PAIR64__(bottom, right);
+      v10 = top;
       if ( ((left & 0xF8000000) == 0 || (left & 0xF8000000) == -134217728)
-        && ((bottom & 0xF8000000) == 0 || (bottom & 0xF8000000) == 0xF8000000)
+        && (((bottom & 0xF8000000) + 0x8000000) & 0xF7FFFFFF) == 0
         && ((right & 0xF8000000) == 0 || (right & 0xF8000000) == 0xF8000000)
         && ((top & 0xF8000000) == 0 || (top & 0xF8000000) == 0xF8000000) )
       {
         if ( left > right )
         {
-          v8 = right;
-          LODWORD(v27) = right;
+          v9 = right;
+          LODWORD(v25) = right;
           right = left;
-          DWORD2(v27) = left;
+          DWORD2(v25) = left;
         }
         if ( top > bottom )
         {
-          v9 = bottom;
-          DWORD1(v27) = bottom;
+          v10 = bottom;
+          DWORD1(v25) = bottom;
           bottom = top;
-          HIDWORD(v27) = top;
+          HIDWORD(v25) = top;
         }
-        v13 = (_DWORD *)(v28[0] + 52LL);
-        v14 = (_QWORD *)(v28[0] + 40LL);
-        v15 = (_OWORD *)(v28[0] + 56LL);
-        v16 = (_DWORD *)(v28[0] + 48LL);
-        v17 = (int **)(v28[0] + 32LL);
-        if ( v8 == right || v9 == bottom )
+        if ( v9 == right || v10 == bottom )
         {
-          *v16 = 16;
-          v18 = *v17;
-          *v13 = 1;
-          *v15 = 0LL;
-          *v18 = 0;
+          v15 = *(_QWORD *)(v26[0] + 88LL);
+          *(_QWORD *)(v26[0] + 96LL) = 0LL;
+          *(_QWORD *)(v8 + 104) = 0LL;
+          *(_DWORD *)(v8 + 80) = 16;
+          *(_DWORD *)(v8 + 84) = 1;
+          *(_DWORD *)v15 = 0;
           v2 = 1;
-          v18[1] = 0x80000000;
-          *((_QWORD *)v18 + 1) = 0x7FFFFFFFLL;
-          *v14 = v18 + 4;
+          *(_DWORD *)(v15 + 4) = 0x80000000;
+          *(_QWORD *)(v15 + 8) = 0x7FFFFFFFLL;
+          *(_QWORD *)(v8 + 40) = v15 + 16;
         }
         else
         {
-          v19 = *v16 == 56;
-          v20 = *v17;
-          *v15 = v27;
-          if ( v19 )
+          v16 = *(_DWORD *)(v26[0] + 80LL) == 56;
+          v17 = *(int **)(v26[0] + 88LL);
+          *(_OWORD *)(v26[0] + 96LL) = v25;
+          if ( v16 )
           {
-            v23 = *v20;
+            v18 = *v17;
             v2 = 1;
-            v20[2] = v9;
-            v24 = (int *)((char *)v20 + (unsigned int)(4 * v23 + 16));
-            v24[1] = v9;
-            v24[2] = bottom;
-            v24[3] = v8;
-            v24[4] = right;
-            v25 = (_DWORD *)((char *)v24 + (unsigned int)(4 * *v24 + 16));
-            v26 = *v25;
-            v25[1] = bottom;
-            *v14 = (char *)v25 + (unsigned int)(4 * v26 + 16);
+            v17[2] = v10;
+            v19 = (int *)((char *)v17 + (unsigned int)(4 * v18 + 16));
+            v19[1] = v10;
+            v19[2] = bottom;
+            v19[3] = v9;
+            v19[4] = right;
+            v20 = (_DWORD *)((char *)v19 + (unsigned int)(4 * *v19 + 16));
+            v21 = *v20;
+            v20[1] = bottom;
+            v22 = (char *)v20 + (unsigned int)(4 * v21 + 16);
           }
           else
           {
-            *v16 = 56;
-            *v13 = 3;
-            *v20 = 0;
-            v20[3] = 0;
-            v20[1] = 0x80000000;
-            v20[2] = v9;
-            v21 = v20 + 4;
-            *v21 = 2;
-            v21[1] = v9;
-            v21[2] = bottom;
-            v21[3] = v8;
-            v21[4] = right;
-            v21[5] = 2;
-            v22 = (char *)v21 + (unsigned int)(4 * *v21 + 16);
-            *(_DWORD *)v22 = 0;
-            *((_DWORD *)v22 + 1) = bottom;
+            *(_DWORD *)(v8 + 80) = 56;
+            *(_DWORD *)(v8 + 84) = 3;
+            *v17 = 0;
+            v17[3] = 0;
+            v17[1] = 0x80000000;
+            v17[2] = v10;
+            v23 = v17 + 4;
+            *v23 = 2;
+            v23[1] = v10;
+            v23[2] = bottom;
+            v23[3] = v9;
+            v23[4] = right;
+            v23[5] = 2;
+            v24 = (char *)v23 + (unsigned int)(4 * *v23 + 16);
+            v22 = v24 + 16;
+            *(_DWORD *)v24 = 0;
             v2 = 1;
-            *((_QWORD *)v22 + 1) = 0x7FFFFFFFLL;
-            *v14 = v22 + 16;
+            *((_DWORD *)v24 + 1) = bottom;
+            *((_QWORD *)v24 + 1) = 0x7FFFFFFFLL;
           }
+          *(_QWORD *)(v8 + 40) = v22;
         }
       }
     }
-    RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v28);
+    RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v26);
     return v2;
   }
   RectRgnIndirect = GreCreateRectRgnIndirect(a2);
   *a1 = (HRGN)RectRgnIndirect;
-  v12 = RectRgnIndirect;
+  v13 = RectRgnIndirect;
   if ( !RectRgnIndirect )
     return v2;
   PsGetCurrentProcessId();
-  HmgSetOwner(v12, 0, 4);
+  LOBYTE(v14) = 4;
+  HmgSetOwner(v13, 0LL, v14);
   return 1LL;
 }

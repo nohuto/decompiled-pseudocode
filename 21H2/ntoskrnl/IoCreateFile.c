@@ -1,15 +1,14 @@
 /*
- * XREFs of IoCreateFile @ 0x1406CAD00
+ * XREFs of IoCreateFile @ 0x14060B1D0
  * Callers:
- *     DifIoCreateFileWrapper @ 0x14060DFF0 (DifIoCreateFileWrapper.c)
- *     NtCreateMailslotFile @ 0x140661A80 (NtCreateMailslotFile.c)
- *     NtCreateNamedPipeFile @ 0x1406CABA0 (NtCreateNamedPipeFile.c)
- *     PopCreateHiberFile @ 0x140801108 (PopCreateHiberFile.c)
- *     MiCreatePagingFile @ 0x14084AA8C (MiCreatePagingFile.c)
- *     SmKmStoreFileCreateForIoType @ 0x1409D69A8 (SmKmStoreFileCreateForIoType.c)
- *     IopInitCrashDumpRegCallback @ 0x140B219F0 (IopInitCrashDumpRegCallback.c)
+ *     NtCreateMailslotFile @ 0x1405D8A00 (NtCreateMailslotFile.c)
+ *     NtCreateNamedPipeFile @ 0x1406AFC70 (NtCreateNamedPipeFile.c)
+ *     PopCreateHiberFile @ 0x1407919C0 (PopCreateHiberFile.c)
+ *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14092C48C (SmKmStoreFileCreateForIoType.c)
+ *     IopInitCrashDumpRegCallback @ 0x140A67640 (IopInitCrashDumpRegCallback.c)
  * Callees:
- *     IopCreateFile @ 0x1407ADB90 (IopCreateFile.c)
+ *     IopCreateFile @ 0x14060B4C0 (IopCreateFile.c)
  */
 
 NTSTATUS __stdcall IoCreateFile(
@@ -28,9 +27,6 @@ NTSTATUS __stdcall IoCreateFile(
         PVOID InternalParameters,
         ULONG Options)
 {
-  size_t Size; // [rsp+50h] [rbp-38h]
-
-  LODWORD(Size) = EaLength;
   return IopCreateFile(
            (int)FileHandle,
            DesiredAccess,
@@ -41,8 +37,8 @@ NTSTATUS __stdcall IoCreateFile(
            ShareAccess,
            Disposition,
            CreateOptions,
-           EaBuffer,
-           Size,
+           (__int64)EaBuffer,
+           EaLength,
            CreateFileType,
            (__int64)InternalParameters,
            Options,

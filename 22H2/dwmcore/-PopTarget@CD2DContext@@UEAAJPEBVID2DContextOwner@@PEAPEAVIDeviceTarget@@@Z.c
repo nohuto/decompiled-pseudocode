@@ -1,17 +1,14 @@
 /*
- * XREFs of ?PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z @ 0x180287BF0
+ * XREFs of ?PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z @ 0x18008FDE0
  * Callers:
- *     gsl::final_action__lambda_d4d69d0dd690f9a056e445a8894bc90a___::_final_action__lambda_d4d69d0dd690f9a056e445a8894bc90a___ @ 0x180279220 (gsl--final_action__lambda_d4d69d0dd690f9a056e445a8894bc90a___--_final_action__lambda_d4d69d0dd69.c)
+ *     ?PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18008FD08 (-PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z.c)
  * Callees:
- *     ?FlushD2DInternal@CD2DContext@@AEAAJXZ @ 0x18001A27C (-FlushD2DInternal@CD2DContext@@AEAAJXZ.c)
- *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18008E000 (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
- *     ?EndDraw@CD2DContext@@AEAAJXZ @ 0x180090894 (-EndDraw@CD2DContext@@AEAAJXZ.c)
- *     ?ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z @ 0x180092028 (-ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z.c)
- *     ?D2DSetTargetInternal@CD2DContext@@IEAAXPEAVCD2DTarget@@@Z @ 0x18009208C (-D2DSetTargetInternal@CD2DContext@@IEAAXPEAVCD2DTarget@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??_GCD2DTarget@@QEAAPEAXI@Z @ 0x1800E6710 (--_GCD2DTarget@@QEAAPEAXI@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?CacheTarget@CD2DTarget@@QEBA_NXZ @ 0x18029CFD0 (-CacheTarget@CD2DTarget@@QEBA_NXZ.c)
+ *     ??_GCD2DTarget@@QEAAPEAXI@Z @ 0x180029F9C (--_GCD2DTarget@@QEAAPEAXI@Z.c)
+ *     ?ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z @ 0x18002C850 (-ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18008FEFC (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
+ *     ?EndDraw@CD2DContext@@AEAAJXZ @ 0x180090544 (-EndDraw@CD2DContext@@AEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DContext::PopTarget(
@@ -19,79 +16,63 @@ __int64 __fastcall CD2DContext::PopTarget(
         const struct ID2DContextOwner *a2,
         struct IDeviceTarget **a3)
 {
-  int v5; // eax
-  CD2DTarget *v6; // rdi
-  __int64 v7; // rdx
-  __int64 v8; // rbp
-  struct IDeviceTarget *v9; // rdx
-  __int64 v10; // rcx
-  int v11; // eax
+  int v5; // edx
+  CD2DTarget *v6; // rsi
+  unsigned int v7; // edx
+  int v8; // eax
+  __int64 v9; // rcx
+  int v10; // edi
+  __int64 v11; // r8
   __int64 v12; // rcx
-  __int64 v13; // rax
-  int v14; // esi
-  int v15; // eax
-  __int64 v16; // rcx
+  __int64 v13; // rcx
+  CD2DTarget *v15; // rbp
 
   if ( a3 )
     *a3 = 0LL;
   CD2DContext::FlushDrawList(this);
-  v5 = *((_DWORD *)this + 88);
+  v5 = *((_DWORD *)this + 100);
   v6 = 0LL;
-  v7 = (unsigned int)(v5 - 1);
   if ( v5 )
-    v6 = *(CD2DTarget **)(*((_QWORD *)this + 41) + 8 * v7);
-  *((_DWORD *)this + 88) = v7;
-  if ( v5 == 1 )
   {
-    v15 = CD2DContext::EndDraw(this);
-    v14 = v15;
-    if ( v15 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x2EEu, 0LL);
-    if ( CD2DTarget::CacheTarget(v6) )
-    {
-      *((_QWORD *)this + 53) = v6;
-      return CD3DDevice::TranslateDXGIorD3DErrorInContext(
-               ((unsigned __int64)this - 16) & -(__int64)(this != 0LL),
-               v14,
-               0);
-    }
-    CD2DContext::D2DSetTargetInternal(this, 0LL);
+    v7 = v5 - 1;
+    v6 = *(CD2DTarget **)(*((_QWORD *)this + 47) + 8LL * v7);
   }
   else
   {
-    v8 = *(_QWORD *)(*((_QWORD *)this + 41) + 8LL * (unsigned int)(v5 - 2));
+    v7 = -1;
+  }
+  *((_DWORD *)this + 100) = v7;
+  if ( v7 )
+  {
+    v13 = v7 - 1;
+    v15 = *(CD2DTarget **)(*((_QWORD *)this + 47) + 8 * v13);
     if ( a3 )
     {
-      v9 = *(struct IDeviceTarget **)(v8 + 24);
-      *a3 = v9;
-      v10 = (__int64)v9 + *(int *)(*((_QWORD *)v9 + 1) + 4LL) + 8;
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 8LL))(v10);
+      v11 = *((_QWORD *)v15 + 3);
+      *a3 = (struct IDeviceTarget *)v11;
+      v12 = *(int *)(*(_QWORD *)(v11 + 8) + 4LL) + v11 + 8;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 8LL))(v12);
     }
-    if ( *((_BYTE *)this + 437) )
+    if ( *((_BYTE *)this + 485) )
+      CD2DTarget::ApplyState(v15, this);
+    v10 = *((_DWORD *)this + 278);
+    if ( v10 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v10, 0x2D0u, 0LL);
+  }
+  else
+  {
+    v8 = CD2DContext::EndDraw(this);
+    v10 = v8;
+    if ( v8 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x2D8u, 0LL);
+    if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))(**((_QWORD **)v6 + 3) + 8LL))(*((_QWORD **)v6 + 3)) )
     {
-      CD2DTarget::ApplyState((CD2DTarget *)v8, this);
-      if ( *((_BYTE *)v6 + 75) )
-      {
-        if ( *((_BYTE *)v6 + 74) )
-        {
-          v11 = CD2DContext::FlushD2DInternal(this);
-          if ( v11 < 0 )
-            MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x2DDu, 0LL);
-        }
-        else
-        {
-          *(_BYTE *)(v8 + 75) = 1;
-        }
-      }
+      *((_QWORD *)this + 59) = v6;
+      return CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this - 16, v10, 0);
     }
-    v13 = (__int64)this + 1072;
-    if ( !this )
-      v13 = 1088LL;
-    v14 = *(_DWORD *)v13;
-    if ( *(int *)v13 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(1088LL, 0LL, 0, v14, 0x2E6u, 0LL);
+    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**((_QWORD **)this + 31) + 56LL))(*((_QWORD *)this + 31), 0LL, 0LL);
   }
   if ( v6 )
     CD2DTarget::`scalar deleting destructor'(v6);
-  return CD3DDevice::TranslateDXGIorD3DErrorInContext(((unsigned __int64)this - 16) & -(__int64)(this != 0LL), v14, 0);
+  return CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this - 16, v10, 0);
 }

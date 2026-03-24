@@ -1,7 +1,7 @@
 /*
- * XREFs of Controller_AreFrameAndTimeDeltaValuesValid @ 0x1C0030C44
+ * XREFs of Controller_AreFrameAndTimeDeltaValuesValid @ 0x1C0030994
  * Callers:
- *     Interrupter_WdfEvtInterruptIsr @ 0x1C0001160 (Interrupter_WdfEvtInterruptIsr.c)
+ *     Interrupter_WdfEvtInterruptIsr @ 0x1C00053F0 (Interrupter_WdfEvtInterruptIsr.c)
  * Callees:
  *     <none>
  */

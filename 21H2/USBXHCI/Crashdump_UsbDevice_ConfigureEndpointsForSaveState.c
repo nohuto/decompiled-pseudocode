@@ -1,11 +1,11 @@
 /*
- * XREFs of Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004E00C
+ * XREFs of Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004D588
  * Callers:
- *     Crashdump_Cleanup @ 0x1C0049CD0 (Crashdump_Cleanup.c)
+ *     Crashdump_Cleanup @ 0x1C0049210 (Crashdump_Cleanup.c)
  * Callees:
- *     Endpoint_GetDequeuePointer @ 0x1C0004B68 (Endpoint_GetDequeuePointer.c)
- *     Endpoint_GetMaxPrimaryStreams @ 0x1C0004BC8 (Endpoint_GetMaxPrimaryStreams.c)
- *     Crashdump_Command_SendCommand @ 0x1C004CA30 (Crashdump_Command_SendCommand.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C0008334 (Endpoint_GetDequeuePointer.c)
+ *     Endpoint_GetMaxPrimaryStreams @ 0x1C0008394 (Endpoint_GetMaxPrimaryStreams.c)
+ *     Crashdump_Command_SendCommand @ 0x1C004BFB0 (Crashdump_Command_SendCommand.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_ConfigureEndpointsForSaveState(__int64 a1)

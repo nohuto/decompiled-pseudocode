@@ -1,47 +1,42 @@
 /*
- * XREFs of RtlpApplyGenericRetpolineFixup @ 0x1403253B0
+ * XREFs of RtlpApplyGenericRetpolineFixup @ 0x1402F4790
  * Callers:
- *     RtlApplyImportRelocationToPage @ 0x140324EB8 (RtlApplyImportRelocationToPage.c)
- *     MiUpdateRetpolineImportFixups @ 0x140325298 (MiUpdateRetpolineImportFixups.c)
- *     RtlUpdateImportRelocationsInImage @ 0x140376274 (RtlUpdateImportRelocationsInImage.c)
- *     RtlApplyImportRelocationToImage @ 0x14067A450 (RtlApplyImportRelocationToImage.c)
- *     RtlApplyIndirectRelocationToPage @ 0x14067A504 (RtlApplyIndirectRelocationToPage.c)
- *     RtlApplySwitchJumpRelocationToPage @ 0x14067A5B0 (RtlApplySwitchJumpRelocationToPage.c)
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067A69C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     RtlApplyImportRelocationToPage @ 0x1402F452C (RtlApplyImportRelocationToPage.c)
+ *     MiApplyRetpolineFixups @ 0x1402F45E4 (MiApplyRetpolineFixups.c)
+ *     RtlApplyImportRelocationToImage @ 0x1403B685C (RtlApplyImportRelocationToImage.c)
+ *     RtlApplyIndirectRelocationToPage @ 0x14058FC64 (RtlApplyIndirectRelocationToPage.c)
+ *     RtlApplySwitchJumpRelocationToPage @ 0x14058FD10 (RtlApplySwitchJumpRelocationToPage.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14058FDFC (RtlPerformRetpolineRelocationsOnImageEx.c)
  * Callees:
  *     <none>
  */
 
 _BYTE *__fastcall RtlpApplyGenericRetpolineFixup(unsigned __int64 a1, unsigned int a2, _WORD *a3, int a4)
 {
-  __int64 v4; // rdi
-  unsigned int v5; // r11d
-  __int64 v6; // rdx
-  unsigned __int64 v7; // rdi
-  char *v8; // r9
-  int v9; // r10d
+  unsigned int v4; // r10d
+  unsigned __int64 v5; // rbx
+  _BYTE *v6; // r9
   _BYTE *result; // rax
+  int v8; // edx
 
-  v4 = a2;
-  v5 = 0;
-  v6 = a4;
-  v7 = a1 + v4;
-  v8 = (char *)a3 - a4 - a1;
-  v9 = 1;
-  result = (_BYTE *)(v6 + a1);
+  v4 = 0;
+  v5 = a1 + a2;
+  v6 = (_BYTE *)(a1 + a4);
+  result = v6;
+  v8 = 1;
   do
   {
     if ( (unsigned __int64)result >= a1 )
     {
-      if ( (unsigned __int64)result >= v7 )
+      if ( (unsigned __int64)result >= v5 )
         return result;
-      if ( (*a3 & (unsigned __int16)v9) != 0 )
-        *result = result[(_QWORD)v8 + 2];
+      if ( (*a3 & (unsigned __int16)v8) != 0 )
+        *result = *((_BYTE *)a3 + result - v6 + 2);
     }
-    ++v5;
-    v9 = __ROL4__(v9, 1);
+    ++v4;
+    v8 = __ROL4__(v8, 1);
     ++result;
   }
-  while ( v5 < 0xC );
+  while ( v4 < 0xC );
   return result;
 }

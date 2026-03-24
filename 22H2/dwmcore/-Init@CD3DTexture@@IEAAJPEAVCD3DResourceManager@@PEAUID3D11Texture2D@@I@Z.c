@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z @ 0x1802BF8D0
+ * XREFs of ?Init@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@I@Z @ 0x18026D4B0
  * Callers:
- *     ?Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x1802BFCEC (-Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z.c)
+ *     ?Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x18026D038 (-Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x1800A9504 (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18029C430 (-GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?InitResource@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@@Z @ 0x1802BF9F0 (-InitResource@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@@Z.c)
+ *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x180033940 (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18024A820 (-GetPixelFormatColorSpace@@YAJW4DXGI_FORMAT@@PEAW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?InitResource@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@@Z @ 0x18026D5D4 (-InitResource@CD3DTexture@@IEAAJPEAVCD3DResourceManager@@PEAUID3D11Texture2D@@@Z.c)
  */
 
 __int64 __fastcall CD3DTexture::Init(
@@ -22,21 +22,21 @@ __int64 __fastcall CD3DTexture::Init(
   int v11; // eax
   unsigned int v13; // [rsp+20h] [rbp-18h]
 
-  ((void (__fastcall *)(struct ID3D11Texture2D *, char *))a3->lpVtbl->GetDesc)(a3, (char *)this + 104);
-  *((_DWORD *)this + 38) = (unsigned int)HasAlphaChannel(*((_DWORD *)this + 30)) != 0 ? 1 : 3;
-  PixelFormatColorSpace = GetPixelFormatColorSpace(*((_DWORD *)this + 30), (enum DXGI_COLOR_SPACE_TYPE *)this + 39);
+  ((void (__fastcall *)(struct ID3D11Texture2D *, char *))a3->lpVtbl->GetDesc)(a3, (char *)this + 120);
+  *((_DWORD *)this + 42) = HasAlphaChannel(*((_DWORD *)this + 34)) ? 1 : 3;
+  PixelFormatColorSpace = GetPixelFormatColorSpace(*((_DWORD *)this + 34), (enum DXGI_COLOR_SPACE_TYPE *)this + 43);
   v10 = PixelFormatColorSpace;
   if ( PixelFormatColorSpace < 0 )
   {
     v13 = 75;
     goto LABEL_9;
   }
-  v11 = *((_DWORD *)this + 28);
-  *((_DWORD *)this + 40) = v11;
+  v11 = *((_DWORD *)this + 32);
+  *((_DWORD *)this + 44) = v11;
   if ( (unsigned int)(v11 - 1) <= 0x1F )
   {
-    *((_DWORD *)this + 37) = a4;
-    if ( a4 >= *((_DWORD *)this + 29) )
+    *((_DWORD *)this + 41) = a4;
+    if ( a4 >= *((_DWORD *)this + 33) )
     {
       v10 = -2147467259;
       MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147467259, 0x56u, 0LL);

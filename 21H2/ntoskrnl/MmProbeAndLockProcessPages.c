@@ -1,12 +1,12 @@
 /*
- * XREFs of MmProbeAndLockProcessPages @ 0x140708890
+ * XREFs of MmProbeAndLockProcessPages @ 0x14061FA10
  * Callers:
- *     CcAsyncReadPrefetch @ 0x14029C970 (CcAsyncReadPrefetch.c)
+ *     CcAsyncReadPrefetch @ 0x1402F9B74 (CcAsyncReadPrefetch.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     MmProbeAndLockPages @ 0x140319E90 (MmProbeAndLockPages.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -30,5 +30,5 @@ void __stdcall MmProbeAndLockProcessPages(
   }
   MmProbeAndLockPages(MemoryDescriptorList, AccessMode, v7);
   if ( v6 )
-    KiUnstackDetachProcess((__int64)v8, 0LL);
+    KiUnstackDetachProcess((__int64)v8, 0);
 }

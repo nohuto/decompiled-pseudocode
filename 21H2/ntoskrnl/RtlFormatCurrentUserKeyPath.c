@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlFormatCurrentUserKeyPath @ 0x14066B5D0
+ * XREFs of RtlFormatCurrentUserKeyPath @ 0x140676CD0
  * Callers:
- *     RtlpGetRegistryHandle @ 0x14077FDA0 (RtlpGetRegistryHandle.c)
- *     RtlOpenCurrentUser @ 0x1407F4A70 (RtlOpenCurrentUser.c)
- *     AslRegistryBuildUserPath @ 0x140843B58 (AslRegistryBuildUserPath.c)
- *     _RegRtlOpenPredefinedKey @ 0x14085D278 (_RegRtlOpenPredefinedKey.c)
+ *     RtlpGetRegistryHandle @ 0x140642460 (RtlpGetRegistryHandle.c)
+ *     RtlOpenCurrentUser @ 0x14078C580 (RtlOpenCurrentUser.c)
+ *     AslRegistryBuildUserPath @ 0x1407C1F14 (AslRegistryBuildUserPath.c)
+ *     _RegRtlOpenPredefinedKey @ 0x1407CDA94 (_RegRtlOpenPredefinedKey.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryInformationToken @ 0x14041BB80 (ZwQueryInformationToken.c)
- *     RtlConvertSidToUnicodeString @ 0x140669DD0 (RtlConvertSidToUnicodeString.c)
- *     RtlLengthSidAsUnicodeString @ 0x14066B6D8 (RtlLengthSidAsUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryInformationToken @ 0x1403FA7C0 (ZwQueryInformationToken.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406745A0 (RtlConvertSidToUnicodeString.c)
+ *     RtlLengthSidAsUnicodeString @ 0x140676DD8 (RtlLengthSidAsUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
  */
 
 NTSTATUS __fastcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING UnicodeString)
@@ -54,7 +54,7 @@ NTSTATUS __fastcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING UnicodeString)
         UnicodeStringa.Buffer = &Buffer[v7];
         v8 = RtlConvertSidToUnicodeString(&UnicodeStringa, TokenInformation[0], 0);
         if ( v8 < 0 )
-          RtlFreeUnicodeString(UnicodeString);
+          RtlFreeAnsiString(UnicodeString);
         else
           UnicodeString->Length += UnicodeStringa.Length;
         return v8;

@@ -1,60 +1,68 @@
 /*
- * XREFs of PopOrphanCoolingExtension @ 0x140983228
+ * XREFs of PopOrphanCoolingExtension @ 0x1408E2EE8
  * Callers:
- *     PopCoolingExtensionPnpNotification @ 0x140982EA0 (PopCoolingExtensionPnpNotification.c)
+ *     PopCoolingExtensionPnpNotification @ 0x1408E2B60 (PopCoolingExtensionPnpNotification.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140387BCC (PopThermalUpdateTelemetryClientCount.c)
- *     PopGetDope @ 0x1403C4BE8 (PopGetDope.c)
- *     PopTraceThermalRequestActiveActivity @ 0x140595868 (PopTraceThermalRequestActiveActivity.c)
- *     PopTraceThermalRequestPassiveHistogram @ 0x140595A88 (PopTraceThermalRequestPassiveHistogram.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x1408025F0 (PopThermalUpdateActiveTimeTracking.c)
- *     PopDiagTraceThermalRequest @ 0x140860C54 (PopDiagTraceThermalRequest.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x14098B070 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x14038A188 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x14038A374 (PopTraceThermalRequestActiveActivity.c)
+ *     PopGetDope @ 0x140399604 (PopGetDope.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1403AF158 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopDiagTraceThermalRequest @ 0x1406A46F4 (PopDiagTraceThermalRequest.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140778578 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x14078DE1C (PopThermalUpdateActiveTimeTracking.c)
  */
 
-void __fastcall PopOrphanCoolingExtension(__int64 *a1)
+void __fastcall PopOrphanCoolingExtension(_QWORD *a1)
 {
   __int64 v2; // rdx
-  __int64 i; // rbx
-  __int64 v4; // rcx
-  __int64 **v5; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rbx
+  __int64 v5; // rcx
+  _QWORD *v6; // rax
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PopCoolingExtensionLock);
   PopAcquireRwLockExclusive((ULONG_PTR)(a1 + 4));
-  if ( a1[6] )
+  v3 = a1[6];
+  if ( v3 )
   {
-    for ( i = a1[2]; (__int64 *)i != a1 + 2; i = *(_QWORD *)i )
+    v4 = a1[2];
+    if ( (_QWORD *)v4 != a1 + 2 )
     {
-      if ( *(_BYTE *)(i + 18) )
+      do
       {
-        *(_BYTE *)(i + 18) = 0;
-        if ( a1[17] )
+        if ( *(_BYTE *)(v4 + 18) )
         {
-          LOBYTE(v2) = *(_BYTE *)(i + 16);
-          PopThermalUpdatePassiveTimeTracking(i + 40, v2);
-          PopTraceThermalRequestPassiveHistogram(i);
-          PopThermalUpdateTelemetryClientCount(0);
+          *(_BYTE *)(v4 + 18) = 0;
+          if ( a1[17] )
+          {
+            PopThermalUpdatePassiveTimeTracking(v4 + 40, *(_BYTE *)(v4 + 16));
+            PopTraceThermalRequestPassiveHistogram(v4);
+            PopThermalUpdateTelemetryClientCount(0);
+          }
+          if ( a1[16] )
+          {
+            LOBYTE(v2) = *(_BYTE *)(v4 + 17) == 0;
+            PopThermalUpdateActiveTimeTracking(v4 + 40, v2);
+            PopTraceThermalRequestActiveActivity(v4);
+          }
+          PopDiagTraceThermalRequest(v4, (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_THERMAL_REQUEST_REMOVE);
         }
-        if ( a1[16] )
-        {
-          LOBYTE(v2) = *(_BYTE *)(i + 17) == 0;
-          PopThermalUpdateActiveTimeTracking(i + 40, v2);
-          PopTraceThermalRequestActiveActivity(i);
-        }
-        PopDiagTraceThermalRequest(i, (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_THERMAL_REQUEST_REMOVE);
+        v4 = *(_QWORD *)v4;
       }
+      while ( (_QWORD *)v4 != a1 + 2 );
+      v3 = a1[6];
     }
-    *(_QWORD *)(PopGetDope(a1[6]) + 64) = 0LL;
-    v4 = *a1;
-    if ( *(__int64 **)(*a1 + 8) != a1 || (v5 = (__int64 **)a1[1], *v5 != a1) )
+    *(_QWORD *)(PopGetDope(v3) + 64) = 0LL;
+    v5 = *a1;
+    if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v6 = (_QWORD *)a1[1], (_QWORD *)*v6 != a1) )
       __fastfail(3u);
-    *v5 = (__int64 *)v4;
-    *(_QWORD *)(v4 + 8) = v5;
+    *v6 = v5;
+    *(_QWORD *)(v5 + 8) = v6;
     *a1 = 0LL;
     a1[6] = 0LL;
   }
-  PopReleaseRwLock(a1 + 4);
-  PopReleaseRwLock(&PopCoolingExtensionLock);
+  PopReleaseRwLock((ULONG_PTR)(a1 + 4));
+  PopReleaseRwLock((ULONG_PTR)&PopCoolingExtensionLock);
 }

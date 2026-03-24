@@ -1,16 +1,16 @@
 /*
- * XREFs of PopShutdownSystem @ 0x140AA8FD4
+ * XREFs of PopShutdownSystem @ 0x1409B2764
  * Callers:
- *     PopGracefulShutdown @ 0x140AA0B20 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x1409B10A0 (PopGracefulShutdown.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HalReturnToFirmware @ 0x140506A70 (HalReturnToFirmware.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x14053F5FC (HvlConfigureMemoryZeroingOnReset.c)
- *     VslNotifyShutdown @ 0x14054BDB8 (VslNotifyShutdown.c)
- *     DbgUnLoadImageSymbols @ 0x1405A78A0 (DbgUnLoadImageSymbols.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x140AA0A6C (PopSetMemoryOverwriteRequestAction.c)
- *     PopInvokeSystemStateHandler @ 0x140AA865C (PopInvokeSystemStateHandler.c)
- *     PopNotifyShutdownListener @ 0x140AA8F5C (PopNotifyShutdownListener.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HalReturnToFirmware @ 0x1404BE0F0 (HalReturnToFirmware.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x1404F146C (HvlConfigureMemoryZeroingOnReset.c)
+ *     VslNotifyShutdown @ 0x1404FCBE4 (VslNotifyShutdown.c)
+ *     DbgUnLoadImageSymbols @ 0x140585550 (DbgUnLoadImageSymbols.c)
+ *     PopInvokeSystemStateHandler @ 0x14099324C (PopInvokeSystemStateHandler.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x1409B0FEC (PopSetMemoryOverwriteRequestAction.c)
+ *     PopNotifyShutdownListener @ 0x1409B2700 (PopNotifyShutdownListener.c)
  */
 
 void __fastcall __noreturn PopShutdownSystem(int a1)
@@ -20,30 +20,28 @@ void __fastcall __noreturn PopShutdownSystem(int a1)
 
   PopNotifyShutdownListener();
   VslNotifyShutdown(0);
-  if ( HvlHypervisorConnected )
-    HvlConfigureMemoryZeroingOnReset(0);
+  HvlConfigureMemoryZeroingOnReset(0);
   PopSetMemoryOverwriteRequestAction();
-  DbgUnLoadImageSymbols();
-  if ( (PopSimulate & 0x800) == 0 || ((a1 - 4) & 0xFFFFFFFD) != 0 )
+  DbgUnLoadImageSymbols(0LL, -1LL, 0LL);
+  if ( (PopSimulate & 0x800) != 0 && ((a1 - 4) & 0xFFFFFFFD) == 0 )
+    a1 = 5;
+  v2 = a1 - 4;
+  if ( v2 )
   {
-    v2 = a1 - 4;
-    if ( !v2 )
+    v3 = v2 - 1;
+    if ( !v3 )
     {
-      if ( PopShutdownPowerOffPolicy )
-        qword_140C3DA68 = (__int64)PopShutdownHandler;
+      PopInvokeSystemStateHandler(5, 0LL);
       goto LABEL_12;
     }
-    v3 = v2 - 1;
-    if ( v3 )
-    {
-      if ( v3 != 1 )
-LABEL_13:
-        HalReturnToFirmware(3);
+    if ( v3 != 1 )
 LABEL_12:
-      PopInvokeSystemStateHandler(4, 0LL);
-      HalReturnToFirmware(1);
-    }
+      HalReturnToFirmware(3);
   }
-  PopInvokeSystemStateHandler(5, 0LL);
-  goto LABEL_13;
+  else if ( PopShutdownPowerOffPolicy )
+  {
+    qword_140C23168 = (__int64)PopShutdownHandler;
+  }
+  PopInvokeSystemStateHandler(4, 0LL);
+  HalReturnToFirmware(1);
 }

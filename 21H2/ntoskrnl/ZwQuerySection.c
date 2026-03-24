@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwQuerySection @ 0x14041C180
+ * XREFs of ZwQuerySection @ 0x1403FADC0
  * Callers:
- *     CmSiGetSectionLength @ 0x14020B6C8 (CmSiGetSectionLength.c)
- *     DifZwQuerySectionWrapper @ 0x1406257F0 (DifZwQuerySectionWrapper.c)
+ *     CmSiGetSectionLength @ 0x140362A2C (CmSiGetSectionLength.c)
  * Callees:
  *     <none>
  */

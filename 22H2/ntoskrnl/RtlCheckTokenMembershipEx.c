@@ -1,38 +1,38 @@
 /*
- * XREFs of RtlCheckTokenMembershipEx @ 0x14031D010
+ * XREFs of RtlCheckTokenMembershipEx @ 0x140348460
  * Callers:
- *     RtlCheckTokenMembership @ 0x14036FA40 (RtlCheckTokenMembership.c)
- *     NtQuerySystemEnvironmentValueEx @ 0x140687240 (NtQuerySystemEnvironmentValueEx.c)
- *     RtlCapabilityCheck @ 0x1407ED2D0 (RtlCapabilityCheck.c)
- *     RtlpCapabilityCheckSystemCapability @ 0x1407EF4A0 (RtlpCapabilityCheckSystemCapability.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC894 (ExpFirmwareAccessAppContainerCheck.c)
+ *     RtlCheckTokenMembership @ 0x140348440 (RtlCheckTokenMembership.c)
+ *     NtQuerySystemEnvironmentValueEx @ 0x1406A3220 (NtQuerySystemEnvironmentValueEx.c)
+ *     RtlCapabilityCheck @ 0x1409133A0 (RtlCapabilityCheck.c)
+ *     RtlpCapabilityCheckSystemCapability @ 0x140913CBC (RtlpCapabilityCheckSystemCapability.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140950450 (ExpFirmwareAccessAppContainerCheck.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SeAccessCheckWithHint @ 0x1402316A0 (SeAccessCheckWithHint.c)
- *     RtlInitializeSidEx @ 0x140368200 (RtlInitializeSidEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDuplicateToken @ 0x14041AEE0 (ZwDuplicateToken.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140782500 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1407EF640 (RtlSetGroupSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x1407EF9B0 (RtlAddAccessAllowedAce.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     SeAccessCheckWithHint @ 0x1402CE400 (SeAccessCheckWithHint.c)
+ *     RtlInitializeSidEx @ 0x1403C9710 (RtlInitializeSidEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDuplicateToken @ 0x1403FA260 (ZwDuplicateToken.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x1406EF9D0 (RtlAddAccessAllowedAce.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1406EFA00 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1406EFA60 (RtlSetOwnerSecurityDescriptor.c)
  */
 
-__int64 __fastcall RtlCheckTokenMembershipEx(HANDLE ExistingTokenHandle, PSID Group, int a3, _BYTE *a4)
+__int64 __fastcall RtlCheckTokenMembershipEx(HANDLE ExistingTokenHandle, PSID Owner, int a3, _BYTE *a4)
 {
-  NTSTATUS v4; // ebx
+  NTSTATUS v4; // edi
   char v9; // si
   NTSTATUS v11; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v12; // [rsp+64h] [rbp-9Ch] BYREF
-  PVOID Object; // [rsp+68h] [rbp-98h] BYREF
-  HANDLE Handle; // [rsp+70h] [rbp-90h] BYREF
+  int v12; // [rsp+64h] [rbp-9Ch] BYREF
+  HANDLE Handle; // [rsp+68h] [rbp-98h] BYREF
+  PVOID Object; // [rsp+70h] [rbp-90h] BYREF
   char *v15; // [rsp+78h] [rbp-88h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+80h] [rbp-80h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-60h] BYREF
@@ -50,13 +50,12 @@ __int64 __fastcall RtlCheckTokenMembershipEx(HANDLE ExistingTokenHandle, PSID Gr
   memset(Sid, 0, 0x44uLL);
   memset(Acl, 0, 0xECuLL);
   Handle = 0LL;
-  ObjectAttributes.SecurityDescriptor = 0LL;
-  LODWORD(ObjectAttributes.SecurityQualityOfService) = 0;
+  v15 = 0LL;
   v20 = 0LL;
   v21 = 0;
   v19 = 0LL;
   *a4 = 0;
-  memset(&ObjectAttributes, 0, 32);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   if ( (a3 & 0xFFFFFFFC) == 0 )
@@ -74,8 +73,17 @@ __int64 __fastcall RtlCheckTokenMembershipEx(HANDLE ExistingTokenHandle, PSID Gr
       LOWORD(v21) = 1;
       v4 = ZwDuplicateToken(ExistingTokenHandle, 8u, &ObjectAttributes, 0, TokenImpersonation, &Handle);
       if ( v4 < 0 )
+      {
+LABEL_16:
+        if ( ExistingTokenHandle )
+          return (unsigned int)v4;
+LABEL_17:
+        if ( Handle )
+          ZwClose(Handle);
         return (unsigned int)v4;
+      }
       v4 = 0;
+      ExistingTokenHandle = 0LL;
     }
     else
     {
@@ -83,10 +91,10 @@ __int64 __fastcall RtlCheckTokenMembershipEx(HANDLE ExistingTokenHandle, PSID Gr
       v9 = 1;
     }
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
-    RtlSetOwnerSecurityDescriptor(SecurityDescriptor, Group, 0);
-    RtlSetGroupSecurityDescriptor(SecurityDescriptor, Group, 0);
+    RtlSetOwnerSecurityDescriptor(SecurityDescriptor, Owner, 0);
+    RtlSetGroupSecurityDescriptor(SecurityDescriptor, Owner, 0);
     RtlCreateAcl(Acl, 0xECu, 2u);
-    RtlAddAccessAllowedAce(Acl, 2u, 1u, Group);
+    RtlAddAccessAllowedAce(Acl, 2u, 1u, Owner);
     if ( (a3 & 3) != 0 )
     {
       RtlInitializeSidEx(Sid, &RtlpAppPackageAuthority, 2LL, 2LL, 1);
@@ -106,28 +114,23 @@ __int64 __fastcall RtlCheckTokenMembershipEx(HANDLE ExistingTokenHandle, PSID Gr
       v4 = ObReferenceObjectByHandle(Handle, 8u, (POBJECT_TYPE)SeTokenObjectType, 0, &Object, 0LL);
       SubjectContext.PrimaryToken = Object;
       if ( v4 < 0 )
-      {
-LABEL_16:
-        if ( Handle )
-          ZwClose(Handle);
-        return (unsigned int)v4;
-      }
+        goto LABEL_17;
       v4 = 0;
     }
     SeAccessCheckWithHint(
       (__int64)SecurityDescriptor,
+      0LL,
+      (__int64)&SubjectContext,
+      0LL,
+      1,
       0,
-      &SubjectContext,
-      0,
-      1u,
-      0,
-      &v15,
+      (__int64)&v15,
       (__int64)RtlpCheckTokenMembershipGenericMapping,
       KeGetCurrentThread()->PreviousMode,
-      &v12,
-      &v11);
+      (__int64)&v12,
+      (__int64)&v11);
     if ( !v9 )
-      ObfDereferenceObject(SubjectContext.PrimaryToken);
+      ObfDereferenceObjectWithTag(SubjectContext.PrimaryToken, 0x746C6644u);
     if ( v11 )
     {
       if ( v11 == -1073741790 )
@@ -136,13 +139,14 @@ LABEL_16:
     else if ( v12 == 1 )
     {
       *a4 = 1;
-      goto LABEL_14;
+LABEL_14:
+      if ( !v9 )
+        goto LABEL_17;
+      SeReleaseSubjectContext(&SubjectContext);
+      goto LABEL_16;
     }
     v4 = v11;
-LABEL_14:
-    if ( v9 )
-      SeReleaseSubjectContext(&SubjectContext);
-    goto LABEL_16;
+    goto LABEL_14;
   }
   return 3221225485LL;
 }

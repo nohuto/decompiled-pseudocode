@@ -1,18 +1,18 @@
 /*
- * XREFs of Bulk_PrepareStage @ 0x1C00123CC
+ * XREFs of Bulk_PrepareStage @ 0x1C000D984
  * Callers:
- *     Bulk_MappingLoop @ 0x1C0011F40 (Bulk_MappingLoop.c)
+ *     Bulk_MappingLoop @ 0x1C000CC80 (Bulk_MappingLoop.c)
  * Callees:
- *     StageQueue_Release @ 0x1C0011870 (StageQueue_Release.c)
- *     TR_ReleaseSegments @ 0x1C00118AC (TR_ReleaseSegments.c)
- *     Bulk_Stage_EstimateRequiredTrbs @ 0x1C0012610 (Bulk_Stage_EstimateRequiredTrbs.c)
- *     Bulk_Stage_EstimateRequiredSegments @ 0x1C001278C (Bulk_Stage_EstimateRequiredSegments.c)
- *     Bulk_Transfer_CompleteCancelable @ 0x1C0012F88 (Bulk_Transfer_CompleteCancelable.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     TR_AcquireSegments @ 0x1C00224C8 (TR_AcquireSegments.c)
- *     Bulk_Stage_AcquireMdl @ 0x1C002282E (Bulk_Stage_AcquireMdl.c)
- *     TR_EnsureInputBufferForTrbs @ 0x1C0041750 (TR_EnsureInputBufferForTrbs.c)
- *     WPP_RECORDER_SF_DDDqqD @ 0x1C0047CC8 (WPP_RECORDER_SF_DDDqqD.c)
+ *     Bulk_Transfer_CompleteCancelable @ 0x1C000C124 (Bulk_Transfer_CompleteCancelable.c)
+ *     StageQueue_Release @ 0x1C000C574 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C000C5AC (TR_ReleaseSegments.c)
+ *     Bulk_Stage_EstimateRequiredSegments @ 0x1C000DA60 (Bulk_Stage_EstimateRequiredSegments.c)
+ *     Bulk_Stage_EstimateRequiredTrbs @ 0x1C000DB28 (Bulk_Stage_EstimateRequiredTrbs.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     TR_AcquireSegments @ 0x1C003EC30 (TR_AcquireSegments.c)
+ *     TR_EnsureInputBufferForTrbs @ 0x1C003F23C (TR_EnsureInputBufferForTrbs.c)
+ *     Bulk_Stage_AcquireMdl @ 0x1C0044648 (Bulk_Stage_AcquireMdl.c)
+ *     WPP_RECORDER_SF_DDDqqD @ 0x1C0045350 (WPP_RECORDER_SF_DDDqqD.c)
  */
 
 __int64 __fastcall Bulk_PrepareStage(__int64 a1)
@@ -22,9 +22,9 @@ __int64 __fastcall Bulk_PrepareStage(__int64 a1)
   unsigned int v4; // ebp
   unsigned int v5; // r14d
   char v6; // r14
-  __int64 v8; // r15
-  unsigned __int8 *v9; // rcx
-  __int64 v10; // r9
+  unsigned __int16 v8; // cx
+  __int64 v9; // r15
+  unsigned __int8 *v10; // rcx
   unsigned int v11; // r15d
   __int64 v12; // rcx
   int v13; // eax
@@ -37,35 +37,31 @@ __int64 __fastcall Bulk_PrepareStage(__int64 a1)
   v1 = *(__int64 **)(a1 + 360);
   v18 = 0;
   v3 = *v1;
-  if ( *(_DWORD *)(*v1 + 76) == 1 )
+  switch ( *(_DWORD *)(*v1 + 76) )
   {
-    v1[8] = *(_QWORD *)(v3 + 88) + *(unsigned int *)(v3 + 112);
-  }
-  else if ( *(_DWORD *)(*v1 + 76) == 2 )
-  {
-    v1[8] = *(_QWORD *)(v3 + 88) + *(unsigned int *)(v3 + 112);
-    v1[9] = *(_QWORD *)(v3 + 96);
-  }
-  else if ( *(_DWORD *)(*v1 + 76) == 3
-         && (*(_WORD *)(*(_QWORD *)(v3 + 48) + 2LL) == 8
-          || *(_WORD *)(*(_QWORD *)(v3 + 48) + 2LL) == 9
-          || *(_WORD *)(*(_QWORD *)(v3 + 48) + 2LL) == 10
-          || *(_WORD *)(*(_QWORD *)(v3 + 48) + 2LL) == 50
-          || *(_WORD *)(*(_QWORD *)(v3 + 48) + 2LL) == 55
-          || *(_WORD *)(*(_QWORD *)(v3 + 48) + 2LL) == 56
-          || (unsigned int)*(unsigned __int16 *)(*(_QWORD *)(v3 + 48) + 2LL) - 57 >= 2)
-         && (int)Bulk_Stage_AcquireMdl(v1) < 0 )
-  {
-    *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
-    v8 = *v1;
-    if ( *((_BYTE *)v1 + 44) )
-    {
-      IoFreeMdl((PMDL)v1[6]);
-      v1[6] = 0LL;
-      *((_BYTE *)v1 + 44) = 0;
-    }
-    v4 = 1;
-    goto LABEL_21;
+    case 1:
+      v1[8] = *(_QWORD *)(v3 + 88) + *(unsigned int *)(v3 + 112);
+      break;
+    case 2:
+      v1[8] = *(_QWORD *)(v3 + 88) + *(unsigned int *)(v3 + 112);
+      v1[9] = *(_QWORD *)(v3 + 96);
+      break;
+    case 3:
+      v8 = *(_WORD *)(*(_QWORD *)(v3 + 48) + 2LL);
+      if ( (v8 <= 0x38u || v8 > 0x3Au) && (int)Bulk_Stage_AcquireMdl(v1) < 0 )
+      {
+        *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
+        v9 = *v1;
+        if ( *((_BYTE *)v1 + 44) )
+        {
+          IoFreeMdl((PMDL)v1[6]);
+          v1[6] = 0LL;
+          *((_BYTE *)v1 + 44) = 0;
+        }
+        v4 = 1;
+        goto LABEL_16;
+      }
+      break;
   }
   v4 = 1;
   v5 = *(_DWORD *)(v3 + 104) - *(_DWORD *)(v3 + 112);
@@ -86,23 +82,22 @@ __int64 __fastcall Bulk_PrepareStage(__int64 a1)
   if ( *(_BYTE *)(a1 + 280) && (int)TR_EnsureInputBufferForTrbs(a1, *((unsigned int *)v1 + 21)) < 0 )
   {
     *(_BYTE *)(a1 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 96));
-    v8 = *v1;
+    v9 = *v1;
     if ( *((_BYTE *)v1 + 44) )
     {
       IoFreeMdl((PMDL)v1[6]);
       v1[6] = 0LL;
       *((_BYTE *)v1 + 44) = 0;
     }
-LABEL_21:
-    TR_ReleaseSegments(a1, (const signed __int64 **)v1 + 1, 1);
-    TR_ReleaseSegments(a1, (const signed __int64 **)v1 + 3, 0);
-    v9 = (unsigned __int8 *)(v8 + 128);
-LABEL_23:
-    StageQueue_Release(v9, (unsigned __int8 *)v1);
+LABEL_16:
+    TR_ReleaseSegments(a1, (unsigned __int64 *)v1 + 1, 1);
+    TR_ReleaseSegments(a1, (unsigned __int64 *)v1 + 3, 0);
+    v10 = (unsigned __int8 *)(v9 + 128);
+LABEL_18:
+    StageQueue_Release(v10, (unsigned __int8 *)v1);
     if ( *(_DWORD *)(v3 + 120) == *(_DWORD *)(v3 + 116) )
     {
-      LOBYTE(v10) = 1;
-      Bulk_Transfer_CompleteCancelable(a1, v3, 3221229568LL, v10);
+      Bulk_Transfer_CompleteCancelable(a1, (__int64 *)v3, 0xC0001000, 1);
     }
     else
     {
@@ -142,10 +137,10 @@ LABEL_23:
         v1[6] = 0LL;
         *((_BYTE *)v1 + 44) = 0;
       }
-      TR_ReleaseSegments(a1, (const signed __int64 **)v1 + 1, 1);
-      TR_ReleaseSegments(a1, (const signed __int64 **)v1 + 3, 0);
-      v9 = (unsigned __int8 *)(v16 + 128);
-      goto LABEL_23;
+      TR_ReleaseSegments(a1, (unsigned __int64 *)v1 + 1, 1);
+      TR_ReleaseSegments(a1, (unsigned __int64 *)v1 + 3, 0);
+      v10 = (unsigned __int8 *)(v16 + 128);
+      goto LABEL_18;
     }
     *(_DWORD *)(a1 + 332) = 0;
     return 0;
@@ -171,8 +166,8 @@ LABEL_23:
     v1[6] = 0LL;
     *((_BYTE *)v1 + 44) = 0;
   }
-  TR_ReleaseSegments(a1, (const signed __int64 **)v1 + 1, 1);
-  TR_ReleaseSegments(a1, (const signed __int64 **)v1 + 3, 0);
+  TR_ReleaseSegments(a1, (unsigned __int64 *)v1 + 1, 1);
+  TR_ReleaseSegments(a1, (unsigned __int64 *)v1 + 3, 0);
   StageQueue_Release((unsigned __int8 *)(v15 + 128), (unsigned __int8 *)v1);
   KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 96), *(_BYTE *)(a1 + 104));
   return 3;

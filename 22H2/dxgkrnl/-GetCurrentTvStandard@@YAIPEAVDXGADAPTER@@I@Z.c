@@ -1,13 +1,14 @@
 /*
- * XREFs of ?GetCurrentTvStandard@@YAIPEAVDXGADAPTER@@I@Z @ 0x1C03963A8
+ * XREFs of ?GetCurrentTvStandard@@YAIPEAVDXGADAPTER@@I@Z @ 0x1C0295058
  * Callers:
- *     DxgkHandleVideoParameters @ 0x1C039654C (DxgkHandleVideoParameters.c)
+ *     DxgkHandleVideoParameters @ 0x1C02951E8 (DxgkHandleVideoParameters.c)
  * Callees:
- *     ?DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAU_D3DKMDT_2DREGION@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C03ACE24 (-DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3D.c)
+ *     ?DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAU_D3DKMDT_2DREGION@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C02DCE30 (-DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3D.c)
  */
 
 __int64 __fastcall GetCurrentTvStandard(struct DXGADAPTER *a1, unsigned int a2)
 {
+  unsigned int v2; // edx
   unsigned int v3; // eax
   enum _D3DKMDT_VIDEO_SIGNAL_STANDARD v5[6]; // [rsp+40h] [rbp-18h] BYREF
   unsigned __int8 v6; // [rsp+70h] [rbp+18h] BYREF
@@ -17,7 +18,8 @@ __int64 __fastcall GetCurrentTvStandard(struct DXGADAPTER *a1, unsigned int a2)
   v7 = 0;
   v6 = 0;
   DmmGetClientVidPnTargetModeInfo(a1, a2, v5, &v7, &v6, 0LL, 0LL, 0LL);
-  if ( v5[0] > D3DKMDT_VSS_PAL_D )
+  v2 = 16;
+  if ( v5[0] > D3DKMDT_VSS_PAL_NC )
   {
     if ( v5[0] <= D3DKMDT_VSS_SECAM_K )
     {
@@ -25,9 +27,6 @@ __int64 __fastcall GetCurrentTvStandard(struct DXGADAPTER *a1, unsigned int a2)
       {
         case D3DKMDT_VSS_SECAM_K:
           return 4096;
-        case D3DKMDT_VSS_PAL_N:
-        case D3DKMDT_VSS_PAL_NC:
-          return 128;
         case D3DKMDT_VSS_SECAM_B:
           return 256;
         case D3DKMDT_VSS_SECAM_D:
@@ -47,41 +46,47 @@ __int64 __fastcall GetCurrentTvStandard(struct DXGADAPTER *a1, unsigned int a2)
       case D3DKMDT_VSS_SECAM_L1:
         return 0x80000;
     }
-    if ( v5[0] != D3DKMDT_VSS_EIA_861 && (unsigned int)(v5[0] - 26) > 1 )
+    if ( (unsigned int)(v5[0] - 25) > 2 )
       return 1;
+    goto LABEL_36;
   }
-  else
+  if ( v5[0] >= D3DKMDT_VSS_PAL_N )
+    return 128;
+  if ( v5[0] <= D3DKMDT_VSS_PAL_B1 )
   {
-    if ( v5[0] == D3DKMDT_VSS_PAL_D )
-      return 8;
-    if ( v5[0] > D3DKMDT_VSS_NTSC_J )
+    if ( v5[0] >= D3DKMDT_VSS_PAL_B )
+      return 4;
+    if ( v5[0] <= D3DKMDT_VSS_UNINITIALIZED )
+      return 1;
+    if ( v5[0] > D3DKMDT_VSS_VESA_CVT )
     {
-      switch ( v5[0] )
-      {
-        case D3DKMDT_VSS_NTSC_443:
-          return 0x10000;
-        case D3DKMDT_VSS_PAL_B:
-        case D3DKMDT_VSS_PAL_B1:
-          return 4;
-        case D3DKMDT_VSS_PAL_G:
-          return 0x20000;
-        case D3DKMDT_VSS_PAL_H:
-          return 16;
-        default:
-          return 32;
-      }
-    }
-    if ( v5[0] == D3DKMDT_VSS_NTSC_J )
-      return 2;
-    if ( v5[0] != D3DKMDT_VSS_VESA_DMT && v5[0] != D3DKMDT_VSS_VESA_GTF && v5[0] != D3DKMDT_VSS_VESA_CVT )
-    {
-      if ( (unsigned int)(v5[0] - 4) < 2 )
+      if ( v5[0] <= D3DKMDT_VSS_APPLE )
         return 0x8000;
+      if ( v5[0] != D3DKMDT_VSS_NTSC_M )
+      {
+        if ( v5[0] == D3DKMDT_VSS_NTSC_J )
+          return 2;
+        else
+          return 0x10000;
+      }
       return 1;
     }
+LABEL_36:
+    v3 = v7;
+    if ( v6 )
+      v3 = 2 * v7;
+    return v3 < 0x37 ? 4 : 1;
   }
-  v3 = v7;
-  if ( v6 )
-    v3 = 2 * v7;
-  return v3 < 0x37 ? 4 : 1;
+  switch ( v5[0] )
+  {
+    case D3DKMDT_VSS_PAL_G:
+      return 0x20000;
+    case D3DKMDT_VSS_PAL_H:
+      break;
+    case D3DKMDT_VSS_PAL_I:
+      return 32;
+    default:
+      return 8;
+  }
+  return v2;
 }

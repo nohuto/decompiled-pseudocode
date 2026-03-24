@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessDwmRestartCompleted@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_DWMRESTARTCOMPLETED@@@Z @ 0x180233708
+ * XREFs of ?ProcessDwmRestartCompleted@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_DWMRESTARTCOMPLETED@@@Z @ 0x1801CA2B0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?AddPendingStateChange@CInteractionTracker@@AEAAXW4ScrollState@@UD2DVector3@@M@Z @ 0x180230E90 (-AddPendingStateChange@CInteractionTracker@@AEAAXW4ScrollState@@UD2DVector3@@M@Z.c)
+ *     ?AddPendingStateChange@CInteractionTracker@@AEAAXW4ScrollState@@UD2DVector3@@M@Z @ 0x1801C7B54 (-AddPendingStateChange@CInteractionTracker@@AEAAXW4ScrollState@@UD2DVector3@@M@Z.c)
  */
 
 __int64 __fastcall CInteractionTracker::ProcessDwmRestartCompleted(
@@ -16,12 +16,12 @@ __int64 __fastcall CInteractionTracker::ProcessDwmRestartCompleted(
   __int64 v6; // [rsp+20h] [rbp-18h] BYREF
   int v7; // [rsp+28h] [rbp-10h]
 
-  *((_BYTE *)this + 540) &= ~0x20u;
-  if ( !*((_DWORD *)this + 44) )
+  *((_BYTE *)this + 532) &= ~0x20u;
+  if ( !*((_DWORD *)this + 42) )
   {
-    v3 = *((_DWORD *)this + 22);
-    v4 = *((float *)this + 34);
-    v6 = *((_QWORD *)this + 10);
+    v3 = *((_DWORD *)this + 20);
+    v4 = *((float *)this + 32);
+    v6 = *((_QWORD *)this + 9);
     v7 = v3;
     CInteractionTracker::AddPendingStateChange((__int64)this, 0, &v6, v4);
   }

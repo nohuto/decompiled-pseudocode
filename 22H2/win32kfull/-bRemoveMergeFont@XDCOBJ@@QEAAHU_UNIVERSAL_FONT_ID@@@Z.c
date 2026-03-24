@@ -1,31 +1,30 @@
 /*
- * XREFs of ?bRemoveMergeFont@XDCOBJ@@QEAAHU_UNIVERSAL_FONT_ID@@@Z @ 0x1C02C06EC
+ * XREFs of ?bRemoveMergeFont@XDCOBJ@@QEAAHU_UNIVERSAL_FONT_ID@@@Z @ 0x1C02ACD48
  * Callers:
- *     NtGdiRemoveMergeFont @ 0x1C02787F0 (NtGdiRemoveMergeFont.c)
+ *     NtGdiRemoveMergeFont @ 0x1C027CCF0 (NtGdiRemoveMergeFont.c)
  * Callees:
- *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C01149B0 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C00A20A8 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
  */
 
-_BOOL8 __fastcall XDCOBJ::bRemoveMergeFont(Gre::Base *a1, __int64 a2)
+__int64 __fastcall XDCOBJ::bRemoveMergeFont(__int64 a1, __int64 a2)
 {
-  BOOL v2; // ebx
-  Gre::Base *v3; // r14
-  _QWORD *v4; // rdi
+  unsigned int v2; // edi
+  _QWORD *v4; // rbx
   _QWORD *v5; // rsi
   _QWORD *v6; // r9
   __int64 v7; // rax
   unsigned int v8; // r10d
   unsigned int v9; // r8d
-  struct Gre::Base::SESSION_GLOBALS *v10; // rbx
-  __int64 v11; // rcx
-  __int64 v12; // rdx
-  unsigned int v13; // r9d
-  __int64 v14; // rax
-  _QWORD v16[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v10; // rcx
+  struct PFT **v11; // r8
+  unsigned int v12; // r9d
+  __int64 v13; // rax
+  struct PFT **v15; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v16; // [rsp+48h] [rbp+10h]
 
+  v16 = a2;
   v2 = 0;
-  v3 = a1;
-  v4 = *(_QWORD **)(*(_QWORD *)a1 + 2072LL);
+  v4 = *(_QWORD **)(*(_QWORD *)a1 + 2080LL);
   v5 = v4;
   if ( v4 )
   {
@@ -37,11 +36,11 @@ _BOOL8 __fastcall XDCOBJ::bRemoveMergeFont(Gre::Base *a1, __int64 a2)
       v7 = *v4;
       if ( *(_DWORD *)(*v4 + 136LL) == (_DWORD)a2 && (v8 = *(_DWORD *)(v7 + 208), v9 = 0, v8) )
       {
-        a1 = (Gre::Base *)(v7 + 216);
-        while ( *(_DWORD *)(*(_QWORD *)a1 + 88LL) != HIDWORD(a2) )
+        v10 = v7 + 216;
+        while ( *(_DWORD *)(*(_QWORD *)v10 + 88LL) != HIDWORD(v16) )
         {
           ++v9;
-          a1 = (Gre::Base *)((char *)a1 + 8);
+          v10 += 8LL;
           if ( v9 >= v8 )
             goto LABEL_8;
         }
@@ -62,24 +61,22 @@ LABEL_8:
         break;
       }
     }
-    v10 = Gre::Base::Globals(a1);
-    GreAcquireSemaphore(*((_QWORD *)v10 + 6));
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemPublicPFT", *((_QWORD *)v10 + 6), 14LL);
-    v11 = *((_QWORD *)v10 + 796);
-    v12 = *(_QWORD *)(*v4 + 128LL);
+    GreAcquireSemaphore(ghsemPublicPFT);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemPublicPFT", ghsemPublicPFT, 15LL);
+    v11 = *(struct PFT ***)(*v4 + 128LL);
     --*(_DWORD *)(*v4 + 64LL);
-    v16[0] = v12;
-    v13 = 64;
-    if ( v12 != v11 )
-      v13 = 32;
-    v2 = PFTOBJ::bUnloadWorkhorse((PFTOBJ *)v16, (struct PFF *)*v4, 0LL, v13);
+    v15 = v11;
+    v12 = 64;
+    if ( v11 != gpPFTPrivate )
+      v12 = 32;
+    v2 = PFTOBJ::bUnloadWorkhorse((PFTOBJ *)&v15, (struct PFF *)*v4, 0LL, v12);
     if ( v2 )
     {
-      v14 = v4[1];
-      if ( v4 == *(_QWORD **)(*(_QWORD *)v3 + 2072LL) )
-        *(_QWORD *)(*(_QWORD *)v3 + 2072LL) = v14;
+      v13 = v4[1];
+      if ( v4 == *(_QWORD **)(*(_QWORD *)a1 + 2080LL) )
+        *(_QWORD *)(*(_QWORD *)a1 + 2080LL) = v13;
       else
-        v5[1] = v14;
+        v5[1] = v13;
       Win32FreePool(v4);
     }
   }

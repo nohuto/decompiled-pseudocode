@@ -1,38 +1,35 @@
 /*
- * XREFs of MiFreeLargePageChain @ 0x14064F18C
+ * XREFs of MiFreeLargePageChain @ 0x140556990
  * Callers:
- *     MiReturnExcessPoolCommit @ 0x140286478 (MiReturnExcessPoolCommit.c)
- *     MiGetLargePageChain @ 0x1402EBA40 (MiGetLargePageChain.c)
+ *     MiReturnExcessPoolCommit @ 0x14028BF14 (MiReturnExcessPoolCommit.c)
+ *     MiGetLargePageChain @ 0x140318414 (MiGetLargePageChain.c)
+ *     MiTimeSingleLargePageZeroWorker @ 0x1403AB548 (MiTimeSingleLargePageZeroWorker.c)
  * Callees:
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     MiInsertLargePageInNodeList @ 0x14027F0D0 (MiInsertLargePageInNodeList.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-void __fastcall MiFreeLargePageChain(__int64 a1)
+void __fastcall MiFreeLargePageChain(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v1; // rdi
-  __int64 v2; // rbx
-  char v3; // al
-  unsigned int v4; // ecx
-  _QWORD v5[2]; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v6; // [rsp+30h] [rbp-28h]
+  __int64 v4; // rdi
+  __int64 v5; // rbx
+  unsigned __int8 v6; // al
+  _QWORD v7[3]; // [rsp+20h] [rbp-28h] BYREF
 
   if ( a1 )
   {
-    v1 = a1;
+    v4 = a1;
     do
     {
-      v2 = *(_QWORD *)v1;
-      v3 = MiLockPageInline(v1);
-      v4 = *(_BYTE *)(v1 + 34) & 7;
-      v6 = 0LL;
-      v5[1] = v4;
-      LOBYTE(v6) = v3;
-      v5[0] = 0xAAAAAAAAAAAAAAABuLL * ((v1 + 0x220000000000LL) >> 4);
-      MiInsertLargePageInNodeList((__int64)v5);
-      v1 = v2;
+      v5 = *(_QWORD *)v4;
+      v6 = MiLockPageInline(v4, a2, a3, a4);
+      v7[1] = *(_BYTE *)(v4 + 34) & 7;
+      v7[2] = v6;
+      v7[0] = (v4 + 0x58000000000LL) / 48;
+      MiInsertLargePageInNodeList((__int64)v7);
+      v4 = v5;
     }
-    while ( v2 );
+    while ( v5 );
   }
 }

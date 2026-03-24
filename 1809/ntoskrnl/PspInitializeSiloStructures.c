@@ -4,13 +4,13 @@
  *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PspSiloInitializeSharedUserSessionId @ 0x1406D0DAC (PspSiloInitializeSharedUserSessionId.c)
- *     PspStorageAllocSlot @ 0x140728958 (PspStorageAllocSlot.c)
- *     ObCreateObjectType @ 0x1407289E0 (ObCreateObjectType.c)
- *     PspAllocStorage @ 0x1407595A8 (PspAllocStorage.c)
- *     PspStorageFreeSlot @ 0x14088F4D4 (PspStorageFreeSlot.c)
+ *     PspSiloInitializeSharedUserSessionId @ 0x1406D0D8C (PspSiloInitializeSharedUserSessionId.c)
+ *     PspStorageAllocSlot @ 0x140728938 (PspStorageAllocSlot.c)
+ *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
+ *     PspAllocStorage @ 0x140759588 (PspAllocStorage.c)
+ *     PspStorageFreeSlot @ 0x14088F4B4 (PspStorageFreeSlot.c)
  */
 
 char PspInitializeSiloStructures()
@@ -44,7 +44,7 @@ LABEL_13:
     goto LABEL_13;
   }
   PspSiloMonitorLock = 0LL;
-  qword_14040E348 = (__int64)&PspSiloMonitorList;
+  qword_14040E328 = (__int64)&PspSiloMonitorList;
   PspSiloMonitorList = (__int64)&PspSiloMonitorList;
   memset(v4, 0, 0x78uLL);
   BYTE2(v4[0]) |= 0x84u;

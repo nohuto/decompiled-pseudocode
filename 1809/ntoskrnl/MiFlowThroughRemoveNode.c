@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFlowThroughRemoveNode @ 0x14013B710
+ * XREFs of MiFlowThroughRemoveNode @ 0x14013B730
  * Callers:
  *     MiWaitForInPageComplete @ 0x14001B7E0 (MiWaitForInPageComplete.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiFlowThroughRemoveNode(__int64 a1)

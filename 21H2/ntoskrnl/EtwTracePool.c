@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwTracePool @ 0x14062DEE4
+ * XREFs of EtwTracePool @ 0x1405A7CC4
  * Callers:
- *     ExpResizeBigPageTable @ 0x1402129C0 (ExpResizeBigPageTable.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140212E00 (ExpInsertPoolTrackerExpansion.c)
- *     ExAllocateContiguousHeapPool @ 0x140214694 (ExAllocateContiguousHeapPool.c)
- *     ExInsertPoolTag @ 0x140214A58 (ExInsertPoolTag.c)
- *     ExRemovePoolTag @ 0x1402166FC (ExRemovePoolTag.c)
- *     ExPoolCleanupExpansionTable @ 0x140216A4C (ExPoolCleanupExpansionTable.c)
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
- *     ExAllocateHeapPool @ 0x1403497C0 (ExAllocateHeapPool.c)
- *     ExAllocateHeapSpecialPool @ 0x140641F58 (ExAllocateHeapSpecialPool.c)
- *     ExpFreeHeapSpecialPool @ 0x1406423A4 (ExpFreeHeapSpecialPool.c)
- *     ExInitializePoolTracker @ 0x140B0ABEC (ExInitializePoolTracker.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140294238 (ExpInsertPoolTrackerExpansion.c)
+ *     ExAllocateContiguousHeapPool @ 0x140295320 (ExAllocateContiguousHeapPool.c)
+ *     ExInsertPoolTag @ 0x1402955CC (ExInsertPoolTag.c)
+ *     ExRemovePoolTag @ 0x140297D28 (ExRemovePoolTag.c)
+ *     ExAllocateHeapPool @ 0x14033C210 (ExAllocateHeapPool.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     ExpResizeBigPageTable @ 0x1403752C0 (ExpResizeBigPageTable.c)
+ *     ExPoolCleanupExpansionTable @ 0x140389790 (ExPoolCleanupExpansionTable.c)
+ *     ExAllocateHeapSpecialPool @ 0x1405B9D7C (ExAllocateHeapSpecialPool.c)
+ *     ExpFreeHeapSpecialPool @ 0x1405BA0E0 (ExpFreeHeapSpecialPool.c)
+ *     ExInitializePoolTracker @ 0x140A68AF4 (ExInitializePoolTracker.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MmIsNonPagedPoolNx @ 0x14059AA94 (MmIsNonPagedPoolNx.c)
- *     ExCheckSingleFilter @ 0x14063A59C (ExCheckSingleFilter.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MmIsNonPagedPoolNx @ 0x140544FE8 (MmIsNonPagedPoolNx.c)
+ *     ExCheckSingleFilter @ 0x1405B35FC (ExCheckSingleFilter.c)
  */
 
 void __fastcall EtwTracePool(
@@ -32,14 +32,14 @@ void __fastcall EtwTracePool(
   unsigned int v9; // r15d
   int SessionId; // eax
   unsigned int v11; // ebx
-  bool v12; // zf
+  bool i; // zf
   __int64 v13; // rcx
-  __int64 v14; // rdi
+  __int64 v14; // r11
   __int64 v15; // r8
-  unsigned int *v16; // r9
-  __int64 v17; // r9
-  int v18; // r10d
-  unsigned int v19; // r11d
+  unsigned int v16; // edi
+  unsigned __int16 *v17; // r10
+  int v18; // r9d
+  __int64 v19; // r10
   int v20; // [rsp+30h] [rbp-50h] BYREF
   _DWORD v21[2]; // [rsp+38h] [rbp-48h] BYREF
   unsigned __int64 v22; // [rsp+40h] [rbp-40h]
@@ -70,11 +70,11 @@ void __fastcall EtwTracePool(
   {
     SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
     v29 = 0;
-    v20 = SessionId;
     v9 = 2;
+    v20 = SessionId;
+    ++v8;
     v28 = 4;
     v27 = &v20;
-    ++v8;
   }
   v26 = 0;
   v24 = v21;
@@ -83,47 +83,34 @@ void __fastcall EtwTracePool(
   v22 = a5;
   v23 = a4;
   v25 = 24;
-  v11 = *(_DWORD *)(EtwpHostSiloState + 4248);
-  v12 = !_BitScanForward((unsigned int *)&v13, v11);
-  if ( !v12 )
+  v11 = *(_DWORD *)(EtwpHostSiloState + 4224);
+  for ( i = !_BitScanForward((unsigned int *)&v13, v11); !i; i = !_BitScanForward((unsigned int *)&v13, v11) )
   {
-    while ( 1 )
+    v14 = (unsigned int)v13;
+    v11 &= v11 - 1;
+    v15 = 32 * v13 + EtwpHostSiloState + 4260;
+    if ( v15 && (*(_DWORD *)(v15 + 4) & 0x40) != 0 && (v16 = EtwpPoolTagFilter[10 * (unsigned int)v13]) != 0 )
     {
-      v14 = (unsigned int)v13;
-      v11 &= v11 - 1;
-      v15 = 32 * v13 + EtwpHostSiloState + 4284;
-      if ( v15 )
+      v17 = &EtwpPoolTagFilter[10 * (unsigned int)v13 + 2];
+      while ( !(unsigned int)ExCheckSingleFilter(a3, *(unsigned int *)v17) )
       {
-        if ( (*(_DWORD *)(v15 + 4) & 0x40) != 0 && EtwpPoolTagFilter[10 * (unsigned int)v13] )
-          break;
+        v17 = (unsigned __int16 *)(v19 + 4);
+        if ( v18 + 1 >= v16 )
+          goto LABEL_17;
       }
-      if ( v15 )
-      {
-LABEL_19:
-        if ( (*(_DWORD *)(v15 + 4) & 1) == 0 || a5 <= 0xFE0 )
-          goto LABEL_22;
-        goto LABEL_21;
-      }
-LABEL_22:
-      v12 = !_BitScanForward((unsigned int *)&v13, v11);
-      if ( v12 )
-        return;
     }
-    v16 = (unsigned int *)&EtwpPoolTagFilter[10 * (unsigned int)v13 + 2];
-    while ( !(unsigned int)ExCheckSingleFilter(a3, *v16) )
+    else
     {
-      v16 = (unsigned int *)(v17 + 4);
-      if ( v18 + 1 >= v19 )
-        goto LABEL_19;
+LABEL_17:
+      if ( !v15 || (*(_DWORD *)(v15 + 4) & 1) == 0 || a5 <= 0xFE0 )
+        continue;
     }
-LABEL_21:
     EtwpLogKernelEvent(
       (__int64)&v24,
       EtwpHostSiloState,
-      *(unsigned __int8 *)(EtwpHostSiloState + 2 * v14 + 4232),
+      *(unsigned __int8 *)(EtwpHostSiloState + 2 * v14 + 4208),
       v9,
       v8,
       0x1401B02u);
-    goto LABEL_22;
   }
 }

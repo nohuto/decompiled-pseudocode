@@ -1,7 +1,7 @@
 /*
- * XREFs of SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_ENCRYPTED_PARAMETERS_ @ 0x1C015AF4C
+ * XREFs of SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_ENCRYPTED_PARAMETERS_ @ 0x1C00BFBA0
  * Callers:
- *     NtGdiSetOPMSigningKeyAndSequenceNumbers @ 0x1C015CCD0 (NtGdiSetOPMSigningKeyAndSequenceNumbers.c)
+ *     NtGdiSetOPMSigningKeyAndSequenceNumbers @ 0x1C00BF110 (NtGdiSetOPMSigningKeyAndSequenceNumbers.c)
  * Callees:
  *     <none>
  */

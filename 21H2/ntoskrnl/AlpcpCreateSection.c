@@ -1,71 +1,63 @@
 /*
- * XREFs of AlpcpCreateSection @ 0x14066BC7C
+ * XREFs of AlpcpCreateSection @ 0x1406D43DC
  * Callers:
- *     NtAlpcCreatePortSection @ 0x14066BAB0 (NtAlpcCreatePortSection.c)
- *     AlpcpMapLegacyPortView @ 0x14066C1DC (AlpcpMapLegacyPortView.c)
+ *     AlpcpMapLegacyPortView @ 0x1406D2148 (AlpcpMapLegacyPortView.c)
+ *     NtAlpcCreatePortSection @ 0x1406D4210 (NtAlpcCreatePortSection.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MmCreateSection @ 0x14066BF30 (MmCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     AlpcAddHandleTableEntry @ 0x1407A5530 (AlpcAddHandleTableEntry.c)
- *     AlpcpEndInitialization @ 0x1407A5668 (AlpcpEndInitialization.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     AlpcpInsertResourcePort @ 0x1407A6950 (AlpcpInsertResourcePort.c)
- *     AlpcpAllocateBlob @ 0x1407A73B0 (AlpcpAllocateBlob.c)
- *     AlpcpReferenceBlob @ 0x1407A7F84 (AlpcpReferenceBlob.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
+ *     AlpcpAllocateBlob @ 0x140660A8C (AlpcpAllocateBlob.c)
+ *     AlpcpInsertResourcePort @ 0x140660DCC (AlpcpInsertResourcePort.c)
+ *     AlpcpEndInitialization @ 0x140662784 (AlpcpEndInitialization.c)
+ *     AlpcAddHandleTableEntry @ 0x1406627C8 (AlpcAddHandleTableEntry.c)
+ *     MmCreateSection @ 0x1406D4680 (MmCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall AlpcpCreateSection(char *Object, unsigned __int8 a2, char a3, void *a4, PVOID a5, ULONG_PTR *a6)
+__int64 __fastcall AlpcpCreateSection(char *Object, unsigned __int8 a2, char a3, void *a4, __int64 a5, ULONG_PTR *a6)
 {
   int v6; // ebp
-  void *Blob; // rax
+  _OWORD *Blob; // rax
   ULONG_PTR v12; // rbx
   NTSTATUS v13; // edi
   volatile signed __int64 *v14; // rdi
   __int64 v15; // rcx
   __int64 v16; // rax
-  __int64 v17; // [rsp+40h] [rbp-28h] BYREF
-  ULONG_PTR v18; // [rsp+48h] [rbp-20h] BYREF
+  PVOID v17; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v18; // [rsp+48h] [rbp-30h] BYREF
+  ULONG_PTR v19[2]; // [rsp+50h] [rbp-28h] BYREF
 
   v6 = a2;
   if ( !a5 || a4 && a2 )
     return 3221225485LL;
   if ( (*((_DWORD *)Object + 64) & 0x1000000) != 0 )
     return 3221227270LL;
-  Blob = (void *)AlpcpAllocateBlob(AlpcSectionType, 72LL, 1LL);
+  Blob = AlpcpAllocateBlob((__int64)AlpcSectionType, 72LL, 1);
   v12 = (ULONG_PTR)Blob;
   if ( !Blob )
     return 3221225626LL;
   memset(Blob, 0, 0x48uLL);
   *(_QWORD *)(v12 + 32) = KeGetCurrentThread()->ApcState.Process;
-  *(_QWORD *)(v12 + 8) = ~((unsigned int)AlpcpRegionGranularity - 1LL) & ((unsigned __int64)a5
-                                                                        + (unsigned int)(AlpcpRegionGranularity - 1));
+  *(_QWORD *)(v12 + 8) = ~((unsigned int)AlpcpRegionGranularity - 1LL) & (a5 + (unsigned int)(AlpcpRegionGranularity - 1));
   *(_QWORD *)(v12 + 64) = v12 + 56;
   *(_QWORD *)(v12 + 56) = v12 + 56;
   if ( a4 )
   {
-    a5 = 0LL;
-    v13 = ObReferenceObjectByHandle(a4, 6u, MmSectionObjectType, KeGetCurrentThread()->PreviousMode, &a5, 0LL);
-    *(_QWORD *)v12 = a5;
+    v17 = 0LL;
+    v13 = ObReferenceObjectByHandle(a4, 6u, MmSectionObjectType, KeGetCurrentThread()->PreviousMode, &v17, 0LL);
+    *(_QWORD *)v12 = v17;
   }
   else
   {
-    v17 = *(_QWORD *)(v12 + 8);
+    v18 = *(_QWORD *)(v12 + 8);
     *(_DWORD *)(v12 + 48) = *(_DWORD *)(v12 + 48) ^ (*(_DWORD *)(v12 + 48) ^ (2 * v6)) & 2 | 1;
-    v13 = ((__int64 (__fastcall *)(ULONG_PTR, __int64, _QWORD, __int64 *, int, int, _QWORD, _QWORD))MmCreateSection)(
-            v12,
-            983071LL,
-            0LL,
-            &v17,
-            4,
-            0x8000000,
-            0LL,
-            0LL);
+    v13 = MmCreateSection(v12, 983071LL, 0LL, &v18, 4, 0x8000000, 0LL, 0LL);
   }
   if ( v13 < 0 )
     goto LABEL_16;
@@ -78,7 +70,7 @@ __int64 __fastcall AlpcpCreateSection(char *Object, unsigned __int8 a2, char a3,
     KeAbPostRelease((ULONG_PTR)(Object + 352));
     v13 = -1073741769;
 LABEL_16:
-    AlpcpDereferenceBlobEx(v12);
+    AlpcpDereferenceBlobEx(v12, 1);
     return (unsigned int)v13;
   }
   ExAcquirePushLockExclusiveEx(v12 - 16, 0LL);
@@ -87,9 +79,9 @@ LABEL_16:
   if ( a3 )
   {
     v15 = *((_QWORD *)Object + 2) + 40LL;
-    v18 = v12;
+    v19[0] = v12;
     *(_QWORD *)(v12 + 16) = v15;
-    v16 = AlpcAddHandleTableEntry(v15, &v18);
+    v16 = AlpcAddHandleTableEntry(v15, v19);
     *(_QWORD *)(v12 + 24) = v16;
     if ( v16 == -1 )
     {
@@ -98,13 +90,13 @@ LABEL_16:
       KeAbPostRelease((ULONG_PTR)(Object + 352));
       *(_QWORD *)(v12 + 16) = 0LL;
       AlpcpEndInitialization(v12);
-      AlpcpDereferenceBlobEx(v12);
+      AlpcpDereferenceBlobEx(v12, 2);
       return 3221225626LL;
     }
   }
   ObfReferenceObject(Object);
   *(_QWORD *)(v12 + 40) = Object;
-  AlpcpInsertResourcePort(Object, v12);
+  AlpcpInsertResourcePort((__int64)Object, v12);
   if ( _InterlockedCompareExchange64(v14, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)Object + 44);
   KeAbPostRelease((ULONG_PTR)(Object + 352));

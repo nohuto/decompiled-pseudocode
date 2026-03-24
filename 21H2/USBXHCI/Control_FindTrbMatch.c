@@ -1,7 +1,7 @@
 /*
- * XREFs of Control_FindTrbMatch @ 0x1C0040734
+ * XREFs of Control_FindTrbMatch @ 0x1C0019398
  * Callers:
- *     Control_ProcessTransferEventPointer @ 0x1C00408E8 (Control_ProcessTransferEventPointer.c)
+ *     Control_ProcessTransferEventPointer @ 0x1C00192AC (Control_ProcessTransferEventPointer.c)
  * Callees:
  *     <none>
  */
@@ -13,8 +13,8 @@ bool __fastcall Control_FindTrbMatch(__int64 a1, __int64 a2, unsigned int a3, un
   unsigned __int64 v9; // r10
   unsigned __int64 v10; // r8
   unsigned __int64 i; // r9
-  unsigned __int8 v12; // al
-  int v13; // ecx
+  unsigned __int8 v13; // al
+  int v14; // ecx
 
   v6 = *(_QWORD *)(a2 + 16);
   v7 = 0;
@@ -34,37 +34,35 @@ bool __fastcall Control_FindTrbMatch(__int64 a1, __int64 a2, unsigned int a3, un
           *a6 = 0;
           ++*a5;
         }
-        goto LABEL_20;
+        goto LABEL_7;
       }
       if ( i != *(_QWORD *)a1 )
         break;
-      v12 = *(_BYTE *)(a1 + 11);
-      if ( v12 >= 2u )
+      v13 = *(_BYTE *)(a1 + 11);
+      if ( v13 >= 2u )
       {
-        if ( v12 <= 4u || v12 == 6 || v12 == 26 )
+        if ( v13 != 6 && v13 > 4u && v13 != 26 )
         {
-LABEL_16:
-          v13 = (*(_DWORD *)(v9 + 8) & 0x1FFFF) - (*(_DWORD *)(a1 + 8) & 0xFFFFFF);
-LABEL_19:
-          *a6 += v13;
-          goto LABEL_20;
+          if ( v13 == 28 )
+          {
+            *a6 = *(_DWORD *)(a1 + 8) & 0xFFFFFF;
+            goto LABEL_7;
+          }
+          if ( v13 != 36 )
+            goto LABEL_7;
         }
-        if ( v12 == 28 )
-        {
-          *a6 = *(_DWORD *)(a1 + 8) & 0xFFFFFF;
-        }
-        else if ( v12 == 36 )
-        {
-          goto LABEL_16;
-        }
+        v14 = (*(_DWORD *)(v9 + 8) & 0x1FFFF) - (*(_DWORD *)(a1 + 8) & 0xFFFFFF);
+        goto LABEL_13;
       }
-LABEL_20:
+LABEL_7:
       v9 += 16LL;
       if ( v9 > v10 )
         return v7;
     }
-    v13 = *(_DWORD *)(v9 + 8) & 0x1FFFF;
-    goto LABEL_19;
+    v14 = *(_DWORD *)(v9 + 8) & 0x1FFFF;
+LABEL_13:
+    *a6 += v14;
+    goto LABEL_7;
   }
   return v7;
 }

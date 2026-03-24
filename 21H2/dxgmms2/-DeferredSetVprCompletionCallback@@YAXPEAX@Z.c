@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DeferredSetVprCompletionCallback@@YAXPEAX@Z @ 0x1C00E8C30
+ * XREFs of ?DeferredSetVprCompletionCallback@@YAXPEAX@Z @ 0x1C00C4B10
  * Callers:
  *     <none>
  * Callees:

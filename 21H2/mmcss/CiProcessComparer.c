@@ -1,8 +1,8 @@
 /*
- * XREFs of CiProcessComparer @ 0x1C000A210
+ * XREFs of CiProcessComparer @ 0x1C000A3D0
  * Callers:
- *     CiProcessLocate @ 0x1C000B2C0 (CiProcessLocate.c)
- *     CiProcessCreate @ 0x1C000B800 (CiProcessCreate.c)
+ *     CiProcessLocate @ 0x1C000AF50 (CiProcessLocate.c)
+ *     CiProcessCreate @ 0x1C000B400 (CiProcessCreate.c)
  * Callees:
  *     <none>
  */

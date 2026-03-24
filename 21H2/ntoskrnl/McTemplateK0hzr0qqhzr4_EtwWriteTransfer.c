@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0hzr0qqhzr4_EtwWriteTransfer @ 0x1405600A8
+ * XREFs of McTemplateK0hzr0qqhzr4_EtwWriteTransfer @ 0x14050CC70
  * Callers:
- *     IopLogDeviceResetComplete @ 0x1409455A8 (IopLogDeviceResetComplete.c)
+ *     IopDeviceRemovalForResetComplete @ 0x1408A0710 (IopDeviceRemovalForResetComplete.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1402D1760 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036EE44 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0hzr0qqhzr4_EtwWriteTransfer(
@@ -52,7 +52,7 @@ NTSTATUS __fastcall McTemplateK0hzr0qqhzr4_EtwWriteTransfer(
   v24 = 0;
   return McGenEventWrite_EtwWriteTransfer(
            MS_KernelPnP_Provider_Context,
-           (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceReset_DevMgnt_Stop,
+           (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceReset_Stop,
            0LL,
            7u,
            &v10);

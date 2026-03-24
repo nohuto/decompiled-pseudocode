@@ -1,9 +1,9 @@
 /*
- * XREFs of CcBuildUpHighPriorityMappings @ 0x14053AF8C
+ * XREFs of CcBuildUpHighPriorityMappings @ 0x1404EAF74
  * Callers:
- *     CcGetVirtualAddress @ 0x140328180 (CcGetVirtualAddress.c)
+ *     CcGetVirtualAddress @ 0x140320F10 (CcGetVirtualAddress.c)
  * Callees:
- *     MmReserveViewInSystemCache @ 0x14084D698 (MmReserveViewInSystemCache.c)
+ *     MmReserveViewInSystemCache @ 0x1407BC944 (MmReserveViewInSystemCache.c)
  */
 
 __int64 __fastcall CcBuildUpHighPriorityMappings(__int64 a1, __int64 a2)
@@ -14,7 +14,7 @@ __int64 __fastcall CcBuildUpHighPriorityMappings(__int64 a1, __int64 a2)
   unsigned int v7; // ebx
   unsigned int i; // edi
 
-  v2 = *(_DWORD *)(a1 + 1184);
+  v2 = *(_DWORD *)(a1 + 920);
   result = (unsigned int)CcMinimumFreeHighPriorityVacbs;
   if ( v2 < CcMinimumFreeHighPriorityVacbs )
   {

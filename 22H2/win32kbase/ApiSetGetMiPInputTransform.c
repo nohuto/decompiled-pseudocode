@@ -1,17 +1,45 @@
 /*
- * XREFs of ApiSetGetMiPInputTransform @ 0x1C0207CD0
+ * XREFs of ApiSetGetMiPInputTransform @ 0x1C01CEE98
  * Callers:
- *     NtUserGetPointerInputTransform @ 0x1C01453B0 (NtUserGetPointerInputTransform.c)
+ *     NtUserGetPointerInputTransform @ 0x1C012F960 (NtUserGetPointerInputTransform.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ApiSetGetMiPInputTransform(__int64 a1, __int64 a2)
 {
-  unsigned int v2; // ebx
+  __int64 v2; // rdi
+  unsigned int v4; // ebx
+  int v5; // eax
 
-  v2 = 0;
-  if ( qword_1C0296970 && (int)qword_1C0296970() >= 0 && qword_1C0296978 )
-    return (unsigned int)qword_1C0296978(a1, a2);
-  return v2;
+  v2 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      236,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  v4 = 0;
+  if ( qword_1C02576B8 )
+    v5 = qword_1C02576B8();
+  else
+    v5 = -1073741637;
+  if ( v5 >= 0 && qword_1C02576C0 )
+    v4 = qword_1C02576C0(a1, v2);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      237,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  return v4;
 }

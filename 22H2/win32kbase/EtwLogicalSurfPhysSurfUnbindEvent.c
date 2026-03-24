@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwLogicalSurfPhysSurfUnbindEvent @ 0x1C00BE7D0
+ * XREFs of EtwLogicalSurfPhysSurfUnbindEvent @ 0x1C00AB110
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0px_EtwWriteTransfer @ 0x1C013CEE4 (McTemplateK0px_EtwWriteTransfer.c)
+ *     McTemplateK0xx_EtwWriteTransfer @ 0x1C014D1B4 (McTemplateK0xx_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwLogicalSurfPhysSurfUnbindEvent(__int64 a1, __int64 a2, __int64 a3)
@@ -11,6 +11,6 @@ __int64 __fastcall EtwLogicalSurfPhysSurfUnbindEvent(__int64 a1, __int64 a2, __i
   __int64 result; // rax
 
   if ( (Microsoft_Windows_Win32kEnableBits & 1) != 0 )
-    return McTemplateK0px_EtwWriteTransfer(a1, &LogicalSurfPhysSurfUnbindEvent, a3, a1, a2);
+    return McTemplateK0xx_EtwWriteTransfer(a1, &LogicalSurfPhysSurfUnbindEvent, a3, a1, a2);
   return result;
 }

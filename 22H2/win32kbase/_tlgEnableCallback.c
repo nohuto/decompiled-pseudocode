@@ -1,9 +1,9 @@
 /*
- * XREFs of _tlgEnableCallback @ 0x1C02BFAD0
+ * XREFs of _tlgEnableCallback @ 0x1C027EB30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall tlgEnableCallback(
@@ -15,8 +15,8 @@ void __fastcall tlgEnableCallback(
         PEVENT_FILTER_DESCRIPTOR FilterData,
         _QWORD *CallbackContext)
 {
-  int v7; // eax
-  void (__fastcall *v8)(LPCGUID, __int64, __int64, ULONGLONG, ULONGLONG, PEVENT_FILTER_DESCRIPTOR, _QWORD); // rax
+  void (__fastcall *v7)(LPCGUID, __int64, __int64, ULONGLONG, ULONGLONG, PEVENT_FILTER_DESCRIPTOR, _QWORD); // rax
+  int v8; // eax
 
   if ( CallbackContext )
   {
@@ -25,10 +25,10 @@ void __fastcall tlgEnableCallback(
       if ( (_DWORD)ControlCode == 1 )
       {
         if ( (_BYTE)Level )
-          v7 = (unsigned __int8)Level + 1;
+          v8 = (unsigned __int8)Level + 1;
         else
-          v7 = 256;
-        *(_DWORD *)CallbackContext = v7;
+          v8 = 256;
+        *(_DWORD *)CallbackContext = v8;
         CallbackContext[2] = MatchAnyKeyword;
         CallbackContext[3] = MatchAllKeyword;
       }
@@ -37,8 +37,8 @@ void __fastcall tlgEnableCallback(
     {
       *(_DWORD *)CallbackContext = 0;
     }
-    v8 = (void (__fastcall *)(LPCGUID, __int64, __int64, ULONGLONG, ULONGLONG, PEVENT_FILTER_DESCRIPTOR, _QWORD))CallbackContext[5];
-    if ( v8 )
-      v8(SourceId, ControlCode, Level, MatchAnyKeyword, MatchAllKeyword, FilterData, CallbackContext[6]);
+    v7 = (void (__fastcall *)(LPCGUID, __int64, __int64, ULONGLONG, ULONGLONG, PEVENT_FILTER_DESCRIPTOR, _QWORD))CallbackContext[5];
+    if ( v7 )
+      v7(SourceId, ControlCode, Level, MatchAnyKeyword, MatchAllKeyword, FilterData, CallbackContext[6]);
   }
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPresentDuration@CDxHandleBitmapRealization@@UEBAIXZ @ 0x180108CC0
+ * XREFs of ?GetPresentDuration@CDxHandleBitmapRealization@@UEBAIXZ @ 0x1800E37F0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CDxHandleBitmapRealization::GetPresentDuration(CDxHandleBitmapRealization *this)
 {
-  return *((unsigned int *)this - 57);
+  return *((unsigned int *)this - 49);
 }

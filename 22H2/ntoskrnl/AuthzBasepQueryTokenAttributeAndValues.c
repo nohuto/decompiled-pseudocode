@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepQueryTokenAttributeAndValues @ 0x14066ED98
+ * XREFs of AuthzBasepQueryTokenAttributeAndValues @ 0x1405C139C
  * Callers:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14022C8A4 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14024E028 (AuthzBasepQuerySecurityAttributeAndValues.c)
  * Callees:
- *     SepCopyTokenIntegrity @ 0x140226B60 (SepCopyTokenIntegrity.c)
- *     AuthzBasepFindTokenAttribute @ 0x14066ED24 (AuthzBasepFindTokenAttribute.c)
+ *     SepCopyTokenIntegrity @ 0x1402521FC (SepCopyTokenIntegrity.c)
+ *     AuthzBasepFindTokenAttribute @ 0x1405C1328 (AuthzBasepFindTokenAttribute.c)
  */
 
 __int64 __fastcall AuthzBasepQueryTokenAttributeAndValues(__int64 a1)
@@ -20,20 +20,37 @@ __int64 __fastcall AuthzBasepQueryTokenAttributeAndValues(__int64 a1)
   __int64 v10; // r9
   __int64 v11; // r10
   __int64 v12; // rax
-  _QWORD *v13; // rdx
-  unsigned int v14; // ecx
-  __int64 v15; // r8
-  __int128 v17; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v13; // ecx
+  __int64 v14; // r8
 
   v1 = *(_QWORD *)(a1 + 56);
   v2 = 0;
   *(_DWORD *)(a1 + 36) = 0;
-  v17 = 0LL;
-  if ( !v1 )
+  if ( v1 )
   {
-    TokenAttribute = AuthzBasepFindTokenAttribute((const UNICODE_STRING *)(a1 + 16));
-    if ( !TokenAttribute )
-      return (unsigned int)-1073741275;
+    if ( *(_DWORD *)(v1 + 8) != 1 )
+      return (unsigned int)-2147483622;
+    v12 = *(_QWORD *)(a1 + 8);
+    v7 = (__int64 *)(a1 + 64);
+    v13 = *(_DWORD *)(a1 + 64) + 1;
+    if ( v13 > 0x24 )
+      return (unsigned int)-2147483622;
+    do
+    {
+      v14 = *(_QWORD *)(v12 + 72);
+      if ( _bittest64(&v14, v13) )
+        break;
+      ++v13;
+    }
+    while ( v13 <= 0x24 );
+    if ( v13 > 0x24 )
+      return (unsigned int)-2147483622;
+    *v7 = v13;
+    goto LABEL_27;
+  }
+  TokenAttribute = AuthzBasepFindTokenAttribute((const UNICODE_STRING *)(a1 + 16));
+  if ( TokenAttribute )
+  {
     *(_QWORD *)(a1 + 56) = TokenAttribute;
     *(_WORD *)(a1 + 32) = *((_WORD *)TokenAttribute + 6);
     if ( *((_DWORD *)TokenAttribute + 2) == 1 )
@@ -64,9 +81,9 @@ __int64 __fastcall AuthzBasepQueryTokenAttributeAndValues(__int64 a1)
     {
       if ( *((_DWORD *)TokenAttribute + 2) == 2 )
       {
-        SepCopyTokenIntegrity(*(_QWORD *)(a1 + 8), (__int64)&v17);
+        SepCopyTokenIntegrity(*(_QWORD *)(a1 + 8));
         v7 = (__int64 *)(a1 + 64);
-        *(_QWORD *)(a1 + 64) = *(unsigned int *)(v17 + 8);
+        *(_QWORD *)(a1 + 64) = MEMORY[8];
       }
       else
       {
@@ -88,24 +105,9 @@ __int64 __fastcall AuthzBasepQueryTokenAttributeAndValues(__int64 a1)
       }
       *(_DWORD *)(a1 + 40) = 1;
     }
+LABEL_27:
     *(_QWORD *)(a1 + 48) = v7;
     return v2;
   }
-  if ( *(_DWORD *)(v1 + 8) == 1 )
-  {
-    v12 = *(_QWORD *)(a1 + 8);
-    v13 = (_QWORD *)(a1 + 64);
-    v14 = *(_DWORD *)(a1 + 64);
-    while ( ++v14 <= 0x24 )
-    {
-      v15 = *(_QWORD *)(v12 + 72);
-      if ( _bittest64(&v15, v14) )
-      {
-        *v13 = v14;
-        *(_QWORD *)(a1 + 48) = v13;
-        return v2;
-      }
-    }
-  }
-  return (unsigned int)-2147483622;
+  return (unsigned int)-1073741275;
 }

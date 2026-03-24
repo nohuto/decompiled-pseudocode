@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSaveThreadIptState @ 0x140570350
+ * XREFs of KiSaveThreadIptState @ 0x14051A5E0
  * Callers:
- *     SwapContext @ 0x140428D90 (SwapContext.c)
+ *     SwapContext @ 0x1404067C0 (SwapContext.c)
  * Callees:
- *     KiSaveIptState @ 0x140570250 (KiSaveIptState.c)
+ *     KiSaveIptState @ 0x14051A4D8 (KiSaveIptState.c)
  */
 
 void __fastcall KiSaveThreadIptState(__int64 a1)
 {
-  KiSaveIptState(*(unsigned __int64 **)(a1 + 1112));
+  KiSaveIptState((unsigned __int64 *)(*(_QWORD *)(a1 + 96) + (unsigned int)KeXStateLength));
 }

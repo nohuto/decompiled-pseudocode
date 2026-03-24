@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Partition_TelemetryTouchInteractionBegin@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_TELEMETRYTOUCHINTERACTIONBEGIN@@@Z @ 0x180019E50
+ * XREFs of ?Partition_TelemetryTouchInteractionBegin@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_TELEMETRYTOUCHINTERACTIONBEGIN@@@Z @ 0x18001F800
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CComposition::Partition_TelemetryTouchInteractionBegin(
@@ -18,7 +18,7 @@ __int64 __fastcall CComposition::Partition_TelemetryTouchInteractionBegin(
   unsigned __int64 v7; // rdx
   unsigned int v8; // ebx
 
-  v5 = *((_QWORD *)a2 + 7);
+  v5 = *((_QWORD *)a2 + 6);
   v6 = 0LL;
   if ( !v5 )
     goto LABEL_5;
@@ -30,13 +30,13 @@ __int64 __fastcall CComposition::Partition_TelemetryTouchInteractionBegin(
   if ( !is_mul_ok(v7, 2uLL) )
   {
     v8 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147024362, 0x4FBu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147024362, 0x475u, 0LL);
   }
   else
   {
 LABEL_5:
-    (*(void (__fastcall **)(_QWORD, char *, __int64))(**((_QWORD **)this + 82) + 8LL))(
-      *((_QWORD *)this + 82),
+    (*(void (__fastcall **)(_QWORD, char *, __int64))(**((_QWORD **)this + 63) + 8LL))(
+      *((_QWORD *)this + 63),
       (char *)a4 + 8,
       v6);
     return 0;

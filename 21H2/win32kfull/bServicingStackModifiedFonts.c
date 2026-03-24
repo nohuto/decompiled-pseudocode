@@ -1,15 +1,23 @@
 /*
- * XREFs of bServicingStackModifiedFonts @ 0x1C00E20F8
+ * XREFs of bServicingStackModifiedFonts @ 0x1C00E5C90
  * Callers:
- *     InitFNTCache @ 0x1C00E2390 (InitFNTCache.c)
+ *     InitFNTCache @ 0x1C00E56F0 (InitFNTCache.c)
  * Callees:
- *     bSetFntCacheReg @ 0x1C00E214C (bSetFntCacheReg.c)
- *     bQueryFntCacheReg @ 0x1C00E22A8 (bQueryFntCacheReg.c)
+ *     bQueryFntCacheReg @ 0x1C00E5BB8 (bQueryFntCacheReg.c)
+ *     bSetFntCacheReg @ 0x1C00E5CE4 (bSetFntCacheReg.c)
  */
 
-__int64 bServicingStackModifiedFonts()
+_BOOL8 bServicingStackModifiedFonts()
 {
-  bQueryFntCacheReg(ghkeyGreInitialize);
-  bSetFntCacheReg(2LL, 2LL);
-  return 1LL;
+  BOOL v0; // ebx
+  __int64 v1; // r8
+  __int64 v2; // r9
+  int v4; // [rsp+30h] [rbp+8h] BYREF
+
+  v4 = 0;
+  v0 = 1;
+  if ( (unsigned int)bQueryFntCacheReg(ghkeyGreInitialize, L"ServicingStackModifiedFonts", &v4) )
+    v0 = v4 != 2;
+  bSetFntCacheReg(2LL, 2LL, v1, v2);
+  return v0;
 }

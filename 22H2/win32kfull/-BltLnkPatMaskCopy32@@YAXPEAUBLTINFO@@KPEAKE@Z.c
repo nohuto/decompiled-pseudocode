@@ -1,5 +1,5 @@
 /*
- * XREFs of ?BltLnkPatMaskCopy32@@YAXPEAUBLTINFO@@KPEAKE@Z @ 0x1C0304860
+ * XREFs of ?BltLnkPatMaskCopy32@@YAXPEAUBLTINFO@@KPEAKE@Z @ 0x1C010D900
  * Callers:
  *     <none>
  * Callees:
@@ -13,13 +13,13 @@ void __fastcall BltLnkPatMaskCopy32(struct BLTINFO *a1, int a2, unsigned int *a3
   __int64 v6; // rbp
   __int64 v8; // rsi
   int v9; // r12d
-  int v10; // edi
-  int v11; // r15d
-  _DWORD *v12; // r8
-  int v13; // r14d
-  int v14; // r9d
-  unsigned int v15; // edx
-  int v16; // ecx
+  int v10; // r14d
+  int v11; // r9d
+  unsigned int v12; // edx
+  int v13; // ecx
+  int v14; // edi
+  int v15; // r15d
+  _DWORD *v16; // r8
   char v17; // al
   unsigned int v18; // edx
 
@@ -31,80 +31,87 @@ void __fastcall BltLnkPatMaskCopy32(struct BLTINFO *a1, int a2, unsigned int *a3
   while ( v4 )
   {
     --v4;
-    v10 = *((_DWORD *)v5 + 7);
-    v11 = *((_DWORD *)v5 + 12);
-    v12 = (_DWORD *)(v8 + 4LL * *((int *)v5 + 14));
-    if ( v10 <= 0 )
-      goto LABEL_41;
-    do
+    v14 = *((_DWORD *)v5 + 7);
+    v15 = *((_DWORD *)v5 + 12);
+    v16 = (_DWORD *)(v8 + 4LL * *((int *)v5 + 14));
+    if ( v14 > 0 )
     {
-      v13 = v10;
-      v14 = v10;
-      v15 = v9 ^ *(unsigned __int8 *)(((__int64)v11 >> 3) + v6);
-      v16 = 8 - (v11 & 7);
-      if ( v16 <= v10 )
-        v13 = 8 - (v11 & 7);
-      v10 -= v13;
-      v11 += v13;
-      if ( v15 != 255 )
+      while ( 1 )
       {
-        v17 = v16 - v14;
-        if ( v16 <= v14 )
+        v10 = v14;
+        v11 = v14;
+        v12 = v9 ^ *(unsigned __int8 *)(((__int64)v15 >> 3) + v6);
+        v13 = 8 - (v15 & 7);
+        if ( v13 <= v14 )
+          v10 = 8 - (v15 & 7);
+        v14 -= v10;
+        v15 += v10;
+        if ( v12 == 255 )
+          goto LABEL_5;
+        v17 = v13 - v11;
+        if ( v13 <= v11 )
           v17 = 0;
-        v18 = v15 >> v17;
-        if ( v13 != 1 )
+        v18 = v12 >> v17;
+        switch ( v10 )
         {
-          if ( v13 != 2 )
-          {
-            if ( v13 != 3 )
-            {
-              if ( v13 != 4 )
-              {
-                if ( v13 != 5 )
-                {
-                  if ( v13 != 6 )
-                  {
-                    if ( v13 != 7 )
-                    {
-                      if ( v13 != 8 )
-                        goto LABEL_39;
-                      if ( (v18 & 1) == 0 )
-                        v12[7] = a2;
-                      v18 >>= 1;
-                    }
-                    if ( (v18 & 1) == 0 )
-                      v12[6] = a2;
-                    v18 >>= 1;
-                  }
-                  if ( (v18 & 1) == 0 )
-                    v12[5] = a2;
-                  v18 >>= 1;
-                }
-                if ( (v18 & 1) == 0 )
-                  v12[4] = a2;
-                v18 >>= 1;
-              }
-              if ( (v18 & 1) == 0 )
-                v12[3] = a2;
-              v18 >>= 1;
-            }
-            if ( (v18 & 1) == 0 )
-              v12[2] = a2;
-            v18 >>= 1;
-          }
-          if ( (v18 & 1) == 0 )
-            v12[1] = a2;
-          v18 >>= 1;
+          case 1:
+            goto LABEL_42;
+          case 2:
+            goto LABEL_39;
+          case 3:
+            goto LABEL_36;
+          case 4:
+            goto LABEL_33;
+          case 5:
+            goto LABEL_30;
+          case 6:
+            goto LABEL_27;
+          case 7:
+            goto LABEL_24;
         }
-        if ( (v18 & 1) == 0 )
-          *v12 = a2;
+        if ( v10 == 8 )
+          break;
+LABEL_5:
+        v16 += v10;
+        if ( v14 <= 0 )
+        {
+          v5 = a1;
+          goto LABEL_7;
+        }
       }
+      if ( (v18 & 1) == 0 )
+        v16[7] = a2;
+      v18 >>= 1;
+LABEL_24:
+      if ( (v18 & 1) == 0 )
+        v16[6] = a2;
+      v18 >>= 1;
+LABEL_27:
+      if ( (v18 & 1) == 0 )
+        v16[5] = a2;
+      v18 >>= 1;
+LABEL_30:
+      if ( (v18 & 1) == 0 )
+        v16[4] = a2;
+      v18 >>= 1;
+LABEL_33:
+      if ( (v18 & 1) == 0 )
+        v16[3] = a2;
+      v18 >>= 1;
+LABEL_36:
+      if ( (v18 & 1) == 0 )
+        v16[2] = a2;
+      v18 >>= 1;
 LABEL_39:
-      v12 += v13;
+      if ( (v18 & 1) == 0 )
+        v16[1] = a2;
+      v18 >>= 1;
+LABEL_42:
+      if ( (v18 & 1) == 0 )
+        *v16 = a2;
+      goto LABEL_5;
     }
-    while ( v10 > 0 );
-    v5 = a1;
-LABEL_41:
+LABEL_7:
     v8 += *((int *)v5 + 11);
     v6 += *((int *)v5 + 10);
   }

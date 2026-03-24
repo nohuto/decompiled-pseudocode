@@ -1,17 +1,17 @@
 /*
- * XREFs of PopFxActivateDevicesForSx @ 0x14039734C
+ * XREFs of PopFxActivateDevicesForSx @ 0x14038C308
  * Callers:
- *     PopFxPrepareDevicesForShutdown @ 0x1405CD27C (PopFxPrepareDevicesForShutdown.c)
- *     PoBroadcastSystemState @ 0x140A4A768 (PoBroadcastSystemState.c)
+ *     PopFxPrepareDevicesForShutdown @ 0x14056BB0C (PopFxPrepareDevicesForShutdown.c)
+ *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     PopFxActivateDevice @ 0x1402D2864 (PopFxActivateDevice.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PopFxActivateDevice @ 0x14036FCD0 (PopFxActivateDevice.c)
  */
 
-char __fastcall PopFxActivateDevicesForSx(unsigned int a1)
+_QWORD *__fastcall PopFxActivateDevicesForSx(unsigned int a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR i; // rbx
@@ -32,5 +32,5 @@ char __fastcall PopFxActivateDevicesForSx(unsigned int a1)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PopFxDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

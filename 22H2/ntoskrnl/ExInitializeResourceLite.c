@@ -1,79 +1,76 @@
 /*
- * XREFs of ExInitializeResourceLite @ 0x140207480
+ * XREFs of ExInitializeResourceLite @ 0x14021CC10
  * Callers:
- *     CcAllocateInitializeBcb @ 0x140207370 (CcAllocateInitializeBcb.c)
- *     SepCreateTokenEx @ 0x140229730 (SepCreateTokenEx.c)
- *     DifExInitializeResourceLiteWrapper @ 0x1405D9300 (DifExInitializeResourceLiteWrapper.c)
- *     CmpInitCmRM @ 0x14068571C (CmpInitCmRM.c)
- *     PnpInitializeNotifyEntry @ 0x14068840C (PnpInitializeNotifyEntry.c)
- *     NtCreateJobObject @ 0x1406885D0 (NtCreateJobObject.c)
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     RtlCreateHeap @ 0x1407D9600 (RtlCreateHeap.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
- *     TtmInit @ 0x140802F88 (TtmInit.c)
- *     PiPnpRtlInit @ 0x140813794 (PiPnpRtlInit.c)
- *     PiDrvDbCreateNode @ 0x14081425C (PiDrvDbCreateNode.c)
- *     PiDqObjectManagerInit @ 0x140814CC0 (PiDqObjectManagerInit.c)
- *     DrvDbOpenContext @ 0x140814FC0 (DrvDbOpenContext.c)
- *     DrvDbCreateDatabaseNode @ 0x140815840 (DrvDbCreateDatabaseNode.c)
- *     PiDmObjectManagerInit @ 0x14083B378 (PiDmObjectManagerInit.c)
- *     AdtpObjsInitialize @ 0x140843E58 (AdtpObjsInitialize.c)
- *     PfSnPrefetchCacheCtxInitialize @ 0x140848C68 (PfSnPrefetchCacheCtxInitialize.c)
- *     FsRtlInitializeTieringHeat @ 0x140850FF0 (FsRtlInitializeTieringHeat.c)
- *     FsRtlInitializeDedupChange @ 0x140851024 (FsRtlInitializeDedupChange.c)
- *     _PnpCtxOpenMachine @ 0x140855BA4 (_PnpCtxOpenMachine.c)
- *     MUIInitializeResourceLock @ 0x14085F71C (MUIInitializeResourceLock.c)
- *     IopInitializeBootLogging @ 0x140944EF8 (IopInitializeBootLogging.c)
- *     TtmiCreateEventQueue @ 0x1409AC09C (TtmiCreateEventQueue.c)
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
- *     WmipGetSMBiosFromLoaderBlock @ 0x140B3CB80 (WmipGetSMBiosFromLoaderBlock.c)
- *     ExInitializeTimeRefresh @ 0x140B3CBEC (ExInitializeTimeRefresh.c)
- *     PiSwInit @ 0x140B3F42C (PiSwInit.c)
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
- *     PpInitializeBootDDB @ 0x140B42D24 (PpInitializeBootDDB.c)
- *     PipDmgInitPhaseZero @ 0x140B43070 (PipDmgInitPhaseZero.c)
- *     PiDeviceDependencyInit @ 0x140B43154 (PiDeviceDependencyInit.c)
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
- *     SepInitializeWorkList @ 0x140B57DA8 (SepInitializeWorkList.c)
- *     MiInitializeLoadedModuleList @ 0x140B5FD1C (MiInitializeLoadedModuleList.c)
- *     ExpInitSystemPhase0 @ 0x140B61954 (ExpInitSystemPhase0.c)
- *     FsRtlInitSystem @ 0x140B693F0 (FsRtlInitSystem.c)
- *     SepRmDbInitialization @ 0x140B6DDC4 (SepRmDbInitialization.c)
- *     PopInitializeAdpm @ 0x140B7454C (PopInitializeAdpm.c)
- *     PpInitSystem @ 0x140B75180 (PpInitSystem.c)
+ *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
+ *     CcAllocateInitializeBcb @ 0x14029D410 (CcAllocateInitializeBcb.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x140651490 (SepDuplicateToken.c)
+ *     PnpInitializeNotifyEntry @ 0x14069C4B4 (PnpInitializeNotifyEntry.c)
+ *     CmpInitCmRM @ 0x14070D220 (CmpInitCmRM.c)
+ *     NtCreateJobObject @ 0x14071E360 (NtCreateJobObject.c)
+ *     RtlCreateHeap @ 0x140768180 (RtlCreateHeap.c)
+ *     AdtpObjsInitialize @ 0x14079E8F0 (AdtpObjsInitialize.c)
+ *     PiDmObjectManagerInit @ 0x1407A33B0 (PiDmObjectManagerInit.c)
+ *     PiDqObjectManagerInit @ 0x1407A35A4 (PiDqObjectManagerInit.c)
+ *     PiPnpRtlInit @ 0x1407A3780 (PiPnpRtlInit.c)
+ *     PiDrvDbCreateNode @ 0x1407A3DFC (PiDrvDbCreateNode.c)
+ *     DrvDbOpenContext @ 0x1407A443C (DrvDbOpenContext.c)
+ *     DrvDbCreateDatabaseNode @ 0x1407A4698 (DrvDbCreateDatabaseNode.c)
+ *     _PnpCtxOpenMachine @ 0x1407A498C (_PnpCtxOpenMachine.c)
+ *     PfSnPrefetchCacheCtxInitialize @ 0x1407C05D0 (PfSnPrefetchCacheCtxInitialize.c)
+ *     FsRtlInitializeTieringHeat @ 0x1407C682C (FsRtlInitializeTieringHeat.c)
+ *     MUIInitializeResourceLock @ 0x1407CFA8C (MUIInitializeResourceLock.c)
+ *     TtmInit @ 0x1407D28F8 (TtmInit.c)
+ *     IopInitializeBootLogging @ 0x140891768 (IopInitializeBootLogging.c)
+ *     TtmiCreateEventQueue @ 0x140905488 (TtmiCreateEventQueue.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
+ *     SepInitializeWorkList @ 0x140A489FC (SepInitializeWorkList.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     PpInitializeBootDDB @ 0x140A53088 (PpInitializeBootDDB.c)
+ *     PipDmgInitPhaseZero @ 0x140A53178 (PipDmgInitPhaseZero.c)
+ *     PiSwInit @ 0x140A534A0 (PiSwInit.c)
+ *     PiDeviceDependencyInit @ 0x140A53ADC (PiDeviceDependencyInit.c)
+ *     MiInitializeLoadedModuleList @ 0x140A55E9C (MiInitializeLoadedModuleList.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
+ *     ExInitializeTimeRefresh @ 0x140A5B1EC (ExInitializeTimeRefresh.c)
+ *     ExpInitSystemPhase0 @ 0x140A69014 (ExpInitSystemPhase0.c)
+ *     FsRtlInitSystem @ 0x140A6B9E0 (FsRtlInitSystem.c)
+ *     SepRmDbInitialization @ 0x140A6E540 (SepRmDbInitialization.c)
+ *     PopInitializeAdpm @ 0x140A725E8 (PopInitializeAdpm.c)
+ *     PpInitSystem @ 0x140A72804 (PpInitSystem.c)
+ *     WmipGetSMBiosFromLoaderBlock @ 0x140A73D6C (WmipGetSMBiosFromLoaderBlock.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046ADD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlStdLogStackTrace @ 0x1405A9584 (RtlStdLogStackTrace.c)
- *     RtlStdReleaseStackTrace @ 0x1405A9610 (RtlStdReleaseStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x1405A9A04 (RtlpStdGetRecordedStackTraceIndex.c)
- *     PerfLogExecutiveResourceInitialize @ 0x14060083C (PerfLogExecutiveResourceInitialize.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B12C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockExclusive @ 0x14021D130 (ExpAcquireSpinLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlStdLogStackTrace @ 0x140585C50 (RtlStdLogStackTrace.c)
+ *     RtlStdReleaseStackTrace @ 0x140585CDC (RtlStdReleaseStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1405860E0 (RtlpStdGetRecordedStackTraceIndex.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x1405AADE0 (PerfLogExecutiveResourceInitialize.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5AE8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5CCC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 NTSTATUS __stdcall ExInitializeResourceLite(PERESOURCE Resource)
 {
-  ULONG_PTR v2; // rcx
+  ULONG_PTR v2; // rax
   unsigned __int8 CurrentIrql; // di
   struct _LIST_ENTRY *v4; // rax
-  __int64 v6; // rdi
-  unsigned __int16 v7; // si
-  __int64 v8; // rax
-  __int64 v9; // rbp
+  struct _KPRCB *CurrentPrcb; // rcx
+  _DWORD *v6; // rdx
+  KSPIN_LOCK *v8; // rsi
+  unsigned __int16 v9; // di
+  __int64 v10; // rbp
   int RecordedStackTraceIndex; // eax
   _DWORD *SchedulerAssist; // r9
-  __int64 v12; // rdx
-  unsigned __int8 v13; // cl
-  struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v15; // r8
-  int v16; // eax
-  bool v17; // zf
-  void *retaddr; // [rsp+38h] [rbp+0h]
-  int v19; // [rsp+40h] [rbp+8h] BYREF
+  int v13; // eax
+  unsigned __int8 v14; // al
+  struct _KPRCB *v15; // r9
+  _DWORD *v16; // r8
+  int v17; // eax
+  bool v18; // zf
+  void *retaddr; // [rsp+28h] [rbp+0h]
 
   memset(Resource, 0, sizeof(struct _ERESOURCE));
   Resource->SystemResourcesList.Blink = &Resource->SystemResourcesList;
@@ -82,28 +79,27 @@ NTSTATUS __stdcall ExInitializeResourceLite(PERESOURCE Resource)
   Resource->SpinLock = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    v6 = RtlpStackTraceDatabase;
+    v8 = RtlpStackTraceDatabase;
     if ( RtlpStackTraceDatabase )
     {
-      v8 = RtlStdLogStackTrace(RtlpStackTraceDatabase, 1LL);
-      v9 = v8;
-      if ( v8 )
+      v10 = RtlStdLogStackTrace(RtlpStackTraceDatabase);
+      if ( v10 )
       {
-        RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v6, v8);
-        v7 = RecordedStackTraceIndex;
+        RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v8);
+        v9 = RecordedStackTraceIndex;
         if ( !RecordedStackTraceIndex )
-          RtlStdReleaseStackTrace(v6, v9);
+          RtlStdReleaseStackTrace(v8, v10);
       }
       else
       {
-        v7 = 0;
+        v9 = 0;
       }
     }
     else
     {
-      v7 = 0;
+      v9 = 0;
     }
-    v2 = v7;
+    v2 = v9;
   }
   else
   {
@@ -115,55 +111,54 @@ NTSTATUS __stdcall ExInitializeResourceLite(PERESOURCE Resource)
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v12) = 4;
-    else
-      v12 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v12;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-  {
     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&ExpResourceSpinLock, CurrentIrql);
-  }
   else
-  {
-    v19 = 0;
-    if ( _interlockedbittestandset(&ExpResourceSpinLock, 0x1Fu) )
-      v19 = ExpWaitForSpinLockExclusiveAndAcquire(&ExpResourceSpinLock, CurrentIrql);
-    while ( (ExpResourceSpinLock & 0xBFFFFFFF) != 0x80000000 )
-    {
-      if ( (ExpResourceSpinLock & 0x40000000) == 0 )
-        _InterlockedOr(&ExpResourceSpinLock, 0x40000000u);
-      KeYieldProcessorEx(&v19);
-    }
-  }
-  v4 = (struct _LIST_ENTRY *)qword_140C2D668;
-  if ( *(__int64 **)qword_140C2D668 != &ExpSystemResourcesList )
+    ExpAcquireSpinLockExclusive(&ExpResourceSpinLock, CurrentIrql);
+  v4 = (struct _LIST_ENTRY *)qword_140C16B48;
+  if ( *(__int64 **)qword_140C16B48 != &ExpSystemResourcesList )
     __fastfail(3u);
   Resource->SystemResourcesList.Flink = (struct _LIST_ENTRY *)&ExpSystemResourcesList;
   Resource->SystemResourcesList.Blink = v4;
   v4->Flink = &Resource->SystemResourcesList;
-  qword_140C2D668 = (__int64)Resource;
+  qword_140C16B48 = (__int64)Resource;
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&ExpResourceSpinLock, retaddr);
   else
     ExpResourceSpinLock = 0;
-  if ( KiIrqlFlags )
+  CurrentPrcb = KeGetCurrentPrcb();
+  v6 = CurrentPrcb->SchedulerAssist;
+  if ( v6 )
   {
-    v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+    if ( CurrentPrcb->NestingLevel <= 1u )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v15 = CurrentPrcb->SchedulerAssist;
-      v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v17 = (v16 & v15[5]) == 0;
-      v15[5] &= v16;
-      if ( v17 )
+      v13 = v6[6] - 1;
+      v6[6] = v13;
+      if ( !v13 )
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
   }
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      v14 = KeGetCurrentIrql();
+      if ( v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+      {
+        v15 = KeGetCurrentPrcb();
+        v16 = v15->SchedulerAssist;
+        v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v18 = (v17 & v16[5]) == 0;
+        v16[5] &= v17;
+        if ( v18 )
+          KiRemoveSystemWorkPriorityKick(v15);
+      }
+    }
+  }
   __writecr8(CurrentIrql);
-  __incgsdword(0x8A58u);
+  __incgsdword(0x8658u);
   if ( (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0 )
     PerfLogExecutiveResourceInitialize(65544LL, Resource, 0LL, 0LL);
   return 0;

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSegmentNotPresentFault @ 0x14042F580
+ * XREFs of KiSegmentNotPresentFault @ 0x14040D280
  * Callers:
- *     KiSegmentNotPresentFaultShadow @ 0x140AB56C0 (KiSegmentNotPresentFaultShadow.c)
+ *     KiSegmentNotPresentFaultShadow @ 0x140A146C0 (KiSegmentNotPresentFaultShadow.c)
  * Callees:
- *     KiSaveDebugRegisterState @ 0x14041F920 (KiSaveDebugRegisterState.c)
- *     KiSegmentNotPresentFault @ 0x14042F580 (KiSegmentNotPresentFault.c)
- *     KiBugCheckDispatch @ 0x140434DC0 (KiBugCheckDispatch.c)
- *     KiExceptionDispatch @ 0x140434E40 (KiExceptionDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1404357C0 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSaveDebugRegisterState @ 0x1403FE440 (KiSaveDebugRegisterState.c)
+ *     KiSegmentNotPresentFault @ 0x14040D280 (KiSegmentNotPresentFault.c)
+ *     KiBugCheckDispatch @ 0x140412740 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x1404127C0 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413B80 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __fastcall __noreturn KiSegmentNotPresentFault(__int64 a1)
@@ -15,31 +15,21 @@ void __fastcall __noreturn KiSegmentNotPresentFault(__int64 a1)
   struct _KTHREAD *CurrentThread; // r10
   unsigned __int16 BpbKernelSpecCtrl; // ax
   unsigned __int16 BpbState; // dx
-  __int64 v7; // rax
-  __int64 v8; // r9
-  unsigned __int64 v9; // r8
+  ULONG64 v4; // rax
+  _QWORD *Object; // rdx
+  __int64 v6; // rax
+  __int64 v7; // r9
+  unsigned __int64 v8; // r8
   _UNKNOWN *retaddr; // [rsp+160h] [rbp+E0h]
-  __int64 v11; // [rsp+168h] [rbp+E8h]
-  char v12; // [rsp+170h] [rbp+F0h]
-  __int16 v13; // [rsp+178h] [rbp+F8h]
+  __int64 v10; // [rsp+168h] [rbp+E8h]
+  char v11; // [rsp+170h] [rbp+F0h]
+  __int16 v12; // [rsp+178h] [rbp+F8h]
 
-  if ( (v12 & 1) != 0 )
+  if ( (v11 & 1) != 0 )
   {
     if ( (KiKvaShadow & 1) == 0 )
       __asm { swapgs }
     _mm_lfence();
-    if ( KeGetPcr()->Prcb.KernelShadowStackInitial )
-    {
-      __asm { rdsspq  rdx }
-      if ( _RDX == KeGetPcr()->Prcb.TransitionShadowStack + 8 )
-      {
-        __asm
-        {
-          rstorssp qword ptr [rcx]
-          saveprevssp
-        }
-      }
-    }
     CurrentThread = KeGetCurrentThread();
     a1 = *(_QWORD *)&CurrentThread->Process[2].ActiveProcessors.Count;
     __writegsqword(0x858u, a1);
@@ -61,17 +51,30 @@ void __fastcall __noreturn KiSegmentNotPresentFault(__int64 a1)
       BpbState = KeGetPcr()->Prcb.BpbState;
     }
     if ( (BpbState & 2) != 0 )
-      JUMPOUT(0x14042F7E9LL);
+      JUMPOUT(0x14040D4B1LL);
     if ( (BpbState & 0x200) != 0 )
       KiFlushBhbDuringTrapEntryOrExit(a1);
     _mm_lfence();
     __writegsbyte(0x856u, 0);
+    if ( (CurrentThread->Header.Reserved1 & 0x80u) != 0 )
+    {
+      a1 = 3221225730LL;
+      v4 = __readmsr(0xC0000102);
+      if ( v4 >= MmUserProbeAddress )
+        v4 = MmUserProbeAddress;
+      if ( CurrentThread->Teb != (void *)v4 )
+      {
+        Object = CurrentThread->WaitBlock[3].Object;
+        CurrentThread->MiscFlags |= 0x100u;
+        --CurrentThread->SpecialApcDisable;
+        Object[16] = v4;
+      }
+    }
     if ( (CurrentThread->Header.Reserved1 & 3) != 0 )
       KiSaveDebugRegisterState(a1);
   }
   else
   {
-    __asm { rdsspq  rdx }
     _mm_lfence();
     if ( (KeGetPcr()->Prcb.BpbState & 1) != 0 )
     {
@@ -85,18 +88,18 @@ void __fastcall __noreturn KiSegmentNotPresentFault(__int64 a1)
   }
   _mm_getcsr();
   _mm_setcsr(KeGetPcr()->Prcb.MxCsr);
-  if ( (_BYTE)KeSmapEnabled && (v12 & 1) != 0 )
+  if ( (_BYTE)KeSmapEnabled && (v11 & 1) != 0 )
     __asm { stac }
-  LOBYTE(v7) = (_BYTE)retaddr;
+  LOBYTE(v6) = (_BYTE)retaddr;
   if ( ((unsigned __int8)retaddr & 4) != 0 )
-    a1 = _InterlockedExchange64(MK_FP(__GS__, 36328LL), 0LL);
-  if ( (v13 & 0x200) != 0 )
+    a1 = _InterlockedExchange64(MK_FP(__GS__, 35304LL), 0LL);
+  if ( (v12 & 0x200) != 0 )
     _enable();
-  if ( (v7 & 4) != 0 )
-    KiExceptionDispatch(268435462LL, 3LL, v11, a1);
-  if ( (v12 & 1) != 0 )
-    KiExceptionDispatch(268435463LL, 2LL, v11, (unsigned __int16)retaddr | 3u);
-  v8 = (unsigned int)retaddr;
-  v9 = __readcr0();
-  KiBugCheckDispatch(127LL, 11LL, v9, v8);
+  if ( (v6 & 4) != 0 )
+    KiExceptionDispatch(268435462LL, 2LL, v10, a1);
+  if ( (v11 & 1) != 0 )
+    KiExceptionDispatch(268435463LL, 2LL, v10, (unsigned __int16)retaddr | 3u);
+  v7 = (unsigned int)retaddr;
+  v8 = __readcr0();
+  KiBugCheckDispatch(127LL, 11LL, v8, v7);
 }

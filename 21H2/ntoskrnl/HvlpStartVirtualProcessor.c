@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpStartVirtualProcessor @ 0x1405458A0
+ * XREFs of HvlpStartVirtualProcessor @ 0x1404F42C4
  * Callers:
- *     HvlHalStartVirtualProcessor @ 0x140546FE0 (HvlHalStartVirtualProcessor.c)
+ *     HvlHalStartVirtualProcessor @ 0x1404F5470 (HvlHalStartVirtualProcessor.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14039D8F0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x14039DF90 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlpStartVirtualProcessor(int a1, _OWORD *a2)
@@ -13,14 +13,10 @@ __int64 __fastcall HvlpStartVirtualProcessor(int a1, _OWORD *a2)
   _QWORD *v4; // rax
   __int128 v5; // xmm0
   unsigned int v6; // ebx
-  __int128 v8; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v9; // [rsp+30h] [rbp-18h]
-  __int64 v10; // [rsp+38h] [rbp-10h]
+  PHYSICAL_ADDRESS v8[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  v9 = 0LL;
-  LODWORD(v10) = 0;
-  v8 = 0LL;
-  v4 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v8, 1, 0LL, 240LL);
+  memset(v8, 0, 32);
+  v4 = HvlpAcquireHypercallPage(v8, 1, 0LL, 240LL);
   *v4 = -1LL;
   *((_DWORD *)v4 + 3) = 0;
   *((_DWORD *)v4 + 2) = a1;
@@ -43,6 +39,6 @@ __int64 __fastcall HvlpStartVirtualProcessor(int a1, _OWORD *a2)
   *((_OWORD *)v4 + 4) = a2[4];
   *((_OWORD *)v4 + 5) = a2[5];
   v6 = (unsigned __int16)HvcallInitiateHypercall(153) != 0 ? 0xC0000001 : 0;
-  HvlpReleaseHypercallPage((__int64)&v8);
+  HvlpReleaseHypercallPage((__int64)v8);
   return v6;
 }

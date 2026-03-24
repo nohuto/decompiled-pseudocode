@@ -1,27 +1,28 @@
 /*
- * XREFs of DeleteNodeFromTree @ 0x1402DEDA0
+ * XREFs of DeleteNodeFromTree @ 0x140264970
  * Callers:
- *     RtlDeleteElementGenericTableAvl @ 0x1402DECF0 (RtlDeleteElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvlEx @ 0x140389560 (RtlDeleteElementGenericTableAvlEx.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvlEx @ 0x1403812F0 (RtlDeleteElementGenericTableAvlEx.c)
  * Callees:
- *     RebalanceNode @ 0x1402DF0F8 (RebalanceNode.c)
+ *     RebalanceNode @ 0x140264CC8 (RebalanceNode.c)
  */
 
 __int64 __fastcall DeleteNodeFromTree(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax
   unsigned __int8 **v5; // rbx
-  unsigned __int8 *v6; // rcx
+  unsigned __int8 *v6; // rax
   char v7; // dl
-  unsigned __int8 *v8; // rax
-  unsigned __int8 *v9; // rcx
+  unsigned __int8 *v8; // rcx
+  unsigned __int8 **v9; // r8
   unsigned __int8 *v10; // rcx
-  unsigned __int8 *v11; // rdi
+  unsigned __int8 *v11; // rcx
+  unsigned __int8 *v12; // rdi
   __int64 result; // rax
-  bool v13; // zf
+  bool v14; // zf
   unsigned __int8 **j; // rax
-  unsigned __int8 *v15; // rcx
-  unsigned __int8 ***v16; // rax
+  unsigned __int8 *v16; // rcx
+  unsigned __int8 ***v17; // rax
   unsigned __int8 **i; // rax
 
   v2 = *(_QWORD *)(a2 + 8);
@@ -43,64 +44,65 @@ __int64 __fastcall DeleteNodeFromTree(__int64 a1, __int64 a2)
   {
     v5 = (unsigned __int8 **)a2;
   }
-  v6 = v5[1];
+  v6 = *v5;
   v7 = -1;
-  v8 = *v5;
-  if ( v6 )
+  v8 = v5[1];
+  v9 = (unsigned __int8 **)*((_QWORD *)*v5 + 1);
+  if ( v8 )
   {
-    if ( *((unsigned __int8 ***)v8 + 1) == v5 )
+    if ( v9 == v5 )
     {
-      *((_QWORD *)v8 + 1) = v6;
+      *((_QWORD *)v6 + 1) = v8;
     }
     else
     {
-      *((_QWORD *)v8 + 2) = v6;
+      *((_QWORD *)v6 + 2) = v8;
       v7 = 1;
     }
-    v10 = v5[1];
+    v11 = v5[1];
   }
   else
   {
-    v9 = v5[2];
-    if ( *((unsigned __int8 ***)v8 + 1) == v5 )
+    v10 = v5[2];
+    if ( v9 == v5 )
     {
-      *((_QWORD *)v8 + 1) = v9;
+      *((_QWORD *)v6 + 1) = v10;
     }
     else
     {
-      *((_QWORD *)v8 + 2) = v9;
+      *((_QWORD *)v6 + 2) = v10;
       v7 = 1;
     }
-    v10 = v5[2];
-    if ( !v10 )
+    v11 = v5[2];
+    if ( !v11 )
       goto LABEL_7;
   }
-  *(_QWORD *)v10 = *v5;
+  *(_QWORD *)v11 = *v5;
 LABEL_7:
   *(_BYTE *)(a1 + 24) = 0;
-  v11 = *v5;
+  v12 = *v5;
   while ( 1 )
   {
-    result = v11[24];
+    result = v12[24];
     if ( (_BYTE)result == v7 )
     {
-      v11[24] = 0;
+      v12[24] = 0;
       goto LABEL_15;
     }
     if ( !(_BYTE)result )
       break;
-    result = RebalanceNode(v11);
+    result = RebalanceNode(v12);
     if ( (_DWORD)result )
       goto LABEL_12;
-    v11 = *(unsigned __int8 **)v11;
+    v12 = *(unsigned __int8 **)v12;
 LABEL_15:
     v7 = 1;
-    v13 = *(_QWORD *)(*(_QWORD *)v11 + 16LL) == (_QWORD)v11;
-    v11 = *(unsigned __int8 **)v11;
-    if ( !v13 )
+    v14 = *(_QWORD *)(*(_QWORD *)v12 + 16LL) == (_QWORD)v12;
+    v12 = *(unsigned __int8 **)v12;
+    if ( !v14 )
       v7 = -1;
   }
-  v11[24] = -v7;
+  v12[24] = -v7;
   if ( *(_BYTE *)(a1 + 24) )
     --*(_DWORD *)(a1 + 48);
 LABEL_12:
@@ -108,14 +110,14 @@ LABEL_12:
   {
     *(_OWORD *)v5 = *(_OWORD *)a2;
     *((_OWORD *)v5 + 1) = *(_OWORD *)(a2 + 16);
-    v15 = *v5;
+    v16 = *v5;
     if ( *(_QWORD *)(*(_QWORD *)a2 + 8LL) == a2 )
-      *((_QWORD *)v15 + 1) = v5;
+      *((_QWORD *)v16 + 1) = v5;
     else
-      *((_QWORD *)v15 + 2) = v5;
-    v16 = (unsigned __int8 ***)v5[1];
-    if ( v16 )
-      *v16 = v5;
+      *((_QWORD *)v16 + 2) = v5;
+    v17 = (unsigned __int8 ***)v5[1];
+    if ( v17 )
+      *v17 = v5;
     result = (__int64)v5[2];
     if ( result )
       *(_QWORD *)result = v5;

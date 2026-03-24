@@ -1,26 +1,26 @@
 /*
- * XREFs of IopCopyCompleteReadRequest @ 0x14028C4B0
+ * XREFs of IopCopyCompleteReadRequest @ 0x1403F1040
  * Callers:
- *     IopCopyCompleteReadIrp @ 0x14028C2B0 (IopCopyCompleteReadIrp.c)
- *     IopCopyAbortCopyReadRequest @ 0x140559D50 (IopCopyAbortCopyReadRequest.c)
+ *     IopCopyAbortCopyReadRequest @ 0x1403F0C90 (IopCopyAbortCopyReadRequest.c)
+ *     IopCopyCompleteReadIrp @ 0x1403F0CC0 (IopCopyCompleteReadIrp.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     IopUpdateIrpTransferCount @ 0x14028C580 (IopUpdateIrpTransferCount.c)
- *     IopDropIrp @ 0x14028CCA8 (IopDropIrp.c)
- *     IopDequeueIrpFromFileObject @ 0x14028CD6C (IopDequeueIrpFromFileObject.c)
- *     IopProcessBufferedIoCompletion @ 0x1402AC270 (IopProcessBufferedIoCompletion.c)
- *     IopDequeueIrpFromThread @ 0x1402AF700 (IopDequeueIrpFromThread.c)
- *     Feature_Servicing_CopyMoveFileEventObjectLeak__private_IsEnabledDeviceUsage @ 0x14040F760 (Feature_Servicing_CopyMoveFileEventObjectLeak__private_IsEnabledDeviceUsage.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IopDequeueIrpFromThread @ 0x1402D3F10 (IopDequeueIrpFromThread.c)
+ *     IopDropIrp @ 0x14035A9A4 (IopDropIrp.c)
+ *     IopDequeueIrpFromFileObject @ 0x14035AA98 (IopDequeueIrpFromFileObject.c)
+ *     IopProcessBufferedIoCompletion @ 0x1403F0790 (IopProcessBufferedIoCompletion.c)
+ *     IopUpdateIrpTransferCount @ 0x1403F08A0 (IopUpdateIrpTransferCount.c)
+ *     Feature_Servicing_CopyFileMoveFileEventLeak__private_IsEnabledDeviceUsage @ 0x1403F0C30 (Feature_Servicing_CopyFileMoveFileEventLeak__private_IsEnabledDeviceUsage.c)
  */
 
-__int64 __fastcall IopCopyCompleteReadRequest(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
+void __fastcall IopCopyCompleteReadRequest(__int64 a1, __int64 a2, __int64 a3, ULONG_PTR *a4)
 {
   struct _KTHREAD *CurrentThread; // rbp
   IRP *v5; // rbx
-  __int64 v6; // rdi
+  ULONG_PTR v6; // rdi
   unsigned __int64 v7; // rsi
-  PKEVENT UserEvent; // rcx
+  struct _DMA_ADAPTER *UserEvent; // rcx
 
   CurrentThread = KeGetCurrentThread();
   v5 = (IRP *)(a1 - 120);
@@ -31,25 +31,25 @@ __int64 __fastcall IopCopyCompleteReadRequest(__int64 a1, __int64 a2, __int64 a3
   *(_DWORD *)(v6 + 56) = v5->IoStatus.Status;
   if ( (v5->Flags & 0x2000) != 0 )
     v7 = v5->Overlay.AllocationSize.QuadPart & 0xFFFFFFFFFFFFFFF9uLL;
-  IopProcessBufferedIoCompletion(v5);
-  IopUpdateIrpTransferCount(v5, v7);
+  IopProcessBufferedIoCompletion((__int64)v5);
+  IopUpdateIrpTransferCount((__int64)v5, v7);
   if ( (v5->Flags & 0x2000) != 0 )
   {
-    IopDequeueIrpFromFileObject(v5, v6);
+    IopDequeueIrpFromFileObject((__int64)v5, v6);
   }
   else
   {
     v5->Tail.Overlay.Thread = CurrentThread;
     IopDequeueIrpFromThread(v5);
   }
-  if ( !(unsigned int)Feature_Servicing_CopyMoveFileEventObjectLeak__private_IsEnabledDeviceUsage() )
+  if ( !(unsigned int)Feature_Servicing_CopyFileMoveFileEventLeak__private_IsEnabledDeviceUsage() )
     goto LABEL_11;
-  UserEvent = v5->UserEvent;
+  UserEvent = (struct _DMA_ADAPTER *)v5->UserEvent;
   if ( UserEvent )
   {
-    ObfDereferenceObject(UserEvent);
+    HalPutDmaAdapter(UserEvent);
 LABEL_11:
     v5->UserEvent = 0LL;
   }
-  return IopDropIrp(v5);
+  IopDropIrp(v5, v6);
 }

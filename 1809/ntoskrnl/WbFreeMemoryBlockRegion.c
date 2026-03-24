@@ -1,14 +1,14 @@
 /*
- * XREFs of WbFreeMemoryBlockRegion @ 0x1406B1CA8
+ * XREFs of WbFreeMemoryBlockRegion @ 0x1406B1C88
  * Callers:
- *     WbFreeUserMemory @ 0x1406B1BBC (WbFreeUserMemory.c)
+ *     WbFreeUserMemory @ 0x1406B1B9C (WbFreeUserMemory.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall WbFreeMemoryBlockRegion(__int64 a1, __int64 a2)

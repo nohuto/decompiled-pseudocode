@@ -1,30 +1,28 @@
 /*
- * XREFs of BuildGetLogPageCommand @ 0x1C0010E84
+ * XREFs of BuildGetLogPageCommand @ 0x1C0002AA4
  * Callers:
- *     BuildGetLogPageCommandForTelemetryLog @ 0x1C0010FA8 (BuildGetLogPageCommandForTelemetryLog.c)
- *     FirmwareGetInfo @ 0x1C0011D64 (FirmwareGetInfo.c)
- *     IoctlQueryEnduranceInformation @ 0x1C0013A20 (IoctlQueryEnduranceInformation.c)
- *     IoctlQueryTemperatureInfoProcess @ 0x1C0013ED8 (IoctlQueryTemperatureInfoProcess.c)
- *     LogSenseInformationalExceptions @ 0x1C0014B84 (LogSenseInformationalExceptions.c)
- *     LogSenseTemperature @ 0x1C0014D70 (LogSenseTemperature.c)
- *     NVMeGetSanitizeLogWorkItem @ 0x1C0016700 (NVMeGetSanitizeLogWorkItem.c)
- *     ProtocolCommandCompletion @ 0x1C00186C0 (ProtocolCommandCompletion.c)
- *     QueryProtocolInfoCompletion @ 0x1C0018BF0 (QueryProtocolInfoCompletion.c)
- *     QueryProtocolInfoLogPageData @ 0x1C00194BC (QueryProtocolInfoLogPageData.c)
- *     ScsiModeSenseRequest @ 0x1C001A004 (ScsiModeSenseRequest.c)
- *     NVMeAsyncEventRequestCompletion @ 0x1C001BA70 (NVMeAsyncEventRequestCompletion.c)
- *     NVMeGetCloudSSDErrorRecoveryLog @ 0x1C001D65C (NVMeGetCloudSSDErrorRecoveryLog.c)
- *     NVMeGetCommandEffectsLog @ 0x1C001D880 (NVMeGetCommandEffectsLog.c)
- *     NVMeGetHealthInfoLog @ 0x1C001E0F4 (NVMeGetHealthInfoLog.c)
- *     NVMeReenumerateReissueGetLogNamespaceChangeList @ 0x1C00228A8 (NVMeReenumerateReissueGetLogNamespaceChangeList.c)
+ *     QueryProtocolInfoLogPageData @ 0x1C0001F7C (QueryProtocolInfoLogPageData.c)
+ *     FirmwareGetInfo @ 0x1C000233C (FirmwareGetInfo.c)
+ *     ScsiModeSenseRequest @ 0x1C000294C (ScsiModeSenseRequest.c)
+ *     NVMeReenumerateReissueGetLogNamespaceChangeList @ 0x1C000778C (NVMeReenumerateReissueGetLogNamespaceChangeList.c)
+ *     BuildGetLogPageCommandForTelemetryLog @ 0x1C00110A8 (BuildGetLogPageCommandForTelemetryLog.c)
+ *     IoctlQueryEnduranceInformation @ 0x1C00130A4 (IoctlQueryEnduranceInformation.c)
+ *     IoctlQueryTemperatureInfoProcess @ 0x1C001348C (IoctlQueryTemperatureInfoProcess.c)
+ *     LogSenseInformationalExceptions @ 0x1C0013E64 (LogSenseInformationalExceptions.c)
+ *     LogSenseTemperature @ 0x1C001404C (LogSenseTemperature.c)
+ *     NVMeGetDeviceTelemetryData @ 0x1C001476C (NVMeGetDeviceTelemetryData.c)
+ *     ProtocolCommandCompletion @ 0x1C0015EE0 (ProtocolCommandCompletion.c)
+ *     NVMeAsyncEventRequestCompletion @ 0x1C0017780 (NVMeAsyncEventRequestCompletion.c)
+ *     NVMeGetCloudSSDErrorRecoveryLog @ 0x1C0018FC8 (NVMeGetCloudSSDErrorRecoveryLog.c)
+ *     NVMeGetCommandEffectsLog @ 0x1C0019218 (NVMeGetCommandEffectsLog.c)
  * Callees:
- *     SetPrpFromBuffer @ 0x1C001B4CC (SetPrpFromBuffer.c)
+ *     SetPrpFromBuffer @ 0x1C0002BA8 (SetPrpFromBuffer.c)
  */
 
 __int64 __fastcall BuildGetLogPageCommand(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        unsigned __int8 a3,
         unsigned int a4,
         __int64 a5,
         int a6,
@@ -32,34 +30,29 @@ __int64 __fastcall BuildGetLogPageCommand(
         unsigned __int16 a8)
 {
   __int64 v8; // rbp
-  unsigned __int64 v9; // rsi
+  unsigned __int64 v12; // rsi
   int v13; // ecx
-  int v14; // ecx
-  unsigned int v15; // eax
-  unsigned int v16; // edi
+  unsigned int v14; // eax
+  unsigned int v15; // edi
   __int64 result; // rax
 
-  v8 = *(_QWORD *)(a1 + 1840);
-  v9 = a4;
-  if ( (unsigned __int8)(a3 + 0x80) <= 1u
-    || (unsigned __int8)a3 <= 9u && (v13 = 954, _bittest(&v13, a3))
-    || (unsigned __int8)(a3 + 64) <= 9u && (v14 = 823, _bittest(&v14, a3 + 64)) )
-  {
+  v8 = *(_QWORD *)(a1 + 1624);
+  v12 = a4;
+  if ( a3 <= 9u && (v13 = 570, _bittest(&v13, a3)) || a3 == 0x80 )
     a6 = -1;
-  }
   *(_BYTE *)(a2 + 4136) = a3;
-  v15 = *(_DWORD *)(a2 + 4136) & 0xF0007FFF;
+  v14 = *(_DWORD *)(a2 + 4136) & 0xF0007FFF;
   *(_DWORD *)(a2 + 4100) = a6;
-  v16 = a4 >> 2;
+  v15 = a4 >> 2;
   *(_BYTE *)(a2 + 4096) = 2;
-  *(_DWORD *)(a2 + 4136) = v15 | ((((unsigned __int16)(a4 >> 2) - 1) & 0xFFF) << 16);
+  *(_DWORD *)(a2 + 4136) = v14 | ((((unsigned __int16)(a4 >> 2) - 1) & 0xFFF) << 16);
   SetPrpFromBuffer(a1, a2, a5, a4);
   result = a8;
   *(_WORD *)(a2 + 4142) = a8;
   if ( (*(_BYTE *)(v8 + 261) & 4) != 0 )
   {
-    *(_WORD *)(a2 + 4138) = v16 - 1;
-    *(_WORD *)(a2 + 4140) = ((unsigned int)(v9 >> 2) - 1) >> 16;
+    *(_WORD *)(a2 + 4138) = v15 - 1;
+    *(_WORD *)(a2 + 4140) = ((unsigned int)(v12 >> 2) - 1) >> 16;
     result = (unsigned int)a7 & 0xFFFFFFFC;
     *(_DWORD *)(a2 + 4144) = result;
     *(_DWORD *)(a2 + 4148) = (a7 >> 16) & 0xFFFF0000;

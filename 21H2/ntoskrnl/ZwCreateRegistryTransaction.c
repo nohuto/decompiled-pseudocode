@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateRegistryTransaction @ 0x14041CF80
+ * XREFs of ZwCreateRegistryTransaction @ 0x1403FBB40
  * Callers:
  *     <none>
  * Callees:

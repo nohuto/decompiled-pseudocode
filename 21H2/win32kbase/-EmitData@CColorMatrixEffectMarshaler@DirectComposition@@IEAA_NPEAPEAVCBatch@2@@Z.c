@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitData@CColorMatrixEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0216798
+ * XREFs of ?EmitData@CColorMatrixEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E0620
  * Callers:
- *     ?EmitUpdateCommands@CColorMatrixEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0216850 (-EmitUpdateCommands@CColorMatrixEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CColorMatrixEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E06E0 (-EmitUpdateCommands@CColorMatrixEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 bool __fastcall DirectComposition::CColorMatrixEffectMarshaler::EmitData(
@@ -23,15 +23,15 @@ bool __fastcall DirectComposition::CColorMatrixEffectMarshaler::EmitData(
   *(_DWORD *)v6 = 100;
   v4 = v3 + 4;
   memset(v3 + 4, 0, 0x60uLL);
-  *(_DWORD *)v4 = 472;
-  *((_DWORD *)v4 + 1) = *((_DWORD *)this + 8);
-  *((_DWORD *)v4 + 22) = *((_DWORD *)this + 50);
-  *((_DWORD *)v4 + 23) = *((_DWORD *)this + 51);
+  *(_DWORD *)v4 = 477;
+  *((_DWORD *)v4 + 1) = *((_DWORD *)this + 6);
+  *((_DWORD *)v4 + 22) = *((_DWORD *)this + 48);
+  *((_DWORD *)v4 + 23) = *((_DWORD *)this + 49);
   result = 1;
-  *(_OWORD *)(v4 + 8) = *(_OWORD *)((char *)this + 120);
-  *(_OWORD *)(v4 + 24) = *(_OWORD *)((char *)this + 136);
-  *(_OWORD *)(v4 + 40) = *(_OWORD *)((char *)this + 152);
-  *(_OWORD *)(v4 + 56) = *(_OWORD *)((char *)this + 168);
-  *(_OWORD *)(v4 + 72) = *(_OWORD *)((char *)this + 184);
+  *(_OWORD *)(v4 + 8) = *((_OWORD *)this + 7);
+  *(_OWORD *)(v4 + 24) = *((_OWORD *)this + 8);
+  *(_OWORD *)(v4 + 40) = *((_OWORD *)this + 9);
+  *(_OWORD *)(v4 + 56) = *((_OWORD *)this + 10);
+  *(_OWORD *)(v4 + 72) = *((_OWORD *)this + 11);
   return result;
 }

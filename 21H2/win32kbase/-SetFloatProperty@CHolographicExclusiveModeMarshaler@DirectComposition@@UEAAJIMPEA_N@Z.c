@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C022D9A0
+ * XREFs of ?SetFloatProperty@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01EE080
  * Callers:
  *     <none>
  * Callees:
@@ -18,7 +18,7 @@ __int64 __fastcall DirectComposition::CHolographicExclusiveModeMarshaler::SetFlo
   if ( a2 != 1 )
     return 3221225485LL;
   *((_DWORD *)this + 4) |= 0x40u;
-  *((float *)this + 17) = a3;
+  *((float *)this + 15) = a3;
   *a4 = 1;
   return result;
 }

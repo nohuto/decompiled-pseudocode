@@ -1,50 +1,51 @@
 /*
- * XREFs of PopEtProcessSnapshotCreate @ 0x140674BE4
+ * XREFs of PopEtProcessSnapshotCreate @ 0x14069905C
  * Callers:
- *     PopEtProcessSnapshotUpdate @ 0x1407A5C98 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtProcessSnapshotUpdate @ 0x1406190C8 (PopEtProcessSnapshotUpdate.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     PopEtAggregateKeyCopyFromProcess @ 0x140674EA8 (PopEtAggregateKeyCopyFromProcess.c)
- *     PopEtAggregateKeyCleanup @ 0x140674F0C (PopEtAggregateKeyCleanup.c)
- *     PopEtBucketsAllocate @ 0x1406EB300 (PopEtBucketsAllocate.c)
- *     PopEtBucketsFree @ 0x1406EB7CC (PopEtBucketsFree.c)
- *     PopEtStringSet @ 0x1407A6508 (PopEtStringSet.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopEtStringSet @ 0x1406198B0 (PopEtStringSet.c)
+ *     PopEtAggregateKeyCopyFromProcess @ 0x140699308 (PopEtAggregateKeyCopyFromProcess.c)
+ *     PopEtAggregateKeyCleanup @ 0x14069936C (PopEtAggregateKeyCleanup.c)
+ *     PopEtBucketsAllocate @ 0x140773B2C (PopEtBucketsAllocate.c)
+ *     PopEtBucketsFree @ 0x140773BAC (PopEtBucketsFree.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopEtProcessSnapshotCreate(__int64 a1, _QWORD *a2)
 {
-  __int64 v2; // rbp
+  __int64 v2; // r15
+  _QWORD *v3; // r12
   __int64 v4; // rdi
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v6; // r14
   unsigned __int64 v7; // rsi
-  unsigned int v8; // edx
+  unsigned int v8; // eax
   __int64 v9; // rbx
   char *v10; // r8
   char v11; // cl
   unsigned __int64 v12; // rcx
-  unsigned int v13; // edx
-  unsigned int v14; // edi
-  __int64 v15; // r10
-  __int64 v16; // r15
-  _QWORD *v17; // r9
-  __int64 v18; // rdx
-  unsigned int v19; // edi
-  __int64 v20; // rcx
-  __int64 v21; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // [rsp+50h] [rbp+8h]
-  __int64 v25; // [rsp+50h] [rbp+8h]
+  unsigned int v13; // edi
+  __int64 v14; // r10
+  __int64 v15; // r12
+  _QWORD *v16; // r9
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // rdx
+  unsigned int v20; // edi
+  __int64 v22; // rcx
+  __int64 v23; // [rsp+60h] [rbp+40h]
+  __int64 v24; // [rsp+60h] [rbp+40h]
 
   v2 = *(_QWORD *)(a1 + 16);
+  v3 = a2;
   v4 = *(_QWORD *)(a1 + 8);
-  Pool2 = (_QWORD *)ExAllocatePool2(256LL, 496LL, 1413836624LL);
-  v6 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1F0uLL, 0x54456F50u);
+  v6 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, 0x1F0uLL);
+    memset(PoolWithTag, 0, 0x1F0uLL);
     v6[1] = v4;
     PopEtAggregateKeyCopyFromProcess(v6 + 2, v4, v2 + 32);
     PopEtStringSet(v6 + 3, 0LL);
@@ -55,7 +56,7 @@ __int64 __fastcall PopEtProcessSnapshotCreate(__int64 a1, _QWORD *a2)
       goto LABEL_21;
     if ( (unsigned int)v9 < 4 )
       v9 = 4LL;
-    v10 = (char *)PopEtBucketsAllocate(8LL * (unsigned int)v9, 0LL);
+    v10 = (char *)PopEtBucketsAllocate(8LL * (unsigned int)v9);
     if ( v10 )
     {
       if ( (((_DWORD)v9 - 1) & (unsigned int)v9) != 0 )
@@ -76,44 +77,43 @@ __int64 __fastcall PopEtProcessSnapshotCreate(__int64 a1, _QWORD *a2)
         v12 = 0LL;
       if ( v12 )
         memset64(v10, v7 | 1, v12);
-      v13 = *(_DWORD *)(v2 + 68);
-      v14 = 0;
-      v15 = -1LL << (*(_BYTE *)(v2 + 68) & 0x1F);
-      if ( (v13 & 0xFFFFFFE0) != 0 )
+      v13 = 0;
+      v14 = -1LL << (*(_BYTE *)(v2 + 68) & 0x1F);
+      if ( (*(_DWORD *)(v2 + 68) & 0xFFFFFFE0) != 0 )
       {
         do
         {
-          v16 = *(_QWORD *)(v2 + 72);
+          v15 = *(_QWORD *)(v2 + 72);
           while ( 1 )
           {
-            v17 = *(_QWORD **)(v16 + 8LL * v14);
-            if ( ((unsigned __int8)v17 & 1) != 0 )
+            v16 = *(_QWORD **)(v15 + 8LL * v13);
+            if ( ((unsigned __int8)v16 & 1) != 0 )
               break;
-            *(_QWORD *)(v16 + 8LL * v14) = *v17;
-            v24 = v15 & v17[1];
-            v18 = (37
-                 * (BYTE6(v24)
+            *(_QWORD *)(v15 + 8LL * v13) = *v16;
+            v23 = v14 & v16[1];
+            v17 = (37
+                 * (BYTE6(v23)
                   + 37
-                  * (BYTE5(v24)
+                  * (BYTE5(v23)
                    + 37
-                   * (BYTE4(v24)
-                    + 37 * (BYTE3(v24) + 37 * (BYTE2(v24) + 37 * (BYTE1(v24) + 37 * ((unsigned __int8)v24 + 11623883)))))))
-                 + HIBYTE(v24)) & (unsigned int)(v9 - 1);
-            *v17 = *(_QWORD *)&v10[8 * v18];
-            *(_QWORD *)&v10[8 * v18] = v17;
+                   * (BYTE4(v23)
+                    + 37 * (BYTE3(v23) + 37 * (BYTE2(v23) + 37 * (BYTE1(v23) + 37 * ((unsigned __int8)v23 + 11623883)))))))
+                 + HIBYTE(v23)) & (unsigned int)(v9 - 1);
+            *v16 = *(_QWORD *)&v10[8 * v17];
+            *(_QWORD *)&v10[8 * v17] = v16;
           }
-          v13 = *(_DWORD *)(v2 + 68);
-          ++v14;
+          ++v13;
         }
-        while ( v14 < v13 >> 5 );
+        while ( v13 < *(_DWORD *)(v2 + 68) >> 5 );
+        v3 = a2;
       }
-      v23 = *(_QWORD *)(v2 + 72);
-      v8 = (32 * v9) | v13 & 0x1F;
+      v22 = *(_QWORD *)(v2 + 72);
+      v8 = (32 * v9) | *(_DWORD *)(v2 + 68) & 0x1F;
       *(_QWORD *)(v2 + 72) = v10;
       *(_DWORD *)(v2 + 68) = v8;
-      if ( v23 )
+      if ( v22 )
       {
-        PopEtBucketsFree(v23, 0LL);
+        PopEtBucketsFree(v22, 0LL);
         v8 = *(_DWORD *)(v2 + 68);
       }
       goto LABEL_21;
@@ -122,30 +122,29 @@ __int64 __fastcall PopEtProcessSnapshotCreate(__int64 a1, _QWORD *a2)
     if ( v8 >= 0x20 )
     {
 LABEL_21:
-      *a2 = v6;
-      v25 = v6[1] & (-1LL << (v8 & 0x1F));
-      v19 = 0;
-      v20 = *(_QWORD *)(v2 + 72);
-      v21 = (37
-           * (BYTE6(v25)
+      *v3 = v6;
+      v24 = v6[1] & (-1LL << (v8 & 0x1F));
+      v18 = *(_QWORD *)(v2 + 72);
+      v19 = (37
+           * (BYTE6(v24)
             + 37
-            * (BYTE5(v25)
+            * (BYTE5(v24)
              + 37
-             * (BYTE4(v25)
-              + 37 * (BYTE3(v25) + 37 * (BYTE2(v25) + 37 * (BYTE1(v25) + 37 * ((unsigned __int8)v25 + 11623883)))))))
-           + HIBYTE(v25)) & ((v8 >> 5) - 1);
-      *v6 = *(_QWORD *)(v20 + 8 * v21);
-      *(_QWORD *)(v20 + 8 * v21) = v6;
+             * (BYTE4(v24)
+              + 37 * (BYTE3(v24) + 37 * (BYTE2(v24) + 37 * (BYTE1(v24) + 37 * ((unsigned __int8)v24 + 11623883)))))))
+           + HIBYTE(v24)) & ((v8 >> 5) - 1);
+      *v6 = *(_QWORD *)(v18 + 8 * v19);
+      *(_QWORD *)(v18 + 8 * v19) = v6;
       ++*(_DWORD *)v7;
-      return v19;
+      return 0;
     }
   }
   ++*(_DWORD *)(v2 + 612);
-  v19 = -1073741670;
+  v20 = -1073741670;
   if ( v6 )
   {
     PopEtAggregateKeyCleanup(v6 + 2);
     ExFreePoolWithTag(v6, 0x54456F50u);
   }
-  return v19;
+  return v20;
 }

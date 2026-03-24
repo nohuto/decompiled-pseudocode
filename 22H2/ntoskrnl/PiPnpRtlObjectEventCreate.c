@@ -1,35 +1,35 @@
 /*
- * XREFs of PiPnpRtlObjectEventCreate @ 0x140789A18
+ * XREFs of PiPnpRtlObjectEventCreate @ 0x1406AE094
  * Callers:
- *     PiPnpRtlObjectEventWorker @ 0x1407889E0 (PiPnpRtlObjectEventWorker.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x140789868 (PiPnpRtlCacheObjectBaseKey.c)
- *     PiPnpRtlEnsureObjectCached @ 0x14095A234 (PiPnpRtlEnsureObjectCached.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1406B004C (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1407464B0 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x1408A31CC (PiPnpRtlEnsureObjectCached.c)
  * Callees:
- *     RtlLookupElementGenericTableFullAvl @ 0x14031E6C0 (RtlLookupElementGenericTableFullAvl.c)
- *     RtlInsertElementGenericTableFullAvl @ 0x14031EB10 (RtlInsertElementGenericTableFullAvl.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1406D81D0 (PiDmGetObject.c)
- *     PiDmInitializeComparisonObject @ 0x1406D8320 (PiDmInitializeComparisonObject.c)
- *     PiPnpRtlObjectEventRelease @ 0x140788E58 (PiPnpRtlObjectEventRelease.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlLookupElementGenericTableFullAvl @ 0x14032D870 (RtlLookupElementGenericTableFullAvl.c)
+ *     RtlInsertElementGenericTableFullAvl @ 0x14032DCF0 (RtlInsertElementGenericTableFullAvl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PiPnpRtlObjectEventRelease @ 0x1406ACE28 (PiPnpRtlObjectEventRelease.c)
+ *     PiDmGetObject @ 0x1406AF84C (PiDmGetObject.c)
+ *     PiDmInitializeComparisonObject @ 0x1406AF984 (PiDmInitializeComparisonObject.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiPnpRtlObjectEventCreate(_WORD *a1, unsigned int a2, __int64 a3, char **a4)
+__int64 __fastcall PiPnpRtlObjectEventCreate(__int64 a1, unsigned int a2, __int64 a3, char **a4)
 {
-  char *v8; // rsi
+  PVOID v8; // rsi
   int v9; // ebx
   char **v10; // rax
   char *v11; // rdi
   int Object; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   _DWORD *v15; // rdi
   PVOID v16; // rax
   PVOID inserted; // rax
   TABLE_SEARCH_RESULT SearchResult; // [rsp+30h] [rbp-D0h] BYREF
-  PVOID P; // [rsp+38h] [rbp-C8h] BYREF
-  PVOID v20; // [rsp+40h] [rbp-C0h] BYREF
+  PVOID v19; // [rsp+38h] [rbp-C8h] BYREF
+  PVOID P; // [rsp+40h] [rbp-C0h] BYREF
   PVOID NodeOrParent; // [rsp+48h] [rbp-B8h] BYREF
   _QWORD *Buffer; // [rsp+50h] [rbp-B0h] BYREF
   _QWORD v23[10]; // [rsp+60h] [rbp-A0h] BYREF
@@ -42,71 +42,62 @@ __int64 __fastcall PiPnpRtlObjectEventCreate(_WORD *a1, unsigned int a2, __int64
   v8 = 0LL;
   Buffer = v23;
   *a4 = 0LL;
-  P = 0LL;
-  v9 = PiDmInitializeComparisonObject(a1, a2, (__int64)v24);
+  v19 = 0LL;
+  v9 = PiDmInitializeComparisonObject(a1, a2, v24);
   if ( v9 >= 0 )
   {
     v23[1] = v24;
     v10 = (char **)RtlLookupElementGenericTableFullAvl((PRTL_AVL_TABLE)(a3 + 24), &Buffer, &NodeOrParent, &SearchResult);
     if ( v10 )
-    {
       v11 = *v10;
-      if ( *v10 )
-      {
-LABEL_4:
-        *a4 = v11;
-        return (unsigned int)v9;
-      }
-    }
     else
-    {
       v11 = 0LL;
-    }
-    Object = PiDmGetObject(a2, (__int64)a1, &P);
+    if ( v11 )
+      goto LABEL_5;
+    Object = PiDmGetObject(a2, a1, &v19);
     v9 = Object;
     if ( Object == -1073741772 )
     {
-      v8 = (char *)P;
+      v8 = v19;
       v9 = 0;
-      goto LABEL_18;
+      goto LABEL_14;
     }
     if ( Object < 0 )
     {
-      v8 = (char *)P;
-LABEL_15:
+      v8 = v19;
+LABEL_18:
       if ( v11 )
         PiPnpRtlObjectEventRelease(v11);
-      goto LABEL_17;
+      goto LABEL_20;
     }
-    Pool2 = (void *)ExAllocatePool2(256LL, 240LL, 1097887312LL);
-    v20 = Pool2;
-    v15 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xF0uLL, 0x41706E50u);
+    P = PoolWithTag;
+    v15 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memset(Pool2, 0, 0x50uLL);
-      v16 = P;
+      memset(PoolWithTag, 0, 0x50uLL);
+      v16 = v19;
       *v15 = 1;
       v15[18] = 5;
+      v8 = 0LL;
       *((_QWORD *)v15 + 1) = v16;
-      inserted = RtlInsertElementGenericTableFullAvl(
-                   (PRTL_AVL_TABLE)(a3 + 24),
-                   &v20,
-                   8u,
-                   0LL,
-                   NodeOrParent,
-                   SearchResult);
-      v11 = (char *)v20;
+      inserted = RtlInsertElementGenericTableFullAvl((PRTL_AVL_TABLE)(a3 + 24), &P, 8u, 0LL, NodeOrParent, SearchResult);
+      v11 = (char *)P;
       if ( inserted )
-        goto LABEL_4;
+      {
+LABEL_5:
+        *a4 = v11;
+        return (unsigned int)v9;
+      }
       v9 = -1073741670;
-      goto LABEL_15;
+      goto LABEL_18;
     }
-    v8 = (char *)P;
+    v8 = v19;
     v9 = -1073741670;
   }
-LABEL_17:
+LABEL_20:
   *a4 = 0LL;
-LABEL_18:
+LABEL_14:
   if ( v8 )
     PiDmObjectRelease(v8);
   return (unsigned int)v9;

@@ -1,26 +1,28 @@
 /*
- * XREFs of RemoveCountFromEndOfArray_AxisWithType_ @ 0x18012DA12
+ * XREFs of RemoveCountFromEndOfArray_AxisWithType_ @ 0x18023714C
  * Callers:
- *     ?ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionResource@@W4InputType@@PEAUInteractionAxisGroup@@3PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@PEAUInteractionAxis@@PEAW4InteractionState@@PEAPEAU3@7@Z @ 0x1801A80CC (-ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionR.c)
+ *     ?ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionResource@@W4InputType@@PEAUInteractionAxisGroup@@3PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@PEAUInteractionAxis@@PEAW4InteractionState@@PEAPEAU3@7@Z @ 0x180237AA4 (-ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionR.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 void __fastcall RemoveCountFromEndOfArray_AxisWithType_(int a1, __int64 a2)
 {
   int v3; // ebx
-  __int64 v4; // rcx
+  int v4; // eax
+  __int64 v5; // rcx
 
   if ( a1 )
   {
     v3 = a1;
     do
     {
-      v4 = *(unsigned int *)(a2 + 24);
-      if ( (_DWORD)v4 )
-        *(_DWORD *)(a2 + 24) = v4 - 1;
+      v4 = *(_DWORD *)(a2 + 24);
+      v5 = (unsigned int)(v4 - 1);
+      if ( v4 )
+        *(_DWORD *)(a2 + 24) = v5;
       else
-        MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, -2147024809, 0x19Cu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024809, 0x19Cu, 0LL);
       --v3;
     }
     while ( v3 );

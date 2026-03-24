@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhGetDeviceDescriptor @ 0x1C0053DEC
+ * XREFs of UsbhGetDeviceDescriptor @ 0x1C0055478
  * Callers:
- *     UsbhGetAlternateUsbDescriptors @ 0x1C00372AC (UsbhGetAlternateUsbDescriptors.c)
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
+ *     UsbhGetAlternateUsbDescriptors @ 0x1C0038560 (UsbhGetAlternateUsbDescriptors.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
  * Callees:
- *     UsbhSyncSendCommandToDevice @ 0x1C0002110 (UsbhSyncSendCommandToDevice.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhValidateDeviceDescriptor @ 0x1C0051D98 (UsbhValidateDeviceDescriptor.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C00177A8 (UsbhSyncSendCommandToDevice.c)
+ *     UsbhValidateDeviceDescriptor @ 0x1C00533E8 (UsbhValidateDeviceDescriptor.c)
  */
 
 __int64 __fastcall UsbhGetDeviceDescriptor(__int64 a1, __int64 a2)

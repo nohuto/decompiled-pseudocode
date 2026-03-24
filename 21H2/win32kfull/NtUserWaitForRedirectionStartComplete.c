@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserWaitForRedirectionStartComplete @ 0x1C0200940
+ * XREFs of NtUserWaitForRedirectionStartComplete @ 0x1C0204920
  * Callers:
  *     <none>
  * Callees:
- *     GreGetRedirectionEvent @ 0x1C0121698 (GreGetRedirectionEvent.c)
+ *     GreGetRedirectionEvent @ 0x1C0135E78 (GreGetRedirectionEvent.c)
  */
 
 unsigned __int64 NtUserWaitForRedirectionStartComplete()

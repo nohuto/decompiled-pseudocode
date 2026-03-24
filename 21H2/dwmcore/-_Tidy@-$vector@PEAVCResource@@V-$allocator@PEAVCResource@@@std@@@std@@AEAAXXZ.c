@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_Tidy@?$vector@PEAVCResource@@V?$allocator@PEAVCResource@@@std@@@std@@AEAAXXZ @ 0x1800E2760
+ * XREFs of ?_Tidy@?$vector@PEAVCResource@@V?$allocator@PEAVCResource@@@std@@@std@@AEAAXXZ @ 0x1800D25C0
  * Callers:
- *     ?OnResourceDestroyed@CWeakResourceReference@@AEAAXXZ @ 0x1800DE334 (-OnResourceDestroyed@CWeakResourceReference@@AEAAXXZ.c)
- *     ??1CWeakResourceReference@@MEAA@XZ @ 0x1800DF834 (--1CWeakResourceReference@@MEAA@XZ.c)
+ *     ??1CWeakResourceReference@@MEAA@XZ @ 0x180064E24 (--1CWeakResourceReference@@MEAA@XZ.c)
+ *     ?OnResourceDestroyed@CWeakResourceReference@@AEAAXXZ @ 0x1800CD174 (-OnResourceDestroyed@CWeakResourceReference@@AEAAXXZ.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
  */
 
 void __fastcall std::vector<CResource *>::_Tidy(__int64 a1)

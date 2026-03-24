@@ -1,100 +1,78 @@
 /*
- * XREFs of ?IsSystemResourceOfType@CConnection@DirectComposition@@QEAA_NVResourceHandle@@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C002671C
+ * XREFs of ?IsSystemResourceOfType@CConnection@DirectComposition@@QEAA_NVResourceHandle@@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C005E140
  * Callers:
- *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C00318F0 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
+ *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C005DFD0 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
  * Callees:
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0065C58 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x1C0092B30 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C005AA80 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall DirectComposition::CConnection::IsSystemResourceOfType(__int64 a1, int a2, unsigned int a3)
+bool __fastcall DirectComposition::CConnection::IsSystemResourceOfType(__int64 a1, int a2, unsigned int a3)
 {
   struct _ERESOURCE *v6; // rdi
-  __int64 v7; // rdi
-  unsigned __int64 v8; // rdx
-  __int64 v9; // rdx
-  __int64 v10; // rax
-  __int64 v11; // rsi
-  __int64 v12; // rcx
-  char v13; // r12
-  PERESOURCE *v14; // r15
-  volatile signed __int32 *v15; // r14
-  DirectComposition::CConnection **v16; // rbp
-  struct _ERESOURCE *v18; // rbx
-  struct _ERESOURCE *v19; // rbx
-  struct _ERESOURCE *v20; // rbx
-  struct _ERESOURCE *v21; // rbx
+  _QWORD *v7; // rdx
+  unsigned __int64 v8; // r8
+  __int64 v9; // rcx
+  bool v10; // si
+  __int64 v11; // rdi
+  struct _ERESOURCE *v13; // rbx
+  struct _ERESOURCE *v14; // rbx
+  struct _ERESOURCE *v15; // rbx
+  struct _ERESOURCE *v16; // rbx
 
   v6 = *(struct _ERESOURCE **)(*(_QWORD *)(a1 + 152) + 32LL);
   KeEnterCriticalRegion();
   ExAcquireResourceExclusiveLite(v6, 1u);
-  v7 = *(_QWORD *)(a1 + 152);
+  v7 = *(_QWORD **)(a1 + 152);
   v8 = (unsigned int)(a2 - 1);
-  if ( !a2 || v8 >= *(_QWORD *)(v7 + 136) )
+  if ( a2 && v8 < v7[17] )
   {
-    v11 = *(_QWORD *)(a1 + 152);
-LABEL_12:
-    v13 = 0;
-    goto LABEL_6;
+    _mm_lfence();
+    v9 = *(_QWORD *)(v8 * v7[18] + v7[14]);
   }
-  _mm_lfence();
-  v9 = *(_QWORD *)(v7 + 144) * v8;
-  v10 = *(_QWORD *)(v7 + 112);
+  else
+  {
+    v9 = 0LL;
+  }
+  v10 = v9 && (*(unsigned __int8 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v9 + 96LL))(v9, a3);
   v11 = *(_QWORD *)(a1 + 152);
-  v7 = v11;
-  v12 = *(_QWORD *)(v9 + v10);
-  if ( !v12
-    || !(unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(*(unsigned int *)(v12 + 36), a3) )
-  {
-    goto LABEL_12;
-  }
-  v13 = 1;
-LABEL_6:
-  v14 = (PERESOURCE *)(v7 + 32);
-  ExReleaseResourceLite(*(PERESOURCE *)(v7 + 32));
+  ExReleaseResourceLite(*(PERESOURCE *)(v11 + 32));
   KeLeaveCriticalRegion();
-  v15 = (volatile signed __int32 *)(v7 + 24);
   do
   {
-    if ( _InterlockedCompareExchange(v15, 2, 1) == 1 )
+    if ( _InterlockedCompareExchange((volatile signed __int32 *)(v11 + 24), 2, 1) == 1 )
     {
-      v18 = *v14;
+      v13 = *(struct _ERESOURCE **)(v11 + 32);
       KeEnterCriticalRegion();
-      ExAcquireResourceExclusiveLite(v18, 1u);
-      (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v7 + 48LL))(v7, 0LL);
-      v16 = (DirectComposition::CConnection **)(v7 + 40);
-      v19 = *(struct _ERESOURCE **)(*(_QWORD *)(v7 + 40) + 8LL);
+      ExAcquireResourceExclusiveLite(v13, 1u);
+      (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v11 + 48LL))(v11, 0LL);
+      v14 = *(struct _ERESOURCE **)(*(_QWORD *)(v11 + 40) + 8LL);
       KeEnterCriticalRegion();
-      ExAcquireResourceSharedLite(v19, 1u);
-      if ( DirectComposition::CConnection::IsConnected(*(DirectComposition::CConnection **)(v7 + 40)) )
-        *v15 = 4;
-      ExReleaseResourceLite(*v14);
+      ExAcquireResourceSharedLite(v14, 1u);
+      if ( DirectComposition::CConnection::IsConnected(*(DirectComposition::CConnection **)(v11 + 40)) )
+        *(_DWORD *)(v11 + 24) = 4;
+      ExReleaseResourceLite(*(PERESOURCE *)(v11 + 32));
       KeLeaveCriticalRegion();
-      ExReleaseResourceLite(*((PERESOURCE *)*v16 + 1));
+      ExReleaseResourceLite(*(PERESOURCE *)(*(_QWORD *)(v11 + 40) + 8LL));
       KeLeaveCriticalRegion();
     }
-    else
+    if ( _InterlockedCompareExchange((volatile signed __int32 *)(v11 + 24), 5, 4) == 4 )
     {
-      v16 = (DirectComposition::CConnection **)(v11 + 40);
-    }
-    if ( _InterlockedCompareExchange(v15, 5, 4) == 4 )
-    {
-      v20 = *v14;
+      v15 = *(struct _ERESOURCE **)(v11 + 32);
       KeEnterCriticalRegion();
-      ExAcquireResourceExclusiveLite(v20, 1u);
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 56LL))(v7);
-      v21 = (struct _ERESOURCE *)*((_QWORD *)*v16 + 1);
+      ExAcquireResourceExclusiveLite(v15, 1u);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 56LL))(v11);
+      v16 = *(struct _ERESOURCE **)(*(_QWORD *)(v11 + 40) + 8LL);
       KeEnterCriticalRegion();
-      ExAcquireResourceSharedLite(v21, 1u);
-      if ( !DirectComposition::CConnection::IsConnected(*v16) )
-        *v15 = 1;
-      ExReleaseResourceLite(*v14);
+      ExAcquireResourceSharedLite(v16, 1u);
+      if ( !DirectComposition::CConnection::IsConnected(*(DirectComposition::CConnection **)(v11 + 40)) )
+        *(_DWORD *)(v11 + 24) = 1;
+      ExReleaseResourceLite(*(PERESOURCE *)(v11 + 32));
       KeLeaveCriticalRegion();
-      ExReleaseResourceLite(*((PERESOURCE *)*v16 + 1));
+      ExReleaseResourceLite(*(PERESOURCE *)(*(_QWORD *)(v11 + 40) + 8LL));
       KeLeaveCriticalRegion();
     }
   }
-  while ( *v15 == 1 );
-  return v13;
+  while ( *(_DWORD *)(v11 + 24) == 1 );
+  return v10;
 }

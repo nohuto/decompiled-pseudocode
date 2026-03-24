@@ -1,65 +1,71 @@
 /*
- * XREFs of VmpAllocateMemoryRanges @ 0x1409DD064
+ * XREFs of VmpAllocateMemoryRanges @ 0x14092F59C
  * Callers:
- *     VmpSplitMemoryRange @ 0x1405FB140 (VmpSplitMemoryRange.c)
- *     VmCreateMemoryRange @ 0x1409DC590 (VmCreateMemoryRange.c)
- *     VmPreallocateForRangeCreate @ 0x1409DCAB0 (VmPreallocateForRangeCreate.c)
+ *     VmpSplitMemoryRange @ 0x1405A5084 (VmpSplitMemoryRange.c)
+ *     VmCreateMemoryRange @ 0x14092EE50 (VmCreateMemoryRange.c)
+ *     VmPreallocateForRangeCreate @ 0x14092F160 (VmPreallocateForRangeCreate.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     VmpFreeMemoryRanges @ 0x1409DD25C (VmpFreeMemoryRanges.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     VmpFreeMemoryRanges @ 0x14092F6E8 (VmpFreeMemoryRanges.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall VmpAllocateMemoryRanges(unsigned __int64 a1)
 {
-  __int64 v1; // rbx
-  _QWORD *Pool2; // rax
-  _QWORD *v4; // rdi
-  _QWORD *v5; // r14
-  unsigned __int64 v6; // rbp
-  _QWORD *v7; // rax
-  _QWORD *v8; // rsi
-  _QWORD *v9; // rax
+  _QWORD *v2; // rbp
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v4; // rbx
+  char *v5; // rdi
+  unsigned __int64 v6; // r14
+  char *v7; // rax
+  char *v8; // rsi
+  char **v9; // rax
 
-  v1 = 0LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 72LL, 1918266710LL);
-  v4 = Pool2;
-  if ( Pool2 )
+  v2 = 0LL;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x72566D56u);
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, 0x48uLL);
-    v4[2] = -1LL;
-    v5 = v4 + 5;
-    v4[6] = v4 + 5;
+    v5 = (char *)(PoolWithTag + 5);
+    *(_OWORD *)PoolWithTag = 0LL;
     v6 = 0LL;
-    v4[5] = v4 + 5;
+    *((_OWORD *)PoolWithTag + 1) = 0LL;
+    *((_OWORD *)PoolWithTag + 2) = 0LL;
+    PoolWithTag[6] = 0LL;
+    PoolWithTag[2] = -1LL;
+    PoolWithTag[6] = PoolWithTag + 5;
+    PoolWithTag[5] = PoolWithTag + 5;
     if ( a1 )
     {
       while ( 1 )
       {
-        v7 = (_QWORD *)ExAllocatePool2(64LL, 72LL, 1917283670LL);
+        v7 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x72476D56u);
         v8 = v7;
         if ( !v7 )
           break;
-        memset(v7, 0, 0x48uLL);
-        v8[5] = -1LL;
-        v8[2] = v4;
-        v9 = (_QWORD *)v4[6];
-        if ( (_QWORD *)*v9 != v5 )
+        memset(v7, 0, 0x40uLL);
+        *((_QWORD *)v8 + 5) = -1LL;
+        *((_QWORD *)v8 + 2) = v4;
+        v9 = (char **)v4[6];
+        if ( *v9 != v5 )
           __fastfail(3u);
-        *v8 = v5;
+        *(_QWORD *)v8 = v5;
         ++v6;
-        v8[1] = v9;
+        *((_QWORD *)v8 + 1) = v9;
         *v9 = v8;
         v4[6] = v8;
         if ( v6 >= a1 )
-          return v4;
+          goto LABEL_6;
       }
-      VmpFreeMemoryRanges(v4);
     }
     else
     {
-      return v4;
+LABEL_6:
+      v2 = v4;
+      v4 = 0LL;
     }
+    if ( v4 )
+      VmpFreeMemoryRanges(v4);
   }
-  return (_QWORD *)v1;
+  return v2;
 }

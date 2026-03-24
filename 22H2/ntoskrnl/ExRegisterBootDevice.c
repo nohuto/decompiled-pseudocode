@@ -1,25 +1,26 @@
 /*
- * XREFs of ExRegisterBootDevice @ 0x140609520
+ * XREFs of ExRegisterBootDevice @ 0x1405B3070
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetPriorityThread @ 0x1402B0310 (KeSetPriorityThread.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThread @ 0x1407B86B0 (PsCreateSystemThread.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetPriorityThread @ 0x140257340 (KeSetPriorityThread.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThread @ 0x1406FDA10 (PsCreateSystemThread.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ExRegisterBootDevice(__int64 a1, __int64 *a2)
+__int64 __fastcall ExRegisterBootDevice(__int64 a1, _QWORD *a2)
 {
   NTSTATUS v4; // ebx
-  __int64 Pool2; // rsi
+  _DWORD *PoolWithTag; // rsi
   void *v6; // rcx
   unsigned __int64 v7; // rdi
   _QWORD *v8; // rax
@@ -35,7 +36,7 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, __int64 *a2)
 
   ThreadHandle = 0LL;
   v4 = 0;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   KeWaitForSingleObject(&ExExternalBootSupportInitializationEvent, Executive, 0, 0, 0LL);
   if ( !ExBootDeviceRemovalHandler )
   {
@@ -57,54 +58,54 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, __int64 *a2)
   KeSetEvent(&ExExternalBootSupportInitializationEvent, 0, 0);
   if ( v4 >= 0 )
   {
-    if ( *(_DWORD *)a1 == 1 && *(_QWORD *)(a1 + 8) && !*(_DWORD *)(a1 + 4) && *(_QWORD *)(a1 + 24) )
+    if ( *(_DWORD *)a1 != 1 || !*(_QWORD *)(a1 + 8) || *(_DWORD *)(a1 + 4) || !*(_QWORD *)(a1 + 24) )
+      v4 = -1073741811;
+    if ( v4 >= 0 )
     {
-      Pool2 = ExAllocatePool2(64LL, 64LL, 1347306562LL);
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x504E4442u);
+      if ( !PoolWithTag )
+        v4 = -1073741670;
+      if ( v4 >= 0 )
       {
         ObfReferenceObjectWithTag(*(PVOID *)(a1 + 8), 0x746C6644u);
         v6 = *(void **)(a1 + 16);
         if ( v6 )
           ObfReferenceObjectWithTag(v6, 0x746C6644u);
-        *(_DWORD *)Pool2 = 1347306562;
-        *(_OWORD *)(Pool2 + 24) = *(_OWORD *)a1;
-        *(_OWORD *)(Pool2 + 40) = *(_OWORD *)(a1 + 16);
-        *(_QWORD *)(Pool2 + 56) = *(_QWORD *)(a1 + 32);
+        memset(PoolWithTag, 0, 0x40uLL);
+        *PoolWithTag = 1347306562;
+        *(_OWORD *)(PoolWithTag + 6) = *(_OWORD *)a1;
+        *(_OWORD *)(PoolWithTag + 10) = *(_OWORD *)(a1 + 16);
+        *((_QWORD *)PoolWithTag + 7) = *(_QWORD *)(a1 + 32);
         v7 = KeAcquireSpinLockRaiseToDpc(&ExBootDeviceListSpinLock);
-        v8 = (_QWORD *)qword_140C2D6D8;
-        v9 = (_QWORD *)(Pool2 + 8);
-        if ( *(__int64 **)qword_140C2D6D8 != &ExBootDeviceList )
+        v8 = (_QWORD *)qword_140C193E8;
+        v9 = PoolWithTag + 2;
+        if ( *(__int64 **)qword_140C193E8 != &ExBootDeviceList )
           __fastfail(3u);
         *v9 = &ExBootDeviceList;
-        *(_QWORD *)(Pool2 + 16) = v8;
+        *((_QWORD *)PoolWithTag + 2) = v8;
         *v8 = v9;
-        qword_140C2D6D8 = Pool2 + 8;
-        KxReleaseSpinLock((volatile signed __int64 *)&ExBootDeviceListSpinLock);
+        qword_140C193E8 = (__int64)(PoolWithTag + 2);
+        KxReleaseSpinLock(&ExBootDeviceListSpinLock);
         if ( KiIrqlFlags )
         {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-            v14 = (v13 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v13;
-            if ( v14 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+              v14 = (v13 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v13;
+              if ( v14 )
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
           }
         }
         __writecr8(v7);
-        *a2 = Pool2;
+        *a2 = PoolWithTag;
       }
-      else
-      {
-        return (unsigned int)-1073741670;
-      }
-    }
-    else
-    {
-      return (unsigned int)-1073741811;
     }
   }
   return (unsigned int)v4;

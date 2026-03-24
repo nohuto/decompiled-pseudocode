@@ -1,19 +1,18 @@
 /*
- * XREFs of ?ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z @ 0x1C0366494
+ * XREFs of ?ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z @ 0x1C023B500
  * Callers:
- *     ?VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0366FC0 (-VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023BE10 (-VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?ValidateRect@@YAEPEBUtagRECT@@@Z @ 0x1C0366770 (-ValidateRect@@YAEPEBUtagRECT@@@Z.c)
- *     ?ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z @ 0x1C03667E4 (-ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z.c)
- *     ?ValidateSubRect@@YAEPEBUtagRECT@@0@Z @ 0x1C03668DC (-ValidateSubRect@@YAEPEBUtagRECT@@0@Z.c)
+ *     ?ValidateRect@@YAEPEBUtagRECT@@@Z @ 0x1C023B740 (-ValidateRect@@YAEPEBUtagRECT@@@Z.c)
+ *     ?ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z @ 0x1C023B788 (-ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z.c)
+ *     ?ValidateSubRect@@YAEPEBUtagRECT@@0@Z @ 0x1C023B840 (-ValidateSubRect@@YAEPEBUtagRECT@@0@Z.c)
  */
 
 unsigned __int8 __fastcall ValidateGdiCommand(
-        unsigned int a1,
-        unsigned int a2,
+        __int64 a1,
+        __int64 a2,
         const unsigned __int8 *a3,
-        unsigned __int8 *a4,
+        const unsigned __int8 *a4,
         const unsigned __int8 *a5,
         unsigned __int64 a6,
         unsigned __int64 a7,
@@ -27,99 +26,107 @@ unsigned __int8 __fastcall ValidateGdiCommand(
         unsigned __int8 **a15)
 {
   unsigned __int64 v15; // rax
-  unsigned int v17; // r9d
-  __int64 v18; // rdi
-  const unsigned __int8 *v19; // rcx
-  unsigned __int8 *v20; // rsi
-  char v21; // bl
-  __int64 v22; // rdi
-  const wchar_t *v23; // r9
-  int v24; // edi
+  unsigned int v16; // r10d
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rdx
+  const unsigned __int8 *v20; // rcx
+  const unsigned __int8 *v21; // rsi
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  char v24; // bl
+  __int64 v25; // rax
+  int v26; // edi
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // rdx
+  __int64 v34; // rcx
 
   v15 = 16LL * a14;
   if ( v15 > 0xFFFFFFFF )
   {
-    v18 = 2279LL;
-    WdLogSingleEntry1(2LL, 2279LL);
-    goto LABEL_32;
+    v17 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v17 + 24) = 1953LL;
+    goto LABEL_30;
   }
-  v17 = v15 + a1;
-  if ( (unsigned int)v15 + a1 < a1 )
+  v16 = v15 + a1;
+  if ( (int)v15 + (int)a1 < (unsigned int)a1 )
   {
-    v18 = 2285LL;
-    WdLogSingleEntry1(2LL, 2285LL);
-    goto LABEL_32;
+    v17 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v17 + 24) = 1959LL;
+    goto LABEL_30;
   }
-  if ( v17 <= a2 )
+  if ( v16 <= (unsigned int)a2 )
   {
+    v18 = (__int64)*a15;
     if ( *a15 <= a5 )
     {
-      v18 = 2295LL;
-      WdLogSingleEntry1(2LL, 2295LL);
-      goto LABEL_32;
+      v17 = WdLogNewEntry5_WdError(a1, v18);
+      *(_QWORD *)(v17 + 24) = 1969LL;
+      goto LABEL_30;
     }
-    v19 = &a4[v17];
-    v20 = (unsigned __int8 *)&a3[*a15 - a5];
-    *a15 = v20;
-    if ( v20 <= a4 || v20 >= v19 || v19 - v20 < (int)v15 )
+    v19 = v18 - (_QWORD)a5;
+    v20 = &a4[v16];
+    v21 = &a3[v19];
+    *a15 = (unsigned __int8 *)&a3[v19];
+    if ( &a3[v19] <= a4 || v21 >= v20 || (v20 -= (__int64)v21, (__int64)v20 < (int)v15) )
     {
-      v18 = 2302LL;
-      WdLogSingleEntry1(2LL, 2302LL);
-      goto LABEL_32;
-    }
-    v21 = 0;
-    if ( !ValidateRect(a8) )
-    {
-      v22 = 2316LL;
-      WdLogSingleEntry1(2LL, 2316LL);
-      v23 = L"Invalid DstRect";
-LABEL_26:
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v23, v22, 0LL, 0LL, 0LL, 0LL);
-      return v21;
+      v17 = WdLogNewEntry5_WdError(v20, v19);
+      *(_QWORD *)(v17 + 24) = 1976LL;
+      goto LABEL_30;
     }
     v24 = 0;
+    if ( !ValidateRect(a8) )
+    {
+      v25 = WdLogNewEntry5_WdError(v23, v22);
+      *(_QWORD *)(v25 + 24) = 1990LL;
+LABEL_24:
+      WdLogEvent5_WdError(v25);
+      return v24;
+    }
+    v26 = 0;
     if ( a14 )
     {
-      while ( ValidateSubRect((const struct tagRECT *)&v20[16 * v24], a8) )
+      while ( ValidateSubRect((const struct tagRECT *)&v21[16 * v26], a8) )
       {
-        if ( !ValidateRectBounds((const struct tagRECT *)&v20[16 * v24], a10, a6) )
+        if ( !ValidateRectBounds((const struct tagRECT *)&v21[16 * v26], a10, a6) )
         {
-          v22 = 2336LL;
-          WdLogSingleEntry1(2LL, 2336LL);
-          goto LABEL_21;
+          v25 = WdLogNewEntry5_WdError(v30, v29);
+          *(_QWORD *)(v25 + 24) = 2010LL;
+          goto LABEL_24;
         }
-        if ( ++v24 >= a14 )
+        if ( ++v26 >= a14 )
           goto LABEL_16;
       }
-      v22 = 2331LL;
-      WdLogSingleEntry1(2LL, 2331LL);
-LABEL_21:
-      v23 = L"Invalid subrect";
-      goto LABEL_26;
+      v25 = WdLogNewEntry5_WdError(v28, v27);
+      *(_QWORD *)(v25 + 24) = 2005LL;
+      goto LABEL_24;
     }
 LABEL_16:
     if ( a9 )
     {
       if ( !ValidateRect(a9) )
       {
-        v22 = 2344LL;
-        WdLogSingleEntry1(2LL, 2344LL);
-LABEL_25:
-        v23 = L"Invalid SrcRect";
-        goto LABEL_26;
+        v25 = WdLogNewEntry5_WdError(v32, v31);
+        *(_QWORD *)(v25 + 24) = 2018LL;
+        goto LABEL_24;
       }
       if ( a13 && !ValidateRectBounds(a9, a11, a7) )
       {
-        v22 = 2351LL;
-        WdLogSingleEntry1(2LL, 2351LL);
-        goto LABEL_25;
+        v25 = WdLogNewEntry5_WdError(v34, v33);
+        *(_QWORD *)(v25 + 24) = 2025LL;
+        goto LABEL_24;
       }
     }
     return 1;
   }
-  v18 = 2290LL;
-  WdLogSingleEntry1(2LL, 2290LL);
-LABEL_32:
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Malformed packet", v18, 0LL, 0LL, 0LL, 0LL);
+  v17 = WdLogNewEntry5_WdError(a1, a2);
+  *(_QWORD *)(v17 + 24) = 1964LL;
+LABEL_30:
+  WdLogEvent5_WdError(v17);
   return 0;
 }

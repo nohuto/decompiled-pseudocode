@@ -1,7 +1,7 @@
 /*
- * XREFs of MmAcquireSessionPoolRundown @ 0x14069E758
+ * XREFs of MmAcquireSessionPoolRundown @ 0x14069E738
  * Callers:
- *     ExGetSessionPoolTagInfo @ 0x14011A214 (ExGetSessionPoolTagInfo.c)
+ *     ExGetSessionPoolTagInfo @ 0x14011A234 (ExGetSessionPoolTagInfo.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)

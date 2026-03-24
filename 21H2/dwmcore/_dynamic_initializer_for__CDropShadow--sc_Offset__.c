@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CDropShadow::sc_Offset__ @ 0x180002530
+ * XREFs of _dynamic_initializer_for__CDropShadow::sc_Offset__ @ 0x1800020F0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CDropShadow::sc_Offset__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D1FE8 = (unsigned __int64)CDropShadow::SetAnimatedProperty;
-  qword_1803D1FF8 = v1;
+  xmmword_1803460F8 = (unsigned __int64)CBrush::SetAnimatedProperty;
+  qword_180346108 = v1;
   return result;
 }

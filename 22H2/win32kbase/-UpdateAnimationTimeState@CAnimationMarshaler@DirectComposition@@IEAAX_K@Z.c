@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z @ 0x1C00AAA58
+ * XREFs of ?UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z @ 0x1C009BF90
  * Callers:
- *     ?ClearAnimationTimeList@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C001F974 (-ClearAnimationTimeList@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
- *     ?Clear@CBatch@DirectComposition@@QEAAXXZ @ 0x1C0028840 (-Clear@CBatch@DirectComposition@@QEAAXXZ.c)
+ *     ?Clear@CBatch@DirectComposition@@QEAAXXZ @ 0x1C005FAC8 (-Clear@CBatch@DirectComposition@@QEAAXXZ.c)
+ *     ?ClearAnimationTimeList@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C0094824 (-ClearAnimationTimeList@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
  * Callees:
- *     ?Release@CAnimationTimeList@DirectComposition@@QEAAKXZ @ 0x1C00A7F10 (-Release@CAnimationTimeList@DirectComposition@@QEAAKXZ.c)
- *     ?CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@2@_KPEA_KPEA_NPEA_J2@Z @ 0x1C00AAAE8 (-CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@.c)
+ *     ?Release@CAnimationTimeList@DirectComposition@@QEAAKXZ @ 0x1C009A3E4 (-Release@CAnimationTimeList@DirectComposition@@QEAAKXZ.c)
+ *     ?CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@2@_KPEA_KPEA_NPEA_J2@Z @ 0x1C009C020 (-CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@.c)
  */
 
 void __fastcall DirectComposition::CAnimationMarshaler::UpdateAnimationTimeState(
@@ -24,10 +24,10 @@ void __fastcall DirectComposition::CAnimationMarshaler::UpdateAnimationTimeState
     a2,
     (unsigned __int64 *)this + 14,
     &v5,
-    (__int64 *)this + 26,
-    (unsigned __int64 *)this + 27);
+    (__int64 *)this + 27,
+    (unsigned __int64 *)this + 28);
   v3 = *(DirectComposition::CAnimationTimeList **)(v2 + 72);
-  *(_BYTE *)(v2 + 200) ^= (*(_BYTE *)(v2 + 200) ^ (4 * v5)) & 4;
+  *(_BYTE *)(v2 + 208) ^= (*(_BYTE *)(v2 + 208) ^ (4 * v5)) & 4;
   v4 = *(_QWORD *)(v2 + 80);
   if ( v3 == (DirectComposition::CAnimationTimeList *)v4 )
   {

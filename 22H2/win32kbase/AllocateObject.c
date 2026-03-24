@@ -1,186 +1,79 @@
 /*
- * XREFs of AllocateObject @ 0x1C003DE70
+ * XREFs of AllocateObject @ 0x1C002BCC0
  * Callers:
- *     HmgAlloc @ 0x1C003DD30 (HmgAlloc.c)
- *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C00BA604 (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
+ *     HmgAlloc @ 0x1C0001410 (HmgAlloc.c)
+ *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C00A06C4 (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ?AllocateFromPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAXPEAX@Z @ 0x1C008F2C4 (-AllocateFromPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
-__int64 __fastcall AllocateObject(__int64 a1, unsigned int a2, int a3)
+__int64 __fastcall AllocateObject(size_t Size, __int64 a2, int a3)
 {
-  __int64 v4; // rsi
-  unsigned int v5; // ebx
-  __int64 v6; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v7; // rcx
+  __int64 v4; // r8
+  BOOL v5; // esi
+  unsigned int v6; // edi
+  void * near *v7; // rbx
   int v8; // eax
-  BOOL v9; // r12d
-  __int64 v10; // r14
-  _QWORD *v11; // rax
-  __int64 Pool2; // rbx
-  unsigned int v14; // esi
-  NSInstrumentation::CLeakTrackingAllocator *v15; // rdi
-  __int64 v16; // rbx
-  int v17; // eax
-  _QWORD *v18; // rax
-  __int64 v19; // r10
-  char v20; // r15
-  __int64 v21; // [rsp+20h] [rbp-89h] BYREF
-  __int64 v22; // [rsp+28h] [rbp-81h] BYREF
-  _QWORD v23[2]; // [rsp+30h] [rbp-79h] BYREF
-  PVOID BackTrace[20]; // [rsp+40h] [rbp-69h] BYREF
-  unsigned int v25; // [rsp+110h] [rbp+67h] BYREF
-  unsigned __int64 v26; // [rsp+128h] [rbp+7Fh] BYREF
+  __int64 v9; // rbx
 
-  v4 = a2;
-  v5 = a1;
-  v6 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  v8 = *(_DWORD *)(v6 + 1944);
-  v9 = v8 && (_DWORD)v4 == v8;
-  v10 = v5 + 160;
-  if ( !v9 )
-    v10 = v5;
-  if ( *(_DWORD *)(v6 + 4 * v4 + 2200) < (unsigned int)v10 )
-  {
-    v14 = ((_DWORD)v4 << 24) + 808478791;
-    if ( !a3 )
-    {
-      if ( !(_DWORD)v10 )
-        goto LABEL_47;
-      Pool2 = NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                gpLeakTrackingAllocator,
-                260LL,
-                (unsigned int)v10,
-                v14);
-      if ( !Pool2 )
-        goto LABEL_47;
-      *(_OWORD *)Pool2 = 0LL;
-      *(_QWORD *)(Pool2 + 16) = 0LL;
-      goto LABEL_20;
-    }
-    if ( (_DWORD)v10 )
-    {
-      v15 = gpLeakTrackingAllocator;
-      v16 = (unsigned int)v10;
-      v25 = v14;
-      v21 = 260LL;
-      v17 = *(_DWORD *)gpLeakTrackingAllocator;
-      v22 = (unsigned int)v10;
-      switch ( v17 )
-      {
-        case 0:
-          Pool2 = ExAllocatePool2(260LL, (unsigned int)v10, v14);
-          if ( Pool2 )
-            _InterlockedIncrement64((volatile signed __int64 *)v15 + 14);
-          goto LABEL_19;
-        case 1:
-          if ( NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, v14)
-            && v10 + 16 > (unsigned __int64)(unsigned int)v10 )
-          {
-            v18 = (_QWORD *)ExAllocatePool2(v21 & 0xFFFFFFFFFFFFFFFDuLL, v10 + 16, v25);
-            Pool2 = (__int64)v18;
-            if ( !v18
-              || (_InterlockedIncrement64((volatile signed __int64 *)v15 + 14),
-                  *v18 = v14,
-                  Pool2 = (__int64)(v18 + 2),
-                  v18 == (_QWORD *)-16LL) )
-            {
-              NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-                *((NSInstrumentation::CPointerHashTable **)v15 + 1),
-                (const void *)v14);
-            }
-LABEL_19:
-            if ( !Pool2 )
-              goto LABEL_47;
-LABEL_20:
-            if ( v9 )
-              RtlCaptureStackBackTrace(0, 0x14u, (PVOID *)(Pool2 + (unsigned int)v10 - 160LL), 0LL);
-            return Pool2;
-          }
-          break;
-        case 2:
-          v26 = 0LL;
-          if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, v14, &v26) )
-          {
-            v23[0] = &v21;
-            v23[1] = &v25;
-            Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                      v15,
-                      v23,
-                      &v22);
-            goto LABEL_19;
-          }
-          v20 = 0;
-          if ( (unsigned int)v10 < 0x1000 || (v10 & 0xFFF) != 0 )
-          {
-            v16 = (unsigned int)v10 + 16LL;
-            v20 = 1;
-            v22 = v16;
-          }
-          Pool2 = ExAllocatePool2(v19, v16, v14);
-          if ( Pool2 )
-          {
-            _InterlockedIncrement64((volatile signed __int64 *)v15 + 16);
-            NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-            if ( v20 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-            {
-              if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                      v15,
-                                      Pool2,
-                                      v26,
-                                      BackTrace) )
-              {
-                Pool2 += 16LL;
-                goto LABEL_19;
-              }
-            }
-            else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                         v15,
-                                         Pool2,
-                                         v26,
-                                         BackTrace) )
-            {
-              goto LABEL_19;
-            }
-            _InterlockedIncrement64((volatile signed __int64 *)v15 + 17);
-            _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-          }
-          break;
-      }
-    }
-    Pool2 = 0LL;
-    goto LABEL_19;
-  }
-  v11 = NSInstrumentation::CLeakTrackingAllocator::AllocateFromPagedLookasideList(v7, *(void **)(v6 + 8 * v4 + 1952));
-  Pool2 = (__int64)v11;
-  if ( v11 )
+  v4 = 1LL;
+  v5 = gulGdiHmgrTraceObjectType && (_DWORD)a2 == gulGdiHmgrTraceObjectType;
+  v6 = Size + 160;
+  if ( !v5 )
+    v6 = Size;
+  if ( *((_DWORD *)&laSize + (unsigned int)a2) < v6 )
   {
     if ( a3 )
     {
-      memset(v11, 0, (unsigned int)v10);
+      v9 = PALLOCMEM2(v6);
     }
     else
     {
-      *(_OWORD *)v11 = 0LL;
-      v11[2] = 0LL;
+      v9 = PALLOCMEM2(v6);
+      if ( !v9 )
+        goto LABEL_30;
+      *(_OWORD *)v9 = 0LL;
+      *(_QWORD *)(v9 + 16) = 0LL;
     }
     if ( v9 )
-      RtlCaptureStackBackTrace(0, 0x14u, (PVOID *)((unsigned int)v10 + Pool2 - 160), 0LL);
-    *(_WORD *)(Pool2 + 14) = 0x8000;
-    return Pool2;
+    {
+      if ( v5 )
+        RtlCaptureStackBackTrace(0, 0x14u, (PVOID *)(v9 + v6 - 160LL), 0LL);
+      return v9;
+    }
   }
-LABEL_47:
+  else
+  {
+    v7 = (&pHmgLookAsideList)[(unsigned int)a2];
+    if ( qword_1C0256D50 )
+      v8 = qword_1C0256D50(Size, a2, 1LL);
+    else
+      v8 = -1073741637;
+    if ( v8 >= 0 && qword_1C0256D58 )
+      v9 = qword_1C0256D58(v7, a2, v4);
+    else
+      v9 = 0LL;
+    if ( v9 )
+    {
+      if ( a3 )
+      {
+        memset((void *)v9, 0, v6);
+      }
+      else
+      {
+        *(_OWORD *)v9 = 0LL;
+        *(_QWORD *)(v9 + 16) = 0LL;
+      }
+      if ( v5 )
+        RtlCaptureStackBackTrace(0, 0x14u, (PVOID *)(v9 + v6 - 160LL), 0LL);
+      *(_WORD *)(v9 + 14) = 0x8000;
+      return v9;
+    }
+  }
+LABEL_30:
   EngSetLastError(8u);
   return 0LL;
 }

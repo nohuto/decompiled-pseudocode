@@ -1,177 +1,111 @@
 /*
- * XREFs of NtSetShellCursorState @ 0x1C0142BE0
+ * XREFs of NtSetShellCursorState @ 0x1C012D180
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C0048330 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     HMUnlockObject @ 0x1C0056D70 (HMUnlockObject.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     IsShellProcess @ 0x1C00AD8FC (IsShellProcess.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?SetShellClip@CCursorClip@@QEAAJPEAUtagRECT@@K@Z @ 0x1C01DC2B4 (-SetShellClip@CCursorClip@@QEAAJPEAUtagRECT@@K@Z.c)
- *     CheckCapability @ 0x1C01E7C20 (CheckCapability.c)
- *     SetContentOrientation @ 0x1C01E8DB8 (SetContentOrientation.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     EnterCrit @ 0x1C002FF70 (EnterCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     IsShellProcess @ 0x1C004823C (IsShellProcess.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ?CheckCapability@@YAJPEBG@Z @ 0x1C0128680 (-CheckCapability@@YAJPEBG@Z.c)
+ *     ?SetShellClip@CCursorClip@@QEAAJPEAUtagRECT@@K@Z @ 0x1C01A2C34 (-SetShellClip@CCursorClip@@QEAAJPEAUtagRECT@@K@Z.c)
+ *     SetContentOrientation @ 0x1C01AEF30 (SetContentOrientation.c)
  */
 
-__int64 __fastcall NtSetShellCursorState(__int64 a1, _DWORD *Src, __int64 a3, __int64 a4)
+__int64 __fastcall NtSetShellCursorState(const unsigned __int16 *a1, char *Src, unsigned int a3)
 {
-  __int64 v4; // r12
-  _DWORD *v5; // rsi
-  unsigned int v6; // r13d
-  struct tagRECT *QuotaZInit; // r14
-  int v8; // eax
+  __int64 v3; // r14
+  unsigned int v5; // r13d
+  struct tagRECT *v6; // rdi
+  int v7; // eax
+  __int64 v8; // rdx
   __int64 v9; // rcx
   NTSTATUS v10; // ecx
+  __int64 v11; // rcx
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v12; // rax
-  __int64 v13; // rdx
-  int v14; // edi
-  ULONG v15; // ecx
-  __int64 v16; // rdi
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  struct tagTHREADINFO *v20; // rax
-  CCursorClip *v21; // rcx
-  __int64 v22; // rax
-  __int64 v23; // rax
-  char v24; // al
-  __int64 *v25; // rsi
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  int v28; // esi
-  __int64 v29; // r8
-  __int64 v30; // r9
+  int v13; // ebx
+  __int64 v14; // rcx
+  __int64 v15; // rbx
+  __int64 v16; // rcx
+  CCursorClip *v17; // rcx
+  int v18; // esi
 
-  v4 = (unsigned int)a3;
-  v5 = Src;
-  v6 = a1;
-  QuotaZInit = 0LL;
+  v3 = a3;
+  v5 = (unsigned int)a1;
+  v6 = 0LL;
+  v7 = CheckCapability(a1);
+  if ( v7 < 0 )
+  {
+    v10 = v7;
+LABEL_26:
+    v13 = 0;
+    v14 = RtlNtStatusToDosError(v10);
+    goto LABEL_27;
+  }
   if ( !gbOSTestSigningEnabled )
   {
-    v8 = CheckCapability(L"shellExperienceComposer");
-    if ( v8 < 0 )
+    v11 = *(unsigned int *)(PsGetCurrentProcessWin32Process(v9) + 820);
+    if ( (v11 & 0x30) == 0 )
     {
-      v10 = v8;
-LABEL_43:
-      v14 = 0;
-      v15 = RtlNtStatusToDosError(v10);
-      goto LABEL_44;
-    }
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v9);
-    Src = (_DWORD *)CurrentProcessWin32Process;
-    if ( CurrentProcessWin32Process )
-    {
-      a1 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-      Src = (_DWORD *)(a1 & CurrentProcessWin32Process);
-    }
-    if ( (Src[204] & 0x30) == 0 )
-    {
-      v12 = PsGetCurrentProcessWin32Process(a1);
-      v13 = v12;
-      if ( v12 )
-        v13 = -(__int64)(*(_QWORD *)v12 != 0LL) & v12;
-      if ( !(unsigned int)IsShellProcess(v13) )
+      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v11);
+      if ( !(unsigned int)IsShellProcess(CurrentProcessWin32Process) )
       {
-        v14 = 0;
-        v15 = 5;
-LABEL_44:
-        UserSetLastError(v15);
-        goto LABEL_45;
+        v13 = 0;
+        v14 = 5LL;
+LABEL_27:
+        UserSetLastError(v14, v8);
+        goto LABEL_28;
       }
     }
   }
-  if ( v6 - 1 > 3 )
+  if ( v5 - 1 > 3 )
   {
-LABEL_12:
-    v14 = 0;
-    v15 = 87;
-    goto LABEL_44;
+LABEL_8:
+    v13 = 0;
+    v14 = 87LL;
+    goto LABEL_27;
   }
-  if ( (_DWORD)v4 )
+  if ( (_DWORD)v3 )
   {
-    v16 = 16 * v4;
-    if ( (unsigned __int64)(16 * v4) > 0xFFFFFFFF )
-      goto LABEL_12;
-    if ( (unsigned int)v16 >= 0x2710000
-      || (QuotaZInit = (struct tagRECT *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                           (NSInstrumentation::CLeakTrackingAllocator *)a1,
-                                           (unsigned __int64)Src,
-                                           (unsigned int)v16,
-                                           0x63736355u)) == 0LL )
+    v15 = 16 * v3;
+    if ( (unsigned __int64)(16 * v3) > 0xFFFFFFFF )
+      goto LABEL_8;
+    if ( (unsigned int)v15 >= 0x2710000
+      || (v6 = (struct tagRECT *)Win32AllocPoolWithQuota((unsigned int)v15, 0x63736355u)) == 0LL )
     {
-      v14 = 0;
-      v15 = 8;
-      goto LABEL_44;
+      v13 = 0;
+      v14 = 8LL;
+      goto LABEL_27;
     }
-    if ( v16 )
+    if ( v15 )
     {
-      if ( ((PsGetCurrentProcessWow64Process(v18, v17, v19) == 0 ? 3 : 0) & (unsigned __int8)v5) != 0 )
+      if ( ((PsGetCurrentProcessWow64Process(v16) == 0 ? 3 : 0) & (unsigned __int8)Src) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)&v5[(unsigned __int64)v16 / 4] > MmUserProbeAddress || &v5[(unsigned __int64)v16 / 4] < v5 )
+      if ( (unsigned __int64)&Src[v15] > MmUserProbeAddress || &Src[v15] < Src )
         *(_BYTE *)MmUserProbeAddress = 0;
     }
-    memmove(QuotaZInit, v5, (unsigned int)v16);
+    memmove(v6, Src, (unsigned int)v15);
   }
-  else if ( v5 )
+  else if ( Src )
   {
-    goto LABEL_12;
+    goto LABEL_8;
   }
-  v20 = (struct tagTHREADINFO *)PrivateAPI::_anonymous_namespace_::EnterCritInternal(0LL, (__int64)Src, a3, a4);
-  gptiCurrent = v20;
-  v14 = 1;
-  if ( v20 )
+  v13 = 1;
+  EnterCrit(0, 1);
+  v18 = CCursorClip::SetShellClip(v17, v6, v3);
+  if ( v18 >= 0 )
+    SetContentOrientation(v5);
+  UserSessionSwitchLeaveCrit();
+  if ( v18 < 0 )
   {
-    *((_DWORD *)v20 + 387) = 1;
-    v22 = PsGetCurrentProcessWin32Process(v21);
-    if ( v22 )
-    {
-      v21 = (CCursorClip *)-*(_QWORD *)v22;
-      v23 = -(__int64)(*(_QWORD *)v22 != 0LL) & v22;
-      if ( v23 )
-      {
-        if ( (*(_DWORD *)(v23 + 12) & 0x8000) != 0 )
-        {
-          v21 = gptiCurrent;
-          if ( (*((_DWORD *)gptiCurrent + 122) & 0x1000000) == 0
-            || (v24 = 1, (*((_DWORD *)gptiCurrent + 318) & 0x80u) != 0) )
-          {
-            v24 = 0;
-          }
-          if ( v24 )
-          {
-            while ( 1 )
-            {
-              v25 = (__int64 *)gpSharedUserCritDeferredUnlockListHead;
-              if ( !gpSharedUserCritDeferredUnlockListHead )
-                break;
-              gpSharedUserCritDeferredUnlockListHead = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)gpSharedUserCritDeferredUnlockListHead
-                                                                                           + 2);
-              v25[2] = 0LL;
-              if ( !*(_DWORD *)(*v25 + 8) )
-                MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 4237);
-              HMUnlockObject(*v25);
-            }
-          }
-        }
-      }
-    }
+    v10 = v18;
+    goto LABEL_26;
   }
-  v28 = CCursorClip::SetShellClip(v21, QuotaZInit, v4);
-  if ( v28 >= 0 )
-    SetContentOrientation(v6);
-  UserSessionSwitchLeaveCrit(v27, v26, v29, v30);
-  if ( v28 < 0 )
-  {
-    v10 = v28;
-    goto LABEL_43;
-  }
-LABEL_45:
-  if ( !v14 && QuotaZInit )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)QuotaZInit);
-  return v14;
+LABEL_28:
+  if ( !v13 && v6 )
+    Win32FreePool((__int64)v6);
+  return v13;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of InitOnceGetStringTableOffset @ 0x14075C960
+ * XREFs of InitOnceGetStringTableOffset @ 0x14075C940
  * Callers:
  *     <none>
  * Callees:
- *     SdbFindFirstTag @ 0x14067D1A0 (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall InitOnceGetStringTableOffset(PRTL_RUN_ONCE a1, char *a2, PVOID *a3)

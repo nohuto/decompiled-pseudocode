@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepResolveShimHooks @ 0x140848074
+ * XREFs of KsepResolveShimHooks @ 0x140848054
  * Callers:
- *     KsepResolveApplicableShimsForDriver @ 0x140848584 (KsepResolveApplicableShimsForDriver.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x140848564 (KsepResolveApplicableShimsForDriver.c)
  * Callees:
- *     RtlFindExportedRoutineByName @ 0x140678EE0 (RtlFindExportedRoutineByName.c)
- *     KsepGetModuleInfoByName @ 0x140848BAC (KsepGetModuleInfoByName.c)
+ *     RtlFindExportedRoutineByName @ 0x140678EC0 (RtlFindExportedRoutineByName.c)
+ *     KsepGetModuleInfoByName @ 0x140848B8C (KsepGetModuleInfoByName.c)
  */
 
 __int64 __fastcall KsepResolveShimHooks(__int64 a1, int *a2)

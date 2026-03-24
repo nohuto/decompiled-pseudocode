@@ -1,12 +1,12 @@
 /*
- * XREFs of ?MulDestroyFont@@YAXPEAU_FONTOBJ@@@Z @ 0x1C02A0E10
+ * XREFs of ?MulDestroyFont@@YAXPEAU_FONTOBJ@@@Z @ 0x1C02A2F70
  * Callers:
  *     <none>
  * Callees:
- *     ?DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z @ 0x1C000B48C (-DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z.c)
- *     ??0MULTIFONT@@QEAA@PEAU_FONTOBJ@@JPEAU_VDEV@@@Z @ 0x1C016EEEC (--0MULTIFONT@@QEAA@PEAU_FONTOBJ@@JPEAU_VDEV@@@Z.c)
- *     ??1MULTIFONT@@QEAA@XZ @ 0x1C016EFB8 (--1MULTIFONT@@QEAA@XZ.c)
- *     ?DestroyTable@MULTIFONT@@QEAAXXZ @ 0x1C016F012 (-DestroyTable@MULTIFONT@@QEAAXXZ.c)
+ *     ?DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z @ 0x1C009F3CC (-DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z.c)
+ *     ??0MULTIFONT@@QEAA@PEAU_FONTOBJ@@JPEAU_VDEV@@@Z @ 0x1C02A11B4 (--0MULTIFONT@@QEAA@PEAU_FONTOBJ@@JPEAU_VDEV@@@Z.c)
+ *     ??1MULTIFONT@@QEAA@XZ @ 0x1C02A1364 (--1MULTIFONT@@QEAA@XZ.c)
+ *     ?DestroyTable@MULTIFONT@@QEAAXXZ @ 0x1C02A1498 (-DestroyTable@MULTIFONT@@QEAAXXZ.c)
  */
 
 void __fastcall MulDestroyFont(struct _FONTOBJ *a1)
@@ -32,7 +32,7 @@ void __fastcall MulDestroyFont(struct _FONTOBJ *a1)
       {
         --v3;
         v8 = v4[6];
-        if ( v8[376] )
+        if ( v8[379] )
         {
           if ( v5 )
             *(_QWORD *)(v5 + 48) = v2[*((int *)v4 + 4) + 1];

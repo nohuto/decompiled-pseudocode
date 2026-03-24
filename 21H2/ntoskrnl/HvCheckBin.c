@@ -1,12 +1,12 @@
 /*
- * XREFs of HvCheckBin @ 0x14079C640
+ * XREFs of HvCheckBin @ 0x140709190
  * Callers:
- *     HvCheckHive @ 0x14079B3A0 (HvCheckHive.c)
+ *     HvCheckHive @ 0x140709848 (HvCheckHive.c)
  * Callees:
- *     SetFailureLocation @ 0x14020A890 (SetFailureLocation.c)
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
- *     HvMoveLayoutStats @ 0x14079C888 (HvMoveLayoutStats.c)
- *     HvAddToLayoutStats @ 0x14079CED8 (HvAddToLayoutStats.c)
+ *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     HvMoveLayoutStats @ 0x1407093D8 (HvMoveLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x1407093F4 (HvAddToLayoutStats.c)
  */
 
 __int64 __fastcall HvCheckBin(
@@ -18,152 +18,150 @@ __int64 __fastcall HvCheckBin(
         __int64 a6,
         __int64 a7)
 {
-  __int64 v7; // rdi
+  __int64 v7; // r11
   unsigned int v8; // r12d
-  _DWORD *v9; // r10
-  unsigned int v11; // r11d
-  unsigned int v12; // r14d
-  int v13; // r15d
-  __int64 v14; // r8
-  int *v15; // rbx
-  __int16 v16; // r9
-  __int64 v17; // rdx
-  __int64 v18; // rdx
-  __int64 v19; // rdi
-  char v21; // al
-  __int64 v22; // rdi
-  unsigned int v23; // [rsp+20h] [rbp-48h]
-  unsigned int v24; // [rsp+80h] [rbp+18h]
+  unsigned int v10; // r10d
+  unsigned int v11; // r15d
+  int v12; // ebp
+  int *v13; // rdi
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // rax
+  int *v17; // rsi
+  char v19; // al
+  __int64 v20; // rdx
+  int v21; // [rsp+20h] [rbp-48h]
+  unsigned int v22; // [rsp+80h] [rbp+18h]
+  _DWORD *v23; // [rsp+88h] [rbp+20h]
 
+  v23 = a4;
   v7 = a7;
   v8 = 0;
-  v24 = 0;
-  v9 = a4;
+  v22 = 0;
+  v10 = 0;
   v11 = 0;
   v12 = 0;
-  v13 = 0;
   if ( a7 )
     *(_QWORD *)(a7 + 328) = a2;
+  v13 = a2 + 8;
   v14 = (unsigned int)a2[2];
-  v15 = a2 + 8;
-  if ( a2 + 8 >= (_DWORD *)((char *)a2 + v14) )
+  if ( v13 >= (_DWORD *)((char *)a2 + v14) )
   {
-LABEL_15:
-    if ( v12 + v11 + 32LL == (unsigned int)v14 )
+LABEL_14:
+    if ( v11 + v10 + 32LL == (unsigned int)v14 )
     {
-      if ( v15 == (_DWORD *)((char *)a2 + v14) )
+      if ( v13 == (_DWORD *)((char *)a2 + (unsigned int)v14) )
       {
-        if ( v9 )
-          *v9 += v13;
+        if ( a4 )
+          *a4 += v12;
         return v8;
       }
-      v23 = 112;
+      v21 = 112;
     }
     else
     {
-      v23 = 96;
+      v21 = 96;
     }
     v8 = -1073741492;
-    SetFailureLocation(v7, 0, 17, 0xC000014C, v23);
+    SetFailureLocation(v7, 0, 17, -1073741492, v21);
     return v8;
   }
-  v16 = 27502;
   while ( 1 )
   {
-    v17 = *v15;
-    if ( (int)v17 >= 0 )
+    v15 = *v13;
+    if ( (int)v15 >= 0 )
       break;
-    v18 = (unsigned int)-(int)v17;
-    if ( (unsigned int)v18 > (unsigned int)v14
-      || (v19 = (unsigned int)v18, (char *)v15 + v18 > (char *)a2 + (unsigned int)v14) )
+    v16 = (unsigned int)-(int)v15;
+    if ( (unsigned int)v16 > (unsigned int)v14
+      || (v17 = (int *)((char *)v13 + v16), (char *)v13 + v16 > (char *)a2 + (unsigned int)v14) )
     {
-      v22 = a7;
       v8 = -1073741492;
       if ( !a7 )
         return v8;
-      SetFailureLocation(a7, 0, 17, 0xC000014C, 0x20u);
-      goto LABEL_41;
+      SetFailureLocation(a7, 0, 17, -1073741492, 32);
+      goto LABEL_39;
     }
-    v12 += v18;
-    v13 = v18 + v13 - 4;
-    if ( v12 > (unsigned int)v14 )
+    v11 -= v15;
+    v12 = v12 - v15 - 4;
+    if ( v11 > (unsigned int)v14 )
     {
-      v22 = a7;
       v8 = -1073741492;
       if ( !a7 )
         return v8;
-      SetFailureLocation(a7, 0, 17, 0xC000014C, 0x30u);
-      goto LABEL_41;
+      SetFailureLocation(a7, 0, 17, -1073741492, 48);
+      goto LABEL_39;
     }
-    if ( a6 && (unsigned int)v18 >= 0x54uLL && *((_WORD *)v15 + 2) == v16 )
+    if ( a6 && (unsigned int)v16 >= 0x54uLL && *((_WORD *)v13 + 2) == 27502 )
     {
-      v21 = *((_BYTE *)v15 + 16);
-      if ( (v21 & 2) != 0 )
+      v19 = *((_BYTE *)v13 + 16);
+      if ( (v19 & 2) != 0 )
       {
         HvMoveLayoutStats(a6 + 32);
         HvMoveLayoutStats(a6 + 16);
         *(_QWORD *)(a6 + 48) = 0LL;
       }
-      else if ( (v21 & 1) != 0 )
-      {
-        HvAddToLayoutStats(a6 + 32);
-        HvMoveLayoutStats(a6 + 16);
-        if ( !*(_DWORD *)(a6 + 48) )
-          *(_DWORD *)(a6 + 48) = a2[1];
-        *(_DWORD *)(a6 + 52) = 0;
-      }
       else
       {
-        HvAddToLayoutStats(a6 + 16);
-        if ( !*(_DWORD *)(a6 + 52) )
-          *(_DWORD *)(a6 + 52) = a2[1];
+        v20 = (unsigned int)(8 * v13[6] + 40 - v15);
+        if ( (v19 & 1) != 0 )
+        {
+          HvAddToLayoutStats(a6 + 32, v20);
+          HvMoveLayoutStats(a6 + 16);
+          if ( !*(_DWORD *)(a6 + 48) )
+            *(_DWORD *)(a6 + 48) = a2[1];
+          *(_DWORD *)(a6 + 52) = 0;
+        }
+        else
+        {
+          HvAddToLayoutStats(a6 + 16, v20);
+          if ( !*(_DWORD *)(a6 + 52) )
+            *(_DWORD *)(a6 + 52) = a2[1];
+        }
       }
     }
     if ( BitMapHeader )
     {
-      RtlSetBits(BitMapHeader, (unsigned int)((_DWORD)v15 + a2[1] - (_DWORD)a2) >> 3, 1u);
-      v11 = v24;
-      v16 = 27502;
+      RtlSetBits(BitMapHeader, (unsigned int)((_DWORD)v13 + a2[1] - (_DWORD)a2) >> 3, 1u);
+      v10 = v22;
     }
-LABEL_13:
-    v15 = (int *)((char *)v15 + v19);
-    v14 = (unsigned int)a2[2];
-    if ( v15 >= (_DWORD *)((char *)a2 + v14) )
+LABEL_12:
+    v13 = v17;
+    LODWORD(v14) = a2[2];
+    if ( v17 >= (_DWORD *)((char *)a2 + (unsigned int)v14) )
     {
-      v9 = a4;
+      a4 = v23;
       v7 = a7;
-      goto LABEL_15;
+      goto LABEL_14;
     }
   }
-  if ( (unsigned int)v17 <= (unsigned int)v14 && (char *)v15 + v17 <= (char *)a2 + (unsigned int)v14 && (_DWORD)v17 )
+  if ( (unsigned int)v15 <= (unsigned int)v14 && (char *)v13 + v15 <= (char *)a2 + (unsigned int)v14 && (_DWORD)v15 )
   {
-    v11 += v17;
-    v24 = v11;
-    if ( v11 <= (unsigned int)v14 )
+    v10 += v15;
+    v22 = v10;
+    if ( v10 <= (unsigned int)v14 )
     {
       if ( a6 )
       {
-        HvAddToLayoutStats(a6);
+        HvAddToLayoutStats(a6, (unsigned int)v15);
         ((void (*)(void))HvMoveLayoutStats)();
       }
-      v19 = *v15;
-      goto LABEL_13;
+      v17 = (int *)((char *)v13 + *v13);
+      goto LABEL_12;
     }
-    v22 = a7;
     v8 = -1073741492;
     if ( a7 )
     {
-      SetFailureLocation(a7, 0, 17, 0xC000014C, 0x50u);
-LABEL_41:
-      *(_QWORD *)(v22 + 336) = v15;
+      SetFailureLocation(a7, 0, 17, -1073741492, 80);
+LABEL_39:
+      *(_QWORD *)(a7 + 336) = v13;
       return v8;
     }
     return v8;
   }
   if ( a7 )
   {
-    SetFailureLocation(a7, 0, 17, 0xC000014C, 0x40u);
-    *(_QWORD *)(a7 + 336) = v15;
+    SetFailureLocation(a7, 0, 17, -1073741492, 64);
+    *(_QWORD *)(a7 + 336) = v13;
   }
   return 60LL;
 }

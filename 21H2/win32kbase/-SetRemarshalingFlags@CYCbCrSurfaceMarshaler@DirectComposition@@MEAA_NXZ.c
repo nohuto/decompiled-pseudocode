@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CYCbCrSurfaceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0229A20
+ * XREFs of ?SetRemarshalingFlags@CYCbCrSurfaceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E9CE0
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ bool __fastcall DirectComposition::CYCbCrSurfaceMarshaler::SetRemarshalingFlags(
   bool result; // al
 
   result = 0;
-  if ( *((_QWORD *)this + 8) )
-    return *((_QWORD *)this + 9) != 0LL;
+  if ( *((_QWORD *)this + 7) )
+    return *((_QWORD *)this + 8) != 0LL;
   return result;
 }

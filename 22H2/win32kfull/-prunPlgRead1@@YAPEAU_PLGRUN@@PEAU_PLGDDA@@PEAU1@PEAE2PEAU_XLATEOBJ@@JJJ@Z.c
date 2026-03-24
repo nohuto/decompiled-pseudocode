@@ -1,10 +1,10 @@
 /*
- * XREFs of ?prunPlgRead1@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C03003D0
+ * XREFs of ?prunPlgRead1@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D77E0
  * Callers:
  *     <none>
  * Callees:
- *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C015EEA0 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
- *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C0300B5C (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
+ *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C02D8114 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
+ *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C02D82E8 (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
  */
 
 struct _PLGRUN *__fastcall prunPlgRead1(
@@ -17,36 +17,36 @@ struct _PLGRUN *__fastcall prunPlgRead1(
         int a7,
         int a8)
 {
-  int v8; // edi
+  int v8; // ebx
   struct _PLGRUN *v9; // r10
-  unsigned int v10; // ebx
+  unsigned int v10; // edi
   unsigned __int8 *v12; // r14
   int v13; // r8d
-  ULONG v14; // ecx
+  ULONG v14; // edx
   int v15; // r11d
   ULONG *pulXlate; // rax
   __int64 v17; // rbp
   int v18; // eax
   unsigned int v19; // edx
   __int64 v20; // r9
-  int *v21; // rax
-  int v22; // esi
-  unsigned __int8 *v23; // r12
-  int v24; // edx
-  __int64 v25; // r15
-  int v26; // eax
-  unsigned int v27; // edx
-  __int64 v28; // r9
-  int v29; // r11d
-  int *v30; // rax
-  unsigned __int8 *v31; // rax
+  int v21; // ecx
+  unsigned __int8 *v22; // rax
+  int v23; // esi
+  unsigned __int8 *v24; // r13
+  int v25; // ecx
+  __int64 v26; // r15
+  int v27; // eax
+  unsigned int v28; // eax
+  __int64 v29; // rdx
+  int v30; // r9d
+  __int64 v31; // r11
   int v32; // ecx
-  bool v33; // zf
-  __int64 v35; // [rsp+20h] [rbp-48h]
-  int v37; // [rsp+80h] [rbp+18h]
-  int v38; // [rsp+88h] [rbp+20h]
-  ULONG v39; // [rsp+90h] [rbp+28h]
-  int v40; // [rsp+98h] [rbp+30h]
+  unsigned __int8 *v33; // rax
+  unsigned __int8 *v34; // rax
+  int v37; // [rsp+70h] [rbp+18h]
+  int v38; // [rsp+78h] [rbp+20h]
+  ULONG v39; // [rsp+80h] [rbp+28h]
+  int v40; // [rsp+88h] [rbp+30h]
 
   v8 = a6;
   v9 = a2;
@@ -70,74 +70,72 @@ struct _PLGRUN *__fastcall prunPlgRead1(
   v17 = v10;
   if ( a4 )
   {
-    v22 = a8 & 0x1F;
-    v23 = &a4[4 * ((__int64)a8 >> 5)];
-    v24 = *(_DWORD *)v23;
-    v38 = *(_DWORD *)v23;
+    v23 = a8 & 0x1F;
+    v24 = &a4[4 * ((__int64)a8 >> 5)];
+    v25 = *(_DWORD *)v24;
+    v38 = *(_DWORD *)v24;
     if ( v8 < a7 )
     {
-      v25 = a8 & 0x1F;
+      v26 = a8 & 0x1F;
       while ( 1 )
       {
-        if ( (v24 & dword_1C0329F30[v25]) != 0 )
+        if ( (v25 & dword_1C02FB720[v26]) != 0 )
         {
-          v26 = v15;
-          if ( (v13 & dword_1C0329F30[v17]) == 0 )
-            v26 = v14;
-          *(_DWORD *)v9 = v26;
+          v27 = v15;
+          if ( (v13 & dword_1C02FB720[v17]) == 0 )
+            v27 = v14;
+          *(_DWORD *)v9 = v27;
           prunPumpDDA(a1, v9);
         }
         vAdvXDDA(a1);
         ++v8;
-        v27 = v10 + 1;
-        v35 = v25 + 1;
-        v28 = v17 + 1;
-        v29 = v22 + 1;
+        v28 = v10 + 1;
+        v29 = v17 + 1;
+        v30 = v23 + 1;
+        v31 = v26 + 1;
         if ( v8 >= a7 )
           break;
-        v30 = (int *)(v12 + 4);
-        if ( (v27 & 0x20) != 0 )
+        v32 = v28 & 0x20;
+        if ( (v28 & 0x20) != 0 )
         {
-          v13 = *v30;
-          v40 = *v30;
+          v13 = *((_DWORD *)v12 + 1);
+          v40 = v13;
         }
         else
         {
           v13 = v40;
         }
         v17 = 0LL;
-        if ( (v27 & 0x20) == 0 )
-          v17 = v28;
+        if ( (v28 & 0x20) == 0 )
+          v17 = v29;
         v10 = 0;
-        if ( (v27 & 0x20) == 0 )
+        if ( (v28 & 0x20) == 0 )
+          v10 = v28;
+        v33 = v12 + 4;
+        if ( !v32 )
+          v33 = v12;
+        v12 = v33;
+        if ( (v30 & 0x20) != 0 )
         {
-          v30 = (int *)v12;
-          v10 = v27;
-        }
-        v12 = (unsigned __int8 *)v30;
-        v31 = v23 + 4;
-        v32 = v29 & 0x20;
-        if ( (v29 & 0x20) != 0 )
-        {
-          v24 = *(_DWORD *)v31;
-          v38 = *(_DWORD *)v31;
+          v25 = *((_DWORD *)v24 + 1);
+          v38 = v25;
         }
         else
         {
-          v24 = v38;
+          v25 = v38;
         }
-        if ( (v29 & 0x20) == 0 )
-          v31 = v23;
-        v22 = 0;
-        v23 = v31;
-        if ( (v29 & 0x20) == 0 )
-          v22 = v29;
-        v15 = v37;
-        v25 = 0LL;
-        v33 = v32 == 0;
+        v34 = v24 + 4;
+        if ( (v30 & 0x20) == 0 )
+          v34 = v24;
+        v23 = 0;
+        v24 = v34;
+        if ( (v30 & 0x20) == 0 )
+          v23 = v30;
+        v26 = 0LL;
         v14 = v39;
-        if ( v33 )
-          v25 = v35;
+        if ( (v30 & 0x20) == 0 )
+          v26 = v31;
+        v15 = v37;
       }
     }
   }
@@ -146,7 +144,7 @@ struct _PLGRUN *__fastcall prunPlgRead1(
     while ( 1 )
     {
       v18 = v15;
-      if ( (v13 & dword_1C0329F30[v17]) == 0 )
+      if ( (v13 & dword_1C02FB720[v17]) == 0 )
         v18 = v14;
       *(_DWORD *)v9 = v18;
       prunPumpDDA(a1, v9);
@@ -156,26 +154,27 @@ struct _PLGRUN *__fastcall prunPlgRead1(
       v20 = v17 + 1;
       if ( v8 >= a7 )
         break;
-      v21 = (int *)(v12 + 4);
+      v21 = v19 & 0x20;
       if ( (v19 & 0x20) != 0 )
       {
-        v13 = *v21;
-        v40 = *v21;
+        v13 = *((_DWORD *)v12 + 1);
+        v40 = v13;
       }
       else
       {
         v13 = v40;
       }
       v15 = v37;
+      v22 = v12 + 4;
       if ( (v19 & 0x20) == 0 )
-        v21 = (int *)v12;
+        v22 = v12;
       v10 = 0;
-      v12 = (unsigned __int8 *)v21;
+      v12 = v22;
       if ( (v19 & 0x20) == 0 )
         v10 = v19;
-      v17 = 0LL;
       v14 = v39;
-      if ( (v19 & 0x20) == 0 )
+      v17 = 0LL;
+      if ( !v21 )
         v17 = v20;
     }
   }

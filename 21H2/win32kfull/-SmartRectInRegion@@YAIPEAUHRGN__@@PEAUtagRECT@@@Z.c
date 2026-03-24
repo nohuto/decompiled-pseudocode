@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SmartRectInRegion@@YAIPEAUHRGN__@@PEAUtagRECT@@@Z @ 0x1C00494A4
+ * XREFs of ?SmartRectInRegion@@YAIPEAUHRGN__@@PEAUtagRECT@@@Z @ 0x1C007141C
  * Callers:
- *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C004B1E8 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
+ *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C0072A60 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
  * Callees:
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SmartRectInRegion(HRGN a1, struct tagRECT *a2)

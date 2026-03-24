@@ -1,17 +1,17 @@
 /*
- * XREFs of GetPropertyFromPropArray @ 0x1407E0500
+ * XREFs of GetPropertyFromPropArray @ 0x1406A0240
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
  */
 
 __int64 __fastcall GetPropertyFromPropArray(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4, _QWORD *a5)
 {
-  __int64 v5; // rsi
+  __int64 v5; // rdi
   unsigned int v10; // ebp
-  __int64 v11; // rdx
-  __int64 v13; // rcx
+  __int64 v11; // r8
+  __int64 v13; // rdx
   const wchar_t *v14; // rcx
   const wchar_t *v15; // rdx
 

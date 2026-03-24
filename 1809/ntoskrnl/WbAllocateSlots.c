@@ -1,7 +1,7 @@
 /*
- * XREFs of WbAllocateSlots @ 0x140690E5C
+ * XREFs of WbAllocateSlots @ 0x140690E3C
  * Callers:
- *     sub_140690DC4 @ 0x140690DC4 (sub_140690DC4.c)
+ *     sub_140690DA4 @ 0x140690DA4 (sub_140690DA4.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -10,8 +10,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     sub_140691014 @ 0x140691014 (sub_140691014.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     sub_140690FF4 @ 0x140690FF4 (sub_140690FF4.c)
  */
 
 __int64 __fastcall WbAllocateSlots(__int64 a1, unsigned int a2, int a3, unsigned int a4)
@@ -60,7 +60,7 @@ LABEL_10:
     }
     if ( a2 == -1 )
       break;
-    v15 = sub_140691014(a1, a2 + 1, a4 - 1);
+    v15 = sub_140690FF4(a1, a2 + 1, a4 - 1);
     if ( v15 == -1 )
       break;
     a2 = v15 + 1;
@@ -79,7 +79,7 @@ LABEL_10:
       ExfAcquirePushLockExclusiveEx(v10, v17, (ULONG_PTR)v10);
     if ( v18 )
       *(_BYTE *)(v18 + 26) |= 1u;
-    if ( (unsigned int)sub_140691014(a1, a2, a4) == -1 )
+    if ( (unsigned int)sub_140690FF4(a1, a2, a4) == -1 )
     {
       v4 = *(_QWORD *)(a1 + 32) + (a2 << 6);
       if ( a4 )

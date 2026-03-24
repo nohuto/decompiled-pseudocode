@@ -1,7 +1,7 @@
 /*
- * XREFs of IsTouchpadPointerInputMessage @ 0x1C01DCE78
+ * XREFs of IsTouchpadPointerInputMessage @ 0x1C01E1F18
  * Callers:
- *     ?IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z @ 0x1C01EBB68 (-IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z.c)
+ *     ?IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z @ 0x1C01F106C (-IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z.c)
  * Callees:
  *     <none>
  */

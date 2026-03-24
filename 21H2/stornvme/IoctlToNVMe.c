@@ -1,31 +1,31 @@
 /*
- * XREFs of IoctlToNVMe @ 0x1C0002DE0
+ * XREFs of IoctlToNVMe @ 0x1C0002660
  * Callers:
- *     NVMeHwBuildIo @ 0x1C0004360 (NVMeHwBuildIo.c)
+ *     NVMeHwBuildIo @ 0x1C0004930 (NVMeHwBuildIo.c)
  * Callees:
- *     CompareId @ 0x1C00012D8 (CompareId.c)
- *     IoctlQueryProtocolInfoProcess @ 0x1C0001414 (IoctlQueryProtocolInfoProcess.c)
- *     IoctlFirmwareProcess @ 0x1C00029FC (IoctlFirmwareProcess.c)
- *     SetPrpFromSrb @ 0x1C0002DA8 (SetPrpFromSrb.c)
- *     DiagGeneric @ 0x1C001A624 (DiagGeneric.c)
- *     IoctlCreateReservedQueuePair @ 0x1C001AFEC (IoctlCreateReservedQueuePair.c)
- *     IoctlDeleteReservedQueuePair @ 0x1C001B48C (IoctlDeleteReservedQueuePair.c)
- *     IoctlQueryEnduranceInformation @ 0x1C001B91C (IoctlQueryEnduranceInformation.c)
- *     IoctlQueryReservedQueueEntries @ 0x1C001BAD4 (IoctlQueryReservedQueueEntries.c)
- *     IoctlQueryTemperatureInfoProcess @ 0x1C001BD14 (IoctlQueryTemperatureInfoProcess.c)
- *     IoctlSetProtocolInfoProcess @ 0x1C001BE78 (IoctlSetProtocolInfoProcess.c)
- *     IoctlSetTemperatureThresholdProcess @ 0x1C001BF00 (IoctlSetTemperatureThresholdProcess.c)
- *     IoctlStorageStreamsGetOpenStreams @ 0x1C001C02C (IoctlStorageStreamsGetOpenStreams.c)
- *     IoctlStorageStreamsGetParameters @ 0x1C001C1E4 (IoctlStorageStreamsGetParameters.c)
- *     IoctlStorageStreamsReleaseId @ 0x1C001C598 (IoctlStorageStreamsReleaseId.c)
+ *     IoctlQueryProtocolInfoProcess @ 0x1C0001EF0 (IoctlQueryProtocolInfoProcess.c)
+ *     IoctlFirmwareProcess @ 0x1C0002278 (IoctlFirmwareProcess.c)
+ *     SetPrpFromSrb @ 0x1C0002628 (SetPrpFromSrb.c)
+ *     CompareId @ 0x1C0005BD0 (CompareId.c)
+ *     DiagGeneric @ 0x1C00115BC (DiagGeneric.c)
+ *     IoctlCreateReservedQueuePair @ 0x1C0012778 (IoctlCreateReservedQueuePair.c)
+ *     IoctlDeleteReservedQueuePair @ 0x1C0012BF4 (IoctlDeleteReservedQueuePair.c)
+ *     IoctlQueryEnduranceInformation @ 0x1C00130A4 (IoctlQueryEnduranceInformation.c)
+ *     IoctlQueryReservedQueueEntries @ 0x1C001325C (IoctlQueryReservedQueueEntries.c)
+ *     IoctlQueryTemperatureInfoProcess @ 0x1C001348C (IoctlQueryTemperatureInfoProcess.c)
+ *     IoctlSetProtocolInfoProcess @ 0x1C00135F0 (IoctlSetProtocolInfoProcess.c)
+ *     IoctlSetTemperatureThresholdProcess @ 0x1C0013678 (IoctlSetTemperatureThresholdProcess.c)
+ *     IoctlStorageStreamsGetOpenStreams @ 0x1C00137A4 (IoctlStorageStreamsGetOpenStreams.c)
+ *     IoctlStorageStreamsGetParameters @ 0x1C0013958 (IoctlStorageStreamsGetParameters.c)
+ *     IoctlStorageStreamsReleaseId @ 0x1C0013D0C (IoctlStorageStreamsReleaseId.c)
  */
 
 __int64 __fastcall IoctlToNVMe(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx
   __int64 result; // rax
-  char *v6; // rbp
-  char *v7; // rbp
+  int v6; // ebp
+  int v7; // ebp
 
   if ( *(_BYTE *)(a2 + 2) == 40 )
     v4 = *(_QWORD *)(a2 + 64);
@@ -40,23 +40,23 @@ __int64 __fastcall IoctlToNVMe(__int64 a1, __int64 a2)
       result = DiagGeneric(a1, a2);
       break;
     case 0x2D1400:
-      v6 = (char *)(v4 + 4);
-      if ( CompareId((__int64)"PROTOCOL", 8u, (char *)(v4 + 4), 8u, 0LL) )
+      v6 = v4 + 4;
+      if ( (unsigned __int8)CompareId((unsigned int)"PROTOCOL", 8, (int)v4 + 4, 8, 0LL) )
       {
         result = IoctlQueryProtocolInfoProcess(a1, a2);
         break;
       }
-      if ( CompareId((__int64)"TEMPERAT", 8u, v6, 8u, 0LL) )
+      if ( (unsigned __int8)CompareId((unsigned int)"TEMPERAT", 8, v6, 8, 0LL) )
       {
         result = IoctlQueryTemperatureInfoProcess(a1, a2);
       }
-      else if ( CompareId((__int64)"QUEUEINF", 8u, v6, 8u, 0LL) )
+      else if ( (unsigned __int8)CompareId((unsigned int)"QUEUEINF", 8, v6, 8, 0LL) )
       {
         result = IoctlQueryReservedQueueEntries(a1, a2);
       }
       else
       {
-        if ( !CompareId((__int64)"ENDURINF", 8u, v6, 8u, 0LL) )
+        if ( !(unsigned __int8)CompareId((unsigned int)"ENDURINF", 8, v6, 8, 0LL) )
         {
 LABEL_16:
           *(_BYTE *)(a2 + 3) = 6;
@@ -75,26 +75,29 @@ LABEL_16:
     case 0x2D2830:
       result = IoctlStorageStreamsReleaseId(a1, a2);
       break;
-    case 0x2D93FC:
-      v7 = (char *)(v4 + 4);
-      if ( CompareId((__int64)"SETPROTO", 8u, (char *)(v4 + 4), 8u, 0LL) )
+    case 0x2D940C:
+      v7 = v4 + 4;
+      if ( (unsigned __int8)CompareId((unsigned int)"SETPROTO", 8, (int)v4 + 4, 8, 0LL) )
       {
         result = IoctlSetProtocolInfoProcess(a1, a2);
       }
-      else if ( CompareId((__int64)"CREATEQU", 8u, v7, 8u, 0LL) )
+      else if ( (unsigned __int8)CompareId((unsigned int)"CREATEQU", 8, v7, 8, 0LL) )
       {
         result = IoctlCreateReservedQueuePair(a1);
       }
       else
       {
-        if ( !CompareId((__int64)"DELETEQU", 8u, v7, 8u, 0LL) )
+        if ( !(unsigned __int8)CompareId((unsigned int)"DELETEQU", 8, v7, 8, 0LL) )
           goto LABEL_16;
         result = IoctlDeleteReservedQueuePair(a1);
       }
       break;
     default:
-      if ( *(_DWORD *)(v4 + 16) != 3002880 || !CompareId((__int64)"SETTEMPT", 8u, (char *)(v4 + 4), 8u, 0LL) )
+      if ( *(_DWORD *)(v4 + 16) != 3002880
+        || !(unsigned __int8)CompareId((unsigned int)"SETTEMPT", 8, (int)v4 + 4, 8, 0LL) )
+      {
         goto LABEL_16;
+      }
       result = IoctlSetTemperatureThresholdProcess(a1, a2);
       break;
   }

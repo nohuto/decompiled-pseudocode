@@ -1,42 +1,44 @@
 /*
- * XREFs of HalpAuditAllocateRsdtArrayTable @ 0x140AF917C
+ * XREFs of HalpAuditAllocateRsdtArrayTable @ 0x140A658DC
  * Callers:
- *     HalpAuditEnumerateRsdts @ 0x140AF8ED0 (HalpAuditEnumerateRsdts.c)
- *     HalpAuditEnumerateRsdtsInRange @ 0x140AF8F6C (HalpAuditEnumerateRsdtsInRange.c)
+ *     HalpAuditEnumerateRsdts @ 0x140A65638 (HalpAuditEnumerateRsdts.c)
+ *     HalpAuditEnumerateRsdtsInRange @ 0x140A656CC (HalpAuditEnumerateRsdtsInRange.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall HalpAuditAllocateRsdtArrayTable(_DWORD **a1)
+__int64 __fastcall HalpAuditAllocateRsdtArrayTable(int **a1)
 {
   unsigned int v1; // ebx
   int v3; // edi
-  _DWORD *Pool2; // rax
-  _DWORD *v5; // rsi
-  _DWORD *v6; // rdi
+  int *PoolWithTag; // rax
+  int *v5; // rsi
+  int *v6; // rdi
 
   v1 = 0;
   if ( *a1 )
     v3 = 2 * **a1;
   else
     v3 = 4;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(32 * v3 + 8), 0x416C6148u);
-  v5 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (int *)ExAllocatePoolWithTag(PagedPool, (unsigned int)(32 * v3 + 8), 0x206C6148u);
+  v5 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *Pool2 = v3;
+    memset(PoolWithTag, 0, (unsigned int)(32 * v3 + 8));
+    *v5 = v3;
     v6 = *a1;
     if ( *a1 )
     {
-      Pool2[1] = v6[1];
-      memmove(Pool2 + 2, v6 + 2, 32LL * (unsigned int)v6[1]);
+      v5[1] = v6[1];
+      memmove(v5 + 2, v6 + 2, 32LL * (unsigned int)v6[1]);
       ExFreePoolWithTag(v6, 0);
     }
     else
     {
-      Pool2[1] = 0;
+      v5[1] = 0;
     }
     *a1 = v5;
   }

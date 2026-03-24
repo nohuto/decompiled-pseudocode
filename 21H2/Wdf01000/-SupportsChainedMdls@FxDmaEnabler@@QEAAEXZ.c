@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SupportsChainedMdls@FxDmaEnabler@@QEAAEXZ @ 0x1C0037BD2
+ * XREFs of ?SupportsChainedMdls@FxDmaEnabler@@QEAAEXZ @ 0x1C002F4A0
  * Callers:
- *     imp_WdfDmaTransactionInitialize @ 0x1C0054510 (imp_WdfDmaTransactionInitialize.c)
- *     imp_WdfDmaTransactionInitializeUsingRequest @ 0x1C0054730 (imp_WdfDmaTransactionInitializeUsingRequest.c)
+ *     imp_WdfDmaTransactionInitialize @ 0x1C0030590 (imp_WdfDmaTransactionInitialize.c)
+ *     imp_WdfDmaTransactionInitializeUsingRequest @ 0x1C00307F0 (imp_WdfDmaTransactionInitializeUsingRequest.c)
  * Callees:
- *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DC98 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
+ *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002F470 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
  */
 
 bool __fastcall FxDmaEnabler::SupportsChainedMdls(FxDmaEnabler *this)

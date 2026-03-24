@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpIsEventNameFilterEnabled @ 0x14023DD00
+ * XREFs of EtwpIsEventNameFilterEnabled @ 0x14025F488
  * Callers:
- *     EtwpWriteUserEvent @ 0x1407B4D70 (EtwpWriteUserEvent.c)
+ *     EtwpWriteUserEvent @ 0x140627BC0 (EtwpWriteUserEvent.c)
  * Callees:
  *     <none>
  */
@@ -18,12 +18,12 @@ bool __fastcall EtwpIsEventNameFilterEnabled(__int64 a1, unsigned int a2, unsign
   if ( !v5 )
     return 0;
   v7 = 104LL * a2;
-  v8 = *(_DWORD *)(v7 + v5);
+  v8 = *(_DWORD *)(v5 + v7);
   if ( !a5 )
   {
     if ( (v8 & 0x80000400) == 0x80000400 )
     {
-      v9 = *(_QWORD *)(v7 + v5 + 96);
+      v9 = *(_QWORD *)(v5 + v7 + 96);
       goto LABEL_8;
     }
     return 0;

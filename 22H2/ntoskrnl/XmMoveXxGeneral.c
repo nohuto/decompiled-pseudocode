@@ -1,10 +1,10 @@
 /*
- * XREFs of XmMoveXxGeneral @ 0x14039B840
+ * XREFs of XmMoveXxGeneral @ 0x1403C3320
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x1403B8BCC (XmEvaluateAddressSpecifier.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140396914 (XmEvaluateAddressSpecifier.c)
  */
 
 __int64 __fastcall XmMoveXxGeneral(__int64 a1)
@@ -14,15 +14,16 @@ __int64 __fastcall XmMoveXxGeneral(__int64 a1)
   int v4; // eax
   int v5; // eax
   int v6; // eax
-  unsigned int v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v7; // rdx
+  unsigned int v8; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_DWORD *)(a1 + 112) & 1;
-  v7 = 0;
+  v8 = 0;
   *(_DWORD *)(a1 + 120) = v1;
-  result = XmEvaluateAddressSpecifier(a1, &v7);
+  result = XmEvaluateAddressSpecifier(a1, (int *)&v8);
   if ( result )
   {
-    XmSetSourceValue(a1, result);
+    XmSetSourceValue(a1, (unsigned __int16 *)result);
     v4 = *(_DWORD *)(a1 + 112) & 8;
     if ( *(_DWORD *)(a1 + 120) )
     {
@@ -49,9 +50,10 @@ __int64 __fastcall XmMoveXxGeneral(__int64 a1)
       *(_WORD *)(a1 + 110) = 0;
       v6 = 1;
     }
+    v7 = v8 + 6LL;
     *(_DWORD *)(a1 + 120) = v6;
     result = 1LL;
-    *(_QWORD *)(a1 + 88) = a1 + 4 * (v7 + 6LL);
+    *(_QWORD *)(a1 + 88) = a1 + 4 * v7;
   }
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of DrvChangeDisplaySettingsPreValidate @ 0x1C0067580
+ * XREFs of DrvChangeDisplaySettingsPreValidate @ 0x1C001A714
  * Callers:
- *     ?xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@@KPEAXW4_MODE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0065210 (-xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@.c)
- *     DrvChangeDisplaySettings @ 0x1C00658C4 (DrvChangeDisplaySettings.c)
+ *     ?xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@@KPEAXW4_MODE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C001845C (-xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@.c)
+ *     DrvChangeDisplaySettings @ 0x1C00189C0 (DrvChangeDisplaySettings.c)
  * Callees:
- *     ?DrvIsTemporarySettingChangeDisabled@@YAHXZ @ 0x1C0067688 (-DrvIsTemporarySettingChangeDisabled@@YAHXZ.c)
- *     ?DrvIsPermanentSettingChangesDisabled@@YAHXZ @ 0x1C00681FC (-DrvIsPermanentSettingChangesDisabled@@YAHXZ.c)
- *     DrvGetDeviceFromName @ 0x1C00719F0 (DrvGetDeviceFromName.c)
- *     UserIsWddmConnectedSession @ 0x1C0071CE0 (UserIsWddmConnectedSession.c)
+ *     ?DrvIsPermanentSettingChangesDisabled@@YAHXZ @ 0x1C0017804 (-DrvIsPermanentSettingChangesDisabled@@YAHXZ.c)
+ *     ?DrvIsTemporarySettingChangeDisabled@@YAHXZ @ 0x1C001A66C (-DrvIsTemporarySettingChangeDisabled@@YAHXZ.c)
+ *     UserIsWddmConnectedSession @ 0x1C001DEB0 (UserIsWddmConnectedSession.c)
+ *     DrvGetDeviceFromName @ 0x1C0021400 (DrvGetDeviceFromName.c)
  */
 
 __int64 __fastcall DrvChangeDisplaySettingsPreValidate(
@@ -21,19 +21,28 @@ __int64 __fastcall DrvChangeDisplaySettingsPreValidate(
 {
   int v7; // edi
   __int64 DeviceFromName; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rdx
   wchar_t *i; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
 
   v7 = 0;
+  DeviceFromName = a2;
   if ( a4 == 1 )
   {
-    if ( a5 && a3 && (unsigned int)DrvIsPermanentSettingChangesDisabled() )
+    if ( a5 && a3 && DrvIsPermanentSettingChangesDisabled() )
     {
-      WdLogSingleEntry0(5LL);
+      v17 = WdLogNewEntry5_WdTrace(v13, v12);
+      WdLogEvent5_WdTrace(v17);
       return 4294967293LL;
     }
-    if ( (unsigned int)DrvIsTemporarySettingChangeDisabled() )
+    if ( DrvIsTemporarySettingChangeDisabled() )
     {
-      WdLogSingleEntry0(5LL);
+      v18 = WdLogNewEntry5_WdTrace(String1, a2);
+      WdLogEvent5_WdTrace(v18);
       return 0xFFFFFFFFLL;
     }
   }
@@ -43,7 +52,7 @@ __int64 __fastcall DrvChangeDisplaySettingsPreValidate(
     if ( DeviceFromName )
     {
 LABEL_8:
-      if ( (unsigned int)UserIsWddmConnectedSession() )
+      if ( (unsigned int)UserIsWddmConnectedSession(String1, a2) )
       {
         if ( DeviceFromName )
         {
@@ -70,10 +79,12 @@ LABEL_8:
         *a7 = v7;
         return 0LL;
       }
-      WdLogSingleEntry1(5LL, 2LL);
-      return 4294967291LL;
+      v19 = WdLogNewEntry5_WdTrace(i, v14);
+      *(_QWORD *)(v19 + 24) = 2LL;
+      goto LABEL_25;
     }
-    WdLogSingleEntry1(5LL, 0LL);
+    v19 = WdLogNewEntry5_WdTrace(String1, a2);
+    *(_QWORD *)(v19 + 24) = 0LL;
   }
   else
   {
@@ -82,13 +93,14 @@ LABEL_8:
       DeviceFromName = 0LL;
       goto LABEL_8;
     }
-    if ( a2 )
-    {
-      DeviceFromName = *(_QWORD *)(a2 + 2552);
-      if ( DeviceFromName )
-        goto LABEL_8;
-    }
-    WdLogSingleEntry1(5LL, 1LL);
+    if ( DeviceFromName )
+      DeviceFromName = *(_QWORD *)(DeviceFromName + 2576);
+    if ( DeviceFromName )
+      goto LABEL_8;
+    v19 = WdLogNewEntry5_WdTrace(String1, a2);
+    *(_QWORD *)(v19 + 24) = 1LL;
   }
+LABEL_25:
+  WdLogEvent5_WdTrace(v19);
   return 4294967291LL;
 }

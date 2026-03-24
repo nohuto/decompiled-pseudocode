@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ConvertMPOThunkToLegacyPresentThunk@@YAXPEAU_D3DKMT_PRESENT@@PEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEBU_D3DKMT_MULTIPLANE_OVERLAY3@@@Z @ 0x1C03241EC
+ * XREFs of ?ConvertMPOThunkToLegacyPresentThunk@@YAXPEAU_D3DKMT_PRESENT@@PEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEBU_D3DKMT_MULTIPLANE_OVERLAY3@@@Z @ 0x1C02A3ED0
  * Callers:
- *     ?PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEVICEACCESS@@PEAPEAV1@@Z @ 0x1C01C35A0 (-PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEV.c)
+ *     ?PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEVICEACCESS@@PEAPEAV1@@Z @ 0x1C02A4B6C (-PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEV.c)
  * Callees:
  *     <none>
  */
@@ -11,21 +11,33 @@ void __fastcall ConvertMPOThunkToLegacyPresentThunk(
         const struct _D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 *a2,
         const struct _D3DKMT_MULTIPLANE_OVERLAY3 *a3)
 {
-  D3DKMT_HANDLE v4; // r9d
+  ULONG v4; // r10d
+  int v5; // eax
+  __int64 v6; // r9
   D3DDDI_FLIPINTERVAL_TYPE FlipInterval; // eax
-  UINT v6; // eax
-  UINT v7; // ecx
-  UINT v8; // eax
+  void *pDriverPrivateData; // rax
   UINT v9; // ecx
-  UINT v10; // eax
+  UINT v10; // ecx
   UINT v11; // ecx
-  UINT v12; // eax
-  UINT v13; // ecx
+  UINT v12; // ecx
 
-  v4 = *a2->pContextList;
-  a1->BroadcastContextCount = 0;
-  a1->hDevice = v4;
+  a1->hDevice = *a2->pContextList;
+  v4 = a2->ContextCount - 1;
+  a1->BroadcastContextCount = v4;
+  v5 = 0;
   a1->hSource = *a3->pAllocationList;
+  if ( v4 )
+  {
+    do
+    {
+      v6 = (unsigned int)(v5 + 1);
+      a1->BroadcastContext[v5] = a2->pContextList[v6];
+      if ( a3->AllocationCount > (unsigned int)v6 )
+        a1->BroadcastSrcAllocation[v5] = a3->pAllocationList[v6];
+      ++v5;
+    }
+    while ( (unsigned int)v6 < a1->BroadcastContextCount );
+  }
   a1->VidPnSourceId = a2->VidPnSourceId;
   a1->SrcRect = a3->pPlaneAttributes->SrcRect;
   a1->SubRectCnt = a3->pPlaneAttributes->DirtyRectCount;
@@ -36,22 +48,22 @@ void __fastcall ConvertMPOThunkToLegacyPresentThunk(
   a1->FlipInterval = FlipInterval;
   a1->Duration = a2->Duration;
   a1->PrivateDriverDataSize = a3->DriverPrivateDataSize;
-  a1->pPrivateDriverData = a3->pDriverPrivateData;
-  v6 = a1->Flags.Value | 4;
-  a1->Flags.Value = v6;
-  v7 = v6 ^ ((unsigned __int8)v6 ^ (unsigned __int8)(a2->Flags.Value >> 1)) & 8;
-  a1->Flags.Value = v7;
-  v8 = v7 ^ ((unsigned __int8)v7 ^ (unsigned __int8)(2 * a2->Flags.Value)) & 0x10;
-  a1->Flags.Value = v8;
-  v9 = v8 & 0xFFFFFFDF | a2->Flags.Value & 0x20 | 0x1000;
+  pDriverPrivateData = a3->pDriverPrivateData;
+  a1->Flags.Value |= 4u;
+  a1->pPrivateDriverData = pDriverPrivateData;
+  v9 = a1->Flags.Value ^ ((unsigned __int8)*(_DWORD *)&a1->Flags.0 ^ (unsigned __int8)(a2->Flags.Value >> 1)) & 8;
   a1->Flags.Value = v9;
-  v10 = v9 ^ (v9 ^ (a2->Flags.Value << 17)) & 0x20000;
+  LODWORD(pDriverPrivateData) = v9 ^ ((unsigned __int8)v9 ^ (unsigned __int8)(2 * a2->Flags.Value)) & 0x10;
+  a1->Flags.Value = (unsigned int)pDriverPrivateData;
+  v10 = (unsigned int)pDriverPrivateData & 0xFFFFFFDF | a2->Flags.Value & 0x20 | 0x1000;
   a1->Flags.Value = v10;
-  v11 = v10 ^ (v10 ^ (a2->Flags.Value << 17)) & 0x40000;
+  LODWORD(pDriverPrivateData) = v10 ^ (v10 ^ (a2->Flags.Value << 17)) & 0x20000;
+  a1->Flags.Value = (unsigned int)pDriverPrivateData;
+  v11 = (unsigned int)pDriverPrivateData ^ ((unsigned int)pDriverPrivateData ^ (a2->Flags.Value << 17)) & 0x40000;
   a1->Flags.Value = v11;
-  v12 = v11 ^ (v11 ^ (a2->Flags.Value << 17)) & 0x80000;
+  LODWORD(pDriverPrivateData) = v11 ^ (v11 ^ (a2->Flags.Value << 17)) & 0x80000;
+  a1->Flags.Value = (unsigned int)pDriverPrivateData;
+  v12 = (unsigned int)pDriverPrivateData ^ ((unsigned int)pDriverPrivateData ^ (a2->Flags.Value << 21)) & 0x8000000;
   a1->Flags.Value = v12;
-  v13 = v12 ^ (v12 ^ (a2->Flags.Value << 21)) & 0x8000000;
-  a1->Flags.Value = v13;
-  a1->Flags.Value = v13 ^ (v13 ^ (a2->Flags.Value << 21)) & 0x20000000;
+  a1->Flags.Value = v12 ^ (v12 ^ (a2->Flags.Value << 21)) & 0x20000000;
 }

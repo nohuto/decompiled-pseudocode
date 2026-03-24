@@ -1,9 +1,9 @@
 /*
- * XREFs of write_string @ 0x1C00D6E2C
+ * XREFs of write_string @ 0x1C00C6038
  * Callers:
- *     _output_l @ 0x1C00D6548 (_output_l.c)
+ *     _output_l @ 0x1C00C5754 (_output_l.c)
  * Callees:
- *     write_char @ 0x1C00D6D84 (write_char.c)
+ *     write_char @ 0x1C00C5F90 (write_char.c)
  */
 
 int __fastcall write_string(char *a1, int a2, FILE *a3, _DWORD *a4)
@@ -21,8 +21,14 @@ int __fastcall write_string(char *a1, int a2, FILE *a3, _DWORD *a4)
       {
         --v7;
         result = write_char(*a1++, a3, a4);
+        if ( *a4 == -1 )
+        {
+          if ( gbl_errno != 42 )
+            return result;
+          result = write_char(63, a3, a4);
+        }
       }
-      while ( *a4 != -1 && v7 > 0 );
+      while ( v7 > 0 );
     }
   }
   else

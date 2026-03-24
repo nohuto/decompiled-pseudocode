@@ -1,8 +1,8 @@
 /*
  * XREFs of KdpCopyContext @ 0x140918934
  * Callers:
- *     KdpSetContextEx @ 0x14028C57C (KdpSetContextEx.c)
- *     KdpReport @ 0x14028CA00 (KdpReport.c)
+ *     KdpSetContextEx @ 0x14028C67C (KdpSetContextEx.c)
+ *     KdpReport @ 0x14028CB00 (KdpReport.c)
  *     KdpGetContext @ 0x1409162E4 (KdpGetContext.c)
  *     KdpSetContext @ 0x1409179F0 (KdpSetContext.c)
  *     KdpCommandString @ 0x140918164 (KdpCommandString.c)

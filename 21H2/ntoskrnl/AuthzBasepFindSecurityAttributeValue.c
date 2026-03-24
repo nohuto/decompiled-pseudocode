@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepFindSecurityAttributeValue @ 0x140205030
+ * XREFs of AuthzBasepFindSecurityAttributeValue @ 0x140250EDC
  * Callers:
- *     AuthzBasepAddSecurityAttributeValues @ 0x140204954 (AuthzBasepAddSecurityAttributeValues.c)
- *     AuthzBasepDeleteSecurityAttributeValues @ 0x14064A300 (AuthzBasepDeleteSecurityAttributeValues.c)
- *     AuthzBasepCompareSecurityAttribute @ 0x1406961F8 (AuthzBasepCompareSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttributeValues @ 0x140250CE4 (AuthzBasepAddSecurityAttributeValues.c)
+ *     AuthzBasepDeleteSecurityAttributeValues @ 0x1405C1294 (AuthzBasepDeleteSecurityAttributeValues.c)
+ *     AuthzBasepCompareSecurityAttribute @ 0x140717814 (AuthzBasepCompareSecurityAttribute.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x1402053BC (AuthzBasepEqualUnicodeString.c)
- *     memcmp @ 0x1403E1D90 (memcmp.c)
+ *     AuthzBasepEqualUnicodeString @ 0x14024DBB0 (AuthzBasepEqualUnicodeString.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
  */
 
 __int64 __fastcall AuthzBasepFindSecurityAttributeValue(__int64 a1, __int64 a2, unsigned __int16 a3)
@@ -14,79 +14,66 @@ __int64 __fastcall AuthzBasepFindSecurityAttributeValue(__int64 a1, __int64 a2, 
   char v3; // bl
   __int64 *v4; // r12
   __int64 *v5; // rsi
-  unsigned __int64 v7; // r15
+  unsigned __int64 v9; // r15
   _QWORD *v10; // rsi
-  bool v12; // zf
-  __int128 *v13; // rdx
-  __int128 *v14; // rdx
-  bool v15; // zf
-  unsigned int v16; // eax
-  unsigned int v17; // eax
-  __int128 v18; // [rsp+20h] [rbp-20h] BYREF
-  __int128 v19; // [rsp+30h] [rbp-10h] BYREF
+  const UNICODE_STRING *v12; // rdx
+  const UNICODE_STRING *v13; // rdx
+  unsigned int v14; // eax
+  unsigned int v15; // eax
+  UNICODE_STRING v16; // [rsp+20h] [rbp-20h] BYREF
+  __int128 v17; // [rsp+30h] [rbp-10h] BYREF
 
   v3 = 0;
   v4 = (__int64 *)(a1 + 72);
   v5 = *(__int64 **)(a1 + 72);
-  v7 = 0LL;
-  v18 = 0LL;
-  v19 = 0LL;
+  v9 = 0LL;
+  v16 = 0LL;
+  v17 = 0LL;
   while ( v5 != v4 )
   {
-    v7 = (unsigned __int64)v5;
+    v9 = (unsigned __int64)v5;
     if ( !a3 )
-      goto LABEL_19;
+      goto LABEL_18;
     if ( a3 <= 2u )
       goto LABEL_25;
-    if ( a3 == 3 )
+    switch ( a3 )
     {
-      v13 = (__int128 *)(v5 + 5);
-      LOWORD(v18) = *(_WORD *)a2;
-      WORD1(v18) = v18;
-      *((_QWORD *)&v18 + 1) = *(_QWORD *)(a2 + 8);
-      goto LABEL_17;
-    }
-    if ( a3 != 4 )
-    {
-      switch ( a3 )
-      {
-        case 5u:
-          goto LABEL_32;
-        case 6u:
-LABEL_25:
-          v15 = a2 == v5[5];
+      case 3u:
+        v12 = (const UNICODE_STRING *)(v5 + 5);
+        v16.Length = *(_WORD *)a2;
+        v16.MaximumLength = v16.Length;
+        v16.Buffer = *(wchar_t **)(a2 + 8);
+        goto LABEL_17;
+      case 4u:
+        v16.Length = *(_WORD *)(a2 + 8);
+        v16.MaximumLength = v16.Length;
+        v16.Buffer = *(wchar_t **)(a2 + 16);
+        LOWORD(v17) = *((_WORD *)v5 + 24);
+        WORD1(v17) = v17;
+        *((_QWORD *)&v17 + 1) = v5[7];
+        if ( *(_QWORD *)a2 != v5[5] )
           break;
-        case 0x10u:
-LABEL_32:
-          v16 = *(_DWORD *)(a2 + 8);
-          if ( v16 != *((_DWORD *)v5 + 12) )
-            goto LABEL_19;
-          v15 = memcmp(*(const void **)a2, (const void *)v5[5], v16) == 0;
-          break;
-        default:
-          goto LABEL_19;
-      }
-      if ( v15 )
-      {
-        v3 = 1;
-        break;
-      }
-      goto LABEL_19;
-    }
-    LOWORD(v18) = *(_WORD *)(a2 + 8);
-    WORD1(v18) = v18;
-    *((_QWORD *)&v18 + 1) = *(_QWORD *)(a2 + 16);
-    LOWORD(v19) = *((_WORD *)v5 + 24);
-    WORD1(v19) = v19;
-    *((_QWORD *)&v19 + 1) = v5[7];
-    if ( *(_QWORD *)a2 == v5[5] )
-    {
-      v13 = &v19;
+        v12 = (const UNICODE_STRING *)&v17;
 LABEL_17:
-      if ( (unsigned __int8)AuthzBasepEqualUnicodeString(&v18, v13) )
-        v3 = 1;
+        if ( AuthzBasepEqualUnicodeString(&v16, v12) )
+          goto LABEL_24;
+        break;
+      case 5u:
+        goto LABEL_48;
+      case 6u:
+LABEL_25:
+        if ( a2 == v5[5] )
+          v3 = 1;
+        break;
+      case 0x10u:
+LABEL_48:
+        v14 = *(_DWORD *)(a2 + 8);
+        if ( v14 == *((_DWORD *)v5 + 12) && !memcmp(*(const void **)a2, (const void *)v5[5], v14) )
+LABEL_24:
+          v3 = 1;
+        break;
     }
-LABEL_19:
+LABEL_18:
     v5 = (__int64 *)*v5;
     if ( v3 )
       break;
@@ -96,61 +83,57 @@ LABEL_19:
   {
     if ( !v3 && v10 != (_QWORD *)(a1 + 96) )
     {
-      v7 = (unsigned __int64)(v10 - 2);
-      if ( (v10[2] & 1) == 0 && a3 )
+      v9 = (unsigned __int64)(v10 - 2);
+      if ( (v10[2] & 1) != 0 || !a3 )
+        goto LABEL_12;
+      if ( a3 <= 2u )
+        goto LABEL_10;
+      if ( a3 == 3 )
       {
-        if ( a3 <= 2u )
-        {
-LABEL_10:
-          v12 = a2 == *(_QWORD *)(v7 + 40);
-          goto LABEL_11;
-        }
-        switch ( a3 )
-        {
-          case 3u:
-            v14 = (__int128 *)(v7 + 40);
-            LOWORD(v18) = *(_WORD *)a2;
-            WORD1(v18) = v18;
-            *((_QWORD *)&v18 + 1) = *(_QWORD *)(a2 + 8);
-            goto LABEL_23;
-          case 4u:
-            LOWORD(v18) = *(_WORD *)(a2 + 8);
-            WORD1(v18) = v18;
-            *((_QWORD *)&v18 + 1) = *(_QWORD *)(a2 + 16);
-            LOWORD(v19) = *(_WORD *)(v7 + 48);
-            WORD1(v19) = v19;
-            *((_QWORD *)&v19 + 1) = *(_QWORD *)(v7 + 56);
-            if ( *(_QWORD *)a2 == *(_QWORD *)(v7 + 40) )
-            {
-              v14 = &v19;
-LABEL_23:
-              if ( (unsigned __int8)AuthzBasepEqualUnicodeString(&v18, v14) )
-                v3 = 1;
-            }
-            break;
-          case 5u:
-            goto LABEL_40;
-          case 6u:
-            goto LABEL_10;
-          case 0x10u:
-LABEL_40:
-            v17 = *(_DWORD *)(a2 + 8);
-            if ( v17 == *(_DWORD *)(v7 + 48) )
-            {
-              v12 = memcmp(*(const void **)a2, *(const void **)(v7 + 40), v17) == 0;
-LABEL_11:
-              if ( v12 )
-              {
-                v3 = 1;
-                return v7 & -(__int64)(v3 != 0);
-              }
-            }
-            break;
-        }
+        v13 = (const UNICODE_STRING *)(v9 + 40);
+        v16.Length = *(_WORD *)a2;
+        v16.MaximumLength = v16.Length;
+        v16.Buffer = *(wchar_t **)(a2 + 8);
       }
+      else
+      {
+        if ( a3 != 4 )
+        {
+          switch ( a3 )
+          {
+            case 5u:
+              goto LABEL_49;
+            case 6u:
+LABEL_10:
+              if ( a2 == *(_QWORD *)(v9 + 40) )
+                v3 = 1;
+              goto LABEL_12;
+            case 0x10u:
+LABEL_49:
+              v15 = *(_DWORD *)(a2 + 8);
+              if ( v15 == *(_DWORD *)(v9 + 48) && !memcmp(*(const void **)a2, *(const void **)(v9 + 40), v15) )
+                goto LABEL_23;
+              break;
+          }
+          goto LABEL_12;
+        }
+        v16.Length = *(_WORD *)(a2 + 8);
+        v16.MaximumLength = v16.Length;
+        v16.Buffer = *(wchar_t **)(a2 + 16);
+        LOWORD(v17) = *(_WORD *)(v9 + 48);
+        WORD1(v17) = v17;
+        *((_QWORD *)&v17 + 1) = *(_QWORD *)(v9 + 56);
+        if ( *(_QWORD *)a2 != *(_QWORD *)(v9 + 40) )
+          goto LABEL_12;
+        v13 = (const UNICODE_STRING *)&v17;
+      }
+      if ( AuthzBasepEqualUnicodeString(&v16, v13) )
+LABEL_23:
+        v3 = 1;
+LABEL_12:
       v10 = (_QWORD *)*v10;
       continue;
     }
-    return v7 & -(__int64)(v3 != 0);
+    return v9 & -(__int64)(v3 != 0);
   }
 }

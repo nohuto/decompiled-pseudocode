@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogExitProximity @ 0x1409A854C
+ * XREFs of TtmiLogExitProximity @ 0x140902C6C
  * Callers:
- *     TtmpExitProximity @ 0x1409AB934 (TtmpExitProximity.c)
+ *     TtmpExitProximity @ 0x1408FDF64 (TtmpExitProximity.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x14036F3B0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     PsGetProcessSessionIdEx @ 0x140315400 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogExitProximity(int a1, int a2, char a3)
@@ -33,9 +33,9 @@ char __fastcall TtmiLogExitProximity(int a1, int a2, char a3)
   _UNKNOWN *retaddr; // [rsp+C0h] [rbp+5Fh] BYREF
 
   v3 = &retaddr;
-  if ( (unsigned int)dword_140D53948 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140D53948, 1LL);
+    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL);
     if ( (_BYTE)v3 )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -56,8 +56,8 @@ char __fastcall TtmiLogExitProximity(int a1, int a2, char a3)
       v9 = a3;
       v24 = 1;
       LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140D53948,
-                     (unsigned __int8 *)byte_140033853,
+                     (__int64)&dword_140D2D8C8,
+                     (unsigned __int8 *)byte_14002BB55,
                      0LL,
                      0LL,
                      6u,

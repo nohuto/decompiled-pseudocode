@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionEdgyProcessInertia @ 0x1C016D6A0
+ * XREFs of EditionEdgyProcessInertia @ 0x1C0208C50
  * Callers:
  *     <none>
  * Callees:
- *     ?ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C0207D98 (-ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ *     ?ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C0207878 (-ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z.c)
  */
 
 void __fastcall EditionEdgyProcessInertia(Edgy *a1, const struct INERTIA_INFO_INTERNAL *a2)

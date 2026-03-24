@@ -1,11 +1,11 @@
 /*
- * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@2@Z @ 0x1C006C614
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@2@Z @ 0x1C005E990
  * Callers:
- *     ?LogRemoteVsyncTimeout@BLTQUEUE@@AEAAXXZ @ 0x1C03BC518 (-LogRemoteVsyncTimeout@BLTQUEUE@@AEAAXXZ.c)
+ *     ?LogRemoteVsyncTimeout@BLTQUEUE@@AEAAXXZ @ 0x1C02FD9C4 (-LogRemoteVsyncTimeout@BLTQUEUE@@AEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ExtractAggregateFieldTypes @ 0x1C007493C (ExtractAggregateFieldTypes.c)
- *     InsertEventEntryInLookUpTable @ 0x1C0074AF0 (InsertEventEntryInLookUpTable.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ExtractAggregateFieldTypes @ 0x1C00629B4 (ExtractAggregateFieldTypes.c)
+ *     InsertEventEntryInLookUpTable @ 0x1C0062B68 (InsertEventEntryInLookUpTable.c)
  */
 
 NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
@@ -37,25 +37,25 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   *(_DWORD *)&EventDescriptor.Id = *a2 << 24;
   *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)(a2 + 1);
   EventDescriptor.Keyword = *(_QWORD *)(a2 + 3);
-  UserData.Ptr = (ULONGLONG)off_1C012F8B0;
+  UserData.Ptr = (ULONGLONG)off_1C00B19F0;
   v18 = 8;
   v14 = a4;
   v15 = 8;
-  UserData.Size = *(unsigned __int16 *)off_1C012F8B0;
+  UserData.Size = *(unsigned __int16 *)off_1C00B19F0;
   v12 = *(unsigned __int16 *)(a2 + 11);
   v11 = a2 + 11;
   UserData.Reserved = 2;
   v13 = 1;
   v9 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
   result = -1073741811;
-  if ( (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))qword_1C012F8D0 == TlgAggregateInternalRegisteredProviderEtwCallback )
+  if ( (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))qword_1C00B1A10 == TlgAggregateInternalRegisteredProviderEtwCallback )
   {
     v6 = ExtractAggregateFieldTypes(TlgAggregateInternalRegisteredProviderEtwCallback, &UserData);
     if ( v6 )
     {
       LOBYTE(v7) = 4;
       return InsertEventEntryInLookUpTable(
-               (unsigned int)&dword_1C012F8A8,
+               (unsigned int)&dword_1C00B19E8,
                (unsigned int)&EventDescriptor,
                v7,
                (unsigned int)&UserData,

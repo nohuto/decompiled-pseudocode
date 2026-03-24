@@ -1,14 +1,14 @@
 /*
- * XREFs of CcGetVirtualAddress @ 0x1400AFC20
+ * XREFs of CcGetVirtualAddress @ 0x1400AFC40
  * Callers:
  *     CcMapAndCopyInToCache @ 0x1400321D0 (CcMapAndCopyInToCache.c)
- *     CcPinFileData @ 0x1400AE2B0 (CcPinFileData.c)
- *     CcPrepareMdlWrite @ 0x1400E1A20 (CcPrepareMdlWrite.c)
- *     CcPurgeAndClearCacheSection @ 0x1400E78D8 (CcPurgeAndClearCacheSection.c)
+ *     CcPinFileData @ 0x1400AE2D0 (CcPinFileData.c)
+ *     CcPrepareMdlWrite @ 0x1400E1A40 (CcPrepareMdlWrite.c)
+ *     CcPurgeAndClearCacheSection @ 0x1400E78F8 (CcPurgeAndClearCacheSection.c)
  *     CcMapAndCopyFromCache @ 0x140638760 (CcMapAndCopyFromCache.c)
  *     CcMapData @ 0x140638A10 (CcMapData.c)
- *     CcMdlRead @ 0x140662BB0 (CcMdlRead.c)
- *     CcMapDataCommon @ 0x14069FF84 (CcMapDataCommon.c)
+ *     CcMdlRead @ 0x140662B90 (CcMdlRead.c)
+ *     CcMapDataCommon @ 0x14069FF64 (CcMapDataCommon.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     CcGetVacbMiss @ 0x1400216E0 (CcGetVacbMiss.c)
@@ -17,14 +17,14 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     CcUnmapVacbArray @ 0x1400798E0 (CcUnmapVacbArray.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     CcInsertVacbArray @ 0x14016AC44 (CcInsertVacbArray.c)
- *     CcAllocateInitializeVacbArray @ 0x14016AFC4 (CcAllocateInitializeVacbArray.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     CcBuildUpHighPriorityMappings @ 0x14026A400 (CcBuildUpHighPriorityMappings.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031BFB4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C178 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     CcInsertVacbArray @ 0x14016AC64 (CcInsertVacbArray.c)
+ *     CcAllocateInitializeVacbArray @ 0x14016AFE4 (CcAllocateInitializeVacbArray.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     CcBuildUpHighPriorityMappings @ 0x14026A500 (CcBuildUpHighPriorityMappings.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall CcGetVirtualAddress(

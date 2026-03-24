@@ -1,16 +1,16 @@
 /*
- * XREFs of KiExpandKernelStackAndCalloutOnStackSegment @ 0x140271270
+ * XREFs of KiExpandKernelStackAndCalloutOnStackSegment @ 0x1402AA8C0
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14022E7D0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1402AA760 (KiExpandKernelStackAndCalloutSwitchStack.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x14022E9D0 (KeQueryCurrentStackInformationEx.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     MmDeleteKernelStackEx @ 0x14026F7B0 (MmDeleteKernelStackEx.c)
- *     MmCreateKernelStack @ 0x140271580 (MmCreateKernelStack.c)
- *     KeReleaseMutant @ 0x1402AFC60 (KeReleaseMutant.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KeGetCurrentStackPointer @ 0x14041EA70 (KeGetCurrentStackPointer.c)
- *     KiSwitchKernelStackAndCallout @ 0x140423000 (KiSwitchKernelStackAndCallout.c)
+ *     MmCreateKernelStack @ 0x1402AABF0 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1402AB200 (MmDeleteKernelStack.c)
+ *     KeReleaseMutant @ 0x1402C2B40 (KeReleaseMutant.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1402D0C30 (KeQueryCurrentStackInformationEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x1403FDC50 (KeGetCurrentStackPointer.c)
+ *     KiSwitchKernelStackAndCallout @ 0x140401D20 (KiSwitchKernelStackAndCallout.c)
  */
 
 __int64 __fastcall KiExpandKernelStackAndCalloutOnStackSegment(
@@ -20,170 +20,173 @@ __int64 __fastcall KiExpandKernelStackAndCalloutOnStackSegment(
         char a4,
         __int64 a5)
 {
-  __int64 v5; // r13
-  int v6; // edx
-  unsigned __int8 v7; // di
-  struct _KTHREAD *CurrentThread; // rsi
-  LARGE_INTEGER *Timeout; // rbx
-  __int64 v10; // r14
-  unsigned __int8 CurrentIrql; // r12
-  unsigned int v12; // r15d
+  char v5; // bl
+  __int64 v6; // r14
+  struct _KTHREAD *CurrentThread; // rdi
+  unsigned __int8 v8; // bp
+  unsigned int v9; // r15d
+  unsigned __int8 CurrentIrql; // r13
+  __int64 v11; // rsi
+  unsigned int v12; // r12d
   int v13; // ecx
-  int v14; // r9d
-  ULONG_PTR KernelStack; // rbp
-  unsigned __int64 v16; // rbx
-  __int64 v17; // rcx
+  int v14; // ebx
+  __int64 KernelStack; // rax
+  __int64 v16; // rsi
+  unsigned __int64 v17; // rbx
+  __int64 v18; // rax
   int MiscFlags; // eax
-  char v19; // r15
-  unsigned __int64 CurrentStackPointer; // rax
-  unsigned int v21; // eax
+  int v20; // r12d
+  __int64 CurrentStackPointer; // rax
   unsigned int v22; // ebx
   __int64 v24; // r8
-  bool v25; // zf
-  unsigned __int8 v26; // al
-  unsigned __int64 v27; // [rsp+30h] [rbp-58h] BYREF
-  char *v28; // [rsp+38h] [rbp-50h] BYREF
-  __int64 v31; // [rsp+A0h] [rbp+18h] BYREF
-  unsigned int v32; // [rsp+A8h] [rbp+20h]
+  __int64 v25; // rax
+  __int64 v26; // rax
+  bool v27; // zf
+  unsigned __int8 v28; // al
+  LARGE_INTEGER *Timeout; // [rsp+30h] [rbp-68h]
+  __int64 v30; // [rsp+38h] [rbp-60h] BYREF
+  __int64 v31; // [rsp+40h] [rbp-58h] BYREF
+  _QWORD v32[10]; // [rsp+48h] [rbp-50h] BYREF
+  int v35; // [rsp+B0h] [rbp+18h] BYREF
+  unsigned int v36; // [rsp+B8h] [rbp+20h]
 
-  v5 = a5;
-  v6 = 0;
-  v7 = 0;
-  v31 = 0LL;
+  v5 = a4;
+  v30 = 0LL;
+  v6 = a3;
   CurrentThread = KeGetCurrentThread();
+  v8 = 0;
+  v9 = 0;
   Timeout = 0LL;
-  v32 = 0;
-  v10 = a3;
   CurrentIrql = KeGetCurrentIrql();
+  v11 = a5;
   if ( CurrentIrql == 2 )
   {
-    Timeout = (LARGE_INTEGER *)&v31;
+    Timeout = (LARGE_INTEGER *)&v30;
     if ( a5 )
-      v7 = 16;
+      v8 = 16;
   }
   if ( (a4 & 8) != 0 && a5 )
-    v7 = 16;
+    v8 = 16;
   v12 = 0;
   if ( a3 > (unsigned int)KeKernelStackSize )
   {
-    v6 = 1;
-    v7 |= 1u;
-    v32 = 1;
+    v8 |= 1u;
     v12 = 1;
+    v9 = 1;
     if ( a5 && *(_BYTE *)(a5 + 4) )
       v12 = 5;
   }
   else
   {
-    a4 |= 4u;
-    v10 = 0LL;
+    v5 = a4 | 4;
+    v6 = 0LL;
   }
-  if ( (v7 & 0xF0) == 0 )
+  v36 = v9;
+  if ( (v8 & 0xF0) == 0 )
   {
     v13 = v12 | 2;
-    if ( (a4 & 2) != 0 )
+    if ( (v5 & 2) != 0 )
       v13 = v12;
-    v14 = a4 & 4;
-    if ( v14 )
-      v32 = v6 | 4;
     v12 = v13 | 0x10;
+    v14 = v5 & 4;
     if ( !v14 )
       v12 = v13;
     KernelStack = MmCreateKernelStack(
                     v12,
-                    *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[CurrentThread->IdealProcessor] + 192) + 138LL),
+                    *(unsigned __int8 *)(*(_QWORD *)(KiProcessorBlock[CurrentThread->IdealProcessor] + 192) + 146LL),
                     CurrentThread);
+    v9 |= 4u;
+    v16 = KernelStack;
+    if ( !v14 )
+      v9 = v36;
     if ( KernelStack )
       goto LABEL_13;
+    v11 = a5;
   }
-  if ( !v5 || (v7 & 1) != 0 && !*(_BYTE *)(v5 + 4) )
+  if ( !v11 || (v8 & 1) != 0 && !*(_BYTE *)(v11 + 4) )
     return 3221225495LL;
   if ( _bittestandset((signed __int32 *)&CurrentThread->116, 0xFu) )
-    v7 |= 4u;
-  if ( KeWaitForSingleObject((PVOID)(v5 + 8), WrCalloutStack, 0, 0, Timeout) == 258 )
+    v8 |= 4u;
+  if ( KeWaitForSingleObject((PVOID)(v11 + 8), WrCalloutStack, 0, 0, Timeout) == 258 )
   {
-    CurrentThread->MiscFlags ^= (CurrentThread->MiscFlags ^ (v7 << 13)) & 0x8000;
+    CurrentThread->MiscFlags ^= (CurrentThread->MiscFlags ^ (v8 << 13)) & 0x8000;
     return 3221227272LL;
   }
-  v24 = *(unsigned __int8 *)(v5 + 6);
-  if ( (unsigned __int8)v24 >= *(_BYTE *)(v5 + 5) )
+  v24 = *(unsigned __int8 *)(v11 + 6);
+  if ( (unsigned __int8)v24 >= *(_BYTE *)(v11 + 5) )
   {
-    KeReleaseMutant((PRKMUTANT)(v5 + 8), 1, 0, 0);
+    KeReleaseMutant((PRKMUTANT)(v11 + 8), 1, 0, 0);
     return 3221225495LL;
   }
-  KernelStack = *(_QWORD *)(v5 + 8 * v24 + 64);
-  v7 |= 8u;
-  *(_BYTE *)(v5 + 6) = v24 + 1;
-  if ( (v7 & 1) == 0 && *(_BYTE *)(v5 + 4) )
+  v16 = *(_QWORD *)(v11 + 8 * v24 + 64);
+  v8 |= 8u;
+  v25 = a5;
+  *(_BYTE *)(a5 + 6) = v24 + 1;
+  if ( (v8 & 1) == 0 && *(_BYTE *)(v25 + 4) )
   {
     LOBYTE(v12) = 5;
-    v10 = 71680LL;
-    v7 |= 1u;
+    v6 = 71680LL;
+    v8 |= 1u;
   }
 LABEL_13:
-  *(_QWORD *)(KernelStack - 80) = KernelStack;
-  v16 = KernelStack - 80;
-  if ( (v7 & 1) != 0 )
-    v17 = KernelStack - 73727;
+  *(_QWORD *)(v16 - 48) = v16;
+  v17 = v16 - 48;
+  if ( (v8 & 1) != 0 )
+    v18 = v16 - 73727;
   else
-    v17 = KernelStack - (unsigned int)KeKernelStackSize + 1;
-  *(_QWORD *)(v16 + 8) = v17;
-  *(_QWORD *)(v16 + 16) = CurrentThread->StackBase;
-  *(_QWORD *)(v16 + 40) = CurrentThread->InitialStack;
-  *(_QWORD *)(v16 + 72) = 0LL;
-  *(_QWORD *)(v16 + 48) = 0LL;
-  *(_QWORD *)(v16 + 64) = 0LL;
-  *(_QWORD *)(v16 + 56) = 0LL;
+    v18 = v16 - (unsigned int)KeKernelStackSize + 1;
+  *(_QWORD *)(v17 + 8) = v18;
+  *(_QWORD *)(v17 + 16) = CurrentThread->StackBase;
+  *(_QWORD *)(v17 + 40) = CurrentThread->InitialStack;
   if ( (v12 & 1) != 0 )
   {
-    v16 |= 1uLL;
+    v17 |= 1uLL;
     if ( (v12 & 4) != 0 )
-      v16 |= 2uLL;
+      v17 |= 2uLL;
   }
   MiscFlags = CurrentThread->MiscFlags;
   if ( (MiscFlags & 0x1000) != 0 )
   {
-    v7 |= 2u;
-    v19 = 2;
+    v8 |= 2u;
+    LOBYTE(v36) = 2;
   }
   else
   {
+    LOBYTE(v36) = 0;
     CurrentThread->MiscFlags = MiscFlags | 0x1000;
-    v19 = 0;
   }
-  v28 = 0LL;
-  v27 = 0LL;
-  LODWORD(a5) = 0;
+  v20 = 0;
+  v32[0] = 0LL;
+  v31 = 0LL;
+  v35 = 0;
   CurrentStackPointer = KeGetCurrentStackPointer();
-  KeQueryCurrentStackInformationEx(CurrentStackPointer, &a5, &v28, &v27);
-  if ( (_DWORD)a5 == 10 )
+  KeQueryCurrentStackInformationEx(CurrentStackPointer, &v35, v32, &v31);
+  if ( v35 == 10 )
   {
-    __writegsbyte(0x83E6u, 1u);
-    v21 = KiSwitchKernelStackAndCallout(a2, a1, v16, v10);
-    __writegsbyte(0x83E6u, 0);
+    v20 = 1;
+    __writegsbyte(0x80A6u, 1u);
   }
-  else
+  v22 = KiSwitchKernelStackAndCallout(a2, a1, v17, v6);
+  if ( v20 )
+    __writegsbyte(0x80A6u, 0);
+  if ( (v8 & 8) != 0 )
   {
-    v21 = KiSwitchKernelStackAndCallout(a2, a1, v16, v10);
-  }
-  v22 = v21;
-  if ( (v7 & 8) != 0 )
-  {
-    v25 = (*(_BYTE *)(v5 + 6))-- == 1;
-    if ( v25 && (v7 & 4) == 0 )
+    v26 = a5;
+    v27 = (*(_BYTE *)(a5 + 6))-- == 1;
+    if ( v27 && (v8 & 4) == 0 )
       CurrentThread->MiscFlags &= ~0x8000u;
-    KeReleaseMutant((PRKMUTANT)(v5 + 8), 1, 0, 0);
+    KeReleaseMutant((PRKMUTANT)(v26 + 8), 1, 0, 0);
   }
   else
   {
-    MmDeleteKernelStackEx(KernelStack, v32, (__int64)CurrentThread);
+    MmDeleteKernelStack(v16, v9);
   }
-  if ( !v19 )
+  if ( !(_BYTE)v36 )
     CurrentThread->MiscFlags &= ~0x1000u;
   if ( KeGetCurrentIrql() != CurrentIrql )
   {
-    v26 = KeGetCurrentIrql();
-    KeBugCheckEx(0xC8u, ((CurrentIrql | ((unsigned __int64)v26 << 8)) << 8) | 2, a1, a2, 0LL);
+    v28 = KeGetCurrentIrql();
+    KeBugCheckEx(0xC8u, ((CurrentIrql | ((unsigned __int64)v28 << 8)) << 8) | 2, a1, a2, 0LL);
   }
   return v22;
 }

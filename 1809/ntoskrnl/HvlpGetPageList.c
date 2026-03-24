@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpGetPageList @ 0x14027A1D8
+ * XREFs of HvlpGetPageList @ 0x14027A2D8
  * Callers:
- *     HvlpMarkHypervisorPagesForHibernation @ 0x140277148 (HvlpMarkHypervisorPagesForHibernation.c)
- *     HvlAddPagesCallbackRoutine @ 0x140277440 (HvlAddPagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromHypervisor @ 0x140277ACC (HvlpGetEncryptedDataFromHypervisor.c)
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x140277248 (HvlpMarkHypervisorPagesForHibernation.c)
+ *     HvlAddPagesCallbackRoutine @ 0x140277540 (HvlAddPagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x140277BCC (HvlpGetEncryptedDataFromHypervisor.c)
  * Callees:
- *     HvlpInvokeGetPageListHypercall @ 0x14027A3C0 (HvlpInvokeGetPageListHypercall.c)
+ *     HvlpInvokeGetPageListHypercall @ 0x14027A4C0 (HvlpInvokeGetPageListHypercall.c)
  */
 
 __int64 __fastcall HvlpGetPageList(int a1, __int64 *a2, _DWORD *a3)

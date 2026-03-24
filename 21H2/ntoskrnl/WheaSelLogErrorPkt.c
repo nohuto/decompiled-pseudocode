@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaSelLogErrorPkt @ 0x140642F78
+ * XREFs of WheaSelLogErrorPkt @ 0x1405BE09C
  * Callers:
- *     WheaSelLogEvent @ 0x140643064 (WheaSelLogEvent.c)
+ *     WheaSelLogEvent @ 0x1405BE188 (WheaSelLogEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WheapLogIpmiSELEvent @ 0x1406460E0 (WheapLogIpmiSELEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     WheapLogIpmiSELEvent @ 0x1405BD538 (WheapLogIpmiSELEvent.c)
  */
 
 __int64 __fastcall WheaSelLogErrorPkt(__int64 a1)
@@ -15,64 +15,69 @@ __int64 __fastcall WheaSelLogErrorPkt(__int64 a1)
   int v4; // ecx
   int v5; // ecx
   __int64 *p_Src; // rcx
-  int v7; // eax
-  __int128 v8; // xmm0
-  int v9; // eax
-  size_t v10; // rdx
-  __int64 v12; // [rsp+20h] [rbp-50h] BYREF
-  int v13; // [rsp+28h] [rbp-48h]
-  __int64 v14; // [rsp+30h] [rbp-40h] BYREF
-  int v15; // [rsp+38h] [rbp-38h]
+  int v7; // r8d
+  int v8; // eax
+  __int128 v9; // xmm0
+  int v10; // eax
+  size_t v11; // rdx
+  __int64 v13; // [rsp+20h] [rbp-50h] BYREF
+  int v14; // [rsp+28h] [rbp-48h]
+  __int64 v15; // [rsp+30h] [rbp-40h] BYREF
+  int v16; // [rsp+38h] [rbp-38h]
   __int64 Src; // [rsp+40h] [rbp-30h] BYREF
-  int v17; // [rsp+48h] [rbp-28h]
-  __int128 v18; // [rsp+50h] [rbp-20h] BYREF
-  int v19; // [rsp+60h] [rbp-10h]
+  int v18; // [rsp+48h] [rbp-28h]
+  __int128 v19; // [rsp+50h] [rbp-20h] BYREF
+  int v20; // [rsp+60h] [rbp-10h]
 
   v1 = *(_DWORD **)(a1 + 32);
-  v12 = 0LL;
-  v13 = 0;
-  v14 = 0LL;
+  v13 = 0LL;
+  v14 = 0;
+  v15 = 0LL;
   v2 = v1[14];
   v3 = (char *)v1 + (unsigned int)v1[16];
-  v15 = 0;
-  v19 = 0;
+  v16 = 0;
+  v20 = 0;
   Src = 0LL;
-  v17 = 0;
-  v18 = 0LL;
+  v18 = 0;
+  v19 = 0LL;
   v4 = v2 - 1;
   if ( !v4 )
   {
     p_Src = &Src;
     Src = *((_QWORD *)v3 + 5);
-    v17 = *((_DWORD *)v3 + 9);
+    v7 = 2;
+    v18 = *((_DWORD *)v3 + 9);
 LABEL_8:
-    v10 = 12LL;
-    return WheapLogIpmiSELEvent(p_Src, v10);
+    v11 = 12LL;
+    return WheapLogIpmiSELEvent(p_Src, v11, v7);
   }
   v5 = v4 - 2;
   if ( v5 )
   {
     if ( v5 == 1 )
     {
-      p_Src = &v14;
-      v7 = *((_DWORD *)v3 + 2);
-      v14 = *(_QWORD *)v3;
-      v15 = v7;
+      p_Src = &v15;
+      v8 = *((_DWORD *)v3 + 2);
+      v7 = 4;
+      v15 = *(_QWORD *)v3;
+      v16 = v8;
     }
     else
     {
-      p_Src = &v12;
-      LODWORD(v12) = v1[7];
-      HIDWORD(v12) = v1[5];
-      v13 = v1[3];
+      p_Src = &v13;
+      LODWORD(v13) = v1[7];
+      v7 = 5;
+      HIDWORD(v13) = v1[5];
+      v14 = v1[3];
     }
     goto LABEL_8;
   }
-  v8 = *(_OWORD *)(v3 + 24);
-  v9 = *((_DWORD *)v3 + 2);
-  p_Src = (__int64 *)&v18;
-  v10 = 20LL;
+  v9 = *(_OWORD *)(v3 + 24);
+  v10 = *((_DWORD *)v3 + 2);
+  p_Src = (__int64 *)&v19;
+  v11 = 20LL;
+  v20 = v10;
   v19 = v9;
-  v18 = v8;
-  return WheapLogIpmiSELEvent(p_Src, v10);
+  v7 = 3;
+  return WheapLogIpmiSELEvent(p_Src, v11, v7);
 }

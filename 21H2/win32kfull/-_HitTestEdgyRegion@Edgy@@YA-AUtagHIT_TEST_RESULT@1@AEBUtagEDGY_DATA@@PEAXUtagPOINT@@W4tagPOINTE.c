@@ -1,13 +1,13 @@
 /*
- * XREFs of ?_HitTestEdgyRegion@Edgy@@YA?AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTER_DEVICE_TYPE@@H@Z @ 0x1C02087C8
+ * XREFs of ?_HitTestEdgyRegion@Edgy@@YA?AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTER_DEVICE_TYPE@@H@Z @ 0x1C020833C
  * Callers:
- *     ?_GetArcData@Edgy@@YA?AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z @ 0x1C020804C (-_GetArcData@Edgy@@YA-AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z.c)
- *     ?_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z @ 0x1C0208E94 (-_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z.c)
+ *     ?_GetArcData@Edgy@@YA?AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z @ 0x1C0207BE8 (-_GetArcData@Edgy@@YA-AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z.c)
+ *     ?_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z @ 0x1C0208A84 (-_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z.c)
  * Callees:
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     _GetPointerDeviceRects @ 0x1C0110B24 (_GetPointerDeviceRects.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?_GetRectForLocation@Edgy@@YA?AUtagRECT@@AEBU2@W4tagEDGY_LOCATION@@K@Z @ 0x1C02086B8 (-_GetRectForLocation@Edgy@@YA-AUtagRECT@@AEBU2@W4tagEDGY_LOCATION@@K@Z.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     _GetPointerDeviceRects @ 0x1C0122BAC (_GetPointerDeviceRects.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?_GetRectForLocation@Edgy@@YA?AUtagRECT@@AEBU2@W4tagEDGY_LOCATION@@K@Z @ 0x1C020822C (-_GetRectForLocation@Edgy@@YA-AUtagRECT@@AEBU2@W4tagEDGY_LOCATION@@K@Z.c)
  */
 
 __int64 __fastcall Edgy::_HitTestEdgyRegion(

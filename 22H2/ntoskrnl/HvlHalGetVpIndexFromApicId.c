@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlHalGetVpIndexFromApicId @ 0x1405446C0
+ * XREFs of HvlHalGetVpIndexFromApicId @ 0x1404F50C0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpGetVpIndexFromApicId @ 0x14054106C (HvlpGetVpIndexFromApicId.c)
+ *     HvlpGetVpIndexFromApicId @ 0x1404F2C8C (HvlpGetVpIndexFromApicId.c)
  */
 
-__int64 __fastcall HvlHalGetVpIndexFromApicId(ULONG a1, _DWORD *a2)
+__int64 __fastcall HvlHalGetVpIndexFromApicId(int a1, _DWORD *a2)
 {
   __int64 result; // rax
-  ULONG v4; // [rsp+38h] [rbp+10h] BYREF
+  int v4; // [rsp+38h] [rbp+10h] BYREF
 
   v4 = 0;
   result = HvlpGetVpIndexFromApicId(a1, &v4);

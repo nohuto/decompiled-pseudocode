@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DpiDdiQueryProbedBars@@YAJPEAXPEAK@Z @ 0x1C0020470
+ * XREFs of ?DpiDdiQueryProbedBars@@YAJPEAXPEAK@Z @ 0x1C001B730
  * Callers:
  *     <none>
  * Callees:

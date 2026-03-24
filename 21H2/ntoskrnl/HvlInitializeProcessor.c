@@ -1,16 +1,15 @@
 /*
- * XREFs of HvlInitializeProcessor @ 0x14082A2D4
+ * XREFs of HvlInitializeProcessor @ 0x14079FD30
  * Callers:
- *     KiStartDynamicProcessor @ 0x14096029C (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140B03C68 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     HvlpFreeOverlayPages @ 0x140213380 (HvlpFreeOverlayPages.c)
- *     KeGetProcessorNodeNumber @ 0x14025E060 (KeGetProcessorNodeNumber.c)
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     HvlpSetupCachedHypercallPages @ 0x14054560C (HvlpSetupCachedHypercallPages.c)
- *     HvlpAllocateOverlayPages @ 0x14054CA0C (HvlpAllocateOverlayPages.c)
- *     MmAllocateIndependentPagesEx @ 0x140829CBC (MmAllocateIndependentPagesEx.c)
- *     HvlpEnableRootVirtualProcessor @ 0x1409312DC (HvlpEnableRootVirtualProcessor.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     HvlpFreeOverlayPages @ 0x14036CFD0 (HvlpFreeOverlayPages.c)
+ *     HvlpSetupCachedHypercallPages @ 0x1404F4028 (HvlpSetupCachedHypercallPages.c)
+ *     HvlpAllocateOverlayPages @ 0x1404FAC4C (HvlpAllocateOverlayPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x140762A0C (MmAllocateIndependentPagesEx.c)
+ *     HvlpEnableRootVirtualProcessor @ 0x14088E898 (HvlpEnableRootVirtualProcessor.c)
  */
 
 __int64 __fastcall HvlInitializeProcessor(union _SLIST_HEADER *a1)
@@ -18,14 +17,13 @@ __int64 __fastcall HvlInitializeProcessor(union _SLIST_HEADER *a1)
   __int64 result; // rax
   __int64 v3; // r14
   void *v4; // rdi
-  void *v5; // rsi
+  void *v5; // rbp
   __int64 OverlayPages; // rax
   __int64 v7; // rax
   SIZE_T v8; // rdx
   MEMORY_CACHING_TYPE v9; // r8d
-  unsigned __int16 ProcessorNodeNumber; // ax
   __int64 IndependentPages; // rax
-  PHYSICAL_ADDRESS *v12; // rbp
+  PHYSICAL_ADDRESS *v11; // rsi
 
   if ( !HvlHypervisorConnected )
     return 0LL;
@@ -40,7 +38,7 @@ __int64 __fastcall HvlInitializeProcessor(union _SLIST_HEADER *a1)
       v5 = (void *)OverlayPages;
       if ( !OverlayPages )
         return 3221225626LL;
-      a1[2160].Region = OverlayPages;
+      a1[2104].Region = OverlayPages;
     }
     if ( (HvlpFlags & 2) == 0 && (HvlpFlags & 0x8000) != 0 )
     {
@@ -52,27 +50,26 @@ LABEL_18:
         if ( v5 )
         {
           HvlpFreeOverlayPages(v5, v8, v9);
-          a1[2160].Region = 0LL;
+          a1[2104].Region = 0LL;
         }
         if ( v4 )
         {
           HvlpFreeOverlayPages(v4, v8, v9);
-          a1[2187].Region = 0LL;
+          a1[2123].Region = 0LL;
         }
         return 3221225626LL;
       }
-      a1[2187].Region = v7;
+      a1[2123].Region = v7;
     }
-    ProcessorNodeNumber = KeGetProcessorNodeNumber((__int64)a1);
-    IndependentPages = MmAllocateIndependentPagesEx(0x6000uLL, ProcessorNodeNumber, 0LL, 0);
-    v12 = (PHYSICAL_ADDRESS *)IndependentPages;
+    IndependentPages = MmAllocateIndependentPagesEx(0x6000uLL, *(unsigned __int16 *)(a1[12].Alignment + 146), 0LL, 0LL);
+    v11 = (PHYSICAL_ADDRESS *)IndependentPages;
     if ( IndependentPages )
     {
-      a1[2160].Alignment = IndependentPages;
+      a1[2104].Alignment = IndependentPages;
       do
       {
-        v12[2] = MmGetPhysicalAddress(v12);
-        v12 += 512;
+        v11[2] = MmGetPhysicalAddress(v11);
+        v11 += 512;
         --v3;
       }
       while ( v3 );

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiEventBuildPdoList @ 0x1407663DC
+ * XREFs of PiEventBuildPdoList @ 0x140737DE4
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1407655BC (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     IopEnumerateRelations @ 0x1407667B0 (IopEnumerateRelations.c)
- *     PnpAllocateCriticalMemory @ 0x140767730 (PnpAllocateCriticalMemory.c)
- *     PnpFinalizeVetoedRemove @ 0x140950530 (PnpFinalizeVetoedRemove.c)
+ *     IopEnumerateRelations @ 0x1407384F0 (IopEnumerateRelations.c)
+ *     PnpAllocateCriticalMemory @ 0x14073947C (PnpAllocateCriticalMemory.c)
+ *     PnpFinalizeVetoedRemove @ 0x1408ABD10 (PnpFinalizeVetoedRemove.c)
  */
 
 __int64 __fastcall PiEventBuildPdoList(
@@ -41,7 +41,7 @@ __int64 __fastcall PiEventBuildPdoList(
   v14 = (int)a1;
   *(_BYTE *)a6 = 0;
   *v9 = 0;
-  CriticalMemory = PnpAllocateCriticalMemory(a2, 64LL, 8LL * *v13, 1315991120LL);
+  CriticalMemory = PnpAllocateCriticalMemory(a2, 512LL, 8LL * *v13, 1315991120LL);
   if ( CriticalMemory )
   {
     *a4 = 0;
@@ -58,47 +58,48 @@ __int64 __fastcall PiEventBuildPdoList(
                                  0LL) )
           goto LABEL_14;
       }
-      while ( !v23 && (a2 & 0xFFFFFFFB) != 0 );
+      while ( !v23 && a2 != 4 && a2 );
       v16 = v22;
       if ( v22 )
         v17 = *(_DWORD **)(*(_QWORD *)(v22 + 312) + 40LL);
       else
         v17 = 0LL;
-      if ( a2 != 2 )
+      if ( a2 == 2 )
+        goto LABEL_12;
+      if ( a2 )
+        break;
+LABEL_18:
+      if ( (v17[99] & 0x1000) != 0 )
       {
-        if ( !a2 )
-          goto LABEL_20;
-        v18 = v17[142];
-        if ( v18 == 1 )
-        {
-          *v7 = 1;
-        }
-        else if ( v18 )
-        {
-          *v9 = 1;
-        }
-        if ( a2 == 4 )
-        {
-LABEL_20:
-          if ( (v17[99] & 0x1000) != 0 )
-          {
-            v21 = 1LL;
-            goto LABEL_24;
-          }
-          if ( v17[75] == 787 )
-          {
-            v21 = 5LL;
-LABEL_24:
-            PnpFinalizeVetoedRemove(a3, v21, v17 + 10);
-            v8 = -2147483608;
-            goto LABEL_14;
-          }
-        }
+        v21 = 1LL;
+        goto LABEL_25;
       }
+      if ( v17[75] == 785 )
+      {
+        v21 = 5LL;
+LABEL_25:
+        PnpFinalizeVetoedRemove(a3, v21, v17 + 10);
+        v8 = -2147483608;
+        goto LABEL_14;
+      }
+LABEL_13:
       v19 = (unsigned int)*a4;
       *(_QWORD *)(CriticalMemory + 8 * v19) = v16;
       *a4 = v19 + 1;
     }
+    v18 = v17[142];
+    if ( v18 == 1 )
+    {
+      *v7 = 1;
+    }
+    else if ( v18 )
+    {
+      *v9 = 1;
+    }
+LABEL_12:
+    if ( (a2 & 0xFFFFFFFB) != 0 )
+      goto LABEL_13;
+    goto LABEL_18;
   }
   v8 = -1073741670;
 LABEL_14:

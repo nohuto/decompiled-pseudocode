@@ -1,21 +1,24 @@
 /*
- * XREFs of DxgkFreePagesFromMdlCB @ 0x1C001B330
+ * XREFs of DxgkFreePagesFromMdlCB @ 0x1C0042E20
  * Callers:
  *     <none>
  * Callees:
- *     ?SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z @ 0x1C001B450 (-SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z.c)
- *     ?SysMmClosePhysicalObjectByAdapter@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER@@@Z @ 0x1C001B538 (-SysMmClosePhysicalObjectByAdapter@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER@@@Z.c)
- *     DpiGetSysMmAdapterFromDevice @ 0x1C001BAD0 (DpiGetSysMmAdapterFromDevice.c)
+ *     ?DxgkFreeMemoryTracker@@YAXQEAXPEAUDXG_DRIVER_MEMORY_TRACKER@@@Z @ 0x1C0042678 (-DxgkFreeMemoryTracker@@YAXQEAXPEAUDXG_DRIVER_MEMORY_TRACKER@@@Z.c)
  */
 
-__int64 __fastcall DxgkFreePagesFromMdlCB(__int64 a1, struct SYSMM_PHYSICAL_OBJECT **a2)
+__int64 __fastcall DxgkFreePagesFromMdlCB(void *a1, __int64 *a2)
 {
-  struct SYSMM_ADAPTER *SysMmAdapterFromDevice; // rax
-  struct SYSMM_PHYSICAL_OBJECT *v4; // rbx
+  __int64 v2; // rbx
+  __int64 v4; // rax
 
-  SysMmAdapterFromDevice = (struct SYSMM_ADAPTER *)DpiGetSysMmAdapterFromDevice();
-  v4 = *a2;
-  SysMmClosePhysicalObjectByAdapter(v4, SysMmAdapterFromDevice);
-  SysMmUnreferencePhysicalObject(v4);
+  v2 = *a2;
+  if ( *(_DWORD *)(*a2 + 16) != 1 )
+  {
+    v4 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v4 + 24) = 1097LL;
+    WdLogEvent5_WdAssertion(v4);
+  }
+  MmFreePagesFromMdl(*(PMDL *)(v2 + 24));
+  DxgkFreeMemoryTracker(a1, (struct DXG_DRIVER_MEMORY_TRACKER *)v2);
   return 0LL;
 }

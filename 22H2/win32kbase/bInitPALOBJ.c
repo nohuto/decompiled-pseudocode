@@ -1,152 +1,145 @@
 /*
- * XREFs of bInitPALOBJ @ 0x1C02DBCC4
+ * XREFs of bInitPALOBJ @ 0x1C02999B8
  * Callers:
- *     InitializeGre @ 0x1C02DB800 (InitializeGre.c)
+ *     InitializeGre @ 0x1C02990FC (InitializeGre.c)
  * Callees:
- *     ??1PALMEMOBJ@@QEAA@XZ @ 0x1C00381D0 (--1PALMEMOBJ@@QEAA@XZ.c)
- *     HmgSetOwner @ 0x1C003E5F0 (HmgSetOwner.c)
- *     ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C003E800 (-bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z.c)
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C003F908 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
- *     HmgDecrementShareReferenceCountEx @ 0x1C00421F0 (HmgDecrementShareReferenceCountEx.c)
- *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C00609A0 (-bSetStockObject@@YAHPEAXHH@Z.c)
- *     GreCreateSemaphoreInternal @ 0x1C0077FFC (GreCreateSemaphoreInternal.c)
+ *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C0017240 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     ??1EPALOBJ@@QEAA@XZ @ 0x1C00296EC (--1EPALOBJ@@QEAA@XZ.c)
+ *     ??1PALMEMOBJ@@QEAA@XZ @ 0x1C002B990 (--1PALMEMOBJ@@QEAA@XZ.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C002BA18 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     HmgSetOwner @ 0x1C00368E0 (HmgSetOwner.c)
+ *     GreCreateSemaphoreInternal @ 0x1C005C364 (GreCreateSemaphoreInternal.c)
+ *     ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C00C95E0 (-bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z.c)
  */
 
-__int64 __fastcall bInitPALOBJ(__int64 a1)
+__int64 bInitPALOBJ()
 {
-  __int64 v1; // rax
-  unsigned int v2; // edi
-  __int64 v3; // r14
-  int v4; // edx
-  __int64 v5; // r8
-  __int64 v6; // rsi
-  int v7; // ecx
-  __int64 SemaphoreInternal; // rax
-  unsigned int v9; // r8d
-  unsigned __int64 v10; // rbx
-  int *v11; // rbx
-  __int64 v12; // rax
-  unsigned int *v13; // r9
-  __int64 v14; // r10
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // rax
-  unsigned int *v18; // rax
-  unsigned int *v20; // [rsp+50h] [rbp-20h] BYREF
-  int v21; // [rsp+58h] [rbp-18h]
-  unsigned int *v22; // [rsp+60h] [rbp-10h] BYREF
-  int v23; // [rsp+68h] [rbp-8h]
-  int *v24; // [rsp+90h] [rbp+20h] BYREF
+  unsigned int v0; // edi
+  int *v1; // rcx
+  int v2; // edx
+  int *v3; // r8
+  __int64 v4; // rsi
+  int v5; // eax
+  unsigned __int64 v6; // rbx
+  __int64 v7; // rbx
+  struct HOBJ__ **v9; // r9
+  unsigned int v10; // edx
+  __int64 v11; // r8
+  __int64 v12; // r10
+  __int64 v13; // r10
+  HPALETTE v14; // rax
+  struct PALETTE *v15; // rax
+  struct HOBJ__ **v16; // [rsp+50h] [rbp-20h] BYREF
+  int v17; // [rsp+58h] [rbp-18h]
+  HPALETTE *v18; // [rsp+60h] [rbp-10h] BYREF
+  int v19; // [rsp+68h] [rbp-8h]
+  __int64 *v20; // [rsp+90h] [rbp+20h] BYREF
 
-  v1 = SGDGetSessionState(a1);
+  v0 = 0;
+  v1 = (int *)&unk_1C0253F0C;
+  *(_QWORD *)&pArrayOfSquares.peRed = &unk_1C0253F0C;
   v2 = 0;
-  LODWORD(v3) = 256;
-  v4 = 0;
-  v5 = 0LL;
-  v6 = *(_QWORD *)(v1 + 24);
-  *(_QWORD *)(v6 + 3944) = v6 + 4972;
+  v3 = (int *)&unk_1C0253F0C;
+  LODWORD(v4) = 256;
   do
   {
-    v7 = v4 * v4;
-    ++v4;
-    *(_DWORD *)(*(_QWORD *)(v6 + 3944) - v5) = v7;
-    *(_DWORD *)(v5 + *(_QWORD *)(v6 + 3944)) = v7;
-    v5 += 4LL;
+    v5 = v2 * v2;
+    ++v2;
+    *v3-- = v5;
+    *v1++ = v5;
   }
-  while ( v4 < 256 );
-  SemaphoreInternal = GreCreateSemaphoreInternal(0);
-  *(_QWORD *)(v6 + 40) = SemaphoreInternal;
-  if ( !SemaphoreInternal )
+  while ( v2 < 256 );
+  ghsemPalette = (HSEMAPHORE)GreCreateSemaphoreInternal(0);
+  if ( !ghsemPalette )
     return 0LL;
-  if ( *(_WORD *)(v6 + 3852) == 768 )
+  if ( logDefaultPal != 768 || !word_1C024B382 )
+    goto LABEL_8;
+  v17 = 0;
+  v16 = 0LL;
+  if ( !(unsigned int)PALMEMOBJ::bCreatePalette(
+                        (struct _SLIST_ENTRY **)&v16,
+                        1,
+                        (unsigned __int16)word_1C024B382,
+                        dword_1C024B384,
+                        0,
+                        0,
+                        0,
+                        0x500u,
+                        0) )
   {
-    v9 = *(unsigned __int16 *)(v6 + 3854);
-    if ( *(_WORD *)(v6 + 3854) )
-    {
-      v21 = 0;
-      v20 = 0LL;
-      if ( (unsigned int)PALMEMOBJ::bCreatePalette(
-                           (PALMEMOBJ *)&v20,
-                           1,
-                           v9,
-                           (const unsigned int *)(v6 + 3856),
-                           0,
-                           0,
-                           0,
-                           0x500u,
-                           0) )
-      {
-        v21 = 1;
-        v10 = *(_QWORD *)v20;
-        PALMEMOBJ::~PALMEMOBJ(&v20);
-        goto LABEL_8;
-      }
-      PALMEMOBJ::~PALMEMOBJ(&v20);
-    }
-  }
-  v10 = 0LL;
+    PALMEMOBJ::~PALMEMOBJ(&v16);
 LABEL_8:
-  if ( !(unsigned int)bSetStockObject(v10, 15, 0) )
+    v6 = 0LL;
+    goto LABEL_9;
+  }
+  v17 = 1;
+  v6 = (unsigned __int64)*v16;
+  PALMEMOBJ::~PALMEMOBJ(&v16);
+LABEL_9:
+  if ( !(unsigned int)bSetStockObject(v6, 15, 0) )
     return 0LL;
-  EPALOBJ::EPALOBJ((EPALOBJ *)&v24, *(HPALETTE *)(*(_QWORD *)(v6 + 3168) + 120LL));
-  v11 = v24;
-  HmgSetOwner(*(_QWORD *)v24, 0, 8);
-  v12 = *(_QWORD *)(v6 + 3168);
-  *(_QWORD *)(v6 + 6000) = v11;
-  *(_QWORD *)(v6 + 752) = *(_QWORD *)(v12 + 120);
-  *(_QWORD *)(v6 + 760) = v11;
-  v21 = 0;
-  v20 = 0LL;
-  if ( !(unsigned int)PALMEMOBJ::bCreatePalette((PALMEMOBJ *)&v20, 1, 0x100u, 0LL, 0, 0, 0, 0x400u, 1) )
+  EPALOBJ::EPALOBJ((EPALOBJ *)&v20, (HPALETTE)gahStockObjects[15]);
+  v7 = (__int64)v20;
+  HmgSetOwner(*v20, 0, 8);
+  ppalDefault = (struct PALETTE *)v7;
+  dclevelDefault = (HPALETTE)gahStockObjects[15];
+  qword_1C024AD48 = v7;
+  v17 = 0;
+  v16 = 0LL;
+  if ( !(unsigned int)PALMEMOBJ::bCreatePalette((struct _SLIST_ENTRY **)&v16, 1, 0x100u, 0LL, 0, 0, 0, 0x400u, 1) )
   {
-    PALMEMOBJ::~PALMEMOBJ(&v20);
-    HmgDecrementShareReferenceCountEx(v11, 0LL);
+    PALMEMOBJ::~PALMEMOBJ(&v16);
+    EPALOBJ::~EPALOBJ((EPALOBJ *)&v20);
     return 0LL;
   }
-  v13 = v20;
-  *(_QWORD *)(v6 + 6016) = v20;
-  v14 = (unsigned int)v11[7] >> 1;
-  if ( (_DWORD)v14 )
+  v9 = v16;
+  ppalDefaultSurface8bpp = (struct OBJECT *)v16;
+  v10 = *(_DWORD *)(v7 + 28) >> 1;
+  if ( v10 )
   {
-    v15 = 0LL;
-    v16 = (unsigned int)v14;
+    v11 = 0LL;
+    v12 = v10;
     do
     {
-      *(_DWORD *)(v15 + *((_QWORD *)v13 + 14)) = *(_DWORD *)(v15 + *((_QWORD *)v11 + 14));
-      v15 += 4LL;
-      --v16;
+      *(_DWORD *)((char *)v9[14] + v11) = *(_DWORD *)(v11 + *(_QWORD *)(v7 + 112));
+      v11 += 4LL;
+      --v12;
     }
-    while ( v16 );
+    while ( v12 );
+  }
+  if ( v10 )
+  {
+    v13 = v10;
     do
     {
-      v3 = (unsigned int)(v3 - 1);
-      *(_DWORD *)(*((_QWORD *)v13 + 14) + 4 * v3) = *(_DWORD *)(*((_QWORD *)v11 + 14) + 4LL * (unsigned int)(v3 - 236));
-      --v14;
+      v4 = (unsigned int)(v4 - 1);
+      *((_DWORD *)v9[14] + v4) = *(_DWORD *)(*(_QWORD *)(v7 + 112) + 4LL * (unsigned int)(v4 - 236));
+      --v13;
     }
-    while ( v14 );
+    while ( v13 );
   }
-  v20 = 0LL;
-  PALMEMOBJ::~PALMEMOBJ(&v20);
-  HmgDecrementShareReferenceCountEx(v11, 0LL);
-  v23 = 0;
-  v22 = 0LL;
-  if ( (unsigned int)PALMEMOBJ::bCreatePalette((PALMEMOBJ *)&v22, 1, 2u, &dword_1C0247F80, 0, 0, 0, 0x2200u, 1) )
+  v16 = 0LL;
+  PALMEMOBJ::~PALMEMOBJ(&v16);
+  EPALOBJ::~EPALOBJ((EPALOBJ *)&v20);
+  v19 = 0;
+  v18 = 0LL;
+  if ( (unsigned int)PALMEMOBJ::bCreatePalette((struct _SLIST_ENTRY **)&v18, 1, 2u, &gaulMono, 0, 0, 0, 0x2200u, 1) )
   {
-    v17 = *(_QWORD *)v22;
-    *(_QWORD *)(v6 + 6032) = v22;
-    v23 = 1;
-    *(_QWORD *)(v6 + 6024) = v17;
-    v21 = 0;
-    v20 = 0LL;
-    if ( (unsigned int)PALMEMOBJ::bCreatePalette((PALMEMOBJ *)&v20, 8, 0, 0LL, 0, 0, 0, 0x200u, 1) )
+    v14 = *v18;
+    ppalMono = (struct PALETTE *)v18;
+    v19 = 1;
+    hpalMono = v14;
+    v17 = 0;
+    v16 = 0LL;
+    if ( (unsigned int)PALMEMOBJ::bCreatePalette((struct _SLIST_ENTRY **)&v16, 8, 0, 0LL, 0, 0, 0, 0x200u, 1) )
     {
-      v18 = v20;
-      v20 = 0LL;
-      v2 = 1;
-      *(_QWORD *)(v6 + 6008) = v18;
+      v15 = (struct PALETTE *)v16;
+      v16 = 0LL;
+      v0 = 1;
+      gppalRGB = v15;
     }
-    PALMEMOBJ::~PALMEMOBJ(&v20);
+    PALMEMOBJ::~PALMEMOBJ(&v16);
   }
-  PALMEMOBJ::~PALMEMOBJ(&v22);
-  return v2;
+  PALMEMOBJ::~PALMEMOBJ((struct HOBJ__ ***)&v18);
+  return v0;
 }

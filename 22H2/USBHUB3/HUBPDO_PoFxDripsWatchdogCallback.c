@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBPDO_PoFxDripsWatchdogCallback @ 0x1C001D1F0
+ * XREFs of HUBPDO_PoFxDripsWatchdogCallback @ 0x1C001A970
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0pqhhh_EtwWriteTransfer @ 0x1C00142E8 (McTemplateK0pqhhh_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqhhh_EtwWriteTransfer @ 0x1C0012DBC (McTemplateK0pqhhh_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBPDO_PoFxDripsWatchdogCallback(__int64 a1, __int64 a2)
@@ -22,27 +22,20 @@ void __fastcall HUBPDO_PoFxDripsWatchdogCallback(__int64 a1, __int64 a2)
   __int64 RemlockSize; // [rsp+28h] [rbp-19h]
   __int64 RemlockSizea; // [rsp+28h] [rbp-19h]
   __int64 v14; // [rsp+30h] [rbp-11h]
-  NTSTATUS v15; // [rsp+30h] [rbp-11h]
-  int v16; // [rsp+30h] [rbp-11h]
-  __int16 v17; // [rsp+38h] [rbp-9h]
-  __int16 v18; // [rsp+38h] [rbp-9h]
-  __int16 v19; // [rsp+40h] [rbp-1h]
-  __int16 v20; // [rsp+40h] [rbp-1h]
-  _QWORD v21[3]; // [rsp+48h] [rbp+7h] BYREF
-  int v22; // [rsp+60h] [rbp+1Fh] BYREF
-  __int128 v23; // [rsp+64h] [rbp+23h]
-  int v24; // [rsp+74h] [rbp+33h]
-  int v25; // [rsp+78h] [rbp+37h]
-  int v26; // [rsp+7Ch] [rbp+3Bh]
-  __int64 v27; // [rsp+80h] [rbp+3Fh]
-  __int64 v28; // [rsp+88h] [rbp+47h]
-  void *v29; // [rsp+90h] [rbp+4Fh]
-  __int64 v30; // [rsp+B0h] [rbp+6Fh] BYREF
+  __int128 v15; // [rsp+48h] [rbp+7h] BYREF
+  __int64 v16; // [rsp+58h] [rbp+17h]
+  _OWORD v17[2]; // [rsp+60h] [rbp+1Fh] BYREF
+  __int128 v18; // [rsp+80h] [rbp+3Fh]
+  void *v19; // [rsp+90h] [rbp+4Fh]
+  __int64 v20; // [rsp+B0h] [rbp+6Fh] BYREF
 
   v2 = *(_QWORD *)(a2 + 64);
-  v30 = 0LL;
-  LODWORD(v23) = 0;
-  HIDWORD(v21[0]) = 0;
+  v20 = 0LL;
+  v19 = 0LL;
+  v16 = 0LL;
+  memset(v17, 0, sizeof(v17));
+  v18 = 0LL;
+  v15 = 0LL;
   v4 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 424), "DRIPS SR Tag", File, 1u, 0x20u);
   if ( v4 >= 0 )
   {
@@ -51,51 +44,47 @@ void __fastcall HUBPDO_PoFxDripsWatchdogCallback(__int64 a1, __int64 a2)
       WdfDriverGlobals,
       v7,
       "DRIPS SR Tag",
-      11570LL,
+      10897LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
-    v24 = 0;
-    v28 = 0LL;
-    v29 = off_1C00691C0;
-    v23 = 0LL;
-    v22 = 56;
-    v25 = 1;
-    v26 = 1;
-    v27 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1632))(WdfDriverGlobals, v2);
-    v21[2] = 1LL;
-    v21[0] = 24LL;
-    v21[1] = HUBPDO_EvtWorkItemDripsWatchDogCallback;
-    v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD *, int *, __int64 *))(WdfFunctions_01015 + 3032))(
+    *(_QWORD *)((char *)&v17[1] + 4) = 0x100000000LL;
+    *((_QWORD *)&v18 + 1) = 0LL;
+    v19 = off_1C0066198;
+    *(_OWORD *)((char *)v17 + 4) = 0LL;
+    LODWORD(v17[0]) = 56;
+    HIDWORD(v17[1]) = 1;
+    *(_QWORD *)&v18 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1632))(
+                        WdfDriverGlobals,
+                        v2);
+    LODWORD(v15) = 24;
+    *((_QWORD *)&v15 + 1) = HUBPDO_EvtWorkItemDripsWatchDogCallback;
+    LOBYTE(v16) = 1;
+    v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, _OWORD *, __int64 *))(WdfFunctions_01015 + 3032))(
            WdfDriverGlobals,
-           v21,
-           &v22,
-           &v30);
+           &v15,
+           v17,
+           &v20);
     if ( v8 >= 0 )
     {
       *(_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                    WdfDriverGlobals,
-                   v30,
-                   off_1C00691C0) = a2;
-      (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 3040))(WdfDriverGlobals, v30);
+                   v20,
+                   off_1C0066198) = a2;
+      (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 3040))(WdfDriverGlobals, v20);
     }
     else
     {
       v9 = &WPP_RECORDER_INITIALIZED;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v16 = v8;
         WPP_RECORDER_SF_d(
           *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 24) + 8LL) + 1432LL),
           2u,
           2u,
-          0xA5u,
-          (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
-          v16);
-      }
-      if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x2000000) != 0 )
+          0x91u,
+          (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
+          v8);
+      if ( (BYTE3(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 2) != 0 )
       {
         v10 = *(_QWORD *)(v2 + 24);
-        v20 = *(_WORD *)(v10 + 2000);
-        v18 = *(_WORD *)(v10 + 1998);
         LOWORD(v14) = *(_WORD *)(v10 + 1996);
         LODWORD(RemlockSizea) = 10;
         McTemplateK0pqhhh_EtwWriteTransfer(
@@ -105,8 +94,8 @@ void __fastcall HUBPDO_PoFxDripsWatchdogCallback(__int64 a1, __int64 a2)
           *(_QWORD *)(v10 + 24),
           RemlockSizea,
           v14,
-          v18,
-          v20);
+          *(_WORD *)(v10 + 1998),
+          *(_WORD *)(v10 + 2000));
       }
       v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1632))(WdfDriverGlobals, v2);
       (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const char *, __int64, const char *))(WdfFunctions_01015
@@ -114,7 +103,7 @@ void __fastcall HUBPDO_PoFxDripsWatchdogCallback(__int64 a1, __int64 a2)
         WdfDriverGlobals,
         v11,
         "DRIPS SR Tag",
-        11598LL,
+        10925LL,
         "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubpdo.c");
       IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 424), "DRIPS SR Tag", 0x20u);
     }
@@ -123,21 +112,16 @@ void __fastcall HUBPDO_PoFxDripsWatchdogCallback(__int64 a1, __int64 a2)
   {
     v5 = &WPP_RECORDER_INITIALIZED;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      v15 = v4;
       WPP_RECORDER_SF_d(
         *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 24) + 8LL) + 1432LL),
         2u,
         2u,
-        0xA4u,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
-        v15);
-    }
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x2000000) != 0 )
+        0x90u,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
+        v4);
+    if ( (BYTE3(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 2) != 0 )
     {
       v6 = *(_QWORD *)(v2 + 24);
-      v19 = *(_WORD *)(v6 + 2000);
-      v17 = *(_WORD *)(v6 + 1998);
       LOWORD(v14) = *(_WORD *)(v6 + 1996);
       LODWORD(RemlockSize) = 9;
       McTemplateK0pqhhh_EtwWriteTransfer(
@@ -147,8 +131,8 @@ void __fastcall HUBPDO_PoFxDripsWatchdogCallback(__int64 a1, __int64 a2)
         *(_QWORD *)(v6 + 24),
         RemlockSize,
         v14,
-        v17,
-        v19);
+        *(_WORD *)(v6 + 1998),
+        *(_WORD *)(v6 + 2000));
     }
   }
 }

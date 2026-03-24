@@ -1,12 +1,13 @@
 /*
- * XREFs of SdbpReleaseSearchDBContext @ 0x140757528
+ * XREFs of SdbpReleaseSearchDBContext @ 0x1407543EC
  * Callers:
- *     SdbGetDatabaseMatch @ 0x140693044 (SdbGetDatabaseMatch.c)
- *     SdbpCheckKObject @ 0x140757368 (SdbpCheckKObject.c)
+ *     SdbpCheckKObject @ 0x14075454C (SdbpCheckKObject.c)
+ *     SdbGetDatabaseMatch @ 0x14077E548 (SdbGetDatabaseMatch.c)
  * Callees:
- *     SdbpFreeAppAttributes @ 0x140A50D9C (SdbpFreeAppAttributes.c)
- *     AslHashFree @ 0x140A56CC0 (AslHashFree.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F8D3C (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
+ *     SdbpFreeAppAttributes @ 0x1405D1E50 (SdbpFreeAppAttributes.c)
+ *     AslHashFree @ 0x1409684C8 (AslHashFree.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SdbpReleaseSearchDBContext(_QWORD *a1)
@@ -14,14 +15,16 @@ void __fastcall SdbpReleaseSearchDBContext(_QWORD *a1)
   void *v2; // rcx
   void *v3; // rcx
   _DWORD *v4; // r8
-  void *v5; // rcx
-  void *v6; // rcx
+  __int64 i; // rsi
+  __int64 v6; // rdi
   void *v7; // rcx
-  __int64 v8; // rsi
-  __int64 v9; // rdi
+  void *v8; // rcx
+  void *v9; // rcx
   void *v10; // rcx
   void *v11; // rcx
   void *v12; // rcx
+  __int64 v13; // rcx
+  __int64 v14; // rcx
 
   if ( a1 )
   {
@@ -40,69 +43,68 @@ void __fastcall SdbpReleaseSearchDBContext(_QWORD *a1)
     v4 = (_DWORD *)a1[9];
     if ( v4 )
     {
-      v8 = 0LL;
-      if ( !*v4 )
-        goto LABEL_28;
-      do
+      for ( i = 0LL; (unsigned int)i < *v4; i = (unsigned int)(i + 1) )
       {
-        v9 = (__int64)&v4[12 * v8 + 2];
-        if ( v9 )
+        v6 = (__int64)&v4[12 * i + 2];
+        if ( v6 )
         {
-          v10 = *(void **)(v9 + 16);
-          if ( v10 )
+          v7 = *(void **)(v6 + 16);
+          if ( v7 )
           {
-            AslHashFree(v10);
-            *(_QWORD *)(v9 + 16) = 0LL;
+            AslHashFree(v7);
+            *(_QWORD *)(v6 + 16) = 0LL;
           }
-          v11 = *(void **)(v9 + 24);
-          if ( v11 )
+          v8 = *(void **)(v6 + 24);
+          if ( v8 )
           {
-            AslHashFree(v11);
-            *(_QWORD *)(v9 + 24) = 0LL;
+            AslHashFree(v8);
+            *(_QWORD *)(v6 + 24) = 0LL;
           }
-          v12 = *(void **)(v9 + 40);
-          if ( v12 )
+          v9 = *(void **)(v6 + 40);
+          if ( v9 )
           {
-            ExFreePoolWithTag(v12, 0x74705041u);
-            *(_OWORD *)(v9 + 32) = 0LL;
+            ExFreePoolWithTag(v9, 0x74705041u);
+            *(_OWORD *)(v6 + 32) = 0LL;
           }
         }
         v4 = (_DWORD *)a1[9];
-        v8 = (unsigned int)(v8 + 1);
       }
-      while ( (unsigned int)v8 < *v4 );
       if ( v4 )
-LABEL_28:
         ExFreePoolWithTag(v4, 0x74705041u);
       a1[9] = 0LL;
     }
-    v5 = (void *)a1[4];
-    if ( v5 )
+    v10 = (void *)a1[4];
+    if ( v10 )
     {
-      ExFreePoolWithTag(v5, 0x74705041u);
+      ExFreePoolWithTag(v10, 0x74705041u);
       a1[4] = 0LL;
     }
-    v6 = (void *)a1[5];
-    if ( v6 )
+    v11 = (void *)a1[5];
+    if ( v11 )
     {
-      ExFreePoolWithTag(v6, 0x74705041u);
+      ExFreePoolWithTag(v11, 0x74705041u);
       a1[5] = 0LL;
     }
-    v7 = (void *)a1[6];
-    if ( v7 )
+    v12 = (void *)a1[6];
+    if ( v12 )
     {
-      ExFreePoolWithTag(v7, 0x74705041u);
+      ExFreePoolWithTag(v12, 0x74705041u);
       a1[6] = 0LL;
     }
-    if ( a1[11] )
+    v13 = a1[11];
+    if ( v13 )
     {
-      SdbpFreeAppAttributes();
+      SdbpFreeAppAttributes(v13);
       a1[11] = 0LL;
     }
-    if ( a1[12] )
+    if ( (unsigned int)Feature_CompatBuildInVb__private_IsEnabledDeviceUsage() )
     {
-      SdbpFreeAppAttributes();
-      a1[12] = 0LL;
+      v14 = a1[12];
+      if ( v14 )
+      {
+        SdbpFreeAppAttributes(v14);
+        a1[12] = 0LL;
+      }
     }
   }
 }

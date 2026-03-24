@@ -1,9 +1,10 @@
 /*
- * XREFs of ?GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z @ 0x1C0027318
+ * XREFs of ?GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z @ 0x1C00802D8
  * Callers:
- *     NtGdiGetDIBitsInternal @ 0x1C0026E60 (NtGdiGetDIBitsInternal.c)
- *     ?bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z @ 0x1C002BBA0 (-bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z.c)
- *     ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C0219BAC (-xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z.c)
+ *     NtGdiGetDIBitsInternal @ 0x1C007FE00 (NtGdiGetDIBitsInternal.c)
+ *     ?bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z @ 0x1C00AC054 (-bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z.c)
+ *     NtGdiStretchDIBitsInternal @ 0x1C00ADDC0 (NtGdiStretchDIBitsInternal.c)
+ *     ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C021EEB8 (-xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z.c)
  * Callees:
  *     <none>
  */
@@ -62,11 +63,11 @@ __int64 __fastcall GreGetBitmapSizeInternal(const struct tagBITMAPINFO *a1, int 
       switch ( biBitCount )
       {
         case 1u:
-          goto LABEL_32;
+          goto LABEL_37;
         case 4u:
           goto LABEL_39;
         case 8u:
-          goto LABEL_37;
+          goto LABEL_29;
         case 0x20u:
           goto LABEL_50;
       }
@@ -76,14 +77,14 @@ __int64 __fastcall GreGetBitmapSizeInternal(const struct tagBITMAPINFO *a1, int 
       if ( biCompression != 2 )
       {
         if ( biCompression == 1 )
-          goto LABEL_36;
+          goto LABEL_28;
         if ( biCompression != 12 )
         {
           if ( biCompression == 11 )
           {
-LABEL_36:
+LABEL_28:
             if ( biBitCount == 8 )
-              goto LABEL_37;
+              goto LABEL_29;
             return 0LL;
           }
           if ( biCompression - 4 > 1 )
@@ -102,7 +103,7 @@ LABEL_6:
   switch ( biHeight_high )
   {
     case 1:
-LABEL_32:
+LABEL_37:
       v12 = 2;
       goto LABEL_14;
     case 4:
@@ -110,7 +111,7 @@ LABEL_39:
       v12 = 16;
       goto LABEL_14;
     case 8:
-LABEL_37:
+LABEL_29:
       v12 = 256;
       goto LABEL_14;
   }

@@ -1,24 +1,23 @@
 /*
- * XREFs of HalpCreateErrorRecord @ 0x1405027C0
+ * XREFs of HalpCreateErrorRecord @ 0x1404B9A00
  * Callers:
  *     <none>
  * Callees:
- *     HalpCreateMachineCheckErrorRecord @ 0x140502810 (HalpCreateMachineCheckErrorRecord.c)
- *     HalpCreateNMIErrorRecord @ 0x140506584 (HalpCreateNMIErrorRecord.c)
+ *     HalpCreateMachineCheckErrorRecord @ 0x1404B9A40 (HalpCreateMachineCheckErrorRecord.c)
+ *     HalpCreateNMIErrorRecord @ 0x1404BD7F8 (HalpCreateNMIErrorRecord.c)
  */
 
 __int64 __fastcall HalpCreateErrorRecord(__int64 a1)
 {
-  int v1; // r10d
-  int v2; // r10d
+  int v1; // eax
 
   v1 = *(_DWORD *)(a1 + 8);
-  if ( !v1 )
-    return HalpCreateMachineCheckErrorRecord(a1);
-  v2 = v1 - 1;
-  if ( !v2 )
-    return HalpCreateMachineCheckErrorRecord(a1);
-  if ( v2 == 2 )
-    return HalpCreateNMIErrorRecord();
+  if ( v1 >= 0 )
+  {
+    if ( v1 <= 1 )
+      return HalpCreateMachineCheckErrorRecord(a1);
+    if ( v1 == 3 )
+      return HalpCreateNMIErrorRecord();
+  }
   return 3221225659LL;
 }

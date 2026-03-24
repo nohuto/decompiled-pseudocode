@@ -1,59 +1,37 @@
 /*
- * XREFs of HalpMceRecoveryMemoryErrorAmd @ 0x14051C8F0
+ * XREFs of HalpMceRecoveryMemoryErrorAmd @ 0x1404D0370
  * Callers:
- *     HalpMceRecoveryRequired @ 0x14051CCC0 (HalpMceRecoveryRequired.c)
+ *     HalpMceRecoveryRequired @ 0x1404D0758 (HalpMceRecoveryRequired.c)
  * Callees:
- *     HalpHvMceConsumedMemoryErrorRecovery @ 0x14050E73C (HalpHvMceConsumedMemoryErrorRecovery.c)
- *     HalpMceMemoryErrorRecovery @ 0x14051C6B0 (HalpMceMemoryErrorRecovery.c)
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x1404C22EC (HalpHvMceConsumedMemoryErrorRecovery.c)
+ *     HalpMceMemoryErrorRecovery @ 0x1404D0258 (HalpMceMemoryErrorRecovery.c)
  */
 
 __int64 __fastcall HalpMceRecoveryMemoryErrorAmd(__int64 a1)
 {
-  char v2; // si
-  __int64 v3; // rdi
-  unsigned int v4; // ecx
-  __int64 v5; // rax
-  __int64 v6; // r8
-  int v7; // eax
+  __int64 v1; // rax
+  char v2; // di
+  __int64 v3; // r10
+  __int64 v4; // rbx
+  int v5; // edx
 
+  v1 = *(_QWORD *)(a1 + 20);
   v2 = 0;
-  v3 = 0LL;
-  v4 = -1073741637;
-  v5 = *(_QWORD *)(a1 + 20);
-  v6 = *(_QWORD *)(a1 + 40);
-  if ( (v5 & 3) == 1 )
+  v3 = *(_QWORD *)(a1 + 40);
+  v4 = 0LL;
+  v5 = -1073741637;
+  if ( (v1 & 3) != 1 && ((v3 & 0x80000000000LL) != 0 || (v1 & 3) == 0) )
   {
-    if ( *(_DWORD *)a1 < 3u )
-      return v4;
-    *(_DWORD *)(a1 + 272) |= 8u;
-    goto LABEL_16;
-  }
-  if ( (v6 & 0x80000000000LL) == 0 && (v5 & 3) != 0 )
-    goto LABEL_16;
-  if ( (v6 & 0x400000000000000LL) != 0 )
-  {
-    v2 = 1;
-    v3 = *(_QWORD *)(a1 + 48) & ~((1LL << (HIBYTE(*(_QWORD *)(a1 + 48)) & 0x3F)) - 1) & 0xFFFFFFFFFFFFFFLL;
-  }
-  if ( HalpHvWheaEnlightenedCpuManager )
-  {
-    v4 = HalpHvMceConsumedMemoryErrorRecovery(*(unsigned int *)(a1 + 16), v3, v6, (v5 & 2) != 0, v5 & 1);
-    if ( (v4 & 0x80000000) == 0 )
+    if ( (v3 & 0x400000000000000LL) != 0 )
     {
-      if ( *(_DWORD *)a1 >= 3u )
-        *(_DWORD *)(a1 + 276) |= 2u;
-      return v4;
+      v2 = 1;
+      v4 = *(_QWORD *)(a1 + 48) & ~((1LL << (HIBYTE(*(_QWORD *)(a1 + 48)) & 0x3F)) - 1) & 0xFFFFFFFFFFFFFFLL;
     }
+    if ( !HalpHvWheaEnlightenedCpuManager )
+      return (unsigned int)HalpMceMemoryErrorRecovery(1, v2, v4);
+    v5 = HalpHvMceConsumedMemoryErrorRecovery(*(unsigned int *)(a1 + 16), v4, v3, (v1 & 2) != 0, v1 & 1);
+    if ( v5 < 0 )
+      return (unsigned int)HalpMceMemoryErrorRecovery(1, v2, v4);
   }
-  v7 = HalpMceMemoryErrorRecovery(1, v2, v3);
-  v4 = v7;
-  if ( v7 < 0 && *(_DWORD *)a1 >= 3u )
-    *(_DWORD *)(a1 + 272) |= 0x10u;
-  if ( v7 == -1073741637 )
-  {
-LABEL_16:
-    if ( *(_DWORD *)a1 >= 3u )
-      *(_DWORD *)(a1 + 272) |= 1u;
-  }
-  return v4;
+  return (unsigned int)v5;
 }

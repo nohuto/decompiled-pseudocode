@@ -1,10 +1,10 @@
 /*
- * XREFs of NVMeReConfigAsyncEventCompletion @ 0x1C00238F0
+ * XREFs of NVMeReConfigAsyncEventCompletion @ 0x1C001AA90
  * Callers:
  *     <none>
  * Callees:
- *     NVMeIssueAsyncEventCommand @ 0x1C0009474 (NVMeIssueAsyncEventCommand.c)
- *     GetLocalCommand @ 0x1C000A538 (GetLocalCommand.c)
+ *     GetLocalCommand @ 0x1C000B8A8 (GetLocalCommand.c)
+ *     NVMeIssueAsyncEventCommand @ 0x1C001A3AC (NVMeIssueAsyncEventCommand.c)
  */
 
 __int64 __fastcall NVMeReConfigAsyncEventCompletion(__int64 a1, __int64 a2)

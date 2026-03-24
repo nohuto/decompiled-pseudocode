@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmGetDeviceSoftwareKey @ 0x1406B2484
+ * XREFs of _CmGetDeviceSoftwareKey @ 0x1406B2464
  * Callers:
- *     _CmGetDeviceSoftwareKeyPath @ 0x1406B235C (_CmGetDeviceSoftwareKeyPath.c)
+ *     _CmGetDeviceSoftwareKeyPath @ 0x1406B233C (_CmGetDeviceSoftwareKeyPath.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _CmOpenInstallerClassRegKey @ 0x14059EB8C (_CmOpenInstallerClassRegKey.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     _CmSetDeviceRegProp @ 0x1406E2A44 (_CmSetDeviceRegProp.c)
- *     _CmCreateOrdinalInstanceKey @ 0x1406E7CA0 (_CmCreateOrdinalInstanceKey.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140762160 (_RegRtlDeleteKeyTransacted.c)
+ *     _CmSetDeviceRegProp @ 0x1406E2A24 (_CmSetDeviceRegProp.c)
+ *     _CmCreateOrdinalInstanceKey @ 0x1406E7C80 (_CmCreateOrdinalInstanceKey.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140762140 (_RegRtlDeleteKeyTransacted.c)
  */
 
 __int64 __fastcall CmGetDeviceSoftwareKey(__int64 a1, __int64 a2, wchar_t *a3, __int64 a4, char a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTrimUnusedPageFileRegionsApc @ 0x1402B8870
+ * XREFs of MiTrimUnusedPageFileRegionsApc @ 0x1402B8970
  * Callers:
  *     <none>
  * Callees:
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     MiFindFreePageFileSpace @ 0x14012411C (MiFindFreePageFileSpace.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
  */
 
 LONG __fastcall MiTrimUnusedPageFileRegionsApc(PRKEVENT Event)

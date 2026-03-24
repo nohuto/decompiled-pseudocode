@@ -1,13 +1,13 @@
 /*
- * XREFs of XmLoadSegment @ 0x140533080
+ * XREFs of XmLoadSegment @ 0x1404E5620
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmGetOffsetAddress @ 0x1403A497C (XmGetOffsetAddress.c)
- *     XmEvaluateAddressSpecifier @ 0x1403B8BCC (XmEvaluateAddressSpecifier.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
- *     longjmp @ 0x1403D7880 (longjmp.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140396914 (XmEvaluateAddressSpecifier.c)
+ *     XmGetOffsetAddress @ 0x1403C8BDC (XmGetOffsetAddress.c)
+ *     longjmp @ 0x1403CFF70 (longjmp.c)
  */
 
 __int64 __fastcall XmLoadSegment(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall XmLoadSegment(__int64 a1)
   int v4; // ebx
   int v5; // edx
   __int64 v6; // rcx
-  unsigned __int16 *OffsetAddress; // rax
+  int *OffsetAddress; // rax
   __int64 v8; // rdx
   unsigned int v9; // [rsp+30h] [rbp+8h] BYREF
 
@@ -33,8 +33,8 @@ __int64 __fastcall XmLoadSegment(__int64 a1)
     v4 = *(_DWORD *)(a1 + 120);
     v5 = *(_DWORD *)(a1 + 128) + 1;
     *(_DWORD *)(a1 + 120) = 1;
-    OffsetAddress = (unsigned __int16 *)XmGetOffsetAddress(v6, (unsigned int)(v4 + v5));
-    XmSetDestinationValue(a1, OffsetAddress);
+    OffsetAddress = XmGetOffsetAddress(v6, v4 + v5);
+    XmSetDestinationValue(a1, (unsigned __int16 *)OffsetAddress);
     *(_WORD *)(a1 + 2LL * (unsigned int)(v2 - 6) + 56) = *(_WORD *)(a1 + 104);
     result = 1LL;
     v8 = v9 + 6LL;

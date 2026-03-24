@@ -1,17 +1,17 @@
 /*
- * XREFs of PopRequestCompletion @ 0x140170E30
+ * XREFs of PopRequestCompletion @ 0x140170E50
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     PopFreeIrp @ 0x140170F60 (PopFreeIrp.c)
- *     PopDequeueQuerySetIrp @ 0x140171064 (PopDequeueQuerySetIrp.c)
- *     PopDiagTraceIrpFinish @ 0x140171248 (PopDiagTraceIrpFinish.c)
- *     PopDiagTraceFxDevicePowerState @ 0x14017169C (PopDiagTraceFxDevicePowerState.c)
- *     PopPepDeviceDState @ 0x140171F64 (PopPepDeviceDState.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopUpdateWakeSource @ 0x1402DBC0C (PopUpdateWakeSource.c)
- *     PopPepDeviceWaitWake @ 0x1402DCB84 (PopPepDeviceWaitWake.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     PopFreeIrp @ 0x140170F80 (PopFreeIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x140171084 (PopDequeueQuerySetIrp.c)
+ *     PopDiagTraceIrpFinish @ 0x140171268 (PopDiagTraceIrpFinish.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x1401716BC (PopDiagTraceFxDevicePowerState.c)
+ *     PopPepDeviceDState @ 0x140171F84 (PopPepDeviceDState.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopUpdateWakeSource @ 0x1402DBD0C (PopUpdateWakeSource.c)
+ *     PopPepDeviceWaitWake @ 0x1402DCC84 (PopPepDeviceWaitWake.c)
  */
 
 __int64 __fastcall PopRequestCompletion(__int64 a1, IRP *a2, __int64 a3)

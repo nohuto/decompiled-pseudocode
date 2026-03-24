@@ -1,24 +1,23 @@
 /*
- * XREFs of vFetchShiftAndMerge @ 0x1C0304210
+ * XREFs of vFetchShiftAndMerge @ 0x1C02DB348
  * Callers:
- *     ?vPatXorRect8@@YAXPEAU_PATBLTFRAME@@@Z @ 0x1C00058F0 (-vPatXorRect8@@YAXPEAU_PATBLTFRAME@@@Z.c)
- *     ?vPatXorRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02E77F0 (-vPatXorRow8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
+ *     ?vPatXorRect8@@YAXPEAU_PATBLTFRAME@@@Z @ 0x1C0151C00 (-vPatXorRect8@@YAXPEAU_PATBLTFRAME@@@Z.c)
+ *     ?vPatXorRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02C77A0 (-vPatXorRow8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
  * Callees:
- *     ?MergePattern@@YAXPEAKJJJ@Z @ 0x1C03040D8 (-MergePattern@@YAXPEAKJJJ@Z.c)
+ *     ?MergePattern@@YAXPEAKJJJ@Z @ 0x1C02DB1A8 (-MergePattern@@YAXPEAKJJJ@Z.c)
  */
 
 void __fastcall vFetchShiftAndMerge(__int64 a1)
 {
   unsigned int *v1; // r11
   __int64 v2; // rdx
-  unsigned int v3; // r9d
+  unsigned int v3; // ebx
   __int64 v4; // r8
-  __int64 v5; // r10
-  unsigned __int64 v6; // rbx
+  __int64 v5; // r9
+  unsigned __int64 v6; // r10
   int *v7; // rcx
-  unsigned int v8; // r10d
+  __int64 v8; // rax
   __int64 v9; // rax
-  __int64 v10; // rax
 
   v1 = *(unsigned int **)a1;
   v2 = *(unsigned int *)(a1 + 24);
@@ -29,23 +28,22 @@ void __fastcall vFetchShiftAndMerge(__int64 a1)
   v7 = (int *)(v4 + v5);
   if ( v3 == 8 )
   {
-    v8 = v5 + 4;
-    v9 = v8 - 8;
-    if ( v8 < 8 )
-      v9 = v8;
-    MergePattern(v1, v2, *(_DWORD *)(v9 + v4), *v7);
+    v8 = (unsigned int)(v5 - 4);
+    if ( (unsigned int)(v5 + 4) < 8 )
+      v8 = (unsigned int)(v5 + 4);
+    MergePattern(v1, v2, *(_DWORD *)(v8 + v4), *v7);
   }
   else
   {
     while ( (unsigned __int64)v1 < v6 )
     {
       *v1 ^= *v7;
-      v10 = (_DWORD)v5 + 4 - v3;
+      v9 = (_DWORD)v5 + 4 - v3;
       ++v1;
       if ( (int)v5 + 4 < v3 )
-        v10 = (unsigned int)(v5 + 4);
-      LODWORD(v5) = v10;
-      v7 = (int *)(v4 + v10);
+        v9 = (unsigned int)(v5 + 4);
+      LODWORD(v5) = v9;
+      v7 = (int *)(v4 + v9);
     }
   }
 }

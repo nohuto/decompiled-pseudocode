@@ -1,16 +1,17 @@
 /*
- * XREFs of ResFwBackgroundTransition @ 0x140AF0428
+ * XREFs of ResFwBackgroundTransition @ 0x1409F3408
  * Callers:
- *     BgpFwLibraryEnable @ 0x140387044 (BgpFwLibraryEnable.c)
- *     BgpFwLibraryDestroy @ 0x140AEFA48 (BgpFwLibraryDestroy.c)
+ *     BgpFwLibraryEnable @ 0x14039C188 (BgpFwLibraryEnable.c)
+ *     ResFwFreeContext @ 0x1409F107C (ResFwFreeContext.c)
+ *     BgpFwLibraryDestroy @ 0x1409F3F0C (BgpFwLibraryDestroy.c)
+ *     BgpFwLibraryDisable @ 0x1409F3FE8 (BgpFwLibraryDisable.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x140384860 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403848B0 (BgpFwAcquireLock.c)
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14038682C (BgpFwAllocateMemory.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ResFwpPageOutBackground @ 0x140AF0490 (ResFwpPageOutBackground.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
+ *     BgpFwReleaseLock @ 0x14039BBA8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039BBF8 (BgpFwAcquireLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ResFwpPageOutBackground @ 0x1409F1470 (ResFwpPageOutBackground.c)
+ *     ResFwpPageInBackground @ 0x1409F344C (ResFwpPageInBackground.c)
  */
 
 void __fastcall ResFwBackgroundTransition(int a1)
@@ -18,26 +19,24 @@ void __fastcall ResFwBackgroundTransition(int a1)
   int v1; // ecx
   void *v2; // rcx
   PVOID v3; // rbx
-  __int64 Memory; // rax
-  void *v5; // rbx
 
   if ( a1 )
   {
     v1 = a1 - 1;
     if ( v1 )
     {
-      if ( v1 == 1 && (dword_140C0E4B0 & 0xC00) != 0xC00 )
+      if ( v1 == 1 && (dword_140C134F0 & 0xC00) != 0xC00 )
       {
-        v2 = qword_140C0E4F8;
-        if ( qword_140C0E4F8 )
+        v2 = qword_140C13538;
+        if ( qword_140C13538 )
         {
-          _InterlockedExchange64((volatile __int64 *)&qword_140C0E4F8, 0LL);
+          _InterlockedExchange64((volatile __int64 *)&qword_140C13538, 0LL);
           BgpFwFreeMemory((__int64)v2);
         }
-        v3 = qword_140C0E500;
-        if ( qword_140C0E500 )
+        v3 = qword_140C13540;
+        if ( qword_140C13540 )
         {
-          _InterlockedExchange64((volatile __int64 *)&qword_140C0E500, 0LL);
+          _InterlockedExchange64((volatile __int64 *)&qword_140C13540, 0LL);
           BgpFwReleaseLock();
           ExFreePoolWithTag(v3, 0x4B494742u);
           BgpFwAcquireLock();
@@ -50,22 +49,8 @@ void __fastcall ResFwBackgroundTransition(int a1)
       ResFwpPageOutBackground();
     }
   }
-  else if ( (dword_140C0E4B0 & 0xC00) != 0xC00 && (dword_140C0E4B0 & 0x100000) == 0 )
+  else
   {
-    if ( qword_140C0E500 )
-    {
-      Memory = BgpFwAllocateMemory((unsigned int)Size);
-      v5 = (void *)Memory;
-      if ( Memory )
-      {
-        BgpFwReleaseLock();
-        memmove(v5, qword_140C0E500, (unsigned int)Size);
-        BgpFwAcquireLock();
-        if ( qword_140C0E4F8 )
-          BgpFwFreeMemory((__int64)v5);
-        else
-          _InterlockedExchange64((volatile __int64 *)&qword_140C0E4F8, (__int64)v5);
-      }
-    }
+    ResFwpPageInBackground();
   }
 }

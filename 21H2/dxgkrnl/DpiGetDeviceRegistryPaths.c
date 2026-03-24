@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiGetDeviceRegistryPaths @ 0x1C0026E20
+ * XREFs of DpiGetDeviceRegistryPaths @ 0x1C0021EB0
  * Callers:
- *     DpiAddDevice @ 0x1C01F84B0 (DpiAddDevice.c)
+ *     DpiAddDevice @ 0x1C017CFC0 (DpiAddDevice.c)
  * Callees:
- *     DpiGetRegistryPathFromPDO @ 0x1C0026EE8 (DpiGetRegistryPathFromPDO.c)
- *     DpiCopyUnicodeString @ 0x1C0205560 (DpiCopyUnicodeString.c)
+ *     DpiGetRegistryPathFromPDO @ 0x1C0021F78 (DpiGetRegistryPathFromPDO.c)
+ *     DpiCopyUnicodeString @ 0x1C018B000 (DpiCopyUnicodeString.c)
  */
 
 __int64 __fastcall DpiGetDeviceRegistryPaths(__int64 a1, __int64 a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpGetVirtualStoreRoot @ 0x140917348
+ * XREFs of CmpGetVirtualStoreRoot @ 0x14087090C
  * Callers:
- *     CmpReplicateKeyToVirtual @ 0x1409174A4 (CmpReplicateKeyToVirtual.c)
+ *     CmpReplicateKeyToVirtual @ 0x1408709C4 (CmpReplicateKeyToVirtual.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     CmpGetVirtualizationID @ 0x140669CBC (CmpGetVirtualizationID.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     CmpGetMappingHiveForString @ 0x140717660 (CmpGetMappingHiveForString.c)
- *     CmpReferenceKeyControlBlock @ 0x14071B250 (CmpReferenceKeyControlBlock.c)
- *     CmpFindKcbInHashEntryByCellIndex @ 0x1409150D4 (CmpFindKcbInHashEntryByCellIndex.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     CmpGetMappingHiveForString @ 0x140672808 (CmpGetMappingHiveForString.c)
+ *     CmpGetVirtualizationID @ 0x140672C94 (CmpGetVirtualizationID.c)
+ *     CmpReferenceKeyControlBlock @ 0x140719888 (CmpReferenceKeyControlBlock.c)
+ *     CmpFindKcbInHashEntryByCellIndex @ 0x14086EEB8 (CmpFindKcbInHashEntryByCellIndex.c)
  */
 
 __int64 __fastcall CmpGetVirtualStoreRoot(__int64 a1, __int64 *a2, int *a3, ULONG_PTR *a4)
@@ -24,7 +24,7 @@ __int64 __fastcall CmpGetVirtualStoreRoot(__int64 a1, __int64 *a2, int *a3, ULON
   VirtualizationID = CmpGetVirtualizationID(&UnicodeString, a1);
   if ( VirtualizationID >= 0 )
   {
-    VirtualizationID = CmpGetMappingHiveForString(&UnicodeString, a2);
+    VirtualizationID = CmpGetMappingHiveForString((__m128i *)&UnicodeString, a2);
     if ( VirtualizationID >= 0 )
     {
       v9 = *a2;
@@ -36,6 +36,6 @@ __int64 __fastcall CmpGetVirtualStoreRoot(__int64 a1, __int64 *a2, int *a3, ULON
     }
   }
   if ( UnicodeString.Buffer )
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeAnsiString(&UnicodeString);
   return (unsigned int)VirtualizationID;
 }

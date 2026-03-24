@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPreprocessNmi @ 0x140366F20
+ * XREFs of HalpPreprocessNmi @ 0x1404D2CC0
  * Callers:
  *     <none>
  * Callees:
- *     HalpWatchdogCheckPreResetNMI @ 0x14050B9A0 (HalpWatchdogCheckPreResetNMI.c)
- *     HalpInterruptRebootService @ 0x14051C330 (HalpInterruptRebootService.c)
+ *     HalpWatchdogCheckPreResetNMI @ 0x1404C27B0 (HalpWatchdogCheckPreResetNMI.c)
+ *     HalpInterruptRebootService @ 0x1404D2590 (HalpInterruptRebootService.c)
  */
 
 char __fastcall HalpPreprocessNmi(int a1)
@@ -20,7 +20,7 @@ char __fastcall HalpPreprocessNmi(int a1)
   {
     result = HalpInterruptNmiRebootInProgress;
     if ( HalpInterruptNmiRebootInProgress )
-      HalpInterruptRebootService(0LL, 0LL);
+      HalpInterruptRebootService();
   }
   return result;
 }

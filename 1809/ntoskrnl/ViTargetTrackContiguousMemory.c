@@ -7,10 +7,10 @@
  *     VerifierMmAllocateContiguousNodeMemory @ 0x140944030 (VerifierMmAllocateContiguousNodeMemory.c)
  *     VerifierMmAllocateNonCachedMemory @ 0x1409442B0 (VerifierMmAllocateNonCachedMemory.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1400F5668 (VfAvlCleanupLockContext.c)
- *     VfUtilFreePoolCheckIRQL @ 0x14016C2F0 (VfUtilFreePoolCheckIRQL.c)
- *     VfAvlLookupTreeNode @ 0x14016C410 (VfAvlLookupTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x14030B4B4 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14016C310 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ViTargetUpdateTreeAllowed @ 0x140935328 (ViTargetUpdateTreeAllowed.c)
  */
@@ -45,7 +45,7 @@ char __fastcall ViTargetTrackContiguousMemory(unsigned __int64 a1, _SLIST_ENTRY 
         v10 = v9[7];
         if ( v10 )
         {
-          qword_14040D770 += a3;
+          qword_14040D710 += a3;
           v11 = a3 + *(_QWORD *)(v10 + 232);
           *(_QWORD *)(v10 + 232) = v11;
           if ( *(_QWORD *)(v10 + 240) < v11 )

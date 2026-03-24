@@ -1,72 +1,62 @@
 /*
- * XREFs of MiDoStackCopy @ 0x14062CE10
+ * XREFs of MiDoStackCopy @ 0x140535E60
  * Callers:
  *     <none>
  * Callees:
- *     KeExpandKernelStackAndCalloutInternal @ 0x14022E6F0 (KeExpandKernelStackAndCalloutInternal.c)
- *     RtlpGetStackLimits @ 0x14022E980 (RtlpGetStackLimits.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetLeafPfnBuddy @ 0x140389ACC (MiGetLeafPfnBuddy.c)
- *     KeGetCurrentStackPointer @ 0x14041EA70 (KeGetCurrentStackPointer.c)
- *     MiJumpStackTarget @ 0x14062CFF0 (MiJumpStackTarget.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x1402AA680 (KeExpandKernelStackAndCalloutInternal.c)
+ *     MiGetLeafPfnBuddy @ 0x1403801FC (MiGetLeafPfnBuddy.c)
+ *     MiJumpStackTarget @ 0x140535F90 (MiJumpStackTarget.c)
  */
 
 __int64 __fastcall MiDoStackCopy(__int64 a1, ULONG_PTR a2, ULONG_PTR a3, ULONG_PTR a4)
 {
-  unsigned __int64 v4; // r14
-  __int64 v6; // rcx
-  __int16 v7; // dx
-  __int64 v8; // r10
-  unsigned __int64 v9; // rbx
-  unsigned __int64 v10; // rsi
+  unsigned __int64 v4; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // r10
+  bool v8; // cf
+  int v9; // r9d
+  __int16 v10; // r8
+  unsigned __int64 LeafPfnBuddy; // rdx
   __int64 result; // rax
-  ULONG_PTR BugCheckParameter3[4]; // [rsp+30h] [rbp-20h] BYREF
-  unsigned __int64 v13; // [rsp+88h] [rbp+38h] BYREF
-  __int64 v14; // [rsp+90h] [rbp+40h] BYREF
+  ULONG_PTR BugCheckParameter3[5]; // [rsp+30h] [rbp-28h] BYREF
 
   v4 = *(_QWORD *)a2;
   v6 = 6LL * *(_QWORD *)a2;
-  BugCheckParameter3[0] = a2;
+  v7 = 8 * v6 - 0x58000000000LL;
   BugCheckParameter3[1] = a3;
+  v8 = *(_QWORD *)(a2 + 56) != 0LL;
   BugCheckParameter3[2] = a4;
-  if ( v4 <= qword_140C65CA0
-    && ((*(_QWORD *)(8 * v6 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0
-    && ((*(_QWORD *)(8 * v6 - 0x220000000000LL + 40) >> 60) & 7) == 2
-    && MiGetLeafPfnBuddy((_QWORD *)(8 * v6 - 0x220000000000LL)) != -32LL
-    && (*(_BYTE *)(v8 + 34) & 7) == 6
-    && *(_WORD *)(v8 + 32) == v7 )
+  v9 = 1;
+  BugCheckParameter3[0] = a2;
+  v10 = v8 + 1;
+  if ( v4 <= 0xFFFFFFFFFLL
+    && ((*(_QWORD *)(8 * v6 - 0x57FFFFFFFD8LL) >> 50) & 1) != 0
+    && ((*(_QWORD *)(v7 + 40) >> 60) & 7) == 2 )
   {
-    v13 = 0LL;
-    v14 = 0LL;
-    if ( !(unsigned __int8)RtlpGetStackLimits((__int64)&v13, (__int64)&v14) || v13 == 0xFFFF800000000000uLL && v14 == -1 )
+    LeafPfnBuddy = MiGetLeafPfnBuddy((_QWORD *)(8 * v6 - 0x58000000000LL));
+  }
+  else
+  {
+    LeafPfnBuddy = -32LL;
+  }
+  if ( LeafPfnBuddy != -32LL && (*(_BYTE *)(v7 + 34) & 7) == 6 && *(_WORD *)(v7 + 32) == v10 )
+  {
+    if ( LeafPfnBuddy == -16LL && *(struct _KTHREAD **)(a2 + 24) != KeGetCurrentThread() )
     {
-LABEL_15:
       result = KeExpandKernelStackAndCalloutInternal(
                  (void (__fastcall *)(ULONG_PTR))MiJumpStackTarget,
                  (ULONG_PTR)BugCheckParameter3,
                  24576,
-                 1,
+                 v9,
                  0LL);
       if ( (int)result >= 0 )
         return result;
-      *(_DWORD *)(a2 + 32) = result;
-    }
-    else
-    {
-      v9 = ((v13 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      v10 = (((unsigned __int64)KeGetCurrentStackPointer() >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      while ( v9 <= v10 )
-      {
-        v13 = MI_READ_PTE_LOCK_FREE(v9);
-        if ( (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v13) >> 12) & 0xFFFFFFFFFFLL) == v4 )
-          goto LABEL_15;
-        v9 += 8LL;
-      }
+      *(_DWORD *)(a2 + 40) = result;
     }
   }
   else
   {
-    *(_DWORD *)(a2 + 32) = -1073740748;
+    *(_DWORD *)(a2 + 40) = -1073740748;
   }
   return MiJumpStackTarget(BugCheckParameter3);
 }

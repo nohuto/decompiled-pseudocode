@@ -1,19 +1,19 @@
 /*
- * XREFs of WheaReportHwError @ 0x14031FC20
+ * XREFs of WheaReportHwError @ 0x14031FD20
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     WheapAddToDumpFile @ 0x14031FF48 (WheapAddToDumpFile.c)
- *     WheapAllocErrorRecord @ 0x14031FF88 (WheapAllocErrorRecord.c)
- *     WheapApplyThresholdChecks @ 0x14032001C (WheapApplyThresholdChecks.c)
- *     WheapAttemptErrorRecovery @ 0x140320118 (WheapAttemptErrorRecovery.c)
- *     WheapCompressErrorRecord @ 0x1403201E4 (WheapCompressErrorRecord.c)
- *     WheapFreeErrorRecord @ 0x140320320 (WheapFreeErrorRecord.c)
- *     WheapGetErrorSource @ 0x140320354 (WheapGetErrorSource.c)
- *     WheapGenerateETWEvents @ 0x140320E88 (WheapGenerateETWEvents.c)
- *     WheapWorkQueueAddItem @ 0x140321084 (WheapWorkQueueAddItem.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     WheapAddToDumpFile @ 0x140320048 (WheapAddToDumpFile.c)
+ *     WheapAllocErrorRecord @ 0x140320088 (WheapAllocErrorRecord.c)
+ *     WheapApplyThresholdChecks @ 0x14032011C (WheapApplyThresholdChecks.c)
+ *     WheapAttemptErrorRecovery @ 0x140320218 (WheapAttemptErrorRecovery.c)
+ *     WheapCompressErrorRecord @ 0x1403202E4 (WheapCompressErrorRecord.c)
+ *     WheapFreeErrorRecord @ 0x140320420 (WheapFreeErrorRecord.c)
+ *     WheapGetErrorSource @ 0x140320454 (WheapGetErrorSource.c)
+ *     WheapGenerateETWEvents @ 0x140320F88 (WheapGenerateETWEvents.c)
+ *     WheapWorkQueueAddItem @ 0x140321184 (WheapWorkQueueAddItem.c)
  */
 
 __int64 __fastcall WheaReportHwError(__int64 a1)
@@ -117,7 +117,7 @@ LABEL_39:
 LABEL_24:
         if ( (*(_DWORD *)(v12 + 24) & 1) != 0 )
         {
-          if ( LODWORD(WheapDispatchPtr.Queue.Wcb.DeviceContext) == 1 )
+          if ( WheapDispatchPtr.Queue.Wcb.WaitQueueEntry.SortKey == 1 )
             WheapGenerateETWEvents(v12 + 40);
           WheapFreeErrorRecord(v12);
           return v3;

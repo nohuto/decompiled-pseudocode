@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlCaptureStackBackTrace @ 0x1400CCC90
+ * XREFs of RtlCaptureStackBackTrace @ 0x1400CCCB0
  * Callers:
- *     PsBoostThreadIoEx @ 0x1400BBF70 (PsBoostThreadIoEx.c)
- *     MiShowBadMapper @ 0x1402A5944 (MiShowBadMapper.c)
- *     MiAddMdlTracker @ 0x1402A7EDC (MiAddMdlTracker.c)
- *     MiInsertPteTracker @ 0x1402CD9C0 (MiInsertPteTracker.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
- *     RtlStdLogStackTrace @ 0x1402ECFB8 (RtlStdLogStackTrace.c)
- *     RtlGetCallersAddress @ 0x1402EF890 (RtlGetCallersAddress.c)
- *     RtlpHpHeapHandleError @ 0x1402FBAFC (RtlpHpHeapHandleError.c)
- *     SepGetStackTraceHash @ 0x1402FE9FC (SepGetStackTraceHash.c)
- *     ViKeLogCriticalRegionStackTrace @ 0x14030B0DC (ViKeLogCriticalRegionStackTrace.c)
+ *     PsBoostThreadIoEx @ 0x1400BBF90 (PsBoostThreadIoEx.c)
+ *     MiShowBadMapper @ 0x1402A5A44 (MiShowBadMapper.c)
+ *     MiAddMdlTracker @ 0x1402A7FDC (MiAddMdlTracker.c)
+ *     MiInsertPteTracker @ 0x1402CDAC0 (MiInsertPteTracker.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
+ *     RtlStdLogStackTrace @ 0x1402ED0B8 (RtlStdLogStackTrace.c)
+ *     RtlGetCallersAddress @ 0x1402EF990 (RtlGetCallersAddress.c)
+ *     RtlpHpHeapHandleError @ 0x1402FBBFC (RtlpHpHeapHandleError.c)
+ *     SepGetStackTraceHash @ 0x1402FEAFC (SepGetStackTraceHash.c)
+ *     ViKeLogCriticalRegionStackTrace @ 0x14030B1DC (ViKeLogCriticalRegionStackTrace.c)
  *     CmpLogDirtyVectorUse @ 0x1405A7DC8 (CmpLogDirtyVectorUse.c)
  *     ViPoolLogStackCallout @ 0x140924960 (ViPoolLogStackCallout.c)
  *     VfPendingFinishLogging @ 0x14093373C (VfPendingFinishLogging.c)
@@ -21,7 +21,7 @@
  *     VfDeadlockInitializeResource @ 0x14093C0E0 (VfDeadlockInitializeResource.c)
  *     VfDeadlockReleaseResource @ 0x14093C260 (VfDeadlockReleaseResource.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x1400CCBB0 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x1400CCBD0 (RtlWalkFrameChain.c)
  */
 
 USHORT __stdcall RtlCaptureStackBackTrace(

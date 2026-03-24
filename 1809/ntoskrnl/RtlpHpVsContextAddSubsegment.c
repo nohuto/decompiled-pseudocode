@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsContextAddSubsegment @ 0x140109844
+ * XREFs of RtlpHpVsContextAddSubsegment @ 0x140109864
  * Callers:
- *     RtlpHpVsContextAllocateInternal @ 0x1401B669C (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x1401B66BC (RtlpHpVsContextAllocateInternal.c)
  * Callees:
- *     RtlpHpVsFreeChunkInsert @ 0x1400BD460 (RtlpHpVsFreeChunkInsert.c)
- *     RtlpHpVsChunkAlignSplit @ 0x1401098F0 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x1400BD480 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsChunkAlignSplit @ 0x140109910 (RtlpHpVsChunkAlignSplit.c)
  */
 
 __int64 __fastcall RtlpHpVsContextAddSubsegment(__int64 a1, __int64 a2)

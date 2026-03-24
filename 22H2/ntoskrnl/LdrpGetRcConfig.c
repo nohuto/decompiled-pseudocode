@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpGetRcConfig @ 0x1402F7548
+ * XREFs of LdrpGetRcConfig @ 0x140301BD4
  * Callers:
- *     LdrIsResItemExist @ 0x1402F74C8 (LdrIsResItemExist.c)
- *     LdrpVerifyAlternateResourceModuleEx @ 0x1403AD058 (LdrpVerifyAlternateResourceModuleEx.c)
+ *     LdrIsResItemExist @ 0x140301940 (LdrIsResItemExist.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x14038149C (LdrpVerifyAlternateResourceModuleEx.c)
  * Callees:
- *     LdrpGetFromMUIMemCache @ 0x1402F7A78 (LdrpGetFromMUIMemCache.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x1403A1D34 (LdrpSetAlternateResourceModuleHandle.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x140755C38 (LdrpAccessResourceDataNoMultipleLanguage.c)
- *     LdrpSearchResourceSection_U @ 0x140756220 (LdrpSearchResourceSection_U.c)
+ *     LdrpGetFromMUIMemCache @ 0x140302064 (LdrpGetFromMUIMemCache.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x14037EC0C (LdrpSetAlternateResourceModuleHandle.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x140672638 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     LdrpSearchResourceSection_U @ 0x140672884 (LdrpSearchResourceSection_U.c)
  */
 
 _DWORD *__fastcall LdrpGetRcConfig(__int64 a1, __int64 a2, char a3, char a4)

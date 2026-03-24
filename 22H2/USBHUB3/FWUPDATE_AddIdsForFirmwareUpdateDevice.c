@@ -1,12 +1,12 @@
 /*
- * XREFs of FWUPDATE_AddIdsForFirmwareUpdateDevice @ 0x1C008B744
+ * XREFs of FWUPDATE_AddIdsForFirmwareUpdateDevice @ 0x1C00851E4
  * Callers:
- *     FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C008BB18 (FWUPDATE_CreateFirmwareUpdateDevice.c)
+ *     FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C00855B8 (FWUPDATE_CreateFirmwareUpdateDevice.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000BBF4 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FWUPDATE_AddIdsForFirmwareUpdateDevice(__int64 a1, __int64 a2)
@@ -186,7 +186,7 @@ LABEL_37:
       2u,
       3u,
       v8,
-      (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+      (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
       v12);
   }
   return v7;

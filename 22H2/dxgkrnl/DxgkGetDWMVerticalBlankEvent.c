@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkGetDWMVerticalBlankEvent @ 0x1C01E6BF0
+ * XREFs of DxgkGetDWMVerticalBlankEvent @ 0x1C016AE60
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkGetDWMVerticalBlankEventInternal@@YAJIIIPEAPEAU_KEVENT@@@Z @ 0x1C01E6D04 (-DxgkGetDWMVerticalBlankEventInternal@@YAJIIIPEAPEAU_KEVENT@@@Z.c)
+ *     ?DxgkGetDWMVerticalBlankEventInternal@@YAJIIIPEAPEAU_KEVENT@@@Z @ 0x1C016AF88 (-DxgkGetDWMVerticalBlankEventInternal@@YAJIIIPEAPEAU_KEVENT@@@Z.c)
  */
 
 __int64 __fastcall DxgkGetDWMVerticalBlankEvent(ULONG64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreePageFileHashPfns @ 0x1400F04D8
+ * XREFs of MiFreePageFileHashPfns @ 0x1400F04F8
  * Callers:
- *     MiScanPagefiles @ 0x1400F04A4 (MiScanPagefiles.c)
- *     MiDeletePagefile @ 0x140853110 (MiDeletePagefile.c)
+ *     MiScanPagefiles @ 0x1400F04C4 (MiScanPagefiles.c)
+ *     MiDeletePagefile @ 0x1408530F0 (MiDeletePagefile.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5430 (RtlpInterlockedFlushSList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
  */
 
 unsigned __int64 __fastcall MiFreePageFileHashPfns(__int64 a1)

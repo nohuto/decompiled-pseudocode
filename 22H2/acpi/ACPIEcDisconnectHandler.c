@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIEcDisconnectHandler @ 0x1C0083A90
+ * XREFs of ACPIEcDisconnectHandler @ 0x1C00AEEE0
  * Callers:
- *     ACPIEcInternalControl @ 0x1C0083244 (ACPIEcInternalControl.c)
+ *     ACPIEcInternalControl @ 0x1C00AE690 (ACPIEcInternalControl.c)
  * Callees:
  *     <none>
  */

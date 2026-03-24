@@ -1,32 +1,33 @@
 /*
- * XREFs of IoGetGenericIrpExtension @ 0x140334720
+ * XREFs of IoGetGenericIrpExtension @ 0x140371710
  * Callers:
- *     StRtlIoStorInfoSetNvCachePriority @ 0x140676EB8 (StRtlIoStorInfoSetNvCachePriority.c)
+ *     StRtlIoStorInfoSetNvCachePriority @ 0x1405C9210 (StRtlIoStorInfoSetNvCachePriority.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall IoGetGenericIrpExtension(__int64 a1, void *a2, unsigned __int16 a3)
 {
-  __int64 result; // rax
-  __int64 v6; // rcx
+  unsigned int v4; // r9d
+  __int64 v5; // rax
   __int64 v7; // rdx
 
-  result = 3221226021LL;
-  if ( a3 > 4u )
-    return 3221225485LL;
-  v6 = *(_QWORD *)(a1 + 200);
-  if ( *(char *)(a1 + 71) < 0 )
+  v4 = -1073741275;
+  if ( a3 <= 4u )
   {
-    v7 = a1 + 196;
-LABEL_7:
+    v5 = *(_QWORD *)(a1 + 200);
+    if ( *(char *)(a1 + 71) < 0 )
+    {
+      v7 = a1 + 196;
+    }
+    else
+    {
+      if ( !v5 || (*(_BYTE *)(v5 + 2) & 4) == 0 )
+        return v4;
+      v7 = *(_QWORD *)(a1 + 200);
+    }
     memmove(a2, (const void *)(v7 + 4), a3);
-    return 0LL;
+    return 0;
   }
-  if ( v6 && (*(_BYTE *)(v6 + 2) & 4) != 0 )
-  {
-    v7 = *(_QWORD *)(a1 + 200);
-    goto LABEL_7;
-  }
-  return result;
+  return 3221225485LL;
 }

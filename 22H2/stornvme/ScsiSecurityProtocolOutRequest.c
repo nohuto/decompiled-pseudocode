@@ -1,64 +1,63 @@
 /*
- * XREFs of ScsiSecurityProtocolOutRequest @ 0x1C001ABCC
+ * XREFs of ScsiSecurityProtocolOutRequest @ 0x1C00170F4
  * Callers:
- *     ScsiToNVMe @ 0x1C00015C0 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeSetSenseData @ 0x1C00241F8 (NVMeSetSenseData.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
-__int64 __fastcall ScsiSecurityProtocolOutRequest(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall ScsiSecurityProtocolOutRequest(__int64 a1, __int64 a2, _BYTE *a3)
 {
   __int64 SrbExtension; // rax
-  unsigned int *v6; // rdx
-  _BYTE *v7; // r8
-  __int64 v8; // r11
-  __int64 v9; // r9
-  __int64 v10; // rsi
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r11
+  __int64 v8; // r9
+  __int64 v9; // rsi
   __int64 result; // rax
-  unsigned int v12; // edi
+  unsigned int v11; // edi
+  __int64 v12; // rax
   unsigned int v13; // ecx
-  unsigned int v14; // [rsp+50h] [rbp+8h]
-  unsigned __int16 v15; // [rsp+50h] [rbp+8h]
-  unsigned int *v16; // [rsp+68h] [rbp+20h] BYREF
+  unsigned int v14; // [rsp+40h] [rbp+8h]
+  unsigned __int16 v15; // [rsp+40h] [rbp+8h]
 
   SrbExtension = GetSrbExtension(a2);
-  v9 = *(_QWORD *)(a1 + 1840);
-  v10 = SrbExtension;
-  v16 = 0LL;
-  if ( (*(_BYTE *)(v9 + 256) & 1) == 0 )
+  v8 = *(_QWORD *)(v6 + 1624);
+  v9 = SrbExtension;
+  if ( (*(_BYTE *)(v8 + 256) & 1) == 0 )
     goto LABEL_2;
-  HIBYTE(v14) = v7[6];
-  BYTE2(v14) = v7[7];
-  BYTE1(v14) = v7[8];
-  LOBYTE(v14) = v7[9];
-  v12 = v14;
-  if ( (char)v7[4] < 0 )
-    v12 = v14 << 9;
-  HIBYTE(v15) = v7[2];
-  LOBYTE(v15) = v7[3];
-  GetSrbDataBuffer(v8, &v16);
-  v6 = v16;
-  if ( *v16 >= v12 )
+  HIBYTE(v14) = a3[6];
+  BYTE2(v14) = a3[7];
+  BYTE1(v14) = a3[8];
+  LOBYTE(v14) = a3[9];
+  v11 = v14;
+  if ( (char)a3[4] < 0 )
+    v11 = v14 << 9;
+  HIBYTE(v15) = a3[2];
+  LOBYTE(v15) = a3[3];
+  v12 = 60LL;
+  if ( *(_BYTE *)(v5 + 2) != 40 )
+    v12 = 16LL;
+  if ( *(_DWORD *)(v12 + v5) >= v11 )
   {
-    *(_BYTE *)(v10 + 4253) = (v12 != 0 ? 2 : 0) | *(_BYTE *)(v10 + 4253) & 0xFC | 1;
-    SrbAssignQueueId(a1, v8);
-    *(_BYTE *)(v10 + 4139) = *(_BYTE *)(a3 + 1);
-    v13 = *(_DWORD *)(v10 + 4136) & 0xFF0000FF | (v15 << 8);
-    *(_BYTE *)(v10 + 4096) = -127;
-    *(_DWORD *)(v10 + 4136) = v13;
+    *(_BYTE *)(v9 + 4253) = (v11 != 0 ? 2 : 0) | *(_BYTE *)(v9 + 4253) & 0xFC | 1;
+    SrbAssignQueueId(v6, v5);
+    *(_BYTE *)(v9 + 4139) = a3[1];
+    v13 = *(_DWORD *)(v9 + 4136) & 0xFF0000FF | (v15 << 8);
+    *(_BYTE *)(v9 + 4096) = -127;
+    *(_DWORD *)(v9 + 4136) = v13;
     result = 0LL;
-    *(_DWORD *)(v10 + 4140) = v12;
+    *(_DWORD *)(v9 + 4140) = v11;
   }
   else
   {
 LABEL_2:
-    LOBYTE(v9) = 36;
-    LOBYTE(v7) = 5;
-    LOBYTE(v6) = 6;
-    NVMeSetSenseData(v8, v6, v7, v9);
+    LOBYTE(v8) = 36;
+    LOBYTE(v6) = 5;
+    LOBYTE(v5) = 6;
+    NVMeSetSenseData(v7, v5, v6, v8);
     return 3238002694LL;
   }
   return result;

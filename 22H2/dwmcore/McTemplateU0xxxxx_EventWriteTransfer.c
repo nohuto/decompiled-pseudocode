@@ -1,16 +1,17 @@
 /*
- * XREFs of McTemplateU0xxxxx_EventWriteTransfer @ 0x18012ECDA
+ * XREFs of McTemplateU0xxxxx_EventWriteTransfer @ 0x1801541AC
  * Callers:
- *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x1800461F0 (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
- *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E9C8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x180070200 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x18009BC18 (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
+ *     ?TraceTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x1800DF07C (-TraceTime@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 McTemplateU0xxxxx_EventWriteTransfer(__int64 a1, __int64 a2, ...)
+ULONG McTemplateU0xxxxx_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, ...)
 {
-  _BYTE v3[16]; // [rsp+30h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+30h] [rbp-31h] BYREF
   va_list v4; // [rsp+40h] [rbp-21h]
   __int64 v5; // [rsp+48h] [rbp-19h]
   va_list v6; // [rsp+50h] [rbp-11h]
@@ -53,5 +54,5 @@ __int64 McTemplateU0xxxxx_EventWriteTransfer(__int64 a1, __int64 a2, ...)
   va_copy(v12, va4);
   v11 = 8LL;
   v13 = 8LL;
-  return McGenEventWrite_EventWriteTransfer(&Microsoft_Windows_Dwm_Core_Provider_Context, a2, v15, 6LL, v3);
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, v15, 6u, &v3);
 }

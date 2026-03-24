@@ -1,128 +1,129 @@
 /*
- * XREFs of DrvDbDispatchDriverDatabase @ 0x140876610
+ * XREFs of DrvDbDispatchDriverDatabase @ 0x1406B4C50
  * Callers:
  *     <none>
  * Callees:
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x1408664C0 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x14086671C (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x140866854 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     _PnpCtxGetObjectContext @ 0x14087698C (_PnpCtxGetObjectContext.c)
- *     DrvDbGetDriverDatabaseList @ 0x140877AAC (DrvDbGetDriverDatabaseList.c)
- *     DrvDbFindDatabaseNode @ 0x140877BE4 (DrvDbFindDatabaseNode.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140A6B75C (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbValidateDriverDatabaseName @ 0x140A6D8A4 (DrvDbValidateDriverDatabaseName.c)
- *     DrvDbDestroyDatabaseNode @ 0x140A6D9C0 (DrvDbDestroyDatabaseNode.c)
+ *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
+ *     _PnpCtxGetObjectContext @ 0x1406B4F28 (_PnpCtxGetObjectContext.c)
+ *     DrvDbGetDriverDatabaseList @ 0x1406B4F54 (DrvDbGetDriverDatabaseList.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140727CD0 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140735700 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x1407358D4 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D3F4 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbValidateDriverDatabaseName @ 0x14097E79C (DrvDbValidateDriverDatabaseName.c)
+ *     DrvDbDestroyDatabaseNode @ 0x14097E8BC (DrvDbDestroyDatabaseNode.c)
  */
 
-__int64 __fastcall DrvDbDispatchDriverDatabase(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
+__int64 __fastcall DrvDbDispatchDriverDatabase(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned int *a5)
 {
   int ObjectContext; // eax
   __int64 v6; // rcx
-  int v7; // r10d
-  const WCHAR *v8; // r11
-  int DatabaseNode; // r8d
-  int v10; // r10d
+  __int64 v7; // r9
+  int v8; // r10d
+  const WCHAR *v9; // r11
+  unsigned int v10; // r8d
   int v11; // r10d
   int v12; // r10d
   int v13; // r10d
   int v14; // r10d
-  int v17; // r10d
+  int v15; // r10d
   int v18; // r10d
-  __int64 v19; // [rsp+40h] [rbp-10h] BYREF
-  _QWORD *v20; // [rsp+48h] [rbp-8h] BYREF
+  int v19; // r10d
+  int DatabaseNode; // eax
+  const UNICODE_STRING *v21; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v22; // [rsp+48h] [rbp-8h] BYREF
 
-  v20 = 0LL;
-  ObjectContext = PnpCtxGetObjectContext(a1, a3, &v20);
-  DatabaseNode = ObjectContext;
+  v22 = 0LL;
+  ObjectContext = PnpCtxGetObjectContext(a1, a3, &v22);
+  v10 = ObjectContext;
   if ( ObjectContext < 0 )
-    return (unsigned int)DatabaseNode;
-  v10 = v7 - 1;
-  if ( !v10 )
-    return (unsigned int)DrvDbValidateDriverDatabaseName(v6, v8, (unsigned int)ObjectContext);
-  v11 = v10 - 1;
+    return v10;
+  v11 = v8 - 1;
   if ( !v11 )
-    return (unsigned int)DrvDbOpenDriverDatabaseRegKey(
-                           v20,
-                           v8,
-                           *(_DWORD *)a5,
-                           *(_BYTE *)(a5 + 4),
-                           *(_QWORD *)(a5 + 8),
-                           (_DWORD *)(a5 + 16));
+    return (unsigned int)DrvDbValidateDriverDatabaseName(v6, v9, (unsigned int)ObjectContext);
   v12 = v11 - 1;
-  if ( v12 )
+  if ( !v12 )
   {
-    v13 = v12 - 1;
-    if ( v13 )
+    LOBYTE(v7) = *((_BYTE *)a5 + 4);
+    return (unsigned int)DrvDbOpenDriverDatabaseRegKey(v22, v9, *a5, v7, *((_QWORD *)a5 + 1), a5 + 4);
+  }
+  v13 = v12 - 1;
+  if ( v13 )
+  {
+    v14 = v13 - 1;
+    if ( v14 )
     {
-      v14 = v13 - 1;
-      if ( v14 )
+      v15 = v14 - 1;
+      if ( v15 )
       {
-        v17 = v14 - 1;
-        if ( v17 )
+        v18 = v15 - 1;
+        if ( v18 )
         {
-          v18 = v17 - 2;
-          if ( v18 )
+          v19 = v18 - 2;
+          if ( v19 )
           {
-            if ( v18 != 1 )
+            if ( v19 != 1 )
               return (unsigned int)-1073741811;
             return (unsigned int)DrvDbSetDriverDatabaseMappedProperty(
-                                   (__int64)v20,
-                                   v8,
-                                   *(void **)a5,
-                                   *(_QWORD *)(a5 + 16),
-                                   *(_DWORD *)(a5 + 24),
-                                   *(const WCHAR **)(a5 + 32),
-                                   *(_DWORD *)(a5 + 40));
+                                   v22,
+                                   v9,
+                                   *(_QWORD *)a5,
+                                   *((_QWORD *)a5 + 2),
+                                   a5[6],
+                                   *((_QWORD *)a5 + 4),
+                                   a5[10]);
           }
           else
           {
             return (unsigned int)DrvDbGetDriverDatabaseMappedProperty(
-                                   (__int64)v20,
-                                   v8,
-                                   *(void **)a5,
-                                   *(_QWORD *)(a5 + 16),
-                                   *(_DWORD **)(a5 + 24),
-                                   *(_BYTE **)(a5 + 32),
-                                   *(_DWORD *)(a5 + 40),
-                                   *(unsigned int **)(a5 + 48));
+                                   v22,
+                                   v9,
+                                   *(_QWORD *)a5,
+                                   *((_QWORD *)a5 + 2),
+                                   *((_QWORD *)a5 + 3),
+                                   *((_QWORD *)a5 + 4),
+                                   a5[10],
+                                   *((_QWORD *)a5 + 6));
           }
         }
         else
         {
           return (unsigned int)DrvDbGetDriverDatabaseMappedPropertyKeys(
-                                 (_DWORD)v20,
-                                 (_DWORD)v8,
+                                 v22,
+                                 (_DWORD)v9,
                                  *(_QWORD *)a5,
-                                 *(_QWORD *)(a5 + 24),
-                                 *(_DWORD *)(a5 + 32),
-                                 *(_QWORD *)(a5 + 40));
+                                 *((_QWORD *)a5 + 3),
+                                 a5[8],
+                                 *((_QWORD *)a5 + 5));
         }
       }
       else
       {
         return (unsigned int)DrvDbGetDriverDatabaseList(
-                               (_DWORD)v20,
+                               v22,
                                *(_QWORD *)a5,
-                               *(_QWORD *)(a5 + 8),
-                               *(_QWORD *)(a5 + 16),
-                               *(_DWORD *)(a5 + 24),
-                               *(_QWORD *)(a5 + 32));
+                               *((_QWORD *)a5 + 1),
+                               *((_QWORD *)a5 + 2),
+                               a5[6],
+                               *((_QWORD *)a5 + 4));
       }
     }
     else
     {
-      v19 = 0LL;
-      DatabaseNode = DrvDbFindDatabaseNode(v20, v8, &v19);
+      v21 = 0LL;
+      DatabaseNode = DrvDbFindDatabaseNode(v22, v9, &v21);
+      v10 = DatabaseNode;
       if ( DatabaseNode < 0 )
-        return (unsigned int)DatabaseNode;
-      if ( (*(_DWORD *)(v19 + 64) & 0x10) == 0 )
+        return v10;
+      if ( ((__int64)v21[3].Buffer & 0x10) == 0 )
         return (unsigned int)-1073741790;
-      return (unsigned int)DrvDbDestroyDatabaseNode(v20, v19);
+      return (unsigned int)DrvDbDestroyDatabaseNode(v22, v21, (unsigned int)DatabaseNode);
     }
   }
-  LODWORD(v19) = 0;
-  DatabaseNode = DrvDbOpenDriverDatabaseRegKey(v20, v8, *(_DWORD *)a5, 1, a5 + 8, &v19);
-  if ( DatabaseNode >= 0 )
-    *(_BYTE *)(a5 + 16) = (_DWORD)v19 == 1;
-  return (unsigned int)DatabaseNode;
+  LODWORD(v21) = 0;
+  LOBYTE(v7) = 1;
+  v10 = DrvDbOpenDriverDatabaseRegKey(v22, v9, *a5, v7, a5 + 2, &v21);
+  if ( (v10 & 0x80000000) == 0 )
+    *((_BYTE *)a5 + 16) = (_DWORD)v21 == 1;
+  return v10;
 }

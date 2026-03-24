@@ -1,12 +1,12 @@
 /*
- * XREFs of rimRundownApcIoUnregisterPlugPlayNotificationEx @ 0x1C01A1E80
+ * XREFs of rimRundownApcIoUnregisterPlugPlayNotificationEx @ 0x1C016DF50
  * Callers:
  *     <none>
  * Callees:
- *     rimApcIoUnregisterPlugPlayNotificationExWorker @ 0x1C004949C (rimApcIoUnregisterPlugPlayNotificationExWorker.c)
+ *     rimApcIoUnregisterPlugPlayNotificationExWorker @ 0x1C0056124 (rimApcIoUnregisterPlugPlayNotificationExWorker.c)
  */
 
-LONG_PTR __fastcall rimRundownApcIoUnregisterPlugPlayNotificationEx(_QWORD *a1)
+LONG_PTR __fastcall rimRundownApcIoUnregisterPlugPlayNotificationEx(__int64 a1)
 {
   return rimApcIoUnregisterPlugPlayNotificationExWorker(a1);
 }

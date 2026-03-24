@@ -1,20 +1,19 @@
 /*
- * XREFs of UsbDevice_UcxEvtEnable @ 0x1C000FC10
+ * XREFs of UsbDevice_UcxEvtEnable @ 0x1C000E990
  * Callers:
  *     <none>
  * Callees:
- *     Command_SendCommand @ 0x1C0003D94 (Command_SendCommand.c)
- *     Controller_IsControllerAccessible @ 0x1C0004288 (Controller_IsControllerAccessible.c)
- *     Endpoint_Disable @ 0x1C0004D70 (Endpoint_Disable.c)
- *     Endpoint_Enable @ 0x1C0004FA0 (Endpoint_Enable.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C005118C (MicrosoftTelemetryAssertTriggeredMsgKM.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     Controller_IsControllerAccessible @ 0x1C0007380 (Controller_IsControllerAccessible.c)
+ *     Endpoint_Enable @ 0x1C00083B0 (Endpoint_Enable.c)
+ *     Endpoint_Disable @ 0x1C000AB88 (Endpoint_Disable.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
-__int64 __fastcall UsbDevice_UcxEvtEnable(__int64 a1, __int64 a2)
+char __fastcall UsbDevice_UcxEvtEnable(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi
   __int64 v4; // rbp
@@ -35,12 +34,8 @@ __int64 __fastcall UsbDevice_UcxEvtEnable(__int64 a1, __int64 a2)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          *(_QWORD *)(*((_QWORD *)&v10[0] + 1) + 16LL),
-         off_1C00612C0);
+         off_1C00602C0);
   v4 = *(_QWORD *)(*(_QWORD *)(v3 + 8) + 144LL);
-  if ( *(_BYTE *)(v3 + 134) )
-    MicrosoftTelemetryAssertTriggeredMsgKM("Slot already enabled");
-  if ( *(_BYTE *)(v3 + 135) )
-    MicrosoftTelemetryAssertTriggeredMsgKM("Slot ID is 0");
   v6 = Endpoint_Enable(*(__m128i ***)(v3 + 176));
   if ( v6 < 0 )
   {
@@ -52,7 +47,7 @@ __int64 __fastcall UsbDevice_UcxEvtEnable(__int64 a1, __int64 a2)
         v5,
         12,
         14,
-        (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
         v6);
     }
   }

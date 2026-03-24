@@ -1,67 +1,64 @@
 /*
- * XREFs of ?Clip@CBaseClipStack@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBV2@@Z @ 0x180014D34
+ * XREFs of ?Clip@CBaseClipStack@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBV2@@Z @ 0x1800C49EC
  * Callers:
- *     ?GetDestinationRect@COcclusionContext@@AEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBV2@@Z @ 0x180014CB8 (-GetDestinationRect@COcclusionContext@@AEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ?GetDestinationRect@COcclusionContext@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18001575C (-GetDestinationRect@COcclusionContext@@QEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ?PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180084280 (-PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?GetDestinationRect@COcclusionContext@@AEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBV2@@Z @ 0x1800C4970 (-GetDestinationRect@COcclusionContext@@AEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
  * Callees:
- *     ?GetTopByReference@?$CWatermarkStack@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$07$01$07@@QEBAPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1800E2740 (-GetTopByReference@-$CWatermarkStack@V-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
+ *     <none>
  */
 
-__m128 *__fastcall CBaseClipStack::Clip(_DWORD *a1, __m128 *a2, __m128 *a3)
+__m128 *__fastcall CBaseClipStack::Clip(__int64 a1, __m128 *a2, float *a3)
 {
-  __m128 *v3; // r9
-  float *v4; // r8
-  __m128 v5; // xmm0
-  float v6; // xmm1_4
-  float v7; // xmm2_4
-  float v8; // xmm3_4
-  float v9; // xmm4_4
-  __m128 v11; // [rsp+20h] [rbp-18h]
+  __m128 v3; // xmm0
+  float v4; // xmm2_4
+  float v5; // xmm1_4
+  float v6; // xmm3_4
+  float v7; // xmm4_4
+  __m128 *result; // rax
+  __m128 v9; // [rsp+0h] [rbp-10h]
 
-  v3 = a2;
-  if ( *a1 )
+  if ( *(_DWORD *)a1 )
   {
-    v5 = (__m128)_mm_loadu_si128((const __m128i *)CWatermarkStack<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,8,2,8>::GetTopByReference(
-                                                    a1,
-                                                    a2,
-                                                    a3,
-                                                    a2));
-    v11 = v5;
-    v11.m128_i32[0] = v5.m128_i32[0];
-    v6 = v5.m128_f32[0];
-    if ( *v4 > v5.m128_f32[0] )
+    v3 = (__m128)_mm_loadu_si128((const __m128i *)(*(_QWORD *)(a1 + 16) + 16LL * (unsigned int)(*(_DWORD *)a1 - 1)));
+    v9 = v3;
+    v9.m128_i32[0] = v3.m128_i32[0];
+    v4 = v3.m128_f32[0];
+    if ( *a3 > v3.m128_f32[0] )
     {
-      v11.m128_f32[0] = *v4;
-      v6 = *v4;
-      v5 = v11;
+      v9.m128_f32[0] = *a3;
+      v4 = *a3;
+      v3 = v9;
     }
-    v7 = _mm_shuffle_ps(v5, v5, 85).m128_f32[0];
-    if ( v4[1] > v7 )
+    v5 = _mm_shuffle_ps(v3, v3, 85).m128_f32[0];
+    if ( a3[1] > v5 )
     {
-      v11.m128_f32[1] = v4[1];
-      v7 = v11.m128_f32[1];
-      v5 = v11;
+      v9.m128_f32[1] = a3[1];
+      v5 = v9.m128_f32[1];
+      v3 = v9;
     }
-    v8 = _mm_shuffle_ps(v5, v5, 170).m128_f32[0];
-    if ( v8 > v4[2] )
+    v6 = _mm_shuffle_ps(v3, v3, 170).m128_f32[0];
+    if ( v6 > a3[2] )
     {
-      v11.m128_f32[2] = v4[2];
-      v8 = v11.m128_f32[2];
-      v5 = v11;
+      v9.m128_f32[2] = a3[2];
+      v6 = v9.m128_f32[2];
+      v3 = v9;
     }
-    v9 = _mm_shuffle_ps(v5, v5, 255).m128_f32[0];
-    if ( v9 > v4[3] )
+    v7 = _mm_shuffle_ps(v3, v3, 255).m128_f32[0];
+    if ( v7 > a3[3] )
     {
-      v11.m128_f32[3] = v4[3];
-      v9 = v11.m128_f32[3];
-      v5 = v11;
+      v9.m128_f32[3] = a3[3];
+      v7 = v9.m128_f32[3];
+      v3 = v9;
     }
-    if ( v8 <= v6 || v9 <= v7 )
-      v5 = 0uLL;
-    *v3 = v5;
+    if ( v6 <= v4 || v7 <= v5 )
+      v3 = 0uLL;
   }
   else
   {
-    *a2 = *a3;
+    v3 = *(__m128 *)a3;
   }
-  return v3;
+  result = a2;
+  *a2 = v3;
+  return result;
 }

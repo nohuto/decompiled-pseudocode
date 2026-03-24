@@ -1,149 +1,166 @@
 /*
- * XREFs of ?CloseFromDevice@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C031F890
+ * XREFs of ?CloseFromDevice@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C0298B7C
  * Callers:
- *     ?ProcessPendingDestroy@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@H@Z @ 0x1C0187480 (-ProcessPendingDestroy@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@H@Z.c)
- *     ??1DXGDXGIKEYEDMUTEX@@QEAA@XZ @ 0x1C031EFF0 (--1DXGDXGIKEYEDMUTEX@@QEAA@XZ.c)
- *     ?OpenForDevice@DXGDXGIKEYEDMUTEX@@QEAAJPEAVDXGDEVICE@@@Z @ 0x1C03220AC (-OpenForDevice@DXGDXGIKEYEDMUTEX@@QEAAJPEAVDXGDEVICE@@@Z.c)
+ *     ?ProcessPendingDestroy@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@H@Z @ 0x1C01049D0 (-ProcessPendingDestroy@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@H@Z.c)
+ *     _lambda_593c7b7db45d2905858a3969fb7431d6_::_lambda_invoker_cdecl_ @ 0x1C0116CC0 (_lambda_593c7b7db45d2905858a3969fb7431d6_--_lambda_invoker_cdecl_.c)
+ *     ??1DXGDXGIKEYEDMUTEX@@QEAA@XZ @ 0x1C0298530 (--1DXGDXGIKEYEDMUTEX@@QEAA@XZ.c)
+ *     ?OpenForDevice@DXGDXGIKEYEDMUTEX@@QEAAJPEAVDXGDEVICE@@@Z @ 0x1C029AFA8 (-OpenForDevice@DXGDXGIKEYEDMUTEX@@QEAAJPEAVDXGDEVICE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000EDA8 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z @ 0x1C019A7B8 (-DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z.c)
- *     ?DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C019EA90 (-DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVIC.c)
- *     ?CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z @ 0x1C031FC2C (-CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z.c)
+ *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0002630 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I_N@Z @ 0x1C00DCB58 (-DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I_N@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0119AC8 (-DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVIC.c)
+ *     ?CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z @ 0x1C0298E4C (-CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z.c)
  */
 
-void __fastcall DXGDXGIKEYEDMUTEX::CloseFromDevice(DXGDXGIKEYEDMUTEX *this, __int64 a2)
+void __fastcall DXGDXGIKEYEDMUTEX::CloseFromDevice(DXGDXGIKEYEDMUTEX *this, __int64 a2, __int64 a3, __int64 a4)
 {
-  _QWORD *v3; // rax
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
+  _QWORD *v5; // rax
+  __int64 v6; // rcx
   __int64 v7; // rdx
   __int64 v8; // rdx
   __int64 v9; // rcx
   __int64 v10; // r8
   __int64 v11; // r9
+  __int64 v12; // rdx
+  __int64 v13; // rcx
   struct DXGPROCESS *Current; // rbx
-  __int64 v13; // rax
-  __int64 v14; // r8
-  int v15; // ecx
-  struct DXGRESOURCE *v16; // rsi
-  unsigned int v17; // r8d
+  __int64 v15; // rax
+  __int64 v16; // rcx
+  __int64 v17; // rdx
   __int64 v18; // rax
-  __int64 v19; // r9
-  int v20; // edx
-  int v21; // eax
+  __int64 v19; // r8
+  __int64 v20; // rax
+  struct DXGRESOURCE *v21; // rsi
+  __int64 v22; // rax
+  unsigned int v23; // r8d
+  __int64 v24; // rax
+  __int64 v25; // r9
+  int v26; // edx
+  unsigned int v27; // ebx
+  unsigned int v28; // eax
+  struct DXGSYNCOBJECT *v29; // rsi
   PERESOURCE *Global; // rax
-  _QWORD *v23; // rbx
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  _BYTE v28[32]; // [rsp+50h] [rbp-38h] BYREF
+  __int64 v31; // rax
+  __int64 v32; // rax
+  _QWORD *v33; // rbx
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  _BYTE v36[40]; // [rsp+30h] [rbp-28h] BYREF
 
-  v3 = (_QWORD *)WdLogNewEntry5_WdTrace(this, a2);
-  v3[3] = this;
-  v3[4] = *((_QWORD *)this + 1);
+  v5 = (_QWORD *)WdLogNewEntry5_WdTrace(this, a2, a3, a4);
+  v5[3] = this;
+  v5[4] = *((_QWORD *)this + 1);
   v7 = *((_QWORD *)this + 4);
-  v3[5] = v7;
+  v5[5] = v7;
   if ( !*((_QWORD *)this + 1) )
     return;
-  if ( *((_QWORD *)this + 4) != PsGetCurrentProcess(v4, v7, v5, v6)
+  if ( *((_QWORD *)this + 4) != PsGetCurrentProcess(v6, v7)
     || !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*(_QWORD *)(*((_QWORD *)this + 1) + 16LL) + 16LL)) )
   {
-    v23 = (_QWORD *)WdLogNewEntry5_WdTrace(v9, v8);
-    v23[3] = PsGetCurrentProcess(v25, v24, v26, v27);
-    v23[4] = *((_QWORD *)this + 4);
-    v23[5] = *((_QWORD *)this + 1);
+    v33 = (_QWORD *)WdLogNewEntry5_WdTrace(v9, v8, v10, v11);
+    v33[3] = PsGetCurrentProcess(v35, v34);
+    v33[4] = *((_QWORD *)this + 4);
+    v33[5] = *((_QWORD *)this + 1);
     return;
   }
   if ( *((_DWORD *)this + 22) )
   {
-    Current = DXGPROCESS::GetCurrent(v9, v8, v10, v11);
+    Current = DXGPROCESS::GetCurrent(v9, v8);
     if ( !Current )
     {
-      WdLogSingleEntry1(1LL, 575LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pProcess != NULL", 575LL, 0LL, 0LL, 0LL, 0LL);
+      v15 = WdLogNewEntry5_WdAssertion(v13, v12);
+      *(_QWORD *)(v15 + 24) = 585LL;
+      WdLogEvent5_WdAssertion(v15);
     }
-    DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE((DXGHANDLETABLELOCKEXCLUSIVE *)v28, Current);
-    v13 = (*((_DWORD *)this + 22) >> 6) & 0xFFFFFF;
-    if ( (unsigned int)v13 < *((_DWORD *)Current + 74) )
+    DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE(
+      (DXGHANDLETABLELOCKEXCLUSIVE *)v36,
+      (struct _KTHREAD **)Current);
+    v17 = *((unsigned int *)this + 22);
+    v18 = (*((_DWORD *)this + 22) >> 6) & 0xFFFFFF;
+    if ( (unsigned int)v18 < *((_DWORD *)Current + 64) )
     {
-      v14 = *((_QWORD *)Current + 35);
-      v15 = *(_DWORD *)(v14 + 16 * v13 + 8);
-      if ( ((*((_DWORD *)this + 22) >> 25) & 0x60) == (*(_BYTE *)(v14 + 16 * v13 + 8) & 0x60)
-        && (v15 & 0x2000) == 0
-        && (v15 & 0x1F) != 0 )
+      v19 = *((_QWORD *)Current + 30);
+      v17 = ((unsigned int)v17 >> 25) & 0x60;
+      v16 = *(unsigned int *)(v19 + 16 * v18 + 8);
+      if ( (_BYTE)v17 == (*(_BYTE *)(v19 + 16 * v18 + 8) & 0x60) && (v16 & 0x2000) == 0 && (v16 & 0x1F) != 0 )
       {
-        if ( (v15 & 0x1F) == 4 )
+        v16 &= 0x1Fu;
+        if ( (_BYTE)v16 == 4 )
         {
-          v16 = *(struct DXGRESOURCE **)(v14 + 16LL * (unsigned int)v13);
-          if ( v16 )
+          v21 = *(struct DXGRESOURCE **)(v19 + 16LL * (unsigned int)v18);
+          if ( v21 )
           {
 LABEL_15:
-            v17 = *((_DWORD *)this + 22);
-            v18 = (v17 >> 6) & 0xFFFFFF;
-            if ( (unsigned int)v18 < *((_DWORD *)Current + 74) )
+            v23 = *((_DWORD *)this + 22);
+            v24 = (v23 >> 6) & 0xFFFFFF;
+            if ( (unsigned int)v24 < *((_DWORD *)Current + 64) )
             {
-              v19 = *((_QWORD *)Current + 35);
-              v20 = *(_DWORD *)(v19 + 16 * v18 + 8);
-              if ( ((v17 >> 25) & 0x60) == (*(_BYTE *)(v19 + 16 * v18 + 8) & 0x60)
-                && (v20 & 0x2000) == 0
-                && (v20 & 0x1F) != 0 )
+              v25 = *((_QWORD *)Current + 30);
+              v26 = *(_DWORD *)(v25 + 16 * v24 + 8);
+              if ( ((v23 >> 25) & 0x60) == (*(_BYTE *)(v25 + 16 * v24 + 8) & 0x60)
+                && (v26 & 0x2000) == 0
+                && (v26 & 0x1F) != 0 )
               {
-                *(_DWORD *)(v19 + 16LL * ((v17 >> 6) & 0xFFFFFF) + 8) |= 0x2000u;
+                *(_DWORD *)(v25 + 16LL * ((v23 >> 6) & 0xFFFFFF) + 8) |= 0x2000u;
               }
             }
-            DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v28);
+            DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v36);
             DXGDEVICE::DestroyAllocationInternal(
               *((DXGDEVICE **)this + 1),
+              0,
               0LL,
-              0LL,
-              v16,
+              v21,
               0LL,
               DXGDEVICE::DestroyFlagsDefault);
-            *((_QWORD *)this + 11) = 0LL;
+            *((_DWORD *)this + 22) = 0;
+            *((_DWORD *)this + 23) = 0;
             goto LABEL_21;
           }
 LABEL_14:
-          WdLogSingleEntry1(1LL, 581LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pResource", 581LL, 0LL, 0LL, 0LL, 0LL);
+          v22 = WdLogNewEntry5_WdAssertion(v16, v17);
+          *(_QWORD *)(v22 + 24) = 591LL;
+          WdLogEvent5_WdAssertion(v22);
           goto LABEL_15;
         }
-        WdLogSingleEntry1(2LL, 267LL);
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 267LL, 0LL, 0LL, 0LL, 0LL);
+        v20 = WdLogNewEntry5_WdError(v16, v17);
+        *(_QWORD *)(v20 + 24) = 316LL;
+        WdLogEvent5_WdError(v20);
       }
     }
-    v16 = 0LL;
+    v21 = 0LL;
     goto LABEL_14;
   }
 LABEL_21:
-  v21 = *((_DWORD *)this + 24);
-  if ( !v21 )
-    goto LABEL_24;
-  if ( *((_QWORD *)this + 13) )
+  v27 = *((_DWORD *)this + 24);
+  v28 = v27;
+  if ( v27 )
   {
-    Global = (PERESOURCE *)DXGGLOBAL_GetGlobal();
-    DXGGLOBAL::DestroySyncObject(Global, *((struct DXGSYNCOBJECT **)this + 13), *((_DWORD *)this + 24));
-    v21 = 0;
-    *((_DWORD *)this + 24) = 0;
-    *((_QWORD *)this + 13) = 0LL;
-LABEL_24:
-    if ( *((_QWORD *)this + 13) )
+    v29 = (struct DXGSYNCOBJECT *)*((_QWORD *)this + 13);
+    if ( v29 )
     {
-      WdLogSingleEntry1(1LL, 601LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"!m_pFenceSyncObj", 601LL, 0LL, 0LL, 0LL, 0LL);
-      v21 = *((_DWORD *)this + 24);
+      Global = (PERESOURCE *)DXGGLOBAL::GetGlobal(v9, v8);
+      DXGGLOBAL::DestroySyncObject(Global, v29, v27, 0);
+      *((_DWORD *)this + 24) = 0;
+      *((_QWORD *)this + 13) = 0LL;
+      v28 = 0;
     }
   }
-  if ( v21 )
+  if ( *((_QWORD *)this + 13) )
   {
-    WdLogSingleEntry1(1LL, 602LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"!m_hFenceLocal", 602LL, 0LL, 0LL, 0LL, 0LL);
+    v31 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v31 + 24) = 611LL;
+    WdLogEvent5_WdAssertion(v31);
+    v28 = *((_DWORD *)this + 24);
+  }
+  if ( v28 )
+  {
+    v32 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v32 + 24) = 612LL;
+    WdLogEvent5_WdAssertion(v32);
   }
   if ( *((_DWORD *)this + 4) )
     DXGDXGIKEYEDMUTEX::CloseLocalMutex(this, 0LL, 1LL);

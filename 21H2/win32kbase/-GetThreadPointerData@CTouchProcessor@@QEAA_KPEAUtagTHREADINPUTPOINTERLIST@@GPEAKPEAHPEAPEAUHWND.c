@@ -1,50 +1,45 @@
 /*
- * XREFs of ?GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C00E8380
+ * XREFs of ?GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C0195DD0
  * Callers:
- *     NtUserGetPointerType @ 0x1C015A640 (NtUserGetPointerType.c)
- *     ?GetPointerCursorId@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GPEAK@Z @ 0x1C01C93E4 (-GetPointerCursorId@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GPEAK@Z.c)
- *     ?GetPointerFrameInfoInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKHKPEAI1PEAE@Z @ 0x1C01CAC1C (-GetPointerFrameInfoInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKHKPEAI1PEAE@Z.c)
- *     ?GetPointerFrameTimesInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUTELEMETRY_POINTER_FRAME_TIMES@@@Z @ 0x1C01CACF4 (-GetPointerFrameTimesInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUTELEMETRY_POINTER_F.c)
- *     ?GetPointerInfoHistoryInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKKPEAIPEAE@Z @ 0x1C01CB54C (-GetPointerInfoHistoryInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKKPEAIPEAE@Z.c)
- *     ?GetPointerInfoInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKKPEAUtagPOINTER_INFO@@@Z @ 0x1C01CB5F0 (-GetPointerInfoInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKKPEAUtagPOINTER_INFO@@@Z.c)
- *     ?GetPointerMessagePoint@CTouchProcessor@@QEAAHGPEAUtagPOINT@@@Z @ 0x1C01CBC10 (-GetPointerMessagePoint@CTouchProcessor@@QEAAHGPEAUtagPOINT@@@Z.c)
- *     ?GetPointerRawDataInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z @ 0x1C01CC1B8 (-GetPointerRawDataInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIIPEBUtagPOINTER_DEVICE_PRO.c)
- *     ?GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C01CCE84 (-GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z.c)
- *     ?ReferenceFrameFromId@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@G@Z @ 0x1C01D30E4 (-ReferenceFrameFromId@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@G@Z.c)
+ *     NtUserGetPointerType @ 0x1C012F890 (NtUserGetPointerType.c)
+ *     ?GetPointerCursorId@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GPEAK@Z @ 0x1C0192124 (-GetPointerCursorId@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GPEAK@Z.c)
+ *     ?GetPointerFrameInfoInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKHKPEAI1PEAE@Z @ 0x1C019370C (-GetPointerFrameInfoInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKHKPEAI1PEAE@Z.c)
+ *     ?GetPointerFrameTimesInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagTELEMETRY_POINTER_FRAME_TIMES@@@Z @ 0x1C01937E4 (-GetPointerFrameTimesInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagTELEMETRY_POINTE.c)
+ *     ?GetPointerInfoHistoryInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKKPEAIPEAE@Z @ 0x1C0193F30 (-GetPointerInfoHistoryInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKKPEAIPEAE@Z.c)
+ *     ?GetPointerInfoInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKKPEAUtagPOINTER_INFO@@@Z @ 0x1C0193FD4 (-GetPointerInfoInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GKKPEAUtagPOINTER_INFO@@@Z.c)
+ *     ?GetPointerMessagePoint@CTouchProcessor@@QEAAHGPEAUtagPOINT@@@Z @ 0x1C01944E0 (-GetPointerMessagePoint@CTouchProcessor@@QEAAHGPEAUtagPOINT@@@Z.c)
+ *     ?GetPointerRawDataInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z @ 0x1C0194A5C (-GetPointerRawDataInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIIPEBUtagPOINTER_DEVICE_PRO.c)
+ *     ?GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C0195408 (-GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?ReferenceFrameFromId@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@G@Z @ 0x1C019AD00 (-ReferenceFrameFromId@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@G@Z.c)
  * Callees:
- *     ApiSetEditionGetThreadPointerHookData @ 0x1C0207FD0 (ApiSetEditionGetThreadPointerHookData.c)
+ *     ?FindThreadPointerData@CTouchProcessor@@AEAAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z @ 0x1C018E934 (-FindThreadPointerData@CTouchProcessor@@AEAAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z.c)
+ *     ApiSetEditionGetThreadPointerHookData @ 0x1C01CBC40 (ApiSetEditionGetThreadPointerHookData.c)
  */
 
-unsigned __int64 __fastcall CTouchProcessor::GetThreadPointerData(
+struct _LIST_ENTRY *__fastcall CTouchProcessor::GetThreadPointerData(
         CTouchProcessor *this,
-        struct tagTHREADINPUTPOINTERLIST *a2,
+        struct _LIST_ENTRY *a2,
         unsigned __int16 a3,
         unsigned int *a4,
         int *a5,
         HWND *a6)
 {
-  __int64 ThreadPointerHookData; // rcx
+  struct _LIST_ENTRY *ThreadPointerHookData; // rcx
 
-  ThreadPointerHookData = ApiSetEditionGetThreadPointerHookData(a2, a3);
+  ThreadPointerHookData = (struct _LIST_ENTRY *)ApiSetEditionGetThreadPointerHookData(a2, a3);
   if ( !ThreadPointerHookData )
   {
-    for ( ThreadPointerHookData = *(_QWORD *)a2;
-          (struct tagTHREADINPUTPOINTERLIST *)ThreadPointerHookData != a2;
-          ThreadPointerHookData = *(_QWORD *)ThreadPointerHookData )
-    {
-      if ( *(_WORD *)(ThreadPointerHookData + 16) == a3 )
-        goto LABEL_7;
-    }
-    return 0LL;
+    ThreadPointerHookData = CTouchProcessor::FindThreadPointerData(0LL, a2, a3);
+    if ( !ThreadPointerHookData )
+      return 0LL;
   }
-LABEL_7:
-  if ( (*(_DWORD *)(ThreadPointerHookData + 48) & 8) != 0 )
+  if ( ((__int64)ThreadPointerHookData[3].Flink & 8) != 0 )
     return 0LL;
   if ( a4 )
-    *a4 = *(_DWORD *)(ThreadPointerHookData + 20);
+    *a4 = HIDWORD(ThreadPointerHookData[1].Flink);
   if ( a5 )
-    *a5 = -(*(_DWORD *)(ThreadPointerHookData + 48) & 1);
+    *a5 = -((__int64)ThreadPointerHookData[3].Flink & 1);
   if ( a6 )
-    *a6 = *(HWND *)(ThreadPointerHookData + 40);
-  return *(_QWORD *)(ThreadPointerHookData + 24);
+    *a6 = (HWND)ThreadPointerHookData[2].Blink;
+  return ThreadPointerHookData[1].Blink;
 }

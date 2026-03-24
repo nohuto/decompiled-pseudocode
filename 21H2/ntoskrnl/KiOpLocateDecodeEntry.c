@@ -1,15 +1,15 @@
 /*
- * XREFs of KiOpLocateDecodeEntry @ 0x140299CBC
+ * XREFs of KiOpLocateDecodeEntry @ 0x140274134
  * Callers:
- *     KiOpDecode @ 0x140299A64 (KiOpDecode.c)
+ *     KiOpDecode @ 0x140273EE0 (KiOpDecode.c)
  * Callees:
- *     KiOpFetchNextByte @ 0x140299BF0 (KiOpFetchNextByte.c)
+ *     KiOpFetchNextByte @ 0x140274068 (KiOpFetchNextByte.c)
  */
 
 __int64 __fastcall KiOpLocateDecodeEntry(__int64 a1)
 {
-  __int64 *v1; // rbx
-  __int64 *v3; // rsi
+  __int64 *v1; // rsi
+  __int64 *v2; // rbx
   unsigned __int8 v4; // dl
   int v5; // ecx
   char v6; // cl
@@ -17,62 +17,63 @@ __int64 __fastcall KiOpLocateDecodeEntry(__int64 a1)
   char v8; // cl
   char v9; // cl
 
-  v1 = KiOpOneByteTable;
+  v1 = &qword_1400020D8;
+  v2 = KiOpOneByteTable;
   if ( *(_BYTE *)(a1 + 57) )
   {
-    v3 = &EmptyUnicodeString;
-    v1 = KiOpTwoByteTable;
-    goto LABEL_4;
+    v1 = AlpcSecurityType;
+    v2 = KiOpTwoByteTable;
   }
-  v3 = &qword_140001898;
-  while ( 1 )
+  while ( v2 != v1 )
   {
     v4 = *(_BYTE *)(a1 + 56);
-    if ( v4 >= *(_BYTE *)v1 && v4 <= (unsigned __int8)(*(_BYTE *)v1 + *((_BYTE *)v1 + 1) - 1) )
+    if ( v4 < *(_BYTE *)v2 )
+      goto LABEL_5;
+    if ( v4 > (unsigned __int8)(*(_BYTE *)v2 + *((_BYTE *)v2 + 1) - 1) )
+      goto LABEL_5;
+    v5 = *((_DWORD *)v2 + 1);
+    if ( v5 )
     {
-      v5 = *((_DWORD *)v1 + 1);
-      if ( !v5 || (v5 & *(_DWORD *)(a1 + 48)) != 0 )
+      if ( (v5 & *(_DWORD *)(a1 + 48)) == 0 )
+        goto LABEL_5;
+    }
+    v6 = *((_BYTE *)v2 + 8);
+    if ( v6 != -1 || *((_BYTE *)v2 + 9) != 0xFF || *((_BYTE *)v2 + 10) != 0xFF )
+    {
+      if ( !*(_BYTE *)(a1 + 80) )
       {
-        v6 = *((_BYTE *)v1 + 8);
-        if ( v6 != -1 || *((_BYTE *)v1 + 9) != 0xFF || *((_BYTE *)v1 + 10) != 0xFF )
+        result = KiOpFetchNextByte(a1, (_BYTE *)(a1 + 65));
+        if ( (int)result < 0 )
+          return result;
+        *(_BYTE *)(a1 + 80) = 1;
+        v6 = *((_BYTE *)v2 + 8);
+      }
+      if ( v6 != -1 && v6 != ((*(_BYTE *)(a1 + 65) >> 3) & 7) )
+        goto LABEL_5;
+      v8 = *((_BYTE *)v2 + 10);
+      if ( v8 != -1 && v8 != (*(_BYTE *)(a1 + 65) & 7) )
+        goto LABEL_5;
+      v9 = *((_BYTE *)v2 + 9);
+      if ( v9 != -1 )
+      {
+        if ( (*(_BYTE *)(a1 + 65) & 0xC0) == 0xC0 )
         {
-          if ( !*(_BYTE *)(a1 + 80) )
-          {
-            result = KiOpFetchNextByte(a1, (_BYTE *)(a1 + 65));
-            if ( (int)result < 0 )
-              return result;
-            *(_BYTE *)(a1 + 80) = 1;
-            v6 = *((_BYTE *)v1 + 8);
-          }
-          if ( v6 != -1 && v6 != ((*(_BYTE *)(a1 + 65) >> 3) & 7) )
-            goto LABEL_7;
-          v8 = *((_BYTE *)v1 + 10);
-          if ( v8 != -1 && v8 != (*(_BYTE *)(a1 + 65) & 7) )
-            goto LABEL_7;
-          v9 = *((_BYTE *)v1 + 9);
-          if ( v9 != -1 )
-          {
-            if ( (*(_BYTE *)(a1 + 65) & 0xC0) == 0xC0 )
-            {
-              if ( v9 != 3 )
-                goto LABEL_7;
-            }
-            else if ( v9 == 3 )
-            {
-              goto LABEL_7;
-            }
-          }
+          if ( v9 != 3 )
+            goto LABEL_5;
         }
-        if ( (*((_DWORD *)v1 + 3) & 0xF4000000) == 0 || (*((_DWORD *)v1 + 3) & 0xF4000000 & *(_DWORD *)(a1 + 60)) != 0 )
-          break;
+        else if ( v9 == 3 )
+        {
+          goto LABEL_5;
+        }
       }
     }
-LABEL_7:
-    v1 += 3;
-LABEL_4:
-    if ( v1 == v3 )
+    if ( (*((_DWORD *)v2 + 3) & 0xF4000000) == 0 || (*((_DWORD *)v2 + 3) & 0xF4000000 & *(_DWORD *)(a1 + 60)) != 0 )
+    {
+      *(_QWORD *)(a1 + 88) = v2;
       return 0LL;
+    }
+LABEL_5:
+    v2 += 3;
   }
-  *(_QWORD *)(a1 + 88) = v1;
   return 0LL;
 }

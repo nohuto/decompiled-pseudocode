@@ -1,9 +1,9 @@
 /*
- * XREFs of _strnset_s @ 0x1403DEA80
+ * XREFs of _strnset_s @ 0x1403D6EC0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strnset_s(char *Str, size_t SizeInBytes, int Val, size_t MaxCount)
@@ -13,28 +13,36 @@ errno_t __cdecl strnset_s(char *Str, size_t SizeInBytes, int Val, size_t MaxCoun
   if ( MaxCount )
   {
     if ( !Str )
-      goto LABEL_4;
+      goto LABEL_18;
 LABEL_6:
     if ( !SizeInBytes )
-      goto LABEL_4;
+      goto LABEL_18;
     v5 = Str;
     if ( *Str )
     {
       while ( MaxCount )
       {
-        if ( !--SizeInBytes )
-          goto LABEL_16;
-        *v5 = Val;
-        --MaxCount;
-        if ( !*++v5 )
-          goto LABEL_11;
+        if ( --SizeInBytes )
+        {
+          *v5 = Val;
+          --MaxCount;
+          if ( *++v5 )
+            continue;
+        }
+        goto LABEL_11;
       }
     }
     else
     {
 LABEL_11:
       if ( MaxCount )
-        goto LABEL_16;
+      {
+LABEL_16:
+        if ( SizeInBytes )
+          return 0;
+        *Str = 0;
+        goto LABEL_18;
+      }
     }
     while ( *v5 )
     {
@@ -42,21 +50,13 @@ LABEL_11:
         break;
       ++v5;
     }
-LABEL_16:
-    if ( !SizeInBytes )
-    {
-      *Str = 0;
-      goto LABEL_4;
-    }
-    return 0;
+    goto LABEL_16;
   }
   if ( Str )
     goto LABEL_6;
-  if ( SizeInBytes )
-  {
-LABEL_4:
-    xHalTimerWatchdogStop();
-    return 22;
-  }
-  return 0;
+  if ( !SizeInBytes )
+    return 0;
+LABEL_18:
+  xHalTimerWatchdogStop();
+  return 22;
 }

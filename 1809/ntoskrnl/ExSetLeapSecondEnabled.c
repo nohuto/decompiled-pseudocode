@@ -1,11 +1,11 @@
 /*
- * XREFs of ExSetLeapSecondEnabled @ 0x1408CD0E8
+ * XREFs of ExSetLeapSecondEnabled @ 0x1408CD0C8
  * Callers:
- *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     ExpGetLeapSecondDataRegistryKeyHandle @ 0x140735664 (ExpGetLeapSecondDataRegistryKeyHandle.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     ExpGetLeapSecondDataRegistryKeyHandle @ 0x140735644 (ExpGetLeapSecondDataRegistryKeyHandle.c)
  */
 
 __int64 __fastcall ExSetLeapSecondEnabled(char a1)

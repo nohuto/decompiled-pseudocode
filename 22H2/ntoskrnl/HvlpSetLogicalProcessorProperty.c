@@ -1,34 +1,33 @@
 /*
- * XREFs of HvlpSetLogicalProcessorProperty @ 0x140542084
+ * XREFs of HvlpSetLogicalProcessorProperty @ 0x1404F3B98
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x140376790 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x1403B62E8 (HvlStartBootLogicalProcessors.c)
+ *     HvlConfigurePcc @ 0x1404F7754 (HvlConfigurePcc.c)
+ *     HvlConfigurePerfStateCap @ 0x1404F77D0 (HvlConfigurePerfStateCap.c)
+ *     HvlConfigurePerfStates @ 0x1404F7830 (HvlConfigurePerfStates.c)
+ *     HvlConfigureThrottleStates @ 0x1404F7890 (HvlConfigureThrottleStates.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
  */
 
-__int64 __fastcall HvlpSetLogicalProcessorProperty(ULONG a1, __int64 a2, __int128 *a3)
+__int64 __fastcall HvlpSetLogicalProcessorProperty(int a1, int a2, const void *a3)
 {
-  PHYSICAL_ADDRESS *v5; // rax
-  __int128 v6; // xmm0
-  __int128 v7; // xmm1
+  _DWORD *v6; // rax
+  __int64 v7; // r9
   unsigned int v8; // ebx
   __int128 v10; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v11; // [rsp+30h] [rbp-18h]
-  __int64 v12; // [rsp+38h] [rbp-10h]
+  __int128 v11; // [rsp+30h] [rbp-18h]
 
-  v11 = 0LL;
-  LODWORD(v12) = 0;
   v10 = 0LL;
-  v5 = HvlpAcquireHypercallPage((__int64)&v10, 1, 0LL, 40LL);
-  v6 = *a3;
-  v7 = a3[1];
-  v5->LowPart = a1;
-  *(_OWORD *)&v5[1].LowPart = v6;
-  v5->HighPart = 2;
-  *(_OWORD *)&v5[3].LowPart = v7;
-  v8 = (unsigned __int16)HvcallInitiateHypercall(121) != 0 ? 0xC0000001 : 0;
+  v11 = 0LL;
+  v6 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v10, 1, 0LL, 3264LL);
+  *v6 = a1;
+  v6[1] = a2;
+  memmove(v6 + 2, a3, 0xCB8uLL);
+  v8 = (unsigned __int16)HvcallInitiateHypercall(121, *((__int64 *)&v11 + 1), 0LL, v7) != 0 ? 0xC0000001 : 0;
   HvlpReleaseHypercallPage((__int64)&v10);
   return v8;
 }

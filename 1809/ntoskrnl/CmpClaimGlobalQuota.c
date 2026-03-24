@@ -4,9 +4,9 @@
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
  *     CmpAllocate @ 0x1405A72D0 (CmpAllocate.c)
  *     HvpMapHiveImageFromViewMap @ 0x1405F9C30 (HvpMapHiveImageFromViewMap.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x14073CFFC (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x14073CFDC (HvpBuildMapForMemoryBackedHive.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     CmpUpdateGlobalQuotaAllowed @ 0x1405A738C (CmpUpdateGlobalQuotaAllowed.c)
  */

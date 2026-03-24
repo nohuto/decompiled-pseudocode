@@ -1,5 +1,5 @@
 /*
- * XREFs of MiIsPfnSystemCharged @ 0x14016B7D0
+ * XREFs of MiIsPfnSystemCharged @ 0x14016B7F0
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)

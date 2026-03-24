@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPDO_EvtDeviceDisableWakeAtBus @ 0x1C001C760
+ * XREFs of HUBPDO_EvtDeviceDisableWakeAtBus @ 0x1C0019EF0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_WaitForSignal @ 0x1C0032CDC (HUBMISC_WaitForSignal.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceDisableWakeAtBus(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall HUBPDO_EvtDeviceDisableWakeAtBus(__int64 a1)
   v1 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00690F8);
+         off_1C00660D0);
   _InterlockedAnd((volatile signed __int32 *)(v1 + 32), 0xFFFFFFFB);
   _InterlockedAnd((volatile signed __int32 *)(v1 + 32), 0xFFFFFFF7);
   result = *(unsigned int *)(v1 + 32);
@@ -26,7 +26,7 @@ __int64 __fastcall HUBPDO_EvtDeviceDisableWakeAtBus(__int64 a1)
     v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            *(_QWORD *)(v1 + 264),
-           off_1C0069310);
+           off_1C00662B8);
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 2064))(
       WdfDriverGlobals,
       *(_QWORD *)(v1 + 264));

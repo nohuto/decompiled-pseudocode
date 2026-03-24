@@ -1,5 +1,5 @@
 /*
- * XREFs of MultiUserCleanupPathAlloc @ 0x1C0122120
+ * XREFs of MultiUserCleanupPathAlloc @ 0x1C0136B90
  * Callers:
  *     <none>
  * Callees:
@@ -7,21 +7,16 @@
  */
 
 // write access to const memory has been detected, the output may be wrong!
-HSEMAPHORE MultiUserCleanupPathAlloc()
+void MultiUserCleanupPathAlloc()
 {
-  HSEMAPHORE result; // rax
-
-  result = PATHALLOC::hsemFreelist;
   if ( PATHALLOC::hsemFreelist )
   {
     GreDeleteSemaphore(PATHALLOC::hsemFreelist);
-    result = PATHALLOC::hsemFreelist;
     PATHALLOC::hsemFreelist = 0LL;
   }
   while ( PATHALLOC::freelist )
   {
     PATHALLOC::freelist = *(struct PATHALLOC **)PATHALLOC::freelist;
-    result = (HSEMAPHORE)Win32FreePool(PATHALLOC::freelist);
+    Win32FreePool(PATHALLOC::freelist);
   }
-  return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CResampleLayer@@UEBA?AW4LayerType@CLayer@@XZ @ 0x180106C00
+ * XREFs of ?GetType@CResampleLayer@@UEBA?AW4LayerType@CLayer@@XZ @ 0x1800E23A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 CResampleLayer::GetType()
 {
-  return 8LL;
+  return 9LL;
 }

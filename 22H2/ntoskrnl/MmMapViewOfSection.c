@@ -1,51 +1,53 @@
 /*
- * XREFs of MmMapViewOfSection @ 0x1407A2850
+ * XREFs of MmMapViewOfSection @ 0x1406128D0
  * Callers:
- *     AlpcpCreateView @ 0x14071C394 (AlpcpCreateView.c)
- *     NtInitializeNlsFiles @ 0x1407A1630 (NtInitializeNlsFiles.c)
- *     PspMapSiloSharedDataView @ 0x1407A1C6C (PspMapSiloSharedDataView.c)
- *     MmMapApiSetView @ 0x1407A1CA4 (MmMapApiSetView.c)
- *     MmCreatePeb @ 0x1407A1DAC (MmCreatePeb.c)
- *     NtGetNlsSectionPtr @ 0x1407A23B0 (NtGetNlsSectionPtr.c)
- *     EtwpCoverageEnsureUserModeView @ 0x1408743C4 (EtwpCoverageEnsureUserModeView.c)
- *     NtCreateIoRing @ 0x14094A160 (NtCreateIoRing.c)
- *     NtMapCMFModule @ 0x140A032C0 (NtMapCMFModule.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
+ *     PspMapView @ 0x14058411C (PspMapView.c)
+ *     PspMapSiloSharedDataView @ 0x1406120C8 (PspMapSiloSharedDataView.c)
+ *     MmMapApiSetView @ 0x140612100 (MmMapApiSetView.c)
+ *     MmCreatePeb @ 0x1406121F8 (MmCreatePeb.c)
+ *     NtInitializeNlsFiles @ 0x140612F00 (NtInitializeNlsFiles.c)
+ *     NtGetNlsSectionPtr @ 0x14069CEC0 (NtGetNlsSectionPtr.c)
+ *     AlpcpCreateView @ 0x1406D9900 (AlpcpCreateView.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x140771904 (EtwpCoverageEnsureUserModeView.c)
+ *     MiMapImageForEnclaveUse @ 0x1408D3A0C (MiMapImageForEnclaveUse.c)
+ *     NtMapCMFModule @ 0x140959B70 (NtMapCMFModule.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     MiMapParametersInitialize @ 0x1407215BC (MiMapParametersInitialize.c)
- *     MiMapViewOfSection @ 0x1407216D0 (MiMapViewOfSection.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiMapViewOfSection @ 0x140639150 (MiMapViewOfSection.c)
+ *     MiMapParametersInitialize @ 0x1406396D0 (MiMapParametersInitialize.c)
  */
 
 __int64 __fastcall MmMapViewOfSection(
-        __int64 a1,
+        int a1,
         __int64 a2,
-        __int64 *a3,
+        _QWORD *a3,
         __int64 a4,
-        unsigned __int64 a5,
-        _DWORD *a6,
+        int a5,
+        __int64 a6,
         __int64 *a7,
         int a8,
         int a9,
         int a10)
 {
   __int64 result; // rax
-  __int64 v15[16]; // [rsp+40h] [rbp-88h] BYREF
+  _QWORD v14[16]; // [rsp+40h] [rbp-88h] BYREF
 
-  memset(v15, 0, sizeof(v15));
-  result = MiMapParametersInitialize(v15, a1, a2, *a3, *a7, a9, a10, a4);
+  memset(v14, 0, sizeof(v14));
+  result = MiMapParametersInitialize(v14, *a7, a9, a10, a4);
   if ( (int)result >= 0 )
   {
-    result = MiMapViewOfSection(a1, (__int64)v15, (void **)a3, a5, a6, a8, 1);
+    result = MiMapViewOfSection(a1, (unsigned int)v14, (_DWORD)a3, a5, a6, a8, 1);
     if ( (int)result < 0 )
     {
       if ( *a3 )
-        ++dword_140C6809C;
+        ++dword_140C4E7E4;
       else
-        ++dword_140C68098;
+        ++dword_140C4E7E0;
     }
     else
     {
-      *a7 = v15[3];
+      *a7 = v14[3];
       return (unsigned int)result;
     }
   }

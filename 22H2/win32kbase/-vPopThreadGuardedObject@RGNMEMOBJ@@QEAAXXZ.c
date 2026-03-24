@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vPopThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C003CB60
+ * XREFs of ?vPopThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002CF60
  * Callers:
  *     <none>
  * Callees:
@@ -14,8 +14,8 @@ void __fastcall RGNMEMOBJ::vPopThreadGuardedObject(RGNMEMOBJ *this)
 
   if ( *(_QWORD *)this )
   {
-    v1 = (_QWORD *)(*(_QWORD *)this + 88LL);
-    if ( *(_QWORD *)this != -88LL )
+    v1 = (_QWORD *)(*(_QWORD *)this + 48LL);
+    if ( *(_QWORD *)this != -48LL )
     {
       KeEnterCriticalRegion();
       v2 = *v1;

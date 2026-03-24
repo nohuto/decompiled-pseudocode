@@ -1,38 +1,29 @@
 /*
- * XREFs of VerifierPortKeAcquireSpinLockNoXdv @ 0x140AD6A00
+ * XREFs of VerifierPortKeAcquireSpinLockNoXdv @ 0x1409DBBD0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfMiscCheckKernelAddress @ 0x1405D2528 (VfMiscCheckKernelAddress.c)
- *     ViTargetIncrementCounter @ 0x140ACCBDC (ViTargetIncrementCounter.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140AD6DA8 (ViKeIrqlLogAndTrimMemory.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C659C (VfUtilCheckKernelAddress.c)
+ *     ViTargetIncrementCounter @ 0x1409D751C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DC28C (ViKeRaiseIrqlSanityChecks.c)
  */
 
-KIRQL __fastcall VerifierPortKeAcquireSpinLockNoXdv(ULONG_PTR SpinLock, KIRQL *a2, __int64 a3)
+KIRQL __fastcall VerifierPortKeAcquireSpinLockNoXdv(PKSPIN_LOCK SpinLock, KIRQL *a2, __int64 a3)
 {
-  __int64 v3; // rbx
-  KSPIN_LOCK *v6; // rdi
+  __int64 v5; // rcx
+  __int64 v6; // rbx
   KIRQL result; // al
 
-  v3 = 0LL;
-  v6 = (KSPIN_LOCK *)SpinLock;
-  if ( (VfRuleClasses & 0x800) != 0 )
-    VfMiscCheckKernelAddress(SpinLock, 8uLL);
-  if ( (VfRuleClasses & 2) != 0 )
-  {
-    ++dword_140C13968;
-    if ( (MmVerifierData & 0x1000) != 0 )
-      ViTargetIncrementCounter(a3, 164LL);
-    LOBYTE(SpinLock) = 2;
-    v3 = ViKeIrqlLogAndTrimMemory(SpinLock);
-  }
-  result = KeAcquireSpinLockRaiseToDpc(v6);
+  ++dword_140C2A8E8;
+  if ( (MmVerifierData & 0x1000) != 0 )
+    ViTargetIncrementCounter(a3, 156LL);
+  VfUtilCheckKernelAddress((ULONG_PTR)SpinLock, 8uLL);
+  LOBYTE(v5) = 2;
+  v6 = ViKeRaiseIrqlSanityChecks(v5, 0LL);
+  result = KeAcquireSpinLockRaiseToDpc(SpinLock);
   *a2 = result;
-  if ( (VfRuleClasses & 2) != 0 )
-  {
-    if ( v3 )
-      *(_WORD *)(v3 + 10) = KeGetPcr()->Prcb.Number;
-  }
+  if ( v6 )
+    *(_WORD *)(v6 + 10) = KeGetPcr()->Prcb.Number;
   return result;
 }

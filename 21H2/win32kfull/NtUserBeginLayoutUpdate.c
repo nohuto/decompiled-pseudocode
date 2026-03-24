@@ -1,56 +1,54 @@
 /*
- * XREFs of NtUserBeginLayoutUpdate @ 0x1C01175B0
+ * XREFs of NtUserBeginLayoutUpdate @ 0x1C01310B0
  * Callers:
  *     <none>
  * Callees:
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
- *     _GetTopLevelWindow @ 0x1C0075BF0 (_GetTopLevelWindow.c)
- *     GreWindowBeginLayoutUpdate @ 0x1C026DEE8 (GreWindowBeginLayoutUpdate.c)
+ *     GreWindowBeginLayoutUpdate @ 0x1C00088D0 (GreWindowBeginLayoutUpdate.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
+ *     _GetTopLevelWindow @ 0x1C006FCC0 (_GetTopLevelWindow.c)
  */
 
 __int64 __fastcall NtUserBeginLayoutUpdate(__int64 a1)
 {
-  __int64 v2; // rax
-  __int64 v3; // rcx
-  __int64 v4; // rbx
-  __int64 v5; // rdi
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
+  __int64 v2; // rdi
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  __int64 v5; // rbx
+  __int64 v6; // rcx
   __int64 TopLevelWindow; // rax
-  __int128 v11; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v12; // [rsp+30h] [rbp-18h]
+  __int64 v9; // rdx
+  __int128 v10; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v11; // [rsp+30h] [rbp-18h]
 
-  v12 = 0LL;
   v11 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v2 = ValidateHwnd(a1);
-  v4 = 0LL;
-  v5 = v2;
-  if ( v2 )
+  v10 = 0LL;
+  v2 = 1LL;
+  EnterCrit(0LL, 1LL);
+  v3 = ValidateHwnd(a1);
+  v5 = v3;
+  if ( v3 && (v4 = *(_QWORD *)(v3 + 40), (((*(_WORD *)(v4 + 42) & 0x2FFF) - 669) & 0xFFFFFFFD) != 0) )
   {
-    v3 = *(_QWORD *)(v2 + 40);
-    if ( (((*(_WORD *)(v3 + 42) & 0x2FFF) - 669) & 0xFFFFFFFD) != 0 )
+    *(_QWORD *)&v10 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v10;
+    *((_QWORD *)&v10 + 1) = v3;
+    HMLockObject(v3);
+    if ( !(unsigned int)IsTopLevelWindow(v5) && *(char *)(*(_QWORD *)(v5 + 40) + 25LL) < 0 )
     {
-      *(_QWORD *)&v11 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v11;
-      *((_QWORD *)&v11 + 1) = v2;
-      HMLockObject(v2);
-      if ( !IsTopLevelWindow(v5) && *(char *)(*(_QWORD *)(v5 + 40) + 25LL) < 0 )
+      TopLevelWindow = GetTopLevelWindow(v5);
+      if ( TopLevelWindow )
       {
-        TopLevelWindow = GetTopLevelWindow(v5);
-        if ( TopLevelWindow )
-        {
-          v6 = *(_QWORD *)(TopLevelWindow + 40);
-          v7 = *(_WORD *)(v6 + 42) & 0x2FFF;
-          if ( (_DWORD)v7 != 669 && *(char *)(v6 + 25) < 0 )
-            GreWindowBeginLayoutUpdate(*(HWND *)TopLevelWindow);
-        }
+        v9 = *(_QWORD *)(TopLevelWindow + 40);
+        v6 = *(_WORD *)(v9 + 42) & 0x2FFF;
+        if ( (_DWORD)v6 != 669 && *(char *)(v9 + 25) < 0 )
+          GreWindowBeginLayoutUpdate(*(HWND *)TopLevelWindow);
       }
-      ThreadUnlock1(v7, v6, v8);
-      v4 = 1LL;
     }
+    ThreadUnlock1(v6);
   }
-  UserSessionSwitchLeaveCrit(v3);
-  return v4;
+  else
+  {
+    v2 = 0LL;
+  }
+  UserSessionSwitchLeaveCrit(v4);
+  return v2;
 }

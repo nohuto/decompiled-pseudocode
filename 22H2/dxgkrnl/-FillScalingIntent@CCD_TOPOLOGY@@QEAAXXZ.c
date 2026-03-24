@@ -1,13 +1,13 @@
 /*
- * XREFs of ?FillScalingIntent@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C016C4BC
+ * XREFs of ?FillScalingIntent@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C014E93C
  * Callers:
- *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C016CCBC (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
- *     ?ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BE948 (-ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
- *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BEA24 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ *     ?FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z @ 0x1C0144C54 (-FunctionalizeWorker@CCD_TOPOLOGY@@AEAAJI_N@Z.c)
+ *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C0150390 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ *     ?ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C02F121C (-ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
  * Callees:
- *     EnforceDriverModelScalingPolicy @ 0x1C016C3B0 (EnforceDriverModelScalingPolicy.c)
- *     DxgkGetAdapterDefaultScaling @ 0x1C016D5A0 (DxgkGetAdapterDefaultScaling.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C019F020 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013D77C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     EnforceDriverModelScalingPolicy @ 0x1C014EA18 (EnforceDriverModelScalingPolicy.c)
+ *     DxgkGetAdapterDefaultScaling @ 0x1C014EAF0 (DxgkGetAdapterDefaultScaling.c)
  */
 
 void __fastcall CCD_TOPOLOGY::FillScalingIntent(CCD_TOPOLOGY *this)
@@ -18,6 +18,7 @@ void __fastcall CCD_TOPOLOGY::FillScalingIntent(CCD_TOPOLOGY *this)
   const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rbx
   int v6; // eax
   int v7; // ecx
+  int v8; // eax
 
   for ( i = 0; ; ++i )
   {
@@ -37,17 +38,16 @@ void __fastcall CCD_TOPOLOGY::FillScalingIntent(CCD_TOPOLOGY *this)
         else
           *((_DWORD *)PathDescriptor + 35) = v6;
       }
-      EnforceDriverModelScalingPolicy((struct _LUID *)PathDescriptor + 2, (__int64)PathDescriptor + 140);
+      EnforceDriverModelScalingPolicy((char *)PathDescriptor + 16, (char *)PathDescriptor + 140);
     }
     else
     {
       if ( (*(_QWORD *)PathDescriptor & 0x40000000000LL) != 0
-        && (*((_DWORD *)PathDescriptor + 34) == 2
-         || *((_DWORD *)PathDescriptor + 34) == 3
-         || (unsigned int)(*((_DWORD *)PathDescriptor + 34) - 4) <= 1) )
+        && (v8 = *((_DWORD *)PathDescriptor + 34), v8 >= 2)
+        && v8 <= 5 )
       {
-        *((_DWORD *)PathDescriptor + 35) = *((_DWORD *)PathDescriptor + 34);
-        EnforceDriverModelScalingPolicy((struct _LUID *)PathDescriptor + 2, (__int64)PathDescriptor + 140);
+        *((_DWORD *)PathDescriptor + 35) = v8;
+        EnforceDriverModelScalingPolicy((char *)PathDescriptor + 16, (char *)PathDescriptor + 140);
       }
       else
       {

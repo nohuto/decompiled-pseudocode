@@ -1,11 +1,11 @@
 /*
- * XREFs of ?xxxSend4FingerTapHotkey@@YAXXZ @ 0x1C01F6860
+ * XREFs of ?xxxSend4FingerTapHotkey@@YAXXZ @ 0x1C0213424
  * Callers:
- *     Send4FingerTapHotkey @ 0x1C01F6A60 (Send4FingerTapHotkey.c)
+ *     Send4FingerTapHotkey @ 0x1C0213820 (Send4FingerTapHotkey.c)
  * Callees:
- *     xxxSendInput @ 0x1C000A4E4 (xxxSendInput.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     xxxSendInput @ 0x1C00BFF08 (xxxSendInput.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void xxxSend4FingerTapHotkey(void)
@@ -14,68 +14,41 @@ void xxxSend4FingerTapHotkey(void)
   __int64 v1; // rcx
   __int64 CurrentKbdTables; // rax
   __int64 v3; // rbx
-  int v4; // [rsp+20h] [rbp-E0h] BYREF
-  __int16 v5; // [rsp+28h] [rbp-D8h]
-  __int16 v6; // [rsp+2Ah] [rbp-D6h]
-  int v7; // [rsp+48h] [rbp-B8h]
-  __int16 v8; // [rsp+50h] [rbp-B0h]
-  __int16 v9; // [rsp+52h] [rbp-AEh]
-  int v10; // [rsp+70h] [rbp-90h]
-  __int16 v11; // [rsp+78h] [rbp-88h]
-  __int16 v12; // [rsp+7Ah] [rbp-86h]
-  int v13; // [rsp+98h] [rbp-68h]
-  __int16 v14; // [rsp+A0h] [rbp-60h]
-  __int16 v15; // [rsp+A2h] [rbp-5Eh]
-  int v16; // [rsp+C0h] [rbp-40h]
-  __int16 v17; // [rsp+C8h] [rbp-38h]
-  __int16 v18; // [rsp+CAh] [rbp-36h]
-  int v19; // [rsp+CCh] [rbp-34h]
-  int v20; // [rsp+E8h] [rbp-18h]
-  __int16 v21; // [rsp+F0h] [rbp-10h]
-  __int16 v22; // [rsp+F2h] [rbp-Eh]
-  int v23; // [rsp+F4h] [rbp-Ch]
-  int v24; // [rsp+110h] [rbp+10h]
-  __int16 v25; // [rsp+118h] [rbp+18h]
-  __int16 v26; // [rsp+11Ah] [rbp+1Ah]
-  int v27; // [rsp+11Ch] [rbp+1Ch]
-  int v28; // [rsp+138h] [rbp+38h]
-  __int16 v29; // [rsp+140h] [rbp+40h]
-  __int16 v30; // [rsp+142h] [rbp+42h]
-  int v31; // [rsp+144h] [rbp+44h]
+  _DWORD v4[80]; // [rsp+20h] [rbp-E0h] BYREF
 
-  memset_0(&v4, 0, 0x140uLL);
-  v28 = 1;
-  v24 = 1;
-  v20 = 1;
-  v16 = 1;
-  v13 = 1;
-  v10 = 1;
-  v7 = 1;
-  v17 = 135;
-  v14 = 135;
-  v4 = 1;
-  v29 = 91;
-  v5 = 91;
-  v25 = 17;
-  v8 = 17;
-  v21 = 16;
-  v11 = 16;
+  memset(v4, 0, sizeof(v4));
+  v4[70] = 1;
+  v4[60] = 1;
+  v4[50] = 1;
+  v4[40] = 1;
+  v4[30] = 1;
+  v4[20] = 1;
+  v4[10] = 1;
+  LOWORD(v4[42]) = 135;
+  LOWORD(v4[32]) = 135;
+  v4[0] = 1;
+  LOWORD(v4[72]) = 91;
+  LOWORD(v4[2]) = 91;
+  LOWORD(v4[62]) = 17;
+  LOWORD(v4[12]) = 17;
+  LOWORD(v4[52]) = 16;
+  LOWORD(v4[22]) = 16;
   CurrentKbdTables = GetCurrentKbdTables(v1, v0);
   v3 = CurrentKbdTables;
   if ( CurrentKbdTables )
   {
-    v30 = InternalMapVirtualKeyEx(91LL, 0LL, CurrentKbdTables);
-    v6 = v30;
-    v26 = InternalMapVirtualKeyEx(17LL, 0LL, v3);
-    v9 = v26;
-    v22 = InternalMapVirtualKeyEx(16LL, 0LL, v3);
-    v12 = v22;
-    v18 = InternalMapVirtualKeyEx(135LL, 0LL, v3);
-    v15 = v18;
+    HIWORD(v4[72]) = InternalMapVirtualKeyEx(91LL, 0LL, CurrentKbdTables);
+    HIWORD(v4[2]) = HIWORD(v4[72]);
+    HIWORD(v4[62]) = InternalMapVirtualKeyEx(17LL, 0LL, v3);
+    HIWORD(v4[12]) = HIWORD(v4[62]);
+    HIWORD(v4[52]) = InternalMapVirtualKeyEx(16LL, 0LL, v3);
+    HIWORD(v4[22]) = HIWORD(v4[52]);
+    HIWORD(v4[42]) = InternalMapVirtualKeyEx(135LL, 0LL, v3);
+    HIWORD(v4[32]) = HIWORD(v4[42]);
   }
-  v31 = 2;
-  v27 = 2;
-  v23 = 2;
-  v19 = 2;
-  xxxSendInput(8u, (__int64)&v4);
+  v4[73] = 2;
+  v4[63] = 2;
+  v4[53] = 2;
+  v4[43] = 2;
+  xxxSendInput(8u, (__int64)v4);
 }

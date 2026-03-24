@@ -1,11 +1,10 @@
 /*
- * XREFs of ?OpenKeyedMutexFromNtHandle@DXGGLOBAL@@QEAAJPEAXPEAPEAVDXGKEYEDMUTEX@@PEAI0I@Z @ 0x1C0350A6C
+ * XREFs of ?OpenKeyedMutexFromNtHandle@DXGGLOBAL@@QEAAJPEAXPEAPEAVDXGKEYEDMUTEX@@PEAI0I@Z @ 0x1C0291C6C
  * Callers:
- *     DxgkOpenKeyedMutexFromNtHandle @ 0x1C0328940 (DxgkOpenKeyedMutexFromNtHandle.c)
+ *     DxgkOpenKeyedMutexFromNtHandle @ 0x1C0279880 (DxgkOpenKeyedMutexFromNtHandle.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0054234 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
- *     ?Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z @ 0x1C0350488 (-Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z.c)
+ *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0040F30 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z @ 0x1C0291758 (-Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z.c)
  */
 
 __int64 __fastcall DXGGLOBAL::OpenKeyedMutexFromNtHandle(
@@ -16,76 +15,108 @@ __int64 __fastcall DXGGLOBAL::OpenKeyedMutexFromNtHandle(
         char *a5,
         unsigned int a6)
 {
-  NTSTATUS v9; // eax
-  unsigned int v10; // ebx
-  __int64 *v12; // rbx
-  __int64 v13; // rbx
-  signed __int64 v14; // rax
-  signed __int64 v15; // rtt
-  int v16; // eax
-  unsigned int v17; // esi
-  PVOID Object; // [rsp+80h] [rbp+8h] BYREF
-  struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v9; // rax
+  __int64 v10; // rax
+  NTSTATUS v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rbx
+  __int64 v16; // rax
+  __int64 v18; // rax
+  __int64 *v19; // rbx
+  __int64 v20; // rax
+  __int64 v21; // rbx
+  signed __int64 v22; // rax
+  signed __int64 v23; // rtt
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  int v27; // eax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // rsi
+  __int64 v32; // rax
+  PVOID Object; // [rsp+50h] [rbp+8h] BYREF
+  struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+60h] [rbp+18h] BYREF
 
   Object = this;
   if ( !a3 )
   {
-    WdLogSingleEntry1(1LL, 4715LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"ppKeyedMutex", 4715LL, 0LL, 0LL, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v9 + 24) = 4647LL;
+    WdLogEvent5_WdAssertion(v9);
   }
   if ( !a4 )
   {
-    WdLogSingleEntry1(1LL, 4716LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"phKeyedMutex", 4716LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v10 + 24) = 4648LL;
+    WdLogEvent5_WdAssertion(v10);
   }
   *a3 = 0LL;
   *a4 = 0;
   HandleInformation = 0LL;
   Object = 0LL;
-  v9 = ObReferenceObjectByHandle(a2, 0x20000u, g_pDxgkSharedKeyedMutexObjectType, 1, &Object, &HandleInformation);
-  v10 = v9;
-  if ( v9 == -1073741788 )
+  v11 = ObReferenceObjectByHandle(a2, 0x20000u, g_pDxgkSharedKeyedMutexObjectType, 1, &Object, &HandleInformation);
+  v15 = v11;
+  if ( v11 == -1073741788 )
   {
-    WdLogSingleEntry2(3LL, a2, -1073741788LL);
-    return 3221225508LL;
+    v16 = WdLogNewEntry5_WdWarning(v13, v12, v14);
+    *(_QWORD *)(v16 + 24) = a2;
+    *(_QWORD *)(v16 + 32) = -1073741788LL;
+    WdLogEvent5_WdWarning(v16);
+    return (unsigned int)v15;
   }
-  else if ( v9 >= 0 )
+  else if ( v11 >= 0 )
   {
-    v12 = (__int64 *)Object;
+    v19 = (__int64 *)Object;
     if ( !Object )
     {
-      WdLogSingleEntry1(1LL, 4751LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pSharedKeyedMutexObject", 4751LL, 0LL, 0LL, 0LL, 0LL);
+      v20 = WdLogNewEntry5_WdAssertion(v13, v12);
+      *(_QWORD *)(v20 + 24) = 4683LL;
+      WdLogEvent5_WdAssertion(v20);
     }
-    v13 = *v12;
-    _m_prefetchw((const void *)(v13 + 24));
-    v14 = *(_QWORD *)(v13 + 24);
+    v21 = *v19;
+    _m_prefetchw((const void *)(v21 + 24));
+    v22 = *(_QWORD *)(v21 + 24);
     do
     {
-      if ( !v14 )
+      if ( !v22 )
       {
         ObfDereferenceObject(Object);
-        v10 = -1073741811;
-        WdLogSingleEntry2(3LL, a2, -1073741811LL);
-        return v10;
+        v18 = WdLogNewEntry5_WdWarning(v25, v24, v26);
+        v15 = -1073741811LL;
+        goto LABEL_15;
       }
-      v15 = v14;
-      v14 = _InterlockedCompareExchange64((volatile signed __int64 *)(v13 + 24), v14 + 1, v14);
+      v23 = v22;
+      v22 = _InterlockedCompareExchange64((volatile signed __int64 *)(v21 + 24), v22 + 1, v22);
     }
-    while ( v15 != v14 );
+    while ( v23 != v22 );
     ObfDereferenceObject(Object);
-    v16 = DXGKEYEDMUTEX::Open((DXGKEYEDMUTEX *)v13, a4, a5, a6, 1);
-    v17 = v16;
-    if ( v16 < 0 )
-      WdLogSingleEntry2(3LL, a2, v16);
+    v27 = DXGKEYEDMUTEX::Open((DXGKEYEDMUTEX *)v21, a4, a5, a6, 1);
+    v31 = v27;
+    if ( v27 < 0 )
+    {
+      v32 = WdLogNewEntry5_WdWarning(v29, v28, v30);
+      *(_QWORD *)(v32 + 24) = a2;
+      *(_QWORD *)(v32 + 32) = v31;
+      WdLogEvent5_WdWarning(v32);
+    }
     else
-      *a3 = (struct DXGKEYEDMUTEX *)v13;
-    DXGKEYEDMUTEX::ReleaseReference((DXGKEYEDMUTEX *)v13);
-    return v17;
+    {
+      *a3 = (struct DXGKEYEDMUTEX *)v21;
+    }
+    DXGKEYEDMUTEX::ReleaseReference((DXGKEYEDMUTEX *)v21, v28);
+    return (unsigned int)v31;
   }
   else
   {
-    WdLogSingleEntry2(3LL, a2, v9);
-    return v10;
+    v18 = WdLogNewEntry5_WdWarning(v13, v12, v14);
+LABEL_15:
+    *(_QWORD *)(v18 + 24) = a2;
+    *(_QWORD *)(v18 + 32) = v15;
+    WdLogEvent5_WdWarning(v18);
+    return (unsigned int)v15;
   }
 }

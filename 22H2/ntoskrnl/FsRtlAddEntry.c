@@ -1,73 +1,79 @@
 /*
- * XREFs of FsRtlAddEntry @ 0x14033A8B4
+ * XREFs of FsRtlAddEntry @ 0x1402F5E64
  * Callers:
- *     FsRtlRemoveBaseMcbEntry @ 0x140339F10 (FsRtlRemoveBaseMcbEntry.c)
- *     FsRtlAddBaseMcbEntryEx @ 0x14033A370 (FsRtlAddBaseMcbEntryEx.c)
- *     FsRtlSplitBaseMcb @ 0x14053CDC0 (FsRtlSplitBaseMcb.c)
+ *     FsRtlRemoveBaseMcbEntry @ 0x1402F5540 (FsRtlRemoveBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x1402F5910 (FsRtlAddBaseMcbEntryEx.c)
+ *     FsRtlSplitBaseMcb @ 0x1404EF340 (FsRtlSplitBaseMcb.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall FsRtlAddEntry(__int64 a1, unsigned int a2, int a3)
 {
-  __int64 v4; // rsi
+  __int64 v4; // r14
   unsigned int v5; // ecx
-  unsigned int v7; // ecx
-  unsigned int v9; // edx
-  unsigned __int64 v10; // rax
-  unsigned int v11; // r14d
+  unsigned int v7; // r9d
+  unsigned int v8; // r8d
+  unsigned __int64 v9; // rax
+  unsigned int v10; // ebp
   PVOID PoolWithTag; // rax
-  PVOID v13; // rbp
-  void *v14; // rdx
+  PVOID v12; // rdi
+  void *v13; // rdx
+  char result; // al
 
   v4 = a2;
-  v5 = *(_DWORD *)a1;
-  if ( a3 + *(_DWORD *)(a1 + 4) <= v5 )
+  v5 = *(_DWORD *)(a1 + 4);
+  v7 = *(_DWORD *)a1;
+  if ( v5 + a3 <= *(_DWORD *)a1 )
   {
-LABEL_2:
-    v7 = *(_DWORD *)(a1 + 4);
-    if ( (unsigned int)v4 < v7 )
+LABEL_12:
+    if ( (unsigned int)v4 < v5 )
+    {
       memmove(
         (void *)(*(_QWORD *)(a1 + 16) + 8LL * (unsigned int)(v4 + a3)),
         (const void *)(*(_QWORD *)(a1 + 16) + 8 * v4),
-        8LL * (v7 - (unsigned int)v4));
-    *(_DWORD *)(a1 + 4) += a3;
-    return 1;
+        8LL * (v5 - (unsigned int)v4));
+      v5 = *(_DWORD *)(a1 + 4);
+    }
+    result = 1;
+    *(_DWORD *)(a1 + 4) = a3 + v5;
+    return result;
   }
-  v9 = 2 * v5;
-  if ( v5 >= 0x800 )
-    v9 = v5 + 2048;
-  v10 = 8LL * v9;
-  v11 = v9;
-  if ( v10 <= 0xFFFFFFFF )
+  v8 = 2 * v7;
+  if ( v7 >= 0x800 )
+    v8 = v7 + 2048;
+  v9 = 8LL * v8;
+  v10 = v8;
+  if ( v9 <= 0xFFFFFFFF )
   {
-    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)*(unsigned __int16 *)(a1 + 8), (unsigned int)v10, 0x6D695346u);
-    v13 = PoolWithTag;
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)*(unsigned __int16 *)(a1 + 8), (unsigned int)v9, 0x6D695346u);
+    v12 = PoolWithTag;
     if ( PoolWithTag )
     {
       memmove(PoolWithTag, *(const void **)(a1 + 16), 8LL * *(unsigned int *)(a1 + 4));
       if ( *(_DWORD *)a1 == 15 )
       {
-        v14 = *(void **)(a1 + 16);
+        v13 = *(void **)(a1 + 16);
         if ( *(_WORD *)(a1 + 8) == 1 )
-          ExFreeToNPagedLookasideList(&FsRtlFirstPagedMappingLookasideList, v14);
+          ExFreeToNPagedLookasideList(&FsRtlFirstPagedMappingLookasideList, v13);
         else
-          ExFreeToNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList, v14);
+          ExFreeToNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList, v13);
       }
       else
       {
         ExFreePoolWithTag(*(PVOID *)(a1 + 16), 0);
       }
-      *(_QWORD *)(a1 + 16) = v13;
-      *(_DWORD *)a1 = v11;
-      goto LABEL_2;
+      v5 = *(_DWORD *)(a1 + 4);
+      *(_QWORD *)(a1 + 16) = v12;
+      *(_DWORD *)a1 = v10;
+      goto LABEL_12;
     }
   }
   if ( (*(_BYTE *)(a1 + 10) & 1) != 0 )
-    RtlRaiseStatus(-1073741670);
+    RtlRaiseStatus(0xC000009A);
   return 0;
 }

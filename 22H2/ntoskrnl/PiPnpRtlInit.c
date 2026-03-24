@@ -1,21 +1,18 @@
 /*
- * XREFs of PiPnpRtlInit @ 0x140813794
+ * XREFs of PiPnpRtlInit @ 0x1407A3780
  * Callers:
- *     PnpBootPhaseComplete @ 0x140813690 (PnpBootPhaseComplete.c)
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     PnpBootPhaseComplete @ 0x1407A3624 (PnpBootPhaseComplete.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     CmIsStateSeparationEnabled @ 0x140367128 (CmIsStateSeparationEnabled.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     _PnpCtxSetNtPlugPlayRoutine @ 0x140813914 (_PnpCtxSetNtPlugPlayRoutine.c)
- *     PiDrvDbInit @ 0x140813944 (PiDrvDbInit.c)
- *     _PnpCtxRegOpenKey @ 0x140814D40 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxOpenMachine @ 0x140855BA4 (_PnpCtxOpenMachine.c)
- *     _PnpCtxCreateNode @ 0x140855DB8 (_PnpCtxCreateNode.c)
- *     _PnpCtxDestroyNode @ 0x140A608A8 (_PnpCtxDestroyNode.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     CmIsStateSeparationEnabled @ 0x140323318 (CmIsStateSeparationEnabled.c)
+ *     _PnpCtxRegCloseKey @ 0x1406B4684 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1406B95FC (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxSetNtPlugPlayRoutine @ 0x1407A390C (_PnpCtxSetNtPlugPlayRoutine.c)
+ *     PiDrvDbInit @ 0x1407A393C (PiDrvDbInit.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x1407A482C (PiDrvDbEnumDriverStoreNodes.c)
+ *     _PnpCtxOpenMachine @ 0x1407A498C (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegisterMachineNode @ 0x1409749C8 (_PnpCtxRegisterMachineNode.c)
  */
 
 __int64 __fastcall PiPnpRtlInit(unsigned int a1)
@@ -28,24 +25,17 @@ __int64 __fastcall PiPnpRtlInit(unsigned int a1)
   __int64 v8; // rcx
   __int64 v9; // rcx
   __int64 v10; // rcx
-  __int64 v11; // r14
-  HANDLE v12; // r12
-  _QWORD *v13; // rsi
-  UNICODE_STRING *v14; // rdi
-  UNICODE_STRING *i; // rbx
-  UNICODE_STRING **v16; // rcx
-  _QWORD *v17; // rax
-  _QWORD *v18; // rax
-  _QWORD *v19; // rcx
-  PVOID v20; // rcx
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
-  PVOID P; // [rsp+98h] [rbp+38h] BYREF
-  HANDLE Handle; // [rsp+A0h] [rbp+40h] BYREF
+  int v11; // ecx
+  int v12; // r9d
+  __int64 v13; // rcx
+  int v14; // [rsp+50h] [rbp+8h] BYREF
+  void *v15; // [rsp+58h] [rbp+10h] BYREF
 
-  Handle = 0LL;
+  v14 = 0;
+  v15 = 0LL;
   if ( a1 )
     return (unsigned int)PiDrvDbInit(a1);
-  qword_140C5C1D8 = (__int64)&PiPnpRtlActiveOperations;
+  qword_140C441A8 = (__int64)&PiPnpRtlActiveOperations;
   PiPnpRtlActiveOperations = (__int64)&PiPnpRtlActiveOperations;
   v2 = ExInitializeResourceLite(&PiPnpRtlRemoveOperationDispatchLock);
   if ( v2 >= 0 )
@@ -57,107 +47,44 @@ __int64 __fastcall PiPnpRtlInit(unsigned int a1)
       if ( v2 >= 0 )
       {
         if ( !CmIsStateSeparationEnabled()
-          || (int)PnpCtxRegOpenKey(PiPnpRtlCtx, -2147483646, (unsigned int)L"DEVICES", 0, 0x2000000, (__int64)&Handle) < 0 )
+          || (int)PnpCtxRegOpenKey(*(__int64 *)&PiPnpRtlCtx, -2147483646, (int)L"DEVICES", 0, 0x2000000, (__int64)&v15) < 0
+          || (v2 = PnpCtxRegisterMachineNode(v11, (unsigned int)L"DEVICES", 2, v12, (__int64)v15),
+              PnpCtxRegCloseKey(v13, v15),
+              v2 >= 0) )
         {
-          goto LABEL_35;
-        }
-        v11 = *(_QWORD *)&PiPnpRtlCtx;
-        v12 = Handle;
-        v13 = (_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 56LL);
-        if ( (_QWORD *)*v13 == v13 )
-        {
-          P = 0LL;
-          DestinationString = 0LL;
-          RtlInitUnicodeString(&DestinationString, L"DEVICES");
-          v14 = (UNICODE_STRING *)(v11 + 8);
-          for ( i = *(UNICODE_STRING **)(v11 + 8); i != v14; i = *(UNICODE_STRING **)&i->Length )
-          {
-            if ( RtlEqualUnicodeString(i + 2, &DestinationString, 1u) )
-            {
-              P = i;
-              if ( i )
-              {
-                v2 = -1073741771;
-                goto LABEL_31;
-              }
-              break;
-            }
-          }
-          v2 = PnpCtxCreateNode(
-                 v11,
-                 L"DEVICES",
-                 2LL,
-                 0LL,
-                 v12,
-                 -1LL,
-                 -1LL,
-                 *(_QWORD *)(*(_QWORD *)(v11 + 224) + 8LL),
-                 &P);
-          if ( v2 < 0 )
-          {
-            v20 = P;
-          }
-          else
-          {
-            v16 = *(UNICODE_STRING ***)(v11 + 16);
-            if ( *v16 != v14
-              || (v17 = P,
-                  *(_QWORD *)P = v14,
-                  v17[1] = v16,
-                  *v16 = (UNICODE_STRING *)v17,
-                  *(_QWORD *)(v11 + 16) = v17,
-                  v18 = v17 + 2,
-                  v19 = (_QWORD *)v13[1],
-                  (_QWORD *)*v19 != v13) )
-            {
-              __fastfail(3u);
-            }
-            v18[1] = v19;
-            *v18 = v13;
-            *v19 = v18;
-            v13[1] = v18;
-            memset((void *)(v11 + 96), 0, 0x80uLL);
-            v20 = 0LL;
-            *(_BYTE *)(v11 + 4) = *v13 != (_QWORD)v13;
-            P = 0LL;
-          }
-          if ( v20 )
-            PnpCtxDestroyNode(v20);
-        }
-        else
-        {
-          v2 = -1073741298;
-        }
-LABEL_31:
-        ZwClose(Handle);
-        if ( v2 >= 0 )
-        {
-LABEL_35:
-          v2 = PnpCtxSetNtPlugPlayRoutine(v6, 1LL, PiPnpRtlGetDeviceNtPropertyRoutine);
+          v2 = PiDrvDbEnumDriverStoreNodes(PiPnpRtlRegisterDriverMachineNodeCallback, &v14);
           if ( v2 >= 0 )
           {
-            v2 = PnpCtxSetNtPlugPlayRoutine(v7, 2LL, PiPnpRtlGetDeviceStatus);
-            if ( v2 >= 0 )
+            v2 = v14;
+            if ( v14 >= 0 )
             {
-              v2 = PnpCtxSetNtPlugPlayRoutine(v8, 3LL, PiPnpRtlGetDeviceRelatedDeviceRoutine);
+              v2 = PnpCtxSetNtPlugPlayRoutine(v6, 1LL, PiPnpRtlGetDeviceNtPropertyRoutine);
               if ( v2 >= 0 )
               {
-                v2 = PnpCtxSetNtPlugPlayRoutine(v9, 4LL, PiPnpRtlGetDeviceRelationsList);
+                v2 = PnpCtxSetNtPlugPlayRoutine(v7, 2LL, PiPnpRtlGetDeviceStatus);
                 if ( v2 >= 0 )
                 {
-                  v2 = PnpCtxSetNtPlugPlayRoutine(v10, 5LL, PiPnpRtlGetDeviceInterfaceEnabled);
+                  v2 = PnpCtxSetNtPlugPlayRoutine(v8, 3LL, PiPnpRtlGetDeviceRelatedDeviceRoutine);
                   if ( v2 >= 0 )
                   {
-                    _InterlockedExchange64(
-                      (volatile __int64 *)(*(_QWORD *)&PiPnpRtlCtx + 488LL),
-                      (__int64)PiPnpRtlObjectActionCallback);
-                    _InterlockedExchange64(
-                      (volatile __int64 *)(*(_QWORD *)&PiPnpRtlCtx + 504LL),
-                      (__int64)PiPnpRtlCmActionCallback);
-                    _InterlockedExchange64(
-                      (volatile __int64 *)(*(_QWORD *)&PiPnpRtlCtx + 496LL),
-                      (__int64)PiPnpRtlObjectEventCallback);
-                    return (unsigned int)PiDrvDbInit(a1);
+                    v2 = PnpCtxSetNtPlugPlayRoutine(v9, 4LL, PiPnpRtlGetDeviceRelationsList);
+                    if ( v2 >= 0 )
+                    {
+                      v2 = PnpCtxSetNtPlugPlayRoutine(v10, 5LL, PiPnpRtlGetDeviceInterfaceEnabled);
+                      if ( v2 >= 0 )
+                      {
+                        _InterlockedExchange64(
+                          (volatile __int64 *)(*(_QWORD *)&PiPnpRtlCtx + 488LL),
+                          (__int64)PiPnpRtlObjectActionCallback);
+                        _InterlockedExchange64(
+                          (volatile __int64 *)(*(_QWORD *)&PiPnpRtlCtx + 504LL),
+                          (__int64)PiPnpRtlCmActionCallback);
+                        _InterlockedExchange64(
+                          (volatile __int64 *)(*(_QWORD *)&PiPnpRtlCtx + 496LL),
+                          (__int64)PiPnpRtlObjectEventCallback);
+                        return (unsigned int)PiDrvDbInit(a1);
+                      }
+                    }
                   }
                 }
               }

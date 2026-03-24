@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlSvmAttachPasidSpace @ 0x140548790
+ * XREFs of HvlSvmAttachPasidSpace @ 0x1404F6A70
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x140459C2A (HvlpHvStatusIsInsufficientMemory.c)
- *     HvlpHandleInsufficientMemory @ 0x1405438E8 (HvlpHandleInsufficientMemory.c)
- *     HvlpAttachRootSvmDevice @ 0x140549218 (HvlpAttachRootSvmDevice.c)
- *     HvlpDetachRootSvmDevice @ 0x1405492D8 (HvlpDetachRootSvmDevice.c)
- *     HvlpHvToNtStatus @ 0x14054CA70 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
+ *     HvlpHandleInsufficientMemory @ 0x1404F2068 (HvlpHandleInsufficientMemory.c)
+ *     HvlpAttachRootSvmDevice @ 0x1404F7458 (HvlpAttachRootSvmDevice.c)
+ *     HvlpDetachRootSvmDevice @ 0x1404F7510 (HvlpDetachRootSvmDevice.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x1404FACD8 (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmAttachPasidSpace(unsigned int a1, int a2, int a3, unsigned int a4)
@@ -37,8 +37,8 @@ __int64 __fastcall HvlSvmAttachPasidSpace(unsigned int a1, int a2, int a3, unsig
   v15 = a3;
   while ( 1 )
   {
-    LOWORD(v9) = HvcallFastExtended(65698LL, (__int64)&v13, 0x10u, 0LL, 0);
-    if ( (HvlpFlags & 2) == 0 || !HvlpHvStatusIsInsufficientMemory(v9) )
+    v9 = HvcallFastExtended(65698LL, (__int64)&v13, 0x10u, 0, 0);
+    if ( (HvlpFlags & 2) == 0 || !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v9, v9) )
       break;
     if ( (int)HvlpHandleInsufficientMemory(v10, v9, v11) < 0 )
     {

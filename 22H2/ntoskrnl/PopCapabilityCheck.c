@@ -1,36 +1,38 @@
 /*
- * XREFs of PopCapabilityCheck @ 0x1405871E8
+ * XREFs of PopCapabilityCheck @ 0x140568BA8
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     RtlCapabilityCheck @ 0x1407ED2D0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x1409133A0 (RtlCapabilityCheck.c)
  */
 
 char __fastcall PopCapabilityCheck(wchar_t *a1)
 {
-  wchar_t *v1; // rax
-  __int64 v2; // rdx
-  UNICODE_STRING String2; // [rsp+20h] [rbp-18h] BYREF
+  wchar_t *v2; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  UNICODE_STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
 
   if ( a1 )
   {
-    v1 = a1;
-    String2 = 0LL;
-    v2 = 0x7FFFLL;
+    v2 = a1;
+    SourceString = 0LL;
+    v3 = 0x7FFFLL;
     do
     {
-      if ( !*v1 )
+      if ( !*v2 )
         break;
-      ++v1;
-      --v2;
+      ++v2;
+      --v3;
     }
-    while ( v2 );
-    if ( v2 )
+    while ( v3 );
+    v4 = (0x7FFF - v3) & -(__int64)(v3 != 0);
+    if ( v3 )
     {
-      String2.Buffer = a1;
-      String2.Length = 2 * (0x7FFF - v2);
-      String2.MaximumLength = String2.Length + 2;
-      RtlCapabilityCheck(0LL, &String2);
+      SourceString.Buffer = a1;
+      SourceString.Length = 2 * v4;
+      SourceString.MaximumLength = 2 * v4 + 2;
+      RtlCapabilityCheck(0LL, &SourceString);
     }
   }
   return 0;

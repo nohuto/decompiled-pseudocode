@@ -1,18 +1,18 @@
 /*
- * XREFs of AslFileMappingEnsure @ 0x140841A58
+ * XREFs of AslFileMappingEnsure @ 0x1407B28C8
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x14084192C (AslFileAllocAndGetAttributes.c)
- *     AslpFileGetVersionBlock @ 0x1408422F0 (AslpFileGetVersionBlock.c)
- *     AslFileMappingGetFileKindDetail @ 0x140A15148 (AslFileMappingGetFileKindDetail.c)
- *     AslFileMappingGetImageTypeEx @ 0x140A1530C (AslFileMappingGetImageTypeEx.c)
- *     AslpFileGetClrVersionAttribute @ 0x140A18AA0 (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetHeaderAttributesNE @ 0x140A18FB4 (AslpFileGetHeaderAttributesNE.c)
- *     AslpFileGetHeaderAttributesPE @ 0x140A19154 (AslpFileGetHeaderAttributesPE.c)
- *     AslpFileGetPeExportNameExeWrapper @ 0x140A19614 (AslpFileGetPeExportNameExeWrapper.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B24C4 (AslFileAllocAndGetAttributes.c)
+ *     AslpFileGetVersionBlock @ 0x1407B3224 (AslpFileGetVersionBlock.c)
+ *     AslFileMappingGetFileKindDetail @ 0x140968054 (AslFileMappingGetFileKindDetail.c)
+ *     AslFileMappingGetImageTypeEx @ 0x140968218 (AslFileMappingGetImageTypeEx.c)
+ *     AslpFileGetClrVersionAttribute @ 0x14096AD80 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x14096B294 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetHeaderAttributesPE @ 0x14096B434 (AslpFileGetHeaderAttributesPE.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x14096B8E0 (AslpFileGetPeExportNameExeWrapper.c)
  * Callees:
- *     RtlFileMapMapView @ 0x1403CB4C0 (RtlFileMapMapView.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslpFileMappingGetFileKind @ 0x140842E88 (AslpFileMappingGetFileKind.c)
+ *     RtlFileMapMapView @ 0x1403BD8C4 (RtlFileMapMapView.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslpFileMappingGetFileKind @ 0x1407B3894 (AslpFileMappingGetFileKind.c)
  */
 
 __int64 __fastcall AslFileMappingEnsure(__int64 a1)

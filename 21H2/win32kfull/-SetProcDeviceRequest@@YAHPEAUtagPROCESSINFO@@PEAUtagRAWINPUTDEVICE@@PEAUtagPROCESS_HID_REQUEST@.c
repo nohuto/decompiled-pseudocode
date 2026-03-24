@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C0102C04
+ * XREFs of ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C0108758
  * Callers:
- *     _RegisterRawInputDevices @ 0x1C00AE358 (_RegisterRawInputDevices.c)
+ *     _RegisterRawInputDevices @ 0x1C0108350 (_RegisterRawInputDevices.c)
  * Callees:
- *     ?SetLegacyDeviceFlags@@YAXPEAUtagPROCESS_HID_TABLE@@PEBUtagRAWINPUTDEVICE@@@Z @ 0x1C00034C4 (-SetLegacyDeviceFlags@@YAXPEAUtagPROCESS_HID_TABLE@@PEBUtagRAWINPUTDEVICE@@@Z.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C0102D4C (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
- *     ?AllocateHidProcessRequest@@YAPEAUtagPROCESS_HID_REQUEST@@GG@Z @ 0x1C0103090 (-AllocateHidProcessRequest@@YAPEAUtagPROCESS_HID_REQUEST@@GG@Z.c)
- *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C01030EC (-IsLegacyDevice@@YAHGG@Z.c)
- *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01D0C50 (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
+ *     ?SetLegacyDeviceFlags@@YAXPEAUtagPROCESS_HID_TABLE@@PEBUtagRAWINPUTDEVICE@@@Z @ 0x1C0005510 (-SetLegacyDeviceFlags@@YAXPEAUtagPROCESS_HID_TABLE@@PEBUtagRAWINPUTDEVICE@@@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C01088A0 (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
+ *     ?AllocateHidProcessRequest@@YAPEAUtagPROCESS_HID_REQUEST@@GG@Z @ 0x1C0108B88 (-AllocateHidProcessRequest@@YAPEAUtagPROCESS_HID_REQUEST@@GG@Z.c)
+ *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C0108BE4 (-IsLegacyDevice@@YAHGG@Z.c)
+ *     ?RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z @ 0x1C01D512C (-RemoveProcRequest@@YAXPEAUtagPROCESSINFO@@PEAUtagPROCESS_HID_REQUEST@@KH@Z.c)
  */
 
 __int64 __fastcall SetProcDeviceRequest(
@@ -26,7 +26,8 @@ __int64 __fastcall SetProcDeviceRequest(
   unsigned int v13; // esi
   int v14; // eax
   __int64 v15; // rdx
-  int v18; // [rsp+90h] [rbp+28h]
+  __int64 v16; // r8
+  int v19; // [rsp+90h] [rbp+28h]
 
   HidProcessRequest = a3;
   v9 = IsLegacyDevice(*(_WORD *)a2, *(_WORD *)(a2 + 2));
@@ -34,10 +35,10 @@ __int64 __fastcall SetProcDeviceRequest(
   {
     v10 = *(_QWORD *)(a2 + 8);
     *(_QWORD *)(a2 + 8) = 0LL;
-    v18 = 1;
+    v19 = 1;
     goto LABEL_20;
   }
-  v18 = 0;
+  v19 = 0;
   v10 = 0LL;
   v11 = *(_QWORD *)(a2 + 8);
   if ( !v11 )
@@ -70,7 +71,7 @@ LABEL_4:
     HidProcessRequest = AllocateHidProcessRequest(*(_WORD *)a2, *(_WORD *)(a2 + 2));
     if ( !HidProcessRequest )
     {
-      UserSetLastError(8LL, v15);
+      UserSetLastError(8LL, v15, v16);
       return 0LL;
     }
   }
@@ -88,7 +89,7 @@ LABEL_4:
                         v13,
                         v9,
                         v12,
-                        v18) )
+                        v19) )
   {
     if ( HidProcessRequest )
       Win32FreePool(HidProcessRequest);

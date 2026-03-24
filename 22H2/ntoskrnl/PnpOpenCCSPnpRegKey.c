@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpOpenCCSPnpRegKey @ 0x140B64C8C
+ * XREFs of PnpOpenCCSPnpRegKey @ 0x140A53958
  * Callers:
- *     PnpInitializePnpWatchdogs @ 0x140B64BBC (PnpInitializePnpWatchdogs.c)
+ *     PnpInitializePnpWatchdogs @ 0x140A53858 (PnpInitializePnpWatchdogs.c)
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
- *     IopCreateRegistryKeyEx @ 0x1407DAA18 (IopCreateRegistryKeyEx.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
+ *     IopCreateRegistryKeyEx @ 0x14073C1E4 (IopCreateRegistryKeyEx.c)
  */
 
 __int64 __fastcall PnpOpenCCSPnpRegKey(_QWORD *a1)

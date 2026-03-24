@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCmdInit @ 0x140832270
+ * XREFs of CmpCmdInit @ 0x14078F8B0
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14082830C (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
  * Callees:
- *     KeInitializeDpc @ 0x1402940D0 (KeInitializeDpc.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KeInitializeTimerEx @ 0x1402F4820 (KeInitializeTimerEx.c)
- *     ExGenRandom @ 0x140363220 (ExGenRandom.c)
- *     PoRegisterCoalescingCallback @ 0x140832790 (PoRegisterCoalescingCallback.c)
- *     CmpInitializeLazyWriters @ 0x1408334E4 (CmpInitializeLazyWriters.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
+ *     CmpInitializeLazyWriters @ 0x14078F3E8 (CmpInitializeLazyWriters.c)
+ *     PoRegisterCoalescingCallback @ 0x14078FDD0 (PoRegisterCoalescingCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCmdInit(char a1)
@@ -39,7 +39,7 @@ __int64 __fastcall CmpCmdInit(char a1)
     v2 = 600;
     CmpEnableLazyFlushBootDelayInterval = 600;
   }
-  KiSetTimerEx((unsigned __int64)&CmpEnableLazyFlushTimer, -10000000LL * v2, 0, 0, (__int64)&CmpEnableLazyFlushDpc);
+  KiSetTimerEx((__int64)&CmpEnableLazyFlushTimer, -10000000LL * v2, 0, 0, (__int64)&CmpEnableLazyFlushDpc);
   _mm_lfence();
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8uLL, 0x58637044u);
   v4 = (unsigned __int64)PoolWithTag;
@@ -60,7 +60,7 @@ __int64 __fastcall CmpCmdInit(char a1)
   CmpFreezeThawWorkItem.List.Flink = 0LL;
   CmpFreezeThawWorkItem.WorkerRoutine = (void (__fastcall *)(void *))CmpFreezeThawWorker;
   LOBYTE(v11) = 1;
-  BYTE1(NlsMbOemCodePageTag) = CmpMiniNTBoot;
+  BYTE1(NlsMbCodePageTag) = CmpMiniNTBoot;
   CmpWorkerDataInitialized = 1;
   CmpWasSetupBoot = a1;
   CmpEnableLazyFlushTimerInitialized = 1;

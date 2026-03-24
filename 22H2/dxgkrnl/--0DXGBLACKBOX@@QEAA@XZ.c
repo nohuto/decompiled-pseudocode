@@ -1,19 +1,19 @@
 /*
- * XREFs of ??0DXGBLACKBOX@@QEAA@XZ @ 0x1C0217220
+ * XREFs of ??0DXGBLACKBOX@@QEAA@XZ @ 0x1C017E114
  * Callers:
- *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C02167C4 (--0DXGGLOBAL@@AEAA@XZ.c)
+ *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C017DA1C (--0DXGGLOBAL@@AEAA@XZ.c)
  * Callees:
  *     <none>
  */
 
 DXGBLACKBOX *__fastcall DXGBLACKBOX::DXGBLACKBOX(DXGBLACKBOX *this)
 {
+  *((_DWORD *)this + 9) = -1;
+  *((_QWORD *)this + 1) = 0LL;
   *((_QWORD *)this + 2) = 0LL;
-  *((_DWORD *)this + 11) = -1;
   *((_QWORD *)this + 3) = 0LL;
-  *((_QWORD *)this + 4) = 0LL;
-  *((_DWORD *)this + 10) = 0;
-  *((_DWORD *)this + 12) = 66;
-  *((_QWORD *)this + 7) = 0LL;
+  *((_DWORD *)this + 8) = 0;
+  *((_DWORD *)this + 10) = 53;
+  *((_QWORD *)this + 6) = 0LL;
   return this;
 }

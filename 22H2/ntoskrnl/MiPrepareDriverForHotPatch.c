@@ -1,60 +1,50 @@
 /*
- * XREFs of MiPrepareDriverForHotPatch @ 0x140A3A884
+ * XREFs of MiPrepareDriverForHotPatch @ 0x1408CD598
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140A348E8 (MiApplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x1408C8E04 (MiApplyDriverHotPatch.c)
  * Callees:
- *     RtlGetHotPatchSize @ 0x14067AD28 (RtlGetHotPatchSize.c)
- *     MiLockHotPatchPages @ 0x140A38608 (MiLockHotPatchPages.c)
- *     MiLockHotPatchUndoPages @ 0x140A386A8 (MiLockHotPatchUndoPages.c)
+ *     RtlGetHotPatchSize @ 0x14058FC4C (RtlGetHotPatchSize.c)
+ *     MiLockHotPatchPages @ 0x1408CB1D4 (MiLockHotPatchPages.c)
+ *     MiLockHotPatchUndoPages @ 0x1408CB284 (MiLockHotPatchUndoPages.c)
  */
 
-__int64 __fastcall MiPrepareDriverForHotPatch(__int64 a1)
+__int64 __fastcall MiPrepareDriverForHotPatch(__int64 *a1, __int64 *a2, _DWORD *a3, __int64 a4)
 {
-  int *v1; // r14
-  unsigned int HotPatchSize; // r15d
-  unsigned int v4; // ebx
-  __int64 *v5; // rcx
-  __int64 **v6; // rax
-  __int64 v7; // r14
-  __int64 *v8; // r13
+  signed int *v7; // rbx
+  unsigned int i; // r15d
+  __int64 v9; // rbx
+  __int64 *v10; // rcx
   __int64 result; // rax
-  int v10; // edi
-  __int64 v11; // rdx
-  int v12; // eax
+  __int64 *v12; // rcx
+  signed int v13; // edi
 
-  v1 = *(int **)(a1 + 32);
-  HotPatchSize = RtlGetHotPatchSize(*(_DWORD **)(a1 + 24));
-  v4 = 0;
-  while ( 1 )
+  v7 = (_DWORD *)((char *)a3 + *(unsigned int *)(a1[1] + 24));
+  for ( i = RtlGetHotPatchSize(a3); ; v7 = (signed int *)(v9 + 4LL * (v13 & 0xFFF) * i) )
   {
-    v10 = *v1;
-    if ( !*v1 )
+    v13 = *v7;
+    if ( !*v7 )
       break;
-    if ( v10 < 0 )
-      v5 = *(__int64 **)(a1 + 8);
-    else
-      v5 = *(__int64 **)a1;
-    v6 = (__int64 **)(a1 + 8);
-    if ( v10 < 0 )
-      v6 = (__int64 **)a1;
-    v7 = (__int64)(v1 + 1);
-    v8 = *v6;
-    result = MiLockHotPatchPages(v5, v7, v10 & 0xFFF, HotPatchSize, v10, 0);
+    v9 = (__int64)(v7 + 1);
+    v10 = a1;
+    if ( v13 < 0 )
+      v10 = a2;
+    result = MiLockHotPatchPages(v10, v9, v13 & 0xFFF, i, v13, 0);
     if ( (int)result < 0 )
       return result;
-    if ( (v10 & 0xFC000) == 0x5C000 )
+    if ( (v13 & 0xFC000) == 0x5C000 )
     {
-      result = MiLockHotPatchPages(v8, v7, v10 & 0xFFF, HotPatchSize, v10, 1u);
+      v12 = a2;
+      if ( v13 < 0 )
+        v12 = a1;
+      result = MiLockHotPatchPages(v12, v9, v13 & 0xFFF, i, v13, 1u);
       if ( (int)result < 0 )
         return result;
     }
-    v1 = (int *)(v7 + 4LL * (v10 & 0xFFF) * HotPatchSize);
   }
-  v11 = *(_QWORD *)(a1 + 40);
-  if ( !v11 )
+  if ( !a4 )
     return 0LL;
-  v12 = MiLockHotPatchUndoPages(*(__int64 **)a1, v11);
-  if ( v12 < 0 )
-    return (unsigned int)v12;
-  return v4;
+  result = MiLockHotPatchUndoPages(a1, a4);
+  if ( (int)result >= 0 )
+    return 0LL;
+  return result;
 }

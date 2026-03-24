@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitData@CTurbulenceEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C020FDC4
+ * XREFs of ?EmitData@CTurbulenceEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E0FB4
  * Callers:
- *     ?EmitUpdateCommands@CTurbulenceEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C020FE80 (-EmitUpdateCommands@CTurbulenceEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CTurbulenceEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E1070 (-EmitUpdateCommands@CTurbulenceEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CTurbulenceEffectMarshaler::EmitData(
@@ -21,8 +21,8 @@ char __fastcall DirectComposition::CTurbulenceEffectMarshaler::EmitData(
   *(_OWORD *)(v3 + 4) = 0LL;
   *(_OWORD *)(v3 + 20) = 0LL;
   *(_OWORD *)(v3 + 36) = 0LL;
-  *((_DWORD *)v3 + 1) = 475;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v3 + 1) = 510;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
   *((_DWORD *)v3 + 3) = *((_DWORD *)this + 28);
   *((_DWORD *)v3 + 4) = *((_DWORD *)this + 29);
   *((_DWORD *)v3 + 5) = *((_DWORD *)this + 30);

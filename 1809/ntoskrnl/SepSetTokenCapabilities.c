@@ -1,19 +1,19 @@
 /*
  * XREFs of SepSetTokenCapabilities @ 0x1405BCEA4
  * Callers:
- *     SepGetAnonymousToken @ 0x1400DD4EC (SepGetAnonymousToken.c)
- *     SepDuplicateToken @ 0x1406494A0 (SepDuplicateToken.c)
- *     NtCreateLowBoxToken @ 0x140654F90 (NtCreateLowBoxToken.c)
- *     SepFilterToken @ 0x140657CEC (SepFilterToken.c)
+ *     SepGetAnonymousToken @ 0x1400DD50C (SepGetAnonymousToken.c)
+ *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
+ *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
+ *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
  * Callees:
  *     SepFreeTokenCapabilities @ 0x140023058 (SepFreeTokenCapabilities.c)
- *     RtlSidHashInitialize @ 0x1400CC420 (RtlSidHashInitialize.c)
+ *     RtlSidHashInitialize @ 0x1400CC440 (RtlSidHashInitialize.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepLengthSidAndAttributesArray @ 0x1405BD014 (SepLengthSidAndAttributesArray.c)
  *     SeCaptureSidAndAttributesArray @ 0x1405BD0D0 (SeCaptureSidAndAttributesArray.c)
- *     RtlIsParentOfChildAppContainer @ 0x140654C54 (RtlIsParentOfChildAppContainer.c)
- *     SepInsertOrReferenceSharedSidEntries @ 0x1408A4324 (SepInsertOrReferenceSharedSidEntries.c)
+ *     RtlIsParentOfChildAppContainer @ 0x140654C34 (RtlIsParentOfChildAppContainer.c)
+ *     SepInsertOrReferenceSharedSidEntries @ 0x1408A4304 (SepInsertOrReferenceSharedSidEntries.c)
  */
 
 __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsigned int a4)

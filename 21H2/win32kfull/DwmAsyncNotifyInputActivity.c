@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmAsyncNotifyInputActivity @ 0x1C00AC9F8
+ * XREFs of DwmAsyncNotifyInputActivity @ 0x1C0115C88
  * Callers:
- *     PostInputMessage @ 0x1C00AB69C (PostInputMessage.c)
+ *     PostInputMessage @ 0x1C0050880 (PostInputMessage.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DwmAsyncNotifyInputActivity(PVOID Object, int a2, unsigned __int64 a3)
@@ -26,7 +26,7 @@ __int64 __fastcall DwmAsyncNotifyInputActivity(PVOID Object, int a2, unsigned __
     WORD2(v7[0]) = 0x8000;
     LODWORD(v7[0]) = 3670032;
     v8 = 0LL;
-    v9 = 1073741913;
+    v9 = 1073741910;
     v10 = a2;
     if ( (unsigned int)(a2 - 256) > 1 )
     {

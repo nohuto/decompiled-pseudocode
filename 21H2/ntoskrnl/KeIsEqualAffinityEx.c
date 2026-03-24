@@ -1,14 +1,11 @@
 /*
- * XREFs of KeIsEqualAffinityEx @ 0x140292B10
+ * XREFs of KeIsEqualAffinityEx @ 0x1403C2250
  * Callers:
- *     KeIsSubsetAffinityEx @ 0x14020EF50 (KeIsSubsetAffinityEx.c)
- *     PpmParkReportMask @ 0x14023F570 (PpmParkReportMask.c)
- *     KiComputeThreadAffinity @ 0x140292884 (KiComputeThreadAffinity.c)
- *     KiTestNodeAffinity @ 0x140292A40 (KiTestNodeAffinity.c)
- *     PspSetEffectiveJobLimits @ 0x1406CC024 (PspSetEffectiveJobLimits.c)
- *     ExpWorkQueueManagerThread @ 0x14083ECE0 (ExpWorkQueueManagerThread.c)
- *     PpmRegisterPerfStates @ 0x140848C18 (PpmRegisterPerfStates.c)
- *     PpmHeteroComputeRelativePerformance @ 0x14084A750 (PpmHeteroComputeRelativePerformance.c)
+ *     PpmParkReportMask @ 0x1402B7C90 (PpmParkReportMask.c)
+ *     KeIsSubsetAffinityEx @ 0x140513640 (KeIsSubsetAffinityEx.c)
+ *     PspSetEffectiveJobLimits @ 0x1406B0614 (PspSetEffectiveJobLimits.c)
+ *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x1407BB938 (PpmHeteroComputeRelativePerformance.c)
  * Callees:
  *     <none>
  */

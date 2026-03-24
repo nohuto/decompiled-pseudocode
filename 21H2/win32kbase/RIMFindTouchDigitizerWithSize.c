@@ -1,10 +1,10 @@
 /*
- * XREFs of RIMFindTouchDigitizerWithSize @ 0x1C0198130
+ * XREFs of RIMFindTouchDigitizerWithSize @ 0x1C0164660
  * Callers:
  *     <none>
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     RawInputManagerDeviceObjectReference @ 0x1C004DFA0 (RawInputManagerDeviceObjectReference.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     RawInputManagerDeviceObjectReference @ 0x1C006A730 (RawInputManagerDeviceObjectReference.c)
  */
 
 void __fastcall RIMFindTouchDigitizerWithSize(_QWORD *a1, __int64 **a2)
@@ -22,7 +22,7 @@ void __fastcall RIMFindTouchDigitizerWithSize(_QWORD *a1, __int64 **a2)
     v5 = v2 - 2;
     if ( *((_BYTE *)v2 + 120) == 2 && (*((_DWORD *)v5 + 72) & 0x80u) != 0 && (v5[34] & 0x400) == 0 )
     {
-      v6 = v5[70];
+      v6 = v5[71];
       if ( (unsigned int)(*(_DWORD *)(v6 + 24) - 1) <= 3 )
       {
         v7 = *(_QWORD *)(v6 + 140) - *a1;
@@ -38,7 +38,7 @@ void __fastcall RIMFindTouchDigitizerWithSize(_QWORD *a1, __int64 **a2)
     }
     v2 = (__int64 *)*v2;
   }
-  qword_1C029A118 = 0LL;
+  qword_1C0255428 = 0LL;
   ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
   KeLeaveCriticalRegion();
 }

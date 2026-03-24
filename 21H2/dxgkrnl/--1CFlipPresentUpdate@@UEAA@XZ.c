@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1CFlipPresentUpdate@@UEAA@XZ @ 0x1C0081758
+ * XREFs of ??1CFlipPresentUpdate@@UEAA@XZ @ 0x1C006E96C
  * Callers:
- *     ??_GCFlipPresentUpdate@@UEAAPEAXI@Z @ 0x1C007C300 (--_GCFlipPresentUpdate@@UEAAPEAXI@Z.c)
+ *     ??_GCFlipPresentUpdate@@UEAAPEAXI@Z @ 0x1C006A9A0 (--_GCFlipPresentUpdate@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C007A178 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
- *     ??1CFlipTokenOperation@@MEAA@XZ @ 0x1C007ECCC (--1CFlipTokenOperation@@MEAA@XZ.c)
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0068A40 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ??1CFlipTokenOperation@@MEAA@XZ @ 0x1C006BE9C (--1CFlipTokenOperation@@MEAA@XZ.c)
  */
 
 void __fastcall CFlipPresentUpdate::~CFlipPresentUpdate(CFlipPresentUpdate *this)

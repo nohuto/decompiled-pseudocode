@@ -1,36 +1,39 @@
 /*
- * XREFs of ??8CInputDest@@QEBA_NAEBUtagINPUTDEST@@@Z @ 0x1C003B608
+ * XREFs of ??8CInputDest@@QEBA_NAEBUtagINPUTDEST@@@Z @ 0x1C00428EC
  * Callers:
- *     ?DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@AEBVCMoveEvent@1@PEAU_mouseCursorEvent@@@Z @ 0x1C003404C (-DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@.c)
- *     HandleInputDestDestruction @ 0x1C003ACA0 (HandleInputDestDestruction.c)
- *     ?HandleCapture_BreakHasMouseOwner@CMouseProcessor@@AEAA?AVCInputDest@@AEBV2@AEBVCButtonEvent@1@@Z @ 0x1C0044710 (-HandleCapture_BreakHasMouseOwner@CMouseProcessor@@AEAA-AVCInputDest@@AEBV2@AEBVCButtonEvent@1@@.c)
- *     ?IsEqualByQ@CInputDest@@QEBA_NAEBV1@@Z @ 0x1C00CFE9C (-IsEqualByQ@CInputDest@@QEBA_NAEBV1@@Z.c)
- *     IsCapturedBySystem @ 0x1C00D0410 (IsCapturedBySystem.c)
- *     ?ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z @ 0x1C01D0D94 (-ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z.c)
- *     ?RemoveRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z @ 0x1C01D3B64 (-RemoveRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z.c)
- *     ?SetPointerCapture@CTouchProcessor@@QEAAH_KAEBVCInputDest@@W4CPointerCaptureMode@@HH@Z @ 0x1C01D54BC (-SetPointerCapture@CTouchProcessor@@QEAAH_KAEBVCInputDest@@W4CPointerCaptureMode@@HH@Z.c)
- *     ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C01FBCD8 (-ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z.c)
+ *     HandleInputDestDestruction @ 0x1C00427AC (HandleInputDestDestruction.c)
+ *     ?DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@AEBVCMoveEvent@1@PEAU_mouseCursorEvent@@@Z @ 0x1C0044A88 (-DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@.c)
+ *     ?HandleCapture_BreakHasMouseOwner@CMouseProcessor@@AEAA?AVCInputDest@@AEBV2@AEBVCButtonEvent@1@@Z @ 0x1C0072118 (-HandleCapture_BreakHasMouseOwner@CMouseProcessor@@AEAA-AVCInputDest@@AEBV2@AEBVCButtonEvent@1@@.c)
+ *     ?IsEqualByQ@CInputDest@@QEBA_NAEBV1@@Z @ 0x1C009E5AC (-IsEqualByQ@CInputDest@@QEBA_NAEBV1@@Z.c)
+ *     IsCapturedBySystem @ 0x1C00B6DC0 (IsCapturedBySystem.c)
+ *     ?PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@PEAUtagCHitTestState@@K@Z @ 0x1C0197CF8 (-PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@PEA.c)
+ *     ?ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z @ 0x1C0199310 (-ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z.c)
+ *     ?RemoveRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z @ 0x1C019B3B4 (-RemoveRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z.c)
+ *     ?SetPointerCapture@CTouchProcessor@@QEAAH_KAEBVCInputDest@@W4CPointerCaptureMode@@HH@Z @ 0x1C019C84C (-SetPointerCapture@CTouchProcessor@@QEAAH_KAEBVCInputDest@@W4CPointerCaptureMode@@HH@Z.c)
+ *     ?HasForeground@CForegroundInfo@@QEAA_NAEBVCInputDest@@@Z @ 0x1C01A3600 (-HasForeground@CForegroundInfo@@QEAA_NAEBVCInputDest@@@Z.c)
+ *     ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C01C17AC (-ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-char __fastcall CInputDest::operator==(unsigned int *a1, __int64 a2, __int64 a3)
+char __fastcall CInputDest::operator==(int *a1, __int64 a2)
 {
-  __int64 v5; // rcx
-  int v6; // eax
+  int v4; // ecx
+  int v5; // eax
+  char v6; // cl
   bool v7; // zf
 
-  v5 = *a1;
-  if ( !(_DWORD)v5 && !*(_DWORD *)a2 )
-  {
-    LOBYTE(v6) = 1;
-    return v6;
-  }
-  v6 = v5 & *(_DWORD *)a2;
-  if ( v6 )
+  v4 = *a1;
+  if ( !v4 && !*(_DWORD *)a2 )
   {
     LOBYTE(v5) = 1;
-    if ( (v6 & 1) != 0 )
+    return v5;
+  }
+  v5 = v4 & *(_DWORD *)a2;
+  if ( v5 )
+  {
+    v6 = 1;
+    if ( (v5 & 1) != 0 )
     {
       if ( a1[2] != *(_DWORD *)(a2 + 8) )
         goto LABEL_13;
@@ -38,12 +41,12 @@ char __fastcall CInputDest::operator==(unsigned int *a1, __int64 a2, __int64 a3)
     }
     else
     {
-      if ( (v6 & 2) == 0 )
+      if ( (v5 & 2) == 0 )
       {
-        if ( (v6 & 4) == 0 )
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v5, a2, a3);
-        LOBYTE(v6) = *((_QWORD *)a1 + 10) == *(_QWORD *)(a2 + 80);
-        return v6;
+        if ( (v5 & 4) == 0 )
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 460LL);
+        LOBYTE(v5) = *((_QWORD *)a1 + 10) == *(_QWORD *)(a2 + 80);
+        return v5;
       }
       if ( a1[8] != *(_DWORD *)(a2 + 32) || a1[9] != *(_DWORD *)(a2 + 36) )
         goto LABEL_13;
@@ -52,12 +55,12 @@ char __fastcall CInputDest::operator==(unsigned int *a1, __int64 a2, __int64 a3)
     if ( v7 )
     {
 LABEL_14:
-      LOBYTE(v6) = v5;
-      return v6;
+      LOBYTE(v5) = v6;
+      return v5;
     }
 LABEL_13:
-    LOBYTE(v5) = 0;
+    v6 = 0;
     goto LABEL_14;
   }
-  return v6;
+  return v5;
 }

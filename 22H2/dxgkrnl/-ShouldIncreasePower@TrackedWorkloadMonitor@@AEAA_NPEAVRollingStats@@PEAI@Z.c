@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ShouldIncreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z @ 0x1C008936C
+ * XREFs of ?ShouldIncreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z @ 0x1C006F324
  * Callers:
- *     ?GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z @ 0x1C0089018 (-GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z.c)
+ *     ?GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z @ 0x1C006F008 (-GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z.c)
  * Callees:
- *     ?GetPowerLevel@TrackedWorkloadMonitor@@AEAAINNPEBUTrackedWorkloadStateInfo@@@Z @ 0x1C0088F00 (-GetPowerLevel@TrackedWorkloadMonitor@@AEAAINNPEBUTrackedWorkloadStateInfo@@@Z.c)
- *     ?GetSafeStdDev@TrackedWorkloadMonitor@@AEAANPEAVRollingStats@@@Z @ 0x1C0088F48 (-GetSafeStdDev@TrackedWorkloadMonitor@@AEAANPEAVRollingStats@@@Z.c)
- *     ?Update@RollingStats@@QEAAXXZ @ 0x1C0089414 (-Update@RollingStats@@QEAAXXZ.c)
+ *     ?GetPowerLevel@TrackedWorkloadMonitor@@AEAAINNI@Z @ 0x1C006EEF0 (-GetPowerLevel@TrackedWorkloadMonitor@@AEAAINNI@Z.c)
+ *     ?GetSafeStdDev@TrackedWorkloadMonitor@@AEAANPEAVRollingStats@@@Z @ 0x1C006EF38 (-GetSafeStdDev@TrackedWorkloadMonitor@@AEAANPEAVRollingStats@@@Z.c)
+ *     ?Update@RollingStats@@IEAAXXZ @ 0x1C006F3D0 (-Update@RollingStats@@IEAAXXZ.c)
  */
 
 char __fastcall TrackedWorkloadMonitor::ShouldIncreasePower(
@@ -13,23 +13,23 @@ char __fastcall TrackedWorkloadMonitor::ShouldIncreasePower(
         struct RollingStats *a2,
         unsigned int *a3)
 {
-  char *v6; // rbp
+  __int64 v6; // rbp
   double SafeStdDev; // xmm0_8
-  double v8; // xmm5_8
   unsigned int PowerLevel; // eax
+  unsigned int v9; // r9d
 
-  v6 = (char *)this + 40 * *((unsigned int *)this + 56);
+  v6 = 5LL * *((unsigned int *)this + 54);
   SafeStdDev = TrackedWorkloadMonitor::GetSafeStdDev(this, a2);
   RollingStats::Update(a2);
-  if ( SafeStdDev + *((double *)a2 + 4) <= (double)*((int *)this + 3) )
+  if ( SafeStdDev + *((double *)a2 + 4) <= 80.0 )
     return 0;
   RollingStats::Update(a2);
   PowerLevel = TrackedWorkloadMonitor::GetPowerLevel(
                  this,
                  *((double *)a2 + 4),
-                 v8 - SafeStdDev,
-                 (const struct TrackedWorkloadStateInfo *)(v6 + 24));
-  if ( PowerLevel <= *((_DWORD *)v6 + 12) )
+                 80.0 - SafeStdDev,
+                 *((_DWORD *)this + 2 * v6 + 10));
+  if ( PowerLevel <= v9 )
     return 0;
   *a3 = PowerLevel;
   return 1;

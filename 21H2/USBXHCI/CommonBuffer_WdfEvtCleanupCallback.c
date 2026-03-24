@@ -1,11 +1,11 @@
 /*
- * XREFs of CommonBuffer_WdfEvtCleanupCallback @ 0x1C00309D0
+ * XREFs of CommonBuffer_WdfEvtCleanupCallback @ 0x1C0030720
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     XilCoreCommonBuffer_Cleanup @ 0x1C0050AC8 (XilCoreCommonBuffer_Cleanup.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     XilCoreCommonBuffer_Cleanup @ 0x1C004FEC4 (XilCoreCommonBuffer_Cleanup.c)
  */
 
 __int64 __fastcall CommonBuffer_WdfEvtCleanupCallback(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall CommonBuffer_WdfEvtCleanupCallback(__int64 a1)
   v3 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                    WdfDriverGlobals,
                    a1,
-                   off_1C0061298);
+                   off_1C0060298);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
     LOBYTE(v2) = 5;

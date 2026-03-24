@@ -1,23 +1,28 @@
 /*
- * XREFs of HalpInterruptIsDeferredErrorSupported @ 0x1405051C4
+ * XREFs of HalpInterruptIsDeferredErrorSupported @ 0x1404BC5E8
  * Callers:
- *     HalpIsCmciImplemented @ 0x140A91BE8 (HalpIsCmciImplemented.c)
+ *     HalpIsCmciImplemented @ 0x140999C54 (HalpIsCmciImplemented.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x14031FCA0 (HalpInterruptFindLines.c)
- *     HalpGetCpuInfo @ 0x140380C80 (HalpGetCpuInfo.c)
+ *     HalpInterruptFindLines @ 0x140378710 (HalpInterruptFindLines.c)
+ *     HalpGetCpuInfo @ 0x1403A0870 (HalpGetCpuInfo.c)
  */
 
 bool HalpInterruptIsDeferredErrorSupported()
 {
   char CpuInfo; // al
+  bool result; // al
   unsigned int v2; // [rsp+30h] [rbp+8h] BYREF
   int v3; // [rsp+34h] [rbp+Ch]
 
   LOBYTE(v2) = 0;
   CpuInfo = HalpGetCpuInfo(0LL, 0LL, 0LL, (unsigned __int8 *)&v2);
-  if ( ((unsigned __int8)v2 & (unsigned __int8)-(CpuInfo != 0)) != 1 || *(_DWORD *)(HalpInterruptController + 240) != 2 )
-    return 0;
-  v2 = *(_DWORD *)(HalpInterruptController + 256);
-  v3 = -8;
-  return HalpInterruptFindLines(&v2) != 0LL;
+  result = 0;
+  if ( ((unsigned __int8)v2 & (unsigned __int8)-(CpuInfo != 0)) == 1 && *(_DWORD *)(HalpInterruptController + 216) == 2 )
+  {
+    v2 = *(_DWORD *)(HalpInterruptController + 232);
+    v3 = -8;
+    if ( HalpInterruptFindLines(&v2) )
+      return 1;
+  }
+  return result;
 }

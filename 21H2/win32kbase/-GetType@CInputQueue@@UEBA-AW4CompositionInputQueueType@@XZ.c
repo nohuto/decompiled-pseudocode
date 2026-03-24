@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CInputQueue@@UEBA?AW4CompositionInputQueueType@@XZ @ 0x1C00CB540
+ * XREFs of ?GetType@CInputQueue@@UEBA?AW4CompositionInputQueueType@@XZ @ 0x1C00BC470
  * Callers:
  *     <none>
  * Callees:

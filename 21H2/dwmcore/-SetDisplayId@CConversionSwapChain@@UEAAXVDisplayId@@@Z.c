@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetDisplayId@CConversionSwapChain@@UEAAXVDisplayId@@@Z @ 0x1802934AC
+ * XREFs of ?SetDisplayId@CConversionSwapChain@@UEAAXVDisplayId@@@Z @ 0x180250074
  * Callers:
- *     ?SetDisplayId@CConversionSwapChain@@$4PPPPPPPM@A@EAAXVDisplayId@@@Z @ 0x18010A7F0 (-SetDisplayId@CConversionSwapChain@@$4PPPPPPPM@A@EAAXVDisplayId@@@Z.c)
+ *     ?SetDisplayId@CConversionSwapChain@@$4PPPPPPPM@A@EAAXVDisplayId@@@Z @ 0x1800F7FB0 (-SetDisplayId@CConversionSwapChain@@$4PPPPPPPM@A@EAAXVDisplayId@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?SetDisplayId@CLegacySwapChain@@UEAAXVDisplayId@@@Z @ 0x18028BAAC (-SetDisplayId@CLegacySwapChain@@UEAAXVDisplayId@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?SetDisplayId@CLegacySwapChain@@UEAAXVDisplayId@@@Z @ 0x18024A4A4 (-SetDisplayId@CLegacySwapChain@@UEAAXVDisplayId@@@Z.c)
  */
 
 __int64 __fastcall CConversionSwapChain::SetDisplayId(__int64 a1, unsigned int a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of SeCheckAuditPrivilege @ 0x140724008
+ * XREFs of SeCheckAuditPrivilege @ 0x14062759C
  * Callers:
- *     NtCloseObjectAuditAlarm @ 0x1406BC4A0 (NtCloseObjectAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x1406C5CA0 (NtOpenObjectAuditAlarm.c)
- *     NtPrivilegedServiceAuditAlarm @ 0x1406D7990 (NtPrivilegedServiceAuditAlarm.c)
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
- *     NtPrivilegeObjectAuditAlarm @ 0x14081A150 (NtPrivilegeObjectAuditAlarm.c)
- *     NtDeleteObjectAuditAlarm @ 0x1409CAC10 (NtDeleteObjectAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     NtCloseObjectAuditAlarm @ 0x1406A0710 (NtCloseObjectAuditAlarm.c)
+ *     NtOpenObjectAuditAlarm @ 0x1406A8C60 (NtOpenObjectAuditAlarm.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x1406B7670 (NtPrivilegedServiceAuditAlarm.c)
+ *     NtDeleteObjectAuditAlarm @ 0x140734BC0 (NtDeleteObjectAuditAlarm.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x14078BA20 (NtPrivilegeObjectAuditAlarm.c)
  * Callees:
- *     SepPrivilegeCheck @ 0x1402A70F0 (SepPrivilegeCheck.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     SePrivilegedServiceAuditAlarm @ 0x140726520 (SePrivilegedServiceAuditAlarm.c)
+ *     SepPrivilegeCheck @ 0x14027C450 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14062771C (SePrivilegedServiceAuditAlarm.c)
  */
 
 char __fastcall SeCheckAuditPrivilege(__int64 a1, char a2)

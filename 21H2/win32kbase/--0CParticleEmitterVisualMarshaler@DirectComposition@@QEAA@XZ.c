@@ -1,31 +1,20 @@
 /*
- * XREFs of ??0CParticleEmitterVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C02381A0
+ * XREFs of ??0CParticleEmitterVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3ED8
  * Callers:
- *     ?GeneratedCreateResource@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z @ 0x1C00A6550 (-GeneratedCreateResource@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00285B4 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
  * Callees:
- *     <none>
+ *     ??0CVisualMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z @ 0x1C0021BF0 (--0CVisualMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z.c)
  */
 
-DirectComposition::CParticleEmitterVisualMarshaler *__fastcall DirectComposition::CParticleEmitterVisualMarshaler::CParticleEmitterVisualMarshaler(
+__int64 __fastcall DirectComposition::CParticleEmitterVisualMarshaler::CParticleEmitterVisualMarshaler(
         DirectComposition::CParticleEmitterVisualMarshaler *this)
 {
-  DirectComposition::CParticleEmitterVisualMarshaler *result; // rax
+  __int64 v1; // rcx
 
-  *((_QWORD *)this + 3) = 1LL;
-  *((_DWORD *)this + 8) = 0;
-  *((_QWORD *)this + 7) = 0LL;
-  *((_DWORD *)this + 12) = 117;
-  *((_QWORD *)this + 41) = 0LL;
-  *((_QWORD *)this + 42) = 0LL;
-  *((_QWORD *)this + 43) = 0LL;
-  *((_QWORD *)this + 44) = 0LL;
-  *((_QWORD *)this + 45) = 0LL;
-  *((_QWORD *)this + 46) = 0LL;
-  *(_QWORD *)this = &DirectComposition::CParticleEmitterVisualMarshaler::`vftable';
-  result = this;
-  *((_DWORD *)this + 94) = 0;
-  *((_QWORD *)this + 66) = 0LL;
-  *((_QWORD *)this + 67) = 0LL;
-  *((_QWORD *)this + 68) = 0LL;
-  return result;
+  DirectComposition::CVisualMarshaler::CVisualMarshaler((__int64)this, 117);
+  *(_QWORD *)v1 = &DirectComposition::CParticleEmitterVisualMarshaler::`vftable';
+  *(_QWORD *)(v1 + 512) = 0LL;
+  *(_QWORD *)(v1 + 520) = 0LL;
+  *(_DWORD *)(v1 + 528) = 0;
+  return v1;
 }

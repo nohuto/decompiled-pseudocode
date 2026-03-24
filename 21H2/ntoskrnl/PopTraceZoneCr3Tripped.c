@@ -1,101 +1,109 @@
 /*
- * XREFs of PopTraceZoneCr3Tripped @ 0x1405D4604
+ * XREFs of PopTraceZoneCr3Tripped @ 0x140573BFC
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x1403D33C4 (PopCheckAndHandleThermalConditions.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403C50F8 (PopCheckAndHandleThermalConditions.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402A2094 (_tlgCreate1Sz_wchar_t.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14036B86C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void *__fastcall PopTraceZoneCr3Tripped(int a1, __int64 a2)
+char __fastcall PopTraceZoneCr3Tripped(int a1, __int64 a2)
 {
-  void *result; // rax
-  void *v5; // rdi
+  void *DeviceAttachmentBaseRefWithTag; // rax
+  void *v5; // rbx
   __int64 v6; // r9
-  int v7; // r11d
-  char v8; // cl
-  bool v9; // zf
-  const WCHAR *v10; // rdx
-  const WCHAR *v11; // r10
-  bool v12; // [rsp+38h] [rbp-69h] BYREF
-  char v13; // [rsp+39h] [rbp-68h] BYREF
-  bool v14; // [rsp+3Ah] [rbp-67h] BYREF
-  int v15; // [rsp+3Ch] [rbp-65h] BYREF
-  int v16; // [rsp+40h] [rbp-61h] BYREF
-  int v17; // [rsp+44h] [rbp-5Dh] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v18; // [rsp+48h] [rbp-59h] BYREF
-  int *v19; // [rsp+68h] [rbp-39h]
-  int v20; // [rsp+70h] [rbp-31h]
-  int v21; // [rsp+74h] [rbp-2Dh]
-  bool *v22; // [rsp+78h] [rbp-29h]
-  int v23; // [rsp+80h] [rbp-21h]
-  int v24; // [rsp+84h] [rbp-1Dh]
-  char *v25; // [rsp+88h] [rbp-19h]
-  int v26; // [rsp+90h] [rbp-11h]
-  int v27; // [rsp+94h] [rbp-Dh]
-  bool *v28; // [rsp+98h] [rbp-9h]
-  int v29; // [rsp+A0h] [rbp-1h]
-  int v30; // [rsp+A4h] [rbp+3h]
-  int *v31; // [rsp+A8h] [rbp+7h]
-  int v32; // [rsp+B0h] [rbp+Fh]
-  int v33; // [rsp+B4h] [rbp+13h]
-  int *v34; // [rsp+B8h] [rbp+17h]
-  int v35; // [rsp+C0h] [rbp+1Fh]
-  int v36; // [rsp+C4h] [rbp+23h]
-  _BYTE v37[16]; // [rsp+C8h] [rbp+27h] BYREF
-  _BYTE v38[16]; // [rsp+D8h] [rbp+37h] BYREF
+  __int64 v7; // r9
+  int v8; // r11d
+  char v9; // cl
+  bool v10; // zf
+  const size_t *v11; // rdx
+  const size_t *v12; // r10
+  bool v14; // [rsp+38h] [rbp-69h] BYREF
+  char v15; // [rsp+39h] [rbp-68h] BYREF
+  bool v16; // [rsp+3Ah] [rbp-67h] BYREF
+  int v17; // [rsp+3Ch] [rbp-65h] BYREF
+  int v18; // [rsp+40h] [rbp-61h] BYREF
+  int v19; // [rsp+44h] [rbp-5Dh] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v20; // [rsp+48h] [rbp-59h] BYREF
+  int *v21; // [rsp+68h] [rbp-39h]
+  int v22; // [rsp+70h] [rbp-31h]
+  int v23; // [rsp+74h] [rbp-2Dh]
+  bool *v24; // [rsp+78h] [rbp-29h]
+  int v25; // [rsp+80h] [rbp-21h]
+  int v26; // [rsp+84h] [rbp-1Dh]
+  char *v27; // [rsp+88h] [rbp-19h]
+  int v28; // [rsp+90h] [rbp-11h]
+  int v29; // [rsp+94h] [rbp-Dh]
+  bool *v30; // [rsp+98h] [rbp-9h]
+  int v31; // [rsp+A0h] [rbp-1h]
+  int v32; // [rsp+A4h] [rbp+3h]
+  int *v33; // [rsp+A8h] [rbp+7h]
+  int v34; // [rsp+B0h] [rbp+Fh]
+  int v35; // [rsp+B4h] [rbp+13h]
+  int *v36; // [rsp+B8h] [rbp+17h]
+  int v37; // [rsp+C0h] [rbp+1Fh]
+  int v38; // [rsp+C4h] [rbp+23h]
+  _BYTE v39[16]; // [rsp+C8h] [rbp+27h] BYREF
+  _BYTE v40[16]; // [rsp+D8h] [rbp+37h] BYREF
 
-  result = IoGetDeviceAttachmentBaseRefWithTag(*(_QWORD *)(a2 + 48), 0x67446F50u);
-  v5 = result;
-  if ( result )
+  DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(*(_QWORD *)(a2 + 48), 0x67446F50u);
+  v5 = DeviceAttachmentBaseRefWithTag;
+  if ( DeviceAttachmentBaseRefWithTag )
+    v6 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
+  else
+    v6 = 0LL;
+  if ( v6 )
   {
-    if ( *(_QWORD *)(*((_QWORD *)result + 39) + 40LL) && (unsigned int)dword_140C03A00 > 5 )
+    DeviceAttachmentBaseRefWithTag = *(void **)(a2 + 1048);
+    if ( (unsigned int)dword_140C02228 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C03A00, 0x400000000000LL) )
+      LOBYTE(DeviceAttachmentBaseRefWithTag) = tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL);
+      if ( (_BYTE)DeviceAttachmentBaseRefWithTag )
       {
-        v8 = *(_BYTE *)(a2 + 65);
-        v21 = 0;
-        v9 = *(_BYTE *)(a2 + 228) == 0;
-        v19 = &v15;
-        v12 = !v9;
-        v22 = &v12;
-        v24 = 0;
-        v27 = 0;
-        v30 = 0;
-        v33 = 0;
-        v36 = 0;
-        v13 = v8 & 1;
-        v25 = &v13;
-        v28 = &v14;
-        v31 = &v16;
-        v17 = *(_DWORD *)(a2 + 136);
-        v23 = 1;
-        v26 = 1;
-        v14 = (v8 & 4) != 0;
-        v29 = 1;
-        v10 = *(const WCHAR **)(v6 + 136);
-        v34 = &v17;
-        v15 = a1;
-        v20 = 4;
-        v16 = v7;
-        v32 = 4;
-        v35 = 4;
-        tlgCreate1Sz_wchar_t((__int64)v37, v10);
-        tlgCreate1Sz_wchar_t((__int64)v38, v11);
-        tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C03A00,
-          (unsigned __int8 *)byte_14002F4E1,
-          0LL,
-          0LL,
-          0xAu,
-          &v18);
+        v9 = *(_BYTE *)(a2 + 65);
+        v23 = 0;
+        v10 = *(_BYTE *)(a2 + 228) == 0;
+        v21 = &v17;
+        v14 = !v10;
+        v24 = &v14;
+        v26 = 0;
+        v29 = 0;
+        v32 = 0;
+        v35 = 0;
+        v38 = 0;
+        v15 = v9 & 1;
+        v27 = &v15;
+        v30 = &v16;
+        v33 = &v18;
+        v19 = *(_DWORD *)(a2 + 136);
+        v25 = 1;
+        v28 = 1;
+        v16 = (v9 & 4) != 0;
+        v31 = 1;
+        v11 = *(const size_t **)(v7 + 136);
+        v36 = &v19;
+        v17 = a1;
+        v22 = 4;
+        v18 = v8;
+        v34 = 4;
+        v37 = 4;
+        tlgCreate1Sz_wchar_t((__int64)v39, v11);
+        tlgCreate1Sz_wchar_t((__int64)v40, v12);
+        LOBYTE(DeviceAttachmentBaseRefWithTag) = tlgWriteTransfer_EtwWriteTransfer(
+                                                   (__int64)&dword_140C02228,
+                                                   (unsigned __int8 *)&word_140027F76,
+                                                   0LL,
+                                                   0LL,
+                                                   0xAu,
+                                                   &v20);
       }
     }
-    return (void *)ObfDereferenceObjectWithTag(v5, 0x67446F50u);
   }
-  return result;
+  if ( v5 )
+    LOBYTE(DeviceAttachmentBaseRefWithTag) = ObfDereferenceObjectWithTag(v5, 0x67446F50u);
+  return (char)DeviceAttachmentBaseRefWithTag;
 }

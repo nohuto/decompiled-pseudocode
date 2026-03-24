@@ -1,28 +1,35 @@
 /*
- * XREFs of ??1CTableTransferEffectMarshaler@DirectComposition@@UEAA@XZ @ 0x1C02107F4
+ * XREFs of ??1CTableTransferEffectMarshaler@DirectComposition@@UEAA@XZ @ 0x1C01E19C4
  * Callers:
- *     ??_GCTableTransferEffectMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C020C0D0 (--_GCTableTransferEffectMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_GCTableTransferEffectMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D4620 (--_GCTableTransferEffectMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??1CFilterEffectMarshaler@DirectComposition@@UEAA@XZ @ 0x1C020EA4C (--1CFilterEffectMarshaler@DirectComposition@@UEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 void __fastcall DirectComposition::CTableTransferEffectMarshaler::~CTableTransferEffectMarshaler(
         DirectComposition::CTableTransferEffectMarshaler *this)
 {
-  char **v2; // rbx
+  __int64 *v2; // rdi
   __int64 v3; // rsi
+  __int64 v4; // rcx
+  __int64 v5; // rcx
 
   *(_QWORD *)this = &DirectComposition::CTableTransferEffectMarshaler::`vftable';
-  v2 = (char **)((char *)this + 112);
+  v2 = (__int64 *)((char *)this + 112);
   v3 = 4LL;
   do
   {
     if ( *v2 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, *v2);
+      Win32FreePool(*v2);
     v2 += 2;
     --v3;
   }
   while ( v3 );
-  DirectComposition::CFilterEffectMarshaler::~CFilterEffectMarshaler(this);
+  *(_QWORD *)this = &DirectComposition::CFilterEffectMarshaler::`vftable';
+  v4 = *((_QWORD *)this + 11);
+  if ( v4 )
+    Win32FreePool(v4);
+  v5 = *((_QWORD *)this + 12);
+  if ( v5 )
+    Win32FreePool(v5);
 }

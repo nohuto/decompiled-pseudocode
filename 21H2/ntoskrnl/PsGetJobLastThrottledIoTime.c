@@ -1,11 +1,11 @@
 /*
- * XREFs of PsGetJobLastThrottledIoTime @ 0x1405E0B58
+ * XREFs of PsGetJobLastThrottledIoTime @ 0x140581E40
  * Callers:
- *     MiNoPagesLastChance @ 0x1405B379C (MiNoPagesLastChance.c)
+ *     MiNoPagesLastChance @ 0x1405507C8 (MiNoPagesLastChance.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PsGetJobLastThrottledIoTime(__int64 a1)
@@ -20,9 +20,9 @@ __int64 __fastcall PsGetJobLastThrottledIoTime(__int64 a1)
   int v9; // edx
   bool v10; // zf
 
-  v1 = (volatile LONG *)(a1 + 1648);
-  v3 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 1648));
-  v4 = *(_QWORD *)(a1 + 1696);
+  v1 = (volatile LONG *)(a1 + 1456);
+  v3 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 1456));
+  v4 = *(_QWORD *)(a1 + 1504);
   v5 = v3;
   ExReleaseSpinLockSharedFromDpcLevel(v1);
   if ( KiIrqlFlags )

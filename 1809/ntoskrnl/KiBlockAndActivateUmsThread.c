@@ -1,11 +1,11 @@
 /*
- * XREFs of KiBlockAndActivateUmsThread @ 0x14029D390
+ * XREFs of KiBlockAndActivateUmsThread @ 0x14029D490
  * Callers:
- *     KiSwapToUmsThread @ 0x140845790 (KiSwapToUmsThread.c)
+ *     KiSwapToUmsThread @ 0x140845770 (KiSwapToUmsThread.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeRemoveQueueEx @ 0x140058D60 (KeRemoveQueueEx.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  */
 
 char __fastcall KiBlockAndActivateUmsThread(__int64 a1, struct _KQUEUE *a2, struct _LIST_ENTRY *a3, struct _KEVENT *a4)

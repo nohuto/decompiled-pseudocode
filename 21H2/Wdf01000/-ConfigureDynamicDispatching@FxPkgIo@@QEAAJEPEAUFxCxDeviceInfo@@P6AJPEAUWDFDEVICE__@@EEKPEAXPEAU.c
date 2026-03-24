@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU_IRP@@2@Z2@Z @ 0x1C00811D0
+ * XREFs of ?ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU_IRP@@2@Z2@Z @ 0x1C0074A60
  * Callers:
- *     imp_WdfDeviceConfigureWdmIrpDispatchCallback @ 0x1C0062E30 (imp_WdfDeviceConfigureWdmIrpDispatchCallback.c)
+ *     imp_WdfDeviceConfigureWdmIrpDispatchCallback @ 0x1C0047750 (imp_WdfDeviceConfigureWdmIrpDispatchCallback.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C001B274 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     ?Mj2Index@FxIrpDynamicDispatchInfo@@SAHE@Z @ 0x1C0039666 (-Mj2Index@FxIrpDynamicDispatchInfo@@SAHE@Z.c)
- *     WPP_IFR_SF_cd @ 0x1C0062784 (WPP_IFR_SF_cd.c)
- *     WPP_IFR_SF_qcd @ 0x1C008187C (WPP_IFR_SF_qcd.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C002D650 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     WPP_IFR_SF_cd @ 0x1C0046B2C (WPP_IFR_SF_cd.c)
+ *     ?Mj2Index@FxIrpDynamicDispatchInfo@@SAHE@Z @ 0x1C00751B4 (-Mj2Index@FxIrpDynamicDispatchInfo@@SAHE@Z.c)
+ *     WPP_IFR_SF_qcd @ 0x1C0075484 (WPP_IFR_SF_qcd.c)
  */
 
 __int64 __fastcall FxPkgIo::ConfigureDynamicDispatching(
@@ -20,7 +20,7 @@ __int64 __fastcall FxPkgIo::ConfigureDynamicDispatching(
         FX_POOL *EvtDeviceWdmIrpDispatch,
         FX_POOL *DriverContext)
 {
-  _FX_DRIVER_GLOBALS *m_Globals; // rbp
+  _FX_DRIVER_GLOBALS *m_Globals; // r14
   int v8; // eax
   unsigned __int8 v9; // dl
   char v10; // cl
@@ -28,25 +28,21 @@ __int64 __fastcall FxPkgIo::ConfigureDynamicDispatching(
   __int64 v12; // r15
   unsigned int v13; // ebx
   char OldIrql; // cl
-  FX_POOL *i; // rdi
+  FX_POOL *i; // rsi
   _LIST_ENTRY *Blink; // rax
-  bool v17; // zf
-  ULONG Tag; // ecx
-  void *v19; // rax
+  FX_POOL **v17; // rax
+  FX_POOL **v18; // rdi
   FxDriver *Flink; // rcx
   const void *ObjectHandleUnchecked; // rax
-  unsigned __int8 v22; // dl
-  unsigned int v23; // r8d
-  unsigned __int16 v24; // r9
+  unsigned __int8 v21; // dl
+  unsigned int v22; // r8d
+  unsigned __int16 v23; // r9
   char id; // r10
-  FX_POOL **v26; // rax
-  FX_POOL **v27; // rsi
-  __int64 v28; // rcx
+  __int64 v25; // rcx
   FX_POOL *m_Lock; // rax
-  const _GUID *_a1; // [rsp+20h] [rbp-48h]
-  int v32; // [rsp+38h] [rbp-30h]
-  __m128i v33; // [rsp+40h] [rbp-28h] BYREF
-  void *retaddr; // [rsp+68h] [rbp+0h]
+  const _GUID *_a1; // [rsp+20h] [rbp-38h]
+  int v29; // [rsp+38h] [rbp-20h]
+  void *retaddr; // [rsp+58h] [rbp+0h]
 
   m_Globals = this->m_Globals;
   v8 = FxIrpDynamicDispatchInfo::Mj2Index(MajorFunction);
@@ -54,7 +50,7 @@ __int64 __fastcall FxPkgIo::ConfigureDynamicDispatching(
   if ( v8 >= 4 )
   {
     v13 = -1073741811;
-    WPP_IFR_SF_cd(m_Globals, v9, 0xDu, 0x15u, WPP_FxPkgIo_cpp_Traceguids, v10);
+    WPP_IFR_SF_cd(m_Globals, v9, 0xDu, 0x15u, (const _GUID *)&WPP_FxPkgIo_cpp_Traceguids, v10);
     return v13;
   }
   if ( CxDeviceInfo )
@@ -66,41 +62,47 @@ __int64 __fastcall FxPkgIo::ConfigureDynamicDispatching(
     if ( i == (FX_POOL *)(v11 + 376) )
     {
 LABEL_13:
-      v17 = m_Globals->FxPoolTrackingOn == 0;
-      Tag = m_Globals->Tag;
-      v33.m128i_i64[0] = 0LL;
-      v33.m128i_i64[1] = 64LL;
+      v17 = FxPoolAllocator(
+              m_Globals,
+              &m_Globals->FxPoolFrameworks,
+              ExDefaultNonPagedPoolType,
+              0x58uLL,
+              m_Globals->Tag,
+              retaddr);
+      v18 = v17;
       if ( v17 )
-        v19 = 0LL;
+      {
+        `vector constructor iterator'(
+          (char *)v17 + 16,
+          0x10uLL,
+          4uLL,
+          (void *(__fastcall *)(void *))FxIrpDynamicDispatchInfo::Info::Info);
+        v18[10] = 0LL;
+        v18[1] = (FX_POOL *)v18;
+        *v18 = (FX_POOL *)v18;
+        memset(v18 + 2, 0, 0x40uLL);
+      }
       else
-        v19 = retaddr;
-      v26 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, &v33, 0x58uLL, Tag, v19);
-      v27 = v26;
-      if ( !v26 )
+      {
+        v18 = 0LL;
+      }
+      if ( !v18 )
       {
         v13 = -1073741670;
-        WPP_IFR_SF_d(m_Globals, 2u, 0x12u, 0x17u, WPP_FxPkgIo_cpp_Traceguids, -1073741670);
+        WPP_IFR_SF_d(m_Globals, 2u, 0x12u, 0x17u, (const _GUID *)&WPP_FxPkgIo_cpp_Traceguids, -1073741670);
         return v13;
       }
-      `vector constructor iterator'(
-        (char *)v26 + 16,
-        0x10uLL,
-        4uLL,
-        (void *(__fastcall *)(void *))FxIrpDynamicDispatchInfo::Info::Info);
-      v27[1] = (FX_POOL *)v27;
-      *v27 = (FX_POOL *)v27;
-      memset(v27 + 2, 0, 0x40uLL);
-      v27[10] = CxDeviceInfo;
-      v28 = 2 * v12;
-      v27[v28 + 3] = DriverContext;
-      v27[v28 + 2] = EvtDeviceWdmIrpDispatch;
+      v18[10] = CxDeviceInfo;
+      v25 = 2 * v12;
+      v18[v25 + 3] = DriverContext;
+      v18[v25 + 2] = EvtDeviceWdmIrpDispatch;
       m_Lock = (FX_POOL *)i->NonPagedLock.m_Lock;
       if ( *(FX_POOL **)&m_Lock->NonPagedLock.m_DbgFlagIsInitialized != i )
         __fastfail(3u);
-      *v27 = i;
-      v27[1] = m_Lock;
-      *(_QWORD *)&m_Lock->NonPagedLock.m_DbgFlagIsInitialized = v27;
-      i->NonPagedLock.m_Lock = (unsigned __int64)v27;
+      *v18 = i;
+      v18[1] = m_Lock;
+      *(_QWORD *)&m_Lock->NonPagedLock.m_DbgFlagIsInitialized = v18;
+      i->NonPagedLock.m_Lock = (unsigned __int64)v18;
       return 0;
     }
     Blink = i->PagedLock.m_Lock.Event.Header.WaitListHead.Blink;
@@ -123,6 +125,6 @@ LABEL_13:
   else
     Flink = *(FxDriver **)(*(_QWORD *)(v11 + 96) + 136LL);
   ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(Flink);
-  WPP_IFR_SF_qcd(m_Globals, v22, v23, v24, _a1, ObjectHandleUnchecked, id, v32);
+  WPP_IFR_SF_qcd(m_Globals, v21, v22, v23, _a1, ObjectHandleUnchecked, id, v29);
   return v13;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KseHookQueryValueKey @ 0x140849870
+ * XREFs of KseHookQueryValueKey @ 0x140849850
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIEcWatchdogDpc @ 0x1C00541E0
+ * XREFs of ACPIEcWatchdogDpc @ 0x1C0054AB0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIEcLogAction @ 0x1C0053808 (ACPIEcLogAction.c)
- *     ACPIEcLogError @ 0x1C00539AC (ACPIEcLogError.c)
- *     ACPIEcServiceDevice @ 0x1C0053A64 (ACPIEcServiceDevice.c)
+ *     ACPIEcLogAction @ 0x1C0054134 (ACPIEcLogAction.c)
+ *     ACPIEcLogError @ 0x1C00542D8 (ACPIEcLogError.c)
+ *     ACPIEcServiceDevice @ 0x1C0054390 (ACPIEcServiceDevice.c)
  */
 
 void __fastcall ACPIEcWatchdogDpc(

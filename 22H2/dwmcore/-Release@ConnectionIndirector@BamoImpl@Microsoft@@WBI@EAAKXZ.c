@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@ConnectionIndirector@BamoImpl@Microsoft@@WBI@EAAKXZ @ 0x18011BCA0
+ * XREFs of ?Release@ConnectionIndirector@BamoImpl@Microsoft@@WBI@EAAKXZ @ 0x1800F4180
  * Callers:
  *     <none>
  * Callees:

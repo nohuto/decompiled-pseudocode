@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPICMButtonWaitWakeComplete @ 0x1C004D900
+ * XREFs of ACPICMButtonWaitWakeComplete @ 0x1C004EC60
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
  */
 
 void __fastcall ACPICMButtonWaitWakeComplete(
@@ -25,8 +25,8 @@ void __fastcall ACPICMButtonWaitWakeComplete(
   DeviceExtension = (_QWORD *)ACPIInternalGetDeviceExtension(DeviceObject);
   v6 = 0;
   Status = IoStatus->Status;
-  v8 = &unk_1C006FB8B;
-  v9 = &unk_1C006FB8B;
+  v8 = &unk_1C00701BA;
+  v9 = &unk_1C00701BA;
   if ( IoStatus->Status >= 0 )
   {
     if ( DeviceExtension )
@@ -35,9 +35,9 @@ void __fastcall ACPICMButtonWaitWakeComplete(
       v6 = (char)DeviceExtension;
       if ( (v11 & 0x200000000000LL) != 0 )
       {
-        v8 = (void *)DeviceExtension[76];
+        v8 = (void *)DeviceExtension[71];
         if ( (v11 & 0x400000000000LL) != 0 )
-          v9 = (void *)DeviceExtension[77];
+          v9 = (void *)DeviceExtension[72];
       }
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -46,7 +46,7 @@ void __fastcall ACPICMButtonWaitWakeComplete(
         4u,
         0x11u,
         0x16u,
-        (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+        (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
         Status,
         v6,
         (__int64)v8,
@@ -60,9 +60,9 @@ void __fastcall ACPICMButtonWaitWakeComplete(
       v6 = (char)DeviceExtension;
       if ( (v10 & 0x200000000000LL) != 0 )
       {
-        v8 = (void *)DeviceExtension[76];
+        v8 = (void *)DeviceExtension[71];
         if ( (v10 & 0x400000000000LL) != 0 )
-          v9 = (void *)DeviceExtension[77];
+          v9 = (void *)DeviceExtension[72];
       }
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -71,7 +71,7 @@ void __fastcall ACPICMButtonWaitWakeComplete(
         2u,
         0x11u,
         0x15u,
-        (__int64)&WPP_72d86d3b604930d5754709d36f3716bf_Traceguids,
+        (__int64)&WPP_2bc47f5d635e376f4e7295df6662785e_Traceguids,
         Status,
         v6,
         (__int64)v8,

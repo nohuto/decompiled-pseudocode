@@ -1,14 +1,14 @@
 /*
- * XREFs of CheckOrAcquireDwmStateLock @ 0x1C0090A74
+ * XREFs of CheckOrAcquireDwmStateLock @ 0x1C00493E4
  * Callers:
- *     OpenDwmHandle @ 0x1C009090C (OpenDwmHandle.c)
- *     NtDCompositionDuplicateSwapchainHandleToDwm @ 0x1C0211930 (NtDCompositionDuplicateSwapchainHandleToDwm.c)
- *     ?EmitViewData@CHolographicExclusiveViewMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022D3FC (-EmitViewData@CHolographicExclusiveViewMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitInitialize@CHolographicViewerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022DCF8 (-EmitInitialize@CHolographicViewerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     OpenDwmHandle @ 0x1C0049280 (OpenDwmHandle.c)
+ *     NtDCompositionSendDwmLpcMessage @ 0x1C00CDD20 (NtDCompositionSendDwmLpcMessage.c)
+ *     ?EmitViewData@CHolographicExclusiveViewMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EDAFC (-EmitViewData@CHolographicExclusiveViewMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitInitialize@CHolographicViewerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EE3D8 (-EmitInitialize@CHolographicViewerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     GreLockDwmState @ 0x1C0030A10 (GreLockDwmState.c)
- *     UserIsUserCritSecIn @ 0x1C0090AB0 (UserIsUserCritSecIn.c)
- *     GreIsSemaphoreOwnedOrSharedByCurrentThread @ 0x1C0090B90 (GreIsSemaphoreOwnedOrSharedByCurrentThread.c)
+ *     GreLockDwmState @ 0x1C0047770 (GreLockDwmState.c)
+ *     UserIsUserCritSecIn @ 0x1C0049420 (UserIsUserCritSecIn.c)
+ *     GreIsSemaphoreOwnedOrSharedByCurrentThread @ 0x1C0049500 (GreIsSemaphoreOwnedOrSharedByCurrentThread.c)
  */
 
 char CheckOrAcquireDwmStateLock()

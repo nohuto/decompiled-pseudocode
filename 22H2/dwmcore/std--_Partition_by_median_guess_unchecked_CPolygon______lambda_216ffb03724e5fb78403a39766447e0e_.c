@@ -1,156 +1,188 @@
 /*
- * XREFs of std::_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180259304
+ * XREFs of std::_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x1801F9F0C
  * Callers:
- *     std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180259580 (std--_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ *     std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x1801FA28C (std--_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
  * Callees:
- *     std::_Guess_median_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180259148 (std--_Guess_median_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ *     std::_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x1801F9EB0 (std--_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
  */
 
-unsigned __int64 *__fastcall std::_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___(
-        unsigned __int64 *a1,
-        unsigned __int64 a2,
+__int64 **__fastcall std::_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___(
+        __int64 **a1,
+        __int64 *a2,
         unsigned __int64 a3)
 {
-  unsigned __int64 v6; // rbx
-  unsigned __int64 v7; // rdx
-  __int64 v8; // rax
-  unsigned __int64 v9; // r9
-  __int64 v10; // r10
-  unsigned int v11; // ecx
-  unsigned int v12; // r8d
-  unsigned __int64 v13; // r8
-  _QWORD *v14; // r9
-  unsigned int v15; // ecx
-  __int64 v16; // rax
-  bool v17; // zf
-  _QWORD *v18; // rcx
-  unsigned int v19; // r10d
-  __int64 v20; // rax
-  __int64 v21; // rcx
-  __int64 v22; // rcx
-  __int64 v23; // rcx
-  __int64 v24; // rcx
-  __int64 v25; // rcx
-  unsigned __int64 *result; // rax
+  __int64 *v3; // r15
+  __int64 *v7; // rcx
+  __int64 *v8; // rsi
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rbx
+  __int64 *v12; // rdi
+  __int64 v13; // r11
+  __int64 v14; // r11
+  __int64 *v15; // rdx
+  __int64 *v16; // r8
+  __int64 *v17; // rdx
+  __int64 v18; // rax
+  __int64 *v19; // r9
+  __int64 v20; // r10
+  unsigned int v21; // ecx
+  unsigned int v22; // r8d
+  __int64 *v23; // r8
+  __int64 *v24; // r9
+  unsigned int v25; // ecx
+  __int64 v26; // rax
+  bool v27; // zf
+  __int64 *v28; // rcx
+  unsigned int v29; // r10d
+  __int64 v30; // rax
+  __int64 v31; // rcx
+  __int64 v32; // rcx
+  __int64 v33; // rcx
+  __int64 v34; // rcx
+  __int64 **result; // rax
 
-  v6 = a2 + 8 * ((__int64)(a3 - a2) >> 4);
-  std::_Guess_median_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___(a2, v6, a3 - 8);
-  v7 = v6 + 8;
-  if ( a2 < v6 )
+  v3 = (__int64 *)(a3 - 8);
+  v7 = a2;
+  v8 = &a2[(__int64)(a3 - (_QWORD)a2) >> 4];
+  v9 = (__int64)(a3 - 8 - (_QWORD)a2) >> 3;
+  if ( v9 <= 40 )
   {
-    v8 = *(_QWORD *)v6;
+    v16 = (__int64 *)(a3 - 8);
+  }
+  else
+  {
+    v10 = (v9 + 1) >> 3;
+    v11 = 16 * v10;
+    v12 = &a2[v10];
+    std::_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___(a2, v12, &a2[2 * v10]);
+    std::_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___(
+      (__int64 *)((char *)v8 - v13),
+      v8,
+      (__int64 *)((char *)v8 + v13));
+    std::_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___(
+      &v3[v11 / 0xFFFFFFFFFFFFFFF8uLL],
+      (__int64 *)((char *)v3 - v14),
+      v3);
+    v16 = v15;
+    v7 = v12;
+  }
+  std::_Med3_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___(v7, v8, v16);
+  v17 = v8 + 1;
+  if ( a2 < v8 )
+  {
+    v18 = *v8;
     do
     {
-      v9 = v6 - 8;
-      v10 = *(_QWORD *)(v6 - 8);
-      v11 = *(_DWORD *)(v10 + 264);
-      if ( v11 < *(_DWORD *)(v8 + 264) )
+      v19 = v8 - 1;
+      v20 = *(v8 - 1);
+      v21 = *(_DWORD *)(v20 + 264);
+      if ( v21 < *(_DWORD *)(v18 + 264) )
         break;
-      if ( v11 > *(_DWORD *)(v8 + 264) )
+      if ( v21 > *(_DWORD *)(v18 + 264) )
         break;
-      v6 -= 8LL;
-      v8 = v10;
+      --v8;
+      v18 = v20;
     }
-    while ( a2 < v9 );
+    while ( a2 < v19 );
   }
-  if ( v7 < a3 )
+  if ( (unsigned __int64)v17 < a3 )
   {
-    v12 = *(_DWORD *)(*(_QWORD *)v6 + 264LL);
+    v22 = *(_DWORD *)(*v8 + 264);
     do
     {
-      if ( *(_DWORD *)(*(_QWORD *)v7 + 264LL) < v12 )
+      if ( *(_DWORD *)(*v17 + 264) < v22 )
         break;
-      if ( *(_DWORD *)(*(_QWORD *)v7 + 264LL) > v12 )
+      if ( *(_DWORD *)(*v17 + 264) > v22 )
         break;
-      v7 += 8LL;
+      ++v17;
     }
-    while ( v7 < a3 );
+    while ( (unsigned __int64)v17 < a3 );
   }
-  v13 = v7;
-  v14 = (_QWORD *)v6;
+  v23 = v17;
+  v24 = v8;
   while ( 1 )
   {
-    while ( v13 < a3 )
+    while ( (unsigned __int64)v23 < a3 )
     {
-      v15 = *(_DWORD *)(*(_QWORD *)v6 + 264LL);
-      if ( v15 < *(_DWORD *)(*(_QWORD *)v13 + 264LL) )
-        goto LABEL_17;
-      if ( v15 > *(_DWORD *)(*(_QWORD *)v13 + 264LL) )
+      v25 = *(_DWORD *)(*v8 + 264);
+      if ( v25 < *(_DWORD *)(*v23 + 264) )
+        goto LABEL_20;
+      if ( v25 > *(_DWORD *)(*v23 + 264) )
         break;
-      if ( v7 != v13 )
+      if ( v17 != v23 )
       {
-        v16 = *(_QWORD *)v7;
-        *(_QWORD *)v7 = *(_QWORD *)v13;
-        *(_QWORD *)v13 = v16;
+        v26 = *v17;
+        *v17 = *v23;
+        *v23 = v26;
       }
-      v7 += 8LL;
-LABEL_17:
-      v13 += 8LL;
+      ++v17;
+LABEL_20:
+      ++v23;
     }
-    v17 = v14 == (_QWORD *)a2;
-    if ( (unsigned __int64)v14 > a2 )
+    v27 = v24 == a2;
+    if ( v24 > a2 )
     {
-      v18 = v14 - 1;
+      v28 = v24 - 1;
       do
       {
-        v19 = *(_DWORD *)(*v18 + 264LL);
-        if ( v19 >= *(_DWORD *)(*(_QWORD *)v6 + 264LL) )
+        v29 = *(_DWORD *)(*v28 + 264);
+        if ( v29 >= *(_DWORD *)(*v8 + 264) )
         {
-          if ( v19 > *(_DWORD *)(*(_QWORD *)v6 + 264LL) )
+          if ( v29 > *(_DWORD *)(*v8 + 264) )
             break;
-          v6 -= 8LL;
-          if ( (_QWORD *)v6 != v18 )
+          if ( --v8 != v28 )
           {
-            v20 = *(_QWORD *)v6;
-            *(_QWORD *)v6 = *v18;
-            *v18 = v20;
+            v30 = *v8;
+            *v8 = *v28;
+            *v28 = v30;
           }
         }
-        --v14;
-        --v18;
+        --v24;
+        --v28;
       }
-      while ( a2 < (unsigned __int64)v14 );
-      v17 = v14 == (_QWORD *)a2;
+      while ( a2 < v24 );
+      v27 = v24 == a2;
     }
-    if ( v17 )
+    if ( v27 )
       break;
-    --v14;
-    if ( v13 != a3 )
+    --v24;
+    if ( v23 != (__int64 *)a3 )
     {
-      v25 = *(_QWORD *)v13;
-      *(_QWORD *)v13 = *v14;
-      *v14 = v25;
-      goto LABEL_17;
+      v34 = *v23;
+      *v23 = *v24;
+      *v24 = v34;
+      goto LABEL_20;
     }
-    v6 -= 8LL;
-    if ( v14 != (_QWORD *)v6 )
+    if ( v24 == --v8 )
     {
-      v23 = *v14;
-      *v14 = *(_QWORD *)v6;
-      *(_QWORD *)v6 = v23;
+      v33 = *v8;
     }
-    v24 = *(_QWORD *)v6;
-    v7 -= 8LL;
-    *(_QWORD *)v6 = *(_QWORD *)v7;
-    *(_QWORD *)v7 = v24;
+    else
+    {
+      v33 = *v24;
+      *v24 = *v8;
+      *v8 = v33;
+    }
+    *v8 = *--v17;
+    *v17 = v33;
   }
-  if ( v13 != a3 )
+  if ( v23 != (__int64 *)a3 )
   {
-    if ( v7 != v13 )
+    if ( v17 != v23 )
     {
-      v21 = *(_QWORD *)v6;
-      *(_QWORD *)v6 = *(_QWORD *)v7;
-      *(_QWORD *)v7 = v21;
+      v31 = *v8;
+      *v8 = *v17;
+      *v17 = v31;
     }
-    v22 = *(_QWORD *)v6;
-    v7 += 8LL;
-    *(_QWORD *)v6 = *(_QWORD *)v13;
-    v6 += 8LL;
-    *(_QWORD *)v13 = v22;
-    goto LABEL_17;
+    v32 = *v8;
+    ++v17;
+    *v8++ = *v23;
+    *v23 = v32;
+    goto LABEL_20;
   }
   result = a1;
-  *a1 = v6;
-  a1[1] = v7;
+  *a1 = v8;
+  a1[1] = v17;
   return result;
 }

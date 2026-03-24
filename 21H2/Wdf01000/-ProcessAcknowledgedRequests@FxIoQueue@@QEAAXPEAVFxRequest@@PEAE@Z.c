@@ -1,20 +1,20 @@
 /*
- * XREFs of ?ProcessAcknowledgedRequests@FxIoQueue@@QEAAXPEAVFxRequest@@PEAE@Z @ 0x1C000E05C
+ * XREFs of ?ProcessAcknowledgedRequests@FxIoQueue@@QEAAXPEAVFxRequest@@PEAE@Z @ 0x1C00152D4
  * Callers:
- *     ?ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z @ 0x1C0011924 (-ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z.c)
+ *     ?ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z @ 0x1C00143AC (-ProcessPowerEvents@FxIoQueue@@AEAAEPEAE@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?RemoveFromDriverOwnedList@FxIoQueue@@AEAAXPEAVFxRequest@@@Z @ 0x1C000346C (-RemoveFromDriverOwnedList@FxIoQueue@@AEAAXPEAVFxRequest@@@Z.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?CheckTransitionFromEmpty@FxIoQueue@@AEAAXXZ @ 0x1C000E194 (-CheckTransitionFromEmpty@FxIoQueue@@AEAAXXZ.c)
- *     ?InsertHeadIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z @ 0x1C000E1B8 (-InsertHeadIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z.c)
- *     ?CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z @ 0x1C000E238 (-CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z.c)
- *     ?SetCompletionState@FxRequest@@QEAA?AW4FxRequestCompletionState@@W42@@Z @ 0x1C000E390 (-SetCompletionState@FxRequest@@QEAA-AW4FxRequestCompletionState@@W42@@Z.c)
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?ClearVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0068628 (-ClearVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
- *     WPP_IFR_SF_qqs @ 0x1C008262C (WPP_IFR_SF_qqs.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?CheckTransitionFromEmpty@FxIoQueue@@AEAAXXZ @ 0x1C001547C (-CheckTransitionFromEmpty@FxIoQueue@@AEAAXXZ.c)
+ *     ?InsertHeadIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z @ 0x1C00154A8 (-InsertHeadIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z.c)
+ *     ?RemoveFromDriverOwnedList@FxIoQueue@@AEAAXPEAVFxRequest@@@Z @ 0x1C00156A8 (-RemoveFromDriverOwnedList@FxIoQueue@@AEAAXPEAVFxRequest@@@Z.c)
+ *     ?SetCompletionState@FxRequest@@QEAA?AW4FxRequestCompletionState@@W42@@Z @ 0x1C0015834 (-SetCompletionState@FxRequest@@QEAA-AW4FxRequestCompletionState@@W42@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?ClearVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C004ED58 (-ClearVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     ?CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z @ 0x1C0075AB4 (-CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z.c)
+ *     WPP_IFR_SF_qqs @ 0x1C0077670 (WPP_IFR_SF_qqs.c)
  */
 
 void __fastcall FxIoQueue::ProcessAcknowledgedRequests(
@@ -30,9 +30,9 @@ void __fastcall FxIoQueue::ProcessAcknowledgedRequests(
   unsigned __int8 v11; // r8
   unsigned int *v12; // r8
   const void *level; // rax
-  const void *flags; // rdx
-  unsigned __int16 v15; // r9
-  const char *id; // rcx
+  const char *id; // rdx
+  const void *flags; // r8
+  unsigned __int16 v16; // r9
   const _GUID *v17; // [rsp+20h] [rbp-28h]
 
   m_Globals = this->m_Globals;
@@ -41,10 +41,7 @@ void __fastcall FxIoQueue::ProcessAcknowledgedRequests(
   {
     FxObject::GetObjectHandleUnchecked(this);
     level = (const void *)FxObject::GetObjectHandleUnchecked(Request);
-    id = "with";
-    if ( m_PowerStopState != 2 )
-      id = "without";
-    WPP_IFR_SF_qqs(m_Globals, (unsigned __int8)flags, (unsigned int)"without", v15, v17, level, flags, id);
+    WPP_IFR_SF_qqs(m_Globals, (unsigned __int8)id, (unsigned int)flags, v16, v17, level, flags, id);
   }
   Request->m_PowerStopState = 0;
   p_m_OwnerListEntry2 = &Request->m_OwnerListEntry2;

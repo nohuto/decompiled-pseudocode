@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlContractHashTable @ 0x140206E20
+ * XREFs of RtlContractHashTable @ 0x1402A1930
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetChainHead @ 0x140206F60 (RtlpGetChainHead.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlpGetChainHead @ 0x14025171C (RtlpGetChainHead.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
@@ -39,8 +39,8 @@ BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
     DivisorMask = HashTable->DivisorMask;
   }
   HashTable->Pivot = DivisorMask;
-  RtlpGetChainHead(HashTable, TableSize - 1);
-  ChainHead = (_QWORD *)RtlpGetChainHead(HashTable, HashTable->Pivot);
+  RtlpGetChainHead((__int64)HashTable, TableSize - 1);
+  ChainHead = (_QWORD *)RtlpGetChainHead((__int64)HashTable, HashTable->Pivot);
   --HashTable->TableSize;
   v8 = ChainHead;
   if ( (_QWORD *)*v7 != v7 && (_QWORD *)*ChainHead != ChainHead )
@@ -51,10 +51,10 @@ BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
     if ( (_QWORD *)*v7 == v7 )
       break;
     if ( (_QWORD *)v10[1] != v7 )
-      goto FatalListEntryError_3;
+      goto FatalListEntryError_14;
     v13 = *v10;
     if ( *(_QWORD **)(*v10 + 8LL) != v10 )
-      goto FatalListEntryError_3;
+      goto FatalListEntryError_14;
     *v7 = v13;
     *(_QWORD *)(v13 + 8) = v7;
     for ( j = (_QWORD *)*i; j != v8; j = (_QWORD *)*j )
@@ -65,7 +65,7 @@ BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
     }
     v15 = (_QWORD *)*i;
     if ( *(_QWORD **)(*i + 8LL) != i )
-FatalListEntryError_3:
+FatalListEntryError_14:
       __fastfail(3u);
     *v10 = v15;
     v10[1] = i;

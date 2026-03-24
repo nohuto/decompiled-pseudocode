@@ -1,10 +1,9 @@
 /*
- * XREFs of MiSynchronousPageWrite @ 0x1403C1408
+ * XREFs of MiSynchronousPageWrite @ 0x1403BF9B4
  * Callers:
- *     MiZeroPageWrite @ 0x1403C1194 (MiZeroPageWrite.c)
- *     MiZeroPageFileFirstPage @ 0x1408359D0 (MiZeroPageFileFirstPage.c)
+ *     MiZeroPageFileFirstPage @ 0x1407B7DC8 (MiZeroPageFileFirstPage.c)
  * Callees:
- *     IoSynchronousPageWriteEx @ 0x140250E60 (IoSynchronousPageWriteEx.c)
+ *     IoSynchronousPageWriteEx @ 0x14029C49C (IoSynchronousPageWriteEx.c)
  */
 
 NTSTATUS __fastcall MiSynchronousPageWrite(

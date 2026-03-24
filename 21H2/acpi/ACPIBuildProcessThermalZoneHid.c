@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIBuildProcessThermalZoneHid @ 0x1C004AC70
+ * XREFs of ACPIBuildProcessThermalZoneHid @ 0x1C004C180
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildCompleteCommon @ 0x1C00095D8 (ACPIBuildCompleteCommon.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
  */
 
 __int64 __fastcall ACPIBuildProcessThermalZoneHid(__int64 a1)
@@ -19,19 +19,19 @@ __int64 __fastcall ACPIBuildProcessThermalZoneHid(__int64 a1)
   v1 = *(_QWORD *)(a1 + 40);
   _InterlockedOr64((volatile signed __int64 *)(v1 + 8), 0x200000000000uLL);
   v3 = 0;
-  v4 = &unk_1C006FB8B;
+  v4 = &unk_1C00701BA;
   *(_DWORD *)(a1 + 32) = 0;
   v5 = 0;
-  v6 = &unk_1C006FB8B;
+  v6 = &unk_1C00701BA;
   if ( v1 )
   {
     v7 = *(_QWORD *)(v1 + 8);
     v5 = v1;
     if ( (v7 & 0x200000000000LL) != 0 )
     {
-      v4 = *(void **)(v1 + 608);
+      v4 = *(void **)(v1 + 568);
       if ( (v7 & 0x400000000000LL) != 0 )
-        v6 = *(void **)(v1 + 616);
+        v6 = *(void **)(v1 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -41,7 +41,7 @@ __int64 __fastcall ACPIBuildProcessThermalZoneHid(__int64 a1)
       4u,
       6u,
       0x51u,
-      (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       0,
       v5,
       (__int64)v4,

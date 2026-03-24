@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00A7BD0
+ * XREFs of ?SetIntegerProperty@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00A2F20
  * Callers:
  *     <none>
  * Callees:

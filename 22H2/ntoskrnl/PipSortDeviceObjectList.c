@@ -1,20 +1,20 @@
 /*
- * XREFs of PipSortDeviceObjectList @ 0x140868D9C
+ * XREFs of PipSortDeviceObjectList @ 0x140749A5C
  * Callers:
- *     IopSortRelationListForRemove @ 0x140868C88 (IopSortRelationListForRemove.c)
+ *     IopSortRelationListForRemove @ 0x14074BF38 (IopSortRelationListForRemove.c)
  * Callees:
- *     qsort @ 0x1403D9DD0 (qsort.c)
- *     PipVisitDeviceObjectListEntry @ 0x140868E48 (PipVisitDeviceObjectListEntry.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
+ *     PipVisitDeviceObjectListEntry @ 0x14074942C (PipVisitDeviceObjectListEntry.c)
  */
 
 __int64 __fastcall PipSortDeviceObjectList(unsigned int **a1)
 {
   __int64 v1; // r11
   size_t v3; // rbx
-  _DWORD *v4; // rdi
+  _DWORD *v4; // rsi
   _DWORD *v5; // rax
   __int64 v6; // rdx
-  _DWORD *v7; // rsi
+  _DWORD *v7; // rdi
   int v9; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = 0LL;
@@ -33,13 +33,13 @@ __int64 __fastcall PipSortDeviceObjectList(unsigned int **a1)
     while ( v6 );
   }
   v9 = 1;
-  v7 = v4 + 4;
   if ( (_DWORD)v3 )
   {
+    v7 = v4 + 4;
     do
     {
       if ( (*v7 & 4) != 0 )
-        PipVisitDeviceObjectListEntry(&v4[6 * v1], *a1, &v9);
+        PipVisitDeviceObjectListEntry((__int64)&v4[6 * v1], *a1, &v9);
       v1 = (unsigned int)(v1 + 1);
       v7 += 6;
     }

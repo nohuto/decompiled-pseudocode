@@ -1,5 +1,5 @@
 /*
- * XREFs of ?BltLnkPatMaskCopy8@@YAXPEAUBLTINFO@@KPEAKE@Z @ 0x1C02DAA60
+ * XREFs of ?BltLnkPatMaskCopy8@@YAXPEAUBLTINFO@@KPEAKE@Z @ 0x1C02DC5D0
  * Callers:
  *     <none>
  * Callees:

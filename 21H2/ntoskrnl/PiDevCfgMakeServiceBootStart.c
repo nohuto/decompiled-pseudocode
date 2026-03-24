@@ -1,37 +1,38 @@
 /*
- * XREFs of PiDevCfgMakeServiceBootStart @ 0x14094C79C
+ * XREFs of PiDevCfgMakeServiceBootStart @ 0x1408A6DF4
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x1402088DC (PnpValidateRegistryDword.c)
- *     PnpValidateStringData @ 0x1402D19D8 (PnpValidateStringData.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     PnpRegSzToString @ 0x14067AB94 (PnpRegSzToString.c)
- *     PipOpenServiceEnumKeys @ 0x14067B470 (PipOpenServiceEnumKeys.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     RtlPrefixUnicodeString @ 0x14077F870 (RtlPrefixUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PnpValidateStringData @ 0x14036EF78 (PnpValidateStringData.c)
+ *     PnpValidateRegistryDword @ 0x14039A9C8 (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     PnpRegSzToString @ 0x14074002C (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     PipOpenServiceEnumKeys @ 0x140742BEC (PipOpenServiceEnumKeys.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgMakeServiceBootStart(PCWSTR SourceString)
 {
-  NTSTATUS RegistryValue; // ebx
+  int RegistryValue; // ebx
   char *v2; // rdi
   void *v3; // rcx
   unsigned int v4; // edx
   _WORD *v5; // rcx
   unsigned __int16 v6; // ax
-  char *v7; // rbx
+  __int64 v7; // rbx
+  char *v8; // rbx
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-30h] BYREF
   UNICODE_STRING Data; // [rsp+40h] [rbp-20h] BYREF
   UNICODE_STRING String2; // [rsp+50h] [rbp-10h] BYREF
-  int v12; // [rsp+98h] [rbp+38h] BYREF
+  int v13; // [rsp+98h] [rbp+38h] BYREF
   PVOID P; // [rsp+A0h] [rbp+40h] BYREF
   HANDLE KeyHandle; // [rsp+A8h] [rbp+48h] BYREF
 
-  v12 = 4;
+  v13 = 4;
   KeyHandle = 0LL;
   P = 0LL;
   *(_DWORD *)(&String2.MaximumLength + 1) = 0;
@@ -52,10 +53,10 @@ LABEL_4:
     RegistryValue = -1073741823;
     goto LABEL_15;
   }
-  v12 = *(_DWORD *)&v2[*((unsigned int *)v2 + 2)];
+  v13 = *(_DWORD *)&v2[*((unsigned int *)v2 + 2)];
   ExFreePoolWithTag(v3, 0);
   P = 0LL;
-  if ( (v12 & 0xFFFFFFFB) == 0 )
+  if ( (v13 & 0xFFFFFFFB) == 0 )
     goto LABEL_17;
   RegistryValue = IopGetRegistryValue(KeyHandle, L"ImagePath", 0, &P);
   if ( RegistryValue < 0 )
@@ -74,13 +75,14 @@ LABEL_14:
     LODWORD(P) = 0;
     PnpRegSzToString(v5, v4, (int *)&P);
     v6 = *((_WORD *)v2 + 6);
-    v7 = &v2[*((unsigned int *)v2 + 2)];
+    v7 = *((unsigned int *)v2 + 2);
     String2.Length = (unsigned __int16)P;
-    String2.Buffer = (wchar_t *)v7;
+    v8 = &v2[v7];
+    String2.Buffer = (wchar_t *)v8;
     String2.MaximumLength = v6;
     if ( RtlPrefixUnicodeString(&PiDevCfgSystemRoot, &String2, 1u) )
     {
-      RtlInitUnicodeString(&Data, (PCWSTR)v7 + 12);
+      RtlInitUnicodeString(&Data, (PCWSTR)v8 + 12);
       *(_DWORD *)&DestinationString.Length = 1310738;
       DestinationString.Buffer = L"ImagePath";
       RegistryValue = ZwSetValueKey(KeyHandle, &DestinationString, 0, *((_DWORD *)v2 + 1), Data.Buffer, Data.Length + 2);
@@ -93,8 +95,8 @@ LABEL_14:
     }
     *(_DWORD *)&DestinationString.Length = 786442;
     DestinationString.Buffer = L"Start";
-    v12 = 0;
-    RegistryValue = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &v12, 4u);
+    v13 = 0;
+    RegistryValue = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &v13, 4u);
   }
 LABEL_15:
   if ( v2 )

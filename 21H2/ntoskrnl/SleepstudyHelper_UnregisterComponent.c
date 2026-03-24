@@ -1,9 +1,9 @@
 /*
- * XREFs of SleepstudyHelper_UnregisterComponent @ 0x1405DFE00
+ * XREFs of SleepstudyHelper_UnregisterComponent @ 0x140580B10
  * Callers:
  *     <none>
  * Callees:
- *     SleepstudyHelperDestroyBlocker @ 0x14025B380 (SleepstudyHelperDestroyBlocker.c)
+ *     SleepstudyHelperDestroyBlocker @ 0x140580B30 (SleepstudyHelperDestroyBlocker.c)
  */
 
 __int64 __fastcall SleepstudyHelper_UnregisterComponent(KSPIN_LOCK *a1)

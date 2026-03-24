@@ -1,23 +1,23 @@
 /*
- * XREFs of OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14060FD50
+ * XREFs of OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1405BAAD0
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x1403713AC (OpenGlobalizationUserSettingsKey.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14060FAB0 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1403A414C (OpenGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1405BA840 (OpenGlobalizationUserSettingsKey_ForMua.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     AllocateMemory @ 0x1405BA7F4 (AllocateMemory.c)
  */
 
 __int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ULONG a1, HANDLE *a2)
 {
   NTSTATUS v3; // ebx
   NTSTATUS v4; // eax
-  __int64 Pool2; // rsi
+  WCHAR *Memory; // rdi
   HANDLE v6; // rax
   UNICODE_STRING SourceString; // [rsp+30h] [rbp-39h] BYREF
   UNICODE_STRING v9; // [rsp+40h] [rbp-29h] BYREF
@@ -29,10 +29,10 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ULONG a1,
   HANDLE v15; // [rsp+E8h] [rbp+7Fh] BYREF
 
   ResultLength = a1;
-  if ( dword_140D1C25C )
+  if ( dword_140CFA410 )
   {
     DestinationString = 0LL;
-    RtlInitUnicodeString(&DestinationString, &word_140D190D0);
+    RtlInitUnicodeString(&DestinationString, &word_140CF7930);
     *(_QWORD *)&ObjectAttributes.Length = 48LL;
     ObjectAttributes.ObjectName = &DestinationString;
     *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
@@ -58,24 +58,24 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ULONG a1,
     if ( !ResultLength || v4 != -1073741789 && v4 != -2147483643 )
     {
       *(_QWORD *)&DestinationString.Length = 11141120LL;
-      DestinationString.Buffer = &word_140D190D0;
+      DestinationString.Buffer = &word_140CF7930;
       if ( v9.Length <= 0xAAu )
       {
         RtlCopyUnicodeString(&DestinationString, &v9);
-        dword_140D1C25C = 1;
+        dword_140CFA410 = 1;
       }
       v3 = 0;
       *a2 = KeyHandle;
       KeyHandle = 0LL;
       goto LABEL_21;
     }
-    Pool2 = ExAllocatePool2(256LL, ResultLength, 5131347LL);
-    if ( Pool2 )
+    Memory = (WCHAR *)AllocateMemory(ResultLength);
+    if ( Memory )
     {
-      v3 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, (PVOID)Pool2, ResultLength, &ResultLength);
+      v3 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Memory, ResultLength, &ResultLength);
       if ( v3 >= 0 )
       {
-        if ( *(_DWORD *)(Pool2 + 4) != 1 )
+        if ( *((_DWORD *)Memory + 1) != 1 )
         {
           v6 = KeyHandle;
           KeyHandle = 0LL;
@@ -85,7 +85,7 @@ LABEL_15:
         }
         v15 = 0LL;
         SourceString = 0LL;
-        RtlInitUnicodeString(&SourceString, (PCWSTR)(Pool2 + 12));
+        RtlInitUnicodeString(&SourceString, Memory + 6);
         *(_QWORD *)&ObjectAttributes.Length = 48LL;
         ObjectAttributes.ObjectName = &SourceString;
         *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
@@ -95,18 +95,18 @@ LABEL_15:
         if ( v3 >= 0 )
         {
           *(_QWORD *)&DestinationString.Length = 11141120LL;
-          DestinationString.Buffer = &word_140D190D0;
+          DestinationString.Buffer = &word_140CF7930;
           if ( SourceString.Length <= 0xAAu )
           {
             RtlCopyUnicodeString(&DestinationString, &SourceString);
-            dword_140D1C25C = 1;
+            dword_140CFA410 = 1;
           }
           v6 = v15;
           goto LABEL_15;
         }
       }
 LABEL_16:
-      ExFreePoolWithTag((PVOID)Pool2, 0x4E4C53u);
+      ExFreeHeapPool((ULONG_PTR)Memory);
       goto LABEL_21;
     }
     v3 = -1073741801;

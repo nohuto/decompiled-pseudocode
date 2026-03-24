@@ -5,7 +5,7 @@
  *     CmpCompareNewValueDataAgainstKCBCache @ 0x1405CD560 (CmpCompareNewValueDataAgainstKCBCache.c)
  *     CmEnumerateValueKey @ 0x1405D4080 (CmEnumerateValueKey.c)
  *     CmpCreateKeyBody @ 0x1405E0970 (CmpCreateKeyBody.c)
- *     CmQueryValueKey @ 0x1406451B0 (CmQueryValueKey.c)
+ *     CmQueryValueKey @ 0x140645190 (CmQueryValueKey.c)
  * Callees:
  *     <none>
  */

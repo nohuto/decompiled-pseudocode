@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vFillGRectDIB32Bitfields@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C0141670
+ * XREFs of ?vFillGRectDIB32Bitfields@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C01533F0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void __fastcall vFillGRectDIB32Bitfields(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
@@ -22,39 +22,43 @@ void __fastcall vFillGRectDIB32Bitfields(struct SURFACE *a1, struct _GRADIENTREC
   void *v13; // r9
   unsigned __int64 v14; // r8
   __int64 v15; // rax
-  char *v16; // r12
-  __int64 v17; // rax
-  char *v18; // rdi
-  char *v19; // r15
-  char *v20; // r13
-  __int64 v21; // r14
-  __int64 v22; // rdi
-  int v23; // eax
-  char *v24; // rdi
-  int i; // r15d
-  __int64 v26; // [rsp+38h] [rbp-50h]
-  __int64 v27; // [rsp+38h] [rbp-50h]
-  int v28; // [rsp+90h] [rbp+8h]
-  __int64 v29; // [rsp+90h] [rbp+8h]
-  int v31; // [rsp+A0h] [rbp+18h]
-  __int64 v32; // [rsp+A0h] [rbp+18h]
-  __int64 v33; // [rsp+A8h] [rbp+20h]
+  unsigned __int64 v16; // r12
+  char *v17; // rcx
+  _DWORD *v18; // rdi
+  char *v19; // rax
+  unsigned __int64 v20; // r12
+  __int64 v21; // r15
+  __int64 v22; // r13
+  __int64 v23; // r14
+  __int64 i; // rdi
+  int v25; // eax
+  char *v26; // rdi
+  int v27; // r15d
+  char *v28; // [rsp+20h] [rbp-88h]
+  __int64 v29; // [rsp+28h] [rbp-80h]
+  char *v30; // [rsp+50h] [rbp-58h]
+  int v31; // [rsp+B0h] [rbp+8h]
+  __int64 v32; // [rsp+B0h] [rbp+8h]
+  int v34; // [rsp+C0h] [rbp+18h]
+  __int64 v35; // [rsp+C0h] [rbp+18h]
+  __int64 v36; // [rsp+C8h] [rbp+20h]
+  char *v37; // [rsp+C8h] [rbp+20h]
 
   v2 = *((_DWORD *)a1 + 22);
   v3 = a2;
-  v31 = v2;
+  v34 = v2;
   v4 = *((_QWORD *)a2 + 21);
   v5 = *((_DWORD *)a2 + 11);
   v6 = *((_QWORD *)a2 + 6);
   v7 = *((_QWORD *)a2 + 7);
   v8 = *((_QWORD *)a2 + 8);
-  v33 = v4;
-  v28 = v5;
+  v29 = v4;
+  v31 = v5;
   if ( *((_DWORD *)a2 + 38) )
   {
     v9 = *((int *)a2 + 45);
-    v29 = *((_QWORD *)a2 + 11);
-    v32 = *((_QWORD *)a2 + 12);
+    v32 = *((_QWORD *)a2 + 11);
+    v35 = *((_QWORD *)a2 + 12);
     if ( (int)v9 > 0 )
     {
       v6 += *((_QWORD *)a2 + 10) * v9;
@@ -64,7 +68,7 @@ void __fastcall vFillGRectDIB32Bitfields(struct SURFACE *a1, struct _GRADIENTREC
     v10 = *((_QWORD *)a1 + 10) + 4 * *((_DWORD *)a2 + 8) + (__int64)(v2 * *((_DWORD *)a2 + 9));
     if ( v5 )
     {
-      v26 = *((int *)a1 + 22);
+      v36 = *((int *)a1 + 22);
       v11 = *((_QWORD *)a2 + 10);
       while ( 1 )
       {
@@ -84,11 +88,11 @@ void __fastcall vFillGRectDIB32Bitfields(struct SURFACE *a1, struct _GRADIENTREC
             break;
         }
 LABEL_9:
-        v7 += v29;
+        v7 += v32;
         v6 += v11;
-        v8 += v32;
-        v10 += v26;
-        v4 = v33;
+        v8 += v35;
+        v10 += v36;
+        v4 = v29;
         if ( !v5 )
           return;
       }
@@ -102,7 +106,6 @@ LABEL_11:
   }
   else
   {
-    v27 = *((_QWORD *)a2 + 16);
     v15 = *((int *)a2 + 44);
     if ( (int)v15 > 0 )
     {
@@ -110,39 +113,48 @@ LABEL_11:
       v7 += *((_QWORD *)a2 + 15) * v15;
       v8 += *((_QWORD *)a2 + 16) * *((int *)a2 + 44);
     }
-    v16 = (char *)(*((_QWORD *)a1 + 10) + v2 * *((_DWORD *)a2 + 9) + 4LL * *((int *)a2 + 8));
-    v17 = *((int *)a2 + 10);
-    v18 = v16;
-    if ( v16 != &v16[4 * v17] )
+    v16 = 4LL * *((int *)a2 + 10);
+    v17 = (char *)(*((_QWORD *)a1 + 10) + v2 * *((_DWORD *)a2 + 9) + 4LL * *((int *)a2 + 8));
+    v28 = v17;
+    v18 = v17;
+    v19 = &v17[v16];
+    v30 = v17;
+    v20 = v16 >> 2;
+    v37 = v17;
+    if ( v17 > v19 )
+      v20 = 0LL;
+    if ( v20 )
     {
-      v19 = (char *)(*((_QWORD *)a1 + 10) + v2 * *((_DWORD *)a2 + 9) + 4LL * *((int *)a2 + 8));
-      v20 = &v16[4 * v17];
       v21 = *((_QWORD *)a2 + 14);
       v22 = *((_QWORD *)a2 + 15);
-      do
+      v23 = *((_QWORD *)a2 + 16);
+      for ( i = 0LL; i != v20; ++i )
       {
-        v23 = XEPALOBJ::ulDispatchGFPEFunction(
+        v25 = XEPALOBJ::ulDispatchGFPEFunction(
                 v4,
                 *(unsigned int *)(*(_QWORD *)v4 + 100LL),
                 BYTE6(v6) | ((BYTE6(v7) | (BYTE6(v8) << 8)) << 8));
-        v8 += v27;
         v6 += v21;
-        v4 = v33;
+        v4 = v29;
         v7 += v22;
-        *(_DWORD *)v19 = v23;
-        v19 += 4;
+        v8 += v23;
+        *(_DWORD *)v37 = v25;
+        v37 += 4;
       }
-      while ( v19 != v20 );
+      v18 = v30;
       v3 = a2;
-      v18 = v16;
-      v5 = v28;
-      v2 = v31;
+      v17 = v30;
+      v5 = v31;
+      v2 = v34;
     }
-    v24 = &v18[v2];
-    for ( i = v5 - 1; i > 0; --i )
+    v26 = (char *)v18 + v2;
+    v27 = v5 - 1;
+    while ( v27 > 0 )
     {
-      memmove(v24, v16, 4 * *((_DWORD *)v3 + 10));
-      v24 += v2;
+      --v27;
+      memmove(v26, v17, 4 * *((_DWORD *)v3 + 10));
+      v17 = v28;
+      v26 += v2;
     }
   }
 }

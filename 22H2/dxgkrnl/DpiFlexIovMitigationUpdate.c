@@ -1,13 +1,13 @@
 /*
- * XREFs of DpiFlexIovMitigationUpdate @ 0x1C039DE00
+ * XREFs of DpiFlexIovMitigationUpdate @ 0x1C02CD3E0
  * Callers:
- *     DpiFdoDispatchIoctl @ 0x1C01E4AC0 (DpiFdoDispatchIoctl.c)
+ *     DpiFdoDispatchIoctl @ 0x1C02C94B0 (DpiFdoDispatchIoctl.c)
  * Callees:
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005B17C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005E398 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
- *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005E510 (--1CInterfaceCallContext@@QEAA@XZ.c)
- *     DxgkpCheckProcessForVirtualMachineManagementAccess @ 0x1C036B268 (DxgkpCheckProcessForVirtualMachineManagementAccess.c)
- *     DpiFdoGetVirtualGpuType @ 0x1C039B7EC (DpiFdoGetVirtualGpuType.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C0040104 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z @ 0x1C005104C (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C0051174 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     DxgkpCheckProcessForVirtualMachineManagementAccess @ 0x1C02327A4 (DxgkpCheckProcessForVirtualMachineManagementAccess.c)
+ *     DpiFdoGetVirtualGpuType @ 0x1C02CA710 (DpiFdoGetVirtualGpuType.c)
  */
 
 __int64 __fastcall DpiFlexIovMitigationUpdate(
@@ -18,12 +18,15 @@ __int64 __fastcall DpiFlexIovMitigationUpdate(
         __int64 a5,
         unsigned int a6)
 {
-  __int64 v7; // rdi
-  unsigned int v11; // ebx
-  __int64 v13; // rdx
-  int v14; // eax
-  _BYTE v15[16]; // [rsp+30h] [rbp-28h] BYREF
-  int v16; // [rsp+40h] [rbp-18h]
+  __int64 v7; // rsi
+  __int64 v11; // rax
+  unsigned int v12; // ebx
+  __int64 v13; // r8
+  __int64 v14; // rax
+  __int64 v16; // rdi
+  int v17; // eax
+  _BYTE v18[16]; // [rsp+30h] [rbp-28h] BYREF
+  int v19; // [rsp+40h] [rbp-18h]
 
   v7 = a1[8];
   if ( bTracingEnabled )
@@ -32,44 +35,48 @@ __int64 __fastcall DpiFlexIovMitigationUpdate(
   {
     if ( a4 >= 8 && a3 && a6 >= 0x2C && a5 )
     {
-      if ( (unsigned int)DpiFdoGetVirtualGpuType((__int64)a2) )
+      if ( DpiFdoGetVirtualGpuType((__int64)a2) )
       {
-        WdLogSingleEntry0(3LL);
+        v14 = WdLogNewEntry5_WdWarning(a1, a2, v13);
+        WdLogEvent5_WdWarning(v14);
         return 3221225659LL;
       }
-      if ( *(_BYTE *)(v7 + 5388) && !*(_QWORD *)(v7 + 5376) )
+      if ( *(_BYTE *)(v7 + 5444) && !*(_QWORD *)(v7 + 5432) )
       {
-        CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v15, a1, a2, 1, 0);
-        v14 = v16;
-        if ( v16 >= 0 )
+        CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v18, a1, a2, 1);
+        v17 = v19;
+        if ( v19 >= 0 )
         {
-          KeSetEvent((PRKEVENT)(v7 + 5440), 0, 0);
-          *(_QWORD *)(v7 + 5376) = a2;
+          KeSetEvent((PRKEVENT)(v7 + 5496), 0, 0);
+          *(_QWORD *)(v7 + 5432) = a2;
           a2->Tail.Overlay.CurrentStackLocation->Control |= 1u;
-          IoCsqInsertIrp((PIO_CSQ)(v7 + 5272), a2, 0LL);
-          v14 = 259;
-          v16 = 259;
+          IoCsqInsertIrp((PIO_CSQ)(v7 + 5328), a2, 0LL);
+          v17 = 259;
+          v19 = 259;
         }
-        v11 = v14;
-        CInterfaceCallContext::~CInterfaceCallContext((CInterfaceCallContext *)v15);
-        goto LABEL_20;
+        v12 = v17;
+        CInterfaceCallContext::~CInterfaceCallContext((CInterfaceCallContext *)v18);
+        goto LABEL_21;
       }
-      v13 = -1073741811LL;
+      v16 = -1073741811LL;
     }
     else
     {
-      v13 = -1073741789LL;
+      v16 = -1073741789LL;
     }
-    v11 = v13;
-    WdLogSingleEntry1(2LL, v13);
+    v12 = v16;
+    v11 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v11 + 24) = v16;
   }
   else
   {
-    v11 = -1073741790;
-    WdLogSingleEntry1(2LL, -1073741790LL);
+    v11 = WdLogNewEntry5_WdError(a1, a2);
+    v12 = -1073741790;
+    *(_QWORD *)(v11 + 24) = -1073741790LL;
   }
-LABEL_20:
+  WdLogEvent5_WdError(v11);
+LABEL_21:
   if ( bTracingEnabled )
-    VgpuTrace(0, v11, (void *)v7, L"DpiFlexIovMitigationUpdate", 0LL);
-  return v11;
+    VgpuTrace(0, v12, (void *)v7, L"DpiFlexIovMitigationUpdate", 0LL);
+  return v12;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpRpCHashAddEntries @ 0x1407B5A38
+ * XREFs of PfpRpCHashAddEntries @ 0x14070A7C4
  * Callers:
- *     PfpRpControlRequestUpdate @ 0x1407B5888 (PfpRpControlRequestUpdate.c)
+ *     PfpRpControlRequestUpdate @ 0x14070A62C (PfpRpControlRequestUpdate.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PfpRpCHashGrow @ 0x14083A440 (PfpRpCHashGrow.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PfpRpCHashGrow @ 0x1407B2078 (PfpRpCHashGrow.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpCHashAddEntries(
@@ -20,43 +20,43 @@ __int64 __fastcall PfpRpCHashAddEntries(
         unsigned int a5)
 {
   unsigned int v5; // r13d
-  int v6; // ecx
-  __int64 *v7; // rsi
+  __int64 v6; // r15
+  int v7; // ecx
   unsigned __int64 v8; // rbp
   unsigned int v9; // r12d
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v13; // r15
-  __int64 v14; // r8
-  int v15; // r9d
-  int v16; // r11d
-  __int64 v17; // rdx
-  __int64 v18; // r9
+  __int64 *v10; // r14
+  int v13; // r15d
+  PVOID v14; // rcx
+  __int64 v16; // r8
+  int v17; // r9d
+  int v18; // r11d
   __int64 v19; // rdx
-  __int64 *v20; // rax
-  int v21; // r15d
-  PVOID v22; // rcx
-  __int64 v24; // r10
-  __int64 v25; // rcx
-  __int64 v26; // [rsp+20h] [rbp-48h]
-  __int64 v28; // [rsp+78h] [rbp+10h]
-  PVOID P; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v20; // r9
+  __int64 v21; // rdx
+  __int64 *v22; // rax
+  __int64 v23; // r10
+  __int64 v24; // rcx
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 v27; // [rsp+68h] [rbp+10h]
+  __int64 v28; // [rsp+68h] [rbp+10h]
+  PVOID P; // [rsp+78h] [rbp+20h] BYREF
 
   v5 = a5;
-  v6 = *(_DWORD *)(a2 + 8);
+  v6 = a1;
+  v7 = *(_DWORD *)(a2 + 8);
   P = 0LL;
-  v7 = a4;
-  v8 = (unsigned __int64)a4 + ((unsigned __int64)a5 << v6);
-  v9 = 1 << v6;
+  v8 = (unsigned __int64)a4 + ((unsigned __int64)a5 << v7);
+  v9 = 1 << v7;
+  v10 = a4;
   if ( a5 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)a3, 0LL);
   }
-  if ( (unsigned __int64)v7 < v8 )
+  if ( (unsigned __int64)v10 < v8 )
   {
-    v13 = v9;
-    do
+    while ( 1 )
     {
       if ( (unsigned int)(2 * *(_DWORD *)(a2 + 16)) >= *(_DWORD *)(a2 + 12) )
       {
@@ -64,66 +64,64 @@ __int64 __fastcall PfpRpCHashAddEntries(
           ExfTryToWakePushLock(a3);
         KeAbPostRelease((ULONG_PTR)a3);
         KeLeaveCriticalRegion();
-        v21 = PfpRpCHashGrow(a1, a2, a3, &P);
-        if ( v21 < 0 )
-          goto LABEL_15;
-        v13 = v9;
+        v13 = PfpRpCHashGrow(v6, a2, a3, &P);
+        if ( v13 < 0 )
+          goto LABEL_6;
       }
-      v14 = *v7;
-      v15 = *(_DWORD *)(a2 + 12);
-      if ( v15 )
-      {
-        v16 = *(_DWORD *)(a2 + 8);
-        v17 = (unsigned int)(v15 - 1);
-        v28 = *v7;
-        v18 = (HIBYTE(v28)
+      v16 = *v10;
+      v17 = *(_DWORD *)(a2 + 12);
+      if ( !v17 )
+        break;
+      v18 = *(_DWORD *)(a2 + 8);
+      v19 = (unsigned int)(v17 - 1);
+      v27 = *v10;
+      v20 = (HIBYTE(v27)
+           + 37
+           * (BYTE6(v27)
+            + 37
+            * (BYTE5(v27)
              + 37
-             * (BYTE6(v28)
-              + 37
-              * (BYTE5(v28)
-               + 37
-               * (BYTE4(v28)
-                + 37 * (BYTE3(v28) + 37 * (BYTE2(v28) + 37 * (BYTE1(v28) + 37 * ((unsigned __int8)v14 + 11623883)))))))) & (unsigned int)(v15 - 1);
-        v26 = v17;
-        v19 = 0LL;
-        v20 = (__int64 *)(*(_QWORD *)a2 + (v18 << v16));
-        if ( *v20 )
-        {
-          v24 = *v20;
-          do
-          {
-            v25 = v24;
-            if ( v24 == v14 )
-              break;
-            if ( !v19 )
-            {
-              v19 = 2654435761LL * v14 + 1;
-              if ( ((-79 * (_BYTE)v14) & 1) != 0 )
-                v19 = 2654435761LL * v14;
-            }
-            v18 = v26 & (v19 + v18);
-            v20 = (__int64 *)(*(_QWORD *)a2 + (v18 << v16));
-            v25 = *v20;
-            v24 = *v20;
-          }
-          while ( *v20 );
-          v5 = a5;
-          v13 = v9;
-          if ( v25 )
-            goto LABEL_9;
-        }
-      }
-      else
+             * (BYTE4(v27)
+              + 37 * (BYTE3(v27) + 37 * (BYTE2(v27) + 37 * (BYTE1(v27) + 37 * ((unsigned __int8)v16 + 11623883)))))))) & (unsigned int)v19;
+      v28 = v19;
+      v21 = 0LL;
+      v22 = (__int64 *)(*(_QWORD *)a2 + (v20 << v18));
+      if ( !*v22 )
+        goto LABEL_21;
+      v23 = *v22;
+      do
       {
-        v20 = 0LL;
+        v24 = v23;
+        if ( v23 == v16 )
+          break;
+        if ( !v21 )
+        {
+          v21 = 2654435761LL * v16 + 1;
+          if ( ((-79 * (_BYTE)v16) & 1) != 0 )
+            v21 = 2654435761LL * v16;
+        }
+        v20 = v28 & (v21 + v20);
+        v22 = (__int64 *)(*(_QWORD *)a2 + (v20 << v18));
+        v24 = *v22;
+        v23 = *v22;
       }
-      memmove(v20, v7, v9);
-      ++*(_DWORD *)(a2 + 16);
-LABEL_9:
-      v7 = (__int64 *)((char *)v7 + v13);
+      while ( *v22 );
+      v5 = a5;
+      if ( !v24 )
+        goto LABEL_21;
+LABEL_14:
+      v10 = (__int64 *)((char *)v10 + v9);
+      if ( (unsigned __int64)v10 >= v8 )
+        goto LABEL_4;
+      v6 = a1;
     }
-    while ( (unsigned __int64)v7 < v8 );
+    v22 = 0LL;
+LABEL_21:
+    memmove(v22, v10, v9);
+    ++*(_DWORD *)(a2 + 16);
+    goto LABEL_14;
   }
+LABEL_4:
   if ( v5 )
   {
     if ( (_InterlockedExchangeAdd64(a3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -131,15 +129,15 @@ LABEL_9:
     KeAbPostRelease((ULONG_PTR)a3);
     KeLeaveCriticalRegion();
   }
-  v21 = 0;
-LABEL_15:
+  v13 = 0;
+LABEL_6:
   while ( 1 )
   {
-    v22 = P;
+    v14 = P;
     if ( !P )
       break;
     P = *(PVOID *)P;
-    ExFreePoolWithTag(v22, 0);
+    ExFreePoolWithTag(v14, 0);
   }
-  return (unsigned int)v21;
+  return (unsigned int)v13;
 }

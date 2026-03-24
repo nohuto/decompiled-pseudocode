@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkEngLockVisRgn @ 0x1C015A410
+ * XREFs of DxgkEngLockVisRgn @ 0x1C0277550
  * Callers:
  *     <none>
  * Callees:
- *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C000741C (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
+ *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0017954 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
  */
 
 __int64 __fastcall DxgkEngLockVisRgn(HDC a1)
@@ -22,7 +22,7 @@ __int64 __fastcall DxgkEngLockVisRgn(HDC a1)
     v1 = v4[6];
     HmgDecrementShareReferenceCountEx(v4, &v5);
     if ( v5 )
-      GrepDeleteDC(v2, 0x2000000LL);
+      bDeleteDCInternalEx(v2, 0LL);
   }
   return v1;
 }

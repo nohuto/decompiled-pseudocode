@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogWsEmptyControl @ 0x140373DA0
+ * XREFs of MiLogWsEmptyControl @ 0x140359E64
  * Callers:
- *     MmProcessWorkingSetControl @ 0x1407F5540 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x14070EE14 (MmProcessWorkingSetControl.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x14024A9B0 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1403699D0 (_tlgCreate1Sz_char.c)
- *     MiFillLogProcessInfo @ 0x1403747BC (MiFillLogProcessInfo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
+ *     MiFillLogProcessInfo @ 0x14035A1C4 (MiFillLogProcessInfo.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogWsEmptyControl(__int64 a1)
@@ -19,27 +19,27 @@ void __fastcall MiLogWsEmptyControl(__int64 a1)
   int v5; // r11d
   __int64 v6; // r8
   __int64 v7; // r10
-  int v8; // [rsp+20h] [rbp-59h]
-  int v9; // [rsp+28h] [rbp-51h]
-  char v10; // [rsp+40h] [rbp-39h] BYREF
-  int v11; // [rsp+44h] [rbp-35h] BYREF
-  const CHAR *v12; // [rsp+48h] [rbp-31h] BYREF
-  int v13; // [rsp+50h] [rbp-29h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v14; // [rsp+60h] [rbp-19h] BYREF
-  char *v15; // [rsp+80h] [rbp+7h]
-  int v16; // [rsp+88h] [rbp+Fh]
-  int v17; // [rsp+8Ch] [rbp+13h]
-  _BYTE v18[16]; // [rsp+90h] [rbp+17h] BYREF
-  int *v19; // [rsp+A0h] [rbp+27h]
-  ULONG v20; // [rsp+A8h] [rbp+2Fh]
-  int v21; // [rsp+ACh] [rbp+33h]
-  const CHAR **v22; // [rsp+B0h] [rbp+37h]
-  ULONG v23; // [rsp+B8h] [rbp+3Fh]
-  int v24; // [rsp+BCh] [rbp+43h]
+  int v8; // [rsp+20h] [rbp-B8h]
+  int v9; // [rsp+28h] [rbp-B0h]
+  char v10; // [rsp+40h] [rbp-98h] BYREF
+  int v11; // [rsp+44h] [rbp-94h] BYREF
+  const CHAR *v12; // [rsp+48h] [rbp-90h] BYREF
+  int v13; // [rsp+50h] [rbp-88h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v14; // [rsp+60h] [rbp-78h] BYREF
+  char *v15; // [rsp+80h] [rbp-58h]
+  int v16; // [rsp+88h] [rbp-50h]
+  int v17; // [rsp+8Ch] [rbp-4Ch]
+  _BYTE v18[16]; // [rsp+90h] [rbp-48h] BYREF
+  int *v19; // [rsp+A0h] [rbp-38h]
+  ULONG v20; // [rsp+A8h] [rbp-30h]
+  int v21; // [rsp+ACh] [rbp-2Ch]
+  const CHAR **v22; // [rsp+B0h] [rbp-28h]
+  ULONG v23; // [rsp+B8h] [rbp-20h]
+  int v24; // [rsp+BCh] [rbp-1Ch]
 
   v12 = 0LL;
   v11 = 0;
-  if ( *(_QWORD *)&qword_140C53448 )
+  if ( *(_QWORD *)&qword_140C4EEE0 )
   {
     MiFillLogProcessInfo(a1, &v11, &v12, a1);
     if ( *v1 > 5u )
@@ -60,7 +60,7 @@ void __fastcall MiLogWsEmptyControl(__int64 a1)
         v20 = v4 + 3;
         v23 = v4 + 3;
         LODWORD(v12) = v5;
-        tlgWriteEx_EtwWriteEx(v7, (unsigned __int8 *)&word_14002DFC6, v6, v4, v8, v9, 6u, &v14);
+        tlgWriteEx_EtwWriteEx(v7, (unsigned __int8 *)&byte_140026CED, v6, v4, v8, v9, 6u, &v14);
       }
     }
   }

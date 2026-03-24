@@ -1,92 +1,92 @@
 /*
- * XREFs of IopCreateArcName @ 0x14086FCF8
+ * XREFs of IopCreateArcName @ 0x140780218
  * Callers:
- *     IoCreateArcName @ 0x14086FCE0 (IoCreateArcName.c)
- *     IopCreateArcNamesDisk @ 0x140B3D164 (IopCreateArcNamesDisk.c)
+ *     IoCreateArcName @ 0x140780200 (IoCreateArcName.c)
+ *     IopCreateArcNamesDisk @ 0x140A61CE8 (IopCreateArcNamesDisk.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140251430 (IoBuildDeviceIoControlRequest.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     IopCreateUnicodeFromAnsiBuffer @ 0x140375044 (IopCreateUnicodeFromAnsiBuffer.c)
- *     RtlStringCchPrintfA @ 0x14037507C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     IopBuildSynchronousFsdRequest @ 0x1407FDA70 (IopBuildSynchronousFsdRequest.c)
- *     IopVerifyDiskSignature @ 0x140864DC0 (IopVerifyDiskSignature.c)
- *     IoCreateSymbolicLink @ 0x140870130 (IoCreateSymbolicLink.c)
- *     VhdiVerifyBootDisk @ 0x140A739E0 (VhdiVerifyBootDisk.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14022BAA0 (IoBuildDeviceIoControlRequest.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     IopCreateUnicodeFromAnsiBuffer @ 0x1403B7ED4 (IopCreateUnicodeFromAnsiBuffer.c)
+ *     RtlStringCchPrintfA @ 0x1403B7F0C (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1406FF1D0 (IopBuildSynchronousFsdRequest.c)
+ *     IoCreateSymbolicLink @ 0x14076D2F0 (IoCreateSymbolicLink.c)
+ *     IopVerifyDiskSignature @ 0x1407D4658 (IopVerifyDiskSignature.c)
+ *     VhdiVerifyBootDisk @ 0x14098038C (VhdiVerifyBootDisk.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopCreateArcName(PDEVICE_OBJECT DeviceObject, int a2)
 {
-  void *v3; // r12
+  _DWORD *v3; // r13
   int v4; // r15d
-  _DWORD *Pool2; // rsi
-  __int64 v6; // rax
-  __int64 OutputBufferLength; // rdi
+  _DWORD *PoolWithTag; // rsi
+  PDEVICE_OBJECT v6; // rax
+  SIZE_T OutputBufferLength; // rdi
   IRP *v8; // rbx
   NTSTATUS Status; // ebx
   IRP *v10; // rbx
   unsigned int v11; // eax
-  __int64 i; // rdx
+  SIZE_T i; // rdx
   IRP *v13; // rbx
   char v14; // bl
-  __int64 v15; // rdi
-  __int64 *v16; // r11
-  const wchar_t *v18; // r8
-  const char *v19; // r15
-  int v20; // edi
-  unsigned int v21; // r14d
-  void *v22; // rax
+  PVOID *v15; // rdi
+  PVOID *v16; // r11
+  bool v18; // zf
+  const wchar_t *v19; // r8
+  const char *v20; // r12
+  int v21; // edi
+  _DWORD *Pool; // rax
   __int64 v23; // rax
   IRP *v24; // rbx
   unsigned __int64 v25; // rax
   unsigned __int64 v26; // rcx
   char v27; // al
-  bool v28; // zf
-  unsigned __int8 *v29; // rcx
-  __int64 v30; // r8
-  int v31; // edx
-  int v32; // eax
+  unsigned __int8 *v28; // rcx
+  __int64 v29; // r8
+  int v30; // edx
+  int v31; // eax
   PVOID OutputBuffer; // [rsp+20h] [rbp-E0h]
   struct _KEVENT Object; // [rsp+50h] [rbp-B0h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v37; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v36; // [rsp+88h] [rbp-78h] BYREF
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
-  __int128 v39; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v40; // [rsp+B0h] [rbp-50h]
-  __int64 v41; // [rsp+B8h] [rbp-48h] BYREF
-  int v42; // [rsp+C0h] [rbp-40h]
-  char v43[64]; // [rsp+D0h] [rbp-30h] BYREF
+  __int128 v38; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v39; // [rsp+B0h] [rbp-50h]
+  __int64 v40; // [rsp+B8h] [rbp-48h] BYREF
+  int v41; // [rsp+C0h] [rbp-40h]
+  char v42[64]; // [rsp+D0h] [rbp-30h] BYREF
   wchar_t pszDest[64]; // [rsp+110h] [rbp+10h] BYREF
 
-  v41 = 0LL;
-  v42 = 0;
-  v3 = 0LL;
   v40 = 0LL;
+  v41 = 0;
+  v3 = 0LL;
+  v39 = 0LL;
   v4 = 0;
-  Pool2 = 0LL;
-  v6 = IoArcTableListHead;
+  PoolWithTag = 0LL;
+  v6 = (PDEVICE_OBJECT)IoArcTableListHead;
   LODWORD(OutputBufferLength) = 4096;
   SymbolicLinkName = 0LL;
   DestinationString = 0LL;
-  v39 = 0LL;
+  v38 = 0LL;
   memset(&Object, 0, sizeof(Object));
   IoStatusBlock = 0LL;
   while ( 1 )
   {
-    if ( (__int64 *)v6 == &IoArcTableListHead )
+    if ( v6 == (PDEVICE_OBJECT)&IoArcTableListHead )
     {
       if ( a2 == -1 )
       {
-        v8 = IoBuildDeviceIoControlRequest(0x2D1080u, DeviceObject, 0LL, 0, &v41, 0xCu, 0, &Object, &IoStatusBlock);
+        v8 = IoBuildDeviceIoControlRequest(0x2D1080u, DeviceObject, 0LL, 0, &v40, 0xCu, 0, &Object, &IoStatusBlock);
         if ( !v8 )
           return (unsigned int)-1073741670;
         KeInitializeEvent(&Object, NotificationEvent, 0);
@@ -101,9 +101,9 @@ __int64 __fastcall IopCreateArcName(PDEVICE_OBJECT DeviceObject, int a2)
       }
       else
       {
-        HIDWORD(v41) = a2;
+        HIDWORD(v40) = a2;
       }
-      v10 = IoBuildDeviceIoControlRequest(0x70000u, DeviceObject, 0LL, 0, &v39, 0x18u, 0, &Object, &IoStatusBlock);
+      v10 = IoBuildDeviceIoControlRequest(0x70000u, DeviceObject, 0LL, 0, &v38, 0x18u, 0, &Object, &IoStatusBlock);
       if ( v10 )
       {
         KeInitializeEvent(&Object, NotificationEvent, 0);
@@ -115,33 +115,33 @@ __int64 __fastcall IopCreateArcName(PDEVICE_OBJECT DeviceObject, int a2)
         }
         if ( Status < 0 )
           return (unsigned int)Status;
-        v11 = HIDWORD(v40);
-        if ( HIDWORD(v40) < 0x200 )
+        v11 = HIDWORD(v39);
+        if ( HIDWORD(v39) < 0x200 )
           v11 = 512;
-        v28 = DeviceObject->DeviceType == 2;
-        HIDWORD(v40) = v11;
-        if ( !v28 )
+        v18 = DeviceObject->DeviceType == 2;
+        HIDWORD(v39) = v11;
+        if ( !v18 )
         {
           for ( i = 4096LL; ; i = OutputBufferLength )
           {
-            Pool2 = (_DWORD *)ExAllocatePool2(64LL, i, 1866624841LL);
-            if ( !Pool2 )
-              return (unsigned int)-1073741670;
+            PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, i, 0x6F426F49u);
+            if ( !PoolWithTag )
+            {
+              Status = -1073741670;
+              goto LABEL_36;
+            }
             v13 = IoBuildDeviceIoControlRequest(
                     0x70050u,
                     DeviceObject,
                     0LL,
                     0,
-                    Pool2,
+                    PoolWithTag,
                     OutputBufferLength,
                     0,
                     &Object,
                     &IoStatusBlock);
             if ( !v13 )
-            {
-              Status = -1073741670;
-              goto LABEL_36;
-            }
+              break;
             KeResetEvent(&Object);
             Status = IofCallDriver(DeviceObject, v13);
             if ( Status == 259 )
@@ -150,146 +150,143 @@ __int64 __fastcall IopCreateArcName(PDEVICE_OBJECT DeviceObject, int a2)
               Status = IoStatusBlock.Status;
             }
             if ( Status != -1073741789 )
-              break;
-            ExFreePoolWithTag(Pool2, 0);
+              goto LABEL_23;
+            ExFreePoolWithTag(PoolWithTag, 0);
             OutputBufferLength = (unsigned int)(2 * OutputBufferLength);
           }
+          Status = -1073741670;
+LABEL_23:
           if ( Status < 0 )
             goto LABEL_36;
-          if ( *Pool2 != 2 && (*Pool2 || Pool2[1] || Pool2[2]) )
+          if ( *PoolWithTag != 2 && (*PoolWithTag || PoolWithTag[1] || PoolWithTag[2]) )
           {
             v14 = 0;
             goto LABEL_30;
           }
-          v4 = Pool2[3];
+          v4 = PoolWithTag[3];
 LABEL_29:
           v14 = 1;
 LABEL_30:
-          v15 = IoArcTableListHead;
+          v15 = (PVOID *)IoArcTableListHead;
           v16 = &IoArcTableListHead;
           while ( 1 )
           {
-            if ( (__int64 *)v15 == v16 )
+            if ( v15 == v16 )
             {
               Status = -1073741637;
               goto LABEL_36;
             }
-            if ( !*(_BYTE *)(v15 + 72) && !*(_QWORD *)(v15 + 64) )
+            if ( !*((_BYTE *)v15 + 72) && !v15[8] )
             {
               if ( v14 )
               {
-                if ( *(_BYTE *)(v15 + 36) )
+                if ( *((_BYTE *)v15 + 36) )
                   goto LABEL_34;
-                v28 = *(_DWORD *)(v15 + 32) == v4;
+                v18 = *((_DWORD *)v15 + 8) == v4;
               }
               else
               {
-                if ( !IopVerifyDiskSignature((__int64)Pool2, v15, &v37) )
+                if ( !(unsigned __int8)IopVerifyDiskSignature(PoolWithTag, v15, &v36) )
                   goto LABEL_34;
-                if ( *(_QWORD *)(v15 + 56) )
+                if ( v15[7] )
                 {
                   v27 = VhdiVerifyBootDisk(DeviceObject);
                   v16 = &IoArcTableListHead;
                   if ( !v27 )
                     goto LABEL_34;
                 }
-                if ( *Pool2 )
-                  goto LABEL_44;
-                v28 = *(_DWORD *)(v15 + 32) == Pool2[3];
+                if ( *PoolWithTag )
+                  goto LABEL_47;
+                v18 = *((_DWORD *)v15 + 8) == PoolWithTag[3];
               }
-              if ( v28 )
+              if ( v18 )
               {
-LABEL_44:
-                *(_QWORD *)(v15 + 64) = DeviceObject;
-                v18 = L"\\Device\\CdRom%d";
+LABEL_47:
+                v15[8] = DeviceObject;
+                v19 = L"\\Device\\CdRom%d";
                 if ( DeviceObject->DeviceType != 2 )
-                  v18 = L"\\Device\\Harddisk%d\\Partition0";
-                RtlStringCchPrintfW(pszDest, 0x40uLL, v18, HIDWORD(v41));
+                  v19 = L"\\Device\\Harddisk%d\\Partition0";
+                RtlStringCchPrintfW(pszDest, 0x40uLL, v19, HIDWORD(v40));
                 RtlInitUnicodeString(&DestinationString, pszDest);
-                v19 = *(const char **)(v15 + 24);
-                RtlStringCchPrintfA(v43, 0x40uLL, "\\ArcName\\%s", v19);
-                Status = IopCreateUnicodeFromAnsiBuffer(&SymbolicLinkName, v43);
+                v20 = (const char *)v15[3];
+                RtlStringCchPrintfA(v42, 0x40uLL, "\\ArcName\\%s", v20);
+                Status = IopCreateUnicodeFromAnsiBuffer(&SymbolicLinkName, v42);
                 if ( Status >= 0 )
                 {
                   IoCreateSymbolicLink(&SymbolicLinkName, &DestinationString);
-                  RtlFreeUnicodeString(&SymbolicLinkName);
+                  RtlFreeAnsiString(&SymbolicLinkName);
                   if ( DeviceObject->DeviceType == 2 )
                   {
                     if ( (unsigned int)InitializationPhase < 2 )
                     {
-                      v29 = *(unsigned __int8 **)(v15 + 24);
-                      v30 = *(_QWORD *)(KeLoaderBlock_0 + 184) - (_QWORD)v29;
+                      v28 = (unsigned __int8 *)v15[3];
+                      v29 = *(_QWORD *)(KeLoaderBlock_0 + 184) - (_QWORD)v28;
                       do
                       {
-                        v31 = v29[v30];
-                        v32 = *v29 - v31;
-                        if ( v32 )
+                        v30 = v28[v29];
+                        v31 = *v28 - v30;
+                        if ( v31 )
                           break;
-                        ++v29;
+                        ++v28;
                       }
-                      while ( v31 );
-                      if ( !v32 )
+                      while ( v30 );
+                      if ( !v31 )
                         DeviceObject->Flags |= 0x100u;
                     }
                   }
-                  else if ( Pool2[1] )
+                  else if ( PoolWithTag[1] )
                   {
                     Status = 0;
-                    v20 = 1;
+                    v21 = 1;
                     do
                     {
-                      LODWORD(OutputBuffer) = v20;
-                      v21 = v20;
+                      LODWORD(OutputBuffer) = v21;
                       RtlStringCchPrintfW(
                         pszDest,
                         0x40uLL,
                         L"\\Device\\Harddisk%d\\Partition%d",
-                        HIDWORD(v41),
+                        HIDWORD(v40),
                         OutputBuffer);
                       RtlInitUnicodeString(&DestinationString, pszDest);
-                      RtlStringCchPrintfA(v43, 0x40uLL, "\\ArcName\\%spartition(%d)", v19, v20);
-                      if ( IopCreateUnicodeFromAnsiBuffer(&SymbolicLinkName, v43) >= 0 )
+                      RtlStringCchPrintfA(v42, 0x40uLL, "\\ArcName\\%spartition(%d)", v20, v21);
+                      if ( IopCreateUnicodeFromAnsiBuffer(&SymbolicLinkName, v42) >= 0 )
                       {
                         IoCreateSymbolicLink(&SymbolicLinkName, &DestinationString);
-                        RtlFreeUnicodeString(&SymbolicLinkName);
+                        RtlFreeAnsiString(&SymbolicLinkName);
                       }
-                      ++v20;
+                      ++v21;
                     }
-                    while ( v21 < Pool2[1] );
+                    while ( (unsigned int)(v21 - 1) < PoolWithTag[1] );
                   }
                 }
 LABEL_36:
-                if ( Pool2 )
-                  ExFreePoolWithTag(Pool2, 0);
-                if ( !v3 )
-                  return (unsigned int)Status;
-LABEL_60:
-                ExFreePoolWithTag(v3, 0);
-                return (unsigned int)Status;
+                if ( PoolWithTag )
+                  ExFreePoolWithTag(PoolWithTag, 0);
+                goto LABEL_38;
               }
             }
 LABEL_34:
-            v15 = *(_QWORD *)v15;
+            v15 = (PVOID *)*v15;
           }
         }
-        v37 = 0x8000LL;
-        v22 = (void *)ExAllocatePool2(72LL, v11, 538996553LL);
-        v3 = v22;
-        if ( v22 )
+        v36 = 0x8000LL;
+        Pool = IopVerifierExAllocatePool(NonPagedPoolNxCacheAligned, v11);
+        v3 = Pool;
+        if ( Pool )
         {
           v23 = IopBuildSynchronousFsdRequest(
                   3u,
                   (__int64)DeviceObject,
-                  v22,
-                  HIDWORD(v40),
-                  &v37,
+                  Pool,
+                  HIDWORD(v39),
+                  &v36,
                   (__int64)&Object,
                   (__int64)&IoStatusBlock);
           v24 = (IRP *)v23;
           if ( !v23 )
           {
             Status = -1073741670;
-            goto LABEL_60;
+            goto LABEL_38;
           }
           *(_BYTE *)(*(_QWORD *)(v23 + 184) - 70LL) |= 2u;
           KeInitializeEvent(&Object, NotificationEvent, 0);
@@ -299,24 +296,29 @@ LABEL_34:
             KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
             Status = IoStatusBlock.Status;
           }
-          if ( Status < 0 )
-            goto LABEL_60;
-          v25 = 0LL;
-          v26 = (unsigned __int64)HIDWORD(v40) >> 2;
-          if ( v26 )
+          if ( Status >= 0 )
           {
-            do
-              v4 += *((_DWORD *)v3 + v25++);
-            while ( v25 < v26 );
+            v25 = 0LL;
+            v26 = (unsigned __int64)HIDWORD(v39) >> 2;
+            if ( v26 )
+            {
+              do
+                v4 += v3[v25++];
+              while ( v25 < v26 );
+            }
+            v4 = -v4;
+            goto LABEL_29;
           }
-          v4 = -v4;
-          goto LABEL_29;
+LABEL_38:
+          if ( v3 )
+            ExFreePoolWithTag(v3, 0);
+          return (unsigned int)Status;
         }
       }
       return (unsigned int)-1073741670;
     }
-    if ( *(PDEVICE_OBJECT *)(v6 + 64) == DeviceObject )
+    if ( v6->DeviceExtension == DeviceObject )
       return 0LL;
-    v6 = *(_QWORD *)v6;
+    v6 = *(PDEVICE_OBJECT *)&v6->Type;
   }
 }

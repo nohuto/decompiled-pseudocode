@@ -1,17 +1,17 @@
 /*
- * XREFs of AcpiDiagTraceRecordAmlEvaluationStatistics @ 0x1C0008798
+ * XREFs of AcpiDiagTraceRecordAmlEvaluationStatistics @ 0x1C004A034
  * Callers:
- *     FreeContext @ 0x1C0053644 (FreeContext.c)
+ *     FreeContext @ 0x1C0068074 (FreeContext.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _tlgKeywordOn @ 0x1C0009240 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0009270 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1C000FB50 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C000FB80 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall AcpiDiagTraceRecordAmlEvaluationStatistics(__int64 a1)
+char __fastcall AcpiDiagTraceRecordAmlEvaluationStatistics(__int64 a1)
 {
   unsigned __int128 v1; // rax
-  int v2; // r8d
+  __int64 v2; // r8
   __int64 v3; // r9
   int v4; // r10d
   int v6; // [rsp+30h] [rbp-19h] BYREF
@@ -27,9 +27,9 @@ __int64 __fastcall AcpiDiagTraceRecordAmlEvaluationStatistics(__int64 a1)
   if ( (_QWORD)v1 )
   {
     v1 = (unsigned __int64)(MEMORY[0xFFFFF78000000008] - v1) * (unsigned __int128)0x346DC5D63886594BuLL;
-    if ( (unsigned int)(*((_QWORD *)&v1 + 1) >> 11) >= 0x3E8 && (unsigned int)dword_1C006DCE0 > 5 )
+    if ( (unsigned int)(*((_QWORD *)&v1 + 1) >> 11) >= 0x3E8 && (unsigned int)dword_1C007F0E8 > 5 )
     {
-      *(_QWORD *)&v1 = tlgKeywordOn(&dword_1C006DCE0, *((_QWORD *)&v1 + 1), *((_QWORD *)&v1 + 1) >> 11, a1);
+      LOBYTE(v1) = tlgKeywordOn((__int64)&dword_1C007F0E8);
       if ( (_BYTE)v1 )
       {
         v9 = 2LL;
@@ -40,13 +40,13 @@ __int64 __fastcall AcpiDiagTraceRecordAmlEvaluationStatistics(__int64 a1)
         v11[1] = v4;
         v6 = v2;
         v13 = 4LL;
-        *(_QWORD *)&v1 = tlgWriteTransfer_EtwWriteTransfer(
-                           (int)&dword_1C006DCE0,
-                           (int)&dword_1C0062960,
-                           v2,
-                           v3,
-                           5u,
-                           &v7);
+        LOBYTE(v1) = tlgWriteTransfer_EtwWriteTransfer(
+                       (__int64)&dword_1C007F0E8,
+                       (unsigned __int8 *)dword_1C0072650,
+                       v2,
+                       v3,
+                       5u,
+                       &v7);
       }
     }
   }

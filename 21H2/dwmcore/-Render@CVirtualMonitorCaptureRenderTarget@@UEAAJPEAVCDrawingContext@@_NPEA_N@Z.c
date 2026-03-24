@@ -1,16 +1,16 @@
 /*
- * XREFs of ?Render@CVirtualMonitorCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801C6124
+ * XREFs of ?Render@CVirtualMonitorCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE1E8
  * Callers:
- *     ?Render@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801069F0 (-Render@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F5820 (-Render@CVirtualMonitorCaptureRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall CVirtualMonitorCaptureRenderTarget::Render(
-        LARGE_INTEGER *this,
+        CVirtualMonitorCaptureRenderTarget *this,
         struct CDrawingContext *a2,
         char a3,
         bool *a4)
 {
-  return CCaptureRenderTarget::Render(this - 10, a2, a3, a4);
+  return CCaptureRenderTarget::Render((CVirtualMonitorCaptureRenderTarget *)((char *)this - 72), a2, a3, a4);
 }

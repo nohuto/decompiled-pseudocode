@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpRealtimeNotifyConsumers @ 0x1406EDD54
+ * XREFs of EtwpRealtimeNotifyConsumers @ 0x1406BC504
  * Callers:
- *     EtwpLogger @ 0x140799440 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EtwpGetMaxTrackingEventBufferSize @ 0x1406EDE54 (EtwpGetMaxTrackingEventBufferSize.c)
- *     EtwpInitializeProviderInfoBuffer @ 0x1406EDEC8 (EtwpInitializeProviderInfoBuffer.c)
- *     EtwpAddDebugInfoEvents @ 0x1406F1DF8 (EtwpAddDebugInfoEvents.c)
- *     EtwpRealtimeInjectEtwBuffer @ 0x140798F44 (EtwpRealtimeInjectEtwBuffer.c)
- *     EtwpAddBinaryInfoEvents @ 0x1409E959C (EtwpAddBinaryInfoEvents.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x140645E50 (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpGetMaxTrackingEventBufferSize @ 0x1406BC610 (EtwpGetMaxTrackingEventBufferSize.c)
+ *     EtwpInitializeProviderInfoBuffer @ 0x1406BC68C (EtwpInitializeProviderInfoBuffer.c)
+ *     EtwpAddDebugInfoEvents @ 0x1406DF564 (EtwpAddDebugInfoEvents.c)
+ *     EtwpAddBinaryInfoEvents @ 0x14093D008 (EtwpAddBinaryInfoEvents.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRealtimeNotifyConsumers(__int64 a1)
@@ -20,62 +20,62 @@ __int64 __fastcall EtwpRealtimeNotifyConsumers(__int64 a1)
   volatile signed __int64 *v1; // rbp
   unsigned int MaxTrackingEventBufferSize; // eax
   unsigned int v4; // r14d
-  __int64 Pool2; // rax
-  _DWORD *v6; // rdi
-  __int64 *i; // rsi
+  _DWORD *v5; // rdi
+  unsigned int v6; // ebx
+  char v7; // al
+  _DWORD *PoolWithTag; // rax
+  __int64 i; // rsi
   __int64 *j; // rax
-  __int64 **v9; // rbx
+  __int64 **v12; // rbx
   __int64 *k; // rax
-  unsigned int v11; // ebx
-  char v12; // al
   unsigned int v14; // r12d
 
-  v1 = (volatile signed __int64 *)(a1 + 688);
-  ExAcquirePushLockExclusiveEx(a1 + 688, 0LL);
+  v1 = (volatile signed __int64 *)(a1 + 704);
+  ExAcquirePushLockExclusiveEx(a1 + 704, 0LL);
   MaxTrackingEventBufferSize = EtwpGetMaxTrackingEventBufferSize(a1);
   v4 = MaxTrackingEventBufferSize;
   if ( MaxTrackingEventBufferSize )
   {
-    Pool2 = ExAllocatePool2(256LL, MaxTrackingEventBufferSize, 1651995717LL);
-    v6 = (_DWORD *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, MaxTrackingEventBufferSize, 0x62777445u);
+    v5 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      EtwpInitializeProviderInfoBuffer(a1, Pool2, v4);
-      for ( i = *(__int64 **)(a1 + 328); i != (__int64 *)(a1 + 328); i = (__int64 *)*i )
+      EtwpInitializeProviderInfoBuffer(a1, PoolWithTag, v4);
+      for ( i = *(_QWORD *)(a1 + 344); i != a1 + 344; i = *(_QWORD *)i )
       {
-        v14 = (*((_BYTE *)i + 90) & 8) != 0 ? 4 : 1;
-        EtwpAddDebugInfoEvents(a1, (_DWORD)v6, v4, 0, v14);
-        if ( *(_QWORD *)(a1 + 1040) != a1 + 1040 && (*(_DWORD *)(a1 + 816) & 0x2000000) != 0 )
-          EtwpAddBinaryInfoEvents(a1, v6, v4, v14);
-        *((_BYTE *)i + 90) |= 8u;
-        if ( v6[12] > 0x48u )
+        v14 = (*(_BYTE *)(i + 90) & 8) != 0 ? 4 : 1;
+        EtwpAddDebugInfoEvents(a1, (_DWORD)v5, v4, 0, v14);
+        if ( *(_QWORD *)(a1 + 1024) != a1 + 1024 && (*(_DWORD *)(a1 + 832) & 0x2000000) != 0 )
+          EtwpAddBinaryInfoEvents(a1, v5, v4, v14);
+        *(_BYTE *)(i + 90) |= 8u;
+        if ( v5[12] > 0x48u )
         {
-          EtwpRealtimeInjectEtwBuffer(a1, i, v6);
-          v6[12] = 72;
+          EtwpRealtimeInjectEtwBuffer((_DWORD *)a1, i, (__int64)v5);
+          v5[12] = 72;
         }
       }
-      for ( j = *(__int64 **)(a1 + 112); j && !*((_BYTE *)j + 40); j = (__int64 *)*j )
+      for ( j = *(__int64 **)(a1 + 128); j && !*((_BYTE *)j + 40); j = (__int64 *)*j )
         *((_BYTE *)j + 40) = 1;
-      v9 = (__int64 **)(a1 + 96);
-      for ( k = *v9; k != (__int64 *)v9; k = (__int64 *)*k )
+      v12 = (__int64 **)(a1 + 112);
+      for ( k = *v12; k != (__int64 *)v12; k = (__int64 *)*k )
         *((_BYTE *)k + 16) = 1;
-      v11 = 0;
+      v6 = 0;
     }
     else
     {
-      v11 = -1073741801;
+      v6 = -1073741801;
     }
   }
   else
   {
-    v6 = 0LL;
-    v11 = -2147483622;
+    v5 = 0LL;
+    v6 = -2147483622;
   }
-  v12 = _InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v12 & 2) != 0 && (v12 & 4) == 0 )
+  v7 = _InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v7 & 2) != 0 && (v7 & 4) == 0 )
     ExfTryToWakePushLock(v1);
   KeAbPostRelease((ULONG_PTR)v1);
-  if ( v6 )
-    ExFreePoolWithTag(v6, 0);
-  return v11;
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0);
+  return v6;
 }

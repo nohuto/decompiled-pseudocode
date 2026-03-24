@@ -1,14 +1,14 @@
 /*
- * XREFs of HalBuildScatterGatherListV2 @ 0x140221330
+ * XREFs of HalBuildScatterGatherListV2 @ 0x14028E2A0
  * Callers:
- *     HalGetScatterGatherList @ 0x14023A860 (HalGetScatterGatherList.c)
+ *     HalGetScatterGatherList @ 0x1402B6240 (HalGetScatterGatherList.c)
  * Callees:
- *     HalpCalculateScatterGatherListSize @ 0x140221620 (HalpCalculateScatterGatherListSize.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalAllocateAdapterChannel @ 0x140456840 (HalAllocateAdapterChannel.c)
- *     HalpDmaFlushBuffer @ 0x140513310 (HalpDmaFlushBuffer.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     HalpCalculateScatterGatherListSize @ 0x14028E560 (HalpCalculateScatterGatherListSize.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalAllocateAdapterChannel @ 0x1404B8AA0 (HalAllocateAdapterChannel.c)
+ *     HalpDmaFlushBuffer @ 0x1404C755C (HalpDmaFlushBuffer.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalBuildScatterGatherListV2(
@@ -23,211 +23,194 @@ __int64 __fastcall HalBuildScatterGatherListV2(
         _DWORD *P,
         unsigned int a10)
 {
-  __int64 v10; // rdi
-  int v14; // esi
+  int v14; // ebx
   __int64 result; // rax
-  __int64 v16; // r9
-  _DWORD *v17; // r11
-  char *v18; // r15
-  char *v19; // r14
-  __int64 v20; // rcx
-  unsigned int v21; // r10d
-  unsigned int v22; // ebp
-  int v23; // r8d
-  unsigned int v24; // r8d
-  char *v25; // rbx
-  __int64 *v26; // r9
-  __int64 *v27; // rsi
-  __int64 v28; // r15
-  __int64 *v29; // rcx
-  unsigned int v30; // edx
-  unsigned int v31; // edi
-  unsigned int v32; // eax
-  bool v33; // zf
-  unsigned int v34; // edx
-  __int64 v35; // r10
-  char v36; // r14
-  unsigned int v37; // edi
-  __int64 v38; // r8
-  _QWORD *v39; // rbx
-  int AdapterChannel; // edi
-  _DWORD *v41; // rax
-  int v42; // [rsp+20h] [rbp-68h]
-  int v43; // [rsp+28h] [rbp-60h]
-  unsigned int v44; // [rsp+40h] [rbp-48h] BYREF
-  char *Pool2; // [rsp+48h] [rbp-40h] BYREF
-  __int64 *v47; // [rsp+A0h] [rbp+18h] BYREF
-  __int64 v48; // [rsp+A8h] [rbp+20h]
+  _DWORD *v16; // r13
+  char *PoolWithTag; // r14
+  char *v18; // r9
+  __int64 v19; // rcx
+  unsigned int v20; // r10d
+  unsigned int v21; // ebp
+  char *v22; // rbx
+  unsigned int v23; // r8d
+  __int64 *v24; // rsi
+  __int64 *v25; // r13
+  __int64 *v26; // rcx
+  unsigned int v27; // edx
+  unsigned int v28; // edi
+  unsigned int v29; // eax
+  bool v30; // zf
+  unsigned int v31; // edx
+  __int64 v32; // r8
+  char v33; // r14
+  unsigned int v34; // esi
+  __int64 v35; // r8
+  _QWORD *v36; // rdi
+  int AdapterChannel; // ebx
+  _DWORD *v38; // rax
+  int v39; // [rsp+20h] [rbp-68h]
+  int v40; // [rsp+28h] [rbp-60h]
+  unsigned int v41; // [rsp+40h] [rbp-48h] BYREF
+  unsigned int v42[3]; // [rsp+44h] [rbp-44h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+A0h] [rbp+18h] BYREF
+  __int64 v45; // [rsp+A8h] [rbp+20h]
 
-  v48 = a4;
-  v10 = a4;
-  LODWORD(Pool2) = 0;
-  v44 = 0;
-  LODWORD(v47) = 0;
+  v45 = a4;
+  v42[0] = 0;
+  v41 = 0;
+  LODWORD(NumberOfBytes) = 0;
   if ( !a3 )
     return 3221225485LL;
   v14 = a5;
-  result = HalpCalculateScatterGatherListSize(a1, (_DWORD)a3, a4, a5, (__int64)&v47, (__int64)&Pool2, (__int64)&v44);
+  result = HalpCalculateScatterGatherListSize(
+             a1,
+             (_DWORD)a3,
+             a4,
+             a5,
+             (__int64)&NumberOfBytes,
+             (__int64)v42,
+             (__int64)&v41);
   if ( (int)result >= 0 )
   {
     if ( *(_BYTE *)(a1 + 432) )
     {
-      v37 = v44;
-      v36 = a8;
+      v34 = v41;
+      v33 = a8;
     }
-    else
+    else if ( *(_BYTE *)(a1 + 437) || (v33 = a8) != 0 || (v34 = v41) == 0 )
     {
-      if ( *(_BYTE *)(a1 + 437) )
-        goto LABEL_5;
-      v36 = a8;
-      if ( a8 )
-        goto LABEL_5;
-      v37 = v44;
-      if ( !v44 )
+      v16 = P;
+      if ( P )
       {
-        v10 = v48;
-LABEL_5:
-        v17 = P;
-        if ( P )
+        if ( a10 >= (unsigned int)NumberOfBytes )
         {
-          if ( a10 >= (unsigned int)v47 )
-          {
-            v18 = (char *)P;
-            Pool2 = (char *)P;
+          PoolWithTag = (char *)P;
 LABEL_8:
-            v19 = v18 + 16;
-            v20 = a3[4] + *((unsigned int *)a3 + 11);
-            v21 = a5;
-            *((_QWORD *)v18 + 1) = 0LL;
-            v22 = v10 & 0xFFF;
-            v23 = *((_DWORD *)a3 + 10) - v10;
-            v47 = a3;
-            v24 = v20 + v23;
-            v25 = v18 + 16;
-            v26 = a3;
-            v27 = &a3[((v10 - (v20 & 0xFFFFFFFFFFFFF000uLL)) >> 12) + 6];
-            if ( v21 )
+          v18 = PoolWithTag + 16;
+          v19 = a3[4] + *((unsigned int *)a3 + 11);
+          v20 = a5;
+          *((_QWORD *)PoolWithTag + 1) = 0LL;
+          v21 = a4 & 0xFFF;
+          v22 = PoolWithTag + 16;
+          v23 = v19 + *((_DWORD *)a3 + 10) - a4;
+          v24 = &a3[((a4 - (v19 & 0xFFFFFFFFFFFFF000uLL)) >> 12) + 6];
+          if ( v20 )
+          {
+            v25 = a3;
+            do
             {
-              v28 = v48;
-              do
+              v26 = (__int64 *)*v25;
+              v27 = v20;
+              v28 = v20;
+              if ( v23 <= v20 )
+                v27 = v23;
+              if ( v26 )
+                v28 = v27;
+              v29 = v20 - v27;
+              v20 = 0;
+              if ( v26 )
+                v20 = v29;
+              v30 = *(_BYTE *)(a1 + 437) == 0;
+              a5 = v20;
+              if ( v30 )
               {
-                v29 = (__int64 *)*v26;
-                v30 = v21;
-                v31 = v21;
-                if ( v24 <= v21 )
-                  v30 = v24;
-                if ( v29 )
-                  v31 = v30;
-                v32 = v21 - v30;
-                v21 = 0;
-                if ( v29 )
-                  v21 = v32;
-                v33 = *(_BYTE *)(a1 + 437) == 0;
-                a5 = v21;
-                if ( v33 )
-                {
-                  if ( v26 == a3 )
-                    v38 = v28;
-                  else
-                    v38 = v26[4] + v22;
-                  LOBYTE(v43) = 0;
-                  LOBYTE(v42) = a8;
-                  HalpDmaFlushBuffer(v29, v47, v38, v31, v42, v43);
-                  v26 = v47;
-                  v21 = a5;
-                }
-                if ( v31 )
-                {
-                  do
-                  {
-                    v34 = 4096 - v22;
-                    v35 = v22 + (*v27 << 12);
-                    *((_DWORD *)v25 + 2) = 4096 - v22;
-                    *(_QWORD *)v25 = v35;
-                    if ( 4096 - v22 > v31 )
-                    {
-                      *((_DWORD *)v25 + 2) = v31;
-                      v34 = v31;
-                    }
-                    v31 -= v34;
-                    if ( v25 != v19
-                      && v35 == *((_QWORD *)v25 - 3) + *((unsigned int *)v25 - 4)
-                      && ((*v27 ^ (*v27 - 1)) & 0xFFFFFFFFFFF00000uLL) == 0 )
-                    {
-                      *((_DWORD *)v25 - 4) += v34;
-                      v25 -= 24;
-                    }
-                    v22 = 0;
-                    v25 += 24;
-                    ++v27;
-                  }
-                  while ( v31 );
-                  v26 = v47;
-                  v21 = a5;
-                }
-                v26 = (__int64 *)*v26;
-                v47 = v26;
-                if ( !v26 )
-                  break;
-                v22 = *((_DWORD *)v26 + 11);
-                v27 = v26 + 6;
-                v24 = *((_DWORD *)v26 + 10);
+                if ( v25 == a3 )
+                  v35 = v45;
+                else
+                  v35 = v25[4] + v21;
+                LOBYTE(v40) = 0;
+                LOBYTE(v39) = a8;
+                HalpDmaFlushBuffer(v26, v25, v35, v28, v39, v40);
+                v20 = a5;
+                v18 = PoolWithTag + 16;
               }
-              while ( v21 );
-              v18 = Pool2;
-              v17 = P;
+              if ( v28 )
+              {
+                do
+                {
+                  v31 = 4096 - v21;
+                  v32 = v21 + (*v24 << 12);
+                  *((_DWORD *)v22 + 2) = 4096 - v21;
+                  *(_QWORD *)v22 = v32;
+                  if ( 4096 - v21 > v28 )
+                  {
+                    *((_DWORD *)v22 + 2) = v28;
+                    v31 = v28;
+                  }
+                  v28 -= v31;
+                  if ( v22 != v18 )
+                  {
+                    if ( v32 == *((_QWORD *)v22 - 3) + *((unsigned int *)v22 - 4)
+                      && ((*v24 ^ (*v24 - 1)) & 0xFFFFFFFFFFF00000uLL) == 0 )
+                    {
+                      *((_DWORD *)v22 - 4) += v31;
+                      v22 -= 24;
+                    }
+                    v18 = PoolWithTag + 16;
+                  }
+                  v21 = 0;
+                  v22 += 24;
+                  ++v24;
+                }
+                while ( v28 );
+                v20 = a5;
+              }
+              v25 = (__int64 *)*v25;
+              if ( !v25 )
+                break;
+              v21 = *((_DWORD *)v25 + 11);
+              v24 = v25 + 6;
+              v23 = *((_DWORD *)v25 + 10);
             }
-            *(_DWORD *)v18 = (v25 - v18 - 16) / 24;
-            if ( v17 )
-              *((_QWORD *)v18 + 1) = 1LL;
-            a6(a2, *(_QWORD *)(a2 + 32), v18, a7);
-            return 0LL;
+            while ( v20 );
+            v16 = P;
           }
-          return 3221225507LL;
+          *(_DWORD *)PoolWithTag = (v22 - PoolWithTag - 16) / 24;
+          if ( v16 )
+            *((_QWORD *)PoolWithTag + 1) = 1LL;
+          a6(a2, *(_QWORD *)(a2 + 32), PoolWithTag, a7);
+          return 0LL;
         }
-        Pool2 = (char *)ExAllocatePool2(66LL, (unsigned int)v47, 1147953480LL, v16);
-        v18 = Pool2;
-        if ( Pool2 )
-        {
-          v17 = P;
-          goto LABEL_8;
-        }
-        return 3221225626LL;
+        return 3221225507LL;
       }
+      PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x206C6148u);
+      if ( PoolWithTag )
+        goto LABEL_8;
+      return 3221225626LL;
     }
-    v39 = P;
+    v36 = P;
     if ( P )
     {
-      if ( a10 < (unsigned int)v47 )
+      if ( a10 < (unsigned int)NumberOfBytes )
         return 3221225507LL;
       *P |= 1u;
     }
     else
     {
-      v41 = (_DWORD *)ExAllocatePool2(66LL, (unsigned int)v47, 1147953480LL, v16);
-      v39 = v41;
-      if ( !v41 )
+      v38 = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x206C6148u);
+      v36 = v38;
+      if ( !v38 )
         return 3221225626LL;
-      *v41 = 0;
+      *v38 = 0;
     }
-    v39[4] = v48;
-    v39[15] = a6;
-    v39[16] = a7;
-    v39[1] = a3;
-    v39[2] = 0LL;
-    *((_DWORD *)v39 + 10) = v14;
-    v39[18] = a1;
-    *((_BYTE *)v39 + 152) = v36;
-    v33 = *(_BYTE *)(a1 + 432) == 0;
-    v39[10] = v39;
-    if ( !v33 )
-      v37 = (unsigned int)Pool2;
-    *((_DWORD *)v39 + 11) = v37;
-    v39[12] = a2;
-    v39[13] = *(_QWORD *)(a2 + 32);
-    AdapterChannel = HalAllocateAdapterChannel(a1, v39 + 6, v37, &HalpAllocateAdapterCallbackV2);
+    v36[4] = v45;
+    v36[15] = a6;
+    v36[16] = a7;
+    v36[1] = a3;
+    v36[2] = 0LL;
+    *((_DWORD *)v36 + 10) = v14;
+    v36[18] = a1;
+    *((_BYTE *)v36 + 152) = v33;
+    v30 = *(_BYTE *)(a1 + 432) == 0;
+    v36[10] = v36;
+    if ( !v30 )
+      v34 = v42[0];
+    *((_DWORD *)v36 + 11) = v34;
+    v36[12] = a2;
+    v36[13] = *(_QWORD *)(a2 + 32);
+    AdapterChannel = HalAllocateAdapterChannel(a1, v36 + 6, v34, &HalpAllocateAdapterCallbackV2);
     if ( AdapterChannel < 0 )
-      ExFreePoolWithTag(v39, 0);
+      ExFreePoolWithTag(v36, 0);
     return (unsigned int)AdapterChannel;
   }
   return result;

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpWorkerFactoryInitialization @ 0x140B2DEA8
+ * XREFs of ExpWorkerFactoryInitialization @ 0x140A71A20
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140AFCEF0 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3CEBC (ExpInitSystemPhase1.c)
  * Callees:
- *     KeInitializeQueue @ 0x14023E540 (KeInitializeQueue.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     KeRegisterObjectNotification @ 0x1402F0D90 (KeRegisterObjectNotification.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PsCreateSystemThread @ 0x1406F0310 (PsCreateSystemThread.c)
- *     ObCreateObjectType @ 0x140824B10 (ObCreateObjectType.c)
+ *     KeRegisterObjectNotification @ 0x140202F18 (KeRegisterObjectNotification.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     KeInitializeQueue @ 0x1402B95A0 (KeInitializeQueue.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
+ *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
  */
 
 __int64 ExpWorkerFactoryInitialization()
@@ -47,7 +47,7 @@ __int64 ExpWorkerFactoryInitialization()
   ExpWorkerFactoryDeferredLongTimeout = -10000000LL * v0;
   ExpWorkerFactoryDeferredShortTimeout.QuadPart = -300000LL;
   if ( ((unsigned __int8)&ExpWorkerFactoryThreadCreationList & 0xF) != 0 )
-    RtlRaiseStatus(-2147483646);
+    RtlRaiseStatus(0x80000002);
   ExpWorkerFactoryThreadCreationList = 0LL;
   KeInitializeQueue(&ExpWorkerFactoryManagerQueue, 0);
   *(_QWORD *)&ExpWorkerFactoryThreadCreationTimer.Header.Lock = 9LL;
@@ -67,11 +67,11 @@ __int64 ExpWorkerFactoryInitialization()
   LODWORD(v3[1]) = 256;
   v3[9] = ExpDeleteWorkerFactory;
   HIDWORD(v3[4]) = 512;
-  HIDWORD(v3[5]) = 672;
+  HIDWORD(v3[5]) = 576;
   *(_OWORD *)((char *)&v3[1] + 4) = ExpWorkerFactoryMapping;
   HIDWORD(v3[3]) = 983295;
   ObjectType = ObCreateObjectType(
-                 (const UNICODE_STRING *)&qword_140B57910,
+                 (const UNICODE_STRING *)&qword_140A97B30,
                  (__int64)v3,
                  0LL,
                  (__int64)&ExpWorkerFactoryObjectType);

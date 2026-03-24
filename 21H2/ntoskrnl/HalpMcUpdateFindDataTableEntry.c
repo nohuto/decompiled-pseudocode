@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMcUpdateFindDataTableEntry @ 0x1403BAE44
+ * XREFs of HalpMcUpdateFindDataTableEntry @ 0x1403A818C
  * Callers:
- *     HalpMcUpdateInitialize @ 0x14082481C (HalpMcUpdateInitialize.c)
+ *     HalpMcUpdateInitialize @ 0x140790E20 (HalpMcUpdateInitialize.c)
  * Callees:
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
  */
 
 _QWORD *__fastcall HalpMcUpdateFindDataTableEntry(_QWORD *a1)

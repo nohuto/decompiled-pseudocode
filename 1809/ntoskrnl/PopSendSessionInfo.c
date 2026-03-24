@@ -1,8 +1,8 @@
 /*
- * XREFs of PopSendSessionInfo @ 0x140879324
+ * XREFs of PopSendSessionInfo @ 0x140879304
  * Callers:
- *     PopSetWin32kDisplayTimeout @ 0x140879158 (PopSetWin32kDisplayTimeout.c)
- *     PopSetWin32kInputTimeout @ 0x1408791B8 (PopSetWin32kInputTimeout.c)
+ *     PopSetWin32kDisplayTimeout @ 0x140879138 (PopSetWin32kDisplayTimeout.c)
+ *     PopSetWin32kInputTimeout @ 0x140879198 (PopSetWin32kInputTimeout.c)
  * Callees:
  *     PopInvokeWin32Callout @ 0x1405B0C84 (PopInvokeWin32Callout.c)
  */

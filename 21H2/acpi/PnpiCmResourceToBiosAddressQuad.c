@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpiCmResourceToBiosAddressQuad @ 0x1C00B42E8
+ * XREFs of PnpiCmResourceToBiosAddressQuad @ 0x1C00B4C18
  * Callers:
- *     PnpCmResourcesToBiosResources @ 0x1C00B3A40 (PnpCmResourcesToBiosResources.c)
+ *     PnpCmResourcesToBiosResources @ 0x1C0090950 (PnpCmResourcesToBiosResources.c)
  * Callees:
  *     <none>
  */

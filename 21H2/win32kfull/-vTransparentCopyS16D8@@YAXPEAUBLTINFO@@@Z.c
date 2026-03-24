@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vTransparentCopyS16D8@@YAXPEAUBLTINFO@@@Z @ 0x1C02900C0
+ * XREFs of ?vTransparentCopyS16D8@@YAXPEAUBLTINFO@@@Z @ 0x1C02923F0
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C00D5950 (XLATEOBJ_iXlate.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C8500 (XLATEOBJ_iXlate.c)
  */
 
 void __fastcall vTransparentCopyS16D8(struct BLTINFO *a1)

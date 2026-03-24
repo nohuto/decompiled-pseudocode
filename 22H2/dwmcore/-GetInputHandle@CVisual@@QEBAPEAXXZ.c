@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetInputHandle@CVisual@@QEBAPEAXXZ @ 0x1800F0244
+ * XREFs of ?GetInputHandle@CVisual@@QEBAPEAXXZ @ 0x18009F298
  * Callers:
- *     ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x180031DE4 (-HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z.c)
- *     ??$WalkSubtree@VCInputSinkContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@0PEAVCInputSinkContext@@W4WalkReason@@@Z @ 0x18009A4C8 (--$WalkSubtree@VCInputSinkContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@0PEAVCInputSinkContex.c)
- *     ?SetWorldTransform@CDesktopTreeData@@MEAA_NAEBVCMILMatrix@@_NPEAV2@@Z @ 0x1800C2CC0 (-SetWorldTransform@CDesktopTreeData@@MEAA_NAEBVCMILMatrix@@_NPEAV2@@Z.c)
+ *     ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x18004E624 (-HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z.c)
+ *     ?PreSubgraph@CInputSinkContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180058CF8 (-PreSubgraph@CInputSinkContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?OnInputSinkChange@CVisual@@QEAAXXZ @ 0x1800E1690 (-OnInputSinkChange@CVisual@@QEAAXXZ.c)
  * Callees:
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009A6B4 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
+ *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x1800A0360 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
  */
 
 __int64 __fastcall CVisual::GetInputHandle(CVisual *this)
@@ -17,7 +17,7 @@ __int64 __fastcall CVisual::GetInputHandle(CVisual *this)
   InteractionInternal = CVisual::GetInteractionInternal(this);
   if ( InteractionInternal )
   {
-    v4 = *((_QWORD *)InteractionInternal + 13);
+    v4 = *((_QWORD *)InteractionInternal + 12);
     if ( v4 )
       return *(_QWORD *)(v4 + 64);
   }

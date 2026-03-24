@@ -1,20 +1,21 @@
 /*
- * XREFs of ?BreakEditionParentNotifyLoop@CTouchProcessor@@QEAAHPEAX@Z @ 0x1C01BAC80
+ * XREFs of ?BreakEditionParentNotifyLoop@CTouchProcessor@@QEAAHPEAX@Z @ 0x1C01884E0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4A4E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     ?IsTargetSetForRetrieval@CPointerInfoNode@@QEBAHPEAUtagTHREADINFO@@@Z @ 0x1C01CD19C (-IsTargetSetForRetrieval@CPointerInfoNode@@QEBAHPEAUtagTHREADINFO@@@Z.c)
+ *     ?IsTargetSetForRetrieval@CPointerInfoNode@@QEBAHPEAUtagTHREADINFO@@@Z @ 0x1C0196FD4 (-IsTargetSetForRetrieval@CPointerInfoNode@@QEBAHPEAUtagTHREADINFO@@@Z.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01970E4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
  */
 
 __int64 __fastcall CTouchProcessor::BreakEditionParentNotifyLoop(CTouchProcessor *this, CPointerInfoNode *a2)
 {
   CPointerInfoNode *v2; // rcx
-  unsigned int v3; // ebx
+  __int64 result; // rax
 
-  v3 = 0;
   if ( !(unsigned int)CPointerInfoNode::IsValid(a2) )
     return 1LL;
-  LOBYTE(v3) = (unsigned int)CPointerInfoNode::IsTargetSetForRetrieval(v2, gptiCurrent) != 0;
-  return v3;
+  result = CPointerInfoNode::IsTargetSetForRetrieval(v2, gptiCurrent);
+  if ( (_DWORD)result )
+    return 1LL;
+  return result;
 }

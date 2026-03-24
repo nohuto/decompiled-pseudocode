@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFlushUnsupportedOperationTelemetry @ 0x1406C772C
+ * XREFs of CmpFlushUnsupportedOperationTelemetry @ 0x1406C770C
  * Callers:
  *     CmpDoReconcileNextHive @ 0x1405B0F90 (CmpDoReconcileNextHive.c)
- *     CmShutdownSystem @ 0x1407EC8D4 (CmShutdownSystem.c)
+ *     CmShutdownSystem @ 0x1407EC8B4 (CmShutdownSystem.c)
  * Callees:
- *     CmpSendUnsupportedOperationTelemetryEvent @ 0x1407FA400 (CmpSendUnsupportedOperationTelemetryEvent.c)
+ *     CmpSendUnsupportedOperationTelemetryEvent @ 0x1407FA3E0 (CmpSendUnsupportedOperationTelemetryEvent.c)
  */
 
 __int64 CmpFlushUnsupportedOperationTelemetry()

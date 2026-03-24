@@ -1,48 +1,55 @@
 /*
- * XREFs of HvlParkedVirtualProcessors @ 0x140546A48
+ * XREFs of HvlParkedVirtualProcessors @ 0x1404F7BD0
  * Callers:
- *     PpmParkReportMask @ 0x14035A760 (PpmParkReportMask.c)
+ *     PpmParkReportMask @ 0x14030F3B0 (PpmParkReportMask.c)
  * Callees:
- *     HvcallFastExtended @ 0x1403CBB50 (HvcallFastExtended.c)
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
- *     HvlpAffinityToHvProcessorSet @ 0x140549750 (HvlpAffinityToHvProcessorSet.c)
+ *     KeIsEmptyAffinityEx @ 0x140228520 (KeIsEmptyAffinityEx.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x14038FD8C (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
  */
 
 char HvlParkedVirtualProcessors()
 {
-  int v0; // eax
-  PHYSICAL_ADDRESS *v2; // rax
-  int v3; // eax
-  PHYSICAL_ADDRESS *v4; // rax
-  __int128 v5; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v6; // [rsp+48h] [rbp-B8h]
-  __int64 v7; // [rsp+50h] [rbp-B0h]
-  _BYTE v8[160]; // [rsp+60h] [rbp-A0h] BYREF
+  char result; // al
+  __int64 v1; // rbx
+  __int64 v2; // r9
+  unsigned __int64 v3; // rcx
+  _BYTE *i; // rdx
+  unsigned __int64 v5; // rcx
 
-  v6 = 0LL;
-  LODWORD(v7) = 0;
-  v5 = 0LL;
-  memset(v8, 0, sizeof(v8));
-  if ( (HvlEnlightenments & 0x80u) == 0 || (unsigned __int64)((HvlpFlags >> 8) & 0xF) + 3 >= 0xE )
+  result = HvlpEnlightenments;
+  if ( (HvlpEnlightenments & 8) != 0 )
   {
-    v2 = HvlpAcquireHypercallPage((__int64)&v5, 1, (__int64)v8, 80LL);
-    v3 = HvlpAffinityToHvProcessorSet(PpmPerfCoreParkingMask, v2, (v5 & 2) != 0 ? 64 : 4080);
-    if ( v3 == -1 )
+    result = HvlpUseExtendedProcessorSetHypercalls();
+    v1 = 0LL;
+    if ( !result )
     {
-      HvlpReleaseHypercallPage((__int64)&v5);
-      v4 = HvlpAcquireHypercallPage((__int64)&v5, 1, 0LL, 0LL);
-      v3 = HvlpAffinityToHvProcessorSet(PpmPerfCoreParkingMask, v4, 4080LL);
+      if ( !(unsigned int)KeIsEmptyAffinityEx(PpmPerfCoreParkingMask) )
+      {
+        v3 = qword_140C11488;
+        if ( HvlpVirtualProcessorsIdentityMapped )
+        {
+          v1 = qword_140C11488;
+        }
+        else
+        {
+          for ( i = &unk_140D006C3; ; i += 4 )
+          {
+            if ( (v3 & 1) != 0 )
+              v1 |= 1LL << *(i - 2);
+            v5 = v3 >> 1;
+            if ( !v5 )
+              break;
+            if ( (v5 & 1) != 0 )
+              v1 |= 1LL << *i;
+            v3 = v5 >> 1;
+            if ( !v3 )
+              break;
+          }
+        }
+      }
+      return HvcallInitiateHypercall(65545, v1, 0LL, v2);
     }
-    HvcallInitiateHypercall(((v3 + 7) << 14) & 0x3FE0000 | 9);
-    return HvlpReleaseHypercallPage((__int64)&v5);
   }
-  else
-  {
-    v0 = HvlpAffinityToHvProcessorSet(PpmPerfCoreParkingMask, v8, 96LL);
-    return HvcallFastExtended(((v0 + 7) << 14) & 0x3FE0000 | 0x10009u, (__int64)v8, v0 + 16, 0LL, 0);
-  }
+  return result;
 }

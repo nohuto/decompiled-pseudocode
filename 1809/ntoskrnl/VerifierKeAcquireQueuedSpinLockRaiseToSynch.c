@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x140290700 (KeAcquireQueuedSpinLockRaiseToSynch.c)
+ *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x140290800 (KeAcquireQueuedSpinLockRaiseToSynch.c)
  *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
  *     ViKeRaiseIrqlSanityChecks @ 0x14093B048 (ViKeRaiseIrqlSanityChecks.c)
  */

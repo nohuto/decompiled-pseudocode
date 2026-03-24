@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmUpdateProcessorIdleAccounting @ 0x14039F9F4
+ * XREFs of PpmUpdateProcessorIdleAccounting @ 0x1403C4588
  * Callers:
- *     PpmInstallNewIdleStates @ 0x14039F2F0 (PpmInstallNewIdleStates.c)
- *     PpmTranslateIdleAccounting @ 0x140597FE0 (PpmTranslateIdleAccounting.c)
+ *     PpmInstallNewIdleStates @ 0x1403C3E70 (PpmInstallNewIdleStates.c)
+ *     PpmTranslateIdleAccounting @ 0x1405771C0 (PpmTranslateIdleAccounting.c)
  * Callees:
  *     <none>
  */
@@ -22,13 +22,13 @@ void __fastcall PpmUpdateProcessorIdleAccounting(_QWORD *a1)
   {
     v2 = a1[2];
     a1[2] = 0LL;
-    v3 = *(unsigned int *)(v1 + 28);
+    v3 = *(unsigned int *)(v1 + 20);
     a1[3] += v2;
-    v4 = a1[1] + 1008 * v3;
+    v4 = a1[1] + 1000 * v3;
     *(_QWORD *)(v4 + 40) += v2;
-    if ( *(_DWORD *)(v1 + 76) == 3 )
+    if ( *(_DWORD *)(v1 + 68) == 3 )
     {
-      if ( *(int *)(v1 + 72) < 0 )
+      if ( *(int *)(v1 + 64) < 0 )
       {
         ++*(_DWORD *)(v4 + 52);
       }
@@ -37,24 +37,28 @@ void __fastcall PpmUpdateProcessorIdleAccounting(_QWORD *a1)
         ++*(_DWORD *)(v4 + 56);
         v5 = (unsigned __int64 *)&PpmIdleIntervalLimits;
         v6 = 0LL;
-        while ( v2 >= *v5 )
+        do
         {
+          if ( v2 < *v5 )
+            break;
           v6 = (unsigned int)(v6 + 1);
           v5 += 3;
-          if ( (unsigned int)v6 >= 0x1A )
-          {
-            ++*(_DWORD *)(v4 + 60);
-            goto LABEL_12;
-          }
         }
-        v7 = 32 * v6;
-        *(_QWORD *)(v7 + v4 + 216) += v2;
-        ++*(_DWORD *)(v7 + v4 + 240);
-        if ( v2 < *(_QWORD *)(v7 + v4 + 224) )
-          *(_QWORD *)(v7 + v4 + 224) = v2;
-        if ( v2 > *(_QWORD *)(v7 + v4 + 232) )
-          *(_QWORD *)(v7 + v4 + 232) = v2;
-LABEL_12:
+        while ( (unsigned int)v6 < 0x1A );
+        if ( (unsigned int)v6 >= 0x1A )
+        {
+          ++*(_DWORD *)(v4 + 60);
+        }
+        else
+        {
+          v7 = 32 * v6;
+          *(_QWORD *)(v7 + v4 + 208) += v2;
+          ++*(_DWORD *)(v7 + v4 + 232);
+          if ( v2 < *(_QWORD *)(v7 + v4 + 216) )
+            *(_QWORD *)(v7 + v4 + 216) = v2;
+          if ( v2 > *(_QWORD *)(v7 + v4 + 224) )
+            *(_QWORD *)(v7 + v4 + 224) = v2;
+        }
         if ( v2 < *(_QWORD *)(v4 + 64) )
           *(_QWORD *)(v4 + 64) = v2;
         if ( v2 > *(_QWORD *)(v4 + 72) )
@@ -66,7 +70,7 @@ LABEL_12:
       ++*(_DWORD *)(v4 + 48);
     }
   }
-  *(_DWORD *)(v1 + 72) = 0;
-  *(_DWORD *)(v1 + 76) = 3;
+  *(_DWORD *)(v1 + 64) = 0;
+  *(_DWORD *)(v1 + 68) = 3;
   *(_BYTE *)(v1 + 5) = 0;
 }

@@ -1,68 +1,74 @@
 /*
- * XREFs of ?_ConstructClone@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C03C1A00
+ * XREFs of ?_ConstructClone@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C02EF42C
  * Callers:
- *     ??RBTL_TOPOLOGY_CONSTRUCTOR@@QEAAJW4CCD_TOPOLOGY_CLASS@@PEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C03C064C (--RBTL_TOPOLOGY_CONSTRUCTOR@@QEAAJW4CCD_TOPOLOGY_CLASS@@PEAVCCD_TOPOLOGY@@PEAG@Z.c)
- *     ?_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z @ 0x1C03C1AE0 (-_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z.c)
+ *     ??RBTL_TOPOLOGY_CONSTRUCTOR@@QEAAJW4CCD_TOPOLOGY_CLASS@@PEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C02EDE18 (--RBTL_TOPOLOGY_CONSTRUCTOR@@QEAAJW4CCD_TOPOLOGY_CLASS@@PEAVCCD_TOPOLOGY@@PEAG@Z.c)
+ *     ?_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z @ 0x1C02EF524 (-_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z.c)
  * Callees:
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0002EE4 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     ?SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z @ 0x1C03BC170 (-SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z.c)
- *     ?_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z @ 0x1C03C1254 (-_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z.c)
- *     ?_ConstructExtendSecondPath@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C03C2120 (-_ConstructExtendSecondPath@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z.c)
- *     ?_ConstructInternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ @ 0x1C03C2314 (-_ConstructInternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000983C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     ?SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z @ 0x1C02EBD50 (-SwapPathsDescriptors@CCD_TOPOLOGY@@QEAAJII@Z.c)
+ *     ?_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z @ 0x1C02EEBF0 (-_AddSecondaryPathToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_NAEBU_LUID@@I@Z.c)
+ *     ?_ConstructExtendSecondPath@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z @ 0x1C02EFC00 (-_ConstructExtendSecondPath@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJ_N@Z.c)
+ *     ?_ConstructInternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ @ 0x1C02EFE10 (-_ConstructInternal@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJXZ.c)
  */
 
-__int64 __fastcall BTL_TOPOLOGY_CONSTRUCTOR::_ConstructClone(BTL_TOPOLOGY_CONSTRUCTOR *this, char a2)
+__int64 __fastcall BTL_TOPOLOGY_CONSTRUCTOR::_ConstructClone(BTL_TOPOLOGY_CONSTRUCTOR *this, bool a2)
 {
   __int64 result; // rax
-  unsigned int v5; // edi
-  unsigned int v6; // r9d
-  int v7; // eax
-  __int64 v8; // rax
+  __int64 v5; // rdx
+  unsigned __int16 v6; // di
+  __int64 v7; // rsi
+  unsigned int v8; // r9d
+  int v9; // eax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  _QWORD *v12; // rax
+  __int64 v13; // rax
 
   result = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructInternal(this);
+  v6 = 0;
   if ( (int)result >= 0 )
   {
+    LOBYTE(v5) = a2;
     if ( *((_BYTE *)this + 60) )
     {
       *((_BYTE *)this + 10) = 1;
       result = BTL_TOPOLOGY_CONSTRUCTOR::_ConstructExtendSecondPath(this, a2);
-      v5 = result;
+      LODWORD(v7) = result;
       if ( (int)result < 0 )
         return result;
     }
     else
     {
-      v6 = *((_DWORD *)this + 5);
+      v8 = *((_DWORD *)this + 5);
       *((_BYTE *)this + 10) = 0;
-      v7 = BTL_TOPOLOGY_CONSTRUCTOR::_AddSecondaryPathToTopology(
+      v9 = BTL_TOPOLOGY_CONSTRUCTOR::_AddSecondaryPathToTopology(
              (CCD_TOPOLOGY **)this,
-             a2,
+             v5,
              (const struct _LUID *)((char *)this + 12),
-             v6);
-      v5 = v7;
-      if ( v7 < 0 )
+             v8);
+      v7 = v9;
+      if ( v9 < 0 )
       {
-        WdLogSingleEntry5(
-          2LL,
-          v7,
-          *((int *)this + 4),
-          *((unsigned int *)this + 3),
-          *((unsigned int *)this + 5),
-          *(_QWORD *)(*(_QWORD *)this + 64LL));
-        return v5;
+        v12 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+        v12[3] = v7;
+        v12[4] = *((int *)this + 4);
+        v12[5] = *((unsigned int *)this + 3);
+        v12[6] = *((unsigned int *)this + 5);
+        v12[7] = *(_QWORD *)(*(_QWORD *)this + 64LL);
+        WdLogEvent5_WdError(v12);
+        return (unsigned int)v7;
       }
       if ( IsInternalVideoOutput(*((enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)this + 7)) )
       {
-        v8 = *(_QWORD *)(*(_QWORD *)this + 64LL);
-        if ( v8 )
-        {
-          if ( *(_WORD *)(v8 + 20) >= 2u )
-            v5 = CCD_TOPOLOGY::SwapPathsDescriptors(*(void ***)this, 0, 1u);
-        }
+        v13 = *(_QWORD *)(*(_QWORD *)this + 64LL);
+        if ( v13 )
+          v6 = *(_WORD *)(v13 + 20);
+        if ( v6 >= 2u )
+          LODWORD(v7) = CCD_TOPOLOGY::SwapPathsDescriptors(*(void ***)this, 0, 1u);
       }
     }
     *((_BYTE *)this + 11) = 1;
-    return v5;
+    return (unsigned int)v7;
   }
   return result;
 }

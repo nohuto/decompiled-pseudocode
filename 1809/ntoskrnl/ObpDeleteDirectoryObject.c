@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpDeleteDirectoryObject @ 0x1406C7770
+ * XREFs of ObpDeleteDirectoryObject @ 0x1406C7750
  * Callers:
  *     <none>
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x1400C1040 (ObDereferenceObjectDeferDelete.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
  */
 
 void __fastcall ObpDeleteDirectoryObject(__int64 a1)

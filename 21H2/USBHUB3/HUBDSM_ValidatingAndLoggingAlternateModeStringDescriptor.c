@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor @ 0x1C0020830
+ * XREFs of HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor @ 0x1C0020420
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBDTX_LogAlternateMode @ 0x1C002A65C (HUBDTX_LogAlternateMode.c)
- *     HUBDESC_InternalValidateStringDescriptor @ 0x1C00399FC (HUBDESC_InternalValidateStringDescriptor.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDTX_LogAlternateMode @ 0x1C0029F8C (HUBDTX_LogAlternateMode.c)
+ *     HUBDESC_InternalValidateStringDescriptor @ 0x1C003917C (HUBDESC_InternalValidateStringDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor(__in
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   v5 = *(_QWORD *)(v1 + 8);
   v18 = v1;
   v13 = 0LL;

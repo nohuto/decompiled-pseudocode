@@ -1,13 +1,13 @@
 /*
- * XREFs of Controller_RetrievePciData @ 0x1C0074B0C
+ * XREFs of Controller_RetrievePciData @ 0x1C006C900
  * Callers:
- *     Controller_Create @ 0x1C0071304 (Controller_Create.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     Controller_PopulatePciDeviceInformation @ 0x1C0074CEC (Controller_PopulatePciDeviceInformation.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Controller_PopulatePciDeviceInformation @ 0x1C006CAE0 (Controller_PopulatePciDeviceInformation.c)
  */
 
 __int64 __fastcall Controller_RetrievePciData(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -42,7 +42,7 @@ __int64 __fastcall Controller_RetrievePciData(__int64 a1, int a2, __int64 a3, __
   if ( v8 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v9) = 2;
-    WPP_RECORDER_SF_d(a2, v9, 4, 135, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, v8);
+    WPP_RECORDER_SF_d(a2, v9, 4, 134, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v8);
   }
   v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64, __int64, unsigned int *, int *))(WdfFunctions_01023 + 648))(
           WdfDriverGlobals,
@@ -56,10 +56,10 @@ __int64 __fastcall Controller_RetrievePciData(__int64 a1, int a2, __int64 a3, __
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return v12;
-    v16 = 136;
+    v16 = 135;
 LABEL_11:
     LOBYTE(v11) = 2;
-    WPP_RECORDER_SF_d(a2, v11, 4, v16, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, v10);
+    WPP_RECORDER_SF_d(a2, v11, 4, v16, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v10);
     return v12;
   }
   v13 = v20;
@@ -79,7 +79,7 @@ LABEL_11:
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return v12;
-    v16 = 137;
+    v16 = 136;
     goto LABEL_11;
   }
   memset(v23, 0, sizeof(v23));
@@ -89,7 +89,7 @@ LABEL_11:
     v12 = -1073741823;
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return v12;
-    v16 = 138;
+    v16 = 137;
     goto LABEL_11;
   }
   Controller_PopulatePciDeviceInformation(a2, v21, (unsigned __int16)v14, v13, (__int64)v22, (__int64)v23, a3, a4);

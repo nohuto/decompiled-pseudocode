@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializeProviderInfoBuffer @ 0x1406EDEC8
+ * XREFs of EtwpInitializeProviderInfoBuffer @ 0x1406BC68C
  * Callers:
- *     EtwpRealtimeNotifyConsumers @ 0x1406EDD54 (EtwpRealtimeNotifyConsumers.c)
- *     EtwpSendDbgId @ 0x1409E92F8 (EtwpSendDbgId.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x1406BC504 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpSendDbgId @ 0x14093CD50 (EtwpSendDbgId.c)
  * Callees:
- *     EtwpInitializeBufferHeader @ 0x1402619C4 (EtwpInitializeBufferHeader.c)
- *     EtwpResetBufferHeader @ 0x1402E1C2C (EtwpResetBufferHeader.c)
+ *     EtwpResetBufferHeader @ 0x140266374 (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x1402ED46C (EtwpInitializeBufferHeader.c)
  */
 
 __int64 __fastcall EtwpInitializeProviderInfoBuffer(__int64 a1, __int64 a2, int a3)
@@ -19,10 +19,10 @@ __int64 __fastcall EtwpInitializeProviderInfoBuffer(__int64 a1, __int64 a2, int 
   *(_DWORD *)(a2 + 44) = 3;
   result = 1LL;
   *(_WORD *)(a2 + 52) = 1;
-  *(_OWORD *)(a2 + 56) = *(_OWORD *)(a1 + 304);
-  v7 = *(_QWORD *)(a2 + 32) ^ (*(_DWORD *)(a2 + 32) ^ *(_DWORD *)(a1 + 200)) & 7;
+  *(_OWORD *)(a2 + 56) = *(_OWORD *)(a1 + 320);
+  v7 = *(_QWORD *)(a2 + 32) ^ (*(_DWORD *)(a2 + 32) ^ *(_DWORD *)(a1 + 216)) & 7;
   *(_QWORD *)(a2 + 32) = v7;
-  switch ( *(_DWORD *)(a1 + 200) )
+  switch ( *(_DWORD *)(a1 + 216) )
   {
     case 1:
       goto LABEL_2;

@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipQueryGuidInfo @ 0x140761AF0
+ * XREFs of WmipQueryGuidInfo @ 0x140761AD0
  * Callers:
- *     WmipIoControl @ 0x1406A9E00 (WmipIoControl.c)
+ *     WmipIoControl @ 0x1406A9DE0 (WmipIoControl.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)

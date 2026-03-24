@@ -1,14 +1,14 @@
 /*
- * XREFs of ?HitTest@CNineGridBrush@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180018004
+ * XREFs of ?HitTest@CNineGridBrush@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x18001804C
  * Callers:
- *     ?HitTest@CNineGridBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x18011E180 (-HitTest@CNineGridBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     ?HitTest@CNineGridBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F6110 (-HitTest@CNineGridBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
  * Callees:
- *     ?TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@PEAU2@@Z @ 0x180035EE4 (-TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@P.c)
- *     ?ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z @ 0x180080020 (-ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?IsPointInRect@@YA_NAEBUD2D_POINT_2F@@AEBUMilRectF@@@Z @ 0x1800DFAE0 (-IsPointInRect@@YA_NAEBUD2D_POINT_2F@@AEBUMilRectF@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@PEAU2@@Z @ 0x180007FFC (-TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@P.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsPointInRect@@YA_NAEBUD2D_POINT_2F@@AEBUMilRectF@@@Z @ 0x180068D98 (-IsPointInRect@@YA_NAEBUD2D_POINT_2F@@AEBUMilRectF@@@Z.c)
+ *     ?ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z @ 0x180087360 (-ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CNineGridBrush::HitTest(
@@ -22,12 +22,12 @@ __int64 __fastcall CNineGridBrush::HitTest(
   int v10; // eax
   unsigned int v11; // ecx
   unsigned int v12; // edi
-  int v13; // eax
-  unsigned int v14; // ecx
-  struct D2D_RECT_F *v15; // r9
-  float v16; // xmm4_4
-  FLOAT v17; // xmm0_4
-  FLOAT v18; // xmm3_4
+  float v13; // xmm4_4
+  FLOAT v14; // xmm0_4
+  FLOAT v15; // xmm3_4
+  int v17; // eax
+  unsigned int v18; // ecx
+  struct D2D_RECT_F *v19; // r9
   struct D2D_MATRIX_3X2_F v20; // [rsp+30h] [rbp-40h] BYREF
   _BYTE v21[16]; // [rsp+58h] [rbp-18h] BYREF
 
@@ -49,32 +49,32 @@ __int64 __fastcall CNineGridBrush::HitTest(
     {
       if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this - 12) + 56LL))(
              *((_QWORD *)this - 12),
-             181LL) )
+             180LL) )
       {
-        v13 = CSurfaceBrush::ComputeLayout(
+        v17 = CSurfaceBrush::ComputeLayout(
                 *((CSurfaceBrush **)this - 12),
                 a2,
                 (struct CContent::LayoutData *)v20.m[2],
                 0LL);
-        v12 = v13;
-        if ( v13 < 0 )
+        v12 = v17;
+        if ( v17 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x97u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x97u, 0LL);
           return v12;
         }
         D2DMatrixHelper::TransformRect_AxisAlignedPreserving(
           (D2DMatrixHelper *)v21,
           (const struct D2D_RECT_F *)v20.m[2],
           &v20,
-          v15);
+          v19);
       }
-      v16 = *((float *)this - 22) * *((float *)this - 21);
-      v17 = v20.m22 - (float)(*((float *)this - 16) * *((float *)this - 15));
-      v18 = (float)(*((float *)this - 20) * *((float *)this - 19)) + v20.m12;
+      v13 = *((float *)this - 22) * *((float *)this - 21);
+      v14 = v20.m22 - (float)(*((float *)this - 16) * *((float *)this - 15));
+      v15 = (float)(*((float *)this - 20) * *((float *)this - 19)) + v20.m12;
       v20.m21 = v20.m21 - (float)(*((float *)this - 18) * *((float *)this - 17));
-      v20.m22 = v17;
-      v20.m12 = v18;
-      v20.m11 = v16 + v20.m11;
+      v20.m22 = v14;
+      v20.m12 = v15;
+      v20.m11 = v13 + v20.m11;
       if ( IsPointInRect(a3, (const struct MilRectF *)&v20) )
         *a4 = 0;
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrFindResourceEx_U @ 0x140890E90
+ * XREFs of LdrFindResourceEx_U @ 0x140890E70
  * Callers:
  *     <none>
  * Callees:
- *     LdrpSearchResourceSection_U @ 0x14067AF10 (LdrpSearchResourceSection_U.c)
+ *     LdrpSearchResourceSection_U @ 0x14067AEF0 (LdrpSearchResourceSection_U.c)
  */
 
 __int64 __fastcall LdrFindResourceEx_U(int a1, char *a2, __int64 *a3, unsigned int a4, __int64 *a5)

@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_InnerConeColor__ @ 0x1800021D0
+ * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_InnerConeColor__ @ 0x180001E50
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CCompositionSpotLight::sc_InnerConeColor__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D1A90 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
-  qword_1803D1AA0 = v1;
+  xmmword_180345A70 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
+  qword_180345A80 = v1;
   return result;
 }

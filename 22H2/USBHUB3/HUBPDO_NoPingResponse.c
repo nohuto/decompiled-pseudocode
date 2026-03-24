@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPDO_NoPingResponse @ 0x1C001CCA0
+ * XREFs of HUBPDO_NoPingResponse @ 0x1C001A430
  * Callers:
  *     <none>
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 __int64 __fastcall HUBPDO_NoPingResponse(__int64 a1, __int64 a2)

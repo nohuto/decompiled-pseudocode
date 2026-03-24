@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIIoctlQueryDeviceBiosName @ 0x1C00AF388
+ * XREFs of ACPIIoctlQueryDeviceBiosName @ 0x1C00AFEE0
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001410 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
  * Callees:
- *     ACPIQueryDeviceBiosNameEx @ 0x1C0006494 (ACPIQueryDeviceBiosNameEx.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     ACPIQueryDeviceBiosName @ 0x1C0099CE0 (ACPIQueryDeviceBiosName.c)
  */
 
 __int64 __fastcall ACPIIoctlQueryDeviceBiosName(ULONG_PTR a1, IRP *a2, __int64 a3)
@@ -16,7 +16,7 @@ __int64 __fastcall ACPIIoctlQueryDeviceBiosName(ULONG_PTR a1, IRP *a2, __int64 a
 
   a2->IoStatus.Information = 0LL;
   Src = 0LL;
-  v5 = ACPIQueryDeviceBiosNameEx(a1, 1u, &Src);
+  v5 = ACPIQueryDeviceBiosName(a1, &Src);
   if ( v5 >= 0 )
   {
     v6 = Src.Length + 2;

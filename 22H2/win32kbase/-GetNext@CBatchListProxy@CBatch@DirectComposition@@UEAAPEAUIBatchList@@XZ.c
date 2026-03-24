@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetNext@CBatchListProxy@CBatch@DirectComposition@@UEAAPEAUIBatchList@@XZ @ 0x1C020C570
+ * XREFs of ?GetNext@CBatchListProxy@CBatch@DirectComposition@@UEAAPEAUIBatchList@@XZ @ 0x1C01D4B50
  * Callers:
  *     <none>
  * Callees:

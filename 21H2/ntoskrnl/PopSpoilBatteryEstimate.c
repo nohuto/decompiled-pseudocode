@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSpoilBatteryEstimate @ 0x14080D164
+ * XREFs of PopSpoilBatteryEstimate @ 0x140781608
  * Callers:
- *     PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x140808CE0 (PopSpoilEstimatesOnPowerStateTransitionWorker.c)
- *     PopUpdateConsoleDisplayState @ 0x14080D028 (PopUpdateConsoleDisplayState.c)
+ *     PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x14077A640 (PopSpoilEstimatesOnPowerStateTransitionWorker.c)
+ *     PopUpdateConsoleDisplayState @ 0x1407814E4 (PopUpdateConsoleDisplayState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopBatteryQueueWork @ 0x14036972C (PopBatteryQueueWork.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     PopBatteryQueueWork @ 0x14039AABC (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
@@ -39,7 +39,7 @@ NTSTATUS __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
     if ( !(_BYTE)v2 )
       v5 = "temporarily";
     result = DbgPrintEx(0x92u, 3u, "Battery estimates spoiled %s by %d; mask=%x\n", v5, a1, PopEstimateSpoilerMask);
-    if ( (unsigned int)dword_140C03A00 > 5 )
+    if ( (unsigned int)dword_140C02228 > 5 )
     {
       v12 = 0;
       v15 = 0;
@@ -50,8 +50,8 @@ NTSTATUS __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
       v8 = a1;
       v14 = 4;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140C03A00,
-               (unsigned __int8 *)&dword_140030E0C,
+               (__int64)&dword_140C02228,
+               (unsigned __int8 *)&byte_140029607,
                0LL,
                0LL,
                4u,

@@ -1,36 +1,45 @@
 /*
- * XREFs of ?UnregisterSources@CExpression@@IEAAXXZ @ 0x1800BCA04
+ * XREFs of ?UnregisterSources@CExpression@@IEAAXXZ @ 0x180065798
  * Callers:
- *     ?SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z @ 0x1800BC5F0 (-SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z.c)
- *     ??1CExpression@@MEAA@XZ @ 0x1800BCDCC (--1CExpression@@MEAA@XZ.c)
+ *     ??1CExpression@@UEAA@XZ @ 0x180062E70 (--1CExpression@@UEAA@XZ.c)
+ *     ?SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z @ 0x1801C1460 (-SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z.c)
  * Callees:
- *     ?RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z @ 0x1800BCA98 (-RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z.c)
+ *     ?RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z @ 0x180065838 (-RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z.c)
  */
 
-void __fastcall CExpression::UnregisterSources(struct CBaseExpression **this)
+void __fastcall CExpression::UnregisterSources(CExpression *this)
 {
-  struct CBaseExpression *v2; // rsi
-  __int64 i; // rdi
-  struct CBaseExpression *v4; // r8
-  __int64 v5; // rcx
-  CResource *v6; // rcx
+  char v2; // cl
+  struct CBaseExpression *v3; // rsi
+  __int64 v4; // rdi
+  __int64 v5; // r8
+  __int64 v6; // rcx
+  CResource *v7; // rcx
 
-  if ( ((_BYTE)this[57] & 2) != 0 )
+  v2 = *((_BYTE *)this + 432);
+  if ( (v2 & 2) != 0 )
   {
-    v2 = (struct CBaseExpression *)this;
-    if ( this[56] )
-      v2 = this[56];
-    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 110); i = (unsigned int)(i + 1) )
+    v3 = this;
+    if ( *((_QWORD *)this + 53) )
+      v3 = (struct CBaseExpression *)*((_QWORD *)this + 53);
+    v4 = 0LL;
+    if ( *((_DWORD *)this + 104) )
     {
-      v4 = this[54];
-      v5 = *((_QWORD *)this[52] + *((unsigned int *)v4 + 6 * i + 5));
-      if ( v5 )
+      do
       {
-        v6 = *(CResource **)(v5 + 16);
+        v5 = *((_QWORD *)this + 51);
+        v6 = *(_QWORD *)(*((_QWORD *)this + 49) + 8LL * *(unsigned int *)(v5 + 24 * v4 + 20));
         if ( v6 )
-          CResource::RemoveSourceAnimation(v6, v2, *((_DWORD *)v4 + 6 * i));
+        {
+          v7 = *(CResource **)(v6 + 16);
+          if ( v7 )
+            CResource::RemoveSourceAnimation(v7, v3, *(_DWORD *)(v5 + 24 * v4));
+        }
+        v4 = (unsigned int)(v4 + 1);
       }
+      while ( (unsigned int)v4 < *((_DWORD *)this + 104) );
+      v2 = *((_BYTE *)this + 432);
     }
-    *((_BYTE *)this + 456) &= ~2u;
+    *((_BYTE *)this + 432) = v2 & 0xFD;
   }
 }

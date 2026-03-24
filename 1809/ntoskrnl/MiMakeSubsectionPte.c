@@ -4,7 +4,7 @@
  *     MiBuildImageControlArea @ 0x14061DA70 (MiBuildImageControlArea.c)
  *     MiParseImageSectionHeaders @ 0x14061E300 (MiParseImageSectionHeaders.c)
  *     MiInitializePrototypePtes @ 0x14061F030 (MiInitializePrototypePtes.c)
- *     MiAllocatePerSessionProtos @ 0x1406C9210 (MiAllocatePerSessionProtos.c)
+ *     MiAllocatePerSessionProtos @ 0x1406C91F0 (MiAllocatePerSessionProtos.c)
  * Callees:
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  */

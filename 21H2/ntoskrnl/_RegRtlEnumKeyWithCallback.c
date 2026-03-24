@@ -1,74 +1,86 @@
 /*
- * XREFs of _RegRtlEnumKeyWithCallback @ 0x14083EB44
+ * XREFs of _RegRtlEnumKeyWithCallback @ 0x1407B14E0
  * Callers:
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14083EAEC (_PnpCtxRegEnumKeyWithCallback.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B1488 (_PnpCtxRegEnumKeyWithCallback.c)
  * Callees:
- *     IoGetStackLimits @ 0x1402AB940 (IoGetStackLimits.c)
- *     _SysCtxInternalEnumSubkeyCallback @ 0x1403D0BA8 (_SysCtxInternalEnumSubkeyCallback.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _RegRtlEnumKey @ 0x1406CB3B4 (_RegRtlEnumKey.c)
- *     _RegRtlQueryInfoKey @ 0x1406CB590 (_RegRtlQueryInfoKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IoGetStackLimits @ 0x140350420 (IoGetStackLimits.c)
+ *     _SysCtxInternalEnumSubkeyCallback @ 0x1403C3768 (_SysCtxInternalEnumSubkeyCallback.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _RegRtlQueryInfoKey @ 0x1406B69A8 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlEnumKey @ 0x140766B7C (_RegRtlEnumKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlEnumKeyWithCallback(HANDLE KeyHandle, __int64 a2, __int64 a3)
 {
-  unsigned int v3; // ebx
-  void *v5; // rdi
+  int v3; // ebx
+  void *v5; // rsi
   unsigned int v7; // eax
-  unsigned __int64 v8; // rsi
-  char *v9; // r15
-  ULONG v10; // r14d
-  unsigned int v11; // eax
+  unsigned __int64 v8; // rdi
+  unsigned int *v9; // r14
+  ULONG v10; // r15d
+  int v11; // eax
   int v12; // eax
-  __int64 Pool2; // rax
-  __int64 v15; // rax
-  int v16; // eax
-  int v17; // eax
-  unsigned int v18; // [rsp+30h] [rbp-59h] BYREF
+  PVOID PoolWithTag; // rax
+  PVOID v15; // rax
+  unsigned int v16; // [rsp+30h] [rbp-59h] BYREF
   unsigned __int64 HighLimit; // [rsp+38h] [rbp-51h] BYREF
   unsigned __int64 LowLimit; // [rsp+40h] [rbp-49h] BYREF
-  char v21; // [rsp+50h] [rbp-39h] BYREF
+  char v19; // [rsp+50h] [rbp-39h] BYREF
 
   v3 = 0;
-  v18 = 0;
+  v16 = 0;
   HighLimit = 0LL;
   v5 = 0LL;
   LowLimit = 0LL;
   IoGetStackLimits(&LowLimit, &HighLimit);
   if ( (unsigned __int64)&HighLimit - LowLimit < 0x400 )
     return (unsigned int)-1073741670;
-  if ( (unsigned int)RegRtlQueryInfoKey(KeyHandle, 0LL, &v18, 0LL, 0LL, 0LL) )
-    goto LABEL_8;
-  v7 = v18;
-  if ( v18 )
+  if ( (unsigned int)RegRtlQueryInfoKey(KeyHandle, 0LL, &v16, 0LL, 0LL, 0LL) )
   {
-    if ( v18 + 1 < v18 )
-      return (unsigned int)-1073741675;
-    v7 = v18 + 1;
+    LODWORD(v8) = 0;
   }
-  v8 = 2LL * v7;
-  if ( v8 > 0xFFFFFFFF )
-    return (unsigned int)-1073741675;
+  else
+  {
+    v7 = v16;
+    if ( v16 )
+    {
+      if ( v16 + 1 < v16 )
+      {
+        v3 = -1073741675;
+        v7 = -1;
+      }
+      else
+      {
+        v7 = v16 + 1;
+      }
+      if ( v3 < 0 )
+        return (unsigned int)v3;
+      v3 = 0;
+    }
+    v8 = 2LL * v7;
+    if ( v8 > 0xFFFFFFFF )
+      return (unsigned int)-1073741675;
+  }
   if ( (unsigned int)v8 > 0x50 )
   {
-    Pool2 = ExAllocatePool2(256LL, (unsigned int)v8, 1279739218LL);
-    v5 = (void *)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)v8, 0x4C474552u);
+    v5 = PoolWithTag;
+    if ( !PoolWithTag )
       return (unsigned int)-1073741801;
-    v9 = (char *)Pool2;
-    goto LABEL_9;
+    v9 = (unsigned int *)PoolWithTag;
   }
-LABEL_8:
-  v9 = &v21;
-  LODWORD(v8) = 80;
-LABEL_9:
+  else
+  {
+    v9 = (unsigned int *)&v19;
+    LODWORD(v8) = 80;
+  }
   v10 = 0;
   while ( 1 )
   {
-    v18 = (unsigned int)v8 >> 1;
-    v11 = RegRtlEnumKey(KeyHandle, v10, v9, &v18);
+    v16 = (unsigned int)v8 >> 1;
+    v11 = RegRtlEnumKey(KeyHandle, v10, v9, &v16);
     if ( v11 == -2147483622 )
       break;
     if ( v11 == -1073741444 )
@@ -78,7 +90,7 @@ LABEL_9:
     }
     if ( v11 == -1073741789 )
     {
-      v8 = 2LL * v18;
+      v8 = 2LL * v16;
       if ( v8 > 0xFFFFFFFF )
       {
         v3 = -1073741675;
@@ -87,11 +99,11 @@ LABEL_9:
       v3 = 0;
       if ( v5 )
         ExFreePoolWithTag(v5, 0);
-      v15 = ExAllocatePool2(256LL, (unsigned int)v8, 1279739218LL);
-      v5 = (void *)v15;
+      v15 = ExAllocatePoolWithTag(PagedPool, (unsigned int)v8, 0x4C474552u);
+      v5 = v15;
       if ( !v15 )
         return (unsigned int)-1073741801;
-      v9 = (char *)v15;
+      v9 = (unsigned int *)v15;
     }
     else
     {
@@ -101,27 +113,32 @@ LABEL_9:
         v3 = v11;
         break;
       }
-      *(_WORD *)&v9[2 * ((unsigned __int64)(unsigned int)v8 >> 1) - 2] = 0;
+      *((_WORD *)v9 + ((unsigned __int64)(unsigned int)v8 >> 1) - 1) = 0;
       v12 = SysCtxInternalEnumSubkeyCallback((__int64)KeyHandle, (__int64)v9, a3);
       if ( v12 )
       {
-        v16 = v12 - 1;
-        if ( !v16 )
-          goto LABEL_9;
-        v17 = v16 - 1;
-        if ( v17 )
+        if ( v12 == 1 )
         {
-          if ( v17 == 1 )
+          v10 = 0;
+        }
+        else if ( v12 != 2 )
+        {
+          if ( v12 == 3 )
             v3 = -1073741248;
           else
             v3 = -1073741595;
+          break;
         }
-        break;
       }
-      ++v10;
+      else
+      {
+        ++v10;
+      }
+      if ( v12 == 2 )
+        break;
     }
   }
   if ( v5 )
     ExFreePoolWithTag(v5, 0);
-  return v3;
+  return (unsigned int)v3;
 }

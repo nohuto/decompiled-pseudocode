@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlLoadString @ 0x140891BB0
+ * XREFs of RtlLoadString @ 0x140891B90
  * Callers:
  *     <none>
  * Callees:
- *     DownLevelLanguageNameToLangID @ 0x140182EE0 (DownLevelLanguageNameToLangID.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     LdrpSearchResourceSection_U @ 0x14067AF10 (LdrpSearchResourceSection_U.c)
- *     LdrpAccessResourceData @ 0x14067BD08 (LdrpAccessResourceData.c)
- *     LdrResSearchResource @ 0x14068AD50 (LdrResSearchResource.c)
+ *     DownLevelLanguageNameToLangID @ 0x140182F00 (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     LdrpSearchResourceSection_U @ 0x14067AEF0 (LdrpSearchResourceSection_U.c)
+ *     LdrpAccessResourceData @ 0x14067BCE8 (LdrpAccessResourceData.c)
+ *     LdrResSearchResource @ 0x14068AD30 (LdrResSearchResource.c)
  */
 
 __int64 __fastcall RtlLoadString(

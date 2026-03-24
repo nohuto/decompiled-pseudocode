@@ -1,103 +1,85 @@
 /*
- * XREFs of PiSwIrpPropertySet @ 0x14079CC08
+ * XREFs of PiSwIrpPropertySet @ 0x14078A4A4
  * Callers:
- *     PiSwDispatch @ 0x14079CB30 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14074DB30 (PiSwDispatch.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x140563874 (McTemplateK0zz_EtwWriteTransfer.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x140563944 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     PnpAllocatePWSTR @ 0x1406CCCEC (PnpAllocatePWSTR.c)
- *     PiSwValidatePropertyArray @ 0x14079CE08 (PiSwValidatePropertyArray.c)
- *     PiSwUpdateArrayProperties @ 0x14079CE68 (PiSwUpdateArrayProperties.c)
- *     PiSwPropertySet @ 0x14079CF70 (PiSwPropertySet.c)
- *     PiSwDeviceOperationsAllowed @ 0x14079D088 (PiSwDeviceOperationsAllowed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpAllocatePWSTR @ 0x1406B0F08 (PnpAllocatePWSTR.c)
+ *     PiSwPropertySet @ 0x1407447F8 (PiSwPropertySet.c)
+ *     PiSwValidatePropertyArray @ 0x14074D9C4 (PiSwValidatePropertyArray.c)
+ *     PiSwDeviceOperationsAllowed @ 0x14076E908 (PiSwDeviceOperationsAllowed.c)
+ *     PiSwUpdateArrayProperties @ 0x14078A694 (PiSwUpdateArrayProperties.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiSwIrpPropertySet(PIRP Irp, __int64 a2, __int64 a3)
+__int64 __fastcall PiSwIrpPropertySet(PIRP Irp)
 {
-  struct _IO_STACK_LOCATION *CurrentStackLocation; // rbx
-  const wchar_t **FsContext2; // rdi
-  struct _IRP *MasterIrp; // rcx
-  int updated; // ebx
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
+  __int64 FsContext2; // rsi
+  NTSTATUS updated; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  PVOID v12; // [rsp+68h] [rbp+10h] BYREF
+  PVOID v7; // [rsp+68h] [rbp+10h] BYREF
   PVOID P; // [rsp+70h] [rbp+18h] BYREF
-  __int64 v14; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v9; // [rsp+78h] [rbp+20h] BYREF
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-  FsContext2 = (const wchar_t **)CurrentStackLocation->FileObject->FsContext2;
-  v14 = 0LL;
-  v12 = 0LL;
+  FsContext2 = (__int64)CurrentStackLocation->FileObject->FsContext2;
+  v9 = 0LL;
+  v7 = 0LL;
   P = 0LL;
-  if ( (byte_140C0E20C & 8) != 0 )
-    McTemplateK0zz_EtwWriteTransfer(
-      (__int64)Irp,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_SetDeviceProperty_Start,
-      a3,
-      FsContext2[1],
-      FsContext2[2]);
-  MasterIrp = Irp->AssociatedIrp.MasterIrp;
-  if ( !MasterIrp )
-    goto LABEL_24;
-  updated = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v14);
+  if ( !Irp->AssociatedIrp.MasterIrp )
+    goto LABEL_20;
+  updated = MesDecodeBufferHandleCreate(
+              Irp->AssociatedIrp.MasterIrp,
+              CurrentStackLocation->Parameters.Create.Options,
+              &v9);
   if ( updated < 0 )
-    goto LABEL_14;
-  NdrMesTypeDecode3(v14, "TP 3\a", &off_140A77EA8, &off_140C02F50, 1, &v12, FsContext2);
-  if ( v12 && *((_QWORD *)v12 + 1) && *(_DWORD *)v12 )
+    goto LABEL_12;
+  NdrMesTypeDecode3(v9, "TP 3\a", &off_140983A38, &off_140C01A60, 1, &v7);
+  if ( v7 && *((_QWORD *)v7 + 1) && *(_DWORD *)v7 )
   {
-    updated = PiSwValidatePropertyArray(*((_QWORD *)v12 + 1));
+    updated = PiSwValidatePropertyArray(*((_QWORD *)v7 + 1), *(_DWORD *)v7);
     if ( updated >= 0 )
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
-      if ( (unsigned __int8)PiSwDeviceOperationsAllowed(FsContext2) )
+      if ( PiSwDeviceOperationsAllowed(FsContext2) )
       {
-        updated = PnpAllocatePWSTR(FsContext2[10], 0xC8uLL, 0x57706E50u, &P);
+        updated = PnpAllocatePWSTR(*(NTSTRSAFE_PCWSTR *)(FsContext2 + 80), 0xC8uLL, 0x57706E50u, &P);
         if ( updated >= 0 )
           updated = PiSwUpdateArrayProperties(
-                      FsContext2[21],
-                      *((unsigned int *)FsContext2 + 44),
-                      *((_QWORD *)v12 + 1),
-                      *(unsigned int *)v12);
+                      *(_QWORD *)(FsContext2 + 168),
+                      *(unsigned int *)(FsContext2 + 176),
+                      *((_QWORD *)v7 + 1),
+                      *(unsigned int *)v7);
       }
       else
       {
         updated = -1073741637;
       }
       ExReleaseResourceLite(&PiSwLockObj);
-      KeLeaveCriticalRegion();
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       if ( updated >= 0 )
-        updated = PiSwPropertySet(P, 1LL, *((_QWORD *)v12 + 1), *(unsigned int *)v12);
+        updated = PiSwPropertySet((const WCHAR *)P, 1u, *((_QWORD *)v7 + 1), *(_DWORD *)v7);
     }
   }
   else
   {
-LABEL_24:
+LABEL_20:
     updated = -1073741811;
   }
-LABEL_14:
+LABEL_12:
   if ( P )
     ExFreePoolWithTag(P, 0x57706E50u);
-  if ( v12 )
-    ExFreePoolWithTag(v12, 0x6370726Bu);
-  if ( v14 )
+  if ( v7 )
+    ExFreePoolWithTag(v7, 0x6370726Bu);
+  if ( v9 )
     MesHandleFree();
   Irp->IoStatus.Status = updated;
   IofCompleteRequest(Irp, 0);
-  if ( (byte_140C0E20C & 8) != 0 )
-    McTemplateK0zzd_EtwWriteTransfer(
-      v9,
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_SetDeviceProperty_Stop,
-      v10,
-      FsContext2[1],
-      FsContext2[2],
-      updated);
   return (unsigned int)updated;
 }

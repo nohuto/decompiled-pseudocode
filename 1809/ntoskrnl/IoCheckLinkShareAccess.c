@@ -1,9 +1,9 @@
 /*
  * XREFs of IoCheckLinkShareAccess @ 0x1405F9DE0
  * Callers:
- *     RawCreate @ 0x14068F470 (RawCreate.c)
- *     IoCheckShareAccess @ 0x1406CD9A0 (IoCheckShareAccess.c)
- *     IoCheckShareAccessEx @ 0x1407070C0 (IoCheckShareAccessEx.c)
+ *     RawCreate @ 0x14068F450 (RawCreate.c)
+ *     IoCheckShareAccess @ 0x1406CD980 (IoCheckShareAccess.c)
+ *     IoCheckShareAccessEx @ 0x1407070A0 (IoCheckShareAccessEx.c)
  * Callees:
  *     <none>
  */

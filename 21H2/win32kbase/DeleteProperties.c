@@ -1,100 +1,62 @@
 /*
- * XREFs of DeleteProperties @ 0x1C0149E10
+ * XREFs of DeleteProperties @ 0x1C0086040
  * Callers:
  *     <none>
  * Callees:
- *     Win32FreePool @ 0x1C0026670 (Win32FreePool.c)
- *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z @ 0x1C0029368 (-LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z.c)
- *     ??0?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00337E0 (--0-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@$$V@SharedUserCritOnly@@QEAA@.c)
- *     UserGlobalAtomTableCallout @ 0x1C0089494 (UserGlobalAtomTableCallout.c)
- *     UserDeleteAtomFromAtomTable @ 0x1C009A8B0 (UserDeleteAtomFromAtomTable.c)
- *     ??1?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C00AE618 (--1-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@$$V@SharedUserCritOnly@@QEAA@.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     UserGlobalAtomTableCallout @ 0x1C008615C (UserGlobalAtomTableCallout.c)
+ *     ??0?$CLockDomainExclusive@VDLT_JOB@@@@QEAA@XZ @ 0x1C0086274 (--0-$CLockDomainExclusive@VDLT_JOB@@@@QEAA@XZ.c)
+ *     UserDeleteAtomFromAtomTable @ 0x1C00862C0 (UserDeleteAtomFromAtomTable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DeleteProperties(__int64 a1)
 {
-  _QWORD *v2; // rdi
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
+  __int64 v2; // rcx
+  int v3; // esi
+  __int64 v4; // rbx
+  __int16 v5; // cx
   __int64 v6; // rcx
-  __int64 v7; // rax
-  int v8; // r14d
-  __int64 v9; // rbx
-  __int16 v10; // cx
-  _QWORD *v11; // rax
-  __int64 v12; // rcx
-  struct _RTL_ATOM_TABLE *v13; // rbp
-  __int64 v14; // rcx
-  _QWORD *v15; // rbx
-  _BYTE v16[48]; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v7; // rbp
+  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = 0LL;
-  SharedUserCritOnly::DomainShared<>::DomainExclusive<>::ObjectLock<tagObjLock>::ObjectLock<tagObjLock>(
-    (__int64)v16,
-    *(__int64 **)(a1 + 144));
-  LockRefactorStagingAssertOwned(*(struct _KTHREAD ***)(a1 + 144), v3, v4, v5);
-  v6 = *(_QWORD *)(a1 + 144);
-  v7 = *(_QWORD *)(v6 + 24);
-  if ( v7 )
+  v2 = *(_QWORD *)(a1 + 144);
+  v3 = *(_DWORD *)(v2 + 4);
+  v4 = v2 + 8;
+  if ( v3 )
   {
-    v8 = *(_DWORD *)(v7 + 4);
-    v9 = v7 + 8;
-    if ( v8 )
+    do
     {
-      do
+      v5 = *(_WORD *)(v4 + 10);
+      if ( (v5 & 1) != 0 )
       {
-        v10 = *(_WORD *)(v9 + 10);
-        if ( (v10 & 1) != 0 )
+        if ( (v5 & 0x8001) == 0x8001 )
         {
-          if ( (v10 & 0x8001) == 0x8001 )
-          {
-            v11 = *(_QWORD **)v9;
-            if ( v2 )
-              v11[1] = v2;
-            v2 = v11;
-          }
-          else if ( (v10 & 8) != 0 )
-          {
-            RtlFreeHeap(*(PVOID *)(*(_QWORD *)(a1 + 24) + 128LL), 0, *(PVOID *)v9);
-          }
-          else if ( (v10 & 4) == 0 )
-          {
-            Win32FreePool(*(char **)v9);
-          }
+          (***(void (__fastcall ****)(_QWORD))v4)(*(_QWORD *)v4);
         }
-        v13 = (struct _RTL_ATOM_TABLE *)UserGlobalAtomTableCallout();
-        if ( (*(_BYTE *)(v9 + 10) & 2) != 0
-          && (*(_DWORD *)(PsGetCurrentProcessWin32Process(v12) + 820) & 0x4000000) == 0
-          && v13
-          && *(_DWORD *)(v9 + 12) == *(_DWORD *)(PsGetCurrentProcessWin32Process(v14) + 884) )
+        else if ( (v5 & 8) != 0 )
         {
-          UserDeleteAtomFromAtomTable(v13, *(_WORD *)(v9 + 8));
+          RtlFreeHeap(*(PVOID *)(*(_QWORD *)(a1 + 24) + 128LL), 0, *(PVOID *)v4);
         }
-        v9 += 16LL;
-        --v8;
+        else if ( (v5 & 4) == 0 )
+        {
+          Win32FreePool(*(_QWORD *)v4);
+        }
       }
-      while ( v8 );
-      v6 = *(_QWORD *)(a1 + 144);
-    }
-    Win32FreePool(*(char **)(v6 + 24));
-    *(_QWORD *)(*(_QWORD *)(a1 + 144) + 24LL) = 0LL;
-    SharedUserCritOnly::DomainShared<>::DomainExclusive<>::ObjectLock<tagObjLock>::~ObjectLock<tagObjLock>((__int64)v16);
-    if ( v2 )
-    {
-      do
+      CLockDomainExclusive<DLT_JOB>::CLockDomainExclusive<DLT_JOB>(v8);
+      v7 = UserGlobalAtomTableCallout();
+      if ( (*(_BYTE *)(v4 + 10) & 2) != 0
+        && (*(_DWORD *)(PsGetCurrentProcessWin32Process(v6) + 820) & 0x4000000) == 0
+        && v7 )
       {
-        v15 = (_QWORD *)v2[1];
-        (*(void (__fastcall **)(_QWORD *))*v2)(v2);
-        v2 = v15;
+        UserDeleteAtomFromAtomTable(v7, *(unsigned __int16 *)(v4 + 8));
       }
-      while ( v15 );
+      v4 += 16LL;
+      --v3;
     }
+    while ( v3 );
+    v2 = *(_QWORD *)(a1 + 144);
   }
-  else
-  {
-    SharedUserCritOnly::DomainShared<>::DomainExclusive<>::ObjectLock<tagObjLock>::~ObjectLock<tagObjLock>((__int64)v16);
-  }
+  Win32FreePool(v2);
+  *(_QWORD *)(a1 + 144) = 0LL;
 }

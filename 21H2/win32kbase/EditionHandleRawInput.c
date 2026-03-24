@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionHandleRawInput @ 0x1C003EAB8
+ * XREFs of EditionHandleRawInput @ 0x1C004D828
  * Callers:
- *     ApiSetEditionHandleRawInput @ 0x1C003E94C (ApiSetEditionHandleRawInput.c)
+ *     ApiSetEditionHandleRawInput @ 0x1C004D718 (ApiSetEditionHandleRawInput.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall EditionHandleRawInput(
@@ -20,11 +20,11 @@ __int64 __fastcall EditionHandleRawInput(
 {
   __int64 v11; // r9
 
-  if ( !qword_1C029D108 )
+  if ( !qword_1C02584F0 )
     return 0LL;
   v11 = a8;
   LOBYTE(v11) = a4;
-  return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, __int64, int, __int64, __int16, unsigned __int16, int, __int64))qword_1C029D108)(
+  return ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, __int64, int, __int64, __int16, unsigned __int16, int, __int64))qword_1C02584F0)(
            a1,
            a2,
            a3,

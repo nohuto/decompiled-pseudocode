@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIRootIrpCancelRemoveOrStopDevice @ 0x1C0093C70
+ * XREFs of ACPIRootIrpCancelRemoveOrStopDevice @ 0x1C00B4FA0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPIThermalAcquireCoolingInterfaces @ 0x1C003FAF8 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIThermalAcquireCoolingInterfaces @ 0x1C000DE20 (ACPIThermalAcquireCoolingInterfaces.c)
  */
 
 __int64 __fastcall ACPIRootIrpCancelRemoveOrStopDevice(ULONG_PTR a1, IRP *a2)
@@ -14,41 +14,46 @@ __int64 __fastcall ACPIRootIrpCancelRemoveOrStopDevice(ULONG_PTR a1, IRP *a2)
   __int64 DeviceExtension; // rax
   __int64 v4; // rbx
   unsigned __int8 MinorFunction; // bp
-  __int64 v6; // rcx
-  unsigned int v7; // esi
+  NTSTATUS v6; // eax
+  __int64 v7; // rcx
+  unsigned int v8; // esi
   char *IrpText; // rax
-  const char *v9; // r8
-  const char *v10; // r10
+  const char *v10; // r8
+  const char *v11; // r10
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   v4 = DeviceExtension;
   MinorFunction = a2->Tail.Overlay.CurrentStackLocation->MinorFunction;
   if ( (*(_DWORD *)(DeviceExtension + 8) & 0x200000) == 0 )
   {
-    if ( *(_DWORD *)(DeviceExtension + 368) == 1 )
-      *(_DWORD *)(DeviceExtension + 368) = *(_DWORD *)(DeviceExtension + 372);
-    if ( !*(_QWORD *)(DeviceExtension + 656) )
+    if ( *(_DWORD *)(DeviceExtension + 328) == 1 )
+      *(_DWORD *)(DeviceExtension + 328) = *(_DWORD *)(DeviceExtension + 332);
+    if ( !*(_QWORD *)(DeviceExtension + 616) )
       ACPIThermalAcquireCoolingInterfaces(DeviceExtension);
   }
   a2->IoStatus.Status = 0;
   ++a2->CurrentLocation;
   ++a2->Tail.Overlay.CurrentStackLocation;
-  v7 = IofCallDriver(*(PDEVICE_OBJECT *)(v4 + 776), a2);
+  v6 = IofCallDriver(*(PDEVICE_OBJECT *)(v4 + 736), a2);
+  v7 = 0x200000000000LL;
+  v8 = v6;
+  if ( (*(_QWORD *)(v4 + 8) & 0x200000000000LL) != 0 )
+    v7 = 0x400000000000LL;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    IrpText = ACPIDebugGetIrpText(v6, MinorFunction);
+    IrpText = ACPIDebugGetIrpText(v7, MinorFunction);
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       5u,
       0xAu,
-      (__int64)&WPP_751107becb7a3b7b48760ac4afe26340_Traceguids,
+      (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
       (char)a2,
-      (__int64)IrpText,
-      v7,
+      IrpText,
+      v8,
       v4,
-      v9,
-      v10);
+      v10,
+      v11);
   }
-  return v7;
+  return v8;
 }

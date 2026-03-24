@@ -1,37 +1,39 @@
 /*
- * XREFs of PoDisableSleepStates @ 0x14098C600
+ * XREFs of PoDisableSleepStates @ 0x1408E3C20
  * Callers:
- *     VslpIumPhase4Initialize @ 0x1403DCCD8 (VslpIumPhase4Initialize.c)
- *     PopInitializeHibernateGlobals @ 0x140828AC4 (PopInitializeHibernateGlobals.c)
- *     HalpLoadMicrocode @ 0x14090A1A0 (HalpLoadMicrocode.c)
+ *     VslpIumPhase4Initialize @ 0x1403CEDD8 (VslpIumPhase4Initialize.c)
+ *     PoInitHiberServices @ 0x140790C78 (PoInitHiberServices.c)
+ *     HalpLoadMicrocode @ 0x140866020 (HalpLoadMicrocode.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PoDisableSleepStates(int a1, int a2, _QWORD *a3)
 {
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   unsigned int v7; // edi
   _QWORD *v8; // rbx
   _QWORD *v9; // rax
 
-  Pool2 = ExAllocatePool2(256LL, 24LL, 1683189584LL);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x64536F50u);
   v7 = 0;
-  v8 = (_QWORD *)Pool2;
-  if ( Pool2 )
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 16) = a1;
-    *(_DWORD *)(Pool2 + 20) = a2;
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    *((_DWORD *)PoolWithTag + 4) = a1;
+    *((_DWORD *)PoolWithTag + 5) = a2;
     ExAcquireFastMutex(&PopDisableSleepMutex);
-    v9 = (_QWORD *)qword_140C23FF8;
-    if ( *(__int64 **)qword_140C23FF8 != &PopDisableSleepList )
+    v9 = (_QWORD *)qword_140C24C08;
+    if ( *(__int64 **)qword_140C24C08 != &PopDisableSleepList )
       __fastfail(3u);
     *v8 = &PopDisableSleepList;
     v8[1] = v9;
     *v9 = v8;
-    qword_140C23FF8 = (__int64)v8;
+    qword_140C24C08 = (__int64)v8;
     KeReleaseGuardedMutex(&PopDisableSleepMutex);
     *a3 = v8;
   }

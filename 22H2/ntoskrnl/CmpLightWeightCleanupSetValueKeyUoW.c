@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLightWeightCleanupSetValueKeyUoW @ 0x140A2803C
+ * XREFs of CmpLightWeightCleanupSetValueKeyUoW @ 0x14066EF30
  * Callers:
- *     CmpCleanupLightWeightUoWData @ 0x140A1C3F4 (CmpCleanupLightWeightUoWData.c)
- *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x140A2844C (CmpLightWeightCommitDeleteValueKeyUoW.c)
- *     CmpLightWeightCommitSetValueKeyUoW @ 0x140A28940 (CmpLightWeightCommitSetValueKeyUoW.c)
+ *     CmpCleanupLightWeightUoWData @ 0x14066EA44 (CmpCleanupLightWeightUoWData.c)
+ *     CmpLightWeightCommitSetValueKeyUoW @ 0x14066EE08 (CmpLightWeightCommitSetValueKeyUoW.c)
+ *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x140732C8C (CmpLightWeightCommitDeleteValueKeyUoW.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     HvFreeCell @ 0x14070AC90 (HvFreeCell.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     HvFreeCell @ 0x140656BC4 (HvFreeCell.c)
  */
 
 void __fastcall CmpLightWeightCleanupSetValueKeyUoW(ULONG_PTR a1, unsigned int *a2)

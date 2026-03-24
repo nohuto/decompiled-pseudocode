@@ -1,11 +1,11 @@
 /*
- * XREFs of PfxInsertPrefix @ 0x1408922D0
+ * XREFs of PfxInsertPrefix @ 0x1408922B0
  * Callers:
  *     <none>
  * Callees:
  *     RtlSplay @ 0x14008D660 (RtlSplay.c)
- *     CompareNamesCaseSensitive @ 0x140891FC0 (CompareNamesCaseSensitive.c)
- *     ComputeNameLength @ 0x140892140 (ComputeNameLength.c)
+ *     CompareNamesCaseSensitive @ 0x140891FA0 (CompareNamesCaseSensitive.c)
+ *     ComputeNameLength @ 0x140892120 (ComputeNameLength.c)
  */
 
 BOOLEAN __stdcall PfxInsertPrefix(PPREFIX_TABLE PrefixTable, PSTRING Prefix, PPREFIX_TABLE_ENTRY PrefixTableEntry)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpIsDriverEntry @ 0x1409FCD90
+ * XREFs of ExpIsDriverEntry @ 0x140950A70
  * Callers:
  *     <none>
  * Callees:
- *     ExpTranslateDriverEntryNameToId @ 0x1409FE148 (ExpTranslateDriverEntryNameToId.c)
+ *     ExpTranslateDriverEntryNameToId @ 0x140952190 (ExpTranslateDriverEntryNameToId.c)
  */
 
 bool __fastcall ExpIsDriverEntry(_QWORD *a1, __int64 a2)
@@ -14,5 +14,5 @@ bool __fastcall ExpIsDriverEntry(_QWORD *a1, __int64 a2)
   v2 = *a1 - EfiDriverVariablesGuid;
   if ( *a1 == EfiDriverVariablesGuid )
     v2 = a1[1] + 0x73D4FC671FFFF256LL;
-  return !v2 && (unsigned int)ExpTranslateDriverEntryNameToId(a2, &v4) != 0;
+  return !v2 && (unsigned int)ExpTranslateDriverEntryNameToId(a2, &v4);
 }

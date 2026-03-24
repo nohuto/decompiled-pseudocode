@@ -1,12 +1,12 @@
 /*
  * XREFs of NtUpdateWnfStateData @ 0x14060EBB0
  * Callers:
- *     PfSnPowerBoostUpdate @ 0x1406CDAD8 (PfSnPowerBoostUpdate.c)
- *     SepSecureBootCheckForUpdates @ 0x1409F839C (SepSecureBootCheckForUpdates.c)
+ *     PfSnPowerBoostUpdate @ 0x1406CDAB8 (PfSnPowerBoostUpdate.c)
+ *     SepSecureBootCheckForUpdates @ 0x1409F83AC (SepSecureBootCheckForUpdates.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ExpWnfLookupPermanentName @ 0x1405AA92C (ExpWnfLookupPermanentName.c)
  *     ExpWnfCreateNameInstance @ 0x14060E058 (ExpWnfCreateNameInstance.c)
@@ -18,7 +18,7 @@
  *     ExpWnfValidatePubSubPreconditions @ 0x14060FEEC (ExpWnfValidatePubSubPreconditions.c)
  *     ExpWnfNotifyNameSubscribers @ 0x1406109F8 (ExpWnfNotifyNameSubscribers.c)
  *     ExpWnfWriteStateData @ 0x140610CD0 (ExpWnfWriteStateData.c)
- *     ExpWnfCheckCrossScopeAccess @ 0x1406C70B0 (ExpWnfCheckCrossScopeAccess.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1406C7090 (ExpWnfCheckCrossScopeAccess.c)
  */
 
 __int64 __fastcall NtUpdateWnfStateData(

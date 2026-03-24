@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CheckMultiplaneOverlaySupport@CLegacyStereoSwapChain@@UEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x180108730
+ * XREFs of ?CheckMultiplaneOverlaySupport@CLegacyStereoSwapChain@@UEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x1800E338C
  * Callers:
- *     ?CheckMultiplaneOverlaySupport@CLegacyStereoSwapChain@@$4PPPPPPPM@BLI@EBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x1801207A0 (-CheckMultiplaneOverlaySupport@CLegacyStereoSwapChain@@$4PPPPPPPM@BLI@EBA_NPEBUDXGI_CHECK_MULTIP.c)
+ *     ?CheckMultiplaneOverlaySupport@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x1800F7180 (-CheckMultiplaneOverlaySupport@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EBA_NPEBUDXGI_CHECK_MULTIPLA.c)
  * Callees:
  *     <none>
  */

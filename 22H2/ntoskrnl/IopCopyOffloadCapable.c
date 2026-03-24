@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCopyOffloadCapable @ 0x140875F18
+ * XREFs of IopCopyOffloadCapable @ 0x140668744
  * Callers:
- *     IopXxxControlFile @ 0x1406E5590 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x14064B730 (IopXxxControlFile.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     IoGetAttachedDevice @ 0x1402AF3E0 (IoGetAttachedDevice.c)
- *     FsRtlGetSupportedFeatures @ 0x140337430 (FsRtlGetSupportedFeatures.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IoGetAttachedDevice @ 0x1402D3EF0 (IoGetAttachedDevice.c)
+ *     FsRtlGetSupportedFeatures @ 0x1402F7D60 (FsRtlGetSupportedFeatures.c)
  */
 
 __int64 __fastcall IopCopyOffloadCapable(struct _FILE_OBJECT *a1, int a2)

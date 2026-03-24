@@ -1,8 +1,8 @@
 /*
- * XREFs of ?_BuildAccelerationCurve@CDeviceAcceleration@@IEAAXPEAUCurve@1@GI@Z @ 0x1C00AF168
+ * XREFs of ?_BuildAccelerationCurve@CDeviceAcceleration@@IEAAXPEAUCurve@1@GI@Z @ 0x1C00A4B7C
  * Callers:
- *     ?BuildAccelerationCurve@CMouseAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z @ 0x1C00AF070 (-BuildAccelerationCurve@CMouseAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z.c)
- *     ?BuildAccelerationCurve@CTouchpadAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z @ 0x1C00AF100 (-BuildAccelerationCurve@CTouchpadAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z.c)
+ *     ?BuildAccelerationCurve@CMouseAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z @ 0x1C00A4AE0 (-BuildAccelerationCurve@CMouseAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z.c)
+ *     ?BuildAccelerationCurve@CTouchpadAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z @ 0x1C00A4B40 (-BuildAccelerationCurve@CTouchpadAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ void __fastcall CDeviceAcceleration::_BuildAccelerationCurve(
   __int64 v11; // r10
   __int64 v12; // rax
   unsigned int v13; // r10d
-  __int64 *v14; // r8
+  _QWORD *v14; // r8
   __int64 v15; // r11
   __int64 v16; // rcx
   __int64 v17; // r9
@@ -39,21 +39,21 @@ void __fastcall CDeviceAcceleration::_BuildAccelerationCurve(
   do
   {
     ++v9;
-    *v7 = (__int64)(v8 * ((__int64)(*(__int64 *)((char *)v7 + v11 + 16) * v10) >> 16)) >> 16;
+    *v7 = (__int64)(v8 * ((__int64)(v10 * *(__int64 *)((char *)v7 + v11 + 16)) >> 16)) >> 16;
     v12 = 229376 * *(__int64 *)((char *)v7++ + v11 - 24);
     *(v7 - 6) = v12 >> 16;
   }
   while ( v9 < 5 );
   v13 = 1;
-  v14 = (__int64 *)((char *)a2 + 80);
+  v14 = (_QWORD *)((char *)a2 + 112);
   do
   {
-    v15 = *(v14 - 10);
-    v16 = *(v14 - 9) - v15;
+    v15 = *(v14 - 14);
+    v16 = *(v14 - 13) - v15;
     if ( v16 )
     {
-      v17 = *(v14 - 5);
-      v18 = ((*(v14 - 4) - v17) << 16) / v16;
+      v17 = *(v14 - 9);
+      v18 = ((*(v14 - 8) - v17) << 16) / v16;
       v19 = v17 - ((v15 * v18) >> 16);
     }
     else
@@ -61,10 +61,9 @@ void __fastcall CDeviceAcceleration::_BuildAccelerationCurve(
       v19 = 0LL;
       v18 = 0LL;
     }
-    *v14 = v18;
+    *(v14 - 4) = v18;
     ++v13;
-    v14[4] = v19;
-    ++v14;
+    *v14++ = v19;
   }
   while ( v13 < 5 );
 }

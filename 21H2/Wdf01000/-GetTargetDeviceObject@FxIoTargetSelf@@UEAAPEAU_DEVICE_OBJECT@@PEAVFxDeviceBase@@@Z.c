@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetTargetDeviceObject@FxIoTargetSelf@@UEAAPEAU_DEVICE_OBJECT@@PEAVFxDeviceBase@@@Z @ 0x1C000BCE0
+ * XREFs of ?GetTargetDeviceObject@FxIoTargetSelf@@UEAAPEAU_DEVICE_OBJECT@@PEAVFxDeviceBase@@@Z @ 0x1C000DC20
  * Callers:
  *     <none>
  * Callees:

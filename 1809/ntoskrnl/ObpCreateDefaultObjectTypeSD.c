@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpCreateDefaultObjectTypeSD @ 0x14072909C
+ * XREFs of ObpCreateDefaultObjectTypeSD @ 0x14072907C
  * Callers:
- *     ObpInitObjectTypeSD @ 0x140728FFC (ObpInitObjectTypeSD.c)
+ *     ObpInitObjectTypeSD @ 0x140728FDC (ObpInitObjectTypeSD.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)

@@ -1,10 +1,10 @@
 /*
- * XREFs of NtFlipObjectDisconnectEndpoint @ 0x1C0080EF0
+ * XREFs of NtFlipObjectDisconnectEndpoint @ 0x1C0069680
  * Callers:
  *     <none>
  * Callees:
- *     ?DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z @ 0x1C007FF98 (-DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z.c)
- *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0082498 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z @ 0x1C00687A8 (-DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C006A8D8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall NtFlipObjectDisconnectEndpoint(void *a1, int a2)

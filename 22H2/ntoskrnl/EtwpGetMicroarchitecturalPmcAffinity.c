@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpGetMicroarchitecturalPmcAffinity @ 0x1409E41E4
+ * XREFs of EtwpGetMicroarchitecturalPmcAffinity @ 0x14093A3F8
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409E1F34 (EtwSetPerformanceTraceInformation.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1409E43C8 (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409385B0 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x14093A5DC (EtwpLoadMicroarchitecturalProfileGroup.c)
  * Callees:
- *     KeRemoveProcessorAffinityEx @ 0x1402C0280 (KeRemoveProcessorAffinityEx.c)
- *     KeQueryActiveProcessorAffinity2 @ 0x140391BF0 (KeQueryActiveProcessorAffinity2.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402BBB30 (KeRemoveProcessorAffinityEx.c)
+ *     KeQueryActiveProcessorAffinity @ 0x1403C2090 (KeQueryActiveProcessorAffinity.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 _DWORD *__fastcall EtwpGetMicroarchitecturalPmcAffinity(__int64 a1, unsigned __int16 *a2)
@@ -22,7 +22,7 @@ _DWORD *__fastcall EtwpGetMicroarchitecturalPmcAffinity(__int64 a1, unsigned __i
   int v12; // edx
   _DWORD v13[4]; // [rsp+20h] [rbp-38h] BYREF
 
-  result = (_DWORD *)KeQueryActiveProcessorAffinity2((__int64)a2);
+  result = (_DWORD *)KeQueryActiveProcessorAffinity((__int64)a2);
   v5 = 0;
   v6 = (unsigned int)result;
   if ( (_DWORD)result )

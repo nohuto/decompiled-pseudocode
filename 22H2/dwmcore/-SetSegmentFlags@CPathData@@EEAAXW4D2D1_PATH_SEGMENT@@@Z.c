@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetSegmentFlags@CPathData@@EEAAXW4D2D1_PATH_SEGMENT@@@Z @ 0x180107E20
+ * XREFs of ?SetSegmentFlags@CPathData@@EEAAXW4D2D1_PATH_SEGMENT@@@Z @ 0x1800E3080
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CPathData::SetSegmentFlags(CPathData *this, enum D2D1_PATH_SEGMENT a2)
 {
-  *((_BYTE *)this + 49) = a2 | 0x80;
+  *((_BYTE *)this + 41) = a2 | 0x80;
 }

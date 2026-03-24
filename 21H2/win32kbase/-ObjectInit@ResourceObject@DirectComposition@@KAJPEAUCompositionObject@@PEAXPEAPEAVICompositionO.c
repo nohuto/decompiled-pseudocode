@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ObjectInit@ResourceObject@DirectComposition@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z @ 0x1C00165E0
+ * XREFs of ?ObjectInit@ResourceObject@DirectComposition@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z @ 0x1C005C160
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateSystemResource@CConnection@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C0014E40 (-CreateSystemResource@CConnection@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z.c)
- *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C00164EC (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
+ *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C005C904 (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
+ *     ?CreateSystemResource@CConnection@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C005C9EC (-CreateSystemResource@CConnection@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::ResourceObject::ObjectInit(
@@ -14,10 +14,6 @@ __int64 __fastcall DirectComposition::ResourceObject::ObjectInit(
 {
   struct ICompositionObject *v3; // rax
   int v4; // esi
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
   DirectComposition::CConnection *DefaultConnection; // rax
   int SystemResource; // edi
 
@@ -38,21 +34,17 @@ __int64 __fastcall DirectComposition::ResourceObject::ObjectInit(
   *((_DWORD *)a1 + 14) = 0;
   KeEnterCriticalRegion();
   *((_DWORD *)a1 + 9) = v4;
-  DefaultConnection = DirectComposition::CConnection::GetDefaultConnection(v7, v6, v8, v9);
+  DefaultConnection = DirectComposition::CConnection::GetDefaultConnection();
   *((_QWORD *)a1 + 5) = DefaultConnection;
   if ( DefaultConnection )
-  {
     SystemResource = DirectComposition::CConnection::CreateSystemResource(
                        DefaultConnection,
                        *((_DWORD *)a1 + 9),
                        (struct CompositionObject *)((char *)a1 + 48));
-    if ( SystemResource >= 0 )
-      *((_BYTE *)a1 + 32) = 1;
-  }
   else
-  {
     SystemResource = -1073741790;
-  }
+  if ( SystemResource >= 0 )
+    *((_BYTE *)a1 + 32) = 1;
   KeLeaveCriticalRegion();
   return (unsigned int)SystemResource;
 }

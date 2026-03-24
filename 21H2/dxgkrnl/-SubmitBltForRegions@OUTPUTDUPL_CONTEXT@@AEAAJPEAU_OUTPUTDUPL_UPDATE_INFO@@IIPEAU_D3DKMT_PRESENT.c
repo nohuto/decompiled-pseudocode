@@ -1,13 +1,12 @@
 /*
- * XREFs of ?SubmitBltForRegions@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@IIPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C0328E3C
+ * XREFs of ?SubmitBltForRegions@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@IIPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C02A2DC8
  * Callers:
- *     ?ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUTEX@@PEAU_PRODUCER_INFO@@PEAH3@Z @ 0x1C03283C4 (-ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUT.c)
+ *     ?ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUTEX@@PEAU_PRODUCER_INFO@@PEAH3@Z @ 0x1C02A2508 (-ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUT.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     McTemplateK0pqppqq_EtwWriteTransfer @ 0x1C0056380 (McTemplateK0pqppqq_EtwWriteTransfer.c)
- *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C01E8B48 (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
- *     ?Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@Z @ 0x1C032E758 (-Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     McTemplateK0pqppqq_EtwWriteTransfer @ 0x1C004AFDC (McTemplateK0pqppqq_EtwWriteTransfer.c)
+ *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C016E9EC (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
+ *     ?Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@Z @ 0x1C027E754 (-Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@.c)
  */
 
 __int64 __fastcall OUTPUTDUPL_CONTEXT::SubmitBltForRegions(
@@ -18,23 +17,28 @@ __int64 __fastcall OUTPUTDUPL_CONTEXT::SubmitBltForRegions(
         struct _D3DKMT_PRESENT_RGNS *a5)
 {
   struct _D3DKMT_PRESENT_RGNS *v5; // rbx
-  __int64 v7; // r15
-  __int64 v9; // r12
+  __int64 v7; // r12
+  __int64 v9; // r13
   UINT MoveRectCount; // edx
-  unsigned int v12; // r13d
-  const struct tagRECT *pDirtyRects; // rbp
+  UINT v12; // r15d
+  struct tagRECT *pDirtyRects; // rbp
   UINT v14; // esi
   struct tagRECT *Buffer; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  __int64 v20; // rax
   struct tagRECT *i; // rdx
-  __int64 v17; // rax
-  __int64 v18; // rax
-  struct _D3DKMT_PRESENT_RGNS *v19; // rcx
-  __int64 v20; // r10
-  __int64 v21; // rdx
-  unsigned int v22; // ebx
-  struct DXGCONTEXT **v23; // [rsp+20h] [rbp-58h]
-  struct tagRECT *v24; // [rsp+38h] [rbp-40h]
-  struct COREDEVICEACCESS *v25; // [rsp+40h] [rbp-38h]
+  __int64 v22; // rax
+  __int64 v23; // rax
+  struct _D3DKMT_PRESENT_RGNS *v24; // rcx
+  __int64 v25; // r10
+  __int64 v26; // rdx
+  unsigned int v27; // ebx
+  struct DXGCONTEXT **v28; // [rsp+20h] [rbp-58h]
+  struct tagRECT *v29; // [rsp+38h] [rbp-40h]
+  struct COREDEVICEACCESS *v30; // [rsp+40h] [rbp-38h]
 
   v5 = a5;
   v7 = a4;
@@ -47,62 +51,53 @@ __int64 __fastcall OUTPUTDUPL_CONTEXT::SubmitBltForRegions(
   {
     v14 = 16 * a5->DirtyRectCount;
     Buffer = (struct tagRECT *)AUTOEXPANDALLOCATION::GetBuffer(
-                                 *((const void ***)a2 + 6),
+                                 *((AUTOEXPANDALLOCATION **)a2 + 6),
                                  v14 + 16 * MoveRectCount,
-                                 0,
-                                 0LL);
+                                 0);
     pDirtyRects = Buffer;
     if ( !Buffer )
     {
-      WdLogSingleEntry1(6LL, 1879LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to expand temp buffer for submitting presents.",
-        1879LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v20 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+      *(_QWORD *)(v20 + 24) = 1870LL;
+      WdLogEvent5_WdLowResource(v20);
       return 3221225495LL;
     }
     memmove(Buffer, v5->pDirtyRects, v14);
     a3 = 0LL;
-    for ( i = (struct tagRECT *)&pDirtyRects[v5->DirtyRectCount]; (unsigned int)a3 < v5->MoveRectCount; ++i )
+    for ( i = &pDirtyRects[v5->DirtyRectCount]; (unsigned int)a3 < v5->MoveRectCount; ++i )
     {
-      v17 = (unsigned int)a3;
+      v22 = (unsigned int)a3;
       a3 = (unsigned int)(a3 + 1);
-      *i = v5->pMoveRects[v17].DestRect;
+      *i = v5->pMoveRects[v22].DestRect;
     }
   }
   else
   {
-    pDirtyRects = a5->pDirtyRects;
+    pDirtyRects = (struct tagRECT *)a5->pDirtyRects;
   }
-  v18 = *((_QWORD *)a2 + 7);
-  v19 = 0LL;
-  v20 = *((_QWORD *)a2 + 1);
+  v23 = *((_QWORD *)a2 + 7);
+  v24 = 0LL;
+  v25 = *((_QWORD *)a2 + 1);
   a5 = 0LL;
-  if ( v18 )
+  if ( v23 )
   {
-    v19 = *(struct _D3DKMT_PRESENT_RGNS **)(v18 + 1504);
+    v24 = *(struct _D3DKMT_PRESENT_RGNS **)(v23 + 1504);
   }
-  else if ( (*(_DWORD *)(v20 + 404) & 0x10) != 0 )
+  else if ( (*(_DWORD *)(v25 + 420) & 0x10) != 0 )
   {
-    v21 = *(_QWORD *)(v20 + 408);
-    if ( v21 != v20 + 408 )
-      v19 = *(struct _D3DKMT_PRESENT_RGNS **)(v20 + 408);
-    a5 = v19;
-    v19 = (struct _D3DKMT_PRESENT_RGNS *)&a5;
+    v26 = *(_QWORD *)(v25 + 424);
+    if ( v26 != v25 + 424 )
+      v24 = *(struct _D3DKMT_PRESENT_RGNS **)(v25 + 424);
+    a5 = v24;
+    v24 = (struct _D3DKMT_PRESENT_RGNS *)&a5;
     if ( *((_DWORD *)a2 + 8) )
     {
-      v22 = -1073741811;
+      v27 = -1073741811;
       goto LABEL_12;
     }
   }
-  v22 = DXGCONTEXT::Blt(
-          (DXGCONTEXT *)v20,
+  v27 = DXGCONTEXT::Blt(
+          (struct _EX_RUNDOWN_REF *)v25,
           v9,
           v7,
           *((_DWORD *)a2 + 8),
@@ -111,14 +106,14 @@ __int64 __fastcall OUTPUTDUPL_CONTEXT::SubmitBltForRegions(
           v12,
           pDirtyRects,
           0LL,
-          (struct DXGHWQUEUE **)v19);
+          (struct DXGHWQUEUE **)v24);
 LABEL_12:
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
   {
-    LODWORD(v25) = v22;
-    LODWORD(v24) = v12;
-    LODWORD(v23) = *((_DWORD *)this + 11);
-    McTemplateK0pqppqq_EtwWriteTransfer((unsigned int)v23, v21, a3, this, v23, v9, v7, v24, v25);
+    LODWORD(v30) = v27;
+    LODWORD(v29) = v12;
+    LODWORD(v28) = *((_DWORD *)this + 11);
+    McTemplateK0pqppqq_EtwWriteTransfer((unsigned int)v28, v26, a3, this, v28, v9, v7, v29, v30);
   }
-  return v22;
+  return v27;
 }

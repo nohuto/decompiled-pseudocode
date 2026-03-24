@@ -1,28 +1,34 @@
 /*
- * XREFs of RtlpReadExtendedContext @ 0x140703290
+ * XREFs of RtlpReadExtendedContext @ 0x140648200
  * Callers:
- *     KiContinuePreviousModeUser @ 0x140298420 (KiContinuePreviousModeUser.c)
- *     KyRaiseException @ 0x140576820 (KyRaiseException.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x14057C724 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     PspSetContextThreadInternal @ 0x1407043D0 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1407045D0 (PspGetContextThreadInternal.c)
- *     PspWow64GetContextThread @ 0x140704EF8 (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x140705578 (PspWow64SetContextThread.c)
+ *     KiContinuePreviousModeUser @ 0x140276A00 (KiContinuePreviousModeUser.c)
+ *     KiRaiseException @ 0x140521E90 (KiRaiseException.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x140525194 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     PspSetContextThreadInternal @ 0x140647C9C (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x140647E54 (PspGetContextThreadInternal.c)
+ *     PspWow64SetContextThread @ 0x140695D20 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1406960CC (PspWow64GetContextThread.c)
  * Callees:
- *     RtlpCopyExtendedContext @ 0x140294DD8 (RtlpCopyExtendedContext.c)
- *     RtlpValidateContextFlags @ 0x140297F80 (RtlpValidateContextFlags.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlpReadExtendedContextLayout @ 0x140703090 (RtlpReadExtendedContextLayout.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpCopyExtendedContext @ 0x1402768B0 (RtlpCopyExtendedContext.c)
+ *     RtlpValidateContextFlags @ 0x140276D30 (RtlpValidateContextFlags.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlpReadExtendedContextLayout @ 0x140648500 (RtlpReadExtendedContextLayout.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall RtlpReadExtendedContext(__int64 a1, char a2, __int64 a3, unsigned int a4, __int64 a5, int *a6)
+__int64 __fastcall RtlpReadExtendedContext(
+        __int64 a1,
+        unsigned __int8 a2,
+        __int64 a3,
+        unsigned int a4,
+        __int64 a5,
+        __int128 *a6)
 {
   int v7; // r13d
   __int64 v8; // rsi
-  int *v9; // r15
+  __int128 *v9; // r15
   __int64 result; // rax
-  __int64 v11; // rcx
+  int v11; // ecx
   char v12; // di
   __int64 v13; // rdx
   __int64 v14; // r9
@@ -32,134 +38,125 @@ __int64 __fastcall RtlpReadExtendedContext(__int64 a1, char a2, __int64 a3, unsi
   unsigned int v18; // edx
   unsigned int *v19; // rax
   __int64 v20; // r8
-  unsigned __int64 v21; // r9
-  __int64 v22; // rax
-  __int64 v23; // r8
-  unsigned __int64 v24; // rcx
-  unsigned __int64 v25; // r8
-  __int64 v26; // [rsp+20h] [rbp-88h]
-  int v28; // [rsp+38h] [rbp-70h] BYREF
-  int v29; // [rsp+3Ch] [rbp-6Ch]
-  __int64 v30; // [rsp+40h] [rbp-68h]
-  __int64 v31; // [rsp+48h] [rbp-60h]
-  _OWORD v32[2]; // [rsp+50h] [rbp-58h] BYREF
+  __int64 v21; // rax
+  __int64 v22; // r8
+  unsigned __int64 v23; // rcx
+  unsigned __int64 v24; // r8
+  __int64 v25; // [rsp+20h] [rbp-78h]
+  int v27; // [rsp+38h] [rbp-60h] BYREF
+  int v28; // [rsp+3Ch] [rbp-5Ch]
+  __int64 v29; // [rsp+40h] [rbp-58h]
+  __int64 v30; // [rsp+48h] [rbp-50h]
+  __int128 v31; // [rsp+50h] [rbp-48h] BYREF
+  __int64 v32; // [rsp+60h] [rbp-38h]
 
-  v31 = a3;
-  v28 = 0;
+  v30 = a3;
+  v27 = 0;
   v7 = 0;
-  memset(v32, 0, sizeof(v32));
+  v31 = 0LL;
+  v32 = 0LL;
   v8 = 0LL;
-  v30 = 0LL;
-  v9 = (int *)v32;
+  v29 = 0LL;
+  v9 = &v31;
   if ( a6 )
     v9 = a6;
-  result = RtlpValidateContextFlags(a4, &v28);
+  result = RtlpValidateContextFlags(a4, &v27);
+  if ( (int)result < 0 )
+    return result;
+  v12 = v27;
+  result = RtlpReadExtendedContextLayout(v11, a4, a5, v27, (__int64)v9);
+  v28 = result;
+  if ( (int)result < 0 )
+    return result;
+  if ( (a4 & 0x10000) != 0 )
+  {
+    v7 = 4;
+    v8 = a5 + 716;
+  }
+  else
+  {
+    if ( (a4 & 0x100000) != 0 )
+    {
+      v8 = a5 + 1232;
+    }
+    else
+    {
+      if ( (a4 & 0x200000) != 0 )
+      {
+        v7 = 8;
+        v8 = a5 + 416;
+        goto LABEL_9;
+      }
+      if ( (a4 & 0x400000) == 0 )
+        goto LABEL_10;
+      v8 = a5 + 912;
+    }
+    v7 = 16;
+  }
+LABEL_9:
+  v29 = v8;
+LABEL_10:
+  if ( (v12 & 1) != 0 )
+  {
+    v13 = *((unsigned int *)v9 + 3);
+    if ( (_DWORD)v13 )
+    {
+      v14 = *((int *)v9 + 2);
+      if ( ((unsigned int)(v7 - 1) & (unsigned __int64)(v14 + v8)) != 0 )
+        ExRaiseDatatypeMisalignment();
+      v15 = v8 + v14 + v13;
+      if ( v15 > 0x7FFFFFFF0000LL || v15 < v14 + v8 )
+        MEMORY[0x7FFFFFFF0000] = 0;
+    }
+  }
+  v16 = v12 & 2;
+  if ( v16 )
+  {
+    v21 = *((unsigned int *)v9 + 5);
+    if ( (_DWORD)v21 )
+    {
+      v22 = *((int *)v9 + 4);
+      v23 = v22 + v8;
+      if ( (((_BYTE)v22 + (_BYTE)v8) & 0x3F) != 0 )
+        ExRaiseDatatypeMisalignment();
+      v24 = v8 + v21 + v22;
+      if ( v24 > 0x7FFFFFFF0000LL || v24 < v23 )
+        MEMORY[0x7FFFFFFF0000] = 0;
+    }
+  }
+  v25 = v8;
+  v17 = v30;
+  result = RtlpCopyExtendedContext(a2, v30, 0LL, a4, v25, (__int64)v9);
+  v18 = result;
+  v28 = result;
   if ( (int)result >= 0 )
   {
-    v12 = v28;
-    if ( (v28 & 4) != 0 )
-      return 3221225659LL;
-    result = RtlpReadExtendedContextLayout(v11, a4, a5, v28, v9);
-    v29 = result;
-    if ( (int)result >= 0 )
+    v19 = (unsigned int *)(v17 + *(int *)(v17 + 8));
+    if ( (a4 & 0x10000) == 0 )
     {
-      if ( (a4 & 0x10000) != 0 )
+      if ( (a4 & 0x100000) != 0 )
       {
-        v7 = 4;
-        v8 = a5 + 716;
-      }
-      else
-      {
-        if ( (a4 & 0x100000) != 0 )
+        v19[12] = a4;
+LABEL_20:
+        if ( v16 )
         {
-          v8 = a5 + 1232;
+          v20 = v17 + *(int *)(v17 + 16);
+          *(_QWORD *)v20 &= (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL;
+          if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
+            *(_QWORD *)(v20 + 8) &= MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708] | 0x8000000000000000uLL;
+          else
+            *(_QWORD *)(v20 + 8) = 0LL;
+          *(_OWORD *)(v20 + 16) = 0LL;
+          *(_OWORD *)(v20 + 32) = 0LL;
+          *(_OWORD *)(v20 + 48) = 0LL;
         }
-        else
-        {
-          if ( (a4 & 0x200000) != 0 )
-          {
-            v7 = 8;
-            v8 = a5 + 416;
-            goto LABEL_10;
-          }
-          if ( (a4 & 0x400000) == 0 )
-            goto LABEL_11;
-          v8 = a5 + 912;
-        }
-        v7 = 16;
+        return v18;
       }
-LABEL_10:
-      v30 = v8;
-LABEL_11:
-      if ( (v12 & 1) != 0 )
-      {
-        v13 = (unsigned int)v9[3];
-        if ( (_DWORD)v13 )
-        {
-          v14 = v9[2];
-          if ( ((unsigned int)(v7 - 1) & (unsigned __int64)(v14 + v8)) != 0 )
-            ExRaiseDatatypeMisalignment();
-          v15 = v8 + v14 + v13;
-          if ( v15 > 0x7FFFFFFF0000LL || v15 < v14 + v8 )
-            MEMORY[0x7FFFFFFF0000] = 0;
-        }
-      }
-      v16 = v12 & 2;
-      if ( v16 )
-      {
-        v22 = (unsigned int)v9[5];
-        if ( (_DWORD)v22 )
-        {
-          v23 = v9[4];
-          v24 = v23 + v8;
-          if ( (((_BYTE)v23 + (_BYTE)v8) & 0x3F) != 0 )
-            ExRaiseDatatypeMisalignment();
-          v25 = v8 + v22 + v23;
-          if ( v25 > 0x7FFFFFFF0000LL || v25 < v24 )
-            MEMORY[0x7FFFFFFF0000] = 0;
-        }
-      }
-      v26 = v8;
-      v17 = v31;
-      result = RtlpCopyExtendedContext(a2, v31, 0LL, a4, v26, (__int64)v9);
-      v18 = result;
-      v29 = result;
-      if ( (int)result < 0 )
-        return result;
-      v19 = (unsigned int *)(v17 + *(int *)(v17 + 8));
-      if ( (a4 & 0x10000) == 0 )
-      {
-        if ( (a4 & 0x100000) != 0 )
-        {
-          v19[12] = a4;
-LABEL_21:
-          if ( v16 )
-          {
-            v20 = v17 + *(int *)(v17 + 16);
-            v21 = *(_QWORD *)v20 & (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL;
-            *(_QWORD *)v20 = v21;
-            if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
-            {
-              *(_QWORD *)(v20 + 8) &= MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708] | 0x8000000000000000uLL;
-              if ( (~*(_QWORD *)(v20 + 8) & v21) != 0 )
-                return 3221225485LL;
-            }
-            else
-            {
-              *(_QWORD *)(v20 + 8) = 0LL;
-            }
-            *(_OWORD *)(v20 + 16) = 0LL;
-            *(_OWORD *)(v20 + 32) = 0LL;
-            *(_OWORD *)(v20 + 48) = 0LL;
-          }
-          return v18;
-        }
-        if ( (a4 & 0x200000) == 0 && (a4 & 0x400000) == 0 )
-          goto LABEL_21;
-      }
-      *v19 = a4;
-      goto LABEL_21;
+      if ( (a4 & 0x200000) == 0 && (a4 & 0x400000) == 0 )
+        goto LABEL_20;
     }
+    *v19 = a4;
+    goto LABEL_20;
   }
   return result;
 }

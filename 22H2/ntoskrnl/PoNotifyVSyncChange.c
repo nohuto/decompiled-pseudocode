@@ -1,14 +1,14 @@
 /*
- * XREFs of PoNotifyVSyncChange @ 0x14032BE00
+ * XREFs of PoNotifyVSyncChange @ 0x14034A7F0
  * Callers:
  *     <none>
  * Callees:
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x14032C150 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14034A828 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
  */
 
-__int64 __fastcall PoNotifyVSyncChange(char a1)
+LONG __fastcall PoNotifyVSyncChange(char a1)
 {
   PpmAcquireLock(&PopFxSystemLatencyLock);
   PopFxVSyncEnabled = a1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetFirstRange @ 0x14083C0A0
+ * XREFs of RtlGetFirstRange @ 0x140760710
  * Callers:
- *     ArbOverrideConflict @ 0x14083B980 (ArbOverrideConflict.c)
- *     ArbShareDriverExclusive @ 0x14083BA44 (ArbShareDriverExclusive.c)
- *     RtlIsRangeAvailable @ 0x14083BBA0 (RtlIsRangeAvailable.c)
+ *     RtlIsRangeAvailable @ 0x1407604C0 (RtlIsRangeAvailable.c)
+ *     ArbShareDriverExclusive @ 0x1407B90E4 (ArbShareDriverExclusive.c)
+ *     ArbOverrideConflict @ 0x1407CCF00 (ArbOverrideConflict.c)
  * Callees:
  *     <none>
  */

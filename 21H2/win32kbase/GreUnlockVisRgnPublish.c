@@ -1,9 +1,9 @@
 /*
- * XREFs of GreUnlockVisRgnPublish @ 0x1C0098720
+ * XREFs of GreUnlockVisRgnPublish @ 0x1C0084900
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0178D70 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CA60 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall GreUnlockVisRgnPublish(int a1, __int64 a2, int a3)

@@ -1,51 +1,39 @@
 /*
- * XREFs of ?GetDisplayUMDFileName@ADAPTER_RENDER@@AEBAAEBU_UNICODE_STRING@@W4_KMT_DISPLAY_UMD_VERSION@@@Z @ 0x1C02C14EC
+ * XREFs of ?GetDisplayUMDFileName@ADAPTER_RENDER@@AEBAAEBU_UNICODE_STRING@@W4_KMT_DISPLAY_UMD_VERSION@@@Z @ 0x1C0216BEC
  * Callers:
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018FB80 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C01309C0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
-__int64 __fastcall ADAPTER_RENDER::GetDisplayUMDFileName(__int64 a1, unsigned int a2)
+__int64 __fastcall ADAPTER_RENDER::GetDisplayUMDFileName(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v2; // rbx
-  __int64 v4; // rcx
-  bool v5; // zf
+  __int64 v4; // rdi
   __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rax
+  bool v12; // zf
+  __int64 v13; // rax
 
-  v2 = a2;
-  if ( a2 )
+  v4 = (unsigned int)a2;
+  if ( (_DWORD)a2 )
   {
-    WdLogSingleEntry1(1LL, 3493LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"(UINT)umdVersion < (UINT)NUM_KMT_DISPLAY_UMDVERSIONS",
-      3493LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v6 + 24) = 3212LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  if ( !DXGPROCESS::GetCurrent(a1) )
+  if ( !DXGPROCESS::GetCurrent(a1, a2, a3, a4) )
   {
-    WdLogSingleEntry1(1LL, 3494LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"DXGPROCESS::GetCurrent() != NULL",
-      3494LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v11 + 24) = 3213LL;
+    WdLogEvent5_WdAssertion(v11);
   }
-  v5 = (*((_DWORD *)DXGPROCESS::GetCurrent(v4) + 106) & 8) == 0;
-  v6 = a1 + 528;
-  if ( v5 )
-    v6 = a1 + 512;
-  return v6 + 16 * v2;
+  v12 = (*((_BYTE *)DXGPROCESS::GetCurrent(v8, v7, v9, v10) + 347) & 1) == 0;
+  v13 = a1 + 456;
+  if ( v12 )
+    v13 = a1 + 440;
+  return 16 * v4 + v13;
 }

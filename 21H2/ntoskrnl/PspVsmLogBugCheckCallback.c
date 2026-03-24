@@ -1,5 +1,5 @@
 /*
- * XREFs of PspVsmLogBugCheckCallback @ 0x1405E2CF0
+ * XREFs of PspVsmLogBugCheckCallback @ 0x1405842A0
  * Callers:
  *     <none>
  * Callees:
@@ -16,6 +16,6 @@ void __fastcall PspVsmLogBugCheckCallback(
   {
     ReasonSpecificData[4] = PspIumLogBuffer;
     *((_DWORD *)ReasonSpecificData + 10) = 0x2000;
-    *((_OWORD *)ReasonSpecificData + 1) = xmmword_14003C858;
+    *((_OWORD *)ReasonSpecificData + 1) = xmmword_140036180;
   }
 }

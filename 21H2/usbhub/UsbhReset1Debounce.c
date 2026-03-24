@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhReset1Debounce @ 0x1C004D320
+ * XREFs of UsbhReset1Debounce @ 0x1C004E730
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhCancelResetTimeout @ 0x1C000DCF0 (UsbhCancelResetTimeout.c)
- *     UsbhSignalSyncDeviceResetPdo @ 0x1C000F168 (UsbhSignalSyncDeviceResetPdo.c)
- *     UsbhReleaseEnumBusLockEx @ 0x1C000FB0C (UsbhReleaseEnumBusLockEx.c)
- *     UsbhSignalDriverResetEvent @ 0x1C001DF64 (UsbhSignalDriverResetEvent.c)
- *     UsbhPCE_QueueChange @ 0x1C001E628 (UsbhPCE_QueueChange.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhAssertBusLock @ 0x1C0035D6C (UsbhAssertBusLock.c)
- *     UsbhPortDisconnect @ 0x1C004CDA0 (UsbhPortDisconnect.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C00029EC (UsbhReleaseEnumBusLockEx.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhCancelResetTimeout @ 0x1C0013AE0 (UsbhCancelResetTimeout.c)
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C001518C (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhPCE_QueueChange @ 0x1C00169C4 (UsbhPCE_QueueChange.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0017FEC (UsbhSignalDriverResetEvent.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhAssertBusLock @ 0x1C0037028 (UsbhAssertBusLock.c)
+ *     UsbhPortDisconnect @ 0x1C004E1B0 (UsbhPortDisconnect.c)
  */
 
 __int64 __fastcall UsbhReset1Debounce(__int64 a1, __int64 a2, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CLegacyRenderTargetMarshaler@DirectComposition@@UEBA?AW4MIL_RESOURCE_TYPE@@XZ @ 0x1C00CB1A0
+ * XREFs of ?GetType@CLegacyRenderTargetMarshaler@DirectComposition@@UEBA?AW4MIL_RESOURCE_TYPE@@XZ @ 0x1C00BBFB0
  * Callers:
  *     <none>
  * Callees:

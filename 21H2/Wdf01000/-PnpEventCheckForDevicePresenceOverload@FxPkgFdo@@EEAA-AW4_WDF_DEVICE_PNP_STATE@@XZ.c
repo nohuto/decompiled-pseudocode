@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PnpEventCheckForDevicePresenceOverload@FxPkgFdo@@EEAA?AW4_WDF_DEVICE_PNP_STATE@@XZ @ 0x1C000BD90
+ * XREFs of ?PnpEventCheckForDevicePresenceOverload@FxPkgFdo@@EEAA?AW4_WDF_DEVICE_PNP_STATE@@XZ @ 0x1C000DCD0
  * Callers:
  *     <none>
  * Callees:

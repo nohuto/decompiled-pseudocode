@@ -1,73 +1,71 @@
 /*
- * XREFs of GdiProcessCallout @ 0x1C0037960
+ * XREFs of GdiProcessCallout @ 0x1C0073730
  * Callers:
  *     <none>
  * Callees:
- *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C0034CE8 (-GrepCloseCurrentProcess@@YAHXZ.c)
- *     IsGreIsCurrentProcessSystemCriticalSupported @ 0x1C003800C (IsGreIsCurrentProcessSystemCriticalSupported.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?DestroyProtectedOutputsOwnedByProcess@COPM@@QEAAXPEAX@Z @ 0x1C00A2534 (-DestroyProtectedOutputsOwnedByProcess@COPM@@QEAAXPEAX@Z.c)
- *     GdiUnmapGDIW32PIDLockedBitmaps @ 0x1C00A67F0 (GdiUnmapGDIW32PIDLockedBitmaps.c)
- *     IsUmfdIsCurrentProcessUmfdHostNoLockSupported @ 0x1C00C1758 (IsUmfdIsCurrentProcessUmfdHostNoLockSupported.c)
- *     IsUmfdUninitializeProcessSupported @ 0x1C00C5280 (IsUmfdUninitializeProcessSupported.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     IsGreIsCurrentProcessSystemCriticalSupported @ 0x1C0073AF0 (IsGreIsCurrentProcessSystemCriticalSupported.c)
+ *     ?NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z @ 0x1C0073B1C (-NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z.c)
+ *     GdiUnmapGDIW32PIDLockedBitmaps @ 0x1C0073F80 (GdiUnmapGDIW32PIDLockedBitmaps.c)
+ *     IsUmfdIsCurrentProcessUmfdHostNoLockSupported @ 0x1C0074260 (IsUmfdIsCurrentProcessUmfdHostNoLockSupported.c)
+ *     ?DestroyProtectedOutputsOwnedByProcess@COPM@@QEAAXPEAX@Z @ 0x1C00884C0 (-DestroyProtectedOutputsOwnedByProcess@COPM@@QEAAXPEAX@Z.c)
+ *     IsUmfdUninitializeProcessSupported @ 0x1C00B83D0 (IsUmfdUninitializeProcessSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall GdiProcessCallout(__int64 a1, char a2)
 {
   int v4; // eax
-  __int64 ProcessPeb; // rax
-  __int64 v6; // r15
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // rax
-  NTSTATUS v10; // ebx
-  HANDLE v11; // rax
-  int v13; // r15d
-  HANDLE ProcessId; // rbx
-  __int64 v15; // rcx
-  __int64 v16; // rax
-  int v17; // eax
-  HANDLE v18; // rcx
+  unsigned int CurrentProcessId; // ebx
+  int v6; // r15d
+  HANDLE ProcessId; // rax
+  COPM *v8; // rcx
+  int v9; // eax
+  HANDLE v10; // rcx
   BOOLEAN i; // dl
-  PVOID v20; // rax
-  _QWORD *v21; // rbx
-  _QWORD *v22; // rbx
-  void *v23; // rcx
-  void *v24; // rdx
-  void *v25; // rdx
-  int v26; // eax
+  PVOID v12; // rax
+  _QWORD *v13; // rbx
+  _QWORD *v14; // rbx
+  void *v15; // rcx
+  __int64 ProcessPeb; // rax
+  __int64 v18; // r14
+  __int64 v19; // r8
+  NTSTATUS v20; // ebx
+  HANDLE v21; // rax
+  __int64 v22; // rcx
+  __int64 v23; // rcx
+  int v24; // eax
   ULONG_PTR ViewSize[5]; // [rsp+50h] [rbp-28h] BYREF
   PVOID BaseAddress; // [rsp+90h] [rbp+18h] BYREF
   HANDLE SectionHandle; // [rsp+98h] [rbp+20h] BYREF
 
   if ( (int)IsGreIsCurrentProcessSystemCriticalSupported() >= 0 )
   {
-    v4 = (int)qword_1C0294E60;
-    if ( qword_1C0294E60 )
-      v4 = qword_1C0294E60();
+    v4 = (int)qword_1C0255A58;
+    if ( qword_1C0255A58 )
+      v4 = qword_1C0255A58();
     if ( v4 )
     {
       if ( (int)IsUmfdIsCurrentProcessUmfdHostNoLockSupported() >= 0 )
       {
-        v26 = (int)qword_1C0294A90;
-        if ( qword_1C0294A90 )
-          v26 = qword_1C0294A90();
-        if ( v26 )
+        v24 = (int)qword_1C0255678;
+        if ( qword_1C0255678 )
+          v24 = qword_1C0255678();
+        if ( v24 )
         {
           if ( a2 )
           {
             if ( !a1 && (int)IsUmfdUninitializeProcessSupported() >= 0 )
             {
-              if ( qword_1C0294AA0 )
-                qword_1C0294AA0();
+              if ( qword_1C0255688 )
+                qword_1C0255688();
               return 3221225495LL;
             }
           }
-          else if ( (int)IsUmfdUninitializeProcessSupported() >= 0 && qword_1C0294AA0 )
+          else if ( (int)IsUmfdUninitializeProcessSupported() >= 0 && qword_1C0255688 )
           {
-            qword_1C0294AA0();
+            qword_1C0255688();
           }
         }
       }
@@ -80,41 +78,36 @@ __int64 __fastcall GdiProcessCallout(__int64 a1, char a2)
   {
     RtlInitializeGenericTableAvl(
       (PRTL_AVL_TABLE)(a1 + 88),
-      rimUserMemAllocNodeCompare,
+      GDIEngUserMemAllocNodeCompare,
       GDIEngUserMemAllocNodeAlloc,
-      rimUserMemAllocNodeFree,
+      (PRTL_AVL_FREE_ROUTINE)DirectComposition::CGenericTable<MaterialProperty::MaterialPropertyId,MaterialProperty,1953645380,0>::FreeTableEntry,
       0LL);
     *(_QWORD *)(a1 + 200) = a1 + 192;
     *(_QWORD *)(a1 + 192) = a1 + 192;
     *(_QWORD *)(a1 + 216) = a1 + 208;
     *(_QWORD *)(a1 + 208) = a1 + 208;
     ProcessPeb = PsGetProcessPeb(*(_QWORD *)a1);
-    v6 = ProcessPeb;
+    v18 = ProcessPeb;
     if ( ProcessPeb
-      && (*(_DWORD *)(ProcessPeb + 264) = *(_DWORD *)(a1 + 292),
+      && (*(_DWORD *)(ProcessPeb + 264) = 20,
           memset((void *)(ProcessPeb + 320), 0, 0xF0uLL),
           ViewSize[1] = a1 + 248,
-          LOBYTE(v7) = a2,
-          (int)DxDdProcessCallout(a1 + 248, v7) >= 0) )
+          LOBYTE(v19) = a2,
+          (int)((__int64 (__fastcall *)(__int64, void *, __int64))qword_1C02508B8)(
+                 a1 + 248,
+                 &gDxgkWin32kEngInterface,
+                 v19) >= 0) )
     {
       BaseAddress = 0LL;
       ViewSize[0] = 0LL;
       SectionHandle = 0LL;
-      v9 = SGDGetSessionState(v8);
-      if ( ObOpenObjectByPointer(
-             *(PVOID *)(*(_QWORD *)(v9 + 24) + 2344LL),
-             0x200u,
-             0LL,
-             0xF001Fu,
-             0LL,
-             0,
-             &SectionHandle) < 0 )
+      if ( ObOpenObjectByPointer(gpHmgrSharedHandleSection, 0x200u, 0LL, 0xF001Fu, 0LL, 0, &SectionHandle) < 0 )
       {
-        v10 = -1073741502;
+        v20 = -1073741502;
       }
       else
       {
-        v10 = ZwMapViewOfSection(
+        v20 = ZwMapViewOfSection(
                 SectionHandle,
                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                 &BaseAddress,
@@ -125,15 +118,15 @@ __int64 __fastcall GdiProcessCallout(__int64 a1, char a2)
                 ViewUnmap,
                 0,
                 2u);
-        if ( v10 >= 0 && (v11 = MmSecureVirtualMemory(BaseAddress, 0x1000uLL, 2u), (*(_QWORD *)(a1 + 240) = v11) != 0LL) )
-          *(_QWORD *)(v6 + 248) = BaseAddress;
+        if ( v20 >= 0 && (v21 = MmSecureVirtualMemory(BaseAddress, 0x1000uLL, 2u), (*(_QWORD *)(a1 + 240) = v21) != 0LL) )
+          *(_QWORD *)(v18 + 248) = BaseAddress;
         else
-          v10 = -1073741502;
+          v20 = -1073741502;
         ZwClose(SectionHandle);
       }
-      if ( v10 < 0 )
-        DxDdProcessCallout(a1 + 248, 0LL);
-      return (unsigned int)v10;
+      if ( v20 < 0 )
+        ((void (__fastcall *)(__int64, void *, _QWORD))qword_1C02508B8)(a1 + 248, &gDxgkWin32kEngInterface, 0LL);
+      return (unsigned int)v20;
     }
     else
     {
@@ -142,57 +135,55 @@ __int64 __fastcall GdiProcessCallout(__int64 a1, char a2)
   }
   else
   {
+    CurrentProcessId = (unsigned int)PsGetCurrentProcessId();
     GdiUnmapGDIW32PIDLockedBitmaps(a1);
-    v13 = GrepCloseCurrentProcess();
+    v6 = NtGdiCloseProcess(CurrentProcessId & 0xFFFFFFFC, 1LL);
     ProcessId = PsGetProcessId(*(PEPROCESS *)a1);
-    v16 = SGDGetSessionState(v15);
-    COPM::DestroyProtectedOutputsOwnedByProcess(*(COPM **)(*(_QWORD *)(v16 + 24) + 3824LL), ProcessId);
-    if ( qword_1C0294DD8 )
-      v17 = qword_1C0294DD8();
+    COPM::DestroyProtectedOutputsOwnedByProcess(v8, ProcessId);
+    if ( qword_1C02559D0 )
+      v9 = qword_1C02559D0();
     else
-      v17 = -1073741637;
-    if ( v17 >= 0 )
+      v9 = -1073741637;
+    if ( v9 >= 0 )
     {
-      v18 = PsGetProcessId(*(PEPROCESS *)a1);
-      if ( qword_1C0294DE0 )
-        qword_1C0294DE0(v18);
+      v10 = PsGetProcessId(*(PEPROCESS *)a1);
+      if ( qword_1C02559D8 )
+        qword_1C02559D8(v10);
     }
-    DxDdProcessCallout(a1 + 248, 0LL);
+    ((void (__fastcall *)(__int64, void *, _QWORD))qword_1C02508B8)(a1 + 248, &gDxgkWin32kEngInterface, 0LL);
     for ( i = 1; ; i = 0 )
     {
-      v20 = RtlEnumerateGenericTableAvl((PRTL_AVL_TABLE)(a1 + 88), i);
-      if ( !v20 )
+      v12 = RtlEnumerateGenericTableAvl((PRTL_AVL_TABLE)(a1 + 88), i);
+      if ( !v12 )
         break;
-      RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(a1 + 88), v20);
+      RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(a1 + 88), v12);
     }
-    v21 = *(_QWORD **)(a1 + 192);
-    if ( v21 )
+    v13 = *(_QWORD **)(a1 + 192);
+    if ( v13 )
     {
-      while ( v21 != (_QWORD *)(a1 + 192) )
+      while ( v13 != (_QWORD *)(a1 + 192) )
       {
-        v24 = v21;
-        v21 = (_QWORD *)*v21;
-        if ( v24 )
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v24);
+        v22 = (__int64)v13;
+        v13 = (_QWORD *)*v13;
+        Win32FreePool(v22);
       }
     }
-    v22 = *(_QWORD **)(a1 + 208);
-    if ( v22 )
+    v14 = *(_QWORD **)(a1 + 208);
+    if ( v14 )
     {
-      while ( v22 != (_QWORD *)(a1 + 208) )
+      while ( v14 != (_QWORD *)(a1 + 208) )
       {
-        v25 = v22;
-        v22 = (_QWORD *)*v22;
-        if ( v25 )
-          NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v25);
+        v23 = (__int64)v14;
+        v14 = (_QWORD *)*v14;
+        Win32FreePool(v23);
       }
     }
-    v23 = *(void **)(a1 + 240);
-    if ( v23 )
+    v15 = *(void **)(a1 + 240);
+    if ( v15 )
     {
-      MmUnsecureVirtualMemory(v23);
+      MmUnsecureVirtualMemory(v15);
       *(_QWORD *)(a1 + 240) = 0LL;
     }
-    return v13 == 0 ? 0xC0000121 : 0;
+    return v6 == 0 ? 0xC0000121 : 0;
   }
 }

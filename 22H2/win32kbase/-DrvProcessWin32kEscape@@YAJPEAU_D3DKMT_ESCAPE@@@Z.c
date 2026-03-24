@@ -1,438 +1,284 @@
 /*
- * XREFs of ?DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z @ 0x1C00ACC98
+ * XREFs of ?DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z @ 0x1C00A5A68
  * Callers:
- *     ?DxgkEngProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z @ 0x1C00ACC80 (-DxgkEngProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z.c)
+ *     ?DxgkEngProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z @ 0x1C00A5A50 (-DxgkEngProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z.c)
  * Callees:
- *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C0048330 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     HMUnlockObject @ 0x1C0056D70 (HMUnlockObject.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     ?DrvCollectColorProfileForUser@@YAJPEAU_D3DKMT_ESCAPE_WIN32K_COLOR_PROFILE@@I@Z @ 0x1C00ACE38 (-DrvCollectColorProfileForUser@@YAJPEAU_D3DKMT_ESCAPE_WIN32K_COLOR_PROFILE@@I@Z.c)
- *     DrvSetMonitorsDimState @ 0x1C00BAE20 (DrvSetMonitorsDimState.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     xxxDisplayDiagBlackScreenDetected @ 0x1C0136B00 (xxxDisplayDiagBlackScreenDetected.c)
- *     ?DrvGetCurrentDpiInfoFromHDC@@YAJPEAUHDC__@@QEAU_DPI_INFORMATION@@@Z @ 0x1C016145C (-DrvGetCurrentDpiInfoFromHDC@@YAJPEAUHDC__@@QEAU_DPI_INFORMATION@@@Z.c)
- *     GreIsInLowBox @ 0x1C016CBA0 (GreIsInLowBox.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     EnterCrit @ 0x1C002FF70 (EnterCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     ?DrvCollectColorProfileForUser@@YAJPEAU_D3DKMT_ESCAPE_WIN32K_COLOR_PROFILE@@I@Z @ 0x1C00A5F94 (-DrvCollectColorProfileForUser@@YAJPEAU_D3DKMT_ESCAPE_WIN32K_COLOR_PROFILE@@I@Z.c)
+ *     Feature_BrokeredDisplays_TestMode__private_ReportDeviceUsage @ 0x1C00C73E4 (Feature_BrokeredDisplays_TestMode__private_ReportDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     xxxDisplayDiagBlackScreenDetected @ 0x1C011ECA0 (xxxDisplayDiagBlackScreenDetected.c)
+ *     GreIsInLowBox @ 0x1C013F6E0 (GreIsInLowBox.c)
+ *     ?DrvGetCurrentDpiInfoFromHDC@@YAJPEAUHDC__@@QEAU_DPI_INFORMATION@@@Z @ 0x1C0144640 (-DrvGetCurrentDpiInfoFromHDC@@YAJPEAUHDC__@@QEAU_DPI_INFORMATION@@@Z.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall DrvProcessWin32kEscape(struct _D3DKMT_ESCAPE *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall DrvProcessWin32kEscape(struct _D3DKMT_ESCAPE *a1, __int64 a2)
 {
-  struct _D3DKMT_ESCAPE *v4; // r14
-  int v5; // esi
-  __int64 Pool2; // rdi
-  UINT *p_PrivateDriverDataSize; // r12
-  unsigned __int64 PrivateDriverDataSize; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v9; // r14
-  unsigned __int64 v10; // rdi
-  int v11; // eax
-  size_t v12; // r8
+  int v3; // ebx
+  _WORD *v4; // rdi
+  size_t PrivateDriverDataSize; // rcx
+  __int64 v6; // rax
+  size_t v8; // r8
   char *pPrivateDriverData; // rdx
-  __int64 Type; // rdx
+  D3DKMT_ESCAPETYPE Type; // ecx
+  __int32 v11; // ecx
+  __int32 v12; // ecx
+  __int32 v13; // ecx
+  __int64 v14; // rcx
   int CurrentDpiInfoFromHDC; // eax
-  _QWORD *v17; // rax
-  unsigned int v18; // edx
-  __int64 v19; // r10
-  char v20; // r13
-  __int64 v21; // rcx
-  __int64 v22; // rcx
-  __int64 v23; // rax
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 DxgkWin32kInterface; // rax
-  __int64 v27; // rcx
-  __int64 v28; // rcx
-  int v29; // eax
-  __int64 v30; // rdx
-  struct tagTHREADINFO *v31; // rax
-  __int64 v32; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v34; // rax
-  char v35; // al
-  __int64 *v36; // rsi
-  unsigned int v37; // edx
-  unsigned int v38; // r8d
-  __int64 v39; // rdx
-  __int64 v40; // rcx
-  __int64 v41; // r8
-  __int64 v42; // r9
-  size_t v43; // r8
-  char *v44; // rcx
-  _QWORD v45[2]; // [rsp+30h] [rbp-138h] BYREF
-  __int64 v46; // [rsp+40h] [rbp-128h]
-  __int64 v47; // [rsp+48h] [rbp-120h] BYREF
-  unsigned __int64 v48; // [rsp+50h] [rbp-118h] BYREF
-  _QWORD v49[2]; // [rsp+60h] [rbp-108h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-F8h] BYREF
-  struct _UNICODE_STRING v51; // [rsp+80h] [rbp-E8h] BYREF
-  PVOID BackTrace[27]; // [rsp+90h] [rbp-D8h] BYREF
-  struct _D3DKMT_ESCAPE *v53; // [rsp+170h] [rbp+8h] BYREF
-  unsigned int v54; // [rsp+178h] [rbp+10h] BYREF
-  __int64 v55; // [rsp+180h] [rbp+18h]
-  unsigned __int64 v56; // [rsp+188h] [rbp+20h] BYREF
+  UINT v16; // eax
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rcx
+  int v20; // ecx
+  __int64 v21; // rax
+  UINT v22; // edx
+  UINT v23; // r14d
+  int v24; // eax
+  __int64 v25; // rax
+  unsigned int v26; // edx
+  unsigned int v27; // r8d
+  size_t v28; // r8
+  char *v29; // rcx
+  struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
+  struct _UNICODE_STRING v31; // [rsp+40h] [rbp-28h] BYREF
+  char v32; // [rsp+78h] [rbp+10h] BYREF
+  _WORD *v33; // [rsp+80h] [rbp+18h]
 
-  v53 = a1;
-  v4 = a1;
-  v5 = 0;
-  Pool2 = 0LL;
-  v46 = 0LL;
-  p_PrivateDriverDataSize = &a1->PrivateDriverDataSize;
-  v45[0] = &a1->PrivateDriverDataSize;
+  v3 = 0;
+  v4 = 0LL;
+  v33 = 0LL;
   PrivateDriverDataSize = a1->PrivateDriverDataSize;
-  if ( !(_DWORD)PrivateDriverDataSize )
-    goto LABEL_10;
-  v54 = 1886221383;
-  v47 = 260LL;
-  v9 = gpLeakTrackingAllocator;
-  v10 = (unsigned int)PrivateDriverDataSize;
-  v48 = PrivateDriverDataSize;
-  v11 = *(_DWORD *)gpLeakTrackingAllocator;
-  if ( !*(_DWORD *)gpLeakTrackingAllocator )
+  if ( (_DWORD)PrivateDriverDataSize )
   {
-    Pool2 = ExAllocatePool2(260LL, (unsigned int)v10, 1886221383LL);
-    if ( Pool2 )
-      _InterlockedIncrement64((volatile signed __int64 *)v9 + 14);
-    goto LABEL_5;
-  }
-  if ( v11 != 1 )
-  {
-    if ( v11 == 2 )
+    v4 = PALLOCMEM2(PrivateDriverDataSize, 1886221383LL, 1);
+    v33 = v4;
+    if ( !v4 )
     {
-      v56 = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 0x706D7447u, &v56) )
-      {
-        v49[0] = &v47;
-        v49[1] = &v54;
-        Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                  (__int64)v9,
-                  (__int64)v49,
-                  &v48);
-        goto LABEL_5;
-      }
-      v20 = 0;
-      if ( v10 < 0x1000 || (v10 & 0xFFF) != 0 )
-      {
-        v20 = 1;
-        v10 += 16LL;
-        v48 = v10;
-      }
-      Pool2 = ExAllocatePool2(v19, v10, v18);
-      if ( Pool2 )
-      {
-        _InterlockedIncrement64((volatile signed __int64 *)v9 + 16);
-        NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-        if ( v20 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-        {
-          if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                  v9,
-                                  Pool2,
-                                  v56,
-                                  BackTrace) )
-          {
-            Pool2 += 16LL;
-            goto LABEL_5;
-          }
-        }
-        else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                     v9,
-                                     Pool2,
-                                     v56,
-                                     BackTrace) )
-        {
-          goto LABEL_5;
-        }
-        _InterlockedIncrement64((volatile signed __int64 *)v9 + 17);
-        _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-      }
+      v6 = WdLogNewEntry5_WdLowResource();
+      *(_QWORD *)(v6 + 24) = a1->PrivateDriverDataSize;
+      WdLogEvent5_WdLowResource(v6);
+      return 3221225495LL;
     }
-    goto LABEL_41;
-  }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x706D7447u)
-    || v10 + 16 < v10 )
-  {
-LABEL_41:
-    Pool2 = 0LL;
-    goto LABEL_5;
-  }
-  v17 = (_QWORD *)ExAllocatePool2(v47 & 0xFFFFFFFFFFFFFFFDuLL, v10 + 16, v54);
-  Pool2 = (__int64)v17;
-  if ( !v17
-    || (_InterlockedIncrement64((volatile signed __int64 *)v9 + 14),
-        *v17 = 1886221383LL,
-        Pool2 = (__int64)(v17 + 2),
-        v17 == (_QWORD *)-16LL) )
-  {
-    NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-      *((NSInstrumentation::CPointerHashTable **)v9 + 1),
-      (const void *)0x706D7447);
-  }
-LABEL_5:
-  v55 = Pool2;
-  if ( Pool2 )
-  {
-    v12 = *p_PrivateDriverDataSize;
-    v4 = v53;
-    pPrivateDriverData = (char *)v53->pPrivateDriverData;
-    if ( &pPrivateDriverData[v12] < pPrivateDriverData
-      || (unsigned __int64)&pPrivateDriverData[v12] > MmUserProbeAddress )
-    {
+    v8 = a1->PrivateDriverDataSize;
+    pPrivateDriverData = (char *)a1->pPrivateDriverData;
+    if ( &pPrivateDriverData[v8] < pPrivateDriverData || (unsigned __int64)&pPrivateDriverData[v8] > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    }
-    memmove((void *)Pool2, pPrivateDriverData, v12);
-    v46 = Pool2;
-LABEL_10:
-    Type = v4->Type;
-    if ( (int)Type > 1030 )
+    memmove(v4, pPrivateDriverData, v8);
+  }
+  Type = a1->Type;
+  if ( Type > D3DKMT_ESCAPE_WIN32K_DDA_TEST_CTL )
+  {
+    v19 = (unsigned int)(Type - 1031);
+    if ( !(_DWORD)v19 )
     {
-      switch ( (_DWORD)Type )
+      if ( gbOSTestSigningEnabled )
+        goto LABEL_72;
+      v24 = (int)qword_1C02551B8;
+      if ( qword_1C02551B8 )
+        v24 = qword_1C02551B8();
+      if ( v24
+        || (unsigned int)GreIsInLowBox()
+        && ((v32 = 0,
+             DestinationString = 0LL,
+             v31 = 0LL,
+             RtlInitUnicodeString(&DestinationString, L"shellExperienceComposer"),
+             RtlInitUnicodeString(&v31, L"shellDisplayManagement"),
+             (int)RtlCapabilityCheckForSingleSessionSku(0LL, &DestinationString, &v32) >= 0)
+         && v32
+         || (int)RtlCapabilityCheckForSingleSessionSku(0LL, &v31, &v32) >= 0 && v32) )
       {
-        case 0x407:
-          if ( gbOSTestSigningEnabled
-            || (!qword_1C02945C8 ? (v29 = 0) : (v29 = qword_1C02945C8((unsigned int)(Type - 1031))),
-                v29
-             || (unsigned int)GreIsInLowBox()
-             && ((LOBYTE(v53) = 0,
-                  DestinationString = 0LL,
-                  v51 = 0LL,
-                  RtlInitUnicodeString(&DestinationString, L"shellExperienceComposer"),
-                  RtlInitUnicodeString(&v51, L"shellDisplayManagement"),
-                  (int)RtlCapabilityCheckForSingleSessionSku(0LL, &DestinationString, &v53) >= 0)
-              && (_BYTE)v53
-              || (int)RtlCapabilityCheckForSingleSessionSku(0LL, &v51, &v53) >= 0 && (_BYTE)v53)) )
-          {
-            if ( *p_PrivateDriverDataSize != 24 )
-            {
-              v5 = -1073741811;
-              WdLogSingleEntry2(2LL, *p_PrivateDriverDataSize);
-              break;
-            }
-            if ( *(_DWORD *)(Pool2 + 20) < 4u )
-            {
-              v31 = (struct tagTHREADINFO *)PrivateAPI::_anonymous_namespace_::EnterCritInternal(0LL, Type, a3, a4);
-              gptiCurrent = v31;
-              if ( v31 )
-              {
-                *((_DWORD *)v31 + 387) = 1;
-                CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v32);
-                if ( CurrentProcessWin32Process )
-                {
-                  v34 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-                  if ( v34 )
-                  {
-                    if ( (*(_DWORD *)(v34 + 12) & 0x8000) != 0 )
-                    {
-                      if ( (*((_DWORD *)gptiCurrent + 122) & 0x1000000) == 0
-                        || (v35 = 1, (*((_DWORD *)gptiCurrent + 318) & 0x80u) != 0) )
-                      {
-                        v35 = 0;
-                      }
-                      if ( v35 )
-                      {
-                        while ( 1 )
-                        {
-                          v36 = (__int64 *)gpSharedUserCritDeferredUnlockListHead;
-                          if ( !gpSharedUserCritDeferredUnlockListHead )
-                            break;
-                          gpSharedUserCritDeferredUnlockListHead = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)gpSharedUserCritDeferredUnlockListHead + 2);
-                          v36[2] = 0LL;
-                          if ( !*(_DWORD *)(*v36 + 8) )
-                          {
-                            LODWORD(v55) = 0x20000;
-                            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 4237LL);
-                          }
-                          HMUnlockObject(*v36);
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-              v37 = *(_DWORD *)(Pool2 + 20);
-              v38 = v37 >> 1;
-              LOBYTE(v38) = (v37 & 2) != 0;
-              LOBYTE(v37) = v37 & 1;
-              xxxDisplayDiagBlackScreenDetected(4, v37, v38, Pool2 + 4, Pool2);
-              v5 = 0;
-              UserSessionSwitchLeaveCrit(v40, v39, v41, v42);
-              break;
-            }
-            v5 = -1073741811;
-            v30 = -1073741811LL;
-          }
-          else
-          {
-            v5 = -1073741790;
-            v30 = -1073741790LL;
-          }
-          WdLogSingleEntry1(2LL, v30);
-          break;
-        case 0x40B:
-          v5 = -1073741811;
-          if ( *p_PrivateDriverDataSize == 8 )
-            v5 = -1073741637;
-          break;
-        case 0x40C:
-          if ( *p_PrivateDriverDataSize >= 0x64 )
-          {
-            CurrentDpiInfoFromHDC = DrvCollectColorProfileForUser((PSID)Pool2, *p_PrivateDriverDataSize);
-LABEL_16:
-            v5 = CurrentDpiInfoFromHDC;
-            break;
-          }
-LABEL_55:
-          v5 = -1073741811;
-          goto LABEL_18;
-        default:
-          v28 = (unsigned int)(Type - 1037);
-          if ( (_DWORD)Type != 1037 )
-          {
-            if ( (_DWORD)Type == 1038 )
-            {
-              if ( gbOSTestSigningEnabled )
-              {
-LABEL_83:
-                v5 = -1073741637;
-                break;
-              }
-LABEL_79:
-              v5 = -1073741790;
-              goto LABEL_18;
-            }
-            goto LABEL_84;
-          }
-          if ( !gbOSTestSigningEnabled )
-            goto LABEL_79;
-          if ( !*p_PrivateDriverDataSize )
-            goto LABEL_55;
-          v45[0] = 0LL;
-          v45[1] = 0LL;
-          LOBYTE(v28) = *(_BYTE *)Pool2;
-          DrvSetMonitorsDimState(v28, v45);
-          v5 = 0;
-          break;
-      }
-LABEL_17:
-      if ( v5 >= 0 )
-      {
-        if ( !Pool2 )
-          return (unsigned int)v5;
-        v43 = *p_PrivateDriverDataSize;
-        v44 = (char *)v4->pPrivateDriverData;
-        if ( (unsigned __int64)&v44[v43] > MmUserProbeAddress || &v44[v43] <= v44 )
-          *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(v44, (const void *)Pool2, v43);
-      }
-LABEL_18:
-      if ( Pool2 )
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)Pool2);
-      return (unsigned int)v5;
-    }
-    switch ( (_DWORD)Type )
-    {
-      case 0x406:
-        if ( *p_PrivateDriverDataSize != 4 )
-          goto LABEL_55;
-        if ( !gbOSTestSigningEnabled )
-          goto LABEL_79;
-        if ( (*(_DWORD *)Pool2 & 3) == 2 )
+LABEL_72:
+        if ( a1->PrivateDriverDataSize == 24 )
         {
-          WdLogSingleEntry1(2LL, Type);
-          goto LABEL_55;
+          if ( *((_DWORD *)v4 + 5) < 4u )
+          {
+            EnterCrit(0, 1);
+            v26 = *((_DWORD *)v4 + 5);
+            v27 = v26 >> 1;
+            LOBYTE(v27) = (v26 & 2) != 0;
+            LOBYTE(v26) = v26 & 1;
+            xxxDisplayDiagBlackScreenDetected(4, v26, v27, (_DWORD)v4 + 4, (__int64)v4);
+            v3 = 0;
+            UserSessionSwitchLeaveCrit();
+            goto LABEL_77;
+          }
+          v3 = -1073741811;
+          v25 = WdLogNewEntry5_WdError(v19, a2);
+          *(_QWORD *)(v25 + 24) = -1073741811LL;
         }
-        g_OutputDuplicationTestControl = *(_DWORD *)Pool2;
-        goto LABEL_17;
-      case 0x400:
-        if ( *p_PrivateDriverDataSize >= 4 && *p_PrivateDriverDataSize == *(_DWORD *)Pool2 )
+        else
         {
-          if ( qword_1C0294840 )
-          {
-            v5 = qword_1C0294840((unsigned int)(Type - 1024));
-            CurrentDpiInfoFromHDC = -1073741637;
-          }
-          else
-          {
-            CurrentDpiInfoFromHDC = -1073741637;
-            v5 = -1073741637;
-          }
-          if ( v5 < 0 )
-            goto LABEL_18;
-          if ( qword_1C0294848 )
-            CurrentDpiInfoFromHDC = ((__int64 (__fastcall *)(__int64))qword_1C0294848)(Pool2);
-          goto LABEL_16;
+          v3 = -1073741811;
+          v25 = WdLogNewEntry5_WdError(v19, a2);
+          *(_QWORD *)(v25 + 24) = a1->PrivateDriverDataSize;
+          *(_QWORD *)(v25 + 32) = -1073741811LL;
         }
-        goto LABEL_55;
-      case 0x401:
-        v5 = -1073741637;
-        goto LABEL_18;
-    }
-    v21 = (unsigned int)(Type - 1026);
-    if ( (_DWORD)Type == 1026 )
-    {
-      if ( *p_PrivateDriverDataSize == 104 )
+      }
+      else
       {
-        CurrentDpiInfoFromHDC = DrvGetCurrentDpiInfoFromHDC(*(HDC *)Pool2, (struct _DPI_INFORMATION *const)(Pool2 + 8));
+        v3 = -1073741790;
+        v25 = WdLogNewEntry5_WdError(v19, a2);
+        *(_QWORD *)(v25 + 24) = -1073741790LL;
+      }
+      WdLogEvent5_WdError(v25);
+      goto LABEL_77;
+    }
+    v20 = v19 - 3;
+    if ( v20 )
+    {
+      v14 = (unsigned int)(v20 - 1);
+      if ( !(_DWORD)v14 )
+      {
+        v23 = a1->PrivateDriverDataSize;
+        if ( v23 == 8 )
+          Feature_BrokeredDisplays_TestMode__private_ReportDeviceUsage();
+        v3 = -1073741811;
+        if ( v23 == 8 )
+          v3 = -1073741637;
+        goto LABEL_77;
+      }
+      if ( (_DWORD)v14 != 1 )
+      {
+LABEL_50:
+        v21 = WdLogNewEntry5_WdError(v14, a2);
+        *(_QWORD *)(v21 + 24) = a1->Type;
+        WdLogEvent5_WdError(v21);
+        goto LABEL_51;
+      }
+      v22 = a1->PrivateDriverDataSize;
+      if ( v22 < 0x64 )
         goto LABEL_16;
-      }
-      v5 = -1073741811;
+      CurrentDpiInfoFromHDC = DrvCollectColorProfileForUser(v4, v22);
     }
     else
     {
-      v21 = (unsigned int)(Type - 1027);
-      if ( (_DWORD)Type != 1027 )
-      {
-        if ( (_DWORD)Type != 1028 )
-        {
-LABEL_84:
-          WdLogSingleEntry1(2LL, Type);
-LABEL_85:
-          v5 = -1073741811;
-          goto LABEL_17;
-        }
-        if ( *p_PrivateDriverDataSize != 6 )
-          goto LABEL_55;
-        v22 = *(_QWORD *)(SGDGetSessionState(v21) + 24);
-        *(_WORD *)Pool2 = *(_WORD *)(v22 + 1248);
-        v23 = PsGetCurrentProcessWin32Process(v22);
-        if ( v23 )
-          v23 &= -(__int64)(*(_QWORD *)v23 != 0LL);
-        *(_WORD *)(Pool2 + 2) = *(_WORD *)(v23 + 284);
-        *(_WORD *)(Pool2 + 4) = *((_WORD *)gpsi + 3499);
-        goto LABEL_17;
-      }
+      if ( a1->PrivateDriverDataSize != 40 )
+        goto LABEL_16;
+      CurrentDpiInfoFromHDC = ((__int64 (__fastcall *)(_WORD *))qword_1C0250B30)(v4);
     }
-    if ( *p_PrivateDriverDataSize < 8 )
-      goto LABEL_55;
-    if ( *(_DWORD *)Pool2 == 1 )
-    {
-      if ( *(_QWORD *)(DxDdGetDxgkWin32kInterface(v21, Type) + 536) )
-      {
-        DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v25, v24);
-        *(_DWORD *)(Pool2 + 4) = (*(unsigned __int8 (**)(void))(DxgkWin32kInterface + 536))() != 0;
-        goto LABEL_17;
-      }
-      goto LABEL_83;
-    }
-    if ( *(_DWORD *)Pool2 == 2 )
-    {
-      v27 = *(_QWORD *)(SGDGetSessionState(v21) + 24);
-      if ( gbOSTestSigningEnabled )
-      {
-        *(_DWORD *)(v27 + 1420) = *(_DWORD *)(Pool2 + 4);
-        goto LABEL_17;
-      }
-    }
-    goto LABEL_85;
+    goto LABEL_38;
   }
-  WdLogSingleEntry1(6LL, *p_PrivateDriverDataSize);
-  return 3221225495LL;
+  if ( Type != D3DKMT_ESCAPE_WIN32K_DDA_TEST_CTL )
+  {
+    v11 = Type - 1024;
+    if ( v11 )
+    {
+      v12 = v11 - 1;
+      if ( !v12 )
+      {
+        v3 = -1073741637;
+        goto LABEL_83;
+      }
+      v13 = v12 - 1;
+      if ( v13 )
+      {
+        v14 = (unsigned int)(v13 - 1);
+        if ( (_DWORD)v14 )
+        {
+          if ( (_DWORD)v14 == 1 )
+          {
+            if ( a1->PrivateDriverDataSize != 6 )
+            {
+LABEL_16:
+              v3 = -1073741811;
+              goto LABEL_83;
+            }
+            *v4 = gdmLogPixels;
+            v4[1] = *(_WORD *)(PsGetCurrentProcessWin32Process(v14) + 284);
+            v4[2] = *((_WORD *)gpsi + 3499);
+            goto LABEL_77;
+          }
+          goto LABEL_50;
+        }
+LABEL_20:
+        if ( a1->PrivateDriverDataSize < 8 )
+          goto LABEL_16;
+        if ( *(_DWORD *)v4 == 1 )
+        {
+          if ( qword_1C0250AB0 )
+            *((_DWORD *)v4 + 1) = (unsigned __int8)qword_1C0250AB0() != 0;
+          else
+            v3 = -1073741637;
+          goto LABEL_77;
+        }
+        if ( *(_DWORD *)v4 == 2 && gbOSTestSigningEnabled )
+        {
+          gbBypassPresenterViewProcessCheck = *((_DWORD *)v4 + 1);
+          goto LABEL_77;
+        }
+LABEL_51:
+        v3 = -1073741811;
+        goto LABEL_77;
+      }
+      if ( a1->PrivateDriverDataSize != 104 )
+      {
+        v3 = -1073741811;
+        goto LABEL_20;
+      }
+      CurrentDpiInfoFromHDC = DrvGetCurrentDpiInfoFromHDC(*(HDC *)v4, (struct _DPI_INFORMATION *const)(v4 + 4));
+    }
+    else
+    {
+      v16 = a1->PrivateDriverDataSize;
+      if ( v16 < 4 || v16 != *(_DWORD *)v4 )
+        goto LABEL_16;
+      if ( qword_1C0255430 )
+      {
+        v3 = qword_1C0255430();
+        CurrentDpiInfoFromHDC = -1073741637;
+      }
+      else
+      {
+        CurrentDpiInfoFromHDC = -1073741637;
+        v3 = -1073741637;
+      }
+      if ( v3 < 0 )
+        goto LABEL_83;
+      if ( qword_1C0255438 )
+        CurrentDpiInfoFromHDC = ((__int64 (__fastcall *)(_WORD *))qword_1C0255438)(v4);
+    }
+LABEL_38:
+    v3 = CurrentDpiInfoFromHDC;
+    goto LABEL_77;
+  }
+  if ( a1->PrivateDriverDataSize != 4 )
+    goto LABEL_16;
+  if ( !gbOSTestSigningEnabled )
+  {
+    v3 = -1073741790;
+    goto LABEL_83;
+  }
+  v17 = *(unsigned int *)v4;
+  if ( (v17 & 2) != 0 && (v17 & 1) == 0 )
+  {
+    v18 = WdLogNewEntry5_WdError(v17, a2);
+    *(_QWORD *)(v18 + 24) = a1->Type;
+    WdLogEvent5_WdError(v18);
+    goto LABEL_16;
+  }
+  g_OutputDuplicationTestControl = *(_DWORD *)v4;
+LABEL_77:
+  if ( v3 < 0 )
+  {
+LABEL_83:
+    if ( v4 )
+      Win32FreePool((__int64)v4);
+    return (unsigned int)v3;
+  }
+  if ( v4 )
+  {
+    v28 = a1->PrivateDriverDataSize;
+    v29 = (char *)a1->pPrivateDriverData;
+    if ( (unsigned __int64)&v29[v28] > MmUserProbeAddress || &v29[v28] <= v29 )
+      *(_BYTE *)MmUserProbeAddress = 0;
+    memmove(v29, v4, v28);
+    goto LABEL_83;
+  }
+  return (unsigned int)v3;
 }

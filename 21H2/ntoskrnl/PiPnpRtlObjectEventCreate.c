@@ -1,19 +1,19 @@
 /*
- * XREFs of PiPnpRtlObjectEventCreate @ 0x14077A750
+ * XREFs of PiPnpRtlObjectEventCreate @ 0x1406352B4
  * Callers:
- *     PiPnpRtlObjectEventWorker @ 0x140778830 (PiPnpRtlObjectEventWorker.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x14077B908 (PiPnpRtlCacheObjectBaseKey.c)
- *     PiPnpRtlEnsureObjectCached @ 0x1409483EC (PiPnpRtlEnsureObjectCached.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x14063726C (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiPnpRtlObjectEventWorker @ 0x14074A010 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x1408A317C (PiPnpRtlEnsureObjectCached.c)
  * Callees:
- *     RtlInsertElementGenericTableFullAvl @ 0x1402DEFC0 (RtlInsertElementGenericTableFullAvl.c)
- *     RtlLookupElementGenericTableFullAvl @ 0x1402DF320 (RtlLookupElementGenericTableFullAvl.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PiPnpRtlObjectEventRelease @ 0x140779B80 (PiPnpRtlObjectEventRelease.c)
- *     PiDmGetObject @ 0x14077B0A4 (PiDmGetObject.c)
- *     PiDmInitializeComparisonObject @ 0x14077B1E0 (PiDmInitializeComparisonObject.c)
- *     PiDmObjectRelease @ 0x14077B394 (PiDmObjectRelease.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlLookupElementGenericTableFullAvl @ 0x140264710 (RtlLookupElementGenericTableFullAvl.c)
+ *     RtlInsertElementGenericTableFullAvl @ 0x140264B90 (RtlInsertElementGenericTableFullAvl.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PiPnpRtlObjectEventRelease @ 0x140634048 (PiPnpRtlObjectEventRelease.c)
+ *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
+ *     PiDmInitializeComparisonObject @ 0x140636BA4 (PiDmInitializeComparisonObject.c)
+ *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlObjectEventCreate(__int64 a1, unsigned int a2, __int64 a3, char **a4)
@@ -23,7 +23,7 @@ __int64 __fastcall PiPnpRtlObjectEventCreate(__int64 a1, unsigned int a2, __int6
   char **v10; // rax
   char *v11; // rdi
   int Object; // eax
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   _DWORD *v15; // rdi
   PVOID v16; // rax
   PVOID inserted; // rax
@@ -49,58 +49,55 @@ __int64 __fastcall PiPnpRtlObjectEventCreate(__int64 a1, unsigned int a2, __int6
     v23[1] = v24;
     v10 = (char **)RtlLookupElementGenericTableFullAvl((PRTL_AVL_TABLE)(a3 + 24), &Buffer, &NodeOrParent, &SearchResult);
     if ( v10 )
-    {
       v11 = *v10;
-      if ( *v10 )
-      {
-LABEL_4:
-        *a4 = v11;
-        return (unsigned int)v9;
-      }
-    }
     else
-    {
       v11 = 0LL;
-    }
+    if ( v11 )
+      goto LABEL_5;
     Object = PiDmGetObject(a2, a1, &v19);
     v9 = Object;
     if ( Object == -1073741772 )
     {
       v8 = v19;
       v9 = 0;
-      goto LABEL_18;
+      goto LABEL_14;
     }
     if ( Object < 0 )
     {
       v8 = v19;
-LABEL_15:
+LABEL_18:
       if ( v11 )
         PiPnpRtlObjectEventRelease(v11);
-      goto LABEL_17;
+      goto LABEL_20;
     }
-    Pool2 = (void *)ExAllocatePool2(256LL, 240LL, 1097887312LL);
-    P = Pool2;
-    v15 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xF0uLL, 0x41706E50u);
+    P = PoolWithTag;
+    v15 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memset(Pool2, 0, 0x50uLL);
+      memset(PoolWithTag, 0, 0x50uLL);
       v16 = v19;
       *v15 = 1;
       v15[18] = 5;
+      v8 = 0LL;
       *((_QWORD *)v15 + 1) = v16;
       inserted = RtlInsertElementGenericTableFullAvl((PRTL_AVL_TABLE)(a3 + 24), &P, 8u, 0LL, NodeOrParent, SearchResult);
       v11 = (char *)P;
       if ( inserted )
-        goto LABEL_4;
+      {
+LABEL_5:
+        *a4 = v11;
+        return (unsigned int)v9;
+      }
       v9 = -1073741670;
-      goto LABEL_15;
+      goto LABEL_18;
     }
     v8 = v19;
     v9 = -1073741670;
   }
-LABEL_17:
+LABEL_20:
   *a4 = 0LL;
-LABEL_18:
+LABEL_14:
   if ( v8 )
     PiDmObjectRelease(v8);
   return (unsigned int)v9;

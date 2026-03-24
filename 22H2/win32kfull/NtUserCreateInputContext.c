@@ -1,43 +1,39 @@
 /*
- * XREFs of NtUserCreateInputContext @ 0x1C01CE010
+ * XREFs of NtUserCreateInputContext @ 0x1C0160E30
  * Callers:
  *     <none>
  * Callees:
- *     CreateInputContext @ 0x1C00996C0 (CreateInputContext.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     CreateInputContext @ 0x1C0103E60 (CreateInputContext.c)
  */
 
 __int64 __fastcall NtUserCreateInputContext(__int64 a1)
 {
   __int64 v2; // r8
-  __int64 v3; // r9
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  __int64 v8; // rbx
+  __int64 v3; // rbx
   __int64 *InputContext; // rax
+  __int64 v5; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   if ( (*gpsi & 4) != 0 )
   {
-    v8 = 0LL;
+    v3 = 0LL;
     if ( a1 )
     {
-      InputContext = CreateInputContext(a1, gpsi, v2, v3);
+      InputContext = CreateInputContext(a1);
       if ( InputContext )
-        v8 = *InputContext;
+        v3 = *InputContext;
     }
     else
     {
-      UserSetLastError(87);
+      UserSetLastError(87LL, gpsi, v2);
     }
   }
   else
   {
-    UserSetLastError(120);
-    v8 = 0LL;
+    UserSetLastError(120LL, gpsi, v2);
+    v3 = 0LL;
   }
-  UserSessionSwitchLeaveCrit(v5, v4, v6, v7);
-  return v8;
+  UserSessionSwitchLeaveCrit(v5);
+  return v3;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PsMakeSiloContextPermanent @ 0x140886830
+ * XREFs of PsMakeSiloContextPermanent @ 0x140886810
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PspGetStorageArray @ 0x140730B98 (PspGetStorageArray.c)
+ *     PspGetStorageArray @ 0x140730B78 (PspGetStorageArray.c)
  */
 
 __int64 __fastcall PsMakeSiloContextPermanent(__int64 a1, unsigned int a2)

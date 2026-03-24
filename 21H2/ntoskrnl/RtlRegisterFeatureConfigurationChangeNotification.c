@@ -1,16 +1,23 @@
 /*
- * XREFs of RtlRegisterFeatureConfigurationChangeNotification @ 0x1403C7A30
+ * XREFs of RtlRegisterFeatureConfigurationChangeNotification @ 0x14058E160
  * Callers:
- *     CmInitSystem0 @ 0x140B131D4 (CmInitSystem0.c)
+ *     wil_RegisterFeatureStagingChangeNotification @ 0x1405CC564 (wil_RegisterFeatureStagingChangeNotification.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x140244120 (ObGetCurrentIrql.c)
- *     CmFcRegisterFeatureConfigurationChangeNotification @ 0x14083332C (CmFcRegisterFeatureConfigurationChangeNotification.c)
+ *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
+ *     KeIsBugCheckActive @ 0x14039AAFC (KeIsBugCheckActive.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     CmFcRegisterFeatureConfigurationChangeNotification @ 0x14086B160 (CmFcRegisterFeatureConfigurationChangeNotification.c)
  */
 
 __int64 __fastcall RtlRegisterFeatureConfigurationChangeNotification(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  if ( ObGetCurrentIrql() && ((KiBugCheckActive & 3) != 0 || PoPowerDownActionInProgress) )
-    return 3221225659LL;
-  else
+  char v8; // cl
+  ULONG_PTR v9; // r10
+  ULONG_PTR BugCheckParameter4; // [rsp+38h] [rbp+0h]
+
+  if ( ObGetCurrentIrql() <= 1u )
     return CmFcRegisterFeatureConfigurationChangeNotification(a1, a2, a3, a4);
+  if ( !KeIsBugCheckActive(0LL) && PoPowerDownActionInProgress == v8 )
+    KeBugCheckEx(0xAu, (ULONG_PTR)RtlQueryFeatureConfiguration, v9, 0LL, BugCheckParameter4);
+  return 3221225659LL;
 }

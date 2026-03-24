@@ -3,14 +3,14 @@
  * Callers:
  *     PopEtEnergyTrackerUpdateAggregate @ 0x1405FC7EC (PopEtEnergyTrackerUpdateAggregate.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PopEtAggregateFind @ 0x1405FD070 (PopEtAggregateFind.c)
  *     PopEtAggregateKeyCleanup @ 0x1406001A4 (PopEtAggregateKeyCleanup.c)
  *     PopEtAggregateKeyCopy @ 0x1406001EC (PopEtAggregateKeyCopy.c)
- *     PopEtBucketsAllocate @ 0x1406DC184 (PopEtBucketsAllocate.c)
- *     PopEtBucketsFree @ 0x1406DC1E0 (PopEtBucketsFree.c)
+ *     PopEtBucketsAllocate @ 0x1406DC164 (PopEtBucketsAllocate.c)
+ *     PopEtBucketsFree @ 0x1406DC1C0 (PopEtBucketsFree.c)
  */
 
 void __fastcall PopEtAggregateGet(__int64 a1, __int64 a2, __int64 *a3)

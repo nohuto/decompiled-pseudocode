@@ -1,32 +1,35 @@
 /*
- * XREFs of SepDeleteTokenUserAndGroups @ 0x1409CF77C
+ * XREFs of SepDeleteTokenUserAndGroups @ 0x140923028
  * Callers:
- *     SepTokenDeleteMethod @ 0x140729600 (SepTokenDeleteMethod.c)
+ *     SepTokenDeleteMethod @ 0x140635410 (SepTokenDeleteMethod.c)
  * Callees:
- *     SepDereferenceSidValuesBlock @ 0x1409CF804 (SepDereferenceSidValuesBlock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     SepDereferenceSidValuesBlock @ 0x1409230B0 (SepDereferenceSidValuesBlock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepDeleteTokenUserAndGroups(__int64 a1)
 {
-  unsigned int v2; // eax
-  void *v3; // rcx
+  void *v2; // rcx
+  unsigned int v3; // eax
+  void *v4; // rcx
 
-  if ( *(_QWORD *)(a1 + 1120) )
+  v2 = *(void **)(a1 + 1120);
+  if ( v2 )
   {
-    v2 = *(_DWORD *)(a1 + 208);
-    if ( v2 != -1 )
+    v3 = *(_DWORD *)(a1 + 208);
+    if ( v3 != -1 )
     {
-      *(_QWORD *)(*(_QWORD *)(a1 + 152) + 16LL * v2) = 0LL;
+      *(_QWORD *)(*(_QWORD *)(a1 + 152) + 16LL * v3) = 0LL;
+      v2 = *(void **)(a1 + 1120);
       *(_DWORD *)(a1 + 208) = -1;
     }
-    ExFreePoolWithTag(*(PVOID *)(a1 + 1120), 0);
+    ExFreePoolWithTag(v2, 0);
     *(_QWORD *)(a1 + 1120) = 0LL;
   }
-  v3 = *(void **)(a1 + 1128);
-  if ( v3 )
+  v4 = *(void **)(a1 + 1128);
+  if ( v4 )
   {
-    SepDereferenceSidValuesBlock(v3);
+    SepDereferenceSidValuesBlock(v4);
     *(_QWORD *)(a1 + 1128) = 0LL;
   }
   *(_QWORD *)(a1 + 152) = 0LL;

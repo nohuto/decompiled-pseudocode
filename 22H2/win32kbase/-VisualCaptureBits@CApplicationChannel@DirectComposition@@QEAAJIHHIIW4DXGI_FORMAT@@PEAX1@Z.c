@@ -1,15 +1,14 @@
 /*
- * XREFs of ?VisualCaptureBits@CApplicationChannel@DirectComposition@@QEAAJIHHIIW4DXGI_FORMAT@@PEAX1@Z @ 0x1C020CE10
+ * XREFs of ?VisualCaptureBits@CApplicationChannel@DirectComposition@@QEAAJIHHIIW4DXGI_FORMAT@@PEAX1@Z @ 0x1C01D54A4
  * Callers:
- *     NtVisualCaptureBits @ 0x1C0209F80 (NtVisualCaptureBits.c)
+ *     NtVisualCaptureBits @ 0x1C01D2D30 (NtVisualCaptureBits.c)
  * Callees:
- *     ??_GCEvent@DirectComposition@@QEAAPEAXI@Z @ 0x1C0022500 (--_GCEvent@DirectComposition@@QEAAPEAXI@Z.c)
- *     ?LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z @ 0x1C002EB40 (-LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z.c)
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C002FD60 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C003019C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     OpenDwmHandle @ 0x1C0086D6C (OpenDwmHandle.c)
- *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x1C0092B30 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
- *     ?Create@CEvent@DirectComposition@@SAJPEAU_KEVENT@@HPEAPEAV12@@Z @ 0x1C020C214 (-Create@CEvent@DirectComposition@@SAJPEAU_KEVENT@@HPEAPEAV12@@Z.c)
+ *     OpenDwmHandle @ 0x1C004A8E0 (OpenDwmHandle.c)
+ *     ??_GCEvent@DirectComposition@@QEAAPEAXI@Z @ 0x1C005AD60 (--_GCEvent@DirectComposition@@QEAAPEAXI@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
+ *     ?Create@CEvent@DirectComposition@@SAJPEAU_KEVENT@@HPEAPEAV12@@Z @ 0x1C01D49B8 (-Create@CEvent@DirectComposition@@SAJPEAU_KEVENT@@HPEAPEAV12@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::VisualCaptureBits(
@@ -23,60 +22,69 @@ __int64 __fastcall DirectComposition::CApplicationChannel::VisualCaptureBits(
         PVOID Object,
         PVOID a9)
 {
-  int v12; // ebx
-  struct DirectComposition::CResourceMarshaler *v13; // rax
-  DirectComposition::CResourceMarshaler *v14; // rsi
-  unsigned __int64 v15; // rdx
-  __int64 v16; // r9
+  int v13; // edi
+  unsigned __int64 v14; // rdx
+  DirectComposition::CResourceMarshaler *v15; // rsi
+  __int64 v16; // rdx
   __int64 v17; // r9
-  DirectComposition::CEvent *v18; // rcx
+  __int64 v18; // r9
   DirectComposition::CEvent *v19; // rcx
-  int v21; // [rsp+20h] [rbp-38h]
+  DirectComposition::CEvent *v20; // rcx
   int v22; // [rsp+20h] [rbp-38h]
-  void *v23; // [rsp+30h] [rbp-28h] BYREF
-  void *v24; // [rsp+38h] [rbp-20h] BYREF
-  DirectComposition::CEvent *v25; // [rsp+60h] [rbp+8h] BYREF
+  int v23; // [rsp+20h] [rbp-38h]
+  void *v24; // [rsp+30h] [rbp-28h] BYREF
+  void *v25; // [rsp+38h] [rbp-20h] BYREF
+  DirectComposition::CEvent *v26; // [rsp+60h] [rbp+8h] BYREF
 
-  v25 = 0LL;
-  v23 = (void *)-1LL;
+  v26 = 0LL;
   v24 = (void *)-1LL;
+  v25 = (void *)-1LL;
   if ( *(int *)(a1 + 24) <= 2 )
   {
-    v13 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(
-            (DirectComposition::CApplicationChannel *)a1,
-            a2);
-    v14 = v13;
-    if ( v13 && DirectComposition::CResourceMarshaler::IsDerivedResourceType(*((_DWORD *)v13 + 9), 196) )
+    v14 = (unsigned int)(a2 - 1);
+    if ( a2 && v14 < *(_QWORD *)(a1 + 80) )
     {
-      v12 = DirectComposition::CEvent::Create((NSInstrumentation::CLeakTrackingAllocator *)Object, v15, &v25);
-      if ( v12 < 0
-        || (v12 = OpenDwmHandle(Object, (POBJECT_TYPE)ExEventObjectType, 2u, v16, v21, &v23), v12 < 0)
-        || (v12 = OpenDwmHandle(a9, MmSectionObjectType, 3u, v17, v22, &v24), v12 < 0) )
+      _mm_lfence();
+      v15 = *(DirectComposition::CResourceMarshaler **)(v14 * *(_QWORD *)(a1 + 88) + *(_QWORD *)(a1 + 56));
+    }
+    else
+    {
+      v15 = 0LL;
+    }
+    if ( v15
+      && (*(unsigned __int8 (__fastcall **)(DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)v15 + 96LL))(
+           v15,
+           195LL) )
+    {
+      v13 = DirectComposition::CEvent::Create(Object, v16, &v26);
+      if ( v13 < 0
+        || (v13 = OpenDwmHandle(Object, (POBJECT_TYPE)ExEventObjectType, 2u, v17, v22, &v24), v13 < 0)
+        || (v13 = OpenDwmHandle(a9, MmSectionObjectType, 3u, v18, v23, &v25), v13 < 0) )
       {
-        v19 = v25;
+        v20 = v26;
       }
       else
       {
         DirectComposition::CApplicationChannel::ReleaseResource(
           (DirectComposition::CApplicationChannel *)a1,
-          *(struct DirectComposition::CResourceMarshaler **)(a1 + 2744));
-        v18 = *(DirectComposition::CEvent **)(a1 + 2736);
-        if ( v18 )
-          DirectComposition::CEvent::`scalar deleting destructor'(v18);
-        *(_QWORD *)(a1 + 2736) = v25;
-        *(_DWORD *)(a1 + 2760) = a5;
-        *(_DWORD *)(a1 + 2764) = a6;
-        *(_DWORD *)(a1 + 2768) = a7;
-        *(_QWORD *)(a1 + 2776) = v23;
-        *(_QWORD *)(a1 + 2784) = v24;
-        *(_DWORD *)(a1 + 2752) = a3;
-        *(_DWORD *)(a1 + 2756) = a4;
-        *(_QWORD *)(a1 + 2744) = v14;
-        DirectComposition::CResourceMarshaler::AddRef(v14);
-        v19 = 0LL;
+          *(struct DirectComposition::CResourceMarshaler **)(a1 + 744));
+        v19 = *(DirectComposition::CEvent **)(a1 + 736);
+        if ( v19 )
+          DirectComposition::CEvent::`scalar deleting destructor'(v19);
+        *(_QWORD *)(a1 + 736) = v26;
+        *(_DWORD *)(a1 + 760) = a5;
+        *(_DWORD *)(a1 + 764) = a6;
+        *(_DWORD *)(a1 + 768) = a7;
+        *(_QWORD *)(a1 + 776) = v24;
+        *(_QWORD *)(a1 + 784) = v25;
+        *(_DWORD *)(a1 + 752) = a3;
+        *(_DWORD *)(a1 + 756) = a4;
+        *(_QWORD *)(a1 + 744) = v15;
+        DirectComposition::CResourceMarshaler::AddRef(v15);
+        v20 = 0LL;
       }
-      if ( v19 )
-        DirectComposition::CEvent::`scalar deleting destructor'(v19);
+      if ( v20 )
+        DirectComposition::CEvent::`scalar deleting destructor'(v20);
     }
     else
     {
@@ -87,5 +95,5 @@ __int64 __fastcall DirectComposition::CApplicationChannel::VisualCaptureBits(
   {
     return (unsigned int)-1073741790;
   }
-  return (unsigned int)v12;
+  return (unsigned int)v13;
 }

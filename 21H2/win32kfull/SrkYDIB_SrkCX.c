@@ -1,83 +1,81 @@
 /*
- * XREFs of SrkYDIB_SrkCX @ 0x1C016E840
+ * XREFs of SrkYDIB_SrkCX @ 0x1C0001CB0
  * Callers:
- *     ShrinkDIB_CY_SrkCX @ 0x1C0269D60 (ShrinkDIB_CY_SrkCX.c)
+ *     ShrinkDIB_CY_SrkCX @ 0x1C00012D0 (ShrinkDIB_CY_SrkCX.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall SrkYDIB_SrkCX(__int64 a1, unsigned __int8 *a2, __int64 a3)
+unsigned __int8 *__fastcall SrkYDIB_SrkCX(__int64 a1, unsigned __int8 *a2, __int64 a3)
 {
-  unsigned __int64 result; // rax
-  __int64 v6; // rcx
-  int v7; // ebx
-  int v8; // edi
-  int v9; // esi
-  _WORD *v10; // rbp
-  __int64 v11; // r12
-  unsigned int v12; // r11d
-  _BYTE *v13; // r15
-  __int64 v14; // r14
-  __int64 v15; // r9
+  unsigned __int8 *result; // rax
+  __int64 v4; // rdi
+  int v6; // r15d
+  int v7; // r12d
+  int v8; // r13d
+  _WORD *v9; // rsi
+  __int64 v10; // r14
+  unsigned int v11; // ebx
+  __int16 v12; // cx
+  __int64 v13; // rbp
+  int v14; // ebx
+  int v15; // r10d
   int v16; // r11d
-  int v17; // edx
-  int v18; // r8d
-  __int16 v19; // [rsp+28h] [rbp+8h]
+  __int64 v17; // rcx
+  _BYTE *v18; // [rsp+50h] [rbp+20h]
 
-  result = *(unsigned __int16 *)(a1 + 14);
+  result = (unsigned __int8 *)*(unsigned __int16 *)(a1 + 14);
+  v4 = (__int64)a2;
   if ( *(_WORD *)(a1 + 14) )
   {
-    v6 = *(unsigned __int16 *)(a1 + 10);
-    v7 = result * a2[2];
-    v8 = result * a2[1];
-    v9 = result * *a2;
-    result = (unsigned __int64)&a2[v6];
-    a2 += 2 * v6 + v6;
+    v17 = *(unsigned __int16 *)(a1 + 10);
+    v6 = (_DWORD)result * a2[2];
+    v7 = (_DWORD)result * a2[1];
+    v8 = (_DWORD)result * *a2;
+    result = &a2[v17];
+    v4 = (__int64)&a2[2 * v17 + v17];
   }
   else
   {
+    v6 = 0;
     v7 = 0;
     v8 = 0;
-    v9 = 0;
   }
-  v10 = *(_WORD **)(a1 + 40);
-  v11 = *(_QWORD *)(a1 + 24);
-  v12 = (unsigned __int16)*v10;
-  if ( *v10 )
+  v9 = *(_WORD **)(a1 + 40);
+  v10 = *(_QWORD *)(a1 + 24);
+  v11 = (unsigned __int16)*v9;
+  if ( *v9 )
   {
-    v13 = (_BYTE *)(a3 + 1);
+    v18 = (_BYTE *)(a3 + 1);
     do
     {
-      LOWORD(result) = *(_WORD *)a2;
-      ++v10;
-      v14 = a2[2];
-      a2 += 3;
-      v19 = result;
-      v15 = v11 + ((v12 >> 5) & 0x400);
-      if ( (v12 & 0x4000) != 0 )
+      v12 = *(_WORD *)v4;
+      ++v9;
+      v13 = *(unsigned __int8 *)(v4 + 2);
+      v4 += 3LL;
+      result = (unsigned __int8 *)(v10 + ((v11 >> 5) & 0x400));
+      if ( (v11 & 0x4000) != 0 )
       {
-        v16 = v12 & 0x3FFF;
-        v17 = v16 * BYTE1(result);
-        v18 = v16 * (unsigned __int8)result;
-        v13[1] = (unsigned int)(v16 * v14 + v7 + 4096) >> 13;
-        *v13 = (unsigned int)(v17 + v8 + 4096) >> 13;
-        *(v13 - 1) = (unsigned int)(v18 + v9 + 4096) >> 13;
-        v13 += 3;
-        v7 = *(_DWORD *)(v15 + 4 * v14) - v16 * v14;
-        result = (unsigned __int8)result;
-        v8 = *(_DWORD *)(v15 + 4LL * HIBYTE(v19)) - v17;
-        v9 = *(_DWORD *)(v15 + 4LL * (unsigned __int8)v19) - v18;
+        v14 = v11 & 0x3FFF;
+        v15 = v14 * HIBYTE(v12);
+        v16 = v14 * (unsigned __int8)v12;
+        v18[1] = (unsigned int)(v14 * v13 + v6 + 4096) >> 13;
+        *v18 = (unsigned int)(v15 + v7 + 4096) >> 13;
+        *(v18 - 1) = (unsigned int)(v16 + v8 + 4096) >> 13;
+        v6 = *(_DWORD *)&result[4 * v13] - v14 * v13;
+        v7 = *(_DWORD *)&result[4 * HIBYTE(v12)] - v15;
+        v8 = *(_DWORD *)&result[4 * (unsigned __int8)v12] - v16;
+        v18 += 3;
       }
       else
       {
-        v7 += *(_DWORD *)(v15 + 4 * v14);
-        v8 += *(_DWORD *)(v15 + 4LL * BYTE1(result));
-        result = (unsigned __int8)result;
-        v9 += *(_DWORD *)(v15 + 4LL * (unsigned __int8)v19);
+        v6 += *(_DWORD *)&result[4 * v13];
+        v7 += *(_DWORD *)&result[4 * HIBYTE(v12)];
+        v8 += *(_DWORD *)&result[4 * (unsigned __int8)v12];
       }
-      v12 = (unsigned __int16)*v10;
+      v11 = (unsigned __int16)*v9;
     }
-    while ( *v10 );
+    while ( *v9 );
   }
   return result;
 }

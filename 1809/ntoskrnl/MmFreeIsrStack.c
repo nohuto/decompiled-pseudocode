@@ -1,7 +1,7 @@
 /*
- * XREFs of MmFreeIsrStack @ 0x140858EA4
+ * XREFs of MmFreeIsrStack @ 0x140858E84
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DE8 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
  * Callees:
  *     MmFreeIndependentPages @ 0x140001010 (MmFreeIndependentPages.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)

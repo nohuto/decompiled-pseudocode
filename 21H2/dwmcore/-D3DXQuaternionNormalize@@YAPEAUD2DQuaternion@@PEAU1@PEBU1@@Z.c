@@ -1,14 +1,14 @@
 /*
- * XREFs of ?D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z @ 0x18002089C
+ * XREFs of ?D3DXQuaternionNormalize@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z @ 0x1800C7A9C
  * Callers:
- *     EncodeTBNFrameToQuaternion @ 0x18000D954 (EncodeTBNFrameToQuaternion.c)
- *     ?SetOrientation@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180020760 (-SetOrientation@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z.c)
- *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x18004D958 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
- *     _anonymous_namespace_::DecomposeMatrix @ 0x18018CBA8 (_anonymous_namespace_--DecomposeMatrix.c)
- *     ?Normalize@CExpressionValueStack@@QEAAJXZ @ 0x18024EC64 (-Normalize@CExpressionValueStack@@QEAAJXZ.c)
+ *     EncodeTBNFrameToQuaternion @ 0x180021A98 (EncodeTBNFrameToQuaternion.c)
+ *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800AA898 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
+ *     ?SetOrientation@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800C7960 (-SetOrientation@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z.c)
+ *     ?Normalize@CExpressionValueStack@@QEAAJXZ @ 0x1801FF92C (-Normalize@CExpressionValueStack@@QEAAJXZ.c)
+ *     _anonymous_namespace_::DecomposeMatrix @ 0x18022D46C (_anonymous_namespace_--DecomposeMatrix.c)
  * Callees:
- *     WithinEpsilon_0 @ 0x180020958 (WithinEpsilon_0.c)
- *     _o_sqrtf_0 @ 0x18010197C (_o_sqrtf_0.c)
+ *     WithinEpsilon_0 @ 0x1800C7B5C (WithinEpsilon_0.c)
+ *     sqrtf_0 @ 0x1800F47AB (sqrtf_0.c)
  */
 
 struct D2DQuaternion *__fastcall D3DXQuaternionNormalize(struct D2DQuaternion *a1, const struct D2DQuaternion *a2)
@@ -38,7 +38,7 @@ struct D2DQuaternion *__fastcall D3DXQuaternionNormalize(struct D2DQuaternion *a
   }
   else
   {
-    v10 = 1.0 / o_sqrtf_0(v7);
+    v10 = 1.0 / sqrtf_0(v7);
     *(float *)a1 = v6 * v10;
     *((float *)a1 + 1) = v3 * v10;
     *((float *)a1 + 2) = v4 * v10;

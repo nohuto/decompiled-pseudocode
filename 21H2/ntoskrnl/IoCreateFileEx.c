@@ -1,13 +1,12 @@
 /*
- * XREFs of IoCreateFileEx @ 0x14066E670
+ * XREFs of IoCreateFileEx @ 0x14060B270
  * Callers:
- *     DifIoCreateFileExWrapper @ 0x14060DBD0 (DifIoCreateFileExWrapper.c)
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
- *     IopOpenLinkOrRenameTarget @ 0x1406C78D4 (IopOpenLinkOrRenameTarget.c)
- *     IoCreateFileSpecifyDeviceObjectHint @ 0x1406E0C70 (IoCreateFileSpecifyDeviceObjectHint.c)
+ *     IopOpenLinkOrRenameTarget @ 0x1406089A8 (IopOpenLinkOrRenameTarget.c)
+ *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
+ *     IoCreateFileSpecifyDeviceObjectHint @ 0x1406BC730 (IoCreateFileSpecifyDeviceObjectHint.c)
  * Callees:
- *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x14066E7C0 (FsRtlpPrepareExtraCreateParametersForCreate.c)
- *     IopCreateFile @ 0x1407ADB90 (IopCreateFile.c)
+ *     IopCreateFile @ 0x14060B4C0 (IopCreateFile.c)
+ *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x14060C394 (FsRtlpPrepareExtraCreateParametersForCreate.c)
  */
 
 NTSTATUS __stdcall IoCreateFileEx(
@@ -35,16 +34,12 @@ NTSTATUS __stdcall IoCreateFileEx(
   ULONG v21; // edi
   NTSTATUS result; // eax
   int v23; // ecx
-  size_t Size; // [rsp+50h] [rbp-48h]
 
   v15 = (int)IoStatusBlock;
   v16 = (int)ObjectAttributes;
   v17 = (Options >> 10) & 2;
   v19 = (int)FileHandle;
   if ( !DriverContext )
-  {
-LABEL_11:
-    LODWORD(Size) = EaLength;
     return IopCreateFile(
              v19,
              DesiredAccess,
@@ -55,14 +50,13 @@ LABEL_11:
              ShareAccess,
              Disposition,
              CreateOptions,
-             EaBuffer,
-             Size,
+             (__int64)EaBuffer,
+             EaLength,
              CreateFileType,
              (__int64)InternalParameters,
              Options | 0x100,
              v17,
              DriverContext);
-  }
   ExtraCreateParameter = DriverContext->ExtraCreateParameter;
   v21 = v17 | 1;
   if ( !DriverContext->DeviceObjectHint )
@@ -76,7 +70,23 @@ LABEL_11:
     v17 = v23;
     if ( DriverContext->Size >= 0x28u && *(_QWORD *)&DriverContext[1].Size != 1LL )
       v17 = v23 | 0x40;
-    goto LABEL_11;
+    return IopCreateFile(
+             v19,
+             DesiredAccess,
+             v16,
+             v15,
+             (__int64)AllocationSize,
+             FileAttributes,
+             ShareAccess,
+             Disposition,
+             CreateOptions,
+             (__int64)EaBuffer,
+             EaLength,
+             CreateFileType,
+             (__int64)InternalParameters,
+             Options | 0x100,
+             v17,
+             DriverContext);
   }
   return result;
 }

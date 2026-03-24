@@ -1,9 +1,9 @@
 /*
- * XREFs of PTPEnableHotkeyCallback @ 0x1C01D0120
+ * XREFs of PTPEnableHotkeyCallback @ 0x1C0220D10
  * Callers:
  *     <none>
  * Callees:
- *     PostShellHookMessagesEx @ 0x1C00A6128 (PostShellHookMessagesEx.c)
+ *     PostShellHookMessagesEx @ 0x1C00435F8 (PostShellHookMessagesEx.c)
  */
 
 void PTPEnableHotkeyCallback()

@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetSystemPageCounts @ 0x1400F0D84
+ * XREFs of MmGetSystemPageCounts @ 0x1400F0DA4
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x14066CFFC (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14066CFDC (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */

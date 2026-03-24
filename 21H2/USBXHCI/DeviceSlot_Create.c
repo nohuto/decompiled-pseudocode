@@ -1,12 +1,12 @@
 /*
- * XREFs of DeviceSlot_Create @ 0x1C0071574
+ * XREFs of DeviceSlot_Create @ 0x1C0070138
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006D740 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     XilDeviceSlot_Create @ 0x1C00173C8 (XilDeviceSlot_Create.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     XilDeviceSlot_Create @ 0x1C00179B4 (XilDeviceSlot_Create.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DeviceSlot_Create(__int64 a1, __int64 a2, _QWORD *a3)
@@ -34,7 +34,7 @@ __int64 __fastcall DeviceSlot_Create(__int64 a1, __int64 a2, _QWORD *a3)
   v20 = 0LL;
   v17 = 1;
   v18 = 1;
-  v21 = off_1C0061108;
+  v21 = off_1C0060108;
   v19 = *(_QWORD *)(a2 + 8);
   v15 = 0LL;
   v14 = 56;
@@ -56,7 +56,7 @@ LABEL_9:
   v8 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                    WdfDriverGlobals,
                    v22,
-                   off_1C0061108);
+                   off_1C0060108);
   *v8 = v22;
   v8[1] = a2;
   v5 = XilDeviceSlot_Create((__int64)v8, v9, v10, v11);

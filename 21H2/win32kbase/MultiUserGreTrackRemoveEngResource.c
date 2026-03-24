@@ -1,10 +1,10 @@
 /*
- * XREFs of MultiUserGreTrackRemoveEngResource @ 0x1C0044F90
+ * XREFs of MultiUserGreTrackRemoveEngResource @ 0x1C005B2E0
  * Callers:
- *     GreDeleteSemaphore @ 0x1C0044F30 (GreDeleteSemaphore.c)
+ *     GreDeleteSemaphore @ 0x1C005B290 (GreDeleteSemaphore.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
 __int64 __fastcall MultiUserGreTrackRemoveEngResource(__int64 *a1)

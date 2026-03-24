@@ -1,10 +1,10 @@
 /*
- * XREFs of MigrateDefunctObjectsToNewOwner @ 0x1C00668B0
+ * XREFs of MigrateDefunctObjectsToNewOwner @ 0x1C00654F8
  * Callers:
- *     AMLIRemoveNativeObjectsFromNamespace @ 0x1C006581C (AMLIRemoveNativeObjectsFromNamespace.c)
- *     NotifyObjectDestruction @ 0x1C0066970 (NotifyObjectDestruction.c)
+ *     AMLIRemoveNativeObjectsFromNamespace @ 0x1C00645A0 (AMLIRemoveNativeObjectsFromNamespace.c)
+ *     NotifyObjectDestruction @ 0x1C00655B8 (NotifyObjectDestruction.c)
  * Callees:
- *     InsertOwnerObjList @ 0x1C0028350 (InsertOwnerObjList.c)
+ *     InsertOwnerObjList @ 0x1C002D368 (InsertOwnerObjList.c)
  */
 
 void __fastcall MigrateDefunctObjectsToNewOwner(__int64 a1, struct _EX_RUNDOWN_REF *a2)

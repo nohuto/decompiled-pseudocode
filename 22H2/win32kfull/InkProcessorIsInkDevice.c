@@ -1,42 +1,39 @@
 /*
- * XREFs of InkProcessorIsInkDevice @ 0x1C01FE530
+ * XREFs of InkProcessorIsInkDevice @ 0x1C0101430
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?GetInkProcessor@@YAJPEAPEAVInkProcessor@@@Z @ 0x1C01FE0B4 (-GetInkProcessor@@YAJPEAPEAVInkProcessor@@@Z.c)
- *     ?IsEnabled@InkProcessor@@QEBA_NXZ @ 0x1C023DFEC (-IsEnabled@InkProcessor@@QEBA_NXZ.c)
- *     ?IsInkDevice@InkDeviceParser@@SA_NGGPEBG0@Z @ 0x1C023ED80 (-IsInkDevice@InkDeviceParser@@SA_NGGPEBG0@Z.c)
+ *     ?IsEnabled@InkProcessor@@QEBA_NXZ @ 0x1C01014C0 (-IsEnabled@InkProcessor@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D1C24 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall InkProcessorIsInkDevice(
-        unsigned __int16 a1,
-        unsigned __int16 a2,
-        const unsigned __int16 *a3,
-        const unsigned __int16 *a4)
+__int64 __fastcall InkProcessorIsInkDevice(__int16 a1, __int16 a2, _WORD *a3, _WORD *a4)
 {
   unsigned int v5; // ebx
-  int InkProcessor; // eax
-  InkProcessor *v11; // [rsp+30h] [rbp-48h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v12; // [rsp+38h] [rbp-40h] BYREF
-  InkProcessor **v13; // [rsp+58h] [rbp-20h]
-  __int64 v14; // [rsp+60h] [rbp-18h]
+  int v10; // [rsp+30h] [rbp-48h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v11; // [rsp+38h] [rbp-40h] BYREF
+  int *v12; // [rsp+58h] [rbp-20h]
+  __int64 v13; // [rsp+60h] [rbp-18h]
 
   v5 = 0;
-  v11 = 0LL;
-  InkProcessor = GetInkProcessor(&v11);
-  if ( InkProcessor >= 0 )
+  if ( InkProcessor::s_pInstance )
   {
-    if ( InkProcessor::IsEnabled(v11) )
-      return InkDeviceParser::IsInkDevice(a1, a2, a3, a4);
+    if ( InkProcessor::IsEnabled(InkProcessor::s_pInstance)
+      && a1 == -241
+      && a2 == 256
+      && (!a3 || *a3 == 1118)
+      && (!a4 || *a4 == 85) )
+    {
+      return 1;
+    }
   }
-  else if ( (unsigned int)dword_1C03540E0 > 2 )
+  else if ( (unsigned int)dword_1C032A288 > 2 )
   {
-    LODWORD(v11) = InkProcessor;
-    v14 = 4LL;
-    v13 = &v11;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C03540E0, (unsigned __int8 *)dword_1C031C186, 0LL, 0LL, 3u, &v12);
+    v10 = -1073741823;
+    v12 = &v10;
+    v13 = 4LL;
+    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C032A288, (int)&dword_1C02F1ECC, 0, 0, 3u, &v11);
   }
   return v5;
 }

@@ -1,27 +1,30 @@
 /*
- * XREFs of AlpcpLogSendMessage @ 0x14097A550
+ * XREFs of AlpcpLogSendMessage @ 0x1408C3E50
  * Callers:
- *     AlpcpSendLegacySynchronousRequest @ 0x14071AC80 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpDispatchReplyToWaitingThread @ 0x1407384E0 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpCompleteDispatchMessage @ 0x14073A390 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1405E4440 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     AlpcpInvokeLogCallbacks @ 0x14097A28C (AlpcpInvokeLogCallbacks.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     AlpcpInvokeLogCallbacks @ 0x1408C3B9C (AlpcpInvokeLogCallbacks.c)
  */
 
-signed __int32 __fastcall AlpcpLogSendMessage(__int64 a1)
+char __fastcall AlpcpLogSendMessage(__int64 a1)
 {
   __int128 v1; // xmm0
   int v2; // eax
   __int128 v4; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v5; // [rsp+30h] [rbp-28h]
+  int v5; // [rsp+30h] [rbp-28h]
+  int v6; // [rsp+34h] [rbp-24h]
+  int v7; // [rsp+38h] [rbp-20h]
+  int v8; // [rsp+3Ch] [rbp-1Ch]
 
-  v5 = 0LL;
-  v4 = 0LL;
+  v6 = 0;
+  v8 = 0;
   v1 = *(_OWORD *)&KeGetCurrentThread()[1].CycleTime;
   v2 = *(_DWORD *)(a1 + 264);
-  LODWORD(v5) = 1;
+  v5 = 1;
   v4 = v1;
-  DWORD2(v5) = v2;
+  v7 = v2;
   return AlpcpInvokeLogCallbacks((__int64)&v4, 0x1Cu);
 }

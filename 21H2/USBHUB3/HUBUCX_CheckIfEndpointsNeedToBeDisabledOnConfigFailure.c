@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBUCX_CheckIfEndpointsNeedToBeDisabledOnConfigFailure @ 0x1C0026CB8
+ * XREFs of HUBUCX_CheckIfEndpointsNeedToBeDisabledOnConfigFailure @ 0x1C0026808
  * Callers:
- *     HUBDSM_CheckingIfEndpointsToBeDisabledOnDetach @ 0x1C0022AF0 (HUBDSM_CheckingIfEndpointsToBeDisabledOnDetach.c)
+ *     HUBDSM_CheckingIfEndpointsToBeDisabledOnDetach @ 0x1C00226A0 (HUBDSM_CheckingIfEndpointsToBeDisabledOnDetach.c)
  * Callees:
- *     memmove @ 0x1C0043840 (memmove.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall HUBUCX_CheckIfEndpointsNeedToBeDisabledOnConfigFailure(__int64 a1)

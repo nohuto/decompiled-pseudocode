@@ -3,7 +3,7 @@
  * Callers:
  *     HvpViewMapMakeViewRangeValid @ 0x1405A5658 (HvpViewMapMakeViewRangeValid.c)
  * Callees:
- *     ZwSetInformationVirtualMemory @ 0x1401BB450 (ZwSetInformationVirtualMemory.c)
+ *     ZwSetInformationVirtualMemory @ 0x1401BB470 (ZwSetInformationVirtualMemory.c)
  */
 
 __int64 __fastcall CmSiPrefetchVirtualMemoryRange(__int64 *a1, __int64 a2, __int64 a3)

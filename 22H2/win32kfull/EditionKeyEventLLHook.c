@@ -1,25 +1,23 @@
 /*
- * XREFs of EditionKeyEventLLHook @ 0x1C00718F0
+ * XREFs of EditionKeyEventLLHook @ 0x1C00201A0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsSAS@@YA_NEPEAI@Z @ 0x1C00506D4 (-IsSAS@@YA_NEPEAI@Z.c)
- *     ?IsUninterceptable@@YAPEAUtagHOTKEY@@PEAIE@Z @ 0x1C0050844 (-IsUninterceptable@@YAPEAUtagHOTKEY@@PEAIE@Z.c)
- *     PtiKbdFromQ @ 0x1C0060CFC (PtiKbdFromQ.c)
- *     PhkFirstValid @ 0x1C0071984 (PhkFirstValid.c)
- *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C00A6F88 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
- *     HasHidTable @ 0x1C01184A0 (HasHidTable.c)
- *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C011F720 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?CallLowLevelHooks@Keyboard@InputTraceLogging@@SAXK@Z @ 0x1C01E75BC (-CallLowLevelHooks@Keyboard@InputTraceLogging@@SAXK@Z.c)
- *     ?HandleLowLevelHooks@Keyboard@InputTraceLogging@@SAXK_K@Z @ 0x1C01E7650 (-HandleLowLevelHooks@Keyboard@InputTraceLogging@@SAXK_K@Z.c)
+ *     PhkFirstValid @ 0x1C002022C (PhkFirstValid.c)
+ *     PtiKbdFromQ @ 0x1C004FB88 (PtiKbdFromQ.c)
+ *     HasHidTable @ 0x1C0052590 (HasHidTable.c)
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C005BD10 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     IsUninterceptable @ 0x1C0104EC8 (IsUninterceptable.c)
+ *     IsSAS @ 0x1C0105608 (IsSAS.c)
+ *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C010FD48 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall EditionKeyEventLLHook(
+_BOOL8 __fastcall EditionKeyEventLLHook(
         __int64 a1,
         unsigned __int16 a2,
         __int64 a3,
-        unsigned int a4,
+        __int64 a4,
         unsigned __int8 a5,
         unsigned __int16 a6,
         int a7,
@@ -29,89 +27,73 @@ __int64 __fastcall EditionKeyEventLLHook(
         unsigned int a11,
         _QWORD *a12)
 {
-  int v14; // r12d
-  unsigned int v15; // r15d
-  struct tagHOOK *v16; // r8
-  __int64 v18; // rax
+  int v13; // r15d
+  __int64 Valid; // r14
+  __int64 v17; // rax
+  __int64 v18; // rbx
   __int64 v19; // rbx
-  __int64 v20; // rbx
-  unsigned __int16 v21; // ax
-  unsigned __int64 v22; // rdi
-  __int64 v23; // r12
-  unsigned int v24; // r14d
-  unsigned __int64 v25; // rsi
-  __int64 v26; // rdi
-  __int64 v27; // rcx
-  unsigned int *v28; // rcx
-  _QWORD *v29; // r8
-  unsigned int v30; // [rsp+34h] [rbp-3Ch] BYREF
-  int v31; // [rsp+38h] [rbp-38h] BYREF
-  struct tagHOOK *Valid; // [rsp+40h] [rbp-30h]
-  _QWORD *v33; // [rsp+48h] [rbp-28h]
-  _DWORD v34[4]; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v35; // [rsp+60h] [rbp-10h]
+  unsigned __int16 v20; // ax
+  __int64 v21; // rsi
+  unsigned __int64 v22; // r8
+  __int64 v23; // rcx
+  __int64 v24; // rcx
+  unsigned __int16 v25; // [rsp+32h] [rbp-2Eh]
+  unsigned int v26; // [rsp+34h] [rbp-2Ch] BYREF
+  int v27; // [rsp+38h] [rbp-28h] BYREF
+  _DWORD v28[4]; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v29; // [rsp+50h] [rbp-10h]
 
-  v33 = a12;
-  v30 = a4;
-  v14 = (unsigned __int16)a3;
-  v15 = 0;
-  Valid = (struct tagHOOK *)PhkFirstValid(a1, 13LL, a3);
-  v16 = Valid;
+  v13 = a4;
+  v26 = a4;
+  v25 = a3;
+  Valid = PhkFirstValid(a1, 13LL, a3, a4);
   if ( !Valid )
     return 0LL;
-  v31 = 0;
+  v27 = 0;
   if ( gpqForeground )
   {
-    v18 = PtiKbdFromQ(gpqForeground);
-    if ( v18 )
+    v17 = PtiKbdFromQ(gpqForeground);
+    if ( v17 )
     {
-      v19 = *(_QWORD *)(v18 + 424);
-      if ( v19 == *(_QWORD *)(*((_QWORD *)v16 + 2) + 424LL) && (PVOID)grpdeskRitInput != grpdeskLogon )
+      v18 = *(_QWORD *)(v17 + 424);
+      if ( v18 == *(_QWORD *)(*(_QWORD *)(Valid + 16) + 424LL)
+        && (PVOID)grpdeskRitInput != grpdeskLogon
+        && (unsigned int)HasHidTable(v17)
+        && (*(_DWORD *)(*(_QWORD *)(v18 + 832) + 100LL) & 0x10) != 0 )
       {
-        if ( (unsigned int)HasHidTable(v18) && (*(_DWORD *)(*(_QWORD *)(v19 + 848) + 100LL) & 0x10) != 0 )
-          return 0LL;
-        v16 = Valid;
+        return 0LL;
       }
     }
   }
-  v20 = *(_QWORD *)(a1 + 1400);
-  v34[1] = a6;
-  v21 = a2 | 0x2000;
-  v34[0] = a5;
-  v22 = v30;
-  if ( v14 == v30 )
-    v21 = a2;
-  v34[3] = a9;
-  v35 = a10;
-  v34[2] = (a8 != 0 ? 0x10 : 0) | (a7 != 0 ? 0x80 : 0) | HIBYTE(v21);
+  v19 = *(_QWORD *)(a1 + 1360);
+  v28[1] = a6;
+  v20 = a2 | 0x2000;
+  v28[0] = a5;
+  if ( v25 == v13 )
+    v20 = a2;
+  v28[3] = a9;
+  v29 = a10;
+  v28[2] = (a8 != 0 ? 0x10 : 0) | (a7 != 0 ? 0x80 : 0) | HIBYTE(v20);
   if ( !a8 || a11 )
   {
-    *(_DWORD *)(a1 + 1400) = -1;
-    *(_DWORD *)(a1 + 1404) = -1;
+    *(_DWORD *)(a1 + 1360) = -1;
+    *(_DWORD *)(a1 + 1364) = -1;
   }
   else
   {
-    *(_QWORD *)(a1 + 1400) = *a12;
+    *(_QWORD *)(a1 + 1360) = *a12;
   }
-  v23 = *(_QWORD *)(a1 + 1416);
-  *(_QWORD *)(a1 + 1416) = v34;
-  v24 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)v16 + 2) + 424LL) + 56LL);
-  v25 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
-       * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
-  InputTraceLogging::Keyboard::CallLowLevelHooks(v24);
-  v26 = xxxCallHook2(Valid, 0, v22, (__int64)v34, &v31, 0);
-  InputTraceLogging::Keyboard::HandleLowLevelHooks(v24, v25);
-  if ( !v26 || (LOBYTE(v27) = a5, *(_QWORD *)(a1 + 1400) = v20, IsSAS(v27, &v30)) || IsUninterceptable(v28, a5) )
+  v21 = *(_QWORD *)(a1 + 1376);
+  v22 = v26;
+  *(_QWORD *)(a1 + 1376) = v28;
+  if ( !xxxCallHook2((struct tagHOOK *)Valid, 0, v22, (__int64)v28, &v27, 0)
+    || (LOBYTE(v23) = a5, *(_QWORD *)(a1 + 1360) = v19, (unsigned int)IsSAS(v23, &v26))
+    || IsUninterceptable(v24, a5) )
   {
-    v29 = v33;
-    *(_QWORD *)(a1 + 1400) = v20;
-    *(_QWORD *)(a1 + 1416) = v23;
-    LOBYTE(v15) = (unsigned int)IsGpqForegroundAccessibleExplicit(a8, a1, *v29, a11) == 0;
-    return v15;
+    *(_QWORD *)(a1 + 1360) = v19;
+    *(_QWORD *)(a1 + 1376) = v21;
+    return !(unsigned int)IsGpqForegroundAccessibleExplicit(a8, a1, *a12, a11);
   }
-  else
-  {
-    *(_QWORD *)(a1 + 1416) = v23;
-    return 1LL;
-  }
+  *(_QWORD *)(a1 + 1376) = v21;
+  return 1LL;
 }

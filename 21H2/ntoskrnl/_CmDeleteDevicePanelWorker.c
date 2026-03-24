@@ -1,36 +1,33 @@
 /*
- * XREFs of _CmDeleteDevicePanelWorker @ 0x140A28530
+ * XREFs of _CmDeleteDevicePanelWorker @ 0x1409781E0
  * Callers:
- *     _CmDeleteDevicePanel @ 0x140A27F90 (_CmDeleteDevicePanel.c)
+ *     _CmDeleteDevicePanel @ 0x140977C54 (_CmDeleteDevicePanel.c)
  * Callees:
- *     _CmRaiseDeleteEvent @ 0x140A27790 (_CmRaiseDeleteEvent.c)
- *     _CmDeleteDevicePanelRegKey @ 0x140A280B8 (_CmDeleteDevicePanelRegKey.c)
- *     _CmGetDevicePanelMappedPropertyKeys @ 0x140A28B84 (_CmGetDevicePanelMappedPropertyKeys.c)
- *     _CmSetDevicePanelMappedProperty @ 0x140A29598 (_CmSetDevicePanelMappedProperty.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     _CmRaiseDeleteEvent @ 0x14072DBA0 (_CmRaiseDeleteEvent.c)
+ *     _CmDeleteDevicePanelRegKey @ 0x140977D7C (_CmDeleteDevicePanelRegKey.c)
+ *     _CmGetDevicePanelMappedPropertyKeys @ 0x1409784BC (_CmGetDevicePanelMappedPropertyKeys.c)
+ *     _CmSetDevicePanelMappedProperty @ 0x140978DBC (_CmSetDevicePanelMappedProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteDevicePanelWorker(__int64 a1, __int64 a2, __int16 a3)
 {
-  int v3; // edi
+  int v3; // ebx
   int *v6; // r14
-  int v7; // ebx
+  int v7; // edi
   int v8; // eax
   int v9; // edx
   int v10; // ecx
   int v11; // r8d
   int v12; // r9d
-  void *Pool2; // rbx
+  PVOID PoolWithTag; // rdi
   unsigned int v14; // ebp
   int DevicePanelMappedPropertyKeys; // eax
-  int v16; // edx
-  int v17; // r8d
-  unsigned __int64 v18; // r14
-  unsigned int v19; // r14d
-  __int64 v20; // rbp
-  int v21; // eax
-  unsigned int v23; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v16; // r14d
+  __int64 v17; // r14
+  int v18; // eax
+  unsigned int v20; // [rsp+70h] [rbp+18h] BYREF
 
   v3 = 0;
   if ( a3 )
@@ -39,8 +36,8 @@ __int64 __fastcall CmDeleteDevicePanelWorker(__int64 a1, __int64 a2, __int16 a3)
   }
   else
   {
-    v23 = 352;
-    v6 = (int *)&v23;
+    v20 = 352;
+    v6 = (int *)&v20;
     v7 = 0;
     while ( 1 )
     {
@@ -59,58 +56,57 @@ __int64 __fastcall CmDeleteDevicePanelWorker(__int64 a1, __int64 a2, __int16 a3)
     if ( v8 < 0 )
       return (unsigned int)v3;
 LABEL_11:
-    Pool2 = 0LL;
+    PoolWithTag = 0LL;
     v14 = 0;
-    v23 = 0;
-    while ( 1 )
+    v20 = 0;
+    do
     {
       DevicePanelMappedPropertyKeys = CmGetDevicePanelMappedPropertyKeys(
                                         v10,
                                         v9,
                                         v11,
                                         v12,
-                                        (__int64)Pool2,
+                                        (__int64)PoolWithTag,
                                         v14,
-                                        (__int64)&v23);
+                                        (__int64)&v20);
+      v14 = v20;
       if ( DevicePanelMappedPropertyKeys != -1073741789 )
-        break;
-      v14 = v23;
-      v18 = 20LL * v23;
-      if ( v18 > 0xFFFFFFFF )
+        goto LABEL_18;
+      v16 = 20 * v20;
+      if ( 20 * (unsigned __int64)v20 > 0xFFFFFFFF )
       {
         DevicePanelMappedPropertyKeys = -1073741811;
-        goto LABEL_21;
+        goto LABEL_20;
       }
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0);
-      Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)v18, 1380994640LL);
-      if ( !Pool2 )
-      {
-        DevicePanelMappedPropertyKeys = -1073741801;
-LABEL_21:
-        v3 = DevicePanelMappedPropertyKeys;
-        goto LABEL_36;
-      }
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v16, 0x52504E50u);
     }
+    while ( PoolWithTag );
+    DevicePanelMappedPropertyKeys = -1073741801;
+LABEL_18:
     if ( DevicePanelMappedPropertyKeys && DevicePanelMappedPropertyKeys != -1073741275 )
-      goto LABEL_21;
-    v19 = v23;
-    v20 = 0LL;
-    if ( v23 )
+    {
+LABEL_20:
+      v3 = DevicePanelMappedPropertyKeys;
+      goto LABEL_36;
+    }
+    v17 = 0LL;
+    if ( v14 )
     {
       while ( 1 )
       {
-        v21 = CmSetDevicePanelMappedProperty(5 * (int)v20, v16, v17, 0, (__int64)Pool2 + 20 * v20);
-        if ( v21 )
+        v18 = CmSetDevicePanelMappedProperty(5 * (int)v17, v9, v11, 0, (__int64)PoolWithTag + 20 * v17);
+        if ( v18 )
         {
-          if ( v21 != -1073741275 && v21 != -1073741790 && v21 != -1073741802 && v21 != -1073741637 )
+          if ( v18 != -1073741275 && v18 != -1073741790 && v18 != -1073741802 && v18 != -1073741637 )
             break;
         }
-        v20 = (unsigned int)(v20 + 1);
-        if ( (unsigned int)v20 >= v19 )
+        v17 = (unsigned int)(v17 + 1);
+        if ( (unsigned int)v17 >= v14 )
           goto LABEL_31;
       }
-      v3 = v21;
+      v3 = v18;
     }
 LABEL_31:
     if ( v3 >= 0 )
@@ -120,13 +116,13 @@ LABEL_31:
         && DevicePanelMappedPropertyKeys != -1073741772
         && DevicePanelMappedPropertyKeys != -1073741811 )
       {
-        goto LABEL_21;
+        goto LABEL_20;
       }
       CmRaiseDeleteEvent(a1, a2, 6u);
     }
 LABEL_36:
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
   }
   return (unsigned int)v3;
 }

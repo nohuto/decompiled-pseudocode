@@ -1,13 +1,13 @@
 /*
- * XREFs of ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029532C
+ * XREFs of ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C029794C
  * Callers:
- *     ?bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z @ 0x1C000E018 (-bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z.c)
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C00364E0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
- *     ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00EFAC8 (-vInitializeFontAssocStatus@@YAXXZ.c)
- *     bAddAllFlEntry @ 0x1C015E414 (bAddAllFlEntry.c)
- *     GreEudcLoadLinkW @ 0x1C0295894 (GreEudcLoadLinkW.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093AC0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ?bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z @ 0x1C00A2E84 (-bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z.c)
+ *     ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00E6B24 (-vInitializeFontAssocStatus@@YAXXZ.c)
+ *     bAddAllFlEntry @ 0x1C00E6C58 (bAddAllFlEntry.c)
+ *     GreEudcLoadLinkW @ 0x1C0297DB0 (GreEudcLoadLinkW.c)
  * Callees:
- *     ?TryMapAllFileViews@UmfdClientSideFileViewMapper@@AEAAIXZ @ 0x1C02A62E4 (-TryMapAllFileViews@UmfdClientSideFileViewMapper@@AEAAIXZ.c)
+ *     ?TryMapAllFileViews@UmfdClientSideFileViewMapper@@AEAAIXZ @ 0x1C02A7FE4 (-TryMapAllFileViews@UmfdClientSideFileViewMapper@@AEAAIXZ.c)
  */
 
 UmfdClientSideFileViewMapper *__fastcall UmfdClientSideFileViewMapper::UmfdClientSideFileViewMapper(

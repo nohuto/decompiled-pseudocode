@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ApplyMeshToMeshComponent@CSceneMeshRendererComponent@@AEAAXPEAUISpectreMeshComponent@@@Z @ 0x18024F578
+ * XREFs of ?ApplyMeshToMeshComponent@CSceneMeshRendererComponent@@AEAAXPEAUISpectreMeshComponent@@@Z @ 0x1801E958C
  * Callers:
- *     ?ApplyMeshToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ @ 0x18024F5E8 (-ApplyMeshToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ.c)
- *     ?InitializeSpectreComponent@CSceneMeshRendererComponent@@MEAAJPEAX@Z @ 0x18024F630 (-InitializeSpectreComponent@CSceneMeshRendererComponent@@MEAAJPEAX@Z.c)
+ *     ?ApplyMeshToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ @ 0x1801E95D0 (-ApplyMeshToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ.c)
+ *     ?InitializeSpectreComponent@CSceneMeshRendererComponent@@MEAAJPEAX@Z @ 0x1801E9810 (-InitializeSpectreComponent@CSceneMeshRendererComponent@@MEAAJPEAX@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CSceneMeshRendererComponent::ApplyMeshToMeshComponent(
@@ -12,13 +12,10 @@ void __fastcall CSceneMeshRendererComponent::ApplyMeshToMeshComponent(
         struct ISpectreMeshComponent *a2)
 {
   __int64 v3; // rdx
-  void (__fastcall *v4)(struct ISpectreMeshComponent *, _QWORD); // rax
 
-  v3 = *((_QWORD *)this + 11);
-  v4 = **(void (__fastcall ***)(struct ISpectreMeshComponent *, _QWORD))a2;
+  v3 = *((_QWORD *)this + 10);
   if ( v3 )
-    v4(a2, *(_QWORD *)(v3 + 160));
-  else
-    v4(a2, 0LL);
+    v3 = *(_QWORD *)(v3 + 152);
+  (**(void (__fastcall ***)(struct ISpectreMeshComponent *, __int64))a2)(a2, v3);
   (*(void (__fastcall **)(struct ISpectreMeshComponent *))(*(_QWORD *)a2 + 16LL))(a2);
 }

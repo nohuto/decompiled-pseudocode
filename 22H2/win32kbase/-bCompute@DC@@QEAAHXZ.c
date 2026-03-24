@@ -1,50 +1,56 @@
 /*
- * XREFs of ?bCompute@DC@@QEAAHXZ @ 0x1C003A080
+ * XREFs of ?bCompute@DC@@QEAAHXZ @ 0x1C003BFE0
  * Callers:
- *     ?bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C00397F0 (-bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
+ *     ?bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C003B780 (-bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00329E8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ??0RGNMEMOBJTMP@@QEAA@XZ @ 0x1C003C598 (--0RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vDeleteRGNOBJ@RGNOBJ@@QEAAXXZ @ 0x1C003C5D0 (-vDeleteRGNOBJ@RGNOBJ@@QEAAXXZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C003D9E0 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ??0RGNMEMOBJ@@QEAA@XZ @ 0x1C003E000 (--0RGNMEMOBJ@@QEAA@XZ.c)
- *     ?vStamp@REGION@@QEAAXXZ @ 0x1C00403FC (-vStamp@REGION@@QEAAXXZ.c)
- *     ?vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z @ 0x1C0041FC0 (-vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z.c)
- *     ?bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C005C000 (-bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z.c)
- *     ?vUpdateScaledRegions@DC@@QEAAXXZ @ 0x1C005FD20 (-vUpdateScaledRegions@DC@@QEAAXXZ.c)
- *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C005FDE0 (-bDpiScaledSurface@DC@@QEBAHXZ.c)
- *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C007D990 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
- *     ?bContain@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C007DB3C (-bContain@RGNOBJ@@QEAAHAEAV1@@Z.c)
- *     ?bCopy@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C007DD60 (-bCopy@RGNOBJ@@QEAAHAEAV1@@Z.c)
- *     ?vGetSubRect@RGNOBJ@@QEBAXPEAU_RECTL@@@Z @ 0x1C0096B70 (-vGetSubRect@RGNOBJ@@QEBAXPEAU_RECTL@@@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C00D28F8 (-AcquireDcVisRgnShared@DC@@QEAA@XZ.c)
+ *     ?vUpdateScaledRegions@DC@@QEAAXXZ @ 0x1C00219A0 (-vUpdateScaledRegions@DC@@QEAAXXZ.c)
+ *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C0021A1C (-bDpiScaledSurface@DC@@QEBAHXZ.c)
+ *     ??0RGNMEMOBJ@@QEAA@XZ @ 0x1C002C0E0 (--0RGNMEMOBJ@@QEAA@XZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002CCE4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ??1RGNMEMOBJ@@QEAA@XZ @ 0x1C002CD6C (--1RGNMEMOBJ@@QEAA@XZ.c)
+ *     ?vDeleteRGNOBJ@RGNOBJ@@QEAAXXZ @ 0x1C002CD90 (-vDeleteRGNOBJ@RGNOBJ@@QEAAXXZ.c)
+ *     ?vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z @ 0x1C002E010 (-vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0033EC0 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ?bContain@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C0034A10 (-bContain@RGNOBJ@@QEAAHAEAV1@@Z.c)
+ *     ?bCopy@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C0034DB0 (-bCopy@RGNOBJ@@QEAAHAEAV1@@Z.c)
+ *     ?bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C0039740 (-bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005DD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?vGetSubRect@RGNOBJ@@QEBAXPEAU_RECTL@@@Z @ 0x1C0081510 (-vGetSubRect@RGNOBJ@@QEBAXPEAU_RECTL@@@Z.c)
+ *     ??0RGNMEMOBJTMP@@QEAA@XZ @ 0x1C0097730 (--0RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C00CA238 (-AcquireDcVisRgnShared@DC@@QEAA@XZ.c)
  */
 
 __int64 __fastcall DC::bCompute(DC *this)
 {
   unsigned int v2; // esi
   REGION *v3; // rbx
-  int v4; // ecx
-  REGION *v5; // rax
-  __int64 v6; // rcx
-  REGION *v7; // rdx
-  REGION *v8; // r8
-  REGION **v9; // rcx
-  _BOOL8 v10; // rcx
-  _BOOL8 v11; // rax
-  int v12; // r15d
-  int v13; // eax
-  DC *v14; // rcx
-  REGION *v16; // [rsp+20h] [rbp-60h] BYREF
-  REGION *v17; // [rsp+28h] [rbp-58h] BYREF
-  REGION *v18; // [rsp+30h] [rbp-50h] BYREF
-  REGION *v19; // [rsp+38h] [rbp-48h] BYREF
-  REGION *v20; // [rsp+40h] [rbp-40h] BYREF
-  _QWORD v21[2]; // [rsp+48h] [rbp-38h] BYREF
-  char v22; // [rsp+58h] [rbp-28h]
-  REGION *v23; // [rsp+60h] [rbp-20h]
-  __int128 v24; // [rsp+68h] [rbp-18h]
+  int v4; // r15d
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  int *v8; // rbx
+  _BOOL8 v9; // rcx
+  _BOOL8 v10; // rax
+  int v11; // r15d
+  int v12; // eax
+  int *v14; // [rsp+20h] [rbp-89h] BYREF
+  REGION *v15; // [rsp+28h] [rbp-81h] BYREF
+  REGION *v16[2]; // [rsp+30h] [rbp-79h] BYREF
+  REGION *v17[2]; // [rsp+40h] [rbp-69h] BYREF
+  __int64 v18; // [rsp+50h] [rbp-59h] BYREF
+  __int64 v19; // [rsp+58h] [rbp-51h] BYREF
+  __int64 v20; // [rsp+60h] [rbp-49h] BYREF
+  __int64 v21; // [rsp+68h] [rbp-41h] BYREF
+  __int64 v22; // [rsp+70h] [rbp-39h] BYREF
+  __int64 v23; // [rsp+78h] [rbp-31h] BYREF
+  __int64 v24; // [rsp+80h] [rbp-29h] BYREF
+  __int64 v25; // [rsp+88h] [rbp-21h] BYREF
+  REGION *v26[2]; // [rsp+90h] [rbp-19h] BYREF
+  REGION *v27[3]; // [rsp+A0h] [rbp-9h] BYREF
+  char v28; // [rsp+B8h] [rbp+Fh]
+  __int64 v29; // [rsp+C0h] [rbp+17h]
+  __int128 v30; // [rsp+C8h] [rbp+1Fh]
 
   DC::AcquireDcVisRgnShared(this);
   *((_DWORD *)this + 250) = 0x7FFFFFFF;
@@ -52,150 +58,160 @@ __int64 __fastcall DC::bCompute(DC *this)
   *((_DWORD *)this + 251) = 0x7FFFFFFF;
   *((_DWORD *)this + 252) = 0x80000000;
   *((_DWORD *)this + 253) = 0x80000000;
-  if ( !*((_QWORD *)this + 142) )
-    goto LABEL_56;
-  v3 = (REGION *)*((_QWORD *)this + 143);
+  if ( !*((_QWORD *)this + 143) )
+    goto LABEL_58;
+  v3 = (REGION *)*((_QWORD *)this + 144);
   v4 = 0;
-  v17 = (REGION *)*((_QWORD *)this + 142);
-  v18 = v3;
+  v18 = *((_QWORD *)this + 143);
+  v15 = v3;
   v2 = 1;
-  v5 = v3;
   if ( !v3 )
   {
-    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v16);
-    v3 = v16;
-    if ( !v16 )
+    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v26);
+    if ( v26[0] )
     {
-LABEL_6:
-      v2 = 0;
-      goto LABEL_56;
+      v3 = v26[0];
+      v15 = v26[0];
+      v4 = 1;
     }
-    v18 = v16;
-    v4 = 1;
-    v5 = v16;
+    RGNMEMOBJ::~RGNMEMOBJ(v26);
+    if ( !v3 )
+      goto LABEL_57;
   }
-  if ( !v5 )
-    goto LABEL_6;
-  if ( v4 || (*((_DWORD *)this + 9) & 0x10) != 0 )
+  if ( !v4 && (*((_DWORD *)this + 9) & 0x10) == 0 )
   {
-    if ( !(unsigned int)RGNOBJ::bCopy((RGNOBJ *)&v18, (struct RGNOBJ *)&v17) )
-      goto LABEL_6;
-    if ( (unsigned int)DC::bDpiScaledSurface(this) )
+    if ( (unsigned int)DC::bDpiScaledSurface(this) && !*((_QWORD *)this + 146) )
       *((_DWORD *)this + 130) |= 0x10u;
-    v3 = v18;
-    *((_QWORD *)this + 143) = v18;
+    goto LABEL_15;
   }
-  else if ( (unsigned int)DC::bDpiScaledSurface(this) && !*((_QWORD *)this + 145) )
+  if ( !(unsigned int)RGNOBJ::bCopy((RGNOBJ *)&v15, (struct RGNOBJ *)&v18) )
   {
+LABEL_57:
+    v2 = 0;
+    goto LABEL_58;
+  }
+  if ( (unsigned int)DC::bDpiScaledSurface(this) )
     *((_DWORD *)this + 130) |= 0x10u;
-  }
-  v6 = *((_QWORD *)this + 20);
-  v7 = (REGION *)*((_QWORD *)this + 21);
-  v8 = (REGION *)*((_QWORD *)this + 141);
-  if ( !((unsigned __int64)v8 | (unsigned __int64)v7 | v6) )
+  *((_QWORD *)this + 144) = v15;
+LABEL_15:
+  v5 = *((_QWORD *)this + 20);
+  v6 = *((_QWORD *)this + 21);
+  v7 = *((_QWORD *)this + 142);
+  v8 = (int *)*((_QWORD *)this + 145);
+  if ( !(v7 | v6 | v5) )
   {
-    if ( *((_QWORD *)this + 144) )
+    if ( v8 )
     {
-      v16 = (REGION *)*((_QWORD *)this + 144);
-      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v16);
-      *((_QWORD *)this + 144) = 0LL;
+      v19 = *((_QWORD *)this + 145);
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v19);
+      *((_QWORD *)this + 145) = 0LL;
     }
-    v9 = &v18;
-    goto LABEL_20;
+    RGNOBJ::vGetSubRect((RGNOBJ *)&v15, (struct _RECTL *)((char *)this + 1000));
+    *((_DWORD *)this + 9) &= ~0x10u;
+    goto LABEL_54;
   }
-  v23 = (REGION *)*((_QWORD *)this + 20);
-  v24 = 0LL;
-  v10 = v6 != 0;
+  v29 = *((_QWORD *)this + 20);
+  v14 = v8;
+  v9 = v5 != 0;
+  v30 = 0LL;
+  v10 = v9 + 1;
+  *(&v29 + v9) = v6;
+  if ( !v6 )
+    v10 = v9;
   v11 = v10 + 1;
-  *(&v23 + v10) = v7;
+  *(&v29 + v10) = v7;
   if ( !v7 )
     v11 = v10;
-  v12 = v11 + 1;
-  *(&v23 + v11) = v8;
   if ( !v8 )
-    v12 = v11;
-  v17 = (REGION *)*((_QWORD *)this + 144);
-  if ( !v17 )
   {
-    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v16);
-    if ( v16 )
-      v17 = v16;
+    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v27);
+    if ( v27[0] )
+      v8 = (int *)v27[0];
+    v14 = v8;
+    RGNMEMOBJ::~RGNMEMOBJ(v27);
   }
-  if ( !v17 )
+  if ( !v14 )
+    goto LABEL_28;
+  if ( v11 == 1 )
   {
-LABEL_59:
-    v2 = 0;
-    goto LABEL_51;
+    v20 = v29;
+    v12 = RGNOBJ::bCopy((RGNOBJ *)&v14, (struct RGNOBJ *)&v20);
   }
-  if ( v12 == 1 )
+  else
   {
-    v16 = v23;
-    v13 = RGNOBJ::bCopy((RGNOBJ *)&v17, (struct RGNOBJ *)&v16);
-    goto LABEL_33;
-  }
-  if ( v12 == 2 )
-  {
-    v19 = v23;
-    v16 = (REGION *)v24;
-    v13 = RGNOBJ::iCombine((RGNOBJ *)&v17, (struct RGNOBJ *)&v19, (struct RGNOBJ *)&v16, 1);
-LABEL_33:
-    if ( !v13 )
-      v2 = 0;
-    goto LABEL_40;
-  }
-  RGNMEMOBJTMP::RGNMEMOBJTMP((RGNMEMOBJTMP *)&v16);
-  v20 = v23;
-  v21[0] = *((_QWORD *)&v24 + 1);
-  v19 = (REGION *)v24;
-  if ( !v16
-    || !(unsigned int)RGNOBJ::iCombine((RGNOBJ *)&v16, (struct RGNOBJ *)&v20, (struct RGNOBJ *)&v19, 1)
-    || !(unsigned int)RGNOBJ::iCombine((RGNOBJ *)&v17, (struct RGNOBJ *)&v16, (struct RGNOBJ *)v21, 1) )
-  {
-    v2 = 0;
-  }
-  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v16);
-LABEL_40:
-  if ( !v2 )
-    goto LABEL_51;
-  REGION::vStamp(v17);
-  if ( !(unsigned int)RGNOBJ::bOffset((RGNOBJ *)&v17, (struct _POINTL *)this + 129) )
-    goto LABEL_59;
-  if ( *((_DWORD *)v3 + 12) != 56 || !(unsigned int)RGNOBJ::bContain((RGNOBJ *)&v18, (struct RGNOBJ *)&v17) )
-  {
-    RGNMEMOBJTMP::RGNMEMOBJTMP((RGNMEMOBJTMP *)&v16);
-    if ( v16
-      && (unsigned int)RGNOBJ::iCombine((RGNOBJ *)&v16, (struct RGNOBJ *)&v18, (struct RGNOBJ *)&v17, 1)
-      && (unsigned int)RGNOBJ::bCopy((RGNOBJ *)&v17, (struct RGNOBJ *)&v16) )
+    if ( v11 != 2 )
     {
-      *((_QWORD *)this + 144) = v17;
-      RGNOBJ::vGetSubRect((RGNOBJ *)&v17, (struct _RECTL *)((char *)this + 1000));
+      RGNMEMOBJTMP::RGNMEMOBJTMP((RGNMEMOBJTMP *)v16);
+      v24 = v29;
+      v25 = *((_QWORD *)&v30 + 1);
+      v23 = v30;
+      if ( !v16[0]
+        || !(unsigned int)RGNOBJ::iCombine((RGNOBJ *)v16, (struct RGNOBJ *)&v24, (struct RGNOBJ *)&v23, 1)
+        || !(unsigned int)RGNOBJ::iCombine((RGNOBJ *)&v14, (struct RGNOBJ *)v16, (struct RGNOBJ *)&v25, 1) )
+      {
+        v2 = 0;
+      }
+      RGNMEMOBJTMP::~RGNMEMOBJTMP(v16);
+      if ( !v2 )
+        goto LABEL_52;
+      goto LABEL_40;
+    }
+    v22 = v29;
+    v21 = v30;
+    v12 = RGNOBJ::iCombine((RGNOBJ *)&v14, (struct RGNOBJ *)&v22, (struct RGNOBJ *)&v21, 1);
+  }
+  if ( !v12 )
+  {
+LABEL_28:
+    v2 = 0;
+    goto LABEL_52;
+  }
+LABEL_40:
+  v14[7] = _InterlockedIncrement((volatile signed __int32 *)&REGION::ulUniqueREGION);
+  if ( (unsigned int)RGNOBJ::bOffset(&v14, (struct _POINTL *)this + 129) )
+  {
+    if ( *((_DWORD *)v15 + 20) == 56 && RGNOBJ::bContain((RGNOBJ *)&v15, (struct RGNOBJ *)&v14) )
+    {
+      *((_QWORD *)this + 145) = v14;
+      RGNOBJ::vGetSubRect((RGNOBJ *)&v14, (struct _RECTL *)((char *)this + 1000));
       *((_DWORD *)this + 9) &= ~0x10u;
     }
     else
     {
-      v2 = 0;
+      RGNMEMOBJTMP::RGNMEMOBJTMP((RGNMEMOBJTMP *)v17);
+      if ( v17[0]
+        && (unsigned int)RGNOBJ::iCombine((RGNOBJ *)v17, (struct RGNOBJ *)&v15, (struct RGNOBJ *)&v14, 1)
+        && (unsigned int)RGNOBJ::bCopy((RGNOBJ *)&v14, (struct RGNOBJ *)v17) )
+      {
+        *((_QWORD *)this + 145) = v14;
+        RGNOBJ::vGetSubRect((RGNOBJ *)&v14, (struct _RECTL *)((char *)this + 1000));
+        *((_DWORD *)this + 9) &= ~0x10u;
+      }
+      else
+      {
+        v2 = 0;
+      }
+      RGNMEMOBJTMP::~RGNMEMOBJTMP(v17);
     }
-    RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v16);
-    if ( v2 )
-      goto LABEL_53;
-LABEL_51:
-    *((_QWORD *)this + 144) = 0LL;
-    if ( v17 )
-      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v17);
-    goto LABEL_53;
   }
-  v9 = &v17;
-  *((_QWORD *)this + 144) = v17;
-LABEL_20:
-  RGNOBJ::vGetSubRect((RGNOBJ *)v9, (struct _RECTL *)((char *)this + 1000));
-  *((_DWORD *)this + 9) &= ~0x10u;
-LABEL_53:
+  else
+  {
+    v2 = 0;
+  }
+  if ( !v2 )
+  {
+LABEL_52:
+    *((_QWORD *)this + 145) = 0LL;
+    if ( v14 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v14);
+  }
+LABEL_54:
   if ( (unsigned int)DC::bDpiScaledSurface(this) )
     *((_DWORD *)this + 130) |= 8u;
-  DC::vUpdateScaledRegions(v14);
-  DC::vUpdate_VisRect(this, *((struct REGION **)this + 143));
-LABEL_56:
-  if ( v22 )
-    CPushLock::ReleaseLock((CPushLock *)(v21[1] + 1112LL));
+  DC::vUpdateScaledRegions(this);
+  DC::vUpdate_VisRect(this, *((__m128i **)this + 144));
+LABEL_58:
+  if ( v28 )
+    CPushLock::ReleaseLock((REGION *)((char *)v27[2] + 1112));
   return v2;
 }

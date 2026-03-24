@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DoesRequireResizeLayoutSynchronization@@YAHPEAUtagWND@@@Z @ 0x1C0209B08
+ * XREFs of ?DoesRequireResizeLayoutSynchronization@@YAHPEAUtagWND@@@Z @ 0x1C020AD94
  * Callers:
- *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C020C464 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ *     xxxDrawDragRectEx @ 0x1C0211504 (xxxDrawDragRectEx.c)
  * Callees:
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
  */
 
 __int64 __fastcall DoesRequireResizeLayoutSynchronization(struct tagWND *a1)
@@ -12,7 +12,7 @@ __int64 __fastcall DoesRequireResizeLayoutSynchronization(struct tagWND *a1)
   __int64 v2; // r10
   __int64 i; // rcx
 
-  if ( IsTopLevelWindow((__int64)a1) && *(char *)(*(_QWORD *)(v2 + 40) + 25LL) < (char)v1 )
+  if ( (unsigned int)IsTopLevelWindow((__int64)a1) && *(char *)(*(_QWORD *)(v2 + 40) + 25LL) < (char)v1 )
   {
     for ( i = *(_QWORD *)(v2 + 112); i; i = *(_QWORD *)(i + 88) )
     {

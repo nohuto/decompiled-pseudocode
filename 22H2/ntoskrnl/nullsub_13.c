@@ -1,12 +1,14 @@
 /*
- * XREFs of nullsub_13 @ 0x140429B33
+ * XREFs of nullsub_13 @ 0x14003A3F8
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void nullsub_13()
+__int64 nullsub_13()
 {
-  ;
+  _BYTE retaddr[16]; // [rsp+0h] [rbp+0h]
+
+  return MK_FP(*(_WORD *)retaddr, *(_QWORD *)retaddr)();
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of WppCleanupKm @ 0x1C000C628
+ * XREFs of WppCleanupKm @ 0x1C000C8C0
  * Callers:
- *     CsTerminate @ 0x1C000C514 (CsTerminate.c)
+ *     CsTerminate @ 0x1C000C7D8 (CsTerminate.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00033D0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00031A0 (_guard_dispatch_icall_nop.c)
  */
 
 void WppCleanupKm()

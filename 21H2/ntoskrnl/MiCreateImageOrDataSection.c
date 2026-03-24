@@ -1,325 +1,317 @@
 /*
- * XREFs of MiCreateImageOrDataSection @ 0x1406FDCD0
+ * XREFs of MiCreateImageOrDataSection @ 0x140706F10
  * Callers:
- *     MiCreateSection @ 0x1406FD4A0 (MiCreateSection.c)
+ *     MiCreateSection @ 0x140705710 (MiCreateSection.c)
  * Callees:
- *     ObReferenceObjectExWithTag @ 0x140229FF0 (ObReferenceObjectExWithTag.c)
- *     CcWaitForUninitializeCacheMap @ 0x14023AFD8 (CcWaitForUninitializeCacheMap.c)
- *     MiForceSectionClosed @ 0x14023E9A0 (MiForceSectionClosed.c)
- *     MiReferenceExistingControlArea @ 0x14023F590 (MiReferenceExistingControlArea.c)
- *     MiZeroSectionObjectPointer @ 0x14025C884 (MiZeroSectionObjectPointer.c)
- *     ObFastReplaceObject @ 0x140276A48 (ObFastReplaceObject.c)
- *     MiDereferenceControlAreaBySection @ 0x140287574 (MiDereferenceControlAreaBySection.c)
- *     MiReleaseControlAreaWaiters @ 0x1402879F8 (MiReleaseControlAreaWaiters.c)
- *     IoGetFileMemoryPartitionInformation @ 0x140287C5C (IoGetFileMemoryPartitionInformation.c)
- *     MiReferenceControlArea @ 0x140287C84 (MiReferenceControlArea.c)
- *     IoSetTopLevelIrp @ 0x140288140 (IoSetTopLevelIrp.c)
- *     IoGetTopLevelIrp @ 0x140288160 (IoGetTopLevelIrp.c)
- *     ObDereferenceObjectEx @ 0x14028AE3C (ObDereferenceObjectEx.c)
- *     IoAllowExecution @ 0x1402A4094 (IoAllowExecution.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     MiGetControlAreaPartition @ 0x14030EC14 (MiGetControlAreaPartition.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     PsReferencePartitionSafe @ 0x1403606EC (PsReferencePartitionSafe.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiCreateNewSection @ 0x1406F914C (MiCreateNewSection.c)
- *     MiCallCreateSectionFilters @ 0x1406FE0E4 (MiCallCreateSectionFilters.c)
- *     MiShareExistingControlArea @ 0x1406FE8F4 (MiShareExistingControlArea.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     MiDereferenceFailedControlArea @ 0x1407F854C (MiDereferenceFailedControlArea.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ObDereferenceObjectEx @ 0x14024C610 (ObDereferenceObjectEx.c)
+ *     MiGetControlAreaPartition @ 0x14025B3A4 (MiGetControlAreaPartition.c)
+ *     MiReferenceExistingControlArea @ 0x1402743E4 (MiReferenceExistingControlArea.c)
+ *     IoAllowExecution @ 0x14028356C (IoAllowExecution.c)
+ *     ObReferenceObjectExWithTag @ 0x14029E140 (ObReferenceObjectExWithTag.c)
+ *     PsReferencePartitionSafe @ 0x1402AC004 (PsReferencePartitionSafe.c)
+ *     CcWaitForUninitializeCacheMap @ 0x1402B87C0 (CcWaitForUninitializeCacheMap.c)
+ *     MiForceSectionClosed @ 0x1402B91F0 (MiForceSectionClosed.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     MiZeroSectionObjectPointer @ 0x1402D3754 (MiZeroSectionObjectPointer.c)
+ *     ObFastReplaceObject @ 0x1402F6E80 (ObFastReplaceObject.c)
+ *     MiDereferenceControlAreaBySection @ 0x140314A6C (MiDereferenceControlAreaBySection.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     IoGetFileMemoryPartitionInformation @ 0x14035679C (IoGetFileMemoryPartitionInformation.c)
+ *     MiReferenceControlArea @ 0x140356824 (MiReferenceControlArea.c)
+ *     IoSetTopLevelIrp @ 0x140356C20 (IoSetTopLevelIrp.c)
+ *     IoGetTopLevelIrp @ 0x140356C40 (IoGetTopLevelIrp.c)
+ *     MiReleaseControlAreaWaiters @ 0x140357284 (MiReleaseControlAreaWaiters.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiDereferenceFailedControlArea @ 0x1406C34F4 (MiDereferenceFailedControlArea.c)
+ *     MiCreateNewSection @ 0x1406D2BC0 (MiCreateNewSection.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     MiCallCreateSectionFilters @ 0x140707384 (MiCallCreateSectionFilters.c)
+ *     MiShareExistingControlArea @ 0x140707DEC (MiShareExistingControlArea.c)
  */
 
 __int64 __fastcall MiCreateImageOrDataSection(__int64 a1)
 {
-  int v2; // esi
-  char v3; // r13
-  int v4; // eax
-  __int64 v5; // r14
-  KPROCESSOR_MODE v6; // r9
-  __int64 v7; // rax
-  NTSTATUS v8; // eax
-  __int64 **v9; // rbp
-  int v10; // edi
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  __int64 v4; // r9
+  int v5; // r14d
+  char v6; // r13
+  int v7; // eax
+  __int64 v8; // rbp
+  KPROCESSOR_MODE v9; // r9
+  __int64 v10; // rax
+  NTSTATUS v11; // eax
+  ULONG_PTR v12; // rsi
+  int v13; // edi
   __int64 *FileMemoryPartitionInformation; // rax
-  struct _KTHREAD *CurrentThread; // r14
-  int v13; // r8d
-  int v14; // eax
-  __int64 v15; // r15
-  __int64 *v16; // r12
-  int v18; // ecx
-  __int64 *v19; // rdx
-  __int64 v20; // rax
-  __int64 v21; // rcx
-  char v22; // dl
-  int v23; // ecx
-  int v24; // ecx
-  bool v25; // zf
-  __int64 *v26; // rdx
-  __int64 v27; // rax
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  __int64 v30; // r9
-  __int64 *v31; // rcx
-  _QWORD v32[16]; // [rsp+30h] [rbp-B8h] BYREF
-  __int64 v33; // [rsp+F0h] [rbp+8h] BYREF
-  __int64 *v34; // [rsp+F8h] [rbp+10h] BYREF
+  struct _KTHREAD *CurrentThread; // rbp
+  int v16; // eax
+  _QWORD *v17; // r15
+  int v19; // ecx
+  _QWORD **v20; // rdx
+  __int64 v21; // rax
+  int v22; // eax
+  bool v23; // zf
+  __int64 v24; // rdx
+  _QWORD *v25; // rcx
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  char v28; // dl
+  int v29; // ecx
+  _QWORD *v30; // r12
+  __int64 v31; // rdx
+  __int64 v32; // r8
+  _DWORD *v33; // r9
+  __int64 v34; // r8
+  __int64 v35; // r9
+  __int64 v36; // rcx
+  signed __int64 v37; // rax
+  _QWORD v38[16]; // [rsp+30h] [rbp-B8h] BYREF
+  _QWORD *v39; // [rsp+F0h] [rbp+8h] BYREF
+  __int64 *v40; // [rsp+F8h] [rbp+10h] BYREF
   PVOID Object; // [rsp+100h] [rbp+18h] BYREF
 
-  v34 = 0LL;
-  v33 = 0LL;
-  memset(v32, 0, sizeof(v32));
-  v2 = 0;
-  v3 = 1;
+  v40 = 0LL;
+  v39 = 0LL;
+  memset(v38, 0, sizeof(v38));
+  v5 = 0;
+  v6 = 1;
   if ( *(_BYTE *)(a1 + 192) )
     return 3221225716LL;
-  v4 = *(_DWORD *)(a1 + 16);
-  if ( (v4 & 0x80000) != 0 )
+  v7 = *(_DWORD *)(a1 + 16);
+  if ( (v7 & 0x80000) != 0 )
     return 3221225716LL;
-  v5 = *(_QWORD *)(a1 + 48);
-  if ( v5 )
+  v8 = *(_QWORD *)(a1 + 48);
+  if ( v8 )
   {
-    v9 = *(__int64 ***)(a1 + 48);
+    v12 = *(_QWORD *)(a1 + 48);
     goto LABEL_7;
   }
-  if ( (v4 & 0x80020000) == 0 )
+  if ( v7 >= 0 )
   {
-    v6 = *(_BYTE *)(a1 + 72);
-    v7 = *(_DWORD *)(a1 + 32) & 7;
+    v9 = *(_BYTE *)(a1 + 72);
+    v10 = *(_DWORD *)(a1 + 32) & 7;
     Object = 0LL;
-    v8 = ObReferenceObjectByHandle(
-           *(HANDLE *)(a1 + 40),
-           *((_DWORD *)MmMakeFileAccess + v7),
-           (POBJECT_TYPE)IoFileObjectType,
-           v6,
-           &Object,
-           0LL);
-    v9 = (__int64 **)Object;
-    v10 = v8;
-    if ( v8 < 0 )
-    {
-LABEL_28:
-      if ( v10 != -1073740682 )
-        goto LABEL_29;
-      goto LABEL_79;
-    }
-    v2 = 1;
+    v11 = ObReferenceObjectByHandle(
+            *(HANDLE *)(a1 + 40),
+            *((_DWORD *)MmMakeFileAccess + v10),
+            (POBJECT_TYPE)IoFileObjectType,
+            v9,
+            &Object,
+            0LL);
+    v12 = (ULONG_PTR)Object;
+    v13 = v11;
+    if ( v11 < 0 )
+      goto LABEL_21;
+    v5 = 1;
     if ( !*((_QWORD *)Object + 5) )
     {
-      v10 = -1073741792;
-      goto LABEL_30;
+      v13 = -1073741792;
+      goto LABEL_23;
     }
 LABEL_7:
-    FileMemoryPartitionInformation = (__int64 *)IoGetFileMemoryPartitionInformation((__int64)v9);
+    FileMemoryPartitionInformation = (__int64 *)IoGetFileMemoryPartitionInformation(v12, v2, v3, v4);
     if ( FileMemoryPartitionInformation )
     {
       if ( !PsReferencePartitionSafe(*FileMemoryPartitionInformation) )
       {
-        v10 = -1073740640;
-        goto LABEL_29;
+        v13 = -1073740640;
+        goto LABEL_22;
       }
-      *(_QWORD *)(a1 + 176) = v30;
-      if ( (*(_DWORD *)(v29 + 8) & 1) != 0 )
-        *(_DWORD *)a1 |= 0x1000000u;
+      *(_QWORD *)(a1 + 176) = v34;
+      if ( (*(_DWORD *)(v35 + 8) & 1) != 0 )
+        *(_DWORD *)a1 |= 0x800000u;
     }
-    if ( !v5 )
+    if ( !v8 )
     {
-      ObfReferenceObject(v9);
-      ++v2;
+      ObfReferenceObject((PVOID)v12);
+      ++v5;
 LABEL_10:
-      *(_QWORD *)(a1 + 56) = v9;
-      LODWORD(v32[7]) = 2;
-      if ( v9 )
-        v32[8] = v9;
+      *(_QWORD *)(a1 + 56) = v12;
+      LODWORD(v38[7]) = 2;
+      if ( v12 )
+        v38[8] = v12;
       else
-        v32[8] = 0LL;
+        v38[8] = 0LL;
       if ( (*(_DWORD *)(a1 + 16) & 0x1000000) != 0 )
       {
-        if ( (*(_DWORD *)a1 & 0x400) != 0 && !IoAllowExecution((__int64)v9) )
+        if ( (*(_DWORD *)a1 & 0x400) != 0 && !IoAllowExecution(v12) )
         {
-          v10 = -1073741790;
-          goto LABEL_29;
+          v13 = -1073741790;
+          goto LABEL_22;
         }
-        CcWaitForUninitializeCacheMap((__int64)v9);
+        CcWaitForUninitializeCacheMap(v12);
         if ( (*(_DWORD *)a1 & 0x400) != 0 )
         {
-          v22 = *(_BYTE *)(a1 + 24);
-          if ( (v22 & 0x10) != 0 )
+          v28 = *(_BYTE *)(a1 + 24);
+          if ( (v28 & 0x10) != 0 )
           {
-            v23 = *(_DWORD *)a1 | 0x10;
-            *(_DWORD *)a1 = v23;
-            if ( (v22 & 0x30) == 0x30 )
-              *(_DWORD *)a1 = v23 | 0x1000;
-            *(_BYTE *)(a1 + 24) = v22 & 0xF;
+            v29 = *(_DWORD *)a1 | 0x10;
+            *(_DWORD *)a1 = v29;
+            if ( (v28 & 0x30) == 0x30 )
+              *(_DWORD *)a1 = v29 | 0x1000;
+            *(_BYTE *)(a1 + 24) = v28 & 0xF;
           }
         }
-        v3 = 2;
+        v6 = 2;
       }
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       while ( 1 )
       {
-        v10 = MiCallCreateSectionFilters(a1);
-        if ( v10 < 0 )
-          goto LABEL_27;
-        v13 = *(_DWORD *)a1;
-        if ( (*(_DWORD *)a1 & 0x10000) != 0 && (*(_DWORD *)(a1 + 16) & 0x1000000) != 0 && (*(_DWORD *)a1 & 0x20000) == 0 )
-        {
-          v31 = v9[5];
-          if ( *v31 )
-          {
-            MiForceSectionClosed(v31, 1, 1);
-            v13 = *(_DWORD *)a1;
-          }
-        }
-        if ( (v13 & 1) == 0 )
+        v13 = MiCallCreateSectionFilters(a1);
+        if ( v13 < 0 )
+          goto LABEL_41;
+        if ( (*(_DWORD *)a1 & 1) == 0 )
         {
           *(_QWORD *)(a1 + 184) = IoGetTopLevelIrp();
           IoSetTopLevelIrp((PIRP)1);
           *(_DWORD *)a1 |= 2u;
         }
-        v14 = MiReferenceControlArea(a1, (__int64)v32, &v33);
-        v10 = v14;
-        if ( v14 >= 0 )
+        v16 = MiReferenceControlArea(a1, (__int64)v38, (__int64 *)&v39);
+        v13 = v16;
+        if ( v16 >= 0 )
           break;
-        if ( v14 == -1073740277 )
+        if ( v16 == -1073740277 )
         {
           KeLeaveCriticalRegionThread((__int64)CurrentThread);
-          goto LABEL_29;
+          goto LABEL_22;
         }
-        if ( v14 == -1073740682 )
+        if ( v16 == -1073740682 )
         {
           KeLeaveCriticalRegionThread((__int64)CurrentThread);
-          goto LABEL_79;
+          goto LABEL_77;
         }
       }
-      v15 = v33;
-      *(_QWORD *)(a1 + 64) = v33;
-      if ( (*(_DWORD *)(v15 + 56) & 2) != 0 )
+      v17 = v39;
+      *(_QWORD *)(a1 + 64) = v39;
+      if ( (v17[7] & 2) != 0 )
       {
-        v10 = MiCreateNewSection(a1, &v34);
-        if ( v10 < 0 )
+        v13 = MiCreateNewSection(a1, &v40);
+        if ( v13 >= 0 )
         {
-          if ( v34 )
-          {
-            v15 = *v34;
-            v33 = v15;
-            *(_QWORD *)(a1 + 64) = v15;
-          }
-          v16 = (__int64 *)MiZeroSectionObjectPointer((__int64)v9, v15, *(_DWORD *)(a1 + 16));
-          --v2;
-          if ( (_QWORD *)v15 == v32 )
-          {
-            ObfDereferenceObject(v9);
-            v9 = (__int64 **)ObFastReplaceObject((volatile __int64 *)(v15 + 64), 0LL);
-          }
-          else
-          {
-            _InterlockedIncrement64((volatile signed __int64 *)(MiGetControlAreaPartition(v15) + 1352));
-            MiDereferenceControlAreaBySection(v33, 1u);
-          }
-          MiReleaseControlAreaWaiters(v16);
+          v27 = *v40;
+          *(_QWORD *)(a1 + 64) = *v40;
+          _InterlockedIncrement64((volatile signed __int64 *)(MiGetControlAreaPartition(v27) + 1352));
+          v5 -= 2;
+LABEL_41:
+          KeLeaveCriticalRegionThread((__int64)CurrentThread);
+          goto LABEL_21;
+        }
+        if ( v40 )
+        {
+          v17 = (_QWORD *)*v40;
+          v39 = v17;
+          *(_QWORD *)(a1 + 64) = v17;
+        }
+        v30 = (_QWORD *)MiZeroSectionObjectPointer(v12, (__int64)v17, *(_DWORD *)(a1 + 16));
+        --v5;
+        if ( v17 == v38 )
+        {
+          HalPutDmaAdapter((PADAPTER_OBJECT)v12);
+          v12 = ObFastReplaceObject(v17 + 8, 0LL);
         }
         else
         {
-          v21 = *v34;
-          *(_QWORD *)(a1 + 64) = *v34;
-          _InterlockedIncrement64((volatile signed __int64 *)(MiGetControlAreaPartition(v21) + 1352));
-          v2 -= 2;
+          _InterlockedIncrement64((volatile signed __int64 *)(MiGetControlAreaPartition((__int64)v17) + 1352));
+          MiDereferenceControlAreaBySection((__int64)v39, 1u);
         }
-LABEL_27:
+        MiReleaseControlAreaWaiters(v30, v31, v32, v33);
         KeLeaveCriticalRegionThread((__int64)CurrentThread);
-        goto LABEL_28;
       }
-      KeLeaveCriticalRegionThread((__int64)CurrentThread);
-      v10 = MiShareExistingControlArea(a1);
-      if ( v10 >= 0 )
+      else
       {
-        --v2;
-        goto LABEL_29;
+        KeLeaveCriticalRegionThread((__int64)CurrentThread);
+        v13 = MiShareExistingControlArea(a1);
+        if ( v13 < 0 )
+          MiDereferenceFailedControlArea((int *)a1);
+        else
+          --v5;
       }
-      MiDereferenceFailedControlArea(a1);
-      goto LABEL_28;
+      goto LABEL_21;
     }
-    v18 = *(_DWORD *)(a1 + 16) & 0x1000000;
-    if ( v18 )
+    v19 = *(_DWORD *)(a1 + 16) & 0x1000000;
+    if ( v19 )
     {
       if ( (*(_DWORD *)a1 & 1) != 0 )
       {
-        v10 = -1073741580;
-        goto LABEL_29;
+        v13 = -1073741580;
+        goto LABEL_22;
       }
       if ( *(_QWORD *)(a1 + 152) )
       {
-        v10 = -1073741582;
-        goto LABEL_29;
+        v13 = -1073741582;
+        goto LABEL_22;
       }
     }
-    v19 = *(__int64 **)(v5 + 40);
-    if ( !v19 )
+    v20 = *(_QWORD ***)(v8 + 40);
+    if ( !v20 )
     {
-      v10 = -1073741792;
-      goto LABEL_29;
+      v13 = -1073741792;
+      goto LABEL_22;
     }
-    v20 = *(_QWORD *)(a1 + 8);
-    if ( v20 && (*(_DWORD *)(v20 + 24) & 0x200) != 0 )
+    v21 = *(_QWORD *)(a1 + 8);
+    if ( v21 && (*(_DWORD *)(v21 + 24) & 0x200) != 0 )
     {
       *(_BYTE *)(a1 + 72) = 0;
-      v19 = *(__int64 **)(v5 + 40);
+      v20 = *(_QWORD ***)(v8 + 40);
     }
-    if ( v18 )
-      v19 += 2;
-    v10 = -1073741823;
-    v33 = *v19;
-    if ( !v33 || (v10 = MiReferenceExistingControlArea(a1), v10 < 0) )
+    if ( v19 )
+      v20 += 2;
+    v13 = -1073741823;
+    v39 = *v20;
+    if ( !v39 || (v13 = MiReferenceExistingControlArea(a1), v13 < 0) )
     {
-      ObReferenceObjectExWithTag((ULONG_PTR)v9, 2);
-      v2 += 2;
-      if ( v10 == -1073740682 )
+      ObReferenceObjectExWithTag(v12, 2);
+      v5 += 2;
+      if ( v13 == -1073740682 )
       {
-LABEL_79:
+LABEL_77:
         if ( (*(_DWORD *)a1 & 1) == 0 )
-          CcWaitForUninitializeCacheMap((__int64)v9);
-        if ( (unsigned int)MiForceSectionClosed(v9[5], v3, 0) > 1 && (*(_DWORD *)a1 & 0x2000000) != 0 )
+          CcWaitForUninitializeCacheMap(v12);
+        if ( (unsigned int)MiForceSectionClosed(*(_QWORD **)(v12 + 40), v6) > 1 && (*(_DWORD *)a1 & 0x1000000) != 0 )
         {
-          ++dword_140C52950;
-          v10 = -1073740277;
+          ++dword_140C4E658;
+          v13 = -1073740277;
         }
-LABEL_29:
-        if ( !v2 )
-          return (unsigned int)v10;
-LABEL_30:
-        ObDereferenceObjectEx((ULONG_PTR)v9);
-        return (unsigned int)v10;
+LABEL_22:
+        if ( !v5 )
+          return (unsigned int)v13;
+LABEL_23:
+        ObDereferenceObjectEx(v12, v5);
+        return (unsigned int)v13;
       }
       goto LABEL_10;
     }
-    v24 = *(_DWORD *)a1 | 4;
-    v25 = (*(_DWORD *)(a1 + 16) & 0x1000000) == 0;
-    *(_DWORD *)a1 = v24;
-    v26 = *(__int64 **)(v5 + 40);
-    if ( v25 )
+    v22 = *(_DWORD *)a1 | 4;
+    v23 = (*(_DWORD *)(a1 + 16) & 0x1000000) == 0;
+    *(_DWORD *)a1 = v22;
+    v24 = *(_QWORD *)(v8 + 40);
+    if ( v23 )
     {
-      v27 = *v26;
-      v28 = *(_QWORD *)(a1 + 152);
-      *(_QWORD *)(a1 + 128) = v28;
-      v33 = v27;
-      if ( (v24 & 1) != 0 || v28 )
-        goto LABEL_55;
+      v25 = *(_QWORD **)v24;
+      v26 = *(_QWORD *)(a1 + 152);
+      *(_QWORD *)(a1 + 128) = v26;
+      v39 = v25;
+      if ( (v22 & 1) != 0 || v26 )
+        goto LABEL_38;
+      v36 = *v25;
     }
     else
     {
-      v27 = v26[2];
-      v33 = v27;
+      v39 = *(_QWORD **)(v24 + 16);
+      v36 = *v39;
     }
-    *(_QWORD *)(a1 + 128) = _InterlockedCompareExchange64(
-                              (volatile signed __int64 *)(*(_QWORD *)v27 + 24LL),
-                              -1LL,
-                              -1LL);
-    v27 = v33;
-LABEL_55:
-    *(_QWORD *)(a1 + 64) = v27;
-    goto LABEL_29;
+    v37 = _InterlockedCompareExchange64((volatile signed __int64 *)(v36 + 24), -1LL, -1LL);
+    v25 = v39;
+    *(_QWORD *)(a1 + 128) = v37;
+LABEL_38:
+    *(_QWORD *)(a1 + 64) = v25;
+LABEL_21:
+    if ( v13 != -1073740682 )
+      goto LABEL_22;
+    goto LABEL_77;
   }
   return 3221225716LL;
 }

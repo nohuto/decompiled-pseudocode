@@ -1,9 +1,9 @@
 /*
- * XREFs of ZwQueryBootEntryOrder @ 0x1401BA870
+ * XREFs of ZwQueryBootEntryOrder @ 0x1401BA890
  * Callers:
- *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x1408CC624 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
- *     BiQueryBootEntryOrder @ 0x1408F4304 (BiQueryBootEntryOrder.c)
- *     SiGetEspFromFirmware @ 0x1408F568C (SiGetEspFromFirmware.c)
+ *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x1408CC604 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
+ *     BiQueryBootEntryOrder @ 0x1408F42E4 (BiQueryBootEntryOrder.c)
+ *     SiGetEspFromFirmware @ 0x1408F566C (SiGetEspFromFirmware.c)
  * Callees:
  *     <none>
  */

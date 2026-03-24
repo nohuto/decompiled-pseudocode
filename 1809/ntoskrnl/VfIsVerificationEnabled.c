@@ -1,9 +1,9 @@
 /*
- * XREFs of VfIsVerificationEnabled @ 0x140177E30
+ * XREFs of VfIsVerificationEnabled @ 0x140177E50
  * Callers:
- *     VfFailDeviceNode @ 0x140177DF0 (VfFailDeviceNode.c)
+ *     VfFailDeviceNode @ 0x140177E10 (VfFailDeviceNode.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x14013A200 (MmIsDriverVerifying.c)
+ *     MmIsDriverVerifying @ 0x14013A220 (MmIsDriverVerifying.c)
  *     PpvUtilIsHardwareBeingVerified @ 0x140924B54 (PpvUtilIsHardwareBeingVerified.c)
  */
 

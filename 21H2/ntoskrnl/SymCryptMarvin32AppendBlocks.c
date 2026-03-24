@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptMarvin32AppendBlocks @ 0x1403FB004
+ * XREFs of SymCryptMarvin32AppendBlocks @ 0x1403EBE64
  * Callers:
- *     SymCryptMarvin32Append @ 0x1403FAF40 (SymCryptMarvin32Append.c)
- *     SymCryptMarvin32Result @ 0x1403FB108 (SymCryptMarvin32Result.c)
+ *     SymCryptMarvin32Append @ 0x1403EBDA0 (SymCryptMarvin32Append.c)
+ *     SymCryptMarvin32Result @ 0x1403EBF68 (SymCryptMarvin32Result.c)
  * Callees:
  *     <none>
  */

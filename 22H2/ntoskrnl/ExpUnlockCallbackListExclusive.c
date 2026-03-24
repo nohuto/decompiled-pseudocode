@@ -1,23 +1,15 @@
 /*
- * XREFs of ExpUnlockCallbackListExclusive @ 0x140364750
+ * XREFs of ExpUnlockCallbackListExclusive @ 0x1403A5F6C
  * Callers:
- *     ExpDeleteCallback @ 0x140683260 (ExpDeleteCallback.c)
- *     ExCreateCallback @ 0x1407DC8B0 (ExCreateCallback.c)
+ *     ExCreateCallback @ 0x1406A0050 (ExCreateCallback.c)
+ *     ExpDeleteCallback @ 0x140779CE0 (ExpDeleteCallback.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
  */
 
 char __fastcall ExpUnlockCallbackListExclusive(__int64 a1)
 {
-  _QWORD *v2; // rax
-
-  LOBYTE(v2) = ExReleasePushLockEx((__int64 *)&ExpCallbackListLock, 0LL);
-  if ( (*(_WORD *)(a1 + 486))++ == 0xFFFF )
-  {
-    v2 = (_QWORD *)(a1 + 152);
-    if ( (_QWORD *)*v2 != v2 )
-      LOBYTE(v2) = KiCheckForKernelApcDelivery();
-  }
-  return (char)v2;
+  ExReleasePushLockEx((ULONG_PTR)&ExpCallbackListLock, 0LL);
+  return KiLeaveGuardedRegionUnsafe(a1);
 }

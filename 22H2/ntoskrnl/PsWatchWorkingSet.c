@@ -1,10 +1,10 @@
 /*
- * XREFs of PsWatchWorkingSet @ 0x140463260
+ * XREFs of PsWatchWorkingSet @ 0x140581490
  * Callers:
- *     KiPageFault @ 0x14042F300 (KiPageFault.c)
+ *     KiPageFault @ 0x14040D300 (KiPageFault.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSignalGate @ 0x14035CCEC (KeSignalGate.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeSignalGate @ 0x14031BEE0 (KeSignalGate.c)
  */
 
 signed __int64 __fastcall PsWatchWorkingSet(int a1, __int64 a2, __int64 a3)
@@ -88,7 +88,7 @@ LABEL_19:
       *(_QWORD *)(v7 + 8 * v17 + 56) = *(_QWORD *)&CurrentThread[1].CurrentRunTime;
       v18 = _InterlockedExchangeAdd((volatile signed __int32 *)v7, 0xFFFF0000);
       if ( (v18 & 1) != 0 && (v18 & 0x7FFF0000) == 0x10000 )
-        KeSignalGate(v7 + 16, 0);
+        KeSignalGate(v7 + 16, 0LL, v16, (_DWORD *)v7);
       result = (signed __int64)CurrentThread->WaitBlock[0].SparePtr;
       if ( result )
         _InterlockedOr64((volatile signed __int64 *)result, v8);

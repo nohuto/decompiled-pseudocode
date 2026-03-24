@@ -1,16 +1,16 @@
 /*
- * XREFs of ?DrawYCbCrBitmap@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAUID2D1Bitmap1@@1W4D2D1_YCBCR_CHROMA_SUBSAMPLING@@PEBUD2D_RECT_F@@MW4D2D1_INTERPOLATION_MODE@@W4D2D1_COMPOSITE_MODE@@@Z @ 0x180278280
+ * XREFs of ?DrawYCbCrBitmap@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAUID2D1Bitmap1@@1W4D2D1_YCBCR_CHROMA_SUBSAMPLING@@PEBUD2D_RECT_F@@MW4D2D1_INTERPOLATION_MODE@@W4D2D1_COMPOSITE_MODE@@@Z @ 0x18023C070
  * Callers:
  *     <none>
  * Callees:
- *     ?DrawImage@ID2D1DeviceContext@@QEAAXPEAUID2D1Effect@@PEBUD2D_POINT_2F@@PEBUD2D_RECT_F@@W4D2D1_INTERPOLATION_MODE@@W4D2D1_COMPOSITE_MODE@@@Z @ 0x18000FFB4 (-DrawImage@ID2D1DeviceContext@@QEAAXPEAUID2D1Effect@@PEBUD2D_POINT_2F@@PEBUD2D_RECT_F@@W4D2D1_IN.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x18007F688 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
- *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18007FAC8 (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
- *     ?EnsureBeginDraw@CD2DContext@@AEAAXXZ @ 0x180080698 (-EnsureBeginDraw@CD2DContext@@AEAAXXZ.c)
- *     ?SetPrimitiveBlend@CD2DContext@@IEAAXW4D2D1_PRIMITIVE_BLEND@@@Z @ 0x1800DC60C (-SetPrimitiveBlend@CD2DContext@@IEAAXW4D2D1_PRIMITIVE_BLEND@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SetPrimitiveBlend@CD2DContext@@IEAAXW4D2D1_PRIMITIVE_BLEND@@@Z @ 0x18002CB00 (-SetPrimitiveBlend@CD2DContext@@IEAAXW4D2D1_PRIMITIVE_BLEND@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180078248 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
+ *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x180090B3C (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
+ *     ?EnsureBeginDraw@CD2DContext@@AEAAXXZ @ 0x180090FE8 (-EnsureBeginDraw@CD2DContext@@AEAAXXZ.c)
+ *     ?DrawImage@ID2D1DeviceContext@@QEAAXPEAUID2D1Effect@@PEBUD2D_POINT_2F@@PEBUD2D_RECT_F@@W4D2D1_INTERPOLATION_MODE@@W4D2D1_COMPOSITE_MODE@@@Z @ 0x1800CE48C (-DrawImage@ID2D1DeviceContext@@QEAAXPEAUID2D1Effect@@PEBUD2D_POINT_2F@@PEBUD2D_RECT_F@@W4D2D1_IN.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DContext::DrawYCbCrBitmap(
@@ -49,21 +49,21 @@ __int64 __fastcall CD2DContext::DrawYCbCrBitmap(
   v9 = a6;
   CD2DContext::FlushDrawList((CD2DContext *)this);
   v24 = 0LL;
-  v14 = (__int64)(this + 134);
+  v14 = (__int64)(this + 139);
   v26 = 0LL;
   v25 = 0LL;
   if ( !this )
-    v14 = 1088LL;
+    v14 = 1128LL;
   v15 = *(_DWORD *)v14;
   if ( *(int *)v14 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(1088LL, 0LL, 0LL, v15, 0x3C6u);
+    MilInstrumentationCheckHR_MaybeFailFast(1128LL, 0LL, 0, v15, 0x3C1u, 0LL);
   }
   else
   {
     CD2DContext::EnsureBeginDraw((CD2DContext *)this);
     (*(void (__fastcall **)(const struct ID2DContextOwner *, _BYTE *))(*(_QWORD *)a2 + 8LL))(a2, v34);
-    (*(void (__fastcall **)(ID2D1DeviceContext *, _BYTE *))(*(_QWORD *)this[25] + 240LL))(this[25], v34);
+    (*(void (__fastcall **)(ID2D1DeviceContext *, _BYTE *))(*(_QWORD *)this[30] + 240LL))(this[30], v34);
     v16 = (*((__int64 (__fastcall **)(ID2D1DeviceContext **, __int64, struct ID2D1Effect **))*this + 25))(
             this,
             5LL,
@@ -71,7 +71,7 @@ __int64 __fastcall CD2DContext::DrawYCbCrBitmap(
     v15 = v16;
     if ( v16 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, v16, 0x3CDu);
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x3C8u, 0LL);
     }
     else
     {
@@ -94,24 +94,24 @@ __int64 __fastcall CD2DContext::DrawYCbCrBitmap(
       v15 = v18;
       if ( v18 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0LL, v18, 0x3D1u);
+        MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x3CCu, 0LL);
       }
       else if ( a9 )
       {
-        ID2D1DeviceContext::DrawImage(this[25], v24, 0LL, v9, a8, a9);
+        ID2D1DeviceContext::DrawImage(this[30], v24, 0LL, v9, a8, a9);
       }
       else
       {
         CD2DContext::SetPrimitiveBlend((CD2DContext *)this, D2D1_PRIMITIVE_BLEND_SOURCE_OVER);
         (*(void (__fastcall **)(struct ID2D1Effect *, __int64 *))(*(_QWORD *)v24 + 144LL))(v24, &v25);
         v29 = 0LL;
-        v20 = this[25];
+        v20 = this[30];
         v31 = _mm_loadu_si128((const __m128i *)v9);
         v33 = a8;
         v32 = 0LL;
         *(float *)v27 = a7;
         *(_QWORD *)&v27[20] = _mm_unpacklo_ps((__m128)0LL, (__m128)0LL).m128_u64[0];
-        *(_OWORD *)&v27[4] = *(_OWORD *)&_xmm;
+        *(_OWORD *)&v27[4] = _xmm;
         v30 = *(_DWORD *)&v27[24];
         v28 = *(_OWORD *)v27;
         v29 = *(_QWORD *)&v27[16];
@@ -123,10 +123,10 @@ __int64 __fastcall CD2DContext::DrawYCbCrBitmap(
                 &v26);
         v15 = v21;
         if ( v21 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, v21, 0x3E7u);
+          MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x3E2u, 0LL);
         else
-          (*(void (__fastcall **)(ID2D1DeviceContext *, const struct D2D_RECT_F *, __int64))(*(_QWORD *)this[25] + 136LL))(
-            this[25],
+          (*(void (__fastcall **)(ID2D1DeviceContext *, const struct D2D_RECT_F *, __int64))(*(_QWORD *)this[30] + 136LL))(
+            this[30],
             v9,
             v26);
       }

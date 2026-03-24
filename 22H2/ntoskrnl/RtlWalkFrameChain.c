@@ -1,50 +1,64 @@
 /*
- * XREFs of RtlWalkFrameChain @ 0x140227780
+ * XREFs of RtlWalkFrameChain @ 0x14021CE70
  * Callers:
- *     RtlCaptureStackBackTrace @ 0x140227700 (RtlCaptureStackBackTrace.c)
- *     SepCreateTokenEx @ 0x140229730 (SepCreateTokenEx.c)
- *     EtwpTraceStackWalk @ 0x14046896C (EtwpTraceStackWalk.c)
- *     KiDpcWatchdogCaptureStack @ 0x14056B2B4 (KiDpcWatchdogCaptureStack.c)
- *     SepGetStackTraceHash @ 0x1405B7CCC (SepGetStackTraceHash.c)
- *     EtwpGetStackExtendedHeaderItem @ 0x1405FFBCC (EtwpGetStackExtendedHeaderItem.c)
- *     EtwpCovSampCaptureKernelStack @ 0x140603428 (EtwpCovSampCaptureKernelStack.c)
- *     CmpThreadInfoLogStack @ 0x14061607C (CmpThreadInfoLogStack.c)
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
- *     PoDiagCaptureUsermodeStack @ 0x140865548 (PoDiagCaptureUsermodeStack.c)
- *     EtwpCovSampCaptureUserStack @ 0x1408A8C96 (EtwpCovSampCaptureUserStack.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1409EA738 (EtwTimLogRedirectionTrustPolicy.c)
- *     ExpUpdateDebugInfo @ 0x1409F9308 (ExpUpdateDebugInfo.c)
+ *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CDE0 (RtlCaptureStackBackTrace.c)
+ *     KiDpcWatchdogCaptureStack @ 0x140511F60 (KiDpcWatchdogCaptureStack.c)
+ *     SepGetStackTraceHash @ 0x140596050 (SepGetStackTraceHash.c)
+ *     EtwpGetStackExtendedHeaderItem @ 0x1405A5CD4 (EtwpGetStackExtendedHeaderItem.c)
+ *     EtwpTraceStackWalk @ 0x1405A7074 (EtwpTraceStackWalk.c)
+ *     EtwpCovSampCaptureKernelStack @ 0x1405AECB8 (EtwpCovSampCaptureKernelStack.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1405D09D0 (EtwTimLogRedirectionTrustPolicy.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x140651490 (SepDuplicateToken.c)
+ *     PoDiagCaptureUsermodeStack @ 0x1406A5F7C (PoDiagCaptureUsermodeStack.c)
+ *     EtwpCovSampCaptureUserStack @ 0x140942A78 (EtwpCovSampCaptureUserStack.c)
+ *     ExpUpdateDebugInfo @ 0x14094CE54 (ExpUpdateDebugInfo.c)
  * Callees:
- *     RtlEnoughStackSpaceForStackCapture @ 0x140227820 (RtlEnoughStackSpaceForStackCapture.c)
- *     MmCanThreadFault @ 0x14022786C (MmCanThreadFault.c)
- *     RtlpWalkFrameChain @ 0x1402A4180 (RtlpWalkFrameChain.c)
+ *     RtlpWalkFrameChain @ 0x14021D210 (RtlpWalkFrameChain.c)
+ *     RtlpGetStackLimits @ 0x1402D0BE0 (RtlpGetStackLimits.c)
+ *     KeAreInterruptsEnabled @ 0x1402D0E60 (KeAreInterruptsEnabled.c)
+ *     KeGetCurrentStackPointer @ 0x1403FDC50 (KeGetCurrentStackPointer.c)
  */
 
 ULONG __stdcall RtlWalkFrameChain(PVOID *Callers, ULONG Count, ULONG Flags)
 {
-  ULONG v4; // ebx
-  BOOL v5; // esi
-  ULONG v6; // edi
-  ULONG v7; // ebp
+  ULONG v4; // edi
+  ULONG v5; // ebx
+  ULONG v6; // esi
+  struct _KTHREAD *CurrentThread; // rdx
+  __int64 v8; // rax
   ULONG result; // eax
+  int v10; // ebp
+  _QWORD v11[5]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v12; // [rsp+68h] [rbp+20h] BYREF
 
   if ( (Flags & 0xFFFF00FC) != 0 )
     return 0;
   v4 = Flags & 3;
-  if ( Flags >> 8 > 0xFE )
+  if ( Flags >> 8 > 0xFE || Count == -1 )
     return 0;
-  if ( Count == -1 )
+  v10 = (Flags & 2) == 0;
+  v5 = v10 + (Flags >> 8);
+  v6 = v10 + Count;
+  if ( !(unsigned __int8)KeAreInterruptsEnabled()
+    || KeGetCurrentIrql() >= 2u
+    || (CurrentThread = KeGetCurrentThread(), (*((_DWORD *)&CurrentThread[1].SwapListEntry + 3) & 2) != 0)
+    || (void (__fastcall __noreturn *)())CurrentThread[1].ApcState.ApcListHead[0].Blink == KiExecuteDpc
+    || !MmPhysicalMemoryBlock
+    || (v8 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * CurrentThread->ApcState.Process[1].IdealProcessorPadding[5])
+                       + 6848LL)) == 0
+    || CurrentThread == *(struct _KTHREAD **)(v8 + 88) )
+  {
+    if ( (v4 & 1) != 0 )
+      return 0;
+  }
+  v11[0] = 0LL;
+  v12 = 0LL;
+  if ( !(unsigned __int8)RtlpGetStackLimits(&v12, v11) || (unsigned __int64)(KeGetCurrentStackPointer() - v12) < 0xE30 )
     return 0;
-  v5 = (Flags & 2) == 0;
-  v6 = v5 + (Flags >> 8);
-  v7 = v5 + Count;
-  if ( !(unsigned int)MmCanThreadFault() && (v4 & 1) != 0 )
-    return 0;
-  if ( !(unsigned int)RtlEnoughStackSpaceForStackCapture() )
-    return 0;
-  result = RtlpWalkFrameChain(Callers, v7, v4, v6);
+  result = RtlpWalkFrameChain(Callers, v6, v4, v5);
   if ( result )
-    return (__PAIR64__(result, v4 & 2) - 1) >> 32;
+    result -= v10;
   return result;
 }

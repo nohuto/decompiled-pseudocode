@@ -1,12 +1,12 @@
 /*
- * XREFs of VidSchiCheckConditionDeviceCommand @ 0x1C001614C
+ * XREFs of VidSchiCheckConditionDeviceCommand @ 0x1C0015130
  * Callers:
- *     VidSchiCheckPendingDeviceCommand @ 0x1C0009EC0 (VidSchiCheckPendingDeviceCommand.c)
- *     VidSchiScheduleCommandToRun @ 0x1C000A430 (VidSchiScheduleCommandToRun.c)
- *     VidSchSubmitDeviceCommand @ 0x1C0015480 (VidSchSubmitDeviceCommand.c)
- *     VidSchiProcessPrimariesTerminationList @ 0x1C003B244 (VidSchiProcessPrimariesTerminationList.c)
+ *     VidSchSubmitDeviceCommand @ 0x1C00061A0 (VidSchSubmitDeviceCommand.c)
+ *     VidSchiCheckPendingDeviceCommand @ 0x1C000AD40 (VidSchiCheckPendingDeviceCommand.c)
+ *     VidSchiScheduleCommandToRun @ 0x1C000B0A0 (VidSchiScheduleCommandToRun.c)
+ *     VidSchiProcessPrimariesTerminationList @ 0x1C0030618 (VidSchiProcessPrimariesTerminationList.c)
  * Callees:
- *     ?HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ @ 0x1C001BBF2 (-HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ.c)
+ *     ?HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ @ 0x1C0015A68 (-HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ.c)
  */
 
 __int64 __fastcall VidSchiCheckConditionDeviceCommand(__int64 a1, __int64 a2)

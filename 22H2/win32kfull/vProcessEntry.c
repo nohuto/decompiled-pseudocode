@@ -1,15 +1,15 @@
 /*
- * XREFs of vProcessEntry @ 0x1C00A28A8
+ * XREFs of vProcessEntry @ 0x1C0119058
  * Callers:
- *     QueryRegistryFontSubstituteListRoutine @ 0x1C03B4760 (QueryRegistryFontSubstituteListRoutine.c)
+ *     QueryRegistryFontSubstituteListRoutine @ 0x1C0393610 (QueryRegistryFontSubstituteListRoutine.c)
  * Callees:
- *     vCheckCharSet @ 0x1C00A297C (vCheckCharSet.c)
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01150FC (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     cCapString @ 0x1C0116A58 (cCapString.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0064C1C (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     cCapString @ 0x1C00BBAF4 (cCapString.c)
+ *     vCheckCharSet @ 0x1C011912C (vCheckCharSet.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall vProcessEntry(unsigned __int16 *a1, __int64 a2, void *a3)
+__int64 __fastcall vProcessEntry(unsigned __int16 *a1, WCHAR *a2, void *a3)
 {
   unsigned __int16 *v3; // rax
   unsigned __int16 *v5; // rcx
@@ -22,28 +22,30 @@ __int64 __fastcall vProcessEntry(unsigned __int16 *a1, __int64 a2, void *a3)
   v6 = 0;
   if ( *v3 )
   {
-    while ( v3 < v5 )
+    do
     {
+      if ( v3 >= v5 )
+        break;
       v9 = v3 + 1;
       if ( *v3 == 44 )
-      {
-        if ( v3 == (unsigned __int16 *)-2LL )
-          goto LABEL_6;
-        v10 = v9 - a1;
-        vCheckCharSet(a2, v3 + 1);
-        goto LABEL_9;
-      }
+        goto LABEL_6;
       ++v3;
-      if ( !*v9 )
-        break;
     }
+    while ( *v9 );
   }
   v9 = 0LL;
 LABEL_6:
-  LODWORD(v10) = 32;
-  *(_WORD *)(a2 + 64) = 257;
-LABEL_9:
-  cCapString(a2, a1, (unsigned int)v10);
+  if ( v9 )
+  {
+    v10 = v9 - a1;
+    vCheckCharSet(a2, v9);
+  }
+  else
+  {
+    LODWORD(v10) = 32;
+    a2[32] = 257;
+  }
+  cCapString(a2, a1, v10);
   if ( a3 )
   {
     if ( v9 )
@@ -53,7 +55,7 @@ LABEL_9:
     }
     else
     {
-      return (unsigned int)StringCchCopyW((unsigned __int16 *)a3, (int)v10, a1);
+      return (unsigned int)StringCchCopyW((char *)a3, (int)v10, (char *)a1);
     }
   }
   return v6;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Initialize@DelayZoneTelemetry@@QEAAXKK@Z @ 0x1C0083310
+ * XREFs of ?Initialize@DelayZoneTelemetry@@QEAAXKK@Z @ 0x1C006C1B8
  * Callers:
- *     ?Initialize@DelayZonePalmRejection@@AEAAXXZ @ 0x1C0083200 (-Initialize@DelayZonePalmRejection@@AEAAXXZ.c)
+ *     ?Initialize@DelayZonePalmRejection@@AEAAXXZ @ 0x1C006C0E0 (-Initialize@DelayZonePalmRejection@@AEAAXXZ.c)
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 void __fastcall DelayZoneTelemetry::Initialize(DelayZoneTelemetry *this, int a2, int a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSynchronizeAddressPolicyTarget @ 0x140360450
+ * XREFs of KiSynchronizeAddressPolicyTarget @ 0x14031B8E0
  * Callers:
- *     KeSynchronizeAddressPolicy @ 0x1403602AC (KeSynchronizeAddressPolicy.c)
+ *     KeSynchronizeAddressPolicy @ 0x14031B76C (KeSynchronizeAddressPolicy.c)
  * Callees:
- *     KiSetAddressPolicy @ 0x14022E140 (KiSetAddressPolicy.c)
+ *     KiSetAddressPolicy @ 0x140207990 (KiSetAddressPolicy.c)
  */
 
 int KiSynchronizeAddressPolicyTarget()

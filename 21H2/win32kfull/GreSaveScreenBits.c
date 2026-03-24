@@ -1,17 +1,17 @@
 /*
- * XREFs of GreSaveScreenBits @ 0x1C029D748
+ * XREFs of GreSaveScreenBits @ 0x1C029EE44
  * Callers:
- *     CreateSpb @ 0x1C00C92A0 (CreateSpb.c)
- *     FreeSpb @ 0x1C00DCA08 (FreeSpb.c)
- *     RestoreSpb @ 0x1C0158DC0 (RestoreSpb.c)
- *     ?SpbApc@@YAXPEAX00@Z @ 0x1C0214B00 (-SpbApc@@YAXPEAX00@Z.c)
- *     ?SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z @ 0x1C023D314 (-SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z.c)
+ *     CreateSpb @ 0x1C0161F90 (CreateSpb.c)
+ *     ?SpbApc@@YAXPEAX00@Z @ 0x1C021A020 (-SpbApc@@YAXPEAX00@Z.c)
+ *     FreeSpb @ 0x1C021A2E4 (FreeSpb.c)
+ *     RestoreSpb @ 0x1C021A4F0 (RestoreSpb.c)
+ *     ?SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z @ 0x1C023E88C (-SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001F4EC (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C0086CD0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C00173F0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GreSaveScreenBits(__int64 a1, unsigned int a2, __int64 a3, __int128 *a4)
@@ -37,10 +37,10 @@ __int64 __fastcall GreSaveScreenBits(__int64 a1, unsigned int a2, __int64 a3, __
   {
     v16 = ghsemSprite;
     GreAcquireSemaphore(ghsemSprite);
-    v9 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64, __int128 *))(a1 + 2984);
+    v9 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64, __int128 *))(a1 + 3008);
     if ( v9 )
     {
-      v10 = *(_QWORD *)(a1 + 2528);
+      v10 = *(_QWORD *)(a1 + 2552);
       v11 = &v19;
       if ( a2 != 2 )
         v11 = a4;

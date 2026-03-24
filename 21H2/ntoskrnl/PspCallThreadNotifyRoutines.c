@@ -1,13 +1,13 @@
 /*
- * XREFs of PspCallThreadNotifyRoutines @ 0x1406F8640
+ * XREFs of PspCallThreadNotifyRoutines @ 0x14061B3C0
  * Callers:
- *     PspInsertThread @ 0x140701218 (PspInsertThread.c)
- *     PspInitializeThunkContext @ 0x140702CA4 (PspInitializeThunkContext.c)
- *     PspExitThread @ 0x1407A0088 (PspExitThread.c)
+ *     PspInitializeThunkContext @ 0x140647A20 (PspInitializeThunkContext.c)
+ *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
+ *     PspExitThread @ 0x14064A838 (PspExitThread.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140281870 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140281930 (ExDereferenceCallBackBlock.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14025AA10 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char a3)
@@ -17,39 +17,39 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char
   __int64 v7; // rdi
   struct _EX_RUNDOWN_REF *v8; // rax
   struct _EX_RUNDOWN_REF *v9; // rsi
-  union _RTL_RUN_ONCE *v10; // rbx
-  __int64 v11; // rdi
-  struct _EX_RUNDOWN_REF *v12; // rax
-  struct _EX_RUNDOWN_REF *v13; // rsi
   int Count; // eax
+  union _RTL_RUN_ONCE *v11; // rbx
+  __int64 v12; // rdi
+  struct _EX_RUNDOWN_REF *v13; // rax
+  struct _EX_RUNDOWN_REF *v14; // rsi
   union _RTL_RUN_ONCE *v15; // rbx
   __int64 v16; // rdi
   struct _EX_RUNDOWN_REF *v17; // rax
   struct _EX_RUNDOWN_REF *v18; // rsi
 
-  v5 = a1[198] != 0LL;
+  v5 = a1[188] != 0LL;
   if ( a2 )
   {
     if ( a3 )
     {
       if ( (PspNotifyEnableMask & 0x10) != 0 )
       {
-        v15 = &PspCreateThreadNotifyRoutine;
-        v16 = 64LL;
+        v11 = &PspCreateThreadNotifyRoutine;
+        v12 = 64LL;
         do
         {
-          v17 = ExReferenceCallBackBlock((signed __int64 *)v15);
-          v18 = v17;
-          if ( v17 )
+          v13 = ExReferenceCallBackBlock((signed __int64 *)v11);
+          v14 = v13;
+          if ( v13 )
           {
-            if ( (v17[2].Count & 1) != 0 )
-              ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v17[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[154], a2);
-            ExDereferenceCallBackBlock((signed __int64 *)v15, v18);
+            if ( (v13[2].Count & 1) != 0 )
+              ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v13[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[144], a2);
+            ExDereferenceCallBackBlock((signed __int64 *)v11, v14);
           }
-          ++v15;
-          --v16;
+          ++v11;
+          --v12;
         }
-        while ( v16 );
+        while ( v12 );
       }
     }
     else if ( (PspNotifyEnableMask & 8) != 0 )
@@ -64,7 +64,7 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char
         {
           Count = v8[2].Count;
           if ( (Count & 1) == 0 && (!v5 || (Count & 2) != 0) )
-            ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v9[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[154], a2);
+            ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v9[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[144], a2);
           ExDereferenceCallBackBlock((signed __int64 *)v6, v9);
         }
         ++v6;
@@ -75,21 +75,21 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char
   }
   else if ( (PspNotifyEnableMask & 0x10) != 0 || (PspNotifyEnableMask & 8) != 0 )
   {
-    v10 = &PspCreateThreadNotifyRoutine;
-    v11 = 64LL;
+    v15 = &PspCreateThreadNotifyRoutine;
+    v16 = 64LL;
     do
     {
-      v12 = ExReferenceCallBackBlock((signed __int64 *)v10);
-      v13 = v12;
-      if ( v12 )
+      v17 = ExReferenceCallBackBlock((signed __int64 *)v15);
+      v18 = v17;
+      if ( v17 )
       {
-        if ( !v5 || (v12[2].Count & 2) != 0 )
-          ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v12[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[154], 0LL);
-        ExDereferenceCallBackBlock((signed __int64 *)v10, v13);
+        if ( !v5 || (v17[2].Count & 2) != 0 )
+          ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))v17[1].Count)(*(_QWORD *)(a1[68] + 1088LL), a1[144], 0LL);
+        ExDereferenceCallBackBlock((signed __int64 *)v15, v18);
       }
-      ++v10;
-      --v11;
+      ++v15;
+      --v16;
     }
-    while ( v11 );
+    while ( v16 );
   }
 }

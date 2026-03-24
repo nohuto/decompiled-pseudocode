@@ -12,8 +12,8 @@
  *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
  *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiIsPageTableLocked @ 0x14012D9FC (MiIsPageTableLocked.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiIsPageTableLocked @ 0x14012DA1C (MiIsPageTableLocked.c)
  * Callees:
  *     <none>
  */

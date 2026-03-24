@@ -1,15 +1,14 @@
 /*
- * XREFs of ?ReplaceDisplayedAllocation@ADAPTER_DISPLAY@@QEAAXPEBVDXGALLOCATION@@0@Z @ 0x1C018711C
+ * XREFs of ?ReplaceDisplayedAllocation@ADAPTER_DISPLAY@@QEAAXPEBVDXGALLOCATION@@0@Z @ 0x1C015F800
  * Callers:
- *     ?TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z @ 0x1C0003E88 (-TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z.c)
+ *     ?TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z @ 0x1C0019830 (-TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     McTemplateK0ppqqt_EtwWriteTransfer @ 0x1C0042104 (McTemplateK0ppqqt_EtwWriteTransfer.c)
- *     ?GetDisplayPlaneConfigHead@@YAPEAU_DISPLAY_PLANE_CONFIG@@PEAU_DISPLAY_PLANE_CONFIG_QUEUE@@PEAH@Z @ 0x1C016C000 (-GetDisplayPlaneConfigHead@@YAPEAU_DISPLAY_PLANE_CONFIG@@PEAU_DISPLAY_PLANE_CONFIG_QUEUE@@PEAH@Z.c)
- *     ?GetPreviousConfigIndex@@YAHH@Z @ 0x1C01E8F1C (-GetPreviousConfigIndex@@YAHH@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     McTemplateK0ppqqt_EtwWriteTransfer @ 0x1C003B3E8 (McTemplateK0ppqqt_EtwWriteTransfer.c)
+ *     ?GetDisplayPlaneConfigHead@@YAPEAU_DISPLAY_PLANE_CONFIG@@PEAU_DISPLAY_PLANE_CONFIG_QUEUE@@PEAH@Z @ 0x1C015F98C (-GetDisplayPlaneConfigHead@@YAPEAU_DISPLAY_PLANE_CONFIG@@PEAU_DISPLAY_PLANE_CONFIG_QUEUE@@PEAH@Z.c)
+ *     ?GetPreviousConfigIndex@@YAHH@Z @ 0x1C015F9B4 (-GetPreviousConfigIndex@@YAHH@Z.c)
  */
 
 void __fastcall ADAPTER_DISPLAY::ReplaceDisplayedAllocation(
@@ -17,142 +16,146 @@ void __fastcall ADAPTER_DISPLAY::ReplaceDisplayedAllocation(
         const struct DXGALLOCATION *a2,
         const struct DXGALLOCATION *a3)
 {
-  const struct DXGALLOCATION *v3; // r15
-  unsigned int i; // r14d
-  __int64 v6; // rcx
-  unsigned int v7; // ebp
-  __int64 v8; // r10
-  __int64 v9; // rsi
-  unsigned int j; // r8d
-  __int64 v11; // r13
-  char v12; // r12
-  struct _DISPLAY_PLANE_CONFIG *DisplayPlaneConfigHead; // rdi
-  __int64 v14; // r11
+  __int64 v5; // rdx
+  unsigned int v6; // r14d
+  __int64 v7; // rcx
+  unsigned int v8; // ebp
+  __int64 v9; // rdi
+  unsigned int v10; // r9d
+  char v11; // r12
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  struct _DISPLAY_PLANE_CONFIG *DisplayPlaneConfigHead; // rsi
+  __int64 v15; // r8
+  __int64 v16; // r9
   int PreviousConfigIndex; // r15d
-  __int64 v16; // rdi
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // rax
-  __int64 v20; // [rsp+28h] [rbp-70h]
-  __int64 v21; // [rsp+30h] [rbp-68h]
-  __int64 v22; // [rsp+38h] [rbp-60h]
-  _BYTE v23[72]; // [rsp+50h] [rbp-48h] BYREF
-  const struct DXGALLOCATION *v25; // [rsp+B0h] [rbp+18h] BYREF
+  __int64 v18; // rsi
+  int v19; // eax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  _QWORD *v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  __int64 v25; // rax
+  __int64 v26; // r8
+  __int64 v27; // [rsp+28h] [rbp-60h]
+  __int64 v28; // [rsp+30h] [rbp-58h]
+  __int64 v29; // [rsp+38h] [rbp-50h]
+  _BYTE v30[72]; // [rsp+40h] [rbp-48h] BYREF
+  const struct DXGALLOCATION *v31; // [rsp+A0h] [rbp+18h] BYREF
 
-  v25 = a3;
-  v3 = a2;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v23, (ADAPTER_DISPLAY *)((char *)this + 608), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v23);
-  for ( i = 0; i < *((_DWORD *)this + 24); ++i )
+  v31 = a3;
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v30, (ADAPTER_DISPLAY *)((char *)this + 520), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v30);
+  v6 = 0;
+  if ( *((_DWORD *)this + 20) )
   {
-    v6 = *((_QWORD *)this + 16);
-    v7 = 0;
-    v8 = i;
-    v9 = 4000LL * i;
-    if ( *(_DWORD *)(v9 + v6 + 3760) )
+    v7 = *((_QWORD *)this + 14);
+    do
     {
-      do
+      v8 = 0;
+      v9 = 3968LL * v6;
+      v5 = v7;
+      if ( *(_DWORD *)(v9 + v7 + 3736) )
       {
-        LODWORD(v25) = 0;
-        v11 = v9 + 168LL * v7;
-        v12 = 1;
-        DisplayPlaneConfigHead = GetDisplayPlaneConfigHead(
-                                   (struct _DISPLAY_PLANE_CONFIG_QUEUE *)(v11 + v6 + 1144),
-                                   (int *)&v25);
-        if ( DisplayPlaneConfigHead )
+        do
         {
-          PreviousConfigIndex = (int)v25;
-          while ( *(const struct DXGALLOCATION **)DisplayPlaneConfigHead != a2 )
+          LODWORD(v31) = 0;
+          v11 = 1;
+          DisplayPlaneConfigHead = GetDisplayPlaneConfigHead(
+                                     (struct _DISPLAY_PLANE_CONFIG_QUEUE *)(168LL * v8 + v9 + 1120 + v7),
+                                     (int *)&v31);
+          if ( DisplayPlaneConfigHead )
           {
-            v12 = v14;
-            v16 = v11 + *((_QWORD *)this + 16);
-            if ( *(_DWORD *)(v16 + 1144) == -1 )
+            PreviousConfigIndex = (int)v31;
+            while ( *(const struct DXGALLOCATION **)DisplayPlaneConfigHead != a2 )
             {
-              WdLogSingleEntry1(1LL, 9324LL);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                262146,
-                -1,
-                (__int64)L"pQueue->HeadIndex != CONFIG_INDEX_INVALID",
-                9324LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-            }
-            if ( *(_DWORD *)(v16 + 1148) == -1 )
-            {
-              WdLogSingleEntry1(1LL, 9325LL);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                262146,
-                -1,
-                (__int64)L"pQueue->TailIndex != CONFIG_INDEX_INVALID",
-                9325LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-            }
-            if ( PreviousConfigIndex != *(_DWORD *)(v16 + 1148) )
-            {
+              v11 = 0;
+              v18 = v9 + v16 + *((_QWORD *)this + 14);
+              if ( *(_DWORD *)(v18 + 1120) == -1 )
+              {
+                v20 = WdLogNewEntry5_WdAssertion(v13, v12);
+                *(_QWORD *)(v20 + 24) = 9069LL;
+                WdLogEvent5_WdAssertion(v20);
+              }
+              v19 = *(_DWORD *)(v18 + 1124);
+              if ( v19 == -1 )
+              {
+                v21 = WdLogNewEntry5_WdAssertion(v13, v12);
+                *(_QWORD *)(v21 + 24) = 9070LL;
+                WdLogEvent5_WdAssertion(v21);
+                v19 = *(_DWORD *)(v18 + 1124);
+              }
+              if ( PreviousConfigIndex == v19 )
+                goto LABEL_19;
               PreviousConfigIndex = GetPreviousConfigIndex(PreviousConfigIndex);
-              v14 = 0LL;
-              DisplayPlaneConfigHead = (struct _DISPLAY_PLANE_CONFIG *)(80LL * PreviousConfigIndex + v16 + 1152);
-              if ( DisplayPlaneConfigHead )
-                continue;
+              v13 = 80LL * PreviousConfigIndex;
+              DisplayPlaneConfigHead = (struct _DISPLAY_PLANE_CONFIG *)(v13 + v18 + 1128);
+              if ( !DisplayPlaneConfigHead )
+                goto LABEL_19;
+              v16 = 168LL * v8;
             }
-            v3 = a2;
-            goto LABEL_18;
-          }
-          *(_QWORD *)DisplayPlaneConfigHead = v14;
-          if ( v12 )
-          {
-            v3 = a2;
-            WdLogSingleEntry3(3LL, a2, i, v7);
-            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+            *(_QWORD *)DisplayPlaneConfigHead = 0LL;
+            if ( v11 )
             {
-              v19 = *((_QWORD *)this + 16);
-              LODWORD(v22) = *(unsigned __int8 *)(v19 + v9 + 761);
-              LODWORD(v21) = v7;
-              LODWORD(v20) = i;
-              McTemplateK0ppqqt_EtwWriteTransfer(
-                *(unsigned __int8 *)(v19 + v9 + 761),
-                v17,
-                v18,
-                *((_QWORD *)this + 2),
-                a2,
-                v20,
-                v21,
-                v22);
+              v22 = (_QWORD *)WdLogNewEntry5_WdWarning(v13, v12, v15);
+              v22[4] = v6;
+              v22[5] = v8;
+              v22[3] = a2;
+              WdLogEvent5_WdWarning(v22);
+              if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+              {
+                v25 = *((_QWORD *)this + 14);
+                LODWORD(v29) = *(unsigned __int8 *)(v25 + v9 + 721);
+                LODWORD(v28) = v8;
+                LODWORD(v27) = v6;
+                McTemplateK0ppqqt_EtwWriteTransfer(
+                  *(unsigned __int8 *)(v25 + v9 + 721),
+                  v23,
+                  v24,
+                  *((_QWORD *)this + 2),
+                  a2,
+                  v27,
+                  v28,
+                  v29);
+              }
+            }
+            *((_DWORD *)DisplayPlaneConfigHead + 2) &= ~1u;
+          }
+LABEL_19:
+          v5 = *((_QWORD *)this + 14);
+          ++v8;
+          v7 = v5;
+        }
+        while ( v8 < *(_DWORD *)(v9 + v5 + 3736) );
+      }
+      v10 = 0;
+      v7 = v5;
+      if ( *(_DWORD *)(v9 + v5 + 3740) )
+      {
+        v7 = *((_QWORD *)this + 14);
+        do
+        {
+          if ( *(_BYTE *)(v10 + v9 + v5 + 2880) )
+          {
+            v26 = v9 + 80LL * v10;
+            if ( (*(_DWORD *)(v26 + v5 + 2904) & 1) != 0 && *(const struct DXGALLOCATION **)(v26 + v5 + 2896) == a2 )
+            {
+              *(_QWORD *)(v26 + v5 + 2896) = 0LL;
+              *(_BYTE *)(v10 + *((_QWORD *)this + 14) + v9 + 2880) = 0;
+              *(_DWORD *)(v26 + *((_QWORD *)this + 14) + 2904) &= ~1u;
+              v7 = *((_QWORD *)this + 14);
             }
           }
-          else
-          {
-            v3 = a2;
-          }
-          *((_DWORD *)DisplayPlaneConfigHead + 2) &= ~1u;
+          ++v10;
+          v5 = v7;
         }
-LABEL_18:
-        v6 = *((_QWORD *)this + 16);
-        ++v7;
+        while ( v10 < *(_DWORD *)(v9 + v7 + 3740) );
       }
-      while ( v7 < *(_DWORD *)(v6 + v9 + 3760) );
-      v8 = i;
+      ++v6;
     }
-    for ( j = 0; j < *(_DWORD *)(v6 + v9 + 3764); ++j )
-    {
-      if ( *(_BYTE *)(j + v9 + v6 + 2904)
-        && (*(_DWORD *)(v6 + 80 * (j + 50 * v8) + 2928) & 1) != 0
-        && *(const struct DXGALLOCATION **)(v6 + 80 * (j + 50 * v8) + 2920) == v3 )
-      {
-        *(_QWORD *)(v6 + 80 * (j + 50 * v8) + 2920) = 0LL;
-        *(_BYTE *)(j + *((_QWORD *)this + 16) + v9 + 2904) = 0;
-        *(_DWORD *)(*((_QWORD *)this + 16) + 80 * (j + 50 * v8) + 2928) &= ~1u;
-      }
-      v6 = *((_QWORD *)this + 16);
-    }
+    while ( v6 < *((_DWORD *)this + 20) );
   }
-  if ( v23[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v23);
+  if ( v30[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v30, v5);
 }

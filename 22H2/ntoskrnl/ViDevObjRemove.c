@@ -1,15 +1,15 @@
 /*
- * XREFs of ViDevObjRemove @ 0x140AD34C0
+ * XREFs of ViDevObjRemove @ 0x1409D635C
  * Callers:
- *     VfIoDeleteDevice @ 0x140AD3214 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x1409D6154 (VfIoDeleteDevice.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x14020A004 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     VfAvlDeleteTreeNode @ 0x14020A740 (VfAvlDeleteTreeNode.c)
- *     VfUtilFreePoolCheckIRQL @ 0x14020A930 (VfUtilFreePoolCheckIRQL.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14037E440 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlDeleteTreeNode @ 0x14037E4A8 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14037E564 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall ViDevObjRemove(ULONG_PTR BugCheckParameter2)
@@ -26,14 +26,14 @@ void __fastcall ViDevObjRemove(ULONG_PTR BugCheckParameter2)
     v3 = VfAvlLookupTreeNode(ViDevObjAvl, (__int64)&v4, BugCheckParameter2, 0LL);
     if ( v3 )
     {
-      if ( (v3[4] & 1) != 0 )
+      if ( (v3[4] & 1) != 0 && (MmVerifierData & 0x800) != 0 )
         VerifierBugCheckIfAppropriate(0xC4u, 0xDBuLL, BugCheckParameter2, 0LL, 0LL);
       v2 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)ViDevObjAvl, (__int64)&v4, BugCheckParameter2, 0LL);
     }
     VfAvlCleanupLockContext((__int64)&v4);
     if ( v2 )
     {
-      if ( dword_140D719D8 == 1 )
+      if ( dword_140D4B520 == 1 )
         ExFreeToNPagedLookasideList(&ViAvlNodeLookaside, v2);
       else
         VfUtilFreePoolCheckIRQL(v2);

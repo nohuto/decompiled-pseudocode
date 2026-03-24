@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z @ 0x1C0256210
+ * XREFs of ?SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z @ 0x1C0259460
  * Callers:
- *     ?GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z @ 0x1C0255EA4 (-GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z.c)
+ *     ?GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z @ 0x1C02590D8 (-GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z.c)
  * Callees:
- *     xxxSendInput @ 0x1C007EDD4 (xxxSendInput.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z @ 0x1C02562E8 (-SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z.c)
+ *     xxxSendInput @ 0x1C00C0268 (xxxSendInput.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z @ 0x1C0259538 (-SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z.c)
  */
 
 __int64 __fastcall InteractiveControlDefaultScroller::SendZoomHotkey(

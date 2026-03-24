@@ -1,55 +1,49 @@
 /*
- * XREFs of ?OnHostReady@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00BCE48
+ * XREFs of ?OnHostReady@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C0136584
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0076FE0 (UmfdDispatchEscape.c)
+ *     UmfdDispatchEscape @ 0x1C00A76B0 (UmfdDispatchEscape.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C013E750 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
- *     ?TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z @ 0x1C02E0F00 (-TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C016A260 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
+ *     ?TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z @ 0x1C02C1AE0 (-TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z.c)
  */
 
-void __fastcall UmfdHostLifeTimeManager::OnHostReady(__int64 a1)
+void UmfdHostLifeTimeManager::OnHostReady(void)
 {
-  __int64 v1; // rbx
-  __int64 v2; // rcx
-  Gre::Base *v3; // rcx
-  __int64 v4; // rbp
+  struct _FONTHASH **v0; // rbx
   __int64 i; // rdi
   struct PFF *j; // rcx
-  void **v7; // rax
-  void **v8; // rsi
-  struct _KEVENT *v9; // rcx
-  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  void **v3; // rax
+  void **v4; // rsi
+  __int64 v5; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  if ( !KeReadStateEvent(*(PRKEVENT *)(v1 + 23552)) )
+  if ( !KeReadStateEvent(UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent) )
   {
-    if ( *(_BYTE *)(*(_QWORD *)(SGDGetSessionState(v2) + 32) + 23560LL) || *(_QWORD *)(v1 + 23488) != 1LL )
+    if ( UmfdHostLifeTimeManager::s_SessionRasterizerInitialized || UmfdHostLifeTimeManager::s_UmfdHostGenerationId != 1 )
     {
-      v10 = *((_QWORD *)Gre::Base::Globals(v3) + 6);
-      GreAcquireSemaphore(v10);
-      v4 = *(_QWORD *)(v1 + 20272);
-      for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v4 + 24); i = (unsigned int)(i + 1) )
+      v5 = ghsemPublicPFT;
+      GreAcquireSemaphore(ghsemPublicPFT);
+      v0 = gpPFTPublic;
+      for ( i = 0LL; (unsigned int)i < *((_DWORD *)v0 + 6); i = (unsigned int)(i + 1) )
       {
-        for ( j = *(struct PFF **)(v4 + 8 * i + 40); ; j = (struct PFF *)v8[1] )
+        for ( j = v0[i + 5]; ; j = (struct PFF *)v4[1] )
         {
-          v7 = (void **)SkipInvalidPff(j);
-          v8 = v7;
-          if ( !v7 )
+          v3 = (void **)SkipInvalidPff(j);
+          v4 = v3;
+          if ( !v3 )
             break;
-          UmfdHostLifeTimeManager::TryResurrectPffApcRoutine(0LL, v7[10], v7);
+          UmfdHostLifeTimeManager::TryResurrectPffApcRoutine(0LL, v3[10], v3);
         }
       }
-      v9 = *(struct _KEVENT **)(v1 + 23552);
-      *(_BYTE *)(v1 + 23560) = 1;
-      KeSetEvent(v9, 0, 0);
-      KeSetEvent(*(PRKEVENT *)(v1 + 23568), 0, 0);
-      SEMOBJ::vUnlock((SEMOBJ *)&v10);
+      UmfdHostLifeTimeManager::s_SessionRasterizerInitialized = 1;
+      KeSetEvent(UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent, 0, 0);
+      KeSetEvent(UmfdHostLifeTimeManager::s_InitialFontsAddedEvent, 0, 0);
+      SEMOBJ::vUnlock((SEMOBJ *)&v5);
     }
     else
     {
-      KeSetEvent(*(PRKEVENT *)(v1 + 23576), 0, 0);
-      KeWaitForSingleObject(*(PVOID *)(v1 + 23568), Executive, 0, 0, 0LL);
+      KeSetEvent(UmfdHostLifeTimeManager::s_SessionRasterizerOnHostReadyEvent, 0, 0);
+      KeWaitForSingleObject(UmfdHostLifeTimeManager::s_InitialFontsAddedEvent, Executive, 0, 0, 0LL);
     }
   }
 }

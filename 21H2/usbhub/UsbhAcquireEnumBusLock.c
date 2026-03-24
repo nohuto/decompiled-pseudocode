@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhAcquireEnumBusLock @ 0x1C000CBC8
+ * XREFs of UsbhAcquireEnumBusLock @ 0x1C00126A8
  * Callers:
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
- *     UsbhHubDispatchPortEvent @ 0x1C0016AF0 (UsbhHubDispatchPortEvent.c)
- *     UsbhDriverResetPort @ 0x1C001AF40 (UsbhDriverResetPort.c)
- *     UsbhPortConnect @ 0x1C004C820 (UsbhPortConnect.c)
+ *     UsbhDriverResetPort @ 0x1C00017D0 (UsbhDriverResetPort.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0008BD0 (UsbhHubDispatchPortEvent.c)
+ *     UsbhReset2Complete @ 0x1C0010540 (UsbhReset2Complete.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhPortConnect @ 0x1C004DC30 (UsbhPortConnect.c)
  * Callees:
- *     Usbh_SSH_Event @ 0x1C0004D80 (Usbh_SSH_Event.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     Usbh_SSH_Event @ 0x1C0012810 (Usbh_SSH_Event.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall UsbhAcquireEnumBusLock(__int64 a1, __int64 a2, unsigned __int16 a3)
@@ -36,7 +36,7 @@ void __fastcall UsbhAcquireEnumBusLock(__int64 a1, __int64 a2, unsigned __int16 
     else
     {
       KeReleaseSpinLock((PKSPIN_LOCK)v6 + 383, v7);
-      Usbh_SSH_Event(a1, 6u, a2);
+      Usbh_SSH_Event(a1, 6LL, a2);
       (*((void (__fastcall **)(_QWORD))v6 + 549))(*((_QWORD *)v6 + 529));
       Log(a1, 4, 1816286547, (unsigned int)v6[768], v3);
       v6[768] = v3;

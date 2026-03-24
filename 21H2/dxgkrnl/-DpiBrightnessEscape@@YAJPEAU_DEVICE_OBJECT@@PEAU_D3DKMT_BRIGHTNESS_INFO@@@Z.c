@@ -1,11 +1,12 @@
 /*
- * XREFs of ?DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z @ 0x1C038EE10
+ * XREFs of ?DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z @ 0x1C02D0054
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     DpiCallDrvSetBacklightOptimizationLevel @ 0x1C03905F4 (DpiCallDrvSetBacklightOptimizationLevel.c)
- *     DpiCallDrvSetBrightness @ 0x1C0390670 (DpiCallDrvSetBrightness.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?DpiBrightnessAISetBacklightOptLevel@@YAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C02CFF0C (-DpiBrightnessAISetBacklightOptLevel@@YAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     DpiCallDrvSetBacklightOptimizationLevel @ 0x1C02D19C0 (DpiCallDrvSetBacklightOptimizationLevel.c)
+ *     DpiCallDrvSetBrightness @ 0x1C02D1A3C (DpiCallDrvSetBrightness.c)
  */
 
 __int64 __fastcall DpiBrightnessEscape(struct _DEVICE_OBJECT *a1, struct _D3DKMT_BRIGHTNESS_INFO *a2)
@@ -13,10 +14,10 @@ __int64 __fastcall DpiBrightnessEscape(struct _DEVICE_OBJECT *a1, struct _D3DKMT
   _WORD *DeviceExtension; // rsi
   unsigned int v3; // ebx
   char *v4; // r10
-  __int16 v6; // ax
-  char *v7; // r9
-  char *v8; // rdi
+  char *v5; // rdi
+  char *v6; // r9
   D3DKMT_BRIGHTNESS_INFO_TYPE Type; // ecx
+  __int16 v9; // ax
   bool v10; // zf
   UCHAR v11; // al
   __int32 v13; // ecx
@@ -52,89 +53,72 @@ __int64 __fastcall DpiBrightnessEscape(struct _DEVICE_OBJECT *a1, struct _D3DKMT
   DeviceExtension = a1->DeviceExtension;
   v3 = 0;
   v4 = 0LL;
-  v6 = DeviceExtension[2333];
-  v7 = (char *)(DeviceExtension + 2332);
-  if ( v6 == 1 )
-    v4 = (char *)(DeviceExtension + 2332);
-  if ( v6 == 2 )
-  {
-    v8 = (char *)(DeviceExtension + 2332);
-  }
-  else
-  {
-    v8 = 0LL;
-    if ( v6 == 3 )
-      goto LABEL_7;
-  }
-  v7 = 0LL;
-LABEL_7:
+  v5 = 0LL;
+  v6 = 0LL;
   Type = a2->Type;
-  if ( a2->Type != D3DKMT_BRIGHTNESS_INFO_GET_POSSIBLE_LEVELS )
+  v9 = DeviceExtension[2369];
+  if ( v9 == 1 )
+    v4 = (char *)(DeviceExtension + 2368);
+  if ( v9 == 2 )
+    v5 = (char *)(DeviceExtension + 2368);
+  if ( v9 == 3 )
+    v6 = (char *)(DeviceExtension + 2368);
+  if ( Type == D3DKMT_BRIGHTNESS_INFO_GET_POSSIBLE_LEVELS )
   {
-    if ( Type > D3DKMT_BRIGHTNESS_INFO_GET_POSSIBLE_LEVELS )
+    if ( v4 )
+      goto LABEL_17;
+    goto LABEL_22;
+  }
+  if ( Type > D3DKMT_BRIGHTNESS_INFO_GET_POSSIBLE_LEVELS )
+  {
+    if ( Type > D3DKMT_BRIGHTNESS_INFO_SET )
     {
-      if ( Type <= D3DKMT_BRIGHTNESS_INFO_SET )
-      {
-LABEL_16:
-        if ( v4 )
-          goto LABEL_21;
-        goto LABEL_17;
-      }
       if ( Type == D3DKMT_BRIGHTNESS_INFO_GET_CAPS || Type == D3DKMT_BRIGHTNESS_INFO_SET_OPTIMIZATION )
       {
-LABEL_17:
-        if ( !v8 && !v7 )
-          return 3221225659LL;
-        goto LABEL_21;
+LABEL_16:
+        if ( v5 )
+          goto LABEL_17;
+        goto LABEL_15;
       }
-      if ( Type > D3DKMT_BRIGHTNESS_INFO_GET_REDUCTION )
+      if ( Type <= D3DKMT_BRIGHTNESS_INFO_GET_REDUCTION )
+        goto LABEL_22;
+      if ( Type > D3DKMT_BRIGHTNESS_INFO_TOGGLE_LOGGING )
       {
-        if ( Type > D3DKMT_BRIGHTNESS_INFO_TOGGLE_LOGGING )
+        if ( Type == D3DKMT_BRIGHTNESS_INFO_GET_NIT_RANGES )
         {
-          if ( Type == D3DKMT_BRIGHTNESS_INFO_GET_NIT_RANGES )
-          {
-            v10 = v7 == 0LL;
-            goto LABEL_28;
-          }
-          goto LABEL_20;
+LABEL_15:
+          v10 = v6 == 0LL;
+          goto LABEL_23;
         }
-        goto LABEL_16;
+        goto LABEL_22;
       }
     }
-LABEL_20:
-    if ( !v8 )
-      return 3221225659LL;
-LABEL_21:
-    if ( Type == D3DKMT_BRIGHTNESS_INFO_TOGGLE_LOGGING )
-    {
-      v11 = *((_BYTE *)DeviceExtension + 4386) == 0;
-      *((_BYTE *)DeviceExtension + 4386) = v11;
-      a2->PossibleLevels.LevelCount = v11;
-      return 0LL;
-    }
-    if ( Type == D3DKMT_BRIGHTNESS_INFO_BEGIN_MANUAL_MODE )
-      goto LABEL_30;
-    goto LABEL_24;
+    if ( v4 )
+      goto LABEL_17;
+    goto LABEL_16;
   }
-  if ( !v4 )
+LABEL_22:
+  v10 = v5 == 0LL;
+LABEL_23:
+  if ( v10 )
+    return 3221225659LL;
+LABEL_17:
+  if ( Type == D3DKMT_BRIGHTNESS_INFO_TOGGLE_LOGGING )
   {
-    v10 = v8 == 0LL;
-LABEL_28:
-    if ( v10 )
-      return 3221225659LL;
+    v11 = *((_BYTE *)DeviceExtension + 4450) == 0;
+    *((_BYTE *)DeviceExtension + 4450) = v11;
+    a2->PossibleLevels.LevelCount = v11;
+    return 0LL;
   }
-LABEL_24:
-  if ( !*((_BYTE *)DeviceExtension + 4385) )
+  if ( Type != D3DKMT_BRIGHTNESS_INFO_BEGIN_MANUAL_MODE && !*((_BYTE *)DeviceExtension + 4448) )
     return 3221226538LL;
-LABEL_30:
   if ( Type > D3DKMT_BRIGHTNESS_INFO_SET_OPTIMIZATION )
   {
     v23 = Type - 7;
     if ( !v23 )
-      return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *, __int64))v8 + 10))(
-                             *((_QWORD *)v8 + 1),
-                             &a2->PossibleLevels,
-                             4LL);
+      return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *))v5 + 10))(
+                             *((_QWORD *)v5 + 1),
+                             &a2->PossibleLevels);
     v24 = v23 - 1;
     if ( !v24 )
     {
@@ -152,55 +136,56 @@ LABEL_30:
       v38 = 0LL;
       v39 = 0LL;
       RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers", &v29, 0LL, 0LL);
-      *((_BYTE *)DeviceExtension + 4385) = v41 != 0;
-      if ( v8 )
-        DpiCallDrvSetBacklightOptimizationLevel(a1, v8, 0LL);
+      *((_BYTE *)DeviceExtension + 4448) = v41 != 0;
+      if ( v5 )
+        DpiCallDrvSetBacklightOptimizationLevel(a1, v5, 0LL);
       return v3;
     }
     v25 = v24 - 1;
     if ( !v25 )
     {
-      *((_BYTE *)DeviceExtension + 4385) = 0;
+      *((_BYTE *)DeviceExtension + 4448) = 0;
       v41 = 0;
-      if ( v8 )
+      if ( v5 )
       {
-        if ( (*((int (__fastcall **)(_QWORD, int *, __int64))v8 + 7))(*((_QWORD *)v8 + 1), &v41, 4LL) >= 0
+        if ( (*((int (__fastcall **)(_QWORD, int *, __int64, char *))v5 + 7))(*((_QWORD *)v5 + 1), &v41, 4LL, v6) >= 0
           && (v41 & 1) != 0 )
         {
-          v27 = (void (__fastcall *)(__int64, int *))*((_QWORD *)v8 + 8);
-          v28 = *((_QWORD *)v8 + 1);
+          v27 = (void (__fastcall *)(__int64, int *))*((_QWORD *)v5 + 8);
+          v28 = *((_QWORD *)v5 + 1);
           v42 = 1;
           v27(v28, &v42);
         }
-        LOBYTE(v26) = *((_BYTE *)DeviceExtension + 4387);
+        LOBYTE(v26) = *((_BYTE *)DeviceExtension + 4456);
         DpiCallDrvSetBrightness(a1, v26);
+        DpiBrightnessAISetBacklightOptLevel(a1);
       }
       return v3;
     }
     if ( v25 != 2 )
       return (unsigned int)-1073741811;
-    v18 = (unsigned int (__fastcall *)(_QWORD, _QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *))*((_QWORD *)v7 + 7);
-    return v18(*((_QWORD *)v7 + 1), a2->ChildUid, &a2->PossibleLevels);
+    v18 = (unsigned int (__fastcall *)(_QWORD, _QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *))*((_QWORD *)v6 + 7);
+    return v18(*((_QWORD *)v6 + 1), a2->ChildUid, &a2->PossibleLevels);
   }
   if ( Type == D3DKMT_BRIGHTNESS_INFO_SET_OPTIMIZATION )
   {
     Value = a2->BrightnessCaps.Value;
     if ( (int)Value > 3 )
       return 3221225485LL;
-    if ( v7 )
-      return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, _QWORD))v7 + 8))(*((_QWORD *)v7 + 1), a2->ChildUid);
+    if ( v6 )
+      return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, _QWORD))v6 + 8))(*((_QWORD *)v6 + 1), a2->ChildUid);
     else
-      return (unsigned int)DpiCallDrvSetBacklightOptimizationLevel(a1, v8, Value);
+      return (unsigned int)DpiCallDrvSetBacklightOptimizationLevel(a1, v5, Value);
   }
   v13 = Type - 1;
   if ( !v13 )
   {
     BrightnessLevels = a2->PossibleLevels.BrightnessLevels;
     p_PossibleLevels = (union _D3DKMT_BRIGHTNESS_INFO::$2FE0A4461106716E7D3404DF4AA5DF99 *)&a2->PossibleLevels;
-    if ( v8 )
-      return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, __int64, union _D3DKMT_BRIGHTNESS_INFO::$2FE0A4461106716E7D3404DF4AA5DF99 *, UCHAR *))v8
+    if ( v5 )
+      return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, __int64, union _D3DKMT_BRIGHTNESS_INFO::$2FE0A4461106716E7D3404DF4AA5DF99 *, UCHAR *))v5
                             + 4))(
-                             *((_QWORD *)v8 + 1),
+                             *((_QWORD *)v5 + 1),
                              256LL,
                              p_PossibleLevels,
                              BrightnessLevels);
@@ -215,56 +200,52 @@ LABEL_30:
   v14 = v13 - 1;
   if ( !v14 )
   {
-    if ( v7 )
+    if ( v6 )
     {
-      return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, _QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *))v7 + 5))(
-                             *((_QWORD *)v7 + 1),
+      return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, _QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *))v6 + 5))(
+                             *((_QWORD *)v6 + 1),
                              a2->ChildUid,
                              &a2->PossibleLevels);
     }
     else
     {
       v19 = (union _D3DKMT_BRIGHTNESS_INFO::$2FE0A4461106716E7D3404DF4AA5DF99 *)&a2->PossibleLevels;
-      if ( v8 )
-        return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, union _D3DKMT_BRIGHTNESS_INFO::$2FE0A4461106716E7D3404DF4AA5DF99 *, __int64))v8
+      if ( v5 )
+        return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, union _D3DKMT_BRIGHTNESS_INFO::$2FE0A4461106716E7D3404DF4AA5DF99 *))v5
                               + 6))(
-                               *((_QWORD *)v8 + 1),
-                               v19,
-                               4LL);
+                               *((_QWORD *)v5 + 1),
+                               v19);
       else
-        return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, union _D3DKMT_BRIGHTNESS_INFO::$2FE0A4461106716E7D3404DF4AA5DF99 *, __int64))v4
+        return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, union _D3DKMT_BRIGHTNESS_INFO::$2FE0A4461106716E7D3404DF4AA5DF99 *))v4
                               + 6))(
                                *((_QWORD *)v4 + 1),
-                               v19,
-                               4LL);
+                               v19);
     }
   }
   v15 = v14 - 1;
   if ( !v15 )
   {
-    if ( !v7 )
+    if ( !v6 )
     {
       LOBYTE(a2) = a2->PossibleLevels.LevelCount;
       return (unsigned int)DpiCallDrvSetBrightness(a1, a2);
     }
-    v18 = (unsigned int (__fastcall *)(_QWORD, _QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *))*((_QWORD *)v7 + 4);
-    return v18(*((_QWORD *)v7 + 1), a2->ChildUid, &a2->PossibleLevels);
+    v18 = (unsigned int (__fastcall *)(_QWORD, _QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *))*((_QWORD *)v6 + 4);
+    return v18(*((_QWORD *)v6 + 1), a2->ChildUid, &a2->PossibleLevels);
   }
   v16 = v15 - 1;
   if ( !v16 )
   {
-    if ( !v7 )
-      return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *, __int64))v8 + 7))(
-                             *((_QWORD *)v8 + 1),
-                             &a2->PossibleLevels,
-                             4LL);
-    v18 = (unsigned int (__fastcall *)(_QWORD, _QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *))*((_QWORD *)v7 + 6);
-    return v18(*((_QWORD *)v7 + 1), a2->ChildUid, &a2->PossibleLevels);
+    if ( !v6 )
+      return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *))v5 + 7))(
+                             *((_QWORD *)v5 + 1),
+                             &a2->PossibleLevels);
+    v18 = (unsigned int (__fastcall *)(_QWORD, _QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *))*((_QWORD *)v6 + 6);
+    return v18(*((_QWORD *)v6 + 1), a2->ChildUid, &a2->PossibleLevels);
   }
   if ( v16 == 1 )
-    return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *, __int64))v8 + 8))(
-                           *((_QWORD *)v8 + 1),
-                           &a2->PossibleLevels,
-                           4LL);
+    return (unsigned int)(*((__int64 (__fastcall **)(_QWORD, D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS *))v5 + 8))(
+                           *((_QWORD *)v5 + 1),
+                           &a2->PossibleLevels);
   return (unsigned int)-1073741811;
 }

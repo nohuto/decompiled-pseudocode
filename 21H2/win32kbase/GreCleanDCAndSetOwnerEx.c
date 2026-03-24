@@ -1,13 +1,13 @@
 /*
- * XREFs of GreCleanDCAndSetOwnerEx @ 0x1C00DBCF0
+ * XREFs of GreCleanDCAndSetOwnerEx @ 0x1C00CBFF0
  * Callers:
- *     DestroyProcessInfo @ 0x1C00188FC (DestroyProcessInfo.c)
- *     ReleaseCacheDC @ 0x1C002A470 (ReleaseCacheDC.c)
+ *     ReleaseCacheDC @ 0x1C00366B0 (ReleaseCacheDC.c)
+ *     DestroyProcessInfo @ 0x1C0045950 (DestroyProcessInfo.c)
  * Callees:
- *     GreSetDCOwnerEx @ 0x1C002C0D0 (GreSetDCOwnerEx.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C002E3D4 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C002E7BC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C002F130 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     GreSetDCOwnerEx @ 0x1C0037AB0 (GreSetDCOwnerEx.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C003B478 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003B4D8 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C0092720 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
  */
 
 _BOOL8 __fastcall GreCleanDCAndSetOwnerEx(HDC a1, unsigned int a2, int a3, unsigned int a4)

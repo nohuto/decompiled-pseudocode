@@ -1,61 +1,66 @@
 /*
- * XREFs of ?CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z @ 0x1C000E238
+ * XREFs of ?CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z @ 0x1C0075AB4
  * Callers:
- *     ?FlushAllQueuesByFileObject@FxPkgIo@@QEAAJPEAU_FILE_OBJECT@@@Z @ 0x1C00074E0 (-FlushAllQueuesByFileObject@FxPkgIo@@QEAAJPEAU_FILE_OBJECT@@@Z.c)
- *     ?EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z @ 0x1C0009010 (-EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z.c)
- *     ?QueueRequestFromForward@FxIoQueue@@QEAAJPEAVFxRequest@@@Z @ 0x1C000A0B0 (-QueueRequestFromForward@FxIoQueue@@QEAAJPEAVFxRequest@@@Z.c)
- *     ?Requeue@FxIoQueue@@QEAAJPEAVFxRequest@@@Z @ 0x1C000DF58 (-Requeue@FxIoQueue@@QEAAJPEAVFxRequest@@@Z.c)
- *     ?ProcessAcknowledgedRequests@FxIoQueue@@QEAAXPEAVFxRequest@@PEAE@Z @ 0x1C000E05C (-ProcessAcknowledgedRequests@FxIoQueue@@QEAAXPEAVFxRequest@@PEAE@Z.c)
- *     ?QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C001B404 (-QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
- *     ?QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C001B8B0 (-QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
- *     ?_IrpCancelForQueue@FxIoQueue@@KAXPEAVFxIrpQueue@@PEAU_IRP@@PEAU_IO_CSQ_IRP_CONTEXT@@E@Z @ 0x1C0082300 (-_IrpCancelForQueue@FxIoQueue@@KAXPEAVFxIrpQueue@@PEAU_IRP@@PEAU_IO_CSQ_IRP_CONTEXT@@E@Z.c)
+ *     ?QueueRequestFromForward@FxIoQueue@@QEAAJPEAVFxRequest@@@Z @ 0x1C0005488 (-QueueRequestFromForward@FxIoQueue@@QEAAJPEAVFxRequest@@@Z.c)
+ *     ?Dispatch@FxPkgGeneral@@UEAAJPEAU_IRP@@@Z @ 0x1C0006C90 (-Dispatch@FxPkgGeneral@@UEAAJPEAU_IRP@@@Z.c)
+ *     ?EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z @ 0x1C0007B30 (-EnqueueRequest@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxRequest@@@Z.c)
+ *     ?QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C0014E1C (-QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
+ *     ?QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C0014F40 (-QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
+ *     ?ProcessAcknowledgedRequests@FxIoQueue@@QEAAXPEAVFxRequest@@PEAE@Z @ 0x1C00152D4 (-ProcessAcknowledgedRequests@FxIoQueue@@QEAAXPEAVFxRequest@@PEAE@Z.c)
+ *     ?Requeue@FxIoQueue@@QEAAJPEAVFxRequest@@@Z @ 0x1C00770E0 (-Requeue@FxIoQueue@@QEAAJPEAVFxRequest@@@Z.c)
+ *     ?_IrpCancelForQueue@FxIoQueue@@KAXPEAVFxIrpQueue@@PEAU_IRP@@PEAU_IO_CSQ_IRP_CONTEXT@@E@Z @ 0x1C0077430 (-_IrpCancelForQueue@FxIoQueue@@KAXPEAVFxIrpQueue@@PEAU_IRP@@PEAU_IO_CSQ_IRP_CONTEXT@@E@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?DispatchInternalEvents@FxIoQueue@@QEAAXE@Z @ 0x1C000350C (-DispatchInternalEvents@FxIoQueue@@QEAAXE@Z.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?InsertInDriverOwnedList@FxIoQueue@@AEAAXPEAVFxRequest@@@Z @ 0x1C000E350 (-InsertInDriverOwnedList@FxIoQueue@@AEAAXPEAVFxRequest@@@Z.c)
- *     ?SetCompletionState@FxRequest@@QEAA?AW4FxRequestCompletionState@@W42@@Z @ 0x1C000E390 (-SetCompletionState@FxRequest@@QEAA-AW4FxRequestCompletionState@@W42@@Z.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?Complete@FxRequest@@QEAAJJ@Z @ 0x1C0063FCC (-Complete@FxRequest@@QEAAJJ@Z.c)
- *     ?SetVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0064138 (-SetVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
- *     ?ClearVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0068628 (-ClearVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     ?DispatchInternalEvents@FxIoQueue@@QEAAXE@Z @ 0x1C0015808 (-DispatchInternalEvents@FxIoQueue@@QEAAXE@Z.c)
+ *     ?SetCompletionState@FxRequest@@QEAA?AW4FxRequestCompletionState@@W42@@Z @ 0x1C0015834 (-SetCompletionState@FxRequest@@QEAA-AW4FxRequestCompletionState@@W42@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?Complete@FxRequest@@QEAAJJ@Z @ 0x1C0049B14 (-Complete@FxRequest@@QEAAJJ@Z.c)
+ *     ?SetVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0049D8C (-SetVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     ?ClearVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C004ED58 (-ClearVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     ?InsertInDriverOwnedList@FxIoQueue@@AEAAXPEAVFxRequest@@@Z @ 0x1C0076674 (-InsertInDriverOwnedList@FxIoQueue@@AEAAXPEAVFxRequest@@@Z.c)
  */
 
 void __fastcall FxIoQueue::CancelForQueue(FxIoQueue *this, FxRequest *pRequest, unsigned __int8 PreviousIrql)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rbp
   unsigned __int8 v4; // si
-  FxRequest_vtbl *v7; // rax
-  unsigned __int8 v8; // r8
-  _LIST_ENTRY *Blink; // r8
-  _LIST_ENTRY *p_m_OwnerListEntry; // rdx
   const void *_a1; // rax
   const void *_a2; // rdx
-  unsigned __int8 v13; // r8
-  unsigned __int8 v14; // [rsp+60h] [rbp+18h] BYREF
+  FxRequest_vtbl *v9; // rax
+  unsigned __int8 v10; // r8
+  unsigned __int8 v11; // r8
+  _LIST_ENTRY *Blink; // r8
+  _LIST_ENTRY *p_m_OwnerListEntry; // rdx
+  unsigned __int8 v14; // r8
+  unsigned __int16 v15; // r9
+  __int64 v16; // r8
+  unsigned __int16 v17; // r9
+  unsigned __int8 v18; // r8
+  unsigned __int8 v19; // [rsp+60h] [rbp+18h] BYREF
 
-  v14 = PreviousIrql;
+  v19 = PreviousIrql;
   m_Globals = this->m_Globals;
   v4 = PreviousIrql;
   if ( m_Globals->FxVerifierOn )
   {
-    FxRequestBase::ClearVerifierFlags(pRequest, 16);
+    FxRequestBase::ClearVerifierFlags(pRequest, 16, PreviousIrql);
     FxObject::GetObjectHandleUnchecked(this);
     _a1 = (const void *)FxObject::GetObjectHandleUnchecked(pRequest);
     WPP_IFR_SF_qq(m_Globals, 3u, 0xDu, 0x4Du, WPP_FxIoQueue_cpp_Traceguids, _a1, _a2);
   }
-  v7 = pRequest->__vftable;
+  v9 = pRequest->__vftable;
   pRequest->m_IrpQueue = 0LL;
   pRequest->m_Canceled = 1;
-  v7->Release(pRequest, (void *)1969583441, 4393, "minkernel\\wdf\\framework\\shared\\irphandlers\\io\\fxioqueue.cpp");
+  v9->Release(pRequest, (void *)1969583441, 4393, "minkernel\\wdf\\framework\\shared\\irphandlers\\io\\fxioqueue.cpp");
   if ( this->m_IoCanceledOnQueue.Method && pRequest->m_Presented )
   {
     FxRequest::SetCompletionState(pRequest, FxRequestCompletionStateQueue);
     FxIoQueue::InsertInDriverOwnedList(this, pRequest);
     if ( m_Globals->FxVerifierOn )
-      FxRequestBase::SetVerifierFlags(pRequest, 1);
+      FxRequestBase::SetVerifierFlags(pRequest, 1, v11);
     Blink = this->m_CanceledOnQueueList.Blink;
     p_m_OwnerListEntry = &pRequest->m_OwnerListEntry;
     if ( Blink->Flink != &this->m_CanceledOnQueueList )
@@ -72,16 +77,16 @@ void __fastcall FxIoQueue::CancelForQueue(FxIoQueue *this, FxRequest *pRequest, 
   }
   else
   {
-    FxNonPagedObject::Unlock(this, v4, v8);
+    FxNonPagedObject::Unlock(this, v4, v10);
     pRequest->m_Irp.m_Irp->IoStatus.Information = 0LL;
-    FxRequest::Complete(pRequest, -1073741536);
+    FxRequest::Complete(pRequest, 0xC0000120, v16, v17);
     pRequest->Release(
       pRequest,
       (void *)1886220099,
       4435,
       "minkernel\\wdf\\framework\\shared\\irphandlers\\io\\fxioqueue.cpp");
-    FxNonPagedObject::Lock(this, &v14, v13);
-    v4 = v14;
+    FxNonPagedObject::Lock(this, &v19, v18);
+    v4 = v19;
   }
-  FxIoQueue::DispatchInternalEvents(this, v4);
+  FxIoQueue::DispatchInternalEvents(this, v4, v14, v15);
 }

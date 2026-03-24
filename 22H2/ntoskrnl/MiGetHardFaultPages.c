@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetHardFaultPages @ 0x1402DF274
+ * XREFs of MiGetHardFaultPages @ 0x1403592E4
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x1402DFD70 (MiBuildMdlForMappedFileFault.c)
+ *     MiBuildMdlForMappedFileFault @ 0x14023D740 (MiBuildMdlForMappedFileFault.c)
  * Callees:
- *     MiGetSlabPage @ 0x14023BD50 (MiGetSlabPage.c)
- *     MiGetAvailablePagesBelowPriority @ 0x14025B9B0 (MiGetAvailablePagesBelowPriority.c)
- *     MiGetPageChain @ 0x14026C5E0 (MiGetPageChain.c)
- *     MiUseSlabAllocator @ 0x1402DEAC0 (MiUseSlabAllocator.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     MiProtectionToCacheAttribute @ 0x1402E1560 (MiProtectionToCacheAttribute.c)
- *     MiRetainSubsection @ 0x140364318 (MiRetainSubsection.c)
+ *     MiGetPageChain @ 0x140212CD0 (MiGetPageChain.c)
+ *     MiProtectionToCacheAttribute @ 0x1402417B0 (MiProtectionToCacheAttribute.c)
+ *     MiSetPfnBlink @ 0x1402987B0 (MiSetPfnBlink.c)
+ *     MiUseSlabAllocator @ 0x140298818 (MiUseSlabAllocator.c)
+ *     MiRetainSubsection @ 0x140322A84 (MiRetainSubsection.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14033A92C (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetSlabPage @ 0x14035959C (MiGetSlabPage.c)
  */
 
 unsigned __int64 __fastcall MiGetHardFaultPages(
@@ -17,55 +17,51 @@ unsigned __int64 __fastcall MiGetHardFaultPages(
         unsigned __int64 a2,
         _QWORD *a3,
         __int64 a4,
-        __int64 a5,
+        __int64 *a5,
         __int64 a6,
-        __int64 a7,
-        volatile signed __int32 **a8)
+        __int64 a7)
 {
   __int64 v8; // rsi
-  __int64 v11; // rbx
-  __int64 v12; // r14
-  __int64 v13; // r13
-  unsigned int v14; // r12d
-  int v15; // eax
-  __int64 v16; // r15
+  __int64 v9; // r11
+  __int64 v11; // r15
+  __int64 v12; // r10
+  unsigned int v13; // r14d
   unsigned __int64 result; // rax
+  int v15; // r11d
+  __int64 *v16; // r13
+  unsigned __int64 v17; // rdx
   unsigned int v18; // eax
-  int v19; // r9d
-  __int64 v20; // rax
-  __int64 *v21; // rcx
-  volatile signed __int32 **v22; // rdx
-  __int64 v23; // r9
-  unsigned int v24; // r8d
-  __int64 SlabPage; // rax
-  __int64 v26; // rbx
-  __int64 v27; // rcx
-  ULONG_PTR v28; // rcx
-  unsigned int v29; // [rsp+80h] [rbp+8h] BYREF
-  _QWORD *v30; // [rsp+90h] [rbp+18h]
-  __int64 v31; // [rsp+98h] [rbp+20h]
+  int v19; // r8d
+  __int64 v20; // r11
+  __int64 v21; // rax
+  __int64 v22; // rbx
+  __int64 v23; // rcx
+  _QWORD *v24; // rcx
+  int v25; // [rsp+80h] [rbp+8h] BYREF
+  _QWORD *v26; // [rsp+90h] [rbp+18h]
+  unsigned __int64 v27; // [rsp+98h] [rbp+20h]
 
-  v30 = a3;
+  v26 = a3;
+  v25 = 0;
   v8 = *a1;
-  v29 = 0;
-  v11 = (__int64)a3;
-  if ( v8 )
+  v9 = (__int64)a3;
+  if ( *a1 )
   {
-    v12 = 0xAAAAAAAAAAAAAAABuLL * ((v8 + 0x220000000000LL) >> 4);
+    v11 = (v8 + 0x58000000000LL) / 48;
     while ( 1 )
     {
-      v20 = *(_QWORD *)(v8 + 24) & 0xFFFFFFFFFFLL;
-      if ( v20 == 0x3FFFFFFFFFLL )
+      v21 = *(_QWORD *)(v8 + 24) & 0xFFFFFFFFFLL;
+      if ( v21 == 0xFFFFFFFFFLL )
         break;
-      v8 = 48 * v20 - 0x220000000000LL;
+      v8 = 48 * v21 - 0x58000000000LL;
     }
   }
   else
   {
-    v12 = 0x3FFFFFFFFFLL;
+    v11 = 0xFFFFFFFFFLL;
   }
-  v13 = a6;
-  v14 = (*(unsigned __int16 *)(*(_QWORD *)(a6 + 208) + 32LL) >> 1) & 0x1F;
+  v12 = *(_QWORD *)(a6 + 208);
+  v13 = (*(unsigned __int16 *)(v12 + 32) >> 1) & 0x1F;
   if ( a4 )
   {
     if ( *(_BYTE *)a4 == 1 )
@@ -79,62 +75,50 @@ unsigned __int64 __fastcall MiGetHardFaultPages(
       }
     }
   }
-  v15 = MiUseSlabAllocator(v11, *(__int64 **)(v13 + 208), a7, &v29);
+  result = MiUseSlabAllocator(v9, (_BYTE *)v12, a7, &v25);
   v16 = a5;
-  if ( v15 && a1[1] < a2 )
+  if ( (_DWORD)result && a1[1] < a2 )
   {
-    v21 = (__int64 *)(a5 + 120);
     while ( 1 )
     {
-      v22 = a8;
-      v23 = ~(unsigned __int8)(*(_DWORD *)(v16 + 80) >> 15) & 2;
-      v24 = *((_DWORD *)v22 + 3) | (_DWORD)v22[1] & _InterlockedExchangeAdd(*a8, 1u);
-      SlabPage = MiGetSlabPage(v11, v29, v24, v23, v21);
-      v31 = SlabPage;
-      if ( SlabPage == -1 )
+      result = MiGetSlabPage(v15, v13, v25, (int)v16 + 120, 0);
+      v27 = result;
+      if ( result == -1LL )
         break;
-      v26 = 48 * SlabPage - 0x220000000000LL;
-      MiSetPfnBlink(v26, v12, 0);
-      v27 = v26;
-      v12 = v31;
+      v22 = 48 * result - 0x58000000000LL;
+      MiSetPfnBlink(v22, v11, 0);
+      result = v22;
+      v11 = v27;
+      v15 = (int)v26;
       if ( *a1 )
-        v27 = v8;
-      *a1 = v26;
+        result = v8;
       ++a1[1];
-      v8 = v27;
-      v21 = (__int64 *)(v16 + 120);
-      v11 = (__int64)v30;
+      v8 = result;
+      *a1 = v22;
       if ( a1[1] >= a2 )
         goto LABEL_5;
     }
-    if ( *(_QWORD *)(v16 + 120) )
+    if ( v16[15] )
     {
-      *(_QWORD *)(v16 + 128) = a2 - a1[1];
-      v28 = *(_QWORD *)(v13 + 208);
-      *(_QWORD *)(v16 + 104) = v28;
-      MiRetainSubsection(v28);
+      v23 = a6;
+      v16[16] = a2 - a1[1];
+      v24 = *(_QWORD **)(v23 + 208);
+      v16[13] = (__int64)v24;
+      result = MiRetainSubsection(v24);
       a2 = a1[1];
     }
   }
 LABEL_5:
-  result = a1[1];
-  if ( result < a2 )
+  v17 = a1[1];
+  if ( v17 < a2 )
   {
-    a6 = a2 - result;
-    v18 = MiProtectionToCacheAttribute(v14);
-    result = MiGetPageChain(
-               v11,
-               *(_QWORD *)(v16 + 56),
-               *(_QWORD *)v16,
-               v19,
-               v18,
-               0,
-               0xFFFFFFFFFFFFFFFFuLL,
-               (unsigned __int64 *)&a6);
+    a6 = a2 - v17;
+    v18 = MiProtectionToCacheAttribute(v13);
+    result = MiGetPageChain(v20, v16[7], v19, v18, 0, -1LL, (unsigned __int64 *)&a6);
     if ( result )
     {
       if ( *a1 )
-        MiSetPfnBlink(v8, 0xAAAAAAAAAAAAAAABuLL * ((__int64)(result + 0x220000000000LL) >> 4), 0);
+        MiSetPfnBlink(v8, (__int64)(result + 0x58000000000LL) / 48, 0);
       else
         *a1 = result;
       result = (unsigned int)a6;

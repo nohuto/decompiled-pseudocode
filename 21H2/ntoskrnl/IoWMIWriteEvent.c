@@ -1,17 +1,17 @@
 /*
- * XREFs of IoWMIWriteEvent @ 0x140223810
+ * XREFs of IoWMIWriteEvent @ 0x14037E730
  * Callers:
- *     PpmFireWmiEvent @ 0x1405D868C (PpmFireWmiEvent.c)
- *     PpmWmiFireIdleAccountingEvent @ 0x1405D8720 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmFireWmiEvent @ 0x1405784F8 (PpmFireWmiEvent.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x140578580 (PpmWmiFireIdleAccountingEvent.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExInterlockedInsertTailList @ 0x140223920 (ExInterlockedInsertTailList.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     WmipDoFindRegEntryByProviderId @ 0x1402E0130 (WmipDoFindRegEntryByProviderId.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceEvent @ 0x140460192 (EtwTraceEvent.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     WmipDoFindRegEntryByProviderId @ 0x1402650B0 (WmipDoFindRegEntryByProviderId.c)
+ *     ExInterlockedInsertTailList @ 0x1402A0380 (ExInterlockedInsertTailList.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceEvent @ 0x1405A60A0 (EtwTraceEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
@@ -19,9 +19,9 @@ NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
   NTSTATUS v1; // edi
   int v3; // ebx
   struct _LIST_ENTRY *PoolWithTag; // rbp
-  unsigned int v5; // ebx
+  int v5; // ebx
   unsigned __int64 v6; // r14
-  __int64 RegEntryByProviderId; // rax
+  _DWORD *RegEntryByProviderId; // rax
   struct _LIST_ENTRY *v8; // rbx
   NTSTATUS result; // eax
   int v10; // eax
@@ -68,7 +68,7 @@ LABEL_3:
   RegEntryByProviderId = WmipDoFindRegEntryByProviderId(v5);
   v8 = (struct _LIST_ENTRY *)RegEntryByProviderId;
   if ( RegEntryByProviderId )
-    _InterlockedIncrement((volatile signed __int32 *)(RegEntryByProviderId + 48));
+    _InterlockedIncrement(RegEntryByProviderId + 12);
   KxReleaseSpinLock(&WmipRegistrationSpinLock);
   if ( KiIrqlFlags )
   {

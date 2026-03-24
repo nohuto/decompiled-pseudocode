@@ -1,11 +1,11 @@
 /*
- * XREFs of BgpDisplayCharacterDestroyContext @ 0x140AF02B4
+ * XREFs of BgpDisplayCharacterDestroyContext @ 0x1409F3FBC
  * Callers:
- *     BgConsoleDestroyInterface @ 0x140AF0254 (BgConsoleDestroyInterface.c)
- *     BgpBcInitializeCriticalMode @ 0x140B9D3E8 (BgpBcInitializeCriticalMode.c)
+ *     BgConsoleDestroyInterface @ 0x1409F3F5C (BgConsoleDestroyInterface.c)
+ *     BgpBcInitializeCriticalMode @ 0x140A96A10 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
- *     BgpTxtDestroyRegion @ 0x140AED8C8 (BgpTxtDestroyRegion.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
+ *     BgpTxtDestroyRegion @ 0x1409F40EC (BgpTxtDestroyRegion.c)
  */
 
 void __fastcall BgpDisplayCharacterDestroyContext(__int64 a1)

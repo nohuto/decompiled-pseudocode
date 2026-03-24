@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBREG_DeleteUxdDeviceKey @ 0x1C0086230
+ * XREFs of HUBREG_DeleteUxdDeviceKey @ 0x1C0080764
  * Callers:
- *     HUBREG_DeleteUxdSettings @ 0x1C0086928 (HUBREG_DeleteUxdSettings.c)
+ *     HUBREG_DeleteUxdSettings @ 0x1C0080E50 (HUBREG_DeleteUxdSettings.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000BBF4 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_DeleteUxdDeviceKey(__int64 a1)
@@ -53,7 +53,7 @@ __int64 __fastcall HUBREG_DeleteUxdDeviceKey(__int64 a1)
         2u,
         5u,
         0x69u,
-        (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
+        (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
         v5);
     }
   }

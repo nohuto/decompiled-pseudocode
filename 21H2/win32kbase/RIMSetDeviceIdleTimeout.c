@@ -1,205 +1,120 @@
 /*
- * XREFs of RIMSetDeviceIdleTimeout @ 0x1C018CEB8
+ * XREFs of RIMSetDeviceIdleTimeout @ 0x1C01625E0
  * Callers:
- *     RIMHandlePowerDeviceArrival @ 0x1C00A20A0 (RIMHandlePowerDeviceArrival.c)
+ *     RIMHandlePowerDeviceArrival @ 0x1C00ACE0C (RIMHandlePowerDeviceArrival.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_qd @ 0x1C00044F0 (WPP_RECORDER_AND_TRACE_SF_qd.c)
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     RIMGetDeviceObjectPointer @ 0x1C00A1D50 (RIMGetDeviceObjectPointer.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C00E6322 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgPr.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     RIMGetDeviceObjectPointer @ 0x1C00571B0 (RIMGetDeviceObjectPointer.c)
+ *     Win32AllocPoolNonPaged @ 0x1C005B490 (Win32AllocPoolNonPaged.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0137184 (WPP_RECORDER_SF_qd.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0160E40 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgPr.c)
  */
 
 __int64 __fastcall RIMSetDeviceIdleTimeout(struct _UNICODE_STRING *a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // r9
-  __int64 v5; // rdx
-  __int64 v6; // rcx
   int Status; // ebx
-  __int64 v8; // r8
-  struct _FILE_OBJECT *QuadPart; // r15
-  PVOID v10; // rsi
-  __int64 v11; // rax
-  __int64 Pool2; // rdi
-  PIRP v13; // rax
-  int v14; // r8d
-  int v15; // edx
-  struct _DEVICE_OBJECT *v16; // rcx
-  int v17; // edx
-  int v18; // r8d
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-B0h] BYREF
-  struct _KEVENT Event; // [rsp+60h] [rbp-A0h] BYREF
-  PVOID BackTrace[24]; // [rsp+80h] [rbp-80h] BYREF
-  PVOID Object; // [rsp+150h] [rbp+50h] BYREF
-  int v24; // [rsp+158h] [rbp+58h] BYREF
-  union _LARGE_INTEGER Timeout; // [rsp+160h] [rbp+60h] BYREF
-  HANDLE Handle; // [rsp+168h] [rbp+68h] BYREF
+  struct _FILE_OBJECT *v6; // rsi
+  _DWORD *v7; // rax
+  int v8; // edx
+  void *v9; // r14
+  PIRP v10; // rax
+  int v11; // edx
+  struct _DEVICE_OBJECT *v12; // rcx
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-30h] BYREF
+  struct _KEVENT Event; // [rsp+60h] [rbp-20h] BYREF
+  PVOID Object; // [rsp+C0h] [rbp+40h] BYREF
+  int v17; // [rsp+C8h] [rbp+48h] BYREF
+  PVOID v18; // [rsp+D0h] [rbp+50h] BYREF
+  HANDLE Handle; // [rsp+D8h] [rbp+58h] BYREF
 
-  v24 = a2;
-  Timeout.QuadPart = 0LL;
+  v17 = a2;
+  v18 = 0LL;
   Object = 0LL;
   Handle = 0LL;
   if ( !a1 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(0LL, a2, a3);
-  if ( (unsigned int)dword_1C028EE70 > 4 && tlgKeywordOn((__int64)&dword_1C028EE70, 256LL) )
   {
-    v24 = 30000;
+    v17 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1896);
+  }
+  if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 256LL) )
+  {
+    v17 = 30000;
     IoStatusBlock.Pointer = a1;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C028EE70,
-      byte_1C025D5B2,
+      (__int64)&dword_1C024BA90,
+      byte_1C021B8F2,
       a3,
       v4,
       (__int64)&IoStatusBlock,
-      (__int64)&v24);
+      (__int64)&v17);
   }
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_qd(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      78,
-      (__int64)&WPP_94a7da3dd1213881fc59263cd75cae92_Traceguids,
-      (char)a1,
-      48);
-  Status = RIMGetDeviceObjectPointer(a1 + 13, a2, a3, &Handle, (PVOID *)&Timeout, (PDEVICE_OBJECT *)&Object);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qd(
+      (__int64)gRimLog,
+      4u,
+      1u,
+      0x44u,
+      (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids,
+      a1,
+      30000);
+  Status = RIMGetDeviceObjectPointer(a1 + 13, a2, a3, &Handle, &v18, (PDEVICE_OBJECT *)&Object);
   if ( Status >= 0 )
   {
-    QuadPart = (struct _FILE_OBJECT *)Timeout.QuadPart;
+    v6 = (struct _FILE_OBJECT *)v18;
     IoStatusBlock = 0LL;
-    memset(&Event, 0, sizeof(Event));
-    if ( !Timeout.QuadPart )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v8);
+    if ( !v18 )
+    {
+      v17 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1913);
+    }
     if ( !Object )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v8);
+    {
+      v17 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1914);
+    }
     ObfReferenceObject(Object);
-    v10 = gpLeakTrackingAllocator;
-    if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x70707352) == 0x70707352
-      && (v11 = 0LL, *((_DWORD *)gpLeakTrackingAllocator + 11)) )
+    v7 = (_DWORD *)Win32AllocPoolNonPaged(4LL, 0x70707352u);
+    v9 = v7;
+    if ( v7 )
     {
-      while ( *((_DWORD *)gpLeakTrackingAllocator + v11) != 1886417746 )
+      *v7 = 30000;
+      KeInitializeEvent(&Event, SynchronizationEvent, 0);
+      v10 = IoBuildDeviceIoControlRequest(0xB01B0u, (PDEVICE_OBJECT)Object, v9, 4u, 0LL, 0, 0, &Event, &IoStatusBlock);
+      v11 = (int)v10;
+      if ( v10 )
       {
-        if ( ++v11 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-          goto LABEL_23;
+        v12 = (struct _DEVICE_OBJECT *)Object;
+        v10->Tail.Overlay.CurrentStackLocation[-1].FileObject = v6;
+        Status = IofCallDriver(v12, v10);
+        if ( Status == 259 )
+        {
+          KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+          Status = IoStatusBlock.Status;
+        }
       }
-      Pool2 = ExAllocatePool2(68LL, 20LL);
-      if ( !Pool2 )
-        goto LABEL_52;
-      memset(BackTrace, 0, 0xA0uLL);
-      RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-      if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
+      else
       {
-        if ( !NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                (__int64)v10,
-                Pool2,
-                (struct NSInstrumentation::CBackTrace *)BackTrace) )
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-LABEL_33:
-          ExFreePoolWithTag((PVOID)Pool2, 0);
-          goto LABEL_52;
+          LOBYTE(v11) = 3;
+          WPP_RECORDER_SF_((_DWORD)gRimLog, v11, 1, 69, (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids);
         }
-LABEL_25:
-        *(_DWORD *)Pool2 = 30000;
-        KeInitializeEvent(&Event, SynchronizationEvent, 0);
-        v13 = IoBuildDeviceIoControlRequest(
-                0xB01B0u,
-                (PDEVICE_OBJECT)Object,
-                (PVOID)Pool2,
-                4u,
-                0LL,
-                0,
-                0,
-                &Event,
-                &IoStatusBlock);
-        v15 = (int)v13;
-        if ( v13 )
-        {
-          v16 = (struct _DEVICE_OBJECT *)Object;
-          v13->Tail.Overlay.CurrentStackLocation[-1].FileObject = QuadPart;
-          Status = IofCallDriver(v16, v13);
-          if ( Status == 259 )
-          {
-            KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-            Status = IoStatusBlock.Status;
-          }
-        }
-        else
-        {
-          LOBYTE(v15) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                     && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                     && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-          if ( (_BYTE)v15 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(v14) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v15,
-              v14,
-              (_DWORD)gRimLog,
-              3,
-              1,
-              79,
-              (__int64)&WPP_94a7da3dd1213881fc59263cd75cae92_Traceguids);
-          }
-          Status = -1073741668;
-        }
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          (char *)Pool2);
-        if ( Status < 0 )
-        {
-          LOBYTE(v17) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                     && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                     && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-          if ( (_BYTE)v17 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(v18) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v17,
-              v18,
-              (_DWORD)gRimLog,
-              3,
-              1,
-              80,
-              (__int64)&WPP_94a7da3dd1213881fc59263cd75cae92_Traceguids);
-          }
-        }
-        goto LABEL_52;
+        Status = -1073741668;
       }
-      if ( !NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-              (__int64)v10,
-              (const void *)Pool2,
-              (struct NSInstrumentation::CBackTrace *)BackTrace) )
-        goto LABEL_33;
-      Pool2 += 16LL;
+      Win32FreePool((__int64)v9);
     }
-    else
+    if ( Status < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-LABEL_23:
-      Pool2 = ExAllocatePool2(68LL, 4LL);
+      LOBYTE(v8) = 3;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, v8, 1, 70, (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids);
     }
-    if ( !Pool2 )
-    {
-LABEL_52:
-      ObfDereferenceObject(QuadPart);
-      ObfDereferenceObject(Object);
-      ZwClose(Handle);
-      return (unsigned int)Status;
-    }
-    goto LABEL_25;
+    ObfDereferenceObject(v6);
+    ObfDereferenceObject(Object);
+    ZwClose(Handle);
   }
   return (unsigned int)Status;
 }

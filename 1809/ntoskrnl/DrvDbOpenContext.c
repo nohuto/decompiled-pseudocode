@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvDbOpenContext @ 0x14073B1B8
+ * XREFs of DrvDbOpenContext @ 0x14073B198
  * Callers:
- *     PiDrvDbInit @ 0x14073A700 (PiDrvDbInit.c)
+ *     PiDrvDbInit @ 0x14073A6E0 (PiDrvDbInit.c)
  * Callees:
  *     ExDeleteResourceLite @ 0x140020F50 (ExDeleteResourceLite.c)
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     DrvDbLoadDatabaseNode @ 0x1406D3170 (DrvDbLoadDatabaseNode.c)
- *     DrvDbRegisterObjects @ 0x14073B2F8 (DrvDbRegisterObjects.c)
- *     DrvDbCreateDatabaseNode @ 0x14073B408 (DrvDbCreateDatabaseNode.c)
- *     DrvDbDestroyDatabaseNode @ 0x140903AD0 (DrvDbDestroyDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x1406D3150 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbRegisterObjects @ 0x14073B2D8 (DrvDbRegisterObjects.c)
+ *     DrvDbCreateDatabaseNode @ 0x14073B3E8 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140903AB0 (DrvDbDestroyDatabaseNode.c)
  */
 
 __int64 DrvDbOpenContext()

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExIsWindowsToGo @ 0x1406C75A0
+ * XREFs of ExIsWindowsToGo @ 0x1406C7580
  * Callers:
  *     <none>
  * Callees:
- *     ExpCheckPortableOperatingSystem @ 0x1406C75CC (ExpCheckPortableOperatingSystem.c)
+ *     ExpCheckPortableOperatingSystem @ 0x1406C75AC (ExpCheckPortableOperatingSystem.c)
  */
 
 __int64 __fastcall ExIsWindowsToGo(_DWORD *a1)

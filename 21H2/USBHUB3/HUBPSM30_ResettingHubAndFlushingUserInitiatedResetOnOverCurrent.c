@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_ResettingHubAndFlushingUserInitiatedResetOnOverCurrent @ 0x1C0012500
+ * XREFs of HUBPSM30_ResettingHubAndFlushingUserInitiatedResetOnOverCurrent @ 0x1C0012000
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FEC0 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
+ *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FAA4 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
  */
 
 __int64 __fastcall HUBPSM30_ResettingHubAndFlushingUserInitiatedResetOnOverCurrent(__int64 a1)

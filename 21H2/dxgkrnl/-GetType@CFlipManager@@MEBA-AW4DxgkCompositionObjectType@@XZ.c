@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CFlipManager@@MEBA?AW4DxgkCompositionObjectType@@XZ @ 0x1C00207D0
+ * XREFs of ?GetType@CFlipManager@@MEBA?AW4DxgkCompositionObjectType@@XZ @ 0x1C001BBA0
  * Callers:
  *     <none>
  * Callees:

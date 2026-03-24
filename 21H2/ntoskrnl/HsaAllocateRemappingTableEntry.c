@@ -1,19 +1,19 @@
 /*
- * XREFs of HsaAllocateRemappingTableEntry @ 0x140530DE0
+ * XREFs of HsaAllocateRemappingTableEntry @ 0x1404E20C0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     RtlClearBits @ 0x140347580 (RtlClearBits.c)
- *     ExtEnvAllocateMemory @ 0x1403CE24C (ExtEnvAllocateMemory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x140522410 (ExtEnvAllocatePhysicalMemory.c)
- *     ExtEnvFreeMemory @ 0x14052268C (ExtEnvFreeMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x1405226CC (ExtEnvFreePhysicalMemory.c)
- *     HsaGetDeviceAperture @ 0x140532404 (HsaGetDeviceAperture.c)
- *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1405336FC (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x1404D5140 (ExtEnvAllocatePhysicalMemory.c)
+ *     ExtEnvFreeMemory @ 0x1404D53BC (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x1404D53FC (ExtEnvFreePhysicalMemory.c)
+ *     HsaGetDeviceAperture @ 0x1404E3784 (HsaGetDeviceAperture.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1404E4A94 (HsaUpdateRemappingTableInDeviceTableEntry.c)
  */
 
 __int64 __fastcall HsaAllocateRemappingTableEntry(
@@ -27,183 +27,198 @@ __int64 __fastcall HsaAllocateRemappingTableEntry(
         int a8,
         __int64 a9)
 {
-  char v11; // r13
+  char v12; // r12
   int PhysicalMemory; // ebx
-  unsigned int v13; // edi
+  unsigned int v14; // r8d
+  __int16 v15; // cx
+  const signed __int32 *v16; // rax
+  unsigned int v17; // r13d
+  __int64 v18; // rcx
   __int64 DeviceAperture; // rax
-  __int64 v15; // rsi
-  unsigned __int64 v16; // r15
-  __int64 v17; // rcx
+  __int64 v20; // rdi
+  unsigned __int64 v21; // r12
+  __int64 v22; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v21; // eax
-  bool v22; // zf
-  __int64 v23; // rcx
-  void *v24; // r15
-  __int64 v25; // rcx
-  __int64 v26; // rax
-  __int128 v27; // xmm1
-  __int64 v28; // xmm0_8
-  char v29; // r12
-  unsigned __int64 v30; // rdi
-  unsigned __int8 v31; // al
-  struct _KPRCB *v32; // r9
-  _DWORD *v33; // r8
-  int v34; // eax
-  unsigned int v36; // [rsp+30h] [rbp-40h]
-  unsigned __int64 v37; // [rsp+38h] [rbp-38h] BYREF
-  unsigned __int64 v38; // [rsp+40h] [rbp-30h] BYREF
-  void *v39[2]; // [rsp+48h] [rbp-28h] BYREF
-  _BYTE Size[24]; // [rsp+58h] [rbp-18h] BYREF
-  char v42; // [rsp+C0h] [rbp+50h]
+  int v26; // eax
+  bool v27; // zf
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  int v30; // eax
+  __int128 v31; // xmm1
+  unsigned __int64 v32; // xmm0_8
+  unsigned __int64 v33; // rdi
+  unsigned __int8 v34; // al
+  struct _KPRCB *v35; // r9
+  _DWORD *v36; // r8
+  int v37; // eax
+  char v39; // [rsp+30h] [rbp-50h]
+  void *v40; // [rsp+38h] [rbp-48h] BYREF
+  unsigned __int64 v41; // [rsp+40h] [rbp-40h] BYREF
+  __int64 v42; // [rsp+48h] [rbp-38h] BYREF
+  int v43; // [rsp+50h] [rbp-30h]
+  void *v44[2]; // [rsp+58h] [rbp-28h] BYREF
+  size_t Size[2]; // [rsp+68h] [rbp-18h] BYREF
+  unsigned __int64 v46; // [rsp+78h] [rbp-8h]
+  char v47; // [rsp+C0h] [rbp+40h]
 
+  LODWORD(v42) = 0;
   if ( a3 && ((a3 - 1) & a3) == 0 )
   {
-    v38 = 0LL;
-    v11 = 0;
-    v37 = 0LL;
+    v40 = 0LL;
+    v12 = 0;
+    v41 = 0LL;
+    v47 = 0;
     PhysicalMemory = 0;
-    v39[0] = 0LL;
-    *(_OWORD *)&Size[8] = 0LL;
-    v39[1] = 0LL;
+    v46 = 0LL;
+    *(_OWORD *)v44 = 0LL;
+    *(_OWORD *)Size = 0LL;
     if ( *(_DWORD *)(a1 + 160) != a4 )
       return (unsigned int)-1073741594;
-    v13 = a7 & 7 | (8 * (a6 & 0x1F | (32 * (unsigned __int8)a5)));
-    if ( a9 && *(_DWORD *)a9 == 1 && (*(_BYTE *)(a9 + 10) & 4) == 0 )
-      v13 = *(unsigned __int16 *)(a9 + 12);
-    if ( _bittest(*(const signed __int32 **)(a1 + 192), v13) )
+    if ( a9 && *(_DWORD *)a9 == 1 && (*(_BYTE *)(a1 + 18) & 1) == 0 )
     {
-      v36 = HIWORD(a2);
-      if ( HIWORD(a2) >= 0x20u || a2 >> 9 >= HsaTotalDeviceApertures || (a2 & 0x1FF) + a3 > 0x200 )
+      v14 = *(unsigned __int16 *)(a9 + 12);
+      v15 = *(_WORD *)(a9 + 10) & 3;
+      HIDWORD(v42) = 1 << (*(_WORD *)(a9 + 10) & 3);
+      v43 = 1 << (3 - v15);
+    }
+    else
+    {
+      HIDWORD(v42) = 1;
+      v14 = a7 & 7 | (8 * (a6 & 0x1F | (32 * (unsigned __int8)a5)));
+      v43 = 0;
+    }
+    v16 = *(const signed __int32 **)(a1 + 192);
+    LODWORD(v42) = v14;
+    if ( _bittest(v16, v14) )
+    {
+      v17 = HIWORD(a2);
+      v18 = a2 & 0x1FF;
+      if ( HIWORD(a2) >= 0x20u || a2 >> 9 >= HsaTotalDeviceApertures || (unsigned int)(v18 + a3) > 0x200 )
       {
-        return (unsigned int)-1073741811;
+        PhysicalMemory = -1073741811;
+        goto LABEL_44;
+      }
+      byte_140C48918 = HalpAcquireHighLevelLock(&qword_140C48910);
+      DeviceAperture = HsaGetDeviceAperture(a2);
+      v20 = DeviceAperture;
+      if ( DeviceAperture && *(_QWORD *)(DeviceAperture + 16) )
+      {
+        *(_DWORD *)(DeviceAperture + 48) += a3;
+        v39 = 0;
       }
       else
       {
-        byte_140C49C38 = HalpAcquireHighLevelLock(&qword_140C49C30);
-        DeviceAperture = HsaGetDeviceAperture(a2);
-        v15 = DeviceAperture;
-        if ( DeviceAperture && *(_QWORD *)(DeviceAperture + 16) )
+        v39 = 1;
+      }
+      v21 = (unsigned __int8)byte_140C48918;
+      KxReleaseSpinLock(&qword_140C48910);
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          *(_DWORD *)(DeviceAperture + 48) += a3;
-          v42 = 0;
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v21 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v22 = (unsigned int)(v21 + 1);
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v21 + 1));
+            v27 = (v26 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v26;
+            if ( v27 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
-        else
+      }
+      __writecr8(v21);
+      if ( !v39 )
+        return (unsigned int)PhysicalMemory;
+      if ( v20 )
+      {
+LABEL_29:
+        Size[0] = 0x20000002000LL;
+        PhysicalMemory = ExtEnvAllocatePhysicalMemory(v22, 0x2000u, 0, MmCached, (LARGE_INTEGER *)v44, (__int64)&v44[1]);
+        if ( PhysicalMemory < 0 )
+          goto LABEL_49;
+        memset(v44[1], 0, LODWORD(Size[0]));
+        v12 = 1;
+        PhysicalMemory = ExtEnvAllocateMemory(
+                           v28,
+                           4 * (unsigned int)(((unsigned __int64)HIDWORD(Size[0]) + 31) >> 5),
+                           (__int64 *)&v41);
+        if ( PhysicalMemory < 0 )
         {
-          v42 = 1;
+LABEL_45:
+          if ( v44[1] )
+            ExtEnvFreePhysicalMemory(v18, v44[1], Size[0], 1u);
+          if ( v41 )
+            ExtEnvFreeMemory(v18, v41);
+          goto LABEL_49;
         }
-        v16 = (unsigned __int8)byte_140C49C38;
-        KxReleaseSpinLock(&qword_140C49C30);
+        LODWORD(Size[1]) = HIDWORD(Size[0]);
+        v46 = v41;
+        RtlClearBits((PRTL_BITMAP)&Size[1], 0, HIDWORD(Size[0]));
+        byte_140C48918 = HalpAcquireHighLevelLock(&qword_140C48910);
+        if ( !HsaDeviceApertureRanges[v17] )
+        {
+          HsaDeviceApertureRanges[v17] = (__int64)v40;
+          v29 = HsaGetDeviceAperture(a2);
+          HsaAllocatedDeviceApertures += 128;
+          v20 = v29;
+          v47 = 0;
+        }
+        if ( !*(_QWORD *)(v20 + 16) )
+        {
+          v30 = v43;
+          v31 = *(_OWORD *)Size;
+          *(_OWORD *)(v20 + 8) = *(_OWORD *)v44;
+          v32 = v46;
+          *(_OWORD *)(v20 + 24) = v31;
+          *(_QWORD *)(v20 + 40) = v32;
+          *(_QWORD *)(v20 + 52) = v42;
+          *(_DWORD *)(v20 + 60) = v30;
+          *(_QWORD *)v20 = a1;
+          HsaUpdateRemappingTableInDeviceTableEntry(a1, &v42, v44);
+          v12 = 0;
+        }
+        *(_DWORD *)(v20 + 48) += a3;
+        v33 = (unsigned __int8)byte_140C48918;
+        KxReleaseSpinLock(&qword_140C48910);
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentIrql = KeGetCurrentIrql();
-            if ( CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+            v34 = KeGetCurrentIrql();
+            if ( v34 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v34 >= 2u )
             {
-              CurrentPrcb = KeGetCurrentPrcb();
-              v17 = (unsigned int)(v16 + 1);
-              SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
-              v22 = (v21 & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= v21;
-              if ( v22 )
-                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+              v35 = KeGetCurrentPrcb();
+              v18 = (unsigned int)(v33 + 1);
+              v36 = v35->SchedulerAssist;
+              v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v33 + 1));
+              v27 = (v37 & v36[5]) == 0;
+              v36[5] &= v37;
+              if ( v27 )
+                KiRemoveSystemWorkPriorityKick((__int64)v35);
             }
           }
         }
-        __writecr8(v16);
-        if ( !v42 )
-          return (unsigned int)PhysicalMemory;
-        if ( v15 )
-          goto LABEL_28;
-        PhysicalMemory = ExtEnvAllocateMemory(v17, 0x1C00u, &v38);
-        if ( PhysicalMemory >= 0 )
-        {
-          v11 = 1;
-LABEL_28:
-          *(_QWORD *)Size = 0x20000002000LL;
-          PhysicalMemory = ExtEnvAllocatePhysicalMemory(
-                             v17,
-                             0x2000u,
-                             0,
-                             MmCached,
-                             (LARGE_INTEGER *)v39,
-                             (__int64)&v39[1]);
-          if ( PhysicalMemory >= 0 )
-          {
-            v24 = v39[1];
-            memset(v39[1], 0, *(unsigned int *)Size);
-            PhysicalMemory = ExtEnvAllocateMemory(
-                               v25,
-                               4 * (unsigned int)(((unsigned __int64)*(unsigned int *)&Size[4] + 31) >> 5),
-                               &v37);
-            if ( PhysicalMemory < 0 )
-              goto LABEL_44;
-            *(_DWORD *)&Size[8] = *(_DWORD *)&Size[4];
-            *(_QWORD *)&Size[16] = v37;
-            RtlClearBits((PRTL_BITMAP)&Size[8], 0, *(ULONG *)&Size[4]);
-            byte_140C49C38 = HalpAcquireHighLevelLock(&qword_140C49C30);
-            if ( !HsaDeviceApertureRanges[v36] )
-            {
-              HsaDeviceApertureRanges[v36] = v38;
-              v26 = HsaGetDeviceAperture(a2);
-              HsaAllocatedDeviceApertures += 128;
-              v15 = v26;
-              v11 = 0;
-            }
-            if ( *(_QWORD *)(v15 + 16) )
-            {
-              v29 = 1;
-            }
-            else
-            {
-              v27 = *(_OWORD *)Size;
-              *(_OWORD *)(v15 + 8) = *(_OWORD *)v39;
-              v28 = *(_QWORD *)&Size[16];
-              *(_OWORD *)(v15 + 24) = v27;
-              *(_QWORD *)(v15 + 40) = v28;
-              *(_QWORD *)v15 = a1;
-              *(_DWORD *)(v15 + 52) = v13;
-              HsaUpdateRemappingTableInDeviceTableEntry(a1, v13, v39);
-              v29 = 0;
-            }
-            *(_DWORD *)(v15 + 48) += a3;
-            v30 = (unsigned __int8)byte_140C49C38;
-            KxReleaseSpinLock(&qword_140C49C30);
-            if ( KiIrqlFlags )
-            {
-              if ( (KiIrqlFlags & 1) != 0 )
-              {
-                v31 = KeGetCurrentIrql();
-                if ( v31 <= 0xFu && (unsigned __int8)v30 <= 0xFu && v31 >= 2u )
-                {
-                  v32 = KeGetCurrentPrcb();
-                  v23 = (unsigned int)(v30 + 1);
-                  v33 = v32->SchedulerAssist;
-                  v34 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v30 + 1));
-                  v22 = (v34 & v33[5]) == 0;
-                  v33[5] &= v34;
-                  if ( v22 )
-                    KiRemoveSystemWorkPriorityKick((__int64)v32);
-                  v24 = v39[1];
-                }
-              }
-            }
-            __writecr8(v30);
-            if ( v29 )
-            {
+        __writecr8(v33);
 LABEL_44:
-              if ( v24 )
-                ExtEnvFreePhysicalMemory(v23, v24, *(unsigned int *)Size, 1u);
-              if ( v37 )
-                ExtEnvFreeMemory(v23, v37);
-            }
-          }
-          if ( v11 )
-            ExtEnvFreeMemory(v23, v38);
-        }
+        if ( v12 )
+          goto LABEL_45;
+LABEL_49:
+        if ( v47 )
+          ExtEnvFreeMemory(v18, (unsigned __int64)v40);
+        return (unsigned int)PhysicalMemory;
+      }
+      PhysicalMemory = ExtEnvAllocateMemory(v22, 0x2400u, (__int64 *)&v40);
+      if ( PhysicalMemory >= 0 )
+      {
+        memset(v40, 0, 0x2400uLL);
+        v47 = 1;
+        goto LABEL_29;
       }
     }
     else

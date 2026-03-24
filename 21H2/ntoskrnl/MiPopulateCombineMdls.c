@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPopulateCombineMdls @ 0x1406E6E88
+ * XREFs of MiPopulateCombineMdls @ 0x14072696C
  * Callers:
- *     MiProcessCrcList @ 0x1406F2C30 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
  * Callees:
- *     MiAllocatePagesForMdl @ 0x140265428 (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x1402E33F4 (MiAllocatePagesForMdl.c)
  */
 
-__int64 __fastcall MiPopulateCombineMdls(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall MiPopulateCombineMdls(char *a1, int a2, __int64 a3)
 {
   unsigned __int64 *v3; // rdi
   unsigned int v4; // ebp
@@ -14,18 +14,18 @@ __int64 __fastcall MiPopulateCombineMdls(__int64 a1, int a2, __int64 a3)
   __int64 v8; // r13
   char *v9; // r12
   __int64 result; // rax
-  unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // r8
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rdx
   __int64 *v13; // rsi
   __int64 PagesForMdl; // rax
   __int64 *v15; // rcx
 
   v3 = (unsigned __int64 *)(a1 + 88);
   v4 = 0;
-  v5 = a3 - a1;
+  v5 = a3 - (_QWORD)a1;
   v8 = **(_QWORD **)a1;
-  v9 = (char *)MiCombineMinimumPages - a1;
-  result = 0xFFFFFLL;
+  v9 = (char *)((char *)MiCombineMinimumPages - a1);
+  result = 1048574LL;
   do
   {
     v11 = *(unsigned __int64 *)((char *)v3 + v5 - 88);
@@ -33,22 +33,13 @@ __int64 __fastcall MiPopulateCombineMdls(__int64 a1, int a2, __int64 a3)
     {
       v12 = *v3;
       v13 = (__int64 *)*(v3 - 3);
-      if ( v11 > 0xFFFFF )
-        v11 = 0xFFFFFLL;
+      if ( v11 > 0xFFFFE )
+        v11 = 1048574LL;
       if ( !v12 || v12 < v11 )
       {
-        if ( (*(_DWORD *)(a1 + 60) & 2) != 0 && v11 < *(unsigned __int64 *)((char *)v3 + (_QWORD)v9 - 88) )
+        if ( (*((_DWORD *)a1 + 15) & 2) != 0 && v11 < *(unsigned __int64 *)((char *)v3 + (_QWORD)v9 - 88) )
           v11 = *(unsigned __int64 *)((char *)v3 + (_QWORD)v9 - 88);
-        PagesForMdl = MiAllocatePagesForMdl(
-                        v8,
-                        0LL,
-                        0xFFFFFFFFFFFFFFFFuLL,
-                        0LL,
-                        (v11 - v12) << 12,
-                        v4,
-                        a2,
-                        19,
-                        (__int64)KeGetCurrentThread()->ApcState.Process);
+        PagesForMdl = MiAllocatePagesForMdl(v8, 0LL, -1LL, 0LL, (v11 - v12) << 12, v4, a2, 19);
         if ( PagesForMdl )
         {
           *v3 += (unsigned __int64)*(unsigned int *)(PagesForMdl + 40) >> 12;
@@ -71,7 +62,7 @@ __int64 __fastcall MiPopulateCombineMdls(__int64 a1, int a2, __int64 a3)
             *(v3 - 3) = PagesForMdl;
           }
         }
-        result = 0xFFFFFLL;
+        result = 1048574LL;
       }
     }
     ++v4;

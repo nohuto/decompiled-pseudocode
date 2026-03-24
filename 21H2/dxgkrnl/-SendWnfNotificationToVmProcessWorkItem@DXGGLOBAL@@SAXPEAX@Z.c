@@ -1,90 +1,73 @@
 /*
- * XREFs of ?SendWnfNotificationToVmProcessWorkItem@DXGGLOBAL@@SAXPEAX@Z @ 0x1C030C790
+ * XREFs of ?SendWnfNotificationToVmProcessWorkItem@DXGGLOBAL@@SAXPEAX@Z @ 0x1C026B780
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?VmBusSendWnfNotification@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_SENDWNFNOTIFICATION@@I@Z @ 0x1C037FE78 (-VmBusSendWnfNotification@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_SENDWNFNOTIFICATION@@I.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?VmBusSendWnfNotification@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_SENDWNFNOTIFICATION@@I@Z @ 0x1C024E100 (-VmBusSendWnfNotification@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAUDXGKVMB_COMMAND_SENDWNFNOTIFICATION@@I.c)
  */
 
 void __fastcall DXGGLOBAL::SendWnfNotificationToVmProcessWorkItem(char *a1)
 {
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   struct DXGGLOBAL *Global; // rax
-  char *v3; // r13
-  _QWORD **v4; // r12
-  _QWORD *v5; // rdi
-  struct _KTHREAD **v6; // rbp
-  struct _KTHREAD **i; // r14
-  struct _KTHREAD **v8; // r15
-  struct _KTHREAD *v9; // rcx
-  int v10; // eax
-  __int64 v11; // rbx
-  char v12[8]; // [rsp+50h] [rbp-48h] BYREF
-  DXGPUSHLOCK *v13; // [rsp+58h] [rbp-40h]
-  int v14; // [rsp+60h] [rbp-38h]
-  char *v15; // [rsp+A0h] [rbp+8h]
+  char *v5; // r12
+  _QWORD **v6; // r15
+  _QWORD *i; // rbx
+  struct _KTHREAD **v8; // rbp
+  struct _KTHREAD **j; // rsi
+  struct _KTHREAD **v10; // r14
+  struct _KTHREAD *v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  char v15[8]; // [rsp+20h] [rbp-48h] BYREF
+  DXGPUSHLOCK *v16; // [rsp+28h] [rbp-40h]
+  int v17; // [rsp+30h] [rbp-38h]
 
   if ( RtlCompareMemory(a1 + 80, &WNF_DX_VIDMM_TRIM_NOTIFICATION, 8uLL) == 8 )
   {
-    Global = DXGGLOBAL_GetGlobal();
-    v3 = (char *)Global + 488;
-    v15 = (char *)Global + 488;
-    v4 = (_QWORD **)((char *)Global + 1752);
-    DXGPUSHLOCK::AcquireShared((struct DXGGLOBAL *)((char *)Global + 488));
-    v5 = *v4;
-    if ( *v4 != v4 )
+    Global = DXGGLOBAL::GetGlobal(v3, v2);
+    v5 = (char *)Global + 432;
+    v6 = (_QWORD **)((char *)Global + 1584);
+    DXGPUSHLOCK::AcquireShared((struct DXGGLOBAL *)((char *)Global + 432));
+    for ( i = *v6; i != v6; i = (_QWORD *)*i )
     {
-      do
+      v8 = (struct _KTHREAD **)(i - 1);
+      if ( i - 1 == *((_QWORD **)a1 + 5) )
       {
-        v6 = (struct _KTHREAD **)(v5 - 1);
-        if ( v5 - 1 == *((_QWORD **)a1 + 5) )
+        DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v15, v8 + 12, 0);
+        DXGPUSHLOCK::AcquireShared(v16);
+        v17 = 1;
+        for ( j = (struct _KTHREAD **)v8[5]; j != v8 + 5; j = (struct _KTHREAD **)*j )
         {
-          DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v12, v6 + 12, 0);
-          DXGPUSHLOCK::AcquireShared(v13);
-          v14 = 1;
-          for ( i = (struct _KTHREAD **)v6[5]; i != v6 + 5; i = (struct _KTHREAD **)*i )
+          v10 = j - 17;
+          if ( *((_DWORD *)*(j - 4) + 88) > 0x10u )
           {
-            v8 = i - 17;
-            if ( *((_DWORD *)*(i - 4) + 98) > 0x10u )
+            v11 = v10[2];
+            if ( *((_DWORD *)v11 + 79) == *((_DWORD *)a1 + 25) && *((_DWORD *)v11 + 80) == *((_DWORD *)a1 + 26) )
             {
-              v9 = v8[2];
-              if ( *((_DWORD *)v9 + 101) == *((_DWORD *)a1 + 25) && *((_DWORD *)v9 + 102) == *((_DWORD *)a1 + 26) )
+              *(_QWORD *)(a1 + 100) = v10[40];
+              if ( (int)DXG_HOST_GLOBAL_VMBUS::VmBusSendWnfNotification(
+                          v8 + 16,
+                          (struct DXGKVMB_COMMAND_SENDWNFNOTIFICATION *)(a1 + 56),
+                          *((_DWORD *)a1 + 12)) < 0 )
               {
-                *(_QWORD *)(a1 + 100) = v8[43];
-                v10 = DXG_HOST_GLOBAL_VMBUS::VmBusSendWnfNotification(
-                        (DXG_HOST_GLOBAL_VMBUS *)(v6 + 20),
-                        (struct DXGKVMB_COMMAND_SENDWNFNOTIFICATION *)(a1 + 56),
-                        *((_DWORD *)a1 + 12));
-                if ( v10 < 0 )
-                {
-                  v11 = v10;
-                  WdLogSingleEntry2(2LL, i - 17, v10);
-                  DxgkLogInternalTriageEvent(
-                    0LL,
-                    0x40000,
-                    -1,
-                    (__int64)L"Failed to send WNF notification to vGPU:0x%I64x 0x%I64x",
-                    (__int64)(i - 17),
-                    v11,
-                    0LL,
-                    0LL,
-                    0LL);
-                }
+                v14 = WdLogNewEntry5_WdError(v13, v12);
+                *(_QWORD *)(v14 + 24) = v10;
+                WdLogEvent5_WdError(v14);
               }
             }
           }
-          DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v12);
         }
-        v5 = (_QWORD *)*v5;
+        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);
       }
-      while ( v5 != v4 );
-      v3 = v15;
     }
-    ExReleasePushLockSharedEx(v3, 0LL);
+    ExReleasePushLockSharedEx(v5, 0LL);
     KeLeaveCriticalRegion();
   }
 }

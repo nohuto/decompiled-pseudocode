@@ -1,23 +1,16 @@
 /*
- * XREFs of MiUnlockAwePagesExclusive @ 0x14064BE78
+ * XREFs of MiUnlockAwePagesExclusive @ 0x14054DEE0
  * Callers:
- *     MiDeleteAweInfoPages @ 0x140A41B00 (MiDeleteAweInfoPages.c)
- *     MiResizeAweBitMap @ 0x140A42180 (MiResizeAweBitMap.c)
+ *     MiDeleteAweInfoPages @ 0x1408D5EDC (MiDeleteAweInfoPages.c)
+ *     MiResizeAweBitMap @ 0x1408D6534 (MiResizeAweBitMap.c)
+ *     MiScrubProcessPhysicalPages @ 0x1408D6690 (MiScrubProcessPhysicalPages.c)
  * Callees:
- *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F8B0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x1402FAB20 (ExReleaseAutoExpandPushLockExclusive.c)
  */
 
 char __fastcall MiUnlockAwePagesExclusive(__int64 a1, __int64 a2)
 {
-  _QWORD *v3; // rax
-
-  LOBYTE(v3) = ExReleaseAutoExpandPushLockExclusive(a1 + 64, 0LL);
-  if ( (*(_WORD *)(a2 + 486))++ == 0xFFFF )
-  {
-    v3 = (_QWORD *)(a2 + 152);
-    if ( (_QWORD *)*v3 != v3 )
-      LOBYTE(v3) = KiCheckForKernelApcDelivery();
-  }
-  return (char)v3;
+  ExReleaseAutoExpandPushLockExclusive(a1 + 56, 0LL);
+  return KiLeaveGuardedRegionUnsafe(a2);
 }

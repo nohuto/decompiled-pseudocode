@@ -1,150 +1,159 @@
 /*
- * XREFs of ?FlushBottomLayer@CBatchOptimizer@@AEAAXXZ @ 0x18000DC60
+ * XREFs of ?FlushBottomLayer@CBatchOptimizer@@AEAAXXZ @ 0x180090104
  * Callers:
- *     ?ContinueLayer@CBatchOptimizer@@AEAAXH@Z @ 0x18000DB9C (-ContinueLayer@CBatchOptimizer@@AEAAXH@Z.c)
- *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x180084C60 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?AppendLayer@CBatchOptimizer@@AEAAXXZ @ 0x180091088 (-AppendLayer@CBatchOptimizer@@AEAAXXZ.c)
+ *     ?AppendLayer@CBatchOptimizer@@AEAAXXZ @ 0x1800121F4 (-AppendLayer@CBatchOptimizer@@AEAAXXZ.c)
+ *     ?AddRenderingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCDrawListEntry@@@Z @ 0x180079090 (-AddRenderingDrawListEntry@CBatchOptimizer@@QEAAXPEAVCDrawListEntry@@@Z.c)
+ *     ?Flush@CBatchOptimizer@@QEAAXXZ @ 0x18008FFF8 (-Flush@CBatchOptimizer@@QEAAXXZ.c)
+ *     ?ContinueLayer@CBatchOptimizer@@AEAAXH@Z @ 0x1800C0688 (-ContinueLayer@CBatchOptimizer@@AEAAXH@Z.c)
  * Callees:
- *     ?RawAddBatchCommands@CDrawListBatchManager@@QEAAJAEBV?$span@PEAVCBatchCommand@@$0?0@gsl@@@Z @ 0x18000DEA4 (-RawAddBatchCommands@CDrawListBatchManager@@QEAAJAEBV-$span@PEAVCBatchCommand@@$0-0@gsl@@@Z.c)
- *     ?AddBatchCommand@CDrawListBatchManager@@QEAAJ$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@@Z @ 0x18000DED0 (-AddBatchCommand@CDrawListBatchManager@@QEAAJ$$QEAV-$unique_ptr@VCBatchCommand@@U-$default_delet.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ??$TakeItemFromCache@VCBatchCommand@@@CDrawListBatchManager@@CAJPEAV?$ShrinkableArray@PEAVCBatchCommand@@U?$UniqueLifetime@PEAVCBatchCommand@@@@@@PEAPEAVCBatchCommand@@@Z @ 0x18008E97C (--$TakeItemFromCache@VCBatchCommand@@@CDrawListBatchManager@@CAJPEAV-$ShrinkableArray@PEAVCBatch.c)
- *     ?reset@?$com_ptr_t@VCBrushRenderingGraph@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E7C4C (-reset@-$com_ptr_t@VCBrushRenderingGraph@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ??4?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEffect@@@Z @ 0x1800E7C84 (--4-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEff.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
- *     ??_GCBatchCommand@@QEAAPEAXI@Z @ 0x1801FF258 (--_GCBatchCommand@@QEAAPEAXI@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?RawAddDrawListEntries@CDrawListBatchManager@@QEAAJAEBV?$span@PEAVCBaseDrawListEntry@@$0?0@gsl@@@Z @ 0x1800185B8 (-RawAddDrawListEntries@CDrawListBatchManager@@QEAAJAEBV-$span@PEAVCBaseDrawListEntry@@$0-0@gsl@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArray@PEAVCBaseDrawListEntry@@$0A@@@QEAAJPEFBQEAVCBaseDrawListEntry@@I@Z @ 0x1800B8368 (-AddMultipleAndSet@-$DynArray@PEAVCBaseDrawListEntry@@$0A@@@QEAAJPEFBQEAVCBaseDrawListEntry@@I@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ??4?$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEffect@@@Z @ 0x1800C074C (--4-$com_ptr_t@VCRenderingEffect@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCRenderingEff.c)
+ *     ??$TakeItemFromCache@VCGroupDrawListEntry@@@CDrawListBatchManager@@CAJPEAV?$ShrinkableReferenceArray@PEAVCGroupDrawListEntry@@@@PEAPEAVCGroupDrawListEntry@@@Z @ 0x1800C5170 (--$TakeItemFromCache@VCGroupDrawListEntry@@@CDrawListBatchManager@@CAJPEAV-$ShrinkableReferenceA.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall CBatchOptimizer::FlushBottomLayer(CBatchOptimizer *this)
 {
   __int64 v1; // rax
   __int64 v2; // rsi
+  CBatchOptimizer *v3; // rdi
   char *v4; // rbx
-  char *v5; // r14
-  unsigned int v6; // r13d
-  __int64 v7; // rdx
-  char *v8; // r15
-  __int64 v9; // r14
-  char *v10; // r12
-  unsigned int v11; // eax
-  __int64 v12; // rcx
-  int v13; // ebx
-  unsigned int v14; // edx
-  CBatchCommand *v15; // rcx
-  CBatchCommand *v16; // rbx
-  char *v17; // r12
+  char *v5; // rbp
+  unsigned int v6; // r14d
+  __int64 v7; // rbp
+  unsigned int v8; // r15d
+  __int64 v9; // rbx
+  unsigned int v10; // eax
+  unsigned int v11; // r15d
+  int v12; // eax
+  __int64 v13; // rcx
+  int v14; // eax
+  __int64 v15; // rbx
+  __int64 v16; // rax
+  __int64 v17; // rax
   __int64 v18; // rcx
   int v19; // eax
-  unsigned int v20; // edx
-  __int64 v21; // rbx
-  gsl::details *v22; // rcx
+  __int64 v20; // rcx
+  unsigned int v21; // ebx
+  __int64 v22; // rbp
   int v23; // eax
-  __int64 v24; // r13
-  __int64 v25; // r14
-  gsl::details *v26; // rcx
-  int v27; // eax
-  unsigned int v28; // r12d
-  CBatchCommand **v29; // [rsp+20h] [rbp-20h] BYREF
-  unsigned int v30[2]; // [rsp+28h] [rbp-18h] BYREF
-  char v31; // [rsp+30h] [rbp-10h]
-  void *retaddr; // [rsp+68h] [rbp+28h]
-  CBatchCommand *v33; // [rsp+70h] [rbp+30h] BYREF
+  int v24; // eax
+  __int64 v25; // rcx
+  int v26; // ebx
+  _QWORD v27[2]; // [rsp+30h] [rbp-38h] BYREF
+  void *retaddr; // [rsp+68h] [rbp+0h]
+  __int64 v29; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v30; // [rsp+78h] [rbp+10h] BYREF
 
   v1 = *((int *)this + 12);
   v2 = 520 * v1;
+  v3 = this;
   v4 = (char *)this + 520 * v1 + 120;
   v5 = v4;
   v6 = *((_DWORD *)this + 130 * v1 + 24);
-  v7 = *((_QWORD *)this + 65 * v1 + 14);
-  v8 = (char *)this + 520 * v1;
-  if ( v7 )
+  if ( *((_QWORD *)this + 65 * v1 + 14) )
   {
-    v9 = *((_QWORD *)this + 5);
-    if ( v9 )
+    v7 = *((_QWORD *)this + 5);
+    if ( v7 )
     {
-      wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=(v9 + 8, v7);
-      v10 = (char *)this + 112;
-      *(_DWORD *)(v9 + 24) += *((_DWORD *)v8 + 25);
+      wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=(v7 + 32);
+      *(_DWORD *)(v7 + 48) += *(_DWORD *)((char *)v3 + v2 + 100);
       v5 = v4;
     }
     else
     {
-      v28 = *((_DWORD *)v8 + 25);
-      if ( v28 > 1 || (v5 = (char *)this + 520 * v1 + 120, *(_DWORD *)((char *)this + v2 + 104)) )
+      v8 = *(_DWORD *)((char *)this + v2 + 100);
+      if ( v8 > 1 || (v5 = (char *)this + 520 * v1 + 120, *(_DWORD *)((char *)this + v2 + 104)) )
       {
         v5 = (char *)this + 520 * v1 + 120;
-        v11 = v6 - v28;
-        if ( v6 != v28 )
+        v12 = v6 - v8;
+        if ( v6 != v8 )
         {
-          v24 = *((_QWORD *)this + 1);
-          v25 = (int)v11;
-          gsl::details::extent_type<-1>::extent_type<-1>(&v29, (int)v11);
-          *(_QWORD *)v30 = v4;
-          if ( v29 == (CBatchCommand **)-1LL || !v4 && v29 )
+          v22 = v12;
+          v27[0] = v12;
+          if ( v12 < 0 || (v27[1] = v4) == 0LL && v12 )
           {
-            gsl::details::terminate(v26);
+            ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
             __debugbreak();
           }
-          v27 = CDrawListBatchManager::RawAddBatchCommands(v24, &v29);
-          if ( v27 < 0 )
-            ModuleFailFastForHRESULT((unsigned int)v27, retaddr);
-          v5 = &v4[8 * v25];
-          v6 = v28;
+          v23 = CDrawListBatchManager::RawAddDrawListEntries(*((_QWORD *)this + 1), (unsigned int *)v27);
+          if ( v23 < 0 )
+            ModuleFailFastForHRESULT((unsigned int)v23, retaddr);
+          v5 = &v4[8 * v22];
+          v6 = v8;
         }
-        v12 = *((_QWORD *)this + 1);
-        v29 = &v33;
-        v33 = 0LL;
-        *(_QWORD *)v30 = 0LL;
-        v31 = 1;
-        v13 = CDrawListBatchManager::TakeItemFromCache<CBatchCommand>(v12 + 40, v30);
-        if ( v31 )
-        {
-          v14 = v30[0];
-          v15 = *v29;
-          *v29 = *(CBatchCommand **)v30;
-          if ( v15 )
-            CBatchCommand::`scalar deleting destructor'(v15, v14);
-        }
-        if ( v13 < 0 )
-          ModuleFailFastForHRESULT((unsigned int)v13, retaddr);
-        v16 = v33;
-        *(_DWORD *)v33 = 3;
-        *((_QWORD *)v16 + 1) = 0LL;
-        v17 = (char *)this + v2 + 112;
-        *((_DWORD *)v16 + 4) = *(_DWORD *)((char *)this + v2 + 88);
-        *((_BYTE *)v16 + 20) = *((_BYTE *)this + v2 + 92);
-        wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=((char *)v16 + 8, *(_QWORD *)v17);
-        *((_DWORD *)v16 + 6) = *((_DWORD *)v8 + 25);
-        v18 = *((_QWORD *)this + 1);
-        *((_QWORD *)this + 5) = v33;
-        v19 = CDrawListBatchManager::AddBatchCommand(v18, &v33);
+        v13 = *((_QWORD *)v3 + 1) + 80LL;
+        v29 = 0LL;
+        v14 = CDrawListBatchManager::TakeItemFromCache<CGroupDrawListEntry>(v13, &v29);
+        if ( v14 < 0 )
+          ModuleFailFastForHRESULT((unsigned int)v14, retaddr);
+        v15 = v29;
+        *(_DWORD *)(v29 + 40) = *(_DWORD *)((char *)v3 + v2 + 88);
+        *(_BYTE *)(v15 + 44) = *((_BYTE *)v3 + v2 + 92);
+        wil::com_ptr_t<CRenderingEffect,wil::err_returncode_policy>::operator=(v15 + 32);
+        *(_DWORD *)(v15 + 48) = *(_DWORD *)((char *)v3 + v2 + 100);
+        *((_QWORD *)v3 + 5) = v15;
+        ++*(_DWORD *)(v15 + 24);
+        v16 = *((_QWORD *)v3 + 5);
+        if ( v16 )
+          v17 = v16 + 16;
+        else
+          v17 = 0LL;
+        v18 = *((_QWORD *)v3 + 1);
+        v30 = v17;
+        v19 = DynArray<CBaseDrawListEntry *,0>::AddMultipleAndSet(v18, &v30, 1LL);
+        v21 = v19;
         if ( v19 < 0 )
-          ModuleFailFastForHRESULT((unsigned int)v19, retaddr);
-        if ( v33 )
-          CBatchCommand::`scalar deleting destructor'(v33, v20);
-        goto LABEL_12;
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0xA3u, 0LL);
+          ModuleFailFastForHRESULT(v21, retaddr);
+        }
       }
-      v10 = (char *)this + 112;
     }
-    v17 = &v10[v2];
-LABEL_12:
-    wil::com_ptr_t<CBrushRenderingGraph,wil::err_returncode_policy>::reset(v17);
+    this = *(CBatchOptimizer **)((char *)v3 + v2 + 112);
+    *(_QWORD *)((char *)v3 + v2 + 112) = 0LL;
+    if ( this )
+      (*(void (__fastcall **)(CBatchOptimizer *))(*(_QWORD *)this + 8LL))(this);
   }
-  v21 = *((_QWORD *)this + 1);
-  gsl::details::extent_type<-1>::extent_type<-1>(&v29, v6);
-  *(_QWORD *)v30 = v5;
-  if ( v29 == (CBatchCommand **)-1LL || !v5 && v29 )
+  v9 = *((_QWORD *)v3 + 1);
+  if ( !v5 && v6 )
   {
-    gsl::details::terminate(v22);
-    JUMPOUT(0x18000DE9BLL);
+    ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+    __debugbreak();
   }
-  v23 = CDrawListBatchManager::RawAddBatchCommands(v21, &v29);
-  if ( v23 < 0 )
-    ModuleFailFastForHRESULT((unsigned int)v23, retaddr);
-  *(_DWORD *)((char *)this + v2 + 96) = 0;
-  *((_DWORD *)v8 + 25) = 0;
-  if ( !*(_DWORD *)((char *)this + v2 + 104) )
-    *((_QWORD *)this + 5) = 0LL;
-  *(_DWORD *)((char *)this + v2 + 104) = 0;
+  v10 = *(_DWORD *)(v9 + 24);
+  v11 = v6 + v10;
+  if ( v6 + v10 < v10 )
+  {
+    v26 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024362, 0xB5u, 0LL);
+  }
+  else
+  {
+    if ( v11 <= *(_DWORD *)(v9 + 20) )
+    {
+      memcpy_0((void *)(*(_QWORD *)v9 + 8LL * v10), v5, 8LL * v6);
+      *(_DWORD *)(v9 + 24) = v11;
+      goto LABEL_11;
+    }
+    v24 = DynArrayImpl<0>::AddMultipleAndSet(*((_QWORD *)v3 + 1), 8LL, v6, v5);
+    v26 = v24;
+    if ( v24 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0xC0u, 0LL);
+  }
+  if ( v26 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v26, 0xA3u, 0LL);
+    ModuleFailFastForHRESULT((unsigned int)v26, retaddr);
+  }
+LABEL_11:
+  *(_QWORD *)((char *)v3 + v2 + 96) = 0LL;
+  if ( !*(_DWORD *)((char *)v3 + v2 + 104) )
+    *((_QWORD *)v3 + 5) = 0LL;
+  *(_DWORD *)((char *)v3 + v2 + 104) = 0;
 }

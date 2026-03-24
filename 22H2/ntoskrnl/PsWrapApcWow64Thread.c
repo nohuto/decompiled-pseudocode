@@ -1,5 +1,5 @@
 /*
- * XREFs of PsWrapApcWow64Thread @ 0x1405A4C10
+ * XREFs of PsWrapApcWow64Thread @ 0x140582A20
  * Callers:
  *     <none>
  * Callees:
@@ -8,13 +8,13 @@
 
 NTSTATUS __stdcall PsWrapApcWow64Thread(PVOID *ApcContext, PVOID *ApcRoutine)
 {
-  _KPROCESS *Process; // rcx
+  unsigned __int64 v2; // rax
   __int16 v3; // ax
 
-  Process = KeGetCurrentThread()->ApcState.Process;
-  if ( Process[1].Affinity.StaticBitmap[30] )
+  v2 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10];
+  if ( v2 )
   {
-    v3 = WORD2(Process[2].Affinity.StaticBitmap[20]);
+    v3 = *(_WORD *)(v2 + 8);
     if ( v3 == 332 || v3 == 452 )
       *ApcRoutine = (PVOID)(-4LL * (_QWORD)*ApcRoutine);
   }

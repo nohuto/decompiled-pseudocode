@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReassessZeroThreads @ 0x1401856F8
+ * XREFs of MiReassessZeroThreads @ 0x140185718
  * Callers:
- *     MiZeroLargePages @ 0x14018510C (MiZeroLargePages.c)
+ *     MiZeroLargePages @ 0x14018512C (MiZeroLargePages.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     MiAddZeroingThreads @ 0x140185A6C (MiAddZeroingThreads.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReduceZeroingThreads @ 0x1402C1A24 (MiReduceZeroingThreads.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     MiAddZeroingThreads @ 0x140185A8C (MiAddZeroingThreads.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReduceZeroingThreads @ 0x1402C1B24 (MiReduceZeroingThreads.c)
  */
 
 void __fastcall MiReassessZeroThreads(__int64 a1, __int64 a2)

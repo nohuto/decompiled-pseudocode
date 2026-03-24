@@ -3,9 +3,9 @@
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopExtendConnectionState @ 0x140761D5C (PopExtendConnectionState.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopExtendConnectionState @ 0x140761D3C (PopExtendConnectionState.c)
  */
 
 PVOID PopInitializeAdpm()

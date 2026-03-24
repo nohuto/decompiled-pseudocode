@@ -1,16 +1,16 @@
 /*
- * XREFs of ?EnsureDxDisplayModeChangedEvent@CRenderTargetManager@@AEAAJXZ @ 0x1800C8CB4
+ * XREFs of ?EnsureDxDisplayModeChangedEvent@CRenderTargetManager@@AEAAJXZ @ 0x1800DEBE8
  * Callers:
- *     ?PostPresent@CRenderTargetManager@@QEAA_N_N@Z @ 0x180053600 (-PostPresent@CRenderTargetManager@@QEAA_N_N@Z.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180077800 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CEACC (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180030E04 (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CRenderTargetManager::EnsureDxDisplayModeChangedEvent(CRenderTargetManager *this)
 {
   signed int v1; // ebx
-  char *v2; // rdi
+  void **v2; // rdi
   HANDLE v3; // rax
   signed int LastError; // eax
   __int64 v6; // rcx
@@ -18,9 +18,9 @@ __int64 __fastcall CRenderTargetManager::EnsureDxDisplayModeChangedEvent(CRender
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = 0;
-  v2 = (char *)this + 528;
+  v2 = (void **)((char *)this + 88);
   SecurityDescriptor = 0LL;
-  if ( ((*((_QWORD *)this + 66) + 1LL) & 0xFFFFFFFFFFFFFFFEuLL) == 0 )
+  if ( ((*((_QWORD *)this + 11) + 1LL) & 0xFFFFFFFFFFFFFFFEuLL) == 0 )
   {
     EventAttributes.lpSecurityDescriptor = 0LL;
     EventAttributes.bInheritHandle = 0;
@@ -41,7 +41,7 @@ __int64 __fastcall CRenderTargetManager::EnsureDxDisplayModeChangedEvent(CRender
         v1 = (unsigned __int16)LastError | 0x80070000;
       if ( v1 >= 0 )
         v1 = -2003304445;
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v1, 0x1Cu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v1, 0x28Du, 0LL);
     }
     if ( SecurityDescriptor )
       LocalFree(SecurityDescriptor);

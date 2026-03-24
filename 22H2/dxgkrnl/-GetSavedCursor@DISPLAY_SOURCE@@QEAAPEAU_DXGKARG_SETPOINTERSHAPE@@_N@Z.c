@@ -1,40 +1,33 @@
 /*
- * XREFs of ?GetSavedCursor@DISPLAY_SOURCE@@QEAAPEAU_DXGKARG_SETPOINTERSHAPE@@_N@Z @ 0x1C02BDD98
+ * XREFs of ?GetSavedCursor@DISPLAY_SOURCE@@QEAAPEAU_DXGKARG_SETPOINTERSHAPE@@_N@Z @ 0x1C014F70C
  * Callers:
- *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N55@Z @ 0x1C01F2970 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
- *     ?SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C0339CD4 (-SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPO.c)
+ *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C014ECAC (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 struct _DXGKARG_SETPOINTERSHAPE *__fastcall DISPLAY_SOURCE::GetSavedCursor(DISPLAY_SOURCE *this, char a2)
 {
-  __int64 v4; // rcx
-  unsigned __int64 v5; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rcx
+  __int64 v8; // rax
+  SIZE_T v9; // rax
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*((_QWORD *)this + 1) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 5448LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_DisplayCore->IsCoreResourceSharedOwner()",
-      5448LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v8 + 24) = 5136LL;
+    WdLogEvent5_WdAssertion(v8);
   }
-  v4 = *(_QWORD *)(*((_QWORD *)this + 1) + 16LL);
-  if ( !*((_QWORD *)this + 106) && a2 )
+  v6 = *(_QWORD *)(*((_QWORD *)this + 1) + 16LL);
+  if ( !*((_QWORD *)this + 101) && a2 )
   {
-    v5 = 4LL * (unsigned int)(*(_DWORD *)(v4 + 2240) * *(_DWORD *)(v4 + 2244));
-    if ( !is_mul_ok((unsigned int)(*(_DWORD *)(v4 + 2240) * *(_DWORD *)(v4 + 2244)), 4uLL) )
-      v5 = -1LL;
-    *((_QWORD *)this + 106) = operator new[](v5, 0x4B677844u, 256LL);
+    v9 = 4LL * (unsigned int)(*(_DWORD *)(v6 + 2016) * *(_DWORD *)(v6 + 2020));
+    if ( !is_mul_ok((unsigned int)(*(_DWORD *)(v6 + 2016) * *(_DWORD *)(v6 + 2020)), 4uLL) )
+      v9 = -1LL;
+    *((_QWORD *)this + 101) = operator new[](v9, 0x4B677844u, PagedPool);
   }
-  return (struct _DXGKARG_SETPOINTERSHAPE *)((char *)this + 824);
+  return (struct _DXGKARG_SETPOINTERSHAPE *)((char *)this + 784);
 }

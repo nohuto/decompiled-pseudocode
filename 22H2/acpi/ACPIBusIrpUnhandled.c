@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIBusIrpUnhandled @ 0x1C00176B0
+ * XREFs of ACPIBusIrpUnhandled @ 0x1C002B170
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
  */
 
 __int64 __fastcall ACPIBusIrpUnhandled(ULONG_PTR a1, IRP *a2)
@@ -25,17 +25,17 @@ __int64 __fastcall ACPIBusIrpUnhandled(ULONG_PTR a1, IRP *a2)
   v6 = (_QWORD *)DeviceExtension;
   IofCompleteRequest(a2, 0);
   v7 = 0;
-  v8 = (const char *)&unk_1C00622D0;
-  v9 = (const char *)&unk_1C00622D0;
+  v8 = (const char *)&unk_1C00701BA;
+  v9 = (const char *)&unk_1C00701BA;
   if ( v6 )
   {
     v10 = v6[1];
     v7 = (char)v6;
     if ( (v10 & 0x200000000000LL) != 0 )
     {
-      v8 = (const char *)v6[76];
+      v8 = (const char *)v6[71];
       if ( (v10 & 0x400000000000LL) != 0 )
-        v9 = (const char *)v6[77];
+        v9 = (const char *)v6[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -48,9 +48,9 @@ __int64 __fastcall ACPIBusIrpUnhandled(ULONG_PTR a1, IRP *a2)
       4u,
       5u,
       0x41u,
-      (__int64)&WPP_efe410a963c03a77fa130710cec25e42_Traceguids,
+      (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
       (char)a2,
-      (__int64)(&ACPIDispatchPnpTableNames)[v11],
+      ACPIDispatchPnpTableNames[v11],
       Status,
       v7,
       v8,

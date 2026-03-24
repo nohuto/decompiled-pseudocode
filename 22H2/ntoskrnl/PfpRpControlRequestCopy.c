@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpRpControlRequestCopy @ 0x1407B5660
+ * XREFs of PfpRpControlRequestCopy @ 0x14070A408
  * Callers:
- *     PfpRpControlRequest @ 0x1407B5518 (PfpRpControlRequest.c)
+ *     PfpRpControlRequest @ 0x14070A2C0 (PfpRpControlRequest.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PfpRpControlRequestCopy(__m128i *Src, unsigned int a2, __m128i **a3, __m128i *Pool2, char a5)
+__int64 __fastcall PfpRpControlRequestCopy(__m128i *Src, unsigned int a2, __m128i **a3, __m128i *a4, char a5)
 {
   char *v7; // rcx
   __m128i v8; // xmm6
@@ -18,6 +18,7 @@ __int64 __fastcall PfpRpControlRequestCopy(__m128i *Src, unsigned int a2, __m128
   unsigned __int16 epi16; // ax
   unsigned __int64 v11; // rcx
   size_t v12; // rbx
+  __m128i *PoolWithTag; // rdi
   __m128i v16; // [rsp+38h] [rbp-80h]
 
   if ( a5 && a2 )
@@ -48,7 +49,7 @@ __int64 __fastcall PfpRpControlRequestCopy(__m128i *Src, unsigned int a2, __m128
     if ( __PAIR64__(v16.m128i_u32[3], 0) != (unsigned int)v9 )
       return (unsigned int)-1073741811;
   }
-  v11 = 8 * (v16.m128i_u32[3] + (unsigned __int64)(unsigned int)v9)
+  v11 = 8 * ((unsigned int)v9 + (unsigned __int64)v16.m128i_u32[3])
       - ((8 * (v16.m128i_i8[4] + v16.m128i_i8[8]) + 23) & 7)
       + 8 * (v16.m128i_u32[1] + (unsigned __int64)v16.m128i_u32[2])
       + 31;
@@ -59,17 +60,22 @@ __int64 __fastcall PfpRpControlRequestCopy(__m128i *Src, unsigned int a2, __m128
   {
     return (unsigned int)-1073741811;
   }
-  else if ( (unsigned int)v11 <= 0x28uLL
-         || (Pool2 = (__m128i *)ExAllocatePool2(256LL, (unsigned int)v11, 1129473616LL)) != 0LL )
-  {
-    memmove(Pool2, Src, v12);
-    *Pool2 = v8;
-    Pool2[1].m128i_i64[0] = v9;
-    *a3 = Pool2;
-    return 0;
-  }
   else
   {
-    return (unsigned int)-1073741670;
+    if ( (unsigned int)v11 <= 0x28uLL )
+    {
+      PoolWithTag = a4;
+    }
+    else
+    {
+      PoolWithTag = (__m128i *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v11, 0x43526650u);
+      if ( !PoolWithTag )
+        return (unsigned int)-1073741670;
+    }
+    memmove(PoolWithTag, Src, v12);
+    *PoolWithTag = v8;
+    PoolWithTag[1].m128i_i64[0] = v9;
+    *a3 = PoolWithTag;
+    return 0;
   }
 }

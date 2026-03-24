@@ -1,40 +1,40 @@
 /*
- * XREFs of SepDeleteClaimAttributes @ 0x1409D146C
+ * XREFs of SepDeleteClaimAttributes @ 0x140925038
  * Callers:
- *     SepTokenDeleteMethod @ 0x140729600 (SepTokenDeleteMethod.c)
- *     SepDeleteLogonSessionClaims @ 0x14076D9E0 (SepDeleteLogonSessionClaims.c)
- *     SepSetTokenClaims @ 0x1407CF918 (SepSetTokenClaims.c)
+ *     SepSetTokenClaims @ 0x1405DC6A8 (SepSetTokenClaims.c)
+ *     SepTokenDeleteMethod @ 0x140635410 (SepTokenDeleteMethod.c)
+ *     SepDeleteLogonSessionClaims @ 0x1406F7F74 (SepDeleteLogonSessionClaims.c)
  * Callees:
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8C20 (AuthzBasepFreeSecurityAttributesList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x140275910 (AuthzBasepFreeSecurityAttributesList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall SepDeleteClaimAttributes(PVOID P, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall SepDeleteClaimAttributes(PVOID P)
 {
-  _DWORD *v5; // rcx
-  _DWORD *v6; // rcx
-  void *v7; // rcx
+  _DWORD *v2; // rcx
+  _DWORD *v3; // rcx
+  void *v4; // rcx
 
   if ( P )
   {
-    v5 = (_DWORD *)*((_QWORD *)P + 72);
-    if ( v5 )
+    v2 = (_DWORD *)*((_QWORD *)P + 72);
+    if ( v2 )
     {
-      AuthzBasepFreeSecurityAttributesList(v5, a2, a3, a4);
+      AuthzBasepFreeSecurityAttributesList(v2);
       ExFreePoolWithTag(*((PVOID *)P + 72), 0);
       *((_QWORD *)P + 72) = 0LL;
     }
-    v6 = (_DWORD *)*((_QWORD *)P + 73);
-    if ( v6 )
+    v3 = (_DWORD *)*((_QWORD *)P + 73);
+    if ( v3 )
     {
-      AuthzBasepFreeSecurityAttributesList(v6, a2, a3, a4);
+      AuthzBasepFreeSecurityAttributesList(v3);
       ExFreePoolWithTag(*((PVOID *)P + 73), 0);
       *((_QWORD *)P + 73) = 0LL;
     }
-    v7 = (void *)*((_QWORD *)P + 1);
-    if ( v7 )
+    v4 = (void *)*((_QWORD *)P + 1);
+    if ( v4 )
     {
-      ExFreePoolWithTag(v7, 0);
+      ExFreePoolWithTag(v4, 0);
       *((_QWORD *)P + 1) = 0LL;
     }
     ExFreePoolWithTag(P, 0);

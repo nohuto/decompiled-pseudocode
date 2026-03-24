@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkpCreateNotificationEvent @ 0x140858FD0
+ * XREFs of DbgkpCreateNotificationEvent @ 0x1407CA430
  * Callers:
- *     DbgkpInitializePhase1SiloState @ 0x140858F94 (DbgkpInitializePhase1SiloState.c)
+ *     DbgkpInitializePhase1SiloState @ 0x1407CA3F4 (DbgkpInitializePhase1SiloState.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A60 (RtlLengthSid.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x14031CE90 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041AFA0 (ZwCreateEvent.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     RtlpAddKnownAce @ 0x140735770 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x140347A80 (RtlLengthSid.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x140360020 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FA320 (ZwCreateEvent.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14063E320 (ObpReferenceObjectByHandleWithTag.c)
+ *     RtlpAddKnownAce @ 0x1406D5220 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)
@@ -25,26 +25,26 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)
   ULONG v7; // ebx
   ULONG v8; // ebx
   ULONG v9; // edi
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   ACL *v11; // rbx
   int Acl; // edi
   ACL *v13; // rcx
   HANDLE EventHandle; // [rsp+40h] [rbp-C0h] BYREF
-  UNICODE_STRING String2; // [rsp+48h] [rbp-B8h] BYREF
+  UNICODE_STRING SourceString; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+88h] [rbp-78h] BYREF
   __int64 v18; // [rsp+A8h] [rbp-58h]
   _OWORD Sid[3]; // [rsp+B0h] [rbp-50h] BYREF
   __int128 v20[3]; // [rsp+E0h] [rbp-20h] BYREF
 
-  *(_QWORD *)&String2.Length = 2621478LL;
+  *(_QWORD *)&SourceString.Length = 2621478LL;
   v18 = 0LL;
   EventHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
-  String2.Buffer = L"lpacInstrumentation";
+  SourceString.Buffer = L"lpacInstrumentation";
   *(&ObjectAttributes.Attributes + 1) = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  result = RtlDeriveCapabilitySidsFromName(&String2, v20, Sid);
+  result = RtlDeriveCapabilitySidsFromName(&SourceString, v20, Sid);
   if ( result >= 0 )
   {
     result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
@@ -55,11 +55,11 @@ NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _QWORD *a2)
       v7 = RtlLengthSid(SeLocalSid) + v6;
       v8 = RtlLengthSid(SeAllAppPackagesSid) + v7;
       v9 = v8 + RtlLengthSid(Sid) + 68;
-      Pool2 = (ACL *)ExAllocatePool2(256LL, v9, 1818452292LL);
-      v11 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v9, 0x6C636144u);
+      v11 = PoolWithTag;
+      if ( !PoolWithTag )
         return -1073741670;
-      Acl = RtlCreateAcl(Pool2, v9, 2u);
+      Acl = RtlCreateAcl(PoolWithTag, v9, 2u);
       v13 = v11;
       if ( Acl >= 0 )
       {

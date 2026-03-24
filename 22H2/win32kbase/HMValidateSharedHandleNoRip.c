@@ -1,44 +1,42 @@
 /*
- * XREFs of HMValidateSharedHandleNoRip @ 0x1C0208528
+ * XREFs of HMValidateSharedHandleNoRip @ 0x1C00B4228
  * Callers:
- *     GuessMonitorOverrideForCoordinateConversions @ 0x1C000B2B0 (GuessMonitorOverrideForCoordinateConversions.c)
- *     TransformRectBetweenCoordinateSpaces @ 0x1C0062C80 (TransformRectBetweenCoordinateSpaces.c)
- *     ?UpdateWindowTreeDpiAwareness@@YAXPEAUtagPROCESSINFO@@PEAUtagWND@@@Z @ 0x1C008C630 (-UpdateWindowTreeDpiAwareness@@YAXPEAUtagPROCESSINFO@@PEAUtagWND@@@Z.c)
- *     RIMVirtCreatePointerDeviceInfo @ 0x1C018CC18 (RIMVirtCreatePointerDeviceInfo.c)
- *     rimInUserCritCreatePointerDeviceInfo @ 0x1C018E740 (rimInUserCritCreatePointerDeviceInfo.c)
- *     ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C018EFF4 (-rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInpu.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C0194488 (RIMIDECreatePointerDeviceInfo.c)
- *     ?HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtagPOINT@@I@Z @ 0x1C01F7C08 (-HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtag.c)
+ *     ?UpdateWindowTreeDpiAwareness@@YAXPEAUtagPROCESSINFO@@PEAUtagWND@@@Z @ 0x1C0034BF8 (-UpdateWindowTreeDpiAwareness@@YAXPEAUtagPROCESSINFO@@PEAUtagWND@@@Z.c)
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C0070D00 (TransformRectBetweenCoordinateSpaces.c)
+ *     GuessMonitorOverrideForCoordinateConversions @ 0x1C0087E20 (GuessMonitorOverrideForCoordinateConversions.c)
+ *     ?HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtagPOINT@@I@Z @ 0x1C009F078 (-HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtag.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015BF5C (RIMCreatePointerDeviceInfo.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C0160080 (RIMVirtCreatePointerDeviceInfo.c)
+ *     ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C0163E08 (-rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInpu.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167888 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     <none>
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0033100 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
  */
 
-__int64 __fastcall HMValidateSharedHandleNoRip(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall HMValidateSharedHandleNoRip(unsigned __int64 a1)
 {
-  __int64 v3; // rbx
+  __int64 v2; // rbx
+  char *v3; // rsi
   __int64 v4; // rcx
   _QWORD *v5; // r14
-  char *v6; // rdi
-  __int64 v7; // rsi
-  unsigned __int64 v8; // r8
+  unsigned __int64 v6; // rdi
+  __int64 v7; // rbp
+  __int64 v9; // [rsp+20h] [rbp-18h] BYREF
 
-  v3 = 0LL;
+  v2 = 0LL;
   if ( (unsigned __int64)(unsigned __int16)a1 < *((_QWORD *)gpsi + 1) )
   {
-    v4 = dword_1C028FE70 * (unsigned int)(unsigned __int16)a1;
+    v3 = (char *)qword_1C024FA38 + (unsigned int)(unsigned __int16)a1 * dword_1C024FA40;
+    CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>((__int64)&v9);
     v5 = gpKernelHandleTable;
-    v8 = a1 >> 16;
-    v6 = (char *)qword_1C028FE68 + (unsigned int)v4;
-    v7 = 3 * ((__int64)(unsigned int)v4 >> 5);
-    LOWORD(v8) = v8 & 0x7FFF;
-    if ( ((_WORD)v8 == *((_WORD *)v6 + 13)
-       || (_WORD)v8 == 0x7FFF
-       || !(_WORD)v8 && PsGetCurrentProcessWow64Process(v4, a2, v8))
-      && (v6[25] & 1) == 0
-      && v6[24] == 12 )
+    v6 = a1 >> 16;
+    v7 = 3LL * (unsigned int)((v3 - (char *)qword_1C024FA38) >> 5);
+    if ( ((_WORD)v6 == *((_WORD *)v3 + 13) || (_WORD)v6 == 0xFFFF || !(_WORD)v6 && PsGetCurrentProcessWow64Process(v4))
+      && (v3[25] & 1) == 0
+      && v3[24] == 12 )
     {
       return v5[v7];
     }
   }
-  return v3;
+  return v2;
 }

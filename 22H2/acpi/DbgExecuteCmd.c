@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgExecuteCmd @ 0x1C004E898
+ * XREFs of DbgExecuteCmd @ 0x1C0066B0C
  * Callers:
- *     Debugger @ 0x1C004E9C4 (Debugger.c)
+ *     Debugger @ 0x1C0066C38 (Debugger.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     DbgParseArgs @ 0x1C0059E68 (DbgParseArgs.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     DbgParseArgs @ 0x1C006B794 (DbgParseArgs.c)
  */
 
-__int64 __fastcall DbgExecuteCmd(__int64 a1, char *a2, char **a3)
+__int64 __fastcall DbgExecuteCmd(__int64 a1, unsigned __int8 *a2, char **a3)
 {
   unsigned int v3; // r11d
   unsigned int v4; // esi
@@ -16,8 +16,8 @@ __int64 __fastcall DbgExecuteCmd(__int64 a1, char *a2, char **a3)
   char *v6; // rax
   int v7; // edi
   __int64 v10; // r10
-  char *v11; // rdx
-  char *v12; // rax
+  unsigned __int8 *v11; // rdx
+  signed __int64 v12; // rax
   int v13; // r9d
   int v14; // r8d
   __int64 v15; // rbx
@@ -41,11 +41,11 @@ __int64 __fastcall DbgExecuteCmd(__int64 a1, char *a2, char **a3)
     while ( 1 )
     {
       v11 = a2;
-      v12 = (char *)(v6 - a2);
+      v12 = v6 - (char *)a2;
       do
       {
-        v13 = (unsigned __int8)v12[(_QWORD)v11];
-        v14 = (unsigned __int8)*v11 - v13;
+        v13 = v11[v12];
+        v14 = *v11 - v13;
         if ( v14 )
           break;
         ++v11;
@@ -84,7 +84,7 @@ __int64 __fastcall DbgExecuteCmd(__int64 a1, char *a2, char **a3)
 LABEL_17:
   if ( !(&DbgCmds)[4 * v7] )
   {
-    PrintDebugMessage(230, (_DWORD)a2, 0, 0, 0LL);
+    PrintDebugMessage(230, a2, 0LL, 0LL, 0LL);
     return (unsigned int)-2;
   }
   return v5;

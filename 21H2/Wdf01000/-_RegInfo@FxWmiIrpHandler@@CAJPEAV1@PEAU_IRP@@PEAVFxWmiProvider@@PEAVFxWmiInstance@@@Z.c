@@ -1,11 +1,11 @@
 /*
- * XREFs of ?_RegInfo@FxWmiIrpHandler@@CAJPEAV1@PEAU_IRP@@PEAVFxWmiProvider@@PEAVFxWmiInstance@@@Z @ 0x1C001D9E0
+ * XREFs of ?_RegInfo@FxWmiIrpHandler@@CAJPEAV1@PEAU_IRP@@PEAVFxWmiProvider@@PEAVFxWmiInstance@@@Z @ 0x1C0040BF0
  * Callers:
  *     <none>
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
  */
 
 __int64 __fastcall FxWmiIrpHandler::_RegInfo(
@@ -28,13 +28,13 @@ __int64 __fastcall FxWmiIrpHandler::_RegInfo(
   unsigned int v16; // r12d
   _LIST_ENTRY *Flink; // rcx
   unsigned __int8 MinorFunction; // r9
-  _WORD *v19; // rcx
-  unsigned __int16 *v20; // rcx
-  PIRP v21; // rax
-  unsigned int v23; // r15d
-  __int64 v24; // rdx
-  unsigned int v25; // eax
+  unsigned int v19; // r15d
+  __int64 v20; // rdx
+  unsigned int v21; // eax
   _DEVICE_OBJECT *m_DeviceObject; // rax
+  _WORD *v23; // rcx
+  unsigned __int16 *v24; // rcx
+  PIRP v25; // rax
   unsigned __int8 v27; // [rsp+20h] [rbp-68h]
   unsigned int v28; // [rsp+24h] [rbp-64h]
   unsigned int LowPart; // [rsp+28h] [rbp-60h]
@@ -103,31 +103,31 @@ __int64 __fastcall FxWmiIrpHandler::_RegInfo(
       v27 = MinorFunction;
       if ( This->m_NumProviders )
       {
-        v23 = 0;
+        v19 = 0;
         do
         {
-          v24 = 32LL * v23;
-          *(_LIST_ENTRY *)((char *)&Parameters->DefaultTimeout.LowPart + v24) = Flink[3];
-          *(unsigned int *)((char *)&Parameters[1].ReadMode + v24) = (unsigned int)Flink[2].Flink;
+          v20 = 32LL * v19;
+          *(_LIST_ENTRY *)((char *)&Parameters->DefaultTimeout.LowPart + v20) = Flink[3];
+          *(unsigned int *)((char *)&Parameters[1].ReadMode + v20) = (unsigned int)Flink[2].Flink;
           Blink_high = HIDWORD(Flink[4].Blink);
           if ( (Blink_high & 4) != 0 )
           {
-            v25 = 528384;
+            v21 = 528384;
           }
           else
           {
-            v25 = (HIDWORD(Flink[4].Blink) & 2 | 0x40u) >> 1;
+            v21 = (HIDWORD(Flink[4].Blink) & 2 | 0x40u) >> 1;
             if ( (Blink_high & 1) != 0 )
-              v25 |= 0x40u;
+              v21 |= 0x40u;
           }
           if ( BYTE2(Flink[5].Blink) )
           {
-            v25 |= 0x10000u;
+            v21 |= 0x10000u;
             BYTE2(Flink[5].Blink) = 0;
           }
-          *(unsigned int *)((char *)&Parameters[1].NamedPipeType + v24) = v25;
+          *(unsigned int *)((char *)&Parameters[1].NamedPipeType + v20) = v21;
           m_DeviceObject = m_DeviceBase->m_PhysicalDevice.m_DeviceObject;
-          *(_QWORD *)((char *)&Parameters[1].CompletionMode + v24) = m_DeviceObject;
+          *(_QWORD *)((char *)&Parameters[1].CompletionMode + v20) = m_DeviceObject;
           if ( MinorFunction == 11 )
           {
             ObfReferenceObject(m_DeviceObject);
@@ -135,34 +135,34 @@ __int64 __fastcall FxWmiIrpHandler::_RegInfo(
             MinorFunction = v27;
           }
           Flink = Flink->Flink;
-          ++v23;
+          ++v19;
           v31 = Flink;
         }
-        while ( v23 < This->m_NumProviders );
+        while ( v19 < This->m_NumProviders );
         p_m_RegistryPath = v32;
       }
     }
     FxNonPagedObject::Unlock(This, irql, Blink_high);
     if ( v16 <= LowPart )
     {
-      v19 = (_WORD *)((char *)Parameters + v30);
+      v23 = (_WORD *)((char *)Parameters + v30);
       if ( p_m_ParentObject )
       {
-        *v19 = *p_m_ParentObject;
-        memmove(v19 + 1, *((const void **)p_m_ParentObject + 1), *p_m_ParentObject);
+        *v23 = *p_m_ParentObject;
+        memmove(v23 + 1, *((const void **)p_m_ParentObject + 1), *p_m_ParentObject);
       }
       else
       {
-        *v19 = 0;
+        *v23 = 0;
       }
-      v20 = (unsigned __int16 *)((char *)Parameters + v13);
-      *v20 = p_m_RegistryPath->Length;
-      memmove(v20 + 1, p_m_RegistryPath->Buffer, p_m_RegistryPath->Length);
+      v24 = (unsigned __int16 *)((char *)Parameters + v13);
+      *v24 = p_m_RegistryPath->Length;
+      memmove(v24 + 1, p_m_RegistryPath->Buffer, p_m_RegistryPath->Length);
     }
   }
-  v21 = v34;
+  v25 = v34;
   v34->IoStatus.Information = v28;
-  v21->IoStatus.Status = v5;
-  IofCompleteRequest(v21, 0);
+  v25->IoStatus.Status = v5;
+  IofCompleteRequest(v25, 0);
   return v5;
 }

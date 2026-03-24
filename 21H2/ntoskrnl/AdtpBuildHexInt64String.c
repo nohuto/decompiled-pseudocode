@@ -1,26 +1,26 @@
 /*
- * XREFs of AdtpBuildHexInt64String @ 0x140A1AE24
+ * XREFs of AdtpBuildHexInt64String @ 0x14096CFA8
  * Callers:
- *     AdtpBuildRegistryValueString @ 0x140A1B468 (AdtpBuildRegistryValueString.c)
+ *     AdtpBuildRegistryValueString @ 0x14096D5D0 (AdtpBuildRegistryValueString.c)
  * Callees:
- *     StringCchPrintfW @ 0x1402511F0 (StringCchPrintfW.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     StringCchPrintfW @ 0x1402CA7B8 (StringCchPrintfW.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildHexInt64String(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5, _BYTE *a6)
 {
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v9; // rbx
   __int64 result; // rax
   __int64 v11; // rax
 
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, 38LL, 1799447891LL);
-  v9 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x26uLL, 0x6B416553u);
+  v9 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225495LL;
   *a6 = 1;
-  if ( StringCchPrintfW(Pool2, 0x13uLL, L"0x%I64X", *a1) >= 0 )
+  if ( StringCchPrintfW(PoolWithTag, 0x13uLL, L"0x%I64X", *a1) >= 0 )
   {
     v11 = -1LL;
     do

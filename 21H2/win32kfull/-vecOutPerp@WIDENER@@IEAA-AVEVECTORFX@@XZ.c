@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vecOutPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C013152C
+ * XREFs of ?vecOutPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C01415D0
  * Callers:
- *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C012EF14 (-vAddStartCap@WIDENER@@IEAAXXZ.c)
- *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C0130EE8 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
- *     ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02CDE10 (-vAddRoundJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C013F48C (-vAddStartCap@WIDENER@@IEAAXXZ.c)
+ *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C0140F90 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02CF87C (-vAddRoundJoin@WIDENER@@IEAAXH@Z.c)
  * Callees:
- *     ?vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C01317CC (-vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ *     ?vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C01416A4 (-vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
  */
 
 _QWORD *__fastcall WIDENER::vecOutPerp(WIDENER *a1, _QWORD *a2)

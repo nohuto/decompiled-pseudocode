@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@CBrightnessEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A11A0
+ * XREFs of ?IsOfType@CBrightnessEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F650
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A12A0 (-IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18001BE80 (-IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CBrightnessEffect::IsOfType(__int64 a1, int a2)
@@ -11,9 +11,9 @@ char __fastcall CBrightnessEffect::IsOfType(__int64 a1, int a2)
   char v2; // al
   char v3; // cl
 
-  if ( a2 == 14 )
+  if ( a2 == 13 )
     return 1;
-  v2 = CFilterEffect::IsOfType();
+  v2 = CFilterEffect::IsOfType(a1, a2);
   v3 = 0;
   if ( v2 )
     return 1;

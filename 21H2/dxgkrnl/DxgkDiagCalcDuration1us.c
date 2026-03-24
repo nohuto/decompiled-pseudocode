@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkDiagCalcDuration1us @ 0x1C0024A38
+ * XREFs of DxgkDiagCalcDuration1us @ 0x1C0020414
  * Callers:
- *     DpiFdoInvalidateChildRelations @ 0x1C01F3230 (DpiFdoInvalidateChildRelations.c)
- *     DpiAddDevice @ 0x1C01F84B0 (DpiAddDevice.c)
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
+ *     DpiFdoInvalidateChildRelations @ 0x1C0179340 (DpiFdoInvalidateChildRelations.c)
+ *     DpiAddDevice @ 0x1C017CFC0 (DpiAddDevice.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C000B2A0
+ * XREFs of ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C0017434
  * Callers:
- *     GreAdjustSpriteDirtyAccum @ 0x1C000ABB0 (GreAdjustSpriteDirtyAccum.c)
- *     GreNotifyDirtySprite @ 0x1C000B1A0 (GreNotifyDirtySprite.c)
- *     GreAddBitmapD3DDirtyRgn @ 0x1C015982A (GreAddBitmapD3DDirtyRgn.c)
- *     GreSetLWContentOwner @ 0x1C02D5534 (GreSetLWContentOwner.c)
+ *     GrePtInSprite @ 0x1C0016F2C (GrePtInSprite.c)
+ *     GreNotifyDirtySprite @ 0x1C00F2114 (GreNotifyDirtySprite.c)
+ *     GreAdjustSpriteDirtyAccum @ 0x1C00F2658 (GreAdjustSpriteDirtyAccum.c)
+ *     GreAddBitmapD3DDirtyRgn @ 0x1C026E9EC (GreAddBitmapD3DDirtyRgn.c)
  * Callees:
- *     ?hspLookupWindow@DWMALTSPRITEREF@@QEAAPEAUHSPRITE__@@PEAUHWND__@@@Z @ 0x1C000B2D0 (-hspLookupWindow@DWMALTSPRITEREF@@QEAAPEAUHSPRITE__@@PEAUHWND__@@@Z.c)
- *     ?AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C00AE284 (-AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
+ *     ?AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C0017464 (-AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
+ *     ?hspLookupWindow@DWMALTSPRITEREF@@SAPEAUHSPRITE__@@PEAUHWND__@@@Z @ 0x1C0017498 (-hspLookupWindow@DWMALTSPRITEREF@@SAPEAUHSPRITE__@@PEAUHWND__@@@Z.c)
  */
 
 DWMALTSPRITEREF *__fastcall DWMALTSPRITEREF::DWMALTSPRITEREF(DWMALTSPRITEREF *this, HWND a2)
@@ -15,7 +15,7 @@ DWMALTSPRITEREF *__fastcall DWMALTSPRITEREF::DWMALTSPRITEREF(DWMALTSPRITEREF *th
   HSPRITE v3; // rax
 
   *(_QWORD *)this = 0LL;
-  v3 = DWMALTSPRITEREF::hspLookupWindow(this, a2);
+  v3 = DWMALTSPRITEREF::hspLookupWindow(a2);
   DWMALTSPRITEREF::AltLockSpriteObj(this, v3);
   return this;
 }

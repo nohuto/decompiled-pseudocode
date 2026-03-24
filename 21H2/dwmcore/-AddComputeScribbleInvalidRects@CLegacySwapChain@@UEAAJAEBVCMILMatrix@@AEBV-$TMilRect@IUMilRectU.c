@@ -1,220 +1,204 @@
 /*
- * XREFs of ?AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x180081554
+ * XREFs of ?AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x1800C1954
  * Callers:
- *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@A@EAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x180108C50 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@A@EAAJAEBVCMILMatrix@@AEBV-$TMilRec.c)
- *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@BI@EAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x180109C50 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@BI@EAAJAEBVCMILMatrix@@AEBV-$TMilRe.c)
- *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x18010A2D0 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJAEBVCMILMatrix@@AEBV-$TMilR.c)
+ *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@A@EAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x1800F7420 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@A@EAAJAEBVCMILMatrix@@AEBV-$TMilRec.c)
+ *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@BI@EAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x1800F78E0 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@BI@EAAJAEBVCMILMatrix@@AEBV-$TMilRe.c)
+ *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x1800F7BB0 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJAEBVCMILMatrix@@AEBV-$TMilR.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??1?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x18002890C (--1-$unique_storage@U-$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1-ReleaseSRWLockExclusive@.c)
- *     ?HasActiveInk@CSuperWetInkManager@@QEBA_NXZ @ 0x180080D48 (-HasActiveInk@CSuperWetInkManager@@QEBA_NXZ.c)
- *     ??0CRegion@@QEAA@AEBUMilRectU@@@Z @ 0x180081FE4 (--0CRegion@@QEAA@AEBUMilRectU@@@Z.c)
- *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180082054 (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?Subtract@CRegion@@QEAAXAEBV1@@Z @ 0x1800823C8 (-Subtract@CRegion@@QEAAXAEBV1@@Z.c)
- *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18008248C (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180083EF4 (-Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800D3824 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0xq_EventWriteTransfer @ 0x180111E98 (McTemplateU0xq_EventWriteTransfer.c)
- *     ?PreRender@CComputeScribbleRenderer@@QEAAJXZ @ 0x1801E46C8 (-PreRender@CComputeScribbleRenderer@@QEAAJXZ.c)
- *     ?HasScribbleStarted@CComputeScribbleFramebuffer@@QEAAXPEA_NPEAVCRegion@@@Z @ 0x1801EB8D8 (-HasScribbleStarted@CComputeScribbleFramebuffer@@QEAAXPEA_NPEAVCRegion@@@Z.c)
- *     CComputeScribbleSynchronizer::BeginRenderInternal__lambda_a5058a3170b2c94992cd95324fb803e7___ @ 0x1801ECDD0 (CComputeScribbleSynchronizer--BeginRenderInternal__lambda_a5058a3170b2c94992cd95324fb803e7___.c)
- *     ?EndRenderOperation@CComputeScribbleSynchronizer@@QEAAXPEAVCD3DDevice@@_K@Z @ 0x1801ED0AC (-EndRenderOperation@CComputeScribbleSynchronizer@@QEAAXPEAVCD3DDevice@@_K@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
- *     ?AddTransientRegion@CSwapChainBuffer@@QEAAXAEBVCRegion@@@Z @ 0x18028A958 (-AddTransientRegion@CSwapChainBuffer@@QEAAXAEBVCRegion@@@Z.c)
- *     ContributeRegionToDirty @ 0x18028B094 (ContributeRegionToDirty.c)
+ *     ?Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18003A848 (-Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x1800987FC (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B114 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18009B3D8 (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     wil::details::lambda_call__lambda_c306f654859c1e62202ed28910883a59___::_lambda_call__lambda_c306f654859c1e62202ed28910883a59___ @ 0x1800F2460 (wil--details--lambda_call__lambda_c306f654859c1e62202ed28910883a59___--_lambda_call__lambda_c306.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     McTemplateU0xq_EventWriteTransfer @ 0x180152CC4 (McTemplateU0xq_EventWriteTransfer.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAU_RTL_SRWLOCK@@@Z @ 0x1801A5AAC (-reset@-$unique_storage@U-$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1-ReleaseSRWLockExclus.c)
+ *     ?FenceRenderAfterScribble@CComputeScribbleFramebuffer@@QEAAJXZ @ 0x1801A63C0 (-FenceRenderAfterScribble@CComputeScribbleFramebuffer@@QEAAJXZ.c)
+ *     ?GetAndClearDirtyRegion@CComputeScribbleFramebuffer@@QEAAXPEAVCRegion@@@Z @ 0x1801A6420 (-GetAndClearDirtyRegion@CComputeScribbleFramebuffer@@QEAAXPEAVCRegion@@@Z.c)
+ *     ?HasScribbleStarted@CComputeScribbleFramebuffer@@QEAAXPEA_NPEAVCRegion@@@Z @ 0x1801A64A0 (-HasScribbleStarted@CComputeScribbleFramebuffer@@QEAAXPEA_NPEAVCRegion@@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
+ *     ContributeRegionToDirty @ 0x1802498DC (ContributeRegionToDirty.c)
  */
 
-__int64 __fastcall CLegacySwapChain::AddComputeScribbleInvalidRects(
-        __int64 a1,
-        __int64 a2,
-        const struct MilRectU *a3,
-        __int64 a4)
+__int64 __fastcall CLegacySwapChain::AddComputeScribbleInvalidRects(__int64 a1, __int64 a2, int *a3, __int64 a4)
 {
-  __int64 v4; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  _DWORD **v9; // rbx
-  int v10; // eax
-  unsigned __int64 v11; // r12
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r14
-  _QWORD *v15; // r13
-  __int64 v16; // rsi
-  CComputeScribbleRenderer *v17; // rcx
-  char v18; // r15
-  char v19; // r14
-  char v20; // bl
-  __int64 v21; // r9
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r9
-  unsigned int v25; // ebx
-  int v27; // eax
+  __int64 v6; // rdx
+  __int64 v8; // r9
+  CComputeScribbleFramebuffer *v10; // r11
+  int v11; // r8d
+  __int64 v12; // rax
+  int v13; // r9d
+  int v14; // edx
+  __int64 v15; // r14
+  int v16; // eax
+  int v17; // esp
+  unsigned int v18; // edi
+  int v20; // eax
+  int v21; // eax
+  RTL_SRWLOCK *v22; // rbx
+  int v23; // eax
+  int v24; // eax
+  int v25; // eax
+  __int64 v26; // rax
+  __int64 v27; // rcx
   int v28; // eax
-  int v29; // eax
-  int v30; // eax
-  __int64 v31; // rcx
-  int v32; // eax
-  int v33; // eax
-  int v34; // eax
-  __int64 v35; // r8
-  __int64 v36; // rcx
-  int v37; // eax
-  bool v38; // [rsp+20h] [rbp-E0h] BYREF
-  __int64 v39; // [rsp+28h] [rbp-D8h] BYREF
-  RTL_SRWLOCK *v40; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v41; // [rsp+38h] [rbp-C8h]
-  __int64 v42; // [rsp+40h] [rbp-C0h]
-  int *v43; // [rsp+50h] [rbp-B0h] BYREF
-  int v44; // [rsp+58h] [rbp-A8h] BYREF
-  int *v45; // [rsp+A0h] [rbp-60h] BYREF
-  int v46; // [rsp+A8h] [rbp-58h] BYREF
-  int *v47; // [rsp+F0h] [rbp-10h] BYREF
-  int v48; // [rsp+F8h] [rbp-8h] BYREF
-  _BYTE v49[80]; // [rsp+140h] [rbp+40h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+1D8h] [rbp+D8h]
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  int v31; // [rsp+20h] [rbp-E0h] BYREF
+  RTL_SRWLOCK *v32; // [rsp+28h] [rbp-D8h] BYREF
+  __int64 v33; // [rsp+30h] [rbp-D0h] BYREF
+  char v34; // [rsp+38h] [rbp-C8h]
+  void *lpMem; // [rsp+40h] [rbp-C0h] BYREF
+  _DWORD v36[3]; // [rsp+48h] [rbp-B8h] BYREF
+  _DWORD v37[2]; // [rsp+54h] [rbp-ACh] BYREF
+  _DWORD v38[13]; // [rsp+5Ch] [rbp-A4h] BYREF
+  int *v39; // [rsp+90h] [rbp-70h] BYREF
+  int v40; // [rsp+98h] [rbp-68h] BYREF
+  int *v41; // [rsp+E0h] [rbp-20h] BYREF
+  int v42; // [rsp+E8h] [rbp-18h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+168h] [rbp+68h]
 
-  v4 = *(_QWORD *)(a1 - 296);
-  v41 = a2;
-  v7 = *(unsigned int *)(a1 - 272);
-  v42 = a4;
-  v8 = *(_QWORD *)(v4 + 8 * v7);
-  v9 = (_DWORD **)(v8 + 104);
-  v10 = FastRegion::CRegion::Union((FastRegion::CRegion *)(v8 + 16), (const struct CRegion *)(v8 + 104));
-  v11 = 0LL;
-  if ( v10 < 0 )
-    ModuleFailFastForHRESULT((unsigned int)v10, retaddr);
-  **v9 = 0;
-  v12 = *(unsigned int *)(a1 - 272);
-  v13 = *(_QWORD *)(a1 - 296);
-  v14 = *(_QWORD *)(*(_QWORD *)(v13 + 8 * v12) + 96LL);
-  v15 = *(_QWORD **)(v13 + 8LL * ((unsigned int)(*(_DWORD *)(a1 - 196) + v12 - 1) % *(_DWORD *)(a1 - 196)));
-  v16 = v15[12];
-  CRegion::CRegion((CRegion *)v49, a3);
-  v17 = *(CComputeScribbleRenderer **)(a1 - 80);
-  if ( v17 )
+  v6 = *(unsigned int *)(a1 - 224);
+  v8 = *(_QWORD *)(a1 - 248);
+  v10 = *(CComputeScribbleFramebuffer **)(*(_QWORD *)(v8 + 8 * v6) + 96LL);
+  v11 = *a3;
+  v12 = *(_QWORD *)(v8 + 8LL * ((unsigned int)(*(_DWORD *)(a1 - 176) + v6 - 1) % *(_DWORD *)(a1 - 176)));
+  v13 = a3[2];
+  v14 = a3[3];
+  v15 = *(_QWORD *)(v12 + 96);
+  v16 = a3[1];
+  lpMem = v36;
+  if ( v11 >= v13 || v16 >= v14 )
   {
-    v27 = CComputeScribbleRenderer::PreRender(v17);
-    v25 = v27;
-    if ( v27 < 0 )
-    {
-      wil::details::in1diag3::Return_Hr(
-        retaddr,
-        (void *)0x4D8,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\global\\legacyswapchain.cpp",
-        (const char *)(unsigned int)v27);
-      goto LABEL_13;
-    }
+    v36[0] = 0;
   }
-  if ( v14 )
+  else
   {
-    v46 = 0;
-    v45 = &v46;
-    v28 = FastRegion::CRegion::Copy((FastRegion::CRegion *)&v45, (const struct CRegion *)(v14 + 160));
-    if ( v28 < 0 )
-      ModuleFailFastForHRESULT((unsigned int)v28, retaddr);
-    **(_DWORD **)(v14 + 160) = 0;
-    v29 = FastRegion::CRegion::Intersect((FastRegion::CRegion *)&v45, (const struct CRegion *)v49);
-    if ( v29 < 0 )
-      ModuleFailFastForHRESULT((unsigned int)v29, retaddr);
-    v30 = FastRegion::CRegion::Union(
-            (FastRegion::CRegion *)(*(_QWORD *)(*(_QWORD *)(a1 - 296) + 8LL * *(unsigned int *)(a1 - 272)) + 16LL),
-            (const struct CRegion *)&v45);
-    if ( v30 < 0 )
-      ModuleFailFastForHRESULT((unsigned int)v30, retaddr);
-    FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v45);
+    v37[0] = v16;
+    v36[0] = 2;
+    v36[1] = v11;
+    v36[2] = v13;
+    v37[1] = v17 + 100 - (unsigned int)v37;
+    v38[2] = v11;
+    v38[3] = v13;
+    v38[1] = v17 + 100 - (unsigned int)v38 + 8;
+    v38[0] = v14;
   }
-  v18 = 0;
-  v19 = 1;
-  if ( v16 )
+  if ( v10 )
   {
-    AcquireSRWLockExclusive((PSRWLOCK)(v16 + 64));
-    v40 = (RTL_SRWLOCK *)(v16 + 64);
-    v47 = &v48;
-    v48 = 0;
-    CComputeScribbleFramebuffer::HasScribbleStarted((CComputeScribbleFramebuffer *)v16, &v38, (struct CRegion *)&v47);
-    if ( v38 )
-    {
-      if ( *v47 )
-      {
-        CSwapChainBuffer::AddTransientRegion((CSwapChainBuffer *)v15, (const struct CRegion *)&v47);
-        if ( **(_DWORD **)(*(_QWORD *)(*(_QWORD *)(a1 - 296) + 8LL * *(unsigned int *)(a1 - 272)) + 16LL) )
-        {
-          v31 = *(_QWORD *)(v16 + 48);
-          v39 = *(_QWORD *)(v16 + 16);
-          v11 = CComputeScribbleSynchronizer::BeginRenderInternal__lambda_a5058a3170b2c94992cd95324fb803e7___(v31, &v39);
-          v18 = 1;
-        }
-      }
-    }
-    FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v47);
-    wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>(&v40);
+    v42 = 0;
+    v41 = &v42;
+    CComputeScribbleFramebuffer::GetAndClearDirtyRegion(v10, (struct CRegion *)&v41);
+    v20 = FastRegion::CRegion::Intersect(
+            (const struct FastRegion::Internal::CRgnData **)&v41,
+            (const struct FastRegion::Internal::CRgnData **)&lpMem);
+    if ( v20 < 0 )
+      ModuleFailFastForHRESULT((unsigned int)v20, retaddr);
+    v21 = FastRegion::CRegion::Union(
+            (void **)(*(_QWORD *)(*(_QWORD *)(a1 - 248) + 8LL * *(unsigned int *)(a1 - 224)) + 16LL),
+            (const struct FastRegion::Internal::CRgnData **)&v41);
+    if ( v21 < 0 )
+      ModuleFailFastForHRESULT((unsigned int)v21, retaddr);
+    FastRegion::CRegion::FreeMemory((void **)&v41);
   }
-  if ( !*(_DWORD *)v15[13] )
+  if ( !v15 )
   {
-    v20 = 0;
+    v18 = 0;
     goto LABEL_7;
   }
-  v44 = 0;
-  v43 = &v44;
-  v32 = FastRegion::CRegion::Copy((FastRegion::CRegion *)&v43, (const struct CRegion *)(v15 + 13));
-  if ( v32 < 0 )
-    ModuleFailFastForHRESULT((unsigned int)v32, retaddr);
-  v33 = FastRegion::CRegion::Intersect((FastRegion::CRegion *)&v43, (const struct CRegion *)v49);
-  if ( v33 < 0 )
-    ModuleFailFastForHRESULT((unsigned int)v33, retaddr);
-  v34 = ContributeRegionToDirty(&v43, v42, v41);
-  v25 = v34;
-  if ( v34 >= 0 )
+  v22 = (RTL_SRWLOCK *)(v15 + 224);
+  AcquireSRWLockExclusive((PSRWLOCK)(v15 + 224));
+  v40 = 0;
+  v39 = &v40;
+  v32 = (RTL_SRWLOCK *)(v15 + 224);
+  CComputeScribbleFramebuffer::HasScribbleStarted(
+    (CComputeScribbleFramebuffer *)v15,
+    (bool *)&v31,
+    (struct CRegion *)&v39);
+  if ( (_BYTE)v31 && *v39 )
   {
-    CRegion::Subtract(
-      (CRegion *)(*(_QWORD *)(*(_QWORD *)(a1 - 296) + 8LL * *(unsigned int *)(a1 - 272)) + 16LL),
-      (const struct CRegion *)&v43);
-    v20 = 1;
-    FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v43);
-LABEL_7:
-    v21 = *(_QWORD *)(a1 - 80);
-    if ( !v21 || !*(_BYTE *)(v21 + 48) )
-      v19 = 0;
-    if ( !((unsigned __int8)v20 | (unsigned __int8)(v19 | CSuperWetInkManager::HasActiveInk(*((CSuperWetInkManager **)g_pComposition
-                                                                                            + 32)))) )
-      goto LABEL_10;
-    if ( v24 )
-      v35 = *(_QWORD *)(v24 + 24);
-    else
-      v35 = 0LL;
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x200000) != 0 )
-      McTemplateU0xq_EventWriteTransfer(v23, &EVTDESC_COMPUTESCRIBBLE_EARLYCOPY, v35, *(unsigned int *)(a1 - 272));
-    v36 = a1 + *(int *)(*(_QWORD *)(a1 - 376) + 16LL) - 376LL;
-    v37 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)v36 + 24LL))(v36, v22, v35);
-    v25 = v37;
-    if ( v37 < 0 )
+    v23 = FastRegion::CRegion::Intersect(
+            (const struct FastRegion::Internal::CRgnData **)&v39,
+            (const struct FastRegion::Internal::CRgnData **)&lpMem);
+    if ( v23 < 0 )
+      ModuleFailFastForHRESULT((unsigned int)v23, retaddr);
+    v24 = ContributeRegionToDirty(&v39, a4, a2);
+    v18 = v24;
+    if ( v24 < 0 )
+    {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0x53B,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\global\\legacyswapchain.cpp",
-        (const char *)(unsigned int)v37);
-    else
-LABEL_10:
-      v25 = 0;
-    goto LABEL_11;
+        (void *)0x3EB,
+        (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\legacyswapchain.cpp",
+        (const char *)(unsigned int)v24,
+        v31);
+      goto LABEL_37;
+    }
+    v25 = FastRegion::CRegion::Subtract(
+            (const struct FastRegion::Internal::CRgnData **)(*(_QWORD *)(*(_QWORD *)(a1 - 248)
+                                                                       + 8LL * *(unsigned int *)(a1 - 224))
+                                                           + 16LL),
+            (const struct FastRegion::Internal::CRgnData **)&v39);
+    if ( v25 < 0 )
+      ModuleFailFastForHRESULT((unsigned int)v25, retaddr);
   }
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)0x527,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\global\\legacyswapchain.cpp",
-    (const char *)(unsigned int)v34);
-  FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v43);
-LABEL_11:
-  if ( v18 )
-    CComputeScribbleSynchronizer::EndRenderOperation(
-      *(CComputeScribbleSynchronizer **)(v16 + 48),
-      *(struct CD3DDevice **)(v16 + 16),
-      v11);
-LABEL_13:
-  FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)v49);
-  return v25;
+  v26 = *(_QWORD *)(a1 - 80);
+  if ( v26
+    && *(_BYTE *)(v26 + 52)
+    && **(_DWORD **)(*(_QWORD *)(*(_QWORD *)(a1 - 248) + 8LL * *(unsigned int *)(a1 - 224)) + 16LL) )
+  {
+    *(_BYTE *)(v15 + 232) = 1;
+    v33 = v15;
+    v34 = 1;
+    wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>::reset(
+      &v32,
+      0LL);
+    if ( (_BYTE)v31 )
+    {
+      v28 = CComputeScribbleFramebuffer::FenceRenderAfterScribble((CComputeScribbleFramebuffer *)v15);
+      v18 = v28;
+      if ( v28 < 0 )
+      {
+        v29 = 1036LL;
+LABEL_34:
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          (void *)v29,
+          (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\legacyswapchain.cpp",
+          (const char *)(unsigned int)v28,
+          v31);
+        wil::details::lambda_call__lambda_c306f654859c1e62202ed28910883a59___::_lambda_call__lambda_c306f654859c1e62202ed28910883a59___(&v33);
+        v22 = v32;
+        goto LABEL_37;
+      }
+    }
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
+      McTemplateU0xq_EventWriteTransfer(
+        v27,
+        &EVTDESC_COMPUTESCRIBBLE_EARLYCOPY,
+        *(_QWORD *)(*(_QWORD *)(a1 - 80) + 32LL),
+        *(unsigned int *)(a1 - 224));
+    v30 = a1 + *(int *)(*(_QWORD *)(a1 - 328) + 16LL) - 328LL;
+    v28 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v30 + 24LL))(v30);
+    v18 = v28;
+    if ( v28 < 0 )
+    {
+      v29 = 1041LL;
+      goto LABEL_34;
+    }
+    wil::details::lambda_call__lambda_c306f654859c1e62202ed28910883a59___::_lambda_call__lambda_c306f654859c1e62202ed28910883a59___(&v33);
+    v22 = v32;
+  }
+  v18 = 0;
+LABEL_37:
+  FastRegion::CRegion::FreeMemory((void **)&v39);
+  if ( v22 )
+    ReleaseSRWLockExclusive(v22);
+LABEL_7:
+  if ( v36 != lpMem )
+    operator delete(lpMem);
+  return v18;
 }

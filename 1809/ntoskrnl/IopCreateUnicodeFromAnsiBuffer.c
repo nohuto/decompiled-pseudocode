@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCreateUnicodeFromAnsiBuffer @ 0x14018DF70
+ * XREFs of IopCreateUnicodeFromAnsiBuffer @ 0x14018DF90
  * Callers:
- *     IopCreateArcName @ 0x14070B428 (IopCreateArcName.c)
+ *     IopCreateArcName @ 0x14070B408 (IopCreateArcName.c)
  *     IopMarkBootPartition @ 0x1409D6100 (IopMarkBootPartition.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  */
 

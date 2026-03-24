@@ -21,7 +21,7 @@ __int64 __fastcall PspValidateCreateProcessProtection(__int64 a1, __int64 a2, ch
     {
       if ( (*(_DWORD *)(v6 + 4) & 0x800) == 0 )
       {
-        v7 = (unsigned int)dword_140909974[3 * ((unsigned __int64)(unsigned __int8)a2 >> 4)];
+        v7 = (unsigned int)dword_140909954[3 * ((unsigned __int64)(unsigned __int8)a2 >> 4)];
         if ( (v7 & 0x40) != 0 )
         {
           LOBYTE(v7) = a5;

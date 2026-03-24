@@ -1,136 +1,151 @@
 /*
- * XREFs of MiUpdateForkMaps @ 0x1406654A0
+ * XREFs of MiUpdateForkMaps @ 0x14055B6E0
  * Callers:
- *     MiCloneVads @ 0x1406632E8 (MiCloneVads.c)
+ *     MiCloneVads @ 0x140559268 (MiCloneVads.c)
  * Callees:
- *     MiMapSinglePage @ 0x140217D78 (MiMapSinglePage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeSystemAddressValid @ 0x140277310 (MiMakeSystemAddressValid.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140284790 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiFillPteHierarchy @ 0x14028ADD0 (MiFillPteHierarchy.c)
- *     MiGetNextPageTable @ 0x1402E56B0 (MiGetNextPageTable.c)
- *     MiIncreaseUsedPtesCount @ 0x1402F18D4 (MiIncreaseUsedPtesCount.c)
- *     MiBuildForkPageTable @ 0x140661F84 (MiBuildForkPageTable.c)
- *     MiDoneWithThisPageGetAnother @ 0x140663FF4 (MiDoneWithThisPageGetAnother.c)
+ *     MiIncreaseUsedPtesCount @ 0x140289E54 (MiIncreaseUsedPtesCount.c)
+ *     MiFillPteHierarchy @ 0x14028CAF0 (MiFillPteHierarchy.c)
+ *     MiGetNextPageTable @ 0x14028DEA0 (MiGetNextPageTable.c)
+ *     MiMakeSystemAddressValid @ 0x14028EA10 (MiMakeSystemAddressValid.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14029D260 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiMapSinglePage @ 0x14036AA54 (MiMapSinglePage.c)
+ *     MiBuildForkPageTable @ 0x140557F0C (MiBuildForkPageTable.c)
+ *     MiDoneWithThisPageGetAnother @ 0x14055A078 (MiDoneWithThisPageGetAnother.c)
  */
 
 ULONG_PTR __fastcall MiUpdateForkMaps(__int64 *a1, __int64 a2, __int64 a3, _QWORD *a4, __int64 a5, char a6)
 {
-  int v8; // r13d
   __int64 NextPageTable; // rax
-  ULONG_PTR v10; // rdi
-  unsigned int v12; // edx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // rax
-  __int64 v16; // rax
-  unsigned __int64 *v17; // r14
-  __int64 v18; // rbx
+  ULONG_PTR v9; // rdi
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  ULONG_PTR v13; // rax
+  __int64 v14; // rbx
+  unsigned __int64 *v15; // r13
+  int v16; // edi
+  __int64 v17; // rbx
+  __int64 v18; // r14
   __int64 v19; // rbp
-  __int64 v20; // r12
-  __int64 v21; // rdi
-  __int64 v22; // rax
-  unsigned __int64 v23; // rbx
-  __int64 *v24; // rbx
-  unsigned __int8 v25; // r9
-  __int64 v26; // [rsp+30h] [rbp-58h] BYREF
-  ULONG_PTR v27; // [rsp+38h] [rbp-50h]
-  __int128 v28; // [rsp+40h] [rbp-48h] BYREF
-  __int128 v29; // [rsp+50h] [rbp-38h] BYREF
-  __int64 *v30; // [rsp+98h] [rbp+10h] BYREF
-  _QWORD *v31; // [rsp+A8h] [rbp+20h]
+  __int64 *v20; // r15
+  __int64 v21; // rax
+  unsigned __int64 v22; // rbx
+  __int64 *v23; // rbx
+  __int64 v24; // r8
+  __int64 v25; // r9
+  struct _LIST_ENTRY *Flink; // rdx
+  unsigned __int8 v27; // r9
+  __int64 v28; // [rsp+30h] [rbp-68h] BYREF
+  __int64 v29; // [rsp+38h] [rbp-60h]
+  ULONG_PTR v30; // [rsp+40h] [rbp-58h]
+  __int128 v31; // [rsp+48h] [rbp-50h] BYREF
+  __int128 v32; // [rsp+58h] [rbp-40h] BYREF
+  int v33; // [rsp+A8h] [rbp+10h] BYREF
+  _QWORD *v34; // [rsp+B8h] [rbp+20h]
 
-  v31 = a4;
-  LODWORD(v30) = 0;
-  v8 = 4;
-  v28 = 0LL;
-  v29 = 0LL;
-  NextPageTable = MiGetNextPageTable(a2, a3, 0LL, a6, 4, &v30);
-  v27 = NextPageTable;
-  v10 = NextPageTable;
+  v34 = a4;
+  v33 = 0;
+  v31 = 0LL;
+  v32 = 0LL;
+  NextPageTable = MiGetNextPageTable(a2, a3, 0LL, a6, 4u, &v33);
+  v30 = NextPageTable;
+  v9 = NextPageTable;
   if ( !NextPageTable )
     return a3 + 8;
-  v12 = MI_IS_PHYSICAL_ADDRESS(NextPageTable << 25 >> 16);
-  if ( v12 )
+  LODWORD(v11) = MI_IS_PHYSICAL_ADDRESS(NextPageTable << 25 >> 16);
+  if ( (_DWORD)v11 )
   {
-    v13 = v12;
-    v14 = v12;
+    v12 = (unsigned int)v11;
     do
     {
-      v10 = ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      --v14;
+      v9 = ((v9 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      --v12;
     }
-    while ( v14 );
-    v10 += 8LL;
+    while ( v12 );
+    v9 += 8LL;
+    v11 = (unsigned int)v11;
     do
     {
-      v10 = (__int64)(v10 << 25) >> 16;
-      --v13;
+      v9 = (__int64)(v9 << 25) >> 16;
+      --v11;
     }
-    while ( v13 );
+    while ( v11 );
   }
   else
   {
-    if ( ((a1[6] ^ v10) & 0xFFFFFFFFFFFFF000uLL) != 0 )
+    if ( ((v9 ^ a1[6]) & 0xFFFFFFFFFFFFF000uLL) != 0 )
     {
-      MiFillPteHierarchy((__int64)(v10 << 25) >> 16, (unsigned __int64 *)&v28);
-      v16 = *a1;
-      v17 = (unsigned __int64 *)&v29 + 1;
-      a1[6] = v10;
-      v18 = *(_QWORD *)(v16 + 40) >> 12;
+      MiFillPteHierarchy((__int64)(v9 << 25) >> 16, (unsigned __int64 *)&v31);
+      v14 = *a1;
+      v15 = (unsigned __int64 *)&v32 + 1;
+      a1[6] = v9;
+      v16 = 4;
+      v29 = 3LL;
+      v17 = *(_QWORD *)(v14 + 40) >> 12;
+      v18 = v17;
       v19 = 0LL;
-      v20 = v18;
-      v21 = 3LL;
       do
       {
-        v30 = (__int64 *)(MiMapSinglePage(a1[7], v18, 1073741856, 0) + 8LL * ((*(_DWORD *)v17 >> 3) & 0x1FF));
-        v22 = MI_READ_PTE_LOCK_FREE((unsigned __int64)v30);
-        v26 = v22;
-        v23 = v22;
-        if ( v22 )
+        v20 = (__int64 *)(MiMapSinglePage(a1[7], v17, 1073741856LL, 0LL) + 8LL * ((*(_DWORD *)v15 >> 3) & 0x1FF));
+        v21 = MI_READ_PTE_LOCK_FREE((unsigned __int64)v20);
+        v28 = v21;
+        v22 = v21;
+        if ( v21 )
         {
-          if ( (v22 & 1) != 0 )
+          if ( (v21 & 1) != 0 )
           {
-            v23 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v26);
+            if ( MiPteInShadowRange((unsigned __int64)&v28)
+              && (MiFlags & 0xC00000) != 0
+              && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+              && ((v22 & 0x20) == 0 || (v22 & 0x42) == 0) )
+            {
+              Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+              if ( Flink )
+              {
+                if ( ((__int64)*(&Flink->Flink + (((unsigned __int64)&v28 >> 3) & 0x1FF)) & 0x20) != 0 )
+                  v22 |= 0x20uLL;
+              }
+            }
           }
-          else if ( qword_140C65C40 )
+          else if ( qword_140C4DF40 )
           {
-            if ( (v22 & 0x10) != 0 )
-              v23 = v22 & 0xFFFFFFFFFFFFFFEFuLL;
+            if ( (v21 & 0x10) != 0 )
+              v22 = v21 & 0xFFFFFFFFFFFFFFEFuLL;
             else
-              v23 = ~qword_140C65C40 & v22;
+              v22 = ~qword_140C4DF40 & v21;
           }
-          v18 = (v23 >> 12) & 0xFFFFFFFFFFLL;
+          v17 = (v22 >> 12) & 0xFFFFFFFFFLL;
         }
         else
         {
-          v24 = &a1[4 - v8];
-          MiDoneWithThisPageGetAnother(v24 + 1, a5, *a1, a6);
-          v18 = v24[1];
-          MiBuildForkPageTable(*a1, v18, *v17, v30, v20, v8 - 1);
-          ++*v31;
+          v23 = &a1[4 - v16];
+          MiDoneWithThisPageGetAnother(v23 + 1, a5, *a1, a6);
+          v17 = v23[1];
+          MiBuildForkPageTable(*a1, v17, *v15, v20, v18, v16 - 1);
+          ++*v34;
           if ( v19 )
-            MiIncreaseUsedPtesCount(v19, 1u);
+            MiIncreaseUsedPtesCount(v19, 1LL, v24, v25);
         }
-        v19 = 48 * v18 - 0x220000000000LL;
-        --v8;
-        --v17;
-        v20 = v18;
-        --v21;
+        v19 = 48 * v17 - 0x58000000000LL;
+        --v16;
+        --v15;
+        v18 = v17;
+        --v29;
       }
-      while ( v21 );
-      v15 = MiMapSinglePage(a1[7], v18, 1073741856, 0);
-      v10 = v27;
-      a1[4] = v15;
+      while ( v29 );
+      v13 = MiMapSinglePage(a1[7], v17, 1073741856LL, 0LL);
+      v9 = v30;
+      a1[4] = v13;
       a1[8] = v19;
     }
     else
     {
-      v15 = a1[4];
+      v13 = a1[4];
     }
-    v25 = a6;
-    a1[5] = v15 | v10 & 0xFFF;
-    MiMakeSystemAddressValid(v10, 0LL, 0, v25, 1);
+    v27 = a6;
+    a1[5] = v13 | v9 & 0xFFF;
+    MiMakeSystemAddressValid(v9, 0LL, 0, v27, 1);
   }
-  return v10;
+  return v9;
 }

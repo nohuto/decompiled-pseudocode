@@ -1,37 +1,46 @@
 /*
- * XREFs of NtResumeThread @ 0x1406B8B70
+ * XREFs of NtResumeThread @ 0x14064CC20
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsMultiResumeThread @ 0x1402EEA18 (PsMultiResumeThread.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PsResumeThread @ 0x14064CCE0 (PsResumeThread.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtResumeThread(ULONG_PTR BugCheckParameter1, _DWORD *a2)
+NTSTATUS __fastcall NtResumeThread(HANDLE Handle, _DWORD *a2)
 {
-  __int64 v4; // rcx
-  __int64 result; // rax
-  unsigned int v6; // [rsp+70h] [rbp+18h] BYREF
+  KPROCESSOR_MODE PreviousMode; // r9
+  __int64 v5; // rcx
+  NTSTATUS result; // eax
+  int v7; // [rsp+70h] [rbp+18h] BYREF
   PVOID Object; // [rsp+78h] [rbp+20h] BYREF
 
-  v6 = 0;
+  v7 = 0;
   Object = 0LL;
-  if ( KeGetCurrentThread()->PreviousMode && a2 )
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  if ( PreviousMode && a2 )
   {
-    v4 = 0x7FFFFFFF0000LL;
+    v5 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v4 = (__int64)a2;
-    *(_DWORD *)v4 = *(_DWORD *)v4;
+      v5 = (__int64)a2;
+    *(_DWORD *)v5 = *(_DWORD *)v5;
   }
-  result = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 0x75537350u, (__int64)&Object, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  result = ObReferenceObjectByHandleWithTag(
+             Handle,
+             0x1000u,
+             (POBJECT_TYPE)PsThreadType,
+             PreviousMode,
+             0x75537350u,
+             &Object,
+             0LL);
+  if ( result >= 0 )
   {
-    PsMultiResumeThread((__int64)Object, &v6, 1u);
+    PsResumeThread(Object, &v7);
     ObfDereferenceObjectWithTag(Object, 0x75537350u);
     if ( a2 )
-      *a2 = v6;
-    return 0LL;
+      *a2 = v7;
+    return 0;
   }
   return result;
 }

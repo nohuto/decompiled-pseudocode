@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_E?$CDeviceResourceTable@VCD2DEffect@@VCFilterEffect@@@@UEAAPEAXI@Z @ 0x18019E660
+ * XREFs of ??_E?$CDeviceResourceTable@VCD2DEffect@@VCFilterEffect@@@@UEAAPEAXI@Z @ 0x18016C920
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1?$CDeviceResourceTable@VCD2DInk@@VCInk@@@@UEAA@XZ @ 0x18019D7C4 (--1-$CDeviceResourceTable@VCD2DInk@@VCInk@@@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1?$CDeviceResourceTable@VCD2DInk@@VCInk@@@@UEAA@XZ @ 0x18016B8B0 (--1-$CDeviceResourceTable@VCD2DInk@@VCInk@@@@UEAA@XZ.c)
  */
 
 void *__fastcall CDeviceResourceTable<CD2DEffect,CFilterEffect>::`vector deleting destructor'(void *a1, char a2)

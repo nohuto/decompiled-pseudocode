@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBDESC_ParseConfigurationDescriptor @ 0x1C0033084
+ * XREFs of HUBDESC_ParseConfigurationDescriptor @ 0x1C003281C
  * Callers:
- *     HUBPARENT_SetHubConfiguration @ 0x1C0006F04 (HUBPARENT_SetHubConfiguration.c)
- *     HUBUCX_UpdateHubInformationUsingUCXIoctl @ 0x1C0026134 (HUBUCX_UpdateHubInformationUsingUCXIoctl.c)
- *     HUBDTX_ValidateAndCacheConfigDescriptor @ 0x1C00290AC (HUBDTX_ValidateAndCacheConfigDescriptor.c)
- *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration @ 0x1C002C0D0 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration.c)
- *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface @ 0x1C002CD4C (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface.c)
+ *     HUBPARENT_SetHubConfiguration @ 0x1C0006C64 (HUBPARENT_SetHubConfiguration.c)
+ *     HUBUCX_UpdateHubInformationUsingUCXIoctl @ 0x1C0025C94 (HUBUCX_UpdateHubInformationUsingUCXIoctl.c)
+ *     HUBDTX_ValidateAndCacheConfigDescriptor @ 0x1C0028C00 (HUBDTX_ValidateAndCacheConfigDescriptor.c)
+ *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration @ 0x1C002B9E0 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration.c)
+ *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface @ 0x1C002C690 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
  */
 
 unsigned __int8 *__fastcall HUBDESC_ParseConfigurationDescriptor(
@@ -81,7 +81,7 @@ unsigned __int8 *__fastcall HUBDESC_ParseConfigurationDescriptor(
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          WPP_RECORDER_SF_(a9, 2u, 5u, 0xAu, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids);
+          WPP_RECORDER_SF_(a9, 2u, 5u, 0xAu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
           a4 = v20;
         }
       }

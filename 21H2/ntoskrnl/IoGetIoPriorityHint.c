@@ -1,8 +1,8 @@
 /*
- * XREFs of IoGetIoPriorityHint @ 0x140221E10
+ * XREFs of IoGetIoPriorityHint @ 0x140254F60
  * Callers:
- *     IoRetrievePriorityInfo @ 0x14033FD80 (IoRetrievePriorityInfo.c)
- *     IopSynchronousServiceTail @ 0x140731680 (IopSynchronousServiceTail.c)
+ *     IoRetrievePriorityInfo @ 0x1402569D0 (IoRetrievePriorityInfo.c)
+ *     IopSynchronousServiceTail @ 0x1406FED80 (IopSynchronousServiceTail.c)
  * Callees:
  *     <none>
  */

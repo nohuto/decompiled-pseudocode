@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDmListInitEnumCallback @ 0x14072C770
+ * XREFs of PiDmListInitEnumCallback @ 0x14072C750
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
  *     _PnpStringFromGuid @ 0x14059ACE4 (_PnpStringFromGuid.c)
- *     PiDmAddCacheReferenceForObject @ 0x1406F1B00 (PiDmAddCacheReferenceForObject.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1406F9750 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmListAddObject @ 0x1407028AC (PiDmListAddObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406F1AE0 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1406F9730 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmListAddObject @ 0x14070288C (PiDmListAddObject.c)
  */
 
 __int64 __fastcall PiDmListInitEnumCallback(ULONG_PTR a1, __int64 a2, _BYTE *a3)

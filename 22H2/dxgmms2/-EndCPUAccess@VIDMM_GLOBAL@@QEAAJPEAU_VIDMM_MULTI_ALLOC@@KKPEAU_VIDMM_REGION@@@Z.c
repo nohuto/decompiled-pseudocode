@@ -1,11 +1,10 @@
 /*
- * XREFs of ?EndCPUAccess@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@KKPEAU_VIDMM_REGION@@@Z @ 0x1C00B1CF4
+ * XREFs of ?EndCPUAccess@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@KKPEAU_VIDMM_REGION@@@Z @ 0x1C0085710
  * Callers:
- *     VidMmEndCPUAccess @ 0x1C00171A0 (VidMmEndCPUAccess.c)
+ *     VidMmEndCPUAccess @ 0x1C0014420 (VidMmEndCPUAccess.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C002E9CC (McTemplateK0ppq_EtwWriteTransfer.c)
- *     ?UnlockParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E81C0 (-UnlockParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C0024508 (McTemplateK0ppq_EtwWriteTransfer.c)
+ *     ?UnlockParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B2F68 (-UnlockParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::EndCPUAccess(
@@ -14,55 +13,57 @@ __int64 __fastcall VIDMM_GLOBAL::EndCPUAccess(
         __int64 a3,
         unsigned int a4)
 {
-  struct _VIDMM_GLOBAL_ALLOC *v4; // rbx
+  struct _VIDMM_GLOBAL_ALLOC *v4; // rdi
   __int64 v5; // rbp
-  __int64 v7; // rcx
-  struct _VIDMM_GLOBAL_ALLOC *v8; // rdi
-  struct _VIDMM_GLOBAL_ALLOC **v9; // rax
+  struct _VIDMM_GLOBAL_ALLOC *v7; // rbx
+  struct _VIDMM_GLOBAL_ALLOC **v8; // rax
+  __int64 v10; // rax
   __int64 v11; // rax
-  __int64 v12; // rcx
-  __int64 v13; // rcx
-  int v14; // [rsp+28h] [rbp-30h]
+  __int64 v12; // rax
+  __int64 v13; // rax
+  int v14; // [rsp+28h] [rbp-10h]
 
   v4 = 0LL;
   v5 = a4;
   if ( g_IsInternalReleaseOrDbg )
   {
-    v11 = WdLogNewEntry5_WdTrace(this);
-    *(_QWORD *)(v11 + 24) = a2;
-    *(_QWORD *)(v11 + 32) = v5;
+    v10 = WdLogNewEntry5_WdTrace(this);
+    *(_QWORD *)(v10 + 24) = a2;
+    *(_QWORD *)(v10 + 32) = v5;
   }
   if ( (v5 & 0xFFFFFFFE) != 0 )
   {
-    WdLogSingleEntry1(1LL, 8653LL);
-    DxgkLogInternalTriageEvent(v12, 0x40000LL);
+    v11 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+    *(_QWORD *)(v11 + 24) = 8315LL;
+    WdLogEvent5_WdAssertion(v11);
     return 3221225712LL;
   }
-  v7 = (__int64)**a2;
-  if ( !*(_DWORD *)(v7 + 360) )
+  v7 = **a2;
+  if ( !*((_DWORD *)v7 + 84) )
   {
-    WdLogSingleEntry0(3LL);
+    v12 = WdLogNewEntry5_WdWarning(this, a2);
+    WdLogEvent5_WdWarning(v12);
     return 3221225485LL;
   }
-  v8 = **a2;
-  if ( *((_BYTE *)v8 + 80) )
+  if ( (*((_DWORD *)v7 + 21) & 0x20) != 0 )
   {
-    WdLogSingleEntry1(1LL, 8669LL);
-    DxgkLogInternalTriageEvent(v13, 0x40000LL);
+    v13 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+    *(_QWORD *)(v13 + 24) = 8331LL;
+    WdLogEvent5_WdAssertion(v13);
     return 3221225485LL;
   }
-  if ( (*((_DWORD *)v8 + 18) & 0x2000) != 0 )
+  if ( (*((_DWORD *)v7 + 20) & 0x2000) != 0 )
     UnlockParavirtualizedAllocationOnHost(**a2);
-  _InterlockedDecrement((volatile signed __int32 *)v8 + 90);
+  _InterlockedDecrement((volatile signed __int32 *)v7 + 84);
   if ( bTracingEnabled )
   {
-    v9 = a2[1];
-    if ( v9 )
-      v4 = v9[3];
-    if ( (byte_1C0076981 & 1) != 0 )
+    v8 = a2[1];
+    if ( v8 )
+      v4 = v8[3];
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     {
       v14 = v5;
-      McTemplateK0ppq_EtwWriteTransfer(v7, &EventUnlock, a3, v4, a2, v14);
+      McTemplateK0ppq_EtwWriteTransfer((__int64)this, &EventUnlock, a3, v4, a2, v14);
     }
   }
   return 0LL;

@@ -1,13 +1,16 @@
 /*
- * XREFs of ?CleanupChannelObject@DXG_GUEST_REMOTEOBJECTCHANNEL@@UEAAXW4_HMGRENTRY_TYPE@@PEAX@Z @ 0x1C0350790
+ * XREFs of ?CleanupChannelObject@DXG_GUEST_REMOTEOBJECTCHANNEL@@UEAAXW4_HMGRENTRY_TYPE@@PEAX@Z @ 0x1C02B4A50
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-char DXG_GUEST_REMOTEOBJECTCHANNEL::CleanupChannelObject()
+__int64 __fastcall DXG_GUEST_REMOTEOBJECTCHANNEL::CleanupChannelObject(__int64 a1, __int64 a2)
 {
-  WdLogSingleEntry1(1LL, 236LL);
-  return DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"FALSE", 236LL, 0LL, 0LL, 0LL, 0LL);
+  __int64 v2; // rax
+
+  v2 = WdLogNewEntry5_WdAssertion(a1, a2);
+  *(_QWORD *)(v2 + 24) = 236LL;
+  return WdLogEvent5_WdAssertion(v2);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of Match_64 @ 0x1C0057A20
+ * XREFs of Match_64 @ 0x1C0069C1C
  * Callers:
- *     Match @ 0x1C0057820 (Match.c)
+ *     Match @ 0x1C0069A10 (Match.c)
  * Callees:
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
- *     IsCompatableDSDTRevision @ 0x1C004BE48 (IsCompatableDSDTRevision.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     EvalPackageElement @ 0x1C004F704 (EvalPackageElement.c)
- *     MatchData_64 @ 0x1C00578B4 (MatchData_64.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     EvalPackageElement @ 0x1C001246C (EvalPackageElement.c)
+ *     MatchData_64 @ 0x1C0069AA4 (MatchData_64.c)
  */
 
 __int64 __fastcall Match_64(__int64 a1, __int64 a2)

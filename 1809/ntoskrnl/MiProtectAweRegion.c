@@ -1,5 +1,5 @@
 /*
- * XREFs of MiProtectAweRegion @ 0x1402B14BC
+ * XREFs of MiProtectAweRegion @ 0x1402B15BC
  * Callers:
  *     MmProtectVirtualMemory @ 0x1405EDFD0 (MmProtectVirtualMemory.c)
  * Callees:
@@ -13,17 +13,17 @@
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121464 (MiInsertLargeTbFlushEntry.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiGetAweNode @ 0x1402B0C18 (MiGetAweNode.c)
- *     MiLockAweVadsShared @ 0x1402B1214 (MiLockAweVadsShared.c)
- *     MiUnlockAweVadsShared @ 0x1402B1FE0 (MiUnlockAweVadsShared.c)
- *     MiRewritePteWithLockBit @ 0x1402BF57C (MiRewritePteWithLockBit.c)
- *     MiGetVadCacheAttribute @ 0x1402CAFE4 (MiGetVadCacheAttribute.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiGetAweNode @ 0x1402B0D18 (MiGetAweNode.c)
+ *     MiLockAweVadsShared @ 0x1402B1314 (MiLockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x1402B20E0 (MiUnlockAweVadsShared.c)
+ *     MiRewritePteWithLockBit @ 0x1402BF67C (MiRewritePteWithLockBit.c)
+ *     MiGetVadCacheAttribute @ 0x1402CB0E4 (MiGetVadCacheAttribute.c)
  */
 
 __int64 __fastcall MiProtectAweRegion(unsigned __int64 a1, unsigned __int64 a2, int a3, _DWORD *a4)

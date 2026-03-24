@@ -1,74 +1,64 @@
 /*
- * XREFs of RtlpDidUnicodeToOemWork @ 0x140755EA8
+ * XREFs of RtlpDidUnicodeToOemWork @ 0x140678F78
  * Callers:
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140756020 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlUnicodeStringToCountedOemString @ 0x1407D11A0 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x1408745A0 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x140678B50 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x140678C40 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140678EB0 (RtlUpcaseUnicodeStringToCountedOemString.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1406DA5E0 (RtlpIsUtf8Process.c)
+ *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
  */
 
 char __fastcall RtlpDidUnicodeToOemWork(unsigned __int16 *a1, __int64 a2)
 {
   char v3; // bl
-  _WORD *CurrentServerSiloGlobals; // rax
-  unsigned int v6; // r9d
-  __int16 v7; // bp
-  __int16 v8; // r11
-  unsigned int v9; // ecx
-  unsigned int v11; // edx
-  unsigned int v12; // r10d
-  __int64 v13; // r14
-  __int64 v14; // rcx
-  __int64 v15; // rdi
-  bool v16; // zf
-  signed __int32 v17[14]; // [rsp+0h] [rbp-38h] BYREF
+  unsigned int v5; // r10d
+  unsigned int v6; // edx
+  unsigned int v8; // r9d
+  unsigned int v9; // r11d
+  __int64 v10; // rdi
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  bool v13; // zf
 
   v3 = 1;
-  if ( !RtlpIsUtf8Process() )
+  if ( !RtlpIsUtf8Process(1) )
   {
-    _InterlockedOr(v17, 0);
-    CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v6 = *a1;
-    v7 = CurrentServerSiloGlobals[566];
-    v8 = CurrentServerSiloGlobals[568];
-    if ( CurrentServerSiloGlobals[570] )
+    v5 = *a1;
+    if ( (_BYTE)NlsMbOemCodePageTag )
     {
-      v11 = 0;
-      v12 = 0;
+      v8 = 0;
+      v9 = 0;
       if ( !*a1 )
         return v3;
-      v13 = *((_QWORD *)a1 + 1);
+      v10 = *((_QWORD *)a1 + 1);
       while ( 1 )
       {
-        v14 = *(unsigned __int8 *)(v11 + v13);
-        if ( *(_WORD *)(*((_QWORD *)CurrentServerSiloGlobals + 152) + 2 * v14)
-          && (v15 = v11 + 1, (unsigned int)v15 < v6) )
+        v11 = *(unsigned __int8 *)(v8 + v10);
+        if ( NlsOemLeadByteInfoTable[v11] && (v12 = v8 + 1, (unsigned int)v12 < v5) )
         {
-          ++v11;
-          v16 = ((char)v14 << 8) + *(unsigned __int8 *)(v15 + v13) == v7;
+          ++v8;
+          v13 = ((char)v11 << 8) + *(unsigned __int8 *)(v12 + v10) == OemDefaultChar;
         }
         else
         {
-          v16 = (char)v14 == (unsigned __int8)v7;
+          v13 = (char)v11 == (unsigned __int8)OemDefaultChar;
         }
-        if ( v16 && *(_WORD *)(*(_QWORD *)(a2 + 8) + 2LL * v12) != v8 )
+        if ( v13 && *(_WORD *)(*(_QWORD *)(a2 + 8) + 2LL * v9) != OemTransUniDefaultChar )
           break;
-        ++v11;
-        ++v12;
-        if ( v11 >= v6 )
+        ++v8;
+        ++v9;
+        if ( v8 >= v5 )
           return v3;
       }
       return 0;
     }
-    v9 = 0;
+    v6 = 0;
     if ( *a1 )
     {
-      while ( *(char *)(v9 + *((_QWORD *)a1 + 1)) != (unsigned __int8)v7
-           || *(_WORD *)(*(_QWORD *)(a2 + 8) + 2LL * v9) == v8 )
+      while ( *(char *)(v6 + *((_QWORD *)a1 + 1)) != (unsigned __int8)OemDefaultChar
+           || *(_WORD *)(*(_QWORD *)(a2 + 8) + 2LL * v6) == OemTransUniDefaultChar )
       {
-        if ( ++v9 >= v6 )
+        if ( ++v6 >= v5 )
           return v3;
       }
       return 0;

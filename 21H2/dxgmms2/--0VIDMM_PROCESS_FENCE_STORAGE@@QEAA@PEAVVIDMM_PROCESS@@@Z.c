@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0VIDMM_PROCESS_FENCE_STORAGE@@QEAA@PEAVVIDMM_PROCESS@@@Z @ 0x1C0082BC0
+ * XREFs of ??0VIDMM_PROCESS_FENCE_STORAGE@@QEAA@PEAVVIDMM_PROCESS@@@Z @ 0x1C007AC60
  * Callers:
- *     ?Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0082118 (-Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z.c)
- *     ?InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ @ 0x1C00B4010 (-InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ.c)
+ *     ?Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C00783C0 (-Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z.c)
+ *     ?InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ @ 0x1C0093A34 (-InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -11,11 +11,10 @@ VIDMM_PROCESS_FENCE_STORAGE *__fastcall VIDMM_PROCESS_FENCE_STORAGE::VIDMM_PROCE
         VIDMM_PROCESS_FENCE_STORAGE *this,
         struct VIDMM_PROCESS *a2)
 {
-  char v3; // al
+  bool v3; // al
 
   *(_QWORD *)this = a2;
-  if ( !a2 || (v3 = 1, (*(_DWORD *)(*((_QWORD *)a2 + 4) + 424LL) & 0x100) == 0) )
-    v3 = 0;
+  v3 = a2 && (*(_BYTE *)(*((_QWORD *)a2 + 4) + 347LL) & 0x20) != 0;
   *((_BYTE *)this + 64) = v3;
   *((_QWORD *)this + 4) = (char *)this + 24;
   *((_QWORD *)this + 3) = (char *)this + 24;

@@ -1,11 +1,11 @@
 /*
- * XREFs of WPP_RECORDER_SF_Sd @ 0x1C0042BC0
+ * XREFs of WPP_RECORDER_SF_Sd @ 0x1C00406B0
  * Callers:
- *     CheckUSBFnConfiguration @ 0x1C004318C (CheckUSBFnConfiguration.c)
- *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C004342C (ReadUSBFnFeaturesFromCurrentConfiguration.c)
- *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C00435BC (UsbDualRoleFeaturesQueryLocalMachine.c)
+ *     CheckUSBFnConfiguration @ 0x1C0040C60 (CheckUSBFnConfiguration.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C0040F00 (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C0041090 (UsbDualRoleFeaturesQueryLocalMachine.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_Sd(
@@ -48,7 +48,7 @@ __int64 WPP_RECORDER_SF_Sd(
     v13 = L"NULL";
     if ( a6 )
       v13 = a6;
-    pfnWppTraceMessage(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, _QWORD, const wchar_t *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       &WPP_5169c4c8089132207a438b4341aed5b6_Traceguids,

@@ -1,57 +1,38 @@
 /*
- * XREFs of ?VmBusSendFlushHeapTransitions@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJXZ @ 0x1C0388DB4
+ * XREFs of ?VmBusSendFlushHeapTransitions@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJXZ @ 0x1C0248E18
  * Callers:
- *     DxgkFlushHeapTransitions @ 0x1C01E0790 (DxgkFlushHeapTransitions.c)
+ *     DxgkFlushHeapTransitions @ 0x1C015FFD0 (DxgkFlushHeapTransitions.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C038FFC4 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPE.c)
+ *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C024DD40 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_M.c)
  */
 
-__int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendFlushHeapTransitions(DXG_GUEST_VIRTUALGPU_VMBUS *this)
+__int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendFlushHeapTransitions(
+        DXG_GUEST_VIRTUALGPU_VMBUS *this,
+        __int64 a2,
+        __int64 a3,
+        struct _MDL *a4)
 {
-  struct DXGKVMB_COMMAND_BASE *v2; // rax
-  __int64 v3; // rdi
   int v4; // eax
-  struct _MDL *v6; // [rsp+20h] [rbp-168h]
-  struct DXGKVMB_COMMAND_BASE *v7[2]; // [rsp+50h] [rbp-138h] BYREF
-  unsigned int v8; // [rsp+60h] [rbp-128h]
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  __int64 v10; // [rsp+20h] [rbp-28h] BYREF
+  int v11; // [rsp+28h] [rbp-20h]
+  int v12; // [rsp+2Ch] [rbp-1Ch]
+  int v13; // [rsp+30h] [rbp-18h]
 
-  v8 = 0;
-  *(_OWORD *)v7 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v7, this, 0x18u, 0LL, 0LL, 0LL);
-  v2 = v7[0];
-  if ( v7[0] )
+  v10 = 0LL;
+  v11 = 0;
+  v12 = 0;
+  v13 = 37;
+  v4 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (struct DXGKVMB_COMMAND_BASE *)&v10, 0x18u, a4);
+  v7 = v4;
+  if ( v4 < 0 )
   {
-    *(_QWORD *)v7[0] = 0LL;
-    *((_DWORD *)v2 + 2) = 0;
-    *((_DWORD *)v2 + 5) = 0;
-    *((_BYTE *)v2 + 12) = 0;
-    *((_DWORD *)v2 + 3) &= 0x1FFu;
-    *((_DWORD *)v2 + 4) = 37;
-    v4 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (unsigned __int8 *)v7[1], v7[0], v8, v6);
-    v3 = v4;
-    if ( v4 < 0 )
-    {
-      WdLogSingleEntry1(2LL, v4);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"VmBusSendFlushHeapTransitions failed: 0x%I64x",
-        v3,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
+    v8 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v8 + 24) = v7;
+    WdLogEvent5_WdError(v8);
   }
-  else
-  {
-    LODWORD(v3) = -1073741801;
-  }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v7);
-  return (unsigned int)v3;
+  return (unsigned int)v7;
 }

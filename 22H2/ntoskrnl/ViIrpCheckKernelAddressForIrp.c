@@ -1,10 +1,10 @@
 /*
- * XREFs of ViIrpCheckKernelAddressForIrp @ 0x140ACEDD0
+ * XREFs of ViIrpCheckKernelAddressForIrp @ 0x1409D1898
  * Callers:
- *     VfBeforeCallDriver @ 0x140ACE5AC (VfBeforeCallDriver.c)
+ *     VfBeforeCallDriver @ 0x1409D1088 (VfBeforeCallDriver.c)
  * Callees:
- *     VfTargetDriversIsEnabled @ 0x140ACC614 (VfTargetDriversIsEnabled.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     VfTargetDriversIsEnabled @ 0x1409D6F40 (VfTargetDriversIsEnabled.c)
  */
 
 struct _KTHREAD *__fastcall ViIrpCheckKernelAddressForIrp(
@@ -16,7 +16,7 @@ struct _KTHREAD *__fastcall ViIrpCheckKernelAddressForIrp(
   struct _KPROCESS *Process; // r9
 
   result = (struct _KTHREAD *)(BugCheckParameter3 - 1);
-  if ( BugCheckParameter3 - 1 <= 0x7FFFFFFEFFFELL )
+  if ( BugCheckParameter3 - 1 <= 0x7FFFFFFEFFFDLL )
   {
     result = KeGetCurrentThread();
     Process = result->ApcState.Process;

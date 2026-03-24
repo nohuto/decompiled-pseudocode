@@ -1,101 +1,145 @@
 /*
- * XREFs of ?HandleRecoverablePageInFailure@VIDMM_WORKER_THREAD@@AEAAJPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@PEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_PAGING_QUEUE_PACKET@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@PEAW4VIDMM_PAGE_IN_PASS@@PEAPEAV2@@Z @ 0x1C00ED3A8
+ * XREFs of ?HandleRecoverablePageInFailure@VIDMM_WORKER_THREAD@@AEAAJPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@PEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_PAGING_QUEUE_PACKET@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@PEAW4VIDMM_PAGE_IN_PASS@@PEAPEAV2@@Z @ 0x1C00B7E98
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B5730 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008C500 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
  * Callees:
- *     ?DemoteAllocationsToFitGlobalAlloc@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@@Z @ 0x1C00EC5E4 (-DemoteAllocationsToFitGlobalAlloc@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM.c)
- *     ?FlushDeferredEvictions@VIDMM_WORKER_THREAD@@AEAA_NPEAVVIDMM_DEVICE@@@Z @ 0x1C00ECE7C (-FlushDeferredEvictions@VIDMM_WORKER_THREAD@@AEAA_NPEAVVIDMM_DEVICE@@@Z.c)
- *     ?SuspendDevices@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@W4_VIDMM_PLACEMENT_RESTRICTION@@PEAPEAV3@@Z @ 0x1C00EDB1C (-SuspendDevices@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001B54 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     ?DemoteAllocationsToFitGlobalAlloc@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@PEA_N@Z @ 0x1C00B73D4 (-DemoteAllocationsToFitGlobalAlloc@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_.c)
+ *     ?ProcessEvictQueues@VIDMM_WORKER_THREAD@@AEAAXPEA_N@Z @ 0x1C00B8154 (-ProcessEvictQueues@VIDMM_WORKER_THREAD@@AEAAXPEA_N@Z.c)
+ *     ?ProcessFrozenProcesses@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_DEVICE@@PEA_N@Z @ 0x1C00B824C (-ProcessFrozenProcesses@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_DEVICE@@PEA_N@Z.c)
+ *     ?ProcessPendingTerminations@VIDMM_WORKER_THREAD@@AEAAX_NPEA_N1@Z @ 0x1C00B8308 (-ProcessPendingTerminations@VIDMM_WORKER_THREAD@@AEAAX_NPEA_N1@Z.c)
+ *     ?SuspendDevices@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@W4_VIDMM_PLACEMENT_RESTRICTION@@PEA_NPEAPEAV3@@Z @ 0x1C00B8728 (-SuspendDevices@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_P.c)
  */
 
 __int64 VIDMM_WORKER_THREAD::HandleRecoverablePageInFailure(
-        union _LARGE_INTEGER *a1,
+        VIDMM_WORKER_THREAD *a1,
         struct VIDMM_DEVICE *a2,
         __int64 **a3,
         ...)
 {
-  unsigned int v6; // ebx
-  __int64 result; // rax
-  int v8; // r12d
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  int v11; // r9d
-  __int64 v12; // r15
-  __int64 v13; // rsi
-  __int64 v14; // rdx
-  int v15; // ecx
-  __int64 v16; // [rsp+88h] [rbp+20h] BYREF
-  va_list va; // [rsp+88h] [rbp+20h]
-  __int64 v18; // [rsp+90h] [rbp+28h]
-  __int64 v19; // [rsp+98h] [rbp+30h]
-  __int64 v20; // [rsp+A0h] [rbp+38h]
-  _DWORD *v21; // [rsp+A8h] [rbp+40h]
-  _QWORD *v22; // [rsp+B0h] [rbp+48h]
-  va_list va1; // [rsp+B8h] [rbp+50h] BYREF
+  unsigned int v5; // edi
+  __int64 v7; // rbx
+  DXGPUSHLOCK *v8; // r13
+  _QWORD **v9; // rsi
+  _QWORD **v10; // rbx
+  _QWORD *v11; // rax
+  int v12; // esi
+  __int64 v13; // r10
+  int v14; // r9d
+  char v15; // r8
+  __int64 v16; // rbx
+  __int64 v17; // r8
+  int v18; // ecx
+  int v19; // eax
+  va_list v21; // [rsp+28h] [rbp-28h]
+  bool v22; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v23; // [rsp+90h] [rbp+40h] BYREF
+  __int64 v24; // [rsp+A8h] [rbp+58h] BYREF
+  va_list va; // [rsp+A8h] [rbp+58h]
+  __int64 v26; // [rsp+B0h] [rbp+60h]
+  __int64 v27; // [rsp+B8h] [rbp+68h]
+  __int64 v28; // [rsp+C0h] [rbp+70h]
+  int *v29; // [rsp+C8h] [rbp+78h]
+  _QWORD *v30; // [rsp+D0h] [rbp+80h]
+  va_list va1; // [rsp+D8h] [rbp+88h] BYREF
 
   va_start(va1, a3);
   va_start(va, a3);
-  v16 = va_arg(va1, _QWORD);
-  v18 = va_arg(va1, _QWORD);
-  v19 = va_arg(va1, _QWORD);
-  v20 = va_arg(va1, _QWORD);
-  v21 = va_arg(va1, _DWORD *);
-  v22 = va_arg(va1, _QWORD *);
-  v6 = 0;
-  if ( VIDMM_WORKER_THREAD::FlushDeferredEvictions(a1, a2) )
+  v24 = va_arg(va1, _QWORD);
+  v26 = va_arg(va1, _QWORD);
+  v27 = va_arg(va1, _QWORD);
+  v28 = va_arg(va1, _QWORD);
+  v29 = va_arg(va1, int *);
+  v30 = va_arg(va1, _QWORD *);
+  v5 = 0;
+  v22 = 0;
+  LOBYTE(v24) = 0;
+  VIDMM_WORKER_THREAD::ProcessPendingTerminations(a1, 1, &v22, (bool *)va);
+  KeWaitForSingleObject((PVOID)(*(_QWORD *)a1 + 41152LL), Executive, 0, 0, 0LL);
+  v7 = *(_QWORD *)a1;
+  v8 = (DXGPUSHLOCK *)(*(_QWORD *)a1 + 40048LL);
+  DXGPUSHLOCK::AcquireExclusive(v8);
+  v9 = (_QWORD **)(v7 + 40032);
+  while ( 1 )
   {
-    ++a1[47].HighPart;
-    return 0LL;
+    v10 = (_QWORD **)*v9;
+    if ( (_QWORD **)(*v9)[1] != v9 || (v11 = *v10, (_QWORD **)(*v10)[1] != v10) )
+      __fastfail(3u);
+    *v9 = v11;
+    v11[1] = v9;
+    if ( v10 == v9 )
+      break;
+    (*(void (__fastcall **)(_QWORD *, _QWORD, _QWORD *, _QWORD *))(*v10[2] + 24LL))(v10[2], 0LL, v10[3], v10[4]);
+    operator delete(v10);
   }
-  v8 = v20;
-  v9 = **a3;
-  v10 = *(_QWORD *)(a1->QuadPart + 40224);
-  v11 = *(_DWORD *)(v9 + 68);
-  v12 = 1616LL * (v11 & 0x3F);
-  if ( (*(_BYTE *)(v10 + v12 + 446) & 2) != 0
-    && (*(_DWORD *)(a1->QuadPart + 7056) & 0x2000) == 0
-    && ((*(_DWORD *)a3[12] & 0x20000) == 0 || (*(_BYTE *)(v10 + v12 + 445) & 0x10) != 0)
-    && (v11 & 0x400) == 0
-    && VIDMM_WORKER_THREAD::DemoteAllocationsToFitGlobalAlloc(a1, v9, a2) )
+  *((_QWORD *)v8 + 1) = 0LL;
+  ExReleasePushLockExclusiveEx(v8, 0LL);
+  KeLeaveCriticalRegion();
+  LOBYTE(v23) = 0;
+  VIDMM_WORKER_THREAD::ProcessEvictQueues(a1, (bool *)&v23);
+  LOBYTE(v24) = 0;
+  VIDMM_WORKER_THREAD::ProcessFrozenProcesses(a1, a2, (bool *)va);
+  if ( !(v22 | (unsigned __int8)(v23 | v24)) )
   {
-    ++a1[48].LowPart;
-    return 0LL;
-  }
-  v13 = v19;
-  v14 = 0LL;
-  v16 = 0LL;
-  if ( !*(_BYTE *)(v19 + 8) )
-  {
-    if ( v18 && *(_DWORD *)(v18 + 48) == 203 )
-      v15 = *(_DWORD *)(v18 + 80);
-    else
-      v15 = 0;
-    if ( (unsigned __int8)VIDMM_WORKER_THREAD::SuspendDevices(a1, **a3, a2, v19, v8, v15, (__int64 *)va) )
+    v12 = v28;
+    v13 = **a3;
+    v14 = *(_DWORD *)(v13 + 76);
+    v15 = *(_BYTE *)(1584LL * (v14 & 0x3F) + *(_QWORD *)(*(_QWORD *)a1 + 40216LL) + 437);
+    if ( v15 >= 0
+      || (*(_DWORD *)(*(_QWORD *)a1 + 7048LL) & 0x2000) != 0
+      || ((unsigned __int8)~((unsigned __int8)v15 >> 2) & ((*(_DWORD *)a3[12] & 0x20000) != 0)) != 0
+      || (v14 & 0x400) != 0
+      || (LOBYTE(v24) = 0,
+          va_copy(v21, va),
+          VIDMM_WORKER_THREAD::DemoteAllocationsToFitGlobalAlloc((__int64 *)a1, v13, a2),
+          !(_BYTE)v24) )
     {
-      ++a1[48].HighPart;
-      return 0LL;
+      v16 = v27;
+      v17 = 0LL;
+      v23 = 0LL;
+      if ( *(_BYTE *)(v27 + 8) )
+      {
+LABEL_19:
+        if ( (*(_DWORD *)a3[12] & 0x20000) == 0
+          || (*(_BYTE *)(1584LL * (*(_DWORD *)(**a3 + 76) & 0x3F) + *(_QWORD *)(*(_QWORD *)a1 + 40216LL) + 437) & 4) != 0
+          || *(_BYTE *)(v16 + 8) )
+        {
+          v19 = *(_DWORD *)v16;
+          if ( *(_DWORD *)v16 != 2 )
+          {
+LABEL_28:
+            *v29 = v19;
+            return v5;
+          }
+          if ( v17 )
+          {
+            *v30 = v17;
+            return 3223191812LL;
+          }
+          v19 = 2;
+        }
+        else
+        {
+          v19 = *(_DWORD *)v16;
+        }
+        v5 = -1073741823;
+        goto LABEL_28;
+      }
+      LOBYTE(v24) = 0;
+      if ( v26 && *(_DWORD *)(v26 + 48) == 203 )
+        v18 = *(_DWORD *)(v26 + 80);
+      else
+        v18 = 0;
+      LODWORD(v21) = v18;
+      VIDMM_WORKER_THREAD::SuspendDevices(a1, **a3, a2, v27, v12, v21, (__int64 *)va, &v23);
+      if ( !(_BYTE)v24 )
+      {
+        v17 = v23;
+        goto LABEL_19;
+      }
     }
-    v14 = v16;
   }
-  if ( (*(_DWORD *)a3[12] & 0x20000) != 0
-    && (*(_BYTE *)(*(_QWORD *)(a1->QuadPart + 40224) + v12 + 445) & 0x10) == 0
-    && !*(_BYTE *)(v13 + 8) )
-  {
-LABEL_25:
-    v6 = -1073741823;
-    goto LABEL_26;
-  }
-  if ( *(_DWORD *)v13 == 2 )
-  {
-    if ( v14 )
-    {
-      *v22 = v14;
-      return 3223191812LL;
-    }
-    goto LABEL_25;
-  }
-LABEL_26:
-  result = v6;
-  *v21 = *(_DWORD *)v13;
-  return result;
+  return 0LL;
 }

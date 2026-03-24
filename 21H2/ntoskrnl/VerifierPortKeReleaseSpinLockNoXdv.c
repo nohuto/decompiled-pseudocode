@@ -1,19 +1,18 @@
 /*
- * XREFs of VerifierPortKeReleaseSpinLockNoXdv @ 0x140A96730
+ * XREFs of VerifierPortKeReleaseSpinLockNoXdv @ 0x1409DBC50
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x140A7F710 (VfKeIrqlTransitionReserveLogEntry.c)
- *     ViKeIrqlLogCommon @ 0x140A7F7DA (ViKeIrqlLogCommon.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ViKeIrqlLogCommon @ 0x1409DC0CC (ViKeIrqlLogCommon.c)
+ *     ViKeReleaseSpinLockCommon @ 0x1409DC360 (ViKeReleaseSpinLockCommon.c)
  */
 
-void __fastcall VerifierPortKeReleaseSpinLockNoXdv(__int64 a1, unsigned __int8 a2)
+__int64 __fastcall VerifierPortKeReleaseSpinLockNoXdv(PKSPIN_LOCK SpinLock, unsigned __int8 a2)
 {
-  unsigned __int64 v2; // rbx
-  char *v3; // rdi
-  PKSPIN_LOCK v4; // r9
+  unsigned __int64 v2; // rdi
+  __int64 v4; // rsi
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r11
   _DWORD *SchedulerAssist; // r10
@@ -21,8 +20,8 @@ void __fastcall VerifierPortKeReleaseSpinLockNoXdv(__int64 a1, unsigned __int8 a
   bool v9; // zf
 
   v2 = a2;
-  v3 = VfKeIrqlTransitionReserveLogEntry(KeGetCurrentIrql(), a2);
-  KxReleaseSpinLock(v4);
+  v4 = ViKeReleaseSpinLockCommon((ULONG_PTR)SpinLock);
+  KxReleaseSpinLock(SpinLock);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -41,5 +40,5 @@ void __fastcall VerifierPortKeReleaseSpinLockNoXdv(__int64 a1, unsigned __int8 a
     }
   }
   __writecr8(v2);
-  ViKeIrqlLogCommon((__int64)v3, 1u);
+  return ViKeIrqlLogCommon(v4, 1LL);
 }

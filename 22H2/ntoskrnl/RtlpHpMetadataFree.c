@@ -1,24 +1,22 @@
 /*
- * XREFs of RtlpHpMetadataFree @ 0x140323E7C
+ * XREFs of RtlpHpMetadataFree @ 0x1402FDF7C
  * Callers:
- *     RtlpHpLargeFree @ 0x140323C8C (RtlpHpLargeFree.c)
- *     RtlpHpLargeAlloc @ 0x140323EBC (RtlpHpLargeAlloc.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B5FB0 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x1405B6370 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
- *     RtlpHpHeapDestroy @ 0x1405B66C0 (RtlpHpHeapDestroy.c)
- *     RtlpHpLargeAllocationDestroy @ 0x1405B7350 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpLargeFree @ 0x1402FDE04 (RtlpHpLargeFree.c)
+ *     RtlpHpLargeAlloc @ 0x1402FDFBC (RtlpHpLargeAlloc.c)
+ *     RtlpHpHeapDestroy @ 0x1403891BC (RtlpHpHeapDestroy.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x140595530 (RtlpHpLargeAllocationDestroy.c)
  * Callees:
- *     RtlpHpFreeHeap @ 0x1402AC490 (RtlpHpFreeHeap.c)
- *     RtlpHpMetadataHeapCtxGet @ 0x140324448 (RtlpHpMetadataHeapCtxGet.c)
+ *     RtlpHpFreeHeap @ 0x1402C2790 (RtlpHpFreeHeap.c)
+ *     RtlpHpMetadataHeapCtxGet @ 0x1402FE76C (RtlpHpMetadataHeapCtxGet.c)
  */
 
 __int64 __fastcall RtlpHpMetadataFree(__int64 a1, __int128 *a2)
 {
-  _DWORD **v2; // rax
-  unsigned __int64 v3; // r10
+  __int128 **v2; // rax
+  __int64 v3; // r10
   __int128 v5; // [rsp+30h] [rbp-18h] BYREF
 
   v5 = *a2;
-  v2 = (_DWORD **)RtlpHpMetadataHeapCtxGet(&v5);
-  return RtlpHpFreeHeap(*v2, v3, 0x1000000, 0LL, 0LL);
+  v2 = (__int128 **)RtlpHpMetadataHeapCtxGet(&v5);
+  return RtlpHpFreeHeap(*v2, v3, 0x1000000);
 }

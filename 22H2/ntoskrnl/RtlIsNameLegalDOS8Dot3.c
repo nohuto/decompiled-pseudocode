@@ -1,110 +1,88 @@
 /*
- * XREFs of RtlIsNameLegalDOS8Dot3 @ 0x1407557A0
+ * XREFs of RtlIsNameLegalDOS8Dot3 @ 0x140678D00
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlpIsUtf8Process @ 0x1406DA5E0 (RtlpIsUtf8Process.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140756020 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140678EB0 (RtlUpcaseUnicodeStringToCountedOemString.c)
  */
 
 BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PCUNICODE_STRING Name, POEM_STRING OemName, PBOOLEAN NameContainsSpaces)
 {
-  char v4; // r14
-  BOOLEAN v5; // bp
-  bool v6; // r12
-  __int64 v7; // r15
-  _QWORD *CurrentServerSiloGlobals; // rax
-  int Length; // r8d
-  char **p_Buffer; // rcx
-  unsigned int v14; // edx
-  unsigned int v15; // r10d
-  char *v16; // rbx
-  __int64 v17; // r8
-  int v18; // eax
-  signed __int32 v19[8]; // [rsp+0h] [rbp-88h] BYREF
-  __int128 v20; // [rsp+20h] [rbp-68h] BYREF
-  char v21; // [rsp+30h] [rbp-58h] BYREF
+  bool v3; // cc
+  POEM_STRING v5; // rbx
+  char v6; // si
+  BOOLEAN v7; // bp
+  unsigned int Length; // ecx
+  unsigned int v10; // edx
+  char *v11; // r10
+  unsigned __int64 v12; // r8
+  int v13; // eax
+  char *Buffer; // rdx
+  __int128 v15; // [rsp+20h] [rbp-58h] BYREF
+  char v16; // [rsp+30h] [rbp-48h] BYREF
 
-  v4 = 0;
-  v5 = 0;
-  v20 = 0LL;
+  v3 = Name->Length <= 0x18u;
+  v5 = OemName;
   v6 = 0;
-  v7 = 0LL;
-  if ( !RtlpIsUtf8Process() )
-  {
-    _InterlockedOr(v19, 0);
-    CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v7 = CurrentServerSiloGlobals[152];
-    v6 = *((_WORD *)CurrentServerSiloGlobals + 570) != 0;
-  }
-  if ( Name->Length > 0x18u )
+  v7 = 0;
+  v15 = 0LL;
+  if ( !v3 )
     return 0;
   if ( !OemName )
   {
-    LODWORD(v20) = 786432;
-    *((_QWORD *)&v20 + 1) = &v21;
-    OemName = (POEM_STRING)&v20;
+    LODWORD(v15) = 786432;
+    *((_QWORD *)&v15 + 1) = &v16;
+    v5 = (POEM_STRING)&v15;
   }
-  if ( RtlUpcaseUnicodeStringToCountedOemString(OemName, Name, 0) < 0 )
+  if ( RtlUpcaseUnicodeStringToCountedOemString(v5, Name, 0) < 0 )
     return 0;
-  Length = OemName->Length;
-  p_Buffer = &OemName->Buffer;
-  if ( (_WORD)Length == 1 )
+  Length = v5->Length;
+  if ( (_WORD)Length == 1 && *v5->Buffer == 46 || Length == 2 && (Buffer = v5->Buffer, *Buffer == 46) && Buffer[1] == 46 )
   {
-    if ( **p_Buffer == 46 )
-      goto LABEL_36;
-  }
-  else if ( Length == 2 && **p_Buffer == 46 && (*p_Buffer)[1] == 46 )
-  {
-LABEL_36:
     if ( NameContainsSpaces )
       *NameContainsSpaces = 0;
     return 1;
   }
-  v14 = 0;
-  v15 = OemName->Length;
-  if ( OemName->Length )
+  v10 = 0;
+  if ( v5->Length )
   {
-    v16 = *p_Buffer;
+    v11 = v5->Buffer;
     do
     {
-      v17 = (unsigned __int8)v16[v14];
-      if ( v6 && *(_WORD *)(v7 + 2 * v17) )
+      v12 = (unsigned __int8)v11[v10];
+      if ( (_BYTE)NlsMbOemCodePageTag && NlsOemLeadByteInfoTable[v12] )
       {
-        if ( !v4 && v14 >= 7 || v14 == v15 - 1 )
+        if ( !v6 && v10 >= 7 || v10 == Length - 1 )
           return 0;
-        ++v14;
+        ++v10;
       }
       else
       {
-        if ( (unsigned __int8)v17 < 0x80u )
+        if ( (unsigned __int8)v12 < 0x80u )
         {
-          v18 = *((_DWORD *)RtlFatIllegalTable + ((unsigned __int64)(unsigned __int8)v16[v14] >> 5));
-          if ( _bittest(&v18, v17 & 0x1F) )
+          v13 = RtlFatIllegalTable[v12 >> 5];
+          if ( _bittest(&v13, v12 & 0x1F) )
             return 0;
         }
-        if ( (_BYTE)v17 == 32 )
+        if ( (_BYTE)v12 == 32 )
+          v7 = 1;
+        if ( (_BYTE)v12 == 46 )
         {
-          v5 = 1;
-        }
-        else if ( (_BYTE)v17 == 46 )
-        {
-          if ( v4 || !v14 || v16[v14 - 1] == 32 || v15 - v14 - 1 > 3 )
+          if ( v6 || !v10 || v11[v10 - 1] == 32 || Length - v10 - 1 > 3 )
             return 0;
-          v4 = 1;
+          v6 = 1;
         }
-        if ( v14 >= 8 && !v4 )
+        if ( v10 >= 8 && !v6 )
           return 0;
       }
-      ++v14;
+      ++v10;
     }
-    while ( v14 < v15 );
-    if ( (_BYTE)v17 == 32 || (_BYTE)v17 == 46 )
+    while ( v10 < Length );
+    if ( (_BYTE)v12 == 32 || (_BYTE)v12 == 46 )
       return 0;
   }
   if ( NameContainsSpaces )
-    *NameContainsSpaces = v5;
+    *NameContainsSpaces = v7;
   return 1;
 }

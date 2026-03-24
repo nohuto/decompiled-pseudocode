@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdateImagePfnImportRelocations @ 0x1401B518C
+ * XREFs of MiUpdateImagePfnImportRelocations @ 0x1401B51AC
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5434 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
+ *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5454 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
@@ -13,10 +13,10 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiUpdateRetpolineImportFixups @ 0x1401B56CC (MiUpdateRetpolineImportFixups.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiUpdateRetpolineImportFixups @ 0x1401B56EC (MiUpdateRetpolineImportFixups.c)
  */
 
 __int64 __fastcall MiUpdateImagePfnImportRelocations(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)

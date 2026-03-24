@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlRestoreSystemBootStatusDefaults @ 0x140895EA0
+ * XREFs of RtlRestoreSystemBootStatusDefaults @ 0x140895E80
  * Callers:
  *     <none>
  * Callees:
- *     ZwPowerInformation @ 0x1401B8D50 (ZwPowerInformation.c)
+ *     ZwPowerInformation @ 0x1401B8D70 (ZwPowerInformation.c)
  */
 
 NTSTATUS RtlRestoreSystemBootStatusDefaults()

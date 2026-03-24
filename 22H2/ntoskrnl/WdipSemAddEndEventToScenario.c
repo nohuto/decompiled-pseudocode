@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemAddEndEventToScenario @ 0x1408343B4
+ * XREFs of WdipSemAddEndEventToScenario @ 0x1407958BC
  * Callers:
- *     WdipSemMergeScenarios @ 0x14083176C (WdipSemMergeScenarios.c)
+ *     WdipSemMergeScenarios @ 0x14079576C (WdipSemMergeScenarios.c)
  * Callees:
- *     WdipSemFastAllocate @ 0x1408332DC (WdipSemFastAllocate.c)
- *     WdipSemMergeEvents @ 0x140834468 (WdipSemMergeEvents.c)
+ *     WdipSemFastAllocate @ 0x1407888C0 (WdipSemFastAllocate.c)
+ *     WdipSemMergeEvents @ 0x140795950 (WdipSemMergeEvents.c)
  */
 
 __int64 __fastcall WdipSemAddEndEventToScenario(__int64 a1, __int64 a2)

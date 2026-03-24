@@ -5,11 +5,11 @@
  *     MiCapturePfnVm @ 0x140083648 (MiCapturePfnVm.c)
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
  *     MiCheckFatalAccessViolation @ 0x1400963AC (MiCheckFatalAccessViolation.c)
- *     MiCombineWorkingSet @ 0x14013DB60 (MiCombineWorkingSet.c)
- *     MiStoreCheckCandidatePage @ 0x14014D374 (MiStoreCheckCandidatePage.c)
- *     MiResolvePageFileFault @ 0x140154B24 (MiResolvePageFileFault.c)
- *     MiOrderTrimList @ 0x1402B3250 (MiOrderTrimList.c)
- *     MiCloneProcessAddressSpace @ 0x14085E044 (MiCloneProcessAddressSpace.c)
+ *     MiCombineWorkingSet @ 0x14013DB80 (MiCombineWorkingSet.c)
+ *     MiStoreCheckCandidatePage @ 0x14014D394 (MiStoreCheckCandidatePage.c)
+ *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
+ *     MiOrderTrimList @ 0x1402B3350 (MiOrderTrimList.c)
+ *     MiCloneProcessAddressSpace @ 0x14085E024 (MiCloneProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

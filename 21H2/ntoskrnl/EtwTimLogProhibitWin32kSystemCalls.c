@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTimLogProhibitWin32kSystemCalls @ 0x1409E7A80
+ * XREFs of EtwTimLogProhibitWin32kSystemCalls @ 0x14093C430
  * Callers:
- *     PsConvertToGuiThread @ 0x1406BC9D0 (PsConvertToGuiThread.c)
+ *     PsConvertToGuiThread @ 0x14069EF80 (PsConvertToGuiThread.c)
  * Callees:
- *     EtwpTimLogMitigationForProcess @ 0x1409E8BEC (EtwpTimLogMitigationForProcess.c)
+ *     EtwpTimLogMitigationForProcess @ 0x14093C644 (EtwpTimLogMitigationForProcess.c)
  */
 
 __int64 __fastcall EtwTimLogProhibitWin32kSystemCalls(unsigned int a1, __int64 a2)

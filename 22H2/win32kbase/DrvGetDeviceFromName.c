@@ -1,31 +1,39 @@
 /*
- * XREFs of DrvGetDeviceFromName @ 0x1C005B090
+ * XREFs of DrvGetDeviceFromName @ 0x1C0022870
  * Callers:
- *     ?CheckAndNotifyDualView@@YA?AW4_DUALVIEW_STATE@@PEAU_UNICODE_STRING@@PEAU_MDEV@@@Z @ 0x1C001F9B8 (-CheckAndNotifyDualView@@YA-AW4_DUALVIEW_STATE@@PEAU_UNICODE_STRING@@PEAU_MDEV@@@Z.c)
- *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C001FC24 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
- *     DrvEnumDisplayDevices @ 0x1C0023B90 (DrvEnumDisplayDevices.c)
- *     DrvEnumDisplaySettings @ 0x1C0033CC0 (DrvEnumDisplaySettings.c)
- *     DrvGetHDEV @ 0x1C005AF70 (DrvGetHDEV.c)
- *     ?DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00BB234 (-DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVI.c)
- *     DrvChangeDisplaySettingsPreValidate @ 0x1C0165AFC (DrvChangeDisplaySettingsPreValidate.c)
- *     DrvSetPruneFlag @ 0x1C0167C4C (DrvSetPruneFlag.c)
- *     DrvSetVideoParameters @ 0x1C0167D98 (DrvSetVideoParameters.c)
- *     ?DxgkEngQueryRemoteVidPnSourceFromGdiDisplayName@@YAJPEAU_D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME@@@Z @ 0x1C0168EB0 (-DxgkEngQueryRemoteVidPnSourceFromGdiDisplayName@@YAJPEAU_D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDI.c)
+ *     ?CheckAndNotifyDualView@@YA?AW4_DUALVIEW_STATE@@PEAU_UNICODE_STRING@@PEAU_MDEV@@@Z @ 0x1C00126BC (-CheckAndNotifyDualView@@YA-AW4_DUALVIEW_STATE@@PEAU_UNICODE_STRING@@PEAU_MDEV@@@Z.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00128E8 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     DrvChangeDisplaySettingsPreValidate @ 0x1C001BB84 (DrvChangeDisplaySettingsPreValidate.c)
+ *     DrvEnumDisplaySettings @ 0x1C0020E50 (DrvEnumDisplaySettings.c)
+ *     DrvGetHDEV @ 0x1C0022770 (DrvGetHDEV.c)
+ *     DrvEnumDisplayDevices @ 0x1C0028990 (DrvEnumDisplayDevices.c)
+ *     ?DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00B0564 (-DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVI.c)
+ *     DrvSetPruneFlag @ 0x1C0147F20 (DrvSetPruneFlag.c)
+ *     DrvSetVideoParameters @ 0x1C0148060 (DrvSetVideoParameters.c)
+ *     ?DxgkEngQueryRemoteVidPnSourceFromGdiDisplayName@@YAJPEAU_D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME@@@Z @ 0x1C014A620 (-DxgkEngQueryRemoteVidPnSourceFromGdiDisplayName@@YAJPEAU_D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDI.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DrvGetDeviceFromName(PCUNICODE_STRING String1)
+wchar_t *__fastcall DrvGetDeviceFromName(PCUNICODE_STRING String1)
 {
-  __int64 i; // rbx
+  wchar_t *v1; // rbx
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
+  v1 = gpGraphicsDeviceList;
   DestinationString = 0LL;
-  for ( i = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(String1) + 24) + 1264LL); i; i = *(_QWORD *)(i + 128) )
+  if ( !gpGraphicsDeviceList )
+    return 0LL;
+  do
   {
-    RtlInitUnicodeString(&DestinationString, (PCWSTR)(i + 64));
+    RtlInitUnicodeString(&DestinationString, v1 + 32);
     if ( RtlEqualUnicodeString(String1, &DestinationString, 1u) )
-      return i;
+      break;
+    v1 = (wchar_t *)*((_QWORD *)v1 + 16);
   }
-  return 0LL;
+  while ( v1 );
+  if ( v1 )
+    return v1;
+  else
+    return 0LL;
 }

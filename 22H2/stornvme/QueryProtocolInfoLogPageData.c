@@ -1,182 +1,159 @@
 /*
- * XREFs of QueryProtocolInfoLogPageData @ 0x1C00194BC
+ * XREFs of QueryProtocolInfoLogPageData @ 0x1C0001F7C
  * Callers:
- *     IoctlQueryProtocolInfoProcess @ 0x1C0013BD8 (IoctlQueryProtocolInfoProcess.c)
+ *     IoctlQueryProtocolInfoProcess @ 0x1C0001EF0 (IoctlQueryProtocolInfoProcess.c)
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     memmove @ 0x1C0004880 (memmove.c)
- *     GetControllerMaxTransferSize @ 0x1C0007BB0 (GetControllerMaxTransferSize.c)
- *     GetNamespaceId @ 0x1C0007BE0 (GetNamespaceId.c)
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     NVMeAllocateDmaBuffer @ 0x1C000C26C (NVMeAllocateDmaBuffer.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     BuildGetLogPageCommand @ 0x1C0010E84 (BuildGetLogPageCommand.c)
+ *     BuildGetLogPageCommand @ 0x1C0002AA4 (BuildGetLogPageCommand.c)
+ *     GetNamespaceId @ 0x1C00058D4 (GetNamespaceId.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     memmove @ 0x1C0007D80 (memmove.c)
  */
 
 __int64 __fastcall QueryProtocolInfoLogPageData(__int64 a1, __int64 a2)
 {
-  unsigned int v2; // edi
-  __int64 v4; // r10
-  __int64 v5; // r13
-  char v6; // r12
-  __int64 SrbDataBuffer; // rax
-  unsigned __int64 v8; // r9
-  __int64 v9; // r10
-  unsigned __int64 v10; // r11
-  unsigned int *v11; // r15
-  unsigned int v12; // edx
-  unsigned int v13; // ebx
-  int v14; // esi
-  bool v15; // al
-  char v16; // cl
-  const void *v17; // rdx
-  char v18; // cl
-  int v19; // eax
-  unsigned __int8 v20; // cl
-  unsigned int v22; // r13d
-  __int64 v23; // [rsp+70h] [rbp-10h] BYREF
-  bool v24; // [rsp+D0h] [rbp+50h]
-  unsigned int ControllerMaxTransferSize; // [rsp+D8h] [rbp+58h]
+  unsigned int v3; // esi
+  __int64 SrbExtension; // rax
+  __int64 v6; // rdx
+  char v7; // dl
+  __int64 v8; // r12
+  __int64 v9; // rax
+  unsigned __int64 v10; // r15
+  _DWORD *v11; // r14
+  unsigned int v12; // ecx
+  char v13; // r8
+  unsigned int v14; // ebx
+  int NamespaceId; // ebp
+  int v16; // eax
+  unsigned __int8 v17; // cl
+  int v18; // r8d
+  const void *v20; // rdx
+  __int64 v21; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v22; // [rsp+88h] [rbp+10h] BYREF
+  __int64 v23; // [rsp+90h] [rbp+18h]
 
-  v2 = 0;
-  GetSrbExtension(a2);
-  v5 = *(_QWORD *)(v4 + 1840);
-  v6 = 1;
-  v24 = 1;
-  ControllerMaxTransferSize = GetControllerMaxTransferSize((_DWORD *)v4);
-  SrbDataBuffer = GetSrbDataBuffer(a2, &v23);
-  v11 = (unsigned int *)(SrbDataBuffer + 28);
-  v12 = *(_DWORD *)(SrbDataBuffer + 44);
-  if ( v12 > 0xD )
-  {
-    if ( v12 == 128 )
-    {
-      v13 = 64;
-      goto LABEL_35;
-    }
-    if ( v12 == 129 )
-    {
-      v13 = 512;
-      goto LABEL_35;
-    }
-    if ( v12 == 192 || v12 == 193 || v12 == 194 || v12 == 196 || v12 == 197 || v12 - 200 < 2 )
-    {
-      v13 = *(_DWORD *)(SrbDataBuffer + 56);
-      goto LABEL_13;
-    }
-LABEL_34:
-    v13 = *(_DWORD *)(SrbDataBuffer + 56);
-LABEL_35:
-    v14 = 0;
-    goto LABEL_14;
-  }
-  switch ( v12 )
-  {
-    case 0xDu:
-      v13 = *(_DWORD *)(SrbDataBuffer + 56);
-      v16 = *(_BYTE *)(v5 + 261) >> 4;
-      v24 = v13 >= 0x200;
-      if ( (*(_BYTE *)(v5 + 261) & 0x10) != 0 )
-        v10 = (unsigned __int64)*(unsigned int *)(v5 + 352) << 16;
-      goto LABEL_23;
-    case 1u:
-      v13 = *(_DWORD *)(SrbDataBuffer + 56);
-      v14 = -1;
-      v15 = v13 >= 0x40;
-      goto LABEL_40;
-    case 2u:
-      v13 = 512;
-      v14 = -((*(_BYTE *)(v5 + 261) & 1) == 0);
-      goto LABEL_14;
-    case 3u:
-      goto LABEL_12;
-    case 4u:
-      v13 = 4096;
-      goto LABEL_13;
-    case 5u:
-      v13 = 4096;
-      v16 = *(_BYTE *)(v5 + 261) >> 1;
-LABEL_23:
-      v14 = -1;
-      goto LABEL_24;
-    case 6u:
-      v13 = 564;
-      goto LABEL_13;
-  }
-  if ( v12 != 7 && v12 != 8 )
+  v3 = 0;
+  v21 = 0LL;
+  SrbExtension = GetSrbExtension(a2);
+  v7 = *(_BYTE *)(v6 + 2);
+  v8 = SrbExtension;
+  v9 = *(_QWORD *)(a1 + 1624);
+  v23 = v9;
+  v10 = 0LL;
+  v22 = 0LL;
+  if ( v7 == 40 )
+    v11 = *(_DWORD **)(a2 + 64);
+  else
+    v11 = *(_DWORD **)(a2 + 24);
+  v12 = v11[11];
+  v13 = 6;
+  if ( v12 > 7 )
   {
     if ( v12 == 9 )
     {
-LABEL_12:
-      v13 = 512;
-LABEL_13:
-      v14 = -1;
-LABEL_14:
-      v15 = 1;
-      goto LABEL_40;
+LABEL_27:
+      v14 = 512;
+      goto LABEL_26;
     }
-    goto LABEL_34;
+    if ( v12 == 128 )
+    {
+      v14 = 64;
+      goto LABEL_37;
+    }
+    if ( v12 - 192 > 1 )
+    {
+LABEL_35:
+      v14 = v11[14];
+LABEL_37:
+      NamespaceId = 0;
+      goto LABEL_7;
+    }
+LABEL_25:
+    v14 = v11[14];
+LABEL_26:
+    NamespaceId = -1;
+    goto LABEL_7;
   }
-  v13 = *(_DWORD *)(SrbDataBuffer + 56);
-  v14 = -1;
-  v16 = *(_BYTE *)(v5 + 261) >> 3;
-  v24 = v13 >= 0x200;
-LABEL_24:
-  if ( (v16 & 1) == 0 )
+  if ( v12 == 7 )
+    goto LABEL_25;
+  if ( v12 != 2 )
   {
-    v2 = -1056964606;
-LABEL_60:
-    v6 = 6;
-    goto LABEL_61;
+    if ( v12 != 1 )
+    {
+      if ( v12 != 3 )
+      {
+        if ( v12 > 3 )
+        {
+          if ( v12 <= 5 )
+            v14 = 4096;
+          else
+            v14 = 564;
+          goto LABEL_26;
+        }
+        goto LABEL_35;
+      }
+      goto LABEL_27;
+    }
+    goto LABEL_25;
   }
-  v15 = v24;
-LABEL_40:
-  if ( v11[7] >= v13 && v13 && v15 )
+  v14 = 512;
+  NamespaceId = -((*(_BYTE *)(v9 + 261) & 1) == 0);
+LABEL_7:
+  if ( v11[14] >= v14 && v14 )
   {
     if ( v12 == 5 )
     {
-      v17 = *(const void **)(v9 + 3992);
-      if ( v17 )
+      v20 = *(const void **)(a1 + 3776);
+      if ( v20 )
       {
-        memmove((char *)v11 + v11[6] + 8, v17, v13);
-LABEL_61:
-        *(_BYTE *)(a2 + 3) = v6;
-        return v2;
+        memmove((char *)v11 + (unsigned int)v11[13] + 36, v20, v14);
+        v13 = 1;
       }
-      goto LABEL_59;
-    }
-    if ( v14 != -1 )
-    {
-      v18 = *(_BYTE *)(a2 + 2);
-      v19 = v18 == 40 ? *(_DWORD *)(a2 + 24) : *(_DWORD *)(a2 + 12);
-      if ( (v19 & 1) == 0 )
+      else
       {
-        if ( v18 == 40 )
-          v20 = *(_BYTE *)(*(unsigned int *)(a2 + 52) + a2 + 10);
+        v3 = -1056964602;
+      }
+      *(_BYTE *)(a2 + 3) = v13;
+      return v3;
+    }
+    if ( NamespaceId != -1 )
+    {
+      if ( v7 == 40 )
+        v16 = *(_DWORD *)(a2 + 24);
+      else
+        v16 = *(_DWORD *)(a2 + 12);
+      if ( (v16 & 1) != 0 )
+      {
+        NamespaceId = -1;
+      }
+      else
+      {
+        if ( v7 == 40 )
+          v17 = *(_BYTE *)(*(unsigned int *)(a2 + 52) + a2 + 10);
         else
-          v20 = *(_BYTE *)(a2 + 7);
-        GetNamespaceId(v9, v20);
+          v17 = *(_BYTE *)(a2 + 7);
+        NamespaceId = GetNamespaceId(a1, v17, 6LL, 0xFFFFFFFFLL);
       }
     }
-    if ( (*(_BYTE *)(v5 + 261) & 4) != 0 )
-      v8 = v11[5] | ((unsigned __int64)v11[9] << 32);
-    if ( v10 )
+    NVMeAllocateDmaBuffer(a1, v14, &v21, &v22);
+    if ( v21 )
     {
-      if ( v8 >= v10 )
-      {
-LABEL_59:
-        v2 = -1056964602;
-        goto LABEL_60;
-      }
-      if ( v13 > (int)v10 - (int)v8 )
-        v13 = v10 - v8;
+      NVMeZeroMemory(v21, v14);
+      *(_BYTE *)(v8 + 4253) |= 3u;
+      SrbAssignQueueId(a1, a2);
+      if ( (*(_BYTE *)(v23 + 261) & 4) != 0 )
+        v10 = (unsigned int)v11[12] | ((unsigned __int64)(unsigned int)v11[16] << 32);
+      LOBYTE(v18) = *((_BYTE *)v11 + 44);
+      BuildGetLogPageCommand(a1, v8, v18, v14, v22, NamespaceId, v10, v11[17]);
+      *(_BYTE *)(v8 + 4253) |= 4u;
+      *(_QWORD *)(v8 + 4224) = QueryProtocolInfoCompletion;
+      *(_QWORD *)(v8 + 4200) = v21;
+      *(_QWORD *)(v8 + 4208) = v22;
+      *(_DWORD *)(v8 + 4240) = v14;
+      return v3;
     }
-    v22 = v13;
-    if ( v13 > ControllerMaxTransferSize )
-      v22 = ControllerMaxTransferSize;
-    NVMeAllocateDmaBuffer(v9, v22);
     *(_BYTE *)(a2 + 3) = 4;
     return 3238002691LL;
   }

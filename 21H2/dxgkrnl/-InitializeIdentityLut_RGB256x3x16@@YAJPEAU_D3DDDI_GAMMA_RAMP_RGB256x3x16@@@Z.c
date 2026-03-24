@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InitializeIdentityLut_RGB256x3x16@@YAJPEAU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z @ 0x1C0073E64
+ * XREFs of ?InitializeIdentityLut_RGB256x3x16@@YAJPEAU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z @ 0x1C0061ED4
  * Callers:
- *     ColorSpaceTransformInitIdentityTransform @ 0x1C0074330 (ColorSpaceTransformInitIdentityTransform.c)
+ *     ColorSpaceTransformInitIdentityTransform @ 0x1C00623A0 (ColorSpaceTransformInitIdentityTransform.c)
  * Callees:
  *     <none>
  */

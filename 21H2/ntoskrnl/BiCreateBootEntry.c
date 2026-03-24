@@ -1,21 +1,21 @@
 /*
- * XREFs of BiCreateBootEntry @ 0x140A1EE84
+ * XREFs of BiCreateBootEntry @ 0x140970F20
  * Callers:
- *     BiCreateEfiEntry @ 0x140A1F234 (BiCreateEfiEntry.c)
+ *     BiCreateEfiEntry @ 0x1409712D0 (BiCreateEfiEntry.c)
  * Callees:
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     BiGetKeyName @ 0x140813564 (BiGetKeyName.c)
- *     BiLogMessage @ 0x1408138F0 (BiLogMessage.c)
- *     BiGetElement @ 0x140A1D4A4 (BiGetElement.c)
- *     BiTranslateFilePath @ 0x140A20C90 (BiTranslateFilePath.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     BiGetKeyName @ 0x140784800 (BiGetKeyName.c)
+ *     BiLogMessage @ 0x140784D9C (BiLogMessage.c)
+ *     BiGetElement @ 0x14096F540 (BiGetElement.c)
+ *     BiTranslateFilePath @ 0x140972D28 (BiTranslateFilePath.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
 {
-  GUID *v2; // rdi
+  _DWORD *v2; // rdi
   void *v3; // rsi
   unsigned int *v4; // r14
   void *v5; // r12
@@ -49,9 +49,9 @@ __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
   size_t v35; // [rsp+30h] [rbp-38h] BYREF
   void *v36; // [rsp+38h] [rbp-30h] BYREF
   void *Src; // [rsp+40h] [rbp-28h] BYREF
-  GUID *v38; // [rsp+48h] [rbp-20h] BYREF
+  _DWORD *v38; // [rsp+48h] [rbp-20h] BYREF
   void *v39; // [rsp+50h] [rbp-18h] BYREF
-  PVOID P; // [rsp+58h] [rbp-10h] BYREF
+  PVOID P[2]; // [rsp+58h] [rbp-10h] BYREF
   size_t v43; // [rsp+C0h] [rbp+58h] BYREF
   size_t Size; // [rsp+C8h] [rbp+60h] BYREF
 
@@ -59,7 +59,7 @@ __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
   LODWORD(Size) = 0;
   LODWORD(v35) = 0;
   v2 = 0LL;
-  P = 0LL;
+  P[0] = 0LL;
   v3 = 0LL;
   v38 = 0LL;
   v4 = 0LL;
@@ -68,7 +68,7 @@ __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
   v36 = 0LL;
   v6 = 0LL;
   v39 = 0LL;
-  Element = BiGetElement((__int64)a1, 0x12000004u, (GUID **)&P, &v43);
+  Element = BiGetElement((__int64)a1, 0x12000004u, P, &v43);
   v9 = Element;
   if ( Element < 0 )
   {
@@ -89,7 +89,7 @@ __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
     v2 = v38;
     goto LABEL_25;
   }
-  v11 = BiGetElement((__int64)a1, 0x12000002u, (GUID **)&Src, &v35);
+  v11 = BiGetElement((__int64)a1, 0x12000002u, &Src, &v35);
   v9 = v11;
   if ( v11 < 0 )
   {
@@ -103,7 +103,7 @@ __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
   }
   v2 = v38;
   v3 = Src;
-  if ( v38->Data1 != 2 )
+  if ( *v38 != 2 )
   {
     v9 = -1073741637;
     goto LABEL_25;
@@ -118,7 +118,7 @@ __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
   LODWORD(v35) = v14;
   do
     ++v15;
-  while ( *(&v38[1].Data2 + v15) );
+  while ( *((_WORD *)v38 + v15 + 10) );
   v16 = 2 * v15 + 2;
   v17 = v14 + v16;
   LODWORD(Size) = v16;
@@ -140,7 +140,7 @@ LABEL_16:
   v21 = (unsigned int)Size;
   *(_DWORD *)PoolWithTag = 1;
   *((_DWORD *)PoolWithTag + 2) = 3;
-  memmove(PoolWithTag + 12, &v2[1].Data2, v21);
+  memmove(PoolWithTag + 12, v2 + 5, v21);
   memmove(&v6[v20 + 12], v3, (unsigned int)v35);
   v9 = BiTranslateFilePath(v6, 4LL, &v36);
   if ( v9 < 0 || (KeyName = BiGetKeyName(a1, &v39), v5 = v39, v9 = KeyName, KeyName < 0) )
@@ -183,7 +183,7 @@ LABEL_24:
     v27[5] = v30;
     v27[4] = v31;
     v27[6] = v23;
-    memmove((char *)v27 + v31, P, v28);
+    memmove((char *)v27 + v31, P[0], v28);
     v32 = (char *)v36;
     memmove((char *)v36 + (unsigned int)Size, v4, v4[1]);
     v32 += 28;
@@ -201,8 +201,8 @@ LABEL_24:
     *a2 = v36;
   }
 LABEL_25:
-  if ( P )
-    ExFreePoolWithTag(P, 0x4B444342u);
+  if ( P[0] )
+    ExFreePoolWithTag(P[0], 0x4B444342u);
   if ( v2 )
     ExFreePoolWithTag(v2, 0x4B444342u);
   if ( v3 )

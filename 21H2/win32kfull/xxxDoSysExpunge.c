@@ -1,41 +1,30 @@
 /*
- * XREFs of xxxDoSysExpunge @ 0x1C00781A4
+ * XREFs of xxxDoSysExpunge @ 0x1C011D6C8
  * Callers:
- *     xxxDoSysExpungeIfNeeded @ 0x1C015D208 (xxxDoSysExpungeIfNeeded.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C00588D0 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
  * Callees:
- *     ClientFreeLibrary @ 0x1C0077D70 (ClientFreeLibrary.c)
- *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C00783CC (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x1C01593E0 (__report_rangecheckfailure.c)
+ *     ??0?$CLockDomainExclusiveInUserCrit@VDLT_CLIENTLIB@@@@QEAA@XZ @ 0x1C0020968 (--0-$CLockDomainExclusiveInUserCrit@VDLT_CLIENTLIB@@@@QEAA@XZ.c)
+ *     ClientFreeLibrary @ 0x1C011D824 (ClientFreeLibrary.c)
+ *     ??0?$CUnLockDomainExclusiveInUserCrit@VDLT_CLIENTLIB@@@@QEAA@XZ @ 0x1C011D90C (--0-$CUnLockDomainExclusiveInUserCrit@VDLT_CLIENTLIB@@@@QEAA@XZ.c)
+ *     __report_rangecheckfailure @ 0x1C0165DB0 (__report_rangecheckfailure.c)
  */
 
 void __fastcall xxxDoSysExpunge(__int64 a1)
 {
-  int v2; // r14d
+  int v2; // ebp
   int v3; // eax
   unsigned __int64 v4; // rbx
-  __int64 v5; // r15
-  __int64 v6; // rbp
+  __int64 v5; // r14
+  __int64 v6; // rsi
   __int64 v7; // rdx
-  __int64 v8; // rsi
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  int v13; // edi
-  unsigned int DLT; // eax
-  tagDomLock *DomainLockRef; // rax
-  int v17; // esi
-  char *v18; // rdi
-  tagDomLock *v19; // rcx
-  tagDomLock *v20; // [rsp+20h] [rbp-68h]
-  char v21; // [rsp+28h] [rbp-60h] BYREF
-  __int64 v22; // [rsp+30h] [rbp-58h]
-  char v23; // [rsp+38h] [rbp-50h]
-  __int64 v24; // [rsp+40h] [rbp-48h]
-  char v25; // [rsp+48h] [rbp-40h]
+  __int64 v8; // r8
+  __int64 v9; // r12
+  int v10; // edi
+  tagDomLock *v12; // [rsp+60h] [rbp+8h] BYREF
+  tagDomLock *v13; // [rsp+68h] [rbp+10h] BYREF
 
-  LockRefactorStagingAssertOwned(gDomainClientLibLock);
+  CLockDomainExclusiveInUserCrit<DLT_CLIENTLIB>::CLockDomainExclusiveInUserCrit<DLT_CLIENTLIB>(&v13);
   v2 = 0;
   v3 = catomSysTableEntries;
   *(_DWORD *)(*(_QWORD *)(a1 + 424) + 400LL) = gcSysExpunge;
@@ -48,61 +37,27 @@ void __fastcall xxxDoSysExpunge(__int64 a1)
     {
       if ( !*(_DWORD *)((char *)&acatomSysDepends + v6) )
       {
-        if ( *(_WORD *)((char *)&aatomSysLoaded + v4) )
+        v7 = *(unsigned __int16 *)((char *)&aatomSysLoaded + v4);
+        if ( (_WORD)v7 )
         {
-          LockRefactorStagingAssertOwned(gDomainClientLibLock);
-          v7 = *(_QWORD *)(a1 + 424);
-          if ( ((1 << v2) & *(_DWORD *)(v7 + 404)) != 0 )
+          v8 = *(_QWORD *)(a1 + 424);
+          if ( ((1 << v2) & *(_DWORD *)(v8 + 404)) != 0 )
           {
-            v8 = *(_QWORD *)(v5 + v7);
-            LockRefactorStagingAssertOwned(gDomainClientLibLock);
-            v13 = ~(1 << v2);
-            *(_QWORD *)(v5 + *(_QWORD *)(a1 + 424)) = 0LL;
-            *(_DWORD *)(*(_QWORD *)(a1 + 424) + 404LL) &= v13;
+            v9 = *(_QWORD *)(v5 + v8);
+            v10 = ~(1 << v2);
+            *(_QWORD *)(v5 + v8) = 0LL;
+            *(_DWORD *)(*(_QWORD *)(a1 + 424) + 404LL) &= v10;
             if ( (*(_DWORD *)((char *)&acatomSysUse + v6))-- == 1 )
             {
-              UserDeleteAtomFromAtomTable(
-                UserLibmgmtAtomTableHandle,
-                *(unsigned __int16 *)((char *)&aatomSysLoaded + v4),
-                v11,
-                v12,
-                (_DWORD)v20);
+              UserDeleteAtomFromAtomTable(UserLibmgmtAtomTableHandle, v7, v8);
               if ( v4 >= 0x40 )
                 _report_rangecheckfailure();
-              *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Busy &= v13;
+              *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Busy &= v10;
               *(_WORD *)((char *)&aatomSysLoaded + v4) = 0;
             }
-            DLT = DLT_CLIENTLIB::getDLT(v10, v9, v11, v12);
-            DomainLockRef = (tagDomLock *)GetDomainLockRef(DLT);
-            v22 = gDomainDummyLock;
-            v20 = DomainLockRef;
-            v21 = 1;
-            v23 = 0;
-            v24 = 0LL;
-            v25 = 0;
-            if ( DomainLockRef )
-              tagDomLock::UnLockExclusive(DomainLockRef);
-            v25 = 1;
-            ClientFreeLibrary(v8);
-            if ( v25 )
-            {
-              v17 = 0;
-              v18 = &v21;
-              do
-              {
-                v19 = (tagDomLock *)*((_QWORD *)v18 - 1);
-                if ( v19 )
-                {
-                  if ( *v18 )
-                    tagDomLock::LockExclusive(v19);
-                  else
-                    tagDomLock::LockShared(v19);
-                }
-                ++v17;
-                v18 += 16;
-              }
-              while ( !v17 );
-            }
+            CUnLockDomainExclusiveInUserCrit<DLT_CLIENTLIB>::CUnLockDomainExclusiveInUserCrit<DLT_CLIENTLIB>(&v12);
+            ClientFreeLibrary(v9);
+            tagDomLock::LockExclusive(v12);
           }
         }
       }
@@ -113,4 +68,5 @@ void __fastcall xxxDoSysExpunge(__int64 a1)
     }
     while ( v2 < catomSysTableEntries );
   }
+  tagDomLock::UnLockExclusive(v13);
 }

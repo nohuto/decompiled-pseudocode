@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpApicConvertFromRte @ 0x14052799C
+ * XREFs of HalpApicConvertFromRte @ 0x1404DCA5C
  * Callers:
- *     HalpApicInitializeIoUnit @ 0x1403A49C0 (HalpApicInitializeIoUnit.c)
+ *     HalpApicInitializeIoUnit @ 0x1403A5090 (HalpApicInitializeIoUnit.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpApicConvertFromRte(int a1, unsigned int a2, __int64 a3)
@@ -59,7 +59,7 @@ LABEL_12:
     if ( !HalpApicX2Mode || HalpApicRestoreNonX2ModeOnReset )
     {
       v8 = HIBYTE(a2);
-      if ( (unsigned int)((__int64 (__fastcall *)(__int64, __int64, __int64))HalpApicRead)(224LL, 4LL, 7LL) == -1 )
+      if ( (unsigned int)((__int64 (__fastcall *)(__int64, __int64))HalpApicRead)(224LL, 7LL) == -1 )
       {
         *(_DWORD *)(a3 + 24) = 5;
         v7 = HIBYTE(a2);

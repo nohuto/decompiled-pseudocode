@@ -1,16 +1,16 @@
 /*
- * XREFs of ?DmmGetPreferredMonitorSourceModeOnTarget@@YAJPEAXIPEAU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z @ 0x1C01863EC
+ * XREFs of ?DmmGetPreferredMonitorSourceModeOnTarget@@YAJPEAXIPEAU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z @ 0x1C0149B48
  * Callers:
- *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C01DAF30 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATIO.c)
- *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z @ 0x1C01F7020 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z.c)
- *     ??ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z @ 0x1C02FF050 (--ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z.c)
+ *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z @ 0x1C012C790 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z.c)
+ *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C014BAF4 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION.c)
+ *     ??ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z @ 0x1C025C234 (--ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z.c)
  * Callees:
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00072BC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z @ 0x1C01832C0 (-ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z.c)
- *     ?GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z @ 0x1C0183694 (-GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z.c)
- *     MonitorGetPreferredMonitorSourceMode @ 0x1C018649C (MonitorGetPreferredMonitorSourceMode.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z @ 0x1C0149F08 (-ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z.c)
+ *     ?GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z @ 0x1C014A020 (-GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z.c)
+ *     MonitorGetPreferredMonitorSourceMode @ 0x1C014A710 (MonitorGetPreferredMonitorSourceMode.c)
  */
 
 __int64 __fastcall DmmGetPreferredMonitorSourceModeOnTarget(
@@ -18,36 +18,51 @@ __int64 __fastcall DmmGetPreferredMonitorSourceModeOnTarget(
         unsigned int a2,
         struct _D3DKMDT_MONITOR_SOURCE_MODE *a3)
 {
-  __int64 v4; // rdi
-  char *v5; // rbx
-  VIDPN_MGR *v6; // rsi
+  __int64 v4; // rsi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  VIDPN_MGR *v8; // rbp
   int ConnectedMonitorHandle; // eax
-  unsigned int PreferredMonitorSourceMode; // ebx
-  struct HDXGMONITOR__ *v9; // rdi
-  struct HDXGMONITOR__ *v11; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rdi
+  struct HDXGMONITOR__ *v13; // rbx
+  __int64 v14; // rdx
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  struct HDXGMONITOR__ *v19; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v20; // [rsp+58h] [rbp+20h] BYREF
 
   v4 = a2;
-  v5 = (char *)a1 + 2920;
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(a1) || !*(_QWORD *)v5 )
-    WdLogSingleEntry0(1LL);
-  v6 = *(VIDPN_MGR **)(*(_QWORD *)v5 + 104LL);
-  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&v12, (__int64)v6);
-  v11 = 0LL;
-  ConnectedMonitorHandle = VIDPN_MGR::GetConnectedMonitorHandle(v6, v4, &v11);
-  PreferredMonitorSourceMode = ConnectedMonitorHandle;
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(a1) || !*((_QWORD *)a1 + 337) )
+  {
+    v16 = WdLogNewEntry5_WdAssertion(v7, v6);
+    WdLogEvent5_WdAssertion(v16);
+  }
+  v8 = *(VIDPN_MGR **)(*((_QWORD *)a1 + 337) + 88LL);
+  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v20, (__int64)v8);
+  v19 = 0LL;
+  ConnectedMonitorHandle = VIDPN_MGR::GetConnectedMonitorHandle(v8, v4, &v19);
+  v12 = ConnectedMonitorHandle;
   if ( ConnectedMonitorHandle < 0 )
   {
-    WdLogSingleEntry2(2LL, v4, ConnectedMonitorHandle);
+    v17 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v17 + 24) = v4;
+    *(_QWORD *)(v17 + 32) = v12;
+    WdLogEvent5_WdError(v17);
   }
   else
   {
-    v9 = v11;
-    if ( !v11 )
-      WdLogSingleEntry0(1LL);
-    PreferredMonitorSourceMode = MonitorGetPreferredMonitorSourceMode(v9, a3);
-    VIDPN_MGR::ReleaseMonitorHandle(v6, v9);
+    v13 = v19;
+    if ( !v19 )
+    {
+      v18 = WdLogNewEntry5_WdAssertion(v11, v10);
+      WdLogEvent5_WdAssertion(v18);
+    }
+    LODWORD(v12) = MonitorGetPreferredMonitorSourceMode(v13, a3);
+    VIDPN_MGR::ReleaseMonitorHandle(v8, v13);
   }
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v12 + 40));
-  return PreferredMonitorSourceMode;
+  DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v20 + 40), v14);
+  return (unsigned int)v12;
 }

@@ -1,19 +1,20 @@
 /*
- * XREFs of HalpPciReportMmConfigAddressRange @ 0x140B26D98
+ * XREFs of HalpPciReportMmConfigAddressRange @ 0x140A6C94C
  * Callers:
- *     HalpPciInitSystem @ 0x140A5B510 (HalpPciInitSystem.c)
+ *     HalpPciInitSystem @ 0x1409A14E0 (HalpPciInitSystem.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     ArbInitializeMmConfigRange @ 0x140B26E5C (ArbInitializeMmConfigRange.c)
- *     ArbDeleteMmConfigRange @ 0x140B26F8C (ArbDeleteMmConfigRange.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ArbInitializeMmConfigRange @ 0x140A6CA28 (ArbInitializeMmConfigRange.c)
+ *     ArbDeleteMmConfigRange @ 0x140A6CB54 (ArbDeleteMmConfigRange.c)
  */
 
 __int64 HalpPciReportMmConfigAddressRange()
 {
   unsigned int v0; // ebx
-  _DWORD *Pool2; // rax
-  void *v2; // rdi
+  unsigned int *PoolWithTag; // rax
+  unsigned int *v2; // rdi
   unsigned int v3; // ecx
   _QWORD *v4; // r8
   __int64 v5; // rdx
@@ -23,17 +24,18 @@ __int64 HalpPciReportMmConfigAddressRange()
 
   ArbDeleteMmConfigRange();
   v0 = 32 * (HalpPciMcfgTableCount - 1) + 72;
-  Pool2 = (_DWORD *)ExAllocatePool2(64LL, v0, 0x506C6148u);
-  v2 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(NonPagedPoolNx, v0, 0x206C6148u);
+  v2 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
+  memset(PoolWithTag, 0, v0);
   v3 = HalpPciMcfgTableCount;
-  *Pool2 = v0;
-  Pool2[7] = 1;
-  Pool2[9] = v3;
+  *v2 = v0;
+  v2[7] = 1;
+  v2[9] = v3;
   if ( v3 )
   {
-    v4 = Pool2 + 14;
+    v4 = v2 + 14;
     v5 = HalpPciMcfgTable + 44;
     v6 = v3;
     do
@@ -48,7 +50,7 @@ __int64 HalpPciReportMmConfigAddressRange()
     }
     while ( v6 );
   }
-  v8 = ArbInitializeMmConfigRange(Pool2);
+  v8 = ArbInitializeMmConfigRange(v2);
   ExFreePoolWithTag(v2, 0);
   return v8;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeletePhysmemPte @ 0x140368164
+ * XREFs of MiDeletePhysmemPte @ 0x14037E1AC
  * Callers:
- *     MiDeleteVa @ 0x14027A4A0 (MiDeleteVa.c)
+ *     MiDeleteVa @ 0x1402B8110 (MiDeleteVa.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
 unsigned __int64 __fastcall MiDeletePhysmemPte(__int64 a1, unsigned __int64 a2)
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall MiDeletePhysmemPte(__int64 a1, unsigned __int64 a2)
   v5 = MI_READ_PTE_LOCK_FREE(a2) & 0xFFFFFFFFFFFFFBFEuLL | 0x400;
   v6 = MiPteInShadowRange(a2);
   v8 = 1LL;
-  if ( v6 && MiPteHasShadow() )
+  if ( v6 && (unsigned int)MiPteHasShadow() )
     v4 = v8;
   *(_QWORD *)a2 = v5;
   if ( v4 )

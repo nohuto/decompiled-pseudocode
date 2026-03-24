@@ -1,19 +1,19 @@
 /*
- * XREFs of PspReturnQuota @ 0x1400BE9B0
+ * XREFs of PspReturnQuota @ 0x1400BE9D0
  * Callers:
  *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
  *     PsReturnProcessPagedPoolQuota @ 0x140090290 (PsReturnProcessPagedPoolQuota.c)
  *     PsReturnProcessQuota @ 0x140091888 (PsReturnProcessQuota.c)
- *     PsReturnPoolQuota @ 0x14011F3A0 (PsReturnPoolQuota.c)
+ *     PsReturnPoolQuota @ 0x14011F3C0 (PsReturnPoolQuota.c)
  *     PsChargeSharedPoolQuota @ 0x1405C9B24 (PsChargeSharedPoolQuota.c)
  *     PsReturnSharedPoolQuota @ 0x1405CACA8 (PsReturnSharedPoolQuota.c)
  *     ObpIncrementHandleCountEx @ 0x1405E35F0 (ObpIncrementHandleCountEx.c)
  *     MiDecommitRegion @ 0x1405EC220 (MiDecommitRegion.c)
  *     PsReturnProcessPageFileQuota @ 0x1405F29D4 (PsReturnProcessPageFileQuota.c)
- *     ObpFreeObject @ 0x140645F60 (ObpFreeObject.c)
+ *     ObpFreeObject @ 0x140645F40 (ObpFreeObject.c)
  * Callees:
- *     PspReturnResourceQuota @ 0x14012A86C (PspReturnResourceQuota.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     PspReturnResourceQuota @ 0x14012A88C (PspReturnResourceQuota.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall PspReturnQuota(char *a1, ULONG_PTR a2, unsigned int a3, ULONG_PTR a4)
@@ -46,7 +46,7 @@ signed __int64 __fastcall PspReturnQuota(char *a1, ULONG_PTR a2, unsigned int a3
   {
     if ( v13 > v12 )
     {
-      v14 = (unsigned __int64 *)&qword_14040E3E8[7 * (int)a3];
+      v14 = (unsigned __int64 *)&qword_14040E3C8[7 * (int)a3];
       v15 = *v14;
       if ( v13 - v12 > *v14 )
       {

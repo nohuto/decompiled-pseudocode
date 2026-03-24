@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EvaluateCurve@XamlElasticInterpolation@@MEAANN@Z @ 0x180257430
+ * XREFs of ?EvaluateCurve@XamlElasticInterpolation@@MEAANN@Z @ 0x180206D90
  * Callers:
  *     <none>
  * Callees:
- *     exp @ 0x1801018D4 (exp.c)
- *     _o_sin_0 @ 0x180101958 (_o_sin_0.c)
+ *     exp @ 0x1800E818C (exp.c)
+ *     _o_sin_0 @ 0x1800E81D4 (_o_sin_0.c)
  */
 
 double __fastcall XamlElasticInterpolation::EvaluateCurve(XamlElasticInterpolation *this, double a2)

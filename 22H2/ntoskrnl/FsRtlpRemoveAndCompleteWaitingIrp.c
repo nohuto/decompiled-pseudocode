@@ -1,47 +1,34 @@
 /*
- * XREFs of FsRtlpRemoveAndCompleteWaitingIrp @ 0x140201C30
+ * XREFs of FsRtlpRemoveAndCompleteWaitingIrp @ 0x1404F08CC
  * Callers:
- *     FsRtlpWaitOnIrp @ 0x1402010B8 (FsRtlpWaitOnIrp.c)
- *     FsRtlpOplockBreakToII @ 0x1402FBB38 (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402FE830 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockCleanup @ 0x140300F14 (FsRtlpOplockCleanup.c)
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x1403607E4 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpCancelExclusiveIrp @ 0x1403B1D20 (FsRtlpCancelExclusiveIrp.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1403BF5C4 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403D2CD0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x14053E018 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpCancelWaitingIrp @ 0x14053E334 (FsRtlpCancelWaitingIrp.c)
- *     FsRtlpOplockBreakToNone @ 0x14053E9A0 (FsRtlpOplockBreakToNone.c)
- *     FsRtlpOpBatchBreakClosePending @ 0x14093E3FC (FsRtlpOpBatchBreakClosePending.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402057B0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402D55B0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockCleanup @ 0x140304D20 (FsRtlpOplockCleanup.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x140305248 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpOplockBreakToII @ 0x14031DE1C (FsRtlpOplockBreakToII.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14036C590 (FsRtlpCancelExclusiveIrp.c)
+ *     FsRtlpOplockBreakToNone @ 0x14036CD18 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403752B0 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403929CC (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x1404F0144 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpCancelWaitingIrp @ 0x1404F0458 (FsRtlpCancelWaitingIrp.c)
+ *     FsRtlpWaitOnIrp @ 0x1404F0970 (FsRtlpWaitOnIrp.c)
+ *     FsRtlpOpBatchBreakClosePending @ 0x14088BEAC (FsRtlpOpBatchBreakClosePending.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlpRemoveAndCompleteWaitingIrp(_QWORD *P)
 {
-  _QWORD *v2; // rcx
+  _QWORD **v2; // rcx
   PVOID *v3; // rax
   __int64 v4; // rdi
-  __int64 v5; // [rsp+30h] [rbp-48h] BYREF
-  _BYTE v6[32]; // [rsp+38h] [rbp-40h] BYREF
-  __int64 *v7; // [rsp+58h] [rbp-20h]
-  __int64 v8; // [rsp+60h] [rbp-18h]
 
-  if ( (unsigned int)dword_140C03768 > 5 )
-  {
-    v5 = P[2];
-    v8 = 8LL;
-    v7 = &v5;
-    tlgWriteTransfer_EtwWriteTransfer(&dword_140C03768, byte_140029EC3, 0LL, 0LL, 3, v6);
-  }
-  v2 = (_QWORD *)*P;
-  if ( *(_QWORD **)(*P + 8LL) != P || (v3 = (PVOID *)P[1], *v3 != P) )
+  v2 = (_QWORD **)*P;
+  if ( v2[1] != P || (v3 = (PVOID *)P[1], *v3 != P) )
     __fastfail(3u);
   *v3 = v2;
   v2[1] = v3;

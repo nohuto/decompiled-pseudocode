@@ -1,12 +1,13 @@
 /*
- * XREFs of ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1C01BCAE4
+ * XREFs of ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1C01E7584
  * Callers:
- *     zzzAnimateFade @ 0x1C01BD378 (zzzAnimateFade.c)
- *     zzzShowFade @ 0x1C01BD4B8 (zzzShowFade.c)
+ *     zzzAnimateFade @ 0x1C01E809C (zzzAnimateFade.c)
+ *     zzzShowFade @ 0x1C01E81C4 (zzzShowFade.c)
  * Callees:
- *     GreUpdateSprite @ 0x1C00D5F08 (GreUpdateSprite.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     zzzUpdateLayeredWindow @ 0x1C01BD720 (zzzUpdateLayeredWindow.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     GreUpdateSprite @ 0x1C00BE800 (GreUpdateSprite.c)
+ *     zzzUpdateLayeredWindow @ 0x1C00F1C94 (zzzUpdateLayeredWindow.c)
  */
 
 void __fastcall zzzUpdateFade(
@@ -16,27 +17,26 @@ void __fastcall zzzUpdateFade(
         struct tagPOINT *a4,
         struct _BLENDFUNCTION *a5)
 {
-  unsigned int v7; // eax
-  __int64 v8; // rax
-  struct tagWND *v9; // rdi
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int128 v13; // [rsp+80h] [rbp-28h] BYREF
-  __int64 v14; // [rsp+90h] [rbp-18h]
+  int v9; // eax
+  struct tagWND *v10; // rbx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v12; // rcx
+  _QWORD v13[4]; // [rsp+80h] [rbp-28h] BYREF
 
-  v13 = 0LL;
-  v14 = 0LL;
-  v7 = gfade[12];
-  if ( (v7 & 8) != 0 )
+  v13[2] = 0LL;
+  v9 = gfade[6];
+  if ( (v9 & 8) != 0 )
   {
-    v8 = HMValidateHandleNoSecure(gfade[0], 1);
-    v9 = (struct tagWND *)v8;
-    if ( v8 )
+    v10 = (struct tagWND *)HMValidateHandleNoSecure(gfade[0], 1);
+    if ( v10 )
     {
-      ThreadLock(v8, &v13);
-      zzzUpdateLayeredWindow(v9, (__int64)a3, (__int64)a4, 0, (__int64)a5, 2, 0LL);
-      ThreadUnlock1(v11, v10, v12);
+      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+      v13[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+      *(_QWORD *)(ThreadWin32Thread + 416) = v13;
+      v13[1] = v10;
+      HMLockObject(v10);
+      zzzUpdateLayeredWindow(v10, 0LL, a1, a2, a3, a4, 0, a5, 2u, 0LL);
+      ThreadUnlock1(v12);
     }
   }
   else
@@ -44,19 +44,18 @@ void __fastcall zzzUpdateFade(
     GreUpdateSprite(
       *(HDEV *)(gpDispInfo + 40LL),
       0LL,
-      *(void **)gfade,
+      (void *)gfade[0],
       0LL,
       a1,
       a2,
       a3,
       a4,
-      gfade[13],
+      HIDWORD(gfade[6]),
       a5,
-      2 - ((v7 & 0x40) != 0),
+      2 - ((v9 & 0x40) != 0),
       0LL,
       0LL,
       1,
-      0,
       0);
   }
 }

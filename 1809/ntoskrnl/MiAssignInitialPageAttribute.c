@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAssignInitialPageAttribute @ 0x14018D1B4
+ * XREFs of MiAssignInitialPageAttribute @ 0x14018D1D4
  * Callers:
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
- *     MiInsertPhysicalPteMapping @ 0x14010FE60 (MiInsertPhysicalPteMapping.c)
- *     MiMapContiguousMemoryLarge @ 0x1401831C4 (MiMapContiguousMemoryLarge.c)
- *     MiMapMdlCommon @ 0x14018EAD4 (MiMapMdlCommon.c)
+ *     MiInsertPhysicalPteMapping @ 0x14010FE80 (MiInsertPhysicalPteMapping.c)
+ *     MiMapContiguousMemoryLarge @ 0x1401831E4 (MiMapContiguousMemoryLarge.c)
+ *     MiMapMdlCommon @ 0x14018EAF4 (MiMapMdlCommon.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiAssignInitialPageAttribute(__int64 a1, char a2)

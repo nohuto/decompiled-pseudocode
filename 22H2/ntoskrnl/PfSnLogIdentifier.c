@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogIdentifier @ 0x14074E130
+ * XREFs of PfSnLogIdentifier @ 0x14062D76C
  * Callers:
- *     PfSnBeginScenario @ 0x1407508D0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140630458 (PfSnBeginScenario.c)
  * Callees:
- *     PfSnTraceGetLogEntry @ 0x1403147FC (PfSnTraceGetLogEntry.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     PfSnTraceGetLogEntry @ 0x14029AF20 (PfSnTraceGetLogEntry.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall PfSnLogIdentifier(__int64 a1, const void **a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RimDeviceMonitorMapping@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C0173520
+ * XREFs of ?RimDeviceMonitorMapping@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C0151900
  * Callers:
- *     ?RimDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@K@Z @ 0x1C0003C9C (-RimDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@K@Z.c)
+ *     ?RimDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@K@Z @ 0x1C005686C (-RimDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@K@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@U?$_tlgWrapSz@G@@U3@U1@U?$_tlgWrapperByVal@$03@@U4@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapSz@G@@53AEBU?$_tlgWrapperByVal@$03@@6@Z @ 0x1C0172448 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@U-$_tlgWrapSz@G@@U3@U1@U-$_tlgWrapperByVal@$0.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@U?$_tlgWrapSz@G@@U3@U1@U?$_tlgWrapperByVal@$03@@U4@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapSz@G@@53AEBU?$_tlgWrapperByVal@$03@@6@Z @ 0x1C01507C4 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@U-$_tlgWrapSz@G@@U3@U1@U-$_tlgWrapperByVal@$0.c)
  */
 
 void __fastcall InputTraceLogging::RIM::RimDeviceMonitorMapping(const struct RIMDEV *a1)
@@ -26,14 +26,14 @@ void __fastcall InputTraceLogging::RIM::RimDeviceMonitorMapping(const struct RIM
   __int64 v15; // [rsp+A0h] [rbp+20h] BYREF
   __int64 v16; // [rsp+A8h] [rbp+28h] BYREF
 
-  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 256LL) )
+  if ( (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 256LL) )
   {
-    v3 = *(_DWORD *)(v1 + 1352);
-    LODWORD(v14) = *(_DWORD *)(v1 + 1880);
-    LODWORD(v15) = *(_DWORD *)(v1 + 1876);
-    v16 = *(_QWORD *)(v1 + 1868);
-    v10 = v1 + 1612;
-    v11 = v1 + 1356;
+    v3 = *(_DWORD *)(v1 + 1360);
+    LODWORD(v14) = *(_DWORD *)(v1 + 1888);
+    LODWORD(v15) = *(_DWORD *)(v1 + 1884);
+    v16 = *(_QWORD *)(v1 + 1876);
+    v10 = v1 + 1620;
+    v11 = v1 + 1364;
     if ( v3 )
     {
       v4 = v3 - 1;
@@ -88,8 +88,8 @@ void __fastcall InputTraceLogging::RIM::RimDeviceMonitorMapping(const struct RIM
     v12 = (__int64)v9;
     v13 = v1;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      (__int64)&dword_1C0289810,
-      (unsigned __int8 *)dword_1C0257FB7,
+      (__int64)&dword_1C024AA90,
+      (unsigned __int8 *)dword_1C021A40E,
       v1,
       v2,
       (__int64)&v13,

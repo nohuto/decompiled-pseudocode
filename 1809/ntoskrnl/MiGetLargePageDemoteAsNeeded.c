@@ -2,11 +2,11 @@
  * XREFs of MiGetLargePageDemoteAsNeeded @ 0x140028AD4
  * Callers:
  *     MiGetLargePageChain @ 0x140028A18 (MiGetLargePageChain.c)
- *     MiFindLargeNodePage @ 0x1402A8F04 (MiFindLargeNodePage.c)
- *     MiGetFastLargePage @ 0x14085D44C (MiGetFastLargePage.c)
+ *     MiFindLargeNodePage @ 0x1402A9004 (MiFindLargeNodePage.c)
+ *     MiGetFastLargePage @ 0x14085D42C (MiGetFastLargePage.c)
  * Callees:
  *     MiGetFreeZeroLargePage @ 0x14002BCF4 (MiGetFreeZeroLargePage.c)
- *     MiDemoteLargeFreeZeroPage @ 0x14016992C (MiDemoteLargeFreeZeroPage.c)
+ *     MiDemoteLargeFreeZeroPage @ 0x14016994C (MiDemoteLargeFreeZeroPage.c)
  */
 
 __int64 __fastcall MiGetLargePageDemoteAsNeeded(

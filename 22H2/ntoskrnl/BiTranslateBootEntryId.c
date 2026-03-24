@@ -1,14 +1,14 @@
 /*
- * XREFs of BiTranslateBootEntryId @ 0x140808178
+ * XREFs of BiTranslateBootEntryId @ 0x140972C04
  * Callers:
- *     BiBindEfiBootManager @ 0x140805090 (BiBindEfiBootManager.c)
- *     BiTranslateBootOrder @ 0x140805F1C (BiTranslateBootOrder.c)
+ *     BiBindEfiBootManager @ 0x14097043C (BiBindEfiBootManager.c)
+ *     BiTranslateBootOrder @ 0x140972C6C (BiTranslateBootOrder.c)
  * Callees:
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
- *     BiLookupObjectByBootEntry @ 0x1408081C8 (BiLookupObjectByBootEntry.c)
+ *     BiLogMessage @ 0x140784C9C (BiLogMessage.c)
+ *     BiLookupObjectByBootEntry @ 0x1409727B0 (BiLookupObjectByBootEntry.c)
  */
 
-__int64 __fastcall BiTranslateBootEntryId(__int64 a1, __int64 a2)
+__int64 __fastcall BiTranslateBootEntryId(__int64 **a1, int a2)
 {
   __int64 result; // rax
   _OWORD *v3; // r10

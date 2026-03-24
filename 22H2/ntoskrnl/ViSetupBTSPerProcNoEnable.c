@@ -1,11 +1,11 @@
 /*
- * XREFs of ViSetupBTSPerProcNoEnable @ 0x140AD4C10
+ * XREFs of ViSetupBTSPerProcNoEnable @ 0x1409D876C
  * Callers:
- *     VfInitializeBranchTracing @ 0x140AD4860 (VfInitializeBranchTracing.c)
+ *     VfInitializeBranchTracing @ 0x1409D83A4 (VfInitializeBranchTracing.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306B20 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 ViSetupBTSPerProcNoEnable()

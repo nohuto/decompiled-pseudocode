@@ -1,22 +1,22 @@
 /*
- * XREFs of AslPathWildcardFindNext @ 0x1408EAAE4
+ * XREFs of AslPathWildcardFindNext @ 0x1408EAAC4
  * Callers:
- *     SdbpCheckMatchingWildcardFiles @ 0x1408E6A00 (SdbpCheckMatchingWildcardFiles.c)
- *     AslPathWildcardFindFirst @ 0x1408EA508 (AslPathWildcardFindFirst.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x1408E69E0 (SdbpCheckMatchingWildcardFiles.c)
+ *     AslPathWildcardFindFirst @ 0x1408EA4E8 (AslPathWildcardFindFirst.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlStringCbCopyNW @ 0x140155DBC (RtlStringCbCopyNW.c)
- *     ZwQueryDirectoryFile @ 0x1401B8810 (ZwQueryDirectoryFile.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     ULongLongMult @ 0x14026D6E8 (ULongLongMult.c)
- *     RtlStringCbCatNW @ 0x140324070 (RtlStringCbCatNW.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyNW @ 0x140155DDC (RtlStringCbCopyNW.c)
+ *     ZwQueryDirectoryFile @ 0x1401B8830 (ZwQueryDirectoryFile.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ULongLongMult @ 0x14026D7E8 (ULongLongMult.c)
+ *     RtlStringCbCatNW @ 0x140324170 (RtlStringCbCatNW.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AslAlloc @ 0x14067C7A0 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     AslpPathWildcardAllocMatchNode @ 0x1408EB810 (AslpPathWildcardAllocMatchNode.c)
- *     AslpPathWildcardFreeMatchNode @ 0x1408EBB0C (AslpPathWildcardFreeMatchNode.c)
+ *     AslAlloc @ 0x14067C780 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x1408EB7F0 (AslpPathWildcardAllocMatchNode.c)
+ *     AslpPathWildcardFreeMatchNode @ 0x1408EBAEC (AslpPathWildcardFreeMatchNode.c)
  */
 
 __int64 __fastcall AslPathWildcardFindNext(NTSTRSAFE_PWSTR pszDest, __int64 a2, ULONGLONG *a3)

@@ -1,22 +1,22 @@
 /*
- * XREFs of SeMakeSystemToken @ 0x140B1E75C
+ * XREFs of SeMakeSystemToken @ 0x140A47F10
  * Callers:
- *     SepInitializationPhase0 @ 0x140B1E170 (SepInitializationPhase0.c)
+ *     SepInitializationPhase0 @ 0x140A47920 (SepInitializationPhase0.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14022D554 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1406CCBA0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     SeSetMandatoryPolicyToken @ 0x14075563C (SeSetMandatoryPolicyToken.c)
- *     RtlAddAccessAllowedAce @ 0x14078ED30 (RtlAddAccessAllowedAce.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14078ED60 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14078EDC0 (RtlSetOwnerSecurityDescriptor.c)
- *     SepCreateToken @ 0x14084895C (SepCreateToken.c)
- *     RtlAddProcessTrustLabelAce @ 0x140848A40 (RtlAddProcessTrustLabelAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402B5A04 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1405DADB0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     SeSetMandatoryPolicyToken @ 0x140676460 (SeSetMandatoryPolicyToken.c)
+ *     RtlAddAccessAllowedAce @ 0x140676BE0 (RtlAddAccessAllowedAce.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140676C10 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
+ *     SepCreateToken @ 0x14079DCB8 (SepCreateToken.c)
+ *     RtlAddProcessTrustLabelAce @ 0x14079DD90 (RtlAddProcessTrustLabelAce.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 SeMakeSystemToken()
@@ -31,12 +31,12 @@ __int64 SeMakeSystemToken()
   int v7; // eax
   unsigned int v8; // r13d
   ULONG v9; // edi
-  ACL *Pool2; // rax
+  ACL *PoolWithTag; // rax
   ACL *v11; // r14
   ULONG v12; // edi
   ACL *v13; // rax
   unsigned __int8 *v14; // rsi
-  void *v15; // rax
+  PVOID v15; // rax
   void *v16; // r15
   __int64 v17; // rdx
   __int64 v18; // r8
@@ -52,12 +52,12 @@ __int64 SeMakeSystemToken()
   PSID v29; // [rsp+C8h] [rbp-60h] BYREF
   int v30; // [rsp+D0h] [rbp-58h]
   int v31; // [rsp+D4h] [rbp-54h]
-  _QWORD v32[3]; // [rsp+D8h] [rbp-50h] BYREF
-  int v33; // [rsp+F0h] [rbp-38h]
-  int v34; // [rsp+F4h] [rbp-34h]
-  void *v35; // [rsp+F8h] [rbp-30h]
-  __int64 v36; // [rsp+100h] [rbp-28h]
-  __m128i si128; // [rsp+108h] [rbp-20h] BYREF
+  __m128i si128; // [rsp+D8h] [rbp-50h] BYREF
+  _QWORD v33[3]; // [rsp+E8h] [rbp-40h] BYREF
+  int v34; // [rsp+100h] [rbp-28h]
+  int v35; // [rsp+104h] [rbp-24h]
+  void *v36; // [rsp+108h] [rbp-20h]
+  __int64 v37; // [rsp+110h] [rbp-18h]
   char *v38; // [rsp+118h] [rbp-10h] BYREF
   int v39; // [rsp+120h] [rbp-8h]
   LUID v40; // [rsp+124h] [rbp-4h]
@@ -132,10 +132,10 @@ __int64 SeMakeSystemToken()
   v0 = (char *)ExLeapSecondData;
   v28 = 0LL;
   v31 = 0;
-  HIDWORD(v32[0]) = 0;
-  v34 = 0;
-  v27 = 0LL;
+  HIDWORD(v33[0]) = 0;
   v25 = 1;
+  v35 = 0;
+  v27 = 0LL;
   v26 = 0LL;
   si128 = _mm_load_si128((const __m128i *)&_xmm);
   if ( !ExLeapSecondData || !*(_BYTE *)ExLeapSecondData )
@@ -263,20 +263,20 @@ LABEL_6:
   v87 = 0;
   v89 = 0;
   v9 = 4 * *((unsigned __int8 *)SeLocalSystemSid + 1) + 24;
-  Pool2 = (ACL *)ExAllocatePool2(256LL, v9, 0x63416553u);
-  v11 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v9, 0x63416553u);
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    RtlCreateAcl(Pool2, v9, 2u);
+    RtlCreateAcl(PoolWithTag, v9, 2u);
     v12 = 4 * *(unsigned __int8 *)(SeProcTrustWinTcbSid + 1) + 24;
-    v13 = (ACL *)ExAllocatePool2(256LL, v12, 0x63416553u);
+    v13 = (ACL *)ExAllocatePoolWithTag(PagedPool, v12, 0x63416553u);
     v14 = (unsigned __int8 *)v13;
     if ( v13 )
     {
       RtlCreateAcl(v13, v12, 2u);
       RtlAddAccessAllowedAce(v11, 2u, 0xF01FFu, SeLocalSystemSid);
       RtlAddProcessTrustLabelAce(v14, 2u, 0, (unsigned __int8 *)SeProcTrustWinTcbSid, 20, 131096);
-      v15 = (void *)ExAllocatePool2(256LL, 0x28uLL, 0x64536553u);
+      v15 = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x64536553u);
       v16 = v15;
       if ( v15 )
       {
@@ -285,23 +285,23 @@ LABEL_6:
         RtlSetSaclSecurityDescriptor((__int64)v16, 1, (__int64)v14, 0);
         RtlSetOwnerSecurityDescriptor(v16, SeAliasAdminsSid, 0);
         RtlSetGroupSecurityDescriptor(v16, SeAliasAdminsSid, 0);
-        LODWORD(v32[0]) = 48;
-        v32[1] = 0LL;
-        v33 = 0;
-        v32[2] = 0LL;
-        v36 = 0LL;
-        v35 = v16;
+        LODWORD(v33[0]) = 48;
+        v33[1] = 0LL;
+        v34 = 0;
+        v33[2] = 0LL;
+        v37 = 0LL;
+        v36 = v16;
         SepCreateToken(
           (HANDLE *)&v28,
           v17,
           v18,
-          v32,
+          v33,
           v24[8],
           v24[10],
           (__int64)&SeSystemAuthenticationId,
           &v27,
           &v29,
-          4u,
+          4,
           (__int64)&v100,
           v8,
           0x1Fu,

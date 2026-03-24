@@ -1,9 +1,9 @@
 /*
- * XREFs of HalFixInterruptLine @ 0x140524B88
+ * XREFs of HalFixInterruptLine @ 0x1404D7784
  * Callers:
- *     HalpApicInitializeIoUnit @ 0x1403B4F40 (HalpApicInitializeIoUnit.c)
+ *     HalpApicInitializeIoUnit @ 0x1403A5790 (HalpApicInitializeIoUnit.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x1402520D4 (HalpInterruptFindLines.c)
+ *     HalpInterruptFindLines @ 0x140378CA0 (HalpInterruptFindLines.c)
  */
 
 __int64 __fastcall HalFixInterruptLine(unsigned int *a1, __int128 *a2)

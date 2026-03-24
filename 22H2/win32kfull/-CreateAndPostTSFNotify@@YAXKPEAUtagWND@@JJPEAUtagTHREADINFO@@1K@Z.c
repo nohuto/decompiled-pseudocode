@@ -1,15 +1,13 @@
 /*
- * XREFs of ?CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z @ 0x1C01BF9E0
+ * XREFs of ?CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z @ 0x1C0006AAC
  * Callers:
- *     ?DoGlobalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z @ 0x1C00B4ED4 (-DoGlobalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z.c)
- *     ?xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z @ 0x1C01BFE28 (-xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z.c)
+ *     ?xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z @ 0x1C00065F8 (-xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z.c)
+ *     ?DoGlobalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z @ 0x1C012BF18 (-DoGlobalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z.c)
  * Callees:
- *     ?RemoveNotify@@YAXPEAUtagNOTIFY@@@Z @ 0x1C0010160 (-RemoveNotify@@YAXPEAUtagNOTIFY@@@Z.c)
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0050C44 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C0070838 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     ?CreateNotify@@YAPEAUtagNOTIFY@@PEAUtagEVENTHOOK@@KPEAUtagWND@@JJPEAUtagTHREADINFO@@KE@Z @ 0x1C01BFAF8 (-CreateNotify@@YAPEAUtagNOTIFY@@PEAUtagEVENTHOOK@@KPEAUtagWND@@JJPEAUtagTHREADINFO@@KE@Z.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FBD0 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     ?CreateNotify@@YAPEAUtagNOTIFY@@PEAUtagEVENTHOOK@@KPEAUtagWND@@JJPEAUtagTHREADINFO@@KE@Z @ 0x1C01010DC (-CreateNotify@@YAPEAUtagNOTIFY@@PEAUtagEVENTHOOK@@KPEAUtagWND@@JJPEAUtagTHREADINFO@@KE@Z.c)
  */
 
 void __fastcall CreateAndPostTSFNotify(
@@ -21,14 +19,13 @@ void __fastcall CreateAndPostTSFNotify(
         struct tagTHREADINFO *a6,
         unsigned int a7)
 {
-  struct tagQ **v11; // rbx
-  struct tagNOTIFY *Notify; // rdi
-  __int64 v13; // rdx
-  __int64 v14; // r8
+  struct tagTHREADINFO *v7; // rdi
+  struct tagNOTIFY *Notify; // rbx
+  __int64 v9; // rax
+  struct tagNOTIFY **v10; // rcx
+  bool v11; // zf
 
-  if ( !tagDomLock::IsLockedExclusive((PERESOURCE *)gDomainWinEventLock) )
-    __int2c();
-  v11 = (struct tagQ **)a5;
+  v7 = a5;
   if ( *((_QWORD *)a5 + 54) )
   {
     if ( a5 != (struct tagTHREADINFO *)gptiRit )
@@ -36,23 +33,29 @@ void __fastcall CreateAndPostTSFNotify(
       Notify = CreateNotify(0LL, a1, a2, a3, a4, a6, a7, 1);
       if ( Notify )
       {
-        AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&a5);
+        UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&a5);
         *((_DWORD *)Notify + 14) |= 0xCu;
-        if ( !(unsigned int)PostEventMessageEx(
-                              (struct tagTHREADINFO *)v11,
-                              v11[54],
-                              0xCu,
-                              0LL,
-                              0,
-                              0LL,
-                              (__int64)Notify,
-                              0LL) )
+        if ( !(unsigned int)PostEventMessageEx(v7, *((struct tagQ **)v7 + 54), 0xCu, 0LL, 0, 0LL, (__int64)Notify, 0LL) )
         {
-          if ( !tagDomLock::IsLockedExclusive((PERESOURCE *)gDomainWinEventLock) )
-            __int2c();
-          RemoveNotify((struct tagNOTIFY ***)Notify);
+          v9 = *(_QWORD *)Notify;
+          if ( *(struct tagNOTIFY **)(*(_QWORD *)Notify + 8LL) != Notify
+            || (v10 = (struct tagNOTIFY **)*((_QWORD *)Notify + 1), *v10 != Notify) )
+          {
+            __fastfail(3u);
+          }
+          *v10 = (struct tagNOTIFY *)v9;
+          *(_QWORD *)(v9 + 8) = v10;
+          v11 = *((_DWORD *)Notify + 6) == 0;
+          *((_QWORD *)Notify + 1) = Notify;
+          *(_QWORD *)Notify = Notify;
+          if ( v11 )
+            HMAssignmentUnlock((char *)Notify + 16);
+          if ( Notify == (struct tagNOTIFY *)&unk_1C033C050 )
+            dword_1C0339AB8 = 0;
+          else
+            Win32FreePool(Notify);
         }
-        AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&a5, v13, v14);
+        UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&a5);
       }
     }
   }

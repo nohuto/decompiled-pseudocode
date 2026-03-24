@@ -1,17 +1,17 @@
 /*
- * XREFs of GreCreatePalette @ 0x1C016C6F0
+ * XREFs of GreCreatePalette @ 0x1C0149770
  * Callers:
  *     <none>
  * Callees:
- *     ??1PALMEMOBJ@@QEAA@XZ @ 0x1C00381D0 (--1PALMEMOBJ@@QEAA@XZ.c)
- *     ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C003E800 (-bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z.c)
+ *     ??1PALMEMOBJ@@QEAA@XZ @ 0x1C002B990 (--1PALMEMOBJ@@QEAA@XZ.c)
+ *     ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C00C95E0 (-bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z.c)
  */
 
 __int64 __fastcall GreCreatePalette(__int64 a1)
 {
   __int64 v1; // rbx
   unsigned int v2; // r8d
-  unsigned int *v4; // [rsp+50h] [rbp-18h] BYREF
+  struct HOBJ__ **v4; // [rsp+50h] [rbp-18h] BYREF
   int v5; // [rsp+58h] [rbp-10h]
 
   v1 = 0LL;
@@ -23,7 +23,7 @@ __int64 __fastcall GreCreatePalette(__int64 a1)
       v5 = 0;
       v4 = 0LL;
       if ( (unsigned int)PALMEMOBJ::bCreatePalette(
-                           (PALMEMOBJ *)&v4,
+                           (struct _SLIST_ENTRY **)&v4,
                            1,
                            v2,
                            (const unsigned int *)(a1 + 4),
@@ -34,7 +34,7 @@ __int64 __fastcall GreCreatePalette(__int64 a1)
                            0) )
       {
         v5 = 1;
-        v1 = *(_QWORD *)v4;
+        v1 = (__int64)*v4;
       }
       PALMEMOBJ::~PALMEMOBJ(&v4);
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionPowerRequestAcknowledged @ 0x1409A9BF0
+ * XREFs of TtmiLogSessionPowerRequestAcknowledged @ 0x140903EEC
  * Callers:
- *     TtmNotifySessionPowerRequestPresent @ 0x1409A4934 (TtmNotifySessionPowerRequestPresent.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x1408FED50 (TtmNotifySessionPowerRequestPresent.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogSessionPowerRequestAcknowledged(
@@ -14,7 +14,7 @@ void __fastcall TtmiLogSessionPowerRequestAcknowledged(
         __int64 a3,
         __int64 a4,
         __int64 a5,
-        __int64 a6,
+        int a6,
         char a7,
         char a8)
 {
@@ -48,9 +48,9 @@ void __fastcall TtmiLogSessionPowerRequestAcknowledged(
   char *v36; // [rsp+F0h] [rbp-10h]
   __int64 v37; // [rsp+F8h] [rbp-8h]
 
-  if ( (unsigned int)dword_140D3B908 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140D3B908, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL) )
     {
       v19 = v10;
       v22 = &v15;
@@ -62,6 +62,7 @@ void __fastcall TtmiLogSessionPowerRequestAcknowledged(
       v28 = &v19;
       v20 = a5;
       v30 = &v20;
+      v18 = a6;
       v32 = &v18;
       v13 = a7;
       v34 = &v13;
@@ -74,11 +75,10 @@ void __fastcall TtmiLogSessionPowerRequestAcknowledged(
       v27 = 4LL;
       v29 = 8LL;
       v31 = 8LL;
-      v18 = 0;
       v33 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140D3B908,
-        (unsigned __int8 *)&byte_14003381F,
+        (__int64)&dword_140D2D8C8,
+        (unsigned __int8 *)&byte_14002AF5F,
         0LL,
         0LL,
         0xAu,

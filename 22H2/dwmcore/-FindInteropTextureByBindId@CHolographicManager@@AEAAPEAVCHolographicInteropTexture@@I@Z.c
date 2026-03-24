@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FindInteropTextureByBindId@CHolographicManager@@AEAAPEAVCHolographicInteropTexture@@I@Z @ 0x1802A5724
+ * XREFs of ?FindInteropTextureByBindId@CHolographicManager@@AEAAPEAVCHolographicInteropTexture@@I@Z @ 0x18025370C
  * Callers:
- *     ?AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z @ 0x1802A4D00 (-AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z.c)
- *     ?GetInteropTextureVisualTree@CHolographicManager@@UEAAJIPEAPEAVCVisualTree@@@Z @ 0x1802A5830 (-GetInteropTextureVisualTree@CHolographicManager@@UEAAJIPEAPEAVCVisualTree@@@Z.c)
+ *     ?AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z @ 0x180252B80 (-AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z.c)
+ *     ?GetInteropTextureVisualTree@CHolographicManager@@UEAAJIPEAPEAVCVisualTree@@@Z @ 0x180253810 (-GetInteropTextureVisualTree@CHolographicManager@@UEAAJIPEAPEAVCVisualTree@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ struct CHolographicInteropTexture *__fastcall CHolographicManager::FindInteropTe
   v3 = 0LL;
   while ( v2 != *((_QWORD *)this + 19) )
   {
-    if ( *(_DWORD *)(*(_QWORD *)v2 + 224LL) == a2 )
+    if ( *(_DWORD *)(*(_QWORD *)v2 + 208LL) == a2 )
       return *(struct CHolographicInteropTexture **)v2;
     v2 += 8LL;
   }

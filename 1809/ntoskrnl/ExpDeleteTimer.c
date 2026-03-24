@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpDeleteTimer @ 0x140127930
+ * XREFs of ExpDeleteTimer @ 0x140127950
  * Callers:
  *     <none>
  * Callees:
@@ -11,9 +11,9 @@
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PsRemoveVirtualizedTimer @ 0x1401279DC (PsRemoveVirtualizedTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsRemoveVirtualizedTimer @ 0x1401279FC (PsRemoveVirtualizedTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)

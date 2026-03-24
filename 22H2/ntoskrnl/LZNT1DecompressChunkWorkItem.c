@@ -1,11 +1,11 @@
 /*
- * XREFs of LZNT1DecompressChunkWorkItem @ 0x140362580
+ * XREFs of LZNT1DecompressChunkWorkItem @ 0x1403205B0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     LZNT1DecompressChunk @ 0x140429B60 (LZNT1DecompressChunk.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     LZNT1DecompressChunk @ 0x1404081D0 (LZNT1DecompressChunk.c)
  */
 
 void __fastcall LZNT1DecompressChunkWorkItem(PVOID Entry)

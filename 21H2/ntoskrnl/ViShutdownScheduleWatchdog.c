@@ -1,12 +1,12 @@
 /*
- * XREFs of ViShutdownScheduleWatchdog @ 0x140A95A04
+ * XREFs of ViShutdownScheduleWatchdog @ 0x1409DA3A4
  * Callers:
- *     VfShutdownScheduleWatchdog @ 0x140601514 (VfShutdownScheduleWatchdog.c)
- *     ViShutdownWatchdogExecuteDpc @ 0x140A95A80 (ViShutdownWatchdogExecuteDpc.c)
+ *     VfShutdownScheduleWatchdog @ 0x1405A2168 (VfShutdownScheduleWatchdog.c)
+ *     ViShutdownWatchdogExecuteDpc @ 0x1409DA420 (ViShutdownWatchdogExecuteDpc.c)
  * Callees:
- *     KeInitializeDpc @ 0x1402940D0 (KeInitializeDpc.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KeInitializeTimerEx @ 0x1402F4820 (KeInitializeTimerEx.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
  */
 
 __int64 ViShutdownScheduleWatchdog()
@@ -15,5 +15,5 @@ __int64 ViShutdownScheduleWatchdog()
     VfShutdownThread = (ULONG_PTR)KeGetCurrentThread();
   KeInitializeDpc(&ViShutdownWatchdogDpc, ViShutdownWatchdogExecuteDpc, 0LL);
   KeInitializeTimerEx(&ViShutdownWatchdogTimer, NotificationTimer);
-  return KiSetTimerEx((unsigned __int64)&ViShutdownWatchdogTimer, -6000000000LL, 0, 0, (__int64)&ViShutdownWatchdogDpc);
+  return KiSetTimerEx((__int64)&ViShutdownWatchdogTimer, -6000000000LL, 0, 0, (__int64)&ViShutdownWatchdogDpc);
 }

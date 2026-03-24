@@ -1,1 +1,49 @@
-/*\n * XREFs of _tlgEnableCallback @ 0x1C000D440\n * Callers:\n *     <none>\n * Callees:\n *     _guard_dispatch_icall_nop @ 0x1C0002F10 (_guard_dispatch_icall_nop.c)\n */\n\nvoid __fastcall tlgEnableCallback(\n        LPCGUID SourceId,\n        __int64 ControlCode,\n        __int64 Level,\n        ULONGLONG MatchAnyKeyword,\n        ULONGLONG MatchAllKeyword,\n        PEVENT_FILTER_DESCRIPTOR FilterData,\n        _QWORD *CallbackContext)\n{\n  int v8; // ecx\n\n  if ( CallbackContext )\n  {\n    if ( (_DWORD)ControlCode )\n    {\n      if ( (_DWORD)ControlCode == 1 )\n      {\n        if ( (_BYTE)Level )\n          v8 = (unsigned __int8)Level + 1;\n        else\n          v8 = 256;\n        *(_DWORD *)CallbackContext = v8;\n        CallbackContext[2] = MatchAnyKeyword;\n        CallbackContext[3] = MatchAllKeyword;\n      }\n    }\n    else\n    {\n      *(_DWORD *)CallbackContext = 0;\n    }\n    if ( CallbackContext[5] )\n      ((void (__fastcall *)(LPCGUID, __int64, __int64, ULONGLONG, ULONGLONG, PEVENT_FILTER_DESCRIPTOR, _QWORD))CallbackContext[5])(\n        SourceId,\n        ControlCode,\n        Level,\n        MatchAnyKeyword,\n        MatchAllKeyword,\n        FilterData,\n        CallbackContext[6]);\n  }\n}\n
+/*
+ * XREFs of _tlgEnableCallback @ 0x1C000D440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0002F10 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall tlgEnableCallback(
+        LPCGUID SourceId,
+        __int64 ControlCode,
+        __int64 Level,
+        ULONGLONG MatchAnyKeyword,
+        ULONGLONG MatchAllKeyword,
+        PEVENT_FILTER_DESCRIPTOR FilterData,
+        _QWORD *CallbackContext)
+{
+  int v8; // ecx
+
+  if ( CallbackContext )
+  {
+    if ( (_DWORD)ControlCode )
+    {
+      if ( (_DWORD)ControlCode == 1 )
+      {
+        if ( (_BYTE)Level )
+          v8 = (unsigned __int8)Level + 1;
+        else
+          v8 = 256;
+        *(_DWORD *)CallbackContext = v8;
+        CallbackContext[2] = MatchAnyKeyword;
+        CallbackContext[3] = MatchAllKeyword;
+      }
+    }
+    else
+    {
+      *(_DWORD *)CallbackContext = 0;
+    }
+    if ( CallbackContext[5] )
+      ((void (__fastcall *)(LPCGUID, __int64, __int64, ULONGLONG, ULONGLONG, PEVENT_FILTER_DESCRIPTOR, _QWORD))CallbackContext[5])(
+        SourceId,
+        ControlCode,
+        Level,
+        MatchAnyKeyword,
+        MatchAllKeyword,
+        FilterData,
+        CallbackContext[6]);
+  }
+}

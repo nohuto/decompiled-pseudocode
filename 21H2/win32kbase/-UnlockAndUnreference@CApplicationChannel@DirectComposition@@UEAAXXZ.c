@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UnlockAndUnreference@CApplicationChannel@DirectComposition@@UEAAXXZ @ 0x1C0082A90
+ * XREFs of ?UnlockAndUnreference@CApplicationChannel@DirectComposition@@UEAAXXZ @ 0x1C007A070
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCrossChannelVisualData@2@@Z @ 0x1C0005DFC (-ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCros.c)
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0013C00 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0059A80 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCrossChannelVisualData@2@@Z @ 0x1C01D4FBC (-ReleaseCrossChannelVisuals@CApplicationChannel@DirectComposition@@KAXPEAVCConnection@2@PEAUCros.c)
  */
 
 void __fastcall DirectComposition::CApplicationChannel::UnlockAndUnreference(
@@ -41,15 +41,15 @@ void __fastcall DirectComposition::CApplicationChannel::UnlockAndUnreference(
         {
           if ( _InterlockedCompareExchange((volatile signed __int32 *)this + 6, 2, 1) == 1 )
           {
-            v6 = (struct _ERESOURCE *)*((_QWORD *)this + 4);
+            v5 = (struct _ERESOURCE *)*((_QWORD *)this + 4);
             KeEnterCriticalRegion();
-            ExAcquireResourceExclusiveLite(v6, 1u);
+            ExAcquireResourceExclusiveLite(v5, 1u);
             (*(void (__fastcall **)(DirectComposition::CApplicationChannel *, _QWORD))(*(_QWORD *)this + 48LL))(
               this,
               0LL);
-            v7 = *(struct _ERESOURCE **)(*((_QWORD *)this + 5) + 8LL);
+            v6 = *(struct _ERESOURCE **)(*((_QWORD *)this + 5) + 8LL);
             KeEnterCriticalRegion();
-            ExAcquireResourceSharedLite(v7, 1u);
+            ExAcquireResourceSharedLite(v6, 1u);
             if ( DirectComposition::CConnection::IsConnected(*((DirectComposition::CConnection **)this + 5)) )
               *((_DWORD *)this + 6) = 4;
             ExReleaseResourceLite(*((PERESOURCE *)this + 4));
@@ -59,13 +59,13 @@ void __fastcall DirectComposition::CApplicationChannel::UnlockAndUnreference(
           }
           if ( _InterlockedCompareExchange((volatile signed __int32 *)this + 6, 5, 4) == 4 )
           {
-            v8 = (struct _ERESOURCE *)*((_QWORD *)this + 4);
+            v7 = (struct _ERESOURCE *)*((_QWORD *)this + 4);
             KeEnterCriticalRegion();
-            ExAcquireResourceExclusiveLite(v8, 1u);
+            ExAcquireResourceExclusiveLite(v7, 1u);
             (*(void (__fastcall **)(DirectComposition::CApplicationChannel *))(*(_QWORD *)this + 56LL))(this);
-            v9 = *(struct _ERESOURCE **)(*((_QWORD *)this + 5) + 8LL);
+            v8 = *(struct _ERESOURCE **)(*((_QWORD *)this + 5) + 8LL);
             KeEnterCriticalRegion();
-            ExAcquireResourceSharedLite(v9, 1u);
+            ExAcquireResourceSharedLite(v8, 1u);
             if ( !DirectComposition::CConnection::IsConnected(*((DirectComposition::CConnection **)this + 5)) )
               *((_DWORD *)this + 6) = 1;
             ExReleaseResourceLite(*((PERESOURCE *)this + 4));
@@ -78,9 +78,9 @@ void __fastcall DirectComposition::CApplicationChannel::UnlockAndUnreference(
         DirectComposition::CApplicationChannel::ReleaseCrossChannelVisuals(
           *((struct DirectComposition::CConnection **)this + 5),
           v2);
-        v5 = (struct _ERESOURCE *)*((_QWORD *)this + 4);
+        v9 = (struct _ERESOURCE *)*((_QWORD *)this + 4);
         KeEnterCriticalRegion();
-        ExAcquireResourceExclusiveLite(v5, 1u);
+        ExAcquireResourceExclusiveLite(v9, 1u);
         v2 = (struct DirectComposition::CrossChannelVisualData *)*((_QWORD *)this + 49);
       }
       while ( v2 );

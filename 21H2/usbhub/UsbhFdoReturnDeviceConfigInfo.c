@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhFdoReturnDeviceConfigInfo @ 0x1C0030490
+ * XREFs of UsbhFdoReturnDeviceConfigInfo @ 0x1C0031834
  * Callers:
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     memset @ 0x1C001F800 (memset.c)
- *     UsbhFreeID @ 0x1C004FAE8 (UsbhFreeID.c)
- *     UsbhCopyPnpString @ 0x1C0059124 (UsbhCopyPnpString.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     UsbhFreeID @ 0x1C0051094 (UsbhFreeID.c)
+ *     UsbhCopyPnpString @ 0x1C005A810 (UsbhCopyPnpString.c)
  */
 
 __int64 __fastcall UsbhFdoReturnDeviceConfigInfo(__int64 a1, ULONG_PTR a2, IRP *a3)
@@ -71,7 +71,7 @@ __int64 __fastcall UsbhFdoReturnDeviceConfigInfo(__int64 a1, ULONG_PTR a2, IRP *
       }
       if ( v7[758] == 100 )
         LODWORD(SecurityContext->AccessState) = v10 | 0x40;
-      if ( _bittest(v6 + 355, 0x10u) )
+      if ( (v6[355] & 0x10000) != 0 )
       {
         HIDWORD(SecurityContext[5].AccessState) |= 1u;
         *(_OWORD *)&SecurityContext[5].DesiredAccess = *(_OWORD *)(v6 + 650);

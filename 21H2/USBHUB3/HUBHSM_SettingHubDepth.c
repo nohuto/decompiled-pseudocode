@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBHSM_SettingHubDepth @ 0x1C0009870
+ * XREFs of HUBHSM_SettingHubDepth @ 0x1C0009570
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBHSM_SettingHubDepth(__int64 a1)
@@ -32,7 +32,7 @@ __int64 __fastcall HUBHSM_SettingHubDepth(__int64 a1)
       4u,
       3u,
       0x1Bu,
-      (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+      (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
       v6);
   }
   v4 = HUBMISC_ControlTransfer(
@@ -55,7 +55,7 @@ __int64 __fastcall HUBHSM_SettingHubDepth(__int64 a1)
         2u,
         3u,
         0x1Cu,
-        (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
         v7);
     }
     HUBSM_AddEvent(v1 + 1264, 2004LL);

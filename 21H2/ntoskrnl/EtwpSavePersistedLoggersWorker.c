@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpSavePersistedLoggersWorker @ 0x1409ED6C0
+ * XREFs of EtwpSavePersistedLoggersWorker @ 0x14094923C
  * Callers:
- *     EtwpSavePersistedLoggers @ 0x1409ED690 (EtwpSavePersistedLoggers.c)
+ *     EtwpSavePersistedLoggers @ 0x14094920C (EtwpSavePersistedLoggers.c)
  * Callees:
- *     EtwpSavePersistedLogger @ 0x1409ED100 (EtwpSavePersistedLogger.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwpSavePersistedLogger @ 0x140948C8C (EtwpSavePersistedLogger.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 EtwpSavePersistedLoggersWorker()
 {
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   __int64 v1; // rdx
   char *v2; // rbx
   int v3; // esi
@@ -19,13 +19,16 @@ __int64 EtwpSavePersistedLoggersWorker()
   int v7; // [rsp+50h] [rbp+8h] BYREF
 
   v7 = 0;
-  Pool2 = ExAllocatePool2(256LL, 8LL * *(unsigned int *)(EtwpHostSiloState + 16) + 4112, 1266119749LL);
-  v2 = (char *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(
+                          PagedPool,
+                          8LL * *(unsigned int *)(EtwpHostSiloState + 16) + 4112,
+                          0x4B777445u);
+  v2 = PoolWithTag;
+  if ( !PoolWithTag )
     goto LABEL_9;
-  *(_DWORD *)Pool2 = 0;
-  *(_QWORD *)(Pool2 + 8) = Pool2 + 4112;
-  v3 = KsrEnumeratePersistedMemory(EtwpKsrGuid, EtwpKsrMemoryEnumCallback, Pool2);
+  *(_DWORD *)PoolWithTag = 0;
+  *((_QWORD *)PoolWithTag + 1) = PoolWithTag + 4112;
+  v3 = KsrEnumeratePersistedMemory(EtwpKsrGuid, EtwpKsrMemoryEnumCallback, PoolWithTag);
   if ( v3 >= 0 )
   {
     for ( i = 0LL; (unsigned int)i < *(_DWORD *)v2; i = (unsigned int)(i + 1) )

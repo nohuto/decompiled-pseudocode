@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpInvalidateSubtree @ 0x14069E21C
+ * XREFs of CmpInvalidateSubtree @ 0x140772CE0
  * Callers:
- *     CmpPerformUnloadKey @ 0x14069E98C (CmpPerformUnloadKey.c)
- *     CmpTransMgrFreeVolatileData @ 0x14071BC94 (CmpTransMgrFreeVolatileData.c)
- *     CmpSaveBootControlSet @ 0x14090BC6C (CmpSaveBootControlSet.c)
- *     CmRestoreKey @ 0x14090C34C (CmRestoreKey.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
- *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x14091CE30 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
+ *     CmpPerformUnloadKey @ 0x14071A1B8 (CmpPerformUnloadKey.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071D4D0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpSaveBootControlSet @ 0x140867A80 (CmpSaveBootControlSet.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x1408762A0 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
+ *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
  * Callees:
- *     CmpEnumerateAllOpenSubKeys @ 0x14069F7AC (CmpEnumerateAllOpenSubKeys.c)
+ *     CmpEnumerateAllOpenSubKeys @ 0x1407198BC (CmpEnumerateAllOpenSubKeys.c)
  */
 
-__int64 __fastcall CmpInvalidateSubtree(__int64 a1, __int64 a2, int a3, __int64 a4, unsigned int *a5)
+__int64 __fastcall CmpInvalidateSubtree(__int64 a1, int a2, int a3, __int64 a4, unsigned int *a5)
 {
   __int64 result; // rax
   int v6; // [rsp+20h] [rbp-28h] BYREF
@@ -24,13 +24,8 @@ __int64 __fastcall CmpInvalidateSubtree(__int64 a1, __int64 a2, int a3, __int64 
   v9 = 0;
   v8 = a3;
   v6 = a2;
-  LOBYTE(a2) = a3 & 1;
   v10 = a4;
-  result = ((__int64 (__fastcall *)(__int64, __int64, __int64 (__fastcall *)(), int *))CmpEnumerateAllOpenSubKeys)(
-             a1,
-             a2,
-             CmpInvalidateSubtreeWorker,
-             &v6);
+  result = CmpEnumerateAllOpenSubKeys(a1, a3 & 1, (__int64)CmpInvalidateSubtreeWorker, (__int64)&v6);
   if ( a5 )
   {
     result = v7;

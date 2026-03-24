@@ -1,7 +1,7 @@
 /*
- * XREFs of CmRegUtilUcValueGetFullBuffer @ 0x1C0386220
+ * XREFs of CmRegUtilUcValueGetFullBuffer @ 0x1C02C5530
  * Callers:
- *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C0385A5C (PiRegStateReadStackCreationSettingsFromKey.c)
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C02C4D70 (PiRegStateReadStackCreationSettingsFromKey.c)
  * Callees:
  *     <none>
  */

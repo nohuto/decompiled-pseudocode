@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSessionDisconnected @ 0x1406E1F6C
+ * XREFs of PopSessionDisconnected @ 0x1406E1F4C
  * Callers:
- *     PopSessionConnectionChange @ 0x14071D6A8 (PopSessionConnectionChange.c)
+ *     PopSessionConnectionChange @ 0x14071D688 (PopSessionConnectionChange.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     PopDiagTraceSessionStates @ 0x1406DC770 (PopDiagTraceSessionStates.c)
- *     PopSetSessionUserStatus @ 0x1406DC9D8 (PopSetSessionUserStatus.c)
- *     PopSetSessionDisplayStatus @ 0x14071D7F4 (PopSetSessionDisplayStatus.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopDiagTraceSessionStates @ 0x1406DC750 (PopDiagTraceSessionStates.c)
+ *     PopSetSessionUserStatus @ 0x1406DC9B8 (PopSetSessionUserStatus.c)
+ *     PopSetSessionDisplayStatus @ 0x14071D7D4 (PopSetSessionDisplayStatus.c)
  */
 
 __int64 __fastcall PopSessionDisconnected(unsigned int a1, _DWORD *a2)

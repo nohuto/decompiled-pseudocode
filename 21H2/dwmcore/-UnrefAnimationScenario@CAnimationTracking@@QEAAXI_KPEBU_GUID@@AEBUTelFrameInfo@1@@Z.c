@@ -1,14 +1,14 @@
 /*
- * XREFs of ?UnrefAnimationScenario@CAnimationTracking@@QEAAXI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z @ 0x180076FE8
+ * XREFs of ?UnrefAnimationScenario@CAnimationTracking@@QEAAXI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z @ 0x1800B1558
  * Callers:
- *     ?TelemetryUnrefAnimationScenario@CPartitionVerticalBlankScheduler@@UEAAXI_KPEBU_GUID@@@Z @ 0x180076F80 (-TelemetryUnrefAnimationScenario@CPartitionVerticalBlankScheduler@@UEAAXI_KPEBU_GUID@@@Z.c)
+ *     ?TelemetryUnrefAnimationScenario@CPartitionVerticalBlankScheduler@@UEAAXI_KPEBU_GUID@@@Z @ 0x1800B14F0 (-TelemetryUnrefAnimationScenario@CPartitionVerticalBlankScheduler@@UEAAXI_KPEBU_GUID@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetScenarioName@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z @ 0x180076D84 (-GetScenarioName@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z.c)
- *     ?FindScenario@CAnimationTracking@@AEAAIIPEBU_GUID@@PEAPEAUAnimationScenarioRunningStatistics@1@@Z @ 0x1800775C4 (-FindScenario@CAnimationTracking@@AEAAIIPEBU_GUID@@PEAPEAUAnimationScenarioRunningStatistics@1@@.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memcmp_0 @ 0x180105173 (memcmp_0.c)
- *     McTemplateU0zqqqqx_EventWriteTransfer @ 0x1801CBAAC (McTemplateU0zqqqqx_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FindScenario@CAnimationTracking@@AEAAIIPEBU_GUID@@PEAPEAUAnimationScenarioRunningStatistics@1@@Z @ 0x1800B1B98 (-FindScenario@CAnimationTracking@@AEAAIIPEBU_GUID@@PEAPEAUAnimationScenarioRunningStatistics@1@@.c)
+ *     ?GetScenarioName@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z @ 0x1800B1C08 (-GetScenarioName@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memcmp_0 @ 0x1800F47CF (memcmp_0.c)
+ *     McTemplateU0zqqqqx_EventWriteTransfer @ 0x1801579E8 (McTemplateU0zqqqqx_EventWriteTransfer.c)
  */
 
 void __fastcall CAnimationTracking::UnrefAnimationScenario(
@@ -19,70 +19,71 @@ void __fastcall CAnimationTracking::UnrefAnimationScenario(
         const struct CAnimationTracking::TelFrameInfo *a5)
 {
   const struct _GUID *v5; // rbx
-  struct CAnimationTracking::AnimationScenarioRunningStatistics *v9; // rbx
-  __int64 v10; // rdi
-  CAnimationTracking *v11; // rcx
-  _QWORD *v12; // rax
-  int v13; // esi
-  __int64 v14; // rcx
+  unsigned int v9; // r9d
+  struct CAnimationTracking::AnimationScenarioRunningStatistics *v10; // rbx
+  __int64 v11; // rdi
+  CAnimationTracking *v12; // rcx
+  _QWORD *v13; // rax
+  int v14; // esi
+  __int64 v15; // rcx
   unsigned int ScenarioName; // r8d
-  unsigned int v16; // eax
-  __int64 v17; // rcx
-  struct CAnimationTracking::AnimationScenarioRunningStatistics *v18; // [rsp+40h] [rbp-128h] BYREF
-  unsigned __int16 v19[128]; // [rsp+50h] [rbp-118h] BYREF
+  unsigned int v17; // eax
+  __int64 v18; // rcx
+  struct CAnimationTracking::AnimationScenarioRunningStatistics *v19; // [rsp+40h] [rbp-128h] BYREF
+  unsigned __int16 v20[128]; // [rsp+50h] [rbp-118h] BYREF
 
   v5 = (const struct _GUID *)a4;
   if ( a4 )
     v5 = (const struct _GUID *)(-(__int64)(memcmp_0((const void *)a4, &GUID_NULL, 0x10uLL) != 0) & a4);
-  v18 = 0LL;
-  if ( CAnimationTracking::FindScenario(this, a2, v5, &v18) != *((_DWORD *)this + 6) )
+  v19 = 0LL;
+  if ( CAnimationTracking::FindScenario(this, a2, v5, &v19) != *((_DWORD *)this + 6) )
   {
-    v9 = v18;
-    v10 = 0LL;
-    v11 = (CAnimationTracking *)*((unsigned int *)v18 + 48);
-    v12 = (_QWORD *)*((_QWORD *)v18 + 21);
-    if ( (_DWORD)v11 )
+    v10 = v19;
+    v11 = 0LL;
+    v12 = (CAnimationTracking *)*((unsigned int *)v19 + 46);
+    v13 = (_QWORD *)*((_QWORD *)v19 + 20);
+    if ( (_DWORD)v12 )
     {
       do
       {
-        if ( a3 == *v12 )
+        if ( a3 == *v13 )
           break;
-        v10 = (unsigned int)(v10 + 1);
-        ++v12;
+        v11 = (unsigned int)(v11 + 1);
+        ++v13;
       }
-      while ( (unsigned int)v10 < (unsigned int)v11 );
+      while ( (unsigned int)v11 < (unsigned int)v12 );
     }
-    v13 = *((_DWORD *)v18 + 48);
-    ScenarioName = (unsigned int)CAnimationTracking::GetScenarioName(v11, v18, v19);
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x800) != 0 )
+    v14 = *((_DWORD *)v19 + 46);
+    ScenarioName = (unsigned int)CAnimationTracking::GetScenarioName(v12, v19, v20, v9);
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
       McTemplateU0zqqqqx_EventWriteTransfer(
-        *((_DWORD *)v9 + 5),
-        *((_DWORD *)v9 + 7) - *((_DWORD *)v9 + 6),
+        *((_DWORD *)v10 + 5),
+        *((_DWORD *)v10 + 7) - *((_DWORD *)v10 + 6),
         ScenarioName,
-        *((_DWORD *)v9 + 48) - ((_DWORD)v10 != v13),
-        *((_BYTE *)v9 + 28) - *((_BYTE *)v9 + 24),
-        *((_DWORD *)v9 + 8),
-        *((_DWORD *)v9 + 5),
+        *((_DWORD *)v10 + 46) - ((_DWORD)v11 != v14),
+        *((_BYTE *)v10 + 28) - *((_BYTE *)v10 + 24),
+        *((_DWORD *)v10 + 8),
+        *((_DWORD *)v10 + 5),
         a3);
-    if ( (_DWORD)v10 != v13 )
+    if ( (_DWORD)v11 != v14 )
     {
-      v16 = *((_DWORD *)v9 + 48);
-      if ( (unsigned int)v10 >= v16 )
+      v17 = *((_DWORD *)v10 + 46);
+      if ( (unsigned int)v11 >= v17 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, -2147024809, 0x21Fu);
+        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, -2147024809, 0x21Fu, 0LL);
       }
       else
       {
-        v17 = v16 - 1;
-        if ( (unsigned int)v10 < (unsigned int)v17 )
+        v18 = v17 - 1;
+        if ( (unsigned int)v11 < (unsigned int)v18 )
         {
-          *(_QWORD *)(*((_QWORD *)v9 + 21) + 8 * v10) = *(_QWORD *)(*((_QWORD *)v9 + 21) + 8 * v17);
-          v16 = *((_DWORD *)v9 + 48);
+          *(_QWORD *)(*((_QWORD *)v10 + 20) + 8 * v11) = *(_QWORD *)(*((_QWORD *)v10 + 20) + 8 * v18);
+          v17 = *((_DWORD *)v10 + 46);
         }
-        *((_DWORD *)v9 + 48) = v16 - 1;
+        *((_DWORD *)v10 + 46) = v17 - 1;
       }
-      if ( !*((_DWORD *)v9 + 48) )
-        *((_QWORD *)v9 + 8) = *((_QWORD *)a5 + 1);
+      if ( !*((_DWORD *)v10 + 46) )
+        *((_QWORD *)v10 + 8) = *((_QWORD *)a5 + 1);
     }
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDozeDeferralDecision @ 0x140992098
+ * XREFs of PopDiagTraceDozeDeferralDecision @ 0x1408E9F00
  * Callers:
- *     PopDeferDoze @ 0x1409974E8 (PopDeferDoze.c)
+ *     PopDeferDoze @ 0x1408F0448 (PopDeferDoze.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402A2094 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDozeDeferralDecision(
@@ -20,8 +20,8 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
 {
   int v7; // edi
   __int64 v9; // r9
-  const WCHAR *v10; // r10
-  const WCHAR *v11; // r11
+  const size_t *v10; // r10
+  const size_t *v11; // r11
   char v12; // [rsp+30h] [rbp-D0h] BYREF
   char v13; // [rsp+31h] [rbp-CFh] BYREF
   char v14; // [rsp+32h] [rbp-CEh] BYREF
@@ -66,15 +66,15 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
   __int64 v53; // [rsp+168h] [rbp+68h]
 
   v7 = a1;
-  if ( (unsigned int)dword_140C03A00 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03A00, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
     {
       v18 = v7;
       v26 = &v18;
       v27 = 4LL;
       v28 = &v19;
-      v22 = qword_140C22880;
+      v22 = qword_140C23500;
       v30 = &v22;
       v32 = &v23;
       v24 = a5;
@@ -96,13 +96,13 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
       v42 = &v13;
       v14 = PopPlatformRole;
       v44 = &v14;
-      v21 = (unsigned __int8)byte_140C23414;
+      v21 = (unsigned __int8)byte_140C24074;
       v46 = &v21;
-      v15 = byte_140C23413;
+      v15 = byte_140C24073;
       v48 = &v15;
-      v16 = BYTE8(xmmword_140C23430);
+      v16 = byte_140C24098;
       v50 = &v16;
-      v17 = qword_140C23440;
+      v17 = qword_140C240A0;
       v52 = &v17;
       v41 = 1LL;
       v43 = 1LL;
@@ -112,8 +112,8 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
       v51 = 1LL;
       v53 = 1LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03A00,
-        (unsigned __int8 *)byte_14002EA10,
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)byte_1400270C5,
         0LL,
         0LL,
         0x11u,

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCanStealKernelStack @ 0x14012D5AC
+ * XREFs of MiCanStealKernelStack @ 0x14012D5CC
  * Callers:
- *     MiSwapStackPage @ 0x14012D160 (MiSwapStackPage.c)
- *     MiJumpStackTarget @ 0x14015E8F0 (MiJumpStackTarget.c)
+ *     MiSwapStackPage @ 0x14012D180 (MiSwapStackPage.c)
+ *     MiJumpStackTarget @ 0x14015E910 (MiJumpStackTarget.c)
  * Callees:
- *     MiGetLeafPfnBuddy @ 0x14015E8B4 (MiGetLeafPfnBuddy.c)
+ *     MiGetLeafPfnBuddy @ 0x14015E8D4 (MiGetLeafPfnBuddy.c)
  */
 
 _BOOL8 __fastcall MiCanStealKernelStack(__int64 a1, __int16 a2)

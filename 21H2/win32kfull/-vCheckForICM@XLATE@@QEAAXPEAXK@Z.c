@@ -1,18 +1,19 @@
 /*
- * XREFs of ?vCheckForICM@XLATE@@QEAAXPEAXK@Z @ 0x1C02BE990
+ * XREFs of ?vCheckForICM@XLATE@@QEAAXPEAXK@Z @ 0x1C02BFFF0
  * Callers:
- *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C0009E08 (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C00CFD3C (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
  * Callees:
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0COLORTRANSFORMOBJ@@QEAA@PEAX@Z @ 0x1C026ACF0 (--0COLORTRANSFORMOBJ@@QEAA@PEAX@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0COLORTRANSFORMOBJ@@QEAA@PEAX@Z @ 0x1C026CF50 (--0COLORTRANSFORMOBJ@@QEAA@PEAX@Z.c)
  */
 
 void __fastcall XLATE::vCheckForICM(XLATE *this, void *a2, int a3)
 {
-  __int64 v4; // rcx
-  int v5; // eax
-  _BYTE v6[32]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-18h]
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  int v6; // eax
+  _BYTE v7[32]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v8; // [rsp+40h] [rbp-18h]
 
   *((_DWORD *)this + 18) = 0;
   *((_QWORD *)this + 8) = 0LL;
@@ -24,23 +25,23 @@ void __fastcall XLATE::vCheckForICM(XLATE *this, void *a2, int a3)
       *((_QWORD *)this + 8) = a2;
       if ( (a3 & 2) != 0 )
       {
-        COLORTRANSFORMOBJ::COLORTRANSFORMOBJ((COLORTRANSFORMOBJ *)v6, a2);
-        v4 = v7;
-        if ( v7 )
+        COLORTRANSFORMOBJ::COLORTRANSFORMOBJ((COLORTRANSFORMOBJ *)v7, a2);
+        v5 = v8;
+        if ( v8 )
         {
           *((_DWORD *)this + 1) |= 0x10u;
-          DEC_SHARE_REF_CNT(v4);
+          DEC_SHARE_REF_CNT(v5, v4);
         }
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v6);
+        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v7);
       }
       else if ( (a3 & 1) != 0 )
       {
-        v5 = *((_DWORD *)this + 1) | 0x20;
-        *((_DWORD *)this + 1) = v5;
+        v6 = *((_DWORD *)this + 1) | 0x20;
+        *((_DWORD *)this + 1) = v6;
         if ( (a3 & 0x10000000) != 0 )
         {
           if ( a2 )
-            *((_DWORD *)this + 1) = v5 | 8;
+            *((_DWORD *)this + 1) = v6 | 8;
         }
       }
     }

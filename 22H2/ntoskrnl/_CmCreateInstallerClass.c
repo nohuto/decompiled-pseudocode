@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmCreateInstallerClass @ 0x140A60E44
+ * XREFs of _CmCreateInstallerClass @ 0x140974B30
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x14069AE50 (_PnpDispatchInstallerClass.c)
- *     PiCMOpenClassKey @ 0x140860768 (PiCMOpenClassKey.c)
+ *     PiCMOpenClassKey @ 0x1406A693C (PiCMOpenClassKey.c)
+ *     _PnpDispatchInstallerClass @ 0x14073B280 (_PnpDispatchInstallerClass.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmCreateInstallerClassWorker @ 0x140A60FB0 (_CmCreateInstallerClassWorker.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmCreateInstallerClassWorker @ 0x140974CAC (_CmCreateInstallerClassWorker.c)
  */
 
 __int64 __fastcall CmCreateInstallerClass(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, int a6)
@@ -18,16 +18,18 @@ __int64 __fastcall CmCreateInstallerClass(__int64 a1, __int64 a2, int a3, HANDLE
   int InstallerClassWorker; // eax
   int v13; // ebx
   int v14; // eax
-  HANDLE v16[12]; // [rsp+40h] [rbp-59h] BYREF
+  int v15; // ecx
+  int v16; // eax
+  HANDLE v18[12]; // [rsp+40h] [rbp-59h] BYREF
 
-  memset(v16, 0, 0x58uLL);
+  memset(v18, 0, 0x58uLL);
   v10 = *(__int64 (__fastcall **)(__int64, __int64, __int64, __int64, int, HANDLE *))(a1 + 504);
-  if ( a3 || (LODWORD(v16[2]) = 1, a4) )
-    LODWORD(v16[2]) = a3;
-  HIDWORD(v16[4]) = a6;
+  if ( a3 || (LODWORD(v18[2]) = 1, a4) )
+    LODWORD(v18[2]) = a3;
+  HIDWORD(v18[4]) = a6;
   if ( v10 )
   {
-    v11 = v10(a1, a2, 2LL, 2LL, 1, v16);
+    v11 = v10(a1, a2, 2LL, 2LL, 1, v18);
     if ( v11 == -1073741822 )
     {
       v10 = 0LL;
@@ -35,50 +37,50 @@ __int64 __fastcall CmCreateInstallerClass(__int64 a1, __int64 a2, int a3, HANDLE
     else
     {
       if ( v11 == -1073741536 )
-        goto LABEL_15;
-      if ( v11 )
         goto LABEL_17;
+      if ( v11 )
+      {
+        v13 = -1073741595;
+        goto LABEL_20;
+      }
     }
   }
   InstallerClassWorker = CmCreateInstallerClassWorker(
                            a1,
                            a2,
-                           v16[2],
-                           (unsigned int)&v16[3],
-                           (__int64)&v16[4],
-                           SWORD2(v16[4]));
+                           v18[2],
+                           (unsigned int)&v18[3],
+                           (__int64)&v18[4],
+                           SWORD2(v18[4]));
   v13 = InstallerClassWorker;
-  if ( v10 )
+  if ( !v10 )
+    goto LABEL_13;
+  LODWORD(v18[0]) = InstallerClassWorker;
+  v14 = v10(a1, a2, 2LL, 2LL, 2, v18);
+  v15 = v14;
+  if ( v14 == -1073741822 )
+    goto LABEL_13;
+  if ( v14 == -1073741536 )
   {
-    LODWORD(v16[0]) = InstallerClassWorker;
-    v14 = v10(a1, a2, 2LL, 2LL, 2, v16);
-    if ( v14 != -1073741822 )
-    {
-      if ( v14 != -1073741536 )
-      {
-        if ( !v14 )
-          goto LABEL_11;
 LABEL_17:
-        v13 = -1073741595;
-        goto LABEL_18;
-      }
-LABEL_15:
-      v13 = (int)v16[0];
-    }
+    v13 = (int)v18[0];
+    goto LABEL_13;
   }
-LABEL_11:
+  v16 = v13;
+  if ( v15 )
+    v16 = -1073741595;
+  v13 = v16;
+LABEL_13:
   if ( v13 >= 0 && a4 )
   {
-    *a4 = v16[3];
-LABEL_21:
-    if ( a5 )
-      *a5 = v16[4];
-    return (unsigned int)v13;
+    *a4 = v18[3];
+    goto LABEL_22;
   }
-LABEL_18:
-  if ( v16[3] )
-    ZwClose(v16[3]);
-  if ( v13 >= 0 )
-    goto LABEL_21;
+LABEL_20:
+  if ( v18[3] )
+    ZwClose(v18[3]);
+LABEL_22:
+  if ( v13 >= 0 && a5 )
+    *a5 = v18[4];
   return (unsigned int)v13;
 }

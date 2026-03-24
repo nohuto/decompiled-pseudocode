@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpConvertEfiToNtStatus @ 0x1405104B0
+ * XREFs of HalpConvertEfiToNtStatus @ 0x1404C3F74
  * Callers:
- *     HalEfiGetEnvironmentVariable @ 0x140456B94 (HalEfiGetEnvironmentVariable.c)
- *     HalEfiGetTime @ 0x14050FD3C (HalEfiGetTime.c)
- *     HalEfiQueryCapsuleCapabilities @ 0x14050FF6C (HalEfiQueryCapsuleCapabilities.c)
- *     HalEfiQueryVariableInfo @ 0x14050FFFC (HalEfiQueryVariableInfo.c)
- *     HalEfiSetEnvironmentVariable @ 0x14051011C (HalEfiSetEnvironmentVariable.c)
- *     HalEfiSetTime @ 0x1405101D0 (HalEfiSetTime.c)
- *     HalEfiUpdateCapsule @ 0x14051040C (HalEfiUpdateCapsule.c)
+ *     HalEfiGetEnvironmentVariable @ 0x1404C37EC (HalEfiGetEnvironmentVariable.c)
+ *     HalEfiGetTime @ 0x1404C3878 (HalEfiGetTime.c)
+ *     HalEfiQueryCapsuleCapabilities @ 0x1404C3AA8 (HalEfiQueryCapsuleCapabilities.c)
+ *     HalEfiQueryVariableInfo @ 0x1404C3B2C (HalEfiQueryVariableInfo.c)
+ *     HalEfiSetEnvironmentVariable @ 0x1404C3C28 (HalEfiSetEnvironmentVariable.c)
+ *     HalEfiSetTime @ 0x1404C3CC0 (HalEfiSetTime.c)
+ *     HalEfiUpdateCapsule @ 0x1404C3EE8 (HalEfiUpdateCapsule.c)
  * Callees:
  *     <none>
  */

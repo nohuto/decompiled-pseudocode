@@ -1,44 +1,42 @@
 /*
- * XREFs of ?vFillGRectDIB24RGB@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02F7DA0
+ * XREFs of ?vFillGRectDIB24RGB@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02D1020
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 void __fastcall vFillGRectDIB24RGB(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
 {
   __int64 v3; // r12
-  int v5; // r14d
+  int v5; // r15d
   __int64 v6; // rbx
   unsigned __int64 v7; // rdi
   unsigned __int64 v8; // rsi
   __int64 v9; // rax
-  __int64 v10; // r8
+  __int64 v10; // rdx
   int v11; // ecx
   __int64 v12; // rax
-  const void *v13; // r15
+  const void *v13; // r14
   _BYTE *v14; // r8
-  __int64 v15; // rdx
-  _BYTE *v16; // rcx
-  char v17; // rax^6
+  _BYTE *v15; // rcx
+  char v16; // rax^6
+  unsigned __int64 v17; // rax
   unsigned __int64 v18; // rax
-  unsigned __int64 v19; // rax
   char *i; // rbx
-  __int64 v21; // r15
-  __int64 v22; // r13
-  __int64 v23; // r8
-  __int64 v24; // rdx
-  __int64 v25; // rax
-  _BYTE *v26; // rdx
-  __int64 v27; // r11
-  __int64 v28; // r12
-  _BYTE *v29; // r8
-  _BYTE *v30; // rax
-  __int64 v31; // [rsp+70h] [rbp+8h]
-  __int64 v32; // [rsp+78h] [rbp+10h]
-  __int64 v33; // [rsp+80h] [rbp+18h]
-  __int64 v34; // [rsp+88h] [rbp+20h]
+  __int64 v20; // r14
+  __int64 v21; // r13
+  __int64 v22; // r8
+  __int64 v23; // rdx
+  __int64 v24; // rax
+  _BYTE *v25; // rdx
+  __int64 v26; // r11
+  __int64 v27; // r12
+  _BYTE *v28; // r8
+  _BYTE *v29; // rax
+  __int64 v30; // [rsp+60h] [rbp+8h]
+  __int64 v31; // [rsp+68h] [rbp+10h]
+  __int64 v32; // [rsp+70h] [rbp+18h]
 
   v3 = *((int *)a1 + 22);
   v5 = *((_DWORD *)a2 + 11);
@@ -47,42 +45,42 @@ void __fastcall vFillGRectDIB24RGB(struct SURFACE *a1, struct _GRADIENTRECTDATA 
   v8 = *((_QWORD *)a2 + 8);
   if ( *((_DWORD *)a2 + 38) )
   {
-    v21 = *((_QWORD *)a2 + 10);
-    v22 = *((_QWORD *)a2 + 11);
-    v23 = *((_QWORD *)a2 + 12);
-    v24 = *((_QWORD *)a1 + 10) + *((_DWORD *)a2 + 9) * (int)v3;
-    v25 = *((int *)a2 + 45);
-    if ( (int)v25 > 0 )
+    v20 = *((_QWORD *)a2 + 10);
+    v21 = *((_QWORD *)a2 + 11);
+    v22 = *((_QWORD *)a2 + 12);
+    v23 = *((_QWORD *)a1 + 10) + (int)v3 * *((_DWORD *)a2 + 9);
+    v24 = *((int *)a2 + 45);
+    if ( (int)v24 > 0 )
     {
-      v6 += v21 * v25;
-      v7 += v22 * v25;
-      v8 += v23 * *((int *)a2 + 45);
+      v6 += v20 * v24;
+      v7 += v21 * v24;
+      v8 += v22 * *((int *)a2 + 45);
     }
-    v26 = (_BYTE *)(3 * *((_DWORD *)a2 + 8) + v24);
+    v25 = (_BYTE *)(3 * *((_DWORD *)a2 + 8) + v23);
     if ( v5 )
     {
-      v27 = *((int *)a1 + 22);
-      v28 = *((_QWORD *)a2 + 12);
+      v26 = *((int *)a1 + 22);
+      v27 = *((_QWORD *)a2 + 12);
       do
       {
         --v5;
-        v29 = v26;
-        v30 = &v26[3 * *((_DWORD *)a2 + 10)];
-        if ( v26 != v30 )
+        v28 = v25;
+        v29 = &v25[3 * *((_DWORD *)a2 + 10)];
+        if ( v25 != v29 )
         {
           do
           {
-            *v29 = BYTE6(v6);
-            v29[1] = BYTE6(v7);
-            v29[2] = BYTE6(v8);
-            v29 += 3;
+            *v28 = BYTE6(v6);
+            v28[1] = BYTE6(v7);
+            v28[2] = BYTE6(v8);
+            v28 += 3;
           }
-          while ( v29 != v30 );
+          while ( v28 != v29 );
         }
-        v6 += v21;
-        v7 += v22;
-        v8 += v28;
-        v26 += v27;
+        v6 += v20;
+        v7 += v21;
+        v8 += v27;
+        v25 += v26;
       }
       while ( v5 );
     }
@@ -91,15 +89,13 @@ void __fastcall vFillGRectDIB24RGB(struct SURFACE *a1, struct _GRADIENTRECTDATA 
   {
     v9 = *((int *)a2 + 44);
     v10 = *((_QWORD *)a2 + 14);
-    v32 = v10;
-    v33 = *((_QWORD *)a2 + 15);
-    v34 = *((_QWORD *)a2 + 16);
-    v31 = *((_QWORD *)a2 + 6);
+    v30 = v10;
+    v31 = *((_QWORD *)a2 + 15);
+    v32 = *((_QWORD *)a2 + 16);
     if ( (int)v9 > 0 )
     {
+      v6 += v10 * v9;
       v7 += *((_QWORD *)a2 + 15) * v9;
-      v31 = v6 + v10 * v9;
-      v6 = v31;
       v8 += *((_QWORD *)a2 + 16) * v9;
     }
     v11 = *((_DWORD *)a2 + 10);
@@ -110,35 +106,32 @@ void __fastcall vFillGRectDIB24RGB(struct SURFACE *a1, struct _GRADIENTRECTDATA 
       if ( v12 )
       {
         v14 = (_BYTE *)v12;
-        v15 = (unsigned int)(3 * *((_DWORD *)a2 + 10));
-        v16 = (_BYTE *)(v12 + (int)v15);
-        if ( (_BYTE *)v12 != v16 )
+        v15 = (_BYTE *)(v12 + 3 * *((_DWORD *)a2 + 10));
+        if ( (_BYTE *)v12 != v15 )
         {
-          v17 = BYTE6(v31);
-          v15 = v32;
           do
           {
-            v6 += v32;
-            *v14 = v17;
-            v18 = HIWORD(v7);
-            v7 += v33;
-            v14[1] = v18;
-            v19 = HIWORD(v8);
-            v8 += v34;
-            v14[2] = v19;
+            v16 = BYTE6(v6);
+            v6 += v30;
+            *v14 = v16;
+            v17 = HIWORD(v7);
+            v7 += v31;
+            v14[1] = v17;
+            v18 = HIWORD(v8);
+            v8 += v32;
+            v14[2] = v18;
             v14 += 3;
-            v17 = BYTE6(v6);
           }
-          while ( v14 != v16 );
+          while ( v14 != v15 );
         }
-        for ( i = (char *)(*((_QWORD *)a1 + 10) + 3 * *((_DWORD *)a2 + 8) + (__int64)(*((_DWORD *)a2 + 9) * (int)v3));
+        for ( i = (char *)(*((_QWORD *)a1 + 10) + 3 * *((_DWORD *)a2 + 8) + (__int64)((int)v3 * *((_DWORD *)a2 + 9)));
               v5;
               --v5 )
         {
           memmove(i, v13, 3 * *((_DWORD *)a2 + 10));
           i += v3;
         }
-        FreeTmpBuffer(v13, v15, v14);
+        FreeTmpBuffer(v13);
       }
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiRemoveVad @ 0x1402C5020
+ * XREFs of MiRemoveVad @ 0x1402C5120
  * Callers:
- *     MiRemovePlaceholderVad @ 0x1402C4DBC (MiRemovePlaceholderVad.c)
+ *     MiRemovePlaceholderVad @ 0x1402C4EBC (MiRemovePlaceholderVad.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
  *     MiVadMapsLargeImage @ 0x140074A10 (MiVadMapsLargeImage.c)

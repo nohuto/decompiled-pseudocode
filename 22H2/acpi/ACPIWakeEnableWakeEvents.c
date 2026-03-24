@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIWakeEnableWakeEvents @ 0x1C0045C60
+ * XREFs of ACPIWakeEnableWakeEvents @ 0x1C0062280
  * Callers:
  *     <none>
  * Callees:
- *     ACPIWriteGpeEnableRegister @ 0x1C0038B04 (ACPIWriteGpeEnableRegister.c)
- *     READ_PM1_ENABLE @ 0x1C0038DD8 (READ_PM1_ENABLE.c)
+ *     ACPIWriteGpeEnableRegister @ 0x1C002662C (ACPIWriteGpeEnableRegister.c)
+ *     READ_PM1_ENABLE @ 0x1C005C570 (READ_PM1_ENABLE.c)
  */
 
 void ACPIWakeEnableWakeEvents()

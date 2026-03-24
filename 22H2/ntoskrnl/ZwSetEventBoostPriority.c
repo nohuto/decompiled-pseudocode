@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetEventBoostPriority @ 0x14041AC40
+ * XREFs of ZwSetEventBoostPriority @ 0x1403F9FC0
  * Callers:
  *     <none>
  * Callees:

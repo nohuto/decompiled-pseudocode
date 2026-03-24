@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsUmPowerInformationInternal @ 0x14099F1CC
+ * XREFs of PopDirectedDripsUmPowerInformationInternal @ 0x1408F88E4
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
  * Callees:
- *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x14099EE9C (PopDirectedDripsUmDirectedFxAddTestDevice.c)
- *     PopDirectedDripsUmDirectedFxRemoveTestDevice @ 0x14099EF9C (PopDirectedDripsUmDirectedFxRemoveTestDevice.c)
- *     PopDirectedDripsUmDirectedFxSetMode @ 0x14099F030 (PopDirectedDripsUmDirectedFxSetMode.c)
- *     PopDirectedDripsUmQueryCapabilities @ 0x14099F25C (PopDirectedDripsUmQueryCapabilities.c)
+ *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x1408F85B4 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
+ *     PopDirectedDripsUmDirectedFxRemoveTestDevice @ 0x1408F86B4 (PopDirectedDripsUmDirectedFxRemoveTestDevice.c)
+ *     PopDirectedDripsUmDirectedFxSetMode @ 0x1408F8748 (PopDirectedDripsUmDirectedFxSetMode.c)
+ *     PopDirectedDripsUmQueryCapabilities @ 0x1408F8974 (PopDirectedDripsUmQueryCapabilities.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmPowerInformationInternal(

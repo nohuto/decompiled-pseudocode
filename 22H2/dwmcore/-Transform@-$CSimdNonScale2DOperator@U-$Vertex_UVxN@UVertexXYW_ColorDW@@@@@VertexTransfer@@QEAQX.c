@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Transform@?$CSimdNonScale2DOperator@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@VertexTransfer@@QEAQXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@T__m128@@1IPEAU3@@Z @ 0x1800E84D0
+ * XREFs of ?Transform@?$CSimdNonScale2DOperator@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@VertexTransfer@@QEAQXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@T__m128@@1IPEAU3@@Z @ 0x1800C1BE0
  * Callers:
- *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW____2_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x1800E832C (VertexTransfer--SimdTransfer_VertexTransfer--CSimdNonScale2DOperator_Vertex_UVxN_Ve_ea_1800E832C.c)
+ *     VertexTransfer::SimdTransfer_VertexTransfer::CSimdNonScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW____2_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x1800C1A10 (VertexTransfer--SimdTransfer_VertexTransfer--CSimdNonScale2DOperator_Vertex_UVxN_Ve_ea_1800C1A10.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ void __fastcall VertexTransfer::CSimdNonScale2DOperator<Vertex_UVxN<VertexXYW_Co
             _mm_add_ps(
               _mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(*(__m128 *)&a3, *(__m128 *)&a3, 85), a1[1]), a1[2]),
               _mm_mul_ps(_mm_shuffle_ps(*(__m128 *)&a3, *(__m128 *)&a3, 0), *a1))),
-          _mm_and_ps(*(__m128 *)&a4, (__m128)`DirectX::Internal::PermuteHelper<228,0,0,0,1>::Permute'::`2'::selectMask));
+          _mm_and_ps((__m128)`DirectX::Internal::PermuteHelper<228,0,0,0,1>::Permute'::`2'::selectMask, *(__m128 *)&a4));
   if ( a5 )
   {
     m128_f32 = (_OWORD *)a6[1].m128_f32;

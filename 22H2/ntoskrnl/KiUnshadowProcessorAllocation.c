@@ -1,35 +1,20 @@
 /*
- * XREFs of KiUnshadowProcessorAllocation @ 0x140A9FDDC
+ * XREFs of KiUnshadowProcessorAllocation @ 0x1409AFD8C
  * Callers:
- *     KiStartDynamicProcessor @ 0x1409738B8 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140B4AC90 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1408BA6C8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     MmDeleteShadowMapping @ 0x140A3C840 (MmDeleteShadowMapping.c)
+ *     MmDeleteShadowMapping @ 0x1408D19B4 (MmDeleteShadowMapping.c)
  */
 
-char __fastcall KiUnshadowProcessorAllocation(__int64 a1, __int64 a2, _QWORD *a3)
+char __fastcall KiUnshadowProcessorAllocation(__int64 a1, __int64 a2)
 {
   char result; // al
-  _QWORD *v6; // rbx
-  __int64 v7; // rsi
 
   if ( KiKvaShadow )
   {
     MmDeleteShadowMapping(*(_QWORD *)(a2 + 88) - 12208LL, 0x5000uLL);
-    result = MmDeleteShadowMapping(a1 + 40576, 0x1000uLL);
-    if ( (_BYTE)KiKernelCetEnabled )
-    {
-      v6 = a3 + 24;
-      v7 = 4LL;
-      do
-      {
-        MmDeleteShadowMapping(*v6++ - 0x2000LL, 0x1000uLL);
-        --v7;
-      }
-      while ( v7 );
-      MmDeleteShadowMapping(a3[28], 0x1000uLL);
-      return MmDeleteShadowMapping(a3[17] - 0x2000LL, 0x1000uLL);
-    }
+    return MmDeleteShadowMapping(a1 + 36480, 0x1000uLL);
   }
   return result;
 }

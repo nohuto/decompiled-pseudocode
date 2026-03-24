@@ -1,11 +1,11 @@
 /*
- * XREFs of ComputeBytesPerScanLine @ 0x1C013D228
+ * XREFs of ComputeBytesPerScanLine @ 0x1C0019884
  * Callers:
- *     SetupAAHeader @ 0x1C006DC90 (SetupAAHeader.c)
- *     CreateStandardMonoPattern @ 0x1C013C9D8 (CreateStandardMonoPattern.c)
- *     HT_CreateStandardMonoPattern @ 0x1C013D000 (HT_CreateStandardMonoPattern.c)
- *     GetCachedSMP @ 0x1C013D0AC (GetCachedSMP.c)
- *     HT_CreateHalftoneBrush @ 0x1C025DF88 (HT_CreateHalftoneBrush.c)
+ *     HT_CreateStandardMonoPattern @ 0x1C001965C (HT_CreateStandardMonoPattern.c)
+ *     GetCachedSMP @ 0x1C0019708 (GetCachedSMP.c)
+ *     SetupAAHeader @ 0x1C001CE78 (SetupAAHeader.c)
+ *     CreateStandardMonoPattern @ 0x1C01535F4 (CreateStandardMonoPattern.c)
+ *     HT_CreateHalftoneBrush @ 0x1C0261318 (HT_CreateHalftoneBrush.c)
  * Callees:
  *     <none>
  */

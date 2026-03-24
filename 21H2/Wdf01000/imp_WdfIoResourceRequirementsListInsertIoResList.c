@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfIoResourceRequirementsListInsertIoResList @ 0x1C006FB30
+ * XREFs of imp_WdfIoResourceRequirementsListInsertIoResList @ 0x1C005CEA0
  * Callers:
  *     <none>
  * Callees:
- *     FxIoResourceRequirementsListInsertIoResList @ 0x1C006F57C (FxIoResourceRequirementsListInsertIoResList.c)
+ *     FxIoResourceRequirementsListInsertIoResList @ 0x1C005C450 (FxIoResourceRequirementsListInsertIoResList.c)
  */
 
 int __fastcall imp_WdfIoResourceRequirementsListInsertIoResList(

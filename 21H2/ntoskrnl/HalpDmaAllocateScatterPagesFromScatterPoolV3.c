@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolV3 @ 0x140503B90
+ * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolV3 @ 0x1404B7430
  * Callers:
- *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x1404568E6 (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x1404B8BCC (HalpDmaAllocateScatterPagesFromScatterPool.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPoolV3(
@@ -47,43 +47,43 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPoolV3(
     v9 = a2;
     v11 = *(_DWORD *)(a2 + 212);
     if ( v10 <= v11 )
-      goto LABEL_3;
+    {
+LABEL_3:
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      OldIrql = LockHandle.OldIrql;
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v16 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v17 = (v16 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v16;
+            if ( v17 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
+        }
+      }
+      __writecr8(OldIrql);
+      *a6 = 0;
+      return 0LL;
+    }
     v19 = v10 - v11;
     if ( a3 > v19 )
       a3 = v19;
   }
   if ( a3 > *(_DWORD *)(a2 + 32) )
   {
-    if ( a4 )
-      goto LABEL_3;
-    a3 = *(_DWORD *)(a2 + 32);
+    a3 = 0;
+    if ( !a4 )
+      a3 = *(_DWORD *)(a2 + 32);
   }
   if ( !a3 )
-  {
-LABEL_3:
-    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
-    {
-      if ( (KiIrqlFlags & 1) != 0 )
-      {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v17 = (v16 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v16;
-          if ( v17 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-        }
-      }
-    }
-    __writecr8(OldIrql);
-    *a6 = 0;
-    return 0LL;
-  }
+    goto LABEL_3;
   v20 = *(_QWORD *)(a2 + 24);
   v21 = v20;
   v22 = a3;

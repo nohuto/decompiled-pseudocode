@@ -1,15 +1,15 @@
 /*
- * XREFs of KdDisableDebuggerWithLock @ 0x140565378
+ * XREFs of KdDisableDebuggerWithLock @ 0x1403CFA38
  * Callers:
- *     KdDisableDebugger @ 0x140565360 (KdDisableDebugger.c)
- *     KdInitSystem @ 0x140A70470 (KdInitSystem.c)
+ *     KdDisableDebugger @ 0x1403CFA20 (KdDisableDebugger.c)
+ *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KdPowerTransitionEx @ 0x1403DA590 (KdPowerTransitionEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KdpAllowDisable @ 0x140A746D0 (KdpAllowDisable.c)
- *     KdpSuspendAllBreakpoints @ 0x140A74CDC (KdpSuspendAllBreakpoints.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KdPowerTransitionEx @ 0x140510FC0 (KdPowerTransitionEx.c)
+ *     KdpAllowDisable @ 0x1409B9DD0 (KdpAllowDisable.c)
+ *     KdpSuspendAllBreakpoints @ 0x1409BA758 (KdpSuspendAllBreakpoints.c)
  */
 
 __int64 KdDisableDebuggerWithLock()
@@ -51,7 +51,7 @@ __int64 KdDisableDebuggerWithLock()
       KdpDebugRoutineSelect = 0;
       LOBYTE(KdDebuggerNotPresent) = 1;
       LOBYTE(KdDebuggerEnabled) = 0;
-      KdPowerTransitionEx(1073741828, 0);
+      KdPowerTransitionEx(1073741828LL, 0LL);
     }
 LABEL_21:
     ++KdDisableCount;
@@ -69,7 +69,7 @@ LABEL_21:
           v8 = (v12 & v11[5]) == 0;
           v11[5] &= v12;
           if ( v8 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
@@ -90,7 +90,7 @@ LABEL_21:
         v8 = (v7 & v6[5]) == 0;
         v6[5] &= v7;
         if ( v8 )
-          KiRemoveSystemWorkPriorityKick((__int64)v5);
+          KiRemoveSystemWorkPriorityKick(v5);
       }
     }
   }

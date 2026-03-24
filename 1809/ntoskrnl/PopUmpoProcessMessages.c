@@ -6,9 +6,9 @@
  * Callees:
  *     AlpcGetMessageAttribute @ 0x140004B10 (AlpcGetMessageAttribute.c)
  *     AlpcInitializeMessageAttribute @ 0x140004C30 (AlpcInitializeMessageAttribute.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwAlpcSendWaitReceivePort @ 0x1401B92B0 (ZwAlpcSendWaitReceivePort.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x1401B92D0 (ZwAlpcSendWaitReceivePort.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PopUmpoProcessMessage @ 0x14058AF88 (PopUmpoProcessMessage.c)
  */
 

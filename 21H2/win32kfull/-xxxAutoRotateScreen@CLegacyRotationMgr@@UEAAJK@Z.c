@@ -1,15 +1,15 @@
 /*
- * XREFs of ?xxxAutoRotateScreen@CLegacyRotationMgr@@UEAAJK@Z @ 0x1C01CDB80
+ * XREFs of ?xxxAutoRotateScreen@CLegacyRotationMgr@@UEAAJK@Z @ 0x1C01D17B0
  * Callers:
  *     <none>
  * Callees:
- *     ?QueryAutoRotationState@CLegacyRotationMgr@@UEAA?AW4tagAR_STATE@@XZ @ 0x1C00CD620 (-QueryAutoRotationState@CLegacyRotationMgr@@UEAA-AW4tagAR_STATE@@XZ.c)
- *     ?AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ @ 0x1C00D0FB0 (-AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ.c)
- *     ?GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z @ 0x1C01CD4C0 (-GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z.c)
- *     ?IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z @ 0x1C01CD6C8 (-IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z.c)
- *     ?xxxRotateScreen@CLegacyRotationMgr@@AEAAJKHPEAH@Z @ 0x1C01CDCF8 (-xxxRotateScreen@CLegacyRotationMgr@@AEAAJKHPEAH@Z.c)
- *     ?TraceLoggingScreenOrientationArStateChangeEvent@@YAXKW4arInitiatedBy@@W4tagAR_STATE@@@Z @ 0x1C021EFB8 (-TraceLoggingScreenOrientationArStateChangeEvent@@YAXKW4arInitiatedBy@@W4tagAR_STATE@@@Z.c)
- *     ?TraceLoggingScreenOrientationChangeEvent@@YAXKW4arInitiatedBy@@HW4arFailureReason@@@Z @ 0x1C021F058 (-TraceLoggingScreenOrientationChangeEvent@@YAXKW4arInitiatedBy@@HW4arFailureReason@@@Z.c)
+ *     ?QueryAutoRotationState@CLegacyRotationMgr@@UEAA?AW4tagAR_STATE@@XZ @ 0x1C002ECC0 (-QueryAutoRotationState@CLegacyRotationMgr@@UEAA-AW4tagAR_STATE@@XZ.c)
+ *     ?AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ @ 0x1C01269D0 (-AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ.c)
+ *     ?GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z @ 0x1C01D10FC (-GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z.c)
+ *     ?IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z @ 0x1C01D1308 (-IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z.c)
+ *     ?xxxRotateScreen@CLegacyRotationMgr@@AEAAJKHPEAH@Z @ 0x1C01D1928 (-xxxRotateScreen@CLegacyRotationMgr@@AEAAJKHPEAH@Z.c)
+ *     ?TraceLoggingScreenOrientationArStateChangeEvent@@YAXKW4arInitiatedBy@@W4tagAR_STATE@@@Z @ 0x1C02255E4 (-TraceLoggingScreenOrientationArStateChangeEvent@@YAXKW4arInitiatedBy@@W4tagAR_STATE@@@Z.c)
+ *     ?TraceLoggingScreenOrientationChangeEvent@@YAXKW4arInitiatedBy@@HW4arFailureReason@@@Z @ 0x1C0225678 (-TraceLoggingScreenOrientationChangeEvent@@YAXKW4arInitiatedBy@@HW4arFailureReason@@@Z.c)
  */
 
 __int64 __fastcall CLegacyRotationMgr::xxxAutoRotateScreen(CLegacyRotationMgr *this, unsigned int a2)
@@ -25,7 +25,7 @@ __int64 __fastcall CLegacyRotationMgr::xxxAutoRotateScreen(CLegacyRotationMgr *t
   if ( (unsigned int)(gPowerDisplayState[16] - 1) > 1 )
     return 0xFFFFFFFFLL;
   gAutoRotationInfo = a2;
-  dword_1C0331988 = 1;
+  dword_1C0336628 = 1;
   AutoRotationState = CLegacyRotationMgr::QueryAutoRotationState(this);
   v8 = AutoRotationState;
   if ( AutoRotationState
@@ -36,26 +36,28 @@ __int64 __fastcall CLegacyRotationMgr::xxxAutoRotateScreen(CLegacyRotationMgr *t
     TraceLoggingScreenOrientationArStateChangeEvent(a2, v6, v8);
     return 3221225506LL;
   }
-  if ( (unsigned int)CLegacyRotationMgr::IsOrientationWithinPreferences(v7, a2) )
-  {
-    v11 = 0;
-    v10 = CLegacyRotationMgr::xxxRotateScreen(v9, a2, 1, &v11);
-    if ( v11 )
-      TraceLoggingScreenOrientationChangeEvent(a2, 0LL, 0LL, 1001LL);
-    else
-      CInputGlobals::UpdateLastInputTime(
-        gpInputGlobals,
-        (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
-       * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64,
-        16LL);
-    if ( v10 )
-      return v10;
-  }
   else
   {
-    TraceLoggingScreenOrientationChangeEvent(a2, 0LL, 0LL, 1002LL);
-    v10 = 0;
+    if ( (unsigned int)CLegacyRotationMgr::IsOrientationWithinPreferences(v7, a2) )
+    {
+      v11 = 0;
+      v10 = CLegacyRotationMgr::xxxRotateScreen(v9, a2, 1, &v11);
+      if ( v11 )
+        TraceLoggingScreenOrientationChangeEvent(a2, 0LL, 0LL, 1001LL);
+      else
+        CInputGlobals::UpdateLastInputTime(
+          gpInputGlobals,
+          (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
+         * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64,
+          16LL);
+    }
+    else
+    {
+      TraceLoggingScreenOrientationChangeEvent(a2, 0LL, 0LL, 1002LL);
+      v10 = 0;
+    }
+    if ( !v10 )
+      CLegacyRotationMgr::AutoRotationUpdateRegistry(this);
+    return v10;
   }
-  CLegacyRotationMgr::AutoRotationUpdateRegistry(this);
-  return v10;
 }

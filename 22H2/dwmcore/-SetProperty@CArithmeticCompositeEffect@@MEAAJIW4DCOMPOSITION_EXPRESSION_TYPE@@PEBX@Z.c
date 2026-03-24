@@ -1,66 +1,67 @@
 /*
- * XREFs of ?SetProperty@CArithmeticCompositeEffect@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802580C0
+ * XREFs of ?SetProperty@CArithmeticCompositeEffect@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801F5C80
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CArithmeticCompositeEffect::SetProperty(__int64 *a1, int a2, int a3, float *a4)
+__int64 __fastcall CArithmeticCompositeEffect::SetProperty(float *a1, int a2, int a3, float *a4)
 {
-  float v4; // xmm1_4
-  int v5; // edx
+  float *v4; // r10
+  float v5; // xmm1_4
   int v6; // edx
   int v7; // edx
-  __int64 v8; // rax
-  float *v9; // rbx
+  int v8; // edx
+  __int64 v9; // rax
   __int64 v10; // rax
   unsigned int v11; // ebx
 
+  v4 = a1;
   if ( a3 != 18 )
     goto LABEL_14;
-  v4 = *a4;
-  v5 = a2 - 2;
-  if ( v5 )
+  v5 = *a4;
+  v6 = a2 - 2;
+  if ( v6 )
   {
-    v6 = v5 - 1;
-    if ( v6 )
+    v7 = v6 - 1;
+    if ( v7 )
     {
-      v7 = v6 - 1;
-      if ( v7 )
+      v8 = v7 - 1;
+      if ( v8 )
       {
-        if ( v7 != 1 )
+        if ( v8 != 1 )
         {
 LABEL_14:
           v11 = -2147024809;
           MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0x4Au, 0LL);
           return v11;
         }
-        v8 = 188LL;
+        v9 = 164LL;
       }
       else
       {
-        v8 = 184LL;
+        v9 = 160LL;
       }
     }
     else
     {
-      v8 = 180LL;
+      v9 = 156LL;
     }
   }
   else
   {
-    v8 = 176LL;
+    v9 = 152LL;
   }
-  v9 = (float *)((char *)a1 + v8);
-  if ( !(__int64 *)((char *)a1 + v8) )
+  a1 = (float *)((char *)a1 + v9);
+  if ( !a1 )
     goto LABEL_14;
-  if ( *v9 != v4 )
+  if ( *a1 != v5 )
   {
-    v10 = *a1;
-    *v9 = v4;
-    (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v10 + 72))(a1, 0LL, 0LL);
+    v10 = *(_QWORD *)v4;
+    *a1 = v5;
+    (*(void (__fastcall **)(float *, _QWORD, _QWORD))(v10 + 72))(v4, 0LL, 0LL);
   }
-  return v9 == 0LL ? 0x80070057 : 0;
+  return 0;
 }

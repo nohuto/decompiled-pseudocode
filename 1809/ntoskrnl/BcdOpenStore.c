@@ -1,15 +1,15 @@
 /*
- * XREFs of BcdOpenStore @ 0x140712288
+ * XREFs of BcdOpenStore @ 0x140712268
  * Callers:
- *     WheaPersistOfflinedPage @ 0x1403204A4 (WheaPersistOfflinedPage.c)
- *     PopAllocateHiberContext @ 0x1406DF554 (PopAllocateHiberContext.c)
- *     PopFreeHiberContext @ 0x1406DFFC0 (PopFreeHiberContext.c)
- *     PoInitHiberServices @ 0x140745CB0 (PoInitHiberServices.c)
+ *     WheaPersistOfflinedPage @ 0x1403205A4 (WheaPersistOfflinedPage.c)
+ *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
+ *     PopFreeHiberContext @ 0x1406DFFA0 (PopFreeHiberContext.c)
+ *     PoInitHiberServices @ 0x140745C90 (PoInitHiberServices.c)
  * Callees:
- *     BiOpenSystemStore @ 0x140712C24 (BiOpenSystemStore.c)
- *     BiReleaseBcdSyncMutant @ 0x140713AF0 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x140713CA0 (BiAcquireBcdSyncMutant.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
+ *     BiOpenSystemStore @ 0x140712C04 (BiOpenSystemStore.c)
+ *     BiReleaseBcdSyncMutant @ 0x140713AD0 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140713C80 (BiAcquireBcdSyncMutant.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
  */
 
 __int64 __fastcall BcdOpenStore(__int64 a1, unsigned int a2, __int64 a3)

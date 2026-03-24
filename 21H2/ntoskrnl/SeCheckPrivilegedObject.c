@@ -1,17 +1,17 @@
 /*
- * XREFs of SeCheckPrivilegedObject @ 0x1406E856C
+ * XREFs of SeCheckPrivilegedObject @ 0x14078DE60
  * Callers:
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     PspSetProcessPriorityClass @ 0x1406D2718 (PspSetProcessPriorityClass.c)
- *     NtSetInformationThread @ 0x14072EC80 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
- *     PspAssignPrimaryToken @ 0x140847028 (PspAssignPrimaryToken.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     PspSetProcessPriorityClass @ 0x1406B3F80 (PspSetProcessPriorityClass.c)
+ *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     PspAssignPrimaryToken @ 0x1407BBA40 (PspAssignPrimaryToken.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     SePrivilegeObjectAuditAlarm @ 0x140724160 (SePrivilegeObjectAuditAlarm.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SePrivilegeCheck @ 0x14072B5E0 (SePrivilegeCheck.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     SePrivilegeObjectAuditAlarm @ 0x1406278D0 (SePrivilegeObjectAuditAlarm.c)
+ *     SePrivilegeCheck @ 0x140654F40 (SePrivilegeCheck.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
  */
 
 BOOLEAN __fastcall SeCheckPrivilegedObject(LUID a1, int a2, int a3, KPROCESSOR_MODE a4)
@@ -30,7 +30,7 @@ BOOLEAN __fastcall SeCheckPrivilegedObject(LUID a1, int a2, int a3, KPROCESSOR_M
   v7 = SePrivilegeCheck(&RequiredPrivileges, &SubjectContext, a4);
   v8 = v7;
   if ( a4 )
-    SePrivilegeObjectAuditAlarm(a2, (unsigned int)&SubjectContext, a3, (unsigned int)&RequiredPrivileges, v7, a4);
+    SePrivilegeObjectAuditAlarm(a2, (__int64 *)&SubjectContext, a3, (__int64)&RequiredPrivileges, v7, a4);
   SeReleaseSubjectContext(&SubjectContext);
   return v8;
 }

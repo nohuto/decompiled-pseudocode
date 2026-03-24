@@ -1,11 +1,11 @@
 /*
- * XREFs of _anonymous_namespace_::TransformAndNormalize @ 0x1801B0708
+ * XREFs of _anonymous_namespace_::TransformAndNormalize @ 0x18022F39C
  * Callers:
- *     ??$CalculateDetectedInteractions@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@CInteractionProcessor@@QEAAJPEAV?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@PEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH23@Z @ 0x1801A878C (--$CalculateDetectedInteractions@UDwmTouchInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4.c)
+ *     ??$CalculateDetectedInteractions@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@CInteractionProcessor@@QEAAJPEAV?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@PEAUIInteractionContextWrapper@@PEAUInteractionAxisGroup@@PEAH23@Z @ 0x180228CC0 (--$CalculateDetectedInteractions@UDwmTouchInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4.c)
  * Callees:
- *     ?D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z @ 0x180023AFC (-D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z.c)
- *     ?D2DMatrixIsIdentity@@YAHPEBUD2DMatrix@@@Z @ 0x18027D7BC (-D2DMatrixIsIdentity@@YAHPEBUD2DMatrix@@@Z.c)
- *     ?D3DXVec3TransformCoord@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z @ 0x18027EDEC (-D3DXVec3TransformCoord@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z.c)
+ *     ?D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z @ 0x1800C7848 (-D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z.c)
+ *     ?D2DMatrixIsIdentity@@YAHPEBUD2DMatrix@@@Z @ 0x18021CA6C (-D2DMatrixIsIdentity@@YAHPEBUD2DMatrix@@@Z.c)
+ *     ?D3DXVec3TransformCoord@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z @ 0x18021DF28 (-D3DXVec3TransformCoord@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z.c)
  */
 
 struct D2DVector3 *__fastcall anonymous_namespace_::TransformAndNormalize(
@@ -20,7 +20,7 @@ struct D2DVector3 *__fastcall anonymous_namespace_::TransformAndNormalize(
 
   *(_QWORD *)a1 = *(_QWORD *)a2;
   *((_DWORD *)a1 + 2) = *(_DWORD *)(a2 + 8);
-  if ( !(unsigned int)D2DMatrixIsIdentity(a3) )
+  if ( !D2DMatrixIsIdentity(a3) )
   {
     v6 = D3DXVec3TransformCoord(a1, v4, v5);
     D3DXVec3Normalize(v7, v6);

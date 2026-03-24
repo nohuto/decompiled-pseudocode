@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInitChipHacks @ 0x140B609A8
+ * XREFs of HalpInitChipHacks @ 0x140A629BC
  * Callers:
- *     HalpErrataInitSystem @ 0x140A8B0B0 (HalpErrataInitSystem.c)
+ *     HalpErrataInitSystem @ 0x14099FDD0 (HalpErrataInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcstoul @ 0x1403DB890 (wcstoul.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x14041A900 (ZwEnumerateValueKey.c)
- *     ZwQueryKey @ 0x14041A960 (ZwQueryKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcstoul @ 0x1403D3E00 (wcstoul.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1403F9C80 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x1403F9CE0 (ZwQueryKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 HalpInitChipHacks()
 {
-  __int64 Pool2; // r14
+  char *PoolWithTag; // r14
   NTSTATUS v1; // esi
   ULONG v2; // r15d
   NTSTATUS v3; // eax
@@ -43,7 +43,7 @@ __int64 HalpInitChipHacks()
   HalpErrataChipHacksInitialized = 1;
   memset(KeyInformation, 0, sizeof(KeyInformation));
   KeyHandle = 0LL;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   Length = 0;
   v15 = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
@@ -57,10 +57,9 @@ __int64 HalpInitChipHacks()
   HalpChipHackCount = v15;
   if ( !(_DWORD)v15 )
     goto LABEL_16;
-  HalpChipHacksTable = ExAllocatePool2(256LL, 8LL * (unsigned int)v15, 0x456C6148u);
+  HalpChipHacksTable = (__int64)ExAllocatePoolWithTag((POOL_TYPE)257, 8LL * (unsigned int)v15, 0x206C6148u);
   if ( !HalpChipHacksTable )
   {
-LABEL_23:
     v1 = -1073741670;
     goto LABEL_16;
   }
@@ -69,39 +68,40 @@ LABEL_23:
     goto LABEL_16;
   while ( 1 )
   {
-    v3 = ZwEnumerateValueKey(KeyHandle, v2, KeyValueFullInformation, (PVOID)Pool2, Length, &Length);
+    v3 = ZwEnumerateValueKey(KeyHandle, v2, KeyValueFullInformation, PoolWithTag, Length, &Length);
     v1 = v3;
-    if ( v3 < 0 )
-      break;
-    if ( Pool2 && Length >= 0x14 && *(_DWORD *)(Pool2 + 12) == 4 && *(_DWORD *)(Pool2 + 16) >= 0x10u )
+    if ( v3 >= 0 )
     {
-      v4 = *(_OWORD *)(Pool2 + 20);
-      v17 = 0;
-      *(_OWORD *)Str = v4;
-      v5 = wcstoul(&Str[4], &EndPtr, 16);
-      v6 = HalpChipHacksTable;
-      *(_WORD *)(HalpChipHacksTable + 8LL * v2 + 2) = v5;
-      Str[4] = 0;
-      *(_WORD *)(v6 + 8LL * v2) = wcstoul(Str, &EndPtr, 16);
-      *(_DWORD *)(v6 + 8LL * v2 + 4) = *(_DWORD *)(*(unsigned int *)(Pool2 + 8) + Pool2);
+      if ( PoolWithTag && Length >= 0x14 && *((_DWORD *)PoolWithTag + 3) == 4 && *((_DWORD *)PoolWithTag + 4) >= 0x10u )
+      {
+        v4 = *(_OWORD *)(PoolWithTag + 20);
+        v17 = 0;
+        *(_OWORD *)Str = v4;
+        v5 = wcstoul(&Str[4], &EndPtr, 16);
+        v6 = HalpChipHacksTable;
+        *(_WORD *)(HalpChipHacksTable + 8LL * v2 + 2) = v5;
+        Str[4] = 0;
+        *(_WORD *)(v6 + 8LL * v2) = wcstoul(Str, &EndPtr, 16);
+        *(_DWORD *)(v6 + 8LL * v2 + 4) = *(_DWORD *)&PoolWithTag[*((unsigned int *)PoolWithTag + 2)];
+      }
+      ++v2;
+      goto LABEL_13;
     }
-    ++v2;
+    if ( v3 != -1073741789 && v3 != -2147483643 )
+      goto LABEL_14;
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, Length, 0x206C6148u);
+    if ( !PoolWithTag )
+      break;
 LABEL_13:
     if ( v2 >= HalpChipHackCount )
       goto LABEL_14;
   }
-  if ( v3 == -1073741789 || v3 == -2147483643 )
-  {
-    if ( Pool2 )
-      ExFreePoolWithTag((PVOID)Pool2, 0);
-    Pool2 = ExAllocatePool2(256LL, Length, 0x456C6148u);
-    if ( !Pool2 )
-      goto LABEL_23;
-    goto LABEL_13;
-  }
+  v1 = -1073741670;
 LABEL_14:
-  if ( Pool2 )
-    ExFreePoolWithTag((PVOID)Pool2, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
 LABEL_16:
   if ( KeyHandle )
     ZwClose(KeyHandle);

@@ -1,11 +1,11 @@
 /*
- * XREFs of MmSessionSetUnloadAddress @ 0x14025E078
+ * XREFs of MmSessionSetUnloadAddress @ 0x1403A6E44
  * Callers:
- *     ExpInitializeSessionDriver @ 0x1406EB324 (ExpInitializeSessionDriver.c)
+ *     ExpInitializeSessionDriver @ 0x14078E1BC (ExpInitializeSessionDriver.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmSessionSetUnloadAddress(__int64 a1)
@@ -25,10 +25,10 @@ __int64 __fastcall MmSessionSetUnloadAddress(__int64 a1)
   v2 = *(_QWORD *)(a1 + 104);
   if ( !v2 )
     v2 = 1LL;
-  v3 = CurrentThread->ApcState.Process[1].Affinity.StaticBitmap[25];
+  v3 = CurrentThread->ApcState.Process[1].AffinityPadding[5];
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  if ( !*(_QWORD *)(v3 + 616) )
-    *(_QWORD *)(v3 + 616) = v2;
+  if ( !*(_QWORD *)(v3 + 680) )
+    *(_QWORD *)(v3 + 680) = v2;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;

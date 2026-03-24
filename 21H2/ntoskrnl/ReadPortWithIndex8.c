@@ -1,13 +1,13 @@
 /*
- * XREFs of ReadPortWithIndex8 @ 0x140656830
+ * XREFs of ReadPortWithIndex8 @ 0x1405CB850
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ReadPortWithIndex8(__int64 a1, unsigned __int8 a2)
 {
-  return ((__int64 (__fastcall *)(_QWORD))UartHardwareAccess[0])(*(_QWORD *)a1 + a2
-                                                                               * (unsigned int)*(unsigned __int8 *)(a1 + 14));
+  return ((__int64 (__fastcall *)(_QWORD))UartHardwareAccess)(*(_QWORD *)a1 + a2
+                                                                            * (unsigned int)*(unsigned __int8 *)(a1 + 14));
 }

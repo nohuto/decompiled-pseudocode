@@ -1,7 +1,7 @@
 /*
  * XREFs of AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x1406257F4
  * Callers:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6F88 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6FA8 (AuthzBasepQuerySecurityAttributeAndValues.c)
  * Callees:
  *     AuthzBasepFindSystemSecurityAttribute @ 0x140625864 (AuthzBasepFindSystemSecurityAttribute.c)
  */

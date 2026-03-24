@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAdjustTimerDelayProcess @ 0x14056C444
+ * XREFs of KeAdjustTimerDelayProcess @ 0x1405137CC
  * Callers:
- *     PspSetProcessTimerDelayForKTimers @ 0x1405E11E4 (PspSetProcessTimerDelayForKTimers.c)
+ *     PspSetProcessTimerDelayForKTimers @ 0x140582468 (PspSetProcessTimerDelayForKTimers.c)
  * Callees:
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiAdjustThreadTimer @ 0x140573898 (KiAdjustThreadTimer.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiAdjustThreadTimer @ 0x14051EFD4 (KiAdjustThreadTimer.c)
  */
 
 char __fastcall KeAdjustTimerDelayProcess(__int64 a1, __int64 a2, unsigned int a3)
@@ -29,5 +29,5 @@ char __fastcall KeAdjustTimerDelayProcess(__int64 a1, __int64 a2, unsigned int a
     KiAdjustThreadTimer(i - 95, CurrentPrcb, a2, a3);
   *(_DWORD *)(a1 + 68) = a3;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  return KiExitDispatcher((__int64)CurrentPrcb, 0, 1, 0, CurrentIrql);
+  return KiExitDispatcher((__int64)CurrentPrcb, 0LL, 1LL, 0LL, CurrentIrql);
 }

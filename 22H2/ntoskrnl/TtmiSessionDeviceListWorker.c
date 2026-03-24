@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmiSessionDeviceListWorker @ 0x1409A2DC0
+ * XREFs of TtmiSessionDeviceListWorker @ 0x1408FC3F4
  * Callers:
- *     TtmpSessionWorker @ 0x1409A59E0 (TtmpSessionWorker.c)
+ *     TtmpSessionWorker @ 0x140900080 (TtmpSessionWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     TtmpCallAssignedToTerminal @ 0x1409A308C (TtmpCallAssignedToTerminal.c)
- *     TtmpCommitTerminalDisplayStateUpdateWorker @ 0x1409A3590 (TtmpCommitTerminalDisplayStateUpdateWorker.c)
- *     TtmpPublishDeviceEvent @ 0x1409A3994 (TtmpPublishDeviceEvent.c)
- *     TtmpPushTerminalState @ 0x1409A3B74 (TtmpPushTerminalState.c)
- *     TtmpStartCallout @ 0x1409A3D30 (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1409A3E1C (TtmpStopCallout.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     TtmpCallAssignedToTerminal @ 0x1408FC6C0 (TtmpCallAssignedToTerminal.c)
+ *     TtmpCommitTerminalDisplayStateUpdateWorker @ 0x1408FCBC0 (TtmpCommitTerminalDisplayStateUpdateWorker.c)
+ *     TtmpPublishDeviceEvent @ 0x1408FCFC0 (TtmpPublishDeviceEvent.c)
+ *     TtmpPushTerminalState @ 0x1408FD1A0 (TtmpPushTerminalState.c)
+ *     TtmpStartCallout @ 0x1408FD36C (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1408FD458 (TtmpStopCallout.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall TtmiSessionDeviceListWorker(__int64 a1)
@@ -22,12 +22,11 @@ __int64 __fastcall TtmiSessionDeviceListWorker(__int64 a1)
   unsigned int v6; // ecx
   __int64 v7; // r9
   int v8; // eax
-  int v9; // eax
-  void (__fastcall *v10)(void *); // rsi
-  _QWORD *v11; // rdx
-  void **v12; // rax
-  _OWORD v14[2]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v15; // [rsp+50h] [rbp-18h]
+  void (__fastcall *v9)(void *); // rsi
+  _QWORD *v10; // rdx
+  void **v11; // rax
+  _OWORD v13[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-18h]
 
   v1 = (void **)(a1 + 96);
   for ( i = *(void ***)(a1 + 96); i != v1; i = (void **)*i )
@@ -63,46 +62,47 @@ __int64 __fastcall TtmiSessionDeviceListWorker(__int64 a1)
     *((_DWORD *)i + 150) = v6 | 0x20;
     TtmpPublishDeviceEvent(a1, 0LL, i, v7);
 LABEL_12:
-    v8 = *((_DWORD *)i + 150);
-    if ( (v8 & 0x20) != 0 )
+    v4 = *((_DWORD *)i + 150);
+    if ( (v4 & 0x20) != 0 )
     {
-      *((_DWORD *)i + 150) = v8 & 0xFFFFFFDF;
+      *((_DWORD *)i + 150) = v4 & 0xFFFFFFDF;
       TtmpCallAssignedToTerminal(a1, i);
+      v4 = *((_DWORD *)i + 150);
     }
 LABEL_14:
-    if ( ((_DWORD)i[75] & 0x44) == 0x40 )
+    if ( (v4 & 0x44) == 0x40 )
     {
-      *((_DWORD *)i + 150) &= ~0x40u;
+      *((_DWORD *)i + 150) = v4 & 0xFFFFFFBF;
       if ( (unsigned __int8)TtmpPushTerminalState(a1, i) )
       {
         *((_DWORD *)i + 150) |= 0x40u;
         *(_DWORD *)(a1 + 4) |= 0x1000u;
       }
     }
-    v9 = *((_DWORD *)i + 150);
-    if ( (v9 & 4) != 0 )
+    v8 = *((_DWORD *)i + 150);
+    if ( (v8 & 4) != 0 )
     {
-      if ( (v9 & 2) != 0 )
+      if ( (v8 & 2) != 0 )
       {
-        *((_DWORD *)i + 150) = v9 | 8;
+        *((_DWORD *)i + 150) = v8 | 8;
         TtmpPublishDeviceEvent(a1, 0LL, i, 5LL);
       }
-      v10 = (void (__fastcall *)(void *))i[5];
-      if ( v10 )
+      v9 = (void (__fastcall *)(void *))i[5];
+      if ( v9 )
       {
-        v15 = 0LL;
-        memset(v14, 0, sizeof(v14));
-        TtmpStartCallout((unsigned int)v14, a1, (_DWORD)i, 2, (__int64)v10, 0);
-        v10(i[3]);
-        TtmpStopCallout(v14, 0LL);
+        v14 = 0LL;
+        memset(v13, 0, sizeof(v13));
+        TtmpStartCallout((unsigned int)v13, a1, (_DWORD)i, 2, (__int64)v9, 0);
+        v9(i[3]);
+        TtmpStopCallout(v13, 0LL);
       }
-      v11 = *i;
-      v12 = (void **)i[1];
-      i = v12;
-      if ( *((void ***)*v5 + 1) != v5 || *v12 != v5 )
+      v10 = *i;
+      v11 = (void **)i[1];
+      i = v11;
+      if ( *((void ***)*v5 + 1) != v5 || *v11 != v5 )
         __fastfail(3u);
-      *v12 = v11;
-      v11[1] = v12;
+      *v11 = v10;
+      v10[1] = v11;
       --*(_DWORD *)(a1 + 116);
       ExFreePoolWithTag(v5, 0x446D7454u);
     }

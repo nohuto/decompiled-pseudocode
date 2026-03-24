@@ -1,11 +1,12 @@
 /*
- * XREFs of GetNlsTablePath @ 0x1C027B834
+ * XREFs of GetNlsTablePath @ 0x1C027DCC4
  * Callers:
- *     ConvertToAndFromWideChar @ 0x1C00E7F50 (ConvertToAndFromWideChar.c)
+ *     ConvertToAndFromWideChar @ 0x1C00A4AF4 (ConvertToAndFromWideChar.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     StringCchCatW @ 0x1C027B9CC (StringCchCatW.c)
- *     StringCchCopyW @ 0x1C027BA40 (StringCchCopyW.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     StringCchCatW @ 0x1C027DE58 (StringCchCatW.c)
+ *     StringCchCopyW @ 0x1C027DEC0 (StringCchCopyW.c)
  */
 
 __int64 __fastcall GetNlsTablePath(unsigned int a1, wchar_t *a2)
@@ -33,7 +34,7 @@ __int64 __fastcall GetNlsTablePath(unsigned int a1, wchar_t *a2)
   if ( ZwOpenKey(&KeyHandle, 0x80000000, &ObjectAttributes) >= 0 )
   {
     Length = 544;
-    v5 = (wchar_t *)Win32AllocPoolZInit(544LL, 1936485959LL);
+    v5 = (wchar_t *)PALLOCMEM2(0x220uLL, 1936485959LL, 1);
     if ( v5 )
     {
       swprintf_s(Dst, 0x14uLL, L"%d", a1);

@@ -1,9 +1,9 @@
 /*
  * XREFs of MmMarkImageForHiberPhase @ 0x14057C5C8
  * Callers:
- *     PoSetHiberRange @ 0x1401447B0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x1400DA570 (MiLookupDataTableEntry.c)
+ *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
  *     MiMarkNonPagedHiberPhasePages @ 0x14057C1BC (MiMarkNonPagedHiberPhasePages.c)
  */
 

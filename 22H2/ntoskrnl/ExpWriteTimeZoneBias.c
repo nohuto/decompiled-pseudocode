@@ -1,26 +1,28 @@
 /*
- * XREFs of ExpWriteTimeZoneBias @ 0x14084101C
+ * XREFs of ExpWriteTimeZoneBias @ 0x1405D1CC8
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140840928 (ExpRefreshTimeZoneInformation.c)
- *     ExInitializeUtcTimeZoneBias @ 0x140865B90 (ExInitializeUtcTimeZoneBias.c)
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9984 (ExpRefreshTimeZoneInformation.c)
+ *     ExInitializeUtcTimeZoneBias @ 0x1407D4A60 (ExInitializeUtcTimeZoneBias.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 __fastcall ExpWriteTimeZoneBias(_DWORD *a1)
+__int64 __fastcall ExpWriteTimeZoneBias(_DWORD *a1, __int64 a2)
 {
-  _DWORD *v2; // rdx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  _DWORD *v5; // rdx
   __int64 result; // rax
 
-  if ( PsIsCurrentThreadInServerSilo() )
-    v2 = (_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 592LL);
+  if ( PsIsCurrentThreadInServerSilo((__int64)a1, a2) )
+    v5 = (_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals(v4, v3) + 141) + 592LL);
   else
-    v2 = (_DWORD *)(MmWriteableSharedUserData + 32);
-  v2[2] = a1[1];
-  *v2 = *a1;
+    v5 = (_DWORD *)0xFFFFF78000000020LL;
+  v5[2] = a1[1];
+  *v5 = *a1;
   result = (unsigned int)a1[1];
-  v2[1] = result;
+  v5[1] = result;
   return result;
 }

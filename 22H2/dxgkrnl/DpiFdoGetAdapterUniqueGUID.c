@@ -1,7 +1,8 @@
 /*
- * XREFs of DpiFdoGetAdapterUniqueGUID @ 0x1C0213CB4
+ * XREFs of DpiFdoGetAdapterUniqueGUID @ 0x1C0174C70
  * Callers:
- *     DpiGdoSetupGdiParameters @ 0x1C02134D0 (DpiGdoSetupGdiParameters.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C01309C0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     DpiGdoSetupGdiParameters @ 0x1C018736C (DpiGdoSetupGdiParameters.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +12,8 @@ __int64 __fastcall DpiFdoGetAdapterUniqueGUID(__int64 a1)
   __int64 v1; // rax
 
   v1 = *(_QWORD *)(a1 + 64);
-  if ( *(_QWORD *)(v1 + 4776) )
-    return v1 + 4768;
+  if ( *(_QWORD *)(v1 + 4832) )
+    return v1 + 4824;
   else
     return 0LL;
 }

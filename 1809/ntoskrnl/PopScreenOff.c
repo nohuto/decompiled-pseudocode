@@ -1,12 +1,12 @@
 /*
- * XREFs of PopScreenOff @ 0x14086F4B8
+ * XREFs of PopScreenOff @ 0x14086F498
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
- *     PopIssueActionRequest @ 0x1406DE870 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
  * Callees:
- *     PopBlockSessionSwitch @ 0x1406DDB50 (PopBlockSessionSwitch.c)
- *     PopControlMonitor @ 0x1406E23B0 (PopControlMonitor.c)
+ *     PopBlockSessionSwitch @ 0x1406DDB30 (PopBlockSessionSwitch.c)
+ *     PopControlMonitor @ 0x1406E2390 (PopControlMonitor.c)
  */
 
 __int64 __fastcall PopScreenOff(int a1)

@@ -1,14 +1,11 @@
 /*
- * XREFs of MiCompareHotPatchNodes @ 0x140A36674
+ * XREFs of MiCompareHotPatchNodes @ 0x1408C9880
  * Callers:
- *     MiDeleteHotPatchRecord @ 0x140A368D4 (MiDeleteHotPatchRecord.c)
- *     MiFindHotPatchRecord @ 0x140A36BEC (MiFindHotPatchRecord.c)
- *     MiGetAllRegisteredPatches @ 0x140A3701C (MiGetAllRegisteredPatches.c)
- *     MiInsertHotPatchRecord @ 0x140A37BB0 (MiInsertHotPatchRecord.c)
- *     MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140A37D40 (MiInsertPreviouslyRegisteredHotPatchRecord.c)
- *     MiInsertSecureImageActivePatch @ 0x140A37E54 (MiInsertSecureImageActivePatch.c)
- *     MiUnloadHotPatch @ 0x140A3BFA4 (MiUnloadHotPatch.c)
- *     MmRegisterHotPatches @ 0x140B74A30 (MmRegisterHotPatches.c)
+ *     MiFindHotPatchRecord @ 0x14075D298 (MiFindHotPatchRecord.c)
+ *     MiDeleteHotPatchRecord @ 0x1408C9A4C (MiDeleteHotPatchRecord.c)
+ *     MiInsertHotPatchRecord @ 0x1408CA9F0 (MiInsertHotPatchRecord.c)
+ *     MiInsertSecureImageActivePatch @ 0x1408CAB44 (MiInsertSecureImageActivePatch.c)
+ *     MiUnloadHotPatch @ 0x1408CE818 (MiUnloadHotPatch.c)
  * Callees:
  *     <none>
  */
@@ -16,8 +13,7 @@
 __int64 __fastcall MiCompareHotPatchNodes(__int64 a1, __int64 a2)
 {
   unsigned int v2; // eax
-  unsigned int v3; // ecx
-  unsigned int v4; // edx
+  unsigned int v3; // eax
 
   v2 = *(_DWORD *)(a1 + 24);
   if ( v2 >= *(_DWORD *)(a2 + 24) )
@@ -25,9 +21,8 @@ __int64 __fastcall MiCompareHotPatchNodes(__int64 a1, __int64 a2)
     if ( v2 > *(_DWORD *)(a2 + 24) )
       return 1LL;
     v3 = *(_DWORD *)(a1 + 28);
-    v4 = *(_DWORD *)(a2 + 28);
-    if ( v3 >= v4 )
-      return v3 > v4;
+    if ( v3 >= *(_DWORD *)(a2 + 28) )
+      return v3 > *(_DWORD *)(a2 + 28);
   }
   return 0xFFFFFFFFLL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of GetDstBFInfo @ 0x1C025E228
+ * XREFs of GetDstBFInfo @ 0x1C02615B8
  * Callers:
- *     AAHalftoneBitmap @ 0x1C0093280 (AAHalftoneBitmap.c)
+ *     AAHalftoneBitmap @ 0x1C001AD68 (AAHalftoneBitmap.c)
  * Callees:
- *     SetGrayColorTable @ 0x1C00049C8 (SetGrayColorTable.c)
- *     ValidateRGBBitFields @ 0x1C0093C30 (ValidateRGBBitFields.c)
- *     ComputeInputColorInfo @ 0x1C00F5EB8 (ComputeInputColorInfo.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     SetGrayColorTable @ 0x1C00086E0 (SetGrayColorTable.c)
+ *     ValidateRGBBitFields @ 0x1C001B718 (ValidateRGBBitFields.c)
+ *     ComputeInputColorInfo @ 0x1C001D7A0 (ComputeInputColorInfo.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall GetDstBFInfo(__int64 a1, __int64 a2, unsigned __int8 a3, unsigned __int8 a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of SepReadSingleCap @ 0x1408A4BC0
+ * XREFs of SepReadSingleCap @ 0x1408A4BA0
  * Callers:
- *     SepReadAndInsertCaps @ 0x1408A4864 (SepReadAndInsertCaps.c)
+ *     SepReadAndInsertCaps @ 0x1408A4844 (SepReadAndInsertCaps.c)
  * Callees:
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlValidSid @ 0x140631570 (RtlValidSid.c)

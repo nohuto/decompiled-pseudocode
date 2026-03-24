@@ -1,43 +1,45 @@
 /*
- * XREFs of ?SetChildren@CSceneNode@@QEAAJAEBV?$span@PEAVCSceneNode@@$0?0@gsl@@@Z @ 0x180251244
+ * XREFs of ?SetChildren@CSceneNode@@QEAAJAEBV?$span@PEAVCSceneNode@@$0?0@gsl@@@Z @ 0x1801EBAF4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
- *     ?OnRootChanged@CSceneVisual@@QEAAJXZ @ 0x18021A538 (-OnRootChanged@CSceneVisual@@QEAAJXZ.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?OnRootChanged@CSceneVisual@@QEAAJXZ @ 0x1801EC2A8 (-OnRootChanged@CSceneVisual@@QEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
- *     ?SetOrAppendChildren@?$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV?$span@PEAVCSceneNode@@$0?0@gsl@@_N@Z @ 0x1801C7F84 (-SetOrAppendChildren@-$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV-$span@PEAVCS.c)
- *     ?SetParent@CSceneNode@@AEAAXPEAV1@@Z @ 0x1802513C4 (-SetParent@CSceneNode@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?SetOrAppendChildren@?$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV?$span@PEAVCSceneNode@@$0?0@gsl@@_N@Z @ 0x1801718EC (-SetOrAppendChildren@-$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV-$span@PEAVCS.c)
+ *     ?SetParent@CSceneNode@@AEAAXPEAV1@@Z @ 0x1801EBC90 (-SetParent@CSceneNode@@AEAAXPEAV1@@Z.c)
  */
 
-__int64 __fastcall CSceneNode::SetChildren(CSceneNode *this, _QWORD *a2)
+__int64 __fastcall CSceneNode::SetChildren(CSceneNode *this, __int64 *a2)
 {
-  gsl::details **v2; // rbx
-  gsl::details **v4; // rsi
-  gsl::details *v6; // rcx
-  gsl::details **v7; // r8
-  gsl::details **v8; // rdx
-  gsl::details **v9; // rax
+  CSceneNode **v2; // rbx
+  CSceneNode **v4; // rbp
+  CSceneNode *v6; // rcx
+  __int64 v7; // rdx
+  CSceneNode **v8; // r8
+  CSceneNode **v9; // rax
+  CSceneNode **v10; // r9
   int appended; // eax
-  __int64 v11; // rcx
-  unsigned int v12; // ebx
+  __int64 v12; // rcx
+  unsigned int v13; // ebx
 
-  v2 = (gsl::details **)*((_QWORD *)this + 9);
-  v4 = (gsl::details **)*((_QWORD *)this + 10);
+  v2 = (CSceneNode **)*((_QWORD *)this + 8);
+  v4 = (CSceneNode **)*((_QWORD *)this + 9);
   while ( v2 != v4 )
   {
     v6 = *v2;
-    if ( *((CSceneNode **)*v2 + 16) == this )
+    if ( *((CSceneNode **)*v2 + 15) == this )
     {
-      v7 = (gsl::details **)a2[1];
-      v8 = &v7[*a2];
-      if ( v7 > v8 )
+      v7 = *a2;
+      if ( *a2 < 0 )
       {
-        gsl::details::terminate(v6);
+        ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
         __debugbreak();
       }
-      v9 = (gsl::details **)a2[1];
-      if ( v7 != v8 )
+      v8 = (CSceneNode **)a2[1];
+      v9 = v8;
+      v10 = &v8[v7];
+      if ( v8 != v10 )
       {
         do
         {
@@ -45,21 +47,18 @@ __int64 __fastcall CSceneNode::SetChildren(CSceneNode *this, _QWORD *a2)
             break;
           ++v9;
         }
-        while ( v9 != v8 );
+        while ( v9 != v10 );
       }
-      if ( v9 == v8 )
+      if ( v9 - v8 == v7 )
         CSceneNode::SetParent(v6, 0LL);
     }
     ++v2;
   }
-  appended = CSceneNodeGeneratedT<CSceneNode,CSceneObject>::SetOrAppendChildren(
-               (struct CResource ***)this,
-               (__int64)a2,
-               0);
-  v12 = appended;
+  appended = CSceneNodeGeneratedT<CSceneNode,CSceneObject>::SetOrAppendChildren((char **)this, (__int64)a2, 0);
+  v13 = appended;
   if ( appended < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, appended, 0x7Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, appended, 0x7Cu, 0LL);
   else
     return 0;
-  return v12;
+  return v13;
 }

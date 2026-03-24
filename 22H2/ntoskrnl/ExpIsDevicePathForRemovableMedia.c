@@ -1,63 +1,58 @@
 /*
- * XREFs of ExpIsDevicePathForRemovableMedia @ 0x140399A20
+ * XREFs of ExpIsDevicePathForRemovableMedia @ 0x1405B6CF0
  * Callers:
- *     NtEnumerateBootEntries @ 0x14083F840 (NtEnumerateBootEntries.c)
+ *     NtEnumerateBootEntries @ 0x140953360 (NtEnumerateBootEntries.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ExpIsDevicePathForRemovableMedia(_BYTE *a1)
+_BOOL8 __fastcall ExpIsDevicePathForRemovableMedia(_BYTE *a1)
 {
-  char v1; // r9
-  unsigned int v2; // edx
-  _BYTE *v3; // r8
-  _BYTE *v4; // rbx
-  _BYTE *v5; // r11
-  _BYTE *v6; // r10
-  char v7; // r9
-  char v9; // al
-  __int64 v10; // rcx
+  char v1; // r8
+  _BYTE *v2; // r11
+  _BYTE *v3; // r10
+  _BYTE *v4; // r9
+  _BYTE *v5; // rdx
+  char v6; // r8
+  __int64 v7; // rcx
+  char v8; // al
 
   v1 = *a1;
-  v2 = 0;
-  v3 = a1;
+  v2 = 0LL;
+  v3 = 0LL;
   v4 = 0LL;
-  v5 = 0LL;
-  v6 = 0LL;
+  v5 = a1;
   if ( (*a1 & 0x7F) == 0x7F )
     return 0LL;
   do
   {
-    v7 = v1 & 0x7F;
-    if ( v7 == 1 )
+    v6 = v1 & 0x7F;
+    if ( v6 == 1 )
     {
-      if ( v3[1] == 4 )
+      if ( v5[1] == 4 )
       {
-        v10 = *(_QWORD *)(v3 + 4) - ExpUnknownDeviceGuid;
-        if ( !v10 )
-          v10 = *(_QWORD *)(v3 + 12) - qword_140C0DF18;
-        if ( !v10 )
-          v4 = v3;
+        v7 = *(_QWORD *)(v5 + 4) - ExpUnknownDeviceGuid;
+        if ( !v7 )
+          v7 = *(_QWORD *)(v5 + 12) - qword_140C12F80;
+        if ( !v7 )
+          v2 = v5;
       }
     }
-    else if ( v7 == 4 )
+    else if ( v6 == 4 )
     {
-      v9 = v3[1];
-      if ( v9 == 1 )
+      v8 = v5[1];
+      if ( v8 == 1 )
       {
-        v5 = v3;
+        v3 = v5;
       }
-      else if ( v9 == 4 )
+      else if ( v8 == 4 )
       {
-        v6 = v3;
+        v4 = v5;
       }
     }
-    v3 += *((unsigned __int16 *)v3 + 1);
-    v1 = *v3;
+    v5 += *((unsigned __int16 *)v5 + 1);
+    v1 = *v5;
   }
-  while ( (*v3 & 0x7F) != 0x7F );
-  if ( !v4 || v5 )
-    return 0LL;
-  LOBYTE(v2) = v6 == 0LL;
-  return v2;
+  while ( (*v5 & 0x7F) != 0x7F );
+  return v2 && !v3 && !v4;
 }

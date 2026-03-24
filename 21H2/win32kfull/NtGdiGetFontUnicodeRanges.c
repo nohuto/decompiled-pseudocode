@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiGetFontUnicodeRanges @ 0x1C0105550
+ * XREFs of NtGdiGetFontUnicodeRanges @ 0x1C015C0C0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetFontUnicodeRanges @ 0x1C0105618 (GreGetFontUnicodeRanges.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     GreGetFontUnicodeRanges @ 0x1C015C188 (GreGetFontUnicodeRanges.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiGetFontUnicodeRanges(HDC a1, char *a2)

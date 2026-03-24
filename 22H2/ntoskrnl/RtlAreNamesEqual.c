@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAreNamesEqual @ 0x140324660
+ * XREFs of RtlAreNamesEqual @ 0x1402E0BE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpUpcaseUnicodeStringPrivate @ 0x14030C2B0 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x140206970 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 BOOLEAN __stdcall RtlAreNamesEqual(
@@ -22,7 +22,7 @@ BOOLEAN __stdcall RtlAreNamesEqual(
   __int64 v8; // rax
   int v10; // eax
   int v11; // eax
-  int v12; // ebx
+  unsigned int v12; // ebx
   BOOLEAN v13; // bl
   UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-28h] BYREF
   UNICODE_STRING v15; // [rsp+30h] [rbp-18h] BYREF
@@ -52,13 +52,13 @@ BOOLEAN __stdcall RtlAreNamesEqual(
     }
     v10 = RtlpUpcaseUnicodeStringPrivate((__int64)&UnicodeString, &ConstantNameA->Length);
     if ( v10 < 0 )
-      RtlRaiseStatus(v10);
+      RtlRaiseStatus((unsigned int)v10);
     v11 = RtlpUpcaseUnicodeStringPrivate((__int64)&v15, &v6->Length);
     ConstantNameA = &UnicodeString;
     v12 = v11;
     if ( v11 < 0 )
     {
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
       RtlRaiseStatus(v12);
     }
     LOWORD(Length) = UnicodeString.Length;
@@ -68,8 +68,8 @@ BOOLEAN __stdcall RtlAreNamesEqual(
   v13 = memcmp(ConstantNameA->Buffer, v6->Buffer, (unsigned __int16)Length) == 0;
   if ( v5 )
   {
-    RtlFreeUnicodeString(&UnicodeString);
-    RtlFreeUnicodeString(&v15);
+    RtlFreeAnsiString(&UnicodeString);
+    RtlFreeAnsiString(&v15);
   }
   return v13;
 }

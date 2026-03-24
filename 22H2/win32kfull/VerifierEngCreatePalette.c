@@ -1,24 +1,21 @@
 /*
- * XREFs of VerifierEngCreatePalette @ 0x1C02A6FF0
+ * XREFs of VerifierEngCreatePalette @ 0x1C029DEB0
  * Callers:
  *     <none>
  * Callees:
- *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C02A6B60 (-VerifierRandomFailure@@YAHK@Z.c)
+ *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C029DA40 (-VerifierRandomFailure@@YAHK@Z.c)
  */
 
 HPALETTE __fastcall VerifierEngCreatePalette(
-        __int64 iMode,
+        ULONG iMode,
         ULONG cColors,
         ULONG *pulColors,
         FLONG flRed,
         FLONG flGreen,
         FLONG flBlue)
 {
-  ULONG v9; // ebp
-
-  v9 = iMode;
-  if ( (unsigned int)VerifierRandomFailure(iMode) )
+  if ( (unsigned int)VerifierRandomFailure() )
     return 0LL;
   else
-    return EngCreatePalette(v9, cColors, pulColors, flRed, flGreen, flBlue);
+    return EngCreatePalette(iMode, cColors, pulColors, flRed, flGreen, flBlue);
 }

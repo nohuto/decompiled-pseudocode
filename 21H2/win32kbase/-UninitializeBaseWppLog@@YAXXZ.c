@@ -1,18 +1,18 @@
 /*
- * XREFs of ?UninitializeBaseWppLog@@YAXXZ @ 0x1C00C49C8
+ * XREFs of ?UninitializeBaseWppLog@@YAXXZ @ 0x1C00B5B70
  * Callers:
- *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00BA8C0 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C01481B0 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00AB7F0 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011B880 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
  *     <none>
  */
 
 void UninitializeBaseWppLog(void)
 {
-  if ( WPP_MAIN_CB.Queue.ListEntry.Flink )
+  if ( gBaseLog )
   {
     imp_WppRecorderLogDelete(WPP_GLOBAL_Control);
-    WPP_MAIN_CB.Queue.ListEntry.Flink = 0LL;
+    gBaseLog = 0LL;
   }
   if ( gRimLog )
   {

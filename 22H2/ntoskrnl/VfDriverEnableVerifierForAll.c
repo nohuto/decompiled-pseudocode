@@ -1,25 +1,25 @@
 /*
- * XREFs of VfDriverEnableVerifierForAll @ 0x140ACB618
+ * XREFs of VfDriverEnableVerifierForAll @ 0x1409C87C8
  * Callers:
- *     VfAddVerifierEntry @ 0x140ADE630 (VfAddVerifierEntry.c)
+ *     VfAddVerifierEntry @ 0x1409EC9E8 (VfAddVerifierEntry.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x140214B80 (RtlImageNtHeaderEx.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     MmIsSessionAddress @ 0x1402BC7B0 (MmIsSessionAddress.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     VfUtilIsProtectedDriver @ 0x140AC37CC (VfUtilIsProtectedDriver.c)
- *     VfDriverEnableVerifier @ 0x140ACB498 (VfDriverEnableVerifier.c)
- *     VfDriverLock @ 0x140ACB73C (VfDriverLock.c)
- *     VfSuspectDriversAllocateEntry @ 0x140ADB394 (VfSuspectDriversAllocateEntry.c)
+ *     RtlImageNtHeaderEx @ 0x14029D010 (RtlImageNtHeaderEx.c)
+ *     MmIsSessionAddress @ 0x1402C9800 (MmIsSessionAddress.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     VfDriverLock @ 0x1409C25C8 (VfDriverLock.c)
+ *     VfUtilIsProtectedDriver @ 0x1409C689C (VfUtilIsProtectedDriver.c)
+ *     VfDriverEnableVerifier @ 0x1409C8630 (VfDriverEnableVerifier.c)
+ *     VfSuspectDriversAllocateEntry @ 0x1409D9838 (VfSuspectDriversAllocateEntry.c)
  */
 
 __int64 VfDriverEnableVerifierForAll()
 {
   int v0; // edi
   PVOID *i; // rbx
-  unsigned __int64 v2; // rsi
+  unsigned __int64 v2; // rbp
   __int64 Entry; // rax
   void *v4; // rsi
   int v6; // [rsp+40h] [rbp+8h] BYREF
@@ -32,7 +32,7 @@ __int64 VfDriverEnableVerifierForAll()
   ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
   for ( i = *(PVOID **)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
   {
-    if ( !(unsigned int)VfUtilIsProtectedDriver() )
+    if ( !(unsigned int)VfUtilIsProtectedDriver((PCUNICODE_STRING)(i + 11)) )
     {
       v2 = (unsigned __int64)i[6];
       if ( MmIsSessionAddress(v2) || (int)RtlImageNtHeaderEx(1, v2, 0LL, &v7) >= 0 )
@@ -45,7 +45,7 @@ __int64 VfDriverEnableVerifierForAll()
           break;
         }
         v6 = 0;
-        v0 = VfDriverEnableVerifier(Entry, i, &v6);
+        v0 = VfDriverEnableVerifier(Entry, (__int64)i, &v6);
         if ( !v6 )
           ExFreePoolWithTag(v4, 0);
         if ( v0 < 0 )
@@ -55,6 +55,6 @@ __int64 VfDriverEnableVerifierForAll()
   }
   ExReleaseResourceLite(&PsLoadedModuleResource);
   ViDriversLoadLockOwner = 0LL;
-  KeReleaseMutex(&ViDriversLoadLock, 0);
+  KeReleaseMutex((PRKMUTEX)&ViDriversLoadLock, 0);
   return (unsigned int)v0;
 }

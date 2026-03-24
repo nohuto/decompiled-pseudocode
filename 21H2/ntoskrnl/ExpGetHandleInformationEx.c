@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpGetHandleInformationEx @ 0x1409F66F0
+ * XREFs of ExpGetHandleInformationEx @ 0x14094A404
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExUnlockUserBuffer @ 0x140231450 (ExUnlockUserBuffer.c)
- *     ExLockUserBuffer @ 0x1406A904C (ExLockUserBuffer.c)
- *     ObGetHandleInformationEx @ 0x14098471C (ObGetHandleInformationEx.c)
+ *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
+ *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
+ *     ObGetHandleInformationEx @ 0x1408DCE40 (ObGetHandleInformationEx.c)
  */
 
 __int64 __fastcall ExpGetHandleInformationEx(unsigned __int64 a1, unsigned int a2, _DWORD *a3)
 {
   __int64 result; // rax
   unsigned int HandleInformation; // ebx
-  _DWORD *v7; // [rsp+50h] [rbp+18h] BYREF
+  _QWORD *v7; // [rsp+50h] [rbp+18h] BYREF
   PVOID P; // [rsp+58h] [rbp+20h] BYREF
 
   *a3 = 0;

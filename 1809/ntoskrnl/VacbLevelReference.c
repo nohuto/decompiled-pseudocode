@@ -3,8 +3,8 @@
  * Callers:
  *     CcAdjustVacbLevelLockCount @ 0x1400223FC (CcAdjustVacbLevelLockCount.c)
  *     CcSetVacbLargeOffset @ 0x1400224B0 (CcSetVacbLargeOffset.c)
- *     CcExtendVacbArray @ 0x14012C9A4 (CcExtendVacbArray.c)
- *     CcCalculateVacbLevelLockCount @ 0x14015FB4C (CcCalculateVacbLevelLockCount.c)
+ *     CcExtendVacbArray @ 0x14012C9C4 (CcExtendVacbArray.c)
+ *     CcCalculateVacbLevelLockCount @ 0x14015FB6C (CcCalculateVacbLevelLockCount.c)
  * Callees:
  *     <none>
  */

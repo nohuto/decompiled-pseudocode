@@ -1,10 +1,10 @@
 /*
- * XREFs of ulGetNearestIndexFromColorref @ 0x1C0098430
+ * XREFs of ulGetNearestIndexFromColorref @ 0x1C0085EE0
  * Callers:
- *     GreGetNearestColor @ 0x1C0062D20 (GreGetNearestColor.c)
- *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C007FCA0 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
+ *     GreGetNearestColor @ 0x1C00202A0 (GreGetNearestColor.c)
+ *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C0066F20 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
  * Callees:
- *     ?ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z @ 0x1C00984B8 (-ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z.c)
+ *     ?ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z @ 0x1C0085F70 (-ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z.c)
  */
 
 tagPALETTEENTRY __fastcall ulGetNearestIndexFromColorref(__int64 a1, __int64 a2, tagPALETTEENTRY a3, unsigned int a4)
@@ -12,10 +12,10 @@ tagPALETTEENTRY __fastcall ulGetNearestIndexFromColorref(__int64 a1, __int64 a2,
   tagPALETTEENTRY v5; // edx
   tagPALETTEENTRY result; // eax
   __int64 v7; // r8
-  struct PALETTE *v8; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
-  tagPALETTEENTRY v11; // [rsp+50h] [rbp+18h]
+  struct PALETTE *v8; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v9; // [rsp+40h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+48h] [rbp+18h] BYREF
+  tagPALETTEENTRY v11; // [rsp+50h] [rbp+20h]
 
   v10 = a2;
   v9 = a1;

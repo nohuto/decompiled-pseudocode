@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetMany@?$IIterator_impl@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@$00@Collections@Foundation@Windows@@UEAAJIPEAPEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@234@PEAI@Z @ 0x180285F70
+ * XREFs of ?GetMany@?$IIterator_impl@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@$00@Collections@Foundation@Windows@@UEAAJIPEAPEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@234@PEAI@Z @ 0x1802453E0
  * Callers:
  *     <none>
  * Callees:

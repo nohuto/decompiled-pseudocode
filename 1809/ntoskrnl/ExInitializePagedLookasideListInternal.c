@@ -1,15 +1,15 @@
 /*
- * XREFs of ExInitializePagedLookasideListInternal @ 0x1400F38F0
+ * XREFs of ExInitializePagedLookasideListInternal @ 0x1400F3910
  * Callers:
- *     ExInitializePagedLookasideList @ 0x14067BCD0 (ExInitializePagedLookasideList.c)
- *     MiSessionCreate @ 0x140715028 (MiSessionCreate.c)
- *     FsRtlInitExtraCreateParameterLookasideList @ 0x14075B920 (FsRtlInitExtraCreateParameterLookasideList.c)
- *     AlpcpInitSystem @ 0x14075D2AC (AlpcpInitSystem.c)
+ *     ExInitializePagedLookasideList @ 0x14067BCB0 (ExInitializePagedLookasideList.c)
+ *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
+ *     FsRtlInitExtraCreateParameterLookasideList @ 0x14075B900 (FsRtlInitExtraCreateParameterLookasideList.c)
+ *     AlpcpInitSystem @ 0x14075D28C (AlpcpInitSystem.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExInitializePagedLookasideListInternal(
@@ -53,14 +53,14 @@ __int64 __fastcall ExInitializePagedLookasideListInternal(
   {
     *(_DWORD *)(a1 + 16) = -65536;
   }
-  v13 = (_QWORD *)qword_1404070A8;
+  v13 = (_QWORD *)qword_140407048;
   v14 = (_QWORD *)(a1 + 64);
-  if ( *(__int64 **)qword_1404070A8 != &ExPagedLookasideListHead )
+  if ( *(__int64 **)qword_140407048 != &ExPagedLookasideListHead )
     __fastfail(3u);
   *v14 = &ExPagedLookasideListHead;
   v14[1] = v13;
   *v13 = v14;
-  qword_1404070A8 = (__int64)v14;
+  qword_140407048 = (__int64)v14;
   KxReleaseSpinLock(&ExPagedLookasideLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v12 < 2u )
   {

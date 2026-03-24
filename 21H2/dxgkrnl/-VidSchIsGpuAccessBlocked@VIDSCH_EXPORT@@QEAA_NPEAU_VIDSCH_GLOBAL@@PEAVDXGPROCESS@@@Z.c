@@ -1,11 +1,9 @@
 /*
- * XREFs of ?VidSchIsGpuAccessBlocked@VIDSCH_EXPORT@@QEAA_NPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@@Z @ 0x1C000BE68
+ * XREFs of ?VidSchIsGpuAccessBlocked@VIDSCH_EXPORT@@QEAA_NPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@@Z @ 0x1C0007C28
  * Callers:
- *     ?DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z @ 0x1C0183D20 (-DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z.c)
- *     ?IsProcessGpuAccessBlocked@ADAPTER_RENDER@@QEAAEPEAVDXGPROCESS@@@Z @ 0x1C01DA754 (-IsProcessGpuAccessBlocked@ADAPTER_RENDER@@QEAAEPEAVDXGPROCESS@@@Z.c)
+ *     ?IsProcessGpuAccessBlocked@ADAPTER_RENDER@@QEAAEPEAVDXGPROCESS@@@Z @ 0x1C011FCB8 (-IsProcessGpuAccessBlocked@ADAPTER_RENDER@@QEAAEPEAVDXGPROCESS@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall VIDSCH_EXPORT::VidSchIsGpuAccessBlocked(
@@ -14,28 +12,16 @@ __int64 __fastcall VIDSCH_EXPORT::VidSchIsGpuAccessBlocked(
         struct DXGPROCESS *a3)
 {
   __int64 v3; // rbx
-  int v7; // edx
-  int v8; // ecx
-  int v9; // r8d
+  __int64 v7; // rax
 
   v3 = *((_QWORD *)a3 + 8);
-  if ( !v3 || (v3 = *(_QWORD *)(v3 + 8LL * (unsigned int)(*(_DWORD *)this - 1) + 16)) == 0 )
+  if ( v3 )
+    v3 = *(_QWORD *)(v3 + 8LL * (unsigned int)(*(_DWORD *)this - 1) + 16);
+  if ( !v3 )
   {
-    WdLogSingleEntry1(1LL, 992LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v8,
-        v7,
-        v9,
-        0,
-        2,
-        -1,
-        (__int64)L"pVidSchProcess",
-        992LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+    v7 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v7 + 24) = 990LL;
+    WdLogEvent5_WdAssertion(v7);
   }
   return (*(__int64 (__fastcall **)(struct _VIDSCH_GLOBAL *, __int64))(*((_QWORD *)this + 1) + 840LL))(a2, v3);
 }

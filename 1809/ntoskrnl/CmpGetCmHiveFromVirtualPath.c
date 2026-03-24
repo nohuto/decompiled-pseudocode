@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpGetCmHiveFromVirtualPath @ 0x1407F3364
+ * XREFs of CmpGetCmHiveFromVirtualPath @ 0x1407F3344
  * Callers:
- *     CmpVirtualBranchIsReplicated @ 0x1407F3DDC (CmpVirtualBranchIsReplicated.c)
- *     CmpVirtualPathPresent @ 0x1407F3F7C (CmpVirtualPathPresent.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1407F3DBC (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x1407F3F5C (CmpVirtualPathPresent.c)
  * Callees:
- *     CmpGetMappingHiveForString @ 0x1407F3394 (CmpGetMappingHiveForString.c)
- *     CmpGetVirtualizationIDFromFullVirtualPath @ 0x1407F3660 (CmpGetVirtualizationIDFromFullVirtualPath.c)
+ *     CmpGetMappingHiveForString @ 0x1407F3374 (CmpGetMappingHiveForString.c)
+ *     CmpGetVirtualizationIDFromFullVirtualPath @ 0x1407F3640 (CmpGetVirtualizationIDFromFullVirtualPath.c)
  */
 
 __int64 __fastcall CmpGetCmHiveFromVirtualPath(__int64 a1, __int64 a2)

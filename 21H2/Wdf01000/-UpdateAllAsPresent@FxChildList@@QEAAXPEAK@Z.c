@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UpdateAllAsPresent@FxChildList@@QEAAXPEAK@Z @ 0x1C005C968
+ * XREFs of ?UpdateAllAsPresent@FxChildList@@QEAAXPEAK@Z @ 0x1C003C3C8
  * Callers:
- *     imp_WdfChildListUpdateAllChildDescriptionsAsPresent @ 0x1C005ADC0 (imp_WdfChildListUpdateAllChildDescriptionsAsPresent.c)
+ *     imp_WdfChildListUpdateAllChildDescriptionsAsPresent @ 0x1C0038AA0 (imp_WdfChildListUpdateAllChildDescriptionsAsPresent.c)
  * Callees:
- *     ?DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C001812C (-DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0018288 (-ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C000FC54 (-ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0010A58 (-DrainFreeListHead@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
  */
 
 void __fastcall FxChildList::UpdateAllAsPresent(FxChildList *this, unsigned int *ScanTag)

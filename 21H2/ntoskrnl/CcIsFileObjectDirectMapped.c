@@ -1,12 +1,12 @@
 /*
- * XREFs of CcIsFileObjectDirectMapped @ 0x140229F30
+ * XREFs of CcIsFileObjectDirectMapped @ 0x1402C14B4
  * Callers:
- *     CcCopyWriteWontFlush @ 0x140229E10 (CcCopyWriteWontFlush.c)
- *     CcCanIWriteStreamEx @ 0x1402844A0 (CcCanIWriteStreamEx.c)
+ *     CcCopyWriteWontFlush @ 0x14022BF00 (CcCopyWriteWontFlush.c)
+ *     CcCanIWriteStreamEx @ 0x1403134D0 (CcCanIWriteStreamEx.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall CcIsFileObjectDirectMapped(__int64 a1, char a2)

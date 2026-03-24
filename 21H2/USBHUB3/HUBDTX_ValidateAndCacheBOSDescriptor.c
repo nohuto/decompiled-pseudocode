@@ -1,17 +1,17 @@
 /*
- * XREFs of HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C0028588
+ * XREFs of HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C00280E0
  * Callers:
- *     HUBDSM_ValidatingBOSDescriptor @ 0x1C00207F0 (HUBDSM_ValidatingBOSDescriptor.c)
+ *     HUBDSM_ValidatingBOSDescriptor @ 0x1C00203E0 (HUBDSM_ValidatingBOSDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBDTX_CacheBillboardInfo @ 0x1C002A828 (HUBDTX_CacheBillboardInfo.c)
- *     HUBDESC_ValidateBOSDescriptorSet @ 0x1C0039550 (HUBDESC_ValidateBOSDescriptorSet.c)
- *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C0041C98 (UsbDualRoleFeaturesQueryLocalMachine.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0043840 (memmove.c)
- *     memset @ 0x1C0043B00 (memset.c)
- *     HUBWNF_PublishUsbPartnerDualRoleFeatures @ 0x1C0086CB4 (HUBWNF_PublishUsbPartnerDualRoleFeatures.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDTX_CacheBillboardInfo @ 0x1C002A158 (HUBDTX_CacheBillboardInfo.c)
+ *     HUBDESC_ValidateBOSDescriptorSet @ 0x1C0038CD0 (HUBDESC_ValidateBOSDescriptorSet.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C0041090 (UsbDualRoleFeaturesQueryLocalMachine.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     HUBWNF_PublishUsbPartnerDualRoleFeatures @ 0x1C0085074 (HUBWNF_PublishUsbPartnerDualRoleFeatures.c)
  */
 
 __int64 __fastcall HUBDTX_ValidateAndCacheBOSDescriptor(__int64 a1)
@@ -27,15 +27,15 @@ __int64 __fastcall HUBDTX_ValidateAndCacheBOSDescriptor(__int64 a1)
   char v10; // r12
   __int64 v11; // rcx
   unsigned int v12; // ebx
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   unsigned int v14; // ebx
   __int64 v15; // rdx
   __int64 v16; // rcx
   __int64 v17; // r8
   char v18; // al
-  int v19; // edx
-  char v20; // r9
-  void *v21; // rax
+  int v19; // ecx
+  char v20; // dl
+  PVOID v21; // rax
   __int64 v23; // [rsp+70h] [rbp-51h]
   _WORD v24[2]; // [rsp+78h] [rbp-49h] BYREF
   int v25; // [rsp+7Ch] [rbp-45h]
@@ -58,7 +58,7 @@ __int64 __fastcall HUBDTX_ValidateAndCacheBOSDescriptor(__int64 a1)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   v4 = *(_DWORD *)(a1 + 172);
   v5 = *(_QWORD *)(a1 + 8);
   v6 = *(_BYTE *)(a1 + 2464);
@@ -117,16 +117,16 @@ LABEL_15:
         4u,
         5u,
         0x39u,
-        (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids);
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids);
   }
   if ( (_BYTE)v35 )
     _InterlockedOr(v7, 0x100000u);
   if ( v34[2] && !*(_QWORD *)(a1 + 2568) )
   {
     v12 = (*(_DWORD *)(v34[2] + 4LL) & 0x1F) + 1;
-    Pool2 = (void *)ExAllocatePool2(64LL, 4LL * v12, 1681082453LL);
-    *(_QWORD *)(a1 + 2568) = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, 4LL * v12, 0x64334855u);
+    *(_QWORD *)(a1 + 2568) = PoolWithTag;
+    if ( !PoolWithTag )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_(
@@ -134,10 +134,10 @@ LABEL_15:
           2u,
           5u,
           0x3Au,
-          (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids);
+          (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids);
       goto LABEL_15;
     }
-    memmove(Pool2, (const void *)(v34[2] + 12LL), 4LL * v12);
+    memmove(PoolWithTag, (const void *)(v34[2] + 12LL), 4LL * v12);
     *(_DWORD *)(a1 + 2576) = v12;
   }
   if ( v34[3] )
@@ -187,7 +187,7 @@ LABEL_15:
   }
   if ( !*(_QWORD *)(a1 + 2056) )
   {
-    v21 = (void *)ExAllocatePool2(64LL, v2[1], 1681082453LL);
+    v21 = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v2[1], 0x64334855u);
     *(_QWORD *)(a1 + 2056) = v21;
     if ( !v21 )
     {
@@ -197,7 +197,7 @@ LABEL_15:
           2u,
           5u,
           0x3Bu,
-          (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids);
+          (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids);
       goto LABEL_15;
     }
     memmove(v21, v2, v2[1]);

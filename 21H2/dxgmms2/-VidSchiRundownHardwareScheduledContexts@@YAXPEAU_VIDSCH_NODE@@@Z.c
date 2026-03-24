@@ -1,12 +1,12 @@
 /*
- * XREFs of ?VidSchiRundownHardwareScheduledContexts@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00405FC
+ * XREFs of ?VidSchiRundownHardwareScheduledContexts@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0038548
  * Callers:
- *     VidSchiCompleteAllPendingCommand @ 0x1C0044610 (VidSchiCompleteAllPendingCommand.c)
+ *     VidSchiCompleteAllPendingCommand @ 0x1C003C910 (VidSchiCompleteAllPendingCommand.c)
  * Callees:
- *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C0009A80 (--1HwQueueStagingList@@QEAA@XZ.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0014690 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C0014924 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     ?VidSchiRundownHardwareContext@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_CONTEXT@@@Z @ 0x1C00403E8 (-VidSchiRundownHardwareContext@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_CONTEXT@@@Z.c)
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C000AFA0 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011F60 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00129FC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?VidSchiRundownHardwareContext@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_CONTEXT@@@Z @ 0x1C0038384 (-VidSchiRundownHardwareContext@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_CONTEXT@@@Z.c)
  */
 
 void __fastcall VidSchiRundownHardwareScheduledContexts(struct _VIDSCH_NODE *a1)
@@ -18,13 +18,13 @@ void __fastcall VidSchiRundownHardwareScheduledContexts(struct _VIDSCH_NODE *a1)
   _QWORD v6[4]; // [rsp+38h] [rbp-28h] BYREF
   __int16 v7; // [rsp+58h] [rbp-8h]
 
-  v6[0] = *((_QWORD *)a1 + 3) + 1728LL;
+  v6[0] = *((_QWORD *)a1 + 3) + 1712LL;
   v7 = 0;
   AcquireSpinLock::Acquire((Acquire *)v6);
   v5 = 0;
   v4[1] = v4;
-  v2 = (char *)a1 + 1696;
-  v3 = (char *)*((_QWORD *)a1 + 212);
+  v2 = (char *)a1 + 1688;
+  v3 = (char *)*((_QWORD *)a1 + 211);
   v4[0] = v4;
   while ( v3 != v2 )
   {

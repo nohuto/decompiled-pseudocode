@@ -1,13 +1,13 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryReference @ 0x1405E0FA0
+ * XREFs of PspJobIoRateVolumeEntryReference @ 0x140582224
  * Callers:
- *     PsIoRateControlReference @ 0x140363780 (PsIoRateControlReference.c)
+ *     PsIoRateControlReference @ 0x14028A9C8 (PsIoRateControlReference.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     PspIoRateEntryIoControlReference @ 0x14036381C (PspIoRateEntryIoControlReference.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockTrackerCompare @ 0x140584510 (MiLockTrackerCompare.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     PspIoRateEntryIoControlReference @ 0x14028AA64 (PspIoRateEntryIoControlReference.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockTrackerCompare @ 0x140530CD0 (MiLockTrackerCompare.c)
  */
 
 signed __int64 __fastcall PspJobIoRateVolumeEntryReference(__int64 a1, unsigned __int64 a2)
@@ -27,13 +27,13 @@ signed __int64 __fastcall PspJobIoRateVolumeEntryReference(__int64 a1, unsigned 
   _DWORD *SchedulerAssist; // r9
   int v17; // edx
 
-  v2 = (volatile LONG *)(a1 + 1648);
+  v2 = (volatile LONG *)(a1 + 1456);
   v5 = 0LL;
-  v6 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 1648));
-  v7 = a1 + 1656;
+  v6 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 1456));
+  v7 = a1 + 1464;
   v8 = v6;
-  v9 = (*(_BYTE *)(a1 + 1664) & 1) == 0;
-  Count = *(_QWORD *)(a1 + 1656);
+  v9 = (*(_BYTE *)(a1 + 1472) & 1) == 0;
+  Count = *(_QWORD *)(a1 + 1464);
   if ( !v9 && Count )
     Count ^= v7;
   v11 = *(_BYTE *)(v7 + 8) & 1;

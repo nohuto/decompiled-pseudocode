@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpFlushTLB @ 0x1403BF630
+ * XREFs of HalpFlushTLB @ 0x1403BBBB0
  * Callers:
- *     HalpMmZeroPageWithTemporaryMapping @ 0x1403BF274 (HalpMmZeroPageWithTemporaryMapping.c)
- *     HalpUnmapVirtualAddress @ 0x1403BF310 (HalpUnmapVirtualAddress.c)
- *     HalpMap @ 0x1403BF3B8 (HalpMap.c)
+ *     HalpMmZeroPageWithTemporaryMapping @ 0x1403BB428 (HalpMmZeroPageWithTemporaryMapping.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BB890 (HalpUnmapVirtualAddress.c)
+ *     HalpMap @ 0x1403BB938 (HalpMap.c)
  * Callees:
- *     KeFlushCurrentTbImmediately @ 0x1403B1CF0 (KeFlushCurrentTbImmediately.c)
+ *     KeFlushCurrentTbImmediately @ 0x1403A0A80 (KeFlushCurrentTbImmediately.c)
  */
 
 unsigned __int64 HalpFlushTLB()

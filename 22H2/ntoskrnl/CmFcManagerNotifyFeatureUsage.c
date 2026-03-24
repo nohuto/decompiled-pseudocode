@@ -1,25 +1,24 @@
 /*
- * XREFs of CmFcManagerNotifyFeatureUsage @ 0x1406171A4
+ * XREFs of CmFcManagerNotifyFeatureUsage @ 0x1404ED774
  * Callers:
- *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x14022FCF0 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
- *     RtlNotifyFeatureUsage @ 0x1405AA130 (RtlNotifyFeatureUsage.c)
+ *     RtlNotifyFeatureUsage @ 0x14058E070 (RtlNotifyFeatureUsage.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x14020B9C0 (ObGetCurrentIrql.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     RtlReleaseSwapReference @ 0x14035CBF4 (RtlReleaseSwapReference.c)
- *     RtlAcquireSwapReference @ 0x14035CC9C (RtlAcquireSwapReference.c)
- *     CmpWorkItemQueueWork @ 0x140374BF0 (CmpWorkItemQueueWork.c)
- *     RtlpFcAddDelayedUsageReportToBuffer @ 0x1405B4BE0 (RtlpFcAddDelayedUsageReportToBuffer.c)
+ *     KeInsertQueueDpc @ 0x14021FD00 (KeInsertQueueDpc.c)
+ *     ObGetCurrentIrql @ 0x14025EDF0 (ObGetCurrentIrql.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     RtlAcquireSwapReference @ 0x1403A62B8 (RtlAcquireSwapReference.c)
+ *     RtlReleaseSwapReference @ 0x1403A6688 (RtlReleaseSwapReference.c)
+ *     CmFcpWorkItemQueueWork @ 0x1404ED90C (CmFcpWorkItemQueueWork.c)
+ *     RtlpFcAddDelayedUsageReportToBuffer @ 0x14058F17C (RtlpFcAddDelayedUsageReportToBuffer.c)
  */
 
-__int64 __fastcall CmFcManagerNotifyFeatureUsage(__int64 a1, _QWORD *a2)
+__int64 __fastcall CmFcManagerNotifyFeatureUsage(__int64 a1, __int64 a2)
 {
-  char v3; // bp
-  unsigned __int8 CurrentIrql; // si
+  char v3; // si
+  unsigned __int8 CurrentIrql; // bp
   struct _KTHREAD *CurrentThread; // rcx
   __int64 v6; // rdi
-  volatile signed __int32 *v7; // rcx
+  __int64 v7; // rcx
   int v8; // ebx
 
   v3 = 0;
@@ -27,34 +26,34 @@ __int64 __fastcall CmFcManagerNotifyFeatureUsage(__int64 a1, _QWORD *a2)
   if ( CurrentIrql < 2u )
   {
     CurrentThread = KeGetCurrentThread();
-    v3 = 1;
     --CurrentThread->KernelApcDisable;
+    v3 = 1;
   }
-  v6 = (unsigned int)RtlAcquireSwapReference(qword_140C14150);
-  v7 = (volatile signed __int32 *)qword_140C14178[v6];
-  if ( !v7 )
+  v6 = (unsigned int)RtlAcquireSwapReference(qword_140C482B0);
+  v7 = qword_140C482D8[v6];
+  if ( v7 )
+  {
+    v8 = RtlpFcAddDelayedUsageReportToBuffer(v7, a2);
+    if ( v8 >= 0 )
+    {
+      RtlReleaseSwapReference(qword_140C482B0, v6);
+      LODWORD(v6) = -1;
+      if ( byte_140C482D0 )
+      {
+        if ( CurrentIrql >= 2u )
+          KeInsertQueueDpc(&stru_140C482E8, 0LL, 0LL);
+        else
+          CmFcpWorkItemQueueWork(&stru_140C48328);
+      }
+      v8 = 0;
+    }
+  }
+  else
   {
     v8 = -1073741670;
-    goto LABEL_5;
   }
-  v8 = RtlpFcAddDelayedUsageReportToBuffer(v7, a2);
-  if ( v8 < 0 )
-  {
-LABEL_5:
-    if ( (_DWORD)v6 != -1 )
-      RtlReleaseSwapReference(qword_140C14150, v6);
-    goto LABEL_7;
-  }
-  RtlReleaseSwapReference(qword_140C14150, v6);
-  if ( byte_140C14170 )
-  {
-    if ( CurrentIrql >= 2u )
-      KiInsertQueueDpc((ULONG_PTR)&stru_140C14188, 0LL, 0LL, 0LL, 0);
-    else
-      CmpWorkItemQueueWork(&stru_140C141C8);
-  }
-  v8 = 0;
-LABEL_7:
+  if ( (_DWORD)v6 != -1 )
+    RtlReleaseSwapReference(qword_140C482B0, v6);
   if ( v3 )
     KeLeaveCriticalRegion();
   return (unsigned int)v8;

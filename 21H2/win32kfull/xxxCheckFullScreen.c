@@ -1,93 +1,129 @@
 /*
- * XREFs of xxxCheckFullScreen @ 0x1C0061F88
+ * XREFs of xxxCheckFullScreen @ 0x1C007C5FC
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C004DF70 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C00707F8 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z @ 0x1C004CE04 (-GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z.c)
- *     xxxRemoveFullScreen @ 0x1C0060E84 (xxxRemoveFullScreen.c)
- *     ?IsMaxedRect@@YAHPEAUtagRECT@@PEBUtagSIZERECT@@@Z @ 0x1C0062208 (-IsMaxedRect@@YAHPEAUtagRECT@@PEBUtagSIZERECT@@@Z.c)
- *     GetMonitorWorkRectForWindow @ 0x1C0062244 (GetMonitorWorkRectForWindow.c)
- *     GetMonitorRectForWindow @ 0x1C0063604 (GetMonitorRectForWindow.c)
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     _MonitorFromRect @ 0x1C007B570 (_MonitorFromRect.c)
- *     GetWindowDpiLastNotify @ 0x1C00BBEF0 (GetWindowDpiLastNotify.c)
- *     xxxAddFullScreen @ 0x1C00C9EF4 (xxxAddFullScreen.c)
- *     RECTFromSIZERECT @ 0x1C00F512C (RECTFromSIZERECT.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     GetScreenRectForWindow @ 0x1C025A608 (GetScreenRectForWindow.c)
+ *     _MonitorFromRect @ 0x1C0042310 (_MonitorFromRect.c)
+ *     GetMonitorRectForWindow @ 0x1C0042874 (GetMonitorRectForWindow.c)
+ *     GetWindowBordersWithDpiAwareness @ 0x1C004AEAC (GetWindowBordersWithDpiAwareness.c)
+ *     GetWindowDpiLastNotify @ 0x1C004C6B8 (GetWindowDpiLastNotify.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
+ *     ?IsMaxedRect@@YAHPEAUtagRECT@@PEBUtagSIZERECT@@@Z @ 0x1C007C8C4 (-IsMaxedRect@@YAHPEAUtagRECT@@PEBUtagSIZERECT@@@Z.c)
+ *     GetMonitorWorkRectForDpiContext @ 0x1C007C900 (GetMonitorWorkRectForDpiContext.c)
+ *     ?GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z @ 0x1C007C9E4 (-GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z.c)
+ *     xxxRemoveFullScreen @ 0x1C007CA20 (xxxRemoveFullScreen.c)
+ *     RECTFromSIZERECT @ 0x1C0102FFC (RECTFromSIZERECT.c)
+ *     xxxAddFullScreen @ 0x1C01232F4 (xxxAddFullScreen.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?ExtendRectByWindowMargin@@YAXPEBUtagWND@@AEBUtagRECT@@PEAU2@@Z @ 0x1C023F2D8 (-ExtendRectByWindowMargin@@YAXPEBUtagWND@@AEBUtagRECT@@PEAU2@@Z.c)
+ *     GetScreenRectForWindow @ 0x1C025DA2C (GetScreenRectForWindow.c)
  */
 
 __int64 __fastcall xxxCheckFullScreen(struct tagWND *a1, struct tagSIZERECT *a2)
 {
-  unsigned int v2; // esi
-  __int64 v5; // r15
-  __int64 v6; // r14
-  __int64 ThreadWin32Thread; // rax
-  unsigned int v8; // eax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
+  unsigned int v2; // r14d
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r12
+  struct _KTHREAD *CurrentThread; // r13
+  __int64 v9; // r15
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 *ThreadWin32Thread; // rax
+  unsigned int WindowCompositedDpiContext; // eax
+  struct tagRECT v15; // xmm6
+  unsigned int v16; // eax
+  __int64 left; // rcx
   struct tagRECT *MonitorRectForWindow; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rdx
-  int v16; // ecx
+  __int64 v20; // rdx
+  __int64 v21; // rdx
+  int v22; // ecx
   unsigned int WindowDpiLastNotify; // eax
   int DpiDependentMetric; // eax
+  int v25; // edx
   int WindowBordersWithDpiAwareness; // eax
   LONG bottom; // edx
-  __int64 v21; // rdx
-  __int64 v22; // rax
-  int v23; // eax
-  struct tagRECT v24; // [rsp+20h] [rbp-50h] BYREF
-  _QWORD v25[3]; // [rsp+30h] [rbp-40h] BYREF
-  _BYTE v26[16]; // [rsp+48h] [rbp-28h] BYREF
-  struct tagRECT v27; // [rsp+58h] [rbp-18h] BYREF
+  int v28; // edx
+  __int64 v29; // rdx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v32; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v34; // rax
+  LONG top; // edx
+  int v36; // eax
+  int v37; // eax
+  struct tagRECT v38; // [rsp+28h] [rbp-99h] BYREF
+  struct tagRECT v39; // [rsp+38h] [rbp-89h] BYREF
+  struct tagRECT v40; // [rsp+48h] [rbp-79h] BYREF
+  __int64 v41; // [rsp+58h] [rbp-69h]
+  _QWORD v42[3]; // [rsp+60h] [rbp-61h] BYREF
+  struct tagRECT v43; // [rsp+78h] [rbp-49h] BYREF
+  char v44[16]; // [rsp+88h] [rbp-39h] BYREF
+  char v45[16]; // [rsp+98h] [rbp-29h] BYREF
+  __int128 v46; // [rsp+A8h] [rbp-19h] BYREF
+  struct tagRECT v47; // [rsp+B8h] [rbp-9h] BYREF
 
   v2 = 0;
-  v25[2] = 0LL;
-  v27 = 0LL;
-  v5 = *(_QWORD *)(GetDispInfo() + 96);
+  v42[2] = 0LL;
+  v47 = 0LL;
+  v5 = *(_QWORD *)(GetDispInfo(a1, a2) + 96);
+  v41 = v5;
+  v6 = gpDispInfo;
   if ( *(_DWORD *)*gpDispInfo <= 1u )
   {
-    v6 = v5;
+    v7 = v5;
     goto LABEL_3;
   }
-  v24 = *(struct tagRECT *)GetScreenRectForWindow(&v24, a1);
-  if ( !(unsigned int)IsMaxedRect(&v24, a2) )
+  v43 = *(struct tagRECT *)GetScreenRectForWindow(v44, a1);
+  if ( !(unsigned int)IsMaxedRect(&v43, a2) )
   {
-    RECTFromSIZERECT(&v27, v21);
-    v6 = MonitorFromRect(&v27);
+    RECTFromSIZERECT(&v47, v29);
+    v7 = MonitorFromRect(&v47, 1u, *(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL));
 LABEL_3:
-    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-    v25[0] = *(_QWORD *)(ThreadWin32Thread + 416);
-    *(_QWORD *)(ThreadWin32Thread + 416) = v25;
-    v25[1] = v6;
-    HMLockObject(v6);
-    v24 = *(struct tagRECT *)GetMonitorWorkRectForWindow(&v27, v6, a1);
-    if ( (unsigned int)IsMaxedRect(&v24, a2) )
+    CurrentThread = KeGetCurrentThread();
+    v9 = 0LL;
+    if ( !(unsigned __int8)KeIsAttachedProcess(v6)
+      || (CurrentProcess = PsGetCurrentProcess(v11, v10, v12),
+          ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+          CurrentThreadProcess = PsGetCurrentThreadProcess(v32),
+          ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
     {
-      MonitorRectForWindow = (struct tagRECT *)GetMonitorRectForWindow(v26, v6, a1);
-      v14 = *((_QWORD *)a1 + 5);
-      v27 = *MonitorRectForWindow;
-      if ( (*(_BYTE *)(v14 + 31) & 1) != 0
-        && (SetOrClrWF(1LL, a1, 832LL, 1LL), v15 = *((_QWORD *)a1 + 5), (*(_BYTE *)(v15 + 31) & 1) != 0)
-        && (((*(_BYTE *)(v15 + 30) & 0xC0) == 0xC0) & *(_BYTE *)(v15 + 30)) != 0 )
+      ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+      if ( ThreadWin32Thread )
+        v9 = *ThreadWin32Thread;
+    }
+    v42[0] = *(_QWORD *)(v9 + 416);
+    *(_QWORD *)(v9 + 416) = v42;
+    v42[1] = v7;
+    HMLockObject(v7);
+    WindowCompositedDpiContext = GetWindowCompositedDpiContext(a1);
+    v15 = *(struct tagRECT *)GetMonitorWorkRectForDpiContext(v45, v7, WindowCompositedDpiContext);
+    v38 = v15;
+    if ( (unsigned int)IsMaxedRect(&v38, a2) )
+    {
+      MonitorRectForWindow = (struct tagRECT *)GetMonitorRectForWindow(&v46, v7, a1);
+      v20 = *((_QWORD *)a1 + 5);
+      v40 = *MonitorRectForWindow;
+      if ( (*(_BYTE *)(v20 + 31) & 1) != 0
+        && (SetOrClrWF(1, (__int64)a1, 0x340u, 1), v21 = *((_QWORD *)a1 + 5), (*(_BYTE *)(v21 + 31) & 1) != 0)
+        && (((*(_BYTE *)(v21 + 30) & 0xC0) == 0xC0) & *(_BYTE *)(v21 + 30)) != 0 )
       {
-        v16 = *(_DWORD *)(v15 + 288) & 0xF;
-        if ( v16 == 3 )
+        v22 = *(_DWORD *)(v21 + 288) & 0xF;
+        if ( v22 == 3 )
         {
-          WindowDpiLastNotify = (*(_DWORD *)(v15 + 288) >> 8) & 0x1FF;
+          WindowDpiLastNotify = (*(_DWORD *)(v21 + 288) >> 8) & 0x1FF;
         }
-        else if ( (*(_DWORD *)(v15 + 232) & 0x400) != 0 )
+        else if ( (*(_DWORD *)(v21 + 232) & 0x8000000) != 0 )
         {
-          WindowDpiLastNotify = GetWindowDpiLastNotify(a1);
+          WindowDpiLastNotify = GetWindowDpiLastNotify((__int64)a1);
         }
-        else if ( !v16
-               && (v22 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
-               && (*(_DWORD *)(**(_QWORD **)(v22 + 8) + 64LL) & 1) != 0 )
+        else if ( !v22
+               && (v34 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
+               && (*(_DWORD *)(**(_QWORD **)(v34 + 8) + 64LL) & 1) != 0 )
         {
           WindowDpiLastNotify = 96;
         }
@@ -96,52 +132,63 @@ LABEL_3:
           WindowDpiLastNotify = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
         }
         DpiDependentMetric = GetDpiDependentMetric(2LL, WindowDpiLastNotify);
-        v9 = *(unsigned int *)a2;
-        if ( (int)v9 + DpiDependentMetric > v27.right
-          || (v9 = (unsigned int)(*((_DWORD *)a2 + 2) + v9), (int)v9 < v27.right)
-          || (v10 = *((unsigned int *)a2 + 1), (int)v10 + DpiDependentMetric > v27.top)
-          || (v9 = (unsigned int)(v10 + *((_DWORD *)a2 + 3)), (int)v9 < v27.bottom) )
+        if ( *(_DWORD *)a2 + DpiDependentMetric > v40.right
+          || (left = (unsigned int)(*((_DWORD *)a2 + 2) + *(_DWORD *)a2), (int)left < v40.right)
+          || (v25 = *((_DWORD *)a2 + 1), v25 + DpiDependentMetric > v40.top)
+          || *((_DWORD *)a2 + 3) + v25 < v40.bottom )
         {
           if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 20LL) & 0x40) != 0 )
-            v2 = xxxRemoveFullScreen((__int64)a1);
-          WindowBordersWithDpiAwareness = GetWindowBordersWithDpiAwareness(a1, v9, 0, 0);
-          bottom = v24.bottom;
-          *(_DWORD *)a2 = v24.left - WindowBordersWithDpiAwareness;
-          *((_DWORD *)a2 + 1) = v24.top - WindowBordersWithDpiAwareness;
-          WindowBordersWithDpiAwareness *= 2;
-          v10 = (unsigned int)(WindowBordersWithDpiAwareness - v24.top);
-          v9 = (unsigned int)(v10 + bottom);
-          *((_DWORD *)a2 + 2) = v24.right + WindowBordersWithDpiAwareness - v24.left;
-          if ( v6 == v5 && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 21LL) & 2) == 0 )
+            v2 = xxxRemoveFullScreen(a1);
+          if ( *((_DWORD *)a1 + 77) )
           {
-            v23 = *((_DWORD *)a2 + 3);
-            if ( (int)v9 >= v23 )
-              v9 = (unsigned int)v23;
+            v39 = v15;
+            ExtendRectByWindowMargin(a1, &v39, &v39);
+            left = (unsigned int)v39.left;
+            top = v39.top;
+            v36 = v39.right - v39.left;
+            *(_DWORD *)a2 = v39.left;
+            *((_DWORD *)a2 + 2) = v36;
+            v37 = v39.bottom - top;
+            *((_DWORD *)a2 + 1) = top;
+            *((_DWORD *)a2 + 3) = v37;
           }
-          *((_DWORD *)a2 + 3) = v9;
-          goto LABEL_8;
+          else
+          {
+            WindowBordersWithDpiAwareness = GetWindowBordersWithDpiAwareness((__int64)a1);
+            bottom = v38.bottom;
+            *(_DWORD *)a2 = v38.left - WindowBordersWithDpiAwareness;
+            *((_DWORD *)a2 + 1) = v38.top - WindowBordersWithDpiAwareness;
+            WindowBordersWithDpiAwareness *= 2;
+            left = (unsigned int)(WindowBordersWithDpiAwareness - v38.top);
+            v28 = left + bottom;
+            *((_DWORD *)a2 + 2) = v38.right + WindowBordersWithDpiAwareness - v38.left;
+            if ( v7 == v41 && (*(_BYTE *)(*((_QWORD *)a1 + 5) + 21LL) & 2) == 0 && v28 >= *((_DWORD *)a2 + 3) )
+              v28 = *((_DWORD *)a2 + 3);
+            *((_DWORD *)a2 + 3) = v28;
+          }
+          goto LABEL_11;
         }
         if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 20LL) & 0x40) != 0 )
         {
-LABEL_8:
-          ThreadUnlock1(v10, v9, v11);
+LABEL_11:
+          ThreadUnlock1(left);
           return v2;
         }
       }
-      else if ( !(unsigned int)IsMaxedRect(&v27, a2) )
+      else if ( !(unsigned int)IsMaxedRect(&v40, a2) )
       {
-        goto LABEL_8;
+        goto LABEL_11;
       }
-      v8 = xxxAddFullScreen(a1);
+      v16 = xxxAddFullScreen(a1);
     }
     else
     {
       if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 1) != 0 )
-        SetOrClrWF(0LL, a1, 832LL, 1LL);
-      v8 = xxxRemoveFullScreen((__int64)a1);
+        SetOrClrWF(0, (__int64)a1, 0x340u, 1);
+      v16 = xxxRemoveFullScreen(a1);
     }
-    v2 = v8;
-    goto LABEL_8;
+    v2 = v16;
+    goto LABEL_11;
   }
   return 0LL;
 }

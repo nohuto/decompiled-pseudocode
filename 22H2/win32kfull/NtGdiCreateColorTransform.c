@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiCreateColorTransform @ 0x1C02CF080
+ * XREFs of NtGdiCreateColorTransform @ 0x1C02B62B0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?GreCreateColorTransform@@YAPEAXPEAUHDC__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C02CE604 (-GreCreateColorTransform@@YAPEAXPEAUHDC__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?GreCreateColorTransform@@YAPEAXPEAUHDC__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C02B589C (-GreCreateColorTransform@@YAPEAXPEAUHDC__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
  */
 
 struct HOBJ__ *__fastcall NtGdiCreateColorTransform(
@@ -33,7 +33,7 @@ struct HOBJ__ *__fastcall NtGdiCreateColorTransform(
   tagLOGCOLORSPACEW v24; // [rsp+B0h] [rbp-298h] BYREF
 
   v8 = a4;
-  memset_0(&v24, 0, sizeof(v24));
+  memset(&v24, 0, sizeof(v24));
   SecureHandle = 0LL;
   v21 = 0LL;
   v22 = 0LL;

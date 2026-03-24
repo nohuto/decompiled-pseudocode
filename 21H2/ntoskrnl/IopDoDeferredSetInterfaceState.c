@@ -1,15 +1,15 @@
 /*
- * XREFs of IopDoDeferredSetInterfaceState @ 0x140768F5C
+ * XREFs of IopDoDeferredSetInterfaceState @ 0x14073DDB0
  * Callers:
- *     PipProcessStartPhase2 @ 0x140768EA8 (PipProcessStartPhase2.c)
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
+ *     PipProcessStartPhase2 @ 0x14073DCFC (PipProcessStartPhase2.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PpMarkDeviceStackExtensionFlag @ 0x1402DE33C (PpMarkDeviceStackExtensionFlag.c)
- *     IopProcessSetInterfaceState @ 0x140769170 (IopProcessSetInterfaceState.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PpMarkDeviceStackExtensionFlag @ 0x14036F1E4 (PpMarkDeviceStackExtensionFlag.c)
+ *     IopProcessSetInterfaceState @ 0x1407490DC (IopProcessSetInterfaceState.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopDoDeferredSetInterfaceState(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall IopDoDeferredSetInterfaceState(__int64 a1)
   __int64 v3; // rdx
   void **v4; // rdi
   char *v5; // rbx
-  void **v6; // rax
+  void **v7; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -30,16 +30,16 @@ __int64 __fastcall IopDoDeferredSetInterfaceState(__int64 a1)
     v5 = (char *)*v4;
     if ( *v4 == v4 )
       break;
-    if ( *((void ***)v5 + 1) != v4 || (v6 = *(void ***)v5, *(char **)(*(_QWORD *)v5 + 8LL) != v5) )
+    if ( *((void ***)v5 + 1) != v4 || (v7 = *(void ***)v5, *(char **)(*(_QWORD *)v5 + 8LL) != v5) )
       __fastfail(3u);
-    *v4 = v6;
-    v6[1] = v4;
+    *v4 = v7;
+    v7[1] = v4;
     LOBYTE(v3) = 1;
     IopProcessSetInterfaceState(v5 + 16, v3, 0LL);
     ExFreePoolWithTag(*((PVOID *)v5 + 3), 0);
     ExFreePoolWithTag(v5, 0);
   }
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return 0LL;
 }

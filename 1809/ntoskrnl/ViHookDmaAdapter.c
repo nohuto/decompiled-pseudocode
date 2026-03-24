@@ -4,8 +4,8 @@
  *     VfGetDmaAdapter @ 0x14092B140 (VfGetDmaAdapter.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     ExInterlockedInsertHeadList @ 0x14010BEB0 (ExInterlockedInsertHeadList.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExInterlockedInsertHeadList @ 0x14010BED0 (ExInterlockedInsertHeadList.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ViAllocateContiguousMemory @ 0x14092C590 (ViAllocateContiguousMemory.c)
  *     ViCopyDeviceDescription @ 0x14092D248 (ViCopyDeviceDescription.c)

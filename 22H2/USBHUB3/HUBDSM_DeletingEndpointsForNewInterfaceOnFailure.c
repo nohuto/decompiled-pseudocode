@@ -1,17 +1,17 @@
 /*
- * XREFs of HUBDSM_DeletingEndpointsForNewInterfaceOnFailure @ 0x1C00242D0
+ * XREFs of HUBDSM_DeletingEndpointsForNewInterfaceOnFailure @ 0x1C0021AF0
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_DeleteEndpointsAndFreeResourcesForInterface @ 0x1C0028608 (HUBUCX_DeleteEndpointsAndFreeResourcesForInterface.c)
+ *     HUBUCX_DeleteEndpointsAndFreeResourcesForInterface @ 0x1C0025A14 (HUBUCX_DeleteEndpointsAndFreeResourcesForInterface.c)
  */
 
 __int64 __fastcall HUBDSM_DeletingEndpointsForNewInterfaceOnFailure(__int64 a1)
 {
   __int64 v1; // rbx
   __int64 v2; // rdx
-  __int64 v3; // r8
-  _QWORD *v4; // rcx
+  __int64 v3; // rcx
+  _QWORD *v4; // r8
 
   v1 = *(_QWORD *)(a1 + 960);
   v2 = *(_QWORD *)(v1 + 80);

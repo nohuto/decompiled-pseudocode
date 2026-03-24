@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpEnableDisableSpecialGuids @ 0x140656BB0
+ * XREFs of EtwpEnableDisableSpecialGuids @ 0x140656B90
  * Callers:
- *     EtwpEnableGuid @ 0x140655F58 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x140655F38 (EtwpEnableGuid.c)
  * Callees:
- *     EtwpEnableDisableUMGL @ 0x1408B5674 (EtwpEnableDisableUMGL.c)
- *     EtwpCheckGuidAccessAndDoRundown @ 0x1408BE4EC (EtwpCheckGuidAccessAndDoRundown.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x1408BE634 (EtwpCheckLoggerAccessAndDoRundown.c)
- *     EtwpLogFileNameRundown @ 0x1408BE934 (EtwpLogFileNameRundown.c)
+ *     EtwpEnableDisableUMGL @ 0x1408B5654 (EtwpEnableDisableUMGL.c)
+ *     EtwpCheckGuidAccessAndDoRundown @ 0x1408BE4CC (EtwpCheckGuidAccessAndDoRundown.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1408BE614 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpLogFileNameRundown @ 0x1408BE914 (EtwpLogFileNameRundown.c)
  */
 
 __int64 __fastcall EtwpEnableDisableSpecialGuids(

@@ -1,25 +1,25 @@
 /*
- * XREFs of ArbQueryConflict @ 0x14090B4C0
+ * XREFs of ArbQueryConflict @ 0x1408671C0
  * Callers:
- *     IopMemQueryConflict @ 0x140948260 (IopMemQueryConflict.c)
+ *     IopMemQueryConflict @ 0x1408A2FF0 (IopMemQueryConflict.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IoGetDeviceProperty @ 0x140773C30 (IoGetDeviceProperty.c)
- *     RtlDeleteOwnersRanges @ 0x140839700 (RtlDeleteOwnersRanges.c)
- *     RtlFreeRangeList @ 0x1408397E0 (RtlFreeRangeList.c)
- *     ArbpBuildAlternative @ 0x140839D70 (ArbpBuildAlternative.c)
- *     RtlCopyRangeList @ 0x14083A400 (RtlCopyRangeList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IoGetDeviceProperty @ 0x14063FC90 (IoGetDeviceProperty.c)
+ *     RtlCopyRangeList @ 0x140761200 (RtlCopyRangeList.c)
+ *     RtlDeleteOwnersRanges @ 0x1407614B0 (RtlDeleteOwnersRanges.c)
+ *     RtlFreeRangeList @ 0x140761590 (RtlFreeRangeList.c)
+ *     ArbpBuildAlternative @ 0x1407B4000 (ArbpBuildAlternative.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ArbQueryConflict(__int64 a1, __int64 a2)
 {
   unsigned int v4; // r14d
-  void *Pool2; // rsi
+  PVOID PoolWithTag; // rsi
   __int64 v6; // r13
   __int64 v7; // r12
   __int64 *v8; // rdx
@@ -30,7 +30,7 @@ __int64 __fastcall ArbQueryConflict(__int64 a1, __int64 a2)
   int v13; // ecx
   NTSTATUS v14; // eax
   int v15; // ecx
-  unsigned __int8 (__fastcall *v16)(__int64, _QWORD *); // rax
+  unsigned __int8 (__fastcall *v16)(__int64, _OWORD *); // rax
   void *v17; // r12
   __int64 v18; // rax
   __int64 v19; // r13
@@ -38,16 +38,16 @@ __int64 __fastcall ArbQueryConflict(__int64 a1, __int64 a2)
   __int64 v22; // [rsp+38h] [rbp-C8h]
   ULONG ResultLength; // [rsp+40h] [rbp-C0h] BYREF
   __int64 v24; // [rsp+48h] [rbp-B8h]
-  _QWORD v25[10]; // [rsp+50h] [rbp-B0h] BYREF
+  _OWORD v25[5]; // [rsp+50h] [rbp-B0h] BYREF
   _QWORD v26[12]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v27[8]; // [rsp+100h] [rbp+0h] BYREF
+  _OWORD v27[4]; // [rsp+100h] [rbp+0h] BYREF
 
   memset(v26, 0, sizeof(v26));
   memset(v27, 0, sizeof(v27));
   v21 = 0LL;
   v4 = 0;
   ResultLength = 0;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   LODWORD(v6) = 10;
   memset(v25, 0, sizeof(v25));
   v7 = *(_QWORD *)(a1 + 336);
@@ -60,22 +60,17 @@ __int64 __fastcall ArbQueryConflict(__int64 a1, __int64 a2)
   v10 = RtlCopyRangeList(v9, v8);
   if ( v10 < 0 )
     goto LABEL_18;
-  v10 = ArbpBuildAlternative(a1, *(_QWORD *)(a2 + 8), v27);
+  v10 = ArbpBuildAlternative(a1, *(_QWORD *)(a2 + 8), (__int64 *)v27);
   if ( v10 < 0 )
     goto LABEL_18;
-  *(_QWORD *)((char *)&v25[8] + 2) = 0LL;
-  *(_DWORD *)((char *)&v25[9] + 2) = 0;
-  HIWORD(v25[9]) = 0;
-  v25[1] = v27[1];
-  v25[3] = v27[1];
-  v25[5] = v27;
-  v25[7] = v27;
-  v25[4] = v26;
   v25[0] = v27[0];
-  v25[2] = v27[0];
+  *((_QWORD *)&v25[2] + 1) = v27;
+  *((_QWORD *)&v25[3] + 1) = v27;
+  *(_QWORD *)&v25[2] = v26;
+  v25[1] = v27[0];
   v11 = *(struct _DEVICE_OBJECT **)a2;
-  v25[6] = 1LL;
-  LOWORD(v25[8]) = 4;
+  *(_QWORD *)&v25[3] = 1LL;
+  v25[4] = 4uLL;
   LODWORD(v26[5]) = 4;
   v26[4] = v11;
   DeviceProperty = IoGetDeviceProperty(v11, DevicePropertyLegacyBusType, 4u, &v26[7], &ResultLength);
@@ -88,76 +83,75 @@ __int64 __fastcall ArbQueryConflict(__int64 a1, __int64 a2)
   if ( v14 < 0 )
     v15 = 0;
   LODWORD(v26[8]) = v15;
-  Pool2 = (void *)ExAllocatePool2(256LL, 240LL, 1130525249LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xF0uLL, 0x43627241u);
+  if ( !PoolWithTag )
   {
     v10 = -1073741670;
 LABEL_18:
     v19 = v22;
     goto LABEL_19;
   }
-  v10 = (*(__int64 (__fastcall **)(__int64, _QWORD *))(a1 + 224))(a1, v25);
+  v10 = (*(__int64 (__fastcall **)(__int64, _OWORD *))(a1 + 224))(a1, v25);
   if ( v10 < 0 )
     goto LABEL_18;
-  RtlDeleteOwnersRanges(*(__int64 ***)(a1 + 48), *(_QWORD *)(v25[4] + 32LL));
+  RtlDeleteOwnersRanges(*(__int64 ***)(a1 + 48), *(_QWORD *)(*(_QWORD *)&v25[2] + 32LL));
   while ( 1 )
   {
-    v25[2] = v25[0];
+    v25[1] = v25[0];
     v10 = 0;
-    v25[3] = v25[1];
-    v16 = *(unsigned __int8 (__fastcall **)(__int64, _QWORD *))(a1 + 248);
+    v16 = *(unsigned __int8 (__fastcall **)(__int64, _OWORD *))(a1 + 248);
     v21 = 0LL;
     if ( v16(a1, v25) )
       break;
     if ( v4 == (_DWORD)v6 )
     {
       v6 = (unsigned int)(v6 + 5);
-      v17 = Pool2;
-      Pool2 = (void *)ExAllocatePool2(256LL, 24 * v6, 1130525249LL);
-      if ( !Pool2 )
+      v17 = PoolWithTag;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 24 * v6, 0x43627241u);
+      if ( !PoolWithTag )
       {
         v10 = -1073741670;
-        Pool2 = v17;
+        PoolWithTag = v17;
 LABEL_17:
         v7 = v24;
         goto LABEL_18;
       }
-      memmove(Pool2, v17, 24LL * v4);
+      memmove(PoolWithTag, v17, 24LL * v4);
       ExFreePoolWithTag(v17, 0);
     }
     v18 = v4++;
     if ( !v21 )
     {
-      *((_QWORD *)Pool2 + 3 * v18 + 2) = -1LL;
-      *((_QWORD *)Pool2 + 3 * v18) = 0LL;
-      *((_QWORD *)Pool2 + 3 * v18 + 1) = 0LL;
+      *((_QWORD *)PoolWithTag + 3 * v18 + 2) = -1LL;
+      *((_QWORD *)PoolWithTag + 3 * v18) = 0LL;
+      *((_QWORD *)PoolWithTag + 3 * v18 + 1) = 0LL;
       break;
     }
-    *((_QWORD *)Pool2 + 3 * v18) = v21[3];
-    *((_QWORD *)Pool2 + 3 * v18 + 1) = *v21;
-    *((_QWORD *)Pool2 + 3 * v18 + 2) = v21[1];
+    *((_QWORD *)PoolWithTag + 3 * v18) = v21[3];
+    *((_QWORD *)PoolWithTag + 3 * v18 + 1) = *v21;
+    *((_QWORD *)PoolWithTag + 3 * v18 + 2) = v21[1];
     v10 = RtlDeleteOwnersRanges(*(__int64 ***)(a1 + 48), v21[3]);
     if ( v10 < 0 )
       goto LABEL_17;
   }
-  RtlFreeRangeList(*(_QWORD *)(a1 + 48));
+  RtlFreeRangeList(*(_QWORD **)(a1 + 48));
   v7 = v24;
   v19 = v22;
   *(_QWORD *)(a1 + 336) = v24;
   *(_QWORD *)(a1 + 328) = v19;
-  **(_QWORD **)(a2 + 24) = Pool2;
+  **(_QWORD **)(a2 + 24) = PoolWithTag;
   **(_DWORD **)(a2 + 16) = v4;
 LABEL_19:
-  if ( (v25[8] & 0x10) != 0 )
+  if ( (v25[4] & 0x10) != 0 )
   {
-    ExFreePoolWithTag((PVOID)v25[9], 0);
-    LOWORD(v25[8]) &= ~0x10u;
+    ExFreePoolWithTag(*((PVOID *)&v25[4] + 1), 0);
+    LOWORD(v25[4]) &= ~0x10u;
   }
   if ( v10 < 0 )
   {
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
-    RtlFreeRangeList(*(_QWORD *)(a1 + 48));
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
+    RtlFreeRangeList(*(_QWORD **)(a1 + 48));
     *(_QWORD *)(a1 + 336) = v7;
     *(_QWORD *)(a1 + 328) = v19;
     **(_QWORD **)(a2 + 24) = 0LL;

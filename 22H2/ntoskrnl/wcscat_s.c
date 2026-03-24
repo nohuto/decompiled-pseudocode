@@ -1,57 +1,63 @@
 /*
- * XREFs of wcscat_s @ 0x1403DF690
+ * XREFs of wcscat_s @ 0x1403D7AD0
  * Callers:
- *     RtlConvertSidToUnicodeString @ 0x1407FB3F0 (RtlConvertSidToUnicodeString.c)
- *     BcdGetSystemStorePath @ 0x1408056F0 (BcdGetSystemStorePath.c)
- *     NtLockProductActivationKeys @ 0x140839ED0 (NtLockProductActivationKeys.c)
- *     ExpWatchLicenseInfoWork @ 0x1409F8650 (ExpWatchLicenseInfoWork.c)
- *     ExpCreateOutputSIGNATURE @ 0x1409FC218 (ExpCreateOutputSIGNATURE.c)
- *     AslPathToNetworkPathNt @ 0x140A552D0 (AslPathToNetworkPathNt.c)
- *     VhdiMountVhdFile @ 0x140A7328C (VhdiMountVhdFile.c)
- *     ExpWatchProductTypeInitialization @ 0x140B36EB4 (ExpWatchProductTypeInitialization.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406ED390 (RtlConvertSidToUnicodeString.c)
+ *     AslPathToNetworkPathNt @ 0x140753B0C (AslPathToNetworkPathNt.c)
+ *     BcdGetSystemStorePath @ 0x1407823B4 (BcdGetSystemStorePath.c)
+ *     NtLockProductActivationKeys @ 0x1407B4510 (NtLockProductActivationKeys.c)
+ *     ExpWatchLicenseInfoWork @ 0x14094C020 (ExpWatchLicenseInfoWork.c)
+ *     ExpCreateOutputSIGNATURE @ 0x14094FD9C (ExpCreateOutputSIGNATURE.c)
+ *     ExpWatchProductTypeInitialization @ 0x140A41034 (ExpWatchProductTypeInitialization.c)
+ *     VhdiMountVhdFile @ 0x140A94C98 (VhdiMountVhdFile.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcscat_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src)
 {
   wchar_t *v3; // r9
-  errno_t v4; // ebx
-  wchar_t v6; // ax
+  signed __int64 v4; // r9
+  wchar_t v5; // ax
+  errno_t v6; // ebx
 
   if ( Dst && SizeInWords )
   {
-    if ( Src )
+    if ( !Src )
+      goto LABEL_14;
+    v3 = Dst;
+    do
     {
-      v3 = Dst;
-      while ( *v3 )
+      if ( !*v3 )
+        break;
+      ++v3;
+      --SizeInWords;
+    }
+    while ( SizeInWords );
+    if ( SizeInWords )
+    {
+      v4 = (char *)v3 - (char *)Src;
+      do
       {
-        ++v3;
-        if ( !--SizeInWords )
-          goto LABEL_7;
+        v5 = *Src;
+        *(const wchar_t *)((char *)Src + v4) = *Src;
+        ++Src;
+        if ( !v5 )
+          break;
+        --SizeInWords;
       }
-      while ( 1 )
-      {
-        v6 = *Src++;
-        *v3++ = v6;
-        if ( !v6 )
-          return 0;
-        if ( !--SizeInWords )
-        {
-          v4 = 34;
-          goto LABEL_8;
-        }
-      }
+      while ( SizeInWords );
+      if ( SizeInWords )
+        return 0;
+      v6 = 34;
     }
     else
     {
-LABEL_7:
-      v4 = 22;
-LABEL_8:
-      *Dst = 0;
-      xHalTimerWatchdogStop();
-      return v4;
+LABEL_14:
+      v6 = 22;
     }
+    *Dst = 0;
+    xHalTimerWatchdogStop();
+    return v6;
   }
   else
   {

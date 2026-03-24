@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFindBestOutswapPagefile @ 0x14025FE60
+ * XREFs of MiFindBestOutswapPagefile @ 0x14035C30C
  * Callers:
- *     MmOutSwapWorkingSet @ 0x140260144 (MmOutSwapWorkingSet.c)
- *     MmOutSwapVirtualAddresses @ 0x140375974 (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapVirtualAddresses @ 0x14035BCDC (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapWorkingSet @ 0x14035C7D0 (MmOutSwapWorkingSet.c)
  * Callees:
- *     MiPageFileLargestBitmapsRun @ 0x14025FD40 (MiPageFileLargestBitmapsRun.c)
- *     MiWsSwapPageFileNumber @ 0x14025FF00 (MiWsSwapPageFileNumber.c)
+ *     MiPageFileLargestBitmapsRun @ 0x14026AE68 (MiPageFileLargestBitmapsRun.c)
+ *     MiWsSwapPageFileNumber @ 0x14035C3AC (MiWsSwapPageFileNumber.c)
  */
 
 __int64 __fastcall MiFindBestOutswapPagefile(__int64 a1, unsigned int *a2)
@@ -19,19 +19,19 @@ __int64 __fastcall MiFindBestOutswapPagefile(__int64 a1, unsigned int *a2)
   unsigned int v11; // ebx
 
   v4 = MiWsSwapPageFileNumber();
-  v6 = *(_DWORD *)(v5 + 16728);
+  v6 = *(_DWORD *)(v5 + 6936);
   v7 = 0;
   *a2 = v4;
   v8 = 16;
   if ( !v6 )
     return *a2;
-  v9 = (__int64 *)(v5 + 16736);
+  v9 = (__int64 *)(v5 + 6944);
   do
   {
     if ( (*(_BYTE *)(*v9 + 204) & 0xD0) == 0x80 )
     {
       if ( v8 == 16
-        || (v11 = MiPageFileLargestBitmapsRun(*(_QWORD *)(a1 + 8LL * v8 + 16736)),
+        || (v11 = MiPageFileLargestBitmapsRun(*(_QWORD *)(a1 + 8LL * v8 + 6944)),
             (unsigned int)MiPageFileLargestBitmapsRun(*v9) > v11) )
       {
         v8 = v7;

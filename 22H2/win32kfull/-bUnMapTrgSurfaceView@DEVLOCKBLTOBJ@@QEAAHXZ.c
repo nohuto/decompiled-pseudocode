@@ -1,21 +1,20 @@
 /*
- * XREFs of ?bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00F7234
+ * XREFs of ?bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00FF3FC
  * Callers:
- *     ?bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z @ 0x1C0015780 (-bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z.c)
- *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C00F8B40 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     ?vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C026BD00 (-vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ.c)
+ *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C008AF30 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     ?bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z @ 0x1C00FF2E8 (-bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z.c)
+ *     ?vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C0273140 (-vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ.c)
  * Callees:
- *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C02A3300 (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
- *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C02A66FC (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C029AC8C (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C029D638 (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
  */
 
 __int64 __fastcall DEVLOCKBLTOBJ::bUnMapTrgSurfaceView(DEVLOCKBLTOBJ *this)
 {
   struct XDCOBJ *v1; // rdi
   int v3; // eax
-  struct DC *v4; // r8
-  SURFACE *v5; // rcx
+  SURFACE **v4; // r8
+  SURFACE **v5; // rcx
 
   v1 = (DEVLOCKBLTOBJ *)((char *)this + 120);
   if ( *((_QWORD *)this + 15) && *((_BYTE *)this + 169) )
@@ -35,14 +34,14 @@ __int64 __fastcall DEVLOCKBLTOBJ::bUnMapTrgSurfaceView(DEVLOCKBLTOBJ *this)
     }
     if ( (v3 & 0x1000) != 0 )
     {
-      v4 = *(struct DC **)v1;
-      if ( (*(_DWORD *)(*(_QWORD *)v1 + 44LL) & 1) == 0 )
+      v4 = *(SURFACE ***)v1;
+      v5 = *(SURFACE ***)v1;
+      if ( (*(_DWORD *)(*(_QWORD *)v1 + 44LL) & 1) == 0 && v4[62] )
       {
-        v5 = (SURFACE *)*((_QWORD *)v4 + 62);
-        if ( v5 )
-          SURFACE::bUnMap(v5, this, v4);
+        SURFACE::bUnMap(v4[62], this, (struct DC *)v4);
+        v5 = *(SURFACE ***)v1;
       }
-      *(_DWORD *)(*(_QWORD *)v1 + 44LL) &= ~1u;
+      *((_DWORD *)v5 + 11) &= ~1u;
     }
   }
   return 1LL;

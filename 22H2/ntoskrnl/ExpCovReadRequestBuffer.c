@@ -1,14 +1,15 @@
 /*
- * XREFs of ExpCovReadRequestBuffer @ 0x140A06F8C
+ * XREFs of ExpCovReadRequestBuffer @ 0x140957F2C
  * Callers:
- *     ExpCovQueryInformation @ 0x140A0685C (ExpCovQueryInformation.c)
- *     ExpCovResetInformation @ 0x140A07104 (ExpCovResetInformation.c)
+ *     ExpCovQueryInformation @ 0x14095782C (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x1409580B4 (ExpCovResetInformation.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlDuplicateUnicodeString @ 0x1407B7570 (RtlDuplicateUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlDuplicateUnicodeString @ 0x14066FCD0 (RtlDuplicateUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpCovReadRequestBuffer(int *a1, UNICODE_STRING *a2, _OWORD *a3, _DWORD *a4)
@@ -16,12 +17,12 @@ __int64 __fastcall ExpCovReadRequestBuffer(int *a1, UNICODE_STRING *a2, _OWORD *
   unsigned int v5; // ebx
   int v6; // r10d
   int v7; // r10d
-  unsigned __int16 v8; // cx
-  wchar_t *Buffer; // rdi
-  wchar_t *v10; // rax
-  unsigned int v11; // r14d
-  wchar_t *Pool2; // rax
-  wchar_t *v13; // rsi
+  unsigned __int16 v8; // ax
+  wchar_t *Buffer; // rsi
+  SIZE_T v10; // r14
+  wchar_t *v11; // rax
+  wchar_t *PoolWithTag; // rax
+  wchar_t *v13; // rdi
   UNICODE_STRING StringIn; // [rsp+20h] [rbp-18h] BYREF
 
   v5 = 0;
@@ -39,16 +40,17 @@ __int64 __fastcall ExpCovReadRequestBuffer(int *a1, UNICODE_STRING *a2, _OWORD *
         Buffer = StringIn.Buffer;
         if ( ((__int64)StringIn.Buffer & 1) != 0 )
           ExRaiseDatatypeMisalignment();
-        v10 = (wchar_t *)((char *)StringIn.Buffer + v8);
-        if ( (unsigned __int64)v10 > 0x7FFFFFFF0000LL || v10 < StringIn.Buffer )
+        v10 = v8;
+        v11 = (wchar_t *)((char *)StringIn.Buffer + v8);
+        if ( (unsigned __int64)v11 > 0x7FFFFFFF0000LL || v11 < StringIn.Buffer )
           MEMORY[0x7FFFFFFF0000] = 0;
-        v11 = v8;
-        Pool2 = (wchar_t *)ExAllocatePool2(256LL, v8, 1920364355LL);
-        v13 = Pool2;
-        StringIn.Buffer = Pool2;
-        if ( Pool2 )
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v10, 0x72766F43u);
+        v13 = PoolWithTag;
+        StringIn.Buffer = PoolWithTag;
+        if ( PoolWithTag )
         {
-          memmove(Pool2, Buffer, v11);
+          memset(PoolWithTag, 0, v10);
+          memmove(v13, Buffer, v10);
           v5 = RtlDuplicateUnicodeString(1u, &StringIn, a2);
           ExFreePoolWithTag(v13, 0);
         }

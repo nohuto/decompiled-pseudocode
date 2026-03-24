@@ -1,17 +1,17 @@
 /*
- * XREFs of HUBMISC_CheckIfDeviceProgrammingWasLost @ 0x1C0030F54
+ * XREFs of HUBMISC_CheckIfDeviceProgrammingWasLost @ 0x1C002DD94
  * Callers:
- *     HUBDSM_ClearingDeviceProgrammingLostFlagOnEnum @ 0x1C0020810 (HUBDSM_ClearingDeviceProgrammingLostFlagOnEnum.c)
+ *     HUBDSM_ClearingDeviceProgrammingLostFlagOnEnum @ 0x1C001DDF0 (HUBDSM_ClearingDeviceProgrammingLostFlagOnEnum.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall HUBMISC_CheckIfDeviceProgrammingWasLost(__int64 a1)
 {
-  unsigned int v1; // r9d
+  unsigned int v1; // r8d
   __int64 v2; // rax
   __int64 v3; // rax
-  __int64 v4; // r8
+  __int64 v4; // r9
   __int64 v5; // rax
   __int64 v6; // rdx
   __int64 i; // rcx
@@ -21,7 +21,6 @@ __int64 __fastcall HUBMISC_CheckIfDeviceProgrammingWasLost(__int64 a1)
   {
     v1 = 4089;
     _InterlockedAnd((volatile signed __int32 *)(a1 + 1636), 0xFFFFFFDF);
-    _InterlockedAnd((volatile signed __int32 *)(a1 + 1636), 0xFFEFFFFF);
     v2 = *(_QWORD *)(a1 + 16);
     if ( v2 )
       _InterlockedOr((volatile signed __int32 *)(v2 + 32), 0x80u);

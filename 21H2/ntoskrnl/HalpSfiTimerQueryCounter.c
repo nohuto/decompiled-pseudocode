@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpSfiTimerQueryCounter @ 0x140522CB0
+ * XREFs of HalpSfiTimerQueryCounter @ 0x1404D5990
  * Callers:
  *     <none>
  * Callees:

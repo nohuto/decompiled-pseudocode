@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_DoesDeviceSupportsReAttachWithResetInProgress @ 0x1C0010EF0
+ * XREFs of HUBPSM30_DoesDeviceSupportsReAttachWithResetInProgress @ 0x1C0010AE0
  * Callers:
  *     <none>
  * Callees:

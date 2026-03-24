@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCCompositionSpotLightMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C00B31D0
+ * XREFs of ??_GCCompositionSpotLightMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C00A4870
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 DirectComposition::CCompositionSpotLightMarshaler *__fastcall DirectComposition::CCompositionSpotLightMarshaler::`scalar deleting destructor'(
@@ -12,8 +12,6 @@ DirectComposition::CCompositionSpotLightMarshaler *__fastcall DirectComposition:
 {
   *(_QWORD *)this = &DirectComposition::CCompositionLightMarshaler::`vftable';
   if ( (a2 & 1) != 0 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)this);
+    Win32FreePool((__int64)this);
   return this;
 }

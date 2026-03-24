@@ -1,21 +1,21 @@
 /*
- * XREFs of KeQueryCurrentStackInformation @ 0x1400CAB30
+ * XREFs of KeQueryCurrentStackInformation @ 0x1400CAB50
  * Callers:
  *     RtlpIsFrameInBoundsEx @ 0x1400A0610 (RtlpIsFrameInBoundsEx.c)
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400C9AC0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     RtlpGetStackLimits @ 0x1400CAB00 (RtlpGetStackLimits.c)
- *     KeCheckStackAndTargetAddress @ 0x1400CC2A0 (KeCheckStackAndTargetAddress.c)
- *     PnprGetStackLimits @ 0x14028A2E8 (PnprGetStackLimits.c)
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
- *     EtwpTraceStackWalk @ 0x14030F644 (EtwpTraceStackWalk.c)
- *     EtwpCovSampCaptureKernelStack @ 0x140316968 (EtwpCovSampCaptureKernelStack.c)
- *     EtwpTraceLastBranchRecord @ 0x140317D58 (EtwpTraceLastBranchRecord.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400C9AE0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     RtlpGetStackLimits @ 0x1400CAB20 (RtlpGetStackLimits.c)
+ *     KeCheckStackAndTargetAddress @ 0x1400CC2C0 (KeCheckStackAndTargetAddress.c)
+ *     PnprGetStackLimits @ 0x14028A3E8 (PnprGetStackLimits.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
+ *     EtwpTraceStackWalk @ 0x14030F744 (EtwpTraceStackWalk.c)
+ *     EtwpCovSampCaptureKernelStack @ 0x140316A68 (EtwpCovSampCaptureKernelStack.c)
+ *     EtwpTraceLastBranchRecord @ 0x140317E58 (EtwpTraceLastBranchRecord.c)
  *     VerifierCaptureViolationKernelStack @ 0x140930960 (VerifierCaptureViolationKernelStack.c)
  *     ViDeadlockAnalyze @ 0x14093CAA8 (ViDeadlockAnalyze.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1400CACE4 (KeAreInterruptsEnabled.c)
- *     KeGetCurrentStackPointer @ 0x1401BC280 (KeGetCurrentStackPointer.c)
- *     KiRspInIstStack @ 0x14029301C (KiRspInIstStack.c)
+ *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
+ *     KeGetCurrentStackPointer @ 0x1401BC2A0 (KeGetCurrentStackPointer.c)
+ *     KiRspInIstStack @ 0x14029311C (KiRspInIstStack.c)
  */
 
 bool __fastcall KeQueryCurrentStackInformation(_DWORD *a1, char **a2, unsigned __int64 *a3)

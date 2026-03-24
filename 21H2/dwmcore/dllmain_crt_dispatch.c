@@ -1,10 +1,10 @@
 /*
- * XREFs of dllmain_crt_dispatch @ 0x180100C10
+ * XREFs of dllmain_crt_dispatch @ 0x1800E7400
  * Callers:
- *     dllmain_dispatch @ 0x180100E1C (dllmain_dispatch.c)
+ *     dllmain_dispatch @ 0x1800E7600 (dllmain_dispatch.c)
  * Callees:
- *     __scrt_dllmain_crt_thread_attach @ 0x1801008A8 (__scrt_dllmain_crt_thread_attach.c)
- *     __scrt_dllmain_crt_thread_detach @ 0x1801008D8 (__scrt_dllmain_crt_thread_detach.c)
+ *     __scrt_dllmain_crt_thread_attach @ 0x1800E7078 (__scrt_dllmain_crt_thread_attach.c)
+ *     __scrt_dllmain_crt_thread_detach @ 0x1800E70A8 (__scrt_dllmain_crt_thread_detach.c)
  */
 
 __int64 __fastcall dllmain_crt_dispatch(__int64 a1, int a2, __int64 a3)

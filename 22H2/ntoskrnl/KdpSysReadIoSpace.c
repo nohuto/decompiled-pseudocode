@@ -1,8 +1,8 @@
 /*
- * XREFs of KdpSysReadIoSpace @ 0x140567EF4
+ * XREFs of KdpSysReadIoSpace @ 0x140511C44
  * Callers:
- *     KdSystemDebugControl @ 0x1409721A0 (KdSystemDebugControl.c)
- *     KdpSendWaitContinue @ 0x140AB17C8 (KdpSendWaitContinue.c)
+ *     KdSystemDebugControl @ 0x1408B9BB0 (KdSystemDebugControl.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall KdpSysReadIoSpace(int a1, int a2, int a3, unsigned __int16 a4
   unsigned int v7; // r10d
   unsigned __int32 v8; // eax
   unsigned __int16 v9; // ax
-  unsigned __int8 v11; // al
+  unsigned __int8 v10; // al
 
   v7 = 0;
   if ( a1 == 1 && !a2 && a3 == 1 )
@@ -20,8 +20,8 @@ __int64 __fastcall KdpSysReadIoSpace(int a1, int a2, int a3, unsigned __int16 a4
     switch ( a6 )
     {
       case 1:
-        v11 = __inbyte(a4);
-        *a5 = v11;
+        v10 = __inbyte(a4);
+        *a5 = v10;
         *a7 = 1;
         return v7;
       case 2:

@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmTerminateAdapter @ 0x1C002D3E0
+ * XREFs of VidMmTerminateAdapter @ 0x1C00230B0
  * Callers:
  *     <none>
  * Callees:
- *     ??_GVIDMM_GLOBAL@@QEAAPEAXI@Z @ 0x1C002C640 (--_GVIDMM_GLOBAL@@QEAAPEAXI@Z.c)
+ *     ??_GVIDMM_GLOBAL@@QEAAPEAXI@Z @ 0x1C0022400 (--_GVIDMM_GLOBAL@@QEAAPEAXI@Z.c)
  */
 
 VIDMM_GLOBAL *__fastcall VidMmTerminateAdapter(VIDMM_GLOBAL *a1)

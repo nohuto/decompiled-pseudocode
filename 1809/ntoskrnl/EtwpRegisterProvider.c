@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpRegisterProvider @ 0x1406BE5CC
+ * XREFs of EtwpRegisterProvider @ 0x1406BE5AC
  * Callers:
- *     EtwRegisterClassicProvider @ 0x1406BE510 (EtwRegisterClassicProvider.c)
- *     EtwRegister @ 0x1406BE560 (EtwRegister.c)
+ *     EtwRegisterClassicProvider @ 0x1406BE4F0 (EtwRegisterClassicProvider.c)
+ *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KeEnterCriticalRegion @ 0x1400B9BE0 (KeEnterCriticalRegion.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeEnterCriticalRegion @ 0x1400B9C00 (KeEnterCriticalRegion.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     EtwpAddGuidEntry @ 0x1405C0A0C (EtwpAddGuidEntry.c)
@@ -20,9 +20,9 @@
  *     EtwpUnreferenceGuidEntry @ 0x1405C4098 (EtwpUnreferenceGuidEntry.c)
  *     EtwpFindGuidEntryByGuid @ 0x1405C4190 (EtwpFindGuidEntryByGuid.c)
  *     EtwpComputeRegEntryEnableInfo @ 0x1405C539C (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpAddKmRegEntry @ 0x1406BE958 (EtwpAddKmRegEntry.c)
- *     EtwpEventWriteTemplateSessAndProv @ 0x1408BAFB0 (EtwpEventWriteTemplateSessAndProv.c)
- *     EtwpCopySchematizedFilters @ 0x1408C1EC4 (EtwpCopySchematizedFilters.c)
+ *     EtwpAddKmRegEntry @ 0x1406BE938 (EtwpAddKmRegEntry.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x1408BAF90 (EtwpEventWriteTemplateSessAndProv.c)
+ *     EtwpCopySchematizedFilters @ 0x1408C1EA4 (EtwpCopySchematizedFilters.c)
  */
 
 __int64 __fastcall EtwpRegisterProvider(

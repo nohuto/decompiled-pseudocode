@@ -1,17 +1,17 @@
 /*
- * XREFs of NtFilterToken @ 0x1406623D0
+ * XREFs of NtFilterToken @ 0x1405D9FB0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     SepFinalizeTokenAcls @ 0x140659D50 (SepFinalizeTokenAcls.c)
- *     SeReleaseLuidAndAttributesArray @ 0x1406651C8 (SeReleaseLuidAndAttributesArray.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     SepFilterToken @ 0x14078E3F0 (SepFilterToken.c)
- *     SeCaptureSidAndAttributesArray @ 0x140799DB0 (SeCaptureSidAndAttributesArray.c)
- *     SeCaptureLuidAndAttributesArray @ 0x14079E674 (SeCaptureLuidAndAttributesArray.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     SepFinalizeTokenAcls @ 0x1405D00A0 (SepFinalizeTokenAcls.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x1405DD318 (SeReleaseLuidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1405DD560 (SeCaptureSidAndAttributesArray.c)
+ *     SeCaptureLuidAndAttributesArray @ 0x14060855C (SeCaptureLuidAndAttributesArray.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -32,8 +32,8 @@ NTSTATUS __stdcall NtFilterToken(
   int v14; // [rsp+30h] [rbp-B8h]
   ULONG GroupCount; // [rsp+68h] [rbp-80h]
   ULONG v16; // [rsp+6Ch] [rbp-7Ch]
-  __int64 v17; // [rsp+70h] [rbp-78h] BYREF
-  PVOID v18; // [rsp+78h] [rbp-70h] BYREF
+  ULONG ulAddend[2]; // [rsp+70h] [rbp-78h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp-70h] BYREF
   __int64 v19; // [rsp+80h] [rbp-68h] BYREF
   ULONG v20; // [rsp+88h] [rbp-60h]
   __int64 v21; // [rsp+8Ch] [rbp-5Ch] BYREF
@@ -45,13 +45,14 @@ NTSTATUS __stdcall NtFilterToken(
   ULONG v28; // [rsp+F8h] [rbp+10h]
 
   v28 = Flags;
-  v18 = 0LL;
+  DmaAdapter = 0LL;
   v16 = 0;
   v19 = 0LL;
-  v17 = 0LL;
+  ulAddend[0] = 0;
   GroupCount = 0;
   v23 = 0LL;
   v21 = 0LL;
+  ulAddend[1] = 0;
   v24 = 0LL;
   v26 = 0LL;
   v25 = 0LL;
@@ -90,7 +91,7 @@ NTSTATUS __stdcall NtFilterToken(
   {
     if ( ((unsigned __int8)PrivilegesToDelete & 3) != 0 )
       goto LABEL_18;
-    HIDWORD(v17) = PrivilegesToDelete->PrivilegeCount;
+    ulAddend[1] = PrivilegesToDelete->PrivilegeCount;
     inserted = SeCaptureLuidAndAttributesArray(
                  PrivilegesToDelete->Privileges,
                  Object,
@@ -110,7 +111,7 @@ NTSTATUS __stdcall NtFilterToken(
                    HandleInformation,
                    v14,
                    (__int64)&v19,
-                   (__int64)&v17);
+                   (__int64)ulAddend);
       goto LABEL_19;
     }
 LABEL_18:
@@ -139,30 +140,30 @@ LABEL_19:
                  &v25);
     if ( inserted >= 0 )
     {
-      v18 = 0LL;
+      DmaAdapter = 0LL;
       LOBYTE(Flags) = PreviousMode;
       inserted = SepFilterToken(
-                   (_DWORD)v22,
+                   (int)v22,
                    Flags,
                    v28,
                    GroupCount,
                    v23,
-                   HIDWORD(v17),
+                   ulAddend[1],
                    v24,
                    v16,
                    v19,
-                   v17,
-                   (__int64)&v18);
+                   ulAddend[0],
+                   (__int64)&DmaAdapter);
       if ( inserted >= 0 )
       {
-        inserted = ObInsertObjectEx(v18, 0LL, 0, 0LL, (__int64)&v26);
+        inserted = ObInsertObjectEx(DmaAdapter, 0LL, 0, 0LL, (__int64)&v26);
         if ( inserted >= 0 )
         {
-          SepFinalizeTokenAcls(v18);
-          ObfDereferenceObject(v18);
+          SepFinalizeTokenAcls(DmaAdapter);
+          HalPutDmaAdapter(DmaAdapter);
         }
       }
-      ObfDereferenceObject(v22);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v22);
       if ( inserted >= 0 )
         *NewTokenHandle = (HANDLE)v26;
     }

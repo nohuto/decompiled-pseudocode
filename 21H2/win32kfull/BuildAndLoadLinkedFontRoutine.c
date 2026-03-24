@@ -1,10 +1,11 @@
 /*
- * XREFs of BuildAndLoadLinkedFontRoutine @ 0x1C0014770
+ * XREFs of BuildAndLoadLinkedFontRoutine @ 0x1C00A1100
  * Callers:
  *     <none>
  * Callees:
- *     bAddFlEntry @ 0x1C0014B64 (bAddFlEntry.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     bAddFlEntry @ 0x1C00A0C38 (bAddFlEntry.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall BuildAndLoadLinkedFontRoutine(
@@ -13,7 +14,7 @@ __int64 __fastcall BuildAndLoadLinkedFontRoutine(
         const void *a3,
         unsigned int a4,
         int a5,
-        unsigned int a6)
+        int a6)
 {
   unsigned __int64 v6; // rbx
   void *v9; // rdi
@@ -21,16 +22,14 @@ __int64 __fastcall BuildAndLoadLinkedFontRoutine(
   v6 = a4;
   if ( a4 > 0x7FFFFFFE )
     return 3221225495LL;
-  if ( 2 * a4 == -2 )
-    return 3221225495LL;
-  v9 = (void *)Win32AllocPool(2 * a4 + 2, 1718382187LL);
+  v9 = PALLOCMEM2(2 * a4 + 2, 1718382187LL, 0);
   if ( !v9 )
     return 3221225495LL;
   if ( _wcsicmp(Str1, L"SystemDefaultEUDCFont") )
   {
     memmove(v9, a3, (unsigned int)v6);
     *((_WORD *)v9 + (v6 >> 1)) = 0;
-    bAddFlEntry(Str1, v9, a6, 0xFFFFFFFFLL, 0LL);
+    bAddFlEntry(Str1, (char *)v9, a6, -1, 0LL);
   }
   Win32FreePool(v9);
   return 0LL;

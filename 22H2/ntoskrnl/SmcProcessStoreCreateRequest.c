@@ -1,57 +1,54 @@
 /*
- * XREFs of SmcProcessStoreCreateRequest @ 0x1409D854C
+ * XREFs of SmcProcessStoreCreateRequest @ 0x14092ADCC
  * Callers:
- *     SmSetStoreInformation @ 0x1407E82F4 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406A1334 (SmSetStoreInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     SmcStoreCreate @ 0x1409DB304 (SmcStoreCreate.c)
- *     SmcStoreDelete @ 0x1409DB568 (SmcStoreDelete.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmcStoreCreate @ 0x14092DBA0 (SmcStoreCreate.c)
+ *     SmcStoreDelete @ 0x14092DE00 (SmcStoreDelete.c)
  */
 
-__int64 __fastcall SmcProcessStoreCreateRequest(unsigned __int64 a1, int a2, char a3)
+__int64 __fastcall SmcProcessStoreCreateRequest(int a1, unsigned __int64 a2, int a3, char a4)
 {
-  int v4; // ebx
-  __int64 v5; // rcx
-  int ProcessPartition; // eax
-  __int128 v8; // [rsp+38h] [rbp-40h] BYREF
-  __int128 v9; // [rsp+48h] [rbp-30h]
-  int v10; // [rsp+98h] [rbp+20h] BYREF
+  int v6; // ebx
+  __int64 v7; // rcx
+  int v9; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v10; // [rsp+38h] [rbp-40h] BYREF
+  __int128 v11; // [rsp+48h] [rbp-30h]
 
-  v10 = -1;
-  v8 = 0LL;
-  v9 = 0LL;
-  if ( a2 == 32 )
+  v9 = -1;
+  v10 = 0LL;
+  v11 = 0LL;
+  if ( a3 == 32 )
   {
-    if ( a3 )
+    if ( a4 )
     {
-      if ( (a1 & 3) != 0 )
+      if ( (a2 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v5 = 0x7FFFFFFF0000LL;
-      if ( a1 < 0x7FFFFFFF0000LL )
-        v5 = a1;
-      *(_BYTE *)v5 = *(_BYTE *)v5;
-      *(_BYTE *)(v5 + 31) = *(_BYTE *)(v5 + 31);
+      v7 = 0x7FFFFFFF0000LL;
+      if ( a2 < 0x7FFFFFFF0000LL )
+        v7 = a2;
+      *(_BYTE *)v7 = *(_BYTE *)v7;
+      *(_BYTE *)(v7 + 31) = *(_BYTE *)(v7 + 31);
     }
-    v8 = *(_OWORD *)a1;
-    v9 = *(_OWORD *)(a1 + 16);
-    if ( (_BYTE)v8 != 2 || (v8 & 0xFFFFFF00) != 0 )
+    v10 = *(_OWORD *)a2;
+    v11 = *(_OWORD *)(a2 + 16);
+    if ( (_BYTE)v10 != 2 || (v10 & 0xFFFFFF00) != 0 )
       return (unsigned int)-1073741811;
-    if ( SDWORD2(v9) >= 2 )
+    if ( SDWORD2(v11) >= 2 )
       return (unsigned int)-1073741822;
-    if ( (DWORD1(v8) & 0xFFFEE000) != 0 )
+    if ( (DWORD1(v10) & 0xFFFEE000) != 0 )
       return (unsigned int)-1073741811;
-    ProcessPartition = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
-    v4 = SmcStoreCreate(ProcessPartition + 2128, DWORD2(v9), (unsigned int)&v8 + 4, DWORD1(v9), (__int64)&v10);
-    if ( v4 >= 0 )
+    v6 = SmcStoreCreate(a1, DWORD2(v11), (unsigned int)&v10 + 4, DWORD1(v11), (__int64)&v9);
+    if ( v6 >= 0 )
     {
-      v4 = 0;
-      *(_DWORD *)(a1 + 28) = v10;
+      v6 = 0;
+      *(_DWORD *)(a2 + 28) = v9;
     }
   }
   else
   {
     return (unsigned int)-1073741306;
   }
-  return (unsigned int)v4;
+  return (unsigned int)v6;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TryGetBrushSourceNoRef@CEffectBrushMarshaler@DirectComposition@@MEBA_NIPEAPEAVCBrushMarshaler@2@@Z @ 0x1C00B3CC0
+ * XREFs of ?TryGetBrushSourceNoRef@CEffectBrushMarshaler@DirectComposition@@MEBA_NIPEAPEAVCBrushMarshaler@2@@Z @ 0x1C00A8E00
  * Callers:
  *     <none>
  * Callees:

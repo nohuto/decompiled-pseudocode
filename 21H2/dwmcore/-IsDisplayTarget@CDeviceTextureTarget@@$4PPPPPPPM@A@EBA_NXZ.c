@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsDisplayTarget@CDeviceTextureTarget@@$4PPPPPPPM@A@EBA_NXZ @ 0x180109AB0
+ * XREFs of ?IsDisplayTarget@CDeviceTextureTarget@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F82B0
  * Callers:
  *     <none>
  * Callees:

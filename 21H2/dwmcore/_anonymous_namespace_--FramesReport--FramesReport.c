@@ -1,10 +1,10 @@
 /*
- * XREFs of _anonymous_namespace_::FramesReport::FramesReport @ 0x1800DDF70
+ * XREFs of _anonymous_namespace_::FramesReport::FramesReport @ 0x180029250
  * Callers:
- *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180077634 (_anonymous_namespace_--SealCurrentFrameSequence.c)
- *     _anonymous_namespace_::State::State @ 0x1800DDC30 (_anonymous_namespace_--State--State.c)
+ *     _anonymous_namespace_::State::State @ 0x18002841C (_anonymous_namespace_--State--State.c)
+ *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180028740 (_anonymous_namespace_--SealCurrentFrameSequence.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
  */
 
 __int64 __fastcall anonymous_namespace_::FramesReport::FramesReport(__int64 a1)

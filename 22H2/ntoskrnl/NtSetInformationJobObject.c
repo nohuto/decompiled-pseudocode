@@ -1,1123 +1,1348 @@
 /*
- * XREFs of NtSetInformationJobObject @ 0x1406A4040
+ * XREFs of NtSetInformationJobObject @ 0x140614660
  * Callers:
  *     <none>
  * Callees:
- *     KeSetSchedulingGroupWeights @ 0x140200D84 (KeSetSchedulingGroupWeights.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x140201DF4 (ExfAcquireReleasePushLockExclusive.c)
- *     KeSetSchedulingGroupCpuRates @ 0x140205474 (KeSetSchedulingGroupCpuRates.c)
- *     KeSetSchedulingGroupRankBias @ 0x140205AD8 (KeSetSchedulingGroupRankBias.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     KeIsEmptyAffinityEx @ 0x140255050 (KeIsEmptyAffinityEx.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     KeAddGroupAffinityEx @ 0x140307D30 (KeAddGroupAffinityEx.c)
- *     KeFirstGroupAffinityEx @ 0x140308FB0 (KeFirstGroupAffinityEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     PspHardDereferenceSiloWorker @ 0x140353F7C (PspHardDereferenceSiloWorker.c)
- *     KeQueryActiveGroupCount @ 0x140361E20 (KeQueryActiveGroupCount.c)
- *     KeQuerySchedulingGroupReadyTime @ 0x1403626A8 (KeQuerySchedulingGroupReadyTime.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcsnlen @ 0x1403DB480 (wcsnlen.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     KeSetSchedulingGroupCycleNotification @ 0x14057D350 (KeSetSchedulingGroupCycleNotification.c)
- *     PspJobIsAppSilo @ 0x1405A39E8 (PspJobIsAppSilo.c)
- *     PspAddSchedulingGroupToJobChain @ 0x140683BA8 (PspAddSchedulingGroupToJobChain.c)
- *     PspFreeRateControl @ 0x140684EAC (PspFreeRateControl.c)
- *     PspAllocateRateControl @ 0x140684EF8 (PspAllocateRateControl.c)
- *     PsReturnSharedPoolQuota @ 0x14069ECA8 (PsReturnSharedPoolQuota.c)
- *     PspLockRootJobExclusive @ 0x14069F000 (PspLockRootJobExclusive.c)
- *     PspBindProcessSessionToJob @ 0x14069FBC4 (PspBindProcessSessionToJob.c)
- *     PspGetJobLimitInformationValidFlags @ 0x1406A0A74 (PspGetJobLimitInformationValidFlags.c)
- *     PspUnlockJobChain @ 0x1406A0C10 (PspUnlockJobChain.c)
- *     PspLockJobChain @ 0x1406A0CC8 (PspLockJobChain.c)
- *     PspUnlockJobConditionally @ 0x1406A30A0 (PspUnlockJobConditionally.c)
- *     PspLockJobConditionally @ 0x1406A30D0 (PspLockJobConditionally.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspUnlockJob @ 0x1406A3BFC (PspUnlockJob.c)
- *     PspRateControlLimitFlag @ 0x1406A3E20 (PspRateControlLimitFlag.c)
- *     PspGetJobMemoryUsageNotificationViolations @ 0x1406A3F44 (PspGetJobMemoryUsageNotificationViolations.c)
- *     PspUnlockJobMemoryLimitsShared @ 0x1406A3FC4 (PspUnlockJobMemoryLimitsShared.c)
- *     PspUnlockJobMemoryLimitsExclusive @ 0x1406A6B5C (PspUnlockJobMemoryLimitsExclusive.c)
- *     PspNotificationLimitRateControlToleranceIntervalField @ 0x1406A6BB4 (PspNotificationLimitRateControlToleranceIntervalField.c)
- *     PspNotificationLimitRateControlToleranceField @ 0x1406A6BDC (PspNotificationLimitRateControlToleranceField.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     IopFreeMiniCompletionPacket @ 0x140728C70 (IopFreeMiniCompletionPacket.c)
- *     SePrivilegeCheck @ 0x14072F320 (SePrivilegeCheck.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     SeCaptureSubjectContextEx @ 0x1407380F0 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     PsChargeSharedPoolQuota @ 0x14075C654 (PsChargeSharedPoolQuota.c)
- *     IoAllocateMiniCompletionPacket @ 0x1407864F0 (IoAllocateMiniCompletionPacket.c)
- *     PspIsContextAdmin @ 0x1407D07D8 (PspIsContextAdmin.c)
- *     PspSetEnergyTrackingStateJobTree @ 0x1407D083C (PspSetEnergyTrackingStateJobTree.c)
- *     PspSetJobIoRateControl @ 0x1407D861C (PspSetJobIoRateControl.c)
- *     PspSetJobIoAttribution @ 0x1407D8864 (PspSetJobIoAttribution.c)
- *     PspScheduleEnforcementWorker @ 0x1407D8D58 (PspScheduleEnforcementWorker.c)
- *     PspFreezeJobTree @ 0x1407DA648 (PspFreezeJobTree.c)
- *     SeCheckPrivilegedObject @ 0x1407E05E4 (SeCheckPrivilegedObject.c)
- *     PspSetBackgroundJobTree @ 0x1407E5DB8 (PspSetBackgroundJobTree.c)
- *     PspCreateSilo @ 0x1407E6988 (PspCreateSilo.c)
- *     PspAssignSiloSystemRootPath @ 0x1409ACA60 (PspAssignSiloSystemRootPath.c)
- *     PspConvertSiloToServerSilo @ 0x1409ACC94 (PspConvertSiloToServerSilo.c)
- *     PspAddProcessToWorkingSetChangeList @ 0x1409B1E98 (PspAddProcessToWorkingSetChangeList.c)
- *     PspApplyWorkingSetLimits @ 0x1409B1F60 (PspApplyWorkingSetLimits.c)
- *     PspDoesJobHierarchyPermitUILimits @ 0x1409B2268 (PspDoesJobHierarchyPermitUILimits.c)
- *     PspSetIoPriorityLimitJobTree @ 0x1409B2AB4 (PspSetIoPriorityLimitJobTree.c)
- *     PspSetJobMemoryPartition @ 0x1409B2CD4 (PspSetJobMemoryPartition.c)
- *     PspSetJobSiloThreadImpersonationPolicy @ 0x1409B3018 (PspSetJobSiloThreadImpersonationPolicy.c)
- *     PspSetNetRateControl @ 0x1409B30A4 (PspSetNetRateControl.c)
- *     PspSetPagePriorityLimitJobTree @ 0x1409B3370 (PspSetPagePriorityLimitJobTree.c)
- *     EtwTraceJobSetQuery @ 0x1409E574C (EtwTraceJobSetQuery.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ObCreateSiloRootDirectory @ 0x140A73B70 (ObCreateSiloRootDirectory.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeIsEmptyAffinityEx @ 0x140228520 (KeIsEmptyAffinityEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     KeSetSchedulingGroupWeights @ 0x1402DDB30 (KeSetSchedulingGroupWeights.c)
+ *     KeSetSchedulingGroupCpuRates @ 0x1402DDC20 (KeSetSchedulingGroupCpuRates.c)
+ *     KeSetSchedulingGroupRankBias @ 0x1402DE278 (KeSetSchedulingGroupRankBias.c)
+ *     KeQuerySchedulingGroupReadyTime @ 0x140310E44 (KeQuerySchedulingGroupReadyTime.c)
+ *     KeSetSchedulingGroupCycleNotification @ 0x14031AA38 (KeSetSchedulingGroupCycleNotification.c)
+ *     KeFirstGroupAffinityEx @ 0x14031B960 (KeFirstGroupAffinityEx.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14031C3B4 (ExfAcquireReleasePushLockExclusive.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     KeQueryActiveGroupCount @ 0x1403544B0 (KeQueryActiveGroupCount.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcsnlen @ 0x1403D39D0 (wcsnlen.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KeAddGroupAffinityEx @ 0x140513440 (KeAddGroupAffinityEx.c)
+ *     PspJobIsAppSilo @ 0x140580F1C (PspJobIsAppSilo.c)
+ *     PspLockWorkingSetChangeExclusiveUnsafe @ 0x140581864 (PspLockWorkingSetChangeExclusiveUnsafe.c)
+ *     PspSetJobIoRateControl @ 0x1405D7F68 (PspSetJobIoRateControl.c)
+ *     PspCreateSilo @ 0x1405D90DC (PspCreateSilo.c)
+ *     PspBindProcessSessionToJob @ 0x1406139C8 (PspBindProcessSessionToJob.c)
+ *     PspGetJobLimitInformationValidFlags @ 0x1406144E0 (PspGetJobLimitInformationValidFlags.c)
+ *     PspUnlockJobMemoryLimitsExclusive @ 0x140614508 (PspUnlockJobMemoryLimitsExclusive.c)
+ *     PspNotificationLimitRateControlToleranceIntervalField @ 0x1406160B4 (PspNotificationLimitRateControlToleranceIntervalField.c)
+ *     PspNotificationLimitRateControlToleranceField @ 0x1406160DC (PspNotificationLimitRateControlToleranceField.c)
+ *     PspUnlockJobChain @ 0x140616570 (PspUnlockJobChain.c)
+ *     PspLockJobChain @ 0x1406166A0 (PspLockJobChain.c)
+ *     PspLockJobConditionally @ 0x1406167C8 (PspLockJobConditionally.c)
+ *     PspRateControlLimitFlag @ 0x140616ABC (PspRateControlLimitFlag.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140618450 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspUnlockJob @ 0x140618B90 (PspUnlockJob.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x140618D9C (PspUnlockJobMemoryLimitsShared.c)
+ *     PspGetJobMemoryUsageNotificationViolations @ 0x140618DF8 (PspGetJobMemoryUsageNotificationViolations.c)
+ *     PspUnlockJobConditionally @ 0x1406193EC (PspUnlockJobConditionally.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     PspAddSchedulingGroupToJobChain @ 0x14065C6DC (PspAddSchedulingGroupToJobChain.c)
+ *     IoFreeMiniCompletionPacket @ 0x14065CB10 (IoFreeMiniCompletionPacket.c)
+ *     PspFreeRateControl @ 0x14065CB8C (PspFreeRateControl.c)
+ *     PspAllocateRateControl @ 0x14065CBDC (PspAllocateRateControl.c)
+ *     PspLockRootJobExclusive @ 0x14065CFF0 (PspLockRootJobExclusive.c)
+ *     PspFreezeJobTree @ 0x14065D058 (PspFreezeJobTree.c)
+ *     PspSetJobIoAttribution @ 0x14065D8D0 (PspSetJobIoAttribution.c)
+ *     PspScheduleEnforcementWorker @ 0x14065E080 (PspScheduleEnforcementWorker.c)
+ *     PspSetBackgroundJobTree @ 0x14069F420 (PspSetBackgroundJobTree.c)
+ *     PspDoesJobHierarchyPermitUILimits @ 0x1406A54AC (PspDoesJobHierarchyPermitUILimits.c)
+ *     SePrivilegeCheck @ 0x1406CDD00 (SePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x1406D0A20 (SeCaptureSubjectContextEx.c)
+ *     PsChargeSharedPoolQuota @ 0x1406D90F8 (PsChargeSharedPoolQuota.c)
+ *     PsReturnSharedPoolQuota @ 0x1406D9184 (PsReturnSharedPoolQuota.c)
+ *     IoAllocateMiniCompletionPacket @ 0x1407024D0 (IoAllocateMiniCompletionPacket.c)
+ *     PspIsContextAdmin @ 0x14070CE38 (PspIsContextAdmin.c)
+ *     PspSetEnergyTrackingStateJobTree @ 0x14070DE2C (PspSetEnergyTrackingStateJobTree.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     SeCheckPrivilegedObject @ 0x14078DD60 (SeCheckPrivilegedObject.c)
+ *     PspAssignSiloSystemRootPath @ 0x140905E50 (PspAssignSiloSystemRootPath.c)
+ *     PspBeginSiloTeardown @ 0x140905F38 (PspBeginSiloTeardown.c)
+ *     PspConvertSiloToServerSilo @ 0x1409060A4 (PspConvertSiloToServerSilo.c)
+ *     PspAddProcessToWorkingSetChangeList @ 0x140908A10 (PspAddProcessToWorkingSetChangeList.c)
+ *     PspApplyWorkingSetLimits @ 0x140908AD4 (PspApplyWorkingSetLimits.c)
+ *     PspSetJobMemoryPartition @ 0x14090958C (PspSetJobMemoryPartition.c)
+ *     PspSetJobSiloThreadImpersonationPolicy @ 0x140909884 (PspSetJobSiloThreadImpersonationPolicy.c)
+ *     PspSetNetRateControl @ 0x140909914 (PspSetNetRateControl.c)
+ *     PspEnumProcessesInJobHierarchy @ 0x14090E86C (PspEnumProcessesInJobHierarchy.c)
+ *     EtwTraceJobSetQuery @ 0x14093612C (EtwTraceJobSetQuery.c)
+ *     ObCreateSiloRootDirectory @ 0x140980520 (ObCreateSiloRootDirectory.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a2, void *a3, unsigned int a4)
+NTSTATUS __fastcall NtSetInformationJobObject(HANDLE Handle, int a2, void *a3, unsigned int a4)
 {
-  size_t v4; // r14
+  size_t v4; // r12
   __int64 v5; // r13
   unsigned int v7; // ecx
-  bool v8; // zf
-  __m128i *v9; // rdi
-  __int64 result; // rax
-  __int64 v11; // rbx
+  KPROCESSOR_MODE PreviousMode; // al
+  __int64 *v9; // rdi
+  ACCESS_MASK v10; // edx
+  NTSTATUS result; // eax
   __int64 v12; // rdx
   int v13; // esi
-  int v14; // eax
-  __int64 v15; // r8
-  unsigned __int64 v16; // rdx
-  __int64 v17; // r9
-  __int64 v18; // r11
-  __int64 v19; // r10
-  PRKEVENT v20; // r14
-  void *v21; // rdi
-  ULONG_PTR MiniCompletionPacket; // rbx
-  unsigned int v23; // ebx
-  struct _ERESOURCE *p_WaitListHead; // rcx
-  char v25; // bl
-  unsigned int *v26; // r11
-  PETHREAD v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // r9
-  int v30; // edx
-  KPROCESSOR_MODE v31; // r14
-  char v32; // al
-  int v33; // ecx
-  int v34; // eax
-  char v35; // al
-  int v36; // ecx
-  __int64 v37; // rcx
-  int v38; // edi
-  struct _SECURITY_SUBJECT_CONTEXT *Pool2; // rdi
-  ULONG v40; // edx
-  struct _SECURITY_SUBJECT_CONTEXT *v41; // rcx
-  BOOLEAN v42; // al
-  int v43; // eax
-  unsigned int v44; // edi
-  char v45; // di
-  unsigned __int16 Group; // ax
-  __int64 v47; // rax
-  struct _SECURITY_SUBJECT_CONTEXT *v48; // rax
-  struct _KEVENT *v49; // rcx
-  _OWORD *v50; // rax
-  char v51; // bl
-  char v52; // di
-  struct _LIST_ENTRY *p_Blink; // rsi
-  struct _LIST_ENTRY *i; // rbx
-  char *v55; // rcx
-  unsigned int v56; // ecx
-  unsigned int v57; // r14d
-  unsigned __int16 v58; // cx
-  __m128i v59; // xmm0
-  unsigned __int16 epi16; // ax
-  __int64 v61; // rax
-  SECURITY_IMPERSONATION_LEVEL *p_ImpersonationLevel; // rdi
-  BOOLEAN v63; // al
-  PERESOURCE v64; // rcx
-  struct _LIST_ENTRY *Flink; // rax
-  struct _SECURITY_SUBJECT_CONTEXT *v66; // rax
-  struct _KEVENT *v67; // rdx
-  _OWORD *v68; // rax
-  __int64 v69; // r8
-  __int64 v70; // rsi
-  __int64 v71; // rdi
-  int v72; // eax
-  __int64 v73; // r8
-  __int64 v74; // r9
-  unsigned int v75; // edx
-  int v76; // eax
-  __int32 v77; // ebx
-  char v78; // bl
-  bool v79; // cc
-  volatile LONG Lock; // eax
-  __int64 *RateControl; // rax
-  __int64 *v82; // r8
-  PRKEVENT v83; // rsi
-  __int16 v84; // dx
-  __int64 v85; // rax
-  __int64 *v86; // rcx
-  _QWORD *v87; // rbx
-  int v88; // ebx
-  __int64 v89; // rcx
-  int v90; // r8d
-  struct _ERESOURCE *v91; // rbx
-  signed __int8 v92; // cf
-  BOOLEAN v93; // al
-  __int64 v94; // rdx
-  int Silo; // eax
-  BOOLEAN v96; // al
-  unsigned __int64 v97; // rcx
-  unsigned __int128 v98; // kr00_16
-  __int64 v99; // rdx
-  int v100; // edx
-  int v101; // eax
-  int v102; // edx
-  int *v103; // r9
-  int *v104; // r10
-  PRKEVENT v105; // rbx
-  struct _SECURITY_SUBJECT_CONTEXT *v106; // rdi
-  __int64 v107; // rdi
-  int v108; // esi
-  __int64 v109; // rdx
-  _DWORD *v110; // r8
-  _DWORD *v111; // rax
-  __int64 v112; // r8
-  _DWORD *v113; // rax
-  _DWORD *v114; // r8
-  int v115; // edx
-  _DWORD *v116; // rax
-  struct _LIST_ENTRY *Blink; // r8
+  char *v14; // r14
+  int v15; // ebx
+  void *MiniCompletionPacket; // rbx
+  PVOID v17; // rbx
+  int v18; // eax
+  __int64 v19; // r8
+  __int64 v20; // r10
+  unsigned __int64 v21; // r11
+  __int64 v22; // r9
+  unsigned __int64 v23; // rcx
+  unsigned __int64 v24; // rdx
+  int v25; // eax
+  __int64 j; // rdx
+  unsigned int v27; // edx
+  int v28; // eax
+  int v29; // edx
+  int *v30; // r9
+  int *v31; // r10
+  int **v32; // rbx
+  struct _ERESOURCE *v33; // rdi
+  int *v34; // rdi
+  int v35; // esi
+  __int64 v36; // rdx
+  _DWORD *v37; // r8
+  _DWORD *v38; // rax
+  __int64 v39; // r8
+  _DWORD *v40; // rax
+  _DWORD *v41; // r8
+  int v42; // edx
+  bool v43; // zf
+  int *v44; // rax
+  __int64 v45; // r8
   int JobMemoryUsageNotificationViolations; // ebx
-  unsigned __int16 v119; // cx
-  unsigned int v120; // eax
-  _WORD *v121; // rbx
-  wchar_t *v122; // rbx
-  ULONG v123; // edx
-  char v124; // bl
-  PETHREAD v125; // rdi
-  BOOLEAN v126; // al
-  unsigned __int64 v127; // xmm0_8
-  size_t v128; // rdi
-  wchar_t *v129; // rax
-  signed __int32 v130[8]; // [rsp+0h] [rbp-D08h] BYREF
-  KPROCESSOR_MODE PreviousMode; // [rsp+40h] [rbp-CC8h]
-  PRKEVENT Event; // [rsp+48h] [rbp-CC0h] BYREF
-  int v133; // [rsp+50h] [rbp-CB8h]
-  int v134; // [rsp+58h] [rbp-CB0h]
-  __int16 v135; // [rsp+5Ch] [rbp-CACh] BYREF
-  KPROCESSOR_MODE v136; // [rsp+5Eh] [rbp-CAAh]
-  int v137; // [rsp+60h] [rbp-CA8h]
-  _DWORD Size[3]; // [rsp+64h] [rbp-CA4h]
-  unsigned __int16 v139; // [rsp+70h] [rbp-C98h]
-  __int64 v140; // [rsp+78h] [rbp-C90h] BYREF
-  PETHREAD Thread; // [rsp+80h] [rbp-C88h]
-  PSECURITY_SUBJECT_CONTEXT v142; // [rsp+88h] [rbp-C80h]
-  __int64 v143; // [rsp+90h] [rbp-C78h] BYREF
-  PVOID P; // [rsp+98h] [rbp-C70h]
-  __int8 v145; // [rsp+A0h] [rbp-C68h]
-  __int8 v146; // [rsp+A1h] [rbp-C67h]
-  __int8 v147; // [rsp+A2h] [rbp-C66h]
-  unsigned __int32 v148; // [rsp+A4h] [rbp-C64h]
-  int JobLimitInformationValidFlags; // [rsp+A8h] [rbp-C60h]
-  __int64 v150; // [rsp+B0h] [rbp-C58h]
-  __int64 v151; // [rsp+B8h] [rbp-C50h] BYREF
-  unsigned int v152; // [rsp+C0h] [rbp-C48h] BYREF
-  unsigned int v153; // [rsp+C4h] [rbp-C44h]
-  PERESOURCE v154; // [rsp+C8h] [rbp-C40h]
-  void *Src; // [rsp+D0h] [rbp-C38h]
-  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+D8h] [rbp-C30h] BYREF
-  void *v157; // [rsp+F8h] [rbp-C10h]
-  __int64 v158[2]; // [rsp+100h] [rbp-C08h] BYREF
-  __int64 v159; // [rsp+110h] [rbp-BF8h] BYREF
-  __int64 v160; // [rsp+118h] [rbp-BF0h] BYREF
-  PVOID Object; // [rsp+120h] [rbp-BE8h] BYREF
-  __m128i v162; // [rsp+128h] [rbp-BE0h] BYREF
-  __int64 v163; // [rsp+138h] [rbp-BD0h] BYREF
-  wchar_t *v164; // [rsp+140h] [rbp-BC8h]
-  __m128i v165; // [rsp+148h] [rbp-BC0h] BYREF
-  __int32 v166; // [rsp+158h] [rbp-BB0h]
-  __int32 v167; // [rsp+15Ch] [rbp-BACh]
-  __int64 v168; // [rsp+160h] [rbp-BA8h]
-  __int64 v169; // [rsp+168h] [rbp-BA0h]
-  unsigned __int8 *v170; // [rsp+170h] [rbp-B98h]
-  unsigned int v171; // [rsp+178h] [rbp-B90h]
-  ULONG_PTR BugCheckParameter1a[2]; // [rsp+180h] [rbp-B88h]
-  PVOID v173[2]; // [rsp+190h] [rbp-B78h]
-  __int128 v174; // [rsp+1A0h] [rbp-B68h] BYREF
-  __int128 v175; // [rsp+1B0h] [rbp-B58h]
-  __int32 v176; // [rsp+1C0h] [rbp-B48h]
-  PRKEVENT v177; // [rsp+1C8h] [rbp-B40h] BYREF
-  int v178; // [rsp+1D0h] [rbp-B38h]
-  int v179; // [rsp+1D4h] [rbp-B34h]
-  __int64 v180; // [rsp+1D8h] [rbp-B30h]
-  __m128i v181; // [rsp+1E0h] [rbp-B28h]
-  __m128i v182; // [rsp+1F0h] [rbp-B18h]
-  __int64 v183; // [rsp+200h] [rbp-B08h]
-  __int64 v184; // [rsp+208h] [rbp-B00h]
-  __int64 v185; // [rsp+210h] [rbp-AF8h]
-  __int64 v186; // [rsp+218h] [rbp-AF0h]
-  _BYTE v187[72]; // [rsp+220h] [rbp-AE8h] BYREF
-  _QWORD v188[18]; // [rsp+270h] [rbp-A98h] BYREF
-  struct _PRIVILEGE_SET RequiredPrivileges; // [rsp+300h] [rbp-A08h] BYREF
-  _OWORD v190[5]; // [rsp+320h] [rbp-9E8h] BYREF
-  __m128i v191; // [rsp+370h] [rbp-998h] BYREF
-  __int128 v192; // [rsp+380h] [rbp-988h] BYREF
-  unsigned __int128 v193; // [rsp+390h] [rbp-978h]
-  __int128 v194; // [rsp+3A0h] [rbp-968h]
-  __int64 v195; // [rsp+3B0h] [rbp-958h]
-  __int128 v196; // [rsp+3B8h] [rbp-950h] BYREF
-  __int128 v197; // [rsp+3C8h] [rbp-940h]
-  __int128 v198; // [rsp+3D8h] [rbp-930h]
-  _QWORD v199[20]; // [rsp+3F0h] [rbp-918h] BYREF
-  _QWORD v200[262]; // [rsp+490h] [rbp-878h] BYREF
+  __int64 v47; // rsi
+  _DWORD *v48; // r9
+  __int64 v49; // rdi
+  int v50; // eax
+  struct _ERESOURCE *v51; // rcx
+  __int64 v52; // r9
+  int v53; // edi
+  int v54; // edx
+  KPROCESSOR_MODE v55; // r14
+  int v56; // eax
+  int v57; // ecx
+  unsigned int v58; // ecx
+  _DWORD *v59; // rcx
+  char *v60; // rdx
+  int *v61; // rbx
+  int v62; // edi
+  char v63; // bl
+  char v64; // di
+  char v65; // di
+  char v66; // bl
+  PETHREAD v67; // rdi
+  char v68; // bl
+  int v69; // esi
+  __int64 v70; // r8
+  _DWORD *v71; // r9
+  int v72; // eax
+  __int64 RateControl; // rax
+  __int64 v74; // rdx
+  PVOID *v75; // rdi
+  _DWORD *v76; // rax
+  __int64 *v77; // rcx
+  struct _ERESOURCE *v78; // rcx
+  void *v79; // rdi
+  __int64 v80; // r8
+  _DWORD *v81; // r9
+  unsigned int v82; // edx
+  __int64 v83; // rdx
+  int v84; // ebx
+  __int64 v85; // rcx
+  char v86; // bl
+  unsigned int *v87; // r11
+  unsigned __int16 v88; // cx
+  POOL_TYPE v89; // r12d
+  _WORD *v90; // rbx
+  wchar_t *v91; // rbx
+  struct _ERESOURCE *v92; // rbx
+  int Silo; // eax
+  unsigned int v94; // ecx
+  unsigned int v95; // r14d
+  unsigned int v96; // ebx
+  char v97; // al
+  int v98; // ecx
+  int v99; // eax
+  char v100; // al
+  int v101; // ecx
+  __int64 v102; // rcx
+  struct _ERESOURCE *PoolWithTag; // rdi
+  BOOLEAN v104; // al
+  ULONG v105; // edx
+  unsigned __int16 Group; // ax
+  __int64 v107; // rax
+  char *v108; // rsi
+  char *i; // rbx
+  void *v110; // rcx
+  unsigned __int16 v111; // cx
+  __m128i v112; // xmm0
+  unsigned __int16 epi16; // ax
+  __int64 v114; // rax
+  SECURITY_IMPERSONATION_LEVEL *p_ImpersonationLevel; // rdi
+  BOOLEAN v116; // al
+  PERESOURCE v117; // r12
+  __int64 *v118; // rcx
+  __int64 v119; // rax
+  BOOLEAN v120; // al
+  ULONG v121; // edx
+  BOOLEAN v122; // al
+  __int64 v123; // rdx
+  BOOLEAN v124; // al
+  unsigned __int64 v125; // xmm0_8
+  size_t v126; // rdi
+  wchar_t *v127; // rax
+  PETHREAD v128; // rdx
+  char *v129; // rcx
+  int v130; // r8d
+  signed __int8 v131; // cf
+  signed __int32 v132[8]; // [rsp+0h] [rbp-BC8h] BYREF
+  KPROCESSOR_MODE AccessMode; // [rsp+40h] [rbp-B88h]
+  PVOID DeferredContext; // [rsp+48h] [rbp-B80h] BYREF
+  int v135; // [rsp+50h] [rbp-B78h]
+  int v136; // [rsp+58h] [rbp-B70h]
+  char v137; // [rsp+5Ch] [rbp-B6Ch] BYREF
+  _BYTE v138[3]; // [rsp+5Dh] [rbp-B6Bh] BYREF
+  int v139; // [rsp+60h] [rbp-B68h]
+  PVOID P; // [rsp+68h] [rbp-B60h]
+  ULONG_PTR BugCheckParameter2; // [rsp+70h] [rbp-B58h]
+  unsigned __int16 v142; // [rsp+78h] [rbp-B50h]
+  __int64 v143; // [rsp+80h] [rbp-B48h] BYREF
+  PETHREAD Thread; // [rsp+88h] [rbp-B40h]
+  PERESOURCE Resource; // [rsp+90h] [rbp-B38h]
+  PERESOURCE v146; // [rsp+98h] [rbp-B30h]
+  char v147; // [rsp+A0h] [rbp-B28h]
+  char v148; // [rsp+A1h] [rbp-B27h]
+  char v149; // [rsp+A2h] [rbp-B26h]
+  unsigned int v150; // [rsp+A4h] [rbp-B24h]
+  int JobLimitInformationValidFlags; // [rsp+A8h] [rbp-B20h]
+  unsigned int v152; // [rsp+ACh] [rbp-B1Ch]
+  char *v153; // [rsp+B0h] [rbp-B18h] BYREF
+  unsigned int v154; // [rsp+B8h] [rbp-B10h] BYREF
+  unsigned int v155; // [rsp+BCh] [rbp-B0Ch]
+  __int64 v156; // [rsp+C0h] [rbp-B08h] BYREF
+  void *Src; // [rsp+C8h] [rbp-B00h]
+  __int64 v158[2]; // [rsp+D0h] [rbp-AF8h] BYREF
+  __int64 v159; // [rsp+E0h] [rbp-AE8h]
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+E8h] [rbp-AE0h] BYREF
+  __int64 v161; // [rsp+108h] [rbp-AC0h]
+  __int64 v162; // [rsp+110h] [rbp-AB8h] BYREF
+  PSECURITY_SUBJECT_CONTEXT v163; // [rsp+118h] [rbp-AB0h]
+  int v164; // [rsp+120h] [rbp-AA8h]
+  __int64 v165; // [rsp+128h] [rbp-AA0h] BYREF
+  PVOID Object; // [rsp+130h] [rbp-A98h] BYREF
+  __m128i v167; // [rsp+138h] [rbp-A90h] BYREF
+  __int64 v168; // [rsp+148h] [rbp-A80h] BYREF
+  wchar_t *v169; // [rsp+150h] [rbp-A78h]
+  __m128i v170; // [rsp+158h] [rbp-A70h] BYREF
+  unsigned int v171; // [rsp+168h] [rbp-A60h]
+  int v172; // [rsp+16Ch] [rbp-A5Ch]
+  int v173; // [rsp+170h] [rbp-A58h]
+  HANDLE Handlea[2]; // [rsp+178h] [rbp-A50h]
+  PVOID v175[2]; // [rsp+188h] [rbp-A40h]
+  __int128 v176; // [rsp+198h] [rbp-A30h] BYREF
+  __int128 v177; // [rsp+1A8h] [rbp-A20h]
+  int v178; // [rsp+1B8h] [rbp-A10h]
+  char *v179; // [rsp+1C0h] [rbp-A08h] BYREF
+  int v180; // [rsp+1C8h] [rbp-A00h]
+  int v181; // [rsp+1CCh] [rbp-9FCh]
+  __int64 v182; // [rsp+1D0h] [rbp-9F8h]
+  __m128i v183; // [rsp+1D8h] [rbp-9F0h]
+  __int128 v184; // [rsp+1E8h] [rbp-9E0h]
+  __int64 v185; // [rsp+1F8h] [rbp-9D0h]
+  __int64 v186; // [rsp+200h] [rbp-9C8h]
+  __int64 v187; // [rsp+208h] [rbp-9C0h]
+  __int64 v188; // [rsp+210h] [rbp-9B8h]
+  _OWORD v189[5]; // [rsp+220h] [rbp-9A8h] BYREF
+  _QWORD v190[18]; // [rsp+270h] [rbp-958h] BYREF
+  struct _PRIVILEGE_SET RequiredPrivileges; // [rsp+300h] [rbp-8C8h] BYREF
+  _QWORD v192[10]; // [rsp+320h] [rbp-8A8h] BYREF
+  __m128i v193; // [rsp+370h] [rbp-858h] BYREF
+  __m128i v194; // [rsp+380h] [rbp-848h]
+  __m128i v195; // [rsp+390h] [rbp-838h]
+  __m128i v196; // [rsp+3A0h] [rbp-828h]
+  __int64 v197; // [rsp+3B0h] [rbp-818h]
+  _QWORD v198[20]; // [rsp+3C0h] [rbp-808h] BYREF
+  __m128i v199; // [rsp+460h] [rbp-768h]
+  __m128i v200; // [rsp+470h] [rbp-758h]
+  __m128i v201; // [rsp+480h] [rbp-748h]
+  _OWORD v202[111]; // [rsp+490h] [rbp-738h] BYREF
 
   v4 = a4;
-  Size[0] = a4;
+  BugCheckParameter2 = (ULONG_PTR)a3;
   v5 = a2;
-  v150 = BugCheckParameter1;
-  v133 = a2;
+  P = Handle;
+  v135 = a2;
   Src = a3;
-  memset(&v200[1], 0, 0x100uLL);
-  *(_OWORD *)BugCheckParameter1a = 0LL;
-  v169 = 0LL;
-  v168 = 0LL;
-  v160 = 0LL;
-  v159 = 0LL;
-  v135 = 0;
-  v163 = 0LL;
-  memset(v199, 0, 0x98uLL);
-  v191 = 0LL;
+  memset((char *)v202 + 8, 0, 0xA0uLL);
+  *(_OWORD *)Handlea = 0LL;
   v162 = 0LL;
-  memset(v187, 0, 0x44uLL);
-  Object = 0LL;
-  memset(v188, 0, sizeof(v188));
-  Event = 0LL;
-  v152 = 0;
-  memset(&v200[34], 0, 0x718uLL);
-  v174 = 0LL;
-  v175 = 0LL;
-  memset(&SubjectContext, 0, sizeof(SubjectContext));
-  LODWORD(v157) = 0;
-  memset(v190, 0, 0x48uLL);
-  v196 = 0LL;
-  v197 = 0LL;
-  v198 = 0LL;
-  v192 = 0LL;
+  v165 = 0LL;
+  v137 = 0;
+  v168 = 0LL;
+  memset(v198, 0, 0x98uLL);
   v193 = 0LL;
+  v167 = 0LL;
+  memset(v189, 0, 0x48uLL);
+  Object = 0LL;
+  memset(v190, 0, sizeof(v190));
+  DeferredContext = 0LL;
+  v154 = 0;
+  memset(&v202[11], 0, 0x640uLL);
+  v176 = 0LL;
+  v177 = 0LL;
+  memset(&SubjectContext, 0, sizeof(SubjectContext));
+  v161 = 0LL;
+  memset(v192, 0, 0x48uLL);
+  v199 = 0LL;
+  v200 = 0LL;
+  v201 = 0LL;
   v194 = 0LL;
   v195 = 0LL;
-  v140 = 0LL;
-  memset(&RequiredPrivileges, 0, sizeof(RequiredPrivileges));
-  v151 = 0LL;
-  *(_OWORD *)v158 = 0LL;
+  v196 = 0LL;
+  v197 = 0LL;
   v143 = 0LL;
-  v181 = 0LL;
-  v182 = 0LL;
-  LODWORD(v183) = 0;
-  v165 = 0LL;
-  *(_OWORD *)v173 = 0LL;
-  if ( (unsigned int)(v5 - 1) > 0x30 )
-    return 3221225475LL;
+  v138[0] = 0;
+  memset(&RequiredPrivileges, 0, sizeof(RequiredPrivileges));
+  v153 = 0LL;
+  *(_OWORD *)v158 = 0LL;
+  v156 = 0LL;
+  v183 = 0LL;
+  v184 = 0LL;
+  v185 = 0LL;
+  v170 = 0LL;
+  *(_OWORD *)v175 = 0LL;
+  if ( (unsigned int)(v5 - 1) > 0x2E )
+    return -1073741821;
   switch ( (_DWORD)v5 )
   {
     case 9:
       if ( (_DWORD)v4 == 144 || (_DWORD)v4 == 152 )
-        goto LABEL_14;
-      return 3221225476LL;
+        goto LABEL_6;
+      return -1073741820;
     case 0xC:
-      v8 = (((_DWORD)v4 - 48) & 0xFFFFFFF7) == 0;
-LABEL_13:
-      if ( v8 )
-        goto LABEL_14;
-      return 3221225476LL;
+      if ( (_DWORD)v4 == 48 )
+        goto LABEL_6;
+      v43 = (_DWORD)v4 == 56;
+LABEL_99:
+      if ( v43 )
+        goto LABEL_6;
+      return -1073741820;
     case 0x1F:
       if ( (_DWORD)v4 == 48 || (_DWORD)v4 == 96 )
-        goto LABEL_14;
-      v8 = (_DWORD)v4 == 144;
-      goto LABEL_13;
+        goto LABEL_6;
+      v43 = (_DWORD)v4 == 144;
+      goto LABEL_99;
   }
-  v7 = dword_140A7ADDC[v5];
+  v7 = dword_14098612C[v5];
   if ( (_DWORD)v4 != v7 && ((_DWORD)v5 != 11 && (_DWORD)v5 != 14 || (unsigned int)v4 < v7) )
-    return 3221225476LL;
-LABEL_14:
+    return -1073741820;
+LABEL_6:
   Thread = KeGetCurrentThread();
   PreviousMode = Thread->PreviousMode;
-  v136 = PreviousMode;
+  AccessMode = PreviousMode;
+  v138[1] = PreviousMode;
   if ( PreviousMode )
   {
-    v9 = (__m128i *)Src;
+    v9 = (__int64 *)Src;
     if ( (_DWORD)v4 )
     {
-      if ( ((dword_140A7AEAC[v5] - 1) & (unsigned int)Src) != 0 )
+      if ( ((dword_14098606C[v5] - 1) & (unsigned int)Src) != 0 )
         ExRaiseDatatypeMisalignment();
       if ( (unsigned __int64)Src + v4 > 0x7FFFFFFF0000LL || (char *)Src + v4 < Src )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
+    PreviousMode = AccessMode;
   }
   else
   {
-    v9 = (__m128i *)Src;
+    v9 = (__int64 *)Src;
   }
-  if ( !BugCheckParameter1 )
-    return 3221225480LL;
-  v11 = 2LL;
-  result = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 0x79517350u, (__int64)&Event, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  if ( !Handle )
+    return -1073741816;
+  v10 = 16;
+  if ( (_DWORD)v5 != 5 )
+    v10 = 2;
+  result = ObReferenceObjectByHandleWithTag(
+             Handle,
+             v10,
+             (POBJECT_TYPE)PsJobType,
+             PreviousMode,
+             0x79517350u,
+             &DeferredContext,
+             0LL);
+  if ( result >= 0 )
   {
     v13 = 0;
-    v134 = 0;
-    LOBYTE(v137) = 0;
-    v170 = &Thread->WaitBlockFill11[166];
+    v136 = 0;
+    LOBYTE(v139) = 0;
     --Thread->SpecialApcDisable;
-    if ( (int)v5 <= 25 )
+    if ( (int)v5 <= 24 )
     {
-      if ( (_DWORD)v5 == 25 )
+      if ( (_DWORD)v5 == 24 )
       {
-        v20 = Event;
-        ExAcquireResourceExclusiveLite((PERESOURCE)&Event[2].Header.WaitListHead, 1u);
-        KeResetEvent(v20);
-LABEL_323:
-        ExReleaseResourceLite((PERESOURCE)&v20[2].Header.WaitListHead);
-        goto LABEL_324;
-      }
-      if ( (int)v5 <= 14 )
-      {
-        if ( (_DWORD)v5 == 14 )
+        v47 = *v9;
+        v186 = *v9;
+        v14 = (char *)DeferredContext;
+        ExAcquireResourceExclusiveLite((PERESOURCE)((char *)DeferredContext + 56), 1u);
+        if ( (*((_DWORD *)v14 + 330) & 0x20) != 0 )
         {
-LABEL_203:
-          v142 = 0LL;
-          P = 0LL;
-          v56 = 16;
-          if ( (_DWORD)v5 != 14 )
-            v56 = 2;
-          Size[0] = v56;
-          if ( (unsigned int)v4 % v56 )
+          v49 = *((_QWORD *)v14 + 126);
+          v50 = *(_DWORD *)(v49 + 40);
+          if ( (v50 & 0x10) == 0 )
           {
-            v13 = -1073741820;
-            goto LABEL_457;
+            *(_DWORD *)(v49 + 40) = v50 | 0x10;
+            KeInitializeDpc((PRKDPC)(v49 + 48), (PKDEFERRED_ROUTINE)PspJobCycleTimeNotificationDpcRoutine, v14);
           }
-          v57 = (unsigned int)v4 / v56;
-          v153 = v57;
-          LODWORD(v200[0]) = 2097153;
-          memset((char *)v200 + 4, 0, 0x104uLL);
-          v58 = KeQueryActiveGroupCount() - 1;
-          LOWORD(v137) = v58;
-          while ( v57 )
+          KeSetSchedulingGroupCycleNotification(v49 + 128, v49 + 48, v47, v48);
+          goto LABEL_119;
+        }
+LABEL_380:
+        v13 = -1073741811;
+        goto LABEL_120;
+      }
+      if ( (int)v5 > 12 )
+      {
+        if ( (_DWORD)v5 != 14 )
+        {
+          if ( (_DWORD)v5 != 15 )
           {
-            if ( (_DWORD)v5 == 14 )
+            if ( (_DWORD)v5 != 16 )
             {
-              v59 = *v9;
-              v162 = v59;
-              epi16 = _mm_extract_epi16(v59, 4);
-              v162.m128i_i16[4] = epi16;
-              v139 = epi16;
-              v150 = v59.m128i_i64[0];
+              if ( (_DWORD)v5 == 18 )
+              {
+                v193 = *(__m128i *)v9;
+                if ( v193.m128i_i32[0] && (v193.m128i_i32[0] & 0xFFFFFFF8) == 0 )
+                {
+                  v14 = (char *)DeferredContext;
+                  v13 = PspFreezeJobTree(DeferredContext, &v193);
+                  if ( v13 >= 0 )
+                    *(_DWORD *)v9 = v193.m128i_i32[0];
+                  goto LABEL_35;
+                }
+                goto LABEL_384;
+              }
+              if ( (_DWORD)v5 != 21 )
+              {
+                if ( (_DWORD)v5 != 22 )
+                {
+                  if ( (_DWORD)v5 == 23 )
+                  {
+                    if ( *(_BYTE *)v9 != 1 )
+                    {
+                      v13 = -1073741811;
+                      v136 = -1073741811;
+                      v14 = (char *)DeferredContext;
+                      goto LABEL_35;
+                    }
+                    v14 = (char *)DeferredContext;
+                    PspEnumJobsAndProcessesInJobHierarchy(DeferredContext, 0LL, 0);
+LABEL_34:
+                    v13 = 0;
+LABEL_35:
+                    KiLeaveGuardedRegionUnsafe((__int64)Thread);
+                    if ( v13 )
+                    {
+                      if ( (PerfGlobalGroupMask & 0x80000) != 0 )
+                        EtwTraceJobSetQuery((_DWORD)v14, v5, 0, 0, v13, 1831);
+                    }
+                    ObfDereferenceObjectWithTag(v14, 0x79517350u);
+                    return v13;
+                  }
+LABEL_459:
+                  v13 = -1073741821;
+                  goto LABEL_282;
+                }
+                v137 = *(_BYTE *)v9;
+                v14 = (char *)DeferredContext;
+                ExAcquireResourceExclusiveLite((PERESOURCE)((char *)DeferredContext + 56), 1u);
+                if ( (*((_DWORD *)v14 + 330) & 0x20) != 0 )
+                {
+                  v81 = (_DWORD *)*((_QWORD *)v14 + 126);
+                  v82 = v81[10];
+                  if ( (v82 & 0x40) == 0 )
+                  {
+                    if ( (v82 & 1) != 0 || (v82 & 0x20) != 0 )
+                    {
+                      v13 = -1073741637;
+                      goto LABEL_120;
+                    }
+                    if ( ((v82 >> 3) & 1) != (v137 != 0) )
+                    {
+                      LOBYTE(v80) = -v137;
+                      v83 = (v137 != 0 ? 8 : 0) | v82 & 0xFFFFFFF7;
+                      v81[10] = v83;
+                      LOBYTE(v83) = v137;
+                      KeSetSchedulingGroupRankBias(*((_QWORD *)v14 + 126) + 128LL, v83, v80, v81);
+                      PspEnumProcessesInJobHierarchy(v14, PspSetProcessCacheIsolationCallback, &v137, 1LL);
+LABEL_119:
+                      v13 = 0;
+LABEL_120:
+                      v51 = (struct _ERESOURCE *)(v14 + 56);
+LABEL_121:
+                      ExReleaseResourceLite(v51);
+                      goto LABEL_35;
+                    }
+                  }
+                }
+                goto LABEL_380;
+              }
+              v147 = *(_BYTE *)v9;
+              v14 = (char *)DeferredContext;
+              v18 = PspSetBackgroundJobTree(DeferredContext);
+LABEL_64:
+              v13 = v18;
+              if ( v18 < 0 )
+                goto LABEL_35;
+              goto LABEL_34;
             }
-            else
+            v172 = *(_DWORD *)v9;
+            v15 = v172;
+            v14 = (char *)DeferredContext;
+            if ( (v172 & 0xFFFFC001) == 0 )
             {
-              v61 = v9->m128i_u16[0];
-              v139 = v61;
-              if ( (unsigned __int16)v61 > v58 )
-                goto LABEL_217;
-              v150 = qword_140D1EFE8[v61];
-              epi16 = v139;
+              ExAcquireResourceExclusiveLite((PERESOURCE)((char *)DeferredContext + 56), 1u);
+              if ( v14 )
+                ExAcquirePushLockExclusiveEx((ULONG_PTR)(v14 + 1032), 0LL);
+              *((_DWORD *)v14 + 219) = v15;
+              PspUnlockJobMemoryLimitsExclusive((__int64)v14, 0LL, 0LL);
+              goto LABEL_33;
             }
-            if ( epi16 > v58 || v200[epi16 + 1] || v150 != (v150 & qword_140D1EFE8[epi16]) )
-            {
-LABEL_217:
-              v13 = -1073741811;
-              v134 = -1073741811;
-              break;
-            }
-            KeAddGroupAffinityEx((unsigned __int16 *)v200, v139, v150);
-            v57 = --v153;
-            v9 = (__m128i *)((char *)Src + Size[0]);
-            Src = v9;
-            v13 = v134;
-            v58 = v137;
+LABEL_430:
+            v13 = -1073741811;
+            goto LABEL_35;
           }
-          v20 = Event;
-          if ( v13 < 0 )
-            goto LABEL_495;
-          v154 = (PERESOURCE)&Event[22];
-          if ( *(_QWORD *)&Event[22].Header.Lock )
-            goto LABEL_223;
-          Pool2 = (struct _SECURITY_SUBJECT_CONTEXT *)ExAllocatePool2(256LL, 40LL, 1632269136LL);
-          v142 = Pool2;
-          if ( !Pool2 )
-            goto LABEL_138;
-          P = (PVOID)PsChargeSharedPoolQuota(KeGetCurrentThread()->ApcState.Process, 40LL, 0LL);
-          if ( P )
+          memmove(&v165, v9, v4);
+          v68 = v165;
+          if ( (v165 & 0xFFFFFFE0) == 0 )
           {
-            v20 = Event;
-LABEL_223:
+            v69 = HIDWORD(v165);
+            LODWORD(v143) = HIDWORD(v165);
+            v135 = v165 & 1;
+            if ( (v165 & 1) == 0 )
+              goto LABEL_181;
+            if ( (v165 & 2) != 0 )
+            {
+              if ( (v165 & 0x10) == 0 && (unsigned __int16)(WORD2(v165) - 1) <= 8u )
+                goto LABEL_181;
+            }
+            else if ( (unsigned __int16)(WORD2(v165) - 1) <= 0x270Fu
+                   && ((v165 & 0x10) == 0 || (v165 & 4) == 0 && HIWORD(v165) >= WORD2(v165) && HIWORD(v165) <= 0x2710u) )
+            {
+LABEL_181:
+              v14 = (char *)DeferredContext;
+              PspLockJobChain(DeferredContext, Thread, 0LL);
+              v72 = *((_DWORD *)v14 + 330);
+              if ( v135 )
+              {
+                if ( (v72 & 0x20) == 0 )
+                {
+                  RateControl = PspAllocateRateControl(2LL);
+                  v74 = RateControl;
+                  if ( !RateControl )
+                  {
+                    v13 = -1073741670;
+                    goto LABEL_208;
+                  }
+                  *((_QWORD *)v14 + 126) = RateControl;
+LABEL_193:
+                  v75 = (PVOID *)(v14 + 1008);
+                  *(_DWORD *)(*((_QWORD *)v14 + 126) + 40LL) = 0;
+                  *(_DWORD *)(*((_QWORD *)v14 + 126) + 44LL) = v69;
+                  if ( v135 )
+                  {
+                    if ( (v68 & 4) != 0 )
+                    {
+                      *((_DWORD *)*v75 + 10) |= 1u;
+                      WORD1(v143) = v69;
+                    }
+                    if ( (v68 & 2) != 0 )
+                    {
+                      *((_DWORD *)*v75 + 10) |= 4u;
+                      HIDWORD(v143) = 0;
+                    }
+                    else
+                    {
+                      HIDWORD(v143) = 1;
+                      if ( (v68 & 0x14) == 0 )
+                        WORD1(v143) = 10000;
+                    }
+                    if ( (v68 & 8) != 0 )
+                      *((_DWORD *)*v75 + 10) |= 2u;
+                    if ( (v68 & 0x10) != 0 )
+                      *((_DWORD *)*v75 + 10) |= 0x20u;
+                    v76 = *v75;
+                    v77 = (__int64 *)((char *)*v75 + 128);
+                    if ( *v75 == (PVOID)v74 )
+                    {
+                      *v77 = v143;
+                      v13 = PspAddSchedulingGroupToJobChain(*((_QWORD *)v14 + 134), v14);
+                      v136 = v13;
+                      if ( v13 < 0 )
+                      {
+                        if ( *v75 )
+                        {
+                          PspFreeRateControl(*v75);
+                          *v75 = 0LL;
+                        }
+                        goto LABEL_208;
+                      }
+                      _InterlockedOr((volatile signed __int32 *)v14 + 330, 0x20u);
+                      v14 = (char *)DeferredContext;
+                    }
+                    else
+                    {
+                      v156 = (__int64)*v75 + 128;
+                      if ( (v76[10] & 4) != 0 )
+                        KeSetSchedulingGroupWeights(1u, (__int64)&v156, (__int64)&v143);
+                      else
+                        KeSetSchedulingGroupCpuRates((__int64)v77, &v156, &v143);
+                    }
+                    v162 = *((_QWORD *)*v75 + 5);
+                  }
+                  else
+                  {
+                    v143 = 0x327102710LL;
+                    *((_DWORD *)*v75 + 10) |= 0x40u;
+                    v84 = v143;
+                    *((_DWORD *)*v75 + 11) = v143;
+                    v156 = (__int64)*v75 + 128;
+                    v138[0] = (*(_DWORD *)(v156 + 4) & 4) != 0;
+                    *((_QWORD *)v14 + 128) += KeQuerySchedulingGroupReadyTime(v156, v74, v70, v71);
+                    KeSetSchedulingGroupCpuRates(v85, &v156, &v143);
+                    HIDWORD(v162) = v84;
+                    if ( v138[0] )
+                    {
+                      v138[0] = 0;
+                      PspEnumProcessesInJobHierarchy(v14, PspSetProcessCacheIsolationCallback, v138, 1LL);
+                    }
+                  }
+                  v13 = 0;
+                  if ( (PerfGlobalGroupMask & 0x80000) != 0 )
+                    EtwTraceJobSetQuery((_DWORD)v14, 15, (unsigned int)&v162, 0, 0, 1829);
+LABEL_208:
+                  v128 = Thread;
+                  v129 = v14;
+LABEL_209:
+                  PspUnlockJobChain(v129, v128, 0LL);
+                  goto LABEL_35;
+                }
+              }
+              else if ( (v72 & 0x20) == 0 )
+              {
+                v13 = -1073741811;
+                goto LABEL_208;
+              }
+              v74 = 0LL;
+              goto LABEL_193;
+            }
+          }
+LABEL_384:
+          v13 = -1073741811;
+          goto LABEL_282;
+        }
+LABEL_296:
+        P = 0LL;
+        v146 = 0LL;
+        v94 = 16;
+        if ( (_DWORD)v5 != 14 )
+          v94 = 2;
+        v152 = v94;
+        v95 = (unsigned int)v4 / v94;
+        if ( (unsigned int)v4 % v94 )
+        {
+          v13 = -1073741820;
+          goto LABEL_282;
+        }
+        v155 = (unsigned int)v4 / v94;
+        LODWORD(v202[0]) = 1310721;
+        memset((char *)v202 + 4, 0, 0xA4uLL);
+        v111 = KeQueryActiveGroupCount() - 1;
+        LOWORD(v139) = v111;
+        while ( v95 )
+        {
+          if ( (_DWORD)v5 == 14 )
+          {
+            v112 = *(__m128i *)v9;
+            v167 = v112;
+            epi16 = _mm_extract_epi16(v112, 4);
+            v167.m128i_i16[4] = epi16;
+            v142 = epi16;
+            v159 = v112.m128i_i64[0];
+          }
+          else
+          {
+            v114 = *(unsigned __int16 *)v9;
+            v142 = v114;
+            if ( (unsigned __int16)v114 > v111 )
+              goto LABEL_400;
+            v159 = qword_140CFC848[v114];
+            epi16 = v142;
+          }
+          if ( epi16 > v111 || *((_QWORD *)v202 + epi16 + 1) || v159 != (v159 & qword_140CFC848[epi16]) )
+          {
+LABEL_400:
+            v13 = -1073741811;
+            v136 = -1073741811;
+            break;
+          }
+          KeAddGroupAffinityEx((unsigned __int16 *)v202, v142, v159);
+          v95 = --v155;
+          v9 = (__int64 *)((char *)Src + v152);
+          Src = v9;
+          v13 = v136;
+          v111 = v139;
+        }
+        v14 = (char *)DeferredContext;
+        if ( v13 < 0 )
+          goto LABEL_35;
+        BugCheckParameter2 = (ULONG_PTR)DeferredContext + 432;
+        if ( *((_QWORD *)DeferredContext + 54) )
+          goto LABEL_406;
+        PoolWithTag = (struct _ERESOURCE *)ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x614A7350u);
+        P = PoolWithTag;
+        if ( PoolWithTag )
+        {
+          v146 = (PERESOURCE)PsChargeSharedPoolQuota(KeGetCurrentThread()->ApcState.Process, 40LL, 0LL);
+          if ( v146 )
+          {
+            v14 = (char *)DeferredContext;
+LABEL_406:
             SeCaptureSubjectContextEx(
               Thread,
               Thread->ApcState.Process,
               (PSECURITY_SUBJECT_CONTEXT)&SubjectContext.ImpersonationLevel);
             p_ImpersonationLevel = &SubjectContext.ImpersonationLevel;
-            if ( PreviousMode )
+            if ( AccessMode )
             {
               RequiredPrivileges.PrivilegeCount = 1;
               RequiredPrivileges.Control = 1;
               RequiredPrivileges.Privilege[0].Luid = SeDebugPrivilege;
               RequiredPrivileges.Privilege[0].Attributes = 0;
-              v63 = SePrivilegeCheck(
-                      &RequiredPrivileges,
-                      (PSECURITY_SUBJECT_CONTEXT)&SubjectContext.ImpersonationLevel,
-                      1);
-              LODWORD(SubjectContext.ClientToken) ^= (LODWORD(SubjectContext.ClientToken) ^ v63) & 1;
+              v116 = SePrivilegeCheck(
+                       &RequiredPrivileges,
+                       (PSECURITY_SUBJECT_CONTEXT)&SubjectContext.ImpersonationLevel,
+                       1);
+              LODWORD(SubjectContext.ClientToken) ^= (LODWORD(SubjectContext.ClientToken) ^ v116) & 1;
             }
             else
             {
               LODWORD(SubjectContext.ClientToken) |= 1u;
             }
-            *(_QWORD *)&Size[1] = (char *)v20 + 56;
-            ExAcquireResourceExclusiveLite((PERESOURCE)&v20[2].Header.WaitListHead, 1u);
-            v13 = PspEnumJobsAndProcessesInJobHierarchy(
-                    v20,
-                    0,
-                    0,
-                    (int)PspSetAffinityLimitCallback,
-                    (__int64)&SubjectContext,
-                    1);
-            v134 = v13;
+            Resource = (PERESOURCE)(v14 + 56);
+            ExAcquireResourceExclusiveLite((PERESOURCE)(v14 + 56), 1u);
+            v13 = PspEnumProcessesInJobHierarchy(v14, PspSetAffinityLimitCallback, &SubjectContext, 1LL);
+            v136 = v13;
+            v117 = v146;
             if ( v13 >= 0 )
             {
-              v64 = v154;
-              Flink = v154->SystemResourcesList.Flink;
-              if ( v154->SystemResourcesList.Flink )
+              v118 = (__int64 *)BugCheckParameter2;
+              v119 = *(_QWORD *)BugCheckParameter2;
+              if ( *(_QWORD *)BugCheckParameter2 )
               {
-                v174 = *(_OWORD *)&Flink->Blink;
-                v175 = *(_OWORD *)&Flink[1].Blink;
-                p_ImpersonationLevel = (SECURITY_IMPERSONATION_LEVEL *)&v174;
+                v176 = *(_OWORD *)(v119 + 8);
+                v177 = *(_OWORD *)(v119 + 24);
+                p_ImpersonationLevel = (SECURITY_IMPERSONATION_LEVEL *)&v176;
               }
               else
               {
-                v154->SystemResourcesList.Flink = (struct _LIST_ENTRY *)v142;
-                v20[22].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)P;
-                v142 = 0LL;
+                *(_QWORD *)BugCheckParameter2 = P;
+                *((_QWORD *)v14 + 55) = v117;
+                P = 0LL;
                 p_ImpersonationLevel = 0LL;
+                v119 = *v118;
               }
-              v66 = (struct _SECURITY_SUBJECT_CONTEXT *)v64->SystemResourcesList.Flink;
-              *v66 = SubjectContext;
-              v66[1].ClientToken = v157;
-              v158[0] = (__int64)v20;
-              HIDWORD(v158[1]) = v20[10].Header.WaitListHead.Blink;
+              *(struct _SECURITY_SUBJECT_CONTEXT *)v119 = SubjectContext;
+              *(_QWORD *)(v119 + 32) = v161;
+              v158[0] = (__int64)v14;
+              HIDWORD(v158[1]) = *((_DWORD *)v14 + 64);
               LODWORD(v158[1]) = -17;
-              v67 = v20 + 11;
-              v68 = v200;
-              v69 = 2LL;
-              do
+              *(_OWORD *)(v14 + 264) = v202[0];
+              *(_OWORD *)(v14 + 280) = v202[1];
+              *(_OWORD *)(v14 + 296) = v202[2];
+              *(_OWORD *)(v14 + 312) = v202[3];
+              *(_OWORD *)(v14 + 328) = v202[4];
+              *(_OWORD *)(v14 + 344) = v202[5];
+              *(_OWORD *)(v14 + 360) = v202[6];
+              *(_OWORD *)(v14 + 376) = v202[7];
+              *(_OWORD *)(v14 + 392) = v202[8];
+              *(_OWORD *)(v14 + 408) = v202[9];
+              *((_QWORD *)v14 + 53) = *(_QWORD *)&v202[10];
+              if ( (_DWORD)v5 == 14 && (unsigned int)KeIsEmptyAffinityEx((_WORD *)v14 + 132) )
               {
-                *(_OWORD *)&v67->Header.Lock = *v68;
-                *(_OWORD *)&v67->Header.WaitListHead.Blink = v68[1];
-                v67[1].Header.WaitListHead = (LIST_ENTRY)v68[2];
-                *(_OWORD *)&v67[2].Header.Lock = v68[3];
-                *(_OWORD *)&v67[2].Header.WaitListHead.Blink = v68[4];
-                v67[3].Header.WaitListHead = (LIST_ENTRY)v68[5];
-                *(_OWORD *)&v67[4].Header.Lock = v68[6];
-                v67 = (struct _KEVENT *)((char *)v67 + 128);
-                v67[-1].Header.WaitListHead = (LIST_ENTRY)v68[7];
-                v68 += 8;
-                --v69;
-              }
-              while ( v69 );
-              *(_QWORD *)&v67->Header.Lock = *(_QWORD *)v68;
-              if ( (_DWORD)v5 == 14 && (unsigned int)KeIsEmptyAffinityEx(&v20[11]) )
-              {
-                LODWORD(v20[10].Header.WaitListHead.Blink) &= ~0x10u;
-                _InterlockedAnd(&v20[64].Header.Lock, 0xFFFFFFFD);
+                *((_DWORD *)v14 + 64) &= ~0x10u;
+                _InterlockedAnd((volatile signed __int32 *)v14 + 330, 0xFFFFFFFD);
               }
               else
               {
-                LODWORD(v20[10].Header.WaitListHead.Blink) |= 0x10u;
-                _InterlockedOr(&v20[64].Header.Lock, 2u);
+                *((_DWORD *)v14 + 64) |= 0x10u;
+                _InterlockedOr((volatile signed __int32 *)v14 + 330, 2u);
               }
-              v20 = Event;
-              PspEnumJobsAndProcessesInJobHierarchy(
-                Event,
-                (int)PspSetJobLimitsJobPreCallback,
-                0,
-                (int)PspSetJobLimitsProcessCallback,
-                (__int64)v158,
-                5);
-              v13 = v134;
+              v14 = (char *)DeferredContext;
+              PspEnumJobsAndProcessesInJobHierarchy(DeferredContext, (__int64)v158, 5);
+              v13 = v136;
             }
-            ExReleaseResourceLite(*(PERESOURCE *)&Size[1]);
+            ExReleaseResourceLite(Resource);
             if ( p_ImpersonationLevel )
               SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)p_ImpersonationLevel);
-            if ( !v142 )
-              goto LABEL_495;
-            ExFreePoolWithTag(v142, 0x614A7350u);
-            v55 = (char *)P;
-            goto LABEL_241;
+            if ( !P )
+              goto LABEL_35;
+            ExFreePoolWithTag(P, 0x614A7350u);
+            v110 = v117;
+            goto LABEL_422;
           }
-LABEL_140:
-          v40 = 1632269136;
-          v41 = Pool2;
-LABEL_141:
-          ExFreePoolWithTag(v41, v40);
-          v13 = -1073741670;
-          goto LABEL_457;
+          goto LABEL_346;
         }
+LABEL_345:
+        v13 = -1073741670;
+        goto LABEL_35;
+      }
+      if ( (_DWORD)v5 != 12 )
+      {
         if ( (_DWORD)v5 == 2 )
-          goto LABEL_84;
+          goto LABEL_123;
         if ( (_DWORD)v5 != 4 )
         {
-          if ( (_DWORD)v5 == 5 )
+          switch ( (_DWORD)v5 )
           {
-            v181 = *v9;
-            v182 = v9[1];
-            v183 = v9[2].m128i_i64[0];
-            v13 = (v181.m128i_i32[0] & 0xFFFFFFF0) != 0 ? -1073741811 : -1073741637;
-LABEL_457:
-            v20 = Event;
-            goto LABEL_495;
-          }
-          if ( (_DWORD)v5 != 6 )
-          {
-            if ( (_DWORD)v5 != 7 )
-            {
-              if ( (_DWORD)v5 != 9 )
+            case 5:
+              v183 = *(__m128i *)v9;
+              v184 = *((_OWORD *)v9 + 1);
+              v185 = v9[4];
+              v13 = (v183.m128i_i32[0] & 0xFFFFFFF0) != 0 ? -1073741811 : -1073741637;
+              goto LABEL_282;
+            case 6:
+              v171 = *(_DWORD *)v9;
+              v96 = v171;
+              v14 = (char *)DeferredContext;
+              if ( v171 <= 1 )
               {
-                if ( (_DWORD)v5 != 11 )
-                {
-                  if ( (_DWORD)v5 == 12 )
-                    goto LABEL_42;
-LABEL_456:
-                  v13 = -1073741821;
-                  goto LABEL_457;
-                }
-                goto LABEL_203;
+                ExAcquireResourceExclusiveLite((PERESOURCE)((char *)DeferredContext + 56), 1u);
+                *((_DWORD *)v14 + 113) = v96;
+                goto LABEL_120;
               }
-LABEL_84:
-              memmove(v199, v9, v4);
-              if ( (unsigned int)v4 < 0x98 )
-                memset((char *)v199 + v4, 0, 152 - v4);
-              JobLimitInformationValidFlags = PspGetJobLimitInformationValidFlags(v5, v4);
-              Size[0] = ~JobLimitInformationValidFlags;
-              v30 = v199[2];
-              if ( (~JobLimitInformationValidFlags & v199[2]) != 0 )
-                goto LABEL_467;
-              memset(&SubjectContext, 0, sizeof(SubjectContext));
-              v157 = 0LL;
-              LODWORD(v200[66]) = v199[2];
+              goto LABEL_430;
+            case 7:
               P = 0LL;
-              *(_QWORD *)&Size[1] = 0LL;
-              v142 = 0LL;
-              HIDWORD(v200[66]) = (v199[2] & 8) != 0 ? LODWORD(v199[5]) : 0;
-              if ( (v199[2] & 0x20) != 0 )
+              *(_OWORD *)Handlea = *(_OWORD *)v9;
+              if ( !Handlea[1] )
               {
-                if ( LODWORD(v199[7]) > 6 )
-                  goto LABEL_467;
-                v31 = PreviousMode;
-                if ( (unsigned int)(LODWORD(v199[7]) - 3) <= 1 )
+                v14 = (char *)DeferredContext;
+                ExAcquireResourceExclusiveLite((PERESOURCE)((char *)DeferredContext + 56), 1u);
+                if ( v14 )
+                  ExAcquirePushLockExclusiveEx((ULONG_PTR)(v14 + 1032), 0LL);
+                v79 = (void *)*((_QWORD *)v14 + 57);
+                *((_QWORD *)v14 + 57) = 0LL;
+                PspUnlockJobMemoryLimitsExclusive((__int64)v14, 0LL, 0LL);
+                ExReleaseResourceLite((PERESOURCE)(v14 + 56));
+                if ( v79 )
+                  ObfDereferenceObjectWithTag(v79, 0x624A7350u);
+                goto LABEL_35;
+              }
+              v13 = ObReferenceObjectByHandleWithTag(
+                      Handlea[1],
+                      2u,
+                      IoCompletionObjectType,
+                      AccessMode,
+                      0x624A7350u,
+                      &Object,
+                      0LL);
+              v14 = (char *)DeferredContext;
+              if ( v13 < 0 )
+              {
+                v17 = 0LL;
+              }
+              else
+              {
+                if ( *((_QWORD *)DeferredContext + 125) )
                 {
-                  LOBYTE(v29) = PreviousMode;
-                  v32 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))SeCheckPrivilegedObject)(
-                          SeIncreaseBasePriorityPrivilege,
-                          v150,
-                          2LL,
-                          v29) & 1;
-                  LOBYTE(v33) = 4 * v32;
-                  v137 = v33;
-                  if ( !v32 )
+                  MiniCompletionPacket = 0LL;
+                  goto LABEL_47;
+                }
+                MiniCompletionPacket = (void *)IoAllocateMiniCompletionPacket(
+                                                 &PspNotificationPacketCallback,
+                                                 DeferredContext);
+                P = MiniCompletionPacket;
+                if ( MiniCompletionPacket )
+                {
+LABEL_47:
+                  ExAcquireResourceExclusiveLite((PERESOURCE)(v14 + 56), 1u);
+                  if ( *((_QWORD *)v14 + 57)
+                    || (*((_DWORD *)v14 + 64) & 0x2000) != 0 && (*((_DWORD *)v14 + 330) & 1) != 0 )
                   {
-LABEL_91:
-                    v13 = -1073741727;
-                    goto LABEL_457;
-                  }
-                  v30 = v199[2];
-                }
-                BYTE5(v200[169]) = v199[7];
-              }
-              else
-              {
-                BYTE5(v200[169]) = 0;
-                v31 = PreviousMode;
-              }
-              if ( (v30 & 0x80u) == 0 )
-              {
-                HIDWORD(v200[106]) = 5;
-              }
-              else
-              {
-                v34 = HIDWORD(v199[7]);
-                if ( HIDWORD(v199[7]) >= 0xA )
-                  goto LABEL_467;
-                if ( HIDWORD(v199[7]) > 5 )
-                {
-                  LOBYTE(v29) = v31;
-                  v35 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))SeCheckPrivilegedObject)(
-                          SeIncreaseBasePriorityPrivilege,
-                          v150,
-                          2LL,
-                          v29) & 1;
-                  LOBYTE(v36) = 4 * v35;
-                  v137 = v36;
-                  if ( !v35 )
-                    goto LABEL_91;
-                  v30 = v199[2];
-                  v34 = HIDWORD(v199[7]);
-                }
-                HIDWORD(v200[106]) = v34;
-              }
-              if ( (v30 & 2) != 0 )
-              {
-                if ( !v199[0] )
-                  goto LABEL_467;
-                v200[62] = v199[0];
-              }
-              else
-              {
-                v200[62] = 0LL;
-              }
-              if ( (v30 & 4) != 0 )
-              {
-                if ( !v199[1] )
-                  goto LABEL_467;
-                v200[63] = v199[1];
-              }
-              if ( (v30 & 1) != 0 )
-              {
-                v37 = v199[3];
-                if ( !v199[3] && !v199[4]
-                  || v199[3] == -1LL && v199[4] == -1LL
-                  || v199[3] > v199[4]
-                  || v199[3] < 0x14000uLL )
-                {
-                  goto LABEL_467;
-                }
-                if ( v199[3] > (unsigned __int64)PspMinimumWorkingSet )
-                {
-                  if ( !SeSinglePrivilegeCheck(SeIncreaseBasePriorityPrivilege, v31) )
-                    goto LABEL_91;
-                  v30 = v199[2];
-                  v37 = v199[3];
-                }
-                v200[64] = v37;
-                v200[65] = v199[4];
-              }
-              else
-              {
-                v200[64] = 0LL;
-                v200[65] = 0LL;
-              }
-              if ( (v30 & 0x100) != 0 )
-              {
-                if ( v199[14] < 0x1000uLL )
-                  goto LABEL_467;
-                v200[118] = v199[14] >> 12;
-              }
-              else
-              {
-                v200[118] = 0LL;
-              }
-              if ( (v30 & 0x200) != 0 )
-              {
-                if ( v199[15] < 0x1000uLL )
-                  goto LABEL_467;
-                v200[119] = v199[15] >> 12;
-              }
-              else
-              {
-                v200[119] = 0LL;
-              }
-              if ( (v30 & 0x200000) != 0 )
-              {
-                if ( v199[18] < 0x1000uLL )
-                  goto LABEL_467;
-                v200[120] = v199[18] >> 12;
-              }
-              else
-              {
-                v200[120] = 0LL;
-              }
-              LODWORD(v200[67]) = 2097153;
-              memset((char *)&v200[67] + 4, 0, 0x104uLL);
-              v38 = v200[66];
-              v133 = v200[66];
-              v20 = Event;
-              if ( (v200[66] & 0x10) == 0 )
-              {
-                LOBYTE(v43) = v137;
-                goto LABEL_148;
-              }
-              if ( (Event[64].Header.LockNV & 2) == 0 && v199[6] )
-              {
-                if ( !*(_QWORD *)&Event[22].Header.Lock )
-                {
-                  Pool2 = (struct _SECURITY_SUBJECT_CONTEXT *)ExAllocatePool2(256LL, 40LL, 1632269136LL);
-                  P = Pool2;
-                  if ( !Pool2 )
-                    goto LABEL_138;
-                  *(_QWORD *)&Size[1] = PsChargeSharedPoolQuota(KeGetCurrentThread()->ApcState.Process, 40LL, 0LL);
-                  if ( !*(_QWORD *)&Size[1] )
-                    goto LABEL_140;
-                  v20 = Event;
-                  v133 = v200[66];
-                  v13 = v134;
-                }
-                SeCaptureSubjectContextEx(
-                  Thread,
-                  Thread->ApcState.Process,
-                  (PSECURITY_SUBJECT_CONTEXT)&SubjectContext.ImpersonationLevel);
-                v142 = (PSECURITY_SUBJECT_CONTEXT)&SubjectContext.ImpersonationLevel;
-                if ( PreviousMode )
-                {
-                  RequiredPrivileges.PrivilegeCount = 1;
-                  RequiredPrivileges.Control = 1;
-                  RequiredPrivileges.Privilege[0].Luid = SeDebugPrivilege;
-                  RequiredPrivileges.Privilege[0].Attributes = 0;
-                  v42 = SePrivilegeCheck(
-                          &RequiredPrivileges,
-                          (PSECURITY_SUBJECT_CONTEXT)&SubjectContext.ImpersonationLevel,
-                          1);
-                  LODWORD(SubjectContext.ClientToken) ^= (LODWORD(SubjectContext.ClientToken) ^ v42) & 1;
-                }
-                else
-                {
-                  LODWORD(SubjectContext.ClientToken) |= 1u;
-                }
-                v43 = v137;
-                LOBYTE(v43) = v137 | 2;
-                v137 = v43;
-                v38 = v133;
-LABEL_148:
-                PreviousMode = v43;
-                ExAcquireResourceExclusiveLite((PERESOURCE)&v20[2].Header.WaitListHead, 1u);
-                if ( (v38 & 4) == 0 )
-                {
-                  if ( (v38 & 0x40) != 0 )
-                  {
-                    v38 |= (__int64)v20[10].Header.WaitListHead.Blink & 4;
-                    v200[63] = v20[9].Header.WaitListHead.Blink;
+                    ExReleaseResourceLite((PERESOURCE)(v14 + 56));
+                    ObfDereferenceObjectWithTag(Object, 0x624A7350u);
+                    v13 = -1073741811;
+                    v17 = P;
                   }
                   else
                   {
-                    v200[63] = 0LL;
-                  }
-                }
-                v44 = v38 & 0xFFFFFFBF;
-                LODWORD(v200[66]) = v44;
-                if ( (PreviousMode & 2) == 0 )
-                {
-                  if ( (v44 & 0x4000) != 0 && (v20[64].Header.LockNV & 2) == 0 )
-                    goto LABEL_154;
-LABEL_172:
-                  if ( ((__int64)v20[10].Header.WaitListHead.Blink & 1) != 0 && (v200[66] & 1) == 0 )
-                  {
-                    _InterlockedOr(v130, 0);
-                    if ( (qword_140D0C390 & 1) != 0 )
-                      ExfAcquireReleasePushLockExclusive((ULONG_PTR)&qword_140D0C390);
-                    v13 = v134;
-                    v20 = Event;
-                  }
-                  v158[0] = (__int64)v20;
-                  HIDWORD(v158[1]) = v20[10].Header.WaitListHead.Blink;
-                  *(_QWORD *)&v20[10].Header.Lock = v200[64];
-                  v20[10].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v200[65];
-                  HIDWORD(v20[10].Header.WaitListHead.Blink) = HIDWORD(v200[66]);
-                  if ( (PreviousMode & 2) != 0 )
-                  {
-                    v49 = v20 + 11;
-                    v50 = &v200[67];
-                    do
+                    if ( *((_QWORD *)v14 + 125) )
                     {
-                      *(_OWORD *)&v49->Header.Lock = *v50;
-                      *(_OWORD *)&v49->Header.WaitListHead.Blink = v50[1];
-                      v49[1].Header.WaitListHead = (LIST_ENTRY)v50[2];
-                      *(_OWORD *)&v49[2].Header.Lock = v50[3];
-                      *(_OWORD *)&v49[2].Header.WaitListHead.Blink = v50[4];
-                      v49[3].Header.WaitListHead = (LIST_ENTRY)v50[5];
-                      *(_OWORD *)&v49[4].Header.Lock = v50[6];
-                      v49 = (struct _KEVENT *)((char *)v49 + 128);
-                      v49[-1].Header.WaitListHead = (LIST_ENTRY)v50[7];
-                      v50 += 8;
-                      --v11;
+                      v17 = P;
                     }
-                    while ( v11 );
-                    *(_QWORD *)&v49->Header.Lock = *(_QWORD *)v50;
-                  }
-                  BYTE1(v20[45].Header.SignalState) = BYTE5(v200[169]);
-                  v20[24].Header.SignalState = HIDWORD(v200[106]);
-                  v20[9].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v200[62];
-                  v20[9].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)v200[63];
-                  if ( (_DWORD)v5 == 9 )
-                  {
-                    ExAcquirePushLockExclusiveEx((ULONG_PTR)&v20[52], 0LL);
-                    LODWORD(v20[10].Header.WaitListHead.Blink) = LODWORD(v200[66]) | (__int64)v20[10].Header.WaitListHead.Blink & Size[0];
-                    *(_QWORD *)&v20[28].Header.Lock = v200[118];
-                    v20[28].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v200[119];
-                    v20[28].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)v200[120];
-                    PspUnlockJobMemoryLimitsExclusive(v20, 0LL, 0LL);
-                  }
-                  else
-                  {
-                    LODWORD(v20[10].Header.WaitListHead.Blink) = LODWORD(v200[66]) | (__int64)v20[10].Header.WaitListHead.Blink & Size[0];
-                  }
-                  LODWORD(v158[1]) = ~(LODWORD(v20[10].Header.WaitListHead.Blink) | HIDWORD(v158[1]));
-                  if ( (v199[2] & 4) != 0 )
-                  {
-                    PspEnumJobsAndProcessesInJobHierarchy(
-                      v20,
-                      0,
-                      0,
-                      (int)PspSetJobTimeLimitCallback,
-                      (__int64)&v20[9].Header.WaitListHead.Blink,
-                      1);
-                    v20[7].Header.WaitListHead.Blink = 0LL;
-                    *(_QWORD *)&v20[8].Header.Lock = 0LL;
-                    KeResetEvent(v20);
-                  }
-                  if ( ((__int64)v20[10].Header.WaitListHead.Blink & 6) != 0 )
-                  {
-                    _InterlockedAdd64(&PspJobTimeLimitsRequest, 1uLL);
-                    v20 = Event;
-                    v13 = v134;
-                  }
-                  v51 = v158[1];
-                  PspEnumJobsAndProcessesInJobHierarchy(
-                    v20,
-                    (int)PspSetJobLimitsJobPreCallback,
-                    (int)PspSetJobLimitsJobPostCallback,
-                    (int)PspSetJobLimitsProcessCallback,
-                    (__int64)v158,
-                    5);
-                  v45 = PreviousMode | 1;
-                  if ( (v51 & 1) != 0 )
-                    v45 = PreviousMode;
-                  goto LABEL_190;
-                }
-                if ( (v20[64].Header.LockNV & 2) != 0 )
-                {
-LABEL_154:
-                  v13 = -1073741811;
-                  v134 = -1073741811;
-LABEL_155:
-                  v45 = v137;
-LABEL_190:
-                  v52 = v45 & 1;
-                  if ( v52 )
-                  {
-                    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140D0C390, 0LL);
-                    _InterlockedOr(&v20[64].Header.Lock, 0x100u);
-                    v20 = Event;
-                    p_Blink = (struct _LIST_ENTRY *)&Event[1].Header.WaitListHead.Blink;
-                    for ( i = Event[1].Header.WaitListHead.Blink; i != p_Blink; i = i->Flink )
+                    else
                     {
-                      if ( ((__int64)i[-23].Blink & 1) == 0 )
-                        PspAddProcessToWorkingSetChangeList(&i[-93].Blink);
+                      *((_QWORD *)v14 + 125) = MiniCompletionPacket;
+                      v17 = 0LL;
                     }
-                    v13 = v134;
+                    ExAcquirePushLockExclusiveEx((ULONG_PTR)(v14 + 1032), 0LL);
+                    *((HANDLE *)v14 + 58) = Handlea[0];
+                    *((_QWORD *)v14 + 57) = Object;
+                    *((_QWORD *)v14 + 59) = 0LL;
+                    PspUnlockJobMemoryLimitsExclusive((__int64)v14, 0LL, 0LL);
+                    if ( (*((_DWORD *)v14 + 219) & 0x40) != 0 )
+                      PspEnumProcessesInJobHierarchy(v14, PspAssociateCompletionPortCallback, v14, 1LL);
+                    ExReleaseResourceLite((PERESOURCE)(v14 + 56));
                   }
-                  ExReleaseResourceLite((PERESOURCE)&v20[2].Header.WaitListHead);
-                  if ( v52 )
-                    PspApplyWorkingSetLimits(v20);
-                  if ( v142 )
-                    SeReleaseSubjectContext(v142);
-                  if ( !P )
-                    goto LABEL_495;
-                  ExFreePoolWithTag(P, 0x614A7350u);
-                  v55 = *(char **)&Size[1];
-LABEL_241:
-                  PsReturnSharedPoolQuota(v55, 0x28uLL, 0LL);
-                  goto LABEL_495;
+                  goto LABEL_54;
                 }
-                if ( ((__int64)v20[10].Header.WaitListHead.Blink & 0x10) != 0 )
+                v13 = -1073741670;
+                v17 = 0LL;
+              }
+LABEL_54:
+              if ( v17 )
+                IoFreeMiniCompletionPacket(v17);
+              goto LABEL_35;
+          }
+          if ( (_DWORD)v5 != 9 )
+          {
+            if ( (_DWORD)v5 != 11 )
+              goto LABEL_459;
+            goto LABEL_296;
+          }
+LABEL_123:
+          memmove(v198, v9, v4);
+          if ( (unsigned int)v4 < 0x98 )
+            memset((char *)v198 + v4, 0, 152 - v4);
+          JobLimitInformationValidFlags = PspGetJobLimitInformationValidFlags(v5, v4);
+          v53 = ~JobLimitInformationValidFlags;
+          LODWORD(v146) = ~JobLimitInformationValidFlags;
+          v54 = v198[2];
+          if ( (~JobLimitInformationValidFlags & v198[2]) != 0 )
+            goto LABEL_384;
+          LODWORD(v202[27]) = v198[2];
+          Resource = 0LL;
+          BugCheckParameter2 = 0LL;
+          v163 = 0LL;
+          DWORD1(v202[27]) = (v198[2] & 8) != 0 ? LODWORD(v198[5]) : 0;
+          if ( (v198[2] & 0x20) != 0 )
+          {
+            if ( LODWORD(v198[7]) > 6 )
+              goto LABEL_384;
+            v55 = AccessMode;
+            if ( (unsigned int)(LODWORD(v198[7]) - 3) <= 1 )
+            {
+              LOBYTE(v52) = AccessMode;
+              v97 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))SeCheckPrivilegedObject)(
+                      SeIncreaseBasePriorityPrivilege,
+                      P,
+                      2LL,
+                      v52) & 1;
+              LOBYTE(v98) = 4 * v97;
+              v139 = v98;
+              if ( !v97 )
+                goto LABEL_315;
+              v54 = v198[2];
+            }
+            BYTE9(v202[65]) = v198[7];
+          }
+          else
+          {
+            BYTE9(v202[65]) = 0;
+            v55 = AccessMode;
+          }
+          if ( (v54 & 0x80u) != 0 )
+          {
+            v99 = HIDWORD(v198[7]);
+            if ( HIDWORD(v198[7]) >= 0xA )
+              goto LABEL_384;
+            if ( HIDWORD(v198[7]) > 5 )
+            {
+              LOBYTE(v52) = v55;
+              v100 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))SeCheckPrivilegedObject)(
+                       SeIncreaseBasePriorityPrivilege,
+                       P,
+                       2LL,
+                       v52) & 1;
+              LOBYTE(v101) = 4 * v100;
+              v139 = v101;
+              if ( !v100 )
+                goto LABEL_315;
+              v54 = v198[2];
+              v99 = HIDWORD(v198[7]);
+            }
+            DWORD1(v202[41]) = v99;
+          }
+          else
+          {
+            DWORD1(v202[41]) = 5;
+          }
+          if ( (v54 & 2) != 0 )
+          {
+            if ( !v198[0] )
+              goto LABEL_384;
+            *(_QWORD *)&v202[25] = v198[0];
+          }
+          else
+          {
+            *(_QWORD *)&v202[25] = 0LL;
+          }
+          v152 = v54 & 4;
+          if ( (v54 & 4) != 0 )
+          {
+            if ( !v198[1] )
+              goto LABEL_384;
+            *((_QWORD *)&v202[25] + 1) = v198[1];
+          }
+          if ( (v54 & 1) == 0 )
+          {
+            v202[26] = 0uLL;
+            goto LABEL_135;
+          }
+          v102 = v198[3];
+          if ( !v198[3] && !v198[4] || v198[3] == -1LL && v198[4] == -1LL || v198[3] > v198[4] || v198[3] < 0x14000uLL )
+            goto LABEL_384;
+          if ( v198[3] <= (unsigned __int64)PspMinimumWorkingSet )
+          {
+LABEL_334:
+            *(_QWORD *)&v202[26] = v102;
+            *((_QWORD *)&v202[26] + 1) = v198[4];
+LABEL_135:
+            if ( (v54 & 0x100) != 0 )
+            {
+              if ( v198[14] < 0x1000uLL )
+                goto LABEL_384;
+              *(_QWORD *)&v202[47] = v198[14] >> 12;
+            }
+            else
+            {
+              *(_QWORD *)&v202[47] = 0LL;
+            }
+            if ( (v54 & 0x200) != 0 )
+            {
+              if ( v198[15] < 0x1000uLL )
+                goto LABEL_384;
+              *((_QWORD *)&v202[47] + 1) = v198[15] >> 12;
+            }
+            else
+            {
+              *((_QWORD *)&v202[47] + 1) = 0LL;
+            }
+            if ( (v54 & 0x200000) != 0 )
+            {
+              if ( v198[18] < 0x1000uLL )
+                goto LABEL_384;
+              *(_QWORD *)&v202[48] = v198[18] >> 12;
+            }
+            else
+            {
+              *(_QWORD *)&v202[48] = 0LL;
+            }
+            DWORD2(v202[27]) = 1310721;
+            memset((char *)&v202[27] + 12, 0, 0xA4uLL);
+            v135 = v202[27];
+            v14 = (char *)DeferredContext;
+            if ( (v202[27] & 0x10) != 0 )
+            {
+              if ( (*((_DWORD *)DeferredContext + 330) & 2) != 0 || !v198[6] )
+                goto LABEL_430;
+              if ( !*((_QWORD *)DeferredContext + 54) )
+              {
+                PoolWithTag = (struct _ERESOURCE *)ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x614A7350u);
+                Resource = PoolWithTag;
+                if ( !PoolWithTag )
+                  goto LABEL_345;
+                BugCheckParameter2 = PsChargeSharedPoolQuota(KeGetCurrentThread()->ApcState.Process, 40LL, 0LL);
+                if ( !BugCheckParameter2 )
                 {
-                  KeFirstGroupAffinityEx((__int64)&v162, &v20[11]);
-                  Group = v162.m128i_u16[4];
+LABEL_346:
+                  v105 = 1632269136;
+                  v78 = PoolWithTag;
+LABEL_348:
+                  ExFreePoolWithTag(v78, v105);
+                  v13 = -1073741670;
+                  goto LABEL_282;
+                }
+                v14 = (char *)DeferredContext;
+                v135 = v202[27];
+                v13 = v136;
+              }
+              SeCaptureSubjectContextEx(
+                Thread,
+                Thread->ApcState.Process,
+                (PSECURITY_SUBJECT_CONTEXT)&SubjectContext.ImpersonationLevel);
+              v163 = (PSECURITY_SUBJECT_CONTEXT)&SubjectContext.ImpersonationLevel;
+              if ( AccessMode )
+              {
+                RequiredPrivileges.PrivilegeCount = 1;
+                RequiredPrivileges.Control = 1;
+                RequiredPrivileges.Privilege[0].Luid = SeDebugPrivilege;
+                RequiredPrivileges.Privilege[0].Attributes = 0;
+                v104 = SePrivilegeCheck(
+                         &RequiredPrivileges,
+                         (PSECURITY_SUBJECT_CONTEXT)&SubjectContext.ImpersonationLevel,
+                         1);
+                LODWORD(SubjectContext.ClientToken) ^= (LODWORD(SubjectContext.ClientToken) ^ v104) & 1;
+              }
+              else
+              {
+                LODWORD(SubjectContext.ClientToken) |= 1u;
+              }
+              v56 = v139;
+              LOBYTE(v56) = v139 | 2;
+              v139 = v56;
+              v53 = (int)v146;
+            }
+            else
+            {
+              LOBYTE(v56) = v139;
+            }
+            AccessMode = v56;
+            v146 = (PERESOURCE)(v14 + 56);
+            ExAcquireResourceExclusiveLite((PERESOURCE)(v14 + 56), 1u);
+            v57 = v135;
+            if ( (v135 & 4) == 0 )
+            {
+              if ( (v135 & 0x40) != 0 )
+              {
+                v57 = *((_DWORD *)v14 + 64) & 4 | v135;
+                *((_QWORD *)&v202[25] + 1) = *((_QWORD *)v14 + 29);
+              }
+              else
+              {
+                *((_QWORD *)&v202[25] + 1) = 0LL;
+              }
+            }
+            v58 = v57 & 0xFFFFFFBF;
+            LODWORD(v202[27]) = v58;
+            if ( (AccessMode & 2) != 0 )
+            {
+              if ( (*((_DWORD *)v14 + 330) & 2) == 0 )
+              {
+                if ( (*((_DWORD *)v14 + 64) & 0x10) != 0 )
+                {
+                  KeFirstGroupAffinityEx((__int64)&v167, (_WORD *)v14 + 132);
+                  Group = v167.m128i_u16[4];
                 }
                 else
                 {
                   Group = KeGetCurrentPrcb()->Group;
-                  v162.m128i_i16[4] = Group;
+                  v167.m128i_i16[4] = Group;
                 }
-                if ( v199[6] != (qword_140D1EFE8[Group] & v199[6]) )
+                if ( v198[6] == (qword_140CFC848[Group] & v198[6]) )
                 {
-                  v20 = Event;
-                  goto LABEL_154;
-                }
-                if ( LOWORD(v200[67]) <= (unsigned int)v162.m128i_i16[4] )
-                {
-                  if ( WORD1(v200[67]) <= (unsigned int)v162.m128i_i16[4] )
+                  if ( WORD4(v202[27]) <= (unsigned int)v167.m128i_i16[4] )
+                    WORD4(v202[27]) = v167.m128i_i16[4] + 1;
+                  *((_QWORD *)&v202[28] + Group) |= v198[6];
+                  v14 = (char *)DeferredContext;
+                  v13 = PspEnumProcessesInJobHierarchy(
+                          DeferredContext,
+                          PspSetAffinityLimitCallback,
+                          &SubjectContext,
+                          1LL);
+                  v136 = v13;
+                  if ( v13 >= 0 )
                   {
-LABEL_165:
-                    v20 = Event;
-                    v13 = PspEnumJobsAndProcessesInJobHierarchy(
-                            Event,
-                            0,
-                            0,
-                            (int)PspSetAffinityLimitCallback,
-                            (__int64)&SubjectContext,
-                            1);
-                    v134 = v13;
-                    if ( v13 < 0 )
-                      goto LABEL_155;
-                    v47 = *(_QWORD *)&v20[22].Header.Lock;
-                    if ( v47 )
+                    v107 = *((_QWORD *)v14 + 54);
+                    if ( v107 )
                     {
-                      v174 = *(_OWORD *)(v47 + 8);
-                      v175 = *(_OWORD *)(v47 + 24);
-                      v142 = (PSECURITY_SUBJECT_CONTEXT)&v174;
+                      v176 = *(_OWORD *)(v107 + 8);
+                      v177 = *(_OWORD *)(v107 + 24);
+                      v163 = (PSECURITY_SUBJECT_CONTEXT)&v176;
                     }
                     else
                     {
-                      *(_QWORD *)&v20[22].Header.Lock = P;
-                      v20[22].Header.WaitListHead.Flink = *(struct _LIST_ENTRY **)&Size[1];
-                      P = 0LL;
-                      v142 = 0LL;
+                      *((_QWORD *)v14 + 54) = Resource;
+                      *((_QWORD *)v14 + 55) = BugCheckParameter2;
+                      Resource = 0LL;
+                      v163 = 0LL;
+                      v107 = *((_QWORD *)v14 + 54);
                     }
-                    v48 = *(struct _SECURITY_SUBJECT_CONTEXT **)&v20[22].Header.Lock;
-                    *v48 = SubjectContext;
-                    v48[1].ClientToken = v157;
-                    goto LABEL_172;
+                    *(struct _SECURITY_SUBJECT_CONTEXT *)v107 = SubjectContext;
+                    *(_QWORD *)(v107 + 32) = v161;
+                    goto LABEL_148;
                   }
-                  LOWORD(v200[67]) = v162.m128i_i16[4] + 1;
-                }
-                v200[v162.m128i_u16[4] + 68] |= v199[6];
-                goto LABEL_165;
-              }
-LABEL_351:
-              v13 = -1073741811;
-              goto LABEL_495;
-            }
-            v143 = 0LL;
-            *(__m128i *)BugCheckParameter1a = *v9;
-            if ( !BugCheckParameter1a[1] )
-            {
-              v20 = Event;
-              ExAcquireResourceExclusiveLite((PERESOURCE)&Event[2].Header.WaitListHead, 1u);
-              if ( v20 )
-                ExAcquirePushLockExclusiveEx((ULONG_PTR)&v20[52], 0LL);
-              v21 = *(void **)&v20[23].Header.Lock;
-              *(_QWORD *)&v20[23].Header.Lock = 0LL;
-              PspUnlockJobMemoryLimitsExclusive(v20, 0LL, 0LL);
-              ExReleaseResourceLite((PERESOURCE)&v20[2].Header.WaitListHead);
-              if ( v21 )
-                ObfDereferenceObjectWithTag(v21, 0x624A7350u);
-              goto LABEL_495;
-            }
-            v13 = ObpReferenceObjectByHandleWithTag(BugCheckParameter1a[1], 0x624A7350u, (__int64)&Object, 0LL, 0LL);
-            v20 = Event;
-            if ( v13 >= 0 )
-            {
-              if ( Event[50].Header.WaitListHead.Blink )
-              {
-                MiniCompletionPacket = 0LL;
-              }
-              else
-              {
-                MiniCompletionPacket = IoAllocateMiniCompletionPacket(&PspNotificationPacketCallback, Event);
-                v143 = MiniCompletionPacket;
-                if ( !MiniCompletionPacket )
-                {
-                  v13 = -1073741670;
-                  goto LABEL_66;
-                }
-              }
-              ExAcquireResourceExclusiveLite((PERESOURCE)&v20[2].Header.WaitListHead, 1u);
-              if ( *(_QWORD *)&v20[23].Header.Lock
-                || ((__int64)v20[10].Header.WaitListHead.Blink & 0x2000) != 0 && (v20[64].Header.LockNV & 1) != 0 )
-              {
-                ExReleaseResourceLite((PERESOURCE)&v20[2].Header.WaitListHead);
-                ObfDereferenceObjectWithTag(Object, 0x624A7350u);
-                v13 = -1073741811;
-                MiniCompletionPacket = v143;
-              }
-              else
-              {
-                if ( v20[50].Header.WaitListHead.Blink )
-                {
-                  MiniCompletionPacket = v143;
                 }
                 else
                 {
-                  v20[50].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)MiniCompletionPacket;
-                  MiniCompletionPacket = 0LL;
+                  v13 = -1073741811;
+                  v136 = -1073741811;
+                  v14 = (char *)DeferredContext;
                 }
-                ExAcquirePushLockExclusiveEx((ULONG_PTR)&v20[52], 0LL);
-                v20[23].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)BugCheckParameter1a[0];
-                *(_QWORD *)&v20[23].Header.Lock = Object;
-                v20[23].Header.WaitListHead.Blink = 0LL;
-                PspUnlockJobMemoryLimitsExclusive(v20, 0LL, 0LL);
-                if ( ((__int64)v20[45].Header.WaitListHead.Flink & 0x40) != 0 )
-                  PspEnumJobsAndProcessesInJobHierarchy(
-                    v20,
-                    0,
-                    0,
-                    (int)PspAssociateCompletionPortCallback,
-                    (__int64)v20,
-                    1);
-                ExReleaseResourceLite((PERESOURCE)&v20[2].Header.WaitListHead);
+LABEL_356:
+                v64 = v139;
+LABEL_159:
+                v65 = v64 & 1;
+                if ( v65 )
+                {
+                  PspLockWorkingSetChangeExclusiveUnsafe();
+                  _InterlockedOr((volatile signed __int32 *)v14 + 330, 0x100u);
+                  v14 = (char *)DeferredContext;
+                  v108 = (char *)DeferredContext + 40;
+                  for ( i = (char *)*((_QWORD *)DeferredContext + 5); i != v108; i = *(char **)i )
+                  {
+                    if ( (*((_DWORD *)i - 90) & 1) == 0 )
+                      PspAddProcessToWorkingSetChangeList(i - 1480);
+                  }
+                  v13 = v136;
+                }
+                ExReleaseResourceLite(v146);
+                if ( v65 )
+                  PspApplyWorkingSetLimits(v14);
+                if ( v163 )
+                  SeReleaseSubjectContext(v163);
+                if ( !Resource )
+                  goto LABEL_35;
+                ExFreePoolWithTag(Resource, 0x614A7350u);
+                v110 = (void *)BugCheckParameter2;
+LABEL_422:
+                PsReturnSharedPoolQuota(v110);
+                goto LABEL_35;
               }
-              goto LABEL_66;
             }
-            MiniCompletionPacket = 0LL;
-LABEL_66:
-            if ( MiniCompletionPacket )
+            else if ( (v58 & 0x4000) == 0 || (*((_DWORD *)v14 + 330) & 2) != 0 )
             {
-              *(_QWORD *)(MiniCompletionPacket + 56) = 0LL;
-              IopFreeMiniCompletionPacket(MiniCompletionPacket);
+LABEL_148:
+              v59 = v14 + 256;
+              P = v14 + 256;
+              if ( (*((_DWORD *)v14 + 64) & 1) != 0 && (v202[27] & 1) == 0 )
+              {
+                _InterlockedOr(v132, 0);
+                if ( (qword_140C13270 & 1) != 0 )
+                {
+                  ExfAcquireReleasePushLockExclusive(&qword_140C13270);
+                  v59 = P;
+                }
+                v13 = v136;
+                v14 = (char *)DeferredContext;
+              }
+              v158[0] = (__int64)v14;
+              HIDWORD(v158[1]) = *v59;
+              *((_OWORD *)v14 + 15) = v202[26];
+              *((_DWORD *)v14 + 65) = DWORD1(v202[27]);
+              if ( (AccessMode & 2) != 0 )
+              {
+                *(_OWORD *)(v14 + 264) = *(_OWORD *)((char *)&v202[27] + 8);
+                *(_OWORD *)(v14 + 280) = *(_OWORD *)((char *)&v202[28] + 8);
+                *(_OWORD *)(v14 + 296) = *(_OWORD *)((char *)&v202[29] + 8);
+                *(_OWORD *)(v14 + 312) = *(_OWORD *)((char *)&v202[30] + 8);
+                *(_OWORD *)(v14 + 328) = *(_OWORD *)((char *)&v202[31] + 8);
+                *(_OWORD *)(v14 + 344) = *(_OWORD *)((char *)&v202[32] + 8);
+                *(_OWORD *)(v14 + 360) = *(_OWORD *)((char *)&v202[33] + 8);
+                *(_OWORD *)(v14 + 376) = *(_OWORD *)((char *)&v202[34] + 8);
+                *(_OWORD *)(v14 + 392) = *(_OWORD *)((char *)&v202[35] + 8);
+                *(_OWORD *)(v14 + 408) = *(_OWORD *)((char *)&v202[36] + 8);
+                *((_QWORD *)v14 + 53) = *((_QWORD *)&v202[37] + 1);
+                v59 = P;
+              }
+              v14[873] = BYTE9(v202[65]);
+              *((_DWORD *)v14 + 121) = DWORD1(v202[41]);
+              *((_OWORD *)v14 + 14) = v202[25];
+              v60 = v14 + 232;
+              if ( (_DWORD)v5 == 9 )
+              {
+                ExAcquirePushLockExclusiveEx((ULONG_PTR)(v14 + 1032), 0LL);
+                v61 = (int *)P;
+                *(_DWORD *)P = LODWORD(v202[27]) | *(_DWORD *)P & v53;
+                *((_OWORD *)v14 + 36) = v202[47];
+                *((_QWORD *)v14 + 74) = *(_QWORD *)&v202[48];
+                PspUnlockJobMemoryLimitsExclusive((__int64)v14, 0LL, 0LL);
+                v62 = *v61;
+                v60 = v14 + 232;
+              }
+              else
+              {
+                v62 = LODWORD(v202[27]) | *v59 & v53;
+                *v59 = v62;
+                v61 = (int *)P;
+              }
+              LODWORD(v158[1]) = ~(HIDWORD(v158[1]) | v62);
+              if ( v152 )
+              {
+                PspEnumProcessesInJobHierarchy(v14, PspSetJobTimeLimitCallback, v60, 1LL);
+                *((_QWORD *)v14 + 23) = 0LL;
+                *((_QWORD *)v14 + 24) = 0LL;
+                KeResetEvent((PRKEVENT)v14);
+              }
+              if ( (*v61 & 6) != 0 )
+              {
+                _InterlockedAdd64(&PspJobTimeLimitsRequest, 1uLL);
+                v14 = (char *)DeferredContext;
+                v13 = v136;
+              }
+              v63 = v158[1];
+              PspEnumJobsAndProcessesInJobHierarchy(v14, (__int64)v158, 5);
+              v64 = AccessMode | 1;
+              if ( (v63 & 1) != 0 )
+                v64 = AccessMode;
+              goto LABEL_159;
             }
-            goto LABEL_495;
+            v13 = -1073741811;
+            v136 = -1073741811;
+            goto LABEL_356;
           }
-          v171 = v9->m128i_i32[0];
-          v23 = v171;
-          v20 = Event;
-          if ( v171 > 1 )
-            goto LABEL_351;
-          ExAcquireResourceExclusiveLite((PERESOURCE)&Event[2].Header.WaitListHead, 1u);
-          HIDWORD(v20[22].Header.WaitListHead.Blink) = v23;
-          goto LABEL_70;
+          if ( SeSinglePrivilegeCheck(SeIncreaseBasePriorityPrivilege, v55) )
+          {
+            v54 = v198[2];
+            v102 = v198[3];
+            goto LABEL_334;
+          }
+LABEL_315:
+          v13 = -1073741727;
+          goto LABEL_282;
         }
-        v148 = v9->m128i_i32[0];
-        v20 = Event;
-        if ( (v148 & 0xFFFFFE00) != 0 )
-          goto LABEL_351;
-        v25 = 8;
-        PspLockJobChain((__int64)Event, (__int64)Thread, 0);
-        if ( (unsigned __int8)PspDoesJobHierarchyPermitUILimits((__int64)v20) )
+        v150 = *(_DWORD *)v9;
+        if ( (v150 & 0xFFFFFF00) != 0 )
+          goto LABEL_384;
+        v86 = 8;
+        v14 = (char *)DeferredContext;
+        PspLockJobChain(DeferredContext, Thread, 0LL);
+        if ( (unsigned __int8)PspDoesJobHierarchyPermitUILimits((__int64)v14) )
         {
-          if ( v20[24].Header.LockNV == -2 )
+          if ( *((_DWORD *)v14 + 120) == -2 )
           {
             v13 = -1073741790;
           }
           else
           {
-            v20 = Event;
-            PspBindProcessSessionToJob((__int64)Event, (__int64)KeGetCurrentThread()->ApcState.Process);
-            v152 = *v26;
-            if ( v152 > 0xFFFFFFFD )
-              goto LABEL_81;
-            if ( LODWORD(v20[22].Header.WaitListHead.Blink) == v148 )
-              goto LABEL_81;
-            v179 = 0;
-            PspUnlockJobChain((__int64)v20, (__int64)Thread, 1);
-            v25 = 0;
-            v177 = v20;
-            v178 = 0;
-            v180 = v148;
-            v13 = PsInvokeWin32Callout(6LL, &v177, 1LL, &v152);
-            v134 = v13;
+            v14 = (char *)DeferredContext;
+            PspBindProcessSessionToJob((__int64)DeferredContext, (__int64)KeGetCurrentThread()->ApcState.Process);
+            v154 = *v87;
+            if ( v154 > 0xFFFFFFFD )
+              goto LABEL_247;
+            if ( v150 == *((_DWORD *)v14 + 112) )
+              goto LABEL_247;
+            v181 = 0;
+            PspUnlockJobChain(v14, Thread, 1LL);
+            v86 = 0;
+            v179 = v14;
+            v180 = 0;
+            v182 = v150;
+            v13 = PsInvokeWin32Callout(6LL, &v179, 1LL, &v154);
+            v136 = v13;
             if ( v13 >= 0 )
             {
-LABEL_81:
-              LODWORD(v20[22].Header.WaitListHead.Blink) = v148;
-              _InterlockedOr(&v20[64].Header.Lock, 0x10u);
-              v20 = Event;
-              v13 = v134;
+LABEL_247:
+              *((_DWORD *)v14 + 112) = v150;
+              _InterlockedOr((volatile signed __int32 *)v14 + 330, 0x10u);
+              v14 = (char *)DeferredContext;
+              v13 = v136;
             }
           }
         }
@@ -1125,823 +1350,535 @@ LABEL_81:
         {
           v13 = -1073741637;
         }
-        v27 = Thread;
-        v28 = (__int64)v20;
-        if ( v25 == 8 )
-        {
-LABEL_83:
-          PspUnlockJobChain(v28, (__int64)v27, 0);
-          goto LABEL_495;
-        }
-LABEL_448:
-        PspUnlockJob(v28, (__int64)v27);
-        goto LABEL_495;
+        v128 = Thread;
+        v129 = v14;
+        if ( (unsigned __int8)v86 >= 8u )
+          goto LABEL_209;
+LABEL_249:
+        PspUnlockJob(v129, v128);
+        goto LABEL_35;
       }
-      if ( (_DWORD)v5 != 15 )
+LABEL_66:
+      if ( (_DWORD)v4 == 56 )
       {
-        if ( (_DWORD)v5 != 16 )
-        {
-          if ( (_DWORD)v5 == 18 )
-          {
-            v191 = *v9;
-            if ( v191.m128i_i32[0]
-              && (v191.m128i_i32[0] & 0xFFFFFFF0) == 0
-              && ((v191.m128i_i8[0] & 1) != 0 || (v191.m128i_i8[0] & 8) == 0) )
-            {
-              v20 = Event;
-              v13 = PspFreezeJobTree(Event, &v191);
-              if ( v13 >= 0 )
-                v9->m128i_i32[0] = v191.m128i_i32[0];
-              goto LABEL_495;
-            }
-            goto LABEL_467;
-          }
-          if ( (_DWORD)v5 != 21 )
-          {
-            switch ( (_DWORD)v5 )
-            {
-              case 0x16:
-                LOBYTE(v135) = v9->m128i_i8[0];
-                v20 = Event;
-                ExAcquireResourceExclusiveLite((PERESOURCE)&Event[2].Header.WaitListHead, 1u);
-                if ( (v20[64].Header.LockNV & 0x20) == 0 )
-                  goto LABEL_250;
-                v74 = *(_QWORD *)&v20[51].Header.Lock;
-                v75 = *(_DWORD *)(v74 + 40);
-                if ( (v75 & 0x40) != 0 )
-                  goto LABEL_250;
-                if ( (v75 & 0x21) != 0 )
-                {
-                  v13 = -1073741637;
-                  goto LABEL_70;
-                }
-                if ( ((v75 >> 3) & 1) == ((_BYTE)v135 != 0) )
-                  goto LABEL_250;
-                LOBYTE(v73) = -(char)v135;
-                *(_DWORD *)(v74 + 40) = ((_BYTE)v135 != 0 ? 8 : 0) | v75 & 0xFFFFFFF7;
-                KeSetSchedulingGroupRankBias(*(_QWORD *)&v20[51].Header.Lock + 128LL, v135, v73);
-                PspEnumJobsAndProcessesInJobHierarchy(
-                  v20,
-                  0,
-                  0,
-                  (int)PspSetProcessCacheIsolationCallback,
-                  (__int64)&v135,
-                  1);
-                break;
-              case 0x17:
-                if ( v9->m128i_i8[0] != 1 )
-                {
-                  v13 = -1073741811;
-                  v134 = -1073741811;
-                  v20 = Event;
-                  goto LABEL_495;
-                }
-                v20 = Event;
-                PspEnumJobsAndProcessesInJobHierarchy(
-                  Event,
-                  0,
-                  (int)PspEnableTimerVirtualization,
-                  (int)PspEnableProcessTimerVirtualization,
-                  0LL,
-                  0);
-                goto LABEL_324;
-              case 0x18:
-                v70 = v9->m128i_i64[0];
-                v184 = v9->m128i_i64[0];
-                v20 = Event;
-                ExAcquireResourceExclusiveLite((PERESOURCE)&Event[2].Header.WaitListHead, 1u);
-                if ( (v20[64].Header.LockNV & 0x20) == 0 )
-                {
-LABEL_250:
-                  v13 = -1073741811;
-LABEL_70:
-                  p_WaitListHead = (struct _ERESOURCE *)&v20[2].Header.WaitListHead;
-LABEL_71:
-                  ExReleaseResourceLite(p_WaitListHead);
-                  goto LABEL_495;
-                }
-                v71 = *(_QWORD *)&v20[51].Header.Lock;
-                v72 = *(_DWORD *)(v71 + 40);
-                if ( (v72 & 0x10) == 0 )
-                {
-                  *(_DWORD *)(v71 + 40) = v72 | 0x10;
-                  KeInitializeDpc((PRKDPC)(v71 + 48), (PKDEFERRED_ROUTINE)PspJobCycleTimeNotificationDpcRoutine, v20);
-                }
-                KeSetSchedulingGroupCycleNotification(v71 + 128, v71 + 48, v70);
-                break;
-              default:
-                goto LABEL_456;
-            }
-            v13 = 0;
-            goto LABEL_70;
-          }
-          v145 = v9->m128i_i8[0];
-          v20 = Event;
-          v76 = PspSetBackgroundJobTree(Event);
-LABEL_265:
-          v13 = v76;
-          if ( v76 < 0 )
-            goto LABEL_495;
-          goto LABEL_324;
-        }
-        v167 = v9->m128i_i32[0];
-        v77 = v167;
-        v20 = Event;
-        if ( (v167 & 0xFFFFC001) != 0 )
-          goto LABEL_351;
-        ExAcquireResourceExclusiveLite((PERESOURCE)&Event[2].Header.WaitListHead, 1u);
-        if ( v20 )
-          ExAcquirePushLockExclusiveEx((ULONG_PTR)&v20[52], 0LL);
-        LODWORD(v20[45].Header.WaitListHead.Flink) = v77;
-        PspUnlockJobMemoryLimitsExclusive(v20, 0LL, 0LL);
-        goto LABEL_323;
+        v194 = *(__m128i *)BugCheckParameter2;
+        v195 = *(__m128i *)(BugCheckParameter2 + 16);
+        v196 = *(__m128i *)(BugCheckParameter2 + 32);
+        v197 = *(_QWORD *)(BugCheckParameter2 + 48);
+        v19 = (unsigned int)v197;
+        LODWORD(v192[5]) = v197;
+        v20 = v194.m128i_i64[0];
+        v192[0] = v194.m128i_i64[0];
+        v21 = _mm_srli_si128(v194, 8).m128i_u64[0];
+        v192[1] = v21;
+        v22 = v195.m128i_i64[0];
+        v192[2] = v195.m128i_i64[0];
+        v23 = _mm_srli_si128(v195, 8).m128i_u64[0];
+        v192[6] = v23;
+        v24 = v196.m128i_i64[0];
+        v192[3] = v196.m128i_i64[0];
+        v192[4] = __PAIR64__(_mm_cvtsi128_si32(_mm_srli_si128(v196, 12)), _mm_cvtsi128_si32(_mm_srli_si128(v196, 8)));
+        v25 = 2589188;
+        JobLimitInformationValidFlags = 2589188;
       }
-      memmove(&v159, v9, v4);
-      v78 = v159;
-      if ( (v159 & 0xFFFFFFE0) != 0 )
-        goto LABEL_467;
-      LODWORD(v140) = HIDWORD(v159);
-      Size[0] = v159 & 1;
-      if ( (v159 & 1) != 0 )
+      else
       {
-        if ( (v159 & 2) != 0 )
+        if ( (_DWORD)v4 == 48 )
         {
-          if ( (v159 & 0x10) != 0 )
-            goto LABEL_467;
-          v79 = (unsigned int)(HIDWORD(v159) - 1) <= 8;
-        }
-        else if ( (v159 & 0x10) != 0 )
-        {
-          if ( (v159 & 4) != 0 || !WORD2(v159) || WORD2(v159) > HIWORD(v159) )
-            goto LABEL_467;
-          v79 = HIWORD(v159) <= 0x2710u;
+          v199 = *(__m128i *)BugCheckParameter2;
+          v200 = *(__m128i *)(BugCheckParameter2 + 16);
+          v201 = *(__m128i *)(BugCheckParameter2 + 32);
+          v19 = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(v201, 8));
+          LODWORD(v192[5]) = v19;
+          v20 = v199.m128i_i64[0];
+          v192[0] = v199.m128i_i64[0];
+          v21 = _mm_srli_si128(v199, 8).m128i_u64[0];
+          v192[1] = v21;
+          v22 = v200.m128i_i64[0];
+          v192[2] = v200.m128i_i64[0];
+          v24 = _mm_srli_si128(v200, 8).m128i_u64[0];
+          v192[3] = v24;
+          v192[4] = __PAIR64__(_mm_cvtsi128_si32(_mm_srli_si128(v201, 4)), _mm_cvtsi128_si32(v201));
+          v25 = 459268;
+          JobLimitInformationValidFlags = 459268;
         }
         else
         {
-          v79 = (unsigned int)(HIDWORD(v159) - 1) <= 0x270F;
+          memmove(v192, v9, v4);
+          v25 = 2064900;
+          JobLimitInformationValidFlags = 2064900;
+          v19 = LODWORD(v192[5]);
+          v24 = v192[3];
+          v22 = v192[2];
+          v21 = v192[1];
+          v20 = v192[0];
         }
-        if ( !v79 )
-          goto LABEL_467;
+        v23 = v192[6];
       }
-      v20 = Event;
-      PspLockJobChain((__int64)Event, (__int64)Thread, 0);
-      Lock = v20[64].Header.Lock;
-      if ( Size[0] )
+      if ( (~v25 & (unsigned int)v19) != 0 )
+        goto LABEL_384;
+      if ( (v19 & 0x8000) != 0 )
       {
-        if ( (Lock & 0x20) == 0 )
+        if ( v23 < 0x1000 )
+          goto LABEL_384;
+      }
+      else
+      {
+        v23 = 0LL;
+        v192[6] = 0LL;
+      }
+      if ( (v19 & 0x200) != 0 )
+      {
+        if ( v24 < 0x1000 || v24 < v23 )
+          goto LABEL_384;
+      }
+      else
+      {
+        v192[3] = 0LL;
+      }
+      if ( (v19 & 4) != 0 )
+      {
+        if ( !v22 )
+          goto LABEL_384;
+      }
+      else
+      {
+        v192[2] = 0LL;
+      }
+      if ( (v19 & 0x10000) != 0 )
+      {
+        if ( !v20 )
+          goto LABEL_384;
+      }
+      else
+      {
+        v192[0] = 0LL;
+      }
+      if ( (v19 & 0x20000) != 0 )
+      {
+        if ( !v21 )
+          goto LABEL_384;
+      }
+      else
+      {
+        v192[1] = 0LL;
+      }
+      for ( j = 0LL; (int)j < 3; j = (unsigned int)(v29 + 1) )
+      {
+        PspNotificationLimitRateControlToleranceField(v192, j, v19);
+        PspNotificationLimitRateControlToleranceIntervalField(v192);
+        v28 = PspRateControlLimitFlag(v27);
+        if ( (v28 & (unsigned int)v19) != 0 )
         {
-          RateControl = PspAllocateRateControl(2LL);
-          v82 = RateControl;
-          if ( !RateControl )
+          if ( !*v30 || *v30 > 3 || !*v31 || *v31 > 3 )
+            goto LABEL_384;
+        }
+        else
+        {
+          *v30 = 0;
+          *v31 = 0;
+          v19 = LODWORD(v192[5]);
+        }
+      }
+      v14 = (char *)DeferredContext;
+      v32 = (int **)((char *)DeferredContext + 984);
+      if ( *((_QWORD *)DeferredContext + 123) )
+      {
+        v33 = 0LL;
+        BugCheckParameter2 = 0LL;
+      }
+      else
+      {
+        v33 = (struct _ERESOURCE *)ExAllocatePoolWithTag(PagedPool, 0x88uLL, 0x624A7350u);
+        if ( !v33 )
+          goto LABEL_345;
+        BugCheckParameter2 = PsChargeSharedPoolQuota(KeGetCurrentThread()->ApcState.Process, 136LL, 0LL);
+        v78 = v33;
+        if ( !BugCheckParameter2 )
+        {
+          v105 = 1649046352;
+          goto LABEL_348;
+        }
+        memset(v33, 0, 0x88uLL);
+        v14 = (char *)DeferredContext;
+      }
+      Resource = (PERESOURCE)(v14 + 56);
+      ExAcquireResourceExclusiveLite((PERESOURCE)(v14 + 56), 1u);
+      if ( *v32 )
+      {
+        if ( v33 )
+        {
+          ExFreePoolWithTag(v33, 0x624A7350u);
+          PsReturnSharedPoolQuota((PVOID)BugCheckParameter2);
+        }
+      }
+      else
+      {
+        *v32 = (int *)v33;
+        *((_QWORD *)v14 + 124) = BugCheckParameter2;
+      }
+      v34 = *v32;
+      v35 = **v32;
+      *((_QWORD *)v34 + 1) = v192[0];
+      *((_QWORD *)v34 + 2) = v192[1];
+      *((_QWORD *)v34 + 3) = v192[2];
+      v36 = 0LL;
+      v37 = v34 + 15;
+      while ( (int)v36 < 3 )
+      {
+        v38 = (_DWORD *)PspNotificationLimitRateControlToleranceField(v192, v36, v37);
+        *(_DWORD *)(v39 - 12) = *v38;
+        v40 = (_DWORD *)PspNotificationLimitRateControlToleranceIntervalField(v192);
+        *v41 = *v40;
+        v36 = (unsigned int)(v42 + 1);
+        v37 = v41 + 1;
+      }
+      BugCheckParameter2 = (ULONG_PTR)(v14 + 1032);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)(v14 + 1032), 0LL);
+      *((_QWORD *)v34 + 4) = v192[6] >> 12;
+      *((_QWORD *)v34 + 5) = v192[3] >> 12;
+      **v32 = v192[5];
+      PspUnlockJobMemoryLimitsExclusive((__int64)v14, 0LL, 0LL);
+      if ( (**v32 & 0xFFFF7DFF) != 0 )
+      {
+        _InterlockedAdd64(&PspJobTimeLimitsRequest, 1uLL);
+        v14 = (char *)DeferredContext;
+      }
+      if ( v35 )
+      {
+        v44 = *v32;
+        if ( **v32 )
+        {
+LABEL_105:
+          if ( (PerfGlobalGroupMask & 0x80000) != 0 )
+            EtwTraceJobSetQuery((_DWORD)v14, v5, (unsigned int)v192, 0, 0, 1829);
+          ExReleaseResourceLite(Resource);
+          ExAcquirePushLockSharedEx(BugCheckParameter2, 0LL);
+          v45 = *((_QWORD *)v14 + 167);
+          v14 = (char *)DeferredContext;
+          JobMemoryUsageNotificationViolations = PspGetJobMemoryUsageNotificationViolations(
+                                                   DeferredContext,
+                                                   *((_QWORD *)DeferredContext + 122),
+                                                   *((_QWORD *)DeferredContext + 122) + v45,
+                                                   33280LL);
+          PspUnlockJobMemoryLimitsShared(v14, 0LL);
+          if ( JobMemoryUsageNotificationViolations )
           {
-            v13 = -1073741670;
-            goto LABEL_321;
+            PspScheduleEnforcementWorker(*((_QWORD *)v14 + 135));
+            v14 = (char *)DeferredContext;
           }
-          *(_QWORD *)&v20[51].Header.Lock = RateControl;
-LABEL_297:
-          v83 = v20 + 51;
-          *(_QWORD *)&Size[1] = v20 + 51;
-          *(_DWORD *)(*(_QWORD *)&v20[51].Header.Lock + 40LL) = 0;
-          v84 = WORD2(v159);
-          *(_DWORD *)(*(_QWORD *)&v20[51].Header.Lock + 44LL) = HIDWORD(v159);
-          if ( Size[0] )
+          goto LABEL_34;
+        }
+      }
+      else
+      {
+        v44 = *v32;
+        if ( !**v32 )
+          goto LABEL_105;
+      }
+      PspEnumJobsAndProcessesInJobHierarchy(v14, (__int64)v44, 5);
+      goto LABEL_105;
+    }
+    if ( (int)v5 > 40 )
+    {
+      if ( (_DWORD)v5 == 41 )
+      {
+        v178 = *(_DWORD *)v9;
+        v14 = (char *)DeferredContext;
+        if ( !PspJobIsAppSilo((__int64)DeferredContext) || v130 != 2 )
+          goto LABEL_430;
+        v92 = (struct _ERESOURCE *)(v14 + 56);
+        ExAcquireResourceExclusiveLite((PERESOURCE)(v14 + 56), 1u);
+        if ( *((_DWORD *)v14 + 306) )
+        {
+          v13 = -1073740529;
+        }
+        else
+        {
+          v131 = _interlockedbittestandset((volatile signed __int32 *)v14 + 330, 0x1Du);
+          v14 = (char *)DeferredContext;
+          if ( v131 )
           {
-            if ( (v78 & 4) != 0 )
-            {
-              *(_DWORD *)(*(_QWORD *)&v83->Header.Lock + 40LL) |= 1u;
-              WORD1(v140) = v84;
-            }
-            if ( (v78 & 2) != 0 )
-            {
-              *(_DWORD *)(*(_QWORD *)&v83->Header.Lock + 40LL) |= 4u;
-              HIDWORD(v140) = 0;
-            }
-            else
-            {
-              HIDWORD(v140) = 1;
-              if ( (v78 & 0x14) == 0 )
-                WORD1(v140) = 10000;
-            }
-            if ( (v78 & 8) != 0 )
-              *(_DWORD *)(*(_QWORD *)&v83->Header.Lock + 40LL) |= 2u;
-            if ( (v78 & 0x10) != 0 )
-              *(_DWORD *)(*(_QWORD *)&v83->Header.Lock + 40LL) |= 0x20u;
-            v85 = *(_QWORD *)&v83->Header.Lock;
-            v86 = (__int64 *)(*(_QWORD *)&v83->Header.Lock + 128LL);
-            if ( *(__int64 **)&v83->Header.Lock == v82 )
-            {
-              *v86 = v140;
-              v13 = PspAddSchedulingGroupToJobChain((__int64)v20[53].Header.WaitListHead.Blink, (__int64)v20);
-              v134 = v13;
-              if ( v13 < 0 )
-              {
-                v87 = *(_QWORD **)&Size[1];
-                if ( **(_QWORD **)&Size[1] )
-                {
-                  PspFreeRateControl(**(PVOID ***)&Size[1], 2u);
-                  *v87 = 0LL;
-                }
-                goto LABEL_321;
-              }
-              _InterlockedOr(&v20[64].Header.Lock, 0x20u);
-              v20 = Event;
-              v83 = *(PRKEVENT *)&Size[1];
-            }
-            else
-            {
-              v143 = *(_QWORD *)&v83->Header.Lock + 128LL;
-              if ( (*(_DWORD *)(v85 + 40) & 4) != 0 )
-                KeSetSchedulingGroupWeights(1u, (__int64)&v143, (__int64)&v140);
-              else
-                KeSetSchedulingGroupCpuRates((__int64)v86, &v143, &v140);
-            }
-            v160 = *(_QWORD *)(*(_QWORD *)&v83->Header.Lock + 40LL);
+            v13 = 255;
           }
           else
           {
-            v140 = 0x327102710LL;
-            *(_DWORD *)(*(_QWORD *)&v83->Header.Lock + 40LL) |= 0x40u;
-            v88 = v140;
-            *(_DWORD *)(*(_QWORD *)&v83->Header.Lock + 44LL) = v140;
-            v143 = *(_QWORD *)&v83->Header.Lock + 128LL;
-            HIBYTE(v135) = (*(_DWORD *)(v143 + 4) & 4) != 0;
-            v20[51].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)((char *)v20[51].Header.WaitListHead.Blink
-                                                                     + KeQuerySchedulingGroupReadyTime(v143));
-            KeSetSchedulingGroupCpuRates(v89, &v143, &v140);
-            HIDWORD(v160) = v88;
-            if ( HIBYTE(v135) )
-            {
-              HIBYTE(v135) = 0;
-              PspEnumJobsAndProcessesInJobHierarchy(
-                v20,
-                0,
-                0,
-                (int)PspSetProcessCacheIsolationCallback,
-                (__int64)&v135 + 1,
-                1);
-            }
+            PspBeginSiloTeardown(DeferredContext);
+            v13 = 0;
           }
-          v13 = 0;
-          if ( (PerfGlobalGroupMask & 0x80000) != 0 )
-            EtwTraceJobSetQuery((_DWORD)v20, 15, (unsigned int)&v160, 0, 0, 1829);
-LABEL_321:
-          v27 = Thread;
-          v28 = (__int64)v20;
-          goto LABEL_83;
         }
+        goto LABEL_481;
       }
-      else if ( (Lock & 0x20) == 0 )
+      if ( (_DWORD)v5 == 42 )
       {
-        v13 = -1073741811;
-        goto LABEL_321;
-      }
-      v82 = 0LL;
-      goto LABEL_297;
-    }
-    if ( (int)v5 > 42 )
-    {
-      if ( (_DWORD)v5 == 43 )
-      {
-        v186 = v9->m128i_i64[0];
-        LOBYTE(v12) = PreviousMode;
-        v20 = Event;
-        Silo = PspSetJobMemoryPartition(Event, v12);
-        goto LABEL_494;
-      }
-      if ( (_DWORD)v5 == 44 )
-      {
-        v20 = Event;
-        v91 = (struct _ERESOURCE *)&Event[2].Header.WaitListHead;
-        ExAcquireResourceExclusiveLite((PERESOURCE)&Event[2].Header.WaitListHead, 1u);
-        if ( v20[64].Header.LockNV >= 0 )
+        v66 = 0;
+        v189[0] = *(_OWORD *)v9;
+        v189[1] = *((_OWORD *)v9 + 1);
+        v189[2] = *((_OWORD *)v9 + 2);
+        v189[3] = *((_OWORD *)v9 + 3);
+        *(_QWORD *)&v189[4] = v9[8];
+        if ( (v189[0] & 0xFFFFFFFC) != 0 || (v189[0] & 3) == 0 )
         {
-          v20[61].Header.WaitListHead = (LIST_ENTRY)*v9;
-          _InterlockedOr(&v20[64].Header.Lock, 0x80000000);
-          ExReleaseResourceLite(v91);
+          v13 = -1073741811;
+          v14 = (char *)DeferredContext;
+        }
+        else
+        {
+          v66 = 8;
+          v67 = Thread;
+          v14 = (char *)DeferredContext;
+          PspLockRootJobExclusive(DeferredContext, Thread, &v153);
+          PspLockJobConditionally(v14, &v153);
+          v13 = PspSetJobIoAttribution(v14);
+          if ( v13 >= 0 )
+          {
+            PspUnlockJobConditionally(v14, &v153);
+            PspUnlockJob(v153, v67);
+            v66 = 0;
+          }
+        }
+        if ( (unsigned __int8)v66 < 8u )
+          goto LABEL_35;
+        PspUnlockJobConditionally(v14, &v153);
+        v128 = Thread;
+        v129 = v153;
+        goto LABEL_249;
+      }
+      if ( (_DWORD)v5 != 43 )
+      {
+        if ( (_DWORD)v5 != 44 )
+        {
+          if ( (_DWORD)v5 != 45 )
+          {
+            if ( (_DWORD)v5 == 46 )
+            {
+              v168 = *v9;
+              v14 = (char *)DeferredContext;
+              v18 = PspSetEnergyTrackingStateJobTree(DeferredContext, (__int64)&v168);
+              goto LABEL_64;
+            }
+            if ( (_DWORD)v5 != 47 )
+              goto LABEL_459;
+            v149 = *(_BYTE *)v9;
+            if ( v149 != 1 )
+              goto LABEL_384;
+            v124 = SeSinglePrivilegeCheck(SeTcbPrivilege, AccessMode);
+            v14 = (char *)DeferredContext;
+            if ( v124 )
+            {
+              if ( (*((_DWORD *)DeferredContext + 330) & 0x40000000) != 0 )
+              {
+                v13 = (unsigned __int8)PspSetJobSiloThreadImpersonationPolicy(DeferredContext, 2LL) == 0
+                    ? 0xC0000022
+                    : 0;
+                goto LABEL_35;
+              }
+              goto LABEL_430;
+            }
+LABEL_428:
+            v13 = -1073741727;
+            goto LABEL_35;
+          }
+          v14 = (char *)DeferredContext;
+          if ( (*((_DWORD *)DeferredContext + 330) & 0x40000000) != 0 )
+          {
+            v169 = 0LL;
+            v170 = *(__m128i *)v9;
+            v125 = _mm_srli_si128(v170, 8).m128i_u64[0];
+            if ( !v125 || (unsigned __int16)(v170.m128i_i16[0] - 1) > 0x206u || (v170.m128i_i8[0] & 1) != 0 )
+            {
+              v13 = -1073741811;
+              v136 = -1073741811;
+              goto LABEL_35;
+            }
+            if ( AccessMode == 1 )
+            {
+              if ( (v125 & 1) != 0 )
+                ExRaiseDatatypeMisalignment();
+              if ( v125 + v170.m128i_u16[0] > 0x7FFFFFFF0000LL || v125 + v170.m128i_u16[0] < v125 )
+                MEMORY[0x7FFFFFFF0000] = 0;
+            }
+            v126 = v170.m128i_u16[0];
+            v127 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v170.m128i_u16[0], 0x72537350u);
+            v91 = v127;
+            v169 = v127;
+            if ( !v127 )
+            {
+              v13 = -1073741670;
+              v136 = -1073741670;
+              goto LABEL_35;
+            }
+            memmove(v127, (const void *)v125, v126);
+            if ( wcsnlen(v91, v126 >> 1) == v126 >> 1 )
+            {
+              v170.m128i_i64[1] = (__int64)v91;
+              v13 = PspAssignSiloSystemRootPath(v14, &v170);
+            }
+            else
+            {
+              v13 = -1073741811;
+            }
+            if ( !v91 )
+              goto LABEL_35;
+            v121 = 1918071632;
+            goto LABEL_446;
+          }
+LABEL_429:
+          v13 = -1073740535;
+          goto LABEL_35;
+        }
+        v14 = (char *)DeferredContext;
+        v92 = (struct _ERESOURCE *)((char *)DeferredContext + 56);
+        ExAcquireResourceExclusiveLite((PERESOURCE)((char *)DeferredContext + 56), 1u);
+        if ( *((int *)v14 + 330) >= 0 )
+        {
+          *(_OWORD *)(v14 + 1256) = *(_OWORD *)v9;
+          _InterlockedOr((volatile signed __int32 *)v14 + 330, 0x80000000);
+          ExReleaseResourceLite(v92);
           v13 = 0;
-          goto LABEL_457;
+LABEL_282:
+          v14 = (char *)DeferredContext;
+          goto LABEL_35;
         }
         v13 = -1073741791;
-LABEL_491:
-        p_WaitListHead = v91;
-        goto LABEL_71;
+LABEL_481:
+        v51 = v92;
+        goto LABEL_121;
       }
-      if ( (_DWORD)v5 != 45 )
-      {
-        if ( (_DWORD)v5 == 46 )
-        {
-          v163 = v9->m128i_i64[0];
-          v20 = Event;
-          v76 = PspSetEnergyTrackingStateJobTree(Event, (__int64)&v163);
-          goto LABEL_265;
-        }
-        if ( (_DWORD)v5 != 47 )
-        {
-          if ( (_DWORD)v5 == 48 )
-          {
-            v169 = v9->m128i_i64[0];
-            if ( (v169 & 0xFFFFFFFE) != 0 || HIDWORD(v169) >= 5 )
-              goto LABEL_467;
-            v20 = Event;
-            PspSetIoPriorityLimitJobTree(Event);
-          }
-          else
-          {
-            if ( (_DWORD)v5 != 49 )
-              goto LABEL_456;
-            v168 = v9->m128i_i64[0];
-            if ( (v168 & 0xFFFFFFFE) != 0 || HIDWORD(v168) >= 8 )
-              goto LABEL_467;
-            v20 = Event;
-            if ( (v168 & 1) != 0 && !HIDWORD(v168) )
-              goto LABEL_351;
-            PspSetPagePriorityLimitJobTree(Event);
-          }
-LABEL_324:
-          v13 = 0;
-          goto LABEL_495;
-        }
-        v147 = v9->m128i_i8[0];
-        if ( v147 != 1 )
-          goto LABEL_467;
-        v126 = SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode);
-        v20 = Event;
-        if ( v126 )
-        {
-          if ( (Event[64].Header.LockNV & 0x40000000) == 0 )
-            goto LABEL_351;
-          v13 = (unsigned __int8)PspSetJobSiloThreadImpersonationPolicy(Event, 2LL) == 0 ? 0xC0000022 : 0;
-LABEL_495:
-          v8 = (*(_WORD *)v170)++ == 0xFFFF;
-          if ( v8 && ($C71981A45BEB2B45F82C232A7085991E *)Thread->ApcState.ApcListHead[0].Flink != &Thread->152 )
-            KiCheckForKernelApcDelivery();
-          if ( v13 )
-          {
-            if ( (PerfGlobalGroupMask & 0x80000) != 0 )
-              EtwTraceJobSetQuery((_DWORD)v20, v5, 0, 0, v13, 1831);
-          }
-          ObfDereferenceObjectWithTag(v20, 0x79517350u);
-          return (unsigned int)v13;
-        }
-        goto LABEL_347;
-      }
-      v20 = Event;
-      if ( (Event[64].Header.LockNV & 0x40000000) == 0 )
-        goto LABEL_349;
-      v164 = 0LL;
-      v165 = *v9;
-      v127 = _mm_srli_si128(v165, 8).m128i_u64[0];
-      if ( !v127 || (unsigned __int16)(v165.m128i_i16[0] - 1) > 0x206u || (v165.m128i_i8[0] & 1) != 0 )
-      {
-        v13 = -1073741811;
-        v134 = -1073741811;
-        goto LABEL_495;
-      }
-      if ( PreviousMode == 1 )
-      {
-        if ( (v127 & 1) != 0 )
-          ExRaiseDatatypeMisalignment();
-        if ( v127 + v165.m128i_u16[0] > 0x7FFFFFFF0000LL || v127 + v165.m128i_u16[0] < v127 )
-          MEMORY[0x7FFFFFFF0000] = 0;
-      }
-      v128 = v165.m128i_u16[0];
-      v129 = (wchar_t *)ExAllocatePool2(256LL, v165.m128i_u16[0], 1918071632LL);
-      v122 = v129;
-      v164 = v129;
-      if ( !v129 )
-      {
-        v13 = -1073741670;
-        v134 = -1073741670;
-        goto LABEL_495;
-      }
-      memmove(v129, (const void *)v127, v128);
-      if ( wcsnlen(v122, v128 >> 1) == v128 >> 1 )
-      {
-        v165.m128i_i64[1] = (__int64)v122;
-        v13 = PspAssignSiloSystemRootPath(v20, &v165);
-      }
-      else
-      {
-        v13 = -1073741811;
-      }
-      if ( !v122 )
-        goto LABEL_495;
-      v123 = 1918071632;
-LABEL_437:
-      ExFreePoolWithTag(v122, v123);
-      goto LABEL_495;
+      v188 = *v9;
+      LOBYTE(v12) = AccessMode;
+      v14 = (char *)DeferredContext;
+      Silo = PspSetJobMemoryPartition(DeferredContext, v12);
+LABEL_287:
+      v13 = Silo;
+      goto LABEL_35;
     }
-    if ( (_DWORD)v5 == 42 )
+    switch ( (_DWORD)v5 )
     {
-      v124 = 0;
-      *(__m128i *)v187 = *v9;
-      *(__m128i *)&v187[16] = v9[1];
-      *(__m128i *)&v187[32] = v9[2];
-      *(__m128i *)&v187[48] = v9[3];
-      *(_QWORD *)&v187[64] = v9[4].m128i_i64[0];
-      v20 = Event;
-      if ( (*(_DWORD *)v187 & 0xFFFFFFFC) != 0 || (v187[0] & 3) == 0 )
-      {
-        v13 = -1073741811;
-      }
-      else
-      {
-        v124 = 8;
-        v125 = Thread;
-        PspLockRootJobExclusive((__int64)Event, (__int64)Thread, &v151);
-        PspLockJobConditionally((__int64)v20, &v151);
-        v13 = PspSetJobIoAttribution(v20);
-        if ( v13 >= 0 )
-        {
-          PspUnlockJobConditionally((__int64)v20, &v151);
-          PspUnlockJob(v151, (__int64)v125);
-          v124 = 0;
-        }
-      }
-      if ( v124 != 8 )
-        goto LABEL_495;
-      PspUnlockJobConditionally((__int64)v20, &v151);
-      v27 = Thread;
-      v28 = v151;
-      goto LABEL_448;
-    }
-    if ( (_DWORD)v5 == 27 )
-    {
-      v20 = Event;
-      if ( Event )
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)&Event[52], 0LL);
-      v20[29].Header.WaitListHead.Flink = 0LL;
-      *(_QWORD *)&v20[29].Header.Lock = 0LL;
-      PspUnlockJobMemoryLimitsExclusive(v20, 0LL, 0LL);
-      goto LABEL_324;
+      case 0x28:
+        v122 = SeSinglePrivilegeCheck(SeTcbPrivilege, AccessMode);
+        v14 = (char *)DeferredContext;
+        if ( !v122 )
+          goto LABEL_428;
+        if ( (*((_DWORD *)DeferredContext + 330) & 0x40000000) == 0 )
+          goto LABEL_429;
+        if ( !(unsigned __int8)PspSetJobSiloThreadImpersonationPolicy(DeferredContext, 4LL) )
+          goto LABEL_430;
+        v187 = *v9;
+        v148 = *((_BYTE *)v9 + 8);
+        LOBYTE(v123) = AccessMode;
+        Silo = PspConvertSiloToServerSilo(v14, v123);
+        goto LABEL_287;
+      case 0x19:
+        v14 = (char *)DeferredContext;
+        ExAcquireResourceExclusiveLite((PERESOURCE)((char *)DeferredContext + 56), 1u);
+        KeResetEvent((PRKEVENT)v14);
+LABEL_33:
+        ExReleaseResourceLite((PERESOURCE)(v14 + 56));
+        goto LABEL_34;
+      case 0x1B:
+        v14 = (char *)DeferredContext;
+        if ( DeferredContext )
+          ExAcquirePushLockExclusiveEx((ULONG_PTR)DeferredContext + 1032, 0LL);
+        *((_QWORD *)v14 + 76) = 0LL;
+        *((_QWORD *)v14 + 75) = 0LL;
+        PspUnlockJobMemoryLimitsExclusive((__int64)v14, 0LL, 0LL);
+        goto LABEL_34;
     }
     if ( (_DWORD)v5 != 31 )
     {
       switch ( (_DWORD)v5 )
       {
         case ' ':
-          v20 = Event;
-          Silo = PspSetNetRateControl(v9, Size[0], Event);
+          v14 = (char *)DeferredContext;
+          Silo = PspSetNetRateControl(v9, (unsigned int)v4, DeferredContext);
           break;
         case '!':
-LABEL_42:
-          if ( (_DWORD)v4 == 48 )
-          {
-            memmove(&v196, v9, v4);
-            v15 = DWORD2(v198);
-            v18 = *((_QWORD *)&v196 + 1);
-            v19 = v196;
-            v190[0] = v196;
-            v16 = *((_QWORD *)&v197 + 1);
-            v17 = v197;
-            v190[1] = v197;
-            LODWORD(v190[2]) = v198;
-            *(_QWORD *)((char *)&v190[2] + 4) = *(_QWORD *)((char *)&v198 + 4);
-            v14 = 459268;
-            JobLimitInformationValidFlags = 459268;
-          }
-          else
-          {
-            if ( (_DWORD)v4 == 56 )
-            {
-              memmove(&v192, v9, v4);
-              v15 = v195;
-              DWORD2(v190[2]) = v195;
-              v18 = *((_QWORD *)&v192 + 1);
-              v19 = v192;
-              v190[0] = v192;
-              v97 = *((_QWORD *)&v193 + 1);
-              v98 = v193;
-              *(_QWORD *)&v190[3] = v98 >> 64;
-              v17 = v98;
-              *(_QWORD *)&v190[1] = v193;
-              v16 = v194;
-              *(_OWORD *)((char *)&v190[1] + 8) = v194;
-              v14 = 2589188;
-              JobLimitInformationValidFlags = 2589188;
-              goto LABEL_357;
-            }
-            memmove(v190, v9, v4);
-            v14 = 2064900;
-            JobLimitInformationValidFlags = 2064900;
-            v15 = DWORD2(v190[2]);
-            v16 = *((_QWORD *)&v190[1] + 1);
-            v17 = *(_QWORD *)&v190[1];
-            v18 = *((_QWORD *)&v190[0] + 1);
-            v19 = *(_QWORD *)&v190[0];
-          }
-          v97 = *(_QWORD *)&v190[3];
-LABEL_357:
-          if ( (~v14 & (unsigned int)v15) == 0 )
-          {
-            if ( (v15 & 0x8000) != 0 )
-            {
-              if ( v97 < 0x1000 )
-                goto LABEL_467;
-            }
-            else
-            {
-              v97 = 0LL;
-              *(_QWORD *)&v190[3] = 0LL;
-            }
-            if ( (v15 & 0x200) != 0 )
-            {
-              if ( v16 < 0x1000 || v16 < v97 )
-                goto LABEL_467;
-            }
-            else
-            {
-              *((_QWORD *)&v190[1] + 1) = 0LL;
-            }
-            if ( (v15 & 4) != 0 )
-            {
-              if ( !v17 )
-                goto LABEL_467;
-            }
-            else
-            {
-              *(_QWORD *)&v190[1] = 0LL;
-            }
-            if ( (v15 & 0x10000) != 0 )
-            {
-              if ( !v19 )
-                goto LABEL_467;
-            }
-            else
-            {
-              *(_QWORD *)&v190[0] = 0LL;
-            }
-            if ( (v15 & 0x20000) != 0 )
-            {
-              if ( !v18 )
-                goto LABEL_467;
-            }
-            else
-            {
-              *((_QWORD *)&v190[0] + 1) = 0LL;
-            }
-            v99 = 0LL;
-            do
-            {
-              PspNotificationLimitRateControlToleranceField(v190, v99, v15);
-              PspNotificationLimitRateControlToleranceIntervalField(v190);
-              v101 = PspRateControlLimitFlag(v100);
-              if ( (v101 & (unsigned int)v15) != 0 )
-              {
-                if ( !*v103 || *v103 > 3 || !*v104 || *v104 > 3 )
-                  goto LABEL_467;
-              }
-              else
-              {
-                *v103 = 0;
-                *v104 = 0;
-                v15 = DWORD2(v190[2]);
-              }
-              v99 = (unsigned int)(v102 + 1);
-            }
-            while ( (int)v99 < 3 );
-            v20 = Event;
-            v105 = Event + 50;
-            if ( *(_QWORD *)&Event[50].Header.Lock )
-            {
-              v106 = 0LL;
-              *(_QWORD *)&Size[1] = 0LL;
-              goto LABEL_394;
-            }
-            v106 = (struct _SECURITY_SUBJECT_CONTEXT *)ExAllocatePool2(256LL, 136LL, 1649046352LL);
-            if ( v106 )
-            {
-              *(_QWORD *)&Size[1] = PsChargeSharedPoolQuota(KeGetCurrentThread()->ApcState.Process, 136LL, 0LL);
-              v41 = v106;
-              if ( !*(_QWORD *)&Size[1] )
-              {
-                v40 = 1649046352;
-                goto LABEL_141;
-              }
-              memset(v106, 0, 0x88uLL);
-              v20 = Event;
-LABEL_394:
-              v154 = (PERESOURCE)&v20[2].Header.WaitListHead;
-              ExAcquireResourceExclusiveLite((PERESOURCE)&v20[2].Header.WaitListHead, 1u);
-              if ( *(_QWORD *)&v105->Header.Lock )
-              {
-                if ( v106 )
-                {
-                  ExFreePoolWithTag(v106, 0x624A7350u);
-                  PsReturnSharedPoolQuota(*(char **)&Size[1], 0x88uLL, 0LL);
-                }
-              }
-              else
-              {
-                *(_QWORD *)&v105->Header.Lock = v106;
-                v20[50].Header.WaitListHead.Flink = *(struct _LIST_ENTRY **)&Size[1];
-              }
-              v107 = *(_QWORD *)&v105->Header.Lock;
-              v108 = **(_DWORD **)&v105->Header.Lock;
-              *(_OWORD *)(v107 + 8) = v190[0];
-              *(_QWORD *)(v107 + 24) = *(_QWORD *)&v190[1];
-              v109 = 0LL;
-              v110 = (_DWORD *)(v107 + 60);
-              do
-              {
-                v111 = (_DWORD *)PspNotificationLimitRateControlToleranceField(v190, v109, v110);
-                *(_DWORD *)(v112 - 12) = *v111;
-                v113 = (_DWORD *)PspNotificationLimitRateControlToleranceIntervalField(v190);
-                *v114 = *v113;
-                v109 = (unsigned int)(v115 + 1);
-                v110 = v114 + 1;
-              }
-              while ( (int)v109 < 3 );
-              *(_QWORD *)&Size[1] = v20 + 52;
-              ExAcquirePushLockExclusiveEx((ULONG_PTR)&v20[52], 0LL);
-              *(_QWORD *)(v107 + 32) = *(_QWORD *)&v190[3] >> 12;
-              *(_QWORD *)(v107 + 40) = *((_QWORD *)&v190[1] + 1) >> 12;
-              **(_DWORD **)&v105->Header.Lock = DWORD2(v190[2]);
-              PspUnlockJobMemoryLimitsExclusive(v20, 0LL, 0LL);
-              if ( (**(_DWORD **)&v105->Header.Lock & 0xFFFF7DFF) != 0 )
-              {
-                _InterlockedAdd64(&PspJobTimeLimitsRequest, 1uLL);
-                v20 = Event;
-              }
-              if ( v108 )
-              {
-                v116 = *(_DWORD **)&v105->Header.Lock;
-                if ( **(_DWORD **)&v105->Header.Lock )
-                {
-LABEL_407:
-                  if ( (PerfGlobalGroupMask & 0x80000) != 0 )
-                    EtwTraceJobSetQuery((_DWORD)v20, v5, (unsigned int)v190, 0, 0, 1829);
-                  ExReleaseResourceLite(v154);
-                  ExAcquirePushLockSharedEx(*(ULONG_PTR *)&Size[1], 0LL);
-                  Blink = v20[64].Header.WaitListHead.Blink;
-                  v20 = Event;
-                  JobMemoryUsageNotificationViolations = PspGetJobMemoryUsageNotificationViolations(
-                                                           (__int64)Event,
-                                                           (unsigned __int64)Event[49].Header.WaitListHead.Blink,
-                                                           (unsigned __int64)Event[49].Header.WaitListHead.Blink
-                                                         + (unsigned __int64)Blink,
-                                                           33280);
-                  PspUnlockJobMemoryLimitsShared((__int64)v20, 0LL);
-                  if ( JobMemoryUsageNotificationViolations )
-                  {
-                    PspScheduleEnforcementWorker(*(_QWORD *)&v20[54].Header.Lock);
-                    v20 = Event;
-                  }
-                  goto LABEL_324;
-                }
-              }
-              else
-              {
-                v116 = *(_DWORD **)&v105->Header.Lock;
-                if ( !**(_DWORD **)&v105->Header.Lock )
-                  goto LABEL_407;
-              }
-              PspEnumJobsAndProcessesInJobHierarchy(
-                v20,
-                (int)PspSetJobNotificationCountCallback,
-                0,
-                0,
-                (__int64)v116,
-                5);
-              goto LABEL_407;
-            }
-LABEL_138:
-            v13 = -1073741670;
-            goto LABEL_495;
-          }
-LABEL_467:
-          v13 = -1073741811;
-          goto LABEL_457;
+          goto LABEL_66;
         case '#':
-          v20 = Event;
-          Silo = PspCreateSilo(Event);
+          v14 = (char *)DeferredContext;
+          Silo = PspCreateSilo((__int64)DeferredContext, v12);
           break;
         case '%':
-          v96 = SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode);
-          v20 = Event;
-          if ( !v96 )
-            goto LABEL_347;
-          if ( (Event[64].Header.LockNV & 0x40000000) == 0 )
-            goto LABEL_349;
-          if ( !(unsigned __int8)PspSetJobSiloThreadImpersonationPolicy(Event, 4LL) )
-            goto LABEL_351;
-          v176 = v9->m128i_i32[0];
-          Silo = ObCreateSiloRootDirectory(v20);
+          v120 = SeSinglePrivilegeCheck(SeTcbPrivilege, AccessMode);
+          v14 = (char *)DeferredContext;
+          if ( !v120 )
+            goto LABEL_428;
+          if ( (*((_DWORD *)DeferredContext + 330) & 0x40000000) == 0 )
+            goto LABEL_429;
+          if ( !(unsigned __int8)PspSetJobSiloThreadImpersonationPolicy(DeferredContext, 4LL) )
+            goto LABEL_430;
+          v173 = *(_DWORD *)v9;
+          Silo = ObCreateSiloRootDirectory(v14);
           break;
-        case '(':
-          v93 = SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode);
-          v20 = Event;
-          if ( v93 )
-          {
-            if ( (Event[64].Header.LockNV & 0x40000000) != 0 )
-            {
-              if ( !(unsigned __int8)PspSetJobSiloThreadImpersonationPolicy(Event, 4LL) )
-                goto LABEL_351;
-              v185 = v9->m128i_i64[0];
-              v146 = v9->m128i_i8[8];
-              LOBYTE(v94) = PreviousMode;
-              Silo = PspConvertSiloToServerSilo(v20, v94);
-              break;
-            }
-LABEL_349:
-            v13 = -1073740535;
-            goto LABEL_495;
-          }
-LABEL_347:
-          v13 = -1073741727;
-          goto LABEL_495;
-        case ')':
-          v166 = v9->m128i_i32[0];
-          v20 = Event;
-          if ( !PspJobIsAppSilo((__int64)Event) || v90 != 2 )
-            goto LABEL_351;
-          v91 = (struct _ERESOURCE *)&v20[2].Header.WaitListHead;
-          ExAcquireResourceExclusiveLite((PERESOURCE)&v20[2].Header.WaitListHead, 1u);
-          if ( v20[60].Header.LockNV )
-          {
-            v13 = -1073740529;
-          }
-          else
-          {
-            v92 = _interlockedbittestandset(&v20[64].Header.Lock, 0x1Du);
-            v20 = Event;
-            if ( v92 )
-            {
-              v13 = 255;
-            }
-            else
-            {
-              PspHardDereferenceSiloWorker((__int64)Event);
-              v13 = 0;
-            }
-          }
-          goto LABEL_491;
         default:
-          goto LABEL_456;
+          goto LABEL_459;
       }
-LABEL_494:
-      v13 = Silo;
-      goto LABEL_495;
+      goto LABEL_287;
     }
-    memmove(v188, v9, v4);
-    if ( v188[3] )
+    memmove(v190, v9, v4);
+    if ( v190[3] )
     {
-      v119 = v188[5];
-      if ( !LOWORD(v188[5]) )
-        goto LABEL_425;
-      if ( (v188[3] & 1) != 0 )
+      v88 = v190[5];
+      v89 = PagedPool;
+      if ( !LOWORD(v190[5]) )
+        goto LABEL_267;
+      if ( (v190[3] & 1) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( v188[3] + (unsigned __int64)LOWORD(v188[5]) > 0x7FFFFFFF0000LL
-        || v188[3] + (unsigned __int64)LOWORD(v188[5]) < v188[3] )
+      if ( v190[3] + (unsigned __int64)LOWORD(v190[5]) > 0x7FFFFFFF0000LL
+        || v190[3] + (unsigned __int64)LOWORD(v190[5]) < v190[3] )
       {
         MEMORY[0x7FFFFFFF0000] = 0;
-        v119 = v188[5];
+        v88 = v190[5];
       }
-      if ( !v119 || (v119 & 1) != 0 )
+      if ( !v88 || (v88 & 1) != 0 )
       {
-LABEL_425:
+LABEL_267:
         v13 = -1073741811;
-        v134 = -1073741811;
-        v20 = Event;
-        goto LABEL_435;
+        v136 = -1073741811;
+        v14 = (char *)DeferredContext;
+        goto LABEL_278;
       }
-      v120 = 32;
-      if ( PreviousMode == 1 )
-        v120 = 257;
-      v173[1] = (PVOID)ExAllocatePool2(v120, v119 + 2LL, 1649046352LL);
-      if ( !v173[1] )
+      v164 = 1;
+      if ( AccessMode == 1 )
+        v89 = 9;
+      v164 = v89;
+      v175[1] = ExAllocatePoolWithQuotaTag(v89, v88 + 2LL, 0x624A7350u);
+      if ( !v175[1] )
       {
         v13 = -1073741801;
-        v134 = -1073741801;
-        v20 = Event;
-        goto LABEL_435;
+        v136 = -1073741801;
+        v14 = (char *)DeferredContext;
+LABEL_278:
+        v91 = (wchar_t *)v175[1];
+        if ( !v175[1] )
+          goto LABEL_35;
+        v121 = 0;
+LABEL_446:
+        ExFreePoolWithTag(v91, v121);
+        goto LABEL_35;
       }
-      v121 = v173[1];
-      memmove(v173[1], (const void *)v188[3], LOWORD(v188[5]));
-      v121[(unsigned __int64)LOWORD(v188[5]) >> 1] = 0;
-      v188[3] = v121;
+      v90 = v175[1];
+      memmove(v175[1], (const void *)v190[3], LOWORD(v190[5]));
+      v90[(unsigned __int64)LOWORD(v190[5]) >> 1] = 0;
+      v190[3] = v90;
     }
-    if ( (v188[4] & 0xFFFFFFF000000000uLL) != 0 )
+    if ( (v190[4] & 0xFFFFFFF000000000uLL) != 0 )
     {
       v13 = -1073741811;
     }
     else
     {
-      if ( !v188[7] && !v188[2] && !v188[10] || (unsigned __int8)PspIsContextAdmin() )
+      if ( !v190[10] && !v190[7] && !v190[2] || (unsigned __int8)PspIsContextAdmin() )
       {
-        v20 = Event;
-        v13 = PspSetJobIoRateControl(Event);
-        goto LABEL_435;
+        v14 = (char *)DeferredContext;
+        v13 = PspSetJobIoRateControl((volatile signed __int64 *)DeferredContext, (__int64)v190);
+        goto LABEL_278;
       }
       v13 = -1073741790;
     }
-    v20 = Event;
-LABEL_435:
-    v122 = (wchar_t *)v173[1];
-    if ( !v173[1] )
-      goto LABEL_495;
-    v123 = 0;
-    goto LABEL_437;
+    v14 = (char *)DeferredContext;
+    goto LABEL_278;
   }
   return result;
 }

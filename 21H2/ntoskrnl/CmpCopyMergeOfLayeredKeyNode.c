@@ -1,24 +1,20 @@
 /*
- * XREFs of CmpCopyMergeOfLayeredKeyNode @ 0x14065C008
+ * XREFs of CmpCopyMergeOfLayeredKeyNode @ 0x1407294A0
  * Callers:
- *     CmSaveKey @ 0x14065A44C (CmSaveKey.c)
- *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x14065B3DC (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
+ *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x14087FF34 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x140657670 (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpGetSecurityCellForKeyNodeStack @ 0x14065C2F0 (CmpGetSecurityCellForKeyNodeStack.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14069F1CC (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x14069F45C (CmpGetEffectiveKeyNodeSemantics.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpFreeKeyByCell @ 0x1407164DC (CmpFreeKeyByCell.c)
- *     CmpCopyCell @ 0x14079BC7C (CmpCopyCell.c)
- *     HvAllocateCell @ 0x14079C8A4 (HvAllocateCell.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     CmUnlockHiveSecurity @ 0x140AB4484 (CmUnlockHiveSecurity.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x1405CCAF8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpFreeKeyByCell @ 0x14066B280 (CmpFreeKeyByCell.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140699C98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpCopyCell @ 0x1406A4750 (CmpCopyCell.c)
+ *     HvAllocateCell @ 0x140709404 (HvAllocateCell.c)
+ *     CmpGetSecurityCellForKeyNodeStack @ 0x140729CFC (CmpGetSecurityCellForKeyNodeStack.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x140729F10 (CmpGetEffectiveKeyNodeSemantics.c)
  */
 
 __int64 __fastcall CmpCopyMergeOfLayeredKeyNode(
@@ -26,177 +22,165 @@ __int64 __fastcall CmpCopyMergeOfLayeredKeyNode(
         ULONG_PTR a2,
         unsigned int a3,
         char a4,
-        unsigned int a5,
+        int a5,
         unsigned int *a6)
 {
-  unsigned int v10; // r14d
-  __int64 v11; // r13
-  __int16 v12; // bx
+  int v6; // r15d
+  __int16 v11; // bx
+  __int64 v12; // r14
+  __int16 v13; // dx
   __int64 EntryAtLayerHeight; // rax
-  __int16 v14; // dx
+  __int16 v15; // dx
+  int v16; // r8d
   bool i; // sf
-  __int64 v16; // rax
-  int v17; // r10d
+  __int64 v18; // rax
+  int v19; // r9d
   int EffectiveKeyNodeSemantics; // eax
-  __int64 v19; // rdx
-  ULONG_PTR v20; // rcx
-  char v21; // r9
-  unsigned int v22; // edi
-  int Cell; // eax
-  char *v24; // rbx
-  int SecurityDescriptorNode; // esi
-  __int16 v26; // cx
-  ULONG_PTR v27; // r13
-  __int64 CellFlat; // rax
-  __int64 v29; // rdi
-  void *Src; // rax
-  unsigned int v31; // edi
-  __int16 v32; // r12
-  __int64 v34; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v35; // [rsp+48h] [rbp-28h] BYREF
-  __int64 v36; // [rsp+50h] [rbp-20h] BYREF
-  void *v37; // [rsp+58h] [rbp-18h] BYREF
-  ULONG_PTR BugCheckParameter3; // [rsp+60h] [rbp-10h] BYREF
-  ULONG_PTR v39; // [rsp+68h] [rbp-8h]
-  ULONG_PTR v40; // [rsp+B0h] [rbp+40h] BYREF
-  ULONG_PTR v41; // [rsp+B8h] [rbp+48h]
-  ULONG_PTR BugCheckParameter4; // [rsp+C8h] [rbp+58h] BYREF
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  char v23; // r8
+  unsigned int v24; // ebx
+  unsigned int v25; // eax
+  char *v26; // r14
+  unsigned int v27; // r12d
+  int SecurityDescriptorNode; // ebx
+  size_t v29; // r8
+  __int64 v30; // rbx
+  __int16 v31; // cx
+  __int64 v32; // rsi
+  __int64 v33; // rbx
+  __int16 v34; // bx
+  int v35; // eax
+  __int64 v37; // [rsp+40h] [rbp-30h] BYREF
+  void *v38; // [rsp+48h] [rbp-28h] BYREF
+  __int64 v39; // [rsp+50h] [rbp-20h]
+  __int64 v40; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v41; // [rsp+60h] [rbp-10h]
+  unsigned int v42; // [rsp+B0h] [rbp+40h]
+  __int64 v43; // [rsp+B8h] [rbp+48h] BYREF
+  unsigned int v44; // [rsp+C8h] [rbp+58h] BYREF
 
-  BugCheckParameter3 = 0LL;
-  LODWORD(BugCheckParameter4) = 0;
-  v35 = 0LL;
-  v36 = 0LL;
-  LODWORD(v40) = -1;
-  v37 = 0LL;
-  HvpGetCellContextReinitialize(&v36);
-  HvpGetCellContextReinitialize(&v35);
-  v10 = a5;
-  LODWORD(v34) = -1;
+  v6 = a5;
+  v37 = 0xFFFFFFFFLL;
+  v43 = 0xFFFFFFFFLL;
+  v40 = 0LL;
+  v44 = 0;
+  v38 = 0LL;
   if ( a5 == 2 )
   {
     if ( a3 == -1 )
-      v10 = 0;
+      v6 = 0;
     else
-      v10 = a3 >> 31;
+      v6 = a3 >> 31;
   }
-  v11 = 0LL;
-  v12 = *a1;
-  if ( *a1 >= 0 )
+  v11 = *a1;
+  v12 = 0LL;
+  v39 = 0LL;
+  v13 = v11;
+  if ( v11 >= 0 )
   {
     while ( 1 )
     {
-      EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight(a1);
-      if ( *(_DWORD *)(EntryAtLayerHeight + 8) != -1 )
+      EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight((__int64)a1, v13);
+      if ( *(_DWORD *)(EntryAtLayerHeight + 8) != v16 )
         break;
-      if ( (__int16)(v14 - 1) < 0 )
+      v13 = v15 - 1;
+      if ( v13 < 0 )
         goto LABEL_10;
     }
-    v11 = EntryAtLayerHeight;
+    v12 = EntryAtLayerHeight;
+    v39 = EntryAtLayerHeight;
   }
 LABEL_10:
-  CmpGetSecurityCellForKeyNodeStack(a1, &BugCheckParameter3, &BugCheckParameter4);
-  v39 = 0LL;
-  LODWORD(v41) = -1;
+  CmpGetSecurityCellForKeyNodeStack(a1, &v40, &v44);
+  v41 = 0LL;
+  v42 = -1;
   LOWORD(a5) = 0;
   if ( (a4 & 1) != 0 )
   {
-    for ( i = v12 < 0; !i; i = v12 < 0 )
+    for ( i = v11 < 0; !i; i = v11 < 0 )
     {
-      v16 = CmpKeyNodeStackGetEntryAtLayerHeight(a1);
-      if ( *(_DWORD *)(v16 + 8) != v17 )
+      v18 = CmpKeyNodeStackGetEntryAtLayerHeight((__int64)a1, v11);
+      if ( *(_DWORD *)(v18 + 8) != v19 )
       {
-        EffectiveKeyNodeSemantics = CmpGetEffectiveKeyNodeSemantics(*(_QWORD *)v16);
+        EffectiveKeyNodeSemantics = CmpGetEffectiveKeyNodeSemantics(*(_QWORD *)v18);
         if ( EffectiveKeyNodeSemantics == 1 )
           break;
-        if ( *(char *)(v19 + 13) >= v21 )
+        if ( *(char *)(v21 + 13) >= v23 )
         {
-          LODWORD(v41) = *(_DWORD *)(v19 + 48);
-          LOWORD(a5) = *(_WORD *)(v19 + 74);
-          v39 = v20;
+          v42 = *(_DWORD *)(v21 + 48);
+          LOWORD(a5) = *(_WORD *)(v21 + 74);
+          v41 = v22;
           break;
         }
         if ( EffectiveKeyNodeSemantics )
           break;
       }
-      --v12;
+      --v11;
     }
   }
-  v22 = *(unsigned __int16 *)(*(_QWORD *)(v11 + 16) + 72LL) + 76;
-  Cell = HvAllocateCell(a2, v22, v10, (unsigned int)&v40, (__int64)&v37, (__int64)&v36);
-  v24 = (char *)v37;
-  SecurityDescriptorNode = Cell;
-  if ( Cell < 0 )
+  v24 = *(unsigned __int16 *)(*(_QWORD *)(v12 + 16) + 72LL) + 76;
+  v25 = HvAllocateCell(a2, v24, v6, &v38, &v37);
+  v26 = (char *)v38;
+  v27 = v25;
+  if ( v25 == -1 )
+    goto LABEL_20;
+  v29 = v24;
+  v30 = v39;
+  memmove(v38, *(const void **)(v39 + 16), v29);
+  v26[12] = 0;
+  v26[13] = v26[13] & 0x7C | 0x80;
+  *((_DWORD *)v26 + 4) = a3;
+  *(_QWORD *)(v26 + 20) = 0LL;
+  *((_DWORD *)v26 + 7) = -1;
+  *((_QWORD *)v26 + 4) = 0xFFFFFFFFLL;
+  *((_DWORD *)v26 + 10) = -1;
+  *((_DWORD *)v26 + 11) = -1;
+  *((_DWORD *)v26 + 12) = -1;
+  *((_WORD *)v26 + 26) = 0;
+  *((_QWORD *)v26 + 7) = 0LL;
+  *((_QWORD *)v26 + 8) = 0LL;
+  *((_WORD *)v26 + 37) = 0;
+  v31 = *(_WORD *)(*(_QWORD *)(v30 + 16) + 2LL) & 0xFFBF;
+  *((_WORD *)v26 + 1) = v31;
+  if ( a3 == -1 )
+    *((_WORD *)v26 + 1) = v31 | 0xC;
+  v32 = v40;
+  v33 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(v40 + 8))(v40, v44, &v43);
+  ExAcquirePushLockExclusiveEx(a2 + 1776, 0LL);
+  SecurityDescriptorNode = CmpGetSecurityDescriptorNodeEx(
+                             a2,
+                             v27,
+                             (__int64)v26,
+                             v27 >> 31,
+                             (void *)(v33 + 20),
+                             0,
+                             (unsigned int *)v26 + 11);
+  ExReleasePushLockEx(a2 + 1776, 0LL);
+  (*(void (__fastcall **)(__int64, __int64 *))(v32 + 16))(v32, &v43);
+  if ( SecurityDescriptorNode >= 0 )
   {
-    v31 = v40;
-  }
-  else
-  {
-    memmove(v37, *(const void **)(v11 + 16), v22);
-    v24[12] = 0;
-    v24[13] = v24[13] & 0x7C | 0x80;
-    *((_DWORD *)v24 + 4) = a3;
-    *(_QWORD *)(v24 + 20) = 0LL;
-    *((_DWORD *)v24 + 7) = -1;
-    *((_DWORD *)v24 + 8) = -1;
-    *((_DWORD *)v24 + 9) = 0;
-    *((_DWORD *)v24 + 10) = -1;
-    *((_DWORD *)v24 + 11) = -1;
-    *((_DWORD *)v24 + 12) = -1;
-    *((_WORD *)v24 + 26) = 0;
-    *((_QWORD *)v24 + 7) = 0LL;
-    *((_QWORD *)v24 + 8) = 0LL;
-    *((_WORD *)v24 + 37) = 0;
-    v26 = *(_WORD *)(*(_QWORD *)(v11 + 16) + 2LL) & 0xFFBF;
-    *((_WORD *)v24 + 1) = v26;
-    if ( a3 == -1 )
-      *((_WORD *)v24 + 1) = v26 | 0xC;
-    v27 = BugCheckParameter3;
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      CellFlat = HvpGetCellFlat(BugCheckParameter3, (unsigned int)BugCheckParameter4);
-    else
-      CellFlat = HvpGetCellPaged(BugCheckParameter3);
-    v29 = CellFlat;
-    ExAcquirePushLockExclusiveEx(a2 + 1784, 0LL);
-    Src = (void *)(v29 + 20);
-    v31 = v40;
-    SecurityDescriptorNode = CmpGetSecurityDescriptorNodeEx(
-                               a2,
-                               v40,
-                               (__int64)v24,
-                               (unsigned int)v40 >> 31,
-                               Src,
-                               0,
-                               (unsigned int *)v24 + 11);
-    CmUnlockHiveSecurity(a2);
-    if ( (*(_BYTE *)(v27 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v27, &v35);
-    else
-      HvpReleaseCellPaged(v27, &v35);
-    if ( SecurityDescriptorNode >= 0 )
+    v34 = a5;
+    if ( (_WORD)a5 )
     {
-      v32 = a5;
-      if ( (_WORD)a5 )
+      v35 = CmpCopyCell(v41, v42, a2, v6);
+      if ( v35 == -1 )
       {
-        SecurityDescriptorNode = CmpCopyCell(v39, (unsigned int)v41, (__int64)&v34);
-        if ( SecurityDescriptorNode < 0 )
-          goto LABEL_34;
-        *((_DWORD *)v24 + 12) = v34;
-        *((_WORD *)v24 + 37) = v32;
+LABEL_20:
+        SecurityDescriptorNode = -1073741670;
+        goto LABEL_28;
       }
-      SecurityDescriptorNode = 0;
-      *a6 = v31;
-      v31 = -1;
+      *((_DWORD *)v26 + 12) = v35;
+      *((_WORD *)v26 + 37) = v34;
     }
+    SecurityDescriptorNode = 0;
+    *a6 = v27;
+    v27 = -1;
   }
-LABEL_34:
-  if ( v24 )
-  {
-    if ( (*(_BYTE *)(a2 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(a2, &v36);
-    else
-      HvpReleaseCellPaged(a2, &v36);
-  }
-  if ( v31 != -1 )
-    CmpFreeKeyByCell(a2, v31);
+LABEL_28:
+  if ( v26 )
+    (*(void (__fastcall **)(ULONG_PTR, __int64 *))(a2 + 16))(a2, &v37);
+  if ( v27 != -1 )
+    CmpFreeKeyByCell(a2, v27, 0);
   return (unsigned int)SecurityDescriptorNode;
 }

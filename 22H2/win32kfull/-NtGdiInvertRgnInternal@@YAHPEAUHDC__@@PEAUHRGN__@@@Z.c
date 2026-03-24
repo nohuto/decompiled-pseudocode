@@ -1,43 +1,41 @@
 /*
- * XREFs of ?NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C02A8594
+ * XREFs of ?NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C0148958
  * Callers:
- *     NtGdiInvertRgn @ 0x1C02A9D30 (NtGdiInvertRgn.c)
+ *     NtGdiInvertRgn @ 0x1C0148D60 (NtGdiInvertRgn.c)
  * Callees:
- *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C001E590 (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
- *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C001E5CC (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0099E60 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00DA0C8 (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00DA618 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00E0C40 (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
- *     ?bTightenRao@DC@@QEAAHXZ @ 0x1C00FE5E0 (-bTightenRao@DC@@QEAAHXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C011BD38 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C011BFB4 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0266478 (-bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
- *     EngPaint @ 0x1C028E980 (EngPaint.c)
- *     ?GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z @ 0x1C02A791C (-GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00AC9D8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00ACA04 (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2904 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B297C (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00B2D1C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00B2D5C (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C00B496C (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     ?bTightenRao@DC@@QEAAHXZ @ 0x1C00B5990 (-bTightenRao@DC@@QEAAHXZ.c)
+ *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C00B5E80 (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FD8F4 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     EngPaint @ 0x1C0147890 (EngPaint.c)
+ *     ?GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z @ 0x1C0147994 (-GreScaleValuesInternal@@YAHAEAVXDCOBJ@@PEAJI@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiInvertRgnInternal(HDC a1, HRGN a2)
 {
-  DC *v3; // rcx
-  REGION *v4; // rsi
-  unsigned int v5; // ebx
-  int v6; // edi
+  unsigned int v3; // ebx
+  REGION *v4; // r14
+  int v5; // edi
+  int v6; // esi
   DC *v7; // rcx
   REGION *v8; // rcx
   DC *v9; // rax
-  __int64 v10; // rbx
-  struct REGION *v11; // rax
-  struct ECLIPOBJ *v12; // rdx
-  __int64 v13; // r9
+  __int64 v10; // rdi
+  char *v11; // rcx
+  struct REGION *v12; // rax
+  struct ECLIPOBJ *v13; // rdx
   DC *v14; // r8
   DC *v16[2]; // [rsp+30h] [rbp-D0h] BYREF
   _BYTE v17[32]; // [rsp+40h] [rbp-C0h] BYREF
@@ -58,118 +56,125 @@ __int64 __fastcall NtGdiInvertRgnInternal(HDC a1, HRGN a2)
   __int64 v32; // [rsp+1E0h] [rbp+E0h]
 
   DCOBJ::DCOBJ((DCOBJ *)v16, a1);
-  v3 = v16[0];
+  v3 = 0;
   v4 = 0LL;
   v5 = 0;
-  if ( !v16[0] )
-    goto LABEL_35;
-  if ( (*((_DWORD *)v16[0] + 9) & 0x10000) == 0 )
+  if ( !v16[0] || (*((_DWORD *)v16[0] + 9) & 0x10000) != 0 )
+    goto LABEL_39;
+  EXFORMOBJ::vQuickInit((EXFORMOBJ *)v19, (struct XDCOBJ *)v16, -2147483132);
+  v6 = *(_DWORD *)(*((_QWORD *)v16[0] + 122) + 340LL) & 0x802;
+  RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v18, a2, 1, 0);
+  if ( !v18[0] )
   {
-    EXFORMOBJ::vQuickInit((EXFORMOBJ *)v19, (struct XDCOBJ *)v16, -2147483132);
-    v6 = *(_DWORD *)(*((_QWORD *)v16[0] + 122) + 340LL) & 0x802;
-    RGNOBJAPI::RGNOBJAPI((RGNOBJAPI *)v18, a2, 1, 0);
-    if ( !v18[0] )
+LABEL_38:
+    RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v18);
+LABEL_39:
+    v3 = v5;
+    goto LABEL_40;
+  }
+  if ( v6 == 2050 )
+  {
+LABEL_16:
+    if ( (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)v18) == 1 )
+      goto LABEL_35;
+    v7 = v16[0];
+    *(_OWORD *)v26 = *((_OWORD *)v18[0] + 6);
+    if ( (*((_DWORD *)v16[0] + 9) & 0xE0) != 0 )
     {
-LABEL_32:
-      RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v18);
-      v3 = v16[0];
-      goto LABEL_33;
-    }
-    if ( v6 == 2050 )
-    {
-LABEL_10:
-      if ( (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)v18) == 1 )
-        goto LABEL_29;
+      XDCOBJ::vAccumulate((XDCOBJ *)v16, (struct ERECTL *)v26);
       v7 = v16[0];
-      *(_OWORD *)v26 = *(_OWORD *)((char *)v18[0] + 56);
-      if ( (*((_DWORD *)v16[0] + 9) & 0xE0) != 0 )
+    }
+    if ( !*((_QWORD *)v7 + 62) )
+    {
+LABEL_35:
+      v5 = 1;
+    }
+    else
+    {
+      DLODCOBJ::DLODCOBJ((DLODCOBJ *)v24);
+      DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v21, (struct XDCOBJ *)v16, 0);
+      v8 = v18[0];
+      v9 = v16[0];
+      if ( !v18[0] )
+        *((_DWORD *)v16[0] + 9) |= 0x10u;
+      *((_QWORD *)v9 + 142) = v8;
+      v10 = *((_QWORD *)v16[0] + 62);
+      if ( (v23 & 1) != 0 && (unsigned int)DC::bTightenRao(v16[0]) )
       {
-        XDCOBJ::vAccumulate((XDCOBJ *)v16, (struct ERECTL *)v26);
-        v7 = v16[0];
-      }
-      if ( !*((_QWORD *)v7 + 62) )
-      {
-LABEL_29:
+        v11 = (char *)v16[0] + 1024;
+        if ( (*((_DWORD *)v16[0] + 10) & 1) == 0 )
+          v11 = (char *)v16[0] + 1016;
+        v26[0] += *(_DWORD *)v11;
+        v26[2] += *(_DWORD *)v11;
+        v26[1] += *((_DWORD *)v11 + 1);
+        v26[3] += *((_DWORD *)v11 + 1);
+        GreScaleValuesInternal(v16, v26, 4u);
+        v12 = XDCOBJ::prgnEffRao(v16);
+        v28 = 0LL;
+        v29 = 0LL;
+        v30 = 0;
+        v31 = 1;
+        v32 = 0LL;
+        XCLIPOBJ::vSetup((XCLIPOBJ *)&pco, v12, (struct ERECTL *)v26, 0);
+        if ( !ERECTL::bEmpty((ERECTL *)&pco.rclBounds) )
+        {
+          if ( (*((_DWORD *)v16[0] + 9) & 0xE0) != 0 )
+          {
+            rclBounds = (__m128i)pco.rclBounds;
+            XDCOBJ::vAccumulateTight((XDCOBJ *)v16, v13, &rclBounds);
+          }
+          ++*(_DWORD *)(v10 + 92);
+          EngPaint((SURFOBJ *)(v10 + 24), &pco, 0LL, 0LL, 0x606u);
+        }
+        v14 = v16[0];
         v5 = 1;
       }
       else
       {
-        DLODCOBJ::DLODCOBJ((DLODCOBJ *)v24);
-        DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v21, (struct XDCOBJ *)v16, 0);
-        v8 = v18[0];
-        v9 = v16[0];
-        if ( !v18[0] )
-          *((_DWORD *)v16[0] + 9) |= 0x10u;
-        *((_QWORD *)v9 + 141) = v8;
-        v10 = *((_QWORD *)v16[0] + 62);
-        if ( (v23 & 1) != 0 && (unsigned int)DC::bTightenRao(v16[0]) )
-        {
-          ERECTL::bOffsetAdd((ERECTL *)v26, (const struct _POINTL *)v16[0] + (*((_DWORD *)v16[0] + 10) & 1) + 127, 0);
-          GreScaleValuesInternal(v16, v26, 4u);
-          v11 = XDCOBJ::prgnEffRao(v16);
-          v28 = 0LL;
-          v29 = 0LL;
-          v30 = 0;
-          v32 = 0LL;
-          v31 = 1;
-          XCLIPOBJ::vSetup((XCLIPOBJ *)&pco, v11, (struct ERECTL *)v26, 0);
-          if ( !ERECTL::bEmpty((ERECTL *)&pco.rclBounds) )
-          {
-            if ( (*((_DWORD *)v16[0] + 9) & 0xE0) != 0 )
-            {
-              rclBounds = (__m128i)pco.rclBounds;
-              XDCOBJ::vAccumulateTight((XDCOBJ *)v16, v12, &rclBounds);
-            }
-            ++*(_DWORD *)(v10 + 92);
-            EngPaint((SURFOBJ *)(v10 + 24), &pco, 0LL, 0LL, 0x606u);
-          }
-          v14 = v16[0];
-          v5 = 1;
-        }
-        else
-        {
-          v5 = XDCOBJ::bFullScreen((XDCOBJ *)v16);
-        }
-        *((_DWORD *)v14 + 9) |= 0x10u;
-        *((_QWORD *)v14 + 141) = 0LL;
-        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v21, (__int64)v12, (__int64)v14, v13);
-        if ( v24[0] )
-          DLODCOBJ::vUnlock((DLODCOBJ *)v24);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v25);
+        v5 = XDCOBJ::bFullScreen((XDCOBJ *)v16);
       }
-      if ( v6 != 2050 )
-      {
-        REGION::vDeleteREGION(v18[0]);
-        v18[0] = v4;
-      }
-      goto LABEL_32;
+      *((_DWORD *)v14 + 9) |= 0x10u;
+      *((_QWORD *)v14 + 142) = 0LL;
+      DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v21);
+      if ( v24[0] )
+        DLODCOBJ::vUnlock((DLODCOBJ *)v24);
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v25);
     }
-    PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v21);
-    if ( v22 )
+    if ( v6 != 2050 )
     {
-      if ( !v19[0] || !RGNOBJ::bCreate((RGNOBJ *)v18, (struct EPATHOBJ *)v21, (struct EXFORMOBJ *)v19) )
-        goto LABEL_24;
-      *(_QWORD *)v26 = 0LL;
-      RGNMEMOBJ::vCreate((RGNMEMOBJ *)v26, (struct EPATHOBJ *)v21, 1u, 0LL);
-      if ( *(_QWORD *)v26 )
-      {
-        v4 = v18[0];
-        v18[0] = *(REGION **)v26;
-        PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v21);
-        goto LABEL_10;
-      }
+      REGION::vDeleteREGION(v18[0]);
+      v18[0] = v4;
     }
-    EngSetLastError(8u);
-LABEL_24:
-    PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v21);
-    RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v18);
-    DCOBJ::~DCOBJ((DCOBJ *)v16);
-    return 0LL;
+    goto LABEL_38;
   }
-LABEL_33:
-  if ( v3 )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v16);
-LABEL_35:
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v17);
-  return v5;
+  PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v21);
+  if ( v22 )
+  {
+    if ( !v19[0] || !RGNOBJ::bCreate((RGNOBJ *)v18, (struct EPATHOBJ *)v21, (struct EXFORMOBJ *)v19) )
+      goto LABEL_7;
+    *(_QWORD *)v26 = 0LL;
+    v26[2] = 0;
+    RGNMEMOBJ::vCreate((RGNMEMOBJ *)v26, (struct EPATHOBJ *)v21, 1u, 0LL);
+    if ( !*(_QWORD *)v26 )
+    {
+      EngSetLastError(8u);
+      if ( v26[2] == 1 )
+        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)v26);
+      goto LABEL_7;
+    }
+    v4 = v18[0];
+    v18[0] = *(REGION **)v26;
+    if ( v26[2] == 1 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)v26);
+    PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v21);
+    goto LABEL_16;
+  }
+  EngSetLastError(8u);
+LABEL_7:
+  PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v21);
+  RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v18);
+LABEL_40:
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v16);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v17);
+  return v3;
 }

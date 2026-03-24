@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIGetD3Policy @ 0x1C0043A70
+ * XREFs of ACPIGetD3Policy @ 0x1C0020DE8
  * Callers:
- *     ACPIBusAndFilterIrpQueryCapabilities @ 0x1C007D7B0 (ACPIBusAndFilterIrpQueryCapabilities.c)
+ *     ACPIBusAndFilterIrpQueryCapabilities @ 0x1C009EB30 (ACPIBusAndFilterIrpQueryCapabilities.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall ACPIGetD3Policy(__int64 a1, bool *a2)
@@ -19,14 +19,14 @@ NTSTATUS __fastcall ACPIGetD3Policy(__int64 a1, bool *a2)
   __int128 KeyValueInformation; // [rsp+88h] [rbp+2Fh] BYREF
   int v12; // [rsp+98h] [rbp+3Fh]
 
-  v2 = *(struct _DEVICE_OBJECT **)(a1 + 784);
+  v2 = *(struct _DEVICE_OBJECT **)(a1 + 744);
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   DeviceRegKey = 0LL;
   ResultLength = 0;
-  *(&ObjectAttributes.Length + 1) = 0;
-  DestinationString = 0LL;
   v12 = 0;
+  DestinationString = 0LL;
   KeyValueInformation = 0LL;
   result = IoOpenDeviceRegistryKey(v2, 1u, 0xF003Fu, &DeviceRegKey);
   if ( result >= 0 )

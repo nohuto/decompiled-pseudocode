@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EndActiveCommandsByPointerId@InkFeedbackProviderBase@@UEAAXI@Z @ 0x1C0242280
+ * XREFs of ?EndActiveCommandsByPointerId@InkFeedbackProviderBase@@UEAAXI@Z @ 0x1C0253660
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U2@U?$_tlgWrapperByVal@$00@@U1@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@4AEBU?$_tlgWrapperByVal@$00@@3AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C0241B50 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U2@U-$_tlgWrapperByVal@$00@@U1@U-$_tlgWrapper.c)
- *     ?RemoveAndReleaseActiveCommand@InkFeedbackProviderBase@@IEAAXPEAPEAVActiveCommand@1@@Z @ 0x1C0242A7C (-RemoveAndReleaseActiveCommand@InkFeedbackProviderBase@@IEAAXPEAPEAVActiveCommand@1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U2@U?$_tlgWrapperByVal@$00@@U1@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@4AEBU?$_tlgWrapperByVal@$00@@3AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C0252E50 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U2@U-$_tlgWrapperByVal@$00@@U1@U-$_tlgWrapper.c)
+ *     ?RemoveAndReleaseActiveCommand@InkFeedbackProviderBase@@IEAAXPEAPEAVActiveCommand@1@@Z @ 0x1C0253F98 (-RemoveAndReleaseActiveCommand@InkFeedbackProviderBase@@IEAAXPEAPEAVActiveCommand@1@@Z.c)
  */
 
 void __fastcall InkFeedbackProviderBase::EndActiveCommandsByPointerId(
@@ -16,54 +16,55 @@ void __fastcall InkFeedbackProviderBase::EndActiveCommandsByPointerId(
 {
   struct InkFeedbackProviderBase::ActiveCommand *v4; // rsi
   struct InkFeedbackProviderBase::ActiveCommand *v6; // rbx
-  __int64 v8; // rcx
-  struct InkFeedbackProviderBase::ActiveCommand *v9; // r14
-  int v10; // edx
-  char v11; // al
-  __int64 v12; // [rsp+50h] [rbp-20h] BYREF
-  void *v13; // [rsp+58h] [rbp-18h] BYREF
-  const char *v14; // [rsp+60h] [rbp-10h] BYREF
-  struct InkFeedbackProviderBase::ActiveCommand *v15; // [rsp+68h] [rbp-8h] BYREF
-  char v16; // [rsp+A0h] [rbp+30h] BYREF
-  int v17; // [rsp+B0h] [rbp+40h] BYREF
-  int v18; // [rsp+B8h] [rbp+48h] BYREF
+  InkFeedbackProviderBase *v7; // r14
+  struct InkFeedbackProviderBase::ActiveCommand *v8; // rdi
+  __int64 v9; // r8
+  __int64 v10; // rax
+  __int64 v11; // [rsp+50h] [rbp-20h] BYREF
+  void *v12; // [rsp+58h] [rbp-18h] BYREF
+  const char *v13; // [rsp+60h] [rbp-10h] BYREF
+  struct InkFeedbackProviderBase::ActiveCommand *v14; // [rsp+68h] [rbp-8h] BYREF
+  char v15; // [rsp+A0h] [rbp+30h] BYREF
+  int v16; // [rsp+B0h] [rbp+40h] BYREF
+  int v17; // [rsp+B8h] [rbp+48h] BYREF
 
   v4 = (InkFeedbackProviderBase *)((char *)this + 24);
   v6 = (struct InkFeedbackProviderBase::ActiveCommand *)*((_QWORD *)this + 3);
+  v7 = this;
   while ( v6 != v4 )
   {
-    v8 = (__int64)v6;
-    v15 = v6;
-    v9 = v6;
+    v8 = v6;
+    v14 = v6;
     v6 = *(struct InkFeedbackProviderBase::ActiveCommand **)v6;
-    v10 = *(_DWORD *)(v8 + 20);
-    if ( v10 == a2 )
+    v9 = *((unsigned int *)v8 + 5);
+    if ( (_DWORD)v9 == a2 )
     {
-      if ( (unsigned int)dword_1C03540E0 > 4 )
+      if ( (unsigned int)dword_1C032A288 > 4 )
       {
-        v12 = *(_QWORD *)(v8 + 24);
-        v17 = v10;
-        v11 = *(_BYTE *)(v8 + 16);
-        v18 = 0;
-        v16 = v11;
-        v13 = (void *)*((_QWORD *)this + 6);
-        v14 = "Terminating active command by pointer id";
+        v10 = *((_QWORD *)v8 + 3);
+        LOBYTE(this) = *((_BYTE *)v8 + 16);
+        v17 = 0;
+        v11 = v10;
+        v12 = (void *)*((_QWORD *)v7 + 6);
+        v13 = "Terminating active command by pointer id";
+        v16 = v9;
+        v15 = (char)this;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<1>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
-          v8,
-          byte_1C031DEFD,
-          a3,
+          (__int64)this,
+          byte_1C02F36E5,
+          v9,
           a4,
-          (__int64)&v18,
-          (void **)&v14,
-          &v13,
-          (__int64)&v16,
           (__int64)&v17,
-          (__int64)&v12);
+          (void **)&v13,
+          &v12,
+          (__int64)&v15,
+          (__int64)&v16,
+          (__int64)&v11);
       }
-      (*(void (__fastcall **)(InkFeedbackProviderBase *, struct InkFeedbackProviderBase::ActiveCommand *))(*(_QWORD *)this + 40LL))(
-        this,
-        v9);
-      InkFeedbackProviderBase::RemoveAndReleaseActiveCommand(this, &v15);
+      (*(void (__fastcall **)(InkFeedbackProviderBase *, struct InkFeedbackProviderBase::ActiveCommand *))(*(_QWORD *)v7 + 40LL))(
+        v7,
+        v8);
+      InkFeedbackProviderBase::RemoveAndReleaseActiveCommand(v7, &v14);
     }
   }
 }

@@ -1,72 +1,62 @@
 /*
- * XREFs of MiFreeLargeZeroPages @ 0x1402120B8
+ * XREFs of MiFreeLargeZeroPages @ 0x14027D9D4
  * Callers:
- *     MiCleanupPageTablePages @ 0x140212050 (MiCleanupPageTablePages.c)
- *     MiPruneProcessLargePageCaches @ 0x14021E6B0 (MiPruneProcessLargePageCaches.c)
- *     MiCommitExistingVad @ 0x140276910 (MiCommitExistingVad.c)
- *     MiAllocateFastLargePagesForMdl @ 0x140388FF4 (MiAllocateFastLargePagesForMdl.c)
- *     MiPfnRangeIsZero @ 0x14038D604 (MiPfnRangeIsZero.c)
- *     MiAllocateLargeProcessPagesFromCache @ 0x1406671AC (MiAllocateLargeProcessPagesFromCache.c)
- *     MiCreateLargePfnList @ 0x140667A5C (MiCreateLargePfnList.c)
- *     MiFreeLargeProcessPagesToCache @ 0x1406686B4 (MiFreeLargeProcessPagesToCache.c)
- *     MiCreatePagingFileMap @ 0x140747EA4 (MiCreatePagingFileMap.c)
- *     MiAllocateFastAwePages @ 0x140A40214 (MiAllocateFastAwePages.c)
+ *     MiCleanupPageTablePages @ 0x14027D96C (MiCleanupPageTablePages.c)
+ *     MiPfnRangeIsZero @ 0x1403B9588 (MiPfnRangeIsZero.c)
+ *     MiCreateLargePfnList @ 0x14055DE3C (MiCreateLargePfnList.c)
+ *     MiCreatePagingFileMap @ 0x14061C968 (MiCreatePagingFileMap.c)
  * Callees:
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     MiInsertLargePageInNodeList @ 0x14027F0D0 (MiInsertLargePageInNodeList.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiUpdateLargePageBitMap @ 0x140280710 (MiUpdateLargePageBitMap.c)
+ *     MiReleaseFreshPage @ 0x140357CD4 (MiReleaseFreshPage.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall MiFreeLargeZeroPages(int a1, __int64 a2, unsigned int a3)
+__int64 __fastcall MiFreeLargeZeroPages(int a1, char *a2, unsigned int a3)
 {
-  __int64 v3; // r14
-  __int64 v4; // rbp
-  _QWORD **v8; // rcx
-  _QWORD *v9; // rsi
-  _QWORD *v11; // rax
-  __int64 v12; // rdi
-  char v13; // al
-  __int128 v14; // [rsp+30h] [rbp-68h] BYREF
-  __int128 v15; // [rsp+40h] [rbp-58h]
+  __int64 result; // rax
+  unsigned int v4; // ebp
+  char *v6; // r14
+  _QWORD **v7; // rdi
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  unsigned __int8 v11; // al
+  _QWORD *v12; // rsi
+  __int128 v13; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v14; // [rsp+40h] [rbp-38h]
 
-  v3 = 0LL;
+  result = 0LL;
   v14 = 0LL;
-  v4 = 0LL;
-  v15 = 0LL;
+  v4 = 0;
+  v13 = 0LL;
+  v6 = (char *)((char *)MiLargePageSizes - a2);
+  v7 = (_QWORD **)a2;
   do
   {
     while ( 1 )
     {
-      v8 = (_QWORD **)(a2 + 24 * v4);
-      v9 = *v8;
-      if ( *v8 == v8 )
+      v12 = *v7;
+      if ( !*v7 )
         break;
-      if ( (_QWORD **)v9[1] != v8 || (v11 = (_QWORD *)*v9, *(_QWORD **)(*v9 + 8LL) != v9) )
-        __fastfail(3u);
-      *v8 = v11;
-      v11[1] = v8;
-      if ( (_DWORD)v4 == 3 )
+      *v7 = (_QWORD *)*v12;
+      if ( v4 == 3 )
       {
-        MiReleaseFreshPage(v9);
-        ++v3;
+        result = MiReleaseFreshPage(v12);
       }
       else
       {
-        v12 = MiLargePageSizes[v4];
-        MiUpdateLargePageBitMap(a1, -1431655765 * ((__int64)(v9 + 0x44000000000LL) >> 4), v12, 0, 1);
-        v13 = MiLockPageInline(v9);
-        v15 = 0LL;
-        *(_QWORD *)&v14 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v9 + 0x44000000000LL) >> 4);
-        *((_QWORD *)&v14 + 1) = a3;
-        LOBYTE(v15) = v13;
-        MiInsertLargePageInNodeList(&v14);
-        v3 += v12;
+        MiUpdateLargePageBitMap(a1, (__int64)(v12 + 0xB000000000LL) / 48, *(_QWORD **)((char *)v7 + (_QWORD)v6), 0, 1);
+        v11 = MiLockPageInline(v12, v9, v10);
+        *(_QWORD *)&v13 = (__int64)(v12 + 0xB000000000LL) / 48;
+        *((_QWORD *)&v13 + 1) = a3;
+        v14 = v11;
+        result = MiInsertLargePageInNodeList(&v13);
       }
     }
-    v4 = (unsigned int)(v4 + 1);
+    ++v4;
+    ++v7;
   }
-  while ( (unsigned int)v4 < 4 );
-  return v3;
+  while ( v4 < 4 );
+  return result;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeletePfnBitMaps @ 0x14085F530
+ * XREFs of MiDeletePfnBitMaps @ 0x14085F510
  * Callers:
- *     MiDeletePartitionResources @ 0x1402D0EAC (MiDeletePartitionResources.c)
- *     MiCreatePfnBitMaps @ 0x14072A8E0 (MiCreatePfnBitMaps.c)
+ *     MiDeletePartitionResources @ 0x1402D0FAC (MiDeletePartitionResources.c)
+ *     MiCreatePfnBitMaps @ 0x14072A8C0 (MiCreatePfnBitMaps.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiSetPfnLink @ 0x140065CA4 (MiSetPfnLink.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiLockAndDecrementShareCount @ 0x140118088 (MiLockAndDecrementShareCount.c)
- *     MiReturnPfnList @ 0x140185C1C (MiReturnPfnList.c)
- *     MiReturnSplitPageCharges @ 0x1401927B4 (MiReturnSplitPageCharges.c)
+ *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
+ *     MiReturnPfnList @ 0x140185C3C (MiReturnPfnList.c)
+ *     MiReturnSplitPageCharges @ 0x1401927D4 (MiReturnSplitPageCharges.c)
  */
 
 void __fastcall MiDeletePfnBitMaps(ULONG_PTR *a1)

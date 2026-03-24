@@ -1,67 +1,71 @@
 /*
- * XREFs of CmpInitializeRegistryNode @ 0x14080F2E8
+ * XREFs of CmpInitializeRegistryNode @ 0x1407A711C
  * Callers:
- *     CmLogMcUpdateStatus @ 0x14061588C (CmLogMcUpdateStatus.c)
- *     CmpAddProcessorConfigurationEntry @ 0x14080EE9C (CmpAddProcessorConfigurationEntry.c)
- *     CmpSetupConfigurationTree @ 0x140B3AAA4 (CmpSetupConfigurationTree.c)
+ *     CmLogMcUpdateStatus @ 0x1404EC9D8 (CmLogMcUpdateStatus.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x1407A6CD0 (CmpAddProcessorConfigurationEntry.c)
+ *     CmpSetupConfigurationTree @ 0x140A59198 (CmpSetupConfigurationTree.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     RtlIntegerToChar @ 0x1407CF6F0 (RtlIntegerToChar.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     RtlIntegerToChar @ 0x1406F70C0 (RtlIntegerToChar.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmpInitializeRegistryNode(__int64 a1, void *a2, HANDLE *a3, int a4, int a5, __int64 a6)
 {
-  int *v6; // rbx
-  ULONG v10; // esi
-  UNICODE_STRING *v11; // rax
+  ULONG v9; // esi
+  int v10; // eax
   NTSTATUS result; // eax
-  __int64 v13; // rax
-  unsigned __int16 v14; // dx
-  HANDLE v15; // rbx
-  NTSTATUS v16; // r14d
-  NTSTATUS v17; // ebx
-  const void *v18; // rdx
-  _DWORD *v19; // rcx
-  unsigned int v20; // eax
-  size_t v21; // r8
-  char *v22; // rcx
-  char *Pool2; // rbx
+  __int64 v12; // rax
+  unsigned __int16 v13; // dx
+  HANDLE v14; // rbx
+  NTSTATUS v15; // r14d
+  NTSTATUS v16; // ebx
+  const void *v17; // rdx
+  _DWORD *v18; // rcx
+  unsigned int v19; // eax
+  size_t v20; // r8
+  char *v21; // rcx
+  char *PoolWithTag; // rbx
   PUNICODE_STRING Class; // [rsp+20h] [rbp-C1h]
   HANDLE KeyHandle; // [rsp+40h] [rbp-A1h] BYREF
   ULONG Disposition; // [rsp+48h] [rbp-99h] BYREF
   UNICODE_STRING ValueName; // [rsp+50h] [rbp-91h] BYREF
-  UNICODE_STRING v28; // [rsp+60h] [rbp-81h] BYREF
+  UNICODE_STRING v27; // [rsp+60h] [rbp-81h] BYREF
   STRING DestinationString; // [rsp+70h] [rbp-71h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+80h] [rbp-61h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-51h] BYREF
   char SourceString[16]; // [rsp+C0h] [rbp-21h] BYREF
-  char v33; // [rsp+D0h] [rbp-11h] BYREF
+  char v32; // [rsp+D0h] [rbp-11h] BYREF
 
-  v6 = (int *)(a1 + 28);
-  v10 = 0;
   *(&ObjectAttributes.Length + 1) = 0;
+  v9 = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  v28 = 0LL;
+  v27 = 0LL;
   KeyHandle = 0LL;
   ValueName = 0LL;
   Disposition = 0;
   UnicodeString = 0LL;
   DestinationString = 0LL;
-  if ( !*(_DWORD *)(a1 + 24) )
-    *v6 = 0;
-  v11 = &CmTypeName + *v6;
+  if ( *(_DWORD *)(a1 + 24) )
+  {
+    v10 = *(_DWORD *)(a1 + 28);
+  }
+  else
+  {
+    *(_DWORD *)(a1 + 28) = 0;
+    v10 = 0;
+  }
   ObjectAttributes.RootDirectory = a2;
-  ObjectAttributes.ObjectName = v11;
+  ObjectAttributes.ObjectName = &CmTypeName + v10;
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -70,96 +74,96 @@ NTSTATUS __fastcall CmpInitializeRegistryNode(__int64 a1, void *a2, HANDLE *a3, 
   {
     if ( *(_DWORD *)(a1 + 24) )
     {
-      v13 = *v6;
-      if ( (unsigned int)v13 >= 0x2A )
+      v12 = *(int *)(a1 + 28);
+      if ( (unsigned int)v12 >= 0x2A )
       {
-        v14 = 0;
+        v13 = 0;
       }
       else
       {
-        v14 = *(_WORD *)(a6 + 2 * v13);
-        *(_WORD *)(a6 + 2LL * *v6) = v14 + 1;
+        v13 = *(_WORD *)(a6 + 2 * v12);
+        *(_WORD *)(a6 + 2LL * *(int *)(a1 + 28)) = v13 + 1;
       }
-      RtlIntegerToChar(v14, 0xAu, 12, SourceString);
+      RtlIntegerToChar(v13, 0xAu, 12, SourceString);
       RtlInitAnsiString(&DestinationString, SourceString);
-      *(_DWORD *)&v28.Length = 1572864;
-      v28.Buffer = (wchar_t *)&v33;
-      RtlAnsiStringToUnicodeString(&v28, &DestinationString, 0);
-      v15 = KeyHandle;
-      ObjectAttributes.ObjectName = &v28;
+      *(_DWORD *)&v27.Length = 1572864;
+      v27.Buffer = (wchar_t *)&v32;
+      RtlAnsiStringToUnicodeString(&v27, &DestinationString, 0);
+      v14 = KeyHandle;
+      ObjectAttributes.ObjectName = &v27;
       ObjectAttributes.Length = 48;
       ObjectAttributes.RootDirectory = KeyHandle;
       ObjectAttributes.Attributes = 576;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      v16 = ZwCreateKey(&KeyHandle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
-      ZwClose(v15);
-      if ( v16 < 0 )
-        return v16;
+      v15 = ZwCreateKey(&KeyHandle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
+      ZwClose(v14);
+      if ( v15 < 0 )
+        return v15;
     }
     RtlInitUnicodeString(&ValueName, L"Component Information");
-    v17 = ZwSetValueKey(KeyHandle, &ValueName, 0, 3u, (PVOID)(a1 + 32), 0x10u);
-    if ( v17 < 0 )
-      goto LABEL_23;
+    v16 = ZwSetValueKey(KeyHandle, &ValueName, 0, 3u, (PVOID)(a1 + 32), 0x10u);
+    if ( v16 < 0 )
+      goto LABEL_24;
     if ( *(_DWORD *)(a1 + 52) )
     {
       RtlInitUnicodeString(&ValueName, L"Identifier");
       RtlInitAnsiString(&DestinationString, *(PCSZ *)(a1 + 56));
-      v17 = RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u);
-      if ( v17 < 0 )
-        goto LABEL_23;
-      v17 = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, UnicodeString.Buffer, UnicodeString.Length + 2);
-      RtlFreeUnicodeString(&UnicodeString);
-      if ( v17 < 0 )
-        goto LABEL_23;
+      v16 = RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u);
+      if ( v16 < 0 )
+        goto LABEL_24;
+      v16 = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, UnicodeString.Buffer, UnicodeString.Length + 2);
+      RtlFreeAnsiString(&UnicodeString);
+      if ( v16 < 0 )
+        goto LABEL_24;
     }
     RtlInitUnicodeString(&ValueName, L"Configuration Data");
-    v18 = *(const void **)(a1 + 64);
-    if ( !v18 )
+    v17 = *(const void **)(a1 + 64);
+    if ( !v17 )
     {
 LABEL_13:
       if ( !*(_QWORD *)(a1 + 64) )
       {
-        v10 = 16;
+        v9 = 16;
         *((_QWORD *)CmpConfigurationData + 1) = 0LL;
       }
-      v19 = CmpConfigurationData;
+      v18 = CmpConfigurationData;
       Class = (PUNICODE_STRING)CmpConfigurationData;
       *(_DWORD *)CmpConfigurationData = a4;
-      v19[1] = a5;
-      v17 = ZwSetValueKey(KeyHandle, &ValueName, 0, 9u, Class, v10);
-      if ( v17 >= 0 )
+      v18[1] = a5;
+      v16 = ZwSetValueKey(KeyHandle, &ValueName, 0, 9u, Class, v9);
+      if ( v16 >= 0 )
       {
         *a3 = KeyHandle;
         return 0;
       }
-LABEL_23:
+LABEL_24:
       ZwClose(KeyHandle);
-      return v17;
+      return v16;
     }
-    v20 = *(_DWORD *)(a1 + 48);
-    v10 = v20 + 8;
-    if ( v20 + 8 > CmpConfigurationAreaSize )
+    v19 = *(_DWORD *)(a1 + 48);
+    v9 = v19 + 8;
+    if ( v19 + 8 > (unsigned int)CmpConfigurationAreaSize )
     {
-      Pool2 = (char *)ExAllocatePool2(256LL, v10, 538987843LL);
-      if ( !Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v9, 0x20204D43u);
+      if ( !PoolWithTag )
       {
         *(_DWORD *)(a1 + 48) = 0;
         *(_QWORD *)(a1 + 64) = 0LL;
         goto LABEL_13;
       }
-      CmpConfigurationAreaSize = v10;
+      LODWORD(CmpConfigurationAreaSize) = v9;
       ExFreePoolWithTag(CmpConfigurationData, 0);
-      v21 = *(unsigned int *)(a1 + 48);
-      v22 = Pool2 + 8;
-      v18 = *(const void **)(a1 + 64);
-      CmpConfigurationData = Pool2;
+      v20 = *(unsigned int *)(a1 + 48);
+      v21 = PoolWithTag + 8;
+      v17 = *(const void **)(a1 + 64);
+      CmpConfigurationData = PoolWithTag;
     }
     else
     {
-      v21 = v20;
-      v22 = (char *)CmpConfigurationData + 8;
+      v20 = v19;
+      v21 = (char *)CmpConfigurationData + 8;
     }
-    memmove(v22, v18, v21);
+    memmove(v21, v17, v20);
     goto LABEL_13;
   }
   return result;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?StubDispGetModes@@YAKPEAXKPEAU_devicemodeW@@@Z @ 0x1C0091100
+ * XREFs of ?StubDispGetModes@@YAKPEAXKPEAU_devicemodeW@@@Z @ 0x1C007B800
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall StubDispGetModes(void *a1, unsigned int a2, struct _devicemodeW *a3)
@@ -16,7 +16,7 @@ __int64 __fastcall StubDispGetModes(void *a1, unsigned int a2, struct _devicemod
   if ( a3 )
   {
     memset(a3, 0, a2);
-    v4 = (__int16 *)&unk_1C024CDE2;
+    v4 = (__int16 *)&unk_1C02114A2;
     v5 = 18LL;
     p_dmDriverVersion = &a3->dmDriverVersion;
     do

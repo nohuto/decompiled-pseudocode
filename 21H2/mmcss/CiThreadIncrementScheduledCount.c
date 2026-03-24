@@ -1,10 +1,10 @@
 /*
- * XREFs of CiThreadIncrementScheduledCount @ 0x1C000B140
+ * XREFs of CiThreadIncrementScheduledCount @ 0x1C000ADD0
  * Callers:
- *     CiProcessSuspend @ 0x1C0004B64 (CiProcessSuspend.c)
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
+ *     CiProcessSuspend @ 0x1C00048B4 (CiProcessSuspend.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
  * Callees:
- *     CiNdisUpdateThrottleState @ 0x1C000B9C0 (CiNdisUpdateThrottleState.c)
+ *     CiNdisUpdateThrottleState @ 0x1C000B5B0 (CiNdisUpdateThrottleState.c)
  */
 
 __int64 __fastcall CiThreadIncrementScheduledCount(__int64 a1)

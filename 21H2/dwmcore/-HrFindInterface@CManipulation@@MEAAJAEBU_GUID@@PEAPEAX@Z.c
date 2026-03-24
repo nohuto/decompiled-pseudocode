@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CManipulation@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801F3E80
+ * XREFs of ?HrFindInterface@CManipulation@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801D4400
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006BFF0 (-HrFindInterface@CMILCOMBase@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CManipulation::HrFindInterface(CManipulation *this, const struct _GUID *a2, void **a3)
@@ -19,11 +19,11 @@ __int64 __fastcall CManipulation::HrFindInterface(CManipulation *this, const str
       v4 = *(_QWORD *)a2->Data4 - *(_QWORD *)GUID_c3c5a1de_4dff_4600_9562_70179f475db1.Data4;
     if ( v4 )
     {
-      return 2147500034LL;
+      return CMILCOMBase::HrFindInterface(this, a2, a3);
     }
     else
     {
-      *a3 = (void *)(((unsigned __int64)this + 72) & -(__int64)(this != 0LL));
+      *a3 = (void *)(((unsigned __int64)this + 64) & -(__int64)(this != 0LL));
       return 0LL;
     }
   }

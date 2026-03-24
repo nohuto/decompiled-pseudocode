@@ -1,10 +1,10 @@
 /*
- * XREFs of SepGetDefaultsSubjectContext @ 0x1409CDC94
+ * XREFs of SepGetDefaultsSubjectContext @ 0x140921060
  * Callers:
- *     RtlpSetSecurityObject @ 0x14072BDE0 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1406D7180 (RtlpSetSecurityObject.c)
  * Callees:
- *     SepLocateTokenTrustLevel @ 0x1403347F0 (SepLocateTokenTrustLevel.c)
- *     SepLocateTokenIntegrity @ 0x140370628 (SepLocateTokenIntegrity.c)
+ *     SepLocateTokenIntegrity @ 0x14025222C (SepLocateTokenIntegrity.c)
+ *     SepLocateTokenTrustLevel @ 0x1403034A8 (SepLocateTokenTrustLevel.c)
  */
 
 __int64 __fastcall SepGetDefaultsSubjectContext(
@@ -17,31 +17,31 @@ __int64 __fastcall SepGetDefaultsSubjectContext(
         __int64 *a7,
         _QWORD *a8)
 {
-  __int64 v8; // r11
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  __int64 v11; // r8
+  __int64 v9; // rcx
+  __int64 v10; // r10
+  __int64 v11; // rax
+  __int64 v12; // rdx
   _QWORD *TokenIntegrity; // rax
-  __int64 *v13; // r10
+  __int64 *v14; // r11
   __int64 result; // rax
 
-  v8 = *a1;
-  if ( !*a1 )
-    v8 = a1[2];
-  v9 = *(_QWORD *)(v8 + 168);
-  *a2 = *(_QWORD *)(*(_QWORD *)(v8 + 152) + 16LL * *(unsigned int *)(v8 + 144));
-  v10 = *(_QWORD *)(v8 + 184);
-  *a3 = v9;
-  v11 = a1[2];
-  *a8 = v10;
-  *a4 = *(_QWORD *)(*(_QWORD *)(v11 + 152) + 16LL * *(unsigned int *)(v11 + 144));
-  *a5 = *(_QWORD *)(v11 + 168);
-  TokenIntegrity = (_QWORD *)SepLocateTokenIntegrity(v8);
+  v9 = *a1;
+  v10 = a1[2];
+  if ( !v9 )
+    v9 = a1[2];
+  v11 = *(_QWORD *)(v9 + 168);
+  *a2 = *(_QWORD *)(*(_QWORD *)(v9 + 152) + 16LL * *(unsigned int *)(v9 + 144));
+  v12 = *(_QWORD *)(v9 + 184);
+  *a3 = v11;
+  *a8 = v12;
+  *a4 = *(_QWORD *)(*(_QWORD *)(v10 + 152) + 16LL * *(unsigned int *)(v10 + 144));
+  *a5 = *(_QWORD *)(v10 + 168);
+  TokenIntegrity = (_QWORD *)SepLocateTokenIntegrity(v9);
   if ( TokenIntegrity )
     *a6 = *TokenIntegrity;
   else
     *a6 = SepDefaultMandatorySid;
-  result = SepLocateTokenTrustLevel(v13);
+  result = SepLocateTokenTrustLevel(v14);
   *a7 = result;
   return result;
 }

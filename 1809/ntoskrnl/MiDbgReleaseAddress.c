@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDbgReleaseAddress @ 0x1402BAD0C
+ * XREFs of MiDbgReleaseAddress @ 0x1402BAE0C
  * Callers:
- *     MiDbgCopyMemory @ 0x1402BA650 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x1402BA750 (MiDbgCopyMemory.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KeFlushSingleCurrentTb @ 0x140156EB8 (KeFlushSingleCurrentTb.c)
- *     MiRealVaToFlushType @ 0x14016A828 (MiRealVaToFlushType.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeFlushSingleCurrentTb @ 0x140156ED8 (KeFlushSingleCurrentTb.c)
+ *     MiRealVaToFlushType @ 0x14016A848 (MiRealVaToFlushType.c)
  */
 
 void __fastcall MiDbgReleaseAddress(unsigned __int64 a1, _QWORD *a2, char a3)

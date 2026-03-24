@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_dZq @ 0x1C006C3A0
+ * XREFs of WPP_IFR_SF_dZq @ 0x1C0058AC8
  * Callers:
- *     LockVerifierSection @ 0x1C006C0F8 (LockVerifierSection.c)
+ *     LockVerifierSection @ 0x1C0058820 (LockVerifierSection.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_dZq(
@@ -26,62 +26,40 @@ void __fastcall WPP_IFR_SF_dZq(
 
   v8 = level;
   v11 = 10LL;
-  if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x10000) == 0 || BYTE1(WPP_GLOBAL_WDF_Control.Flags) < 4u )
-    goto LABEL_12;
-  if ( level && level->Buffer )
+  if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x10000) != 0 && BYTE1(WPP_GLOBAL_WDF_Control.Flags) >= 4u )
   {
-    Length = level->Length;
-    goto LABEL_7;
+    if ( level && level->Buffer )
+      Length = level->Length;
+    else
+      Length = 10LL;
+    if ( !level || (Buffer = level->Buffer) == 0LL )
+      Buffer = L"NULL";
+    if ( !level || (v14 = level, !level->Length) )
+      v14 = (const _UNICODE_STRING *)&unk_1C009B764;
+    FxWmiTraceMessage(
+      (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
+      43LL,
+      WPP_globals_cpp_Traceguids,
+      _a2,
+      &globals_0,
+      4LL,
+      v14,
+      2LL,
+      Buffer,
+      Length,
+      &flags,
+      8LL,
+      0LL);
   }
-  Length = 10LL;
-  if ( level )
-  {
-LABEL_7:
-    Buffer = level->Buffer;
-    if ( Buffer )
-      goto LABEL_9;
-  }
-  Buffer = L"NULL";
-  if ( !level )
-  {
-LABEL_10:
-    v14 = (const _UNICODE_STRING *)&unk_1C009BD14;
-    goto LABEL_11;
-  }
-LABEL_9:
-  v14 = level;
-  if ( !level->Length )
-    goto LABEL_10;
-LABEL_11:
-  FxWmiTraceMessage(
-    (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
-    43LL,
-    WPP_globals_cpp_Traceguids,
-    _a2,
-    &globals_0,
-    4LL,
-    v14,
-    2LL,
-    Buffer,
-    Length,
-    &flags,
-    8LL,
-    0LL);
-LABEL_12:
   if ( !v8 )
-    goto LABEL_22;
+    goto LABEL_18;
   if ( v8->Buffer )
     v11 = v8->Length;
   v15 = v8->Buffer;
   if ( !v15 )
-  {
-LABEL_22:
-    v15 = L"NULL";
-    if ( !v8 )
-      goto LABEL_18;
-  }
-  if ( !v8->Length )
 LABEL_18:
-    v8 = (const _UNICODE_STRING *)&unk_1C009BD14;
+    v15 = L"NULL";
+  if ( !v8 || !v8->Length )
+    v8 = (const _UNICODE_STRING *)&unk_1C009B764;
   FxIFR(globals, 4u, 0x11u, WPP_globals_cpp_Traceguids, _a2, &globals_0, 4LL, v8, 2LL, v15, v11, &flags, 8LL, 0LL);
 }

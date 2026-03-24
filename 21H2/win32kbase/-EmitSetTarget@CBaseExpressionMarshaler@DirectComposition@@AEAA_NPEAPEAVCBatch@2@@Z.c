@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitSetTarget@CBaseExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000FF50
+ * XREFs of ?EmitSetTarget@CBaseExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0060594
  * Callers:
- *     ?EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000FD40 (-EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0060380 (-EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall DirectComposition::CBaseExpressionMarshaler::EmitSetTarget(
@@ -34,11 +34,11 @@ char __fastcall DirectComposition::CBaseExpressionMarshaler::EmitSetTarget(
       *(_OWORD *)(v5 + 5) = 0LL;
       *(_OWORD *)(v5 + 9) = 0LL;
       v5[1] = 26;
-      v5[2] = *((_DWORD *)this + 8);
-      if ( (*((_BYTE *)this + 128) & 1) != 0 && (v6 = *((_QWORD *)this + 10)) != 0 && (v7 = *(_QWORD *)(v6 + 16)) != 0 )
+      v5[2] = *((_DWORD *)this + 6);
+      if ( (*((_BYTE *)this + 120) & 1) != 0 && (v6 = *((_QWORD *)this + 9)) != 0 && (v7 = *(_QWORD *)(v6 + 16)) != 0 )
       {
-        v5[4] = *(_DWORD *)(v7 + 32);
-        v8 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 10) + 16LL) + 8LL))(*(_QWORD *)(*((_QWORD *)this + 10) + 16LL));
+        v5[4] = *(_DWORD *)(v7 + 24);
+        v8 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 9) + 16LL) + 8LL))(*(_QWORD *)(*((_QWORD *)this + 9) + 16LL));
       }
       else
       {
@@ -46,15 +46,15 @@ char __fastcall DirectComposition::CBaseExpressionMarshaler::EmitSetTarget(
         v8 = 0;
       }
       v5[3] = v8;
-      v5[5] = *((_DWORD *)this + 22);
-      v5[10] = *((_DWORD *)this + 18);
-      *((_BYTE *)v5 + 44) = (*((_BYTE *)this + 128) & 0x10) != 0;
-      v9 = *((_QWORD *)this + 12);
+      v5[5] = *((_DWORD *)this + 20);
+      v5[10] = *((_DWORD *)this + 16);
+      *((_BYTE *)v5 + 44) = (*((_BYTE *)this + 120) & 0x10) != 0;
+      v9 = *((_QWORD *)this + 11);
       if ( v9 )
       {
         *((_WORD *)v5 + 18) = *(unsigned __int8 *)(v9 + 4);
-        *((_WORD *)v5 + 19) = **((_WORD **)this + 12);
-        v11 = *((_QWORD *)this + 12);
+        *((_WORD *)v5 + 19) = **((_WORD **)this + 11);
+        v11 = *((_QWORD *)this + 11);
         if ( *(_DWORD *)v11 == 1 )
         {
           v4 = *(unsigned __int8 *)(v11 + 8);

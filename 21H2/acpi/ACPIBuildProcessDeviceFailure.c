@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIBuildProcessDeviceFailure @ 0x1C004A780
+ * XREFs of ACPIBuildProcessDeviceFailure @ 0x1C004BDF0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildProcessGenericComplete @ 0x1C0004900 (ACPIBuildProcessGenericComplete.c)
- *     WPP_RECORDER_SF_LLqss @ 0x1C000E000 (WPP_RECORDER_SF_LLqss.c)
+ *     ACPIBuildProcessGenericComplete @ 0x1C001D510 (ACPIBuildProcessGenericComplete.c)
+ *     WPP_RECORDER_SF_LLqss @ 0x1C0020B00 (WPP_RECORDER_SF_LLqss.c)
  */
 
 __int64 __fastcall ACPIBuildProcessDeviceFailure(PSLIST_ENTRY ListEntry)
@@ -20,17 +20,17 @@ __int64 __fastcall ACPIBuildProcessDeviceFailure(PSLIST_ENTRY ListEntry)
   v1 = *((_QWORD *)&ListEntry[2].Next + 1);
   Next = (int)ListEntry[3].Next;
   v4 = 0;
-  v5 = &unk_1C006FB8B;
-  v6 = &unk_1C006FB8B;
+  v5 = &unk_1C00701BA;
+  v6 = &unk_1C00701BA;
   if ( v1 )
   {
     v7 = *(_QWORD *)(v1 + 8);
     v4 = v1;
     if ( (v7 & 0x200000000000LL) != 0 )
     {
-      v5 = *(void **)(v1 + 608);
+      v5 = *(void **)(v1 + 568);
       if ( (v7 & 0x400000000000LL) != 0 )
-        v6 = *(void **)(v1 + 616);
+        v6 = *(void **)(v1 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

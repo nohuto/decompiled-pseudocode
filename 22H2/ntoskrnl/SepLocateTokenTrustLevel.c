@@ -1,16 +1,17 @@
 /*
- * XREFs of SepLocateTokenTrustLevel @ 0x1403347F0
+ * XREFs of SepLocateTokenTrustLevel @ 0x1403034A8
  * Callers:
- *     SepCommonAccessCheckEx @ 0x140228D00 (SepCommonAccessCheckEx.c)
- *     SeAccessCheckWithHint @ 0x1402316A0 (SeAccessCheckWithHint.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
- *     RtlpNewSecurityObject @ 0x14072A470 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x14072BDE0 (RtlpSetSecurityObject.c)
- *     SeShouldCheckForAccessRightsFromParent @ 0x140737900 (SeShouldCheckForAccessRightsFromParent.c)
- *     SepAdjustAccessStateForConstraints @ 0x1407AB890 (SepAdjustAccessStateForConstraints.c)
- *     SepGetDefaultsSubjectContext @ 0x1409CDC94 (SepGetDefaultsSubjectContext.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1402CE470 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373854 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     RtlpNewSecurityObject @ 0x14064CD10 (RtlpNewSecurityObject.c)
+ *     SeShouldCheckForAccessRightsFromParent @ 0x1406D5540 (SeShouldCheckForAccessRightsFromParent.c)
+ *     RtlpSetSecurityObject @ 0x1406D7180 (RtlpSetSecurityObject.c)
+ *     SeAdjustAccessStateForAccessConstraints @ 0x1406D7DA0 (SeAdjustAccessStateForAccessConstraints.c)
+ *     SepAdjustAccessStateForConstraints @ 0x14076EC80 (SepAdjustAccessStateForConstraints.c)
+ *     SepGetDefaultsSubjectContext @ 0x140921060 (SepGetDefaultsSubjectContext.c)
  * Callees:
- *     RtlSidDominatesForTrust @ 0x1402B33C0 (RtlSidDominatesForTrust.c)
+ *     RtlSidDominatesForTrust @ 0x140346DF0 (RtlSidDominatesForTrust.c)
  */
 
 __int64 __fastcall SepLocateTokenTrustLevel(__int64 *a1)
@@ -22,8 +23,11 @@ __int64 __fastcall SepLocateTokenTrustLevel(__int64 *a1)
   v1 = *a1;
   v2 = a1[2];
   v4 = 0;
-  if ( v1 && (RtlSidDominatesForTrust(*(_QWORD *)(v2 + 1104), *(_QWORD *)(v1 + 1104), &v4), v4) )
-    return *(_QWORD *)(v1 + 1104);
-  else
-    return *(_QWORD *)(v2 + 1104);
+  if ( v1 )
+  {
+    RtlSidDominatesForTrust(*(_QWORD *)(v2 + 1104), *(_QWORD *)(v1 + 1104), &v4);
+    if ( v4 )
+      v2 = v1;
+  }
+  return *(_QWORD *)(v2 + 1104);
 }

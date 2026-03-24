@@ -1,24 +1,21 @@
 /*
- * XREFs of KeRegisterBugCheckReasonCallback @ 0x14024AE50
+ * XREFs of KeRegisterBugCheckReasonCallback @ 0x14039E660
  * Callers:
- *     HvlPhase1Initialize @ 0x1403DF080 (HvlPhase1Initialize.c)
- *     HvlpInitializeHvCrashdump @ 0x14054B14C (HvlpInitializeHvCrashdump.c)
- *     SmPrepareForFatalHeapCorruption @ 0x1405FD49C (SmPrepareForFatalHeapCorruption.c)
- *     SmPrepareForFatalPageError @ 0x1405FD594 (SmPrepareForFatalPageError.c)
- *     CarpBugcheckInit @ 0x140605200 (CarpBugcheckInit.c)
- *     IopInitializeBugCheckDriverData @ 0x140658604 (IopInitializeBugCheckDriverData.c)
- *     IopInitializeTriageDumpData @ 0x1408555E0 (IopInitializeTriageDumpData.c)
- *     PspInitPhase0 @ 0x140AFD7A4 (PspInitPhase0.c)
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
- *     HalpMiscInitDiscard @ 0x140B27708 (HalpMiscInitDiscard.c)
- *     PopRecorderInit @ 0x140B28664 (PopRecorderInit.c)
- *     HalpFirmwareInitDiscard @ 0x140B2A8FC (HalpFirmwareInitDiscard.c)
+ *     HvlPhase1Initialize @ 0x1403CFB58 (HvlPhase1Initialize.c)
+ *     HvlpInitializeHvCrashdump @ 0x1404F939C (HvlpInitializeHvCrashdump.c)
+ *     SmPrepareForFatalHeapCorruption @ 0x14059FCA0 (SmPrepareForFatalHeapCorruption.c)
+ *     SmPrepareForFatalPageError @ 0x14059FDA8 (SmPrepareForFatalPageError.c)
+ *     IopInitializeTriageDumpData @ 0x1407C9158 (IopInitializeTriageDumpData.c)
+ *     PspInitPhase0 @ 0x140A3DC68 (PspInitPhase0.c)
+ *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
+ *     HalpMiscInitDiscard @ 0x140A6D378 (HalpMiscInitDiscard.c)
+ *     PopRecorderInit @ 0x140A6DBE0 (PopRecorderInit.c)
+ *     HalpFirmwareInitDiscard @ 0x140A6EB60 (HalpFirmwareInitDiscard.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiCheckForDuplicateBugCheckCallback @ 0x14024AFA0 (KiCheckForDuplicateBugCheckCallback.c)
- *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiCheckForDuplicateBugCheckCallback @ 0x14039E7A8 (KiCheckForDuplicateBugCheckCallback.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
@@ -27,18 +24,19 @@ BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
         KBUGCHECK_CALLBACK_REASON Reason,
         PUCHAR Component)
 {
-  __int64 v5; // rsi
-  BOOLEAN v8; // r14
-  unsigned __int8 CurrentIrql; // bp
-  struct _LIST_ENTRY *v10; // rdi
+  __int64 v5; // rdi
+  BOOLEAN v8; // bp
+  unsigned __int8 CurrentIrql; // si
+  __int64 *v10; // rcx
+  struct _LIST_ENTRY *v11; // rcx
   struct _LIST_ENTRY *Flink; // rax
   struct _LIST_ENTRY *Blink; // rax
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v15; // al
+  unsigned __int8 v16; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v17; // r9
-  int v18; // edx
-  bool v19; // zf
+  _DWORD *v18; // r9
+  int v19; // edx
+  bool v20; // zf
 
   v5 = Reason;
   v8 = 1;
@@ -51,14 +49,14 @@ BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
   }
   KxAcquireSpinLock(&KeBugCheckCallbackLock);
   if ( CallbackRecord->State )
-    goto LABEL_15;
-  if ( (_DWORD)v5 == 4 || (v10 = (struct _LIST_ENTRY *)&KeBugCheckReasonCallbackListHead, (_DWORD)v5 == 6) )
-    v10 = (struct _LIST_ENTRY *)&KeBugCheckAddRemovePagesCallbackListHead;
+    goto LABEL_16;
+  if ( (_DWORD)v5 == 4 || (v10 = (__int64 *)&KeBugCheckReasonCallbackListHead, (_DWORD)v5 == 6) )
+    v10 = &KeBugCheckAddRemovePagesCallbackListHead;
   if ( (unsigned __int8)KiCheckForDuplicateBugCheckCallback(v10, CallbackRecord) )
   {
-LABEL_15:
+LABEL_16:
     v8 = 0;
-    goto LABEL_10;
+    goto LABEL_11;
   }
   CallbackRecord->CallbackRoutine = CallbackRoutine;
   CallbackRecord->Reason = v5;
@@ -66,46 +64,43 @@ LABEL_15:
   CallbackRecord->Checksum = (ULONG_PTR)CallbackRoutine + v5 + (_QWORD)Component;
   CallbackRecord->State = 1;
   if ( (_DWORD)v5 == 1023 )
+    _InterlockedIncrement(&KiRecoveryCallbackCount);
+  if ( (_DWORD)v5 == 7 )
   {
-    if ( _InterlockedIncrement(&KiRecoveryCallbackCount) == 1 && !KiPristineTriageDump )
-      KeInsertQueueDpc(&KiPristineTriageDumpAllocationDpc, 0LL, 0LL);
-  }
-  else if ( (_DWORD)v5 == 7 )
-  {
-    Blink = v10->Blink;
-    if ( Blink->Flink == v10 )
+    Blink = v11->Blink;
+    if ( Blink->Flink == v11 )
     {
-      CallbackRecord->Entry.Flink = v10;
+      CallbackRecord->Entry.Flink = v11;
       CallbackRecord->Entry.Blink = Blink;
       Blink->Flink = &CallbackRecord->Entry;
-      v10->Blink = &CallbackRecord->Entry;
-      goto LABEL_10;
+      v11->Blink = &CallbackRecord->Entry;
+      goto LABEL_11;
     }
-LABEL_22:
+LABEL_20:
     __fastfail(3u);
   }
-  Flink = v10->Flink;
-  if ( v10->Flink->Blink != v10 )
-    goto LABEL_22;
+  Flink = v11->Flink;
+  if ( v11->Flink->Blink != v11 )
+    goto LABEL_20;
   CallbackRecord->Entry.Flink = Flink;
-  CallbackRecord->Entry.Blink = v10;
+  CallbackRecord->Entry.Blink = v11;
   Flink->Blink = &CallbackRecord->Entry;
-  v10->Flink = &CallbackRecord->Entry;
-LABEL_10:
+  v11->Flink = &CallbackRecord->Entry;
+LABEL_11:
   KxReleaseSpinLock(&KeBugCheckCallbackLock);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v15 = KeGetCurrentIrql();
-      if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      v16 = KeGetCurrentIrql();
+      if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v17 = CurrentPrcb->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v19 = (v18 & v17[5]) == 0;
-        v17[5] &= v18;
-        if ( v19 )
+        v18 = CurrentPrcb->SchedulerAssist;
+        v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v20 = (v19 & v18[5]) == 0;
+        v18[5] &= v19;
+        if ( v20 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }

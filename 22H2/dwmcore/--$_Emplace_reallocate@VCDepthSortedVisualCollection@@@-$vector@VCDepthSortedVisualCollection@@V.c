@@ -1,87 +1,84 @@
 /*
- * XREFs of ??$_Emplace_reallocate@VCDepthSortedVisualCollection@@@?$vector@VCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@QEAAPEAVCDepthSortedVisualCollection@@QEAV2@$$QEAV2@@Z @ 0x1801D93D4
+ * XREFs of ??$_Emplace_reallocate@VCDepthSortedVisualCollection@@@?$vector@VCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@QEAAPEAVCDepthSortedVisualCollection@@QEAV2@$$QEAV2@@Z @ 0x18019A058
  * Callers:
- *     ??$emplace_back@VCDepthSortedVisualCollection@@@?$vector@VCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@QEAA?A_T$$QEAVCDepthSortedVisualCollection@@@Z @ 0x1801D9604 (--$emplace_back@VCDepthSortedVisualCollection@@@-$vector@VCDepthSortedVisualCollection@@V-$alloc.c)
+ *     ??$emplace_back@VCDepthSortedVisualCollection@@@?$vector@VCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@QEAAAEAVCDepthSortedVisualCollection@@$$QEAV2@@Z @ 0x18019A2E0 (--$emplace_back@VCDepthSortedVisualCollection@@@-$vector@VCDepthSortedVisualCollection@@V-$alloc.c)
  * Callees:
- *     ??$_Get_size_of_n@$0DI@@std@@YA_K_K@Z @ 0x180036FDC (--$_Get_size_of_n@$0DI@@std@@YA_K_K@Z.c)
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Uninitialized_move@PEAVCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@YAPEAVCDepthSortedVisualCollection@@QEAV1@0PEAV1@AEAV?$allocator@VCDepthSortedVisualCollection@@@0@@Z @ 0x1801D9564 (--$_Uninitialized_move@PEAVCDepthSortedVisualCollection@@V-$allocator@VCDepthSortedVisualCollect.c)
- *     ?_Change_array@?$vector@VCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@AEAAXQEAVCDepthSortedVisualCollection@@_K1@Z @ 0x1801D9810 (-_Change_array@-$vector@VCDepthSortedVisualCollection@@V-$allocator@VCDepthSortedVisualCollectio.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Uninitialized_move@PEAVCDepthSortedVisualCollection@@PEAV1@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@YAPEAVCDepthSortedVisualCollection@@QEAV1@0PEAV1@AEAV?$allocator@VCDepthSortedVisualCollection@@@0@@Z @ 0x18019A228 (--$_Uninitialized_move@PEAVCDepthSortedVisualCollection@@PEAV1@V-$allocator@VCDepthSortedVisualC.c)
+ *     ?_Change_array@?$vector@VCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@AEAAXQEAVCDepthSortedVisualCollection@@_K1@Z @ 0x18019A520 (-_Change_array@-$vector@VCDepthSortedVisualCollection@@V-$allocator@VCDepthSortedVisualCollectio.c)
  */
 
 __int64 __fastcall std::vector<CDepthSortedVisualCollection>::_Emplace_reallocate<CDepthSortedVisualCollection>(
         __int64 *a1,
         __int64 a2,
-        __int64 *a3)
+        __int64 a3)
 {
-  unsigned __int64 v4; // rbx
-  __int64 v7; // r14
-  __int64 v8; // rax
-  unsigned __int64 v9; // rsi
+  __int64 v6; // r14
+  __int64 v7; // rdx
+  unsigned __int64 v8; // rbp
+  unsigned __int64 v9; // rdx
   unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rdx
-  SIZE_T size_of; // rax
-  __int64 v13; // rax
-  __int64 v14; // r8
+  unsigned __int64 v11; // rbx
+  SIZE_T v12; // rcx
+  __int64 v13; // r14
+  __int64 v14; // rdi
   __int64 v15; // rdx
-  __int64 v16; // rbp
-  __int64 v17; // rcx
-  __int64 v18; // r14
-  __int64 v19; // r8
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // rax
-  __int64 v23; // rdx
-  __int64 v24; // rcx
+  __int64 v16; // rcx
 
-  v4 = 0x492492492492492LL;
-  v7 = (a2 - *a1) / 56;
-  v8 = 0x6DB6DB6DB6DB6DB7LL * ((a1[1] - *a1) >> 3);
-  if ( v8 == 0x492492492492492LL )
-    std::_Xlength_error("vector too long");
-  v9 = v8 + 1;
-  v10 = 0x6DB6DB6DB6DB6DB7LL * ((a1[2] - *a1) >> 3);
-  v11 = v10 >> 1;
-  if ( v10 <= 0x492492492492492LL - (v10 >> 1) )
+  v6 = (a2 - *a1) / 56;
+  v7 = (a1[1] - *a1) / 56;
+  if ( v7 == 0x492492492492492LL )
+    std::_Xlength_error("vector<T> too long");
+  v8 = v7 + 1;
+  v9 = (a1[2] - *a1) / 56;
+  v10 = v9 >> 1;
+  if ( v9 <= 0x492492492492492LL - (v9 >> 1) )
   {
-    v4 = v11 + v10;
-    if ( v11 + v10 < v9 )
-      v4 = v8 + 1;
+    v11 = v10 + v9;
+    if ( v10 + v9 < v8 )
+      v11 = v8;
   }
-  size_of = std::_Get_size_of_n<56>(v4);
-  v13 = std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  v14 = a3[2];
-  v15 = a3[1];
-  v16 = v13;
-  v17 = *a3;
-  a3[2] = 0LL;
-  a3[1] = 0LL;
-  *a3 = 0LL;
-  v18 = v13 + 56 * v7;
-  *(_QWORD *)(v18 + 16) = v14;
-  v19 = v13;
-  *(_QWORD *)v18 = v17;
-  *(_QWORD *)(v18 + 8) = v15;
-  *(_DWORD *)(v18 + 24) = *((_DWORD *)a3 + 6);
-  v20 = a3[6];
-  v21 = a3[5];
-  v22 = a3[4];
-  a3[6] = 0LL;
-  a3[5] = 0LL;
-  a3[4] = 0LL;
-  *(_QWORD *)(v18 + 32) = v22;
-  *(_QWORD *)(v18 + 40) = v21;
-  *(_QWORD *)(v18 + 48) = v20;
-  v23 = a1[1];
-  v24 = *a1;
-  if ( a2 != v23 )
+  else
   {
-    std::_Uninitialized_move<CDepthSortedVisualCollection *>(v24, a2, v19);
-    v23 = a1[1];
-    v19 = v18 + 56;
-    v24 = a2;
+    v11 = v8;
   }
-  std::_Uninitialized_move<CDepthSortedVisualCollection *>(v24, v23, v19);
-  std::vector<CDepthSortedVisualCollection>::_Change_array(a1, v16, v9, v4);
-  return v18;
+  v12 = 56 * v11;
+  if ( v11 > 0x492492492492492LL )
+    v12 = -1LL;
+  v13 = 56 * v6;
+  v14 = std::_Allocate<16,std::_Default_allocate_traits,0>(v12);
+  *(_QWORD *)(v13 + v14) = 0LL;
+  *(_QWORD *)(v13 + v14 + 8) = 0LL;
+  *(_QWORD *)(v13 + v14 + 16) = 0LL;
+  *(_QWORD *)(v13 + v14) = *(_QWORD *)a3;
+  *(_QWORD *)(v13 + v14 + 8) = *(_QWORD *)(a3 + 8);
+  *(_QWORD *)(v13 + v14 + 16) = *(_QWORD *)(a3 + 16);
+  *(_QWORD *)a3 = 0LL;
+  *(_QWORD *)(a3 + 8) = 0LL;
+  *(_QWORD *)(a3 + 16) = 0LL;
+  *(_DWORD *)(v13 + v14 + 24) = *(_DWORD *)(a3 + 24);
+  *(_QWORD *)(v13 + v14 + 32) = 0LL;
+  *(_QWORD *)(v13 + v14 + 40) = 0LL;
+  *(_QWORD *)(v13 + v14 + 48) = 0LL;
+  *(_QWORD *)(v13 + v14 + 32) = *(_QWORD *)(a3 + 32);
+  *(_QWORD *)(v13 + v14 + 40) = *(_QWORD *)(a3 + 40);
+  *(_QWORD *)(v13 + v14 + 48) = *(_QWORD *)(a3 + 48);
+  *(_QWORD *)(a3 + 32) = 0LL;
+  *(_QWORD *)(a3 + 40) = 0LL;
+  *(_QWORD *)(a3 + 48) = 0LL;
+  v15 = a1[1];
+  v16 = *a1;
+  if ( a2 != v15 )
+  {
+    std::_Uninitialized_move<CDepthSortedVisualCollection *,CDepthSortedVisualCollection *,std::allocator<CDepthSortedVisualCollection>>(
+      v16,
+      a2);
+    v15 = a1[1];
+    v16 = a2;
+  }
+  std::_Uninitialized_move<CDepthSortedVisualCollection *,CDepthSortedVisualCollection *,std::allocator<CDepthSortedVisualCollection>>(
+    v16,
+    v15);
+  std::vector<CDepthSortedVisualCollection>::_Change_array(a1, v14, v8, v11);
+  return v13 + *a1;
 }

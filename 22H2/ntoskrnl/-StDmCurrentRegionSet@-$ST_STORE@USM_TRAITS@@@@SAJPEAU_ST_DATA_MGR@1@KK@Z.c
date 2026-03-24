@@ -1,20 +1,20 @@
 /*
- * XREFs of ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x140345794
+ * XREFs of ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x14034EC64
  * Callers:
- *     ?StDmInvalidateCurrentRegions@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@@Z @ 0x140345744 (-StDmInvalidateCurrentRegions@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@@Z.c)
- *     ?StDmDeviceIoCompletion@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C5488 (-StDmDeviceIoCompletion@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     ?StDmRegionRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z @ 0x1405C7588 (-StDmRegionRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z.c)
- *     ?StDmpSinglePageFindSpace@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z @ 0x1405C7ED0 (-StDmpSinglePageFindSpace@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z.c)
+ *     ?StDmpSinglePageFindSpace@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z @ 0x140264C20 (-StDmpSinglePageFindSpace@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KKPEAPEADPEAK@Z.c)
+ *     ?StDmInvalidateCurrentRegions@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@@Z @ 0x14034EC14 (-StDmInvalidateCurrentRegions@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@@Z.c)
+ *     ?StDmDeviceIoCompletion@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14059ACD8 (-StDmDeviceIoCompletion@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StDmRegionRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z @ 0x14059C360 (-StDmRegionRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAK@Z.c)
  * Callees:
- *     ?StCompactRegions@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z @ 0x1405C320C (-StCompactRegions@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z.c)
- *     ?StDmUpdateRegionsToCompactBitmap@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KKK@Z @ 0x1405C79F8 (-StDmUpdateRegionsToCompactBitmap@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KKK@Z.c)
- *     ?StLazyWorkMgrQueueWork@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@W4_ST_LAZY_WORK_TYPE@1@KK@Z @ 0x1405C8800 (-StLazyWorkMgrQueueWork@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@W4_ST_LAZY_WORK_TYPE.c)
- *     ?StMapAndLockRegion@?$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z @ 0x1405C8C34 (-StMapAndLockRegion@-$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z.c)
- *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x1405C941C (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
- *     ?StUnlockAndUnmapRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAD@Z @ 0x1405C963C (-StUnlockAndUnmapRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAD@Z.c)
+ *     ?StLazyWorkMgrQueueWork@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@W4_ST_LAZY_WORK_TYPE@1@KK@Z @ 0x1402538A4 (-StLazyWorkMgrQueueWork@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_LAZY_WORK_MGR@1@W4_ST_LAZY_WORK_TYPE.c)
+ *     ?StDmUpdateRegionsToCompactBitmap@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KKK@Z @ 0x14026A608 (-StDmUpdateRegionsToCompactBitmap@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KKK@Z.c)
+ *     ?StCompactRegions@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z @ 0x14026AAD8 (-StCompactRegions@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z.c)
+ *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14034DAEC (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StUnlockAndUnmapRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAD@Z @ 0x14034EDAC (-StUnlockAndUnmapRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAD@Z.c)
+ *     ?StMapAndLockRegion@?$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z @ 0x14034EEC0 (-StMapAndLockRegion@-$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z.c)
  */
 
-__int64 __fastcall ST_STORE<SM_TRAITS>::StDmCurrentRegionSet(__int64 a1, unsigned int a2, unsigned int a3)
+__int64 __fastcall ST_STORE<SM_TRAITS>::StDmCurrentRegionSet(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // rsi
   unsigned int *v5; // rdi
@@ -22,13 +22,14 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmCurrentRegionSet(__int64 a1, unsigne
   __int64 v7; // r15
   unsigned int v8; // ebp
   __int64 result; // rax
-  __int64 v10; // r12
-  __int64 v11; // rax
+  __int16 v10; // r9
+  __int64 v11; // r12
+  __int64 v12; // rax
 
-  v3 = a3;
+  v3 = (unsigned int)a3;
   v5 = (unsigned int *)(a1 + 16 * (a2 + 78LL));
   v6 = *v5;
-  if ( a3 == -1 )
+  if ( (_DWORD)a3 == -1 )
   {
     v7 = 0LL;
     v8 = -1;
@@ -38,21 +39,18 @@ LABEL_3:
     {
       if ( !*(_BYTE *)(a1 + 776) )
         ST_STORE<SM_TRAITS>::StUnlockAndUnmapRegion(a1, (unsigned int)v6);
-      if ( (*(_WORD *)(*(_QWORD *)(a1 + 1032) + 2 * v6) & 0x1FFF) != 0 )
-        ST_STORE<SM_TRAITS>::StDmUpdateRegionsToCompactBitmap(
-          a1,
-          (unsigned int)v6,
-          0LL,
-          *(_WORD *)(*(_QWORD *)(a1 + 1032) + 2 * v6) & 0x1FFF);
+      v10 = *(_WORD *)(*(_QWORD *)(a1 + 1032) + 2 * v6);
+      if ( (v10 & 0x1FFF) != 0 )
+        ST_STORE<SM_TRAITS>::StDmUpdateRegionsToCompactBitmap(a1, v6, 0, v10 & 0x1FFF);
       else
-        ST_STORE<SM_TRAITS>::StReleaseRegion(a1, (unsigned int)v6);
+        ST_STORE<SM_TRAITS>::StReleaseRegion(a1, v6, a3);
     }
     if ( (_DWORD)v3 != -1 )
     {
       if ( v8 )
-        ST_STORE<SM_TRAITS>::StDmUpdateRegionsToCompactBitmap(a1, (unsigned int)v3, v8, 0LL);
+        ST_STORE<SM_TRAITS>::StDmUpdateRegionsToCompactBitmap(a1, v3, v8, 0);
       if ( !*(_BYTE *)(a1 + 776) )
-        ST_STORE<SM_TRAITS>::StLazyWorkMgrQueueWork(*(_QWORD *)(a1 + 1912), 3LL, 5000LL, 4294967294LL);
+        ST_STORE<SM_TRAITS>::StLazyWorkMgrQueueWork(*(_QWORD *)(a1 + 1912), 3LL, 0x1388u, 0xFFFFFFFE);
     }
     *v5 = v3;
     result = 0LL;
@@ -60,17 +58,17 @@ LABEL_3:
     *((_QWORD *)v5 + 1) = v7;
     return result;
   }
-  v10 = *(_QWORD *)(a1 + 1032);
-  v11 = ST_STORE<SM_TRAITS>::StMapAndLockRegion(a1, a3, a2, 0LL);
-  v7 = v11;
-  if ( !v11 )
+  v11 = *(_QWORD *)(a1 + 1032);
+  v12 = ST_STORE<SM_TRAITS>::StMapAndLockRegion(a1, (unsigned int)a3, a2, 0LL);
+  v7 = v12;
+  if ( !v12 )
     return 3221225514LL;
-  if ( v11 == -1 )
+  if ( v12 == -1 )
     return 3221226029LL;
-  v8 = *(_WORD *)(v10 + 2 * v3) & 0x1FFF;
-  if ( (*(_WORD *)(v10 + 2 * v3) & 0x1FFF) == 0 )
+  v8 = *(_WORD *)(v11 + 2 * v3) & 0x1FFF;
+  if ( (*(_WORD *)(v11 + 2 * v3) & 0x1FFF) == 0 )
     goto LABEL_3;
-  result = ST_STORE<SM_TRAITS>::StCompactRegions(a1, v11, v3, v11, v3, 0);
+  result = ST_STORE<SM_TRAITS>::StCompactRegions(a1, v12, v3, v12, v3, 0);
   if ( (int)result >= 0 )
     goto LABEL_3;
   return result;

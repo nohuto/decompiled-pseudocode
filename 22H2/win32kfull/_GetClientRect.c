@@ -1,14 +1,14 @@
 /*
- * XREFs of _GetClientRect @ 0x1C00C4608
+ * XREFs of _GetClientRect @ 0x1C00FF8F8
  * Callers:
- *     ?GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z @ 0x1C005EDC4 (-GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z.c)
- *     xxxSendSizeMessage @ 0x1C00C3F18 (xxxSendSizeMessage.c)
- *     EtwTraceLayoutChangeStop @ 0x1C00C5D94 (EtwTraceLayoutChangeStop.c)
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C00ED180 (xxxInitSendValidateMinMaxInfoEx.c)
- *     ?xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z @ 0x1C01C9CAC (-xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z.c)
- *     xxxMNUpdateShownMenu @ 0x1C02314D0 (xxxMNUpdateShownMenu.c)
+ *     ?GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z @ 0x1C0039260 (-GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z.c)
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x1C0064CA0 (xxxInitSendValidateMinMaxInfoEx.c)
+ *     xxxSendSizeMessage @ 0x1C00FF870 (xxxSendSizeMessage.c)
+ *     EtwTraceLayoutChangeStop @ 0x1C011C3A0 (EtwTraceLayoutChangeStop.c)
+ *     ?xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z @ 0x1C01F3314 (-xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z.c)
+ *     xxxMNUpdateShownMenu @ 0x1C0249294 (xxxMNUpdateShownMenu.c)
  * Callees:
- *     GetPrimaryMonitorRect @ 0x1C00C4674 (GetPrimaryMonitorRect.c)
+ *     GetPrimaryMonitorRect @ 0x1C00FF964 (GetPrimaryMonitorRect.c)
  */
 
 __int64 __fastcall GetClientRect(__int64 a1, __int64 a2)

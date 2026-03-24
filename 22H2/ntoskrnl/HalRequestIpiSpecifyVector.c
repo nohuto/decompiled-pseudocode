@@ -1,54 +1,48 @@
 /*
- * XREFs of HalRequestIpiSpecifyVector @ 0x140254570
+ * XREFs of HalRequestIpiSpecifyVector @ 0x1403443F0
  * Callers:
- *     KiExitDispatcher @ 0x14023CD50 (KiExitDispatcher.c)
- *     KiReadyDeferredReadyList @ 0x140249C70 (KiReadyDeferredReadyList.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252640 (KiFlushSoftwareInterruptBatch.c)
- *     KiProcessThreadWaitList @ 0x140253CA0 (KiProcessThreadWaitList.c)
- *     KiIpiSendRequest @ 0x140253F00 (KiIpiSendRequest.c)
- *     HalRequestIpi @ 0x14035BB40 (HalRequestIpi.c)
- *     HalRequestClockInterrupt @ 0x140364AF0 (HalRequestClockInterrupt.c)
- *     HalpInterruptResetAllProcessors @ 0x140504EAC (HalpInterruptResetAllProcessors.c)
- *     KiIntRedirectQueueRequestOnProcessor @ 0x140580990 (KiIntRedirectQueueRequestOnProcessor.c)
+ *     HalRequestClockInterrupt @ 0x1402F0430 (HalRequestClockInterrupt.c)
+ *     KiIntRedirectQueueRequestOnProcessor @ 0x140343C78 (KiIntRedirectQueueRequestOnProcessor.c)
+ *     HalRequestIpi @ 0x140343EB0 (HalRequestIpi.c)
+ *     KiIpiSendRequest @ 0x140343EE0 (KiIpiSendRequest.c)
+ *     HalpInterruptResetAllProcessors @ 0x1404D2B2C (HalpInterruptResetAllProcessors.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140254C30 (HalpInterruptSendIpi.c)
- *     KeIsEmptyAffinityEx @ 0x140255050 (KeIsEmptyAffinityEx.c)
+ *     HalpInterruptSendIpi @ 0x1402201D0 (HalpInterruptSendIpi.c)
  */
 
-__int64 __fastcall HalRequestIpiSpecifyVector(int a1, __int64 a2, unsigned int a3)
+__int64 __fastcall HalRequestIpiSpecifyVector(int a1, _WORD *a2, unsigned int a3)
 {
-  int v7; // ebx
-  __int128 v8; // [rsp+20h] [rbp-28h] BYREF
-  int v9; // [rsp+30h] [rbp-18h]
+  int v4; // ecx
+  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v6; // [rsp+30h] [rbp-18h]
 
-  v9 = 0;
-  v8 = 0LL;
-  if ( a1 )
+  v6 = 0LL;
+  v5 = 0LL;
+  if ( !a1 )
   {
-    if ( (unsigned int)(a1 - 1) < 2 )
-      goto LABEL_4;
+    if ( a2 && *a2 )
+    {
+      while ( !*(_QWORD *)&a2[4 * (unsigned __int16)a1 + 4] )
+      {
+        LOWORD(a1) = a1 + 1;
+        if ( (unsigned __int16)a1 >= *a2 )
+          return 3221225485LL;
+      }
+      LODWORD(v5) = 2;
+      *((_QWORD *)&v5 + 1) = a2;
+      return HalpInterruptSendIpi(&v5, a3);
+    }
     return 3221225485LL;
   }
-  if ( !a2 || (unsigned int)KeIsEmptyAffinityEx(a2) )
+  if ( (unsigned int)(a1 - 1) > 1 )
     return 3221225485LL;
-LABEL_4:
-  if ( a1 )
+  v4 = a1 - 1;
+  if ( v4 )
   {
-    v7 = a1 - 1;
-    if ( v7 )
-    {
-      if ( v7 == 1 )
-        LODWORD(v8) = 3;
-    }
-    else
-    {
-      LODWORD(v8) = 4;
-    }
+    if ( v4 == 1 )
+      LODWORD(v5) = 3;
+    return HalpInterruptSendIpi(&v5, a3);
   }
-  else
-  {
-    LODWORD(v8) = 2;
-    *((_QWORD *)&v8 + 1) = a2;
-  }
-  return HalpInterruptSendIpi(&v8, a3);
+  LODWORD(v5) = 4;
+  return HalpInterruptSendIpi(&v5, a3);
 }

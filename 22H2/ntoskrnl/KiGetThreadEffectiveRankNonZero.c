@@ -1,56 +1,67 @@
 /*
- * XREFs of KiGetThreadEffectiveRankNonZero @ 0x1402B3210
+ * XREFs of KiGetThreadEffectiveRankNonZero @ 0x14024CE70
  * Callers:
- *     KiAddThreadToReadyQueue @ 0x1402348C0 (KiAddThreadToReadyQueue.c)
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x140242580 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiExecuteAllDpcs @ 0x1402444A0 (KiExecuteAllDpcs.c)
- *     KiDirectSwitchThread @ 0x1402B1870 (KiDirectSwitchThread.c)
- *     KiEvaluateGroupSchedulingPreemption @ 0x1402B2FD0 (KiEvaluateGroupSchedulingPreemption.c)
- *     KeAccumulateTicks @ 0x1402C7AE0 (KeAccumulateTicks.c)
- *     KiDeferGroupSchedulingPreemption @ 0x140307454 (KiDeferGroupSchedulingPreemption.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x14030884C (KiMoveScbThreadsToNewReadylist.c)
+ *     KeAccumulateTicks @ 0x1402243D0 (KeAccumulateTicks.c)
+ *     KiSelectReadyThreadEx @ 0x14022F830 (KiSelectReadyThreadEx.c)
+ *     KiRemoveBoostThread @ 0x14024A840 (KiRemoveBoostThread.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x14024C010 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiDirectSwitchThread @ 0x14024C1B0 (KiDirectSwitchThread.c)
+ *     KiIsThreadRankNonZero @ 0x14024CDC0 (KiIsThreadRankNonZero.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x140258040 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x140258C10 (KiQueueReadyThread.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x140259550 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x140259970 (KiDeferGroupSchedulingPreemption.c)
+ *     KiDeferredReadySingleThread @ 0x1402C4550 (KiDeferredReadySingleThread.c)
+ *     KiSelectReadyThread @ 0x1402C7F90 (KiSelectReadyThread.c)
+ *     KiChooseLowestRankedThread @ 0x14035C520 (KiChooseLowestRankedThread.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x14037D9BC (KiMoveScbThreadsToNewReadylist.c)
+ *     KiAddThreadToReadyQueue @ 0x14051EE34 (KiAddThreadToReadyQueue.c)
  * Callees:
- *     KiCheckForMaxOverQuotaScb @ 0x140308F8C (KiCheckForMaxOverQuotaScb.c)
+ *     <none>
  */
 
-__int64 __fastcall KiGetThreadEffectiveRankNonZero(__int64 a1, __int64 a2, char a3, bool *a4)
+__int64 __fastcall KiGetThreadEffectiveRankNonZero(__int64 a1, __int64 a2, __int64 a3, char a4, bool *a5)
 {
-  bool v5; // bl
-  unsigned int v6; // edx
-  int v7; // r11d
-  __int64 v8; // r10
+  bool v5; // r11
+  __int64 result; // rax
+  int v7; // ebx
+  __int64 v8; // r9
 
-  v5 = a4 && *(_QWORD *)(a2 + 120);
-  v6 = 0;
+  v5 = a5 && *(_QWORD *)(a2 + 120);
+  result = 0LL;
   v7 = 0;
   if ( *(char *)(a1 + 195) < 16
     && (*(_DWORD *)(a1 + 120) & 0x200) == 0
-    && (!a3 || !*(_DWORD *)(a1 + 484) && *(_BYTE *)(a1 + 390) != 1) )
+    && (!a4 || !*(_DWORD *)(a1 + 484) && *(_BYTE *)(a1 + 390) != 1) )
   {
-    if ( (unsigned __int8)KiCheckForMaxOverQuotaScb(a2, 0LL) )
+    v8 = a2;
+    do
     {
-      v6 = -1;
-    }
-    else
-    {
-      do
+      if ( (*(_BYTE *)(v8 + 112) & 2) != 0 )
       {
-        v6 += *(_DWORD *)(v8 + 116);
-        if ( v5 )
-        {
-          v7 += **(_DWORD **)(v8 + 120);
-        }
-        else if ( v6 )
-        {
-          break;
-        }
-        v8 = *(_QWORD *)(v8 + 408);
+        result = 0xFFFFFFFFLL;
+        goto LABEL_12;
       }
-      while ( v8 );
+      v8 = *(_QWORD *)(v8 + 408);
     }
+    while ( v8 );
+    do
+    {
+      result = (unsigned int)(*(_DWORD *)(a2 + 116) + result);
+      if ( v5 )
+      {
+        v7 += **(_DWORD **)(a2 + 120);
+      }
+      else if ( (_DWORD)result )
+      {
+        break;
+      }
+      a2 = *(_QWORD *)(a2 + 408);
+    }
+    while ( a2 );
   }
-  if ( a4 )
-    *a4 = v7 != 0;
-  return v6;
+LABEL_12:
+  if ( a5 )
+    *a5 = v7 != 0;
+  return result;
 }

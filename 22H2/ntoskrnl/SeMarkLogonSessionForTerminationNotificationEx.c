@@ -1,21 +1,21 @@
 /*
- * XREFs of SeMarkLogonSessionForTerminationNotificationEx @ 0x140885910
+ * XREFs of SeMarkLogonSessionForTerminationNotificationEx @ 0x1406A5970
  * Callers:
- *     SeMarkLogonSessionForTerminationNotification @ 0x1408858F0 (SeMarkLogonSessionForTerminationNotification.c)
+ *     SeMarkLogonSessionForTerminationNotification @ 0x1406A5950 (SeMarkLogonSessionForTerminationNotification.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
  */
 
 __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __int64 a2)
 {
-  unsigned __int64 v4; // r8
+  __int64 v4; // r8
   __int64 v5; // rbx
   struct _KTHREAD *CurrentThread; // rax
   struct _ERESOURCE *v7; // rbp
 
-  v4 = (unsigned __int64)(unsigned int)(1529154084 * *a1) >> 28;
+  v4 = (unsigned int)(1529154084 * *a1) >> 28;
   v5 = SepLogonSessions + 8 * v4;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

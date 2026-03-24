@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpUnlockBufferList @ 0x1402E1B84
+ * XREFs of EtwpUnlockBufferList @ 0x1402662CC
  * Callers:
- *     EtwpEnqueueOverflowBuffer @ 0x140259D60 (EtwpEnqueueOverflowBuffer.c)
- *     EtwpAllocateFreeBuffers @ 0x14026187C (EtwpAllocateFreeBuffers.c)
- *     EtwpReserveTraceBuffer @ 0x1402ABBF0 (EtwpReserveTraceBuffer.c)
- *     EtwpAdjustSiloTraceBuffers @ 0x1402E1140 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpDequeueFreeBuffer @ 0x1402E18F8 (EtwpDequeueFreeBuffer.c)
- *     EtwpEnqueueAvailableBuffer @ 0x1402E1AB0 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpDequeueBufferPendingCompression @ 0x140635144 (EtwpDequeueBufferPendingCompression.c)
- *     EtwpReenableCompression @ 0x1406354FC (EtwpReenableCompression.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140265D30 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpDequeueFreeBuffer @ 0x140266078 (EtwpDequeueFreeBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x140266230 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x1402D1F88 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpAllocateFreeBuffers @ 0x1402ED308 (EtwpAllocateFreeBuffers.c)
+ *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x1405ACFF4 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpReenableCompression @ 0x1405AD6C0 (EtwpReenableCompression.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall EtwpUnlockBufferList(__int64 a1, unsigned __int8 *a2)
@@ -24,8 +24,8 @@ __int64 __fastcall EtwpUnlockBufferList(__int64 a1, unsigned __int8 *a2)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
 
-  v2 = *(_DWORD *)(a1 + 300) == 1;
-  v3 = (KSPIN_LOCK *)(a1 + 696);
+  v2 = *(_DWORD *)(a1 + 316) == 1;
+  v3 = (KSPIN_LOCK *)(a1 + 712);
   if ( v2 )
     return ExReleasePushLockEx((ULONG_PTR)v3, 0LL);
   v4 = *a2;

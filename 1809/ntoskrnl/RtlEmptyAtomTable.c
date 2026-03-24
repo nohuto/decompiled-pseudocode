@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlEmptyAtomTable @ 0x140893640
+ * XREFs of RtlEmptyAtomTable @ 0x140893620
  * Callers:
  *     <none>
  * Callees:
@@ -7,8 +7,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     RtlpLockAtomTable @ 0x1405F547C (RtlpLockAtomTable.c)
- *     RtlpFreeAtom @ 0x1406AD490 (RtlpFreeAtom.c)
- *     RtlpFreeHandleForAtom @ 0x1406AD4C0 (RtlpFreeHandleForAtom.c)
+ *     RtlpFreeAtom @ 0x1406AD470 (RtlpFreeAtom.c)
+ *     RtlpFreeHandleForAtom @ 0x1406AD4A0 (RtlpFreeHandleForAtom.c)
  */
 
 NTSTATUS __stdcall RtlEmptyAtomTable(PRTL_ATOM_TABLE AtomTable, BOOLEAN DeletePinned)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindEmptyAddressRangeInTree @ 0x1407BB054
+ * XREFs of MiFindEmptyAddressRangeInTree @ 0x140676B1C
  * Callers:
- *     MiFindEmptyAddressRange @ 0x14071FF10 (MiFindEmptyAddressRange.c)
+ *     MiFindEmptyAddressRange @ 0x1405FAB40 (MiFindEmptyAddressRange.c)
  * Callees:
- *     MiHonorRangeStraddleRequirement @ 0x140348B2C (MiHonorRangeStraddleRequirement.c)
+ *     MiHonorRangeStraddleRequirement @ 0x140304588 (MiHonorRangeStraddleRequirement.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRangeInTree(
@@ -15,11 +15,11 @@ __int64 __fastcall MiFindEmptyAddressRangeInTree(
         unsigned __int64 a6,
         _QWORD *a7)
 {
-  unsigned __int64 v7; // r13
+  unsigned __int64 v7; // r15
   unsigned __int64 v8; // rsi
   unsigned int v9; // r10d
-  __int64 v10; // r15
-  __int64 v12; // r12
+  __int64 v10; // rbp
+  __int64 v12; // r14
   unsigned __int64 v13; // r11
   unsigned __int64 v14; // rdi
   _QWORD *v15; // rax
@@ -47,7 +47,7 @@ __int64 __fastcall MiFindEmptyAddressRangeInTree(
     return (unsigned int)-1073741801;
   v15 = *a1;
   if ( !*a1 )
-    goto LABEL_29;
+    goto LABEL_34;
   do
   {
     i = (unsigned __int64)v15;
@@ -57,7 +57,7 @@ __int64 __fastcall MiFindEmptyAddressRangeInTree(
   v17 = i;
   v18 = *(unsigned int *)(i + 24) | ((unsigned __int64)*(unsigned __int8 *)(i + 32) << 32);
   if ( v18 > v13 && v8 <= v18 - v13 )
-    goto LABEL_29;
+    goto LABEL_34;
   while ( 1 )
   {
     v19 = *(_QWORD ***)(i + 8);
@@ -111,7 +111,7 @@ LABEL_21:
     v13 = MiHonorRangeStraddleRequirement(v13, v8, v10, 0);
   if ( v14 < v13 || v8 > v14 - v13 + 1 )
     return (unsigned int)-1073741801;
-LABEL_29:
+LABEL_34:
   *a7 = v13 << 12;
   return v9;
 }

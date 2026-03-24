@@ -1,28 +1,31 @@
 /*
- * XREFs of BiWasFirmwareModified @ 0x1403A7778
+ * XREFs of BiWasFirmwareModified @ 0x14039B4CC
  * Callers:
- *     BiCloseStore @ 0x140811EB0 (BiCloseStore.c)
- *     BiOpenSystemStore @ 0x140813744 (BiOpenSystemStore.c)
+ *     BiCloseStore @ 0x140781D00 (BiCloseStore.c)
+ *     BiOpenSystemStore @ 0x14078381C (BiOpenSystemStore.c)
  * Callees:
- *     BiGetRegistryValue @ 0x140812F84 (BiGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     BiGetRegistryValue @ 0x140783DF8 (BiGetRegistryValue.c)
  */
 
 bool __fastcall BiWasFirmwareModified(__int64 a1)
 {
   char v1; // di
-  int v3; // ebx
-  int v4; // [rsp+48h] [rbp+10h] BYREF
-  PVOID P; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  _DWORD *v4; // r9
+  int v6; // ebx
+  int v7; // [rsp+48h] [rbp+10h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+50h] [rbp+18h] BYREF
 
   v1 = 0;
-  P = 0LL;
-  v4 = 0;
-  if ( (int)BiGetRegistryValue(a1, L"FirmwareModified", L"Description", 4LL, &P, &v4) >= 0 )
+  BugCheckParameter2 = 0LL;
+  v7 = 0;
+  if ( (int)BiGetRegistryValue(a1, L"FirmwareModified", L"Description", 4LL, &BugCheckParameter2, &v7) >= 0 )
   {
-    v3 = *(_DWORD *)P;
-    ExFreePoolWithTag(P, 0x4B444342u);
-    return v3 != 0;
+    v6 = *(_DWORD *)BugCheckParameter2;
+    ExFreeHeapPool(BugCheckParameter2, v2, v3, v4);
+    return v6 != 0;
   }
   return v1;
 }

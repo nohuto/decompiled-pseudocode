@@ -1,9 +1,9 @@
 /*
- * XREFs of ?QueryInterface@CChannel@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801AC110
+ * XREFs of ?QueryInterface@CChannel@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180150E00
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CChannel::QueryInterface(CChannel *this, const struct _GUID *a2, void **a3)
@@ -26,7 +26,7 @@ __int64 __fastcall CChannel::QueryInterface(CChannel *this, const struct _GUID *
     {
       v3 = -2147467262;
       *a3 = 0LL;
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2147467262, 0x1ECu);
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147467262, 0x1D4u, 0LL);
     }
     else
     {
@@ -39,7 +39,7 @@ LABEL_11:
   else
   {
     v3 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2147024809, 0x1DEu);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x1C6u, 0LL);
   }
   return v3;
 }

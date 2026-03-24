@@ -1,7 +1,7 @@
 /*
- * XREFs of ?UnlockSurface@UMPDOBJ@@QEAAXPEAU_SURFOBJ@@@Z @ 0x1C02995FC
+ * XREFs of ?UnlockSurface@UMPDOBJ@@QEAAXPEAU_SURFOBJ@@@Z @ 0x1C015E234
  * Callers:
- *     NtGdiEngUnlockSurface @ 0x1C02CC690 (NtGdiEngUnlockSurface.c)
+ *     NtGdiEngUnlockSurface @ 0x1C015E1D0 (NtGdiEngUnlockSurface.c)
  * Callees:
  *     <none>
  */

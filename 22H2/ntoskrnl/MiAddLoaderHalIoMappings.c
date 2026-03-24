@@ -1,29 +1,32 @@
 /*
- * XREFs of MiAddLoaderHalIoMappings @ 0x140B48290
+ * XREFs of MiAddLoaderHalIoMappings @ 0x140A543A4
  * Callers:
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14025BBE0 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiWalkPageTables @ 0x140209280 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall MiAddLoaderHalIoMappings(__int64 a1, __int64 a2)
 {
   char *AnyMultiplexedVm; // rdi
-  __m128i v6[11]; // [rsp+20h] [rbp-C8h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  _DWORD *v7; // r9
+  _QWORD v9[22]; // [rsp+20h] [rbp-C8h] BYREF
 
-  memset(v6, 0, sizeof(v6));
+  memset(v9, 0, sizeof(v9));
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-  v6[0].m128i_i32[0] = 2055;
-  v6[2].m128i_i64[0] = a1;
-  v6[9].m128i_i64[1] = (__int64)MiAddLoaderHalIoPte;
-  v6[2].m128i_i64[1] = a2;
-  v6[1].m128i_i64[1] = (__int64)AnyMultiplexedVm;
-  v6[0].m128i_i8[7] = MiLockWorkingSetShared((__int64)AnyMultiplexedVm);
-  MiWalkPageTables(v6);
-  return MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v6[0].m128i_u8[7]);
+  v9[4] = a1;
+  v9[5] = a2;
+  LOWORD(v9[0]) = 2055;
+  v9[3] = AnyMultiplexedVm;
+  v9[19] = MiAddLoaderHalIoPte;
+  BYTE6(v9[0]) = MiLockWorkingSetShared((__int64)AnyMultiplexedVm, v5, v6, v7);
+  MiWalkPageTables((__int64)v9);
+  return MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, BYTE6(v9[0]));
 }

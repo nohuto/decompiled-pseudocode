@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWnfAllocateScopeMap @ 0x140760180
+ * XREFs of ExpWnfAllocateScopeMap @ 0x140760160
  * Callers:
  *     ExpWnfResolveScopeInstance @ 0x14060F9EC (ExpWnfResolveScopeInstance.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

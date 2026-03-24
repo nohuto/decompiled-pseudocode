@@ -1,11 +1,11 @@
 /*
- * XREFs of SepSecurityDescriptorStrictLength @ 0x14070DA6C
+ * XREFs of SepSecurityDescriptorStrictLength @ 0x140924E2C
  * Callers:
- *     RtlLengthSecurityDescriptorStrict @ 0x1402973F4 (RtlLengthSecurityDescriptorStrict.c)
- *     SepCheckAndCopySelfRelativeSD @ 0x1405B8D48 (SepCheckAndCopySelfRelativeSD.c)
- *     SeOperationAuditAlarm @ 0x1409CB54C (SeOperationAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409CC218 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409CCCF0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     RtlLengthSecurityDescriptorStrict @ 0x1403F7CEC (RtlLengthSecurityDescriptorStrict.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x140596C68 (SepCheckAndCopySelfRelativeSD.c)
+ *     SeOperationAuditAlarm @ 0x14091E80C (SeOperationAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F4E8 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091FFAC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
  * Callees:
  *     <none>
  */
@@ -26,10 +26,10 @@ __int64 __fastcall SepSecurityDescriptorStrictLength(__int64 a1)
   __int64 v12; // r8
   __int64 v13; // rax
   unsigned __int64 v14; // r8
+  __int64 v15; // rax
+  __int64 v16; // r8
   __int64 v17; // rax
-  __int64 v18; // r8
-  __int64 v19; // rax
-  unsigned __int64 v20; // r8
+  unsigned __int64 v18; // r8
 
   v1 = *(_WORD *)(a1 + 2);
   v2 = 20LL;
@@ -53,17 +53,18 @@ __int64 __fastcall SepSecurityDescriptorStrictLength(__int64 a1)
     v3 += (4 * *(unsigned __int8 *)(v6 + 1) + 11) & 0xFFFFFFFC;
     v4 = v6 + ((4 * *(unsigned __int8 *)(v6 + 1) + 11) & 0xFFFFFFFC);
   }
+LABEL_9:
   if ( v1 >= 0 )
   {
     v8 = *(_QWORD *)(a1 + 16);
-    goto LABEL_11;
   }
-LABEL_9:
-  v7 = *(unsigned int *)(a1 + 8);
-  if ( !(_DWORD)v7 )
-    goto LABEL_14;
-  v8 = a1 + v7;
-LABEL_11:
+  else
+  {
+    v7 = *(unsigned int *)(a1 + 8);
+    if ( !(_DWORD)v7 )
+      goto LABEL_16;
+    v8 = a1 + v7;
+  }
   if ( v8 )
   {
     v9 = (4 * *(unsigned __int8 *)(v8 + 1) + 11) & 0xFFFFFFFC;
@@ -72,9 +73,9 @@ LABEL_11:
     if ( v10 > v4 )
       v4 = v10;
   }
-LABEL_14:
+LABEL_16:
   if ( (v1 & 4) == 0 )
-    goto LABEL_21;
+    goto LABEL_24;
   if ( v1 >= 0 )
   {
     v12 = *(_QWORD *)(a1 + 32);
@@ -83,7 +84,7 @@ LABEL_14:
   {
     v11 = *(unsigned int *)(a1 + 16);
     if ( !(_DWORD)v11 )
-      goto LABEL_21;
+      goto LABEL_24;
     v12 = a1 + v11;
   }
   if ( v12 )
@@ -94,29 +95,29 @@ LABEL_14:
     if ( v14 > v4 )
       v4 = v14;
   }
-LABEL_21:
+LABEL_24:
   if ( (v1 & 0x10) == 0 )
-    goto LABEL_22;
+    goto LABEL_32;
   if ( v1 >= 0 )
   {
-    v18 = *(_QWORD *)(a1 + 24);
+    v16 = *(_QWORD *)(a1 + 24);
   }
   else
   {
-    v17 = *(unsigned int *)(a1 + 12);
-    if ( !(_DWORD)v17 )
-      goto LABEL_22;
-    v18 = a1 + v17;
+    v15 = *(unsigned int *)(a1 + 12);
+    if ( !(_DWORD)v15 )
+      goto LABEL_32;
+    v16 = a1 + v15;
   }
-  if ( v18 )
+  if ( v16 )
   {
-    v19 = (*(unsigned __int16 *)(v18 + 2) + 3) & 0xFFFFFFFC;
-    v20 = v19 + v18;
-    v3 += v19;
-    if ( v20 > v4 )
-      LODWORD(v4) = v20;
+    v17 = (*(unsigned __int16 *)(v16 + 2) + 3) & 0xFFFFFFFC;
+    v18 = v17 + v16;
+    v3 += v17;
+    if ( v18 > v4 )
+      LODWORD(v4) = v18;
   }
-LABEL_22:
+LABEL_32:
   if ( v1 < 0 )
     return (unsigned int)(v4 - a1);
   else

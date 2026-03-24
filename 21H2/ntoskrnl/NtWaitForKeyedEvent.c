@@ -1,56 +1,56 @@
 /*
- * XREFs of NtWaitForKeyedEvent @ 0x140A073C0
+ * XREFs of NtWaitForKeyedEvent @ 0x14095B600
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeReleaseSemaphore @ 0x1402D3440 (KeReleaseSemaphore.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall NtWaitForKeyedEvent(HANDLE Handle, unsigned __int64 a2, BOOLEAN a3, LARGE_INTEGER *a4)
 {
-  NTSTATUS v5; // r12d
-  char v6; // r14
+  char v5; // r14
   NTSTATUS result; // eax
   struct _KTHREAD *CurrentThread; // rdi
   KPROCESSOR_MODE PreviousMode; // al
-  char *v10; // rcx
-  unsigned __int64 *v11; // rsi
-  struct _LIST_ENTRY *v12; // r15
-  __int64 v13; // rax
-  __int64 v14; // r13
+  char *v9; // rcx
+  unsigned __int64 *v10; // rsi
+  struct _LIST_ENTRY *v11; // r15
+  __int64 v12; // rax
+  __int64 v13; // r12
   struct _LIST_ENTRY *Flink; // rcx
   struct _LIST_ENTRY **p_Blink; // r13
-  struct _LIST_ENTRY *v17; // rdx
+  struct _LIST_ENTRY *v16; // rdx
   LIST_ENTRY *p_WaitListHead; // rax
-  struct _LIST_ENTRY *v19; // rcx
-  __int64 v20; // rax
-  __int64 v21; // r15
-  LIST_ENTRY *v22; // rax
-  struct _KTHREAD *v23; // rcx
+  struct _LIST_ENTRY *v18; // rcx
+  __int64 v19; // rax
+  __int64 v20; // r15
+  LIST_ENTRY *v21; // rax
+  struct _KTHREAD *v22; // rcx
+  struct _LIST_ENTRY *v23; // rdx
   struct _LIST_ENTRY *v24; // rdx
-  struct _LIST_ENTRY *v25; // rdx
   struct _LIST_ENTRY *Blink; // rax
   KPROCESSOR_MODE WaitMode; // [rsp+30h] [rbp-78h]
+  NTSTATUS v27; // [rsp+34h] [rbp-74h]
   LARGE_INTEGER v28; // [rsp+38h] [rbp-70h] BYREF
   PVOID Object; // [rsp+40h] [rbp-68h] BYREF
   void *InitialStack; // [rsp+48h] [rbp-60h]
-  PVOID v31; // [rsp+50h] [rbp-58h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp-58h]
   _KPROCESS *Process; // [rsp+60h] [rbp-48h]
   LARGE_INTEGER *Timeout; // [rsp+C8h] [rbp+20h]
 
   Timeout = a4;
-  v5 = 0;
+  v27 = 0;
   v28.QuadPart = 0LL;
   InitialStack = 0LL;
-  v6 = 1;
+  v5 = 1;
   if ( (a2 & 1) != 0 )
     return -1073741585;
   CurrentThread = KeGetCurrentThread();
@@ -67,106 +67,106 @@ NTSTATUS __fastcall NtWaitForKeyedEvent(HANDLE Handle, unsigned __int64 a2, BOOL
   {
     Object = 0LL;
     result = ObReferenceObjectByHandle(Handle, 1u, ExpKeyedEventObjectType, PreviousMode, &Object, 0LL);
-    v5 = result;
-    v10 = (char *)Object;
-    v31 = Object;
+    v27 = result;
+    v9 = (char *)Object;
+    DmaAdapter = (PADAPTER_OBJECT)Object;
     if ( result < 0 )
       return result;
   }
   else
   {
-    v10 = (char *)ExpCritSecOutOfMemoryEvent;
-    v31 = (PVOID)ExpCritSecOutOfMemoryEvent;
+    v9 = (char *)ExpCritSecOutOfMemoryEvent;
+    DmaAdapter = (PADAPTER_OBJECT)ExpCritSecOutOfMemoryEvent;
   }
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x20u;
   Process = CurrentThread->ApcState.Process;
-  v11 = (unsigned __int64 *)&v10[24 * ((a2 >> 5) & 0x3F)];
-  v12 = (struct _LIST_ENTRY *)(v11 + 1);
+  v10 = (unsigned __int64 *)&v9[24 * ((a2 >> 5) & 0x3F)];
+  v11 = (struct _LIST_ENTRY *)(v10 + 1);
   --CurrentThread->KernelApcDisable;
-  v13 = KeAbPreAcquire((__int64)v11, 0LL);
-  v14 = v13;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v11, v13, (__int64)v11);
-  if ( v14 )
-    *(_BYTE *)(v14 + 18) = 1;
-  Flink = v12->Flink;
-  if ( v12->Flink == v12 )
+  v12 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0);
+  v13 = v12;
+  if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
+    ExfAcquirePushLockExclusiveEx(v10, v12, (ULONG_PTR)v10);
+  if ( v13 )
+    *(_BYTE *)(v13 + 26) |= 1u;
+  Flink = v11->Flink;
+  if ( v11->Flink == v11 )
   {
 LABEL_22:
     InitialStack = CurrentThread[1].InitialStack;
     CurrentThread[1].InitialStack = (void *)a2;
     p_WaitListHead = &CurrentThread[1].Header.WaitListHead;
-    v19 = (struct _LIST_ENTRY *)v11[2];
-    if ( v19->Flink != v12 )
+    v18 = (struct _LIST_ENTRY *)v10[2];
+    if ( v18->Flink != v11 )
       goto LABEL_48;
-    p_WaitListHead->Flink = v12;
-    CurrentThread[1].Header.WaitListHead.Blink = v19;
-    v19->Flink = p_WaitListHead;
-    v11[2] = (unsigned __int64)p_WaitListHead;
+    p_WaitListHead->Flink = v11;
+    CurrentThread[1].Header.WaitListHead.Blink = v18;
+    v18->Flink = p_WaitListHead;
+    v10[2] = (unsigned __int64)p_WaitListHead;
     p_Blink = 0LL;
   }
   else
   {
     while ( 1 )
     {
-      p_Blink = &Flink[-73].Blink;
-      v17 = Flink[2].Flink;
-      if ( ((unsigned __int8)v17 & 1) == 0 )
+      p_Blink = &Flink[-68].Blink;
+      v16 = Flink[2].Flink;
+      if ( ((unsigned __int8)v16 & 1) == 0 )
         goto LABEL_22;
-      if ( v17 == (struct _LIST_ENTRY *)(a2 | 1) && p_Blink[68] == (struct _LIST_ENTRY *)Process )
+      if ( v16 == (struct _LIST_ENTRY *)(a2 | 1) && p_Blink[68] == (struct _LIST_ENTRY *)Process )
         break;
       Flink = Flink->Flink;
-      if ( Flink == v12 )
+      if ( Flink == v11 )
         goto LABEL_22;
     }
-    v25 = Flink->Flink;
+    v24 = Flink->Flink;
     Blink = Flink->Blink;
     if ( Flink->Flink->Blink != Flink || Blink->Flink != Flink )
       goto LABEL_48;
-    Blink->Flink = v25;
-    v25->Blink = Blink;
+    Blink->Flink = v24;
+    v24->Blink = Blink;
     Flink->Blink = Flink;
     Flink->Flink = Flink;
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v11, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v11);
-  KeAbPostRelease((ULONG_PTR)v11);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v10);
+  KeAbPostRelease((ULONG_PTR)v10);
   if ( p_Blink )
   {
-    KeReleaseSemaphore((PRKSEMAPHORE)(p_Blink + 155), 1, 1, 0);
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+    KeReleaseSemaphore((PRKSEMAPHORE)(p_Blink + 145), 1, 1, 0);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
     goto LABEL_45;
   }
-  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
-  v5 = KeWaitForSingleObject(&CurrentThread[1].KernelStack, WrKeyedEvent, WaitMode, a3, Timeout);
-  if ( v5 )
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  v27 = KeWaitForSingleObject(&CurrentThread[1].KernelStack, WrKeyedEvent, WaitMode, a3, Timeout);
+  if ( v27 )
   {
     --CurrentThread->KernelApcDisable;
-    v20 = KeAbPreAcquire((__int64)v11, 0LL);
-    v21 = v20;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v11, v20, (__int64)v11);
-    if ( v21 )
-      *(_BYTE *)(v21 + 18) = 1;
-    v22 = &CurrentThread[1].Header.WaitListHead;
-    v23 = (struct _KTHREAD *)CurrentThread[1].Header.WaitListHead.Flink;
-    if ( v23 == (struct _KTHREAD *)&CurrentThread[1].Header.WaitListHead )
+    v19 = KeAbPreAcquire((ULONG_PTR)v10, 0LL, 0);
+    v20 = v19;
+    if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
+      ExfAcquirePushLockExclusiveEx(v10, v19, (ULONG_PTR)v10);
+    if ( v20 )
+      *(_BYTE *)(v20 + 26) |= 1u;
+    v21 = &CurrentThread[1].Header.WaitListHead;
+    v22 = (struct _KTHREAD *)CurrentThread[1].Header.WaitListHead.Flink;
+    if ( v22 == (struct _KTHREAD *)&CurrentThread[1].Header.WaitListHead )
       goto LABEL_36;
-    v24 = CurrentThread[1].Header.WaitListHead.Blink;
-    if ( v23->Header.WaitListHead.Flink == v22 && v24->Flink == v22 )
+    v23 = CurrentThread[1].Header.WaitListHead.Blink;
+    if ( v22->Header.WaitListHead.Flink == v21 && v23->Flink == v21 )
     {
-      v24->Flink = (struct _LIST_ENTRY *)v23;
-      v23->Header.WaitListHead.Flink = v24;
+      v23->Flink = (struct _LIST_ENTRY *)v22;
+      v22->Header.WaitListHead.Flink = v23;
       CurrentThread[1].Header.WaitListHead.Blink = &CurrentThread[1].Header.WaitListHead;
-      v22->Flink = v22;
-      v6 = 0;
+      v21->Flink = v21;
+      v5 = 0;
 LABEL_36:
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v11, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(v11);
-      KeAbPostRelease((ULONG_PTR)v11);
-      KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
-      if ( v6 )
-        v5 = KeWaitForSingleObject(&CurrentThread[1].KernelStack, WrKeyedEvent, 0, 0, 0LL);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(v10);
+      KeAbPostRelease((ULONG_PTR)v10);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      if ( v5 )
+        v27 = KeWaitForSingleObject(&CurrentThread[1].KernelStack, WrKeyedEvent, 0, 0, 0LL);
       goto LABEL_40;
     }
 LABEL_48:
@@ -177,6 +177,6 @@ LABEL_40:
 LABEL_45:
   *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) &= ~0x20u;
   if ( Handle )
-    ObfDereferenceObject(v31);
-  return v5;
+    HalPutDmaAdapter(DmaAdapter);
+  return v27;
 }

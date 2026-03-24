@@ -1,18 +1,16 @@
 /*
- * XREFs of ?ComputeMouseDataInputSource@MouseInputDataEx@CMouseProcessor@@QEBAXPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C003781C
+ * XREFs of ?ComputeMouseDataInputSource@MouseInputDataEx@CMouseProcessor@@QEBAXPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0040E40
  * Callers:
- *     ?QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_INT@@PEBUtagPOINT@@@Z @ 0x1C0035E4C (-QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_I.c)
+ *     ?QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_INT@@PEBUtagPOINT@@@Z @ 0x1C0040740 (-QueueMouseEvent@CMouseProcessor@@AEAAXPEBVMouseInputDataEx@1@PEBU_SUBPIXELS@@PEBUtagUIPI_INFO_I.c)
  * Callees:
- *     ?TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@@@Z @ 0x1C00363B4 (-TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@.c)
+ *     ?TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@@@Z @ 0x1C0040C3C (-TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@.c)
  */
 
 void __fastcall CMouseProcessor::MouseInputDataEx::ComputeMouseDataInputSource(
         CMouseProcessor::MouseInputDataEx *this,
-        struct tagINPUT_MESSAGE_SOURCE *a2,
-        __int64 a3)
+        struct tagINPUT_MESSAGE_SOURCE *a2)
 {
-  __int16 v5; // ax
-  __int64 v6; // r8
+  __int16 v4; // ax
 
   if ( *((_DWORD *)this + 22) == 1 || *((_DWORD *)this + 22) == 2 )
   {
@@ -26,25 +24,25 @@ LABEL_5:
     *((_DWORD *)a2 + 1) = 4;
     return;
   }
-  v5 = *((_WORD *)this + 1);
-  if ( (v5 & 0x10) != 0 )
+  v4 = *((_WORD *)this + 1);
+  if ( (v4 & 0x10) != 0 )
   {
     *(_DWORD *)a2 = 4;
   }
-  else if ( (v5 & 0x40) != 0 )
+  else if ( (v4 & 0x40) != 0 )
   {
     *(_DWORD *)a2 = 8;
   }
-  else if ( (v5 & 0x80u) != 0 )
+  else if ( (v4 & 0x80u) != 0 )
   {
     *(_DWORD *)a2 = 18;
   }
   else
   {
-    *(_DWORD *)a2 = (v5 & 0x100 | 0x10u) >> 3;
+    *(_DWORD *)a2 = (v4 & 0x100 | 0x10u) >> 3;
   }
-  if ( CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)this, 64LL, a3) )
+  if ( CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)this, 64) )
     *((_DWORD *)a2 + 1) = 1;
   else
-    *((_DWORD *)a2 + 1) = CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)this, 16LL, v6) ? 2 : 0;
+    *((_DWORD *)a2 + 1) = CMouseProcessor::MouseInputDataEx::TestProcessingOption((__int64)this, 16) ? 2 : 0;
 }

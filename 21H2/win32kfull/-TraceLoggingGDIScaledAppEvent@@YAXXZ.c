@@ -1,11 +1,10 @@
 /*
- * XREFs of ?TraceLoggingGDIScaledAppEvent@@YAXXZ @ 0x1C01521C4
+ * XREFs of ?TraceLoggingGDIScaledAppEvent@@YAXXZ @ 0x1C01620A4
  * Callers:
- *     SetAppCompatFlags @ 0x1C009CB70 (SetAppCompatFlags.c)
+ *     SetAppCompatFlags @ 0x1C0013E30 (SetAppCompatFlags.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C00CD6B0 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F027C (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D21E4 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
 void TraceLoggingGDIScaledAppEvent(void)
@@ -16,21 +15,14 @@ void TraceLoggingGDIScaledAppEvent(void)
   int v3; // [rsp+60h] [rbp-18h]
   int v4; // [rsp+64h] [rbp-14h]
 
-  if ( (unsigned int)dword_1C03263F8 > 5 )
+  if ( (unsigned int)dword_1C032B3D8 > 5
+    && (qword_1C032B3E8 & 0x400000000000LL) != 0
+    && (qword_1C032B3F0 & 0x400000000000LL) == qword_1C032B3F0 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C03263F8, 0x400000000000LL) )
-    {
-      v4 = 0;
-      v2 = &v0;
-      v0 = 0x1000000LL;
-      v3 = 8;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C03263F8,
-        (unsigned __int8 *)dword_1C02F08F9,
-        0LL,
-        0LL,
-        3u,
-        &v1);
-    }
+    v4 = 0;
+    v2 = &v0;
+    v0 = 0x1000000LL;
+    v3 = 8;
+    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C032B3D8, (int)&dword_1C02F37FC, 0, 0, 3u, &v1);
   }
 }

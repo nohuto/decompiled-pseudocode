@@ -1,14 +1,15 @@
 /*
- * XREFs of TR_AcquireSecureSegments @ 0x1C0040E24
+ * XREFs of TR_AcquireSecureSegments @ 0x1C003E894
  * Callers:
- *     TR_EnsureSegments @ 0x1C000B270 (TR_EnsureSegments.c)
+ *     TR_EnsureSegments @ 0x1C00098D0 (TR_EnsureSegments.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     CommonBuffer_ReleaseBuffer @ 0x1C001E7A4 (CommonBuffer_ReleaseBuffer.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     CommonBuffer_AcquireShadowBuffer @ 0x1C003062C (CommonBuffer_AcquireShadowBuffer.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall TR_AcquireSecureSegments(__int64 a1, unsigned int a2, __int64 a3)
@@ -16,15 +17,15 @@ __int64 __fastcall TR_AcquireSecureSegments(__int64 a1, unsigned int a2, __int64
   int *v3; // rsi
   unsigned int v4; // ebx
   __int64 v6; // rax
-  int v9; // r13d
-  __int64 Pool2; // rax
+  __int64 v9; // r12
+  _QWORD *v10; // rax
   _QWORD *v11; // rcx
-  _QWORD *v12; // rax
-  int v13; // edx
-  unsigned int v14; // r8d
-  unsigned int v15; // eax
-  unsigned int v16; // ebx
-  __int64 v17; // rax
+  int v12; // ecx
+  unsigned int v13; // edx
+  unsigned int v14; // eax
+  unsigned int v15; // ebx
+  int *PoolWithTag; // rax
+  int *v17; // r9
   __int64 v18; // rax
   int v19; // edx
   int v20; // ebx
@@ -32,157 +33,158 @@ __int64 __fastcall TR_AcquireSecureSegments(__int64 a1, unsigned int a2, __int64
   int v22; // edx
   int v23; // r8d
   int v24; // r9d
-  __int64 j; // rdi
-  __int64 v26; // rdx
-  __int64 v27; // rax
-  _QWORD *v28; // rdx
-  __int64 v29; // r8
-  __int64 v30; // rcx
-  _QWORD *v32; // [rsp+40h] [rbp-29h] BYREF
-  _QWORD **v33; // [rsp+48h] [rbp-21h]
-  __int64 i; // [rsp+50h] [rbp-19h]
-  __int128 v35; // [rsp+58h] [rbp-11h] BYREF
-  __int128 v36; // [rsp+68h] [rbp-1h]
-  __int128 v37; // [rsp+78h] [rbp+Fh]
+  __int64 v25; // rdx
+  __int64 v26; // rax
+  int v27; // edx
+  int v28; // r8d
+  int v29; // r9d
+  _QWORD *v30; // rdx
+  __int64 v31; // r8
+  __int64 v32; // rcx
+  _QWORD *v34; // [rsp+40h] [rbp-29h] BYREF
+  _QWORD **v35; // [rsp+48h] [rbp-21h]
+  __int128 v36; // [rsp+50h] [rbp-19h] BYREF
+  __int128 v37; // [rsp+60h] [rbp-9h]
+  __int128 v38; // [rsp+70h] [rbp+7h]
 
-  v33 = &v32;
+  v35 = &v34;
   v3 = 0LL;
   v4 = 0;
-  v32 = &v32;
+  v34 = &v34;
   v6 = *(_QWORD *)(a1 + 40);
-  v35 = 0LL;
   v36 = 0LL;
   v37 = 0LL;
-  for ( i = *(_QWORD *)(v6 + 120); v4 < a2; v33 = (_QWORD **)v11 )
+  v38 = 0LL;
+  v9 = *(_QWORD *)(v6 + 120);
+  if ( a2 )
   {
-    v9 = *(_DWORD *)(a1 + 20);
-    Pool2 = ExAllocatePool2(64LL, (unsigned int)(v9 + 88), 1229146200LL);
-    v11 = (_QWORD *)Pool2;
-    if ( !Pool2 )
-      goto LABEL_15;
-    *(_DWORD *)(Pool2 + 40) = v9 + 88;
-    *(_QWORD *)(Pool2 + 16) = Pool2 + 88;
-    *(_DWORD *)(Pool2 + 44) = v9;
-    *(_DWORD *)(Pool2 + 64) = 828862034;
-    *(_QWORD *)(Pool2 + 72) = a1;
-    *(_DWORD *)(Pool2 + 80) = 2;
-    v12 = v33;
-    if ( *v33 != &v32 )
-LABEL_38:
-      __fastfail(3u);
-    v11[1] = v33;
-    *v11 = &v32;
-    ++v4;
-    *v12 = v11;
-  }
-  v13 = -1;
-  v14 = 8 * a2 + 8;
-  if ( v14 >= 8 * a2 )
-    v13 = 8 * a2 + 8;
-  v15 = 0;
-  if ( v14 >= 8 * a2 )
-    v15 = v13;
-  v16 = v15;
-  v3 = (int *)ExAllocatePool2(64LL, v15, 1229146200LL);
-  if ( !v3 )
-  {
-LABEL_15:
-    v20 = -1073741670;
-    goto LABEL_16;
-  }
-  v17 = *(_QWORD *)(a1 + 288);
-  v37 = 0LL;
-  LODWORD(v37) = 40;
-  *(_QWORD *)&v36 = 0LL;
-  *((_QWORD *)&v36 + 1) = v17;
-  v18 = *(_QWORD *)(a1 + 40);
-  v35 = 0LL;
-  DWORD2(v37) = a2;
-  v20 = SecureChannel_SendRequestSynchronously(*(_QWORD *)(v18 + 112), &v35, 48LL, v3, v16);
-  if ( v20 >= 0 )
-  {
-    v20 = *v3;
-    if ( *v3 >= 0 )
+    while ( 1 )
     {
-      if ( v3[1] == a2 )
-      {
-        v28 = v32;
-        v29 = 0LL;
-        while ( &v32 != v28 )
-        {
-          v30 = *(_QWORD *)&v3[2 * v29 + 2];
-          v29 = (unsigned int)(v29 + 1);
-          v28[3] = v30;
-          v28 = (_QWORD *)*v28;
-        }
-        if ( (_DWORD)v29 != a2 )
-        {
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)v28, v29, v21);
-          if ( !KdRefreshDebuggerNotPresent() )
-            __debugbreak();
-        }
-        if ( v32 != &v32 )
-        {
-          **(_QWORD **)(a3 + 8) = v32;
-          v32[1] = *(_QWORD *)(a3 + 8);
-          *v33 = (_QWORD *)a3;
-          *(_QWORD *)(a3 + 8) = v33;
-          v33 = &v32;
-          v32 = &v32;
-        }
-        v20 = 0;
-LABEL_40:
-        ExFreePoolWithTag(v3, 0x49434858u);
-        return (unsigned int)v20;
-      }
-      v20 = -1073741823;
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_25;
+      v10 = CommonBuffer_AcquireShadowBuffer(*(_DWORD *)(a1 + 20), a1, 828862034);
+      if ( !v10 )
+        break;
+      v11 = v35;
+      if ( *v35 != &v34 )
+LABEL_43:
+        __fastfail(3u);
+      v10[1] = v35;
+      *v10 = &v34;
+      ++v4;
+      *v11 = v10;
+      v35 = (_QWORD **)v10;
+      if ( v4 >= a2 )
+        goto LABEL_5;
+    }
+LABEL_17:
+    v20 = -1073741670;
+    goto LABEL_18;
+  }
+LABEL_5:
+  v12 = -1;
+  v13 = 8 * a2 + 8;
+  if ( v13 >= 8 * a2 )
+    v12 = 8 * a2 + 8;
+  v14 = 0;
+  if ( v13 >= 8 * a2 )
+    v14 = v12;
+  v15 = v14;
+  PoolWithTag = (int *)ExAllocatePoolWithTag((POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState, v14, 0x49434858u);
+  v3 = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_17;
+  *((_QWORD *)&v37 + 1) = *(_QWORD *)(a1 + 288);
+  v17 = PoolWithTag;
+  v18 = *(_QWORD *)(a1 + 40);
+  LODWORD(v38) = 40;
+  DWORD2(v38) = a2;
+  v20 = SecureChannel_SendRequestSynchronously(*(_QWORD *)(v18 + 112), &v36, 48LL, v17, v15);
+  if ( v20 < 0 )
+    goto LABEL_18;
+  v20 = *v3;
+  if ( *v3 < 0 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
       LOBYTE(v19) = 2;
-      WPP_RECORDER_SF_(
+      WPP_RECORDER_SF_d(
         *(_QWORD *)(*(_QWORD *)(a1 + 40) + 72LL),
         v19,
         14,
-        23,
-        (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids);
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_25;
+        22,
+        (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
+        *v3);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v22, v23, v24);
     }
-    else if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-           || (LOBYTE(v19) = 2,
-               WPP_RECORDER_SF_d(
-                 *(_QWORD *)(*(_QWORD *)(a1 + 40) + 72LL),
-                 v19,
-                 14,
-                 22,
-                 (__int64)&WPP_9ff532af533633cb75752ac9b9d63831_Traceguids,
-                 *v3),
-               WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED) )
+    if ( !KdRefreshDebuggerNotPresent() )
+      __debugbreak();
+LABEL_37:
+    if ( v20 < 0 )
+      goto LABEL_18;
+    if ( v34 != &v34 )
     {
-LABEL_25:
+      **(_QWORD **)(a3 + 8) = v34;
+      v34[1] = *(_QWORD *)(a3 + 8);
+      *v35 = (_QWORD *)a3;
+      *(_QWORD *)(a3 + 8) = v35;
+      v35 = &v34;
+      v34 = &v34;
+    }
+    goto LABEL_40;
+  }
+  if ( v3[1] == a2 )
+  {
+    v30 = v34;
+    v31 = 0LL;
+    while ( &v34 != v30 )
+    {
+      v32 = *(_QWORD *)&v3[2 * v31 + 2];
+      v31 = (unsigned int)(v31 + 1);
+      v30[3] = v32;
+      v30 = (_QWORD *)*v30;
+    }
+    if ( (_DWORD)v31 != a2 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)v30, v31, v21);
       if ( !KdRefreshDebuggerNotPresent() )
         __debugbreak();
-      goto LABEL_16;
     }
-    WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v22, v23, v24);
-    goto LABEL_25;
+    v20 = 0;
+    goto LABEL_37;
   }
-LABEL_16:
-  for ( j = i; ; CommonBuffer_ReleaseBuffer(j, v26) )
+  v20 = -1073741823;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v26 = (__int64)v32;
-    if ( v32 == &v32 )
-      break;
-    if ( (_QWORD **)v32[1] != &v32 )
-      goto LABEL_38;
-    v27 = *v32;
-    if ( *(_QWORD **)(*v32 + 8LL) != v32 )
-      goto LABEL_38;
-    v32 = (_QWORD *)*v32;
-    *(_QWORD *)(v27 + 8) = &v32;
+    LOBYTE(v19) = 2;
+    WPP_RECORDER_SF_(
+      *(_QWORD *)(*(_QWORD *)(a1 + 40) + 72LL),
+      v19,
+      14,
+      23,
+      (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v27, v28, v29);
   }
+  if ( !KdRefreshDebuggerNotPresent() )
+    __debugbreak();
+LABEL_18:
+  while ( 1 )
+  {
+    v25 = (__int64)v34;
+    if ( v34 == &v34 )
+      break;
+    if ( (_QWORD **)v34[1] != &v34 )
+      goto LABEL_43;
+    v26 = *v34;
+    if ( *(_QWORD **)(*v34 + 8LL) != v34 )
+      goto LABEL_43;
+    v34 = (_QWORD *)*v34;
+    *(_QWORD *)(v26 + 8) = &v34;
+    CommonBuffer_ReleaseBuffer(v9, v25);
+  }
+LABEL_40:
   if ( v3 )
-    goto LABEL_40;
+    ExFreePoolWithTag(v3, 0x49434858u);
   return (unsigned int)v20;
 }

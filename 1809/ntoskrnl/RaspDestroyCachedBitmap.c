@@ -1,12 +1,12 @@
 /*
  * XREFs of RaspDestroyCachedBitmap @ 0x140951630
  * Callers:
- *     BgpRasPrintGlyph @ 0x14017A1B4 (BgpRasPrintGlyph.c)
+ *     BgpRasPrintGlyph @ 0x14017A1D4 (BgpRasPrintGlyph.c)
  *     RaspClearCache @ 0x14095054C (RaspClearCache.c)
  *     RaspAddCacheEntry @ 0x1409515CC (RaspAddCacheEntry.c)
  * Callees:
- *     RaspRectangleDestroy @ 0x14017A964 (RaspRectangleDestroy.c)
- *     RaspFreeMemory @ 0x14017AB3C (RaspFreeMemory.c)
+ *     RaspRectangleDestroy @ 0x14017A984 (RaspRectangleDestroy.c)
+ *     RaspFreeMemory @ 0x14017AB5C (RaspFreeMemory.c)
  */
 
 void __fastcall RaspDestroyCachedBitmap(__int64 a1)

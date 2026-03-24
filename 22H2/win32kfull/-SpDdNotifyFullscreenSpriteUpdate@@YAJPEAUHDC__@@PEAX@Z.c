@@ -1,114 +1,113 @@
 /*
- * XREFs of ?SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z @ 0x1C02661A8
+ * XREFs of ?SpDdNotifyFullscreenSpriteUpdate@@YAJPEAUHDC__@@PEAX@Z @ 0x1C026DC34
  * Callers:
- *     NtGdiDdNotifyFullscreenSpriteUpdate @ 0x1C02701F0 (NtGdiDdNotifyFullscreenSpriteUpdate.c)
+ *     NtGdiDdNotifyFullscreenSpriteUpdate @ 0x1C0277BA0 (NtGdiDdNotifyFullscreenSpriteUpdate.c)
  * Callees:
- *     ?vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z @ 0x1C005AD50 (-vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z.c)
- *     DwmAsyncDirtySprite @ 0x1C0078024 (DwmAsyncDirtySprite.c)
- *     GreAddLogicalSurfaceToDirtyQueue @ 0x1C00BB50C (GreAddLogicalSurfaceToDirtyQueue.c)
- *     ?bShouldUseSfmTokenArray@@YAEU_LOGSURF_FLAGS@@@Z @ 0x1C00BE0AC (-bShouldUseSfmTokenArray@@YAEU_LOGSURF_FLAGS@@@Z.c)
- *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C00C899C (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ?vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z @ 0x1C00D92B0 (-vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E13F4 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C00E1440 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     DwmAsyncDirtySprite @ 0x1C0017644 (DwmAsyncDirtySprite.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018B60 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018E8C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z @ 0x1C00913E0 (-vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2890 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     GreAddLogicalSurfaceToDirtyQueue @ 0x1C00BCC64 (GreAddLogicalSurfaceToDirtyQueue.c)
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C00BD7CC (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
+ *     ?vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z @ 0x1C00EC030 (-vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z.c)
+ *     ?bShouldUseSfmTokenArray@@YAEU_LOGSURF_FLAGS@@@Z @ 0x1C011C1F4 (-bShouldUseSfmTokenArray@@YAEU_LOGSURF_FLAGS@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall SpDdNotifyFullscreenSpriteUpdate(HDC a1, HSPRITE a2)
 {
-  Gre::Base *v4; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v5; // r14
-  Gre::Base *v6; // rcx
-  BOOL v7; // eax
-  struct DWMSPRITE *v8; // rbx
-  __int64 v9; // rdi
+  unsigned int v3; // ebx
+  struct DWMSPRITE *v4; // rbx
+  __int64 v5; // rdi
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
   char ShouldUseSfmTokenArray; // al
-  __int64 v11; // rcx
-  UINT_PTR v12; // r8
-  unsigned int v13; // eax
-  __int64 v14; // rdi
-  __int64 v15; // rbx
-  void *v16; // rax
-  __int64 v17; // r8
-  unsigned int v18; // edi
-  _BYTE v19[32]; // [rsp+30h] [rbp-19h] BYREF
-  struct DWMSPRITE *v20; // [rsp+50h] [rbp+7h]
-  _QWORD v21[2]; // [rsp+58h] [rbp+Fh] BYREF
-  _BYTE v22[56]; // [rsp+68h] [rbp+1Fh] BYREF
-  unsigned int v23; // [rsp+C0h] [rbp+77h] BYREF
-  __int64 v24; // [rsp+C8h] [rbp+7Fh] BYREF
+  __int64 v10; // rcx
+  UINT_PTR v11; // r8
+  unsigned int v12; // eax
+  __int64 v13; // rdi
+  __int64 v14; // rbx
+  void *v15; // rax
+  __int64 v16; // r8
+  DYNAMICMODECHANGESHARELOCK *v17; // rcx
+  __int64 v19; // [rsp+30h] [rbp-9h] BYREF
+  _BYTE v20[32]; // [rsp+38h] [rbp-1h] BYREF
+  struct DWMSPRITE *v21; // [rsp+58h] [rbp+1Fh]
+  _QWORD v22[6]; // [rsp+60h] [rbp+27h] BYREF
+  char v23; // [rsp+B0h] [rbp+77h] BYREF
+  unsigned int v24; // [rsp+B8h] [rbp+7Fh] BYREF
 
-  DCOBJ::DCOBJ((DCOBJ *)v21, a1);
-  if ( !v21[0] )
+  DCOBJ::DCOBJ((DCOBJ *)v22, a1);
+  if ( v22[0] )
   {
-    DCOBJ::~DCOBJ((DCOBJ *)v21);
-    return 3221225485LL;
-  }
-  DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v23);
-  v5 = Gre::Base::Globals(v4);
-  v24 = *((_QWORD *)v5 + 15);
-  GreAcquireSemaphore(v24);
-  GreAcquireSemaphore(*((_QWORD *)v5 + 9));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v5 + 9), 7LL);
-  DWMSPRITEREF::DWMSPRITEREF((DWMSPRITEREF *)v19, 0LL, a2);
-  v7 = IsDwmActive(v6);
-  v8 = v20;
-  if ( v7 && v20 )
-  {
-    v9 = *((_QWORD *)v20 + 18);
-    vSpDwmUpdateSpriteVisibility(v20, 1u);
-    v23 = 0;
-    vSpUpdateDirtyRgn(v8, (struct SFMLOGICALSURFACE *)v9, 0LL, (const struct _RECTL *)((char *)v8 + 56), &v23, 0);
-    if ( v23 )
+    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v23);
+    v19 = ghsemGreLock;
+    GreAcquireSemaphore(ghsemGreLock);
+    GreAcquireSemaphore(ghsemDwmState);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
+    DWMSPRITEREF::DWMSPRITEREF((DWMSPRITEREF *)v20, 0LL, a2);
+    if ( g_pDwmState )
     {
-      ShouldUseSfmTokenArray = bShouldUseSfmTokenArray(*(_DWORD *)(v9 + 252));
-      v11 = *(_QWORD *)(v9 + 184);
-      if ( ShouldUseSfmTokenArray )
+      v4 = v21;
+      if ( v21 )
       {
-        if ( v11 )
-          v12 = *(_QWORD *)(v11 + 8);
+        v5 = *((_QWORD *)v21 + 21);
+        vSpDwmUpdateSpriteVisibility(v21, 1u);
+        v24 = 0;
+        vSpUpdateDirtyRgn(v4, (struct SFMLOGICALSURFACE *)v5, 0LL, (struct _RECTL *)((char *)v4 + 56), &v24, 0);
+        if ( v24 )
+        {
+          ShouldUseSfmTokenArray = bShouldUseSfmTokenArray(*(unsigned int *)(v5 + 252), v6, v7, v8);
+          v10 = *(_QWORD *)(v5 + 184);
+          if ( ShouldUseSfmTokenArray )
+          {
+            if ( v10 )
+              v11 = *(_QWORD *)(v10 + 8);
+            else
+              v11 = 0LL;
+            v12 = GreAddLogicalSurfaceToDirtyQueue(*(_QWORD *)v5, v24, v11);
+          }
+          else
+          {
+            if ( v10 )
+              v13 = *(_QWORD *)(v10 + 8);
+            else
+              v13 = 0LL;
+            v14 = *(_QWORD *)v4;
+            v15 = (void *)UserReferenceDwmApiPort(v10);
+            v12 = DwmAsyncDirtySprite(v15, v14, v16, v24, v13);
+          }
+          v3 = v12;
+        }
         else
-          v12 = 0LL;
-        v13 = GreAddLogicalSurfaceToDirtyQueue(*(Gre::Base **)v9, v23, v12);
+        {
+          v3 = 0;
+        }
+        if ( v21 )
+          _InterlockedDecrement((volatile signed __int32 *)v21 + 3);
+        goto LABEL_22;
       }
-      else
-      {
-        if ( v11 )
-          v14 = *(_QWORD *)(v11 + 8);
-        else
-          v14 = 0LL;
-        v15 = *(_QWORD *)v8;
-        v16 = (void *)UserReferenceDwmApiPort(v11);
-        v13 = DwmAsyncDirtySprite(v16, v15, v17, v23, v14);
-      }
-      v18 = v13;
     }
-    else
+    else if ( v21 )
     {
-      v18 = 0;
+      _InterlockedDecrement((volatile signed __int32 *)v21 + 3);
     }
-    if ( !v20 )
-      goto LABEL_21;
-    goto LABEL_20;
+    v3 = -1073741816;
+LABEL_22:
+    v21 = 0LL;
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v20);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+    GreReleaseSemaphoreInternal(ghsemDwmState);
+    SEMOBJ::vUnlock((SEMOBJ *)&v19);
+    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v17);
+    goto LABEL_23;
   }
-  v18 = -1073741816;
-  if ( v20 )
-LABEL_20:
-    _InterlockedDecrement((volatile signed __int32 *)v20 + 3);
-LABEL_21:
-  v20 = 0LL;
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v19);
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-  GreReleaseSemaphoreInternal(*((_QWORD *)v5 + 9));
-  SEMOBJ::vUnlock((SEMOBJ *)&v24);
-  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v23);
-  if ( v21[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v21);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v22);
-  return v18;
+  v3 = -1073741811;
+LABEL_23:
+  DCOBJ::~DCOBJ((DCOBJ *)v22);
+  return v3;
 }

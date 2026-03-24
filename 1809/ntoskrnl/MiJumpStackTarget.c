@@ -1,7 +1,7 @@
 /*
- * XREFs of MiJumpStackTarget @ 0x14015E8F0
+ * XREFs of MiJumpStackTarget @ 0x14015E910
  * Callers:
- *     MiDoStackCopy @ 0x14015E7E0 (MiDoStackCopy.c)
+ *     MiDoStackCopy @ 0x14015E800 (MiDoStackCopy.c)
  * Callees:
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -9,14 +9,14 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiCanStealKernelStack @ 0x14012D5AC (MiCanStealKernelStack.c)
- *     MiGetLeafPfnBuddy @ 0x14015E8B4 (MiGetLeafPfnBuddy.c)
- *     MiSwitchKstackPages @ 0x14015EB74 (MiSwitchKstackPages.c)
- *     MiCopyKstack @ 0x14015EBE0 (MiCopyKstack.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiCanStealKernelStack @ 0x14012D5CC (MiCanStealKernelStack.c)
+ *     MiGetLeafPfnBuddy @ 0x14015E8D4 (MiGetLeafPfnBuddy.c)
+ *     MiSwitchKstackPages @ 0x14015EB94 (MiSwitchKstackPages.c)
+ *     MiCopyKstack @ 0x14015EC00 (MiCopyKstack.c)
  */
 
 volatile signed __int32 *__fastcall MiJumpStackTarget(__int64 *a1, __int64 a2, __int64 *a3)

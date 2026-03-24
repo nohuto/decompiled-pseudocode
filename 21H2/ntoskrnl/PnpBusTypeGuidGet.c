@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpBusTypeGuidGet @ 0x1406EA45C
+ * XREFs of PnpBusTypeGuidGet @ 0x1406C27EC
  * Callers:
- *     IoGetDeviceProperty @ 0x140773C30 (IoGetDeviceProperty.c)
+ *     IoGetDeviceProperty @ 0x14063FC90 (IoGetDeviceProperty.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
  */
 
 __int64 __fastcall PnpBusTypeGuidGet(unsigned __int16 a1, _OWORD *a2)

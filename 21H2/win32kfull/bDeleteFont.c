@@ -1,8 +1,8 @@
 /*
- * XREFs of bDeleteFont @ 0x1C00C88C0
+ * XREFs of bDeleteFont @ 0x1C00E5020
  * Callers:
- *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00C83A0 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
- *     vCleanupFonts @ 0x1C00C8860 (vCleanupFonts.c)
+ *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00E49D0 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
+ *     vCleanupFonts @ 0x1C00E4FC0 (vCleanupFonts.c)
  * Callees:
  *     <none>
  */

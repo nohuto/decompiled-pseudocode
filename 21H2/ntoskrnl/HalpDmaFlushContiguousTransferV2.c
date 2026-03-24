@@ -1,53 +1,48 @@
 /*
- * XREFs of HalpDmaFlushContiguousTransferV2 @ 0x140458C22
+ * XREFs of HalpDmaFlushContiguousTransferV2 @ 0x1404CD82C
  * Callers:
- *     IoFlushAdapterBuffersV2 @ 0x140393E40 (IoFlushAdapterBuffersV2.c)
+ *     IoFlushAdapterBuffersV2 @ 0x140389E60 (IoFlushAdapterBuffersV2.c)
  * Callees:
- *     HalpDmaGetAdapterCacheAlignment @ 0x14045693C (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaNextContiguousPiece @ 0x14045699C (HalpDmaNextContiguousPiece.c)
- *     HalpDmaSyncMapBuffers @ 0x140457A42 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaFlushBuffer @ 0x140513310 (HalpDmaFlushBuffer.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8C50 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaNextContiguousPiece @ 0x1404B8CB0 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaFlushBuffer @ 0x1404C755C (HalpDmaFlushBuffer.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404C81F4 (HalpDmaSyncMapBuffers.c)
  */
 
 void __fastcall HalpDmaFlushContiguousTransferV2(
         __int64 a1,
         __int64 a2,
         _QWORD *a3,
-        __int64 a4,
+        unsigned __int64 a4,
         unsigned int a5,
         char a6)
 {
   unsigned int ContiguousPiece; // eax
-  __int64 v11; // rdi
-  __int64 v12; // rcx
-  char v13; // r10
-  __int64 v14; // r11
-  int v15; // [rsp+20h] [rbp-38h]
-  int v16; // [rsp+28h] [rbp-30h]
+  unsigned __int64 v11; // rdi
+  unsigned __int64 v12; // rsi
+  __int64 v13; // rcx
+  char v14; // r10
+  char v15; // r11
 
   ContiguousPiece = HalpDmaNextContiguousPiece(a1, a2, 0LL, a4, a6, a5);
-  if ( ContiguousPiece != a5
-    || (v11 = (a4 & 0xFFF)
-            + (*(_QWORD *)(a2 + 8LL * (unsigned int)((unsigned __int64)(a4 - *(_QWORD *)(a2 + 32)) >> 12) + 48) << 12)
-            + ContiguousPiece,
-        *(_QWORD *)(a1 + 136) < (unsigned __int64)(v11 - 1)) )
+  v11 = (a4 & 0xFFF) + (*(_QWORD *)(a2 + 8LL * (unsigned int)((a4 - *(_QWORD *)(a2 + 32)) >> 12) + 48) << 12);
+  if ( ContiguousPiece != a5 || (v12 = v11 + ContiguousPiece, *(_QWORD *)(a1 + 136) < v12 - 1) )
   {
-    v13 = 0;
+    v14 = 0;
     if ( a6 )
       return;
-    goto LABEL_9;
+    goto LABEL_10;
   }
   if ( !a6 && !*(_BYTE *)(a1 + 437) )
   {
-    v12 = (unsigned int)HalpDmaGetAdapterCacheAlignment(a1) - 1;
-    if ( (v12 & v14) == 0 && (v12 & v11) == 0 )
+    v13 = (unsigned int)HalpDmaGetAdapterCacheAlignment(a1) - 1;
+    if ( (v13 & v11) == 0 && (v13 & v12) == 0 )
     {
-      LOBYTE(v16) = v13;
-      LOBYTE(v15) = v13;
-      HalpDmaFlushBuffer(v12, a2, a4, a5, v15, v16);
+      if ( !v15 )
+        HalpDmaFlushBuffer(v13, a2, a4, a5, v14, v14);
       return;
     }
-LABEL_9:
-    HalpDmaSyncMapBuffers(a1, a2, a4, a3, a5, v13, v13, v13);
+LABEL_10:
+    HalpDmaSyncMapBuffers(a1, a2, a4, a3, a5, v14, v14, v14);
   }
 }

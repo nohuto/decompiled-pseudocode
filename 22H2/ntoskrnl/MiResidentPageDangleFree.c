@@ -1,8 +1,8 @@
 /*
- * XREFs of MiResidentPageDangleFree @ 0x14038CE6C
+ * XREFs of MiResidentPageDangleFree @ 0x1403F6714
  * Callers:
- *     MiFreeMdlPageRun @ 0x1402C89B0 (MiFreeMdlPageRun.c)
- *     MiFreeContiguousPages @ 0x1403C337C (MiFreeContiguousPages.c)
+ *     MiFreeMdlPageRun @ 0x140280378 (MiFreeMdlPageRun.c)
+ *     MiFreeContiguousPages @ 0x1402E91B8 (MiFreeContiguousPages.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall MiResidentPageDangleFree(__int64 a1, int a2)
   unsigned __int64 v2; // r8
   unsigned __int64 v3; // rcx
 
-  v2 = 48 * a1 - 0x220000000000LL;
+  v2 = 48 * a1 - 0x58000000000LL;
   v3 = v2 + 48 * MiLargePageSizes[a2];
   while ( 1 )
   {

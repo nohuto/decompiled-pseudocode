@@ -1,18 +1,18 @@
 /*
- * XREFs of _PnpCtxRegOpenKey @ 0x14073C374
+ * XREFs of _PnpCtxRegOpenKey @ 0x14073C354
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140181D80 (PipUpdateDeviceProducts.c)
- *     DrvDbGetConfigurationSubKeyCallback @ 0x1403296C0 (DrvDbGetConfigurationSubKeyCallback.c)
+ *     PipUpdateDeviceProducts @ 0x140181DA0 (PipUpdateDeviceProducts.c)
+ *     DrvDbGetConfigurationSubKeyCallback @ 0x1403297C0 (DrvDbGetConfigurationSubKeyCallback.c)
  *     PipMigratePnpState @ 0x1409C8678 (PipMigratePnpState.c)
  *     PpDevCfgInit @ 0x1409C875C (PpDevCfgInit.c)
  *     PipProcessPendingServices @ 0x1409C8B40 (PipProcessPendingServices.c)
  *     PipProcessPendingOsExtensionResources @ 0x1409C8BCC (PipProcessPendingOsExtensionResources.c)
  *     PipResetDevices @ 0x1409CA1C0 (PipResetDevices.c)
- *     PipHardwareConfigExists @ 0x1409F529C (PipHardwareConfigExists.c)
- *     PipMigrateServiceCallback @ 0x1409F5510 (PipMigrateServiceCallback.c)
- *     PipCommitPendingOsExtensionResource @ 0x1409F5A60 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x1409F5C70 (PipCommitPendingService.c)
- *     PipProcessPendingObjects @ 0x1409F6000 (PipProcessPendingObjects.c)
+ *     PipHardwareConfigExists @ 0x1409F52AC (PipHardwareConfigExists.c)
+ *     PipMigrateServiceCallback @ 0x1409F5520 (PipMigrateServiceCallback.c)
+ *     PipCommitPendingOsExtensionResource @ 0x1409F5A70 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x1409F5C80 (PipCommitPendingService.c)
+ *     PipProcessPendingObjects @ 0x1409F6010 (PipProcessPendingObjects.c)
  * Callees:
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of imp_WdfRequestCancelSentRequest @ 0x1C000E9E0
+ * XREFs of imp_WdfRequestCancelSentRequest @ 0x1C00191D0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?Cancel@FxRequestBase@@QEAAEXZ @ 0x1C000EA30 (-Cancel@FxRequestBase@@QEAAEXZ.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?Cancel@FxRequestBase@@QEAAEXZ @ 0x1C0019220 (-Cancel@FxRequestBase@@QEAAEXZ.c)
  */
 
 unsigned __int8 __fastcall imp_WdfRequestCancelSentRequest(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFREQUEST__ *Request)
@@ -15,7 +15,11 @@ unsigned __int8 __fastcall imp_WdfRequestCancelSentRequest(_WDF_DRIVER_GLOBALS *
   FxRequest *pRequest; // [rsp+40h] [rbp+8h] BYREF
 
   pRequest = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Request, 0x1008u, (void **)&pRequest);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Request,
+    0x1008u,
+    (void **)&pRequest);
   v3 = pRequest;
   m_Globals = pRequest->m_Globals;
   if ( m_Globals->FxVerboseOn )

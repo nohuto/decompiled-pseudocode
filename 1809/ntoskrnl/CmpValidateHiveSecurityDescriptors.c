@@ -3,8 +3,8 @@
  * Callers:
  *     CmCheckRegistry @ 0x1405A848C (CmCheckRegistry.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     SetFailureLocation @ 0x14026BA58 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
  *     CmpResetCachedSecurity @ 0x140581274 (CmpResetCachedSecurity.c)
  *     CmpInitSecurityCache @ 0x1405A7210 (CmpInitSecurityCache.c)
  *     CmpAdjustSecurityCacheSize @ 0x1405A8C54 (CmpAdjustSecurityCacheSize.c)
@@ -13,7 +13,7 @@
  *     CmpDestroySecurityCache @ 0x1405AFB54 (CmpDestroySecurityCache.c)
  *     HvIsCellAllocated @ 0x1405DBB00 (HvIsCellAllocated.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
- *     CmpCheckSecurityCellAccess @ 0x1406C9F4C (CmpCheckSecurityCellAccess.c)
+ *     CmpCheckSecurityCellAccess @ 0x1406C9F2C (CmpCheckSecurityCellAccess.c)
  */
 
 __int64 __fastcall CmpValidateHiveSecurityDescriptors(

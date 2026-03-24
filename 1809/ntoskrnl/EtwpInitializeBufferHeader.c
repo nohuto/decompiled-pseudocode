@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpInitializeBufferHeader @ 0x1400DD2BC
+ * XREFs of EtwpInitializeBufferHeader @ 0x1400DD2DC
  * Callers:
- *     EtwpAllocateFreeBuffers @ 0x1400DD134 (EtwpAllocateFreeBuffers.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x14065AE74 (EtwpRealtimeSendEmptyMarker.c)
- *     EtwpUpdateFileHeader @ 0x140699E3C (EtwpUpdateFileHeader.c)
- *     EtwpInitializeProviderInfoBuffer @ 0x1407021C0 (EtwpInitializeProviderInfoBuffer.c)
- *     EtwpRealtimeUpdateReferenceTime @ 0x14075F49C (EtwpRealtimeUpdateReferenceTime.c)
- *     EtwpPreserveLogger @ 0x1408CA0EC (EtwpPreserveLogger.c)
+ *     EtwpAllocateFreeBuffers @ 0x1400DD154 (EtwpAllocateFreeBuffers.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x14065AE54 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpUpdateFileHeader @ 0x140699E1C (EtwpUpdateFileHeader.c)
+ *     EtwpInitializeProviderInfoBuffer @ 0x1407021A0 (EtwpInitializeProviderInfoBuffer.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x14075F47C (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpPreserveLogger @ 0x1408CA0CC (EtwpPreserveLogger.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall EtwpInitializeBufferHeader(__int16 *a1, _DWORD *a2)

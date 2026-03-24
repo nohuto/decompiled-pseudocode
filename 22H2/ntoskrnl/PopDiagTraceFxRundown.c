@@ -1,51 +1,44 @@
 /*
- * XREFs of PopDiagTraceFxRundown @ 0x140588968
+ * XREFs of PopDiagTraceFxRundown @ 0x14034D750
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C78A0 (PopCaptureSleepStudyStatistics.c)
- *     PopDiagTraceControlCallback @ 0x140862C00 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x1406F7FA0 (PopDiagTraceControlCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     PopFxTraceDeviceRegistration @ 0x140838CD8 (PopFxTraceDeviceRegistration.c)
- *     PopDiagTraceFxPluginRegistration @ 0x140850860 (PopDiagTraceFxPluginRegistration.c)
- *     PopDiagTraceDeviceVerboseRundown @ 0x14098E498 (PopDiagTraceDeviceVerboseRundown.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PopDiagTraceDeviceVerboseRundown @ 0x1406F8C20 (PopDiagTraceDeviceVerboseRundown.c)
+ *     PopFxTraceDeviceRegistration @ 0x1406F8E60 (PopFxTraceDeviceRegistration.c)
+ *     PopDiagTraceFxPluginRegistration @ 0x1408EA8BC (PopDiagTraceFxPluginRegistration.c)
  */
 
-_QWORD *__fastcall PopDiagTraceFxRundown(__int64 a1)
+_QWORD *PopDiagTraceFxRundown()
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v3; // r8
+  __int64 v1; // r8
   ULONG_PTR *i; // rbx
-  __int64 v5; // rdx
+  __int64 v3; // rdx
   ULONG_PTR *j; // rbx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( !a1 )
+  ExAcquirePushLockSharedEx((ULONG_PTR)&PopFxPluginLock, 0LL);
+  for ( i = (ULONG_PTR *)PopFxPluginList; i != &PopFxPluginList; i = (ULONG_PTR *)*i )
   {
-    ExAcquirePushLockSharedEx((ULONG_PTR)&PopFxPluginLock, 0LL);
-    for ( i = (ULONG_PTR *)PopFxPluginList; i != &PopFxPluginList; i = (ULONG_PTR *)*i )
-    {
-      LOBYTE(v3) = 1;
-      PopDiagTraceFxPluginRegistration(i, i[3], v3);
-    }
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxPluginLock, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&PopFxPluginLock);
-    KeAbPostRelease((ULONG_PTR)&PopFxPluginLock);
+    LOBYTE(v1) = 1;
+    PopDiagTraceFxPluginRegistration(i, i[3], v1);
   }
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxPluginLock, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&PopFxPluginLock);
+  KeAbPostRelease((ULONG_PTR)&PopFxPluginLock);
   ExAcquirePushLockSharedEx((ULONG_PTR)&PopFxDeviceListLock, 0LL);
   for ( j = (ULONG_PTR *)PopFxDeviceList; j != &PopFxDeviceList; j = (ULONG_PTR *)*j )
   {
     if ( j[6] )
     {
-      if ( !a1 )
-      {
-        LOBYTE(v5) = 1;
-        PopFxTraceDeviceRegistration(j, v5);
-      }
-      PopDiagTraceDeviceVerboseRundown(j, a1);
+      LOBYTE(v3) = 1;
+      PopFxTraceDeviceRegistration(j, v3);
+      PopDiagTraceDeviceVerboseRundown(j);
     }
   }
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )

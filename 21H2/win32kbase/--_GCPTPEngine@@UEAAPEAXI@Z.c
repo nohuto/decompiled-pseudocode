@@ -1,18 +1,16 @@
 /*
- * XREFs of ??_GCPTPEngine@@UEAAPEAXI@Z @ 0x1C01FEC70
+ * XREFs of ??_GCPTPEngine@@UEAAPEAXI@Z @ 0x1C01C3590
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??1CPTPEngine@@UEAA@XZ @ 0x1C01FEC18 (--1CPTPEngine@@UEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ??1CPTPEngine@@UEAA@XZ @ 0x1C01C353C (--1CPTPEngine@@UEAA@XZ.c)
  */
 
 CPTPEngine *__fastcall CPTPEngine::`scalar deleting destructor'(CPTPEngine *this, char a2)
 {
   CPTPEngine::~CPTPEngine(this);
-  if ( (a2 & 1) != 0 && this )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)this);
+  if ( (a2 & 1) != 0 )
+    Win32FreePool((__int64)this);
   return this;
 }

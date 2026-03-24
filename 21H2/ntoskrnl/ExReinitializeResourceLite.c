@@ -1,78 +1,75 @@
 /*
- * XREFs of ExReinitializeResourceLite @ 0x14021A5F0
+ * XREFs of ExReinitializeResourceLite @ 0x1402F7920
  * Callers:
  *     <none>
  * Callees:
- *     ExpOwnerEntryToThread @ 0x14021A758 (ExpOwnerEntryToThread.c)
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
- *     ExpResourceEnforcesOwnershipTransfer @ 0x1402AF060 (ExpResourceEnforcesOwnershipTransfer.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1403494F0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PerfLogExecutiveResourceInitialize @ 0x140632710 (PerfLogExecutiveResourceInitialize.c)
+ *     PsBoostThreadIoQoS @ 0x140287458 (PsBoostThreadIoQoS.c)
+ *     ExpOwnerEntryToThread @ 0x1402F7A88 (ExpOwnerEntryToThread.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x14034D1A0 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x1405AAEA0 (PerfLogExecutiveResourceInitialize.c)
  */
 
 NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)
 {
-  __int64 v1; // rdx
   POWNER_ENTRY OwnerTable; // rsi
-  unsigned int v4; // r14d
+  unsigned int v3; // r14d
   unsigned int TableSize; // ebp
   ERESOURCE_THREAD OwnerThread; // rsi
-  struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710 v7; // eax
-  struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710 v8; // ecx
-  unsigned int v10; // r15d
+  struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710 v6; // ecx
+  __int64 v7; // rdx
+  unsigned int v9; // r15d
+  POWNER_ENTRY v10; // r13
   unsigned int v11; // eax
-  ULONG *p_TableSize; // r13
+  struct _KTHREAD *v12; // r12
   __int64 v13; // rdx
-  ULONG_PTR v14; // r10
-  ULONG v15; // eax
-  __int64 v16; // [rsp+68h] [rbp+10h]
+  struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710 v14; // eax
 
   if ( (Resource->ReservedLowFlags & 1) != 0 )
     KeBugCheckEx(0x1C6u, 0xEuLL, (ULONG_PTR)Resource, 0LL, 0LL);
   OwnerTable = Resource->OwnerTable;
-  v4 = 0;
+  v3 = 0;
   if ( OwnerTable )
   {
     TableSize = OwnerTable->TableSize;
-    v10 = 1;
+    v9 = 1;
+    v10 = Resource->OwnerTable;
     v11 = TableSize;
     if ( TableSize > 1 )
     {
-      p_TableSize = &OwnerTable->TableSize;
       do
       {
-        p_TableSize += 4;
-        v16 = ExpOwnerEntryToThread(p_TableSize - 2);
-        if ( v16 )
+        v12 = (struct _KTHREAD *)ExpOwnerEntryToThread(++v10);
+        if ( v12 )
         {
-          ++v4;
+          ++v3;
           if ( (unsigned __int8)ExpResourceEnforcesOwnershipTransfer(Resource)
-            && (*p_TableSize & 2) == 0
-            && (struct _KTHREAD *)v14 != KeGetCurrentThread() )
+            && (v10->TableSize & 2) == 0
+            && v12 != KeGetCurrentThread() )
           {
-            KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, (ULONG_PTR)KeGetCurrentThread(), v14, 3uLL);
+            KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, (ULONG_PTR)KeGetCurrentThread(), (ULONG_PTR)v12, 3uLL);
           }
-          v15 = *p_TableSize;
-          if ( (*p_TableSize & 1) != 0 )
+          v14 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)v10->TableSize;
+          if ( (*(_BYTE *)&v14 & 1) != 0 )
           {
             LOBYTE(v13) = 1;
-            PsBoostThreadIoEx(v14, v13, 0LL, 0LL);
-            v15 = *p_TableSize;
-            v14 = v16;
+            PsBoostThreadIoEx(v12, v13, 0LL, 0LL);
+            v14 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)v10->TableSize;
           }
-          if ( (v15 & 4) != 0 )
+          if ( (*(_BYTE *)&v14 & 4) != 0 )
           {
-            _InterlockedDecrement((volatile signed __int32 *)(v14 + 1444));
-            v15 = *p_TableSize;
+            PsBoostThreadIoQoS((__int64)v12, 1LL);
+            v14 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)v10->TableSize;
           }
-          if ( (v15 & 2) != 0 )
-            ObDereferenceObjectDeferDeleteWithTag((PVOID)v14, 0x746C6644u);
+          if ( (*(_BYTE *)&v14 & 2) != 0 )
+            ObDereferenceObjectDeferDeleteWithTag(v12, 0x746C6644u);
         }
-        ++v10;
+        ++v9;
       }
-      while ( v10 < TableSize );
+      while ( v9 < TableSize );
       v11 = OwnerTable->TableSize;
     }
     memset(&OwnerTable[1], 0, 16LL * (v11 - 1));
@@ -86,51 +83,48 @@ NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)
   {
     ++TableSize;
     if ( (OwnerThread & 3) == 0 )
-      ++v4;
+      ++v3;
   }
-  v7 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
-  if ( (*(_BYTE *)&v7 & 2) != 0 )
+  v6 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
+  v7 = *(_BYTE *)&v6 & 2;
+  if ( (*(_BYTE *)&v6 & 2) != 0 )
   {
     OwnerThread &= 0xFFFFFFFFFFFFFFFCuLL;
   }
   else if ( (OwnerThread & 3) != 0 )
   {
-    goto LABEL_19;
+    goto LABEL_18;
   }
   if ( OwnerThread )
   {
-    if ( (Resource->ReservedLowFlags & 1) != 0 || ExpResourceEnforceOwnerTransfer )
+    if ( ((Resource->ReservedLowFlags & 1) != 0 || ExpResourceEnforceOwnerTransfer)
+      && (*(_BYTE *)&v6 & 2) == 0
+      && (struct _KTHREAD *)OwnerThread != KeGetCurrentThread() )
     {
-      *(_BYTE *)&v8 = Resource->OwnerEntry.TableSize;
-      if ( (*(_BYTE *)&v7 & 2) == 0 && (struct _KTHREAD *)OwnerThread != KeGetCurrentThread() )
-        KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, (ULONG_PTR)KeGetCurrentThread(), OwnerThread, 4uLL);
+      KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, (ULONG_PTR)KeGetCurrentThread(), OwnerThread, 4uLL);
     }
-    else
+    if ( (*(_BYTE *)&v6 & 1) != 0 )
     {
-      *(_BYTE *)&v8 = Resource->OwnerEntry.TableSize;
+      LOBYTE(v7) = 1;
+      PsBoostThreadIoEx(OwnerThread, v7, 0LL, 0LL);
+      v6 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
     }
-    if ( (*(_BYTE *)&v8 & 1) != 0 )
+    if ( (*(_BYTE *)&v6 & 4) != 0 )
     {
-      LOBYTE(v1) = 1;
-      PsBoostThreadIoEx(OwnerThread, v1, 0LL, 0LL);
-      v8 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
+      PsBoostThreadIoQoS(OwnerThread, 1LL);
+      v6 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
     }
-    if ( (*(_BYTE *)&v8 & 4) != 0 )
-    {
-      _InterlockedDecrement((volatile signed __int32 *)(OwnerThread + 1444));
-      v8 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
-    }
-    if ( (*(_BYTE *)&v8 & 2) != 0 )
+    if ( (*(_BYTE *)&v6 & 2) != 0 )
       ObDereferenceObjectDeferDeleteWithTag((PVOID)OwnerThread, 0x746C6644u);
   }
-LABEL_19:
+LABEL_18:
   *(_DWORD *)&Resource->ActiveCount = 0;
   *(_QWORD *)&Resource->ActiveEntries = 0LL;
   *(_OWORD *)&Resource->SharedWaiters = 0LL;
   Resource->OwnerEntry = 0LL;
   *(_QWORD *)&Resource->NumberOfSharedWaiters = 0LL;
-  __incgsdword(0x8A5Cu);
+  __incgsdword(0x865Cu);
   if ( (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0 )
-    PerfLogExecutiveResourceInitialize(65560LL, Resource, TableSize, v4);
+    PerfLogExecutiveResourceInitialize(65560LL, Resource, TableSize, v3);
   return 0;
 }

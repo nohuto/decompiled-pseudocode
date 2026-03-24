@@ -1,5 +1,5 @@
 /*
- * XREFs of ?EnumPDOs@PDOBaseEnum@@SAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C02E6330
+ * XREFs of ?EnumPDOs@PDOBaseEnum@@SAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C02BF6E0
  * Callers:
  *     <none>
  * Callees:
@@ -10,12 +10,12 @@ __int64 __fastcall PDOBaseEnum::EnumPDOs(struct DXGADAPTER *a1, unsigned int *a2
 {
   unsigned int v2; // eax
 
-  if ( *((_BYTE *)a1 + 2757) )
+  if ( *((_BYTE *)a1 + 2533) )
   {
     v2 = a2[1];
     if ( v2 < *a2 )
     {
-      *(_QWORD *)(*((_QWORD *)a2 + 1) + 8LL * v2) = *((_QWORD *)a1 + 29);
+      *(_QWORD *)(*((_QWORD *)a2 + 1) + 8LL * v2) = *((_QWORD *)a1 + 28);
       ++a2[1];
     }
   }

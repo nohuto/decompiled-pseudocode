@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSwInterruptDispatch @ 0x1401A0530
+ * XREFs of KiSwInterruptDispatch @ 0x1401A0550
  * Callers:
- *     KiSwInterrupt @ 0x1401C2A80 (KiSwInterrupt.c)
+ *     KiSwInterrupt @ 0x1401C2AA0 (KiSwInterrupt.c)
  * Callees:
- *     KeExitRetpoline @ 0x14013914C (KeExitRetpoline.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     KiGetTrapFrameMode @ 0x14028D66C (KiGetTrapFrameMode.c)
- *     KiReadKernelDr7 @ 0x14028D928 (KiReadKernelDr7.c)
+ *     KeExitRetpoline @ 0x14013916C (KeExitRetpoline.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     KiGetTrapFrameMode @ 0x14028D76C (KiGetTrapFrameMode.c)
+ *     KiReadKernelDr7 @ 0x14028DA28 (KiReadKernelDr7.c)
  *     SdbpCheckDll @ 0x14034A890 (SdbpCheckDll.c)
  *     KeGuardDispatchICall @ 0x14034AB40 (KeGuardDispatchICall.c)
  *     KeGuardCheckICall @ 0x14034AB50 (KeGuardCheckICall.c)
@@ -195,7 +195,7 @@ const signed __int32 *__fastcall KiSwInterruptDispatch(__int64 a1, __int64 a2, _
     *PoolWithTag = 0LL;
     v10 = PoolWithTag + 4;
     PoolWithTag[3] = PoolWithTag;
-    PoolWithTag[2] = sub_1401AD6C0;
+    PoolWithTag[2] = sub_1401AD6E0;
     v160 = PoolWithTag + 4;
     memmove(PoolWithTag + 4, v4, 0xA70uLL);
     v9[333] = v4;
@@ -876,7 +876,7 @@ LABEL_202:
       *(_QWORD *)(v113 + v10[207]) = 0LL;
       *(_QWORD *)(v113 + v10[209]) = 0LL;
       SdbpCheckDll(265, v109, v108, v107, v110, v10[42], v112);
-      JUMPOUT(0x1401A13CALL);
+      JUMPOUT(0x1401A13EALL);
     }
     v126 = *((_DWORD *)v10 + 49);
     *((_DWORD *)v10 + 49) = 0;

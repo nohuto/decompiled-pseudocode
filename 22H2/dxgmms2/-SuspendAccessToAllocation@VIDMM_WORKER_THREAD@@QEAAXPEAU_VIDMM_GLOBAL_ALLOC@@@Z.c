@@ -1,42 +1,39 @@
 /*
- * XREFs of ?SuspendAccessToAllocation@VIDMM_WORKER_THREAD@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00ED978
+ * XREFs of ?SuspendAccessToAllocation@VIDMM_WORKER_THREAD@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B8578
  * Callers:
- *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00ABE50 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
- *     ?HandlePromotionCandidates@VIDMM_GLOBAL@@QEAAXPEA_N@Z @ 0x1C00AF510 (-HandlePromotionCandidates@VIDMM_GLOBAL@@QEAAXPEA_N@Z.c)
- *     ?PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEA_K@Z @ 0x1C00B554C (-PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEA_K@Z.c)
- *     ?LockInAperture@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@PEA_NPEAPEAU2@@Z @ 0x1C00E4654 (-LockInAperture@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@PEA_NPEAPEAU2@@Z.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006C260 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?HandlePromotionCandidates@VIDMM_GLOBAL@@QEAAXPEA_N@Z @ 0x1C0085110 (-HandlePromotionCandidates@VIDMM_GLOBAL@@QEAAXPEA_N@Z.c)
+ *     ?LockInAperture@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@PEA_NPEAPEAU2@@Z @ 0x1C00AFA64 (-LockInAperture@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@PEA_NPEAPEAU2@@Z.c)
+ *     ?PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEA_K@Z @ 0x1C00C3DB0 (-PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXU_VIDMM_PURGE_FLAGS@@PEA_K@Z.c)
  * Callees:
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0005BC0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006770 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C009B9F4 (-FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
- *     ?PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00EC158 (-PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006090 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000613C (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C0064910 (-FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B6D04 (-PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
  */
 
-void __fastcall VIDMM_WORKER_THREAD::SuspendAccessToAllocation(VIDMM_GLOBAL **this, struct _VIDMM_GLOBAL_ALLOC *a2)
+void __fastcall VIDMM_WORKER_THREAD::SuspendAccessToAllocation(VIDMM_GLOBAL **this, DXGFASTMUTEX **a2)
 {
-  struct _KTHREAD **v2; // r14
-  _QWORD **v4; // r15
-  _QWORD *i; // rbx
+  __int64 v4; // rdx
+  struct _VIDMM_GLOBAL_ALLOC *i; // rbx
   VIDMM_DEVICE **j; // rdi
 
-  v2 = (struct _KTHREAD **)((char *)a2 + 296);
-  v4 = (_QWORD **)((char *)a2 + 272);
-  DXGFASTMUTEX::Acquire((struct _VIDMM_GLOBAL_ALLOC *)((char *)a2 + 296));
-  for ( i = *v4; i != v4; i = (_QWORD *)*i )
+  DXGFASTMUTEX::Acquire(a2[39]);
+  for ( i = a2[36]; i != (struct _VIDMM_GLOBAL_ALLOC *)(a2 + 36); i = *(struct _VIDMM_GLOBAL_ALLOC **)i )
   {
-    for ( j = (VIDMM_DEVICE **)*(i - 2); j != i - 2; j = (VIDMM_DEVICE **)*j )
+    for ( j = (VIDMM_DEVICE **)*((_QWORD *)i - 2); j != (VIDMM_DEVICE **)((char *)i - 16); j = (VIDMM_DEVICE **)*j )
     {
       if ( (*((_DWORD *)j - 3) & 3) == 2 )
       {
-        if ( !*((_QWORD *)*(j - 4) + 24) )
+        if ( !*((_QWORD *)*(j - 4) + 23) )
         {
-          DXGFASTMUTEX::Release(v2);
+          DXGFASTMUTEX::Release((struct _KTHREAD **)a2[39], v4);
           VIDMM_DEVICE::PartiallySuspend((VIDMM_GLOBAL **)*(j - 4));
-          DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)v2);
+          DXGFASTMUTEX::Acquire(a2[39]);
         }
         VIDMM_GLOBAL::FaultOneAllocation(*this, j - 5);
       }
     }
   }
-  DXGFASTMUTEX::Release(v2);
+  DXGFASTMUTEX::Release((struct _KTHREAD **)a2[39], v4);
 }

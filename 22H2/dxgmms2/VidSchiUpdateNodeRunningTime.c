@@ -1,7 +1,7 @@
 /*
- * XREFs of VidSchiUpdateNodeRunningTime @ 0x1C00187BC
+ * XREFs of VidSchiUpdateNodeRunningTime @ 0x1C0016774
  * Callers:
- *     VidSchiCheckPreemptionPolicy @ 0x1C000D1C0 (VidSchiCheckPreemptionPolicy.c)
+ *     VidSchiCheckPreemptionPolicy @ 0x1C000D0F0 (VidSchiCheckPreemptionPolicy.c)
  * Callees:
  *     <none>
  */

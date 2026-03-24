@@ -1,9 +1,9 @@
 /*
- * XREFs of VmpFillGpnRanges @ 0x1405F903C
+ * XREFs of VmpFillGpnRanges @ 0x1405A32E0
  * Callers:
- *     VmpPrefetchVirtualAddresses @ 0x1405FA72C (VmpPrefetchVirtualAddresses.c)
+ *     VmpPrefetchVirtualAddresses @ 0x1405A44C4 (VmpPrefetchVirtualAddresses.c)
  * Callees:
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405F8D6C (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405A2DC0 (VmpConvertPortionVpnRangeToGpnRange.c)
  */
 
 _UNKNOWN **__fastcall VmpFillGpnRanges(
@@ -12,57 +12,53 @@ _UNKNOWN **__fastcall VmpFillGpnRanges(
         __int64 a3,
         __int64 *a4,
         __int64 a5,
-        __int64 *a6)
+        _QWORD *a6)
 {
   _UNKNOWN **result; // rax
   bool v7; // zf
   __int64 v12; // r8
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r9
-  __int64 v16; // r11
-  __int128 v17; // xmm0
-  __int128 v18; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v13; // rcx
+  __int64 v14; // r9
+  __int64 v15; // r11
+  __int128 v16; // [rsp+30h] [rbp-18h] BYREF
   _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
 
   result = &retaddr;
   v7 = a2[1] == 0;
-  v18 = 0LL;
+  v16 = 0LL;
   if ( !v7 )
   {
     while ( 1 )
     {
-      result = (_UNKNOWN **)VmpConvertPortionVpnRangeToGpnRange(a1, a2, 0xFFFFFFFFFFFFFFFFuLL, a6, &v18, 0);
-      v12 = *((_QWORD *)&v18 + 1);
-      if ( !*((_QWORD *)&v18 + 1) )
+      result = (_UNKNOWN **)VmpConvertPortionVpnRangeToGpnRange(a1, a2, 0xFFFFFFFFFFFFFFFFuLL, a6, &v16);
+      v12 = *((_QWORD *)&v16 + 1);
+      if ( !*((_QWORD *)&v16 + 1) )
         return result;
       v13 = *a4;
-      v14 = 16 * *a4;
       if ( !*a4 )
         break;
-      v15 = *(_QWORD *)(v14 + a3 - 8);
-      v16 = *(_QWORD *)(v14 + a3 - 16);
-      if ( v16 + v15 == (_QWORD)v18 )
+      v14 = *(_QWORD *)(a3 + 16 * v13 - 8);
+      v15 = *(_QWORD *)(a3 + 16 * v13 - 16);
+      if ( v15 + v14 == (_QWORD)v16 )
       {
-        result = (_UNKNOWN **)(v15 + *((_QWORD *)&v18 + 1));
-        *(_QWORD *)(v14 + a3 - 8) = v15 + *((_QWORD *)&v18 + 1);
+        result = (_UNKNOWN **)(v14 + *((_QWORD *)&v16 + 1));
+        *(_QWORD *)(a3 + 16 * v13 - 8) = v14 + *((_QWORD *)&v16 + 1);
       }
       else
       {
-        if ( v16 != (_QWORD)v18 + *((_QWORD *)&v18 + 1) )
+        if ( v15 != (_QWORD)v16 + *((_QWORD *)&v16 + 1) )
           break;
-        result = (_UNKNOWN **)(v15 + *((_QWORD *)&v18 + 1));
-        *(_QWORD *)(v14 + a3 - 16) = v18;
-        *(_QWORD *)(v14 + a3 - 8) = v15 + v12;
+        result = (_UNKNOWN **)(v14 + *((_QWORD *)&v16 + 1));
+        *(_QWORD *)(a3 + 16 * v13 - 16) = v16;
+        *(_QWORD *)(a3 + 16 * v13 - 8) = v14 + v12;
       }
 LABEL_9:
       if ( !a2[1] )
         return result;
     }
-    v17 = v18;
+    *(_OWORD *)(a3 + 16 * v13) = v16;
     result = (_UNKNOWN **)(v13 + 1);
     *a4 = v13 + 1;
-    *(_OWORD *)(v14 + a3) = v17;
     if ( v13 + 1 == a5 )
       return result;
     goto LABEL_9;

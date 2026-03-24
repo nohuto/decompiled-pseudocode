@@ -1,14 +1,14 @@
 /*
- * XREFs of StringExHandleOtherFlagsW @ 0x140287654
+ * XREFs of StringExHandleOtherFlagsW @ 0x140287754
  * Callers:
  *     RtlStringCbCopyExW @ 0x140007504 (RtlStringCbCopyExW.c)
  *     RtlStringCchCopyNExW @ 0x140015A04 (RtlStringCchCopyNExW.c)
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
- *     RtlStringCbPrintfExW @ 0x140128C98 (RtlStringCbPrintfExW.c)
- *     RtlStringCchCopyExW @ 0x14013DD30 (RtlStringCchCopyExW.c)
- *     StringCchPrintfExW @ 0x140326F70 (StringCchPrintfExW.c)
+ *     RtlStringCbPrintfExW @ 0x140128CB8 (RtlStringCbPrintfExW.c)
+ *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
+ *     StringCchPrintfExW @ 0x140327070 (StringCchPrintfExW.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 HRESULT __stdcall StringExHandleOtherFlagsW(

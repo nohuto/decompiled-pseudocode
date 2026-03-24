@@ -1,116 +1,115 @@
 /*
- * XREFs of PnpHardwareConfigCreateBootDriverFlags @ 0x14082EA28
+ * XREFs of PnpHardwareConfigCreateBootDriverFlags @ 0x1407AC1F4
  * Callers:
- *     IopMarkBootPartition @ 0x140B0E670 (IopMarkBootPartition.c)
+ *     IopMarkBootPartition @ 0x140A61890 (IopMarkBootPartition.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x14041B7E0 (ZwWaitForSingleObject.c)
- *     ZwDeviceIoControlFile @ 0x14041B840 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)
- *     ZwResetEvent @ 0x14041E7A0 (ZwResetEvent.c)
- *     _RegRtlSetValue @ 0x1406D5A30 (_RegRtlSetValue.c)
- *     _RegRtlQueryValue @ 0x14077FC64 (_RegRtlQueryValue.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     PipHardwareConfigOpenKey @ 0x14082EC0C (PipHardwareConfigOpenKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1403FA420 (ZwWaitForSingleObject.c)
+ *     ZwDeviceIoControlFile @ 0x1403FA480 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
+ *     ZwResetEvent @ 0x1403FD2E0 (ZwResetEvent.c)
+ *     _RegRtlQueryValue @ 0x140642318 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
+ *     PipHardwareConfigOpenKey @ 0x1407AC320 (PipHardwareConfigOpenKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpHardwareConfigCreateBootDriverFlags(__int64 a1, void *a2)
 {
-  _DWORD *Pool2; // rdi
+  _DWORD *OutputBuffer; // rdi
   int Status; // ebx
   __int64 v6; // rcx
-  unsigned int v7; // ecx
-  int v8; // eax
-  bool v9; // zf
-  int v10; // ecx
-  unsigned int v11; // [rsp+50h] [rbp-49h] BYREF
-  unsigned int v12[3]; // [rsp+54h] [rbp-45h] BYREF
-  int v13; // [rsp+60h] [rbp-39h] BYREF
-  unsigned int v14; // [rsp+64h] [rbp-35h] BYREF
+  unsigned int v7; // eax
+  int v8; // ecx
+  int v9; // eax
+  unsigned int v10; // [rsp+50h] [rbp-49h] BYREF
+  unsigned int v11[3]; // [rsp+54h] [rbp-45h] BYREF
+  int v12; // [rsp+60h] [rbp-39h] BYREF
+  unsigned int v13; // [rsp+64h] [rbp-35h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-31h] BYREF
-  int v16; // [rsp+70h] [rbp-29h] BYREF
-  ULONG OutputBuffer[2]; // [rsp+78h] [rbp-21h] BYREF
+  int v15; // [rsp+70h] [rbp-29h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+78h] [rbp-21h] BYREF
   HANDLE KeyHandle; // [rsp+80h] [rbp-19h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-11h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-1h] BYREF
   __int64 InputBuffer; // [rsp+C8h] [rbp+2Fh] BYREF
-  int v22; // [rsp+D0h] [rbp+37h]
+  int v21; // [rsp+D0h] [rbp+37h]
 
-  *(_QWORD *)OutputBuffer = 0LL;
-  v11 = 0;
-  Pool2 = 0LL;
+  NumberOfBytes = 0LL;
+  v10 = 0;
   InputBuffer = 0LL;
-  v22 = 0;
+  v21 = 0;
+  OutputBuffer = 0LL;
+  v12 = 0;
+  v15 = 0;
+  *(_QWORD *)&v11[1] = 0LL;
   v13 = 0;
-  v16 = 0;
-  *(_QWORD *)&v12[1] = 0LL;
-  v14 = 0;
   KeyHandle = 0LL;
   Handle = 0LL;
   IoStatusBlock = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   if ( !a2 )
     return (unsigned int)-1073741811;
   Status = PipHardwareConfigOpenKey(a1, 131097LL, &Handle);
   if ( Status >= 0 )
   {
-    v12[0] = 4;
-    Status = RegRtlQueryValue(Handle, L"BootDriverFlags", &v13, &v16, v12);
+    v11[0] = 4;
+    Status = RegRtlQueryValue(Handle, L"BootDriverFlags", &v12, &v15, v11);
     if ( Status == -1073741772 )
     {
-      v22 = 0;
+      v21 = 0;
       ObjectAttributes.Length = 48;
       ObjectAttributes.RootDirectory = 0LL;
       ObjectAttributes.Attributes = 512;
       ObjectAttributes.ObjectName = 0LL;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      Status = ZwCreateEvent((PHANDLE)&v12[1], 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
+      Status = ZwCreateEvent((PHANDLE)&v11[1], 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
       if ( Status >= 0 )
       {
         Status = ZwDeviceIoControlFile(
                    a2,
-                   *(HANDLE *)&v12[1],
+                   *(HANDLE *)&v11[1],
                    0LL,
                    0LL,
                    &IoStatusBlock,
                    0x2D1400u,
                    &InputBuffer,
                    0xCu,
-                   OutputBuffer,
+                   &NumberOfBytes,
                    8u);
         if ( Status == 259 )
         {
-          Status = ZwWaitForSingleObject(*(HANDLE *)&v12[1], 0, 0LL);
+          Status = ZwWaitForSingleObject(*(HANDLE *)&v11[1], 0, 0LL);
           if ( Status < 0 )
             goto LABEL_4;
           Status = IoStatusBlock.Status;
         }
         if ( Status >= 0 )
         {
-          Pool2 = (_DWORD *)ExAllocatePool2(256LL, OutputBuffer[1], 1852403792LL);
-          if ( !Pool2 )
+          OutputBuffer = ExAllocatePoolWithTag(PagedPool, HIDWORD(NumberOfBytes), 0x6E697050u);
+          if ( !OutputBuffer )
           {
             Status = -1073741670;
             goto LABEL_4;
           }
-          ZwResetEvent(*(__int64 *)&v12[1], 0LL);
+          ZwResetEvent(*(__int64 *)&v11[1], 0LL);
           Status = ZwDeviceIoControlFile(
                      a2,
-                     *(HANDLE *)&v12[1],
+                     *(HANDLE *)&v11[1],
                      0LL,
                      0LL,
                      &IoStatusBlock,
                      0x2D1400u,
                      &InputBuffer,
                      0xCu,
-                     Pool2,
-                     OutputBuffer[1]);
+                     OutputBuffer,
+                     HIDWORD(NumberOfBytes));
           if ( Status == 259 )
           {
-            Status = ZwWaitForSingleObject(*(HANDLE *)&v12[1], 0, 0LL);
+            Status = ZwWaitForSingleObject(*(HANDLE *)&v11[1], 0, 0LL);
             if ( Status < 0 )
               goto LABEL_4;
             Status = IoStatusBlock.Status;
@@ -129,60 +128,47 @@ __int64 __fastcall PnpHardwareConfigCreateBootDriverFlags(__int64 a1, void *a2)
                      (__int64)&KeyHandle);
           if ( Status < 0 )
             goto LABEL_4;
-          v12[0] = 4;
-          Status = RegRtlQueryValue(KeyHandle, L"BootDriverFlags", &v13, &v14, v12);
+          v11[0] = 4;
+          Status = RegRtlQueryValue(KeyHandle, L"BootDriverFlags", &v12, &v13, v11);
           if ( Status < 0 )
             goto LABEL_4;
-          v7 = v14 & 0xFFFFFFE3;
-          v11 = v14 & 0xFFFFFFE3;
-          v8 = Pool2[7];
-          if ( v8 > 12 )
+          v7 = v13 & 0xFFFFFFE3;
+          v10 = v13 & 0xFFFFFFE3;
+          v8 = OutputBuffer[7];
+          if ( v8 > 0 )
           {
-            if ( v8 == 13 )
+            if ( v8 <= 3 )
+              goto LABEL_39;
+            switch ( v8 )
             {
-              v10 = v7 | 0x1C;
-              goto LABEL_46;
-            }
-            if ( v8 > 16 )
-            {
-              if ( v8 == 17 || v8 == 18 )
-                goto LABEL_47;
-              v9 = v8 == 19;
-LABEL_43:
-              if ( !v9 )
-                goto LABEL_44;
-LABEL_47:
-              Status = RegRtlSetValue(Handle, L"BootDriverFlags", 4u, &v11, 4u);
-              goto LABEL_4;
-            }
-          }
-          else
-          {
-            if ( v8 == 12 )
-            {
-              v10 = v7 | 8;
-              goto LABEL_46;
-            }
-            if ( v8 > 0 )
-            {
-              if ( v8 <= 6 )
-                goto LABEL_47;
-              if ( v8 != 7 )
-              {
-                if ( v8 <= 10 )
-                  goto LABEL_47;
-                v9 = v8 == 11;
+              case 7:
+                v9 = v7 | 0x14;
                 goto LABEL_43;
+              case 11:
+LABEL_39:
+                Status = RegRtlSetValue(Handle, L"BootDriverFlags", 4u, &v10, 4u);
+                goto LABEL_4;
+              case 12:
+                v9 = v7 | 8;
+                goto LABEL_43;
+            }
+            if ( v8 > 14 )
+            {
+              if ( v8 > 16 )
+              {
+                if ( v8 == 17 || v8 == 19 )
+                  goto LABEL_39;
+                goto LABEL_38;
               }
-              v10 = v7 | 0x14;
-LABEL_46:
-              v11 = v10;
-              goto LABEL_47;
+              v9 = v13;
+LABEL_43:
+              v10 = v9;
+              goto LABEL_39;
             }
           }
-LABEL_44:
-          v11 = v14;
-          goto LABEL_47;
+LABEL_38:
+          v10 = v13;
+          goto LABEL_39;
         }
       }
     }
@@ -192,9 +178,9 @@ LABEL_4:
     ZwClose(KeyHandle);
   if ( Handle )
     ZwClose(Handle);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
-  if ( *(_QWORD *)&v12[1] )
-    ZwClose(*(HANDLE *)&v12[1]);
+  if ( OutputBuffer )
+    ExFreePoolWithTag(OutputBuffer, 0);
+  if ( *(_QWORD *)&v11[1] )
+    ZwClose(*(HANDLE *)&v11[1]);
   return (unsigned int)Status;
 }

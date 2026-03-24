@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vSetBest@MAPPER@@QEAAXPEAVPFE@@HE@Z @ 0x1C029206C
+ * XREFs of ?vSetBest@MAPPER@@QEAAXPEAVPFE@@HE@Z @ 0x1C0294658
  * Callers:
- *     ?vAttemptDeviceMatch@MAPPER@@QEAAXXZ @ 0x1C0291D74 (-vAttemptDeviceMatch@MAPPER@@QEAAXXZ.c)
- *     ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C0291F30 (-vEmergency@MAPPER@@QEAAXXZ.c)
+ *     ?vAttemptDeviceMatch@MAPPER@@QEAAXXZ @ 0x1C029435C (-vAttemptDeviceMatch@MAPPER@@QEAAXXZ.c)
+ *     ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C029451C (-vEmergency@MAPPER@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0pt_EtwWriteTransfer @ 0x1C0035690
+ * XREFs of McTemplateK0pt_EtwWriteTransfer @ 0x1C00353F0
  * Callers:
- *     Controller_AcquireWdfPowerReferenceForDebugger @ 0x1C0030B80 (Controller_AcquireWdfPowerReferenceForDebugger.c)
- *     Controller_ReleaseWdfPowerReferenceForDebugger @ 0x1C00329F0 (Controller_ReleaseWdfPowerReferenceForDebugger.c)
+ *     Controller_AcquireWdfPowerReferenceForDebugger @ 0x1C00308D0 (Controller_AcquireWdfPowerReferenceForDebugger.c)
+ *     Controller_ReleaseWdfPowerReferenceForDebugger @ 0x1C0032970 (Controller_ReleaseWdfPowerReferenceForDebugger.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C00351EC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pt_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?OnChanged@CCompositionMipmapSurface@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180224160
+ * XREFs of ?OnChanged@CCompositionMipmapSurface@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801BA230
  * Callers:
  *     <none>
  * Callees:
@@ -17,9 +17,9 @@ __int64 __fastcall CCompositionMipmapSurface::OnChanged(__int64 a1, unsigned int
   {
     if ( a2 <= 1 )
     {
-      v3 = *(_QWORD *)(a1 + 96);
+      v3 = *(_QWORD *)(a1 + 88);
       v4 = 0;
-      if ( (*(_QWORD *)(a1 + 104) - v3) >> 5 )
+      if ( (*(_QWORD *)(a1 + 96) - v3) >> 5 )
       {
         v5 = 0LL;
         do
@@ -28,12 +28,12 @@ __int64 __fastcall CCompositionMipmapSurface::OnChanged(__int64 a1, unsigned int
           if ( *(_QWORD *)(v6 + v3) && *(_QWORD *)(v6 + v3) == a3 )
           {
             *(_BYTE *)(v6 + v3 + 24) = 1;
-            *(_BYTE *)(a1 + 160) = 1;
+            *(_BYTE *)(a1 + 152) = 1;
           }
-          v3 = *(_QWORD *)(a1 + 96);
+          v3 = *(_QWORD *)(a1 + 88);
           v5 = ++v4;
         }
-        while ( v4 < (unsigned __int64)((*(_QWORD *)(a1 + 104) - v3) >> 5) );
+        while ( v4 < (unsigned __int64)((*(_QWORD *)(a1 + 96) - v3) >> 5) );
       }
     }
   }

@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbReadBinaryTag @ 0x1406CE3E8
+ * XREFs of SdbReadBinaryTag @ 0x1406CE3C8
  * Callers:
- *     SdbGetDatabaseID @ 0x14067CB68 (SdbGetDatabaseID.c)
- *     SdbReadEntryInformation @ 0x140722BC0 (SdbReadEntryInformation.c)
- *     SdbpGetExeEntryFlags @ 0x14072322C (SdbpGetExeEntryFlags.c)
- *     SdbpGetMatchingTextAttributes @ 0x1408E73F4 (SdbpGetMatchingTextAttributes.c)
- *     SdbReadGUIDTag @ 0x1408E7BEC (SdbReadGUIDTag.c)
+ *     SdbGetDatabaseID @ 0x14067CB48 (SdbGetDatabaseID.c)
+ *     SdbReadEntryInformation @ 0x140722BA0 (SdbReadEntryInformation.c)
+ *     SdbpGetExeEntryFlags @ 0x14072320C (SdbpGetExeEntryFlags.c)
+ *     SdbpGetMatchingTextAttributes @ 0x1408E73D4 (SdbpGetMatchingTextAttributes.c)
+ *     SdbReadGUIDTag @ 0x1408E7BCC (SdbReadGUIDTag.c)
  * Callees:
  *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
- *     SdbpReadTagData @ 0x14067CF60 (SdbpReadTagData.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     SdbpReadTagData @ 0x14067CF40 (SdbpReadTagData.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbReadBinaryTag(__int64 a1, __int64 a2, void *a3, unsigned int a4)

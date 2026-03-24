@@ -1,28 +1,22 @@
 /*
- * XREFs of PsRevertToUserPagePriorityThread @ 0x14029C790
+ * XREFs of PsRevertToUserPagePriorityThread @ 0x1402DE588
  * Callers:
- *     SmSetThreadSystemPagePriority @ 0x140392084 (SmSetThreadSystemPagePriority.c)
- *     MiValidateSectionCreate @ 0x1406B79C8 (MiValidateSectionCreate.c)
- *     MiRelocateImage @ 0x1407074F0 (MiRelocateImage.c)
+ *     SmSetThreadSystemPagePriority @ 0x1402DE4EC (SmSetThreadSystemPagePriority.c)
+ *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
+ *     MiValidateSectionCreate @ 0x140714C70 (MiValidateSectionCreate.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
  */
 
-int __fastcall PsRevertToUserPagePriorityThread(__int64 a1, int a2)
+__int64 __fastcall PsRevertToUserPagePriorityThread(__int64 a1, int a2)
 {
-  _QWORD *v2; // rax
+  unsigned int v2; // eax
 
   --*(_WORD *)(a1 + 486);
   if ( a2 == -1 )
-    LODWORD(v2) = *(_DWORD *)(a1 + 1384) & 0xFFFFF0FF;
+    v2 = *(_DWORD *)(a1 + 1304) & 0xFFFFF0FF;
   else
-    LODWORD(v2) = (a2 << 9) | *(_DWORD *)(a1 + 1384) & 0xFFFFF1FF;
-  *(_DWORD *)(a1 + 1384) = (_DWORD)v2;
-  if ( (*(_WORD *)(a1 + 486))++ == 0xFFFF )
-  {
-    v2 = (_QWORD *)(a1 + 152);
-    if ( (_QWORD *)*v2 != v2 )
-      LODWORD(v2) = KiCheckForKernelApcDelivery();
-  }
-  return (int)v2;
+    v2 = (a2 << 9) | *(_DWORD *)(a1 + 1304) & 0xFFFFF1FF;
+  *(_DWORD *)(a1 + 1304) = v2;
+  return KiLeaveGuardedRegionUnsafe(a1);
 }

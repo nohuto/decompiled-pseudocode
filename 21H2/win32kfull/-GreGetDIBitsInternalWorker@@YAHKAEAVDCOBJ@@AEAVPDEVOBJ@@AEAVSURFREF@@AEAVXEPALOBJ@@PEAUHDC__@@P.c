@@ -1,26 +1,26 @@
 /*
- * XREFs of ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C0028378
+ * XREFs of ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIPEAEPEAUtagBITMAPINFO@@III@Z @ 0x1C007F448
  * Callers:
- *     GreGetDIBitsInternal @ 0x1C0027480 (GreGetDIBitsInternal.c)
+ *     GreGetDIBitsInternal @ 0x1C0082A14 (GreGetDIBitsInternal.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?vFill_rgbquads@XEPALOBJ@@QEAAXPEAUtagRGBQUAD@@KK@Z @ 0x1C0026464 (-vFill_rgbquads@XEPALOBJ@@QEAAXPEAUtagRGBQUAD@@KK@Z.c)
- *     ?bIdenticalFormat@@YAHVXEPALOBJ@@H@Z @ 0x1C0026CD0 (-bIdenticalFormat@@YAHVXEPALOBJ@@H@Z.c)
- *     EngCopyBits @ 0x1C0028BB0 (EngCopyBits.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C002C6B0 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0031090 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00398B0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     ?bIsCMYKColor@DC@@QEBAHXZ @ 0x1C008A518 (-bIsCMYKColor@DC@@QEBAHXZ.c)
- *     ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C00DA8E0 (-vInit256Rainbow@XEPALOBJ@@QEAAXXZ.c)
- *     ?vInit256Default@XEPALOBJ@@QEAAXXZ @ 0x1C00DAB5C (-vInit256Default@XEPALOBJ@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?vFill_triples@XEPALOBJ@@QEAAXPEAUtagRGBTRIPLE@@KK@Z @ 0x1C02BBF64 (-vFill_triples@XEPALOBJ@@QEAAXPEAUtagRGBTRIPLE@@KK@Z.c)
- *     ?vGetEntriesFrom@XEPALOBJ@@QEAAXV1@0PEAGK@Z @ 0x1C02BBFC8 (-vGetEntriesFrom@XEPALOBJ@@QEAAXV1@0PEAGK@Z.c)
- *     EncodeRLE8 @ 0x1C02CBB8C (EncodeRLE8.c)
- *     EncodeRLE4 @ 0x1C02CD808 (EncodeRLE4.c)
+ *     EngCopyBits @ 0x1C007EB40 (EngCopyBits.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084EE0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B157C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B59BC (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C00D417C (-vInit256Rainbow@XEPALOBJ@@QEAAXXZ.c)
+ *     ?vInit256Default@XEPALOBJ@@QEAAXXZ @ 0x1C00D4418 (-vInit256Default@XEPALOBJ@@QEAAXXZ.c)
+ *     ?bIdenticalFormat@@YAHVXEPALOBJ@@H@Z @ 0x1C0109054 (-bIdenticalFormat@@YAHVXEPALOBJ@@H@Z.c)
+ *     ?vFill_rgbquads@XEPALOBJ@@QEAAXPEAUtagRGBQUAD@@KK@Z @ 0x1C01091AC (-vFill_rgbquads@XEPALOBJ@@QEAAXPEAUtagRGBQUAD@@KK@Z.c)
+ *     ?bIsCMYKColor@DC@@QEBAHXZ @ 0x1C0109700 (-bIsCMYKColor@DC@@QEBAHXZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?vFill_triples@XEPALOBJ@@QEAAXPEAUtagRGBTRIPLE@@KK@Z @ 0x1C02BD998 (-vFill_triples@XEPALOBJ@@QEAAXPEAUtagRGBTRIPLE@@KK@Z.c)
+ *     ?vGetEntriesFrom@XEPALOBJ@@QEAAXV1@0PEAGK@Z @ 0x1C02BD9F8 (-vGetEntriesFrom@XEPALOBJ@@QEAAXV1@0PEAGK@Z.c)
+ *     EncodeRLE8 @ 0x1C02CD46C (EncodeRLE8.c)
+ *     EncodeRLE4 @ 0x1C02CEFD4 (EncodeRLE4.c)
  */
 
 __int64 __fastcall GreGetDIBitsInternalWorker(
@@ -42,7 +42,7 @@ __int64 __fastcall GreGetDIBitsInternalWorker(
   __int64 v14; // rdi
   struct tagBITMAPINFO *v15; // r13
   unsigned int v16; // r12d
-  __int64 v17; // rsi
+  struct PDEVOBJ *v17; // rsi
   unsigned int biHeight_high; // r9d
   DWORD biCompression; // r15d
   LONG biWidth; // r10d
@@ -52,11 +52,11 @@ __int64 __fastcall GreGetDIBitsInternalWorker(
   unsigned int v24; // r10d
   unsigned int v25; // eax
   unsigned int v26; // edx
-  unsigned int v27; // eax
+  unsigned int v27; // ecx
   int v28; // edx
-  __int64 v29; // r8
+  unsigned int v29; // r8d
   int v30; // ecx
-  __int64 v31; // rbx
+  struct PDEVOBJ *v31; // rbx
   int v32; // eax
   LONG v33; // edx
   unsigned __int8 *v34; // r8
@@ -78,7 +78,7 @@ __int64 __fastcall GreGetDIBitsInternalWorker(
   unsigned int v51; // eax
   XLATEOBJ *v52; // r9
   XLATEOBJ *v53; // rcx
-  __int64 v54; // r8
+  struct PDEVOBJ *v54; // r8
   unsigned int v55; // eax
   XLATEOBJ *v56; // r9
   XLATEOBJ *v57; // rcx
@@ -86,66 +86,70 @@ __int64 __fastcall GreGetDIBitsInternalWorker(
   __int64 v59; // r13
   unsigned int v60; // eax
   DWORD v61; // eax
-  unsigned int v62; // [rsp+64h] [rbp-134h]
-  LONG v63; // [rsp+68h] [rbp-130h]
-  XLATEOBJ *pxlo; // [rsp+70h] [rbp-128h] BYREF
-  __int64 v65; // [rsp+78h] [rbp-120h] BYREF
-  unsigned int v66; // [rsp+80h] [rbp-118h]
-  unsigned int v67; // [rsp+84h] [rbp-114h]
-  unsigned int v68; // [rsp+88h] [rbp-110h]
-  __int64 v69; // [rsp+90h] [rbp-108h] BYREF
-  unsigned int v70; // [rsp+98h] [rbp-100h]
-  unsigned int v71; // [rsp+A0h] [rbp-F8h]
-  struct XEPALOBJ *v72; // [rsp+A8h] [rbp-F0h]
-  __int64 v73; // [rsp+B0h] [rbp-E8h] BYREF
-  int v74; // [rsp+B8h] [rbp-E0h]
-  struct SURFREF *v75; // [rsp+C0h] [rbp-D8h]
-  unsigned __int8 *v76; // [rsp+C8h] [rbp-D0h]
-  struct tagBITMAPINFO *v77; // [rsp+D0h] [rbp-C8h]
-  int v78; // [rsp+D8h] [rbp-C0h] BYREF
-  LONG v79; // [rsp+DCh] [rbp-BCh]
-  LONG v80; // [rsp+E0h] [rbp-B8h]
-  int v81; // [rsp+E4h] [rbp-B4h]
-  __int64 v82; // [rsp+E8h] [rbp-B0h]
-  __int64 v83; // [rsp+F0h] [rbp-A8h]
-  __int64 v84; // [rsp+F8h] [rbp-A0h] BYREF
-  char v85; // [rsp+100h] [rbp-98h]
-  int v86; // [rsp+104h] [rbp-94h]
-  DC **v87; // [rsp+108h] [rbp-90h]
-  struct tagBITMAPINFO *v88; // [rsp+110h] [rbp-88h] BYREF
-  int v89; // [rsp+118h] [rbp-80h]
-  int v90; // [rsp+11Ch] [rbp-7Ch]
-  __int64 v91; // [rsp+120h] [rbp-78h] BYREF
-  struct PDEVOBJ *v92; // [rsp+128h] [rbp-70h]
-  POINTL pptlSrc; // [rsp+130h] [rbp-68h] BYREF
-  struct SURFREF *v94; // [rsp+138h] [rbp-60h]
-  RECTL prclDest; // [rsp+140h] [rbp-58h] BYREF
+  unsigned int v62; // [rsp+64h] [rbp-144h]
+  LONG v63; // [rsp+68h] [rbp-140h]
+  XLATEOBJ *pxlo; // [rsp+70h] [rbp-138h] BYREF
+  unsigned int v65; // [rsp+78h] [rbp-130h]
+  struct PDEVOBJ *v66; // [rsp+80h] [rbp-128h] BYREF
+  unsigned int v67; // [rsp+88h] [rbp-120h]
+  unsigned int v68; // [rsp+8Ch] [rbp-11Ch]
+  __int64 v69; // [rsp+90h] [rbp-118h] BYREF
+  unsigned int v70; // [rsp+98h] [rbp-110h]
+  unsigned int v71; // [rsp+A0h] [rbp-108h]
+  unsigned int v72; // [rsp+A8h] [rbp-100h]
+  struct XEPALOBJ *v73; // [rsp+B0h] [rbp-F8h]
+  int v74; // [rsp+B8h] [rbp-F0h]
+  int v75; // [rsp+BCh] [rbp-ECh]
+  struct PDEVOBJ *v76; // [rsp+C0h] [rbp-E8h] BYREF
+  int v77; // [rsp+C8h] [rbp-E0h]
+  struct SURFREF *v78; // [rsp+D0h] [rbp-D8h]
+  unsigned __int8 *v79; // [rsp+D8h] [rbp-D0h]
+  DC **v80; // [rsp+E0h] [rbp-C8h]
+  struct tagBITMAPINFO *v81; // [rsp+E8h] [rbp-C0h]
+  int v82; // [rsp+F0h] [rbp-B8h] BYREF
+  LONG v83; // [rsp+F4h] [rbp-B4h]
+  LONG v84; // [rsp+F8h] [rbp-B0h]
+  int v85; // [rsp+FCh] [rbp-ACh]
+  __int64 v86; // [rsp+100h] [rbp-A8h]
+  __int64 v87; // [rsp+108h] [rbp-A0h]
+  __int64 v88; // [rsp+110h] [rbp-98h] BYREF
+  char v89; // [rsp+118h] [rbp-90h]
+  int v90; // [rsp+11Ch] [rbp-8Ch]
+  struct PDEVOBJ *v91; // [rsp+120h] [rbp-88h]
+  struct PDEVOBJ *v92; // [rsp+128h] [rbp-80h] BYREF
+  POINTL pptlSrc; // [rsp+130h] [rbp-78h] BYREF
+  struct SURFREF *v94; // [rsp+138h] [rbp-70h]
+  struct tagBITMAPINFO *v95; // [rsp+140h] [rbp-68h]
+  struct PDEVOBJ *v96; // [rsp+148h] [rbp-60h]
+  __int64 v97; // [rsp+150h] [rbp-58h]
+  RECTL prclDest; // [rsp+158h] [rbp-50h] BYREF
 
-  v75 = a4;
-  v92 = a3;
-  v87 = a2;
+  v78 = a4;
+  v91 = a3;
+  v80 = a2;
   v14 = a1;
-  LODWORD(v65) = a1;
+  v72 = a1;
   v94 = a4;
-  v72 = a5;
-  v66 = a8;
-  v76 = a10;
+  v73 = a5;
+  v65 = a8;
+  v79 = a10;
   v15 = a11;
-  v77 = a11;
-  v88 = a11;
-  v91 = 0LL;
+  v81 = a11;
+  v95 = a11;
+  v92 = 0LL;
   v16 = 1;
   if ( !(unsigned int)bIsCompatible(
-                        &v91,
+                        &v92,
                         *(_QWORD *)(*((_QWORD *)a4 + 4) + 128LL),
                         *((_QWORD *)a4 + 4),
                         *((_QWORD *)*a2 + 6),
                         1) )
     return 0LL;
-  v17 = v91;
-  v78 = 0;
-  v81 = 0;
-  v83 = 0LL;
+  v17 = v92;
+  v96 = v92;
+  v82 = 0;
+  v85 = 0;
+  v87 = 0LL;
   if ( (_DWORD)v14 == 12 )
   {
     LODWORD(v69) = 1;
@@ -164,7 +168,7 @@ __int64 __fastcall GreGetDIBitsInternalWorker(
       v22 = 2;
       goto LABEL_17;
     }
-    goto LABEL_93;
+    goto LABEL_94;
   }
   if ( a14 < 0x28 )
     return 0LL;
@@ -180,18 +184,18 @@ __int64 __fastcall GreGetDIBitsInternalWorker(
   biWidth = a11->bmiHeader.biWidth;
   v67 = biWidth;
   if ( biWidth <= 0 )
-    goto LABEL_93;
+    goto LABEL_94;
   biWidth_high = a11->bmiHeader.biHeight;
   if ( !biWidth_high )
-    goto LABEL_93;
+    goto LABEL_94;
   if ( biWidth_high >= 0 )
     goto LABEL_9;
-  LODWORD(v83) = 1;
+  LODWORD(v87) = 1;
   if ( biCompression )
   {
     if ( biCompression != 3 )
     {
-LABEL_93:
+LABEL_94:
       EngSetLastError(0x57u);
       return 0LL;
     }
@@ -218,7 +222,7 @@ LABEL_65:
   {
     if ( biCompression == 10 )
     {
-      IsCMYKColor = DC::bIsCMYKColor(*v87);
+      IsCMYKColor = DC::bIsCMYKColor(*v80);
       biWidth_high = v63;
       if ( IsCMYKColor )
       {
@@ -241,10 +245,10 @@ LABEL_14:
     a11->bmiHeader.biSizeImage = biWidth_high * v23;
   *(_QWORD *)&a11->bmiHeader.biClrUsed = 0LL;
 LABEL_17:
-  v24 = v66;
-  if ( biWidth_high < v66 )
+  v24 = v65;
+  if ( biWidth_high < v65 )
     v24 = biWidth_high;
-  v66 = v24;
+  v65 = v24;
   v70 = v24;
   v25 = biWidth_high - v24;
   v26 = a9;
@@ -254,7 +258,7 @@ LABEL_17:
   v71 = v26;
   if ( biCompression - 1 > 1 && a13 < v23 * v26 )
     return 0LL;
-  v82 = 0LL;
+  v86 = 0LL;
   if ( biCompression == 3 && a14 < 0x34 )
     return 0LL;
   switch ( biHeight_high )
@@ -270,22 +274,21 @@ LABEL_86:
       goto LABEL_86;
     case 8u:
       v28 = 3;
-      v78 = 3;
+      v82 = 3;
       v22 = 256;
       v27 = a12;
 LABEL_34:
-      v74 = 0;
-      v73 = 0LL;
+      v77 = 0;
+      v76 = 0LL;
       if ( v27 == 1 )
       {
-        if ( a14 >= (unsigned int)v65 + 2 * (unsigned __int64)v22 )
+        if ( a14 >= v72 + 2 * (unsigned __int64)v22 )
         {
           v69 = ghsemPalette;
           GreAcquireSemaphore(ghsemPalette);
-          if ( !v17 && v78 == 3 && *(_QWORD *)(*(_QWORD *)v72 + 72LL) )
+          if ( !v17 && v82 == 3 && *(_QWORD *)(*(_QWORD *)v73 + 72LL) )
           {
-            v31 = 0LL;
-            v65 = 0LL;
+            v66 = 0LL;
             v44 = pxlo;
             v45 = pxlo;
             for ( i = 256LL; i; --i )
@@ -294,7 +297,7 @@ LABEL_34:
               v45 = (XLATEOBJ *)((char *)v45 + 2);
             }
             v47 = 0;
-            v48 = v72;
+            v48 = v73;
             do
             {
               v49 = 0;
@@ -304,25 +307,24 @@ LABEL_34:
                 while ( *(unsigned __int8 *)(v49 + *(_QWORD *)(*(_QWORD *)v48 + 72LL) + 4LL) != v47 )
                 {
                   if ( ++v49 >= (unsigned __int16)v50 )
-                    goto LABEL_118;
+                    goto LABEL_119;
                 }
                 *((_WORD *)&v44->iUniq + v47) = v49;
               }
-LABEL_118:
+LABEL_119:
               ++v47;
             }
             while ( v47 < 0x100 );
-            v15 = v77;
+            v15 = v81;
           }
           else
           {
-            if ( !PALMEMOBJ::bCreatePalette((PALMEMOBJ *)&v73, 1u, v22, 0LL, 0, 0, 0, 0x200u, 1) )
+            if ( !PALMEMOBJ::bCreatePalette((PALMEMOBJ *)&v76, 1u, v22, 0LL, 0, 0, 0, 0x200u, 1) )
             {
               SEMOBJ::vUnlock((SEMOBJ *)&v69);
-              goto LABEL_105;
+              goto LABEL_106;
             }
-            v31 = v73;
-            v65 = v73;
+            v66 = v76;
             v51 = 0;
             v52 = pxlo;
             if ( v22 )
@@ -335,10 +337,11 @@ LABEL_118:
               }
               while ( v51 < v22 );
             }
-            v54 = *(_QWORD *)(*(_QWORD *)v92 + 1776LL);
+            v54 = *(struct PDEVOBJ **)(*(_QWORD *)v91 + 1808LL);
+            v91 = v54;
             if ( v17 )
               v54 = v17;
-            XEPALOBJ::vGetEntriesFrom(&v65, *(_QWORD *)v72, v54, v52, v22);
+            XEPALOBJ::vGetEntriesFrom(&v66, *(_QWORD *)v73, v54, v52, v22);
           }
           SEMOBJ::vUnlock((SEMOBJ *)&v69);
           goto LABEL_51;
@@ -347,36 +350,35 @@ LABEL_118:
       }
       else
       {
-        v29 = *((_QWORD *)v75 + 4);
+        v29 = *(_DWORD *)(*((_QWORD *)v78 + 4) + 96LL);
         if ( v27 )
         {
-          if ( v28 == *(_DWORD *)(v29 + 96) )
+          if ( v28 == v29 )
           {
-            v31 = v17;
-            v65 = v17;
+            v66 = v17;
             goto LABEL_51;
           }
         }
         else
         {
           v30 = 0;
-          if ( *(_DWORD *)(v29 + 96) == v28 && v17 )
+          if ( v29 == v28 && v17 )
           {
             v30 = 1;
             if ( biCompression == 3 || ((v28 - 4) & 0xFFFFFFFD) != 0 )
             {
-              if ( v28 == 5 && (*(_BYTE *)(v17 + 24) & 4) != 0 )
+              if ( v28 == 5 && (*((_BYTE *)v17 + 24) & 4) != 0 )
                 v30 = 0;
             }
             else
             {
-              v30 = bIdenticalFormat(v17, v28);
+              v30 = bIdenticalFormat(v17);
             }
           }
           if ( v30 )
           {
             v31 = v17;
-            v65 = v17;
+            v66 = v17;
             goto LABEL_43;
           }
           if ( v22 )
@@ -389,11 +391,11 @@ LABEL_118:
             if ( v28 == 4 )
               v40 = 2;
           }
-          if ( PALMEMOBJ::bCreatePalette((PALMEMOBJ *)&v73, v40, v22, 0LL, 0x7C00u, 0x3E0u, 0x1Fu, 0x200u, 1) )
+          if ( PALMEMOBJ::bCreatePalette((PALMEMOBJ *)&v76, v40, v22, 0LL, 0x7C00u, 0x3E0u, 0x1Fu, 0x200u, 1) )
           {
-            v31 = v73;
-            v65 = v73;
-            if ( *(_DWORD *)(*((_QWORD *)v75 + 4) + 96LL) == v78 && v78 == 3 )
+            v31 = v76;
+            v66 = v76;
+            if ( *(_DWORD *)(*((_QWORD *)v78 + 4) + 96LL) == v82 && v82 == 3 )
             {
               v55 = 0;
               v56 = pxlo;
@@ -407,31 +409,32 @@ LABEL_118:
                 }
                 while ( v55 < v22 );
               }
-              XEPALOBJ::vGetEntriesFrom(&v65, *(_QWORD *)v72, *(_QWORD *)(*(_QWORD *)v92 + 1776LL), v56, v22);
-              XEPALOBJ::vInit256Default((XEPALOBJ *)&v65);
+              v97 = *(_QWORD *)(*(_QWORD *)v91 + 1808LL);
+              XEPALOBJ::vGetEntriesFrom(&v66, *(_QWORD *)v73, v97, v56, v22);
+              XEPALOBJ::vInit256Default((XEPALOBJ *)&v66);
             }
             else
             {
-              switch ( v78 )
+              switch ( v82 )
               {
                 case 1:
-                  **(_DWORD **)(v73 + 112) = 0;
-                  *(_DWORD *)(*(_QWORD *)(v31 + 112) + 4LL) = 0xFFFFFF;
+                  **((_DWORD **)v76 + 14) = 0;
+                  *(_DWORD *)(*((_QWORD *)v31 + 14) + 4LL) = 0xFFFFFF;
                   break;
                 case 2:
                   v58 = 0LL;
                   v59 = 16LL;
                   do
                   {
-                    *(_DWORD *)(v58 + *(_QWORD *)(v31 + 112)) = *(_DWORD *)((char *)&aPalVGA + v58);
+                    *(_DWORD *)(v58 + *((_QWORD *)v31 + 14)) = *(_DWORD *)((char *)&aPalVGA + v58);
                     v58 += 4LL;
                     --v59;
                   }
                   while ( v59 );
-                  v15 = v77;
+                  v15 = v81;
                   break;
                 case 3:
-                  XEPALOBJ::vInit256Rainbow((XEPALOBJ *)&v65);
+                  XEPALOBJ::vInit256Rainbow((XEPALOBJ *)&v66);
                   break;
               }
             }
@@ -441,37 +444,29 @@ LABEL_43:
               if ( a14 >= (unsigned __int64)(3 * v22) + 12 )
               {
                 if ( ((v68 - 16) & 0xFFFFFFE7) != 0 || v68 == 40 )
-                  XEPALOBJ::vFill_triples((XEPALOBJ *)&v65, (struct tagRGBTRIPLE *)pxlo, v29, v22);
+                  XEPALOBJ::vFill_triples((XEPALOBJ *)&v66, (struct tagRGBTRIPLE *)pxlo, v29, v22);
 LABEL_51:
                 pxlo = 0LL;
                 if ( !(unsigned int)EXLATEOBJ::bInitXlateObj(
                                       &pxlo,
-                                      *(_QWORD *)(*((_QWORD *)*v87 + 122) + 248LL),
-                                      *((unsigned int *)*v87 + 30),
-                                      v17,
-                                      v31,
-                                      *(_QWORD *)v72,
-                                      *(_QWORD *)v72,
-                                      0,
-                                      0xFFFFFF,
-                                      0,
-                                      0) )
+                                      *(_QWORD *)(*((_QWORD *)*v80 + 122) + 248LL),
+                                      *((unsigned int *)*v80 + 30)) )
                 {
 LABEL_154:
                   v16 = 0;
 LABEL_72:
                   EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&pxlo);
-                  PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v73);
+                  PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v76);
                   return v16;
                 }
-                if ( !v76 && biCompression - 1 > 1 )
+                if ( !v79 && biCompression - 1 > 1 )
                   goto LABEL_72;
                 v33 = v62;
                 if ( biCompression - 1 <= 1 )
                 {
                   v34 = 0LL;
-                  v66 &= -(v62 != 0);
-                  v70 = v66;
+                  v65 &= -(v62 != 0);
+                  v70 = v65;
                   v60 = v63;
                   if ( v62 )
                     v60 = v62;
@@ -481,39 +476,41 @@ LABEL_72:
                 }
                 else
                 {
-                  v34 = v76;
+                  v34 = v79;
                 }
-                v79 = v67;
-                v80 = v33;
-                v84 = 0LL;
-                v85 = 0;
-                v86 = 0;
-                SURFMEM::bCreateDIB((SURFMEM *)&v84, (struct _DEVBITMAPINFO *)&v78, v34, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
-                if ( !v84 )
+                v83 = v67;
+                v84 = v33;
+                v88 = 0LL;
+                v89 = 0;
+                v90 = 0;
+                SURFMEM::bCreateDIB((SURFMEM *)&v88, (struct _DEVBITMAPINFO *)&v82, v34, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
+                if ( !v88 )
                   goto LABEL_153;
-                v35 = *(struct tagBITMAPINFO **)(v84 + 72);
-                v77 = v35;
-                *(_QWORD *)(v84 + 48) = *((_QWORD *)*v87 + 6);
-                memset(*(void **)(v84 + 72), 0, *(unsigned int *)(v84 + 64));
+                v35 = *(struct tagBITMAPINFO **)(v88 + 72);
+                v81 = v35;
+                *(_QWORD *)(v88 + 48) = *((_QWORD *)*v80 + 6);
+                v72 = *(_DWORD *)(v88 + 64);
+                v80 = *(DC ***)(v88 + 72);
+                memset(v80, 0, v72);
                 *(_QWORD *)&prclDest.left = 0LL;
-                prclDest.right = v79;
-                prclDest.bottom = v80;
+                prclDest.right = v83;
+                prclDest.bottom = v84;
                 pptlSrc.x = 0;
-                pptlSrc.y = v63 - v62 - v66;
-                LODWORD(v88) = 0;
-                HIDWORD(v88) = v66 - (v63 - v62);
-                v36 = *((_QWORD *)v75 + 4);
-                v89 = *(_DWORD *)(v36 + 56);
-                v90 = *(_DWORD *)(v36 + 60) + HIDWORD(v88);
-                ERECTL::operator*=(&prclDest, &v88);
+                pptlSrc.y = v63 - v62 - v65;
+                LODWORD(v73) = 0;
+                HIDWORD(v73) = v65 - (v63 - v62);
+                v36 = *((_QWORD *)v78 + 4);
+                v74 = *(_DWORD *)(v36 + 56);
+                v75 = *(_DWORD *)(v36 + 60) + HIDWORD(v73);
+                ERECTL::operator*=(&prclDest);
                 if ( (unsigned int)ERECTL::bEmpty((ERECTL *)&prclDest) )
                 {
 LABEL_153:
-                  SURFMEM::~SURFMEM((SURFMEM *)&v84);
+                  SURFMEM::~SURFMEM((SURFMEM *)&v88);
                   goto LABEL_154;
                 }
                 EngCopyBits(
-                  (SURFOBJ *)((v84 + 24) & -(__int64)(v84 != 0)),
+                  (SURFOBJ *)((v88 + 24) & -(__int64)(v88 != 0)),
                   (SURFOBJ *)((v36 + 24) & -(__int64)(v36 != 0)),
                   0LL,
                   pxlo,
@@ -523,20 +520,20 @@ LABEL_153:
                 {
 LABEL_58:
                   v37 = prclDest.bottom - prclDest.top;
-                  SURFMEM::~SURFMEM((SURFMEM *)&v84);
+                  SURFMEM::~SURFMEM((SURFMEM *)&v88);
                   EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&pxlo);
-                  PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v73);
+                  PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v76);
                   return v37;
                 }
                 if ( biCompression == 2 )
                 {
-                  v61 = EncodeRLE4(v35, v76, v67, v62, v15->bmiHeader.biSizeImage);
+                  v61 = EncodeRLE4(v35, v79, v67, v62, v15->bmiHeader.biSizeImage);
                 }
                 else
                 {
                   if ( biCompression != 1 )
                     goto LABEL_152;
-                  v61 = EncodeRLE8(v35, v76, v67, v62, v15->bmiHeader.biSizeImage);
+                  v61 = EncodeRLE8(v35, v79, v67, v62, v15->bmiHeader.biSizeImage);
                 }
                 v15->bmiHeader.biSizeImage = v61;
 LABEL_152:
@@ -551,13 +548,13 @@ LABEL_152:
                 v22 = 3;
               if ( a14 >= (unsigned __int64)(4 * v22) + 40 )
               {
-                if ( (*(_DWORD *)(v31 + 24) & 0x4000) != 0 )
+                if ( (*((_DWORD *)v31 + 6) & 0x4000) != 0 )
                 {
-                  memmove(pxlo, *(const void **)(v31 + 112), 2LL * v22);
+                  memmove(pxlo, *((const void **)v31 + 14), 2LL * v22);
                 }
                 else if ( biCompression == 3 || v68 <= 8 && (v32 = 274, _bittest(&v32, v68)) )
                 {
-                  XEPALOBJ::vFill_rgbquads((XEPALOBJ *)&v65, (struct tagRGBQUAD *)pxlo, 0, v22);
+                  XEPALOBJ::vFill_rgbquads((XEPALOBJ *)&v66, (struct tagRGBQUAD *)pxlo, 0, v22);
                 }
                 goto LABEL_51;
               }
@@ -565,8 +562,8 @@ LABEL_152:
           }
         }
       }
-LABEL_105:
-      PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v73);
+LABEL_106:
+      PALMEMOBJ::~PALMEMOBJ((PALMEMOBJ *)&v76);
       return 0LL;
   }
   v27 = 0;
@@ -584,7 +581,7 @@ LABEL_105:
     case 0x20u:
       v28 = 6;
 LABEL_33:
-      v78 = v28;
+      v82 = v28;
       goto LABEL_34;
   }
   return 0LL;

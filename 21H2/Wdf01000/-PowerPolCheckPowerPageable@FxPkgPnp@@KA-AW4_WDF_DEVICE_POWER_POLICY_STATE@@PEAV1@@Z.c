@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerPolCheckPowerPageable@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C008AAB0
+ * XREFs of ?PowerPolCheckPowerPageable@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0086940
  * Callers:
  *     <none>
  * Callees:

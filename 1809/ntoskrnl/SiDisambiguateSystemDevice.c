@@ -1,11 +1,11 @@
 /*
- * XREFs of SiDisambiguateSystemDevice @ 0x1408F5210
+ * XREFs of SiDisambiguateSystemDevice @ 0x1408F51F0
  * Callers:
- *     SiGetEfiSystemDevice @ 0x1408F52D8 (SiGetEfiSystemDevice.c)
+ *     SiGetEfiSystemDevice @ 0x1408F52B8 (SiGetEfiSystemDevice.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SiGetRegistryValue @ 0x1406AEAD8 (SiGetRegistryValue.c)
- *     SiGetDeviceNumberInformation @ 0x1408F4F3C (SiGetDeviceNumberInformation.c)
+ *     SiGetRegistryValue @ 0x1406AEAB8 (SiGetRegistryValue.c)
+ *     SiGetDeviceNumberInformation @ 0x1408F4F1C (SiGetDeviceNumberInformation.c)
  */
 
 __int64 __fastcall SiDisambiguateSystemDevice(_DWORD *a1, _DWORD *a2, __int64 a3, ULONG a4)

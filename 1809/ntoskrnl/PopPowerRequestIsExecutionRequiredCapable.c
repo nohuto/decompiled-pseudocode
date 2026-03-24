@@ -3,7 +3,7 @@
  * Callers:
  *     PopPowerRequestCleanUp @ 0x14000333C (PopPowerRequestCleanUp.c)
  *     PopHandleConvergedPowerRequestUpdate @ 0x140589D88 (PopHandleConvergedPowerRequestUpdate.c)
- *     PopEnableExecutionRequiredPowerRequests @ 0x140763408 (PopEnableExecutionRequiredPowerRequests.c)
+ *     PopEnableExecutionRequiredPowerRequests @ 0x1407633E8 (PopEnableExecutionRequiredPowerRequests.c)
  * Callees:
  *     <none>
  */

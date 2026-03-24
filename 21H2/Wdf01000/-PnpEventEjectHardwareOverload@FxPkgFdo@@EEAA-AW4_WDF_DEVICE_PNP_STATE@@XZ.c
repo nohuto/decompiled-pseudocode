@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PnpEventEjectHardwareOverload@FxPkgFdo@@EEAA?AW4_WDF_DEVICE_PNP_STATE@@XZ @ 0x1C000BFC0
+ * XREFs of ?PnpEventEjectHardwareOverload@FxPkgFdo@@EEAA?AW4_WDF_DEVICE_PNP_STATE@@XZ @ 0x1C000DF20
  * Callers:
  *     <none>
  * Callees:

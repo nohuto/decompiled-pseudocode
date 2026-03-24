@@ -1,15 +1,15 @@
 /*
- * XREFs of ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z @ 0x18006D9D0
+ * XREFs of ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IPEBUWICRect@@I@Z @ 0x18003D568
  * Callers:
- *     ?CopyPixels@CBitmap@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x18006D4B0 (-CopyPixels@CBitmap@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
- *     ?CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x1802AF0D0 (-CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
+ *     ?CopyPixels@CBitmap@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x18003D5E0 (-CopyPixels@CBitmap@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
+ *     ?CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x1802190D0 (-CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
  * Callees:
- *     ?HrCalcRequiredBufferSizeWorker@@YAJIIIIPEAI@Z @ 0x18007074C (-HrCalcRequiredBufferSizeWorker@@YAJIIIIPEAI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x1800739B4 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C1AC (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?HrCalcRequiredBufferSizeWorker@@YAJIIIIPEAI@Z @ 0x1800592CC (-HrCalcRequiredBufferSizeWorker@@YAJIIIIPEAI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
-__int64 __fastcall HrCheckBufferSize(unsigned __int32 a1, __int64 a2, const struct WICRect *a3, unsigned int a4)
+__int64 __fastcall HrCheckBufferSize(unsigned int a1, __int64 a2, const struct WICRect *a3, unsigned int a4)
 {
   unsigned __int8 PixelFormatSize; // al
   __int64 v6; // r8
@@ -24,21 +24,21 @@ __int64 __fastcall HrCheckBufferSize(unsigned __int32 a1, __int64 a2, const stru
   if ( !a3 || a3->Width < 0 || a3->Height < 0 )
   {
     v10 = -2147024809;
-    v12 = 1684;
+    v12 = 1681;
     goto LABEL_10;
   }
-  PixelFormatSize = GetPixelFormatSize((enum DXGI_FORMAT)a1);
+  PixelFormatSize = GetPixelFormatSize(a1);
   v9 = HrCalcRequiredBufferSizeWorker(PixelFormatSize, v7, *(_DWORD *)(v6 + 8), v8, &v13);
   v10 = v9;
   if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, v9, 0x69Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, v9, 0x698u, 0LL);
     return v10;
   }
   if ( v13 > a4 )
   {
     v10 = -2003292276;
-    v12 = 1695;
+    v12 = 1692;
 LABEL_10:
     MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, v10, v12, 0LL);
   }

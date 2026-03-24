@@ -1,12 +1,12 @@
 /*
- * XREFs of bPolyPolygon @ 0x1C0019160
+ * XREFs of bPolyPolygon @ 0x1C00BD910
  * Callers:
- *     GreCreatePolyPolygonRgnInternal @ 0x1C00CDB30 (GreCreatePolyPolygonRgnInternal.c)
+ *     GreCreatePolyPolygonRgnInternal @ 0x1C00BD804 (GreCreatePolyPolygonRgnInternal.c)
  * Callees:
- *     ?bCloseFigure@EPATHOBJ@@QEAAHXZ @ 0x1C0019220 (-bCloseFigure@EPATHOBJ@@QEAAHXZ.c)
- *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C0019260 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
- *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C0019EB0 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
+ *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C0080580 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
+ *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C0085B30 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?bCloseFigure@EPATHOBJ@@QEAAHXZ @ 0x1C00871D0 (-bCloseFigure@EPATHOBJ@@QEAAHXZ.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
  */
 
 __int64 __fastcall bPolyPolygon(
@@ -31,7 +31,7 @@ __int64 __fastcall bPolyPolygon(
     a6 -= v12;
     if ( a6 < 0 || (int)v12 < 2 )
       break;
-    if ( !EPATHOBJ::bMoveTo(this, a2, a3)
+    if ( !(unsigned int)EPATHOBJ::bMoveTo(this, a2, a3)
       || !(unsigned int)EPATHOBJ::bPolyLineTo(this, a2, a3 + 1, (int)v12 - 1)
       || !(unsigned int)EPATHOBJ::bCloseFigure(this) )
     {

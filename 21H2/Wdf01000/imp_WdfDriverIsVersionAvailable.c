@@ -1,13 +1,13 @@
 /*
- * XREFs of imp_WdfDriverIsVersionAvailable @ 0x1C0066740
+ * XREFs of imp_WdfDriverIsVersionAvailable @ 0x1C004C500
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     WPP_IFR_SF_DDd @ 0x1C0052E4C (WPP_IFR_SF_DDd.c)
- *     WPP_IFR_SF_dddd @ 0x1C00660B4 (WPP_IFR_SF_dddd.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     WPP_IFR_SF_DDd @ 0x1C002E6DC (WPP_IFR_SF_DDd.c)
+ *     WPP_IFR_SF_dddd @ 0x1C004BA18 (WPP_IFR_SF_dddd.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 bool __fastcall imp_WdfDriverIsVersionAvailable(
@@ -21,7 +21,11 @@ bool __fastcall imp_WdfDriverIsVersionAvailable(
   FxDriver *pDriver; // [rsp+60h] [rbp+8h] BYREF
 
   pDriver = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Driver, 0x1001u, (void **)&pDriver);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Driver,
+    0x1001u,
+    (void **)&pDriver);
   m_Globals = pDriver->m_Globals;
   if ( !VersionAvailableParams )
     FxVerifierNullBugCheck(m_Globals, retaddr);
@@ -47,8 +51,8 @@ bool __fastcall imp_WdfDriverIsVersionAvailable(
     0x10u,
     WPP_FxDriverApi_cpp_Traceguids,
     1,
-    33,
+    31,
     VersionAvailableParams->MajorVersion,
     VersionAvailableParams->MinorVersion);
-  return VersionAvailableParams->MajorVersion == 1 && VersionAvailableParams->MinorVersion <= 0x21;
+  return VersionAvailableParams->MajorVersion == 1 && VersionAvailableParams->MinorVersion <= 0x1F;
 }

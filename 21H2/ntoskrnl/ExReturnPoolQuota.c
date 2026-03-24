@@ -1,34 +1,46 @@
 /*
- * XREFs of ExReturnPoolQuota @ 0x140367A64
+ * XREFs of ExReturnPoolQuota @ 0x1402AEBCC
  * Callers:
- *     IopFreeIrp @ 0x140348640 (IopFreeIrp.c)
- *     IopFreeMiniCompletionPacket @ 0x14074F700 (IopFreeMiniCompletionPacket.c)
+ *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
+ *     IopFreeIrp @ 0x140353570 (IopFreeIrp.c)
+ *     IopFreeMiniCompletionPacket @ 0x1405E4380 (IopFreeMiniCompletionPacket.c)
  * Callees:
- *     ExGetHeapFromVA @ 0x140366C48 (ExGetHeapFromVA.c)
- *     MiDeterminePoolType @ 0x140366FB0 (MiDeterminePoolType.c)
- *     ExpStampPoolWithQuotaProcess @ 0x140367B44 (ExpStampPoolWithQuotaProcess.c)
- *     ExpReturnPoolQuota @ 0x140367DEC (ExpReturnPoolQuota.c)
- *     ExpHpIsSpecialPoolHeap @ 0x140461DE4 (ExpHpIsSpecialPoolHeap.c)
+ *     PsReturnPoolQuota @ 0x1402AEC50 (PsReturnPoolQuota.c)
+ *     ExpGetBilledProcess @ 0x1402AEC88 (ExpGetBilledProcess.c)
+ *     ExGetHeapFromVA @ 0x1402FAC7C (ExGetHeapFromVA.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x1403CDD4C (ExpHpIsSpecialPoolHeap.c)
  */
 
-char *__fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
+void __fastcall ExReturnPoolQuota(ULONG_PTR a1)
 {
-  char *result; // rax
+  char v2; // di
+  struct _KPROCESS *BilledProcess; // rsi
+  __int64 v4; // r8
   __int64 HeapFromVA; // rax
-  __int64 v4; // [rsp+48h] [rbp+10h] BYREF
-  ULONG_PTR Amount; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v6; // rcx
+  __int16 v7; // ax
 
-  Amount = 0LL;
-  LODWORD(v4) = 0;
-  if ( !ExpSpecialAllocations
-    || (HeapFromVA = ExGetHeapFromVA(BugCheckParameter2),
-        result = (char *)ExpHpIsSpecialPoolHeap(HeapFromVA),
-        !(_DWORD)result) )
+  if ( !ExpSpecialAllocations || (HeapFromVA = ExGetHeapFromVA(a1), !(unsigned int)ExpHpIsSpecialPoolHeap(HeapFromVA)) )
   {
-    MiDeterminePoolType(BugCheckParameter2);
-    result = (char *)ExpStampPoolWithQuotaProcess(BugCheckParameter2, (__int64)&Amount, (__int64)&v4);
-    if ( (unsigned __int64)(result - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-      return (char *)ExpReturnPoolQuota(result, Amount);
+    v2 = *(_BYTE *)(a1 - 13);
+    if ( (v2 & 8) != 0 )
+    {
+      BilledProcess = (struct _KPROCESS *)ExpGetBilledProcess(a1 - 16);
+      if ( BilledProcess )
+      {
+        v4 = (unsigned __int8)*(_WORD *)(a1 - 14);
+        if ( (v2 & 4) != 0 )
+        {
+          v6 = a1 - 16 - 16LL * (unsigned __int8)*(_WORD *)(a1 - 16);
+          v7 = *(_WORD *)(v6 + 2);
+          *(_BYTE *)(v6 + 3) &= ~8u;
+          v4 = (unsigned __int8)v7;
+        }
+        *(_BYTE *)(a1 - 13) &= ~8u;
+        PsReturnPoolQuota(BilledProcess, (POOL_TYPE)(v2 & 1), 16 * v4);
+        ObDereferenceObjectDeferDeleteWithTag(BilledProcess, *(_DWORD *)(a1 - 12));
+      }
+    }
   }
-  return result;
 }

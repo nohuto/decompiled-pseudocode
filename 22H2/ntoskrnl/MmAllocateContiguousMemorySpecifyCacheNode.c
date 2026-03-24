@@ -1,11 +1,10 @@
 /*
- * XREFs of MmAllocateContiguousMemorySpecifyCacheNode @ 0x14061E200
+ * XREFs of MmAllocateContiguousMemorySpecifyCacheNode @ 0x1403CF0A0
  * Callers:
- *     ExtEnvAllocatePhysicalMemory @ 0x14051F340 (ExtEnvAllocatePhysicalMemory.c)
- *     DifMmAllocateContiguousMemorySpecifyCacheWrapper @ 0x1405E6940 (DifMmAllocateContiguousMemorySpecifyCacheWrapper.c)
- *     MmAllocateContiguousMemorySpecifyCache @ 0x14061E1D0 (MmAllocateContiguousMemorySpecifyCache.c)
+ *     MmAllocateContiguousMemorySpecifyCache @ 0x1403CF070 (MmAllocateContiguousMemorySpecifyCache.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x1404D5080 (ExtEnvAllocatePhysicalMemory.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x1403B95C0 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1402E7FF0 (MmAllocateContiguousNodeMemory.c)
  */
 
 PVOID __stdcall MmAllocateContiguousMemorySpecifyCacheNode(
@@ -16,7 +15,7 @@ PVOID __stdcall MmAllocateContiguousMemorySpecifyCacheNode(
         MEMORY_CACHING_TYPE CacheType,
         NODE_REQUIREMENT PreferredNode)
 {
-  int v6; // r10d
+  unsigned int v6; // r10d
 
   if ( CacheType == MmCached )
   {
@@ -30,9 +29,9 @@ PVOID __stdcall MmAllocateContiguousMemorySpecifyCacheNode(
   }
   return (PVOID)MmAllocateContiguousNodeMemory(
                   NumberOfBytes,
-                  LowestAcceptableAddress.LowPart,
-                  HighestAcceptableAddress.LowPart,
-                  BoundaryAddressMultiple.LowPart,
+                  LowestAcceptableAddress.QuadPart,
+                  HighestAcceptableAddress.QuadPart,
+                  BoundaryAddressMultiple.QuadPart,
                   v6,
                   PreferredNode);
 }

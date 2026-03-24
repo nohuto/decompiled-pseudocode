@@ -1,24 +1,40 @@
 /*
- * XREFs of ?EmitUpdateCommands@CHolographicCompositionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0226F80
+ * XREFs of ?EmitUpdateCommands@CHolographicCompositionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EE140
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitSetCallbackId@CNotificationResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0096D50 (-EmitSetCallbackId@CNotificationResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitCreate@CHolographicCompositionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0226E88 (-EmitCreate@CHolographicCompositionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitSetQualityLevel@CHolographicCompositionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0226F08 (-EmitSetQualityLevel@CHolographicCompositionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EmitCreate@CHolographicCompositionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EE048 (-EmitCreate@CHolographicCompositionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitSetQualityLevel@CHolographicCompositionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EE0C8 (-EmitSetQualityLevel@CHolographicCompositionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@.c)
  */
 
 char __fastcall DirectComposition::CHolographicCompositionMarshaler::EmitUpdateCommands(
         DirectComposition::CHolographicCompositionMarshaler *this,
         struct DirectComposition::CBatch ***a2)
 {
-  char v4; // bl
+  char v2; // bl
+  _DWORD *v5; // rcx
+  _DWORD *v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = 0;
-  if ( DirectComposition::CNotificationResourceMarshaler::EmitSetCallbackId(this, a2)
-    && DirectComposition::CHolographicCompositionMarshaler::EmitCreate(this, a2) )
+  v2 = 0;
+  if ( (*((_DWORD *)this + 4) & 0x20) != 0 )
   {
-    return DirectComposition::CHolographicCompositionMarshaler::EmitSetQualityLevel(this, a2) != 0;
+    v7 = 0LL;
+    if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x10uLL, (void **)&v7) )
+      return v2;
+    v5 = v7;
+    *v7 = 16;
+    *(_QWORD *)(v5 + 1) = 0LL;
+    v5[3] = 0;
+    v5[1] = 277;
+    v5[2] = *((_DWORD *)this + 6);
+    v5[3] = *((_DWORD *)this + 14);
+    *((_DWORD *)this + 4) &= ~0x20u;
   }
-  return v4;
+  if ( DirectComposition::CHolographicCompositionMarshaler::EmitCreate(this, a2)
+    && DirectComposition::CHolographicCompositionMarshaler::EmitSetQualityLevel(this, a2) )
+  {
+    return 1;
+  }
+  return v2;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0?$CInputTypeContext@UDwmPenInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@QEAA@W4InputType@@@Z @ 0x1800E0A34
+ * XREFs of ??0?$CInputTypeContext@UDwmPenInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@QEAA@W4InputType@@@Z @ 0x1800E0FE4
  * Callers:
- *     ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E04DC (--0CInteractionProcessor@@QEAA@XZ.c)
+ *     ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E0D94 (--0CInteractionProcessor@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -12,10 +12,10 @@ __int64 __fastcall CInputTypeContext<DwmPenInteractionConfigurationPrimitive,TMI
   __int64 result; // rax
 
   *(_QWORD *)a1 = 0LL;
-  *(_OWORD *)(a1 + 20) = xmmword_1803647B0;
-  *(_OWORD *)(a1 + 36) = xmmword_1803647C0;
-  *(_OWORD *)(a1 + 52) = xmmword_1803647D0;
-  *(_OWORD *)(a1 + 68) = xmmword_1803647E0;
+  *(_OWORD *)(a1 + 20) = xmmword_1802DFA20;
+  *(_OWORD *)(a1 + 36) = xmmword_1802DFA30;
+  *(_OWORD *)(a1 + 52) = xmmword_1802DFA40;
+  *(_OWORD *)(a1 + 68) = xmmword_1802DFA50;
   *(_QWORD *)(a1 + 88) = 0LL;
   *(_QWORD *)(a1 + 96) = 0LL;
   *(_QWORD *)(a1 + 104) = 0LL;

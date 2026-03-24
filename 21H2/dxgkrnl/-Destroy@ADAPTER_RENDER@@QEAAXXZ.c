@@ -1,97 +1,99 @@
 /*
- * XREFs of ?Destroy@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02C3330
+ * XREFs of ?Destroy@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02155D0
  * Callers:
- *     ?CreateRenderCore@ADAPTER_RENDER@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z @ 0x1C0201EB4 (-CreateRenderCore@ADAPTER_RENDER@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z.c)
- *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02BA5BC (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ *     ?CreateRenderCore@ADAPTER_RENDER@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z @ 0x1C018670C (-CreateRenderCore@ADAPTER_RENDER@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C020BED8 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??_GDXGPRESENTHISTORYTOKENQUEUE@@QEAAPEAXI@Z @ 0x1C001EE50 (--_GDXGPRESENTHISTORYTOKENQUEUE@@QEAAPEAXI@Z.c)
- *     ?Leave@DXGCRITICALREGION@@QEAAXXZ @ 0x1C0026D60 (-Leave@DXGCRITICALREGION@@QEAAXXZ.c)
- *     ?Enter@DXGCRITICALREGION@@QEAAXXZ @ 0x1C0026DF0 (-Enter@DXGCRITICALREGION@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?DestroyAdapterInfo@DXGPROCESS@@QEAAXPEAUDXGPROCESS_RENDER_ADAPTER_INFO@@@Z @ 0x1C016DBD4 (-DestroyAdapterInfo@DXGPROCESS@@QEAAXPEAUDXGPROCESS_RENDER_ADAPTER_INFO@@@Z.c)
- *     ?DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z @ 0x1C019A7B8 (-DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z.c)
- *     ?CloseVidMmAdapter@DXGPROCESS_RENDER_ADAPTER_INFO@@QEAAXPEAVDXGPROCESS@@PEAVADAPTER_RENDER@@@Z @ 0x1C01E5174 (-CloseVidMmAdapter@DXGPROCESS_RENDER_ADAPTER_INFO@@QEAAXPEAVDXGPROCESS@@PEAVADAPTER_RENDER@@@Z.c)
- *     ?DestroyVirtualGpuState@DXGVIRTUALGPUMANAGER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C03574B4 (-DestroyVirtualGpuState@DXGVIRTUALGPUMANAGER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??_GDXGPRESENTHISTORYTOKENQUEUE@@QEAAPEAXI@Z @ 0x1C001AD48 (--_GDXGPRESENTHISTORYTOKENQUEUE@@QEAAPEAXI@Z.c)
+ *     ?Leave@DXGCRITICALREGION@@QEAAXXZ @ 0x1C0021DF8 (-Leave@DXGCRITICALREGION@@QEAAXXZ.c)
+ *     ?Enter@DXGCRITICALREGION@@QEAAXXZ @ 0x1C0021E80 (-Enter@DXGCRITICALREGION@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I_N@Z @ 0x1C00DCB58 (-DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I_N@Z.c)
+ *     ?DestroyAdapterInfo@DXGPROCESS@@QEAAXPEAUDXGPROCESS_ADAPTER_INFO@@@Z @ 0x1C0114CCC (-DestroyAdapterInfo@DXGPROCESS@@QEAAXPEAUDXGPROCESS_ADAPTER_INFO@@@Z.c)
+ *     ?CloseVidMmAdapter@DXGPROCESS_ADAPTER_INFO@@QEAAXPEAVDXGPROCESS@@PEAVADAPTER_RENDER@@@Z @ 0x1C016B71C (-CloseVidMmAdapter@DXGPROCESS_ADAPTER_INFO@@QEAAXPEAVDXGPROCESS@@PEAVADAPTER_RENDER@@@Z.c)
+ *     ?DestroyVirtualGpuState@DXGVIRTUALGPUMANAGER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C022F774 (-DestroyVirtualGpuState@DXGVIRTUALGPUMANAGER@@QEAAXPEAVDXGDEVICE@@@Z.c)
  */
 
-void __fastcall ADAPTER_RENDER::Destroy(ADAPTER_RENDER *this)
+void __fastcall ADAPTER_RENDER::Destroy(ADAPTER_RENDER *this, __int64 a2)
 {
-  DXGVIRTUALGPUMANAGER *v2; // rcx
-  DXGVIRTUALGPUMANAGER *v3; // rcx
+  __int64 v3; // rdx
+  DXGVIRTUALGPUMANAGER *v4; // rcx
+  DXGVIRTUALGPUMANAGER *v5; // rcx
+  struct DXGSYNCOBJECT *v6; // rdi
   PERESOURCE *Global; // rax
-  _QWORD *v5; // r14
+  _QWORD *v8; // r14
   _QWORD *i; // rsi
-  __int64 v7; // rdi
-  DXGPRESENTHISTORYTOKENQUEUE *v8; // rcx
-  _BYTE v9[8]; // [rsp+20h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v10; // [rsp+28h] [rbp-20h]
+  __int64 v10; // rdi
+  DXGPRESENTHISTORYTOKENQUEUE *v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // rdx
+  _BYTE v14[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v15; // [rsp+28h] [rbp-20h]
   int j; // [rsp+30h] [rbp-18h]
-  char v12; // [rsp+50h] [rbp+8h] BYREF
-  char v13; // [rsp+51h] [rbp+9h]
+  char v17; // [rsp+50h] [rbp+8h] BYREF
+  char v18; // [rsp+51h] [rbp+9h]
 
-  v13 = 0;
-  DXGCRITICALREGION::Enter((DXGCRITICALREGION *)&v12);
-  v2 = (DXGVIRTUALGPUMANAGER *)*((_QWORD *)this + 217);
-  if ( v2 )
-    DXGVIRTUALGPUMANAGER::DestroyVirtualGpuState(v2, 0LL);
-  v3 = (DXGVIRTUALGPUMANAGER *)*((_QWORD *)this + 216);
-  if ( v3 )
-    DXGVIRTUALGPUMANAGER::DestroyVirtualGpuState(v3, 0LL);
-  if ( *((_QWORD *)this + 99) )
+  v18 = 0;
+  DXGCRITICALREGION::Enter((DXGCRITICALREGION *)&v17, a2);
+  v4 = (DXGVIRTUALGPUMANAGER *)*((_QWORD *)this + 205);
+  if ( v4 )
+    DXGVIRTUALGPUMANAGER::DestroyVirtualGpuState(v4, 0LL);
+  v5 = (DXGVIRTUALGPUMANAGER *)*((_QWORD *)this + 204);
+  if ( v5 )
+    DXGVIRTUALGPUMANAGER::DestroyVirtualGpuState(v5, 0LL);
+  v6 = (struct DXGSYNCOBJECT *)*((_QWORD *)this + 96);
+  if ( v6 )
   {
-    Global = (PERESOURCE *)DXGGLOBAL_GetGlobal();
-    DXGGLOBAL::DestroySyncObject(Global, *((struct DXGSYNCOBJECT **)this + 99), 0);
-    *((_QWORD *)this + 99) = 0LL;
+    Global = (PERESOURCE *)DXGGLOBAL::GetGlobal((__int64)v5, v3);
+    DXGGLOBAL::DestroySyncObject(Global, v6, 0, 0);
+    *((_QWORD *)this + 96) = 0LL;
   }
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx((char *)this + 72, 0LL);
-  v5 = (_QWORD *)((char *)this + 296);
+  v8 = (_QWORD *)((char *)this + 288);
   *((_QWORD *)this + 10) = KeGetCurrentThread();
-  for ( i = (_QWORD *)*((_QWORD *)this + 37); i != v5; i = (_QWORD *)*i )
-    DXGPROCESS_RENDER_ADAPTER_INFO::CloseVidMmAdapter(
-      (DXGPROCESS_RENDER_ADAPTER_INFO *)(i - 7),
-      (struct DXGPROCESS *)*(i - 3),
-      this);
+  for ( i = (_QWORD *)*((_QWORD *)this + 36); i != v8; i = (_QWORD *)*i )
+    DXGPROCESS_ADAPTER_INFO::CloseVidMmAdapter((DXGPROCESS_ADAPTER_INFO *)(i - 7), (struct DXGPROCESS *)*(i - 3), this);
   *((_QWORD *)this + 10) = 0LL;
   ExReleasePushLockExclusiveEx((char *)this + 72, 0LL);
   KeLeaveCriticalRegion();
-  if ( *((_QWORD *)this + 82) )
+  if ( *((_QWORD *)this + 81) )
   {
-    (*(void (**)(void))(*(_QWORD *)(*((_QWORD *)this + 81) + 8LL) + 32LL))();
-    *((_QWORD *)this + 82) = 0LL;
+    (*(void (**)(void))(*(_QWORD *)(*((_QWORD *)this + 80) + 8LL) + 32LL))();
+    *((_QWORD *)this + 81) = 0LL;
   }
-  if ( *((_QWORD *)this + 79) )
+  if ( *((_QWORD *)this + 78) )
   {
-    (*(void (**)(void))(*(_QWORD *)(*((_QWORD *)this + 78) + 8LL) + 32LL))();
-    *((_QWORD *)this + 79) = 0LL;
+    (*(void (**)(void))(*(_QWORD *)(*((_QWORD *)this + 77) + 8LL) + 32LL))();
+    *((_QWORD *)this + 78) = 0LL;
   }
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx((char *)this + 72, 0LL);
   *((_QWORD *)this + 10) = KeGetCurrentThread();
-  while ( (_QWORD *)*v5 != v5 )
-    DXGPROCESS::DestroyAdapterInfo(*(DXGPROCESS **)(*v5 - 24LL), (struct ADAPTER_RENDER **)(*v5 - 56LL));
+  while ( (_QWORD *)*v8 != v8 )
+    DXGPROCESS::DestroyAdapterInfo(*(DXGPROCESS **)(*v8 - 24LL), (struct ADAPTER_RENDER **)(*v8 - 56LL));
   *((_QWORD *)this + 10) = 0LL;
   ExReleasePushLockExclusiveEx((char *)this + 72, 0LL);
   KeLeaveCriticalRegion();
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v9, (struct _KTHREAD **)this + 108, 0);
-  DXGPUSHLOCK::AcquireExclusive(v10);
-  v7 = 0LL;
-  for ( j = 2; (unsigned int)v7 < *((_DWORD *)this + 224); v7 = (unsigned int)(v7 + 1) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v14, (struct _KTHREAD **)this + 105, 0);
+  DXGPUSHLOCK::AcquireExclusive(v15);
+  v10 = 0LL;
+  for ( j = 2; (unsigned int)v10 < *((_DWORD *)this + 218); v10 = (unsigned int)(v10 + 1) )
   {
-    v8 = *(DXGPRESENTHISTORYTOKENQUEUE **)(*((_QWORD *)this + 113) + 8 * v7);
-    if ( v8 )
-      DXGPRESENTHISTORYTOKENQUEUE::`scalar deleting destructor'(v8);
+    v11 = *(DXGPRESENTHISTORYTOKENQUEUE **)(*((_QWORD *)this + 110) + 8 * v10);
+    if ( v11 )
+      DXGPRESENTHISTORYTOKENQUEUE::`scalar deleting destructor'(v11);
   }
-  operator delete[](*((void **)this + 113));
-  *((_DWORD *)this + 224) = 0;
-  *((_QWORD *)this + 113) = 0LL;
-  DXGCRITICALREGION::Leave((DXGCRITICALREGION *)&v12);
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v9);
-  if ( v13 )
-    DXGCRITICALREGION::Leave((DXGCRITICALREGION *)&v12);
+  operator delete[](*((void **)this + 110));
+  *((_DWORD *)this + 218) = 0;
+  *((_QWORD *)this + 110) = 0LL;
+  DXGCRITICALREGION::Leave((DXGCRITICALREGION *)&v17, v12);
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v14);
+  if ( v18 )
+    DXGCRITICALREGION::Leave((DXGCRITICALREGION *)&v17, v13);
 }

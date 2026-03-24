@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpCleanupProcessViews @ 0x140688B90
+ * XREFs of AlpcpCleanupProcessViews @ 0x1406142CC
  * Callers:
- *     LpcExitProcess @ 0x140688B4C (LpcExitProcess.c)
+ *     LpcExitProcess @ 0x140614288 (LpcExitProcess.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpReferenceBlob @ 0x140739030 (AlpcpReferenceBlob.c)
- *     AlpcpForceUnlinkSecureView @ 0x14097958C (AlpcpForceUnlinkSecureView.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReferenceBlob @ 0x1406D97D4 (AlpcpReferenceBlob.c)
+ *     AlpcpForceUnlinkSecureView @ 0x1408C35C0 (AlpcpForceUnlinkSecureView.c)
  */
 
 void __fastcall AlpcpCleanupProcessViews(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v2; // rsi
-  _QWORD *v3; // r13
+  _QWORD *v2; // r13
+  volatile signed __int64 *v3; // rsi
   const void *v4; // r12
   unsigned int v5; // r14d
   __int64 v6; // rbp
@@ -32,17 +32,17 @@ void __fastcall AlpcpCleanupProcessViews(__int64 a1)
   const void *v15; // [rsp+68h] [rbp+10h]
 
   CurrentThread = KeGetCurrentThread();
-  v2 = (volatile signed __int64 *)(a1 + 2048);
-  v3 = (_QWORD *)(a1 + 2056);
+  v2 = (_QWORD *)(a1 + 2056);
+  --CurrentThread->KernelApcDisable;
+  v3 = (volatile signed __int64 *)(a1 + 2048);
   v4 = 0LL;
   v5 = 0;
   v6 = 0LL;
-  --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx(a1 + 2048, 0LL);
-  v14 = v3;
-  while ( (_QWORD *)*v3 != v3 )
+  v14 = v2;
+  while ( (_QWORD *)*v2 != v2 )
   {
-    v7 = *v3 - 80LL;
+    v7 = *v2 - 80LL;
     v8 = v5 + 1;
     v9 = 0LL;
     if ( v4 == (const void *)v7 )
@@ -50,14 +50,14 @@ void __fastcall AlpcpCleanupProcessViews(__int64 a1)
     v5 = 0;
     if ( v4 == (const void *)v7 )
       v5 = v8;
-    v10 = *v3 - 80LL;
+    v10 = *v2 - 80LL;
     if ( v4 == (const void *)v7 )
       v10 = (__int64)v4;
     v15 = (const void *)v10;
     v11 = v7 & -(__int64)(AlpcpReferenceBlob(v7) != 0);
-    if ( (_InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v2);
-    KeAbPostRelease((ULONG_PTR)v2);
+    if ( (_InterlockedExchangeAdd64(v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v3);
+    KeAbPostRelease((ULONG_PTR)v3);
     if ( v9 )
     {
       v6 = v9;
@@ -65,7 +65,7 @@ void __fastcall AlpcpCleanupProcessViews(__int64 a1)
       {
         v13 = 0xFFFFF780000003B0uLL;
         v12 = MEMORY[0xFFFFF780000003B0];
-        v3 = v14;
+        v2 = v14;
         if ( (unsigned __int64)(MEMORY[0xFFFFF78000000008] - v9 - MEMORY[0xFFFFF780000003B0]) > 0x23C34600 )
         {
           DbgPrintEx(0x69u, 0, "ALPC: View @ %p is stuck.\n", v15);
@@ -79,19 +79,19 @@ void __fastcall AlpcpCleanupProcessViews(__int64 a1)
     else
     {
       v13 = 0xFFFFF780000003B0uLL;
-      v3 = v14;
+      v2 = v14;
       v6 = MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0];
     }
     if ( v11 )
     {
       AlpcpForceUnlinkSecureView(v11, v12, v13);
-      AlpcpDereferenceBlobEx(v11);
+      AlpcpDereferenceBlobEx(v11, 1);
     }
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)v2, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)v3, 0LL);
     v4 = v15;
   }
-  if ( (_InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v2);
-  KeAbPostRelease((ULONG_PTR)v2);
+  if ( (_InterlockedExchangeAdd64(v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v3);
+  KeAbPostRelease((ULONG_PTR)v3);
   KeLeaveCriticalRegion();
 }

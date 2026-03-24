@@ -3,8 +3,8 @@
  * Callers:
  *     HdlspDispatch @ 0x14094BE50 (HdlspDispatch.c)
  * Callees:
- *     __report_rangecheckfailure @ 0x140268CCC (__report_rangecheckfailure.c)
- *     HdlspUTF8Encode @ 0x140319A60 (HdlspUTF8Encode.c)
+ *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
+ *     HdlspUTF8Encode @ 0x140319B60 (HdlspUTF8Encode.c)
  *     HdlspSendStringAtBaud @ 0x14094D228 (HdlspSendStringAtBaud.c)
  */
 

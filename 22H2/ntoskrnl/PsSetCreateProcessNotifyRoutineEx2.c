@@ -1,9 +1,9 @@
 /*
- * XREFs of PsSetCreateProcessNotifyRoutineEx2 @ 0x140844CD0
+ * XREFs of PsSetCreateProcessNotifyRoutineEx2 @ 0x140799840
  * Callers:
  *     <none>
  * Callees:
- *     PspSetCreateProcessNotifyRoutine @ 0x140844E98 (PspSetCreateProcessNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140799B58 (PspSetCreateProcessNotifyRoutine.c)
  */
 
 __int64 __fastcall PsSetCreateProcessNotifyRoutineEx2(int a1, __int64 a2, char a3)

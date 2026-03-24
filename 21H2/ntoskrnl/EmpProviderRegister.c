@@ -1,20 +1,21 @@
 /*
- * XREFs of EmpProviderRegister @ 0x14082D070
+ * XREFs of EmpProviderRegister @ 0x14079CFE0
  * Callers:
- *     EmProviderRegister @ 0x14082D000 (EmProviderRegister.c)
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
- *     EmInitSystem @ 0x140B0B630 (EmInitSystem.c)
- *     HalRegisterErrataCallbacks @ 0x140B0B970 (HalRegisterErrataCallbacks.c)
+ *     EmProviderRegister @ 0x14079CF70 (EmProviderRegister.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     EmInitSystem @ 0x140A4528C (EmInitSystem.c)
+ *     HalRegisterErrataCallbacks @ 0x140A455B0 (HalRegisterErrataCallbacks.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x1403C45F0 (EmpQueueRuleUpdateState.c)
- *     EmpSearchCallbackDatabase @ 0x1403C47EC (EmpSearchCallbackDatabase.c)
- *     EmpSearchEntryDatabase @ 0x1403C4824 (EmpSearchEntryDatabase.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     EmpQueueRuleUpdateState @ 0x1403B41C8 (EmpQueueRuleUpdateState.c)
+ *     EmpSearchCallbackDatabase @ 0x1403B44E4 (EmpSearchCallbackDatabase.c)
+ *     EmpSearchEntryDatabase @ 0x1403B451C (EmpSearchEntryDatabase.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EmpProviderRegister(
@@ -23,273 +24,281 @@ __int64 __fastcall EmpProviderRegister(
         unsigned int a3,
         __int64 a4,
         unsigned int a5,
-        __int64 *a6)
+        _QWORD *a6)
 {
   __int64 v7; // rsi
-  __int64 v9; // r15
   unsigned int v10; // r12d
-  unsigned int v11; // ebx
-  __int64 Pool2; // rax
-  __int64 v13; // rdi
+  void *v11; // rbx
+  unsigned int v12; // edi
+  _QWORD *PoolWithTag; // rax
   _QWORD *v14; // rax
-  __int64 v15; // rax
-  unsigned int v16; // esi
-  __int64 v17; // r14
-  _QWORD *v18; // r10
-  _QWORD *v19; // rcx
-  _QWORD *v20; // rax
-  _QWORD *v21; // r10
-  __int64 v22; // r11
-  _QWORD *v23; // rcx
-  __int64 v24; // rax
+  PVOID v15; // rax
+  _QWORD *v16; // rax
+  __int64 v17; // rcx
+  int v18; // eax
+  __int64 v19; // r10
+  __int64 v20; // rbp
+  _QWORD *v21; // rcx
+  _QWORD *v22; // rax
+  __int64 v23; // r10
+  _QWORD *v24; // rdx
   __int64 v25; // rax
+  PVOID v26; // rax
+  unsigned int v27; // ebp
+  __int64 v28; // r14
+  __int64 *v29; // r10
+  __int64 v30; // rsi
+  _QWORD *v31; // rcx
+  _QWORD *v32; // rax
+  _QWORD *v33; // r10
+  _QWORD *v34; // r11
+  __int64 v35; // rax
+  __int64 v36; // rax
   __int64 i; // rbp
-  __int64 v27; // rdx
+  __int64 v38; // rdx
   _QWORD *j; // rsi
   __int64 k; // rbp
-  __int64 v30; // rdx
+  __int64 v41; // rdx
   _QWORD *m; // rsi
-  __int64 v33; // rax
-  _QWORD *v34; // rax
-  __int64 v35; // rcx
-  int v36; // eax
-  __int64 v37; // r10
-  __int64 v38; // r15
-  _QWORD *v39; // rcx
-  _QWORD *v40; // rax
-  __int64 v41; // r10
-  _QWORD *v42; // rdx
-  __int64 v43; // rax
-  __int64 v44; // rax
-  _QWORD *v45; // rcx
-  _QWORD *v46; // rax
-  _QWORD *v47; // rdx
-  _QWORD *v48; // rcx
-  void *v49; // rcx
-  unsigned int v50; // edx
-  _QWORD *v51; // r8
-  __int64 v52; // rcx
-  _QWORD *v53; // rax
-  char *v54; // rcx
-  char *v55; // rdx
-  __int64 v56; // r8
-  __int64 v57; // r9
-  __int64 v58; // rax
+  SIZE_T v44; // rbp
+  PVOID v45; // rax
+  _QWORD *v46; // rcx
+  _QWORD *v47; // rax
+  _QWORD *v48; // rdx
+  _QWORD *v49; // rcx
+  void *v50; // rcx
+  unsigned int v51; // edx
+  _QWORD *v52; // r8
+  __int64 v53; // rcx
+  _QWORD *v54; // rax
+  char *v55; // rcx
+  char *v56; // rdx
+  __int64 v57; // r8
+  __int64 v58; // r9
+  __int64 v59; // rax
 
   v7 = a3;
-  v9 = a4;
   v10 = 0;
-  v11 = 0;
+  v11 = 0LL;
+  v12 = 0;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&EmpDatabaseLock, 0LL);
-  if ( !a6 || (_DWORD)v7 && !a2 || a5 && !v9 )
+  if ( a6 && (!(_DWORD)v7 || a2) && (!a5 || a4) )
   {
-    v11 = -1073741811;
-    goto LABEL_29;
-  }
-  Pool2 = ExAllocatePool2(256LL, 72LL, 1919962437LL);
-  v13 = Pool2;
-  if ( !Pool2 )
-  {
-    v11 = -1073741670;
-    goto LABEL_29;
-  }
-  *(_QWORD *)(Pool2 + 24) = 0LL;
-  *(_DWORD *)(Pool2 + 32) = 0;
-  *(_QWORD *)(Pool2 + 40) = 0LL;
-  *(_DWORD *)(Pool2 + 48) = 0;
-  *(_QWORD *)(Pool2 + 8) = 0LL;
-  *(_DWORD *)(Pool2 + 16) = 0;
-  v14 = (_QWORD *)(Pool2 + 56);
-  v14[1] = v14;
-  *v14 = v14;
-  if ( (_DWORD)v7 )
-  {
-    v33 = ExAllocatePool2(256LL, (unsigned int)(8 * v7), 1919962437LL);
-    *(_QWORD *)(v13 + 8) = v33;
-    if ( v33 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x48uLL, 0x72704D45u);
+    v11 = PoolWithTag;
+    if ( !PoolWithTag )
     {
-      *(_DWORD *)(v13 + 16) = v7;
-      v34 = (_QWORD *)(a2 + 8);
-      v35 = v7;
-      do
+      v12 = -1073741670;
+      goto LABEL_40;
+    }
+    PoolWithTag[3] = 0LL;
+    *((_DWORD *)PoolWithTag + 8) = 0;
+    PoolWithTag[5] = 0LL;
+    *((_DWORD *)PoolWithTag + 12) = 0;
+    PoolWithTag[1] = 0LL;
+    *((_DWORD *)PoolWithTag + 4) = 0;
+    v14 = PoolWithTag + 7;
+    v14[1] = v14;
+    *v14 = v14;
+    if ( (_DWORD)v7 )
+    {
+      v15 = ExAllocatePoolWithTag(PagedPool, (unsigned int)(8 * v7), 0x72704D45u);
+      *((_QWORD *)v11 + 1) = v15;
+      if ( v15 )
       {
-        if ( *v34 )
-          ++*(_DWORD *)(v13 + 32);
-        v34 += 3;
-        --v35;
-      }
-      while ( v35 );
-      v36 = *(_DWORD *)(v13 + 32);
-      if ( !v36
-        || (v44 = ExAllocatePool2(256LL, (unsigned int)(32 * v36), 1919962437LL), (*(_QWORD *)(v13 + 24) = v44) != 0LL) )
-      {
-        v37 = 0LL;
-        while ( 1 )
+        memset(v15, 0, (unsigned int)(8 * v7));
+        v16 = (_QWORD *)(a2 + 8);
+        *((_DWORD *)v11 + 4) = v7;
+        v17 = v7;
+        do
         {
-          v38 = 3 * v37;
-          v39 = *(_QWORD **)(a2 + 24 * v37);
-          if ( !v39 )
-            goto LABEL_53;
-          v40 = EmpSearchEntryDatabase(v39);
-          v42 = v40;
-          if ( !v40 )
+          if ( *v16 )
+            ++*((_DWORD *)v11 + 8);
+          v16 += 3;
+          --v17;
+        }
+        while ( v17 );
+        v18 = *((_DWORD *)v11 + 8);
+        if ( !v18 )
+        {
+LABEL_14:
+          v19 = 0LL;
+          while ( 1 )
           {
-LABEL_52:
-            v11 = -1073741275;
-            goto LABEL_54;
-          }
-          *(_QWORD *)(*(_QWORD *)(v13 + 8) + 8 * v41) = v40;
-          v43 = *(_QWORD *)(a2 + 8 * v38 + 8);
-          if ( v43 )
-          {
-            v45 = (_QWORD *)(*(_QWORD *)(v13 + 24) + 32LL * v10);
-            *v45 = v43;
-            v45[1] = *(_QWORD *)(a2 + 8 * v38 + 16);
-            v46 = v42 + 7;
-            v47 = (_QWORD *)v42[8];
-            v48 = v45 + 2;
-            if ( (_QWORD *)*v47 != v46 )
-              goto LABEL_72;
-            *v48 = v46;
-            ++v10;
-            v48[1] = v47;
-            *v47 = v48;
-            v46[1] = v48;
-          }
-          v37 = (unsigned int)(v41 + 1);
-          if ( (unsigned int)v37 >= (unsigned int)v7 )
-          {
-            v9 = a4;
-            goto LABEL_8;
+            v20 = 3 * v19;
+            v21 = *(_QWORD **)(a2 + 24 * v19);
+            if ( !v21 )
+              goto LABEL_52;
+            v22 = EmpSearchEntryDatabase(v21);
+            v24 = v22;
+            if ( !v22 )
+            {
+LABEL_49:
+              v12 = -1073741275;
+              goto LABEL_53;
+            }
+            *(_QWORD *)(*((_QWORD *)v11 + 1) + 8 * v23) = v22;
+            v25 = *(_QWORD *)(a2 + 8 * v20 + 8);
+            if ( v25 )
+            {
+              v46 = (_QWORD *)(*((_QWORD *)v11 + 3) + 32LL * v10);
+              *v46 = v25;
+              v46[1] = *(_QWORD *)(a2 + 8 * v20 + 16);
+              v47 = v24 + 7;
+              v48 = (_QWORD *)v24[8];
+              v49 = v46 + 2;
+              if ( (_QWORD *)*v48 != v47 )
+                goto LABEL_72;
+              *v49 = v47;
+              ++v10;
+              v49[1] = v48;
+              *v48 = v49;
+              v47[1] = v49;
+            }
+            v19 = (unsigned int)(v23 + 1);
+            if ( (unsigned int)v19 >= (unsigned int)v7 )
+              goto LABEL_19;
           }
         }
+        v44 = (unsigned int)(32 * v18);
+        v45 = ExAllocatePoolWithTag(PagedPool, v44, 0x72704D45u);
+        *((_QWORD *)v11 + 3) = v45;
+        if ( v45 )
+        {
+          memset(v45, 0, (unsigned int)v44);
+          goto LABEL_14;
+        }
       }
+LABEL_44:
+      v12 = -1073741670;
+      goto LABEL_53;
     }
-  }
-  else
-  {
-LABEL_8:
+LABEL_19:
     if ( !a5 )
     {
-LABEL_16:
-      for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v13 + 16); i = (unsigned int)(i + 1) )
+LABEL_27:
+      for ( i = 0LL; (unsigned int)i < *((_DWORD *)v11 + 4); i = (unsigned int)(i + 1) )
       {
-        v27 = *(_QWORD *)(*(_QWORD *)(v13 + 8) + 8 * i);
-        _InterlockedIncrement((volatile signed __int32 *)(v27 + 16));
-        for ( j = *(_QWORD **)(v27 + 72); j; j = (_QWORD *)*j )
+        v38 = *(_QWORD *)(*((_QWORD *)v11 + 1) + 8 * i);
+        _InterlockedIncrement((volatile signed __int32 *)(v38 + 16));
+        for ( j = *(_QWORD **)(v38 + 72); j; j = (_QWORD *)*j )
           EmpQueueRuleUpdateState(*(j - 1), 0LL);
       }
-      for ( k = 0LL; (unsigned int)k < *(_DWORD *)(v13 + 48); k = (unsigned int)(k + 1) )
+      for ( k = 0LL; (unsigned int)k < *((_DWORD *)v11 + 12); k = (unsigned int)(k + 1) )
       {
-        v30 = *(_QWORD *)(*(_QWORD *)(v13 + 40) + 8 * k);
-        _InterlockedIncrement((volatile signed __int32 *)(v30 + 24));
-        for ( m = *(_QWORD **)(v30 + 48); m; m = (_QWORD *)*m )
+        v41 = *(_QWORD *)(*((_QWORD *)v11 + 5) + 8 * k);
+        _InterlockedIncrement((volatile signed __int32 *)(v41 + 24));
+        for ( m = *(_QWORD **)(v41 + 48); m; m = (_QWORD *)*m )
           EmpQueueRuleUpdateState(*(m - 1), 0LL);
       }
       if ( Object )
         ObfReferenceObject(Object);
-      *(_QWORD *)v13 = Object;
-      *a6 = v13;
-      goto LABEL_29;
+      *(_QWORD *)v11 = Object;
+      *a6 = v11;
+      goto LABEL_40;
     }
-    v15 = ExAllocatePool2(256LL, 8 * a5, 1919962437LL);
-    *(_QWORD *)(v13 + 40) = v15;
-    if ( v15 )
+    v26 = ExAllocatePoolWithTag(PagedPool, 8 * a5, 0x72704D45u);
+    *((_QWORD *)v11 + 5) = v26;
+    if ( !v26 )
+      goto LABEL_44;
+    memset(v26, 0, 8 * a5);
+    v27 = 0;
+    v28 = 0LL;
+    *((_DWORD *)v11 + 12) = a5;
+    v29 = (__int64 *)(a4 + 8);
+    while ( 1 )
     {
-      v16 = 0;
-      *(_DWORD *)(v13 + 48) = a5;
-      v17 = 0LL;
-      v18 = (_QWORD *)(v9 + 8);
-      while ( *v18 )
+      v30 = *v29;
+      if ( !*v29 )
+        break;
+      v31 = (_QWORD *)*(v29 - 1);
+      if ( !v31 )
+        break;
+      v32 = EmpSearchCallbackDatabase(v31);
+      v34 = v32;
+      if ( !v32 )
+        goto LABEL_49;
+      v35 = v32[2];
+      if ( v35 && v35 != v30 )
       {
-        v19 = (_QWORD *)*(v18 - 1);
-        if ( !v19 )
-          break;
-        v20 = EmpSearchCallbackDatabase(v19);
-        v23 = v20;
-        if ( !v20 )
-          goto LABEL_52;
-        v24 = v20[2];
-        if ( v24 && v24 != v22 )
-        {
-          v11 = -1073741771;
-          goto LABEL_54;
-        }
-        ++v16;
-        *(_QWORD *)(v17 + *(_QWORD *)(v13 + 40)) = v23;
-        v17 += 8LL;
-        v23[2] = *v21;
-        v25 = v21[1];
-        v18 = v21 + 3;
-        v23[4] = v25;
-        if ( v16 >= a5 )
-          goto LABEL_16;
+        v12 = -1073741771;
+        goto LABEL_53;
       }
+      ++v27;
+      *(_QWORD *)(v28 + *((_QWORD *)v11 + 5)) = v34;
+      v28 += 8LL;
+      v34[2] = *v33;
+      v36 = v33[1];
+      v29 = v33 + 3;
+      v34[4] = v36;
+      if ( v27 >= a5 )
+        goto LABEL_27;
+    }
+  }
+LABEL_52:
+  v12 = -1073741811;
 LABEL_53:
-      v11 = -1073741811;
-      goto LABEL_54;
-    }
-  }
-  v11 = -1073741670;
-LABEL_54:
-  v49 = *(void **)(v13 + 8);
-  if ( v49 )
-    ExFreePoolWithTag(v49, 0x72704D45u);
-  if ( *(_QWORD *)(v13 + 24) )
+  if ( v11 )
   {
-    v50 = 0;
-    if ( v10 )
+    v50 = (void *)*((_QWORD *)v11 + 1);
+    if ( v50 )
+      ExFreePoolWithTag(v50, 0x72704D45u);
+    if ( *((_QWORD *)v11 + 3) )
     {
-      while ( 1 )
+      v51 = 0;
+      if ( v10 )
       {
-        v51 = (_QWORD *)(32LL * v50 + *(_QWORD *)(v13 + 24) + 16LL);
-        v52 = *v51;
-        if ( *(_QWORD **)(*v51 + 8LL) != v51 )
-          break;
-        v53 = (_QWORD *)v51[1];
-        if ( (_QWORD *)*v53 != v51 )
-          break;
-        ++v50;
-        *v53 = v52;
-        *(_QWORD *)(v52 + 8) = v53;
-        if ( v50 >= v10 )
-          goto LABEL_61;
-      }
-LABEL_72:
-      __fastfail(3u);
-    }
-LABEL_61:
-    ExFreePoolWithTag(*(PVOID *)(v13 + 24), 0x72704D45u);
-  }
-  v54 = *(char **)(v13 + 40);
-  if ( v54 )
-  {
-    if ( a5 )
-    {
-      v55 = *(char **)(v13 + 40);
-      v56 = 0LL;
-      v57 = a5;
-      do
-      {
-        v58 = *(_QWORD *)&v54[v56];
-        if ( v58 && !*(_DWORD *)(v58 + 24) )
+        while ( 1 )
         {
-          *(_QWORD *)(v58 + 16) = 0LL;
-          v54 = *(char **)(v13 + 40);
-          v55 = v54;
+          v52 = (_QWORD *)(32LL * v51 + 16 + *((_QWORD *)v11 + 3));
+          v53 = *v52;
+          if ( *(_QWORD **)(*v52 + 8LL) != v52 )
+            break;
+          v54 = (_QWORD *)v52[1];
+          if ( (_QWORD *)*v54 != v52 )
+            break;
+          ++v51;
+          *v54 = v53;
+          *(_QWORD *)(v53 + 8) = v54;
+          if ( v51 >= v10 )
+            goto LABEL_61;
         }
-        v56 += 8LL;
-        --v57;
+LABEL_72:
+        __fastfail(3u);
       }
-      while ( v57 );
-      v54 = v55;
+LABEL_61:
+      ExFreePoolWithTag(*((PVOID *)v11 + 3), 0x72704D45u);
     }
-    ExFreePoolWithTag(v54, 0x72704D45u);
+    v55 = (char *)*((_QWORD *)v11 + 5);
+    if ( v55 )
+    {
+      if ( a5 )
+      {
+        v56 = (char *)*((_QWORD *)v11 + 5);
+        v57 = 0LL;
+        v58 = a5;
+        do
+        {
+          v59 = *(_QWORD *)&v55[v57];
+          if ( v59 && !*(_DWORD *)(v59 + 24) )
+          {
+            *(_QWORD *)(v59 + 16) = 0LL;
+            v55 = (char *)*((_QWORD *)v11 + 5);
+            v56 = v55;
+          }
+          v57 += 8LL;
+          --v58;
+        }
+        while ( v58 );
+        v55 = v56;
+      }
+      ExFreePoolWithTag(v55, 0x72704D45u);
+    }
+    ExFreePoolWithTag(v11, 0x72704D45u);
   }
-  ExFreePoolWithTag((PVOID)v13, 0x72704D45u);
-LABEL_29:
+LABEL_40:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpDatabaseLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&EmpDatabaseLock);
   KeAbPostRelease((ULONG_PTR)&EmpDatabaseLock);
-  return v11;
+  return v12;
 }

@@ -1,17 +1,16 @@
 /*
- * XREFs of DestroyThreadHidObjects @ 0x1C009EFD0
+ * XREFs of DestroyThreadHidObjects @ 0x1C01075E0
  * Callers:
  *     <none>
  * Callees:
- *     UpdateRawMouseMode @ 0x1C005DFA4 (UpdateRawMouseMode.c)
- *     PtiMouseFromQ @ 0x1C005E080 (PtiMouseFromQ.c)
- *     FreeHidProcessRequest @ 0x1C009F158 (FreeHidProcessRequest.c)
- *     ?SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z @ 0x1C009F698 (-SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z.c)
- *     ??0?$ObjectLockRecursive@UtagObjLock@@@?$DomainExclusiveRecursive@$$V@?$DomainSharedRecursive@$$V@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00A00AC (--0-$ObjectLockRecursive@UtagObjLock@@@-$DomainExclusiveRecursive@$$V@-$DomainSharedRecursive@$$.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z @ 0x1C01A96F0 (-HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z.c)
+ *     UpdateRawMouseMode @ 0x1C0052508 (UpdateRawMouseMode.c)
+ *     PtiMouseFromQ @ 0x1C005256C (PtiMouseFromQ.c)
+ *     FreeHidProcessRequest @ 0x1C010790C (FreeHidProcessRequest.c)
+ *     ?SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z @ 0x1C010833C (-SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z.c)
+ *     ?HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z @ 0x1C01D4870 (-HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall DestroyThreadHidObjects(__int64 a1)
 {
   __int64 v2; // rbx
@@ -23,41 +22,26 @@ __int64 __fastcall DestroyThreadHidObjects(__int64 a1)
   struct tagPROCESS_HID_REQUEST *v8; // rcx
   struct tagPROCESS_HID_REQUEST *v9; // rsi
   struct tagPROCESS_HID_REQUEST *v10; // rsi
-  unsigned int v11; // eax
-  unsigned int v12; // eax
+  struct tagPROCESS_HID_REQUEST *v11; // rcx
+  __int64 v12; // rdx
   __int64 v13; // rcx
   __int64 v14; // rax
-  __int64 v15; // rcx
-  __int64 v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  const struct tagPROCESSINFO *v19; // rcx
-  struct tagPROCESSINFO *v20; // rcx
-  struct tagPROCESS_HID_REQUEST *v21; // rcx
-  struct tagPROCESS_HID_REQUEST *v22; // rcx
-  unsigned int v23; // [rsp+20h] [rbp-58h] BYREF
-  _BYTE v24[16]; // [rsp+28h] [rbp-50h] BYREF
-  tagObjLock *v25; // [rsp+38h] [rbp-40h]
-  char v26; // [rsp+48h] [rbp-30h]
+  const struct tagPROCESSINFO *v15; // rcx
+  struct tagPROCESSINFO *v16; // rcx
+  struct tagPROCESS_HID_REQUEST *v17; // rcx
+  unsigned int v18; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD *)(*(_QWORD *)(a1 + 424) + 848LL);
+  v2 = *(_QWORD *)(*(_QWORD *)(a1 + 424) + 832LL);
   v3 = *(_QWORD *)(v2 + 72);
   if ( v3 )
   {
     if ( *(_QWORD *)(v3 + 16) == a1 )
     {
       HMAssignmentUnlock(v2 + 72);
-      v11 = *(_DWORD *)(v2 + 100) & 0xFFFFFFCF;
-      *(_DWORD *)(v2 + 100) = v11;
-      if ( (v11 & 0x40) != 0 )
+      *(_DWORD *)(v2 + 100) &= 0xFFFFFFCF;
+      if ( (*(_DWORD *)(v2 + 100) & 0x40) != 0 )
       {
-        DomainSharedRecursive<>::DomainExclusiveRecursive<>::ObjectLockRecursive<tagObjLock>::ObjectLockRecursive<tagObjLock>(
-          v24,
-          gHidCountersLock);
-        v16 = SGDGetUserSessionState(v15);
-        --*(_DWORD *)(v16 + 16848);
-        if ( v26 && v25 )
-          tagObjLock::UnLockExclusive(v25);
+        --gHidCounters[0];
         *(_DWORD *)(v2 + 100) &= ~0x40u;
       }
     }
@@ -66,21 +50,10 @@ __int64 __fastcall DestroyThreadHidObjects(__int64 a1)
   if ( v4 && *(_QWORD *)(v4 + 16) == a1 )
   {
     HMAssignmentUnlock(v2 + 64);
-    v12 = *(_DWORD *)(v2 + 100) & 0xFFFFF7FC;
-    *(_DWORD *)(v2 + 100) = v12;
-    if ( (v12 & 4) != 0 )
+    *(_DWORD *)(v2 + 100) &= 0xFFFFFFFC;
+    if ( (*(_DWORD *)(v2 + 100) & 4) != 0 )
     {
-      DomainSharedRecursive<>::DomainExclusiveRecursive<>::ObjectLockRecursive<tagObjLock>::ObjectLockRecursive<tagObjLock>(
-        v24,
-        gHidCountersLock);
-      v18 = SGDGetUserSessionState(v17);
-      --*(_DWORD *)(v18 + 16852);
-      if ( v26 )
-      {
-        if ( v25 )
-          tagObjLock::UnLockExclusive(v25);
-        v26 = 0;
-      }
+      --gHidCounters[1];
       *(_DWORD *)(v2 + 100) &= ~4u;
     }
     v13 = gpqForeground;
@@ -89,20 +62,20 @@ __int64 __fastcall DestroyThreadHidObjects(__int64 a1)
     else
       v14 = 0LL;
     if ( v14 == a1 )
-      UpdateRawMouseMode(v13);
+      UpdateRawMouseMode(v13, v12);
   }
   *(_QWORD *)(v2 + 88) = 0LL;
   *(_DWORD *)(v2 + 96) = 0;
-  result = *(unsigned int *)(a1 + 1272);
+  result = *(unsigned int *)(a1 + 1232);
   if ( (result & 0x200000) != 0 )
   {
-    v19 = *(const struct tagPROCESSINFO **)(a1 + 424);
-    *(_DWORD *)(a1 + 1272) = result & 0xFFDFFFFF;
-    result = HasRawKeyboardPerThreadRegistration(v19);
+    v15 = *(const struct tagPROCESSINFO **)(a1 + 424);
+    *(_DWORD *)(a1 + 1232) = result & 0xFFDFFFFF;
+    result = HasRawKeyboardPerThreadRegistration(v15);
     if ( !(_DWORD)result )
     {
-      v23 = 0;
-      result = (__int64)SearchProcessHidRequest(v20, 1u, 6u, &v23);
+      v18 = 0;
+      result = (__int64)SearchProcessHidRequest(v16, 1u, 6u, &v18);
       if ( result )
       {
         result = FreeHidProcessRequest((struct tagPROCESS_HID_REQUEST *)result);
@@ -129,31 +102,31 @@ __int64 __fastcall DestroyThreadHidObjects(__int64 a1)
   v9 = *(struct tagPROCESS_HID_REQUEST **)(v2 + 32);
   while ( v9 != (struct tagPROCESS_HID_REQUEST *)(v2 + 32) )
   {
-    v21 = v9;
+    v11 = v9;
     v9 = *(struct tagPROCESS_HID_REQUEST **)v9;
-    result = *((_QWORD *)v21 + 4);
+    result = *((_QWORD *)v11 + 4);
     if ( result && *(_QWORD *)(result + 16) == a1 )
     {
-      result = FreeHidProcessRequest(v21);
+      result = FreeHidProcessRequest(v11);
       v6 = 1;
     }
   }
   v10 = *(struct tagPROCESS_HID_REQUEST **)(v2 + 48);
   while ( v10 != (struct tagPROCESS_HID_REQUEST *)(v2 + 48) )
   {
-    v22 = v10;
+    v17 = v10;
     v10 = *(struct tagPROCESS_HID_REQUEST **)v10;
-    result = *((_QWORD *)v22 + 4);
+    result = *((_QWORD *)v17 + 4);
     if ( result && *(_QWORD *)(result + 16) == a1 )
     {
-      result = FreeHidProcessRequest(v22);
+      result = FreeHidProcessRequest(v17);
       v6 = 1;
     }
   }
   if ( v6 )
   {
     result = *(_QWORD *)(a1 + 424);
-    *(_DWORD *)(result + 816) |= 0x8000000u;
+    *(_DWORD *)(result + 820) |= 0x8000000u;
   }
   return result;
 }

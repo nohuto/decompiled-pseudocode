@@ -1,5 +1,5 @@
 /*
- * XREFs of ?MarkFullDirty@CWICBitmapRealization@@UEAAXXZ @ 0x1802B1470
+ * XREFs of ?MarkFullDirty@CWICBitmapRealization@@UEAAXXZ @ 0x180263360
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bInitCache@RFONTOBJ@@QEAAHK@Z @ 0x1C0015418
+ * XREFs of ?bInitCache@RFONTOBJ@@QEAAHK@Z @ 0x1C009E508
  * Callers:
- *     ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C0016754 (-bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_.c)
+ *     ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C009D9E0 (-bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_.c)
  * Callees:
- *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C0018C7C (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
- *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C001B030 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C00997C0 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
+ *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C009A2D8 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall RFONTOBJ::bInitCache(RFONTOBJ *this, int a2)
@@ -21,11 +21,10 @@ __int64 __fastcall RFONTOBJ::bInitCache(RFONTOBJ *this, int a2)
   struct DHPDEV__ *v11; // rdx
   bool v12; // zf
   unsigned int v13; // ebx
-  __int64 v15; // rcx
-  unsigned __int16 v16; // [rsp+40h] [rbp-88h] BYREF
-  unsigned int v17; // [rsp+48h] [rbp-80h] BYREF
-  __int64 v18; // [rsp+50h] [rbp-78h] BYREF
-  struct _GLYPHDATA v19; // [rsp+60h] [rbp-68h] BYREF
+  unsigned __int16 v15; // [rsp+40h] [rbp-88h] BYREF
+  unsigned int v16; // [rsp+48h] [rbp-80h] BYREF
+  __int64 v17; // [rsp+50h] [rbp-78h] BYREF
+  struct _GLYPHDATA v18; // [rsp+60h] [rbp-68h] BYREF
 
   v2 = *(_QWORD *)this;
   *(_QWORD *)(v2 + 536) = 0LL;
@@ -59,29 +58,29 @@ __int64 __fastcall RFONTOBJ::bInitCache(RFONTOBJ *this, int a2)
     }
   }
   v8 = *(_QWORD *)this;
-  v17 = 0;
+  v16 = 0;
   *(_DWORD *)(v8 + 84) = a2;
-  v16 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 32LL) + 118LL);
-  RFONTOBJ::vXlatGlyphArray(this, &v16, 1u, &v17, 2u, 0);
+  v15 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 32LL) + 118LL);
+  RFONTOBJ::vXlatGlyphArray(this, &v15, 1, &v16, 2u, 0);
   *(_DWORD *)(*(_QWORD *)this + 712LL) &= ~0x40u;
   v9 = *(_QWORD *)this;
   v10 = *(_DWORD *)(*(_QWORD *)this + 88LL);
-  memset(&v19, 0, sizeof(v19));
+  memset(&v18, 0, sizeof(v18));
   v11 = *(struct DHPDEV__ **)(v9 + 112);
   v12 = v10 == 2;
-  v13 = v17;
-  v18 = *(_QWORD *)(v9 + 128);
+  v13 = v16;
+  v17 = *(_QWORD *)(v9 + 128);
   if ( (unsigned int)PFFOBJ::QueryFontData(
-                       (PFFOBJ *)&v18,
+                       (PFFOBJ *)&v17,
                        v11,
                        (struct _FONTOBJ *)v9,
                        (unsigned int)v12 + 1,
-                       v17,
-                       &v19,
+                       v16,
+                       &v18,
                        0LL,
                        0) == -1 )
     return 0;
-  *(_DWORD *)(*(_QWORD *)this + 468LL) = v19.fxD;
+  *(_DWORD *)(*(_QWORD *)this + 468LL) = v18.fxD;
   *(_DWORD *)(*(_QWORD *)this + 464LL) = v13;
   if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 12LL) & 8) != 0 )
   {
@@ -96,10 +95,9 @@ __int64 __fastcall RFONTOBJ::bInitCache(RFONTOBJ *this, int a2)
   *(_QWORD *)(*(_QWORD *)this + 504LL) = GreCreateSemaphore();
   if ( !*(_QWORD *)(*(_QWORD *)this + 504LL) )
   {
-    v15 = *(_QWORD *)(*(_QWORD *)this + 848LL);
-    if ( v15 )
+    if ( *(_QWORD *)(*(_QWORD *)this + 848LL) )
     {
-      GreDeleteSemaphore(v15);
+      GreDeleteSemaphore();
       *(_QWORD *)(*(_QWORD *)this + 848LL) = 0LL;
     }
     return 0;

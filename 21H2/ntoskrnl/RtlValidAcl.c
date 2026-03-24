@@ -1,33 +1,32 @@
 /*
- * XREFs of RtlValidAcl @ 0x1407B4A50
+ * XREFs of RtlValidAcl @ 0x14065C5C0
  * Callers:
- *     SeValidSecurityDescriptor @ 0x1406ACC40 (SeValidSecurityDescriptor.c)
- *     RtlAddMandatoryAce @ 0x1406CCC10 (RtlAddMandatoryAce.c)
- *     RtlDeleteAce @ 0x1406DC070 (RtlDeleteAce.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x140715E20 (RtlValidRelativeSecurityDescriptor.c)
- *     RtlAddAce @ 0x140724BB0 (RtlAddAce.c)
- *     RtlValidSecurityDescriptor @ 0x140726610 (RtlValidSecurityDescriptor.c)
- *     SepCheckAcl @ 0x140753F64 (SepCheckAcl.c)
- *     SeCaptureSecurityDescriptor @ 0x1407B3DD0 (SeCaptureSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     RtlpNewSecurityObject @ 0x1407CE760 (RtlpNewSecurityObject.c)
- *     RtlAddProcessTrustLabelAce @ 0x140848A40 (RtlAddProcessTrustLabelAce.c)
- *     SddlAddMandatoryAce @ 0x140882C7A (SddlAddMandatoryAce.c)
- *     RtlAddAccessFilterAce @ 0x1409B7E50 (RtlAddAccessFilterAce.c)
- *     RtlAddResourceAttributeAce @ 0x1409B8170 (RtlAddResourceAttributeAce.c)
- *     RtlpAddKnownObjectAce @ 0x1409B84A4 (RtlpAddKnownObjectAce.c)
- *     SddlAddAccessFilterAce @ 0x1409CF980 (SddlAddAccessFilterAce.c)
- *     SddlAddProcessTrustLabelAce @ 0x1409CFB98 (SddlAddProcessTrustLabelAce.c)
- *     SddlAddScopedPolicyIDAce @ 0x1409CFCF8 (SddlAddScopedPolicyIDAce.c)
- *     CMFCreateSecurityDescriptor @ 0x140A04204 (CMFCreateSecurityDescriptor.c)
+ *     SepCheckAcl @ 0x1405DBD24 (SepCheckAcl.c)
+ *     RtlAddMandatoryAce @ 0x14065B720 (RtlAddMandatoryAce.c)
+ *     SeCaptureSecurityDescriptor @ 0x14065BB60 (SeCaptureSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
+ *     RtlAddAce @ 0x14065F130 (RtlAddAce.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14066DC80 (RtlValidRelativeSecurityDescriptor.c)
+ *     SeValidSecurityDescriptor @ 0x140692A40 (SeValidSecurityDescriptor.c)
+ *     RtlDeleteAce @ 0x1406B0FF0 (RtlDeleteAce.c)
+ *     RtlAddProcessTrustLabelAce @ 0x14079DD90 (RtlAddProcessTrustLabelAce.c)
+ *     RtlAddAccessFilterAce @ 0x140912250 (RtlAddAccessFilterAce.c)
+ *     RtlAddResourceAttributeAce @ 0x140912570 (RtlAddResourceAttributeAce.c)
+ *     RtlpAddKnownObjectAce @ 0x1409128A0 (RtlpAddKnownObjectAce.c)
+ *     SddlAddAccessFilterAce @ 0x1409261C8 (SddlAddAccessFilterAce.c)
+ *     SddlAddMandatoryAce @ 0x1409263E0 (SddlAddMandatoryAce.c)
+ *     SddlAddProcessTrustLabelAce @ 0x140926544 (SddlAddProcessTrustLabelAce.c)
+ *     SddlAddScopedPolicyIDAce @ 0x1409266A4 (SddlAddScopedPolicyIDAce.c)
+ *     CMFCreateSecurityDescriptor @ 0x1409584C4 (CMFCreateSecurityDescriptor.c)
  * Callees:
- *     RtlpValidAttributeAce @ 0x14076369C (RtlpValidAttributeAce.c)
- *     RtlpValidAccessFilterAce @ 0x1409B89A8 (RtlpValidAccessFilterAce.c)
- *     RtlpValidCompoundAce @ 0x1409B8BA4 (RtlpValidCompoundAce.c)
- *     RtlpValidObjectAce @ 0x1409B8C20 (RtlpValidObjectAce.c)
+ *     RtlpValidAttributeAce @ 0x1406B65C4 (RtlpValidAttributeAce.c)
+ *     RtlpValidAccessFilterAce @ 0x140912D9C (RtlpValidAccessFilterAce.c)
+ *     RtlpValidCompoundAce @ 0x140912F9C (RtlpValidCompoundAce.c)
+ *     RtlpValidObjectAce @ 0x140913018 (RtlpValidObjectAce.c)
  */
 
-bool __fastcall RtlValidAcl(__int64 a1)
+char __fastcall RtlValidAcl(__int64 a1)
 {
   _WORD *v2; // r14
   unsigned int v3; // ebp
@@ -38,7 +37,6 @@ bool __fastcall RtlValidAcl(__int64 a1)
   unsigned __int64 v8; // rcx
   unsigned int v9; // edx
   __int64 v10; // rax
-  bool result; // al
 
   if ( (unsigned __int8)(*(_BYTE *)a1 - 2) <= 2u )
   {
@@ -88,9 +86,8 @@ bool __fastcall RtlValidAcl(__int64 a1)
         }
         else if ( (_BYTE)v9 == 18 )
         {
-          result = RtlpValidAttributeAce((__int64)v4);
-          if ( !result )
-            return result;
+          if ( !(unsigned __int8)RtlpValidAttributeAce(v4) )
+            return 0;
         }
         else if ( (_BYTE)v9 == 21 )
         {

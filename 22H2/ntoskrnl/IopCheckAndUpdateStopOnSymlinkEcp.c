@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCheckAndUpdateStopOnSymlinkEcp @ 0x140947954
+ * XREFs of IopCheckAndUpdateStopOnSymlinkEcp @ 0x140894114
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
- *     FsRtlFindExtraCreateParameter @ 0x140765860 (FsRtlFindExtraCreateParameter.c)
+ *     FsRtlFindExtraCreateParameter @ 0x140651070 (FsRtlFindExtraCreateParameter.c)
  */
 
-char __fastcall IopCheckAndUpdateStopOnSymlinkEcp(struct _ECP_LIST *a1, int a2, __int64 a3)
+bool __fastcall IopCheckAndUpdateStopOnSymlinkEcp(struct _ECP_LIST *a1, int a2, __int64 a3)
 {
   int v5; // ecx
   _DWORD *v6; // rcx
@@ -17,17 +17,20 @@ char __fastcall IopCheckAndUpdateStopOnSymlinkEcp(struct _ECP_LIST *a1, int a2, 
   v9 = 0;
   if ( FsRtlFindExtraCreateParameter(a1, &ECP_TYPE_IO_STOP_ON_SYMLINK_FILTER_GUID, (PVOID *)&v8, &v9) < 0 )
     return 1;
-  if ( v9 < 8 )
-    return a2 == -1610612724;
-  if ( (unsigned int)(a2 + 1610612733) <= 0x16 )
+  if ( v9 >= 8 )
   {
-    v5 = 4194817;
-    if ( _bittest(&v5, a2 + 1610612733) )
+    if ( (unsigned int)(a2 + 1610612733) <= 0x16 )
     {
-      v6 = v8;
-      ++*v8;
-      v6[1] = *(unsigned __int16 *)(a3 + 6);
+      v5 = 4194817;
+      if ( _bittest(&v5, a2 + 1610612733) )
+      {
+        v6 = v8;
+        ++*v8;
+        v6[1] = *(unsigned __int16 *)(a3 + 6);
+      }
     }
+    if ( v9 > 8 )
+      return 1;
   }
-  return v9 > 8 || a2 == -1610612724;
+  return a2 == -1610612724;
 }

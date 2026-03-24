@@ -1,9 +1,9 @@
 /*
- * XREFs of IopUnmaskInterrupt @ 0x1403D739C
+ * XREFs of IopUnmaskInterrupt @ 0x14038BE54
  * Callers:
- *     IoReportInterruptActive @ 0x1403D7350 (IoReportInterruptActive.c)
+ *     IoReportInterruptActive @ 0x14038BE20 (IoReportInterruptActive.c)
  * Callees:
- *     KeUnmaskInterrupt @ 0x1403D741C (KeUnmaskInterrupt.c)
+ *     KeUnmaskInterrupt @ 0x14038BED4 (KeUnmaskInterrupt.c)
  */
 
 __int64 __fastcall IopUnmaskInterrupt(__int64 a1)
@@ -12,7 +12,7 @@ __int64 __fastcall IopUnmaskInterrupt(__int64 a1)
 
   v1 = *(_QWORD *)(a1 - 104) - ((*(_QWORD *)(a1 - 104) >> 1) & 0x5555555555555555LL);
   return KeUnmaskInterrupt(
-           a1 + 392,
+           a1 + 384,
            (0x101010101010101LL
           * (((v1 & 0x3333333333333333LL)
             + ((v1 >> 2) & 0x3333333333333333LL)

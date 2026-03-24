@@ -1,8 +1,8 @@
 /*
- * XREFs of RunningHash @ 0x1C0021994
+ * XREFs of RunningHash @ 0x1C00216D4
  * Callers:
- *     ComputeEventEntryHash @ 0x1C0075954 (ComputeEventEntryHash.c)
- *     ComputeFlushPeriod @ 0x1C021F334 (ComputeFlushPeriod.c)
+ *     ComputeEventEntryHash @ 0x1C00626AC (ComputeEventEntryHash.c)
+ *     ComputeFlushPeriod @ 0x1C017A954 (ComputeFlushPeriod.c)
  * Callees:
  *     <none>
  */

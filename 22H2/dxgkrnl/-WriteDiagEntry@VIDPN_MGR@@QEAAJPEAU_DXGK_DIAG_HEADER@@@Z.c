@@ -1,46 +1,66 @@
 /*
- * XREFs of ?WriteDiagEntry@VIDPN_MGR@@QEAAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0001914
+ * XREFs of ?WriteDiagEntry@VIDPN_MGR@@QEAAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000C728
  * Callers:
- *     _BmlLogDiagnosticsPacket @ 0x1C016D720 (_BmlLogDiagnosticsPacket.c)
+ *     _BmlLogDiagnosticsPacket @ 0x1C0149150 (_BmlLogDiagnosticsPacket.c)
  * Callees:
- *     ?WriteDiagnosticEntry@DXGDIAGNOSTICS@@QEBAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C0003000 (-WriteDiagnosticEntry@DXGDIAGNOSTICS@@QEBAJPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ *     ?WriteDiagnosticEntry@DXGDIAGNOSTICS@@QEBAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000BBB4 (-WriteDiagnosticEntry@DXGDIAGNOSTICS@@QEBAJPEAU_DXGK_DIAG_HEADER@@@Z.c)
  */
 
-__int64 __fastcall VIDPN_MGR::WriteDiagEntry(struct _KTHREAD **this, struct _DXGK_DIAG_HEADER *a2)
+__int64 __fastcall VIDPN_MGR::WriteDiagEntry(DXGFASTMUTEX ***this, struct _DXGK_DIAG_HEADER *a2)
 {
-  _DWORD *v2; // rbx
   __int64 CurrentProcess; // rax
-  __int128 v6; // xmm0
-  __int64 v7; // rbx
+  __int128 v5; // xmm0
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  DXGFASTMUTEX **v8; // r8
+  struct _KTHREAD *CurrentThread; // rcx
+  __int64 v10; // rax
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // [rsp+38h] [rbp+10h]
 
-  v2 = (_DWORD *)((char *)a2 + 4);
-  if ( !a2 || !*v2 )
-    WdLogSingleEntry0(1LL);
-  if ( a2 && *v2 >= 0x30u )
+  if ( !a2 || !*((_DWORD *)a2 + 1) )
+  {
+    v12 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v12);
+  }
+  if ( a2 && *((_DWORD *)a2 + 1) >= 0x30u )
   {
     CurrentProcess = PsGetCurrentProcess();
-    v6 = *(_OWORD *)PsGetProcessImageFileName(CurrentProcess);
+    v5 = *(_OWORD *)PsGetProcessImageFileName(CurrentProcess);
     *((_DWORD *)a2 + 9) &= ~0x80000000;
-    *((_OWORD *)a2 + 1) = v6;
-    *((_DWORD *)a2 + 9) ^= (*((_DWORD *)a2 + 9) ^ PsGetCurrentProcessSessionId()) & 0x7FFFFFFF;
+    *((_OWORD *)a2 + 1) = v5;
+    *((_DWORD *)a2 + 9) ^= (PsGetCurrentProcessSessionId() ^ *((_DWORD *)a2 + 9)) & 0x7FFFFFFF;
     *((_DWORD *)a2 + 8) = (unsigned int)PsGetCurrentThreadId();
-    v7 = MEMORY[0xFFFFF78000000320];
-    *((_QWORD *)a2 + 1) = v7 * KeQueryTimeIncrement();
-    if ( this[70] )
+    v15 = MEMORY[0xFFFFF78000000320];
+    *((_QWORD *)a2 + 1) = v15 * KeQueryTimeIncrement();
+    v8 = this[63];
+    if ( v8 )
     {
-      if ( this[8] != KeGetCurrentThread() )
-        WdLogSingleEntry0(1LL);
-      return DXGDIAGNOSTICS::WriteDiagnosticEntry(this[70], a2);
+      CurrentThread = KeGetCurrentThread();
+      if ( this[5][2] != CurrentThread )
+      {
+        v10 = WdLogNewEntry5_WdAssertion(CurrentThread, v6);
+        WdLogEvent5_WdAssertion(v10);
+        v8 = this[63];
+      }
+      return DXGDIAGNOSTICS::WriteDiagnosticEntry(v8, a2);
     }
     else
     {
-      WdLogSingleEntry2(2LL, a2, this);
+      v13 = WdLogNewEntry5_WdError(v7, v6);
+      *(_QWORD *)(v13 + 24) = a2;
+      *(_QWORD *)(v13 + 32) = this;
+      WdLogEvent5_WdError(v13);
       return 3221225860LL;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, a2);
+    v14 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v14 + 24) = a2;
+    WdLogEvent5_WdError(v14);
     return 3221225485LL;
   }
 }

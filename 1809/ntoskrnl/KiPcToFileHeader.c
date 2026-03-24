@@ -1,8 +1,8 @@
 /*
- * XREFs of KiPcToFileHeader @ 0x140292B9C
+ * XREFs of KiPcToFileHeader @ 0x140292C9C
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
- *     KiDumpParameterImages @ 0x1402927D4 (KiDumpParameterImages.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
+ *     KiDumpParameterImages @ 0x1402928D4 (KiDumpParameterImages.c)
  * Callees:
  *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
  */

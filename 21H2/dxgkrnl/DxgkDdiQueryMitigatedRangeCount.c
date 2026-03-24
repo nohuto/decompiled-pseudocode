@@ -1,36 +1,21 @@
 /*
- * XREFs of DxgkDdiQueryMitigatedRangeCount @ 0x1C0359CCC
+ * XREFs of DxgkDdiQueryMitigatedRangeCount @ 0x1C02314BC
  * Callers:
- *     DpiFdoDispatchIoctl @ 0x1C01E6840 (DpiFdoDispatchIoctl.c)
+ *     DpiFdoDispatchIoctl @ 0x1C02C8F20 (DpiFdoDispatchIoctl.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005BFAC (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ?QueryMitigatedRangeCount@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYMITIGATEDRANGECOUNT@@@Z @ 0x1C0358280 (-QueryMitigatedRangeCount@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYMITIGAT.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C00400A4 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?QueryMitigatedRangeCount@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYMITIGATEDRANGECOUNT@@@Z @ 0x1C0230348 (-QueryMitigatedRangeCount@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYMITIGAT.c)
  */
 
 __int64 __fastcall DxgkDdiQueryMitigatedRangeCount(_QWORD *a1, int a2, unsigned int *a3)
 {
-  unsigned int *v5; // rsi
-  unsigned __int64 i; // rdi
-  unsigned int v8; // [rsp+28h] [rbp-30h]
+  unsigned int v6; // [rsp+28h] [rbp-20h]
 
-  ADAPTER_RENDER::QueryMitigatedRangeCount(a1[350], a2, a3);
+  ADAPTER_RENDER::QueryMitigatedRangeCount(a1[338], a2, a3);
   if ( bTracingEnabled )
   {
-    v5 = a3 + 1;
-    v8 = *a3;
-    VgpuTrace(1, 0, a1, L"DxgkDdiQueryMitigatedRangeCount", (wchar_t *)L"%d %d", v8, a3 + 1);
-    for ( i = 0LL; i < 6; ++i )
-      DxgkLogInternalTriageEvent(
-        (__int64)a1,
-        196614,
-        *a3,
-        (__int64)L"BAR %1 requests to have %2 mitigated ranges",
-        i,
-        *v5++,
-        0LL,
-        0LL,
-        0LL);
+    v6 = *a3;
+    VgpuTrace(1, 0, a1, L"DxgkDdiQueryMitigatedRangeCount", (wchar_t *)L"%d %d", v6, a3 + 1);
   }
   return 0LL;
 }

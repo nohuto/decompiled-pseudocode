@@ -1,181 +1,154 @@
 /*
- * XREFs of ?GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z @ 0x180033E90
+ * XREFs of ?GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z @ 0x180064170
  * Callers:
- *     ?GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180033B30 (-GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z.c)
- *     ?GetDeviceTexture@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180033BB4 (-GetDeviceTexture@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z.c)
- *     ?GetDeviceTexture@CDxHandleBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180033DC0 (-GetDeviceTexture@CDxHandleBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@.c)
- *     ?GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1802B608C (-GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z.c)
+ *     ?GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x18001E580 (-GetCachedBitmap@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z.c)
+ *     ?GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180063E10 (-GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z.c)
+ *     ?GetDeviceTexture@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180063EB4 (-GetDeviceTexture@CRenderTargetBitmap@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z.c)
+ *     ?GetDeviceTexture@CDxHandleBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x1800640B0 (-GetDeviceTexture@CDxHandleBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@.c)
  * Callees:
- *     ?Update@CSecondaryD2DBitmap@@QEAAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVID2DBitmapCacheSource@@@Z @ 0x18003D934 (-Update@CSecondaryD2DBitmap@@QEAAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniquen.c)
- *     ?GetBoundingRect@CRegion@@QEBA_NPEAUMilRectU@@@Z @ 0x180041628 (-GetBoundingRect@CRegion@@QEBA_NPEAUMilRectU@@@Z.c)
- *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180046478 (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F334 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?EnsureSysmemBitmap@CD2DBitmapCache@@IEAAJXZ @ 0x1800ED494 (-EnsureSysmemBitmap@CD2DBitmapCache@@IEAAJXZ.c)
- *     ?CreateAndCacheBitmap@CD2DBitmapCache@@IEAAJU_LUID@@PEAPEAVCSecondaryD2DBitmap@@@Z @ 0x1800ED6AC (-CreateAndCacheBitmap@CD2DBitmapCache@@IEAAJU_LUID@@PEAPEAVCSecondaryD2DBitmap@@@Z.c)
- *     ?Intersects@CRgnData@Internal@FastRegion@@SA_NAEBV123@0@Z @ 0x1800F4910 (-Intersects@CRgnData@Internal@FastRegion@@SA_NAEBV123@0@Z.c)
- *     ?Update@CSecondarySysmemBitmap@@QEAAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVID2DBitmapCacheSource@@@Z @ 0x1800F81B4 (-Update@CSecondarySysmemBitmap@@QEAAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniq.c)
- *     ?IsRegionValid@CSecondaryBitmap@@QEAA_NPEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAV2@@Z @ 0x1800F8388 (-IsRegionValid@CSecondaryBitmap@@QEAA_NPEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUn.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@VID2DBitmapCacheSource@@@@IEAAKXZ @ 0x180100D40 (-InternalRelease@-$CMILRefCountBaseT@VID2DBitmapCacheSource@@@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
- *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18027C748 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ *     ?CreateAndCacheBitmap@CD2DBitmapCache@@IEAAJU_LUID@@PEAPEAVCSecondaryD2DBitmap@@@Z @ 0x18003AECC (-CreateAndCacheBitmap@CD2DBitmapCache@@IEAAJU_LUID@@PEAPEAVCSecondaryD2DBitmap@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?UpdateCachedBitmap@CD2DBitmapCache@@IEAAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCSecondaryD2DBitmap@@@Z @ 0x1800643FC (-UpdateCachedBitmap@CD2DBitmapCache@@IEAAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@Rec.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18021669C (-IsKernelDebuggerPresent@@YAHXZ.c)
  */
 
 __int64 __fastcall CD2DBitmapCache::GetBitmapInternal(
-        __int64 a1,
-        CSecondaryD2DBitmap *a2,
+        CD2DBitmapCache *a1,
+        struct _LUID a2,
         int a3,
         CHAR a4,
         volatile signed __int32 **a5)
 {
-  volatile signed __int32 *v5; // rbx
-  unsigned int v9; // r12d
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  _DWORD *v12; // rax
-  unsigned int v13; // r15d
-  __int64 v14; // rcx
-  int v15; // eax
-  __int64 v16; // rcx
-  char *v17; // rcx
-  volatile signed __int32 *v19; // rsi
-  CSecondaryD2DBitmap *v20; // r12
-  __int64 v21; // rcx
-  int v22; // r15d
-  const struct FastRegion::Internal::CRgnData *v23; // rdx
-  int v24; // eax
-  int v25; // eax
-  unsigned int v26; // ecx
-  int v27; // edi
-  int v28; // eax
-  unsigned int v29; // ecx
-  __int64 v30; // rcx
-  int v31; // eax
-  unsigned int v32; // ecx
-  __int64 v33; // rcx
-  int v34; // eax
-  int v35; // r12d
-  BOOL v36; // eax
-  CHAR v37; // cl
+  volatile signed __int32 *v5; // r12
+  unsigned __int64 v6; // r15
+  volatile signed __int32 *v7; // rbx
+  unsigned int v11; // r13d
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  _DWORD *v14; // rax
+  __int64 v15; // rcx
+  _DWORD *v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // rcx
+  __int64 v20; // r15
+  volatile signed __int32 *v21; // rsi
+  __int64 v22; // r13
+  __int64 v23; // rcx
+  int updated; // eax
+  __int64 v25; // rcx
+  volatile signed __int32 *v26; // rdx
+  int v27; // eax
+  __int64 v28; // rcx
+  int v29; // eax
+  int v30; // ebx
+  BOOL v31; // eax
+  CHAR v32; // cl
   HANDLE CurrentProcess; // rax
   HANDLE CurrentThread; // rax
-  unsigned int v40; // ecx
-  unsigned int v41; // [rsp+20h] [rbp-E0h]
-  CHAR Response[8]; // [rsp+60h] [rbp-A0h] BYREF
-  CSecondaryD2DBitmap *v43; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v44; // [rsp+70h] [rbp-90h] BYREF
-  char v45[8]; // [rsp+78h] [rbp-88h] BYREF
-  _QWORD v46[2]; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v47[2]; // [rsp+90h] [rbp-70h] BYREF
-  void *lpMem; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v49; // [rsp+A8h] [rbp-58h] BYREF
-  int v50; // [rsp+B0h] [rbp-50h]
-  _DWORD v51[2]; // [rsp+B4h] [rbp-4Ch] BYREF
-  _DWORD v52[13]; // [rsp+BCh] [rbp-44h] BYREF
-  _QWORD v53[2]; // [rsp+F0h] [rbp-10h] BYREF
-  _QWORD v54[8]; // [rsp+100h] [rbp+0h] BYREF
-  void *retaddr; // [rsp+148h] [rbp+48h]
+  __int64 v35; // rcx
+  CHAR Response[8]; // [rsp+60h] [rbp-31h] BYREF
+  CRenderTargetBitmap *v37; // [rsp+68h] [rbp-29h] BYREF
+  _DWORD v38[2]; // [rsp+70h] [rbp-21h] BYREF
+  char v39[8]; // [rsp+78h] [rbp-19h] BYREF
+  volatile signed __int32 *v40; // [rsp+80h] [rbp-11h]
+  volatile signed __int32 **v41; // [rsp+88h] [rbp-9h]
+  char v42[8]; // [rsp+90h] [rbp-1h] BYREF
+  __int64 v43; // [rsp+98h] [rbp+7h]
+  int v44; // [rsp+A0h] [rbp+Fh]
+  int v45; // [rsp+A4h] [rbp+13h]
 
   v5 = 0LL;
   Response[0] = a4;
-  v9 = 0;
-  v43 = a2;
-  if ( !*(_QWORD *)(a1 + 24) )
+  v6 = HIDWORD(*(unsigned __int64 *)&a2);
+  v7 = 0LL;
+  v37 = (CRenderTargetBitmap *)a2;
+  v11 = 0;
+  v41 = a5;
+  v40 = 0LL;
+  if ( !*((_QWORD *)a1 + 3) )
   {
-    v9 = -2003292412;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2003292412, 0xBAu, 0LL);
+    v11 = -2003292412;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2003292412, 0xBAu, 0LL);
     goto LABEL_9;
   }
-  v10 = *(_QWORD *)(a1 + 32);
-  if ( v10
-    && (v11 = v10 + 8 + *(int *)(*(_QWORD *)(v10 + 8) + 8LL),
-        v12 = (_DWORD *)(*(__int64 (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)v11 + 32LL))(v11, v46),
-        *v12 == (_DWORD)a2) )
+  v12 = *((_QWORD *)a1 + 4);
+  if ( v12 )
   {
-    v13 = HIDWORD(v43);
-    if ( v12[1] == HIDWORD(v43) )
+    v13 = v12 + 8 + *(int *)(*(_QWORD *)(v12 + 8) + 8LL);
+    v14 = (_DWORD *)(*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v13 + 32LL))(v13, v42);
+    if ( *v14 == a2.LowPart && v14[1] == (_DWORD)v6 )
     {
-      v14 = *(_QWORD *)(a1 + 32) + 8LL + *(int *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 16LL);
-      v15 = *(_DWORD *)(*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v14 + 8LL))(v14, v45);
-      if ( v15 == DisplayId::None || v15 == a3 || a3 == DisplayId::All )
+      v15 = *((_QWORD *)a1 + 4) + 8LL + *(int *)(*(_QWORD *)(*((_QWORD *)a1 + 4) + 8LL) + 16LL);
+      v16 = (_DWORD *)(*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v15 + 8LL))(v15, v39);
+      if ( *v16 == DisplayId::None || *v16 == a3 || a3 == DisplayId::All )
       {
-        v16 = *(_QWORD *)(a1 + 32) + 8LL + *(int *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 8LL);
-        if ( !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v16 + 24LL))(v16) || Response[0] )
+        v17 = *((_QWORD *)a1 + 4) + 8LL + *(int *)(*(_QWORD *)(*((_QWORD *)a1 + 4) + 8LL) + 8LL);
+        if ( !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v17 + 24LL))(v17) || Response[0] )
         {
-          v5 = *(volatile signed __int32 **)(a1 + 32);
-          if ( v5 )
+          v7 = (volatile signed __int32 *)*((_QWORD *)a1 + 4);
+          if ( v7 )
           {
-            v17 = (char *)v5 + *(int *)(*((_QWORD *)v5 + 1) + 4LL) + 8;
-            (*(void (__fastcall **)(char *))(*(_QWORD *)v17 + 8LL))(v17);
+            v18 = (__int64)v7 + *(int *)(*((_QWORD *)v7 + 1) + 4LL) + 8;
+            (*(void (__fastcall **)(__int64))(*(_QWORD *)v18 + 8LL))(v18);
           }
           goto LABEL_9;
         }
       }
     }
   }
-  else
-  {
-    v13 = HIDWORD(v43);
-  }
-  v19 = 0LL;
-  v20 = *(CSecondaryD2DBitmap **)(a1 + 48);
-  v43 = *(CSecondaryD2DBitmap **)(a1 + 56);
-  if ( v20 == v43 )
-  {
-LABEL_30:
-    v22 = 2;
-  }
-  else
+  v20 = *((_QWORD *)a1 + 6);
+  v21 = 0LL;
+  v22 = *((_QWORD *)a1 + 7);
+  if ( v20 != v22 )
   {
     while ( 1 )
     {
-      v21 = *(_QWORD *)(*(_QWORD *)v20 + 8LL)
+      v23 = *(_QWORD *)(*(_QWORD *)v20 + 8LL)
           + 16LL
           + *(int *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v20 + 8LL) + 16LL) + 8LL);
-      if ( *(_QWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v21 + 8LL))(v21) + 896) == __PAIR64__(
-                                                                                                    v13,
-                                                                                                    (unsigned int)a2) )
+      if ( *(_QWORD *)((*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v23 + 8LL))(v23) + 936) == __PAIR64__(
+                                                                                                    HIDWORD(v37),
+                                                                                                    a2.LowPart) )
         break;
-      v20 = (CSecondaryD2DBitmap *)((char *)v20 + 8);
-      if ( v20 == v43 )
-        goto LABEL_30;
+      v20 += 8LL;
+      if ( v20 == v22 )
+        goto LABEL_23;
     }
-    v22 = 2;
-    v19 = *(volatile signed __int32 **)(*(_QWORD *)v20 + 8LL);
-    v43 = (CSecondaryD2DBitmap *)v19;
-    if ( v19 )
+    v21 = *(volatile signed __int32 **)(*(_QWORD *)v20 + 8LL);
+    v37 = (CRenderTargetBitmap *)v21;
+    if ( v21 )
     {
-      if ( *((int *)v19 + 2) < 0 && (IsDebuggerPresent() || (unsigned int)IsKernelDebuggerPresent()) )
+      if ( *((int *)v21 + 2) < 0 )
       {
         while ( 1 )
         {
-          v34 = IsKernelDebuggerPresent();
+          v29 = IsKernelDebuggerPresent();
           strcpy(Response, "?");
-          v35 = v34;
-          if ( !v34 )
+          v30 = v29;
+          if ( !v29 )
           {
-            v36 = IsDebuggerPresent();
-            v37 = Response[0];
-            if ( v36 )
-              v37 = 103;
-            Response[0] = v37;
+            v31 = IsDebuggerPresent();
+            v32 = Response[0];
+            if ( v31 )
+              v32 = 103;
+            Response[0] = v32;
           }
           DbgPrintEx(
             0x65u,
             0,
             "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
             L"Tried to AddRef an object which has previously been freed (refcount went to 0).",
-            word_18033C310,
-            word_18033C310,
+            word_1802CE8C0,
+            word_1802CE8C0,
             "Function: ",
-            L"CMILRefCountImpl::AddReference",
+            L"CMILCOMBase::InternalAddRef",
             ", ",
-            L"onecoreuap\\windows\\dwm\\common\\shared\\refcountbase.cpp",
-            23);
-          if ( v35 )
+            L"onecoreuap\\windows\\dwm\\common\\shared\\milcom.cpp",
+            25);
+          if ( v30 )
           {
             DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", Response, 2u);
           }
@@ -198,10 +171,10 @@ LABEL_30:
             case 'B':
             case 'b':
               __debugbreak();
-              goto LABEL_15;
+              goto LABEL_14;
             case 'G':
             case 'g':
-              goto LABEL_15;
+              goto LABEL_14;
             case 'I':
             case 'i':
               DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
@@ -210,154 +183,67 @@ LABEL_30:
             case 'p':
               CurrentProcess = GetCurrentProcess();
               TerminateProcess(CurrentProcess, 0xC0000001);
-              goto LABEL_65;
+              goto LABEL_42;
             case 'T':
             case 't':
               CurrentThread = GetCurrentThread();
               TerminateThread(CurrentThread, 0xC0000001);
-              goto LABEL_65;
+              goto LABEL_42;
             default:
-LABEL_65:
+LABEL_42:
               DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
               break;
           }
         }
       }
-LABEL_15:
-      _InterlockedIncrement(v19 + 2);
-      v19 = (volatile signed __int32 *)v43;
-      if ( v43 )
-      {
-LABEL_16:
-        (***(void (__fastcall ****)(_QWORD, __int64 *))(a1 + 24))(*(_QWORD *)(a1 + 24), &v44);
-        v9 = 0;
-        v53[0] = 0LL;
-        v53[1] = v44;
-        v46[0] = 0LL;
-        v46[1] = 0LL;
-        lpMem = &v49;
-        if ( (int)v44 <= 0 || SHIDWORD(v44) <= 0 )
-        {
-          v22 = 0;
-          LODWORD(v49) = 0;
-        }
-        else
-        {
-          v50 = v44;
-          v52[3] = v44;
-          v49 = 2LL;
-          v51[0] = 0;
-          v51[1] = (unsigned int)v54 - 60 - (unsigned int)v51;
-          v52[2] = 0;
-          v52[0] = HIDWORD(v44);
-          v52[1] = (unsigned int)v54 - 60 - (unsigned int)v52 + 8;
-        }
-        if ( !v22 )
-          goto LABEL_28;
-        v23 = (const struct FastRegion::Internal::CRgnData *)*((_QWORD *)v19 + 33);
-        if ( !*(_DWORD *)v23
-          || !FastRegion::Internal::CRgnData::Intersects((const struct FastRegion::Internal::CRgnData *)&v49, v23) )
-        {
-          goto LABEL_28;
-        }
-        v24 = FastRegion::CRegion::Intersect((FastRegion::CRegion *)&lpMem, (const struct CRegion *)(v19 + 66));
-        if ( v24 < 0 )
-          ModuleFailFastForHRESULT((unsigned int)v24, retaddr);
-        CRegion::GetBoundingRect((CRegion *)&lpMem, (struct MilRectU *)v46);
-        if ( &v49 != lpMem )
-        {
-          operator delete(lpMem);
-          LODWORD(v49) = 0;
-          lpMem = &v49;
-        }
-        if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 24) + 40LL))(*(_QWORD *)(a1 + 24)) )
-        {
-          v25 = CSecondaryD2DBitmap::Update((CSecondaryD2DBitmap *)v19);
-          v27 = v25;
-          v9 = v25;
-          if ( v25 >= 0 )
-            goto LABEL_27;
-          v41 = 263;
-        }
-        else
-        {
-          v25 = CD2DBitmapCache::EnsureSysmemBitmap((CD2DBitmapCache *)a1);
-          v27 = v25;
-          v9 = v25;
-          if ( v25 < 0 )
-          {
-            v41 = 267;
-          }
-          else
-          {
-            if ( !(unsigned __int8)CSecondaryBitmap::IsRegionValid(*(_QWORD *)(a1 + 40) + 32LL, v53, 0LL) )
-            {
-              v30 = *(_QWORD *)(a1 + 40) + 32LL;
-              v47[0] = 0LL;
-              v47[1] = 0LL;
-              if ( !(unsigned __int8)CSecondaryBitmap::IsRegionValid(v30, 0LL, v47) )
-              {
-                v31 = CSecondarySysmemBitmap::Update(*(_QWORD *)(a1 + 40), v47, *(_QWORD *)(a1 + 24));
-                v9 = v31;
-                if ( v31 < 0 )
-                {
-                  MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0, v31, 0x13Cu, 0LL);
-                  v27 = v9;
-                  MilInstrumentationCheckHR_MaybeFailFast(v40, 0LL, 0, v9, 0x10Fu, 0LL);
-                  goto LABEL_76;
-                }
-              }
-            }
-            v25 = CSecondaryD2DBitmap::Update((CSecondaryD2DBitmap *)v19);
-            v27 = v25;
-            v9 = v25;
-            if ( v25 >= 0 )
-            {
-              if ( *(_BYTE *)(a1 + 72) )
-              {
-                v33 = *(_QWORD *)(a1 + 40);
-                *(_QWORD *)(a1 + 40) = 0LL;
-                if ( v33 )
-                  CMILRefCountBaseT<ID2DBitmapCacheSource>::InternalRelease();
-                goto LABEL_28;
-              }
-LABEL_27:
-              v9 = v27;
-              if ( v27 >= 0 )
-              {
-LABEL_28:
-                if ( v19 )
-                  v5 = v19 + 20;
-                goto LABEL_9;
-              }
-              goto LABEL_76;
-            }
-            v41 = 275;
-          }
-        }
-        MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, v41, 0LL);
-LABEL_76:
-        MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v27, 0xACu, 0LL);
-        if ( v19 )
-          CMILRefCountBaseT<IUnknown>::InternalRelease(v19);
-        goto LABEL_9;
-      }
+LABEL_14:
+      _InterlockedIncrement(v21 + 2);
+      v21 = (volatile signed __int32 *)v37;
+      v7 = v40;
+      if ( v37 )
+        goto LABEL_15;
     }
   }
-  v43 = 0LL;
-  if ( v19 )
-    CMILRefCountBaseT<IUnknown>::InternalRelease(v19);
-  v28 = CD2DBitmapCache::CreateAndCacheBitmap((CD2DBitmapCache *)a1, (struct _LUID)a2, &v43);
-  v9 = v28;
-  if ( v28 >= 0 )
+LABEL_23:
+  v37 = 0LL;
+  if ( v21 )
+    CRenderTargetBitmap::Release((CRenderTargetBitmap *)v21);
+  v27 = CD2DBitmapCache::CreateAndCacheBitmap(a1, a2, &v37);
+  v11 = v27;
+  if ( v27 >= 0 )
   {
-    v19 = (volatile signed __int32 *)v43;
-    goto LABEL_16;
+    v21 = (volatile signed __int32 *)v37;
+LABEL_15:
+    (***((void (__fastcall ****)(_QWORD, _DWORD *))a1 + 3))(*((_QWORD *)a1 + 3), v38);
+    v44 = v38[0];
+    v45 = v38[1];
+    v43 = 0LL;
+    updated = CD2DBitmapCache::UpdateCachedBitmap(a1);
+    v11 = updated;
+    if ( updated < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, updated, 0xACu, 0LL);
+      if ( v21 )
+        CRenderTargetBitmap::Release((CRenderTargetBitmap *)v21);
+    }
+    else
+    {
+      if ( v21 )
+        v5 = v21 + 20;
+      v26 = v7;
+      v7 = v5;
+      if ( v26 )
+      {
+        v35 = (__int64)v26 + *(int *)(*((_QWORD *)v26 + 1) + 4LL) + 8;
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v35 + 16LL))(v35);
+      }
+    }
+    goto LABEL_9;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0xA5u, 0LL);
-  if ( v43 )
-    CMILRefCountBaseT<IUnknown>::InternalRelease(v43);
+  MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0xA5u, 0LL);
+  if ( v37 )
+    CRenderTargetBitmap::Release(v37);
 LABEL_9:
-  *a5 = v5;
-  return v9;
+  *v41 = v7;
+  return v11;
 }

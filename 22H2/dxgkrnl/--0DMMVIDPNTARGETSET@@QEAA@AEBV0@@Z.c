@@ -1,19 +1,19 @@
 /*
- * XREFs of ??0DMMVIDPNTARGETSET@@QEAA@AEBV0@@Z @ 0x1C00060BC
+ * XREFs of ??0DMMVIDPNTARGETSET@@QEAA@AEBV0@@Z @ 0x1C000AEB8
  * Callers:
- *     ??0DMMVIDPN@@QEAA@AEBV0@@Z @ 0x1C01993D0 (--0DMMVIDPN@@QEAA@AEBV0@@Z.c)
+ *     ??0DMMVIDPN@@QEAA@AEBV0@@Z @ 0x1C011D170 (--0DMMVIDPN@@QEAA@AEBV0@@Z.c)
  * Callees:
- *     ??0?$DoublyLinkedList@VDMMVIDPNTARGET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNTARGET@@@@@@QEAA@AEBV0@@Z @ 0x1C00099B4 (--0-$DoublyLinkedList@VDMMVIDPNTARGET@@U-$DoubleLinkedListElementDeleter@VDMMVIDPNTARGET@@@@@@QE.c)
+ *     ??0?$DoublyLinkedList@VDMMVIDPNTARGET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNTARGET@@@@@@QEAA@AEBV0@@Z @ 0x1C00059D0 (--0-$DoublyLinkedList@VDMMVIDPNTARGET@@U-$DoubleLinkedListElementDeleter@VDMMVIDPNTARGET@@@@@@QE.c)
  */
 
 DMMVIDPNTARGETSET *__fastcall DMMVIDPNTARGETSET::DMMVIDPNTARGETSET(
         DMMVIDPNTARGETSET *this,
         const struct DMMVIDPNTARGETSET *a2)
 {
-  *(_QWORD *)this = &Set<DMMVIDPNTARGET>::`vftable';
+  *(_QWORD *)this = &Set<DMMVIDPNSOURCE>::`vftable';
   DoublyLinkedList<DMMVIDPNTARGET,DoubleLinkedListElementDeleter<DMMVIDPNTARGET>>::DoublyLinkedList<DMMVIDPNTARGET,DoubleLinkedListElementDeleter<DMMVIDPNTARGET>>(
-    (char *)this + 8,
-    (char *)a2 + 8);
+    (__int64)this + 8,
+    (__int64)a2 + 8);
   *((_DWORD *)this + 14) = 0;
   *((_QWORD *)this + 9) = 0LL;
   *(_QWORD *)this = &IndexedSet<DMMVIDPNTARGET>::`vftable';

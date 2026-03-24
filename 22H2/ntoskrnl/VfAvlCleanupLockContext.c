@@ -1,73 +1,77 @@
 /*
- * XREFs of VfAvlCleanupLockContext @ 0x14020A374
+ * XREFs of VfAvlCleanupLockContext @ 0x140372304
  * Callers:
- *     VfTargetDriversGetNode @ 0x140209FAC (VfTargetDriversGetNode.c)
- *     VfTargetDriversAdd @ 0x14020A1B8 (VfTargetDriversAdd.c)
- *     VfTargetDriversRemove @ 0x14020A7FC (VfTargetDriversRemove.c)
- *     VfTargetRecoverIoCallbacks @ 0x1405CF294 (VfTargetRecoverIoCallbacks.c)
- *     VfTargetReplaceIoCallbacks @ 0x1405CF2E8 (VfTargetReplaceIoCallbacks.c)
- *     VfRemLockDeleteMemoryRange @ 0x140AC11C2 (VfRemLockDeleteMemoryRange.c)
- *     VfTargetDriversDisableVerifier @ 0x140ACC410 (VfTargetDriversDisableVerifier.c)
- *     VfTargetDriversEnableVerifier @ 0x140ACC480 (VfTargetDriversEnableVerifier.c)
- *     VfTargetEtwRegister @ 0x140ACC648 (VfTargetEtwRegister.c)
- *     VfTargetEtwUnregister @ 0x140ACC734 (VfTargetEtwUnregister.c)
- *     ViTargetAddToCounter @ 0x140ACC994 (ViTargetAddToCounter.c)
- *     ViTargetFreeContiguousMemory @ 0x140ACCAC0 (ViTargetFreeContiguousMemory.c)
- *     ViTargetIncrementCounter @ 0x140ACCBDC (ViTargetIncrementCounter.c)
- *     ViTargetTrackContiguousMemory @ 0x140ACCD80 (ViTargetTrackContiguousMemory.c)
- *     ViTargetWMIDeregister @ 0x140ACCEB8 (ViTargetWMIDeregister.c)
- *     ViTargetWMIRegister @ 0x140ACCF84 (ViTargetWMIRegister.c)
- *     VfDevObjIsDeviceRemoved @ 0x140AD30A8 (VfDevObjIsDeviceRemoved.c)
- *     VfDevObjMarkDeviceRemoved @ 0x140AD3118 (VfDevObjMarkDeviceRemoved.c)
- *     ViDevObjAdd @ 0x140AD3440 (ViDevObjAdd.c)
- *     ViDevObjRemove @ 0x140AD34C0 (ViDevObjRemove.c)
- *     VerifierIoInitializeRemoveLockEx @ 0x140AD3620 (VerifierIoInitializeRemoveLockEx.c)
- *     ViRemLockDeleteFirstTreeNode @ 0x140AD38CC (ViRemLockDeleteFirstTreeNode.c)
- *     ViRemLockFindSurrogate @ 0x140AD3978 (ViRemLockFindSurrogate.c)
- *     VfSuspectDriversGetVerifierInformation @ 0x140ADB44C (VfSuspectDriversGetVerifierInformation.c)
- *     VfAvlDeleteAllTreeNodes @ 0x140ADD230 (VfAvlDeleteAllTreeNodes.c)
- *     VfCheckForLookaside @ 0x140AE3178 (VfCheckForLookaside.c)
- *     VfLookasideAdd @ 0x140AE3240 (VfLookasideAdd.c)
- *     VfLookasideDelete @ 0x140AE335C (VfLookasideDelete.c)
- *     VerifierIoWMIRegistrationControl @ 0x140AE5080 (VerifierIoWMIRegistrationControl.c)
- *     VfCheckForResource @ 0x140AE538C (VfCheckForResource.c)
- *     VfDeleteResource @ 0x140AE54D0 (VfDeleteResource.c)
- *     VfTrackResource @ 0x140AE55E4 (VfTrackResource.c)
+ *     VfTargetDriversAdd @ 0x14037221C (VfTargetDriversAdd.c)
+ *     VfTargetDriversRemove @ 0x14037E300 (VfTargetDriversRemove.c)
+ *     VfTargetDriversGetNode @ 0x1405A1CDC (VfTargetDriversGetNode.c)
+ *     VfDevObjIsDeviceRemoved @ 0x1409D5FE8 (VfDevObjIsDeviceRemoved.c)
+ *     VfDevObjMarkDeviceRemoved @ 0x1409D6058 (VfDevObjMarkDeviceRemoved.c)
+ *     ViDevObjAdd @ 0x1409D62DC (ViDevObjAdd.c)
+ *     ViDevObjRemove @ 0x1409D635C (ViDevObjRemove.c)
+ *     VerifierIoInitializeRemoveLockEx @ 0x1409D64D0 (VerifierIoInitializeRemoveLockEx.c)
+ *     VfRemLockDeleteMemoryRange @ 0x1409D671C (VfRemLockDeleteMemoryRange.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x1409D6814 (ViRemLockDeleteFirstTreeNode.c)
+ *     ViRemLockFindSurrogate @ 0x1409D68C0 (ViRemLockFindSurrogate.c)
+ *     VfTargetDriversEnableVerifier @ 0x1409D6DA4 (VfTargetDriversEnableVerifier.c)
+ *     VfTargetEtwRegister @ 0x1409D6F74 (VfTargetEtwRegister.c)
+ *     VfTargetEtwUnregister @ 0x1409D7064 (VfTargetEtwUnregister.c)
+ *     ViTargetAddToCounter @ 0x1409D72C0 (ViTargetAddToCounter.c)
+ *     ViTargetFreeContiguousMemory @ 0x1409D73F4 (ViTargetFreeContiguousMemory.c)
+ *     ViTargetIncrementCounter @ 0x1409D751C (ViTargetIncrementCounter.c)
+ *     ViTargetTrackContiguousMemory @ 0x1409D76C0 (ViTargetTrackContiguousMemory.c)
+ *     ViTargetWMIDeregister @ 0x1409D77FC (ViTargetWMIDeregister.c)
+ *     ViTargetWMIRegister @ 0x1409D78C4 (ViTargetWMIRegister.c)
+ *     VfSuspectDriversGetVerifierInformation @ 0x1409D98F0 (VfSuspectDriversGetVerifierInformation.c)
+ *     VfCheckForLookaside @ 0x1409E1528 (VfCheckForLookaside.c)
+ *     ViLookasideAdd @ 0x1409E15C4 (ViLookasideAdd.c)
+ *     ViLookasideDelete @ 0x1409E16EC (ViLookasideDelete.c)
+ *     VerifierExDeleteResourceLite @ 0x1409E1E30 (VerifierExDeleteResourceLite.c)
+ *     VerifierExInitializeResourceLite @ 0x1409E2210 (VerifierExInitializeResourceLite.c)
+ *     VfCheckForResource @ 0x1409E249C (VfCheckForResource.c)
+ *     VerifierIoWMIRegistrationControl @ 0x1409E7F70 (VerifierIoWMIRegistrationControl.c)
  * Callees:
- *     ViAvlReleaseTableLockFromDpcLevel @ 0x14020A484 (ViAvlReleaseTableLockFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x1403723EC (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall VfAvlCleanupLockContext(__int64 a1)
+char __fastcall VfAvlCleanupLockContext(__int64 a1)
 {
-  unsigned __int64 v2; // rdi
-  unsigned __int8 CurrentIrql; // al
+  int v1; // eax
+  unsigned __int64 v3; // rdi
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v6; // eax
-  bool v7; // zf
+  bool v6; // zf
 
-  if ( (*(_BYTE *)(a1 + 9) & 2) != 0 )
-    ViAvlReleaseTableLockFromDpcLevel(*(_QWORD *)a1, a1);
-  if ( (*(_BYTE *)(a1 + 9) & 1) != 0 )
+  LOBYTE(v1) = *(_BYTE *)(a1 + 9);
+  if ( (v1 & 2) != 0 )
   {
-    v2 = *(unsigned __int8 *)(a1 + 8);
+    ViAvlReleaseTableLockFromDpcLevel(*(_QWORD *)a1, a1);
+    LOBYTE(v1) = *(_BYTE *)(a1 + 9);
+  }
+  if ( (v1 & 1) != 0 )
+  {
+    LOBYTE(v1) = KiIrqlFlags;
+    v3 = *(unsigned __int8 *)(a1 + 8);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-        v7 = (v6 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v6;
-        if ( v7 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        LOBYTE(v1) = KeGetCurrentIrql();
+        if ( (unsigned __int8)v1 <= 0xFu && (unsigned __int8)v3 <= 0xFu && (unsigned __int8)v1 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v1 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+          v6 = (v1 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v1;
+          if ( v6 )
+            LOBYTE(v1) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    __writecr8(v2);
+    __writecr8(v3);
     *(_BYTE *)(a1 + 9) &= ~1u;
     *(_BYTE *)(a1 + 8) = 0;
   }
+  return v1;
 }

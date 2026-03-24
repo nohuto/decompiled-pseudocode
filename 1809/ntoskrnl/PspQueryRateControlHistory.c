@@ -9,11 +9,11 @@
  *     KeQuerySchedulingGroupHistory @ 0x14000F634 (KeQuerySchedulingGroupHistory.c)
  *     RtlCopyBitMap @ 0x14000F710 (RtlCopyBitMap.c)
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PspNetRateControlDispatch @ 0x140889E34 (PspNetRateControlDispatch.c)
+ *     PspNetRateControlDispatch @ 0x140889E14 (PspNetRateControlDispatch.c)
  */
 
 void __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWORD *a4, int a5)

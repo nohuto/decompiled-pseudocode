@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z @ 0x1C007F5C0
+ * XREFs of ?CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z @ 0x1C009B1A0
  * Callers:
  *     <none>
  * Callees:
- *     ?CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z @ 0x1C007F6E0 (-CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z.c)
- *     ?ValidateGlyphBitsBuffer@@YA_NKJJKK@Z @ 0x1C007F700 (-ValidateGlyphBitsBuffer@@YA_NKJJKK@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     ?ValidateGlyphBitsBuffer@@YA_NKJJKK@Z @ 0x1C009B0A4 (-ValidateGlyphBitsBuffer@@YA_NKJJKK@Z.c)
+ *     ?CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z @ 0x1C009B338 (-CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 void __fastcall QueryFontDataRequest::CaptureUsermodeParameters(QueryFontDataRequest *this, _QWORD *a2)
@@ -24,9 +24,7 @@ void __fastcall QueryFontDataRequest::CaptureUsermodeParameters(QueryFontDataReq
   _DWORD *v14; // rdx
   int v15; // r10d
   unsigned int v16; // r9d
-  int v17; // ecx
-  int v18; // ecx
-  unsigned int v19; // r9d
+  unsigned int v17; // r9d
 
   v3 = (struct _FONTOBJ *)a2[2];
   v4 = (_OWORD *)a2[3];
@@ -59,43 +57,45 @@ void __fastcall QueryFontDataRequest::CaptureUsermodeParameters(QueryFontDataReq
     }
     v10 = (void *)*((_QWORD *)this + 9);
     if ( !v10 )
-      goto LABEL_11;
+      goto LABEL_27;
     v11 = *((_DWORD *)this + 20);
     if ( !v11 )
-      goto LABEL_11;
+      goto LABEL_27;
     v12 = *((_DWORD *)this + 12);
     if ( v12 == 2 )
-      goto LABEL_11;
-    if ( v6 > v11 || v6 != 124 && v12 == 3 )
-      return;
-    memmove(v10, v5, *((unsigned int *)this + 20));
-    v13 = *((_DWORD *)this + 12);
-    if ( v13 == 3 || (v14 = (_DWORD *)*((_QWORD *)this + 8)) == 0LL )
+      goto LABEL_27;
+    if ( v6 <= v11 && (v12 != 3 || v6 == 124) )
     {
-LABEL_11:
-      *((_DWORD *)this + 21) = v6;
-      return;
-    }
-    v15 = v14[10] - v14[8];
-    v16 = 0;
-    v17 = v13 - 5;
-    if ( v17 )
-    {
-      v18 = v17 - 1;
-      if ( v18 && (unsigned int)(v18 - 2) > 1 )
+      memmove(v10, v5, *((unsigned int *)this + 20));
+      v13 = *((_DWORD *)this + 12);
+      if ( v13 != 3 )
       {
-LABEL_31:
-        if ( !ValidateGlyphBitsBuffer(*((_DWORD *)this + 20), v15, v14[11] - v14[9], v16, 0) )
-          return;
-        goto LABEL_11;
+        v14 = (_DWORD *)*((_QWORD *)this + 8);
+        if ( v14 )
+        {
+          v15 = v14[10] - v14[8];
+          v16 = 0;
+          if ( v13 == 5 )
+          {
+            v17 = ((unsigned int)(v15 + 7) >> 3) + 3;
+          }
+          else
+          {
+            if ( v13 != 6 && (unsigned int)(v13 - 8) > 1 )
+            {
+LABEL_26:
+              if ( !ValidateGlyphBitsBuffer(*((_DWORD *)this + 20), v15, v14[11] - v14[9], v16, 0) )
+                return;
+              goto LABEL_27;
+            }
+            v17 = v15 + 3;
+          }
+          v16 = v17 & 0xFFFFFFFC;
+          goto LABEL_26;
+        }
       }
-      v19 = v15 + 3;
+LABEL_27:
+      *((_DWORD *)this + 21) = v6;
     }
-    else
-    {
-      v19 = ((unsigned int)(v15 + 7) >> 3) + 3;
-    }
-    v16 = v19 & 0xFFFFFFFC;
-    goto LABEL_31;
   }
 }

@@ -1,102 +1,101 @@
 /*
- * XREFs of ?GetDestToTexSpaceTransform@CTreeEffectLayer@@QEAA?AVMatrix3x3@@I@Z @ 0x1801F3D04
+ * XREFs of ?GetDestToTexSpaceTransform@CTreeEffectLayer@@QEAA?AVMatrix3x3@@I@Z @ 0x18000602C
  * Callers:
- *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@IPEAVCDrawListCache@@@Z @ 0x180093240 (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
+ *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x180056BE8 (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
  * Callees:
- *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180080594 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
- *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x18008065C (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
- *     ?Invert@Matrix3x2F@D2D1@@QEAA_NXZ @ 0x1800E7B68 (-Invert@Matrix3x2F@D2D1@@QEAA_NXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetAutomaticBoundsExpansion@CLayerVisual@@QEBA_NXZ @ 0x180005F44 (-GetAutomaticBoundsExpansion@CLayerVisual@@QEBA_NXZ.c)
+ *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x180007298 (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
+ *     ?Invert@Matrix3x2F@D2D1@@QEAA_NXZ @ 0x180018594 (-Invert@Matrix3x2F@D2D1@@QEAA_NXZ.c)
+ *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180058584 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 _DWORD *__fastcall CTreeEffectLayer::GetDestToTexSpaceTransform(__int64 a1, _DWORD *a2, unsigned int a3)
 {
   void (__fastcall ***v6)(_QWORD, int *); // rcx
-  float v7; // xmm0_4
-  float v8; // xmm1_4
-  float v9; // xmm2_4
-  float v10; // xmm6_4
-  float v11; // xmm7_4
-  float v12; // xmm3_4
-  float v13; // xmm4_4
-  int v14; // xmm0_4
+  float v7; // xmm1_4
+  float v8; // xmm6_4
+  float v9; // xmm7_4
+  __int64 v10; // rax
+  float v11; // xmm3_4
+  float v12; // xmm4_4
+  int v13; // xmm0_4
   _DWORD *result; // rax
-  float v16; // xmm1_4
-  float v17; // xmm3_4
-  int v18; // xmm4_4
-  float v19; // xmm0_4
-  float v20; // xmm1_4
-  int v21; // [rsp+28h] [rbp-49h] BYREF
-  int v22; // [rsp+2Ch] [rbp-45h]
-  float v23; // [rsp+30h] [rbp-41h] BYREF
-  int v24; // [rsp+34h] [rbp-3Dh]
-  int v25; // [rsp+38h] [rbp-39h]
-  float v26; // [rsp+3Ch] [rbp-35h]
-  float v27; // [rsp+40h] [rbp-31h]
-  float v28; // [rsp+44h] [rbp-2Dh]
-  D2D1_MATRIX_3X2_F v29; // [rsp+48h] [rbp-29h] BYREF
+  float v15; // xmm1_4
+  float v16; // xmm3_4
+  int v17; // xmm4_4
+  float v18; // xmm0_4
+  float v19; // xmm1_4
+  int v20; // [rsp+28h] [rbp-49h] BYREF
+  int v21; // [rsp+2Ch] [rbp-45h]
+  float v22; // [rsp+30h] [rbp-41h] BYREF
+  int v23; // [rsp+34h] [rbp-3Dh]
+  int v24; // [rsp+38h] [rbp-39h]
+  float v25; // [rsp+3Ch] [rbp-35h]
+  float v26; // [rsp+40h] [rbp-31h]
+  float v27; // [rsp+44h] [rbp-2Dh]
+  __int128 v28; // [rsp+48h] [rbp-29h] BYREF
+  __int64 v29; // [rsp+58h] [rbp-19h]
   _BYTE v30[24]; // [rsp+60h] [rbp-11h] BYREF
 
   v6 = (void (__fastcall ***)(_QWORD, int *))(*(int *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL) + 16LL)
                                             + *(_QWORD *)(a1 + 8)
                                             + 8LL);
-  (**v6)(v6, &v21);
+  (**v6)(v6, &v20);
   v7 = *(float *)(a1 + 280);
-  v8 = (float)*(int *)(a1 + 16);
-  v9 = (float)*(int *)(a1 + 20);
-  v10 = (float)(*(float *)(a1 + 196) - v8) * v7;
-  v11 = (float)(*(float *)(a1 + 200) - v9) * v7;
-  if ( *(_BYTE *)(*(_QWORD *)(a1 + 256) + 728LL) )
+  v8 = (float)(*(float *)(a1 + 196) - (float)*(int *)(a1 + 16)) * v7;
+  v9 = (float)(*(float *)(a1 + 200) - (float)*(int *)(a1 + 20)) * v7;
+  if ( CLayerVisual::GetAutomaticBoundsExpansion(*(CLayerVisual **)(a1 + 256)) )
   {
-    v10 = *(float *)(a1 + 228) - v8;
-    v11 = *(float *)(a1 + 232) - v9;
+    v8 = *(float *)(a1 + 228) - (float)*(int *)(a1 + 16);
+    v9 = *(float *)(a1 + 232) - (float)*(int *)(a1 + 20);
   }
-  v29 = *(D2D1_MATRIX_3X2_F *)(*(__int64 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(a1 + 248) + 112LL)
-                                                                        + 24LL))(
-                                *(_QWORD *)(*(_QWORD *)(a1 + 248) + 112LL),
-                                a3);
-  if ( !D2D1::Matrix3x2F::IsIdentity((D2D1::Matrix3x2F *)&v29) )
+  v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(a1 + 248) + 104LL) + 24LL))(
+          *(_QWORD *)(*(_QWORD *)(a1 + 248) + 104LL),
+          a3);
+  v28 = *(_OWORD *)v10;
+  v29 = *(_QWORD *)(v10 + 16);
+  if ( !D2D1::Matrix3x2F::IsIdentity((D2D1::Matrix3x2F *)&v28) )
   {
-    D2D1::Matrix3x2F::Invert(&v29);
-    v10 = v10 + v29.dx;
-    v29.dx = 0.0;
-    v11 = v11 + v29.dy;
-    v29.dy = 0.0;
+    D2D1::Matrix3x2F::Invert((D2D1::Matrix3x2F *)&v28);
+    v8 = v8 + *(float *)&v29;
+    v9 = v9 + *((float *)&v29 + 1);
+    v29 = 0LL;
   }
+  v23 = 0;
   v24 = 0;
-  v25 = 0;
-  v12 = (float)v22;
-  v23 = 1.0 / (float)v21;
-  v26 = 1.0 / (float)v22;
-  v27 = 0.0 - (float)(v23 * 0.0);
-  v28 = 0.0 - (float)(v26 * 0.0);
+  v11 = (float)v21;
+  v22 = 1.0 / (float)v20;
+  v25 = 1.0 / (float)v21;
+  v26 = 0.0 - (float)(v22 * 0.0);
+  v27 = 0.0 - (float)(v25 * 0.0);
   D2D1::Matrix3x2F::SetProduct(
     (D2D1::Matrix3x2F *)v30,
-    (const struct D2D1::Matrix3x2F *)&v23,
-    (const struct D2D1::Matrix3x2F *)&v29);
-  v29.dx = v10 / v13;
-  v29.dy = v11 / v12;
-  *(_OWORD *)&v29.m11 = *(_OWORD *)&_xmm;
+    (const struct D2D1::Matrix3x2F *)&v22,
+    (const struct D2D1::Matrix3x2F *)&v28);
+  *(float *)&v29 = v8 / v12;
+  *((float *)&v29 + 1) = v9 / v11;
+  v28 = _xmm;
   D2D1::Matrix3x2F::SetProduct(
-    (D2D1::Matrix3x2F *)&v23,
+    (D2D1::Matrix3x2F *)&v22,
     (const struct D2D1::Matrix3x2F *)v30,
-    (const struct D2D1::Matrix3x2F *)&v29);
-  v14 = v25;
+    (const struct D2D1::Matrix3x2F *)&v28);
+  v13 = v24;
   result = a2;
-  v16 = v26;
+  v15 = v25;
+  v16 = v22;
   v17 = v23;
-  v18 = v24;
   a2[2] = 0;
   a2[5] = 0;
-  a2[3] = v14;
+  a2[3] = v13;
+  v18 = v26;
+  *((float *)a2 + 4) = v15;
   v19 = v27;
-  *((float *)a2 + 4) = v16;
-  v20 = v28;
-  *((float *)a2 + 6) = v19;
-  *((float *)a2 + 7) = v20;
-  *(float *)a2 = v17;
-  a2[1] = v18;
+  *((float *)a2 + 6) = v18;
+  *((float *)a2 + 7) = v19;
+  *(float *)a2 = v16;
+  a2[1] = v17;
   a2[8] = 1065353216;
   return result;
 }

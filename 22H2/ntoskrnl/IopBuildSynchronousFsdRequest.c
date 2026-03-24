@@ -1,20 +1,20 @@
 /*
- * XREFs of IopBuildSynchronousFsdRequest @ 0x1407FDA70
+ * XREFs of IopBuildSynchronousFsdRequest @ 0x1406FF1D0
  * Callers:
- *     PnpQueryInterface @ 0x1407FD8F0 (PnpQueryInterface.c)
- *     IoBuildSynchronousFsdRequest @ 0x1407FDA30 (IoBuildSynchronousFsdRequest.c)
- *     IopCreateArcName @ 0x14086FCF8 (IopCreateArcName.c)
- *     HalpQueryPccInterface @ 0x140935B40 (HalpQueryPccInterface.c)
- *     RawQueryFileSystemInformation @ 0x1409B8924 (RawQueryFileSystemInformation.c)
+ *     IoBuildSynchronousFsdRequest @ 0x1406FF190 (IoBuildSynchronousFsdRequest.c)
+ *     PnpQueryInterface @ 0x1407653A4 (PnpQueryInterface.c)
+ *     IopCreateArcName @ 0x140780218 (IopCreateArcName.c)
+ *     HalpQueryPccInterface @ 0x140866ACC (HalpQueryPccInterface.c)
+ *     RawQueryFileSystemInformation @ 0x14090F928 (RawQueryFileSystemInformation.c)
  * Callees:
- *     IopQueueThreadIrp @ 0x14022ED80 (IopQueueThreadIrp.c)
- *     IopBuildAsynchronousFsdRequest @ 0x1403715A0 (IopBuildAsynchronousFsdRequest.c)
+ *     IopQueueThreadIrp @ 0x1402CB9A0 (IopQueueThreadIrp.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x140358DF0 (IopBuildAsynchronousFsdRequest.c)
  */
 
 __int64 __fastcall IopBuildSynchronousFsdRequest(
         unsigned int a1,
         __int64 a2,
-        const void *a3,
+        void *a3,
         unsigned int a4,
         _QWORD *a5,
         __int64 a6,

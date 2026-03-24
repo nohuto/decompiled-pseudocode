@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpPrefetchSharedInitialize @ 0x14074C2E4
+ * XREFs of PfpPrefetchSharedInitialize @ 0x14070C0A0
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406846E8 (PfpPrefetchRequestPerform.c)
- *     PfSnAsyncPrefetchWorker @ 0x14074E1B0 (PfSnAsyncPrefetchWorker.c)
- *     PfpQueryFileExtentsRequest @ 0x14097E5A0 (PfpQueryFileExtentsRequest.c)
+ *     PfSnAsyncPrefetchWorker @ 0x14062E400 (PfSnAsyncPrefetchWorker.c)
+ *     PfpPrefetchRequestPerform @ 0x14070AFA4 (PfpPrefetchRequestPerform.c)
+ *     PfpQueryFileExtentsRequest @ 0x1408DFD5C (PfpQueryFileExtentsRequest.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void __fastcall PfpPrefetchSharedInitialize(__int64 a1)

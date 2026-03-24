@@ -1,11 +1,11 @@
 /*
- * XREFs of PipFreeBindingRequestEntry @ 0x140942AC4
+ * XREFs of PipFreeBindingRequestEntry @ 0x14089DCCC
  * Callers:
- *     PipFreeDependencyEdge @ 0x14055FBE4 (PipFreeDependencyEdge.c)
- *     PipAddRequestToEdge @ 0x140942760 (PipAddRequestToEdge.c)
+ *     PipFreeDependencyEdge @ 0x14050C720 (PipFreeDependencyEdge.c)
+ *     PipAddRequestToEdge @ 0x14089D95C (PipAddRequestToEdge.c)
  * Callees:
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PipFreeBindingRequestEntry(PVOID P)
@@ -17,7 +17,7 @@ void __fastcall PipFreeBindingRequestEntry(PVOID P)
     v2 = (UNICODE_STRING *)*((_QWORD *)P + 3);
     if ( v2 )
     {
-      RtlFreeUnicodeString(v2);
+      RtlFreeAnsiString(v2);
       ExFreePoolWithTag(*((PVOID *)P + 3), 0x53706E50u);
       *((_QWORD *)P + 3) = 0LL;
     }

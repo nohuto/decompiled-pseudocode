@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDoesKeyHaveOpenSubkeys @ 0x140699A80
+ * XREFs of CmpDoesKeyHaveOpenSubkeys @ 0x14066D074
  * Callers:
- *     CmpTryToRundownHive @ 0x1402092DC (CmpTryToRundownHive.c)
- *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
+ *     CmpTryToRundownHive @ 0x140360C44 (CmpTryToRundownHive.c)
+ *     CmpPerformUnloadKey @ 0x14066CBFC (CmpPerformUnloadKey.c)
+ *     CmRestoreKey @ 0x14087BF80 (CmRestoreKey.c)
  * Callees:
- *     CmpEnumerateAllOpenSubKeys @ 0x140699ABC (CmpEnumerateAllOpenSubKeys.c)
+ *     CmpEnumerateAllOpenSubKeys @ 0x14066D0E4 (CmpEnumerateAllOpenSubKeys.c)
  */
 
 bool __fastcall CmpDoesKeyHaveOpenSubkeys(__int64 a1)

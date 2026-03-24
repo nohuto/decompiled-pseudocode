@@ -1,15 +1,15 @@
 /*
- * XREFs of Endpoint_OnResetSetDequeuePointerCompletion @ 0x1C003B660
+ * XREFs of Endpoint_OnResetSetDequeuePointerCompletion @ 0x1C0039730
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
- *     Controller_ReportFatalErrorEx @ 0x1C001EBDC (Controller_ReportFatalErrorEx.c)
- *     WPP_RECORDER_SF_ddL @ 0x1C0030AE4 (WPP_RECORDER_SF_ddL.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033674 (Controller_HwVerifierBreakIfEnabled.c)
- *     Endpoint_StreamsOnResetSetDequeuePointerComplete @ 0x1C003C3D0 (Endpoint_StreamsOnResetSetDequeuePointerComplete.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     Endpoint_StreamsOnResetSetDequeuePointerComplete @ 0x1C003A3E4 (Endpoint_StreamsOnResetSetDequeuePointerComplete.c)
  */
 
 void __fastcall Endpoint_OnResetSetDequeuePointerCompletion(__int64 a1, int a2, __int128 *a3)
@@ -33,12 +33,12 @@ void __fastcall Endpoint_OnResetSetDequeuePointerCompletion(__int64 a1, int a2, 
         a2,
         13,
         42,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v6 + 16) + 135LL),
         *(_DWORD *)(v6 + 144));
     }
 LABEL_8:
-    *(_DWORD *)(v6 + 288) = -1073741823;
+    *(_DWORD *)(v6 + 280) = -1073741823;
     _m_prefetchw((const void *)(v6 + 32));
     if ( (_InterlockedOr((volatile signed __int32 *)(v6 + 32), 2u) & 2) != 0 )
       return;
@@ -57,7 +57,7 @@ LABEL_8:
         v8,
         13,
         43,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(v6 + 16) + 135LL),
         *(_DWORD *)(v6 + 144),
         v7);
@@ -70,7 +70,7 @@ LABEL_8:
       "Set Dequeue pointer command following a Reset Endpoint command failed",
       (__int128 *)(a1 + 24),
       a3);
-    Controller_ReportFatalErrorEx(*(_QWORD *)v6, 2u, 4122, 0LL, 0LL, *(_QWORD *)(v6 + 16), v6, (__int64)a3);
+    Controller_ReportFatalError(*(_QWORD *)v6, 2, 4122, 0LL, *(_QWORD *)(v6 + 16), v6, (__int64)a3);
     goto LABEL_8;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -82,7 +82,7 @@ LABEL_8:
       v10,
       13,
       44,
-      (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v6 + 16) + 135LL),
       *(_DWORD *)(v6 + 144),
       *(_WORD *)(a1 + 34));
@@ -92,8 +92,8 @@ LABEL_8:
     Endpoint_StreamsOnResetSetDequeuePointerComplete(v3, *(unsigned __int16 *)(a1 + 34));
     return;
   }
-  *(_DWORD *)(v6 + 288) = 0;
+  *(_DWORD *)(v6 + 280) = 0;
   v9 = 16;
 LABEL_15:
-  ESM_AddEvent((KSPIN_LOCK *)(v6 + 296), v9);
+  ESM_AddEvent((KSPIN_LOCK *)(v6 + 288), v9);
 }

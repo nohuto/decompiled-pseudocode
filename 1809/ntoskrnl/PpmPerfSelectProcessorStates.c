@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfSelectProcessorStates @ 0x140102B30
+ * XREFs of PpmPerfSelectProcessorStates @ 0x140102B50
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfSelectProcessorState @ 0x140102C10 (PpmPerfSelectProcessorState.c)
+ *     PpmPerfSelectProcessorState @ 0x140102C30 (PpmPerfSelectProcessorState.c)
  */
 
 char PpmPerfSelectProcessorStates()

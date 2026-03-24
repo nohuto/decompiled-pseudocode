@@ -1,46 +1,36 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferQueue @ 0x14046998C
+ * XREFs of EtwpCovSampCaptureBufferQueue @ 0x1405AE624
  * Callers:
- *     EtwpCovSampCaptureSample @ 0x140603790 (EtwpCovSampCaptureSample.c)
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408A899C (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampCaptureSample @ 0x1405AF118 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1409420CC (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpCovSampCaptureQueueBuffer @ 0x140469A58 (EtwpCovSampCaptureQueueBuffer.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140469B2A (EtwpCovSampCaptureReleaseToLookaside.c)
- *     EtwpCovSampSampleBufferReserve @ 0x140469D06 (EtwpCovSampSampleBufferReserve.c)
- *     EtwpCovSampSampleBufferDecRef @ 0x140603C90 (EtwpCovSampSampleBufferDecRef.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x1405AE6E8 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureQueueBuffer @ 0x1405AEFA8 (EtwpCovSampCaptureQueueBuffer.c)
+ *     EtwpCovSampSampleBufferDecRef @ 0x1405AF7B0 (EtwpCovSampSampleBufferDecRef.c)
+ *     EtwpCovSampSampleBufferReserve @ 0x1405AF7EC (EtwpCovSampSampleBufferReserve.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureBufferQueue(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rdi
   int v4; // eax
-  __int64 v5; // rdx
-  unsigned int v7; // esi
-  __int64 v8; // rax
-  int v9; // edx
-  __int64 v10; // [rsp+38h] [rbp+10h] BYREF
+  unsigned int v6; // esi
+  __int64 v7; // rax
+  __int64 v8; // [rsp+38h] [rbp+10h] BYREF
 
-  v10 = 0LL;
-  v3 = a1;
+  v8 = 0LL;
   v4 = *(unsigned __int16 *)(a2 + 62);
   if ( !(_WORD)v4 )
+    return EtwpCovSampCaptureBufferRelease();
+  v6 = 8 * v4;
+  v7 = EtwpCovSampSampleBufferReserve(a1, (unsigned __int16)(8 * v4), &v8);
+  if ( v7 )
   {
-    v5 = *(_QWORD *)(a2 + 48);
-    return EtwpCovSampCaptureReleaseToLookaside(a1, v5, a2);
+    *(_DWORD *)(v7 + 4) ^= (*(_DWORD *)(v7 + 4) ^ (*(unsigned __int16 *)(a2 + 62) << 16)) & 0x7FFF0000;
+    *(_DWORD *)(v7 + 4) = (*(_DWORD *)(a2 + 56) << 29) ^ (*(_DWORD *)(v7 + 4) ^ (*(_DWORD *)(a2 + 56) << 29)) & 0x7FFFFFFF;
+    memmove((void *)(v7 + 8), (const void *)(a2 + 64), v6);
+    EtwpCovSampSampleBufferDecRef(a1, v8);
+    return EtwpCovSampCaptureBufferRelease();
   }
-  v7 = 8 * v4;
-  v8 = EtwpCovSampSampleBufferReserve(a1, (unsigned __int16)(8 * v4), &v10);
-  if ( v8 )
-  {
-    v9 = *(_DWORD *)(v8 + 4) ^ (*(_DWORD *)(v8 + 4) ^ (*(unsigned __int16 *)(a2 + 62) << 16)) & 0x7FFF0000;
-    *(_DWORD *)(v8 + 4) = v9;
-    *(_DWORD *)(v8 + 4) = (*(_DWORD *)(a2 + 56) << 29) ^ (v9 ^ (*(_DWORD *)(a2 + 56) << 29)) & 0x7FFFFFFF;
-    memmove((void *)(v8 + 8), (const void *)(a2 + 64), v7);
-    EtwpCovSampSampleBufferDecRef(v3, v10);
-    v5 = *(_QWORD *)(a2 + 48);
-    a1 = v3;
-    return EtwpCovSampCaptureReleaseToLookaside(a1, v5, a2);
-  }
-  return EtwpCovSampCaptureQueueBuffer(v3, a2);
+  return EtwpCovSampCaptureQueueBuffer(a1, a2);
 }

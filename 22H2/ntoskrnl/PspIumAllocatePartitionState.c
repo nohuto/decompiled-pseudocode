@@ -1,90 +1,65 @@
 /*
- * XREFs of PspIumAllocatePartitionState @ 0x1405A59A0
+ * XREFs of PspIumAllocatePartitionState @ 0x140583634
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     MmAllocateNonChargedSecurePages @ 0x14065750C (MmAllocateNonChargedSecurePages.c)
- *     MmFreeNonChargedSecurePages @ 0x140657D28 (MmFreeNonChargedSecurePages.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     MiProbeAndLockPages @ 0x14020A820 (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     MmAllocateSecureKernelPages @ 0x140553314 (MmAllocateSecureKernelPages.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspIumAllocatePartitionState(__int64 a1)
 {
-  void *v2; // r14
-  int v3; // r15d
-  __int64 Pool2; // rax
-  __int64 v5; // rbx
-  __int64 v6; // r13
-  unsigned int v8; // ecx
-  __int64 v9; // r9
-  int v10; // eax
-  PVOID *v11; // r12
-  __int64 v12; // [rsp+20h] [rbp-48h]
-  int v13; // [rsp+70h] [rbp+8h] BYREF
-  void *v14; // [rsp+78h] [rbp+10h]
-  __int64 v15; // [rsp+80h] [rbp+18h]
-  __int64 v16; // [rsp+88h] [rbp+20h]
+  ULONG_PTR **v2; // rsi
+  _DWORD *PoolWithTag; // rax
+  PVOID v4; // rbx
+  unsigned int v6; // eax
+  ULONG_PTR *v7; // rax
+  int v8; // [rsp+50h] [rbp+8h] BYREF
+  _DWORD *v9; // [rsp+58h] [rbp+10h]
 
-  v2 = *(void **)(a1 + 16);
-  v14 = v2;
-  v3 = 0;
-  v13 = 0;
-  Pool2 = ExAllocatePool2(64LL, 168LL, 1884321097LL);
-  v5 = Pool2;
-  v15 = Pool2;
-  v6 = Pool2;
-  v16 = Pool2;
-  if ( !Pool2 )
+  v8 = 0;
+  v2 = *(ULONG_PTR ***)(a1 + 16);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0xA8uLL, 0x70507549u);
+  v4 = PoolWithTag;
+  v9 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_QWORD *)(Pool2 + 8) = v2;
-  v8 = *(_DWORD *)(a1 + 24);
-  if ( v8 < 8 )
-    v8 = 8;
-  *(_DWORD *)(Pool2 + 152) = v8;
-  v12 = Pool2 + 96;
-  *(_QWORD *)(Pool2 + 96) = 0LL;
-  *(_WORD *)(Pool2 + 104) = 8 * (((unsigned __int16)((Pool2 & 0xFFF) + 4263) >> 12) + 6);
-  *(_WORD *)(Pool2 + 106) = 0;
-  *(_QWORD *)(Pool2 + 128) = Pool2 & 0xFFFFFFFFFFFFF000uLL;
-  *(_DWORD *)(Pool2 + 140) = Pool2 & 0xFFF;
-  *(_DWORD *)(Pool2 + 136) = 168;
-  MiProbeAndLockPages(Pool2 + 96, 0, 1);
-  v9 = ExAllocatePool2(64LL, 8LL * *(unsigned int *)(v5 + 152), 1632662857LL);
-  *(_QWORD *)(v5 + 160) = v9;
-  if ( v9
-    && (v13 = *(_DWORD *)(v5 + 152),
-        MmAllocateNonChargedSecurePages(v2, 1LL, &v13, v9, v12),
-        v10 = *(_DWORD *)(v5 + 152),
-        v3 = v13,
-        v10 == v13) )
+  *PoolWithTag = 0;
+  PoolWithTag[22] = 0;
+  PoolWithTag[1] = 0;
+  *((_QWORD *)PoolWithTag + 1) = v2;
+  *((_QWORD *)PoolWithTag + 2) = 0LL;
+  v6 = *(_DWORD *)(a1 + 24);
+  if ( v6 < 8 )
+    v6 = 8;
+  *((_DWORD *)v4 + 38) = v6;
+  *((_QWORD *)v4 + 12) = 0LL;
+  *((_WORD *)v4 + 52) = 8 * ((((unsigned __int64)((unsigned __int16)v4 & 0xFFF) + 4263) >> 12) + 6);
+  *((_WORD *)v4 + 53) = 0;
+  *((_QWORD *)v4 + 16) = (unsigned __int64)v4 & 0xFFFFFFFFFFFFF000uLL;
+  *((_DWORD *)v4 + 35) = (unsigned __int16)v4 & 0xFFF;
+  *((_DWORD *)v4 + 34) = 168;
+  MiProbeAndLockPages((__int64)v4 + 96, 0, 1u);
+  v7 = MmAllocateSecureKernelPages(v2, *((unsigned int *)v4 + 38), 1u, 1, &v8);
+  *((_QWORD *)v4 + 20) = v7;
+  if ( v7 )
   {
-    *(_DWORD *)(v5 + 156) = v10;
+    *((_DWORD *)v4 + 39) = *((_DWORD *)v4 + 38);
     if ( v2 )
       ObfReferenceObjectWithTag(v2, 0x746C6644u);
-    *(_QWORD *)(a1 + 16) = v5;
-    *(_QWORD *)(a1 + 24) = *(_QWORD *)(v5 + 144);
+    *(_QWORD *)(a1 + 16) = v4;
+    *(_QWORD *)(a1 + 24) = *((_QWORD *)v4 + 18);
     return 0LL;
   }
   else
   {
-    if ( (*(_BYTE *)(v5 + 106) & 2) != 0 )
-      MmUnlockPages((PMDL)(v5 + 96));
-    if ( v3 )
-    {
-      v11 = (PVOID *)(v5 + 160);
-      MmFreeNonChargedSecurePages((ULONG_PTR)v2);
-    }
-    else
-    {
-      v11 = (PVOID *)(v6 + 160);
-    }
-    if ( *v11 )
-      ExFreePoolWithTag(*v11, 0);
-    ExFreePoolWithTag((PVOID)v5, 0);
+    if ( (*((_BYTE *)v4 + 106) & 2) != 0 )
+      MmUnlockPages((PMDL)v4 + 2);
+    ExFreePoolWithTag(v4, 0);
     return 3221225626LL;
   }
 }

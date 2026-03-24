@@ -1,34 +1,37 @@
 /*
- * XREFs of PiSendTargetDeviceRemoveCompleteNotification @ 0x140869410
+ * XREFs of PiSendTargetDeviceRemoveCompleteNotification @ 0x14074C0E8
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PnpNotifyTargetDeviceChange @ 0x14078386C (PnpNotifyTargetDeviceChange.c)
+ *     PnpNotifyTargetDeviceChange @ 0x14071AD38 (PnpNotifyTargetDeviceChange.c)
  */
 
-__int64 __fastcall PiSendTargetDeviceRemoveCompleteNotification(_QWORD **a1, unsigned int a2)
+__int64 __fastcall PiSendTargetDeviceRemoveCompleteNotification(int a1, _QWORD **a2, unsigned int a3)
 {
-  __int64 v3; // rdi
-  _QWORD *v4; // rdx
-  __int64 v5; // rcx
+  __int64 v4; // rdi
+  _QWORD *v6; // rdx
+  __int64 v7; // rcx
   __int64 result; // rax
 
-  if ( a2 )
+  if ( a3 )
   {
-    v3 = a2;
+    v4 = a3;
     do
     {
-      v4 = *a1;
-      if ( *a1 )
-        v5 = *(_QWORD *)(v4[39] + 40LL);
+      v6 = *a2;
+      if ( *a2 )
+        v7 = *(_QWORD *)(v6[39] + 40LL);
       else
-        v5 = 0LL;
-      *(_DWORD *)(v5 + 704) |= 0x4000u;
-      result = PnpNotifyTargetDeviceChange(&GUID_TARGET_DEVICE_REMOVE_COMPLETE, v4, 0LL, 0LL);
-      ++a1;
-      --v3;
+        v7 = 0LL;
+      if ( a1 || !v7 || (result = *(unsigned int *)(v7 + 704), (result & 2) == 0) )
+      {
+        *(_DWORD *)(v7 + 704) |= 0x4000u;
+        result = PnpNotifyTargetDeviceChange(&GUID_TARGET_DEVICE_REMOVE_COMPLETE, v6, 0LL, 0LL);
+      }
+      ++a2;
+      --v4;
     }
-    while ( v3 );
+    while ( v4 );
   }
   return result;
 }

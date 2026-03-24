@@ -2,16 +2,16 @@
  * XREFs of CmpCmdHiveOpen @ 0x1405B494C
  * Callers:
  *     CmLoadAppKey @ 0x1405CF54C (CmLoadAppKey.c)
- *     CmLoadKey @ 0x1406C8B98 (CmLoadKey.c)
- *     CmReplaceKey @ 0x1407EF15C (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x1407F4070 (CmpFlushBackupHive.c)
+ *     CmLoadKey @ 0x1406C8B78 (CmLoadKey.c)
+ *     CmReplaceKey @ 0x1407EF13C (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x1407F4050 (CmpFlushBackupHive.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IoSetThreadHardErrorMode @ 0x1400EED30 (IoSetThreadHardErrorMode.c)
+ *     IoSetThreadHardErrorMode @ 0x1400EED50 (IoSetThreadHardErrorMode.c)
  *     CmpInitHiveFromFile @ 0x1405B3D68 (CmpInitHiveFromFile.c)
  *     PsReferenceImpersonationTokenEx @ 0x140631BA0 (PsReferenceImpersonationTokenEx.c)
  *     PsImpersonateClient @ 0x140637B70 (PsImpersonateClient.c)
- *     RtlImpersonateSelfEx @ 0x1406BAE14 (RtlImpersonateSelfEx.c)
+ *     RtlImpersonateSelfEx @ 0x1406BADF4 (RtlImpersonateSelfEx.c)
  */
 
 __int64 __fastcall CmpCmdHiveOpen(

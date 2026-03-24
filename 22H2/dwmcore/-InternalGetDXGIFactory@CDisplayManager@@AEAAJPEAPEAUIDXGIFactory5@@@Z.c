@@ -1,17 +1,17 @@
 /*
- * XREFs of ?InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x1800CEC6C
+ * XREFs of ?InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x18003103C
  * Callers:
- *     ?InternalGetDXGIOutput@CDisplayManager@@AEAAJIPEAUHMONITOR__@@PEAPEAUIDXGIOutputDWM@@@Z @ 0x1800CD09C (-InternalGetDXGIOutput@CDisplayManager@@AEAAJIPEAUHMONITOR__@@PEAPEAUIDXGIOutputDWM@@@Z.c)
- *     ?InternalGetAdapter@CDisplayManager@@AEAAJU_LUID@@PEAPEAUIDXGIAdapter1@@@Z @ 0x1800CDB70 (-InternalGetAdapter@CDisplayManager@@AEAAJU_LUID@@PEAPEAUIDXGIAdapter1@@@Z.c)
- *     ?GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x1800CEB40 (-GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z.c)
- *     ?GetPrimaryAdapterLuid@CDisplayManager@@QEAA?AU_LUID@@XZ @ 0x1800CEB6C (-GetPrimaryAdapterLuid@CDisplayManager@@QEAA-AU_LUID@@XZ.c)
- *     ?DriverUpdateInProgress@CDisplayManager@@IEAA_NXZ @ 0x180286198 (-DriverUpdateInProgress@CDisplayManager@@IEAA_NXZ.c)
- *     ?GetWarpAdapterLuid@CDisplayManager@@QEAA?AU_LUID@@XZ @ 0x1802862D8 (-GetWarpAdapterLuid@CDisplayManager@@QEAA-AU_LUID@@XZ.c)
+ *     ?InternalGetDXGIOutput@CDisplayManager@@AEAAJIPEAUHMONITOR__@@PEAPEAUIDXGIOutputDWM@@@Z @ 0x18002E174 (-InternalGetDXGIOutput@CDisplayManager@@AEAAJIPEAUHMONITOR__@@PEAPEAUIDXGIOutputDWM@@@Z.c)
+ *     ?InternalGetAdapter@CDisplayManager@@AEAAJU_LUID@@PEAPEAUIDXGIAdapter1@@@Z @ 0x18002EA74 (-InternalGetAdapter@CDisplayManager@@AEAAJU_LUID@@PEAPEAUIDXGIAdapter1@@@Z.c)
+ *     ?GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x180030F08 (-GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z.c)
+ *     ?GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z @ 0x180030FC4 (-GetPrimaryAdapter@CDisplayManager@@QEAAJPEAPEAUIDXGIAdapter1@@@Z.c)
+ *     ?DriverUpdateInProgress@CDisplayManager@@IEAA_NXZ @ 0x1802385E0 (-DriverUpdateInProgress@CDisplayManager@@IEAA_NXZ.c)
+ *     ?GetWarpAdapterLuid@CDisplayManager@@QEAA?AU_LUID@@XZ @ 0x180238750 (-GetWarpAdapterLuid@CDisplayManager@@QEAA-AU_LUID@@XZ.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?UpdateDXGIFactory@CDisplayManager@@AEAAJXZ @ 0x1800CE198 (-UpdateDXGIFactory@CDisplayManager@@AEAAJXZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UpdateDXGIFactory@CDisplayManager@@AEAAJXZ @ 0x18002ED30 (-UpdateDXGIFactory@CDisplayManager@@AEAAJXZ.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CDisplayManager::InternalGetDXGIFactory(
@@ -21,7 +21,7 @@ __int64 __fastcall CDisplayManager::InternalGetDXGIFactory(
   unsigned int v3; // ebx
   CDisplayManager *v4; // rcx
   CDisplayManager *v5; // rcx
-  CDisplayManager *v6; // rcx
+  CDisplayManager *v7; // rcx
   int updated; // eax
   unsigned int v9; // edi
   int v10; // [rsp+20h] [rbp-8h]
@@ -30,24 +30,24 @@ __int64 __fastcall CDisplayManager::InternalGetDXGIFactory(
 
   v12 = this;
   v3 = 0;
-  if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)g_pComposition + 82) + 40LL))(*((_QWORD *)g_pComposition
-                                                                                               + 82)) )
+  if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)g_pComposition + 63) + 104LL))(*((_QWORD *)g_pComposition
+                                                                                                + 63)) )
   {
-    v5 = qword_1803EA1A8;
-    if ( qword_1803EA1A8
-      && (*(unsigned int (__fastcall **)(CDisplayManager *))(*(_QWORD *)qword_1803EA1A8 + 104LL))(qword_1803EA1A8)
-      || (updated = CDisplayManager::UpdateDXGIFactory(v5), v9 = updated, updated >= 0) )
+    v4 = qword_18034B5C8;
+    if ( qword_18034B5C8
+      && (*(unsigned int (__fastcall **)(CDisplayManager *))(*(_QWORD *)qword_18034B5C8 + 104LL))(qword_18034B5C8)
+      || (updated = CDisplayManager::UpdateDXGIFactory(v4), v9 = updated, updated >= 0) )
     {
-      v6 = qword_1803EA1A8;
-      *a2 = (struct IDXGIFactory5 *)qword_1803EA1A8;
-      (*(void (__fastcall **)(CDisplayManager *))(*(_QWORD *)v6 + 8LL))(v6);
+      v5 = qword_18034B5C8;
+      *a2 = (struct IDXGIFactory5 *)qword_18034B5C8;
+      (*(void (__fastcall **)(CDisplayManager *))(*(_QWORD *)v5 + 8LL))(v5);
       return 0LL;
     }
     else
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0x112,
+        (void *)0x193,
         (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\displaymanager.cpp",
         (const char *)(unsigned int)updated,
         v10);
@@ -58,11 +58,11 @@ __int64 __fastcall CDisplayManager::InternalGetDXGIFactory(
   {
     v12 = &g_DisplayManager;
     EnterCriticalSection(&g_DisplayManager);
-    v4 = qword_1803EA1A8;
-    if ( qword_1803EA1A8 )
+    v7 = qword_18034B5C8;
+    if ( qword_18034B5C8 )
     {
-      *a2 = (struct IDXGIFactory5 *)qword_1803EA1A8;
-      (*(void (__fastcall **)(CDisplayManager *))(*(_QWORD *)v4 + 8LL))(v4);
+      *a2 = (struct IDXGIFactory5 *)qword_18034B5C8;
+      (*(void (__fastcall **)(CDisplayManager *))(*(_QWORD *)v7 + 8LL))(v7);
     }
     else
     {

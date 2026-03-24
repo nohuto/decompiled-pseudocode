@@ -1,26 +1,28 @@
 /*
- * XREFs of PopIdleWakeStopActiveIntervalAccounting @ 0x14059DD2C
+ * XREFs of PopIdleWakeStopActiveIntervalAccounting @ 0x14057BD54
  * Callers:
- *     PopIdleWakeNotifyModernStandbyExit @ 0x14059DB84 (PopIdleWakeNotifyModernStandbyExit.c)
- *     PopIdleWakeNotifyWakeSource @ 0x14059DC7C (PopIdleWakeNotifyWakeSource.c)
+ *     PopIdleWakeNotifyModernStandbyExit @ 0x14057B950 (PopIdleWakeNotifyModernStandbyExit.c)
+ *     PopIdleWakeNotifyWakeSource @ 0x14057BC60 (PopIdleWakeNotifyWakeSource.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     PopIdleWakeInsertTimeInterval @ 0x14059D8D0 (PopIdleWakeInsertTimeInterval.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopIdleWakeFindOrAllocateWakeSource @ 0x14057B42C (PopIdleWakeFindOrAllocateWakeSource.c)
+ *     PopIdleWakeInsertTimeInterval @ 0x14057B560 (PopIdleWakeInsertTimeInterval.c)
  */
 
 __int64 __fastcall PopIdleWakeStopActiveIntervalAccounting(unsigned int *a1, __int64 a2)
 {
   __int64 result; // rax
   __int64 v5; // rcx
-  __int64 v6; // rbp
-  __int64 v7; // rbx
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rax
+  __int64 WakeSource; // rax
+  __int64 v7; // rdi
+  unsigned __int64 v8; // rcx
+  __int64 v9; // r9
   unsigned __int64 v10; // rcx
   unsigned int v11; // edx
   unsigned int v12; // edx
   unsigned int v13; // edx
+  unsigned __int64 *v14; // r11
 
   result = *a1;
   if ( (result & 0x10) != 0 )
@@ -43,41 +45,46 @@ __int64 __fastcall PopIdleWakeStopActiveIntervalAccounting(unsigned int *a1, __i
       LODWORD(result) = result | 4;
       *a1 = result;
     }
-    v6 = *((_QWORD *)a1 + 5);
-    v7 = v6 + ((result & 4) != 0 ? 800LL : 416LL);
-    ++*(_DWORD *)v7;
-    *(_QWORD *)(v7 + 24) += *((_QWORD *)a1 + 7);
-    v8 = *((_QWORD *)a1 + 7);
-    if ( v8 < *(_QWORD *)(v7 + 8) )
-      *(_QWORD *)(v7 + 8) = v8;
-    v9 = *((_QWORD *)a1 + 7);
-    if ( v9 > *(_QWORD *)(v7 + 16) )
-      *(_QWORD *)(v7 + 16) = v9;
-    PopIdleWakeInsertTimeInterval(*((_QWORD *)a1 + 7), 9u, v7 + 32, 0LL, PopIdleWakeIdleAccountingBucketLimitsQpc);
-    if ( *(_DWORD *)v7 > 1u )
+    WakeSource = PopIdleWakeFindOrAllocateWakeSource((__int64)a1, a1[10], (__int64)(a1 + 12), (result & 4) != 0);
+    v7 = WakeSource;
+    ++*(_DWORD *)(WakeSource + 312);
+    *(_QWORD *)(WakeSource + 336) += *((_QWORD *)a1 + 24);
+    v8 = *((_QWORD *)a1 + 24);
+    if ( v8 < *(_QWORD *)(WakeSource + 320) )
+    {
+      *(_QWORD *)(WakeSource + 320) = v8;
+      v8 = *((_QWORD *)a1 + 24);
+    }
+    if ( v8 > *(_QWORD *)(WakeSource + 328) )
+    {
+      *(_QWORD *)(WakeSource + 328) = v8;
+      v8 = *((_QWORD *)a1 + 24);
+    }
+    PopIdleWakeInsertTimeInterval(v8, 9u, WakeSource + 344, 0LL, PopIdleWakeIdleAccountingBucketLimitsQpc);
+    if ( *(_DWORD *)(v7 + 312) > 1u )
       PopIdleWakeInsertTimeInterval(
-        a2 - *(_QWORD *)(v7 + 112),
-        0xBu,
-        v7 + 68,
-        0LL,
+        a2 - *(_QWORD *)(v7 + 424),
+        v9 + 11,
+        v7 + 380,
+        v9,
         PopIdleWakePeriodAccountingBucketLimitsQpc);
-    *(_QWORD *)(v7 + 112) = a2;
-    KeAddProcessorAffinityEx((unsigned __int16 *)(v6 + 144), a1[16]);
-    v10 = *((_QWORD *)a1 + 3) + *((_QWORD *)a1 + 4) + *((_QWORD *)a1 + 2);
-    *(_QWORD *)(v7 + 120) += v10;
-    PopIdleWakeInsertTimeInterval(v10, 5u, v7 + 128, v7 + 152, PopIdleWakeSourceActiveBucketLimitsQpc);
-    *(_QWORD *)(v7 + 192) += *((_QWORD *)a1 + 2);
+    *(_QWORD *)(v7 + 424) = a2;
+    KeAddProcessorAffinityEx((_WORD *)(v7 + 144), a1[50]);
+    v10 = *((_QWORD *)a1 + 2) + *((_QWORD *)a1 + 3) + *((_QWORD *)a1 + 4);
+    *(_QWORD *)(v7 + 432) += v10;
+    PopIdleWakeInsertTimeInterval(v10, 5u, v7 + 440, v7 + 464, PopIdleWakeSourceActiveBucketLimitsQpc);
+    *(_QWORD *)(v7 + 504) += *((_QWORD *)a1 + 2);
     PopIdleWakeInsertTimeInterval(
       *((_QWORD *)a1 + 2),
       v11,
-      v7 + 200,
-      v7 + 224,
+      v7 + 512,
+      v7 + 536,
       PopIdleWakeSourceActivatorBucketLimitsQpc);
-    *(_QWORD *)(v7 + 264) += *((_QWORD *)a1 + 3);
-    PopIdleWakeInsertTimeInterval(*((_QWORD *)a1 + 3), v12, v7 + 272, v7 + 296, PopIdleWakeSourceDeviceBucketLimitsQpc);
-    *(_QWORD *)(v7 + 336) += *((_QWORD *)a1 + 4);
-    PopIdleWakeInsertTimeInterval(*((_QWORD *)a1 + 4), v13, v7 + 344, v7 + 360, PopIdleWakeSourceDeviceBucketLimitsQpc);
-    return (__int64)memset(a1, 0, 0x48uLL);
+    *(_QWORD *)(v7 + 576) += *((_QWORD *)a1 + 3);
+    PopIdleWakeInsertTimeInterval(*((_QWORD *)a1 + 3), v12, v7 + 584, v7 + 608, PopIdleWakeSourceDeviceBucketLimitsQpc);
+    *(_QWORD *)(v7 + 648) += *((_QWORD *)a1 + 4);
+    PopIdleWakeInsertTimeInterval(*((_QWORD *)a1 + 4), v13, v7 + 656, v7 + 672, v14);
+    return (__int64)memset(a1, 0, 0xD0uLL);
   }
   return result;
 }

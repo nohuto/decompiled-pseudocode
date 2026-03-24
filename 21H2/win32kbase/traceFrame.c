@@ -1,61 +1,76 @@
 /*
- * XREFs of traceFrame @ 0x1C01A595C
+ * XREFs of traceFrame @ 0x1C0170FA4
  * Callers:
- *     RIMFixUpCompleteFrame @ 0x1C01A675C (RIMFixUpCompleteFrame.c)
+ *     RIMFixUpCompleteFrame @ 0x1C0171B00 (RIMFixUpCompleteFrame.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     tracePointerInfo @ 0x1C00E679C (tracePointerInfo.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0057904 (WPP_RECORDER_SF_DD.c)
+ *     tracePointerFlags @ 0x1C01710BC (tracePointerFlags.c)
  */
 
-__int64 __fastcall traceFrame(__int64 a1, __int64 a2, __int64 a3)
+_UNKNOWN **__fastcall traceFrame(__int64 a1)
 {
-  __int64 result; // rax
-  unsigned int v5; // edi
-  unsigned int *v6; // rbx
+  _UNKNOWN **result; // rax
+  unsigned int v2; // ebx
+  int v4; // r9d
+  _DWORD *v5; // rdi
+  int v6; // edx
+  _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h] BYREF
 
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (result = HIDWORD(WPP_GLOBAL_Control->Timer), (result & 1) != 0)
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  result = &retaddr;
+  v2 = 0;
+  if ( *(_DWORD *)(a1 + 88) )
   {
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    result = WPP_RECORDER_AND_TRACE_SF_(
-               WPP_GLOBAL_Control->AttachedDevice,
-               a2,
-               a3,
-               (_DWORD)gRimLog,
-               4,
-               1,
-               44,
-               (__int64)&WPP_8675e8122247356a5f11107ee91523c0_Traceguids);
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_7;
+    v4 = 44;
   }
-  v5 = 0;
+  else
+  {
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_7;
+    v4 = 45;
+  }
+  result = (_UNKNOWN **)WPP_RECORDER_SF_(
+                          (_DWORD)gRimLog,
+                          4,
+                          1,
+                          v4,
+                          (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids);
+LABEL_7:
   if ( *(_DWORD *)(a1 + 24) )
   {
-    v6 = (unsigned int *)(*(_QWORD *)(a1 + 232) + 16LL);
+    v5 = (_DWORD *)(*(_QWORD *)(a1 + 120) + 52LL);
     do
     {
-      LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_AND_TRACE_SF_D(
-          WPP_GLOBAL_Control->AttachedDevice,
-          a2,
-          a3,
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        WPP_RECORDER_SF_d(
           (_DWORD)gRimLog,
           4,
           1,
-          45,
-          (__int64)&WPP_8675e8122247356a5f11107ee91523c0_Traceguids,
-          *((_WORD *)v6 - 4));
-      result = tracePointerInfo(v6, a2, a3);
-      ++v5;
-      v6 += 48;
+          46,
+          (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids,
+          *((_WORD *)v5 - 22));
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v6) = 4;
+          WPP_RECORDER_SF_DD(
+            (_DWORD)gRimLog,
+            v6,
+            1,
+            43,
+            (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids,
+            *(v5 - 1),
+            *v5);
+        }
+      }
+      result = (_UNKNOWN **)tracePointerFlags((unsigned int)*(v5 - 6));
+      ++v2;
+      v5 += 48;
     }
-    while ( v5 < *(_DWORD *)(a1 + 24) );
+    while ( v2 < *(_DWORD *)(a1 + 24) );
   }
   return result;
 }

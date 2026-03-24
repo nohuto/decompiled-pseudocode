@@ -1,19 +1,19 @@
 /*
- * XREFs of ?ComputeMouseSystemStateForInterceptor@CMouseProcessor@@AEBA?AW4_INTERCEPTOR_MOUSE_SYSTEM_STATE@@AEBVMouseInputDataEx@1@@Z @ 0x1C01F5C14
+ * XREFs of ?ComputeMouseSystemStateForInterceptor@CMouseProcessor@@AEBA?AW4_INTERCEPTOR_MOUSE_SYSTEM_STATE@@AEBVMouseInputDataEx@1@@Z @ 0x1C01BF1C4
  * Callers:
- *     ?PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorData@@@Z @ 0x1C01F90FC (-PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorDat.c)
+ *     ?PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorData@@@Z @ 0x1C01C0F00 (-PrepareDataForIntercept@CMouseProcessor@@AEAAXAEBVMouseInputDataEx@1@_NPEAU_MouseInterceptorDat.c)
  * Callees:
- *     ?TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@@@Z @ 0x1C0054BE8 (-TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _anonymous_namespace_::IsMouseButtonSwapped @ 0x1C01F892C (_anonymous_namespace_--IsMouseButtonSwapped.c)
+ *     ?TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@@@Z @ 0x1C00420AC (-TestProcessingOption@MouseInputDataEx@CMouseProcessor@@QEBA_NW4MouseInputDataProcessingOptions@.c)
+ *     _anonymous_namespace_::IsMouseButtonSwapped @ 0x1C009CE78 (_anonymous_namespace_--IsMouseButtonSwapped.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall CMouseProcessor::ComputeMouseSystemStateForInterceptor(__int64 a1, __int64 a2)
 {
   unsigned int v3; // edi
   unsigned __int16 v4; // bx
-  __int64 v5; // rdx
-  unsigned int v6; // esi
+  int v5; // esi
+  __int64 result; // rax
 
   v3 = 0;
   v4 = *(_WORD *)(a2 + 4) & 0xF;
@@ -21,20 +21,20 @@ __int64 __fastcall CMouseProcessor::ComputeMouseSystemStateForInterceptor(__int6
   {
     if ( (v4 & 3) != 0 )
     {
-      v6 = 1;
+      v5 = 1;
     }
     else
     {
       v4 >>= 2;
-      v6 = 2;
+      v5 = 2;
       if ( !v4 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 5906);
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 5739);
     }
-    LOBYTE(v5) = (v4 & 2) != 0;
-    if ( (unsigned __int8)anonymous_namespace_::IsMouseButtonSwapped(v6, v5) )
+    if ( anonymous_namespace_::IsMouseButtonSwapped(v5, (v4 & 2) != 0) )
       v3 = 1;
   }
-  if ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 3696), 1, 1) )
-    v3 |= 2u;
-  return v3;
+  result = v3 | 2;
+  if ( !_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 3688), 1, 1) )
+    return v3;
+  return result;
 }

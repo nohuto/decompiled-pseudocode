@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CitpEnsureDataKey@@YAJPEAPEAX@Z @ 0x1C00A35FC
+ * XREFs of ?CitpEnsureDataKey@@YAJPEAPEAX@Z @ 0x1C008C4B0
  * Callers:
- *     ?CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z @ 0x1C00A3364 (-CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z.c)
- *     ?CitpInitialize@@YAJPEBG@Z @ 0x1C00A3954 (-CitpInitialize@@YAJPEBG@Z.c)
+ *     ?CitpInitialize@@YAJPEBG@Z @ 0x1C008B9A8 (-CitpInitialize@@YAJPEBG@Z.c)
+ *     ?CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z @ 0x1C008C210 (-CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z.c)
  * Callees:
- *     ?CitpEnsureKey@@YAJPEAPEAXPEBG_N@Z @ 0x1C00A36C8 (-CitpEnsureKey@@YAJPEAPEAXPEBG_N@Z.c)
+ *     ?CitpEnsureKey@@YAJPEAPEAXPEBG_N@Z @ 0x1C008C57C (-CitpEnsureKey@@YAJPEAPEAXPEBG_N@Z.c)
  */
 
 int __fastcall CitpEnsureDataKey(void **a1)

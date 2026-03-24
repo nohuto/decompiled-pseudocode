@@ -1,18 +1,20 @@
 /*
- * XREFs of ?FreeMarshalingEvent@MarshalSync@MouseInterceptState@CMouseProcessor@@QEAAXXZ @ 0x1C005A8E0
+ * XREFs of ?FreeMarshalingEvent@MarshalSync@MouseInterceptState@CMouseProcessor@@QEAAXXZ @ 0x1C008B338
  * Callers:
- *     ??1MouseInterceptState@CMouseProcessor@@QEAA@XZ @ 0x1C005A8A8 (--1MouseInterceptState@CMouseProcessor@@QEAA@XZ.c)
+ *     ??1CMouseProcessor@@QEAA@XZ @ 0x1C008A6C4 (--1CMouseProcessor@@QEAA@XZ.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
-void __fastcall CMouseProcessor::MouseInterceptState::MarshalSync::FreeMarshalingEvent(void **this)
+void __fastcall CMouseProcessor::MouseInterceptState::MarshalSync::FreeMarshalingEvent(
+        CMouseProcessor::MouseInterceptState::MarshalSync *this)
 {
-  if ( *this )
+  __int64 v2; // rcx
+
+  v2 = *(_QWORD *)this;
+  if ( v2 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      *this);
-    *this = 0LL;
+    Win32FreePool(v2);
+    *(_QWORD *)this = 0LL;
   }
 }

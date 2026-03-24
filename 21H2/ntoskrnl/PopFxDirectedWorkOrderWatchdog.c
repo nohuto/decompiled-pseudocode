@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxDirectedWorkOrderWatchdog @ 0x1405CC1B0
+ * XREFs of PopFxDirectedWorkOrderWatchdog @ 0x14056A9F0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn PopFxDirectedWorkOrderWatchdog(__int64 a1, __int64 a2)

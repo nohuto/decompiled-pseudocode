@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpInitializeRootNamespace @ 0x14072BC8C
+ * XREFs of ObpInitializeRootNamespace @ 0x14072BC6C
  * Callers:
- *     ObCreateSiloRootDirectory @ 0x140905F10 (ObCreateSiloRootDirectory.c)
+ *     ObCreateSiloRootDirectory @ 0x140905EF0 (ObCreateSiloRootDirectory.c)
  *     ObInitSystem @ 0x1409B1964 (ObInitSystem.c)
  * Callees:
- *     PsIsHostSilo @ 0x1400B8A60 (PsIsHostSilo.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x1401B8C70 (ZwOpenDirectoryObject.c)
- *     ZwCreateDirectoryObject @ 0x1401B9590 (ZwCreateDirectoryObject.c)
- *     ZwCreateDirectoryObjectEx @ 0x1401B95B0 (ZwCreateDirectoryObjectEx.c)
- *     ZwCreateSymbolicLinkObject @ 0x1401B98D0 (ZwCreateSymbolicLinkObject.c)
- *     ZwSetInformationSymbolicLink @ 0x1401BB3D0 (ZwSetInformationSymbolicLink.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1401B8C90 (ZwOpenDirectoryObject.c)
+ *     ZwCreateDirectoryObject @ 0x1401B95B0 (ZwCreateDirectoryObject.c)
+ *     ZwCreateDirectoryObjectEx @ 0x1401B95D0 (ZwCreateDirectoryObjectEx.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1401B98F0 (ZwCreateSymbolicLinkObject.c)
+ *     ZwSetInformationSymbolicLink @ 0x1401BB3F0 (ZwSetInformationSymbolicLink.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObCleanupSecurityDescriptor @ 0x14072BF3C (ObCleanupSecurityDescriptor.c)
- *     ObCreateKernelObjectsSD @ 0x14072BF7C (ObCreateKernelObjectsSD.c)
- *     ObpCreateDosDevicesDirectory @ 0x14072C0C8 (ObpCreateDosDevicesDirectory.c)
+ *     ObCleanupSecurityDescriptor @ 0x14072BF1C (ObCleanupSecurityDescriptor.c)
+ *     ObCreateKernelObjectsSD @ 0x14072BF5C (ObCreateKernelObjectsSD.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14072C0A8 (ObpCreateDosDevicesDirectory.c)
  */
 
 __int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3)

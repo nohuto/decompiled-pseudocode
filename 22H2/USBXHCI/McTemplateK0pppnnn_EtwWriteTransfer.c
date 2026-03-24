@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0pppnnn_EtwWriteTransfer @ 0x1C004AF0C
+ * XREFs of McTemplateK0pppnnn_EtwWriteTransfer @ 0x1C0048954
  * Callers:
- *     Etw_EndpointCreate @ 0x1C000B7CC (Etw_EndpointCreate.c)
- *     Etw_EndpointListRundown @ 0x1C0010090 (Etw_EndpointListRundown.c)
- *     Endpoint_EvaluateContextCompletion @ 0x1C001B920 (Endpoint_EvaluateContextCompletion.c)
- *     Etw_EndpointDelete @ 0x1C004AB80 (Etw_EndpointDelete.c)
+ *     Etw_EndpointCreate @ 0x1C0009744 (Etw_EndpointCreate.c)
+ *     Etw_EndpointListRundown @ 0x1C000B1C0 (Etw_EndpointListRundown.c)
+ *     Endpoint_EvaluateContextCompletion @ 0x1C00168E0 (Endpoint_EvaluateContextCompletion.c)
+ *     Etw_EndpointDelete @ 0x1C0048200 (Etw_EndpointDelete.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022398 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pppnnn_EtwWriteTransfer(

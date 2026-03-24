@@ -1,81 +1,68 @@
 /*
- * XREFs of IoGetAttachedDeviceReference @ 0x140259FE0
+ * XREFs of IoGetAttachedDeviceReference @ 0x14022C380
  * Callers:
- *     CmpGetVolumeClusterSize @ 0x14068936C (CmpGetVolumeClusterSize.c)
- *     WmipForwardWmiIrp @ 0x1406C7530 (WmipForwardWmiIrp.c)
- *     CmpVolumeManagerGetContextForFile @ 0x140701CB8 (CmpVolumeManagerGetContextForFile.c)
- *     IopFilterResourceRequirementsCall @ 0x140790740 (IopFilterResourceRequirementsCall.c)
- *     WmipGetFilePDO @ 0x1407C3F1C (WmipGetFilePDO.c)
- *     WmipRegisterDevice @ 0x14086C458 (WmipRegisterDevice.c)
- *     HalpQueryPccInterface @ 0x140935B40 (HalpQueryPccInterface.c)
- *     IoShutdownSystem @ 0x140A99BF4 (IoShutdownSystem.c)
- *     IoBuildPoDeviceNotifyList @ 0x140A9E1B8 (IoBuildPoDeviceNotifyList.c)
- *     VfIrpSendSynchronousIrp @ 0x140ACEAA8 (VfIrpSendSynchronousIrp.c)
+ *     WmipForwardWmiIrp @ 0x1406B24CC (WmipForwardWmiIrp.c)
+ *     CmpGetVolumeClusterSize @ 0x14071D1A8 (CmpGetVolumeClusterSize.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x140721364 (CmpVolumeManagerGetContextForFile.c)
+ *     IopFilterResourceRequirementsCall @ 0x140750270 (IopFilterResourceRequirementsCall.c)
+ *     WmipRegisterDevice @ 0x1407547F8 (WmipRegisterDevice.c)
+ *     WmipGetFilePDO @ 0x14078D304 (WmipGetFilePDO.c)
+ *     HalpQueryPccInterface @ 0x140866ACC (HalpQueryPccInterface.c)
+ *     IoBuildPoDeviceNotifyList @ 0x1409972A0 (IoBuildPoDeviceNotifyList.c)
+ *     IoShutdownSystem @ 0x1409AAF18 (IoShutdownSystem.c)
+ *     VfIrpSendSynchronousIrp @ 0x1409D1520 (VfIrpSendSynchronousIrp.c)
  * Callees:
- *     ObpIncrPointerCount @ 0x14025A124 (ObpIncrPointerCount.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x140260E00 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14045FB2E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
+ *     ObpIncrPointerCount @ 0x14021BF80 (ObpIncrPointerCount.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObpPushStackInfo @ 0x140564C68 (ObpPushStackInfo.c)
  */
 
 PDEVICE_OBJECT __stdcall IoGetAttachedDeviceReference(PDEVICE_OBJECT DeviceObject)
 {
-  __int64 v1; // r9
-  unsigned __int8 CurrentIrql; // di
+  __int64 v1; // r8
+  unsigned __int8 CurrentIrql; // si
   char *v4; // rcx
-  volatile __int64 *v5; // r8
-  __int64 v6; // rdx
   struct _DEVICE_OBJECT *i; // rax
-  _DWORD *SchedulerAssist; // r8
-  unsigned __int8 v10; // cl
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int8 v8; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v12; // r8
-  int v13; // eax
-  bool v14; // zf
+  _DWORD *v10; // r8
+  int v11; // eax
+  bool v12; // zf
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      v1 = 4LL;
-    else
-      v1 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v1;
+    v1 = (-1 << (CurrentIrql + 1)) & 4u | SchedulerAssist[5];
+    SchedulerAssist[5] = v1;
   }
   v4 = (char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160;
-  v5 = (volatile __int64 *)*((_QWORD *)v4 + 1);
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-  {
-    KiAcquireQueuedSpinLockInstrumented(v4, *((_QWORD *)v4 + 1));
-  }
-  else
-  {
-    v6 = _InterlockedExchange64(v5, (__int64)v4);
-    if ( v6 )
-      KxWaitForLockOwnerShip(v4, v6, v5, v1);
-  }
+  KxAcquireQueuedSpinLock(v4, *((_QWORD *)v4 + 1), v1);
   for ( i = DeviceObject->AttachedDevice; i; i = i->AttachedDevice )
     DeviceObject = i;
   if ( ObpTraceFlags )
     ObpPushStackInfo((_DWORD)DeviceObject - 48);
-  ObpIncrPointerCount(&DeviceObject[-1].DeviceLock.Header.WaitListHead);
-  KxReleaseQueuedSpinLock((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160);
+  ObpIncrPointerCount((volatile signed __int64 *)&DeviceObject[-1].DeviceLock.Header.WaitListHead);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160));
   if ( KiIrqlFlags )
   {
-    v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v12 = CurrentPrcb->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v14 = (v13 & v12[5]) == 0;
-      v12[5] &= v13;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v8 = KeGetCurrentIrql();
+      if ( v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v10 = CurrentPrcb->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v12 = (v11 & v10[5]) == 0;
+        v10[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);

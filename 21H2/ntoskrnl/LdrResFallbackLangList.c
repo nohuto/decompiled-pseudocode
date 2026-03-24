@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrResFallbackLangList @ 0x1406759F8
+ * XREFs of LdrResFallbackLangList @ 0x14068D6AC
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x140206200 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1402A7F28 (LdrpResSearchResourceMappedFile.c)
  * Callees:
- *     LdrpGetParentLangId @ 0x140389D88 (LdrpGetParentLangId.c)
+ *     LdrpGetParentLangId @ 0x1402A994C (LdrpGetParentLangId.c)
  */
 
-__int64 __fastcall LdrResFallbackLangList(__int64 a1, __int64 a2, __int16 a3, char a4, unsigned __int16 *a5)
+__int64 __fastcall LdrResFallbackLangList(__int64 a1, __int64 a2, unsigned __int16 a3, char a4, unsigned __int16 *a5)
 {
   unsigned __int16 *v5; // rdi
   unsigned int v6; // ebx
-  __int16 v9; // cx
+  __int64 v9; // rcx
   int v10; // r10d
   int v11; // edx
   int v12; // esi
@@ -28,7 +28,7 @@ __int64 __fastcall LdrResFallbackLangList(__int64 a1, __int64 a2, __int16 a3, ch
   v5 = a5;
   v6 = 0;
   LOWORD(v22) = 0;
-  v9 = 0;
+  v9 = 0LL;
   if ( !a5 )
     return (unsigned int)-1073741811;
   *a5 = 0;
@@ -52,12 +52,12 @@ __int64 __fastcall LdrResFallbackLangList(__int64 a1, __int64 a2, __int16 a3, ch
     {
       if ( PsMachineUILanguageId )
       {
-        v9 = PsMachineUILanguageId;
+        v9 = (unsigned __int16)PsMachineUILanguageId;
         LOWORD(v22) = PsMachineUILanguageId;
       }
       else
       {
-        v9 = -4370;
+        v9 = 61166LL;
         LOWORD(v22) = -4370;
       }
       v19 = 5;
@@ -68,12 +68,12 @@ __int64 __fastcall LdrResFallbackLangList(__int64 a1, __int64 a2, __int16 a3, ch
     {
       if ( PsInstallUILanguageId )
       {
-        v9 = PsInstallUILanguageId;
+        v9 = (unsigned __int16)PsInstallUILanguageId;
         LOWORD(v22) = PsInstallUILanguageId;
       }
       else
       {
-        v9 = -4370;
+        v9 = 61166LL;
         LOWORD(v22) = -4370;
       }
       v19 = 6;
@@ -87,26 +87,26 @@ __int64 __fastcall LdrResFallbackLangList(__int64 a1, __int64 a2, __int16 a3, ch
       {
         if ( v17 != 1 )
           return v6;
-        v9 = 4660;
+        v9 = 4660LL;
         v19 = 9;
         LOWORD(v22) = 4660;
       }
       else
       {
-        v9 = 1033;
+        v9 = 1033LL;
         v19 = 8;
         LOWORD(v22) = 1033;
       }
       goto LABEL_16;
     }
-    v9 = PsDefaultSystemLocaleId;
+    v9 = (unsigned int)PsDefaultSystemLocaleId;
     if ( !PsDefaultSystemLocaleId )
-      v9 = -4370;
+      v9 = 61166LL;
     v19 = 7;
 LABEL_14:
     LOWORD(v22) = v9;
 LABEL_15:
-    if ( v9 != -4370 )
+    if ( (_WORD)v9 != 0xEEEE )
     {
 LABEL_16:
       v20 = *v5;
@@ -115,7 +115,7 @@ LABEL_16:
         goto LABEL_20;
       do
       {
-        if ( v5[4 * v21 + 2] == v9 )
+        if ( v5[4 * v21 + 2] == (_WORD)v9 )
           break;
         ++v21;
       }
@@ -137,20 +137,20 @@ LABEL_20:
       *((_BYTE *)v5 + 516) = 1;
       if ( (int)LdrpGetParentLangId(v9, &v22) >= 0 )
       {
-        v9 = v22;
+        v9 = (unsigned __int16)v22;
       }
       else
       {
-        v9 = 0;
+        v9 = 0LL;
         LOWORD(v22) = 0;
       }
       v10 = v12;
-      if ( !v9 )
+      if ( !(_WORD)v9 )
         v10 = -1;
     }
     else
     {
-      v9 = -4370;
+      v9 = 61166LL;
       LOWORD(v22) = -4370;
     }
     v19 = 2;

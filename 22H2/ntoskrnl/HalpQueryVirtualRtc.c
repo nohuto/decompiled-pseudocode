@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpQueryVirtualRtc @ 0x14050B590
+ * XREFs of HalpQueryVirtualRtc @ 0x1403840FC
  * Callers:
- *     HalQueryRealTimeClock @ 0x14033AF30 (HalQueryRealTimeClock.c)
- *     HalCalibratePerformanceCounter @ 0x1404FE230 (HalCalibratePerformanceCounter.c)
- *     HalpSetResumeTime @ 0x14051C788 (HalpSetResumeTime.c)
+ *     HalQueryRealTimeClock @ 0x14030CCC0 (HalQueryRealTimeClock.c)
+ *     HalCalibratePerformanceCounter @ 0x140384030 (HalCalibratePerformanceCounter.c)
+ *     HalpSetResumeTime @ 0x140386040 (HalpSetResumeTime.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     RtlpTimeToTimeFields @ 0x14033B4C8 (RtlpTimeToTimeFields.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     RtlpTimeToTimeFields @ 0x14030D368 (RtlpTimeToTimeFields.c)
  */
 
 char __fastcall HalpQueryVirtualRtc(_QWORD *a1, bool *a2)
@@ -25,9 +25,9 @@ char __fastcall HalpQueryVirtualRtc(_QWORD *a1, bool *a2)
   while ( 1 )
   {
     v4 = VrtcTime;
-    v10 = qword_140C6280C;
+    v10 = qword_140C4A62C;
     v5 = KeQueryPerformanceCounter(&PerformanceFrequency);
-    if ( v4 == qword_140C62818 )
+    if ( v4 == qword_140C4A638 )
       break;
     _mm_pause();
   }

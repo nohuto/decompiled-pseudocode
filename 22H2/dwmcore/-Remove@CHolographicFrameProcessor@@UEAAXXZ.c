@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Remove@CHolographicFrameProcessor@@UEAAXXZ @ 0x1802AF1C0
+ * XREFs of ?Remove@CHolographicFrameProcessor@@UEAAXXZ @ 0x18025CD70
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?RemoveWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z @ 0x1802A6448 (-RemoveWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?RemoveWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z @ 0x180254348 (-RemoveWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z.c)
  */
 
 void __fastcall CHolographicFrameProcessor::Remove(CHolographicFrameProcessor *this)
@@ -13,9 +13,7 @@ void __fastcall CHolographicFrameProcessor::Remove(CHolographicFrameProcessor *t
 
   v2 = (RTL_SRWLOCK *)*((_QWORD *)this + 6);
   if ( v2 )
-    CHolographicManager::RemoveWin32kInteropTexture(
-      v2,
-      (struct IUnknown *)(((unsigned __int64)this + 40) & ((unsigned __int128)-(__int128)(unsigned __int64)this >> 64)));
+    CHolographicManager::RemoveWin32kInteropTexture(v2, (struct IUnknown *)this + 5);
   if ( *((_QWORD *)this + 16) )
     Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 16);
 }

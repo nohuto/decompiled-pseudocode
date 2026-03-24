@@ -1,14 +1,14 @@
 /*
- * XREFs of ?DT_DrawStr@@YAHPEAUHDC__@@HHPEBGHHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C025B19C
+ * XREFs of ?DT_DrawStr@@YAHPEAUHDC__@@HHPEBGHHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C025E598
  * Callers:
- *     ?DT_DrawJustifiedLine@@YAXPEAUHDC__@@HPEBGHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C025B0D8 (-DT_DrawJustifiedLine@@YAXPEAUHDC__@@HPEBGHIPEAUDRAWTEXTDATA@@H@Z.c)
+ *     ?DT_DrawJustifiedLine@@YAXPEAUHDC__@@HPEBGHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C025E4D4 (-DT_DrawJustifiedLine@@YAXPEAUHDC__@@HPEBGHIPEAUDRAWTEXTDATA@@H@Z.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     CALL_LPK @ 0x1C00B9BC8 (CALL_LPK.c)
- *     GreGetLayout @ 0x1C00C1400 (GreGetLayout.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     xxxClientLpkDrawTextEx @ 0x1C022C7DC (xxxClientLpkDrawTextEx.c)
- *     ?DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z @ 0x1C025B2CC (-DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z.c)
+ *     GreGetLayout @ 0x1C0045FB4 (GreGetLayout.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     CALL_LPK @ 0x1C01594AC (CALL_LPK.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     xxxClientLpkDrawTextEx @ 0x1C0232F9C (xxxClientLpkDrawTextEx.c)
+ *     ?DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z @ 0x1C025E6C8 (-DT_GetExtentMinusPrefixes@@YAHPEAUHDC__@@PEBGHIHPEAUDRAWTEXTDATA@@H@Z.c)
  */
 
 __int64 __fastcall DT_DrawStr(
@@ -16,7 +16,7 @@ __int64 __fastcall DT_DrawStr(
         unsigned int a2,
         unsigned int a3,
         const unsigned __int16 *a4,
-        unsigned int a5,
+        int a5,
         int a6,
         unsigned int a7,
         struct DRAWTEXTDATA *a8,
@@ -25,7 +25,7 @@ __int64 __fastcall DT_DrawStr(
   unsigned int v13; // r15d
   __int64 ThreadWin32Thread; // rax
   __int64 result; // rax
-  unsigned int v16; // [rsp+20h] [rbp-48h]
+  int v16; // [rsp+20h] [rbp-48h]
 
   v13 = a2 - 1;
   if ( (GreGetLayout(a1) & 1) == 0 )

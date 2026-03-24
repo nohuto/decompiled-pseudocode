@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringCbCopyNExW @ 0x140133440
+ * XREFs of RtlStringCbCopyNExW @ 0x140133460
  * Callers:
  *     _CmGetDeviceRegPropWorker @ 0x1405C6B1C (_CmGetDeviceRegPropWorker.c)
  * Callees:
- *     RtlStringCopyWorkerW_2 @ 0x1401334E4 (RtlStringCopyWorkerW_2.c)
+ *     RtlStringCopyWorkerW_2 @ 0x140133504 (RtlStringCopyWorkerW_2.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyNExW(

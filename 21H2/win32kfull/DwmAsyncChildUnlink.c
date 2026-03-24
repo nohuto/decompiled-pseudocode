@@ -1,8 +1,8 @@
 /*
- * XREFs of DwmAsyncChildUnlink @ 0x1C0072E58
+ * XREFs of DwmAsyncChildUnlink @ 0x1C00EA014
  * Callers:
- *     UnlinkWindow @ 0x1C0072CAC (UnlinkWindow.c)
- *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C0098738 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
+ *     UnlinkWindow @ 0x1C007E978 (UnlinkWindow.c)
+ *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C00E9C98 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
  * Callees:
  *     <none>
  */

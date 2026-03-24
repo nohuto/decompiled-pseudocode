@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPlPublishInitialPowerDraw @ 0x1405DE550
+ * XREFs of PopPlPublishInitialPowerDraw @ 0x14057E5A0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x14024A9B0 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopPlPublishSystemPowerChange @ 0x1405DE728 (PopPlPublishSystemPowerChange.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPlPublishSystemPowerChange @ 0x14057E778 (PopPlPublishSystemPowerChange.c)
  */
 
 __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
@@ -64,7 +64,7 @@ __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
       v6 = *((unsigned int *)v5 + 10);
       i += v6;
       *((_DWORD *)v5 + 8) = v6;
-      if ( (unsigned int)dword_140C03A00 > 5 )
+      if ( (unsigned int)dword_140C02228 > 5 )
       {
         v7 = *v5;
         v25 = 0;
@@ -95,7 +95,7 @@ __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
         v40 = &v21;
         v21 = v9;
         v41 = 4;
-        tlgWriteEx_EtwWriteEx((__int64)&dword_140C03A00, (unsigned __int8 *)&byte_14003240F, v6, 1u, v15, v16, 9u, &v22);
+        tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&byte_14002A5EF, v6, 1u, v15, v16, 9u, &v22);
       }
     }
   }

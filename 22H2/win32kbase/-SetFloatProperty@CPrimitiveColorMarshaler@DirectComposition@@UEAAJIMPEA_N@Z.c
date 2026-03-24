@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetFloatProperty@CPrimitiveColorMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C02238D0
+ * XREFs of ?SetFloatProperty@CPrimitiveColorMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E9880
  * Callers:
- *     ?SetFloatProperty@?$CSharedResourceMarshaler@VCPrimitiveColorMarshaler@DirectComposition@@$01@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00D5FC0 (-SetFloatProperty@-$CSharedResourceMarshaler@VCPrimitiveColorMarshaler@DirectComposition@@$01@Di.c)
+ *     <none>
  * Callees:
  *     <none>
  */

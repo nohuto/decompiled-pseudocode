@@ -1,13 +1,13 @@
 /*
- * XREFs of IopSymlinkQueryEnabledClasses @ 0x14085D21C
+ * XREFs of IopSymlinkQueryEnabledClasses @ 0x1407CDB1C
  * Callers:
- *     IopSymlinkRegistryCallback @ 0x14085D1F0 (IopSymlinkRegistryCallback.c)
+ *     IopSymlinkRegistryCallback @ 0x1407CDAF0 (IopSymlinkRegistryCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     IopOpenRegistryKey @ 0x1407CF480 (IopOpenRegistryKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     IopOpenRegistryKey @ 0x1407690C4 (IopOpenRegistryKey.c)
  */
 
 __int64 __fastcall IopSymlinkQueryEnabledClasses(PCWSTR SourceString)

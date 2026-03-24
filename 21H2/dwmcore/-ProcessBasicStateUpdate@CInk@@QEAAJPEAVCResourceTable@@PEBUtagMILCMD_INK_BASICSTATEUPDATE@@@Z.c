@@ -1,13 +1,12 @@
 /*
- * XREFs of ?ProcessBasicStateUpdate@CInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INK_BASICSTATEUPDATE@@@Z @ 0x180217CB0
+ * XREFs of ?ProcessBasicStateUpdate@CInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INK_BASICSTATEUPDATE@@@Z @ 0x1801C5650
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$ReleaseInterface@UID2D1Ink@@@@YAXAEAPEAUID2D1Ink@@@Z @ 0x1802174DC (--$ReleaseInterface@UID2D1Ink@@@@YAXAEAPEAUID2D1Ink@@@Z.c)
- *     ??$ReleaseInterface@UID2D1InkStyle@@@@YAXAEAPEAUID2D1InkStyle@@@Z @ 0x180217518 (--$ReleaseInterface@UID2D1InkStyle@@@@YAXAEAPEAUID2D1InkStyle@@@Z.c)
- *     ?GetID2D1InkAndInkStyle@CD2DInk@@QEAAJPEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z @ 0x180217C38 (-GetID2D1InkAndInkStyle@CD2DInk@@QEAAJPEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z @ 0x1800C186C (--$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetID2D1InkAndInkStyle@CD2DInk@@QEAAJPEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z @ 0x1801C55EC (-GetID2D1InkAndInkStyle@CD2DInk@@QEAAJPEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z.c)
  */
 
 __int64 __fastcall CInk::ProcessBasicStateUpdate(
@@ -28,26 +27,26 @@ __int64 __fastcall CInk::ProcessBasicStateUpdate(
   struct ID2D1InkStyle *v15; // [rsp+68h] [rbp+10h] BYREF
 
   v3 = 0LL;
-  v4 = (char *)this + 176;
+  v4 = (char *)this + 168;
   v14 = 0LL;
   v5 = 0LL;
   v15 = 0LL;
   v6 = 0;
   v8 = 0;
-  *((_DWORD *)this + 43) = *((_DWORD *)a3 + 6) != 0;
-  *((_OWORD *)this + 11) = *(_OWORD *)((char *)a3 + 28);
-  *((_QWORD *)this + 24) = *(_QWORD *)((char *)a3 + 44);
-  *((_DWORD *)this + 31) = *((_DWORD *)a3 + 5);
-  *((_DWORD *)this + 30) = *((_DWORD *)a3 + 4);
-  *((_DWORD *)this + 29) = *((_DWORD *)a3 + 3);
-  *((_DWORD *)this + 28) = *((_DWORD *)a3 + 2);
-  v9 = (__int64)(*((_QWORD *)this + 12) - *((_QWORD *)this + 11)) >> 3;
+  *((_DWORD *)this + 41) = *((_DWORD *)a3 + 6) != 0;
+  *(_OWORD *)((char *)this + 168) = *(_OWORD *)((char *)a3 + 28);
+  *((_QWORD *)this + 23) = *(_QWORD *)((char *)a3 + 44);
+  *((_DWORD *)this + 29) = *((_DWORD *)a3 + 5);
+  *((_DWORD *)this + 28) = *((_DWORD *)a3 + 4);
+  *((_DWORD *)this + 27) = *((_DWORD *)a3 + 3);
+  *((_DWORD *)this + 26) = *((_DWORD *)a3 + 2);
+  v9 = (__int64)(*((_QWORD *)this + 11) - *((_QWORD *)this + 10)) >> 3;
   if ( (_DWORD)v9 )
   {
     while ( 1 )
     {
       ID2D1InkAndInkStyle = CD2DInk::GetID2D1InkAndInkStyle(
-                              *(CD2DInk **)((char *)v3 + *((_QWORD *)this + 11)),
+                              *(CD2DInk **)((char *)v3 + *((_QWORD *)this + 10)),
                               &v14,
                               &v15);
       v6 = ID2D1InkAndInkStyle;
@@ -56,10 +55,10 @@ __int64 __fastcall CInk::ProcessBasicStateUpdate(
       v12 = v15;
       (*(void (__fastcall **)(struct ID2D1InkStyle *, _QWORD))(*(_QWORD *)v15 + 48LL))(
         v15,
-        *((unsigned int *)this + 43));
+        *((unsigned int *)this + 41));
       (*(void (__fastcall **)(struct ID2D1InkStyle *, char *))(*(_QWORD *)v12 + 32LL))(v12, v4);
-      ReleaseInterface<ID2D1Ink>((__int64 *)&v14);
-      ReleaseInterface<ID2D1InkStyle>((__int64 *)&v15);
+      ReleaseInterface<CResource>((__int64 *)&v14);
+      ReleaseInterface<CResource>((__int64 *)&v15);
       ++v8;
       v3 = (struct ID2D1Ink *)((char *)v3 + 8);
       if ( v8 >= (unsigned int)v9 )
@@ -69,7 +68,7 @@ __int64 __fastcall CInk::ProcessBasicStateUpdate(
         goto LABEL_5;
       }
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, ID2D1InkAndInkStyle, 0x44u);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, ID2D1InkAndInkStyle, 0x44u, 0LL);
     v3 = v14;
     v5 = v15;
   }

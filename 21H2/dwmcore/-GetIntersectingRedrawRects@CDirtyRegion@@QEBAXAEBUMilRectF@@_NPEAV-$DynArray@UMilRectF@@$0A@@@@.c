@@ -1,50 +1,49 @@
 /*
- * XREFs of ?GetIntersectingRedrawRects@CDirtyRegion@@QEBAXAEBUMilRectF@@_NPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x1801B5FF0
+ * XREFs of ?GetIntersectingRedrawRects@CDirtyRegion@@QEBAXAEBUMilRectF@@_NPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x180188E1C
  * Callers:
- *     ?GetIntersectingRedrawRects@CDesktopTree@@UEBAXAEBUMilRectF@@_NPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x1801A02E0 (-GetIntersectingRedrawRects@CDesktopTree@@UEBAXAEBUMilRectF@@_NPEAV-$DynArray@UMilRectF@@$0A@@@@.c)
+ *     ?GetIntersectingRedrawRects@CDesktopTree@@UEBAXAEBUMilRectF@@_NPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x18016E900 (-GetIntersectingRedrawRects@CDesktopTree@@UEBAXAEBUMilRectF@@_NPEAV-$DynArray@UMilRectF@@$0A@@@@.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x180092F80 (-GetCurrentFrameId@@YA_KXZ.c)
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800B3CA0 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?GetBVIKeyForCurrentWalk@COcclusionContext@@QEBAAEBVCBackdropVisualImageKey@@XZ @ 0x1800B8CDC (-GetBVIKeyForCurrentWalk@COcclusionContext@@QEBAAEBVCBackdropVisualImageKey@@XZ.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800CB358 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D0F68 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ?IsOccluded@COcclusionContext@@QEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@H_N@Z @ 0x1800DF6AC (-IsOccluded@COcclusionContext@@QEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?GetZ@CDirtyRegionAnnotation@@QEBAHPEBVCVisualTree@@AEBVCBackdropVisualImageKey@@_N@Z @ 0x1801DED5C (-GetZ@CDirtyRegionAnnotation@@QEBAHPEBVCVisualTree@@AEBVCBackdropVisualImageKey@@_N@Z.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058390 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsOccluded@COcclusionContext@@QEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NH@Z @ 0x18006B21C (-IsOccluded@COcclusionContext@@QEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x180090244 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800C0048 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?GetZ@CDirtyRegionAnnotation@@QEBAHPEBVCVisualTree@@_N@Z @ 0x1801996DC (-GetZ@CDirtyRegionAnnotation@@QEBAHPEBVCVisualTree@@_N@Z.c)
  */
 
-void __fastcall CDirtyRegion::GetIntersectingRedrawRects(__int64 a1, float *a2, char a3, unsigned __int64 a4)
+void __fastcall CDirtyRegion::GetIntersectingRedrawRects(__int64 a1, float *a2, char a3, __int64 a4)
 {
-  unsigned int v8; // eax
+  bool v8; // r8
+  unsigned int v9; // eax
   unsigned int i; // ebx
-  float v10; // xmm4_4
-  float v11; // xmm1_4
-  float v12; // xmm2_4
+  float v11; // xmm4_4
+  float v12; // xmm1_4
   float v13; // xmm3_4
-  float v14; // xmm0_4
+  float v14; // xmm2_4
   float v15; // xmm0_4
   float v16; // xmm0_4
-  float v17; // xmm2_4
-  __int64 v18; // rcx
-  unsigned int v19; // eax
-  unsigned int v20; // edx
-  int v21; // eax
-  __int64 v22; // rcx
-  unsigned int v23; // r15d
-  _QWORD *v24; // r12
-  _QWORD *v25; // r14
-  __m128i v26; // xmm0
-  float v27; // xmm2_4
-  float v28; // xmm1_4
-  float v29; // xmm3_4
-  float v30; // xmm5_4
-  float v31; // xmm4_4
-  float v32; // xmm2_4
-  float v33; // xmm1_4
-  const struct CBackdropVisualImageKey *BVIKeyForCurrentWalk; // rax
-  bool v35; // r9
-  int v36; // eax
+  float v17; // xmm0_4
+  float v18; // xmm3_4
+  __int64 v19; // rcx
+  unsigned int v20; // eax
+  unsigned int v21; // edx
+  int v22; // eax
+  __int64 v23; // rcx
+  unsigned int v24; // r14d
+  _QWORD **v25; // r13
+  _QWORD *v26; // r15
+  _QWORD *v27; // rbx
+  unsigned int v28; // eax
+  __m128i v29; // xmm2
+  float v30; // xmm1_4
+  float v31; // xmm0_4
+  float v32; // xmm4_4
+  float v33; // xmm5_4
+  float v34; // xmm3_4
+  float v35; // xmm1_4
+  float v36; // xmm0_4
   __int64 v37; // rcx
   unsigned int v38; // eax
   unsigned int v39; // edx
@@ -70,165 +69,152 @@ void __fastcall CDirtyRegion::GetIntersectingRedrawRects(__int64 a1, float *a2, 
 
   *(_DWORD *)(a4 + 24) = 0;
   DynArrayImpl<0>::ShrinkToSize(a4, 0x10u);
-  if ( *(_BYTE *)(a1 + 4427) )
+  if ( *(_BYTE *)(a1 + 4459) )
   {
-    if ( a3 && *(struct CComposition **)(a1 + 40) == GetCurrentFrameId() )
+    if ( a3 && *(_QWORD *)(a1 + 32) == GetCurrentFrameId() )
     {
-      v8 = *(_DWORD *)(a1 + 2496);
-      for ( i = 0; i < v8; ++i )
+      v9 = *(_DWORD *)(a1 + 2528);
+      for ( i = 0; i < v9; ++i )
       {
-        v10 = *a2;
-        v11 = a2[1];
-        v12 = a2[2];
-        v13 = a2[3];
-        v59.m128i_i64[0] = __PAIR64__(LODWORD(v11), LODWORD(v10));
-        v59.m128i_i64[1] = __PAIR64__(LODWORD(v13), LODWORD(v12));
-        v14 = *(float *)(a1 + 16LL * i + 2532);
-        if ( v14 > v10 )
-        {
-          v59.m128i_i32[0] = *(_DWORD *)(a1 + 16LL * i + 2532);
-          v10 = v14;
-        }
-        v15 = *(float *)(a1 + 16LL * i + 2536);
+        v11 = *a2;
+        v12 = a2[1];
+        v13 = a2[2];
+        v14 = a2[3];
+        v59.m128i_i64[0] = __PAIR64__(LODWORD(v12), LODWORD(v11));
+        v59.m128i_i64[1] = __PAIR64__(LODWORD(v14), LODWORD(v13));
+        v15 = *(float *)(a1 + 16LL * i + 2564);
         if ( v15 > v11 )
         {
-          v59.m128i_i32[1] = *(_DWORD *)(a1 + 16LL * i + 2536);
+          v59.m128i_i32[0] = *(_DWORD *)(a1 + 16LL * i + 2564);
           v11 = v15;
         }
-        v16 = *(float *)(a1 + 16LL * i + 2540);
-        if ( v12 <= v16 )
-          v16 = v12;
-        else
-          v59.m128i_i32[2] = *(_DWORD *)(a1 + 16LL * i + 2540);
-        v17 = *(float *)(a1 + 16LL * i + 2544);
-        if ( v13 > v17 )
+        v16 = *(float *)(a1 + 16LL * i + 2568);
+        if ( v16 > v12 )
         {
-          v59.m128i_i32[3] = *(_DWORD *)(a1 + 16LL * i + 2544);
-          v13 = v17;
+          v59.m128i_i32[1] = *(_DWORD *)(a1 + 16LL * i + 2568);
+          v12 = v16;
         }
-        if ( v16 <= v10 || v13 <= v11 )
+        v17 = *(float *)(a1 + 16LL * i + 2572);
+        if ( v13 <= v17 )
+          v17 = v13;
+        else
+          v59.m128i_i32[2] = *(_DWORD *)(a1 + 16LL * i + 2572);
+        v18 = *(float *)(a1 + 16LL * i + 2576);
+        if ( v14 > v18 )
+        {
+          v59.m128i_i32[3] = *(_DWORD *)(a1 + 16LL * i + 2576);
+          v14 = v18;
+        }
+        if ( v17 <= v11 || v14 <= v12 )
           v59 = 0uLL;
         if ( !TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)v59.m128i_i32) )
         {
-          v19 = *(_DWORD *)(a4 + 24);
-          v20 = v19 + 1;
-          if ( v19 + 1 >= v19 )
+          v20 = *(_DWORD *)(a4 + 24);
+          v21 = v20 + 1;
+          if ( v20 + 1 < v20 )
           {
-            if ( v20 > *(_DWORD *)(a4 + 20) )
-            {
-              v21 = DynArrayImpl<0>::AddMultipleAndSet(a4, 0x10u, 1, &v59);
-              if ( v21 < 0 )
-                MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, v21, 0xC0u);
-            }
-            else
-            {
-              *(__m128i *)(*(_QWORD *)a4 + 16LL * *(unsigned int *)(a4 + 24)) = v59;
-              *(_DWORD *)(a4 + 24) = v20;
-            }
+            MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, -2147024362, 0xB5u, 0LL);
+          }
+          else if ( v21 > *(_DWORD *)(a4 + 20) )
+          {
+            v22 = DynArrayImpl<0>::AddMultipleAndSet(a4, 16, 1, &v59);
+            if ( v22 < 0 )
+              MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0xC0u, 0LL);
           }
           else
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0LL, -2147024362, 0xB5u);
+            *(__m128i *)(*(_QWORD *)a4 + 16LL * v20) = v59;
+            *(_DWORD *)(a4 + 24) = v21;
           }
         }
-        v8 = *(_DWORD *)(a1 + 2496);
+        v9 = *(_DWORD *)(a1 + 2528);
       }
       v57 = 0;
-      v23 = 0;
-      if ( v8 )
+      v24 = 0;
+      if ( v9 )
       {
         do
         {
-          v24 = (_QWORD *)(a1 + 16 * (*(unsigned int *)(a1 + 4LL * v23 + 2500) + 114LL));
-          v25 = (_QWORD *)*v24;
-          if ( (_QWORD *)*v24 != v24 )
+          v25 = (_QWORD **)(a1 + 16 * (*(unsigned int *)(a1 + 4LL * v24 + 2532) + 116LL));
+          v26 = *v25;
+          if ( *v25 != v25 )
           {
             do
             {
-              v26 = _mm_loadu_si128((const __m128i *)(v25 + 3));
-              v27 = *a2;
-              v28 = a2[1];
-              v29 = a2[2];
-              v30 = a2[3];
-              v59 = v26;
-              v59.m128i_i32[0] = v26.m128i_i32[0];
-              if ( v27 > *(float *)v26.m128i_i32 )
+              v27 = v26;
+              v26 = (_QWORD *)*v26;
+              v28 = CDirtyRegionAnnotation::GetZ((CDirtyRegionAnnotation *)v27, *(const struct CVisualTree **)a1, v8);
+              v29 = _mm_loadu_si128((const __m128i *)(v27 + 3));
+              v30 = *a2;
+              v31 = a2[1];
+              v32 = a2[2];
+              v33 = a2[3];
+              v59 = v29;
+              v59.m128i_i32[0] = v29.m128i_i32[0];
+              if ( v30 > *(float *)v29.m128i_i32 )
               {
-                *(float *)v59.m128i_i32 = v27;
-                *(float *)v26.m128i_i32 = v27;
+                *(float *)v59.m128i_i32 = v30;
+                *(float *)v29.m128i_i32 = v30;
               }
-              v31 = *(float *)&v59.m128i_i32[1];
-              if ( v28 > *(float *)&v59.m128i_i32[1] )
+              v34 = *(float *)&v59.m128i_i32[1];
+              if ( v31 > *(float *)&v59.m128i_i32[1] )
               {
-                *(float *)&v59.m128i_i32[1] = v28;
-                v31 = v28;
+                *(float *)&v59.m128i_i32[1] = v31;
+                v34 = v31;
               }
-              v32 = *(float *)&v59.m128i_i32[2];
-              if ( *(float *)&v59.m128i_i32[2] > v29 )
+              v35 = *(float *)&v59.m128i_i32[2];
+              if ( *(float *)&v59.m128i_i32[2] > v32 )
               {
-                *(float *)&v59.m128i_i32[2] = v29;
-                v32 = v29;
+                *(float *)&v59.m128i_i32[2] = v32;
+                v35 = v32;
               }
-              v33 = *(float *)&v59.m128i_i32[3];
-              if ( *(float *)&v59.m128i_i32[3] > v30 )
+              v36 = *(float *)&v59.m128i_i32[3];
+              if ( *(float *)&v59.m128i_i32[3] > v33 )
               {
-                *(float *)&v59.m128i_i32[3] = v30;
-                v33 = v30;
+                *(float *)&v59.m128i_i32[3] = v33;
+                v36 = v33;
               }
-              if ( v32 <= *(float *)v26.m128i_i32 || v33 <= v31 )
+              if ( v35 <= *(float *)v29.m128i_i32 || v36 <= v34 )
                 v59 = 0uLL;
-              if ( !TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)v59.m128i_i32) )
+              if ( !COcclusionContext::IsOccluded(a1 + 16, (float *)v59.m128i_i32, 0LL, v28) )
               {
-                BVIKeyForCurrentWalk = COcclusionContext::GetBVIKeyForCurrentWalk((COcclusionContext *)(a1 + 16));
-                v36 = CDirtyRegionAnnotation::GetZ(
-                        (CDirtyRegionAnnotation *)v25,
-                        *(const struct CVisualTree **)a1,
-                        BVIKeyForCurrentWalk,
-                        v35);
-                if ( !COcclusionContext::IsOccluded(a1 + 16, (float *)v59.m128i_i32, v36) )
+                v38 = *(_DWORD *)(a4 + 24);
+                v39 = v38 + 1;
+                if ( v38 + 1 < v38 )
                 {
-                  v38 = *(_DWORD *)(a4 + 24);
-                  v39 = v38 + 1;
-                  if ( v38 + 1 >= v38 )
-                  {
-                    if ( v39 > *(_DWORD *)(a4 + 20) )
-                    {
-                      v40 = DynArrayImpl<0>::AddMultipleAndSet(a4, 0x10u, 1, &v59);
-                      if ( v40 < 0 )
-                        MilInstrumentationCheckHR_MaybeFailFast(v41, 0LL, 0LL, v40, 0xC0u);
-                    }
-                    else
-                    {
-                      *(__m128i *)(*(_QWORD *)a4 + 16LL * *(unsigned int *)(a4 + 24)) = v59;
-                      *(_DWORD *)(a4 + 24) = v39;
-                    }
-                  }
-                  else
-                  {
-                    MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0LL, -2147024362, 0xB5u);
-                  }
+                  MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, -2147024362, 0xB5u, 0LL);
+                }
+                else if ( v39 > *(_DWORD *)(a4 + 20) )
+                {
+                  v40 = DynArrayImpl<0>::AddMultipleAndSet(a4, 16, 1, &v59);
+                  if ( v40 < 0 )
+                    MilInstrumentationCheckHR_MaybeFailFast(v41, 0LL, 0, v40, 0xC0u, 0LL);
+                }
+                else
+                {
+                  *(__m128i *)(*(_QWORD *)a4 + 16LL * v38) = v59;
+                  *(_DWORD *)(a4 + 24) = v39;
                 }
               }
-              v25 = (_QWORD *)*v25;
             }
-            while ( v25 != v24 );
-            v23 = v57;
+            while ( v26 != v25 );
+            v24 = v57;
           }
-          v57 = ++v23;
+          v57 = ++v24;
         }
-        while ( v23 < *(_DWORD *)(a1 + 2496) );
+        while ( v24 < *(_DWORD *)(a1 + 2528) );
       }
     }
     else
     {
-      for ( j = 0; j < *(_DWORD *)(a1 + 2496); ++j )
+      for ( j = 0; j < *(_DWORD *)(a1 + 2528); ++j )
       {
         v43 = *a2;
         v44 = a2[1];
         v45 = a2[2];
         v46 = a2[3];
         v59.m128i_i64[0] = __PAIR64__(LODWORD(v44), LODWORD(v43));
-        v47 = (float *)(a1 + 16 * (j + 148LL));
+        v47 = (float *)(a1 + 16 * (j + 150LL));
         v59.m128i_i64[1] = __PAIR64__(LODWORD(v46), LODWORD(v45));
         v48 = *v47;
         if ( *v47 > v43 )
@@ -259,23 +245,20 @@ void __fastcall CDirtyRegion::GetIntersectingRedrawRects(__int64 a1, float *a2, 
         {
           v53 = *(_DWORD *)(a4 + 24);
           v54 = v53 + 1;
-          if ( v53 + 1 >= v53 )
+          if ( v53 + 1 < v53 )
           {
-            if ( v54 > *(_DWORD *)(a4 + 20) )
-            {
-              v55 = DynArrayImpl<0>::AddMultipleAndSet(a4, 0x10u, 1, &v59);
-              if ( v55 < 0 )
-                MilInstrumentationCheckHR_MaybeFailFast(v56, 0LL, 0LL, v55, 0xC0u);
-            }
-            else
-            {
-              *(__m128i *)(*(_QWORD *)a4 + 16LL * *(unsigned int *)(a4 + 24)) = v59;
-              *(_DWORD *)(a4 + 24) = v54;
-            }
+            MilInstrumentationCheckHR_MaybeFailFast(v52, 0LL, 0, -2147024362, 0xB5u, 0LL);
+          }
+          else if ( v54 > *(_DWORD *)(a4 + 20) )
+          {
+            v55 = DynArrayImpl<0>::AddMultipleAndSet(a4, 16, 1, &v59);
+            if ( v55 < 0 )
+              MilInstrumentationCheckHR_MaybeFailFast(v56, 0LL, 0, v55, 0xC0u, 0LL);
           }
           else
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v52, 0LL, 0LL, -2147024362, 0xB5u);
+            *(__m128i *)(*(_QWORD *)a4 + 16LL * v53) = v59;
+            *(_DWORD *)(a4 + 24) = v54;
           }
         }
       }

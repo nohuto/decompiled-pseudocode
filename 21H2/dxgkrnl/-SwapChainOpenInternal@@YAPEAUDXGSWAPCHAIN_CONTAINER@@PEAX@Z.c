@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SwapChainOpenInternal@@YAPEAUDXGSWAPCHAIN_CONTAINER@@PEAX@Z @ 0x1C034CD78
+ * XREFs of ?SwapChainOpenInternal@@YAPEAUDXGSWAPCHAIN_CONTAINER@@PEAX@Z @ 0x1C02ACB48
  * Callers:
- *     ?DodSetIndirectSwapchain@ADAPTER_DISPLAY@@QEAAJIPEAX@Z @ 0x1C02C0820 (-DodSetIndirectSwapchain@ADAPTER_DISPLAY@@QEAAJIPEAX@Z.c)
- *     ?SetIndirectSwapChainHandles@BLTQUEUE@@QEAAJPEAX@Z @ 0x1C03BE254 (-SetIndirectSwapChainHandles@BLTQUEUE@@QEAAJPEAX@Z.c)
+ *     ?DodSetIndirectSwapchain@ADAPTER_DISPLAY@@QEAAJIPEAX@Z @ 0x1C0211EFC (-DodSetIndirectSwapchain@ADAPTER_DISPLAY@@QEAAJIPEAX@Z.c)
+ *     ?SetIndirectSwapChainHandles@BLTQUEUE@@QEAAJPEAX@Z @ 0x1C02FF31C (-SetIndirectSwapChainHandles@BLTQUEUE@@QEAAJPEAX@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,12 +10,21 @@
 struct DXGSWAPCHAIN_CONTAINER *__fastcall SwapChainOpenInternal(void *a1)
 {
   NTSTATUS v2; // eax
-  PVOID v4; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // rdi
+  __int64 v7; // rax
+  PVOID v9; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = 0LL;
-  v2 = ObReferenceObjectByHandle(a1, 0x20000u, g_pDxgkSharedSwapChainObjectType, 1, &v4, 0LL);
+  v9 = 0LL;
+  v2 = ObReferenceObjectByHandle(a1, 0x20000u, g_pDxgkSharedSwapChainObjectType, 1, &v9, 0LL);
+  v6 = v2;
   if ( v2 >= 0 )
-    return (struct DXGSWAPCHAIN_CONTAINER *)v4;
-  WdLogSingleEntry2(3LL, a1, v2);
+    return (struct DXGSWAPCHAIN_CONTAINER *)v9;
+  v7 = WdLogNewEntry5_WdWarning(v4, v3, v5);
+  *(_QWORD *)(v7 + 24) = a1;
+  *(_QWORD *)(v7 + 32) = v6;
+  WdLogEvent5_WdWarning(v7);
   return 0LL;
 }

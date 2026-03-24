@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpiBiosVendorToNtIoDescriptor @ 0x1C0091C84
+ * XREFs of PnpiBiosVendorToNtIoDescriptor @ 0x1C00B4108
  * Callers:
- *     PnpBiosResourcesToNtResources @ 0x1C008EFEC (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  * Callees:
- *     AcpiExternalTranslateBiosToNtResources @ 0x1C0083DB0 (AcpiExternalTranslateBiosToNtResources.c)
- *     PnpiUpdateResourceList @ 0x1C0092338 (PnpiUpdateResourceList.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
+ *     AcpiExternalTranslateBiosToNtResources @ 0x1C00AF1D0 (AcpiExternalTranslateBiosToNtResources.c)
  */
 
 __int64 __fastcall PnpiBiosVendorToNtIoDescriptor(
@@ -42,7 +42,7 @@ __int64 __fastcall PnpiBiosVendorToNtIoDescriptor(
     {
       v14 = a5;
       *v7 = 1;
-      result = PnpiUpdateResourceList(a4 + 8 * v14, &v16);
+      result = PnpiUpdateResourceList((const void **)(a4 + 8 * v14), &v16);
       if ( (int)result < 0 )
         return result;
       return (unsigned int)AcpiExternalTranslateBiosToNtResources(a1, a2 + 20, v13, a6, v16);

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DoesPointSnapToTopLevelWindow@@YAHPEAUtagWND@@0PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z @ 0x1C020493C
+ * XREFs of ?DoesPointSnapToTopLevelWindow@@YAHPEAUtagWND@@0PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z @ 0x1C0214FF8
  * Callers:
- *     TouchTargetChildTree @ 0x1C020718C (TouchTargetChildTree.c)
+ *     TouchTargetChildTree @ 0x1C021732C (TouchTargetChildTree.c)
  * Callees:
- *     ?CanPointStartResize@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z @ 0x1C0204774 (-CanPointStartResize@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z.c)
- *     ?TouchTargetingIsSpecialTarget@@YAHPEAUtagWND@@0@Z @ 0x1C0205048 (-TouchTargetingIsSpecialTarget@@YAHPEAUtagWND@@0@Z.c)
+ *     ?CanPointStartResize@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z @ 0x1C0214DA4 (-CanPointStartResize@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z.c)
+ *     ?TouchTargetingIsSpecialTarget@@YAHPEAUtagWND@@0@Z @ 0x1C021572C (-TouchTargetingIsSpecialTarget@@YAHPEAUtagWND@@0@Z.c)
  */
 
 __int64 __fastcall DoesPointSnapToTopLevelWindow(

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AlphaDivide_32bppPARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B10C0
+ * XREFs of ?AlphaDivide_32bppPARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021B080
  * Callers:
  *     <none>
  * Callees:
- *     ?Unpremultiply@@YAII@Z @ 0x18026F6CC (-Unpremultiply@@YAII@Z.c)
+ *     ?Unpremultiply@@YAII@Z @ 0x18021F160 (-Unpremultiply@@YAII@Z.c)
  */
 
 void __fastcall AlphaDivide_32bppPARGB(const struct PipelineParams *a1, const struct ScanOpParams *a2)

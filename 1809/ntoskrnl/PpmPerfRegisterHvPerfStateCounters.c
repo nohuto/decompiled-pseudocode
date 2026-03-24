@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmPerfRegisterHvPerfStateCounters @ 0x14087B550
+ * XREFs of PpmPerfRegisterHvPerfStateCounters @ 0x14087B530
  * Callers:
  *     <none>
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
  *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     HvlRegisterPerfFeedbackCounters @ 0x140276E3C (HvlRegisterPerfFeedbackCounters.c)
- *     PpmRegisterPerfStates @ 0x14074E4DC (PpmRegisterPerfStates.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     HvlRegisterPerfFeedbackCounters @ 0x140276F3C (HvlRegisterPerfFeedbackCounters.c)
+ *     PpmRegisterPerfStates @ 0x14074E4BC (PpmRegisterPerfStates.c)
  */
 
 __int64 __fastcall PpmPerfRegisterHvPerfStateCounters(__int64 a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnTraceGetLogEntry @ 0x14036669C
+ * XREFs of PfSnTraceGetLogEntry @ 0x14031A890
  * Callers:
- *     PfSnTraceTimerRoutine @ 0x140244E70 (PfSnTraceTimerRoutine.c)
- *     MiCompleteProtoPteFault @ 0x1403203D0 (MiCompleteProtoPteFault.c)
- *     PfSnLogPageFaultCommon @ 0x140366094 (PfSnLogPageFaultCommon.c)
- *     PfSnCheckLogSequenceNumber @ 0x140366620 (PfSnCheckLogSequenceNumber.c)
- *     PfSnLogStreamDelete @ 0x1406B5FC4 (PfSnLogStreamDelete.c)
- *     PfSnLogIdentifier @ 0x1406D8B90 (PfSnLogIdentifier.c)
- *     PfSnLogHelper @ 0x1407E5390 (PfSnLogHelper.c)
+ *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
+ *     PfSnTraceTimerRoutine @ 0x1402C0A50 (PfSnTraceTimerRoutine.c)
+ *     PfSnLogPageFaultCommon @ 0x14031B04C (PfSnLogPageFaultCommon.c)
+ *     PfSnCheckLogSequenceNumber @ 0x14031B174 (PfSnCheckLogSequenceNumber.c)
+ *     PfSnLogStreamDelete @ 0x140698C2C (PfSnLogStreamDelete.c)
+ *     PfSnLogIdentifier @ 0x1406B8150 (PfSnLogIdentifier.c)
+ *     PfSnLogHelper @ 0x1406CC79C (PfSnLogHelper.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     PfSnTraceBufferAllocate @ 0x14035FCE0 (PfSnTraceBufferAllocate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PfSnTraceBufferAllocate @ 0x140360920 (PfSnTraceBufferAllocate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)
@@ -55,7 +55,7 @@ __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)
         return v8;
       }
       _InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 16), -a2);
-      v10 = PfSnTraceBufferAllocate();
+      v10 = (_QWORD *)PfSnTraceBufferAllocate();
       if ( !v10 )
       {
         v8 = -1073741670;

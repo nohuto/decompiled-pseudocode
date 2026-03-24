@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpQueryModuleInformation @ 0x140759A80
+ * XREFs of ExpQueryModuleInformation @ 0x1405ED940
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlUnicodeStringToAnsiString @ 0x140759C40 (RtlUnicodeStringToAnsiString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall ExpQueryModuleInformation(__int64 a1, _DWORD *a2, unsigned int a3, unsigned int *a4)

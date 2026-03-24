@@ -1,1 +1,25 @@
-/*\n * XREFs of __memset_repmovs @ 0x1C0003340\n * Callers:\n *     memset @ 0x1C0003200 (memset.c)\n * Callees:\n *     __memset_query @ 0x1C00033C0 (__memset_query.c)\n */\n\n__int64 __fastcall _memset_repmovs(_OWORD *a1, __int64 a2, __int64 a3)\n{\n  __int128 v3; // xmm0\n  __int64 result; // rax\n\n  if ( (_isa_info & 1) == 0 )\n    result = _memset_query();\n  *a1 = v3;\n  a1[1] = v3;\n  a1[2] = v3;\n  a1[3] = v3;\n  memset(\n    (void *)((unsigned __int64)(a1 + 4) & 0xFFFFFFFFFFFFFFC0uLL),\n    v3,\n    (unsigned __int64)a1 + a3 - ((unsigned __int64)(a1 + 4) & 0xFFFFFFFFFFFFFFC0uLL));\n  return result;\n}\n
+/*
+ * XREFs of __memset_repmovs @ 0x1C0003340
+ * Callers:
+ *     memset @ 0x1C0003200 (memset.c)
+ * Callees:
+ *     __memset_query @ 0x1C00033C0 (__memset_query.c)
+ */
+
+__int64 __fastcall _memset_repmovs(_OWORD *a1, __int64 a2, __int64 a3)
+{
+  __int128 v3; // xmm0
+  __int64 result; // rax
+
+  if ( (_isa_info & 1) == 0 )
+    result = _memset_query();
+  *a1 = v3;
+  a1[1] = v3;
+  a1[2] = v3;
+  a1[3] = v3;
+  memset(
+    (void *)((unsigned __int64)(a1 + 4) & 0xFFFFFFFFFFFFFFC0uLL),
+    v3,
+    (unsigned __int64)a1 + a3 - ((unsigned __int64)(a1 + 4) & 0xFFFFFFFFFFFFFFC0uLL));
+  return result;
+}

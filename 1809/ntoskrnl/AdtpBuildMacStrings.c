@@ -1,9 +1,9 @@
 /*
- * XREFs of AdtpBuildMacStrings @ 0x1408EEF10
+ * XREFs of AdtpBuildMacStrings @ 0x1408EEEF0
  * Callers:
- *     AdtpBuildSockAddrString @ 0x1408EF9B0 (AdtpBuildSockAddrString.c)
+ *     AdtpBuildSockAddrString @ 0x1408EF990 (AdtpBuildSockAddrString.c)
  * Callees:
- *     RtlEthernetAddressToStringW @ 0x1402F32D0 (RtlEthernetAddressToStringW.c)
+ *     RtlEthernetAddressToStringW @ 0x1402F33D0 (RtlEthernetAddressToStringW.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

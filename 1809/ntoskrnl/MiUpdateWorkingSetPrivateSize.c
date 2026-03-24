@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateWorkingSetPrivateSize @ 0x140126B80
+ * XREFs of MiUpdateWorkingSetPrivateSize @ 0x140126BA0
  * Callers:
  *     MiDemoteCombinedPte @ 0x14006C200 (MiDemoteCombinedPte.c)
  *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
- *     MiBuildForkPte @ 0x1402C7AF0 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
  * Callees:
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiUpdateWorkingSetPrivateSize(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)

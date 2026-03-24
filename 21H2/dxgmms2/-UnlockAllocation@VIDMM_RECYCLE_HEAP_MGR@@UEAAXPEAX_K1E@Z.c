@@ -1,14 +1,13 @@
 /*
- * XREFs of ?UnlockAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX_K1E@Z @ 0x1C007DEB0
+ * XREFs of ?UnlockAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX_K1E@Z @ 0x1C00769E0
  * Callers:
  *     <none>
  * Callees:
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0001344 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?IsOverLimits@VIDMM_RECYCLE_HEAP_MGR@@SA_NXZ @ 0x1C00013C4 (-IsOverLimits@VIDMM_RECYCLE_HEAP_MGR@@SA_NXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0001400 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C00014D4 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Unlock@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K0E@Z @ 0x1C007DF30 (-Unlock@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K0E@Z.c)
- *     ?ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z @ 0x1C00AA464 (-ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000210C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?IsOverLimits@VIDMM_RECYCLE_HEAP_MGR@@SA_NXZ @ 0x1C0002138 (-IsOverLimits@VIDMM_RECYCLE_HEAP_MGR@@SA_NXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002174 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Unlock@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K0E@Z @ 0x1C0076A68 (-Unlock@VIDMM_RECYCLE_MULTIRANGE@@QEAAX_K0E@Z.c)
+ *     ?ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z @ 0x1C00C17D8 (-ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z.c)
  */
 
 void __fastcall VIDMM_RECYCLE_HEAP_MGR::UnlockAllocation(
@@ -18,13 +17,26 @@ void __fastcall VIDMM_RECYCLE_HEAP_MGR::UnlockAllocation(
         unsigned __int64 a4,
         char a5)
 {
-  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
+  bool v5; // zf
+  char *v6; // rcx
+  __int64 v10; // rax
+  char *v11; // [rsp+20h] [rbp-18h] BYREF
+  char v12; // [rsp+28h] [rbp-10h]
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v8, (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328));
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v8);
+  v5 = (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328) == 0LL;
+  v6 = (char *)this + 1328;
+  v12 = 0;
+  v11 = v6;
+  if ( v5 )
+  {
+    v10 = WdLogNewEntry5_WdAssertion(v6, a2, a3);
+    *(_QWORD *)(v10 + 24) = 762LL;
+    WdLogEvent5_WdAssertion(v10);
+  }
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v11);
   VIDMM_RECYCLE_MULTIRANGE::Unlock(a2, a3, a4, a5);
-  if ( v8[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8);
+  if ( v12 )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v11);
   if ( VIDMM_RECYCLE_HEAP_MGR::IsOverLimits() )
     VIDMM_RECYCLE_HEAP_MGR::ProcessDebounceListsGlobally(1);
 }

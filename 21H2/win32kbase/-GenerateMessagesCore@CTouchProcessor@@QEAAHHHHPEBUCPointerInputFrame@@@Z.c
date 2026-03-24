@@ -1,588 +1,509 @@
 /*
- * XREFs of ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01C7310
+ * XREFs of ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01900D0
  * Callers:
- *     ?DoContactVisualizationAndGenerateMessages@CTouchProcessor@@AEAAHPEBURIMCOMPLETEFRAME@@PEBUCPointerInputFrame@@PEAXHHH@Z @ 0x1C01C4EF8 (-DoContactVisualizationAndGenerateMessages@CTouchProcessor@@AEAAHPEBURIMCOMPLETEFRAME@@PEBUCPoin.c)
- *     ?ProcessTouchpadInput@CTouchProcessor@@QEAAXPEAUCPointerInputFrame@@HH@Z @ 0x1C01D2C30 (-ProcessTouchpadInput@CTouchProcessor@@QEAAXPEAUCPointerInputFrame@@HH@Z.c)
- *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H@Z @ 0x1C01D45E8 (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H.c)
+ *     ?DoContactVisualizationAndGenerateMessages@CTouchProcessor@@AEAAHPEBURIMCOMPLETEFRAME@@PEBUCPointerInputFrame@@PEAXHHH@Z @ 0x1C018DBDC (-DoContactVisualizationAndGenerateMessages@CTouchProcessor@@AEAAHPEBURIMCOMPLETEFRAME@@PEBUCPoin.c)
+ *     ?ProcessTouchpadInput@CTouchProcessor@@QEAAXPEAUCPointerInputFrame@@HH@Z @ 0x1C019A7B0 (-ProcessTouchpadInput@CTouchProcessor@@QEAAXPEAUCPointerInputFrame@@HH@Z.c)
+ *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z @ 0x1C019BC9C (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     HMValidateHandleNoSecure @ 0x1C0033980 (HMValidateHandleNoSecure.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0037CB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C0037FE8 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C0038050 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     isChildPartition @ 0x1C00383F0 (isChildPartition.c)
- *     isRootPartition @ 0x1C00384A0 (isRootPartition.c)
- *     IsPTPIVEnabled @ 0x1C0042570 (IsPTPIVEnabled.c)
- *     PushW32ThreadLock @ 0x1C0097140 (PushW32ThreadLock.c)
- *     ?GetProcessor@CPTPProcessorFactory@@SAPEAVCPTPProcessor@@PEAUDEVICEINFO@@@Z @ 0x1C00DCD30 (-GetProcessor@CPTPProcessorFactory@@SAPEAVCPTPProcessor@@PEAUDEVICEINFO@@@Z.c)
- *     PopW32ThreadLock @ 0x1C00DD608 (PopW32ThreadLock.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ??0CInpUnlockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00E7C96 (--0CInpUnlockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     IsTouchpadDevice @ 0x1C00E8F60 (IsTouchpadDevice.c)
- *     EtwTraceBeginPointerFrameMessageGeneration @ 0x1C014C790 (EtwTraceBeginPointerFrameMessageGeneration.c)
- *     EtwTraceDwmManipulationFrameRouted @ 0x1C014CB60 (EtwTraceDwmManipulationFrameRouted.c)
- *     EtwTraceDwmManipulationFrameStart @ 0x1C014CB90 (EtwTraceDwmManipulationFrameStart.c)
- *     EtwTraceEndPointerFrameMessageGeneration @ 0x1C014CE50 (EtwTraceEndPointerFrameMessageGeneration.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C01A3FC4 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
- *     ??1CInpUnlockGuardExclusive@@QEAA@XZ @ 0x1C01BD2AC (--1CInpUnlockGuardExclusive@@QEAA@XZ.c)
- *     ?CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z @ 0x1C01BFDA0 (-CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z.c)
- *     ?CountMTNodesReadyForRouting@CTouchProcessor@@AEAAIPEBUCPointerInputFrame@@@Z @ 0x1C01C35AC (-CountMTNodesReadyForRouting@CTouchProcessor@@AEAAIPEBUCPointerInputFrame@@@Z.c)
- *     ?FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@@Z @ 0x1C01C5678 (-FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@.c)
- *     ?ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@W4MIT_INPUT_INTEROP_CALLBACK@@@Z @ 0x1C01C5AE0 (-ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@W4MIT_INPUT_INTE.c)
- *     ?GenerateDepartureMessage@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z @ 0x1C01C649C (-GenerateDepartureMessage@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z.c)
- *     ?GenerateEnterMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z @ 0x1C01C6724 (-GenerateEnterMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z.c)
- *     ?GenerateFrameMessages@Pointer@TelemetryDebug@InputTraceLogging@@SAXAEBUTELEMETRY_POINTER_FRAME_TIMES@@_N@Z @ 0x1C01C6A74 (-GenerateFrameMessages@Pointer@TelemetryDebug@InputTraceLogging@@SAXAEBUTELEMETRY_POINTER_FRAME_.c)
- *     ?GeneratePointerInputMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@KHHKKH@Z @ 0x1C01C7D8C (-GeneratePointerInputMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@KHHKKH@Z.c)
- *     ?GenerateRoutedToMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z @ 0x1C01C8770 (-GenerateRoutedToMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z.c)
- *     ?GetPrevMsgId@CTouchProcessor@@AEAA_K_K@Z @ 0x1C01CD5C8 (-GetPrevMsgId@CTouchProcessor@@AEAA_K_K@Z.c)
- *     ?IsFrameReferenced@CTouchProcessor@@AEAAHK@Z @ 0x1C01CE0AC (-IsFrameReferenced@CTouchProcessor@@AEAAHK@Z.c)
- *     ?NodeMatchesMTGeneration@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@H@Z @ 0x1C01CEB5C (-NodeMatchesMTGeneration@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@H@Z.c)
- *     ?ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z @ 0x1C01D0660 (-ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z.c)
- *     ?ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@_N@Z @ 0x1C01D2144 (-ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@_N@Z.c)
- *     ?ProcessRoutedAwayList@CTouchProcessor@@AEAAXGHPEBUCPointerInputFrame@@KK@Z @ 0x1C01D2B28 (-ProcessRoutedAwayList@CTouchProcessor@@AEAAXGHPEBUCPointerInputFrame@@KK@Z.c)
- *     ?ShouldGenerateMessagesForNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@H@Z @ 0x1C01D7798 (-ShouldGenerateMessagesForNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNod.c)
- *     WPP_RECORDER_AND_TRACE_SF_LLL @ 0x1C01DAA6C (WPP_RECORDER_AND_TRACE_SF_LLL.c)
- *     IsPenIVEnabled @ 0x1C01F0D34 (IsPenIVEnabled.c)
- *     IsTouchIVEnabled @ 0x1C01F0DB4 (IsTouchIVEnabled.c)
- *     ApiSetEditionProcessPointerInputAsMouse @ 0x1C020AD4C (ApiSetEditionProcessPointerInputAsMouse.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C00413C0 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C00414F4 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     isRootPartition @ 0x1C0041628 (isRootPartition.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0042200 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     HMValidateHandleNoSecure @ 0x1C00454C0 (HMValidateHandleNoSecure.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     IsPTPIVEnabled @ 0x1C00A9640 (IsPTPIVEnabled.c)
+ *     ??0CInpUnlockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00CCBA8 (--0CInpUnlockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     EtwTraceBeginPointerFrameMessageGeneration @ 0x1C01219B0 (EtwTraceBeginPointerFrameMessageGeneration.c)
+ *     EtwTraceDwmManipulationFrameRouted @ 0x1C0121D90 (EtwTraceDwmManipulationFrameRouted.c)
+ *     EtwTraceDwmManipulationFrameStart @ 0x1C0121DC0 (EtwTraceDwmManipulationFrameStart.c)
+ *     EtwTraceEndPointerFrameMessageGeneration @ 0x1C0122130 (EtwTraceEndPointerFrameMessageGeneration.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C016F8D4 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
+ *     ??1CInpUnlockGuardExclusive@@QEAA@XZ @ 0x1C0187524 (--1CInpUnlockGuardExclusive@@QEAA@XZ.c)
+ *     ?CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z @ 0x1C0189704 (-CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z.c)
+ *     ?CountMTNodesReadyForRouting@CTouchProcessor@@AEAAIPEBUCPointerInputFrame@@@Z @ 0x1C018C3B4 (-CountMTNodesReadyForRouting@CTouchProcessor@@AEAAIPEBUCPointerInputFrame@@@Z.c)
+ *     ?FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@@Z @ 0x1C018E454 (-FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@.c)
+ *     ?ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@@Z @ 0x1C018EAA0 (-ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@@Z.c)
+ *     ?GenerateDepartureMessage@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z @ 0x1C018F858 (-GenerateDepartureMessage@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z.c)
+ *     ?GenerateEnterMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z @ 0x1C018FA14 (-GenerateEnterMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z.c)
+ *     ?GeneratePointerInputMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@KHHKKH@Z @ 0x1C0190B44 (-GeneratePointerInputMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@KHHKKH@Z.c)
+ *     ?GenerateRoutedToMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z @ 0x1C01912D0 (-GenerateRoutedToMessages@CTouchProcessor@@IEAAXPEBUCPointerInputFrame@@K_KKHH@Z.c)
+ *     ?GetPrevMsgId@CTouchProcessor@@AEAA_K_K@Z @ 0x1C01958F8 (-GetPrevMsgId@CTouchProcessor@@AEAA_K_K@Z.c)
+ *     ?IsFrameReferenced@CTouchProcessor@@AEAAHK@Z @ 0x1C01968B8 (-IsFrameReferenced@CTouchProcessor@@AEAAHK@Z.c)
+ *     ?NodeMatchesMTGeneration@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@H@Z @ 0x1C01973C8 (-NodeMatchesMTGeneration@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@H@Z.c)
+ *     ?ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z @ 0x1C0198DC0 (-ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z.c)
+ *     ?ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@@Z @ 0x1C0199F0C (-ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@@Z.c)
+ *     ?ProcessRoutedAwayList@CTouchProcessor@@AEAAXGHPEBUCPointerInputFrame@@KK@Z @ 0x1C019A67C (-ProcessRoutedAwayList@CTouchProcessor@@AEAAXGHPEBUCPointerInputFrame@@KK@Z.c)
+ *     ?ShouldGenerateMessagesForNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@H@Z @ 0x1C019ED04 (-ShouldGenerateMessagesForNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNod.c)
+ *     WPP_RECORDER_SF_LLL @ 0x1C01A16C0 (WPP_RECORDER_SF_LLL.c)
+ *     IsTouchpadDevice @ 0x1C01AEB20 (IsTouchpadDevice.c)
+ *     IsPenIVEnabled @ 0x1C01BA73C (IsPenIVEnabled.c)
+ *     IsTouchIVEnabled @ 0x1C01BA78C (IsTouchIVEnabled.c)
+ *     ApiSetEditionProcessPointerInputAsMouse @ 0x1C01CD6E4 (ApiSetEditionProcessPointerInputAsMouse.c)
  */
 
 __int64 __fastcall CTouchProcessor::GenerateMessagesCore(
-        CTouchProcessor *this,
-        __int64 a2,
-        __int64 a3,
+        struct _KTHREAD **this,
+        int a2,
+        int a3,
         int a4,
         const struct CPointerInputFrame *a5)
 {
-  struct _KTHREAD **v5; // r13
-  int v6; // r15d
-  unsigned int v7; // r12d
-  PDEVICE_OBJECT v8; // rcx
-  unsigned int v9; // ebx
-  const struct CPointerInputFrame *v10; // rsi
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  CTouchProcessor *v14; // rcx
-  __int64 v15; // r8
-  int v16; // r14d
-  const struct CPointerInfoNode *v17; // rdi
-  CTouchProcessor *v18; // rcx
-  BOOL v19; // r14d
-  LARGE_INTEGER PerformanceCounter; // rbx
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v23; // r8
-  __int64 v24; // rax
-  int v25; // edi
-  int v26; // r15d
-  unsigned int v27; // r13d
-  int v28; // r12d
-  unsigned int *v29; // rbx
-  unsigned int v30; // r14d
-  CTouchProcessor *v31; // rcx
-  CTouchProcessor *v32; // rcx
+  struct _KTHREAD **v5; // r14
+  int v7; // r12d
+  unsigned int v8; // r15d
+  void *v9; // rdx
+  CInputThread *v11; // rdi
+  bool v12; // bl
+  CTouchProcessor *v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  unsigned int v16; // ebx
+  __int64 v17; // r8
+  int v18; // r14d
+  const struct CPointerInfoNode *v19; // rdi
+  int v20; // eax
+  int v21; // r8d
+  __int64 v22; // rax
+  int v23; // r14d
+  int v24; // edi
+  int v25; // r12d
+  unsigned int v26; // r15d
+  unsigned __int64 v27; // rbx
+  CTouchProcessor *v28; // rcx
+  CTouchProcessor *v29; // rcx
   unsigned __int64 PrevMsgId; // rax
-  __int64 v34; // rcx
-  unsigned int v35; // eax
+  int v31; // ecx
+  int v32; // eax
+  int v33; // ecx
+  int v34; // eax
+  int v35; // edx
   __int64 *v36; // rbx
   unsigned int v37; // edi
-  int v38; // r13d
-  CTouchProcessor *v39; // r12
-  CTouchProcessor *v40; // rcx
-  unsigned __int64 *v41; // rbx
-  unsigned int v42; // edi
-  int v43; // r13d
-  CTouchProcessor *v44; // rcx
-  int v45; // edx
-  int v46; // r8d
-  int v47; // r9d
-  struct DEVICEINFO *v48; // rax
-  struct CPTPProcessor *Processor; // rax
-  unsigned int v50; // ebx
-  int v51; // r14d
-  int v52; // edi
-  unsigned int v53; // r12d
-  CTouchProcessor *v54; // r15
-  unsigned int v55; // r12d
-  __int64 v56; // rdx
-  __int64 v57; // r8
-  __int64 v58; // rax
-  unsigned __int64 v59; // rbx
-  unsigned int v60; // edi
-  CTouchProcessor *v61; // rcx
-  __int64 v62; // rax
-  unsigned int v63; // edi
-  __int64 *i; // rbx
-  CTouchProcessor *v65; // rcx
-  LARGE_INTEGER v66; // rbx
-  __int64 v67; // r8
-  __int64 v68; // r9
+  CTouchProcessor *v38; // rcx
+  unsigned __int64 *v39; // rbx
+  unsigned int i; // edi
+  CTouchProcessor *v41; // rcx
+  int v42; // edx
+  int v43; // ecx
+  int v44; // r8d
+  unsigned int v45; // edi
+  __int64 v46; // rax
+  __int64 v47; // rax
+  unsigned int v48; // ebx
+  int v49; // r15d
+  unsigned int v50; // r12d
+  CTouchProcessor *v51; // r14
+  __int64 v52; // r8
+  __int64 v53; // rax
+  unsigned __int64 v54; // rbx
+  unsigned int j; // edi
+  CTouchProcessor *v56; // rcx
+  __int64 v57; // rax
+  unsigned int v58; // edi
+  __int64 *k; // rbx
+  CTouchProcessor *v60; // rcx
+  __int64 v61; // r9
   const struct CPointerInfoNode *NodeForPointerPromotion; // rax
-  _DWORD *v70; // rdx
-  CTouchProcessor *v71; // rcx
-  __int64 v72; // r8
-  const struct CPointerInfoNode *v73; // rdi
-  __int16 v74; // bx
-  bool v75; // cf
-  unsigned __int16 v76; // bx
-  int v78; // [rsp+28h] [rbp-A1h]
-  int v79; // [rsp+30h] [rbp-99h]
-  int v80; // [rsp+40h] [rbp-89h]
-  unsigned int v81[2]; // [rsp+68h] [rbp-61h] BYREF
-  unsigned int v82; // [rsp+70h] [rbp-59h]
-  int v83; // [rsp+74h] [rbp-55h]
-  int v84; // [rsp+78h] [rbp-51h]
-  __int64 v85; // [rsp+80h] [rbp-49h] BYREF
-  __int128 v86; // [rsp+88h] [rbp-41h] BYREF
-  __int64 v87; // [rsp+98h] [rbp-31h]
-  __int64 *v88; // [rsp+A0h] [rbp-29h] BYREF
-  PERESOURCE *v89[14]; // [rsp+A8h] [rbp-21h] BYREF
-  CTouchProcessor *v90; // [rsp+128h] [rbp+5Fh] BYREF
-  int v91; // [rsp+130h] [rbp+67h]
-  int v92; // [rsp+138h] [rbp+6Fh]
-  int v93; // [rsp+140h] [rbp+77h]
+  _DWORD *v63; // rdx
+  CTouchProcessor *v64; // rcx
+  const struct CPointerInfoNode *v65; // rdi
+  unsigned __int16 v66; // bx
+  unsigned int v68; // [rsp+28h] [rbp-81h]
+  int v69; // [rsp+48h] [rbp-61h] BYREF
+  int v70; // [rsp+4Ch] [rbp-5Dh] BYREF
+  int v71; // [rsp+50h] [rbp-59h]
+  unsigned int v72; // [rsp+54h] [rbp-55h]
+  __int64 v73; // [rsp+58h] [rbp-51h] BYREF
+  unsigned int v74[2]; // [rsp+60h] [rbp-49h]
+  __int64 v75; // [rsp+68h] [rbp-41h] BYREF
+  __int128 v76; // [rsp+70h] [rbp-39h] BYREF
+  __int64 v77; // [rsp+80h] [rbp-29h]
+  __int64 *v78; // [rsp+88h] [rbp-21h] BYREF
+  PERESOURCE *v79[13]; // [rsp+90h] [rbp-19h] BYREF
+  int v83; // [rsp+128h] [rbp+7Fh]
 
-  v93 = a4;
-  v92 = a3;
-  v91 = a2;
-  v90 = this;
-  v5 = (struct _KTHREAD **)this;
-  v6 = a4;
-  v7 = a2;
-  v86 = 0LL;
-  *(_QWORD *)v81 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-  v87 = 0LL;
-  v8 = WPP_GLOBAL_Control;
-  v9 = 0;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  v5 = this;
+  v7 = a3;
+  v8 = a2;
+  v76 = 0LL;
+  *(_QWORD *)v74 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+  v77 = 0LL;
+  v9 = &WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
+    LOBYTE(v9) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      (_DWORD)v9,
       7,
-      71,
-      (__int64)&WPP_d3dee7beffef3928cf2f9a2bdffe19dc_Traceguids);
-  if ( v5[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v8, a2, a3);
-  v10 = a5;
-  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced((CTouchProcessor *)v5, *((_DWORD *)a5 + 10)) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v12, v11, v13);
-  if ( CInputThreadBase::IsInputThread(gpInputThread) && gptiManipulationThread )
-  {
-    if ( !v6 )
-    {
-      if ( (unsigned int)CTouchProcessor::CountMTNodesReadyForRouting(v14, v10) )
-      {
-        EtwTraceDwmManipulationFrameStart(*((unsigned int *)v10 + 10), *((_DWORD *)v10 + 12), v15);
-        if ( qword_1C029BD10 )
-          qword_1C029BD10(v10, &v86, CTouchProcessor::DereferencePointerInputFrameAndMessageData);
-        CTouchProcessor::ForwardInputToManipulationThread((CTouchProcessor *)v5, v10, 0);
-        if ( qword_1C029BD20 )
-          qword_1C029BD20(&v86);
-      }
-      goto LABEL_29;
-    }
+      73,
+      (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
   }
-  else if ( !v6 )
+  if ( v5[6] != KeGetCurrentThread() )
   {
-    goto LABEL_29;
+    LODWORD(v73) = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2188);
+  }
+  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced((CTouchProcessor *)v5, *((_DWORD *)a5 + 10)) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2189);
+  v11 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v11, 0LL);
+  v12 = CInputThread::_CalledOnInputThread(v11);
+  ExReleasePushLockSharedEx(v11, 0LL);
+  KeLeaveCriticalRegion();
+  if ( !v12 )
+  {
+    v16 = 0;
+LABEL_17:
+    if ( !a4 )
+      goto LABEL_23;
+    goto LABEL_18;
   }
   v16 = 0;
-  v17 = (const struct CPointerInfoNode *)*((_QWORD *)v10 + 30);
-  if ( *((_DWORD *)v10 + 12) )
+  if ( !gptiManipulationThread )
+    goto LABEL_17;
+  if ( !a4 )
+  {
+    if ( (unsigned int)CTouchProcessor::CountMTNodesReadyForRouting(v13, a5) )
+    {
+      EtwTraceDwmManipulationFrameStart(*((unsigned int *)a5 + 10), *((_DWORD *)a5 + 12), v17);
+      if ( qword_1C0256FC0 )
+        qword_1C0256FC0(a5, &v76, CTouchProcessor::DereferencePointerInputFrameAndMessageData);
+      CTouchProcessor::ForwardInputToManipulationThread((CTouchProcessor *)v5, a5);
+      if ( qword_1C0256FD0 )
+        qword_1C0256FD0(&v76);
+    }
+    goto LABEL_23;
+  }
+LABEL_18:
+  v18 = 0;
+  v19 = (const struct CPointerInfoNode *)*((_QWORD *)a5 + 17);
+  if ( *((_DWORD *)a5 + 12) )
   {
     do
     {
-      if ( CTouchProcessor::ShouldGenerateMessagesForNode(v14, v10, v17, v6) )
-        ++v16;
-      v17 = (const struct CPointerInfoNode *)((char *)v17 + 480);
-      ++v9;
+      if ( CTouchProcessor::ShouldGenerateMessagesForNode(v13, a5, v19, a4) )
+        ++v18;
+      v19 = (const struct CPointerInfoNode *)((char *)v19 + 480);
+      ++v16;
     }
-    while ( v9 < *((_DWORD *)v10 + 12) );
+    while ( v16 < *((_DWORD *)a5 + 12) );
   }
-  EtwTraceDwmManipulationFrameRouted(*((unsigned int *)v10 + 10), v16, v15);
-LABEL_29:
-  v18 = (CTouchProcessor *)*((unsigned int *)v10 + 57);
-  v19 = (*((_DWORD *)v10 + 57) & 1) == 0;
-  if ( (*((_DWORD *)v10 + 57) & 1) != 0 )
+  EtwTraceDwmManipulationFrameRouted(*((unsigned int *)a5 + 10), v18, v14);
+  v5 = this;
+LABEL_23:
+  v20 = *((_DWORD *)a5 + 31);
+  if ( (v20 & 1) == 0 )
   {
-    PerformanceCounter = KeQueryPerformanceCounter(0LL);
-    *(LARGE_INTEGER *)((char *)v10 + (isChildPartition() ? 0x48 : 0) + 120) = PerformanceCounter;
-    InputTraceLogging::TelemetryDebug::Pointer::GenerateFrameMessages(
-      (const struct CPointerInputFrame *)((char *)v10 + 72),
-      *((_BYTE *)v10 + 228) & 1);
-LABEL_38:
-    if ( v19 )
+    if ( (v20 & 8) != 0 && !a4 )
     {
-      InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(&v88, "GenerateFrameMessages", 0LL);
-      EtwTraceBeginPointerFrameMessageGeneration(*((unsigned int *)v10 + 10), *((_DWORD *)v10 + 12), v21);
+      if ( qword_1C0256FC0 )
+        qword_1C0256FC0(a5, &v76, CTouchProcessor::DereferencePointerInputFrameAndMessageData);
+      CTouchProcessor::ProcessPrimaryDown((CTouchProcessor *)v5, a5);
+      if ( qword_1C0256FD0 )
+        qword_1C0256FD0(&v76);
+    }
+    if ( (*((_DWORD *)a5 + 31) & 2) == 0 || a4 )
+    {
+      InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(&v78, "GenerateFrameMessages", 0LL, v15);
+      EtwTraceBeginPointerFrameMessageGeneration(*((_DWORD *)a5 + 10), *((_DWORD *)a5 + 12), v21);
       if ( isRootPartition()
         && ((unsigned __int8)IsTouchIVEnabled() || (unsigned __int8)IsPenIVEnabled() || IsPTPIVEnabled()) )
       {
-        CTouchProcessor::CheckandDeliverContainerInput(v5, v10, v7, v6);
+        CTouchProcessor::CheckandDeliverContainerInput(v5, a5, v8, a4);
       }
-      v24 = *((unsigned int *)v10 + 12);
-      v84 = 0;
+      v22 = *((unsigned int *)a5 + 12);
+      v71 = 0;
+      v23 = 0;
+      v72 = 0;
+      v24 = 0;
+      LODWORD(v73) = 0;
       v25 = 0;
       v83 = 0;
       v26 = 0;
-      LODWORD(a5) = 0;
-      v27 = 0;
-      v28 = 0;
-      v29 = (unsigned int *)*((_QWORD *)v10 + 30);
-      v30 = 0;
-      if ( (_DWORD)v24 )
+      v70 = 0;
+      v27 = *((_QWORD *)a5 + 17);
+      if ( (_DWORD)v22 )
       {
         do
         {
-          v31 = (CTouchProcessor *)(*((_QWORD *)v10 + 30) + 480 * v24);
-          if ( v29 >= (unsigned int *)v31 )
-            MicrosoftTelemetryAssertTriggeredNoArgsKM(v31, v22, v23);
-          if ( CTouchProcessor::ShouldGenerateMessagesForNode(v31, v10, (const struct CPointerInfoNode *)v29, v93) )
+          v28 = (CTouchProcessor *)(*((_QWORD *)a5 + 17) + 480 * v22);
+          if ( v27 >= (unsigned __int64)v28 )
           {
-            PrevMsgId = CTouchProcessor::GetPrevMsgId(v32, *((_QWORD *)v29 + 2));
+            LODWORD(v75) = 0x20000;
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2342);
+          }
+          if ( CTouchProcessor::ShouldGenerateMessagesForNode(v28, a5, (const struct CPointerInfoNode *)v27, a4) )
+          {
+            PrevMsgId = CTouchProcessor::GetPrevMsgId(v29, *(_QWORD *)(v27 + 16));
             CTouchProcessor::ProcessAndUnreferencePreviousInput(
-              v90,
-              (const struct CPointerInfoNode *)v29,
+              (CTouchProcessor *)this,
+              (const struct CPointerInfoNode *)v27,
               PrevMsgId,
-              v81[0],
-              v91,
-              v92);
-            v34 = *v29;
-            if ( (v34 & 0x1000) == 0 )
+              v74[0],
+              a2,
+              a3);
+            v31 = *(_DWORD *)v27;
+            if ( (*(_DWORD *)v27 & 0x1000) == 0 )
             {
-              if ( (v34 & 8) != 0 )
+              if ( (v31 & 8) != 0 )
               {
-                if ( __CFSHR__(v34, 7) )
-                  MicrosoftTelemetryAssertTriggeredNoArgsKM(v34, v22, v23);
+                if ( __CFSHR__(v31, 7) )
+                {
+                  v70 = 0x20000;
+                  MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2364);
+                }
+                ++v23;
+              }
+              else if ( __CFSHR__(v31, 7) )
+              {
                 ++v25;
               }
-              else if ( __CFSHR__(v34, 7) )
+              v32 = v24 + 1;
+              v33 = *(_DWORD *)(v27 + 180);
+              if ( (v33 & 1) == 0 )
+                v32 = v24;
+              v24 = v32;
+              v34 = v71 + 1;
+              if ( (v33 & 2) != 0 )
+                v34 = v71;
+              v71 = v34;
+              v35 = v34;
+              if ( (v33 & 0x10000) != 0 )
               {
-                ++v28;
+                ++v72;
               }
-              v35 = v29[45];
-              if ( (v35 & 1) != 0 )
-                ++v26;
-              if ( (v35 & 2) == 0 )
-                ++v84;
-              if ( (v35 & 0x10000) != 0 )
+              else if ( (v33 & 0x40000) != 0 )
               {
-                ++v27;
-              }
-              else if ( (v35 & 0x40000) != 0 )
-              {
-                LODWORD(a5) = (_DWORD)a5 + 1;
+                ++v83;
+                v71 = v34;
               }
               else
               {
-                if ( (v35 & 0x20000) == 0 )
-                  MicrosoftTelemetryAssertTriggeredNoArgsKM(v34, v22, v23);
-                ++v83;
-              }
-            }
-          }
-          v24 = *((unsigned int *)v10 + 12);
-          v29 += 120;
-          ++v30;
-        }
-        while ( v30 < (unsigned int)v24 );
-        v82 = v27;
-        LODWORD(v85) = v28;
-        if ( v25 || v28 || v26 )
-        {
-          v36 = (__int64 *)*((_QWORD *)v10 + 30);
-          v37 = 0;
-          if ( (_DWORD)v24 )
-          {
-            v38 = v93;
-            v39 = v90;
-            do
-            {
-              v40 = (CTouchProcessor *)(*((_QWORD *)v10 + 30) + 480 * v24);
-              if ( v36 >= (__int64 *)v40 )
-                MicrosoftTelemetryAssertTriggeredNoArgsKM(v40, v22, v23);
-              if ( (*(_DWORD *)v36 & 0x1000) == 0
-                && CTouchProcessor::ShouldGenerateMessagesForNode(v40, v10, (const struct CPointerInfoNode *)v36, v38) )
-              {
-                CTouchProcessor::GenerateEnterMessages(v39, v10, v37, v36[2], v81[0], v91, v92);
-              }
-              v24 = *((unsigned int *)v10 + 12);
-              v36 += 60;
-              ++v37;
-            }
-            while ( v37 < (unsigned int)v24 );
-            v28 = v85;
-            v27 = v82;
-          }
-          if ( v28 )
-          {
-            v41 = (unsigned __int64 *)*((_QWORD *)v10 + 30);
-            v42 = 0;
-            if ( (_DWORD)v24 )
-            {
-              v43 = v93;
-              do
-              {
-                v44 = (CTouchProcessor *)(*((_QWORD *)v10 + 30) + 480 * v24);
-                if ( v41 >= (unsigned __int64 *)v44 )
-                  MicrosoftTelemetryAssertTriggeredNoArgsKM(v44, v22, v23);
-                if ( (*(_DWORD *)v41 & 0x1000) == 0
-                  && CTouchProcessor::ShouldGenerateMessagesForNode(v44, v10, (const struct CPointerInfoNode *)v41, v43) )
+                if ( (v33 & 0x20000) == 0 )
                 {
-                  CTouchProcessor::GenerateRoutedToMessages(v90, v10, v42, v41[2], v81[0], v91, v92);
+                  v69 = 0x20000;
+                  MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2389);
+                  v35 = v71;
                 }
-                v24 = *((unsigned int *)v10 + 12);
-                v41 += 60;
-                ++v42;
+                LODWORD(v73) = v73 + 1;
+                v71 = v35;
               }
-              while ( v42 < (unsigned int)v24 );
-              v27 = v82;
             }
+          }
+          v22 = *((unsigned int *)a5 + 12);
+          v27 += 480LL;
+          ++v26;
+        }
+        while ( v26 < (unsigned int)v22 );
+        v70 = v25;
+        if ( v23 || v25 )
+          goto LABEL_63;
+      }
+      if ( v24 )
+      {
+LABEL_63:
+        v36 = (__int64 *)*((_QWORD *)a5 + 17);
+        v37 = 0;
+        if ( (_DWORD)v22 )
+        {
+          do
+          {
+            v38 = (CTouchProcessor *)(*((_QWORD *)a5 + 17) + 480 * v22);
+            if ( v36 >= (__int64 *)v38 )
+            {
+              v69 = 0x20000;
+              MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2410);
+            }
+            if ( (*(_DWORD *)v36 & 0x1000) == 0
+              && CTouchProcessor::ShouldGenerateMessagesForNode(v38, a5, (const struct CPointerInfoNode *)v36, a4) )
+            {
+              v68 = v74[0];
+              CTouchProcessor::GenerateEnterMessages((CTouchProcessor *)this, a5, v37, v36[2]);
+            }
+            v22 = *((unsigned int *)a5 + 12);
+            v36 += 60;
+            ++v37;
+          }
+          while ( v37 < (unsigned int)v22 );
+          v25 = v70;
+        }
+        if ( v25 )
+        {
+          v39 = (unsigned __int64 *)*((_QWORD *)a5 + 17);
+          for ( i = 0; i < (unsigned int)v22; ++i )
+          {
+            v41 = (CTouchProcessor *)(*((_QWORD *)a5 + 17) + 480 * v22);
+            if ( v39 >= (unsigned __int64 *)v41 )
+            {
+              v69 = 0x20000;
+              MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2439);
+            }
+            if ( (*(_DWORD *)v39 & 0x1000) == 0
+              && CTouchProcessor::ShouldGenerateMessagesForNode(v41, a5, (const struct CPointerInfoNode *)v39, a4) )
+            {
+              CTouchProcessor::GenerateRoutedToMessages((CTouchProcessor *)this, a5, i, v39[2], v74[0], a2, a3);
+            }
+            v22 = *((unsigned int *)a5 + 12);
+            v39 += 60;
           }
         }
       }
-      if ( IsTouchpadDevice(*((_QWORD *)v10 + 8)) )
+      if ( (unsigned __int8)IsTouchpadDevice(*((_QWORD *)a5 + 8)) )
       {
         if ( isRootPartition() )
         {
-          if ( IsPTPIVEnabled() )
+          v45 = v72;
+          if ( IsPTPIVEnabled() && v72 )
           {
-            if ( v27 )
+            v46 = *(_QWORD *)(HMValidateHandleNoSecure(*((_QWORD *)a5 + 8), 19) + 480);
+            v47 = v46 ? *(_QWORD *)(v46 + 1000) : 0LL;
+            if ( v47 )
             {
-              v48 = (struct DEVICEINFO *)HMValidateHandleNoSecure(*((_QWORD *)v10 + 8), 19);
-              Processor = CPTPProcessorFactory::GetProcessor(v48);
-              if ( Processor )
-              {
-                *((_DWORD *)Processor + 93) &= ~2u;
-                *((_DWORD *)Processor + 92) = 0;
-              }
+              *(_DWORD *)(v47 + 380) &= ~2u;
+              *(_DWORD *)(v47 + 376) = 0;
             }
           }
         }
-        v50 = 0;
-        if ( (*((_DWORD *)v10 + 57) & 8) != 0 && v27 > 1 )
+        else
         {
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-            || (LOBYTE(v45) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+          v45 = v72;
+        }
+        v48 = 0;
+        if ( (*((_DWORD *)a5 + 31) & 8) != 0 && v45 > 1 )
+        {
+          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            LOBYTE(v45) = 0;
-          }
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-            || (LOBYTE(v46) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-          {
-            LOBYTE(v46) = 0;
-          }
-          if ( (_BYTE)v45 || (_BYTE)v46 )
-          {
-            v51 = (int)a5;
-            WPP_RECORDER_AND_TRACE_SF_LLL(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v45,
-              v46,
-              v47,
-              v78,
-              v79,
-              72,
-              v80,
-              *((_DWORD *)v10 + 10),
-              v27,
-              (char)a5);
+            v49 = v83;
           }
           else
           {
-            v51 = (int)a5;
+            v49 = v83;
+            if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+              WPP_RECORDER_SF_LLL(v43, v42, v44, 74, v68, *((_DWORD *)a5 + 10), v45, v83);
           }
-          v52 = v93;
-          v53 = v81[0];
-          v50 = 0x2000;
-          v54 = v90;
-          CTouchProcessor::GeneratePointerInputMessages(v90, v10, v81[0], v91, v92, 0x2000u, 0, v93);
+          v50 = v74[0];
+          v51 = (CTouchProcessor *)this;
+          v48 = 0x2000;
+          CTouchProcessor::GeneratePointerInputMessages((CTouchProcessor *)this, a5, v74[0], a2, a3, 0x2000u, 0, a4);
         }
         else
         {
-          v53 = v81[0];
-          v54 = v90;
-          v51 = (int)a5;
-          v52 = v93;
+          v50 = v74[0];
+          v49 = v83;
+          v51 = (CTouchProcessor *)this;
         }
-        if ( !v83 && v27 && v51 )
+        if ( !(_DWORD)v73 && v45 && v49 )
         {
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-            || (LOBYTE(v45) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+            && LOWORD(WPP_GLOBAL_Control->DeviceType) )
           {
-            LOBYTE(v45) = 0;
+            WPP_RECORDER_SF_LLL(0, v42, v44, 75, v68, *((_DWORD *)a5 + 10), v45, v49);
           }
-          if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-            || (LOBYTE(v46) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-          {
-            LOBYTE(v46) = 0;
-          }
-          if ( (_BYTE)v45 || (_BYTE)v46 )
-            WPP_RECORDER_AND_TRACE_SF_LLL(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v45,
-              v46,
-              73,
-              v78,
-              v79,
-              73,
-              v80,
-              *((_DWORD *)v10 + 10),
-              v27,
-              v51);
-          CTouchProcessor::GeneratePointerInputMessages(v54, v10, v53, v91, v92, 0x10000u, v50, v52);
-          v50 |= 0x10000u;
+          CTouchProcessor::GeneratePointerInputMessages(v51, a5, v50, a2, a3, 0x10000u, v48, a4);
+          v48 |= 0x10000u;
         }
       }
       else
       {
-        v50 = 0;
-        v51 = (int)a5;
+        v48 = 0;
+        v49 = v83;
       }
-      v6 = v93;
-      v55 = v81[0];
-      v5 = (struct _KTHREAD **)v90;
-      CTouchProcessor::GeneratePointerInputMessages(v90, v10, v81[0], v91, v92, 0, v50, v93);
-      if ( v51 )
+      v5 = this;
+      CTouchProcessor::GeneratePointerInputMessages((CTouchProcessor *)this, a5, v74[0], a2, a3, 0, v48, a4);
+      if ( v49 )
       {
-        v58 = *((unsigned int *)v10 + 12);
-        v59 = *((_QWORD *)v10 + 30);
-        v60 = 0;
-        if ( (_DWORD)v58 )
+        v53 = *((unsigned int *)a5 + 12);
+        v54 = *((_QWORD *)a5 + 17);
+        for ( j = 0; j < (unsigned int)v53; ++j )
         {
-          do
+          v56 = (CTouchProcessor *)(*((_QWORD *)a5 + 17) + 480 * v53);
+          if ( v54 >= (unsigned __int64)v56 )
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2597);
+          if ( (*(_DWORD *)v54 & 0x1000) == 0
+            && CTouchProcessor::ShouldGenerateMessagesForNode(v56, a5, (const struct CPointerInfoNode *)v54, a4)
+            && (*(_DWORD *)(v54 + 180) & 0x40000) != 0 )
           {
-            v61 = (CTouchProcessor *)(*((_QWORD *)v10 + 30) + 480 * v58);
-            if ( v59 >= (unsigned __int64)v61 )
-              MicrosoftTelemetryAssertTriggeredNoArgsKM(v61, v56, v57);
-            if ( (*(_DWORD *)v59 & 0x1000) == 0
-              && CTouchProcessor::ShouldGenerateMessagesForNode(v61, v10, (const struct CPointerInfoNode *)v59, v6)
-              && (*(_DWORD *)(v59 + 180) & 0x40000) != 0 )
-            {
-              CTouchProcessor::ProcessRoutedAwayList(
-                (CTouchProcessor *)v5,
-                *(_WORD *)(v59 + 172),
-                1,
-                v10,
-                v60,
-                (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
-            }
-            v58 = *((unsigned int *)v10 + 12);
-            v59 += 480LL;
-            ++v60;
+            CTouchProcessor::ProcessRoutedAwayList(
+              (CTouchProcessor *)this,
+              *(_WORD *)(v54 + 172),
+              1,
+              a5,
+              j,
+              (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
           }
-          while ( v60 < (unsigned int)v58 );
-          v55 = v81[0];
+          v53 = *((unsigned int *)a5 + 12);
+          v54 += 480LL;
         }
       }
-      if ( v84 )
+      if ( v71 )
       {
-        v62 = *((unsigned int *)v10 + 12);
-        v63 = 0;
-        for ( i = (__int64 *)*((_QWORD *)v10 + 30); v63 < (unsigned int)v62; ++v63 )
+        v57 = *((unsigned int *)a5 + 12);
+        v58 = 0;
+        for ( k = (__int64 *)*((_QWORD *)a5 + 17); v58 < (unsigned int)v57; ++v58 )
         {
-          v65 = (CTouchProcessor *)(*((_QWORD *)v10 + 30) + 480 * v62);
-          if ( i >= (__int64 *)v65 )
-            MicrosoftTelemetryAssertTriggeredNoArgsKM(v65, v56, v57);
-          if ( CTouchProcessor::ShouldGenerateMessagesForNode(v65, v10, (const struct CPointerInfoNode *)i, v6) )
-            CTouchProcessor::GenerateDepartureMessage((CTouchProcessor *)v5, v10, v63, i[2], v55, v91, v92);
-          v62 = *((unsigned int *)v10 + 12);
-          i += 60;
+          v60 = (CTouchProcessor *)(*((_QWORD *)a5 + 17) + 480 * v57);
+          if ( k >= (__int64 *)v60 )
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2626);
+          if ( CTouchProcessor::ShouldGenerateMessagesForNode(v60, a5, (const struct CPointerInfoNode *)k, a4) )
+            CTouchProcessor::GenerateDepartureMessage((CTouchProcessor *)this, a5, v58, k[2]);
+          v57 = *((unsigned int *)a5 + 12);
+          k += 60;
         }
       }
-      v66 = KeQueryPerformanceCounter(0LL);
-      *(LARGE_INTEGER *)((char *)v10 + (-(__int64)isChildPartition() & 0x48) + 120) = v66;
-      InputTraceLogging::TelemetryDebug::Pointer::GenerateFrameMessages(
-        (const struct CPointerInputFrame *)((char *)v10 + 72),
-        0);
-      if ( (unsigned int)dword_1C028EE70 > 4 && tlgKeywordOn((__int64)&dword_1C028EE70, 32LL) )
+      if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 32LL) )
       {
-        LODWORD(v90) = *((_DWORD *)v10 + 12);
-        LODWORD(a5) = *((_DWORD *)v10 + 10);
-        *(_QWORD *)v81 = *((_QWORD *)v10 + 9);
-        v85 = *((_QWORD *)v10 + 27);
+        v69 = *((_DWORD *)a5 + 12);
+        v70 = *((_DWORD *)a5 + 10);
+        v75 = *((_QWORD *)a5 + 9);
+        v73 = *((_QWORD *)a5 + 14);
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-          (__int64)&dword_1C028EE70,
-          byte_1C02614EC,
-          v67,
-          v68,
-          (__int64)&v85,
-          (__int64)v81,
-          (__int64)&a5,
-          (__int64)&v90);
+          (__int64)&dword_1C024BA90,
+          byte_1C021EEF9,
+          v52,
+          v61,
+          (__int64)&v73,
+          (__int64)&v75,
+          (__int64)&v70,
+          (__int64)&v69);
       }
-      EtwTraceEndPointerFrameMessageGeneration(*((unsigned int *)v10 + 10), *((_DWORD *)v10 + 12), v67);
-      InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v88);
-      v7 = v91;
+      EtwTraceEndPointerFrameMessageGeneration(*((_DWORD *)a5 + 10), *((_DWORD *)a5 + 12), v52);
+      InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v78);
+      v8 = a2;
+      v7 = a3;
     }
-    goto LABEL_146;
   }
-  if ( ((unsigned __int8)v18 & 8) != 0 )
+  NodeForPointerPromotion = CTouchProcessor::FindNodeForPointerPromotion(v13, a5);
+  v65 = NodeForPointerPromotion;
+  if ( NodeForPointerPromotion && CTouchProcessor::NodeMatchesMTGeneration(v64, NodeForPointerPromotion, a4) )
   {
-    if ( qword_1C029BD10 )
-      qword_1C029BD10(v10, &v86, CTouchProcessor::DereferencePointerInputFrameAndMessageData);
-    CTouchProcessor::ProcessPrimaryDown((CTouchProcessor *)v5, v10, v6 != 0);
-    if ( qword_1C029BD20 )
-      qword_1C029BD20(&v86);
+    v66 = (v7 != 0 ? 2 : 0) | (v8 != 0) | ((*v63 & 0x8000u) >> 13) | ((*v63 & 0x10000u) >> 13) | ((*v63 & 0x40u) >> 2);
+    if ( v63[44] != *((_DWORD *)a5 + 10) )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2665);
+    if ( qword_1C0256FC0 )
+      qword_1C0256FC0(a5, &v76, CTouchProcessor::DereferencePointerInputFrameAndMessageData);
+    CInpUnlockGuardExclusive::CInpUnlockGuardExclusive(
+      (CInpUnlockGuardExclusive *)v79,
+      (struct CInpLockGuard *)(v5 + 5),
+      0LL);
+    ApiSetEditionProcessPointerInputAsMouse((char *)v65 + 168, *((unsigned __int16 *)v65 + 80), v66);
+    CInpUnlockGuardExclusive::~CInpUnlockGuardExclusive(v79);
+    if ( qword_1C0256FD0 )
+      qword_1C0256FD0(&v76);
   }
-  if ( (*((_DWORD *)v10 + 57) & 2) == 0 || v6 )
-    goto LABEL_38;
-LABEL_146:
-  NodeForPointerPromotion = CTouchProcessor::FindNodeForPointerPromotion(v18, v10, v15);
-  v73 = NodeForPointerPromotion;
-  if ( NodeForPointerPromotion && CTouchProcessor::NodeMatchesMTGeneration(v71, NodeForPointerPromotion, v6) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    v74 = (v7 != 0) | ((*v70 & 0x8000u) >> 13) | ((*v70 & 0x10000u) >> 13) | ((*v70 & 0x40u) >> 2);
-    v75 = v92 != 0;
-    v92 = -v92;
-    v76 = (v75 ? 2 : 0) | v74;
-    if ( v70[44] != *((_DWORD *)v10 + 10) )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(0LL, v70, v72);
-    PushW32ThreadLock((__int64)v10, (__int64)&v86, (__int64)CTouchProcessor::DereferencePointerInputFrameAndMessageData);
-    CInpUnlockGuardExclusive::CInpUnlockGuardExclusive((CInpUnlockGuardExclusive *)v89, v5 + 4, 0LL);
-    ApiSetEditionProcessPointerInputAsMouse((char *)v73 + 168, *((unsigned __int16 *)v73 + 80), v76);
-    CInpUnlockGuardExclusive::~CInpUnlockGuardExclusive(v89);
-    PopW32ThreadLock((__int64)&v86);
-  }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-    || (LOBYTE(v70) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    LOBYTE(v70) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(v72) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(v72) = 0;
-  }
-  if ( (_BYTE)v70 || (_BYTE)v72 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)v70,
-      v72,
+    LOBYTE(v63) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      (_DWORD)v63,
       7,
-      74,
-      (__int64)&WPP_d3dee7beffef3928cf2f9a2bdffe19dc_Traceguids);
+      76,
+      (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
+  }
   return 1LL;
 }

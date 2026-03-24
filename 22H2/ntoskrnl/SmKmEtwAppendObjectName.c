@@ -1,22 +1,21 @@
 /*
- * XREFs of SmKmEtwAppendObjectName @ 0x1405CB2A4
+ * XREFs of SmKmEtwAppendObjectName @ 0x14059DB88
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x1405CBBF0 (SmKmStoreTerminateWorker.c)
+ *     SmKmStoreTerminateWorker @ 0x14059E120 (SmKmStoreTerminateWorker.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ObQueryNameString @ 0x14075B880 (ObQueryNameString.c)
+ *     IoSetThreadHardErrorMode @ 0x14024FB60 (IoSetThreadHardErrorMode.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14034C53C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ObQueryNameString @ 0x14070FAD0 (ObQueryNameString.c)
  */
 
-__int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 DeviceAttachmentBaseRefWithTag)
 {
   unsigned int v2; // eax
-  void *DeviceAttachmentBaseRefWithTag; // rbx
-  __int64 v5; // rcx
-  unsigned int v6; // r14d
+  unsigned int v4; // r14d
+  __int64 v6; // rdx
   void *v7; // r13
   struct _OBJECT_NAME_INFORMATION *v8; // rdi
   ULONG v9; // r14d
@@ -35,33 +34,39 @@ __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 a2)
   _OWORD Src[2]; // [rsp+28h] [rbp-60h] BYREF
 
   v2 = *(_DWORD *)(a1 + 24);
+  v4 = *(_DWORD *)(a1 + 28) - v2;
   ReturnLength = 0;
-  DeviceAttachmentBaseRefWithTag = (void *)a2;
+  v6 = *(_QWORD *)(a1 + 8) + v2;
   Src[0] = *(_OWORD *)L"\\Device\\Unknown";
-  v5 = *(_QWORD *)(a1 + 8) + v2;
-  v6 = *(_DWORD *)(a1 + 28) - v2;
   Src[1] = *(_OWORD *)L"Unknown";
-  v7 = (void *)(v5 + 2);
-  v8 = (struct _OBJECT_NAME_INFORMATION *)((v5 + 9) & 0xFFFFFFFFFFFFFFF8uLL);
-  v9 = v5 + v6 - (_DWORD)v8;
+  v7 = (void *)(v6 + 2);
+  v8 = (struct _OBJECT_NAME_INFORMATION *)((v6 + 9) & 0xFFFFFFFFFFFFFFF8uLL);
+  v9 = v6 + v4 - (_DWORD)v8;
   *(_QWORD *)&v8->Name.Length = 0LL;
   v8->Name.Buffer = 0LL;
-  if ( (a2 & 1) != 0 )
+  if ( (DeviceAttachmentBaseRefWithTag & 1) != 0 )
   {
-    DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(a2 & 0xFFFFFFFFFFFFFFFEuLL, 0x746C6644u);
-    v10 = DeviceAttachmentBaseRefWithTag;
+    DeviceAttachmentBaseRefWithTag = (unsigned __int64)IoGetDeviceAttachmentBaseRefWithTag(
+                                                         DeviceAttachmentBaseRefWithTag & 0xFFFFFFFFFFFFFFFEuLL,
+                                                         0x746C6644u);
+    v10 = (void *)DeviceAttachmentBaseRefWithTag;
   }
   else
   {
     v10 = 0LL;
   }
-  if ( !DeviceAttachmentBaseRefWithTag )
-    goto LABEL_10;
-  v11 = IoSetThreadHardErrorMode(0);
-  v12 = ObQueryNameString(DeviceAttachmentBaseRefWithTag, v8, v9, &ReturnLength);
-  if ( v10 )
-    ObfDereferenceObjectWithTag(v10, 0x746C6644u);
-  IoSetThreadHardErrorMode(v11);
+  if ( DeviceAttachmentBaseRefWithTag )
+  {
+    v11 = IoSetThreadHardErrorMode(0);
+    v12 = ObQueryNameString((PVOID)DeviceAttachmentBaseRefWithTag, v8, v9, &ReturnLength);
+    if ( v10 )
+      ObfDereferenceObjectWithTag(v10, 0x746C6644u);
+    IoSetThreadHardErrorMode(v11);
+  }
+  else
+  {
+    v12 = -1073741809;
+  }
   if ( v12 >= 0 && v8->Name.Length )
   {
     Buffer = v8->Name.Buffer;
@@ -69,7 +74,6 @@ __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 a2)
   }
   else
   {
-LABEL_10:
     Buffer = (wchar_t *)Src;
     v14 = 15;
   }

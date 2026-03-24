@@ -1,13 +1,12 @@
 /*
- * XREFs of RtlNumberOfClearBits @ 0x140293420
+ * XREFs of RtlNumberOfClearBits @ 0x140253060
  * Callers:
- *     PopGetRemainingHibernateRangeDataSize @ 0x140AA2E7C (PopGetRemainingHibernateRangeDataSize.c)
- *     PopSaveHiberContext @ 0x140AA4A40 (PopSaveHiberContext.c)
- *     ViThunkCreateSharedExportInformation @ 0x140ABE010 (ViThunkCreateSharedExportInformation.c)
- *     ViThunkFindAllSharedExports @ 0x140ADC804 (ViThunkFindAllSharedExports.c)
- *     ViThunkReplaceAllSharedExports @ 0x140ADCE64 (ViThunkReplaceAllSharedExports.c)
+ *     PopSaveHiberContext @ 0x140993F80 (PopSaveHiberContext.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x1409B13D4 (PopGetRemainingHibernateRangeDataSize.c)
+ *     ViThunkCreateSharedExportInformation @ 0x1409C21D8 (ViThunkCreateSharedExportInformation.c)
+ *     ViThunkReplaceAllSharedExports @ 0x1409D92D8 (ViThunkReplaceAllSharedExports.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140293450 (RtlNumberOfSetBits.c)
+ *     RtlNumberOfSetBits @ 0x140253090 (RtlNumberOfSetBits.c)
  */
 
 ULONG __stdcall RtlNumberOfClearBits(PRTL_BITMAP BitMapHeader)

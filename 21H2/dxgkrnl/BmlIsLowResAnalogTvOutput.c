@@ -1,8 +1,8 @@
 /*
- * XREFs of BmlIsLowResAnalogTvOutput @ 0x1C01D0FA0
+ * XREFs of BmlIsLowResAnalogTvOutput @ 0x1C013C560
  * Callers:
- *     BmlFillPreferredMonitorMode @ 0x1C01D0BD0 (BmlFillPreferredMonitorMode.c)
- *     BmlGetMonitorModePreference @ 0x1C01D0EB0 (BmlGetMonitorModePreference.c)
+ *     BmlFillPreferredMonitorMode @ 0x1C013BEB8 (BmlFillPreferredMonitorMode.c)
+ *     BmlGetMonitorModePreference @ 0x1C013C34C (BmlGetMonitorModePreference.c)
  * Callees:
  *     <none>
  */

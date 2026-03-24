@@ -1,10 +1,10 @@
 /*
- * XREFs of ?LoadRuntime@CMmcssTask@@AEAAJXZ @ 0x1800CEEC0
+ * XREFs of ?LoadRuntime@CMmcssTask@@AEAAJXZ @ 0x18002EBE4
  * Callers:
- *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x1800CE480 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
+ *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x180030920 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x1801B5738 (-UnloadRuntime@CMmcssTask@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x180163524 (-UnloadRuntime@CMmcssTask@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CMmcssTask::LoadRuntime(CMmcssTask *this)
@@ -15,13 +15,13 @@ __int64 __fastcall CMmcssTask::LoadRuntime(CMmcssTask *this)
   FARPROC v5; // rax
   FARPROC v6; // rax
   signed int v8; // eax
-  __int64 v9; // rcx
+  unsigned int v9; // ecx
   signed int v10; // eax
-  __int64 v11; // rcx
+  unsigned int v11; // ecx
   signed int v12; // eax
-  __int64 v13; // rcx
+  unsigned int v13; // ecx
   signed int LastError; // eax
-  __int64 v15; // rcx
+  unsigned int v15; // ecx
 
   v1 = 0;
   if ( !*((_QWORD *)this + 6) )

@@ -1,1 +1,92 @@
-/*\n * XREFs of WPP_RECORDER_SF_qqsd @ 0x1C0001E40\n * Callers:\n *     MouseClassPower @ 0x1C00020F0 (MouseClassPower.c)\n * Callees:\n *     _guard_dispatch_icall_nop @ 0x1C0002F10 (_guard_dispatch_icall_nop.c)\n */\n\n__int64 WPP_RECORDER_SF_qqsd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)\n{\n  const char *v5; // rdi\n  __int64 v6; // rbx\n  __int64 v8; // rbx\n  __int64 v10; // rdx\n  __int64 v11; // rdx\n  const char *v12; // rcx\n  int v13; // [rsp+20h] [rbp-58h]\n  __int64 v14; // [rsp+A8h] [rbp+30h] BYREF\n  va_list va; // [rsp+A8h] [rbp+30h]\n  __int64 v16; // [rsp+B0h] [rbp+38h] BYREF\n  va_list va1; // [rsp+B0h] [rbp+38h]\n  const char *v18; // [rsp+B8h] [rbp+40h]\n  va_list va2; // [rsp+C0h] [rbp+48h] BYREF\n\n  va_start(va2, a5);\n  va_start(va1, a5);\n  va_start(va, a5);\n  v14 = va_arg(va1, _QWORD);\n  va_copy(va2, va1);\n  v16 = va_arg(va2, _QWORD);\n  v18 = va_arg(va2, const char *);\n  v5 = v18;\n  v6 = -1LL;\n  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )\n  {\n    if ( v18 )\n    {\n      v10 = -1LL;\n      do\n        ++v10;\n      while ( v18[v10] );\n      v11 = v10 + 1;\n    }\n    else\n    {\n      v11 = 5LL;\n    }\n    v12 = v18;\n    if ( !v18 )\n      v12 = "NULL";\n    pfnWppTraceMessage(\n      WPP_GLOBAL_Control->AttachedDevice,\n      43LL,\n      &WPP_d07d70ae1de939905882a75eef030211_Traceguids,\n      90LL,\n      (__int64 *)va,\n      8LL,\n      (__int64 *)va1,\n      8LL,\n      v12,\n      v11,\n      va2,\n      4LL,\n      0LL);\n  }\n  if ( v5 )\n  {\n    do\n      ++v6;\n    while ( v5[v6] );\n    v8 = v6 + 1;\n  }\n  else\n  {\n    v8 = 5LL;\n    v5 = "NULL";\n  }\n  LOWORD(v13) = 90;\n  return WppAutoLogTrace(\n           a1,\n           4LL,\n           6LL,\n           &WPP_d07d70ae1de939905882a75eef030211_Traceguids,\n           v13,\n           (__int64 *)va,\n           8LL,\n           (__int64 *)va1,\n           8LL,\n           v5,\n           v8,\n           va2);\n}\n
+/*
+ * XREFs of WPP_RECORDER_SF_qqsd @ 0x1C0001E40
+ * Callers:
+ *     MouseClassPower @ 0x1C00020F0 (MouseClassPower.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0002F10 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 WPP_RECORDER_SF_qqsd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
+{
+  const char *v5; // rdi
+  __int64 v6; // rbx
+  __int64 v8; // rbx
+  __int64 v10; // rdx
+  __int64 v11; // rdx
+  const char *v12; // rcx
+  int v13; // [rsp+20h] [rbp-58h]
+  __int64 v14; // [rsp+A8h] [rbp+30h] BYREF
+  va_list va; // [rsp+A8h] [rbp+30h]
+  __int64 v16; // [rsp+B0h] [rbp+38h] BYREF
+  va_list va1; // [rsp+B0h] [rbp+38h]
+  const char *v18; // [rsp+B8h] [rbp+40h]
+  va_list va2; // [rsp+C0h] [rbp+48h] BYREF
+
+  va_start(va2, a5);
+  va_start(va1, a5);
+  va_start(va, a5);
+  v14 = va_arg(va1, _QWORD);
+  va_copy(va2, va1);
+  v16 = va_arg(va2, _QWORD);
+  v18 = va_arg(va2, const char *);
+  v5 = v18;
+  v6 = -1LL;
+  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
+  {
+    if ( v18 )
+    {
+      v10 = -1LL;
+      do
+        ++v10;
+      while ( v18[v10] );
+      v11 = v10 + 1;
+    }
+    else
+    {
+      v11 = 5LL;
+    }
+    v12 = v18;
+    if ( !v18 )
+      v12 = "NULL";
+    pfnWppTraceMessage(
+      WPP_GLOBAL_Control->AttachedDevice,
+      43LL,
+      &WPP_d07d70ae1de939905882a75eef030211_Traceguids,
+      90LL,
+      (__int64 *)va,
+      8LL,
+      (__int64 *)va1,
+      8LL,
+      v12,
+      v11,
+      va2,
+      4LL,
+      0LL);
+  }
+  if ( v5 )
+  {
+    do
+      ++v6;
+    while ( v5[v6] );
+    v8 = v6 + 1;
+  }
+  else
+  {
+    v8 = 5LL;
+    v5 = "NULL";
+  }
+  LOWORD(v13) = 90;
+  return WppAutoLogTrace(
+           a1,
+           4LL,
+           6LL,
+           &WPP_d07d70ae1de939905882a75eef030211_Traceguids,
+           v13,
+           (__int64 *)va,
+           8LL,
+           (__int64 *)va1,
+           8LL,
+           v5,
+           v8,
+           va2);
+}

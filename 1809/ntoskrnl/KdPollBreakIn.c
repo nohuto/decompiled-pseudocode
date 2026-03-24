@@ -1,11 +1,11 @@
 /*
- * XREFs of KdPollBreakIn @ 0x14028CB40
+ * XREFs of KdPollBreakIn @ 0x14028CC40
  * Callers:
- *     KdCheckForDebugBreak @ 0x140144658 (KdCheckForDebugBreak.c)
+ *     KdCheckForDebugBreak @ 0x140144678 (KdCheckForDebugBreak.c)
  *     KdInitSystem @ 0x140915140 (KdInitSystem.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x14011BAB4 (KxTryToAcquireSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x14011BAD4 (KxTryToAcquireSpinLock.c)
  */
 
 char __fastcall KdPollBreakIn()

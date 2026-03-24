@@ -1,9 +1,9 @@
 /*
- * XREFs of CreatePointerDeviceProcessEvents @ 0x1C0118148
+ * XREFs of CreatePointerDeviceProcessEvents @ 0x1C0009220
  * Callers:
- *     RawInputThread @ 0x1C005CC60 (RawInputThread.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
  * Callees:
- *     ?CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z @ 0x1C01181A4 (-CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z.c)
+ *     ?CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z @ 0x1C000927C (-CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z.c)
  */
 
 __int64 CreatePointerDeviceProcessEvents()

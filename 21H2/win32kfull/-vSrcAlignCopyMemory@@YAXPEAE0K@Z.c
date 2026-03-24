@@ -1,13 +1,13 @@
 /*
- * XREFs of ?vSrcAlignCopyMemory@@YAXPEAE0K@Z @ 0x1C02DB8EC
+ * XREFs of ?vSrcAlignCopyMemory@@YAXPEAE0K@Z @ 0x1C02DD4C0
  * Callers:
- *     ?vSrcCopyS32D32Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C00DA830 (-vSrcCopyS32D32Identity@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vSrcCopyS24D24Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C013A420 (-vSrcCopyS24D24Identity@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vSrcCopyS8D8IdentityLtoR@@YAXPEAUBLTINFO@@@Z @ 0x1C014A0E0 (-vSrcCopyS8D8IdentityLtoR@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vSrcCopyS8D8IdentityRtoL@@YAXPEAUBLTINFO@@@Z @ 0x1C02C9330 (-vSrcCopyS8D8IdentityRtoL@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vSrcCopyS16D16Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C02C9630 (-vSrcCopyS16D16Identity@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS32D32Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C00D5170 (-vSrcCopyS32D32Identity@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS24D24Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C00F7CE0 (-vSrcCopyS24D24Identity@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS8D8IdentityLtoR@@YAXPEAUBLTINFO@@@Z @ 0x1C0158BE0 (-vSrcCopyS8D8IdentityLtoR@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS8D8IdentityRtoL@@YAXPEAUBLTINFO@@@Z @ 0x1C02CAAC0 (-vSrcCopyS8D8IdentityRtoL@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS16D16Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C02CADC0 (-vSrcCopyS16D16Identity@@YAXPEAUBLTINFO@@@Z.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 void __fastcall vSrcAlignCopyMemory(unsigned __int8 *a1, unsigned __int8 *a2, unsigned int a3)

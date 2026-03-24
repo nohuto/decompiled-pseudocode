@@ -1,7 +1,7 @@
 /*
- * XREFs of InitAnsiOem @ 0x1C011D940
+ * XREFs of InitAnsiOem @ 0x1C0132CD0
  * Callers:
- *     NtUserInitAnsiOem @ 0x1C011D8F0 (NtUserInitAnsiOem.c)
+ *     <none>
  * Callees:
  *     <none>
  */

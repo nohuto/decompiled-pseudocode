@@ -1,14 +1,14 @@
 /*
- * XREFs of ?bTextExtent@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z @ 0x1C00C4794
+ * XREFs of ?bTextExtent@RFONTOBJ@@QEAAHAEAVXDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z @ 0x1C00E3A64
  * Callers:
- *     GreGetTextExtentW @ 0x1C00C43FC (GreGetTextExtentW.c)
+ *     GreGetTextExtentW @ 0x1C00E36CC (GreGetTextExtentW.c)
  * Callees:
- *     ?lOverhang@RFONTOBJ@@QEAAJXZ @ 0x1C001A064 (-lOverhang@RFONTOBJ@@QEAAJXZ.c)
- *     ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C001A8BC (-bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
- *     ?bIs1Over16@EFLOAT@@QEBAHXZ @ 0x1C00C498C (-bIs1Over16@EFLOAT@@QEBAHXZ.c)
- *     ?bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z @ 0x1C00C49AC (-bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z.c)
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?lOverhang@RFONTOBJ@@QEAAJXZ @ 0x1C006407C (-lOverhang@RFONTOBJ@@QEAAJXZ.c)
+ *     ?bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0098AC0 (-bGetGlyphMetrics@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
+ *     ?bIs1Over16@EFLOAT@@QEBAHXZ @ 0x1C00E3C58 (-bIs1Over16@EFLOAT@@QEBAHXZ.c)
+ *     ?bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z @ 0x1C00E3C78 (-bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RFONTOBJ::bTextExtent(
@@ -24,100 +24,107 @@ __int64 __fastcall RFONTOBJ::bTextExtent(
         struct tagSIZE *a10)
 {
   struct tagSIZE *v10; // rdi
-  int v11; // r15d
-  int v13; // ebx
-  __int64 v14; // r13
-  struct XDCOBJ *v16; // rax
-  int v17; // esi
-  int v18; // r8d
-  int v19; // ecx
-  unsigned __int16 *v20; // rdx
-  int v21; // r12d
-  int v22; // edi
+  int v11; // r12d
+  int v12; // ebx
+  int v13; // r15d
+  unsigned __int16 *v14; // rax
+  __int64 v15; // r13
+  struct XDCOBJ *v16; // r9
+  int v18; // esi
+  int v19; // r8d
+  int v20; // ecx
+  unsigned __int16 *v21; // rdx
+  int v22; // r15d
+  int v23; // edi
   GLYPHDEF **p_pgdf; // rcx
-  __int64 v24; // r8
+  __int64 v25; // r8
   int ppo_high; // edx
-  bool v26; // zf
-  int v27; // esi
-  __int64 v28; // rcx
-  __int64 v29; // rdx
+  bool v27; // zf
+  __int64 v28; // r15
+  int v29; // esi
   __int64 v30; // rcx
-  int v32; // ebx
-  int v33; // ecx
-  int v34; // r8d
-  __int16 v35; // r8
-  unsigned __int16 *v36; // r9
-  __int64 v37; // rdx
-  __int16 v38; // ax
+  LONG v31; // edx
+  __int64 v32; // rcx
+  int v34; // ebx
+  int v35; // edx
+  int v36; // ecx
+  __int16 v37; // r8
+  unsigned __int16 *v38; // r9
+  __int64 v39; // rdx
+  __int16 v40; // ax
   LONG cx; // edx
-  int v40; // [rsp+30h] [rbp-D0h] BYREF
-  int v41; // [rsp+34h] [rbp-CCh] BYREF
-  int v42; // [rsp+38h] [rbp-C8h]
-  unsigned __int16 *v43; // [rsp+40h] [rbp-C0h]
-  struct XDCOBJ *v44; // [rsp+48h] [rbp-B8h]
-  struct tagSIZE *v45; // [rsp+50h] [rbp-B0h]
-  unsigned __int16 *v46; // [rsp+58h] [rbp-A8h]
-  struct _GLYPHPOS v47; // [rsp+60h] [rbp-A0h] BYREF
+  int v42; // [rsp+30h] [rbp-D0h] BYREF
+  int v43; // [rsp+34h] [rbp-CCh] BYREF
+  int v44; // [rsp+38h] [rbp-C8h]
+  unsigned __int16 *v45; // [rsp+40h] [rbp-C0h]
+  struct XDCOBJ *v46; // [rsp+48h] [rbp-B8h]
+  unsigned __int16 *v47; // [rsp+50h] [rbp-B0h]
+  struct tagSIZE *v48; // [rsp+58h] [rbp-A8h]
+  struct _GLYPHPOS v49; // [rsp+60h] [rbp-A0h] BYREF
 
   v10 = a10;
   v11 = 0;
-  v40 = 0;
-  v13 = 0;
-  v14 = a4;
-  v46 = a3;
+  v42 = 0;
+  v12 = 0;
+  v13 = a6;
+  v14 = a3;
+  v15 = a4;
   v16 = a2;
-  v44 = a2;
-  v45 = a10;
+  v47 = a3;
+  v46 = a2;
+  v48 = a10;
   if ( a6 )
   {
-    v41 = 0;
-    bFToL((unsigned int)a6, &v41, 0LL);
-    v16 = v44;
-    v11 = v41;
+    v43 = 0;
+    bFToL(this, &v43, 0LL);
+    v14 = v47;
+    v16 = v46;
+    v11 = v43;
   }
-  v17 = 0;
   v18 = 0;
-  v19 = v14;
-  v20 = a3;
-  v42 = v14;
-  v43 = a3;
-  if ( (_DWORD)v14 )
+  v45 = v14;
+  v19 = 0;
+  v20 = v15;
+  v44 = v15;
+  v21 = v14;
+  if ( (_DWORD)v15 )
   {
-    v41 = 0;
+    v43 = 0;
     while ( 1 )
     {
-      v21 = v19;
-      if ( v19 > 82 )
-        v21 = 82;
-      if ( !(unsigned int)RFONTOBJ::bGetGlyphMetrics(this, (struct RFONTOBJ *)(unsigned int)v21, &v47, v20, v16, 0LL) )
+      v22 = v20;
+      if ( v20 > 82 )
+        v22 = 82;
+      if ( !(unsigned int)RFONTOBJ::bGetGlyphMetrics(this, (struct RFONTOBJ *)(unsigned int)v22, &v49, v21, v16, 0LL) )
         return 0LL;
-      if ( v21 > 0 )
+      if ( v22 > 0 )
       {
-        v22 = v41;
-        p_pgdf = &v47.pgdf;
-        v24 = (unsigned int)v21;
+        v23 = v43;
+        p_pgdf = &v49.pgdf;
+        v25 = (unsigned int)v22;
         do
         {
           ppo_high = HIDWORD((*p_pgdf)[1].ppo);
-          v17 += ppo_high;
+          v18 += ppo_high;
           if ( v11 < 0 && ppo_high + v11 <= 0 )
-            ++v22;
+            ++v23;
           p_pgdf += 3;
-          --v24;
+          --v25;
         }
-        while ( v24 );
-        v41 = v22;
-        v10 = v45;
+        while ( v25 );
+        v43 = v23;
+        v10 = v48;
       }
-      v26 = v42 == v21;
-      v19 = v42 - v21;
-      v42 -= v21;
-      v20 = &v43[v21];
-      v16 = v44;
-      v43 = v20;
-      if ( v26 )
+      v16 = v46;
+      v27 = v44 == v22;
+      v20 = v44 - v22;
+      v44 -= v22;
+      v21 = &v45[v22];
+      v45 = v21;
+      if ( v27 )
       {
-        v18 = v41;
+        v19 = v43;
+        v13 = a6;
         goto LABEL_15;
       }
     }
@@ -125,68 +132,69 @@ __int64 __fastcall RFONTOBJ::bTextExtent(
   else
   {
 LABEL_15:
-    if ( a6 )
+    if ( v13 )
     {
       if ( (a9 & 1) != 0
         && (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)this + 104LL) + 40LL) & 1) != 0
         && (*(_DWORD *)(*(_QWORD *)this + 716LL) & 4) == 0 )
       {
-        v32 = v14;
-        if ( a6 <= 0 )
-          v32 = v14 - 1;
+        v34 = v15;
+        if ( v13 <= 0 )
+          v34 = v15 - 1;
       }
       else
       {
-        v32 = v14 - v18;
+        v34 = v15 - v19;
       }
-      v13 = v11 * v32;
+      v12 = v11 * v34;
     }
-    if ( (unsigned __int8)bCalcBreakExtra(*(unsigned int *)(*(_QWORD *)this + 404LL), a7, a8, &v40) )
+    v28 = *(_QWORD *)this;
+    if ( (unsigned __int8)bCalcBreakExtra(*(unsigned int *)(*(_QWORD *)this + 404LL), a7, a8, &v42) )
     {
-      v33 = v40;
-      v34 = *(_DWORD *)(*(_QWORD *)this + 468LL);
-      if ( v11 + v34 + v40 < 0 )
-        v33 = -(v34 + v11);
+      v35 = *(_DWORD *)(v28 + 468);
+      v36 = v42;
+      if ( v11 + v35 + v42 < 0 )
+        v36 = -(v35 + v11);
       if ( (a9 & 2) != 0 )
-        v35 = *(_WORD *)(*(_QWORD *)this + 464LL);
+        v37 = *(_WORD *)(v28 + 464);
       else
-        v35 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 120LL) + 32LL) + 118LL);
-      if ( (int)v14 > 0 )
+        v37 = *(_WORD *)(*(_QWORD *)(*(_QWORD *)(v28 + 120) + 32LL) + 118LL);
+      if ( (int)v15 > 0 )
       {
-        v36 = v46;
-        v37 = v14;
+        v38 = v47;
+        v39 = v15;
         do
         {
-          v38 = *v36++;
-          if ( v38 == v35 )
-            v13 += v33;
-          --v37;
+          v40 = *v38++;
+          if ( v40 == v37 )
+            v12 += v36;
+          --v39;
         }
-        while ( v37 );
+        while ( v39 );
       }
     }
-    v27 = v13 + v17;
+    v29 = v12 + v18;
     if ( (a9 & 1) != 0 )
-      v27 += 16 * RFONTOBJ::lOverhang(this);
+      v29 += 16 * RFONTOBJ::lOverhang(this);
     if ( (unsigned int)EFLOAT::bIs1Over16((EFLOAT *)(*(_QWORD *)this + 680LL)) )
     {
-      v10->cx = (v27 + 8) >> 4;
+      v10->cx = (v29 + 8) >> 4;
     }
     else
     {
-      v40 = 0;
-      bFToL(v28, &v40, 0LL);
-      v10->cx = v40;
+      v42 = 0;
+      bFToL(v30, &v42, 0LL);
+      v10->cx = v42;
     }
     if ( (unsigned int)EFLOAT::bIs1Over16((EFLOAT *)(*(_QWORD *)this + 684LL)) )
     {
-      v10->cy = *(_DWORD *)(v29 + 356);
+      v10->cy = v31;
     }
     else
     {
-      v40 = 0;
-      bFToL(v30, &v40, 0LL);
-      v10->cy = v40;
+      v42 = 0;
+      bFToL(v32, &v42, 0LL);
+      v10->cy = v42;
     }
     if ( gbDBCSCodePage
       && *(_DWORD *)(*(_QWORD *)this + 208LL) == 1

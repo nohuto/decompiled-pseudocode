@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsValid@CD2DBitmap@@$4PPPPPPPM@CI@EBAJXZ @ 0x180120560
+ * XREFs of ?IsValid@CD2DBitmap@@$4PPPPPPPM@CI@EBAJXZ @ 0x1800F7B30
  * Callers:
  *     <none>
  * Callees:

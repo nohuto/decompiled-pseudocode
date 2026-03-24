@@ -1,5 +1,5 @@
 /*
- * XREFs of MiRevertValidPte @ 0x1400B2340
+ * XREFs of MiRevertValidPte @ 0x1400B2360
  * Callers:
  *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
  *     MiSetReadOnlyOnSectionView @ 0x140085B00 (MiSetReadOnlyOnSectionView.c)
@@ -10,13 +10,13 @@
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
  *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
  *     MiRotatedToFrameBuffer @ 0x1400947E4 (MiRotatedToFrameBuffer.c)
- *     MiIsAddressGlobal @ 0x1400B22C0 (MiIsAddressGlobal.c)
- *     MiGetPagePrivilege @ 0x1400B2A50 (MiGetPagePrivilege.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiUserPdeOrAbove @ 0x1400F962C (MiUserPdeOrAbove.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1401256BC (MiCaptureWriteWatchDirtyBit.c)
+ *     MiIsAddressGlobal @ 0x1400B22E0 (MiIsAddressGlobal.c)
+ *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiUserPdeOrAbove @ 0x1400F964C (MiUserPdeOrAbove.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x1401256DC (MiCaptureWriteWatchDirtyBit.c)
  */
 
 unsigned __int8 __fastcall MiRevertValidPte(

@@ -1,36 +1,31 @@
 /*
- * XREFs of ?bUndoMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A6880
+ * XREFs of ?bUndoMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029D7B0
  * Callers:
- *     ??0REDIRDEVDCOPEN@@QEAA@PEAVXDCOBJ@@@Z @ 0x1C02A4064 (--0REDIRDEVDCOPEN@@QEAA@PEAVXDCOBJ@@@Z.c)
- *     ??0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C02A40D4 (--0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C02A66FC (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ??1DEVEXCLUDERECT@@QEAA@XZ @ 0x1C027B044 (--1DEVEXCLUDERECT@@QEAA@XZ.c)
+ *     ??0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C029B118 (--0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C029D638 (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall bUndoMakeOpaque(HDEV *a1)
+__int64 __fastcall bUndoMakeOpaque(struct SURFACE *a1)
 {
-  unsigned int v2; // edi
-  __int64 v3; // rax
-  Gre::Base *v4; // rcx
-  HDEV v5; // rdx
-  int v6; // eax
+  unsigned int v2; // ecx
+  int v3; // ecx
+  __int64 v4; // rax
 
   v2 = 0;
-  v3 = SGDGetSessionState(a1);
-  if ( *((_WORD *)a1 + 50) == 3 && a1[6] == *(HDEV *)(*(_QWORD *)(v3 + 32) + 23376LL) )
+  if ( *((_WORD *)a1 + 50) == 3 && *((void **)a1 + 6) == gpRedirDev )
   {
-    Gre::Base::Globals(v4);
-    v5 = a1[68];
+    v3 = *((_DWORD *)a1 + 139);
     *((_WORD *)a1 + 50) = *((_WORD *)a1 + 276);
-    v6 = *((_DWORD *)a1 + 139);
-    *((_DWORD *)a1 + 139) = -1;
     *((_DWORD *)a1 + 138) = -1;
-    *((_DWORD *)a1 + 28) = v6;
-    SURFACE::hdev((SURFACE *)a1, v5);
-    a1[68] = (HDEV)-1LL;
-    v2 = 1;
-    *((_DWORD *)a1 + 28) &= ~0x200000u;
+    *((_DWORD *)a1 + 139) = -1;
+    v4 = *((_QWORD *)a1 + 68);
+    *((_QWORD *)a1 + 68) = -1LL;
+    *((_QWORD *)a1 + 6) = v4;
+    *((_DWORD *)a1 + 28) = v3 & 0xFFDFFFFF;
+    return 1;
   }
   return v2;
 }

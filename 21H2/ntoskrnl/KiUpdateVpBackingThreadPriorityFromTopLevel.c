@@ -1,76 +1,90 @@
 /*
- * XREFs of KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1405779D0
+ * XREFs of KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x140520CC0
  * Callers:
- *     KeSetThreadSchedulerAssist @ 0x140576AA4 (KeSetThreadSchedulerAssist.c)
- *     KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x1405777C0 (KiUpdateVpBackingThreadPriorityDpcRoutine.c)
- *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x140577B4C (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
+ *     KeSetThreadSchedulerAssist @ 0x14051E5C8 (KeSetThreadSchedulerAssist.c)
+ *     KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x140520B20 (KiUpdateVpBackingThreadPriorityDpcRoutine.c)
  * Callees:
- *     KiSetBasePriorityAndClearDecrement @ 0x1402EC3E4 (KiSetBasePriorityAndClearDecrement.c)
- *     KiSetPriorityThread @ 0x140344A30 (KiSetPriorityThread.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     KiComputePriorityFloor @ 0x140573A80 (KiComputePriorityFloor.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x140577654 (KiReadGuestSchedulerAssistPriority.c)
- *     EtwTraceXSchedulerPriorityUpdate @ 0x14062E8B8 (EtwTraceXSchedulerPriorityUpdate.c)
+ *     KiSetPriorityThread @ 0x1402302A0 (KiSetPriorityThread.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x1402E9CCC (KiSetBasePriorityAndClearDecrement.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x14051FC48 (KiReadGuestSchedulerAssistPriority.c)
  */
 
 char __fastcall KiUpdateVpBackingThreadPriorityFromTopLevel(ULONG_PTR BugCheckParameter1, __int64 a2)
 {
-  bool v3; // zf
-  int v5; // eax
-  int v6; // edx
-  int v7; // edi
+  volatile signed __int32 *v4; // rax
+  int v5; // edi
+  int v6; // esi
+  int v7; // r14d
   char v8; // cl
   char v9; // cl
   char v10; // cl
-  int v11; // ebp
-  volatile signed __int32 *v12; // rax
-  int v13; // esi
-  __int64 v15; // [rsp+50h] [rbp+8h] BYREF
+  char v11; // dl
+  unsigned __int8 v12; // cl
+  signed __int8 v13; // cl
 
-  v3 = (*(_DWORD *)(BugCheckParameter1 + 120) & 0x400000) == 0;
-  v15 = 0LL;
-  if ( !v3 )
+  if ( (*(_DWORD *)(BugCheckParameter1 + 120) & 0x400000) != 0 )
     _InterlockedOr(*(volatile signed __int32 **)(BugCheckParameter1 + 968), 0x100000u);
-  v5 = KiReadGuestSchedulerAssistPriority(BugCheckParameter1, &v15);
-  v6 = *(_DWORD *)(BugCheckParameter1 + 1024);
-  v7 = v5;
-  if ( v5 != v6 )
+  LODWORD(v4) = KiReadGuestSchedulerAssistPriority(BugCheckParameter1);
+  v5 = (int)v4;
+  v6 = 32;
+  if ( (int)v4 >= 16 )
+  {
+    v6 = (int)v4;
+    v5 = 15;
+  }
+  v7 = *(_DWORD *)(BugCheckParameter1 + 1024);
+  if ( v5 != v7 )
   {
     v8 = *(_BYTE *)((char)v5 + BugCheckParameter1 + 824);
     if ( v8 == -1 )
       KeBugCheckEx(0x157u, BugCheckParameter1, (char)v5, 1uLL, 0LL);
     *(_BYTE *)((char)v5 + BugCheckParameter1 + 824) = v8 + 1;
-    *(_DWORD *)(BugCheckParameter1 + 856) |= 1 << v5;
-    if ( v6 != 32 )
+    LODWORD(v4) = *(_DWORD *)(BugCheckParameter1 + 856) | (1 << v5);
+    *(_DWORD *)(BugCheckParameter1 + 856) = (_DWORD)v4;
+    if ( *(char *)(BugCheckParameter1 + 195) < (char)v5 )
+      LOBYTE(v4) = KiSetPriorityThread((_KTHREAD *)BugCheckParameter1, a2, v5);
+    if ( v7 != 32 )
     {
-      v9 = *(_BYTE *)((char)v6 + BugCheckParameter1 + 824);
+      LOBYTE(v4) = v7;
+      v9 = *(_BYTE *)((char)v7 + BugCheckParameter1 + 824);
       if ( !v9 )
-        KeBugCheckEx(0x157u, BugCheckParameter1, (char)v6, 2uLL, 0LL);
+        KeBugCheckEx(0x157u, BugCheckParameter1, (char)v7, 2uLL, 0LL);
       v10 = v9 - 1;
-      *(_BYTE *)((char)v6 + BugCheckParameter1 + 824) = v10;
+      *(_BYTE *)((char)v7 + BugCheckParameter1 + 824) = v10;
       if ( !v10 )
-        *(_DWORD *)(BugCheckParameter1 + 856) ^= 1 << v6;
+      {
+        LODWORD(v4) = *(_DWORD *)(BugCheckParameter1 + 856) ^ (1 << v7);
+        *(_DWORD *)(BugCheckParameter1 + 856) = (_DWORD)v4;
+        if ( (unsigned int)v4 < 1 << v7 )
+        {
+          v11 = *(_BYTE *)(BugCheckParameter1 + 195);
+          if ( v11 < 16 )
+          {
+            v12 = *(_BYTE *)(BugCheckParameter1 + 564);
+            LOBYTE(v4) = v12 & 0xF;
+            v13 = *(_BYTE *)(BugCheckParameter1 + 563) + (v12 & 0xF) + (v12 >> 4);
+            if ( v13 < v11 )
+              LOBYTE(v4) = KiSetPriorityThread((_KTHREAD *)BugCheckParameter1, a2, v13);
+          }
+        }
+      }
     }
     *(_DWORD *)(BugCheckParameter1 + 1024) = v5;
   }
-  v11 = *(char *)(BugCheckParameter1 + 195);
-  LOBYTE(v12) = KiComputePriorityFloor(BugCheckParameter1, v5);
-  v13 = (char)v12;
-  if ( (char)v12 != v11 )
+  if ( v6 != 32 )
   {
-    KiSetBasePriorityAndClearDecrement(BugCheckParameter1, 0LL, 0);
-    LOBYTE(v12) = KiSetPriorityThread((_KTHREAD *)BugCheckParameter1, a2, v13);
+    LODWORD(v4) = *(char *)(BugCheckParameter1 + 195);
+    if ( v6 != (_DWORD)v4 )
+    {
+      KiSetBasePriorityAndClearDecrement(BugCheckParameter1, 0LL, 0);
+      LOBYTE(v4) = KiSetPriorityThread((_KTHREAD *)BugCheckParameter1, a2, v6);
+    }
   }
   if ( (*(_DWORD *)(BugCheckParameter1 + 120) & 0x400000) != 0 )
   {
-    v12 = *(volatile signed __int32 **)(BugCheckParameter1 + 968);
-    _InterlockedAnd(v12, 0xFFEFFFFF);
+    v4 = *(volatile signed __int32 **)(BugCheckParameter1 + 968);
+    _InterlockedAnd(v4, 0xFFEFFFFF);
   }
-  if ( v11 != v13 )
-  {
-    LOBYTE(v12) = BYTE4(xmmword_140D06910);
-    if ( (BYTE4(xmmword_140D06910) & 0x20) != 0 )
-      LOBYTE(v12) = EtwTraceXSchedulerPriorityUpdate(BugCheckParameter1, v11, v7, v13, (__int64)&v15);
-  }
-  return (char)v12;
+  return (char)v4;
 }

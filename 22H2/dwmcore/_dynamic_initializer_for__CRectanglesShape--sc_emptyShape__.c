@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__CRectanglesShape::sc_emptyShape__ @ 0x1800013A0
+ * XREFs of _dynamic_initializer_for__CRectanglesShape::sc_emptyShape__ @ 0x1800036E0
  * Callers:
  *     <none>
  * Callees:
- *     ??0CRectanglesShape@@QEAA@XZ @ 0x180033360 (--0CRectanglesShape@@QEAA@XZ.c)
+ *     ??0CRectanglesShape@@QEAA@XZ @ 0x1800CC534 (--0CRectanglesShape@@QEAA@XZ.c)
  */
 
 int dynamic_initializer_for__CRectanglesShape::sc_emptyShape__()

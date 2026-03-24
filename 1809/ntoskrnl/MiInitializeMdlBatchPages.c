@@ -6,8 +6,8 @@
  *     MiPageAttributeBatchChangeNeeded @ 0x1400118DC (MiPageAttributeBatchChangeNeeded.c)
  *     MiPfnZeroingNeeded @ 0x14002BDB0 (MiPfnZeroingNeeded.c)
  *     MiChangePageAttributeBatch @ 0x1400823F0 (MiChangePageAttributeBatch.c)
- *     MiZeroInParallel @ 0x14013C524 (MiZeroInParallel.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiZeroInParallel @ 0x14013C544 (MiZeroInParallel.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

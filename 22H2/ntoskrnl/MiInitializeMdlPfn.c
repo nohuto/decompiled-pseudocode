@@ -1,59 +1,54 @@
 /*
- * XREFs of MiInitializeMdlPfn @ 0x140389D10
+ * XREFs of MiInitializeMdlPfn @ 0x140354D24
  * Callers:
- *     MiInitializeMdlLeafPfns @ 0x140389B00 (MiInitializeMdlLeafPfns.c)
- *     MiInitializeMdlSinglePage @ 0x14046B40C (MiInitializeMdlSinglePage.c)
- *     MmAllocateNonChargedSecurePages @ 0x14065750C (MmAllocateNonChargedSecurePages.c)
- *     MmAllocateSecureKernelPages @ 0x14065781C (MmAllocateSecureKernelPages.c)
+ *     MiInitializeMdlLeafPfns @ 0x140354C1C (MiInitializeMdlLeafPfns.c)
+ *     MmAllocateNonChargedSecurePages @ 0x14053424C (MmAllocateNonChargedSecurePages.c)
+ *     MmAllocateSecureKernelPages @ 0x140553314 (MmAllocateSecureKernelPages.c)
+ *     MiCreateEnclaveRegions @ 0x140A54ED8 (MiCreateEnclaveRegions.c)
  * Callees:
- *     MiSetPfnIdentity @ 0x1402194A8 (MiSetPfnIdentity.c)
- *     MiAbortCombineScan @ 0x14021AACC (MiAbortCombineScan.c)
- *     MiUpdatePageFileHighInPte @ 0x14028551C (MiUpdatePageFileHighInPte.c)
+ *     MiAbortCombineScan @ 0x140283DF0 (MiAbortCombineScan.c)
  */
 
 char __fastcall MiInitializeMdlPfn(__int64 a1, int a2)
 {
-  __int64 v4; // rcx
+  char v4; // cl
   unsigned __int64 v5; // rax
-  char v6; // al
-  char result; // al
-  char v8; // cl
+  unsigned __int64 v6; // rax
 
   if ( (a2 & 0x100) != 0 )
   {
-    v8 = *(_BYTE *)(a1 + 34);
-    if ( (v8 & 7) != 5 )
-      *(_BYTE *)(a1 + 34) = v8 & 0xF8 | 5;
+    v4 = *(_BYTE *)(a1 + 34);
+    if ( (v4 & 7) != 5 )
+      *(_BYTE *)(a1 + 34) = v4 & 0xF8 | 5;
+    LOBYTE(v5) = 0;
     *(_QWORD *)(a1 + 24) &= 0xC000000000000000uLL;
   }
   else
   {
-    v4 = *(_QWORD *)(a1 + 24);
-    if ( a2 < 0 )
-      v4 &= ~0x4000000000000000uLL;
-    *(_QWORD *)(a1 + 24) = v4 & 0xC000000000000000uLL | 1;
+    *(_QWORD *)(a1 + 24) = *(_QWORD *)(a1 + 24) & 0xC000000000000000uLL | 1;
     *(_WORD *)(a1 + 32) = 2;
-    if ( (a2 & 0x80000200) != 0 )
-      v5 = 0LL;
-    else
-      v5 = 0xFFFFF68000000000uLL;
-    *(_QWORD *)(a1 + 8) = v5;
+    v6 = 0LL;
+    if ( (a2 & 0x80000200) == 0 )
+      v6 = 0xFFFFF68000000000uLL;
+    *(_QWORD *)(a1 + 8) = v6;
+    if ( a2 < 0 )
+      *(_QWORD *)(a1 + 24) &= ~0x4000000000000000uLL;
     if ( (a2 & 0x200) != 0 )
     {
       MiAbortCombineScan(a1);
-      MiSetPfnIdentity(a1, 3);
+      *(_QWORD *)(a1 + 40) = *(_QWORD *)(a1 + 40) & 0x8FFFFFFFFFFFFFFFuLL | 0x3000000000000000LL;
       if ( (a2 & 0x20000) == 0 )
-        _InterlockedIncrement64(&qword_140C65CA8);
-      *(_QWORD *)(a1 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(a1 + 16), 1LL);
+        _InterlockedIncrement64(&qword_140C4E000);
     }
-    *(_BYTE *)(a1 + 34) = *(_BYTE *)(a1 + 34) & 0xF8 | 6;
+    LOBYTE(v5) = *(_BYTE *)(a1 + 34) & 0xF8 | 6;
+    *(_BYTE *)(a1 + 34) = v5;
     if ( a2 < 0 )
-      MiSetPfnIdentity(a1, 1);
+    {
+      v5 = *(_QWORD *)(a1 + 40) & 0x8FFFFFFFFFFFFFFFuLL | 0x1000000000000000LL;
+      *(_QWORD *)(a1 + 40) = v5;
+    }
   }
-  v6 = *(_BYTE *)(a1 + 36);
   *(_BYTE *)(a1 + 35) &= 0xF8u;
   *(_DWORD *)(a1 + 36) = 0;
-  result = v6 & 3;
-  *(_BYTE *)(a1 + 36) = result;
-  return result;
+  return v5;
 }

@@ -1,50 +1,49 @@
 /*
- * XREFs of CmFcpManagerCreateSectionFromBuffer @ 0x1408102E0
+ * XREFs of CmFcpManagerCreateSectionFromBuffer @ 0x14087E6B4
  * Callers:
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A26ECC (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerStartRuntimePhase @ 0x140B3B6E8 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x1402137A0 (MiRemoveFromSystemSpace.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     CmFcpMapSection @ 0x1408103BC (CmFcpMapSection.c)
- *     CmFcpManagerCreateSection @ 0x140810490 (CmFcpManagerCreateSection.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     MmUnmapViewInSystemSpace @ 0x14068F560 (MmUnmapViewInSystemSpace.c)
+ *     CmFcpMapSection @ 0x1407D23CC (CmFcpMapSection.c)
+ *     CmFcpManagerCreateSection @ 0x14087E5C0 (CmFcpManagerCreateSection.c)
  */
 
-__int64 __fastcall CmFcpManagerCreateSectionFromBuffer(void *Src, size_t Size, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall CmFcpManagerCreateSectionFromBuffer(void *Src, LARGE_INTEGER Size, __int64 a3, void *a4, __int64 a5)
 {
   int Section; // edi
-  size_t v8; // r8
-  ULONG_PTR v9; // rbx
+  size_t QuadPart; // r8
+  PVOID v9; // rbx
   __int64 v10; // xmm1_8
-  PVOID Object[2]; // [rsp+20h] [rbp-30h] BYREF
+  PADAPTER_OBJECT DmaAdapter[2]; // [rsp+20h] [rbp-30h] BYREF
   __int64 v13; // [rsp+30h] [rbp-20h]
-  ULONG_PTR BugCheckParameter1[2]; // [rsp+38h] [rbp-18h] BYREF
+  PVOID MappedBase[2]; // [rsp+38h] [rbp-18h] BYREF
   __int64 v15; // [rsp+48h] [rbp-8h]
 
   v13 = 0LL;
   v15 = 0LL;
-  *(_OWORD *)Object = 0LL;
-  *(_OWORD *)BugCheckParameter1 = 0LL;
-  Section = CmFcpManagerCreateSection(Size, a3, a4, Object);
-  if ( Section < 0 || (Section = CmFcpMapSection(Object, BugCheckParameter1), Section < 0) )
+  *(_OWORD *)DmaAdapter = 0LL;
+  *(_OWORD *)MappedBase = 0LL;
+  Section = CmFcpManagerCreateSection(Size, a3, a4, DmaAdapter);
+  if ( Section < 0 || (Section = CmFcpMapSection(DmaAdapter, MappedBase), Section < 0) )
   {
-    v9 = BugCheckParameter1[1];
+    v9 = MappedBase[1];
   }
   else
   {
-    v8 = Size;
-    v9 = BugCheckParameter1[1];
-    memmove((void *)BugCheckParameter1[1], Src, v8);
+    QuadPart = Size.QuadPart;
+    v9 = MappedBase[1];
+    memmove(MappedBase[1], Src, QuadPart);
     Section = 0;
     v10 = v13;
-    *(_OWORD *)a5 = *(_OWORD *)Object;
+    *(_OWORD *)a5 = *(_OWORD *)DmaAdapter;
     *(_QWORD *)(a5 + 16) = v10;
-    *(_OWORD *)Object = 0LL;
+    *(_OWORD *)DmaAdapter = 0LL;
   }
   if ( v9 )
-    MiRemoveFromSystemSpace(v9, 1);
-  if ( Object[1] )
-    ObfDereferenceObject(Object[1]);
+    MmUnmapViewInSystemSpace(v9);
+  if ( DmaAdapter[1] )
+    HalPutDmaAdapter(DmaAdapter[1]);
   return (unsigned int)Section;
 }

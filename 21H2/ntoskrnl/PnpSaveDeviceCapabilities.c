@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpSaveDeviceCapabilities @ 0x14076FC68
+ * XREFs of PnpSaveDeviceCapabilities @ 0x140743E58
  * Callers:
- *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x14076C4E0 (PnpQueryAndSaveDeviceNodeCapabilities.c)
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x14074B3A4 (PnpQueryAndSaveDeviceNodeCapabilities.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x14076E894 (PnpDeviceObjectToDeviceInstance.c)
- *     _CmSetDeviceRegProp @ 0x14076FE20 (_CmSetDeviceRegProp.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x1407470F4 (PnpDeviceObjectToDeviceInstance.c)
  */
 
 __int64 __fastcall PnpSaveDeviceCapabilities(__int64 a1, _DWORD *a2, char a3)
@@ -25,7 +25,7 @@ __int64 __fastcall PnpSaveDeviceCapabilities(__int64 a1, _DWORD *a2, char a3)
   v15 = 0;
   Handle = 0LL;
   v5 = a3 != 0 ? 0x20000 : 0;
-  v6 = PnpDeviceObjectToDeviceInstance(*(_QWORD *)(a1 + 32), (__int64)&Handle, 983103);
+  v6 = PnpDeviceObjectToDeviceInstance(*(_QWORD *)(a1 + 32), &Handle, 983103LL);
   if ( v6 >= 0 )
   {
     if ( (*(_DWORD *)(a1 + 396) & 0x40) != 0 )

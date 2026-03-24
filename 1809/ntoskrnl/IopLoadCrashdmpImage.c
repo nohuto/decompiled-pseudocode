@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLoadCrashdmpImage @ 0x14071EE50
+ * XREFs of IopLoadCrashdmpImage @ 0x14071EE30
  * Callers:
  *     <none>
  * Callees:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
  */
 
 __int64 __fastcall IopLoadCrashdmpImage(

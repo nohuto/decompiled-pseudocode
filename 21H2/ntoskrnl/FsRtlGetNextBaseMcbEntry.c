@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlGetNextBaseMcbEntry @ 0x1402304D0
+ * XREFs of FsRtlGetNextBaseMcbEntry @ 0x1402A1B40
  * Callers:
- *     FsRtlGetNextLargeMcbEntry @ 0x140541090 (FsRtlGetNextLargeMcbEntry.c)
+ *     FsRtlGetNextLargeMcbEntry @ 0x1404EEF20 (FsRtlGetNextLargeMcbEntry.c)
  * Callees:
  *     <none>
  */
@@ -13,36 +13,29 @@ BOOLEAN __stdcall FsRtlGetNextBaseMcbEntry(
         PLONGLONG Lbn,
         PLONGLONG SectorCount)
 {
-  int v7; // r10d
-  int v8; // r8d
-  int v9; // eax
-  int v10; // ecx
+  int v6; // r11d
+  int v7; // eax
+  int v8; // eax
+  int v9; // ecx
 
   if ( RunIndex >= Mcb->PairCount )
     return 0;
-  v7 = 0;
-  if ( RunIndex )
-  {
-    v8 = *((_DWORD *)Mcb->Mapping + 2 * RunIndex - 2);
-    *(_DWORD *)Vbn = v8;
-    if ( v8 == -1 )
-    {
-      v9 = -1;
-      goto LABEL_5;
-    }
-  }
-  else
-  {
-    *(_DWORD *)Vbn = 0;
-  }
-  v9 = 0;
-LABEL_5:
-  *((_DWORD *)Vbn + 1) = v9;
-  v10 = *((_DWORD *)Mcb->Mapping + 2 * RunIndex + 1);
-  *(_DWORD *)Lbn = v10;
-  *((_DWORD *)Lbn + 1) = (v10 != -1) - 1;
+  v6 = 0;
   if ( RunIndex )
     v7 = *((_DWORD *)Mcb->Mapping + 2 * RunIndex - 2);
-  *SectorCount = (unsigned int)(*((_DWORD *)Mcb->Mapping + 2 * RunIndex) - v7);
+  else
+    v7 = 0;
+  *(_DWORD *)Vbn = v7;
+  if ( v7 == -1 )
+    v8 = -1;
+  else
+    v8 = 0;
+  *((_DWORD *)Vbn + 1) = v8;
+  v9 = *((_DWORD *)Mcb->Mapping + 2 * RunIndex + 1);
+  *(_DWORD *)Lbn = v9;
+  *((_DWORD *)Lbn + 1) = (v9 != -1) - 1;
+  if ( RunIndex )
+    v6 = *((_DWORD *)Mcb->Mapping + 2 * RunIndex - 2);
+  *SectorCount = (unsigned int)(*((_DWORD *)Mcb->Mapping + 2 * RunIndex) - v6);
   return 1;
 }

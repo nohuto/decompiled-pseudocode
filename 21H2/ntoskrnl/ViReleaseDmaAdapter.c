@@ -1,23 +1,23 @@
 /*
- * XREFs of ViReleaseDmaAdapter @ 0x140A89224
+ * XREFs of ViReleaseDmaAdapter @ 0x1409CF520
  * Callers:
- *     VfGetDmaAdapter @ 0x140A85B10 (VfGetDmaAdapter.c)
- *     VfPutDmaAdapter @ 0x140A868E0 (VfPutDmaAdapter.c)
- *     VfIoDeleteDevice @ 0x140A91824 (VfIoDeleteDevice.c)
+ *     VfGetDmaAdapter @ 0x1409CBE60 (VfGetDmaAdapter.c)
+ *     VfPutDmaAdapter @ 0x1409CCC30 (VfPutDmaAdapter.c)
+ *     VfIoDeleteDevice @ 0x1409D6144 (VfIoDeleteDevice.c)
  * Callees:
- *     MmFreeContiguousMemory @ 0x140213DA0 (MmFreeContiguousMemory.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     VfReportIssueWithOptions @ 0x1405FFA20 (VfReportIssueWithOptions.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ViHalPreprocessOptions @ 0x140A88948 (ViHalPreprocessOptions.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     MmFreeContiguousMemory @ 0x140295F20 (MmFreeContiguousMemory.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ViHalPreprocessOptions @ 0x1409CEC60 (ViHalPreprocessOptions.c)
  */
 
 void __fastcall ViReleaseDmaAdapter(ULONG_PTR a1)
 {
-  _QWORD *v1; // r14
+  struct _DMA_ADAPTER *v1; // r14
   KSPIN_LOCK *v2; // rbx
   KIRQL v4; // al
   PVOID *v5; // rbp
@@ -29,12 +29,12 @@ void __fastcall ViReleaseDmaAdapter(ULONG_PTR a1)
   bool v11; // zf
   PVOID *v12; // rbx
   __int64 v13; // rsi
-  LONG_PTR v14; // rax
+  __int64 v14; // rax
   ULONG_PTR v15; // rbx
 
-  v1 = *(_QWORD **)(a1 + 16);
+  v1 = *(struct _DMA_ADAPTER **)(a1 + 16);
   v2 = (KSPIN_LOCK *)(a1 + 280);
-  v1[1] = *(_QWORD *)(a1 + 48);
+  v1->DmaOperations = *(_DMA_OPERATIONS **)(a1 + 48);
   v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 280));
   v5 = *(PVOID **)(a1 + 264);
   *(_QWORD *)(a1 + 264) = 0LL;
@@ -72,18 +72,18 @@ void __fastcall ViReleaseDmaAdapter(ULONG_PTR a1)
     while ( v13 );
     ExFreePoolWithTag(v5, 0);
   }
-  v14 = ObfDereferenceObject(v1);
+  HalPutDmaAdapter(v1);
   v15 = v14;
   if ( *(int *)(a1 + 36) > 0 && v14 && (v14 != 1 || !*(_BYTE *)(a1 + 34)) )
   {
     ViHalPreprocessOptions(
-      byte_140C0D990,
+      byte_140C12F14,
       "Too many outstanding reference counts (%x) for adapter %p",
       17LL,
       v14,
       (__int64)v1,
       a1);
-    VfReportIssueWithOptions(0xE6u, 0x11uLL, v15, (ULONG_PTR)v1, a1, byte_140C0D990);
+    VfReportIssueWithOptions(0xE6u, 0x11uLL, v15, (ULONG_PTR)v1, a1, byte_140C12F14);
   }
   ExFreePoolWithTag((PVOID)a1, 0);
 }

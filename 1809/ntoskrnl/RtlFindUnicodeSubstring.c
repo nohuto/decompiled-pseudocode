@@ -3,7 +3,7 @@
  * Callers:
  *     CmpTraceSecurityChanging @ 0x1405B8380 (CmpTraceSecurityChanging.c)
  * Callees:
- *     memcmp @ 0x1401961E0 (memcmp.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
  */
 
 char *__fastcall RtlFindUnicodeSubstring(unsigned __int16 *a1, __int16 *a2, char a3)

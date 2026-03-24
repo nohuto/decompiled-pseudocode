@@ -1,13 +1,13 @@
 /*
- * XREFs of SepIsImageInMinTcbList @ 0x1406B9D88
+ * XREFs of SepIsImageInMinTcbList @ 0x140602224
  * Callers:
- *     SepIsMinTCB @ 0x1406B9B9C (SepIsMinTCB.c)
+ *     SepIsMinTCB @ 0x14060D584 (SepIsMinTCB.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     RtlQueryImageFileKeyOption @ 0x1406B6070 (RtlQueryImageFileKeyOption.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     RtlpOpenImageFileOptionsKeyEx @ 0x1407CE640 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x1406890E4 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlQueryImageFileKeyOption @ 0x140691EB0 (RtlQueryImageFileKeyOption.c)
  */
 
 __int64 __fastcall SepIsImageInMinTcbList(
@@ -21,95 +21,76 @@ __int64 __fastcall SepIsImageInMinTcbList(
         _BYTE *a8,
         unsigned __int8 *a9)
 {
-  unsigned int v9; // edi
-  unsigned int v14; // ebx
-  _DWORD *i; // rsi
-  __int64 v16; // rbp
+  unsigned int v9; // ebx
+  unsigned int v14; // edi
+  _DWORD *i; // r14
+  __int64 v16; // r15
   __int64 *v17; // rdx
-  unsigned __int64 v18; // rcx
-  __int64 v19; // r8
-  char v21; // al
-  unsigned __int8 v22; // bl
-  unsigned __int8 v23; // si
-  _BYTE *v24; // r15
-  char v25; // al
-  _BYTE *v26; // r14
-  char v27; // bp
-  unsigned __int8 *v28; // rbp
-  ULONG v29; // edx
+  __int64 v18; // r8
+  unsigned __int64 v20; // rcx
+  unsigned __int8 v21; // di
+  _BYTE *v22; // r14
+  char v23; // al
   HANDLE Handle[2]; // [rsp+30h] [rbp-38h] BYREF
-  ULONG v31; // [rsp+78h] [rbp+10h] BYREF
 
   v9 = 0;
   v14 = 0;
-  if ( !a2 )
-    return (unsigned int)-1073741275;
-  for ( i = (_DWORD *)(a1 + 20); ; i += 6 )
+  if ( a2 )
   {
-    v16 = a1 + 24LL * v14;
-    if ( RtlEqualUnicodeString(a3, (PCUNICODE_STRING)v16, 1u) )
+    for ( i = (_DWORD *)(a1 + 20); ; i += 6 )
     {
-      if ( !*i || *i == dword_140C31AF0 )
-        break;
-    }
-    if ( ++v14 >= a2 )
-      return (unsigned int)-1073741275;
-  }
-  v21 = *(_BYTE *)(v16 + 18);
-  if ( !v21 )
-  {
-    v22 = a5;
-    if ( a5 )
-    {
-      v23 = a5;
-      goto LABEL_10;
-    }
-  }
-  v22 = *(_BYTE *)(v16 + 18);
-  v23 = v22;
-  if ( v21 )
-  {
-LABEL_10:
-    v24 = a7;
-    v17 = &SeProtectedMapping;
-    v18 = (unsigned __int64)v22 >> 4;
-    *a7 = *((_BYTE *)&SeProtectedMapping + 2 * v18);
-    v25 = *((_BYTE *)&SeProtectedMapping + 2 * v18 + 1);
-    goto LABEL_11;
-  }
-  v24 = a7;
-  *a7 = *(_BYTE *)(v16 + 16);
-  v25 = *(_BYTE *)(v16 + 17);
-LABEL_11:
-  v26 = a8;
-  v27 = a6;
-  *a8 = v25;
-  if ( !qword_140C37A00 || (LOBYTE(v18) = *v24, LOBYTE(v17) = v27, !(unsigned int)qword_140C37A00(v18, v17)) )
-    *v24 = v27;
-  if ( !qword_140C37A00 || (LOBYTE(v18) = *v26, LOBYTE(v17) = v27, !(unsigned int)qword_140C37A00(v18, v17)) )
-    *v26 = v27;
-  v28 = a9;
-  if ( (v22 & 7) != 1 && ((a4 & 1) != 0 || (v22 & 7) == 2) )
-  {
-    if ( (*v26 & 0xFu) < 4 )
-      *v26 = *v24;
-    v23 = v22 & 0xF2 | *v28 & 8 | 2;
-  }
-  *v28 = v23;
-  v31 = 0;
-  Handle[0] = 0LL;
-  if ( !v23 && !*v26 && (int)RtlpOpenImageFileOptionsKeyEx(a3, v17, v19, Handle) >= 0 )
-  {
-    if ( RtlQueryImageFileKeyOption(Handle[0], L"AuditLevel", 4, &v31, 4u, 0LL) >= 0 )
-    {
-      v29 = v31 & 0xF;
-      if ( v29 - 2 <= 0xD )
+      v16 = v14;
+      if ( RtlEqualUnicodeString(a3, (PCUNICODE_STRING)(a1 + 24LL * v14), 1u) )
       {
-        *v26 = v29;
-        *v28 = 8;
+        if ( !*i || *i == dword_140C197B0 )
+          break;
       }
+      if ( ++v14 >= a2 )
+        return (unsigned int)-1073741275;
     }
-    ZwClose(Handle[0]);
+    v20 = 3LL * v14;
+    v21 = *(_BYTE *)(a1 + 24LL * v14 + 18);
+    if ( v21 )
+      goto LABEL_9;
+    if ( a5 )
+      v21 = a5;
+    if ( v21 )
+    {
+LABEL_9:
+      v22 = a7;
+      v17 = &SeProtectedMapping;
+      v20 = (unsigned __int64)v21 >> 4;
+      *a7 = *((_BYTE *)&SeProtectedMapping + 2 * v20);
+      v23 = *((_BYTE *)&SeProtectedMapping + 2 * v20 + 1);
+    }
+    else
+    {
+      v22 = a7;
+      *a7 = *(_BYTE *)(a1 + 24 * v16 + 16);
+      v23 = *(_BYTE *)(a1 + 24 * v16 + 17);
+    }
+    *a8 = v23;
+    if ( !qword_140C1DB20 || (LOBYTE(v20) = *v22, LOBYTE(v17) = a6, !(unsigned int)qword_140C1DB20(v20, v17)) )
+      *v22 = a6;
+    if ( !qword_140C1DB20 || (LOBYTE(v20) = *a8, LOBYTE(v17) = a6, !(unsigned int)qword_140C1DB20(v20, v17)) )
+      *a8 = a6;
+    if ( (v21 & 7) != 1 && ((a4 & 1) != 0 || (v21 & 7) == 2) )
+    {
+      if ( (*a8 & 0xFu) < 4 )
+        *a8 = *v22;
+      v21 = *a9 & 8 | v21 & 0xF2 | 2;
+    }
+    *a9 = v21;
+    Handle[0] = 0LL;
+    if ( !*a9 && !*a8 && (int)RtlpOpenImageFileOptionsKeyEx(a3, v17, v18, Handle) >= 0 )
+    {
+      RtlQueryImageFileKeyOption(Handle[0], 4, 0LL);
+      ZwClose(Handle[0]);
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741275;
   }
   return v9;
 }

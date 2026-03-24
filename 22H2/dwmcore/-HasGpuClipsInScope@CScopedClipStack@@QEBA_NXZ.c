@@ -1,21 +1,19 @@
 /*
- * XREFs of ?HasGpuClipsInScope@CScopedClipStack@@QEBA_NXZ @ 0x1800218AC
+ * XREFs of ?HasGpuClipsInScope@CScopedClipStack@@QEBA_NXZ @ 0x18006BF44
  * Callers:
- *     ?Initialize@CSubDrawingContext@@AEAAJXZ @ 0x180021408 (-Initialize@CSubDrawingContext@@AEAAJXZ.c)
- *     ?GetTopGpuClipInScope@CScopedClipStack@@QEBAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEAV2@@Z @ 0x18002179C (-GetTopGpuClipInScope@CScopedClipStack@@QEBAXPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
- *     ?PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4D2D1_ANTIALIAS_MODE@@_N@Z @ 0x180073A24 (-PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
+ *     ?GetTopGpuClipInScope@CScopedClipStack@@QEBAX_NPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800E01C4 (-GetTopGpuClipInScope@CScopedClipStack@@QEBAX_NPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall CScopedClipStack::HasGpuClipsInScope(CScopedClipStack *this)
 {
-  __int64 v1; // rax
-  char v2; // dl
+  int v1; // eax
+  char v2; // r9
 
-  v1 = *((_QWORD *)this + 1);
+  v1 = *((_DWORD *)this + 6);
   v2 = 0;
-  if ( v1 != *(_QWORD *)this )
-    return *(_QWORD *)(v1 - 184) != 0LL;
+  if ( v1 )
+    return *(_DWORD *)(84LL * (unsigned int)(v1 - 1) + *(_QWORD *)this) != 0;
   return v2;
 }

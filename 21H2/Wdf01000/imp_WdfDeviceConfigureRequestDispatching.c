@@ -1,14 +1,14 @@
 /*
- * XREFs of imp_WdfDeviceConfigureRequestDispatching @ 0x1C0062CA0
+ * XREFs of imp_WdfDeviceConfigureRequestDispatching @ 0x1C00475C0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_qqd @ 0x1C0030604 (WPP_IFR_SF_qqd.c)
- *     WPP_IFR_SF_DD @ 0x1C005A3C8 (WPP_IFR_SF_DD.c)
- *     ?ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z @ 0x1C00813E0 (-ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z.c)
- *     ?ConfigureForwarding@FxPkgGeneral@@QEAAJPEAVFxIoQueue@@@Z @ 0x1C008F12C (-ConfigureForwarding@FxPkgGeneral@@QEAAJPEAVFxIoQueue@@@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     WPP_IFR_SF_DD @ 0x1C0037BE8 (WPP_IFR_SF_DD.c)
+ *     ?ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z @ 0x1C0074C58 (-ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z.c)
+ *     ?ConfigureForwarding@FxPkgGeneral@@QEAAJPEAVFxIoQueue@@@Z @ 0x1C008DA7C (-ConfigureForwarding@FxPkgGeneral@@QEAAJPEAVFxIoQueue@@@Z.c)
  */
 
 int __fastcall imp_WdfDeviceConfigureRequestDispatching(
@@ -26,7 +26,11 @@ int __fastcall imp_WdfDeviceConfigureRequestDispatching(
 
   pDevice = 0LL;
   pFxIoQueue = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Device, 0x1002u, (void **)&pDevice);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Device,
+    0x1002u,
+    (void **)&pDevice);
   m_Globals = pDevice->m_Globals;
   if ( RequestType <= 0xF && (v8 = 49177, _bittest(&v8, RequestType)) )
   {
@@ -34,7 +38,7 @@ int __fastcall imp_WdfDeviceConfigureRequestDispatching(
     if ( pDevice != pFxIoQueue->m_Device )
     {
       v9 = -1073741808;
-      WPP_IFR_SF_qqd(m_Globals, 2u, 0xDu, 0x32u, WPP_FxDeviceApi_cpp_Traceguids, Queue, Device, -1073741808);
+      WPP_IFR_SF_qid(m_Globals, 2u, 0xDu, 0x32u, WPP_FxDeviceApi_cpp_Traceguids, Queue, (__int64)Device, -1073741808);
       return v9;
     }
     if ( pDevice->m_Legacy )

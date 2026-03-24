@@ -1,9 +1,9 @@
 /*
- * XREFs of AsiSortValueList @ 0x140322148
+ * XREFs of AsiSortValueList @ 0x140322248
  * Callers:
- *     ApiSetComposeSchema @ 0x140321D18 (ApiSetComposeSchema.c)
+ *     ApiSetComposeSchema @ 0x140321E18 (ApiSetComposeSchema.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x14069B170 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x14069B150 (RtlCompareUnicodeStrings.c)
  */
 
 int __fastcall AsiSortValueList(__int64 a1, __int64 a2)

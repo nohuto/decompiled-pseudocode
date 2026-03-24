@@ -1,38 +1,37 @@
 /*
- * XREFs of ?CancelAutoPromotion@@YAXXZ @ 0x1C01F7A38
+ * XREFs of ?CancelAutoPromotion@@YAXXZ @ 0x1C0217FEC
  * Callers:
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C01F8A18 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219068 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
  * Callees:
- *     ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C003B21C (-EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
- *     ?ClearAutoPromotion@@YAXXZ @ 0x1C01F7AD4 (-ClearAutoPromotion@@YAXXZ.c)
- *     ?CreateEntryFromLastEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@XZ @ 0x1C01F7B40 (-CreateEntryFromLastEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@XZ.c)
- *     ?ExtractRangeFromQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@0PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C01F7C8C (-ExtractRangeFromQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@0PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
- *     ?FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C01F7D18 (-FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_E.c)
- *     ?QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C01F8474 (-QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z.c)
+ *     ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C000BC24 (-EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
+ *     ?CreateEntryFromLastEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@XZ @ 0x1C021816C (-CreateEntryFromLastEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@XZ.c)
+ *     ?ExtractRangeFromQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@0PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C02182A4 (-ExtractRangeFromQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@0PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
+ *     ?FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0218384 (-FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_E.c)
+ *     ?QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C0218AE8 (-QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z.c)
  */
 
-void __fastcall CancelAutoPromotion(__int64 a1)
+void CancelAutoPromotion(void)
 {
-  __int64 v1; // rax
-  struct tagMOUSE_PROMOTION_QUEUE *v2; // rbx
   struct tagMOUSE_PROMOTION_ENTRY *EntryFromLastEntry; // rax
-  __int128 v4; // [rsp+20h] [rbp-18h] BYREF
-  struct tagMOUSE_PROMOTION_ENTRY *v5; // [rsp+40h] [rbp+8h] BYREF
-  struct tagMOUSE_PROMOTION_ENTRY *v6; // [rsp+48h] [rbp+10h] BYREF
+  __int128 v1; // [rsp+20h] [rbp-18h] BYREF
+  struct tagMOUSE_PROMOTION_ENTRY *v2; // [rsp+40h] [rbp+8h] BYREF
+  struct tagMOUSE_PROMOTION_ENTRY *v3; // [rsp+48h] [rbp+10h] BYREF
 
-  v1 = SGDGetUserSessionState(a1);
-  v6 = 0LL;
-  v5 = 0LL;
-  v2 = (struct tagMOUSE_PROMOTION_QUEUE *)(v1 + 16184);
+  v3 = 0LL;
+  v2 = 0LL;
   if ( (unsigned int)FindMousePromotionInContactRange(
-                       (const struct tagMOUSE_PROMOTION_QUEUE *)(v1 + 16184),
-                       *(_DWORD *)(v1 + 16060),
-                       &v6,
-                       &v5) )
+                       (const struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0339B50,
+                       dword_1C0339AD4,
+                       &v3,
+                       &v2) )
   {
-    v4 = 0LL;
-    ExtractRangeFromQueue(v2, (struct tagMOUSE_PROMOTION_QUEUE *)&v4, v6, v5);
-    EmptyMousePromotionQueue((struct tagMOUSE_PROMOTION_QUEUE *)&v4);
+    v1 = 0LL;
+    ExtractRangeFromQueue(
+      (struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0339B50,
+      (struct tagMOUSE_PROMOTION_QUEUE *)&v1,
+      v3,
+      v2);
+    EmptyMousePromotionQueue((struct tagMOUSE_PROMOTION_QUEUE *)&v1);
   }
   else
   {
@@ -40,8 +39,8 @@ void __fastcall CancelAutoPromotion(__int64 a1)
     if ( EntryFromLastEntry )
     {
       *((_DWORD *)EntryFromLastEntry + 5) = 303104;
-      QueueMousePromotionEntry(v2, EntryFromLastEntry);
+      QueueMousePromotionEntry((struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0339B50, EntryFromLastEntry);
     }
   }
-  ClearAutoPromotion();
+  dword_1C0339BD8 &= 0xFFFFFFE9;
 }

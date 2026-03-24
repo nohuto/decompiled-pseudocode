@@ -1,10 +1,10 @@
 /*
- * XREFs of ProcessDivide @ 0x1C006A860
+ * XREFs of ProcessDivide @ 0x1C006A0A0
  * Callers:
  *     <none>
  * Callees:
- *     WriteObject @ 0x1C0017010 (WriteObject.c)
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
  */
 
 __int64 __fastcall ProcessDivide(struct _SLIST_ENTRY *a1, __int64 a2, unsigned int a3)

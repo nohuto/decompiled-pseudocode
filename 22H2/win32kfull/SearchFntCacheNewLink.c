@@ -1,52 +1,42 @@
 /*
- * XREFs of SearchFntCacheNewLink @ 0x1C0289F08
+ * XREFs of SearchFntCacheNewLink @ 0x1C0288710
  * Callers:
- *     ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x1C0289D28 (-PutFNTCacheCheckSum@@YAXKK@Z.c)
- *     ?PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z @ 0x1C0289DD8 (-PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z.c)
- *     EngFntCacheAllocInternal @ 0x1C028A3EC (EngFntCacheAllocInternal.c)
+ *     ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x1C028858C (-PutFNTCacheCheckSum@@YAXKK@Z.c)
+ *     ?PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z @ 0x1C028861C (-PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z.c)
+ *     EngFntCacheAllocInternal @ 0x1C0288ADC (EngFntCacheAllocInternal.c)
  * Callees:
- *     SearchFNTCacheHlink @ 0x1C007611C (SearchFNTCacheHlink.c)
- *     bFntCacheCreateHLink @ 0x1C0289FE4 (bFntCacheCreateHLink.c)
+ *     SearchFNTCacheHlink @ 0x1C00A7224 (SearchFNTCacheHlink.c)
+ *     bFntCacheCreateHLink @ 0x1C02887A8 (bFntCacheCreateHLink.c)
  */
 
-unsigned int *__fastcall SearchFntCacheNewLink(__int64 a1)
+__int64 __fastcall SearchFntCacheNewLink(unsigned int a1)
 {
-  unsigned int v1; // esi
-  __int64 v2; // rdi
-  __int64 v3; // r14
-  __int64 v4; // r8
-  unsigned int *v5; // rbx
-  __int64 *v6; // rcx
-  __int64 v7; // rax
-  __int64 v8; // rdx
-  unsigned int *v10; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v1; // rbx
+  __int64 v3; // r8
+  __int64 v4; // r11
+  __int64 v6; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = a1;
-  v10 = 0LL;
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  v3 = *(_QWORD *)(v2 + 19392);
-  SearchFNTCacheHlink(v1, &v10, *(_QWORD *)v3);
-  v5 = v10;
-  if ( !v10 )
+  v1 = qword_1C0339BE8;
+  v6 = 0LL;
+  SearchFNTCacheHlink(a1, &v6, *(_QWORD *)qword_1C0339BE8);
+  v4 = v6;
+  if ( !v6 )
   {
-    if ( *(_DWORD *)(v3 + 8) < *(_DWORD *)(v4 + 16) && (unsigned int)bFntCacheCreateHLink(v1) )
+    if ( *(_DWORD *)(v1 + 8) < *(_DWORD *)(v3 + 16) && (unsigned int)bFntCacheCreateHLink(a1) )
     {
-      v6 = *(__int64 **)(v2 + 19392);
-      v7 = *v6;
-      v8 = 80LL * *((unsigned int *)v6 + 2);
-      v5 = (unsigned int *)(v8 + *v6 + 320);
-      *v5 = v1;
-      *(_DWORD *)(v8 + v7 + 324) = 0;
-      *(_DWORD *)(v8 + v7 + 328) = -1;
-      *(_QWORD *)(v8 + v7 + 336) = 0LL;
-      *(_DWORD *)(v8 + v7 + 344) = 0;
-      *(_DWORD *)(v8 + v7 + 332) = 0;
-      ++*(_DWORD *)(*(_QWORD *)(v2 + 19392) + 8LL);
+      v4 = *(_QWORD *)v1 + 80 * (*(unsigned int *)(v1 + 8) + 4LL);
+      *(_DWORD *)v4 = a1;
+      *(_DWORD *)(v4 + 4) = 0;
+      *(_DWORD *)(v4 + 8) = -1;
+      *(_QWORD *)(v4 + 16) = 0LL;
+      *(_DWORD *)(v4 + 24) = 0;
+      *(_DWORD *)(v4 + 12) = 0;
+      ++*(_DWORD *)(v1 + 8);
     }
     else
     {
-      *(_DWORD *)(*(_QWORD *)(v2 + 19392) + 16LL) |= 2u;
+      *(_DWORD *)(v1 + 16) |= 2u;
     }
   }
-  return v5;
+  return v4;
 }

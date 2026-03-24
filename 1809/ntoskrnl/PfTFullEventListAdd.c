@@ -1,12 +1,12 @@
 /*
- * XREFs of PfTFullEventListAdd @ 0x140122908
+ * XREFs of PfTFullEventListAdd @ 0x140122928
  * Callers:
- *     PfpEventHandleFullBuffer @ 0x1401228C0 (PfpEventHandleFullBuffer.c)
- *     PfpFlushEventBuffers @ 0x140669B30 (PfpFlushEventBuffers.c)
+ *     PfpEventHandleFullBuffer @ 0x1401228E0 (PfpEventHandleFullBuffer.c)
+ *     PfpFlushEventBuffers @ 0x140669B10 (PfpFlushEventBuffers.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x1400E2660 (PfFbBufferListInsertInFree.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     PfFbBufferListInsertInFree @ 0x1400E2680 (PfFbBufferListInsertInFree.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall PfTFullEventListAdd(PSLIST_ENTRY ListEntry)

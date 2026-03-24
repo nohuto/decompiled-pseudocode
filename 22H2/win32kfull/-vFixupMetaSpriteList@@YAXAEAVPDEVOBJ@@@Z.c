@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vFixupMetaSpriteList@@YAXAEAVPDEVOBJ@@@Z @ 0x1C027FE10
+ * XREFs of ?vFixupMetaSpriteList@@YAXAEAVPDEVOBJ@@@Z @ 0x1C0281E40
  * Callers:
- *     vSpDynamicModeChange @ 0x1C001B8E0 (vSpDynamicModeChange.c)
- *     GreTransferDwmStateToSpriteState @ 0x1C00587CC (GreTransferDwmStateToSpriteState.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C00EAC4C (GreTransferDwmStateToSpriteState.c)
+ *     vSpDynamicModeChange @ 0x1C00EDCB0 (vSpDynamicModeChange.c)
  * Callees:
  *     <none>
  */
@@ -18,14 +18,14 @@ void __fastcall vFixupMetaSpriteList(struct PDEVOBJ *a1)
 
   v1 = *(_QWORD *)a1;
   v2 = 0LL;
-  v3 = *(__int64 **)(*(_QWORD *)a1 + 144LL);
+  v3 = *(__int64 **)(*(_QWORD *)a1 + 152LL);
   v4 = *v3;
-  for ( i = *(_QWORD *)(*v3 + 88); i != *(_QWORD *)(v4 + 1200); i = *(_QWORD *)(i + 24) )
+  for ( i = *(_QWORD *)(*v3 + 96); i != *(_QWORD *)(v4 + 1208); i = *(_QWORD *)(i + 24) )
   {
     *(_QWORD *)(*(_QWORD *)(i + 8) + 8LL) = 0LL;
     v6 = *(_QWORD *)(i + 8);
-    if ( i == *(_QWORD *)(v4 + 88) )
-      *(_QWORD *)(v1 + 152) = v6;
+    if ( i == *(_QWORD *)(v4 + 96) )
+      *(_QWORD *)(v1 + 160) = v6;
     else
       *(_QWORD *)(v2 + 8) = v6;
     v2 = *(_QWORD *)(i + 8);

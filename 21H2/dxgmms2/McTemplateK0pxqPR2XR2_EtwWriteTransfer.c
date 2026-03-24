@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pxqPR2XR2_EtwWriteTransfer @ 0x1C003C3A4
+ * XREFs of McTemplateK0pxqPR2XR2_EtwWriteTransfer @ 0x1C0033890
  * Callers:
- *     ?VidSchiAddPendingCommandToSyncPointList@@YAJPEAU_VIDSCH_DEVICE@@PEAUVIDMM_ALLOC@@_JIIW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z @ 0x1C0001D44 (-VidSchiAddPendingCommandToSyncPointList@@YAJPEAU_VIDSCH_DEVICE@@PEAUVIDMM_ALLOC@@_JIIW4_VIDSCH_.c)
+ *     ?VidSchiAddPendingCommandToSyncPointList@@YAJPEAU_VIDSCH_DEVICE@@PEAUVIDMM_ALLOC@@_JIIW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z @ 0x1C0014468 (-VidSchiAddPendingCommandToSyncPointList@@YAJPEAU_VIDSCH_DEVICE@@PEAUVIDMM_ALLOC@@_JIIW4_VIDSCH_.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C002E360 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023F6C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pxqPR2XR2_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -43,17 +43,17 @@ NTSTATUS McTemplateK0pxqPR2XR2_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 
   v21 = va_arg(va3, _QWORD);
   v23 = va_arg(va3, _QWORD);
   v24 = va_arg(va3, _QWORD);
-  v6 = 8LL;
-  v13 = 0;
   va_copy(v5, va);
   va_copy(v7, va1);
   va_copy(v9, va2);
   v11 = v23;
-  v16 = 0;
-  v8 = 8LL;
-  v10 = 4LL;
   v14 = v24;
   v12 = 8 * v21;
+  v13 = 0;
   v15 = 8 * v21;
+  v16 = 0;
+  v6 = 8LL;
+  v8 = 8LL;
+  v10 = 4LL;
   return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, &EventCreateSyncPoint, a3, 6u, &v4);
 }

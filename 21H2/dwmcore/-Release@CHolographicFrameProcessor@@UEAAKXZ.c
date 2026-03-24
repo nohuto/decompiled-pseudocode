@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Release@CHolographicFrameProcessor@@UEAAKXZ @ 0x18029FC70
+ * XREFs of ?Release@CHolographicFrameProcessor@@UEAAKXZ @ 0x18025D050
  * Callers:
- *     ?Release@CHolographicFrameProcessor@@W7EAAKXZ @ 0x18010AE30 (-Release@CHolographicFrameProcessor@@W7EAAKXZ.c)
- *     ?Release@CHolographicFrameProcessor@@WCA@EAAKXZ @ 0x18010AE50 (-Release@CHolographicFrameProcessor@@WCA@EAAKXZ.c)
- *     ?Release@CHolographicFrameProcessor@@WCI@EAAKXZ @ 0x18010AE70 (-Release@CHolographicFrameProcessor@@WCI@EAAKXZ.c)
+ *     ?Release@CHolographicExclusivePresentData@@W7EAAKXZ @ 0x1800F85D0 (-Release@CHolographicExclusivePresentData@@W7EAAKXZ.c)
+ *     ?Release@CHolographicFrameProcessor@@WCA@EAAKXZ @ 0x1800F85E0 (-Release@CHolographicFrameProcessor@@WCA@EAAKXZ.c)
+ *     ?Release@CHolographicFrameProcessor@@WCI@EAAKXZ @ 0x1800F85F0 (-Release@CHolographicFrameProcessor@@WCI@EAAKXZ.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall CHolographicFrameProcessor::Release(CHolographicFrameProcessor *this)
 {
-  return CMILRefCountBaseT<IUnknown>::InternalRelease((volatile signed __int32 *)this + 2);
+  return CRenderTargetBitmap::Release((CHolographicFrameProcessor *)((char *)this + 8));
 }

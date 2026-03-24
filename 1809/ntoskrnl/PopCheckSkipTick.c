@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCheckSkipTick @ 0x140763F78
+ * XREFs of PopCheckSkipTick @ 0x140763F58
  * Callers:
- *     PopNewProcessorCallback @ 0x140865CC0 (PopNewProcessorCallback.c)
+ *     PopNewProcessorCallback @ 0x140865CA0 (PopNewProcessorCallback.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
  */
 
 bool PopCheckSkipTick()

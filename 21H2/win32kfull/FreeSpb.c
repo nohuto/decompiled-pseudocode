@@ -1,61 +1,61 @@
 /*
- * XREFs of FreeSpb @ 0x1C00DCA08
+ * XREFs of FreeSpb @ 0x1C021A2E4
  * Callers:
- *     SpbCheckPwnd @ 0x1C0004DF4 (SpbCheckPwnd.c)
- *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0047DD4 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     zzzLockWindowUpdate2 @ 0x1C00DBFA8 (zzzLockWindowUpdate2.c)
- *     ?SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z @ 0x1C00DC840 (-SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z.c)
- *     FreeAllSpbs @ 0x1C00F0F80 (FreeAllSpbs.c)
- *     RestoreSpb @ 0x1C0158DC0 (RestoreSpb.c)
- *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C020C464 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ *     FreeAllSpbs @ 0x1C002AB30 (FreeAllSpbs.c)
+ *     zzzLockWindowUpdate2 @ 0x1C003DDFC (zzzLockWindowUpdate2.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C006E030 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     xxxDrawDragRectEx @ 0x1C0211504 (xxxDrawDragRectEx.c)
+ *     ?SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z @ 0x1C021A0A0 (-SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z.c)
+ *     RestoreSpb @ 0x1C021A4F0 (RestoreSpb.c)
+ *     SpbCheckPwnd @ 0x1C021A7A4 (SpbCheckPwnd.c)
  * Callees:
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     ?PostSpbApc@@YAXPEAU_KAPC@@PEAUtagWND@@_K@Z @ 0x1C0214A74 (-PostSpbApc@@YAXPEAU_KAPC@@PEAUtagWND@@_K@Z.c)
- *     GreSaveScreenBits @ 0x1C029D748 (GreSaveScreenBits.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     ?PostSpbApc@@YAXPEAU_KAPC@@PEAUtagWND@@_K@Z @ 0x1C0219F94 (-PostSpbApc@@YAXPEAU_KAPC@@PEAUtagWND@@_K@Z.c)
+ *     GreSaveScreenBits @ 0x1C029EE44 (GreSaveScreenBits.c)
  */
 
-void __fastcall FreeSpb(__int64 a1)
+void __fastcall FreeSpb(char *a1)
 {
   char v1; // bp
   char v2; // si
   __int64 v4; // rcx
   __int64 v5; // rcx
-  _QWORD *v6; // rcx
-  _QWORD *i; // rdx
+  char *v6; // rcx
+  char *i; // rdx
   struct tagWND **v8; // rdi
-  struct tagWND *v9; // rdx
-  __int64 v10; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  void *v11; // rcx
+  struct tagWND *v12; // rdx
   _QWORD *j; // rbx
-  unsigned __int64 v12; // r8
-  struct tagWND *v13; // rdx
 
   if ( !a1 )
     return;
   v1 = 0;
   v2 = 0;
-  if ( (*(_DWORD *)(a1 + 48) & 1) != 0 )
+  if ( (*((_DWORD *)a1 + 12) & 1) != 0 )
   {
     if ( (unsigned int)GreIsVisRgnPublishLocked(*(_QWORD *)(gpDispInfo + 40LL)) )
       v1 = 1;
     else
-      GreSaveScreenBits(*(_QWORD *)(gpDispInfo + 40LL), 2LL, *(_QWORD *)(a1 + 56), 0LL);
+      GreSaveScreenBits(*(_QWORD *)(gpDispInfo + 40LL), 2LL, *((_QWORD *)a1 + 7), 0LL);
   }
   else
   {
-    v4 = *(_QWORD *)(a1 + 16);
+    v4 = *((_QWORD *)a1 + 2);
     if ( v4 )
       GreDeleteObject(v4);
   }
-  v5 = *(_QWORD *)(a1 + 40);
+  v5 = *((_QWORD *)a1 + 5);
   if ( v5 )
     GreDeleteObject(v5);
-  v6 = (_QWORD *)(gpDispInfo + 32LL);
-  for ( i = *(_QWORD **)(gpDispInfo + 32LL); i != (_QWORD *)a1; i = (_QWORD *)*i )
+  v6 = (char *)(gpDispInfo + 32LL);
+  for ( i = *(char **)(gpDispInfo + 32LL); i != a1; i = *(char **)i )
     v6 = i;
   v8 = (struct tagWND **)(a1 + 8);
-  *v6 = *(_QWORD *)a1;
-  v9 = *(struct tagWND **)(a1 + 8);
+  *(_QWORD *)v6 = *(_QWORD *)a1;
+  v9 = *((_QWORD *)a1 + 1);
   if ( v9 )
   {
     SetOrClrWF(0, v9, 0x80u, 1);
@@ -66,30 +66,28 @@ void __fastcall FreeSpb(__int64 a1)
   }
   if ( v1 )
   {
-    v12 = *(_QWORD *)(a1 + 56);
+    v10 = *((_QWORD *)a1 + 7);
+  }
+  else
+  {
     if ( !v2 )
     {
-      v13 = 0LL;
-      goto LABEL_30;
+      v11 = (void *)*((_QWORD *)a1 + 8);
+      if ( v11 )
+        Win32FreePool(v11);
+      goto LABEL_29;
     }
-LABEL_29:
-    v13 = *v8;
-LABEL_30:
-    PostSpbApc(*(struct _KAPC **)(a1 + 64), v13, v12);
-    if ( v2 )
-      *v8 = 0LL;
-    *(_QWORD *)(a1 + 64) = 0LL;
-    goto LABEL_15;
+    v10 = 0LL;
   }
   if ( v2 )
-  {
+    v12 = *v8;
+  else
     v12 = 0LL;
-    goto LABEL_29;
-  }
-  v10 = *(_QWORD *)(a1 + 64);
-  if ( v10 )
-    Win32FreePool(v10);
-LABEL_15:
+  PostSpbApc(*((struct _KAPC **)a1 + 8), v12, v10);
+  if ( v2 )
+    *v8 = 0LL;
+  *((_QWORD *)a1 + 8) = 0LL;
+LABEL_29:
   Win32FreePool(a1);
   if ( !*(_QWORD *)(gpDispInfo + 32LL) )
   {

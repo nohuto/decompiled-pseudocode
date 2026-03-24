@@ -1,10 +1,10 @@
 /*
- * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_7cab402ceb8a6f13c948e41cb9fe91ad___lambda_d84e1ed4b8f486922f9c1a79d2402bc2___ @ 0x1C021576C
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_7cab402ceb8a6f13c948e41cb9fe91ad___lambda_d84e1ed4b8f486922f9c1a79d2402bc2___ @ 0x1C01E7708
  * Callers:
- *     ?EmitUpdateCommands@CSpriteShapeMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0097B30 (-EmitUpdateCommands@CSpriteShapeMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CSpriteShapeMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E7AE0 (-EmitUpdateCommands@CSpriteShapeMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C00264AC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005C9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_7cab402ceb8a6f13c948e41cb9fe91ad___lambda_d84e1ed4b8f486922f9c1a79d2402bc2___(
@@ -17,10 +17,10 @@ char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda
 {
   __int64 v6; // r12
   void *v11; // r11
-  unsigned __int64 v12; // r15
+  unsigned __int64 v12; // rbp
   char *v13; // rcx
-  _DWORD *v14; // r8
-  unsigned int v15; // r9d
+  _DWORD *v14; // r9
+  __int64 v15; // r8
   __int64 v16; // rdx
   void *v18; // [rsp+58h] [rbp+10h] BYREF
 
@@ -41,16 +41,21 @@ LABEL_5:
     *(_DWORD *)v18 = 4 * v12 + 20;
     v14 = v13 + 20;
     *(_OWORD *)(v13 + 4) = 0LL;
-    *((_DWORD *)v13 + 1) = 361;
-    *((_DWORD *)v13 + 2) = *(_DWORD *)(a1 + 32);
+    *((_DWORD *)v13 + 1) = 376;
+    *((_DWORD *)v13 + 2) = *(_DWORD *)(a1 + 24);
     *((_DWORD *)v13 + 4) = 4 * v12;
-    v15 = 0;
-    for ( v13[12] = *a3 != 0; v15 < (unsigned int)v12; ++v14 )
+    v13[12] = *a3 != 0;
+    if ( (_DWORD)v12 )
     {
-      ++v15;
-      v16 = *a3;
-      *a3 = v16 + 1;
-      *v14 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v6 + 88LL) + 4 * v16);
+      v15 = (unsigned int)v12;
+      do
+      {
+        v16 = *a3;
+        *a3 = v16 + 1;
+        *v14++ = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v6 + 88LL) + 4 * v16);
+        --v15;
+      }
+      while ( v15 );
     }
     if ( *a3 >= a4 )
       return 1;

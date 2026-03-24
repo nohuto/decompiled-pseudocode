@@ -1,17 +1,17 @@
 /*
- * XREFs of PspTerminateSiloSubsystemProcesses @ 0x1409ACBA0
+ * XREFs of PspTerminateSiloSubsystemProcesses @ 0x140906DE4
  * Callers:
- *     PspCompleteServerSiloShutdownDeferred @ 0x1409ABC00 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x140905F60 (PspCompleteServerSiloShutdownDeferred.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140204738 (PsGetServerSiloGlobals.c)
- *     PsGetProcessSessionId @ 0x14028AF60 (PsGetProcessSessionId.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402DF7B0 (PsGetServerSiloServiceSessionId.c)
- *     PspGetNextJobProcess @ 0x1406CA970 (PspGetNextJobProcess.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FF880 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspShutdownCsrProcess @ 0x1409AC388 (PspShutdownCsrProcess.c)
+ *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
+ *     PsGetProcessSessionId @ 0x140252EB0 (PsGetProcessSessionId.c)
+ *     PsGetServerSiloServiceSessionId @ 0x140264460 (PsGetServerSiloServiceSessionId.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspGetNextJobProcess @ 0x1406ABE00 (PspGetNextJobProcess.c)
+ *     PspShutdownCsrProcess @ 0x140906650 (PspShutdownCsrProcess.c)
  */
 
-int __fastcall PspTerminateSiloSubsystemProcesses(struct _LIST_ENTRY *a1)
+void *__fastcall PspTerminateSiloSubsystemProcesses(struct _LIST_ENTRY *a1)
 {
   struct _KTHREAD *CurrentThread; // rsi
   int ServerSiloServiceSessionId; // ebp
@@ -20,22 +20,22 @@ int __fastcall PspTerminateSiloSubsystemProcesses(struct _LIST_ENTRY *a1)
   unsigned int ProcessSessionId; // eax
   _KPROCESS *NextJobProcess; // rax
   _KPROCESS *v8; // rbx
-  void *ServerSiloGlobals; // rax
+  void *result; // rax
   struct _LIST_ENTRY *v10; // rcx
   _KPROCESS *v11; // r8
-  __int128 v13; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v14; // [rsp+40h] [rbp-18h]
-  __int64 v15; // [rsp+68h] [rbp+10h] BYREF
+  __int128 v12; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+40h] [rbp-18h]
+  __int64 v14; // [rsp+68h] [rbp+10h] BYREF
 
-  v15 = 0LL;
-  v13 = 0LL;
   v14 = 0LL;
-  PspEnumJobsAndProcessesInJobHierarchy(a1, 0, (int)PspWaitOnAllProcessesJobCallback, 0, (__int64)&v15, 2);
+  v12 = 0LL;
+  v13 = 0LL;
+  PspEnumJobsAndProcessesInJobHierarchy(a1, 0, (int)PspWaitOnAllProcessesJobCallback, 0, (__int64)&v14, 2);
   CurrentThread = KeGetCurrentThread();
   ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId((__int64)a1);
   for ( i = 0LL; ; i = v8 )
   {
-    NextJobProcess = (_KPROCESS *)PspGetNextJobProcess((__int64)a1, (__int64)CurrentThread, &v13, i);
+    NextJobProcess = (_KPROCESS *)PspGetNextJobProcess((__int64)a1, (__int64)CurrentThread, &v12, i);
     v8 = NextJobProcess;
     if ( !NextJobProcess )
       break;
@@ -47,9 +47,9 @@ int __fastcall PspTerminateSiloSubsystemProcesses(struct _LIST_ENTRY *a1)
         PspShutdownCsrProcess(a1, ProcessSessionId, v8);
     }
   }
-  ServerSiloGlobals = PsGetServerSiloGlobals((__int64)a1);
-  v11 = (_KPROCESS *)*((_QWORD *)ServerSiloGlobals + 110);
+  result = PsGetServerSiloGlobals((__int64)a1);
+  v11 = (_KPROCESS *)*((_QWORD *)result + 110);
   if ( v11 )
-    LODWORD(ServerSiloGlobals) = PspShutdownCsrProcess(v10, **((_DWORD **)ServerSiloGlobals + 165), v11);
-  return (int)ServerSiloGlobals;
+    return (void *)PspShutdownCsrProcess(v10, **((_DWORD **)result + 141), v11);
+  return result;
 }

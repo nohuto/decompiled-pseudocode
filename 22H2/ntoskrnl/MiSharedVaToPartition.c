@@ -1,90 +1,93 @@
 /*
- * XREFs of MiSharedVaToPartition @ 0x1402E2788
+ * XREFs of MiSharedVaToPartition @ 0x140240DBC
  * Callers:
- *     MiActOnPte @ 0x140293FB4 (MiActOnPte.c)
- *     MiCreateSharedZeroPages @ 0x1402E0DC0 (MiCreateSharedZeroPages.c)
- *     MiResolvePageFileFault @ 0x14066B52C (MiResolvePageFileFault.c)
+ *     MiActOnPte @ 0x14023BF60 (MiActOnPte.c)
+ *     MiCreateSharedZeroPages @ 0x1402410E0 (MiCreateSharedZeroPages.c)
+ *     MiResolvePageFileFault @ 0x1402E0F08 (MiResolvePageFileFault.c)
  * Callees:
- *     MiSessionLookupImage @ 0x14020AB88 (MiSessionLookupImage.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x14020AE58 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiLocateAddress @ 0x140217260 (MiLocateAddress.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIsPrototypePteVadLookup @ 0x14027CDE0 (MiIsPrototypePteVadLookup.c)
- *     MiUnlockVadTree @ 0x140287758 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A7A0 (MiLockVadTree.c)
- *     MiLocateCloneAddress @ 0x140294478 (MiLocateCloneAddress.c)
+ *     MiLocateCloneAddress @ 0x14023E878 (MiLocateCloneAddress.c)
+ *     MiLocateAddress @ 0x14025B070 (MiLocateAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1402E31E8 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiIsPrototypePteVadLookup @ 0x1402E3470 (MiIsPrototypePteVadLookup.c)
+ *     MiSessionLookupImage @ 0x140328A98 (MiSessionLookupImage.c)
  */
 
-void *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+ULONG_PTR *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __int64 v7; // rbx
   __int64 v8; // rax
-  __int64 v9; // rdx
-  unsigned __int64 v10; // r9
-  _KPROCESS *v11; // rcx
+  unsigned __int64 v9; // r8
+  _KPROCESS *v10; // rcx
   _QWORD *CloneAddress; // rax
-  __int64 **Address; // rdi
-  __int64 *v14; // rax
-  char v15; // al
-  _QWORD *v16; // rdx
-  unsigned __int64 v17; // r8
+  __int64 Address; // rax
+  __int64 v13; // rax
+  char v14; // al
+  _QWORD *v15; // rdx
   _KPROCESS *Process; // rcx
-  _QWORD *v19; // rax
+  unsigned __int64 v17; // rdx
+  _QWORD *v18; // rdx
+  __int64 v19; // rax
 
-  if ( !byte_140C67ED4 )
+  if ( !byte_140C4E65C )
     return &MiSystemPartition;
-  v7 = *(_QWORD *)(qword_140C674C8 + 8LL * *(unsigned __int16 *)(a1 + 174));
+  v7 = *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 174));
   v8 = MI_READ_PTE_LOCK_FREE(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  v10 = v8;
-  if ( (v8 & 0x400) != 0 && MI_PROTO_FORMAT_COMBINED(v8, v9) )
-    return **(void ***)(((a3 - 32) & 0xFFFFFFFFFFFFF000uLL) + 0x10);
+  v9 = v8;
+  if ( (v8 & 0x400) != 0 && (unsigned __int8)MI_PROTO_FORMAT_COMBINED(v8) )
+    return **(ULONG_PTR ***)(((a3 - 48) & 0xFFFFFFFFFFFFF000uLL) + 0x10);
   if ( a2 >= 0xFFFF800000000000uLL )
   {
-    v15 = *(_BYTE *)(a1 + 184) & 7;
-    if ( v15 == 4 )
+    v14 = *(_BYTE *)(a1 + 184) & 7;
+    if ( v14 == 4 )
     {
-      v16 = P;
-      while ( v16 )
-      {
-        v17 = v16[11] & 0xFFFFFFFFFFFFF000uLL;
-        if ( a2 < v17 + v16[4] )
-        {
-          if ( a2 >= v17 )
-            break;
-          v16 = (_QWORD *)*v16;
-        }
-        else
-        {
-          v16 = (_QWORD *)v16[1];
-        }
-      }
-      if ( !v16 )
-        return (void *)v7;
-      v14 = (__int64 *)v16[6];
+      v15 = &unk_140C4CD68;
     }
     else
     {
-      if ( v15 != 1 )
-        return (void *)v7;
+      if ( v14 != 1 )
+        return (ULONG_PTR *)v7;
       Process = KeGetCurrentThread()->ApcState.Process;
-      if ( !Process[1].Affinity.StaticBitmap[25] )
-        return (void *)v7;
+      v17 = Process[1].AffinityPadding[5];
+      if ( !v17 )
+        return (ULONG_PTR *)v7;
       if ( (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
-        return (void *)v7;
-      v19 = MiSessionLookupImage(a2);
-      if ( !v19 )
-        return (void *)v7;
-      v14 = v19 + 10;
+        return (ULONG_PTR *)v7;
+      v15 = (_QWORD *)(v17 + 192);
+      if ( !v15 )
+        return (ULONG_PTR *)v7;
     }
+    v18 = (_QWORD *)v15[2];
+    while ( v18 )
+    {
+      v9 = v18[11] & 0xFFFFFFFFFFFFF000uLL;
+      if ( a2 >= v9 + v18[4] )
+      {
+        v18 = (_QWORD *)v18[1];
+      }
+      else
+      {
+        if ( a2 >= v9 )
+        {
+          v13 = v18[6];
+          goto LABEL_31;
+        }
+        v18 = (_QWORD *)*v18;
+      }
+    }
+    v19 = MiSessionLookupImage(a2, 0LL, v9);
+    if ( !v19 )
+      return (ULONG_PTR *)v7;
+    v13 = v19 + 80;
 LABEL_31:
-    if ( *v14 )
-      return *(void **)(qword_140C674C8 + 8LL * (*(_WORD *)(*v14 + 60) & 0x3FF));
-    return (void *)v7;
+    if ( *(_QWORD *)v13 )
+      return *(ULONG_PTR **)(qword_140C4E648 + 8LL * (*(_WORD *)(*(_QWORD *)v13 + 60LL) & 0x3FF));
+    return (ULONG_PTR *)v7;
   }
-  if ( MiIsPrototypePteVadLookup(v10) )
+  if ( (unsigned int)MiIsPrototypePteVadLookup(v9) )
     goto LABEL_13;
-  v11 = KeGetCurrentThread()->ApcState.Process;
-  if ( !v11[1].Affinity.StaticBitmap[12] || (CloneAddress = MiLocateCloneAddress((__int64)v11, a3)) == 0LL )
+  v10 = KeGetCurrentThread()->ApcState.Process;
+  if ( !v10[1].Affinity.Bitmap[12] || (CloneAddress = MiLocateCloneAddress((__int64)v10, a3)) == 0LL )
   {
     v7 = 0LL;
     goto LABEL_13;
@@ -93,17 +96,15 @@ LABEL_31:
   if ( !v7 )
   {
 LABEL_13:
-    MiLockVadTree(1);
     Address = MiLocateAddress(a2);
-    MiUnlockVadTree(1, 0x11u);
     if ( !Address )
-      return (void *)v7;
-    if ( ((_DWORD)Address[6] & 0x200000) != 0 )
-      return (void *)v7;
-    v14 = Address[9];
-    if ( !v14 )
-      return (void *)v7;
+      return (ULONG_PTR *)v7;
+    if ( (*(_DWORD *)(Address + 48) & 0x100000) != 0 )
+      return (ULONG_PTR *)v7;
+    v13 = *(_QWORD *)(Address + 72);
+    if ( !v13 )
+      return (ULONG_PTR *)v7;
     goto LABEL_31;
   }
-  return (void *)v7;
+  return (ULONG_PTR *)v7;
 }

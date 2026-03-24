@@ -1,51 +1,48 @@
 /*
- * XREFs of PipGenerateContainerID @ 0x1407452A0
+ * XREFs of PipGenerateContainerID @ 0x14076E528
  * Callers:
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlCreateUnicodeString @ 0x14066A0F0 (RtlCreateUnicodeString.c)
- *     ExUuidCreate @ 0x140681B30 (ExUuidCreate.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
+ *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
+ *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     ExUuidCreate @ 0x1407208B0 (ExUuidCreate.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PipGenerateContainerID(__int64 a1, __int64 a2, __int64 a3, const WCHAR *a4, _QWORD *a5)
+__int64 __fastcall PipGenerateContainerID(__int64 a1, __int64 a2, char a3, const WCHAR *a4, _QWORD *a5)
 {
-  int v5; // esi
-  __int64 v6; // rdi
-  NTSTATUS v7; // ebx
+  int v7; // ebx
   GUID *p_Guid; // rcx
   wchar_t *Buffer; // rdi
   unsigned int MaximumLength; // esi
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   struct _KTHREAD *CurrentThread; // rax
   __int64 v14; // rdx
-  int DeviceRegProp; // ebx
+  int DeviceRegProp; // edi
+  __int64 i; // rdi
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-61h] BYREF
-  int v17; // [rsp+50h] [rbp-51h] BYREF
-  int v18; // [rsp+54h] [rbp-4Dh] BYREF
+  int v18; // [rsp+50h] [rbp-51h] BYREF
+  int v19; // [rsp+54h] [rbp-4Dh] BYREF
   GUID Guid; // [rsp+58h] [rbp-49h] BYREF
   WCHAR SourceString[40]; // [rsp+70h] [rbp-31h] BYREF
 
-  v17 = 0;
   v18 = 0;
-  v5 = a2;
+  v19 = 0;
   *(_QWORD *)&UnicodeString.Length = 0LL;
-  v6 = a1;
   *a5 = 0LL;
   v7 = 0;
   UnicodeString.Buffer = 0LL;
   Guid = 0LL;
-  if ( !(_BYTE)a3 )
+  if ( !a3 )
   {
     p_Guid = (GUID *)(*(_QWORD *)(a1 + 16) + 664LL);
     goto LABEL_3;
@@ -57,39 +54,36 @@ __int64 __fastcall PipGenerateContainerID(__int64 a1, __int64 a2, __int64 a3, co
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);
-      v14 = *(_QWORD *)(v6 + 48);
-      v17 = 78;
+      v14 = *(_QWORD *)(a1 + 48);
+      v18 = 78;
       DeviceRegProp = CmGetDeviceRegProp(
-                        PiPnpRtlCtx,
+                        *(__int64 *)&PiPnpRtlCtx,
                         v14,
-                        v5,
+                        a2,
                         37,
-                        (__int64)&v18,
+                        (__int64)&v19,
                         (__int64)SourceString,
-                        (__int64)&v17,
+                        (__int64)&v18,
                         0);
       ExReleaseResourceLite(&PnpRegistryDeviceResource);
-      KeLeaveCriticalRegion();
-      if ( DeviceRegProp >= 0 && v18 == 1 && RtlCreateUnicodeString(&UnicodeString, SourceString) )
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      if ( DeviceRegProp >= 0 && v19 == 1 && RtlCreateUnicodeString(&UnicodeString, SourceString) )
       {
         v7 = RtlGUIDFromString(&UnicodeString, &Guid);
         if ( v7 >= 0 )
         {
-          while ( 1 )
+          for ( i = *(_QWORD *)(a1 + 16); i; i = *(_QWORD *)(i + 16) )
           {
-            v6 = *(_QWORD *)(v6 + 16);
-            if ( !v6 )
-              break;
-            if ( (GUID *)(v6 + 664) == &Guid || RtlCompareMemory((const void *)(v6 + 664), &Guid, 0x10uLL) == 16 )
-              goto LABEL_19;
+            if ( (GUID *)(i + 664) == &Guid || RtlCompareMemory((const void *)(i + 664), &Guid, 0x10uLL) == 16 )
+              goto LABEL_27;
           }
 LABEL_4:
           if ( v7 < 0 )
             return (unsigned int)v7;
           goto LABEL_5;
         }
-LABEL_19:
-        RtlFreeUnicodeString(&UnicodeString);
+LABEL_27:
+        RtlFreeAnsiString(&UnicodeString);
       }
     }
     v7 = ExUuidCreate(&Guid);
@@ -97,8 +91,7 @@ LABEL_19:
       return (unsigned int)v7;
     p_Guid = &Guid;
 LABEL_3:
-    LOBYTE(a3) = 1;
-    v7 = RtlStringFromGUIDEx(p_Guid, &UnicodeString, a3);
+    v7 = RtlStringFromGUIDEx(&p_Guid->Data1, (__int64)&UnicodeString, 1);
     goto LABEL_4;
   }
   if ( !RtlCreateUnicodeString(&UnicodeString, a4) )
@@ -108,13 +101,13 @@ LABEL_5:
   if ( UnicodeString.Buffer )
   {
     MaximumLength = UnicodeString.MaximumLength;
-    Pool2 = (void *)ExAllocatePool2(256LL, UnicodeString.MaximumLength, 1852141648LL);
-    *a5 = Pool2;
-    if ( Pool2 )
-      memmove(Pool2, Buffer, MaximumLength);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, UnicodeString.MaximumLength, 0x6E657050u);
+    *a5 = PoolWithTag;
+    if ( PoolWithTag )
+      memmove(PoolWithTag, Buffer, MaximumLength);
     else
       v7 = -1073741670;
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeAnsiString(&UnicodeString);
   }
   return (unsigned int)v7;
 }

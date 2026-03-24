@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfDeviceStopIdleActual @ 0x1C0010F10
+ * XREFs of imp_WdfDeviceStopIdleActual @ 0x1C0016C60
  * Callers:
  *     <none>
  * Callees:
- *     StopIdleWorker @ 0x1C0010F38 (StopIdleWorker.c)
+ *     StopIdleWorker @ 0x1C0016C88 (StopIdleWorker.c)
  */
 
 int __fastcall imp_WdfDeviceStopIdleActual(

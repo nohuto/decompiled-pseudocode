@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkSubsectionWaitBlock @ 0x1405A19E0
+ * XREFs of MiUnlinkSubsectionWaitBlock @ 0x1405425D4
  * Callers:
- *     MiChangingSubsectionProtos @ 0x14059D69C (MiChangingSubsectionProtos.c)
- *     MiAllocateFileExtents @ 0x14096F8CC (MiAllocateFileExtents.c)
+ *     MiChangingSubsectionProtos @ 0x14053F918 (MiChangingSubsectionProtos.c)
+ *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiUnlinkSubsectionWaitBlock(__int64 *a1, __int64 a2, int a3)
@@ -24,7 +24,7 @@ void __fastcall MiUnlinkSubsectionWaitBlock(__int64 *a1, __int64 a2, int a3)
   bool v15; // zf
 
   v3 = *a1;
-  if ( a3 )
+  if ( a3 == 1 )
     v6 = 17;
   else
     v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v3 + 72));

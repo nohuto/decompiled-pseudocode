@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CSnapshotMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0223EA0
+ * XREFs of ?SetIntegerProperty@CSnapshotMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E9EC0
  * Callers:
  *     <none>
  * Callees:

@@ -1,17 +1,15 @@
 /*
- * XREFs of MmGetCurrentProcessorColor @ 0x140221E50
+ * XREFs of MmGetCurrentProcessorColor @ 0x14029C1F0
  * Callers:
- *     MiProcessCrcList @ 0x1406F2C30 (MiProcessCrcList.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MiInsertSharedCommitNode @ 0x1406FC590 (MiInsertSharedCommitNode.c)
- *     MiReserveUserMemory @ 0x1407B8B60 (MiReserveUserMemory.c)
- *     MiAddSecureEntry @ 0x1407B9190 (MiAddSecureEntry.c)
- *     MiPfPrepareReadList @ 0x1407BD420 (MiPfPrepareReadList.c)
+ *     MiAddSecureEntry @ 0x14061F7C0 (MiAddSecureEntry.c)
+ *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MiInsertSharedCommitNode @ 0x1406EB750 (MiInsertSharedCommitNode.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
  * Callees:
  *     <none>
  */
 
 USHORT MmGetCurrentProcessorColor(void)
 {
-  return KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0];
+  return KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0];
 }

@@ -1,67 +1,82 @@
 /*
- * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x14023B484
+ * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x14027DC90
  * Callers:
- *     SeAccessCheckByType @ 0x1402FBEC0 (SeAccessCheckByType.c)
+ *     SepReferenceTokenByHandle @ 0x14027CA20 (SepReferenceTokenByHandle.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1402F8EF0 (SepReconcileTrustSidWithProcessProtection.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     PsReferenceImpersonationTokenEx @ 0x14072A6B0 (PsReferenceImpersonationTokenEx.c)
- *     PsReferenceEffectiveToken @ 0x1407B3B60 (PsReferenceEffectiveToken.c)
+ *     RtlSidDominatesForTrust @ 0x14027DDE0 (RtlSidDominatesForTrust.c)
+ *     SepSidFromProcessProtection @ 0x14027DEE0 (SepSidFromProcessProtection.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PsReferenceImpersonationTokenEx @ 0x140656960 (PsReferenceImpersonationTokenEx.c)
+ *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
  */
 
-__int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, int a2, __int64 *a3, _BYTE *a4, _QWORD *a5)
+__int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN *a2, _BYTE *a3, __int64 *a4)
 {
-  _QWORD *v6; // r14
   struct _KTHREAD *CurrentThread; // rax
-  void *v9; // rax
-  __int64 v10; // rbx
-  ULONG v12; // edx
-  char v13; // [rsp+70h] [rbp+30h] BYREF
-  int v14; // [rsp+78h] [rbp+38h] BYREF
-  int v15; // [rsp+80h] [rbp+40h] BYREF
-  int v16; // [rsp+88h] [rbp+48h] BYREF
+  struct _DMA_ADAPTER *v8; // rax
+  __int64 v9; // rbp
+  __int64 v10; // r9
+  void *v11; // r11
+  int v13; // [rsp+30h] [rbp-38h] BYREF
+  int v14; // [rsp+34h] [rbp-34h] BYREF
+  char v15; // [rsp+70h] [rbp+8h] BYREF
+  char v16; // [rsp+78h] [rbp+10h] BYREF
+  char v17; // [rsp+80h] [rbp+18h] BYREF
+  char v18; // [rsp+88h] [rbp+20h] BYREF
 
-  v14 = a2;
-  *a3 = 0LL;
-  v6 = a5;
-  v15 = 0;
   v16 = 0;
-  *a4 = 0;
-  *v6 = 0LL;
+  *a2 = 0LL;
+  *a3 = 0;
+  *a4 = 0LL;
   CurrentThread = KeGetCurrentThread();
   v13 = 0;
-  LOBYTE(v14) = 0;
+  v14 = 0;
+  v15 = 0;
   if ( a1 == -4 )
   {
-    v10 = PsReferencePrimaryTokenWithTag(CurrentThread->ApcState.Process, 1953654867LL);
-    goto LABEL_6;
+    *a2 = PsReferencePrimaryToken(CurrentThread->ApcState.Process);
+    return 0LL;
   }
-  if ( a1 != -5 )
+  if ( a1 == -5 )
   {
-    v9 = (void *)PsReferenceEffectiveToken(CurrentThread, 1953654867LL, &v16, &v13, &v15, &v14);
-    v10 = (__int64)v9;
-    if ( v15 || v16 != 2 )
-      goto LABEL_5;
-    v12 = 1953654867;
-LABEL_11:
-    ObfDereferenceObjectWithTag(v9, v12);
+    v8 = (struct _DMA_ADAPTER *)PsReferenceImpersonationTokenEx(
+                                  (_DWORD)CurrentThread,
+                                  0,
+                                  (unsigned int)&v18,
+                                  (unsigned int)&v16,
+                                  (__int64)&v13,
+                                  (__int64)&v15);
+    if ( !v8 )
+      return 3221225596LL;
+  }
+  else
+  {
+    v8 = (struct _DMA_ADAPTER *)PsReferenceEffectiveToken(
+                                  (_DWORD)CurrentThread,
+                                  (unsigned int)&v14,
+                                  (unsigned int)&v16,
+                                  (unsigned int)&v13,
+                                  (__int64)&v15);
+    if ( v14 != 2 )
+      goto LABEL_7;
+  }
+  if ( !v13 )
+  {
+    HalPutDmaAdapter(v8);
     return 3221225638LL;
   }
-  v9 = (void *)PsReferenceImpersonationTokenEx(CurrentThread, 0LL, 1953654867LL, &a5, &v13, &v15, &v14);
-  v10 = (__int64)v9;
-  if ( v9 )
+LABEL_7:
+  *a3 = 0;
+  *a4 = 0LL;
+  v17 = 0;
+  v9 = SepSidFromProcessProtection(&v15);
+  RtlSidDominatesForTrust(v9, v10, &v17);
+  if ( !v17 )
   {
-    if ( v15 )
-    {
-LABEL_5:
-      SepReconcileTrustSidWithProcessProtection(*(_QWORD *)(v10 + 1104), &v14, a4, v6);
-LABEL_6:
-      *a3 = v10;
-      return 0LL;
-    }
-    v12 = 1953261124;
-    goto LABEL_11;
+    *a3 = 1;
+    *a4 = v9;
   }
-  return 3221225596LL;
+  *a2 = v11;
+  return 0LL;
 }

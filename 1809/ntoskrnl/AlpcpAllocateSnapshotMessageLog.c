@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpAllocateSnapshotMessageLog @ 0x14084A374
+ * XREFs of AlpcpAllocateSnapshotMessageLog @ 0x14084A354
  * Callers:
- *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A5B8 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A598 (AlpcpEnterStateChangeEventMessageLog.c)
  * Callees:
  *     <none>
  */

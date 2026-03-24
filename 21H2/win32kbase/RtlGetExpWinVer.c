@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlGetExpWinVer @ 0x1C00359B8
+ * XREFs of RtlGetExpWinVer @ 0x1C003EB3C
  * Callers:
- *     UserThreadCallout @ 0x1C0037070 (UserThreadCallout.c)
- *     xxxCreateThreadInfo @ 0x1C003911C (xxxCreateThreadInfo.c)
+ *     UserThreadCallout @ 0x1C003C590 (UserThreadCallout.c)
+ *     xxxCreateThreadInfo @ 0x1C003D918 (xxxCreateThreadInfo.c)
  * Callees:
  *     <none>
  */

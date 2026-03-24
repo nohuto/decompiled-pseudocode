@@ -1,22 +1,22 @@
 /*
- * XREFs of KeGetProcessorIndexFromNumber @ 0x1400A7450
+ * XREFs of KeGetProcessorIndexFromNumber @ 0x1400A7470
  * Callers:
- *     PoGetIdleTimes @ 0x1400A7300 (PoGetIdleTimes.c)
- *     KeQueryLogicalProcessorRelationship @ 0x1400DBF90 (KeQueryLogicalProcessorRelationship.c)
- *     PoGetPerfStateAndParkingInfo @ 0x140131C84 (PoGetPerfStateAndParkingInfo.c)
- *     KeSetTargetProcessorDpcEx @ 0x14013A090 (KeSetTargetProcessorDpcEx.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x14015CDB0 (KeSetIdealProcessorThreadByNumber.c)
- *     PpmClearSimulatedIdle @ 0x1402D3C04 (PpmClearSimulatedIdle.c)
- *     PpmSetSimulatedIdle @ 0x1402D5998 (PpmSetSimulatedIdle.c)
- *     PpmUpdateProcessorIdleVeto @ 0x1402D6610 (PpmUpdateProcessorIdleVeto.c)
- *     PpmClearSimulatedLoad @ 0x1402DB0AC (PpmClearSimulatedLoad.c)
- *     PpmSetSimulatedLoad @ 0x1402DB4B4 (PpmSetSimulatedLoad.c)
+ *     PoGetIdleTimes @ 0x1400A7320 (PoGetIdleTimes.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1400DBFB0 (KeQueryLogicalProcessorRelationship.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x140131CA4 (PoGetPerfStateAndParkingInfo.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14013A0B0 (KeSetTargetProcessorDpcEx.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x14015CDD0 (KeSetIdealProcessorThreadByNumber.c)
+ *     PpmClearSimulatedIdle @ 0x1402D3D04 (PpmClearSimulatedIdle.c)
+ *     PpmSetSimulatedIdle @ 0x1402D5A98 (PpmSetSimulatedIdle.c)
+ *     PpmUpdateProcessorIdleVeto @ 0x1402D6710 (PpmUpdateProcessorIdleVeto.c)
+ *     PpmClearSimulatedLoad @ 0x1402DB1AC (PpmClearSimulatedLoad.c)
+ *     PpmSetSimulatedLoad @ 0x1402DB5B4 (PpmSetSimulatedLoad.c)
  *     PspBuildCreateProcessContext @ 0x140622378 (PspBuildCreateProcessContext.c)
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     IopConnectInterrupt @ 0x14071076C (IopConnectInterrupt.c)
- *     PpmUpdateIdleStates @ 0x140729650 (PpmUpdateIdleStates.c)
- *     PpmInstallPlatformIdleStates @ 0x140866D10 (PpmInstallPlatformIdleStates.c)
- *     PpmPerfGetBrandedFrequency @ 0x14086B10C (PpmPerfGetBrandedFrequency.c)
+ *     IopConnectInterrupt @ 0x14071074C (IopConnectInterrupt.c)
+ *     PpmUpdateIdleStates @ 0x140729630 (PpmUpdateIdleStates.c)
+ *     PpmInstallPlatformIdleStates @ 0x140866CF0 (PpmInstallPlatformIdleStates.c)
+ *     PpmPerfGetBrandedFrequency @ 0x14086B0EC (PpmPerfGetBrandedFrequency.c)
  * Callees:
  *     <none>
  */

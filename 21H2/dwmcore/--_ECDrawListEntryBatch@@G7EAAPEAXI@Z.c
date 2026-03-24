@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECDrawListEntryBatch@@G7EAAPEAXI@Z @ 0x180107290
+ * XREFs of ??_ECDrawListEntryBatch@@G7EAAPEAXI@Z @ 0x1800F6490
  * Callers:
  *     <none>
  * Callees:

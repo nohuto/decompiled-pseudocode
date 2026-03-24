@@ -1,7 +1,7 @@
 /*
  * XREFs of SeClearLearningModeObjectInformation @ 0x14004E050
  * Callers:
- *     RtlpAllowsLowBoxAccess @ 0x1401330A0 (RtlpAllowsLowBoxAccess.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1401330C0 (RtlpAllowsLowBoxAccess.c)
  *     ObReferenceObjectByName @ 0x1405C8DA0 (ObReferenceObjectByName.c)
  *     ObOpenObjectByNameEx @ 0x1405E2E30 (ObOpenObjectByNameEx.c)
  *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DxgkDiagShutdown@@YAJXZ @ 0x1C0051224
+ * XREFs of ?DxgkDiagShutdown@@YAJXZ @ 0x1C0044E10
  * Callers:
- *     DxgkUnload @ 0x1C0301B10 (DxgkUnload.c)
+ *     DxgkUnload @ 0x1C0261750 (DxgkUnload.c)
  * Callees:
  *     <none>
  */

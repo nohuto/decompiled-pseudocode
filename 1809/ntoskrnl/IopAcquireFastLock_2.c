@@ -1,11 +1,11 @@
 /*
- * XREFs of IopAcquireFastLock_2 @ 0x140117B28
+ * XREFs of IopAcquireFastLock_2 @ 0x140117B48
  * Callers:
  *     IopCloseFile @ 0x140639B10 (IopCloseFile.c)
- *     IopGetSetSecurityObject @ 0x1406990F0 (IopGetSetSecurityObject.c)
+ *     IopGetSetSecurityObject @ 0x1406990D0 (IopGetSetSecurityObject.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 char __fastcall IopAcquireFastLock_2(volatile __int32 *a1)

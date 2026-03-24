@@ -1,29 +1,27 @@
 /*
- * XREFs of ExQueryWnfStateData @ 0x1407EEE10
+ * XREFs of ExQueryWnfStateData @ 0x1406BB180
  * Callers:
- *     PopWnfAirplaneModeCallback @ 0x1403DE440 (PopWnfAirplaneModeCallback.c)
- *     PopWnfBluetoothChargingCallback @ 0x1405CA0A0 (PopWnfBluetoothChargingCallback.c)
- *     PopWnfMobileHotspotCallback @ 0x1405CA1A0 (PopWnfMobileHotspotCallback.c)
- *     PopErratumUpdateCallback @ 0x1405CFD70 (PopErratumUpdateCallback.c)
- *     PopWnfMixedRealityCallback @ 0x1406EB9B0 (PopWnfMixedRealityCallback.c)
- *     PopWnfAudioCallback @ 0x1407EE7A0 (PopWnfAudioCallback.c)
- *     SshpWnfCallback @ 0x1408097A0 (SshpWnfCallback.c)
- *     PopWnfSprActiveSessionChangeCallback @ 0x14081CD10 (PopWnfSprActiveSessionChangeCallback.c)
- *     VslpConnectedStandbyWnfCallback @ 0x140933280 (VslpConnectedStandbyWnfCallback.c)
- *     PipUpdateSetupOobeCompleteWnfCallback @ 0x1409404B0 (PipUpdateSetupOobeCompleteWnfCallback.c)
- *     PopWnfFullscreenVideoCallback @ 0x14098CB20 (PopWnfFullscreenVideoCallback.c)
- *     PopWnfUserAwayPredictionCallback @ 0x14098CBC0 (PopWnfUserAwayPredictionCallback.c)
- *     PopUsbErrorWNFNotificationCallback @ 0x140995780 (PopUsbErrorWNFNotificationCallback.c)
- *     PopNetWnfLowPowerEpochCallback @ 0x140998940 (PopNetWnfLowPowerEpochCallback.c)
- *     PopEsInStandbyEvaluate @ 0x14099A030 (PopEsInStandbyEvaluate.c)
- *     PopEsWnfSubscriptionOverrideCallback @ 0x14099A120 (PopEsWnfSubscriptionOverrideCallback.c)
- *     PopAdaptiveWnfCallback @ 0x14099CB50 (PopAdaptiveWnfCallback.c)
- *     TtmpWnfInactivityTimeoutCallback @ 0x1409A4000 (TtmpWnfInactivityTimeoutCallback.c)
+ *     PopWnfAirplaneModeCallback @ 0x1403CEF40 (PopWnfAirplaneModeCallback.c)
+ *     PopWnfBluetoothChargingCallback @ 0x140568DD0 (PopWnfBluetoothChargingCallback.c)
+ *     PopWnfMobileHotspotCallback @ 0x140568ED0 (PopWnfMobileHotspotCallback.c)
+ *     PopErratumUpdateCallback @ 0x14056EDF0 (PopErratumUpdateCallback.c)
+ *     PopWnfAudioCallback @ 0x140772380 (PopWnfAudioCallback.c)
+ *     PopWnfSprActiveSessionChangeCallback @ 0x14078E8A0 (PopWnfSprActiveSessionChangeCallback.c)
+ *     PopWnfMixedRealityCallback @ 0x14078EA90 (PopWnfMixedRealityCallback.c)
+ *     VslpConnectedStandbyWnfCallback @ 0x140890700 (VslpConnectedStandbyWnfCallback.c)
+ *     PipUpdateSetupOobeCompleteWnfCallback @ 0x14089B900 (PipUpdateSetupOobeCompleteWnfCallback.c)
+ *     PopWnfFullscreenVideoCallback @ 0x1408E4150 (PopWnfFullscreenVideoCallback.c)
+ *     PopWnfUserAwayPredictionCallback @ 0x1408E41F0 (PopWnfUserAwayPredictionCallback.c)
+ *     PopUsbErrorWNFNotificationCallback @ 0x1408EDE50 (PopUsbErrorWNFNotificationCallback.c)
+ *     PopNetWnfLowPowerEpochCallback @ 0x1408F20B0 (PopNetWnfLowPowerEpochCallback.c)
+ *     PopEsInStandbyEvaluate @ 0x1408F27A0 (PopEsInStandbyEvaluate.c)
+ *     PopEsWnfSubscriptionOverrideCallback @ 0x1408F2880 (PopEsWnfSubscriptionOverrideCallback.c)
+ *     SshpWnfCallback @ 0x1408FBB50 (SshpWnfCallback.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpWnfReadStateData @ 0x1407944BC (ExpWnfReadStateData.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x1407EEEB8 (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExpWnfReadStateData @ 0x14060FB44 (ExpWnfReadStateData.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x1406BB228 (ExpWnfAcquireSubscriptionNameInstance.c)
  */
 
 __int64 __fastcall ExQueryWnfStateData(__int64 a1, _DWORD *a2, void *a3, unsigned int *a4)
@@ -42,12 +40,12 @@ __int64 __fastcall ExQueryWnfStateData(__int64 a1, _DWORD *a2, void *a3, unsigne
     StateData = ExpWnfReadStateData(v8, a2, a3, *a4, a4);
     if ( StateData >= 0 )
       StateData = 0;
-    ExReleaseRundownProtection(v9 + 1);
+    ExReleaseRundownProtection_0(v9 + 1);
   }
   else
   {
     StateData = -1073741772;
   }
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)StateData;
 }

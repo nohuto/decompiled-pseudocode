@@ -1,11 +1,11 @@
 /*
- * XREFs of _vsnprintf @ 0x140194D00
+ * XREFs of _vsnprintf @ 0x140194D20
  * Callers:
- *     RtlStringCbVPrintfA @ 0x1400F4E3C (RtlStringCbVPrintfA.c)
- *     RtlStringVPrintfWorkerA @ 0x14017DEE8 (RtlStringVPrintfWorkerA.c)
- *     RtlStringCchPrintfA @ 0x14018DFA0 (RtlStringCchPrintfA.c)
+ *     RtlStringCbVPrintfA @ 0x1400F4E5C (RtlStringCbVPrintfA.c)
+ *     RtlStringVPrintfWorkerA @ 0x14017DF08 (RtlStringVPrintfWorkerA.c)
+ *     RtlStringCchPrintfA @ 0x14018DFC0 (RtlStringCchPrintfA.c)
  * Callees:
- *     _vsnprintf_l @ 0x140194D1C (_vsnprintf_l.c)
+ *     _vsnprintf_l @ 0x140194D3C (_vsnprintf_l.c)
  */
 
 int __cdecl vsnprintf(char *Dest, size_t Count, const char *Format, va_list Args)

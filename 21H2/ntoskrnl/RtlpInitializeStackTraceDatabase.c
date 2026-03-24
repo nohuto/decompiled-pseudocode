@@ -1,26 +1,28 @@
 /*
- * XREFs of RtlpInitializeStackTraceDatabase @ 0x1409B75F8
+ * XREFs of RtlpInitializeStackTraceDatabase @ 0x140911A54
  * Callers:
- *     RtlControlStackTraceDataBase @ 0x1405E47C4 (RtlControlStackTraceDataBase.c)
+ *     RtlControlStackTraceDataBase @ 0x140585C94 (RtlControlStackTraceDataBase.c)
  * Callees:
- *     NtFreeVirtualMemory @ 0x1407B98F0 (NtFreeVirtualMemory.c)
- *     RtlStdInitializeStackDatabase @ 0x1409B74BC (RtlStdInitializeStackDatabase.c)
+ *     NtFreeVirtualMemory @ 0x1406ED530 (NtFreeVirtualMemory.c)
+ *     RtlStdInitializeStackDatabase @ 0x14091191C (RtlStdInitializeStackDatabase.c)
  */
 
 __int64 __fastcall RtlpInitializeStackTraceDatabase(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   int v4; // edx
-  PVOID BaseAddress; // [rsp+20h] [rbp-18h] BYREF
-  ULONG_PTR RegionSize; // [rsp+58h] [rbp+20h] BYREF
+  ULONG_PTR RegionSize; // [rsp+20h] [rbp-18h] BYREF
+  PVOID BaseAddress; // [rsp+28h] [rbp-10h] BYREF
+  _QWORD *v7; // [rsp+58h] [rbp+20h] BYREF
 
-  RegionSize = 0LL;
+  v7 = 0LL;
   if ( RtlpStackTraceDatabase )
     return 3221225994LL;
-  v4 = RtlStdInitializeStackDatabase(a1, a2, a3, &RegionSize);
-  if ( v4 >= 0 && _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpStackTraceDatabase, RegionSize, 0LL) )
+  v4 = RtlStdInitializeStackDatabase(a1, a2, a3, &v7);
+  if ( v4 >= 0
+    && _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpStackTraceDatabase, (signed __int64)v7, 0LL) )
   {
-    BaseAddress = (PVOID)RegionSize;
-    RegionSize = *(_QWORD *)(RegionSize + 184) - RegionSize;
+    BaseAddress = v7;
+    RegionSize = v7[23] - (_QWORD)v7;
     NtFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
     return 3221225994LL;
   }

@@ -1,22 +1,21 @@
 /*
- * XREFs of ObMakeTemporaryObject @ 0x1406E1700
+ * XREFs of ObMakeTemporaryObject @ 0x14062C010
  * Callers:
- *     IoDeleteDevice @ 0x1402D3820 (IoDeleteDevice.c)
- *     IopCompleteUnloadOrDelete @ 0x1402D5CA8 (IopCompleteUnloadOrDelete.c)
- *     NtMakeTemporaryObject @ 0x1406E1680 (NtMakeTemporaryObject.c)
- *     IopLoadDriver @ 0x14074A178 (IopLoadDriver.c)
- *     IoCreateDriver @ 0x14084F500 (IoCreateDriver.c)
- *     IopUnloadDriver @ 0x140856DC0 (IopUnloadDriver.c)
- *     IoDeleteDriver @ 0x140936380 (IoDeleteDriver.c)
- *     ObShutdownSystem @ 0x140983EF0 (ObShutdownSystem.c)
- *     ObpDirectoryTeardownCallback @ 0x140A349B0 (ObpDirectoryTeardownCallback.c)
- *     IovpUnloadDriver @ 0x140A81078 (IovpUnloadDriver.c)
- *     IopInitializeBuiltinDriver @ 0x140B11EBC (IopInitializeBuiltinDriver.c)
+ *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
+ *     IopCompleteUnloadOrDelete @ 0x140360FD0 (IopCompleteUnloadOrDelete.c)
+ *     NtMakeTemporaryObject @ 0x14062D0A0 (NtMakeTemporaryObject.c)
+ *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
+ *     IopUnloadDriver @ 0x140769798 (IopUnloadDriver.c)
+ *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
+ *     ObShutdownSystem @ 0x1408DC490 (ObShutdownSystem.c)
+ *     ObpDirectoryTeardownCallback @ 0x140980960 (ObpDirectoryTeardownCallback.c)
+ *     IovpUnloadDriver @ 0x1409C5A18 (IovpUnloadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140A5E618 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ObpDeleteNameCheck @ 0x1407A3190 (ObpDeleteNameCheck.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ObpDeleteNameCheck @ 0x14062CBD0 (ObpDeleteNameCheck.c)
  */
 
 void __stdcall ObMakeTemporaryObject(PVOID Object)
@@ -30,6 +29,6 @@ void __stdcall ObMakeTemporaryObject(PVOID Object)
   ExAcquirePushLockExclusiveEx((ULONG_PTR)Object - 32, 0LL);
   v2[27] &= ~0x10u;
   ExReleasePushLockEx((ULONG_PTR)(v2 + 16), 0LL);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   ObpDeleteNameCheck(v2);
 }

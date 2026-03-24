@@ -1,47 +1,47 @@
 /*
- * XREFs of RtlFirstFreeAce @ 0x140724CE0
+ * XREFs of RtlFirstFreeAce @ 0x14065B880
  * Callers:
- *     RtlAddMandatoryAce @ 0x1406CCC10 (RtlAddMandatoryAce.c)
- *     RtlDeleteAce @ 0x1406DC070 (RtlDeleteAce.c)
- *     RtlQueryInformationAcl @ 0x140724B00 (RtlQueryInformationAcl.c)
- *     RtlAddAce @ 0x140724BB0 (RtlAddAce.c)
- *     RtlpInheritAcl2 @ 0x140727FB0 (RtlpInheritAcl2.c)
- *     RtlAddProcessTrustLabelAce @ 0x140848A40 (RtlAddProcessTrustLabelAce.c)
- *     SddlAddMandatoryAce @ 0x140882C7A (SddlAddMandatoryAce.c)
- *     RtlAddAccessFilterAce @ 0x1409B7E50 (RtlAddAccessFilterAce.c)
- *     RtlAddResourceAttributeAce @ 0x1409B8170 (RtlAddResourceAttributeAce.c)
- *     RtlpAddKnownObjectAce @ 0x1409B84A4 (RtlpAddKnownObjectAce.c)
- *     SddlAddAccessFilterAce @ 0x1409CF980 (SddlAddAccessFilterAce.c)
- *     SddlAddProcessTrustLabelAce @ 0x1409CFB98 (SddlAddProcessTrustLabelAce.c)
- *     SddlAddScopedPolicyIDAce @ 0x1409CFCF8 (SddlAddScopedPolicyIDAce.c)
+ *     RtlAddMandatoryAce @ 0x14065B720 (RtlAddMandatoryAce.c)
+ *     RtlpInheritAcl2 @ 0x14065CF30 (RtlpInheritAcl2.c)
+ *     RtlAddAce @ 0x14065F130 (RtlAddAce.c)
+ *     RtlQueryInformationAcl @ 0x14065FAA0 (RtlQueryInformationAcl.c)
+ *     RtlDeleteAce @ 0x1406B0FF0 (RtlDeleteAce.c)
+ *     RtlAddProcessTrustLabelAce @ 0x14079DD90 (RtlAddProcessTrustLabelAce.c)
+ *     RtlAddAccessFilterAce @ 0x140912250 (RtlAddAccessFilterAce.c)
+ *     RtlAddResourceAttributeAce @ 0x140912570 (RtlAddResourceAttributeAce.c)
+ *     RtlpAddKnownObjectAce @ 0x1409128A0 (RtlpAddKnownObjectAce.c)
+ *     SddlAddAccessFilterAce @ 0x1409261C8 (SddlAddAccessFilterAce.c)
+ *     SddlAddMandatoryAce @ 0x1409263E0 (SddlAddMandatoryAce.c)
+ *     SddlAddProcessTrustLabelAce @ 0x140926544 (SddlAddProcessTrustLabelAce.c)
+ *     SddlAddScopedPolicyIDAce @ 0x1409266A4 (SddlAddScopedPolicyIDAce.c)
  * Callees:
  *     <none>
  */
 
 char __fastcall RtlFirstFreeAce(__int64 a1, _QWORD *a2)
 {
-  unsigned int v3; // ecx
-  unsigned __int64 v4; // r8
+  unsigned int v2; // r9d
+  unsigned __int64 v3; // r8
 
-  v3 = 0;
+  v2 = 0;
+  v3 = a1 + 8;
   *a2 = 0LL;
-  v4 = a1 + 8;
   if ( *(_WORD *)(a1 + 4) )
   {
-    while ( v4 < a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+    while ( v3 < a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
     {
-      ++v3;
-      v4 += *(unsigned __int16 *)(v4 + 2);
-      if ( v3 >= *(unsigned __int16 *)(a1 + 4) )
-        goto LABEL_4;
+      ++v2;
+      v3 += *(unsigned __int16 *)(v3 + 2);
+      if ( v2 >= *(unsigned __int16 *)(a1 + 4) )
+        goto LABEL_2;
     }
     return 0;
   }
   else
   {
-LABEL_4:
-    if ( v4 <= a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
-      *a2 = v4;
+LABEL_2:
+    if ( v3 <= a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+      *a2 = v3;
     return 1;
   }
 }

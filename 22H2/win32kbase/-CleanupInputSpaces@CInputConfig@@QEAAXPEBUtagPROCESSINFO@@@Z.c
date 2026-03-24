@@ -1,22 +1,22 @@
 /*
- * XREFs of ?CleanupInputSpaces@CInputConfig@@QEAAXPEBUtagPROCESSINFO@@@Z @ 0x1C01E3B14
+ * XREFs of ?CleanupInputSpaces@CInputConfig@@QEAAXPEBUtagPROCESSINFO@@@Z @ 0x1C01B3000
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
- *     ?_NotifyExternalComponents@CInputConfig@@AEAAXXZ @ 0x1C0063FF4 (-_NotifyExternalComponents@CInputConfig@@AEAAXXZ.c)
- *     ?_EnsureInputSpace@CInputConfig@@AEAAXXZ @ 0x1C0064068 (-_EnsureInputSpace@CInputConfig@@AEAAXXZ.c)
- *     ?_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00B74E0 (-_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?Entry@Iter@CInputConfig@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1C00C4BB8 (-Entry@Iter@CInputConfig@@QEAAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?Entry@Iter@CInputConfig@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1C006DFD8 (-Entry@Iter@CInputConfig@@QEAAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?_NotifyExternalComponents@CInputConfig@@AEAAXXZ @ 0x1C006E09C (-_NotifyExternalComponents@CInputConfig@@AEAAXXZ.c)
+ *     ?_EnsureInputSpace@CInputConfig@@AEAAXXZ @ 0x1C0072034 (-_EnsureInputSpace@CInputConfig@@AEAAXXZ.c)
+ *     ?_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0072104 (-_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z.c)
  */
 
 void __fastcall CInputConfig::CleanupInputSpaces(CInputConfig *this, const struct tagPROCESSINFO *a2)
 {
   CInputConfig *v2; // rdi
-  CInputConfig *v4; // rdx
+  CInputConfig *v4; // rax
   _QWORD *i; // rbx
-  _QWORD **v6; // rcx
-  __int64 v7; // rcx
-  struct _LIST_ENTRY *v8; // rax
+  _QWORD **v6; // rax
+  struct _LIST_ENTRY *v7; // rax
+  CInputConfig *v8; // rcx
   CInputConfig *v9; // rcx
   _QWORD v10[2]; // [rsp+20h] [rbp-28h] BYREF
   CInputConfig *v11; // [rsp+30h] [rbp-18h]
@@ -33,19 +33,16 @@ void __fastcall CInputConfig::CleanupInputSpaces(CInputConfig *this, const struc
   v11 = v4;
   for ( i = *(_QWORD **)v4; ; i = (_QWORD *)*i )
   {
-    v6 = 0LL;
     v12 = i;
-    if ( v4 != v2 )
-      v6 = (_QWORD **)((char *)v4 + 16);
+    if ( v4 == v2 )
+      break;
+    v6 = (_QWORD **)((char *)v4 + 16);
     if ( !v6 )
       break;
-    v7 = 16LL;
-    if ( v4 != v2 )
-      v7 = (__int64)v4 + 32;
-    if ( *(const struct tagPROCESSINFO **)v7 == a2 )
+    if ( v6[2] == (_QWORD *)a2 )
     {
-      v8 = CInputConfig::Iter::Entry((CInputConfig::Iter *)v10);
-      CInputConfig::_FreeInputSpace(v9, v8);
+      v7 = CInputConfig::Iter::Entry((CInputConfig::Iter *)v10);
+      CInputConfig::_FreeInputSpace(v8, v7);
     }
     v4 = (CInputConfig *)i;
     v11 = (CInputConfig *)i;
@@ -55,5 +52,5 @@ void __fastcall CInputConfig::CleanupInputSpaces(CInputConfig *this, const struc
   CInputConfig::_EnsureInputSpace(v2);
   ExReleaseResourceLite(CInputConfig::slock);
   KeLeaveCriticalRegion();
-  CInputConfig::_NotifyExternalComponents(v2);
+  CInputConfig::_NotifyExternalComponents(v9);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWnfReleaseCapturedScopeInstanceId @ 0x1407131EC
+ * XREFs of ExpWnfReleaseCapturedScopeInstanceId @ 0x14060F748
  * Callers:
- *     ExpNtUpdateWnfStateData @ 0x14071234C (ExpNtUpdateWnfStateData.c)
- *     NtQueryWnfStateData @ 0x140712D00 (NtQueryWnfStateData.c)
- *     NtQueryWnfStateNameInformation @ 0x1407CD8F0 (NtQueryWnfStateNameInformation.c)
- *     ExpNtDeleteWnfStateData @ 0x14085C35C (ExpNtDeleteWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x14060EA3C (ExpNtUpdateWnfStateData.c)
+ *     NtQueryWnfStateData @ 0x14060F2E0 (NtQueryWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406893C0 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407CD72C (ExpNtDeleteWnfStateData.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SeReleaseSid @ 0x1406BB2A4 (SeReleaseSid.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     SeReleaseSid @ 0x1405DE570 (SeReleaseSid.c)
  */
 
 void __fastcall ExpWnfReleaseCapturedScopeInstanceId(int a1, PVOID *a2, char a3)
@@ -35,6 +35,6 @@ void __fastcall ExpWnfReleaseCapturedScopeInstanceId(int a1, PVOID *a2, char a3)
   }
   else if ( *a2 )
   {
-    ObfDereferenceObject(*a2);
+    HalPutDmaAdapter((PADAPTER_OBJECT)*a2);
   }
 }

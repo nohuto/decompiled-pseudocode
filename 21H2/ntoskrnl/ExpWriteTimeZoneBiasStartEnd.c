@@ -1,30 +1,32 @@
 /*
- * XREFs of ExpWriteTimeZoneBiasStartEnd @ 0x14083656C
+ * XREFs of ExpWriteTimeZoneBiasStartEnd @ 0x1405D1D18
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140835844 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
  */
 
-_QWORD *__fastcall ExpWriteTimeZoneBiasStartEnd(__int64 a1, __int64 a2)
+__int64 *__fastcall ExpWriteTimeZoneBiasStartEnd(__int64 a1, __int64 a2)
 {
-  _QWORD *result; // rax
-  _QWORD *v5; // r8
+  __int64 v4; // rdx
+  __int64 v5; // rcx
   __int64 v6; // r8
+  __int64 *result; // rax
+  __int64 *v8; // r8
 
-  if ( PsIsCurrentThreadInServerSilo() )
+  if ( PsIsCurrentThreadInServerSilo(a1, a2) )
   {
-    v6 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 165);
-    result = (_QWORD *)(v6 + 608);
-    v5 = (_QWORD *)(v6 + 616);
+    v6 = *((_QWORD *)PsGetCurrentServerSiloGlobals(v5, v4) + 141);
+    result = (__int64 *)(v6 + 608);
+    v8 = (__int64 *)(v6 + 616);
   }
   else
   {
-    result = (_QWORD *)0xFFFFF780000003C8LL;
-    v5 = (_QWORD *)0xFFFFF780000003D0LL;
+    result = (__int64 *)0xFFFFF780000003C8LL;
+    v8 = (__int64 *)0xFFFFF780000003D0LL;
   }
   *result = a1;
-  *v5 = a2;
+  *v8 = a2;
   return result;
 }

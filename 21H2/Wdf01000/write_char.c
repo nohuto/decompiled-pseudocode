@@ -1,11 +1,11 @@
 /*
- * XREFs of write_char @ 0x1C003631C
+ * XREFs of write_char @ 0x1C001AF68
  * Callers:
- *     _woutput_l @ 0x1C00359CC (_woutput_l.c)
- *     write_multi_char @ 0x1C0036370 (write_multi_char.c)
- *     write_string @ 0x1C00363C8 (write_string.c)
+ *     _woutput_l @ 0x1C001A67C (_woutput_l.c)
+ *     write_multi_char @ 0x1C001AFBC (write_multi_char.c)
+ *     write_string @ 0x1C001B014 (write_string.c)
  * Callees:
- *     _fputwc_nolock @ 0x1C003645C (_fputwc_nolock.c)
+ *     _fputwc_nolock @ 0x1C001B0C0 (_fputwc_nolock.c)
  */
 
 void __fastcall write_char(wchar_t ch, _iobuf *f, int *pnumwritten)

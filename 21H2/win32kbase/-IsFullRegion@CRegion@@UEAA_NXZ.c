@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsFullRegion@CRegion@@UEAA_NXZ @ 0x1C016BDB0
+ * XREFs of ?IsFullRegion@CRegion@@UEAA_NXZ @ 0x1C013ED90
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?FindNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z @ 0x1C01C28B4
+ * XREFs of ?FindNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z @ 0x1C018E498
  * Callers:
- *     ?CanCoalesceIgnoreNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAW4CPointerCoalesce@@@Z @ 0x1C01BB0D0 (-CanCoalesceIgnoreNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAW4.c)
- *     ?FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z @ 0x1C01C2CB8 (-FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z.c)
- *     ?SetPointerInfoNodeFlag@CTouchProcessor@@AEAAHKGI@Z @ 0x1C01D6040 (-SetPointerInfoNodeFlag@CTouchProcessor@@AEAAHKGI@Z.c)
+ *     ?CanCoalesceIgnoreNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAW4CPointerCoalesce@@@Z @ 0x1C018891C (-CanCoalesceIgnoreNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAW4.c)
+ *     ?FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z @ 0x1C018E8C8 (-FindValidNodeInFrame@CTouchProcessor@@AEAAPEAUCPointerInfoNode@@PEBUCPointerInputFrame@@GPEAK@Z.c)
+ *     ?SetPointerInfoNodeFlag@CTouchProcessor@@AEAAHKGI@Z @ 0x1C019DC90 (-SetPointerInfoNodeFlag@CTouchProcessor@@AEAAHKGI@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?CTouchProcessorLocked@CTouchProcessor@@QEAAHXZ @ 0x1C00E3DCE (-CTouchProcessorLocked@CTouchProcessor@@QEAAHXZ.c)
- *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C01CCB18 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CD0C0 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?CTouchProcessorLocked@CTouchProcessor@@QEAAHXZ @ 0x1C018887C (-CTouchProcessorLocked@CTouchProcessor@@QEAAHXZ.c)
  */
 
 struct CPointerInfoNode *__fastcall CTouchProcessor::FindNodeInFrame(
@@ -17,46 +17,49 @@ struct CPointerInfoNode *__fastcall CTouchProcessor::FindNodeInFrame(
         unsigned int *a4)
 {
   __int64 v7; // rcx
-  __int64 v8; // rax
+  unsigned int v8; // eax
   unsigned int v9; // ebx
-  unsigned __int64 v10; // rsi
-  __int64 v11; // rdx
-  bool v12; // zf
+  unsigned __int64 v10; // rdi
+  unsigned int v11; // ecx
+  unsigned int v12; // edx
+  bool v13; // zf
 
   if ( !(unsigned int)CTouchProcessor::CTouchProcessorLocked(this) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9461);
-  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced(v7, a2) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9463);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8858);
+  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced(v7, (__int64)a2) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8860);
   if ( !a3 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9464);
-  v8 = *((unsigned int *)a2 + 12);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8861);
+  v8 = *((_DWORD *)a2 + 12);
   v9 = 0;
-  v10 = *((_QWORD *)a2 + 30);
-  if ( (_DWORD)v8 )
+  v10 = *((_QWORD *)a2 + 17);
+  if ( v8 )
   {
-    v11 = *((_QWORD *)a2 + 30);
+    v11 = *((_DWORD *)a2 + 12);
     do
     {
-      if ( v10 >= v11 + 480 * v8 )
+      v12 = v11;
+      if ( v10 >= *((_QWORD *)a2 + 17) + 480 * (unsigned __int64)v11 )
       {
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9474);
-        v11 = *((_QWORD *)a2 + 30);
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8871);
+        v12 = *((_DWORD *)a2 + 12);
       }
+      v8 = v12;
       if ( *(_WORD *)(v10 + 172) == a3 )
         break;
-      v8 = *((unsigned int *)a2 + 12);
       v10 += 480LL;
       ++v9;
+      v11 = v12;
     }
-    while ( v9 < (unsigned int)v8 );
+    while ( v9 < v12 );
   }
-  v12 = v9 == *((_DWORD *)a2 + 12);
-  if ( v9 > *((_DWORD *)a2 + 12) )
+  v13 = v9 == v8;
+  if ( v9 > v8 )
   {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9482);
-    v12 = v9 == *((_DWORD *)a2 + 12);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8879);
+    v13 = v9 == *((_DWORD *)a2 + 12);
   }
-  if ( v12 )
+  if ( v13 )
     return 0LL;
   if ( a4 )
     *a4 = v9;

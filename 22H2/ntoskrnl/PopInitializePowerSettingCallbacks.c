@@ -1,10 +1,10 @@
 /*
- * XREFs of PopInitializePowerSettingCallbacks @ 0x140B687AC
+ * XREFs of PopInitializePowerSettingCallbacks @ 0x140A6B410
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x1407A7570 (PoRegisterPowerSettingCallback.c)
- *     PpmInfoRegisterCallbacks @ 0x140B68888 (PpmInfoRegisterCallbacks.c)
+ *     PoRegisterPowerSettingCallback @ 0x1406F4AF0 (PoRegisterPowerSettingCallback.c)
+ *     PpmInfoRegisterCallbacks @ 0x140A6B4EC (PpmInfoRegisterCallbacks.c)
  */
 
 NTSTATUS PopInitializePowerSettingCallbacks()
@@ -16,7 +16,7 @@ NTSTATUS PopInitializePowerSettingCallbacks()
   NTSTATUS result; // eax
 
   v0 = (PPOWER_SETTING_CALLBACK *)&PopInitialSettingCallbacks;
-  v1 = 63LL;
+  v1 = 59LL;
   do
   {
     PoRegisterPowerSettingCallback(0LL, (LPCGUID)*v0, v0[1], 0LL, 0LL);
@@ -31,19 +31,19 @@ NTSTATUS PopInitializePowerSettingCallbacks()
   {
     PoRegisterPowerSettingCallback(
       0LL,
-      *(GUID **)((char *)GUIDS_BATTERY_DISCHARGE_ACTION + v1),
+      *(LPCGUID *)((char *)&GUIDS_BATTERY_DISCHARGE_ACTION + v1),
       (PPOWER_SETTING_CALLBACK)PopBatteryAlarmPowerSettingCallback,
       v2,
       0LL);
     PoRegisterPowerSettingCallback(
       0LL,
-      *(GUID **)((char *)GUIDS_BATTERY_DISCHARGE_LEVEL + v1),
+      *(LPCGUID *)((char *)&GUIDS_BATTERY_DISCHARGE_LEVEL + v1),
       (PPOWER_SETTING_CALLBACK)PopBatteryAlarmPowerSettingCallback,
       v2,
       0LL);
     result = PoRegisterPowerSettingCallback(
                0LL,
-               *(GUID **)((char *)GUIDS_BATTERY_DISCHARGE_FLAGS + v1),
+               *(LPCGUID *)((char *)&GUIDS_BATTERY_DISCHARGE_FLAGS + v1),
                (PPOWER_SETTING_CALLBACK)PopBatteryAlarmPowerSettingCallback,
                v2++,
                0LL);

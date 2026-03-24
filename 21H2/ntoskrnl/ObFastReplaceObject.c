@@ -1,37 +1,56 @@
 /*
- * XREFs of ObFastReplaceObject @ 0x140276A48
+ * XREFs of ObFastReplaceObject @ 0x1402F6E80
  * Callers:
- *     CcChangeBackingFileObject @ 0x140201AC4 (CcChangeBackingFileObject.c)
- *     MmChangeSectionBackingFile @ 0x1402483DC (MmChangeSectionBackingFile.c)
- *     CcDeleteSharedCacheMap @ 0x140275338 (CcDeleteSharedCacheMap.c)
- *     MiEnableImageDirectMap @ 0x14059E4B0 (MiEnableImageDirectMap.c)
- *     ObpDeleteDeviceMap @ 0x14069C07C (ObpDeleteDeviceMap.c)
- *     ObpCreateSymbolicLinkName @ 0x1406A97F0 (ObpCreateSymbolicLinkName.c)
- *     ObpDeleteSymbolicLinkName @ 0x1406B96E8 (ObpDeleteSymbolicLinkName.c)
- *     MiSegmentDelete @ 0x1406F4904 (MiSegmentDelete.c)
- *     MiCreateImageOrDataSection @ 0x1406FDCD0 (MiCreateImageOrDataSection.c)
- *     SeDeassignPrimaryToken @ 0x1407E0C48 (SeDeassignPrimaryToken.c)
- *     SeExchangePrimaryToken @ 0x140847260 (SeExchangePrimaryToken.c)
- *     PsShutdownSystem @ 0x1409B1074 (PsShutdownSystem.c)
+ *     MmChangeSectionBackingFile @ 0x1402C3114 (MmChangeSectionBackingFile.c)
+ *     CcDeleteSharedCacheMap @ 0x1402F3DDC (CcDeleteSharedCacheMap.c)
+ *     CcChangeBackingFileObject @ 0x1404E8AE8 (CcChangeBackingFileObject.c)
+ *     SeDeassignPrimaryToken @ 0x140613F74 (SeDeassignPrimaryToken.c)
+ *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
+ *     MiSegmentDelete @ 0x1406E8110 (MiSegmentDelete.c)
+ *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
+ *     SeExchangePrimaryToken @ 0x1407BBC44 (SeExchangePrimaryToken.c)
+ *     PsShutdownSystem @ 0x14090A9F4 (PsShutdownSystem.c)
  * Callees:
- *     ObpIncrPointerCountEx @ 0x1402F3424 (ObpIncrPointerCountEx.c)
+ *     ObpTraceObjectDereferenceIfActive @ 0x14024A170 (ObpTraceObjectDereferenceIfActive.c)
+ *     ObReferenceObjectExWithTag @ 0x14029E140 (ObReferenceObjectExWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x1402BC2D0 (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-unsigned __int64 __fastcall ObFastReplaceObject(volatile __int64 *a1, __int64 a2)
+ULONG_PTR __fastcall ObFastReplaceObject(volatile __int64 *a1, ULONG_PTR a2)
 {
-  __int64 v4; // rcx
-  unsigned __int64 result; // rax
-  int v6; // ecx
+  __int64 v4; // rbx
+  ULONG_PTR v5; // rdi
+  unsigned int v6; // ebx
+  ULONG_PTR v7; // rsi
+  signed __int64 BugCheckParameter4; // rcx
 
   if ( a2 )
-    ObpIncrPointerCountEx(a2 - 48, 15LL);
+    ObReferenceObjectExWithTag(a2, 15);
   v4 = _InterlockedExchange64(a1, (a2 | 0xF) & -(__int64)(a2 != 0));
-  result = v4 & 0xFFFFFFFFFFFFFFF0uLL;
+  v5 = v4 & 0xFFFFFFFFFFFFFFF0uLL;
   if ( (v4 & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
   {
     v6 = v4 & 0xF;
     if ( v6 )
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(result - 48), -v6);
+    {
+      v7 = v5 - 48;
+      ObpTraceObjectDereferenceIfActive(v5 - 48);
+      BugCheckParameter4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 - 48), -v6) - v6;
+      if ( BugCheckParameter4 <= 0 )
+      {
+        if ( *(_QWORD *)(v7 + 8) )
+          KeBugCheckEx(
+            0x18u,
+            ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v7 + 24) ^ (unsigned __int64)BYTE1(v7)],
+            v5,
+            6uLL,
+            *(_QWORD *)(v7 + 8));
+        if ( BugCheckParameter4 < 0 )
+          KeBugCheckEx(0x18u, 0LL, v5, 5uLL, BugCheckParameter4);
+        ObpDeferObjectDeletion(v5 - 48);
+      }
+    }
   }
-  return result;
+  return v5;
 }

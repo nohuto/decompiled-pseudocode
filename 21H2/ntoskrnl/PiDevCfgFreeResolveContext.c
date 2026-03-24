@@ -1,28 +1,27 @@
 /*
- * XREFs of PiDevCfgFreeResolveContext @ 0x1406979BC
+ * XREFs of PiDevCfgFreeResolveContext @ 0x14076777C
  * Callers:
- *     PiDevCfgVerifyDeviceAllowed @ 0x14069760C (PiDevCfgVerifyDeviceAllowed.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x140697824 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgInitResolveContext @ 0x140698128 (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1407675E4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgInitResolveContext @ 0x140767D0C (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14077C328 (PiDevCfgVerifyDeviceAllowed.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDevCfgFreeResolveContext(__int64 a1)
 {
   void *v2; // rcx
   unsigned int i; // edi
-  char *v4; // rcx
-  void **v5; // rdx
-  void *v6; // rbx
-  void **v7; // rax
-  void *v8; // rcx
-  int v9; // edx
-  __int64 v10; // rax
-  __int64 v11; // r8
+  void **v4; // rcx
+  void *v5; // rbx
+  void **v6; // rax
+  char *v7; // rcx
+  int v8; // edx
+  __int64 v9; // r8
+  __int64 v10; // r8
 
   if ( *(_QWORD *)(a1 + 24) )
   {
@@ -30,41 +29,40 @@ void __fastcall PiDevCfgFreeResolveContext(__int64 a1)
     {
       while ( 1 )
       {
-        v4 = *(char **)(a1 + 24);
-        v5 = (void **)&v4[16 * i];
-        v6 = *v5;
-        if ( *v5 == v5 )
+        v4 = (void **)(*(_QWORD *)(a1 + 24) + 16LL * i);
+        v5 = *v4;
+        if ( *v4 == v4 )
           break;
-        if ( *((void ***)v6 + 1) != v5 || (v7 = *(void ***)v6, *(void **)(*(_QWORD *)v6 + 8LL) != v6) )
+        if ( *((void ***)v5 + 1) != v4 || (v6 = *(void ***)v5, *(void **)(*(_QWORD *)v5 + 8LL) != v5) )
           __fastfail(3u);
-        *v5 = v7;
-        v7[1] = v5;
-        RtlFreeUnicodeString((PUNICODE_STRING)v6 + 1);
-        v8 = (void *)*((_QWORD *)v6 + 5);
-        if ( v8 )
+        *v4 = v6;
+        v6[1] = v4;
+        RtlFreeAnsiString((PUNICODE_STRING)v5 + 1);
+        v7 = (char *)*((_QWORD *)v5 + 5);
+        if ( v7 )
         {
-          v9 = *((_DWORD *)v6 + 8);
-          if ( (_WORD)v9 == 0x8000 )
+          v8 = *((_DWORD *)v5 + 8);
+          if ( (_WORD)v8 == 0x8000 )
           {
-            if ( (v9 & 0x100000) != 0 )
+            if ( (v8 & 0x100000) != 0 )
             {
-              if ( *(_QWORD *)&PiPnpRtlCtx && (v10 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
-                v11 = *(_QWORD *)(v10 + 8);
+              if ( *(_QWORD *)&PiPnpRtlCtx && (v9 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
+                v10 = *(_QWORD *)(v9 + 8);
               else
-                v11 = 0LL;
-              RegRtlDeleteTreeInternal(v8, 0LL, v11, 0LL);
+                v10 = 0LL;
+              RegRtlDeleteTreeInternal(v7, 0LL, v10, 0);
             }
-            ZwClose(*((HANDLE *)v6 + 5));
+            ZwClose(*((HANDLE *)v5 + 5));
           }
           else
           {
-            ExFreePoolWithTag(v8, 0);
+            ExFreePoolWithTag(v7, 0);
           }
         }
-        ExFreePoolWithTag(v6, 0);
+        ExFreePoolWithTag(v5, 0);
       }
     }
-    ExFreePoolWithTag(v4, 0);
+    ExFreePoolWithTag(*(PVOID *)(a1 + 24), 0);
   }
   v2 = *(void **)(a1 + 16);
   if ( v2 )

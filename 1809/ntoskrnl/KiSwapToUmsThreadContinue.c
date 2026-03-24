@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSwapToUmsThreadContinue @ 0x14029DB20
+ * XREFs of KiSwapToUmsThreadContinue @ 0x14029DC20
  * Callers:
- *     KiUmsTrapEntryContinue @ 0x1401D0BC0 (KiUmsTrapEntryContinue.c)
- *     KiUmsCallEntryContinue @ 0x1401D0D80 (KiUmsCallEntryContinue.c)
- *     KeSynchronizeUmsThread @ 0x1408454F8 (KeSynchronizeUmsThread.c)
+ *     KiUmsTrapEntryContinue @ 0x1401D0CC0 (KiUmsTrapEntryContinue.c)
+ *     KiUmsCallEntryContinue @ 0x1401D0E80 (KiUmsCallEntryContinue.c)
+ *     KeSynchronizeUmsThread @ 0x1408454D8 (KeSynchronizeUmsThread.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KeInsertQueue @ 0x1400DCFE0 (KeInsertQueue.c)
- *     KiSwitchQueue @ 0x1401123E8 (KiSwitchQueue.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeInsertQueue @ 0x1400DD000 (KeInsertQueue.c)
+ *     KiSwitchQueue @ 0x140112408 (KiSwitchQueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KiSwapToUmsThreadContinue()

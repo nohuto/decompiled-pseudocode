@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMirrorRemoveBlackChildPartitionPages @ 0x14058CEF0
+ * XREFs of MiMirrorRemoveBlackChildPartitionPages @ 0x140534D10
  * Callers:
  *     <none>
  * Callees:
- *     MiMirrorOmitPagesFromCopy @ 0x14038F830 (MiMirrorOmitPagesFromCopy.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140385E5C (MiMirrorOmitPagesFromCopy.c)
  */
 
-ULONG_PTR *__fastcall MiMirrorRemoveBlackChildPartitionPages(ULONG_PTR *a1, __int64 *a2)
+char __fastcall MiMirrorRemoveBlackChildPartitionPages(ULONG_PTR *a1, __int64 *a2)
 {
-  ULONG_PTR *result; // rax
+  ULONG_PTR *v2; // rax
   unsigned int *v3; // rdi
   unsigned int v4; // ebx
   __int64 v5; // rsi
 
-  result = &MiSystemPartition;
+  v2 = &MiSystemPartition;
   if ( a1 != &MiSystemPartition )
   {
     v3 = (unsigned int *)a1[12];
@@ -25,12 +25,12 @@ ULONG_PTR *__fastcall MiMirrorRemoveBlackChildPartitionPages(ULONG_PTR *a1, __in
       {
         do
         {
-          result = (ULONG_PTR *)MiMirrorOmitPagesFromCopy(v5, *(_QWORD *)&v3[4 * v4 + 4], *(_QWORD *)&v3[4 * v4 + 6]);
+          LOBYTE(v2) = MiMirrorOmitPagesFromCopy(v5, *(_QWORD *)&v3[4 * v4 + 4], *(_QWORD *)&v3[4 * v4 + 6]);
           ++v4;
         }
         while ( v4 < *v3 );
       }
     }
   }
-  return result;
+  return (char)v2;
 }

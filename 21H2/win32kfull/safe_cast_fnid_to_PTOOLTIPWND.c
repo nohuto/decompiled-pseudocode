@@ -1,13 +1,13 @@
 /*
- * XREFs of safe_cast_fnid_to_PTOOLTIPWND @ 0x1C010D388
+ * XREFs of safe_cast_fnid_to_PTOOLTIPWND @ 0x1C0030A88
  * Callers:
- *     xxxProcessEventMessage @ 0x1C005C220 (xxxProcessEventMessage.c)
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     xxxTrackMouseMove @ 0x1C007E59C (xxxTrackMouseMove.c)
- *     xxxCancelMouseMoveTracking @ 0x1C00A184C (xxxCancelMouseMoveTracking.c)
- *     _SetDoubleClickTime @ 0x1C010D2A8 (_SetDoubleClickTime.c)
+ *     xxxTrackMouseMove @ 0x1C002D5C0 (xxxTrackMouseMove.c)
+ *     xxxCancelMouseMoveTracking @ 0x1C002D9FC (xxxCancelMouseMoveTracking.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
+ *     xxxProcessEventMessage @ 0x1C00C1918 (xxxProcessEventMessage.c)
+ *     _SetDoubleClickTime @ 0x1C00DB5F0 (_SetDoubleClickTime.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall safe_cast_fnid_to_PTOOLTIPWND(__int64 a1)
@@ -18,15 +18,15 @@ __int64 __fastcall safe_cast_fnid_to_PTOOLTIPWND(__int64 a1)
   if ( !a1 )
     return 0LL;
   v2 = *(_QWORD *)(a1 + 40);
-  if ( _bittest16((const signed __int16 *)(v2 + 42), 0xCu) )
+  if ( (*(_WORD *)(v2 + 42) & 0x1000) != 0 )
   {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1111LL);
     v2 = *(_QWORD *)(a1 + 40);
   }
   v3 = *(_WORD *)(v2 + 42);
   if ( (v3 & 0x1000) != 0 || (v3 & 0x2FFF) != 0x2B6 )
     return 0LL;
-  if ( *(_DWORD *)(v2 + 248) )
+  if ( *(_DWORD *)(v2 + 252) )
     return *(_QWORD *)(a1 + 280);
   return *(_QWORD *)(v2 + 296);
 }

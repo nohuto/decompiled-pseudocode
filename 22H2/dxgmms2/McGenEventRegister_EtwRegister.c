@@ -1,7 +1,7 @@
 /*
- * XREFs of McGenEventRegister_EtwRegister @ 0x1C00195E4
+ * XREFs of McGenEventRegister_EtwRegister @ 0x1C0017398
  * Callers:
- *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C00BD954 (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
+ *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C0090DEC (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
  * Callees:
  *     <none>
  */

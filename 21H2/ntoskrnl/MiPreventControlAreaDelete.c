@@ -1,20 +1,15 @@
 /*
- * XREFs of MiPreventControlAreaDelete @ 0x14058B734
+ * XREFs of MiPreventControlAreaDelete @ 0x140529F5C
  * Callers:
- *     MiDeleteCachedSubsection @ 0x14058A6D4 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x14058B0C8 (MiFlushControlArea.c)
+ *     MiDeleteCachedSubsection @ 0x140528DAC (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x140529794 (MiFlushControlArea.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
+ *     ObFastReferenceObjectLocked @ 0x140206338 (ObFastReferenceObjectLocked.c)
  */
 
 unsigned __int64 __fastcall MiPreventControlAreaDelete(__int64 a1)
 {
-  unsigned __int64 v1; // rbx
-
   _InterlockedIncrement64((volatile signed __int64 *)(a1 + 112));
-  *(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)) + 1688LL) = a1;
-  v1 = *(_QWORD *)(a1 + 64) & 0xFFFFFFFFFFFFFFF0uLL;
-  if ( v1 )
-    ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(a1 + 64) & 0xFFFFFFFFFFFFFFF0uLL), 0x63536D4Du);
-  return v1;
+  *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)) + 1688LL) = a1;
+  return ObFastReferenceObjectLocked((_QWORD *)(a1 + 64));
 }

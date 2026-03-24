@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpTimerDpcRoutine @ 0x140369870
+ * XREFs of ExpTimerDpcRoutine @ 0x140327160
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KeSetCoalescableTimer @ 0x140252440 (KeSetCoalescableTimer.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     _local_unwind @ 0x1403D8EB0 (_local_unwind.c)
- *     RtlpComputeEpilogueOffset @ 0x1403F2BC8 (RtlpComputeEpilogueOffset.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine0 @ 0x14042B0D0 (KiCustomAccessRoutine0.c)
- *     memset @ 0x140435400 (memset.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeInsertQueueApc @ 0x14025F120 (KeInsertQueueApc.c)
+ *     KeSetCoalescableTimer @ 0x14025F4D0 (KeSetCoalescableTimer.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     _local_unwind @ 0x1403D1490 (_local_unwind.c)
+ *     RtlpComputeEpilogueOffset @ 0x1403EB464 (RtlpComputeEpilogueOffset.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine0 @ 0x1404098D0 (KiCustomAccessRoutine0.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void __fastcall ExpTimerDpcRoutine(
@@ -23,10 +23,10 @@ void __fastcall ExpTimerDpcRoutine(
         unsigned __int64 SystemArgument2)
 {
   int v8; // esi
-  __int64 v9; // [rsp+0h] [rbp-1A8h] BYREF
-  int v10; // [rsp+30h] [rbp-178h]
-  _BYTE v11[89]; // [rsp+110h] [rbp-98h] BYREF
-  __int64 *v12; // [rsp+180h] [rbp-28h]
+  __int64 v9; // [rsp+0h] [rbp-1B8h] BYREF
+  int v10; // [rsp+34h] [rbp-184h]
+  _BYTE v11[89]; // [rsp+120h] [rbp-98h] BYREF
+  __int64 *v12; // [rsp+190h] [rbp-28h]
 
   v12 = &v9;
   memset(v11, 0, sizeof(v11));
@@ -46,11 +46,7 @@ void __fastcall ExpTimerDpcRoutine(
   KxAcquireSpinLock((PKSPIN_LOCK)(DeferredContext + 64));
   if ( (*(_BYTE *)(DeferredContext + 304) & 1) != 0 )
   {
-    v8 = (unsigned __int8)KeInsertQueueApc(
-                            DeferredContext + 72,
-                            MEMORY[0xFFFFF78000000014],
-                            (_DWORD *)HIDWORD(MEMORY[0xFFFFF78000000014]),
-                            0) == 0;
+    v8 = KeInsertQueueApc(DeferredContext + 72, MEMORY[0xFFFFF78000000014], HIDWORD(MEMORY[0xFFFFF78000000014]), 0) == 0;
     if ( *(_DWORD *)(DeferredContext + 240) )
     {
       if ( --v8 < 0 )
@@ -70,7 +66,7 @@ void __fastcall ExpTimerDpcRoutine(
       }
     }
   }
-  KxReleaseSpinLock((volatile signed __int64 *)(DeferredContext + 64));
+  KxReleaseSpinLock((PKSPIN_LOCK)(DeferredContext + 64));
   if ( v8 )
     ObfDereferenceObjectWithTag((PVOID)DeferredContext, 0x746C6644u);
 }

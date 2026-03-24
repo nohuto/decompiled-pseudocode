@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ApplyFullKeyboardStates@@YAXPEAX0@Z @ 0x1C01EC3B4
+ * XREFs of ?ApplyFullKeyboardStates@@YAXPEAX0@Z @ 0x1C01B3D80
  * Callers:
- *     ?ivHandleKeyboardStatesPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EDBE0 (-ivHandleKeyboardStatesPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject.c)
+ *     ?ivHandleKeyboardStatesPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B8240 (-ivHandleKeyboardStatesPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject.c)
  * Callees:
- *     PostUpdateKeyStateEvent @ 0x1C0089B30 (PostUpdateKeyStateEvent.c)
+ *     PostUpdateKeyStateEvent @ 0x1C0006990 (PostUpdateKeyStateEvent.c)
  */
 
 void __fastcall ApplyFullKeyboardStates(_OWORD *a1, __int128 *a2)
@@ -14,13 +14,13 @@ void __fastcall ApplyFullKeyboardStates(_OWORD *a1, __int128 *a2)
   __m128i si128; // xmm0
 
   *(_OWORD *)gafRawKeyState = *a1;
-  xmmword_1C0295770 = a1[1];
-  unk_1C0295780 = a1[2];
-  xmmword_1C0295790 = a1[3];
+  xmmword_1C0250890 = a1[1];
+  unk_1C02508A0 = a1[2];
+  xmmword_1C02508B0 = a1[3];
   gafAsyncKeyState = *a2;
-  xmmword_1C0294E60 = a2[1];
-  xmmword_1C0294E70 = a2[2];
-  xmmword_1C0294E80 = a2[3];
+  xmmword_1C02508F0 = a2[1];
+  xmmword_1C0250900 = a2[2];
+  xmmword_1C0250910 = a2[3];
   if ( grpdeskRitInput )
   {
     v2 = (char *)grpdeskRitInput + 168;

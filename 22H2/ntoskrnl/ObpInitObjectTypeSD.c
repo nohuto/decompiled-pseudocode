@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpInitObjectTypeSD @ 0x140821DA4
+ * XREFs of ObpInitObjectTypeSD @ 0x140790D8C
  * Callers:
- *     ObCreateObjectTypeEx @ 0x140821770 (ObCreateObjectTypeEx.c)
- *     ObInitSystem @ 0x140B4E9F8 (ObInitSystem.c)
+ *     ObCreateObjectTypeEx @ 0x140790780 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140A3D968 (ObInitSystem.c)
  * Callees:
- *     ObLogSecurityDescriptor @ 0x140728D30 (ObLogSecurityDescriptor.c)
- *     ObpCreateDefaultObjectTypeSD @ 0x140821E38 (ObpCreateDefaultObjectTypeSD.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObLogSecurityDescriptor @ 0x1406D8C70 (ObLogSecurityDescriptor.c)
+ *     ObpCreateDefaultObjectTypeSD @ 0x140790E20 (ObpCreateDefaultObjectTypeSD.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpInitObjectTypeSD(__int64 a1, void *a2)
 {
-  __int16 *v4; // rbx
+  char *v4; // rbx
   int v5; // eax
   int v6; // edi
   PVOID P; // [rsp+48h] [rbp+10h] BYREF
@@ -19,8 +19,8 @@ __int64 __fastcall ObpInitObjectTypeSD(__int64 a1, void *a2)
 
   v9 = 0LL;
   P = a2;
-  v4 = (__int16 *)a2;
-  if ( a2 || (v5 = ObpCreateDefaultObjectTypeSD(&P), v4 = (__int16 *)P, v6 = v5, v5 >= 0) )
+  v4 = (char *)a2;
+  if ( a2 || (v5 = ObpCreateDefaultObjectTypeSD(&P), v4 = (char *)P, v6 = v5, v5 >= 0) )
   {
     v6 = ObLogSecurityDescriptor(v4, &v9, 0x10u);
     if ( v6 >= 0 )

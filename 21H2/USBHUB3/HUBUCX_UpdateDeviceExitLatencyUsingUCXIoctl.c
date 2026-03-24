@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl @ 0x1C00248B0
+ * XREFs of HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl @ 0x1C0024470
  * Callers:
- *     HUBDSM_UpdatingDeviceExitLatencyInTheControllerAfterIncreasingExitLatency @ 0x1C0023160 (HUBDSM_UpdatingDeviceExitLatencyInTheControllerAfterIncreasingExitLatency.c)
+ *     HUBDSM_UpdatingDeviceExitLatencyInTheControllerAfterIncreasingExitLatency @ 0x1C0022D10 (HUBDSM_UpdatingDeviceExitLatencyInTheControllerAfterIncreasingExitLatency.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBUCX_SubmitUcxIoctl @ 0x1C0023D84 (HUBUCX_SubmitUcxIoctl.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C0023950 (HUBUCX_SubmitUcxIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 _UNKNOWN **__fastcall HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl(__int64 a1)
@@ -28,12 +28,12 @@ _UNKNOWN **__fastcall HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl(__int64 a1)
     {
       v8 = *(_DWORD *)(a1 + 2584);
       v6 = *(unsigned __int16 *)(a1 + 2210);
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dD(
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
         2u,
         5u,
         0x22u,
-        (__int64)&WPP_a5663512bb0f384af60f2cebe8e2cf44_Traceguids,
+        (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
         v6,
         v8);
     }
@@ -64,7 +64,7 @@ _UNKNOWN **__fastcall HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl(__int64 a1)
                               2u,
                               5u,
                               0x23u,
-                              (__int64)&WPP_a5663512bb0f384af60f2cebe8e2cf44_Traceguids,
+                              (__int64)&WPP_0fdba02233013f1195f31cf9301a7589_Traceguids,
                               v7);
       }
     }

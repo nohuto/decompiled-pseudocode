@@ -1,11 +1,11 @@
 /*
- * XREFs of FVisCountable @ 0x1C00201C0
+ * XREFs of FVisCountable @ 0x1C004C070
  * Callers:
- *     DecVisWindows @ 0x1C001FD7C (DecVisWindows.c)
- *     IncVisWindows @ 0x1C0020088 (IncVisWindows.c)
- *     ?zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z @ 0x1C0081DAC (-zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z.c)
+ *     zzzSetWindowCompositionCloak @ 0x1C0036D90 (zzzSetWindowCompositionCloak.c)
+ *     IncVisWindows @ 0x1C004BF54 (IncVisWindows.c)
+ *     DecVisWindows @ 0x1C004C78C (DecVisWindows.c)
  * Callees:
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
  */
 
 _BOOL8 __fastcall FVisCountable(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of FindFilterOperatorClose @ 0x1406B06CC
+ * XREFs of FindFilterOperatorClose @ 0x1406335C4
  * Callers:
- *     FilterEvalStrict @ 0x1406B0448 (FilterEvalStrict.c)
+ *     FilterEvalStrict @ 0x14062FF44 (FilterEvalStrict.c)
  * Callees:
  *     <none>
  */
@@ -22,13 +22,13 @@ __int64 __fastcall FindFilterOperatorClose(unsigned int a1, __int64 a2, _DWORD *
   while ( 1 )
   {
     v6 = *(_DWORD *)(56LL * v5 + a2) & 0xFF00000;
-    if ( v6 != 0x100000 )
+    if ( v6 != 3145728 )
     {
-      if ( v6 == 0x200000 )
+      if ( v6 == 0x400000 )
         goto LABEL_12;
-      if ( v6 != 3145728 )
+      if ( v6 != 0x100000 )
       {
-        if ( v6 == 0x400000 )
+        if ( v6 == 0x200000 )
           goto LABEL_12;
         if ( v6 != 5242880 )
         {

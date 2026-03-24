@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIDevicePowerProcessBlockedItems @ 0x1C002B950
+ * XREFs of ACPIDevicePowerProcessBlockedItems @ 0x1C0029398
  * Callers:
- *     ACPIDevicePowerDpc @ 0x1C000F880 (ACPIDevicePowerDpc.c)
+ *     ACPIDevicePowerDpc @ 0x1C0020030 (ACPIDevicePowerDpc.c)
  * Callees:
- *     ACPIIsPowerRequestBlocked @ 0x1C000DEE0 (ACPIIsPowerRequestBlocked.c)
+ *     ACPIIsPowerRequestBlocked @ 0x1C002942C (ACPIIsPowerRequestBlocked.c)
  */
 
 __int64 ACPIDevicePowerProcessBlockedItems()
@@ -21,7 +21,7 @@ __int64 ACPIDevicePowerProcessBlockedItems()
     do
     {
       v1 = (__int64 *)*v0;
-      if ( !ACPIIsPowerRequestBlocked((__int64)v0) )
+      if ( !(unsigned __int8)ACPIIsPowerRequestBlocked(v0) )
       {
         v3 = (__int64 *)*v0;
         if ( *(__int64 **)(*v0 + 8) != v0

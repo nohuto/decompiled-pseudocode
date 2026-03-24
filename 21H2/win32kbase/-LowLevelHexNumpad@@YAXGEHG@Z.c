@@ -1,9 +1,9 @@
 /*
- * XREFs of ?LowLevelHexNumpad@@YAXGEHG@Z @ 0x1C01E93C0
+ * XREFs of ?LowLevelHexNumpad@@YAXGEHG@Z @ 0x1C01AFE98
  * Callers:
- *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C003DC00 (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C004C1F0 (xxxUpdateGlobalsAndSendKeyEvent.c)
  * Callees:
- *     ApiSetEditionIsHotKey @ 0x1C020898C (ApiSetEditionIsHotKey.c)
+ *     ApiSetEditionIsHotKey @ 0x1C01CC1C4 (ApiSetEditionIsHotKey.c)
  */
 
 void __fastcall LowLevelHexNumpad(unsigned __int16 a1, unsigned __int8 a2, int a3, __int16 a4)
@@ -23,7 +23,7 @@ void __fastcall LowLevelHexNumpad(unsigned __int16 a1, unsigned __int8 a2, int a
     {
       if ( (gfInNumpadHexInput & 1) == 0 )
       {
-        if ( (BYTE6(xmmword_1C0294E60) & 0x40) != 0 || (BYTE7(xmmword_1C0294E60) & 1) != 0 )
+        if ( (BYTE6(xmmword_1C02508F0) & 0x40) != 0 || (BYTE7(xmmword_1C02508F0) & 1) != 0 )
           v4 = 8;
         else
           v4 = 0;

@@ -15,7 +15,7 @@
  *     HvLockHiveFlusherShared @ 0x1405AF600 (HvLockHiveFlusherShared.c)
  *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpLogHiveDestroyEvent @ 0x1407EBA6C (CmpLogHiveDestroyEvent.c)
+ *     CmpLogHiveDestroyEvent @ 0x1407EBA4C (CmpLogHiveDestroyEvent.c)
  */
 
 __int64 __fastcall CmpRemoveHiveFromNamespace(__int64 a1, __int64 a2)

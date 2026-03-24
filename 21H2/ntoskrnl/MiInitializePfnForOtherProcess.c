@@ -1,99 +1,94 @@
 /*
- * XREFs of MiInitializePfnForOtherProcess @ 0x14027CCE4
+ * XREFs of MiInitializePfnForOtherProcess @ 0x1402E5808
  * Callers:
- *     MiInitializeSystemPageTable @ 0x14027C784 (MiInitializeSystemPageTable.c)
- *     MiMapPageFileHash @ 0x14037E338 (MiMapPageFileHash.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1403C9590 (MiDemoteValidLargePageOneLevel.c)
- *     MiMakeOutswappedPageResident @ 0x1405803C8 (MiMakeOutswappedPageResident.c)
- *     MiDuplicateCloneLeaf @ 0x1405BA864 (MiDuplicateCloneLeaf.c)
- *     MiAllocateTopLevelPage @ 0x1407F1AF8 (MiAllocateTopLevelPage.c)
- *     MiInitializeShadowPageTable @ 0x14082A974 (MiInitializeShadowPageTable.c)
+ *     MiMapPageFileHash @ 0x1402CDE38 (MiMapPageFileHash.c)
+ *     MiInitializeSystemPageTable @ 0x1402E5484 (MiInitializeSystemPageTable.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1403BA228 (MiDemoteValidLargePageOneLevel.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
+ *     MiDuplicateCloneLeaf @ 0x14055A234 (MiDuplicateCloneLeaf.c)
+ *     MiAllocateTopLevelPage @ 0x1406D0824 (MiAllocateTopLevelPage.c)
+ *     MiMapNewSession @ 0x14078708C (MiMapNewSession.c)
+ *     MiInitializeShadowPageTable @ 0x1407A0368 (MiInitializeShadowPageTable.c)
  * Callees:
- *     MiLockAndIncrementShareCount @ 0x14027D258 (MiLockAndIncrementShareCount.c)
- *     MiSwizzleInvalidPte @ 0x1402CCC50 (MiSwizzleInvalidPte.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiSetPfnPteFrame @ 0x14033C3E0 (MiSetPfnPteFrame.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiLockAndIncrementShareCount @ 0x1402E5920 (MiLockAndIncrementShareCount.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int64 a3, __int16 a4)
+__int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int16 v4; // si
-  __int64 v8; // rbx
-  unsigned __int8 v9; // di
-  unsigned __int64 v10; // rdx
-  __int64 v11; // rdx
-  unsigned __int64 v12; // rcx
-  char v13; // al
+  __int64 v7; // rbx
+  unsigned __int8 v8; // di
+  unsigned __int64 v9; // rdx
+  __int64 v10; // rdx
+  unsigned __int64 v11; // rcx
+  char v12; // al
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v18; // eax
-  bool v19; // zf
-  int v20; // [rsp+68h] [rbp+20h] BYREF
+  int v17; // eax
+  bool v18; // zf
+  int v19; // [rsp+58h] [rbp+20h] BYREF
 
   v4 = a4;
-  v8 = 48 * a1 - 0x220000000000LL;
+  v7 = 48 * a1 - 0x58000000000LL;
   if ( (a4 & 0x10) != 0 )
   {
-    v20 = 0;
-    v9 = 17;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v8 + 24), 0x3FuLL) )
+    v19 = 0;
+    v8 = 17;
+    while ( _interlockedbittestandset64((volatile signed __int32 *)(v7 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v20);
-      while ( *(__int64 *)(v8 + 24) < 0 );
+        KeYieldProcessorEx(&v19, a2, a3, a4);
+      while ( *(__int64 *)(v7 + 24) < 0 );
     }
   }
   else
   {
-    v9 = MiLockPageInline(48 * a1 - 0x220000000000LL);
+    v8 = MiLockPageInline(48 * a1 - 0x58000000000LL, a2, a3);
   }
-  v10 = *(_QWORD *)(v8 + 24) & 0xC7FFFFFFFFFFFFFFuLL;
-  *(_QWORD *)(v8 + 8) = a2;
-  *(_QWORD *)(v8 + 24) = v10;
-  *(_QWORD *)(v8 + 16) = MiSwizzleInvalidPte(128LL, v10);
-  *(_WORD *)(v8 + 32) = 1;
+  v9 = *(_QWORD *)(v7 + 24) & 0xF0FFFFFFFFFFFFFFuLL;
+  *(_QWORD *)(v7 + 8) = a2;
+  *(_QWORD *)(v7 + 24) = v9;
+  *(_QWORD *)(v7 + 16) = MiSwizzleInvalidPte(128LL);
+  *(_WORD *)(v7 + 32) = 1;
   if ( (v4 & 0x80u) != 0 )
-    v12 = v11 ^ ((v11 + 1) ^ v11) & 0x3FFFFFFFFFFFFFFFLL;
+    v11 = v10 ^ ((v10 + 1) ^ v10) & 0x3FFFFFFFFFFFFFFFLL;
   else
-    v12 = v11 & 0xC000000000000000uLL | 1;
-  *(_QWORD *)(v8 + 24) = v12;
-  v13 = *(_BYTE *)(v8 + 34) | 0x10;
-  *(_BYTE *)(v8 + 34) = v13;
+    v11 = v10 & 0xC000000000000000uLL | 1;
+  *(_QWORD *)(v7 + 24) = v11;
+  v12 = *(_BYTE *)(v7 + 34) | 0x10;
+  *(_BYTE *)(v7 + 34) = v12;
   if ( (v4 & 0x200) != 0 )
-    *(_BYTE *)(v8 + 34) = v13 & 0xF8 | 6;
-  MiSetPfnPteFrame(v8, a3);
-  if ( a3 == a1 && (v4 & 0x800) == 0 )
-  {
-    v4 = 2048;
-    *(_QWORD *)(v8 + 24) ^= ((*(_QWORD *)(v8 + 24) + 1LL) ^ *(_QWORD *)(v8 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
-  }
+    *(_BYTE *)(v7 + 34) = v12 & 0xF8 | 6;
+  *(_QWORD *)(v7 + 40) ^= (a3 ^ *(_QWORD *)(v7 + 40)) & 0xFFFFFFFFFLL;
   result = 0x7FFFFFFFFFFFFFFFLL;
-  _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( v9 != 17 )
+  _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  if ( v8 != 17 )
   {
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v18 = ~(unsigned __int16)(-1LL << (v9 + 1));
-          v19 = (v18 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v18;
-          if ( v19 )
+          v17 = ~(unsigned __int16)(-1LL << (v8 + 1));
+          v18 = (v17 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v17;
+          if ( v18 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
-    result = v9;
-    __writecr8(v9);
+    result = v8;
+    __writecr8(v8);
   }
   if ( (v4 & 0x800) == 0 )
     return MiLockAndIncrementShareCount(a3);

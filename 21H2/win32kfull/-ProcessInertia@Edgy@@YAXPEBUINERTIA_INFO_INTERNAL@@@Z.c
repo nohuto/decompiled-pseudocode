@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C0207D98
+ * XREFs of ?ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C0207878
  * Callers:
- *     EditionEdgyProcessInertia @ 0x1C016D6A0 (EditionEdgyProcessInertia.c)
+ *     EditionEdgyProcessInertia @ 0x1C0208C50 (EditionEdgyProcessInertia.c)
  * Callees:
- *     _GetPointerDeviceRects @ 0x1C0110B24 (_GetPointerDeviceRects.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _GetPointerDeviceType @ 0x1C016C360 (_GetPointerDeviceType.c)
- *     ?_InertiaRegionIntersectsTopEdge@Edgy@@YAHPEBUINERTIA_INFO_INTERNAL@@PEBUtagRECT@@@Z @ 0x1C0208928 (-_InertiaRegionIntersectsTopEdge@Edgy@@YAHPEBUINERTIA_INFO_INTERNAL@@PEBUtagRECT@@@Z.c)
- *     ?_PostEdgyInertia@Edgy@@YAXPEAUHWND__@@W4tagEDGY_LOCATION@@K@Z @ 0x1C0208D0C (-_PostEdgyInertia@Edgy@@YAXPEAUHWND__@@W4tagEDGY_LOCATION@@K@Z.c)
+ *     _GetPointerDeviceRects @ 0x1C0122BAC (_GetPointerDeviceRects.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _GetPointerDeviceType @ 0x1C01EF528 (_GetPointerDeviceType.c)
+ *     ?_InertiaRegionIntersectsTopEdge@Edgy@@YAHPEBUINERTIA_INFO_INTERNAL@@PEBUtagRECT@@@Z @ 0x1C020849C (-_InertiaRegionIntersectsTopEdge@Edgy@@YAHPEBUINERTIA_INFO_INTERNAL@@PEBUtagRECT@@@Z.c)
+ *     ?_PostEdgyInertia@Edgy@@YAXPEAUHWND__@@W4tagEDGY_LOCATION@@K@Z @ 0x1C02088FC (-_PostEdgyInertia@Edgy@@YAXPEAUHWND__@@W4tagEDGY_LOCATION@@K@Z.c)
  */
 
 void __fastcall Edgy::ProcessInertia(Edgy *this, const struct INERTIA_INFO_INTERNAL *a2)

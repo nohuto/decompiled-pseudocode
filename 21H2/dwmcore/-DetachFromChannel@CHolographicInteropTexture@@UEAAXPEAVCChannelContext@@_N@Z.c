@@ -1,12 +1,11 @@
 /*
- * XREFs of ?DetachFromChannel@CHolographicInteropTexture@@UEAAXPEAVCChannelContext@@_N@Z @ 0x18029B260
+ * XREFs of ?DetachFromChannel@CHolographicInteropTexture@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180258D10
  * Callers:
  *     <none>
  * Callees:
- *     ?RemoveInteropTexture@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x1802969AC (-RemoveInteropTexture@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z.c)
- *     ??$ReleaseInterface@VCVisual@@@@YAXAEAPEAVCVisual@@@Z @ 0x18029A8AC (--$ReleaseInterface@VCVisual@@@@YAXAEAPEAVCVisual@@@Z.c)
- *     ?ReleaseResources@CHolographicInteropTexture@@QEAAXXZ @ 0x18029BF08 (-ReleaseResources@CHolographicInteropTexture@@QEAAXXZ.c)
- *     ?ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ @ 0x18029C0C4 (-ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ.c)
+ *     ?RemoveInteropTexture@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x1802544CC (-RemoveInteropTexture@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z.c)
+ *     ?ReleaseResources@CHolographicInteropTexture@@QEAAXXZ @ 0x180259954 (-ReleaseResources@CHolographicInteropTexture@@QEAAXXZ.c)
+ *     ?ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ @ 0x180259AFC (-ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ.c)
  */
 
 void __fastcall CHolographicInteropTexture::DetachFromChannel(
@@ -15,11 +14,10 @@ void __fastcall CHolographicInteropTexture::DetachFromChannel(
 {
   CHolographicManager *v3; // rcx
 
-  v3 = (CHolographicManager *)*((_QWORD *)this + 11);
+  v3 = (CHolographicManager *)*((_QWORD *)this + 10);
   if ( v3 )
     CHolographicManager::RemoveInteropTexture(v3, this);
   CHolographicInteropTexture::ReleaseVisualTree(this);
   CHolographicInteropTexture::ReleaseResources(this);
-  ReleaseInterface<CVisual>((__int64 *)this + 13);
   CResource::DetachFromChannel(this, a2);
 }

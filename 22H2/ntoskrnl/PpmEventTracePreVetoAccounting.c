@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmEventTracePreVetoAccounting @ 0x14059BF30
+ * XREFs of PpmEventTracePreVetoAccounting @ 0x14057AAA8
  * Callers:
- *     PpmEventPlatformVetoRundown @ 0x14059B1A4 (PpmEventPlatformVetoRundown.c)
- *     PpmEventProcessorVetoRundown @ 0x14059B4C0 (PpmEventProcessorVetoRundown.c)
+ *     PpmEventPlatformVetoRundown @ 0x14057A000 (PpmEventPlatformVetoRundown.c)
+ *     PpmEventProcessorVetoRundown @ 0x14057A31C (PpmEventProcessorVetoRundown.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A120 (RtlGetInterruptTimePrecise.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PpmEventTracePreVetoAccounting(
@@ -21,7 +21,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
         __int64 a3)
 {
   unsigned int v6; // ebx
-  _DWORD *Pool2; // rdi
+  _DWORD *PoolWithTag; // rdi
   unsigned __int64 v8; // r14
   __int64 InterruptTimePrecise; // rax
   __int64 v10; // rcx
@@ -56,8 +56,8 @@ void __fastcall PpmEventTracePreVetoAccounting(
         v6 = *(_DWORD *)(a3 + 28);
         if ( v6 )
         {
-          Pool2 = (_DWORD *)ExAllocatePool2(64LL, 20 * v6, 1699565648LL);
-          if ( Pool2 )
+          PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 20 * v6, 0x654D5050u);
+          if ( PoolWithTag )
           {
             v8 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
             InterruptTimePrecise = RtlGetInterruptTimePrecise(&v23);
@@ -71,31 +71,34 @@ void __fastcall PpmEventTracePreVetoAccounting(
               v14 = *(_DWORD *)(v11 + v13 + 16);
               if ( v14 )
               {
-                Pool2[5 * v10] = v14;
-                *(_QWORD *)&Pool2[5 * v22 + 1] = *(_QWORD *)(v11 + v13 + 24);
-                *(_QWORD *)&Pool2[5 * v22 + 3] = *(_QWORD *)(v11 + v13 + 40);
+                PoolWithTag[5 * v10] = v14;
+                *(_QWORD *)&PoolWithTag[5 * v22 + 1] = *(_QWORD *)(v11 + v13 + 24);
+                *(_QWORD *)&PoolWithTag[5 * v22 + 3] = *(_QWORD *)(v11 + v13 + 40);
                 v15 = *(_QWORD *)(v11 + v13 + 32);
                 if ( v15 )
-                  *(_QWORD *)&Pool2[5 * v22 + 3] += InterruptTimePrecise - v15;
+                  *(_QWORD *)&PoolWithTag[5 * v22 + 3] += InterruptTimePrecise - v15;
                 v10 = (unsigned int)++v22;
               }
               v11 += 64LL;
               --v12;
             }
             while ( v12 );
-            KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
+            KxReleaseSpinLock(&PpmIdleVetoLock);
             if ( KiIrqlFlags )
             {
-              CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+              if ( (KiIrqlFlags & 1) != 0 )
               {
-                CurrentPrcb = KeGetCurrentPrcb();
-                SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-                v20 = (v19 & SchedulerAssist[5]) == 0;
-                SchedulerAssist[5] &= v19;
-                if ( v20 )
-                  KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+                CurrentIrql = KeGetCurrentIrql();
+                if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+                {
+                  CurrentPrcb = KeGetCurrentPrcb();
+                  SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                  v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+                  v20 = (v19 & SchedulerAssist[5]) == 0;
+                  SchedulerAssist[5] &= v19;
+                  if ( v20 )
+                    KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+                }
               }
             }
             __writecr8(v8);
@@ -105,10 +108,10 @@ void __fastcall PpmEventTracePreVetoAccounting(
             v25 = &v22;
             UserData = v21;
             v26 = 4;
-            v28 = Pool2;
+            v28 = PoolWithTag;
             v29 = 20 * v22;
             EtwWriteEx(PpmEtwHandle, EventDescriptor, 0LL, 0, 0LL, 0LL, 3u, &UserData);
-            ExFreePoolWithTag(Pool2, 0x654D5050u);
+            ExFreePoolWithTag(PoolWithTag, 0x654D5050u);
           }
         }
       }

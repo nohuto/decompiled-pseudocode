@@ -1,67 +1,81 @@
 /*
- * XREFs of ?GetTransform@CGDISubSectionBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1802B106C
+ * XREFs of ?GetTransform@CGDISubSectionBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180262F64
  * Callers:
- *     ?GetTransform@CGDISubSectionBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801220C0 (-GetTransform@CGDISubSectionBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_.c)
+ *     ?GetTransform@CGDISubSectionBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F81D0 (-GetTransform@CGDISubSectionBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_.c)
  * Callees:
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180090E80 (-Translate@CMILMatrix@@QEAAXMM@Z.c)
+ *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180041E0C (-Translate@CMILMatrix@@QEAAXMM@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-char __fastcall CGDISubSectionBitmapRealization::GetTransform(__int64 a1, CMILMatrix *a2, float *a3)
+char __fastcall CGDISubSectionBitmapRealization::GetTransform(__int64 a1, __int64 a2, float *a3)
 {
-  __int128 v3; // xmm0
-  int v4; // r9d
-  bool v6; // zf
+  int v3; // r14d
+  bool v4; // zf
+  int v6; // r11d
+  __int64 v7; // rdx
   int v8; // ecx
-  int v9; // ebp
-  int v10; // r8d
-  int v11; // r14d
-  unsigned int v12; // esi
-  unsigned int v13; // edi
-  float v14; // xmm1_4
-  float v15; // xmm2_4
-  char v16; // dl
-  CMILMatrix *v17; // rcx
+  char v10; // si
+  int v11; // ebp
+  int v12; // r10d
+  unsigned int v13; // r9d
+  unsigned int v14; // r8d
+  float v15; // xmm1_4
+  __m128i v16; // xmm0
+  float v17; // xmm2_4
   float v18; // xmm2_4
   float v19; // xmm1_4
+  __int128 v21; // [rsp+20h] [rbp-48h]
 
-  v3 = *(_OWORD *)(a1 - 96);
-  v4 = *(_DWORD *)(a1 - 96);
-  v6 = v4 == *(_DWORD *)(a1 - 80);
+  v3 = *(_DWORD *)(a1 - 96);
+  v4 = v3 == *(_DWORD *)(a1 - 80);
+  v21 = *(_OWORD *)(a1 - 96);
+  v6 = v21;
+  v7 = a1;
   v8 = *(_DWORD *)(a1 - 112);
-  v9 = v3;
-  if ( v6 )
-    v9 = v8 + v3;
-  v10 = *(_DWORD *)(a1 - 92);
-  v11 = DWORD1(v3);
-  if ( v10 == *(_DWORD *)(a1 - 76) )
-    v11 = *(_DWORD *)(a1 - 104) + DWORD1(v3);
-  v12 = DWORD2(v3);
-  if ( *(_DWORD *)(a1 - 88) == *(_DWORD *)(a1 - 72) )
-    v12 = DWORD2(v3) - *(_DWORD *)(a1 - 108);
-  v13 = HIDWORD(v3);
-  if ( *(_DWORD *)(a1 - 84) == *(_DWORD *)(a1 - 68) )
-    v13 = HIDWORD(v3) - *(_DWORD *)(a1 - 100);
-  if ( v12 < v9 )
-    v12 = v9;
-  if ( v13 < v11 )
-    v13 = v11;
-  v14 = (float)v4 - (float)v8;
-  v15 = (float)v10 - (float)*(int *)(a1 - 104);
-  CMILMatrix::SetToIdentity(a2);
-  if ( v14 != 0.0 || v15 != 0.0 )
+  v10 = 0;
+  if ( v4 )
+    v6 = v8 + v21;
+  v11 = *(_DWORD *)(v7 - 92);
+  v12 = DWORD1(v21);
+  if ( v11 == *(_DWORD *)(v7 - 76) )
+    v12 = *(_DWORD *)(v7 - 104) + DWORD1(v21);
+  v13 = DWORD2(v21);
+  if ( *(_DWORD *)(v7 - 88) == *(_DWORD *)(v7 - 72) )
+    v13 = DWORD2(v21) - *(_DWORD *)(v7 - 108);
+  v14 = HIDWORD(v21);
+  if ( *(_DWORD *)(v7 - 84) == *(_DWORD *)(v7 - 68) )
+    v14 = HIDWORD(v21) - *(_DWORD *)(v7 - 100);
+  if ( v13 < v6 )
+    v13 = v6;
+  if ( v14 < v12 )
+    v14 = v12;
+  v15 = (float)v3 - (float)v8;
+  v16 = _mm_cvtsi32_si128(*(_DWORD *)(v7 - 104));
+  *(_QWORD *)a2 = 1065353216LL;
+  *(_QWORD *)(a2 + 8) = 0LL;
+  *(_DWORD *)(a2 + 16) = 0;
+  *(_QWORD *)(a2 + 20) = 1065353216LL;
+  *(_QWORD *)(a2 + 28) = 0LL;
+  *(_DWORD *)(a2 + 36) = 0;
+  *(_QWORD *)(a2 + 40) = 1065353216LL;
+  *(_QWORD *)(a2 + 48) = 0LL;
+  *(_DWORD *)(a2 + 56) = 0;
+  *(_DWORD *)(a2 + 60) = 1065353216;
+  *(_WORD *)(a2 + 64) = 32085;
+  v17 = (float)v11 - _mm_cvtepi32_ps(v16).m128_f32[0];
+  if ( v15 != 0.0 || v17 != 0.0 )
   {
-    CMILMatrix::Translate(v17, v14, v15);
-    v16 = 1;
+    CMILMatrix::Translate((CMILMatrix *)a2, v15, v17);
+    v10 = 1;
   }
   if ( a3 )
   {
-    v18 = (float)v9 - (float)*(int *)(a1 - 96);
+    v18 = (float)v6 - (float)*(int *)(v7 - 96);
     *a3 = v18;
-    v19 = (float)v11 - (float)*(int *)(a1 - 92);
+    v19 = (float)v12 - (float)*(int *)(v7 - 92);
     a3[1] = v19;
-    a3[2] = (float)(int)(v12 - v9) + v18;
-    a3[3] = (float)(int)(v13 - v11) + v19;
+    a3[2] = (float)(int)(v13 - v6) + v18;
+    a3[3] = (float)(int)(v14 - v12) + v19;
   }
-  return v16;
+  return v10;
 }

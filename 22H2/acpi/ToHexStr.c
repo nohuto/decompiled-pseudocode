@@ -1,20 +1,20 @@
 /*
- * XREFs of ToHexStr @ 0x1C00590D0
+ * XREFs of ToHexStr @ 0x1C006AC20
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     ValidateTarget @ 0x1C004D510 (ValidateTarget.c)
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapAlloc @ 0x1C004EC58 (HeapAlloc.c)
- *     WriteObject @ 0x1C00532C0 (WriteObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
  */
 
-__int64 __fastcall ToHexStr(__int64 a1, __int64 a2)
+__int64 __fastcall ToHexStr(struct _SLIST_ENTRY *a1, __int64 a2)
 {
   unsigned int v4; // edi
   __int64 v5; // rdx
@@ -31,18 +31,17 @@ __int64 __fastcall ToHexStr(__int64 a1, __int64 a2)
   __int64 v16; // r11
   __int64 v17; // rax
   unsigned __int64 v18; // rax
-  __int64 v19; // rbp
-  __int64 v20; // rax
-  __int64 v21; // r8
-  unsigned __int64 i; // r9
-  __int64 v23; // rdx
-  __int64 v25; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v19; // rax
+  unsigned __int64 v20; // r9
+  __int64 i; // r8
+  __int64 v22; // rdx
+  __int64 v24; // [rsp+48h] [rbp+10h] BYREF
 
-  v25 = 0LL;
-  v4 = ValidateArgTypes(a1, *(_QWORD *)(a2 + 80), 0, "D");
+  v24 = 0LL;
+  v4 = ValidateArgTypes((__int64)a1, *(_QWORD *)(a2 + 80), 0, "D");
   if ( !v4 )
   {
-    v4 = ValidateTarget(a1, *(_QWORD *)(a2 + 80) + 40LL, 135, (__int64)&v25);
+    v4 = ValidateTarget((__int64)a1, *(_QWORD *)(a2 + 80) + 40LL, 0x87u, (__int64)&v24);
     if ( !v4 )
     {
       *(_WORD *)(*(_QWORD *)(a2 + 88) + 2LL) = 2;
@@ -54,25 +53,24 @@ __int64 __fastcall ToHexStr(__int64 a1, __int64 a2)
           LODWORD(v8) = 2;
           do
           {
-            v19 = (int)v8;
-            v8 = (unsigned int)(v8 + 1);
             v18 >>= 4;
+            v8 = (unsigned int)(v8 + 1);
           }
           while ( v18 );
           *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL) = v8 + 1;
           ConPrintf("qwDataValue = %I64x, length=%x, size=%x\n", 0LL, v8, *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL));
-          v20 = HeapAlloc(gpheapGlobal, 1381258056, *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL));
-          *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) = v20;
-          if ( v20 )
+          v19 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL));
+          *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) = v19;
+          if ( v19 )
           {
-            v21 = v19;
             **(_BYTE **)(*(_QWORD *)(a2 + 88) + 32LL) = 48;
             *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) + 1LL) = 120;
-            for ( i = *(_QWORD *)(*(_QWORD *)(a2 + 80) + 16LL); v21 >= 2; --v21 )
+            v20 = *(_QWORD *)(*(_QWORD *)(a2 + 80) + 16LL);
+            for ( i = (int)v8 - 1; i >= 2; --i )
             {
-              v23 = i & 0xF;
-              i >>= 4;
-              *(_BYTE *)(v21 + *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL)) = HTOALookupTable[v23];
+              v22 = v20 & 0xF;
+              v20 >>= 4;
+              *(_BYTE *)(i + *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL)) = HTOALookupTable[v22];
             }
             goto LABEL_23;
           }
@@ -80,7 +78,7 @@ __int64 __fastcall ToHexStr(__int64 a1, __int64 a2)
         case 2:
           *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL) = *(_DWORD *)(v5 + 24);
           ConPrintf("size=%x\n", *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL));
-          v17 = HeapAlloc(gpheapGlobal, 1381258056, *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL));
+          v17 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL));
           *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) = v17;
           if ( v17 )
           {
@@ -88,7 +86,7 @@ __int64 __fastcall ToHexStr(__int64 a1, __int64 a2)
               *(void **)(*(_QWORD *)(a2 + 88) + 32LL),
               *(const void **)(*(_QWORD *)(a2 + 80) + 32LL),
               *(unsigned int *)(*(_QWORD *)(a2 + 88) + 24LL));
-            return (unsigned int)WriteObject(a1, v25, *(_QWORD *)(a2 + 88));
+            return (unsigned int)WriteObject(a1, v24, *(_QWORD *)(a2 + 88));
           }
           break;
         case 3:
@@ -99,7 +97,7 @@ __int64 __fastcall ToHexStr(__int64 a1, __int64 a2)
             v8 = 0LL;
           *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL) = v8 + 1;
           ConPrintf("length=%x,size=%x\n", v8, *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL));
-          v9 = HeapAlloc(gpheapGlobal, 1381258056, *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL));
+          v9 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1381258056, *(_DWORD *)(*(_QWORD *)(a2 + 88) + 24LL));
           *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL) = v9;
           if ( v9 )
           {
@@ -120,13 +118,13 @@ __int64 __fastcall ToHexStr(__int64 a1, __int64 a2)
             }
 LABEL_23:
             *(_BYTE *)(v8 + *(_QWORD *)(*(_QWORD *)(a2 + 88) + 32LL)) = 0;
-            return (unsigned int)WriteObject(a1, v25, *(_QWORD *)(a2 + 88));
+            return (unsigned int)WriteObject(a1, v24, *(_QWORD *)(a2 + 88));
           }
           break;
         default:
           v4 = -1072431098;
           LogError(-1072431098);
-          AcpiDiagTraceAmlError(a1, -1072431098);
+          AcpiDiagTraceAmlError((__int64)a1, -1072431098);
           v6 = 188;
 LABEL_20:
           PrintDebugMessage(v6, 0LL, 0LL, 0LL, 0LL);
@@ -134,7 +132,7 @@ LABEL_20:
       }
       v4 = -1073741670;
       LogError(-1073741670);
-      AcpiDiagTraceAmlError(a1, -1073741670);
+      AcpiDiagTraceAmlError((__int64)a1, -1073741670);
       v6 = 187;
       goto LABEL_20;
     }

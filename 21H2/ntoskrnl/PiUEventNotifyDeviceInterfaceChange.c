@@ -1,13 +1,13 @@
 /*
- * XREFs of PiUEventNotifyDeviceInterfaceChange @ 0x1407698C4
+ * XREFs of PiUEventNotifyDeviceInterfaceChange @ 0x140749838
  * Callers:
- *     PiUEventProcessEventWorker @ 0x14078ACE0 (PiUEventProcessEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x1406E6140 (PiUEventProcessEventWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PiUEventHashGuidIntoBucket @ 0x1402DE1B8 (PiUEventHashGuidIntoBucket.c)
- *     PiUEventNotifyClient @ 0x14078BC74 (PiUEventNotifyClient.c)
- *     PiUEventApplyAdditionalFilters @ 0x14078BEA4 (PiUEventApplyAdditionalFilters.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     PiUEventHashGuidIntoBucket @ 0x1402ED538 (PiUEventHashGuidIntoBucket.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     PiUEventApplyAdditionalFilters @ 0x1406E6C88 (PiUEventApplyAdditionalFilters.c)
+ *     PiUEventNotifyClient @ 0x1406E6D7C (PiUEventNotifyClient.c)
  */
 
 __int64 __fastcall PiUEventNotifyDeviceInterfaceChange(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall PiUEventNotifyDeviceInterfaceChange(__int64 a1)
   unsigned int v5; // esi
   _QWORD **v6; // r14
   _QWORD *v7; // rdi
-  _QWORD *v8; // rbp
+  __int64 v8; // rbp
   __int64 v9; // rcx
   __int64 v11; // rax
   _QWORD v12[7]; // [rsp+20h] [rbp-38h] BYREF
@@ -37,7 +37,7 @@ __int64 __fastcall PiUEventNotifyDeviceInterfaceChange(__int64 a1)
 LABEL_4:
     ExAcquireFastMutex(&PiUEventClientRegistrationListLock);
     v4 = v12;
-    v12[1] = &unk_140C463F0;
+    v12[1] = &unk_140C45010;
     v5 = 0;
     v12[0] = (char *)&PiUEventDevInterfaceClientList
            + 16 * (unsigned int)PiUEventHashGuidIntoBucket((unsigned __int8 *)(a1 + 120));
@@ -47,17 +47,17 @@ LABEL_4:
       v7 = *(_QWORD **)*v4;
       while ( v7 != v6 )
       {
-        v8 = v7;
+        v8 = (__int64)v7;
         v7 = (_QWORD *)*v7;
         if ( !v5 )
         {
-          v9 = *(_QWORD *)(a1 + 120) - v8[3];
+          v9 = *(_QWORD *)(a1 + 120) - *(_QWORD *)(v8 + 24);
           if ( !v9 )
-            v9 = *(_QWORD *)(a1 + 128) - v8[4];
+            v9 = *(_QWORD *)(a1 + 128) - *(_QWORD *)(v8 + 32);
           if ( v9 )
             continue;
         }
-        if ( (unsigned __int8)PiUEventApplyAdditionalFilters(a1, v8) )
+        if ( PiUEventApplyAdditionalFilters(a1, v8) )
           v1 = PiUEventNotifyClient(a1, v8);
       }
       ++v5;

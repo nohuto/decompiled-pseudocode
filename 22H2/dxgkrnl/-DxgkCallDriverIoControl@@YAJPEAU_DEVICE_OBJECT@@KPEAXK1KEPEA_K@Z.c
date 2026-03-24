@@ -1,60 +1,66 @@
 /*
- * XREFs of ?DxgkCallDriverIoControl@@YAJPEAU_DEVICE_OBJECT@@KPEAXK1KEPEA_K@Z @ 0x1C0209D68
+ * XREFs of ?DxgkCallDriverIoControl@@YAJPEAU_DEVICE_OBJECT@@KPEAXK1KEPEA_K@Z @ 0x1C017EA00
  * Callers:
- *     ?_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z @ 0x1C020A560 (-_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z.c)
- *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C0215368 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
- *     ?_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z @ 0x1C03C96E0 (-_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z.c)
+ *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C017C358 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
+ *     ?_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z @ 0x1C017EB30 (-_HandleMonitorPnPNotification@MONITOR_MGR@@SAJPEAX0@Z.c)
+ *     ?CallDriver@LPMDisplayCtrl@@AEAAJKPEAXK0KPEA_K@Z @ 0x1C0275D68 (-CallDriver@LPMDisplayCtrl@@AEAAJKPEAXK0KPEA_K@Z.c)
+ *     ?_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z @ 0x1C02F9460 (-_PnPTargetDeviceChangeNotification@DXGMONITOR@@CAJPEAX0@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-NTSTATUS __fastcall DxgkCallDriverIoControl(
+__int64 __fastcall DxgkCallDriverIoControl(
         PDEVICE_OBJECT DeviceObject,
-        ULONG IoControlCode,
+        __int64 IoControlCode,
         PVOID InputBuffer,
         ULONG InputBufferLength,
         PVOID OutputBuffer,
-        ULONG OutputBufferLength)
+        ULONG OutputBufferLength,
+        BOOLEAN InternalDeviceIoControl,
+        unsigned __int64 *a8)
 {
-  IRP *v10; // rax
-  NTSTATUS result; // eax
+  ULONG v10; // r14d
+  IRP *v12; // rax
+  unsigned int Status; // ecx
+  __int64 v15; // rax
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-38h] BYREF
   struct _KEVENT Event; // [rsp+60h] [rbp-28h] BYREF
 
+  v10 = IoControlCode;
   if ( KeGetCurrentIrql() )
   {
-    WdLogSingleEntry1(1LL, 40LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"KeGetCurrentIrql() == PASSIVE_LEVEL",
-      40LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v15 = WdLogNewEntry5_WdAssertion(DeviceObject, IoControlCode);
+    *(_QWORD *)(v15 + 24) = 40LL;
+    WdLogEvent5_WdAssertion(v15);
   }
-  memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
+  if ( a8 )
+    *a8 = 0LL;
   KeInitializeEvent(&Event, SynchronizationEvent, 0);
-  v10 = IoBuildDeviceIoControlRequest(
-          IoControlCode,
+  v12 = IoBuildDeviceIoControlRequest(
+          v10,
           DeviceObject,
           InputBuffer,
           InputBufferLength,
           OutputBuffer,
           OutputBufferLength,
-          1u,
+          InternalDeviceIoControl,
           &Event,
           &IoStatusBlock);
-  if ( !v10 )
-    return -1073741801;
-  result = IofCallDriver(DeviceObject, v10);
-  if ( result == 259 )
+  if ( v12 )
   {
-    KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-    return IoStatusBlock.Status;
+    Status = IofCallDriver(DeviceObject, v12);
+    if ( Status == 259 )
+    {
+      KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+      Status = IoStatusBlock.Status;
+    }
+    if ( a8 )
+      *a8 = IoStatusBlock.Information;
   }
-  return result;
+  else
+  {
+    return (unsigned int)-1073741801;
+  }
+  return Status;
 }

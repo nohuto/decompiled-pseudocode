@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CHolographicCompositionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C022DBD0
+ * XREFs of ?SetBufferProperty@CHolographicCompositionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01EE2B0
  * Callers:
  *     <none>
  * Callees:
@@ -19,11 +19,11 @@ __int64 __fastcall DirectComposition::CHolographicCompositionMarshaler::SetBuffe
   result = 0LL;
   if ( a3 || a5 != 16 )
     return 3221225485LL;
-  if ( *((_BYTE *)this + 96) )
+  if ( *((_BYTE *)this + 88) )
     return 3221225506LL;
-  *((_OWORD *)this + 5) = *a4;
-  *((_BYTE *)this + 96) = 1;
-  if ( *((_BYTE *)this + 76) )
+  *(_OWORD *)((char *)this + 72) = *a4;
+  *((_BYTE *)this + 88) = 1;
+  if ( *((_BYTE *)this + 68) )
     *((_DWORD *)this + 4) |= 0x40u;
   *a6 = 1;
   return result;

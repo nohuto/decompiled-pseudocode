@@ -1,108 +1,87 @@
 /*
- * XREFs of PopFxActivateComponent @ 0x1402871E0
+ * XREFs of PopFxActivateComponent @ 0x1403BE4A0
  * Callers:
- *     PoFxActivateComponent @ 0x140287170 (PoFxActivateComponent.c)
- *     PopFxNotifyPreDIrpIssue @ 0x14028DD98 (PopFxNotifyPreDIrpIssue.c)
- *     PopFxActivateComponentDependencies @ 0x140312394 (PopFxActivateComponentDependencies.c)
- *     PoFxAddComponentRelation @ 0x140587700 (PoFxAddComponentRelation.c)
- *     PoFxAddDeviceRelation @ 0x140587B20 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveComponentRelation @ 0x1405881A0 (PoFxRemoveComponentRelation.c)
- *     PopFxRegisterDeviceWorker @ 0x1408381FC (PopFxRegisterDeviceWorker.c)
+ *     PopFxActivateComponentWorker @ 0x14025FF40 (PopFxActivateComponentWorker.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407B531C (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     PopFxActivateComponentWorker @ 0x140312240 (PopFxActivateComponentWorker.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     PopFxActivateComponentWorker @ 0x14025FF40 (PopFxActivateComponentWorker.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-int __fastcall PopFxActivateComponent(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
+char __fastcall PopFxActivateComponent(ULONG_PTR a1, __int64 a2, char a3, char a4)
 {
-  char v5; // bl
-  $C71981A45BEB2B45F82C232A7085991E *v6; // rax
-  __int64 v7; // rbp
-  char v8; // si
-  _OWORD *SchedulerAssist; // r9
-  struct _KTHREAD *v10; // rcx
-  bool v11; // zf
+  int v8; // eax
+  char v9; // r14
+  _BYTE *v10; // r9
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v13; // r14
-  unsigned __int8 CurrentIrql; // cl
-  struct _KPRCB *CurrentPrcb; // r10
-  _OWORD v17[3]; // [rsp+30h] [rbp-58h] BYREF
-  __int64 v18; // [rsp+60h] [rbp-28h]
-  int v19; // [rsp+68h] [rbp-20h]
+  unsigned __int64 v12; // rsi
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *SchedulerAssist; // r8
+  bool v15; // zf
+  _BYTE v17[64]; // [rsp+30h] [rbp-58h] BYREF
 
-  v18 = 0LL;
-  v19 = 0;
-  v5 = a3;
-  LODWORD(v6) = *(_DWORD *)(a1 + 824);
-  v7 = a2;
   memset(v17, 0, sizeof(v17));
-  if ( ((unsigned __int8)v6 & 1) != 0 )
-    return (int)v6;
+  v8 = *(_DWORD *)(a1 + 824);
+  if ( (v8 & 1) != 0 )
+    return v8;
   if ( (a3 & 6) == 4 )
   {
     CurrentThread = KeGetCurrentThread();
-    v8 = 1;
+    v9 = 1;
     --CurrentThread->SpecialApcDisable;
   }
   else
   {
-    v8 = 0;
+    v9 = 0;
   }
-  SchedulerAssist = v17;
+  v10 = v17;
   if ( (a3 & 2) != 0 )
-    SchedulerAssist = 0LL;
-  LODWORD(v6) = _InterlockedIncrement((volatile signed __int32 *)(a2 + 88));
-  if ( (_DWORD)v6 == 1 )
+    v10 = 0LL;
+  v8 = _InterlockedIncrement((volatile signed __int32 *)(a2 + 88));
+  if ( v8 == 1 )
   {
     _InterlockedIncrement((volatile signed __int32 *)(a2 + 88));
-    LODWORD(v6) = PopFxActivateComponentWorker(a1, a2, a4, SchedulerAssist);
-LABEL_14:
-    if ( (v5 & 1) != 0 )
-      LODWORD(v6) = KeWaitForSingleObject((PVOID)(v7 + 104), Executive, 0, 0, 0LL);
-    goto LABEL_8;
+    LOBYTE(v8) = PopFxActivateComponentWorker(a1, a2, a4, (__int64)v10);
+LABEL_8:
+    if ( (a3 & 1) != 0 )
+      LOBYTE(v8) = KeWaitForSingleObject((PVOID)(a2 + 104), Executive, 0, 0, 0LL);
+    goto LABEL_10;
   }
-  if ( (int)v6 >= 0 )
+  if ( v8 >= 0 )
   {
-    if ( ((unsigned int)v6 & 0x40000000) != 0 && (a3 & 8) == 0 )
+    if ( (v8 & 0x40000000) != 0 )
     {
-      v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 128));
-      KxReleaseSpinLock((volatile signed __int64 *)(v7 + 128));
-      LODWORD(v6) = KiIrqlFlags;
+      v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 128));
+      KxReleaseSpinLock((PKSPIN_LOCK)(a2 + 128));
+      LOBYTE(v8) = KiIrqlFlags;
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          a2 = -1LL << ((unsigned __int8)v13 + 1);
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          LODWORD(v6) = ~(unsigned __int16)a2;
-          v11 = ((unsigned int)v6 & *((_DWORD *)SchedulerAssist + 5)) == 0;
-          a3 = (unsigned int)v6 & *((_DWORD *)SchedulerAssist + 5);
-          *((_DWORD *)SchedulerAssist + 5) = a3;
-          if ( v11 )
-            LODWORD(v6) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          LOBYTE(v8) = KeGetCurrentIrql();
+          if ( (unsigned __int8)v8 <= 0xFu && (unsigned __int8)v12 <= 0xFu && (unsigned __int8)v8 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v15 = (v8 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v8;
+            if ( v15 )
+              LOBYTE(v8) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
-      __writecr8(v13);
+      __writecr8(v12);
     }
-    goto LABEL_14;
+    goto LABEL_8;
   }
-LABEL_8:
-  if ( v8 )
-  {
-    v10 = KeGetCurrentThread();
-    v11 = v10->SpecialApcDisable++ == -1;
-    if ( v11 )
-    {
-      v6 = &v10->152;
-      if ( ($C71981A45BEB2B45F82C232A7085991E *)v6->ApcState.ApcListHead[0].Flink != v6 )
-        LODWORD(v6) = KiCheckForKernelApcDelivery(v10, a2, a3, SchedulerAssist);
-    }
-  }
-  return (int)v6;
+LABEL_10:
+  if ( v9 )
+    LOBYTE(v8) = KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+  return v8;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCalculateCsSummary @ 0x1402DEA58
+ * XREFs of PopCalculateCsSummary @ 0x1402DEB58
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DEFEC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     PpmConvertTime @ 0x1400A7CF4 (PpmConvertTime.c)
- *     PpmGetPlatformSelectionVetoCounts @ 0x1402D3F38 (PpmGetPlatformSelectionVetoCounts.c)
- *     PopBatteryCapacityToRate @ 0x1402DC538 (PopBatteryCapacityToRate.c)
- *     PopBatteryGetEnergyDrainFromDischage @ 0x1402DC55C (PopBatteryGetEnergyDrainFromDischage.c)
- *     PopCalculateIdleInformation @ 0x1402DEEA8 (PopCalculateIdleInformation.c)
- *     PopCalculateTotalHwDripsResidency @ 0x1402DEFBC (PopCalculateTotalHwDripsResidency.c)
+ *     PpmConvertTime @ 0x1400A7D14 (PpmConvertTime.c)
+ *     PpmGetPlatformSelectionVetoCounts @ 0x1402D4038 (PpmGetPlatformSelectionVetoCounts.c)
+ *     PopBatteryCapacityToRate @ 0x1402DC638 (PopBatteryCapacityToRate.c)
+ *     PopBatteryGetEnergyDrainFromDischage @ 0x1402DC65C (PopBatteryGetEnergyDrainFromDischage.c)
+ *     PopCalculateIdleInformation @ 0x1402DEFA8 (PopCalculateIdleInformation.c)
+ *     PopCalculateTotalHwDripsResidency @ 0x1402DF0BC (PopCalculateTotalHwDripsResidency.c)
  *     PopCurrentPowerState @ 0x14058DED4 (PopCurrentPowerState.c)
- *     PopMeasureEnergyChange @ 0x14086DB94 (PopMeasureEnergyChange.c)
- *     PopQueryInputSuppressionCount @ 0x14086DF00 (PopQueryInputSuppressionCount.c)
+ *     PopMeasureEnergyChange @ 0x14086DB74 (PopMeasureEnergyChange.c)
+ *     PopQueryInputSuppressionCount @ 0x14086DEE0 (PopQueryInputSuppressionCount.c)
  */
 
 __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
@@ -81,14 +81,14 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
     v44 = 0;
   }
   PopMeasureEnergyChange(&v39, &CsSessionEnergyCounter);
-  v46 = HIDWORD(xmmword_140417874);
-  if ( HIDWORD(xmmword_140417874) )
-    v9 = (unsigned int)(100 * xmmword_140417884) / HIDWORD(xmmword_140417874);
+  v46 = HIDWORD(xmmword_140417954);
+  if ( HIDWORD(xmmword_140417954) )
+    v9 = (unsigned int)(100 * xmmword_140417964) / HIDWORD(xmmword_140417954);
   else
     LOBYTE(v9) = 0;
   v10 = 0;
-  if ( (xmmword_140417874 & 0x40000000) == 0 )
-    v10 = xmmword_140417884;
+  if ( (xmmword_140417954 & 0x40000000) == 0 )
+    v10 = xmmword_140417964;
   v43 = v9;
   v31 = v36[1] - qword_14043C390;
   v25 = v10;

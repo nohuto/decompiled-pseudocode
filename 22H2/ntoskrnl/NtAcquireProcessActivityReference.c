@@ -1,19 +1,19 @@
 /*
- * XREFs of NtAcquireProcessActivityReference @ 0x1408012A0
+ * XREFs of NtAcquireProcessActivityReference @ 0x1407316E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExCpuSetResourceManagerAccessCheck @ 0x1403AFEAC (ExCpuSetResourceManagerAccessCheck.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     PspCreateActivityReference @ 0x1408013B4 (PspCreateActivityReference.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x140316414 (ExCpuSetResourceManagerAccessCheck.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     PspCreateActivityReference @ 0x1407317E8 (PspCreateActivityReference.c)
  */
 
-__int64 __fastcall NtAcquireProcessActivityReference(__int64 *a1, ULONG_PTR a2, int a3)
+int __fastcall NtAcquireProcessActivityReference(__int64 *a1, void *a2, int a3)
 {
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v6; // rcx
-  __int64 result; // rax
+  int result; // eax
   PVOID v8; // rbx
   int ActivityReference; // edi
   __int64 v10[3]; // [rsp+48h] [rbp-20h] BYREF
@@ -30,27 +30,26 @@ __int64 __fastcall NtAcquireProcessActivityReference(__int64 *a1, ULONG_PTR a2, 
     *(_QWORD *)v6 = *(_QWORD *)v6;
   }
   if ( a3 )
-    return 3221225713LL;
+    return -1073741583;
   result = ExCpuSetResourceManagerAccessCheck(PreviousMode);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    result = ObpReferenceObjectByHandleWithTag(
+    result = ObReferenceObjectByHandleWithTag(
                a2,
-               4096,
-               (__int64)PsProcessType,
+               0x1000u,
+               (POBJECT_TYPE)PsProcessType,
                PreviousMode,
                0x63417350u,
                &Object,
-               0LL,
                0LL);
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
       v8 = Object;
       ActivityReference = PspCreateActivityReference(Object, (__int64)v10);
       if ( ActivityReference >= 0 )
         *a1 = v10[0];
       ObfDereferenceObjectWithTag(v8, 0x63417350u);
-      return (unsigned int)ActivityReference;
+      return ActivityReference;
     }
   }
   return result;

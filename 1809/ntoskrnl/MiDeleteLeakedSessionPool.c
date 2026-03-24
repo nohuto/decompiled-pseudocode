@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteLeakedSessionPool @ 0x1406E0920
+ * XREFs of MiDeleteLeakedSessionPool @ 0x1406E0900
  * Callers:
- *     MiCheckSessionPoolAllocations @ 0x1406E0824 (MiCheckSessionPoolAllocations.c)
+ *     MiCheckSessionPoolAllocations @ 0x1406E0804 (MiCheckSessionPoolAllocations.c)
  * Callees:
  *     RtlFindSetBitsEx @ 0x140061C10 (RtlFindSetBitsEx.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiPartitionIdToPointer @ 0x140134CC8 (MiPartitionIdToPointer.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiDeleteSessionPoolRange @ 0x1402AC124 (MiDeleteSessionPoolRange.c)
- *     RtlFindNextForwardRunClearEx @ 0x1402EE910 (RtlFindNextForwardRunClearEx.c)
+ *     MiPartitionIdToPointer @ 0x140134CE8 (MiPartitionIdToPointer.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiDeleteSessionPoolRange @ 0x1402AC224 (MiDeleteSessionPoolRange.c)
+ *     RtlFindNextForwardRunClearEx @ 0x1402EEA10 (RtlFindNextForwardRunClearEx.c)
  */
 
 unsigned __int64 MiDeleteLeakedSessionPool()

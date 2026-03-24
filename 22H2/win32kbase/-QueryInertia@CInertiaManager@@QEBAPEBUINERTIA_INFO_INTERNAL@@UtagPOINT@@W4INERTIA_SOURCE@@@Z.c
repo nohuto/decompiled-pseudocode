@@ -1,51 +1,49 @@
 /*
- * XREFs of ?QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z @ 0x1C01E1FE0
+ * XREFs of ?QueryInertia@CInertiaManager@@QEBAPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@W4INERTIA_SOURCE@@@Z @ 0x1C01A8F40
  * Callers:
- *     ?ProcessInput@CPTPProcessor@@QEAAXPEAX0KHHPEA_N@Z @ 0x1C00D49B8 (-ProcessInput@CPTPProcessor@@QEAAXPEAX0KHHPEA_N@Z.c)
- *     ?EndInertia@CInertiaManager@@QEAA_NXZ @ 0x1C00D5060 (-EndInertia@CInertiaManager@@QEAA_NXZ.c)
- *     ?EndInertiaAtPoint@CInertiaManager@@QEAA_NUtagPOINT@@0W4INERTIA_SOURCE@@@Z @ 0x1C00D5148 (-EndInertiaAtPoint@CInertiaManager@@QEAA_NUtagPOINT@@0W4INERTIA_SOURCE@@@Z.c)
- *     ?CacheInertia@CPTPProcessor@@AEAAXXZ @ 0x1C01DE780 (-CacheInertia@CPTPProcessor@@AEAAXXZ.c)
- *     ?EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z @ 0x1C01DEEC0 (-EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z.c)
- *     ?HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA?AW4InertiaEndSuppressionResult@2@_K@Z @ 0x1C01F7FE8 (-HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA-AW4InertiaEndSuppressionResult@2@_K@Z.c)
+ *     ?StopAndEndInertia@CTouchProcessor@@QEAAHIPEAX@Z @ 0x1C019EF38 (-StopAndEndInertia@CTouchProcessor@@QEAAHIPEAX@Z.c)
+ *     ?CacheInertia@CPTPProcessor@@AEAAXXZ @ 0x1C01A5500 (-CacheInertia@CPTPProcessor@@AEAAXXZ.c)
+ *     ?EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z @ 0x1C01A5A14 (-EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z.c)
+ *     ?ProcessInput@CPTPProcessor@@QEAAXPEAX0HHH@Z @ 0x1C01A6D70 (-ProcessInput@CPTPProcessor@@QEAAXPEAX0HHH@Z.c)
+ *     ?HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA?AW4InertiaEndSuppressionResult@2@_K@Z @ 0x1C01C0514 (-HandleMake@InertiaEndSuppression@CMouseProcessor@@QEAA-AW4InertiaEndSuppressionResult@2@_K@Z.c)
  * Callees:
- *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0056A68 (-SetEmpty@CInputDest@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?HasDelegationThread@CInputDest@@QEBA_NXZ @ 0x1C00E399C (-HasDelegationThread@CInputDest@@QEBA_NXZ.c)
- *     ??0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z @ 0x1C01B5044 (--0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z.c)
- *     ?ValidateInertiaDest@CInertiaManager@@AEBA_NAEBVCInputDest@@@Z @ 0x1C01E224C (-ValidateInertiaDest@CInertiaManager@@AEBA_NAEBVCInputDest@@@Z.c)
- *     ApiSetEditionQueryInertiaWorker @ 0x1C02076A8 (ApiSetEditionQueryInertiaWorker.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0043D04 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ??0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z @ 0x1C0182920 (--0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z.c)
+ *     ?HasDelegationThread@CInputDest@@QEBA_NXZ @ 0x1C0182CD4 (-HasDelegationThread@CInputDest@@QEBA_NXZ.c)
+ *     ?ValidateInertiaDest@CInertiaManager@@AEBA_NAEBVCInputDest@@@Z @ 0x1C01A9194 (-ValidateInertiaDest@CInertiaManager@@AEBA_NAEBVCInputDest@@@Z.c)
+ *     ApiSetEditionQueryInertiaWorker @ 0x1C01CD800 (ApiSetEditionQueryInertiaWorker.c)
  */
 
 __int64 __fastcall CInertiaManager::QueryInertia(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v3; // edi
-  __int64 v7; // rdx
+  unsigned __int64 v7; // rdx
   CInertiaManager *v8; // rcx
-  int v9; // ebp
-  __int64 v10; // rsi
-  __int64 v12[16]; // [rsp+20h] [rbp-A8h] BYREF
+  __int64 v9; // rsi
+  __m128i v11[8]; // [rsp+20h] [rbp-A8h] BYREF
 
   v3 = *(_DWORD *)(a1 + 192);
   if ( (v3 & 1) != 0 && (v7 = *(_QWORD *)(a1 + 128)) != 0 )
   {
-    CInputDest::CInputDest(v12, v7, 2 - ((v3 & 0x20) != 0), 1);
-    LOBYTE(v3) = CInertiaManager::ValidateInertiaDest(v8, (const struct CInputDest *)v12);
+    CInputDest::CInputDest(v11, v7, 2 - ((v3 & 0x20) != 0), 1);
+    LOBYTE(v3) = CInertiaManager::ValidateInertiaDest(v8, (const struct CInputDest *)v11);
     if ( (_BYTE)v3 && (*(_DWORD *)(a1 + 192) & 2) != 0 )
-      LOBYTE(v3) = CInputDest::HasDelegationThread((CInputDest *)v12);
-    CInputDest::SetEmpty((CInputDest *)v12);
+      LOBYTE(v3) = CInputDest::HasDelegationThread((CInputDest *)v11);
+    CInputDest::SetEmpty((CInputDest *)v11);
   }
   else
   {
     v3 = (*(_DWORD *)(a1 + 192) & 0x10u) >> 4;
   }
-  if ( (_BYTE)v3 && (v9 = *(_DWORD *)(a1 + 32) & a3, LOBYTE(v3) = v9 != 0, v9) )
+  if ( (_BYTE)v3 && (LOBYTE(v3) = (a3 & *(_DWORD *)(a1 + 32)) != 0) != 0 )
   {
-    v10 = a1 + 8;
-    LOBYTE(v3) = (unsigned int)ApiSetEditionQueryInertiaWorker(a2, v10) != 0;
+    v9 = a1 + 8;
+    LOBYTE(v3) = (unsigned int)ApiSetEditionQueryInertiaWorker(a2, v9) != 0;
   }
   else
   {
-    v10 = a1 + 8;
+    v9 = a1 + 8;
   }
-  return v10 & -(__int64)((_BYTE)v3 != 0);
+  return v9 & -(__int64)((_BYTE)v3 != 0);
 }

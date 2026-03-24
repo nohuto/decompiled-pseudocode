@@ -1,74 +1,51 @@
 /*
- * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x1406D8E40
+ * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x1405EFEA0
  * Callers:
- *     CmpCleanUpKcbCacheWithLock @ 0x1406D85C0 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpCreateKeyControlBlock @ 0x1406D8840 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x140A1445C (CmRenameKey.c)
- *     CmpCloneToUnbackedKcb @ 0x140A16EB4 (CmpCloneToUnbackedKcb.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405EE874 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCreateKeyControlBlock @ 0x1405EF650 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x14086CA54 (CmRenameKey.c)
+ *     CmpCloneToUnbackedKcb @ 0x14086EB2C (CmpCloneToUnbackedKcb.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
  */
 
-signed __int32 __fastcall CmpDereferenceNameControlBlockWithLock(_WORD *a1)
+char __fastcall CmpDereferenceNameControlBlockWithLock(unsigned int *a1)
 {
-  char *v1; // r14
-  __int64 v3; // rbx
-  unsigned __int64 *v4; // rbp
-  __int64 v5; // rax
-  __int64 v6; // rdi
-  unsigned int v7; // eax
-  __int64 *v8; // rcx
-  __int64 v9; // rax
-  signed __int64 *v10; // rbx
-  signed __int64 v11; // rax
-  signed __int64 v12; // rcx
-  signed __int64 v13; // rtt
+  _DWORD *v1; // rsi
+  unsigned int v3; // eax
+  __int64 v4; // rbx
+  unsigned int v5; // eax
+  __int64 *v6; // rcx
+  __int64 v7; // rax
 
-  v1 = (char *)(a1 + 4);
-  v3 = 16LL
-     * (((unsigned __int16)(-30045 * (a1[4] ^ (*((_DWORD *)a1 + 2) >> 9))) ^ (unsigned __int16)((unsigned __int64)(unsigned int)(101027 * (*((_DWORD *)a1 + 2) ^ (*((_DWORD *)a1 + 2) >> 9))) >> 9)) & 0x7FF);
-  v4 = (unsigned __int64 *)((char *)CmpNameCacheTable + v3);
-  v5 = KeAbPreAcquire((__int64)CmpNameCacheTable + v3, 0LL);
-  v6 = v5;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v4, v5, (__int64)v4);
-  if ( v6 )
-    *(_BYTE *)(v6 + 18) = 1;
-  v7 = *(_DWORD *)a1 & 1 | (2 * (*(_DWORD *)a1 >> 1) - 2);
-  *(_DWORD *)a1 = v7;
-  if ( v7 < 2 )
+  v1 = a1 + 2;
+  v3 = 101027 * (a1[2] ^ (a1[2] >> 9));
+  v4 = 16LL * (((unsigned __int16)v3 ^ (unsigned __int16)((unsigned __int64)v3 >> 9)) & 0x7FF);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)CmpNameCacheTable + v4, 0LL);
+  v5 = *a1 & 1 | (2 * (*a1 >> 1) - 2);
+  *a1 = v5;
+  if ( v5 < 2 )
   {
-    v8 = (__int64 *)((char *)CmpNameCacheTable + v3 + 8);
-    if ( v8 )
+    v6 = (__int64 *)((char *)CmpNameCacheTable + v4 + 8);
+    if ( v6 )
     {
       do
       {
-        v9 = *v8;
-        if ( !*v8 )
+        v7 = *v6;
+        if ( !*v6 )
           break;
-        if ( (char *)v9 == v1 )
+        if ( (_DWORD *)v7 == v1 )
         {
-          *v8 = *(_QWORD *)(v9 + 8);
+          *v6 = *(_QWORD *)(v7 + 8);
           break;
         }
-        v8 = (__int64 *)(v9 + 8);
+        v6 = (__int64 *)(v7 + 8);
       }
-      while ( v9 != -8 );
+      while ( v7 != -8 );
     }
     CmpFreeTransientPoolWithTag(a1, 0x624E4D43u);
   }
-  v10 = (signed __int64 *)((char *)CmpNameCacheTable + v3);
-  _m_prefetchw(v10);
-  v11 = *v10;
-  if ( (*v10 & 0xFFFFFFFFFFFFFFF0uLL) > 0x10 )
-    v12 = v11 - 16;
-  else
-    v12 = 0LL;
-  if ( (v11 & 2) != 0 || (v13 = *v10, v13 != _InterlockedCompareExchange64(v10, v12, v11)) )
-    ExfReleasePushLock(v10);
-  return KeAbPostRelease((ULONG_PTR)v10);
+  return ExReleasePushLockEx((ULONG_PTR)CmpNameCacheTable + v4, 0LL);
 }

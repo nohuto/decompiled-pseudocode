@@ -1,37 +1,35 @@
 /*
- * XREFs of XmRolOp @ 0x1403989A0
+ * XREFs of XmRolOp @ 0x1403BFE90
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403B8FA8 (XmStoreResult.c)
+ *     XmStoreResult @ 0x1403966C0 (XmStoreResult.c)
  */
 
-__int64 __fastcall XmRolOp(_DWORD *a1)
+_WORD *__fastcall XmRolOp(_DWORD *a1)
 {
   int v1; // eax
   int v2; // ebx
   unsigned int v3; // r9d
-  int v4; // r11d
-  int v5; // r10d
-  unsigned int v6; // eax
+  int v4; // r10d
+  unsigned int v5; // edx
 
   v1 = a1[30];
   v2 = 8 * v1 + 7;
   v3 = a1[26];
-  v4 = ((1 << (8 * v1 + 7)) - 1) | (1 << (8 * v1 + 7));
-  v5 = v2 & a1[27];
-  if ( v5 )
+  v4 = v2 & a1[27];
+  if ( v4 )
   {
-    if ( v5 == 1 )
+    if ( v4 == 1 )
       a1[4] ^= (a1[4] ^ (((v3 >> (8 * v1 + 7)) ^ (v3 >> (8 * v1 + 6))) << 11)) & 0x800;
     do
     {
-      v6 = v3 >> v2;
-      v3 = (v3 >> v2) | v4 & (2 * v3);
-      --v5;
+      v5 = v3 >> v2;
+      v3 = (v3 >> v2) | (((1 << (8 * v1 + 7)) - 1) | (1 << (8 * v1 + 7))) & (2 * v3);
+      --v4;
     }
-    while ( v5 );
-    a1[4] ^= (a1[4] ^ v6) & 1;
+    while ( v4 );
+    a1[4] ^= ((unsigned __int8)v5 ^ (unsigned __int8)a1[4]) & 1;
   }
-  return XmStoreResult(a1, v3);
+  return XmStoreResult((__int64)a1, v3);
 }

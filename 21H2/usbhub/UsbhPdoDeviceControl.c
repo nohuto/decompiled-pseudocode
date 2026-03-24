@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhPdoDeviceControl @ 0x1C0054380
+ * XREFs of UsbhPdoDeviceControl @ 0x1C0055A10
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhIncPdoIoCount @ 0x1C000EF40 (UsbhIncPdoIoCount.c)
- *     KsPropertyHandleDrmSetContentId @ 0x1C0072840 (KsPropertyHandleDrmSetContentId.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhIncPdoIoCount @ 0x1C0014F6C (UsbhIncPdoIoCount.c)
+ *     KsPropertyHandleDrmSetContentId @ 0x1C0075CE0 (KsPropertyHandleDrmSetContentId.c)
  */
 
 __int64 __fastcall UsbhPdoDeviceControl(ULONG_PTR BugCheckParameter3, IRP *BugCheckParameter4)

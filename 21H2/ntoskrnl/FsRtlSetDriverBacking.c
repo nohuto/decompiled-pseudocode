@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlSetDriverBacking @ 0x14080F640
+ * XREFs of FsRtlSetDriverBacking @ 0x140780A60
  * Callers:
- *     IoRegisterFileSystem @ 0x14080F4B0 (IoRegisterFileSystem.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x140859F30 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IoRegisterFileSystem @ 0x1407808C0 (IoRegisterFileSystem.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x1407C9C40 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
- *     MmBackSystemImageWithPagefile @ 0x14080F66C (MmBackSystemImageWithPagefile.c)
+ *     MmBackSystemImageWithPagefile @ 0x140780A8C (MmBackSystemImageWithPagefile.c)
  */
 
 __int64 __fastcall FsRtlSetDriverBacking(__int64 a1, char a2)

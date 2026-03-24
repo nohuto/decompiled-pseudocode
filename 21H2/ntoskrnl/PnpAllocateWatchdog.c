@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpAllocateWatchdog @ 0x1402D5A78
+ * XREFs of PnpAllocateWatchdog @ 0x140280324
  * Callers:
- *     PnpEnableWatchdog @ 0x14074ECA8 (PnpEnableWatchdog.c)
+ *     PnpEnableWatchdog @ 0x140677554 (PnpEnableWatchdog.c)
  * Callees:
- *     PnpQueryWatchdogTimeout @ 0x1402D5AFC (PnpQueryWatchdogTimeout.c)
- *     PnpWatchdogTimerAllocate @ 0x14074F7B8 (PnpWatchdogTimerAllocate.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PnpQueryWatchdogTimeout @ 0x1402803B8 (PnpQueryWatchdogTimeout.c)
+ *     PnpWatchdogTimerAllocate @ 0x140677630 (PnpWatchdogTimerAllocate.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *PnpAllocateWatchdog()
 {
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   __int64 v1; // rcx
   _QWORD *v2; // rbx
   __int64 v3; // rax
@@ -21,12 +21,15 @@ _QWORD *PnpAllocateWatchdog()
   void (__fastcall __noreturn *v8)(); // [rsp+40h] [rbp-18h]
 
   v5[1] = 0LL;
-  Pool2 = ExAllocatePool2(64LL, 40LL, 1466200144LL);
-  v2 = (_QWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x57647050u);
+  v2 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v5[0] = Pool2;
+    v5[0] = PoolWithTag;
     LOBYTE(v1) = 1;
+    *(_OWORD *)PoolWithTag = 0LL;
+    *((_OWORD *)PoolWithTag + 1) = 0LL;
+    PoolWithTag[4] = 0LL;
     v5[2] = PnpWatchdogWorkItem;
     WatchdogTimeout = PnpQueryWatchdogTimeout(v1);
     v8 = PnpWatchdogBugcheck;

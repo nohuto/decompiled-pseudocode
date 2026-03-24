@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepCacheInsert @ 0x140695124
+ * XREFs of KsepCacheInsert @ 0x140780648
  * Callers:
- *     KseAddHardwareId @ 0x140693960 (KseAddHardwareId.c)
- *     KsepDbCacheInsertDevice @ 0x14085E218 (KsepDbCacheInsertDevice.c)
+ *     KseAddHardwareId @ 0x14075EE8C (KseAddHardwareId.c)
+ *     KsepDbCacheInsertDevice @ 0x1407CCC38 (KsepDbCacheInsertDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KsepCacheInsert(__int64 a1, __int64 a2)
 {
-  unsigned int v4; // r9d
-  _QWORD *v5; // rcx
+  unsigned int v4; // ecx
+  _QWORD *v5; // r8
   _QWORD *v6; // r8
   __int64 v7; // rcx
   __int64 v8; // rax
@@ -48,9 +48,9 @@ __int64 __fastcall KsepCacheInsert(__int64 a1, __int64 a2)
   *(_QWORD *)(a2 + 32) = v11;
   *v11 = v9;
   *(_QWORD *)(a1 + 40) = v9;
+  ++*(_DWORD *)(a1 + 8);
   ++*(_DWORD *)(a1 + 60);
-  result = (unsigned int)(*(_DWORD *)(a1 + 8) + 1);
-  *(_DWORD *)(a1 + 8) = result;
+  result = *(unsigned int *)(a1 + 8);
   if ( (unsigned int)result > *(_DWORD *)(a1 + 24) )
   {
     v13 = *v10;

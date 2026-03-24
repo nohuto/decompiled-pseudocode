@@ -1,27 +1,27 @@
 /*
- * XREFs of ExpSetBootEntry @ 0x1409FD4A0
+ * XREFs of ExpSetBootEntry @ 0x140951100
  * Callers:
- *     NtAddBootEntry @ 0x1409FF330 (NtAddBootEntry.c)
- *     NtModifyBootEntry @ 0x140A00490 (NtModifyBootEntry.c)
+ *     NtAddBootEntry @ 0x140952F90 (NtAddBootEntry.c)
+ *     NtModifyBootEntry @ 0x1409540E0 (NtModifyBootEntry.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     strcmp @ 0x1403E2AE0 (strcmp.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     ZwTranslateFilePath @ 0x14041F160 (ZwTranslateFilePath.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     IoGetEnvironmentVariableEx @ 0x14093E520 (IoGetEnvironmentVariableEx.c)
- *     IoSetEnvironmentVariableEx @ 0x14093E830 (IoSetEnvironmentVariableEx.c)
- *     ExpSafeWcslen @ 0x1409FD474 (ExpSafeWcslen.c)
- *     ExpVerifyFilePath @ 0x1409FF178 (ExpVerifyFilePath.c)
- *     ExpVerifyWindowsOsOptions @ 0x1409FF2C4 (ExpVerifyWindowsOsOptions.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     strcmp @ 0x1403D3730 (strcmp.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     ZwTranslateFilePath @ 0x1403FDC60 (ZwTranslateFilePath.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     IoGetEnvironmentVariableEx @ 0x140899A4C (IoGetEnvironmentVariableEx.c)
+ *     IoSetEnvironmentVariableEx @ 0x140899D5C (IoSetEnvironmentVariableEx.c)
+ *     ExpSafeWcslen @ 0x1409510D0 (ExpSafeWcslen.c)
+ *     ExpVerifyFilePath @ 0x140952DC8 (ExpVerifyFilePath.c)
+ *     ExpVerifyWindowsOsOptions @ 0x140952F24 (ExpVerifyWindowsOsOptions.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpSetBootEntry(int a1, const void *a2, unsigned __int64 a3)
@@ -31,10 +31,10 @@ __int64 __fastcall ExpSetBootEntry(int a1, const void *a2, unsigned __int64 a3)
   void *v6; // r13
   KPROCESSOR_MODE PreviousMode; // dl
   unsigned __int64 v8; // rax
-  __int64 v9; // rcx
-  unsigned int v10; // ebx
-  SIZE_T v12; // r14
-  unsigned __int64 v13; // rax
+  unsigned int v9; // ebx
+  SIZE_T v11; // r14
+  unsigned __int64 v12; // rax
+  __int64 v13; // rcx
   char *PoolWithTag; // rax
   char *v15; // rdi
   unsigned __int64 v16; // r14
@@ -56,76 +56,75 @@ __int64 __fastcall ExpSetBootEntry(int a1, const void *a2, unsigned __int64 a3)
   int v32; // eax
   char *v33; // rbx
   struct _KTHREAD *v34; // rax
-  _DWORD *v35; // r13
-  __int64 v37[3]; // [rsp+38h] [rbp-C0h] BYREF
-  unsigned __int64 v38; // [rsp+50h] [rbp-A8h]
-  unsigned __int64 v39; // [rsp+58h] [rbp-A0h]
-  int v40; // [rsp+60h] [rbp-98h]
-  unsigned int Size; // [rsp+64h] [rbp-94h]
-  int v43; // [rsp+6Ch] [rbp-8Ch]
-  unsigned int v44; // [rsp+70h] [rbp-88h]
-  unsigned int v45; // [rsp+74h] [rbp-84h]
-  PVOID P; // [rsp+78h] [rbp-80h]
-  char *v47; // [rsp+80h] [rbp-78h]
-  void *Src; // [rsp+88h] [rbp-70h]
-  _DWORD *v49; // [rsp+90h] [rbp-68h]
-  struct _KTHREAD *CurrentThread; // [rsp+A8h] [rbp-50h]
-  wchar_t Dst[12]; // [rsp+B0h] [rbp-48h] BYREF
+  __int64 v36[3]; // [rsp+38h] [rbp-D0h] BYREF
+  unsigned __int64 v37; // [rsp+50h] [rbp-B8h]
+  unsigned __int64 v38; // [rsp+58h] [rbp-B0h]
+  int v39; // [rsp+60h] [rbp-A8h]
+  unsigned int Size; // [rsp+64h] [rbp-A4h]
+  int v42; // [rsp+6Ch] [rbp-9Ch]
+  unsigned int v43; // [rsp+70h] [rbp-98h]
+  PVOID P; // [rsp+78h] [rbp-90h]
+  unsigned int v45; // [rsp+80h] [rbp-88h]
+  char *v46; // [rsp+88h] [rbp-80h]
+  void *Src; // [rsp+90h] [rbp-78h]
+  _DWORD *v48; // [rsp+98h] [rbp-70h]
+  struct _KTHREAD *CurrentThread; // [rsp+B0h] [rbp-58h]
+  size_t Dst[3]; // [rsp+B8h] [rbp-50h] BYREF
 
-  v49 = (_DWORD *)a3;
+  v48 = (_DWORD *)a3;
   P = 0LL;
   i = 0;
   v5 = 0LL;
   v6 = 0LL;
-  v40 = 0;
-  memset(v37, 0, 16);
+  v39 = 0;
+  memset(v36, 0, 16);
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   v8 = (unsigned __int64)a2 + 4;
-  v9 = 0x7FFFFFFF0000LL;
   if ( PreviousMode )
   {
     if ( v8 >= 0x7FFFFFFF0000LL )
       v8 = 0x7FFFFFFF0000LL;
-    v10 = *(_DWORD *)v8;
+    v9 = *(_DWORD *)v8;
     v45 = *(_DWORD *)v8;
   }
   else
   {
-    v10 = *(_DWORD *)v8;
+    v9 = *(_DWORD *)v8;
     v45 = *(_DWORD *)v8;
   }
-  if ( v10 < 0x1C )
+  if ( v9 < 0x1C )
     return 3221225485LL;
   if ( PreviousMode )
   {
     if ( ((unsigned __int8)a2 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v12 = v10;
-    v13 = (unsigned __int64)a2 + v10;
-    if ( v13 > 0x7FFFFFFF0000LL || v13 < (unsigned __int64)a2 )
+    v11 = v9;
+    v12 = (unsigned __int64)a2 + v9;
+    if ( v12 > 0x7FFFFFFF0000LL || v12 < (unsigned __int64)a2 )
       MEMORY[0x7FFFFFFF0000] = 0;
     if ( a3 )
     {
-      if ( a3 < 0x7FFFFFFF0000LL )
-        v9 = a3;
-      *(_DWORD *)v9 = *(_DWORD *)v9;
-      v10 = v45;
+      v13 = a3;
+      if ( a3 >= 0x7FFFFFFF0000LL )
+        v13 = 0x7FFFFFFF0000LL;
+      *(_DWORD *)v13 = *(_DWORD *)v13;
+      v9 = v45;
     }
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
       return 3221225569LL;
   }
   else
   {
-    v12 = v10;
+    v11 = v9;
   }
-  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v12, 0x72766E45u);
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v11, 0x72766E45u);
   v15 = PoolWithTag;
   P = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225626LL;
-  memmove(PoolWithTag, a2, v12);
-  v16 = (unsigned __int64)&v15[v12];
+  memmove(PoolWithTag, a2, v11);
+  v16 = (unsigned __int64)&v15[v11];
   v17 = a1;
   if ( *(_DWORD *)v15 == 1 && (a1 || *((_DWORD *)v15 + 2) <= 0xFFFFu) )
   {
@@ -133,35 +132,35 @@ __int64 __fastcall ExpSetBootEntry(int a1, const void *a2, unsigned __int64 a3)
     Size = *((_DWORD *)v15 + 4);
     if ( (Size & 1) == 0 )
     {
-      v44 = *((_DWORD *)v15 + 5);
-      if ( (v44 & 3) == 0 )
+      v43 = *((_DWORD *)v15 + 5);
+      if ( (v43 & 3) == 0 )
       {
         v20 = *((unsigned int *)v15 + 6);
-        if ( (unsigned int)v20 > v10 || (v47 = &v15[v20 + 28], (unsigned __int64)v47 >= v16) )
+        if ( (unsigned int)v20 > v9 || (v46 = &v15[v20 + 28], (unsigned __int64)v46 >= v16) )
         {
           EnvironmentVariable = -1073741811;
-          v19 = (void *)v37[1];
-          goto LABEL_93;
+          v19 = (void *)v36[1];
+          goto LABEL_94;
         }
         if ( (unsigned int)v20 >= 8 && !strcmp(v15 + 28, "WINDOWS") )
         {
           if ( (unsigned int)v20 <= 0x14 )
           {
             EnvironmentVariable = -1073741811;
-LABEL_92:
-            v19 = (void *)v37[1];
-            v5 = v37[1];
-            goto LABEL_93;
+LABEL_93:
+            v19 = (void *)v36[1];
+            v5 = v36[1];
+            goto LABEL_94;
           }
           EnvironmentVariable = ExpVerifyWindowsOsOptions(v15 + 28, (unsigned int)v20);
           if ( EnvironmentVariable < 0 )
-            goto LABEL_92;
-          v43 = 1;
+            goto LABEL_93;
+          v42 = 1;
           v21 = (__int64)&v15[*((unsigned int *)v15 + 11) + 28];
         }
         else
         {
-          v43 = 0;
+          v42 = 0;
           v21 = 0LL;
         }
         v22 = &v15[Size];
@@ -170,59 +169,59 @@ LABEL_92:
         if ( v23 == -1 )
         {
           EnvironmentVariable = -1073741811;
-          v19 = (void *)v37[1];
-          v6 = (void *)v37[1];
-          v5 = v37[1];
-LABEL_93:
+          v19 = (void *)v36[1];
+          v6 = (void *)v36[1];
+          v5 = v36[1];
+LABEL_94:
           v17 = a1;
-          goto LABEL_94;
+          goto LABEL_95;
         }
         Size = 2 * v23 + 2;
-        v38 = (unsigned __int64)&v15[v44];
-        EnvironmentVariable = ExpVerifyFilePath(v38);
+        v37 = (unsigned __int64)&v15[v43];
+        EnvironmentVariable = ExpVerifyFilePath(v37);
         if ( EnvironmentVariable >= 0 )
         {
-          if ( v47 > v22 || (unsigned __int64)&v22[Size] > v38 )
+          if ( v46 > v22 || (unsigned __int64)&v22[Size] > v37 )
           {
             EnvironmentVariable = -1073741811;
           }
           else
           {
-            if ( *(_DWORD *)(v38 + 8) == 4 )
+            if ( *(_DWORD *)(v37 + 8) == 4 )
             {
-              v26 = *(_DWORD *)(v38 + 4);
-              v39 = v38;
+              v26 = *(_DWORD *)(v37 + 4);
+              v38 = v37;
               goto LABEL_52;
             }
-            EnvironmentVariable = ZwTranslateFilePath(v38, 4LL);
+            EnvironmentVariable = ZwTranslateFilePath(v37, 4LL);
             if ( EnvironmentVariable == -1073741789 )
             {
-              v24 = ExAllocatePoolWithTag(NonPagedPoolNx, HIDWORD(v37[0]), 0x72766E45u);
+              v24 = ExAllocatePoolWithTag(NonPagedPoolNx, HIDWORD(v36[0]), 0x72766E45u);
               v25 = v24;
-              v39 = (unsigned __int64)v24;
+              v38 = (unsigned __int64)v24;
               if ( !v24 )
               {
                 EnvironmentVariable = -1073741670;
                 v6 = 0LL;
 LABEL_47:
-                v19 = (void *)v37[1];
+                v19 = (void *)v36[1];
 LABEL_48:
-                v5 = v38;
-                goto LABEL_93;
+                v5 = v37;
+                goto LABEL_94;
               }
-              memset(v24, 0, HIDWORD(v37[0]));
-              LODWORD(v37[0]) = HIDWORD(v37[0]);
-              EnvironmentVariable = ZwTranslateFilePath(v38, 4LL);
+              memset(v24, 0, HIDWORD(v36[0]));
+              LODWORD(v36[0]) = HIDWORD(v36[0]);
+              EnvironmentVariable = ZwTranslateFilePath(v37, 4LL);
               if ( EnvironmentVariable < 0 )
               {
                 v6 = v25;
                 goto LABEL_47;
               }
-              v26 = HIDWORD(v37[0]);
+              v26 = HIDWORD(v36[0]);
 LABEL_52:
               v27 = v26 - 12;
-              HIDWORD(v37[0]) = v27;
-              if ( !v43 || *(_DWORD *)(v21 + 8) == 4 )
+              HIDWORD(v36[0]) = v27;
+              if ( !v42 || *(_DWORD *)(v21 + 8) == 4 )
               {
                 v28 = *((_DWORD *)v15 + 6);
               }
@@ -232,25 +231,25 @@ LABEL_52:
                 if ( EnvironmentVariable != -1073741789 )
                 {
 LABEL_67:
-                  v19 = (void *)v37[1];
+                  v19 = (void *)v36[1];
                   goto LABEL_59;
                 }
-                v28 = v40 + *((_DWORD *)v15 + 6) - *(_DWORD *)(v21 + 4);
-                v27 = HIDWORD(v37[0]);
+                v28 = v39 + *((_DWORD *)v15 + 6) - *(_DWORD *)(v21 + 4);
+                v27 = HIDWORD(v36[0]);
               }
-              v44 = Size + 6 + v28 + v27;
-              v29 = ExAllocatePoolWithTag(NonPagedPoolNx, v44, 0x72766E45u);
+              v43 = Size + 6 + v28 + v27;
+              v29 = ExAllocatePoolWithTag(NonPagedPoolNx, v43, 0x72766E45u);
               v19 = v29;
-              v37[1] = (__int64)v29;
+              v36[1] = (__int64)v29;
               if ( !v29 )
               {
                 EnvironmentVariable = -1073741670;
 LABEL_59:
-                v6 = (void *)v39;
+                v6 = (void *)v38;
                 goto LABEL_48;
               }
               v30 = v29;
-              memset(v29, 0, v44);
+              memset(v29, 0, v43);
               *(_DWORD *)v30 = 0;
               v31 = *((_DWORD *)v15 + 3);
               v32 = 0;
@@ -262,19 +261,19 @@ LABEL_59:
               }
               if ( (v31 & 0x10) != 0 )
                 *(_DWORD *)v30 = v32 | 8;
-              v30[2] = WORD2(v37[0]);
+              v30[2] = WORD2(v36[0]);
               memmove(v30 + 3, Src, Size);
               v33 = (char *)v30 + Size + 6;
-              memmove(v33, (const void *)(v39 + 12), HIDWORD(v37[0]));
-              if ( !v43 || *(_DWORD *)(v21 + 8) == 4 )
+              memmove(v33, (const void *)(v38 + 12), HIDWORD(v36[0]));
+              if ( !v42 || *(_DWORD *)(v21 + 8) == 4 )
               {
-                memmove(&v33[HIDWORD(v37[0])], v15 + 28, v28);
+                memmove(&v33[HIDWORD(v36[0])], v15 + 28, v28);
               }
               else
               {
-                memmove(&v33[HIDWORD(v37[0])], v15 + 28, *((unsigned int *)v15 + 11));
-                *(_DWORD *)&v33[HIDWORD(v37[0]) + 12] = v28;
-                LODWORD(v37[0]) = v40;
+                memmove(&v33[HIDWORD(v36[0])], v15 + 28, *((unsigned int *)v15 + 11));
+                *(_DWORD *)&v33[HIDWORD(v36[0]) + 12] = v28;
+                LODWORD(v36[0]) = v39;
                 EnvironmentVariable = ZwTranslateFilePath(v21, 4LL);
                 if ( EnvironmentVariable )
                   goto LABEL_67;
@@ -286,89 +285,94 @@ LABEL_59:
               {
                 for ( i = 0; i <= 0xFFFF; ++i )
                 {
-                  swprintf_s(Dst, 9uLL, L"Boot%04x", i);
-                  LODWORD(v37[0]) = 0;
+                  swprintf_s((wchar_t *)Dst, 9uLL, L"Boot%04x", i);
+                  LODWORD(v36[0]) = 0;
                   EnvironmentVariable = IoGetEnvironmentVariableEx(
                                           Dst,
                                           (__int64)&EfiBootVariablesGuid,
                                           0LL,
-                                          (int *)v37,
+                                          (int *)v36,
                                           0LL);
                   if ( EnvironmentVariable == -1073741568 && ((2 * ((i | (2 * i)) & 0xC4444444)) & i) != 0 )
                   {
-                    swprintf_s(Dst, 9uLL, L"Boot%04X", i);
-                    LODWORD(v37[0]) = 0;
+                    swprintf_s((wchar_t *)Dst, 9uLL, L"Boot%04X", i);
+                    LODWORD(v36[0]) = 0;
                     EnvironmentVariable = IoGetEnvironmentVariableEx(
                                             Dst,
                                             (__int64)&EfiBootVariablesGuid,
                                             0LL,
-                                            (int *)v37,
+                                            (int *)v36,
                                             0LL);
                   }
                   if ( EnvironmentVariable == -1073741568 )
                     break;
                   if ( EnvironmentVariable && EnvironmentVariable != -1073741789 )
+                  {
+                    v15 = (char *)P;
                     goto LABEL_80;
+                  }
                 }
-                if ( i > 0xFFFF )
-                {
-                  EnvironmentVariable = -1073741670;
-LABEL_80:
-                  v19 = (void *)v37[1];
-LABEL_81:
-                  ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-                  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-                  v15 = (char *)P;
-                  goto LABEL_59;
-                }
+                v15 = (char *)P;
+                if ( i <= 0xFFFF )
+                  goto LABEL_88;
+                EnvironmentVariable = -1073741670;
               }
               else
               {
-                v35 = P;
+                v15 = (char *)P;
                 i = *((_DWORD *)P + 2);
-                swprintf_s(Dst, 9uLL, L"Boot%04X", i);
-                LODWORD(v37[0]) = 0;
+                swprintf_s((wchar_t *)Dst, 9uLL, L"Boot%04X", i);
+                LODWORD(v36[0]) = 0;
                 EnvironmentVariable = IoGetEnvironmentVariableEx(
                                         Dst,
                                         (__int64)&EfiBootVariablesGuid,
                                         0LL,
-                                        (int *)v37,
+                                        (int *)v36,
                                         0LL);
-                if ( EnvironmentVariable == -1073741568 && ((2 * ((v35[2] | (2 * v35[2])) & 0xC4444444)) & v35[2]) != 0 )
+                if ( EnvironmentVariable == -1073741568
+                  && ((2 * ((*((_DWORD *)v15 + 2) | (2 * *((_DWORD *)v15 + 2))) & 0xC4444444)) & *((_DWORD *)v15 + 2)) != 0 )
                 {
-                  swprintf_s(Dst, 9uLL, L"Boot%04x");
-                  LODWORD(v37[0]) = 0;
+                  swprintf_s((wchar_t *)Dst, 9uLL, L"Boot%04x");
+                  LODWORD(v36[0]) = 0;
                   EnvironmentVariable = IoGetEnvironmentVariableEx(
                                           Dst,
                                           (__int64)&EfiBootVariablesGuid,
                                           0LL,
-                                          (int *)v37,
+                                          (int *)v36,
                                           0LL);
                 }
-                if ( EnvironmentVariable && EnvironmentVariable != -1073741789 )
-                  goto LABEL_80;
+                if ( !EnvironmentVariable || EnvironmentVariable == -1073741789 )
+                {
+LABEL_88:
+                  v19 = (void *)v36[1];
+                  EnvironmentVariable = IoSetEnvironmentVariableEx(Dst, (__int64)&EfiBootVariablesGuid, v36[1], v43, 1);
+                  goto LABEL_81;
+                }
               }
-              v19 = (void *)v37[1];
-              EnvironmentVariable = IoSetEnvironmentVariableEx(Dst, (__int64)&EfiBootVariablesGuid, v37[1], v44, 1);
-              goto LABEL_81;
+LABEL_80:
+              v19 = (void *)v36[1];
+LABEL_81:
+              ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
+              KeLeaveCriticalRegion();
+              goto LABEL_59;
             }
           }
         }
-        v19 = (void *)v37[1];
-        v6 = (void *)v37[1];
+        v19 = (void *)v36[1];
+        v6 = (void *)v36[1];
         goto LABEL_48;
       }
     }
   }
   EnvironmentVariable = -1073741811;
-  v19 = (void *)v37[1];
-LABEL_94:
+  v19 = (void *)v36[1];
+LABEL_95:
   if ( v19 )
     ExFreePoolWithTag(v19, 0);
   if ( v6 && v6 != (void *)v5 )
     ExFreePoolWithTag(v6, 0);
   ExFreePoolWithTag(v15, 0);
-  if ( v17 && v49 && EnvironmentVariable >= 0 )
-    *v49 = i;
+  if ( v17 && v48 && EnvironmentVariable >= 0 )
+    *v48 = i;
   return (unsigned int)EnvironmentVariable;
 }

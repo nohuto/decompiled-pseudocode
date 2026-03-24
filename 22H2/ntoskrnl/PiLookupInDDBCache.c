@@ -1,13 +1,13 @@
 /*
- * XREFs of PiLookupInDDBCache @ 0x140692D24
+ * XREFs of PiLookupInDDBCache @ 0x14073A060
  * Callers:
- *     PpCheckInDriverDatabase @ 0x140692C14 (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x140739F60 (PpCheckInDriverDatabase.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
- *     RtlLookupElementGenericTableAvl @ 0x14022CF30 (RtlLookupElementGenericTableAvl.c)
- *     RtlIsGenericTableEmptyAvl @ 0x14031E6B0 (RtlIsGenericTableEmptyAvl.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcsrchr @ 0x1403DB4B0 (wcsrchr.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
+ *     RtlIsGenericTableEmptyAvl @ 0x14032D550 (RtlIsGenericTableEmptyAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14032D970 (RtlLookupElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403D3A00 (wcsrchr.c)
  */
 
 __int64 __fastcall PiLookupInDDBCache(__int64 a1, __int64 a2, __int64 a3, _OWORD *a4)
@@ -53,14 +53,14 @@ __int64 __fastcall PiLookupInDDBCache(__int64 a1, __int64 a2, __int64 a3, _OWORD
         v14 = *v12;
         if ( (*v12)[1] != v12
           || (v15 = v12[1], *v15 != v12)
-          || (*v15 = v14, v14[1] = v15, v16 = (PVOID ***)qword_140D54F68, *(PVOID **)qword_140D54F68 != &PiDDBCacheList) )
+          || (*v15 = v14, v14[1] = v15, v16 = (PVOID ***)qword_140D2EBE8, *(PVOID **)qword_140D2EBE8 != &PiDDBCacheList) )
         {
           __fastfail(3u);
         }
         *v12 = &PiDDBCacheList;
         v12[1] = (PVOID *)v16;
         *v16 = v12;
-        qword_140D54F68 = (__int64)v12;
+        qword_140D2EBE8 = (__int64)v12;
         v7 = *((_DWORD *)v12 + 9);
         if ( a4 )
           *a4 = *(_OWORD *)(v12 + 5);

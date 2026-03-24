@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIGetConvertToHardwareID @ 0x1C005616C
+ * XREFs of ACPIGetConvertToHardwareID @ 0x1C0055AA8
  * Callers:
- *     ACPIGetWorkerForString @ 0x1C0019740 (ACPIGetWorkerForString.c)
+ *     ACPIGetWorkerForString @ 0x1C000C4F0 (ACPIGetWorkerForString.c)
  * Callees:
- *     ACPIWideStringToAnsiHelper @ 0x1C001C598 (ACPIWideStringToAnsiHelper.c)
- *     ACPIGetConvertToHardwareIDWide @ 0x1C001D6EC (ACPIGetConvertToHardwareIDWide.c)
+ *     ACPIGetConvertToHardwareIDWide @ 0x1C000C70C (ACPIGetConvertToHardwareIDWide.c)
+ *     ACPIWideStringToAnsiHelper @ 0x1C00281A0 (ACPIWideStringToAnsiHelper.c)
  */
 
 __int64 __fastcall ACPIGetConvertToHardwareID(__int64 a1, int a2, __int64 a3, int a4, char **a5, unsigned int *a6)

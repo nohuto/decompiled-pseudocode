@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpCheckDriverDependencies @ 0x140827968
+ * XREFs of PnpCheckDriverDependencies @ 0x140827948
  * Callers:
- *     PipProcessPendingObjects @ 0x1409F6000 (PipProcessPendingObjects.c)
+ *     PipProcessPendingObjects @ 0x1409F6010 (PipProcessPendingObjects.c)
  * Callees:
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)

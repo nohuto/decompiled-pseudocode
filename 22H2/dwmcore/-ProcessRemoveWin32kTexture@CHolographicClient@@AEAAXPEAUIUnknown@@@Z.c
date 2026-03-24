@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessRemoveWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AE184
+ * XREFs of ?ProcessRemoveWin32kTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025C038
  * Callers:
- *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x1802AD924 (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x18025B8BC (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CHolographicClient::ProcessRemoveWin32kTexture(CHolographicClient *this, struct IUnknown *a2)

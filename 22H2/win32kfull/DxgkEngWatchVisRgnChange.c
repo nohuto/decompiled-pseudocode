@@ -1,11 +1,11 @@
 /*
- * XREFs of DxgkEngWatchVisRgnChange @ 0x1C015A620
+ * XREFs of DxgkEngWatchVisRgnChange @ 0x1C0277770
  * Callers:
  *     <none>
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall DxgkEngWatchVisRgnChange(HDC a1, int a2)
@@ -20,8 +20,7 @@ __int64 __fastcall DxgkEngWatchVisRgnChange(HDC a1, int a2)
       *(_DWORD *)(v4[0] + 36LL) |= 0x20000u;
     else
       *(_DWORD *)(v4[0] + 36LL) &= ~0x20000u;
-    if ( v4[0] )
-      XDCOBJ::vUnlockFast((XDCOBJ *)v4);
   }
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v4);
   return UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v5);
 }

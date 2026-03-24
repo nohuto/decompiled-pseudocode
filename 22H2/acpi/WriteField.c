@@ -1,95 +1,123 @@
 /*
- * XREFs of WriteField @ 0x1C00530B0
+ * XREFs of WriteField @ 0x1C0022B30
  * Callers:
- *     AccFieldUnit @ 0x1C0051650 (AccFieldUnit.c)
- *     WriteObject @ 0x1C00532C0 (WriteObject.c)
+ *     AccFieldUnit @ 0x1C000A0B0 (AccFieldUnit.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ExprOp2_64 @ 0x1C0020F60 (ExprOp2_64.c)
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     GetObjectTypeName @ 0x1C004BD70 (GetObjectTypeName.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     RawFieldAccess @ 0x1C0052780 (RawFieldAccess.c)
- *     SupportsOnlyRawAccess @ 0x1C0052F78 (SupportsOnlyRawAccess.c)
- *     PushFrame @ 0x1C0053C54 (PushFrame.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
+ *     RawFieldAccess @ 0x1C0067D58 (RawFieldAccess.c)
  */
 
-__int64 __fastcall WriteField(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall WriteField(struct _SLIST_ENTRY *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rdi
-  unsigned int v5; // r14d
-  __int64 v8; // r12
-  unsigned int v9; // ebx
-  __int64 ObjectTypeName; // rdx
-  int v11; // ecx
-  int v12; // esi
-  __int64 v13; // r15
-  bool v14; // al
-  __int64 v15; // rax
-  __int64 v17; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v5; // ebx
+  int v9; // edx
+  unsigned int v10; // esi
+  __int64 v11; // r12
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  __int64 result; // rax
+  int v17; // edx
+  int ObjectTypeName; // eax
 
-  v4 = a4;
   v5 = (unsigned int)(*(_DWORD *)(a3 + 8) + 7) >> 3;
-  v8 = a1;
   if ( (*(_DWORD *)(a3 + 12) & 0xFu) > 4 )
   {
-    if ( *(_WORD *)(a2 + 2) != 5 )
+    if ( *(_WORD *)(a2 + 2) == 5 )
     {
-      v9 = -1072431087;
-      LogError(-1072431087);
-      AcpiDiagTraceAmlError(v8, -1072431087);
-      ObjectTypeName = *(unsigned int *)(a3 + 12);
-      v11 = 213;
-      goto LABEL_18;
-    }
-    return (unsigned int)RawFieldAccess(a1, 1u, a2, a4);
-  }
-  v17 = 0LL;
-  if ( *(_WORD *)(a4 + 2) == 1 )
-  {
-    v12 = 8;
-    v13 = a4 + 16;
-    if ( v5 < 8 )
-      v12 = v5;
-  }
-  else
-  {
-    if ( *(_WORD *)(a4 + 2) == 2 )
-    {
-      v12 = *(_DWORD *)(a4 + 24) - 1;
+      return RawFieldAccess(a1, 1LL, a2);
     }
     else
     {
-      if ( *(_WORD *)(a4 + 2) != 3 )
-      {
-        v9 = -1072431095;
-        LogError(-1072431095);
-        AcpiDiagTraceAmlError(v8, -1072431095);
-        ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(v4 + 2));
-        v11 = 214;
-LABEL_18:
-        PrintDebugMessage(v11, (const void *)ObjectTypeName, 0LL, 0LL, 0LL);
-        return v9;
-      }
-      v12 = *(_DWORD *)(a4 + 24);
+      LogError(3222536209LL);
+      AcpiDiagTraceAmlError(a1, 3222536209LL);
+      PrintDebugMessage(213, *(_DWORD *)(a3 + 12), 0, 0, 0LL);
+      return 3222536209LL;
     }
-    v13 = *(_QWORD *)(a4 + 32);
   }
-  v14 = SupportsOnlyRawAccess(a2);
-  a1 = v8;
-  if ( v14 )
+  else
   {
-    a4 = v4;
-    return (unsigned int)RawFieldAccess(a1, 1u, a2, a4);
+    v9 = *(unsigned __int16 *)(a4 + 2);
+    if ( v9 == 1 )
+    {
+      v10 = 8;
+      v11 = a4 + 16;
+      if ( v5 < 8 )
+        v10 = (unsigned int)(*(_DWORD *)(a3 + 8) + 7) >> 3;
+    }
+    else
+    {
+      v17 = v9 - 2;
+      if ( v17 )
+      {
+        if ( v17 != 1 )
+        {
+          LogError(3222536201LL);
+          AcpiDiagTraceAmlError(a1, 3222536201LL);
+          ObjectTypeName = GetObjectTypeName(*(unsigned __int16 *)(a4 + 2));
+          PrintDebugMessage(214, ObjectTypeName, 0, 0, 0LL);
+          return 3222536201LL;
+        }
+        v10 = *(_DWORD *)(a4 + 24);
+        v11 = *(_QWORD *)(a4 + 32);
+      }
+      else
+      {
+        v11 = *(_QWORD *)(a4 + 32);
+        v10 = *(_DWORD *)(a4 + 24) - 1;
+      }
+    }
+    if ( *(_WORD *)(a2 + 2) != 5 )
+      goto LABEL_10;
+    v12 = **(_QWORD **)(a2 + 32);
+    if ( *(_WORD *)(v12 + 66) != 131 )
+      goto LABEL_10;
+    v13 = gpRSAccessHead;
+    if ( !gpRSAccessHead )
+      goto LABEL_10;
+    while ( *(_DWORD *)(v13 + 8) != *(unsigned __int8 *)(*(_QWORD *)(**(_QWORD **)(v12 + 96) + 96LL) + 12LL) )
+    {
+      v13 = *(_QWORD *)v13;
+      if ( !v13 )
+        goto LABEL_10;
+    }
+    if ( v13 && *(_QWORD *)(v13 + 32) && !*(_QWORD *)(v13 + 16) )
+    {
+      return RawFieldAccess(a1, 1LL, a2);
+    }
+    else
+    {
+LABEL_10:
+      v14 = HeapAlloc(a1 + 30, 1297237576, 0x40u);
+      v15 = v14;
+      if ( v14 )
+      {
+        *(_QWORD *)(v14 + 8) = a1[26].Next;
+        a1[26].Next = (_SLIST_ENTRY *)v14;
+        *(_QWORD *)(v14 + 24) = WriteFieldLoop;
+        result = 0LL;
+        *(_DWORD *)v15 = 1279677015;
+        *(_QWORD *)(v15 + 32) = a2;
+        *(_QWORD *)(v15 + 40) = a3;
+        *(_QWORD *)(v15 + 48) = v11;
+        *(_DWORD *)(v15 + 56) = v10;
+        *(_DWORD *)(v15 + 60) = v5;
+      }
+      else
+      {
+        LogError(3222536194LL);
+        AcpiDiagTraceAmlError(a1, 3222536194LL);
+        PrintDebugMessage(153, 0, 0, 0, 0LL);
+        return 3222536194LL;
+      }
+    }
   }
-  v9 = PushFrame(v8, 1279677015, 64, (unsigned int)WriteFieldLoop, (__int64)&v17);
-  if ( !v9 )
-  {
-    v15 = v17;
-    *(_QWORD *)(v17 + 32) = a2;
-    *(_QWORD *)(v15 + 40) = a3;
-    *(_QWORD *)(v15 + 48) = v13;
-    *(_DWORD *)(v15 + 56) = v12;
-    *(_DWORD *)(v15 + 60) = v5;
-  }
-  return v9;
+  return result;
 }

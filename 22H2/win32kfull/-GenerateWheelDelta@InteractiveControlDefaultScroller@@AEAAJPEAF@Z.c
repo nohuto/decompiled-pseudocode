@@ -1,47 +1,43 @@
 /*
- * XREFs of ?GenerateWheelDelta@InteractiveControlDefaultScroller@@AEAAJPEAF@Z @ 0x1C02477C4
+ * XREFs of ?GenerateWheelDelta@InteractiveControlDefaultScroller@@AEAAJPEAF@Z @ 0x1C0258A48
  * Callers:
- *     ?GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0247594 (-GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTE.c)
+ *     ?GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0258878 (-GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTE.c)
  * Callees:
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C003D78C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5B10 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall InteractiveControlDefaultScroller::GenerateWheelDelta(
         InteractiveControlDefaultScroller *this,
         __int16 *a2)
 {
-  unsigned int v3; // ebp
+  unsigned int v4; // ebp
   int v5; // edi
   unsigned __int64 v6; // rbx
-  __int64 v7; // rcx
-  unsigned int v8; // eax
-  int v9; // ecx
-  __int16 v10; // ax
+  unsigned int v7; // eax
+  __int16 v8; // cx
+  int v9; // eax
 
-  v3 = *((_DWORD *)this + 12) * *((_DWORD *)this + 7);
+  v4 = *((_DWORD *)this + 12) * *((_DWORD *)this + 7);
   v5 = 0;
   v6 = (unsigned __int64)(1000LL * (*((_QWORD *)this + 2) - *((_QWORD *)this + 1))) / *(_QWORD *)this;
-  v7 = 120 * abs32(*((_DWORD *)this + 15));
-  *((_DWORD *)this + 16) += v7;
-  if ( v6 >= *((int *)InteractiveControlManager::Instance(v7) + 47) )
+  *((_DWORD *)this + 16) += 120 * abs32(*((_DWORD *)this + 15));
+  if ( v6 < *((int *)InteractiveControlManager::Instance() + 47) )
+    goto LABEL_12;
+  v7 = *((_DWORD *)this + 16);
+  if ( v7 < v4 )
+    goto LABEL_12;
+  do
   {
-    v8 = *((_DWORD *)this + 16);
-    if ( v8 >= v3 )
-    {
-      do
-      {
-        v5 += *((_DWORD *)this + 12);
-        v8 -= v3;
-      }
-      while ( v8 >= v3 );
-      *((_DWORD *)this + 16) = v8;
-    }
+    v5 += *((_DWORD *)this + 12);
+    v7 -= v4;
   }
+  while ( v7 >= v4 );
+  *((_DWORD *)this + 16) = v7;
   if ( v5 )
   {
-    v9 = *((_DWORD *)this + 15);
+    v8 = -(__int16)v5;
     *((_QWORD *)this + 2) = *((_QWORD *)this + 1);
-    v10 = -(__int16)v5;
+    v9 = *((_DWORD *)this + 15);
     if ( *((_DWORD *)this + 14) == 2 )
     {
       if ( v9 <= 0 )
@@ -50,12 +46,13 @@ __int64 __fastcall InteractiveControlDefaultScroller::GenerateWheelDelta(
     else
     {
       if ( v9 <= 0 )
-        v10 = v5;
-      LOWORD(v5) = v10;
+        v8 = v5;
+      LOWORD(v5) = v8;
     }
   }
   else
   {
+LABEL_12:
     LOWORD(v5) = 0;
   }
   *a2 = v5;

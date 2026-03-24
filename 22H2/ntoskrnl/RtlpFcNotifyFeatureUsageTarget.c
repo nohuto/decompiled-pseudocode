@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpFcNotifyFeatureUsageTarget @ 0x1409C876C
+ * XREFs of RtlpFcNotifyFeatureUsageTarget @ 0x1409199D8
  * Callers:
- *     RtlpFcSendFeatureUsageNotifications @ 0x1409C88CC (RtlpFcSendFeatureUsageNotifications.c)
+ *     RtlpFcSendFeatureUsageNotifications @ 0x140919B38 (RtlpFcSendFeatureUsageNotifications.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryWnfStateData @ 0x14041D460 (ZwQueryWnfStateData.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryWnfStateData @ 0x1403FC6A0 (ZwQueryWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpFcNotifyFeatureUsageTarget(__int64 a1, _DWORD *a2)
 {
-  _DWORD *Pool2; // rdi
+  _DWORD *PoolWithTag; // rdi
   int WnfStateData; // ebx
   unsigned int i; // ecx
   _DWORD v7[2]; // [rsp+48h] [rbp-18h] BYREF
 
   v7[0] = *a2;
   v7[1] = a2[1];
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, 4096LL, 1852793670LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x6E6F6346u);
+  if ( PoolWithTag )
   {
     do
     {
@@ -29,14 +29,14 @@ __int64 __fastcall RtlpFcNotifyFeatureUsageTarget(__int64 a1, _DWORD *a2)
       {
         for ( i = 0; i < 0x200; ++i )
         {
-          if ( Pool2[2 * i] == *(_DWORD *)a1 && LOWORD(Pool2[2 * i + 1]) == *(_WORD *)(a1 + 4) )
+          if ( PoolWithTag[2 * i] == *(_DWORD *)a1 && LOWORD(PoolWithTag[2 * i + 1]) == *(_WORD *)(a1 + 4) )
             break;
         }
-        WnfStateData = ZwUpdateWnfStateData((__int64)v7, (__int64)Pool2);
+        WnfStateData = ZwUpdateWnfStateData((__int64)v7, (__int64)PoolWithTag);
       }
     }
     while ( WnfStateData == -1073741823 );
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
   else
   {

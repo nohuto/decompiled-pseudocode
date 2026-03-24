@@ -1,41 +1,38 @@
 /*
- * XREFs of vEnableSynchronize @ 0x1C00BBAB0
+ * XREFs of vEnableSynchronize @ 0x1C012F690
  * Callers:
  *     <none>
  * Callees:
- *     UserSetTimer @ 0x1C022CE98 (UserSetTimer.c)
+ *     UserSetTimer @ 0x1C0247C9C (UserSetTimer.c)
  */
 
 void __fastcall vEnableSynchronize(__int64 a1)
 {
-  int v1; // esi
-  __int64 v3; // rcx
-  char v4; // bp
-  __int64 v5; // rdi
-  signed __int32 v6; // ett
+  int v1; // edi
+  char v3; // si
+  signed __int32 v4; // ett
 
-  v1 = *(_DWORD *)(a1 + 2096);
+  v1 = *(_DWORD *)(a1 + 2128);
   if ( (v1 & 0xC0) != 0 )
   {
     if ( (unsigned int)UserIsUserCritSecIn() )
     {
-      v4 = 0;
+      v3 = 0;
     }
     else
     {
-      v4 = 1;
+      v3 = 1;
       UserEnterUserCritSec();
     }
-    v5 = *(_QWORD *)(SGDGetSessionState(v3) + 32);
-    if ( (v1 & 0x80u) != 0 && (*(_QWORD *)(v5 + 20256))++ == -1LL )
-      *(_QWORD *)(v5 + 20256) = UserSetTimer();
+    if ( (v1 & 0x80u) != 0 && !++gcSynchronizeTimer )
+      gidSynchronizeTimer = UserSetTimer();
     if ( (v1 & 0x40) != 0 )
-      ++*(_DWORD *)(v5 + 20248);
+      ++gcSynchronizeFlush;
     _m_prefetchw((const void *)(a1 + 40));
     do
-      v6 = *(_DWORD *)(a1 + 40);
-    while ( v6 != _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 40), v6 | 0x800, v6) );
-    if ( v4 )
+      v4 = *(_DWORD *)(a1 + 40);
+    while ( v4 != _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 40), v4 | 0x800, v4) );
+    if ( v3 )
       UserLeaveUserCritSec();
   }
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of __scrt_dllmain_after_initialize_c @ 0x18010F110
+ * XREFs of __scrt_dllmain_after_initialize_c @ 0x1800E6D60
  * Callers:
- *     dllmain_crt_process_attach @ 0x18010F528 (dllmain_crt_process_attach.c)
+ *     dllmain_crt_process_attach @ 0x1800E7198 (dllmain_crt_process_attach.c)
  * Callees:
- *     __isa_available_init @ 0x18010FB6C (__isa_available_init.c)
- *     _get_startup_argv_mode @ 0x18010FD14 (_get_startup_argv_mode.c)
- *     __scrt_is_ucrt_dll_in_use @ 0x18010FD20 (__scrt_is_ucrt_dll_in_use.c)
- *     _configure_narrow_argv_0 @ 0x180110062 (_configure_narrow_argv_0.c)
- *     _initialize_narrow_environment_0 @ 0x18011006E (_initialize_narrow_environment_0.c)
+ *     __isa_available_init @ 0x1800E79F4 (__isa_available_init.c)
+ *     _get_startup_argv_mode @ 0x1800E7B78 (_get_startup_argv_mode.c)
+ *     __scrt_is_ucrt_dll_in_use @ 0x1800E7B84 (__scrt_is_ucrt_dll_in_use.c)
+ *     _o__configure_narrow_argv_0 @ 0x1800E7E36 (_o__configure_narrow_argv_0.c)
+ *     _initialize_narrow_environment @ 0x1800E7E66 (_initialize_narrow_environment.c)
  */
 
 char _scrt_dllmain_after_initialize_c()
@@ -21,9 +21,9 @@ char _scrt_dllmain_after_initialize_c()
   else
   {
     startup_argv_mode = get_startup_argv_mode();
-    if ( configure_narrow_argv_0(startup_argv_mode) )
+    if ( o__configure_narrow_argv_0(startup_argv_mode) )
       return 0;
-    initialize_narrow_environment_0();
+    initialize_narrow_environment();
   }
   return 1;
 }

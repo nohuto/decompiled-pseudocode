@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ @ 0x1C0017AA0
+ * XREFs of ?DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ @ 0x1C000F100
  * Callers:
- *     ??_GCCompositionFrameCollection@@IEAAPEAXI@Z @ 0x1C0016A7C (--_GCCompositionFrameCollection@@IEAAPEAXI@Z.c)
+ *     ??_GCCompositionFrameCollection@@IEAAPEAXI@Z @ 0x1C000E63C (--_GCCompositionFrameCollection@@IEAAPEAXI@Z.c)
  * Callees:
- *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C00190C0 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C0012CB0 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CCompositionFrameCollection::DiscardAllCompositionFrames(CCompositionFrameCollection *this)
@@ -22,7 +22,7 @@ void __fastcall CCompositionFrameCollection::DiscardAllCompositionFrames(CCompos
   *((_BYTE *)v1 + 8) = 1;
   v3 = (char **)*((_QWORD *)v2 + 1);
   if ( *v3 != v2 || (v4 = (char **)v3[1], *v4 != (char *)v3) )
-LABEL_6:
+LABEL_9:
     __fastfail(3u);
   *((_QWORD *)v2 + 1) = v4;
   *v4 = v2;
@@ -33,10 +33,10 @@ LABEL_6:
     (*((void (__fastcall **)(char **))*v5 + 1))(v5);
     v3 = (char **)*((_QWORD *)v2 + 1);
     if ( *v3 != v2 )
-      goto LABEL_6;
+      goto LABEL_9;
     v6 = (char **)v3[1];
     if ( *v6 != (char *)v3 )
-      goto LABEL_6;
+      goto LABEL_9;
     *((_QWORD *)v2 + 1) = v6;
     *v6 = v2;
   }

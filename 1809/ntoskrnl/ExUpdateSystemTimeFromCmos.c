@@ -5,9 +5,9 @@
  *     ExpTimeRefreshWork @ 0x14056E0E0 (ExpTimeRefreshWork.c)
  *     KdpTimeSlipWork @ 0x140917C10 (KdpTimeSlipWork.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x140127040 (RtlTimeFieldsToTime.c)
- *     ExLocalTimeToSystemTime @ 0x140160BD0 (ExLocalTimeToSystemTime.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlTimeFieldsToTime @ 0x140127060 (RtlTimeFieldsToTime.c)
+ *     ExLocalTimeToSystemTime @ 0x140160BF0 (ExLocalTimeToSystemTime.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExpSetSystemTime @ 0x140566AC8 (ExpSetSystemTime.c)
  */
 

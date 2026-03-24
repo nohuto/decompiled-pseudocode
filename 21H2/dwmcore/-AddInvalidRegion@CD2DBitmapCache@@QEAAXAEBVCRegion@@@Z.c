@@ -1,15 +1,14 @@
 /*
- * XREFs of ?AddInvalidRegion@CD2DBitmapCache@@QEAAXAEBVCRegion@@@Z @ 0x1800D68DC
+ * XREFs of ?AddInvalidRegion@CD2DBitmapCache@@QEAAXAEBVCRegion@@@Z @ 0x18019BAE8
  * Callers:
- *     ?AddDirtyRegion@CRenderTargetBitmap@@UEAAXAEBVCRegion@@@Z @ 0x1800D68A4 (-AddDirtyRegion@CRenderTargetBitmap@@UEAAXAEBVCRegion@@@Z.c)
- *     ?AddDirtyRegion@CBitmapRealization@@UEAAXAEBVCRegion@@@Z @ 0x1800D68B8 (-AddDirtyRegion@CBitmapRealization@@UEAAXAEBVCRegion@@@Z.c)
- *     ?AddDirtyRegion@CColorKeyBitmapRealization@@UEAAXAEBVCRegion@@@Z @ 0x1802A1B50 (-AddDirtyRegion@CColorKeyBitmapRealization@@UEAAXAEBVCRegion@@@Z.c)
- *     ?AddDirtyRegion@CWICBitmapRealization@@UEAAXAEBVCRegion@@@Z @ 0x1802A2A80 (-AddDirtyRegion@CWICBitmapRealization@@UEAAXAEBVCRegion@@@Z.c)
- *     ?AddDirtyRegion@CDxHandleStereoBitmapRealization@@UEAAXAEBVCRegion@@@Z @ 0x1802A47EC (-AddDirtyRegion@CDxHandleStereoBitmapRealization@@UEAAXAEBVCRegion@@@Z.c)
- *     ?CopyRegion@CDecodeBitmap@@QEAAJAEBVCRegion@@PEAUID3D11Texture2D@@I@Z @ 0x1802A661C (-CopyRegion@CDecodeBitmap@@QEAAJAEBVCRegion@@PEAUID3D11Texture2D@@I@Z.c)
+ *     ?CopyBitmapRegion@CDecodeBitmap@@QEAAJAEBVCRegion@@PEAUID2D1Bitmap1@@@Z @ 0x1800F2BA4 (-CopyBitmapRegion@CDecodeBitmap@@QEAAJAEBVCRegion@@PEAUID2D1Bitmap1@@@Z.c)
+ *     ?AddDirtyRegion@CRenderTargetBitmap@@UEAAXAEBVCRegion@@@Z @ 0x18019B76C (-AddDirtyRegion@CRenderTargetBitmap@@UEAAXAEBVCRegion@@@Z.c)
+ *     ?AddDirtyRegion@CColorKeyBitmapRealization@@UEAAXAEBVCRegion@@@Z @ 0x1802625F0 (-AddDirtyRegion@CColorKeyBitmapRealization@@UEAAXAEBVCRegion@@@Z.c)
+ *     ?AddDirtyRegion@CWICBitmapRealization@@UEAAXAEBVCRegion@@@Z @ 0x180263500 (-AddDirtyRegion@CWICBitmapRealization@@UEAAXAEBVCRegion@@@Z.c)
+ *     ?AddDirtyRegion@CDxHandleStereoBitmapRealization@@UEAAXAEBVCRegion@@@Z @ 0x180264DAC (-AddDirtyRegion@CDxHandleStereoBitmapRealization@@UEAAXAEBVCRegion@@@Z.c)
  * Callees:
- *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18008248C (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18009B3D8 (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall CD2DBitmapCache::AddInvalidRegion(
@@ -17,28 +16,26 @@ void __fastcall CD2DBitmapCache::AddInvalidRegion(
         const struct FastRegion::Internal::CRgnData **a2)
 {
   __int64 v4; // rcx
-  __int64 v5; // rbx
-  __int64 v6; // rdi
-  int v7; // eax
+  int v5; // eax
+  __int64 v6; // rbx
+  __int64 v7; // rdi
   int v8; // eax
   void *retaddr; // [rsp+28h] [rbp+0h]
 
   v4 = *((_QWORD *)this + 5);
   if ( v4 )
   {
-    v8 = FastRegion::CRegion::Union((const struct FastRegion::Internal::CRgnData **)(v4 + 48), a2);
+    v5 = FastRegion::CRegion::Union((void **)(v4 + 56), a2);
+    if ( v5 < 0 )
+      ModuleFailFastForHRESULT((unsigned int)v5, retaddr);
+  }
+  v6 = *((_QWORD *)this + 6);
+  v7 = *((_QWORD *)this + 7);
+  while ( v6 != v7 )
+  {
+    v8 = FastRegion::CRegion::Union((void **)(*(_QWORD *)(*(_QWORD *)v6 + 8LL) + 264LL), a2);
     if ( v8 < 0 )
       ModuleFailFastForHRESULT((unsigned int)v8, retaddr);
-  }
-  v5 = *((_QWORD *)this + 6);
-  v6 = *((_QWORD *)this + 7);
-  while ( v5 != v6 )
-  {
-    v7 = FastRegion::CRegion::Union(
-           (const struct FastRegion::Internal::CRgnData **)(*(_QWORD *)(*(_QWORD *)v5 + 8LL) + 264LL),
-           a2);
-    if ( v7 < 0 )
-      ModuleFailFastForHRESULT((unsigned int)v7, retaddr);
-    v5 += 8LL;
+    v6 += 8LL;
   }
 }

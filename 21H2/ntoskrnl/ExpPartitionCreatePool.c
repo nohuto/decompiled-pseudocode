@@ -1,11 +1,10 @@
 /*
- * XREFs of ExpPartitionCreatePool @ 0x140851DAC
+ * XREFs of ExpPartitionCreatePool @ 0x1407C2288
  * Callers:
- *     ExAllocatePrivateWorkerPool @ 0x140851D88 (ExAllocatePrivateWorkerPool.c)
+ *     ExAllocatePrivateWorkerPool @ 0x1407C2264 (ExAllocatePrivateWorkerPool.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeGetCurrentNode @ 0x1403D4F3C (KeGetCurrentNode.c)
- *     ExpPartitionCreatePoolInternal @ 0x1408520BC (ExpPartitionCreatePoolInternal.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ExpPartitionCreatePoolInternal @ 0x1407C25B0 (ExpPartitionCreatePoolInternal.c)
  */
 
 __int64 __fastcall ExpPartitionCreatePool(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
@@ -13,7 +12,7 @@ __int64 __fastcall ExpPartitionCreatePool(__int64 a1, __int64 a2, __int64 a3, un
   bool v6; // zf
   unsigned int v7; // ecx
   unsigned int v8; // esi
-  _WORD *CurrentNode; // r14
+  _KNODE *ParentNode; // r14
   __int64 result; // rax
   unsigned __int16 v11; // bp
   __int64 v12; // [rsp+70h] [rbp+8h]
@@ -28,20 +27,20 @@ __int64 __fastcall ExpPartitionCreatePool(__int64 a1, __int64 a2, __int64 a3, un
   }
   while ( !_interlockedbittestandreset((volatile signed __int32 *)(a1 + 24), v7) );
   v8 = v7;
-  CurrentNode = (_WORD *)KeGetCurrentNode();
-  if ( (_UNKNOWN *)KeNodeBlock[(unsigned __int16)*CurrentNode] == (_UNKNOWN *)((char *)&KiNodeInit
-                                                                             + 280 * (unsigned __int16)*CurrentNode) )
-    CurrentNode = 0LL;
-  result = ExpPartitionCreatePoolInternal(a1, 1, 16, (_DWORD)CurrentNode, v13);
+  ParentNode = KeGetCurrentPrcb()->ParentNode;
+  if ( (_UNKNOWN *)KeNodeBlock[ParentNode->Affinity.Reserved[0]] == (_UNKNOWN *)((char *)&KiNodeInit
+                                                                               + 384 * ParentNode->Affinity.Reserved[0]) )
+    ParentNode = 0LL;
+  result = ExpPartitionCreatePoolInternal(a1, 1, 16, (_DWORD)ParentNode, v7);
   if ( (int)result >= 0 )
   {
     v11 = 0;
     if ( KeNumberNodes )
     {
-      v12 = (2 * ((unsigned __int16)*CurrentNode & 0x7Fu)) | 1LL;
+      v12 = (2 * (ParentNode->Affinity.Reserved[0] & 0x7Fu)) | 1LL;
       do
       {
-        if ( v11 != *CurrentNode )
+        if ( v11 != ParentNode->Affinity.Reserved[0] )
         {
           v8 = v13;
           *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL * v11) + 8LL * v13) = v12;

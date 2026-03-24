@@ -1,33 +1,33 @@
 /*
- * XREFs of KdpWritePhysicalMemory @ 0x140AB5F48
+ * XREFs of KdpWritePhysicalMemory @ 0x1409B92E0
  * Callers:
- *     KdpSendWaitContinue @ 0x140AB17C8 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpCopyMemoryChunks @ 0x140AB12A4 (KdpCopyMemoryChunks.c)
+ *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
  */
 
-__int64 __fastcall KdpWritePhysicalMemory(__int64 a1, __int64 a2)
+__int64 __fastcall KdpWritePhysicalMemory(__int64 a1)
 {
-  _DWORD *v3; // rcx
-  int v4; // r9d
-  _QWORD v6[3]; // [rsp+30h] [rbp-18h] BYREF
+  _DWORD *v2; // rcx
+  int v3; // r9d
+  _QWORD v5[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  v6[0] = 56LL;
-  v6[1] = a1;
-  v3 = (_DWORD *)(a1 + 28);
-  v4 = 7;
-  switch ( *v3 )
+  v5[0] = 56LL;
+  v5[1] = a1;
+  v2 = (_DWORD *)(a1 + 28);
+  v3 = 7;
+  switch ( *v2 )
   {
     case 1:
-      v4 = 15;
+      v3 = 15;
       break;
     case 2:
-      v4 = 23;
+      v3 = 23;
       break;
     case 3:
-      v4 = 39;
+      v3 = 39;
       break;
   }
-  *(_DWORD *)(a1 + 8) = KdpCopyMemoryChunks(*(char **)(a1 + 16), *(_QWORD *)(a2 + 8), *(_DWORD *)(a1 + 24), 0, v4, v3);
-  return KdSendPacket(2LL, v6, 0LL, &KdpContext);
+  *(_DWORD *)(a1 + 8) = KdpCopyMemoryChunks(*(PVOID *)(a1 + 16), v3, (__int64)v2);
+  return KdSendPacket(2LL, v5, 0LL, &KdpContext);
 }

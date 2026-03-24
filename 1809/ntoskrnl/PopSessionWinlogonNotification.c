@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSessionWinlogonNotification @ 0x14087901C
+ * XREFs of PopSessionWinlogonNotification @ 0x140878FFC
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x14014240C (PopPrintEx.c)
+ *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
  *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     PopReleaseAdaptiveLock @ 0x1406DC650 (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x1406DC6E4 (PopAcquireAdaptiveLock.c)
- *     PopDiagTraceSessionStates @ 0x1406DC770 (PopDiagTraceSessionStates.c)
- *     PopUpdateTimeouts @ 0x1406DC820 (PopUpdateTimeouts.c)
- *     PopGetLockConsoleTimeoutUnsafe @ 0x140878DFC (PopGetLockConsoleTimeoutUnsafe.c)
- *     PopLazySensorActiveInput @ 0x140878F40 (PopLazySensorActiveInput.c)
+ *     PopReleaseAdaptiveLock @ 0x1406DC630 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x1406DC6C4 (PopAcquireAdaptiveLock.c)
+ *     PopDiagTraceSessionStates @ 0x1406DC750 (PopDiagTraceSessionStates.c)
+ *     PopUpdateTimeouts @ 0x1406DC800 (PopUpdateTimeouts.c)
+ *     PopGetLockConsoleTimeoutUnsafe @ 0x140878DDC (PopGetLockConsoleTimeoutUnsafe.c)
+ *     PopLazySensorActiveInput @ 0x140878F20 (PopLazySensorActiveInput.c)
  */
 
 __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)

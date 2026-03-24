@@ -1,35 +1,31 @@
 /*
- * XREFs of IopGetRegistryValues @ 0x1407CF598
+ * XREFs of IopGetRegistryValues @ 0x14078B374
  * Callers:
- *     pIoQueryDeviceDescription @ 0x1407CEB14 (pIoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x1407CEFB8 (pIoQueryBusDescription.c)
+ *     pIoQueryDeviceDescription @ 0x14078AA64 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x14078B004 (pIoQueryBusDescription.c)
  * Callees:
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
  */
 
-__int64 __fastcall IopGetRegistryValues(HANDLE KeyHandle, _QWORD *a2)
+NTSTATUS __fastcall IopGetRegistryValues(HANDLE KeyHandle, _QWORD *a2)
 {
-  unsigned int v2; // ebx
-  _QWORD *v3; // rsi
-  unsigned int RegistryValue; // edx
-  unsigned int v6; // ecx
-  NTSTATUS v7; // eax
+  _QWORD *v2; // rdi
+  NTSTATUS result; // eax
 
-  v2 = 0;
-  v3 = a2 + 1;
+  v2 = a2 + 1;
   *a2 = 0LL;
   a2[2] = 0LL;
   a2[1] = 0LL;
-  RegistryValue = IopGetRegistryValue(KeyHandle, L"Identifier", 40, a2);
-  if ( (int)(RegistryValue + 0x80000000) >= 0 && RegistryValue != -1073741772 )
-    return RegistryValue;
-  v6 = IopGetRegistryValue(KeyHandle, L"Configuration Data", 36, v3);
-  if ( ((v6 + 0x80000000) & 0x80000000) == 0 && v6 != -1073741772 )
-    return v6;
-  v7 = IopGetRegistryValue(KeyHandle, L"Component Information", 24, v3 + 1);
-  if ( v7 >= 0 )
-    return 0LL;
-  if ( v7 != -1073741772 )
-    return (unsigned int)v7;
-  return v2;
+  result = IopGetRegistryValue(KeyHandle, L"Identifier", 40, a2);
+  if ( (int)(result + 0x80000000) < 0 || result == -1073741772 )
+  {
+    result = IopGetRegistryValue(KeyHandle, L"Configuration Data", 36, v2);
+    if ( ((result + 0x80000000) & 0x80000000) != 0 || result == -1073741772 )
+    {
+      result = IopGetRegistryValue(KeyHandle, L"Component Information", 24, v2 + 1);
+      if ( ((result + 0x80000000) & 0x80000000) != 0 || result == -1073741772 )
+        return 0;
+    }
+  }
+  return result;
 }

@@ -1,10 +1,9 @@
 /*
- * XREFs of ?RemoveAllocationFromList@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@PEAPEAV2@@Z @ 0x1C02E6A90
+ * XREFs of ?RemoveAllocationFromList@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@PEAPEAV2@@Z @ 0x1C02560F8
  * Callers:
- *     ?RemoveAllocationFromList@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z @ 0x1C02E695C (-RemoveAllocationFromList@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z.c)
+ *     ?RemoveAllocationFromList@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z @ 0x1C016F46C (-RemoveAllocationFromList@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 void __fastcall DXGDEVICE::RemoveAllocationFromList(
@@ -12,35 +11,30 @@ void __fastcall DXGDEVICE::RemoveAllocationFromList(
         struct DXGALLOCATION *a2,
         struct DXGALLOCATION **a3)
 {
-  struct DXGALLOCATION *v5; // rcx
-  __int64 v6; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  struct DXGALLOCATION *v8; // rcx
+  __int64 v9; // rax
 
   if ( *((_DWORD *)this + 144) == 1
     && !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 8272LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_ExecutionState != DXGDEVICEEXECUTION_ACTIVE || GetRenderCore()->IsCoreResourceSharedOwner()",
-      8272LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v7 = WdLogNewEntry5_WdAssertion(v6, v5);
+    *(_QWORD *)(v7 + 24) = 8283LL;
+    WdLogEvent5_WdAssertion(v7);
   }
-  v5 = (struct DXGALLOCATION *)*((_QWORD *)a2 + 8);
-  if ( v5 )
+  v8 = (struct DXGALLOCATION *)*((_QWORD *)a2 + 8);
+  if ( v8 )
   {
-    *((_QWORD *)v5 + 7) = *((_QWORD *)a2 + 7);
-    v5 = (struct DXGALLOCATION *)*((_QWORD *)a2 + 8);
+    *((_QWORD *)v8 + 7) = *((_QWORD *)a2 + 7);
+    v8 = (struct DXGALLOCATION *)*((_QWORD *)a2 + 8);
   }
-  v6 = *((_QWORD *)a2 + 7);
-  if ( v6 )
-    *(_QWORD *)(v6 + 64) = v5;
+  v9 = *((_QWORD *)a2 + 7);
+  if ( v9 )
+    *(_QWORD *)(v9 + 64) = v8;
   else
-    *a3 = v5;
+    *a3 = v8;
   *((_QWORD *)a2 + 8) = 0LL;
   *((_QWORD *)a2 + 7) = 0LL;
 }

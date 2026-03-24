@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetPointerRawDataInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z @ 0x1C01CA8A8
+ * XREFs of ?GetPointerRawDataInternal@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z @ 0x1C019498C
  * Callers:
- *     NtUserGetRawPointerDeviceData @ 0x1C0145940 (NtUserGetRawPointerDeviceData.c)
+ *     NtUserGetRawPointerDeviceData @ 0x1C012FC70 (NtUserGetRawPointerDeviceData.c)
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C00E4550 (-GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND.c)
- *     ?GetPointerRawDataWithHistory@CTouchProcessor@@QEAAH_KIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z @ 0x1C01CA940 (-GetPointerRawDataWithHistory@CTouchProcessor@@QEAAH_KIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ?GetPointerRawDataWithHistory@CTouchProcessor@@QEAAH_KIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z @ 0x1C0194A30 (-GetPointerRawDataWithHistory@CTouchProcessor@@QEAAH_KIIPEBUtagPOINTER_DEVICE_PROPERTY@@IPEAJ@Z.c)
+ *     ?GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C0195D00 (-GetThreadPointerData@CTouchProcessor@@QEAA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND.c)
  */
 
 __int64 __fastcall CTouchProcessor::GetPointerRawDataInternal(
@@ -18,25 +18,28 @@ __int64 __fastcall CTouchProcessor::GetPointerRawDataInternal(
         unsigned int a7,
         int *a8)
 {
-  unsigned int v8; // ebx
+  CTouchProcessor *v8; // rdi
+  unsigned int v9; // ebx
   unsigned __int64 ThreadPointerData; // rax
+  __int64 v12; // rdx
 
-  v8 = 0;
+  v8 = gpTouchProcessor;
+  v9 = 0;
   ThreadPointerData = CTouchProcessor::GetThreadPointerData(
-                        this,
-                        (struct tagTHREADINFO *)((char *)a2 + 1128),
+                        gpTouchProcessor,
+                        (struct tagTHREADINFO *)((char *)a2 + 1088),
                         a3,
                         0LL,
                         0LL,
                         0LL);
   if ( ThreadPointerData )
   {
-    LOBYTE(v8) = CTouchProcessor::GetPointerRawDataWithHistory(this, ThreadPointerData, a4, a5, a6, a7, a8) != 0;
-    return v8;
+    LOBYTE(v9) = (unsigned int)CTouchProcessor::GetPointerRawDataWithHistory(v8, ThreadPointerData, a4, a5, a6, a7, a8) != 0;
+    return v9;
   }
   else
   {
-    UserSetLastError(87);
+    UserSetLastError(87LL, v12);
     return 0LL;
   }
 }

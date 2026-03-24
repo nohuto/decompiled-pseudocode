@@ -1,49 +1,45 @@
 /*
- * XREFs of IrqArbpUnreferenceArbitrationList @ 0x1C009E8A0
+ * XREFs of IrqArbpUnreferenceArbitrationList @ 0x1C0093FBC
  * Callers:
- *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4E0 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C0092350 (IrqArbpPrepareForTestOrConflict.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_i @ 0x1C002295C (WPP_RECORDER_SF_i.c)
- *     ProcessorDeleteDeviceIdtAssignment @ 0x1C005E010 (ProcessorDeleteDeviceIdtAssignment.c)
- *     WPP_RECORDER_SF_DDq @ 0x1C005E980 (WPP_RECORDER_SF_DDq.c)
- *     LinkNodeGetPossibleGsiv @ 0x1C00994A4 (LinkNodeGetPossibleGsiv.c)
- *     ProcessorGetDeviceIdtAssignment @ 0x1C009AC04 (ProcessorGetDeviceIdtAssignment.c)
- *     IrqArbGsivFromIrq @ 0x1C009D6AC (IrqArbGsivFromIrq.c)
- *     IcGetPossibleInput @ 0x1C009F324 (IcGetPossibleInput.c)
- *     IcRemovePossibleReference @ 0x1C009F670 (IcRemovePossibleReference.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_q @ 0x1C000F770 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_DDq @ 0x1C000F830 (WPP_RECORDER_SF_DDq.c)
+ *     ProcessorDeleteDeviceIdtAssignment @ 0x1C000FC64 (ProcessorDeleteDeviceIdtAssignment.c)
+ *     IcGetPossibleInput @ 0x1C0091E28 (IcGetPossibleInput.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C00936A0 (ProcessorGetDeviceIdtAssignment.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
+ *     IcRemovePossibleReference @ 0x1C0096A68 (IcRemovePossibleReference.c)
+ *     LinkNodeGetPossibleGsiv @ 0x1C00B68E4 (LinkNodeGetPossibleGsiv.c)
  */
 
-__int64 __fastcall IrqArbpUnreferenceArbitrationList(__int64 a1, _QWORD **a2)
+__int64 __fastcall IrqArbpUnreferenceArbitrationList(__int64 a1, __int64 ***a2)
 {
   struct _RTL_RANGE_LIST *v2; // rcx
-  _QWORD **v3; // r13
-  int v4; // edx
-  int v5; // r8d
-  int v6; // r9d
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  __int64 v6; // r9
   PRTL_RANGE i; // rcx
-  PVOID UserData; // rbx
-  _QWORD *j; // r15
-  void **v10; // r14
+  _DWORD *UserData; // rdi
+  __int64 **j; // rbx
   int v11; // eax
-  unsigned int Start; // esi
-  unsigned int v13; // eax
-  __int64 v14; // rdx
-  unsigned int v15; // edi
-  __int64 v16; // rdx
-  int v17; // r8d
-  unsigned int v18; // r12d
+  PRTL_RANGE v12; // rax
+  unsigned int k; // r14d
+  unsigned int v14; // eax
+  __int64 v15; // rdx
+  unsigned int v16; // esi
+  __int64 v17; // rdx
+  int v18; // r8d
+  unsigned int v19; // r15d
   int v20; // [rsp+20h] [rbp-60h]
   __int128 v21; // [rsp+40h] [rbp-40h] BYREF
   __int128 v22; // [rsp+50h] [rbp-30h]
   struct _RANGE_LIST_ITERATOR Iterator; // [rsp+60h] [rbp-20h] BYREF
-  PRTL_RANGE Range; // [rsp+C0h] [rbp+40h] BYREF
-  _QWORD **v25; // [rsp+C8h] [rbp+48h]
+  PRTL_RANGE Range; // [rsp+B0h] [rbp+30h] BYREF
 
-  v25 = a2;
   v2 = *(struct _RTL_RANGE_LIST **)(a1 + 40);
   Range = 0LL;
-  v3 = a2;
   v22 = 0LL;
   memset(&Iterator, 0, sizeof(Iterator));
   RtlGetFirstRange(v2, &Iterator, &Range);
@@ -51,74 +47,58 @@ __int64 __fastcall IrqArbpUnreferenceArbitrationList(__int64 a1, _QWORD **a2)
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      WPP_RECORDER_SF_DDq(WPP_GLOBAL_Control->DeviceExtension, v4, v5, v6, v20, i->Start, i->End, (char)i->Owner);
+      WPP_RECORDER_SF_DDq((__int64)WPP_GLOBAL_Control->DeviceExtension, v4, v5, v6, v20);
       i = Range;
     }
     UserData = i->UserData;
-    *((_DWORD *)UserData + 1) &= ~8u;
-    for ( j = *v3; v3 != j; j = (_QWORD *)*j )
+    UserData[1] &= ~8u;
+    for ( j = *a2; a2 != (__int64 ***)j; j = (__int64 **)*j )
     {
-      v10 = (void **)(j + 4);
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_q(
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
+          4u,
+          0x14u,
+          0x14u,
+          (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids);
+      if ( Range->Owner == j[4] )
       {
-        LOBYTE(v4) = 4;
-        WPP_RECORDER_SF_i(
-          WPP_GLOBAL_Control->DeviceExtension,
-          v4,
-          20,
-          20,
-          (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids,
-          (char)*v10);
-      }
-      if ( Range->Owner == *v10 )
-      {
-        v11 = *((_DWORD *)UserData + 1);
+        v11 = UserData[1];
         if ( (v11 & 8) == 0 )
         {
-          *((_DWORD *)UserData + 1) = v11 | 8;
-          Start = Range->Start;
-          if ( LODWORD(Range->Start) <= LODWORD(Range->End) )
+          UserData[1] = v11 | 8;
+          v12 = Range;
+          for ( k = Range->Start; k <= LODWORD(v12->End); ++k )
           {
-            do
+            v14 = IrqArbGsivFromIrq(k);
+            v16 = v14;
+            if ( v14 < 0xFFF00000 && (int)IcGetPossibleInput(v14, v15, 0LL) >= 0 )
             {
-              v13 = IrqArbGsivFromIrq(Start);
-              v15 = v13;
-              if ( v13 < 0xFFF00000 && (int)IcGetPossibleInput(v13, v14, 0LL) >= 0 )
-              {
-                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                {
-                  LOBYTE(v16) = 4;
-                  WPP_RECORDER_SF_d(
-                    WPP_GLOBAL_Control->DeviceExtension,
-                    v16,
-                    v17 + 20,
-                    v17 + 21,
-                    (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids);
-                }
-                LOBYTE(v16) = Range->Attributes & 1;
-                IcRemovePossibleReference(v15, v16);
-              }
-              if ( (int)ProcessorGetDeviceIdtAssignment(*v10, v15, 1, &v21) >= 0 )
-              {
-                v18 = DWORD1(v22);
-                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                {
-                  LOBYTE(v4) = 4;
-                  WPP_RECORDER_SF_d(
-                    WPP_GLOBAL_Control->DeviceExtension,
-                    v4,
-                    20,
-                    22,
-                    (__int64)&WPP_939ab7ce094a3f0c5044c61116540ed5_Traceguids);
-                }
-                ProcessorDeleteDeviceIdtAssignment(*v10, v15, v18, 1);
-              }
-              ++Start;
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                WPP_RECORDER_SF_D(
+                  (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                  4u,
+                  v18 + 20,
+                  v18 + 21,
+                  (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids);
+              LOBYTE(v17) = Range->Attributes & 1;
+              IcRemovePossibleReference(v16, v17);
             }
-            while ( Start <= LODWORD(Range->End) );
-            v3 = v25;
+            if ( (int)ProcessorGetDeviceIdtAssignment(j[4], v16, 1, &v21) >= 0 )
+            {
+              v19 = DWORD1(v22);
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                WPP_RECORDER_SF_D(
+                  (__int64)WPP_GLOBAL_Control->DeviceExtension,
+                  4u,
+                  0x14u,
+                  0x16u,
+                  (__int64)&WPP_4412200d597a3c4f07f109e3f649cee5_Traceguids);
+              ProcessorDeleteDeviceIdtAssignment(j[4], v16, v19, 1);
+            }
+            v12 = Range;
           }
-          if ( *((_DWORD *)UserData + 2) == 2 )
+          if ( UserData[2] == 2 )
           {
             LinkNodeGetPossibleGsiv(*((_QWORD *)UserData + 2), 0LL);
             --*(_DWORD *)(*((_QWORD *)UserData + 2) + 28LL);

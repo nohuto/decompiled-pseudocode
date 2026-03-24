@@ -1,23 +1,23 @@
 /*
- * XREFs of PipDeviceObjectListIndexOf @ 0x140767EAC
+ * XREFs of PipDeviceObjectListIndexOf @ 0x140737920
  * Callers:
- *     PipIsDeviceInDeviceObjectList @ 0x140767E88 (PipIsDeviceInDeviceObjectList.c)
- *     IopMergeRelationLists @ 0x1409582C4 (IopMergeRelationLists.c)
- *     IopRemoveRelationFromList @ 0x140958430 (IopRemoveRelationFromList.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x1407378FC (PipIsDeviceInDeviceObjectList.c)
+ *     IopMergeRelationLists @ 0x1408B2728 (IopMergeRelationLists.c)
+ *     IopRemoveRelationFromList @ 0x1408B2894 (IopRemoveRelationFromList.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PipDeviceObjectListIndexOf(__int64 a1, __int64 a2, int a3, _QWORD *a4)
 {
-  __int64 v4; // r10
+  int v4; // r10d
   _QWORD *v5; // rax
 
-  v4 = 0LL;
+  v4 = 0;
   if ( a3 <= 0 )
   {
 LABEL_5:
-    LODWORD(v4) = -1;
+    v4 = -1;
     if ( a4 )
       *a4 = 0LL;
   }
@@ -26,13 +26,13 @@ LABEL_5:
     v5 = (_QWORD *)(a1 + 16);
     while ( a2 != *v5 )
     {
-      v4 = (unsigned int)(v4 + 1);
+      ++v4;
       v5 += 3;
-      if ( (int)v4 >= a3 )
+      if ( v4 >= a3 )
         goto LABEL_5;
     }
     if ( a4 )
-      *a4 = a1 + 8 * (v4 + 2 * (v4 + 1));
+      *a4 = a1 + 8 * (3LL * v4 + 2);
   }
   return (unsigned int)v4;
 }

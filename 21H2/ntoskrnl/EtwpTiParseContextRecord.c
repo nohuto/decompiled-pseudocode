@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTiParseContextRecord @ 0x1409E8A2C
+ * XREFs of EtwpTiParseContextRecord @ 0x14093C484
  * Callers:
- *     EtwTiLogSetContextThread @ 0x14070592C (EtwTiLogSetContextThread.c)
+ *     EtwTiLogSetContextThread @ 0x140696CB8 (EtwTiLogSetContextThread.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall EtwpTiParseContextRecord(_QWORD *a1, int a2, __int64 a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ArbDeleteArbiterInstance @ 0x1C00A17F4
+ * XREFs of ArbDeleteArbiterInstance @ 0x1C00B7C24
  * Callers:
- *     AcpiArblibFreeArbiterInstance @ 0x1C000B64C (AcpiArblibFreeArbiterInstance.c)
+ *     AcpiArblibFreeArbiterInstance @ 0x1C00AD264 (AcpiArblibFreeArbiterInstance.c)
  * Callees:
- *     RtlFreeRangeList_0 @ 0x1C0001A1F (RtlFreeRangeList_0.c)
- *     ArbFreeOrderingList @ 0x1C00A19D8 (ArbFreeOrderingList.c)
+ *     RtlFreeRangeList_0 @ 0x1C0031CCF (RtlFreeRangeList_0.c)
+ *     ArbFreeOrderingList @ 0x1C00A05F0 (ArbFreeOrderingList.c)
  */
 
-__int64 __fastcall ArbDeleteArbiterInstance(__int64 a1)
+void __fastcall ArbDeleteArbiterInstance(__int64 a1)
 {
   void *v2; // rcx
   void *v3; // rcx
@@ -37,5 +37,5 @@ __int64 __fastcall ArbDeleteArbiterInstance(__int64 a1)
   if ( v6 )
     ExFreePoolWithTag(v6, 0);
   ArbFreeOrderingList(a1 + 56);
-  return ArbFreeOrderingList(a1 + 72);
+  ArbFreeOrderingList(a1 + 72);
 }

@@ -1,127 +1,113 @@
 /*
- * XREFs of HvCheckHive @ 0x14079B3A0
+ * XREFs of HvCheckHive @ 0x140709848
  * Callers:
- *     CmCheckRegistry @ 0x140689DC8 (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x1407216C8 (CmCheckRegistry.c)
  * Callees:
- *     SetFailureLocation @ 0x14020A890 (SetFailureLocation.c)
- *     HvpMapEntryGetFreeBin @ 0x14079B740 (HvpMapEntryGetFreeBin.c)
- *     HvCheckBin @ 0x14079C640 (HvCheckBin.c)
- *     HvMoveLayoutStats @ 0x14079C888 (HvMoveLayoutStats.c)
- *     HvAddToLayoutStats @ 0x14079CED8 (HvAddToLayoutStats.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140AB44A4 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetCellMap @ 0x140AB44C0 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140AB451C (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140AB4534 (HvpGetBinContextInitialize.c)
+ *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
+ *     HvpMapEntryGetFreeBin @ 0x14070810C (HvpMapEntryGetFreeBin.c)
+ *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
+ *     HvCheckBin @ 0x140709190 (HvCheckBin.c)
+ *     HvMoveLayoutStats @ 0x1407093D8 (HvMoveLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x1407093F4 (HvAddToLayoutStats.c)
  */
 
-__int64 HvCheckHive(__int64 a1, int a2, ...)
+__int64 __fastcall HvCheckHive(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
-  __int64 v2; // r8
-  unsigned int v3; // r11d
-  __int64 v4; // rbx
-  unsigned int *v5; // r12
-  __int64 v6; // r13
-  unsigned int v7; // edi
-  unsigned int v8; // r14d
-  unsigned int v9; // r15d
-  __int64 CellMap; // rcx
-  unsigned int v11; // r11d
+  unsigned int *v6; // r12
+  __int64 v7; // rbx
+  unsigned int v8; // edi
+  __int64 v9; // r13
+  unsigned int v10; // r14d
+  __int64 v11; // rax
+  unsigned int v12; // r15d
+  _BYTE *CellMap; // rcx
   __int64 FreeBin; // rax
-  __int64 v13; // rcx
-  _DWORD *BinAddress; // rbp
-  int v15; // r8d
+  __int64 v15; // rcx
+  __int64 v16; // r8
   RTL_BITMAP *BitMapHeader; // r10
-  unsigned int v17; // eax
-  signed int v18; // eax
-  __int64 v19; // rdx
-  __int64 v20; // rcx
+  _DWORD *v18; // rbp
+  __int64 v19; // rcx
+  int v20; // eax
   unsigned int v21; // esi
-  __int16 v24; // [rsp+98h] [rbp+10h] BYREF
-  __int16 v25; // [rsp+9Ah] [rbp+12h]
-  __int64 v26; // [rsp+A0h] [rbp+18h] BYREF
-  va_list va; // [rsp+A0h] [rbp+18h]
-  __int64 v28; // [rsp+A8h] [rbp+20h]
-  __int64 v29; // [rsp+B0h] [rbp+28h]
-  __int64 v30; // [rsp+B8h] [rbp+30h]
-  va_list va1; // [rsp+C0h] [rbp+38h] BYREF
+  int v23; // edx
+  _DWORD *v24; // rcx
+  int v26; // [rsp+88h] [rbp+10h] BYREF
+  __int64 v27; // [rsp+98h] [rbp+20h]
 
-  va_start(va1, a2);
-  va_start(va, a2);
-  v26 = va_arg(va1, _QWORD);
-  v28 = va_arg(va1, _QWORD);
-  v29 = va_arg(va1, _QWORD);
-  v30 = va_arg(va1, _QWORD);
-  v25 = HIWORD(a2);
-  v24 = 0;
-  HvpGetBinContextInitialize(&v24);
-  v4 = v30;
-  v5 = (unsigned int *)(v2 + 280);
-  v6 = v29;
-  v7 = v3;
-  LODWORD(v26) = v3;
-  v8 = v3;
+  v27 = a4;
+  v26 = 0;
+  v6 = (unsigned int *)(a1 + 272);
+  v7 = a6;
+  v8 = 0;
+  v9 = a5;
+  v10 = 0;
+  v11 = a1;
   while ( 2 )
   {
-    v9 = *v5;
-    while ( v7 < v9 )
+    v12 = *v6;
+    while ( v8 < v12 )
     {
-      CellMap = HvpGetCellMap(v2, v7);
+      CellMap = (_BYTE *)HvpGetCellMap(v11, v8);
       if ( !CellMap )
       {
         v21 = -1073741492;
-        if ( v4 )
+        if ( v7 )
         {
-          SetFailureLocation(v4, 0, 16, 0xC000014C, v11);
-          *(_DWORD *)(v4 + 296) = v8;
-          *(_DWORD *)(v4 + 300) = v7;
+          SetFailureLocation(v7, 0, 16, -1073741492, 0);
+          *(_DWORD *)(v7 + 296) = v10;
+          *(_DWORD *)(v7 + 300) = v8;
         }
         return v21;
       }
       FreeBin = HvpMapEntryGetFreeBin(CellMap);
       if ( FreeBin )
       {
-        v7 += *(_DWORD *)(FreeBin + 16);
-        if ( v6 )
+        v23 = *(_DWORD *)(FreeBin + 16);
+        v8 += v23;
+        if ( v9 )
         {
-          HvAddToLayoutStats(v6);
-          HvMoveLayoutStats();
+          HvAddToLayoutStats(v9, v23);
+          HvMoveLayoutStats(v24);
         }
       }
       else
       {
-        BinAddress = (_DWORD *)HvpMapEntryGetBinAddress(v13, v13, &v24);
-        v17 = BinAddress[2];
-        if ( v17 > v9 - v7 || v17 < 0x20 || (v17 & 0xFFF) != 0 || *BinAddress != 1852400232 || BinAddress[1] != v7 )
+        v18 = (_DWORD *)(*(_QWORD *)(v15 + 8) & 0xFFFFFFFFFFFFFFF0uLL);
+        v19 = (unsigned int)v18[2];
+        if ( (unsigned int)v19 > v12 - v8
+          || (unsigned int)v19 < 0x20
+          || (v19 & 0xFFF) != 0
+          || *v18 != 1852400232
+          || v18[1] != v8 )
         {
           v21 = -1073741492;
-          if ( !v4 )
+          if ( !v7 )
             return v21;
-          SetFailureLocation(v4, 0, 16, 0xC000014C, 0x20u);
-          goto LABEL_22;
+          SetFailureLocation(v7, 0, 16, -1073741492, 32);
+          goto LABEL_23;
         }
-        v18 = HvCheckBin(v9 - v7, (int)BinAddress, v15, (int)va, BitMapHeader, v6, v4);
-        v21 = v18;
-        if ( v18 < 0 )
+        v20 = HvCheckBin(v19, v18, v16, &v26, BitMapHeader, v9, v7);
+        v21 = v20;
+        if ( v20 < 0 )
         {
-          if ( !v4 )
+          if ( !v7 )
             return v21;
-          SetFailureLocation(v4, 0, 16, v18, 0x30u);
-LABEL_22:
-          *(_DWORD *)(v4 + 296) = v8;
-          *(_DWORD *)(v4 + 300) = v7;
-          *(_QWORD *)(v4 + 304) = BinAddress;
+          SetFailureLocation(v7, 0, 16, v20, 48);
+LABEL_23:
+          *(_DWORD *)(v7 + 296) = v10;
+          *(_DWORD *)(v7 + 300) = v8;
+          *(_QWORD *)(v7 + 304) = v18;
           return v21;
         }
-        v7 += BinAddress[2];
-        HvpMapEntryReleaseBinAddress(v20, v19, &v24);
-        v2 = a1;
+        v8 += v18[2];
       }
+      v11 = a1;
     }
-    ++v8;
-    v5 += 158;
-    v7 = 0x80000000;
-    if ( v8 <= 1 )
+    ++v10;
+    v6 += 158;
+    v8 = 0x80000000;
+    if ( v10 <= 1 )
       continue;
-    return v3;
+    return 0;
   }
 }

@@ -1,33 +1,30 @@
 /*
- * XREFs of HalMapIoSpace @ 0x14037E780
+ * XREFs of HalMapIoSpace @ 0x1403B3460
  * Callers:
- *     HalpApicInitializeLocalUnit @ 0x140377BD0 (HalpApicInitializeLocalUnit.c)
- *     HalpHpetDiscover @ 0x140377E30 (HalpHpetDiscover.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x14037E658 (HalpIommuAllocateAndZeroPageTable.c)
- *     HalpIvtProcessDrhdEntry @ 0x14037EF04 (HalpIvtProcessDrhdEntry.c)
- *     HalpApicInitializeIoUnit @ 0x1403A49C0 (HalpApicInitializeIoUnit.c)
- *     HalpHpetInitialize @ 0x1403B4F10 (HalpHpetInitialize.c)
- *     HalpPmTimerInitialize @ 0x1403B6490 (HalpPmTimerInitialize.c)
- *     HalpHvTimerInitialize @ 0x1403CD390 (HalpHvTimerInitialize.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x14051F340 (ExtEnvAllocatePhysicalMemory.c)
- *     WdHwCreateHardwareRegister @ 0x14052A348 (WdHwCreateHardwareRegister.c)
- *     IvtInitializeIdentityMappings @ 0x14052D0C0 (IvtInitializeIdentityMappings.c)
- *     IvtInitializeIommu @ 0x140A8A670 (IvtInitializeIommu.c)
- *     HsaInitializeInterruptRemapping @ 0x140A99188 (HsaInitializeInterruptRemapping.c)
- *     HsaInitializeIommu @ 0x140A99320 (HsaInitializeIommu.c)
- *     HalpAcpiSetupPmRegister @ 0x140B66CE8 (HalpAcpiSetupPmRegister.c)
+ *     HalpHvTimerInitialize @ 0x1403904C0 (HalpHvTimerInitialize.c)
+ *     HalpApicInitializeLocalUnit @ 0x1403A13E0 (HalpApicInitializeLocalUnit.c)
+ *     HalpApicInitializeIoUnit @ 0x1403A5090 (HalpApicInitializeIoUnit.c)
+ *     HalpHpetDiscover @ 0x1403B25CC (HalpHpetDiscover.c)
+ *     HalpHpetInitialize @ 0x1403B33E0 (HalpHpetInitialize.c)
+ *     HalpPmTimerInitialize @ 0x1403CFC50 (HalpPmTimerInitialize.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x1404D5080 (ExtEnvAllocatePhysicalMemory.c)
+ *     HalpSfiTimerInitialize @ 0x1404D57B0 (HalpSfiTimerInitialize.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x1404DB6D8 (HalpIommuAllocateAndZeroPageTable.c)
+ *     WdHwCreateHardwareRegister @ 0x1404DE308 (WdHwCreateHardwareRegister.c)
+ *     IvtInitializeIdentityMappings @ 0x1404E0130 (IvtInitializeIdentityMappings.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E734C (HalpIvtProcessDrhdEntry.c)
+ *     IvtInitializeIommu @ 0x1409A9A90 (IvtInitializeIommu.c)
+ *     HsaInitializeInterruptRemapping @ 0x1409AA588 (HsaInitializeInterruptRemapping.c)
+ *     HsaInitializeIommu @ 0x1409AA730 (HsaInitializeIommu.c)
+ *     HalpAcpiSetupPmRegister @ 0x140A650DC (HalpAcpiSetupPmRegister.c)
  * Callees:
- *     HalpMap @ 0x14037E878 (HalpMap.c)
+ *     HalpMap @ 0x1403BB2D8 (HalpMap.c)
  */
 
 PVOID __stdcall HalMapIoSpace(LARGE_INTEGER PhysicalAddress, SIZE_T NumberOfBytes, MEMORY_CACHING_TYPE CacheType)
 {
-  int v3; // edx
-
   if ( (unsigned int)CacheType > MmCached )
     return 0LL;
-  v3 = (NumberOfBytes + 4095) >> 12;
-  if ( CacheType != MmCached )
-    CacheType = MmNonCached;
-  return (PVOID)HalpMap(PhysicalAddress.LowPart, v3, CacheType, 0, 4);
+  else
+    return (PVOID)HalpMap(PhysicalAddress.LowPart, (NumberOfBytes + 4095) >> 12, CacheType == MmCached, 0, 4);
 }

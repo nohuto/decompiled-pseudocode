@@ -3,7 +3,7 @@
  * Callers:
  *     AlpcpExposeAttributes @ 0x140633190 (AlpcpExposeAttributes.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  */
 
 char __fastcall AlpcpExposeWorkOnBehalfAttribute(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)

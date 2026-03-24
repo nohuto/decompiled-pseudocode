@@ -1,7 +1,7 @@
 /*
- * XREFs of _SBGetParms @ 0x1C02415A4
+ * XREFs of _SBGetParms @ 0x1C0245644
  * Callers:
- *     xxxSBWndProc @ 0x1C02420E0 (xxxSBWndProc.c)
+ *     xxxSBWndProc @ 0x1C0246160 (xxxSBWndProc.c)
  * Callees:
  *     <none>
  */

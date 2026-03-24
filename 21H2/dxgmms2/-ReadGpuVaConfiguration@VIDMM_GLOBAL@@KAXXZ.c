@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReadGpuVaConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00B6408
+ * XREFs of ?ReadGpuVaConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0095C58
  * Callers:
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00B41D8 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0093BFC (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
  */
 
 void VIDMM_GLOBAL::ReadGpuVaConfiguration(void)
@@ -162,11 +162,11 @@ void VIDMM_GLOBAL::ReadGpuVaConfiguration(void)
   v73 = 0LL;
   v74 = 0LL;
   RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers\\MemoryManager", &v16, 0LL, 0LL);
-  dword_1C006E418 = v3;
-  dword_1C006E41C = v4;
-  dword_1C006E420 = 32 * v4;
+  dword_1C00503A8 = v3;
+  dword_1C00503AC = v4;
+  dword_1C00503B0 = 32 * v4;
   VIDMM_GLOBAL::_Config = (v2 != 0 ? 0x20 : 0) | (v1 != 0 ? 0x100 : 0) | (v0 != 0 ? 0x80 : 0) | VIDMM_GLOBAL::_Config & 0xFFFFFE5F;
-  dword_1C006E424 = v5 & 0xFFFFF000;
-  dword_1C006E500 = v6;
-  dword_1C006E504 = v7;
+  dword_1C00503B4 = v5 & 0xFFFFF000;
+  dword_1C0050490 = v6;
+  dword_1C0050494 = v7;
 }

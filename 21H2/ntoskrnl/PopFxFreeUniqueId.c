@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxFreeUniqueId @ 0x140811AFC
+ * XREFs of PopFxFreeUniqueId @ 0x140736844
  * Callers:
- *     PoFxAbandonDevice @ 0x140766E4C (PoFxAbandonDevice.c)
+ *     PoFxAbandonDevice @ 0x140738B04 (PoFxAbandonDevice.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopFxFreeUniqueId(__int64 a1)

@@ -1,37 +1,37 @@
 /*
- * XREFs of WmipOpenBlock @ 0x140783428
+ * XREFs of WmipOpenBlock @ 0x14063F2B8
  * Callers:
- *     WmipIoControl @ 0x1406C3540 (WmipIoControl.c)
- *     IoWMIOpenBlock @ 0x140784550 (IoWMIOpenBlock.c)
+ *     WmipIoControl @ 0x1406A8220 (WmipIoControl.c)
+ *     IoWMIOpenBlock @ 0x14075AC90 (IoWMIOpenBlock.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     WmipAllocGuidEntry @ 0x14075DFE4 (WmipAllocGuidEntry.c)
- *     WmipOpenGuidObject @ 0x14078314C (WmipOpenGuidObject.c)
- *     WmipFindGEByGuid @ 0x140783CD8 (WmipFindGEByGuid.c)
- *     WmipEnableCollectOrEvent @ 0x1407841FC (WmipEnableCollectOrEvent.c)
- *     WmipIsQuerySetGuid @ 0x1407843EC (WmipIsQuerySetGuid.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     WmipIsQuerySetGuid @ 0x14063EA18 (WmipIsQuerySetGuid.c)
+ *     WmipEnableCollectOrEvent @ 0x14063EA80 (WmipEnableCollectOrEvent.c)
+ *     WmipFindGEByGuid @ 0x14063F1D0 (WmipFindGEByGuid.c)
+ *     WmipOpenGuidObject @ 0x14063F6E0 (WmipOpenGuidObject.c)
+ *     WmipAllocGuidEntry @ 0x140758028 (WmipAllocGuidEntry.c)
  */
 
-__int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4, _QWORD *a5)
+__int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4, PADAPTER_OBJECT *a5)
 {
   unsigned __int64 v5; // rax
   char v6; // bp
   __int64 v8; // rcx
   int v9; // edi
-  char *v10; // rbx
-  ULONG_PTR GEByGuid; // rdi
-  _QWORD *v12; // rdx
-  _QWORD *v13; // rax
-  _QWORD *v15; // rax
-  ULONG_PTR *v16; // rax
+  PADAPTER_OBJECT v10; // rbx
+  _DMA_OPERATIONS *GEByGuid; // rdi
+  _DMA_OPERATIONS ***FreeAdapterChannel; // rdx
+  _DMA_OPERATIONS **p_DmaOperations; // rax
+  __int64 v15; // rax
+  _DMA_OPERATIONS **v16; // rax
   __int64 v17; // rcx
-  _QWORD *v18; // rax
-  _QWORD *v19; // rdx
-  PVOID Object[5]; // [rsp+30h] [rbp-28h] BYREF
+  _DMA_OPERATIONS **v18; // rax
+  _DMA_OPERATIONS ***v19; // rdx
+  PADAPTER_OBJECT DmaAdapter[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  Object[0] = 0LL;
+  DmaAdapter[0] = 0LL;
   v5 = (unsigned int)(a1 - 2244872);
   v6 = a2;
   if ( (unsigned int)v5 > 0x38 )
@@ -39,73 +39,75 @@ __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4
   v8 = 0x110000000000001LL;
   if ( !_bittest64(&v8, v5) )
     return (unsigned int)-1073741649;
-  v9 = WmipOpenGuidObject(a3, a2, a4, Object);
+  v9 = WmipOpenGuidObject(a3, a2, a4, DmaAdapter);
   if ( v9 >= 0 )
   {
-    v10 = (char *)Object[0];
-    *((_DWORD *)Object[0] + 16) = a1;
+    v10 = DmaAdapter[0];
+    *(_DWORD *)&DmaAdapter[0][4].Version = a1;
     if ( a1 == 2244872 )
     {
-      *((_DWORD *)v10 + 41) |= 1u;
+      *(_DWORD *)(&v10[10].Size + 1) |= 1u;
     }
     else
     {
-      GEByGuid = WmipFindGEByGuid(v10 + 24, 0LL);
+      GEByGuid = (_DMA_OPERATIONS *)WmipFindGEByGuid(&v10[1].DmaOperations, 0);
       KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
       if ( GEByGuid )
       {
-        v12 = *(_QWORD **)(GEByGuid + 48);
-        v13 = v10 + 40;
-        if ( *v12 != GEByGuid + 40 )
+        FreeAdapterChannel = (_DMA_OPERATIONS ***)GEByGuid->FreeAdapterChannel;
+        p_DmaOperations = &v10[2].DmaOperations;
+        if ( *FreeAdapterChannel != (_DMA_OPERATIONS **)&GEByGuid->FlushAdapterBuffers )
           goto LABEL_28;
-        *v13 = GEByGuid + 40;
-        *((_QWORD *)v10 + 6) = v12;
-        *v12 = v13;
-        *(_QWORD *)(GEByGuid + 48) = v13;
+        *p_DmaOperations = (_DMA_OPERATIONS *)&GEByGuid->FlushAdapterBuffers;
+        *(_QWORD *)&v10[3].Version = FreeAdapterChannel;
+        *FreeAdapterChannel = p_DmaOperations;
+        GEByGuid->FreeAdapterChannel = (void (__fastcall *)(_DMA_ADAPTER *))p_DmaOperations;
       }
-      *((_QWORD *)v10 + 7) = GEByGuid;
+      v10[3].DmaOperations = GEByGuid;
       KeReleaseMutex(&WmipSMMutex, 0);
       if ( a1 == 2244924 )
       {
-        if ( !GEByGuid || *(_DWORD *)(GEByGuid + 36) == a1 - 2244924 || !(unsigned __int8)WmipIsQuerySetGuid(GEByGuid) )
+        if ( !GEByGuid
+          || HIDWORD(GEByGuid->AllocateAdapterChannel) == a1 - 2244924
+          || !WmipIsQuerySetGuid((__int64)GEByGuid) )
         {
           v9 = -1073741163;
           goto LABEL_17;
         }
 LABEL_12:
         if ( !v6 )
-          *((_DWORD *)v10 + 41) |= 2u;
+          *(_DWORD *)(&v10[10].Size + 1) |= 2u;
         if ( GEByGuid )
         {
 LABEL_15:
-          v9 = WmipEnableCollectOrEvent(GEByGuid);
+          v9 = WmipEnableCollectOrEvent((ULONG_PTR)GEByGuid, a1, &v10[10]);
           if ( v9 < 0 )
             goto LABEL_17;
           goto LABEL_16;
         }
         KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
         v15 = WmipAllocGuidEntry();
-        GEByGuid = (ULONG_PTR)v15;
+        GEByGuid = (_DMA_OPERATIONS *)v15;
         if ( v15 )
         {
-          *(_OWORD *)(v15 + 9) = *(_OWORD *)(v10 + 24);
-          v16 = (ULONG_PTR *)WmipGEHeadPtr;
+          *(struct _DMA_ADAPTER *)(v15 + 72) = *(PADAPTER_OBJECT)((char *)v10 + 24);
+          v16 = (_DMA_OPERATIONS **)WmipGEHeadPtr;
           v17 = *(_QWORD *)WmipGEHeadPtr;
           if ( *(_QWORD *)(*(_QWORD *)WmipGEHeadPtr + 8LL) == WmipGEHeadPtr )
           {
-            *(_QWORD *)GEByGuid = v17;
-            *(_QWORD *)(GEByGuid + 8) = v16;
+            *(_QWORD *)&GEByGuid->Size = v17;
+            GEByGuid->PutDmaAdapter = (void (__fastcall *)(_DMA_ADAPTER *))v16;
             *(_QWORD *)(v17 + 8) = GEByGuid;
             *v16 = GEByGuid;
-            v18 = v10 + 40;
-            v19 = *(_QWORD **)(GEByGuid + 48);
-            if ( *v19 == GEByGuid + 40 )
+            v18 = &v10[2].DmaOperations;
+            v19 = (_DMA_OPERATIONS ***)GEByGuid->FreeAdapterChannel;
+            if ( *v19 == (_DMA_OPERATIONS **)&GEByGuid->FlushAdapterBuffers )
             {
-              *v18 = GEByGuid + 40;
-              *((_QWORD *)v10 + 6) = v19;
+              *v18 = (_DMA_OPERATIONS *)&GEByGuid->FlushAdapterBuffers;
+              *(_QWORD *)&v10[3].Version = v19;
               *v19 = v18;
-              *(_QWORD *)(GEByGuid + 48) = v18;
-              *((_QWORD *)v10 + 7) = GEByGuid;
+              GEByGuid->FreeAdapterChannel = (void (__fastcall *)(_DMA_ADAPTER *))v18;
+              v10[3].DmaOperations = GEByGuid;
               KeReleaseMutex(&WmipSMMutex, 0);
               goto LABEL_15;
             }
@@ -117,7 +119,7 @@ LABEL_28:
         v9 = -1073741670;
 LABEL_17:
         if ( v10 )
-          ObfDereferenceObject(v10);
+          HalPutDmaAdapter(v10);
         return (unsigned int)v9;
       }
       if ( a1 == 2244928 )

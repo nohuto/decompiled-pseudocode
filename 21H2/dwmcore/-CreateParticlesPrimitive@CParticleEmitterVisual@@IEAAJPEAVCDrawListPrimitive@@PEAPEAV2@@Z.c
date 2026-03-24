@@ -1,17 +1,16 @@
 /*
- * XREFs of ?CreateParticlesPrimitive@CParticleEmitterVisual@@IEAAJPEAVCDrawListPrimitive@@PEAPEAV2@@Z @ 0x18022E834
+ * XREFs of ?CreateParticlesPrimitive@CParticleEmitterVisual@@IEAAJPEAVCDrawListPrimitive@@PEAPEAV2@@Z @ 0x1801DF8AC
  * Callers:
- *     ?GenerateDrawList@CParticleEmitterVisual@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18022F2B0 (-GenerateDrawList@CParticleEmitterVisual@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawLis.c)
+ *     ?GenerateDrawList@CParticleEmitterVisual@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801E0354 (-GenerateDrawList@CParticleEmitterVisual@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawLis.c)
  * Callees:
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x18003C050 (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
- *     ?CreateInstanced@CDrawListPrimitive@@SAJAEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@IV?$span@$$CBG$0?0@gsl@@V?$span@UInstance_Pos4_QRot_ColorDW_Size2@@$0?0@4@AEBUD2D_VECTOR_2F@@_NW4Enum@ParticleSortMode@@PEAPEAV1@@Z @ 0x1801E8814 (-CreateInstanced@CDrawListPrimitive@@SAJAEBV-$StridedSpan@$$CBU-$Vertex_UVxN@UVertexXYW_ColorDW@.c)
- *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@IV?$allocator@I@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x18022C8AC (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@IV-$allocator@I@std@@@std@@AEAAX_KAEBU_Val.c)
- *     std::_Sort_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___ @ 0x18022C960 (std--_Sort_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___.c)
- *     std::_Sort_unchecked_unsigned_int____lambda_6619143c50c0dbd69fd5d8cfbdd2e280___ @ 0x18022CAC4 (std--_Sort_unchecked_unsigned_int____lambda_6619143c50c0dbd69fd5d8cfbdd2e280___.c)
- *     ?CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z @ 0x18022E6D4 (-CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@PEAUISpectreLightNode@@V?$allocator@PEAUISpectreLightNode@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x180174560 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@PEAUISpectreLightNode@@V-$allocator@PEAUIS.c)
+ *     ?CreateInstanced@CDrawListPrimitive@@SAJAEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@IV?$span@$$CBG$0?0@gsl@@V?$span@UInstance_Pos4_QRot_ColorDW_Size2@@$0?0@4@AEBUD2D_VECTOR_2F@@_NW4Enum@ParticleSortMode@@PEAPEAV1@@Z @ 0x1801A3758 (-CreateInstanced@CDrawListPrimitive@@SAJAEBV-$StridedSpan@$$CBU-$Vertex_UVxN@UVertexXYW_ColorDW@.c)
+ *     std::_Sort_unchecked_unsigned___int64____lambda_448b3feef23c663190309d6322577307___ @ 0x1801DDA14 (std--_Sort_unchecked_unsigned___int64____lambda_448b3feef23c663190309d6322577307___.c)
+ *     std::_Sort_unchecked_unsigned___int64____lambda_f019dc980a0bafac7c6a2c043d1eae89___ @ 0x1801DDB1C (std--_Sort_unchecked_unsigned___int64____lambda_f019dc980a0bafac7c6a2c043d1eae89___.c)
+ *     ?CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z @ 0x1801DF74C (-CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z.c)
  */
 
 __int64 __fastcall CParticleEmitterVisual::CreateParticlesPrimitive(
@@ -19,200 +18,257 @@ __int64 __fastcall CParticleEmitterVisual::CreateParticlesPrimitive(
         struct CDrawListPrimitive *a2,
         struct CDrawListPrimitive **a3)
 {
-  PrimitiveStorage::CInlineStorageBase **v3; // r13
-  float v6; // xmm3_4
-  float v7; // xmm0_4
-  __int64 v8; // rax
-  unsigned __int64 v9; // r15
-  int v10; // ecx
-  __int64 v11; // rax
-  int v12; // ecx
-  unsigned int k; // ebx
-  unsigned int **v14; // rsi
-  __int64 v15; // r12
-  __int64 v16; // rdx
-  unsigned __int64 v17; // rcx
-  __int64 v18; // rax
-  size_t v19; // rbx
-  unsigned int *v20; // rcx
-  unsigned int v21; // eax
-  char *v22; // rdx
-  unsigned int *v23; // r13
-  unsigned int v24; // r12d
-  unsigned int *j; // rbx
-  unsigned int v26; // r8d
-  int v27; // esi
-  __int64 v28; // rbx
-  gsl::details *v29; // r8
-  __int64 v30; // rdx
-  int v31; // eax
+  __int64 v3; // r12
+  PrimitiveStorage::CInlineStorageBase **v4; // r9
+  float v7; // xmm3_4
+  float v8; // xmm0_4
+  __int64 v9; // r8
+  __int64 v10; // rdx
+  int v11; // ecx
+  __int64 v12; // r8
+  __int64 v13; // r14
+  int v14; // ecx
+  unsigned int v15; // ebx
+  char **v16; // rsi
+  __int64 v17; // r15
+  __int64 v18; // rdx
+  unsigned __int64 v19; // rcx
+  __int64 v20; // rax
+  size_t v21; // rbx
+  char *v22; // rax
+  int v23; // r8d
+  char *v24; // rcx
+  __int64 v25; // r9
+  unsigned __int64 v26; // rdx
+  __int64 v27; // rax
+  unsigned int *v28; // rbx
+  unsigned int v29; // r15d
+  unsigned __int64 v30; // r13
+  unsigned int v31; // r8d
+  char **v32; // rsi
+  __int64 v33; // r15
+  __int64 v34; // rdx
+  unsigned __int64 v35; // rcx
+  __int64 v36; // rax
+  size_t v37; // rbx
+  char *v38; // rax
+  int v39; // r8d
+  char *v40; // rcx
+  __int64 v41; // r9
+  unsigned __int64 v42; // rdx
+  __int64 v43; // rax
+  unsigned int *v44; // rbx
+  unsigned int v45; // r15d
+  unsigned __int64 v46; // r13
+  unsigned int v47; // r8d
+  __int64 v48; // rdx
+  __int64 v49; // rcx
+  int v50; // eax
   int Instanced; // eax
-  __int64 v33; // rcx
-  unsigned int v34; // ebx
-  unsigned int **v36; // rsi
-  __int64 v37; // r12
-  __int64 v38; // rdx
-  unsigned __int64 v39; // rcx
-  __int64 v40; // rax
-  size_t v41; // rbx
-  unsigned int *v42; // rcx
-  unsigned int v43; // eax
-  char *v44; // rdx
-  unsigned int *v45; // r13
-  unsigned int v46; // r12d
-  unsigned int *i; // rbx
-  unsigned int v48; // r8d
-  int v49; // [rsp+28h] [rbp-48h]
-  __int64 v50; // [rsp+40h] [rbp-30h] BYREF
-  int v51; // [rsp+48h] [rbp-28h]
-  int v52; // [rsp+4Ch] [rbp-24h]
-  _QWORD v53[2]; // [rsp+50h] [rbp-20h] BYREF
-  gsl::details *v54[2]; // [rsp+60h] [rbp-10h] BYREF
+  __int64 v52; // rcx
+  unsigned int v53; // ebx
+  int v55; // [rsp+28h] [rbp-70h]
+  __int64 v56; // [rsp+40h] [rbp-58h] BYREF
+  int v57; // [rsp+48h] [rbp-50h]
+  int v58; // [rsp+4Ch] [rbp-4Ch]
+  _QWORD v59[2]; // [rsp+50h] [rbp-48h] BYREF
+  _QWORD v60[2]; // [rsp+60h] [rbp-38h] BYREF
 
-  v3 = a3;
-  if ( !*((_BYTE *)this + 6470) )
+  v3 = 0LL;
+  v4 = a3;
+  if ( !*((_BYTE *)this + 6358) )
   {
-    v6 = *((float *)a2 + 20) - *((float *)a2 + 18);
-    v7 = *((float *)a2 + 21) - *((float *)a2 + 19);
-    *((_BYTE *)this + 6470) = 1;
-    *((float *)this + 1609) = 1.0 / v6;
-    *((float *)this + 1610) = 1.0 / v7;
-    *((float *)this + 1611) = v6;
-    *((float *)this + 1612) = v7;
+    v7 = *((float *)a2 + 20) - *((float *)a2 + 18);
+    v8 = *((float *)a2 + 21) - *((float *)a2 + 19);
+    *((_BYTE *)this + 6358) = 1;
+    *((float *)this + 1581) = 1.0 / v7;
+    *((float *)this + 1582) = 1.0 / v8;
+    *((float *)this + 1583) = v7;
+    *((float *)this + 1584) = v8;
   }
-  v8 = *((_QWORD *)this + 131) - *((_QWORD *)this + 130);
-  v9 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(*((_QWORD *)this + 171) - *((_QWORD *)this + 170)) >> 4);
-  v10 = *((_DWORD *)this + 201);
-  v11 = v8 >> 3;
-  if ( (unsigned int)v9 >= (unsigned int)v11 )
-    v9 = (unsigned int)v11;
-  v12 = v10 - 2;
-  if ( !v12 )
+  v9 = *((_QWORD *)this + 117) - *((_QWORD *)this + 116);
+  v10 = (unsigned __int128)((__int64)(*((_QWORD *)this + 157) - *((_QWORD *)this + 156)) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
+  v11 = *((_DWORD *)this + 173);
+  v12 = v9 >> 3;
+  v13 = ((unsigned __int64)v10 >> 63) + (v10 >> 3);
+  if ( (unsigned int)v13 >= (unsigned int)v12 )
+    v13 = (unsigned int)v12;
+  v14 = v11 - 2;
+  if ( !v14 )
   {
-    v36 = (unsigned int **)((char *)this + 1384);
-    v37 = *((_QWORD *)this + 174);
-    v38 = *((_QWORD *)this + 173);
-    v39 = (v37 - v38) >> 2;
-    if ( (unsigned int)v9 < v39 )
+    v32 = (char **)((char *)this + 1272);
+    v33 = *((_QWORD *)this + 160);
+    v34 = *((_QWORD *)this + 159);
+    v35 = (v33 - v34) >> 3;
+    if ( (unsigned int)v13 < v35 )
     {
-      v40 = v38 + 4 * v9;
-LABEL_38:
-      *((_QWORD *)this + 174) = v40;
-      goto LABEL_39;
+      v36 = v34 + 8 * v13;
+LABEL_33:
+      *((_QWORD *)this + 160) = v36;
+      goto LABEL_34;
     }
-    if ( (unsigned int)v9 > v39 )
+    if ( (unsigned int)v13 > v35 )
     {
-      if ( (unsigned int)v9 <= (unsigned __int64)((*((_QWORD *)this + 175) - v38) >> 2) )
+      if ( (unsigned int)v13 <= (unsigned __int64)((*((_QWORD *)this + 161) - v34) >> 3) )
       {
-        v41 = 4 * ((unsigned int)v9 - v39);
-        memset_0(*((void **)this + 174), 0, v41);
-        v40 = v37 + v41;
-        goto LABEL_38;
+        v37 = 8 * ((unsigned int)v13 - v35);
+        memset_0(*((void **)this + 160), 0, v37);
+        v36 = v37 + v33;
+        goto LABEL_33;
       }
-      std::vector<unsigned int>::_Resize_reallocate<std::_Value_init_tag>((const void **)this + 173, (unsigned int)v9);
+      std::vector<ISpectreLightNode *>::_Resize_reallocate<std::_Value_init_tag>(
+        (__int64)this + 1272,
+        (unsigned int)v13);
     }
-LABEL_39:
-    v42 = *v36;
-    v43 = 0;
-    v44 = (char *)*((_QWORD *)this + 174);
-    if ( *v36 != (unsigned int *)v44 )
+LABEL_34:
+    v38 = (char *)*((_QWORD *)this + 160);
+    v39 = 0;
+    v40 = *v32;
+    v41 = 0LL;
+    v42 = (unsigned __int64)(v38 - *v32 + 7) >> 3;
+    if ( *v32 > v38 )
+      v42 = 0LL;
+    if ( v42 )
     {
       do
-        *v42++ = v43++;
-      while ( v42 != (unsigned int *)v44 );
-      v42 = *v36;
-      v44 = (char *)*((_QWORD *)this + 174);
+      {
+        v43 = v39;
+        ++v41;
+        ++v39;
+        *(_QWORD *)v40 = v43;
+        v40 += 8;
+      }
+      while ( v41 != v42 );
+      v40 = *v32;
+      v38 = (char *)*((_QWORD *)this + 160);
     }
-    std::_Sort_unchecked_unsigned_int____lambda_6619143c50c0dbd69fd5d8cfbdd2e280___(
-      v42,
-      v44,
-      (v44 - (char *)v42) >> 2,
+    std::_Sort_unchecked_unsigned___int64____lambda_f019dc980a0bafac7c6a2c043d1eae89___(
+      v40,
+      v38,
+      (v38 - v40) >> 3,
       (__int64)this);
-    v45 = (unsigned int *)*((_QWORD *)this + 174);
-    v46 = 0;
-    for ( i = *v36; i != v45; ++i )
+    v44 = (unsigned int *)*v32;
+    v45 = 0;
+    v46 = (unsigned __int64)(*((_QWORD *)this + 160) - *((_QWORD *)this + 159) + 7LL) >> 3;
+    if ( *((_QWORD *)this + 159) > *((_QWORD *)this + 160) )
+      v46 = 0LL;
+    if ( v46 )
     {
-      v48 = v46++;
-      CParticleEmitterVisual::CopyInstanceFromIndex(this, *i, v48);
+      do
+      {
+        v47 = v45++;
+        CParticleEmitterVisual::CopyInstanceFromIndex(this, *v44, v47);
+        ++v3;
+        v44 += 2;
+      }
+      while ( v3 != v46 );
     }
-    goto LABEL_23;
+    goto LABEL_43;
   }
-  if ( v12 == 1 )
+  if ( v14 == 1 )
   {
-    v14 = (unsigned int **)((char *)this + 1384);
-    v15 = *((_QWORD *)this + 174);
-    v16 = *((_QWORD *)this + 173);
-    v17 = (v15 - v16) >> 2;
-    if ( (unsigned int)v9 < v17 )
+    v16 = (char **)((char *)this + 1272);
+    v17 = *((_QWORD *)this + 160);
+    v18 = *((_QWORD *)this + 159);
+    v19 = (v17 - v18) >> 3;
+    if ( (unsigned int)v13 < v19 )
     {
-      v18 = v16 + 4 * v9;
+      v20 = v18 + 8 * v13;
 LABEL_16:
-      *((_QWORD *)this + 174) = v18;
+      *((_QWORD *)this + 160) = v20;
       goto LABEL_17;
     }
-    if ( (unsigned int)v9 > v17 )
+    if ( (unsigned int)v13 > v19 )
     {
-      if ( (unsigned int)v9 <= (unsigned __int64)((*((_QWORD *)this + 175) - v16) >> 2) )
+      if ( (unsigned int)v13 <= (unsigned __int64)((*((_QWORD *)this + 161) - v18) >> 3) )
       {
-        v19 = 4 * ((unsigned int)v9 - v17);
-        memset_0(*((void **)this + 174), 0, v19);
-        v18 = v19 + v15;
+        v21 = 8 * ((unsigned int)v13 - v19);
+        memset_0(*((void **)this + 160), 0, v21);
+        v20 = v21 + v17;
         goto LABEL_16;
       }
-      std::vector<unsigned int>::_Resize_reallocate<std::_Value_init_tag>((const void **)this + 173, (unsigned int)v9);
+      std::vector<ISpectreLightNode *>::_Resize_reallocate<std::_Value_init_tag>(
+        (__int64)this + 1272,
+        (unsigned int)v13);
     }
 LABEL_17:
-    v20 = *v14;
-    v21 = 0;
-    v22 = (char *)*((_QWORD *)this + 174);
-    if ( *v14 != (unsigned int *)v22 )
+    v22 = (char *)*((_QWORD *)this + 160);
+    v23 = 0;
+    v24 = *v16;
+    v25 = 0LL;
+    v26 = (unsigned __int64)(v22 - *v16 + 7) >> 3;
+    if ( *v16 > v22 )
+      v26 = 0LL;
+    if ( v26 )
     {
       do
-        *v20++ = v21++;
-      while ( v20 != (unsigned int *)v22 );
-      v20 = *v14;
-      v22 = (char *)*((_QWORD *)this + 174);
+      {
+        v27 = v23;
+        ++v25;
+        ++v23;
+        *(_QWORD *)v24 = v27;
+        v24 += 8;
+      }
+      while ( v25 != v26 );
+      v24 = *v16;
+      v22 = (char *)*((_QWORD *)this + 160);
     }
-    std::_Sort_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___(
-      v20,
+    std::_Sort_unchecked_unsigned___int64____lambda_448b3feef23c663190309d6322577307___(
+      v24,
       v22,
-      (v22 - (char *)v20) >> 2,
+      (v22 - v24) >> 3,
       (__int64)this);
-    v23 = (unsigned int *)*((_QWORD *)this + 174);
-    v24 = 0;
-    for ( j = *v14; j != v23; ++j )
+    v28 = (unsigned int *)*v16;
+    v29 = 0;
+    v30 = (unsigned __int64)(*((_QWORD *)this + 160) - *((_QWORD *)this + 159) + 7LL) >> 3;
+    if ( *((_QWORD *)this + 159) > *((_QWORD *)this + 160) )
+      v30 = 0LL;
+    if ( v30 )
     {
-      v26 = v24++;
-      CParticleEmitterVisual::CopyInstanceFromIndex(this, *j, v26);
+      do
+      {
+        v31 = v29++;
+        CParticleEmitterVisual::CopyInstanceFromIndex(this, *v28, v31);
+        ++v3;
+        v28 += 2;
+      }
+      while ( v3 != v30 );
     }
-LABEL_23:
-    v3 = a3;
-    goto LABEL_24;
+    goto LABEL_43;
   }
-  for ( k = 0; k < (unsigned int)v9; ++k )
-    CParticleEmitterVisual::CopyInstanceFromIndex(this, k, k);
-LABEL_24:
-  v27 = *((_DWORD *)this + 201);
-  v28 = *((_QWORD *)this + 170);
-  gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)v54, (unsigned int)v9);
-  if ( v54[0] == (gsl::details *)-1LL
-    || !v28 && v54[0]
-    || (v29 = (gsl::details *)*((_QWORD *)a2 + 7), v30 = *((unsigned int *)a2 + 5), !v29) && *((_DWORD *)a2 + 5) )
+  v15 = 0;
+  if ( !(_DWORD)v13 )
+    goto LABEL_44;
+  do
   {
-    gsl::details::terminate(v54[0]);
-    JUMPOUT(0x18022EB92LL);
+    CParticleEmitterVisual::CopyInstanceFromIndex(this, v15, v15);
+    ++v15;
   }
-  v50 = *((_QWORD *)a2 + 4);
-  v31 = *((_DWORD *)a2 + 4);
-  v53[0] = v54[0];
-  v54[1] = v29;
-  v51 = 8 * v31 + 16;
-  v52 = *((_DWORD *)a2 + 2);
-  v53[1] = v28;
-  v54[0] = (gsl::details *)v30;
-  Instanced = CDrawListPrimitive::CreateInstanced((__int64)&v50, v30, v54, (int *)v53, (__int64)a2 + 88, v49, v27, v3);
-  v34 = Instanced;
+  while ( v15 < (unsigned int)v13 );
+LABEL_43:
+  v4 = a3;
+LABEL_44:
+  v48 = *((unsigned int *)this + 173);
+  if ( !*((_QWORD *)this + 156) && (_DWORD)v13
+    || (v59[1] = *((_QWORD *)this + 156), v49 = *((_QWORD *)a2 + 7), v59[0] = (unsigned int)v13, !v49)
+    && *((_DWORD *)a2 + 5) )
+  {
+    ((void (__fastcall *)(_QWORD, __int64, char *, PrimitiveStorage::CInlineStorageBase **))`gsl::details::get_terminate_handler'::`2'::handler)(
+      0LL,
+      v48,
+      (char *)a2 + 88,
+      v4);
+    __debugbreak();
+  }
+  v60[0] = *((unsigned int *)a2 + 5);
+  v56 = *((_QWORD *)a2 + 4);
+  v50 = *((_DWORD *)a2 + 4);
+  v60[1] = v49;
+  v57 = 8 * v50 + 16;
+  v58 = *((_DWORD *)a2 + 2);
+  Instanced = CDrawListPrimitive::CreateInstanced((__int64)&v56, v48, v60, (int *)v59, (__int64)a2 + 88, v55, v48, v4);
+  v53 = Instanced;
   if ( Instanced < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0LL, Instanced, 0x182u);
-  return v34;
+    MilInstrumentationCheckHR_MaybeFailFast(v52, 0LL, 0, Instanced, 0x18Au, 0LL);
+  return v53;
 }

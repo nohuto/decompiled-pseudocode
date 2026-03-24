@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlGetSaclSecurityDescriptor @ 0x140711850
+ * XREFs of RtlGetSaclSecurityDescriptor @ 0x1406111D0
  * Callers:
- *     AdtpBuildContextFromSecurityDescriptor @ 0x140670CE0 (AdtpBuildContextFromSecurityDescriptor.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x14069AA88 (PipChangeDeviceObjectFromRegistryProperties.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x14069CE68 (LocalConvertSDToStringSD_Rev1.c)
- *     ExpWnfSpecializeSecurityDescriptor @ 0x14071170C (ExpWnfSpecializeSecurityDescriptor.c)
- *     NtSetSecurityObject @ 0x1407BC2C0 (NtSetSecurityObject.c)
- *     IopGetSecurityDescriptorInformation @ 0x14083D014 (IopGetSecurityDescriptorInformation.c)
- *     RtlReplaceSidInSd @ 0x1409BC3E0 (RtlReplaceSidInSd.c)
- *     SepSDContainsAttributeACE @ 0x1409D1338 (SepSDContainsAttributeACE.c)
- *     CmpCopySaclToVirtualKey @ 0x140A1B43C (CmpCopySaclToVirtualKey.c)
- *     CmpExamineSaclForAuditEvent @ 0x140A1B918 (CmpExamineSaclForAuditEvent.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x1405C3200 (AdtpBuildContextFromSecurityDescriptor.c)
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x140611138 (ExpWnfSpecializeSecurityDescriptor.c)
+ *     NtSetSecurityObject @ 0x14067B860 (NtSetSecurityObject.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1406EFC20 (LocalConvertSDToStringSD_Rev1.c)
+ *     IopGetSecurityDescriptorInformation @ 0x140738B6C (IopGetSecurityDescriptorInformation.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14073AEAC (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     CmpCopySaclToVirtualKey @ 0x140871814 (CmpCopySaclToVirtualKey.c)
+ *     CmpExamineSaclForAuditEvent @ 0x140871CD0 (CmpExamineSaclForAuditEvent.c)
+ *     RtlReplaceSidInSd @ 0x140913990 (RtlReplaceSidInSd.c)
+ *     SepSDContainsAttributeACE @ 0x140924DD4 (SepSDContainsAttributeACE.c)
  * Callees:
  *     <none>
  */
@@ -21,36 +21,34 @@ NTSTATUS __stdcall RtlGetSaclSecurityDescriptor(
         PACL *Sacl,
         PBOOLEAN SaclDefaulted)
 {
-  ACL *v4; // rax
-  __int16 v6; // dx
-  __int64 v7; // rdx
+  __int16 v5; // cx
+  ACL *v6; // rax
+  __int16 v8; // cx
+  __int64 v9; // rcx
 
   if ( *(_BYTE *)SecurityDescriptor != 1 )
     return -1073741736;
-  v4 = 0LL;
-  if ( (*((_BYTE *)SecurityDescriptor + 2) & 0x10) != 0 )
+  v5 = *((_WORD *)SecurityDescriptor + 1) & 0x10;
+  *SaclPresent = v5 != 0;
+  v6 = 0LL;
+  if ( v5 )
   {
-    *SaclPresent = 1;
-    v6 = *((_WORD *)SecurityDescriptor + 1);
-    if ( (v6 & 0x10) != 0 )
+    v8 = *((_WORD *)SecurityDescriptor + 1);
+    if ( (v8 & 0x10) != 0 )
     {
-      if ( v6 >= 0 )
+      if ( v8 >= 0 )
       {
-        v4 = (ACL *)*((_QWORD *)SecurityDescriptor + 3);
+        v6 = (ACL *)*((_QWORD *)SecurityDescriptor + 3);
       }
       else
       {
-        v7 = *((unsigned int *)SecurityDescriptor + 3);
-        if ( (_DWORD)v7 )
-          v4 = (ACL *)((char *)SecurityDescriptor + v7);
+        v9 = *((unsigned int *)SecurityDescriptor + 3);
+        if ( (_DWORD)v9 )
+          v6 = (ACL *)((char *)SecurityDescriptor + v9);
       }
     }
-    *Sacl = v4;
+    *Sacl = v6;
     *SaclDefaulted = (*((_BYTE *)SecurityDescriptor + 2) & 0x20) != 0;
-  }
-  else
-  {
-    *SaclPresent = 0;
   }
   return 0;
 }

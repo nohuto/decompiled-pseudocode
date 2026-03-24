@@ -1,30 +1,31 @@
 /*
- * XREFs of ?pSpCreateSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAU_RECTL@@PEAUHWND__@@PEAU_POINTL@@@Z @ 0x1C00B594C
+ * XREFs of ?pSpCreateSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAU_RECTL@@PEAUHWND__@@PEAU_POINTL@@@Z @ 0x1C00EDE44
  * Callers:
- *     ?GdiCreateSprite@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@@Z @ 0x1C00B53EC (-GdiCreateSprite@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@@Z.c)
- *     ?GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C027C8A0 (-GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z.c)
- *     ?pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z @ 0x1C027F464 (-pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z.c)
- *     ?pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z @ 0x1C027F62C (-pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z.c)
- *     ?pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C027FA4C (-pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z.c)
- *     ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C027FE40 (-pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z.c)
+ *     ?GdiCreateSprite@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@@Z @ 0x1C00EDDB0 (-GdiCreateSprite@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@@Z.c)
+ *     ?GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C027EEE0 (-GdiSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     ?pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z @ 0x1C0281908 (-pSpConvertSpriteFromMeta@@YAPEAVSPRITE@@PEAUHDEV__@@0PEAU_METASPRITE@@@Z.c)
+ *     ?pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z @ 0x1C0281AD0 (-pSpConvertSpriteToMeta@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAVSPRITE@@@Z.c)
+ *     ?pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C0281F18 (-pSpTransferMetaSprite@@YAPEAU_METASPRITE@@PEAUHDEV__@@0PEAU1@@Z.c)
+ *     ?pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z @ 0x1C0282300 (-pSpTransferSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAV1@@Z.c)
  * Callees:
- *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C0085EEC (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
- *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C0085FE0 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
- *     ?vSpOrderInY@@YAXPEAVSPRITE@@@Z @ 0x1C00B5AD4 (-vSpOrderInY@@YAXPEAVSPRITE@@@Z.c)
- *     ?vSpRenumberZOrder@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00B6F6C (-vSpRenumberZOrder@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C008BED0 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
+ *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C008C4D8 (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?vSpOrderInY@@YAXPEAVSPRITE@@@Z @ 0x1C00EDFCC (-vSpOrderInY@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpRenumberZOrder@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F0CEC (-vSpRenumberZOrder@@YAXPEAU_SPRITESTATE@@@Z.c)
  */
 
-struct SPRITE *__fastcall pSpCreateSprite(HDEV a1, struct _POINTL *a2, HWND a3, struct _POINTL *a4)
+struct SPRITE *__fastcall pSpCreateSprite(HDEV a1, struct _RECTL *a2, HWND a3, struct _RECTL *a4)
 {
   _DWORD *v4; // rbx
   HDEV v8; // rdi
   _DWORD *v9; // rax
-  struct _POINTL *v10; // rax
-  LONG y; // eax
+  struct _RECTL *v10; // rax
+  LONG top; // eax
   __int64 v12; // rcx
   __int64 v13; // rax
   _BYTE v15[16]; // [rsp+20h] [rbp-E8h] BYREF
-  struct _SPRITESTATE *v16[24]; // [rsp+30h] [rbp-D8h] BYREF
+  __int64 *v16[24]; // [rsp+30h] [rbp-D8h] BYREF
   HDEV v17; // [rsp+110h] [rbp+8h] BYREF
 
   v4 = 0LL;
@@ -33,32 +34,32 @@ struct SPRITE *__fastcall pSpCreateSprite(HDEV a1, struct _POINTL *a2, HWND a3, 
   {
     SPRITELOCK::SPRITELOCK((SPRITELOCK *)v15, (struct PDEVOBJ *)&v17);
     SPRITEDDIACCESS::SPRITEDDIACCESS((SPRITEDDIACCESS *)v16, (struct PDEVOBJ *)&v17);
-    v8 = v17 + 20;
-    v9 = (_DWORD *)Win32AllocPoolZInit(272LL, 544240455LL);
+    v8 = v17 + 22;
+    v9 = PALLOCMEM2(0x110uLL, 544240455LL, 1);
     v4 = v9;
     if ( v9 )
     {
       if ( a2 )
       {
-        v9[44] = a2[1].x - a2->x;
-        v9[45] = a2[1].y - a2->y;
+        v9[44] = a2->right - a2->left;
+        v9[45] = a2->bottom - a2->top;
         v10 = a4;
         if ( !a4 )
           v10 = a2;
-        v4[28] = v10->x;
+        v4[28] = v10->left;
         if ( a4 )
-          y = a4->y;
+          top = a4->top;
         else
-          y = a2->y;
+          top = a2->top;
       }
       else
       {
         v9[44] = 0;
         v9[45] = 0;
         v9[28] = 0x80000000;
-        y = 0x80000000;
+        top = 0x80000000;
       }
-      v4[29] = y;
+      v4[29] = top;
       *v4 = 0;
       *((_QWORD *)v4 + 2) = v8;
       v4[1] = 4;

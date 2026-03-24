@@ -1,44 +1,51 @@
 /*
- * XREFs of ?SmCompressCtxCreateThreadParams@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAPEAU_SM_COMPRESS_THREAD_PARAMS@1@PEAU_SM_COMPRESS_CONTEXT@1@K@Z @ 0x1403899C8
+ * XREFs of ?SmCompressCtxCreateThreadParams@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAPEAU_SM_COMPRESS_THREAD_PARAMS@1@PEAU_SM_COMPRESS_CONTEXT@1@K@Z @ 0x1402D2974
  * Callers:
- *     ?SmCompressCtxCreateThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z @ 0x1403898C4 (-SmCompressCtxCreateThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@.c)
+ *     ?SmCompressCtxCreateThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z @ 0x1402D2870 (-SmCompressCtxCreateThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxCreateThreadParams(__int64 a1, int a2)
 {
-  __int64 v4; // rbx
-  SIZE_T v5; // rdx
+  BOOLEAN v4; // al
+  int v5; // esi
+  SIZE_T v6; // rdx
   _QWORD *PoolWithTag; // rax
+  _QWORD *v8; // rbx
+  _QWORD *v9; // rax
 
-  v4 = 0LL;
-  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 120)) )
+  v4 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 120));
+  v5 = v4;
+  if ( !v4 )
+    return 0LL;
+  v6 = 40LL;
+  if ( a2 )
+    v6 = *(unsigned int *)(a1 + 132) + 4136LL;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v6, 0x74436D73u);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v5 = 40LL;
+    PoolWithTag[1] = 0LL;
+    PoolWithTag[2] = 0LL;
+    PoolWithTag[3] = 0LL;
+    PoolWithTag[4] = 0LL;
+    *PoolWithTag = a1;
     if ( a2 )
-      v5 = *(unsigned int *)(a1 + 132) + 4136LL;
-    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v5, 0x74436D73u);
-    if ( PoolWithTag )
     {
-      PoolWithTag[1] = 0LL;
-      PoolWithTag[2] = 0LL;
-      PoolWithTag[3] = 0LL;
-      PoolWithTag[4] = 0LL;
-      *PoolWithTag = a1;
-      if ( a2 )
-      {
-        PoolWithTag[3] = PoolWithTag + 5;
-        PoolWithTag[4] = (char *)PoolWithTag + *(unsigned int *)(a1 + 132) + 40;
-      }
-      return PoolWithTag;
+      v9 = PoolWithTag + 5;
+      v8[3] = v9;
+      v8[4] = (char *)v9 + *(unsigned int *)(a1 + 132);
     }
-    else
-    {
-      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 120));
-    }
+    v5 = 0;
   }
-  return (_QWORD *)v4;
+  else
+  {
+    v8 = 0LL;
+  }
+  if ( v5 )
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 120));
+  return v8;
 }

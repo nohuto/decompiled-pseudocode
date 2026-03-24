@@ -5,11 +5,11 @@
  * Callees:
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
- *     MmDetachSession @ 0x14011A5A0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A630 (MmAttachSession.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MmQuitNextSession @ 0x1406CF670 (MmQuitNextSession.c)
- *     MmIsDriverLoadedCurrentSession @ 0x14071E1E0 (MmIsDriverLoadedCurrentSession.c)
+ *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MmQuitNextSession @ 0x1406CF650 (MmQuitNextSession.c)
+ *     MmIsDriverLoadedCurrentSession @ 0x14071E1C0 (MmIsDriverLoadedCurrentSession.c)
  *     ViThunkApplyThunksCurrentSession @ 0x140936D74 (ViThunkApplyThunksCurrentSession.c)
  */
 

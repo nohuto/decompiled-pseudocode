@@ -1,36 +1,36 @@
 /*
- * XREFs of PpmRemoveIdleStates @ 0x140585AA0
+ * XREFs of PpmRemoveIdleStates @ 0x140567430
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmRemoveIdleStates(__int64 a1)
 {
   void *v2; // rdi
   __int64 v3; // rcx
-  _DWORD v5[68]; // [rsp+20h] [rbp-128h] BYREF
+  _DWORD v5[44]; // [rsp+20h] [rbp-C8h] BYREF
 
-  memset(&v5[2], 0, 0x100uLL);
-  v2 = *(void **)(a1 + 33600);
+  memset(&v5[2], 0, 0xA0uLL);
+  v2 = *(void **)(a1 + 0x8000);
   if ( v2 )
   {
-    v5[0] = 2097153;
-    memset(&v5[1], 0, 0x104uLL);
-    KeAddProcessorAffinityEx((unsigned __int16 *)v5, *(_DWORD *)(a1 + 36));
+    v5[0] = 1310721;
+    memset(&v5[1], 0, 0xA4uLL);
+    KeAddProcessorAffinityEx(v5, *(_DWORD *)(a1 + 36));
     LOBYTE(v3) = 1;
-    ((void (__fastcall *)(__int64, _DWORD *))off_140C01AB8[0])(v3, v5);
+    ((void (__fastcall *)(__int64, _DWORD *))off_140C006A8[0])(v3, v5);
     KxAcquireSpinLock(&PpmIdleVetoLock);
-    *(_QWORD *)(a1 + 33600) = 0LL;
-    KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
-    *(_QWORD *)(a1 + 33608) = 0LL;
+    *(_QWORD *)(a1 + 0x8000) = 0LL;
+    KxReleaseSpinLock(&PpmIdleVetoLock);
+    *(_QWORD *)(a1 + 32776) = 0LL;
     ExFreePoolWithTag(v2, 0x694D5050u);
   }
   return 0LL;

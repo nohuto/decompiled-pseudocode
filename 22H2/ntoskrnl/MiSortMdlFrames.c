@@ -1,9 +1,10 @@
 /*
- * XREFs of MiSortMdlFrames @ 0x1406238E8
+ * XREFs of MiSortMdlFrames @ 0x14053421C
  * Callers:
- *     MiRemoveMdlPages @ 0x140A2E5AC (MiRemoveMdlPages.c)
+ *     MiRemoveMdlPages @ 0x1408C6AB0 (MiRemoveMdlPages.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4D38 (MiAllocateUserPhysicalPages.c)
  * Callees:
- *     qsort @ 0x1403D9DD0 (qsort.c)
+ *     qsort @ 0x1403D23C0 (qsort.c)
  */
 
 void __fastcall MiSortMdlFrames(__int64 a1)

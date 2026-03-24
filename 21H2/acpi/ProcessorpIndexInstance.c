@@ -1,93 +1,86 @@
 /*
- * XREFs of ProcessorpIndexInstance @ 0x1C009DE1C
+ * XREFs of ProcessorpIndexInstance @ 0x1C0097CE8
  * Callers:
- *     ProcessorAddInstance @ 0x1C009DCC0 (ProcessorAddInstance.c)
+ *     ProcessorAddInstance @ 0x1C0097B80 (ProcessorAddInstance.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ProcessorpIndexInstance(unsigned int a1, __int64 a2)
+__int64 __fastcall ProcessorpIndexInstance(int a1, __int64 a2)
 {
-  __int64 v2; // rsi
-  __int64 v5; // rdi
+  __int64 v2; // rbp
+  __int64 v5; // r8
   int v6; // ecx
-  int v7; // esi
-  __int64 v8; // r14
-  __int64 i; // rbx
-  int v10; // eax
-  __int64 Pool2; // rax
-  __int64 *v13; // rax
-  __int64 v14; // rax
-  __int64 *v15; // rax
+  int v7; // edi
+  __int64 v8; // rbx
+  _OWORD *i; // r9
+  _OWORD *PoolWithTag; // rax
+  __int64 *v12; // rax
+  _OWORD *v13; // rax
+  _QWORD *v14; // rax
 
   v2 = *(unsigned __int16 *)(a2 + 4);
   v5 = *(_QWORD *)(ProcessorGroupByNumber + 8 * v2);
   if ( !v5 )
   {
-    Pool2 = ExAllocatePool2(256LL, 48LL, 1232102209LL);
-    v5 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x49706341u);
+    v5 = (__int64)PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225626LL;
-    *(_WORD *)(Pool2 + 32) = v2;
-    *(_DWORD *)(Pool2 + 36) = *(_DWORD *)(a2 + 20);
-    *(_QWORD *)(Pool2 + 24) = Pool2 + 16;
-    *(_QWORD *)(Pool2 + 16) = Pool2 + 16;
-    v13 = (__int64 *)qword_1C0080618;
-    if ( *(__int64 **)qword_1C0080618 != &ProcessorGroupListHead )
-      goto LABEL_23;
-    *(_QWORD *)(v5 + 8) = qword_1C0080618;
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    *((_QWORD *)PoolWithTag + 4) = 0LL;
+    *((_WORD *)PoolWithTag + 16) = v2;
+    *((_DWORD *)PoolWithTag + 9) = *(_DWORD *)(a2 + 20);
+    *((_QWORD *)PoolWithTag + 3) = PoolWithTag + 1;
+    *((_QWORD *)PoolWithTag + 2) = PoolWithTag + 1;
+    v12 = (__int64 *)qword_1C0081568;
+    if ( *(__int64 **)qword_1C0081568 != &ProcessorGroupListHead )
+      goto LABEL_20;
+    *(_QWORD *)(v5 + 8) = qword_1C0081568;
     *(_QWORD *)v5 = &ProcessorGroupListHead;
-    *v13 = v5;
-    qword_1C0080618 = v5;
+    *v12 = v5;
+    qword_1C0081568 = v5;
     *(_QWORD *)(ProcessorGroupByNumber + 8 * v2) = v5;
   }
-  if ( *(_DWORD *)(a2 + 20) != 1 )
-  {
-    v6 = *(_DWORD *)(v5 + 36);
-    goto LABEL_4;
-  }
   v6 = 1;
-  if ( *(_DWORD *)(v5 + 36) == 1 )
+  if ( *(_DWORD *)(a2 + 20) != 1 )
+    v6 = *(_DWORD *)(v5 + 36);
+  if ( v6 == *(_DWORD *)(v5 + 36) )
   {
-LABEL_4:
     if ( v6 == 3 )
       v7 = *(_DWORD *)(a2 + 16);
     else
       v7 = 0;
-    goto LABEL_6;
   }
-  v7 = (a1 << 16) | 0xFFFF;
-LABEL_6:
-  v8 = v5 + 16;
-  for ( i = *(_QWORD *)(v5 + 16); i != v8; i = *(_QWORD *)i )
+  else
   {
-    if ( *(_DWORD *)(i + 16) == v7 )
-      goto LABEL_9;
+    v7 = (a1 << 16) | 0xFFFF;
   }
-  v14 = ExAllocatePool2(256LL, 48LL, 1232102209LL);
-  i = v14;
-  if ( !v14 )
+  v8 = v5 + 16;
+  for ( i = *(_OWORD **)(v5 + 16); i != (_OWORD *)v8; i = *(_OWORD **)i )
+  {
+    if ( *((_DWORD *)i + 4) == v7 )
+      goto LABEL_10;
+  }
+  v13 = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x49706341u);
+  i = v13;
+  if ( !v13 )
     return 3221225626LL;
-  *(_DWORD *)(v14 + 16) = v7;
-  *(_DWORD *)(v14 + 40) = *(unsigned __int8 *)(a2 + 6);
-  v15 = *(__int64 **)(v5 + 24);
-  if ( *v15 != v8 )
-LABEL_23:
+  *v13 = 0LL;
+  v13[1] = 0LL;
+  *((_QWORD *)v13 + 4) = 0LL;
+  *((_DWORD *)v13 + 4) = v7;
+  *((_DWORD *)v13 + 8) = *(unsigned __int8 *)(a2 + 6);
+  v14 = *(_QWORD **)(v8 + 8);
+  if ( *v14 != v8 )
+LABEL_20:
     __fastfail(3u);
   *(_QWORD *)i = v8;
-  *(_QWORD *)(i + 8) = v15;
-  *v15 = i;
-  *(_QWORD *)(v5 + 24) = i;
-LABEL_9:
-  v10 = ProcessorPreferredCpuSetSpecified;
-  *(_QWORD *)(i + 24) |= 1LL << *(_BYTE *)(a2 + 6);
-  if ( v10 )
-  {
-    if ( (unsigned int)KeCheckProcessorAffinityEx(&ProcessorpPreferredCpuSet, a1) )
-    {
-      *(_QWORD *)(i + 32) |= 1LL << *(_BYTE *)(a2 + 6);
-      *(_BYTE *)(v5 + 40) = 1;
-    }
-  }
+  *((_QWORD *)i + 1) = v14;
+  *v14 = i;
+  *(_QWORD *)(v8 + 8) = i;
+LABEL_10:
+  *((_QWORD *)i + 3) |= 1LL << *(_BYTE *)(a2 + 6);
   return 0LL;
 }

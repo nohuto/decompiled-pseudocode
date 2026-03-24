@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvSetMonitorPowerState @ 0x1C00D2E20
+ * XREFs of DrvSetMonitorPowerState @ 0x1C00C3580
  * Callers:
- *     PowerOnMonitor @ 0x1C007D2B0 (PowerOnMonitor.c)
- *     PowerOffMonitor @ 0x1C00D1C90 (PowerOffMonitor.c)
+ *     PowerOnMonitor @ 0x1C00775A0 (PowerOnMonitor.c)
+ *     PowerOffMonitor @ 0x1C00C1E70 (PowerOffMonitor.c)
  * Callees:
- *     UserIsWddmConnectedSession @ 0x1C0071CE0 (UserIsWddmConnectedSession.c)
- *     DrvSetWddmDeviceMonitorPowerState @ 0x1C00D2E70 (DrvSetWddmDeviceMonitorPowerState.c)
+ *     UserIsWddmConnectedSession @ 0x1C001DEB0 (UserIsWddmConnectedSession.c)
+ *     DrvSetWddmDeviceMonitorPowerState @ 0x1C00C35D0 (DrvSetWddmDeviceMonitorPowerState.c)
  */
 
 __int64 __fastcall DrvSetMonitorPowerState(__int64 a1, unsigned int a2, char a3, __int64 a4)

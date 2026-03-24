@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlTimeToSecondsSince1980 @ 0x1405E3FE0
+ * XREFs of RtlTimeToSecondsSince1980 @ 0x140395460
  * Callers:
  *     <none>
  * Callees:
- *     RtlExtendedMagicDivide @ 0x1402D1D6C (RtlExtendedMagicDivide.c)
+ *     RtlExtendedMagicDivide @ 0x1402B5F34 (RtlExtendedMagicDivide.c)
  */
 
 BOOLEAN __stdcall RtlTimeToSecondsSince1980(PLARGE_INTEGER Time, PULONG ElapsedSeconds)
 {
   LARGE_INTEGER v2; // rax
-  LARGE_INTEGER v3; // r11
+  LARGE_INTEGER v3; // r10
 
   v2.QuadPart = *(_QWORD *)&RtlExtendedMagicDivide(*Time, Magic10000000, 23) - SecondsToStartOf1980;
   if ( v2.HighPart )

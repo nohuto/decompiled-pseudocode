@@ -1,31 +1,27 @@
 /*
- * XREFs of ?InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ @ 0x1C00B4010
+ * XREFs of ?InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ @ 0x1C0093A34
  * Callers:
- *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C00B3A58 (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
+ *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C009357C (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
  * Callees:
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ??0VIDMM_PROCESS_FENCE_STORAGE@@QEAA@PEAVVIDMM_PROCESS@@@Z @ 0x1C0082BC0 (--0VIDMM_PROCESS_FENCE_STORAGE@@QEAA@PEAVVIDMM_PROCESS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??0VIDMM_PROCESS_FENCE_STORAGE@@QEAA@PEAVVIDMM_PROCESS@@@Z @ 0x1C007AC60 (--0VIDMM_PROCESS_FENCE_STORAGE@@QEAA@PEAVVIDMM_PROCESS@@@Z.c)
  */
 
 __int64 VIDMM_PROCESS_FENCE_STORAGE::InitGlobalStorage(void)
 {
   VIDMM_PROCESS_FENCE_STORAGE *v0; // rax
-  __int64 v2; // rcx
+  __int64 v1; // rcx
+  __int64 v3; // rax
 
-  v0 = (VIDMM_PROCESS_FENCE_STORAGE *)operator new(72LL, 0x34346956u, 64LL);
+  v0 = (VIDMM_PROCESS_FENCE_STORAGE *)operator new[](0x48uLL, 0x34346956u, (POOL_TYPE)512);
   if ( v0 )
-  {
-    VIDMM_PROCESS_FENCE_STORAGE::_GlobalFenceStorage = VIDMM_PROCESS_FENCE_STORAGE::VIDMM_PROCESS_FENCE_STORAGE(v0, 0LL);
-    if ( VIDMM_PROCESS_FENCE_STORAGE::_GlobalFenceStorage )
-      return 0LL;
-  }
-  else
-  {
-    VIDMM_PROCESS_FENCE_STORAGE::_GlobalFenceStorage = 0LL;
-  }
-  _InterlockedIncrement(&dword_1C006E7A8);
-  WdLogSingleEntry1(6LL, 425LL);
-  DxgkLogInternalTriageEvent(v2, 262145LL);
+    v0 = VIDMM_PROCESS_FENCE_STORAGE::VIDMM_PROCESS_FENCE_STORAGE(v0, 0LL);
+  VIDMM_PROCESS_FENCE_STORAGE::_GlobalFenceStorage = v0;
+  if ( v0 )
+    return 0LL;
+  _InterlockedIncrement(&dword_1C00506F8);
+  v3 = WdLogNewEntry5_WdLowResource(v1);
+  *(_QWORD *)(v3 + 24) = 424LL;
+  WdLogEvent5_WdLowResource(v3);
   return 3221225495LL;
 }

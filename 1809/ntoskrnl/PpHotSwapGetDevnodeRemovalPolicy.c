@@ -6,7 +6,7 @@
  * Callees:
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
- *     PiHotSwapGetDetachableNode @ 0x14070044C (PiHotSwapGetDetachableNode.c)
+ *     PiHotSwapGetDetachableNode @ 0x14070042C (PiHotSwapGetDetachableNode.c)
  */
 
 __int64 __fastcall PpHotSwapGetDevnodeRemovalPolicy(__int64 a1, char a2, unsigned int *a3)

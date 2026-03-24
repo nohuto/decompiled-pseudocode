@@ -1,21 +1,21 @@
 /*
- * XREFs of PiUEventInitClientRegistrationContext @ 0x140655918
+ * XREFs of PiUEventInitClientRegistrationContext @ 0x1406558F8
  * Callers:
- *     PiUEventHandleRegistration @ 0x140655C04 (PiUEventHandleRegistration.c)
+ *     PiUEventHandleRegistration @ 0x140655BE4 (PiUEventHandleRegistration.c)
  * Callees:
  *     KeInitializeGuardedMutex @ 0x1400063D0 (KeInitializeGuardedMutex.c)
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     RtlDeriveCapabilitySidsFromName @ 0x1400DCE00 (RtlDeriveCapabilitySidsFromName.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x1401B9A30 (ZwCreateWnfStateName.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x1400DCE20 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1401B9A50 (ZwCreateWnfStateName.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140655630 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140655610 (RtlSetOwnerSecurityDescriptor.c)
  */
 
 _QWORD *PiUEventInitClientRegistrationContext()

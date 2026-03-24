@@ -1,16 +1,15 @@
 /*
- * XREFs of DxgkCloseAdapterImpl @ 0x1C016D700
+ * XREFs of DxgkCloseAdapterImpl @ 0x1C0114BC0
  * Callers:
- *     DxgkCloseAdapter @ 0x1C016D6E0 (DxgkCloseAdapter.c)
- *     DxgkOpenAdapterFromDeviceName @ 0x1C01D7F80 (DxgkOpenAdapterFromDeviceName.c)
- *     DxgkCloseAdapterInternal @ 0x1C01DA790 (DxgkCloseAdapterInternal.c)
+ *     DxgkCloseAdapter @ 0x1C0114BA0 (DxgkCloseAdapter.c)
+ *     DxgkOpenAdapterFromDeviceName @ 0x1C013A3C0 (DxgkOpenAdapterFromDeviceName.c)
+ *     DxgkCloseAdapterInternal @ 0x1C01553C8 (DxgkCloseAdapterInternal.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z @ 0x1C016D80C (-DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z.c)
- *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C017D000 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z @ 0x1C00E37E4 (-DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C00FBBF0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall DxgkCloseAdapterImpl(__int64 a1, char a2, __int64 a3)
@@ -18,78 +17,77 @@ __int64 __fastcall DxgkCloseAdapterImpl(__int64 a1, char a2, __int64 a3)
   unsigned int *v4; // rbx
   __int64 v5; // rdx
   ULONG64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  unsigned int v9; // ebx
+  unsigned int v7; // ebx
   __int64 CurrentProcess; // rax
   __int64 ProcessDxgProcess; // rax
-  struct DXGPROCESS *v12; // rdi
-  struct DXGPROCESS *v13; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  struct _KTHREAD **v12; // rdi
+  struct _KTHREAD **v13; // rcx
   unsigned int v14; // ebx
-  __int64 v15; // rcx
-  __int64 v16; // r8
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
   struct DXGTHREAD *Current; // rax
-  int v19; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-20h]
-  char v21; // [rsp+60h] [rbp-18h]
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  int v24; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v25; // [rsp+28h] [rbp-20h]
+  char v26; // [rsp+30h] [rbp-18h]
 
   v4 = (unsigned int *)a1;
-  v19 = -1;
-  v20 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v24 = -1;
+  v25 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v21 = 1;
-    v19 = 2002;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v26 = 1;
+    v24 = 2002;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2002);
   }
   else
   {
-    v21 = 0;
+    v26 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v19, 2002);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v24, 2002LL);
   if ( a2 )
   {
     v6 = MmUserProbeAddress;
     if ( (unsigned __int64)v4 >= MmUserProbeAddress )
       v4 = (unsigned int *)MmUserProbeAddress;
-    v9 = *v4;
+    v7 = *v4;
   }
   else
   {
-    v9 = *v4;
+    v7 = *v4;
   }
-  CurrentProcess = PsGetCurrentProcess(v6, v5, v7, v8);
+  CurrentProcess = PsGetCurrentProcess(v6, v5);
   ProcessDxgProcess = PsGetProcessDxgProcess(CurrentProcess);
-  v12 = (struct DXGPROCESS *)ProcessDxgProcess;
-  if ( (!ProcessDxgProcess || (*(_DWORD *)(ProcessDxgProcess + 424) & 0x80) != 0)
-    && (Current = DXGTHREAD::GetCurrent()) != 0LL
-    && (v13 = (struct DXGPROCESS *)*((_QWORD *)Current + 3)) != 0LL
+  v12 = (struct _KTHREAD **)ProcessDxgProcess;
+  if ( (!ProcessDxgProcess || (*(_BYTE *)(ProcessDxgProcess + 347) & 0x10) != 0)
+    && (Current = DXGTHREAD::GetCurrent(v11, v10)) != 0LL
+    && (v13 = (struct _KTHREAD **)*((_QWORD *)Current + 1)) != 0LL
     || (v13 = v12) != 0LL )
   {
-    v14 = DXGADAPTER::DestroyHandle(v13, v9);
+    v14 = DXGADAPTER::DestroyHandle(v13, v7);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v24, v15);
+    if ( v26 )
+    {
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v16, &EventProfilerExit, v17, v24);
+    }
+    return v14;
   }
   else
   {
-    v14 = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v20 = WdLogNewEntry5_WdError(0LL, v10);
+    *(_QWORD *)(v20 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v20);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v24, v21);
+    if ( v26 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v22, &EventProfilerExit, v23, v24);
+    return 3221225485LL;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19);
-  if ( v21 )
-  {
-    LOBYTE(v15) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v15, &EventProfilerExit, v16, v19);
-  }
-  return v14;
 }

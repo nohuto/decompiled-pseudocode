@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpHpHeapDestroy @ 0x14036EBE8
+ * XREFs of RtlpHpHeapDestroy @ 0x1403898BC
  * Callers:
- *     ExCleanupSessionHeapManager @ 0x14036DBE4 (ExCleanupSessionHeapManager.c)
- *     RtlpHpHeapCreate @ 0x14036F620 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14037AF24 (RtlpHpHeapCreate.c)
+ *     ExCleanupSessionHeapManager @ 0x140389810 (ExCleanupSessionHeapManager.c)
  * Callees:
- *     RtlpHpFreeVA @ 0x140363E50 (RtlpHpFreeVA.c)
- *     RtlpHpVsSubsegmentCleanup @ 0x14036E8E0 (RtlpHpVsSubsegmentCleanup.c)
- *     RtlpHpVsSubsegmentFree @ 0x14036E98C (RtlpHpVsSubsegmentFree.c)
- *     RtlpHpLfhContextCleanup @ 0x14036E9D4 (RtlpHpLfhContextCleanup.c)
- *     RtlpHpSegContextCleanup @ 0x14036EDA8 (RtlpHpSegContextCleanup.c)
- *     RtlpHpMetadataFree @ 0x140370C00 (RtlpHpMetadataFree.c)
- *     RtlpHpRegisterEnvironment @ 0x140371C50 (RtlpHpRegisterEnvironment.c)
- *     RtlpHpLargeAllocationDestroy @ 0x1405F3870 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpMetadataFree @ 0x1402A5660 (RtlpHpMetadataFree.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x1402BF508 (RtlpHpVsSubsegmentCleanup.c)
+ *     RtlpHpVsSubsegmentFree @ 0x1402BF744 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpFreeVA @ 0x1402FA770 (RtlpHpFreeVA.c)
+ *     RtlpHpRegisterEnvironment @ 0x14037BB28 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpSegContextCleanup @ 0x140389A6C (RtlpHpSegContextCleanup.c)
+ *     RtlpHpLfhContextCleanup @ 0x140389BD0 (RtlpHpLfhContextCleanup.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x1405955F0 (RtlpHpLargeAllocationDestroy.c)
  */
 
-__int64 __fastcall RtlpHpHeapDestroy(unsigned __int64 a1)
+__int64 __fastcall RtlpHpHeapDestroy(__int64 a1)
 {
-  unsigned __int64 v1; // rbx
+  __int64 v1; // rbx
   bool v2; // zf
   unsigned __int64 v4; // rcx
   char v5; // al
@@ -25,14 +25,14 @@ __int64 __fastcall RtlpHpHeapDestroy(unsigned __int64 a1)
   __int64 v8; // rax
   unsigned __int64 v9; // rdx
   unsigned __int64 v10; // rdi
-  unsigned __int64 v11; // rdi
+  __int64 v11; // rdi
   unsigned __int64 v12; // rsi
   unsigned __int64 v13; // rbx
   __int128 v14; // xmm0
   __int128 v16; // [rsp+20h] [rbp-20h] BYREF
   __int128 v17; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int64 v18; // [rsp+60h] [rbp+20h] BYREF
-  unsigned __int64 v19; // [rsp+68h] [rbp+28h] BYREF
+  __int64 v18; // [rsp+60h] [rbp+20h] BYREF
+  __int64 v19; // [rsp+68h] [rbp+28h] BYREF
 
   v18 = a1;
   v19 = 0LL;
@@ -83,24 +83,24 @@ __int64 __fastcall RtlpHpHeapDestroy(unsigned __int64 a1)
   if ( (v5 & 1) != 0 )
     *(_BYTE *)(v1 + 8) = 1;
   v11 = v18;
-  v12 = v18 + 736;
+  v12 = v18 + 672;
   while ( *(_QWORD *)v12 )
   {
     v13 = v12 ^ *(_QWORD *)v12;
-    RtlpHpVsSubsegmentCleanup(v11 + 704, v13);
-    RtlpHpVsSubsegmentFree(v11 + 704, v13, 1u);
+    RtlpHpVsSubsegmentCleanup(v11 + 640, v13);
+    RtlpHpVsSubsegmentFree(v11 + 640, v13, 1u);
   }
-  RtlpHpLfhContextCleanup(v18 + 896);
-  RtlpHpSegContextCleanup(v18 + 320);
-  RtlpHpSegContextCleanup(v18 + 512);
+  RtlpHpLfhContextCleanup(v18 + 832);
+  RtlpHpSegContextCleanup(v18 + 256);
+  RtlpHpSegContextCleanup(v18 + 448);
   v14 = *(_OWORD *)v18;
-  v19 = *(_QWORD *)(v18 + 256) - v18;
+  v19 = *(_QWORD *)(v18 + 248) - v18;
   v2 = (*(_BYTE *)(v18 + 30) & 1) == 0;
   v16 = v14;
   v17 = *(_OWORD *)v18;
   if ( v2 )
-    RtlpHpFreeVA(&v18, &v19, BYTE1(v16) < 2u ? 16809984 : 0x8000, &v17);
+    RtlpHpFreeVA((unsigned __int64 *)&v18, (unsigned __int64 *)&v19, BYTE1(v16) < 2u ? 16809984 : 0x8000, &v17);
   else
     RtlpHpMetadataFree(v18, &v17);
-  return RtlpHpRegisterEnvironment(&v16, 0LL);
+  return RtlpHpRegisterEnvironment(&v16);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBMISC_InitializeHsm @ 0x1C0081D84
+ * XREFs of HUBMISC_InitializeHsm @ 0x1C007C300
  * Callers:
- *     HUBFDO_EvtDeviceAdd @ 0x1C0076680 (HUBFDO_EvtDeviceAdd.c)
+ *     HUBFDO_EvtDeviceAdd @ 0x1C00732C0 (HUBFDO_EvtDeviceAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBMISC_InitializeHsm(__int64 a1)
@@ -19,27 +19,28 @@ __int64 __fastcall HUBMISC_InitializeHsm(__int64 a1)
   unsigned __int64 v8; // rdx
   __int64 v9; // rax
   bool v10; // zf
+  int v11; // eax
   __int64 Timer; // rax
-  __int64 v12; // rax
   __int64 v13; // rax
-  __int128 v15; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v16; // [rsp+40h] [rbp-30h]
-  __int64 v17; // [rsp+48h] [rbp-28h]
-  __int128 v18; // [rsp+50h] [rbp-20h]
-  __int64 v19; // [rsp+60h] [rbp-10h]
+  __int64 v14; // rax
+  __int128 v16; // [rsp+30h] [rbp-40h] BYREF
+  __int64 v17; // [rsp+40h] [rbp-30h]
+  __int64 v18; // [rsp+48h] [rbp-28h]
+  __int128 v19; // [rsp+50h] [rbp-20h]
+  __int64 v20; // [rsp+60h] [rbp-10h]
 
   v1 = *(_QWORD *)(a1 + 16);
   *(_QWORD *)(a1 + 2224) = a1;
+  v17 = 0LL;
+  v20 = 0LL;
   v16 = 0LL;
-  v19 = 0LL;
-  v15 = 0LL;
-  LODWORD(v15) = 56;
-  v17 = 0x100000001LL;
-  v18 = v1;
+  LODWORD(v16) = 56;
+  v18 = 0x100000001LL;
+  v19 = v1;
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 336))(WdfDriverGlobals);
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, __int64, __int64))(WdfFunctions_01015 + 1976))(
          WdfDriverGlobals,
-         &v15,
+         &v16,
          v3,
          a1 + 800);
   v5 = v4;
@@ -50,16 +51,16 @@ __int64 __fastcall HUBMISC_InitializeHsm(__int64 a1)
            *(_QWORD *)(a1 + 800));
     v8 = *(_QWORD *)(a1 + 16);
     *(_QWORD *)(a1 + 816) = v7;
+    v17 = 0LL;
+    v20 = 0LL;
     v16 = 0LL;
-    v19 = 0LL;
-    v15 = 0LL;
-    LODWORD(v15) = 56;
-    v17 = 0x100000001LL;
-    v18 = v8;
+    LODWORD(v16) = 56;
+    v18 = 0x100000001LL;
+    v19 = v8;
     v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 336))(WdfDriverGlobals);
     v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int128 *, __int64, __int64))(WdfFunctions_01015 + 1976))(
            WdfDriverGlobals,
-           &v15,
+           &v16,
            v9,
            a1 + 968);
     v5 = v4;
@@ -79,13 +80,20 @@ __int64 __fastcall HUBMISC_InitializeHsm(__int64 a1)
     {
       *(_DWORD *)(a1 + 2216) = 4;
     }
-    else if ( *(_DWORD *)(a1 + 256) == 1 || *(_DWORD *)(a1 + 256) == 2 )
+    else
     {
-      *(_DWORD *)(a1 + 2216) = 1;
-    }
-    else if ( *(_DWORD *)(a1 + 256) == 3 )
-    {
-      *(_DWORD *)(a1 + 2216) = 2;
+      v11 = *(_DWORD *)(a1 + 256);
+      if ( v11 > 0 )
+      {
+        if ( v11 <= 2 )
+        {
+          *(_DWORD *)(a1 + 2216) = 1;
+        }
+        else if ( v11 == 3 )
+        {
+          *(_DWORD *)(a1 + 2216) = 2;
+        }
+      }
     }
     *(_DWORD *)(a1 + 2248) = 2000;
     *(_QWORD *)(a1 + 2240) = &HSMStateTable;
@@ -95,12 +103,12 @@ __int64 __fastcall HUBMISC_InitializeHsm(__int64 a1)
     *(_QWORD *)(a1 + 2304) = Timer;
     if ( Timer )
     {
-      v12 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 248))(
+      v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 248))(
               WdfDriverGlobals,
               *(_QWORD *)(a1 + 16));
-      v13 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(a1 + 496))(*(_QWORD *)(a1 + 248), v12, 1LL);
-      *(_QWORD *)(a1 + 2256) = v13;
-      if ( !v13 )
+      v14 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(a1 + 496))(*(_QWORD *)(a1 + 248), v13, 1LL);
+      *(_QWORD *)(a1 + 2256) = v14;
+      if ( !v14 )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_(
@@ -108,20 +116,20 @@ __int64 __fastcall HUBMISC_InitializeHsm(__int64 a1)
             2u,
             3u,
             0xDu,
-            (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids);
+            (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
         return (unsigned int)-1073741670;
       }
     }
     else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0xCu, (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0xCu, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
     }
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     v6 = 10;
 LABEL_4:
-    WPP_RECORDER_SF_d(*(_QWORD *)(a1 + 2520), 2u, 3u, v6, (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids, v4);
+    WPP_RECORDER_SF_d(*(_QWORD *)(a1 + 2520), 2u, 3u, v6, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v4);
   }
   return v5;
 }

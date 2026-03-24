@@ -1,37 +1,39 @@
 /*
- * XREFs of CmpFreeAllMemory @ 0x140911BAC
+ * XREFs of CmpFreeAllMemory @ 0x14086BC98
  * Callers:
- *     CmShutdownSystem2 @ 0x14053EE38 (CmShutdownSystem2.c)
+ *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     CmpDestroyHive @ 0x14065A7E0 (CmpDestroyHive.c)
- *     CmpGetNextActiveHive @ 0x14071B350 (CmpGetNextActiveHive.c)
- *     CmpDumpKeyBodyList @ 0x140914E64 (CmpDumpKeyBodyList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
+ *     CmpDestroyHive @ 0x140728F38 (CmpDestroyHive.c)
+ *     CmpDumpKeyBodyList @ 0x14086EC48 (CmpDumpKeyBodyList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void CmpFreeAllMemory()
 {
   unsigned int v0; // edi
   char v1; // si
-  __int64 *NextActiveHive; // rbx
-  int v3; // ecx
-  int v4; // eax
-  __int64 v5; // r14
-  __int64 *v6; // r14
-  __int64 v7; // r15
-  __int64 i; // rbp
-  char v9; // al
-  _QWORD *v10; // rcx
   _QWORD *j; // rdx
+  __int64 *NextActiveHive; // rbx
+  __int64 v4; // r8
+  _DWORD *v5; // r9
+  int v6; // ecx
+  int v7; // eax
+  __int64 v8; // r14
+  __int64 *v9; // r14
+  __int64 v10; // r15
+  __int64 i; // rbp
   char v12; // al
-  int v13; // [rsp+30h] [rbp-58h] BYREF
-  _OWORD v14[3]; // [rsp+38h] [rbp-50h] BYREF
+  _QWORD *v13; // rcx
+  char v14; // al
+  int v15; // [rsp+30h] [rbp-58h] BYREF
+  _OWORD v16[3]; // [rsp+38h] [rbp-50h] BYREF
 
-  memset(v14, 0, sizeof(v14));
+  memset(v16, 0, sizeof(v16));
   v0 = 0;
   v1 = 0;
   NextActiveHive = CmpGetNextActiveHive(0LL);
@@ -39,50 +41,51 @@ void CmpFreeAllMemory()
   {
     do
     {
-      v3 = *((_DWORD *)NextActiveHive + 414);
-      v4 = 0;
-      v5 = NextActiveHive[206];
-      v13 = 0;
-      if ( v3 > 0 )
+      v6 = *((_DWORD *)NextActiveHive + 412);
+      v7 = 0;
+      v8 = NextActiveHive[205];
+      v15 = 0;
+      if ( v6 > 0 )
       {
-        v6 = (__int64 *)(v5 + 16);
-        v7 = (unsigned int)v3;
+        v9 = (__int64 *)(v8 + 16);
+        v10 = (unsigned int)v6;
         do
         {
-          for ( i = *v6; i; i = *(_QWORD *)(i + 8) )
-          {
-            v9 = v1;
-            if ( !v1 )
-              v9 = 1;
-            v1 = v9;
-            CmpDumpKeyBodyList(i - 16, &v13);
-          }
-          v6 += 3;
-          --v7;
-        }
-        while ( v7 );
-        v4 = v13;
-      }
-      v10 = (_QWORD *)NextActiveHive[199];
-      v0 += v4;
-      v1 = 0;
-      while ( v10 )
-      {
-        for ( j = (_QWORD *)v10[2]; j != v10 + 2; j = (_QWORD *)*j )
-        {
-          if ( j[6] )
+          for ( i = *v9; i; i = *(_QWORD *)(i + 8) )
           {
             v12 = v1;
             if ( !v1 )
               v12 = 1;
             v1 = v12;
+            CmpDumpKeyBodyList(i - 16, &v15);
+          }
+          v9 += 3;
+          --v10;
+        }
+        while ( v10 );
+        v7 = v15;
+      }
+      v13 = (_QWORD *)NextActiveHive[198];
+      v0 += v7;
+      v1 = 0;
+      while ( v13 )
+      {
+        v4 = (__int64)(v13 + 2);
+        for ( j = (_QWORD *)v13[2]; j != (_QWORD *)v4; j = (_QWORD *)*j )
+        {
+          if ( j[6] )
+          {
+            v14 = v1;
+            if ( !v1 )
+              v14 = 1;
+            v1 = v14;
           }
         }
-        v10 = (_QWORD *)*v10;
+        v13 = (_QWORD *)*v13;
       }
-      CmpAttachToRegistryProcess(v14);
-      CmpDestroyHive((__int64)NextActiveHive);
-      CmpDetachFromRegistryProcess(v14);
+      CmpAttachToRegistryProcess((__int64)v16, (__int64)j, v4, v5);
+      CmpDestroyHive((volatile signed __int32 *)NextActiveHive);
+      CmpDetachFromRegistryProcess((__int64)v16);
       NextActiveHive = CmpGetNextActiveHive((struct _EX_RUNDOWN_REF *)NextActiveHive);
     }
     while ( NextActiveHive );

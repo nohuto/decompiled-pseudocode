@@ -1,42 +1,34 @@
 /*
- * XREFs of ?PresentMPO@CLegacySwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x1800C7370
+ * XREFs of ?PresentMPO@CLegacySwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x18024A014
  * Callers:
- *     ?PresentMPO@CLegacySwapChain@@$4PPPPPPPM@BLA@EAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x18011FB20 (-PresentMPO@CLegacySwapChain@@$4PPPPPPPM@BLA@EAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESE.c)
+ *     ?PresentMPO@CLegacySwapChain@@$4PPPPPPPM@A@EAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x1800F6E70 (-PresentMPO@CLegacySwapChain@@$4PPPPPPPM@A@EAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PresentMPO@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x1800C743C (-PresentMPO@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_P.c)
- *     ?PostPresent@CLegacySwapChain@@MEAAJ_N0@Z @ 0x1800C7520 (-PostPresent@CLegacySwapChain@@MEAAJ_N0@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PostPresent@CLegacySwapChain@@IEAAX_N@Z @ 0x1800C5EC4 (-PostPresent@CLegacySwapChain@@IEAAX_N@Z.c)
+ *     ?PrePresent@CLegacySwapChain@@IEAAX_N@Z @ 0x1800C8D10 (-PrePresent@CLegacySwapChain@@IEAAX_N@Z.c)
+ *     ?PresentMPO@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x180240130 (-PresentMPO@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_P.c)
  */
 
 __int64 __fastcall CLegacySwapChain::PresentMPO(
         CD3DDevice **this,
         unsigned int a2,
-        unsigned int a3,
-        enum DXGI_HDR_METADATA_TYPE a4,
-        void *a5,
-        const struct _DXGI_PRESENT_MULTIPLANE_OVERLAY *a6,
-        unsigned int a7)
+        char a3,
+        enum DXGI_HDR_METADATA_TYPE a4)
 {
-  bool v11; // si
-  int v12; // eax
-  __int64 v13; // rcx
-  unsigned int v14; // ebx
+  CLegacySwapChain *v4; // r15
+  char v7; // r14
+  int v9; // eax
+  __int64 v10; // rcx
+  unsigned int v11; // ebx
 
-  if ( (a3 & 2) != 0 )
-  {
-    v11 = 1;
-  }
+  v4 = (CLegacySwapChain *)(this - 44);
+  v7 = (a3 & 2) != 0;
+  CLegacySwapChain::PrePresent((CLegacySwapChain *)(this - 44), v7);
+  v9 = CD3DDevice::PresentMPO(*(this - 36), *(this - 35), a2, a3);
+  v11 = v9;
+  if ( v9 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x33Du, 0LL);
   else
-  {
-    v11 = 0;
-    (*((void (__fastcall **)(CD3DDevice **))*this + 3))(this);
-  }
-  v12 = CD3DDevice::PresentMPO(this[10], this[28], a2, a3, a4, a5, a6, a7);
-  v14 = v12;
-  if ( v12 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x452u, 0LL);
-  else
-    CLegacySwapChain::PostPresent((CLegacySwapChain *)this, v11, v12 == 142213121);
-  return v14;
+    CLegacySwapChain::PostPresent(v4, v7);
+  return v11;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitClearTimeEvents@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A55D0
+ * XREFs of ?EmitClearTimeEvents@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0095B14
  * Callers:
- *     ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A54F0 (-EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00959C0 (-EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CAnimationMarshaler::EmitClearTimeEvents(
@@ -22,7 +22,7 @@ char __fastcall DirectComposition::CAnimationMarshaler::EmitClearTimeEvents(
     *(_DWORD *)v5 = 12;
     *(_QWORD *)(v4 + 4) = 0LL;
     *((_DWORD *)v4 + 1) = 3;
-    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 12);
+    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 10);
     *((_DWORD *)this + 8) &= ~0x10000u;
     return 1;
   }

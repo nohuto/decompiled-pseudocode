@@ -1,61 +1,59 @@
 /*
- * XREFs of VfAddContextToHandle @ 0x1C00C52D4
+ * XREFs of VfAddContextToHandle @ 0x1C00C42D4
  * Callers:
- *     AddEventHooksWdfDeviceCreate @ 0x1C00C4C90 (AddEventHooksWdfDeviceCreate.c)
- *     AddEventHooksWdfIoQueueCreate @ 0x1C00C5070 (AddEventHooksWdfIoQueueCreate.c)
+ *     AddEventHooksWdfDeviceCreate @ 0x1C00C3C90 (AddEventHooksWdfDeviceCreate.c)
+ *     AddEventHooksWdfIoQueueCreate @ 0x1C00C4070 (AddEventHooksWdfIoQueueCreate.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
- *     ?AddContext@FxObject@@QEAAJPEAUFxContextHeader@@PEAPEAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0021584 (-AddContext@FxObject@@QEAAJPEAUFxContextHeader@@PEAPEAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
- *     ?FxContextHeaderInit@@YAXPEAUFxContextHeader@@PEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0021670 (-FxContextHeaderInit@@YAXPEAUFxContextHeader@@PEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxContextHeaderInit@@YAXPEAUFxContextHeader@@PEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C000C0B4 (-FxContextHeaderInit@@YAXPEAUFxContextHeader@@PEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z @ 0x1C002E6B8 (-_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z.c)
+ *     ?AddContext@FxObject@@QEAAJPEAUFxContextHeader@@PEAPEAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0059C8C (-AddContext@FxObject@@QEAAJPEAUFxContextHeader@@PEAPEAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
  */
 
 __int64 __fastcall VfAddContextToHandle(
         FxContextHeader *ContextHeader,
         _WDF_OBJECT_ATTRIBUTES *Attributes,
-        unsigned __int64 Handle,
+        void *Handle,
         void **Context)
 {
   __int64 result; // rax
-  __int64 v9; // rcx
+  FxObject *ObjectFromHandle; // rax
   FxObject *v10; // rbx
   _FX_DRIVER_GLOBALS *m_Globals; // rbp
   unsigned int _a2; // eax
-  int status; // [rsp+70h] [rbp+8h] BYREF
+  int status[4]; // [rsp+40h] [rbp-38h] BYREF
+  unsigned __int16 offset; // [rsp+80h] [rbp+8h] BYREF
 
-  status = 0;
+  status[0] = 0;
   if ( !ContextHeader )
     return 3221225485LL;
-  LOWORD(v9) = 0;
-  v10 = (FxObject *)(~Handle & 0xFFFFFFFFFFFFFFF8uLL);
-  if ( (Handle & 1) != 0 )
+  offset = 0;
+  ObjectFromHandle = FxObject::_GetObjectFromHandle((unsigned __int64)Handle, &offset);
+  v10 = ObjectFromHandle;
+  m_Globals = ObjectFromHandle->m_Globals;
+  if ( offset )
   {
-    v9 = LOWORD(v10->__vftable);
-    v10 = (FxObject *)((char *)v10 - v9);
-  }
-  m_Globals = v10->m_Globals;
-  if ( (_WORD)v9 )
-  {
-    status = -1073741767;
-    WPP_IFR_SF_qL(m_Globals, 3u, 0xBu, 0xCu, WPP_Verifier_cpp_Traceguids, (const void *)Handle, 0xC0000039);
+    status[0] = -1073741767;
+    WPP_IFR_SF_qL(m_Globals, 3u, 0xBu, 0xCu, WPP_Verifier_cpp_Traceguids, Handle, 0xC0000039);
   }
   else
   {
-    FxObject::AddRef(v10, &status, 622, "minkernel\\wdf\\framework\\shared\\enhancedverif\\verifier.cpp");
+    FxObject::AddRef(ObjectFromHandle, status, 622, "minkernel\\wdf\\framework\\shared\\enhancedverif\\verifier.cpp");
     FxContextHeaderInit(ContextHeader, v10, Attributes);
     _a2 = FxObject::AddContext(v10, ContextHeader, Context, Attributes);
-    status = _a2;
+    status[0] = _a2;
     if ( _a2 )
-      WPP_IFR_SF_qL(m_Globals, 3u, 0xBu, 0xDu, WPP_Verifier_cpp_Traceguids, (const void *)Handle, _a2);
-    v10->Release(v10, &status, 639, "minkernel\\wdf\\framework\\shared\\enhancedverif\\verifier.cpp");
+      WPP_IFR_SF_qL(m_Globals, 3u, 0xBu, 0xDu, WPP_Verifier_cpp_Traceguids, Handle, _a2);
+    v10->Release(v10, status, 639, "minkernel\\wdf\\framework\\shared\\enhancedverif\\verifier.cpp");
   }
-  result = (unsigned int)status;
-  if ( status )
+  result = (unsigned int)status[0];
+  if ( status[0] )
   {
     FxPoolFree((FX_POOL_TRACKER *)ContextHeader);
-    return (unsigned int)status;
+    return (unsigned int)status[0];
   }
   return result;
 }

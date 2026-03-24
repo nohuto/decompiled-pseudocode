@@ -1,18 +1,17 @@
 /*
- * XREFs of RtlIsValidProcessTrustLabelSid @ 0x1402324B4
+ * XREFs of RtlIsValidProcessTrustLabelSid @ 0x14027E770
  * Callers:
- *     RtlSidDominatesForTrust @ 0x1402F8A20 (RtlSidDominatesForTrust.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1402F8EF0 (SepReconcileTrustSidWithProcessProtection.c)
- *     SepReferenceTokenByHandle @ 0x1402F8F70 (SepReferenceTokenByHandle.c)
- *     RtlAddProcessTrustLabelAce @ 0x140848A40 (RtlAddProcessTrustLabelAce.c)
- *     RtlAddAccessFilterAce @ 0x1409B7E50 (RtlAddAccessFilterAce.c)
+ *     RtlSidDominatesForTrust @ 0x14027DDE0 (RtlSidDominatesForTrust.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x14027DE60 (SepReconcileTrustSidWithProcessProtection.c)
+ *     RtlAddProcessTrustLabelAce @ 0x14079DD90 (RtlAddProcessTrustLabelAce.c)
+ *     RtlAddAccessFilterAce @ 0x140912250 (RtlAddAccessFilterAce.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 bool __fastcall RtlIsValidProcessTrustLabelSid(__int64 a1)
 {
-  int v1; // eax
+  int v1; // edx
 
   if ( *(_BYTE *)(a1 + 1) != 2 || *(_BYTE *)a1 != 1 )
     return 0;

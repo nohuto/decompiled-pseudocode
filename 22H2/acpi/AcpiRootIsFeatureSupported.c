@@ -1,10 +1,9 @@
 /*
- * XREFs of AcpiRootIsFeatureSupported @ 0x1C003D940
+ * XREFs of AcpiRootIsFeatureSupported @ 0x1C002DD00
  * Callers:
  *     <none>
  * Callees:
- *     IsHypervisorLpiCapable @ 0x1C003DA7C (IsHypervisorLpiCapable.c)
- *     HviIsAnyHypervisorPresent @ 0x1C005EDB0 (HviIsAnyHypervisorPresent.c)
+ *     IsHypervisorLpiCapable @ 0x1C00319D0 (IsHypervisorLpiCapable.c)
  */
 
 __int64 __fastcall AcpiRootIsFeatureSupported(char *Str1)

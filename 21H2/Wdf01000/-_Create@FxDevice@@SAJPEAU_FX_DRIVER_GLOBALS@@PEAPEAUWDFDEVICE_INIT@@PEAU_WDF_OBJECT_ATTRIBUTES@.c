@@ -1,20 +1,20 @@
 /*
- * XREFs of ?_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C0023B1C
+ * XREFs of ?_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C0052C94
  * Callers:
- *     imp_WdfDeviceCreate @ 0x1C0023A20 (imp_WdfDeviceCreate.c)
+ *     imp_WdfDeviceCreate @ 0x1C00478E0 (imp_WdfDeviceCreate.c)
  * Callees:
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ??_GWDFDEVICE_INIT@@QEAAPEAXI@Z @ 0x1C001F62C (--_GWDFDEVICE_INIT@@QEAAPEAXI@Z.c)
- *     ?PdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0020D0C (-PdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
- *     ?Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0023D98 (-Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
- *     ??0FxDevice@@QEAA@PEAVFxDriver@@@Z @ 0x1C00246E4 (--0FxDevice@@QEAA@PEAVFxDriver@@@Z.c)
- *     ?_Create@FxDisposeList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C002494C (-_Create@FxDisposeList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
- *     ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C002693C (-FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
- *     ?DeleteDeviceFromFailedCreate@FxDevice@@QEAAJJE@Z @ 0x1C00301A4 (-DeleteDeviceFromFailedCreate@FxDevice@@QEAAJJE@Z.c)
- *     ?ControlDeviceInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C00347EC (-ControlDeviceInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?MoveContexts@FxObject@@QEAAJPEAV1@@Z @ 0x1C006D08C (-MoveContexts@FxObject@@QEAAJPEAV1@@Z.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ??_GWDFDEVICE_INIT@@QEAAPEAXI@Z @ 0x1C00441D8 (--_GWDFDEVICE_INIT@@QEAAPEAXI@Z.c)
+ *     ?ControlDeviceInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C005035C (-ControlDeviceInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0050780 (-FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?PdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0050BC0 (-PdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ??0FxDevice@@QEAA@PEAVFxDriver@@@Z @ 0x1C0051370 (--0FxDevice@@QEAA@PEAVFxDriver@@@Z.c)
+ *     ?DeleteDeviceFromFailedCreate@FxDevice@@QEAAJJE@Z @ 0x1C0051B3C (-DeleteDeviceFromFailedCreate@FxDevice@@QEAAJJE@Z.c)
+ *     ?Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0051FCC (-Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
+ *     ?_Create@FxDisposeList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C0055358 (-_Create@FxDisposeList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
+ *     ?MoveContexts@FxObject@@QEAAJPEAV1@@Z @ 0x1C005A0F8 (-MoveContexts@FxObject@@QEAAJPEAV1@@Z.c)
  */
 
 __int64 __fastcall FxDevice::_Create(
@@ -24,155 +24,138 @@ __int64 __fastcall FxDevice::_Create(
         FxDevice **Device)
 {
   __int64 v4; // rdi
-  FxPoolTypeOrPoolFlags v6; // xmm1
+  _POOL_TYPE v8; // edx
   FxDevice *v9; // rax
-  FxDevice *v10; // rax
-  FxDevice *v11; // rbx
-  FxDevice *v12; // rbp
-  int v13; // esi
-  FxDevice *v14; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rbx
+  int v12; // esi
+  int v13; // eax
+  int v14; // eax
   int v15; // eax
-  int v16; // eax
-  FxObject *v17; // rcx
-  __int64 v18; // rax
-  _LIST_ENTRY *v19; // rax
-  _DEVICE_OBJECT *m_DeviceObject; // rcx
+  FxObject *v16; // rcx
+  __int64 v17; // rax
+  _QWORD *v18; // rax
+  _QWORD *v19; // rdx
+  __int64 v20; // rcx
   _QWORD *i; // rcx
-  FxPkgPnp *m_PkgPnp; // rcx
-  _LIST_ENTRY *Blink; // rdx
-  int v25; // eax
-  _LIST_ENTRY *v26; // rax
-  _LIST_ENTRY *v27; // r9
-  FxPoolTypeOrPoolFlags v28; // [rsp+40h] [rbp-38h] BYREF
-  void *object; // [rsp+88h] [rbp+10h] BYREF
+  _QWORD *v22; // rax
+  _QWORD *v23; // r9
+  __int64 v24; // rcx
+  void *object; // [rsp+78h] [rbp+10h] BYREF
 
   v4 = (__int64)*DeviceInit;
-  *(_QWORD *)&v28.UsePoolType = 0LL;
-  v28.u.PoolFlags = 64LL;
-  v6 = v28;
+  v8 = ExDefaultNonPagedPoolType;
   *Device = 0LL;
-  v28 = v6;
-  v9 = (FxDevice *)FxObjectHandleAllocCommon(
-                     FxDriverGlobals,
-                     &v28,
-                     0x2C0uLL,
-                     0,
-                     DeviceAttributes,
-                     0,
-                     FxObjectTypeExternal);
-  if ( !v9 )
+  v9 = (FxDevice *)FxObjectHandleAlloc(FxDriverGlobals, v8, 0x2C0uLL, 0, DeviceAttributes, 0, FxObjectTypeExternal);
+  if ( v9 )
   {
-    v12 = 0LL;
-    goto LABEL_39;
-  }
-  FxDevice::FxDevice(v9, *(FxDriver **)(v4 + 8));
-  v11 = v10;
-  v12 = v10;
-  if ( !v10 )
-  {
-LABEL_39:
-    v13 = -1073741670;
-    goto LABEL_23;
-  }
-  v13 = FxDevice::Initialize(v10, (WDFDEVICE_INIT *)v4, DeviceAttributes);
-  v14 = v11;
-  if ( v13 < 0 )
-    goto $Done_15;
-  v15 = *(_DWORD *)(v4 + 36);
-  if ( v15 )
-  {
-    v25 = v15 - 1;
-    if ( v25 )
-    {
-      if ( v25 != 1 )
-        goto LABEL_7;
-      v16 = FxDevice::ControlDeviceInitialize(v11, (WDFDEVICE_INIT *)v4);
-    }
-    else
-    {
-      v16 = FxDevice::PdoInitialize(v11, (WDFDEVICE_INIT *)v4);
-    }
+    FxDevice::FxDevice(v9, *(FxDriver **)(v4 + 8));
+    v11 = v10;
   }
   else
   {
-    v16 = FxDevice::FdoInitialize(v11, (WDFDEVICE_INIT *)v4);
+    v11 = 0LL;
   }
-  v13 = v16;
-  v14 = v11;
-  if ( v16 < 0 )
+  if ( !v11 )
   {
-$Done_15:
-    FxDevice::DeleteDeviceFromFailedCreate(v14, v13, 0);
-    v12 = 0LL;
-    goto LABEL_23;
+    v12 = -1073741670;
+    goto LABEL_40;
   }
-LABEL_7:
-  v13 = FxDisposeList::_Create(v11->m_Globals, v11->m_DeviceObject.m_DeviceObject, &v11->m_DisposeList);
-  v14 = v11;
-  if ( v13 < 0 )
-    goto $Done_15;
-  v13 = FxObject::Commit(v11, (_FX_DRIVER_GLOBALS *)DeviceAttributes, &object, v11->m_Driver, 1u);
-  v14 = v11;
-  if ( v13 < 0 )
-    goto $Done_15;
-  v17 = *(FxObject **)(v4 + 936);
+  v12 = FxDevice::Initialize((FxDevice *)v11, (WDFDEVICE_INIT *)v4, DeviceAttributes);
+  if ( v12 < 0 )
+  {
+LABEL_39:
+    FxDevice::DeleteDeviceFromFailedCreate((FxDevice *)v11, v12, 0);
+    v11 = 0LL;
+    goto LABEL_40;
+  }
+  v13 = *(_DWORD *)(v4 + 36);
+  if ( !v13 )
+  {
+    v15 = FxDevice::FdoInitialize((FxDevice *)v11, (WDFDEVICE_INIT *)v4);
+    goto LABEL_13;
+  }
+  v14 = v13 - 1;
+  if ( !v14 )
+  {
+    v15 = FxDevice::PdoInitialize((FxDevice *)v11, (WDFDEVICE_INIT *)v4);
+    goto LABEL_13;
+  }
+  if ( v14 == 1 )
+  {
+    v15 = FxDevice::ControlDeviceInitialize((FxDevice *)v11, (WDFDEVICE_INIT *)v4);
+LABEL_13:
+    v12 = v15;
+  }
+  if ( v12 < 0 )
+    goto LABEL_39;
+  v12 = FxDisposeList::_Create(*(_FX_DRIVER_GLOBALS **)(v11 + 16), *(void **)(v11 + 144), (FxDisposeList **)(v11 + 128));
+  if ( v12 < 0 )
+    goto LABEL_39;
+  v12 = FxObject::Commit(
+          (FxObject *)v11,
+          (_FX_DRIVER_GLOBALS *)DeviceAttributes,
+          &object,
+          *(FxObject **)(v11 + 136),
+          1u);
+  if ( v12 < 0 )
+    goto LABEL_39;
+  v16 = *(FxObject **)(v4 + 936);
+  if ( v16 )
+  {
+    v12 = FxObject::MoveContexts(v16, (FxObject *)v11);
+    if ( v12 < 0 )
+      goto LABEL_39;
+  }
+  v17 = *(_QWORD *)(v4 + 48);
   if ( v17 )
   {
-    v13 = FxObject::MoveContexts(v17, v11);
-    v14 = v11;
-    if ( v13 < 0 )
-      goto $Done_15;
+    *(_OWORD *)(v11 + 232) = *(_OWORD *)(v17 + 104);
+    *(_OWORD *)(v17 + 104) = 0LL;
   }
-  v18 = *(_QWORD *)(v4 + 48);
+  v18 = *(_QWORD **)(v4 + 264);
   if ( v18 )
   {
-    v11->m_DeviceName = *(_UNICODE_STRING *)(v18 + 104);
-    *(_OWORD *)(v18 + 104) = 0LL;
-  }
-  v19 = *(_LIST_ENTRY **)(v4 + 264);
-  if ( v19 )
-  {
-    Blink = v11->m_PreprocessInfoListHead.Blink;
-    if ( Blink->Flink != &v11->m_PreprocessInfoListHead )
-LABEL_37:
+    v19 = *(_QWORD **)(v11 + 376);
+    if ( *v19 != v11 + 368 )
+LABEL_41:
       __fastfail(3u);
-    v19->Flink = &v11->m_PreprocessInfoListHead;
-    v19->Blink = Blink;
-    Blink->Flink = v19;
-    v11->m_PreprocessInfoListHead.Blink = v19;
+    *v18 = v11 + 368;
+    v18[1] = v19;
+    *v19 = v18;
+    *(_QWORD *)(v11 + 376) = v18;
     *(_QWORD *)(v4 + 264) = 0LL;
-    ++v11->m_DeviceObject.m_DeviceObject->StackSize;
+    ++*(_BYTE *)(*(_QWORD *)(v11 + 144) + 76LL);
   }
-  m_DeviceObject = v11->m_DeviceObject.m_DeviceObject;
-  if ( ((__int64)m_DeviceObject[1].CurrentIrp & 1) != 0 )
-    ++m_DeviceObject->StackSize;
-  if ( v11->m_SelfIoTargetNeeded )
-    ++v11->m_DeviceObject.m_DeviceObject->StackSize;
-  v12 = v11;
+  v20 = *(_QWORD *)(v11 + 144);
+  if ( (*(_DWORD *)(v20 + 368) & 1) != 0 )
+    ++*(_BYTE *)(v20 + 76);
+  if ( *(_BYTE *)(v11 + 282) )
+    ++*(_BYTE *)(*(_QWORD *)(v11 + 144) + 76LL);
   for ( i = *(_QWORD **)(v4 + 920); i != (_QWORD *)(v4 + 920); i = (_QWORD *)*i )
   {
-    v26 = (_LIST_ENTRY *)i[4];
-    if ( v26 )
+    v22 = (_QWORD *)i[4];
+    if ( v22 )
     {
-      v27 = v11->m_PreprocessInfoListHead.Blink;
-      if ( v27->Flink != &v11->m_PreprocessInfoListHead )
-        goto LABEL_37;
-      v26->Flink = &v11->m_PreprocessInfoListHead;
-      v26->Blink = v27;
-      v27->Flink = v26;
-      v11->m_PreprocessInfoListHead.Blink = v26;
+      v23 = *(_QWORD **)(v11 + 376);
+      if ( *v23 != v11 + 368 )
+        goto LABEL_41;
+      *v22 = v11 + 368;
+      v22[1] = v23;
+      *v23 = v22;
+      *(_QWORD *)(v11 + 376) = v22;
       i[4] = 0LL;
-      ++v11->m_DeviceObject.m_DeviceObject->StackSize;
+      ++*(_BYTE *)(*(_QWORD *)(v11 + 144) + 76LL);
     }
   }
-  m_PkgPnp = v11->m_PkgPnp;
-  if ( m_PkgPnp )
-    m_PkgPnp->FinishInitialize(m_PkgPnp, (WDFDEVICE_INIT *)v4);
+  v24 = *(_QWORD *)(v11 + 648);
+  if ( v24 )
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v24 + 216LL))(v24, v4);
   *(_QWORD *)(v4 + 16) = v11;
   *DeviceInit = 0LL;
   if ( !*(_BYTE *)(v4 + 24) )
     WDFDEVICE_INIT::`scalar deleting destructor'((WDFDEVICE_INIT *)v4);
-LABEL_23:
-  *Device = v12;
-  return (unsigned int)v13;
+LABEL_40:
+  *Device = (FxDevice *)v11;
+  return (unsigned int)v12;
 }

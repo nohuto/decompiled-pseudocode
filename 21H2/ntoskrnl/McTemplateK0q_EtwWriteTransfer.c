@@ -1,15 +1,13 @@
 /*
- * XREFs of McTemplateK0q_EtwWriteTransfer @ 0x140555FF0
+ * XREFs of McTemplateK0q_EtwWriteTransfer @ 0x14050D974
  * Callers:
- *     SecureDump_LogErrorEvent @ 0x14055EBC8 (SecureDump_LogErrorEvent.c)
- *     PnpCallAddDevice @ 0x140749DA0 (PnpCallAddDevice.c)
- *     IoInitSystemPreDrivers @ 0x140AFE7A0 (IoInitSystemPreDrivers.c)
+ *     PnpCallAddDevice @ 0x14073E92C (PnpCallAddDevice.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1402D1760 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036EE44 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall McTemplateK0q_EtwWriteTransfer(REGHANDLE *a1, const EVENT_DESCRIPTOR *a2, __int64 a3, int a4)
+NTSTATUS __fastcall McTemplateK0q_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+30h] [rbp-38h] BYREF
   int *v6; // [rsp+40h] [rbp-28h]
@@ -21,5 +19,10 @@ NTSTATUS __fastcall McTemplateK0q_EtwWriteTransfer(REGHANDLE *a1, const EVENT_DE
   v6 = &v9;
   v8 = 0;
   v7 = 4;
-  return McGenEventWrite_EtwWriteTransfer(a1, a2, 0LL, 2u, &v5);
+  return McGenEventWrite_EtwWriteTransfer(
+           MS_KernelPnP_Provider_Context,
+           (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceAdd_Stop,
+           0LL,
+           2u,
+           &v5);
 }

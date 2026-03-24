@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetShapeDataCore@CCombinedGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800F6330
+ * XREFs of ?GetShapeDataCore@CCombinedGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1801B8850
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x18009AF00 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800AD884 (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800D36F8 (-Release@CShapePtr@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180067BCC (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180087600 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C891C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCombinedGeometry::GetShapeDataCore(
@@ -42,22 +42,22 @@ __int64 __fastcall CCombinedGeometry::GetShapeDataCore(
   *((_DWORD *)this + 8) = v3 ^ ((unsigned __int8)v3 ^ (unsigned __int8)(v3 + 2)) & 6;
   if ( (((unsigned __int8)v3 ^ ((unsigned __int8)v3 ^ (unsigned __int8)(v3 + 2)) & 6) & 6) == 2 )
   {
-    v8 = (CGeometry *)*((_QWORD *)this + 22);
+    v8 = (CGeometry *)*((_QWORD *)this + 21);
     if ( v8 && (v9 = CGeometry::GetShapeData(v8, a2, (struct CShapePtr *)&v20), v4 = v9, v9 < 0) )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x3Fu);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x3Fu, 0LL);
     }
     else
     {
-      v11 = (CGeometry *)*((_QWORD *)this + 23);
+      v11 = (CGeometry *)*((_QWORD *)this + 22);
       if ( v11
         && (ShapeData = CGeometry::GetShapeData(v11, a2, (struct CShapePtr *)&v18), v4 = ShapeData, ShapeData < 0) )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, ShapeData, 0x44u);
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, ShapeData, 0x44u, 0LL);
       }
       else
       {
-        v14 = CShape::Combine(v20, (__int64)a2, v18, 0LL, *((_DWORD *)this + 42), &v22);
+        v14 = CShape::Combine(v20, (__int64)a2, v18, 0LL, *((_DWORD *)this + 40), &v22);
         v4 = v14;
         if ( v14 >= 0 )
         {
@@ -66,9 +66,9 @@ __int64 __fastcall CCombinedGeometry::GetShapeDataCore(
           v22 = 0LL;
           *(_QWORD *)a3 = v16;
           *((_BYTE *)a3 + 8) = 1;
-          goto LABEL_8;
+          goto LABEL_14;
         }
-        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0x50u);
+        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x50u, 0LL);
       }
     }
   }
@@ -80,7 +80,7 @@ __int64 __fastcall CCombinedGeometry::GetShapeDataCore(
   }
   if ( v22 )
     (**v22)(v22, 1LL);
-LABEL_8:
+LABEL_14:
   *((_DWORD *)this + 8) ^= (*((_DWORD *)this + 8) ^ (2 * (*((_DWORD *)this + 8) >> 1) - 2)) & 6;
   CShapePtr::Release((CShapePtr *)&v18);
   CShapePtr::Release((CShapePtr *)&v20);

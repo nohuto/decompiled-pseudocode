@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GrepSfmGetDirtyRgn@@YAJPEAVSFMLOGICALSURFACE@@_KPEAPEAUHRGN__@@222PEAU_POINTL@@PEAH4@Z @ 0x1C007E4F8
+ * XREFs of ?GrepSfmGetDirtyRgn@@YAJPEAVSFMLOGICALSURFACE@@_KPEAPEAUHRGN__@@222PEAU_POINTL@@PEAH4@Z @ 0x1C00BC968
  * Callers:
- *     GreSfmGetDirtyRgn @ 0x1C007E35C (GreSfmGetDirtyRgn.c)
+ *     GreSfmGetDirtyRgn @ 0x1C00BC7C8 (GreSfmGetDirtyRgn.c)
  * Callees:
- *     ?vClearMoveData@METAREGION@@QEAAXH@Z @ 0x1C007B5E8 (-vClearMoveData@METAREGION@@QEAAXH@Z.c)
- *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C007E760 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C007E800 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00D5ED4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vClearMoveData@METAREGION@@QEAAXH@Z @ 0x1C0015BD8 (-vClearMoveData@METAREGION@@QEAAXH@Z.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B94F8 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C00BCBC4 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
  */
 
 __int64 __fastcall GrepSfmGetDirtyRgn(
-        struct _POINTL *a1,
+        struct SFMLOGICALSURFACE *a1,
         __int64 a2,
         HRGN *a3,
         HRGN *a4,
@@ -23,54 +23,53 @@ __int64 __fastcall GrepSfmGetDirtyRgn(
 {
   unsigned int v13; // edi
   int *v14; // rcx
-  struct _POINTL v15; // rax
-  struct _POINTL v16; // r8
-  struct _POINTL v17; // rdx
-  HRGN v18; // rax
-  bool v20; // zf
-  struct RGNOBJ *v21; // rdx
-  HRGN v22; // rax
-  struct _POINTL v23; // rax
+  __int64 v15; // rax
+  HRGN v16; // rax
+  __int64 v17; // r8
+  int *v18; // rdx
+  HRGN v19; // rax
+  bool v21; // zf
+  struct RGNOBJ *v22; // rdx
+  __int64 v23; // rax
   __int64 v24; // rcx
   HRGN *v25; // r14
   HRGN *v26; // rdi
   HRGN v27; // rax
   struct _POINTL *v28; // rcx
-  struct _POINTL v29; // [rsp+20h] [rbp-20h] BYREF
-  struct _POINTL v30; // [rsp+28h] [rbp-18h] BYREF
-  _BYTE v31[16]; // [rsp+30h] [rbp-10h] BYREF
-  struct _POINTL v32; // [rsp+70h] [rbp+30h] BYREF
+  _BYTE v29[8]; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v30; // [rsp+28h] [rbp-28h] BYREF
+  int v31; // [rsp+30h] [rbp-20h]
+  _QWORD v32[3]; // [rsp+38h] [rbp-18h] BYREF
+  __int64 v33; // [rsp+80h] [rbp+30h] BYREF
 
   v13 = -1073741811;
-  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v31, (struct _EX_PUSH_LOCK *)&a1[32]);
+  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v29, (struct SFMLOGICALSURFACE *)((char *)a1 + 256));
   v14 = a9;
   *a9 = 0;
-  if ( a1[23] )
+  if ( *((_QWORD *)a1 + 23) )
   {
-    *v14 = a1[21].x;
-    if ( a1[21].x == 1 && ((v23 = a1[23]) == 0LL ? (v24 = 0LL) : (v24 = *(_QWORD *)(*(_QWORD *)&v23 + 8LL)), v24 == a2) )
+    *v14 = *((_DWORD *)a1 + 42);
+    if ( *((_DWORD *)a1 + 42) == 1
+      && ((v23 = *((_QWORD *)a1 + 23)) == 0 ? (v24 = 0LL) : (v24 = *(_QWORD *)(v23 + 8)), v24 == a2) )
     {
       v25 = a6;
       if ( a6 )
       {
         v26 = a5;
-        v32 = a1[20];
-        if ( a5 && *(_QWORD *)&a1[18] )
+        v33 = *((_QWORD *)a1 + 20);
+        if ( a5 && *((_QWORD *)a1 + 18) )
         {
-          a9 = (int *)a1[18];
+          a9 = (int *)*((_QWORD *)a1 + 18);
           *v26 = RGNOBJ::hrgnAssociate((RGNOBJ *)&a9);
         }
-        ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))EtwTranslationUpdateOffsetDWM)(
-          *a1,
-          (unsigned int)a1[19].x,
-          HIDWORD(*(_QWORD *)&a1[19]));
-        ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))EtwTraceMoveRegion)(*a1, 0LL, 6LL, *(_QWORD *)&a1[20]);
-        v27 = RGNOBJ::hrgnAssociate((RGNOBJ *)&v32);
+        EtwTranslationUpdateOffsetDWM(*(_QWORD *)a1, *((unsigned int *)a1 + 38), HIDWORD(*((_QWORD *)a1 + 19)));
+        EtwTraceMoveRegion(*(_QWORD *)a1, 0LL, 6LL, *((_QWORD *)a1 + 20));
+        v27 = RGNOBJ::hrgnAssociate((RGNOBJ *)&v33);
         v28 = a7;
         *v25 = v27;
         if ( v28 )
-          *v28 = a1[19];
-        METAREGION::vClearMoveData((METAREGION *)&a1[16], 0);
+          *v28 = *(struct _POINTL *)((char *)a1 + 152);
+        METAREGION::vClearMoveData((struct SFMLOGICALSURFACE *)((char *)a1 + 128), 0);
       }
     }
     else if ( a6 )
@@ -78,82 +77,78 @@ __int64 __fastcall GrepSfmGetDirtyRgn(
       *a6 = 0LL;
     }
     if ( a8 )
-      *a8 = ((unsigned int)a1[31].y >> 4) & 1;
+      *a8 = (*((_DWORD *)a1 + 63) >> 4) & 1;
     if ( a3 )
     {
-      v15 = a1[23];
+      v15 = *((_QWORD *)a1 + 23);
       if ( v15 )
-        v15 = *(struct _POINTL *)(*(_QWORD *)&v15 + 8LL);
+        v15 = *(_QWORD *)(v15 + 8);
       if ( v15 == a2 )
       {
-        a9 = (int *)a1[16];
+        a9 = (int *)*((_QWORD *)a1 + 16);
         if ( a9 )
         {
-          ((void (__fastcall *)(_QWORD, _QWORD))EtwTraceDWMGetDirtyRegion)(*a1, 0LL);
-          v22 = RGNOBJ::hrgnAssociate((RGNOBJ *)&a9);
-          *a3 = v22;
-          if ( v22 )
+          EtwTraceDWMGetDirtyRegion(*(_QWORD *)a1, 0LL);
+          v16 = RGNOBJ::hrgnAssociate((RGNOBJ *)&a9);
+          *a3 = v16;
+          if ( v16 )
           {
-            a1[16] = 0LL;
-            a1[31].y &= ~2u;
+            *((_QWORD *)a1 + 16) = 0LL;
+            *((_DWORD *)a1 + 63) &= ~2u;
           }
         }
       }
     }
-    if ( !a4 || (a1[31].y & 4) == 0 && a2 )
-      goto LABEL_28;
-    RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&a9);
-    v16 = a1[11];
-    v17 = a1[10];
-    v30 = v16;
-    v29 = v17;
-    if ( !a9 )
-      goto LABEL_28;
-    if ( (v16 != 0LL) == (v17 != 0LL) )
+    if ( a4 && ((*((_DWORD *)a1 + 63) & 4) != 0 || !a2) )
     {
-      if ( v16 )
+      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v30);
+      v17 = *((_QWORD *)a1 + 11);
+      v18 = (int *)*((_QWORD *)a1 + 10);
+      v33 = v17;
+      a9 = v18;
+      if ( v30 )
       {
-        if ( !*(_QWORD *)&v17 )
+        if ( (v17 != 0) == (v18 != 0LL) )
         {
-LABEL_25:
-          if ( a9 )
+          if ( v17 && v18 )
           {
-            v18 = RGNOBJ::hrgnAssociate((RGNOBJ *)&a9);
-            *a4 = v18;
-            if ( !v18 )
-              RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&a9);
+            RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v32);
+            RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v32);
+            if ( (*((_DWORD *)a1 + 63) & 4) != 0 )
+            {
+              if ( v32[0] && RGNOBJ::bMerge((RGNOBJ *)v32, (struct RGNOBJ *)&v33, (struct RGNOBJ *)&a9, 8u) )
+                RGNOBJ::vSwap((RGNOBJ *)v32, (struct RGNOBJ *)&v30);
+            }
+            else
+            {
+              RGNOBJ::bCopy((RGNOBJ *)&v30, (struct RGNOBJ *)&v33);
+            }
+            RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v32);
           }
-LABEL_28:
-          v13 = 0;
-          goto LABEL_29;
-        }
-        RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v32);
-        RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v32);
-        if ( (a1[31].y & 4) != 0 )
-        {
-          if ( *(_QWORD *)&v32 && RGNOBJ::bMerge((RGNOBJ *)&v32, (struct RGNOBJ *)&v30, (struct RGNOBJ *)&v29, 8u) )
-            RGNOBJ::vSwap((RGNOBJ *)&v32, (struct RGNOBJ *)&a9);
         }
         else
         {
-          RGNOBJ::bCopy((RGNOBJ *)&a9, (struct RGNOBJ *)&v30);
+          v21 = v18 == 0LL;
+          v22 = (struct RGNOBJ *)&a9;
+          if ( v21 )
+            v22 = (struct RGNOBJ *)&v33;
+          RGNOBJ::bCopy((RGNOBJ *)&v30, v22);
         }
-        RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v32);
+        if ( a9 && (*((_DWORD *)a1 + 63) & 0x10) != 0 )
+          RGNOBJ::vSet((RGNOBJ *)&a9);
+        if ( v30 )
+        {
+          v19 = RGNOBJ::hrgnAssociate((RGNOBJ *)&v30);
+          *a4 = v19;
+          if ( !v19 )
+            RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v30);
+        }
       }
+      if ( v31 == 1 )
+        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v30);
     }
-    else
-    {
-      v20 = v17 == 0LL;
-      v21 = (struct RGNOBJ *)&v29;
-      if ( v20 )
-        v21 = (struct RGNOBJ *)&v30;
-      RGNOBJ::bCopy((RGNOBJ *)&a9, v21);
-    }
-    if ( *(_QWORD *)&v29 && (a1[31].y & 0x10) != 0 )
-      RGNOBJ::vSet((RGNOBJ *)&v29);
-    goto LABEL_25;
+    v13 = 0;
   }
-LABEL_29:
-  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v31);
+  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v29);
   return v13;
 }

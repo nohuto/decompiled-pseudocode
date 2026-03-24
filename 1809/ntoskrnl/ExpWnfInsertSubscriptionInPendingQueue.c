@@ -2,7 +2,7 @@
  * XREFs of ExpWnfInsertSubscriptionInPendingQueue @ 0x140610B7C
  * Callers:
  *     ExpWnfNotifyNameSubscribers @ 0x1406109F8 (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfNotifySubscription @ 0x1406B7828 (ExpWnfNotifySubscription.c)
+ *     ExpWnfNotifySubscription @ 0x1406B7808 (ExpWnfNotifySubscription.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)

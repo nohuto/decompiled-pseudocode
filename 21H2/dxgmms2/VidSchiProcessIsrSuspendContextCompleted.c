@@ -1,20 +1,26 @@
 /*
- * XREFs of VidSchiProcessIsrSuspendContextCompleted @ 0x1C00434C0
+ * XREFs of VidSchiProcessIsrSuspendContextCompleted @ 0x1C003B6D0
  * Callers:
- *     VidSchDdiNotifyInterruptWorker @ 0x1C000C7A0 (VidSchDdiNotifyInterruptWorker.c)
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000DE00 (VidSchDdiNotifyInterruptWorker.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
 const signed __int64 *__fastcall VidSchiProcessIsrSuspendContextCompleted(union _SLIST_HEADER *a1, __int64 a2)
 {
-  struct _SLIST_ENTRY *v4; // r14
+  struct _SLIST_ENTRY *v4; // rbp
   const signed __int64 *result; // rax
   struct _SLIST_ENTRY *Next; // rbx
-  PSLIST_ENTRY v7; // rax
+  _QWORD *v7; // rax
+  __int64 v8; // rcx
+  PSLIST_ENTRY v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // rax
 
   v4 = *(struct _SLIST_ENTRY **)(*(_QWORD *)(a2 + 8) + 8LL);
-  result = (const signed __int64 *)a1[37].Alignment;
+  result = (const signed __int64 *)a1[36].Region;
   Next = v4[1].Next;
   if ( !_bittest64(result, WORD2(Next->Next)) )
   {
@@ -23,31 +29,29 @@ const signed __int64 *__fastcall VidSchiProcessIsrSuspendContextCompleted(union 
     {
       if ( LODWORD(Next[1].Next) == 2 )
       {
-        WdLogSingleEntry5(0LL, 281LL, 16LL, a1, WORD2(Next->Next), 0LL);
+        v7 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+        v7[3] = 281LL;
+        v7[4] = 16LL;
+        v7[5] = a1;
+        v8 = WORD2(Next->Next);
+        v7[7] = 0LL;
+        v7[6] = v8;
+        WdLogEvent5_WdCriticalError(v7);
         __debugbreak();
       }
-      v7 = ExpInterlockedPopEntrySList((PSLIST_HEADER)&Next[503]);
-      if ( v7 )
+      v9 = ExpInterlockedPopEntrySList((PSLIST_HEADER)&Next[502]);
+      if ( v9 )
       {
-        v7[2].Next = v4;
-        *((_QWORD *)&v7[2].Next + 1) = *(_QWORD *)(a2 + 16);
-        LODWORD(v7->Next) = 17;
-        return (const signed __int64 *)ExpInterlockedPushEntrySList(a1 + 111, v7 + 1);
+        v9[2].Next = v4;
+        *((_QWORD *)&v9[2].Next + 1) = *(_QWORD *)(a2 + 16);
+        LODWORD(v9->Next) = 17;
+        return (const signed __int64 *)ExpInterlockedPushEntrySList(a1 + 110, v9 + 1);
       }
       else
       {
-        WdLogSingleEntry1(1LL, WORD2(Next->Next));
-        return (const signed __int64 *)((__int64 (*)(_QWORD, __int64, __int64, const wchar_t *, ...))DxgCoreInterface[85])(
-                                         0LL,
-                                         0x40000LL,
-                                         0xFFFFFFFFLL,
-                                         L"The list of pending context suspend completed interrupts is full on node %d. Th"
-                                          "ere must be severe contention on the scheduler spin lock. This interrupt will be ignored.",
-                                         WORD2(Next->Next),
-                                         0LL,
-                                         0LL,
-                                         0LL,
-                                         0LL);
+        v13 = WdLogNewEntry5_WdAssertion(v11, v10, v12);
+        *(_QWORD *)(v13 + 24) = WORD2(Next->Next);
+        return (const signed __int64 *)WdLogEvent5_WdAssertion(v13);
       }
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkLocalErrorInterrupt @ 0x140B161C0
+ * XREFs of HalpBlkLocalErrorInterrupt @ 0x140A191C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkApicEndOfInterrupt @ 0x140B16F90 (HalpBlkApicEndOfInterrupt.c)
+ *     HalpBlkApicEndOfInterrupt @ 0x140A19F90 (HalpBlkApicEndOfInterrupt.c)
  */
 
 void HalpBlkLocalErrorInterrupt()

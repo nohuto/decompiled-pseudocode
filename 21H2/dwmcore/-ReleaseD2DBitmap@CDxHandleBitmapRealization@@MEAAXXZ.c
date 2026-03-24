@@ -1,41 +1,32 @@
 /*
- * XREFs of ?ReleaseD2DBitmap@CDxHandleBitmapRealization@@MEAAXXZ @ 0x1802A4430
+ * XREFs of ?ReleaseD2DBitmap@CDxHandleBitmapRealization@@MEAAXXZ @ 0x180264A10
  * Callers:
- *     ?ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ @ 0x1802A4BF0 (-ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ.c)
+ *     ?ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ @ 0x1802651B0 (-ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ.c)
  * Callees:
- *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800681EC (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800FFDD8 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?NotifyRealizationBitmapReleased@CDDisplayManager@@QEAAXPEAUIDisplaySurface@Core@Display@Devices@Windows@@@Z @ 0x180287B8C (-NotifyRealizationBitmapReleased@CDDisplayManager@@QEAAXPEAUIDisplaySurface@Core@Display@Devices.c)
+ *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800688C4 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5FE0 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDxHandleBitmapRealization::ReleaseD2DBitmap(CDxHandleBitmapRealization *this)
 {
-  __int64 *v1; // rdi
-  struct Windows::Devices::Display::Core::IDisplaySurface *v3; // rdx
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // rcx
+  __int64 v2; // rcx
+  __int64 v3; // rcx
+  __int64 v4; // rcx
 
-  v1 = (__int64 *)((char *)this + 384);
-  v3 = (struct Windows::Devices::Display::Core::IDisplaySurface *)*((_QWORD *)this + 48);
-  if ( v3 )
+  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)this + 44);
+  v2 = *((_QWORD *)this + 43);
+  *((_DWORD *)this + 90) = 0;
+  if ( v2 )
   {
-    CDDisplayManager::NotifyRealizationBitmapReleased(this, v3);
-    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(v1);
-    *((_DWORD *)this + 98) = 0;
-  }
-  v4 = *((_QWORD *)this + 47);
-  if ( v4 )
-  {
-    v5 = v4 + 16 + *(int *)(*(_QWORD *)(v4 + 16) + 8LL);
-    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v5 + 48LL))(
-      v5,
+    v3 = *(int *)(*(_QWORD *)(v2 + 16) + 8LL) + v2 + 16;
+    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v3 + 48LL))(
+      v3,
       (char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16);
-    v6 = *((_QWORD *)this + 47);
-    *((_QWORD *)this + 47) = 0LL;
-    if ( v6 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+    v4 = *((_QWORD *)this + 43);
+    *((_QWORD *)this + 43) = 0LL;
+    if ( v4 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
     CD2DBitmapCache::InitializeCache(this, 0LL);
   }
   CBitmapRealization::InvalidateDecodeBitmap(this, 1);

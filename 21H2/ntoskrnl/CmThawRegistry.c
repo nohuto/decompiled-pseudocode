@@ -1,89 +1,83 @@
 /*
- * XREFs of CmThawRegistry @ 0x140918E48
+ * XREFs of CmThawRegistry @ 0x140872330
  * Callers:
- *     NtThawRegistry @ 0x14090FC50 (NtThawRegistry.c)
- *     CmFreezeRegistry @ 0x140918C40 (CmFreezeRegistry.c)
- *     CmpFreezeThawWorker @ 0x140918FE0 (CmpFreezeThawWorker.c)
+ *     NtThawRegistry @ 0x1408699E0 (NtThawRegistry.c)
+ *     CmFreezeRegistry @ 0x1408720F0 (CmFreezeRegistry.c)
+ *     CmpFreezeThawWorker @ 0x140872510 (CmpFreezeThawWorker.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     CmpEnableLazyFlush @ 0x1403B63D0 (CmpEnableLazyFlush.c)
- *     HvMarkBaseBlockDirty @ 0x1406CA514 (HvMarkBaseBlockDirty.c)
- *     CmpGetNextActiveHive @ 0x14071B350 (CmpGetNextActiveHive.c)
- *     CmpLockRegistryExclusive @ 0x14071B6EC (CmpLockRegistryExclusive.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
- *     CmpReleaseShutdownRundown @ 0x140AB42A0 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140AB46D0 (CmpAcquireShutdownRundown.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     CmpEnableLazyFlush @ 0x1403A7408 (CmpEnableLazyFlush.c)
+ *     CmpGetNextActiveHive @ 0x140672520 (CmpGetNextActiveHive.c)
+ *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
+ *     HvMarkBaseBlockDirty @ 0x1406BCFEC (HvMarkBaseBlockDirty.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
  */
 
-__int64 CmThawRegistry()
+__int64 __fastcall CmThawRegistry()
 {
   unsigned int v0; // ebx
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
+  struct _KTHREAD *CurrentThread; // rax
   struct _EX_RUNDOWN_REF *i; // rcx
-  __int64 v9; // rax
+  __int64 v3; // rax
   __int64 *NextActiveHive; // rax
-  __int64 v11; // rdi
-  __int64 v12; // rdi
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
+  __int64 v5; // rdi
+  __int64 v6; // rdi
+  __int64 v7; // rax
 
   v0 = 0;
   KeCancelTimer(&CmpFreezeThawTimer);
-  if ( (unsigned __int8)CmpAcquireShutdownRundown(v2, v1, v3) )
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
     CmpLockRegistryExclusive();
     if ( CmpFreezeThawState == 1 )
     {
-      for ( i = 0LL; ; i = (struct _EX_RUNDOWN_REF *)v11 )
+      for ( i = 0LL; ; i = (struct _EX_RUNDOWN_REF *)v5 )
       {
         NextActiveHive = CmpGetNextActiveHive(i);
-        v11 = (__int64)NextActiveHive;
+        v5 = (__int64)NextActiveHive;
         if ( !NextActiveHive )
           break;
-        v9 = NextActiveHive[8];
-        if ( !*(_DWORD *)(v9 + 164) )
+        v3 = NextActiveHive[8];
+        if ( !*(_DWORD *)(v3 + 164) )
         {
-          *(_OWORD *)(v9 + 112) = *(_OWORD *)(v9 + 4056);
-          *(_OWORD *)(*(_QWORD *)(v11 + 64) + 148LL) = *(_OWORD *)(*(_QWORD *)(v11 + 64) + 4040LL);
-          *(_OWORD *)(*(_QWORD *)(v11 + 64) + 128LL) = *(_OWORD *)(*(_QWORD *)(v11 + 64) + 4072LL);
-          *(_DWORD *)(*(_QWORD *)(v11 + 64) + 164LL) = 1836346738;
-          if ( (*(_DWORD *)(v11 + 4112) & 0x300) != 0x100 && !*(_DWORD *)(v11 + 104) )
+          *(_OWORD *)(v3 + 112) = *(_OWORD *)(v3 + 4056);
+          *(_OWORD *)(*(_QWORD *)(v5 + 64) + 148LL) = *(_OWORD *)(*(_QWORD *)(v5 + 64) + 4040LL);
+          *(_OWORD *)(*(_QWORD *)(v5 + 64) + 128LL) = *(_OWORD *)(*(_QWORD *)(v5 + 64) + 4072LL);
+          *(_DWORD *)(*(_QWORD *)(v5 + 64) + 164LL) = 1836346738;
+          if ( (*(_DWORD *)(v5 + 4152) & 0x300) != 0x100 && !*(_DWORD *)(v5 + 104) )
           {
-            ExAcquirePushLockExclusiveEx(v11 + 80, 0LL);
-            HvMarkBaseBlockDirty(v11);
-            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v11 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock(v11 + 80);
-            KeAbPostRelease(v11 + 80);
+            ExAcquirePushLockExclusiveEx(v5 + 80, 0LL);
+            HvMarkBaseBlockDirty(v5);
+            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+              ExfTryToWakePushLock(v5 + 80);
+            KeAbPostRelease(v5 + 80);
           }
         }
       }
       while ( (__int64 *)CmpFreezeThawWaitListHead != &CmpFreezeThawWaitListHead )
       {
         ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpFreezeListLock, 0LL);
-        v12 = CmpFreezeThawWaitListHead;
+        v6 = CmpFreezeThawWaitListHead;
         if ( *(__int64 **)(CmpFreezeThawWaitListHead + 8) != &CmpFreezeThawWaitListHead
-          || (v13 = *(_QWORD *)CmpFreezeThawWaitListHead,
+          || (v7 = *(_QWORD *)CmpFreezeThawWaitListHead,
               *(_QWORD *)(*(_QWORD *)CmpFreezeThawWaitListHead + 8LL) != CmpFreezeThawWaitListHead) )
         {
           __fastfail(3u);
         }
         CmpFreezeThawWaitListHead = *(_QWORD *)CmpFreezeThawWaitListHead;
-        *(_QWORD *)(v13 + 8) = &CmpFreezeThawWaitListHead;
+        *(_QWORD *)(v7 + 8) = &CmpFreezeThawWaitListHead;
         ExReleasePushLockEx((ULONG_PTR)&CmpFreezeListLock, 0LL);
-        KeSetEvent((PRKEVENT)(v12 + 16), 0, 0);
+        KeSetEvent((PRKEVENT)(v6 + 16), 0, 0);
       }
       CmpFreezeThawState = 0;
       CmpEnableLazyFlush(2);
@@ -92,11 +86,13 @@ __int64 CmThawRegistry()
     {
       v0 = -1073741431;
     }
-    CmpUnlockRegistry(v5, v4, v6, v7);
-    CmpReleaseShutdownRundown(v15, v14, v16);
+    CmpUnlockRegistry();
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   else
   {
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return (unsigned int)-1073741431;
   }
   return v0;

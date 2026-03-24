@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140A656D0
+ * XREFs of _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140734BEC
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x140797804 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140742554 (_PnpObjectRaisePropertyChangeEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnpInstallerClassRaisePropertyChangeEventWorker(
@@ -20,9 +20,14 @@ __int64 __fastcall PnpInstallerClassRaisePropertyChangeEventWorker(
   __int64 v11; // rdx
   __int64 v12; // r8
   __int64 v13; // rcx
+  _QWORD v14[2]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-18h]
 
+  v14[1] = a4;
+  v14[0] = a3;
+  v15 = a5;
   result = a6(a1, a2, 2LL);
-  v9 = &qword_14000B178;
+  v9 = &qword_1400051F8;
   v10 = 3LL;
   do
   {
@@ -42,11 +47,12 @@ __int64 __fastcall PnpInstallerClassRaisePropertyChangeEventWorker(
         }
         v11 = (unsigned int)(v11 + 1);
         if ( (unsigned int)v11 >= *(_DWORD *)v9 )
-          goto LABEL_10;
+          goto LABEL_5;
       }
-      result = a6(a1, a2, 2LL);
+      v15 = v9[1];
+      result = ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, _QWORD *))a6)(a1, a2, 2LL, 4LL, v14);
     }
-LABEL_10:
+LABEL_5:
     v9 += 3;
     --v10;
   }

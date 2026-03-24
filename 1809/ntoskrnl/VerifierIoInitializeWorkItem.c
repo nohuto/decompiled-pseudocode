@@ -4,9 +4,9 @@
  *     <none>
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
- *     IoSizeofWorkItem @ 0x14012DB00 (IoSizeofWorkItem.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MmIsNonPagedSystemAddressValid @ 0x1402AB8D0 (MmIsNonPagedSystemAddressValid.c)
+ *     IoSizeofWorkItem @ 0x14012DB20 (IoSizeofWorkItem.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x1402AB9D0 (MmIsNonPagedSystemAddressValid.c)
  *     VfUtilCheckKernelAddress @ 0x1409260A4 (VfUtilCheckKernelAddress.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */

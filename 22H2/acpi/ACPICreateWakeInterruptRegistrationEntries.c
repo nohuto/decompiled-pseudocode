@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPICreateWakeInterruptRegistrationEntries @ 0x1C0098B60
+ * XREFs of ACPICreateWakeInterruptRegistrationEntries @ 0x1C00B62B0
  * Callers:
- *     ACPIWakeEmulationPrepare @ 0x1C0098C0C (ACPIWakeEmulationPrepare.c)
+ *     ACPIWakeEmulationPrepare @ 0x1C00B635C (ACPIWakeEmulationPrepare.c)
  * Callees:
  *     <none>
  */

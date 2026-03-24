@@ -1,81 +1,89 @@
 /*
- * XREFs of ?DestroyLocal@DXGKEYEDMUTEX@@SAJI@Z @ 0x1C033F7C8
+ * XREFs of ?DestroyLocal@DXGKEYEDMUTEX@@SAJI@Z @ 0x1C02908F4
  * Callers:
- *     DxgkOpenResourceFromNtHandleInternal @ 0x1C01EA090 (DxgkOpenResourceFromNtHandleInternal.c)
- *     ?CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z @ 0x1C031FC2C (-CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z.c)
- *     DxgkDestroyKeyedMutex @ 0x1C0342B50 (DxgkDestroyKeyedMutex.c)
- *     ?VmBusDestroyKeyedMutex@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036BFE0 (-VmBusDestroyKeyedMutex@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DxgkOpenResourceFromNtHandle @ 0x1C011B2E0 (DxgkOpenResourceFromNtHandle.c)
+ *     ?VmBusDestroyKeyedMutex@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02400D0 (-VmBusDestroyKeyedMutex@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DxgkDestroyKeyedMutex @ 0x1C02934B0 (DxgkDestroyKeyedMutex.c)
+ *     ?CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z @ 0x1C0298E4C (-CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000EDA8 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z @ 0x1C033F5C8 (-DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z.c)
- *     ?SignalAbandonedInternal@DXGKEYEDMUTEX@@QEAAXIH@Z @ 0x1C0341458 (-SignalAbandonedInternal@DXGKEYEDMUTEX@@QEAAXIH@Z.c)
+ *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0002630 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z @ 0x1C0290700 (-DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z.c)
+ *     ?SignalAbandonedInternal@DXGKEYEDMUTEX@@QEAAXIH@Z @ 0x1C02921E8 (-SignalAbandonedInternal@DXGKEYEDMUTEX@@QEAAXIH@Z.c)
  */
 
-__int64 __fastcall DXGKEYEDMUTEX::DestroyLocal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall DXGKEYEDMUTEX::DestroyLocal(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rdi
-  struct DXGPROCESS *Current; // rax
-  struct DXGPROCESS *v6; // rbx
+  __int64 v2; // rdi
+  struct _KTHREAD **Current; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct _KTHREAD **v6; // rbx
   __int64 v7; // rax
-  __int64 v8; // r9
-  int v9; // edx
-  DXGKEYEDMUTEX *v11; // rbx
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  _BYTE v15[32]; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rax
+  struct _KTHREAD *v12; // r9
+  __int64 v13; // rax
+  __int64 v14; // rax
+  DXGKEYEDMUTEX *v16; // rbx
+  __int64 v17; // rdx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  _BYTE v21[40]; // [rsp+20h] [rbp-28h] BYREF
 
-  v4 = (unsigned int)a1;
-  Current = DXGPROCESS::GetCurrent(a1, a2, a3, a4);
+  v2 = (unsigned int)a1;
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(a1, a2);
   v6 = Current;
   if ( !Current )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v7 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v7 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v7);
     return 3221225485LL;
   }
-  DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE((DXGHANDLETABLELOCKEXCLUSIVE *)v15, Current);
-  v7 = ((unsigned int)v4 >> 6) & 0xFFFFFF;
-  if ( (unsigned int)v7 >= *((_DWORD *)v6 + 74)
-    || (v8 = *((_QWORD *)v6 + 35),
-        v9 = *(_DWORD *)(v8 + 16 * v7 + 8),
-        (((unsigned int)v4 >> 25) & 0x60) != (*(_BYTE *)(v8 + 16 * v7 + 8) & 0x60))
-    || (v9 & 0x2000) != 0
-    || (v9 & 0x1F) == 0 )
+  DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE((DXGHANDLETABLELOCKEXCLUSIVE *)v21, Current);
+  v11 = ((unsigned int)v2 >> 6) & 0xFFFFFF;
+  if ( (unsigned int)v11 >= *((_DWORD *)v6 + 64)
+    || (v12 = v6[30],
+        v10 = (unsigned int)v11,
+        v9 = ((unsigned int)v2 >> 25) & 0x60,
+        v8 = *((unsigned int *)v12 + 4 * v11 + 2),
+        (((unsigned int)v2 >> 25) & 0x60) != (*((_BYTE *)v12 + 16 * v11 + 8) & 0x60))
+    || (v9 = 0x2000LL, (v8 & 0x2000) != 0)
+    || (v8 & 0x1F) == 0 )
   {
 LABEL_9:
-    WdLogSingleEntry2(3LL, v4, -1073741811LL);
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);
+    v14 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+    *(_QWORD *)(v14 + 24) = v2;
+    *(_QWORD *)(v14 + 32) = -1073741811LL;
+    WdLogEvent5_WdWarning(v14);
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v21);
     return 3221225485LL;
   }
-  if ( (v9 & 0x1F) != 9 )
+  v10 = 2LL * (unsigned int)v11;
+  v8 &= 0x1Fu;
+  if ( (_BYTE)v8 != 9 )
   {
-    WdLogSingleEntry1(2LL, 267LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 267LL, 0LL, 0LL, 0LL, 0LL);
+    v13 = WdLogNewEntry5_WdError(0x2000LL, v8);
+    *(_QWORD *)(v13 + 24) = 316LL;
+    WdLogEvent5_WdError(v13);
     goto LABEL_9;
   }
-  v11 = *(DXGKEYEDMUTEX **)(v8 + 16LL * (unsigned int)v7);
-  if ( !v11 )
+  v16 = (DXGKEYEDMUTEX *)*((_QWORD *)v12 + 2 * (unsigned int)v11);
+  if ( !v16 )
     goto LABEL_9;
-  *(_DWORD *)(v8 + 16 * (((unsigned __int64)(unsigned int)v4 >> 6) & 0xFFFFFF) + 8) |= 0x2000u;
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);
-  DXGKEYEDMUTEX::SignalAbandonedInternal(v11, v4, 0);
-  if ( !DXGKEYEDMUTEX::DestroyHandle((unsigned int)v4, v12, v13, v14) )
+  *((_DWORD *)v12 + 4 * (((unsigned __int64)(unsigned int)v2 >> 6) & 0xFFFFFF) + 2) |= 0x2000u;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v21);
+  DXGKEYEDMUTEX::SignalAbandonedInternal(v16, v2, 0);
+  if ( !DXGKEYEDMUTEX::DestroyHandle((unsigned int)v2, v17) )
   {
-    WdLogSingleEntry1(1LL, 3755LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"bStatus", 3755LL, 0LL, 0LL, 0LL, 0LL);
+    v20 = WdLogNewEntry5_WdAssertion(v19, v18);
+    *(_QWORD *)(v20 + 24) = 3778LL;
+    WdLogEvent5_WdAssertion(v20);
   }
   return 0LL;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetFirstPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@XZ @ 0x1C0013210
+ * XREFs of ?GetFirstPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@XZ @ 0x1C00180D0
  * Callers:
- *     _BmlLogDiagnosticsPacket @ 0x1C016D720 (_BmlLogDiagnosticsPacket.c)
+ *     _BmlLogDiagnosticsPacket @ 0x1C0149150 (_BmlLogDiagnosticsPacket.c)
  * Callees:
  *     <none>
  */

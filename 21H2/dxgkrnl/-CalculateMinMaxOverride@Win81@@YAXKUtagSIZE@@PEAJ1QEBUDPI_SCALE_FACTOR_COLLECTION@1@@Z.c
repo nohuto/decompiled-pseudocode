@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CalculateMinMaxOverride@Win81@@YAXKUtagSIZE@@PEAJ1QEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z @ 0x1C0315DB8
+ * XREFs of ?CalculateMinMaxOverride@Win81@@YAXKUtagSIZE@@PEAJ1QEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z @ 0x1C02AF758
  * Callers:
- *     ?FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z @ 0x1C031621C (-FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z @ 0x1C02AFB5C (-FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z.c)
  * Callees:
- *     ??PWin81@@YA_NAEBUtagSIZE@@0@Z @ 0x1C0315BF0 (--PWin81@@YA_NAEBUtagSIZE@@0@Z.c)
+ *     ??PWin81@@YA_NAEBUtagSIZE@@0@Z @ 0x1C02AF640 (--PWin81@@YA_NAEBUtagSIZE@@0@Z.c)
  */
 
 void __fastcall Win81::CalculateMinMaxOverride(Win81 *this, __int64 a2, struct tagSIZE a3, int *a4)
@@ -23,7 +23,7 @@ void __fastcall Win81::CalculateMinMaxOverride(Win81 *this, __int64 a2, struct t
   *(_DWORD *)a3.cx = 0;
   *a4 = 0;
   v4 = 0LL;
-  while ( dword_1C0094688[v4] != (_DWORD)this )
+  while ( dword_1C007C058[v4] != (_DWORD)this )
   {
     v4 = (unsigned int)(v4 + 1);
     if ( (unsigned int)v4 >= 5 )
@@ -36,11 +36,11 @@ void __fastcall Win81::CalculateMinMaxOverride(Win81 *this, __int64 a2, struct t
     v6 = 100 * a2;
     while ( 1 )
     {
-      v7 = dword_1C0094688[v5];
+      v7 = dword_1C007C058[v5];
       LODWORD(v12) = v6 / v7;
       HIDWORD(v12) = 100 * v11 / v7;
       v13 = v12;
-      if ( Win81::operator>=(&v13, dword_1C0086AE0) )
+      if ( Win81::operator>=(&v13, dword_1C00728C0) )
         break;
       v5 = v8 - 1;
       if ( v5 <= v10 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DpiFdoDevicePowerCompletionCallback@@YAXPEAU_DEVICE_OBJECT@@ET_POWER_STATE@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1C00248A0
+ * XREFs of ?DpiFdoDevicePowerCompletionCallback@@YAXPEAU_DEVICE_OBJECT@@ET_POWER_STATE@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1C00202B0
  * Callers:
  *     <none>
  * Callees:

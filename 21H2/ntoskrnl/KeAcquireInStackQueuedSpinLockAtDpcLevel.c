@@ -1,12 +1,18 @@
 /*
- * XREFs of KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402127F0
+ * XREFs of KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14022CB20
  * Callers:
- *     CcSerializeWithLazyWriter @ 0x1404171F4 (CcSerializeWithLazyWriter.c)
- *     PnprMirrorMarkedPages @ 0x140A6849C (PnprMirrorMarkedPages.c)
+ *     MiDeleteClusterSection @ 0x1403003E0 (MiDeleteClusterSection.c)
+ *     CcSerializeWithLazyWriter @ 0x1403F03C4 (CcSerializeWithLazyWriter.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403F5A4C (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiLargePageMovesComplete @ 0x1403F6D20 (MiLargePageMovesComplete.c)
+ *     MiLargePagePromote @ 0x1403F6D98 (MiLargePagePromote.c)
+ *     MiUnlinkNodeLargePages @ 0x1403F70E8 (MiUnlinkNodeLargePages.c)
+ *     ExShareAddressSpaceWithDevice @ 0x1405B7280 (ExShareAddressSpaceWithDevice.c)
+ *     PnprMirrorMarkedPages @ 0x1409AE02C (PnprMirrorMarkedPages.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x140311C70 (KxWaitForLockOwnerShip.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14045A10C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14022EEA0 (KxWaitForLockOwnerShip.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall KeAcquireInStackQueuedSpinLockAtDpcLevel(PKSPIN_LOCK SpinLock, PKLOCK_QUEUE_HANDLE LockHandle)

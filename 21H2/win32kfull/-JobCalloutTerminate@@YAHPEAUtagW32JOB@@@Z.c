@@ -1,54 +1,41 @@
 /*
- * XREFs of ?JobCalloutTerminate@@YAHPEAUtagW32JOB@@@Z @ 0x1C01025B0
+ * XREFs of ?JobCalloutTerminate@@YAHPEAUtagW32JOB@@@Z @ 0x1C0114670
  * Callers:
- *     UserJobCallout @ 0x1C0101E20 (UserJobCallout.c)
+ *     UserJobCallout @ 0x1C0114020 (UserJobCallout.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00788F8 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F430 (WPP_RECORDER_SF_q.c)
  */
 
 __int64 __fastcall JobCalloutTerminate(struct tagW32JOB *a1)
 {
-  bool v2; // dl
-  __int64 v3; // rcx
-  struct tagW32JOB *v4; // rdx
-  struct tagW32JOB *v5; // rcx
+  void *v2; // rcx
+  struct tagW32JOB *v3; // rdx
+  struct tagW32JOB *v4; // rcx
 
-  v2 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x1000) != 0
-    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_q(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v2,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      24,
-      4,
-      13,
-      24,
-      (__int64)&WPP_0742a17b01c83834b82bef7f0a5be2d9_Traceguids,
-      (char)a1);
-  v3 = *((_QWORD *)a1 + 7);
-  if ( v3 )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_q((_DWORD)a1, 4, 13, 24, (__int64)&WPP_8a8a5c1bf24e3db582f892aeb1cd1399_Traceguids, (char)a1);
+  v2 = (void *)*((_QWORD *)a1 + 7);
+  if ( v2 )
   {
-    Win32FreePool(v3);
+    Win32FreePool(v2);
     *((_QWORD *)a1 + 7) = 0LL;
     *((_DWORD *)a1 + 12) = 0;
     *((_DWORD *)a1 + 13) = 0;
   }
+  v3 = (struct tagW32JOB *)gpJobsList;
   v4 = (struct tagW32JOB *)gpJobsList;
-  v5 = (struct tagW32JOB *)gpJobsList;
   if ( gpJobsList )
   {
-    while ( v5 != a1 )
+    while ( v4 != a1 )
     {
-      v4 = v5;
-      v5 = *(struct tagW32JOB **)v5;
-      if ( !v5 )
-        goto LABEL_12;
+      v3 = v4;
+      v4 = *(struct tagW32JOB **)v4;
+      if ( !v4 )
+        goto LABEL_8;
     }
-    *(_QWORD *)v4 = *(_QWORD *)a1;
+    *(_QWORD *)v3 = *(_QWORD *)a1;
   }
-LABEL_12:
+LABEL_8:
   RtlDestroyAtomTable(*((PRTL_ATOM_TABLE *)a1 + 2));
   Win32FreePool(a1);
   return 1LL;

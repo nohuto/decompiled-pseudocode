@@ -1,8 +1,8 @@
 /*
- * XREFs of GreCreateCompatibleHalftonePalette @ 0x1C00B0F58
+ * XREFs of GreCreateCompatibleHalftonePalette @ 0x1C012B4E8
  * Callers:
- *     NtGdiCreateHalftonePalette @ 0x1C00B0F40 (NtGdiCreateHalftonePalette.c)
- *     ?DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z @ 0x1C026BDD0 (-DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z.c)
+ *     NtGdiCreateHalftonePalette @ 0x1C012B4D0 (NtGdiCreateHalftonePalette.c)
+ *     ?DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z @ 0x1C0273274 (-DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z.c)
  * Callees:
  *     <none>
  */

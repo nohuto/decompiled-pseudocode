@@ -1,18 +1,18 @@
 /*
- * XREFs of ??_GVIDSCH_FLIP_QUEUE@@QEAAPEAXI@Z @ 0x1C001B4DC
+ * XREFs of ??_GVIDSCH_FLIP_QUEUE@@QEAAPEAXI@Z @ 0x1C0029EC4
  * Callers:
- *     VidSchiSetFlipDevice @ 0x1C000317C (VidSchiSetFlipDevice.c)
+ *     VidSchiSetFlipDevice @ 0x1C0011D1C (VidSchiSetFlipDevice.c)
  * Callees:
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0013F70 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C00121A0 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
  */
 
 char *__fastcall VIDSCH_FLIP_QUEUE::`scalar deleting destructor'(char *P)
 {
   `vector destructor iterator'(
-    P + 120,
-    1376LL,
+    P + 88,
+    1344LL,
     64LL,
-    (void (__fastcall *)(char *))_VIDSCH_FLIP_QUEUE_ENTRY::~_VIDSCH_FLIP_QUEUE_ENTRY);
+    (void (__fastcall *)(char *))VIDSCH_FLIP_QUEUE_ENTRY::~VIDSCH_FLIP_QUEUE_ENTRY);
   if ( P )
     ExFreePoolWithTag(P, 0);
   return P;

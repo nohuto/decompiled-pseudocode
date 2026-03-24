@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_DetachedWithResetPending @ 0x1C001D1A0
+ * XREFs of HUBDSM_DetachedWithResetPending @ 0x1C001CC60
  * Callers:
  *     <none>
  * Callees:

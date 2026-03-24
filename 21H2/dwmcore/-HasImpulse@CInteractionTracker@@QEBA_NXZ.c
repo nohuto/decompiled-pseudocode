@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x18021B2D4
+ * XREFs of ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x1801C9F30
  * Callers:
- *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x1802196D8 (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
- *     ?GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18021AEC0 (-GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z.c)
- *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x18021E3F8 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
+ *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x1801C85BC (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
+ *     ?GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C9AF0 (-GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x1801CD3E0 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HasImpulse@CMotion@@QEBA_NXZ @ 0x1802544BC (-HasImpulse@CMotion@@QEBA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?HasImpulse@CMotion@@QEBA_NXZ @ 0x180203C38 (-HasImpulse@CMotion@@QEBA_NXZ.c)
  */
 
 char __fastcall CInteractionTracker::HasImpulse(CInteractionTracker *this)
@@ -19,9 +19,9 @@ char __fastcall CInteractionTracker::HasImpulse(CInteractionTracker *this)
   __int64 v7; // rcx
   CMotion *v8; // rax
 
-  if ( (*((_BYTE *)this + 540) & 0x10) != 0 )
+  if ( (*((_BYTE *)this + 532) & 0x10) != 0 )
     return 1;
-  v2 = *((_QWORD *)this + 42);
+  v2 = *((_QWORD *)this + 41);
   v3 = 0;
   if ( v2 )
   {
@@ -29,14 +29,14 @@ char __fastcall CInteractionTracker::HasImpulse(CInteractionTracker *this)
     if ( CMotion::HasImpulse(v4) )
       return 1;
   }
-  v5 = *((_QWORD *)this + 43);
+  v5 = *((_QWORD *)this + 42);
   if ( v5 )
   {
     v6 = (CMotion *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v5 + 328LL))(v5);
     if ( CMotion::HasImpulse(v6) )
       return 1;
   }
-  v7 = *((_QWORD *)this + 41);
+  v7 = *((_QWORD *)this + 40);
   if ( v7 )
   {
     v8 = (CMotion *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v7 + 328LL))(v7);

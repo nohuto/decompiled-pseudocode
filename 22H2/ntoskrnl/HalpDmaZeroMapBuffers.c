@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaZeroMapBuffers @ 0x140511950
+ * XREFs of HalpDmaZeroMapBuffers @ 0x1404C8814
  * Callers:
- *     HalpMapTransferV2 @ 0x14045CD44 (HalpMapTransferV2.c)
- *     HalpMapTransferV3 @ 0x1405151FC (HalpMapTransferV3.c)
+ *     HalpMapTransferV3 @ 0x1404CA778 (HalpMapTransferV3.c)
+ *     HalpMapTransferV2 @ 0x1404CC8D4 (HalpMapTransferV2.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpDmaAcquireBufferMappings @ 0x14045B704 (HalpDmaAcquireBufferMappings.c)
- *     HalpDmaReleaseBufferMappings @ 0x14045C178 (HalpDmaReleaseBufferMappings.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpDmaAcquireBufferMappings @ 0x1404C64E8 (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaReleaseBufferMappings @ 0x1404C7DCC (HalpDmaReleaseBufferMappings.c)
  */
 
 void __fastcall HalpDmaZeroMapBuffers(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)
@@ -21,22 +21,21 @@ void __fastcall HalpDmaZeroMapBuffers(__int64 a1, _QWORD *a2, unsigned int a3, u
   __int64 v10; // rcx
   unsigned int i; // edx
   _DWORD *SchedulerAssist; // r9
-  __int64 v13; // rax
   _QWORD *j; // r13
-  unsigned int v15; // ebx
-  unsigned __int8 v16; // al
+  unsigned int v14; // ebx
+  unsigned __int8 v15; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v18; // r8
-  int v19; // eax
-  bool v20; // zf
-  _OWORD v21[3]; // [rsp+30h] [rbp-78h] BYREF
-  __int64 v22; // [rsp+60h] [rbp-48h]
-  unsigned int v23; // [rsp+C0h] [rbp+18h]
+  _DWORD *v17; // r8
+  int v18; // eax
+  bool v19; // zf
+  _OWORD v20[3]; // [rsp+30h] [rbp-78h] BYREF
+  __int64 v21; // [rsp+60h] [rbp-48h]
+  unsigned int v22; // [rsp+C0h] [rbp+18h]
 
-  v23 = a3;
+  v22 = a3;
   v4 = a4;
-  memset(v21, 0, sizeof(v21));
-  v22 = 0LL;
+  memset(v20, 0, sizeof(v20));
+  v21 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   v7 = a3 & 0xFFF;
   v8 = 0;
@@ -49,19 +48,14 @@ void __fastcall HalpDmaZeroMapBuffers(__int64 a1, _QWORD *a2, unsigned int a3, u
       __writecr8(2uLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
+        v7 = (unsigned int)CurrentIrql + 1;
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        LODWORD(v13) = 4;
-        if ( CurrentIrql != 2 )
-        {
-          v7 = (unsigned int)CurrentIrql + 1;
-          v13 = (-1LL << (CurrentIrql + 1)) & 4;
-        }
-        SchedulerAssist[5] |= v13;
+        SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
       }
       v8 = 1;
     }
-    HalpDmaAcquireBufferMappings(v7, a2, v9, (__int64)v21);
-    a3 = v23;
+    HalpDmaAcquireBufferMappings(v7, a2, v9, (__int64)v20);
+    a3 = v22;
   }
   else
   {
@@ -73,31 +67,34 @@ void __fastcall HalpDmaZeroMapBuffers(__int64 a1, _QWORD *a2, unsigned int a3, u
       v10 = *(_QWORD *)(v10 + 8);
     }
   }
-  for ( j = a2; v4; v4 -= v15 )
+  for ( j = a2; v4; v4 -= v14 )
   {
-    v15 = v4;
+    v14 = v4;
     if ( v4 >= 4096 - a3 )
-      v15 = 4096 - a3;
-    memset((void *)((j[6] & 0xFFFFFFFFFFFFF000uLL) + a3), 0, v15);
+      v14 = 4096 - a3;
+    memset((void *)((j[6] & 0xFFFFFFFFFFFFF000uLL) + a3), 0, v14);
     j = (_QWORD *)j[1];
     a3 = 0;
   }
   if ( CurrentIrql <= 2u )
-    HalpDmaReleaseBufferMappings(v10, (__int64)a2, v9, (__int64)v21);
+    HalpDmaReleaseBufferMappings(v10, (__int64)a2, v9, (__int64)v20);
   if ( v8 )
   {
     if ( KiIrqlFlags )
     {
-      v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v18 = CurrentPrcb->SchedulerAssist;
-        v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v20 = (v19 & v18[5]) == 0;
-        v18[5] &= v19;
-        if ( v20 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v15 = KeGetCurrentIrql();
+        if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v17 = CurrentPrcb->SchedulerAssist;
+          v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v19 = (v18 & v17[5]) == 0;
+          v17[5] &= v18;
+          if ( v19 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(CurrentIrql);

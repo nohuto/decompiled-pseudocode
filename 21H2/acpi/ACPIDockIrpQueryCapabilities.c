@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIDockIrpQueryCapabilities @ 0x1C00AA5F0
+ * XREFs of ACPIDockIrpQueryCapabilities @ 0x1C00AB810
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     AMLIIsNamedChildPresent @ 0x1C000A410 (AMLIIsNamedChildPresent.c)
- *     WPP_RECORDER_SF_qqss @ 0x1C000E14C (WPP_RECORDER_SF_qqss.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C0094A68 (ACPISystemPowerQueryDeviceCapabilities.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C001E288 (WPP_RECORDER_SF_qqss.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C009F074 (ACPISystemPowerQueryDeviceCapabilities.c)
  */
 
 __int64 __fastcall ACPIDockIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
@@ -28,7 +28,7 @@ __int64 __fastcall ACPIDockIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
   __int64 v14; // rcx
   const char *v15; // rdi
   __int64 v16; // rax
-  void *v17; // rdx
+  char *v17; // rdx
   char *IrpText; // rax
   const char *v19; // r8
   unsigned __int8 MinorFunction; // [rsp+98h] [rbp+10h]
@@ -41,7 +41,7 @@ __int64 __fastcall ACPIDockIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
   MinorFunction = CurrentStackLocation->MinorFunction;
   if ( v6 )
   {
-    v12 = *(__int64 **)(v6 + 760);
+    v12 = *(__int64 **)(v6 + 720);
     *(_DWORD *)(SecurityContext + 4) |= 0x1F0u;
     if ( AMLIIsNamedChildPresent(v12, 810173791) )
       *(_DWORD *)(SecurityContext + 4) |= 8u;
@@ -57,21 +57,21 @@ __int64 __fastcall ACPIDockIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
     v11 = DeviceCapabilities;
     *(_DWORD *)(SecurityContext + 28) = 4;
     *(_DWORD *)(SecurityContext + 32) = 4;
-    *(_OWORD *)(v5 + 508) = *(_OWORD *)SecurityContext;
-    *(_QWORD *)(v5 + 524) = *(_QWORD *)(SecurityContext + 16);
+    *(_OWORD *)(v5 + 468) = *(_OWORD *)SecurityContext;
+    *(_QWORD *)(v5 + 484) = *(_QWORD *)(SecurityContext + 16);
     v14 = *(unsigned int *)(SecurityContext + 24);
-    v15 = (const char *)&unk_1C006FB8B;
-    *(_DWORD *)(v5 + 532) = v14;
+    v15 = byte_1C00701BA;
+    *(_DWORD *)(v5 + 492) = v14;
     if ( DeviceCapabilities < 0 )
     {
       v16 = *(_QWORD *)(v5 + 8);
-      v17 = &unk_1C006FB8B;
-      v14 = (__int64)&unk_1C006FB8B;
+      v17 = byte_1C00701BA;
+      v14 = (__int64)byte_1C00701BA;
       if ( (v16 & 0x200000000000LL) != 0 )
       {
-        v17 = *(void **)(v5 + 608);
+        v17 = *(char **)(v5 + 568);
         if ( (v16 & 0x400000000000LL) != 0 )
-          v14 = *(_QWORD *)(v5 + 616);
+          v14 = *(_QWORD *)(v5 + 576);
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         WPP_RECORDER_SF_Lqss(
@@ -86,7 +86,7 @@ __int64 __fastcall ACPIDockIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
           v14);
     }
     if ( (*(_QWORD *)(v5 + 8) & 0x200000000000LL) != 0 )
-      v15 = *(const char **)(v5 + 608);
+      v15 = *(const char **)(v5 + 568);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       IrpText = ACPIDebugGetIrpText(v14, MinorFunction);
@@ -107,13 +107,13 @@ __int64 __fastcall ACPIDockIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
   else
   {
     v8 = *(_QWORD *)(DeviceExtension + 8);
-    v9 = (const char *)&unk_1C006FB8B;
-    v10 = (const char *)&unk_1C006FB8B;
+    v9 = byte_1C00701BA;
+    v10 = byte_1C00701BA;
     if ( (v8 & 0x200000000000LL) != 0 )
     {
-      v9 = *(const char **)(v5 + 608);
+      v9 = *(const char **)(v5 + 568);
       if ( (v8 & 0x400000000000LL) != 0 )
-        v10 = *(const char **)(v5 + 616);
+        v10 = *(const char **)(v5 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_qqss(

@@ -1,8 +1,8 @@
 /*
- * XREFs of ??1CMutex@OPM@@QEAA@XZ @ 0x1C00A9710
+ * XREFs of ??1CMutex@OPM@@QEAA@XZ @ 0x1C00B2DF0
  * Callers:
- *     ??1COPM@@QEAA@XZ @ 0x1C00A96BC (--1COPM@@QEAA@XZ.c)
- *     ??_GCMutex@OPM@@QEAAPEAXI@Z @ 0x1C0151374 (--_GCMutex@OPM@@QEAAPEAXI@Z.c)
+ *     ??1COPM@@QEAA@XZ @ 0x1C00B2D24 (--1COPM@@QEAA@XZ.c)
+ *     ??_GCMutex@OPM@@QEAAPEAXI@Z @ 0x1C013C294 (--_GCMutex@OPM@@QEAAPEAXI@Z.c)
  * Callees:
  *     <none>
  */

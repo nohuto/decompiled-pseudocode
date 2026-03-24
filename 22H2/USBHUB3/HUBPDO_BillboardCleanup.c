@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBPDO_BillboardCleanup @ 0x1C007D330
+ * XREFs of HUBPDO_BillboardCleanup @ 0x1C0078BC4
  * Callers:
- *     HUBPDO_EvtDeviceCleanup @ 0x1C001A390 (HUBPDO_EvtDeviceCleanup.c)
- *     HUBPDO_EvtDeviceSurpriseRemoval @ 0x1C007D8C0 (HUBPDO_EvtDeviceSurpriseRemoval.c)
+ *     HUBPDO_EvtDeviceCleanup @ 0x1C00187A0 (HUBPDO_EvtDeviceCleanup.c)
+ *     HUBPDO_EvtDeviceSurpriseRemoval @ 0x1C0079170 (HUBPDO_EvtDeviceSurpriseRemoval.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBFDO_CleanupDeviceInterfaceForBillboard @ 0x1C000F6B4 (HUBFDO_CleanupDeviceInterfaceForBillboard.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBFDO_CleanupDeviceInterfaceForBillboard @ 0x1C000E4E4 (HUBFDO_CleanupDeviceInterfaceForBillboard.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBPDO_BillboardCleanup(__int64 a1)
@@ -16,7 +16,7 @@ void __fastcall HUBPDO_BillboardCleanup(__int64 a1)
   int v4; // eax
   int v5; // eax
   int updated; // eax
-  void *v7; // rcx
+  PVOID *v7; // rax
   void *v8; // rcx
   __int64 v9; // [rsp+28h] [rbp-40h]
   __int64 v10; // [rsp+28h] [rbp-40h]
@@ -24,7 +24,7 @@ void __fastcall HUBPDO_BillboardCleanup(__int64 a1)
   void *v12; // [rsp+48h] [rbp-20h]
   __int64 v13; // [rsp+50h] [rbp-18h]
 
-  if ( *(_QWORD *)(a1 + 2648) )
+  if ( *(_QWORD *)(a1 + 2640) )
   {
     v11[1] = 0;
     v13 = 0LL;
@@ -46,15 +46,15 @@ void __fastcall HUBPDO_BillboardCleanup(__int64 a1)
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
         2u,
         2u,
-        0x5Eu,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+        0x56u,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v9);
     }
     v5 = HUBFDO_CleanupDeviceInterfaceForBillboard(
            *(_QWORD *)a1,
            *(_WORD *)(*(_QWORD *)(a1 + 16) + 48LL),
-           *(_QWORD *)(a1 + 2656),
-           *(_BYTE *)(a1 + 2664));
+           *(_QWORD *)(a1 + 2648),
+           *(_BYTE *)(a1 + 2656));
     if ( v5 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LODWORD(v9) = v5;
@@ -62,8 +62,8 @@ void __fastcall HUBPDO_BillboardCleanup(__int64 a1)
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
         2u,
         2u,
-        0x5Fu,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+        0x57u,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v9);
     }
     updated = ZwUpdateWnfStateData(&WNF_USB_BILLBOARD_CHANGE, 0LL, 0LL, 0LL, 0LL, 0, 0);
@@ -74,17 +74,20 @@ void __fastcall HUBPDO_BillboardCleanup(__int64 a1)
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
         2u,
         2u,
-        0x60u,
-        (__int64)&WPP_89394142541e3c268d3f106ce98d6cb5_Traceguids,
+        0x58u,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v10);
     }
-    v7 = **(void ***)(a1 + 2648);
-    if ( v7 )
-      ExFreePoolWithTag(v7, 0x68334855u);
-    **(_QWORD **)(a1 + 2648) = 0LL;
-    v8 = *(void **)(a1 + 2648);
+    v7 = *(PVOID **)(a1 + 2640);
+    if ( *v7 )
+    {
+      ExFreePoolWithTag(*v7, 0x68334855u);
+      v7 = *(PVOID **)(a1 + 2640);
+    }
+    *v7 = 0LL;
+    v8 = *(void **)(a1 + 2640);
     if ( v8 )
       ExFreePoolWithTag(v8, 0x68334855u);
-    *(_QWORD *)(a1 + 2648) = 0LL;
+    *(_QWORD *)(a1 + 2640) = 0LL;
   }
 }

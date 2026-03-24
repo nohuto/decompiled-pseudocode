@@ -1,35 +1,35 @@
 /*
- * XREFs of RtlpOpenBaseImageFileOptionsKeyEx @ 0x14085FFF0
+ * XREFs of RtlpOpenBaseImageFileOptionsKeyEx @ 0x1407D0734
  * Callers:
- *     RtlpOpenBaseImageFileOptionsKey @ 0x1406C2E68 (RtlpOpenBaseImageFileOptionsKey.c)
+ *     RtlpOpenBaseImageFileOptionsKey @ 0x1406A6734 (RtlpOpenBaseImageFileOptionsKey.c)
  * Callees:
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
  */
 
-NTSTATUS __fastcall RtlpOpenBaseImageFileOptionsKeyEx(HANDLE *a1)
+NTSTATUS __fastcall RtlpOpenBaseImageFileOptionsKeyEx(_QWORD *a1)
 {
   char PreviousMode; // dl
   ULONG v3; // eax
   NTSTATUS result; // eax
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-30h] BYREF
-  HANDLE KeyHandle; // [rsp+78h] [rbp+28h] BYREF
+  OBJECT_ATTRIBUTES v5; // [rsp+20h] [rbp-38h] BYREF
+  HANDLE v6; // [rsp+78h] [rbp+20h] BYREF
 
-  KeyHandle = 0LL;
-  *(&ObjectAttributes.Attributes + 1) = 0;
-  *(&ObjectAttributes.Length + 1) = 0;
+  *(&v5.Length + 1) = 0;
+  *(&v5.Attributes + 1) = 0;
+  v6 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v3 = 1600;
-  ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.Length = 48;
+  v5.Length = 48;
+  v5.RootDirectory = 0LL;
   if ( PreviousMode != 1 )
     v3 = 576;
-  ObjectAttributes.Attributes = v3;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_140006600;
-  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  result = ZwOpenKey(&KeyHandle, 9u, &ObjectAttributes);
+  v5.Attributes = v3;
+  v5.ObjectName = (PUNICODE_STRING)&qword_140005A20;
+  *(_OWORD *)&v5.SecurityDescriptor = 0LL;
+  result = ZwOpenKey(&v6, 9u, &v5);
   if ( result >= 0 )
   {
-    *a1 = KeyHandle;
+    *a1 = v6;
     return 0;
   }
   return result;

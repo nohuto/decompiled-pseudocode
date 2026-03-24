@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bInside@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C0008210
+ * XREFs of ?bInside@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C0086B70
  * Callers:
- *     GrePtInRegion @ 0x1C0008190 (GrePtInRegion.c)
+ *     GrePtInRegion @ 0x1C0086AF0 (GrePtInRegion.c)
  * Callees:
  *     <none>
  */
@@ -10,50 +10,44 @@ __int64 __fastcall RGNOBJ::bInside(RGNOBJ *this, struct _POINTL *a2)
 {
   __int64 v2; // rax
   LONG x; // r11d
-  LONG y; // ecx
-  int v5; // r10d
+  LONG y; // r9d
+  _DWORD *v5; // r8
   unsigned int v6; // edx
-  _DWORD *v7; // r8
-  LONG v8; // ebx
-  int v10; // ecx
-  __int64 v11; // rax
+  int v7; // r10d
+  int v9; // ebx
+  __int64 v10; // rax
 
   v2 = *(_QWORD *)this;
   x = a2->x;
-  if ( a2->x < *(_DWORD *)(*(_QWORD *)this + 56LL) )
+  if ( a2->x < *(_DWORD *)(*(_QWORD *)this + 96LL) )
     return 1LL;
   y = a2->y;
-  if ( y >= *(_DWORD *)(v2 + 68) || x >= *(_DWORD *)(v2 + 64) || y < *(_DWORD *)(v2 + 60) )
+  if ( y >= *(_DWORD *)(v2 + 108) || x >= *(_DWORD *)(v2 + 104) || y < *(_DWORD *)(v2 + 100) )
     return 1LL;
-  v5 = *(_DWORD *)(v2 + 52);
+  v5 = *(_DWORD **)(v2 + 88);
   v6 = 1;
-  v7 = *(_DWORD **)(v2 + 32);
-  if ( v5 )
+  v7 = *(_DWORD *)(v2 + 84);
+  while ( v7 )
   {
-    v8 = y;
-    do
+    --v7;
+    if ( v5[1] > y )
+      break;
+    if ( v5[2] > y )
     {
-      --v5;
-      if ( v7[1] > v8 )
-        break;
-      if ( v7[2] > v8 )
+      v9 = 0;
+      if ( *v5 )
       {
-        v10 = 0;
-        if ( *v7 )
+        do
         {
-          do
-          {
-            v11 = v10++;
-            if ( v7[v11 + 3] > x )
-              return v6;
-            v6 ^= 3u;
-          }
-          while ( v10 != *v7 );
+          v10 = v9++;
+          if ( v5[v10 + 3] > x )
+            return v6;
+          v6 ^= 3u;
         }
+        while ( v9 != *v5 );
       }
-      v7 = (_DWORD *)((char *)v7 + (unsigned int)(4 * *v7 + 16));
     }
-    while ( v5 );
+    v5 = (_DWORD *)((char *)v5 + (unsigned int)(4 * *v5 + 16));
   }
   return v6;
 }

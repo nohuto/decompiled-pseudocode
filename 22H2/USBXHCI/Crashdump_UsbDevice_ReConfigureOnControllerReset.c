@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_UsbDevice_ReConfigureOnControllerReset @ 0x1C00506EC
+ * XREFs of Crashdump_UsbDevice_ReConfigureOnControllerReset @ 0x1C004DC1C
  * Callers:
- *     Crashdump_InitializeWithControllerReset @ 0x1C004C768 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C0049C90 (Crashdump_InitializeWithControllerReset.c)
  * Callees:
- *     Crashdump_UsbDevice_Configure @ 0x1C004FB34 (Crashdump_UsbDevice_Configure.c)
- *     Crashdump_UsbDevice_SendEnableSlotCommand @ 0x1C0050DBC (Crashdump_UsbDevice_SendEnableSlotCommand.c)
+ *     Crashdump_UsbDevice_Configure @ 0x1C004D05C (Crashdump_UsbDevice_Configure.c)
+ *     Crashdump_UsbDevice_SendEnableSlotCommand @ 0x1C004E2EC (Crashdump_UsbDevice_SendEnableSlotCommand.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_ReConfigureOnControllerReset(__int64 a1, int a2)

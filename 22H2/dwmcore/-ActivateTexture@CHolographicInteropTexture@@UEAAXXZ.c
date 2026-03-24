@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ActivateTexture@CHolographicInteropTexture@@UEAAXXZ @ 0x180108960
+ * XREFs of ?ActivateTexture@CHolographicInteropTexture@@UEAAXXZ @ 0x1800E35B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 void __fastcall CHolographicInteropTexture::ActivateTexture(CHolographicInteropTexture *this)
 {
+  *((_BYTE *)this + 144) = 1;
   *((_BYTE *)this + 152) = 1;
-  *((_BYTE *)this + 160) = 1;
 }

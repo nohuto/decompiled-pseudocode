@@ -1,47 +1,37 @@
 /*
- * XREFs of EtwpGetEventNameFromEventMetadata @ 0x14046A996
+ * XREFs of EtwpGetEventNameFromEventMetadata @ 0x1405AC388
  * Callers:
- *     EtwpApplyEventNameFilter @ 0x14046A156 (EtwpApplyEventNameFilter.c)
- *     EtwpTraceLostEvent @ 0x1405FC434 (EtwpTraceLostEvent.c)
+ *     EtwpApplyEventNameFilter @ 0x1405ABA74 (EtwpApplyEventNameFilter.c)
  * Callees:
- *     strnlen @ 0x1403DAF60 (strnlen.c)
+ *     strnlen @ 0x1403D34D0 (strnlen.c)
  */
 
 const char *__fastcall EtwpGetEventNameFromEventMetadata(__int64 a1, unsigned int a2, _WORD *a3)
 {
   const char *v4; // rbx
   const char *v5; // rdi
-  char *v6; // rax
+  __int16 v6; // ax
   unsigned __int16 v7; // di
-  __int16 v8; // ax
 
-  *a3 = 0;
   if ( a2 >= 3 )
   {
     v4 = (const char *)(a1 + 2);
     v5 = (const char *)(a1 + a2);
-    while ( 1 )
+    v6 = 0;
+    while ( v4 != v5 )
     {
-      v6 = (char *)v4;
-      if ( v4 == v5 )
-        break;
-      ++v4;
-      if ( *v6 >= 0 )
+      if ( *v4++ >= 0 )
       {
-        if ( v4 == v5 )
-          return 0LL;
-        v7 = (_WORD)v5 - (_WORD)v4;
-        if ( v4 )
-          v8 = strnlen(v4, v7);
-        else
-          v8 = 0;
-        *a3 = v8;
-        if ( v8 == v7 )
+        if ( v4 != v5 )
         {
-          *a3 = 0;
-          return 0LL;
+          v7 = (_WORD)v5 - (_WORD)v4;
+          if ( v4 )
+            v6 = strnlen(v4, v7);
+          *a3 = v6;
+          if ( v6 != v7 )
+            return v4;
         }
-        return v4;
+        return 0LL;
       }
     }
   }

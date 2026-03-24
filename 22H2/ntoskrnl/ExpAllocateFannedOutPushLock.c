@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpAllocateFannedOutPushLock @ 0x1403D489C
+ * XREFs of ExpAllocateFannedOutPushLock @ 0x140390B28
  * Callers:
- *     ExpTryExpandAutoExpandPushLock @ 0x1403D4838 (ExpTryExpandAutoExpandPushLock.c)
+ *     ExpTryExpandAutoExpandPushLock @ 0x140390A04 (ExpTryExpandAutoExpandPushLock.c)
  * Callees:
- *     ExSaAllocate @ 0x14022365C (ExSaAllocate.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033ADA0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140344740 (KeQueryMaximumProcessorCountEx.c)
+ *     ExSaAllocate @ 0x140390E54 (ExSaAllocate.c)
  */
 
 __int64 __fastcall ExpAllocateFannedOutPushLock(__int64 a1, char a2)
@@ -19,7 +19,7 @@ __int64 __fastcall ExpAllocateFannedOutPushLock(__int64 a1, char a2)
   __int64 v10; // rax
   __int64 v11; // rax
 
-  v3 = ExSaAllocate(0x10u, (a2 & 1) == 0);
+  v3 = ExSaAllocate(16LL, (a2 & 1) == 0);
   if ( v3 != -1 )
   {
     MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);

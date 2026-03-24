@@ -1,17 +1,18 @@
 /*
- * XREFs of HUBID_AppendStringToIDString @ 0x1C001B678
+ * XREFs of HUBID_AppendStringToIDString @ 0x1C001B100
  * Callers:
- *     HUBID_AssignIDString @ 0x1C001B784 (HUBID_AssignIDString.c)
+ *     HUBID_AssignIDString @ 0x1C001B228 (HUBID_AssignIDString.c)
  * Callees:
- *     memmove @ 0x1C0043840 (memmove.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBID_AppendStringToIDString(const void **a1, __int64 a2)
 {
   unsigned int v2; // ebx
   unsigned int v5; // edi
-  unsigned int v6; // r15d
-  char *Pool2; // rax
+  unsigned int v6; // r12d
+  char *PoolWithTag; // rax
   char *v8; // rbp
   void *v9; // rcx
 
@@ -21,12 +22,13 @@ __int64 __fastcall HUBID_AppendStringToIDString(const void **a1, __int64 a2)
   else
     v5 = 0;
   v6 = v5 + *(unsigned __int16 *)a1 + 4;
-  Pool2 = (char *)ExAllocatePool2(64LL, v6, 1681082453LL);
-  v8 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v6, 0x64334855u);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
+    memset(PoolWithTag, 0, v6);
     if ( v5 )
-      memmove(Pool2, *(const void **)(a2 + 8), v5);
+      memmove(v8, *(const void **)(a2 + 8), v5);
     memmove(&v8[v5], a1[1], *(unsigned __int16 *)a1);
     v9 = *(void **)(a2 + 8);
     *(_QWORD *)(a2 + 8) = v8;

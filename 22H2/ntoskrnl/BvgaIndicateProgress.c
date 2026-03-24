@@ -1,23 +1,22 @@
 /*
- * XREFs of BvgaIndicateProgress @ 0x140B94900
+ * XREFs of BvgaIndicateProgress @ 0x140A8F8D0
  * Callers:
  *     <none>
  * Callees:
- *     BvgaUpdateProgressBar @ 0x14054F6D0 (BvgaUpdateProgressBar.c)
+ *     BvgaUpdateProgressBar @ 0x1404FFCB0 (BvgaUpdateProgressBar.c)
  */
 
-char BvgaIndicateProgress()
+void BvgaIndicateProgress()
 {
   unsigned int v0; // eax
 
   ++BvgaProgressIndicator;
-  v0 = 100 * BvgaProgressIndicator / (unsigned int)dword_140D81184;
+  v0 = 100 * BvgaProgressIndicator / (unsigned int)dword_140D58184;
   if ( v0 > 0x63 )
     v0 = 99;
-  if ( v0 != dword_140D81188 )
+  if ( v0 != dword_140D58188 )
   {
-    dword_140D81188 = v0;
-    LOBYTE(v0) = BvgaUpdateProgressBar(v0);
+    dword_140D58188 = v0;
+    BvgaUpdateProgressBar(v0);
   }
-  return v0;
 }

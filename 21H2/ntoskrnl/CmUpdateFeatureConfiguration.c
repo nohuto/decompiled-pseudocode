@@ -1,15 +1,15 @@
 /*
- * XREFs of CmUpdateFeatureConfiguration @ 0x1409113B4
+ * XREFs of CmUpdateFeatureConfiguration @ 0x14086B330
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     CmpAllocateTransientPoolWithQuotaTag @ 0x140367AF0 (CmpAllocateTransientPoolWithQuotaTag.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140922DB4 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     CmpAllocatePoolWithQuotaTag @ 0x1404ECE10 (CmpAllocatePoolWithQuotaTag.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
  */
 
 __int64 __fastcall CmUpdateFeatureConfiguration(void *Src, size_t Size, KPROCESSOR_MODE AccessMode)
@@ -17,13 +17,12 @@ __int64 __fastcall CmUpdateFeatureConfiguration(void *Src, size_t Size, KPROCESS
   SIZE_T v4; // rsi
   struct _PRIVILEGE_SET *v6; // rdi
   BOOLEAN v7; // bl
-  __int64 v8; // rcx
   unsigned int updated; // ebx
-  struct _PRIVILEGE_SET *TransientPoolWithQuotaTag; // rax
-  unsigned __int64 v11; // rax
-  int v12; // ecx
+  struct _PRIVILEGE_SET *PoolWithQuotaTag; // rax
+  unsigned __int64 v10; // rax
+  int v11; // ecx
   ACCESS_MASK GrantedAccess[3]; // [rsp+54h] [rbp-44h] BYREF
-  struct _PRIVILEGE_SET *v15; // [rsp+60h] [rbp-38h]
+  struct _PRIVILEGE_SET *v14; // [rsp+60h] [rbp-38h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectSecurityContext; // [rsp+68h] [rbp-30h] BYREF
   NTSTATUS AccessStatus; // [rsp+B8h] [rbp+20h] BYREF
 
@@ -52,19 +51,19 @@ __int64 __fastcall CmUpdateFeatureConfiguration(void *Src, size_t Size, KPROCESS
   }
   if ( (unsigned int)v4 < 0x10 )
     goto LABEL_4;
-  TransientPoolWithQuotaTag = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithQuotaTag(v8, v4, 0x63466D43u);
-  v6 = TransientPoolWithQuotaTag;
-  v15 = TransientPoolWithQuotaTag;
-  if ( TransientPoolWithQuotaTag )
+  PoolWithQuotaTag = (struct _PRIVILEGE_SET *)CmpAllocatePoolWithQuotaTag(1, v4, 0x63466D43u);
+  v6 = PoolWithQuotaTag;
+  v14 = PoolWithQuotaTag;
+  if ( PoolWithQuotaTag )
   {
-    memmove(TransientPoolWithQuotaTag, Src, v4);
-    v11 = 32LL * (unsigned int)v6->Privilege[0].Luid.HighPart;
-    if ( v11 > 0xFFFFFFFF )
+    memmove(PoolWithQuotaTag, Src, v4);
+    v10 = 32LL * (unsigned int)v6->Privilege[0].Luid.HighPart;
+    if ( v10 > 0xFFFFFFFF )
       goto LABEL_12;
-    v12 = v11 + 16;
-    if ( (int)v11 + 16 < (unsigned int)v11 )
+    v11 = v10 + 16;
+    if ( (int)v10 + 16 < (unsigned int)v10 )
       goto LABEL_12;
-    if ( v12 != (_DWORD)v4 )
+    if ( v11 != (_DWORD)v4 )
     {
 LABEL_4:
       updated = -1073741820;
@@ -72,7 +71,7 @@ LABEL_4:
     }
     if ( v6->Privilege[0].Luid.LowPart == 1 )
       updated = CmFcManagerUpdateFeatureConfigurations(
-                  v12,
+                  v11,
                   *(_QWORD *)&v6->PrivilegeCount,
                   1,
                   (int)v6 + 16,

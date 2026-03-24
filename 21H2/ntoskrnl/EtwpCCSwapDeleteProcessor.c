@@ -1,10 +1,9 @@
 /*
- * XREFs of EtwpCCSwapDeleteProcessor @ 0x1406373F4
+ * XREFs of EtwpCCSwapDeleteProcessor @ 0x1405AC4B8
  * Callers:
- *     EtwInitializeProcessor @ 0x140829F84 (EtwInitializeProcessor.c)
- *     EtwDeleteProcessor @ 0x1409DEEDC (EtwDeleteProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCCSwapDeleteProcessor(__int64 a1)
@@ -12,7 +11,7 @@ void __fastcall EtwpCCSwapDeleteProcessor(__int64 a1)
   PVOID *v1; // rbx
   __int64 v2; // rdi
 
-  v1 = (PVOID *)(a1 + 392);
+  v1 = (PVOID *)(a1 + 296);
   v2 = 5LL;
   do
   {

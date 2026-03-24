@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Destroy@CManualResetEvent@@SAXQEAV1@@Z @ 0x1C00B72F0
+ * XREFs of ?Destroy@CManualResetEvent@@SAXQEAV1@@Z @ 0x1C012E398
  * Callers:
- *     ?Destroy@CWorkItemQueue@@SAXQEAV1@@Z @ 0x1C00B720C (-Destroy@CWorkItemQueue@@SAXQEAV1@@Z.c)
- *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C00B72BC (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
- *     ??1?$CAutoDestroy@VCManualResetEvent@@@@QEAA@XZ @ 0x1C0307408 (--1-$CAutoDestroy@VCManualResetEvent@@@@QEAA@XZ.c)
+ *     ?Create@CManualResetEvent@@SAQEAV1@XZ @ 0x1C00F3DBC (-Create@CManualResetEvent@@SAQEAV1@XZ.c)
+ *     ?Destroy@CWorkItemQueue@@SAXQEAV1@@Z @ 0x1C012E2B4 (-Destroy@CWorkItemQueue@@SAXQEAV1@@Z.c)
+ *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C012E364 (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
  * Callees:
  *     <none>
  */

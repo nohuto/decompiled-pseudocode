@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetFloatAnimatableProperty@CColorGradientStopMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C021CB40
+ * XREFs of ?GetFloatAnimatableProperty@CColorGradientStopMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C01E6400
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C0215740 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CColorGradientStopMarshaler::GetFloatAnimatableProperty(
@@ -11,12 +11,11 @@ __int64 __fastcall DirectComposition::CColorGradientStopMarshaler::GetFloatAnima
         int a2,
         float *a3)
 {
-  unsigned int v3; // r9d
+  __int64 result; // rax
 
-  v3 = 0;
+  result = 0LL;
   if ( a2 )
-    return (unsigned int)DirectComposition::CResourceMarshaler::GetFloatAnimatableProperty(this, a2, a3);
-  else
-    *a3 = *((float *)this + 16);
-  return v3;
+    return 3221225485LL;
+  *a3 = *((float *)this + 14);
+  return result;
 }

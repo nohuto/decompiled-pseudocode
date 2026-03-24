@@ -1,11 +1,10 @@
 /*
- * XREFs of ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C00AA3A4
+ * XREFs of ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C011C180
  * Callers:
- *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C002B6EC (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
- *     ?DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C01C0B30 (-DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
- *     ZombieCursor @ 0x1C01C0D70 (ZombieCursor.c)
+ *     ?DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C004B754 (-DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
+ *     ZombieCursor @ 0x1C01EAD50 (ZombieCursor.c)
  * Callees:
- *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C005D5D8 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004B674 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
  */
 
 void __fastcall UnlinkCursor(struct tagCURSOR *a1)
@@ -26,12 +25,12 @@ void __fastcall UnlinkCursor(struct tagCURSOR *a1)
   if ( v3 )
   {
     v4 = 0;
-    v5 = (struct tagCURSOR **)(v3 + 728);
+    v5 = (struct tagCURSOR **)(v3 + 736);
   }
   else
   {
     v4 = 1;
-    v5 = (struct tagCURSOR **)&gpcurFirst;
+    v5 = &gpcurFirst;
   }
   while ( 1 )
   {
@@ -54,14 +53,14 @@ LABEL_7:
       }
       if ( v4 )
         break;
-      v5 = (struct tagCURSOR **)&gpcurFirst;
+      v5 = &gpcurFirst;
       v4 = 1;
     }
     if ( v2 )
       break;
-    CurrentLogicalCursorThread = _GetCurrentLogicalCursorThread();
+    CurrentLogicalCursorThread = _GetCurrentLogicalCursorThread((__int64)v5);
     v2 = 1;
-    v5 = (struct tagCURSOR **)(*((_QWORD *)CurrentLogicalCursorThread + 53) + 728LL);
+    v5 = (struct tagCURSOR **)(*((_QWORD *)CurrentLogicalCursorThread + 53) + 736LL);
   }
   v8 = gSharedInfo[1];
   v9 = v8 + 32LL * giheLast;
@@ -76,9 +75,9 @@ LABEL_7:
         goto LABEL_7;
       }
       v11 = v10[1];
-      if ( v11 && *(struct tagCURSOR **)(v11 + 728) == a1 )
+      if ( v11 && *(struct tagCURSOR **)(v11 + 736) == a1 )
       {
-        *(_QWORD *)(v11 + 728) = *((_QWORD *)a1 + 4);
+        *(_QWORD *)(v11 + 736) = *((_QWORD *)a1 + 4);
         goto LABEL_7;
       }
     }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetEaFile @ 0x1401BB2B0
+ * XREFs of ZwSetEaFile @ 0x1401BB2D0
  * Callers:
  *     <none>
  * Callees:

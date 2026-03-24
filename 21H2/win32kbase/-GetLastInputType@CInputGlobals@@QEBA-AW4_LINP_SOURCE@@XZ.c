@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetLastInputType@CInputGlobals@@QEBA?AW4_LINP_SOURCE@@XZ @ 0x1C01DBFE0
+ * XREFs of ?GetLastInputType@CInputGlobals@@QEBA?AW4_LINP_SOURCE@@XZ @ 0x1C01A3700
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?UpdateStateOfProxyOnPlaceholderProxyHookUp@BamoDataProviderProxyImpl@BamoImpl@@UEAAXPEAVBamoProxyImpl@2Microsoft@@@Z @ 0x1801E0A30
+ * XREFs of ?UpdateStateOfProxyOnPlaceholderProxyHookUp@BamoDataProviderProxyImpl@BamoImpl@@UEAAXPEAVBamoProxyImpl@2Microsoft@@@Z @ 0x180194790
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 void __fastcall BamoImpl::BamoDataProviderProxyImpl::UpdateStateOfProxyOnPlaceholderProxyHookUp(
         BamoImpl::BamoDataProviderProxyImpl *this,
-        const struct _LUID *a2)
+        struct _LUID *a2)
 {
-  BamoImpl::BamoDataProviderProxyImpl::UpdateUniqueId(this, 0, a2 + 4);
+  BamoImpl::BamoDataProviderProxyImpl::UpdateUniqueId(this, a2 + 4);
 }

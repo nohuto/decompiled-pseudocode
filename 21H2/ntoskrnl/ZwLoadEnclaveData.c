@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwLoadEnclaveData @ 0x14041D8E0
+ * XREFs of ZwLoadEnclaveData @ 0x1403FC480
  * Callers:
  *     <none>
  * Callees:

@@ -1,8 +1,10 @@
 /*
- * XREFs of ?GetWindowCompositedDpi@@YAGPEBUtagWND@@@Z @ 0x1C00EF520
+ * XREFs of ?GetWindowCompositedDpi@@YAGPEBUtagWND@@@Z @ 0x1C0042628
  * Callers:
- *     SelectWindowRgn @ 0x1C0077C08 (SelectWindowRgn.c)
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C00ED180 (xxxInitSendValidateMinMaxInfoEx.c)
+ *     IsSmallerThanScreen @ 0x1C002C410 (IsSmallerThanScreen.c)
+ *     xxxDeferWindowPosAndCheckPoint @ 0x1C003E8DC (xxxDeferWindowPosAndCheckPoint.c)
+ *     GetMaxTrackSizeForWindow @ 0x1C004241C (GetMaxTrackSizeForWindow.c)
+ *     SelectWindowRgn @ 0x1C011172C (SelectWindowRgn.c)
  * Callees:
  *     <none>
  */

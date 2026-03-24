@@ -1,75 +1,101 @@
 /*
- * XREFs of ?ScheduleScribble@CComputeScribbleRenderer@@QEAAJPEA_N@Z @ 0x1801E48D8
+ * XREFs of ?ScheduleScribble@CComputeScribbleRenderer@@QEAAJPEA_N@Z @ 0x18019FEC8
  * Callers:
- *     ?ScheduleScribblesForRenderTarget@CSuperWetInkManager@@QEAAJPEAVIMonitorTarget@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x1800BBB7C (-ScheduleScribblesForRenderTarget@CSuperWetInkManager@@QEAAJPEAVIMonitorTarget@@AEBV-$TMilRect@I.c)
+ *     ?ScheduleScribblesForRenderTarget@CSuperWetInkManager@@QEAAJPEAVIMonitorTarget@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x1800C39AC (-ScheduleScribblesForRenderTarget@CSuperWetInkManager@@QEAAJPEAVIMonitorTarget@@AEBV-$TMilRect@I.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0xqqqqt_EventWriteTransfer @ 0x1801E4A50 (McTemplateU0xqqqqt_EventWriteTransfer.c)
- *     ?ScheduleScribbleFrame@CComputeScribbleScheduler@@QEAAJPEAVCComputeScribbleFramebuffer@@PEAVCComputeScribble@@_KI@Z @ 0x1801EA85C (-ScheduleScribbleFrame@CComputeScribbleScheduler@@QEAAJPEAVCComputeScribbleFramebuffer@@PEAVCCom.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     McTemplateU0xddddd_EventWriteTransfer @ 0x18017D71C (McTemplateU0xddddd_EventWriteTransfer.c)
+ *     ?ReleaseForRender@CComputeScribbleFramebuffer@@QEAAJXZ @ 0x1801A6950 (-ReleaseForRender@CComputeScribbleFramebuffer@@QEAAJXZ.c)
+ *     ?Schedule@CComputeScribbleFramebuffer@@QEAAJPEAVCComputeScribbleScheduler@@I@Z @ 0x1801A6A10 (-Schedule@CComputeScribbleFramebuffer@@QEAAJPEAVCComputeScribbleScheduler@@I@Z.c)
  */
 
 __int64 __fastcall CComputeScribbleRenderer::ScheduleScribble(CComputeScribbleRenderer *this, bool *a2)
 {
-  __int64 v4; // r8
-  unsigned int v5; // r14d
-  struct CComputeScribbleFramebuffer *v6; // rbp
-  __int64 v7; // rcx
-  int v8; // eax
-  unsigned int v9; // edi
-  unsigned int v11; // edi
-  __int64 v12; // rcx
-  unsigned int v13; // eax
-  struct CComputeScribble *v14; // r8
-  _OWORD v15[2]; // [rsp+40h] [rbp-48h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+88h] [rbp+0h]
+  __int64 v4; // rsi
+  __int64 v5; // r8
+  unsigned int v6; // r15d
+  CComputeScribbleFramebuffer *v7; // rbp
+  CComputeScribbleFramebuffer *v8; // rsi
+  __int64 v9; // rcx
+  int v10; // edi
+  __int64 v11; // rdx
+  int v13; // r12d
+  __int64 v14; // rcx
+  char v15; // di
+  char v16; // al
+  __int64 v17; // rcx
+  int v18; // eax
+  unsigned int v19; // ebx
+  _OWORD v20[2]; // [rsp+40h] [rbp-58h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+98h] [rbp+0h]
 
   *a2 = 0;
-  if ( *((_BYTE *)this + 48) )
+  if ( *((_BYTE *)this + 52) )
   {
-    v4 = *((_QWORD *)this + 2);
-    v5 = *(_DWORD *)(v4 + 128);
-    v6 = *(struct CComputeScribbleFramebuffer **)(*(_QWORD *)(*(_QWORD *)(v4 + 104) + 8LL * (v5 % *(_DWORD *)(v4 + 204)))
-                                                + 96LL);
-    if ( v6 )
+    v4 = *((_QWORD *)this + 3);
+    if ( v4 )
     {
-      memset(v15, 0, sizeof(v15));
-      v7 = v4 + 24 + *(int *)(*(_QWORD *)(v4 + 24) + 16LL);
-      v8 = (*(__int64 (__fastcall **)(__int64, _OWORD *))(*(_QWORD *)v7 + 32LL))(v7, v15);
-      v9 = v8;
-      if ( v8 < 0 )
+      v5 = *((_QWORD *)this + 2);
+      v6 = *(_DWORD *)(v5 + 128);
+      v7 = *(CComputeScribbleFramebuffer **)(*(_QWORD *)(*(_QWORD *)(v5 + 104) + 8LL * (v6 % *(_DWORD *)(v5 + 176)))
+                                           + 96LL);
+      if ( v7 )
       {
-        wil::details::in1diag3::Return_Hr(
-          retaddr,
-          (void *)0xF7,
-          (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblerenderer.cpp",
-          (const char *)(unsigned int)v8);
-        return v9;
-      }
-      v11 = DWORD2(v15[0]) + 2;
-      v12 = *((_QWORD *)this + 2) + 24LL + *(int *)(*(_QWORD *)(*((_QWORD *)this + 2) + 24LL) + 16LL);
-      v13 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v12 + 8LL))(v12);
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x200000) != 0 )
-        McTemplateU0xqqqqt_EventWriteTransfer(
-          DWORD2(v15[0]),
-          (unsigned int)&EVTDESC_COMPUTESCRIBBLE_PRESCHEDULE,
-          *((_QWORD *)this + 3),
-          v5,
-          v13,
-          v15[0],
-          SBYTE8(v15[0]),
-          v13 > LODWORD(v15[0]));
-      v14 = (struct CComputeScribble *)*((_QWORD *)this + 5);
-      if ( v14 )
-      {
-        CComputeScribbleScheduler::ScheduleScribbleFrame(
-          *((CComputeScribbleScheduler **)this + 4),
-          v6,
-          v14,
-          *((_QWORD *)this + 3),
-          v11);
-        *a2 = 1;
+        v8 = *(CComputeScribbleFramebuffer **)(v4 + 96);
+        if ( v8 )
+        {
+          *((_QWORD *)this + 3) = 0LL;
+          memset(v20, 0, sizeof(v20));
+          v9 = v5 + 24 + *(int *)(*(_QWORD *)(v5 + 24) + 16LL);
+          v10 = (*(__int64 (__fastcall **)(__int64, _OWORD *))(*(_QWORD *)v9 + 32LL))(v9, v20);
+          if ( v10 < 0 )
+          {
+            v11 = 282LL;
+LABEL_7:
+            wil::details::in1diag3::Return_Hr(
+              retaddr,
+              (void *)v11,
+              (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblerenderer.cpp",
+              (const char *)(unsigned int)v10);
+            return (unsigned int)v10;
+          }
+          v13 = DWORD2(v20[0]);
+          v14 = *((_QWORD *)this + 2) + 24LL + *(int *)(*(_QWORD *)(*((_QWORD *)this + 2) + 24LL) + 16LL);
+          v15 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v14 + 8LL))(v14);
+          if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x40000) != 0 )
+          {
+            v16 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)g_pComposition + 63) + 136LL))(*((_QWORD *)g_pComposition + 63));
+            McTemplateU0xddddd_EventWriteTransfer(
+              v17,
+              &EVTDESC_COMPUTESCRIBBLE_POSTRENDER,
+              *((_QWORD *)this + 4),
+              v6,
+              v15,
+              v20[0],
+              SBYTE8(v20[0]),
+              v16);
+          }
+          v10 = CComputeScribbleFramebuffer::ReleaseForRender(v7);
+          if ( v10 < 0 )
+          {
+            v11 = 308LL;
+            goto LABEL_7;
+          }
+          v18 = CComputeScribbleFramebuffer::Schedule(v8, *((struct CComputeScribbleScheduler **)this + 5), v13 + 2);
+          v19 = v18;
+          if ( v18 < 0 )
+          {
+            wil::details::in1diag3::Return_Hr(
+              retaddr,
+              (void *)0x135,
+              (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblerenderer.cpp",
+              (const char *)(unsigned int)v18);
+            return v19;
+          }
+          *a2 = *((_BYTE *)v8 + 208);
+        }
       }
     }
   }

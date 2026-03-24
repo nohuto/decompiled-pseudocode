@@ -2,7 +2,7 @@
  * XREFs of CcZeroEndOfLastPage @ 0x14001C250
  * Callers:
  *     FsRtlCreateSectionForDataScan @ 0x140092540 (FsRtlCreateSectionForDataScan.c)
- *     MiCreateSystemSection @ 0x1400F58FC (MiCreateSystemSection.c)
+ *     MiCreateSystemSection @ 0x1400F591C (MiCreateSystemSection.c)
  *     MiCreateSectionCommon @ 0x1405DD7A0 (MiCreateSectionCommon.c)
  *     MmCreateSpecialImageSection @ 0x14060A404 (MmCreateSpecialImageSection.c)
  *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
@@ -10,7 +10,7 @@
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     CcFlushCachePriv @ 0x14001EA90 (CcFlushCachePriv.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     CcPurgeCacheSection @ 0x1400E7A80 (CcPurgeCacheSection.c)
+ *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
  *     FsRtlAcquireFileExclusive @ 0x1405DE920 (FsRtlAcquireFileExclusive.c)
  *     FsRtlReleaseFile @ 0x1405DE940 (FsRtlReleaseFile.c)
  */

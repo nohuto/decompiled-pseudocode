@@ -1,22 +1,22 @@
 /*
- * XREFs of ?Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0023D98
+ * XREFs of ?Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0051FCC
  * Callers:
- *     ?_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C0023B1C (-_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAV1@@Z @ 0x1C0052C94 (-_Create@FxDevice@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@.c)
  * Callees:
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     ?InstallPackage@FxDevice@@QEAAXPEAVFxPackage@@@Z @ 0x1C00240F0 (-InstallPackage@FxDevice@@QEAAXPEAVFxPackage@@@Z.c)
- *     ??0FxPkgGeneral@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z @ 0x1C0024140 (--0FxPkgGeneral@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z.c)
- *     ??0FxWmiIrpHandler@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z @ 0x1C00241BC (--0FxWmiIrpHandler@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z.c)
- *     ??0FxPkgIo@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z @ 0x1C0024230 (--0FxPkgIo@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z.c)
- *     ??0FxPackage@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z @ 0x1C00242E8 (--0FxPackage@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z.c)
- *     ?ConfigureAutoForwardCleanupClose@FxDevice@@QEAAXPEAUWDFDEVICE_INIT@@@Z @ 0x1C0024330 (-ConfigureAutoForwardCleanupClose@FxDevice@@QEAAXPEAUWDFDEVICE_INIT@@@Z.c)
- *     ?FxPoolAddHeaderSize@@YAJPEAU_FX_DRIVER_GLOBALS@@_KPEA_K@Z @ 0x1C00243A0 (-FxPoolAddHeaderSize@@YAJPEAU_FX_DRIVER_GLOBALS@@_KPEA_K@Z.c)
- *     ?FxCalculateObjectTotalSize2@@YAJPEAU_FX_DRIVER_GLOBALS@@GG_KPEA_K@Z @ 0x1C00243D0 (-FxCalculateObjectTotalSize2@@YAJPEAU_FX_DRIVER_GLOBALS@@GG_KPEA_K@Z.c)
- *     ?FxGetContextSize@@YA_KPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0024524 (-FxGetContextSize@@YA_KPEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
- *     ?ConfigureConstraints@FxDeviceBase@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0024550 (-ConfigureConstraints@FxDeviceBase@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     ?_InitializeContext@FxPrePostCallback@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFCXDEVICE_INIT@@PEAPEAVFxCxPnpPowerCallbackContext@@W4FxCxCallbackType@@@Z @ 0x1C008A3A4 (-_InitializeContext@FxPrePostCallback@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFCXDEVICE_INIT@@PEAPEAVF.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     ?FxCalculateObjectTotalSize2@@YAJPEAU_FX_DRIVER_GLOBALS@@GG_KPEA_K@Z @ 0x1C000B440 (-FxCalculateObjectTotalSize2@@YAJPEAU_FX_DRIVER_GLOBALS@@GG_KPEA_K@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?FxGetContextSize@@YA_KPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C000C120 (-FxGetContextSize@@YA_KPEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ??0FxWmiIrpHandler@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z @ 0x1C003F8E0 (--0FxWmiIrpHandler@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z.c)
+ *     ?ConfigureConstraints@FxDeviceBase@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C004D808 (-ConfigureConstraints@FxDeviceBase@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
+ *     ?ConfigureAutoForwardCleanupClose@FxDevice@@QEAAXPEAUWDFDEVICE_INIT@@@Z @ 0x1C00518C8 (-ConfigureAutoForwardCleanupClose@FxDevice@@QEAAXPEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?FxPoolAddHeaderSize@@YAJPEAU_FX_DRIVER_GLOBALS@@_KPEA_K@Z @ 0x1C0051E8C (-FxPoolAddHeaderSize@@YAJPEAU_FX_DRIVER_GLOBALS@@_KPEA_K@Z.c)
+ *     ?InstallPackage@FxDevice@@QEAAXPEAVFxPackage@@@Z @ 0x1C0052410 (-InstallPackage@FxDevice@@QEAAXPEAVFxPackage@@@Z.c)
+ *     ??0FxPkgIo@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z @ 0x1C0074770 (--0FxPkgIo@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z.c)
+ *     ??0FxPackage@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z @ 0x1C0078180 (--0FxPackage@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z.c)
+ *     ?_InitializeContext@FxPrePostCallback@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFCXDEVICE_INIT@@PEAPEAVFxCxPnpPowerCallbackContext@@W4FxCxCallbackType@@@Z @ 0x1C0085D6C (-_InitializeContext@FxPrePostCallback@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFCXDEVICE_INIT@@PEAPEAVF.c)
+ *     ??0FxPkgGeneral@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z @ 0x1C008D590 (--0FxPkgGeneral@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z.c)
  */
 
 int __fastcall FxDevice::Initialize(
@@ -24,57 +24,59 @@ int __fastcall FxDevice::Initialize(
         WDFDEVICE_INIT *DeviceInit,
         _WDF_OBJECT_ATTRIBUTES *DeviceAttributes)
 {
-  _FX_DRIVER_GLOBALS *m_Globals; // rdi
+  _FX_DRIVER_GLOBALS *m_Globals; // rsi
+  char v6; // r15
   int result; // eax
-  FxPackage *v7; // rax
-  FxDefaultIrpHandler *v8; // r14
+  FxPackage *v8; // rax
+  FxDefaultIrpHandler *v9; // rdi
   _WDF_OBJECT_ATTRIBUTES *p_m_RequestAttributes; // rcx
-  _LIST_ENTRY *Flink; // r15
-  unsigned __int64 v11; // r12
-  unsigned __int64 *p_m_RequestLookasideListElementSize; // r14
-  FxPkgGeneral *v13; // rax
-  FxPkgGeneral *v14; // rax
-  FxWmiIrpHandler *v15; // rax
-  unsigned __int16 v16; // r9
-  FxWmiIrpHandler *v17; // rax
-  FxPkgIo *v18; // rax
-  FxPkgIo *v19; // rax
-  bool v20; // zf
-  ULONG Tag; // ecx
-  void *v22; // rax
-  FX_POOL **v23; // r14
+  unsigned __int64 ContextSize; // r13
+  _LIST_ENTRY *i; // r14
+  FX_POOL **v13; // rax
+  FX_POOL **v14; // rdi
   _LIST_ENTRY *Blink; // rdx
-  _WDF_OBJECT_ATTRIBUTES *v25; // rcx
-  unsigned int v26; // r12d
-  FxPoolTypeOrPoolFlags v27; // [rsp+40h] [rbp-10h] BYREF
-  void *retaddr; // [rsp+88h] [rbp+38h]
-  char v29; // [rsp+90h] [rbp+40h]
-  unsigned __int64 ContextSize; // [rsp+98h] [rbp+48h]
+  _WDF_OBJECT_ATTRIBUTES *v16; // rcx
+  unsigned int v17; // r15d
+  unsigned __int64 *p_m_RequestLookasideListElementSize; // rdi
+  FxPkgGeneral *v19; // rax
+  FxPkgGeneral *v20; // rax
+  FxWmiIrpHandler *v21; // rax
+  unsigned __int16 v22; // r9
+  FxWmiIrpHandler *v23; // rax
+  FxPkgIo *v24; // rax
+  FxPkgIo *v25; // rax
+  void *retaddr; // [rsp+68h] [rbp+0h]
+  char v27; // [rsp+70h] [rbp+8h]
 
   m_Globals = this->m_Globals;
   this->m_Exclusive = DeviceInit->Exclusive;
-  v29 = 0;
   this->m_ObjectFlags |= 0x800u;
+  v6 = 0;
   result = FxDeviceBase::ConfigureConstraints(this, DeviceAttributes);
   if ( result >= 0 )
   {
-    *(_QWORD *)&v27.UsePoolType = 0LL;
-    v27.u.PoolFlags = 64LL;
-    v7 = (FxPackage *)FxObjectHandleAllocCommon(m_Globals, &v27, 0x78uLL, 0, 0LL, 0, FxObjectTypeInternal);
-    v8 = (FxDefaultIrpHandler *)v7;
-    if ( v7 )
+    v8 = (FxPackage *)FxObjectHandleAlloc(
+                        m_Globals,
+                        ExDefaultNonPagedPoolType,
+                        0x78uLL,
+                        0,
+                        0LL,
+                        0,
+                        FxObjectTypeInternal);
+    v9 = (FxDefaultIrpHandler *)v8;
+    if ( v8 )
     {
-      FxPackage::FxPackage(v7, m_Globals, this, 0x1105u);
-      v8->__vftable = (FxDefaultIrpHandler_vtbl *)FxDefaultIrpHandler::`vftable';
+      FxPackage::FxPackage(v8, m_Globals, this, 0x1105u);
+      v9->__vftable = (FxDefaultIrpHandler_vtbl *)FxDefaultIrpHandler::`vftable';
     }
     else
     {
-      v8 = 0LL;
+      v9 = 0LL;
     }
-    this->m_PkgDefault = v8;
-    if ( v8 )
+    this->m_PkgDefault = v9;
+    if ( v9 )
     {
-      FxDevice::InstallPackage(this, v8);
+      FxDevice::InstallPackage(this, v9);
       if ( DeviceInit->InitType == FxDeviceInitTypeControlDevice )
         this->m_Legacy = 1;
       p_m_RequestAttributes = &this->m_RequestAttributes;
@@ -86,67 +88,75 @@ int __fastcall FxDevice::Initialize(
         this->m_RequestAttributes.ContextTypeInfo = DeviceInit->RequestAttributes.ContextTypeInfo;
       }
       ContextSize = FxGetContextSize(p_m_RequestAttributes);
-      Flink = DeviceInit->CxDeviceInitListHead.Flink;
-      v11 = ContextSize;
-      while ( Flink != &DeviceInit->CxDeviceInitListHead )
+      for ( i = DeviceInit->CxDeviceInitListHead.Flink; i != &DeviceInit->CxDeviceInitListHead; i = i->Flink )
       {
-        v20 = m_Globals->FxPoolTrackingOn == 0;
-        Tag = m_Globals->Tag;
-        *(_QWORD *)&v27.UsePoolType = 0LL;
-        v27.u.PoolFlags = 64LL;
-        if ( v20 )
-          v22 = 0LL;
+        v13 = FxPoolAllocator(
+                m_Globals,
+                &m_Globals->FxPoolFrameworks,
+                ExDefaultNonPagedPoolType,
+                0x108uLL,
+                m_Globals->Tag,
+                retaddr);
+        v14 = v13;
+        if ( v13 )
+        {
+          v13[2] = 0LL;
+          v13[3] = 0LL;
+          *((_BYTE *)v13 + 88) = 0;
+          v13[1] = (FX_POOL *)v13;
+          *v13 = (FX_POOL *)v13;
+          *((_OWORD *)v13 + 2) = 0LL;
+          *((_OWORD *)v13 + 3) = 0LL;
+          *((_OWORD *)v13 + 4) = 0LL;
+          v13[10] = 0LL;
+          memset(v13 + 12, 0, 0xA8uLL);
+        }
         else
-          v22 = retaddr;
-        v23 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, (__m128i *)&v27, 0x108uLL, Tag, v22);
-        if ( !v23 )
+        {
+          v14 = 0LL;
+        }
+        if ( !v14 )
           return -1073741670;
-        v23[2] = 0LL;
-        v23[3] = 0LL;
-        v23[1] = (FX_POOL *)v23;
-        *v23 = (FX_POOL *)v23;
-        *((_OWORD *)v23 + 2) = 0LL;
-        *((_OWORD *)v23 + 3) = 0LL;
-        *((_OWORD *)v23 + 4) = 0LL;
-        v23[10] = 0LL;
-        memset(v23 + 12, 0, 0xA8uLL);
-        *((_BYTE *)v23 + 88) = ++v29;
-        v23[2] = (FX_POOL *)Flink[1].Blink[5].Flink;
-        v23[3] = (FX_POOL *)Flink[2].Blink;
-        *((_LIST_ENTRY *)v23 + 2) = Flink[3];
-        *((_LIST_ENTRY *)v23 + 3) = Flink[4];
-        *((_LIST_ENTRY *)v23 + 4) = Flink[5];
-        v23[10] = (FX_POOL *)Flink[6].Flink;
+        *((_BYTE *)v14 + 88) = ++v6;
+        v27 = v6;
+        v14[2] = (FX_POOL *)i[1].Blink[4].Blink;
+        v14[3] = (FX_POOL *)i[2].Blink;
+        *((_LIST_ENTRY *)v14 + 2) = i[3];
+        *((_LIST_ENTRY *)v14 + 3) = i[4];
+        *((_LIST_ENTRY *)v14 + 4) = i[5];
+        v14[10] = (FX_POOL *)i[6].Flink;
         Blink = this->m_CxDeviceInfoListHead.Blink;
         if ( Blink->Flink != &this->m_CxDeviceInfoListHead )
           __fastfail(3u);
-        *v23 = (FX_POOL *)&this->m_CxDeviceInfoListHead;
-        v23[1] = (FX_POOL *)Blink;
-        Blink->Flink = (_LIST_ENTRY *)v23;
-        this->m_CxDeviceInfoListHead.Blink = (_LIST_ENTRY *)v23;
-        Flink[40].Blink = (_LIST_ENTRY *)v23;
-        if ( FxGetContextSize((_WDF_OBJECT_ATTRIBUTES *)&Flink[3]) > v11 )
-          ContextSize = FxGetContextSize(v25);
-        if ( LOBYTE(Flink[40].Flink) == 1 )
+        *v14 = (FX_POOL *)&this->m_CxDeviceInfoListHead;
+        v14[1] = (FX_POOL *)Blink;
+        Blink->Flink = (_LIST_ENTRY *)v14;
+        this->m_CxDeviceInfoListHead.Blink = (_LIST_ENTRY *)v14;
+        i[40].Blink = (_LIST_ENTRY *)v14;
+        if ( FxGetContextSize((_WDF_OBJECT_ATTRIBUTES *)&i[3]) > ContextSize )
+          ContextSize = FxGetContextSize(v16);
+        if ( LOBYTE(i[40].Flink) == 1 )
         {
-          v26 = 0;
-          do
+          v17 = 0;
+          while ( 1 )
           {
             result = FxPrePostCallback::_InitializeContext(
                        this->m_Globals,
-                       (WDFCXDEVICE_INIT *)Flink,
-                       (FxCxPnpPowerCallbackContext **)&v23[v26 + 12],
-                       (FxCxCallbackType)v26);
+                       (WDFCXDEVICE_INIT *)i,
+                       (FxCxPnpPowerCallbackContext **)&v14[v17 + 12],
+                       (FxCxCallbackType)v17);
             if ( result < 0 )
               return result;
+            if ( ++v17 >= 0x15 )
+            {
+              v6 = v27;
+              break;
+            }
           }
-          while ( ++v26 < 0x15 );
         }
-        Flink = Flink->Flink;
-        v11 = ContextSize;
       }
       p_m_RequestLookasideListElementSize = &this->m_RequestLookasideListElementSize;
-      result = FxCalculateObjectTotalSize2(m_Globals, 0x168u, 0, v11, &this->m_RequestLookasideListElementSize);
+      result = FxCalculateObjectTotalSize2(m_Globals, 0x168u, 0, ContextSize, &this->m_RequestLookasideListElementSize);
       if ( result < 0 )
         return result;
       result = FxPoolAddHeaderSize(
@@ -164,39 +174,54 @@ int __fastcall FxDevice::Initialize(
         m_Globals->Tag,
         0);
       FxDevice::ConfigureAutoForwardCleanupClose(this, DeviceInit);
-      *(_QWORD *)&v27.UsePoolType = 0LL;
-      v27.u.PoolFlags = 64LL;
-      v13 = (FxPkgGeneral *)FxObjectHandleAllocCommon(m_Globals, &v27, 0xC8uLL, 0, 0LL, 0, FxObjectTypeInternal);
-      if ( v13 )
-        FxPkgGeneral::FxPkgGeneral(v13, m_Globals, this);
+      v19 = (FxPkgGeneral *)FxObjectHandleAlloc(
+                              m_Globals,
+                              ExDefaultNonPagedPoolType,
+                              0xC8uLL,
+                              0,
+                              0LL,
+                              0,
+                              FxObjectTypeInternal);
+      if ( v19 )
+        FxPkgGeneral::FxPkgGeneral(v19, m_Globals, this);
       else
-        v14 = 0LL;
-      this->m_PkgGeneral = v14;
-      if ( v14 )
+        v20 = 0LL;
+      this->m_PkgGeneral = v20;
+      if ( v20 )
       {
-        FxDevice::InstallPackage(this, v14);
-        *(_QWORD *)&v27.UsePoolType = 0LL;
-        v27.u.PoolFlags = 64LL;
-        v15 = (FxWmiIrpHandler *)FxObjectHandleAllocCommon(m_Globals, &v27, 0xD0uLL, 0, 0LL, 0, FxObjectTypeInternal);
-        if ( v15 )
-          FxWmiIrpHandler::FxWmiIrpHandler(v15, m_Globals, this, v16);
+        FxDevice::InstallPackage(this, v20);
+        v21 = (FxWmiIrpHandler *)FxObjectHandleAlloc(
+                                   m_Globals,
+                                   ExDefaultNonPagedPoolType,
+                                   0xD0uLL,
+                                   0,
+                                   0LL,
+                                   0,
+                                   FxObjectTypeInternal);
+        if ( v21 )
+          FxWmiIrpHandler::FxWmiIrpHandler(v21, m_Globals, this, v22);
         else
-          v17 = 0LL;
-        this->m_PkgWmi = v17;
-        if ( v17 )
+          v23 = 0LL;
+        this->m_PkgWmi = v23;
+        if ( v23 )
         {
-          FxDevice::InstallPackage(this, v17);
-          *(_QWORD *)&v27.UsePoolType = 0LL;
-          v27.u.PoolFlags = 64LL;
-          v18 = (FxPkgIo *)FxObjectHandleAllocCommon(m_Globals, &v27, 0x190uLL, 0, 0LL, 0, FxObjectTypeInternal);
-          if ( v18 )
-            FxPkgIo::FxPkgIo(v18, m_Globals, this);
+          FxDevice::InstallPackage(this, v23);
+          v24 = (FxPkgIo *)FxObjectHandleAlloc(
+                             m_Globals,
+                             ExDefaultNonPagedPoolType,
+                             0x190uLL,
+                             0,
+                             0LL,
+                             0,
+                             FxObjectTypeInternal);
+          if ( v24 )
+            FxPkgIo::FxPkgIo(v24, m_Globals, this);
           else
-            v19 = 0LL;
-          this->m_PkgIo = v19;
-          if ( v19 )
+            v25 = 0LL;
+          this->m_PkgIo = v25;
+          if ( v25 )
           {
-            FxDevice::InstallPackage(this, v19);
+            FxDevice::InstallPackage(this, v25);
             this->m_PkgIo->m_InCallerContextCallback.m_Method = DeviceInit->IoInCallerContextCallback;
             if ( DeviceInit->RequiresSelfIoTarget )
               this->m_SelfIoTargetNeeded = 1;

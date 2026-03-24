@@ -1,9 +1,9 @@
 /*
- * XREFs of OutputAATo8BPP_K_B332 @ 0x1C0258D60
+ * XREFs of OutputAATo8BPP_K_B332 @ 0x1C0264B80
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall OutputAATo8BPP_K_B332(
@@ -23,8 +23,8 @@ void __fastcall OutputAATo8BPP_K_B332(
   unsigned int v14; // ebx
   __int64 v15; // rax
   unsigned int v16; // r11d
-  char v17; // al
-  unsigned int v18; // ecx
+  char v17; // cl
+  unsigned int v18; // eax
   unsigned int v19; // r14d
   unsigned int v20; // esi
   __int128 i; // [rsp+0h] [rbp-30h]
@@ -46,7 +46,7 @@ void __fastcall OutputAATo8BPP_K_B332(
       v22[3] = v16;
       v22[2] = v16;
       v17 = BYTE14(i);
-      v18 = v22[(v12 >= v14) | (unsigned __int64)(v22[v12 >= v14] >= v16 ? 2 : 0)] >> 21;
+      v18 = v22[(v12 >= v14) | (unsigned __int64)(*(_DWORD *)((char *)v22 + (v12 >= v14 ? 4 : 0)) >= v16 ? 2 : 0)] >> 21;
       if ( v18 < v11 )
       {
         v19 = a6[1];
@@ -54,7 +54,7 @@ void __fastcall OutputAATo8BPP_K_B332(
         {
           v20 = *a6;
           if ( v18 < v20 )
-            v17 = ((v20 - (unsigned int)i) >> 12) & ((v16 - v20) >> 12) & 3 | ((v19 - DWORD1(i)) >> 12) & ((v14 - v19) >> 12) & 0x1C | ((v12 - v11) >> 12) & ((v11 - DWORD2(i)) >> 12) & 0xE0;
+            v17 = ((v20 - (unsigned int)i) >> 12) & ((v16 - v20) >> 12) & 3 | ((v19 - DWORD1(i)) >> 12) & ((v14 - v19) >> 12) & 0x1C | ((v11 - DWORD2(i)) >> 12) & ((v12 - v11) >> 12) & 0xE0;
         }
       }
       *a4 = v17;

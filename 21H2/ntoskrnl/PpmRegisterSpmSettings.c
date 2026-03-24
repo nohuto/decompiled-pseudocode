@@ -1,156 +1,177 @@
 /*
- * XREFs of PpmRegisterSpmSettings @ 0x14099DB50
+ * XREFs of PpmRegisterSpmSettings @ 0x1408F60F0
  * Callers:
  *     <none>
  * Callees:
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
- *     PpmEnableProfile @ 0x14083113C (PpmEnableProfile.c)
- *     PpmAllocateQueryTable @ 0x14099D480 (PpmAllocateQueryTable.c)
- *     PpmOpenRegistryKey @ 0x14099D7E4 (PpmOpenRegistryKey.c)
- *     PpmProcessSettingsFromQueryTable @ 0x14099D934 (PpmProcessSettingsFromQueryTable.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
+ *     PpmEnableProfile @ 0x1407C5C14 (PpmEnableProfile.c)
+ *     PpmAllocateQueryTable @ 0x1408F5A60 (PpmAllocateQueryTable.c)
+ *     PpmOpenRegistryKey @ 0x1408F5DB4 (PpmOpenRegistryKey.c)
+ *     PpmProcessSettingsFromQueryTable @ 0x1408F5ED8 (PpmProcessSettingsFromQueryTable.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmRegisterSpmSettings(void *a1)
 {
-  void *QueryTable; // rdi
-  __int64 v3; // rcx
-  const wchar_t *v4; // rax
-  __int16 v5; // cx
-  const WCHAR *v6; // rax
-  __int64 v7; // rcx
-  __int16 v8; // cx
+  char *QueryTable; // rdi
+  __int64 v2; // r8
+  const wchar_t *v3; // rax
+  __int64 v4; // rdx
+  const WCHAR *v5; // rax
+  __int64 v6; // r8
+  __int64 v7; // rdx
   int RegistryValues; // ebx
+  __int64 v9; // rdx
   __int64 v10; // r8
-  unsigned __int8 i; // si
-  const char *v12; // rdx
+  unsigned __int8 v11; // si
+  const wchar_t *v12; // r9
   _QWORD *v13; // r14
   __int64 v14; // rax
-  __int64 v15; // rcx
-  const char *v16; // rax
-  const char *v17; // rax
-  __int16 v18; // cx
-  __int64 v19; // rdx
-  NTSTATUS v20; // ebx
-  char v21; // bl
-  char v22; // r15
-  __int64 v23; // rdx
-  int v25[4]; // [rsp+38h] [rbp-39h] BYREF
-  int v26; // [rsp+48h] [rbp-29h] BYREF
+  const wchar_t *v15; // rax
+  const wchar_t *v16; // rax
+  NTSTATUS v17; // ebx
+  char v18; // bl
+  char v19; // r15
+  int v21[4]; // [rsp+38h] [rbp-39h] BYREF
+  int v22; // [rsp+48h] [rbp-29h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-21h] BYREF
-  HANDLE v28; // [rsp+58h] [rbp-19h] BYREF
+  HANDLE v24; // [rsp+58h] [rbp-19h] BYREF
   HANDLE KeyHandle; // [rsp+60h] [rbp-11h] BYREF
-  int v30[4]; // [rsp+68h] [rbp-9h] BYREF
-  int v31[4]; // [rsp+78h] [rbp+7h] BYREF
-  __int128 v32; // [rsp+88h] [rbp+17h] BYREF
+  int v26[4]; // [rsp+68h] [rbp-9h] BYREF
+  int v27[4]; // [rsp+78h] [rbp+7h] BYREF
+  __int128 v28; // [rsp+88h] [rbp+17h] BYREF
 
-  v26 = -1;
+  v22 = -1;
   Handle = 0LL;
-  v28 = 0LL;
+  v24 = 0LL;
   KeyHandle = 0LL;
-  *(_OWORD *)v25 = 0LL;
+  *(_OWORD *)v21 = 0LL;
   QueryTable = 0LL;
-  v3 = 0x7FFFLL;
-  *(_OWORD *)v30 = 0LL;
-  v4 = L"v1";
-  while ( *v4 )
+  v2 = 0x7FFFLL;
+  *(_OWORD *)v26 = 0LL;
+  v3 = L"v1";
+  do
   {
-    ++v4;
-    if ( !--v3 )
-      goto LABEL_6;
+    if ( !*v3 )
+      break;
+    ++v3;
+    --v2;
   }
-  v5 = 2 * v3;
-  *(_QWORD *)&v30[2] = L"v1";
-  LOWORD(v30[0]) = -2 - v5;
-  HIWORD(v30[0]) = -v5;
-LABEL_6:
-  *(_OWORD *)v31 = 0LL;
-  v6 = L"Default";
-  v7 = 0x7FFFLL;
-  while ( *v6 )
+  while ( v2 );
+  v4 = (0x7FFF - v2) & ((unsigned __int128)-(__int128)(unsigned __int64)v2 >> 64);
+  if ( v2 )
   {
-    ++v6;
-    if ( !--v7 )
-      goto LABEL_11;
+    *(_QWORD *)&v26[2] = L"v1";
+    LOWORD(v26[0]) = 2 * v4;
+    HIWORD(v26[0]) = 2 * v4 + 2;
   }
-  v8 = 2 * v7;
-  *(_QWORD *)&v31[2] = L"Default";
-  LOWORD(v31[0]) = -2 - v8;
-  HIWORD(v31[0]) = -v8;
-LABEL_11:
-  RegistryValues = PpmOpenRegistryKey((UNICODE_STRING *)v30, (__int64)L"Default", 65534LL, a1, &KeyHandle);
+  *(_OWORD *)v27 = 0LL;
+  v5 = L"Default";
+  v6 = 0x7FFFLL;
+  do
+  {
+    if ( !*v5 )
+      break;
+    ++v5;
+    --v6;
+  }
+  while ( v6 );
+  v7 = (0x7FFF - v6) & ((unsigned __int128)-(__int128)(unsigned __int64)v6 >> 64);
+  if ( v6 )
+  {
+    *(_QWORD *)&v27[2] = L"Default";
+    LOWORD(v27[0]) = 2 * v7;
+    LOWORD(v7) = 2 * v7 + 2;
+    HIWORD(v27[0]) = v7;
+  }
+  RegistryValues = PpmOpenRegistryKey((UNICODE_STRING *)v26, v7, v6, a1, &KeyHandle);
   if ( RegistryValues >= 0 )
   {
-    QueryTable = (void *)PpmAllocateQueryTable((__int64)&v26);
+    QueryTable = PpmAllocateQueryTable((__int64)&v22);
     if ( !QueryTable )
     {
       RegistryValues = -1073741670;
       goto LABEL_36;
     }
     PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-    for ( i = 0; i < (unsigned __int8)PpmProfileCount; ++i )
+    v11 = 0;
+    if ( PpmProfileCount )
     {
-      v12 = L"VideoBatching";
-      v13 = (_QWORD *)(PpmProfiles + 8624LL * i);
-      v14 = *(_QWORD *)((char *)v13 + 12) - *(_QWORD *)&GUID_POWER_POLICY_PROFILE_LOW_POWER.Data1;
-      v32 = *(_OWORD *)((char *)v13 + 12);
-      if ( !v14 )
-        v14 = *((_QWORD *)&v32 + 1) - *(_QWORD *)GUID_POWER_POLICY_PROFILE_LOW_POWER.Data4;
-      if ( v14 )
+      while ( 1 )
       {
-        v12 = (const char *)*v13;
-        *(_OWORD *)v25 = 0LL;
-        if ( !v12 )
-          goto LABEL_28;
-        v15 = 0x7FFFLL;
-        v17 = v12;
-        while ( *(_WORD *)v17 )
+        v12 = L"VideoBatching";
+        v13 = (_QWORD *)(PpmProfiles + 5552LL * v11);
+        v14 = *(_QWORD *)((char *)v13 + 12) - *(_QWORD *)&GUID_POWER_POLICY_PROFILE_LOW_POWER.Data1;
+        v28 = *(_OWORD *)((char *)v13 + 12);
+        if ( !v14 )
+          v14 = *((_QWORD *)&v28 + 1) - *(_QWORD *)GUID_POWER_POLICY_PROFILE_LOW_POWER.Data4;
+        if ( !v14 )
+          break;
+        v12 = (const wchar_t *)*v13;
+        *(_OWORD *)v21 = 0LL;
+        if ( v12 )
         {
-          v17 += 2;
-          if ( !--v15 )
-            goto LABEL_28;
+          v10 = 0x7FFFLL;
+          v15 = v12;
+          do
+          {
+            if ( !*v15 )
+              break;
+            ++v15;
+            --v10;
+          }
+          while ( v10 );
+          goto LABEL_26;
         }
-      }
-      else
-      {
-        *(_OWORD *)v25 = 0LL;
-        v15 = 0x7FFFLL;
-        v16 = L"VideoBatching";
-        while ( *(_WORD *)v16 )
-        {
-          v16 += 2;
-          if ( !--v15 )
-            goto LABEL_28;
-        }
-      }
-      v18 = 2 * v15;
-      *(_QWORD *)&v25[2] = v12;
-      LOWORD(v25[0]) = -2 - v18;
-      HIWORD(v25[0]) = -v18;
 LABEL_28:
-      if ( PpmOpenRegistryKey((UNICODE_STRING *)v25, (__int64)v12, v10, KeyHandle, &Handle) >= 0 )
-      {
-        v20 = PpmOpenRegistryKey((UNICODE_STRING *)v31, v19, v10, Handle, &v28);
-        ZwClose(Handle);
-        if ( v20 >= 0 )
+        if ( PpmOpenRegistryKey((UNICODE_STRING *)v21, v9, v10, KeyHandle, &Handle) >= 0 )
         {
-          RegistryValues = RtlpQueryRegistryValues(0x40000000, (const WCHAR *)v28, (__int64)QueryTable, 0LL);
-          ZwClose(v28);
-          PpmReleaseLock(&PpmPerfPolicyLock);
-          if ( RegistryValues < 0 )
-            goto LABEL_36;
-          v21 = PpmProcessSettingsFromQueryTable(&v32, 0, (__int64)QueryTable);
-          v22 = PpmProcessSettingsFromQueryTable(&v32, 1, (__int64)QueryTable);
-          PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-          if ( v21 || v22 )
-            PpmEnableProfile((__int64)v13, v23);
+          v17 = PpmOpenRegistryKey((UNICODE_STRING *)v27, v9, v10, Handle, &v24);
+          ZwClose(Handle);
+          if ( v17 >= 0 )
+          {
+            RegistryValues = RtlpQueryRegistryValues(0x40000000LL, (const WCHAR *)v24, (__int64)QueryTable, 0LL);
+            ZwClose(v24);
+            PpmReleaseLock(&PpmPerfPolicyLock);
+            if ( RegistryValues < 0 )
+              goto LABEL_36;
+            v18 = PpmProcessSettingsFromQueryTable(&v28, 0, (__int64)QueryTable);
+            v19 = PpmProcessSettingsFromQueryTable(&v28, 1, (__int64)QueryTable);
+            PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
+            if ( v18 || v19 )
+              PpmEnableProfile((__int64)v13, v9);
+          }
         }
+        if ( ++v11 >= (unsigned __int8)PpmProfileCount )
+          goto LABEL_35;
       }
+      *(_OWORD *)v21 = 0LL;
+      v10 = 0x7FFFLL;
+      v16 = L"VideoBatching";
+      do
+      {
+        if ( !*v16 )
+          break;
+        ++v16;
+        --v10;
+      }
+      while ( v10 );
+LABEL_26:
+      v9 = (0x7FFF - v10) & ((unsigned __int128)-(__int128)(unsigned __int64)v10 >> 64);
+      if ( v10 )
+      {
+        *(_QWORD *)&v21[2] = v12;
+        LOWORD(v21[0]) = 2 * v9;
+        LOWORD(v9) = 2 * v9 + 2;
+        HIWORD(v21[0]) = v9;
+      }
+      goto LABEL_28;
     }
+LABEL_35:
     PpmReleaseLock(&PpmPerfPolicyLock);
     PpmProfileStatus |= 2u;
     RegistryValues = 0;

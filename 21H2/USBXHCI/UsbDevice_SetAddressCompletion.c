@@ -1,20 +1,20 @@
 /*
- * XREFs of UsbDevice_SetAddressCompletion @ 0x1C0010C30
+ * XREFs of UsbDevice_SetAddressCompletion @ 0x1C000F9A0
  * Callers:
  *     <none>
  * Callees:
- *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C000154C (XilUsbDevice_GetDeviceContextBufferVA.c)
- *     Command_SendCommand @ 0x1C0003D94 (Command_SendCommand.c)
- *     UsbDevice_SetDeviceDisabled @ 0x1C000D1B0 (UsbDevice_SetDeviceDisabled.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0010E7C (WPP_RECORDER_SF_dq.c)
- *     WPP_RECORDER_SF_dqD @ 0x1C0011110 (WPP_RECORDER_SF_dqD.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031C54 (Controller_HwVerifierBreakIfEnabled.c)
- *     Controller_ReportFatalError @ 0x1C0032C20 (Controller_ReportFatalError.c)
- *     XilDeviceSlot_SendQuerySlotContextInfoRequest @ 0x1C0036EB4 (XilDeviceSlot_SendQuerySlotContextInfoRequest.c)
- *     WPP_RECORDER_SF_dqdL @ 0x1C0047E4C (WPP_RECORDER_SF_dqdL.c)
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C00057C4 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     UsbDevice_SetDeviceDisabled @ 0x1C000AA1C (UsbDevice_SetDeviceDisabled.c)
+ *     WPP_RECORDER_SF_dqD @ 0x1C00107C0 (WPP_RECORDER_SF_dqD.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0010CB0 (WPP_RECORDER_SF_dq.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     XilDeviceSlot_SendQuerySlotContextInfoRequest @ 0x1C0036C74 (XilDeviceSlot_SendQuerySlotContextInfoRequest.c)
+ *     WPP_RECORDER_SF_dqdL @ 0x1C0047BB8 (WPP_RECORDER_SF_dqdL.c)
  */
 
 char __fastcall UsbDevice_SetAddressCompletion(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -52,7 +52,7 @@ char __fastcall UsbDevice_SetAddressCompletion(__int64 a1, __int64 a2, __int64 a
         v17,
         12,
         22,
-        (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
         *(_BYTE *)(v4 + 135),
         *(_QWORD *)v4);
     }
@@ -84,7 +84,7 @@ LABEL_9:
             v16,
             12,
             24,
-            (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+            (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
             *(_BYTE *)(a1 + 61),
             *(_QWORD *)v4);
         }

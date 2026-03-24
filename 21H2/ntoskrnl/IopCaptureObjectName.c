@@ -1,18 +1,18 @@
 /*
- * XREFs of IopCaptureObjectName @ 0x140A513D4
+ * XREFs of IopCaptureObjectName @ 0x140997948
  * Callers:
- *     IoBuildPoDeviceNotifyList @ 0x140A50D3C (IoBuildPoDeviceNotifyList.c)
+ *     IoBuildPoDeviceNotifyList @ 0x1409972B0 (IoBuildPoDeviceNotifyList.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ObQueryNameString @ 0x14070F640 (ObQueryNameString.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ObQueryNameString @ 0x140718930 (ObQueryNameString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _WORD *__fastcall IopCaptureObjectName(void *a1)
 {
   _WORD *v1; // rbx
-  _WORD *Pool2; // rax
+  _WORD *PoolWithTag; // rax
   ULONG ReturnLength[4]; // [rsp+20h] [rbp-228h] BYREF
   struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+30h] [rbp-218h] BYREF
 
@@ -22,11 +22,11 @@ _WORD *__fastcall IopCaptureObjectName(void *a1)
   {
     if ( ObjectNameInfo.Name.Buffer )
     {
-      Pool2 = (_WORD *)ExAllocatePool2(64LL, ObjectNameInfo.Name.Length + 2LL, 1766084676LL);
-      v1 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, ObjectNameInfo.Name.Length + 2LL, 0x72775044u);
+      v1 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memmove(Pool2, ObjectNameInfo.Name.Buffer, ObjectNameInfo.Name.Length);
+        memmove(PoolWithTag, ObjectNameInfo.Name.Buffer, ObjectNameInfo.Name.Length);
         v1[(unsigned __int64)ObjectNameInfo.Name.Length >> 1] = 0;
       }
     }

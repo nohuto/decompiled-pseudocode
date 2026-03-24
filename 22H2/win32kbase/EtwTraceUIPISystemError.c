@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwTraceUIPISystemError @ 0x1C0074670
+ * XREFs of EtwTraceUIPISystemError @ 0x1C0007D70
  * Callers:
- *     NtUserEnableTouchPad @ 0x1C0143E70 (NtUserEnableTouchPad.c)
- *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C014BA50 (NtUserSetPrecisionTouchPadConfiguration.c)
- *     NtUserSystemParametersInfo @ 0x1C014C300 (NtUserSystemParametersInfo.c)
+ *     NtUserEnableTouchPad @ 0x1C012E0C0 (NtUserEnableTouchPad.c)
+ *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C01347E0 (NtUserSetPrecisionTouchPadConfiguration.c)
+ *     NtUserSystemParametersInfo @ 0x1C0135470 (NtUserSystemParametersInfo.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00591BC (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C0074858 (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     McTemplateK0nq_EtwWriteTransfer @ 0x1C013C820 (McTemplateK0nq_EtwWriteTransfer.c)
+ *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C0008070 (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00487D0 (WPP_RECORDER_SF_q.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     McTemplateK0nq_EtwWriteTransfer @ 0x1C0125964 (McTemplateK0nq_EtwWriteTransfer.c)
  */
 
 _UNKNOWN **__fastcall EtwTraceUIPISystemError(struct tagPROCESSINFO *a1, const struct tagPROCESSINFO *a2)
 {
-  char v2; // di
+  char v2; // bl
   int v3; // edx
   int v4; // ecx
   int v5; // r8d
   int v6; // r9d
   _UNKNOWN **result; // rax
-  _OWORD v8[2]; // [rsp+50h] [rbp-38h] BYREF
-  int v9; // [rsp+70h] [rbp-18h]
+  _OWORD v8[2]; // [rsp+30h] [rbp-38h] BYREF
+  int v9; // [rsp+50h] [rbp-18h]
 
   v9 = 0;
   v2 = (char)a1;
@@ -34,22 +34,16 @@ _UNKNOWN **__fastcall EtwTraceUIPISystemError(struct tagPROCESSINFO *a1, const s
     a2);
   if ( (Microsoft_Windows_Win32kEnableBits & 4) != 0 )
     McTemplateK0nq_EtwWriteTransfer(v4, v3, v5, v6, (__int64)v8);
-  LOBYTE(v3) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
   result = &WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v5) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    return (_UNKNOWN **)WPP_RECORDER_AND_TRACE_SF_q(
-                          WPP_GLOBAL_Control->AttachedDevice,
-                          v3,
-                          v5,
+    LOBYTE(v3) = 4;
+    return (_UNKNOWN **)WPP_RECORDER_SF_q(
                           WPP_MAIN_CB.Queue.ListEntry.Flink,
-                          4,
-                          14,
+                          v3,
+                          18,
                           16,
-                          (__int64)&WPP_638838901a81363f021dd330a5466106_Traceguids,
+                          (__int64)&WPP_54d33ffc9e3d3dbf4995411973a3d843_Traceguids,
                           v2);
   }
   return result;

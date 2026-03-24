@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsProtected@CCachedVisualImage@@UEBA_NXZ @ 0x1801A1790
+ * XREFs of ?IsProtected@CCachedVisualImage@@UEBA_NXZ @ 0x18016FC60
  * Callers:
- *     <none>
+ *     ?IsProtected@CRenderData@@UEBA_NXZ @ 0x1800F0420 (-IsProtected@CRenderData@@UEBA_NXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CCachedVisualImage::IsProtected(CCachedVisualImage *this)

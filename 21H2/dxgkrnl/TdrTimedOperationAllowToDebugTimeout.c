@@ -1,10 +1,10 @@
 /*
- * XREFs of TdrTimedOperationAllowToDebugTimeout @ 0x1C005270C
+ * XREFs of TdrTimedOperationAllowToDebugTimeout @ 0x1C004521C
  * Callers:
- *     TdrTimedOperationDelay @ 0x1C00528F0 (TdrTimedOperationDelay.c)
- *     TdrTimedOperationWaitForSingleObject @ 0x1C0307060 (TdrTimedOperationWaitForSingleObject.c)
+ *     TdrTimedOperationDelay @ 0x1C0045400 (TdrTimedOperationDelay.c)
+ *     TdrTimedOperationWaitForSingleObject @ 0x1C0266790 (TdrTimedOperationWaitForSingleObject.c)
  * Callees:
- *     ?TdrValidateDebugMode@@YAXXZ @ 0x1C0052664 (-TdrValidateDebugMode@@YAXXZ.c)
+ *     ?TdrValidateDebugMode@@YAXXZ @ 0x1C0045174 (-TdrValidateDebugMode@@YAXXZ.c)
  */
 
 __int64 __fastcall TdrTimedOperationAllowToDebugTimeout(struct _DXGK_TIMED_OPERATION *a1)
@@ -20,20 +20,20 @@ __int64 __fastcall TdrTimedOperationAllowToDebugTimeout(struct _DXGK_TIMED_OPERA
   v7 = a1;
   v1 = 0;
   g_TdrTimedOpToDebug = a1;
-  if ( (dword_1C0084070 & 1) != 0 )
+  if ( (dword_1C0070000 & 1) != 0 )
   {
-    v2 = byte_1C0084074;
+    v2 = byte_1C0070004;
   }
   else
   {
     LOBYTE(a1) = 1;
-    dword_1C0084070 |= 1u;
+    dword_1C0070000 |= 1u;
     v2 = (unsigned __int8)WdIsDebuggerPresent(a1) != 0;
-    byte_1C0084074 = v2;
+    byte_1C0070004 = v2;
   }
-  byte_1C0130C0C = v2;
+  byte_1C00B3174 = v2;
   TdrValidateDebugMode();
-  if ( (byte_1C0130C0C || (unsigned __int8)WdQueryDebugFlag(0LL)) && !g_TdrDebugMode )
+  if ( (byte_1C00B3174 || (unsigned __int8)WdQueryDebugFlag(0LL)) && !g_TdrDebugMode )
   {
     if ( v7 )
       OwnerTag = v7->OwnerTag;

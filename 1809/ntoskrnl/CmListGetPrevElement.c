@@ -1,5 +1,5 @@
 /*
- * XREFs of CmListGetPrevElement @ 0x1406C060C
+ * XREFs of CmListGetPrevElement @ 0x1406C05EC
  * Callers:
  *     CmpGetEffectiveCellType @ 0x1405812FC (CmpGetEffectiveCellType.c)
  *     CmpUndoDeleteKeyForTransEx @ 0x140581354 (CmpUndoDeleteKeyForTransEx.c)
@@ -7,8 +7,8 @@
  *     CmpQueryKeyDataFromNode @ 0x1405D3570 (CmpQueryKeyDataFromNode.c)
  *     CmpQueryKeyDataFromCache @ 0x1405D79A0 (CmpQueryKeyDataFromCache.c)
  *     CmGetKCBCacheSecurity @ 0x1405D8A10 (CmGetKCBCacheSecurity.c)
- *     CmGetKeyLastWriteTime @ 0x1406B97A4 (CmGetKeyLastWriteTime.c)
- *     CmGetKeyFlags @ 0x140763E60 (CmGetKeyFlags.c)
+ *     CmGetKeyLastWriteTime @ 0x1406B9784 (CmGetKeyLastWriteTime.c)
+ *     CmGetKeyFlags @ 0x140763E40 (CmGetKeyFlags.c)
  * Callees:
  *     <none>
  */

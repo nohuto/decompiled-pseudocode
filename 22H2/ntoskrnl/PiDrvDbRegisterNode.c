@@ -1,237 +1,148 @@
 /*
- * XREFs of PiDrvDbRegisterNode @ 0x140813CBC
+ * XREFs of PiDrvDbRegisterNode @ 0x1407A3CA8
  * Callers:
- *     PiDrvDbInit @ 0x140813944 (PiDrvDbInit.c)
- *     PiDrvDbRegisterNodeCallback @ 0x14086539C (PiDrvDbRegisterNodeCallback.c)
- *     PiDrvDbMountNode @ 0x140970100 (PiDrvDbMountNode.c)
+ *     PiDrvDbInit @ 0x1407A393C (PiDrvDbInit.c)
+ *     PiDrvDbRegisterNodeCallback @ 0x1407D4770 (PiDrvDbRegisterNodeCallback.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x14041B1A0 (ZwOpenDirectoryObject.c)
- *     ZwCreateSymbolicLinkObject @ 0x14041BF60 (ZwCreateSymbolicLinkObject.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     RtlFindUnicodeSubstring @ 0x1406D93E0 (RtlFindUnicodeSubstring.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     _PnpSetObjectProperty @ 0x14079708C (_PnpSetObjectProperty.c)
- *     RtlDuplicateUnicodeString @ 0x1407B7570 (RtlDuplicateUnicodeString.c)
- *     PiDrvDbDriverStoreNodesUpdated @ 0x140813E9C (PiDrvDbDriverStoreNodesUpdated.c)
- *     PiDrvDbCreateNode @ 0x14081425C (PiDrvDbCreateNode.c)
- *     DrvDbRegisterDatabase @ 0x140814ED8 (DrvDbRegisterDatabase.c)
- *     PiDrvDbDestroyNode @ 0x14096FEDC (PiDrvDbDestroyNode.c)
- *     _PnpCtxRegisterMachineNode @ 0x140A60C28 (_PnpCtxRegisterMachineNode.c)
- *     DrvDbUnregisterDatabase @ 0x140A6D964 (DrvDbUnregisterDatabase.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     RtlFindUnicodeSubstring @ 0x1405ED870 (RtlFindUnicodeSubstring.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     _PnpSetObjectProperty @ 0x1407420C4 (_PnpSetObjectProperty.c)
+ *     PiDrvDbCreateNode @ 0x1407A3DFC (PiDrvDbCreateNode.c)
+ *     DrvDbRegisterDatabase @ 0x1407A4600 (DrvDbRegisterDatabase.c)
+ *     PiDrvDbDestroyNode @ 0x1408B5D44 (PiDrvDbDestroyNode.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x1408B6DB8 (PiDrvDbQuerySystemPathWin32.c)
+ *     DrvDbUnregisterDatabase @ 0x14097E860 (DrvDbUnregisterDatabase.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDrvDbRegisterNode(PCWSTR Source, char a2, int a3)
+__int64 __fastcall PiDrvDbRegisterNode(PCWSTR Source, char a2)
 {
-  const WCHAR *v4; // rsi
-  wchar_t *Pool2; // r14
-  char v6; // r13
+  wchar_t *PoolWithTag; // r14
+  char v5; // r12
   int Node; // eax
-  char *v9; // rdi
-  int SymbolicLinkObject; // ebx
-  unsigned __int64 v11; // rbx
-  int v12; // r9d
-  int v13; // esi
-  int v14; // ecx
-  __int64 v15; // rcx
+  char *v7; // rbx
+  int v8; // edi
+  SIZE_T v9; // rdi
+  int v10; // ecx
+  int v11; // r8d
+  int v12; // esi
+  __int64 v13; // rcx
+  wchar_t *v15; // rdi
   char *UnicodeSubstring; // rax
   unsigned __int16 i; // cx
-  __int64 v19; // rcx
-  int v20; // ecx
-  int v21; // r9d
-  int v22; // eax
-  UNICODE_STRING StringIn; // [rsp+68h] [rbp-61h] BYREF
-  int v24; // [rsp+78h] [rbp-51h] BYREF
-  int v25; // [rsp+7Ch] [rbp-4Dh] BYREF
-  PVOID P; // [rsp+80h] [rbp-49h] BYREF
-  HANDLE Handle; // [rsp+88h] [rbp-41h] BYREF
-  HANDLE DirectoryHandle; // [rsp+90h] [rbp-39h] BYREF
-  HANDLE v29; // [rsp+98h] [rbp-31h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-29h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B0h] [rbp-19h] BYREF
-  UNICODE_STRING v32; // [rsp+E0h] [rbp+17h] BYREF
+  UNICODE_STRING String2; // [rsp+50h] [rbp-30h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-20h] BYREF
+  UNICODE_STRING v20; // [rsp+70h] [rbp-10h] BYREF
+  PVOID P; // [rsp+C0h] [rbp+40h] BYREF
 
   P = 0LL;
-  DirectoryHandle = 0LL;
-  v4 = Source;
-  v29 = 0LL;
-  Handle = 0LL;
-  v25 = 0;
-  v24 = 0;
-  Pool2 = 0LL;
-  v6 = 0;
-  StringIn = 0LL;
+  String2 = 0LL;
+  PoolWithTag = 0LL;
+  v5 = 0;
   DestinationString = 0LL;
-  v32 = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  v20 = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  Node = PiDrvDbCreateNode(v4, (__int64)&P);
-  v9 = (char *)P;
-  SymbolicLinkObject = Node;
-  if ( Node >= 0 )
+  Node = PiDrvDbCreateNode(Source, (__int64)&P);
+  v7 = (char *)P;
+  v8 = Node;
+  if ( Node < 0 )
+    goto LABEL_9;
+  if ( (*((_DWORD *)P + 16) & 1) != 0 )
   {
-    if ( (*((_DWORD *)P + 16) & 1) != 0 )
+    v12 = a2 & 8;
+  }
+  else
+  {
+    v9 = *((unsigned __int16 *)P + 16) + 32LL;
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v9, 0x62647050u);
+    if ( !PoolWithTag )
     {
-      v13 = a2 & 8;
+      v8 = -1073741670;
+      goto LABEL_9;
     }
-    else
-    {
-      v11 = *((unsigned __int16 *)P + 16) + 32LL;
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, v11, 1650749520LL);
-      if ( !Pool2 )
-      {
-        SymbolicLinkObject = -1073741670;
-        goto LABEL_11;
-      }
-      SymbolicLinkObject = RtlStringCchPrintfW(Pool2, v11 >> 1, L"%wZ\\%ws", v9 + 32, L"DriverDatabase");
-      if ( SymbolicLinkObject < 0 )
-        goto LABEL_11;
-      v13 = a2 & 8;
-      v14 = (v13 != 0 ? 2 : 0) | 1;
-      if ( (a2 & 0x40) == 0 )
-        v14 = (a2 & 8) != 0 ? 2 : 0;
-      SymbolicLinkObject = DrvDbRegisterDatabase(v14, (_DWORD)Source, a3, v12, (__int64)Pool2, v14);
-      if ( SymbolicLinkObject < 0 )
-        goto LABEL_11;
-      v6 = 1;
-    }
-    if ( !v13 )
-    {
-LABEL_10:
-      PiDrvDbDriverStoreNodesUpdated();
-      v9 = 0LL;
-LABEL_11:
-      v4 = Source;
-      goto LABEL_12;
-    }
-    SymbolicLinkObject = PnpSetObjectProperty(
-                           *(__int64 *)&PiPnpRtlCtx,
-                           *((_QWORD *)v9 + 3),
-                           7u,
-                           *((_QWORD *)v9 + 9),
-                           0LL,
-                           (__int64)DEVPKEY_DriverDatabase_FilePath,
-                           18,
-                           *((_QWORD *)v9 + 7),
-                           (unsigned int)*((unsigned __int16 *)v9 + 24) + 2,
-                           0);
-    if ( SymbolicLinkObject < 0 )
-      goto LABEL_11;
-    StringIn.Buffer = (wchar_t *)*((_QWORD *)v9 + 7);
-    RtlInitUnicodeString(&v32, L"\\System32\\config\\");
-    UnicodeSubstring = RtlFindUnicodeSubstring((unsigned __int16 *)v9 + 24);
+    v8 = RtlStringCchPrintfW(PoolWithTag, v9 >> 1, L"%wZ\\%ws", v7 + 32, L"DriverDatabase");
+    if ( v8 < 0 )
+      goto LABEL_9;
+    v12 = a2 & 8;
+    v8 = DrvDbRegisterDatabase(v10, (_DWORD)Source, v11, (_DWORD)PoolWithTag, v12 != 0);
+    if ( v8 < 0 )
+      goto LABEL_9;
+    v5 = 1;
+  }
+  if ( !v12 )
+  {
+LABEL_8:
+    v7 = 0LL;
+    goto LABEL_9;
+  }
+  v8 = PnpSetObjectProperty(
+         *(__int64 *)&PiPnpRtlCtx,
+         *((_QWORD *)v7 + 3),
+         7u,
+         *((_QWORD *)v7 + 9),
+         0LL,
+         (__int64)DEVPKEY_DriverDatabase_FilePath,
+         18,
+         *((_QWORD *)v7 + 7),
+         (unsigned int)*((unsigned __int16 *)v7 + 24) + 2,
+         0);
+  if ( v8 >= 0 )
+  {
+    v15 = (wchar_t *)*((_QWORD *)v7 + 7);
+    String2.Buffer = v15;
+    RtlInitUnicodeString(&v20, L"\\System32\\config\\");
+    UnicodeSubstring = RtlFindUnicodeSubstring((unsigned __int16 *)v7 + 24, &v20.Length, 1);
     if ( UnicodeSubstring )
     {
-      i = 2 * ((__int64)(unsigned int)((_DWORD)UnicodeSubstring - *((_DWORD *)v9 + 14)) >> 1);
+      i = 2 * ((__int64)(unsigned int)((_DWORD)UnicodeSubstring - *((_DWORD *)v7 + 14)) >> 1);
     }
     else
     {
-      StringIn.Length = *((_WORD *)v9 + 24);
-      for ( i = StringIn.Length; i > 2u; StringIn.Length = i )
+      String2.Length = *((_WORD *)v7 + 24);
+      for ( i = String2.Length; i > 2u; String2.Length = i )
       {
-        if ( StringIn.Buffer[((unsigned __int64)i >> 1) - 1] == 92 )
+        if ( v15[((unsigned __int64)i >> 1) - 1] == 92 )
           break;
         i -= 2;
       }
-      if ( i <= 2u || StringIn.Buffer[((unsigned __int64)i >> 1) - 1] != 92 )
-      {
-LABEL_34:
-        StringIn.MaximumLength = i;
-        if ( (a2 & 0x10) != 0 )
-        {
-          RtlInitUnicodeString(&v32, L"\\DriverStore\\Nodes");
-          ObjectAttributes.RootDirectory = 0LL;
-          ObjectAttributes.ObjectName = &v32;
-          ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
-          ObjectAttributes.Length = 48;
-          ObjectAttributes.Attributes = 592;
-          ObjectAttributes.SecurityQualityOfService = 0LL;
-          SymbolicLinkObject = ZwOpenDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes);
-          if ( SymbolicLinkObject < 0 )
-            goto LABEL_11;
-          ObjectAttributes.RootDirectory = DirectoryHandle;
-          ObjectAttributes.Length = 48;
-          ObjectAttributes.ObjectName = (PUNICODE_STRING)(v9 + 16);
-          ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
-          ObjectAttributes.Attributes = 592;
-          ObjectAttributes.SecurityQualityOfService = 0LL;
-          SymbolicLinkObject = ZwCreateSymbolicLinkObject((__int64)&v29, 983041LL);
-          if ( SymbolicLinkObject < 0 )
-            goto LABEL_11;
-        }
-        if ( (unsigned int)PnpGetObjectProperty(
-                             *(__int64 *)&PiPnpRtlCtx,
-                             *((_QWORD *)v9 + 3),
-                             7LL,
-                             *((_QWORD *)v9 + 9),
-                             0LL,
-                             (__int64)DEVPKEY_DriverDatabase_SystemPath,
-                             (__int64)&v25,
-                             0LL,
-                             0,
-                             (__int64)&v24,
-                             0) == -1073741275 )
-        {
-          SymbolicLinkObject = RtlDuplicateUnicodeString(1u, &StringIn, &DestinationString);
-          if ( SymbolicLinkObject < 0 )
-            goto LABEL_11;
-          SymbolicLinkObject = PnpSetObjectProperty(
-                                 *(__int64 *)&PiPnpRtlCtx,
-                                 *((_QWORD *)v9 + 3),
-                                 7u,
-                                 *((_QWORD *)v9 + 9),
-                                 0LL,
-                                 (__int64)DEVPKEY_DriverDatabase_SystemPath,
-                                 18,
-                                 (__int64)DestinationString.Buffer,
-                                 (unsigned int)DestinationString.Length + 2,
-                                 0);
-          if ( SymbolicLinkObject < 0 )
-            goto LABEL_11;
-        }
-        v19 = 0LL;
-        if ( *(_QWORD *)&PiPnpRtlCtx )
-          v19 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
-        SymbolicLinkObject = SysCtxRegOpenKey(v19, 2147483650LL, *((_QWORD *)v9 + 3), 0, 0x2000000u, (__int64)&Handle);
-        if ( SymbolicLinkObject < 0 )
-          goto LABEL_11;
-        v22 = PnpCtxRegisterMachineNode(v20, *((_QWORD *)v9 + 3), 3, v21, (__int64)Handle);
-        SymbolicLinkObject = v22;
-        if ( v22 == 0x40000000 )
-        {
-          SymbolicLinkObject = 0;
-        }
-        else if ( v22 < 0 )
-        {
-          goto LABEL_11;
-        }
-        goto LABEL_10;
-      }
+      if ( i <= 2u || v15[((unsigned __int64)i >> 1) - 1] != 92 )
+        goto LABEL_25;
       i -= 2;
     }
-    StringIn.Length = i;
-    goto LABEL_34;
+    String2.Length = i;
+LABEL_25:
+    String2.MaximumLength = i;
+    if ( (int)PiDrvDbQuerySystemPathWin32(&String2, &DestinationString) < 0 )
+    {
+      v8 = 0;
+      goto LABEL_8;
+    }
+    v8 = PnpSetObjectProperty(
+           *(__int64 *)&PiPnpRtlCtx,
+           *((_QWORD *)v7 + 3),
+           7u,
+           *((_QWORD *)v7 + 9),
+           0LL,
+           (__int64)DEVPKEY_DriverDatabase_SystemPath,
+           18,
+           (__int64)DestinationString.Buffer,
+           (unsigned int)DestinationString.Length + 2,
+           0);
+    if ( v8 >= 0 )
+      goto LABEL_8;
   }
-LABEL_12:
-  if ( Handle )
-    ZwClose(Handle);
-  if ( v29 )
-    ZwClose(v29);
-  if ( DirectoryHandle )
-    ZwClose(DirectoryHandle);
-  RtlFreeUnicodeString(&DestinationString);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
-  if ( v9 )
+LABEL_9:
+  RtlFreeAnsiString(&DestinationString);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+  if ( v7 )
   {
-    if ( v6 )
-      DrvDbUnregisterDatabase(v15, v4);
-    PiDrvDbDestroyNode(v9);
+    if ( v5 )
+      DrvDbUnregisterDatabase(v13, Source);
+    PiDrvDbDestroyNode(v7);
   }
-  return (unsigned int)SymbolicLinkObject;
+  return (unsigned int)v8;
 }

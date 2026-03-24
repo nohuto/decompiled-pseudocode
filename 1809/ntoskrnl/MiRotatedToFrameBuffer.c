@@ -7,10 +7,10 @@
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
  *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
  *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
- *     MiRevertValidPte @ 0x1400B2340 (MiRevertValidPte.c)
- *     NtUnlockVirtualMemory @ 0x1400B3D70 (NtUnlockVirtualMemory.c)
- *     MiLockStealUserVm @ 0x1400EDBF4 (MiLockStealUserVm.c)
- *     MiCheckCommitReleaseFromVad @ 0x1402A38CC (MiCheckCommitReleaseFromVad.c)
+ *     MiRevertValidPte @ 0x1400B2360 (MiRevertValidPte.c)
+ *     NtUnlockVirtualMemory @ 0x1400B3D90 (NtUnlockVirtualMemory.c)
+ *     MiLockStealUserVm @ 0x1400EDC14 (MiLockStealUserVm.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1402A39CC (MiCheckCommitReleaseFromVad.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  */

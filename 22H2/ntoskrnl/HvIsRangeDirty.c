@@ -1,34 +1,26 @@
 /*
- * XREFs of HvIsRangeDirty @ 0x140A259B4
+ * XREFs of HvIsRangeDirty @ 0x14087BCA4
  * Callers:
- *     HvpRemapAndEnlistHiveBins @ 0x14074FCA4 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x14065702C (HvpRemapAndEnlistHiveBins.c)
  * Callees:
- *     RtlAreBitsClear @ 0x140220900 (RtlAreBitsClear.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     RtlAreBitsClear @ 0x1403621A0 (RtlAreBitsClear.c)
  */
 
 bool __fastcall HvIsRangeDirty(__int64 a1, int a2, ULONG a3)
 {
-  unsigned __int64 *v6; // rbx
-  __int64 v7; // rax
-  __int64 v8; // rdi
-  BOOLEAN v9; // di
+  volatile signed __int64 *v6; // rbx
+  BOOLEAN v7; // di
 
   if ( (*(_DWORD *)(a1 + 160) & 1) != 0 || a2 < 0 )
     return 1;
-  v6 = (unsigned __int64 *)(a1 + 80);
-  v7 = KeAbPreAcquire(a1 + 80, 0LL);
-  v8 = v7;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v6, v7, (__int64)v6);
-  if ( v8 )
-    *(_BYTE *)(v8 + 18) = 1;
-  v9 = RtlAreBitsClear((PRTL_BITMAP)(a1 + 88), (unsigned int)a2 >> 9, a3);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)v6);
+  v6 = (volatile signed __int64 *)(a1 + 80);
+  ExAcquirePushLockExclusiveEx(a1 + 80, 0LL);
+  v7 = RtlAreBitsClear((PRTL_BITMAP)(a1 + 88), (unsigned int)a2 >> 9, a3);
+  if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v6);
   KeAbPostRelease((ULONG_PTR)v6);
-  return v9 == 0;
+  return v7 == 0;
 }

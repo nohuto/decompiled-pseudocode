@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PowerNotRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z @ 0x1C000CF38
+ * XREFs of ?PowerNotRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z @ 0x1C000E53C
  * Callers:
- *     ?SimulateDevicePowerNotRequired@FxPoxInterface@@QEAAXXZ @ 0x1C000CF08 (-SimulateDevicePowerNotRequired@FxPoxInterface@@QEAAXXZ.c)
- *     ?PowerNotRequiredCallback@FxPoxInterface@@CAXPEAX@Z @ 0x1C0039B30 (-PowerNotRequiredCallback@FxPoxInterface@@CAXPEAX@Z.c)
+ *     ?SimulateDevicePowerNotRequired@FxPoxInterface@@QEAAXXZ @ 0x1C00103C8 (-SimulateDevicePowerNotRequired@FxPoxInterface@@QEAAXXZ.c)
+ *     ?PowerNotRequiredCallback@FxPoxInterface@@CAXPEAX@Z @ 0x1C008D090 (-PowerNotRequiredCallback@FxPoxInterface@@CAXPEAX@Z.c)
  * Callees:
- *     ?ProcessEvent@FxDevicePwrRequirementMachine@@QEAAXW4FxDevicePwrRequirementEvents@@@Z @ 0x1C0012F54 (-ProcessEvent@FxDevicePwrRequirementMachine@@QEAAXW4FxDevicePwrRequirementEvents@@@Z.c)
- *     ?DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z @ 0x1C0039AD2 (-DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z.c)
+ *     ?ProcessEvent@FxDevicePwrRequirementMachine@@QEAAXW4FxDevicePwrRequirementEvents@@@Z @ 0x1C000EC10 (-ProcessEvent@FxDevicePwrRequirementMachine@@QEAAXW4FxDevicePwrRequirementEvents@@@Z.c)
+ *     ?DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z @ 0x1C008C9F8 (-DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z.c)
  */
 
 void __fastcall FxPoxInterface::PowerNotRequiredCallbackWorker(

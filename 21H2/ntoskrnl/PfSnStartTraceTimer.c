@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnStartTraceTimer @ 0x14035FC04
+ * XREFs of PfSnStartTraceTimer @ 0x1402C7958
  * Callers:
- *     PfSnBeginScenario @ 0x1407DCF7C (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x1406CBBC4 (PfSnBeginScenario.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnStartTraceTimer(struct _EX_RUNDOWN_REF *a1)
@@ -26,7 +26,7 @@ __int64 __fastcall PfSnStartTraceTimer(struct _EX_RUNDOWN_REF *a1)
 
   v1 = a1 + 45;
   v2 = a1;
-  if ( ExAcquireRundownProtection(a1 + 45) )
+  if ( ExAcquireRundownProtection_0(a1 + 45) )
   {
     p_Count = &v2[34].Count;
     v4 = KeAcquireSpinLockRaiseToDpc(&v2[34].Count);
@@ -34,7 +34,7 @@ __int64 __fastcall PfSnStartTraceTimer(struct _EX_RUNDOWN_REF *a1)
     {
       v5 = -1073741431;
     }
-    else if ( (unsigned __int8)KiSetTimerEx((unsigned __int64)&v2[17], v2[25].Count, 0, 0, (__int64)&v2[26]) )
+    else if ( (unsigned __int8)KiSetTimerEx((__int64)&v2[17], v2[25].Count, 0, 0, (__int64)&v2[26]) )
     {
       v5 = -1073741595;
     }
@@ -64,7 +64,7 @@ __int64 __fastcall PfSnStartTraceTimer(struct _EX_RUNDOWN_REF *a1)
     }
     __writecr8(v4);
     if ( v2 )
-      ExReleaseRundownProtection(v1);
+      ExReleaseRundownProtection_0(v1);
   }
   else
   {

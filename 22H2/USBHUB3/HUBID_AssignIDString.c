@@ -1,15 +1,15 @@
 /*
- * XREFs of HUBID_AssignIDString @ 0x1C001DABC
+ * XREFs of HUBID_AssignIDString @ 0x1C001B228
  * Callers:
- *     HUBID_BuildDeviceID @ 0x1C001DD04 (HUBID_BuildDeviceID.c)
- *     HUBID_BuildHardwareID @ 0x1C001DF24 (HUBID_BuildHardwareID.c)
- *     HUBID_BuildDeviceCompatibleID @ 0x1C001E110 (HUBID_BuildDeviceCompatibleID.c)
- *     HUBID_BuildHubCompatibleID @ 0x1C001E378 (HUBID_BuildHubCompatibleID.c)
- *     HUBID_BuildClassCompatibleID @ 0x1C001E458 (HUBID_BuildClassCompatibleID.c)
- *     HUBID_BuildCompatibleID @ 0x1C001E898 (HUBID_BuildCompatibleID.c)
+ *     HUBID_BuildDeviceID @ 0x1C001B484 (HUBID_BuildDeviceID.c)
+ *     HUBID_BuildHardwareID @ 0x1C001B6A4 (HUBID_BuildHardwareID.c)
+ *     HUBID_BuildDeviceCompatibleID @ 0x1C001B890 (HUBID_BuildDeviceCompatibleID.c)
+ *     HUBID_BuildHubCompatibleID @ 0x1C001BA3C (HUBID_BuildHubCompatibleID.c)
+ *     HUBID_BuildClassCompatibleID @ 0x1C001BB18 (HUBID_BuildClassCompatibleID.c)
+ *     HUBID_BuildCompatibleID @ 0x1C001BE8C (HUBID_BuildCompatibleID.c)
  * Callees:
- *     HUBID_AppendStringToIDString @ 0x1C001D9A4 (HUBID_AppendStringToIDString.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBID_AppendStringToIDString @ 0x1C001B100 (HUBID_AppendStringToIDString.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBID_AssignIDString(const void **a1, int a2, __int64 a3, __int64 a4)

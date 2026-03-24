@@ -1,16 +1,14 @@
 /*
- * XREFs of ?InternalGetDXGIOutput@CDisplayManager@@AEAAJIPEAUHMONITOR__@@PEAPEAUIDXGIOutputDWM@@@Z @ 0x18001E884
+ * XREFs of ?InternalGetDXGIOutput@CDisplayManager@@AEAAJIPEAUHMONITOR__@@PEAPEAUIDXGIOutputDWM@@@Z @ 0x18002E2B4
  * Callers:
- *     ?GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z @ 0x18001E850 (-GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z.c)
- *     ?EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ @ 0x1800FE2A8 (-EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ.c)
+ *     ?GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z @ 0x180025DA0 (-GetDXGIOutput@CDisplayManager@@QEAAJIPEAPEAUIDXGIOutputDWM@@@Z.c)
+ *     ?EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ @ 0x1800E4050 (-EnsureSwapChain@CRemoteRenderTarget@@IEAAJXZ.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EBC0 (--1-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x18003DCAC (-InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z.c)
- *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E98E4 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x18003117C (-InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CDisplayManager::InternalGetDXGIOutput(
@@ -47,7 +45,7 @@ __int64 __fastcall CDisplayManager::InternalGetDXGIOutput(
   HMONITOR v33; // [rsp+D0h] [rbp-38h]
   _BYTE v34[16]; // [rsp+D8h] [rbp-30h] BYREF
   int v35; // [rsp+E8h] [rbp-20h]
-  wil::details::in1diag3 *retaddr; // [rsp+1D0h] [rbp+C8h]
+  wil::details::in1diag3 *retaddr; // [rsp+1C0h] [rbp+B8h]
 
   *a4 = 0LL;
   v31 = 0LL;
@@ -57,8 +55,8 @@ __int64 __fastcall CDisplayManager::InternalGetDXGIOutput(
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0xA6,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\global\\globaldisplaymanager.cpp",
+      (void *)0x1DA,
+      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\displaymanager.cpp",
       (const char *)(unsigned int)DXGIFactory,
       v23);
   }
@@ -89,12 +87,12 @@ __int64 __fastcall CDisplayManager::InternalGetDXGIOutput(
       {
         wil::details::in1diag3::Return_Hr(
           retaddr,
-          (void *)0xAF,
-          (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\global\\globaldisplaymanager.cpp",
+          (void *)0x1E3,
+          (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\displaymanager.cpp",
           (const char *)(unsigned int)v13,
           v23);
 LABEL_20:
-        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v26);
+        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v26);
         break;
       }
       v25 = 0LL;
@@ -117,27 +115,26 @@ LABEL_20:
         if ( a2 )
         {
           v24 = 0LL;
-          wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset(&v24);
-          v18 = (**(__int64 (__fastcall ***)(__int64, GUID *, struct IDXGIOutputDWM **))v25)(
+          v18 = (**(__int64 (__fastcall ***)(__int64, GUID *, __int64 *))v25)(
                   v25,
                   &GUID_6f66a9a0_bece_4ee8_b11b_990eb38ed976,
-                  &v24);
+                  (__int64 *)&v24);
           v8 = v18;
           if ( v18 < 0 )
           {
-            v22 = 187LL;
+            v22 = 495LL;
             goto LABEL_32;
           }
           v18 = (*(__int64 (__fastcall **)(struct IDXGIOutputDWM *, _BYTE *))(*(_QWORD *)v24 + 32LL))(v24, v34);
           v8 = v18;
           if ( v18 < 0 )
           {
-            v22 = 190LL;
+            v22 = 498LL;
 LABEL_32:
             wil::details::in1diag3::Return_Hr(
               retaddr,
               (void *)v22,
-              (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\global\\globaldisplaymanager.cpp",
+              (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\displaymanager.cpp",
               (const char *)(unsigned int)v18,
               v23);
             goto LABEL_18;
@@ -149,12 +146,12 @@ LABEL_32:
             v8 = 0;
             *a4 = v19;
 LABEL_18:
-            wil::com_ptr_t<CVisual,wil::err_returncode_policy>::~com_ptr_t<CVisual,wil::err_returncode_policy>(&v24);
+            wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v24);
 LABEL_19:
             wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v25);
             goto LABEL_20;
           }
-          wil::com_ptr_t<CVisual,wil::err_returncode_policy>::~com_ptr_t<CVisual,wil::err_returncode_policy>(&v24);
+          wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v24);
         }
         else
         {
@@ -164,8 +161,8 @@ LABEL_19:
           {
             wil::details::in1diag3::Return_Hr(
               retaddr,
-              (void *)0xC9,
-              (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\global\\globaldisplaymanager.cpp",
+              (void *)0x1FD,
+              (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\displaymanager.cpp",
               (const char *)(unsigned int)v21,
               v23);
             goto LABEL_19;
@@ -181,10 +178,10 @@ LABEL_19:
         }
       }
       wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v25);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v26);
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v26);
     }
-    wil::com_ptr_t<CVisual,wil::err_returncode_policy>::~com_ptr_t<CVisual,wil::err_returncode_policy>(&v30);
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v30);
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v31);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v31);
   return (unsigned int)v8;
 }

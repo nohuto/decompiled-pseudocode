@@ -1,13 +1,13 @@
 /*
- * XREFs of VfCheckForLookaside @ 0x140A9EFF8
+ * XREFs of VfCheckForLookaside @ 0x1409E1518
  * Callers:
- *     ExpCheckForLookaside @ 0x14063E4D0 (ExpCheckForLookaside.c)
+ *     ExpCheckForLookaside @ 0x1405B6A48 (ExpCheckForLookaside.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1402D81DC (VfAvlCleanupLockContext.c)
- *     VfAvlLookupTreeNode @ 0x1402D8518 (VfAvlLookupTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x14045F6C8 (VfAvlInitializeLockContext.c)
- *     VfPoolIsInternalFree @ 0x140601948 (VfPoolIsInternalFree.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
+ *     VfAvlCleanupLockContext @ 0x140371B24 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14037EBF4 (VfAvlLookupTreeNode.c)
+ *     VfPoolIsInternalFree @ 0x1405A259C (VfPoolIsInternalFree.c)
+ *     VfAvlInitializeLockContext @ 0x1405A25D4 (VfAvlInitializeLockContext.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfCheckForLookaside(ULONG_PTR BugCheckParameter3, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall VfCheckForLookaside(ULONG_PTR BugCheckParameter3, __int64 a2)
   if ( !(unsigned int)VfPoolIsInternalFree() )
   {
     VfAvlInitializeLockContext((__int64)&v6, 1);
-    v5 = (ULONG_PTR *)VfAvlLookupTreeNode((__int64 *)&ViLookasideAvl, (__int64)&v6, BugCheckParameter3, a2);
+    v5 = (ULONG_PTR *)VfAvlLookupTreeNode(ViLookasideAvl, (__int64)&v6, BugCheckParameter3, a2);
     if ( v5 )
     {
       if ( (MmVerifierData & 0x800) != 0 )

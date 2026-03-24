@@ -1,11 +1,11 @@
 /*
- * XREFs of IdnaMemAlloc @ 0x1402F4344
+ * XREFs of IdnaMemAlloc @ 0x1402F4444
  * Callers:
- *     RtlpIdnToUnicodeWorker @ 0x1402F43B8 (RtlpIdnToUnicodeWorker.c)
- *     RtlIdnToUnicode @ 0x140896CC0 (RtlIdnToUnicode.c)
- *     RtlpNameprepAsciiWorker @ 0x140896D50 (RtlpNameprepAsciiWorker.c)
+ *     RtlpIdnToUnicodeWorker @ 0x1402F44B8 (RtlpIdnToUnicodeWorker.c)
+ *     RtlIdnToUnicode @ 0x140896CA0 (RtlIdnToUnicode.c)
+ *     RtlpNameprepAsciiWorker @ 0x140896D30 (RtlpNameprepAsciiWorker.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

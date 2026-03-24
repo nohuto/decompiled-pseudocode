@@ -1,20 +1,20 @@
 /*
- * XREFs of ?UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z @ 0x1C02C042C
+ * XREFs of ?UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z @ 0x1C0116058
  * Callers:
- *     UMPD_ldevLoadDriverWrap @ 0x1C02C05F0 (UMPD_ldevLoadDriverWrap.c)
+ *     UMPD_ldevLoadDriverWrap @ 0x1C0116040 (UMPD_ldevLoadDriverWrap.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?UMPDDrvDriverFn@@YAHPEAXPEAH@Z @ 0x1C02B96CC (-UMPDDrvDriverFn@@YAHPEAXPEAH@Z.c)
- *     ?UMPDDrvEnableDriver@@YAHPEAGPEAPEAX@Z @ 0x1C02B977C (-UMPDDrvEnableDriver@@YAHPEAGPEAPEAX@Z.c)
- *     ?UMPD_ldevFillTable@@YAHPEAU_LDEV@@PEBH@Z @ 0x1C02C0398 (-UMPD_ldevFillTable@@YAHPEAU_LDEV@@PEBH@Z.c)
+ *     ?UMPD_ldevFillTable@@YAHPEAU_LDEV@@PEBH@Z @ 0x1C011615C (-UMPD_ldevFillTable@@YAHPEAU_LDEV@@PEBH@Z.c)
+ *     ?UMPDDrvDriverFn@@YAHPEAXPEAH@Z @ 0x1C01161F0 (-UMPDDrvDriverFn@@YAHPEAXPEAH@Z.c)
+ *     ?UMPDDrvEnableDriver@@YAHPEAGPEAPEAX@Z @ 0x1C01162A4 (-UMPDDrvEnableDriver@@YAHPEAGPEAPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 _QWORD *__fastcall UMPD_ldevLoadDriver(unsigned __int16 *a1, int a2)
 {
-  _QWORD *v4; // rbx
+  _QWORD *v4; // rdi
   __int64 v5; // rcx
-  void *v6; // rdi
-  __int64 CurrentProcessWin32Process; // rax
+  int v6; // esi
+  void *v7; // rbx
   void *v9; // [rsp+20h] [rbp-1C8h] BYREF
   int v10[104]; // [rsp+30h] [rbp-1B8h] BYREF
 
@@ -22,22 +22,20 @@ _QWORD *__fastcall UMPD_ldevLoadDriver(unsigned __int16 *a1, int a2)
   if ( v4 )
   {
     v9 = 0LL;
-    if ( !UMPDDrvEnableDriver(a1, &v9) )
-      goto LABEL_7;
+    v6 = UMPDDrvEnableDriver(a1, &v9);
+    if ( !v6 )
+      goto LABEL_6;
+    v7 = v9;
     *v4 = 0LL;
     v4[1] = 0LL;
     v4[2] = 0LL;
+    v4[5] = v7;
     *((_DWORD *)v4 + 6) = a2;
-    v6 = v9;
-    v4[5] = v9;
     *((_DWORD *)v4 + 7) = 1;
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v5);
-    if ( CurrentProcessWin32Process )
-      CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-    v4[6] = CurrentProcessWin32Process;
-    if ( !(unsigned int)UMPDDrvDriverFn(v6, v10) || !(unsigned int)UMPD_ldevFillTable((struct _LDEV *)v4, v10) )
+    v4[6] = PsGetCurrentProcessWin32Process(v5);
+    if ( (UMPDDrvDriverFn(v7, v10) != 0 ? v6 : 0) == 0 || !(unsigned int)UMPD_ldevFillTable((struct _LDEV *)v4, v10) )
     {
-LABEL_7:
+LABEL_6:
       EngFreeMem(v4);
       return 0LL;
     }

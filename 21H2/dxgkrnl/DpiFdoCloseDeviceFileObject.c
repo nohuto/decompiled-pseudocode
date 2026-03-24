@@ -1,8 +1,8 @@
 /*
- * XREFs of DpiFdoCloseDeviceFileObject @ 0x1C0388F9C
+ * XREFs of DpiFdoCloseDeviceFileObject @ 0x1C02C8BA8
  * Callers:
- *     DpiFdoDispatchPnp @ 0x1C021C2F0 (DpiFdoDispatchPnp.c)
- *     DpiFdoHandleStopDevice @ 0x1C0389B60 (DpiFdoHandleStopDevice.c)
+ *     DpiFdoDispatchPnp @ 0x1C019FF10 (DpiFdoDispatchPnp.c)
+ *     DpiFdoHandleStopDevice @ 0x1C02CA620 (DpiFdoHandleStopDevice.c)
  * Callees:
  *     <none>
  */

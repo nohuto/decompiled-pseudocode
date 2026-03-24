@@ -1,34 +1,32 @@
 /*
- * XREFs of GetMonitorDC @ 0x1C00183FC
+ * XREFs of GetMonitorDC @ 0x1C0039C70
  * Callers:
- *     xxxEnumDisplayMonitors @ 0x1C006E680 (xxxEnumDisplayMonitors.c)
- *     UserGetMonitorDC @ 0x1C0071A64 (UserGetMonitorDC.c)
+ *     UserGetMonitorDC @ 0x1C00211C8 (UserGetMonitorDC.c)
+ *     xxxEnumDisplayMonitors @ 0x1C006FE90 (xxxEnumDisplayMonitors.c)
  * Callees:
- *     GreIsRendering @ 0x1C0018890 (GreIsRendering.c)
- *     IsGreHintDCWndSupported @ 0x1C00188D0 (IsGreHintDCWndSupported.c)
- *     GreOffsetRgn @ 0x1C001B040 (GreOffsetRgn.c)
- *     GreDeleteObject @ 0x1C0023690 (GreDeleteObject.c)
- *     GreCreateRectRgnIndirect @ 0x1C0028800 (GreCreateRectRgnIndirect.c)
- *     GreGetBounds @ 0x1C002AEA0 (GreGetBounds.c)
- *     GreSetDCOwnerEx @ 0x1C002C0D0 (GreSetDCOwnerEx.c)
- *     GreSelectVisRgnShared @ 0x1C002FA90 (GreSelectVisRgnShared.c)
- *     CreateCacheDC @ 0x1C006AA00 (CreateCacheDC.c)
- *     IsGetStyleWindowSupported @ 0x1C006AC48 (IsGetStyleWindowSupported.c)
- *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C006D8F4 (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
- *     CreateMonitorRegionForDpi @ 0x1C006DB60 (CreateMonitorRegionForDpi.c)
- *     IntersectRect @ 0x1C006EC48 (IntersectRect.c)
- *     GetMonitorRect @ 0x1C006ECBC (GetMonitorRect.c)
- *     GetCurrentThreadCompositedDpi @ 0x1C006EDE4 (GetCurrentThreadCompositedDpi.c)
- *     GreCombineRgn @ 0x1C006EFF0 (GreCombineRgn.c)
- *     GreSetRectRgn @ 0x1C008E9A0 (GreSetRectRgn.c)
- *     GreSetDCOrg @ 0x1C0092E00 (GreSetDCOrg.c)
- *     UpdateDCEInUseCount @ 0x1C00A62FC (UpdateDCEInUseCount.c)
- *     GreGetDCOrgEx @ 0x1C00AB3F0 (GreGetDCOrgEx.c)
- *     IsGreSelectRedirectionBitmapSupported @ 0x1C00ACCD0 (IsGreSelectRedirectionBitmapSupported.c)
- *     IsGetRedirectionBitmapSupported @ 0x1C00B0CCC (IsGetRedirectionBitmapSupported.c)
- *     IsSpbCheckDceSupported @ 0x1C00B3F48 (IsSpbCheckDceSupported.c)
- *     GreCopyVisRgn @ 0x1C00CA430 (GreCopyVisRgn.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     IsGreSelectRedirectionBitmapSupported @ 0x1C0007610 (IsGreSelectRedirectionBitmapSupported.c)
+ *     GreSetDCOrg @ 0x1C00214D0 (GreSetDCOrg.c)
+ *     GreCreateRectRgnIndirect @ 0x1C0034360 (GreCreateRectRgnIndirect.c)
+ *     GreGetBounds @ 0x1C0036A10 (GreGetBounds.c)
+ *     GreSetDCOwnerEx @ 0x1C0037AB0 (GreSetDCOwnerEx.c)
+ *     GreSelectVisRgnShared @ 0x1C0038E00 (GreSelectVisRgnShared.c)
+ *     GreOffsetRgn @ 0x1C0039190 (GreOffsetRgn.c)
+ *     IsSpbCheckDceSupported @ 0x1C00397AC (IsSpbCheckDceSupported.c)
+ *     GreIsRendering @ 0x1C00397E0 (GreIsRendering.c)
+ *     GreCombineRgn @ 0x1C0039860 (GreCombineRgn.c)
+ *     IsGreHintDCWndSupported @ 0x1C003D1A4 (IsGreHintDCWndSupported.c)
+ *     CreateCacheDC @ 0x1C006AE00 (CreateCacheDC.c)
+ *     IsGetStyleWindowSupported @ 0x1C006B028 (IsGetStyleWindowSupported.c)
+ *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C006F95C (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
+ *     ?GetMonitorRegionForDpi@@YAPEAUHRGN__@@PEAUtagMONITOR@@G@Z @ 0x1C006F9E0 (-GetMonitorRegionForDpi@@YAPEAUHRGN__@@PEAUtagMONITOR@@G@Z.c)
+ *     GetMonitorRect @ 0x1C0070684 (GetMonitorRect.c)
+ *     IntersectRect @ 0x1C0071334 (IntersectRect.c)
+ *     ?GetCurrentThreadCompositedDpi@@YAGXZ @ 0x1C00714B4 (-GetCurrentThreadCompositedDpi@@YAGXZ.c)
+ *     GreGetDCOrgEx @ 0x1C0071790 (GreGetDCOrgEx.c)
+ *     GreSetRectRgn @ 0x1C007FC00 (GreSetRectRgn.c)
+ *     IsGetRedirectionBitmapSupported @ 0x1C009980C (IsGetRedirectionBitmapSupported.c)
+ *     GreCopyVisRgn @ 0x1C00BB990 (GreCopyVisRgn.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GetMonitorDC(__int64 a1, struct tagMONITOR *a2, int a3)
@@ -37,45 +35,40 @@ __int64 __fastcall GetMonitorDC(__int64 a1, struct tagMONITOR *a2, int a3)
   int v7; // eax
   unsigned __int64 v8; // rcx
   _QWORD *v9; // rdi
-  __int64 v10; // rax
-  __int64 v11; // r15
-  HDC v12; // rcx
-  int v13; // eax
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r15
+  int v14; // eax
+  HDC v15; // rcx
   unsigned __int16 CurrentThreadCompositedDpi; // ax
-  HRGN MonitorRegionForDpi; // r15
-  __int64 v16; // rax
-  int v17; // edx
-  __int64 v18; // r8
-  int v19; // ecx
-  int v20; // eax
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  __int64 v25; // rax
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // r9
+  HRGN MonitorRegionForDpi; // rax
+  __int64 v18; // rax
+  int v19; // edx
+  __int64 v20; // r8
+  int v21; // ecx
+  int v22; // eax
+  int v23; // edx
+  int v24; // r8d
+  __int64 v25; // rcx
+  __int64 v26; // rcx
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v31; // rdx
-  __int64 v32; // rdx
-  __int128 v34; // xmm0
-  HDC v35; // rcx
-  HRGN RectRgnIndirect; // rax
-  __int128 v37; // [rsp+30h] [rbp-20h] BYREF
-  __int128 v38; // [rsp+40h] [rbp-10h] BYREF
+  __int128 v29; // xmm0
+  HDC v30; // rcx
+  struct HOBJ__ *RectRgnIndirect; // rax
+  __int128 v32; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v33; // [rsp+40h] [rbp-10h] BYREF
 
-  v37 = 0LL;
+  v32 = 0LL;
   while ( 2 )
   {
-    for ( i = (__int64 *)*((_QWORD *)gpDispInfo + 3); i; i = (__int64 *)*i )
+    for ( i = *(__int64 **)(gpDispInfo + 24); i; i = (__int64 *)*i )
     {
       if ( (i[8] & 0x401000) == 0 && !(unsigned int)GreIsRendering((HDC)i[1]) && (struct tagMONITOR *)i[11] == a2 )
       {
-        if ( (i[8] & 0x800) == 0 && (int)IsSpbCheckDceSupported() >= 0 && qword_1C029C420 )
-          qword_1C029C420(i);
-        if ( (unsigned int)GreSetDCOwnerEx(i[1], 2147483650LL, 0LL, 0LL) )
+        if ( (i[8] & 0x800) == 0 && (int)IsSpbCheckDceSupported() >= 0 && qword_1C02576E0 )
+          qword_1C02576E0(i);
+        if ( (unsigned int)GreSetDCOwnerEx(i[1], 0x80000002, 0, 0) )
         {
           i[2] = *(_QWORD *)(a1 + 16);
           i[3] = *(_QWORD *)(a1 + 24);
@@ -87,9 +80,9 @@ __int64 __fastcall GetMonitorDC(__int64 a1, struct tagMONITOR *a2, int a3)
           v8 = *(_QWORD *)(a1 + 40);
           if ( v8 > 1 )
           {
-            RectRgnIndirect = (HRGN)GreCreateRectRgnIndirect(&gZero);
+            RectRgnIndirect = GreCreateRectRgnIndirect((struct _RECTL *)&gZero);
             i[5] = (__int64)RectRgnIndirect;
-            SetMonitorRegion(a2, RectRgnIndirect, *(HRGN *)(a1 + 40));
+            SetMonitorRegion(a2, (HRGN)RectRgnIndirect, *(HRGN *)(a1 + 40));
             v7 = *((_DWORD *)i + 16);
           }
           else
@@ -97,106 +90,110 @@ __int64 __fastcall GetMonitorDC(__int64 a1, struct tagMONITOR *a2, int a3)
             i[5] = v8;
           }
           v9 = 0LL;
-          if ( (v7 & 0x4000) != 0
-            && (int)IsGetStyleWindowSupported() >= 0
-            && qword_1C029C3F0
-            && (v10 = qword_1C029C3F0(i[2], 2848LL), (v9 = (_QWORD *)v10) != 0LL) )
+          if ( (v7 & 0x4000) == 0 || (int)IsGetStyleWindowSupported() < 0 )
+            goto LABEL_44;
+          v10 = i[2];
+          if ( qword_1C02576B0 )
+            v9 = (_QWORD *)qword_1C02576B0(v10, 2848LL);
+          if ( v9 )
           {
-            if ( (*(_BYTE *)(*(_QWORD *)(v10 + 40) + 26LL) & 0x20) == 0 && (int)IsGetRedirectionBitmapSupported() >= 0 )
+            if ( (*(_BYTE *)(v9[5] + 26LL) & 0x20) == 0 && (int)IsGetRedirectionBitmapSupported(v10) >= 0 )
             {
-              v11 = qword_1C029C3D0 ? qword_1C029C3D0(v9) : 0LL;
+              v13 = qword_1C0257690 ? qword_1C0257690(v9, v11, v12) : 0LL;
               if ( (int)IsGreSelectRedirectionBitmapSupported() >= 0 )
               {
-                v12 = (HDC)i[1];
-                if ( !qword_1C029B808 || (v13 = qword_1C029B808(v12, v11), v12 = (HDC)i[1], !v13) )
-                  GreSelectVisRgnShared(v12);
+                v14 = (int)qword_1C0256AA8;
+                v15 = (HDC)i[1];
+                if ( qword_1C0256AA8 )
+                {
+                  v14 = qword_1C0256AA8(v15, v13);
+                  v15 = (HDC)i[1];
+                }
+                if ( !v14 )
+                  GreSelectVisRgnShared(v15, 0LL, 1);
               }
             }
-            GreCopyVisRgn(*(HDC *)(a1 + 8));
-            GreOffsetRgn(ghrgnGDC);
+            GreCopyVisRgn(*(HDC *)(a1 + 8), ghrgnGDC);
+            GreOffsetRgn(ghrgnGDC, *(_DWORD *)(v9[5] + 88LL), *(_DWORD *)(v9[5] + 92LL));
             CurrentThreadCompositedDpi = GetCurrentThreadCompositedDpi();
-            MonitorRegionForDpi = (HRGN)CreateMonitorRegionForDpi(a2, CurrentThreadCompositedDpi);
+            MonitorRegionForDpi = GetMonitorRegionForDpi(a2, CurrentThreadCompositedDpi);
             if ( !(unsigned int)GreCombineRgn(ghrgnGDC, ghrgnGDC, MonitorRegionForDpi, 1) )
               GreSetRectRgn(ghrgnGDC, 0);
-            GreDeleteObject(MonitorRegionForDpi);
-            GreOffsetRgn(ghrgnGDC);
-            GreSelectVisRgnShared((HDC)i[1]);
+            GreOffsetRgn(ghrgnGDC, -*(_DWORD *)(v9[5] + 88LL), -*(_DWORD *)(v9[5] + 92LL));
+            GreSelectVisRgnShared((HDC)i[1], ghrgnGDC, 2);
             GreGetDCOrgEx(*(HDC *)(a1 + 8));
             if ( a3 )
             {
-              v16 = v9[5];
-              v17 = *(_DWORD *)(v16 + 92);
-              LODWORD(v16) = 2 * *(_DWORD *)(v16 + 88);
-              LODWORD(v37) = v16 + v37;
-              DWORD2(v37) += v16;
-              HIDWORD(v37) += 2 * v17;
-              DWORD1(v37) += 2 * v17;
-              v38 = *(_OWORD *)GetMonitorRect(&v38, a2);
-              IntersectRect(&v37, &v37, &v38);
               v18 = v9[5];
-              v19 = -*(_DWORD *)(v18 + 92);
-              v20 = -*(_DWORD *)(v18 + 88);
-              DWORD2(v37) -= *(_DWORD *)(v18 + 88);
-              HIDWORD(v37) += v19;
-              LODWORD(v37) = v20 + v37;
-              DWORD1(v37) += v19;
+              v19 = *(_DWORD *)(v18 + 92);
+              LODWORD(v18) = 2 * *(_DWORD *)(v18 + 88);
+              LODWORD(v32) = v18 + v32;
+              DWORD2(v32) += v18;
+              HIDWORD(v32) += 2 * v19;
+              DWORD1(v32) += 2 * v19;
+              v33 = *(_OWORD *)GetMonitorRect(&v33, a2);
+              IntersectRect(&v32, &v32, &v33);
+              v20 = v9[5];
+              v21 = -*(_DWORD *)(v20 + 92);
+              v22 = -*(_DWORD *)(v20 + 88);
+              DWORD2(v32) -= *(_DWORD *)(v20 + 88);
+              v23 = v22 + v32;
+              HIDWORD(v32) += v21;
+              v24 = v21 + DWORD1(v32);
+              LODWORD(v32) = v22 + v32;
+              DWORD1(v32) += v21;
             }
-            GreSetDCOrg((HDC)i[1]);
-            GreGetBounds((HDC)i[1]);
+            else
+            {
+              v24 = DWORD1(v32);
+              v23 = v32;
+            }
+            GreSetDCOrg((HDC)i[1], v23, v24, &v32);
+            GreGetBounds((HDC)i[1], 0LL, 5);
           }
           else
           {
-            GreCopyVisRgn(*(HDC *)(a1 + 8));
+LABEL_44:
+            GreCopyVisRgn(*(HDC *)(a1 + 8), ghrgnGDC);
             SetMonitorRegion(a2, ghrgnGDC, ghrgnGDC);
-            GreSelectVisRgnShared((HDC)i[1]);
-            v34 = *(_OWORD *)GetMonitorRect(&v38, a2);
-            v38 = v34;
+            GreSelectVisRgnShared((HDC)i[1], ghrgnGDC, 2);
+            v29 = *(_OWORD *)GetMonitorRect(&v33, a2);
+            v33 = v29;
             if ( a3 )
-              v37 = v34;
+              v32 = v29;
             else
               GreGetDCOrgEx(*(HDC *)(a1 + 8));
-            HIDWORD(v37) -= DWORD1(v38);
-            DWORD2(v37) -= v38;
-            v35 = (HDC)i[1];
-            LODWORD(v37) = v37 - v38;
-            DWORD1(v37) -= DWORD1(v38);
-            GreSetDCOrg(v35);
+            HIDWORD(v32) -= DWORD1(v33);
+            DWORD2(v32) -= v33;
+            v30 = (HDC)i[1];
+            LODWORD(v32) = v32 - v33;
+            DWORD1(v32) -= DWORD1(v33);
+            GreSetDCOrg(v30, v32, SDWORD1(v32), &v32);
           }
-          if ( (int)IsGreHintDCWndSupported() >= 0 && qword_1C029B828 )
-            qword_1C029B828(i[1], *(_QWORD *)i[2], 0LL, 0LL, 0);
-          if ( v9 )
-          {
-            if ( (*(_BYTE *)(v9[5] + 26LL) & 8) != 0 && (int)IsGreHintDCWndSupported() >= 0 )
-            {
-              v25 = v9[5];
-              v21 = *(_WORD *)(v25 + 42) & 0x2FFF;
-              LOBYTE(v23) = *(_BYTE *)(v25 + 27) & 2;
-              if ( qword_1C029B828 )
-                qword_1C029B828(i[1], *(_QWORD *)i[2], *v9, (_BYTE)v23 == 0, v21 == 669);
-            }
-          }
+          if ( (int)IsGreHintDCWndSupported() >= 0 && qword_1C0256AC8 )
+            qword_1C0256AC8(i[1], *(_QWORD *)i[2], 0LL, 0LL, 0);
+          if ( v9 && (*(_BYTE *)(v9[5] + 26LL) & 8) != 0 && (int)IsGreHintDCWndSupported() >= 0 && qword_1C0256AC8 )
+            qword_1C0256AC8(
+              i[1],
+              *(_QWORD *)i[2],
+              *v9,
+              (*(_BYTE *)(v9[5] + 27LL) & 2) == 0,
+              (*(_WORD *)(v9[5] + 42LL) & 0x2FFF) == 669);
           --gnDCECount;
           if ( a3 )
           {
             *((_DWORD *)i + 16) |= 0x80000000;
             i[9] = 0LL;
-            i[10] = PsGetCurrentProcessWin32Process(v22, v21, v23, v24);
-            CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v27, v26, v28, v29);
+            i[10] = PsGetCurrentProcessWin32Process(v25);
+            CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v26);
             *(_DWORD *)(CurrentProcessWin32Process + 12) |= 0x200u;
           }
-          v31 = i[9];
-          if ( v31 )
-            v32 = *(_QWORD *)(v31 + 424);
-          else
-            v32 = i[10];
-          UpdateDCEInUseCount(1LL, v32, v23);
           return i[1];
         }
       }
     }
     if ( CreateCacheDC(0LL, *(_DWORD *)(a1 + 64) & 0x4000 | 0x802u, a2) )
       continue;
-    break;
+    return 0LL;
   }
-  return 0LL;
 }

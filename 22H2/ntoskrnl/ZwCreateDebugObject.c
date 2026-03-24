@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateDebugObject @ 0x14041BBC0
+ * XREFs of ZwCreateDebugObject @ 0x1403FAEE0
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z @ 0x1C02255E8
+ * XREFs of ?SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z @ 0x1C00290C8
  * Callers:
- *     xxxTooltipWndProc @ 0x1C001FBD0 (xxxTooltipWndProc.c)
- *     ?xxxCreateTooltip@@YAHPEAUtagTOOLTIPWND@@PEAG@Z @ 0x1C022578C (-xxxCreateTooltip@@YAHPEAUtagTOOLTIPWND@@PEAG@Z.c)
- *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0225DAC (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
+ *     xxxTrackMouseMove @ 0x1C002D520 (xxxTrackMouseMove.c)
+ *     xxxTooltipWndProc @ 0x1C00DAED0 (xxxTooltipWndProc.c)
+ *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0242990 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
  * Callees:
- *     _SetSystemTimer @ 0x1C0006474 (_SetSystemTimer.c)
- *     ?KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C0016CD0 (-KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z.c)
+ *     ?KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C002B3AC (-KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z.c)
+ *     _SetSystemTimer @ 0x1C002CA18 (_SetSystemTimer.c)
  */
 
 void __fastcall SetTooltipTimer(struct tagTOOLTIPWND *a1, int a2, int a3)

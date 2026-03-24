@@ -1,95 +1,76 @@
 /*
- * XREFs of PspInitializeServerSiloDeferred @ 0x1409AD150
+ * XREFs of PspInitializeServerSiloDeferred @ 0x1409064C0
  * Callers:
- *     PspQueueDeferredWorkAndWait @ 0x1409AD28C (PspQueueDeferredWorkAndWait.c)
+ *     PspQueueDeferredWorkAndWait @ 0x1409065D4 (PspQueueDeferredWorkAndWait.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     sub_140609258 @ 0x140609258 (sub_140609258.c)
- *     CmInitServerSiloState @ 0x14080EBB4 (CmInitServerSiloState.c)
- *     PspInitializeProtectedProcessParameters @ 0x14084E244 (PspInitializeProtectedProcessParameters.c)
- *     ObInitServerSilo @ 0x14085687C (ObInitServerSilo.c)
- *     RtlNlsInitState @ 0x140863E0C (RtlNlsInitState.c)
- *     DbgkInitializeServerSilo @ 0x140936D30 (DbgkInitializeServerSilo.c)
- *     PsTerminateServerSilo @ 0x1409AC950 (PsTerminateServerSilo.c)
- *     PspDeleteExternalServerSiloState @ 0x1409ACE68 (PspDeleteExternalServerSiloState.c)
- *     PspSiloInitializeIsMultiSessionSku @ 0x1409AD690 (PspSiloInitializeIsMultiSessionSku.c)
- *     PspSiloInitializeIsStateSeparationEnabled @ 0x1409AD6F4 (PspSiloInitializeIsStateSeparationEnabled.c)
- *     PspSiloInitializeSystemRootSymlink @ 0x1409AD83C (PspSiloInitializeSystemRootSymlink.c)
- *     PspSiloInitializeUserSharedData @ 0x1409AD968 (PspSiloInitializeUserSharedData.c)
- *     PspSiloLoadApiSets @ 0x1409ADAA0 (PspSiloLoadApiSets.c)
- *     PspNotifyServerSiloCreation @ 0x1409B43C4 (PspNotifyServerSiloCreation.c)
- *     SeInitServerSilo @ 0x1409C8EA0 (SeInitServerSilo.c)
- *     EtwInitializeSiloState @ 0x1409E1ED8 (EtwInitializeSiloState.c)
- *     ExpTimeZoneInitSiloState @ 0x1409F8168 (ExpTimeZoneInitSiloState.c)
- *     ExpNlsInitSiloState @ 0x1409FB60C (ExpNlsInitSiloState.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     sub_1405B2D88 @ 0x1405B2D88 (sub_1405B2D88.c)
+ *     ExpTimeZoneInitSiloState @ 0x1405D1B7C (ExpTimeZoneInitSiloState.c)
+ *     EtwInitializeSiloState @ 0x140795A88 (EtwInitializeSiloState.c)
+ *     PspInitializeProtectedProcessParameters @ 0x14079E348 (PspInitializeProtectedProcessParameters.c)
+ *     CmInitServerSiloState @ 0x1407A5B58 (CmInitServerSiloState.c)
+ *     ObInitServerSilo @ 0x1407C9000 (ObInitServerSilo.c)
+ *     DbgkInitializeServerSilo @ 0x1408843D8 (DbgkInitializeServerSilo.c)
+ *     PsTerminateServerSilo @ 0x140905D50 (PsTerminateServerSilo.c)
+ *     PspDeleteExternalServerSiloState @ 0x140906288 (PspDeleteExternalServerSiloState.c)
+ *     PspSiloInitializeIsMultiSessionSku @ 0x1409069C8 (PspSiloInitializeIsMultiSessionSku.c)
+ *     PspSiloInitializeSystemRootSymlink @ 0x140906B10 (PspSiloInitializeSystemRootSymlink.c)
+ *     PspSiloInitializeUserSharedData @ 0x140906C3C (PspSiloInitializeUserSharedData.c)
+ *     PspSiloLoadApiSets @ 0x140906D64 (PspSiloLoadApiSets.c)
+ *     PspNotifyServerSiloCreation @ 0x14090B82C (PspNotifyServerSiloCreation.c)
+ *     SeInitServerSilo @ 0x14091C124 (SeInitServerSilo.c)
  */
 
-__int64 __fastcall PspInitializeServerSiloDeferred(struct _LIST_ENTRY *Object)
+__int64 __fastcall PspInitializeServerSiloDeferred(struct _LIST_ENTRY *a1)
 {
   _DWORD *ServerSiloGlobals; // rsi
+  struct _LIST_ENTRY *v3; // rcx
   __int64 result; // rax
   int inited; // edi
 
-  ServerSiloGlobals = PsGetServerSiloGlobals((__int64)Object);
-  RtlNlsInitState((__int64)ServerSiloGlobals);
-  result = sub_140609258(Object);
+  ServerSiloGlobals = PsGetServerSiloGlobals((__int64)a1);
+  result = sub_1405B2D88(v3);
   if ( (int)result >= 0 )
   {
-    result = PspSiloInitializeUserSharedData(Object);
+    result = PspSiloInitializeUserSharedData(a1);
     if ( (int)result >= 0 )
     {
-      result = PspSiloInitializeSystemRootSymlink(Object);
+      result = PspSiloInitializeSystemRootSymlink(a1);
       if ( (int)result >= 0 )
       {
         result = PspInitializeProtectedProcessParameters((__int64)ServerSiloGlobals);
         if ( (int)result >= 0 )
         {
-          result = PspSiloLoadApiSets(Object);
+          result = PspSiloLoadApiSets(a1);
           if ( (int)result >= 0 )
           {
-            result = PspSiloInitializeIsMultiSessionSku(Object);
+            result = PspSiloInitializeIsMultiSessionSku(a1);
             if ( (int)result >= 0 )
             {
-              result = PspSiloInitializeIsStateSeparationEnabled(Object);
-              if ( (int)result >= 0 )
+              inited = ObInitServerSilo((__int64)a1);
+              if ( inited < 0 )
+                goto LABEL_16;
+              result = ExpTimeZoneInitSiloState((__int64)a1);
+              if ( (int)result < 0 )
+                return result;
+              inited = SeInitServerSilo(a1);
+              if ( inited < 0
+                || (inited = CmInitServerSiloState((__int64)a1), inited < 0)
+                || (inited = EtwInitializeSiloState(a1), inited < 0)
+                || (inited = DbgkInitializeServerSilo(a1), inited < 0) )
               {
-                inited = ObInitServerSilo(Object);
-                if ( inited < 0 )
-                  goto LABEL_18;
-                result = ExpTimeZoneInitSiloState(Object);
-                if ( (int)result >= 0 )
-                {
-                  result = ExpNlsInitSiloState(Object);
-                  if ( (int)result >= 0 )
-                  {
-                    inited = SeInitServerSilo(Object);
-                    if ( inited >= 0 )
-                    {
-                      inited = CmInitServerSiloState();
-                      if ( inited >= 0 )
-                      {
-                        inited = EtwInitializeSiloState(Object);
-                        if ( inited >= 0 )
-                        {
-                          inited = DbgkInitializeServerSilo(Object);
-                          if ( inited >= 0 )
-                          {
-                            inited = PspNotifyServerSiloCreation(Object);
-                            if ( inited >= 0 )
-                              return 0LL;
-                            PsTerminateServerSilo((__int64)Object);
-                            return (unsigned int)inited;
-                          }
-                        }
-                      }
-                    }
-LABEL_18:
-                    ServerSiloGlobals[326] = 4;
-                    PspDeleteExternalServerSiloState((__int64)Object);
-                    return (unsigned int)inited;
-                  }
-                }
+LABEL_16:
+                ServerSiloGlobals[278] = 4;
+                PspDeleteExternalServerSiloState((__int64)a1);
               }
+              else
+              {
+                inited = PspNotifyServerSiloCreation(a1);
+                if ( inited >= 0 )
+                  return 0LL;
+                PsTerminateServerSilo((__int64)a1);
+              }
+              return (unsigned int)inited;
             }
           }
         }

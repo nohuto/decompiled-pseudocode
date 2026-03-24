@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDebugOverlayFlags@CHolographicDisplay@@UEAAKXZ @ 0x1801088B0
+ * XREFs of ?GetDebugOverlayFlags@CHolographicDisplay@@UEAAKXZ @ 0x1800E3520
  * Callers:
  *     <none>
  * Callees:

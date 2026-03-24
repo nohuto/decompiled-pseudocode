@@ -1,15 +1,15 @@
 /*
- * XREFs of BiQueryBootOptions @ 0x1408F43D8
+ * XREFs of BiQueryBootOptions @ 0x1408F43B8
  * Callers:
- *     BiBindEfiBootManager @ 0x1408F1F8C (BiBindEfiBootManager.c)
- *     BiExportEfiBootManager @ 0x1408F36A8 (BiExportEfiBootManager.c)
+ *     BiBindEfiBootManager @ 0x1408F1F6C (BiBindEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x1408F3688 (BiExportEfiBootManager.c)
  * Callees:
- *     ZwQueryBootOptions @ 0x1401BA890 (ZwQueryBootOptions.c)
+ *     ZwQueryBootOptions @ 0x1401BA8B0 (ZwQueryBootOptions.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiReleasePrivilege @ 0x1407114C4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140711514 (BiAcquirePrivilege.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
  */
 
 __int64 __fastcall BiQueryBootOptions(struct _BOOT_OPTIONS **a1, ULONG *a2)

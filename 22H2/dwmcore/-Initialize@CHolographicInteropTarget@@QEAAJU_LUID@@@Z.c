@@ -1,16 +1,16 @@
 /*
- * XREFs of ?Initialize@CHolographicInteropTarget@@QEAAJU_LUID@@@Z @ 0x1802A9620
+ * XREFs of ?Initialize@CHolographicInteropTarget@@QEAAJU_LUID@@@Z @ 0x180257A40
  * Callers:
- *     ?Create@CHolographicInteropTarget@@SAJPEAVCComposition@@PEAU_LUID@@PEAPEAV1@@Z @ 0x1802A92F0 (-Create@CHolographicInteropTarget@@SAJPEAVCComposition@@PEAU_LUID@@PEAPEAV1@@Z.c)
+ *     ?Create@CHolographicInteropTarget@@SAJPEAVCComposition@@PEAU_LUID@@PEAPEAV1@@Z @ 0x1802578D0 (-Create@CHolographicInteropTarget@@SAJPEAVCComposition@@PEAU_LUID@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18003D734 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@VCD3DDevice@@@WRL@Microsoft@@IEAAKXZ @ 0x180223078 (-InternalRelease@-$ComPtr@VCD3DDevice@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F710 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DDevice@@@WRL@Microsoft@@IEAAKXZ @ 0x1801B91A8 (-InternalRelease@-$ComPtr@VCD3DDevice@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 __int64 __fastcall CHolographicInteropTarget::Initialize(CHolographicInteropTarget *this, struct _LUID a2)
 {
-  __int64 v3; // rax
+  __int64 v2; // rax
   __int64 v4; // rdx
   unsigned int v5; // ebx
   _QWORD *v6; // rsi
@@ -19,27 +19,23 @@ __int64 __fastcall CHolographicInteropTarget::Initialize(CHolographicInteropTarg
   __int64 v9; // rcx
   HANDLE v10; // rax
   bool v11; // zf
+  CDeviceManager *v12; // rcx
   int Device; // eax
-  __int64 v13; // rcx
-  unsigned int v15; // [rsp+20h] [rbp-18h]
+  __int64 v14; // rcx
+  unsigned int v16; // [rsp+20h] [rbp-18h]
 
-  *((struct _LUID *)this + 22) = a2;
-  *((_DWORD *)this + 52) = -6;
-  *((_DWORD *)this + 53) = -6;
-  v3 = *((_QWORD *)this + 2);
-  *((struct _LUID *)this + 24) = a2;
-  *((struct _LUID *)this + 25) = a2;
-  *((_DWORD *)this + 54) = (_DWORD)this;
-  v4 = *(_QWORD *)(v3 + 264);
-  *((_QWORD *)this + 21) = v4;
+  v2 = *((_QWORD *)this + 2);
+  *((struct _LUID *)this + 20) = a2;
+  v4 = *(_QWORD *)(v2 + 136);
+  *((_QWORD *)this + 19) = v4;
   if ( !v4 )
   {
     v5 = -2147418113;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147418113, 0x54u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147418113, 0x4Eu, 0LL);
     return v5;
   }
-  *((_DWORD *)this + 58) = 87;
-  v6 = (_QWORD *)((char *)this + 256);
+  *((_DWORD *)this + 45) = 87;
+  v6 = (_QWORD *)((char *)this + 200);
   v7 = 0;
   do
   {
@@ -47,7 +43,7 @@ __int64 __fastcall CHolographicInteropTarget::Initialize(CHolographicInteropTarg
     *v6 = Event;
     if ( !Event )
     {
-      v15 = 92;
+      v16 = 86;
       goto LABEL_11;
     }
     v10 = CreateEventExW(0LL, 0LL, 2u, 0x1F0003u);
@@ -55,23 +51,20 @@ __int64 __fastcall CHolographicInteropTarget::Initialize(CHolographicInteropTarg
     v6[1] = v10;
     if ( v11 )
     {
-      v15 = 94;
+      v16 = 88;
 LABEL_11:
       v5 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024882, v15, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024882, v16, 0LL);
       return v5;
     }
     ++v7;
     ++v6;
   }
   while ( !v7 );
-  Microsoft::WRL::ComPtr<CD3DDevice>::InternalRelease((CD3DDevice **)this + 23);
-  Device = CDeviceManager::GetDevice(
-             (CDeviceManager *)&g_DeviceManager,
-             *(struct _LUID *)((char *)this + 176),
-             (struct CD3DDevice **)this + 23);
+  Microsoft::WRL::ComPtr<CD3DDevice>::InternalRelease((CD3DDevice **)this + 21);
+  Device = CDeviceManager::GetDevice(v12, *(struct _LUID *)((char *)this + 160), (struct CD3DDevice **)this + 21);
   v5 = Device;
   if ( Device < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, Device, 0x61u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, Device, 0x5Bu, 0LL);
   return v5;
 }

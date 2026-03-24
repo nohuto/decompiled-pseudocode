@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipCachePtrs @ 0x14075D9BC
+ * XREFs of WmipCachePtrs @ 0x140757A00
  * Callers:
- *     WmipGenerateRegistrationNotification @ 0x14075D8DC (WmipGenerateRegistrationNotification.c)
- *     WmipUpdateDataSource @ 0x1409DE80C (WmipUpdateDataSource.c)
+ *     WmipGenerateRegistrationNotification @ 0x140757920 (WmipGenerateRegistrationNotification.c)
+ *     WmipUpdateDataSource @ 0x1407C3FC8 (WmipUpdateDataSource.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall WmipCachePtrs(__int64 a1, __int64 a2, unsigned int *a3, int *a4, const void **a5)

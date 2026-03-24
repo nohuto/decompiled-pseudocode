@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReadRegistryDwordKeyValue@@YAJQEAU_UNICODE_STRING@@0PEAK@Z @ 0x1C01F6298
+ * XREFs of ?ReadRegistryDwordKeyValue@@YAJQEAU_UNICODE_STRING@@0PEAK@Z @ 0x1C0192874
  * Callers:
- *     DxgDetermineBootImageMode @ 0x1C01F60AC (DxgDetermineBootImageMode.c)
- *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0210BEC (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
- *     ?SetModeBehavior@DXGADAPTER@@AEAAXEE@Z @ 0x1C0218DF4 (-SetModeBehavior@DXGADAPTER@@AEAAXEE@Z.c)
+ *     DxgDetermineBootImageMode @ 0x1C0192624 (DxgDetermineBootImageMode.c)
+ *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0192DAC (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
+ *     ?SetModeBehavior@DXGADAPTER@@AEAAXEE@Z @ 0x1C019E0F0 (-SetModeBehavior@DXGADAPTER@@AEAAXEE@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ReadRegistryDwordKeyValue(
@@ -16,14 +16,16 @@ __int64 __fastcall ReadRegistryDwordKeyValue(
   NTSTATUS v5; // eax
   __int64 v6; // rdx
   void *v7; // rcx
-  __int64 v8; // rdi
-  NTSTATUS v9; // eax
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rdi
+  NTSTATUS v11; // eax
   ULONG ResultLength; // [rsp+30h] [rbp-19h] BYREF
   void *KeyHandle; // [rsp+38h] [rbp-11h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-9h] BYREF
   _BYTE KeyValueInformation[4]; // [rsp+70h] [rbp+27h] BYREF
-  int v15; // [rsp+74h] [rbp+2Bh]
-  unsigned int v16; // [rsp+7Ch] [rbp+33h]
+  int v17; // [rsp+74h] [rbp+2Bh]
+  unsigned int v18; // [rsp+7Ch] [rbp+33h]
 
   if ( a1 && a2 && a3 )
   {
@@ -36,24 +38,24 @@ __int64 __fastcall ReadRegistryDwordKeyValue(
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 576;
     v5 = ZwOpenKey(&KeyHandle, 0x80000000, &ObjectAttributes);
-    v8 = v5;
+    v10 = v5;
     if ( v5 >= 0 )
     {
       ResultLength = 0;
-      v9 = ZwQueryValueKey(KeyHandle, a2, KeyValuePartialInformation, KeyValueInformation, 0x13u, &ResultLength);
+      v11 = ZwQueryValueKey(KeyHandle, a2, KeyValuePartialInformation, KeyValueInformation, 0x13u, &ResultLength);
       v7 = KeyHandle;
-      v8 = v9;
+      v10 = v11;
       if ( KeyHandle )
         ZwClose(KeyHandle);
-      if ( (int)v8 >= 0 && v15 == 4 )
+      if ( (int)v10 >= 0 && v17 == 4 )
       {
-        *a3 = v16;
-        return (unsigned int)v8;
+        *a3 = v18;
+        return (unsigned int)v10;
       }
       *a3 = 0;
     }
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v7, v6) + 24) = v8;
-    return (unsigned int)v8;
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(v7, v6, v8, v9) + 24) = v10;
+    return (unsigned int)v10;
   }
   return 3221225485LL;
 }

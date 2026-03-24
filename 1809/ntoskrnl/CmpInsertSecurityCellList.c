@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInsertSecurityCellList @ 0x1406CA114
+ * XREFs of CmpInsertSecurityCellList @ 0x1406CA0F4
  * Callers:
  *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpAddSecurityCellToCache @ 0x1405AB584 (CmpAddSecurityCellToCache.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
  */

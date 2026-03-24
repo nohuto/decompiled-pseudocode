@@ -1,9 +1,9 @@
 /*
- * XREFs of WerpAllocateAndInitializeSid @ 0x1C024F5DC
+ * XREFs of WerpAllocateAndInitializeSid @ 0x1C0260960
  * Callers:
- *     WerKernelSubmitReportForHungProcess @ 0x1C024F054 (WerKernelSubmitReportForHungProcess.c)
+ *     WerKernelSubmitReportForHungProcess @ 0x1C02603C4 (WerKernelSubmitReportForHungProcess.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall WerpAllocateAndInitializeSid(
@@ -19,37 +19,43 @@ __int64 __fastcall WerpAllocateAndInitializeSid(
         int a10,
         _QWORD *a11)
 {
-  signed int v12; // eax
+  ULONG v12; // eax
   NTSTATUS v13; // edi
+  size_t v14; // rbp
   PVOID PoolWithTag; // rax
-  void *v16; // rbx
+  void *v17; // rbx
 
   v12 = RtlLengthRequiredSid(1u);
   v13 = -1073741823;
+  v14 = v12;
   if ( a11 )
   {
-    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)1025, v12, 0x7765726Bu);
-    v16 = PoolWithTag;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (int)v12, 0x7765726Bu);
+    v17 = PoolWithTag;
     if ( PoolWithTag )
     {
-      v13 = RtlInitializeSid(PoolWithTag, IdentifierAuthority, 1u);
+      memset(PoolWithTag, 0, v14);
+      v13 = RtlInitializeSid(v17, IdentifierAuthority, 1u);
       if ( v13 >= 0 )
       {
         v13 = 0;
-        *RtlSubAuthoritySid(v16, 0) = 18;
+        *RtlSubAuthoritySid(v17, 0) = 18;
       }
       else
       {
-        DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR RtlInitializeSid failed\n", 258);
-        ExFreePoolWithTag(v16, 0);
-        v16 = 0LL;
+        DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR RtlInitializeSid failed\n", 260);
+      }
+      if ( v13 < 0 )
+      {
+        ExFreePoolWithTag(v17, 0);
+        v17 = 0LL;
       }
     }
     else
     {
       DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR NtAllocateVirtualMemory failed\n", 250);
     }
-    *a11 = v16;
+    *a11 = v17;
     return (unsigned int)v13;
   }
   else

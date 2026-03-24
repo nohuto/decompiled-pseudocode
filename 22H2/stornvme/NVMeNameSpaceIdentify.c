@@ -1,138 +1,128 @@
 /*
- * XREFs of NVMeNameSpaceIdentify @ 0x1C00210FC
+ * XREFs of NVMeNameSpaceIdentify @ 0x1C001A730
  * Callers:
- *     NVMeControllerInitPart1 @ 0x1C000D858 (NVMeControllerInitPart1.c)
+ *     NVMeControllerInitPart1 @ 0x1C000DC0C (NVMeControllerInitPart1.c)
  * Callees:
- *     ProcessCommand @ 0x1C0002360 (ProcessCommand.c)
- *     memset @ 0x1C0004B80 (memset.c)
- *     IsIntelChatham @ 0x1C0007CD8 (IsIntelChatham.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     LocalCommandReuse @ 0x1C000C21C (LocalCommandReuse.c)
- *     NVMeAllocateDmaBuffer @ 0x1C000C26C (NVMeAllocateDmaBuffer.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     NVMeGetActiveNameSpaceIdList @ 0x1C001D39C (NVMeGetActiveNameSpaceIdList.c)
- *     NVMeLogNameSpaceIdentificationStatus @ 0x1C001FD30 (NVMeLogNameSpaceIdentificationStatus.c)
- *     NVMeParseNameSpaceIdentifyData @ 0x1C0021500 (NVMeParseNameSpaceIdentifyData.c)
- *     NVMeVersionCheck @ 0x1C0024468 (NVMeVersionCheck.c)
- *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025504 (WaitForCommandCompleteWithCustomTimeout.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     IsIntelChatham @ 0x1C000A684 (IsIntelChatham.c)
+ *     NVMeVersionCheck @ 0x1C001C288 (NVMeVersionCheck.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C001CC1C (WaitForCommandCompleteWithCustomTimeout.c)
  */
 
-__int64 __fastcall NVMeNameSpaceIdentify(__int64 a1)
+char __fastcall NVMeNameSpaceIdentify(__int64 a1)
 {
   __int64 v1; // rax
-  __int64 v3; // rbx
-  char v4; // al
-  __int64 v5; // rcx
-  unsigned int v6; // r14d
-  _QWORD *v7; // r15
-  int v8; // ecx
-  char v9; // r12
-  int v10; // r13d
-  unsigned int v11; // eax
-  int i; // edx
-  __int64 v13; // rcx
-  char v14; // cl
-  char *v15; // rcx
-  __int64 result; // rax
-  __int64 v17; // [rsp+38h] [rbp-30h] BYREF
-  char *v18; // [rsp+40h] [rbp-28h]
-  __int64 v19; // [rsp+48h] [rbp-20h]
-  int v20[2]; // [rsp+50h] [rbp-18h]
-  int v21[4]; // [rsp+58h] [rbp-10h]
-  char v22; // [rsp+B0h] [rbp+48h]
-  int v23; // [rsp+B0h] [rbp+48h]
-  int v24; // [rsp+B8h] [rbp+50h]
+  _QWORD *v2; // rsi
+  unsigned int v4; // r15d
+  int v5; // r12d
+  unsigned int v6; // ecx
+  int v7; // r14d
+  void *v8; // rcx
+  int v9; // edx
+  __int64 v10; // rcx
+  char v11; // r8
+  char *v12; // rcx
+  int v14; // [rsp+70h] [rbp+40h]
+  char *v15; // [rsp+78h] [rbp+48h]
 
-  v1 = *(_QWORD *)(a1 + 4264);
-  v3 = *(_QWORD *)(a1 + 1840);
-  *(_QWORD *)v21 = v3;
-  *(_QWORD *)v20 = v1;
-  v4 = NVMeVersionCheck();
-  v22 = v4;
-  v17 = 0LL;
-  v19 = 0LL;
-  if ( !*(_BYTE *)(v5 + 20) && v4 && (*(_DWORD *)(v5 + 64) & 0x40000) == 0 )
-    NVMeAllocateDmaBuffer(v5, 0x1000u);
-  v6 = *(_DWORD *)(v3 + 516);
-  v7 = *(_QWORD **)(a1 + 1936);
-  v8 = 0;
-  if ( v6 > 0xFF )
-    v6 = 255;
-  v24 = 0;
-  if ( !v6 )
-    goto LABEL_30;
-  v9 = v22;
-  v10 = 1;
-  while ( 1 )
+  v1 = *(_QWORD *)(a1 + 1624);
+  v2 = *(_QWORD **)(a1 + 1720);
+  v4 = 255;
+  v5 = 0;
+  v6 = *(_DWORD *)(v1 + 516);
+  if ( v6 > 0xFF || (v4 = *(_DWORD *)(v1 + 516), v6) )
   {
-    v11 = v10;
-    if ( !*(_BYTE *)(a1 + 20) || *(_DWORD *)(a1 + 224) == v10 )
-      break;
-LABEL_28:
-    ++v10;
-    if ( v11 >= v6 )
-      goto LABEL_29;
-  }
-  LocalCommandReuse(a1, a1 + 944);
-  for ( i = 0; i < 2; *(_BYTE *)(*(_QWORD *)(a1 + 1040) + 4253LL) |= i )
-    ++i;
-  *(_WORD *)(*(_QWORD *)(a1 + 1040) + 4244LL) = 0;
-  v13 = *(_QWORD *)(a1 + 1040);
-  *(_QWORD *)(v13 + 4120) = *(_QWORD *)(a1 + 1944);
-  *(_BYTE *)(v13 + 4136) = v10 == 0;
-  *(_BYTE *)(v13 + 4096) = 6;
-  *(_DWORD *)(v13 + 4100) = v10;
-  ProcessCommand(a1, a1 + 952);
-  WaitForCommandCompleteWithCustomTimeout(a1);
-  if ( IsIntelChatham(a1) )
-  {
-    HIBYTE(v23) = *((_BYTE *)v7 + 384);
-    BYTE2(v23) = *((_BYTE *)v7 + 385);
-    BYTE1(v23) = *((_BYTE *)v7 + 386);
-    LOBYTE(v23) = *((_BYTE *)v7 + 387);
-    if ( v23 != -559038737 && v10 == 1 )
+    v7 = 1;
+    do
     {
-      memset(v7, 0, 0x1000uLL);
-      *v7 = 67108336LL;
-      *((_BYTE *)v7 + 130) = 9;
-      v7[1] = 67108336LL;
-      v7[2] = 67108336LL;
+      if ( !*(_BYTE *)(a1 + 16) || *(_DWORD *)(a1 + 200) == v7 )
+      {
+        v8 = *(void **)(a1 + 936);
+        *(_BYTE *)(a1 + 851) = 0;
+        memset(v8, 0, 0x10A0uLL);
+        v9 = 0;
+        *(_QWORD *)(*(_QWORD *)(a1 + 936) + 4232LL) = 0LL;
+        *(_QWORD *)(a1 + 904) = *(_QWORD *)(a1 + 936);
+        *(_DWORD *)(a1 + 840) = 1;
+        do
+          *(_BYTE *)(*(_QWORD *)(a1 + 936) + 4253LL) |= ++v9;
+        while ( v9 < 2 );
+        *(_WORD *)(*(_QWORD *)(a1 + 936) + 4244LL) = 0;
+        v10 = *(_QWORD *)(a1 + 936);
+        *(_QWORD *)(v10 + 4120) = *(_QWORD *)(a1 + 1728);
+        *(_BYTE *)(v10 + 4136) = v7 == 0;
+        *(_BYTE *)(v10 + 4096) = 6;
+        *(_DWORD *)(v10 + 4100) = v7;
+        ProcessCommand(a1, a1 + 848);
+        WaitForCommandCompleteWithCustomTimeout(a1);
+        LOBYTE(v1) = IsIntelChatham(a1);
+        if ( (_BYTE)v1 )
+        {
+          HIBYTE(v14) = *((_BYTE *)v2 + 384);
+          BYTE2(v14) = *((_BYTE *)v2 + 385);
+          BYTE1(v14) = *((_BYTE *)v2 + 386);
+          LOBYTE(v1) = *((_BYTE *)v2 + 387);
+          LOBYTE(v14) = v1;
+          if ( v14 != -559038737 && v7 == 1 )
+          {
+            memset(v2, 0, 0x1000uLL);
+            LOBYTE(v1) = -16;
+            *v2 = 67108336LL;
+            *((_BYTE *)v2 + 130) = 9;
+            v2[1] = 67108336LL;
+            v2[2] = 67108336LL;
+          }
+        }
+        if ( *(_BYTE *)(a1 + 851) == 1 )
+        {
+          v11 = *(_BYTE *)(a1 + 16);
+          if ( v11
+            || v4 <= 1
+            || !(unsigned __int8)NVMeVersionCheck(a1)
+            || (v1 = *((_BYTE *)v2 + 26) & 0xF, *((_BYTE *)v2 + 4 * v1 + 130))
+            || *v2 )
+          {
+            if ( !v11 )
+            {
+              LOBYTE(v1) = StorPortExtendedFunction(0LL, a1, 104LL, 1701672526LL);
+              break;
+            }
+            v12 = *(char **)(a1 + 1640);
+            v15 = v12;
+            *(_QWORD *)(a1 + 1640) = v12 + 104;
+            memset(v12, 0, 0x68uLL);
+            v15[64] = *((_BYTE *)v2 + 26) & 0xF;
+            *((_DWORD *)v15 + 12) = *((_DWORD *)v2 + (*((_BYTE *)v2 + 26) & 0xF) + 32);
+            *((_DWORD *)v15 + 13) = 1 << v15[50];
+            *((_QWORD *)v15 + 7) = *v2;
+            v15[65] = v2[3] & 1;
+            v15[66] = *((_BYTE *)v2 + 29) & 7;
+            *((_WORD *)v15 + 46) = *((_WORD *)v2 + 23);
+            *((_WORD *)v15 + 47) = *((_WORD *)v2 + 50);
+            *((_WORD *)v15 + 48) = *((_WORD *)v2 + 51);
+            *(_QWORD *)(v15 + 84) = v2[15];
+            ++v5;
+            *(_OWORD *)(v15 + 68) = *(_OWORD *)(v2 + 13);
+            *(_WORD *)v15 = 1;
+            *((_DWORD *)v15 + 1) = 4;
+            *((_WORD *)v15 + 1) = 0;
+            v15[8] = 0;
+            v15[9] = 0;
+            v15[10] = v7 - 1;
+            *((_DWORD *)v15 + 4) = v7;
+            *(_QWORD *)(a1 + 8LL * (unsigned int)(v7 - 1) + 1736) = v15;
+            LOBYTE(v1) = v7;
+            *(_DWORD *)(a1 + 208) = (unsigned __int16)v7;
+          }
+        }
+        if ( *(_BYTE *)(a1 + 16) )
+          break;
+      }
+      LOBYTE(v1) = v7++;
     }
+    while ( v7 - 1 < v4 );
   }
-  if ( *(_BYTE *)(a1 + 955) != 1
-    || (v14 = *(_BYTE *)(a1 + 20)) == 0
-    && v6 > 1
-    && v9
-    && !*((_BYTE *)v7 + 4 * (*((_BYTE *)v7 + 26) & 0xF) + 130)
-    && !*v7 )
-  {
-LABEL_26:
-    if ( *(_BYTE *)(a1 + 20) )
-      goto LABEL_29;
-    v11 = v10;
-    goto LABEL_28;
-  }
-  v18 = 0LL;
-  if ( v14 )
-  {
-    v15 = *(char **)(a1 + 1856);
-    v18 = v15;
-    *(_QWORD *)(a1 + 1856) = v15 + 424;
-    NVMeParseNameSpaceIdentifyData(a1, (int)v7, v21[0], v20[0], v10, v15);
-    ++v24;
-    *(_QWORD *)(a1 + 8LL * (unsigned int)(v10 - 1) + 1952) = v18;
-    *(_DWORD *)(a1 + 232) = (unsigned __int16)v10;
-    goto LABEL_26;
-  }
-  StorPortExtendedFunction(0LL, a1, 424LL);
-LABEL_29:
-  v8 = v24;
-LABEL_30:
-  *(_DWORD *)(a1 + 220) = v8;
-  result = *(unsigned int *)(a1 + 4336);
-  if ( (result & 0x20) != 0 )
-    result = NVMeLogNameSpaceIdentificationStatus(a1, 0, 0, 0xC1000002);
-  if ( v17 )
-    return NVMeFreeDmaBuffer(a1, 4096LL, &v17, v19);
-  return result;
+  *(_DWORD *)(a1 + 196) = v5;
+  return v1;
 }

@@ -1,38 +1,38 @@
 /*
- * XREFs of PopReadRegKeyValue @ 0x140383B68
+ * XREFs of PopReadRegKeyValue @ 0x1403CB288
  * Callers:
- *     PopReadUlongPowerKey @ 0x140383B10 (PopReadUlongPowerKey.c)
- *     PopDiagTracePerfTrackData @ 0x140990218 (PopDiagTracePerfTrackData.c)
- *     PopCheckShutdownMarker @ 0x140B37D6C (PopCheckShutdownMarker.c)
- *     PopBatteryReadOscBits @ 0x140B76714 (PopBatteryReadOscBits.c)
+ *     PopReadUlongPowerKey @ 0x1403CB244 (PopReadUlongPowerKey.c)
+ *     PopDiagTracePerfTrackData @ 0x140774D68 (PopDiagTracePerfTrackData.c)
+ *     PopDiagTraceDirtyTransition @ 0x140A93168 (PopDiagTraceDirtyTransition.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadRegKeyValue(PCWSTR SourceString, PCWSTR a2, size_t Size, int a4, void *a5)
 {
-  _DWORD *Pool2; // rdi
+  _DWORD *PoolWithTag; // rdi
   NTSTATUS v9; // ebx
   ULONG ResultLength; // [rsp+30h] [rbp-50h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-48h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   ResultLength = 0;
   KeyHandle = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  Pool2 = 0LL;
   DestinationString = 0LL;
+  PoolWithTag = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v9 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
@@ -42,8 +42,8 @@ __int64 __fastcall PopReadRegKeyValue(PCWSTR SourceString, PCWSTR a2, size_t Siz
     v9 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, 0LL, 0, &ResultLength);
     if ( v9 == -1073741789 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(256LL, ResultLength, 1346721364LL);
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, ResultLength, 0x50455654u);
+      if ( !PoolWithTag )
       {
         v9 = -1073741801;
         goto LABEL_4;
@@ -52,16 +52,16 @@ __int64 __fastcall PopReadRegKeyValue(PCWSTR SourceString, PCWSTR a2, size_t Siz
              KeyHandle,
              &DestinationString,
              KeyValuePartialInformation,
-             Pool2,
+             PoolWithTag,
              ResultLength,
              &ResultLength);
     }
     if ( v9 >= 0 )
     {
-      if ( !a4 || Pool2[1] == a4 )
+      if ( !a4 || PoolWithTag[1] == a4 )
       {
-        if ( Pool2[2] == Size )
-          memmove(a5, Pool2 + 3, Size);
+        if ( PoolWithTag[2] == Size )
+          memmove(a5, PoolWithTag + 3, Size);
         else
           v9 = -1073741789;
       }
@@ -74,7 +74,7 @@ __int64 __fastcall PopReadRegKeyValue(PCWSTR SourceString, PCWSTR a2, size_t Siz
 LABEL_4:
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x50455654u);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x50455654u);
   return (unsigned int)v9;
 }

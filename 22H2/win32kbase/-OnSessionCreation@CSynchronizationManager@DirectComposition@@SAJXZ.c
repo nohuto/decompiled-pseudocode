@@ -1,140 +1,56 @@
 /*
- * XREFs of ?OnSessionCreation@CSynchronizationManager@DirectComposition@@SAJXZ @ 0x1C0080D70
+ * XREFs of ?OnSessionCreation@CSynchronizationManager@DirectComposition@@SAJXZ @ 0x1C00AD928
  * Callers:
- *     DCompositionSessionInitialize @ 0x1C0080C40 (DCompositionSessionInitialize.c)
+ *     DCompositionSessionInitialize @ 0x1C00AD840 (DCompositionSessionInitialize.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     Win32AllocPoolZInit @ 0x1C00298B0 (Win32AllocPoolZInit.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     Win32AllocPoolNonPaged @ 0x1C005C490 (Win32AllocPoolNonPaged.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 DirectComposition::CSynchronizationManager::OnSessionCreation(void)
 {
-  NSInstrumentation::CLeakTrackingAllocator *v0; // rdi
-  int v1; // eax
-  __int64 Pool2; // rbx
-  struct _ERESOURCE *v3; // rax
-  struct _ERESOURCE *v4; // rsi
-  NTSTATUS v5; // edi
-  _QWORD *v7; // rax
-  __int64 v8; // r10
-  _QWORD v9[2]; // [rsp+30h] [rbp-79h] BYREF
-  PVOID BackTrace[24]; // [rsp+40h] [rbp-69h] BYREF
-  unsigned int v11; // [rsp+110h] [rbp+67h] BYREF
-  unsigned __int64 v12; // [rsp+118h] [rbp+6Fh] BYREF
-  __int64 v13; // [rsp+120h] [rbp+77h] BYREF
-  __int64 v14; // [rsp+128h] [rbp+7Fh] BYREF
+  struct _RTL_GENERIC_TABLE *v0; // rax
+  struct _RTL_GENERIC_TABLE *v1; // rsi
+  struct _ERESOURCE *v2; // rax
+  struct _ERESOURCE *v3; // rdi
+  NTSTATUS v4; // ebx
 
-  v0 = gpLeakTrackingAllocator;
-  v11 = 1702052676;
-  v13 = 260LL;
-  v14 = 72LL;
-  v1 = *(_DWORD *)gpLeakTrackingAllocator;
-  if ( !*(_DWORD *)gpLeakTrackingAllocator )
-  {
-    Pool2 = ExAllocatePool2(260LL, 72LL, 1702052676LL);
-    if ( Pool2 )
-      _InterlockedIncrement64((volatile signed __int64 *)v0 + 14);
-    goto LABEL_4;
-  }
-  if ( v1 == 1 )
-  {
-    if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x65734344u) )
-      return (unsigned int)-1073741801;
-    v7 = (_QWORD *)ExAllocatePool2(v13 & 0xFFFFFFFFFFFFFFFDuLL, 88LL, v11);
-    Pool2 = (__int64)v7;
-    if ( !v7
-      || (_InterlockedIncrement64((volatile signed __int64 *)v0 + 14),
-          *v7 = 1702052676LL,
-          Pool2 = (__int64)(v7 + 2),
-          v7 == (_QWORD *)-16LL) )
-    {
-      NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-        *((NSInstrumentation::CPointerHashTable **)v0 + 1),
-        (const void *)0x65734344);
-    }
-LABEL_4:
-    if ( Pool2 )
-      goto LABEL_5;
+  v0 = (struct _RTL_GENERIC_TABLE *)Win32AllocPoolZInit(0x48uLL, 1702052676LL);
+  v1 = v0;
+  if ( v0 )
+    RtlInitializeGenericTable(
+      v0,
+      (PRTL_GENERIC_COMPARE_ROUTINE)DirectComposition::CGenericTable<DirectComposition::CResourceMarshaler *,DirectComposition::CWeakReferenceBase,1953973060,1>::CompareTableEntries,
+      (PRTL_GENERIC_ALLOCATE_ROUTINE)DirectComposition::CGenericTable<unsigned __int64,DirectComposition::CBatch,1702052676,0>::AllocateTableEntry,
+      (PRTL_GENERIC_FREE_ROUTINE)DirectComposition::CGenericTable<MaterialProperty::MaterialPropertyId,MaterialProperty,1953645380,0>::FreeTableEntry,
+      0LL);
+  else
+    v1 = 0LL;
+  if ( !v1 )
     return (unsigned int)-1073741801;
-  }
-  if ( v1 != 2 )
-    return (unsigned int)-1073741801;
-  v12 = 0LL;
-  if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 0x65734344u, &v12) )
-  {
-    v9[0] = &v13;
-    v9[1] = &v11;
-    Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-              (__int64)v0,
-              (__int64)v9,
-              &v14);
-    goto LABEL_4;
-  }
-  Pool2 = ExAllocatePool2(v8, 88LL, 1702052676LL);
-  if ( !Pool2 )
-    return (unsigned int)-1073741801;
-  _InterlockedIncrement64((volatile signed __int64 *)v0 + 16);
-  NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-  if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-  {
-    if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                            v0,
-                            Pool2,
-                            v12,
-                            BackTrace) )
-    {
-      Pool2 += 16LL;
-      goto LABEL_4;
-    }
-LABEL_22:
-    _InterlockedIncrement64((volatile signed __int64 *)v0 + 17);
-    _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-    return (unsigned int)-1073741801;
-  }
-  if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                           v0,
-                           Pool2,
-                           v12,
-                           BackTrace) )
-    goto LABEL_22;
-LABEL_5:
-  RtlInitializeGenericTable(
-    (PRTL_GENERIC_TABLE)Pool2,
-    DirectComposition::CGenericTable<DirectComposition::CResourceMarshaler *,DirectComposition::CWeakReferenceBase,1953973060,1>::CompareTableEntries,
-    DirectComposition::CGenericTable<unsigned __int64,DirectComposition::CBatch,1702052676,0>::AllocateTableEntry,
-    DirectComposition::CGenericTable<MaterialProperty::MaterialPropertyId,MaterialProperty,1953645380,0>::FreeTableEntry,
-    0LL);
-  v3 = (struct _ERESOURCE *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                              gpLeakTrackingAllocator,
-                              68LL,
-                              0x68uLL,
-                              0x73634344u);
-  v4 = v3;
+  v2 = (struct _ERESOURCE *)Win32AllocPoolNonPaged(104LL, 0x73634344u);
+  v3 = v2;
+  if ( v2 )
+    memset(v2, 0, sizeof(struct _ERESOURCE));
+  else
+    v3 = 0LL;
   if ( !v3 )
   {
-    v5 = -1073741801;
-    goto LABEL_26;
+    v4 = -1073741801;
+LABEL_15:
+    Win32FreePool((__int64)v1);
+    return (unsigned int)v4;
   }
-  memset(v3, 0, sizeof(struct _ERESOURCE));
-  v5 = ExInitializeResourceLite(v4);
-  if ( v5 < 0 )
+  v4 = ExInitializeResourceLite(v3);
+  if ( v4 < 0 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
-LABEL_26:
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (void *)Pool2);
-    return (unsigned int)v5;
+    Win32FreePool((__int64)v3);
+    goto LABEL_15;
   }
   DirectComposition::CSynchronizationManager::s_syncIdCounter = 0LL;
-  DirectComposition::CSynchronizationManager::s_pSyncTable = (PRTL_GENERIC_TABLE)Pool2;
-  DirectComposition::CSynchronizationManager::s_pSyncTableLock = v4;
-  return (unsigned int)v5;
+  DirectComposition::CSynchronizationManager::s_pSyncTable = v1;
+  DirectComposition::CSynchronizationManager::s_pSyncTableLock = v3;
+  return (unsigned int)v4;
 }

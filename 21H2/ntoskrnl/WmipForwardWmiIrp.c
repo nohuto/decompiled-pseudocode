@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipForwardWmiIrp @ 0x140783A9C
+ * XREFs of WmipForwardWmiIrp @ 0x1406396EC
  * Callers:
- *     WmipQuerySetExecuteSI @ 0x14078362C (WmipQuerySetExecuteSI.c)
- *     WmipSendWmiIrp @ 0x1407839B4 (WmipSendWmiIrp.c)
- *     WmipQueryAllData @ 0x14078CD70 (WmipQueryAllData.c)
- *     WmipSetTraceNotify @ 0x140810B00 (WmipSetTraceNotify.c)
- *     WmipSendWmiIrpToTraceDeviceList @ 0x14081AB80 (WmipSendWmiIrpToTraceDeviceList.c)
+ *     WmipQueryAllData @ 0x1406390D4 (WmipQueryAllData.c)
+ *     WmipQuerySetExecuteSI @ 0x140757270 (WmipQuerySetExecuteSI.c)
+ *     WmipSendWmiIrp @ 0x14075751C (WmipSendWmiIrp.c)
+ *     WmipSetTraceNotify @ 0x140780D58 (WmipSetTraceNotify.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x1407C1634 (WmipSendWmiIrpToTraceDeviceList.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     WmipFindRegEntryByProviderId @ 0x1402E00A4 (WmipFindRegEntryByProviderId.c)
- *     WmipUnreferenceRegEntry @ 0x1402E0164 (WmipUnreferenceRegEntry.c)
- *     IoGetAttachedDeviceReference @ 0x1403109B0 (IoGetAttachedDeviceReference.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     WmipUpdateDeviceStackSize @ 0x1406C8550 (WmipUpdateDeviceStackSize.c)
- *     WmipTranslatePDOInstanceNames @ 0x1406D839C (WmipTranslatePDOInstanceNames.c)
+ *     IoGetAttachedDeviceReference @ 0x14022CA10 (IoGetAttachedDeviceReference.c)
+ *     WmipFindRegEntryByProviderId @ 0x140265020 (WmipFindRegEntryByProviderId.c)
+ *     WmipUnreferenceRegEntry @ 0x1402650E4 (WmipUnreferenceRegEntry.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     WmipUpdateDeviceStackSize @ 0x14075524C (WmipUpdateDeviceStackSize.c)
+ *     WmipTranslatePDOInstanceNames @ 0x1407693D0 (WmipTranslatePDOInstanceNames.c)
  */
 
 __int64 __fastcall WmipForwardWmiIrp(
@@ -39,10 +39,12 @@ __int64 __fastcall WmipForwardWmiIrp(
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
   struct _IO_STACK_LOCATION *v18; // rax
   struct _IO_STACK_LOCATION *v19; // rax
+  __int64 v20; // rdx
   NTSTATUS Status; // esi
   __int64 result; // rax
-  unsigned int v22; // ebx
-  unsigned int v23; // [rsp+40h] [rbp-48h] BYREF
+  unsigned int v23; // ebx
+  __int64 v24; // rcx
+  unsigned int v25; // [rsp+40h] [rbp-48h] BYREF
   struct _KEVENT Event; // [rsp+48h] [rbp-40h] BYREF
 
   v6 = a2;
@@ -57,18 +59,18 @@ __int64 __fastcall WmipForwardWmiIrp(
       v12 = *(PDEVICE_OBJECT *)(v10 + 16);
       if ( (v11 & 0x10000000) != 0 )
       {
-        v23 = 0;
-        v22 = (*(__int64 (__fastcall **)(_QWORD, UNICODE_STRING *, _QWORD, __int64, PDEVICE_OBJECT, unsigned int *))&v12->Type)(
+        v25 = 0;
+        v23 = (*(__int64 (__fastcall **)(_QWORD, UNICODE_STRING *, _QWORD, __int64, PDEVICE_OBJECT, unsigned int *))&v12->Type)(
                 v6,
                 a4,
                 a5,
                 a6,
                 v12,
-                &v23);
-        Irp->IoStatus.Information = v23;
-        Irp->IoStatus.Status = v22;
+                &v25);
+        Irp->IoStatus.Information = v25;
+        Irp->IoStatus.Status = v23;
         WmipUnreferenceRegEntry(v10);
-        return v22;
+        return v23;
       }
       else
       {
@@ -120,16 +122,20 @@ LABEL_36:
             Irp->IoStatus.Status = -1073741163;
           }
           if ( ((_BYTE)v6 == 11 || (_BYTE)v6 == 8) && Status >= 0 && Irp->IoStatus.Information > 0x18 )
-            WmipTranslatePDOInstanceNames((__int64)Irp, v6, a5, v10);
+          {
+            LOBYTE(v20) = v6;
+            WmipTranslatePDOInstanceNames(Irp, v20, a5, v10);
+          }
           WmipUnreferenceRegEntry(v10);
         }
         else
         {
           WmipUnreferenceRegEntry(v10);
-          WmipUpdateDeviceStackSize(v16);
+          LOBYTE(v24) = v16;
+          WmipUpdateDeviceStackSize(v24);
           Status = -1073741160;
         }
-        ObfDereferenceObject(AttachedDeviceReference);
+        HalPutDmaAdapter((PADAPTER_OBJECT)AttachedDeviceReference);
         return (unsigned int)Status;
       }
     }

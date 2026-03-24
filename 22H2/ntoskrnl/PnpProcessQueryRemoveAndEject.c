@@ -1,505 +1,493 @@
 /*
- * XREFs of PnpProcessQueryRemoveAndEject @ 0x140867948
+ * XREFs of PnpProcessQueryRemoveAndEject @ 0x140749CC4
  * Callers:
- *     PnpProcessTargetDeviceEvent @ 0x1407948AC (PnpProcessTargetDeviceEvent.c)
- *     PnpShutdownDevices @ 0x1409522AC (PnpShutdownDevices.c)
+ *     PnpProcessTargetDeviceEvent @ 0x1407475C0 (PnpProcessTargetDeviceEvent.c)
+ *     PnpShutdownDevices @ 0x14089B99C (PnpShutdownDevices.c)
  * Callees:
- *     PipAreDriversLoaded @ 0x14022B108 (PipAreDriversLoaded.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     PnpRequestDeviceAction @ 0x140358A44 (PnpRequestDeviceAction.c)
- *     PnpIsChainDereferenced @ 0x1403D3C80 (PnpIsChainDereferenced.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
- *     IoGetLegacyVetoList @ 0x1407A8E70 (IoGetLegacyVetoList.c)
- *     PiRestartRemovalRelations @ 0x1408639FC (PiRestartRemovalRelations.c)
- *     PnpRecordBlackboxPnpEventInformation @ 0x140867DA8 (PnpRecordBlackboxPnpEventInformation.c)
- *     PiGetTargetDeviceNode @ 0x140867EF4 (PiGetTargetDeviceNode.c)
- *     PnpNotifyUserModeDeviceRemoval @ 0x140867F18 (PnpNotifyUserModeDeviceRemoval.c)
- *     PnpBuildRemovalRelationList @ 0x140868084 (PnpBuildRemovalRelationList.c)
- *     PnpResizeTargetDeviceBlock @ 0x140868264 (PnpResizeTargetDeviceBlock.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140868334 (PnpUnlinkDeviceRemovalRelations.c)
- *     PiEventBuildPdoList @ 0x1408684B8 (PiEventBuildPdoList.c)
- *     PnpDeleteLockedDeviceNodes @ 0x1408685F8 (PnpDeleteLockedDeviceNodes.c)
- *     PnpCompileDeviceInstancePaths @ 0x140868710 (PnpCompileDeviceInstancePaths.c)
- *     IopEnumerateRelations @ 0x140868860 (IopEnumerateRelations.c)
- *     IopFreeRelationList @ 0x14086898C (IopFreeRelationList.c)
- *     PiEventAllocateVetoBuffer @ 0x140868AA4 (PiEventAllocateVetoBuffer.c)
- *     PiDetermineDeleteType @ 0x140868BDC (PiDetermineDeleteType.c)
- *     PiEventAreDeviceRelationsExcluded @ 0x1408693A4 (PiEventAreDeviceRelationsExcluded.c)
- *     PiSendTargetDeviceRemoveCompleteNotification @ 0x140869410 (PiSendTargetDeviceRemoveCompleteNotification.c)
- *     PipClearDevNodeProblem @ 0x14086966C (PipClearDevNodeProblem.c)
- *     PnpInvalidateRelationsInList @ 0x140881998 (PnpInvalidateRelationsInList.c)
- *     PiEventRemovalPostSurpriseRemove @ 0x1408834B4 (PiEventRemovalPostSurpriseRemove.c)
- *     PnpBuildUnsafeRemovalDeviceList @ 0x1408841B0 (PnpBuildUnsafeRemovalDeviceList.c)
- *     PiLogSurpriseRemoveEvent @ 0x140884BE8 (PiLogSurpriseRemoveEvent.c)
- *     IopRemoveDeviceRelationsFromList @ 0x140884C44 (IopRemoveDeviceRelationsFromList.c)
- *     PnpFinalizeDeviceRemovalForReset @ 0x14095788C (PnpFinalizeDeviceRemovalForReset.c)
- *     PnpRestartDeviceNode @ 0x140958D6C (PnpRestartDeviceNode.c)
- *     PnpProcessCompletedEject @ 0x1409590A0 (PnpProcessCompletedEject.c)
- *     PpProfileBeginHardwareProfileTransition @ 0x140963B10 (PpProfileBeginHardwareProfileTransition.c)
- *     PpProfileCancelHardwareProfileTransition @ 0x140963B40 (PpProfileCancelHardwareProfileTransition.c)
- *     PpProfileIncludeInHardwareProfileTransition @ 0x140963DC4 (PpProfileIncludeInHardwareProfileTransition.c)
- *     PpProfileQueryHardwareProfileChange @ 0x140963ED4 (PpProfileQueryHardwareProfileChange.c)
- *     PnpFinalizeVetoedRemove @ 0x14096427C (PnpFinalizeVetoedRemove.c)
- *     PnpTrackQueryRemoveDevices @ 0x140964B1C (PnpTrackQueryRemoveDevices.c)
- *     IopEjectDevice @ 0x14096CDC8 (IopEjectDevice.c)
- *     IopQueryDockRemovalInterface @ 0x14096D014 (IopQueryDockRemovalInterface.c)
- *     PiEventAllocatePendingEjectRelations @ 0x140971850 (PiEventAllocatePendingEjectRelations.c)
- *     PiProcessQueryAndCancelRemoval @ 0x1409718E4 (PiProcessQueryAndCancelRemoval.c)
- *     PiProcessQueryRemoveNoFdo @ 0x140971A78 (PiProcessQueryRemoveNoFdo.c)
- *     PoGetLightestSystemStateForEject @ 0x140980520 (PoGetLightestSystemStateForEject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     PipAreDriversLoaded @ 0x14032E384 (PipAreDriversLoaded.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PnpRequestDeviceAction @ 0x14036F614 (PnpRequestDeviceAction.c)
+ *     PnpIsChainDereferenced @ 0x140370E28 (PnpIsChainDereferenced.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     IoGetLegacyVetoList @ 0x1406F44A0 (IoGetLegacyVetoList.c)
+ *     PiProcessQueryRemoveNoFdo @ 0x140731A14 (PiProcessQueryRemoveNoFdo.c)
+ *     PnpRestartDeviceNode @ 0x140731B88 (PnpRestartDeviceNode.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x14073283C (PiProcessQueryAndCancelRemoval.c)
+ *     PiRestartRemovalRelations @ 0x1407338DC (PiRestartRemovalRelations.c)
+ *     PnpTrackQueryRemoveDevices @ 0x140734820 (PnpTrackQueryRemoveDevices.c)
+ *     PipClearDevNodeProblem @ 0x140735BFC (PipClearDevNodeProblem.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
+ *     PiDetermineDeleteType @ 0x140749380 (PiDetermineDeleteType.c)
+ *     PiCheckRemovalPreconditions @ 0x140749C58 (PiCheckRemovalPreconditions.c)
+ *     PnpRecordBlackboxPnpEventInformation @ 0x14074A190 (PnpRecordBlackboxPnpEventInformation.c)
+ *     PnpNotifyUserModeDeviceRemoval @ 0x14074A320 (PnpNotifyUserModeDeviceRemoval.c)
+ *     IopFreeRelationList @ 0x14074A6C8 (IopFreeRelationList.c)
+ *     PiEventAllocateVetoBuffer @ 0x14074A778 (PiEventAllocateVetoBuffer.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x14074AADC (PnpUnlinkDeviceRemovalRelations.c)
+ *     PiEventBuildPdoList @ 0x14074AC68 (PiEventBuildPdoList.c)
+ *     PnpBuildUnsafeRemovalDeviceList @ 0x14074ADC4 (PnpBuildUnsafeRemovalDeviceList.c)
+ *     PnpInvalidateRelationsInList @ 0x14074AF10 (PnpInvalidateRelationsInList.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x14074B084 (PnpDeleteLockedDeviceNodes.c)
+ *     PnpCompileDeviceInstancePaths @ 0x14074B1E4 (PnpCompileDeviceInstancePaths.c)
+ *     IopEnumerateRelations @ 0x14074B374 (IopEnumerateRelations.c)
+ *     PnpResizeTargetDeviceBlock @ 0x14074BE58 (PnpResizeTargetDeviceBlock.c)
+ *     PnpBuildRemovalRelationList @ 0x14074C04C (PnpBuildRemovalRelationList.c)
+ *     PiSendTargetDeviceRemoveCompleteNotification @ 0x14074C0E8 (PiSendTargetDeviceRemoveCompleteNotification.c)
+ *     PiEventAreDeviceRelationsExcluded @ 0x14074C16C (PiEventAreDeviceRelationsExcluded.c)
+ *     IopRemoveDeviceRelationsFromList @ 0x14074CCCC (IopRemoveDeviceRelationsFromList.c)
+ *     PiEventRemovalPostSurpriseRemove @ 0x14074CD2C (PiEventRemovalPostSurpriseRemove.c)
+ *     PnpProcessCompletedEject @ 0x1408A2500 (PnpProcessCompletedEject.c)
+ *     PpProfileBeginHardwareProfileTransition @ 0x1408AB3C8 (PpProfileBeginHardwareProfileTransition.c)
+ *     PpProfileCancelHardwareProfileTransition @ 0x1408AB3F8 (PpProfileCancelHardwareProfileTransition.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x1408AB67C (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PpProfileQueryHardwareProfileChange @ 0x1408AB78C (PpProfileQueryHardwareProfileChange.c)
+ *     PnpFinalizeVetoedRemove @ 0x1408ABD60 (PnpFinalizeVetoedRemove.c)
+ *     IopEjectDevice @ 0x1408B2A10 (IopEjectDevice.c)
+ *     IopQueryDockRemovalInterface @ 0x1408B2C68 (IopQueryDockRemovalInterface.c)
+ *     PiEventAllocatePendingEjectRelations @ 0x1408B8E90 (PiEventAllocatePendingEjectRelations.c)
+ *     PiProcessCanceledRemoveForReset @ 0x1408B8F28 (PiProcessCanceledRemoveForReset.c)
+ *     PoGetLightestSystemStateForEject @ 0x1408E0F3C (PoGetLightestSystemStateForEject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpProcessQueryRemoveAndEject(__int64 *a1)
 {
-  __int64 v1; // rdi
-  __int64 v2; // r13
-  PVOID *v3; // r12
-  _QWORD *v4; // rbx
-  unsigned int v5; // esi
-  __int64 v6; // r15
+  __int64 v1; // rsi
+  __int64 v2; // r12
+  unsigned int *v3; // r15
+  struct _DEVICE_OBJECT *v4; // r14
+  unsigned int v5; // edi
+  __int64 DeviceNode; // r13
   unsigned int v7; // eax
-  __int64 v8; // r9
-  __int64 TargetDeviceNode; // rax
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r9
-  __int64 v13; // r8
+  __int64 v8; // r8
+  __int64 v9; // r9
+  int v10; // ebx
   __int64 VetoBuffer; // rax
-  PVOID v15; // r14
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  int v18; // ebx
-  int v19; // eax
+  PVOID v12; // r14
+  int v13; // eax
+  int v14; // r8d
+  int v15; // ecx
+  __int64 v16; // rcx
+  PVOID v17; // rbx
+  GUID *v18; // r8
+  int v19; // ebx
   __int64 v20; // r8
-  __int64 v21; // rcx
-  PVOID v22; // rbx
-  int v23; // ebx
-  __int64 v24; // r8
-  int v25; // r9d
-  PVOID v27; // rbx
-  __int64 v28; // rcx
-  char v29; // al
-  __int64 v30; // rcx
+  int v21; // r9d
+  unsigned int *v22; // r8
+  PDEVICE_OBJECT v24; // rbx
+  __int64 v25; // rcx
+  char v26; // al
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // rdx
+  char v30; // al
   unsigned int *v31; // r8
   __int64 v32; // rdx
-  __int64 v33; // r8
-  __int64 v34; // rdx
-  __int64 v35; // rdx
-  __int64 v36; // rbx
-  _QWORD *v37; // r14
-  __int64 v38; // rax
-  __int64 v39; // rcx
-  __int64 v40; // rcx
-  _DWORD *v41; // rcx
+  __int64 v33; // rdx
+  __int64 v34; // rbx
+  _QWORD *v35; // r14
+  __int64 v36; // rax
+  __int64 v37; // rcx
+  __int64 v38; // rcx
+  _DWORD *v39; // rcx
+  __int64 v40; // rbx
+  __int64 v41; // rax
   __int64 v42; // rcx
-  __int64 v43; // rax
-  __int64 v44; // rbx
-  __int64 v45; // rax
-  __int64 v46; // r8
+  __int64 v43; // r8
   __int64 PendingEjectRelations; // rax
-  __int64 v48; // rdx
-  __int64 v49; // rcx
-  __int64 v50; // r8
-  __int64 v51; // r9
-  _QWORD *v52; // rbx
+  __int64 v45; // rdx
+  __int64 v46; // rcx
+  __int64 v47; // r8
+  __int64 v48; // r9
+  _QWORD *v49; // rbx
   int LightestSystemStateForEject; // eax
   PVOID P; // [rsp+40h] [rbp-39h] BYREF
-  PVOID v55; // [rsp+48h] [rbp-31h] BYREF
+  PVOID v52; // [rsp+48h] [rbp-31h] BYREF
   PCWSTR SourceString; // [rsp+50h] [rbp-29h] BYREF
-  PVOID v57; // [rsp+58h] [rbp-21h] BYREF
-  PVOID Object; // [rsp+60h] [rbp-19h]
-  __int64 v59; // [rsp+68h] [rbp-11h] BYREF
-  PVOID v60; // [rsp+70h] [rbp-9h] BYREF
-  __int64 v61; // [rsp+78h] [rbp-1h] BYREF
+  PVOID v54; // [rsp+58h] [rbp-21h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+60h] [rbp-19h]
+  __int64 v56; // [rsp+68h] [rbp-11h] BYREF
+  __int64 v57; // [rsp+70h] [rbp-9h] BYREF
+  PVOID v58; // [rsp+78h] [rbp-1h] BYREF
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp+7h] BYREF
-  char v64; // [rsp+E0h] [rbp+67h]
-  char v65; // [rsp+E8h] [rbp+6Fh] BYREF
-  int v66; // [rsp+F0h] [rbp+77h] BYREF
-  unsigned int v67; // [rsp+F8h] [rbp+7Fh] BYREF
-  int v68; // [rsp+FCh] [rbp+83h]
+  char v61; // [rsp+E0h] [rbp+67h]
+  char v62; // [rsp+E8h] [rbp+6Fh] BYREF
+  __int64 v63; // [rsp+F0h] [rbp+77h] BYREF
+  unsigned int v64; // [rsp+F8h] [rbp+7Fh] BYREF
+  int v65; // [rsp+FCh] [rbp+83h]
 
   v1 = *a1;
-  v2 = 0LL;
-  v55 = 0LL;
-  v3 = 0LL;
   SourceString = 0LL;
-  v67 = 0;
-  v4 = *(_QWORD **)(v1 + 152);
+  v2 = 0LL;
+  v56 = 0LL;
+  v3 = 0LL;
+  v4 = *(struct _DEVICE_OBJECT **)(v1 + 152);
+  v52 = 0LL;
   v5 = 7;
-  v61 = 0LL;
+  v64 = 0;
+  v62 = 0;
   v57 = 0LL;
+  v54 = 0LL;
+  LOBYTE(v63) = 0;
   P = 0LL;
-  v60 = 0LL;
-  v59 = 0LL;
-  v65 = 0;
-  LOBYTE(v66) = 0;
-  Object = v4;
+  v58 = 0LL;
+  DeviceObject = v4;
   DestinationString = 0LL;
   if ( v4 )
-    v6 = *(_QWORD *)(v4[39] + 40LL);
+    DeviceNode = (__int64)v4->DeviceObjectExtension->DeviceNode;
   else
-    v6 = 0LL;
+    DeviceNode = 0LL;
   PpDevNodeLockTree(1);
-  if ( (unsigned int)(*(_DWORD *)(v6 + 300) - 789) <= 1 )
+  if ( (unsigned int)(*(_DWORD *)(DeviceNode + 300) - 787) <= 1 )
   {
-    v18 = -1073741738;
-    goto LABEL_50;
+    v10 = -1073741738;
+    goto LABEL_53;
   }
   v7 = PiDetermineDeleteType(v1);
   v5 = v7;
   if ( v7 != 4 )
   {
-    LOBYTE(v8) = 1;
-    PnpRecordBlackboxPnpEventInformation(v1, v7, 0LL, v8);
+    LOBYTE(v9) = 1;
+    PnpRecordBlackboxPnpEventInformation(v1, v7, 0LL, v9);
   }
-  TargetDeviceNode = PiGetTargetDeviceNode(v1);
-  v13 = TargetDeviceNode;
-  if ( (v5 & 0xFFFFFFFB) != 0 )
-    goto LABEL_7;
-  if ( (*(_DWORD *)(TargetDeviceNode + 396) & 0x1000) != 0 )
+  v10 = PiCheckRemovalPreconditions(v5, v1, v8);
+  if ( v10 < 0 )
+    goto LABEL_53;
+  if ( v5 == 4 )
   {
-    v31 = (unsigned int *)(TargetDeviceNode + 40);
-    v32 = 1LL;
-    goto LABEL_74;
-  }
-  if ( !v5 )
-  {
-    if ( *(_DWORD *)(v1 + 16) != 22 || !*(_DWORD *)(TargetDeviceNode + 600) )
+    if ( (*(_DWORD *)(DeviceNode + 396) & 0x80000) != 0 )
     {
-      if ( !(unsigned int)PipAreDriversLoaded(v6, v10, TargetDeviceNode, v12) )
-      {
-        v18 = PiProcessQueryRemoveNoFdo(v1);
-        goto LABEL_50;
-      }
-      goto LABEL_7;
+LABEL_52:
+      v10 = 0;
+LABEL_53:
+      PpDevNodeUnlockTree(1);
+      goto LABEL_54;
     }
-    v31 = (unsigned int *)(TargetDeviceNode + 40);
-    v32 = 10LL;
-LABEL_74:
-    PnpFinalizeVetoedRemove(v11, v32, v31);
-LABEL_78:
-    v18 = -2147483608;
-    goto LABEL_50;
+    if ( (unsigned int)(*(_DWORD *)(DeviceNode + 568) - 3) <= 1 )
+    {
+      v30 = 0;
+    }
+    else
+    {
+      if ( (*(_DWORD *)(DeviceNode + 560) & 0x10) == 0 )
+      {
+        v10 = -2147483608;
+        v28 = DeviceNode + 40;
+        v29 = 8LL;
+        goto LABEL_134;
+      }
+      v30 = 1;
+    }
+    v10 = 0;
+    if ( !v30 )
+      goto LABEL_53;
+  }
+  if ( !v5 && !(unsigned int)PipAreDriversLoaded(DeviceNode) )
+  {
+    v10 = PiProcessQueryRemoveNoFdo(v1);
+    goto LABEL_53;
+  }
+  VetoBuffer = PiEventAllocateVetoBuffer(v5);
+  v3 = (unsigned int *)VetoBuffer;
+  if ( !VetoBuffer )
+    goto LABEL_78;
+  if ( (int)PnpBuildRemovalRelationList(v4, v5, VetoBuffer, &v54) < 0 )
+  {
+LABEL_79:
+    v32 = *v3;
+    v31 = v3 + 2;
+    goto LABEL_80;
+  }
+  v12 = v54;
+  v10 = PiEventBuildPdoList((_DWORD)v54, v5, v1, (unsigned int)&v64, (__int64)&v52, (__int64)&v62, (__int64)&v63);
+  if ( v10 < 0 )
+    goto LABEL_132;
+  v13 = PnpResizeTargetDeviceBlock(a1, v5);
+  v1 = *a1;
+  v10 = v13;
+  if ( v13 < 0 )
+    goto LABEL_132;
+  LOBYTE(v14) = PiEventAreDeviceRelationsExcluded(v5);
+  v10 = PnpCompileDeviceInstancePaths(v15, (_DWORD)v12, v14, 0, (__int64)&P);
+  if ( v5 == 3 )
+    PnpBuildUnsafeRemovalDeviceList(v16, v12, &v58);
+  if ( v10 < 0 )
+  {
+LABEL_132:
+    IopFreeRelationList(v12);
+    if ( v10 == -2147483608 )
+      goto LABEL_53;
+    v28 = 0LL;
+    v29 = 0LL;
+LABEL_134:
+    PnpFinalizeVetoedRemove(v1, v29, v28);
+    goto LABEL_53;
+  }
+  if ( !v62 )
+    goto LABEL_17;
+  LOBYTE(v16) = v63;
+  PpProfileBeginHardwareProfileTransition(v16);
+  v34 = (int)(v64 - 1);
+  if ( (int)(v64 - 1) >= 0 )
+  {
+    v35 = v52;
+    do
+    {
+      v36 = v35[v34];
+      if ( v36 )
+        v37 = *(_QWORD *)(*(_QWORD *)(v36 + 312) + 40LL);
+      else
+        v37 = 0LL;
+      if ( *(_DWORD *)(v37 + 568) == 1 )
+        PpProfileIncludeInHardwareProfileTransition(v37, 3LL);
+      --v34;
+    }
+    while ( v34 >= 0 );
+    v12 = v54;
   }
   if ( v5 == 4 )
   {
-    if ( (*(_DWORD *)(v6 + 396) & 0x80000) != 0 || (unsigned int)(*(_DWORD *)(v6 + 568) - 3) <= 1 )
+    if ( (int)IoGetLegacyVetoList((PVOID *)&SourceString, v3) >= 0 && *v3 )
     {
-LABEL_49:
-      v18 = 0;
-      goto LABEL_50;
-    }
-    if ( (*(_DWORD *)(v6 + 560) & 0x10) == 0 )
-    {
-      v18 = -2147483608;
-      v33 = v6 + 40;
-      v34 = 8LL;
-      goto LABEL_66;
-    }
-  }
-LABEL_7:
-  VetoBuffer = PiEventAllocateVetoBuffer(v5, v10, v13);
-  v3 = (PVOID *)VetoBuffer;
-  if ( !VetoBuffer )
-  {
-LABEL_70:
-    v31 = 0LL;
-    v32 = 0LL;
-LABEL_73:
-    v11 = v1;
-    goto LABEL_74;
-  }
-  if ( (int)PnpBuildRemovalRelationList(v4, v5, VetoBuffer, &v57) < 0 )
-    goto LABEL_72;
-  v15 = v57;
-  v18 = PiEventBuildPdoList((_DWORD)v57, v5, v1, (unsigned int)&v67, (__int64)&v55, (__int64)&v65, (__int64)&v66);
-  if ( v18 >= 0 )
-  {
-    v19 = PnpResizeTargetDeviceBlock(a1, v5);
-    v1 = *a1;
-    v18 = v19;
-    if ( v19 >= 0 )
-    {
-      LOBYTE(v20) = PiEventAreDeviceRelationsExcluded(v5);
-      v18 = PnpCompileDeviceInstancePaths(v21, v15, v20, &P);
-      if ( v5 == 3 )
-        PnpBuildUnsafeRemovalDeviceList(v17, v15, &v60);
-    }
-  }
-  if ( v18 < 0 )
-  {
-    IopFreeRelationList(v15);
-    if ( v18 == -2147483608 )
-      goto LABEL_50;
-    v33 = 0LL;
-    v11 = v1;
-    v34 = 0LL;
-LABEL_66:
-    PnpFinalizeVetoedRemove(v11, v34, v33);
-    goto LABEL_50;
-  }
-  if ( v65 )
-  {
-    LOBYTE(v17) = v66;
-    PpProfileBeginHardwareProfileTransition(v17);
-    v36 = (int)(v67 - 1);
-    if ( (int)(v67 - 1) >= 0 )
-    {
-      v37 = v55;
-      do
-      {
-        v38 = v37[v36];
-        if ( v38 )
-          v39 = *(_QWORD *)(*(_QWORD *)(v38 + 312) + 40LL);
-        else
-          v39 = 0LL;
-        if ( *(_DWORD *)(v39 + 568) == 1 )
-          PpProfileIncludeInHardwareProfileTransition(v39, 3LL);
-        --v36;
-      }
-      while ( v36 >= 0 );
-      v15 = v57;
-    }
-    if ( v5 == 4 )
-    {
-      if ( (int)IoGetLegacyVetoList((PVOID *)&SourceString, v3) >= 0 && *(_DWORD *)v3 )
-      {
-        PpProfileCancelHardwareProfileTransition();
-        IopFreeRelationList(v15);
-        v41 = *(_DWORD **)(v1 + 48);
-        if ( v41 )
-          *v41 = *(_DWORD *)v3;
-        if ( *(_QWORD *)(v1 + 56) )
-        {
-          RtlInitUnicodeString(&DestinationString, SourceString);
-          RtlCopyUnicodeString(*(PUNICODE_STRING *)(v1 + 56), &DestinationString);
-        }
-        ExFreePoolWithTag((PVOID)SourceString, 0);
-        SourceString = 0LL;
-        goto LABEL_78;
-      }
-      LOBYTE(v40) = v66;
-      if ( (int)PpProfileQueryHardwareProfileChange(v40, 0LL, v3, v3 + 1) >= 0 )
-      {
-LABEL_99:
-        LOBYTE(v16) = 1;
-        PnpTrackQueryRemoveDevices(v15, v16);
-        v18 = PiProcessQueryAndCancelRemoval(v5, v1, (_DWORD)v15, v67, (__int64)v55, (__int64)v3, (__int64)&P);
-        if ( v18 < 0 )
-        {
-          if ( v65 )
-            PpProfileCancelHardwareProfileTransition();
-          PnpTrackQueryRemoveDevices(v15, 0LL);
-          IopFreeRelationList(v15);
-LABEL_50:
-          PpDevNodeUnlockTree(1);
-          if ( v18 == -1073741738 )
-          {
-LABEL_51:
-            if ( !v3 )
-              goto LABEL_32;
-            goto LABEL_30;
-          }
-          goto LABEL_27;
-        }
-        goto LABEL_18;
-      }
       PpProfileCancelHardwareProfileTransition();
-      IopFreeRelationList(v15);
-LABEL_72:
-      v32 = *(unsigned int *)v3;
-      v31 = (unsigned int *)(v3 + 1);
-      goto LABEL_73;
+      IopFreeRelationList(v12);
+      v39 = *(_DWORD **)(v1 + 48);
+      if ( v39 )
+        *v39 = *v3;
+      if ( *(_QWORD *)(v1 + 56) )
+      {
+        RtlInitUnicodeString(&DestinationString, SourceString);
+        RtlCopyUnicodeString(*(PUNICODE_STRING *)(v1 + 56), &DestinationString);
+      }
+      ExFreePoolWithTag((PVOID)SourceString, 0);
+      SourceString = 0LL;
+      goto LABEL_84;
+    }
+    LOBYTE(v38) = v63;
+    if ( (int)PpProfileQueryHardwareProfileChange(v38, 0LL, v3, v3 + 2) < 0 )
+    {
+      PpProfileCancelHardwareProfileTransition();
+      IopFreeRelationList(v12);
+      goto LABEL_79;
     }
   }
-  if ( (v5 & 0xFFFFFFFB) == 0 )
-    goto LABEL_99;
-  if ( ((v5 - 3) & 0xFFFFFFFD) != 0 )
+  else
   {
-LABEL_37:
-    PnpNotifyUserModeDeviceRemoval(v1, P, &GUID_DEVICE_REMOVE_PENDING, 0LL, 0LL, 0LL);
-    goto LABEL_22;
+LABEL_17:
+    if ( (v5 & 0xFFFFFFFB) != 0 )
+    {
+      if ( ((v5 - 3) & 0xFFFFFFFD) == 0 )
+        PnpDeleteLockedDeviceNodes((_DWORD)DeviceObject, (_DWORD)v12, 3, 0, 0, 0, 0LL, 0LL);
+      goto LABEL_20;
+    }
   }
-  PiLogSurpriseRemoveEvent(v1, v5, v15);
-  PnpDeleteLockedDeviceNodes((int)Object, (int)v15, 3, 0, 0, 0, 0LL, 0LL);
-LABEL_18:
-  if ( v5 != 3 )
-    goto LABEL_37;
-  v22 = v60;
-  if ( v60 )
+  PnpTrackQueryRemoveDevices((int)v12, 1);
+  v10 = PiProcessQueryAndCancelRemoval(v5, v1, (int)v12, v64, (__int64)v52, v3, (const void **)&P);
+  if ( v10 < 0 )
   {
-    PnpNotifyUserModeDeviceRemoval(v1, v60, &GUID_DEVICE_SURPRISE_REMOVAL, 0LL, 0LL, 0LL);
-    ExFreePoolWithTag(v22, 0x4B706E50u);
+    if ( v62 )
+      PpProfileCancelHardwareProfileTransition();
+    if ( *(_DWORD *)(v1 + 16) == 54 )
+      v10 = PiProcessCanceledRemoveForReset(v5, v1, v12, v3);
+    PnpTrackQueryRemoveDevices((int)v12, 0);
+    IopFreeRelationList(v12);
+    goto LABEL_53;
   }
-  PnpNotifyUserModeDeviceRemoval(v1, P, &GUID_TARGET_DEVICE_REMOVE_COMPLETE, 0LL, 0LL, 0LL);
-LABEL_22:
-  v23 = v67;
-  PiSendTargetDeviceRemoveCompleteNotification(v55, v67);
-  if ( (*(_DWORD *)(v6 + 704) & 0x8000) != 0 && (*(_DWORD *)(v6 + 396) & 0x10) != 0 )
-    PnpFinalizeDeviceRemovalForReset(v6, v15);
+LABEL_20:
+  if ( v5 == 3 )
+  {
+    v17 = v58;
+    if ( v58 )
+    {
+      PnpNotifyUserModeDeviceRemoval(v1, v58, &GUID_DEVICE_SURPRISE_REMOVAL, 0LL, 0LL, 0LL);
+      ExFreePoolWithTag(v17, 0x4B706E50u);
+    }
+    v18 = &GUID_TARGET_DEVICE_REMOVE_COMPLETE;
+  }
+  else
+  {
+    v18 = &GUID_DEVICE_REMOVE_PENDING;
+  }
+  PnpNotifyUserModeDeviceRemoval(v1, P, v18, 0LL, 0LL, 0LL);
+  v19 = v64;
+  PiSendTargetDeviceRemoveCompleteNotification(v5, v52, v64);
   if ( ((v5 - 2) & 0xFFFFFFFC) != 0
     || v5 == 4
-    || (LOBYTE(v24) = 1,
-        PnpInvalidateRelationsInList(v15, v5, v24, 0LL),
-        IopRemoveDeviceRelationsFromList(v15),
-        ((v5 - 3) & 0xFFFFFFFD) != 0) )
+    || (LOBYTE(v20) = 1, PnpInvalidateRelationsInList(v12, v5, v20, 0LL), IopRemoveDeviceRelationsFromList(v12), v5 != 3) )
   {
-    v27 = Object;
-    if ( *(_DWORD *)(v6 + 568) )
+    if ( v5 != 5 )
     {
-      IopQueryDockRemovalInterface(Object, &v59);
-      v2 = v59;
-      if ( v59 )
-        (*(void (__fastcall **)(_QWORD, __int64))(v59 + 32))(*(_QWORD *)(v59 + 8), 3LL);
-    }
-    if ( v5 )
-    {
-      if ( v5 != 4 )
+      v24 = DeviceObject;
+      if ( *(_DWORD *)(DeviceNode + 568) )
       {
-        LOBYTE(v25) = 0;
-LABEL_42:
-        PnpDeleteLockedDeviceNodes((int)v27, (int)v15, 2, v25, *(_DWORD *)(v1 + 16), *(_DWORD *)(v1 + 20), 0LL, 0LL);
-        v28 = *(_DWORD *)(v6 + 560) >> 3;
-        LOBYTE(v28) = (*(_DWORD *)(v6 + 560) & 8) != 0;
-        v29 = HIWORD(*(_DWORD *)(v6 + 560)) & 1;
-        v66 = v28;
-        v64 = v29;
+        IopQueryDockRemovalInterface(DeviceObject, &v56);
+        v2 = v56;
+        if ( v56 )
+          (*(void (__fastcall **)(_QWORD, __int64))(v56 + 32))(*(_QWORD *)(v56 + 8), 3LL);
+      }
+      if ( v5 )
+      {
         if ( v5 != 4 )
         {
-          PiRestartRemovalRelations(v1, (int)v15, (__int64)v27);
-          PnpUnlinkDeviceRemovalRelations(v30, v15);
-          if ( !v5 )
-            PnpTrackQueryRemoveDevices(v15, 0LL);
-          IopFreeRelationList(v15);
-          if ( v5 == 2 )
+          LOBYTE(v21) = 0;
+LABEL_45:
+          PnpDeleteLockedDeviceNodes(
+            (_DWORD)v24,
+            (_DWORD)v12,
+            2,
+            v21,
+            *(_DWORD *)(v1 + 16),
+            *(_DWORD *)(v1 + 20),
+            0LL,
+            0LL);
+          v25 = *(_DWORD *)(DeviceNode + 560) >> 3;
+          LOBYTE(v25) = (*(_DWORD *)(DeviceNode + 560) & 8) != 0;
+          v26 = HIWORD(*(_DWORD *)(DeviceNode + 560)) & 1;
+          LODWORD(v63) = v25;
+          v61 = v26;
+          if ( v5 != 4 )
           {
-            PnpNotifyUserModeDeviceRemoval(v1, P, &GUID_TARGET_DEVICE_REMOVE_COMPLETE, 0LL, 0LL, 0LL);
-          }
-          else if ( !v5
-                 && (*(_DWORD *)(v1 + 144) & 2) == 0
-                 && (*(_DWORD *)(v6 + 396) & 0x2000) != 0
-                 && *(_DWORD *)(v6 + 404) == 18 )
-          {
-            PipClearDevNodeProblem(v6);
-            PnpRestartDeviceNode(v6);
-            PnpRequestDeviceAction(*(PVOID *)(v6 + 32), 0x10u, 1, 0LL, 0LL, 0LL, 0LL);
-          }
-          goto LABEL_47;
-        }
-        if ( !(_BYTE)v28 && !v29 )
-        {
-          PnpUnlinkDeviceRemovalRelations(v28, v15);
-          PnpTrackQueryRemoveDevices(v15, 0LL);
-          IopFreeRelationList(v15);
+            PiRestartRemovalRelations(v1, (int)v12, (__int64)v24);
+            PnpUnlinkDeviceRemovalRelations(v27, v12);
+            if ( v5 )
+            {
 LABEL_47:
+              IopFreeRelationList(v12);
+              if ( v5 == 2 )
+                PnpNotifyUserModeDeviceRemoval(v1, P, &GUID_TARGET_DEVICE_REMOVE_COMPLETE, 0LL, 0LL, 0LL);
+              if ( !v5
+                && (*(_DWORD *)(v1 + 144) & 2) == 0
+                && (*(_DWORD *)(DeviceNode + 396) & 0x2000) != 0
+                && *(_DWORD *)(DeviceNode + 404) == 18 )
+              {
+                PipClearDevNodeProblem(DeviceNode);
+                PnpRestartDeviceNode(DeviceNode);
+                PnpRequestDeviceAction(*(PVOID *)(DeviceNode + 32), 16, 1, 0LL, 0LL, 0LL, 0LL);
+              }
+              if ( v2 )
+              {
+                (*(void (__fastcall **)(_QWORD, __int64))(v2 + 32))(*(_QWORD *)(v2 + 8), 1LL);
+                (*(void (__fastcall **)(_QWORD))(v2 + 24))(*(_QWORD *)(v2 + 8));
+              }
+              goto LABEL_52;
+            }
+LABEL_64:
+            PnpTrackQueryRemoveDevices((int)v12, 0);
+            goto LABEL_47;
+          }
+          if ( !(_BYTE)v25 && !v26 )
+          {
+            PnpUnlinkDeviceRemovalRelations(v25, v12);
+            goto LABEL_64;
+          }
+          v65 = 0;
+          v64 = 1;
+          while ( (unsigned __int8)IopEnumerateRelations((_DWORD)v12, (unsigned int)&v64, (unsigned int)&v57, 0, 0LL) )
+          {
+            if ( v57 )
+              v40 = *(_QWORD *)(*(_QWORD *)(v57 + 312) + 40LL);
+            else
+              v40 = 0LL;
+            if ( v40 )
+            {
+              PipSetDevNodeFlags(v40, 0x80000);
+              v41 = *(_QWORD *)(v40 + 696);
+              v56 = v41;
+              if ( v41 )
+              {
+                IopFreeRelationList(*(PVOID *)(v41 + 64));
+                *(_QWORD *)(v56 + 64) = 0LL;
+                *(_QWORD *)(v40 + 696) = 0LL;
+              }
+            }
+          }
+          PnpUnlinkDeviceRemovalRelations(v42, v12);
+          LOBYTE(v43) = v62;
+          PendingEjectRelations = PiEventAllocatePendingEjectRelations(v1, v12, v43, v2);
+          v49 = (_QWORD *)PendingEjectRelations;
+          if ( PendingEjectRelations )
+          {
+            LOBYTE(v47) = v61;
+            LOBYTE(v45) = v63;
+            LOBYTE(v46) = v62;
+            *(_QWORD *)(DeviceNode + 696) = PendingEjectRelations;
+            LightestSystemStateForEject = PoGetLightestSystemStateForEject(v46, v45, v47, PendingEjectRelations + 92);
+            if ( LightestSystemStateForEject >= 0 )
+            {
+              PpDevNodeUnlockTree(1);
+              IopEjectDevice(DeviceObject);
+              v10 = 259;
+LABEL_54:
+              if ( v10 == -1073741738 )
+                goto LABEL_32;
+              goto LABEL_28;
+            }
+            v33 = 0LL;
+            if ( LightestSystemStateForEject == -1073741090 )
+              v33 = 9LL;
+            PnpFinalizeVetoedRemove(v1, v33, 0LL);
+            v49[6] = 0LL;
+            *((_BYTE *)v49 + 89) = 0;
+            v49[1] = v49;
+            *v49 = v49;
+            PnpProcessCompletedEject(v49);
+            goto LABEL_84;
+          }
           if ( v2 )
           {
             (*(void (__fastcall **)(_QWORD, __int64))(v2 + 32))(*(_QWORD *)(v2 + 8), 1LL);
             (*(void (__fastcall **)(_QWORD))(v2 + 24))(*(_QWORD *)(v2 + 8));
           }
-          goto LABEL_49;
+          if ( v62 )
+            PpProfileCancelHardwareProfileTransition();
+          LOBYTE(v48) = 1;
+          PnpInvalidateRelationsInList(v12, 4LL, 0LL, v48);
+          PnpTrackQueryRemoveDevices((int)v12, 0);
+          IopFreeRelationList(v12);
+LABEL_78:
+          v31 = 0LL;
+          v32 = 0LL;
+LABEL_80:
+          PnpFinalizeVetoedRemove(v1, v32, v31);
+LABEL_84:
+          v10 = -2147483608;
+          goto LABEL_53;
         }
-        v68 = 0;
-        v67 = 1;
-        while ( (unsigned __int8)IopEnumerateRelations((_DWORD)v15, (unsigned int)&v67, (unsigned int)&v61, 0, 0LL) )
-        {
-          if ( v61 )
-          {
-            v43 = *(_QWORD *)(v61 + 312);
-            v44 = *(_QWORD *)(v43 + 40);
-            if ( v44 )
-            {
-              PipSetDevNodeFlags(*(_QWORD *)(v43 + 40), 0x80000);
-              v45 = *(_QWORD *)(v44 + 696);
-              v59 = v45;
-              if ( v45 )
-              {
-                IopFreeRelationList(*(PVOID *)(v45 + 64));
-                *(_QWORD *)(v59 + 64) = 0LL;
-                *(_QWORD *)(v44 + 696) = 0LL;
-              }
-            }
-          }
-        }
-        PnpUnlinkDeviceRemovalRelations(v42, v15);
-        LOBYTE(v46) = v65;
-        PendingEjectRelations = PiEventAllocatePendingEjectRelations(v1, v15, v46, v2);
-        v52 = (_QWORD *)PendingEjectRelations;
-        if ( PendingEjectRelations )
-        {
-          LOBYTE(v50) = v64;
-          LOBYTE(v48) = v66;
-          LOBYTE(v49) = v65;
-          *(_QWORD *)(v6 + 696) = PendingEjectRelations;
-          LightestSystemStateForEject = PoGetLightestSystemStateForEject(v49, v48, v50, PendingEjectRelations + 92);
-          if ( LightestSystemStateForEject >= 0 )
-          {
-            PpDevNodeUnlockTree(1);
-            IopEjectDevice(Object);
-            v18 = 259;
-            goto LABEL_30;
-          }
-          v35 = 0LL;
-          if ( LightestSystemStateForEject == -1073741090 )
-            v35 = 9LL;
-          PnpFinalizeVetoedRemove(v1, v35, 0LL);
-          v52[6] = 0LL;
-          *((_BYTE *)v52 + 89) = 0;
-          v52[1] = v52;
-          *v52 = v52;
-          PnpProcessCompletedEject(v52);
-          goto LABEL_78;
-        }
-        if ( v2 )
-        {
-          (*(void (__fastcall **)(_QWORD, __int64))(v2 + 32))(*(_QWORD *)(v2 + 8), 1LL);
-          (*(void (__fastcall **)(_QWORD))(v2 + 24))(*(_QWORD *)(v2 + 8));
-        }
-        if ( v65 )
-          PpProfileCancelHardwareProfileTransition();
-        LOBYTE(v51) = 1;
-        PnpInvalidateRelationsInList(v15, 4LL, 0LL, v51);
-        PnpTrackQueryRemoveDevices(v15, 0LL);
-        IopFreeRelationList(v15);
-        goto LABEL_70;
       }
+      else
+      {
+        PipSetDevNodeFlags(DeviceNode, 0x2000000);
+      }
+      LOBYTE(v21) = 1;
+      goto LABEL_45;
     }
-    else
-    {
-      PipSetDevNodeFlags(v6, 0x2000000);
-    }
-    LOBYTE(v25) = 1;
-    goto LABEL_42;
   }
-  PiEventRemovalPostSurpriseRemove(v1, v5, &v57);
+  PiEventRemovalPostSurpriseRemove(v1, v5, &v54);
   PpDevNodeUnlockTree(1);
-  PnpIsChainDereferenced(v55, v23, 0, 1u, 0LL);
-  v18 = 0;
-LABEL_27:
-  if ( v5 == 4 )
-    goto LABEL_51;
-  if ( !v3 )
+  PnpIsChainDereferenced(v52, v19, 0, 1u, 0LL);
+  v10 = 0;
+LABEL_28:
+  if ( v5 != 4 )
   {
-    PnpRecordBlackboxPnpEventInformation(v1, v5, 0LL, 0LL);
-    goto LABEL_32;
-  }
-  PnpRecordBlackboxPnpEventInformation(v1, v5, v3, 0LL);
-LABEL_30:
-  if ( !PnpShutdownEvent.Header.SignalState )
-  {
-    ExFreePoolWithTag(v3[2], 0x4D706E50u);
-    v3[2] = 0LL;
-    ExFreePoolWithTag(v3, 0x4D706E50u);
+    if ( v3 )
+      v22 = v3;
+    else
+      v22 = 0LL;
+    PnpRecordBlackboxPnpEventInformation(v1, v5, v22, 0LL);
   }
 LABEL_32:
+  if ( v3 && !PnpShutdownEvent.Header.SignalState )
+  {
+    ExFreePoolWithTag(*((PVOID *)v3 + 2), 0x4D706E50u);
+    *((_QWORD *)v3 + 2) = 0LL;
+    ExFreePoolWithTag(v3, 0x4D706E50u);
+  }
   if ( P )
     ExFreePoolWithTag(P, 0);
-  if ( v55 )
-    ExFreePoolWithTag(v55, 0);
-  return (unsigned int)v18;
+  if ( v52 )
+    ExFreePoolWithTag(v52, 0);
+  return (unsigned int)v10;
 }

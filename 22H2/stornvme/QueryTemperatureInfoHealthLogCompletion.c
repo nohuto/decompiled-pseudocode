@@ -1,108 +1,100 @@
 /*
- * XREFs of QueryTemperatureInfoHealthLogCompletion @ 0x1C0019980
+ * XREFs of QueryTemperatureInfoHealthLogCompletion @ 0x1C00167E0
  * Callers:
  *     <none>
  * Callees:
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     ProcessCommand @ 0x1C0002360 (ProcessCommand.c)
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     BuildGetFeaturesTemperatureThresholdCommand @ 0x1C0010E4C (BuildGetFeaturesTemperatureThresholdCommand.c)
- *     KelvinToCelsius @ 0x1C0014B64 (KelvinToCelsius.c)
+ *     ProcessCommand @ 0x1C0002C00 (ProcessCommand.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     BuildGetFeaturesTemperatureThresholdCommand @ 0x1C0011070 (BuildGetFeaturesTemperatureThresholdCommand.c)
+ *     KelvinToCelsius @ 0x1C0013E44 (KelvinToCelsius.c)
  */
 
 __int64 __fastcall QueryTemperatureInfoHealthLogCompletion(__int64 a1, __int64 a2)
 {
-  __int64 SrbExtension; // rax
-  __int64 v5; // rbx
   __int64 result; // rax
-  __int64 v7; // rdi
-  __int16 v8; // cx
-  __int16 v9; // ax
-  __int64 v10; // r9
-  __int64 v11; // r11
-  __int16 v12; // dx
-  _WORD *v13; // rax
-  unsigned __int64 v14; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rbx
+  __int64 v7; // r8
+  __int16 *v8; // r14
+  __int16 v9; // cx
+  __int16 v10; // ax
+  __int64 v11; // r8
+  __int64 v12; // r11
+  __int16 v13; // dx
+  _WORD *v14; // rax
   unsigned __int16 v15; // dx
-  unsigned __int16 v16; // r10
-  __int16 *v17; // r11
-  unsigned int *v18; // r14
-  __int64 v19; // r8
-  __int16 v20; // ax
-  __int64 v21; // r11
-  __int64 v22; // r8
-  __int16 v23; // r10
-  unsigned __int16 v24; // dx
-  unsigned int v25; // [rsp+68h] [rbp+10h]
-  unsigned int *v26; // [rsp+78h] [rbp+20h] BYREF
+  __int16 *v16; // r14
+  unsigned __int16 v17; // r10
+  __int64 v18; // r9
+  __int16 v19; // ax
+  __int64 v20; // r9
+  __int16 v21; // r10
+  unsigned __int16 v22; // dx
+  unsigned int v23; // [rsp+58h] [rbp+10h]
 
-  SrbExtension = GetSrbExtension(a2);
-  v26 = 0LL;
-  v5 = SrbExtension;
-  result = GetSrbDataBuffer(a2, &v26);
-  v7 = v5 + 4200;
-  if ( *(_BYTE *)(a2 + 3) == 1 )
+  result = GetSrbExtension(a2);
+  v6 = result;
+  if ( *(_BYTE *)(v5 + 2) == 40 )
+    v7 = *(_QWORD *)(v5 + 64);
+  else
+    v7 = *(_QWORD *)(v5 + 24);
+  if ( *(_BYTE *)(v5 + 3) == 1 )
   {
-    HIBYTE(v25) = 0;
-    v8 = *(_WORD *)(*(_QWORD *)v7 + 1LL);
-    *(_WORD *)(result + 52) = 0;
-    v9 = KelvinToCelsius(v8);
-    *(_WORD *)(v10 + 54) = v9;
-    v12 = 8;
-    v13 = (_WORD *)(v11 + 214);
-    *(_DWORD *)(v10 + 56) = -2147450880;
+    v8 = *(__int16 **)(result + 4200);
+    HIBYTE(v23) = 0;
+    v9 = *(__int16 *)((char *)v8 + 1);
+    *(_WORD *)(v7 + 52) = 0;
+    v10 = KelvinToCelsius(v9);
+    *(_WORD *)(v11 + 54) = v10;
+    v13 = 8;
+    v14 = v8 + 107;
+    *(_DWORD *)(v11 + 56) = -2147450880;
     do
     {
-      if ( *v13 )
+      if ( *v14 )
         break;
+      --v14;
       --v13;
-      --v12;
     }
-    while ( v12 );
-    v14 = *(unsigned int *)(v10 + 32);
-    v15 = v12 + 1;
-    v16 = 1;
-    *(_WORD *)(v10 + 40) = v15;
-    if ( v14 <= 16 * (unsigned __int64)v15 + 24 )
-      LODWORD(v14) = 16 * v15 + 24;
-    v17 = (__int16 *)(v11 + 200);
-    *(_DWORD *)(v10 + 32) = v14;
+    while ( v13 );
+    v15 = v13 + 1;
+    v16 = v8 + 100;
+    *(_WORD *)(v11 + 40) = v15;
+    v17 = 1;
     if ( v15 > 1u )
     {
-      v18 = v26;
       do
       {
-        v19 = 16LL * v16;
-        if ( *v18 < (unsigned __int64)(v19 + 40) )
+        v18 = 16LL * v17;
+        if ( *(unsigned int *)(a2 + v12) < (unsigned __int64)(v18 + 40) )
           break;
-        *(_WORD *)(v19 + v10 + 52) = v16;
-        v20 = KelvinToCelsius(*v17);
-        v17 = (__int16 *)(v21 + 2);
-        *(_WORD *)(v22 + v10 + 54) = v20;
-        v16 = v23 + 1;
-        *(_DWORD *)(v22 + v10 + 56) = -2147450880;
+        *(_WORD *)(v18 + v11 + 52) = v17;
+        v19 = KelvinToCelsius(*v16++);
+        *(_WORD *)(v20 + v11 + 54) = v19;
+        v17 = v21 + 1;
+        *(_DWORD *)(v20 + v11 + 56) = -2147450880;
       }
-      while ( v16 < v24 );
+      while ( v17 < v22 );
     }
-    LOBYTE(v25) = v16 - 1;
-    *(_WORD *)((char *)&v25 + 1) = 0;
-    *(_BYTE *)(v5 + 4253) = *(_BYTE *)(v5 + 4253) & 0xFC | 1;
+    LOBYTE(v23) = v17 - 1;
+    *(_WORD *)((char *)&v23 + 1) = 0;
+    *(_BYTE *)(v6 + 4253) = *(_BYTE *)(v6 + 4253) & 0xFC | 1;
     SrbAssignQueueId(a1, a2);
-    BuildGetFeaturesTemperatureThresholdCommand(v5 + 4096, 0, 0);
-    *(_BYTE *)(v5 + 4253) &= ~4u;
-    *(_QWORD *)(v5 + 4224) = QueryTemperatureThresholdCompletion;
-    *(_QWORD *)(v5 + 4232) = v25;
+    BuildGetFeaturesTemperatureThresholdCommand(v6 + 4096, 0, 0);
+    *(_BYTE *)(v6 + 4253) &= ~4u;
+    *(_QWORD *)(v6 + 4224) = QueryTemperatureThresholdCompletion;
+    *(_QWORD *)(v6 + 4232) = v23;
     result = ProcessCommand(a1, a2);
   }
   else
   {
-    *(_BYTE *)(v5 + 4253) |= 8u;
+    *(_BYTE *)(result + 4253) |= 8u;
   }
-  if ( *(_QWORD *)v7 )
-    result = NVMeFreeDmaBuffer(a1, *(unsigned int *)(v5 + 4240), (__int64 *)(v5 + 4200), *(_QWORD *)(v5 + 4208));
-  *(_DWORD *)(v5 + 4240) = 0;
-  *(_QWORD *)v7 = 0LL;
+  if ( *(_QWORD *)(v6 + 4200) )
+    result = NVMeFreeDmaBuffer(a1, *(unsigned int *)(v6 + 4240), (__int64 *)(v6 + 4200), *(_QWORD *)(v6 + 4208));
+  *(_DWORD *)(v6 + 4240) = 0;
+  *(_QWORD *)(v6 + 4200) = 0LL;
   return result;
 }

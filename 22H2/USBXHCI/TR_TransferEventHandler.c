@@ -1,14 +1,14 @@
 /*
- * XREFs of TR_TransferEventHandler @ 0x1C0041BD4
+ * XREFs of TR_TransferEventHandler @ 0x1C003F6C0
  * Callers:
- *     Interrupter_DeferredWorkProcessor @ 0x1C0008C10 (Interrupter_DeferredWorkProcessor.c)
- *     Endpoint_TransferEventHandler @ 0x1C0009BD0 (Endpoint_TransferEventHandler.c)
+ *     Interrupter_DeferredWorkProcessor @ 0x1C0006130 (Interrupter_DeferredWorkProcessor.c)
+ *     Endpoint_TransferEventHandler @ 0x1C0006860 (Endpoint_TransferEventHandler.c)
  * Callees:
- *     Control_ProcessTransferEventWithED1 @ 0x1C0006870 (Control_ProcessTransferEventWithED1.c)
- *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DAF4 (Bulk_ProcessTransferEventWithED0.c)
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011354 (Bulk_ProcessTransferEventWithED1.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Control_ProcessTransferEventWithED0 @ 0x1C0042874 (Control_ProcessTransferEventWithED0.c)
+ *     Control_ProcessTransferEventWithED1 @ 0x1C0004BB0 (Control_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DBF8 (Bulk_ProcessTransferEventWithED0.c)
+ *     Control_ProcessTransferEventWithED0 @ 0x1C0019120 (Control_ProcessTransferEventWithED0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall TR_TransferEventHandler(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -17,13 +17,13 @@ char __fastcall TR_TransferEventHandler(__int64 a1, __int64 a2, __int64 a3, int 
     return (*(__int64 (**)(void))(*(_QWORD *)(a2 + 32) + 88LL))();
   if ( (*(_DWORD *)a1 & 3) != 0 )
   {
-    if ( (*(_DWORD *)a1 & 3) == 1 || (*(_DWORD *)a1 & 3u) - 2 > 1 )
+    if ( (*(_DWORD *)a1 & 3u) <= 1uLL )
     {
       return 0;
     }
     else if ( (*(_DWORD *)(a1 + 12) & 4) != 0 )
     {
-      return Bulk_ProcessTransferEventWithED1((__int64 *)a1, 0LL, a3, a4);
+      return Bulk_ProcessTransferEventWithED1(a1, 0LL, a3, a4);
     }
     else
     {

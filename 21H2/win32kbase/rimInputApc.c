@@ -1,322 +1,343 @@
 /*
- * XREFs of rimInputApc @ 0x1C00C06F0
+ * XREFs of rimInputApc @ 0x1C01746A0
  * Callers:
  *     <none>
  * Callees:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0003B78 (rimProcessDeviceBufferAndStartRead.c)
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C0037FE8 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C0038050 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003D298 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C004763C (--1ApiSetEditionCrit@@QEAA@XZ.c)
- *     ??0ApiSetEditionCrit@@QEAA@H@Z @ 0x1C0047C7C (--0ApiSetEditionCrit@@QEAA@H@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqd @ 0x1C004AB80 (WPP_RECORDER_AND_TRACE_SF_qqd.c)
- *     RIMStartDeviceSpecificRead @ 0x1C004AF3C (RIMStartDeviceSpecificRead.c)
- *     ??$Write@U?$_tlgWrapSz@G@@U1@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@G@@3AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C004B348 (--$Write@U-$_tlgWrapSz@G@@U1@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
- *     RimDeviceTypeToRimInputTypeString @ 0x1C004DC2C (RimDeviceTypeToRimInputTypeString.c)
- *     EtwTraceCompleteInputDeviceRead @ 0x1C00C0880 (EtwTraceCompleteInputDeviceRead.c)
- *     RIMApplyPTPConfigRemedy @ 0x1C00E75AE (RIMApplyPTPConfigRemedy.c)
- *     ?DbgPrintGDI@@YAXPEADZZ @ 0x1C0167EA0 (-DbgPrintGDI@@YAXPEADZZ.c)
- *     ?PointerDeviceTypeToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C017E504 (-PointerDeviceTypeToString@InputTraceLogging@@CAPEBDK@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@3@Z @ 0x1C01A8B24 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@344@Z @ 0x1C01A8BB8 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@U2@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@444@Z @ 0x1C01A8C5C (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U2@U2@U2@@-$_tlgW.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C00413C0 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C00414F4 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004B460 (WPP_RECORDER_SF_qq.c)
+ *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C0053D5C (--1ApiSetEditionCrit@@QEAA@XZ.c)
+ *     ??0ApiSetEditionCrit@@QEAA@HH@Z @ 0x1C0054218 (--0ApiSetEditionCrit@@QEAA@HH@Z.c)
+ *     ?UnLockExclusive@CInpPushLock@@QEAAXXZ @ 0x1C0058230 (-UnLockExclusive@CInpPushLock@@QEAAXXZ.c)
+ *     RIMStartDeviceSpecificRead @ 0x1C006A2E8 (RIMStartDeviceSpecificRead.c)
+ *     WPP_RECORDER_SF_qqd @ 0x1C00ABD64 (WPP_RECORDER_SF_qqd.c)
+ *     RimDeviceTypeToRimInputTypeString @ 0x1C00AC634 (RimDeviceTypeToRimInputTypeString.c)
+ *     EtwTraceCompleteInputDeviceRead @ 0x1C00B75E0 (EtwTraceCompleteInputDeviceRead.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DbgPrintGDI@@YAXPEADZZ @ 0x1C013A7B0 (-DbgPrintGDI@@YAXPEADZZ.c)
+ *     ??$Write@U?$_tlgWrapSz@G@@U1@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@G@@3AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C014EDA8 (--$Write@U-$_tlgWrapSz@G@@U1@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
+ *     ?PointerDeviceTypeToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C0151434 (-PointerDeviceTypeToString@InputTraceLogging@@CAPEBDK@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@3@Z @ 0x1C017378C (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@344@Z @ 0x1C0173820 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@U2@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@444@Z @ 0x1C01738C4 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U2@U2@U2@@-$_tlgW.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175130 (rimProcessDeviceBufferAndStartRead.c)
+ *     RIMApplyPTPConfigRemedy @ 0x1C018195C (RIMApplyPTPConfigRemedy.c)
  */
 
-void __fastcall rimInputApc(char *ApcContext, PIO_STATUS_BLOCK IoStatusBlock, ULONG Reserved)
+void __fastcall rimInputApc(char *ApcContext, PIO_STATUS_BLOCK IoStatusBlock, ULONG Reserved, __int64 a4)
 {
-  __int64 v5; // rdx
   __int64 v6; // rcx
   __int64 v7; // r8
   NTSTATUS Status; // esi
-  __int64 v9; // rdx
-  __int64 v10; // rcx
+  char v9; // al
+  int v10; // r12d
   __int64 v11; // r8
-  char v12; // al
-  __int64 v13; // rdi
-  _BOOL8 v14; // rdx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  int v18; // r12d
-  int v19; // r9d
-  void *v20; // rdx
+  __int64 v12; // r9
+  __int64 v13; // r8
+  __int64 v14; // rax
+  int v15; // ecx
+  int v16; // edx
+  __int64 v17; // rax
+  bool v18; // zf
+  int v19; // eax
+  __int64 v20; // r8
   __int64 v21; // r9
-  __int64 v22; // rcx
-  BOOL v23; // eax
-  int v24; // r9d
-  __int64 v25; // rcx
-  unsigned int v26; // eax
-  char v27; // cl
-  int v28; // edx
-  __int64 v29; // r8
+  __int64 v22; // r8
+  __int64 v23; // r9
+  __int64 v24; // rax
+  int v25; // ecx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  __int64 v28; // rdi
+  BOOL v29; // edx
   int v30; // edx
-  __int64 v31; // rcx
-  __int64 v32; // r8
-  __int64 v33; // r9
+  unsigned int v31; // eax
+  char v32; // cl
+  int v33; // edx
   int v34; // edx
-  int v35; // r8d
-  int v36; // edx
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // r9
-  __int64 v40; // [rsp+60h] [rbp-9h] BYREF
-  __int64 v41; // [rsp+68h] [rbp-1h] BYREF
-  __int64 v42; // [rsp+70h] [rbp+7h] BYREF
-  __int64 Information; // [rsp+78h] [rbp+Fh] BYREF
-  __int64 *v44[8]; // [rsp+80h] [rbp+17h] BYREF
-  __int64 v45; // [rsp+D0h] [rbp+67h] BYREF
-  __int64 v46; // [rsp+D8h] [rbp+6Fh] BYREF
-  __int64 v47; // [rsp+E8h] [rbp+7Fh] BYREF
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  __int64 v37; // r9
+  int v38; // edx
+  int v39; // edx
+  __int64 v40; // rcx
+  __int64 v41; // r8
+  __int64 v42; // r9
+  int v43; // [rsp+60h] [rbp-79h] BYREF
+  NTSTATUS v44; // [rsp+64h] [rbp-75h] BYREF
+  int v45; // [rsp+68h] [rbp-71h] BYREF
+  int v46; // [rsp+6Ch] [rbp-6Dh] BYREF
+  NTSTATUS v47; // [rsp+70h] [rbp-69h] BYREF
+  NTSTATUS v48; // [rsp+74h] [rbp-65h] BYREF
+  NTSTATUS v49; // [rsp+78h] [rbp-61h] BYREF
+  NTSTATUS v50; // [rsp+7Ch] [rbp-5Dh] BYREF
+  ULONG_PTR v51; // [rsp+80h] [rbp-59h] BYREF
+  char *v52; // [rsp+88h] [rbp-51h] BYREF
+  __int64 v53; // [rsp+90h] [rbp-49h] BYREF
+  __int64 v54; // [rsp+98h] [rbp-41h] BYREF
+  __int64 v55; // [rsp+A0h] [rbp-39h] BYREF
+  ULONG_PTR Information; // [rsp+A8h] [rbp-31h] BYREF
+  char *v57; // [rsp+B0h] [rbp-29h] BYREF
+  ULONG_PTR v58; // [rsp+B8h] [rbp-21h] BYREF
+  char *v59; // [rsp+C0h] [rbp-19h] BYREF
+  const WCHAR *v60; // [rsp+C8h] [rbp-11h] BYREF
+  const WCHAR *v61; // [rsp+D0h] [rbp-9h] BYREF
+  const WCHAR *v62; // [rsp+D8h] [rbp-1h] BYREF
+  const WCHAR *v63; // [rsp+E0h] [rbp+7h] BYREF
+  char v64[8]; // [rsp+E8h] [rbp+Fh] BYREF
+  __int64 *v65[8]; // [rsp+F0h] [rbp+17h] BYREF
+  NTSTATUS v66; // [rsp+140h] [rbp+67h] BYREF
+  __int64 v67; // [rsp+148h] [rbp+6Fh] BYREF
+  __int64 v68; // [rsp+158h] [rbp+7Fh] BYREF
 
-  InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(v44, "InputApc", 0LL);
+  InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(v65, "InputApc", 0LL, a4);
   if ( ApcContext + 256 != (char *)IoStatusBlock )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v7);
+  {
+    v66 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1315);
+  }
   LOBYTE(v6) = ApcContext[48];
   *(struct _IO_STATUS_BLOCK *)(ApcContext + 152) = *IoStatusBlock;
   Status = IoStatusBlock->Status;
-  EtwTraceCompleteInputDeviceRead(v6, (unsigned int)IoStatusBlock->Status);
-  v12 = ApcContext[48];
-  if ( v12 )
+  EtwTraceCompleteInputDeviceRead(v6, IoStatusBlock->Status, v7);
+  v9 = ApcContext[48];
+  v10 = 1;
+  if ( v9 )
   {
-    if ( v12 == 2 )
+    if ( v9 == 2 )
     {
       if ( (*((_DWORD *)ApcContext + 50) & 0x80u) == 0 )
       {
-        if ( (unsigned int)dword_1C028EE70 > 4 && tlgKeywordOn((__int64)&dword_1C028EE70, 256LL) )
+        if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 256LL) )
         {
-          v25 = *((_QWORD *)ApcContext + 58);
-          LODWORD(v45) = *(unsigned __int16 *)(v25 + 18);
-          LODWORD(v46) = *(unsigned __int16 *)(v25 + 16);
+          v24 = *((_QWORD *)ApcContext + 59);
+          v25 = *(unsigned __int16 *)(v24 + 16);
+          v45 = *(unsigned __int16 *)(v24 + 18);
           Information = IoStatusBlock->Information;
-          LODWORD(v47) = IoStatusBlock->Status;
-          v42 = (__int64)ApcContext;
+          v47 = IoStatusBlock->Status;
+          v46 = v25;
+          v57 = ApcContext;
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-            (unsigned int)&dword_1C028EE70,
-            (unsigned int)&unk_1C025E9A0,
-            v11,
-            v24,
-            (__int64)&v42,
+            (__int64)&dword_1C024BA90,
+            byte_1C021CC37,
+            v22,
+            v23,
+            (__int64)&v57,
             (__int64)&v47,
             (__int64)&Information,
             (__int64)&v46,
             (__int64)&v45);
         }
       }
-      else
+      else if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 256LL) )
       {
-        v11 = *(_QWORD *)(*((_QWORD *)ApcContext + 59) + 760LL);
-        if ( (unsigned int)dword_1C028EE70 > 4 && tlgKeywordOn((__int64)&dword_1C028EE70, 256LL) )
-        {
-          v22 = *((_QWORD *)ApcContext + 58);
-          LODWORD(v45) = *(unsigned __int16 *)(v22 + 18);
-          LODWORD(v46) = *(unsigned __int16 *)(v22 + 16);
-          v23 = !v11 || !*(_DWORD *)(v11 + 36);
-          LODWORD(v47) = v23;
-          v41 = (__int64)InputTraceLogging::PointerDeviceTypeToString(*(_DWORD *)(v21 + 24));
-          v42 = IoStatusBlock->Information;
-          LODWORD(v40) = IoStatusBlock->Status;
-          Information = (__int64)ApcContext;
-          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-            (int)&dword_1C028EE70,
-            (__int64)&Information,
-            (__int64)&v40,
-            (__int64)&v42,
-            (__int64)&v41,
-            (__int64)&v47,
-            (__int64)&v46,
-            (__int64)&v45);
-        }
+        v14 = *((_QWORD *)ApcContext + 59);
+        v15 = *(unsigned __int16 *)(v14 + 18);
+        v16 = *(unsigned __int16 *)(v14 + 16);
+        v17 = *(_QWORD *)(v13 + 712);
+        if ( !v17 || (v18 = *(_DWORD *)(v17 + 36) == 0, v19 = 0, v18) )
+          v19 = 1;
+        LODWORD(v67) = v15;
+        v43 = v19;
+        LODWORD(v68) = v16;
+        v53 = (__int64)InputTraceLogging::PointerDeviceTypeToString(*(_DWORD *)(v13 + 24));
+        v54 = IoStatusBlock->Information;
+        v44 = IoStatusBlock->Status;
+        v55 = (__int64)ApcContext;
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+          (__int64)&dword_1C024BA90,
+          byte_1C021CC89,
+          v20,
+          v21,
+          (__int64)&v55,
+          (__int64)&v44,
+          (__int64)&v54,
+          (void **)&v53,
+          (__int64)&v43,
+          (__int64)&v68,
+          (__int64)&v67);
       }
     }
-    else if ( (unsigned int)dword_1C028EE70 > 4 && v12 == 1 && tlgKeywordOn((__int64)&dword_1C028EE70, 256LL) )
+    else if ( v9 == 1 && (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 256LL) )
     {
-      v20 = &unk_1C025EA65;
-      goto LABEL_43;
+      v58 = IoStatusBlock->Information;
+      v48 = IoStatusBlock->Status;
+      v59 = ApcContext;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
+        (__int64)&dword_1C024BA90,
+        byte_1C021CBF2,
+        v26,
+        v27,
+        (__int64)&v59,
+        (__int64)&v48,
+        (__int64)&v58);
     }
   }
-  else if ( (unsigned int)dword_1C028EE70 > 4 && tlgKeywordOn((__int64)&dword_1C028EE70, 256LL) )
+  else if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 256LL) )
   {
-    v20 = &unk_1C025E95E;
-LABEL_43:
-    v46 = IoStatusBlock->Information;
-    LODWORD(v45) = IoStatusBlock->Status;
-    v47 = (__int64)ApcContext;
+    v51 = IoStatusBlock->Information;
+    v66 = IoStatusBlock->Status;
+    v52 = ApcContext;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
-      (unsigned int)&dword_1C028EE70,
-      (_DWORD)v20,
+      (__int64)&dword_1C024BA90,
+      byte_1C021CBB0,
       v11,
-      v19,
-      (__int64)&v47,
-      (__int64)&v45,
-      (__int64)&v46);
+      v12,
+      (__int64)&v52,
+      (__int64)&v66,
+      (__int64)&v51);
   }
-  v13 = *((_QWORD *)ApcContext + 42);
-  if ( *(_BYTE *)(v13 + 81) || *(_BYTE *)(v13 + 80) )
-    goto LABEL_23;
-  if ( ApcContext + 256 != (char *)IoStatusBlock )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, v9, v11);
-  v14 = ApcContext[48] == 2
-     && ((*((_DWORD *)ApcContext + 46) & 0x20000) != 0 || (*((_DWORD *)ApcContext + 50) & 0x80u) != 0);
-  ApiSetEditionCrit::ApiSetEditionCrit((ApiSetEditionCrit *)&Information, v14, v11);
-  if ( Status >= 0 && (ApcContext[48] != 2 || (*((_DWORD *)ApcContext + 50) & 0x80u) == 0) )
+  v28 = *((_QWORD *)ApcContext + 42);
+  if ( !*(_BYTE *)(v28 + 81) && !*(_BYTE *)(v28 + 80) )
   {
-    v18 = 0;
-    goto LABEL_16;
-  }
-  v18 = 1;
-  if ( !*(_QWORD *)(v13 + 864) || *(_BYTE *)(v13 + 808) )
-    goto LABEL_13;
-  if ( !gDebugPhoneInitRace )
-  {
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v16, v15, v17);
-LABEL_13:
-    if ( !gDebugPhoneInitRace )
-      gDebugPhoneInitRace = 1;
-  }
-  RIMLockExclusive(v13 + 104);
-LABEL_16:
-  if ( *((_QWORD *)ApcContext + 28) )
-  {
-    RIMLockExclusive(v13 + 792);
-    v26 = *((_DWORD *)ApcContext + 46) & 0xFFFFFF7F;
-    *((_DWORD *)ApcContext + 46) = v26;
-    if ( Status < 0 )
+    if ( ApcContext + 256 != (char *)IoStatusBlock )
     {
-      if ( (v26 & 8) == 0 && Status != -1073741536 )
+      v66 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1330);
+    }
+    v29 = ApcContext[48] == 2
+       && ((*((_DWORD *)ApcContext + 46) & 0x8000) != 0 || (*((_DWORD *)ApcContext + 50) & 0x80u) != 0);
+    ApiSetEditionCrit::ApiSetEditionCrit((ApiSetEditionCrit *)v64, v29, 0);
+    if ( Status >= 0 && (ApcContext[48] != 2 || (*((_DWORD *)ApcContext + 50) & 0x80u) == 0) )
+    {
+      v10 = 0;
+LABEL_42:
+      if ( *((_QWORD *)ApcContext + 28) )
       {
-        v27 = ApcContext[205];
-        ApcContext[205] = v27 + 1;
-        if ( (unsigned __int8)v27 >= 5u )
+        RIMLockExclusive(v28 + 568);
+        v31 = *((_DWORD *)ApcContext + 46) & 0xFFFFFF7F;
+        *((_DWORD *)ApcContext + 46) = v31;
+        if ( Status < 0 )
         {
-          DbgPrintGDI(
-            ":rimInputApc [pRimObj:%p, pRimDev:%p] Status: %08x..not retrying read as maximum nretryErrorCompletion reached\n",
-            (const void *)v13,
-            ApcContext,
-            Status);
-          LOBYTE(v34) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                     && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                     && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          if ( (_BYTE)v34 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          if ( (v31 & 8) == 0 && Status != -1073741536 )
           {
-            LOBYTE(v35) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_qqd(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v34,
-              v35,
-              (_DWORD)gRimLog,
-              4,
-              1,
-              25,
-              (__int64)&WPP_a2b4b56089d43a30275be3b006f568a3_Traceguids,
-              v13,
-              (char)ApcContext,
-              Status);
-          }
-          if ( (unsigned int)dword_1C028D610 > 5 && tlgKeywordOn((__int64)&dword_1C028D610, 0x400000000000LL) )
-          {
-            v36 = (unsigned __int8)ApcContext[48];
-            v46 = *((_QWORD *)ApcContext + 27);
-            LODWORD(v45) = Status;
-            v47 = (__int64)RimDeviceTypeToRimInputTypeString((__int64)ApcContext, v36);
-            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>>(
-              v37,
-              (int)&unk_1C025E8B2,
-              v38,
-              v39,
-              (const WCHAR **)&v47,
-              (const WCHAR **)&v46,
-              (__int64)&v45);
+            v32 = ApcContext[205];
+            ApcContext[205] = v32 + 1;
+            if ( (unsigned __int8)v32 >= 5u )
+            {
+              DbgPrintGDI(
+                ":rimInputApc [pRimObj:%p, pRimDev:%p] Status: %08x..not retrying read as maximum nretryErrorCompletion reached\n",
+                (const void *)v28,
+                ApcContext,
+                Status);
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              {
+                LOBYTE(v38) = 4;
+                WPP_RECORDER_SF_qqd(
+                  (_DWORD)gRimLog,
+                  v38,
+                  1,
+                  27,
+                  (__int64)&WPP_0d925eab253539aeb97635bf94432844_Traceguids,
+                  v28,
+                  (char)ApcContext,
+                  Status);
+              }
+              if ( (unsigned int)dword_1C024A170 > 5 && tlgKeywordOn((__int64)&dword_1C024A170, 0x400000000000LL) )
+              {
+                v39 = (unsigned __int8)ApcContext[48];
+                v62 = (const WCHAR *)*((_QWORD *)ApcContext + 27);
+                v50 = Status;
+                v63 = RimDeviceTypeToRimInputTypeString((__int64)ApcContext, v39);
+                _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>>(
+                  v40,
+                  byte_1C021CB57,
+                  v41,
+                  v42,
+                  &v63,
+                  &v62,
+                  (__int64)&v50);
+              }
+            }
+            else
+            {
+              DbgPrintGDI(
+                ":rimInputApc [pRimObj:%p, pRimDev:%p] Status: %08x..retrying read as maximum nretryErrorCompletion not reached\n",
+                (const void *)v28,
+                ApcContext,
+                Status);
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              {
+                LOBYTE(v33) = 4;
+                WPP_RECORDER_SF_qqd(
+                  (_DWORD)gRimLog,
+                  v33,
+                  1,
+                  26,
+                  (__int64)&WPP_0d925eab253539aeb97635bf94432844_Traceguids,
+                  v28,
+                  (char)ApcContext,
+                  Status);
+              }
+              if ( (unsigned int)dword_1C024A170 > 5 && tlgKeywordOn((__int64)&dword_1C024A170, 0x400000000000LL) )
+              {
+                v34 = (unsigned __int8)ApcContext[48];
+                v60 = (const WCHAR *)*((_QWORD *)ApcContext + 27);
+                v49 = Status;
+                v61 = RimDeviceTypeToRimInputTypeString((__int64)ApcContext, v34);
+                _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>>(
+                  v35,
+                  byte_1C021CB04,
+                  v36,
+                  v37,
+                  &v61,
+                  &v60,
+                  (__int64)&v49);
+              }
+              RIMStartDeviceSpecificRead((HANDLE *)v28, (__int64)ApcContext);
+            }
           }
         }
         else
         {
-          DbgPrintGDI(
-            ":rimInputApc [pRimObj:%p, pRimDev:%p] Status: %08x..retrying read as maximum nretryErrorCompletion not reached\n",
-            (const void *)v13,
-            ApcContext,
-            Status);
-          LOBYTE(v28) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                     && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                     && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          LOBYTE(v29) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( (_BYTE)v28 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_AND_TRACE_SF_qqd(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v28,
-              v29,
-              (_DWORD)gRimLog,
-              4,
-              1,
-              24,
-              (__int64)&WPP_a2b4b56089d43a30275be3b006f568a3_Traceguids,
-              v13,
-              (char)ApcContext,
-              Status);
-          if ( (unsigned int)dword_1C028D610 > 5 && tlgKeywordOn((__int64)&dword_1C028D610, 0x400000000000LL) )
-          {
-            v30 = (unsigned __int8)ApcContext[48];
-            v46 = *((_QWORD *)ApcContext + 27);
-            LODWORD(v45) = Status;
-            v47 = (__int64)RimDeviceTypeToRimInputTypeString((__int64)ApcContext, v30);
-            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>>(
-              v31,
-              (int)&unk_1C025E90B,
-              v32,
-              v33,
-              (const WCHAR **)&v47,
-              (const WCHAR **)&v46,
-              (__int64)&v45);
-          }
-          RIMStartDeviceSpecificRead((HANDLE *)v13, (__int64)ApcContext, v29);
+          ApcContext[205] = 0;
+          *((LARGE_INTEGER *)ApcContext + 282) = KeQueryPerformanceCounter(0LL);
+          *((_QWORD *)ApcContext + 285) = MEMORY[0xFFFFF78000000014];
+          rimProcessDeviceBufferAndStartRead((struct RawInputManagerObject *)v28, (struct RIMDEV *)ApcContext);
         }
+        CInpPushLock::UnLockExclusive((CInpPushLock *)(v28 + 568));
       }
+      else if ( Status >= 0 )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v30) = 4;
+          WPP_RECORDER_SF_qq(
+            (_DWORD)gRimLog,
+            v30,
+            1,
+            28,
+            (__int64)&WPP_0d925eab253539aeb97635bf94432844_Traceguids,
+            v28,
+            (char)ApcContext);
+        }
+        DbgPrintGDI("pRimObj(%p) pRimDev(%p), pRimDev's handle == nullptr\n", (const void *)v28, ApcContext);
+      }
+      if ( v10 )
+        CInpPushLock::UnLockExclusive((CInpPushLock *)(v28 + 104));
+      if ( IoStatusBlock->Status != -1073741536 )
+        RIMApplyPTPConfigRemedy(v28, ApcContext);
+      ApiSetEditionCrit::~ApiSetEditionCrit((ApiSetEditionCrit *)v64);
+      goto LABEL_69;
     }
-    else
+    if ( *(_QWORD *)(v28 + 640) && !*(_BYTE *)(v28 + 584) )
     {
-      ApcContext[205] = 0;
-      *((LARGE_INTEGER *)ApcContext + 283) = KeQueryPerformanceCounter(0LL);
-      *((_QWORD *)ApcContext + 286) = MEMORY[0xFFFFF78000000014];
-      rimProcessDeviceBufferAndStartRead((struct RawInputManagerObject *)v13, (struct RIMDEV *)ApcContext, 1);
+      if ( gDebugPhoneInitRace )
+      {
+LABEL_41:
+        RIMLockExclusive(v28 + 104);
+        goto LABEL_42;
+      }
+      v66 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1360);
     }
-    *(_QWORD *)(v13 + 800) = 0LL;
-    ExReleasePushLockExclusiveEx(v13 + 792, 0LL);
-    KeLeaveCriticalRegion();
+    if ( !gDebugPhoneInitRace )
+      gDebugPhoneInitRace = 1;
+    goto LABEL_41;
   }
-  else if ( Status >= 0 )
-  {
-    LOBYTE(v15) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-               && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-               && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v15 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v17) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_qq(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v15,
-        v17,
-        (_DWORD)gRimLog,
-        4,
-        1,
-        26,
-        (__int64)&WPP_a2b4b56089d43a30275be3b006f568a3_Traceguids,
-        v13,
-        (char)ApcContext);
-    }
-    DbgPrintGDI("pRimObj(%p) pRimDev(%p), pRimDev's handle == nullptr\n", (const void *)v13, ApcContext);
-  }
-  if ( v18 )
-  {
-    *(_QWORD *)(v13 + 112) = 0LL;
-    ExReleasePushLockExclusiveEx(v13 + 104, 0LL);
-    KeLeaveCriticalRegion();
-  }
-  if ( IoStatusBlock->Status != -1073741536 )
-    RIMApplyPTPConfigRemedy(v13, ApcContext);
-  ApiSetEditionCrit::~ApiSetEditionCrit((ApiSetEditionCrit *)&Information);
-LABEL_23:
+LABEL_69:
   ObfDereferenceObject(*((PVOID *)ApcContext + 4));
-  InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)v44);
+  InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)v65);
 }

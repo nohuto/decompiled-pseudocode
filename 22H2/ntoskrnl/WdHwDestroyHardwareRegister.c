@@ -1,10 +1,10 @@
 /*
- * XREFs of WdHwDestroyHardwareRegister @ 0x14052A434
+ * XREFs of WdHwDestroyHardwareRegister @ 0x1404DE3F4
  * Callers:
- *     HalpWdatProcessWdrtInternalData @ 0x14051F244 (HalpWdatProcessWdrtInternalData.c)
- *     WdInstrDestroyInstruction @ 0x14052A55C (WdInstrDestroyInstruction.c)
+ *     HalpWdatProcessWdrtInternalData @ 0x1404D4F44 (HalpWdatProcessWdrtInternalData.c)
+ *     WdInstrDestroyInstruction @ 0x1404DE51C (WdInstrDestroyInstruction.c)
  * Callees:
- *     HalpUnmapVirtualAddress @ 0x14037E7D0 (HalpUnmapVirtualAddress.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BB230 (HalpUnmapVirtualAddress.c)
  */
 
 __int64 __fastcall WdHwDestroyHardwareRegister(__int64 a1)

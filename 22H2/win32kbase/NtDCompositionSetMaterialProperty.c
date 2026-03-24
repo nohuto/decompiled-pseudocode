@@ -1,58 +1,53 @@
 /*
- * XREFs of NtDCompositionSetMaterialProperty @ 0x1C00AF250
+ * XREFs of NtDCompositionSetMaterialProperty @ 0x1C009E0D0
  * Callers:
  *     <none>
  * Callees:
- *     UserIsCurrentProcessDwm @ 0x1C001B580 (UserIsCurrentProcessDwm.c)
- *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0099744 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
- *     ?Store@MaterialProperty@@QEAAJPEBUResourceObject@DirectComposition@@@Z @ 0x1C00AF344 (-Store@MaterialProperty@@QEAAJPEBUResourceObject@DirectComposition@@@Z.c)
- *     FindOrCreateMaterialProperty @ 0x1C00AF3B8 (FindOrCreateMaterialProperty.c)
- *     CheckShellExperienceComposerAccess @ 0x1C020A11C (CheckShellExperienceComposerAccess.c)
+ *     UserIsCurrentProcessDwm @ 0x1C0048F20 (UserIsCurrentProcessDwm.c)
+ *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0083A34 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
+ *     ?Store@MaterialProperty@@QEAAJPEBUResourceObject@DirectComposition@@@Z @ 0x1C009E1C4 (-Store@MaterialProperty@@QEAAJPEBUResourceObject@DirectComposition@@@Z.c)
+ *     FindOrCreateMaterialProperty @ 0x1C009E238 (FindOrCreateMaterialProperty.c)
+ *     CheckShellExperienceComposerAccess @ 0x1C01D2ECC (CheckShellExperienceComposerAccess.c)
  */
 
 __int64 __fastcall NtDCompositionSetMaterialProperty(__int64 a1, __int64 a2, void *a3)
 {
   struct _ERESOURCE *v3; // rbx
-  const struct DirectComposition::ResourceObject *v7; // rbx
+  struct DirectComposition::ResourceObject *v7; // rdi
   __int64 v8; // rdx
   __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // rcx
-  int v12; // edi
-  __int64 v13; // r8
-  int v14; // eax
-  MaterialProperty *v16; // [rsp+20h] [rbp-28h] BYREF
-  PVOID Object; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v10; // rcx
+  int v11; // ebx
+  __int64 v12; // r8
+  int v13; // eax
+  MaterialProperty *v15; // [rsp+20h] [rbp-28h] BYREF
+  struct DirectComposition::ResourceObject *v16; // [rsp+68h] [rbp+20h] BYREF
 
   v3 = Resource;
   KeEnterCriticalRegion();
   ExAcquireResourceExclusiveLite(v3, 1u);
-  v16 = 0LL;
+  v15 = 0LL;
   v7 = 0LL;
-  Object = 0LL;
-  if ( UserIsCurrentProcessDwm(v9, v8, v10) || (v12 = CheckShellExperienceComposerAccess(v11), v12 >= 0) )
+  v16 = 0LL;
+  if ( UserIsCurrentProcessDwm(v9, v8) || (v11 = CheckShellExperienceComposerAccess(v10), v11 >= 0) )
   {
-    v12 = FindOrCreateMaterialProperty(a1, a2, &v16);
-    if ( v12 >= 0 )
+    v11 = FindOrCreateMaterialProperty(a1, a2, &v15);
+    if ( v11 >= 0 )
     {
-      if ( !a3
-        || (LOBYTE(v13) = 1,
-            v14 = DirectComposition::ResourceObject::ResolveHandle(
-                    a3,
-                    1LL,
-                    v13,
-                    (struct DirectComposition::ResourceObject **)&Object),
-            v7 = (const struct DirectComposition::ResourceObject *)Object,
-            v12 = v14,
-            v14 >= 0) )
+      if ( a3 )
       {
-        v12 = MaterialProperty::Store(v16, v7);
+        LOBYTE(v12) = 1;
+        v13 = DirectComposition::ResourceObject::ResolveHandle(a3, 1LL, v12, &v16);
+        v7 = v16;
+        v11 = v13;
       }
+      if ( v11 >= 0 )
+        v11 = MaterialProperty::Store(v15, v7);
       if ( v7 )
         ObfDereferenceObject(v7);
     }
   }
   ExReleaseResourceLite(Resource);
   KeLeaveCriticalRegion();
-  return (unsigned int)v12;
+  return (unsigned int)v11;
 }

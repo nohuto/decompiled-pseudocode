@@ -1,7 +1,7 @@
 /*
- * XREFs of CiTaskIndexReference @ 0x1C0001170
+ * XREFs of CiTaskIndexReference @ 0x1C0001D90
  * Callers:
- *     CiDispatchCreateTaskIndexClient @ 0x1C000A240 (CiDispatchCreateTaskIndexClient.c)
+ *     CiDispatchCreateTaskIndexClient @ 0x1C000A580 (CiDispatchCreateTaskIndexClient.c)
  * Callees:
  *     <none>
  */

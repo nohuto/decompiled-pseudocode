@@ -1,32 +1,26 @@
 /*
- * XREFs of MiPrepareDriverPatchState @ 0x1409682E4
+ * XREFs of MiPrepareDriverPatchState @ 0x1408C4D3C
  * Callers:
- *     MiLockPatchIatForDV @ 0x1405A1D20 (MiLockPatchIatForDV.c)
- *     MmWriteSystemImageTracepoint @ 0x1405A40C4 (MmWriteSystemImageTracepoint.c)
- *     MiCompleteSecureDriverLoad @ 0x14080C354 (MiCompleteSecureDriverLoad.c)
- *     MiLockAndMapEntireDriver @ 0x140970AB4 (MiLockAndMapEntireDriver.c)
- *     MiApplyDriverHotPatch @ 0x140971068 (MiApplyDriverHotPatch.c)
- *     MiUnapplyDriverHotPatch @ 0x1409779A4 (MiUnapplyDriverHotPatch.c)
+ *     MmWriteSystemImageTracepoint @ 0x14053F6F8 (MmWriteSystemImageTracepoint.c)
+ *     MiApplyDriverHotPatch @ 0x1408C8DB4 (MiApplyDriverHotPatch.c)
+ *     MiUnapplyDriverHotPatch @ 0x1408CE6A0 (MiUnapplyDriverHotPatch.c)
+ *     MiLockAndMapEntireDriver @ 0x1408D0AF4 (MiLockAndMapEntireDriver.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
  */
 
-__int64 __fastcall MiPrepareDriverPatchState(__int64 a1, __int64 a2)
+__int64 __fastcall MiPrepareDriverPatchState(__int64 a1)
 {
   PVOID Pool; // rcx
 
-  Pool = MiAllocatePool(
-           64,
-           8 * ((*(_DWORD *)(a1 + 24) >> 6) + (unsigned int)((*(_DWORD *)(a1 + 24) & 0x3F) != 0)),
-           0x4D425044u);
+  Pool = MiAllocatePool(64, (unsigned int)(*(_DWORD *)(a1 + 16) + 7) >> 3, 0x4D425044u);
   if ( !Pool )
     return 3221225626LL;
-  *(_QWORD *)(a1 + 32) = *(unsigned int *)(a1 + 24);
-  *(_QWORD *)(a1 + 40) = Pool;
-  *(_DWORD *)(a1 + 96) = 0;
+  *(_QWORD *)(a1 + 24) = *(unsigned int *)(a1 + 16);
+  *(_QWORD *)(a1 + 32) = Pool;
+  *(_DWORD *)(a1 + 56) = 0;
   if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(*(_QWORD *)(*(_QWORD *)a1 + 48LL)) )
-    *(_DWORD *)(a1 + 96) = 2;
-  *(_QWORD *)(a1 + 16) = a2;
+    *(_DWORD *)(a1 + 56) = 2;
   return 0LL;
 }

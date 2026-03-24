@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlpGetPageList @ 0x14054D2AC
+ * XREFs of HvlpGetPageList @ 0x1404FB668
  * Callers:
- *     HvlpMarkHypervisorPagesForHibernation @ 0x14054A25C (HvlpMarkHypervisorPagesForHibernation.c)
- *     HvlAddPagesCallbackRoutine @ 0x14054A4B0 (HvlAddPagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromHypervisor @ 0x14054AE18 (HvlpGetEncryptedDataFromHypervisor.c)
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x1404F859C (HvlpMarkHypervisorPagesForHibernation.c)
+ *     HvlAddPagesCallbackRoutine @ 0x1404F87E0 (HvlAddPagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x1404F9098 (HvlpGetEncryptedDataFromHypervisor.c)
  * Callees:
- *     HvlpInvokeGetPageListHypercall @ 0x14054D374 (HvlpInvokeGetPageListHypercall.c)
+ *     HvlpInvokeGetPageListHypercall @ 0x1404FB730 (HvlpInvokeGetPageListHypercall.c)
  */
 
 __int64 __fastcall HvlpGetPageList(int a1, __int64 *a2, _DWORD *a3)
 {
-  _BYTE *v3; // rbx
+  int *v3; // rbx
   __int64 v7; // rdi
   unsigned int v8; // esi
   unsigned __int16 v9; // ax
@@ -21,7 +21,7 @@ __int64 __fastcall HvlpGetPageList(int a1, __int64 *a2, _DWORD *a3)
   *a3 = 0;
   if ( !a1 )
     v3 = &HvlpIteratorHibernate;
-  if ( !v3[2] )
+  if ( !*((_BYTE *)v3 + 2) )
     return 0LL;
   v7 = *((_QWORD *)v3 + 1);
   v8 = 261;
@@ -38,7 +38,7 @@ LABEL_9:
   {
     while ( *(_QWORD *)v7 != -1LL )
     {
-      HvlpInvokeGetPageListHypercall(v3, *(_QWORD *)v7);
+      HvlpInvokeGetPageListHypercall(v3);
       *(_WORD *)v3 = 0;
       if ( *(_WORD *)(v7 + 8) )
       {

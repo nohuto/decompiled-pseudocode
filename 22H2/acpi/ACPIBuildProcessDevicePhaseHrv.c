@@ -1,39 +1,39 @@
 /*
- * XREFs of ACPIBuildProcessDevicePhaseHrv @ 0x1C000F6A0
+ * XREFs of ACPIBuildProcessDevicePhaseHrv @ 0x1C0015580
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C0015D80 (ACPIBuildCompleteMustSucceed.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
-__int64 __fastcall ACPIBuildProcessDevicePhaseHrv(__int64 a1)
+__int64 __fastcall ACPIBuildProcessDevicePhaseHrv(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v1; // rsi
-  __int64 v3; // rax
-  unsigned int v4; // ebx
-  __int64 v5; // rbp
+  __int64 v4; // rsi
+  __int64 v6; // rax
+  unsigned int v7; // ebx
+  __int64 v8; // rbp
 
-  v1 = *(_QWORD *)(a1 + 40);
-  v3 = AMLIGetNamedChild(*(_QWORD *)(v1 + 760), 1448233055LL);
-  v4 = 0;
+  v4 = *(_QWORD *)(a1 + 40);
+  v6 = AMLIGetNamedChild(*(_QWORD *)(v4 + 720), 1448233055LL, a3, a4);
+  v7 = 0;
   *(_DWORD *)(a1 + 32) = 12;
-  v5 = v3;
-  if ( !v3 )
-    goto LABEL_6;
-  if ( (*(_BYTE *)(v1 + 1008) & 8) == 0 )
+  v8 = v6;
+  if ( !v6 )
+    goto LABEL_2;
+  if ( (*(_BYTE *)(v4 + 960) & 8) == 0 )
   {
-    _InterlockedOr64((volatile signed __int64 *)(v1 + 1008), 8uLL);
-    v4 = ACPIGet(v1, 1448233055, 537149442, 0, 0, (__int64)ACPIBuildCompleteMustSucceed, a1, v1 + 632, 0LL);
+    _InterlockedOr64((volatile signed __int64 *)(v4 + 960), 8uLL);
+    v7 = ACPIGet((__int64 *)v4, 1448233055, 537149442, 0LL, 0, (__int64)ACPIBuildCompleteMustSucceed, a1, v4 + 592, 0LL);
     *(_DWORD *)(a1 + 32) = 11;
   }
-  AMLIDereferenceHandleEx(v5);
-  if ( v4 == 259 )
+  AMLIDereferenceHandleEx(v8);
+  if ( v7 == 259 )
     return 0;
   else
-LABEL_6:
-    ACPIBuildCompleteMustSucceed(0LL, v4, 0LL, a1);
-  return v4;
+LABEL_2:
+    ACPIBuildCompleteMustSucceed(0LL);
+  return v7;
 }

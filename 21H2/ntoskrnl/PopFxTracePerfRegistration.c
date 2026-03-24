@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxTracePerfRegistration @ 0x1409939F8
+ * XREFs of PopFxTracePerfRegistration @ 0x1408EC03C
  * Callers:
- *     PopFxTraceDeviceRegistration @ 0x14082473C (PopFxTraceDeviceRegistration.c)
- *     PopFxRegisterComponentPerfStates @ 0x14098DCC4 (PopFxRegisterComponentPerfStates.c)
+ *     PopFxTraceDeviceRegistration @ 0x14067E618 (PopFxTraceDeviceRegistration.c)
+ *     PopFxRegisterComponentPerfStates @ 0x1408E5384 (PopFxRegisterComponentPerfStates.c)
  * Callees:
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140355058 (PopFxAddLogEntry.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PopDiagTraceFxPerfRegistration @ 0x140992544 (PopDiagTraceFxPerfRegistration.c)
- *     PopDiagTraceFxPerfSetRegistration @ 0x1409925D4 (PopDiagTraceFxPerfSetRegistration.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopDiagTraceFxPerfRegistration @ 0x1408EA690 (PopDiagTraceFxPerfRegistration.c)
+ *     PopDiagTraceFxPerfSetRegistration @ 0x1408EA720 (PopDiagTraceFxPerfSetRegistration.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PopFxTracePerfRegistration(unsigned int *a1, char a2)
@@ -22,7 +22,7 @@ void __fastcall PopFxTracePerfRegistration(unsigned int *a1, char a2)
   __int64 v8; // rdx
   __int64 v9; // r8
   unsigned int v10; // ebp
-  void *Pool2; // rdi
+  PVOID PoolWithTag; // rdi
   unsigned int i; // r15d
   __int64 v13; // rax
   __int64 v14; // r14
@@ -80,13 +80,13 @@ void __fastcall PopFxTracePerfRegistration(unsigned int *a1, char a2)
         if ( 8 * (unsigned __int64)v7 > 0xFFFFFFFF )
           return;
         v10 = 8 * v7;
-        Pool2 = (void *)ExAllocatePool2(256LL, 8 * v7, 1297630800LL);
-        if ( !Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8 * v7, 0x4D584650u);
+        if ( !PoolWithTag )
           return;
       }
       else
       {
-        Pool2 = 0LL;
+        PoolWithTag = 0LL;
       }
       for ( i = 0; i < a1[36]; ++i )
       {
@@ -103,18 +103,18 @@ void __fastcall PopFxTracePerfRegistration(unsigned int *a1, char a2)
         }
         else
         {
-          memset(Pool2, 0, v10);
+          memset(PoolWithTag, 0, v10);
           v17 = *(_DWORD *)(v15 + 32);
           for ( j = 0LL; (unsigned int)j < v17; v17 = *(_DWORD *)(v15 + 32) )
           {
-            *((_QWORD *)Pool2 + j) = *(_QWORD *)(*(_QWORD *)(v15 + 40) + 16LL * (unsigned int)j);
+            *((_QWORD *)PoolWithTag + j) = *(_QWORD *)(*(_QWORD *)(v15 + 40) + 16LL * (unsigned int)j);
             j = (unsigned int)(j + 1);
           }
           v13 = *((_QWORD *)a1 + 19);
           LOBYTE(v19) = 0;
           v16 = *(_DWORD *)(v15 + 28);
           LOBYTE(v20) = 0;
-          v21 = (__int64)Pool2;
+          v21 = (__int64)PoolWithTag;
         }
         PopDiagTraceFxPerfSetRegistration(
           v5,
@@ -130,8 +130,8 @@ void __fastcall PopFxTracePerfRegistration(unsigned int *a1, char a2)
           v21,
           *(_QWORD *)(v14 + v13 + 8));
       }
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0x4D584650u);
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0x4D584650u);
     }
   }
 }

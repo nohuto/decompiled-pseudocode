@@ -1,18 +1,34 @@
 /*
- * XREFs of ?clear@?$vector@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@V?$allocator@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@@2@@std@@QEAAXXZ @ 0x1801FF5A8
+ * XREFs of ?clear@?$vector@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@V?$allocator@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@@2@@std@@QEAAXXZ @ 0x1801AC628
  * Callers:
- *     ?ProcessUpdate@CVisualGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALGROUP@@PEBXI@Z @ 0x1801FF2D8 (-ProcessUpdate@CVisualGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALGROUP@@PEBXI@Z.c)
+ *     ?ProcessUpdate@CVisualGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALGROUP@@PEBXI@Z @ 0x1801AC3D4 (-ProcessUpdate@CVisualGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALGROUP@@PEBXI@Z.c)
  * Callees:
- *     ??$_Destroy_range@V?$allocator@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@@std@@@std@@YAXPEAV?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@0@QEAV10@AEAV?$allocator@V?$unique_ptr@VCExcludeVisualReference@@U?$default_delete@VCExcludeVisualReference@@@std@@@std@@@0@@Z @ 0x18019208C (--$_Destroy_range@V-$allocator@V-$unique_ptr@VCExcludeVisualReference@@U-$default_delete@VCExclu.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CExcludeVisualReference@@QEAA@XZ @ 0x1800E50F4 (--1CExcludeVisualReference@@QEAA@XZ.c)
  */
 
-CExcludeVisualReference **__fastcall std::vector<std::unique_ptr<CExcludeVisualReference>>::clear(
-        CExcludeVisualReference ***a1)
+void __fastcall std::vector<std::unique_ptr<CExcludeVisualReference>>::clear(CExcludeVisualReference ***a1)
 {
-  CExcludeVisualReference **result; // rax
+  CExcludeVisualReference **v1; // rbp
+  CExcludeVisualReference **v3; // rbx
+  CExcludeVisualReference *v4; // rsi
 
-  std::_Destroy_range<std::allocator<std::unique_ptr<CExcludeVisualReference>>>(*a1, a1[1]);
-  result = *a1;
-  a1[1] = *a1;
-  return result;
+  v1 = a1[1];
+  v3 = *a1;
+  if ( *a1 != v1 )
+  {
+    do
+    {
+      v4 = *v3;
+      if ( *v3 )
+      {
+        CExcludeVisualReference::~CExcludeVisualReference(*v3);
+        operator delete(v4);
+      }
+      ++v3;
+    }
+    while ( v3 != v1 );
+    v3 = *a1;
+  }
+  a1[1] = v3;
 }

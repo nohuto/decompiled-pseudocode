@@ -1,74 +1,77 @@
 /*
- * XREFs of ??1CVisualTree@@UEAA@XZ @ 0x18003B4F4
+ * XREFs of ??1CVisualTree@@UEAA@XZ @ 0x180044154
  * Callers:
- *     ??_ECVisualTree@@UEAAPEAXI@Z @ 0x18003D8F0 (--_ECVisualTree@@UEAAPEAXI@Z.c)
- *     ??1CDesktopTree@@UEAA@XZ @ 0x18020FBC4 (--1CDesktopTree@@UEAA@XZ.c)
- *     ??_GCSubVisualTree@@UEAAPEAXI@Z @ 0x180258FC0 (--_GCSubVisualTree@@UEAAPEAXI@Z.c)
+ *     ??_ECVisualTree@@UEAAPEAXI@Z @ 0x180044110 (--_ECVisualTree@@UEAAPEAXI@Z.c)
+ *     ??1CDesktopTree@@UEAA@XZ @ 0x1801B1D04 (--1CDesktopTree@@UEAA@XZ.c)
  * Callees:
- *     ??1CPreComputeContext@@QEAA@XZ @ 0x18001DA54 (--1CPreComputeContext@@QEAA@XZ.c)
- *     ?clear_region@?$vector_facade@UD2D_POINT_2F@@V?$buffer_impl@UD2D_POINT_2F@@$0CI@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180030774 (-clear_region@-$vector_facade@UD2D_POINT_2F@@V-$buffer_impl@UD2D_POINT_2F@@$0CI@$00Vliberal_expa.c)
- *     ??1COcclusionContext@@QEAA@XZ @ 0x18003C0EC (--1COcclusionContext@@QEAA@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z @ 0x1800DCB3C (-ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z.c)
- *     ?ReleaseDirtyRegionAnnotationBuffers@CDirtyRegionAnnotationAllocationSet@@AEAAXXZ @ 0x1800DCDA0 (-ReleaseDirtyRegionAnnotationBuffers@CDirtyRegionAnnotationAllocationSet@@AEAAXXZ.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800E27B0 (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ?ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z @ 0x180024368 (-ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z.c)
+ *     ?clear_region@?$vector_facade@PEAVIVisualTreeClient@@V?$buffer_impl@PEAVIVisualTreeClient@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180026594 (-clear_region@-$vector_facade@PEAVIVisualTreeClient@@V-$buffer_impl@PEAVIVisualTreeClient@@$03$0.c)
+ *     ??1COcclusionContext@@QEAA@XZ @ 0x18003EE18 (--1COcclusionContext@@QEAA@XZ.c)
+ *     ??1CPreComputeContext@@QEAA@XZ @ 0x1800446E4 (--1CPreComputeContext@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800C64BC (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
+ *     ?ReleaseDirtyRegionAnnotationBuffers@CDirtyRegionAnnotationAllocationSet@@AEAAXXZ @ 0x1800D9E58 (-ReleaseDirtyRegionAnnotationBuffers@CDirtyRegionAnnotationAllocationSet@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CVisualTree::~CVisualTree(CVisualTree *this)
 {
-  __int64 v1; // r10
   _QWORD *i; // rdi
-  void **v4; // rdi
-  __int64 v5; // r8
-  void *v6; // rcx
-  bool v7; // zf
-  void *v8; // rdi
-  _DWORD *v9; // r10
+  __int64 v3; // r10
+  _DWORD *v4; // r10
   unsigned int Slot; // eax
-  __int64 v11; // r10
+  __int64 v6; // r10
+  __int64 v7; // rcx
+  CVisualTree **v8; // rdi
+  CVisualTree *v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rcx
 
-  v1 = *((_QWORD *)this + 8);
   *(_QWORD *)this = &CVisualTree::`vftable';
-  if ( v1 )
-  {
-    v9 = *(_DWORD **)(v1 + 232);
-    if ( (*v9 & 0x4000000) != 0 )
-    {
-      *v9 &= ~0x4000000u;
-      Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v9, 6LL);
-      if ( Slot < *(_DWORD *)(v11 + 4) )
-        *(_BYTE *)(Slot + v11 + 8) = 0;
-    }
-  }
-  for ( i = (_QWORD *)((char *)this + 4680);
+  for ( i = (_QWORD *)((char *)this + 5872);
         (_QWORD *)*i != i;
-        CVisual::ReleaseVisualTreeData(*(CVisual **)(*i - 112LL), (struct CVisualTreeData *)(*i - 376LL)) )
+        CVisual::ReleaseVisualTreeData(*(CVisual **)(*i - 280LL), (struct CVisualTreeData *)(*i - 304LL)) )
   {
     ;
   }
-  FastRegion::CRegion::FreeMemory((CVisualTree *)((char *)this + 4608));
-  v4 = (void **)((char *)this + 4536);
-  v5 = (__int64)(*((_QWORD *)this + 568) - *((_QWORD *)this + 567)) >> 3;
-  if ( v5 )
-    detail::vector_facade<D2D_POINT_2F,detail::buffer_impl<D2D_POINT_2F,40,1,detail::liberal_expansion_policy>>::clear_region(
-      (__int64 *)this + 567,
-      0LL,
-      v5);
-  v6 = *v4;
-  v7 = *((_QWORD *)this + 567) == (_QWORD)this + 4560;
-  *v4 = 0LL;
-  if ( v7 )
-    v6 = 0LL;
-  operator delete(v6);
-  CDirtyRegionAnnotationAllocationSet::ReleaseDirtyRegionAnnotationBuffers((CVisualTree *)((char *)this + 2928));
-  COcclusionContext::~COcclusionContext((CVisualTree *)((char *)this + 120));
-  v8 = (void *)*((_QWORD *)this + 12);
-  if ( v8 )
+  v3 = *((_QWORD *)this + 7);
+  if ( v3 )
   {
-    CPreComputeContext::~CPreComputeContext(*((void ***)this + 12));
-    operator delete(v8, 0x7B0uLL);
+    v4 = *(_DWORD **)(v3 + 224);
+    if ( (*v4 & 0x4000000) != 0 )
+    {
+      *v4 &= ~0x4000000u;
+      Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v4, 6LL);
+      if ( Slot < *(_DWORD *)(v6 + 4) )
+        *(_BYTE *)(Slot + v6 + 8) = 0;
+    }
+    v7 = *((_QWORD *)this + 7);
+    *((_QWORD *)this + 7) = 0LL;
+    if ( v7 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
   }
+  FastRegion::CRegion::FreeMemory((CVisualTree *)((char *)this + 5800));
+  v8 = (CVisualTree **)((char *)this + 5728);
+  v9 = (CVisualTree *)*((_QWORD *)this + 716);
+  v10 = (__int64)(*((_QWORD *)this + 717) - (_QWORD)v9) >> 3;
+  if ( v10 )
+  {
+    detail::vector_facade<IVisualTreeClient *,detail::buffer_impl<IVisualTreeClient *,4,1,detail::liberal_expansion_policy>>::clear_region(
+      (__int64 *)this + 716,
+      0LL,
+      v10);
+    v9 = *v8;
+  }
+  *v8 = 0LL;
+  if ( v9 == (CVisualTree *)((char *)this + 5752) )
+    v9 = 0LL;
+  operator delete(v9);
+  CDirtyRegionAnnotationAllocationSet::ReleaseDirtyRegionAnnotationBuffers((CVisualTree *)((char *)this + 4120));
+  COcclusionContext::~COcclusionContext((void **)this + 160);
+  CPreComputeContext::~CPreComputeContext((CVisualTree *)((char *)this + 96));
+  v11 = *((_QWORD *)this + 7);
+  if ( v11 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
   CResource::~CResource(this);
 }

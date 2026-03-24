@@ -1,5 +1,5 @@
 /*
- * XREFs of EngFreePrivateUserMem @ 0x1C02755C0
+ * XREFs of EngFreePrivateUserMem @ 0x1C0277E50
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,8 @@
 
 void __stdcall EngFreePrivateUserMem(PDD_SURFACE_LOCAL psl, PVOID pv)
 {
-  WdLogSingleEntry0(3LL);
+  __int64 v2; // rax
+
+  v2 = WdLogNewEntry5_WdWarning(psl, pv);
+  WdLogEvent5_WdWarning(v2);
 }

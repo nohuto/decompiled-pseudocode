@@ -1,10 +1,12 @@
 /*
- * XREFs of ?SetReferenceProperty@CGeometryMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00B9ED0
+ * XREFs of ?SetReferenceProperty@CGeometryMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C009E6A0
  * Callers:
- *     ?SetReferenceProperty@CProxyGeometryClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C000DD40 (-SetReferenceProperty@CProxyGeometryClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChanne.c)
- *     ?SetReferenceProperty@CPathGeometryMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00B42A0 (-SetReferenceProperty@CPathGeometryMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
+ *     ?SetReferenceProperty@CPathGeometryMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01E8E10 (-SetReferenceProperty@CPathGeometryMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
+ *     ?SetReferenceProperty@CProxyGeometryClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01F65C0 (-SetReferenceProperty@CProxyGeometryClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChanne.c)
  * Callees:
- *     ?SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@PEAPEAV12@PEAV12@W4Optionality@12@W4MIL_RESOURCE_TYPE@@PEAKKW4MarshalingFlagSemantic@12@PEA_N@Z @ 0x1C002D3BC (-SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicati_ea_1C002D3BC.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CGeometryMarshaler::SetReferenceProperty(
@@ -14,17 +16,36 @@ __int64 __fastcall DirectComposition::CGeometryMarshaler::SetReferenceProperty(
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
+  struct DirectComposition::CResourceMarshaler **v5; // rsi
+  unsigned int v6; // ebx
+  int v10; // r14d
+
+  v5 = (struct DirectComposition::CResourceMarshaler **)((char *)this + 72);
+  v6 = 0;
+  *a5 = 0;
+  v10 = a3 == 0 ? 0x80 : 0;
   if ( a3 )
-    return 3221225485LL;
+    v5 = 0LL;
+  if ( v5
+    && (!a4
+     || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, _QWORD, _QWORD))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          a3 == 0 ? 0x1B : 0,
+          (unsigned int)-a3)) )
+  {
+    if ( *v5 != a4 )
+    {
+      DirectComposition::CApplicationChannel::ReleaseResource(a2, *v5);
+      *v5 = a4;
+      if ( a4 )
+        DirectComposition::CResourceMarshaler::AddRef(a4);
+      *((_DWORD *)this + 4) |= v10;
+      *a5 = 1;
+    }
+  }
   else
-    return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-             a2,
-             (struct DirectComposition::CResourceMarshaler **)this + 9,
-             (unsigned int *)a4,
-             1,
-             29,
-             (int *)this + 4,
-             128,
-             0,
-             a5);
+  {
+    return (unsigned int)-1073741811;
+  }
+  return v6;
 }

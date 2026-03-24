@@ -1,36 +1,39 @@
 /*
- * XREFs of IopFreeCompletionListPackets @ 0x1406ACB64
+ * XREFs of IopFreeCompletionListPackets @ 0x1406D4FA0
  * Callers:
- *     IopDeleteIoCompletionInternal @ 0x140234678 (IopDeleteIoCompletionInternal.c)
+ *     IopDeleteIoCompletionInternal @ 0x1402A9B88 (IopDeleteIoCompletionInternal.c)
  * Callees:
- *     IopDropIrp @ 0x140234D58 (IopDropIrp.c)
- *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
- *     IopFreeMiniCompletionPacket @ 0x14074F700 (IopFreeMiniCompletionPacket.c)
+ *     IopDropIrp @ 0x1402E9444 (IopDropIrp.c)
+ *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     IopFreeMiniCompletionPacket @ 0x1405E4380 (IopFreeMiniCompletionPacket.c)
  */
 
-void __fastcall IopFreeCompletionListPackets(__int64 a1)
+void __fastcall IopFreeCompletionListPackets(struct _SLIST_ENTRY *P)
 {
-  __int64 v1; // rbx
-  _BYTE *v2; // rcx
-  _BYTE *v3; // rcx
+  struct _SLIST_ENTRY *v1; // rbx
+  struct _SLIST_ENTRY *v2; // rcx
+  IRP *v3; // rcx
 
-  v1 = *(_QWORD *)(a1 + 8);
-  *(_QWORD *)(a1 + 8) = 0LL;
-  while ( v1 )
+  if ( P )
   {
-    v2 = (_BYTE *)v1;
-    v1 = *(_QWORD *)(v1 + 8);
-    if ( v2[16] )
+    v1 = P;
+    do
     {
-      IopFreeMiniCompletionPacket(v2);
-    }
-    else
-    {
-      v3 = v2 - 168;
-      if ( (*((_DWORD *)v3 + 4) & 0x2000) != 0 )
-        IopDropIrp((PIRP)v3, *((_QWORD *)v3 + 24));
+      v2 = v1;
+      v1 = v1->Next;
+      if ( LOBYTE(v2[1].Next) )
+      {
+        IopFreeMiniCompletionPacket(v2);
+      }
       else
-        IoFreeIrp((PIRP)v3);
+      {
+        v3 = (IRP *)(&v2[-11].Next + 1);
+        if ( (v3->Flags & 0x2000) != 0 )
+          IopDropIrp(v3, (ULONG_PTR)v3->Tail.Overlay.OriginalFileObject);
+        else
+          IoFreeIrp(v3);
+      }
     }
+    while ( v1 );
   }
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of CcPurgeAndClearCacheSection @ 0x1400E78D8
+ * XREFs of CcPurgeAndClearCacheSection @ 0x1400E78F8
  * Callers:
  *     CcSetFileSizesEx @ 0x14007CFC0 (CcSetFileSizesEx.c)
  * Callees:
@@ -8,11 +8,11 @@
  *     CcSetDirtyInMask @ 0x140031460 (CcSetDirtyInMask.c)
  *     CcReferenceSharedCacheMapFileObject @ 0x14007DF6C (CcReferenceSharedCacheMapFileObject.c)
  *     MmSetAddressRangeModifiedEx @ 0x140086780 (MmSetAddressRangeModifiedEx.c)
- *     CcGetVirtualAddress @ 0x1400AFC20 (CcGetVirtualAddress.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     CcPurgeCacheSection @ 0x1400E7A80 (CcPurgeCacheSection.c)
- *     CcUpdateSharedCacheMapFlag @ 0x140108BB0 (CcUpdateSharedCacheMapFlag.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     CcGetVirtualAddress @ 0x1400AFC40 (CcGetVirtualAddress.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x140108BD0 (CcUpdateSharedCacheMapFlag.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall CcPurgeAndClearCacheSection(__int64 a1, LARGE_INTEGER *a2)

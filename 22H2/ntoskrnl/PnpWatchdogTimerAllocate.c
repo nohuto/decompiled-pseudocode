@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpWatchdogTimerAllocate @ 0x140786588
+ * XREFs of PnpWatchdogTimerAllocate @ 0x1406F0420
  * Callers:
- *     PnpAllocateWatchdog @ 0x14031E0B8 (PnpAllocateWatchdog.c)
+ *     PnpAllocateWatchdog @ 0x140349334 (PnpAllocateWatchdog.c)
  * Callees:
- *     WdtpAllocateTimer @ 0x140786620 (WdtpAllocateTimer.c)
+ *     WdtpAllocateTimer @ 0x1406F04B0 (WdtpAllocateTimer.c)
  */
 
 __int64 __fastcall PnpWatchdogTimerAllocate(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall PnpWatchdogTimerAllocate(__int64 a1)
   {
     __fastfail(5u);
   }
-  Timer = WdtpAllocateTimer(*(_QWORD *)a1);
+  Timer = WdtpAllocateTimer();
   if ( Timer )
   {
     v6 = *(_OWORD *)(a1 + 16);
@@ -33,9 +33,9 @@ __int64 __fastcall PnpWatchdogTimerAllocate(__int64 a1)
     *(_QWORD *)(Timer + 40) = v7;
     if ( *(_QWORD *)(a1 + 16) )
     {
-      *(_QWORD *)(Timer + 80) = Timer;
-      *(_QWORD *)(Timer + 72) = WdtpBarkWorkerThread;
-      *(_QWORD *)(Timer + 56) = 0LL;
+      *(_QWORD *)(Timer + 88) = Timer;
+      *(_QWORD *)(Timer + 80) = WdtpBarkWorkerThread;
+      *(_QWORD *)(Timer + 64) = 0LL;
     }
     return Timer;
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSetupFullScrenVideoNotification @ 0x140763D6C
+ * XREFs of PopSetupFullScrenVideoNotification @ 0x140763D4C
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1406BC490 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x1406BC470 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 PopSetupFullScrenVideoNotification()

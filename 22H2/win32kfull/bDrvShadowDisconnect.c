@@ -1,62 +1,79 @@
 /*
- * XREFs of bDrvShadowDisconnect @ 0x1C02DD98C
+ * XREFs of bDrvShadowDisconnect @ 0x1C02C01B0
  * Callers:
- *     RemoteShadowCleanup @ 0x1C0203220 (RemoteShadowCleanup.c)
+ *     RemoteShadowCleanup @ 0x1C0225F40 (RemoteShadowCleanup.c)
  * Callees:
- *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0135194 (--1SEMOBJEX@@QEAA@XZ.c)
- *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0135270 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0163324 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0163400 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall bDrvShadowDisconnect(Gre::Base *a1, __int64 a2, unsigned int a3)
+__int64 __fastcall bDrvShadowDisconnect(__int64 a1, __int64 a2, unsigned int a3)
 {
-  HSEMAPHORE *v5; // rax
-  HSEMAPHORE *v6; // rcx
-  __int64 (__fastcall *v7)(_QWORD, _QWORD); // rax
-  unsigned int v8; // eax
-  unsigned int v9; // ebx
-  HSEMAPHORE v10; // rdx
-  void (__fastcall *v11)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD); // rax
-  _BYTE v13[96]; // [rsp+90h] [rbp-9h] BYREF
-  HSEMAPHORE *v14; // [rsp+100h] [rbp+67h] BYREF
-  HSEMAPHORE v15; // [rsp+118h] [rbp+7Fh] BYREF
+  _QWORD *v5; // rcx
+  __int64 (__fastcall *v6)(__int64, _QWORD); // rax
+  unsigned int v7; // eax
+  unsigned int v8; // ebx
+  __int64 v9; // rdx
+  void (__fastcall *v10)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD); // rax
+  _BYTE v12[96]; // [rsp+90h] [rbp-9h] BYREF
+  _QWORD *v13; // [rsp+100h] [rbp+67h] BYREF
+  __int64 v14; // [rsp+118h] [rbp+7Fh] BYREF
 
-  v14 = (HSEMAPHORE *)a1;
-  if ( !a1 || (*((_DWORD *)a1 + 10) & 1) == 0 )
-    return 0LL;
-  v5 = (HSEMAPHORE *)Gre::Base::Globals(a1);
-  SEMOBJEX::SEMOBJEX((SEMOBJEX *)v13, v5[10], 1, v5[15], 2u, v5[11], 3u, v14[7], 4u, v5[14], 5u, v5[17], 6u);
-  GreAcquireSemaphore(v14[6]);
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", v14[6], 11LL);
-  PDEVOBJ::vSync(
-    (PDEVOBJ *)&v14,
-    (struct _SURFOBJ *)((unsigned __int64)(v14[316] + 6) & -(__int64)(v14[316] != 0LL)),
-    0LL,
-    0);
-  v6 = v14;
-  v7 = (__int64 (__fastcall *)(_QWORD, _QWORD))v14[414];
-  if ( v7 )
+  v13 = (_QWORD *)a1;
+  if ( a1 && (*(_DWORD *)(a1 + 40) & 1) != 0 )
   {
-    v8 = v7(a2, a3);
-    v6 = v14;
-    v9 = v8;
+    SEMOBJEX::SEMOBJEX(
+      (SEMOBJEX *)v12,
+      ghsemDynamicModeChange,
+      1,
+      ghsemGreLock,
+      2u,
+      ghsemDCVisRgn,
+      3u,
+      *(HSEMAPHORE *)(a1 + 64),
+      4u,
+      ghsemSprite,
+      5u,
+      ghsemHT,
+      6u);
+    GreAcquireSemaphore(v13[6]);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", v13[6], 11LL);
+    PDEVOBJ::vSync((PDEVOBJ *)&v13, (struct _SURFOBJ *)((v13[319] + 24LL) & -(__int64)(v13[319] != 0LL)), 0LL, 0);
+    v5 = v13;
+    v6 = (__int64 (__fastcall *)(__int64, _QWORD))v13[417];
+    if ( v6 )
+    {
+      v7 = v6(a2, a3);
+      v5 = v13;
+      v8 = v7;
+    }
+    else
+    {
+      v8 = 1;
+    }
+    v9 = v5[226];
+    v14 = v9;
+    if ( v8 == 1 && (*(_DWORD *)(v9 + 24) & 0x800) != 0 )
+    {
+      v10 = (void (__fastcall *)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))v5[358];
+      if ( v10 )
+      {
+        v10(v5[225], &v14, 0LL, 0LL, *(_DWORD *)(v9 + 28));
+        v5 = v13;
+      }
+      else
+      {
+        v8 = 0;
+      }
+    }
+    EtwTraceGreLockReleaseSemaphore(L"po.hsemDevLock()", v5[6]);
+    GreReleaseSemaphoreInternal(v13[6]);
+    SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v12);
   }
   else
   {
-    v9 = 1;
+    return 0;
   }
-  v10 = v6[222];
-  v15 = v10;
-  if ( v9 == 1 && ((_DWORD)v10[6] & 0x800) != 0 )
-  {
-    v11 = (void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD))v6[355];
-    if ( v11 )
-      v11(v6[221], &v15, 0LL, 0LL, *((_DWORD *)v10 + 7));
-    else
-      v9 = 0;
-  }
-  EtwTraceGreLockReleaseSemaphore(L"po.hsemDevLock()");
-  GreReleaseSemaphoreInternal(v14[6]);
-  SEMOBJEX::~SEMOBJEX((SEMOBJEX *)v13);
-  return v9;
+  return v8;
 }

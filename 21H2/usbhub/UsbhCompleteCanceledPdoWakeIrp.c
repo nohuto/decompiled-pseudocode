@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhCompleteCanceledPdoWakeIrp @ 0x1C003C040
+ * XREFs of UsbhCompleteCanceledPdoWakeIrp @ 0x1C001CD00
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhEtwLogDeviceIrpEvent @ 0x1C000E150 (UsbhEtwLogDeviceIrpEvent.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     WPP_RECORDER_SF_dqq @ 0x1C003C628 (WPP_RECORDER_SF_dqq.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhEtwLogDeviceIrpEvent @ 0x1C0013F80 (UsbhEtwLogDeviceIrpEvent.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     WPP_RECORDER_SF_dqq @ 0x1C003D808 (WPP_RECORDER_SF_dqq.c)
  */
 
 void __fastcall UsbhCompleteCanceledPdoWakeIrp(char *Csq, PIRP Irp)
@@ -28,7 +28,7 @@ void __fastcall UsbhCompleteCanceledPdoWakeIrp(char *Csq, PIRP Irp)
       v7,
       *((_WORD *)v2 + 714),
       *((_QWORD *)v2 + 105),
-      v5);
+      (char)Irp);
   UsbhEtwLogDeviceIrpEvent((__int64)v2, 0LL, &USBHUB_ETW_EVENT_DEVICE_WAIT_WAKE_COMPLETE, -1073741536);
   Irp->IoStatus.Status = -1073741536;
   IofCompleteRequest(Irp, 0);

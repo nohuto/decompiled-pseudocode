@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlockVa @ 0x14015E080
+ * XREFs of MiUnlockVa @ 0x14015E0A0
  * Callers:
  *     NtLockVirtualMemory @ 0x14001A570 (NtLockVirtualMemory.c)
  *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     NtUnlockVirtualMemory @ 0x1400B3D70 (NtUnlockVirtualMemory.c)
+ *     NtUnlockVirtualMemory @ 0x1400B3D90 (NtUnlockVirtualMemory.c)
  * Callees:
  *     MiUnlockWsle @ 0x14001A18C (MiUnlockWsle.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)

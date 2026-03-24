@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckSystemTrimEndCriteria @ 0x1405962EC
+ * XREFs of MiCheckSystemTrimEndCriteria @ 0x14053AD2C
  * Callers:
- *     MiProcessWorkingSets @ 0x14030BBF0 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x140207BA0 (MiProcessWorkingSets.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogContinueTrim @ 0x140596944 (MiLogContinueTrim.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogContinueTrim @ 0x14053B428 (MiLogContinueTrim.c)
  */
 
 __int64 __fastcall MiCheckSystemTrimEndCriteria(_QWORD *a1, __int64 a2, struct _KLOCK_QUEUE_HANDLE *a3)
@@ -37,7 +37,7 @@ __int64 __fastcall MiCheckSystemTrimEndCriteria(_QWORD *a1, __int64 a2, struct _
   unsigned __int64 v29; // rdi
   unsigned __int64 v30; // rdi
 
-  v4 = a1[2075];
+  v4 = a1[856];
   if ( (unsigned __int8)(*(_BYTE *)(a2 + 2) - 2) <= 1u )
   {
     v29 = *(_QWORD *)(v4 + 2360);
@@ -50,7 +50,7 @@ __int64 __fastcall MiCheckSystemTrimEndCriteria(_QWORD *a1, __int64 a2, struct _
   }
   if ( (*(_BYTE *)a2 & 0x7Fu) >= 4 )
     return 1LL;
-  v7 = a1[2112];
+  v7 = a1[888];
   if ( v7 >= *(_QWORD *)(a2 + 72) )
     return 1LL;
   if ( *(_QWORD *)(a2 + 96) >= *(_QWORD *)(a2 + 80) )
@@ -99,7 +99,7 @@ LABEL_7:
     }
   }
   __writecr8(OldIrql);
-  if ( a1[2160] < 0x420uLL )
+  if ( a1[936] < 0x420uLL )
   {
     ++*(_DWORD *)(v4 + 2564);
   }
@@ -108,7 +108,7 @@ LABEL_7:
     ++*(_DWORD *)(v4 + 2560);
     KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&MiShortTime);
   }
-  v20 = a1[2112];
+  v20 = a1[888];
   v21 = *(_QWORD *)(a2 + 72);
   if ( v20 >= v21 )
   {

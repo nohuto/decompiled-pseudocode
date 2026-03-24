@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Add@FxTransactionedList@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAUFxTransactionedEntry@@@Z @ 0x1C002B9D8
+ * XREFs of ?Add@FxTransactionedList@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAUFxTransactionedEntry@@@Z @ 0x1C0061ED0
  * Callers:
- *     ?AddDmaEnabler@FxDevice@@UEAAXPEAVFxDmaEnabler@@@Z @ 0x1C002B6D0 (-AddDmaEnabler@FxDevice@@UEAAXPEAVFxDmaEnabler@@@Z.c)
- *     ?AddChildList@FxDevice@@UEAAXPEAVFxChildList@@@Z @ 0x1C002B910 (-AddChildList@FxDevice@@UEAAXPEAVFxChildList@@@Z.c)
- *     ?AddIoTarget@FxDevice@@UEAAJPEAVFxIoTarget@@@Z @ 0x1C002B970 (-AddIoTarget@FxDevice@@UEAAJPEAVFxIoTarget@@@Z.c)
- *     ?AddEjectionDevice@FxPkgPdo@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0083284 (-AddEjectionDevice@FxPkgPdo@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     ?AddRemovalDevice@FxPkgPnp@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0087BE0 (-AddRemovalDevice@FxPkgPnp@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     ?AddUsageDevice@FxPkgPnp@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0087DCC (-AddUsageDevice@FxPkgPnp@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?AddIoTarget@FxDevice@@UEAAJPEAVFxIoTarget@@@Z @ 0x1C0051720 (-AddIoTarget@FxDevice@@UEAAJPEAVFxIoTarget@@@Z.c)
+ *     ?AddEjectionDevice@FxPkgPdo@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0078D7C (-AddEjectionDevice@FxPkgPdo@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?AddChildList@FxPkgPnp@@QEAAXPEAVFxChildList@@@Z @ 0x1C007F200 (-AddChildList@FxPkgPnp@@QEAAXPEAVFxChildList@@@Z.c)
+ *     ?AddRemovalDevice@FxPkgPnp@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C007F304 (-AddRemovalDevice@FxPkgPnp@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?AddUsageDevice@FxPkgPnp@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C007F4B8 (-AddUsageDevice@FxPkgPnp@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?AddDmaEnabler@FxPkgPnp@@QEAAXPEAVFxDmaEnabler@@@Z @ 0x1C0084CD8 (-AddDmaEnabler@FxPkgPnp@@QEAAXPEAVFxDmaEnabler@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FxTransactionedList::Add(
@@ -28,41 +28,43 @@ __int64 __fastcall FxTransactionedList::Add(
   if ( this->m_Deleting )
   {
     v7 = -1073741436;
-    goto LABEL_6;
   }
-  v7 = this->ProcessAdd(this, Entry);
-  if ( v7 >= 0 )
+  else
   {
-    if ( this->m_ListLockedRecursionCount )
+    v7 = this->ProcessAdd(this, Entry);
+    if ( v7 >= 0 )
     {
-      Entry->m_Transaction = FxTransactionActionAdd;
-      Blink = this->m_TransactionHead.Blink;
-      p_m_TransactionLink = &Entry->m_TransactionLink;
-      if ( Blink->Flink == &this->m_TransactionHead )
+      if ( this->m_ListLockedRecursionCount )
       {
-        p_m_TransactionLink->Flink = &this->m_TransactionHead;
-        Entry->m_TransactionLink.Blink = Blink;
-        Blink->Flink = p_m_TransactionLink;
-        this->m_TransactionHead.Blink = p_m_TransactionLink;
-        goto LABEL_6;
+        Entry->m_Transaction = FxTransactionActionAdd;
+        Blink = this->m_TransactionHead.Blink;
+        p_m_TransactionLink = &Entry->m_TransactionLink;
+        if ( Blink->Flink == &this->m_TransactionHead )
+        {
+          p_m_TransactionLink->Flink = &this->m_TransactionHead;
+          Entry->m_TransactionLink.Blink = Blink;
+          Blink->Flink = p_m_TransactionLink;
+          this->m_TransactionHead.Blink = p_m_TransactionLink;
+          goto LABEL_10;
+        }
       }
-    }
-    else
-    {
-      v8 = this->m_ListHead.Blink;
-      if ( v8->Flink == &this->m_ListHead )
+      else
       {
-        Entry->m_ListLink.Flink = &this->m_ListHead;
-        Entry->m_ListLink.Blink = v8;
-        v8->Flink = &Entry->m_ListLink;
-        this->m_ListHead.Blink = &Entry->m_ListLink;
-        this->EntryAdded(this, Entry);
-        goto LABEL_6;
+        v8 = this->m_ListHead.Blink;
+        if ( v8->Flink == &this->m_ListHead )
+        {
+          Entry->m_ListLink.Flink = &this->m_ListHead;
+          Entry->m_ListLink.Blink = v8;
+          v8->Flink = &Entry->m_ListLink;
+          this->m_ListHead.Blink = &Entry->m_ListLink;
+          this->EntryAdded(this, Entry);
+          goto LABEL_10;
+        }
       }
+      __fastfail(3u);
     }
-    __fastfail(3u);
   }
-LABEL_6:
+LABEL_10:
   LOBYTE(v6) = irql;
   this->ReleaseLock(this, FxDriverGlobals, v6);
   return (unsigned int)v7;

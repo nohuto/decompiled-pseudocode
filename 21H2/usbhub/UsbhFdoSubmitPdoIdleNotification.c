@@ -1,19 +1,20 @@
 /*
- * XREFs of UsbhFdoSubmitPdoIdleNotification @ 0x1C0030998
+ * XREFs of UsbhFdoSubmitPdoIdleNotification @ 0x1C0031D40
  * Callers:
- *     UsbhPdoInternalDeviceControl @ 0x1C0017C10 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1C0009690 (UsbhPdoInternalDeviceControl.c)
  * Callees:
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhIdleIrp_Event @ 0x1C00576A8 (UsbhIdleIrp_Event.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhIdleIrp_Event @ 0x1C0058D78 (UsbhIdleIrp_Event.c)
  */
 
 __int64 __fastcall UsbhFdoSubmitPdoIdleNotification(__int64 a1, ULONG_PTR BugCheckParameter3, IRP *BugCheckParameter4)
 {
   unsigned int v6; // edi
   _NAMED_PIPE_CREATE_PARAMETERS *Parameters; // rcx
+  int v9; // [rsp+48h] [rbp-10h]
 
-  if ( dword_1C006A680 )
+  if ( dword_1C006C5E0 )
   {
     v6 = -1073741637;
     BugCheckParameter4->IoStatus.Status = -1073741637;
@@ -33,7 +34,8 @@ __int64 __fastcall UsbhFdoSubmitPdoIdleNotification(__int64 a1, ULONG_PTR BugChe
       BugCheckParameter4->IoStatus.Status = -1073741224;
       IofCompleteRequest(BugCheckParameter4, 0);
       UsbhDecPdoIoCount(BugCheckParameter3, (ULONG_PTR)BugCheckParameter4);
-      UsbhException(a1, 0, 122, 0, 0, -1073741224, 0, usbfile_dioctl_c, 1148, 0);
+      LOBYTE(v9) = 0;
+      UsbhException(a1, 0, 122, 0, 0, -1073741224, 0, usbfile_dioctl_c, 1148, v9);
     }
   }
   return v6;

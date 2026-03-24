@@ -1,11 +1,11 @@
 /*
- * XREFs of ?StretchDIBDirect@@YAHPEAXJKKPEAU_RECTL@@0JKK111K@Z @ 0x1C00DA134
+ * XREFs of ?StretchDIBDirect@@YAHPEAXJKKPEAU_RECTL@@0JKK111K@Z @ 0x1C00B3A70
  * Callers:
- *     ?EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C00D7380 (-EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
- *     ?EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAH@Z @ 0x1C0291930 (-EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
+ *     ?EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C00B13EC (-EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
+ *     ?EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAH@Z @ 0x1C028DEC0 (-EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall StretchDIBDirect(
@@ -23,7 +23,7 @@ __int64 __fastcall StretchDIBDirect(
         struct _RECTL *a12,
         unsigned int a13)
 {
-  LONG right; // r15d
+  LONG right; // r12d
   int v14; // edi
   int v15; // edx
   LONG v16; // esi
@@ -38,7 +38,7 @@ __int64 __fastcall StretchDIBDirect(
   LONG v25; // esi
   LONG v26; // r14d
   unsigned int v27; // r9d
-  int v28; // r15d
+  int v28; // r12d
   int v29; // r8d
   LONG v30; // r11d
   LONG v31; // eax
@@ -216,7 +216,7 @@ LABEL_25:
           v36 = (HIDWORD(v23) >> 1) + v20;
         }
         v63 = &a6[v36 * a7];
-        v66 = &a1[v32 * a2];
+        v66 = &a1[a2 * v32];
         v64 = a7;
         v65 = v29;
         v68 = v25;
@@ -231,7 +231,7 @@ LABEL_25:
         v76 = HIDWORD(v22);
         if ( v26 - v25 < 7 )
           v21 = 8LL;
-        off_1C03095F0[a13 | (unsigned __int64)v21]((struct BLTINFO *)&v63);
+        ((void (__fastcall *)(char **))(&pfnStrArray)[a13 | (unsigned __int64)v21])(&v63);
         a11->left = v25;
         a11->right = v26;
         a11->top = v32;

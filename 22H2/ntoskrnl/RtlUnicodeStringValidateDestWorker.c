@@ -1,13 +1,12 @@
 /*
- * XREFs of RtlUnicodeStringValidateDestWorker @ 0x140208D74
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x14036E4E0
  * Callers:
- *     RtlUnicodeStringCat @ 0x140208C9C (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x140209B44 (RtlUnicodeStringCatString.c)
- *     PopPowerRequestStatsIdConcat @ 0x1407A9080 (PopPowerRequestStatsIdConcat.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1407EA278 (CmpLogTransactionAbortedWithChildName.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x14099A668 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     RtlUnicodeStringPrintf @ 0x14036E45C (RtlUnicodeStringPrintf.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A76E0 (CmpFinishSystemHivesLoad.c)
+ *     IopDeviceRemovalForResetComplete @ 0x1408A0760 (IopDeviceRemovalForResetComplete.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x1408F41F0 (PopIdleWakeGenerateDescriptionString.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker @ 0x140208E20 (RtlUnicodeStringValidateWorker.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x140206D5C (RtlUnicodeStringValidateWorker_0.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker(
@@ -18,25 +17,23 @@ NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker(
         const size_t cchMax,
         ULONG dwFlags)
 {
-  __int64 v8; // rcx
-  int v9; // r8d
-  unsigned __int16 *v10; // r10
-  unsigned __int64 *v11; // r11
+  NTSTATUS result; // eax
+  __int64 v7; // rcx
+  unsigned __int64 *v8; // r10
+  _QWORD *v9; // r11
+  __int64 v10; // rdx
 
   *ppszDest = 0LL;
   *pcchDest = 0LL;
-  if ( pcchDestLength )
-    *pcchDestLength = 0LL;
-  v9 = RtlUnicodeStringValidateWorker(DestinationString, (const size_t)ppszDest, (ULONG)pcchDest);
-  if ( v9 >= 0 )
+  result = RtlUnicodeStringValidateWorker_0(DestinationString, (const size_t)ppszDest, (ULONG)pcchDest);
+  if ( result >= 0 )
   {
-    if ( v10 )
+    if ( v7 )
     {
-      *ppszDest = *(wchar_t **)(v8 + 8);
-      *pcchDest = (unsigned __int64)v10[1] >> 1;
-      if ( v11 )
-        *v11 = (unsigned __int64)*v10 >> 1;
+      v10 = *(_QWORD *)(v7 + 8);
+      *v8 = (unsigned __int64)*(unsigned __int16 *)(v7 + 2) >> 1;
+      *v9 = v10;
     }
   }
-  return v9;
+  return result;
 }

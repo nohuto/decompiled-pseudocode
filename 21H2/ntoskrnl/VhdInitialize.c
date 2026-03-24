@@ -1,20 +1,20 @@
 /*
- * XREFs of VhdInitialize @ 0x140B30860
+ * XREFs of VhdInitialize @ 0x140A73778
  * Callers:
- *     IopInitializeBootDrivers @ 0x140B114E8 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlStringCbCatW @ 0x1402E0A04 (RtlStringCbCatW.c)
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     PnpBootDeviceWait @ 0x1403C5C64 (PnpBootDeviceWait.c)
- *     strstr @ 0x1403E0C40 (strstr.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlStringFromGUID @ 0x140745490 (RtlStringFromGUID.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     VhdiGetDiskParameters @ 0x140B54490 (VhdiGetDiskParameters.c)
- *     VhdiMountVhdFile @ 0x140B54AE4 (VhdiMountVhdFile.c)
+ *     RtlStringCbCatW @ 0x140265118 (RtlStringCbCatW.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     PnpBootDeviceWait @ 0x1403B83B4 (PnpBootDeviceWait.c)
+ *     strstr @ 0x1403D1880 (strstr.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUID @ 0x14067A7C0 (RtlStringFromGUID.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     VhdiGetDiskParameters @ 0x140A94628 (VhdiGetDiskParameters.c)
+ *     VhdiMountVhdFile @ 0x140A94C98 (VhdiMountVhdFile.c)
  */
 
 __int64 __fastcall VhdInitialize(__int64 a1)
@@ -26,37 +26,39 @@ __int64 __fastcall VhdInitialize(__int64 a1)
   _QWORD *i; // rax
   __int64 v8; // r10
   ULONG_PTR v9; // rdi
-  char v10; // r15
-  const wchar_t *v11; // r12
+  char v10; // r12
+  const wchar_t *v11; // r15
   int v12; // ecx
-  __int64 v13; // rsi
+  __int64 v13; // r14
   __int64 v14; // rax
-  ULONG_PTR v15; // r13
-  wchar_t *Pool2; // rax
-  wchar_t *v17; // r14
+  SIZE_T v15; // r13
+  wchar_t *PoolWithTag; // rax
+  wchar_t *v17; // rsi
   __int64 v18; // rdi
   unsigned int v19; // edi
-  _DWORD *v20; // r15
-  __int64 v21; // rcx
+  unsigned int v20; // r13d
+  _DWORD *v21; // rax
+  _DWORD *v22; // r12
+  __int64 v23; // rcx
   UNICODE_STRING GuidString; // [rsp+30h] [rbp-A9h] BYREF
-  __int128 v23; // [rsp+40h] [rbp-99h] BYREF
-  __int128 v24; // [rsp+50h] [rbp-89h]
-  _BYTE v25[208]; // [rsp+60h] [rbp-79h] BYREF
-  char v26; // [rsp+140h] [rbp+67h] BYREF
-  unsigned int v27; // [rsp+148h] [rbp+6Fh] BYREF
+  __int128 v25; // [rsp+40h] [rbp-99h] BYREF
+  __int128 v26; // [rsp+50h] [rbp-89h]
+  _BYTE v27[208]; // [rsp+60h] [rbp-79h] BYREF
+  char v28; // [rsp+140h] [rbp+67h] BYREF
+  unsigned int v29; // [rsp+148h] [rbp+6Fh] BYREF
   NTSTRSAFE_PCWSTR pszSrc; // [rsp+150h] [rbp+77h] BYREF
-  __int64 v29; // [rsp+158h] [rbp+7Fh] BYREF
+  __int64 v31; // [rsp+158h] [rbp+7Fh] BYREF
 
-  v23 = 0LL;
-  v24 = 0LL;
-  memset(v25, 0, 0x8CuLL);
+  v25 = 0LL;
+  v26 = 0LL;
+  memset(v27, 0, 0x90uLL);
   v2 = *(const char **)(a1 + 184);
   GuidString = 0LL;
-  v26 = 0;
+  v28 = 0;
   DiskParameters = 0;
   pszSrc = 0LL;
-  v29 = 0LL;
-  v27 = 0;
+  v31 = 0LL;
+  v29 = 0;
   v4 = strstr(v2, "vdisk(");
   if ( !v4 || !strstr(v4 + 1, "partition(") )
     return (unsigned int)DiskParameters;
@@ -71,32 +73,32 @@ __int64 __fastcall VhdInitialize(__int64 a1)
   }
   if ( !i )
     return (unsigned int)DiskParameters;
-  DiskParameters = VhdiGetDiskParameters(v8, v25, &v29, &v26, &pszSrc);
+  DiskParameters = VhdiGetDiskParameters(v8, v27, &v31, &v28, &pszSrc);
   if ( DiskParameters < 0 )
   {
     v9 = 1LL;
     goto LABEL_36;
   }
-  v10 = v26;
+  v10 = v28;
   v11 = pszSrc;
-  if ( v26 )
+  if ( v28 )
   {
     v12 = 110;
   }
   else
   {
-    *(_QWORD *)&v24 = pszSrc;
-    *(_QWORD *)&v23 = v25;
-    *((_QWORD *)&v23 + 1) = v29;
+    *(_QWORD *)&v26 = pszSrc;
+    *(_QWORD *)&v25 = v27;
+    *((_QWORD *)&v25 + 1) = v31;
     v9 = 2LL;
-    *((_QWORD *)&v24 + 1) = &v27;
+    *((_QWORD *)&v26 + 1) = &v29;
     DiskParameters = PnpBootDeviceWait(
                        a1,
                        2,
                        (__int64 (__fastcall *)(__int64, __int64, UNICODE_STRING *))&VhdiInitializeBootDisk,
-                       (__int64)&v23);
+                       (__int64)&v25);
     if ( DiskParameters < 0 )
-      goto LABEL_36;
+      goto LABEL_37;
     v12 = 74;
   }
   v13 = -1LL;
@@ -105,25 +107,25 @@ __int64 __fastcall VhdInitialize(__int64 a1)
     ++v14;
   while ( v11[v14] );
   v15 = (unsigned int)(v12 + 2 * v14);
-  Pool2 = (wchar_t *)ExAllocatePool2(64LL, v15, 0x42646856u);
-  v17 = Pool2;
-  if ( !Pool2 )
-    goto LABEL_23;
-  if ( v10 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v15, 0x42646856u);
+  v17 = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_21;
+  if ( !v10 )
   {
-    if ( RtlStringFromGUID(&RamdiskBootDiskGuid, &GuidString) >= 0 )
-    {
-      DiskParameters = RtlStringCbPrintfW(v17, 0x6EuLL, L"\\\\Device\\Ramdisk%wZ", &GuidString);
-      RtlFreeUnicodeString(&GuidString);
-      goto LABEL_26;
-    }
-LABEL_23:
-    v9 = 3LL;
-LABEL_35:
-    DiskParameters = -1073741801;
-    goto LABEL_36;
+    DiskParameters = RtlStringCbPrintfW(PoolWithTag, 0x4AuLL, L"\\\\Device\\HarddiskVolume%lu", v29);
+    goto LABEL_26;
   }
-  DiskParameters = RtlStringCbPrintfW(Pool2, 0x4AuLL, L"\\\\Device\\HarddiskVolume%lu", v27);
+  if ( RtlStringFromGUID(&RamdiskBootDiskGuid, &GuidString) < 0 )
+  {
+LABEL_21:
+    v9 = 3LL;
+LABEL_23:
+    DiskParameters = -1073741801;
+    goto LABEL_37;
+  }
+  DiskParameters = RtlStringCbPrintfW(v17, 0x6EuLL, L"\\\\Device\\Ramdisk%wZ", &GuidString);
+  RtlFreeAnsiString(&GuidString);
 LABEL_26:
   if ( DiskParameters < 0 )
   {
@@ -139,26 +141,33 @@ LABEL_26:
   if ( DiskParameters < 0 )
   {
     v9 = 5LL;
-LABEL_36:
-    KeBugCheckEx(0x12Fu, v9, DiskParameters, 0LL, 0LL);
+    goto LABEL_36;
   }
   NtVhdBootFile = (__int64)v17;
   v19 = v18 - 1;
   do
     ++v13;
   while ( v11[v13] );
-  v20 = (_DWORD *)ExAllocatePool2(64LL, 2 * ((unsigned int)v13 + v19) + 14, 0x42646856u);
-  if ( !v20 )
+  v20 = 2 * (v13 + v19) + 14;
+  v21 = ExAllocatePoolWithTag(NonPagedPoolNx, v20, 0x42646856u);
+  v22 = v21;
+  if ( !v21 )
   {
     v9 = 7LL;
-    goto LABEL_35;
+    goto LABEL_23;
   }
-  memmove(v20 + 2, v17 + 1, 2LL * v19);
-  v21 = 2 * v19 + 10;
-  v20[1] = v21;
-  memmove((char *)v20 + v21, v11, 2LL * (unsigned int)(v13 + 1));
-  off_140C07278 = v20;
-  *(_BYTE *)v20 = 1;
-  LODWORD(dword_140C0CA00) = 2 * (v13 + v19) + 14;
+  memset(v21, 0, v20);
+  memmove(v22 + 2, v17 + 1, 2LL * v19);
+  v23 = 2 * v19 + 10;
+  v22[1] = v23;
+  memmove((char *)v22 + v23, v11, 2LL * (unsigned int)(v13 + 1));
+  off_140C05140 = v22;
+  *(_BYTE *)v22 = 1;
+  v9 = 0LL;
+  LODWORD(dword_140C124B0) = v20;
+LABEL_36:
+  if ( DiskParameters < 0 )
+LABEL_37:
+    KeBugCheckEx(0x12Fu, v9, DiskParameters, 0LL, 0LL);
   return (unsigned int)DiskParameters;
 }

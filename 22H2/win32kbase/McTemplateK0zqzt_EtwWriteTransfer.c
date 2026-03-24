@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0zqzt_EtwWriteTransfer @ 0x1C016C074
+ * XREFs of McTemplateK0zqzt_EtwWriteTransfer @ 0x1C014D228
  * Callers:
- *     EtwFontLoadAttemptEvent @ 0x1C016B5C0 (EtwFontLoadAttemptEvent.c)
+ *     EtwFontLoadAttemptEvent @ 0x1C014C660 (EtwFontLoadAttemptEvent.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0zqzt_EtwWriteTransfer(
@@ -16,11 +16,11 @@ NTSTATUS __fastcall McTemplateK0zqzt_EtwWriteTransfer(
         const wchar_t *a6,
         char a7)
 {
-  const wchar_t *v7; // rdx
-  __int64 v8; // rax
-  int v9; // r8d
-  __int64 v10; // rcx
-  int v11; // r10d
+  __int64 v7; // rax
+  int v8; // edx
+  __int64 v9; // rcx
+  int v10; // r8d
+  const wchar_t *v11; // rcx
   bool v12; // zf
   struct _EVENT_DATA_DESCRIPTOR v14; // [rsp+30h] [rbp-21h] BYREF
   const wchar_t *v15; // [rsp+40h] [rbp-11h]
@@ -34,43 +34,43 @@ NTSTATUS __fastcall McTemplateK0zqzt_EtwWriteTransfer(
   char *v23; // [rsp+70h] [rbp+1Fh]
   __int64 v24; // [rsp+78h] [rbp+27h]
 
-  v7 = a6;
-  v8 = -1LL;
-  v9 = 10;
+  v7 = -1LL;
+  v8 = 10;
   if ( a4 )
   {
-    v10 = -1LL;
+    v9 = -1LL;
     do
-      ++v10;
-    while ( a4[v10] );
-    v11 = 2 * v10 + 2;
+      ++v9;
+    while ( a4[v9] );
+    v10 = 2 * v9 + 2;
   }
   else
   {
-    v11 = 10;
+    v10 = 10;
   }
-  v16 = v11;
-  v17 = 0;
+  v16 = v10;
+  v18 = &a5;
+  v11 = a6;
   if ( !a4 )
     a4 = L"NULL";
-  v19 = 4LL;
+  v17 = 0;
   v15 = a4;
-  v18 = &a5;
+  v19 = 4LL;
   v12 = a6 == 0LL;
   if ( a6 )
   {
     do
-      ++v8;
-    while ( a6[v8] );
-    v9 = 2 * v8 + 2;
+      ++v7;
+    while ( a6[v7] );
+    v8 = 2 * v7 + 2;
     v12 = a6 == 0LL;
   }
-  if ( v12 )
-    v7 = L"NULL";
-  v21 = v9;
-  v20 = v7;
+  v21 = v8;
   v23 = &a7;
   v22 = 0;
+  if ( v12 )
+    v11 = L"NULL";
+  v20 = v11;
   v24 = 4LL;
-  return McGenEventWrite_EtwWriteTransfer((__int64)&a5, &FontLoadAttemptEvent, &W32kControlGuid, 5u, &v14);
+  return McGenEventWrite_EtwWriteTransfer((__int64)v11, &FontLoadAttemptEvent, &W32kControlGuid, 5u, &v14);
 }

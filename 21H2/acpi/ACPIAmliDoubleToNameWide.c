@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIAmliDoubleToNameWide @ 0x1C001D62C
+ * XREFs of ACPIAmliDoubleToNameWide @ 0x1C00285AC
  * Callers:
- *     ACPIGetConvertToPnpIDWide @ 0x1C001C5D8 (ACPIGetConvertToPnpIDWide.c)
- *     ACPIGetConvertToDeviceIDWide @ 0x1C001D038 (ACPIGetConvertToDeviceIDWide.c)
+ *     ACPIGetConvertToPnpIDWide @ 0x1C00281E0 (ACPIGetConvertToPnpIDWide.c)
+ *     ACPIGetConvertToDeviceIDWide @ 0x1C0028368 (ACPIGetConvertToDeviceIDWide.c)
  * Callees:
  *     <none>
  */

@@ -1,29 +1,29 @@
 /*
- * XREFs of MiIsPfn @ 0x14023F0A0
+ * XREFs of MiIsPfn @ 0x1402C9840
  * Callers:
- *     MiTradePage @ 0x1403BA300 (MiTradePage.c)
- *     MmQueryPfnList @ 0x1406EF4F0 (MmQueryPfnList.c)
- *     MiMapLockedPagesInUserSpace @ 0x140748A84 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x140A30D50 (MiMapViewOfPhysicalSection.c)
- *     MiReplaceRotateWithDemandZero @ 0x140A31478 (MiReplaceRotateWithDemandZero.c)
- *     MiRotateToFrameBuffer @ 0x140A31710 (MiRotateToFrameBuffer.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140A31A14 (MiRotateToFrameBufferNoCopy.c)
- *     MiIsExtentDangling @ 0x140A33FB4 (MiIsExtentDangling.c)
- *     MmRelocatePfnList @ 0x140A3C9F8 (MmRelocatePfnList.c)
- *     MiConvertHiberPhasePte @ 0x140AAC1E0 (MiConvertHiberPhasePte.c)
- *     MiMarkHiberNotCachedPte @ 0x140AAC400 (MiMarkHiberNotCachedPte.c)
- *     MiMarkNonPagedHiberPhasePte @ 0x140AAC600 (MiMarkNonPagedHiberPhasePte.c)
- *     MmAreMdlPagesLocked @ 0x140AE9198 (MmAreMdlPagesLocked.c)
- *     MmCheckMdlPages @ 0x140AE9264 (MmCheckMdlPages.c)
- *     MmCheckMapIoSpace @ 0x140AE936C (MmCheckMapIoSpace.c)
+ *     MiCoalesceFreeLargePages @ 0x140283820 (MiCoalesceFreeLargePages.c)
+ *     MiGetPageProtection @ 0x1402B1430 (MiGetPageProtection.c)
+ *     PfpPfnPrioRequest @ 0x1406402D0 (PfpPfnPrioRequest.c)
+ *     MmRotatePhysicalView @ 0x14065FD60 (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076ACC0 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C33C8 (MiMapViewOfPhysicalSection.c)
+ *     MiIsExtentDangling @ 0x1408D0148 (MiIsExtentDangling.c)
+ *     MmRelocatePfnList @ 0x1408D1B2C (MmRelocatePfnList.c)
+ *     MiFreePartitionPageRun @ 0x1408DB084 (MiFreePartitionPageRun.c)
+ *     MiConvertHiberPhasePte @ 0x1409957C0 (MiConvertHiberPhasePte.c)
+ *     MiMarkHiberNotCachedPte @ 0x1409B0440 (MiMarkHiberNotCachedPte.c)
+ *     MiMarkNonPagedHiberPhasePte @ 0x1409B0660 (MiMarkNonPagedHiberPhasePte.c)
+ *     MmAreMdlPagesLocked @ 0x1409C5CE0 (MmAreMdlPagesLocked.c)
+ *     MmCheckMdlPages @ 0x1409C5DAC (MmCheckMdlPages.c)
+ *     MmCheckMapIoSpace @ 0x1409C5EB8 (MmCheckMapIoSpace.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiIsPfn(unsigned __int64 a1)
 {
-  if ( a1 > qword_140C65CA0 )
+  if ( a1 > 0xFFFFFFFFFLL )
     return 0LL;
   else
-    return (*(_QWORD *)(48 * a1 - 0x21FFFFFFFFD8LL) >> 54) & 1LL;
+    return (*(_QWORD *)(48 * a1 - 0x57FFFFFFFD8LL) >> 50) & 1LL;
 }

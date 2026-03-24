@@ -1,22 +1,20 @@
 /*
- * XREFs of RtlImageNtHeaderEx @ 0x1402FD9C0
+ * XREFs of RtlImageNtHeaderEx @ 0x14031C980
  * Callers:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     RtlpImageDirectoryEntryToDataEx @ 0x1402D6CE8 (RtlpImageDirectoryEntryToDataEx.c)
- *     MiProcessKernelCfgImage @ 0x1402D99BC (MiProcessKernelCfgImage.c)
- *     MiLockPagableImageSection @ 0x1402FD820 (MiLockPagableImageSection.c)
- *     RtlpCaptureDynamicRelocationTableRva @ 0x1403C38EC (RtlpCaptureDynamicRelocationTableRva.c)
- *     LdrpResGetMappingSize @ 0x1406734EC (LdrpResGetMappingSize.c)
- *     LdrpResGetResourceDirectory @ 0x14067368C (LdrpResGetResourceDirectory.c)
- *     LdrCaptureDynamicRelocationTableHeader @ 0x140706200 (LdrCaptureDynamicRelocationTableHeader.c)
- *     EtwpLocateDbgIdForRegEntry @ 0x140758C68 (EtwpLocateDbgIdForRegEntry.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x14075AEA4 (LdrImageDirectoryEntryToLoadConfig.c)
- *     LdrpFetchAddressOfSecurityCookie @ 0x14075C190 (LdrpFetchAddressOfSecurityCookie.c)
- *     MiCaptureBootDriverRetpolineInfo @ 0x14082CB7C (MiCaptureBootDriverRetpolineInfo.c)
- *     MiOpenHotPatchFile @ 0x14097638C (MiOpenHotPatchFile.c)
- *     LdrRelocateImageWithBias @ 0x1409BE864 (LdrRelocateImageWithBias.c)
- *     RtlFindHotPatchInformation @ 0x1409C0580 (RtlFindHotPatchInformation.c)
- *     VfDriverEnableVerifierForAll @ 0x140A89C30 (VfDriverEnableVerifierForAll.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x140253308 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     MiProcessKernelCfgImage @ 0x140371DC4 (MiProcessKernelCfgImage.c)
+ *     RtlpCaptureDynamicRelocationTableRva @ 0x1403B701C (RtlpCaptureDynamicRelocationTableRva.c)
+ *     LdrpResGetMappingSize @ 0x14068C510 (LdrpResGetMappingSize.c)
+ *     LdrpResGetResourceDirectory @ 0x14068D314 (LdrpResGetResourceDirectory.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1406AB1A8 (EtwpLocateDbgIdForRegEntry.c)
+ *     MiCaptureDynamicRelocationTableRva @ 0x140713B4C (MiCaptureDynamicRelocationTableRva.c)
+ *     LdrpFetchAddressOfSecurityCookie @ 0x14075CE40 (LdrpFetchAddressOfSecurityCookie.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x14075CEDC (LdrImageDirectoryEntryToLoadConfig.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1407A5390 (MiCaptureBootDriverRetpolineInfo.c)
+ *     MiOpenHotPatchFile @ 0x1408CCB08 (MiOpenHotPatchFile.c)
+ *     LdrRelocateImageWithBias @ 0x140919364 (LdrRelocateImageWithBias.c)
+ *     VfDriverEnableVerifierForAll @ 0x1409C87B8 (VfDriverEnableVerifierForAll.c)
  * Callees:
  *     <none>
  */

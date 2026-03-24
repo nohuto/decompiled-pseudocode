@@ -1,35 +1,36 @@
 /*
- * XREFs of MiInitializeSystemWorkingSetList @ 0x1407AA178
+ * XREFs of MiInitializeSystemWorkingSetList @ 0x1407866BC
  * Callers:
- *     MiSessionCreate @ 0x1407A95BC (MiSessionCreate.c)
- *     MiInitializeSystemCache @ 0x14085C7EC (MiInitializeSystemCache.c)
- *     MiBuildPagedPool @ 0x140B46E94 (MiBuildPagedPool.c)
- *     MiInitializeSystemPtes @ 0x140B4790C (MiInitializeSystemPtes.c)
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
- *     MiInitializeNonPagedPool @ 0x140B6156C (MiInitializeNonPagedPool.c)
+ *     MiSessionCreate @ 0x14078610C (MiSessionCreate.c)
+ *     MiInitializeSystemCache @ 0x1407A0A58 (MiInitializeSystemCache.c)
+ *     MiInitializeSystemPtes @ 0x140A4E1C4 (MiInitializeSystemPtes.c)
+ *     MiInitializeNonPagedPool @ 0x140A4E39C (MiInitializeNonPagedPool.c)
+ *     MiBuildPagedPool @ 0x140A4E614 (MiBuildPagedPool.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiTranslateWsType @ 0x14021DB64 (MiTranslateWsType.c)
- *     MiAllowWorkingSetExpansion @ 0x1402232D8 (MiAllowWorkingSetExpansion.c)
- *     MiInitializeWorkingSetList @ 0x140223444 (MiInitializeWorkingSetList.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
+ *     MiChargeResident @ 0x140259EB8 (MiChargeResident.c)
+ *     MiTranslateWsType @ 0x14033B4C0 (MiTranslateWsType.c)
+ *     MiInitializeWorkingSetList @ 0x1403526E4 (MiInitializeWorkingSetList.c)
+ *     MiAllowWorkingSetExpansion @ 0x1403528FC (MiAllowWorkingSetExpansion.c)
  */
 
-__int64 __fastcall MiInitializeSystemWorkingSetList(__int64 a1, __int64 a2, int a3, __int64 a4)
+__int64 __fastcall MiInitializeSystemWorkingSetList(ULONG_PTR *a1, __int64 a2, unsigned int a3, _DWORD *a4)
 {
   int v8; // eax
   __int64 v9; // rdx
-  __int64 v10; // r15
-  unsigned __int64 v11; // r14
-  __int64 v12; // r13
-  __int64 *v13; // rbp
+  __int64 v10; // r9
+  __int64 v11; // r15
+  unsigned __int64 v12; // r14
+  __int64 v13; // r13
+  __int64 *v14; // rbp
 
   if ( a3 == 1 )
   {
-    v13 = (__int64 *)(a2 + 320);
-LABEL_7:
+    v14 = (__int64 *)qword_140C4DDD0;
+LABEL_8:
     *(_DWORD *)a2 = 0;
     *(_WORD *)(a2 + 174) = *(_WORD *)a1;
-    MiInitializeWorkingSetList(a2, (__int64)v13, a3, a4);
+    MiInitializeWorkingSetList(a2, (__int64)v14, a3, a4);
     MiAllowWorkingSetExpansion(a2);
     return 1LL;
   }
@@ -41,19 +42,19 @@ LABEL_7:
     *(_WORD *)(v9 + 174) = *(_WORD *)a1;
     return 1LL;
   }
-  v10 = v8;
-  v11 = (-(__int64)(*(_QWORD *)(a1 + 17040) < 0x4000uLL) & 0xFFFFFFFFFFFFFF20uLL) + 256;
-  v12 = 5LL * v8;
-  v13 = &MiState[5 * v8 + 903];
-  if ( (unsigned int)MiChargeResident((void *)a1, v11, 20LL) )
+  v11 = v8;
+  v12 = (-(__int64)(a1[866] < 0x4000) & 0xFFFFFFFFFFFFFF20uLL) + 256;
+  v13 = 5LL * v8;
+  v14 = &MiState[5 * v8 + 862];
+  if ( (unsigned int)MiChargeResident(a1, v12, 20LL, v10) )
   {
-    if ( (unsigned __int16 *)a1 != MiSystemPartition )
+    if ( a1 != &MiSystemPartition )
     {
-      v13 = (__int64 *)(a1 + 17536 + 8 * v12);
-      a4 = MiState[40 * v10 + 2239];
+      v14 = (__int64 *)&a1[v13 + 928];
+      a4 = (_DWORD *)MiState[40 * v11 + 1275];
     }
-    *(_QWORD *)(a2 + 112) = v11;
-    goto LABEL_7;
+    *(_QWORD *)(a2 + 112) = v12;
+    goto LABEL_8;
   }
   return 0LL;
 }

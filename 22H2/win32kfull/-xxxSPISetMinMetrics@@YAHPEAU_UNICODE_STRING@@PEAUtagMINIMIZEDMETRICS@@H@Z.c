@@ -1,47 +1,38 @@
 /*
- * XREFs of ?xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z @ 0x1C00B8E9C
+ * XREFs of ?xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z @ 0x1C0131D44
  * Callers:
- *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C00B8E38 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
+ *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C0131CE0 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
  * Callees:
- *     ?xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z @ 0x1C00B8F40 (-xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     ?SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z @ 0x1C01C80BC (-SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z.c)
+ *     ?xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z @ 0x1C0131DDC (-xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z.c)
+ *     ?SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z @ 0x1C01D6C28 (-SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z.c)
  */
 
 __int64 __fastcall xxxSPISetMinMetrics(struct _UNICODE_STRING *a1, struct tagMINIMIZEDMETRICS *a2, int a3)
 {
-  BOOL v6; // r12d
-  unsigned int v7; // ebx
-  INT DpiForSystem; // ecx
-  INT *v9; // r14
-  INT *v10; // r15
-  INT *v11; // rbp
-  INT v12; // edx
-  int v14; // ebx
-  int v15; // ebx
-  int v16; // ebx
-  INT c; // [rsp+60h] [rbp+18h]
+  BOOL v6; // r14d
+  unsigned int v7; // edi
+  INT v8; // ecx
+  INT v10; // ebx
+  int v11; // edi
+  int v12; // edi
+  int v13; // edi
 
   v6 = a3 == 0;
   v7 = 0;
-  DpiForSystem = GetDpiForSystem(a1, a2);
-  c = DpiForSystem;
-  v9 = (INT *)((char *)a2 + 4);
-  v10 = (INT *)((char *)a2 + 8);
-  v11 = (INT *)((char *)a2 + 12);
-  v12 = *(unsigned __int16 *)(gpsi + 6998LL);
-  if ( DpiForSystem != v12 )
+  v8 = *(unsigned __int16 *)(PsGetCurrentProcessWin32Process(a1) + 284);
+  if ( (_WORD)v8 != *(_WORD *)(gpsi + 6998LL) )
   {
-    *v9 = EngMulDiv(*v9, v12, DpiForSystem);
-    *v10 = EngMulDiv(*v10, *(unsigned __int16 *)(gpsi + 6998LL), c);
-    *v11 = EngMulDiv(*v11, *(unsigned __int16 *)(gpsi + 6998LL), c);
+    v10 = v8;
+    *((_DWORD *)a2 + 1) = EngMulDiv(*((_DWORD *)a2 + 1), *(unsigned __int16 *)(gpsi + 6998LL), v8);
+    *((_DWORD *)a2 + 2) = EngMulDiv(*((_DWORD *)a2 + 2), *(unsigned __int16 *)(gpsi + 6998LL), v10);
+    *((_DWORD *)a2 + 3) = EngMulDiv(*((_DWORD *)a2 + 3), *(unsigned __int16 *)(gpsi + 6998LL), v10);
   }
   if ( a3 )
   {
-    v14 = SetWindowMetricInt(a1, 0x92u, *v9);
-    v15 = SetWindowMetricInt(a1, 0x93u, *v10) & v14;
-    v16 = SetWindowMetricInt(a1, 0x94u, *v11) & v15;
-    v7 = SetWindowMetricInt(a1, 0x96u, *((_DWORD *)a2 + 4)) & v16;
+    v11 = SetWindowMetricInt(a1, 0x92u, *((_DWORD *)a2 + 1));
+    v12 = SetWindowMetricInt(a1, 0x93u, *((_DWORD *)a2 + 2)) & v11;
+    v13 = SetWindowMetricInt(a1, 0x94u, *((_DWORD *)a2 + 3)) & v12;
+    v7 = SetWindowMetricInt(a1, 0x96u, *((_DWORD *)a2 + 4)) & v13;
     v6 = v7;
   }
   if ( v6 )

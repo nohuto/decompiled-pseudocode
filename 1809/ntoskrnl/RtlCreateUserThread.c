@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCreateUserThread @ 0x140890460
+ * XREFs of RtlCreateUserThread @ 0x140890440
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCreateUserThreadEx @ 0x14068CF34 (RtlpCreateUserThreadEx.c)
+ *     RtlpCreateUserThreadEx @ 0x14068CF14 (RtlpCreateUserThreadEx.c)
  */
 
 NTSTATUS __stdcall RtlCreateUserThread(

@@ -1,16 +1,21 @@
 /*
- * XREFs of McTemplateU0qff_EventWriteTransfer @ 0x180131358
+ * XREFs of McTemplateU0qff_EventWriteTransfer @ 0x1801623C8
  * Callers:
- *     ?CalculateEffectiveRefreshRate@CRateInfo@@QEAAXPEAVCFrameInfo@@0@Z @ 0x18004DBA8 (-CalculateEffectiveRefreshRate@CRateInfo@@QEAAXPEAVCFrameInfo@@0@Z.c)
- *     ?SetNominalRefreshPeriod@CRateInfo@@QEAAX_K@Z @ 0x1800514A4 (-SetNominalRefreshPeriod@CRateInfo@@QEAAX_K@Z.c)
+ *     ?CalculateEffectiveRefreshRate@CRateInfo@@QEAAXAEBUDXGI_FRAME_STATISTICS_DWM@@0@Z @ 0x18006DA70 (-CalculateEffectiveRefreshRate@CRateInfo@@QEAAXAEBUDXGI_FRAME_STATISTICS_DWM@@0@Z.c)
+ *     ?SetNominalRefreshRate@CRateInfo@@QEAAXAEBU_UNSIGNED_RATIO@@@Z @ 0x18006DB2C (-SetNominalRefreshRate@CRateInfo@@QEAAXAEBU_UNSIGNED_RATIO@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0qff_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, float a4, char a5)
+ULONG __fastcall McTemplateU0qff_EventWriteTransfer(
+        __int64 a1,
+        const EVENT_DESCRIPTOR *a2,
+        __int64 a3,
+        float a4,
+        char a5)
 {
-  _BYTE v6[16]; // [rsp+30h] [rbp-50h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-50h] BYREF
   int *v7; // [rsp+40h] [rbp-40h]
   __int64 v8; // [rsp+48h] [rbp-38h]
   float *v9; // [rsp+50h] [rbp-30h]
@@ -28,5 +33,5 @@ __int64 __fastcall McTemplateU0qff_EventWriteTransfer(__int64 a1, __int64 a2, __
   v11 = &a5;
   v10 = 4LL;
   v12 = 4LL;
-  return McGenEventWrite_EventWriteTransfer(&Microsoft_Windows_Dwm_Core_Provider_Context, a2, a3, 4LL, v6);
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, a3, 4u, &v6);
 }

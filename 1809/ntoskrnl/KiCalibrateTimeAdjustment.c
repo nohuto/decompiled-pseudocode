@@ -4,15 +4,15 @@
  *     <none>
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     RtlWriteAcquireTickLock @ 0x140117A50 (RtlWriteAcquireTickLock.c)
- *     KeRemoveQueueDpc @ 0x1401329C0 (KeRemoveQueueDpc.c)
- *     KiPollFreezeExecution @ 0x14013B784 (KiPollFreezeExecution.c)
- *     KeRebaselineInterruptTime @ 0x140144628 (KeRebaselineInterruptTime.c)
- *     KiUpdateSystemTime @ 0x14016AD08 (KiUpdateSystemTime.c)
- *     KiSelectActiveTimerTable @ 0x14016FB9C (KiSelectActiveTimerTable.c)
- *     RtlWriteReleaseTickLock @ 0x140177FC8 (RtlWriteReleaseTickLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     RtlWriteAcquireTickLock @ 0x140117A70 (RtlWriteAcquireTickLock.c)
+ *     KeRemoveQueueDpc @ 0x1401329E0 (KeRemoveQueueDpc.c)
+ *     KiPollFreezeExecution @ 0x14013B7A4 (KiPollFreezeExecution.c)
+ *     KeRebaselineInterruptTime @ 0x140144648 (KeRebaselineInterruptTime.c)
+ *     KiUpdateSystemTime @ 0x14016AD28 (KiUpdateSystemTime.c)
+ *     KiSelectActiveTimerTable @ 0x14016FBBC (KiSelectActiveTimerTable.c)
+ *     RtlWriteReleaseTickLock @ 0x140177FE8 (RtlWriteReleaseTickLock.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)

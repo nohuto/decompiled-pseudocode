@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpandMonitorSpaceVertex @ 0x1C00B0A88
+ * XREFs of ExpandMonitorSpaceVertex @ 0x1C0042A4C
  * Callers:
- *     CalculateLogicalMonitorRect @ 0x1C00B0650 (CalculateLogicalMonitorRect.c)
- *     GetMonitorWorkRectForDpi @ 0x1C00B088C (GetMonitorWorkRectForDpi.c)
- *     GetMonitorRectForDpi @ 0x1C00B0924 (GetMonitorRectForDpi.c)
- *     ExpandedMonitorSpace @ 0x1C01DEC3C (ExpandedMonitorSpace.c)
- *     ?GetMonitorMenuRectForDpi@@YA?AUtagRECT@@PEBUtagMONITOR@@G@Z @ 0x1C025A4C0 (-GetMonitorMenuRectForDpi@@YA-AUtagRECT@@PEBUtagMONITOR@@G@Z.c)
+ *     GetMonitorRectForDpi @ 0x1C0041FE8 (GetMonitorRectForDpi.c)
+ *     GetMonitorRectForDpiContext @ 0x1C00428B0 (GetMonitorRectForDpiContext.c)
+ *     GetMonitorWorkRectForDpi @ 0x1C007C94C (GetMonitorWorkRectForDpi.c)
+ *     ExpandedMonitorSpace @ 0x1C01E401C (ExpandedMonitorSpace.c)
+ *     ?GetMonitorMenuRectForDpi@@YA?AUtagRECT@@PEBUtagMONITOR@@G@Z @ 0x1C025D794 (-GetMonitorMenuRectForDpi@@YA-AUtagRECT@@PEBUtagMONITOR@@G@Z.c)
  * Callees:
  *     <none>
  */

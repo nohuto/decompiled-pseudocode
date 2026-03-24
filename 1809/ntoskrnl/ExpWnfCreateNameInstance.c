@@ -12,15 +12,15 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
  *     ObLogSecurityDescriptor @ 0x1405C9E70 (ObLogSecurityDescriptor.c)
  *     ExpWnfFindStateName @ 0x14060F9B0 (ExpWnfFindStateName.c)
- *     ExpWnfPopulateStateData @ 0x1406CF09C (ExpWnfPopulateStateData.c)
- *     ExpWnfGetPermanentDataStoreHandle @ 0x1406CF46C (ExpWnfGetPermanentDataStoreHandle.c)
+ *     ExpWnfPopulateStateData @ 0x1406CF07C (ExpWnfPopulateStateData.c)
+ *     ExpWnfGetPermanentDataStoreHandle @ 0x1406CF44C (ExpWnfGetPermanentDataStoreHandle.c)
  */
 
 __int64 __fastcall ExpWnfCreateNameInstance(

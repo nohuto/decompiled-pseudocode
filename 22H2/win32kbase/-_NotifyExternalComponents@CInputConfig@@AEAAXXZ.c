@@ -1,32 +1,29 @@
 /*
- * XREFs of ?_NotifyExternalComponents@CInputConfig@@AEAAXXZ @ 0x1C0063FF4
+ * XREFs of ?_NotifyExternalComponents@CInputConfig@@AEAAXXZ @ 0x1C006E09C
  * Callers:
- *     ?OnDisplayStateChange@CInputConfig@@QEAAXXZ @ 0x1C0018FA8 (-OnDisplayStateChange@CInputConfig@@QEAAXXZ.c)
- *     ?CleanupInputSpaces@CInputConfig@@QEAAXPEBUtagPROCESSINFO@@@Z @ 0x1C01E3B14 (-CleanupInputSpaces@CInputConfig@@QEAAXPEBUtagPROCESSINFO@@@Z.c)
- *     ?ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z @ 0x1C01E3C3C (-ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z.c)
+ *     ?OnDisplayStateChange@CInputConfig@@QEAAXXZ @ 0x1C006E02C (-OnDisplayStateChange@CInputConfig@@QEAAXXZ.c)
+ *     ?CleanupInputSpaces@CInputConfig@@QEAAXPEBUtagPROCESSINFO@@@Z @ 0x1C01B3000 (-CleanupInputSpaces@CInputConfig@@QEAAXPEBUtagPROCESSINFO@@@Z.c)
+ *     ?ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z @ 0x1C01B3110 (-ConfigureInputSpace@CInputConfig@@QEAAJPEAUCInputSpace@@@Z.c)
  * Callees:
- *     ResetAccelerationCurves @ 0x1C0063C60 (ResetAccelerationCurves.c)
- *     ?OnDisplayStateChange@CCursorClip@@QEAAXW4CursorDisplayChangeOptions@@@Z @ 0x1C00642EC (-OnDisplayStateChange@CCursorClip@@QEAAXW4CursorDisplayChangeOptions@@@Z.c)
- *     ?Broadcast@InputConfig@@SAXXZ @ 0x1C0066B00 (-Broadcast@InputConfig@@SAXXZ.c)
- *     RIMOnDisplayStateChange @ 0x1C007298C (RIMOnDisplayStateChange.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMOnDisplayStateChange @ 0x1C0056ECC (RIMOnDisplayStateChange.c)
+ *     ?Broadcast@InputConfig@@SAXXZ @ 0x1C006E10C (-Broadcast@InputConfig@@SAXXZ.c)
+ *     ?OnDisplayStateChange@CCursorClip@@QEAAXXZ @ 0x1C006E3A4 (-OnDisplayStateChange@CCursorClip@@QEAAXXZ.c)
+ *     ?ResetAccelerationCurves@CDeviceAcceleration@@QEAAXXZ @ 0x1C006F718 (-ResetAccelerationCurves@CDeviceAcceleration@@QEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CInputConfig::_NotifyExternalComponents(CInputConfig *this)
 {
-  unsigned int v2; // ebx
-  __int64 v3; // rcx
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
+  unsigned int v1; // ebx
+  CCursorClip *v2; // rcx
 
-  v2 = 0;
+  v1 = 0;
   if ( ExIsResourceAcquiredExclusiveLite(CInputConfig::slock) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 751LL);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 731LL);
   RIMOnDisplayStateChange();
-  CCursorClip::OnDisplayStateChange(v3, *((_BYTE *)this + 1505) != 0);
+  CCursorClip::OnDisplayStateChange(v2);
   do
-    ResetAccelerationCurves(v2++, v4, v5, v6);
-  while ( v2 < 2 );
+    CDeviceAcceleration::ResetAccelerationCurves(*(&qword_1C0245098 + 3 * (int)v1++));
+  while ( v1 < 2 );
   InputConfig::Broadcast();
 }

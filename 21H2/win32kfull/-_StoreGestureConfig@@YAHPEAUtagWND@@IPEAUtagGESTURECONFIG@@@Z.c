@@ -1,109 +1,110 @@
 /*
- * XREFs of ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C01168D0
+ * XREFs of ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C012B390
  * Callers:
- *     SetGestureConfigSettings @ 0x1C0116A34 (SetGestureConfigSettings.c)
+ *     SetGestureConfigSettings @ 0x1C012B4F4 (SetGestureConfigSettings.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?SetBitMask@@YAXPEAUtagWND@@IH@Z @ 0x1C01166B0 (-SetBitMask@@YAXPEAUtagWND@@IH@Z.c)
- *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C0116B70 (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
- *     ?IsBitSet@@YAHPEAEI@Z @ 0x1C0116C58 (-IsBitSet@@YAHPEAEI@Z.c)
- *     ?GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C0116C88 (-GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?FindGID@@YAHPEAPEAUtagGESTURECONFIGLIST@@I0@Z @ 0x1C0220F6C (-FindGID@@YAHPEAPEAUtagGESTURECONFIGLIST@@I0@Z.c)
- *     ?GCRemoveHashElement@@YAXPEAPEAUtagGESTURECONFIGLIST@@I@Z @ 0x1C0220FA4 (-GCRemoveHashElement@@YAXPEAPEAUtagGESTURECONFIGLIST@@I@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     ?SetBitMask@@YAXPEAUtagWND@@IH@Z @ 0x1C012B170 (-SetBitMask@@YAXPEAUtagWND@@IH@Z.c)
+ *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C012B630 (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
+ *     ?IsBitSet@@YAHPEAEI@Z @ 0x1C012B724 (-IsBitSet@@YAHPEAEI@Z.c)
+ *     ?GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C012B754 (-GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?FindGID@@YAHPEAPEAUtagGESTURECONFIGLIST@@I0@Z @ 0x1C0227474 (-FindGID@@YAHPEAPEAUtagGESTURECONFIGLIST@@I0@Z.c)
+ *     ?GCRemoveHashElement@@YAXPEAPEAUtagGESTURECONFIGLIST@@I@Z @ 0x1C02274AC (-GCRemoveHashElement@@YAXPEAPEAUtagGESTURECONFIGLIST@@I@Z.c)
  */
 
 __int64 __fastcall _StoreGestureConfig(struct tagWND *a1, unsigned int a2, struct tagGESTURECONFIG *a3)
 {
   struct tagGESTURECONFIGLIST **WindowGCList; // rdi
   __int64 v7; // rdx
+  __int64 v8; // r8
   struct tagVWPLGESTUREDATA *GCData; // r15
-  struct tagGESTURECONFIGLIST **v9; // rax
-  int v10; // ebp
+  struct tagGESTURECONFIGLIST **v10; // rax
+  int v11; // ebp
   int *i; // rbx
-  int v12; // esi
-  int v13; // ecx
-  __int64 v14; // r9
-  unsigned int v15; // r9d
-  __int64 v16; // rax
-  int v17; // r8d
-  __int64 v18; // rdx
-  unsigned int v19; // edx
-  unsigned int v21; // r9d
-  struct tagGESTURECONFIGLIST *v22; // rcx
-  __int64 v23; // rcx
-  struct tagGESTURECONFIGLIST *v24; // [rsp+68h] [rbp+20h] BYREF
+  int v13; // esi
+  int v14; // ecx
+  __int64 v15; // r9
+  unsigned int v16; // r9d
+  __int64 v17; // rax
+  int v18; // r8d
+  __int64 v19; // rdx
+  unsigned int v20; // edx
+  unsigned int v22; // r9d
+  struct tagGESTURECONFIGLIST *v23; // rcx
+  __int64 v24; // rcx
+  struct tagGESTURECONFIGLIST *v25; // [rsp+68h] [rbp+20h] BYREF
 
-  v24 = 0LL;
+  v25 = 0LL;
   WindowGCList = (struct tagGESTURECONFIGLIST **)GetWindowGCList(a1);
   GCData = GetGCData(a1);
   if ( !WindowGCList )
   {
-    v9 = (struct tagGESTURECONFIGLIST **)Win32AllocPoolWithQuotaZInit(64LL, 1667724117LL);
-    WindowGCList = v9;
-    if ( !v9 )
+    v10 = (struct tagGESTURECONFIGLIST **)Win32AllocPoolWithQuota(64LL, 1667724117LL);
+    WindowGCList = v10;
+    if ( !v10 )
     {
 LABEL_24:
-      v23 = 14LL;
+      v24 = 14LL;
       goto LABEL_26;
     }
-    memset(v9, 0, 0x40uLL);
+    memset(v10, 0, 0x40uLL);
     *((_QWORD *)GetGCData(a1) + 2) = WindowGCList;
   }
-  v10 = 0;
+  v11 = 0;
   if ( !a2 )
     return 1LL;
   for ( i = (int *)((char *)a3 + 4); ; i += 3 )
   {
-    v12 = i[1];
-    v13 = *i;
-    if ( (v12 & *i) != 0 )
+    v13 = i[1];
+    v14 = *i;
+    if ( (v13 & *i) != 0 )
       break;
-    v14 = (unsigned int)*(i - 1);
-    if ( (unsigned int)(v14 - 1) > 6 )
+    v15 = (unsigned int)*(i - 1);
+    if ( (unsigned int)(v15 - 1) > 6 )
       break;
-    v7 = (unsigned int)~dword_1C02E8E00[v14];
-    if ( ((unsigned int)v7 & v13) != 0 || ((unsigned int)v7 & v12) != 0 )
+    v7 = (unsigned int)~dword_1C02EC340[v15];
+    if ( ((unsigned int)v7 & v14) != 0 || ((unsigned int)v7 & v13) != 0 )
       break;
-    if ( v13 || v12 || *((_DWORD *)GCData + 2) || *((_DWORD *)GCData + 3) )
+    if ( v14 || v13 || *((_DWORD *)GCData + 2) || *((_DWORD *)GCData + 3) )
     {
-      if ( (unsigned int)IsBitSet(*(unsigned __int8 **)GCData, v14) )
+      if ( (unsigned int)IsBitSet(*(unsigned __int8 **)GCData, v15) )
       {
-        if ( (unsigned int)FindGID(WindowGCList, v15, &v24) )
+        if ( (unsigned int)FindGID(WindowGCList, v16, &v25) )
         {
-          v22 = v24;
-          *((_DWORD *)v24 + 4) = v12;
-          *((_DWORD *)v22 + 3) = *i;
+          v23 = v25;
+          *((_DWORD *)v25 + 4) = v13;
+          *((_DWORD *)v23 + 3) = *i;
         }
         goto LABEL_16;
       }
-      v16 = Win32AllocPoolWithQuotaZInit(24LL, 1667724117LL);
-      if ( !v16 )
+      v17 = Win32AllocPoolWithQuota(24LL, 1667724117LL);
+      if ( !v17 )
         goto LABEL_24;
-      v17 = 1;
-      *(_DWORD *)(v16 + 8) = *(i - 1);
-      v18 = *(_BYTE *)(v16 + 8) & 7;
-      *(_DWORD *)(v16 + 16) = i[1];
-      *(_DWORD *)(v16 + 12) = *i;
-      *(_QWORD *)v16 = WindowGCList[v18];
-      WindowGCList[v18] = (struct tagGESTURECONFIGLIST *)v16;
-      v19 = *(_DWORD *)(v16 + 8);
+      v18 = 1;
+      *(_DWORD *)(v17 + 8) = *(i - 1);
+      v19 = *(_BYTE *)(v17 + 8) & 7;
+      *(_DWORD *)(v17 + 16) = i[1];
+      *(_DWORD *)(v17 + 12) = *i;
+      *(_QWORD *)v17 = WindowGCList[v19];
+      WindowGCList[v19] = (struct tagGESTURECONFIGLIST *)v17;
+      v20 = *(_DWORD *)(v17 + 8);
     }
     else
     {
-      if ( !(unsigned int)IsBitSet(*(unsigned __int8 **)GCData, v14) )
+      if ( !(unsigned int)IsBitSet(*(unsigned __int8 **)GCData, v15) )
         goto LABEL_16;
-      GCRemoveHashElement(WindowGCList, v21);
-      v19 = *(i - 1);
-      v17 = 0;
+      GCRemoveHashElement(WindowGCList, v22);
+      v20 = *(i - 1);
+      v18 = 0;
     }
-    SetBitMask(a1, v19, v17);
+    SetBitMask(a1, v20, v18);
 LABEL_16:
-    if ( ++v10 >= a2 )
+    if ( ++v11 >= a2 )
       return 1LL;
   }
-  v23 = 87LL;
+  v24 = 87LL;
 LABEL_26:
-  UserSetLastError(v23, v7);
+  UserSetLastError(v24, v7, v8);
   return 0LL;
 }

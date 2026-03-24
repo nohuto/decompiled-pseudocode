@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInterlockedSetClearBits @ 0x14020CA60
+ * XREFs of RtlInterlockedSetClearBits @ 0x1402517B0
  * Callers:
- *     PspRundownSingleProcess @ 0x14068AD74 (PspRundownSingleProcess.c)
- *     PspApplyJobChainLimitsToProcess @ 0x1406A6FC4 (PspApplyJobChainLimitsToProcess.c)
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
- *     PspAssociateCompletionPortCallback @ 0x1409B2100 (PspAssociateCompletionPortCallback.c)
+ *     PspAssociateCompletionPortCallback @ 0x1405D9200 (PspAssociateCompletionPortCallback.c)
+ *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x14060514C (PspApplyJobChainLimitsToProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

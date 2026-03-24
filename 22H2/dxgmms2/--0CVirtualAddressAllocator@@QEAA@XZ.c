@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CVirtualAddressAllocator@@QEAA@XZ @ 0x1C0091170
+ * XREFs of ??0CVirtualAddressAllocator@@QEAA@XZ @ 0x1C0083714
  * Callers:
- *     ?InitializeProcessAdapterInfo@VIDMM_PROCESS@@IEAAPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAVVIDMM_GLOBAL@@@Z @ 0x1C008F9EC (-InitializeProcessAdapterInfo@VIDMM_PROCESS@@IEAAPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAVVIDMM_GLOBA.c)
- *     ?CreateVaAllocator@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C00BD4B8 (-CreateVaAllocator@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
- *     ?GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ @ 0x1C00EEDDC (-GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ.c)
+ *     ?InitializeProcessAdapterInfo@VIDMM_PROCESS@@IEAAPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAVVIDMM_GLOBAL@@@Z @ 0x1C0080C24 (-InitializeProcessAdapterInfo@VIDMM_PROCESS@@IEAAPEAUVIDMM_PROCESS_ADAPTER_INFO@@PEAVVIDMM_GLOBA.c)
+ *     ?GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ @ 0x1C00B8B20 (-GetCpuVisibleBufferAllocator@VIDMM_PROCESS@@QEAAPEAVCVirtualAddressAllocator@@XZ.c)
+ *     ?CreateVaAllocator@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1C00BB510 (-CreateVaAllocator@VIDMM_PAGING_PROCESS@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ CVirtualAddressAllocator *__fastcall CVirtualAddressAllocator::CVirtualAddressAl
   *((_QWORD *)this + 7) = 0LL;
   *((_QWORD *)this + 8) = 0LL;
   *((_DWORD *)this + 18) = 0;
-  *((_DWORD *)this + 19) = 66;
+  *((_DWORD *)this + 19) = 53;
   *((_DWORD *)this + 20) = 64;
   *((_QWORD *)this + 17) = (char *)this + 128;
   *((_QWORD *)this + 16) = (char *)this + 128;

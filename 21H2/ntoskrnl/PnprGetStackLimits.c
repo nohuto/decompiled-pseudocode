@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprGetStackLimits @ 0x140562EBC
+ * XREFs of PnprGetStackLimits @ 0x14050F578
  * Callers:
- *     PnprRecopyMirrorPages @ 0x14056322C (PnprRecopyMirrorPages.c)
- *     PnprQuiesceProcessorDpc @ 0x140A687F0 (PnprQuiesceProcessorDpc.c)
+ *     PnprRecopyMirrorPages @ 0x14050F8EC (PnprRecopyMirrorPages.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AE390 (PnprQuiesceProcessorDpc.c)
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x140294D90 (KeQueryCurrentStackInformation.c)
- *     KeGetCurrentStackPointer @ 0x14041FAB0 (KeGetCurrentStackPointer.c)
+ *     KeQueryCurrentStackInformation @ 0x140277230 (KeQueryCurrentStackInformation.c)
+ *     KeGetCurrentStackPointer @ 0x1403FE5D0 (KeGetCurrentStackPointer.c)
  */
 
 __int64 __fastcall PnprGetStackLimits(char **a1, __int64 a2)

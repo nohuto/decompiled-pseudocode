@@ -1,22 +1,22 @@
 /*
- * XREFs of ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034D70
+ * XREFs of ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180060D74
  * Callers:
- *     ?EnsureBlackBitmapTargets@CD3DDevice@@AEAAJXZ @ 0x180019B44 (-EnsureBlackBitmapTargets@CD3DDevice@@AEAAJXZ.c)
- *     ?CreateRenderTargetBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x180020B94 (-CreateRenderTargetBitmap@CaptureBitsResponse@@IEAAJXZ.c)
- *     ?Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z @ 0x1800241B4 (-Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z.c)
- *     ?CreateBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034A2C (-CreateBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFormatInfo@@AE.c)
- *     ?CreateCachedTarget@CCachedVisualImage@@IEAAJUD2D_SIZE_U@@AEBVRenderTargetInfo@@PEAPEAVCCachedTarget@1@@Z @ 0x1800F07A4 (-CreateCachedTarget@CCachedVisualImage@@IEAAJUD2D_SIZE_U@@AEBVRenderTargetInfo@@PEAPEAVCCachedTa.c)
- *     ?CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEAUIDXGIOutputDWM@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVILegacyRemotingSwapChain@@@Z @ 0x1801097E0 (-CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEAUIDXGIOutputDWM@@AEBUD2D_SIZE_U@@AEBUPixelFor.c)
- *     ?DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMILMatrix@@@Z @ 0x1801D4794 (-DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMIL.c)
- *     ?EnsureRenderTargets@COffScreenRenderTarget@@MEAAJXZ @ 0x1801E9B60 (-EnsureRenderTargets@COffScreenRenderTarget@@MEAAJXZ.c)
- *     ?AddShadowToShape@CCursorState@@AEAA?AV?$shared_ptr@UShapeData@CCursorState@@@std@@AEBV23@@Z @ 0x18027954C (-AddShadowToShape@CCursorState@@AEAA-AV-$shared_ptr@UShapeData@CCursorState@@@std@@AEBV23@@Z.c)
- *     ?EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ @ 0x1802A1F98 (-EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ.c)
+ *     ?EnsureBlackBitmapTargets@CD3DDevice@@AEAAJXZ @ 0x180004BF4 (-EnsureBlackBitmapTargets@CD3DDevice@@AEAAJXZ.c)
+ *     ?CreateRenderTargetBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1800306FC (-CreateRenderTargetBitmap@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?GetBackdropImageFromRenderTarget@CDrawingContext@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEAUEffectInput@@@Z @ 0x18003F620 (-GetBackdropImageFromRenderTarget@CDrawingContext@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@.c)
+ *     ?CreateBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18005FE90 (-CreateBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFormatInfo@@AE.c)
+ *     ?CreateCachedTarget@CCachedVisualImage@@AEAAJUD2D_SIZE_U@@AEBVRenderTargetInfo@@PEAPEAVCCachedTarget@1@@Z @ 0x1800CCDA8 (-CreateCachedTarget@CCachedVisualImage@@AEAAJUD2D_SIZE_U@@AEBVRenderTargetInfo@@PEAPEAVCCachedTa.c)
+ *     ?CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEBGAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVILegacyRemotingSwapChain@@@Z @ 0x1800E3F84 (-CreateLegacyRemotingSwapChain@CD3DDevice@@QEAAJPEBGAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRen.c)
+ *     ?DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMILMatrix@@@Z @ 0x180175DC8 (-DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMIL.c)
+ *     ?EnsureRenderTargets@COffScreenRenderTarget@@MEAAJXZ @ 0x1801854A0 (-EnsureRenderTargets@COffScreenRenderTarget@@MEAAJXZ.c)
+ *     ?Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z @ 0x18024C420 (-Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z.c)
+ *     ?EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ @ 0x18024F308 (-EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034E64 (-GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFo.c)
- *     ?CreateDeviceTextureTarget@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVIDeviceTextureTarget@@@Z @ 0x18003BA70 (-CreateDeviceTextureTarget@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInf.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Create@CRenderTargetBitmap@@SAJPEAVIDeviceTarget@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1800F3B78 (-Create@CRenderTargetBitmap@@SAJPEAVIDeviceTarget@@PEAPEAVIRenderTargetBitmap@@@Z.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Create@CRenderTargetBitmap@@SAJPEAVIDeviceTarget@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180042D4C (-Create@CRenderTargetBitmap@@SAJPEAVIDeviceTarget@@PEAPEAVIRenderTargetBitmap@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180060E68 (-GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFo.c)
+ *     ?CreateDeviceTextureTarget@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVIDeviceTextureTarget@@@Z @ 0x1800D7344 (-CreateDeviceTextureTarget@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInf.c)
  */
 
 __int64 __fastcall CD3DDevice::CreateRenderTargetBitmap(
@@ -31,29 +31,29 @@ __int64 __fastcall CD3DDevice::CreateRenderTargetBitmap(
   struct IRenderTargetBitmap **v7; // rsi
   int v9; // ebx
   int v10; // eax
-  unsigned int v11; // ecx
+  __int64 v11; // rcx
   int DeviceTextureTarget; // eax
-  unsigned int v14; // ecx
+  __int64 v14; // rcx
   struct IDeviceTarget *v15; // rcx
   int v16; // eax
-  unsigned int v17; // ecx
+  __int64 v17; // rcx
 
   v7 = a7;
   *a7 = 0LL;
-  v9 = *((_DWORD *)a1 + 272);
+  v9 = *((_DWORD *)a1 + 282);
   if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)a1, &dword_1802EE2F0, 2u, v9, 0x40Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, &dword_1802ACF58, 2u, v9, 0x5D7u, 0LL);
   }
   else if ( a6 )
   {
     v10 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))CRenderTargetBitmapCache::GetCachedTargetBitmap)(
-            (char *)a1 + 464,
+            (char *)a1 + 512,
             a2,
             *a3);
     v9 = v10;
     if ( v10 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_1802EE2F0, 2u, v10, 0x415u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, &dword_1802ACF58, 2u, v10, 0x5E0u, 0LL);
   }
   else
   {
@@ -62,7 +62,7 @@ __int64 __fastcall CD3DDevice::CreateRenderTargetBitmap(
     v9 = DeviceTextureTarget;
     if ( DeviceTextureTarget < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v14, &dword_1802EE2F0, 2u, DeviceTextureTarget, 0x41Eu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v14, &dword_1802ACF58, 2u, DeviceTextureTarget, 0x5E9u, 0LL);
     }
     else
     {
@@ -73,7 +73,7 @@ __int64 __fastcall CD3DDevice::CreateRenderTargetBitmap(
       v16 = CRenderTargetBitmap::Create(v15, v7);
       v9 = v16;
       if ( v16 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v17, &dword_1802EE2F0, 2u, v16, 0x421u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v17, &dword_1802ACF58, 2u, v16, 0x5ECu, 0LL);
     }
     wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&a7);
   }

@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwRegister @ 0x1406BE560
+ * XREFs of EtwRegister @ 0x1406BE540
  * Callers:
- *     KiIntSteerConnect @ 0x14016DE84 (KiIntSteerConnect.c)
- *     BapdRegisterEtwProvider @ 0x140178AB4 (BapdRegisterEtwProvider.c)
- *     McGenEventRegister @ 0x140181CFC (McGenEventRegister.c)
- *     IoInitializeLiveDump @ 0x1401936FC (IoInitializeLiveDump.c)
- *     HvlpEtwRegister @ 0x1402782B8 (HvlpEtwRegister.c)
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
+ *     KiIntSteerConnect @ 0x14016DEA4 (KiIntSteerConnect.c)
+ *     BapdRegisterEtwProvider @ 0x140178AD4 (BapdRegisterEtwProvider.c)
+ *     McGenEventRegister @ 0x140181D1C (McGenEventRegister.c)
+ *     IoInitializeLiveDump @ 0x14019371C (IoInitializeLiveDump.c)
+ *     HvlpEtwRegister @ 0x1402783B8 (HvlpEtwRegister.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
  *     PfSnBeginBootPhase @ 0x14056F13C (PfSnBeginBootPhase.c)
- *     TraceLoggingRegisterEx @ 0x14071DC58 (TraceLoggingRegisterEx.c)
- *     WdipSemEnableSemProvider @ 0x1407437AC (WdipSemEnableSemProvider.c)
- *     PopDiagSleepStudyInitialize @ 0x140745590 (PopDiagSleepStudyInitialize.c)
- *     DbgkpStartSystemErrorHandler @ 0x1408112C4 (DbgkpStartSystemErrorHandler.c)
- *     DbgkCaptureLiveDump @ 0x140811740 (DbgkCaptureLiveDump.c)
- *     sub_1408CF024 @ 0x1408CF024 (sub_1408CF024.c)
- *     sub_1408CF3E4 @ 0x1408CF3E4 (sub_1408CF3E4.c)
+ *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
+ *     WdipSemEnableSemProvider @ 0x14074378C (WdipSemEnableSemProvider.c)
+ *     PopDiagSleepStudyInitialize @ 0x140745570 (PopDiagSleepStudyInitialize.c)
+ *     DbgkpStartSystemErrorHandler @ 0x1408112A4 (DbgkpStartSystemErrorHandler.c)
+ *     DbgkCaptureLiveDump @ 0x140811720 (DbgkCaptureLiveDump.c)
+ *     sub_1408CF004 @ 0x1408CF004 (sub_1408CF004.c)
+ *     sub_1408CF3C4 @ 0x1408CF3C4 (sub_1408CF3C4.c)
  *     WheapInitializeEventing @ 0x1409AEE24 (WheapInitializeEventing.c)
  *     KseInitialize @ 0x1409AF930 (KseInitialize.c)
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
@@ -27,8 +27,8 @@
  *     PopBatteryInitPhaseTwo @ 0x1409DAE54 (PopBatteryInitPhaseTwo.c)
  *     KitInitialize @ 0x1409DD5B4 (KitInitialize.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpRegisterProvider @ 0x1406BE5CC (EtwpRegisterProvider.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpRegisterProvider @ 0x1406BE5AC (EtwpRegisterProvider.c)
  */
 
 NTSTATUS __stdcall EtwRegister(

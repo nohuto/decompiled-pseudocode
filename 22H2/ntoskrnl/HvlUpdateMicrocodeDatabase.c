@@ -1,12 +1,16 @@
 /*
- * XREFs of HvlUpdateMicrocodeDatabase @ 0x140941630
+ * XREFs of HvlUpdateMicrocodeDatabase @ 0x14088E960
  * Callers:
  *     <none>
  * Callees:
- *     HvlpDynamicUpdateMicrocode @ 0x140941648 (HvlpDynamicUpdateMicrocode.c)
+ *     HvlpCondenseMicrocode @ 0x14088E988 (HvlpCondenseMicrocode.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x14088E9FC (HvlpDynamicUpdateMicrocode.c)
  */
 
-__int64 HvlUpdateMicrocodeDatabase()
+__int64 __fastcall HvlUpdateMicrocodeDatabase(__int64 a1, int a2)
 {
-  return HvlpDynamicUpdateMicrocode();
+  if ( a1 || a2 )
+    return HvlpDynamicUpdateMicrocode();
+  else
+    return HvlpCondenseMicrocode();
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserSetInformationThread @ 0x1C00A6240
+ * XREFs of NtUserSetInformationThread @ 0x1C00D8F10
  * Callers:
  *     <none>
  * Callees:
- *     xxxSetInformationThread @ 0x1C00A6350 (xxxSetInformationThread.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     xxxSetInformationThread @ 0x1C00D9030 (xxxSetInformationThread.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtUserSetInformationThread(__int64 a1, unsigned int a2, volatile void *a3, unsigned int a4)
@@ -12,18 +12,19 @@ __int64 __fastcall NtUserSetInformationThread(__int64 a1, unsigned int a2, volat
   SIZE_T v4; // rsi
   __int64 v8; // rdx
   __int64 v9; // rcx
-  __int64 v10; // rcx
-  unsigned int v11; // edi
+  __int64 v10; // r8
+  __int64 v11; // rcx
+  unsigned int v12; // edi
   _BYTE Src[40]; // [rsp+30h] [rbp-28h] BYREF
 
   v4 = a4;
   memset(Src, 0, 32);
-  EnterCrit(0LL, 0LL);
-  if ( PsGetCurrentProcess(v9, v8) == gpepCSRSS || a2 == 1 )
+  EnterCrit(0LL, 1LL);
+  if ( PsGetCurrentProcess(v9, v8, v10) == gpepCSRSS || a2 == 1 )
   {
     if ( (unsigned int)v4 > 0x20 )
     {
-      v11 = -1073741811;
+      v12 = -1073741811;
     }
     else
     {
@@ -32,7 +33,7 @@ __int64 __fastcall NtUserSetInformationThread(__int64 a1, unsigned int a2, volat
         ProbeForRead(a3, v4, 4u);
         memmove(Src, (const void *)a3, v4);
       }
-      v11 = xxxSetInformationThread(a1, a2, Src, (unsigned int)v4);
+      v12 = xxxSetInformationThread(a1, a2, Src, (unsigned int)v4);
       if ( (_DWORD)v4 )
       {
         ProbeForWrite(a3, v4, 4u);
@@ -42,8 +43,8 @@ __int64 __fastcall NtUserSetInformationThread(__int64 a1, unsigned int a2, volat
   }
   else
   {
-    v11 = -1073741790;
+    v12 = -1073741790;
   }
-  UserSessionSwitchLeaveCrit(v10);
-  return v11;
+  UserSessionSwitchLeaveCrit(v11);
+  return v12;
 }

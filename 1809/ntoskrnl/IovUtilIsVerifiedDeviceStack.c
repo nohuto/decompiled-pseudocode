@@ -5,8 +5,8 @@
  *     IovpSessionDataCreate @ 0x14093F264 (IovpSessionDataCreate.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     MmIsDriverVerifying @ 0x14013A200 (MmIsDriverVerifying.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     MmIsDriverVerifying @ 0x14013A220 (MmIsDriverVerifying.c)
  */
 
 __int64 __fastcall IovUtilIsVerifiedDeviceStack(__int64 a1)

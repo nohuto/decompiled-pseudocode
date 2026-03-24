@@ -1,174 +1,152 @@
 /*
- * XREFs of ?SetState@CInteractionTracker@@AEAAXW4ScrollState@@W4TrackerUpdateType@1@@Z @ 0x18023545C
+ * XREFs of ?SetState@CInteractionTracker@@AEAAXW4ScrollState@@W4TrackerUpdateType@1@@Z @ 0x1801CC6FC
  * Callers:
- *     ?TransitionToCustomAnimation@CInteractionTracker@@AEAA_NPEAVCBaseExpression@@W4CustomAnimationTarget@@@Z @ 0x180235B00 (-TransitionToCustomAnimation@CInteractionTracker@@AEAA_NPEAVCBaseExpression@@W4CustomAnimationTa.c)
- *     ?TransitionToIdle@CInteractionTracker@@AEAAXXZ @ 0x180235CA4 (-TransitionToIdle@CInteractionTracker@@AEAAXXZ.c)
- *     ?TransitionToInContact@CInteractionTracker@@AEAAXXZ @ 0x180235D3C (-TransitionToInContact@CInteractionTracker@@AEAAXXZ.c)
- *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x180235D98 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
- *     ?BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x180237CC8 (-BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@.c)
- *     ?TransitionDisconnectedTrackersToIdle@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0@Z @ 0x180238DD0 (-TransitionDisconnectedTrackersToIdle@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTr.c)
- *     ?UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4ScrollState@@@Z @ 0x180239480 (-UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4Scro.c)
+ *     ?TransitionToCustomAnimation@CInteractionTracker@@AEAA_NPEAVCBaseExpression@@W4CustomAnimationTarget@@@Z @ 0x1801CCDB8 (-TransitionToCustomAnimation@CInteractionTracker@@AEAA_NPEAVCBaseExpression@@W4CustomAnimationTa.c)
+ *     ?TransitionToIdle@CInteractionTracker@@AEAAXXZ @ 0x1801CCF34 (-TransitionToIdle@CInteractionTracker@@AEAAXXZ.c)
+ *     ?TransitionToInContact@CInteractionTracker@@AEAAXXZ @ 0x1801CCFC0 (-TransitionToInContact@CInteractionTracker@@AEAAXXZ.c)
+ *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x1801CD010 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
+ *     ?BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CEB94 (-BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@.c)
+ *     ?TransitionDisconnectedTrackersToIdle@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0@Z @ 0x1801CFF48 (-TransitionDisconnectedTrackersToIdle@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTr.c)
+ *     ?UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4ScrollState@@@Z @ 0x1801D05CC (-UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4Scro.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801329B2 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x18020B994 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
- *     ?AddPendingStateChange@CInteractionTracker@@AEAAXW4ScrollState@@UD2DVector3@@M@Z @ 0x180230E90 (-AddPendingStateChange@CInteractionTracker@@AEAAXW4ScrollState@@UD2DVector3@@M@Z.c)
- *     ?UpdatePositionRoundingSuggestion@CInteractionTracker@@AEAAXXZ @ 0x18023614C (-UpdatePositionRoundingSuggestion@CInteractionTracker@@AEAAXXZ.c)
- *     ?UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4ScrollState@@@Z @ 0x180239480 (-UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4Scro.c)
- *     ?OnInteractionTrackerTransitionToCustomAnimation@InteractionSourceManager@@QEAAXXZ @ 0x180274CA8 (-OnInteractionTrackerTransitionToCustomAnimation@InteractionSourceManager@@QEAAXXZ.c)
- *     ?OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x180274CC8 (-OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
- *     ?OnInteractionTrackerTransitionToInContact@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x180274D94 (-OnInteractionTrackerTransitionToInContact@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
- *     ?OnInteractionTrackerTransitionToInertia@InteractionSourceManager@@QEAAXXZ @ 0x180274E50 (-OnInteractionTrackerTransitionToInertia@InteractionSourceManager@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1801C5994 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ?AddMultipleAndSet@?$DynArray@W4ScrollState@@$0A@@@QEAAJPEFBW4ScrollState@@I@Z @ 0x1801C7924 (-AddMultipleAndSet@-$DynArray@W4ScrollState@@$0A@@@QEAAJPEFBW4ScrollState@@I@Z.c)
+ *     ?AddPendingStateChange@CInteractionTracker@@AEAAXW4ScrollState@@UD2DVector3@@M@Z @ 0x1801C7B54 (-AddPendingStateChange@CInteractionTracker@@AEAAXW4ScrollState@@UD2DVector3@@M@Z.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801C7FE0 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?UpdatePositionRoundingSuggestion@CInteractionTracker@@AEAAXXZ @ 0x1801CD384 (-UpdatePositionRoundingSuggestion@CInteractionTracker@@AEAAXXZ.c)
+ *     ?UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4ScrollState@@@Z @ 0x1801D05CC (-UpdateBoundTrackerState@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@W4Scro.c)
+ *     ?OnInteractionTrackerTransitionToCustomAnimation@InteractionSourceManager@@QEAAXXZ @ 0x180213508 (-OnInteractionTrackerTransitionToCustomAnimation@InteractionSourceManager@@QEAAXXZ.c)
+ *     ?OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x18021352C (-OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
+ *     ?OnInteractionTrackerTransitionToInContact@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x1802136A4 (-OnInteractionTrackerTransitionToInContact@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
+ *     ?OnInteractionTrackerTransitionToInertia@InteractionSourceManager@@QEAAXXZ @ 0x180213708 (-OnInteractionTrackerTransitionToInertia@InteractionSourceManager@@QEAAXXZ.c)
  */
 
-void __fastcall CInteractionTracker::SetState(__int64 a1, int a2, int a3)
+void __fastcall CInteractionTracker::SetState(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rcx
-  __int64 *v10; // r14
-  unsigned int v11; // esi
-  __int64 v12; // r10
-  unsigned int v13; // eax
-  unsigned int v14; // edx
+  int v5; // r15d
+  __int64 v7; // rcx
+  __int64 *v8; // r14
+  unsigned int v9; // esi
+  __int64 v10; // rcx
+  int v11; // edi
+  int v12; // edx
+  float v13; // xmm3_4
+  __int64 v14; // rax
   int v15; // eax
-  int v16; // edi
-  int v17; // edx
-  float v18; // xmm3_4
-  __int64 v19; // rax
-  int v20; // eax
-  __int64 v21; // rcx
-  int v22; // [rsp+40h] [rbp-40h] BYREF
-  int v23; // [rsp+48h] [rbp-38h] BYREF
-  __int64 v24; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v25; // [rsp+58h] [rbp-28h]
-  __int64 v26; // [rsp+60h] [rbp-20h]
+  __int64 v16; // rcx
+  int v17; // [rsp+40h] [rbp-40h] BYREF
+  int v18; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v19; // [rsp+50h] [rbp-30h] BYREF
+  __int64 v20; // [rsp+58h] [rbp-28h]
+  __int64 v21; // [rsp+60h] [rbp-20h]
 
+  v5 = a3;
   if ( a2 )
   {
-    switch ( a2 )
+    if ( a2 == 1 )
     {
-      case 1:
-        InteractionSourceManager::OnInteractionTrackerTransitionToInContact(a1 + 200, *(unsigned int *)(a1 + 176));
-        break;
-      case 2:
-        InteractionSourceManager::OnInteractionTrackerTransitionToInertia((InteractionSourceManager *)(a1 + 200));
-        break;
-      case 3:
-        InteractionSourceManager::OnInteractionTrackerTransitionToCustomAnimation((InteractionSourceManager *)(a1 + 200));
-        break;
+      InteractionSourceManager::OnInteractionTrackerTransitionToInContact(a1 + 192, *(unsigned int *)(a1 + 168));
+    }
+    else
+    {
+      v7 = (unsigned int)(a2 - 2);
+      if ( a2 == 2 )
+      {
+        InteractionSourceManager::OnInteractionTrackerTransitionToInertia((InteractionSourceManager *)(a1 + 192));
+      }
+      else if ( a2 == 3 )
+      {
+        InteractionSourceManager::OnInteractionTrackerTransitionToCustomAnimation((InteractionSourceManager *)(a1 + 192));
+      }
     }
   }
   else
   {
-    InteractionSourceManager::OnInteractionTrackerTransitionToIdle(a1 + 200, *(unsigned int *)(a1 + 176));
+    InteractionSourceManager::OnInteractionTrackerTransitionToIdle(a1 + 192, *(unsigned int *)(a1 + 168));
   }
-  if ( *(_DWORD *)(a1 + 176) != a2 )
+  if ( *(_DWORD *)(a1 + 168) != a2 )
   {
-    if ( (unsigned int)dword_1803E3798 > 4 && tlgKeywordOn((__int64)&dword_1803E3798, 2LL) )
+    if ( (unsigned int)dword_180344E80 > 4 && (qword_180344E90 & 2) != 0 && (qword_180344E98 & 2) == qword_180344E98 )
     {
-      v23 = a2;
-      v22 = v8;
-      v24 = a1;
+      v17 = *(_DWORD *)(a1 + 168);
+      v18 = a2;
+      v19 = a1;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        v6,
-        byte_180380D21,
         v7,
-        v8,
-        (__int64)&v24,
-        (__int64)&v22,
-        (__int64)&v23);
+        byte_1802E8C7C,
+        a3,
+        a4,
+        (__int64)&v19,
+        (__int64)&v17,
+        (__int64)&v18);
     }
-    *(_DWORD *)(a1 + 176) = a2;
+    *(_DWORD *)(a1 + 168) = a2;
     if ( CInteractionTracker::AreInteractionAnimationsAlive((CInteractionTracker *)a1) )
     {
-      v10 = &v24;
-      v24 = *(_QWORD *)(a1 + 336);
-      v11 = 0;
-      v25 = *(_QWORD *)(a1 + 344);
-      v26 = *(_QWORD *)(a1 + 328);
+      v8 = &v19;
+      v19 = *(_QWORD *)(a1 + 328);
+      v9 = 0;
+      v20 = *(_QWORD *)(a1 + 336);
+      v21 = *(_QWORD *)(a1 + 320);
       do
       {
-        v12 = *v10;
-        v22 = a2;
-        v13 = *(_DWORD *)(v12 + 424);
-        v14 = v13 + 1;
-        if ( v13 + 1 >= v13 )
-        {
-          if ( v14 > *(_DWORD *)(v12 + 420) )
-          {
-            v15 = DynArrayImpl<0>::AddMultipleAndSet(v12 + 400, 4, 1, &v22);
-            if ( v15 < 0 )
-              MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v15, 0xC0u, 0LL);
-          }
-          else
-          {
-            v9 = *(unsigned int *)(v12 + 424);
-            *(_DWORD *)(*(_QWORD *)(v12 + 400) + 4 * v9) = a2;
-            *(_DWORD *)(v12 + 424) = v14;
-          }
-        }
-        else
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024362, 0xB5u, 0LL);
-        }
-        ++v11;
-        ++v10;
+        v10 = *v8 + 376;
+        v17 = a2;
+        DynArray<enum ScrollState,0>::AddMultipleAndSet(v10, &v17);
+        ++v9;
+        ++v8;
       }
-      while ( v11 < 3 );
+      while ( v9 < 3 );
     }
     if ( a2 )
     {
-      v16 = a2 - 1;
-      if ( !v16 )
+      v11 = a2 - 1;
+      if ( !v11 )
       {
-        v18 = *(float *)(a1 + 136);
-        v17 = 1;
-        *(_DWORD *)(a1 + 188) = 0;
-        *(float *)(a1 + 528) = v18;
-LABEL_34:
-        v20 = *(_DWORD *)(a1 + 88);
-        v24 = *(_QWORD *)(a1 + 80);
-        LODWORD(v25) = v20;
-        CInteractionTracker::AddPendingStateChange(a1, v17, &v24, v18);
-LABEL_35:
+        v13 = *(float *)(a1 + 128);
+        v12 = 1;
+        *(_DWORD *)(a1 + 180) = 0;
+        *(float *)(a1 + 520) = v13;
+LABEL_29:
+        v15 = *(_DWORD *)(a1 + 80);
+        v19 = *(_QWORD *)(a1 + 72);
+        LODWORD(v20) = v15;
+        CInteractionTracker::AddPendingStateChange(a1, v12, &v19, v13);
+LABEL_30:
         CInteractionTracker::UpdatePositionRoundingSuggestion((CInteractionTracker *)a1);
-        goto LABEL_36;
+        goto LABEL_31;
       }
-      if ( v16 != 2 || (*(_BYTE *)(a1 + 540) & 0x40) != 0 )
-        goto LABEL_35;
-      v17 = 3;
+      if ( v11 != 2 || (*(_BYTE *)(a1 + 532) & 0x40) != 0 )
+        goto LABEL_30;
+      v12 = 3;
     }
     else
     {
-      if ( *(char *)(a1 + 540) >= 0 )
+      if ( *(char *)(a1 + 532) >= 0 )
       {
         (*(void (__fastcall **)(__int64))(*(_QWORD *)a1 + 8LL))(a1);
-        v19 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(a1 + 16) + 656LL) + 24LL))(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 656LL));
-        if ( (*(int (__fastcall **)(__int64, __int64 (__fastcall *)(void *), __int64, __int64))(*(_QWORD *)v19 + 152LL))(
-               v19,
+        v14 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(a1 + 16) + 504LL) + 88LL))(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 504LL));
+        if ( (*(int (__fastcall **)(__int64, __int64 (__fastcall *)(void *), __int64, __int64))(*(_QWORD *)v14 + 144LL))(
+               v14,
                CInteractionTracker::s_OnIdleAtFrameBegin,
                a1,
                4LL) < 0 )
           (*(void (__fastcall **)(__int64))(*(_QWORD *)a1 + 16LL))(a1);
         else
-          *(_BYTE *)(a1 + 540) |= 0x80u;
+          *(_BYTE *)(a1 + 532) |= 0x80u;
       }
-      v17 = 0;
+      v12 = 0;
     }
-    v18 = *(float *)(a1 + 136);
-    goto LABEL_34;
+    v13 = *(float *)(a1 + 128);
+    goto LABEL_29;
   }
-LABEL_36:
-  v21 = *(_QWORD *)(a1 + 640);
-  if ( v21 )
+LABEL_31:
+  v16 = *(_QWORD *)(a1 + 632);
+  if ( v16 )
   {
-    if ( !a3 )
-      CInteractionTrackerBindingManager::UpdateBoundTrackerState(v21, a1, *(unsigned int *)(a1 + 176));
+    if ( !v5 )
+      CInteractionTrackerBindingManager::UpdateBoundTrackerState(v16, a1, *(unsigned int *)(a1 + 168));
   }
 }

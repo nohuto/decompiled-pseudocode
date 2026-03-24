@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAddDynamicEnforcedAddressRange @ 0x1409BFD4C
+ * XREFs of RtlAddDynamicEnforcedAddressRange @ 0x1405CFDB0
  * Callers:
- *     PspProcessDynamicEnforcedAddressRanges @ 0x1409AE050 (PspProcessDynamicEnforcedAddressRanges.c)
+ *     PspProcessDynamicEnforcedAddressRanges @ 0x1405CF6F4 (PspProcessDynamicEnforcedAddressRanges.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x1409C016C (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x1405CFFD4 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall RtlAddDynamicEnforcedAddressRange(unsigned __int64 *a1, __int64 a2, __int64 a3)

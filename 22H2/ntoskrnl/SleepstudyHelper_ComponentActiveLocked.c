@@ -1,35 +1,32 @@
 /*
- * XREFs of SleepstudyHelper_ComponentActiveLocked @ 0x14032D410
+ * XREFs of SleepstudyHelper_ComponentActiveLocked @ 0x140580730
  * Callers:
- *     SleepstudyHelper_ComponentActive @ 0x14032D3A0 (SleepstudyHelper_ComponentActive.c)
+ *     SleepstudyHelper_ComponentActive @ 0x140580680 (SleepstudyHelper_ComponentActive.c)
  * Callees:
- *     SshpSetBlockerActive @ 0x14032D618 (SshpSetBlockerActive.c)
+ *     SshpSetBlockerActive @ 0x140315B50 (SshpSetBlockerActive.c)
  */
 
-__int64 __fastcall SleepstudyHelper_ComponentActiveLocked(__int64 a1, __int64 a2)
+__int64 __fastcall SleepstudyHelper_ComponentActiveLocked(__int64 a1)
 {
-  unsigned int v2; // ebx
-  int v4; // ecx
-  bool v5; // zf
+  unsigned int v1; // ebx
+  int v3; // ecx
+  bool v4; // zf
 
-  v2 = 0;
+  v1 = 0;
   if ( a1 )
   {
-    v4 = *(_DWORD *)(a1 + 8);
-    if ( (v4 & 0x10) == 0 )
+    v3 = *(_DWORD *)(a1 + 8);
+    if ( (v3 & 0x10) == 0 )
     {
-      v5 = ++*(_DWORD *)(a1 + 12) == 1;
-      *(_DWORD *)(a1 + 8) = v4 | 0x10;
-      if ( v5 )
-      {
-        LOBYTE(a2) = 1;
-        SshpSetBlockerActive(a1, a2);
-      }
+      v4 = ++*(_DWORD *)(a1 + 12) == 1;
+      *(_DWORD *)(a1 + 8) = v3 | 0x10;
+      if ( v4 )
+        SshpSetBlockerActive(a1, 1);
     }
   }
   else
   {
     return (unsigned int)-1073741811;
   }
-  return v2;
+  return v1;
 }

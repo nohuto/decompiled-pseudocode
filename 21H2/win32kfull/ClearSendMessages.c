@@ -1,11 +1,11 @@
 /*
- * XREFs of ClearSendMessages @ 0x1C0060BF8
+ * XREFs of ClearSendMessages @ 0x1C007C38C
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
+ *     xxxFreeWindow @ 0x1C007A7C0 (xxxFreeWindow.c)
  * Callees:
- *     xxxInterSendMsgEx @ 0x1C00517B0 (xxxInterSendMsgEx.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     SetWakeBit @ 0x1C00ABE30 (SetWakeBit.c)
+ *     SetWakeBit @ 0x1C0051920 (SetWakeBit.c)
+ *     xxxInterSendMsgEx @ 0x1C005A2F0 (xxxInterSendMsgEx.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
  */
 
 __int64 ClearSendMessages()

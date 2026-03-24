@@ -1,61 +1,90 @@
 /*
- * XREFs of MmReleaseResourceCharge @ 0x140344D68
+ * XREFs of MmReleaseResourceCharge @ 0x14026C8EC
  * Callers:
- *     SmAcquireReleaseCharges @ 0x14034350C (SmAcquireReleaseCharges.c)
- *     MmChargeResources @ 0x140343560 (MmChargeResources.c)
+ *     SmAcquireReleaseCharges @ 0x14026C810 (SmAcquireReleaseCharges.c)
+ *     MmChargeResources @ 0x14026C85C (MmChargeResources.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
  */
 
-void __fastcall MmReleaseResourceCharge(__int64 *a1, unsigned __int64 a2, char a3, int a4)
+void __fastcall MmReleaseResourceCharge(unsigned __int64 a1, char a2, int a3)
 {
-  __int64 v4; // r11
-  unsigned __int64 v7; // r9
-  struct _KPRCB *CurrentPrcb; // r8
-  __int64 CachedResidentAvailable; // rdx
-  bool v10; // zf
-  signed __int32 v11; // eax
+  struct _KPRCB *CurrentPrcb; // rbx
+  unsigned __int64 v4; // r8
+  __int64 CachedResidentAvailable; // r9
+  bool v6; // zf
+  signed __int32 v7; // eax
+  signed __int32 v8; // eax
 
-  v4 = *a1;
-  if ( (a3 & 2) == 0 || a4 )
+  if ( (a2 & 2) == 0 )
     goto LABEL_2;
-  v7 = a2;
-  if ( (_UNKNOWN *)v4 != &MiSystemPartition )
-    goto LABEL_16;
-  CurrentPrcb = KeGetCurrentPrcb();
-  CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
-  if ( (_DWORD)CachedResidentAvailable == -1 )
-    goto LABEL_16;
-  if ( a2 + CachedResidentAvailable > 0x100 || a2 >= 0x80000 )
+  if ( a3 )
   {
-LABEL_13:
-    if ( (int)CachedResidentAvailable > 192
-      && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                              (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                              192,
-                                              CachedResidentAvailable) )
+    if ( a3 != 1 )
+      goto LABEL_2;
+    CurrentPrcb = KeGetCurrentPrcb();
+    v4 = a1;
+    CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
+    if ( (_DWORD)CachedResidentAvailable != -1 )
     {
-      v7 = a2 + (int)CachedResidentAvailable - 192;
+      if ( CachedResidentAvailable + a1 <= 0x100 )
+      {
+        do
+        {
+          if ( a1 >= 0x80000 )
+            break;
+          v8 = _InterlockedCompareExchange(
+                 (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                 CachedResidentAvailable + a1,
+                 CachedResidentAvailable);
+          v6 = (_DWORD)CachedResidentAvailable == v8;
+          LODWORD(CachedResidentAvailable) = v8;
+          if ( v6 )
+            goto LABEL_2;
+        }
+        while ( v8 != -1 && a1 + v8 <= 0x100 );
+      }
+      goto LABEL_11;
     }
-LABEL_16:
-    if ( v7 )
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(v4 + 17280), v7);
-    goto LABEL_2;
   }
-  while ( 1 )
+  else
   {
-    v11 = _InterlockedCompareExchange(
-            (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-            CachedResidentAvailable + a2,
-            CachedResidentAvailable);
-    v10 = (_DWORD)CachedResidentAvailable == v11;
-    LODWORD(CachedResidentAvailable) = v11;
-    if ( v10 )
-      break;
-    if ( v11 == -1 || a2 + v11 > 0x100 )
-      goto LABEL_13;
+    CurrentPrcb = KeGetCurrentPrcb();
+    v4 = a1;
+    CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
+    if ( (_DWORD)CachedResidentAvailable != -1 )
+    {
+      if ( CachedResidentAvailable + a1 <= 0x100 )
+      {
+        do
+        {
+          if ( a1 >= 0x80000 )
+            break;
+          v7 = _InterlockedCompareExchange(
+                 (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                 CachedResidentAvailable + a1,
+                 CachedResidentAvailable);
+          v6 = (_DWORD)CachedResidentAvailable == v7;
+          LODWORD(CachedResidentAvailable) = v7;
+          if ( v6 )
+            goto LABEL_2;
+        }
+        while ( v7 != -1 && a1 + v7 <= 0x100 );
+      }
+LABEL_11:
+      if ( (int)CachedResidentAvailable > 192
+        && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
+                                                (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                                                192,
+                                                CachedResidentAvailable) )
+      {
+        v4 = a1 + (int)CachedResidentAvailable - 192;
+      }
+    }
   }
+  if ( v4 )
+    _InterlockedExchangeAdd64(&qword_140C52980, v4);
 LABEL_2:
-  if ( (a3 & 1) != 0 )
-    MiReturnCommit(v4, a2);
+  if ( (a2 & 1) != 0 )
+    MiReturnCommit(&MiSystemPartition, a1);
 }

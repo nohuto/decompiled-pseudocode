@@ -1,86 +1,138 @@
 /*
- * XREFs of ParseNameTail @ 0x1C005BA28
+ * XREFs of ParseNameTail @ 0x1C00215A0
  * Callers:
- *     ParseName @ 0x1C005B880 (ParseName.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseSuperName @ 0x1C0009350 (ParseSuperName.c)
+ *     ParseName @ 0x1C00214C4 (ParseName.c)
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     RtlStringCchCopyA @ 0x1C000B07C (RtlStringCchCopyA.c)
- *     RtlStringCchCopyNA @ 0x1C002BAFC (RtlStringCchCopyNA.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
-__int64 __fastcall ParseNameTail(__int64 a1, const char **a2, _BYTE *a3)
+__int64 __fastcall ParseNameTail(__int64 a1, char **a2, __int64 a3)
 {
-  unsigned int v3; // ebx
-  __int64 v5; // r11
-  const char *v8; // r8
-  char v9; // al
-  unsigned __int8 *v10; // rax
-  int v11; // edi
-  int v12; // r10d
+  __int64 v6; // r9
+  char *v7; // rax
+  char v8; // cl
+  int v9; // r11d
+  _BYTE *v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r10
+  __int64 v13; // r8
+  char v14; // al
+  int v16; // r10d
+  _BYTE *v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  const char *v20; // r9
+  char v21; // al
+  char *v22; // rax
 
-  v3 = 0;
-  v5 = -1LL;
+  v6 = -1LL;
   do
-    ++v5;
-  while ( a3[v5] );
-  v8 = *a2;
-  v9 = **a2;
-  if ( v9 )
+    ++v6;
+  while ( *(_BYTE *)(a3 + v6) );
+  v7 = *a2;
+  v8 = **a2;
+  if ( v8 )
   {
-    if ( v9 == 47 )
+    if ( v8 != 47 )
     {
-      v10 = (unsigned __int8 *)(v8 + 1);
-      *a2 = v8 + 1;
-      v8 += 2;
-      v11 = *v10;
-      *a2 = v8;
-      if ( v11 )
-        goto LABEL_11;
-    }
-    else
-    {
-      if ( v9 == 46 )
+      if ( v8 == 46 )
       {
-        ++v8;
-        v11 = 2;
-        *a2 = v8;
+        v9 = 2;
+        *a2 = v7 + 1;
       }
       else
       {
-        v11 = 1;
+        v9 = 1;
       }
-LABEL_11:
-      while ( (unsigned __int64)(unsigned int)v5 + 4 < 0x100 )
+      while ( 1 )
       {
-        RtlStringCchCopyNA(&a3[(unsigned int)v5], (unsigned int)(256 - v5), v8, 4uLL);
-        LODWORD(v5) = v5 + 4;
-        v8 = *a2 + 4;
-        *a2 = v8;
-        if ( --v11 && (unsigned int)(v5 + 1) < 0x100 )
+LABEL_7:
+        if ( (unsigned __int64)(unsigned int)v6 + 4 >= 0x100 )
         {
-          RtlStringCchCopyA(&a3[(unsigned int)v5], (unsigned int)(256 - v5), ".");
-          v8 = *a2;
-          LODWORD(v5) = v12;
+          LogError(3221225734LL);
+          AcpiDiagTraceAmlError(a1, 3221225734LL);
+          PrintDebugMessage(130, a3, 0, 0, 0LL);
+          return 3221225734LL;
         }
-        else if ( !v11 )
+        v10 = (_BYTE *)(a3 + (unsigned int)v6);
+        v11 = (unsigned int)(256 - v6);
+        if ( (unsigned __int64)(v11 - 1) > 0x7FFFFFFE )
         {
-          break;
+          if ( 256 == (_DWORD)v6 )
+            goto LABEL_16;
         }
-      }
-      if ( v11 )
-      {
-        LogError(-1073741562);
-        AcpiDiagTraceAmlError(a1, -1073741562);
-        PrintDebugMessage(130, a3, 0LL, 0LL, 0LL);
-        return (unsigned int)-1073741562;
+        else
+        {
+          v12 = 4 - v11;
+          v13 = *a2 - v10;
+          while ( v12 + v11 )
+          {
+            v14 = v10[v13];
+            if ( !v14 )
+              break;
+            *v10++ = v14;
+            if ( !--v11 )
+              goto LABEL_32;
+          }
+          if ( v11 )
+            goto LABEL_15;
+LABEL_32:
+          --v10;
+        }
+LABEL_15:
+        *v10 = 0;
+LABEL_16:
+        *a2 += 4;
+        LODWORD(v6) = v6 + 4;
+        if ( !--v9 )
+          return 0LL;
+        v16 = v6 + 1;
+        if ( (unsigned int)(v6 + 1) < 0x100 )
+        {
+          v17 = (_BYTE *)(a3 + (unsigned int)v6);
+          v18 = (unsigned int)(256 - v6);
+          if ( (unsigned __int64)(v18 - 1) <= 0x7FFFFFFE )
+          {
+            v19 = 2147483646 - v18;
+            v20 = (const char *)("." - v17);
+            while ( v19 + v18 )
+            {
+              v21 = v17[(_QWORD)v20];
+              if ( !v21 )
+                break;
+              *v17++ = v21;
+              if ( !--v18 )
+                goto LABEL_24;
+            }
+            if ( !v18 )
+LABEL_24:
+              --v17;
+LABEL_26:
+            *v17 = 0;
+            goto LABEL_27;
+          }
+          if ( 256 != (_DWORD)v6 )
+            goto LABEL_26;
+LABEL_27:
+          LODWORD(v6) = v16;
+        }
       }
     }
+    v22 = v7 + 1;
+    *a2 = v22;
+    v9 = (unsigned __int8)*v22;
+    *a2 = v22 + 1;
+    if ( v9 )
+      goto LABEL_7;
+    return 0LL;
   }
   else
   {
-    *a2 = v8 + 1;
+    *a2 = v7 + 1;
+    return 0LL;
   }
-  return v3;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExAllocatePoolSanityChecks @ 0x140AA6EAC
+ * XREFs of ExAllocatePoolSanityChecks @ 0x1409ECDE4
  * Callers:
- *     VfHandlePoolAlloc @ 0x140A90660 (VfHandlePoolAlloc.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
- *     ExpIsPoolTagPrintable @ 0x140AA71A0 (ExpIsPoolTagPrintable.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     ExpIsPoolTagPrintable @ 0x1409ED0D8 (ExpIsPoolTagPrintable.c)
  */
 
 __int64 __fastcall ExAllocatePoolSanityChecks(int a1, ULONG_PTR a2, unsigned int *a3, __int64 a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfFailDeviceNode @ 0x140177DF0
+ * XREFs of VfFailDeviceNode @ 0x140177E10
  * Callers:
  *     <none>
  * Callees:
- *     VfIsVerificationEnabled @ 0x140177E30 (VfIsVerificationEnabled.c)
+ *     VfIsVerificationEnabled @ 0x140177E50 (VfIsVerificationEnabled.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */
 

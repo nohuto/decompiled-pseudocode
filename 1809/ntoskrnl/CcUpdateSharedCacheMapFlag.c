@@ -1,19 +1,19 @@
 /*
- * XREFs of CcUpdateSharedCacheMapFlag @ 0x140108BB0
+ * XREFs of CcUpdateSharedCacheMapFlag @ 0x140108BD0
  * Callers:
  *     CcApplyLowIoPriorityToThread @ 0x14007E034 (CcApplyLowIoPriorityToThread.c)
- *     CcCopyReadEx @ 0x1400AF410 (CcCopyReadEx.c)
- *     CcUpdateReadHistory @ 0x1400DFE30 (CcUpdateReadHistory.c)
- *     CcPurgeAndClearCacheSection @ 0x1400E78D8 (CcPurgeAndClearCacheSection.c)
- *     CcBoostLowPriorityWorkerThread @ 0x140107F30 (CcBoostLowPriorityWorkerThread.c)
+ *     CcCopyReadEx @ 0x1400AF430 (CcCopyReadEx.c)
+ *     CcUpdateReadHistory @ 0x1400DFE50 (CcUpdateReadHistory.c)
+ *     CcPurgeAndClearCacheSection @ 0x1400E78F8 (CcPurgeAndClearCacheSection.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x140107F50 (CcBoostLowPriorityWorkerThread.c)
  *     CcUnmapVacb @ 0x1405F284C (CcUnmapVacb.c)
  *     CcMapAndCopyFromCache @ 0x140638760 (CcMapAndCopyFromCache.c)
- *     CcMdlRead @ 0x140662BB0 (CcMdlRead.c)
+ *     CcMdlRead @ 0x140662B90 (CcMdlRead.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall CcUpdateSharedCacheMapFlag(_QWORD *a1, __int64 a2, __int64 a3)

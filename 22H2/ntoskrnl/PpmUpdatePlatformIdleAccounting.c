@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmUpdatePlatformIdleAccounting @ 0x14058668C
+ * XREFs of PpmUpdatePlatformIdleAccounting @ 0x1405680F4
  * Callers:
- *     PpmExitCoordinatedIdle @ 0x1402C6CA0 (PpmExitCoordinatedIdle.c)
+ *     PpmExitCoordinatedIdle @ 0x140223FC0 (PpmExitCoordinatedIdle.c)
  * Callees:
  *     <none>
  */
@@ -13,24 +13,28 @@ __int64 __fastcall PpmUpdatePlatformIdleAccounting(__int64 a1, unsigned __int64 
 
   result = 0LL;
   v3 = (unsigned __int64 *)&PpmIdleIntervalLimits;
-  while ( a2 >= *v3 )
+  do
   {
+    if ( a2 < *v3 )
+      break;
     result = (unsigned int)(result + 1);
     v3 += 3;
-    if ( (unsigned int)result >= 0x1A )
-    {
-      ++*(_DWORD *)(a1 + 40);
-      goto LABEL_9;
-    }
   }
-  result *= 32LL;
-  *(_QWORD *)(result + a1 + 184) += a2;
-  ++*(_DWORD *)(result + a1 + 208);
-  if ( a2 < *(_QWORD *)(result + a1 + 192) )
-    *(_QWORD *)(result + a1 + 192) = a2;
-  if ( a2 > *(_QWORD *)(result + a1 + 200) )
-    *(_QWORD *)(result + a1 + 200) = a2;
-LABEL_9:
+  while ( (unsigned int)result < 0x1A );
+  if ( (unsigned int)result >= 0x1A )
+  {
+    ++*(_DWORD *)(a1 + 40);
+  }
+  else
+  {
+    result *= 32LL;
+    *(_QWORD *)(result + a1 + 176) += a2;
+    ++*(_DWORD *)(result + a1 + 200);
+    if ( a2 < *(_QWORD *)(result + a1 + 184) )
+      *(_QWORD *)(result + a1 + 184) = a2;
+    if ( a2 > *(_QWORD *)(result + a1 + 192) )
+      *(_QWORD *)(result + a1 + 192) = a2;
+  }
   if ( a2 < *(_QWORD *)(a1 + 24) )
     *(_QWORD *)(a1 + 24) = a2;
   if ( a2 > *(_QWORD *)(a1 + 16) )

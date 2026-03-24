@@ -1,53 +1,55 @@
 /*
- * XREFs of NtAlpcOpenSenderThread @ 0x1407BBB20
+ * XREFs of NtAlpcOpenSenderThread @ 0x14068F9F0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpProbeAndCaptureMessageHeader @ 0x14071B1A4 (AlpcpProbeAndCaptureMessageHeader.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcpLookupMessage @ 0x140738DC0 (AlpcpLookupMessage.c)
- *     PsOpenThread @ 0x1407BBD70 (PsOpenThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x1405E0284 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     PsOpenThread @ 0x140626120 (PsOpenThread.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcOpenSenderThread(_QWORD *a1, void *a2, unsigned __int64 a3, int a4, int a5, _OWORD *a6)
+__int64 __fastcall NtAlpcOpenSenderThread(
+        _QWORD *a1,
+        void *a2,
+        unsigned __int64 a3,
+        int a4,
+        unsigned int a5,
+        _OWORD *a6)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r14
   int v11; // ebx
   _OWORD *v12; // r9
   __int64 v13; // rcx
-  PVOID v14; // rdi
+  struct _DMA_ADAPTER *v14; // rdi
   ULONG_PTR v15; // rbx
-  _QWORD *v16; // rsi
-  __int64 v17; // rax
-  PVOID Object; // [rsp+30h] [rbp-78h] BYREF
-  ULONG_PTR v20; // [rsp+38h] [rbp-70h] BYREF
-  int v21[2]; // [rsp+40h] [rbp-68h] BYREF
-  int v22[4]; // [rsp+48h] [rbp-60h] BYREF
-  __int128 v23; // [rsp+58h] [rbp-50h]
-  __int64 v24; // [rsp+68h] [rbp-40h]
-  int v25[4]; // [rsp+70h] [rbp-38h] BYREF
-  __int128 v26; // [rsp+80h] [rbp-28h]
-  __int128 v27; // [rsp+90h] [rbp-18h]
+  struct _DMA_ADAPTER *v16; // rsi
+  PADAPTER_OBJECT DmaAdapter; // [rsp+30h] [rbp-78h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-70h] BYREF
+  int v20[2]; // [rsp+40h] [rbp-68h] BYREF
+  __int128 Source2; // [rsp+48h] [rbp-60h] BYREF
+  __int128 v22; // [rsp+58h] [rbp-50h]
+  __int64 v23; // [rsp+68h] [rbp-40h]
+  int v24[4]; // [rsp+70h] [rbp-38h] BYREF
+  __int128 v25; // [rsp+80h] [rbp-28h]
+  __int128 v26; // [rsp+90h] [rbp-18h]
 
-  *(_OWORD *)v22 = 0LL;
+  Source2 = 0LL;
+  v22 = 0LL;
   v23 = 0LL;
-  v24 = 0LL;
-  *(_OWORD *)v25 = 0LL;
-  v26 = 0LL;
-  *(_QWORD *)&v27 = 0LL;
-  DWORD2(v27) = 0;
-  *(_QWORD *)v21 = 0LL;
-  v20 = 0LL;
+  *(_QWORD *)v20 = 0LL;
+  BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  Object = 0LL;
-  v11 = ObReferenceObjectByHandle(a2, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  DmaAdapter = 0LL;
+  v11 = ObReferenceObjectByHandle(a2, 0x20000u, AlpcPortObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( v11 >= 0 )
   {
     if ( PreviousMode )
@@ -56,61 +58,61 @@ __int64 __fastcall NtAlpcOpenSenderThread(_QWORD *a1, void *a2, unsigned __int64
       if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
         v13 = (__int64)a1;
       *(_QWORD *)v13 = *(_QWORD *)v13;
-      AlpcpProbeAndCaptureMessageHeader(a3, (__int64)v22, a4);
+      AlpcpProbeAndCaptureMessageHeader(a3, (__int64)&Source2, a4);
       if ( a6 < v12 )
         v12 = a6;
-      *(_OWORD *)v25 = *v12;
-      v26 = v12[1];
-      v27 = v12[2];
+      *(_OWORD *)v24 = *v12;
+      v25 = v12[1];
+      v26 = v12[2];
     }
     else
     {
-      *(_OWORD *)v22 = *(_OWORD *)a3;
-      v23 = *(_OWORD *)(a3 + 16);
-      v24 = *(_QWORD *)(a3 + 32);
-      *(_OWORD *)v25 = *a6;
-      v26 = a6[1];
-      v27 = a6[2];
+      Source2 = *(_OWORD *)a3;
+      v22 = *(_OWORD *)(a3 + 16);
+      v23 = *(_QWORD *)(a3 + 32);
+      *(_OWORD *)v24 = *a6;
+      v25 = a6[1];
+      v26 = a6[2];
     }
-    v14 = Object;
-    v11 = AlpcpLookupMessage((__int64)Object, SDWORD2(v23), v24, (__int64)v12, &v20);
+    v14 = DmaAdapter;
+    v11 = AlpcpLookupMessage((__int64)DmaAdapter, DWORD2(v22), v23, (__int64)v12, &BugCheckParameter2);
     if ( v11 < 0 )
     {
-      ObfDereferenceObject(v14);
+      HalPutDmaAdapter(v14);
     }
     else
     {
-      v15 = v20;
-      if ( (*(_DWORD *)(v20 + 40) & 0x80u) != 0 )
+      v15 = BugCheckParameter2;
+      if ( (*(_DWORD *)(BugCheckParameter2 + 40) & 0x80u) != 0 )
       {
-        AlpcpUnlockMessage(v20);
-        ObfDereferenceObject(v14);
+        AlpcpUnlockMessage(BugCheckParameter2);
+        HalPutDmaAdapter(v14);
         v11 = -1073740029;
       }
       else
       {
-        v16 = *(_QWORD **)(v20 + 32);
-        if ( !v16 )
-          goto LABEL_20;
-        v17 = v16[153] - *(_QWORD *)&v22[2];
-        if ( !v17 )
-          v17 = v16[154] - v23;
-        if ( v17 )
+        v16 = *(struct _DMA_ADAPTER **)(BugCheckParameter2 + 32);
+        if ( v16 && RtlCompareMemory(&v16[71].DmaOperations, (char *)&Source2 + 8, 0x10uLL) == 16 )
         {
-LABEL_20:
-          AlpcpUnlockMessage(v20);
-          ObfDereferenceObject(v14);
-          v11 = -1073741790;
+          ObfReferenceObject(v16);
+          AlpcpUnlockMessage(v15);
+          v11 = PsOpenThread(
+                  (unsigned __int64)v20,
+                  a5,
+                  (__int64)v24,
+                  (__int128 *)((char *)&Source2 + 8),
+                  0,
+                  PreviousMode);
+          HalPutDmaAdapter(v16);
+          HalPutDmaAdapter(v14);
+          if ( v11 >= 0 )
+            *a1 = *(_QWORD *)v20;
         }
         else
         {
-          ObfReferenceObject(*(PVOID *)(v20 + 32));
           AlpcpUnlockMessage(v15);
-          v11 = PsOpenThread((int)v21, a5, (int)v25, (int)&v22[2], 0, PreviousMode);
-          ObfDereferenceObject(v16);
-          ObfDereferenceObject(v14);
-          if ( v11 >= 0 )
-            *a1 = *(_QWORD *)v21;
+          HalPutDmaAdapter(v14);
+          v11 = -1073741790;
         }
       }
     }

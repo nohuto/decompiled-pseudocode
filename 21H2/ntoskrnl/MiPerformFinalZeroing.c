@@ -1,24 +1,25 @@
 /*
- * XREFs of MiPerformFinalZeroing @ 0x1405ADCD4
+ * XREFs of MiPerformFinalZeroing @ 0x14054F348
  * Callers:
- *     MiGetPageChain @ 0x140323D70 (MiGetPageChain.c)
+ *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
  * Callees:
- *     MiZeroPhysicalPage @ 0x1402359C4 (MiZeroPhysicalPage.c)
- *     MiChangePageAttributeBatch @ 0x1402680C0 (MiChangePageAttributeBatch.c)
- *     MiSetPfnTbFlushStamp @ 0x14033C33C (MiSetPfnTbFlushStamp.c)
+ *     MiSetPfnTbFlushStamp @ 0x140240160 (MiSetPfnTbFlushStamp.c)
+ *     MiZeroPhysicalPage @ 0x1402E6380 (MiZeroPhysicalPage.c)
+ *     MiChangePageAttributeBatch @ 0x1403035A0 (MiChangePageAttributeBatch.c)
  */
 
 void __fastcall MiPerformFinalZeroing(ULONG_PTR *a1, unsigned int a2, unsigned int a3)
 {
-  __int64 v3; // r9
+  _DWORD *v3; // r9
   __int64 v4; // rbx
   ULONG_PTR *v6; // rdi
   ULONG_PTR *v7; // rdx
   __int64 v8; // r10
   __int64 v9; // rcx
-  __int64 v10; // rsi
-  ULONG_PTR v11; // rbx
-  signed __int32 v12[10]; // [rsp+0h] [rbp-28h] BYREF
+  unsigned __int64 v10; // r9
+  __int64 v11; // rsi
+  ULONG_PTR v12; // rbx
+  signed __int32 v13[10]; // [rsp+0h] [rbp-28h] BYREF
 
   v3 = 0LL;
   v4 = a2;
@@ -29,26 +30,26 @@ void __fastcall MiPerformFinalZeroing(ULONG_PTR *a1, unsigned int a2, unsigned i
     v8 = (unsigned int)v4;
     do
     {
-      v9 = 48 * *v7++ - 0x220000000000LL;
+      v9 = 48 * *v7++ - 0x58000000000LL;
       *(_QWORD *)(v9 + 16) = v3;
-      v3 = v9;
+      v3 = (_DWORD *)v9;
       --v8;
     }
     while ( v8 );
   }
-  MiChangePageAttributeBatch(v3, a3, ZeroPte);
+  MiChangePageAttributeBatch((__int64)v3, a3, ZeroPte, v3);
   if ( (_DWORD)v4 )
   {
-    v10 = v4;
+    v11 = v4;
     do
     {
-      v11 = *v6;
-      MiZeroPhysicalPage(*v6, 1, a3);
-      _InterlockedOr(v12, 0);
-      MiSetPfnTbFlushStamp(48 * v11 - 0x220000000000LL, KiTbFlushTimeStamp, 0);
+      v12 = *v6;
+      MiZeroPhysicalPage(*v6, 1, a3, v10);
+      _InterlockedOr(v13, 0);
+      MiSetPfnTbFlushStamp(48 * v12 - 0x58000000000LL, KiTbFlushTimeStamp, 0);
       ++v6;
-      --v10;
+      --v11;
     }
-    while ( v10 );
+    while ( v11 );
   }
 }

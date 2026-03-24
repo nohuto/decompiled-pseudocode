@@ -1,12 +1,12 @@
 /*
- * XREFs of XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0037444
+ * XREFs of XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0037290
  * Callers:
- *     Endpoint_Enable @ 0x1C0004FA0 (Endpoint_Enable.c)
- *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C00393F0 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003B0F0 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003B3B0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ *     Endpoint_Enable @ 0x1C00083B0 (Endpoint_Enable.c)
+ *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C0039170 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003ABD0 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003AEA0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
  * Callees:
- *     XilEndpoint_SendRequestToSetSecureStreamContextArray @ 0x1C0037C60 (XilEndpoint_SendRequestToSetSecureStreamContextArray.c)
+ *     XilEndpoint_SendRequestToSetSecureStreamContextArray @ 0x1C0037ABC (XilEndpoint_SendRequestToSetSecureStreamContextArray.c)
  */
 
 __int64 __fastcall XilEndpoint_CommitStreamContextArrayUpdates(__int64 a1)

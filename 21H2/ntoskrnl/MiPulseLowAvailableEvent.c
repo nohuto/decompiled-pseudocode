@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPulseLowAvailableEvent @ 0x1405B8128
+ * XREFs of MiPulseLowAvailableEvent @ 0x14055BFDC
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x140266644 (MiComputeSystemTrimCriteria.c)
+ *     MiComputeSystemTrimCriteria @ 0x140271440 (MiComputeSystemTrimCriteria.c)
  * Callees:
- *     KePulseEvent @ 0x14026A0D0 (KePulseEvent.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KePulseEvent @ 0x140271AC0 (KePulseEvent.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPulseLowAvailableEvent(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall MiPulseLowAvailableEvent(__int64 a1)
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !*(_DWORD *)(result + 4) )
   {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 15680), &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4928), &LockHandle);
     v3 = *(struct _KEVENT **)(a1 + 280);
     if ( !v3->Header.SignalState )
       KePulseEvent(v3, 0, 0);

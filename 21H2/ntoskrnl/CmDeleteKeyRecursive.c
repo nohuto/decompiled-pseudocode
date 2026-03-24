@@ -1,19 +1,19 @@
 /*
- * XREFs of CmDeleteKeyRecursive @ 0x14091D7D0
+ * XREFs of CmDeleteKeyRecursive @ 0x140876D90
  * Callers:
- *     CmDeleteKeyRecursive @ 0x14091D7D0 (CmDeleteKeyRecursive.c)
- *     CmpMoveBiosAliasTable @ 0x14091E6AC (CmpMoveBiosAliasTable.c)
- *     CmpCreateHardwareProfiles @ 0x140B183B4 (CmpCreateHardwareProfiles.c)
+ *     CmDeleteKeyRecursive @ 0x140876D90 (CmDeleteKeyRecursive.c)
+ *     CmpMoveBiosAliasTable @ 0x140877C18 (CmpMoveBiosAliasTable.c)
+ *     CmpCreateHardwareProfiles @ 0x140A58540 (CmpCreateHardwareProfiles.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     ZwDeleteKey @ 0x14041D280 (ZwDeleteKey.c)
- *     CmDeleteKeyRecursive @ 0x14091D7D0 (CmDeleteKeyRecursive.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     ZwDeleteKey @ 0x1403FBE20 (ZwDeleteKey.c)
+ *     CmDeleteKeyRecursive @ 0x140876D90 (CmDeleteKeyRecursive.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmDeleteKeyRecursive(void *a1, const WCHAR *a2, __int64 a3, __int64 a4, ULONG ResultLength)
@@ -23,8 +23,8 @@ NTSTATUS __fastcall CmDeleteKeyRecursive(void *a1, const WCHAR *a2, __int64 a3, 
   wchar_t *PoolWithTag; // rax
   wchar_t *v10; // r14
   __int64 v11; // rdx
-  NTSTATUS v12; // edi
-  NTSTATUS v13; // ebx
+  NTSTATUS v12; // ebx
+  NTSTATUS v13; // edi
   ULONG Length; // [rsp+20h] [rbp-50h]
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
@@ -56,8 +56,8 @@ NTSTATUS __fastcall CmDeleteKeyRecursive(void *a1, const WCHAR *a2, __int64 a3, 
       v10 = PoolWithTag;
       if ( !PoolWithTag )
       {
-        v13 = -1073741670;
-        goto LABEL_14;
+        v12 = -1073741670;
+        break;
       }
       v11 = -1LL;
       do
@@ -74,7 +74,6 @@ NTSTATUS __fastcall CmDeleteKeyRecursive(void *a1, const WCHAR *a2, __int64 a3, 
       v13 = v12;
     if ( v13 >= 0 )
       v13 = ZwDeleteKey(KeyHandle);
-LABEL_14:
     ZwClose(KeyHandle);
     return v13;
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RIMIsDeviceArbitrationEnabled @ 0x1C0188E40
+ * XREFs of RIMIsDeviceArbitrationEnabled @ 0x1C015A710
  * Callers:
  *     <none>
  * Callees:

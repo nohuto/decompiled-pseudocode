@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlEmptyFreePoolList @ 0x14021D85C
+ * XREFs of FsRtlEmptyFreePoolList @ 0x14029FF14
  * Callers:
- *     FsRtlDeleteKeyFromTunnelCache @ 0x140694660 (FsRtlDeleteKeyFromTunnelCache.c)
- *     FsRtlAddToTunnelCacheEx @ 0x140694B30 (FsRtlAddToTunnelCacheEx.c)
- *     FsRtlFindInTunnelCacheEx @ 0x140694E60 (FsRtlFindInTunnelCacheEx.c)
+ *     FsRtlDeleteKeyFromTunnelCache @ 0x140688920 (FsRtlDeleteKeyFromTunnelCache.c)
+ *     FsRtlFindInTunnelCacheEx @ 0x1406889F0 (FsRtlFindInTunnelCacheEx.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x140688B60 (FsRtlAddToTunnelCacheEx.c)
  * Callees:
- *     ExFreeToPagedLookasideList @ 0x140203D50 (ExFreeToPagedLookasideList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall FsRtlEmptyFreePoolList(_QWORD **a1)
@@ -30,7 +30,7 @@ _QWORD *__fastcall FsRtlEmptyFreePoolList(_QWORD **a1)
     if ( (v4[14] & 1) != 0 )
       ExFreePoolWithTag(v4, 0);
     else
-      ExFreeToPagedLookasideList(&TunnelLookasideList, v4);
+      ExFreeToNPagedLookasideList(&TunnelLookasideList, v4);
   }
   return result;
 }

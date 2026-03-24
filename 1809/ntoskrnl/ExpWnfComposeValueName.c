@@ -3,10 +3,10 @@
  * Callers:
  *     ExpWnfLookupPermanentName @ 0x1405AA92C (ExpWnfLookupPermanentName.c)
  *     ExpWnfWriteStateData @ 0x140610CD0 (ExpWnfWriteStateData.c)
- *     ExpWnfDeletePermanentName @ 0x1406ABBB4 (ExpWnfDeletePermanentName.c)
- *     ExpWnfRegisterPermanentName @ 0x1406CEB54 (ExpWnfRegisterPermanentName.c)
- *     ExpWnfPopulateStateData @ 0x1406CF09C (ExpWnfPopulateStateData.c)
- *     ExpWnfDeletePermanentStateData @ 0x1408DB540 (ExpWnfDeletePermanentStateData.c)
+ *     ExpWnfDeletePermanentName @ 0x1406ABB94 (ExpWnfDeletePermanentName.c)
+ *     ExpWnfRegisterPermanentName @ 0x1406CEB34 (ExpWnfRegisterPermanentName.c)
+ *     ExpWnfPopulateStateData @ 0x1406CF07C (ExpWnfPopulateStateData.c)
+ *     ExpWnfDeletePermanentStateData @ 0x1408DB520 (ExpWnfDeletePermanentStateData.c)
  * Callees:
  *     RtlInt64ToUnicodeString @ 0x1405AAD00 (RtlInt64ToUnicodeString.c)
  */

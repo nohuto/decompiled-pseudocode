@@ -1,18 +1,19 @@
 /*
- * XREFs of MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x1405B0AC0
+ * XREFs of MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140552B48
  * Callers:
- *     MiGetSlabStandbyListWorker @ 0x1405B11A0 (MiGetSlabStandbyListWorker.c)
+ *     MiGetSlabStandbyListWorker @ 0x140552F60 (MiGetSlabStandbyListWorker.c)
  * Callees:
- *     MiSetPfnNodeBlinkLow @ 0x1402393AC (MiSetPfnNodeBlinkLow.c)
- *     MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x1403385E0 (MiSetNextStandbyPageSameNodeNoLockAsserts.c)
+ *     MiSetPfnNodeBlinkHigh @ 0x1402B6514 (MiSetPfnNodeBlinkHigh.c)
  */
 
-signed __int64 __fastcall MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY(__int64 a1, unsigned __int64 a2)
 {
-  unsigned __int64 v2; // rbx
+  __int64 result; // rax
 
-  v2 = a2 & 0xFFFFFFFFFFLL;
-  MiSetPfnNodeBlinkLow(a1, a2);
-  *(_DWORD *)(a1 + 36) = *(_DWORD *)(a1 + 36) & 0xFFE00000 | (v2 >> 19);
-  return MiSetNextStandbyPageSameNodeNoLockAsserts(a1, a2 >> 40);
+  *(_WORD *)(a1 + 36) = a2;
+  MiSetPfnNodeBlinkHigh(a1, (a2 >> 16) & 0xFFFFF, 1);
+  *(_BYTE *)(a1 + 39) = a2 >> 36;
+  result = (a2 >> 8) ^ (*(_QWORD *)a1 ^ (a2 >> 8)) & 0xFFFFFFFFFLL;
+  *(_QWORD *)a1 = result;
+  return result;
 }

@@ -1,66 +1,56 @@
 /*
- * XREFs of ExpParseAndUpdateLeapSecondData @ 0x140854950
+ * XREFs of ExpParseAndUpdateLeapSecondData @ 0x1407AADB8
  * Callers:
- *     ExpReadLeapSecondData @ 0x140854624 (ExpReadLeapSecondData.c)
+ *     ExpReadLeapSecondData @ 0x1407A95E8 (ExpReadLeapSecondData.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlParseLeapSecondData @ 0x140A741E4 (RtlParseLeapSecondData.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlParseLeapSecondData @ 0x140980B7C (RtlParseLeapSecondData.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpParseAndUpdateLeapSecondData(__int64 a1, __int64 a2)
 {
-  unsigned int v4; // edi
-  unsigned int v5; // ecx
-  unsigned int v6; // ebx
-  __int64 Pool2; // rax
-  __int64 v9; // rsi
-  signed __int32 v10[10]; // [rsp+0h] [rbp-28h] BYREF
+  char *v2; // rsi
+  unsigned __int64 v5; // r8
+  unsigned __int64 v6; // rdi
+  unsigned int v7; // ecx
+  unsigned int v8; // ebx
+  size_t v10; // r15
+  char *PoolWithTag; // rax
+  signed __int32 v12[14]; // [rsp+0h] [rbp-38h] BYREF
 
-  if ( *(_DWORD *)(a1 + 4) == 3 && *(_DWORD *)(a1 + 8) == 12 * (*(unsigned int *)(a1 + 8) / 0xCuLL) )
+  v2 = 0LL;
+  if ( *(_DWORD *)(a1 + 4) == 3 && (v5 = *(unsigned int *)(a1 + 8), v5 == 12 * (v5 / 0xC)) )
   {
-    v4 = *(_DWORD *)(a1 + 8) / 0xCu;
-    v5 = 8 * v4 + 8;
-    if ( v5 > 0x1000 )
-    {
+    v6 = v5 / 0xC;
+    v7 = 8 * (*(_DWORD *)(a1 + 8) / 0xCu) + 8;
+    if ( v7 > 0x1000 )
       return 2;
-    }
-    else if ( v4 )
-    {
-      if ( v4 > *(_DWORD *)(a2 + 4) )
-      {
-        Pool2 = ExAllocatePool2(256LL, v5, 1683189836LL);
-        v9 = Pool2;
-        if ( Pool2 )
-        {
-          v6 = RtlParseLeapSecondData(a1 + 12, v4, a2, Pool2);
-          if ( !v6 )
-          {
-            memmove((void *)(a2 + 8), (const void *)(v9 + 8), 8LL * v4);
-            _InterlockedOr(v10, 0);
-            *(_DWORD *)(a2 + 4) = v4;
-          }
-          ExFreePoolWithTag((PVOID)v9, 0x6453704Cu);
-        }
-        else
-        {
-          return 7;
-        }
-      }
-      else
-      {
-        return v4 < *(_DWORD *)(a2 + 4) ? 3 : 0;
-      }
-    }
-    else
-    {
+    if ( !(_DWORD)v6 )
       return 0;
+    if ( (unsigned int)v6 <= *(_DWORD *)(a2 + 4) )
+      return (unsigned int)v6 < *(_DWORD *)(a2 + 4) ? 3 : 0;
+    v10 = v7;
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v7, 0x6453704Cu);
+    v2 = PoolWithTag;
+    if ( !PoolWithTag )
+      return 7;
+    memset(PoolWithTag, 0, v10);
+    v8 = RtlParseLeapSecondData(a1 + 12, (unsigned int)v6, a2, v2);
+    if ( !v8 )
+    {
+      memmove((void *)(a2 + 8), v2 + 8, 8LL * (unsigned int)v6);
+      _InterlockedOr(v12, 0);
+      *(_DWORD *)(a2 + 4) = v6;
     }
   }
   else
   {
-    return 1;
+    v8 = 1;
   }
-  return v6;
+  if ( v2 )
+    ExFreePoolWithTag(v2, 0x6453704Cu);
+  return v8;
 }

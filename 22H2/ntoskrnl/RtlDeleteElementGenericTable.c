@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDeleteElementGenericTable @ 0x140327A50
+ * XREFs of RtlDeleteElementGenericTable @ 0x140310470
  * Callers:
  *     <none>
  * Callees:
- *     RtlDelete @ 0x140327AE0 (RtlDelete.c)
- *     FindNodeOrParent @ 0x140327F20 (FindNodeOrParent.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     RtlDelete @ 0x1402DA140 (RtlDelete.c)
+ *     FindNodeOrParent @ 0x140310674 (FindNodeOrParent.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __stdcall RtlDeleteElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)

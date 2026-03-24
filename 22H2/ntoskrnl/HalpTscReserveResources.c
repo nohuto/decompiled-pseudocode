@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTscReserveResources @ 0x1403B16B8
+ * XREFs of HalpTscReserveResources @ 0x1403CC928
  * Callers:
- *     HalpTimerInitSystem @ 0x14037B080 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403AF740 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403776B0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpTscCheckAdjustMsrCapability @ 0x1403B17D0 (HalpTscCheckAdjustMsrCapability.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A1C74 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpTscCheckAdjustMsrCapability @ 0x1403CCA40 (HalpTscCheckAdjustMsrCapability.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 HalpTscReserveResources()
@@ -29,7 +29,7 @@ __int64 HalpTscReserveResources()
     v4 = (void *)HalpMmAllocCtxAlloc(v2, v3);
     v5 = (__int64)v4;
     if ( !v4 )
-      KeBugCheckEx(0xACu, v3, 0xAB00uLL, (ULONG_PTR)"minkernel\\hals\\lib\\timers\\pc\\tscsync.c", 0x166uLL);
+      KeBugCheckEx(0xACu, v3, 0xAB00uLL, (ULONG_PTR)"minkernel\\hals\\lib\\timers\\pc\\tscsync.c", 0x15EuLL);
     memset(v4, 0, v3);
     HalpTscDeltas = v5;
     HalpTscMaximumCounterSyncSpread = 1024;

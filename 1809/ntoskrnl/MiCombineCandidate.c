@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCombineCandidate @ 0x1400B26B0
+ * XREFs of MiCombineCandidate @ 0x1400B26D0
  * Callers:
  *     MiCrcStillIntact @ 0x140082C54 (MiCrcStillIntact.c)
  *     MiCapturePfnVm @ 0x140083648 (MiCapturePfnVm.c)
  *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
  *     MiCombinePte @ 0x140088F10 (MiCombinePte.c)
- *     MiMapArbitraryPage @ 0x14010E9F0 (MiMapArbitraryPage.c)
- *     MiRecheckCombineVm @ 0x14013EED4 (MiRecheckCombineVm.c)
- *     MiCombineAllPhysicalMemory @ 0x1406D41D0 (MiCombineAllPhysicalMemory.c)
+ *     MiMapArbitraryPage @ 0x14010EA10 (MiMapArbitraryPage.c)
+ *     MiRecheckCombineVm @ 0x14013EEF4 (MiRecheckCombineVm.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406D41B0 (MiCombineAllPhysicalMemory.c)
  * Callees:
  *     MI_IS_RESET_PTE @ 0x140081D40 (MI_IS_RESET_PTE.c)
- *     MiGetPagePrivilege @ 0x1400B2A50 (MiGetPagePrivilege.c)
- *     MiIsSessionMetadata @ 0x14013E770 (MiIsSessionMetadata.c)
- *     MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x140140798 (MI_IS_SOFTWARE_PTE_SHADOW_STACK.c)
+ *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
+ *     MiIsSessionMetadata @ 0x14013E790 (MiIsSessionMetadata.c)
+ *     MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x1401407B8 (MI_IS_SOFTWARE_PTE_SHADOW_STACK.c)
  */
 
 __int64 __fastcall MiCombineCandidate(__int64 *a1, char a2, __int64 a3)

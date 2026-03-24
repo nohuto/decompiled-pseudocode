@@ -1,12 +1,12 @@
 /*
- * XREFs of ?MarkInvalid@CInputSink@@UEAAXXZ @ 0x1C009C2F0
+ * XREFs of ?MarkInvalid@CInputSink@@UEAAXXZ @ 0x1C005A720
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00329E8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C009C3B0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?InvalidateAndReleaseQueues@CInputSink@@IEAAXXZ @ 0x1C009C3F4 (-InvalidateAndReleaseQueues@CInputSink@@IEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?InvalidateAndReleaseQueues@CInputSink@@IEAAXXZ @ 0x1C005A62C (-InvalidateAndReleaseQueues@CInputSink@@IEAAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C005B5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005DD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CInputSink::MarkInvalid(CInputSink *this)
@@ -15,7 +15,7 @@ void __fastcall CInputSink::MarkInvalid(CInputSink *this)
   {
     CInputSink::InvalidateAndReleaseQueues(this);
     CPushLock::AcquireLockExclusive((CInputSink *)((char *)this + 8));
-    *((_BYTE *)this + 24) = 0;
+    *((_BYTE *)this + 32) = 0;
     CPushLock::ReleaseLock((CInputSink *)((char *)this + 8));
   }
 }

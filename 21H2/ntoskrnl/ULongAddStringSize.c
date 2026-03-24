@@ -1,8 +1,8 @@
 /*
- * XREFs of ULongAddStringSize @ 0x1409D3E10
+ * XREFs of ULongAddStringSize @ 0x1406731C8
  * Callers:
- *     GetPrintableOperandValue @ 0x1409D1418 (GetPrintableOperandValue.c)
- *     LocalpGetStringForCondition @ 0x1409D3874 (LocalpGetStringForCondition.c)
+ *     LocalpGetStringForCondition @ 0x140672DF8 (LocalpGetStringForCondition.c)
+ *     GetPrintableOperandValue @ 0x14067326C (GetPrintableOperandValue.c)
  * Callees:
  *     <none>
  */
@@ -10,9 +10,10 @@
 __int64 __fastcall ULongAddStringSize(unsigned int a1, __int64 a2, int *a3)
 {
   __int64 v4; // rax
-  int v5; // ecx
-  unsigned __int64 v6; // rdx
-  __int64 result; // rax
+  int v5; // edx
+  unsigned __int64 v6; // rax
+  int v7; // r10d
+  unsigned int v8; // ecx
 
   v4 = -1LL;
   do
@@ -20,16 +21,17 @@ __int64 __fastcall ULongAddStringSize(unsigned int a1, __int64 a2, int *a3)
   while ( *(_WORD *)(a2 + 2 * v4) );
   v5 = -1;
   v6 = 2LL * (unsigned int)v4;
-  if ( v6 > 0xFFFFFFFF )
+  v7 = -1;
+  if ( v6 <= 0xFFFFFFFF )
+    v7 = v6;
+  *a3 = v7;
+  v8 = v6 > 0xFFFFFFFF ? 0xC0000095 : 0;
+  if ( v6 <= 0xFFFFFFFF )
   {
-    result = 3221225621LL;
+    if ( v7 + a1 >= a1 )
+      v5 = v7 + a1;
+    v8 = v7 + a1 < a1 ? 0xC0000095 : 0;
+    *a3 = v5;
   }
-  else
-  {
-    if ( (unsigned int)v6 + a1 >= a1 )
-      v5 = v6 + a1;
-    result = (unsigned int)v6 + a1 < a1 ? 0xC0000095 : 0;
-  }
-  *a3 = v5;
-  return result;
+  return v8;
 }

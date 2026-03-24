@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpConstructCrossVmObjectPath @ 0x1409BAE18
+ * XREFs of RtlpConstructCrossVmObjectPath @ 0x1409157C8
  * Callers:
- *     RtlConstructCrossVmMutexPath @ 0x1409BAE00 (RtlConstructCrossVmMutexPath.c)
+ *     RtlConstructCrossVmMutexPath @ 0x1409157B0 (RtlConstructCrossVmMutexPath.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1402DFAC0 (RtlAppendUnicodeToString.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlStringFromGUIDEx @ 0x1407454A8 (RtlStringFromGUIDEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
+ *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpConstructCrossVmObjectPath(UNICODE_STRING *a1, unsigned int *a2, unsigned int *a3)
@@ -30,7 +30,7 @@ __int64 __fastcall RtlpConstructCrossVmObjectPath(UNICODE_STRING *a1, unsigned i
   Buffer = Destination.Buffer;
   if ( Destination.Buffer )
   {
-    appended = RtlAppendUnicodeStringToString(&Destination, &stru_14000A7E8);
+    appended = RtlAppendUnicodeStringToString(&Destination, &stru_140009A78);
     if ( appended < 0
       || (appended = RtlAppendUnicodeToString(&Destination, L"\\"), appended < 0)
       || a3
@@ -52,8 +52,8 @@ __int64 __fastcall RtlpConstructCrossVmObjectPath(UNICODE_STRING *a1, unsigned i
   {
     appended = -1073741801;
   }
-  RtlFreeUnicodeString(&Source);
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&Source);
+  RtlFreeAnsiString(&UnicodeString);
   if ( Buffer )
     ExFreePoolWithTag(Buffer, v8);
   return (unsigned int)appended;

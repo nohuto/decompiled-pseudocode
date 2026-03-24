@@ -1,27 +1,27 @@
 /*
- * XREFs of FsRtlSetFileSize @ 0x1407EAC14
+ * XREFs of FsRtlSetFileSize @ 0x140669A10
  * Callers:
- *     MmExtendSection @ 0x1407065B4 (MmExtendSection.c)
- *     MiCreateDataFileMap @ 0x140745EF0 (MiCreateDataFileMap.c)
+ *     MiCreateDataFileMap @ 0x14061C3F4 (MiCreateDataFileMap.c)
+ *     MmExtendSection @ 0x14066933C (MmExtendSection.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     IoAllocateIrpEx @ 0x140310DD0 (IoAllocateIrpEx.c)
+ *     IoSetThreadHardErrorMode @ 0x14024FB60 (IoSetThreadHardErrorMode.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IoAllocateIrpEx @ 0x1402F9A50 (IoAllocateIrpEx.c)
  */
 
 __int64 __fastcall FsRtlSetFileSize(PFILE_OBJECT FileObject, __int64 *a2)
 {
-  PDEVICE_OBJECT RelatedDeviceObject; // rsi
+  PDEVICE_OBJECT RelatedDeviceObject; // rdi
   __int64 v4; // rdx
   IRP *Irp; // rbx
   BOOLEAN v6; // al
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rdx
-  BOOLEAN v8; // di
-  NTSTATUS v9; // ecx
-  NTSTATUS v10; // eax
+  BOOLEAN v8; // si
+  NTSTATUS v9; // ebx
+  NTSTATUS v10; // ecx
   __int128 v12; // [rsp+30h] [rbp-30h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-20h] BYREF
   __int64 v14; // [rsp+88h] [rbp+28h] BYREF
@@ -52,16 +52,11 @@ __int64 __fastcall FsRtlSetFileSize(PFILE_OBJECT FileObject, __int64 *a2)
   CurrentStackLocation[-1].Parameters.Create.Options = 20;
   v9 = IofCallDriver(RelatedDeviceObject, Irp);
   if ( v9 == 259 )
-  {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-  }
-  else
-  {
-    v10 = v12;
-    if ( v9 < 0 )
-      v10 = v9;
-    LODWORD(v12) = v10;
-  }
+  v10 = v12;
+  if ( v9 < 0 )
+    v10 = v9;
+  LODWORD(v12) = v10;
   IoSetThreadHardErrorMode(v8);
   return (unsigned int)v12;
 }

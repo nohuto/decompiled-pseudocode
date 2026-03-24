@@ -1,39 +1,40 @@
 /*
- * XREFs of RtlStringCbCatW @ 0x1C008FBF0
+ * XREFs of RtlStringCbCatW @ 0x1C008EECC
  * Callers:
- *     USBDInternal_BuildServicePath @ 0x1C008FE44 (USBDInternal_BuildServicePath.c)
+ *     USBDInternal_BuildServicePath @ 0x1C008F134 (USBDInternal_BuildServicePath.c)
  * Callees:
- *     RtlStringCopyWorkerW @ 0x1C008FC64 (RtlStringCopyWorkerW.c)
+ *     RtlStringCopyWorkerW @ 0x1C008EF54 (RtlStringCopyWorkerW.c)
  */
 
-unsigned int __fastcall RtlStringCbCatW(wchar_t *pszDest, unsigned __int64 cbDest, const wchar_t *a3)
+__int64 __fastcall RtlStringCbCatW(wchar_t *pszDest, unsigned __int64 cbDest, const wchar_t *a3)
 {
   unsigned __int64 v3; // rdx
-  unsigned __int64 *v5; // r8
-  wchar_t *v6; // rax
-  unsigned int result; // eax
-  unsigned __int64 v8; // rcx
-  unsigned __int64 v9; // [rsp+20h] [rbp-18h]
+  __int64 v4; // r8
+  unsigned __int64 v6; // rcx
+  wchar_t *i; // rax
+  unsigned __int64 v8; // rax
+  unsigned __int64 v10; // [rsp+20h] [rbp-18h]
 
   v3 = cbDest >> 1;
+  v4 = 0LL;
   if ( v3 - 1 > 0x7FFFFFFE )
-    return -1073741811;
-  v5 = (unsigned __int64 *)v3;
-  v6 = pszDest;
-  do
+    v4 = 3221225485LL;
+  if ( (int)v4 < 0 )
+    goto LABEL_9;
+  v6 = v3;
+  for ( i = pszDest; v6; --v6 )
   {
-    if ( !*v6 )
+    if ( !*i )
       break;
-    ++v6;
-    v5 = (unsigned __int64 *)((char *)v5 - 1);
+    ++i;
   }
-  while ( v5 );
-  result = v5 == 0LL ? 0xC000000D : 0;
-  if ( v5 )
-    v8 = v3 - (_QWORD)v5;
+  v4 = v6 == 0 ? 0xC000000D : 0;
+  if ( v6 )
+    v8 = v3 - v6;
   else
+LABEL_9:
     v8 = 0LL;
-  if ( v5 )
-    return RtlStringCopyWorkerW(&pszDest[v8], v3 - v8, v5, pszDest, v9);
-  return result;
+  if ( (int)v4 >= 0 )
+    LODWORD(v4) = RtlStringCopyWorkerW(&pszDest[v8], v3 - v8, (unsigned __int64 *)v4, pszDest, v10);
+  return (unsigned int)v4;
 }

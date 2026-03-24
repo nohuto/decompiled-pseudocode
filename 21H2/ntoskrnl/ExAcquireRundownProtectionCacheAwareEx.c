@@ -1,21 +1,20 @@
 /*
- * XREFs of ExAcquireRundownProtectionCacheAwareEx @ 0x1402F69F0
+ * XREFs of ExAcquireRundownProtectionCacheAwareEx @ 0x1403609B0
  * Callers:
- *     EtwpFailLogging @ 0x14022A6DC (EtwpFailLogging.c)
- *     EtwpOpenLogger @ 0x14022AFF8 (EtwpOpenLogger.c)
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     RawBeginOperation @ 0x1402D2BA0 (RawBeginOperation.c)
- *     EtwpEventWriteFull @ 0x140300E50 (EtwpEventWriteFull.c)
- *     EtwpFailLoggingOld @ 0x14041A870 (EtwpFailLoggingOld.c)
- *     EtwpQueueStackWalkApc @ 0x1406314E0 (EtwpQueueStackWalkApc.c)
- *     EtwpQueueStackWalkDpc @ 0x140631710 (EtwpQueueStackWalkDpc.c)
- *     EtwpCompressionDpc @ 0x140634F40 (EtwpCompressionDpc.c)
- *     EtwpStopTrace @ 0x1406EDFEC (EtwpStopTrace.c)
- *     EtwpStartLogger @ 0x1406EE2AC (EtwpStartLogger.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140797594 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpWriteUserEvent @ 0x1407B4D70 (EtwpWriteUserEvent.c)
- *     EtwInitialize @ 0x14082AB94 (EtwInitialize.c)
- *     PeriodicCaptureStateTimerCallback @ 0x1409EC2D0 (PeriodicCaptureStateTimerCallback.c)
+ *     EtwpOpenLogger @ 0x14025DB98 (EtwpOpenLogger.c)
+ *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     RawBeginOperation @ 0x14036096C (RawBeginOperation.c)
+ *     EtwpFailLogging @ 0x14036CB24 (EtwpFailLogging.c)
+ *     EtwpQueueStackWalkApc @ 0x1405A6C40 (EtwpQueueStackWalkApc.c)
+ *     EtwpQueueStackWalkDpc @ 0x1405A6E1C (EtwpQueueStackWalkDpc.c)
+ *     EtwpCompressionDpc @ 0x1405ACD50 (EtwpCompressionDpc.c)
+ *     EtwpWriteUserEvent @ 0x140627BC0 (EtwpWriteUserEvent.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpStopTrace @ 0x1406DDFBC (EtwpStopTrace.c)
+ *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
+ *     EtwInitialize @ 0x140798D94 (EtwInitialize.c)
+ *     PeriodicCaptureStateTimerCallback @ 0x14093F8D0 (PeriodicCaptureStateTimerCallback.c)
  * Callees:
  *     <none>
  */

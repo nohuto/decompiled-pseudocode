@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfFirmwareImageHashNeedsToBeQueried @ 0x1C00201C0
+ * XREFs of HUBDSM_CheckingIfFirmwareImageHashNeedsToBeQueried @ 0x1C001FDB0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitCreate@CHolographicDisplayMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022CB68
+ * XREFs of ?EmitCreate@CHolographicDisplayMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ED298
  * Callers:
- *     ?EmitUpdateCommands@CHolographicDisplayMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022CCC0 (-EmitUpdateCommands@CHolographicDisplayMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CHolographicDisplayMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01ED3F0 (-EmitUpdateCommands@CHolographicDisplayMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CHolographicDisplayMarshaler::EmitCreate(
@@ -13,7 +13,7 @@ char __fastcall DirectComposition::CHolographicDisplayMarshaler::EmitCreate(
   char *v3; // rcx
   void *v5; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( *((_DWORD *)this + 18) == 3 )
+  if ( *((_DWORD *)this + 16) == 3 )
   {
     v5 = 0LL;
     if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x24uLL, &v5) )
@@ -22,11 +22,11 @@ char __fastcall DirectComposition::CHolographicDisplayMarshaler::EmitCreate(
       *(_DWORD *)v5 = 36;
       *(_OWORD *)(v3 + 4) = 0LL;
       *(_OWORD *)(v3 + 20) = 0LL;
-      *((_DWORD *)v3 + 1) = 164;
-      *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-      *(_OWORD *)(v3 + 12) = *((_OWORD *)this + 6);
-      *(_QWORD *)(v3 + 28) = *((_QWORD *)this + 11);
-      *((_DWORD *)this + 18) |= 0x80000000;
+      *((_DWORD *)v3 + 1) = 173;
+      *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+      *(_OWORD *)(v3 + 12) = *(_OWORD *)((char *)this + 88);
+      *(_QWORD *)(v3 + 28) = *((_QWORD *)this + 10);
+      *((_DWORD *)this + 16) |= 0x80000000;
     }
   }
   return 1;

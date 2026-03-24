@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCachePreviousBootData @ 0x140B4EF88
+ * XREFs of IopCachePreviousBootData @ 0x140A8F918
  * Callers:
- *     IopInitializeOfflineCrashDump @ 0x1403B83F0 (IopInitializeOfflineCrashDump.c)
+ *     IopInitializeOfflineCrashDump @ 0x1403C9E88 (IopInitializeOfflineCrashDump.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     IoGetEnvironmentVariableEx @ 0x14093E520 (IoGetEnvironmentVariableEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     IoGetEnvironmentVariableEx @ 0x140899A4C (IoGetEnvironmentVariableEx.c)
  */
 
 NTSTATUS __fastcall IopCachePreviousBootData(HANDLE *a1)
@@ -24,7 +24,7 @@ NTSTATUS __fastcall IopCachePreviousBootData(HANDLE *a1)
   v6[3] = 1266192359;
   v3 = 8;
   *(_QWORD *)&ValueName.Length = 2621478LL;
-  result = IoGetEnvironmentVariableEx(L"DumpInstance", (__int64)v6, (__int64)&Data, &v3, 0LL);
+  result = IoGetEnvironmentVariableEx((const size_t *)L"DumpInstance", (__int64)v6, (__int64)&Data, &v3, 0LL);
   if ( result >= 0 )
     return ZwSetValueKey(*a1, &ValueName, 0, 0xBu, &Data, 8u);
   return result;

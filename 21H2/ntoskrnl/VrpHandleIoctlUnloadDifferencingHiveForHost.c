@@ -1,15 +1,15 @@
 /*
- * XREFs of VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x1409269C4
+ * XREFs of VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140883050
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140692780 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     VrpUnloadDifferencingHive @ 0x1407F6200 (VrpUnloadDifferencingHive.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlUnloadDifferencingHiveForHost(__int64 a1, unsigned int a2, KPROCESSOR_MODE a3)
@@ -19,12 +19,11 @@ __int64 __fastcall VrpHandleIoctlUnloadDifferencingHiveForHost(__int64 a1, unsig
   int v7; // eax
   unsigned int v8; // eax
   __int64 v9; // rbx
-  __int64 *v10; // rdi
-  BOOLEAN v11; // al
-  __int64 v12; // rcx
-  int v13; // eax
-  UNICODE_STRING String1; // [rsp+20h] [rbp-28h] BYREF
-  UNICODE_STRING String2; // [rsp+30h] [rbp-18h] BYREF
+  __int64 *v10; // r14
+  __int64 v11; // rdi
+  int v12; // eax
+  UNICODE_STRING String1; // [rsp+20h] [rbp-38h] BYREF
+  UNICODE_STRING String2; // [rsp+30h] [rbp-28h] BYREF
 
   *(_DWORD *)(&String2.MaximumLength + 1) = 0;
   v5 = 0LL;
@@ -55,19 +54,18 @@ __int64 __fastcall VrpHandleIoctlUnloadDifferencingHiveForHost(__int64 a1, unsig
     {
       while ( 1 )
       {
+        v11 = *(_QWORD *)v9;
         String2.Buffer = (wchar_t *)(v9 + 10);
         String2.Length = *(_WORD *)(v9 + 8);
         String2.MaximumLength = String2.Length;
-        v11 = RtlEqualUnicodeString(&String1, &String2, 1u);
-        v12 = *(_QWORD *)v9;
-        if ( v11 )
+        if ( RtlEqualUnicodeString(&String1, &String2, 1u) )
           break;
         v10 = (__int64 *)v9;
-        v9 = *(_QWORD *)v9;
-        if ( !v12 )
+        v9 = v11;
+        if ( !v11 )
           goto LABEL_16;
       }
-      *v10 = v12;
+      *v10 = v11;
       v5 = (_QWORD *)v9;
       *(_QWORD *)v9 = 0LL;
     }
@@ -77,13 +75,17 @@ LABEL_16:
     KeAbPostRelease((ULONG_PTR)&VrpHostLoadedHivesLock);
     if ( v5 )
     {
-      v13 = VrpUnloadDifferencingHive(&String1);
-      if ( v13 == -1073741772 || (v6 = v13, v13 >= 0) )
+      v12 = VrpUnloadDifferencingHive(&String1);
+      if ( v12 == -1073741772 )
+        v12 = 0;
+      v6 = v12;
+      if ( v12 >= 0 )
       {
         ExFreePoolWithTag(v5, 0);
-        return 0;
+        v5 = 0LL;
+        v6 = 0;
       }
-      else
+      if ( v5 )
       {
         ExAcquirePushLockExclusiveEx((ULONG_PTR)&VrpHostLoadedHivesLock, 0LL);
         *v5 = VrpHostLoadedHives;

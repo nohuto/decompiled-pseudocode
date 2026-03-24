@@ -1,16 +1,16 @@
 /*
- * XREFs of IopFreeIrp @ 0x1400B9680
+ * XREFs of IopFreeIrp @ 0x1400B96A0
  * Callers:
- *     IoFreeIrp @ 0x1400B9650 (IoFreeIrp.c)
- *     IopCompleteRequest @ 0x1400BFCF0 (IopCompleteRequest.c)
- *     IopfCompleteRequest @ 0x1400C10D0 (IopfCompleteRequest.c)
+ *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
+ *     IopCompleteRequest @ 0x1400BFD10 (IopCompleteRequest.c)
+ *     IopfCompleteRequest @ 0x1400C10F0 (IopfCompleteRequest.c)
  *     IovFreeIrpPrivate @ 0x1409241EC (IovFreeIrpPrivate.c)
  * Callees:
- *     IopFreeIrpExtension @ 0x140107830 (IopFreeIrpExtension.c)
- *     ExReturnPoolQuota @ 0x14011F308 (ExReturnPoolQuota.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     IopFreeReserveIrp @ 0x14027ED84 (IopFreeReserveIrp.c)
+ *     IopFreeIrpExtension @ 0x140107850 (IopFreeIrpExtension.c)
+ *     ExReturnPoolQuota @ 0x14011F328 (ExReturnPoolQuota.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     IopFreeReserveIrp @ 0x14027EE84 (IopFreeReserveIrp.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ConvertInnerToOuterBounds@CVectorShape@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800D9750
+ * XREFs of ?ConvertInnerToOuterBounds@CVectorShape@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1801BE0D4
  * Callers:
- *     ?PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z @ 0x1800D95E4 (-PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z.c)
+ *     ?PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z @ 0x1802613B4 (-PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z.c)
  * Callees:
- *     ?Transform2DBounds@MILMatrix3x2@@QEBAXAEBUMilRectF@@AEAU2@@Z @ 0x1800D9790 (-Transform2DBounds@MILMatrix3x2@@QEBAXAEBUMilRectF@@AEAU2@@Z.c)
+ *     ?Transform2DBounds@MILMatrix3x2@@QEBAXAEBUMilRectF@@AEAU2@@Z @ 0x180014770 (-Transform2DBounds@MILMatrix3x2@@QEBAXAEBUMilRectF@@AEAU2@@Z.c)
  */
 
 void __fastcall CVectorShape::ConvertInnerToOuterBounds(CVectorShape *this, const struct D2D_MATRIX_3X2_F *a2)
@@ -19,6 +19,6 @@ void __fastcall CVectorShape::ConvertInnerToOuterBounds(CVectorShape *this, cons
   v5 = dy;
   MILMatrix3x2::Transform2DBounds(
     (MILMatrix3x2 *)&v3,
-    (CVectorShape *)((char *)this + 80),
-    (CVectorShape *)((char *)this + 80));
+    (CVectorShape *)((char *)this + 72),
+    (CVectorShape *)((char *)this + 72));
 }

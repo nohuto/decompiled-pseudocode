@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECHwLightCollectionBuffer@@EEAAPEAXI@Z @ 0x180010CD0
+ * XREFs of ??_ECHwLightCollectionBuffer@@EEAAPEAXI@Z @ 0x18000FDE0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 CHwLightCollectionBuffer *__fastcall CHwLightCollectionBuffer::`vector deleting destructor'(

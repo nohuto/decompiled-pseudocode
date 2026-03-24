@@ -1,10 +1,10 @@
 /*
- * XREFs of DwmAsyncSetTransition @ 0x1C010EED8
+ * XREFs of DwmAsyncSetTransition @ 0x1C0123798
  * Callers:
- *     NtUserSetWindowCompositionTransition @ 0x1C010EC60 (NtUserSetWindowCompositionTransition.c)
+ *     NtUserSetWindowCompositionTransition @ 0x1C0123520 (NtUserSetWindowCompositionTransition.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncSetTransition(
@@ -28,7 +28,7 @@ __int64 __fastcall DwmAsyncSetTransition(
     WORD2(v14[0]) = 0x8000;
     *(_QWORD *)((char *)&v14[5] + 4) = a2;
     HIDWORD(v14[6]) = a3;
-    LODWORD(v14[5]) = 1073741868;
+    LODWORD(v14[5]) = 1073741867;
     if ( a4 )
       *(_OWORD *)&v14[7] = *a4;
     if ( a5 )

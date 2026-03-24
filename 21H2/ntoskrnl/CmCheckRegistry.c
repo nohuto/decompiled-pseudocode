@@ -1,18 +1,18 @@
 /*
- * XREFs of CmCheckRegistry @ 0x140689DC8
+ * XREFs of CmCheckRegistry @ 0x1407216C8
  * Callers:
- *     CmpCreateHive @ 0x14068A7FC (CmpCreateHive.c)
- *     CmpReorganizeHive @ 0x14068B1C8 (CmpReorganizeHive.c)
+ *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
+ *     CmpReorganizeHive @ 0x140720AB8 (CmpReorganizeHive.c)
  * Callees:
- *     SetFailureLocation @ 0x14020A890 (SetFailureLocation.c)
- *     RtlClearAllBits @ 0x14020AE80 (RtlClearAllBits.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x140715FA8 (CmpValidateHiveSecurityDescriptors.c)
- *     HvCheckHive @ 0x14079B3A0 (HvCheckHive.c)
- *     CmpCheckRegistry2 @ 0x1407C5CB0 (CmpCheckRegistry2.c)
+ *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
+ *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpCheckRegistry2 @ 0x1405F0040 (CmpCheckRegistry2.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x14066D478 (CmpValidateHiveSecurityDescriptors.c)
+ *     HvCheckHive @ 0x140709848 (HvCheckHive.c)
  */
 
-__int64 __fastcall CmCheckRegistry(ULONG_PTR BugCheckParameter3, int a2, __int64 a3)
+__int64 __fastcall CmCheckRegistry(ULONG_PTR a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx
   unsigned int *v6; // r13
@@ -23,74 +23,75 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR BugCheckParameter3, int a2, __int64
   unsigned int *v11; // rax
   int v12; // eax
   int v13; // eax
-  unsigned int v14; // r9d
-  unsigned int v16; // [rsp+20h] [rbp-49h]
-  __int64 v17; // [rsp+40h] [rbp-29h] BYREF
+  __int64 v14; // r9
+  int v15; // r9d
+  int v17; // [rsp+20h] [rbp-49h]
+  int v18; // [rsp+40h] [rbp-29h] BYREF
   RTL_BITMAP BitMapHeader; // [rsp+48h] [rbp-21h] BYREF
-  __int128 v19; // [rsp+58h] [rbp-11h] BYREF
-  __int128 v20; // [rsp+68h] [rbp-1h]
-  __int128 v21; // [rsp+78h] [rbp+Fh]
-  __int64 v22; // [rsp+88h] [rbp+1Fh]
-  int v23; // [rsp+D8h] [rbp+6Fh]
-  int v24; // [rsp+E8h] [rbp+7Fh]
+  __int128 v20; // [rsp+58h] [rbp-11h] BYREF
+  __int128 v21; // [rsp+68h] [rbp-1h]
+  __int128 v22; // [rsp+78h] [rbp+Fh]
+  __int64 v23; // [rsp+88h] [rbp+1Fh]
+  char v24; // [rsp+D0h] [rbp+67h] BYREF
+  unsigned int v25; // [rsp+D8h] [rbp+6Fh]
+  int v26; // [rsp+E8h] [rbp+7Fh]
 
-  v23 = a2;
+  v25 = a2;
   v3 = 0;
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 0LL;
   BitMapHeader.Buffer = 0LL;
   v6 = 0LL;
-  v22 = 0LL;
+  v23 = 0LL;
   p_BitMapHeader = 0LL;
-  LODWORD(v17) = 0;
-  v19 = 0LL;
-  v8 = 0;
+  v18 = 0;
   v20 = 0LL;
+  v8 = 0;
+  v24 = 0;
   v21 = 0LL;
-  if ( BugCheckParameter3 == CmpMasterHive )
+  v22 = 0LL;
+  if ( a1 == CmpMasterHive )
     return v3;
-  v9 = *(_DWORD *)(BugCheckParameter3 + 280) >> 3;
+  v9 = *(_DWORD *)(a1 + 272) >> 3;
   v10 = (((v9 + 7) >> 3) + 7) & 0xFFFFFFF8;
   if ( (a2 & 0x80000) != 0 )
   {
-    v11 = (unsigned int *)(*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(BugCheckParameter3 + 24))(
-                            v10,
-                            0LL,
-                            1649167683LL);
+    v11 = (unsigned int *)(*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64))(a1 + 24))(v10, 0LL, 1649167683LL);
     v6 = v11;
     if ( !v11 )
     {
       v3 = -1073741670;
-      SetFailureLocation(a3, 0, 11, 0xC000009A, 0);
+      SetFailureLocation(a3, 0, 11, -1073741670, 0);
       return v3;
     }
     BitMapHeader.SizeOfBitMap = v9;
     BitMapHeader.Buffer = v11;
     p_BitMapHeader = &BitMapHeader;
     RtlClearAllBits(&BitMapHeader);
-    a2 = v23;
+    a2 = v25;
   }
   v12 = a2 & 0x10000;
-  v24 = a2 & 0x10000;
+  v26 = a2 & 0x10000;
   while ( 1 )
   {
     if ( v12 )
     {
       if ( p_BitMapHeader )
         RtlClearAllBits(p_BitMapHeader);
-      v13 = HvCheckHive(BugCheckParameter3, a2, a3, (_DWORD)p_BitMapHeader, (__int64)&v19, a3);
+      v13 = HvCheckHive(a1, a2, a3, (__int64)p_BitMapHeader, (__int64)&v20, a3);
       v3 = v13;
       if ( v13 < 0 )
       {
-        v16 = 16;
+        v17 = 16;
         goto LABEL_25;
       }
-      if ( (int)v19 + (int)v20 + (int)v21 > (unsigned int)CmpReorganizeLimit )
-        *(_DWORD *)(BugCheckParameter3 + 4112) |= 0x400u;
-      *(_QWORD *)(BugCheckParameter3 + 4752) = v22;
+      if ( (int)v20 + (int)v21 + (int)v22 > (unsigned int)CmpReorganizeLimit )
+        *(_DWORD *)(a1 + 4152) |= 0x400u;
+      LODWORD(a2) = v25;
+      *(_QWORD *)(a1 + 4792) = v23;
     }
-    if ( *(int *)(*(_QWORD *)(BugCheckParameter3 + 64) + 36LL) < 0 )
+    if ( *(int *)(*(_QWORD *)(a1 + 64) + 36LL) < 0 )
       break;
-    v13 = CmpValidateHiveSecurityDescriptors(BugCheckParameter3, a3);
+    v13 = CmpValidateHiveSecurityDescriptors(a1, a2, &v24, (__int64)p_BitMapHeader, a3);
     v3 = v13;
     if ( v13 < 0 )
     {
@@ -98,14 +99,14 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR BugCheckParameter3, int a2, __int64
       {
         if ( v13 != -1073741267 )
         {
-          v16 = 48;
+          v17 = 48;
           goto LABEL_25;
         }
         goto LABEL_23;
       }
       v8 = 1;
     }
-    v13 = CmpCheckRegistry2(BugCheckParameter3, 0, (__int64)p_BitMapHeader, a3, (__int64)&v17);
+    v13 = CmpCheckRegistry2(a1, v25, *(_DWORD *)(*(_QWORD *)(a1 + 64) + 36LL), v14, v24, p_BitMapHeader, a3, &v18);
     v3 = v13;
     if ( v13 >= 0 )
       goto LABEL_28;
@@ -113,29 +114,29 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR BugCheckParameter3, int a2, __int64
     {
       v8 = 1;
 LABEL_28:
-      *(_DWORD *)(BugCheckParameter3 + 4764) = v17;
+      *(_DWORD *)(a1 + 4804) = v18;
       v3 = v8 != 0 ? 0x8000002A : 0;
       goto LABEL_31;
     }
     if ( v13 != -1073741267 )
     {
-      v16 = 64;
+      v17 = 64;
 LABEL_25:
-      v14 = v13;
+      v15 = v13;
       goto LABEL_30;
     }
 LABEL_23:
-    v12 = v24;
+    v12 = v26;
     v8 = 1;
-    a2 = v23;
+    a2 = v25;
   }
   v3 = -1073741492;
-  v16 = 32;
-  v14 = -1073741492;
+  v17 = 32;
+  v15 = -1073741492;
 LABEL_30:
-  SetFailureLocation(a3, 0, 11, v14, v16);
+  SetFailureLocation(a3, 0, 11, v15, v17);
 LABEL_31:
   if ( v6 )
-    (*(void (__fastcall **)(unsigned int *, _QWORD))(BugCheckParameter3 + 32))(v6, v10);
+    (*(void (__fastcall **)(unsigned int *, _QWORD))(a1 + 32))(v6, v10);
   return v3;
 }

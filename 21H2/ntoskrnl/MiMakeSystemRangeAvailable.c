@@ -1,124 +1,110 @@
 /*
- * XREFs of MiMakeSystemRangeAvailable @ 0x14026E218
+ * XREFs of MiMakeSystemRangeAvailable @ 0x1402FD514
  * Callers:
- *     MiReturnSystemVa @ 0x14026DAB0 (MiReturnSystemVa.c)
+ *     MiReturnSystemVa @ 0x1402FA5E8 (MiReturnSystemVa.c)
  * Callees:
- *     MiReleaseSessionVa @ 0x14025A408 (MiReleaseSessionVa.c)
- *     MiSystemVaToDynamicBitmap @ 0x14026CF08 (MiSystemVaToDynamicBitmap.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     RtlClearBitsEx @ 0x14030BB30 (RtlClearBitsEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1402B407C (MiSystemVaToDynamicBitmap.c)
+ *     MiNonPagedPoolToNode @ 0x1402CCB04 (MiNonPagedPoolToNode.c)
+ *     MiReleaseSessionVa @ 0x1402D124C (MiReleaseSessionVa.c)
+ *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiMakeSystemRangeAvailable(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3)
 {
   ULONG_PTR BugCheckParameter4; // rbp
-  unsigned int v4; // eax
-  ULONG_PTR v5; // rsi
-  __int64 *v8; // rdi
-  __int64 *v9; // r12
-  ULONG_PTR v10; // rbx
+  ULONG_PTR v4; // rdi
+  union _SLIST_HEADER *v7; // rsi
+  union _SLIST_HEADER *v8; // r12
+  ULONG_PTR v9; // rbx
+  unsigned __int8 v10; // al
   __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
-  _QWORD *v13; // rcx
-  __int64 v14; // rcx
-  __int64 *v15; // r8
-  __int64 v16; // r9
-  __int64 *v17; // rdx
-  bool v18; // zf
-  __int64 v19; // rax
+  unsigned __int64 Region; // rcx
+  __int64 *v14; // r8
+  __int64 v15; // r9
+  __int64 *v16; // rdx
+  unsigned __int64 Alignment; // rax
   bool i; // zf
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  __int128 v23; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v21; // [rsp+30h] [rbp-58h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-48h] BYREF
 
   BugCheckParameter4 = a3;
-  v4 = 0;
-  v5 = BugCheckParameter3 >> 21;
+  v4 = BugCheckParameter3 >> 21;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v23 = 0LL;
+  v21 = 0LL;
   if ( a3 == 1 )
-    return MiReleaseSessionVa(BugCheckParameter2, v5);
+    return MiReleaseSessionVa(BugCheckParameter2, v4);
   if ( a3 == 5 )
-  {
-    if ( !KeNumberNodes )
-LABEL_36:
-      KeBugCheckEx(0x1Au, 0x5201uLL, BugCheckParameter2, 0LL, 0LL);
-    v13 = (_QWORD *)(qword_140C506E0 + 104);
-    while ( BugCheckParameter2 < *(v13 - 1) || BugCheckParameter2 >= *v13 )
-    {
-      ++v4;
-      v13 += 15;
-      if ( v4 >= (unsigned __int16)KeNumberNodes )
-        goto LABEL_36;
-    }
-    v8 = (__int64 *)(qword_140C506E0 + 120LL * v4);
-  }
+    v7 = &SListHead[11 * (unsigned int)MiNonPagedPoolToNode(BugCheckParameter2) + 4];
   else
-  {
-    v8 = MiSystemVaToDynamicBitmap(a3);
-  }
-  v9 = v8;
-  v10 = (BugCheckParameter2 - v8[4]) >> 21;
+    v7 = (union _SLIST_HEADER *)MiSystemVaToDynamicBitmap(a3);
+  v8 = v7;
+  v9 = (BugCheckParameter2 - v7[2].Alignment) >> 21;
   if ( (_DWORD)BugCheckParameter4 == 13 )
   {
-    v9 = (__int64 *)&v23;
-    v19 = v8[2];
-    *((_QWORD *)&v23 + 1) = v8[1];
-    *(_QWORD *)&v23 = v19;
+    v8 = (union _SLIST_HEADER *)&v21;
+    Alignment = v7[1].Alignment;
+    *((_QWORD *)&v21 + 1) = v7->Region;
+    *(_QWORD *)&v21 = Alignment;
   }
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)v8 + 8, &LockHandle);
-  if ( v10 >= *v9 )
-    goto LABEL_43;
-  if ( v5 > 1 )
+  KeAcquireInStackQueuedSpinLock(&v7[4].Alignment, &LockHandle);
+  if ( v9 >= v8->Alignment )
+    goto LABEL_38;
+  if ( v4 > 1 )
   {
-    if ( *v9 - v10 >= v5 )
+    if ( v8->Alignment - v9 >= v4 )
     {
-      v14 = v9[1];
-      v15 = (__int64 *)(v14 + 8 * (v10 >> 6));
-      v16 = *v15;
-      v17 = (__int64 *)(v14 + 8 * ((v10 + v5 - 1) >> 6));
-      if ( v15 == v17 )
+      Region = v8->Region;
+      v14 = (__int64 *)(Region + 8 * (v9 >> 6));
+      v15 = *v14;
+      v16 = (__int64 *)(Region + 8 * ((v9 + v4 - 1) >> 6));
+      if ( v14 != v16 )
       {
-        v18 = ((0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v5) << v10) & v16) == 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v5) << v10;
-      }
-      else
-      {
-        for ( i = ((-1LL << v10) & v16) == -1LL << v10; ; i = *v15 == -1 )
+        for ( i = ((-1LL << v9) & v15) == -1LL << v9; ; i = *v14 == -1 )
         {
           if ( !i )
-            goto LABEL_43;
-          if ( ++v15 == v17 )
+            goto LABEL_38;
+          if ( ++v14 == v16 )
             break;
         }
-        v18 = ((0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v10 + (unsigned __int8)v5 - 1)) & *v15) == 0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v10 + (unsigned __int8)v5 - 1);
-      }
-      if ( v18 )
+        if ( ((0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v9 + (unsigned __int8)v4 - 1)) & *v14) == 0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)v9 + (unsigned __int8)v4 - 1) )
+          goto LABEL_11;
+        v10 = 0;
         goto LABEL_10;
+      }
+      if ( ((0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v4) << v9) & v15) == 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v4) << v9 )
+        goto LABEL_11;
     }
-LABEL_43:
+LABEL_38:
     KeBugCheckEx(0x1Au, 0x2104uLL, BugCheckParameter2, BugCheckParameter3, BugCheckParameter4);
   }
-  if ( v5 != 1 || !_bittest64((const signed __int64 *)v9[1], v10) )
-    goto LABEL_43;
+  if ( v4 != 1 )
+    goto LABEL_38;
+  v10 = _bittest64((const signed __int64 *)v8->Region, v9);
 LABEL_10:
-  RtlClearBitsEx(v9, v10, v5);
+  if ( !v10 )
+    goto LABEL_38;
+LABEL_11:
+  RtlClearBitsEx(v8, v9, v4);
   if ( (_DWORD)BugCheckParameter4 == 13 )
   {
     LODWORD(BugCheckParameter4) = 9;
-    if ( v10 < v8[6] )
-      v8[6] = v10;
+    if ( v9 < v7[3].Alignment )
+      v7[3].Alignment = v9;
   }
-  else if ( v10 < v8[3] )
+  else if ( v9 < v7[1].Region )
   {
-    v8[3] = v10;
+    v7[1].Region = v9;
   }
-  _InterlockedExchangeAdd64(&qword_140C53EC8[(int)BugCheckParameter4], -(__int64)v5);
+  _InterlockedExchangeAdd64(&qword_140C4F948[(int)BugCheckParameter4], -(__int64)v4);
   if ( (_DWORD)BugCheckParameter4 == 8 )
-    qword_140C51888 += BugCheckParameter3;
+    qword_140C4E048 += BugCheckParameter3;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;
@@ -132,9 +118,9 @@ LABEL_10:
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
         result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v18 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        i = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v18 )
+        if ( i )
           result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }

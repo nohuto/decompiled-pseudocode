@@ -1,83 +1,101 @@
 /*
- * XREFs of BmlPinNextBestTargetMode @ 0x1C01BDB08
+ * XREFs of BmlPinNextBestTargetMode @ 0x1C013E76C
  * Callers:
- *     BmlFunctionalizePath @ 0x1C01BD8FC (BmlFunctionalizePath.c)
+ *     BmlFunctionalizePath @ 0x1C013E560 (BmlFunctionalizePath.c)
  * Callees:
- *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000FD8C (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C0011924 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
- *     ?PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z @ 0x1C01A6D08 (-PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z.c)
- *     BmlGetNextBestTargetMode @ 0x1C01B55A0 (BmlGetNextBestTargetMode.c)
- *     BmlPinPathContentScaling @ 0x1C01BDD7C (BmlPinPathContentScaling.c)
- *     BmlPinPathContentRotation @ 0x1C01BDE20 (BmlPinPathContentRotation.c)
- *     BmlUnPinPartialPathModalityOnPath @ 0x1C03AB628 (BmlUnPinPartialPathModalityOnPath.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C00083B8 (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C00084B8 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     ?PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z @ 0x1C0125010 (-PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z.c)
+ *     BmlGetNextBestTargetMode @ 0x1C013B14C (BmlGetNextBestTargetMode.c)
+ *     BmlPinPathContentScaling @ 0x1C013E9C4 (BmlPinPathContentScaling.c)
+ *     BmlPinPathContentRotation @ 0x1C013EA74 (BmlPinPathContentRotation.c)
+ *     BmlUnPinPartialPathModalityOnPath @ 0x1C02EC11C (BmlUnPinPartialPathModalityOnPath.c)
  */
 
-__int64 __fastcall BmlPinNextBestTargetMode(__int64 a1, __int64 a2, unsigned __int16 a3, __int64 a4)
+__int64 __fastcall BmlPinNextBestTargetMode(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v5; // r15
-  __int64 v6; // r14
-  VIDPN_MGR *v7; // rax
-  unsigned int v8; // edi
-  __int64 v9; // rdx
+  VIDPN_MGR *v4; // rax
+  unsigned int v5; // edi
+  __int64 v6; // rbx
+  __int64 v8; // rbp
+  __int64 v9; // r13
+  __int64 v11; // r14
   __int64 v12; // rcx
   __int64 v13; // rax
-  __int64 v14; // r13
+  __int64 v14; // r15
   __int64 v15; // rax
-  DMMVIDPNSOURCEMODESET *v16; // r13
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  unsigned int v19; // eax
-  int v20; // ebx
-  int NextBestTargetMode; // eax
-  unsigned int v22; // ebx
-  VIDPN_MGR *v23; // rcx
+  DMMVIDPNSOURCEMODESET *v16; // r15
+  _QWORD *v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v21; // rcx
+  __int64 v22; // r12
+  __int64 v23; // rax
   __int64 v24; // rbx
-  struct _D3DDDI_RATIONAL *v25; // rcx
-  unsigned __int16 v26; // bx
-  __int64 v27; // r8
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  __int64 v31; // r13
-  __int64 v32; // rdx
-  __int64 v33; // rax
-  struct _D3DDDI_RATIONAL v34; // [rsp+50h] [rbp-19h] BYREF
-  _QWORD *v35; // [rsp+58h] [rbp-11h] BYREF
-  _QWORD *v36; // [rsp+60h] [rbp-9h]
-  VIDPN_MGR *v37; // [rsp+68h] [rbp-1h]
-  DMMVIDPNSOURCEMODESET *v38; // [rsp+70h] [rbp+7h] BYREF
-  unsigned int v39; // [rsp+D0h] [rbp+67h] BYREF
-  UINT v40; // [rsp+D8h] [rbp+6Fh] BYREF
-  unsigned __int16 v41; // [rsp+E0h] [rbp+77h]
-  __int64 v42; // [rsp+E8h] [rbp+7Fh]
+  unsigned __int16 v25; // r12
+  int NextBestTargetMode; // eax
+  __int64 v27; // rax
+  unsigned __int16 v28; // bx
+  __int64 v29; // r8
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // r8
+  __int64 v34; // r9
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rax
+  __int64 v41; // rax
+  __int64 v42; // rdx
+  __int64 v43; // rcx
+  __int64 v44; // r8
+  _QWORD *v45; // rax
+  _QWORD *v46; // rax
+  _QWORD *v47; // rax
+  unsigned int v48; // [rsp+28h] [rbp-80h]
+  __int64 v49; // [rsp+40h] [rbp-68h]
+  VIDPN_MGR *v50; // [rsp+48h] [rbp-60h]
+  DMMVIDPNSOURCEMODESET *v51; // [rsp+50h] [rbp-58h] BYREF
+  unsigned int v52; // [rsp+B0h] [rbp+8h] BYREF
+  __int64 v53; // [rsp+B8h] [rbp+10h]
+  unsigned __int16 v54; // [rsp+C0h] [rbp+18h]
+  __int64 v55; // [rsp+C8h] [rbp+20h] BYREF
 
-  v41 = a3;
-  v5 = a3;
-  v6 = 120LL * a3;
-  v7 = *(VIDPN_MGR **)(a2 + 48);
-  v8 = 0;
-  v9 = a3;
-  v37 = v7;
-  v42 = a3;
-  if ( !v7 )
+  v54 = a3;
+  v4 = *(VIDPN_MGR **)(a2 + 48);
+  v5 = 0;
+  v6 = (unsigned __int16)a3;
+  v8 = 104LL * (unsigned __int16)a3;
+  v53 = (unsigned __int16)a3;
+  v9 = a2;
+  v50 = v4;
+  v11 = (unsigned __int16)a3;
+  if ( !v4 )
   {
-    WdLogSingleEntry0(1LL);
-    v9 = v5;
+    v35 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v35);
   }
   v12 = *(_QWORD *)(a4 + 88);
   v13 = *(_QWORD *)(v12 + 104);
   if ( !v13 )
   {
-    v35 = 0LL;
+    v55 = 0LL;
     goto LABEL_29;
   }
+  a2 = 1LL;
   _InterlockedAdd((volatile signed __int32 *)(v13 + 96), 1u);
-  v36 = *(_QWORD **)(v12 + 104);
-  v35 = v36;
-  if ( !v36 )
+  v49 = *(_QWORD *)(v12 + 104);
+  v55 = v49;
+  if ( !v49 )
   {
 LABEL_29:
-    WdLogSingleEntry1(2LL, v9);
-    v8 = -1071774968;
+    v36 = WdLogNewEntry5_WdError(v12, a2);
+    *(_QWORD *)(v36 + 24) = v6;
+    WdLogEvent5_WdError(v36);
+    v5 = -1071774968;
     goto LABEL_21;
   }
   v14 = *(_QWORD *)(a4 + 96);
@@ -91,130 +109,154 @@ LABEL_29:
   {
     v16 = 0LL;
   }
-  v38 = v16;
-  v18 = WdLogNewEntry5_WdTrace(v12, v9);
-  *(_QWORD *)(v18 + 24) = v16;
-  *(_QWORD *)(v18 + 32) = *(unsigned __int16 *)(v6 + a1 + 68);
-  *(_QWORD *)(v18 + 40) = *(unsigned __int16 *)(v6 + a1 + 70);
+  v51 = v16;
+  v17 = (_QWORD *)WdLogNewEntry5_WdTrace(v12, 1LL, a3, a4);
+  v17[3] = v16;
+  v17[4] = *(unsigned __int16 *)(a1 + v8 + 68);
+  v21 = *(unsigned __int16 *)(a1 + v8 + 70);
+  v17[5] = v21;
   if ( !v16 )
   {
-    v20 = -1071774967;
-    v31 = v5;
-LABEL_49:
-    v33 = WdLogNewEntry5_WdTrace(v18, v17);
-    *(_QWORD *)(v33 + 24) = *(unsigned __int16 *)(v6 + a1 + 68);
-    *(_QWORD *)(v33 + 32) = *(unsigned __int16 *)(v6 + a1 + 70);
-    if ( *(_WORD *)(v6 + a1 + 70) && *(_WORD *)(v6 + a1 + 68) )
-    {
-      if ( (int)BmlUnPinPartialPathModalityOnPath(a1, a2, (unsigned __int16)v5) < 0 )
-        WdLogSingleEntry3(3LL, a1, v31, a2);
-      *(_WORD *)(v6 + a1 + 68) = 0;
-    }
-    v8 = v20;
-    goto LABEL_20;
+    LODWORD(v24) = -1071774967;
+    goto LABEL_43;
   }
   if ( *((DMMVIDPNSOURCEMODESET **)v16 + 6) == (DMMVIDPNSOURCEMODESET *)((char *)v16 + 48) )
   {
-    v20 = -1071774970;
-LABEL_47:
-    v31 = v42;
-LABEL_48:
-    LOWORD(v5) = v41;
-    goto LABEL_49;
+    LODWORD(v24) = -1071774970;
+    goto LABEL_43;
   }
-  v19 = -1;
-  v39 = -1;
-  if ( *(_WORD *)(v6 + a1 + 68) )
+  LODWORD(v22) = -1;
+  v52 = -1;
+  if ( *(_WORD *)(a1 + v8 + 68) )
   {
     if ( !*((_QWORD *)v16 + 18) )
-      WdLogSingleEntry0(1LL);
-    v18 = *(unsigned __int16 *)(v6 + a1 + 70);
-    if ( (_WORD)v18 )
     {
-      v19 = *(_DWORD *)(*((_QWORD *)v16 + 18) + 24LL);
-      v39 = v19;
-      goto LABEL_13;
+      v39 = WdLogNewEntry5_WdAssertion(v21, v18);
+      WdLogEvent5_WdAssertion(v39);
     }
-    WdLogNewEntry5_WdTrace(v18, v17);
-    *(_WORD *)(v6 + a1 + 68) = 0;
+    v21 = *(unsigned __int16 *)(a1 + v8 + 70);
+    if ( (_WORD)v21 )
+    {
+      LODWORD(v22) = *(_DWORD *)(*((_QWORD *)v16 + 18) + 24LL);
+      v52 = v22;
+LABEL_13:
+      LODWORD(v24) = -1071774970;
+      if ( *(_WORD *)(a1 + v8 + 68) < (unsigned __int16)v21 )
+      {
+        while ( 1 )
+        {
+          v48 = v22;
+          v25 = v54;
+          NextBestTargetMode = BmlGetNextBestTargetMode(a1, v9, v54, v16, v49, v48, &v52);
+          v24 = NextBestTargetMode;
+          if ( NextBestTargetMode < 0 )
+            break;
+          v22 = v52;
+          if ( v52 == -1 )
+          {
+            v40 = WdLogNewEntry5_WdAssertion(v21, v18);
+            WdLogEvent5_WdAssertion(v40);
+          }
+          ++*(_WORD *)(a1 + v8 + 68);
+          LODWORD(v24) = VIDPN_MGR::PinVidPnTargetMode(v50, v16, v22, 1);
+          if ( (int)v24 >= 0 )
+          {
+            v27 = WdLogNewEntry5_WdTrace(v21, v18, v19, v20);
+            v28 = v54;
+            v29 = v54;
+            *(_QWORD *)(v27 + 24) = v22;
+            if ( (int)BmlPinPathContentScaling(a1, v9, v29) >= 0 && (int)BmlPinPathContentRotation(a1, v9, v28) >= 0 )
+              goto LABEL_20;
+            LODWORD(v24) = -1071774970;
+          }
+          *(_DWORD *)(a1 + v8 + 88) = v24;
+          ++*(_DWORD *)(a1 + v8 + 76);
+          if ( (_DWORD)v24 != -1071774970 )
+          {
+            v46 = (_QWORD *)WdLogNewEntry5_WdWarning(v21, v18, v19);
+            v11 = v53;
+            v46[3] = (int)v24;
+            v46[4] = a1;
+            v46[5] = v11;
+            v46[6] = v9;
+            WdLogEvent5_WdWarning(v46);
+            goto LABEL_43;
+          }
+          if ( *(_WORD *)(a1 + v8 + 68) >= *(_WORD *)(a1 + v8 + 70) )
+            goto LABEL_42;
+        }
+        if ( NextBestTargetMode == -1071774970 )
+        {
+          v11 = v53;
+        }
+        else
+        {
+          v47 = (_QWORD *)WdLogNewEntry5_WdWarning(v21, v18, v19);
+          v11 = v53;
+          v47[3] = v24;
+          v47[4] = a1;
+          v47[5] = v11;
+          v47[6] = v9;
+          WdLogEvent5_WdWarning(v47);
+        }
+        goto LABEL_44;
+      }
+LABEL_42:
+      v11 = v53;
+LABEL_43:
+      v25 = v54;
+LABEL_44:
+      v41 = WdLogNewEntry5_WdTrace(v21, v18, v19, v20);
+      *(_QWORD *)(v41 + 24) = *(unsigned __int16 *)(a1 + v8 + 68);
+      *(_QWORD *)(v41 + 32) = *(unsigned __int16 *)(a1 + v8 + 70);
+      if ( *(_WORD *)(a1 + v8 + 70) && *(_WORD *)(a1 + v8 + 68) )
+      {
+        if ( (int)BmlUnPinPartialPathModalityOnPath(a1, v9, v25) < 0 )
+        {
+          v45 = (_QWORD *)WdLogNewEntry5_WdWarning(v43, v42, v44);
+          v45[3] = a1;
+          v45[4] = v11;
+          v45[5] = v9;
+          WdLogEvent5_WdWarning(v45);
+        }
+        *(_WORD *)(a1 + v8 + 68) = 0;
+      }
+      v5 = v24;
+      goto LABEL_20;
+    }
+    WdLogNewEntry5_WdTrace(v21, v18, v19, v20);
+    *(_WORD *)(a1 + v8 + 68) = 0;
     goto LABEL_38;
   }
-  v18 = *(unsigned __int16 *)(v6 + a1 + 70);
-  if ( (_WORD)v18 )
+  v21 = *(unsigned __int16 *)(a1 + v8 + 70);
+  v23 = *((_QWORD *)v16 + 18);
+  if ( (_WORD)v21 )
   {
-    if ( *((_QWORD *)v16 + 18) )
+    if ( v23 )
     {
-      WdLogSingleEntry0(1LL);
-      v18 = *(unsigned __int16 *)(v6 + a1 + 70);
-      v19 = v39;
+      v38 = WdLogNewEntry5_WdAssertion(v21, v18);
+      WdLogEvent5_WdAssertion(v38);
+      v21 = *(unsigned __int16 *)(a1 + v8 + 70);
     }
-LABEL_13:
-    v20 = -1071774970;
-    if ( *(_WORD *)(v6 + a1 + 68) < (unsigned __int16)v18 )
-    {
-      while ( 1 )
-      {
-        v34 = 0LL;
-        v40 = 1;
-        NextBestTargetMode = BmlGetNextBestTargetMode(a1, a2, v41, v16, v36, v19, &v39, &v34, (int *)&v40);
-        v20 = NextBestTargetMode;
-        if ( NextBestTargetMode < 0 )
-          break;
-        v22 = v39;
-        if ( v39 == -1 )
-          WdLogSingleEntry0(1LL);
-        v23 = v37;
-        ++*(_WORD *)(v6 + a1 + 68);
-        v20 = VIDPN_MGR::PinVidPnTargetMode(v23, v16, v22, 1);
-        if ( v20 >= 0 )
-        {
-          v24 = v39;
-          *(_QWORD *)(WdLogNewEntry5_WdTrace(v18, v17) + 24) = v24;
-          v25 = (struct _D3DDDI_RATIONAL *)*((_QWORD *)v16 + 18);
-          v26 = v41;
-          v27 = v41;
-          v25[19] = v34;
-          v25[20].Numerator = v40;
-          if ( (int)BmlPinPathContentScaling(a1, a2, v27) >= 0 && (int)BmlPinPathContentRotation(a1, a2, v26) >= 0 )
-            goto LABEL_20;
-          v20 = -1071774970;
-        }
-        *(_DWORD *)(v6 + a1 + 88) = v20;
-        ++*(_DWORD *)(v6 + a1 + 76);
-        if ( v20 != -1071774970 )
-        {
-          v32 = v20;
-LABEL_45:
-          v31 = v42;
-          WdLogSingleEntry4(3LL, v32, a1, v42, a2);
-          goto LABEL_48;
-        }
-        if ( *(_WORD *)(v6 + a1 + 68) >= *(_WORD *)(v6 + a1 + 70) )
-          goto LABEL_47;
-        v19 = v39;
-      }
-      if ( NextBestTargetMode != -1071774970 )
-      {
-        v32 = NextBestTargetMode;
-        goto LABEL_45;
-      }
-    }
-    goto LABEL_47;
+    goto LABEL_13;
   }
-  if ( !*((_QWORD *)v16 + 18) )
-    WdLogSingleEntry0(1LL);
-  if ( (int)BmlPinPathContentScaling(a1, a2, (unsigned __int16)v5) < 0
-    || (int)BmlPinPathContentRotation(a1, a2, (unsigned __int16)v5) < 0 )
+  if ( !v23 )
   {
-    WdLogNewEntry5_WdTrace(v30, v29);
+    v37 = WdLogNewEntry5_WdAssertion(v21, v18);
+    WdLogEvent5_WdAssertion(v37);
+  }
+  if ( (int)BmlPinPathContentScaling(a1, v9, (unsigned __int16)v6) < 0
+    || (int)BmlPinPathContentRotation(a1, v9, (unsigned __int16)v6) < 0 )
+  {
+    WdLogNewEntry5_WdTrace(v32, v31, v33, v34);
 LABEL_38:
-    v8 = -1071774970;
+    v5 = -1071774970;
     goto LABEL_20;
   }
-  ++*(_WORD *)(v6 + a1 + 68);
+  ++*(_WORD *)(a1 + v8 + 68);
 LABEL_20:
-  auto_rc<DMMVIDPNTARGETMODESET>::reset((__int64 *)&v38, 0LL);
+  auto_rc<DMMVIDPNTARGETMODESET>::reset((__int64 *)&v51, 0LL);
 LABEL_21:
-  auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)&v35, 0LL);
-  return v8;
+  auto_rc<DMMVIDPNSOURCEMODESET>::reset(&v55, 0LL);
+  return v5;
 }

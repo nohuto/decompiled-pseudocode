@@ -1,18 +1,17 @@
 /*
- * XREFs of ?ToggleMMCSSForDT@@YAXXZ @ 0x1C00FD10C
+ * XREFs of ?ToggleMMCSSForDT@@YAXXZ @ 0x1C010BCBC
  * Callers:
- *     _EnableSessionForMMCSS @ 0x1C00FD080 (_EnableSessionForMMCSS.c)
+ *     _EnableSessionForMMCSS @ 0x1C010BC30 (_EnableSessionForMMCSS.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall ToggleMMCSSForDT(__int64 a1, __int64 a2)
+void __fastcall ToggleMMCSSForDT(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 CurrentProcess; // rax
-  __int64 v3; // rcx
 
-  CurrentProcess = PsGetCurrentProcess(a1, a2);
+  CurrentProcess = PsGetCurrentProcess(a1, a2, a3);
   if ( !(unsigned int)IsProcessDwm(CurrentProcess) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v3);
-  KeSetEvent(Event, 1, 0);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 48LL);
+  KeSetEvent(qword_1C033AF08, 1, 0);
 }

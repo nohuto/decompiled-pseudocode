@@ -1,16 +1,12 @@
 /*
- * XREFs of IommuFlushDomain @ 0x140528380
+ * XREFs of IommuFlushDomain @ 0x1404DA7B0
  * Callers:
  *     <none>
  * Callees:
- *     IommupHvFlushDeviceDomain @ 0x140527584 (IommupHvFlushDeviceDomain.c)
+ *     <none>
  */
 
 __int64 __fastcall IommuFlushDomain(__int64 a1)
 {
-  if ( *(_DWORD *)(a1 + 8) != 2 )
-    return 3221225711LL;
-  if ( HalpHvIommu )
-    return IommupHvFlushDeviceDomain(*(_DWORD *)(a1 + 48), *(_BYTE *)(a1 + 52));
-  return 3221225474LL;
+  return *(_BYTE *)(a1 + 44) != 0 ? -1073741585 : -1073741822;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C0081A44
+ * XREFs of ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C0036A5C
  * Callers:
- *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C004DF70 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
- *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0081210 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0036098 (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C00707F8 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
  * Callees:
- *     CalcForegroundInsertAfter @ 0x1C0085330 (CalcForegroundInsertAfter.c)
- *     GetLastTopMostWindow @ 0x1C0085494 (GetLastTopMostWindow.c)
- *     GetTopMostInsertAfter @ 0x1C01CC97C (GetTopMostInsertAfter.c)
+ *     CalcForegroundInsertAfter @ 0x1C0038B7C (CalcForegroundInsertAfter.c)
+ *     GetLastTopMostWindow @ 0x1C0038CE8 (GetLastTopMostWindow.c)
+ *     GetTopMostInsertAfter @ 0x1C01D0ADC (GetTopMostInsertAfter.c)
  */
 
 __int64 __fastcall CheckTopmost(struct tagWINDOWPOS *a1)
@@ -19,8 +19,8 @@ __int64 __fastcall CheckTopmost(struct tagWINDOWPOS *a1)
   __int64 *v8; // rax
   __int64 v9; // rax
   __int64 v10; // rcx
-  __int64 v11; // rcx
-  char v12; // al
+  __int64 v11; // rax
+  char v12; // cl
   bool v13; // zf
   __int64 *v14; // rax
   __int64 v15; // rcx
@@ -99,9 +99,9 @@ __int64 __fastcall CheckTopmost(struct tagWINDOWPOS *a1)
   v10 = *((_QWORD *)a1 + 1);
   if ( v10 == v9 )
     return 0LL;
-  v11 = *(_QWORD *)(_HMObjectFromHandle(v10) + 40);
+  v11 = _HMObjectFromHandle(v10);
   v12 = *(_BYTE *)(v2[5] + 24LL);
-  if ( (*(_BYTE *)(v11 + 24) & 8) != 0 )
+  if ( (*(_BYTE *)(*(_QWORD *)(v11 + 40) + 24LL) & 8) != 0 )
   {
     if ( (v12 & 8) != 0 )
     {

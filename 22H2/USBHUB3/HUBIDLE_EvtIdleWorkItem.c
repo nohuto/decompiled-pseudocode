@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBIDLE_EvtIdleWorkItem @ 0x1C003EE60
+ * XREFs of HUBIDLE_EvtIdleWorkItem @ 0x1C003BF90
  * Callers:
  *     <none>
  * Callees:
- *     HUBIDLE_AddEvent @ 0x1C003E9A4 (HUBIDLE_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBIDLE_AddEvent @ 0x1C003BAF4 (HUBIDLE_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBIDLE_EvtIdleWorkItem(__int64 a1)
@@ -14,6 +14,6 @@ __int64 __fastcall HUBIDLE_EvtIdleWorkItem(__int64 a1)
   v1 = (__int64 *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                     WdfDriverGlobals,
                     a1,
-                    off_1C00692E8);
+                    off_1C0066290);
   return HUBIDLE_AddEvent(*v1, 6010, 0LL);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CMFFreeFn @ 0x1406EB7B0
+ * XREFs of CMFFreeFn @ 0x140773A70
  * Callers:
- *     XpressDecodeClose @ 0x140654B84 (XpressDecodeClose.c)
+ *     XpressDecodeClose @ 0x1405CA464 (XpressDecodeClose.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CMFFreeFn(struct _RTL_AVL_TABLE *Table, PVOID Buffer)

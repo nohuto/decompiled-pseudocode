@@ -1,40 +1,37 @@
 /*
- * XREFs of ?UnlockWndMenuWorker@@YAPEAXPEAUtagWND@@_N@Z @ 0x1C00B4970
+ * XREFs of ?UnlockWndMenuWorker@@YAPEAXPEAUtagWND@@_N@Z @ 0x1C0124510
  * Callers:
- *     xxxGetSystemMenu @ 0x1C0067088 (xxxGetSystemMenu.c)
- *     xxxSetWindowData @ 0x1C00CA930 (xxxSetWindowData.c)
- *     xxxSetWindowStyle @ 0x1C00EB620 (xxxSetWindowStyle.c)
- *     UnlockWndMenu @ 0x1C013D0C4 (UnlockWndMenu.c)
- *     UnlockWndMenuSys @ 0x1C013D0DC (UnlockWndMenuSys.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
+ *     xxxSetWindowData @ 0x1C008A1A8 (xxxSetWindowData.c)
+ *     xxxGetSystemMenu @ 0x1C00DC574 (xxxGetSystemMenu.c)
+ *     VerifyChildMenu @ 0x1C0169704 (VerifyChildMenu.c)
  * Callees:
  *     <none>
  */
 
-struct tagWND **__fastcall UnlockWndMenuWorker(struct tagWND *a1, unsigned __int8 a2)
+__int64 __fastcall UnlockWndMenuWorker(struct tagWND *a1, unsigned __int8 a2)
 {
-  char *v3; // rsi
-  char *v4; // rdi
-  struct tagWND **result; // rax
-  char *v6; // rcx
+  __int64 v4; // rcx
+  struct tagWND **v5; // rcx
+  __int64 v6; // rax
+  char *v7; // rcx
 
-  v3 = (char *)a1 + 168;
-  v4 = (char *)a1 + 160;
-  result = (struct tagWND **)*((_QWORD *)a1 + (a2 ^ 1LL) + 20);
-  if ( result )
+  v4 = *((_QWORD *)a1 + (a2 ^ 1LL) + 20);
+  if ( !v4 )
+    return 0LL;
+  v5 = (struct tagWND **)(v4 + 80);
+  if ( a1 == *v5 )
+    HMAssignmentUnlock(v5);
+  v6 = *((_QWORD *)a1 + 5);
+  if ( a2 )
   {
-    if ( a1 == result[10] )
-      HMAssignmentUnlock(result + 10);
-    if ( a2 )
-    {
-      v6 = v4;
-      *(_QWORD *)(*((_QWORD *)v4 - 15) + 160LL) = 0LL;
-    }
-    else
-    {
-      v6 = v3;
-      *(_QWORD *)(*((_QWORD *)v3 - 16) + 152LL) = 0LL;
-    }
-    return (struct tagWND **)HMAssignmentUnlock(v6);
+    *(_QWORD *)(v6 + 160) = 0LL;
+    v7 = (char *)a1 + 160;
   }
-  return result;
+  else
+  {
+    *(_QWORD *)(v6 + 152) = 0LL;
+    v7 = (char *)a1 + 168;
+  }
+  return HMAssignmentUnlock(v7);
 }

@@ -1,29 +1,36 @@
 /*
- * XREFs of ??1DXGDISPLAYMANAGEROBJECT@@UEAA@XZ @ 0x1C0199954
+ * XREFs of ??1DXGDISPLAYMANAGEROBJECT@@UEAA@XZ @ 0x1C0142120
  * Callers:
- *     ??_EDXGDISPLAYMANAGEROBJECT@@UEAAPEAXI@Z @ 0x1C0006150 (--_EDXGDISPLAYMANAGEROBJECT@@UEAAPEAXI@Z.c)
+ *     ??_EDXGDISPLAYMANAGEROBJECT@@UEAAPEAXI@Z @ 0x1C000B6A0 (--_EDXGDISPLAYMANAGEROBJECT@@UEAAPEAXI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1?$Set@VDXGTARGETENTRY@@@@UEAA@XZ @ 0x1C0006194 (--1-$Set@VDXGTARGETENTRY@@@@UEAA@XZ.c)
- *     ??1ReferenceCounted@@UEAA@XZ @ 0x1C000642C (--1ReferenceCounted@@UEAA@XZ.c)
- *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00083F8 (--1DXGFASTMUTEX@@QEAA@XZ.c)
- *     ?Clear@?$DoublyLinkedList@VDXGDISPLAYMANAGERSOURCEOBJECT@@U?$DoubleLinkedListElementDeleter@VDXGDISPLAYMANAGERSOURCEOBJECT@@@@@@QEAAXXZ @ 0x1C0014834 (-Clear@-$DoublyLinkedList@VDXGDISPLAYMANAGERSOURCEOBJECT@@U-$DoubleLinkedListElementDeleter@VDXG.c)
+ *     ??1ReferenceCounted@@UEAA@XZ @ 0x1C000B140 (--1ReferenceCounted@@UEAA@XZ.c)
+ *     ??1?$Set@VDXGTARGETENTRY@@@@UEAA@XZ @ 0x1C000B5DC (--1-$Set@VDXGTARGETENTRY@@@@UEAA@XZ.c)
+ *     ??_GDXGFASTMUTEX@@QEAAPEAXI@Z @ 0x1C000B66C (--_GDXGFASTMUTEX@@QEAAPEAXI@Z.c)
+ *     ?Clear@?$DoublyLinkedList@VDXGDISPLAYMANAGERSOURCEOBJECT@@U?$DoubleLinkedListElementDeleter@VDXGDISPLAYMANAGERSOURCEOBJECT@@@@@@QEAAXXZ @ 0x1C0019FA0 (-Clear@-$DoublyLinkedList@VDXGDISPLAYMANAGERSOURCEOBJECT@@U-$DoubleLinkedListElementDeleter@VDXG.c)
  */
 
-void __fastcall DXGDISPLAYMANAGEROBJECT::~DXGDISPLAYMANAGEROBJECT(DXGDISPLAYMANAGEROBJECT *this)
+void __fastcall DXGDISPLAYMANAGEROBJECT::~DXGDISPLAYMANAGEROBJECT(DXGDISPLAYMANAGEROBJECT *this, __int64 a2)
 {
-  bool v1; // zf
+  bool v2; // zf
+  __int64 v4; // rdx
+  DXGFASTMUTEX *v5; // rcx
+  __int64 v6; // rax
 
-  v1 = *((_QWORD *)this + 9) == 0LL;
+  v2 = *((_QWORD *)this + 4) == 0LL;
   *(_QWORD *)this = &DXGDISPLAYMANAGEROBJECT::`vftable';
-  if ( !v1 )
+  if ( !v2 )
   {
-    WdLogSingleEntry1(1LL, 99LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_Object == nullptr", 99LL, 0LL, 0LL, 0LL, 0LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 101LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  *((_QWORD *)this + 17) = &DoublyLinkedList<DXGDISPLAYMANAGERSOURCEOBJECT,DoubleLinkedListElementDeleter<DXGDISPLAYMANAGERSOURCEOBJECT>>::`vftable';
-  DoublyLinkedList<DXGDISPLAYMANAGERSOURCEOBJECT,DoubleLinkedListElementDeleter<DXGDISPLAYMANAGERSOURCEOBJECT>>::Clear((__int64)this + 136);
-  Set<DXGTARGETENTRY>::~Set<DXGTARGETENTRY>((_QWORD *)this + 10);
-  DXGFASTMUTEX::~DXGFASTMUTEX((DXGDISPLAYMANAGEROBJECT *)((char *)this + 16));
-  ReferenceCounted::~ReferenceCounted(this);
+  *((_QWORD *)this + 12) = &DoublyLinkedList<DXGDISPLAYMANAGERSOURCEOBJECT,DoubleLinkedListElementDeleter<DXGDISPLAYMANAGERSOURCEOBJECT>>::`vftable';
+  DoublyLinkedList<DXGDISPLAYMANAGERSOURCEOBJECT,DoubleLinkedListElementDeleter<DXGDISPLAYMANAGERSOURCEOBJECT>>::Clear(
+    (__int64)this + 96,
+    a2);
+  Set<DXGTARGETENTRY>::~Set<DXGTARGETENTRY>((_QWORD *)this + 5);
+  v5 = (DXGFASTMUTEX *)*((_QWORD *)this + 2);
+  if ( v5 )
+    DXGFASTMUTEX::`scalar deleting destructor'(v5, v4);
+  ReferenceCounted::~ReferenceCounted(this, v4);
 }
